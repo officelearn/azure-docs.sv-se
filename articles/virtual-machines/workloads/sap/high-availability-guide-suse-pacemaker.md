@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: cd377e78abe328814795bb1f75465b090a13e456
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 551f140c22677bea363ad5d8f43bf9670f783a1d
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68228354"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68725609"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Konfigurera Pacemaker på SUSE Linux Enterprise Server i Azure
 
@@ -35,14 +35,14 @@ ms.locfileid: "68228354"
 
 Det finns två alternativ för att konfigurera ett Pacemaker kluster i Azure. Du kan antingen använda en hägna in-agent som tar hand om att starta om noden via Azure-API: er eller du kan använda en uppstår-enhet.
 
-Uppstår enheten kräver minst en ytterligare virtuell dator som fungerar som en iSCSI-målservern och tillhandahåller en uppstår. Dessa iSCSI-målservrar kan dock delas med andra Pacemaker-kluster. Fördelen med att använda en uppstår-enhet är en snabbare failover-tid och, om du använder uppstår enheter lokalt, kräver inte några ändringar på hur du använder pacemaker klustret. Du kan använda upp till tre uppstår enheter i ett kluster med Pacemaker för att tillåta en uppstår enhet blir otillgänglig, till exempel under OS-korrigering av iSCSI-målservern. Om du vill använda flera uppstår enheter per Pacemaker kontrollerar du att distribuera flera iSCSI-målservrar och ansluta en uppstår från varje iSCSI-målservern. Vi rekommenderar att du använder en uppstår enhet eller tre. Pacemaker kommer inte att kunna fence en nod i klustret automatiskt om du bara konfigurera två uppstår enheter och en av dem är inte tillgänglig. Om du vill kunna avgränsningstecken när en iSCSI-målservern är nere måste du använda tre uppstår enheter och därför tre iSCSI-målservrar.
+Uppstår enheten kräver minst en ytterligare virtuell dator som fungerar som en iSCSI-målservern och tillhandahåller en uppstår. Dessa iSCSI-målservrar kan dock delas med andra Pacemaker-kluster. Fördelen med att använda en SBD-enhet är snabbare att redundansväxla och om du använder SBD-enheter lokalt behöver du inte göra några ändringar på hur du hanterar pacemaker-klustret. Du kan använda upp till tre uppstår enheter i ett kluster med Pacemaker för att tillåta en uppstår enhet blir otillgänglig, till exempel under OS-korrigering av iSCSI-målservern. Om du vill använda flera uppstår enheter per Pacemaker kontrollerar du att distribuera flera iSCSI-målservrar och ansluta en uppstår från varje iSCSI-målservern. Vi rekommenderar att du använder en uppstår enhet eller tre. Pacemaker kommer inte att kunna fence en nod i klustret automatiskt om du bara konfigurera två uppstår enheter och en av dem är inte tillgänglig. Om du vill kunna avgränsningstecken när en iSCSI-målservern är nere måste du använda tre uppstår enheter och därför tre iSCSI-målservrar.
 
-Om du inte vill investera i en ytterligare virtuell dator, kan du också använda Azure avgränsningstecken agenten. Nackdelen är att en redundansväxling kan ta mellan 10 till 15 minuter om det inte går att stoppa en resurs eller noderna i klustret inte kan kommunicera som varandra längre.
+Om du inte vill investera på en ytterligare virtuell dator kan du också använda Azure-stängsel-agenten. Nackdelen är att en redundansväxling kan ta mellan 10 till 15 minuter om det inte går att stoppa en resurs eller noderna i klustret inte kan kommunicera som varandra längre.
 
 ![Pacemaker på SLES-översikt](./media/high-availability-guide-suse-pacemaker/pacemaker.png)
 
 >[!IMPORTANT]
-> När du planerar och distribuerar Linux Pacemaker klustrade noder och uppstår enheter, är det viktigt för den fullständiga klusterkonfigurationen som routning mellan de virtuella datorerna som ingår och de virtuella datorer som är värd för uppstår enhet(er) passerar inte genom övergripande tillförlitlighet alla andra enheter som [Nva](https://azure.microsoft.com/solutions/network-appliances/). I annat fall kan problem och underhållshändelser med NVA ha en negativ inverkan på stabilitet och tillförlitlighet för övergripande klusterkonfigurationen. För att undvika sådana hinder inte definiera regler för routning med nva: er eller [användaren definierats routningsregler](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) att vidarebefordra trafik mellan klustrade noder och uppstår enheter via nva: er och liknande enheter när du planerar och distribuerar Linux Pacemaker klustrade noder och uppstår enheter. 
+> När du planerar och distribuerar Linux Pacemaker klustrade noder och uppstår enheter, är det viktigt för den fullständiga klusterkonfigurationen som routning mellan de virtuella datorerna som ingår och de virtuella datorer som är värd för uppstår enhet(er) passerar inte genom övergripande tillförlitlighet alla andra enheter som [Nva](https://azure.microsoft.com/solutions/network-appliances/). I annat fall kan problem och underhållshändelser med NVA ha en negativ inverkan på stabilitet och tillförlitlighet för övergripande klusterkonfigurationen. För att undvika sådana hinder definierar du inte routningsregler i NVA eller [användardefinierade routningsregler](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) som dirigerar trafik mellan klustrade noder och SBD enheter via NVA och liknande enheter vid planering och distribution av Linux pacemaker-klustrade noder och SBD-enheter. 
 >
 
 ## <a name="sbd-fencing"></a>Att hägna in uppstår
@@ -398,6 +398,28 @@ Följande objekt har prefixet antingen **[A]** – gäller för alla noder, **[1
    <pre><code>sudo zypper install fence-agents
    </code></pre>
 
+   >[!IMPORTANT]
+   > Om du använder SUSE Linux Enterprise Server för SAP 15 bör du vara medveten om att du behöver aktivera ytterligare en modul och installera ytterligare komponent, vilket är förutsättning för att använda Azure-stängsel-agenten. Mer information om SUSE moduler och tillägg finns i [moduler och tillägg som beskrivs](https://www.suse.com/documentation/sles-15/singlehtml/art_modules/art_modules.html). Följ anvisningarna nedan för att installera Azure python SDK. 
+
+   Följande instruktioner för hur du installerar Azure python SDK gäller endast för SUSE Enterprise Server för SAP **15**.  
+
+    - Om du använder en egen prenumeration följer du dessa anvisningar  
+
+    <pre><code>
+    #Activate module PackageHub/15/x86_64
+    sudo SUSEConnect -p PackageHub/15/x86_64
+    #Install Azure Python SDK
+    sudo zypper in python3-azure-sdk
+    </code></pre>
+
+     - Följ dessa instruktioner om du använder prenumerationen betala per användning  
+
+    <pre><code>#Activate module PackageHub/15/x86_64
+    zypper ar https://download.opensuse.org/repositories/openSUSE:/Backports:/SLE-15/standard/ SLE15-PackageHub
+    #Install Azure Python SDK
+    sudo zypper in python3-azure-sdk
+    </code></pre>
+
 1. **[A]**  Konfigurera matcha värdnamn
 
    Du kan använda en DNS-server, eller så kan du ändra i/etc/hosts på alla noder. Det här exemplet visar hur du använder/etc/hosts-filen.
@@ -443,12 +465,12 @@ Följande objekt har prefixet antingen **[A]** – gäller för alla noder, **[1
    <pre><code>sudo passwd hacluster
    </code></pre>
 
-1. **[A]**  Konfigurera corosync om du vill använda andra transport och lägga till nodelist. Klustret fungerar inte annars.
+1. **[A]**  Konfigurera corosync om du vill använda andra transport och lägga till nodelist. Klustret fungerar annars inte.
 
    <pre><code>sudo vi /etc/corosync/corosync.conf
    </code></pre>
 
-   Lägg till följande fetstil innehåll i filen om värdena inte är det eller en annan. Se till att ändra token till 30000 att tillåta minne bevarande underhåll. Mer information finns i [den här artikeln för Linux][virtual-machines-linux-maintenance] or [Windows][virtual-machines-windows-maintenance]. Se också till att ta bort parametern-mcastaddr.
+   Lägg till följande fetstil innehåll i filen om värdena inte är det eller en annan. Se till att ändra token till 30000 att tillåta minne bevarande underhåll. Mer information finns i [den här artikeln för Linux][virtual-machines-linux-maintenance] eller [Windows][virtual-machines-windows-maintenance]. Se också till att ta bort parametern-mcastaddr.
 
    <pre><code>[...]
      <b>token:          30000
@@ -510,7 +532,7 @@ STONITH enheten använder ett huvudnamn för tjänsten för att godkänna mot Mi
 
 ### <a name="1-create-a-custom-role-for-the-fence-agent"></a>**[1]**  Skapa en anpassad roll för agenten avgränsningstecken
 
-Tjänstens huvudnamn har inte behörighet att komma åt dina Azure-resurser som standard. Du måste ge tjänstens huvudnamn behörigheter att starta och stoppa (frigöra) alla virtuella datorer i klustret. Om du inte redan har skapat den anpassade rollen, kan du skapa den med hjälp av [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell) eller [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli)
+Tjänstens huvud namn har inte behörighet att komma åt dina Azure-resurser som standard. Du måste ge tjänstens huvudnamn behörigheter att starta och stoppa (frigöra) alla virtuella datorer i klustret. Om du inte redan har skapat den anpassade rollen, kan du skapa den med hjälp av [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell) eller [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli)
 
 Använd följande innehåll för indatafilen. Du måste anpassa innehåll till dina prenumerationer som är, Ersätt c276fc76-9cd4-44c9-99a7-4fd71546436e och e91d47c4-76f3-4271-a796-21b4ecfe3624 med ID: N för din prenumeration. Om du bara har en prenumeration kan du ta bort den andra posten i AssignableScopes.
 
@@ -536,7 +558,7 @@ Använd följande innehåll för indatafilen. Du måste anpassa innehåll till d
 
 ### <a name="a-assign-the-custom-role-to-the-service-principal"></a>**[A]** tilldela den anpassade rollen till tjänstens huvud namn
 
-Tilldela den anpassade rollen ”Linux avgränsningstecken agenten roll” som har skapats i det senaste kapitlet till tjänstens huvudnamn. Använd inte ägarrollen längre!
+Tilldela den anpassade rollen ”Linux avgränsningstecken agenten roll” som har skapats i det senaste kapitlet till tjänstens huvudnamn. Använd inte ägar rollen längre!
 
 1. Gå till[https://portal.azure.com](https://portal.azure.com)
 1. Öppna bladet alla resurser

@@ -1,6 +1,6 @@
 ---
-title: Rapport över utskalade molndatabaser (horisontella partitioner) | Microsoft Docs
-description: Använd mellan databaser databasfrågor rapporten över flera databaser.
+title: Rapport över utskalade moln databaser (vågrät partitionering) | Microsoft Docs
+description: Använd databas frågor mellan databaser för att rapportera över flera databaser.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -10,58 +10,57 @@ ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
-manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: a73938c98ebaea310875f0db8b665d0f1aed55e8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cc59d7cb1ce09aad834130818e5af533719e04c1
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60556272"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568605"
 ---
-# <a name="report-across-scaled-out-cloud-databases-preview"></a>Rapportera över skalbara molndatabaser (förhandsversion)
+# <a name="report-across-scaled-out-cloud-databases-preview"></a>Rapport över utskalade moln databaser (förhands granskning)
 
-Du kan skapa rapporter från flera Azure SQL-databaser från en enda anslutning återställningspunkt med ett [elastisk fråga](sql-database-elastic-query-overview.md). Databaserna måste partitioneras vågrätt (även känt som ”delade”).
+Du kan skapa rapporter från flera Azure SQL-databaser från en enda anslutnings punkt med en [elastisk fråga](sql-database-elastic-query-overview.md). Databaserna måste vara vågrätt partitionerade (även kallade "shardade").
 
-Om du har en befintlig databas, se [migrera befintliga databaser till utskalade databaser](sql-database-elastic-convert-to-use-elastic-tools.md).
+Om du har en befintlig databas, se [migrera befintliga databaser för att skala ut databaser](sql-database-elastic-convert-to-use-elastic-tools.md).
 
-Information om SQL-objekt som behövs för att fråga finns i [fråga över en vågrätt partitionerad databaser](sql-database-elastic-query-horizontal-partitioning.md).
+Information om vilka SQL-objekt som krävs för att fråga finns i [fråga över vågrätt partitionerade databaser](sql-database-elastic-query-horizontal-partitioning.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-Ladda ned och kör den [komma igång med Elastic Database-verktyg exempel](sql-database-elastic-scale-get-started.md).
+Hämta och kör [exemplet komma igång med Elastic Database verktyg](sql-database-elastic-scale-get-started.md).
 
-## <a name="create-a-shard-map-manager-using-the-sample-app"></a>Skapa en shard kartan manager med hjälp av exempelappen
-Här skapar du en skärvkarta manager tillsammans med flera shards, följt av inmatningen av data i shards. Om du redan har shards installation med shardade data i dem, kan du hoppa över följande steg och flytta till nästa avsnitt.
+## <a name="create-a-shard-map-manager-using-the-sample-app"></a>Skapa en Shard Map Manager med hjälp av exempel appen
+Här kommer du att skapa en Shard Map Manager tillsammans med flera Shards, följt av infogning av data i Shards. Om du redan har Shards-installationen med shardade-data kan du hoppa över följande steg och gå vidare till nästa avsnitt.
 
-1. Skapa och köra den **komma igång med elastiska Databasverktyg** exempelprogrammet. Följ stegen tills steg 7 i avsnittet [ladda ned och kör exempelappen](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app). I slutet av steg 7 visas följande kommandotolk:
+1. Skapa och kör exempel programmet för att **komma igång med Elastic Database tools** . Följ stegen tills steg 7 i avsnittet [Hämta och kör exempel programmet](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app). I slutet av steg 7 visas följande kommando tolk:
 
-    ![kommandotolk][1]
-2. Skriv ”1” i kommandofönstret och tryck på **RETUR**. Detta skapar fragmentet kartan manager och lägger till två fragment till servern. Skriv ”3” och tryck på sedan **RETUR**; och upprepa åtgärden fyra gånger. Detta infogar rader med exempel data i din fragment.
-3. Den [Azure-portalen](https://portal.azure.com) ska visa tre nya databaser på din server:
+    ![kommando tolk][1]
+2. Skriv "1" i kommando fönstret och tryck på **RETUR**. Detta skapar Shard Map Manager och lägger till två Shards på servern. Skriv "3" och tryck på **RETUR**; Upprepa åtgärden fyra gånger. Detta infogar exempel data rader i din Shards.
+3. [Azure Portal](https://portal.azure.com) ska visa tre nya databaser på servern:
 
    ![Visual Studio-bekräftelse][2]
 
-   Frågor mellan databaser finns nu tillgänglig via Elastic Database-klientbibliotek. Till exempel använda alternativ 4 i kommandofönstret. Multi-shard-frågan är alltid en **UNION ALL** av resultaten från alla shards.
+   I det här läget stöds frågor mellan databaser via Elastic Database klient bibliotek. Använd till exempel alternativ 4 i kommando fönstret. Resultatet från en multi-Shard-fråga är alltid en **union** av alla resultat från alla Shards.
 
-   I nästa avsnitt skapar vi en database-slutpunkten som har stöd för mer omfattande frågekörning av data över shards.
+   I nästa avsnitt skapar vi en exempel databas slut punkt som stöder omfattande frågor om data i Shards.
 
-## <a name="create-an-elastic-query-database"></a>Skapa en elastisk fråga databas
-1. Öppna den [Azure-portalen](https://portal.azure.com) och logga in.
-2. Skapa en ny Azure SQL-databas på samma server som din shard-konfiguration. Namnge databasen ”ElasticDBQuery”.
+## <a name="create-an-elastic-query-database"></a>Skapa en elastisk fråga-databas
+1. Öppna [Azure Portal](https://portal.azure.com) och logga in.
+2. Skapa en ny Azure SQL-databas på samma server som din Shard-installation. Ge databasen namnet "ElasticDBQuery".
 
-    ![Azure-portalen och prisnivå][3]
+    ![Azure Portal-och pris nivå][3]
 
     > [!NOTE]
-    > Du kan använda en befintlig databas. Om du kan göra så det inte får vara en av shards som du vill köra dina frågor på. Den här databasen används för att skapa metadataobjekt för en elastisk databasfråga.
+    > Du kan använda en befintlig databas. Om du kan göra det får det inte vara en av Shards som du vill köra dina frågor på. Den här databasen kommer att användas för att skapa Metadataobjektet för en elastisk databas fråga.
     >
 
-## <a name="create-database-objects"></a>Skapa databasobjekt
-### <a name="database-scoped-master-key-and-credentials"></a>Databasbegränsade huvudnyckel och autentiseringsuppgifter
-De används för att ansluta till fragmentkartehanteraren och shards:
+## <a name="create-database-objects"></a>Skapa databas objekt
+### <a name="database-scoped-master-key-and-credentials"></a>Huvud nyckel och autentiseringsuppgifter för databas omfattning
+Dessa används för att ansluta till Shard Map Manager och Shards:
 
 1. Öppna SQL Server Management Studio eller SQL Server Data Tools i Visual Studio.
-2. Ansluta till ElasticDBQuery databas och kör följande T-SQL-kommandon:
+2. Anslut till ElasticDBQuery-databasen och kör följande T-SQL-kommandon:
 
         CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<password>';
 
@@ -69,10 +68,10 @@ De används för att ansluta till fragmentkartehanteraren och shards:
         WITH IDENTITY = '<username>',
         SECRET = '<password>';
 
-    ”användarnamn” och ”password” bör vara samma som används i steg 6 i inloggningsinformation [ladda ned och kör exempelappen](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app) i [komma igång med elastiska Databasverktyg](sql-database-elastic-scale-get-started.md).
+    "username" och "Password" måste vara samma som inloggnings information som används i steg 6 i [Hämta och köra exempel programmet](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app) i [komma igång med elastiska databas verktyg](sql-database-elastic-scale-get-started.md).
 
 ### <a name="external-data-sources"></a>Externa datakällor
-Om du vill skapa en extern datakälla, kör du följande kommando på ElasticDBQuery databasen:
+Om du vill skapa en extern data källa kör du följande kommando på ElasticDBQuery-databasen:
 
     CREATE EXTERNAL DATA SOURCE MyElasticDBQueryDataSrc WITH
       (TYPE = SHARD_MAP_MANAGER,
@@ -82,10 +81,10 @@ Om du vill skapa en extern datakälla, kör du följande kommando på ElasticDBQ
        SHARD_MAP_NAME = 'CustomerIDShardMap'
     ) ;
 
- ”CustomerIDShardMap” är namnet på fragmentkartan, om du har skapat fragmentkartan och karthanteraren använder Verktyg för elastisk databas-exemplet. Men om du har använt din anpassade konfiguration för det här exemplet, bör sedan den vara fragment kartans namn du valde i ditt program.
+ "CustomerIDShardMap" är namnet på Shard-kartan om du har skapat Shard Map och Shard Map Manager med hjälp av verktyget elastiska databas verktyg. Men om du har använt den anpassade konfigurationen för det här exemplet bör det vara det Shard som du valde i ditt program.
 
 ### <a name="external-tables"></a>Externa tabeller
-Skapa en extern tabell som matchar tabellen kunder på shards genom att köra följande kommando på ElasticDBQuery databasen:
+Skapa en extern tabell som matchar tabellen kunder på Shards genom att köra följande kommando på ElasticDBQuery Database:
 
     CREATE EXTERNAL TABLE [dbo].[Customers]
     ( [CustomerId] [int] NOT NULL,
@@ -96,46 +95,46 @@ Skapa en extern tabell som matchar tabellen kunder på shards genom att köra f�
       DISTRIBUTION = SHARDED([CustomerId])
     ) ;
 
-## <a name="execute-a-sample-elastic-database-t-sql-query"></a>Kör en exempelfråga elastisk databas T-SQL
-När du har definierat den externa datakällan och dina externa tabeller som du kan nu använda fullständig T-SQL över dina externa tabeller.
+## <a name="execute-a-sample-elastic-database-t-sql-query"></a>Köra ett exempel på en elastisk databas T-SQL-fråga
+När du har definierat din externa data källa och dina externa tabeller kan du nu använda fullständig T-SQL över dina externa tabeller.
 
-Kör frågan på ElasticDBQuery databasen:
+Kör den här frågan på ElasticDBQuery-databasen:
 
     select count(CustomerId) from [dbo].[Customers]
 
-Du kommer att märka att frågan aggregerar resultaten från alla shards och ger följande utdata:
+Du kommer att märka att frågan sammanställer resultat från alla Shards och ger följande utdata:
 
 ![Utdatainformation][4]
 
-## <a name="import-elastic-database-query-results-to-excel"></a>Importera elastisk databas frågeresultaten till Excel
- Du kan importera resultatet av en fråga till en Excel-fil.
+## <a name="import-elastic-database-query-results-to-excel"></a>Importera resultat från Elastic Database-fråga till Excel
+ Du kan importera resultaten från en fråga till en Excel-fil.
 
 1. Starta Excel 2013.
-2. Navigera till den **Data** menyfliksområdet.
+2. Navigera till menyfliksområdet **data** .
 3. Klicka på **från andra källor** och klicka på **från SQL Server**.
 
    ![Excel-import från andra källor][5]
-4. I den **Dataanslutningsguiden** skriver du servernamnet och inloggningsuppgifter för servern. Klicka sedan på **Nästa**.
-5. I dialogrutan **Markera databasen som innehåller de data du vill**väljer den **ElasticDBQuery** databas.
-6. Välj den **kunder** tabellen i listvyn och klicka på **nästa**. Klicka sedan på **Slutför**.
-7. I den **importdata** formuläret under **Välj hur du vill visa data i din arbetsbok**väljer **tabell** och klicka på **OK**.
+4. I **guiden data anslutning** anger du Server namnet och inloggnings uppgifterna. Klicka sedan på **Nästa**.
+5. Välj den **databas som innehåller de data du vill använda**i dialog rutan och välj **ElasticDBQuery** -databasen.
+6. Välj tabellen **kunder** i listvyn och klicka på **Nästa**. Klicka sedan på **Slutför**.
+7. I formuläret **Importera data** under **Välj hur du vill visa data i din arbets bok väljer du** **tabell** och klickar på **OK**.
 
-Alla rader från **kunder** tabell, lagras i olika shards fylla i Excel-blad.
+Alla rader från tabellen **kunder** , lagrade i olika Shards, fyller i Excel-bladet.
 
-Du kan nu använda Excels kraftfulla visualiseringen. Du kan använda anslutningssträngen med servernamnet, databasnamnet och autentiseringsuppgifter för att ansluta din integreringsverktyg BI och data till elastisk fråga i databasen. Kontrollera att SQL Server stöds som en datakälla för ditt verktyg. Du kan referera till elastisk fråga i databasen och externa tabeller precis som andra SQL Server-databas och SQL Server-tabeller som du vill ansluta till med verktyg.
+Nu kan du använda Excels kraftfulla funktioner för data visualisering. Du kan använda anslutnings strängen med Server namnet, databas namnet och autentiseringsuppgifterna för att ansluta dina BI-och data integrerings verktyg till Elastic Query-databasen. Kontrol lera att SQL Server stöds som data källa för ditt verktyg. Du kan referera till Elastic Query-databasen och externa tabeller precis som andra SQL Server databas-och SQL Server tabeller som du ansluter till med ditt verktyg.
 
 ### <a name="cost"></a>Kostnad
-Det finns ingen extra kostnad för att använda funktionen Elastic Database-fråga.
+Det kostar inget extra att använda funktionen Elastic Database fråga.
 
-Information om priser finns i [prisinformation för SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
+Pris information finns [SQL Database pris information](https://azure.microsoft.com/pricing/details/sql-database/).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* En översikt över elastisk fråga, se [elastisk fråga översikt](sql-database-elastic-query-overview.md).
-* Se en vertikal partitionering självstudie [komma igång med databasöverskridande frågor (vertikala partitioner)](sql-database-elastic-query-getting-started-vertical.md).
-* Syntax och exempel frågor för lodrätt partitionerade data, se [fråga lodrätt partitionerade data)](sql-database-elastic-query-vertical-partitioning.md)
-* Syntax och exempel frågor för vågrätt partitionerade data, se [fråga vågrätt partitionerade data)](sql-database-elastic-query-horizontal-partitioning.md)
-* Se [sp\_köra \_remote](https://msdn.microsoft.com/library/mt703714) för en lagrad procedur som kör en Transact-SQL-instruktionen på en enskild remote Azure SQL-databas eller en uppsättning databaser som fungerar som shards i en vågrät partitioneringsschema.
+* En översikt över elastisk fråga finns i [Översikt över elastiska frågor](sql-database-elastic-query-overview.md).
+* En lodrät partitionerings guide finns i [komma igång med kors databas fråga (lodrät partitionering)](sql-database-elastic-query-getting-started-vertical.md).
+* För syntax och exempel frågor för lodrätt partitionerade data, se [fråga lodrätt partitionerade data)](sql-database-elastic-query-vertical-partitioning.md)
+* För syntax och exempel frågor för vågrätt partitionerade data, se [fråga](sql-database-elastic-query-horizontal-partitioning.md) efter vågrätt partitionerade data)
+* Se [SP\_EXECUTE \_Remote](https://msdn.microsoft.com/library/mt703714) för en lagrad procedur som kör ett Transact-SQL-uttryck på en enskild fjärr Azure SQL Database eller uppsättning databaser som fungerar som Shards i ett schema med vågrät partitionering.
 
 
 <!--Image references-->

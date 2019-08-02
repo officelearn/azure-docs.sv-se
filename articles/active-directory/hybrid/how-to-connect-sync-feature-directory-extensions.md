@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect-synkronisering: Katalogtillägg | Microsoft Docs'
-description: Det här avsnittet beskriver funktionen directory tillägg i Azure AD Connect.
+title: 'Azure AD Connect synkronisering: Katalog tillägg | Microsoft Docs'
+description: I det här avsnittet beskrivs funktionen katalog tillägg i Azure AD Connect.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -16,57 +16,57 @@ ms.date: 10/05/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff0fd4d01eab739b79685c1de67cb8fe28873961
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 88fdfce58bdd8e13637e77d01d4b6c0ab21f696a
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60347989"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68607648"
 ---
-# <a name="azure-ad-connect-sync-directory-extensions"></a>Azure AD Connect-synkronisering: Katalogtillägg
-Du kan använda katalogtillägg utöka schemat i Azure Active Directory (Azure AD) med egna attribut från en lokal Active Directory. Den här funktionen kan du skapa LOB-appar genom att använda attribut som du fortsätta att hantera lokala. Dessa attribut kan användas via [Azure AD Graph API katalogtillägg](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) eller [Microsoft Graph](https://developer.microsoft.com/graph/). Du kan se tillgängliga attribut med hjälp av [Azure AD Graph-testaren](https://graphexplorer.azurewebsites.net/) och [Microsoft Graph-testaren](https://developer.microsoft.com/graph/graph-explorer)respektive.
+# <a name="azure-ad-connect-sync-directory-extensions"></a>Azure AD Connect synkronisering: Katalogtillägg
+Du kan använda katalog tillägg för att utöka schemat i Azure Active Directory (Azure AD) med dina egna attribut från lokala Active Directory. Med den här funktionen kan du bygga LOB-appar genom att förbruka attribut som du fortsätter att hantera lokalt. Dessa attribut kan användas via [Azure AD Graph API Directory-tillägg](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) eller [Microsoft Graph](https://developer.microsoft.com/graph/). Du kan se tillgängliga attribut med hjälp av [Azure AD Graph Explorer](https://graphexplorer.azurewebsites.net/) respektive [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
 
-För närvarande förbrukar inga Office 365-arbetsbelastning dessa attribut.
+Inga Office 365-arbetsbelastningar förbrukar dessa attribut.
 
-Du kan konfigurera vilka ytterligare attribut som du vill synkronisera i sökvägen för anpassade inställningar i installationsguiden.
-
->[!NOTE]
->Rutan tillgängliga attribut är skiftlägeskänsligt.
-
-![Schemat tillägget guiden](./media/how-to-connect-sync-feature-directory-extensions/extension2.png)  
-
-Installationen visar följande attribut som är giltig kandidater:
-
-* Användare och grupper objekttyper
-* Enkelvärdesattribut: Sträng, Boolean, heltal, binär
-* Flera värden attribut: Sträng, binär
-
+Du konfigurerar vilka ytterligare attribut som du vill synkronisera i sökvägen för anpassade inställningar i installations guiden.
 
 >[!NOTE]
-> Även om Azure AD Connect har stöd för synkronisering med flera värden Active Directory attribut till Azure AD som flera värden katalogtillägg, finns det för närvarande inget sätt att hämta/använder data laddades upp i flera värden directory tilläggsattribut.
+>Rutan Tillgängliga attribut är Skift läges känslig.
 
-Lista över attribut som läses från schema-cacheminnet som skapas under installationen av Azure AD Connect. Om du har utökat Active Directory-schemat med ytterligare attribut, måste du [uppdatera schemat](how-to-connect-installation-wizard.md#refresh-directory-schema) innan dessa nya attribut är synliga.
+![Guiden schema tillägg](./media/how-to-connect-sync-feature-directory-extensions/extension2.png)  
 
-Ett objekt i Azure AD kan ha upp till 100 attribut för katalogtillägg. Den maximala längden är 250 tecken. Om ett attributvärde inte trunkerar Synkroniseringsmotorn den.
+I installationen visas följande attribut, som är giltiga kandidater:
 
-Under installationen av Azure AD Connect registreras ett program när attributen är tillgängliga. Du kan se det här programmet i Azure-portalen.
+* Användar-och grupp objekt typer
+* Attribut med enkel värde: Sträng, boolesk, heltal, binär
+* Attribut med flera värden: Sträng, binär
 
-![Schemat tillägget app](./media/how-to-connect-sync-feature-directory-extensions/extension3new.png)
-
-Attributen har prefixet tillägget \_{AppClientId}\_. AppClientId har samma värde för alla attribut i Azure AD-klienten.
-
-Dessa attribut är nu tillgängliga via Azure AD Graph API. Du kan skicka frågor mot dem med hjälp av [Azure AD Graph-testaren](https://graphexplorer.azurewebsites.net/).
-
-![Azure AD Graph-testaren](./media/how-to-connect-sync-feature-directory-extensions/extension4.png)
-
-Eller du kan fråga attributen via Microsoft Graph-API med hjälp av [Microsoft Graph-testaren](https://developer.microsoft.com/graph/graph-explorer#).
 
 >[!NOTE]
-> Du behöver fråga efter attribut som ska returneras. Uttryckligen välja attribut så här: https://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com? $select = extension_9d98ed114c4840d298fad781915f27e4_employeeID extension_9d98ed114c4840d298fad781915f27e4_division. 
+> Även om Azure AD Connect stöder synkronisering av multi-Value Active Directory-attribut till Azure AD som flera katalog tillägg för flera värden, finns det för närvarande inget sätt att hämta/använda data som laddas upp i attribut för flera värdefulla katalog tillägg.
+
+Listan med attribut läses från det schema-cacheminne som skapas under installationen av Azure AD Connect. Om du har utökat Active Directory schema med ytterligare attribut måste du [uppdatera schemat](how-to-connect-installation-wizard.md#refresh-directory-schema) innan dessa nya attribut visas.
+
+Ett objekt i Azure AD kan ha upp till 100 attribut för katalog tillägg. Den maximala längden är 250 tecken. Om ett attributvärde är längre, trunkerar Synkroniseringsmotorn det.
+
+Under installationen av Azure AD Connect registreras ett program där dessa attribut är tillgängliga. Du kan se det här programmet i Azure Portal.
+
+![App för schema tillägg](./media/how-to-connect-sync-feature-directory-extensions/extension3new.png)
+
+Attributen föregås av tillägget \_{AppClientId}.\_ AppClientId har samma värde för alla attribut i din Azure AD-klient.
+
+De här attributen är nu tillgängliga via Azure AD-Graph API. Du kan fråga dem med hjälp av [Azure AD Graph Explorer](https://graphexplorer.azurewebsites.net/).
+
+![Azure AD Graph Explorer](./media/how-to-connect-sync-feature-directory-extensions/extension4.png)
+
+Du kan också fråga attributen via Microsoft Graph-API: et genom att använda [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer#).
+
+>[!NOTE]
+> Du måste be om de attribut som ska returneras. Välj uttryckligen attributen så här: https\://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com? $Select = extension_9d98ed114c4840d298fad781915f27e4_employeeID, extension_9d98ed114c4840d298fad781915f27e4_division. 
 >
 > Mer information finns i [Microsoft Graph: Använd frågeparametrar](https://developer.microsoft.com/graph/docs/concepts/query_parameters#select-parameter).
 
 ## <a name="next-steps"></a>Nästa steg
-Läs mer om den [Azure AD Connect-synkronisering](how-to-connect-sync-whatis.md) konfiguration.
+Läs mer om [Azure AD Connect Sync](how-to-connect-sync-whatis.md) -konfigurationen.
 
 Läs mer om hur du [integrerar dina lokala identiteter med Azure Active Directory](whatis-hybrid-identity.md).

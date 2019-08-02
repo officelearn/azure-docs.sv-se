@@ -1,5 +1,5 @@
 ---
-title: Översikt över Azure Management - styrning i Azure
+title: Översikt över Azure Management – Azure-styrning
 description: Översikt över hanteringsområdena för Azure-program och resurser med länkar till innehåll på Azure-hanteringsverktyg.
 author: DCtheGeek
 manager: carmonm
@@ -7,14 +7,14 @@ ms.service: governance
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: dacoulte
-ms.openlocfilehash: d68e7d9ec3b60b93f0050250d7e7d718db7aa5b8
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: 520b84722d9434b309d3eb6da0baa3c1e4da33d0
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67488485"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68608186"
 ---
-# <a name="overview-of-management-services-in-azure"></a>Översikt över tjänster i Azure
+# <a name="overview-of-management-services-in-azure"></a>Översikt över hanterings tjänster i Azure
 
 Styrning i Azure är en del av Azure Management. Den här artikeln beskriver de olika hanteringsområdena för att distribuera och underhålla dina resurser i Azure.
 
@@ -22,9 +22,9 @@ Hantering syftar på uppgifter och processer som krävs för att underhålla fö
 
 Följande diagram visar de olika hanteringsområdena som krävs för att underhålla alla program och resurser. Dessa olika områden kan betraktas som en livscykel. Varje område krävs i kontinuerlig följd under en resurs livslängd. Den här resursen livscykeln börjar med den första distributionen, fortsätter under drift, och slutligen när dras tillbaka.
 
-![Områden för hantering i Azure](../monitoring/media/management-overview/management-capabilities.png)
+![Hanterings ämnes områden i Azure](../monitoring/media/management-overview/management-capabilities.png)
 
-Ingen enskild Azure-tjänst uppfyller kraven för ett visst område. I stället realiseras var och en av flera tjänster arbetar ihop. Vissa tjänster, till exempel Application Insights tillhandahåller riktade övervakningsfunktioner för webbprogram. Andra, lagrar som Azure Monitor-loggar hanteringsdata för andra tjänster. Den här funktionen kan du analysera data av olika typer som samlas in av olika tjänster.
+Ingen enskild Azure-tjänst uppfyller kraven för ett visst område. I stället realiseras var och en av flera tjänster arbetar ihop. Vissa tjänster, till exempel Application Insights tillhandahåller riktade övervakningsfunktioner för webbprogram. Andra, som Azure Monitor loggar, lagrar hanterings data för andra tjänster. Den här funktionen kan du analysera data av olika typer som samlas in av olika tjänster.
 
 Följande avsnitt beskriver i korta ordalag de olika hanteringsområdena och tillhandahåller länkar till detaljerat innehåll om de viktigaste Azure-tjänsterna.
 
@@ -44,7 +44,7 @@ Styrning i Azure implementeras främst genom två tjänster. [Azure Policy](./po
 
 ## <a name="secure"></a>Skydda
 
-Hantera säkerheten för dina resurser och data. Ett säkerhetsprogram innebär att bedöma hot, samla in och analysera data och kompatibilitet för program och resurser. Säkerhetsanalys för säkerhetsövervakning och hotanalys tillhandahålls av [Azure Security Center](../security-center/security-center-intro.md), som ger enhetlig säkerhetshantering och Avancerat skydd mot hot i olika hybridmolnarbetsbelastningar. Se [introduktion till Azure Security](../security/azure-security.md) omfattande information och vägledning om hur du skyddar Azure-resurser.
+Hantera säkerheten för dina resurser och data. Ett säkerhetsprogram innebär att bedöma hot, samla in och analysera data och kompatibilitet för program och resurser. Säkerhetsanalys för säkerhetsövervakning och hotanalys tillhandahålls av [Azure Security Center](../security-center/security-center-intro.md), som ger enhetlig säkerhetshantering och Avancerat skydd mot hot i olika hybridmolnarbetsbelastningar. Se [introduktion till Azure Security](../security/fundamentals/overview.md) omfattande information och vägledning om hur du skyddar Azure-resurser.
 
 ## <a name="protect"></a>Skydda
 

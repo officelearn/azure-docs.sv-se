@@ -4,14 +4,14 @@ description: Beskriver funktionerna du använder i en Azure Resource Manager-mal
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 07/11/2019
+ms.date: 07/31/2019
 ms.author: tomfitz
-ms.openlocfilehash: 7d967f0bb0b7a811d4db7836cdbffdad91088a2c
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 7548b75f201c896e3a5248cb9d0154a9a676a86f
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68311688"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698202"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Resursfunktioner för Azure Resource Manager-mallar
 
@@ -47,7 +47,7 @@ Syntaxen för den här funktionen varierar beroende på namnet på list åtgärd
 
 Den möjliga användningen av List * visas i följande tabell.
 
-| Resurstyp | Funktions namn |
+| Resurstyp | Funktionsnamn |
 | ------------- | ------------- |
 | Microsoft.AnalysisServices/servers | [listGatewayStatus](/rest/api/analysisservices/servers/listgatewaystatus) |
 | Microsoft. AppConfiguration/configurationStores | Listnycklar |

@@ -1,84 +1,92 @@
 ---
-title: Anpassa lösenordsåterställning Azure AD via självbetjäning – Azure Active Directory
-description: Återställa anpassade alternativ för lösenord för självbetjäning i Azure AD
+title: Anpassa återställning av lösen ord för självbetjäning i Azure AD – Azure Active Directory
+description: Anpassnings alternativ för lösen ords återställning via självbetjäning i Azure AD
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 07/30/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d38d93a1c9716cc3a71d904b7b1a46fb8b1c2ee0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 527dd99f122ec70cc47305947a5cbce3207b9664
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60415679"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68666304"
 ---
-# <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>Anpassa Azure AD-funktionerna för lösenordsåterställning via självbetjäning
+# <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>Anpassa Azure AD-funktionen för lösen ords återställning via självbetjäning
 
-IT-proffs som vill distribuera lösenordsåterställning via självbetjäning (SSPR) i Azure Active directory (Azure AD) kan anpassa upplevelsen för att matcha deras behov.
+IT-proffs som vill distribuera självbetjäning för återställning av lösen ord (SSPR) i Azure Active Directory (Azure AD) kan anpassa upplevelsen så att den matchar användarnas behov.
 
-## <a name="customize-the-contact-your-administrator-link"></a>Anpassa länken ”Kontakta administratören”
+## <a name="customize-the-contact-your-administrator-link"></a>Anpassa länken "kontakta din administratör"
 
-Även om SSPR inte är aktiverad kan användarna fortfarande att ha en ”Kontakta administratören” länk på lösenordet återställa portalen. Om användaren väljer den här länken det antingen:
+Användare av lösen ords återställning via självbetjäning har en "kontakta administratören"-länken som är tillgänglig för dem i portalen för återställning av lösen ord. Om en användare väljer den här länken görs en av två saker:
 
-* E-post dina administratörer och ber dem om du behöver hjälp med att ändra användarens lösenord.
-* Skickar dina användare till en URL som du anger för att få hjälp.
+* Om det är kvar i standard läget:
+   * E-postmeddelandet skickas till dina administratörer och ber dem ge hjälp att ändra användarens lösen ord. Se [exempel meddelandet](#sample-email) nedan.
+* Om det är anpassat:
+   * Skickar användaren till en webb sida eller e-postadress som angetts av administratören för att få hjälp.
 
-Vi rekommenderar att du ställer in den här kontakten till något som en e-postadress eller en webbplats som användarna redan använder för supportförfrågningar.
+> [!TIP]
+> Om du anpassar detta rekommenderar vi att du ställer in det till något som användarna redan känner till för support
 
-![Exempelförfrågan återställa e-postmeddelande skickas till administratören][Contact]
+> [!WARNING]
+> Om du anpassar den här inställningen med en e-postadress och ett konto som behöver återställa lösen ord kanske användaren inte behöver be om hjälp.
 
-Kontakta e-postmeddelandet skickas till följande mottagare i följande ordning:
+### <a name="sample-email"></a>Exempel på e-post
 
-1. Om den **lösenordsadministratör** tilldelas rollen, administratörer med den här rollen meddelas.
-2. Om inga lösenordsadministratörer tilldelas, sedan administratörer med den **Användaradministratör** rollen meddelas.
-3. Om inget av de föregående rollerna har tilldelats kommer **globala administratörer** meddelas.
+![Exempel förfrågan om att återställa e-post som skickas till administratör][Contact]
 
-I samtliga fall högst 100 mottagare får ett meddelande.
+Kontaktens e-postadress skickas till följande mottagare i följande ordning:
 
-Du hittar mer information om de olika administratörsroller och tilldela dem [Tilldela administratörsroller i Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
+1. Om rollen som **lösen ords administratör** tilldelas, meddelas administratörer med den här rollen.
+2. Om inga lösen ords administratörer tilldelas, meddelas administratörer med rollen **användar administratör** .
+3. Om ingen av de tidigare rollerna tilldelas, meddelas de **globala administratörerna** .
 
-### <a name="disable-contact-your-administrator-emails"></a>Inaktivera ”Kontakta administratören” e-postmeddelanden
+I samtliga fall meddelas högst 100 mottagare.
 
-Om din organisation inte vill meddela administratörer om lösenord återställa begäranden kan du aktivera följande konfiguration:
+Läs mer om de olika administratörs rollerna och hur du tilldelar dem i [tilldela administratörs roller i Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
 
-* Aktivera Självbetjäning för återställning av lösenord för alla användare. Det här alternativet är **lösenordsåterställning** > **egenskaper**. Om du inte vill att användarna kan återställa sina lösenord, kan du begränsa åtkomst till en tom grupp. *Vi rekommenderar inte det här alternativet.*
-* Anpassa helpdesk-länk om du vill ange en Webbadress eller en mailto: adress som användarna kan använda för att få hjälp. Det här alternativet är **lösenordsåterställning** > **anpassning** > **anpassad supportavdelningen e-postadress eller URL: en**.
+### <a name="disable-contact-your-administrator-emails"></a>Inaktivera "kontakta administratören"-e-post
 
-## <a name="customize-the-ad-fs-sign-in-page-for-sspr"></a>Anpassa AD FS-inloggningssida för SSPR
+Om din organisation inte vill meddela administratörer om begär Anden om lösen ords återställning kan du aktivera följande konfiguration:
 
-Active Directory Federation Services (AD FS) administratörer kan lägga till en länk deras inloggningssida med hjälp av informationen finns i den [Lägg till inloggningssidan beskrivning](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/add-sign-in-page-description) artikeln.
+* Aktivera självbetjäning för återställning av lösen ord för alla slutanvändare. Det här alternativet är under**Egenskaper**för **lösen ords återställning** > . Om du inte vill att användarna ska kunna återställa sina egna lösen ord kan du begränsa åtkomsten till en tom grupp. *Vi rekommenderar inte det här alternativet.*
+* Anpassa supportavdelningen-länken för att tillhandahålla en webb-URL eller mailto:-adress som användarna kan använda för att få hjälp. Det här alternativet är under**anpassning** > av **lösen ords återställning** > **anpassad supportavdelningen e-post eller URL**.
 
-Om du vill lägga till en länk till sidan för AD FS, använder du följande kommando på AD FS-servern. Användare kan använda den här sidan för att ange SSPR-arbetsflöde.
+## <a name="customize-the-ad-fs-sign-in-page-for-sspr"></a>Anpassa AD FS inloggnings sida för SSPR
+
+Active Directory Federation Services (AD FS) (AD FS) administratörer kan lägga till en länk till sina inloggnings sidor med hjälp av rikt linjerna i artikeln [Lägg till inloggnings sidan Beskrivning](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/add-sign-in-page-description) .
+
+Om du vill lägga till en länk till AD FS inloggnings sidan använder du följande kommando på AD FS-servern. Användare kan använda den här sidan för att ange SSPR-arbetsflödet.
 
 ``` powershell
 Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><A href='https://passwordreset.microsoftonline.com' target='_blank'>Can’t access your account?</A></p>"
 ```
 
-## <a name="customize-the-sign-in-page-and-access-panel-look-and-feel"></a>Anpassa inloggning sidan och åtkomst till panelen utseendet och känslan
+## <a name="customize-the-sign-in-page-and-access-panel-look-and-feel"></a>Anpassa inloggnings sidan och åtkomst panelens utseende och känsla
 
-Du kan anpassa på inloggningssidan. Du kan lägga till en logotyp som visas tillsammans med den avbildning som passar din företagsanpassning.
+Du kan anpassa inloggnings sidan. Du kan lägga till en logo typ som visas tillsammans med den bild som passar ditt företags varumärke.
 
-Bilderna som du väljer visas i följande omständigheter:
+De bilder du väljer visas i följande fall:
 
-* När en användare anger sina användarnamn
+* När en användare har angett sitt användar namn
 * Om användaren har åtkomst till den anpassade URL: en:
-   * Genom att skicka den `whr` parametern till lösenordet för lösenordsåterställning, som `https://login.microsoftonline.com/?whr=contoso.com`
-   * Genom att skicka den `username` parametern till lösenordet för lösenordsåterställning, som `https://login.microsoftonline.com/?username=admin@contoso.com`
+   * Genom att skicka `whr` parametern till sidan för lösen ords återställning, t. ex.`https://login.microsoftonline.com/?whr=contoso.com`
+   * Genom att skicka `username` parametern till sidan för lösen ords återställning, t. ex.`https://login.microsoftonline.com/?username=admin@contoso.com`
 
-Hitta information om hur du konfigurerar företagsanpassning i artikeln [lägga till företagsprofilering för din inloggningssidan i Azure AD](../fundamentals/customize-branding.md).
+Hitta information om hur du konfigurerar företags anpassning i artikeln [Lägg till företags anpassning till din inloggnings sida i Azure AD](../fundamentals/customize-branding.md).
 
 ### <a name="directory-name"></a>Katalognamn
 
-Du kan ändra attributet directory namn under **Azure Active Directory** > **egenskaper**. Du kan visa ett eget organisationsnamn som visas i portalen och automatiserade meddelanden. Det här alternativet är det mest synliga i automatiserade e-postmeddelanden i de formulär som följer:
+Du kan ändra attributet katalog namn under **Azure Active Directory** > **Egenskaper**. Du kan visa ett eget organisations namn som visas i portalen och i den automatiserade kommunikationen. Det här alternativet är det som är synligt i automatiserade e-postmeddelanden i formulären som följer:
 
-* Det egna namnet för e-postmeddelandet, till exempel ”Microsoft på uppdrag av CONTOSO demo”
-* Ämnesraden för e-postmeddelandet, till exempel ”CONTOSO demo e-kontoverifieringskod”
+* Det egna namnet i e-postmeddelandet, till exempel "Microsoft på uppdrag av CONTOSO demo"
+* Ämnes raden i e-postmeddelandet, till exempel "CONTOSO demonstrations konto e-postverifierings kod"
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -95,4 +103,4 @@ Du kan ändra attributet directory namn under **Azure Active Directory** > **ege
 * [Jag tror att något har gått sönder. Hur gör jag för att felsöka SSPR?](active-directory-passwords-troubleshoot.md)
 * [Jag har en fråga som inte besvarades någon annanstans](active-directory-passwords-faq.md)
 
-[Contact]: ./media/concept-sspr-customization/sspr-contact-admin.png "Kontakta administratören för hjälp med att återställa ditt lösenord för e-exempel"
+[Contact]: ./media/concept-sspr-customization/sspr-contact-admin.png "Kontakta administratören om du vill ha hjälp med att återställa lösen ordets e-postexempel"

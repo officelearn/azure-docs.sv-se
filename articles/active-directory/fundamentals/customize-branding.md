@@ -2,23 +2,23 @@
 title: Lägg till företagsanpassning till din organisations inloggningssida – Azure Active Directory | Microsoft Docs
 description: Anvisningar om hur du lägger till din organisations anpassning till inloggningssidan för Azure Active Directory.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 09/18/2018
-ms.author: lizross
+ms.author: ajburnle
 ms.reviewer: kexia
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bef3960e5c117a131b59a65196214c51e01bd3c8
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 3ae329bd031a2a57ea4fc2eec9cde1e532439bb4
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204583"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561706"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Lägg till företagsanpassning till din organisations Azure Active Directory-inloggningssida
 Använda organisationens logotyp och egna färgscheman för att tillhandahålla ett konsekvent utseende och känsla på webbsidorna för Azure Active Directory (AD Azure). Logga in sidorna visas när användare loggar in på din organisations webbaserade appar, till exempel Office 365, som använder Azure AD som identitetsprovider.
@@ -29,7 +29,7 @@ Använda organisationens logotyp och egna färgscheman för att tillhandahålla 
 ## <a name="customize-your-azure-ad-sign-in-page"></a>Anpassa din Azure AD-inloggningssida
 Du kan anpassa dina Azure AD-inloggningssidor, som visas när användare loggar in till din organisations klientspecifik appar, till exempel [ *https://outlook.com/contoso.com* ](https://outlook.com/contoso.com), eller vid sändning av en domänvariabel i, till exempel [ *https://passwordreset.microsoftonline.com/?whr=contoso.com* ](https://passwordreset.microsoftonline.com/?whr=contoso.com).
 
-Ditt varumärke omedelbart visas inte när användarna gå till platser, till exempel www\.office.com. Användaren måste i stället logga in innan din anpassningsfunktionerna visas.
+Din anpassade anpassning visas inte direkt när användarna går till webbplatser som www\.-Office.com. Användaren måste i stället logga in innan din anpassningsfunktionerna visas.
 
 > [!NOTE]
 > Alla företagsanpassning element är valfria. Exempel: Om du anger en banderollslogotyp med ingen bakgrundsbild visas på inloggningssidan din logotyp med en standard bakgrundsbild från målplatsen (till exempel Office 365).<br><br>Dessutom sprids inloggningssidan anpassning inte till personliga Microsoft-konton. Om dina användare eller företagsgäster loggar du in med ett personligt microsoftkonto, visas inte på inloggningssidan anpassning av din organisation.
@@ -58,7 +58,7 @@ Ditt varumärke omedelbart visas inte när användarna gå till platser, till ex
 
         - **Banderoll logotyp.** Välj en .png eller .jpg version av din logotyp som ska visas på sidan logga in när användaren anger ett användarnamn och på den **Mina appar** portalsidan.
             
-            Bilden får inte vara högre än 60 bildpunkter eller större än 280 bildpunkter. Vi rekommenderar att du använder en transparent bild eftersom bakgrunden inte kanske matchar din logotyp bakgrund. Vi rekommenderar att det inte att lägga till utfyllnad runt bilden eller det kan vara din logotyp ser liten.
+            Bilden får inte vara högre än 60 bild punkter eller bredare än 280 bild punkter. Vi rekommenderar att du använder en transparent bild eftersom bakgrunden inte kanske matchar din logotyp bakgrund. Vi rekommenderar att det inte att lägga till utfyllnad runt bilden eller det kan vara din logotyp ser liten.
 
         - **Användarnamn-tipset.** Ange tips-text som visas för användarna om de glömmer sitt lösenord. Den här texten måste vara Unicode, utan länkar eller kod och får inte överstiga 64 tecken. Om gäster loggar in på din app, föreslår vi att du inte lägger till den här tipset.
 
@@ -70,7 +70,7 @@ Ditt varumärke omedelbart visas inte när användarna gå till platser, till ex
 
         - **Bakgrundsfärg på inloggningssidan.** Ange hexadecimal färgen (till exempel vit är #FFFFFF) som ska visas i stället din bakgrund i långsam anslutning situationer. Vi rekommenderar att du använder den primära färgen i din banderollslogotyp eller i din organisation färg.
 
-        - **Fyrkantig logotyp.** Välj en PNG (föredragen) eller .jpg-bild av organisationens logotyp som ska visas för användarna under konfigurationsprocessen för nya Windows 10 Enterprise-enheter. Den här avbildningen används endast för Windows-autentisering och visas endast på klienter som använder [Windows Autopilot]( https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) för distribution eller för lösenordsinmatning sidor i andra Windows-10 inträffar. I vissa fall kan det också visas i dialogrutan för medgivande.
+        - **Fyrkantig logotyp.** Välj en PNG (föredragen) eller .jpg-bild av organisationens logotyp som ska visas för användarna under konfigurationsprocessen för nya Windows 10 Enterprise-enheter. Den här avbildningen används endast för Windows-autentisering och visas endast på klienter som använder [Windows Autopilot]( https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) för distribution eller för lösenordsinmatning sidor i andra Windows-10 inträffar. I vissa fall kan den också visas i dialog rutan medgivande.
         
             Bilden får inte vara större än 240 x 240 bildpunkter i storlek och måste ha en storlek på mindre än 10 KB. Vi rekommenderar att du använder en transparent bild eftersom bakgrunden inte kanske matchar din logotyp bakgrund. Vi rekommenderar att det inte att lägga till utfyllnad runt bilden eller det kan vara din logotyp ser liten.
     

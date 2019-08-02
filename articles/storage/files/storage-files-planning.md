@@ -1,19 +1,18 @@
 ---
 title: Planera för distribution av Azure Files | Microsoft Docs
 description: Lär dig vad du ska tänka på när du planerar för en Azure Files distribution.
-services: storage
 author: roygara
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 6282ce426b08c4ad9c44bead0bd4ec3d259f65fe
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 93c36ccb244931c12d8b038f448fbda4eff77f16
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68501420"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68721714"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planera för distribution av Azure Files
 
@@ -98,7 +97,7 @@ För närvarande kan du inte direkt konvertera mellan en standard fil resurs och
 > [!IMPORTANT]
 > Premium-filresurser är bara tillgängliga med LRS och är tillgängliga i de flesta regioner som erbjuder lagrings konton. För att ta reda på om Premium-filresurser är tillgängliga i din region, se sidan [produkter som är tillgängliga per region](https://azure.microsoft.com/global-infrastructure/services/?products=storage) för Azure.
 
-### <a name="provisioned-shares"></a>Etablerade resurser
+#### <a name="provisioned-shares"></a>Etablerade resurser
 
 Premium-filresurser tillhandahålls baserat på en fast GiB/IOPS/data flödes kvot. För varje GiB tilldelas resursen en IOPS och 0,1 MiB/s-genomflöde upp till de maximala gränserna per resurs. Den minsta tillåtna etableringen är 100 GiB med lägsta IOPS/data flöde.
 
@@ -135,7 +134,7 @@ I följande tabell visas några exempel på dessa formler för de allokerade res
 > [!NOTE]
 > Fil resursernas prestanda är beroende av dator nätverks begränsningar, tillgänglig nätverks bandbredd, i/o-storlekar, parallellitet, bland många andra faktorer. För att uppnå maximal prestanda skalning sprider du belastningen över flera virtuella datorer. Se [fel söknings guiden](storage-troubleshooting-files-performance.md) för några vanliga prestanda problem och lösningar.
 
-### <a name="bursting"></a>Bursting "
+#### <a name="bursting"></a>Bursting "
 
 Premium-filresurser kan överföra sina IOPS upp till en faktor på tre. Burst-överföring automatiseras och fungerar baserat på ett kredit system. Burst-överföring fungerar på bästa möjliga sätt och burst-gränsen är inte en garanti, fil resurser kan överföras *till* gränsen.
 
@@ -206,11 +205,15 @@ Det här avsnittet gäller endast för standard fil resurser. Alla Premium-filre
 
 Standard fil resurser är tillgängliga i alla regioner upp till 5 TiB. I vissa regioner är det tillgängligt med en 100 TiB-gräns, dessa regioner visas i följande tabell:
 
-|Region  |Redundans stöds  |Stöder befintliga lagrings konton  |
-|---------|---------|---------|
-|Asien, Sydostasien     |LRS|Nej         |
-|Västra Europa     |LRS, ZRS|Nej         |
-|Västra USA 2     |LRS, ZRS|Nej         |
+|Region |Redundans stöds |Stöder befintliga lagrings konton |Portal support *   |
+|-------|---------|---------|---------|
+|Östra Australien  |LRS|Nej         |Ja|
+|Frankrike, centrala  |LRS|Nej         |Inte ännu|
+|Asien, Sydostasien  |LRS, ZRS|Nej         |Endast LRS, ZRS-inte ännu|
+|Västra Europa     |LRS, ZRS|Nej       |Ja|
+|Västra USA 2       |LRS, ZRS|Nej         |Ja|
+
+\* För regioner utan Portal stöd kan du fortfarande använda PowerShell eller Azure Command Line Interface (CLI) för att skapa större än 5 TiB-resurser. Altenatively skapar du en ny resurs via portalen utan att ange kvot. Då skapas en resurs med standard storleken 100 TiB, som kan uppdateras senare via PowerShell eller Azure CLI.
 
 För att hjälpa oss att prioritera nya regioner och funktioner kan du fylla i den här [undersökningen](https://aka.ms/azurefilesatscalesurvey).
 

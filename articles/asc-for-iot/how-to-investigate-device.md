@@ -1,6 +1,6 @@
 ---
-title: Azure Security Center för undersökning för förhandsversionen för IoT-enhet | Microsoft Docs
-description: Detta så att vägleda förklarar hur du använder Azure Security Center för IoT du undersöker en misstänkt IoT-enhet med Log Analytics.
+title: Guide för undersökning av IoT-enheter | Azure Security Center Microsoft Docs
+description: I den här guiden beskrivs hur du använder Azure Security Center för IoT för att undersöka en misstänkt IoT-enhet med hjälp av Log Analytics.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -13,70 +13,66 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/18/2019
+ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 884d001a65962d5e7e6e52dd47ce6ad7e02e1057
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 8d2fe8d63c7ece6f3b3426d8fc5a3454a61826f8
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67618127"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596252"
 ---
-# <a name="investigate-a-suspicious-iot-device"></a>Undersöka en misstänkt IoT-enhet
+# <a name="investigate-a-suspicious-iot-device"></a>Undersök en misstänkt IoT-enhet
 
-> [!IMPORTANT]
-> Azure Security Center för IoT är för närvarande i offentlig förhandsversion.
-> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Azure Security Center för IoT service-aviseringar ger tydliga indikationer när IoT-enheter misstänks delta i misstänkta aktiviteter eller när det finns indikationer om att en enhet har komprometterats. 
 
-Azure Security Center (ASC) för IoT aviseringar och bevis ange tydligt när IoT-enheter som misstänks för medverkan i misstänkta aktiviteter eller när indikationer finns att en enhet har komprometterats. 
-
-I den här guiden använder du de undersökning förslag som givits för att fastställa de potentiella riskerna för din organisation, hur du åtgärdar och identifiera de bästa sätten att förhindra att liknande attacker i framtiden.  
+I den här hand boken använder du de undersöknings förslag som du kan använda för att fastställa potentiella risker för din organisation, bestämma hur du ska åtgärda och upptäcka de bästa sätten att förhindra liknande attacker i framtiden.  
 
 > [!div class="checklist"]
-> * Hitta din enhetsdata
-> * Undersök med hjälp av kql frågor
+> * Hitta enhets data
+> * Undersök med hjälp av KQL-frågor
 
 
-## <a name="how-can-i-access-my-data"></a>Hur kommer jag åt mina data?
+## <a name="how-can-i-access-my-data"></a>Hur kan jag komma åt mina data?
 
-Som standard lagrar ASC för IoT din säkerhetsaviseringar och rekommendationer i Log Analytics-arbetsytan. Du kan också välja att lagra dina rådata säkerhetsdata.
+Som standard lagrar Azure Security Center för IoT dina säkerhets aviseringar och rekommendationer i Log Analytics-arbetsytan. Du kan också välja att lagra dina rå säkerhets data.
 
-Att hitta den Log Analytics-arbetsytan för lagring av data:
+Hitta din Log Analytics-arbetsyta för data lagring:
 
-1. Öppna din IoT-hubb 
-1. Under **Security**, klickar du på **översikt**, och välj sedan **inställningar**.
-1. Ändra din konfigurationsinformation för Log Analytics-arbetsytan. 
+1. Öppna din IoT-hubb, 
+1. Under **säkerhet**klickar du på **Översikt**och väljer sedan **Inställningar**.
+1. Ändra konfigurations information för Log Analytics arbets ytan. 
 1. Klicka på **Spara**. 
 
-Gör följande för att komma åt data som lagras i Log Analytics-arbetsytan följande konfiguration:
+Följande konfiguration, gör följande för att komma åt data som lagras i din Log Analytics-arbetsyta:
 
-1. Välj och klicka på en ASC för IoT-avisering i IoT Hub. 
-1. Klicka på **ytterligare undersökningar**. 
-1. Välj **att se vilka enheter som har den här aviseringen Klicka här och visa kolumnen DeviceId**.
+1. Markera och klicka på en Azure Security Center för IoT-avisering i IoT Hub. 
+1. Klicka på **ytterligare undersökning**. 
+1. Välj **om du vill se vilka enheter som har den här aviseringen Klicka här och visa kolumnen DeviceID**.
 
-## <a name="investigation-steps-for-suspicious-iot-devices"></a>Undersökningssteg misstänkta IoT-enheter
+## <a name="investigation-steps-for-suspicious-iot-devices"></a>Gransknings steg för misstänkta IoT-enheter
 
-För att få åtkomst till insikter och rådata om dina IoT-enheter måste du gå till Log Analytics-arbetsytan [komma åt dina data](#how-can-i-access-my-data).
+Om du vill visa insikter och rå data om dina IoT-enheter går du till din Log Analytics-arbetsyta [för att komma åt dina data](#how-can-i-access-my-data).
 
-Kontrollera och undersöka enhetsdata för följande information och aktiviteter med hjälp av följande kql frågor.
+Se exempel på KQL-frågorna nedan för att komma igång med att undersöka aviseringar och aktiviteter på enheten.
 
 ### <a name="related-alerts"></a>Relaterade aviseringar
 
-Om du vill veta om andra aviseringar har utlösts runt samma tid användning kql följande fråga:
+Om du vill ta reda på om andra aviseringar har utlösts runt samma tid använder du följande KQL-fråga:
 
-  ~~~
+  ```
   let device = "YOUR_DEVICE_ID";
   let hub = "YOUR_HUB_NAME";
   SecurityAlert
   | where ExtendedProperties contains device and ResourceId contains tolower(hub)
   | project TimeGenerated, AlertName, AlertSeverity, Description, ExtendedProperties
-  ~~~
+  ```
 
 ### <a name="users-with-access"></a>Användare med åtkomst
 
-Om du vill veta vilka användare som har åtkomst till den här enheten använder du följande kql fråga: 
+Om du vill ta reda på vilka användare som har åtkomst till den här enheten använder du följande KQL-fråga: 
 
-  ~~~
+ ```
   let device = "YOUR_DEVICE_ID";
   let hub = "YOUR_HUB_NAME";
   SecurityIoTRawEvent
@@ -88,16 +84,16 @@ Om du vill veta vilka användare som har åtkomst till den här enheten använde
      GroupNames=extractjson("$.GroupNames", EventDetails, typeof(string)),
      UserName=extractjson("$.UserName", EventDetails, typeof(string))
   | summarize FirstObserved=min(TimestampLocal) by GroupNames, UserName
-  ~~~
-Använd informationen för att identifiera: 
-  1. Vilka användare som har åtkomst till enheten?
-  2. Har användare med åtkomst behörighetsnivåer som förväntat? 
+ ```
+Använd dessa data för att identifiera: 
+- Vilka användare har åtkomst till enheten?
+- Har användarna med åtkomst den förväntade behörighets nivån?
 
 ### <a name="open-ports"></a>Öppna portar
 
-Använd följande kql fråga om du vill veta vilka portar på enheten används eller har använts: 
+Använd följande KQL-fråga för att ta reda på vilka portar i enheten som används eller används: 
 
-  ~~~
+ ```
   let device = "YOUR_DEVICE_ID";
   let hub = "YOUR_HUB_NAME";
   SecurityIoTRawEvent
@@ -113,18 +109,18 @@ Använd följande kql fråga om du vill veta vilka portar på enheten används e
      RemoteAddress=extractjson("$.RemoteAddress", EventDetails, typeof(string)),
      RemotePort=extractjson("$.RemotePort", EventDetails, typeof(string))
   | summarize MinObservedTime=min(TimestampLocal), MaxObservedTime=max(TimestampLocal), AllowedRemoteIPAddress=makeset(RemoteAddress), AllowedRemotePort=makeset(RemotePort) by Protocol, LocalPort
-  ~~~
+ ```
 
-    Use this data to discover:
-  1. Vilka lyssnande sockets för närvarande är aktiva på enheten?
-  2. De lyssnande uttag som för närvarande är aktiva får?
-  3. Finns det några misstänkta fjärradresser som är anslutna till enheten?
+Använd dessa data för att identifiera:
+- Vilka lyssnar Sockets är aktiva på enheten?
+- Ska de lyssnande socketarna som för närvarande är aktiva tillåtas?
+- Finns det några misstänkta fjärradresser anslutna till enheten?
 
-### <a name="user-logins"></a>Användarinloggningar
+### <a name="user-logins"></a>Användar inloggningar
 
-Om du vill ta reda på använder användare som har loggat in på enheten du följande kql-fråga: 
+Använd följande KQL-fråga om du vill hitta användare som har loggat in på enheten: 
  
-  ~~~
+ ```
   let device = "YOUR_DEVICE_ID";
   let hub = "YOUR_HUB_NAME";
   SecurityIoTRawEvent
@@ -144,18 +140,18 @@ Om du vill ta reda på använder användare som har loggat in på enheten du fö
      RemoteAddress=extractjson("$.RemoteAddress", EventDetails, typeof(string)),
      Result=extractjson("$.Result", EventDetails, typeof(string))
   | summarize CntLoginAttempts=count(), MinObservedTime=min(TimestampLocal), MaxObservedTime=max(TimestampLocal), CntIPAddress=dcount(RemoteAddress), IPAddress=makeset(RemoteAddress) by UserName, Result, LoginHandler
-  ~~~
+ ```
 
-    Use the query results to discover:
-  1. Vilka användare som har loggat in på enheten?
-  2. Är de användare som har loggat in, ska logga in?
-  3. Anslöt de användare som loggat in från förväntade eller oväntade IP-adresser?
+Använd frågeresultaten för att identifiera:
+- Vilka användare har loggat in på enheten?
+- Ska de användare som är inloggade att logga in?
+- Var de användare som loggade in Connect från förväntade eller oväntade IP-adresser?
   
-### <a name="process-list"></a>Processlistan
+### <a name="process-list"></a>Process lista
 
-Om du vill ta reda på om listan är som förväntat, använder du följande kql-fråga: 
+Om du vill ta reda på om process listan är förväntat använder du följande KQL-fråga: 
 
-  ~~~
+ ```
   let device = "YOUR_DEVICE_ID";
   let hub = "YOUR_HUB_NAME";
   SecurityIoTRawEvent
@@ -180,14 +176,14 @@ Om du vill ta reda på om listan är som förväntat, använder du följande kql
   ) on UserId
   | extend UserIdName = strcat("Id:", UserId, ", Name:", UserName)
   | summarize CntExecutions=count(), MinObservedTime=min(TimestampLocal), MaxObservedTime=max(TimestampLocal), ExecutingUsers=makeset(UserIdName), ExecutionCommandLines=makeset(CommandLine) by Executable
-  ~~~
+```
 
-    Use the query results to discover:
+Använd frågeresultaten för att identifiera:
 
-  1. Har några misstänkta processer som körs på enheten?
-  2. Utfördes processer behöriga användare?
-  3. Innehöll alla kommandoraden körningar korrekt och förväntade argument?
+- Fanns det några misstänkta processer som kördes på enheten?
+- Genomförde processer av lämpliga användare?
+- Innehåller alla kommando rads körningar korrekta och förväntade argument?
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du undersöker en enhet och få en bättre förståelse för dina risker, kan du överväga att [konfigurera anpassade varningar](quickstart-create-custom-alerts.md) att förbättra din säkerhetsposition för IoT-lösning. Om du inte redan har en agent för enheten kan du överväga att [distribuerar en säkerhetsagenten](how-to-deploy-agent.md) eller [ändrar konfigurationen för en befintlig enhet agent](how-to-agent-configuration.md) att förbättra dina resultat. 
+När du har undersökt en enhet och fått en bättre förståelse för dina risker kanske du vill överväga att [Konfigurera anpassade aviseringar](quickstart-create-custom-alerts.md) för att förbättra din position för IoT-lösningar. Om du inte redan har en enhets agent kan du överväga att [distribuera en säkerhets agent](how-to-deploy-agent.md) eller [ändra konfigurationen för en befintlig enhets agent](how-to-agent-configuration.md) för att förbättra resultaten. 

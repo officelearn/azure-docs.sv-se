@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 05/30/2019
 ms.author: byvinyal
-ms.openlocfilehash: 1c30d9e70facaf9ab47bd33e5ca1fc1d35c6c979
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 7c4c80950e43f374b40085cb4e1c3e026e5f3abd
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68405851"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698292"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure-prenumeration och tjänstbegränsningar, kvoter och krav
 Det här dokumentet innehåller några av de vanligaste Microsoft Azures gränserna, som ibland kallas kvoter. Det här dokumentet avser för närvarande inte alla Azure-tjänster. Med tiden kommer listan att expanderas och uppdateras för att avse fler tjänster.
@@ -48,6 +48,7 @@ I följande lista över gränser visar en ny tabell eventuella skillnader i grä
 * [Automation](#automation-limits)
 * [Azure Cache for Redis](#azure-cache-for-redis-limits)
 * [Azure Cloud Services](#azure-cloud-services-limits)
+* [Azure Cognitive Services](#azure-cognitive-services-limits)
 * [Azure Cosmos DB](#azure-cosmos-db-limits)
 * [Azure Database for MySQL](#azure-database-for-mysql)
 * [Azure Database for PostgreSQL](#azure-database-for-postgresql)
@@ -186,7 +187,7 @@ Följande tabell gäller v1, v2, standard och WAF SKU: er om inget annat anges.
 
 Mer information om begränsningar för lagrings konton finns i [Azure Storage skalbarhets-och prestanda mål](storage/common/storage-scalability-targets.md).
 
-#### <a name="storage-resource-provider-limits"></a>Begränsningar för lagrings resurs leverantörer 
+#### <a name="storage-resource-provider-limits"></a>Begränsningar för lagrings resurs leverantörer
 
 [!INCLUDE [azure-storage-limits-azure-resource-manager](../includes/azure-storage-limits-azure-resource-manager.md)]
 
@@ -225,6 +226,9 @@ Mer information finns i [storlekar för virtuella datorer](virtual-machines/linu
 
 ### <a name="azure-cloud-services-limits"></a>Azure Cloud Services-gränser
 [!INCLUDE [azure-cloud-services-limits](../includes/azure-cloud-services-limits.md)]
+
+### <a name="azure-cognitive-services-limits"></a>Azure Cognitive Services-gränser
+[!INCLUDE [azure-cloud-services-limits](../includes/azure-cognitive-services-limits.md)]
 
 ### <a name="app-service-limits"></a>App Service gränser
 Följande App Service gränser inkluderar gränser för Web Apps, Mobile Apps och API Apps.

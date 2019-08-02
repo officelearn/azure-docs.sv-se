@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2fc552211ed55239259ce84d84584c451733d70
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 819b2f3c54d97639eceae9aed60fdd5da2e7b3ef
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68499863"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68608181"
 ---
 # <a name="what-are-baseline-policies"></a>Vad är bas linje principer?
 
@@ -97,7 +97,7 @@ Så här aktiverar du en bas linje princip:
 
 Mer information finns i:
 
-* [Fem steg för att skydda din identitets infrastruktur](../../security/azure-ad-secure-steps.md)
+* [Fem steg för att skydda din identitets infrastruktur](../../security/fundamentals/steps-secure-identity.md)
 * [Vad är villkorlig åtkomst i Azure Active Directory?](overview.md)
 * [Kräv MFA för administratörer (för hands version)](howto-baseline-protect-administrators.md)
 * [Slut användar skydd (för hands version)](howto-baseline-protect-end-users.md)

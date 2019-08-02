@@ -1,19 +1,20 @@
 ---
 title: 'Azure Backup: Återställa virtuella datorer med hjälp av Azure Portal'
 description: Återställa en virtuell Azure-dator från en återställnings punkt med hjälp av Azure Portal
-author: geethalakshmig
-manager: vijayts
+ms.reviewer: geg
+author: dcurwin
+manager: carmonm
 keywords: Återställ säkerhets kopia; så här återställer du. återställnings punkt;
 ms.service: backup
 ms.topic: conceptual
 ms.date: 05/08/2019
-ms.author: geg
-ms.openlocfilehash: 951e42c4eb7a9d897140a7422364cdbfe83e57cc
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: f961f472c0b00932bf5ee6302af58f39fa8421ed
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466889"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68720452"
 ---
 # <a name="restore-azure-vms"></a>Återställa virtuella Azure-datorer
 
@@ -111,7 +112,8 @@ Som ett av återställnings [alternativen](#restore-options)kan du skapa en disk
 
 4. I **Återställ konfiguration**väljer du **OK**. I **återställning**klickar du på **Återställ** för att utlösa återställnings åtgärden.
 
-Azure Backup använder inte lagrings kontot under återställningen av den virtuella datorn. Men i händelse av **återställning av diskar** och **omedelbar återställning**används lagrings kontot för att lagra mallen.
+När den virtuella datorn använder hanterade diskar och du väljer alternativet för att **skapa en virtuell dator** så använder Azure Backup inte det angivna lagrings kontot. Om du **återställer diskar** och **omedelbar återställning**, används lagrings kontot bara för att lagra mallen. Hanterade diskar skapas i den angivna resurs gruppen.
+När den virtuella datorn använder ohanterade diskar återställs de som blobbar till lagrings kontot.
 
 ### <a name="use-templates-to-customize-a-restored-vm"></a>Använda mallar för att anpassa en återställd virtuell dator
 
@@ -140,7 +142,7 @@ Som en av återställnings [alternativen](#restore-options)kan du ersätta en be
 
 1. I **Återställ konfiguration**klickar du på **Ersätt befintlig**.
 2. I **återställnings typ**väljer du **Ersätt disk/s**. Detta är den återställnings punkt som ska användas för att ersätta befintliga VM-diskar.
-3. På mellanlagringsplatsen anger du var ögonblicks bilder av de aktuella hanterade diskarna ska sparas under återställnings processen. [Läs mer](#storage-accounts).
+3. Påmellanlagringsplatsen anger du var ögonblicks bilder av de aktuella hanterade diskarna ska sparas under återställnings processen. [Läs mer](#storage-accounts).
 
    ![Återställ konfigurations guiden Ersätt befintlig](./media/backup-azure-arm-restore-vms/restore-configuration-replace-existing.png)
 
@@ -162,7 +164,7 @@ Det finns ett antal vanliga scenarier där du kan behöva återställa virtuella
 **Zon fästa virtuella datorer** | Azure Backup stöder säkerhets kopiering och återställning av zonbaserade fästa virtuella datorer. [Läs mer](https://azure.microsoft.com/global-infrastructure/availability-zones/)
 
 ## <a name="track-the-restore-operation"></a>Spåra återställnings åtgärden
-När du har utlöst återställnings åtgärden skapar säkerhets kopierings tjänsten ett jobb för spårning. Azure Backup visar meddelanden om jobbet i portalen. Om de inte visas klickar du på symbolen **meddelanden** för att se dem.
+När du har utlöst återställnings åtgärden skapar säkerhets kopierings tjänsten ett jobb för spårning. Azure Backup visar meddelanden om jobbet i portalen. Om de inte visas väljer du symbolen **meddelanden** och väljer sedan **Visa alla jobb** för att se status för återställnings processen.
 
 ![Återställning har Aktiver ATS](./media/backup-azure-arm-restore-vms/restore-notification1.png)
 

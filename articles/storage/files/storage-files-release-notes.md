@@ -4,16 +4,16 @@ description: Viktig information för Azure File Sync agenten.
 services: storage
 author: wmgries
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 7/24/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: de0482f49e919d0cbb500e9ee8b27ccf8287fb99
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: ad0927c551f331a3a6f719797dae7598961d78c1
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489569"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68721657"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Viktig information för Azure File Sync agent
 Med Azure File Sync kan du centralisera din organisations filresurser i Azure Files med samma flexibilitet, prestanda och kompatibilitet som du får om du använder en lokal filserver. Dina Windows Server-installationer omvandlas till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt data lokalt (inklusive SMB, NFS och FTPS). Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -26,7 +26,7 @@ Följande versioner av Azure File Sync-agenten stöds:
 | Gränser | Agentversionsnummer | Utgivningsdatum | Status |
 |----|----------------------|--------------|------------------|
 | Samlad uppdatering 2019 – [KB4490497](https://support.microsoft.com/help/4490497)| 7.2.0.0 | 24 juli 2019 | Support – [flyg](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#automatic-agent-lifecycle-management) |
-| Samlad uppdatering 2019 – [KB4490496](https://support.microsoft.com/help/4490496)| 7.1.0.0 | 12 juli 2019 | Support – [flyg](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#automatic-agent-lifecycle-management) |
+| Samlad uppdatering 2019 – [KB4490496](https://support.microsoft.com/help/4490496)| 7.1.0.0 | 12 juli 2019 | Stöds |
 | V7-version – [KB4490495](https://support.microsoft.com/help/4490495)| 7.0.0.0 | 19 juni 2019 | Stöds |
 | Samlad uppdatering för 2019 juni – [KB4489739](https://support.microsoft.com/help/4489739)| 6.3.0.0 | 27 juni 2019 | Stöds |
 | Samlad uppdatering för 2019 juni – [KB4489738](https://support.microsoft.com/help/4489738)| 6.2.0.0 | 13 juni 2019 | Stöds |

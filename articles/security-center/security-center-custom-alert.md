@@ -14,33 +14,33 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2018
 ms.author: rkarlin
-ms.openlocfilehash: 984bd4d5db210679884655721be0cbcdac8c1705
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 8845cb0a91edefa0350558f35488519ec37d064d
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485286"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663576"
 ---
-# <a name="custom-alert-rules-in-azure-security-center-preview"></a>Anpassade aviseringsregler i Azure Security Center (förhandsversion)
-I det här avsnittet berättar vi hur du skapar anpassade aviseringsregler i Azure Security Center.
+# <a name="custom-alert-rules-in-azure-security-center-retired"></a>Anpassade aviserings regler i Azure Security Center (dras tillbaka)
+I det här dokumentet får du hjälp med att skapa anpassade aviserings regler (för hands version) i Azure Security Center.
 
 > [!NOTE]
-> Anpassade aviseringar har tagits bort från Security Center. 
+> Anpassade aviseringar drogs tillbaka från Azure Security Center den 30 juni 2019. 
 
-## <a name="retirement-of-custom-alert-rules-in-azure-security-center"></a>Tillbakadragning av anpassad avisering regler i Azure Security Center
+## <a name="retirement-of-custom-alert-rules-in-azure-security-center"></a>Borttagning av anpassade aviserings regler i Azure Security Center
 
-Anpassade aviseringarna har tagits bort på grund av tillbakadragning av den underliggande infrastrukturen som det förlitade sig tidigare på den 30 juni 2019. alla anpassade aviseringar som definieras före retriement har ingen effekt och säkerhetsaviseringar baserat på dessa anpassade aviseringar regler kan skapas. Du kan fortfarande visa din anpassade aviseringsregler frågor i Security Center för att återskapa dem i alternativen som anges nedan:
+Den anpassade aviserings upplevelsen drogs tillbaka den 30 juni 2019, på grund av att den underliggande infrastrukturen förbrukades. Eventuella anpassade aviseringar som definierats före retriement börjar inte tillämpas och säkerhets aviseringar som baseras på dessa anpassade aviserings regler skapas inte. Du kan fortfarande Visa egna aviserings reglers frågor i Security Center för att återskapa dem i de alternativ som anges nedan:
 
-Användare bör antingen:
-- Aktivera [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) och använda inbyggda [analytics](https://docs.microsoft.com/azure/sentinel/tutorial-detect-threats) funktioner för att återskapa notifieringsregler
-- Återskapa sina aviseringar med Azure Monitor loggaviseringar
+Användarna uppmanas antingen att:
+- Aktivera [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) och använd dess inbyggda [analys](https://docs.microsoft.com/azure/sentinel/tutorial-detect-threats) funktioner för att återskapa sina aviserings regler
+- Återskapa sina aviseringar med Azure Monitor logg aviseringar
                                      
-Om du vill behålla dina befintliga aviseringar och återskapa dem i Azure Sentinel, kan du [starta Azure Sentinel](https://portal.azure.com/#create/Microsoft.ASI/preview). Välj arbetsytan där din anpassade aviseringar lagras som första steg och välj sedan menyalternativet 'Analytics' för att ställa in anpassade varningar-regler. Besök den [dokumentation](https://docs.microsoft.com/azure/sentinel/tutorial-detect-threats) för ytterligare information.
+Om du vill behålla dina befintliga aviseringar och återskapa dem i Azure Sentinel [startar du Azure Sentinel](https://portal.azure.com/#create/Microsoft.ASI/preview). I det första steget väljer du den arbets yta där dina anpassade aviseringar lagras och väljer sedan meny alternativet analys för att ställa in dina anpassade aviserings regler. Mer information finns i [dokumentationen](https://docs.microsoft.com/azure/sentinel/tutorial-detect-threats) .
 
 > [!NOTE]
-> Anpassade aviseringar med hjälp av [Search](https://docs.microsoft.com/azure/azure-monitor/log-query/search-queries) eller [Union](https://docs-analytics-eus.azurewebsites.net/queryLanguage/query_language_unionoperator.html) instruktioner frågor stöds inte i Azure Sentinel. Redigera dessa varningar innan du utför migreringen.
+> Anpassade aviseringar med hjälp av [Sök](https://docs.microsoft.com/azure/azure-monitor/log-query/search-queries) -eller [union](https://docs-analytics-eus.azurewebsites.net/queryLanguage/query_language_unionoperator.html) -uttryck-frågor stöds inte i Azure Sentinel. Redigera de här aviseringarna innan du utför migreringen.
 
-Om du vill återskapa dina aviseringar med Azure Monitor aviseringar, finns på: [Skapa, visa och hantera aviseringar med Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) anvisningar om hur du skapar aviseringar. Allmän översikt över aviseringar i Azure Monitor klickar du på [här](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log).
+Information om hur du återskapar aviseringar med hjälp av Azure Monitor logg aviseringar finns i [skapa, Visa och hantera logg aviseringar med hjälp av Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log). En allmän översikt finns [i logg aviseringar i Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log).
 
 ## <a name="what-are-custom-alert-rules-in-security-center"></a>Vad är anpassade aviseringsregler i Security Center?
 
@@ -49,7 +49,7 @@ Security Center innehåller en uppsättning fördefinierade [säkerhetsavisering
 Med hjälp av anpassade aviseringsregler i Security Center kan du definiera nya säkerhetsaviseringar baserat på data som redan har samlats in från miljön. Du kan skapa frågor och resultatet av dessa frågor kan användas som kriterier för den anpassade regeln, och regeln körs när dessa kriterier matchas. Du kan använda säkerhetshändelser för datorer, loggar från en partners säkerhetslösning eller data som inhämtas med hjälp av API:er för att skapa de anpassade frågorna.
 
 > [!NOTE]
-> Anpassade aviseringar stöds inte i Security Center [undersökningsfunktionen](security-center-investigation.md).
+> Anpassade aviseringar stöds inte i Security Centers [undersöknings funktion](security-center-investigation.md).
 >
 >
 
@@ -70,10 +70,10 @@ Med hjälp av anpassade aviseringsregler i Security Center kan du definiera nya 
 5.  Ange en kort beskrivning som återspeglar syftet med denna regel i fältet **Beskrivning**.
 6.  Välj allvarlighetsgrad (hög, medel, låg) efter behov i fältet **Allvarlighetsgrad**.
 7.  I fältet **Prenumeration** väljer du den prenumeration där denna regel ska gälla.
-8.  Välj den arbetsyta som du vill övervaka med den här regeln i den **arbetsytan** fält, och i den **sökfråga** fältet den fråga som du vill använda för att hämta resultaten.
+8.  Välj den arbets yta som du vill övervaka med den här regeln i fältet **arbets yta** och i fältet **Sök fråga** anger du den fråga som du vill använda för att hämta resultatet.
 
     > [!NOTE]
-    > Du behöver skrivbehörighet på arbetsytan som du väljer för att lagra din anpassade avisering.
+    > Du behöver Skriv behörighet i arbets ytan som du väljer för att lagra din anpassade avisering.
     >
     >
 

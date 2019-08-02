@@ -10,14 +10,14 @@ ms.author: tsikiksr
 author: tsikiksr
 ms.reviewer: nibaccam
 ms.date: 07/23/2019
-ms.openlocfilehash: 7c7d90d4ca1625edecc9d84e1ff7beec50032884
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 30dc731efdb6016f505b7a16860e0cb9c6480333
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68444765"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68716582"
 ---
-# <a name="tutorial-train-and-deploy-a-classification-model-with-automated-machine-learning-in-the-azure-portal-preview"></a>Självstudier: Träna och distribuera en klassificerings modell med automatisk maskin inlärning i Azure Portal (för hands version)
+# <a name="tutorial-use-automated-machine-learning-to-train-and-deploy-your-first-classification-model-preview"></a>Självstudier: Använd automatisk maskin inlärning för att träna och distribuera din första klassificerings modell (för hands version)
 
 I den här självstudien får du lära dig hur du skapar ditt första automatiserade maskin inlärnings experiment i Azure Portal. I det här exemplet skapas en klassificerings modell för att förutsäga huruvida en klient kommer att prenumerera på en term insättning med banken. 
 
@@ -86,7 +86,7 @@ I den här självstudien kommer du att lära dig följande:
 
 1. Expandera **Avancerade inställningar** och fyll i fälten enligt följande.
 
-    Avancerade inställningar|Value
+    Avancerade inställningar|Värde
     ------|------
     Primärt mått| AUC_weighted 
     Avslutnings villkor| När något av dessa villkor uppfylls avslutas utbildnings jobbet innan det slutförs fullständigt. <br> *Utbildnings jobb tid (minuter)* : 5  <br> *Max antal iterationer*: 10 

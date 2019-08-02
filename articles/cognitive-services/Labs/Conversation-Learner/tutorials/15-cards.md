@@ -1,7 +1,7 @@
 ---
-title: Hur du använder kort med en Konversationsdeltagare modell, del 1 – Microsoft Cognitive Services | Microsoft Docs
+title: Använda kort med en Conversation Learner modell, del 1 – Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Lär dig hur du använder kort med en Konversationsdeltagare-modell.
+description: Lär dig hur du använder kort med en Conversation Learner modell.
 services: cognitive-services
 author: nitinme
 manager: nolachar
@@ -10,48 +10,49 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
-ms.openlocfilehash: d0b87597c506aca5c3b4f6f3815f58656203ac3c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: 426d7c8de29abeb88833e94962a7291a641702ac
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66389524"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68703754"
 ---
-# <a name="how-to-use-cards-part-1-of-2"></a>Hur du använder kort (del 1 av 2)
+# <a name="how-to-use-cards-part-1-of-2"></a>Använda kort (del 1 av 2)
 
-Den här självstudiekursen visar hur du lägger till och använda ett enkelt kort i din robot.
+I den här självstudien visas hur du lägger till och använder ett enkelt kort i din robot.
 
 > [!NOTE]
-> Konversationsdeltagare är för närvarande förväntar sig ditt kort definitionsfiler finnas i en katalog med namnet ”kort” som finns i katalogen där roboten har startats.
+> Conversation Learner för närvarande förväntar sig att dina kort definitions filer ska finnas i en katalog med namnet "kort" som finns i katalogen där bot har startats.
 
 ## <a name="video"></a>Video
 
-[![Kort självstudie förhandsversion](https://aka.ms/cl_Tutorial_v3_Cards_Preview)](https://aka.ms/cl_Tutorial_v3_Cards)
+[![Förhands granskning av kort självstudie](https://aka.ms/cl_Tutorial_v3_Cards_Preview)](https://aka.ms/cl_Tutorial_v3_Cards)
 
 ## <a name="requirements"></a>Krav
-Den här självstudien krävs att Allmänt självstudiekursen bot körs
+Den här självstudien kräver att roboten för allmän självstudie körs
 
     npm run tutorial-general
 
 ## <a name="details"></a>Information
 
-Kort är UI-element som tillåter användare att välja ett alternativ i konversationen. 
+Kort är GRÄNSSNITTs element som gör att användaren kan välja ett alternativ i konversationen. 
 
 ### <a name="open-the-demo"></a>Öppna demon
 
-Klicka på ”Importera Tutorials” och välja modellen med namnet ”självstudien-15-kort” i webbgränssnittet.
+I webb gränssnittet klickar du på "Importera självstudier" och väljer modellen "självstudie-15-kort".
 
 ### <a name="the-card"></a>Kortet
 
-Kort-definitionen är på följande plats: C:\<installedpath\>\src\cards\prompt.json.
+Kort definitionen finns på följande plats: C:\<installedpath\>\src\cards\prompt.JSON.
 
-Systemet förväntar sig att hitta kort definitionerna i den här katalogen ”kort”.
+Systemet förväntar sig att hitta dina kort definitioner i den här "kort"-katalogen.
 
 ![](../media/tutorial13_prompt.PNG)
 
 > [!NOTE]
-> Observera brödtext skriver ”tecknens” och ”{{fråga}}”-platshållare i textfältet.
-> Det finns två skicka knappar och texten som hämtar skickade för var och en.
+> Observera text typen "TextBlock" och plats hållaren "{{Body}}" i textfältet.
+> Det finns två skicka-knappar och den text som skickas för var och en.
 
 ### <a name="actions"></a>Åtgärder
 
@@ -59,42 +60,42 @@ Vi har skapat tre åtgärder. Som du ser nedan är den första åtgärden ett ko
 
 ![](../media/tutorial13_actions.PNG)
 
-Nu ska vi se hur typen av kort har skapats:
+Nu ska vi se hur kort åtgärds typen skapades:
 
 ![](../media/tutorial13_cardaction.PNG)
 
 > [!NOTE]
-> Kortet innehåller tre olika parametrar - fråga som indata, 1 och 2. Dessa element är mallen referenser i kortet där du anger i frågor och svar. Du kan också referera till och Använd entiteter eller en blandning av text och entiteter.
+> Kortet innehåller tre olika parametrar – frågans Indatatyp, knapp 1 och knapp 2. De här elementen är mall referenser på kortet där du anger frågan och respektive svar. Du kan också referera till och använda entiteter eller en blandning av text och entiteter.
 
-På ögonikonen visar hur kortet ser ut.
+Ögon ikonen visar hur kortet ser ut.
 
-### <a name="practicing-creating-card-actions"></a>Använder skapa kort åtgärder
+### <a name="practicing-creating-card-actions"></a>Öva på att skapa kort åtgärder
 
-1. Klicka på ”åtgärder” och knappen ”ny åtgärd” på den vänstra panelen.
-2. Välj ”kort” för ”åtgärdstypen”.
-3. Välj ”fråga” i listan ”mall”.
-4. Skriv i fältet ”fråga”, ”gå till vänster eller höger”
-5. I fältet ”button1”, skriver du ”vänster”
-6. I fältet ”button2”, skriver du ”höger”
-7. Klicka på ”Avbryt”.
+1. Klicka på "åtgärder" i den vänstra panelen, sedan på knappen "ny åtgärd".
+2. Välj "kort" som "åtgärds typ".
+3. Välj "prompt" från listan "mall".
+4. Skriv "gå till vänster eller höger" i fältet "fråga"
+5. Skriv "left" i fältet "Button1"
+6. Skriv "höger" i fältet "button2"
+7. Klicka på Avbryt.
 
-### <a name="train-dialog-using-an-adaptive-card"></a>Träna dialogrutan med hjälp av ett Adaptivt kort
+### <a name="train-dialog-using-an-adaptive-card"></a>Träna dialog med ett anpassningsbart kort
 
-1. Klicka på ”Train-dialogrutor” och knappen ”Ny träna dialogruta” på den vänstra panelen.
-2. På panelen chatt står det ”Skriv meddelandet...”, typ i ”Hej”
-3. Klicka på knappen ”poäng åtgärder”.
-4. Välj svar ”, meddelande: fråga: Gå till vänster eller höger ”?
-    - På ögonikonen kan användas för att förhandsgranska kortet
-5. Klicka på knappen ”Left” renderade prompten på panelen chatt.
-6. Klicka på knappen ”poäng åtgärder”.
-7. Välj svar ”vänster”
-8. Klicka på knappen ”Spara”.
-9. Välj svar ”, meddelande: fråga: Gå till vänster eller höger ”?
-10. Klicka på knappen ”höger” renderade prompten på panelen chatt.
-11. Klicka på knappen ”poäng åtgärder”.
-12. Välj svar ”höger”
+1. På den vänstra panelen klickar du på "träna dialoger", sedan på knappen "ny träna dialog".
+2. I panelen chat, där det står "Skriv ditt meddelande...", skriver du in "Hej"
+3. Klicka på knappen "Poäng åtgärder".
+4. Välj svaret, "fråga: fråga: Går du till vänster eller höger? "
+    - Ögon ikonen kan användas för att förhandsgranska kortet
+5. I Chat-panelen klickar du på knappen "vänster" i den återgivna prompten.
+6. Klicka på knappen "Poäng åtgärder".
+7. Välj svaret, "left"
+8. Klicka på knappen Spara.
+9. Välj svaret, "fråga: fråga: Går du till vänster eller höger? "
+10. I Chat-panelen klickar du på knappen "höger" i den återgivna prompten.
+11. Klicka på knappen "Poäng åtgärder".
+12. Välj svaret, "höger"
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Hybrid Bots](./16-hybrid-bots.md)
+> [Hybrid robotar](./16-hybrid-bots.md)

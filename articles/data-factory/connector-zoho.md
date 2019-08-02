@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 70f300d83d904537aab61b95de876f4ac2edb66c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e795e1de32ce51d80062d30d6880abbca37f9386
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60808994"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68720270"
 ---
 # <a name="copy-data-from-zoho-using-azure-data-factory-preview"></a>Kopiera data från Zoho med Azure Data Factory (förhandsversion)
 
@@ -44,7 +44,7 @@ Följande egenskaper har stöd för Zoho länkade tjänsten:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Type-egenskapen måste anges till: **Zoho** | Ja |
+| type | Egenskapen Type måste anges till: **Zoho** | Ja |
 | endpoint | Slutpunkten för Zoho-server (`crm.zoho.com/crm/private`). | Ja |
 | accessToken | Åtkomsttoken för Zoho autentisering. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | useEncryptedEndpoints | Anger om käll-slutpunkter data krypteras med HTTPS. Standardvärdet är sant.  | Nej |
@@ -77,7 +77,7 @@ Om du vill kopiera data från Zoho, ange typegenskapen på datauppsättningen ti
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Type-egenskapen för datauppsättningen måste anges till: **ZohoObject** | Ja |
+| type | Data uppsättningens typ-egenskap måste anges till: **ZohoObject** | Ja |
 | tableName | Namnet på tabellen. | Nej (om ”frågan” i aktivitetskälla har angetts) |
 
 **Exempel**
@@ -87,11 +87,12 @@ Om du vill kopiera data från Zoho, ange typegenskapen på datauppsättningen ti
     "name": "ZohoDataset",
     "properties": {
         "type": "ZohoObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Zoho linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
@@ -106,7 +107,7 @@ Om du vill kopiera data från Zoho, ange typ av datakälla i kopieringsaktivitet
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **ZohoSource** | Ja |
+| type | Typ egenskapen för kopierings aktivitets källan måste anges till: **ZohoSource** | Ja |
 | query | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM Accounts"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
 
 **Exempel:**

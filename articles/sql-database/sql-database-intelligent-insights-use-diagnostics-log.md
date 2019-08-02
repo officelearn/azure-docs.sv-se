@@ -1,6 +1,6 @@
 ---
-title: Intelligent Insights prestanda diagnostikloggen – Azure SQL Database | Microsoft Docs
-description: Intelligent Insights tillhandahåller en diagnostiklogg över Azure SQL Database-prestandaproblem
+title: Logga in Intelligent Insights prestanda-diagnostik-Azure SQL Database | Microsoft Docs
+description: Intelligent Insights innehåller en diagnostisk logg med Azure SQL Database prestanda problem
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -10,24 +10,23 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-manager: craigg
 ms.date: 12/19/2018
-ms.openlocfilehash: 264d4cfc6b09813f34501a0e51d3100f4d2bce78
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8180fc4db10019a3183af40cf21d9d92b0102201
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60703174"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567901"
 ---
-# <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Använda diagnostikloggen för Intelligent Insights Azure SQL Database-prestanda
+# <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Använd loggen Intelligent Insights Azure SQL Database prestanda diagnostik
 
-Den här sidan innehåller information om hur du använder Azure SQL Database prestanda diagnostik loggen genereras av [smarta insikter](sql-database-intelligent-insights.md), dess format och de data som den innehåller för anpassad utveckling behöver. Du kan skicka den här diagnostikloggen [Azure Monitor loggar](../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md), [Azure Storage](sql-database-metrics-diag-logging.md#stream-into-storage), eller en lösning från tredje part för anpassad DevOps avisering och rapportering funktioner.
+Den här sidan innehåller information om hur du använder den Azure SQL Database loggen för prestandadiagnostik som genereras av [intelligent Insights](sql-database-intelligent-insights.md), dess format och de data som den innehåller för dina anpassade utvecklings behov. Du kan skicka den här Diagnostic-loggen till [Azure Monitor loggar](../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md), [Azure Storage](sql-database-metrics-diag-logging.md#stream-into-storage)eller en lösning från tredje part för anpassade DevOps-aviseringar och rapporterings funktioner.
 
-## <a name="log-header"></a>Log-huvud
+## <a name="log-header"></a>Logg huvud
 
-Diagnostikloggen använder standard JSON-format för att mata ut smarta insikter resultat. Exakta kategori-egenskapen för att komma åt en logg med smarta insikter är det fasta värdet ”SQLInsights”.
+Diagnostic-loggen använder JSON-standardformat för att mata in Intelligent Insights resultat. Egenskapen exakt kategori för att komma åt en Intelligent Insights logg är det fasta värdet "SQLInsights".
 
-Rubriken på loggen är vanligt och består av tidsstämpeln (TimeGenerated) som visar när en post skapades. Den innehåller också ett resurs-ID (resurs-ID) som refererar till den specifika SQL-databasen på posten som relaterar till. Kategori (kategori), nivå (nivå) och åtgärdsnamn på (OperationName) är fasta egenskaper vars värden inte ändras. De anger att loggposten visas endast i informationssyfte och att det kommer från smarta insikter (SQLInsights).
+Loggens rubrik är gemensam och består av den tidsstämpel (TimeGenerated) som visar när en post skapades. Den innehåller också ett resurs-ID (ResourceId) som refererar till den specifika SQL Database posten avser. Kategorin (kategori), nivån (nivån) och åtgärds namnet (OperationName) är fasta egenskaper vars värden inte ändras. De anger att logg posten är information och att den kommer från Intelligent Insights (SQLInsights).
 
 ```json
 "TimeGenerated" : "2017-9-25 11:00:00", // time stamp of the log entry
@@ -37,13 +36,13 @@ Rubriken på loggen är vanligt och består av tidsstämpeln (TimeGenerated) som
 "OperationName" : "Insight", // fixed property
 ```
 
-## <a name="issue-id-and-database-affected"></a>Problem-ID och databasen som påverkas
+## <a name="issue-id-and-database-affected"></a>Problem-ID och databas som påverkas
 
-Egenskapen problemet identifiering (issueId_d) ger ett sätt att spåra unikt prestandaproblem förrän löst. Flera händelseposter i loggen rapporterar status för samma problem kommer att dela samma problem-ID.
+Egenskapen Issue Identification (issueId_d) gör det möjligt att spåra prestanda problem på ett unikt sätt tills det är löst. Flera händelse poster i logg rapporterings statusen för samma problem kommer att dela samma problem-ID.
 
-Tillsammans med ärende-ID rapporterar diagnostikloggen start (intervalStartTime_t)- och slut (intervalEndTme_t) tidsstämplar händelse som rör ett problem som rapporteras i diagnostikloggen för.
+Tillsammans med ärende-ID: t rapporterar Diagnostic-loggen start-(intervalStartTime_t) och slut (intervalEndTme_t) tidsstämplar för den specifika händelsen som är relaterad till ett problem som rapporteras i Diagnostic-loggen.
 
-Egenskapen elastisk pool (elasticPoolName_s) anger vilka elastisk pool databasen med ett problem som hör till. Om databasen inte är en del av en elastisk pool, har den här egenskapen inget värde. Databasen som ett problem har identifierats lämnas i databas-namnegenskapen (databaseName_s).
+Egenskapen elastisk pool (elasticPoolName_s) anger vilken elastisk pool databasen med ett problem tillhör. Om databasen inte är en del av en elastisk pool har den här egenskapen inget värde. Databasen där ett problem upptäcktes visas i egenskapen databas namn (databaseName_s).
 
 ```json
 "intervalStartTime_t": "2017-9-25 11:00", // start of the issue reported time stamp
@@ -56,9 +55,9 @@ Egenskapen elastisk pool (elasticPoolName_s) anger vilka elastisk pool databasen
 
 ## <a name="detected-issues"></a>Identifierade problem
 
-Nästa avsnitt av Intelligent Insights prestandaloggen innehåller prestandaproblem som hittades via inbyggd artificiell intelligens. Identifieringar detta i egenskaper i JSON-diagnostikloggen. Dessa identifieringar bestå av kategorin på ett problem, effekten av problemet, frågor som påverkas och mått. Egenskaper för identifieringar kan innehålla flera prestandaproblem som har identifierats.
+Nästa avsnitt i Intelligent Insights prestanda loggen innehåller prestanda problem som upptäcktes genom inbyggd artificiell intelligens. Identifieringar visas i egenskaperna i JSON-diagnostikloggar. Dessa identifieringar består av en kategori för ett problem, effekten av problemet, de frågor som påverkas och måtten. Identifierings egenskaperna kan innehålla flera prestanda problem som har identifierats.
 
-Identifierade prestandaproblem rapporteras med följande identifieringar egenskapen struktur:
+Identifierade prestanda problem rapporteras med följande egenskaps struktur för identifiering:
 
 ```json
 "detections_s" : [{
@@ -68,41 +67,41 @@ Identifierade prestandaproblem rapporteras med följande identifieringar egenska
 }] 
 ```
 
-Flashminnet prestandamönster och den information som utdata in diagnostik finns i följande tabell.
+Identifierade prestanda mönster och information som returneras av diagnostikloggar finns i följande tabell.
 
-### <a name="detection-category"></a>Identifiering av kategori
+### <a name="detection-category"></a>Identifierings kategori
 
-Egenskapen kategori (kategori) beskriver kategorin för flashminnet prestandamönster. Se tabellen nedan för alla möjliga sorters flashminnet prestandamönster. Mer information finns i [Felsöka prestandaproblem för databasen med intelligenta insikter](sql-database-intelligent-insights-troubleshoot-performance.md).
+Kategorin kategori (kategori) beskriver kategorin med identifierade prestanda mönster. I följande tabell finns alla möjliga kategorier med identifierade prestanda mönster. Mer information finns i [Felsöka problem med databas prestanda med intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md).
 
-Prestandaproblemet som har identifierats, information för utdata i diagnostiken loggfilen skiljer sig därför.
+Beroende på det identifierade prestanda problemet skiljer sig detaljerna i den diagnostiska logg filen på lämpligt sätt.
 
-| Prestandamönster för flashminnet | Information för utdata |
+| Identifierade prestanda mönster | Information som returneras |
 | :------------------- | ------------------- |
-| Nådde resursbegränsningar | <li>Resurser som påverkas</li><li>Fråga hashvärden</li><li>Resursen förbrukning procent</li> |
-| Ökning av arbetsbelastning | <li>Antal frågor vars körning ökat</li><li>Fråga hash-värden för frågor med största bidraget till den arbetsbelastning ökade</li> |
-| Minnesbelastning | <li>Minne under fulltextinitieringen</li> |
-| Låsning | <li>Påverkas fråga hashvärden</li><li>Blockera fråga hashvärden</li> |
-| Ökad MAXDOP | <li>Fråga hashvärden</li><li>CXP väntetider</li><li>Väntetid</li> |
-| Pagelatch konkurrens | <li>Fråga hash-värden för frågor som orsakar konkurrens</li> |
-| Index som saknas | <li>Fråga hashvärden</li> |
-| Ny fråga | <li>Fråge-hash för de nya frågorna</li> |
-| Ovanlig vänta statistik | <li>Ovanlig vänta typer</li><li>Fråga hashvärden</li><li>Fråga väntetider</li> |
-| TempDB konkurrens | <li>Fråga hash-värden för frågor som orsakar konkurrens</li><li>Fråga attribution för övergripande databasen pagelatch konkurrens väntetiden [%]</li> |
-| Elastisk pool DTU brist | <li>Elastisk pool</li><li>Främsta DTU förbrukar databas</li><li>Procent av pool-DTU som används av övre konsumenten</li> |
-| Planera Regression | <li>Fråga hashvärden</li><li>Bra planering ID: N</li><li>Felaktig plan ID: N</li> |
-| Databasbegränsade konfigurationen ändras | <li>Databasbegränsade konfigurationsändringar jämfört med standardvärden</li> |
-| Långsam klienten | <li>Fråga hashvärden</li><li>Väntetid</li> |
-| Priser för nedgradering av nivå | <li>Textmeddelande</li> |
+| Når resurs gränser | <li>Resurser som påverkas</li><li>Fråga hashar</li><li>Resurs förbrukning i procent</li> |
+| Ökad arbets belastning | <li>Antal frågor vars körning har ökat</li><li>Fråga hashar av frågor med störst bidrag till arbets belastnings ökningen</li> |
+| Minnes belastning | <li>Minnes ansvarig</li> |
+| Låsning | <li>Frågans hashar som påverkas</li><li>Blockerar frågans hash-värden</li> |
+| Ökad MAXDOP | <li>Fråga hashar</li><li>CXP vänte tider</li><li>Vänte tider</li> |
+| PAGELATCH-konkurrens | <li>Fråga hashar för frågor som orsakar konkurrens</li> |
+| Index saknas | <li>Fråga hashar</li> |
+| Ny fråga | <li>Fråga hash för de nya frågorna</li> |
+| Ovanlig wait-statistik | <li>Ovanliga vänte typer</li><li>Fråga hashar</li><li>Vänte tid för fråga</li> |
+| TempDB-konkurrens | <li>Fråga hashar för frågor som orsakar konkurrens</li><li>Frågans tilldelning till den övergripande vänte tiden för databas PAGELATCH [%]</li> |
+| DTU-underskott för elastisk pool | <li>Elastisk pool</li><li>Högsta DTU-förbrukar databas</li><li>Procent av pool-DTU som används av topp konsumenten</li> |
+| Plan regression | <li>Fråga hashar</li><li>Lämplig plan-ID</li><li>Dåliga plan-ID: n</li> |
+| Ändring av konfigurations värde för databas omfattning | <li>Konfigurations ändringar i databasen jämfört med standardvärdena</li> |
+| Långsam klient | <li>Fråga hashar</li><li>Vänte tider</li> |
+| Nedgradering av pris nivå | <li>SMS-meddelande</li> |
 
 ### <a name="impact"></a>Påverkan
 
-Effekten (inverkan) egenskapen beskriver hur mycket ett identifierade beteende bidragit till problemet som har en databas. Påverkan på mellan 1 och 3, med 3 som högsta bidrag, 2 som Måttlig och 1 som lägst bidrag. Påverkan värdet kan användas som indata för anpassade aviseringar automation, beroende på dina specifika behov. Frågor om egenskaper påverkas (QueryHashes) tillhandahåller en lista över frågan hashvärden som har påverkats av en viss identifiering.
+Egenskapen effekt (effekt) beskriver hur mycket ett identifierat beteende som bidragit till problemet som en databas har. Påverkar intervallet från 1 till 3, med 3 som högsta bidrag, 2 som måttlig och 1 som det lägsta bidraget. Värdet för påverkan kan användas som indatamängd för anpassad aviserings automatisering, beroende på dina behov. Egenskaps frågorna som påverkas (QueryHashes) innehåller en lista över de fråga-hashar som påverkades av en viss identifiering.
 
-### <a name="impacted-queries"></a>Påverkade frågor
+### <a name="impacted-queries"></a>Frågor som påverkas
 
-Nästa avsnitt av Intelligent Insights loggen innehåller information om specifika frågor som har påverkats av de identifierade prestandaproblem. Den här informationen anges som en matris med objekt som är inbäddade i egenskapen impact_s. Hur egenskapen påverkan består av entiteter och mått. Entiteter som refererar till en viss fråga (typ: Fråga). Unikt fråge-hash anges under egenskapen value (värde). Dessutom är alla frågor uppges följt av ett mått och ett värde som indikerar ett identifierade prestandaproblem.
+Nästa avsnitt av Intelligent Insights loggen innehåller information om specifika frågor som påverkades av de prestanda problem som upptäckts. Den här informationen visas som en matris med objekt som är inbäddade i egenskapen impact_s. Egenskapen påverkan består av entiteter och mått. Entiteter refererar till en viss fråga (typ: Fråga). Den unika frågans hash-värde visas under egenskapen Value (värde). Dessutom följs alla frågor som har lämnats av ett mått och ett värde som indikerar ett identifierat prestanda problem.
 
-I exemplet nedan log fråga med hash-0x9102EXZ4 har identifierats som har en ökad varaktighet för körning (mått: DurationIncreaseSeconds). Värdet för 110 sekunder anger att den här specifika frågan tog längre 110 sekunder för att utföra. Eftersom flera frågor kan identifieras, kan i det här avsnittet för speciell logg innehålla flera poster i frågan.
+I följande logg exempel upptäcktes frågan med hash-0x9102EXZ4 för att få en ökad varaktighet för körning (mått: DurationIncreaseSeconds). Värdet på 110 sekunder anger att den här specifika frågan tog 110 sekunder längre att köras. Eftersom flera frågor kan identifieras kan detta specifika logg avsnitt innehålla flera poster i frågan.
 
 ```json
 "impact" : [{
@@ -116,18 +115,18 @@ I exemplet nedan log fråga med hash-0x9102EXZ4 har identifierats som har en ök
 
 ### <a name="metrics"></a>Mått
 
-Måttenhet för varje mått som rapporteras tillhandahålls under egenskapen metric (mått) med de möjliga värdena för sekunder, antal och procentandel. Värdet för ett uppmätt mått rapporteras i egenskapen value (värde).
+Mått enheten för varje mått som rapporteras anges under egenskapen Metric (Metric) med möjliga värden i sekunder, tal och procent. Värdet för ett uppmätt mått rapporteras i värde-egenskapen (värde).
 
-Egenskapen DurationIncreaseSeconds ger mätenhet i sekunder. Måttenhet CriticalErrorCount är ett tal som representerar ett antal fel.
+Egenskapen DurationIncreaseSeconds tillhandahåller mått enheten i sekunder. Mått enheten CriticalErrorCount är ett tal som representerar ett antal fel.
 
 ```json
 "metric" : "DurationIncreaseSeconds", // issue metric type – possible values: DurationIncreaseSeconds, CriticalErrorCount, WaitingSeconds
 "value" : 102 // value of the measured metric (in this case seconds)
 ```
 
-## <a name="root-cause-analysis-and-improvement-recommendations"></a>Rot orsak analys och rekommendationer till förbättringar
+## <a name="root-cause-analysis-and-improvement-recommendations"></a>Rotor Saks analys och förbättringar av rekommendationer
 
-Den sista delen av Intelligent Insights prestandaloggen gäller automatiserade Rotorsaksanalys av identifierade försämring prestandaproblemet. Informationen visas i human-vänlig ordflöde i egenskapen root orsak analysis (rootCauseAnalysis_s). Rekommendationer om prestandaförbättring ingår i loggen, där det är möjligt.
+Den sista delen av Intelligent Insights prestanda loggen avser den automatiserade rotor Saks analysen av det identifierade problemet för prestanda försämring. Informationen visas i human-vänliga verbiage i rootCauseAnalysis_s-egenskapen (rotor Saks Analysis). Förbättrings rekommendationer ingår i loggen där det är möjligt.
 
 ```json
 // example of reported root cause analysis of the detected performance issue, in a human-readable format
@@ -135,13 +134,13 @@ Den sista delen av Intelligent Insights prestandaloggen gäller automatiserade R
 "rootCauseAnalysis_s" : "High data IO caused performance to degrade. It seems that this database is missing some indexes that could help."
 ```
 
-Du kan använda intelligenta insikter prestandaloggen med [Azure Monitor loggar]( https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql) eller en lösning från tredje part för anpassad DevOps varningar och rapporter.
+Du kan använda Intelligent Insights prestanda logg med [Azure Monitor loggar]( https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql) eller en lösning från tredje part för anpassade DevOps-aviseringar och rapporterings funktioner.
 
 ## <a name="next-steps"></a>Nästa steg
-- Lär dig mer om [smarta insikter](sql-database-intelligent-insights.md) begrepp.
-- Lär dig hur du [Felsöka prestandaproblem för Azure SQL Database med intelligenta insikter](sql-database-intelligent-insights-troubleshoot-performance.md).
-- Lär dig hur du [övervaka Azure SQL Database med hjälp av Azure SQL Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql).
-- Lär dig hur du [samla in och använda loggdata från resurserna i Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
+- Lär dig mer om [intelligent Insights](sql-database-intelligent-insights.md) begrepp.
+- Lär dig hur du [felsöker Azure SQL Database prestanda problem med intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md).
+- Lär dig hur du [övervakar Azure SQL Database med hjälp av Azure SQL-analys](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql).
+- Lär dig hur du [samlar in och använder loggdata från dina Azure-resurser](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
 
 
 

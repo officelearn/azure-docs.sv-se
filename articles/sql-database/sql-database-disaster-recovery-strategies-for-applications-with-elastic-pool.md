@@ -1,6 +1,6 @@
 ---
-title: Utforma lösningar för haveriberedskap – Azure SQL Database | Microsoft Docs
-description: Lär dig hur du utformar din lösning för haveriberedskap i molnet genom att välja rätt redundans-mönster.
+title: Design katastrof återställnings lösningar – Azure SQL Database | Microsoft Docs
+description: Lär dig hur du utformar din moln lösning för haveri beredskap genom att välja rätt växlings mönster.
 services: sql-database
 ms.service: sql-database
 ms.subservice: elastic-pools
@@ -10,167 +10,166 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 6a332ce265a4bb41a9ad3c0c3a29683187a0f0d4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ccdd2443254da065a15911f567577672492ddb4f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62098413"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568874"
 ---
-# <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pools"></a>Strategier för haveriberedskap för program som använder SQL Database elastiska pooler
+# <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pools"></a>Strategier för haveri beredskap för program som använder SQL Database elastiska pooler
 
-Vi har lärt dig att molntjänster är inte felsäker och kritiska incidenter sker under åren. SQL Database tillhandahåller flera funktioner för att tillhandahålla för företagskontinuitet programmets när dessa inträffar. [Elastiska pooler](sql-database-elastic-pool.md) och enskilda databaser stöder samma typ av funktioner för katastrofåterställning (DR). Den här artikeln beskriver flera strategier för Haveriberedskap för elastiska pooler som utnyttjar dessa funktioner för affärskontinuitet SQL-databas.
+Under de senaste åren har vi lärt oss att moln tjänsterna inte är Foolproof och att det sker oåterkalleliga incidenter. SQL Database innehåller flera funktioner som du kan använda för att få affärs kontinuitet för ditt program när dessa incidenter inträffar. [Elastiska pooler](sql-database-elastic-pool.md) och enkla databaser har stöd för samma typ av haveri beredskap (Dr). I den här artikeln beskrivs flera DR-strategier för elastiska pooler som utnyttjar dessa SQL Database funktioner för affärs kontinuitet.
 
-Den här artikeln använder följande canonical SaaS ISV-programmönster:
+I den här artikeln används följande kanoniska program mönster för SaaS-ISV:
 
-Ett moderna molnbaserade webbprogram etablerar en SQL-databas för varje slutanvändare. ISV: er har många kunder och därför använder många databaser, kallas klientdatabaser. Eftersom klientdatabaserna vanligtvis har oförutsägbara aktivitet mönster, använder ISV en elastisk pool för att göra databasen kostnad förutsägbarhet under en längre tid. Den elastiska poolen förenklar också prestandahantering när användaraktivitet toppar. Förutom klientdatabaserna använder programmet även flera databaser att hantera användarprofiler, säkerhet, samla in användningsmönster osv. Tillgängligheten för enskilda klienter påverkar inte programmets tillgänglighet som helhet. Dock tillgänglighet och prestanda för hantering av databaser är viktigt för programmets funktionen och om hantering av databaserna är offline hela programmet är offline.
+Ett modernt molnbaserad webb program tillhandahåller en SQL-databas för varje slutanvändare. ISV har många kunder och använder därför många databaser, som kallas klient databaser. Eftersom klient databaserna vanligt vis har oförutsägbara aktivitets mönster, använder ISV en elastisk pool för att göra databas kostnaden förutsägbar över längre tid. Den elastiska poolen fören klar också prestanda hanteringen när användar aktiviteten är på gång. Förutom klient databaserna använder programmet också flera databaser för att hantera användar profiler, säkerhet, samla in användnings mönster osv. Tillgänglighet för enskilda klienter påverkar inte programmets tillgänglighet som helhet. Tillgänglighet och prestanda för hanterings databaser är dock viktiga för programmets funktion och om hanterings databaserna är offline är hela programmet offline.
 
-Den här artikeln beskrivs strategier för Haveriberedskap som täcker flera olika scenarier från kostnaden känsliga Start program till sådana med strikta tillgänglighetskrav.
+Den här artikeln beskriver DR-strategier som omfattar ett antal scenarier från kostnads känsliga start program till dem med strängare tillgänglighets krav.
 
 > [!NOTE]
-> Om du använder Premium- eller affärskritiska databaser och elastiska pooler kan du dem elastiska regionala avbrott genom att konvertera dem till zonen redundant distributionskonfiguration. Se [redundantzonen databaser](sql-database-high-availability.md).
+> Om du använder Premium-eller Affärskritisk databaser och elastiska pooler kan du göra dem flexibla till regionala drifts störningar genom att konvertera dem till zonens redundant distributions konfiguration. Se [zoner-redundanta databaser](sql-database-high-availability.md).
 
-## <a name="scenario-1-cost-sensitive-startup"></a>Scenario 1. Kostnad känsliga Start
+## <a name="scenario-1-cost-sensitive-startup"></a>Scenario 1. Kostnads känslig start
 
-Jag är ett nystartat företag och är mycket kostnad känslig.  Jag vill förenkla distribution och hantering av programmet och jag kan ha en begränsad serviceavtalet för enskilda kunder. Men jag vill kontrollera programmet som helhet aldrig är offline.
+Jag är en start av företag och är extremt extremt kostnads känslig.  Jag vill förenkla distributionen och hanteringen av programmet och jag kan ha ett begränsat service avtal för enskilda kunder. Men jag vill se till att hela programmet inte är offline.
 
-Distribuera alla klientdatabaser i en elastisk pool i Azure-region du väljer för att uppfylla kravet på enkelhet, och distribuera hantering av databaser som geo-replikerade enskilda databaser. Använda geo-återställning, som ingår utan extra kostnad för haveriberedskap med klienter. För att säkerställa tillgängligheten för hantering av databaser, geo-replikera dem till en annan region med automatisk redundans gruppen (steg 1). Pågående kostnaden för haveriberedskapskonfiguration i det här scenariot är lika med den totala kostnaden för den sekundära databasen. Den här konfigurationen visas på i nästa diagram.
+För att uppfylla det enkla kravet kan du distribuera alla klient databaser till en elastisk pool i Azure-regionen som du väljer och distribuera hanterings databaser som geo-replikerade enkla databaser. För haveri beredskap för klient organisationer använder du geo-återställning, som inte ingår i någon extra kostnad. För att säkerställa tillgängligheten för hanterings databaserna geo replikerar du dem till en annan region med hjälp av en grupp för automatisk redundans (steg 1). Den löpande kostnaden för haveri beredskaps konfigurationen i det här scenariot motsvarar den totala kostnaden för de sekundära databaserna. Den här konfigurationen illustreras i nästa diagram.
 
 ![Bild 1](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-1.png)
 
-Om det inträffar avbrottet på den primära regionen, illustreras återställningsstegen för att ta med ditt program online genom att i nästa diagram.
+Om ett avbrott uppstår i den primära regionen, illustreras återställnings stegen för att ta ditt program online med nästa diagram.
 
-* Redundansgruppen initierar automatisk redundans för av hanteringsdatabasen till regionen för Haveriberedskap. Programmet återansluta automatiskt till de nya primära och alla nya kontona och klientdatabaser skapas i regionen för Haveriberedskap. Befintliga kunder se sina data som är inte tillgänglig för tillfället.
+* Gruppen redundans initierar automatisk redundansväxling av hanterings databasen till DR-regionen. Programmet återansluts automatiskt till den nya primära och alla nya konton och klient databaser skapas i DR-regionen. De befintliga kunderna ser till att deras data är tillfälligt otillgängliga.
 * Skapa den elastiska poolen med samma konfiguration som den ursprungliga poolen (2).
-* Använda geo-återställning för att skapa kopior av klienten databaser (3). Du kan överväga att utlösa enskilda återställningar av slutanvändaren anslutningar eller använda vissa andra programspecifika prioritet-schema.
+* Använd geo-återställning för att skapa kopior av klient databaserna (3). Du kan överväga att utlösa enskilda återställningar från slut användar anslutningarna eller använda andra programspecifika prioritets scheman.
 
-Programmet är nu online igen i regionen för Haveriberedskap, men vissa kunder uppstår fördröjning vid åtkomst till sina data.
+I det här skedet är ditt program online igen i DR-regionen, men vissa kunder upplever fördröjning vid åtkomst till sina data.
 
 ![Bild 2](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-2.png)
 
-Om avbrottet var ett tillfälligt, är det möjligt att den primära regionen återställs med Azure innan alla återställningar för databasen har slutförts i regionen för Haveriberedskap. I det här fallet dirigera flytta programmet till den primära regionen. Processen tar de steg som visas på i nästa diagram.
+Om avbrottet var tillfälligt, är det möjligt att den primära regionen återställs av Azure innan alla databas återställningar har slutförts i DR-regionen. I det här fallet dirigerar du tillbaka programmet till den primära regionen. Processen tar stegen som illustreras i nästa diagram.
 
-* Avbryt alla utestående geo-återställning begäranden.
-* Växla över management databaserna till den primära regionen (5). Efter den regionen återställningen blir automatiskt gamla USA: s presidentval har sekundära databaser. De växla roller igen.
-* Ändra programmets anslutningssträngen så att den pekar till den primära regionen. Nu skapas alla nya konton och klientdatabaser i den primära regionen. Vissa befintliga kunder se sina data som är inte tillgänglig för tillfället.
-* Ange alla databaser i poolen DR till skrivskyddat läge för att se till att de inte kan ändras i regionen för Haveriberedskap (6).
-* För varje databas i poolen DR som har ändrats sedan återställningen, byta namn på eller ta bort motsvarande databaser i poolen primära (7).
-* Kopiera de uppdaterade databaserna från poolen DR till primära poolen (8).
+* Avbryt alla utestående geo Restore-begäranden.
+* Redundansväxla hanterings databaserna till den primära regionen (5). Efter regionens återställning har den gamla presidentval automatiskt blivit sekundär. De byter nu roller igen.
+* Ändra programmets anslutnings sträng så att den pekar tillbaka till den primära regionen. Nu skapas alla nya konton och klient databaser i den primära regionen. Vissa befintliga kunder ser sina data tillfälligt otillgängliga.
+* Ange att alla databaser i DR-poolen ska vara skrivskyddade för att säkerställa att de inte kan ändras i DR-regionen (6).
+* Byt namn på eller ta bort motsvarande databaser i den primära poolen (7) för varje databas i DR-poolen som har ändrats sedan återställningen.
+* Kopiera de uppdaterade databaserna från DR-poolen till den primära poolen (8).
 * Ta bort DR-poolen (9)
 
-Programmet är nu online i den primära regionen med alla klientdatabaser som är tillgängliga i den primära poolen.
+I det här läget är ditt program online i den primära regionen med alla klient databaser som är tillgängliga i den primära poolen.
 
 ![Bild 3](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-3.png)
 
-Nyckeln **dra** för den här strategin är låg pågående kostnad för nivån dataredundans. Säkerhetskopior tas automatiskt av tjänsten SQL Database med ingen omskrivning av program och utan extra kostnad.  Kostnaden uppkommer endast när de elastiska databaserna återställs. Den **kompromiss** är att slutföra återställningen av alla klientdatabaser tar mycket tid. Hur lång tid är beroende av totalt antal återställningar som du startar i regionen för Haveriberedskap och den totala storleken på klientdatabaserna. Även om du prioritera vissa klienter återställningar över andra konkurrerar med alla andra återställningar som startas i samma region som tjänsten hanterar och begränsar för att minimera den övergripande effekten på de befintliga kunderna databaser. Dessutom kan kan inte återställning av klientdatabaser starta förrän den nya elastiska poolen i regionen för Haveriberedskap har skapats.
+De främsta **fördelarna** med den här strategin är en låg kontinuerlig kostnad för redundans av data nivåer. Säkerhets kopieringar görs automatiskt av den SQL Database tjänsten utan att omskrivas av program och utan extra kostnad.  Kostnaden påförs bara när de elastiska databaserna återställs. **Kompromissen** är att hela återställningen av alla klient databaser tar lång tid. Hur lång tid det tar beror på det totala antalet återställningar som du initierar i DR-regionen och den övergripande storleken på klient databaserna. Även om du prioriterar vissa klienters återställningar över andra, konkurrerar du med alla andra återställningar som initieras i samma region som tjänstens arbitrates och begränsningar för att minimera den övergripande påverkan på befintliga kunders databaser. Dessutom kan återställningen av klient databaserna inte starta förrän den nya elastiska poolen i DR-regionen har skapats.
 
-## <a name="scenario-2-mature-application-with-tiered-service"></a>Scenario 2. Mogen program med en nivåindelad tjänst
+## <a name="scenario-2-mature-application-with-tiered-service"></a>Scenario 2. Vuxen program med skiktad tjänst
 
-Jag är en mogen SaaS-program med nivåindelade service-erbjudanden och olika serviceavtal för utvärderingsversion kunder och för att betala kunder. Jag har minska kostnaden så mycket som möjligt för kunder som utvärderingsversion. Utvärderingsversion kunder kan dra avbrottstid men jag vill minska dess sannolikheten. För betalande kunder är driftavbrott flygning risk. Jag vill se till att betala kan kunder alltid komma åt sina data.
+Jag är en vuxen SaaS-app med en nivå med tjänst erbjudanden och olika service avtal för utvärderings kunder och för att betala kunderna. För utvärderings kunder måste jag minska kostnaderna så mycket som möjligt. Utvärderings kunder kan ta stillestånds tid men jag vill minska sannolikheten. För betalande kunder är alla stillestånds tider en flyg risk. Jag vill se till att betala kunder alltid kan komma åt sina data.
 
-För det här scenariot måste du avgränsa utvärderingsversioner för klienter från betald klienter genom att sätta dem i separata elastiska pooler. Utvärderingsversion kunder har lägre edtu: er eller v-kärnor per klient och serviceavtal med lägre med en längre återställningstid. Betalande kunder finns i en pool med högre edtu: er eller v-kärnor per klient och ett högre serviceavtal. För att garantera lägsta återställningstiden är betalande kunder klientdatabaser geo-replikerade. Den här konfigurationen visas på i nästa diagram.
+För att stödja det här scenariot separerar du utvärderings klienterna från betalda klienter genom att sätta dem i separata elastiska pooler. Utvärderings kunder har lägre eDTU-eller virtuella kärnor per klient och lägre service avtal med en längre återställnings tid. De betalar kunderna finns i en pool med högre eDTU-eller virtuella kärnor per klient och ett högre service avtal. För att garantera den lägsta återställnings tiden är de betalande kundernas klient databaser geo-replikerade. Den här konfigurationen illustreras i nästa diagram.
 
 ![Bild 4](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-4.png)
 
-Hantering av databaserna är ganska aktiva som i det första scenariot så att du använder en enda geo-replikerad databas för den (1). Detta säkerställer den förutsägbara prestandan för nya kundprenumerationer, profiluppdateringar och andra hanteringsåtgärder. Den region där USA: s presidentval av management-databaserna finns är den primära regionen och den region där sekundärservrar av management-databaserna finns är DR-regionen.
+Som i det första scenariot är hanterings databaserna ganska aktiva så att du kan använda en enda geo-replikerad databas för den (1). Detta säkerställer förutsägbar prestanda för nya kund prenumerationer, profil uppdateringar och andra hanterings åtgärder. Den region där presidentval för hanterings databaserna finns är den primära regionen och den region där sekundärerna för hanterings databaserna finns är DR-regionen.
 
-Klientdatabaser för betalande kunder har aktiva databaser i poolen ”betald” etablerade i den primära regionen. Etablera en sekundär pool med samma namn i regionen för Haveriberedskap. Varje klient är geo-replikerad sekundär poolen (2). Detta gör det möjligt för snabb återställning av alla klientdatabaser med hjälp av redundans.
+De betalande kundernas klient databaser har aktiva databaser i poolen "betald" som tillhandahålls i den primära regionen. Etablera en sekundär pool med samma namn i DR-regionen. Varje klient är geo-replikerad till den sekundära poolen (2). Detta möjliggör snabb återställning av alla klient databaser med redundans.
 
-Om det inträffar avbrottet på den primära regionen, visas återställningsstegen för att ta med ditt program online i nästa diagram:
+Om ett avbrott uppstår i den primära regionen visas återställnings stegen för att ta ditt program online i nästa diagram:
 
-![Bild 5](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-5.png)
+![Figur 5](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-5.png)
 
-* Redundansväxla direkt hantering av databaser till regionen för Haveriberedskap (3).
-* Ändra programmets anslutningssträngen så att den pekar till regionen för Haveriberedskap. Alla nya konton och klientdatabaser skapas nu i regionen för Haveriberedskap. De befintliga utvärderingsversion kunderna se sina data som är tillfälligt otillgänglig.
-* Växla över betald klientens databaser i poolen i regionen för Haveriberedskap att återställa omedelbart tillgängliga (4). Eftersom växling vid fel är en snabb nivå metadataändring, Överväg en optimering där enskilda redundansväxlingarna utlöses på begäran av slutanvändaren-anslutningar.
-* Om ditt sekundära pool eDTU storlek eller vCore-värde är lägre än primärt eftersom den sekundära databasen krävs endast kapacitet för att bearbeta ändringsloggar när de hade sekundära databaser, omedelbart öka poolkapacitet nu att hantera arbetsbelastningen fullständig för alla klienter (5).
-* Skapa ny elastisk pool med samma namn och samma konfiguration i regionen för Haveriberedskap för utvärderingsversion kundernas databaser (6).
-* När utvärderingsversionen kundernas poolen har skapats kan du använda geo-återställning för att återställa enskilda utvärderingsinnehavare databaserna till den nya poolen (7). Överväg att utlösa enskilda återställningar av slutanvändaren anslutningar eller använda vissa andra programspecifika prioritet-schema.
+* Växla omedelbart över hanterings databaserna till DR-regionen (3).
+* Ändra programmets anslutnings sträng så att den pekar på DR-regionen. Nu skapas alla nya konton och klient databaser i DR-regionen. De befintliga utvärderings kunderna ser sina data tillfälligt otillgängliga.
+* Redundansväxla den betalda klientens databaser till poolen i DR-regionen för att omedelbart återställa deras tillgänglighet (4). Eftersom redundansväxlingen är en snabb ändring av metadata-nivå, bör du överväga en optimering där de enskilda redundansväxlingen utlöses på begäran av slut användar anslutningarna.
+* Om den sekundära poolens eDTU-storlek eller vCore-värde var lägre än den primära eftersom de sekundära databaserna bara krävde kapaciteten för att bearbeta ändrings loggarna medan de var sekundära, ökar du omedelbart pool kapaciteten nu för att hantera hela arbets belastningen för alla klienter (5).
+* Skapa den nya elastiska poolen med samma namn och samma konfiguration i DR-regionen för utvärderings kundernas databaser (6).
+* När utvärderings kundernas pool har skapats använder du geo-återställning för att återställa de enskilda utvärderings klient databaserna till den nya poolen (7). Överväg att utlösa enskilda återställningar från slut användar anslutningarna eller använda andra programspecifika prioritets scheman.
 
-Programmet är nu online igen i regionen för Haveriberedskap. Alla betalande kunder har åtkomst till sina data när utvärderingsversionen kunder uppstår fördröjning vid åtkomst till sina data.
+I det här läget är ditt program online igen i DR-regionen. Alla betalande kunder har till gång till sina data medan utvärderings kunder upplever fördröjning vid åtkomst till sina data.
 
-När den primära regionen återställs med Azure *när* du har återställt programmet i DR-regionen som du kan fortsätta att köra programmet i den regionen eller du kan välja att växla tillbaka till den primära regionen. Om den primära regionen återställs *innan* redundans är klart bör du överväga att du växlar tillbaka direkt. Återställningen tar de steg som visas i nästa diagram:
+När den primära regionen återställs av Azure *efter* att du har återställt programmet i Dr-regionen kan du fortsätta att köra programmet i den regionen, eller så kan du välja att växla tillbaka till den primära regionen. Om den primära regionen återställs *innan* redundansväxlingen är klar bör du överväga att återställa direkt. Återställnings proceduren utför stegen som illustreras i nästa diagram:
 
 ![Bild 6](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-6.png)
 
-* Avbryt alla utestående geo-återställning begäranden.
-* Växla över hantering av databaser (8). Efter den regionen återställningen blir den gamla primärt automatiskt sekundärt. Nu blir primärt igen.  
-* Växla över betald klientdatabaser (9). På samma sätt, efter den regionen återställningen gamla USA: s presidentval blir automatiskt de sekundära databaser. Nu de blir USA: s presidentval.
-* Ange de återställda utvärderingsversion databaser som har ändrats i regionen för Haveriberedskap till skrivskyddat läge (10).
-* Byt namn på eller ta bort motsvarande databas i poolen utvärderingsversion kunder primära (11) för varje databas i poolen utvärderingsversion kunder DR som ändrats sedan återställningen.
-* Kopiera de uppdaterade databaserna från poolen DR till primära poolen (12).
-* Ta bort poolen DR (13).
+* Avbryt alla utestående geo Restore-begäranden.
+* Redundansväxla hanterings databaser (8). Efter regions återställningen blir den gamla primären automatiskt den sekundära. Nu blir det primärt igen.  
+* Redundansväxla de betalda klient databaserna (9). Efter återställningen av regionen blir det gamla presidentval automatiskt de sekundära. Nu blir de presidentval igen.
+* Ange de återställda utvärderings databaser som har ändrats i DR-regionen till skrivskyddad (10).
+* För varje databas i en utvärderings versions kund DR-pool som har ändrats sedan återställningen, byter du namn på eller tar bort motsvarande databas i den primära poolen för utvärderings kunder (11).
+* Kopiera de uppdaterade databaserna från DR-poolen till den primära poolen (12).
+* Ta bort DR-poolen (13).
 
 > [!NOTE]
-> Redundansåtgärden är asynkron. Det är viktigt att du köra redundanskommandot för klient-databaserna i batchar med minst 20 databaser för att minimera tiden för återställning.
+> Redundansåtgärden är asynkron. För att minimera återställnings tiden är det viktigt att du kör kommandot klient databasers redundans i batchar av minst 20 databaser.
 
-Nyckeln **dra** av den här strategin är att det ger högsta serviceavtalet för betalande kunder. Det garanterar även att nya försök är blockerad när utvärderingsversionen DR-poolen har skapats. Den **kompromiss** är att den här installationen ökar den totala kostnaden för klientdatabaserna av kostnaden för den sekundära DR-adresspoolen för betalda kunder. Dessutom om sekundära poolen har en annan storlek, prestanda betalande kunder lägre efter en redundansväxling tills poolen uppgraderingen i regionen för Haveriberedskap har slutförts.
+De främsta **fördelarna** med den här strategin är att den ger det högsta service avtalet för de betalande kunderna. Det garanterar också att de nya utvärderingarna avblockeras så snart som en utvärderings version av en utvärderings version skapas. Den här inställningen ökar den totala kostnaden för klient databaserna med kostnaden för den sekundära Dr-poolen för betalda kunder. Dessutom, om den sekundära poolen har en annan storlek, kan de betalande kunderna uppleva lägre prestanda efter redundansväxlingen tills pool uppgraderingen i DR-regionen har slutförts.
 
-## <a name="scenario-3-geographically-distributed-application-with-tiered-service"></a>Scenario 3. Geografiskt distribuerade program med en nivåindelad tjänst
+## <a name="scenario-3-geographically-distributed-application-with-tiered-service"></a>Scenario 3. Geografiskt distribuerat program med skiktad tjänst
 
-Jag har en mogen SaaS-program med nivåindelade service-erbjudanden. Jag vill erbjuda ett serviceavtal på mycket aggressiva min betald kunder och minimera risken för påverkan när avbrott inträffar eftersom även korta avbrott kan orsaka kunden klagomål från slutanvändarna. Det är viktigt att betalande kunder alltid kan komma åt sina data. Försök är kostnadsfria och serviceavtal (SLA) erbjuds inte under utvärderingsperioden.
+Jag har ett vuxen SaaS-program med service erbjudanden på nivå. Jag vill erbjuda ett mycket aggressivt SLA till mina betalda kunder och minimera risken för påverkan på grund av avbrott, eftersom även ett kort avbrott kan orsaka att kunden blir missnöjd. Det är viktigt att de betalar kunderna alltid kan komma åt sina data. Testerna är kostnads fria och inget service avtal erbjuds under utvärderings perioden.
 
-För det här scenariot måste du använda tre separata elastiska pooler. Etablera två lika med storleken pooler med hög edtu: er eller v-kärnor per databas i två olika regioner ska innehålla betald kundernas klientdatabaser. Den tredje pool som innehåller de utvärderingsversioner för klienterna kan ha lägre edtu: er eller v-kärnor per databas och etableras i två regioner.
+Använd tre separata elastiska pooler för att stödja det här scenariot. Etablera två lika stora pooler med hög eDTU: er eller virtuella kärnor per databas i två olika regioner som ska innehålla de betalda kundernas klient databaser. Den tredje poolen som innehåller utvärderings klienterna kan ha lägre eDTU: er eller virtuella kärnor per databas och vara etablerad i någon av de två regionerna.
 
-För att garantera lägsta återställningstiden vid avbrott, är betalande kunder klientdatabaser geo-replikerade med 50% av de primära databaserna i var och en av de båda regionerna. På samma sätt kan har varje region 50% av den sekundära databasen. På så sätt kan om en region är offline, högst 50% av de betalda kunder databaser som påverkas och måste växla över. De andra databaserna förblir intakta. Den här konfigurationen illustreras i följande diagram:
+För att garantera den lägsta återställnings tiden under drifts tiden är de betalande kundernas klient databaser geo-replikerade med 50% av de primära databaserna i var och en av de två regionerna. På samma sätt har varje region 50% av de sekundära databaserna. På det här sättet, om en region är offline, påverkas endast 50% av de betalda kundernas databaser och måste återställas. De andra databaserna förblir intakta. Den här konfigurationen illustreras i följande diagram:
 
 ![Bild 4](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-7.png)
 
-Som i föregående scenarier, hantering av databaserna är ganska aktiva så konfigurera dem som enskilda geo-replikerade databaser (1). Detta säkerställer den förutsägbara prestandan för den nya kunden prenumerationer, profiluppdateringar och andra hanteringsåtgärder. Regionen A är den primära regionen för hantering av databaser och region B som ska användas för återställning av management-databaser.
+Som i föregående scenarier är hanterings databaserna ganska aktiva så att de konfigureras som enskilda geo-replikerade databaser (1). Detta säkerställer förutsägbar prestanda för de nya kund prenumerationerna, profil uppdateringar och andra hanterings åtgärder. Region A är den primära regionen för hanterings databaserna och region B används för återställning av hanterings databaser.
 
-Klientdatabaser för betalande kunder är också geo-replikerade men med USA: s presidentval och sekundärservrar delas upp mellan A och B (2)-region. På så sätt kan de primära klientdatabaser som påverkas av felet kan växla över till den andra regionen och blir tillgängliga. Den andra hälften av klient-databaserna inte är påverkas alls.
+De betalande kundernas klient databaser är också geo-replikerade, men med presidentval och sekundär REBINDING mellan region A och region B (2). På så sätt kan de primära klient databaserna som påverkas av avbrottet redundansväxla till den andra regionen och blir tillgängliga. Den andra halvan av klient databaserna påverkas inte alls.
 
-I nästa diagram visas recovery-åtgärder vid ett eventuellt strömavbrott i regionen A.
+Nästa diagram illustrerar de återställnings steg som ska vidtas om ett avbrott inträffar i region A.
 
-![Bild 5](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-8.png)
+![Figur 5](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-8.png)
 
-* Redundansväxla direkt hantering av databaser till region B (3).
-* Ändra programmets anslutningssträngen för att peka till hantering av databaser i regionen B. Ändra management databaser så att nya konton och klientdatabaser skapas i regionen B och befintlig klient-databaserna finns det också. De befintliga utvärderingsversion kunderna se sina data som är tillfälligt otillgänglig.
-* Växla över den betalda klientdatabaser till pool 2 i region B för att återställa omedelbart tillgängliga (4). Eftersom växling vid fel är en snabb nivån har ändrats, kan du en optimering där enskilda redundansväxlingarna utlöses på begäran av slutanvändaren-anslutningar.
-* Sedan nu pool 2 innehåller endast primära databaser, totalt antal arbetsbelastningen i poolen ökar och genast kan öka dess eDTU-storlek (5) eller antal virtuella kärnor.
-* Skapa ny elastisk pool med samma namn och samma konfiguration i regionen B för utvärderingsversion kundernas databaser (6).
-* När poolen har skapats kan du använda geo-återställning för att återställa enskilda utvärderingsversion klientdatabasen till pool (7). Du kan överväga att utlösa enskilda återställningar av slutanvändaren anslutningar eller använda vissa andra programspecifika prioritet-schema.
+* Växla omedelbart över hanterings databaserna till region B (3).
+* Ändra programmets anslutnings sträng så att den pekar på hanterings databaserna i region B. ändra hanterings databaserna för att se till att de nya kontona och klient databaserna skapas i region B och att befintliga klient databaser även finns där. De befintliga utvärderings kunderna ser sina data tillfälligt otillgängliga.
+* Redundansväxla den betalda klientens databaser till pool 2 i region B för att omedelbart återställa deras tillgänglighet (4). Eftersom redundansväxlingen är en snabb ändring av metadata kan du överväga en optimering där de enskilda redundansväxlingen utlöses på begäran av slut användar anslutningarna.
+* Eftersom nu pool 2 bara innehåller primära databaser, ökar den totala arbets belastningen i poolen och kan omedelbart öka dess eDTU-storlek (5) eller antalet virtuella kärnor.
+* Skapa den nya elastiska poolen med samma namn och samma konfiguration i region B för utvärderings kundernas databaser (6).
+* När poolen har skapats använder du geo-återställning för att återställa den enskilda utvärderings klient databasen till poolen (7). Du kan överväga att utlösa enskilda återställningar från slut användar anslutningarna eller använda andra programspecifika prioritets scheman.
 
 > [!NOTE]
-> Redundansåtgärden är asynkron. För att minimera tiden för återställning, är det viktigt att du köra redundanskommandot för klient-databaserna i batchar med minst 20 databaser.
+> Redundansåtgärden är asynkron. För att minimera återställnings tiden är det viktigt att du kör kommandot klient Databass-redundans i batchar av minst 20 databaser.
 
-Nu är ditt program online igen i regionen B. Alla betalande kunder har åtkomst till sina data när utvärderingsversionen kunder uppstår fördröjning vid åtkomst till sina data.
+I det här läget är ditt program online igen i region B. Alla betalande kunder har till gång till sina data medan utvärderings kunder upplever fördröjning vid åtkomst till sina data.
 
-När en region A återställs måste du bestämma om du vill använda region B för utvärderingsversion kunder eller återställning efter fel till att använda poolen utvärderingsversion kunder i regionen A. Ett villkor kan vara % av utvärderingsversion klientdatabaser som ändrats sedan återställningen. Oavsett detta beslut behöver du ombalansera de betalda innehavarna mellan två pooler. i nästa diagram illustrerar processen när utvärderingsversionen klientdatabaserna växla tillbaka till regionen A.  
+När region A återställs måste du bestämma om du vill använda region B för utvärderings kunder eller återställning efter fel för att använda poolen utvärderings kunder i region A. Ett kriterium kan vara% av de databas för utvärdering av klient databaser som ändrades sedan återställningen. Oavsett det beslutet måste du balansera om de betalande klienterna mellan två pooler. Nästa diagram illustrerar processen när en utvärderings klient databas växlar tillbaka till region A.  
 
 ![Bild 6](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-9.png)
 
-* Avbryt alla utestående geo-återställning förfrågningar till DR testpoolen.
-* Växla över databasen för konfigurationshantering (8). Efter den regionen återställningen blev den gamla primärt automatiskt sekundärt. Nu blir primärt igen.  
-* Välj vilken betald klientorganisation databaser växla tillbaka till pool 1 och initiera redundans till sina sekundärservrar (9). Efter den regionen återställningen blev alla databaser i pool 1 automatiskt sekundära databaser. Nu blir 50% av dem USA: s presidentval igen.
-* Minska storleken på poolen 2 till den ursprungliga eDTU (10) eller antalet virtuella kärnor.
-* Ange alla återställs utvärderingsversion databaser i regionen B till skrivskyddat läge (11).
-* Byt namn på eller ta bort motsvarande databasen i den primära testpoolen (12) för varje databas i poolen för utvärderingsversion DR som har ändrats sedan återställningen.
-* Kopiera de uppdaterade databaserna från poolen DR till primära poolen (13).
-* Ta bort poolen DR (14).
+* Avbryt alla väntande geo-återställnings begär Anden för att prova DR-poolen.
+* Redundansväxla hanterings databasen (8). Efter återställningen av regionen blev den gamla primära automatiskt den sekundära. Nu blir det primärt igen.  
+* Välj vilka betalda klient databaser som ska växlas tillbaka till pool 1 och initiera redundans till deras sekundära servrar (9). Efter regionens återställning blev alla databaser i pool 1 automatiskt sekundära. Nu 50% av dem blir presidentval igen.
+* Minska storleken på pool 2 till den ursprungliga eDTU: en (10) eller antalet virtuella kärnor.
+* Ange alla återställda utvärderings databaser i region B till skrivskyddad (11).
+* För varje databas i den version av en utvärderings version som har ändrats sedan återställningen, Byt namn på eller ta bort motsvarande databas i den primära poolen för utvärdering (12).
+* Kopiera de uppdaterade databaserna från DR-poolen till den primära poolen (13).
+* Ta bort DR-poolen (14).
 
-Nyckeln **fördelar** av den här strategin är:
+Viktiga **fördelar** med den här strategin är:
 
-* Stöder som mest serviceavtalet för betalande kunder eftersom det garanterar att ett avbrott inte kan påverkar mer än 50% av klientdatabaser.
-* Det garanterar att nya försök är blockerad när spårning DR-poolen har skapats under återställningen.
-* Det möjliggör mer effektiv användning av pool-kapacitet som 50% av sekundära databaser i pool 1 och pool 2 garanterat aktiveras mindre än de primära databaserna.
+* Den har stöd för det mest aggressiva service avtalet för de kunder som betalar, eftersom det garanterar att ett avbrott inte kan påverka över 50% av klient databaserna.
+* Det garanterar att de nya utvärderingarna är avblockerade så snart som den avslutande DR-poolen skapas under återställningen.
+* Det ger en mer effektiv användning av poolens kapacitet som 50% av de sekundära databaserna i pool 1 och pool 2, vilket garanterar att den är mindre aktiv än de primära databaserna.
 
-Huvudsakliga **avvägningarna** är:
+De främsta kompromisserna är:
 
-* CRUD-åtgärder mot management-databaser har kortare svarstider för slutanvändare som är anslutna till region A än för slutanvändare som är anslutna till region B som de körs mot primärt management-databaser.
-* Det krävs mer komplexa utformningen av databasen för konfigurationshantering. Varje klient-post har exempelvis en plats-tagg som behöver ändras under redundans och återställning efter fel.  
-* Betalande kunder kan prestanda lägre än vanligt tills poolen uppgraderingen i regionen B är klar.
+* CRUD-åtgärder mot hanterings databaser har kortare latens för slutanvändarna som är anslutna till regionen A än för slutanvändarna som är anslutna till region B när de utförs mot primärt för hanterings databaserna.
+* Det kräver mer komplex design av hanterings databasen. Varje klient post har exempelvis en plats tagg som behöver ändras under redundansväxling och återställning efter fel.  
+* De betalande kunderna kan uppleva lägre prestanda än vanligt förrän pool uppgraderingen i region B har slutförts.
 
 ## <a name="summary"></a>Sammanfattning
 
-Den här artikeln fokuserar på strategierna för haveriberedskap för databasnivån som används av en SaaS ISV-program för flera innehavare. Vilken strategi du väljer baseras på dina behov för programmet, till exempel affärsmodell serviceavtal som du vill erbjuda dina kunder, budgetstatus begränsningen osv. Varje beskrivs strategi beskriver fördelar och kompromiss så att du kan fatta ett välgrundat beslut. Dessutom innehåller ett visst program som sannolikt andra Azure-komponenter. Så att du granskar sina business continuity vägledning och dirigera återställningen av databasnivån med dem. Mer information om hur du hanterar återställning av databasprogram i Azure finns att [designa molnlösningar för disaster recovery](sql-database-designing-cloud-solutions-for-disaster-recovery.md).  
+Den här artikeln fokuserar på katastrof återställnings strategier för den databas nivå som används av ett SaaS ISV-program för flera innehavare. Den strategi du väljer baseras på programmets behov, t. ex. affärs modellen, det service avtal som du vill erbjuda dina kunder, budget begränsning osv. Varje beskrivande strategi beskriver fördelarna och kompromisserna så att du kan fatta ett välgrundat beslut. Dessutom innehåller ditt specifika program andra Azure-komponenter. Vi går igenom rikt linjerna för affärs kontinuitet och dirigerar återställningen av databas nivån med dem. Mer information om hur du hanterar återställning av databas program i Azure finns i [utforma moln lösningar för haveri beredskap](sql-database-designing-cloud-solutions-for-disaster-recovery.md).  
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Vill veta mer om Azure SQL Database automatiska säkerhetskopior, se [SQL Database automatiska säkerhetskopior](sql-database-automated-backups.md).
-* En översikt över affärskontinuitet och scenarier finns i [översikt över affärskontinuitet](sql-database-business-continuity.md).
-* Läs om hur du använder automatiska säkerhetskopieringar för återställning i [återställa en databas från de tjänstinitierade säkerhetskopiorna](sql-database-recovery-using-backups.md).
-* Läs om hur du snabbare återställningsalternativ i [aktiv geo-replikering](sql-database-active-geo-replication.md) och [automatisk redundans grupper](sql-database-auto-failover-group.md).
-* Läs om hur du använder automatiska säkerhetskopieringar för arkivering i [databaskopieringen](sql-database-copy.md).
+* Mer information om hur du Azure SQL Database automatiserade säkerhets kopieringar finns [SQL Database automatiska säkerhets kopieringar](sql-database-automated-backups.md).
+* En översikt över kontinuitet och scenarier för affärs kontinuitet finns i [Översikt över verksamhets kontinuitet](sql-database-business-continuity.md).
+* Information om hur du använder automatiska säkerhets kopieringar för återställning finns i [återställa en databas från de säkerhets kopior som initieras av tjänsten](sql-database-recovery-using-backups.md).
+* Läs mer om snabbare återställnings alternativ i aktiva grupper för [geo-replikering](sql-database-active-geo-replication.md) och [Automatisk redundans](sql-database-auto-failover-group.md).
+* Information om hur du använder automatiserade säkerhets kopieringar för arkivering finns i [databas kopiering](sql-database-copy.md).

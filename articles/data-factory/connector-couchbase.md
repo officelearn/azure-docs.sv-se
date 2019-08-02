@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 27f327493fbf3d7856b9488ecd0dd2509976ccfc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c3cd734380e2a3e3fbf35439ff807738c549a086
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60533997"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726154"
 ---
 # <a name="copy-data-from-couchbase-using-azure-data-factory-preview"></a>Kopiera data från Couchbase med Azure Data Factory (förhandsversion)
 
@@ -44,8 +44,8 @@ Följande egenskaper har stöd för Couchbase länkade tjänsten:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Type-egenskapen måste anges till: **Couchbase** | Ja |
-| connectionString | En ODBC-anslutningssträng att ansluta till Couchbase. <br/>Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory. Du kan också publicera autentiseringsuppgiftssträng i Azure Key Vault och använda pull i `credString` konfiguration av anslutningssträngen. Följande exempel finns och [Store autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) artikel med mer information. | Ja |
+| type | Egenskapen Type måste anges till: **Couchbase** | Ja |
+| connectionString | En ODBC-anslutningssträng att ansluta till Couchbase. <br/>Markera det här fältet som en SecureString för att lagra det på ett säkert sätt i Data Factory. Du kan också ange Credential-sträng i Azure Key Vault och hämta `credString` konfigurationen från anslutnings strängen. Se följande exempel och [lagra autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) artikel med mer information. | Ja |
 | connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda lokal Integration Runtime eller Azure Integration Runtime (om ditt datalager är offentligt tillgänglig). Om den inte anges används standard Azure Integration Runtime. |Nej |
 
 **Exempel:**
@@ -69,7 +69,7 @@ Följande egenskaper har stöd för Couchbase länkade tjänsten:
 }
 ```
 
-**Exempel: lagra autentiseringsuppgiftssträng i Azure Key Vault**
+**Exempel: lagra Credential-sträng i Azure Key Vault**
 
 ```json
 {
@@ -106,7 +106,7 @@ Kopiera data från Couchbase genom att ange typegenskapen på datauppsättningen
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Type-egenskapen för datauppsättningen måste anges till: **CouchbaseTable** | Ja |
+| type | Data uppsättningens typ-egenskap måste anges till: **CouchbaseTable** | Ja |
 | tableName | Namnet på tabellen. | Nej (om ”frågan” i aktivitetskälla har angetts) |
 
 
@@ -117,11 +117,12 @@ Kopiera data från Couchbase genom att ange typegenskapen på datauppsättningen
     "name": "CouchbaseDataset",
     "properties": {
         "type": "CouchbaseTable",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Couchbase linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
@@ -136,7 +137,7 @@ Om du vill kopiera data från Couchbase, ange typ av datakälla i kopieringsakti
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **CouchbaseSource** | Ja |
+| type | Typ egenskapen för kopierings aktivitets källan måste anges till: **CouchbaseSource** | Ja |
 | query | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
 
 **Exempel:**

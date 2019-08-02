@@ -1,5 +1,5 @@
 ---
-title: Ansluta Office 365-data till Azure Sentinel-förhandsgranskning | Microsoft Docs
+title: Anslut Office 365-data till Azure Sentinel Preview | Microsoft Docs
 description: Lär dig hur du ansluter Office 365-data till Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -13,45 +13,47 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2019
+ms.date: 07/31/2019
 ms.author: rkarlin
-ms.openlocfilehash: 1d6a467307e4816ffbb45f23bac55b8023267352
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 0013540bf0ca921b2f41260dea185f6aa32567d7
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67611242"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68679266"
 ---
 # <a name="connect-data-from-office-365-logs"></a>Anslut data från Office 365-loggar
 
 > [!IMPORTANT]
-> Azure Sentinel är för närvarande i offentlig förhandsversion.
+> Azure Sentinel är för närvarande en offentlig för hands version.
 > Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Du kan strömma granskningsloggar från [Office 365](https://docs.microsoft.com/office365/admin/admin-home?view=o365-worldwide) i Azure Sentinel-med ett enda klick. Du kan strömma granskningsloggar från flera innehavare till en enda arbetsyta i Azure Sentinel. Office 365-anslutning aktivitet log ger inblick i pågående användaraktiviteter. Du får information om olika användare, admin, system, och åtgärder och händelser från Office 365. Du kan använda dessa data att visa instrumentpaneler, skapa anpassade varningar och förbättra undersökningen genom att ansluta Office 365-loggar i Azure Sentinel.
+Du kan strömma gransknings loggar från [Office 365](https://docs.microsoft.com/office365/admin/admin-home?view=o365-worldwide) till Azure Sentinel med ett enda klick. Du kan strömma gransknings loggar från flera klienter till en enda arbets yta i Azure Sentinel. Office 365 aktivitets logg Connector ger inblick i pågående användar aktiviteter. Du får information om olika användar-, administratörs-, system-och princip åtgärder och händelser från Office 365. Genom att ansluta Office 365-loggar till Azure Sentinel kan du använda dessa data för att visa instrument paneler, skapa anpassade aviseringar och förbättra din gransknings process.
 
+> [!IMPORTANT]
+> Om du har en E3-licens, innan du kan komma åt data via API: t för hanterings aktivitet i Office 365, måste du aktivera enhetlig gransknings loggning för din Office 365-organisation. Du gör detta genom att aktivera gransknings loggen för Office 365. Instruktioner finns i [Aktivera eller inaktivera gransknings loggs ökning i Office 365](https://docs.microsoft.com/office365/securitycompliance/turn-audit-log-search-on-or-off). Mer information finns i [API-referens för Office 365 Management Activity](https://docs.microsoft.com/office/office-365-management-api/office-365-management-activity-api-reference).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- Du måste vara en global administratör eller säkerhetsadministratör på din klient
-- Kontrollera att port 4433 är öppen för webbtrafik på datorn varifrån loggade du in på Azure Sentinel för anslutningen.
+- Du måste vara global administratör eller säkerhets administratör för din klient
+- Kontrol lera att port 4433 är öppen för webb trafik från vilken du loggade in på Azure Sentinel för att skapa anslutningen på datorn.
 
 ## <a name="connect-to-office-365"></a>Ansluta till Office 365
 
-1. I Azure Sentinel väljer **datakopplingar** och klicka sedan på den **Office 365** panelen.
+1. I Azure Sentinel väljer du **data kopplingar** och klickar sedan på panelen **Office 365** .
 
-2. Om du inte redan har aktiverat den, under **anslutning** använder den **aktivera** knappen för att aktivera Office 365-lösningen. Om det redan har aktiverats identifieras på skärmen anslutning som redan har aktiverats.
-1. Office 365 kan du strömdata från flera klienter kan Azure Sentinel. För varje klient som du vill ansluta till, lägger du till klienten under **ansluta klienter till Azure Sentinel**. 
-1. En Active Directory-skärmen öppnas. Du uppmanas att autentisera med en global administratörsanvändare på varje klient som du vill ansluta till Azure Sentinel och ge behörigheter till Azure Sentinel att läsa loggar. 
-5. Under Stream Office 365-aktivitetsloggar, klickar du på **Välj** att välja vilka loggtyper som du vill strömma till Sentinel-Azure. Sentinel-Azure stöder för närvarande, Exchange och SharePoint.
+2. Om du inte redan har aktiverat den, under **anslutning** använder du knappen **Aktivera** för att aktivera Office 365-lösningen. Om den redan har Aktiver ATS identifieras den på anslutnings skärmen som redan aktive rad.
+1. Med Office 365 kan du strömma data från flera klienter till Azure Sentinel. Lägg till klienten under **Anslut klienter till Azure Sentinel**för varje klient som du vill ansluta till. 
+1. En Active Directory skärmen öppnas. Du uppmanas att autentisera med en global administratörs användare på varje klient som du vill ansluta till Azure Sentinel och ge behörighet till Azure Sentinel för att läsa dess loggar. 
+5. Under strömma Office 365 aktivitets loggar klickar du på **Välj** för att välja vilka logg typer som du vill strömma till Azure Sentinel. För närvarande stöder Azure Sentinel Exchange och SharePoint.
 
-4. Klicka på **tillämpa ändringarna**.
+4. Klicka på **tillämpa ändringar**.
 
-3. Om du vill använda relevanta schemat i Log Analytics för Office 365-loggar, Sök efter **OfficeActivity**.
+3. Om du vill använda det relevanta schemat i Log Analytics för Office 365-loggarna söker du efter **OfficeActivity**.
 
 
 ## <a name="next-steps"></a>Nästa steg
 I det här dokumentet har du lärt dig hur du ansluter Office 365 till Azure Sentinel. Mer information om Azure Sentinel finns i följande artiklar:
-- Lär dig hur du [få insyn i dina data och potentiella hot](quickstart-get-visibility.md).
-- Kom igång [upptäcka hot med Azure Sentinel](tutorial-detect-threats.md).
+- Lär dig hur du [får insyn i dina data och potentiella hot](quickstart-get-visibility.md).
+- Kom igång [med att identifiera hot med Azure Sentinel](tutorial-detect-threats.md).
 

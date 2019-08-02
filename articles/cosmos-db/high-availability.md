@@ -4,15 +4,15 @@ description: Den här artikeln beskriver hur Azure Cosmos DB ger hög tillgängl
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 07/31/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 4dde41479c05151fa4e14c9fe4b534b9f7edf9b4
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 4b039e777748499e1b9a2a120e9498d94066b735
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467740"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688284"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Hög tillgänglighet med Azure Cosmos DB
 
@@ -81,6 +81,8 @@ Den här funktionen är tillgänglig i följande Azure-regioner:
 * East US
 * USA, östra 2 
 * Centrala USA
+* Västra Europa
+* Västra USA 2
 
 > [!NOTE] 
 > Om du aktiverar Tillgänglighetszoner för ett Azure Cosmos-konto med en region kommer det att leda till kostnader som motsvarar att lägga till ytterligare en region i ditt konto. Mer information om priser finns på [sidan med priser](https://azure.microsoft.com/pricing/details/cosmos-db/) och [kostnaden för flera regioner i Azure Cosmos DB](optimize-cost-regions.md) artiklar. 

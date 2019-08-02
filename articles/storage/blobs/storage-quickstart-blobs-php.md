@@ -1,25 +1,23 @@
 ---
 title: Azure snabbstart – Skapa en blob i objektlagring med hjälp av PHP | Microsoft Docs
 description: Lär dig snabbt hur du överför objekt till och från Azure Blob Storage med hjälp av PHP
-services: storage
 author: mhopkins-msft
-ms.service: storage
-ms.devlang: php
-ms.topic: quickstart
-ms.date: 11/14/2018
 ms.author: mhopkins
-ms.reviewer: seguler
-ms.openlocfilehash: 790c6a372021542daa1098e94209c91b7bcecfd5
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.date: 11/14/2018
+ms.service: storage
+ms.subservice: blobs
+ms.topic: quickstart
+ms.openlocfilehash: 0453d7465479fb1410d1436cc3fa53914633ece5
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149464"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726394"
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-php"></a>Överföra objekt till och från Azure Blob Storage med hjälp av PHP
 I den här snabbstarten får du lära dig att använda PHP för att ladda upp, ladda ned och lista blockblobar i en container i Azure Blob-lagring. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
@@ -124,7 +122,7 @@ I det här avsnittet skapar du en instans av Azure Storage-klienten samt av blob
 
 Blob Storage stöder blockblobar, tilläggsblobar och sidblobar. Blockblobar är vanligast och används i denna snabbstart.  
 
-Om du vill överföra en fil till en blob hämtar du filens fullständiga sökväg genom att slå ihop katalognamnet och filnamnet på den lokala enheten. Du kan sedan ladda upp filen till angiven sökväg med hjälp av metoden **createblockblob()**. 
+Om du vill överföra en fil till en blob hämtar du filens fullständiga sökväg genom att slå ihop katalognamnet och filnamnet på den lokala enheten. Du kan sedan ladda upp filen till angiven sökväg med hjälp av metoden **createblockblob()** . 
 
 Exempelkoden tar en lokal fil och laddar upp den till Azure. Filen lagras som **myfile** och namnet på bloben som **fileToUpload** i koden. I följande exempel överförs filen till containern med namnet **quickstartblobs**.
 
@@ -143,11 +141,11 @@ Exempelkoden tar en lokal fil och laddar upp den till Azure. Filen lagras som **
     $blobClient->createBlockBlob($containerName, $fileToUpload, $content);
 ```
 
-Om du vill utföra en deluppdatering av innehållet i en blockblob använder du metoden **createblocklist()**. Blockblobar kan vara så stora som 4,7 TB och kan vara allt från Excel-kalkylblad till stora videofiler. Sidblobar används främst för VHD-filer som används för att säkerhetskopiera virtuella IaaS-datorer. Tilläggsblobar används för loggning, till exempel när du vill skriva till en fil och sedan fortsätta att lägga till mer information. Tilläggsblobar ska användas i en enskild skrivmodell. De flesta objekt som lagras i Blob Storage är blockblobar.
+Om du vill utföra en deluppdatering av innehållet i en blockblob använder du metoden **createblocklist()** . Blockblobar kan vara så stora som 4,7 TB och kan vara allt från Excel-kalkylblad till stora videofiler. Sidblobar används främst för VHD-filer som används för att säkerhetskopiera virtuella IaaS-datorer. Tilläggsblobar används för loggning, till exempel när du vill skriva till en fil och sedan fortsätta att lägga till mer information. Tilläggsblobar ska användas i en enskild skrivmodell. De flesta objekt som lagras i Blob Storage är blockblobar.
 
 ### <a name="list-the-blobs-in-a-container"></a>Visa en lista över blobarna i en container
 
-Du kan hämta en lista över filer i containern med hjälp av metoden **listBlobs()**. Följande kod hämtar listan över blobar och går sedan igenom dem och visar namnen på de blobar som har påträffats i en container.  
+Du kan hämta en lista över filer i containern med hjälp av metoden **listBlobs()** . Följande kod hämtar listan över blobar och går sedan igenom dem och visar namnen på de blobar som har påträffats i en container.  
 
 ```PHP
     $listBlobsOptions = new ListBlobsOptions();
@@ -168,7 +166,7 @@ Du kan hämta en lista över filer i containern med hjälp av metoden **listBlob
 
 ### <a name="get-the-content-of-your-blobs"></a>Hämta dina blobars innehåll
 
-Hämta innehållet i din blobar med hjälp av metoden **getBlob()**. Följande kod visar innehållet i bloben som laddades upp i föregående avsnitt.
+Hämta innehållet i din blobar med hjälp av metoden **getBlob()** . Följande kod visar innehållet i bloben som laddades upp i föregående avsnitt.
 
 ```PHP
     $blob = $blobClient->getBlob($containerName, $fileToUpload);
@@ -176,7 +174,7 @@ Hämta innehållet i din blobar med hjälp av metoden **getBlob()**. Följande k
 ```
 
 ### <a name="clean-up-resources"></a>Rensa resurser
-Om du inte längre behöver blobarna som laddades upp i den här snabbstarten kan du ta bort hela behållaren med hjälp av metoden **deleteContainer()**. Om du inte längre behöver filerna som skapades använder du metoden **deleteBlob()** för att ta bort filerna.
+Om du inte längre behöver blobarna som laddades upp i den här snabbstarten kan du ta bort hela behållaren med hjälp av metoden **deleteContainer()** . Om du inte längre behöver filerna som skapades använder du metoden **deleteBlob()** för att ta bort filerna.
 
 ```PHP
     // Delete blob.

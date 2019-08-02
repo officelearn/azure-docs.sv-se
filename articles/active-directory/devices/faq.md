@@ -11,14 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbba3f1b753738de57aa311387e522bae1b7b523
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 57bc2ca38b5166cfba39fb20254e169ce016ea12
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68499801"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706316"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Vanliga frågor och svar om Azure Active Directory enhets hantering
+
+## <a name="general-faq"></a>Vanliga frågor och svar
 
 ### <a name="q-i-registered-the-device-recently-why-cant-i-see-the-device-under-my-user-info-in-the-azure-portal-or-why-is-the-device-owner-marked-as-na-for-hybrid-azure-active-directory-azure-ad-joined-devices"></a>F: Jag registrerade enheten nyligen. Varför kan jag inte se enheten under min användar information i Azure Portal? Eller varför har enhets ägaren marker ATS som ej tillämpligt för Hybrid Azure Active Directory (Azure AD) anslutna enheter?
 
@@ -39,6 +41,11 @@ Endast följande enheter visas under **användar enheter**:
 
 - För Windows 10-och Windows Server 2016-enheter eller senare `dsregcmd.exe /status`kör du.
 - För äldre OS-versioner kör `%programFiles%\Microsoft Workplace Join\autoworkplace.exe`du.
+
+**S:** Information om fel sökning finns i följande artiklar:
+- [Felsöka enheter med kommandot dsregcmd](troubleshoot-device-dsregcmd.md)
+- [Felsöka hybrid Azure Active Directory anslutna Windows 10-och Windows Server 2016-enheter](troubleshoot-hybrid-join-windows-current.md)
+- [Felsöka hybrid Azure Active Directory anslutna enheter med äldre versioner](troubleshoot-hybrid-join-windows-legacy.md)
 
 ---
 
@@ -65,6 +72,8 @@ Se nedan om hur dessa åtgärder kan korrigeras.
 **S:** Den här åtgärden är avsiktligt. I det här fallet har enheten inte åtkomst till resurser i molnet. Administratörer kan utföra den här åtgärden för inaktuella, borttappade eller stulna enheter för att förhindra obehörig åtkomst. Om åtgärden utfördes oavsiktligt måste du återaktivera eller registrera om enheten enligt beskrivningen nedan
 
 - Om enheten har inaktiverats i Azure AD kan en administratör med tillräcklig behörighet aktivera den från Azure AD-portalen  
+  > [!NOTE]
+  > Om du synkroniserar enheter med hjälp av Azure AD Connect kommer hybrid Azure AD-anslutna enheter automatiskt att aktive ras igen under nästa synkronisering. Så om du behöver inaktivera en hybrid Azure AD-ansluten enhet måste du inaktivera den från din lokala AD
 
  - Om enheten tas bort i Azure AD måste du registrera enheten på nytt. Om du vill registrera om måste du utföra en manuell åtgärd på enheten. Se nedan för instruktioner för omregistrering baserat på enhetens tillstånd. 
 
@@ -114,20 +123,30 @@ Se nedan om hur dessa åtgärder kan korrigeras.
 
 **F: Varför kan en användare fortfarande komma åt resurser från en enhet som jag har inaktiverat i Azure Portal?**
 
-**S:** Det tar upp till en timme innan återkallning tillämpas.
+**S:** Det tar upp till en timme för en återkallning att tillämpas från den tidpunkt då Azure AD-enheten markeras som inaktive rad.
 
 >[!NOTE] 
 >För registrerade enheter rekommenderar vi att du rensar enheten för att se till att användarna inte har åtkomst till resurserna. Mer information finns i [Vad är enhets registrering?](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune). 
 
 ---
 
+### <a name="q-why-are-there-devices-marked-as-pending-under-the-registered-column-in-the-azure-portal"></a>F: Varför har enheter som marker ATS som "väntande" i kolumnen registrerad i Azure Portal?
+
+**S**:  Väntar på anger att enheten inte är registrerad. Det här läget anger att en enhet har synkroniserats med Azure AD Connect från lokalt AD och är redo för enhets registrering. Den här enheten har KOPPLINGs typen inställd på "hybrid Azure AD-ansluten". Läs mer om [hur du planerar hybrid Azure Active Directory Join-implementering](hybrid-azuread-join-plan.md).
+
+>[!NOTE]
+>En enhet kan också ändras från att ha ett registrerat tillstånd till "väntar"
+>* Om en enhet tas bort och från Azure AD först och synkroniseras igen från den lokala AD-enheten.
+>* Om en enhet tas bort från ett Sync-omfång på Azure AD Connect och läggs tillbaka.
+>
+>I båda fallen måste du omregistrera enheten manuellt på var och en av dessa enheter. Om du vill kontrol lera om enheten har registrerats tidigare kan du [Felsöka enheter med kommandot dsregcmd](troubleshoot-device-dsregcmd.md).
+
+---
 ## <a name="azure-ad-join-faq"></a>Vanliga frågor och svar om Azure AD Join
 
 ### <a name="q-how-do-i-unjoin-an-azure-ad-joined-device-locally-on-the-device"></a>F: Hur gör jag för att koppla från en Azure AD-ansluten enhet lokalt på enheten?
 
-**S:** 
-- För Hybrid Azure AD-anslutna enheter ser du till att inaktivera automatisk registrering. Den schemalagda aktiviteten registrerar inte enheten igen. Öppna sedan en kommando tolk som administratör och ange `dsregcmd.exe /debug /leave`. Eller kör det här kommandot som ett skript över flera enheter för att koppla från i bulk.
-- För rena Azure AD-anslutna enheter kontrollerar du att du har ett lokalt administratörs konto offline eller skapar ett. Du kan inte logga in med autentiseringsuppgifter för Azure AD-användare. Gå sedan till **Inställningar** > **konton** > **åtkomst till arbete eller skola**. Välj ditt konto och välj **Koppla från**. Följ anvisningarna och ange autentiseringsuppgifter för lokal administratör när du uppmanas till det. Slutför processen för att inte ansluta genom att starta om enheten.
+**S:** För rena Azure AD-anslutna enheter kontrollerar du att du har ett lokalt administratörs konto offline eller skapar ett. Du kan inte logga in med autentiseringsuppgifter för Azure AD-användare. Gå sedan till **Inställningar** > **konton** > **åtkomst till arbete eller skola**. Välj ditt konto och välj **Koppla från**. Följ anvisningarna och ange autentiseringsuppgifter för lokal administratör när du uppmanas till det. Slutför processen för att inte ansluta genom att starta om enheten.
 
 ---
 
@@ -223,6 +242,10 @@ Detta beteende:
 
 ## <a name="hybrid-azure-ad-join-faq"></a>Vanliga frågor och svar om hybrid Azure AD-anslutning
 
+### <a name="q-how-do-i-unjoin-a-hybrid-azure-ad-joined-device-locally-on-the-device"></a>F: Hur gör jag för att koppla från en hybrid Azure AD-ansluten enhet lokalt på enheten?
+
+**S:** För Hybrid Azure AD-anslutna enheter ser du till att inaktivera automatisk registrering. Den schemalagda aktiviteten registrerar inte enheten igen. Öppna sedan en kommando tolk som administratör och ange `dsregcmd.exe /debug /leave`. Eller kör det här kommandot som ett skript över flera enheter för att koppla från i bulk.
+
 ### <a name="q-where-can-i-find-troubleshooting-information-to-diagnose-hybrid-azure-ad-join-failures"></a>F: Var kan jag hitta felsöknings information för att diagnostisera hybrid problem med Azure AD Join?
 
 **S:** Information om fel sökning finns i följande artiklar:
@@ -234,7 +257,7 @@ Detta beteende:
 
 **S:** När användarna lägger till sina konton i appar på en domänansluten enhet kan de uppmanas att **lägga till kontot i Windows?** Om de anger **Ja** i frågan registreras enheten med Azure AD. Förtroende typen är markerad som Azure AD registrerad. När du har aktiverat hybrid Azure AD Join i din organisation får enheten även hybrid Azure AD-anslutning. Sedan visas två enhets tillstånd för samma enhet. 
 
-Hybrid Azure AD Join prioriteras över Azure AD-registrerat tillstånd. Enheten betraktas som hybrid Azure AD-ansluten för all autentisering och utvärdering av villkorlig åtkomst. Du kan på ett säkert sätt ta bort den registrerade enhets posten i Azure AD från Azure AD-portalen. Lär dig att [undvika eller rensa upp det här dubbla läget på Windows 10-datorn](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan#review-things-you-should-know). 
+Hybrid Azure AD Join prioriteras över Azure AD-registrerat tillstånd. Enheten betraktas som hybrid Azure AD-ansluten för all autentisering och utvärdering av villkorlig åtkomst. Du kan på ett säkert sätt ta bort den registrerade enhets posten i Azure AD från Azure AD-portalen. Lär dig att [undvika eller rensa upp det här dubbla läget på Windows 10-datorn](hybrid-azuread-join-plan.md#review-things-you-should-know). 
 
 ---
 
@@ -258,10 +281,19 @@ Hybrid Azure AD Join prioriteras över Azure AD-registrerat tillstånd. Enheten 
 
 ## <a name="azure-ad-register-faq"></a>Vanliga frågor om Azure AD-register
 
+### <a name="q-how-do-i-remove-an-azure-ad-registered-device-locally-on-the-device"></a>F: Hur gör jag för att ta bort en registrerad Azure AD-enhet lokalt på enheten?
+
+**S:** 
+- För registrerade enheter med Windows 10 Azure AD går du till **Inställningar** > **konton** > **åtkomst till arbete eller skola**. Välj ditt konto och välj **Koppla från**. Enhets registrering är per användar profil i Windows 10.
+- För iOS och Android kan du använda Microsoft Authenticator program **Inställningar** > **enhets registrering** och välja **avregistrera enheten**.
+- För macOS kan du använda Microsoft Intune Företagsportal programmet för att avregistrera enheten från hanteringen och ta bort eventuell registrering. 
+
+---
 ### <a name="q-can-i-register-android-or-ios-byod-devices"></a>F: Kan jag registrera Android-eller iOS BYOD-enheter?
 
 **S:** Ja, men endast med Azure Device Registration service och för Hybrid kunder. Den stöds inte med den lokala registrerings tjänsten för enheter i Active Directory Federation Services (AD FS) (AD FS).
 
+---
 ### <a name="q-how-can-i-register-a-macos-device"></a>F: Hur gör jag för att registrera en macOS-enhet?
 
 **S:** Utför följande steg:
@@ -274,6 +306,7 @@ Hybrid Azure AD Join prioriteras över Azure AD-registrerat tillstånd. Enheten 
 - Användare som ingår i principen för villkorlig åtkomst behöver en [version av Office som stöds för MacOS](../conditional-access/technical-reference.md#client-apps-condition) för att komma åt resurser. 
 - Under det första försöket till åtkomst uppmanas användarna att registrera enheten med hjälp av företags portalen.
 
+---
 ## <a name="next-steps"></a>Nästa steg
 
 - Läs mer om [registrerade Azure AD-enheter](concept-azure-ad-register.md)

@@ -1,78 +1,78 @@
 ---
-title: Förhindra att storage-begränsningar och experimentera svarstid med inkommande och utgående kataloger
-description: I den här artikeln lär du dig var du vill spara dina experiment indatafiler och var du vill skriva utdatafilerna för att förhindra begränsning lagringsfel och experimentera svarstid.
+title: Förhindra lagrings begränsningar och experiment svars tid med in-och utdata-kataloger
+description: I den här artikeln får du lära dig var du sparar dina experiment indatafiler och var du kan skriva utdatafiler för att förhindra lagrings begränsnings fel och experiment svars tid.
 services: machine-learning
 author: rastala
 ms.author: roastala
 manager: danielsc
-ms.reviewer: jmartens, jasonwhowell, mldocs
+ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 05/28/2019
-ms.openlocfilehash: 1f9199b5bae0c82cd46750d8ef5522a0d3579671
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: b0e0ef93b2782cd44eca3dc6023a7eb556cd3245
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595283"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68618387"
 ---
-# <a name="where-to-save-and-write-files-for-azure-machine-learning-experiments"></a>Där det är att spara och skriva filer för Azure Machine Learning-experiment
+# <a name="where-to-save-and-write-files-for-azure-machine-learning-experiments"></a>Var du ska spara och skriva filer för Azure Machine Learning experiment
 
-I den här artikeln lär du dig var du vill spara indatafiler och var du vill skriva utdatafilerna från dina experiment för att förhindra att lagringen begränsa fel och experimentera svarstid.
+I den här artikeln får du lära dig var du sparar indatafiler och var du kan skriva utdatafiler från experimenten för att förhindra lagrings gräns fel och experiment svars tid.
 
-När startar utbildning körs på en [beräkningsmålet](how-to-set-up-training-targets.md), de är isolerade från utanför miljöer. Syftet med den här designen är att säkerställa reproducerbarhet och portabilitet av experimentet. Om du kör samma skript två gånger på samma eller en annan compute mål, du får samma resultat. Med den här designen kan du hantera beräkningsmål som tillståndslösa beräkningsresurser som vart och ett har ingen tillhörighet ifråga om jobb som körs när de är klar.
+När du startar utbildning körs på ett [beräknings mål](how-to-set-up-training-targets.md), är de isolerade från externa miljöer. Syftet med den här designen är att säkerställa experimentets reproducerbarhet och portabilitet. Om du kör samma skript två gånger, på samma eller något annat beräknings mål, får du samma resultat. Med den här designen kan du behandla beräknings mål som tillstånds lösa beräknings resurser, var och en som inte har någon tillhörighet till de jobb som körs när de är klara.
 
-## <a name="where-to-save-input-files"></a>Var du vill spara inkommande filer
+## <a name="where-to-save-input-files"></a>Var indatafiler ska sparas
 
-Innan du kan initiera ett experiment på beräkningsmål eller den lokala datorn, måste du kontrollera att de nödvändiga filerna är tillgängliga för den beräkningsmål, till exempel beroendefiler och datafiler koden ska köras.
+Innan du kan påbörja ett experiment på ett beräknings mål eller på den lokala datorn måste du se till att de nödvändiga filerna är tillgängliga för det beräknings målet, till exempel beroende filer och datafiler som din kod måste köra.
 
-Azure Machine Learning körs utbildningsskript genom att kopiera mappen hela skriptet till mål-beräkningskontexten och sedan tar en ögonblicksbild. Lagringsgränsen för experiment ögonblicksbilder är 300 MB och/eller 2000-filer.
+Azure Machine Learning kör utbildnings skript genom att kopiera hela mappen Script till mål beräknings kontexten och sedan ta en ögonblicks bild. Lagrings gränsen för ögonblicks bilder av experiment är 300 MB och/eller 2000 filer.
 
-Därför rekommenderar vi:
+Därför rekommenderar vi följande:
 
-* **Lagra filer i en Azure Machine Learning [datalager](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py).** Detta förhindrar experiment svarstidsproblem och har fördelar för att komma åt data från en fjärransluten beräkningsmål, vilket innebär att autentisering och montering som hanteras av Azure Machine Learning-tjänsten. Mer information om att ange ett datalager som källkatalogen och ladda upp filer till ditt datalager i den [komma åt data från ditt datalager](how-to-access-data.md) artikeln.
+* **Lagra filerna i ett Azure Machine Learning [data lager](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py).** Detta förhindrar problem med experiment fördröjningen och har fördelarna med att komma åt data från ett fjärrberäknings mål, vilket innebär att autentisering och montering hanteras av Azure Machine Learning tjänsten. Läs mer om hur du anger ett data lager som käll katalog och laddar upp filer till ditt data lager i artikeln [åtkomst data från dina data lager](how-to-access-data.md) .
 
-* **Om du behöver bara ett par datafiler och beroende skript och kan inte använda ett datalager** placera filerna i katalogen med samma mapp som dina utbildningsskript. Anger den här mappen som din `source_directory` direkt i dina utbildningsskript, eller i den kod som anropar skriptet utbildning.
+* **Om du bara behöver ett par datafiler och beroende skript och inte kan använda ett data lager,** placerar du filerna i samma katalog katalog som ditt utbildnings skript. Ange den här mappen som `source_directory` din direkt i utbildnings skriptet eller i koden som anropar ditt utbildnings skript.
 
 <a name="limits"></a>
 
-### <a name="storage-limits-of-experiment-snapshots"></a>Lagringsgränserna experiment ögonblicksbilder
+### <a name="storage-limits-of-experiment-snapshots"></a>Lagrings gränser för experiment-ögonblicksbilder
 
-Experiment görs Azure Machine Learning för ett experiment ögonblicksbild av din kod baserat på den katalog som du föreslå när du konfigurerar körningen. Detta har högst 300 MB och/eller 2000-filer. Om du överskrider den här gränsen, visas följande fel:
+Vid experiment skapar Azure Machine Learning automatiskt en experiment ögonblicks bild av koden baserat på den katalog som du föreslår när du konfigurerar körningen. Detta har en total gräns på 300 MB och/eller 2000 filer. Om du överskrider den här gränsen visas följande fel:
 
 ```Python
 While attempting to take snapshot of .
 Your total snapshot size exceeds the limit of 300.0 MB
 ```
 
-Lös felet genom att lagra experiment filer på ett datalager. Om du inte kan använda ett datalager i tabellen nedan erbjuder alternativa lösningar.
+Lös problemet genom att lagra dina experiment-filer på ett data lager. Om du inte kan använda ett data lager erbjuder tabellen nedan möjliga alternativa lösningar.
 
-Experiment&nbsp;beskrivning|Gränsen lagringslösning
+Experiment&nbsp;Beskrivning|Lösning för lagrings gräns
 ---|---
-Mindre än 2000 filer och det går inte att använda ett datalager| Åsidosätt gräns för ögonblicksbilder storlek med <br> `azureml._restclient.snapshots_client.SNAPSHOT_MAX_SIZE_BYTES = 'insert_desired_size'`<br> Det kan ta flera minuter beroende på antalet och storleken på filerna.
-Måste använda ett visst skript directory| Gör en `.amlignore` filen du undantar filer från dina experiment ögonblicksbild som inte är en del av källkoden. Lägg till filnamnen till den `.amlignore` filen och placera den i samma katalog som dina utbildningsskript. Den `.amlignore` filen använder samma [syntax och mönster](https://git-scm.com/docs/gitignore) som en `.gitignore` fil.
-Pipeline|Använd en annan underkatalog för varje steg
-Jupyter Notebooks| Skapa en `.amlignore` filen eller flytta din bärbara dator till en ny, tom underkatalogen och köra din kod igen.
+Mindre än 2000 filer & kan inte använda ett data lager| Åsidosätt storleks gräns för ögonblicks bild med <br> `azureml._restclient.snapshots_client.SNAPSHOT_MAX_SIZE_BYTES = 'insert_desired_size'`<br> Detta kan ta flera minuter beroende på antalet filer och filernas storlek.
+Måste använda en speciell skript katalog| Skapa en `.amlignore` fil för att undanta filer från din ögonblicks bild av experimentet som inte ingår i käll koden. Lägg till fil namnen `.amlignore` i filen och placera den i samma katalog som ditt utbildnings skript. Filen använder samma [syntax och mönster](https://git-scm.com/docs/gitignore) som en `.gitignore` fil. `.amlignore`
+Pipeline|Använd en annan under katalog för varje steg
+Jupyter Notebooks| Skapa en `.amlignore` fil eller flytta din antecknings bok till en ny, tom, under katalog och kör koden igen.
 
-## <a name="where-to-write-files"></a>Var du vill skriva filer
+## <a name="where-to-write-files"></a>Var du kan skriva filer
 
-På grund av isoleringen av utbildning experiment, är ändringar i filerna som sker under körningar inte nödvändigtvis beständiga utanför din miljö. Om skriptet ändrar filerna som är lokala för compute, ändringarna sparas inte för experimentet nästa kör och de inte har spritts till klientdatorn automatiskt. Därför ändringar som görs under det första experimentet kör inte och bör inte påverka andra.
+På grund av isolering av övnings experiment behålls inte ändringarna i filer som inträffar under körningarna utanför din miljö. Om skriptet ändrar de lokala filerna för beräkning, sparas inte ändringarna för nästa experiment och de sprids inte tillbaka till klient datorn automatiskt. Därför körs inte de ändringar som gjorts under det första experimentet och påverkar inte dem i den andra.
 
-När du skriver ändringar, rekommenderar vi skriva filer till en Azure Machine Learning-datalager. Se [komma åt data från ditt datalager](how-to-access-data.md).
+När du skriver ändringar rekommenderar vi att du skriver filer till ett Azure Machine Learning data lager. Se [få åtkomst till data från dina data lager](how-to-access-data.md).
 
-Om du inte behöver ett datalager kan skriva filer till den `./outputs` och/eller `./logs` mapp.
+Om du inte behöver ett data lager, skriver du filer `./outputs` till mappen och `./logs` /eller.
 
 >[!Important]
-> Två mappar *matar ut* och *loggar*, ta emot särskild behandling av Azure Machine Learning. Vid träning, när du skriver filer till`./outputs` och`./logs` mappar, filerna kommer automatiskt att överföra till din körningshistorik, så att du har åtkomst till dem när din körning är klar.
+> Två mappar, *utdata* och *loggar*, tar emot särskild behandling av Azure Machine Learning. När du skriver filer till`./outputs` och`./logs` mappar under träning överförs filerna automatiskt till din körnings historik, så att du har åtkomst till dem när körningen är färdig.
 
-* **För utdata, till exempel statusmeddelanden eller bedömnings resultat** skriva filer till den `./outputs` mappen, så att de har sparats som artefakter i körningshistoriken. Tänk också på antalet och storleken på filerna som skrivits till den här mappen som svarstid kan uppstå när innehåll överförs till körningshistorik. Om svarstiden är något problem, bör skriva filer till ett datalager.
+* **För utdata, t. ex. status meddelanden eller resultat,** kan du `./outputs` skriva filer till mappen så att de är beständiga som artefakter i körnings historiken. Var mindful av antalet och storleken på filer som skrivs till den här mappen, eftersom svars tiden kan uppstå när innehållet laddas upp till körnings historiken. Om det är ett problem med fördröjningen rekommenderas att skriva filer till ett data lager.
 
-* **Att spara skriftliga filer som loggar i körningshistorik,** skriva filer till `./logs` mapp. Loggarna överförs i realtid, så att den här metoden är lämplig för strömning live uppdateringar från en fjärransluten kör.
+* **Spara skrivna filer som loggar i körnings historiken genom** att skriva `./logs` filer till mappen. Loggarna laddas upp i real tid, så den här metoden är lämplig för strömning av direktsända uppdateringar från en fjärrkörning.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs mer om [kommer åt data från ditt datalager](how-to-access-data.md).
+* Lär dig mer om [att komma åt data från dina data lager](how-to-access-data.md).
 
-* Läs mer om [så ange utbildning mål](how-to-set-up-training-targets.md).
+* Läs mer om [hur du ställer in utbildnings mål](how-to-set-up-training-targets.md).

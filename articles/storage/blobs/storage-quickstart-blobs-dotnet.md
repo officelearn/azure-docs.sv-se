@@ -1,20 +1,18 @@
 ---
 title: 'Snabbstart: Azure Blob Storage-klient bibliotek för .NET'
 description: I den här snabb starten får du lära dig hur du använder Azure Blob Storage-klient biblioteket för .NET för att skapa en behållare och en BLOB i blob-lagring (objekt). Du får lära dig hur du hämtar bloben till din lokala dator och hur du visar alla blobar i en container.
-services: storage
 author: mhopkins-msft
-ms.custom: mvc
-ms.service: storage
-ms.topic: quickstart
-ms.date: 07/20/2019
 ms.author: mhopkins
+ms.date: 07/20/2019
+ms.service: storage
 ms.subservice: blobs
-ms.openlocfilehash: a030aee18303d20ccf91c6939d349285c4a4bac4
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.topic: quickstart
+ms.openlocfilehash: 40ee855aa01a9b24e35fb9863221e3607786d407
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565944"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68722026"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-for-net"></a>Snabbstart: Azure Blob Storage-klient bibliotek för .NET
 

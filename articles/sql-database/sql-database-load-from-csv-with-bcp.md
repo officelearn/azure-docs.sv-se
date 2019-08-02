@@ -1,5 +1,5 @@
 ---
-title: Läs in data från CSV-fil till Azure SQL Database (bcp) | Microsoft Docs
+title: Läs in data från CSV-filen i Azure SQL Database (BCP) | Microsoft Docs
 description: För mindre datastorlekar används bcp för att importera data till Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 6c35d51c1029c0305c86cefd786e60b6547e0dee
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b3dff4e100d3859978667ad0df7d895a24ca8a8d
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799882"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567828"
 ---
 # <a name="load-data-from-csv-into-azure-sql-database-flat-files"></a>Läsa in data från CSV till Azure SQL Database (flat-filer)
 
@@ -25,11 +24,11 @@ Du kan använda kommandoradsverktyget bcp för att importera data från en CSV-f
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-### <a name="prerequisites"></a>Nödvändiga komponenter
+### <a name="prerequisites"></a>Förutsättningar
 
-Du behöver följande för att slutföra stegen i den här artikeln:
+För att slutföra stegen i den här artikeln behöver du:
 
-* En Azure SQL Database-server och databas
+* En Azure SQL Database-Server och-databas
 * Kommandoradsverktyget bcp installerat
 * Kommandoradsverktyget sqlcmd installerat
 

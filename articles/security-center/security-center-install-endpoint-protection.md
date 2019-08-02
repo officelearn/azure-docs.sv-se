@@ -1,6 +1,6 @@
 ---
-title: Hantera problem med endpoint protection med Azure Security Center | Microsoft Docs
-description: Lär dig hur du hanterar problem med endpoint protection i Azure Security Center.
+title: Hantera problem med slut punkts skydd med Azure Security Center | Microsoft Docs
+description: Lär dig hur du hanterar problem med slut punkts skydd i Azure Security Center.
 services: security-center
 documentationcenter: na
 author: rkarlin
@@ -14,103 +14,103 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 882d4e0592b74e8af30ff5bf110a41e403c3bf7d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4274b3684a2e9e79385a561b1cad426b4ffd954e
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60906589"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68609937"
 ---
-# <a name="manage-endpoint-protection-issues-with-azure-security-center"></a>Hantera problem med endpoint protection med Azure Security Center
-Azure Security Center övervakar statusen för skydd mot skadlig kod och rapporterar detta under Endpoint protection problem-bladet. Security Center visar problem, till exempel identifierade hot och otillräckligt skydd, vilket kan göra att dina virtuella datorer (VM) och datorer sårbar för program mot skadlig kod hot. Med hjälp av informationen under **problem med Endpoint protection**, du kan identifiera en plan för att åtgärda eventuella problem som identifieras.
+# <a name="manage-endpoint-protection-issues-with-azure-security-center"></a>Hantera problem med slut punkts skydd med Azure Security Center
+Azure Security Center övervakar status för skydd mot skadlig kod och rapporterar detta under bladet problem med slut punkts skydd. Security Center fokuserar på problem, till exempel identifierade hot och otillräckligt skydd, vilket kan göra att dina virtuella datorer (VM) och datorer är utsatta för hot mot skadlig kod. Genom att använda informationen under **problem med slut punkts skydd**kan du identifiera en plan för att åtgärda eventuella problem som identifieras.
 
-Security Center-rapporter på följande problem med endpoint protection:
+Security Center rapporterar följande problem med slut punkts skydd:
 
-- Slutpunktsskydd har inte installerats på Azure Virtual Machines – en stöds program mot skadlig kod är inte installerad på dessa virtuella datorer i Azure.
-- Slutpunktsskydd har inte installerats på Azure-datorer – en stöds program mot skadlig kod installeras inte på dessa icke-Azure-datorer.
-- Endpoint protection health:
+- Endpoint Protection installeras inte på virtuella Azure-datorer – en lösning för program mot skadlig kod som stöds är inte installerad på dessa virtuella Azure-datorer.
+- Endpoint Protection är inte installerat på icke-Azure-datorer – ett program mot skadlig kod som stöds är inte installerat på dessa datorer som inte är Azure-datorer.
+- Endpoint Protection-hälsa:
 
-  - Inaktuell signatur – en lösning för program mot skadlig kod installeras på dessa virtuella datorer och datorer, men lösningen har inte de senaste signaturerna för program mot skadlig kod.
-  - Inget realtidsskydd – en lösning för program mot skadlig kod installeras på dessa virtuella datorer och datorer, men den inte är konfigurerad för skydd i realtid.   Tjänsten kan ha inaktiverats eller Security Center kan inte hämta statusen eftersom lösningen inte stöds. Se [partnerintegration](security-center-os-coverage.md#supported-endpoint-protection-solutions) för en lista med lösningar som stöds.
-  - Rapporterar inte – en lösning för program mot skadlig kod har installerats men inte rapporterar data.
+  - Inaktuell signatur – en lösning för program mot skadlig kod installeras på de virtuella datorerna och datorerna, men lösningen har inte de senaste signaturerna för program mot skadlig kod.
+  - Inget real tids skydd – en lösning för program mot skadlig kod installeras på de virtuella datorerna och datorerna, men har inte kon figurer ATS för real tids skydd.   Tjänsten kan vara inaktive rad eller Security Center kanske inte kan hämta status eftersom lösningen inte stöds. Se [partner integration](security-center-os-coverage.md#supported-endpoint-protection-solutions) för en lista över lösningar som stöds.
+  - Ej rapportering – en lösning för program mot skadlig kod installeras men rapporterar inte data.
   - Okänd – en lösning för program mot skadlig kod har installerats men dess status är okänd eller rapporterar ett okänt fel.
 
     > [!NOTE]
-    > Se [integrera säkerhetslösningar](security-center-os-coverage.md#supported-endpoint-protection-solutions) en lista över säkerhetslösningar för endpoint protection integreras med Security Center.
+    > Se [integrera](security-center-os-coverage.md#supported-endpoint-protection-solutions) säkerhetslösningar för en lista över säkerhets lösningar för Endpoint Protection som är integrerade med Security Center.
     >
     >
 
 ## <a name="implement-the-recommendation"></a>Implementera rekommendationen
-Problem med endpoint protection presenteras som en rekommendation i Security Center.  Om din miljö är sårbar för program mot skadlig kod hot, den här rekommendationen visas under **rekommendationer** och under **Compute**. Se den **Endpoint protection utfärdar instrumentpanelen**, du måste följa beräkning arbetsflödet.
+Problem med slut punkts skydd presenteras som en rekommendation i Security Center.  Om din miljö är utsatt för hot mot skadlig kod visas den här rekommendationen under **rekommendationer** och under **beräkning**. Om du vill se **instrument panelen för slut punkts skydds problem**måste du följa beräknings arbets flödet.
 
-I det här exemplet ska vi använda **Compute**.  Vi ska titta på hur du installerar program mot skadlig kod på Azure Virtual Machines och på Azure-datorer.
+I det här exemplet ska vi använda **Compute**.  Vi ska titta på hur du installerar program mot skadlig kod på virtuella Azure-datorer och på datorer som inte är Azure-datorer.
 
 ## <a name="install-antimalware-on-azure-vms"></a>Installera program mot skadlig kod på virtuella Azure-datorer
 
-1. Välj **Compute och appar** huvudmenyn i Security Center eller **översikt**.
+1. Välj **compute &-appar** under Security Center huvud meny eller **Översikt**.
 
-   ![Välj Compute][1]
+   ![Välj beräkning][1]
 
-2. Under **Compute**väljer **problem med Endpoint protection**. Den **problem med Endpoint protection** instrumentpanelen öppnas.
+2. Under **Compute**väljer du **problem med slut punkts skydd**. Instrument panelen för **slut punkts skydds problem** öppnas.
 
-   ![Välj problem med Endpoint protection][2]
+   ![Välj problem med slut punkts skydd][2]
 
-   Överst på instrumentpanelen ger:
+   Instrument panelens överkant innehåller:
 
-   - Installera endpoint protection providers – visar de olika leverantörer som identifieras av Security Center.
-   - Hälsostatus för installerat endpoint protection - visar hälsotillståndet för virtuella datorer och datorer som har en endpoint protection-lösning installerad. Diagrammet visar hur många virtuella datorer och datorer som är felfria och med otillräckligt skydd.
-   - Skadlig kod har identifierats – visar hur många virtuella datorer och datorer där Security Center rapporterar identifierat en skadlig kod.
-   - Attackerade datorer – visar antalet virtuella datorer och datorer där Security Center rapporterar angrepp av skadlig kod.
+   - Installerade Endpoint Protection-providers – listar de olika providers som identifieras av Security Center.
+   - Installerat hälso tillstånd för slut punkts skydd – visar hälso tillståndet för virtuella datorer och datorer där en Endpoint Protection-lösning är installerad. Diagrammet visar antalet virtuella datorer och datorer som är felfria och antalet med otillräckligt skydd.
+   - Identifierad skadlig kod – visar antalet virtuella datorer och datorer där Security Center rapporterar identifierad skadlig kod.
+   - Angrepp datorer – visar antalet virtuella datorer och datorer där Security Center rapporterar attacker av skadlig kod.
 
-   Längst ned i instrumentpanelen är det en lista över endpoint protection-problem som innehåller följande information:  
+   Längst ned på instrument panelen finns en lista med problem med slut punkts skydd som innehåller följande information:  
 
-   - **Totalt antal** -antalet virtuella datorer och datorer som påverkas av problemet.
-   - Ett liggande sammanställa antalet virtuella datorer och datorer som påverkas av problemet. Färger i fältet identifiera prioritet:
+   - **Totalt** – antalet virtuella datorer och datorer som påverkas av problemet.
+   - Ett fält som aggregerar antalet virtuella datorer och datorer som påverkas av problemet. Färgerna i fältet identifierar prioritet:
 
-      - Röd - hög prioritet och bör åtgärdas omedelbart
-      - Orange - Medelhög prioritet och bör åtgärdas så snart som möjligt
+      - Röd – hög prioritet och bör åtgärdas omedelbart
+      - Orange – medelhög prioritet och bör åtgärdas så snart som möjligt
 
-3. Välj **Endpoint protection inte installeras på Azure Virtual Machines**.
+3. Välj **Endpoint Protection inte installerat på virtuella Azure-datorer**.
 
-   ![Välj Endpoint protection inte installerat på virtuella Azure-datorer][3]
+   ![Välj Endpoint Protection inte installerat på virtuella Azure-datorer][3]
 
-4. Under **Endpoint protection inte installeras på Azure Virtual Machines** är en lista över virtuella Azure-datorer som inte har installerat program mot skadlig kod.  Du kan välja att installera program mot skadlig kod på alla virtuella datorer i listan eller välja att installera program mot skadlig kod på genom att klicka på en specifik virtuell dator på enskilda virtuella datorer.
-5. Under **Välj Endpoint protection**, Välj endpoint protection-lösning som du vill använda. I det här exemplet väljer **Microsoft Antimalware**.
-6. Mer information om endpoint protection-lösning visas. Välj **Skapa**.
+4. Under **Endpoint Protection som inte är installerat på virtuella Azure-datorer** är en lista över virtuella Azure-datorer som inte har installerat program vara.  Du kan välja att installera program mot skadlig kod på alla virtuella datorer i listan eller välja enskilda virtuella datorer som du vill installera program mot skadlig kod på genom att klicka på den specifika virtuella datorn.
+5. Under **Välj Endpoint Protection**väljer du den slut punkts skydds lösning som du vill använda. I det här exemplet väljer du **Microsoft Antimalware**.
+6. Ytterligare information om slut punkts skydds lösningen visas. Välj **Skapa**.
 
-## <a name="install-antimalware-on-non-azure-computers"></a>Installera program mot skadlig kod på Azure-datorer
+## <a name="install-antimalware-on-non-azure-computers"></a>Installera program mot skadlig kod på datorer som inte är Azure-datorer
 
-1. Gå tillbaka till **problem med Endpoint protection** och välj **Endpoint protection inte installerat på Azure-datorer**.
+1. Gå tillbaka till **problem med slut punkts skydd** och välj **Endpoint Protection inte installerat på datorer som inte är Azure-datorer**.
 
-   ![Välj Endpoint protection inte installerat på Azure-datorer][4]
+   ![Välj Endpoint Protection inte installerat på datorer som inte är Azure-datorer][4]
 
-2. Under **Endpoint protection inte installerat på Azure-datorer**, Välj en arbetsyta. En Azure Monitor-loggar sökfråga filtreras till arbetsytan öppnas och visar en lista över datorer som saknar program mot skadlig kod. Välj en dator i listan för mer information.
+2. Under **Endpoint Protection inte installerat på icke-Azure-datorer**väljer du en arbets yta. En Azure Monitor loggar Sök frågan som filtrerats till arbets ytan öppnas och visar en lista över datorer som saknar skadlig kod. Välj en dator i listan om du vill ha mer information.
 
-   ![Azure Monitor loggar sökning][5]
+   ![Sök i Azure Monitor loggar][5]
 
-En annan sökresultat öppnas med information som filtrerad endast för den datorn.
+Ett annat Sök Resultat öppnas med information som filtrerats enbart för den datorn.
 
-  ![Azure Monitor loggar sökning][6]
+  ![Sök i Azure Monitor loggar][6]
 
 > [!NOTE]
-> Vi rekommenderar att slutpunktsskydd ska etableras för alla virtuella datorer och datorer för att identifiera och ta bort virus, spionprogram och annan skadlig programvara.
+> Vi rekommenderar att Endpoint Protection tillhandahålls för alla virtuella datorer och datorer för att hjälpa till att identifiera och ta bort virus, spionprogram och annan skadlig program vara.
 >
 >
 
 ## <a name="next-steps"></a>Nästa steg
-Den här artikeln visar dig hur du implementerar Security Center-rekommendationen ”installera Endpoint Protection”. Mer information om hur du aktiverar Microsoft Antimalware i Azure finns i följande dokument:
+I den här artikeln visar vi hur du implementerar Security Center rekommendation "Installera Endpoint Protection". Mer information om hur du aktiverar Microsoft Antimalware i Azure finns i följande dokument:
 
-* [Microsoft Antimalware for Cloud Services och Virtual Machines](../security/azure-security-antimalware.md) – Lär dig hur du distribuerar Microsoft Antimalware.
+* [Microsoft Antimalware för Cloud Services och Virtual Machines](../security/fundamentals/antimalware.md) --lär dig hur du distribuerar Microsoft Antimalware.
 
 Mer information om Security Center finns i följande dokument:
 
-* [Ange säkerhetsprinciper i Azure Security Center](tutorial-security-policy.md) – Lär dig hur du ställer in säkerhetsprinciper.
-* [Hantera säkerhetsrekommendationer i Azure Security Center](security-center-recommendations.md) – Lär dig hur rekommendationer hjälper dig att skydda dina Azure-resurser.
-* [Övervakning av säkerhetshälsa i Azure Security Center](security-center-monitoring.md) – Lär dig att övervaka hälsotillståndet hos dina Azure-resurser.
+* [Ange säkerhets principer i Azure Security Center](tutorial-security-policy.md) – lär dig hur du konfigurerar säkerhets principer.
+* [Hantera säkerhets rekommendationer i Azure Security Center](security-center-recommendations.md) – lär dig hur rekommendationer hjälper dig att skydda dina Azure-resurser.
+* [Övervakning av säkerhets hälsa i Azure Security Center](security-center-monitoring.md) – lär dig hur du övervakar Azure-resursernas hälsa.
 * [Hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md) – Här får du lära dig hur du hanterar och åtgärdar säkerhetsaviseringar.
 * [Övervaka partnerlösningar med Azure Security Center](security-center-partner-solutions.md): Här får du lära dig hur du övervakar dina partnerlösningars hälsostatus.
 * [Vanliga frågor och svar om Azure Security Center](security-center-faq.md) – Här hittar du vanliga frågor och svar om tjänsten.
-* [Azures säkerhetsblogg](https://blogs.msdn.com/b/azuresecurity/) --hittar du blogginlägg om Azure-säkerhet och regelefterlevnad.
+* [Azures säkerhets blogg](https://blogs.msdn.com/b/azuresecurity/) – hitta blogg inlägg om säkerhet och efterlevnad i Azure.
 
 <!--Image references-->
 [1]:./media/security-center-install-endpoint-protection/compute.png

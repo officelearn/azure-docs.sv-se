@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 2af076153725dc91caaf07b710acf21ebc143fb0
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: d9a1dff9c44403ad14e58b3fc3cda880cf65a29c
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67273676"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68679114"
 ---
 # <a name="programming-guide-for-azure-event-hubs"></a>Programmeringsguide för Händelsehubbar i Azure
 Den här artikeln beskriver några vanliga scenarier i skriva kod med Azure Event Hubs. Den förutsätter att du har en grundläggande förståelse av händelsehubbar. En konceptuell översikt av händelsehubbar finns på [Översikt av händelsehubbar](event-hubs-what-is-event-hubs.md).
@@ -23,7 +23,7 @@ Den här artikeln beskriver några vanliga scenarier i skriva kod med Azure Even
 
 Du kan skicka händelser till en händelsehubb antingen med hjälp av HTTP POST eller via en AMQP 1.0-anslutning. Valet av som du vill använda och när beror på det specifika scenario du håller på att åtgärdas. AMQP 1.0-anslutningar är avgiftsbelagda som asynkrona anslutningar i Service Bus och är mer lämpliga i scenarier med ofta högre meddelandevolymer och lägre svarstidskrav, eftersom de tillhandahåller en permanent meddelandekanal.
 
-När du använder de .NET-hanterade API:erna är de primära konstruktionerna för att publicera data i händelsehubbar klasserna [EventHubClient][] och [EventData][]. [EventHubClient][] innehåller kommunikationskanalen AMQP som händelser skickas till händelsehubben. Den [EventData][] klass representerar en händelse och används för att publicera meddelanden till en händelsehubb. Den här klassen innehåller brödtexten, vissa metadata och rubrikinformation om händelsen. Andra egenskaper läggs till i [EventData][] objekt när den går igenom en event hub.
+När du använder de .NET-hanterade API:erna är de primära konstruktionerna för att publicera data i händelsehubbar klasserna [EventHubClient][] och [EventData][]. [EventHubClient][] innehåller kommunikationskanalen AMQP som händelser skickas till händelsehubben. Den [EventData][] klass representerar en händelse och används för att publicera meddelanden till en händelsehubb. Den här klassen innehåller bröd texten, vissa metadata (egenskaper) och rubrik information (SystemProperties) om händelsen. Andra egenskaper läggs till i [EventData][] objekt när den går igenom en event hub.
 
 ## <a name="get-started"></a>Kom igång
 .NET-klasser som har stöd för Händelsehubbar finns i den [Microsoft.Azure.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) NuGet-paketet. Du kan installera med hjälp av Visual Studio Solution explorer eller [Pakethanterarkonsolen](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) i Visual Studio. Om du vill göra det kör du följande kommando i [Package Manager-konsol](https://docs.nuget.org/docs/start-here/using-the-package-manager-console)-fönstret:
@@ -72,7 +72,7 @@ for (var i = 0; i < numMessagesToSend; i++)
 ## <a name="partition-key"></a>Partitionsnyckeln
 
 > [!NOTE]
-> Om du inte är bekant med partitioner, se [i den här artikeln](event-hubs-features.md#partitions). 
+> Om du inte är bekant med partitioner kan du läsa [den här artikeln](event-hubs-features.md#partitions). 
 
 När du skickar händelsedata, kan du ange ett värde som hashas för att skapa en tilldelning av partitionen. Du anger en partition med hjälp av den [PartitionSender.PartitionID](/dotnet/api/microsoft.azure.eventhubs.partitionsender.partitionid) egenskapen. Beslutet att använda partitioner innebär dock ett val mellan tillgänglighet och konsekvens. 
 
@@ -94,7 +94,7 @@ Mer information och en diskussion om avvägningar mellan tillgänglighet och kon
 
 Skicka händelser i batchar kan öka genomflödet. Du kan använda den [CreateBatch](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createbatch) API för att skapa en batch som objekt senare kan läggas till för en [SendAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync) anropa.
 
-En enskild batch får inte överskrida gränsen på 1 MB för en händelse. Dessutom använder varje meddelande i batchen samma utgivaridentitet. Det är avsändarens ansvar att se till att batchen inte överskrider den maximala händelsestorleken. Om den gör det genereras ett **Skicka**-felmeddelande för klienten. Du kan använda hjälpmetoden [EventHubClient.CreateBatch](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createbatch) att se till att batchen inte överskrider 1 MB. Du får en tom [EventDataBatch](/dotnet/api/microsoft.azure.eventhubs.eventdatabatch) från den [CreateBatch](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createbatch) API och sedan använda [TryAdd](/dotnet/api/microsoft.azure.eventhubs.eventdatabatch.tryadd) att lägga till händelser för att konstruera batchen. 
+En enskild batch får inte överskrida gränsen på 1 MB för en händelse. Dessutom använder varje meddelande i batchen samma utgivaridentitet. Det är avsändarens ansvar att se till att batchen inte överskrider den maximala händelsestorleken. Om den gör det genereras ett **Skicka**-felmeddelande för klienten. Du kan använda hjälp metoden [EventHubClient. CreateBatch](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createbatch) för att se till att batchen inte överskrider 1 MB. Du får en tom [EventDataBatch](/dotnet/api/microsoft.azure.eventhubs.eventdatabatch) från den [CreateBatch](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createbatch) API och sedan använda [TryAdd](/dotnet/api/microsoft.azure.eventhubs.eventdatabatch.tryadd) att lägga till händelser för att konstruera batchen. 
 
 ## <a name="send-asynchronously-and-send-at-scale"></a>Skicka asynkront och skicka i skala
 
@@ -113,7 +113,7 @@ Om du vill använda klassen [EventProcessorHost][] kan du implementera [IEventPr
 Om du vill starta händelsebearbetning instansiera [EventProcessorHost][], ger lämpliga parametrar för din händelsehubb. Exempel:
 
 > [!NOTE]
-> EventProcessorHost och dess relaterade klasser finns i den **Microsoft.Azure.EventHubs.Processor** paketet. Lägg till paketet i Visual Studio-projektet genom att följa instruktionerna i [i den här artikeln](event-hubs-dotnet-framework-getstarted-send.md#add-the-event-hubs-nuget-package) eller genom att följande kommando i den [Pakethanterarkonsolen](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) fönster:`Install-Package Microsoft.Azure.EventHubs.Processor`.
+> EventProcessorHost och dess relaterade klasser finns i paketet **Microsoft. Azure. EventHubs. processor** . Lägg till paketet i Visual Studio-projektet genom att följa anvisningarna i [den här artikeln](event-hubs-dotnet-framework-getstarted-send.md#add-the-event-hubs-nuget-package) eller genom att utfärda följande kommando i fönstret [Package Manager](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) -`Install-Package Microsoft.Azure.EventHubs.Processor`konsol:.
 
 ```csharp
 var eventProcessorHost = new EventProcessorHost(

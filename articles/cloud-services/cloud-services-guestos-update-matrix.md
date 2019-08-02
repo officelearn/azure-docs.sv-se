@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 7/18/2019
+ms.date: 7/26/2019
 ms.author: raiye
-ms.openlocfilehash: 2dac76ef0d0d71c11291e63fdb3a7ce307638b50
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 9f796d4fe0edd1b6a944fc96e8045b1434d939f0
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68405556"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68592411"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure gäst operativ system versioner och SDK-kompatibilitet mat ris
 Innehåller uppdaterad information om de senaste Azure Guest OS-versionerna för Cloud Services. Den här informationen hjälper dig att planera uppgraderings vägen innan ett gäst operativ system är inaktiverat. Om du konfigurerar dina roller så att de använder *automatiska* uppdateringar av gäst operativ system enligt beskrivningen i [Azures uppdaterings inställningar för gäst operativ system][Azure Guest OS Update Settings]är det inte viktigt att du läser den här sidan.
@@ -42,6 +42,9 @@ Innehåller uppdaterad information om de senaste Azure Guest OS-versionerna för
 Är du osäker på hur du uppdaterar ditt gäst operativ system? Kolla [här][cloud updates] .
 
 ## <a name="news-updates"></a>Diskussions grupps uppdateringar
+
+###### <a name="july-26-2019"></a>**26 juli 2019**
+Juli gäst operativ system har släppts.
 
 ###### <a name="july-8-2019"></a>**8 juli 2019**
 Gäst operativ systemet i juni har släppts.
@@ -98,8 +101,9 @@ Gäst operativ systemet i september har släppts.
 
 | Konfigurations sträng | Utgivningsdatum | Inaktive rings datum |
 | --- | --- | --- |
+| WA – GÄST-OS-6,9 _201907 – 01 |26 juli 2019 |Publicera 6,11 |
 | WA-GUEST-OS-6.8_201906-01 |8 juli 2019 |Publicera 6,10 |
-| WA-GUEST-OS-6.7_201905-01 |6 juni 2019 |Publicera 6,9 |
+|~~WA – GÄST-OS-6.7 _201905 – 01~~ |6 juni 2019 |26 juli 2019 |
 |~~WA-GUEST-OS-6.6_201904-01~~ |7 maj 2019 |8 juli 2019 |
 |~~WA-GUEST-OS-6.5_201903-01~~ |26 mars 2019 |6 juni 2019 |
 |~~WA-GUEST-OS-6.4_201902-01~~ |12 mars 2019 |7 maj 2019 |
@@ -119,8 +123,9 @@ Gäst operativ systemet i september har släppts.
 
 | Konfigurations sträng | Utgivningsdatum | Inaktive rings datum |
 | --- | --- | --- |
+| WA – GÄST-OS-5.33 _201907-01 |26 juli 2019 |Publicera 5,35 |  
 | WA-GUEST-OS-5.32_201906-01 |8 juli 2019 |Publicera 5,34 |
-| WA-GUEST-OS-5.31_201905-01 |6 juni 2019 |Publicera 5,33 |
+|~~WA – GÄST-OS-5.31 _201905-01~~ |6 juni 2019 |26 juli 2019 |
 |~~WA-GUEST-OS-5.30_201904-01~~ |7 maj 2019 |8 juli 2019 |
 |~~WA-GUEST-OS-5.29_201903-01~~ |26 mars 2019 |6 juni 2019 |
 |~~WA-GUEST-OS-5.28_201902-01~~ |12 mars 2019 |7 maj 2019 |
@@ -137,8 +142,9 @@ Gäst operativ systemet i september har släppts.
 
 | Konfigurations sträng | Utgivningsdatum | Inaktive rings datum |
 | --- | --- | --- |
+| WA – GÄST-OS-4.68 _201907-01 | 26 juli 2019  |Publicera 4,70 |
 | WA-GUEST-OS-4.67_201906-01 |8 juli 2019 |Publicera 4,69 |
-| WA-GUEST-OS-4.66_201905-01 |6 juni 2019 |Publicera 4,68 |
+|~~WA – GÄST-OS-4.66 _201905-01~~ |6 juni 2019 |26 juli 2019 |
 |~~WA-GUEST-OS-4.65_201904-01~~ |7 maj 2019 |8 juli 2019 |
 |~~WA-GUEST-OS-4.64_201903-01~~ |26 mars 2019 |6 juni 2019 |
 |~~WA-GUEST-OS-4.63_201902-01~~ |12 mars 2019 |7 maj 2019 |
@@ -155,8 +161,9 @@ Gäst operativ systemet i september har släppts.
 
 | Konfigurations sträng | Utgivningsdatum | Inaktive rings datum |
 | --- | --- | --- |
+| WA – GÄST-OS-3,75 _201907-01 | 26 juli 2019 |Publicera 3,77 |
 | WA-GUEST-OS-3.74_201906-01 |8 juli 2019 |Publicera 3,76 |
-| WA-GUEST-OS-3.73_201905-01 |6 juni 2019 |Publicera 3,75 |
+|~~WA – GÄST-OS-3.73 _201905-01~~ |6 juni 2019 |26 juli 2019 |
 |~~WA-GUEST-OS-3.72_201904-01~~ |7 maj 2019 |8 juli 2019 |
 |~~WA-GUEST-OS-3.71_201903-01~~ |26 mars 2019 |6 juni 2019 |
 |~~WA-GUEST-OS-3.70_201902-01~~ |12 mars 2019 |7 maj 2019 |
@@ -173,8 +180,9 @@ Gäst operativ systemet i september har släppts.
 
 | Konfigurations sträng | Utgivningsdatum | Inaktive rings datum |
 | --- | --- | --- |
+| WA – GÄST-OS-2,88 _201907-01 | 26 juli 2019 |Publicera 2,90 |
 | WA-GUEST-OS-2.87_201906-01 |8 juli 2019 |Publicera 2,89 |
-| WA-GUEST-OS-2.86_201905-01 |6 juni 2019 |Publicera 2,88 |
+|~~WA – GÄST-OS-2.86 _201905-01~~ |6 juni 2019 |26 juli 2019 |
 |~~WA-GUEST-OS-2.85_201904-01~~ |7 maj 2019 |8 juli 2019 |
 |~~WA-GUEST-OS-2.84_201903-01~~ |26 mars 2019 |6 juni 2019 |
 |~~WA-GUEST-OS-2.83_201902-01~~ |12 mars 2019 |7 maj 2019 |
@@ -200,7 +208,7 @@ Listan över korrigeringar som ingår i varje månads gäst operativ system vers
 | 1 |Version 1.0+ |
 
 ## <a name="guest-os-release-information"></a>Information om gäst operativ system version
-Det finns tre datum som är viktiga för gäst OS-versioner  : utgivnings datum, inaktiverat datum och utgångs datum. Ett gäst operativ system anses tillgängligt när det finns i portalen och kan väljas som mål gäst operativ system. När ett gäst operativ system når  det inaktiverade datumet tas det bort från Azure. Alla moln tjänster som är riktade till gäst operativ systemet kommer dock fortfarande att fungera som vanligt.
+Det finns tre datum som är viktiga för gäst OS-versioner : utgivnings datum, inaktiverat datum och utgångs datum. Ett gäst operativ system anses tillgängligt när det finns i portalen och kan väljas som mål gäst operativ system. När ett gäst operativ system når det inaktiverade datumet tas det bort från Azure. Alla moln tjänster som är riktade till gäst operativ systemet kommer dock fortfarande att fungera som vanligt.
 
 Fönstret mellan inaktiverat datum och **förfallo** datum ger dig en buffert som enkelt kan övergå från ett gäst operativ system till en nyare. Om du använder *Automatisk* som gäst operativ system är du alltid på den senaste versionen och du behöver inte bekymra dig om att den upphör att gälla.
 

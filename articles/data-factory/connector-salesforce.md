@@ -1,6 +1,6 @@
 ---
-title: Kopiera data från och till Salesforce med hjälp av Azure Data Factory | Microsoft Docs
-description: Lär dig hur du kopierar data från Salesforce till mottagarens datalager eller datalager som stöds till Salesforce med en Kopieringsaktivitet i en data factory-pipeline.
+title: Kopiera data från och till Salesforce genom att använda Azure Data Factory | Microsoft Docs
+description: Lär dig hur du kopierar data från Salesforce till mottagar data lager eller från käll data lager som stöds till Salesforce genom att använda en kopierings aktivitet i en Data Factory-pipeline.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -10,69 +10,69 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/19/2019
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 6056df9aa9079887bfb06ca20ad564eb52baff38
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 625f31252942c3d8dea9ca9b4772af19f60e17ab
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60546580"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68720716"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Kopiera data från och till Salesforce med hjälp av Azure Data Factory
-> [!div class="op_single_selector" title1="Välj versionen av Data Factory-tjänsten som du använder:"]
+> [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
 > * [Version 1](v1/data-factory-salesforce-connector.md)
 > * [Aktuell version](connector-salesforce.md)
 
-Den här artikeln beskrivs hur du använder Kopieringsaktivitet i Azure Data Factory för att kopiera data från och till Salesforce. Den bygger på den [översikt över Kopieringsaktivitet](copy-activity-overview.md) artikel som ger en allmän översikt över kopieringsaktiviteten.
+Den här artikeln beskriver hur du använder kopierings aktivitet i Azure Data Factory för att kopiera data från och till Salesforce. Den bygger på den [översikt över Kopieringsaktivitet](copy-activity-overview.md) artikel som ger en allmän översikt över kopieringsaktiviteten.
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
-Du kan kopiera data från Salesforce till alla datalager för mottagare som stöds. Du kan också kopiera data från alla dataarkiv till Salesforce. En lista över datalager som stöds som källor och mottagare av Kopieringsaktivitet finns i den [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) tabell.
+Du kan kopiera data från Salesforce till alla mottagar data lager som stöds. Du kan också kopiera data från alla käll data lager som stöds till Salesforce. En lista över data lager som stöds som källor eller mottagare av kopierings aktiviteten finns i tabellen med [data lager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) .
 
 Mer specifikt stöder den här Salesforce-anslutningen:
 
-- Salesforce-utvecklare, Professional, Enterprise eller obegränsad-utgåvor.
-- Kopiera data från och till Salesforce produktion, sandbox-miljön och anpassad domän.
+- Salesforce-utvecklare, Professional, Enterprise eller obegränsade versioner.
+- Kopiera data från och till Salesforce-produktion, Sandbox och anpassad domän.
 
-Salesforce-anslutningsprogrammet bygger på API: et för Salesforce REST/grupp med [v45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) för kopieringsdata från och [v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) för kopieringsdata till.
+Salesforce-anslutningen bygger på Salesforce REST/bulk-API: et, med [v45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) för kopierings data från och [V40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) för att kopiera data till.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-API-behörighet måste vara aktiverat i Salesforce. Mer information finns i [aktivera API-åtkomst i Salesforce av behörighetsuppsättning](https://www.data2crm.com/migration/faqs/enable-api-access-salesforce-permission-set/)
+API-behörighet måste vara aktiverat i Salesforce. Mer information finns i [Aktivera API-åtkomst i Salesforce med behörighets uppsättning](https://www.data2crm.com/migration/faqs/enable-api-access-salesforce-permission-set/)
 
-## <a name="salesforce-request-limits"></a>Salesforce-begärandebegränsningar
+## <a name="salesforce-request-limits"></a>Begränsningar för Salesforce-begäran
 
-Salesforce har gränser för både Totalt antal API-begäranden och samtidiga API-begäranden. Observera följande punkter:
+Salesforce har gränser för både totalt antal API-begäranden och samtidiga API-begäranden. Observera följande punkter:
 
-- Om antalet samtidiga begäranden överskrider gränsen, begränsning inträffar och du ser slumpmässiga fel.
-- Om det totala antalet begäranden överskrider gränsen, blockeras Salesforce-konto i 24 timmar.
+- Om antalet samtidiga begär Anden överskrider gränsen inträffar begränsningen och slumpmässiga fel visas.
+- Om det totala antalet begär Anden överskrider gränsen blockeras Salesforce-kontot i 24 timmar.
 
-Du kan också få felmeddelandet ”REQUEST_LIMIT_EXCEEDED” i båda scenarierna. Mer information finns i avsnittet ”API-begärandebegränsningar” i [Salesforce developer gränser](https://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf).
+Du kan också få fel meddelandet "REQUEST_LIMIT_EXCEEDED" i båda scenarierna. Mer information finns i avsnittet "begränsningar för API-begäranden" i [gränser för Salesforce-utvecklare](https://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf).
 
 ## <a name="get-started"></a>Kom igång
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory-entiteter som är specifika för Salesforce-anslutningen.
+Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory entiteter som är speciella för Salesforce-kopplingen.
 
 ## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
 
-Följande egenskaper har stöd för Salesforce-länkade tjänsten.
+Följande egenskaper stöds för den länkade Salesforce-tjänsten.
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type |Type-egenskapen måste anges till **Salesforce**. |Ja |
-| environmentUrl | Ange URL: en för Salesforce-instans. <br> – Standardvärdet är `"https://login.salesforce.com"`. <br> – Om du vill kopiera data från sandbox, ange `"https://test.salesforce.com"`. <br> – Om du vill kopiera data från anpassad domän, ange, till exempel `"https://[domain].my.salesforce.com"`. |Nej |
-| username |Ange ett användarnamn för användarkontot. |Ja |
-| password |Ange ett lösenord för användarkontot.<br/><br/>Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
-| securityToken |Ange en säkerhetstoken för användarkontot. Instruktioner om hur du återställer och hämta en säkerhetstoken finns [hämta en säkerhetstoken](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm). Läs mer om säkerhetstoken i allmänhet i [säkerhets- och API: et](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm).<br/><br/>Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
-| connectVia | Den [integreringskörningen](concepts-integration-runtime.md) som används för att ansluta till datalagret. Om den inte anges används standard Azure Integration Runtime. | Inte för källa har Ja för kanalmottagare om källan länkade tjänsten inte integreringskörning |
+| type |Egenskapen Type måste anges till **Salesforce**. |Ja |
+| environmentUrl | Ange URL: en för Salesforce-instansen. <br> – Standardvärdet är `"https://login.salesforce.com"`. <br> – Om du vill kopiera data från sandbox `"https://test.salesforce.com"`anger du. <br> – Om du vill kopiera data från en anpassad domän anger du till `"https://[domain].my.salesforce.com"`exempel. |Nej |
+| username |Ange ett användar namn för användar kontot. |Ja |
+| password |Ange ett lösen ord för användar kontot.<br/><br/>Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
+| securityToken |Ange en säkerhetstoken för användar kontot. Instruktioner för hur du återställer och hämtar en säkerhetstoken finns i [Hämta en säkerhetstoken](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm). Mer information om säkerhetstoken i allmänhet finns i [säkerhet och API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm).<br/><br/>Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
+| connectVia | Den [integreringskörningen](concepts-integration-runtime.md) som används för att ansluta till datalagret. Om den inte anges används standard Azure Integration Runtime. | Nej för källa, Ja för mottagare om den länkade käll tjänsten inte har integration runtime |
 
 >[!IMPORTANT]
->Standard Azure Integration Runtime kan inte användas för att köra kopia när du kopierar data till Salesforce. Med andra ord om källan länkade tjänsten har inte en angiven integreringskörning uttryckligen [skapa en Azure Integration Runtime](create-azure-integration-runtime.md#create-azure-ir) med en plats nära din Salesforce-instans. Associera Salesforce länkade tjänsten som i följande exempel.
+>När du kopierar data till Salesforce kan du inte använda standard Azure Integration Runtime för att köra kopiering. Med andra ord, om den länkade käll tjänsten inte har en angiven integration runtime, skapar du uttryckligen [en Azure integration runtime](create-azure-integration-runtime.md#create-azure-ir) med en plats nära din Salesforce-instans. Associera Salesforce-länkade tjänst som i följande exempel.
 
-**Exempel: Store-autentiseringsuppgifter i Data Factory**
+**Exempel: Lagra autentiseringsuppgifter i Data Factory**
 
 ```json
 {
@@ -98,7 +98,7 @@ Följande egenskaper har stöd för Salesforce-länkade tjänsten.
 }
 ```
 
-**Exempel: Store-autentiseringsuppgifter i Key Vault**
+**Exempel: Lagra autentiseringsuppgifter i Key Vault**
 
 ```json
 {
@@ -134,19 +134,19 @@ Följande egenskaper har stöd för Salesforce-länkade tjänsten.
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i den [datauppsättningar](concepts-datasets-linked-services.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av Salesforce-datauppsättning.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i den [datauppsättningar](concepts-datasets-linked-services.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av Salesforce-datauppsättningen.
 
-För att kopiera data från och till Salesforce, ange typegenskapen på datauppsättningen till **SalesforceObject**. Följande egenskaper stöds.
+Om du vill kopiera data från och till Salesforce anger du egenskapen type för data uppsättningen till **SalesforceObject**. Följande egenskaper stöds.
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Type-egenskapen måste anges till **SalesforceObject**.  | Ja |
-| objectApiName | Salesforce-objektnamn att hämta data från. | Nej för källa, Ja för mottagare |
+| type | Egenskapen Type måste anges till **SalesforceObject**.  | Ja |
+| objectApiName | Salesforce-objektets namn att hämta data från. | Nej för källa, Ja för mottagare |
 
 > [!IMPORTANT]
-> Den ”__c”-delen av **API-namn** krävs för alla anpassade objekt.
+> Delen "__c" i **API-namn** krävs för alla anpassade objekt.
 
-![Data Factory Salesforce-anslutning API-namn](media/copy-data-from-salesforce/data-factory-salesforce-api-name.png)
+![Data Factory API-namn för Salesforce-anslutning](media/copy-data-from-salesforce/data-factory-salesforce-api-name.png)
 
 **Exempel:**
 
@@ -155,43 +155,44 @@ För att kopiera data från och till Salesforce, ange typegenskapen på dataupps
     "name": "SalesforceDataset",
     "properties": {
         "type": "SalesforceObject",
+        "typeProperties": {
+            "objectApiName": "MyTable__c"
+        },
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Salesforce linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "objectApiName": "MyTable__c"
         }
     }
 }
 ```
 
 >[!NOTE]
->För bakåtkompatibilitet: När du kopierar data från Salesforce, om du använder den tidigare ”RelationalTable” typ av datauppsättningen ser till att det fungerar även om du ser ett förslag att växla till den nya ”SalesforceObject”-typen.
+>För bakåtkompatibilitet: När du kopierar data från Salesforce, om du använder den tidigare data uppsättningen av typen "RelationalTable", fortsätter den att fungera medan du ser ett förslag för att växla till den nya typen "SalesforceObject".
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Type-egenskapen för datauppsättningen måste anges till **RelationalTable**. | Ja |
-| tableName | Namnet på tabellen i Salesforce. | Nej (om ”query” i källan för aktiviteten har angetts) |
+| type | Data uppsättningens typ-egenskap måste anges till **RelationalTable**. | Ja |
+| tableName | Namnet på tabellen i Salesforce. | Nej (om "fråga" i aktivitets källan har angetts) |
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i den [Pipelines](concepts-pipelines-activities.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av Salesforce-källan och mottagaren.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i den [Pipelines](concepts-pipelines-activities.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av Salesforce-källa och mottagare.
 
-### <a name="salesforce-as-a-source-type"></a>Salesforce som en typ av datakälla
+### <a name="salesforce-as-a-source-type"></a>Salesforce som typ av källa
 
-För att kopiera data från Salesforce, ange typ av datakälla i kopieringsaktiviteten till **SalesforceSource**. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnittet.
+Om du vill kopiera data från Salesforce anger du käll typen i kopierings aktiviteten till **SalesforceSource**. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnittet.
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Type-egenskapen för aktiviteten kopieringskälla måste anges till **SalesforceSource**. | Ja |
-| query |Använd anpassad fråga för att läsa data. Du kan använda [Salesforce objektet Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) fråge- eller SQL-92 fråga. Se fler tips i [fråga tips](#query-tips) avsnittet. Om frågan inte anges, hämtas alla data i Salesforce-objekt som angetts i ”objectApiName” i datauppsättningen. | Nej (om ”objectApiName” i datauppsättningen har angetts) |
-| readBehavior | Anger om du vill fråga efter befintliga poster eller fråga efter alla poster, inklusive de har tagits bort. Om inte anges är standardbeteendet för den tidigare versionen. <br>Tillåtna värden: **fråga** (standard), **queryAll**.  | Nej |
+| type | Typ egenskapen för kopierings aktivitets källan måste anges till **SalesforceSource**. | Ja |
+| query |Använd den anpassade frågan för att läsa data. Du kan använda [SOQL-](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) fråga eller SQL-92-fråga för Salesforce-objekt frågor. Se fler tips i avsnittet [tips](#query-tips) . Om fråga inte anges hämtas alla data för Salesforce-objektet som anges i "objectApiName" i data uppsättningen. | Nej (om "objectApiName" i data uppsättningen har angetts) |
+| readBehavior | Indikerar om du vill fråga befintliga poster eller fråga alla poster inklusive borttagna. Om inget värde anges är standard beteendet det tidigare. <br>Tillåtna värden: **fråga** (standard), **queryAll**.  | Nej |
 
 > [!IMPORTANT]
-> Den ”__c”-delen av **API-namn** krävs för alla anpassade objekt.
+> Delen "__c" i **API-namn** krävs för alla anpassade objekt.
 
-![Data Factory Salesforce-anslutning API namnlistan](media/copy-data-from-salesforce/data-factory-salesforce-api-name-2.png)
+![Lista med Data Factory API-namn för Salesforce-anslutning](media/copy-data-from-salesforce/data-factory-salesforce-api-name-2.png)
 
 **Exempel:**
 
@@ -226,21 +227,21 @@ För att kopiera data från Salesforce, ange typ av datakälla i kopieringsaktiv
 ```
 
 >[!NOTE]
->För bakåtkompatibilitet: När du kopierar data från Salesforce, om du använder den föregående ”RelationalSource” typ kopian håller källan fungerar även om du ser ett förslag att växla till den nya ”SalesforceSource”-typen.
+>För bakåtkompatibilitet: När du kopierar data från Salesforce, och använder den tidigare kopian av typen "RelationalSource", fortsätter källan att fungera medan du ser ett förslag för att växla till den nya typen "SalesforceSource".
 
-### <a name="salesforce-as-a-sink-type"></a>Salesforce som en Mottagartyp
+### <a name="salesforce-as-a-sink-type"></a>Salesforce som mottagar typ
 
-För att kopiera data till Salesforce, ange Mottagartyp i kopieringsaktiviteten till **SalesforceSink**. Följande egenskaper stöds i kopieringsaktiviteten **mottagare** avsnittet.
+Om du vill kopiera data till Salesforce ställer du in mottagar typen i kopierings aktiviteten till **SalesforceSink**. Följande egenskaper stöds i avsnittet Kopiera aktivitets **mottagare** .
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Egenskapen type kopiera aktivitet komprimeringstyp måste anges till **SalesforceSink**. | Ja |
-| writeBehavior | Skriv beteendet för åtgärden.<br/>Tillåtna värden är **infoga** och **Upsert**. | Nej (standard är Insert) |
-| externalIdFieldName | Namnet på det externa ID-fältet för upsert-åtgärden. Det angivna fältet måste definieras som ”externa Id-fältet” i Salesforce-objekt. Det kan inte ha NULL-värden i motsvarande indata. | Ja för ”Upsert” |
-| writeBatchSize | Antal rader för data som skrivs till Salesforce i varje batch. | Nej (standardvärdet är 5 000) |
-| ignoreNullValues | Anger om du vill ignorera NULL-värden från indata vid skrivning.<br/>Tillåtna värden är **SANT** och **FALSKT**.<br>- **True**: Lämna data i målobjektet oförändrade när du gör en upsert eller update-åtgärd. Infoga ett definierat standardvärde när du gör en insert-åtgärd.<br/>- **False**: Uppdatera data i målobjektet till NULL när du gör en upsert eller update-åtgärd. Infoga värdet NULL när du gör en insert-åtgärd. | Nej (standard är FALSKT) |
+| type | Egenskapen Type för kopierings aktivitetens Sink måste anges till **SalesforceSink**. | Ja |
+| writeBehavior | Skriv beteendet för åtgärden.<br/>Tillåtna värden är **insert** -och **upsert**. | Nej (standard är Insert) |
+| externalIdFieldName | Namnet på det externa ID-fältet för upsert-åtgärden. Det angivna fältet måste definieras som "externt ID-fält" i Salesforce-objektet. Det får inte ha NULL-värden i motsvarande indata. | Ja för "upsert" |
+| writeBatchSize | Rad antalet data som skrivs till Salesforce i varje batch. | Nej (standard är 5 000) |
+| ignoreNullValues | Anger om NULL-värden ska ignoreras från indata under en Skriv åtgärd.<br/>Tillåtna värden är **True** och **false**.<br>- **Sant**: Lämna kvar data i målobjektet oförändrade när du gör en upsert-eller uppdaterings åtgärd. Infoga ett definierat standardvärde när du infogar en åtgärd.<br/>- **Falskt**: Uppdatera data i målobjektet till NULL när du gör en upsert-eller uppdaterings åtgärd. Infoga ett NULL-värde när du gör en infognings åtgärd. | Nej (standard är falskt) |
 
-**Exempel: Salesforce-mottagare i en Kopieringsaktivitet**
+**Exempel: Salesforce-mottagare i en kopierings aktivitet**
 
 ```json
 "activities":[
@@ -275,65 +276,65 @@ För att kopiera data till Salesforce, ange Mottagartyp i kopieringsaktiviteten 
 ]
 ```
 
-## <a name="query-tips"></a>Frågetips
+## <a name="query-tips"></a>Tips om frågor
 
 ### <a name="retrieve-data-from-a-salesforce-report"></a>Hämta data från en Salesforce-rapport
 
-Du kan hämta data från Salesforce-rapporter genom att ange en fråga som `{call "<report name>"}`. Ett exempel är `"query": "{call \"TestReport\"}"`.
+Du kan hämta data från Salesforce-rapporter genom att ange en `{call "<report name>"}`fråga som. Ett exempel är `"query": "{call \"TestReport\"}"`.
 
-### <a name="retrieve-deleted-records-from-the-salesforce-recycle-bin"></a>Hämta borttagna poster från Salesforce-Papperskorgen
+### <a name="retrieve-deleted-records-from-the-salesforce-recycle-bin"></a>Hämta borttagna poster från pappers korgen i Salesforce
 
-Om du vill fråga de ej permanent borttagna posterna från Salesforce-Papperskorgen, kan du ange `readBehavior` som `queryAll`. 
+Om du vill fråga de Soft borttagna posterna från pappers korgen i Salesforce kan du `readBehavior` ange `queryAll`som. 
 
-### <a name="difference-between-soql-and-sql-query-syntax"></a>Skillnaden mellan SOQL och SQL-frågesyntaxen
+### <a name="difference-between-soql-and-sql-query-syntax"></a>Skillnad mellan SOQL och SQL-frågesyntax
 
-När du kopierar data från Salesforce, kan du använda antingen SOQL frågan eller SQL-fråga. Observera att dessa två har olika syntax och stöd för funktioner, inte blanda. Du rekommenderas för att använda SOQL frågan som stöds internt av Salesforce. I följande tabell visas de viktigaste skillnaderna:
+När du kopierar data från Salesforce kan du använda antingen SOQL Query eller SQL-fråga. Observera att dessa två har olika funktioner för syntax och funktioner, blanda inte. Du rekommenderas att använda SOQL-frågan som stöds internt av Salesforce. I följande tabell visas de viktigaste skillnaderna:
 
-| Syntax | SOQL läge | SQL Mode |
+| Syntax | SOQL-läge | SQL-läge |
 |:--- |:--- |:--- |
-| Kolumnurval | Behovet av att räkna upp de fält som ska kopieras i frågan, t.ex. `SELECT field1, filed2 FROM objectname` | `SELECT *` stöds både kolumnen. |
-| Citattecken | Arkiverat/objektnamn kan inte innehålla citattecken. | Fältet/objektnamn kan innehålla citattecken, t.ex. `SELECT "id" FROM "Account"` |
-| DateTime-format |  Finns [här](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_dateformats.htm) och exempel i nästa avsnitt. | Finns [här](https://docs.microsoft.com/sql/odbc/reference/develop-app/date-time-and-timestamp-literals?view=sql-server-2017) och exempel i nästa avsnitt. |
-| Booleska värden | Visas som `False` och `True`, t.ex. `SELECT … WHERE IsDeleted=True`. | Visas som 0 eller 1, t.ex. `SELECT … WHERE IsDeleted=1`. |
-| Byta namn på kolumn | Stöds ej. | Stöds, t.ex.: `SELECT a AS b FROM …`. |
-| Relation | Stöds, t.ex. `Account_vod__r.nvs_Country__c`. | Stöds ej. |
+| Kolumn val | Du måste räkna upp fälten som ska kopieras i frågan, t. ex.`SELECT field1, filed2 FROM objectname` | `SELECT *`stöds utöver val av kolumn. |
+| Citat tecken | Namn på arkiverade/objekt får inte anges i citat tecken. | Namn på fält/objekt kan anges i citat tecken, t. ex.`SELECT "id" FROM "Account"` |
+| Datetime-format |  Mer information finns [här](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_dateformats.htm) och exempel i nästa avsnitt. | Mer information finns [här](https://docs.microsoft.com/sql/odbc/reference/develop-app/date-time-and-timestamp-literals?view=sql-server-2017) och exempel i nästa avsnitt. |
+| Booleska värden | `False` Representerat `True`som och, `SELECT … WHERE IsDeleted=True`t. ex. | Representeras som 0 eller 1, `SELECT … WHERE IsDeleted=1`t. ex. |
+| Ändra kolumn namn | Stöds ej. | Stöds, t. ex `SELECT a AS b FROM …`.:. |
+| Relation | Stöds, t. `Account_vod__r.nvs_Country__c`ex. | Stöds ej. |
 
-### <a name="retrieve-data-by-using-a-where-clause-on-the-datetime-column"></a>Hämta data med hjälp av en where-sats i DateTime-kolumn
+### <a name="retrieve-data-by-using-a-where-clause-on-the-datetime-column"></a>Hämta data med hjälp av en WHERE-sats i kolumnen DateTime
 
-När du anger SOQL eller SQL-frågan kan du vara uppmärksam på skillnaden för DateTime-format. Exempel:
+När du anger SOQL eller SQL-frågan bör du tänka på DateTime-formatets skillnad. Exempel:
 
-* **SOQL exempel**: `SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= @{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-ddTHH:mm:ssZ')} AND LastModifiedDate < @{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-ddTHH:mm:ssZ')}`
-* **SQL-exemplet**: `SELECT * FROM Account WHERE LastModifiedDate >= {ts'@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}'} AND LastModifiedDate < {ts'@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'}`
+* **SOQL-exempel**:`SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= @{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-ddTHH:mm:ssZ')} AND LastModifiedDate < @{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-ddTHH:mm:ssZ')}`
+* **SQL-exempel**:`SELECT * FROM Account WHERE LastModifiedDate >= {ts'@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}'} AND LastModifiedDate < {ts'@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'}`
 
-### <a name="error-of-malformedquerytruncated"></a>Fel i MALFORMED_QUERY: trunkerade
+### <a name="error-of-malformedquerytruncated"></a>Fel i MALFORMED_QUERY: trunkerad
 
-Om du stöter på fel i ”MALFORMED_QUERY: Trunkeras ”, vanligtvis är det på grund av att du har JunctionIdList kolumn av typen i data och Salesforce har en begränsning på stöd för sådana data med stort antal rader. För att lösa, försök att exkludera JunctionIdList kolumnen eller begränsa antalet rader som ska kopiera (du kan partitionera till flera kopiera aktivitet körs).
+Om du trycker på fel "MALFORMED_QUERY: Trunkerad ", vanligt vis på grund av att du har JunctionIdList typ kolumn i data och Salesforce har begränsningar för att stödja sådana data med ett stort antal rader. Du kan undvika detta genom att försöka undanta JunctionIdList-kolumnen eller begränsa antalet rader som ska kopieras (du kan partitionera till flera kopierings aktivitets körningar).
 
-## <a name="data-type-mapping-for-salesforce"></a>Datatypen mappning för Salesforce
+## <a name="data-type-mapping-for-salesforce"></a>Data typs mappning för Salesforce
 
-När du kopierar data från Salesforce, används följande mappningar från Salesforce-datatyper till Data Factory tillfälliga-datatyper. Mer information om hur kopieringsaktiviteten mappar källtypen schema och data till mottagaren, se [Schema och data skriver mappningar](copy-activity-schema-and-type-mapping.md).
+När du kopierar data från Salesforce används följande mappningar från Salesforce-datatyper för att Data Factory interimistiska data typer. Information om hur kopierings aktiviteten mappar käll schema och datatyp till mottagaren finns i [schema-och data typs mappningar](copy-activity-schema-and-type-mapping.md).
 
-| Salesforce-datatypen | Data Factory tillfälliga datatyp |
+| Salesforce-datatyp | Data Factory tillfälliga datatyp |
 |:--- |:--- |
-| Auto Number |String |
-| Checkbox |Boolean |
-| Valuta |Decimal |
-| Date |Datetime |
-| Datum/tid |Datetime |
-| E-post |String |
-| Id |String |
-| Lookup Relationship |String |
-| Multi-Select Picklist |String |
-| Tal |Decimal |
-| Procent |Decimal |
-| Telefon |String |
-| Picklist |String |
-| Text |String |
-| Text Area |String |
-| Text Area (Long) |String |
-| Text Area (Rich) |String |
-| Text (Encrypted) |String |
-| URL |String |
+| Auto Number |Sträng |
+| Checkbox |Boolesk |
+| Currency |Decimal |
+| Date |DateTime |
+| Date/Time |DateTime |
+| Email |Sträng |
+| ID |Sträng |
+| Lookup Relationship |Sträng |
+| Multi-Select Picklist |Sträng |
+| Number |Decimal |
+| Percent |Decimal |
+| Phone |Sträng |
+| Picklist |Sträng |
+| Text |Sträng |
+| Text Area |Sträng |
+| Text Area (Long) |Sträng |
+| Text Area (Rich) |Sträng |
+| Text (Encrypted) |Sträng |
+| URL |Sträng |
 
 ## <a name="next-steps"></a>Nästa steg
 En lista över datalager som stöds som källor och mottagare av kopieringsaktiviteten i Data Factory finns i [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).

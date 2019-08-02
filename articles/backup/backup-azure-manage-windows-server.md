@@ -1,22 +1,22 @@
 ---
 title: Hantera Azure Recovery Services-valv och-servrar
 description: Hantera jobb och aviseringar i ett Azure Recovery Services-valv.
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.author: raynew
-ms.openlocfilehash: 5876ce4a511617d8465cdf008ea0ce14b3ad15d4
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 4ce6ef67c24bd623a4162329442693ed1628dae2
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466362"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639874"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Övervaka och hantera Recovery Services-valv
 
-I den här artikeln förklaras hur du  använder översikts instrument panelen för Recovery Services valv för att övervaka och hantera dina Recovery Services-valv. När du öppnar ett Recovery Services valv i listan öppnas översikts  instrument panelen för det valda valvet. Instrument panelen innehåller olika detaljer om valvet. Det finns *paneler* som visar: status för kritiska varningar och varnings aviseringar, pågående och misslyckade säkerhets kopierings jobb samt mängden lokalt redundant lagring (LRS) och Geo-redundant lagring (GRS) som används. Om du säkerhetskopierar virtuella Azure-datorer till valvet [visas kritiska eller varnings objekt i status panelen för **säkerhets kopiering** ](https://azure.microsoft.com/blog/azure-vm-backup-pre-checks/). Följande bild är översikts  instrument panelen för **contoso-valvet**. På panelen **säkerhets kopierings objekt** visas nio objekt som registrerats för valvet.
+I den här artikeln förklaras hur du använder översikts instrument panelen för Recovery Services valv för att övervaka och hantera dina Recovery Services-valv. När du öppnar ett Recovery Services valv i listan öppnas översikts instrument panelen för det valda valvet. Instrument panelen innehåller olika detaljer om valvet. Det finns *paneler* som visar: status för kritiska varningar och varnings aviseringar, pågående och misslyckade säkerhets kopierings jobb samt mängden lokalt redundant lagring (LRS) och Geo-redundant lagring (GRS) som används. Om du säkerhetskopierar virtuella Azure-datorer till valvet [visas kritiska eller varnings objekt i status panelen för **säkerhets kopiering** ](https://azure.microsoft.com/blog/azure-vm-backup-pre-checks/). Följande bild är översikts instrument panelen för **contoso-valvet**. På panelen **säkerhets kopierings objekt** visas nio objekt som registrerats för valvet.
 
 ![instrument panel för Recovery Services-valv](./media/backup-azure-manage-windows-server/rs-vault-blade.png)
 
@@ -47,7 +47,7 @@ Kraven för den här artikeln är: en Azure-prenumeration, ett Recovery Services
 
 ## <a name="monitor-backup-jobs-and-alerts"></a>Övervaka säkerhets kopierings jobb och aviseringar
 
-Översikts instrument  panelen för Recovery Services Vault innehåller paneler för övervakning och användnings information. Panelerna i övervaknings avsnittet visar kritiska varningar och varnings aviseringar, samt pågående och misslyckade jobb. Klicka på en viss avisering eller jobb för att öppna menyn säkerhets kopierings varningar eller säkerhets kopierings jobb, filtrerat för det jobbet eller aviseringen.
+Översikts instrument panelen för Recovery Services Vault innehåller paneler för övervakning och användnings information. Panelerna i övervaknings avsnittet visar kritiska varningar och varnings aviseringar, samt pågående och misslyckade jobb. Klicka på en viss avisering eller jobb för att öppna menyn säkerhets kopierings varningar eller säkerhets kopierings jobb, filtrerat för det jobbet eller aviseringen.
 
 ![Säkerhetskopiera instrument panels aktiviteter](./media/backup-azure-manage-windows-server/monitor-dashboard-tiles-warning.png)
 
@@ -177,7 +177,7 @@ På panelen **säkerhets kopierings jobb** på instrument panelen för valv visa
 
 ![Säkerhetskopiera objekt från inställningar](./media/backup-azure-manage-windows-server/backup-jobs-tile.png)
 
-Om du vill se mer information om jobben  klickar du på pågår eller så **gick det inte** att öppna menyn säkerhets kopierings jobb filtrerat för detta tillstånd.
+Om du vill se mer information om jobben klickar du på pågår eller så **gick det inte** att öppna menyn säkerhets kopierings jobb filtrerat för detta tillstånd.
 
 ### <a name="backup-jobs-menu"></a>Menyn säkerhetskopiera jobb
 

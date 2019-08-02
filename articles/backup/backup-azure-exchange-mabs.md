@@ -1,18 +1,19 @@
 ---
 title: Säkerhetskopiera en Exchange-Server till Azure Backup med Azure Backup Server
 description: Lär dig hur du säkerhetskopierar en Exchange-Server till Azure Backup med Azure Backup Server
-author: kasinh
-manager: vvithal
+ms.reviewer: kasinh
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 03/24/2017
-ms.author: kasinh
-ms.openlocfilehash: 0eacd295e279a3b3bcfbdad2c67cac7160f8dcb3
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 89ad5cac462384e8c688ae9ca68c5ae309249a71
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466403"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689290"
 ---
 # <a name="back-up-an-exchange-server-to-azure-with-azure-backup-server"></a>Säkerhetskopiera en Exchange-Server till Azure med Azure Backup Server
 Den här artikeln beskriver hur du konfigurerar Microsoft Azure Backup Server (MABS) för att säkerhetskopiera en Microsoft Exchange-Server till Azure.  

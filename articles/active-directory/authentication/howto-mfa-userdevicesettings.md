@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3152dead04510078dd475b611afbfc30264e58f7
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: d500f6c74bb62322a5e14ce3c489e8dba11dc2f2
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68297640"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68555782"
 ---
 # <a name="manage-user-settings-with-azure-multi-factor-authentication-in-the-cloud"></a>Hantera användar inställningar med Azure Multi-Factor Authentication i molnet
 
@@ -31,6 +31,10 @@ Som administratör kan du hantera följande användar-och enhets inställningar:
 Som administratör har tilldelats rollen som administratör för autentisering kan du kräva att användarna återställer sina lösen ord, omregistrerar sig för MFA eller återkalla befintliga MFA-sessioner från sina användar objekt.
 
 ![Hantera autentiseringsmetoder från Azure Portal](./media/howto-mfa-userdevicesettings/manage-authentication-methods.png)
+
+1. Återställ lösen ord kommer att återställa användarens lösen ord och tilldela ett tillfälligt lösen ord som måste ändras vid nästa inloggning.
+2. Kräv omregistrering av MFA gör det så att när användaren loggar in nästa gång uppmanas de att konfigurera en ny MFA-autentiseringsmetod.
+3. Återkalla MFA-sessioner rensar användarens sparade MFA-sessioner och måste utföra MFA nästa gång det krävs av principen på enheten.
 
 ## <a name="require-users-to-provide-contact-methods-again"></a>Kräv att användarna anger kontakt metoder igen
 

@@ -1,6 +1,6 @@
 ---
-title: Microsoft identity-plattformen omfattningar, behörigheter och godkännande | Microsoft Docs
-description: En beskrivning av auktorisering i Microsoft identity-plattformen slutpunkten, inklusive omfattningar, behörigheter och godkännande.
+title: Microsoft Identity Platform-omfattningar, behörigheter och medgivande | Microsoft Docs
+description: En beskrivning av auktorisering i slut punkten för Microsoft Identity Platform, inklusive omfång, behörigheter och medgivande.
 services: active-directory
 documentationcenter: ''
 author: rwike77
@@ -18,92 +18,92 @@ ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 032cc0edaa140d82124a7369232cb82bf6c00c10
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 2c0fcb748262b20fd4550d08d74056c0219dbc09
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67702712"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68694009"
 ---
-# <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Behörigheter och godkännande i Microsoft identity-plattformen slutpunkten
+# <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Behörigheter och medgivande i Microsoft Identity Platform-slutpunkten
 
 [!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
-Program som integreras med Microsoft identity-plattformen att följa en modell för auktorisering som ger användare och administratörer kontroll över hur data kan nås. Implementeringen av auktoriseringsmodellen som har uppdaterats på slutpunkten för Microsoft identity-plattformen och den ändras hur en app måste interagera med Microsoft identity-plattformen. Den här artikeln beskriver de grundläggande principerna för den här auktoriseringsmodellen, inklusive omfattningar, behörigheter och godkännande.
+Program som integreras med Microsoft Identity Platform följer en auktoriserings modell som ger användare och administratörer kontroll över hur data kan nås. Implementeringen av auktoriserings modellen har uppdaterats på Microsoft Identity Platform-slutpunkten och den ändrar hur en app måste interagera med Microsoft Identity Platform. Den här artikeln beskriver de grundläggande begreppen i den här verifierings modellen, inklusive omfång, behörigheter och medgivande.
 
 > [!NOTE]
-> Microsoft identity-plattformen slutpunkten har inte stöd för alla scenarier och funktioner. Läs mer om för att avgöra om du ska använda Microsoft identity-plattformen endpoint, [plattformsbegränsningar för Microsoft identity](active-directory-v2-limitations.md).
+> Slut punkten för Microsoft Identity Platform stöder inte alla scenarier och funktioner. För att avgöra om du ska använda Microsoft Identity Platform-slutpunkten läser du om [begränsningar för Microsoft Identity Platform](active-directory-v2-limitations.md).
 
-## <a name="scopes-and-permissions"></a>Omfång och behörigheter
+## <a name="scopes-and-permissions"></a>Omfattningar och behörigheter
 
-Microsoft identity-plattformen implementerar den [OAuth 2.0](active-directory-v2-protocols.md) auktoriseringsprotokoll. OAuth 2.0 är en metod som en app från tredje part kan komma åt webb-värdbaserade resurser för en användares räkning. Någon webbaserat resurs som kan integreras med Microsoft identity-plattformen har en resurs-ID eller *program-ID-URI*. Några av Microsofts webbaserat resurser är till exempel:
+Microsoft Identity Platform implementerar [OAuth 2,0](active-directory-v2-protocols.md) -Authorization-protokollet. OAuth 2,0 är en metod som innebär att en app från tredje part kan komma åt webb värd resurser för en användares räkning. Alla webb värd resurser som integreras med Microsoft Identity Platform har en resurs identifierare eller en URI för *program-ID*. Till exempel är några av Microsofts webb värd resurser:
 
 * Microsoft Graph: `https://graph.microsoft.com`
-* API för Office 365-e-post: `https://outlook.office.com`
-* Azure AD Graph: `https://graph.windows.net`
+* E-post-API för Office 365:`https://outlook.office.com`
+* Azure AD-diagram:`https://graph.windows.net`
 
 > [!NOTE]
-> Vi rekommenderar starkt att du använder Microsoft Graph i stället för Azure AD Graph, API: et för Office 365-e-post osv.
+> Vi rekommenderar starkt att du använder Microsoft Graph i stället för Azure AD Graph, Office 365 Mail API osv.
 
-Detsamma gäller för resurser från tredje part som har integrerat med Microsoft identity-plattformen. Någon av följande resurser kan också definiera en uppsättning behörigheter som kan användas för att dela upp funktionerna i den här resursen i mindre segment. Till exempel [Microsoft Graph](https://graph.microsoft.com) har definierat behörighet att utföra följande uppgifter, bland annat:
+Samma sak gäller för alla resurser från tredje part som har integrerats med Microsoft Identity Platform. Alla dessa resurser kan också definiera en uppsättning behörigheter som kan användas för att dela upp resursens funktioner i mindre segment. [Microsoft Graph](https://graph.microsoft.com) har exempelvis definierat behörigheter för att utföra följande uppgifter, bland annat:
 
-* Läsa en användares kalender
-* Skriva till en användares kalender
+* Läs en användares kalender
+* Skriv till en användares kalender
 * Skicka e-post som en användare
 
-Resursen har detaljerad kontroll över sina data och hur API-funktioner exponeras genom att definiera dessa typer av behörigheter. En app från tredje part kan begära dessa behörigheter från användare och administratörer, som måste godkänna begäran innan appen kan komma åt data eller utföra åtgärder för en användares räkning. Genom att dela upp resursens funktionen till mindre behörighetsuppsättningar, kan appar från tredje part byggas om du vill begära endast specifika behörigheter som de behöver för att fungera. Användare och administratörer kan veta exakt vilka data som appen har åtkomst till och de kan vara mer säker på att det inte fungerar med skadliga avsikter. Utvecklare bör alltid följa konceptet med minsta behörighet, ber om de behörigheter som de behöver för sina program ska fungera.
+Genom att definiera dessa typer av behörigheter har resursen detaljerad kontroll över sina data och hur API-funktioner exponeras. En app från tredje part kan begära dessa behörigheter från användare och administratörer, som måste godkänna begäran innan appen kan komma åt data eller agera för användarens räkning. Genom att dela upp resursens funktioner i mindre behörighets uppsättningar kan appar från tredje part byggas för att begära enbart de angivna behörigheter som de behöver för att utföra sin funktion. Användare och administratörer kan veta exakt vilka data som appen har åtkomst till, och de kan vara mer säkra på att de inte fungerar med skadlig avsikt. Utvecklare bör alltid följa konceptet med minsta behörighet och endast begära de behörigheter de behöver för att deras program ska fungera.
 
-I OAuth 2.0, kallas dessa typer av behörigheter *scope*. De är också kallas ofta *behörigheter*. En behörighet visas i Microsoft identity-plattformen som ett strängvärde. Fortsättning på Microsoft Graph-exemplet, är strängvärdet för varje behörighet:
+I OAuth 2,0 kallas dessa typer av behörigheter för *omfattningar*. De kallas också ofta för *behörigheter*. En behörighet visas i Microsoft Identity Platform som ett sträng värde. Om du fortsätter med Microsoft Graph exemplet är strängvärdet för varje behörighet:
 
-* Läsa en användares kalender med hjälp av `Calendars.Read`
-* Skriva till en användares kalender genom att använda `Calendars.ReadWrite`
-* Skicka e-post som en användare med hjälp av `Mail.Send`
+* Läs en användares kalender genom att använda`Calendars.Read`
+* Skriv till en användares kalender genom att använda`Calendars.ReadWrite`
+* Skicka e-post som en användare med hjälp av`Mail.Send`
 
-En app begär oftast behörigheterna genom att ange omfång i begäranden till Microsoft identity-plattformen tillåta slutpunkt. Men vissa Privilegierade behörigheter kan bara beviljas genom administratörens godkännande och begärt/beviljas med hjälp av den [administratör medgivande endpoint](v2-permissions-and-consent.md#admin-restricted-permissions). Fortsätt att läsa om du vill veta mer.
+En app begär oftast dessa behörigheter genom att ange omfattningarna i begär anden till Microsoft Identity Platform permission-slutpunkten. Vissa behörigheter för hög behörighet kan dock endast beviljas genom administratörs medgivande och begärs/beviljas med hjälp av [Administratörs medgivande slut punkten](v2-permissions-and-consent.md#admin-restricted-permissions). Fortsätt att läsa om du vill veta mer.
 
-## <a name="permission-types"></a>Behörighetstyper
+## <a name="permission-types"></a>Behörighets typer
 
-Microsoft identity-plattformen stöder två typer av behörigheter: **delegerade behörigheter** och **programbehörigheter**.
+Microsoft Identity Platform stöder två typer av behörigheter: **delegerade behörigheter** och **program behörigheter**.
 
-* **Delegerade behörigheter** som används av appar som har en inloggad användare finns. För dessa appar kan användaren eller administratören godkänner behörigheter att app-begäranden och appen är delegerad behörighet att agera som den inloggade användaren att göra anrop till målresursen. Vissa delegerade behörigheter kan vara godkänts av icke-administratörer, men vissa högre privilegier behörigheter kräver [administratörens godkännande](v2-permissions-and-consent.md#admin-restricted-permissions). Läs vilken administratör roller kan godkänna delegerade behörigheter i [behörigheter för administratör i Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
+* **Delegerade behörigheter** används av appar där en inloggad användare finns. För dessa appar skickas användaren eller administratören till de behörigheter som appen begär, och appen är delegerad behörighet att fungera som den inloggade användaren när den gör anrop till mål resursen. Vissa delegerade behörigheter kan skickas till av icke-administratörer, men vissa högre privilegier kräver [Administratörs medgivande](v2-permissions-and-consent.md#admin-restricted-permissions). Information om vilka administratörs roller som kan godkänna delegerade behörigheter finns i [Administratörs roll behörigheter i Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
 
-* **Programbehörigheter** som används av appar som körs utan en inloggad användare finns, till exempel appar som körs som Bakgrundstjänster eller daemon.  Behörigheter för programmet kan bara vara [samtyckt av en administratör](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant).
+* **Program behörigheter** används av appar som körs utan att en inloggad användare finns. till exempel appar som körs som bakgrunds tjänster eller daemon.  Program behörigheter kan bara godkännas [av en administratör](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant).
 
-_Gällande behörigheter_ är de behörigheter som din app har vid begäranden till målresursen. Det är viktigt att förstå skillnaden mellan den delegerade och behörigheter för program som din app har beviljats och dess gällande behörigheter vid anrop till målresursen.
+_Gällande behörigheter_ är de behörigheter som appen kommer att ha när de gör förfrågningar till mål resursen. Det är viktigt att förstå skillnaden mellan de delegerade och program behörigheter som din app beviljas och dess gällande behörigheter när du gör anrop till mål resursen.
 
-- För delegerade behörigheter i _gällande behörigheter_ för din app är minst Privilegierade skärningspunkten för de delegerade behörigheter som appen har beviljats (via medgivande) och privilegier för den inloggade användaren. Din app kan aldrig ha fler behörigheter än den inloggade användaren. Inom organisationer kan behörigheter för den inloggade användaren fastställas med en princip eller av medlemskap i en eller flera administratörsroller. Läs vilken administratör roller kan godkänna delegerade behörigheter i [behörigheter för administratör i Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
+- För delegerade behörigheter är den _effektiva behörigheten_ för din app den minst privilegierade skärnings punkten för de delegerade behörigheterna som appen har beviljats (via medgivande) och behörigheten för den för tillfället inloggade användaren. Din app kan aldrig ha fler behörigheter än den inloggade användaren. Inom organisationer kan behörigheter för den inloggade användaren fastställas med en princip eller av medlemskap i en eller flera administratörsroller. Information om vilka administratörs roller som kan godkänna delegerade behörigheter finns i [Administratörs roll behörigheter i Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
 
-   Anta exempelvis att din app har beviljats den _User.ReadWrite.All_ delegerad behörighet. Den här behörigheten ger i princip din app behörighet att läsa och uppdatera profilen för alla användare i en organisation. Om den inloggade användaren är en global administratör, kommer din app att kunna uppdatera profilen för alla användare i organisationen. Men om den inloggade användaren inte hittar en administratörsroll, kommer din app att kunna uppdatera endast profilen för den inloggade användaren. Den kommer inte att kunna uppdatera profilerna för andra användare i organisationen, eftersom den användare som den har behörighet att agera på uppdrag åt inte har den behörigheten.
+   Anta till exempel att din app har beviljats _User. readwrite. all_ delegerad behörighet. Den här behörigheten ger i princip din app behörighet att läsa och uppdatera profilen för alla användare i en organisation. Om den inloggade användaren är en global administratör, kommer din app att kunna uppdatera profilen för alla användare i organisationen. Men om den inloggade användaren inte har någon administratörs roll kan appen bara uppdatera profilen för den inloggade användaren. Den kommer inte att kunna uppdatera profilerna för andra användare i organisationen, eftersom den användare som den har behörighet att agera på uppdrag åt inte har den behörigheten.
   
-- För behörigheter för programmet, den _gällande behörigheter_ för din app kommer att nivån fullständig behörigheter underförstådd av behörigheten. Exempelvis kan en app som har den _User.ReadWrite.All_ programbehörigheten kan uppdatera profilen för alla användare i organisationen. 
+- För program behörigheter är den _effektiva behörigheten_ för appen den fullständiga behörighets nivån som anges av behörigheten. Till exempel kan en app som har behörigheten _User. readwrite. all_ program behörighet uppdatera profilen för alla användare i organisationen. 
 
-## <a name="openid-connect-scopes"></a>OpenID Connect-scope
+## <a name="openid-connect-scopes"></a>OpenID Connect-omfång
 
-Microsoft identity-plattformen implementeringen av OpenID Connect har några väldefinierade scope som inte gäller för en specifik resurs: `openid`, `email`, `profile`, och `offline_access`. Den `address` och `phone` OpenID Connect scope stöds inte.
+Microsoft Identity Platform-implementeringen av OpenID Connect har några väldefinierade omfattningar som inte gäller för en viss `openid`resurs: `profile`, `email`, och `offline_access`. `address` OpenIDConnect`phone` -scope stöds inte.
 
-### <a name="openid"></a>openid
+### <a name="openid"></a>OpenID
 
-Om en app utför logga in med hjälp av [OpenID Connect](active-directory-v2-protocols.md), den måste begära den `openid` omfång. Den `openid` omfång visas på sidan work medgivande som behörigheten ”logga du in” och på samtyckessida för personliga Microsoft-konto som ”visa din profil och ansluta till appar och tjänster med ditt Microsoft-konto”-behörighet. Med den här behörigheten kan en app kan ta emot en unik identifierare för användaren i form av den `sub` anspråk. Det ger också åtkomst till appen till slutpunkten användarinformationen. Den `openid` omfång som kan användas i Microsoft identity-plattformen token-slutpunkten för att hämta ID-token som kan användas för autentisering av appen.
+Om en app utför inloggning med hjälp av [OpenID Connect](active-directory-v2-protocols.md)måste den begära `openid` omfånget. `openid` Omfånget visas på sidan för godkännande av arbets konto som "logga in dig" och på sidan personal Microsoft-konto medgivande som "Visa din profil och Anslut till appar och tjänster med hjälp av din Microsoft-konto"-behörighet. Med den här behörigheten kan en app ta emot en unik identifierare för användaren i form av `sub` anspråket. Den ger också appen åtkomst till UserInfo-slutpunkten. `openid` Omfånget kan användas på Microsoft Identity Platform token-slutpunkten för att förvärva ID-token som kan användas av appen för autentisering.
 
 ### <a name="email"></a>email
 
-Den `email` omfång kan användas med den `openid` omfång och alla andra. Den ger appen åtkomst till användarens primära e-postadress i form av den `email` anspråk. Den `email` anspråk som ingår i en token endast om en e-postadress är associerad med det användarkonto som inte alltid fallet. Om den använder den `email` omfattning, din app ska vara beredd att hantera ett fall där den `email` anspråk finns inte i token.
+Omfånget kan användas `openid` med omfattningen och andra. `email` Den ger appen åtkomst till användarens primära e-postadress i form av `email` anspråket. `email` Anspråket ingår bara i en token om en e-postadress är associerad med användar kontot, vilket inte alltid är fallet. Om den använder `email` omfånget bör din app förberedas för att hantera ett fall `email` där anspråket inte finns i token.
 
 ### <a name="profile"></a>profile
 
-Den `profile` omfång kan användas med den `openid` omfång och alla andra. Den ger appen åtkomst till en stor mängd information om användaren. Den kan komma åt informationen inkluderar, men inte begränsat till, användarens förnamn, efternamn, primära användarnamn och objekt-ID. En fullständig lista över anspråk för profilen som är tillgängliga i parametern id_tokens för en viss användare ser den [ `id_tokens` referens](id-tokens.md).
+Omfånget kan användas `openid` med omfattningen och andra. `profile` Den ger appen åtkomst till en stor mängd information om användaren. Den information som den kan komma åt inkluderar, men är inte begränsad till, användarens förnamn, efter namn, önskat användar namn och objekt-ID. En fullständig lista över de profil anspråk som är tillgängliga i id_tokens-parametern för en speciell användare finns [ `id_tokens` ](id-tokens.md)i referensen.
 
 ### <a name="offlineaccess"></a>offline_access
 
-Den [ `offline_access` omfång](https://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess) ger din appåtkomst till resurser å användarens vägnar en längre tid. På sidan medgivande visas det här omfånget som behörigheten ”ha tillgång till data som du har beviljat åtkomst till den”. När en användare godkänner den `offline_access` omfattning, din app kan ta emot uppdaterings-tokens från Microsoft identity-plattformen tokenslutpunkten. Uppdateringstoken är långlivade. Din app kan hämta nya åtkomsttoken som äldsta förfaller.
+Omfånget ger din app åtkomst till resurser för användarens räkning under en längre tid. [ `offline_access` ](https://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess) På sidan medgivande visas denna omfattning som "Behåll åtkomst till data som du har gett dem behörighet till". När en användare godkänner `offline_access` omfånget kan din app ta emot uppdateringstoken från slut punkten för Microsoft Identity Platform-token. Uppdateringstoken är lång. Din app kan hämta nya åtkomsttoken när äldre upphör att gälla.
 
-Om din app inte uttryckligen begär den `offline_access` omfattning, det inte tar emot uppdateringstoken. Detta innebär att när du har löst in en auktoriseringskod i den [OAuth 2.0-auktoriseringskodflödet](active-directory-v2-protocols.md), får du endast en åtkomsttoken från den `/token` slutpunkt. Åtkomsttoken är giltig för en kort tid. Åtkomsttoken upphör vanligtvis i en timme. AT att punkt, din app måste därefter skickas användarna tillbaka till den `/authorize` slutpunkten för att få en ny auktoriseringskod. Under den här omdirigering, beroende på typen av app måste behöva användaren ange sina autentiseringsuppgifter igen eller godkänna igen behörigheter. Medan den `offline_access` omfånget automatiskt har begärts av servern, klienten fortfarande måste begära det för att få uppdaterings-tokens.
+Om din app inte uttryckligen begär `offline_access` omfånget får den inte några uppdaterade tokens. Det innebär att när du löser in en auktoriseringskod i [OAuth 2,0-Authorization Code Flow](active-directory-v2-protocols.md)får du bara en åtkomsttoken från `/token` slut punkten. Åtkomsttoken är giltig under en kort tid. Åtkomsttoken går vanligt vis ut om en timme. Vid det här tillfället måste appen omdirigera användaren tillbaka till `/authorize` slut punkten för att få en ny auktoriseringskod. Under omdirigeringen, beroende på typ av app, kan användaren behöva ange sina autentiseringsuppgifter igen eller ge tillstånd igen till behörigheter. Även om `offline_access` scopet begärs automatiskt av servern måste klienten fortfarande begära det för att kunna ta emot uppdateringstoken.
 
-Mer information om hur du hämtar och använder uppdateringstoken finns i den [protokollreferens för Microsoft identity-plattformen](active-directory-v2-protocols.md).
+Mer information om hur du hämtar och använder uppdaterade token finns i referens för [Microsoft Identity Platform-protokollet](active-directory-v2-protocols.md).
 
-## <a name="requesting-individual-user-consent"></a>Begär användargodkännande för enskilda
+## <a name="requesting-individual-user-consent"></a>Begära individuell användar medgivande
 
-I en [OpenID Connect eller OAuth 2.0](active-directory-v2-protocols.md) auktorisering begär att en app kan begära de behörigheter som krävs med hjälp av den `scope` frågeparameter. Till exempel när en användare loggar in på en app, appen skickar en begäran som i följande exempel (med radbrytningar har lagts till för läsbarhet):
+I en [OpenID Connect-eller OAuth 2,0](active-directory-v2-protocols.md) -auktoriseringsbegäran kan en app begära de behörigheter som krävs med hjälp `scope` av Frågeparametern. Till exempel, när en användare loggar in i en app, skickar appen en begäran som följande exempel (med rad brytningar som har lagts till för läsbarhet):
 
 ```
 GET https://login.microsoftonline.com/common/oauth2/v2.0/authorize?
@@ -117,69 +117,72 @@ https%3A%2F%2Fgraph.microsoft.com%2Fmail.send
 &state=12345
 ```
 
-Den `scope` parameter är en blankstegsavgränsad lista över delegerade behörigheter som appen begär. Varje behörighet anges genom att lägga till Behörighetsvärdet för till resursidentifierare (program-ID: T URI). I exemplet begäran måste appen behörighet att läsa användarens kalendern och skicka e-post som användaren.
+`scope` Parametern är en blankstegsavgränsad lista med delegerade behörigheter som appen begär. Varje behörighet anges genom att lägga till behörighet svärdet till resursens identifierare (program-ID-URI). I förfrågan-exemplet måste appen ha behörighet att läsa användarens kalender och skicka e-post som användare.
 
-När användaren anger sina autentiseringsuppgifter, Microsoft identity-plattformen endpoint söker efter matchande koll på *användarmedgivande*. Om användaren inte har godkänt att någon av behörigheterna som krävs i förflutna eller har en administratör samtyckt till behörigheterna för hela organisationen, ombeds användaren att bevilja behörigheterna som krävs i Microsoft identity-plattformen slutpunkten.
+När användaren har angett sina autentiseringsuppgifter söker Microsoft Identity Platform-slutpunkten efter en matchande post för *användar medgivande*. Om användaren inte har samtyckt till någon av de begärda behörigheterna tidigare, eller om en administratör har samtyckt till dessa behörigheter åt hela organisationen, ber Microsoft Identity Platform-slutpunkten användaren att bevilja de begärda behörigheterna.
 
 > [!NOTE]
-> För närvarande den `offline_access` (”ha tillgång till data som du har beviljat åtkomst till den”) och `user.read` (”logga in och läsa din profil”) behörigheter ingår automatiskt i det inledande medgivandet till ett program.  Dessa behörigheter krävs normalt för rätt funktionalitet - `offline_access` ger åtkomst till appen att uppdatera token, kritiska för intern och web apps, medan `user.read` ger åtkomst till den `sub` anspråk, vilket gör att klienten eller app med korrekt identifiera användaren över tid och åtkomst rudimentära användarinformation.  
+> För närvarande inkluderas behörigheterna `user.read` ("Behållåtkomsttilldatasomduharfåttåtkomsttill")och("loggainochläsadinprofil")automatisktidetförstamedgivandeettillettprogram.`offline_access`  De här behörigheterna krävs vanligt vis för korrekt app `offline_access` -funktionalitet – ger appen åtkomst till att uppdatera tokens, kritiskt för ursprungliga appar och `user.read` webbappar, samtidigt `sub` som den ger åtkomst till anspråket, vilket gör att klienten eller appen fungerar korrekt identifiera användaren över tid och komma åt elementära användar information.  
 
-![Exemplet på skärmbilden som visar work konto medgivande](./media/v2-permissions-and-consent/work_account_consent.png)
+![Exempel skärm bild som visar godkännande av arbets konto](./media/v2-permissions-and-consent/work_account_consent.png)
 
-När användaren godkänner begäran behörighet, medgivande registreras och användaren behöver inte godkänna igen på efterföljande inloggningar till programmet.
+När användaren godkänner behörighets förfrågningen registreras medgivande och användaren behöver inte godkänna det igen på efterföljande inloggningar till programmet.
 
-## <a name="requesting-consent-for-an-entire-tenant"></a>Begär godkännande för en hel-klient
+## <a name="requesting-consent-for-an-entire-tenant"></a>Begära medgivande för en hel klient
 
-Ofta, när en organisation köper en licens eller prenumeration för ett program kan vill organisationen proaktivt konfigurera program för användning av alla medlemmar i organisationen. Som en del av den här processen kan kan en administratör ge samtycke för programmet att fungera som ombud för alla användare i klienten. Om administratören ger ditt medgivande för hela klientorganisationen, se organisationens användare inte en samtyckessida för programmet.
+När en organisation köper en licens eller prenumeration för ett program vill organisationen ofta konfigurera programmet för användning av alla medlemmar i organisationen. Som en del av den här processen kan en administratör bevilja medgivande för programmet att agera åt alla användare i klient organisationen. Om administratören ger godkännande för hela klient organisationen ser inte organisationens användare en godkännande sida för programmet.
 
-Om du vill begära godkännande för delegerade behörigheter för alla användare i en klient, kan din app använder medgivande admin-slutpunkten.
+För att begära medgivande för delegerade behörigheter för alla användare i en klient organisation kan din app använda slut punkten för administratörs medgivande.
 
-Dessutom måste programmen använda adminslutpunkten för godkännande för att begära behörigheter för programmet.
+Dessutom måste program använda den administrativa medgivande slut punkten för att begära program behörigheter.
 
-## <a name="admin-restricted-permissions"></a>Begränsat behörigheter
+## <a name="admin-restricted-permissions"></a>Administratör – begränsade behörigheter
 
-Vissa höga behörigheter i Microsofts ekosystem kan anges till *begränsat*. Följande är exempel på dessa typer av behörigheter:
+Vissa behörigheter med hög behörighet i Microsoft-eko systemet kan anges till *admin-begränsad*. Exempel på dessa typer av behörigheter är följande:
 
-* Läsa fullständiga profiler för alla användare med hjälp av `User.Read.All`
-* Skriva data till en organisations katalog med hjälp av `Directory.ReadWrite.All`
-* Läsa alla grupper i en organisations katalog med hjälp av `Groups.Read.All`
+* Läs alla användares fullständiga profiler med hjälp av`User.Read.All`
+* Skriva data till en organisations katalog med hjälp av`Directory.ReadWrite.All`
+* Läs alla grupper i en organisations katalog med hjälp av`Groups.Read.All`
 
-Även om en konsument-användare kan ge ett programåtkomst till den här typen av data, är organisationsanvändare begränsade från att bevilja åtkomst till samma uppsättning av känsliga företagsdata. Om ditt program begär åtkomst till någon av dessa behörigheter från en organisationsanvändare, får användaren ett felmeddelande som säger att de inte har behörighet att godkänna din app-behörigheter.
+Även om en konsument användare kan ge en program åtkomst till den här typen av data, begränsas organisationens användare från att bevilja åtkomst till samma uppsättning känsliga företags data. Om programmet begär åtkomst till någon av de här behörigheterna från en organisations användare får användaren ett fel meddelande om att de inte har behörighet att godkänna appens behörigheter.
 
-Om din app kräver åtkomst till begränsat scope för organisationer, bör du begära dem direkt från en företagsadministratör också med hjälp av admin medgivande-slutpunkten, som beskrivs nedan.
+Om din app kräver åtkomst till administrations begränsade omfång för organisationer, bör du begära dem direkt från en företags administratör, även genom att använda slut punkten för administratörs medgivande, som beskrivs härnäst.
 
-Om programmet begär Privilegierade delegerade behörigheter och en administratör ger dessa behörigheter via medgivande adminslutpunkten, godkänns medgivande för alla användare i klienten.
+Om programmet begär hög behörighet delegerade behörigheter och en administratör beviljar behörigheterna via slut punkten för administratörs medgivande beviljas medgivande för alla användare i klient organisationen.
 
-Om programmet begär behörigheter för programmet och en administratör beviljar följande behörigheter via administratören godkänna slutpunkten, är inte det här beviljandet klar för en viss användares räkning. I stället klientprogrammet beviljas behörigheter *direkt*. Dessa typer av behörigheter används endast av daemon-tjänster och andra icke-interaktiva program som körs i bakgrunden.
+Om programmet begär program behörigheter och en administratör beviljar behörigheterna via slut punkten för administratörs medgivande, utförs inte detta anslag för någon specifik användares räkning. I stället beviljas klient programmet behörigheter *direkt*. Dessa typer av behörigheter används endast av daemon-tjänster och andra icke-interaktiva program som körs i bakgrunden.
 
-## <a name="using-the-admin-consent-endpoint"></a>Med hjälp av administratören medgivande slutpunkt
+## <a name="using-the-admin-consent-endpoint"></a>Använda slut punkten för administratörs medgivande
 
-När en företagsadministratör använder ditt program och dirigeras till slutpunkten för auktorisering, Microsoft identity-plattformen identifierar användarens roll och be dem om de vill ge samtycke åt hela klientorganisationen för de behörigheter som du har begärt. Men finns det också en dedicerad administratörsanslutning medgivande slutpunkt som du kan använda om du vill proaktivt begär att en administratör ger behörighet åt hela klientorganisationen. Med den här slutpunkten behövs också för att begära programbehörigheter (som inte kan begäras med slutpunkten för auktorisering).
+> [!NOTE] 
+> Observera att när du har beviljat administratörs medgivande med hjälp av administratörs slut punkten har du beviljat godkännandet och användarna behöver inte utföra några ytterligare åtgärder. Efter att ha beviljat administratörs tillåtelse kan användare få en åtkomsttoken via ett typiskt auth-flöde och den resulterande åtkomsttoken har de behörigheter som har skickats. 
 
-Om du följer dessa steg kan appen begära behörighet för alla användare i en klient, inklusive begränsat scope. Detta är en åtgärd med hög behörighet och bör endast göras om det behövs för ditt scenario.
+När en företags administratör använder ditt program och dirigeras till behörighets slut punkten identifierar Microsoft Identity Platform användarens roll och ber dem om de vill ge tillstånd åt hela klient organisationen för de behörigheter som du har begärt. Det finns dock en dedikerad slut punkt för administratörs medgivande som du kan använda om du vill proaktivt begära att en administratör ger behörighet åt hela klient organisationen. Du måste också använda den här slut punkten för att begära program behörigheter (som inte kan begäras med hjälp av auktorisera slut punkten).
 
-Ett kodexempel som implementerar stegen finns i den [begränsat scope exempel](https://github.com/Azure-Samples/active-directory-dotnet-admin-restricted-scopes-v2).
+Om du följer de här stegen kan din app begära behörigheter för alla användare i en klient, inklusive administrations begränsade omfång. Detta är en åtgärd med hög behörighet och bör bara utföras om det behövs för ditt scenario.
 
-### <a name="request-the-permissions-in-the-app-registration-portal"></a>Begär behörighet i portalen för registrering av app
+Om du vill se ett kod exempel som implementerar stegen går du till [exemplet admin-begränsade omfattningar](https://github.com/Azure-Samples/active-directory-dotnet-admin-restricted-scopes-v2).
 
-Administratörens godkännande accepterar inte en omfattningsparameter, så att alla behörigheter som begärts måste definieras statiskt i programmets registrering. I allmänhet är det bäst att kontrollera att de behörigheter som statiskt har definierats för ett visst program är en supermängd de behörigheter som det begär dynamiskt/inkrementellt.
+### <a name="request-the-permissions-in-the-app-registration-portal"></a>Begär behörigheterna i appens registrerings Portal
 
-#### <a name="to-configure-the-list-of-statically-requested-permissions-for-an-application"></a>Konfigurera listan över statiskt begärda behörigheter för ett program
+Administratörs medgivande accepterar inte en omfattnings parameter, så alla behörigheter som begärs måste definieras statiskt i programmets registrering. I allmänhet är det bäst att se till att de behörigheter som definierats statiskt för ett visst program är en supermängd av de behörigheter som begärs dynamiskt/stegvis.
 
-1. Gå till ditt program i den [Azure-portalen – appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) uppstår eller [skapa en app](quickstart-register-app.md) om du inte redan har gjort.
-2. Leta upp den **API-behörigheter** avsnittet och klicka på Lägg till en behörighet i API-behörigheter.
-3. Välj **Microsoft Graph** från listan över tillgängliga API: er och Lägg sedan till de behörigheter som din app kräver.
-3. **Spara** appregistreringen.
+#### <a name="to-configure-the-list-of-statically-requested-permissions-for-an-application"></a>Konfigurera listan med statiskt begärda behörigheter för ett program
 
-### <a name="recommended-sign-the-user-into-your-app"></a>Rekommenderat: Logga in användaren i din app
+1. Gå till ditt program i [Azure Portal – Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) erfarenhet eller [skapa en app](quickstart-register-app.md) om du inte redan har gjort det.
+2. Leta upp avsnittet **API-behörigheter** och i API-behörigheterna klickar du på Lägg till en behörighet.
+3. Välj **Microsoft Graph** i listan över tillgängliga API: er och Lägg sedan till de behörigheter som din app kräver.
+3. **Spara** appens registrering.
 
-Vanligtvis när du skapar ett program som använder medgivande adminslutpunkten måste appen du en sida eller vy där administratören kan godkänna dess behörigheter. Den här sidan kan vara en del av appens registrering flöde, en del av appens inställningar, eller så kan vara ett dedikerat ”ansluta”-flöde. I många fall kan det vara bra för appen ska visa detta ”ansluta” Visa endast när en användare har loggat in med ett arbets- eller din skola Microsoft-konto.
+### <a name="recommended-sign-the-user-into-your-app"></a>Rekommenderas Signera användaren till din app
 
-När du loggar in användaren i din app kan du identifiera den organisation som administratören tillhör innan ber dem att godkänna behörigheterna som krävs. Även om de inte är absolut nödvändigt, det kan hjälpa dig att skapa en mer intuitiv upplevelse för din organisations användare. Om du vill registrera användare i följa våra [Microsoft identity-plattformen protokollet självstudier](active-directory-v2-protocols.md).
+När du skapar ett program som använder den administrativa medgivande slut punkten behöver appen normalt en sida eller vy där administratören kan godkänna appens behörigheter. Den här sidan kan ingå i appens registrerings flöde, en del av appens inställningar, eller så kan det vara ett dedikerat "Connect"-flöde. I många fall är det meningsfullt att appen visar vyn "Anslut" bara när en användare har loggat in med ett arbets-eller skol Microsoft-konto.
 
-### <a name="request-the-permissions-from-a-directory-admin"></a>Begär behörigheter från en directory-administratör
+När du registrerar användaren i din app kan du identifiera den organisation som administratören tillhör innan de ber dem att godkänna de nödvändiga behörigheterna. Även om det inte är absolut nödvändigt kan det hjälpa dig att skapa en mer intuitiv upplevelse för dina organisations användare. Följ våra självstudier för [Microsoft Identity Platform Protocol](active-directory-v2-protocols.md)för att logga in användaren i.
 
-När du är redo att begära behörighet från administratören för din organisation kan du omdirigera användaren till Microsoft identity-plattformen *medgivande adminslutpunkten*.
+### <a name="request-the-permissions-from-a-directory-admin"></a>Begär behörigheter från en katalog administratör
+
+När du är redo att begära behörigheter från din organisations administratör kan du omdirigera användaren till Microsoft Identity Platform *admin medgivande*-slutpunkten.
 
 ```
 // Line breaks are for legibility only.
@@ -200,16 +203,16 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 
 | Parameter | Tillstånd | Beskrivning |
 | --- | --- | --- |
-| `tenant` | Krävs | Directory-klient som du vill begära behörighet från. Kan anges i GUID eller eget namnformat eller med det allmänna skyddet som hänvisas med `common` som visas i exemplet. |
-| `client_id` | Krävs | Den **(klient)-ID: T** som den [Azure-portalen – appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) upplevelse som tilldelats din app. |
-| `redirect_uri` | Krävs |Omdirigerings-URI där du vill att svaret skickas för din app för att hantera. Det måste exakt matcha en av omdirigerings-URI: er som du registrerade i portalen för registrering av appen. |
-| `state` | Rekommenderas | Ett värde som ingår i den begäran som också kommer att returneras i token-svaret. Det kan vara en sträng med innehåll. Använda tillståndet för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffat, till exempel sidan eller vyn som de befann sig i. |
+| `tenant` | Obligatorisk | Den katalog klient som du vill begära behörighet från. Kan anges i GUID eller eget namn format eller allmänt refereras till `common` som visas i exemplet. |
+| `client_id` | Obligatorisk | **Program-ID: t (klienten)** som [Azure Portal – Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) -upplevelsen som har tilldelats din app. |
+| `redirect_uri` | Obligatorisk |Den omdirigerings-URI där du vill att svaret på din app ska hanteras. Det måste exakt matcha en av de omdirigerings-URI: er som du registrerade i registrerings portalen för appen. |
+| `state` | Rekommenderas | Ett värde som ingår i begäran som också kommer att returneras i svaret från token. Det kan vara en sträng med valfritt innehåll som du vill ha. Använd tillstånd för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffade, t. ex. sidan eller vyn de var på. |
 
-Azure AD kräver nu en Innehavaradministratör för att logga in att slutföra begäran. Administratören uppmanas att godkänna de behörigheter som du har begärt för din app i portalen för registrering av appen.
+I det här läget kräver Azure AD en klient administratör för att logga in för att slutföra begäran. Administratören uppmanas att godkänna alla behörigheter som du har begärt för din app i registrerings portalen för appen.
 
 #### <a name="successful-response"></a>Lyckat svar
 
-Om administratören godkänner behörigheterna för din app, lyckat svar som ser ut så här:
+Om administratören godkänner behörigheterna för din app ser det lyckade svaret ut så här:
 
 ```
 GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b95&state=state=12345&admin_consent=True
@@ -217,13 +220,13 @@ GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b
 
 | Parameter | Beskrivning |
 | --- | --- |
-| `tenant` | Directory-klient som beviljats de behörigheter som den begärda i GUID-format för ditt program. |
-| `state` | Ett värde som ingår i den begäran som också kommer att returneras i token-svaret. Det kan vara en sträng med innehåll. Tillståndet används för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffat, till exempel sidan eller vyn som de befann sig i. |
-| `admin_consent` | Anges till `True`. |
+| `tenant` | Den katalog klient som beviljade programmet de behörigheter som begärdes, i GUID-format. |
+| `state` | Ett värde som ingår i begäran som också kommer att returneras i svaret från token. Det kan vara en sträng med valfritt innehåll som du vill ha. Statusen används för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffade, t. ex. sidan eller vyn de var på. |
+| `admin_consent` | Kommer att anges till `True`. |
 
-#### <a name="error-response"></a>Felsvar
+#### <a name="error-response"></a>Fel svar
 
-Om administratören inte godkänner behörigheterna för din app, misslyckat svar som ser ut så här:
+Om administratören inte godkänner behörigheterna för din app ser det misslyckade svaret ut så här:
 
 ```
 GET http://localhost/myapp/permissions?error=permission_denied&error_description=The+admin+canceled+the+request
@@ -231,14 +234,14 @@ GET http://localhost/myapp/permissions?error=permission_denied&error_description
 
 | Parameter | Beskrivning |
 | --- | --- |
-| `error` | En felkodsträngen som kan användas för att klassificera typer av fel som inträffar och kan användas för att ta hänsyn till fel. |
-| `error_description` | Ett felmeddelande som kan hjälpa utvecklare identifiera grundorsaken till ett fel. |
+| `error` | En fel kods sträng som kan användas för att klassificera typer av fel som inträffar och som kan användas för att reagera på fel. |
+| `error_description` | Ett fel meddelande som kan hjälpa en utvecklare att identifiera rotor saken till ett fel. |
 
-När du har fått ett lyckat svar från admin-slutpunkten för medgivande, kommer din app har fått de behörigheter som begärde. Därefter kan du begära en token för den resurs som du vill.
+När du har fått ett lyckat svar från slut punkten för administratörs medgivande har appen fått de behörigheter som begärdes. Sedan kan du begära en token för den resurs som du vill använda.
 
-## <a name="using-permissions"></a>Med behörigheter
+## <a name="using-permissions"></a>Använda behörigheter
 
-När användaren godkänner behörighet för din app, kan appen hämta åtkomsttoken som representerar appens behörighet att komma åt en resurs i vissa kapacitet. En åtkomsttoken kan bara användas för en enskild resurs, men kodad i åtkomsttoken är varje behörighet som din app har beviljats för den resursen. För att hämta en åtkomsttoken kan appen göra en begäran till Microsoft identity-plattformen tokenslutpunkten, så här:
+När användaren har fått behörighet till appen kan appen Hämta åtkomsttoken som representerar appens behörighet att få åtkomst till en resurs i viss kapacitet. En åtkomsttoken kan bara användas för en enda resurs, men kodad i åtkomsttoken är alla behörigheter som din app har beviljats för resursen. För att få en åtkomsttoken kan din app göra en begäran till Microsoft Identity Platform token-slutpunkten, så här:
 
 ```
 POST common/oauth2/v2.0/token HTTP/1.1
@@ -255,42 +258,42 @@ Content-Type: application/json
 }
 ```
 
-Du kan använda den resulterande åtkomsttoken i HTTP-förfrågningar till resursen. På ett tillförlitligt sätt betyder det att resursen att din app har rätt behörighet för att utföra en viss uppgift. 
+Du kan använda den resulterande åtkomsttoken i HTTP-begäranden till resursen. Det tyder tillförlitligt på den resurs som din app har rätt behörighet för att utföra en speciell uppgift. 
 
-Läs mer om OAuth 2.0-protokollet och hur du hämtar åtkomsttoken, den [protokollreferens för Microsoft identity-plattformen endpoint](active-directory-v2-protocols.md).
+Mer information om OAuth 2,0-protokollet och hur du hämtar åtkomsttoken finns i [protokoll referens för Microsoft Identity Platform](active-directory-v2-protocols.md).
 
-## <a name="the-default-scope"></a>Området /.default
+## <a name="the-default-scope"></a>/.Default-omfånget
 
-Du kan använda den `/.default` omfång för att migrera dina appar från v1.0 slutpunkten till slutpunkten för Microsoft identity-plattformen. Det här är en inbyggd omfattning för varje program som refererar till en statisk lista över behörigheter som konfigurerats på programregistrering. En `scope` värdet för `https://graph.microsoft.com/.default` funktionellt är samma som slutpunkter i v1.0 `resource=https://graph.microsoft.com` -nämligen begär en token med omfång på Microsoft Graph som programmet har registrerats för i Azure-portalen.
+Du kan använda `/.default` omfånget för att migrera dina appar från v 1.0-slut punkten till Microsoft Identity Platform-slutpunkten. Det här är en inbyggd omfattning för varje program som refererar till den statiska listan med behörigheter som kon figurer ATS i program registreringen. Värdet är samma sak som v 1.0 `resource=https://graph.microsoft.com` -slut punkterna – dvs begär en token med scope på Microsoft Graph att programmet har registrerats för i Azure Portal. `https://graph.microsoft.com/.default` `scope`
 
-Området /.default kan användas i ett OAuth 2.0-flöde, men det är nödvändigt i den [On-Behalf-Of-flöde](v2-oauth2-on-behalf-of-flow.md) och [flödet för klientautentiseringsuppgifter](v2-oauth2-client-creds-grant-flow.md).  
+/.Default-omfånget kan användas i alla OAuth 2,0-flöden, men det är nödvändigt i flödet för det aktiva [flödet](v2-oauth2-on-behalf-of-flow.md) och [klientens autentiseringsuppgifter](v2-oauth2-client-creds-grant-flow.md).  
 
 > [!NOTE]
-> Klienter kan inte kombinera statisk (`/.default`) och dynamisk godkännande i en enskild begäran. Därför `scope=https://graph.microsoft.com/.default+mail.read` resulterar i ett fel på grund av kombinationen av omfång typer.
+> Klienter kan inte kombinera statiska`/.default`() och dynamiskt medgivande i en enskild begäran. `scope=https://graph.microsoft.com/.default+mail.read` Därför leder det till ett fel på grund av en kombination av omfångs typer.
 
-### <a name="default-and-consent"></a>/.default och samtycke
+### <a name="default-and-consent"></a>/.default och medgivande
 
-Den `/.default` omfång utlöser v1.0 slutpunktsfunktionaliteter för `prompt=consent` samt. Begär godkännande för alla behörigheter som har registrerats av programmet, oavsett resursen. Om en del av begäran, den `/.default` omfång returnerar en token som innehåller omfång för den begärda resursen.
+Omfattningen utlöser även slut punkts beteendet `prompt=consent` för v 1.0. `/.default` Den begär tillstånd för alla behörigheter som registrerats av programmet, oavsett resurs. Om `/.default` omfånget ingår som en del av begäran, returnerar omfånget en token som innehåller omfattningarna för den begärda resursen.
 
-### <a name="default-when-the-user-has-already-given-consent"></a>/.default när användaren har redan gett ditt medgivande
+### <a name="default-when-the-user-has-already-given-consent"></a>/.default när användaren redan har gett sitt medgivande
 
-Eftersom `/.default` är funktionellt identisk den `resource`-centric v1.0 endpoint beteende och det medför beteendet godkännande av v1.0-slutpunkten. Nämligen `/.default` utlöser en medgivandetext för endast om inga behörighet har beviljats mellan klienten och resursen av användaren. Om det finns någon sådan medgivande, sedan returneras en token som innehåller alla omfattningar som beviljas av användaren för den här resursen. Men om inga behörighet har beviljats, eller `prompt=consent` parameter har angetts, Kommandotolken medgivande visas för alla scope som registrerats av klientprogrammet.
+Eftersom `/.default` är funktions identiskt för beteendet för den `resource`-koncentriska v 1.0-slutpunkten, tar den med sig även av medgivande beteendet för v 1.0-slut punkten. Dvs utlöser bara en medgivande- `/.default` prompt om ingen behörighet har beviljats mellan klienten och resursen av användaren. Om ett sådant medgivande finns returneras en token som innehåller alla omfattningar som beviljats av användaren för resursen. Men om ingen behörighet har beviljats eller `prompt=consent` parametern har angetts visas en medgivande-prompt för alla omfattningar som registrerats av klient programmet.
 
-#### <a name="example-1-the-user-or-tenant-admin-has-granted-permissions"></a>Exempel 1: Användaren eller klientadministratör har beviljat behörigheter
+#### <a name="example-1-the-user-or-tenant-admin-has-granted-permissions"></a>Exempel 1: Användaren eller klient organisationens administratör har beviljat behörigheter
 
-Användaren (eller en Innehavaradministratör) har beviljat klienten Microsoft Graph-behörigheter `mail.read` och `user.read`. Om klienten skickar en begäran `scope=https://graph.microsoft.com/.default`, utan medgivande visas oavsett innehållet i klientprogrammen registrerade behörigheter för Microsoft Graph. En token returneras som innehåller scope `mail.read` och `user.read`.
+Användaren (eller klient administratören) har beviljat klienten Microsoft Graph behörigheter `mail.read` och. `user.read` Om klienten gör en begäran om `scope=https://graph.microsoft.com/.default`så visas ingen medgivande fråga oavsett innehållet i de klient program som har registrerat behörigheter för Microsoft Graph. En token returneras som innehåller omfattningarna `mail.read` och. `user.read`
 
-#### <a name="example-2-the-user-hasnt-granted-permissions-between-the-client-and-the-resource"></a>Exempel 2: Användaren har inte beviljats behörighet mellan klienten och resursen
+#### <a name="example-2-the-user-hasnt-granted-permissions-between-the-client-and-the-resource"></a>Exempel 2: Användaren har inte beviljats behörigheter mellan klienten och resursen
 
-Det finns inga medgivande för användaren mellan klienten och Microsoft Graph. Klienten har registrerats för den `user.read` och `contacts.read` behörigheter, samt Azure Key Vault-omfång `https://vault.azure.net/user_impersonation`. När klienten begär en token för `scope=https://graph.microsoft.com/.default`, visas en godkännandeskärmen för den `user.read`, `contacts.read`, och Key Vault `user_impersonation` omfång. Token returneras har bara `user.read` och `contacts.read` scope i den.
+Det finns inget medgivande för användaren mellan klienten och Microsoft Graph. Klienten har registrerat sig för `user.read` -och `contacts.read` -behörigheterna, samt Azure Key Vault omfattning. `https://vault.azure.net/user_impersonation` När klienten begär en token för `scope=https://graph.microsoft.com/.default`, kommer användaren att se ett medgivande fönster `user.read`för-, `contacts.read`-och Key Vault `user_impersonation` -omfattningarna. Den returnerade token har bara `user.read` omfattningarna och `contacts.read` .
 
-#### <a name="example-3-the-user-has-consented-and-the-client-requests-additional-scopes"></a>Exempel 3: Användaren har godkänt och klienten begär ytterligare scope
+#### <a name="example-3-the-user-has-consented-and-the-client-requests-additional-scopes"></a>Exempel 3: Användaren har samtyckt och klienten begär ytterligare omfång
 
-Användaren har redan samtyckt för `mail.read` för klienten. Klienten har registrerats för den `contacts.read` omfattning i registreringen. När klienten skickar en begäran om en token med `scope=https://graph.microsoft.com/.default` och begäranden om godkännande via `prompt=consent`, användaren ser ett godkännandeskärmen för endast och alla behörigheter som har registrerats av programmet. `contacts.read` kommer att finnas i godkännandeskärmen, men `mail.read` inte. Token returneras för Microsoft Graph och innehåller `mail.read` och `contacts.read`.
+Användaren har redan samtyckt till `mail.read` för klienten. Klienten har registrerats för `contacts.read` omfånget i registreringen. När klienten gör en begäran om en token med `scope=https://graph.microsoft.com/.default` hjälp av och begär `prompt=consent`medgivande via, kommer användaren bara att se en medgivande skärm för och alla behörigheter som registrerats av programmet. `contacts.read`kommer att finnas på medgivande skärmen, men `mail.read` kommer inte. Den returnerade token är för Microsoft Graph och kommer `mail.read` att `contacts.read`innehålla och.
 
-### <a name="using-the-default-scope-with-the-client"></a>Använda /.default omfånget med klienten
+### <a name="using-the-default-scope-with-the-client"></a>Använda/.default-scope med klienten
 
-Ett specialfall av den `/.default` omfånget finns där en klient begär en egen `/.default` omfång. I följande exempel visar det här scenariot.
+Det finns ett specialfall av `/.default` omfånget där en klient begär sitt `/.default` eget omfång. Följande exempel visar det här scenariot.
 
 ```
 // Line breaks are for legibility only.
@@ -303,8 +306,8 @@ response_type=token            //code or a hybrid flow is also possible here
 &state=1234
 ```
 
-Detta ger en godkännandeskärmen för alla registrerade behörigheter (om tillämpligt baserat på ovanstående beskrivningar av medgivande och `/.default`), returnerar sedan en id_token i stället för en åtkomsttoken.  Det här beteendet finns för vissa äldre klienter som flyttas från ADAL till MSAL och ska inte användas av nya klienter som riktar in sig på Microsoft identity-plattformen slutpunkten.  
+Detta skapar en godkännande skärm för alla registrerade behörigheter (om det är tillämpligt baserat på ovanstående beskrivningar av medgivande `/.default`och), returnerar en id_token i stället för en åtkomsttoken.  Det här beteendet finns för vissa äldre klienter som flyttas från ADAL till MSAL och ska inte användas av nya klienter som är riktade till Microsoft Identity Platform-slutpunkten.  
 
-## <a name="troubleshooting-permissions-and-consent"></a>Felsökning av behörigheter och samtycke
+## <a name="troubleshooting-permissions-and-consent"></a>Felsöka behörigheter och medgivande
 
-Om du eller ditt programs användare ser ett oväntat fel under medgivande, se den här artikeln för felsökning: [Ett oväntat fel inträffade när du utför medgivande till ett program](../manage-apps/application-sign-in-unexpected-user-consent-error.md).
+Om du eller ditt programs användare ser oväntade fel under medgivande processen, se den här artikeln för fel söknings steg: Ett [oväntat fel inträffade vid godkännande av ett program](../manage-apps/application-sign-in-unexpected-user-consent-error.md).

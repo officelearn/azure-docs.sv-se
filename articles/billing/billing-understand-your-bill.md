@@ -2,28 +2,28 @@
 title: Förstå Azure-fakturan
 description: Lär dig hur du läser och förstår din användning och faktura för din Azure-prenumeration.
 author: bandersmsft
-manager: jureid
+manager: dougeby
 tags: billing
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/22/2019
+ms.date: 07/28/2019
 ms.author: banders
-ms.openlocfilehash: 69659e700ee47c8961ec21f0fb23573e13d72588
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 51143644a62a77a61c4540d9f2ad3dce401c496b
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68383626"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68610130"
 ---
 # <a name="understand-your-microsoft-azure-bill"></a>Förstå din Microsoft Azure faktura
 För att förstå din Azure-faktura, jämför du din faktura med den detaljerade dagliga användnings filen och med Cost Management-rapporter i Azure Portal.
 
-Den här artikeln gäller inte för Azure-kunder med en Enterprise-avtal (EA-kunder). Om du är EA-kund kan du läsa [förstå din faktura för Azure-kunder med en Enterprise-avtal](billing-understand-your-bill-ea.md).
-
-Den här artikeln gäller inte för Azure-kunder med ett [kund avtal från Microsoft](#check-access-to-a-microsoft-customer-agreement). Om du har ett Microsoft-kundavtal kan du läsa mer i ta [reda på Azure-avgifterna på din Microsoft-kund avtals faktura](billing-mca-understand-your-bill.md).
+Den här artikeln gäller inte för följande kunder:
+- Azure-kunder med en Enterprise-avtal (EA-kunder). Om du är EA-kund kan du läsa [förstå din faktura för Azure-kunder med en Enterprise-avtal](billing-understand-your-bill-ea.md).
+- Azure-kunder med ett [Microsofts kund avtal](#check-access-to-a-microsoft-customer-agreement). Om du har ett Microsoft-kundavtal kan du läsa mer i ta [reda på Azure-avgifterna på din Microsoft-kund avtals faktura](billing-mca-understand-your-bill.md).
 
 En förklaring av hur faktureringen fungerar i Azure CSP-programmet (Cloud Solution Provider), inklusive fakturerings cykel, prissättning och användning, finns i [Översikt över Azure CSP-fakturering](/azure/cloud-solution-provider/billing/azure-csp-billing-overview/).
 
@@ -54,15 +54,15 @@ I avsnittet **användnings avgifter** på fakturan visas det totala värdet för
 
 ![Faktura användnings kostnader](./media/billing-understand-your-bill/1.png)
 
-I avsnittet **instruktion** i din detaljerade användnings CSV visas samma avgift. Både den  förbrukade mängden och *värdet* matchar fakturan.
+I avsnittet **instruktion** i din detaljerade användnings CSV visas samma avgift. Både den förbrukade mängden och *värdet* matchar fakturan.
 
 ![Användnings kostnader för CSV](./media/billing-understand-your-bill/2.png)
 
-Om du vill se en dags uppdelning av avgiften går du till avsnittet **daglig användning** i CSV-filen. Filtrera efter *Scheduler* under *mätar kategori*. Du kan se vilka dagar mätaren användes och hur mycket som förbrukades. *Resurs* -och *resurs grupps* informationen visas också för jämförelse. De  förbrukade värdena ska läggas till och matcha vad som visas på fakturan.
+Om du vill se en dags uppdelning av avgiften går du till avsnittet **daglig användning** i CSV-filen. Filtrera efter *Scheduler* under *mätar kategori*. Du kan se vilka dagar mätaren användes och hur mycket som förbrukades. *Resurs* -och *resurs grupps* informationen visas också för jämförelse. De förbrukade värdena ska läggas till och matcha vad som visas på fakturan.
 
 ![Avsnittet daglig användning i CSV-filen](./media/billing-understand-your-bill/3.png)
 
-Om du vill få kostnaden per dag multiplicerar  du de förbrukade beloppen med värdet *rate* i avsnittet **sats** .
+Om du vill få kostnaden per dag multiplicerar du de förbrukade beloppen med värdet *rate* i avsnittet **sats** .
 
 Du kan läsa mer här:
 
@@ -88,7 +88,7 @@ Mer information finns i [förhindra oväntade kostnader med fakturering och kost
 
 ## <a name="external"></a>Externa tjänster debiteras separat
 
-Externa tjänster, eller Marketplace-avgifter, är för resurser som har skapats av program leverantörer från tredje part. Dessa resurser är tillgängliga för användning från Azure Marketplace. En Barracuda-brandvägg är till exempel en Azure Marketplace-resurs som erbjuds av en tredje part. Alla avgifter för brand väggen och dess motsvarande mätare visas som externa tjänst avgifter.
+Externa tjänster eller Marketplace-avgifter är för resurser som har skapats av tredjepartsprogram från andra leverantörer. Dessa resurser är tillgängliga för användning från Azure Marketplace. En Barracuda-brandvägg är till exempel en Azure Marketplace-resurs som erbjuds av en tredje part. Alla avgifter för brand väggen och dess motsvarande mätare visas som externa tjänst avgifter.
 
 Avgifter för externa tjänster debiteras separat. Avgifterna visas inte på din Azure-faktura. Mer information finns i [förstå dina avgifter för Azures externa tjänster](billing-understand-your-azure-marketplace-charges.md).
 
@@ -130,7 +130,7 @@ Om du vill kontrol lera statusen för din betalning [skapar du ett support ären
   - [Pris kalkylator för Azure](https://azure.microsoft.com/pricing/calculator/)
   - [Total kostnad för ägar kalkylatorn](https://aka.ms/azure-tco-calculator)
   - [Detaljerad pris information för varje tjänst](https://azure.microsoft.com/pricing/)
-- [Granska användning och kostnader regelbundet i Azure Portal](billing-getting-started.md#costs).
+- [Granska användning och kostnader regelbundet i Azure Portal](billing-getting-started.md#costs)
 
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Kontrol lera åtkomsten till ett Microsofts kund avtal
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]

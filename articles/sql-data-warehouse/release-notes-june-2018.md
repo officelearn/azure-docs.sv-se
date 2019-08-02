@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Data Warehouse viktig juni 2018 | Microsoft Docs
+title: Azure SQL Data Warehouse versions information juni 2018 | Microsoft Docs
 description: Viktig information för Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: anumjs
@@ -11,10 +11,10 @@ ms.date: 07/23/2018
 ms.author: anjangsh
 ms.reviewer: jrasnick
 ms.openlocfilehash: 4348a634fd5b2b33f36d8e79f28caf659b82ccf4
-ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "67626158"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-june-2018"></a>Vad är nytt i Azure SQL Data Warehouse? Juni 2018
@@ -22,10 +22,10 @@ Azure SQL Data Warehouse tar emot förbättringar kontinuerligt. Den här artike
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="user-defined-restore-points"></a>Användardefinierad återställningspunkter
-SQL Data Warehouse tar automatiskt ögonblicksbilder av ditt informationslager var åttonde timme, vilket ger en snabbutvärdering på åtta timmar mål för återställningspunkt (RPO). Detta automatiserad ögonblicksbilder enkel hanteringsbelastning för att köra ditt informationslager, finns men det ett behov av att ta bilder av kritiska perioder baserat på företagets behov. Till exempel ta en ögonblicksbild precis före en stor datainläsning eller distribution av nya skript till datalagret för att aktivera en återställningspunkt precis före åtgärden. 
+## <a name="user-defined-restore-points"></a>Användardefinierade återställnings punkter
+SQL Data Warehouse automatiskt tar ögonblicks bilder av ditt informations lager var 8: e timme som garanterar ett 8-timmars återställnings punkt mål (återställnings punkt mål). Även om det här automatiserade ögonblicks bilderna underlättar hanteringen av ditt informations lager, behöver du ta ögonblicks bilder vid kritiska tider baserat på ditt företags behov. Anta till exempel att du tar en ögonblicks bild direkt före en betydande data belastning eller distributionen av nya skript till data lagret för att aktivera en återställnings punkt direkt före åtgärden. 
 
-SQL Data Warehouse har nu stöd [användardefinierade återställningspunkter](https://azure.microsoft.com/blog/quick-recovery-time-with-sql-data-warehouse-using-user-defined-restore-points/) via den [New AzSqlDatabaseRestorePoint](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaserestorepoint) cmdlet.
+SQL Data Warehouse stöder nu [användardefinierade återställnings punkter](https://azure.microsoft.com/blog/quick-recovery-time-with-sql-data-warehouse-using-user-defined-restore-points/) via cmdleten [New-AzSqlDatabaseRestorePoint](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaserestorepoint) .
 
 ```powershell
 New-AzSqlDatabaseRestorePoint
@@ -35,10 +35,10 @@ New-AzSqlDatabaseRestorePoint
     -RestorePointLabel $RestorePointName
 ```
 
-## <a name="column-level-security"></a>Kolumnen på radnivå
-Hantera dataåtkomst och säkerhet i ditt data warehouse är avgörande för att skapa förtroende med dina kunder och partner. SQL Data Warehouse [stöder nu på kolumnnivå säkerhet (CLS)](https://azure.microsoft.com/blog/column-level-security-is-now-supported-in-azure-sql-data-warehouse/) som gör det möjligt att justera behörigheterna för att visa känsliga data genom att begränsa användaråtkomst till specifika kolumner i dina tabeller utan att behöva ändra designen på ditt informationslager.
+## <a name="column-level-security"></a>Säkerhet på kolumn nivå
+Det är viktigt att hantera data åtkomst och säkerhet i ditt informations lager för att skapa förtroende med dina kunder och partner. SQL Data Warehouse [har nu stöd för säkerhet på kolumn nivå (CLS)](https://azure.microsoft.com/blog/column-level-security-is-now-supported-in-azure-sql-data-warehouse/) som gör att du kan justera behörigheter för att Visa känsliga data genom att begränsa användar åtkomsten till vissa kolumner i tabellerna utan att behöva designa om ditt informations lager.
 
-CLS gör att du kan styra åtkomsten till tabellkolumner baserat på användarens körningskontexten skapades eller deras gruppmedlemskap genom att använda [BEVILJA](https://docs.microsoft.com/azure/sql-data-warehouse/column-level-security) T-SQL-instruktionen. Logiken för begränsningen finns på databasnivån själva i stället för från data i ett annat program, förenkla implementeringen övergripande säkerhet.
+Med CLS kan du styra åtkomsten till tabell kolumner baserat på användarens körnings kontext eller grupp medlemskap med hjälp av standard- [Grant](https://docs.microsoft.com/azure/sql-data-warehouse/column-level-security) -SQL-instruktionen. Logiken för åtkomst begränsning finns i själva databas nivån i stället för bort från data i ett annat program, vilket fören klar den övergripande säkerhets implementeringen.
 
 
 ```sql
@@ -52,7 +52,7 @@ The SELECT permission was denied on the column 'SSN' of the object 'Membership',
 ```
 
 ## <a name="objectschemaname"></a>OBJECT_SCHEMA_NAME
-Den [OBJECT_SCHEMA_NAME()](https://docs.microsoft.com/sql/t-sql/functions/object-schema-name-transact-sql) funktionen returnerar databasnamnet för schemat för schema-omfattande objekt. Den här funktionen har blivit vanliga i ETL-verktyg när objektet schemavalidering. 
+Funktionen [OBJECT_SCHEMA_NAME ()](https://docs.microsoft.com/sql/t-sql/functions/object-schema-name-transact-sql) returnerar databasens schema namn för objekt som omfattas av schemat. Den här funktionen har blivit vanliga i ETL-verktyg vid verifiering av objekt schema. 
 
 ```sql
 SELECT
@@ -62,7 +62,7 @@ FROM
     [sys].[tables];
 ```
 
-**Exempel på resultat**
+**Exempel resultat**
 ```
 table_schema    | table_name
 -----------------------------
@@ -72,14 +72,14 @@ dbo               nation
 dbo               orders
 ```
 
-## <a name="support-for-the-systimezoneinfo-view"></a>Stöd för vyn sys.time_zone_info
-Den [sys.time_zone_info](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql) visa returnerar information om tidszonerna som stöds i Azure SQL Data Warehouse.
+## <a name="support-for-the-systimezoneinfo-view"></a>Stöd för sys. time_zone_info-vyn
+Vyn [sys. time_zone_info](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql) returnerar information om de tids zoner som stöds inom Azure SQL Data Warehouse.
 
 ```sql
 SELECT * FROM [sys].[time_zone_info];
 ```
 
-**Exempel på resultat**
+**Exempel resultat**
 ```
 name                            | current_utc_offset | is_currently_dst
 -------------------------------------------------------------------------
@@ -89,9 +89,9 @@ Mountain Standard Time (Mexico)   -06:00               1
 Central Standard Time             -05:00               1
 ```
 
-## <a name="auto-stats-operations-appear-in-sysdmpdwexecrequests-behavior-change"></a>Automatisk statistik åtgärder visas i sys.dm_pdw_exec_requests (Funktionsändring)
+## <a name="auto-stats-operations-appear-in-sysdmpdwexecrequests-behavior-change"></a>Automatiska statistik åtgärder visas i sys. DM _pdw_exec_requests (beteende ändring)
 
-Med introduktionen av [automatisk Create Statistics](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics#automatic-creation-of-statistic), Azure SQL Data Warehouse genererar statistik för att optimera Frågekörningen. Versionen för juni 2018 lägger till möjligheten att övervaka när stats genereras automatiskt genom att lägga till en post i den [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) granska när någon [CREATE STATISTICS](https://docs.microsoft.com/sql/t-sql/statements/create-statistics-transact-sql) utförs.
+Med introduktionen av [Automatisk skapande av statistik](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics#automatic-creation-of-statistic)kommer Azure SQL Data Warehouse att generera statistik för att optimera frågekörningen. Versionen från juni 2018 ger dig möjlighet att övervaka när statistik genereras automatiskt genom att lägga till en post i vyn [sys. DM _pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) när en åtgärd för att [skapa statistik](https://docs.microsoft.com/sql/t-sql/statements/create-statistics-transact-sql) utförs.
 
 ```sql
 SELECT
@@ -103,7 +103,7 @@ FROM
 WHERE
     [command] LIKE 'CREATE STATISTICS _WA_Sys%';
 ```
-**Exempel på resultat**
+**Exempel resultat**
 ```
 start_time                | end_time                | command
 ------------------------------------------------------------------------------------------------------------------------------
@@ -111,7 +111,7 @@ start_time                | end_time                | command
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Nu när du vet lite om SQL Data Warehouse, lär du dig hur du snabbt [skapa ett SQL Data Warehouse][create a SQL Data Warehouse] . If you are new to Azure, you may find the [Azure glossary][Azure glossary] vara till hjälp eftersom du stöta på ny terminologi. Eller så kan du se över några av de övriga SQL Data Warehouse-resurserna.  
+Nu när du vet lite om SQL Data Warehouse, lär du dig hur du snabbt [skapar en SQL Data Warehouse][create a SQL Data Warehouse]. Om du inte har erfarenhet av Azure kan [Azure-ordlistan][Azure glossary] vara till hjälp eftersom du kan stöta på ny terminologi. Eller så kan du se över några av de övriga SQL Data Warehouse-resurserna.  
 
 * [Kundernas framgångsberättelser]
 * [Bloggar]

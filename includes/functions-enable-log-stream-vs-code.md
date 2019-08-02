@@ -4,19 +4,19 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 06/25/2019
 ms.author: glenga
-ms.openlocfilehash: 83226fb98f28d95d6244c93043e95424d2da7fe6
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 437b4ab62cc8c4903af88ca2f9632e89b953c798
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67455318"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68669843"
 ---
-Aktivera direktuppspelningsloggarna för din funktionsapp i Azure:
+Så här aktiverar du strömmande loggar för din Function-app i Azure:
 
-1. Tryck på F1 så öppna kommandopaletten, och sedan söka efter och kör kommandot **Azure Functions: Starta Direktuppspelningsloggar**.
+1. Välj F1 för att öppna kommando-paletten och Sök sedan efter och kör kommandot **Azure Functions: Starta strömnings**loggar.
 
-1. Välj din funktionsapp i Azure och välj sedan **Ja** att aktivera programloggning för din funktionsapp.
+1. Välj din Function-app i Azure och välj sedan **Ja** för att aktivera program loggning för Function-appen.
 
-1. Utlös dina funktioner i Azure och Observera att loggdata som visas i utdatafönstret i Visual Studio Code.
+1. Utlös dina funktioner i Azure. Observera att loggdata visas i fönstret utdata i Visual Studio Code.
 
-1. När du är klar, Kom ihåg att köra kommandot **Azure Functions: Stoppa strömning loggar** vill inaktivera loggning för funktionsappen.
+1. Kom ihåg att köra kommandot **Azure Functions när du är klar: Stoppa strömmande** loggar för att inaktivera loggning för Function-appen.

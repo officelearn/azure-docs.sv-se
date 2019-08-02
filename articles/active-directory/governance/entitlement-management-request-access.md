@@ -16,12 +16,12 @@ ms.date: 04/19/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 578f78d1853194cad000aa2e54b40d1ac5003544
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 64a81a871d811c68f5e92822ca88446966be4d5c
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489050"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68678118"
 ---
 # <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management-preview"></a>Begär åtkomst till ett Access-paket i Azure AD-hantering av rättigheter (för hands version)
 
@@ -44,7 +44,7 @@ Det första steget är att logga in på min åtkomst portal där du kan begära 
 
 1. Logga in på portalen för åtkomst.
 
-    Se till att du använder ditt organisations konto. Om du är osäker kan du kontakta projektet eller Business Manager.
+    Se till att du använder ditt organisations konto (arbets-eller skol konto). Om du är osäker kan du kontakta projektet eller Business Manager.
 
 ## <a name="request-an-access-package"></a>Begär ett Access-paket
 
@@ -52,6 +52,9 @@ När du har hittat Access-paketet i My Access-portalen kan du skicka en begäran
 
 **Nödvändig roll:** Beställare
 
+1. Hitta Access-paketet i listan.  Om det behövs kan du söka genom att skriva en Sök sträng och sedan välja filtret **namn**, **katalog**eller **resurser** .
+
+    ![Min åtkomst Portal – resurs sökning](./media/entitlement-management-request-access/elm-myaccess-resource-search.png)
 1. Klicka på bock markeringen för att välja Access-paketet.
 
     ![Åtkomst till Portal – åtkomst paket](./media/entitlement-management-shared/my-access-access-packages.png)

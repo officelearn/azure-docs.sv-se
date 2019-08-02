@@ -1,6 +1,6 @@
 ---
-title: PowerShell - rotera TDE-skydd – Azure SQL Database | Microsoft Docs
-description: Lär dig mer om att rotera Transparent datakryptering (TDE)-skydd för en Azure SQL server.
+title: PowerShell-rotera TDE-skydd – Azure SQL Database | Microsoft Docs
+description: Lär dig hur du roterar transparent datakryptering (TDE) skydd för en Azure SQL-Server.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -10,45 +10,44 @@ ms.topic: conceptual
 author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
-manager: jhubbard
 ms.date: 03/12/2019
-ms.openlocfilehash: c3e982c0fc46ea72692d5fa7f27e14b88c6383df
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 464ea73d9b3d7116205377600ffccee13a9e2dcb
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67274268"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566043"
 ---
-# <a name="rotate-the-transparent-data-encryption-tde-protector-using-powershell"></a>Rotera Transparent datakryptering (TDE)-skydd med hjälp av PowerShell
+# <a name="rotate-the-transparent-data-encryption-tde-protector-using-powershell"></a>Rotera transparent datakryptering-skyddet (TDE) med hjälp av PowerShell
 
-Den här artikeln beskriver nyckelrotation för en Azure SQL-server med hjälp av ett TDE-skydd från Azure Key Vault. Rotera en Azure SQL-server TDE-skydd innebär byter till en ny asymmetrisk nyckel som skyddar databaser på servern. Rotation av är en online-åtgärd och tar bara några sekunder att slutföra eftersom det endast dekrypterar återkrypterar databasens datakrypteringsnyckeln, inte hela databasen.
+Den här artikeln beskriver nyckel rotation för en Azure SQL-Server med hjälp av ett TDE-skydd från Azure Key Vault. Att rotera en Azure SQL Servers TDE-skydd innebär att växla till en ny asymmetrisk nyckel som skyddar databaserna på servern. Nyckel rotation är en online-åtgärd som bara tar några sekunder att slutföra, eftersom detta bara dekrypterar och krypterar om databasens data krypterings nyckel, inte hela databasen.
 
-Den här guiden beskrivs två alternativ för att rotera TDE-skydd på servern.
+I den här guiden beskrivs två alternativ för att rotera TDE-skyddskomponenten på servern.
 
 > [!NOTE]
-> Ett pausat SQL Data Warehouse måste det köras innan nyckelrotationer.
+> En pausad SQL Data Warehouse måste återupptas innan nyckel rotationer.
 >
 
 > [!IMPORTANT]
-> **Gör inte att ta bort** tidigare versioner av nyckeln när du har en förnyelse.  När nycklar har flyttats över krypteras vissa data fortfarande med tidigare nycklar, till exempel äldre säkerhetskopior av databasen. 
+> **Ta inte bort** tidigare versioner av nyckeln efter en omstart.  När nycklar överförs är vissa data fortfarande krypterade med de tidigare nycklarna, till exempel äldre databas säkerhets kopior. 
 >
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Modulen PowerShell Azure Resource Manager är fortfarande stöds av Azure SQL Database, men alla framtida utveckling är för modulen Az.Sql. Dessa cmdlets finns i [i AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenten för kommandon i modulen Az och AzureRm-moduler är avsevärt identiska.
+> PowerShell Azure Resource Manager-modulen stöds fortfarande av Azure SQL Database, men all framtida utveckling gäller AZ. SQL-modulen. De här cmdletarna finns i [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenten för kommandona i AZ-modulen och i AzureRm-modulerna är i stort sett identiska.
 
-- Den här guiden förutsätter att du redan använder en nyckel från Azure Key Vault som TDE-skyddet för en Azure SQL Database eller datalagret. Se [Transparent datakryptering med BYOK-stöd](transparent-data-encryption-byok-azure-sql.md).
-- Du måste ha Azure PowerShell installerad och igång.
-- (Rekommenderas men valfria) Skapa nyckelmaterial för TDE-skydd i en maskinvarusäkerhetsmodul (HSM) eller lokal nyckel lagra först och importera nyckelmaterial till Azure Key Vault. Följ den [anvisningar för att använda en maskinvarusäkerhetsmodul (HSM) och Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started) vill veta mer.
+- Den här instruktions guiden förutsätter att du redan använder en nyckel från Azure Key Vault som TDE-skydd för en Azure SQL Database eller ett informations lager. Se [Transparent datakryptering med BYOK-stöd](transparent-data-encryption-byok-azure-sql.md).
+- Du måste ha Azure PowerShell installerat och igång.
+- [Rekommenderas men valfritt] Skapa nyckel materialet för TDE-skyddet i en HSM-modul (Hardware Security Module) eller lokal nyckel lagring först och importera nyckel materialet till Azure Key Vault. Följ [instruktionerna för att använda en maskin varu säkerhetsmodul (HSM) och Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started) om du vill veta mer.
 
-## <a name="manual-key-rotation"></a>Manuell nyckelrotation
+## <a name="manual-key-rotation"></a>Manuell nyckel rotation
 
-Rotation av manuell använder den [Lägg till AzKeyVaultKey](/powershell/module/az.keyvault/Add-AzKeyVaultKey), [Lägg till AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey), och [Set-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) -cmdletar för att lägga till en helt ny nyckel, vilket kan vara under ett nytt namn eller en annan nyckelvalv. Med den här metoden har stöd för att lägga till samma nyckel i olika nyckelvalv för att ge stöd för hög tillgänglighet och geo-dr-scenarier.
+Manuell nyckel rotation använder cmdletarna [Add-AzKeyVaultKey](/powershell/module/az.keyvault/Add-AzKeyVaultKey), [Add-AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey)och [set-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) för att lägga till en helt ny nyckel, som kan vara under ett nytt nyckel namn eller till och med en annan nyckel Vault. Med den här metoden kan du lägga till samma nyckel till olika nyckel valv för att stödja hög tillgänglighet och geo-Dr-scenarier.
 
 >[!NOTE]
->Den kombinerade längden för key vault-namn och namn får inte överskrida 94 tecken.
+>Den kombinerade längden för Key Vault-namnet och nyckel namnet får inte överskrida 94 tecken.
 
    ```powershell
    # Add a new key to Key Vault
@@ -74,7 +73,7 @@ Rotation av manuell använder den [Lägg till AzKeyVaultKey](/powershell/module/
 
 ## <a name="other-useful-powershell-cmdlets"></a>Andra användbara PowerShell-cmdletar
 
-- Om du vill växla TDE-skydd från Microsoft-hanterade till BYOK-läge, Använd den [Set-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) cmdlet.
+- Använd cmdleten [set-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) för att växla TDE-skydd från Microsoft-hanterat till BYOK-läge.
 
    ```powershell
    Set-AzSqlServerTransparentDataEncryptionProtector `
@@ -84,7 +83,7 @@ Rotation av manuell använder den [Lägg till AzKeyVaultKey](/powershell/module/
    -ResourceGroup <SQLDatabaseResourceGroupName>
    ```
 
-- Om du vill växla TDE-skydd från BYOK-läge som hanteras av Microsoft använder den [Set-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) cmdlet.
+- Använd cmdleten [set-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) för att växla TDE-skyddet från BYOK-läge till Microsoft-hanterad.
 
    ```powershell
    Set-AzSqlServerTransparentDataEncryptionProtector `
@@ -95,6 +94,6 @@ Rotation av manuell använder den [Lägg till AzKeyVaultKey](/powershell/module/
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig hur du tar bort ett potentiellt komprometterade TDE-skydd i händelse av en säkerhetsrisk: [Tar bort en potentiellt komprometterade nyckel](transparent-data-encryption-byok-azure-sql-remove-tde-protector.md) 
+- I händelse av en säkerhets risk lär du dig hur du tar bort ett potentiellt komprometterat TDE-skydd: [Ta bort en potentiellt komprometterad nyckel](transparent-data-encryption-byok-azure-sql-remove-tde-protector.md) 
 
-- Kom igång med Azure Key Vault-integrering och stöd för Bring Your Own Key för transparent Datakryptering: [Aktivera transparent Datakryptering med din egen nyckel från Key Vault med hjälp av PowerShell](transparent-data-encryption-byok-azure-sql-configure.md)
+- Kom igång med Azure Key Vault integration och Bring Your Own Key support för TDE: [Aktivera TDE med din egen nyckel från Key Vault med hjälp av PowerShell](transparent-data-encryption-byok-azure-sql-configure.md)

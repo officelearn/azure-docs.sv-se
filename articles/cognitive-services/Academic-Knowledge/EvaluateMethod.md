@@ -1,7 +1,7 @@
 ---
-title: Evaluate method - Academic Knowledge API
+title: Utvärdera metod-Academic Knowledge API
 titlesuffix: Azure Cognitive Services
-description: Använd metoden utvärdera om du vill returnera en uppsättning akademiska enheter baserat på ett frågeuttryck.
+description: Använd metoden utvärdera för att returnera en uppsättning akademiska entiteter baserat på ett frågeuttryck.
 services: cognitive-services
 author: alch-msft
 manager: nitinme
@@ -10,16 +10,17 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: d2e628fb7fc502ef9ba81d20680d66f24fd7d138
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: 69e701d6727e5410b71e6cf8fbe20a1cd038ddb0
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61339104"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68705010"
 ---
-# <a name="evaluate-method"></a>utvärdera metod
+# <a name="evaluate-method"></a>Utvärdera metod
 
-Den **utvärdera** REST-API används för att returnera en uppsättning akademiska enheter baserat på ett frågeuttryck.
+**Utvärdera** REST API används för att returnera en uppsättning akademiska entiteter baserat på ett frågeuttryck.
 <br>
 
 **REST-slutpunkt:**  
@@ -28,16 +29,16 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/evaluate?
 ```   
 <br>
 
-## <a name="request-parameters"></a>Parametrar för begäran  
+## <a name="request-parameters"></a>Begäranparametrar  
 
-Namn     | Värde | Krävs?  | Beskrivning
+Namn     | Value | Obligatorisk?  | Beskrivning
 -----------|-----------|---------|--------
-**uttryck för Markörstorlek**       | Textsträngen | Ja | Ett frågeuttryck som anger vilka enheter som ska returneras.
-**model**      | Textsträngen | Nej  | Namnet på den modell som du vill fråga.  För närvarande standardvärdet *senaste*.        
-**Attribut** | Textsträngen | Nej<br>standard: Id | En kommaavgränsad lista som anger de attributvärden som ingår i svaret. Attributnamn är skiftlägeskänsliga.
-**antal**        | Tal | Nej<br>standard: 10 | Antalet resultat som ska returneras.
-**offset**     | Tal |   Nej<br>standard: 0    | Index för det första resultatet ska returneras.
-**orderby** |   Textsträngen | Nej<br>Standard: genom att minska sannolikhet | Namnet på ett attribut som används för att sortera entiteterna. Du kan också kan stigande/fallande anges. Formatet är: *namn: asc* eller *namn: desc*.
+**uttrycks**       | Text sträng | Ja | Ett frågeuttryck som anger vilka entiteter som ska returneras.
+**förlag**      | Text sträng | Nej  | Namnet på den modell som du vill fråga.  För närvarande är standardvärdet *senaste*.        
+**dokumentattribut** | Text sträng | Nej<br>objekt ID | En kommaavgränsad lista som anger de attributvärden som ingår i svaret. Attributnamn är Skift läges känsliga.
+**antal**        | Number | Nej<br>Standard: 10 | Antal resultat som ska returneras.
+**redovisningsmotkonto**     | Number |   Nej<br>Standard: 0    | Index för det första resultat som ska returneras.
+**OrderBy** |   Text sträng | Nej<br>Standard: genom att minska sannolikheten | Namn på ett attribut som används för att sortera entiteterna. Du kan också ange stigande/fallande ordning. Formatet är: *Namn: ASC* eller *Namn: DESC*.
   
  <br>
 
@@ -45,9 +46,9 @@ Namn     | Värde | Krävs?  | Beskrivning
 
 Namn | Beskrivning
 -------|-----   
-**uttryck för Markörstorlek** |  Den *uttryck* parametern från begäran.
-**Entiteter** |  En matris med 0 eller fler entiteter som matchade frågeuttrycket. Varje entitet innehåller ett naturliga loggen sannolikhetsvärde och värdena för andra attribut som begärs.
-**avbröts** | SANT om uppnåddes för begäran.
+**uttrycks** |  *Expr* -parametern från begäran.
+**poster** |  En matris med 0 eller fler entiteter som matchade frågeuttrycket. Varje entitet innehåller ett sannolikhetsvärde för naturlig logg och värdena för andra begärda attribut.
+**avbröts** | Sant om tids gränsen för begäran uppnåddes.
 
 <br>
 
@@ -56,9 +57,9 @@ Namn | Beskrivning
 https://westus.api.cognitive.microsoft.com/academic/v1.0/evaluate?expr=
 Composite(AA.AuN=='jaime teevan')&count=2&attributes=Ti,Y,CC,AA.AuN,AA.AuId
 ```
-<br>Vanligtvis ett uttryck som ska hämtas från ett svar till den **tolka** metod.  Men du kan också skapa frågeuttryck själv (se [fråga uttryckssyntax](QueryExpressionSyntax.md)).  
+<br>Normalt kommer ett uttryck att hämtas från ett svar till tolknings metoden.  Men du kan också skapa frågeuttryck själv (se [syntax för frågeuttryck](QueryExpressionSyntax.md)).  
   
-Med hjälp av den *antal* och *offset* parametrar, ett stort antal resultat kan erhållas utan att skicka en begäran att resultat i en enorm (och potentiellt långsamt)-svar.  I det här exemplet används begäran uttrycket för den första tolkningen från den **tolka** API-svar som de *uttryck* värde. Den *count = 2* parametern anger att 2 enhetsresultat tas emot. Och *attribut = Ti, Y, CC, AA. AuN AA. AuId* parametern anger att rubriken, år, antalet källhänvisningar, författarens namn och ID: T för författaren begärs för varje resultat.  Se [entitetsattribut](EntityAttributes.md) en lista över attribut.
+Med hjälp av *Count* -och *offset* -parametrarna kan ett stort antal resultat erhållas utan att skicka en enskild begäran som resulterar i ett enorma (och eventuellt långsamt) svar.  I det här exemplet använde begäran uttrycket för den första tolkningen från **tolka** API-svaret som *uttr* -värde. Parametern *Count = 2* anger att 2 enhets resultat begärs. Och *attributen = ti, Y, CC, AA. AuN, AA. Parametern AuId* anger att rubrik, år, antal hänvisningar, författar namn och författar-ID begärs för varje resultat.  Se [entitets-attribut](EntityAttributes.md) för en lista med attribut.
   
 ```JSON
 {

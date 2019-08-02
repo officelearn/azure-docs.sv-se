@@ -16,10 +16,10 @@ ms.date: 07/16/2019
 ms.author: lahugh
 ms.custom: include file
 ms.openlocfilehash: c8b25858556538835d6a84bf0d6699f9906f1438
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68322629"
 ---
 ### <a name="general-requirements"></a>Allmänna krav
@@ -64,7 +64,7 @@ Du behöver inte ange NSG:er på undernätverksnivån eftersom Batch konfigurera
 
 **Säkerhetsregler för inkommande trafik**
 
-| Käll-IP-adresser | Käll tjänst tag gen | Källportar | Mål | Målportar | Protocol | Action |
+| Käll-IP-adresser | Källtjänsttagg | Källportar | Mål | Målportar | Protocol | Action |
 | --- | --- | --- | --- | --- | --- | --- |
 | Gäller inte | `BatchNodeManagement`[Service tag](../articles/virtual-network/security-overview.md#service-tags) | * | Any | 29876–29877 | TCP | Allow |
 | Användar Källans IP-adresser för fjärråtkomst fjärråtkomst till Compute-noder och/eller Compute Node-undernät för Linux-aktiviteter med flera instanser, om det behövs. | Gäller inte | * | Any | 3389 (Windows), 22 (Linux) | TCP | Allow |

@@ -1,7 +1,7 @@
 ---
-title: Anknytning entitetsattribut i Academic Knowledge API
+title: Attribut för entiteten anknytning i Academic Knowledge API
 titlesuffix: Azure Cognitive Services
-description: Läs om de attribut som du kan använda med anknytning till entiteten i Academic Knowledge API.
+description: Lär dig de attribut som du kan använda med entiteten anknytning i Academic Knowledge API.
 services: cognitive-services
 author: alch-msft
 manager: nitinme
@@ -10,27 +10,28 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: 82e6a5b66342e58e62da029d617cbd1d74c28149
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: 333875472d9b859196c4d828061301b9d32c4d5a
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61340527"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68705103"
 ---
-# <a name="affiliation-entity"></a>Anknytning till entitet
+# <a name="affiliation-entity"></a>Anknytnings enhet
 
-<sub> * Följande attribut är specifika för anknytning till entiteten. (Ty = '5') </sub>
+<sub>* Följande attribut är speciella för en anknytnings enhet. (Ty = ' 5 ')</sub>
 
-Namn    |Beskrivning                            |Typ       | Åtgärder
+Namn    |Beskrivning                            |type       | Åtgärder
 ------- | ------------------------------------- | --------- | ----------------------------
-Id      |Entitets-ID                              |Int64      |Lika med
-AfN     |Anknytning normaliserade namn        |String     |Lika med
-DAfN    |Visningsnamn för anknytning       |String     |Ingen
-CC      |Antalet för anknytning totala källhänvisningar           |Int32      |Ingen  
-ECC     |Antalet för anknytning totala uppskattade källhänvisningar |Int32      |Ingen
+ID      |Enhets-id                              |Int64      |Lika med
+AfN     |Namn på anknytning, normaliserad        |Sträng     |Lika med
+DAfN    |Visnings namn för anknytning       |Sträng     |inga
+Kopia      |Totalt antal hänvisningar i anknytning           |Int32      |inga  
+ECC     |Sammanlagt antal beräknade antal hänvisningar i anknytning |Int32      |inga
 
-## <a name="extended-metadata-attributes"></a>Utökade attribut Metadata ##
+## <a name="extended-metadata-attributes"></a>Utökade metadata-attribut ##
 
 Namn    | Beskrivning               
 --------|---------------------------    
-PC      |Anknytnings papper antal
+PC      |Anknytningens antal papper

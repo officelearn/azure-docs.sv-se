@@ -1,60 +1,60 @@
 ---
-title: Lägga till ett lager för symbolen i Azure Maps | Microsoft Docs
-description: Hur du lägger till symboler på kartan för Javascript
+title: Lägg till ett symbol lager i Azure Maps | Microsoft Docs
+description: Så här lägger du till symboler i Java Script Map
 author: rbrundritt
 ms.author: richbrun
-ms.date: 12/2/2018
+ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 2580f1177bf9e6e3a92934f88a5d8ab51894e8d9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ba5d5d3aaa6a83dbcc5e5072872bca0fcd22bbf9
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60771676"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638719"
 ---
-# <a name="add-a-symbol-layer-to-a-map"></a>Lägg till ett lager för symbolen på en karta
+# <a name="add-a-symbol-layer-to-a-map"></a>Lägga till ett symbol lager till en karta
 
-Den här artikeln visar hur du kan rendera punkt data från en datakälla som ett lager för symbolen på en karta. Symbol lager återges med WebGL och stöd för mycket större mängder punkter än HTML-markeringar, men stöder inte traditionella CSS och HTML-element för formatering.  
+Den här artikeln visar hur du kan återge punkt data från en data källa som ett symbol lager på en karta. Symbol lager återges med hjälp av WebGL och stöder mycket större uppsättningar av punkter än HTML-markörer, men stöder inte traditionella CSS-och HTML-element för formatering.  
 
 > [!TIP]
-> Symbol lager som standard renderas koordinaterna för alla geometrier i en datakälla. Funktioner för att begränsa lagret så att den återger endast punkt geometri set den `filter` tillhör skiktet till `['==', ['geometry-type'], 'Point']` eller `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` om du vill inkludera MultiPoint funktioner också.
+> Symbol lager som standard återger koordinaterna för alla Geometries i en data källa. För att begränsa lagret så att det bara återger punkt geometri funktioner anger `filter` du egenskapen för lagret till `['==', ['geometry-type'], 'Point']` eller `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` om du även vill inkludera Multipoint-funktioner.
 
 ## <a name="add-a-symbol-layer"></a>Lägga till ett symbolskikt
 
-<iframe height='500' scrolling='no' title='Plats för växeln PIN-kod' src='//codepen.io/azuremaps/embed/ZqJjRP/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan <a href='https://codepen.io/azuremaps/pen/ZqJjRP/'>växel PIN-kod plats</a> genom Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Byt PIN-sökväg' src='//codepen.io/azuremaps/embed/ZqJjRP/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se <a href='https://codepen.io/azuremaps/pen/ZqJjRP/'>Fäst punkten</a> för Penn växlar genom Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-Det första blocket av koden ovan skapar en Kartobjekt. Du kan se [skapa en karta](./map-create.md) anvisningar.
+Det första kod blocket ovan skapar ett kart objekt. Du kan se [skapa en karta](./map-create.md) för instruktioner.
 
-I det andra kodblocket, ett datakällobjekt skapas med hjälp av den [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) klass. En [funktion] som innehåller en [punkt](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point?view=azure-iot-typescript-latest) geometri är omslutna av den [form](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest) klassen för att göra det lättare att uppdatera, och sedan skapas och läggs till datakällan.
+I det andra kodblock skapas ett data käll objekt med hjälp av klassen [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) . En [Feature] som innehåller en [punkt](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point?view=azure-iot-typescript-latest) geometri omsluts av [form](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest) klassen så att den blir enklare att uppdatera och sedan skapas och läggs till i data källan.
 
-Det tredje kodblocket skapar en [händelselyssnaren](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) och uppdateringar punktkoordinater vid mus klickar du på med hjälp av klassen shape [setCoordinates](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest) metod.
+Det tredje blocket kod skapar en [händelse lyssnare](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) och uppdaterar Punktens koordinater vid mus klickning med hjälp av form klassen [setCoordinates](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest) metod.
 
-En [symbol layer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) använder text eller ikoner för att rendera platsbaserad data och är inneslutna i den [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) som symboler på kartan.  Datakällan och händelselyssnaren klickar du på symbolen lagret skapas och läggs till kartan inom den `ready` [händelselyssnaren](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) funktion så visas punkten efter kartan inläst och klar att användas.
+Ett [symbol lager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) använder text eller ikoner för att återge punktbaserade data i [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) som symboler på kartan.  Data källan, klicka på händelse lyssnare och symbol skiktet skapas och läggs till i kartan i `ready` funktionen [Event Listener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) för att se till att punkten visas efter att kartan lästs in och är redo att nås.
 
 > [!TIP]
-> Som standard för prestanda, optimera symbolen lager återgivningen av symboler genom att dölja symboler som överlappar. När du zoomar in dolda symbolerna bli då synligt. Om du vill inaktivera den här funktionen och rendera alla symboler hela tiden, ange den `allowOverlap` egenskapen för den `iconOptions` alternativ `true`.
+> Som standard optimerar symbol lager åter givningen av symboler genom att dölja symboler som överlappar varandra för prestanda. När du zoomar in dolda symboler blir de synliga. Om du vill inaktivera den här funktionen och återge alla symboler hela tiden, `allowOverlap` anger du egenskapen `iconOptions` för alternativen `true`till.
 
-## <a name="add-a-custom-icon-to-a-symbol-layer"></a>Lägga till en anpassad ikon i en symbol-lager
+## <a name="add-a-custom-icon-to-a-symbol-layer"></a>Lägga till en anpassad ikon i ett symbol lager
 
-Symbol lager återges med WebGL. Som sådana alla resurser, till exempel ikonen avbildningar måste läsas in WebGL kontexten. Detta exempel visar hur du lägger till en anpassad ikon i kartan resurser och sedan använda den för att rendera punkt data med en anpassad symbol på kartan. Den `textField` egenskapen skiktets symbolen kräver ett uttryck som anges. I det här fallet vi vill rendera egenskapen temperatur men eftersom det är ett tal, den behöver konverteras till en sträng. Dessutom vill vi lägga till ”° F”. Ett uttryck kan användas för att göra detta. `['concat', ['to-string', ['get', 'temperature']], '°F']`. 
+Symbol lager återges med WebGL. Alla resurser, till exempel ikon bilder, måste läsas in i WebGL-kontexten. Det här exemplet visar hur du lägger till en anpassad ikon i kart resurserna och sedan använder den för att återge punkt data med en anpassad symbol på kartan. För symbol skiktets egenskap krävs att ett uttryck anges. `textField` I det här fallet vill vi återge temperatur egenskapen men eftersom den är ett tal måste den konverteras till en sträng. Dessutom vill vi lägga till "°F". Ett uttryck kan användas för detta. `['concat', ['to-string', ['get', 'temperature']], '°F']`. 
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Ikonen för anpassad Symbol-bild' src='//codepen.io/azuremaps/embed/WYWRWZ/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan <a href='https://codepen.io/azuremaps/pen/WYWRWZ/'>anpassad Symbol bild ikonen</a> genom Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Ikon för anpassad symbol bild' src='//codepen.io/azuremaps/embed/WYWRWZ/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se <a href='https://codepen.io/azuremaps/pen/WYWRWZ/'>bild ikonen för den anpassade symbolen</a> för penna genom<a href='https://codepen.io/azuremaps'>@azuremaps</a>att Azure Maps () på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-## <a name="customize-a-symbol-layer"></a>Anpassa ett symbol-lager 
+## <a name="customize-a-symbol-layer"></a>Anpassa ett symbol lager 
 
-Symbol-lagret har många formatalternativ. Här är ett verktyg för att testa de olika formatalternativ.
+Symbol skiktet har många tillgängliga format alternativ. Här är ett verktyg för att testa dessa olika format alternativ.
 
 <br/>
 
-<iframe height='700' scrolling='no' title='Symbol-alternativ för Bildrutsskikt' src='//codepen.io/azuremaps/embed/PxVXje/?height=700&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan <a href='https://codepen.io/azuremaps/pen/PxVXje/'>symbolen alternativ för Bildrutsskikt</a> genom Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
+<iframe height='700' scrolling='no' title='Symbol lager alternativ' src='//codepen.io/azuremaps/embed/PxVXje/?height=700&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se alternativen för Penn <a href='https://codepen.io/azuremaps/pen/PxVXje/'>symbol lager</a> efter Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="next-steps"></a>Nästa steg
@@ -73,19 +73,19 @@ Läs mer om de klasser och metoder som används i den här artikeln:
 > [!div class="nextstepaction"]
 > [TexTOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.textoptions?view=azure-iot-typescript-latest)
 
-Se följande artiklar om fler kodexempel att lägga till i dina kartor:
+Se följande artiklar för fler kod exempel som du kan lägga till i dina kartor:
 
 > [!div class="nextstepaction"]
-> [Lägg till ett popup-fönster](map-add-popup.md)
+> [Lägg till en popup](map-add-popup.md)
 
 > [!div class="nextstepaction"]
-> [Använda datadrivna style uttryck](data-driven-style-expressions-web-sdk.md)
+> [Använd data drivna format uttryck](data-driven-style-expressions-web-sdk.md)
 
 > [!div class="nextstepaction"]
-> [Lägga till en form](map-add-shape.md)
+> [Lägg till en form](map-add-shape.md)
 
 > [!div class="nextstepaction"]
-> [Lägg till ett bubbeldiagram lager](map-add-bubble-layer.md)
+> [Lägg till ett bubbel-lager](map-add-bubble-layer.md)
 
 > [!div class="nextstepaction"]
-> [Add HTML Makers](map-add-bubble-layer.md)
+> [Lägg till HTML-tillverkare](map-add-bubble-layer.md)

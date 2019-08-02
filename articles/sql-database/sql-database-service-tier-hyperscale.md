@@ -10,20 +10,19 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 05/06/2019
-ms.openlocfilehash: 707f7f47b050d22d0bd225cf412181902ae84f50
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: ce6fc5d32fc9e17499a56cec7f4db2849370a1ec
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67974470"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566713"
 ---
 # <a name="hyperscale-service-tier-for-up-to-100-tb"></a>Storskalig tjänste nivå för upp till 100 TB
 
 Azure SQL Database baseras på SQL Server databas motor arkitektur som justeras för moln miljön för att säkerställa 99,99% tillgänglighet även i händelse av infrastruktur haverier. Det finns tre arkitektur modeller som används i Azure SQL Database:
 - Generell användning/standard 
--  Hyperskala
+-  Storskalig
 -  Affärskritisk/Premium
 
 Den storskaliga tjänst nivån i Azure SQL Database är den senaste tjänst nivån i den vCore-baserade inköps modellen. Den här tjänst nivån är en mycket skalbar lagrings-och beräknings prestanda nivå som utnyttjar Azure-arkitekturen för att skala ut lagrings-och beräknings resurserna för en Azure SQL Database som är betydligt större än de tillgängliga gränserna för Generell användning och företag Kritiska tjänst nivåer.
@@ -199,13 +198,13 @@ För att begära möjlighet att skapa storskaliga databaser i regioner som inte 
 
 1. Klicka på **Ange information**
 
-    ![Problem information](media/sql-database-service-tier-hyperscale/whitelist-request-screen-2.png)
+    ![Uppgifter om problem](media/sql-database-service-tier-hyperscale/whitelist-request-screen-2.png)
 
 8. Välj **SQL Database kvot typ**: **Annan kvot förfrågan**
 
 9. Fyll i följande mall:
 
-    ![Kvot information](media/sql-database-service-tier-hyperscale/whitelist-request-screen-3.png)
+    ![Kvotinformation](media/sql-database-service-tier-hyperscale/whitelist-request-screen-3.png)
 
     Ange följande information i mallen
 

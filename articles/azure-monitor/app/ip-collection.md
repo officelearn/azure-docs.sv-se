@@ -8,14 +8,14 @@ ms.assetid: 0e3b103c-6e2a-4634-9e8c-8b85cf5e9c84
 ms.service: application-insights
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/24/2019
+ms.date: 07/31/2019
 ms.author: mbullwin
-ms.openlocfilehash: 4c60cb78c01d7e18801cbe43c8b767f622ef4b39
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 3a504fe4475cee8e2949ee121c632b792f349758
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68473103"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68694289"
 ---
 # <a name="geolocation-and-ip-address-handling"></a>Hantering av geolokalisering och IP-adresser
 
@@ -83,8 +83,8 @@ Om du bara behöver ändra beteendet för en enskild Application Insights resurs
 
     ![Skärm bilden lägger till ett kommatecken efter "IbizaAIExtension" och lägger till en ny rad nedan med "DisableIpMasking": true](media/ip-collection/save.png)
 
-    > [!NOTE]
-    > Om det uppstår ett fel som säger: _Resurs gruppen finns på en plats som inte stöds av en eller flera resurser i mallen. Välj en annan resurs grupp._ Välj tillfälligt en annan resurs grupp i list rutan och välj sedan den ursprungliga resurs gruppen igen för att lösa problemet.
+    > [!WARNING]
+    > Om det uppstår ett fel som säger: **_Resurs gruppen finns på en plats som inte stöds av en eller flera resurser i mallen. Välj en annan resurs grupp._** Välj tillfälligt en annan resurs grupp i list rutan och välj sedan den ursprungliga resurs gruppen igen för att lösa problemet.
 
 5. Välj **Jag accepterar** > **köp**. 
 
@@ -92,7 +92,7 @@ Om du bara behöver ändra beteendet för en enskild Application Insights resurs
 
     I det här fallet köps inget nytt, men vi uppdaterar bara konfigurationen av den befintliga Application Insights-resursen.
 
-6. När distributionen är klar registreras nya telemetridata med de tre första oktetterna som är ifyllda med IP och den sista oktetten nollställdes.
+6. När distributionen är klar registreras nya telemetridata med de första tre oktetterna som är ifyllda med IP-adressen och den sista oktetten har nollställts.
 
     Om du valde och redigera mallen igen skulle du bara se standardmallen och inte se den nyligen tillagda egenskapen och det associerade värdet. Om du inte ser IP-Datadata och vill bekräfta att `"DisableIpMasking": true` har angetts. Kör följande PowerShell: (Ersätt `Fabrikam-dev` med lämpligt resurs-och resurs grupps namn.)
     
@@ -130,10 +130,11 @@ Content-Length: 54
 
 Om du behöver registrera hela IP-adressen i stället för bara de tre första oktetterna kan du använda en [telemetri](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#add-properties-itelemetryinitializer) -initierare för att kopiera IP-adressen till ett anpassat fält som inte kommer att maskeras.
 
-### <a name="aspnetaspnet-core"></a>ASP.NET/ASP.NET-kärna
+### <a name="aspnet--aspnet-core"></a>ASP.NET/ASP.NET Core
 
 ```csharp
 using Microsoft.ApplicationInsights.Channel;
+using Microsoft.ApplicationInsights.DataContracts;
 using Microsoft.ApplicationInsights.Extensibility;
 
 namespace MyWebApp
@@ -142,15 +143,20 @@ namespace MyWebApp
     {
         public void Initialize(ITelemetry telemetry)
         {
-            if(!string.IsNullOrEmpty(telemetry.Context.Location.Ip))
+            ISupportProperties propTelemetry = telemetry as ISupportProperties;
+
+            if (propTelemetry !=null && !propTelemetry.Properties.ContainsKey("client-ip"))
             {
-                telemetry.Context.Properties["client-ip"] = telemetry.Context.Location.Ip;
+                string clientIPValue = telemetry.Context.Location.Ip;
+                propTelemetry.Properties.Add("client-ip", clientIPValue);
             }
         }
-    }
-
+    } 
 }
 ```
+
+> [!NOTE]
+> Om du inte kan komma åt `ISupportProperties`kontrollerar du och kontrollerar att du kör den senaste stabila versionen av Application Insights SDK. `ISupportProperties`är avsedda för höga kardinal värden, och `GlobalProperties` är mer lämpliga för låga kardinal-värden som region namn, miljö namn osv. 
 
 ### <a name="enable-telemetry-initializer-for-aspnet"></a>Aktivera telemetri-initieraren för. ASP.NET
 

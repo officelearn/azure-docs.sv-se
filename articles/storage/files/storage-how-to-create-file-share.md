@@ -1,19 +1,18 @@
 ---
 title: Så här skapar du en Azure-filresurs | Microsoft Docs
 description: Så här skapar du en Azure-filresurs i Azure Files med hjälp av Azure Portal, PowerShell och Azure CLI.
-services: storage
 author: roygara
 ms.service: storage
 ms.topic: conceptual
 ms.date: 09/19/2017
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: d945d5b79c274aa8e142203c56b27eb673e36741
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e56be394bc7667dfca9a0b417593e8e587073712
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65510519"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699651"
 ---
 # <a name="create-a-file-share-in-azure-files"></a>Skapa en filresurs i Azure Files
 Du kan skapa Azure-filresurser med hjälp av  [Azure-portalen](https://portal.azure.com/), PowerShell-cmdlets för Azure Storage, klientbiblioteken för Azure Storage eller Azure Storage REST-API:et. I den här kursen lär du dig:
@@ -21,7 +20,7 @@ Du kan skapa Azure-filresurser med hjälp av  [Azure-portalen](https://portal.a
 * [Så här skapar du en Azure-filresurs med Powershell](#create-file-share-through-powershell)
 * [Så här skapar du en Azure-filresurs med CLI](#create-file-share-through-command-line-interface-cli)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 Om du vill skapa en Azure-filresurs, kan du använda ett lagringskonto som redan finns eller [skapa ett nytt Azure Storage-konto](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Om du vill skapa en Azure-filresurs med PowerShell behöver du kontonyckeln och namnet på ditt lagringskonto. Du behöver en lagringskontonyckel om du avser att använda Powershell eller CLI.
 
 ## <a name="create-a-file-share-through-the-azure-portal"></a>Skapa en filresurs via Azure-portalen
@@ -82,7 +81,7 @@ Innan du kan använda PowerShell laddar du ned och installerar Azure PowerShell-
 
 3. **Skapa filresursen**
     ```azurecli
-    az storage share create --name files --quota 2048 --connection-string $current_env_conn_string 1 > /dev/null
+    az storage share create --name files --quota 2048 --connection-string $current_env_conn_string > /dev/null
     ```
 
 ## <a name="next-steps"></a>Nästa steg

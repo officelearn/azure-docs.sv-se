@@ -1,28 +1,28 @@
 ---
-title: Klustring punkt data i Azure Maps | Microsoft Docs
-description: Så här klusterdata punkt i webb-SDK
+title: Kluster plats data i Azure Maps | Microsoft Docs
+description: 'Så här kluster punkts data i webb-SDK: n'
 author: rbrundritt
 ms.author: richbrun
-ms.date: 03/27/2019
+ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen
-ms.openlocfilehash: 6dbd4461e7b8382ec3c4075b9688de59678f98f5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 69e95a9e6c76da5d502314a7190e99fc10e968f7
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65957333"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639081"
 ---
-# <a name="clustering-point-data"></a>Klustring punkt data
+# <a name="clustering-point-data"></a>Kluster plats data
 
-När visualisera många datapunkter på kartan datapunkter överlappar varandra, kartan ser stökig och blir det svårt att se och använda. Klustring av data för punkt kan användas för att förbättra den här användarupplevelsen. Klustring punkt data är processen att kombinera punkt data som är nära varandra och som representerar dem på kartan som en enskild klustrad datapunkt. När du zoomar in på kartan, dela klustren upp till deras enskilda datapunkter.
+När du visualiserar många data punkter på kartan överlappar de varandra, och kartan ser rörig ut och blir svår att se och använda. Klustring av punkt data kan användas för att förbättra användar upplevelsen. Kluster plats data är en process för att kombinera punkt data som ligger nära varandra och som representerar dem på kartan som en enda klustrad data punkt. När användaren zoomar in i kartan delas klustren isär i sina enskilda data punkter.
 
-## <a name="enabling-clustering-on-a-data-source"></a>Aktiverar kluster på en datakälla
+## <a name="enabling-clustering-on-a-data-source"></a>Aktivera klustring på en data Källa
 
-Klustring kan enkelt aktiveras på den `DataSource` klassen genom att ange den `cluster` på Sant. Dessutom pixel radien att välja Orienteringspunkter ska kombineras till ett kluster kan anges med hjälp av den `clusterRadius` och en zoomnivå kan anges som du vill inaktivera klustring logic med den `clusterMaxZoom` alternativet. Här är ett exempel på hur du aktiverar kluster i en datakälla.
+Klustring kan enkelt aktive ras för `DataSource` klassen genom att `cluster` alternativet anges till sant. Dessutom kan pixel radien Markera närliggande punkter för att kombinera till ett kluster med hjälp `clusterRadius` av och du kan ange en zoomnings nivå för att inaktivera kluster logiken `clusterMaxZoom` med hjälp av alternativet. Här är ett exempel på hur du aktiverar klustring i en data källa.
 
 ```javascript
 //Create a data source and enable clustering.
@@ -40,73 +40,73 @@ var datasource = new atlas.source.DataSource(null, {
 ```
 
 > [!TIP]
-> Om två datapunkter ligger nära varandra på grund av, är det möjligt klustret kommer aldrig att dela upp, oavsett hur nära användaren Zooma i. För att lösa det, kan du ange den `clusterMaxZoom` möjlighet att datakällan anger vid zoomningsnivån inaktiverar klustring logiken och bara visa allt.
+> Om två data punkter ligger nära varandra på marken är det möjligt att klustret aldrig delas upp, oavsett hur nära användaren zoomar in. Du kan åtgärda detta genom att ange `clusterMaxZoom` alternativet för data källan som anger på zoomnings nivån för att inaktivera kluster logiken och bara Visa allt.
 
-Den `DataSource` klassen har också följande relaterade till kluster:
+`DataSource` Klassen har också följande metoder för klustring:
 
 | Metod | Returtyp | Beskrivning |
 |--------|-------------|-------------|
-| getClusterChildren(clusterId: number) | Löftet&lt;matris&lt;funktionen&lt;geometri, alla&gt; \| form&gt;&gt; | Hämtar underordnade grupper till viss klustret på nästa zoomnivån. De här underordnade kan vara en kombination av former och subclusters. Subclusters blir funktioner med egenskaper som matchar ClusteredProperties. |
-| getClusterExpansionZoom(clusterId: number) | Löftet&lt;tal&gt; | Beräknar en zoomnivå som klustret ska starta expandera eller dela upp. |
-| getClusterLeaves (clusterId: number, gränsen: number, förskjutning: tal) | Löftet&lt;matris&lt;funktionen&lt;geometri, alla&gt; \| form&gt;&gt; | Hämtar alla punkter i ett kluster. Ange den `limit` att returnera en delmängd av punkterna och använda den `offset` vill bläddra igenom punkterna. |
+| getClusterChildren (clusterId: Number) | Funktions&lt;&lt; \| geometri för Promise array, vilken form som helst&gt; &lt;&gt;&gt; | Hämtar underordnade för det aktuella klustret på nästa zoomnings nivå. Dessa underordnade kan vara en kombination av former och under kluster. Under klustren är funktioner med egenskaper som matchar ClusteredProperties. |
+| getClusterExpansionZoom (clusterId: Number) | Löftes&lt;nummer&gt; | Beräknar en zoomnings nivå där klustret börjar expandera eller dela upp. |
+| getClusterLeaves (clusterId: Number, Limit: Number, offset: Number) | Funktions&lt;&lt; \| geometri för Promise array, vilken form som helst&gt; &lt;&gt;&gt; | Hämtar alla punkter i ett kluster. Ange om du vill returnera en delmängd av punkterna och `offset` Använd sidan till för att gå igenom punkterna. `limit` |
 
-## <a name="display-clusters-using-a-bubble-layer"></a>Visa kluster med ett bubbeldiagram lager
+## <a name="display-clusters-using-a-bubble-layer"></a>Visa kluster med ett bubbel-lager
 
-Ett bubbeldiagram-lager är ett bra sätt att återge klustrade punkter som du kan enkelt skala radien och ändra färgen dem baserat på antalet punkter i klustret med hjälp av ett uttryck. Vid visning av kluster med ett bubbeldiagram lager måste använda du också ett separat lager för att återge oklustrade datapunkter. Det är ofta bra att även att kunna visa storleken på klustret ovanpå bubblorna. En symbol lager med text och ingen ikon kan användas för att uppnå det här beteendet. 
-
-<br/>
-
-<iframe height="500" style="width: 100%;" scrolling="no" title="Grundläggande bubbla layer klustring" src="//codepen.io/azuremaps/embed/qvzRZY/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Se pennan <a href='https://codepen.io/azuremaps/pen/qvzRZY/'>grundläggande bubbla layer klustring</a> genom Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
-</iframe>
-
-## <a name="display-clusters-using-a-symbol-layer"></a>Visa kluster med en symbol-lager
-
-När visualisera dina data punkt med Symbol-lager som standard döljs automatiskt symboler som överlappar varandra för att skapa en tydligare upplevelse, men det kanske inte önskat upplevelse om du vill se tätheten av data pekar på kartan. Ange den `allowOverlap` alternativet lager som symbolen `iconOptions` egenskap `true` inaktiverar den här upplevelsen men leder till alla symboler som visas. Med hjälp av kluster kan du se tätheten av alla data när du skapar en bra ren användarupplevelse. Anpassade symboler används för att representera kluster och enskilda datapunkter i det här exemplet.
+Ett bubbeldiagram är ett bra sätt att rendera grupperade punkter eftersom du enkelt kan skala radien och ändra färgen utifrån antalet punkter i klustret med hjälp av ett uttryck. När du visar kluster med ett bubbel-lager bör du även använda ett separat lager för att återge data punkter som inte är grupperade. Det är ofta bra att även kunna visa storleken på klustret ovanpå bubblorna. Ett symbol lager med text och ingen ikon kan användas för att uppnå det här beteendet. 
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Klustrade Symbol-lager" src="//codepen.io/azuremaps/embed/Wmqpzz/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Se pennan <a href='https://codepen.io/azuremaps/pen/Wmqpzz/'>klustrade symbolen layer</a> genom Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
+<iframe height="500" style="width: 100%;" scrolling="no" title="Basic Bubble Layer-klustring" src="//codepen.io/azuremaps/embed/qvzRZY/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+Se kluster för rit skiktet Ritstift <a href='https://codepen.io/azuremaps/pen/qvzRZY/'>Basic</a> genom Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) i <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-## <a name="clustering-and-the-heat-maps-layer"></a>Layer-kluster och termiska kartor
+## <a name="display-clusters-using-a-symbol-layer"></a>Visa kluster med ett symbol lager
 
-Den termiska kartor är ett bra sätt att visa tätheten av data på kartan. Den här visualiseringen kan hantera ett stort antal datapunkter på egen hand, men den kan hantera ännu mer data om datapunkter är klustrade och klusterstorleken används som vikten för den termiska kartan. Ange den `weight` alternativet på den termiska kartskiktet till `['get', 'point_count']` att uppnå detta. När klustret radius är liten, den termiska kartan ser ut nästan identisk med en termisk karta med det oklustrade datapunkten men ger mycket bättre prestanda. Men ju mindre kluster radius, desto mer exakt den termiska kartan tas dock med mindre en prestanda-förmånen.
+När punkt data visualiseras med hjälp av symbol lagret döljs som standard symboler som överlappar varandra för att skapa en renare upplevelse, men det kanske inte är den önskade upplevelsen om du vill se densiteten för data punkter på kartan. Om du ställer in `iconOptions` `true` alternativet för symbol lager-egenskapen så inaktive ras den här upplevelsen, men det leder till att alla symboler visas. `allowOverlap` Med kluster kan du se densiteten för alla data samtidigt som du skapar en snyggt ren användar upplevelse. I det här exemplet används anpassade symboler för att representera kluster och enskilda data punkter.
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Klustret viktad termisk karta" src="//codepen.io/azuremaps/embed/VRJrgO/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Se pennan <a href='https://codepen.io/azuremaps/pen/VRJrgO/'>kluster viktad termisk karta</a> genom Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
+<iframe height="500" style="width: 100%;" scrolling="no" title="Grupperat symbol lager" src="//codepen.io/azuremaps/embed/Wmqpzz/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+Se det pennan <a href='https://codepen.io/azuremaps/pen/Wmqpzz/'>grupperade symbol skiktet</a> genom att<a href='https://codepen.io/azuremaps'>@azuremaps</a>Azure Maps () på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-## <a name="mouse-events-on-clustered-data-points"></a>Mushändelser på klustrade datapunkter
+## <a name="clustering-and-the-heat-maps-layer"></a>Kluster och termisk Maps-skikt
 
-När mushändelser inträffar på ett lager med klustrade datapunkter, returneras den klustrade datapunkten på händelsen som ett GeoJSON point funktionen-objekt. Den här punkt-funktionen har följande egenskaper:
+Värme kartor är ett bra sätt att Visa densiteten för data på kartan. Den här visualiseringen kan hantera ett stort antal data punkter, men den kan hantera ännu mer data om data punkterna är klustrade och kluster storleken används som värme kartans vikt. Ange alternativet för värme kart skiktet till `['get', 'point_count']` för att åstadkomma detta. `weight` När kluster-RADIUS-radien är liten kommer värme kartan att se nästan likadant ut för en värme karta med de data punkter som inte är klustrade, men den kommer att fungera mycket bättre. Men ju mindre kluster-RADIUS, desto bättre blir värme kartan, men med mindre av prestanda förmånen.
 
-| Egenskapsnamn | Typ | Beskrivning |
+<br/>
+
+<iframe height="500" style="width: 100%;" scrolling="no" title="Kluster viktad termisk karta" src="//codepen.io/azuremaps/embed/VRJrgO/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+Se Penn <a href='https://codepen.io/azuremaps/pen/VRJrgO/'>klustrets viktade värme karta</a> genom Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+## <a name="mouse-events-on-clustered-data-points"></a>Mus händelser på klustrade data punkter
+
+När mus händelser inträffar i ett lager som innehåller klustrade data punkter, returneras den klustrade data punkten till händelsen som ett objekt av en punkt med ett interaktivt JSON-objekt. Den här punkt funktionen kommer att ha följande egenskaper:
+
+| Egenskapsnamn | type | Beskrivning |
 |---------------|------|-------------|
-| Kluster | boolesk | Anger om funktionen representerar ett kluster. |
-| cluster_id | string | Ett unikt ID för det kluster som kan användas med datakällan `getClusterExpansionZoom`, `getClusterChildren`, och `getClusterLeaves` metoder. |
-| point_count | nummer | Antal punkter som innehåller klustret. |
-| point_count_abbreviated | string | En sträng som abbreviates den `point_count` värde om det är långt. (exempel: 4 000 blir 4K) |
+| kluster | boolean | Anger om funktionen representerar ett kluster. |
+| cluster_id | sträng | Ett unikt ID för klustret som kan användas med DataSource `getClusterExpansionZoom`-, `getClusterChildren`-och `getClusterLeaves` -metoder. |
+| point_count | nummer | Antalet platser som klustret innehåller. |
+| point_count_abbreviated | sträng | En sträng som förkortar `point_count` värdet om det är långt. (till exempel 4 000 blir 4K) |
 
-Det här exemplet tar ett bubbeldiagram lager som återger kluster punkter och lägger till en click-händelse som när det utlöses, beräkna och Zooma på kartan till nästa zoomnivån då klustret bryts skillnad med hjälp av den `getClusterExpansionZoom` -metoden för den `DataSource` klassen och `cluster_id` egenskapen för den klickade på klustrade datapunkt. 
+I det här exemplet används ett bubbeldiagram som återger kluster punkter och lägger till en klickning-händelse som när den utlöses, beräknar och zoomar kartan till nästa zoomnings nivå där klustret kommer att delas upp `getClusterExpansionZoom` med-metoden `DataSource` för klassen och `cluster_id` egenskap för den klickade klustrade data punkten. 
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Klustret getClusterExpansionZoom" src="//codepen.io/azuremaps/embed/moZWeV/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Se pennan <a href='https://codepen.io/azuremaps/pen/moZWeV/'>kluster getClusterExpansionZoom</a> genom Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
+<iframe height="500" style="width: 100%;" scrolling="no" title="Kluster getClusterExpansionZoom" src="//codepen.io/azuremaps/embed/moZWeV/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+Se Penn <a href='https://codepen.io/azuremaps/pen/moZWeV/'>klustrets getClusterExpansionZoom</a> av Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-## <a name="display-cluster-area"></a>Visningsområdet för kluster 
+## <a name="display-cluster-area"></a>Visa kluster plats 
 
-Punkt-data som representerar ett kluster är utspridd över ett område. I det här exemplet när musen hovrar över ett kluster, enskilda data punkter som den innehåller (löv) kommer används för att beräkna en konvex skrov och visas på kartan för att visa området. Alla punkter i ett kluster kan hämtas från datakällan med den `getClusterLeaves` metoden. Fartygsskrov konvex är en polygon som omsluter en uppsättning punkter som ett band av elastisk och kan beräknas med hjälp av den `atlas.math.getConvexHull` metoden.
+De punkt data som ett kluster representerar sprids över ett utrymme. I det här exemplet när musen hovrar över ett kluster, kommer de enskilda data punkter som den innehåller (löv) att användas för att beräkna en konvex skrov och visas på kartan för att Visa ytan. Alla punkter som ingår i ett kluster kan hämtas från data källan med hjälp av `getClusterLeaves` -metoden. En konvex skrovet är en polygon som omsluter en uppsättning punkter som ett elastiskt band och kan beräknas med `atlas.math.getConvexHull` hjälp av metoden.
 
 <br/>
 
- <iframe height="500" style="width: 100%;" scrolling="no" title="Klustret området konvex skrov" src="//codepen.io/azuremaps/embed/QoXqWJ/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Se pennan <a href='https://codepen.io/azuremaps/pen/QoXqWJ/'>kluster området konvex skrov</a> genom Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
+ <iframe height="500" style="width: 100%;" scrolling="no" title="Kluster Area konvex skrov" src="//codepen.io/azuremaps/embed/QoXqWJ/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+Se rit <a href='https://codepen.io/azuremaps/pen/QoXqWJ/'>kluster ytan konvext skrov</a> genom Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="next-steps"></a>Nästa steg
@@ -117,18 +117,18 @@ Läs mer om de klasser och metoder som används i den här artikeln:
 > [DataSource-klass](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest)
 
 > [!div class="nextstepaction"]
-> [DataSourceOptions objekt](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.datasourceoptions?view=azure-iot-typescript-latest)
+> [DataSourceOptions-objekt](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.datasourceoptions?view=azure-iot-typescript-latest)
 
 > [!div class="nextstepaction"]
-> [Atlas.Math namnområde](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.math?view=azure-iot-typescript-latest)
+> [namn område för Atlas. matematik](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.math?view=azure-iot-typescript-latest)
 
-Se kodexempel för att lägga till funktioner i din app:
-
-> [!div class="nextstepaction"]
-> [Lägg till ett bubbeldiagram lager](map-add-bubble-layer.md)
+Se kod exempel för att lägga till funktioner i din app:
 
 > [!div class="nextstepaction"]
-> [Lägg till en symbol-lager](map-add-pin.md)
+> [Lägg till ett bubbel-lager](map-add-bubble-layer.md)
 
 > [!div class="nextstepaction"]
-> [Lägg till ett lager för den termiska kartan](map-add-heat-map-layer.md)
+> [Lägg till ett symbol lager](map-add-pin.md)
+
+> [!div class="nextstepaction"]
+> [Lägg till ett värme kart skikt](map-add-heat-map-layer.md)

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: hrasheed
 ms.openlocfilehash: 1828efb410849677e859d341e4e16e4f5d4ca681
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68405989"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>Tillgänglighet och tillförlitlighet för Apache Hadoop kluster i HDInsight
@@ -108,7 +108,7 @@ När du kommer till sidan Ambari visas de installerade tjänsterna till vänster
 
 ![Installerade tjänster](./media/hdinsight-high-availability-linux/services.png)
 
-Det finns en serie ikoner som kan visas bredvid en tjänst för att indikera status. Aviseringar som är relaterade till en tjänst kan visas med  hjälp av länken Aviseringar överst på sidan.  Ambari erbjuder flera fördefinierade aviseringar.
+Det finns en serie ikoner som kan visas bredvid en tjänst för att indikera status. Aviseringar som är relaterade till en tjänst kan visas med hjälp av länken Aviseringar överst på sidan.  Ambari erbjuder flera fördefinierade aviseringar.
 
 Följande aviseringar hjälper dig att övervaka tillgängligheten för ett kluster:
 
@@ -247,7 +247,7 @@ Välj den tjänst som du vill visa loggar för i Ambari-webbgränssnittet (till 
 
 Storleken på en nod kan bara väljas när klustret skapas. Du hittar en lista över de olika VM-storlekar som är tillgängliga för HDInsight på [sidan med pris](https://azure.microsoft.com/pricing/details/hdinsight/)information för HDInsight.
 
-När du skapar ett kluster kan du ange storleken på noderna. Följande information ger vägledning om hur du anger storleken med [Azure Portal][preview-portal], [Azure PowerShell module Az][azure-powershell]och [Azure CLI][Azure-CLI]:
+När du skapar ett kluster kan du ange storleken på noderna. Följande information ger vägledning om hur du anger storleken med [Azure Portal][preview-portal], [Azure PowerShell modul AZ][azure-powershell]och [Azure CLI][azure-cli]:
 
 * **Azure Portal**: När du skapar ett kluster kan du ange storleken på noderna som används av klustret:
 

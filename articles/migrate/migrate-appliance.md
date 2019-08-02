@@ -1,213 +1,213 @@
 ---
-title: Azure Migrate-installation-arkitektur | Microsoft Docs
-description: Översikt över Azure Migrate-installation
+title: Arkitektur för Azure Migrates utrustning | Microsoft Docs
+description: Ger en översikt över Azure Migrates apparaten
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/04/2019
 ms.author: raynew
-ms.openlocfilehash: c2c9ca3082aa9c2067a63f8d6304e8a229dac14a
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 6537bfe5df8de298593428fb21448181ad8075fc
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67811458"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663469"
 ---
 # <a name="azure-migrate-appliance"></a>Azure Migrate-installation
 
-Den här artikeln beskriver Azure Migrate-installationen. Du kan distribuera installationen när du använder Verktyg för Azure Migrate-utvärdering och migrering för att identifiera, utvärdera och migrera appar, infrastruktur och arbetsbelastningar till Microsoft Azure. 
+I den här artikeln beskrivs Azure Migrate-utrustningen. Du distribuerar enheten när du använder Azure Migrate utvärderings-och Migreringsverktyg för att identifiera, utvärdera och migrera appar, infrastruktur och arbets belastningar till Microsoft Azure. 
 
-[Azure Migrate](migrate-services-overview.md) ger en central knutpunkt för att spåra identifiering, bedömning och migrering av dina lokala appar och arbetsbelastningar och privata/offentliga virtuella datorer till Azure. Hubben innehåller Azure Migrate verktyg för bedömning och migrering, samt tredjepartsprogram oberoende programvaruleverantörer (ISV)-erbjudanden.
+[Azure Migrate](migrate-services-overview.md) tillhandahåller en central hubb för att spåra identifiering, utvärdering och migrering av dina lokala appar och arbets belastningar och privata/offentliga virtuella moln datorer till Azure. Hubben innehåller Azure Migrate verktyg för utvärdering och migrering samt oberoende program varu leverantörer från tredje part (ISV).
 
 
 
-## <a name="appliance-overview"></a>Översikt över installation
+## <a name="appliance-overview"></a>Apparat översikt
 
-Azure Migrate typer för installation och användning finns på följande sätt.
+De Azure Migrate utrustnings typerna och användningen är följande.
 
-**Distribueras som** | **Används för** | **Detaljer**
+**Distribuerad som** | **Används för** | **Detaljer**
 --- | --- |  ---
-Virtuell VMware-dator | VMware-VM-utvärdering med verktyget Azure Migrate-utvärdering.<br/><br/> Agentlös VMware VM-migrering med verktyget Azure Migrate-servermigrering | Hämta OVA-mallen och importera till vCenter Server för att skapa virtuell dator.
-Hyper-V-dator | Hyper-V VM-utvärdering med verktyget Azure Migrate-utvärdering. | Hämta komprimerade virtuella Hårddisken och importera till Hyper-V för att skapa virtuell dator.
+Virtuell VMware-dator | VIRTUELL VMware-utvärdering med verktyget Azure Migrate bedömning.<br/><br/> VMware VM-migrering utan agent med Migreringsverktyg för Azure Migrate Server | Hämta en webbplatsmall-mall och importera till vCenter Server för att skapa den virtuella dator enheten.
+Virtuell Hyper-V-dator | Utvärdering av virtuella Hyper-V-datorer med verktyget Azure Migrate bedömning. | Hämta en komprimerad virtuell hård disk och importera till Hyper-V för att skapa den virtuella dator enheten.
 
-## <a name="appliance-access"></a>Installationen åtkomst
+## <a name="appliance-access"></a>Åtkomst till enheten
 
-När du har konfigurerat installationen kan du fjärransluta till installationen VM via TCP-port 3389. Du kan även fjärransluta till management-webbapp för installation på port 44368 med URL: ``` https://<appliance-ip-or-name>:44368 ```.
+När du har konfigurerat installationen kan du fjärrans luta till den virtuella datorn via TCP-port 3389. Du kan också fjärrans luta till webb hanterings appen för installationen på port 44368 med URL: `https://<appliance-ip-or-name>:44368`.
 
-## <a name="appliance-license"></a>Licens för installation
-Enheten som levereras med en utvärderingslicens för Windows Server 2016 som är giltig i 180 dagar. Om utvärderingsperioden är nära förfallodatum, rekommenderar vi att du hämtar och distribuerar en ny installation eller att du aktiverar licensen VM-enhetens operativsystem.
+## <a name="appliance-license"></a>Produkt licens
+Enheten levereras med en utvärderings licens för Windows Server 2016, som är giltig i 180 dagar. Om utvärderings perioden ligger nära förfallo datum, rekommenderar vi att du laddar ned och distribuerar en ny installation, eller att du aktiverar operativ Systems licensen för den virtuella dator enheten.
 
-## <a name="appliance-agents"></a>Agenter för installation
-Installationen har dessa agenter som installerats.
+## <a name="appliance-agents"></a>Utrustnings agenter
+De här agenterna är installerade på enheten.
 
 **Agent** | **Detaljer**
 --- | ---
-Identifieringsagent | Samlar in konfigurationsdata från lokala virtuella datorer.
-Utvärdering av agent | Den lokala miljön för att samla in prestandadata för VM-profiler.
-Nätverkskort för migrering | Samordnar replikering av virtuella datorer och samordnar kommunikationen mellan virtuella datorer och Azure.
-Migrering gateway | Skickar replikerade VM-data till Azure.
+Identifieringsagent | Samlar in konfigurations data från lokala virtuella datorer.
+Utvärderingsagent | Profiler den lokala miljön för att samla in prestanda data för virtuella datorer.
+Migration adapter | Dirigerar VM-replikering och samordnar kommunikation mellan virtuella datorer och Azure.
+Gateway för migrering | Skickar replikerade VM-data till Azure.
 
 
-## <a name="appliance-deployment-requirements"></a>Krav på installation
+## <a name="appliance-deployment-requirements"></a>Krav för installation av utrustning
 
-- [Granska](migrate-support-matrix-vmware.md#assessment-appliance-requirements) distributionskraven för en VMware-installationen och de webbadresser som enheten som behöver åtkomst till.
-- [Granska](migrate-support-matrix-hyper-v.md#assessment-appliance-requirements) distributionskraven för en Hyper-V-installationen och de webbadresser som enheten som behöver åtkomst till.
+- [Granska](migrate-support-matrix-vmware.md#assessment-appliance-requirements) distributions kraven för en VMware-installation och de URL: er som krävs för att komma åt installationen.
+- [Granska](migrate-support-matrix-hyper-v.md#assessment-appliance-requirements) distributions kraven för en Hyper-V-enhet och de URL: er som krävs för att komma åt installationen.
 
 
 ## <a name="collected-performance-data-vmware"></a>Insamlade prestanda data – VMware
 
-Här är de VMware VM-prestandadata som installationen samlar in och skickar till Azure.
+Här är de prestanda data för VMware VM som enheten samlar in och skickar till Azure.
 
-**Data** | **Räknaren** | **Utvärdering av påverkan**
+**Data** | **Medelvärde** | **Utvärderings påverkan**
 --- | --- | ---
-CPU-användning | cpu.usage.average | Rekommenderade VM-storlek/kostnad
-Minnesanvändning | mem.usage.average | Rekommenderade VM-storlek/kostnad
-Disk-lästa dataflöde (MB per sekund) | virtualDisk.read.average | Beräkning för Diskstorlek, kostnaden för lagring, VM-storlek
-Dataflöde per skrivning till disk (MB per sekund) | virtualDisk.write.average | Beräkning för Diskstorlek, kostnaden för lagring, VM-storlek
-Disk-lästa-åtgärder per sekund | virtualDisk.numberReadAveraged.average | Beräkning för Diskstorlek, kostnaden för lagring, VM-storlek
-Disk skrivåtgärder per sekund | virtualDisk.numberWriteAveraged.average  | Beräkning för Diskstorlek, kostnaden för lagring, VM-storlek
-Läsningsdataflöde som NIC (MB per sekund) | net.received.average | Beräkning för VM-storlek
-NIC genomströmning för skrivning (MB per sekund) | net.transmitted.average  |Beräkning för VM-storlek
+CPU-användning | processor. Usage. genomsnitt | Rekommenderad storlek/kostnad för virtuell dator
+Minnesanvändning | mem.usage.average | Rekommenderad storlek/kostnad för virtuell dator
+Disk läsnings data flöde (MB per sekund) | virtualDisk. Read. Average | Beräkning för disk storlek, lagrings kostnad, VM-storlek
+Disk skrivnings data flöde (MB per sekund) | virtualDisk. Write. Average | Beräkning för disk storlek, lagrings kostnad, VM-storlek
+Disk läsnings åtgärder per sekund | virtualDisk. numberReadAveraged. Average | Beräkning för disk storlek, lagrings kostnad, VM-storlek
+Disk skrivnings åtgärder per sekund | virtualDisk.numberWriteAveraged.average  | Beräkning för disk storlek, lagrings kostnad, VM-storlek
+NIC-läst data flöde (MB per sekund) | net.received.average | Beräkning för VM-storlek
+NÄTVERKSKORT Skriv data flöde (MB per sekund) | net.transmitted.average  |Beräkning för VM-storlek
 
 
 ## <a name="collected-metadata-vmware"></a>Insamlade metadata – VMware
 
-Här är en fullständig lista över VMware VM-metadata som installationen samlar in och skickar till Azure.
+Här är en fullständig lista över de virtuella VMware-metadata som enheten samlar in och skickar till Azure.
 
-**Data** | **Räknaren**
+**Data** | **Medelvärde**
 --- | --- 
-**Information om dator** | 
+**Dator information** | 
 ID FÖR VIRTUELL DATOR | vm.Config.InstanceUuid 
 VM-namn | vm.Config.Name
 vCenter Server-ID | VMwareClient.Instance.Uuid
 Beskrivning av virtuell dator | vm.Summary.Config.Annotation
-Licens produktnamn | vm.Client.ServiceContent.About.LicenseProductName
-Typ av operativsystem | vm.SummaryConfig.GuestFullName
+Licens produkt namn | vm.Client.ServiceContent.About.LicenseProductName
+Typ av operativ system | vm.SummaryConfig.GuestFullName
 Starttyp | vm.Config.Firmware
 Antal kärnor | vm.Config.Hardware.NumCPU
-Minne (MB) | vm.Config.Hardware.MemoryMB
-Antal diskar | den virtuella datorn. Config.Hardware.Device.ToList(). FindAll(x => is VirtualDisk).count
-Disklista storlek | den virtuella datorn. Config.Hardware.Device.ToList(). FindAll (x = > är VirtualDisk)
-Listan över nätverkskort | den virtuella datorn. Config.Hardware.Device.ToList(). FindAll(x => is VirtualEthernet).count
-CPU-användning | cpu.usage.average
+Minne (MB) | datorn. Config. Hardware. MemoryMB
+Antal diskar | datorn. Config. Hardware. Device. ToList (). FindAll (x = > är VirtualDisk). Count
+Lista över disk storlekar | datorn. Config. Hardware. Device. ToList (). FindAll (x = > är VirtualDisk)
+Lista med nätverkskort | datorn. Config. Hardware. Device. ToList (). FindAll (x = > är VirtualEthernet). Count
+CPU-användning | processor. Usage. genomsnitt
 Minnesanvändning |mem.usage.average
-**Per diskinformation** | 
-Värdet för disk-nyckeln | disk. Nyckel
-Dikunit tal | disk.UnitNumber
-Nyckelvärdet för disk-domänkontrollant | disk.ControllerKey.Value
-Gigabyte etablerats | virtualDisk.DeviceInfo.Summary
-Disknamn | Värde som genereras med hjälp av disk. UnitNumber, disk. Nyckel, disk. ControllerKey.VAlue
-Läsåtgärder per sekund | virtualDisk.numberReadAveraged.average
-Skrivåtgärder per sekund | virtualDisk.numberWriteAveraged.average
-Läs dataflöde (MB per sekund) | virtualDisk.read.average
-Skriva dataflöde (MB per sekund) | virtualDisk.write.average
+**Per disk information** | 
+Disk nyckel värde | diskdefragmenter. Knapp
+Dikunit-nummer | diskdefragmenter. UnitNumber
+Nyckel värde för disk styrenhet | disk.ControllerKey.Value
+Gigabyte etablerad | virtualDisk.DeviceInfo.Summary
+Disk namn | Värde som genereras med disk. UnitNumber, disk. Nyckel, disk. ControllerKey. VAlue
+Läs åtgärder per sekund | virtualDisk. numberReadAveraged. Average
+Skriv åtgärder per sekund | virtualDisk.numberWriteAveraged.average
+Läs data flöde (MB per sekund) | virtualDisk. Read. Average
+Skriv data flöde (MB per sekund) | virtualDisk. Write. Average
 **Per NIC-information** | 
-Nätverkskortets namn | nic.Key
+Nätverkskortets namn | NIC. Knapp
 MAC-adress | ((VirtualEthernetCard)nic).MacAddress
 IPv4-adresser | vm.Guest.Net
 IPv6-adresser | vm.Guest.Net
-Läs dataflöde (MB per sekund) | net.received.average
-Skriva dataflöde (MB per sekund) | net.transmitted.average
-**Inventeringsinformation för sökvägen** | 
+Läs data flöde (MB per sekund) | net.received.average
+Skriv data flöde (MB per sekund) | net.transmitted.average
+**Information om lager Sök väg** | 
 Namn | container.GetType().Name
-Typ av underordnade objekt | behållaren. ChildType
-Referensinformation | container.MoRef
-Information om överordnade | Container.Parent
-Mappdetaljer per virtuell dator | ((Mapp) behållare). ChildEntity.Type
-Datacenter information per virtuell dator | ((Datacenter)container).VmFolder
-Datacenter information per värd mapp | ((Datacenter)container).HostFolder
-Information om kluster per värd | ((ClusterComputeResource)container).Host
-Information om värden per virtuell dator | ((HostSystem)container).VM
+Typ av underordnat objekt | fönster. ChildType
+Referens information | container.MoRef
+Överordnad information | Container. parent
+Information om mappar per virtuell dator | ((Mapp)-behållare). ChildEntity. Type
+Data Center information per virtuell dator | ((Datacenter)container).VmFolder
+Data Center information per värd-mapp | ((Data Center)-behållare). HostFolder
+Kluster information per värd | ((ClusterComputeResource) container). Värd
+Värd information per virtuell dator | ((HostSystem) container). DATORN
 
 
 
-## <a name="collected-performance-data-hyper-v"></a>Insamlade prestanda data Hyper-V
+## <a name="collected-performance-data-hyper-v"></a>Insamlade prestanda data – Hyper-V
 
-Här är de VMware VM-prestandadata som installationen samlar in och skickar till Azure.
+Här är de prestanda data för VMware VM som enheten samlar in och skickar till Azure.
 
-**Prestandaräknaren-klass** | **Räknaren** | **Utvärdering av påverkan**
+**Prestanda räknar klass** | **Medelvärde** | **Utvärderings påverkan**
 --- | --- | ---
-Virtuell Hyper-V Hypervisor-Processor | % Körningstid för gäst | Rekommenderade VM-storlek/kostnad
-Dynamiskt minne för Hyper-V virtuell dator | Aktuell belastning (%)<br/> Gästen synliga fysiskt minne (MB) | Rekommenderade VM-storlek/kostnad
-Hyper-V virtuell lagringsenhet | Läs byte per sekund | Beräkning för Diskstorlek, kostnaden för lagring, VM-storlek
-Hyper-V virtuell lagringsenhet | Skriva byte per sekund | Beräkning för Diskstorlek, kostnaden för lagring, VM-storlek
-Hyper-V-virtuellt nätverkskort | Byte som tagits emot per sekund | Beräkning för VM-storlek
-Hyper-V-virtuellt nätverkskort | Byte som skickats per sekund | Beräkning för VM-storlek
+Virtuell Hyper-V hypervisor-processor | % Kör tid för gäst | Rekommenderad storlek/kostnad för virtuell dator
+VIRTUELL Hyper-V-dynamiskt minne | Aktuellt tryck (%)<br/> Fysiskt synligt fysiskt minne (MB) | Rekommenderad storlek/kostnad för virtuell dator
+Virtuell lagrings enhet för Hyper-V | Lästa byte per sekund | Beräkning för disk storlek, lagrings kostnad, VM-storlek
+Virtuell lagrings enhet för Hyper-V | Skrivna byte/sekund | Beräkning för disk storlek, lagrings kostnad, VM-storlek
+Hyper-V Virtual Network Adapter | Mottagna byte per sekund | Beräkning för VM-storlek
+Hyper-V Virtual Network Adapter | Skickade byte per sekund | Beräkning för VM-storlek
 
-- CPU-användning är summan av all användning för alla virtuella processorer som är ansluten till en virtuell dator.
-- Minnesanvändningen är (aktuell minnesbelastning * gäst synliga fysiskt minne) / 100.
-- Disk- och användning ska samlas in från de angivna Hyper-V-prestandaräknarna.
+- PROCESSOR användningen är summan av all användning, för alla virtuella processorer som är kopplade till en virtuell dator.
+- Minnes användningen är (aktuellt tryck * fysiskt synligt minne i gäst)/100.
+- Värdena för disk-och nätverks användning samlas in från de listade Hyper-V-prestandaräknare.
 
-## <a name="collected-metadata-hyper-v"></a>Insamlade metadata Hyper-V
+## <a name="collected-metadata-hyper-v"></a>Insamlade metadata – Hyper-V
 
-Här är en fullständig lista över Hyper-V VM-metadata som installationen samlar in och skickar till Azure.
+Här är en fullständig lista över Hyper-V VM-metadata som enheten samlar in och skickar till Azure.
 
 **Data** | **WMI-klass** | **Egenskap för WMI-klass**
 --- | --- | ---
-**Information om dator** | 
-Serial number of BIOS _ Msvm_BIOSElement | BIOSSerialNumber
-Typ av virtuell dator (Gen 1 eller 2) | Msvm_VirtualSystemSettingData | VirtualSystemSubType
-Visningsnamn för virtuell dator | Msvm_VirtualSystemSettingData | ElementName
+**Dator information** | 
+Serie nummer för BIOS _ Msvm_BIOSElement | BIOSSerialNumber
+VM-typ (gen 1 eller 2) | Msvm_VirtualSystemSettingData | VirtualSystemSubType
+Visnings namn för virtuell dator | Msvm_VirtualSystemSettingData | ElementName
 VM-version | Msvm_ProcessorSettingData | VirtualQuantity
 Minne (byte) | Msvm_MemorySettingData | VirtualQuantity
-Högsta mängd minne som kan användas av en virtuell dator | Msvm_MemorySettingData | Gräns
+Maximalt minne som kan utnyttjas av VM | Msvm_MemorySettingData | Gräns
 Dynamiskt minne aktiverat | Msvm_MemorySettingData | DynamicMemoryEnabled
-Operativsystemet namn/version/FQDN | Msvm_KvpExchangeComponent | GuestIntrinsciExchangeItems namndata
-Strömstatusen | Msvm_ComputerSystem | EnabledState
-**Per diskinformation** | 
-Diskens identifierare | Msvm_VirtualHardDiskSettingData | VirtualDiskId
-Typ av virtuell hårddisk | Msvm_VirtualHardDiskSettingData | type
-Storlek på virtuell hårddisk | Msvm_VirtualHardDiskSettingData | MaxInternalSize
-Överordnad virtuell hårddisk | Msvm_VirtualHardDiskSettingData | ParentPath
+Operativ systemets namn/version/FQDN | Msvm_KvpExchangeComponent | GuestIntrinsicExchangeItems namn data
+Energi status för virtuell dator | Msvm_ComputerSystem | EnabledState
+**Per disk information** | 
+Disk-ID | Msvm_VirtualHardDiskSettingData | VirtualDiskId
+Typ av virtuell hård disk | Msvm_VirtualHardDiskSettingData | type
+Storlek på virtuell hård disk | Msvm_VirtualHardDiskSettingData | MaxInternalSize
+Överordnad virtuell hård disk | Msvm_VirtualHardDiskSettingData | ParentPath
 **Per NIC-information** | 
 IP-adresser (syntetiska nätverkskort) | Msvm_GuestNetworkAdapterConfiguration | IP-adresser
 DHCP aktiverat (syntetiska nätverkskort) | Msvm_GuestNetworkAdapterConfiguration | DHCPEnabled
-NIC-ID (syntetiska nätverkskort) | Msvm_SyntheticEthernetPortSettingData | InstanceID
-NIC-MAC-adress (syntetiska nätverkskort) | Msvm_SyntheticEthernetPortSettingData | Adress
-NIC-ID (äldre nätverkskort) | MsvmEmulatedEthernetPortSetting Data | InstanceID
-NIC-ID för MAC (äldre nätverkskort) | MsvmEmulatedEthernetPortSetting Data | Adress
+NÄTVERKSKORT-ID (syntetiska nätverkskort) | Msvm_SyntheticEthernetPortSettingData | Instans
+MAC-adress för nätverkskort (syntetiska nätverkskort) | Msvm_SyntheticEthernetPortSettingData | Adress
+NÄTVERKSKORT-ID (äldre nätverkskort) | MsvmEmulatedEthernetPortSetting Data | Instans
+MAC-ID för nätverkskort (äldre nätverkskort) | MsvmEmulatedEthernetPortSetting Data | Adress
 
 
 
 
-## <a name="discovery-and-collection-process"></a>Processen för identifiering och samling
+## <a name="discovery-and-collection-process"></a>Process för identifiering och insamling
 
-Enheten som kommunicerar med vCenter-servrar och Hyper-V-värdar/kluster på följande sätt.
+Enheten kommunicerar med vCenter-servrar och Hyper-V-värdar/-kluster med följande process.
 
 
-1. **Starta identifieringen**:
-    - När du startar identifieringen på Hyper-V-installationen, som den kommunicerar med Hyper-V-värdar i WinRM-port 5985 (HTTP) och 5986 (HTTPS).
-    - När du startar en identifiering på VMware-installationen, som den kommunicerar med vCenter-server på TCP-port 443 som standard. Om vCenter-servern lyssnar på en annan port ska konfigurera du det i installationen webbapp.
-2. **Samla in metadata-och prestandadata**:
-    - Installationen använder en Common Information Model (CIM)-session för att samla in data för Hyper-V-dator från Hyper-V-värden på port 5985 och 5986.
-    - Enheten som kommunicerar med port 443 som standard att samla in data för VMware VM från vCenter-servern.
-3. **Skicka data**: Enheten som skickar insamlade data till Azure Migrate Server-utvärdering och Azure Migrate servermigrering via SSL-port 443.
-    - Installationen samlar in användningsdata i realtid för prestandadata.
-        - Prestandadata samlas in var 20: e sekund för VMware och med 30 sekunders mellanrum för Hyper-V, för varje prestandamått.
-        - Insamlade data lyfts upp för att skapa en enskild datapunkt tio minuter.
-        - Värdet för högsta användning är valt från alla 20/30 andra datapunkter och skickas till Azure för utvärdering av beräkning.
-        - Baserat på percentilvärdet som angetts i egenskaperna för utvärdering (50/90/95: e/99th), de tio minuter punkterna är sorterade i stigande ordning och lämpliga percentilvärdet som används för att beräkna utvärderingen
-    - Installationen för migrering, börjar samla in data för virtuell dator och replikerar den till Azure.
-4. **Utvärdera och migrera**: Du kan nu skapa utvärderingar från metadata som samlas in av installationen med hjälp av Azure Migrate Server-utvärdering. Dessutom kan du också börja migrera virtuella VMware-datorer med hjälp av Azure Migrate servermigrering för att dirigera replikering av virtuella datorer utan Agent.
+1. **Starta identifiering**:
+    - När du startar identifieringen på Hyper-V-enheten kommunicerar den med Hyper-V-värdarna på WinRM-portarna 5985 (HTTP) och 5986 (HTTPS).
+    - När du startar identifiering på VMware-enheten kommunicerar den med vCenter-servern på TCP-port 443 som standard. OM vCenter-servern lyssnar på en annan port kan du konfigurera den i installations programmets webbapp.
+2. **Samla in metadata och prestanda data**:
+    - Enheten använder en Common Information Model-session (CIM) för att samla in virtuella Hyper-V-Datadata från Hyper-V-värden på portarna 5985 och 5986.
+    - Enheten kommunicerar med port 443 som standard för att samla in virtuella VMware-Datadata från vCenter Server.
+3. **Skicka data**: Enheten skickar insamlade data till Azure Migrate Server utvärdering och migrering av Azure Migrate Server över SSL-port 443.
+    - För prestanda data samlar enheten in real tids användnings data.
+        - Prestanda data samlas in var 20: e sekund för VMware och var 30: e sekund för Hyper-V för varje prestanda mått.
+        - Insamlade data samlas in för att skapa en enda data punkt i tio minuter.
+        - Värdet för högsta användning väljs från alla de 20/30 andra data punkterna och skickas till beräkningen av Azure för bedömning.
+        - Baserat på percentilvärdet som anges i bedömnings egenskaperna (50/nittionde/95/99), sorteras 10-minuters punkterna i stigande ordning och lämpligt percentilvärdet används för att beräkna utvärderingen
+    - Vid Server migrering börjar installations programmet samla in VM-data och replikerar dem till Azure.
+4. **Utvärdera och migrera**: Nu kan du skapa utvärderingar från de metadata som samlas in av installationen med hjälp av Azure Migrate Server bedömning. Dessutom kan du börja migrera virtuella VMware-datorer med hjälp av Azure Migrate Server-migrering för att dirigera agent lös VM-replikering.
 
 
 ![Arkitektur](./media/migrate-appliance/architecture.png)
 
 
-## <a name="appliance-upgrades"></a>Installationen uppgraderingar
+## <a name="appliance-upgrades"></a>Installations program
 
-Installationen uppgraderas eftersom Azure Migrate-agenter som körs på enheten som har uppdaterats.
+Installationen uppgraderas eftersom Azure Migrate agenter som körs på enheten uppdateras.
 
-- Detta sker automatiskt eftersom inställningarna för automatisk uppdatering är aktiverad på enheten som standard.
+- Detta sker automatiskt eftersom den automatiska uppdateringen är aktive rad som standard.
 - Du kan ändra den här standardinställningen för att uppdatera agenterna manuellt.
-- Ange registernyckeln Appliance automatisk uppdatering i HKLM\SOFTWAREMicrosoft\Azure om du vill inaktivera automatiska uppdateringar.
+- Om du vill inaktivera automatiska uppdateringar ställer du in automatisk uppdatering av register nyckel enheten i HKLM\SOFTWAREMicrosoft\Azure.
 
-### <a name="set-agent-updates-to-manual"></a>Ange agent uppdateringar till manuell
+### <a name="set-agent-updates-to-manual"></a>Konfigurera agent uppdateringar till manuell
 
-Manuella uppdateringar, se till att du uppdaterar alla agenter i installationen på samma gång, med hjälp av den **uppdatera** knappen för varje agent som är inaktuella i installationen. Du kan växla inställningen av uppdatering tillbaka till automatiska uppdateringar när som helst.
+För manuella uppdateringar ser du till att du uppdaterar alla agenter på installationen på samma gång, med knappen **Uppdatera** för varje föråldrad agent på enheten. Du kan när som helst växla uppdaterings inställningen tillbaka till automatiska uppdateringar.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Lär dig hur](tutorial-assess-vmware.md#set-up-the-appliance-vm) att ställa in installationen för VMware.
-[Lär dig hur](tutorial-assess-hyper-v.md#set-up-the-appliance-vm) att ställa in installationen för Hyper-V.
+[Lär dig hur](tutorial-assess-vmware.md#set-up-the-appliance-vm) du konfigurerar-installationen för VMware.
+[Lär dig hur](tutorial-assess-hyper-v.md#set-up-the-appliance-vm) du konfigurerar-enheten för Hyper-V.
 

@@ -9,17 +9,17 @@ ms.topic: article
 ms.date: 07/02/2019
 ms.author: danlep
 ms.openlocfilehash: 3511655d220ee85ce6b5744612e5d6fddafbe877
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68309739"
 ---
 # <a name="check-the-health-of-an-azure-container-registry"></a>Kontrol lera hälso tillståndet för ett Azure Container Registry
 
 När du använder ett Azure Container Registry kan du ibland stöta på problem. Till exempel kanske du inte kan hämta en behållar avbildning på grund av ett problem med Docker i din lokala miljö. Eller också kan ett nätverks problem förhindra att du ansluter till registret. 
 
-Som ett första diagnostiskt steg kör du [AZ ACR-kontroll hälsa][az-acr-check-health] command to get information about the health of the environment and optionally access to a target registry. This command is available in Azure CLI version 2.0.67 or later. If you need to install or upgrade, see [Install Azure CLI][azure-cli].
+Som ett första diagnostiskt steg kör du kommandot [AZ ACR check-Health][az-acr-check-health] för att få information om hälso tillståndet för miljön och eventuellt till gång till ett mål register. Det här kommandot är tillgängligt i Azure CLI version 2.0.67 eller senare. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli].
 
 ## <a name="run-az-acr-check-health"></a>Kör AZ ACR-kontroll – hälsa
 

@@ -1,57 +1,57 @@
 ---
-title: Hantera mushändelser med Azure Maps | Microsoft Docs
-description: Hur du gör en interaktiv Javascript-karta med kartan händelser
+title: Hantera mus händelser med Azure Maps | Microsoft Docs
+description: Så här gör du en interaktiv JavaScript-mappning med kart händelser
 author: jingjing-z
 ms.author: jinzh
-ms.date: 11/29/2018
+ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 4fce8eae25942d098bb3f3277938bfaa3dafa00b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: da6b183155de0fbc370751254a6842343d280874
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60770456"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638966"
 ---
-# <a name="interact-with-the-map---mouse-events"></a>Interagera med kartan - mushändelser
+# <a name="interact-with-the-map---mouse-events"></a>Interagera med kart mus händelser
 
-Den här artikeln visar hur du använder [mappa klass](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) [händelser](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) egenskapen att markera händelser på kartan och på olika lager i kartan. Den också visar hur du använder egenskapen kartan klass händelser för att markera händelser när du interagerar med en HTML-markör.
+Den här artikeln visar hur du använder egenskapen [Mappa klass](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) [händelser](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) för att markera händelser på kartan och på olika lager i kartan. Det visar också hur du använder egenskapen mappa klass händelser för att markera händelser när du interagerar med en HTML-markör.
 
 ## <a name="interact-with-the-map"></a>Interagera med kartan
 
-<iframe height='600' scrolling='no' title='Interagera med kartan – mushändelser' src='//codepen.io/azuremaps/embed/bLZEWd/?height=600&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan <a href='https://codepen.io/azuremaps/pen/bLZEWd/'>interagera med kartan – mushändelser</a> genom Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
+<iframe height='600' scrolling='no' title='Interagera med kartan – mus händelser' src='//codepen.io/azuremaps/embed/bLZEWd/?height=600&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan interagerar <a href='https://codepen.io/azuremaps/pen/bLZEWd/'>med kartan – mus händelser</a> genom Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-Spela upp med kartan ovan och se de motsvarande mushändelser som markerats till höger. Du kan klicka på den **JS fliken** att visa och redigera JavaScript-koden. Du kan också klicka på den **Redigera på CodePen** knappen och redigera kod på CodePen.
+Spela upp med kartan ovan och se motsvarande mus händelser markerade till höger. Du kan klicka på **fliken JS** för att visa och redigera JavaScript-koden. Du kan också klicka på knappen **Redigera på CodePen** och redigera koden på CodePen.
 
-## <a name="interact-with-map-layers"></a>Interagera med kartskikt
+## <a name="interact-with-map-layers"></a>Interagera med kart skikt
 
-<iframe height='600' scrolling='no' title='Interagera med kartan – lager-händelser' src='//codepen.io/azuremaps/embed/bQRRPE/?height=600&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan <a href='https://codepen.io/azuremaps/pen/bQRRPE/'>interagera med kartan – Layer händelser</a> genom Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
+<iframe height='600' scrolling='no' title='Interagera med karta – skikt händelser' src='//codepen.io/azuremaps/embed/bQRRPE/?height=600&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan som <a href='https://codepen.io/azuremaps/pen/bQRRPE/'>interagerar med kartan – skikt händelser</a> genom Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-Koden ovan visar namnet på de händelser som hämta utlösta upp när du interagerar med Symbol-lagret. Alla symbolen, bubbeldiagram, rad och Polygon lagret stöd för samma uppsättning händelser. Den Bildrutsskikt stöder inte någon av dessa händelser.
+Koden ovan markerar namnet på de händelser som visas när du interagerar med symbol lagret. Symbol-, bubbeldiagram-, linje-och polygon-lagret stöder samma uppsättning händelser. Panel lagret stöder inte någon av dessa händelser.
 
-## <a name="interact-with-html-marker"></a>Interagera med HTML markör
+## <a name="interact-with-html-marker"></a>Interagera med HTML-markör
 
-<iframe height='500' scrolling='no' title='Interagera med kartan - HTML markör händelser' src='//codepen.io/azuremaps/embed/VVzKJY/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan <a href='https://codepen.io/azuremaps/pen/VVzKJY/'>interagera med kartan - HTML markör händelser</a> genom Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Interagera med händelser för kart-HTML-markör' src='//codepen.io/azuremaps/embed/VVzKJY/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan som <a href='https://codepen.io/azuremaps/pen/VVzKJY/'>samverkar med kart-HTML-markörens händelser</a> genom Azure Maps<a href='https://codepen.io/azuremaps'>@azuremaps</a>() på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-Koden ovan lägger till Javascript map händelser till en HTML-markör. Den visar även namnet på de händelser som hämta utlösta upp när du interagerar med HTML-markör.
+Koden ovan lägger till Java Script Map-händelser till en HTML-markör. Den markerar även namnet på de händelser som visas när du interagerar med HTML-markören.
 
 ## <a name="next-steps"></a>Nästa steg
 
 Läs mer om de klasser och metoder som används i den här artikeln:
 
 > [!div class="nextstepaction"]
-> [Karta](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+> [Mappa](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
 
-Se följande artiklar för fullständig kodexempel:
-
-> [!div class="nextstepaction"]
-> [Med hjälp av modulen Azure Maps-tjänsterna](./how-to-use-services-module.md)
+I följande artiklar finns fullständiga kod exempel:
 
 > [!div class="nextstepaction"]
-> [Exempelsida för kod](https://aka.ms/AzureMapsSamples)
+> [Använda modulen Azure Maps tjänster](./how-to-use-services-module.md)
+
+> [!div class="nextstepaction"]
+> [Kod exempel sida](https://aka.ms/AzureMapsSamples)

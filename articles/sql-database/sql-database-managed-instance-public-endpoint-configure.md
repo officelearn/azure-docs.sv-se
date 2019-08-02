@@ -1,6 +1,6 @@
 ---
-title: Konfigurera offentlig slutpunkt – Azure SQL Database managed instance | Microsoft Docs
-description: Lär dig hur du konfigurerar en offentlig slutpunkt för den hanterade instansen
+title: Konfigurera offentlig slut punkt – Azure SQL Database Hanterad instans | Microsoft Docs
+description: Lär dig hur du konfigurerar en offentlig slut punkt för en hanterad instans
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -9,48 +9,47 @@ ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto, carlrab
-manager: craigg
 ms.date: 05/07/2019
-ms.openlocfilehash: d3e68a5287e59c576f85491e6e5eba33fac080ca
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cebe6b4ca61b835e7c77f51592c20799fe271853
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65465180"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567406"
 ---
-# <a name="configure-public-endpoint-in-azure-sql-database-managed-instance"></a>Konfigurera offentlig slutpunkt i Azure SQL Database-hanterad instans
+# <a name="configure-public-endpoint-in-azure-sql-database-managed-instance"></a>Konfigurera en offentlig slut punkt i Azure SQL Database Hanterad instans
 
-Offentlig slutpunkt för en [hanterad instans](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index) möjliggör åtkomst till din hanterade instans från utanför den [virtuellt nätverk](../virtual-network/virtual-networks-overview.md). Du kan få åtkomst till din hanterade instans från flera innehavare Azure-tjänster som Power BI, Azure App Service eller ett lokalt nätverk. Med den offentliga slutpunkten på en hanterad instans, behöver du inte använder en VPN-anslutning, vilket hjälper dig att undvika problem med VPN-dataflöde.
+En offentlig slut punkt för en [hanterad instans](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index) ger data åtkomst till din hanterade instans utanför det [virtuella nätverket](../virtual-network/virtual-networks-overview.md). Du kan komma åt din hanterade instans från Azure-tjänster med flera innehavare, t. ex. Power BI, Azure App Service eller ett lokalt nätverk. Genom att använda den offentliga slut punkten på en hanterad instans behöver du inte använda ett VPN, vilket kan hjälpa till att undvika problem med VPN-dataflöde.
 
-I den här artikeln får du lära dig hur du:
+I den här artikeln får du lära dig att:
 
 > [!div class="checklist"]
-> - Aktivera offentlig slutpunkt för din hanterade instans i Azure portal
-> - Aktivera offentlig slutpunkt för din hanterade instans med hjälp av PowerShell
-> - Konfigurera din hanterade instans någon nätverkssäkerhetsgrupp för att tillåta trafik på den offentliga slutpunkten för hanterad instans
-> - Hämta anslutningssträngen för offentlig slutpunkt för hanterad instans
+> - Aktivera offentlig slut punkt för din hanterade instans i Azure Portal
+> - Aktivera offentlig slut punkt för din hanterade instans med hjälp av PowerShell
+> - Konfigurera din hanterade instans nätverks säkerhets grupp för att tillåta trafik till den offentliga slut punkten för hanterade instanser
+> - Hämta den offentliga slut punkts anslutnings strängen för hanterad instans
 
 ## <a name="permissions"></a>Behörigheter
 
-På grund av hur känsliga data i en hanterad instans, kräver konfigurationen att aktivera hanterad instans offentlig slutpunkt en tvåstegsprocess. Den här säkerhetsåtgärd följer uppdelning av uppgifter (matjordsutläggning):
+På grund av känsligheten hos data som finns i en hanterad instans kräver konfigurationen för att aktivera offentlig slut punkt för hanterade instanser en två stegs process. Detta säkerhets mått följer separering av uppgifter (SoD):
 
-- Aktivera offentlig slutpunkt på en hanterad instans behöver utföras av administratören för hanterad instans. Administratör för hanterad instans finns på **översikt** för din SQL-hanterad instans resurs.
-- Tillåter trafik med hjälp av en nätverkssäkerhetsgrupp som behöver göras av en nätverksadministratör. Mer information finns i [network säkerhetsgruppsbehörigheter](../virtual-network/manage-network-security-group.md#permissions).
+- Att aktivera en offentlig slut punkt på en hanterad instans måste utföras av administratören för den hanterade instansen. Den hanterade instans administratören finns på **översikts** sidan för din SQL-hanterade instans resurs.
+- Tillåta trafik med hjälp av en nätverks säkerhets grupp som måste utföras av en nätverks administratör. Mer information finns i [behörigheter för nätverks säkerhets grupper](../virtual-network/manage-network-security-group.md#permissions).
 
-## <a name="enabling-public-endpoint-for-a-managed-instance-in-the-azure-portal"></a>Aktivera offentlig slutpunkt för en hanterad instans i Azure portal
+## <a name="enabling-public-endpoint-for-a-managed-instance-in-the-azure-portal"></a>Aktiverar offentlig slut punkt för en hanterad instans i Azure Portal
 
-1. Starta Azure-portalen på <https://portal.azure.com/.>
-1. Öppna resursgruppen med den hanterade instansen och välj den **SQL-hanterad instans** att du vill konfigurera en offentlig slutpunkt på.
-1. På den **Security** inställningar, Välj den **virtuellt nätverk** fliken.
-1. Konfigurationssida för virtuella nätverk, Välj **aktivera** och sedan den **spara** ikon för att uppdatera konfigurationen.
+1. Starta Azure Portal på<https://portal.azure.com/.>
+1. Öppna resurs gruppen med den hanterade instansen och välj den **SQL-hanterade instans** som du vill konfigurera offentlig slut punkt på.
+1. Välj fliken **virtuellt nätverk** på **säkerhets** inställningarna.
+1. På sidan konfiguration av virtuellt nätverk väljer du **Aktivera** och sedan **Spara** -ikonen för att uppdatera konfigurationen.
 
 ![mi-vnet-config.png](media/sql-database-managed-instance-public-endpoint-configure/mi-vnet-config.png)
 
-## <a name="enabling-public-endpoint-for-a-managed-instance-using-powershell"></a>Aktivera offentlig slutpunkt för en hanterad instans med hjälp av PowerShell
+## <a name="enabling-public-endpoint-for-a-managed-instance-using-powershell"></a>Aktivera offentlig slut punkt för en hanterad instans med hjälp av PowerShell
 
-### <a name="enable-public-endpoint"></a>Aktivera offentlig slutpunkt
+### <a name="enable-public-endpoint"></a>Aktivera offentlig slut punkt
 
-Kör följande PowerShell-kommandon. Ersätt **prenumerations-id** med ditt prenumerations-ID. Byt även ut **rg-name** med resursgruppen för din hanterade instans och Ersätt **mi-name** med namnet på din hanterade instans.
+Kör följande PowerShell-kommandon. Ersätt **prenumerations-ID** med ditt PRENUMERATIONS-ID. Ersätt också **RG-Name** med resurs gruppen för din hanterade instans och Ersätt **mi-Name** med namnet på din hanterade instans.
 
 ```powershell
 Install-Module -Name Az
@@ -71,50 +70,50 @@ $mi = Get-AzSqlInstance -ResourceGroupName {rg-name} -Name {mi-name}
 $mi = $mi | Set-AzSqlInstance -PublicDataEndpointEnabled $true -force
 ```
 
-### <a name="disable-public-endpoint"></a>Inaktivera offentlig slutpunkt
+### <a name="disable-public-endpoint"></a>Inaktivera offentlig slut punkt
 
-Om du vill inaktivera den offentliga slutpunkten med hjälp av PowerShell, du kan köra följande kommando (och även Glöm inte att Stäng NSG för den inkommande porten 3342 om du har konfigurerat):
+Om du vill inaktivera den offentliga slut punkten med hjälp av PowerShell kör du följande kommando (och glöm inte heller att stänga NSG för den inkommande porten 3342 om du har den konfigurerad):
 
 ```powershell
 Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
 ```
 
-## <a name="allow-public-endpoint-traffic-on-the-network-security-group"></a>Tillåta trafik för offentlig slutpunkt på den nya nätverkssäkerhetsgruppen
+## <a name="allow-public-endpoint-traffic-on-the-network-security-group"></a>Tillåt offentlig slut punkts trafik för nätverks säkerhets gruppen
 
-1. Om du har konfigurationssidan för den hanterade instansen som är öppna, navigerar du till den **översikt** fliken. Annars kan gå tillbaka till din **SQL-hanterad instans** resurs. Välj den **virtuella nätverk/undernät** länk som leder dig till konfigurationssidan för virtuella nätverk.
+1. Om sidan konfiguration för den hanterade instansen fortfarande är öppen går du till fliken **Översikt** . Annars går du tillbaka till din **SQL-hanterade instans** resurs. Välj länken **virtuellt nätverk/undernät** , som kommer att gå till sidan konfiguration av virtuellt nätverk.
 
-    ![mi-overview.png](media/sql-database-managed-instance-public-endpoint-configure/mi-overview.png)
+    ![mi-overview. png](media/sql-database-managed-instance-public-endpoint-configure/mi-overview.png)
 
-1. Välj den **undernät** fliken på fönstret vänstra konfiguration av virtuellt nätverk och anteckna den **SÄKERHETSGRUPP** för din hanterade instans.
+1. Välj fliken **undernät** i det vänstra konfigurations fönstret i det virtuella nätverket och anteckna **säkerhets gruppen** för din hanterade instans.
 
     ![mi-vnet-subnet.png](media/sql-database-managed-instance-public-endpoint-configure/mi-vnet-subnet.png)
 
-1. Gå tillbaka till din resursgrupp som innehåller din hanterade instans. Du bör se den **nätverkssäkerhetsgrupp** namn som anges ovan. Välj namnet för att gå till konfigurationssidan för network security group.
+1. Gå tillbaka till din resurs grupp som innehåller din hanterade instans. Du bör se namnet på den **nätverks säkerhets grupp** som anges ovan. Välj namnet för att gå till konfigurations sidan för nätverks säkerhets gruppen.
 
-1. Välj den **ingående säkerhetsregler** fliken och **Lägg till** en regel med högre prioritet än den **deny_all_inbound** regel med följande inställningar: </br> </br>
+1. Välj fliken **inkommande säkerhets regler** och **Lägg till** en regel som har högre prioritet än **deny_all_inbound** -regeln med följande inställningar: </br> </br>
 
     |Inställning  |Föreslaget värde  |Beskrivning  |
     |---------|---------|---------|
-    |**Källa**     |Alla IP-adress eller en tjänsttagg         |<ul><li>Välj Azure Cloud Service Tag för Azure-tjänster som Power BI</li> <li>Använd NAT IP-adressen för din dator eller virtuell dator i Azure</li></ul> |
-    |**Källportsintervall**     |*         |Lämna det här alternativet om du till * (alla) som källportar är vanligtvis dynamiskt allokerade och som oförutsägbar |
-    |**mål**     |Alla         |Lämna mål som helst att tillåta trafik till hanterad instans-undernät |
-    |**Målportsintervall**     |3342         |Omfång målport till 3342, vilket är den offentliga TDS-slutpunkten för hanterad instans |
-    |**Protokoll**     |TCP         |Hanterad instans använder TCP-protokollet för TDS |
-    |**Åtgärd**     |Tillåt         |Tillåt inkommande trafik till managed instance via den offentliga slutpunkten |
-    |**prioritet**     |1300         |Kontrollera att den här regeln är högre prioritet än den **deny_all_inbound** regel |
+    |**Källa**     |Valfri IP-adress eller service tag         |<ul><li>För Azure-tjänster som Power BI väljer du Azure Cloud Service-taggen</li> <li>För datorn eller den virtuella Azure-datorn använder du NAT IP-adress</li></ul> |
+    |**Käll port intervall**     |*         |Lämna det till * (valfritt) eftersom käll portarna vanligt vis är dynamiskt allokerade och som sådana, oförutsägbara |
+    |**Mål**     |Any         |Lämna destination som valfri för att tillåta trafik till under nätet för hanterade instanser |
+    |**Mål ports intervall**     |3342         |Scope-målport till 3342, som är den offentliga TDS-slutpunkten för hanterad instans |
+    |**Protokoll**     |TCP         |Den hanterade instansen använder TCP-protokollet för TDS |
+    |**Åtgärd**     |Allow         |Tillåt inkommande trafik till hanterad instans via den offentliga slut punkten |
+    |**prioritet**     |1300         |Kontrol lera att den här regeln är högre prioritet än **deny_all_inbound** -regeln |
 
     ![mi-nsg-rules.png](media/sql-database-managed-instance-public-endpoint-configure/mi-nsg-rules.png)
 
     > [!NOTE]
-    > Port 3342 används för offentlig slutpunkt anslutningar till hanterad instans och kan inte ändras i det här läget.
+    > Port 3342 används för offentliga slut punkts anslutningar till hanterade instanser och kan inte ändras i det här läget.
 
-## <a name="obtaining-the-managed-instance-public-endpoint-connection-string"></a>Hämta anslutningssträngen för offentlig slutpunkt för hanterad instans
+## <a name="obtaining-the-managed-instance-public-endpoint-connection-string"></a>Hämtning av den offentliga slut punkts anslutnings strängen för hanterad instans
 
-1. Gå till konfigurationssidan för SQL hanterade instansen har aktiverats för offentlig slutpunkt. Välj den **anslutningssträngar** fliken den **inställningar** konfiguration.
-1. Observera att värdnamnet för offentliga slutpunkten kommer i formatet < mi_name >. **offentliga**. < dns_zone >. database.windows.net och att den port som används för anslutningen är 3342.
+1. Gå till konfigurations sidan för SQL-hanterad instans som har Aktiver ATS för den offentliga slut punkten. Välj fliken **anslutnings strängar** under inställnings konfigurationen.
+1. Observera att värd namnet för den offentliga slut punkten anges i formatet < mi_name >. **Public**. < dns_zone >. Database. Windows. net och att porten som används för anslutningen är 3342.
 
     ![mi-public-endpoint-conn-string.png](media/sql-database-managed-instance-public-endpoint-configure/mi-public-endpoint-conn-string.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig mer om [med Azure SQL Database-hanterad instans på ett säkert sätt med offentliga slutpunkten](sql-database-managed-instance-public-endpoint-securely.md).
+- Lär dig mer om att [använda Azure SQL Database hanterade instanser på ett säkert sätt med offentlig slut punkt](sql-database-managed-instance-public-endpoint-securely.md).

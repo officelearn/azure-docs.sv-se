@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 07/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 887c27c765855424dbfb9a77f0b452da0f5de647
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: 82d3656e0adc03157de57b700f8f0be6bde1f2ee
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67868869"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663474"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Så här fungerar Azure Machine Learning service: Arkitektur och koncept
 
@@ -126,7 +126,7 @@ För att till exempel köra konfigurationer, se [Välj och Använd ett beräknin
 
 Data uppsättningar innehåller metoder för att arbeta med data i populära format, t. `from_delimited_files()` ex `to_pandas_dataframe()`. genom att använda eller.
 
-Mer information finns i [skapa och registrera Azure Machine Learning data uppsättningar](how-to-create-register-datasets.md).  Fler exempel på hur du använder data uppsättningar finns i [exempel antecknings böckerna](https://aka.ms/dataset-tutorial).
+Mer information finns i [skapa och registrera Azure Machine Learning data uppsättningar](how-to-create-register-datasets.md).  Fler exempel på hur du använder data uppsättningar finns i [exempel antecknings böckerna](https://github.com/Azure/MachineLearningNotebooks/tree/master/work-with-data/datasets).
 
 Ett **data lager** är en lagrings abstraktion över ett Azure Storage-konto. Data lagret kan använda antingen en Azure Blob-behållare eller en Azure-filresurs som server dels lagringen. Varje arbets yta har ett standard-datalager och du kan registrera ytterligare data lager. Använd python SDK API eller Azure Machine Learning CLI för att lagra och hämta filer från data lagret.
 

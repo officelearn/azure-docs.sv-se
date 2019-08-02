@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: 562daa024985a546ffb49c4da11eace3bc81a659
-ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
+ms.openlocfilehash: b5777300f5033569caf3868218e747df3ff83a76
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68314809"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640225"
 ---
 # <a name="mapping-data-flow-schema-drift"></a>Mappa data flöde schema avvikelse
 
@@ -65,7 +65,7 @@ Sedan kommer vi att avrunda och summera värdena för var och en av de matchade 
 
 ```round(sum ($$))```
 
-Du kan testa detta med Azure Data Factory data flödes exempel "taxi demonstration". Växla till felsökningssessionen med fel söknings funktionen och växla längst upp i design ytan för data flödet så att du kan se dina resultat interaktivt:
+Du kan se den här schema funktionen i arbetet med Azure Data Factory data flödes exempel "taxi demonstration". Växla till felsökningssessionen med fel söknings funktionen och växla längst upp i design ytan för data flödet så att du kan se dina resultat interaktivt:
 
 <img src="media/data-flow/taxidrift2.png" width="800">
 
@@ -75,6 +75,9 @@ När du genererar nya kolumner med kolumn mönster, kan du komma åt dessa nya k
 * Använd "byPosition" för att identifiera de nya kolumnerna efter positions nummer.
 * Använd "byName" för att identifiera de nya kolumnerna efter deras namn.
 * I kolumn mönster använder du "name", "Stream", "position" eller "Type" eller någon kombination av dem för att matcha nya kolumner.
+
+## <a name="rule-based-mapping"></a>Regel baserad mappning
+Stöd mönster matchning för Select and Sink-omvandling via regel baserad mappning. Detta gör att du kan bygga regler som kan mappa nedsatta kolumner till kolumnalias och för att dela upp dessa kolumner till ditt mål.
 
 ## <a name="next-steps"></a>Nästa steg
 I [språket Data Flow-uttryck](data-flow-expression-functions.md) hittar du ytterligare funktioner för kolumn mönster och schema avvikelser, inklusive "byName" och "byPosition".

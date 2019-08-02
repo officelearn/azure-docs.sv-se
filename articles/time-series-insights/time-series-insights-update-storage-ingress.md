@@ -1,6 +1,6 @@
 ---
-title: Lagring av data- och ingångsanspråk i förhandsversionen av Azure Time Series Insights | Microsoft Docs
-description: Förstå datalagring och ingress i förhandsversionen av Azure Time Series Insights.
+title: För hands version av data lagring och inträngande i Azure Time Series Insights | Microsoft Docs
+description: Att förstå data lagring och inträngande i Azure Time Series Insights för hands versionen.
 author: ashannon7
 ms.author: dpalled
 ms.workload: big-data
@@ -8,184 +8,178 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 06/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: 33ca86fc2d13fb7f6e29c43e9a7c1d2dc6ef4169
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a37021d11de86fc0958f330f4f594e25e3aa00bd
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66755237"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68618196"
 ---
-# <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Lagring av data- och ingångsanspråk i förhandsversionen av Azure Time Series Insights
+# <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Data lagring och Inträng i Azure Time Series Insights för hands version
 
-Den här artikeln redogörs för ändringar för lagring av data- och ingångsanspråk från förhandsversionen av Azure Time Series Insights. Den behandlar den underliggande lagringsstrukturen, filformat och Time Series-ID-egenskap. Artikeln beskriver också den underliggande ingress-processen, dataflöde och begränsningar.
+I den här artikeln beskrivs ändringar av data lagring och inträngande från Azure Time Series Insights för hands version. Den täcker de underliggande egenskaperna för lagrings struktur, fil format och Time Series ID. I artikeln diskuteras även underliggande process, data flöde och begränsningar.
 
-## <a name="data-storage"></a>Datalagring
+## <a name="data-ingress"></a>Inkommande data
 
-När du skapar en Time Series Insights Preview-användningsbaserad SKU-miljö, skapar du två resurser:
+Azure Time Series Insights data ingress-principer bestämmer var data kan hämtas från och i vilket format.
 
-* En Time Series Insights-miljö.
-* Ett Azure Storage allmänna V1-konto där data kommer att lagras.
+[![Översikt över tids serie modell](media/v2-update-storage-ingress/tsi-data-ingress.png)](media/v2-update-storage-ingress/tsi-data-ingress.png#lightbox)
 
-Time Series Insights Preview använder Azure Blob storage med Parquet-filtypen. Time Series Insights hanterar alla dataåtgärder inklusive att skapa blobbar, indexering och partitionera data i Azure storage-kontot. Du kan skapa dessa blobar med hjälp av ett Azure storage-konto.
+### <a name="ingress-policies"></a>Ingress-principer
 
-Som andra Azure Storage-blobbar kan Time Series Insights-skapade blobbar du läsa och skriva till dem för att stödja olika integrationsscenarier.
+Time Series Insights för hands versionen stöder samma händelse källor och filtyper som Time Series Insights för närvarande stöder:
 
-> [!TIP]
-> Time Series Insights prestanda kan påverkas negativt om du vill läsa eller skriva till dina blobar för ofta.
-
-En översikt över Azure Blob storage finns i [Storage-blobbar introduktion](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction).
-
-Mer information om filtypen Parquet finns i [filtyper som stöds i Azure Storage](https://docs.microsoft.com/azure/data-factory/supported-file-formats-and-compression-codecs#parquet-format).
-
-## <a name="parquet-file-format"></a>Parquet-filformat
-
-Parquet är ett kolumnorienterade, datafilformat som utformats för:
-
-* Samverkan
-* Utrymmeseffektivitet
-* Frågans effektiviteten
-
-Time Series Insights valde Parquet eftersom det ger effektiv datakomprimering och kodning scheman med förbättrad prestanda som kan hantera komplexa data gruppvis.
-
-En bättre förståelse för Parquet-filformat, finns i [Parquet dokumentation](https://parquet.apache.org/documentation/latest/).
-
-### <a name="event-structure-in-parquet"></a>Händelse-strukturen i Parquet
-
-Time Series Insights skapar och lagrar kopior av blobar i följande format:
-
-1. Den första, inledande kopian har partitionerats med ankomsttid:
-
-    * `V=1/PT=Time/Y=<YYYY>/M=<MM>/<YYYYMMDDHHMMSSfff>_<TSI_INTERNAL_SUFFIX>.parquet`
-    * BLOB Skapandetid för blobbar som partitioneras efter ankomsttid.
-
-1. Den andra, partitionera om fragmentet kopian har partitionerats med en dynamisk grupp med Time Series-ID:
-
-    * `V=1/PT=TsId/Y=<YYYY>/M=<MM>/<YYYYMMDDHHMMSSfff>_<TSI_INTERNAL_SUFFIX>.parquet`
-    * Minsta händelsetidsstämpel i en blob för blobar som har partitionerats med Time Series-ID.
-
-> [!NOTE]
-> * `<YYYY>` mappas till en 4-siffrig år-representation.
-> * `<MM>` mappas till en 2-siffrig månad-representation.
-> * `<YYYYMMDDHHMMSSfff>` mappar till en tidsstämpel representation med 4 årtal (`YYYY`), 2-siffrig månad (`MM`), 2-siffrig dag (`DD`), 2-siffrig timme (`HH`), 2-siffrig minut (`MM`), 2-siffrig sekund (`SS`), och 3-siffriga millisekund (`fff`).
-
-Time Series Insights-händelser är mappade till Parquet-filens innehåll på följande sätt:
-
-* Varje händelse som mappar till en enda rad.
-* Inbyggda **tidsstämpel** kolumn med en tidsstämpel för händelsen. Tidsstämpelsegenskapen är aldrig null. Standard **händelse källa Kötid** om tidsstämpel-egenskapen har inte angetts i datakällan. Tidsstämpeln är i UTC. 
-* Alla andra egenskaper som är mappade till kolumnerna sluta med `_string` (sträng), `_bool` (boolesk), `_datetime` (datetime), och `_double` (dubbla), beroende på typ vlastnosti.
-* Mappning av schemat för den första versionen av filformatet, som vi kallar är **V = 1**. Eftersom den här funktionen utvecklas, namnet på ökas till **V = 2**, **V = 3**och så vidare.
-
-## <a name="partitions"></a>Partitioner
-
-Varje förhandsversionen av Time Series Insights-miljö måste ha en **Time Series-ID** egenskap och ett **tidsstämpel** egenskap som unikt identifierar den. Din Time Series-ID fungerar som en logisk partition för dina data och ger en naturlig gräns för förhandsversionen av Time Series Insights-miljö för att distribuera data över fysiska partitioner. Fysisk partition management hanteras av förhandsversionen av Time Series Insights i ett Azure storage-konto.
-
-Time Series Insights använder dynamisk partitionering för att optimera lagring och frågeprestanda genom att släppa och återskapa partitioner. Time Series Insights Preview dynamisk algoritm för partitionering försöker att förhindra att en enda fysisk partition att data för flera olika, logiska partitioner. Med andra ord ser partitionering algoritmen till att alla data specifika till en enda gång-ID exklusivt finns i Parquet-filer utan att överlagrad med andra Time Series-ID: N. Algoritmen för dynamisk partitionering också försöker bevara den ursprungliga ordningen för händelser inom ett enda Time Series-ID.
-
-Inledningsvis är inkommande när har data partitionerats med tidsstämpel så att en enda, logisk partition inom ett visst tidsintervall som går att sprida över flera fysiska partitioner. En enda fysisk partition kan också innehålla många eller alla logiska partitioner. På grund av storleksbegränsningar för blob, även med optimala partitionering, kan en enda logisk partition uppta flera fysiska partitioner.
-
-> [!NOTE]
-> Som standard är tidsstämpelvärdet meddelandet *Kötid* i din konfigurerade händelsekälla.
-
-Om du laddar upp historiska data eller batchbearbetning av meddelanden, tilldela värdet du vill lagra med dina data i tidsstämpel-egenskapen som mappar till lämplig tidsstämpel. Tidsstämpel-egenskapen är skiftlägeskänsliga. Mer information finns i [Tidsseriemodell](./time-series-insights-update-tsm.md).
-
-### <a name="physical-partitions"></a>Fysiska partitioner
-
-En fysisk partition är en blockblob som lagras i ditt storage-konto. Den verkliga storleken på blobarna som kan variera eftersom storleken beror på push-priset. Men vi förväntar oss blobbarna är cirka 20 MB till 50 MB i storlek. Den här förväntan ledde Time Series Insights-teamet för att välja 20 MB som storleken att optimera frågeprestanda. Den här storleken kan ändras med tiden, beroende på filstorleken och hastighet för inkommande data.
-
-> [!NOTE]
-> * Blobbar storlek på 20 MB.
-> * Azure-blobar är ibland partitionera om fragmentet för bättre prestanda genom att släppas och återskapas.
-> * Samma Time Series Insights-data kan dessutom finnas i två eller flera blobbar.
-
-### <a name="logical-partitions"></a>Logiska partitioner
-
-En logisk partition är en partition inom en fysisk partition som lagrar alla data som är associerade med ett enskilt partitionsnyckelvärde. Time Series Insights Preview partitionerar logiskt varje blob baserat på två egenskaper:
-
-* **Time Series-ID**: Partitionsnyckeln för alla Time Series Insights-data i händelseströmmen och modellen.
-* **Tidsstämpel**: Den tid som baseras på den första inkommande.
-
-Förhandsversionen av Time Series Insights tillhandahåller högpresterande frågor som baseras på dessa två egenskaper. Dessa två egenskaper ger även den effektivaste metoden för att leverera Time Series Insights-data snabbt.
-
-Det är viktigt att välja en lämplig tid serien ID, eftersom det är en egenskap som inte kan ändras. Mer information finns i [Välj Time Series-ID: N](./time-series-insights-update-how-to-id.md).
-
-## <a name="azure-storage"></a>Azure-lagring
-
-### <a name="your-storage-account"></a>Ditt Storage-konto
-
-När du skapar en användningsbaserad Time Series Insights-miljö kan du skapa två resurser: en Time Series Insights-miljö och ett Azure Storage allmänna V1-konto där data kommer att lagras. Vi valde att göra Azure Storage general-purpose V1 standardresurs på grund av dess samverkan, pris och prestanda. 
-
-Time Series Insights publicerar upp till två kopior av varje händelse i Azure storage-kontot. Den ursprungliga kopian bevaras alltid så att du kan snabbt frågar den med hjälp av andra tjänster. Du kan enkelt använda Spark, Hadoop och andra välbekanta verktyg över Time Series-ID: N via raw Parquet-filer, eftersom dessa motorer stöder grundläggande filtrering av filnamn. Gruppera blobar per år och månad är ett bra sätt att lista blobbar i en viss tidsperiod för ett anpassat jobb. 
-
-Time Series Insights repartitions dessutom Parquet-filer för att optimera för API: er för Time Series Insights. Nyligen repartitioned filen sparas också.
-
-Data lagras på obestämd tid i Azure storage-kontot under den offentliga förhandsperioden.
-
-### <a name="writing-and-editing-time-series-insights-blobs"></a>Skriva och redigera Time Series Insights-blobar
-
-För att säkerställa prestanda och tillgänglighet för data, inte redigera eller ta bort alla blobbar som skapas av Time Series Insights.
-
-### <a name="accessing-and-exporting-data-from-time-series-insights-preview"></a>Få åtkomst till och export av data från förhandsversionen av Time Series Insights
-
-Du kanske vill komma åt data som lagras i förhandsversionen av Time Series Insights explorer ska användas tillsammans med andra tjänster. Exempelvis kan du använda dina data till rapporten i Power BI, använda machine learning med hjälp av Azure Machine Learning Studio eller för att använda i en notebook-program med Jupyter-anteckningsböcker.
-
-Du kan komma åt dina data på tre Allmänt sätt:
-
-* Från förhandsversionen av Time Series Insights explorer: du kan exportera data som en CSV-fil från förhandsversionen av Time Series Insights explorer. Mer information finns i [förhandsversionen av Time Series Insights explorer](./time-series-insights-update-explorer.md).
-* Från Time Series Insights Preview-API: er: API-slutpunkten kan nås på `/getRecorded`. Läs mer om detta API i [Time Series fråga](./time-series-insights-update-tsq.md).
-* Direkt från ett Azure storage-konto (nedan).
-
-#### <a name="from-an-azure-storage-account"></a>Från ett Azure storage-konto
-
-* Du behöver läsåtkomst till det konto som du använder för att komma åt dina Time Series Insights-data. Mer information finns i [hantera åtkomst till din lagringskontoresurserna](https://docs.microsoft.com/azure/storage/blobs/storage-manage-access-to-resources).
-* Mer information om direkta metoderna för att läsa data från Azure Blob storage finns i [flytta data till och från ditt lagringskonto](https://docs.microsoft.com/azure/storage/common/storage-moving-data?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
-* Att exportera data från ett Azure storage-konto:
-    * Kontrollera att ditt konto uppfyller de nödvändiga kraven för export av data. Mer information finns i [Storage importera och exportera krav](https://docs.microsoft.com/azure/storage/common/storage-import-export-requirements).
-    * Mer information om andra sätt att exportera data från ditt Azure storage-konto, se [Import och export av data från BLOB-objekt](https://docs.microsoft.com/azure/storage/common/storage-import-export-data-from-blobs).
-
-### <a name="data-deletion"></a>Data raderas
-
-Ta inte bort blobbar. De är inte bara användbar för granskning och underhålla en post med dina data, Time Series Insights Preview underhåller blob-metadata i varje blob.
-
-## <a name="time-series-insights-data-ingress"></a>Inkommande för Time Series Insights-data
-
-### <a name="ingress-policies"></a>Inkommande principer
-
-Time Series Insights Preview stöder samma händelsekällor och filtyper som för närvarande stöder Time Series Insights.
-
-Händelsekällor som stöds är:
-
-- Azure IoT Hub
-- Azure Event Hubs
+- [Azure IoT Hub](../iot-hub/about-iot-hub.md)
+- [Azure Event Hubs](../event-hubs/event-hubs-about.md)
   
-  > [!NOTE]
-  > Azure Event Hub-instanser stöder Kafka.
+Azure Time Series Insights stöder JSON som skickas via Azure IoT Hub eller Azure Event Hubs. Om du vill optimera dina IoT JSON-data, lär du dig [hur du formar JSON](./time-series-insights-send-events.md#json).
 
-Filtyper som stöds är:
+### <a name="data-storage"></a>Datalagring
 
-* JSON: Mer information om de stöds JSON-former som vi kan hantera finns i [så form JSON](./time-series-insights-send-events.md#json).
+När du skapar en Time Series Insights för hands version av SKU-miljö för förhands granskning skapar du två resurser:
 
-### <a name="data-availability"></a>Tillgänglighet för data
+* En Time Series Insightss miljö.
+* Ett Azure Storage allmänt v1-konto där data ska lagras.
 
-Time Series Insights Preview indexerar data med hjälp av en strategi för optimering av blob-storlek. Data blir tillgängliga för frågor när den har indexerats, som baseras på hur mycket data kommer i och i vilken fart.
+I förhands granskningen av Time Series Insights används Azure Blob Storage med fil typen Parquet. Time Series Insights hanterar alla data åtgärder, inklusive att skapa blobbar, indexera och partitionera data i Azure Storage-kontot. Du skapar dessa blobbar med hjälp av ett Azure Storage-konto.
+
+Precis som andra Azure Storage blobbar kan Time Series Insights-skapade blobbar läsa och skriva till dem för att stödja olika integrations scenarier.
+
+### <a name="data-availability"></a>Data tillgänglighet
+
+Time Series Insights för hands versionen indexerar data med hjälp av en optimerings strategi för BLOB-storlek. Data blir tillgängliga för frågor efter att de indexerats, baserat på hur mycket data som kommer i och i vilken hastighet.
 
 > [!IMPORTANT]
-> * Time Series Insights allmänt tillgänglig (GA) version gör data tillgängliga inom 60 sekunder når en händelsekälla. 
-> * Förvänta dig en längre period innan data görs tillgängliga i förhandsversionen.
-> * Om du får några betydande svarstid, måste du kontakta oss.
+> * Time Series Insights General Availability-versionen (GA) kommer att göra data tillgängliga inom 60 sekunder efter att ha kommit till en händelse källa.
+> * Under för hands versionen förväntas en längre period innan data görs tillgängliga.
+> * Kontakta oss om du får en stor fördröjning.
 
 ### <a name="scale"></a>Skala
 
-Time Series Insights Preview stöder en inledande ingående skalan för upp till 1 ingående Byte per sekund (Mbit/s) per miljö. Förbättrat stöd för skalning pågår. Vi planerar att uppdatera vår dokumentation för att återspegla dessa förbättringar.
+Time Series Insights för hands versionen stöder en inledande ingångs skala på upp till 1 megabyte byte per sekund (Mbit/s) per miljö. Stöd för förbättrad skalning pågår. Vi planerar att uppdatera vår dokumentation för att avspegla dessa förbättringar.
+
+## <a name="parquet-file-format"></a>Parquet-filformat
+
+Parquet är ett kolumn-orienterat data fil format som har utformats för:
+
+* Samverkan
+* Utrymmes effektivitet
+* Frågans effektivitet
+
+Time Series Insights valde Parquet eftersom det tillhandahåller effektiva data komprimerings-och kodnings scheman med förbättrade prestanda som kan hantera komplexa data i bulk.
+
+Mer information om filtypen Parquet finns i Parquet- [dokumentationen](https://parquet.apache.org/documentation/latest/).
+
+Mer information om fil formatet Parquet i Azure finns i filtyper [som stöds i Azure Storage](https://docs.microsoft.com/azure/data-factory/supported-file-formats-and-compression-codecs#parquet-format).
+
+### <a name="event-structure-in-parquet"></a>Händelse struktur i Parquet
+
+Time Series Insights skapar och lagrar kopior av blobbar i följande två format:
+
+1. Den första kopian partitioneras efter ankomst tid:
+
+    * `V=1/PT=Time/Y=<YYYY>/M=<MM>/<YYYYMMDDHHMMSSfff>_<TSI_INTERNAL_SUFFIX>.parquet`
+    * BLOB-skapande tid för blobbar partitionerade efter ankomst tid.
+
+1. Den andra partitionerade kopian partitioneras av en dynamisk gruppering av Time Series-ID:
+
+    * `V=1/PT=TsId/Y=<YYYY>/M=<MM>/<YYYYMMDDHHMMSSfff>_<TSI_INTERNAL_SUFFIX>.parquet`
+    * Minsta tids stämpling för händelse i en BLOB för BLOB-partitionerade med Time Series ID.
+
+> [!NOTE]
+> * `<YYYY>`mappar till en 4-siffrig års representation.
+> * `<MM>`mappar till en månads representation i två siffror.
+> * `<YYYYMMDDHHMMSSfff>`mappar till en tidsstämpel-representation med fyrsiffrigt år (`YYYY`), 2-siffrig månad (`MM`), 2-siffrig dag (`DD`), 2-siffrig timme (`HH`), 2-siffrig minut (`MM`), 2-siffrig sekund (`SS`) och 3 siffror millisekunder`fff`().
+
+Time Series Insights händelser mappas till Parquet fil innehåll på följande sätt:
+
+* Varje händelse mappas till en enda rad.
+* Inbyggd **timestamp** -kolumn med en händelse-tidsstämpel. Egenskapen timestamp är aldrig null. Den är som standard **händelse källans köade tid** om egenskapen timestamp inte anges i händelse källan. Tidsstämpeln är UTC. 
+* Alla andra egenskaper som är mappade till kolumner slutar `_string` med (sträng) `_bool` , (Boolean) `_datetime` , (datetime) och `_double` (Double), beroende på egenskaps typ.
+* Det är mappnings schema för den första versionen av fil formatet, som vi refererar till som **V = 1**. När den här funktionen utvecklas ökar namnet till **v = 2**, **V = 3**och så vidare.
+
+## <a name="azure-storage"></a>Azure Storage
+
+I det här avsnittet beskrivs Azure Storage information som är relevant för Azure Time Series Insights.
+
+En grundlig beskrivning av Azure Blob Storage-tjänsten finns i [introduktionen till Storage-blobbar](../storage/blobs/storage-blobs-introduction.md).
+
+### <a name="your-storage-account"></a>Ditt lagrings konto
+
+När du skapar en Time Series Insights "betala per användning"-miljö skapar du två resurser: en Time Series Insights miljö och ett Azure Storage generellt syfte v1-konto där data ska lagras. Vi valde att göra Azure Storage generell användning v1 som standard resurs på grund av dess driftskompatibilitet, pris och prestanda.
+
+Time Series Insights publicerar upp till två kopior av varje händelse i ditt Azure Storage-konto. Den ursprungliga kopian bevaras alltid så att du snabbt kan fråga den med hjälp av andra tjänster. Du kan enkelt använda Spark, Hadoop och andra välkända verktyg över tids serie-ID: n över RAW Parquet-filer, eftersom dessa motorer stöder grundläggande fil namns filtrering. Gruppering av blobbar per år och månad är ett användbart sätt att lista blobbar inom ett särskilt tidsintervall för ett anpassat jobb.
+
+Dessutom, Time Series Insights partitionerar om Parquet-filerna för att optimera för Time Series Insights-API: er. Den senast ompartitionerade filen sparas också.
+
+Under den offentliga för hands versionen lagras data oändligt i ditt Azure Storage-konto.
+
+### <a name="writing-and-editing-time-series-insights-blobs"></a>Skriva och redigera Time Series Insights blobbar
+
+För att säkerställa frågornas prestanda och data tillgänglighet ska du inte redigera eller ta bort blobbar som skapats av Time Series Insights.
+
+> [!TIP]
+> Time Series Insights prestanda kan påverkas negativt om du läser eller skriver till blobarna för ofta.
+
+### <a name="accessing-and-exporting-data-from-time-series-insights-preview"></a>Komma åt och exportera data från Time Series Insights för hands version
+
+Du kanske vill komma åt data som lagras i Time Series Insights Preview Explorer och använda dem tillsammans med andra tjänster. Du kanske till exempel vill använda dina data för att rapportera i Power BI, för att utföra maskin inlärning med Azure Machine Learning Studio eller om du vill använda i ett Notebook-program med Jupyter Notebooks.
+
+Du kan komma åt dina data på tre sätt:
+
+* I Time Series Insights Preview Explorer: du kan exportera data som en CSV-fil från Time Series Insights Preview Explorer. Mer information finns i [Time Series Insights Preview Explorer](./time-series-insights-update-explorer.md).
+* Från Time Series Insights för hands versions-API: er kan API- `/getRecorded`slutpunkten nås. Mer information om det här API: et finns i [tids serie frågor](./time-series-insights-update-tsq.md).
+* Direkt från ett Azure Storage-konto (nedan).
+
+#### <a name="from-an-azure-storage-account"></a>Från ett Azure Storage-konto
+
+* Du behöver Läs behörighet till det konto som du använder för att komma åt dina Time Series Insights data. Mer information finns i [Hantera åtkomst till dina lagrings konto resurser](../storage/blobs/storage-manage-access-to-resources.md).
+* Mer information om direkta sätt att läsa data från Azure Blob Storage finns i [Välj en Azure-lösning för data överföring](../storage/common/storage-choose-data-transfer-solution.md).
+* Så här exporterar du data från ett Azure Storage-konto:
+    * Kontrol lera först att ditt konto uppfyller de nödvändiga kraven för export av data. Mer information finns i [krav för lagrings import och export](../storage/common/storage-import-export-requirements.md).
+    * Information om andra sätt att exportera data från ditt Azure Storage-konto finns i [Importera och exportera data från blobbar](../storage/common/storage-import-export-data-from-blobs.md).
+
+### <a name="data-deletion"></a>Borttagning av data
+
+Ta inte bort blobbar. Den Time Series Insights för hands versionen är inte bara användbar för att granska och underhålla en post med dina data, men för hands versionen av underhåll BLOB-metadata i varje blob.
+
+## <a name="partitions"></a>Partitioner
+
+Varje Time Series Insights för hands versions miljö måste ha en **Time Series ID-** egenskap och en **timestamp** -egenskap som unikt identifierar den. Ditt Time Series ID fungerar som en logisk partition för dina data och ger Time Series Insights för hands versions miljön en naturlig gräns för att distribuera data över fysiska partitioner. Fysiska partitioner hanteras av Time Series Insights för hands version i ett Azure Storage konto.
+
+Time Series Insights använder dynamisk partitionering för att optimera lagring och fråga prestanda genom att släppa och återskapa partitioner. Algoritmen Time Series Insights för för hands versions dynamisk partitionering försöker förhindra att en enskild fysisk partition har data för flera, distinkta, logiska partitioner. Med andra ord behåller partitionerings algoritmen alla data som är specifikt för ett enda Time Series-ID i Parquet-filer utan att de överlämnas med andra Time Series-ID: n. Algoritmen för dynamisk partitionering försöker också bevara den ursprungliga ordningen av händelser inom ett enda tids serie-ID.
+
+Inlednings vis, vid ingångs tid, partitioneras data av tidsstämpeln så att en enda logisk partition inom ett visst tidsintervall kan spridas över flera fysiska partitioner. En enda fysisk partition kan också innehålla många eller alla logiska partitioner. På grund av blobb storleks begränsningar, även med optimal partitionering, kan en enda logisk partition uppta flera fysiska partitioner.
+
+> [!NOTE]
+> Som standard är Tidsstämpelns värde meddelandet i *kö* i den konfigurerade händelse källan.
+
+Om du överför historiska data eller batch-meddelanden tilldelar du det värde som du vill lagra med dina data till egenskapen timestamp som mappar till lämplig tidsstämpel. Egenskapen timestamp är Skift läges känslig. Mer information finns i [tids serie modell](./time-series-insights-update-tsm.md).
+
+### <a name="physical-partitions"></a>Fysiska partitioner
+
+En fysisk partition är en Block-Blob som lagras i ditt lagrings konto. Den faktiska storleken på Blobbarna kan variera eftersom storleken beror på push-hastigheten. Men vi förväntar sig att blobbar ska vara cirka 20 MB till 50 MB. Den här förväntan ledde till att Time Series Insights-teamet väljer 20 MB som storlek för att optimera frågornas prestanda. Den här storleken kan ändras över tid, beroende på fil storlek och data ingångs hastigheten.
+
+> [!NOTE]
+> * Blobbarna får storleken 20 MB.
+> * Azure-blobbar partitioneras ibland om för bättre prestanda genom att de släpps och skapas igen.
+> * Samma Time Series Insightss data kan också finnas i två eller flera blobbar.
+
+### <a name="logical-partitions"></a>Logiska partitioner
+
+En logisk partition är en partition i en fysisk partition som lagrar alla data som är associerade med ett enda nyckel värde för en partition. Time Series Insights för hands version logiskt partitionerar varje BLOB baserat på två egenskaper:
+
+* **Tids serie-ID**: Partitionsnyckel för alla Time Series Insights data i händelse strömmen och modellen.
+* **Tidsstämpel**: Tiden baserat på inledande ingångs datum.
+
+I förhands granskningen Time Series Insights finns de frågor som baseras på dessa två egenskaper. Dessa två egenskaper ger också den mest effektiva metoden för att leverera Time Series Insights data snabbt.
+
+Det är viktigt att välja ett lämpligt tids serie-ID eftersom det är en oföränderlig egenskap. Mer information finns i [Choose Time Series ID](./time-series-insights-update-how-to-id.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs den [Azure Time Series Insights Förhandsgranska Storage och ingående](./time-series-insights-update-storage-ingress.md).
+- Läs [Azure Time Series Insights för hands versions lagring och inkommande](./time-series-insights-update-storage-ingress.md)trafik.
 
-- Läs mer om den nya [datamodellering](./time-series-insights-update-tsm.md).
-
-<!-- Images -->
-[1]: media/v2-update-storage-ingress/storage-architecture.png
-[2]: media/v2-update-storage-ingress/parquet-files.png
-[3]: media/v2-update-storage-ingress/blob-storage.png
+- Läs om den nya [data modellen](./time-series-insights-update-tsm.md).

@@ -6,16 +6,16 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 07/12/2019
-ms.openlocfilehash: e6bbe15727a6f989d8c16c67591d39d7870d5708
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 8d4a7a1b176a0c232c4461c7a8cfc2b1e3faddd6
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67874897"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638369"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Läs repliker i Azure Database for MariaDB
 
-Med funktionen Läs replik kan du replikera data från en Azure Database for MariaDB-server till en skrivskyddad Server. Du kan replikera från huvud servern till upp till fem repliker. Repliker uppdateras asynkront med MariaDB-motorns binära logg (BinLog)-baserad teknik för replikering med globalt transaktions-ID (GTID). Mer information om BinLog-replikering finns i [Översikt över BinLog-replikering](https://mariadb.com/kb/en/library/replication-overview/).
+Med funktionen Läs replik kan du replikera data från en Azure Database for MariaDB-server till en skrivskyddad Server. Du kan replikera från huvudservern till upp till fem repliker. Repliker uppdateras asynkront med MariaDB-motorns binära logg (BinLog)-baserad teknik för replikering med globalt transaktions-ID (GTID). Mer information om BinLog-replikering finns i [Översikt över BinLog-replikering](https://mariadb.com/kb/en/library/replication-overview/).
 
 > [!IMPORTANT]
 > Du kan skapa en Läs replik i samma region som din huvud server eller i valfri annan Azure-region som du väljer. Läs repliker (samma region och över region) finns för närvarande i offentlig för hands version.
@@ -53,7 +53,7 @@ När du skapar en replik ärver den inte brand Väggs reglerna eller slut punkte
 
 Repliken ärver administratörs kontot från huvud servern. Alla användar konton på huvud servern replikeras till läsa repliker. Du kan bara ansluta till en Läs replik med hjälp av de användar konton som är tillgängliga på huvud servern.
 
-Du kan ansluta till repliken med hjälp av dess värdnamn och ett giltigt användar konto, precis som på en vanlig Azure Database for MariaDB Server. För en server med  namnet unreplica med administratörs **användar namnet**administratör kan du ansluta till repliken med hjälp av MySQL CLI:
+Du kan ansluta till repliken med hjälp av dess värdnamn och ett giltigt användar konto, precis som på en vanlig Azure Database for MariaDB Server. För en server med namnet unreplica med administratörs **användar namnet**administratör kan du ansluta till repliken med hjälp av MySQL CLI:
 
 ```bash
 mysql -h myreplica.mariadb.database.azure.com -u myadmin@myreplica -p
@@ -114,7 +114,7 @@ När en huvud server tas bort, stoppas replikeringen till alla Läs repliker. De
 
 Användare på huvud servern replikeras till läsa repliker. Du kan bara ansluta till en Läs replik med de användar konton som är tillgängliga på huvud servern.
 
-### <a name="server-parameters"></a>Server parametrar
+### <a name="server-parameters"></a>Serverparametrar
 
 För att förhindra att data blir osynkroniserade och för att undvika potentiell data förlust eller skada, är vissa Server parametrar låsta från att uppdateras när du använder Läs repliker.
 
@@ -133,3 +133,4 @@ Följande Server parametrar är låsta på både huvud-och replik servern:
 ## <a name="next-steps"></a>Nästa steg
 
 - Lär dig hur du [skapar och hanterar Läs repliker med hjälp av Azure Portal](howto-read-replicas-portal.md)
+- Lär dig hur du [skapar och hanterar Läs repliker med Azure CLI](howto-read-replicas-cli.md)

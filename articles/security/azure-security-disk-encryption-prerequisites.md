@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8e01815cee0d6e39f6f773e9838b2a8b60638ab1
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 423fad943190232d9e5e674b98b62f4f0dffb8ae
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67672305"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68728757"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Krav för Azure Disk Encryption
 
@@ -21,28 +21,28 @@ Den här artikeln krävs för Azure Disk Encryption, förklarar objekt som måst
 Innan du aktiverar Azure Disk Encryption på virtuella Azure IaaS-datorer för de scenarier som stöds som beskrivs i den [översikt över Azure Disk Encryption](azure-security-disk-encryption-overview.md) artikel, se till att ha kraven på plats. 
 
 > [!WARNING]
-> - Om du tidigare har använt [Azure Disk Encryption med Azure AD-app](azure-security-disk-encryption-prerequisites-aad.md) för att kryptera den här virtuella datorn, måste du fortsätta använda det här alternativet för att kryptera den virtuella datorn. Du kan inte använda [Azure Disk Encryption](azure-security-disk-encryption-prerequisites.md) på den här krypterade virtuella datorn eftersom det är inte ett scenario som stöds, betydelse växla från AAD-programmet för det här krypterade virtuella datorer stöds inte ännu.
+> - Om du tidigare har använt [Azure Disk Encryption med Azure AD-appen](azure-security-disk-encryption-prerequisites-aad.md) för att kryptera den här virtuella datorn måste du fortsätta använda det här alternativet för att kryptera den virtuella datorn. Du kan inte använda [Azure Disk Encryption](azure-security-disk-encryption-prerequisites.md) på den här krypterade virtuella datorn eftersom detta inte stöds, vilket innebär att det inte finns stöd för att växla bort från AAD-program för den här krypterade virtuella datorn än.
 > - Vissa rekommendationerna kan öka data, nätverk eller Resursanvändning för beräkning, vilket resulterar i ytterligare kostnader för licens eller prenumeration. Du måste ha en giltig aktiv Azure-prenumeration att skapa resurser i Azure i regionerna som stöds.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="supported-vm-sizes"></a>VM-storlekar som stöds
 
-Azure Disk Encryption är tillgänglig på virtuella datorer som uppfyller dessa krav på minsta-minne:
+Azure Disk Encryption är tillgängligt på virtuella datorer som uppfyller de minsta minnes kraven:
 
-| Virtuell dator | Minsta arbetsminne |
+| Virtuell dator | Minsta minnes krav |
 |--|--|
 | Virtuella Windows-datorer | 2 GB |
-| Virtuella Linux-datorer när du endast krypterar datavolymer| 2 GB |
-| Virtuella Linux-datorer när du krypterar både data och operativsystemvolymer, och där filsystemanvändningen root (/) är 4GB eller mindre | 8 GB |
-| Virtuella Linux-datorer när du krypterar både data och operativsystemvolymer, och där filsystemanvändningen root (/) är större än 4GB | Rot filsystemanvändningen * 2. Exempelvis kan kräver en 16 GB rot filsystemanvändning minst 32GB RAM |
+| Virtuella Linux-datorer vid endast kryptering av data volymer| 2 GB |
+| Virtuella Linux-datorer vid kryptering av både data-och OS-volymer och där roten (/) fil systemets användning är 4 GB eller mindre | 8 GB |
+| Virtuella Linux-datorer vid kryptering av både data-och OS-volymer och där roten (/) fil systemets användning är större än 4 GB | Rot fil systemets användning * 2. Till exempel kräver en 16 GB rot fil system användning minst 32 GB RAM-minne |
 
-När OS-disk krypteringsprocessen är klar på Linux-datorer, kan den virtuella datorn konfigureras för att köra med mindre minne. 
+När operativ systemets disk krypterings process har slutförts på virtuella Linux-datorer kan den virtuella datorn konfigureras för att köras med mindre minne. 
 
 > [!NOTE]
-> Linux OS-diskkryptering är inte tillgänglig för [Virtual Machine Scale Sets](../virtual-machine-scale-sets/index.yml).
+> Det finns inte tillräckligt med disk kryptering för Linux-operativsystem för [Virtual Machine Scale Sets](../virtual-machine-scale-sets/index.yml).
 
-Azure Disk Encryption är också tillgänglig för virtuella datorer med premium storage. 
+Azure Disk Encryption är också tillgängligt för virtuella datorer med Premium Storage. 
 
 ## <a name="supported-operating-systems"></a>Operativsystem som stöds
 
@@ -52,54 +52,54 @@ Azure Disk Encryption är också tillgänglig för virtuella datorer med premium
 - Windows Server: Windows Server 2008 R2 och senare.  
  
 > [!NOTE]
-> Windows Server 2008 R2 kräver .NET Framework 4.5 installeras för kryptering; installera den från Windows Update med valfri uppdatering Microsoft .NET Framework 4.5.2 för Windows Server 2008 R2 x64-baserade system ([KB2901983](https://www.catalog.update.microsoft.com/Search.aspx?q=KB2901983)).  
+> Windows Server 2008 R2 kräver att .NET Framework 4,5 installeras för kryptering. installera den från Windows Update med den valfria uppdateringen Microsoft .NET Framework 4.5.2 för Windows Server 2008 R2 x64-baserade system ([KB2901983](https://www.catalog.update.microsoft.com/Search.aspx?q=KB2901983)).  
 >  
-> Windows Server 2012 R2 Core och Windows Server 2016 Core kräver bdehdcfg komponenten installeras på den virtuella datorn för kryptering.
+> Windows Server 2012 R2 Core och Windows Server 2016 Core kräver att BdeHdCfg-komponenten installeras på den virtuella datorn för kryptering.
 
 
 ### <a name="linux"></a>Linux 
 
-Azure Disk Encryption stöds för en delmängd av den [Azure-godkända Linux-distributioner](../virtual-machines/linux/endorsed-distros.md), vilket är en delmängd av alla Linux-servern möjliga distributioner till sig själv.
+Azure Disk Encryption stöds på en delmängd av [Azure-godkända Linux-distributioner](../virtual-machines/linux/endorsed-distros.md), som i sig är en delmängd av alla möjliga distributioner av Linux-servrar.
 
-![Venn-Diagram Linux server-distributioner som har stöd för Azure Disk Encryption](./media/azure-security-disk-encryption-faq/ade-supported-distros.png)
+![Venndiagram av Linux Server-distributioner som stöder Azure Disk Encryption](./media/azure-security-disk-encryption-faq/ade-supported-distros.png)
 
-Linux-server-distributioner som inte godkänts av Azure stöder inte Azure Disk Encryption och endast följande distributioner och versioner av dessa som godkänts, stöd för Azure Disk Encryption:
+Linux Server-distributioner som inte har godkänts av Azure stöder inte Azure Disk Encryption och, av de som har påtecknats, endast följande distributioner och versioner Azure Disk Encryption:
 
 | Linux-distribution | Version | Volymtyp som stöds för kryptering|
 | --- | --- |--- |
-| Ubuntu | 18.04| OS- och disk |
+| Ubuntu | 18,04| OS- och disk |
 | Ubuntu | 16.04| OS- och disk |
-| Ubuntu | 14.04.5</br>[med Azure justerade kernel uppdateras till 4.15 eller senare](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | OS- och disk |
-| RHEL | 7.6 | OS- och disk (Se kommentaren nedan) |
-| RHEL | 7.5 | OS- och disk (Se kommentaren nedan) |
-| RHEL | 7.4 | OS- och disk (Se kommentaren nedan) |
-| RHEL | 7.3 | OS- och disk (Se kommentaren nedan) |
-| RHEL | 7.2 | OS- och disk (Se kommentaren nedan) |
-| RHEL | 6.8 | Datadisk (Se kommentaren nedan) |
-| RHEL | 6.7 | Datadisk (Se kommentaren nedan) |
-| CentOS | 7.6 | OS- och disk |
+| Ubuntu | 14.04.5</br>[med Azures justerade kernel uppdaterat till 4,15 eller senare](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | OS- och disk |
+| RHEL | 7,6 | Operativ system och data disk (se OBS! nedan) |
+| RHEL | 7.5 | Operativ system och data disk (se OBS! nedan) |
+| RHEL | 7.4 | Operativ system och data disk (se OBS! nedan) |
+| RHEL | 7.3 | Operativ system och data disk (se OBS! nedan) |
+| RHEL | 7.2 | Operativ system och data disk (se OBS! nedan) |
+| RHEL | 6.8 | Data disk (se OBS! nedan) |
+| RHEL | 6.7 | Data disk (se OBS! nedan) |
+| CentOS | 7,6 | OS- och disk |
 | CentOS | 7.5 | OS- och disk |
 | CentOS | 7.4 | OS- och disk |
 | CentOS | 7.3 | OS- och disk |
 | CentOS | 7.2n | OS- och disk |
 | CentOS | 6.8 | Datadisk |
-| openSUSE | 42.3 | Datadisk |
+| openSUSE | 42,3 | Datadisk |
 | SLES | 12-SP4 | Datadisk |
 | SLES | 12-SP3 | Datadisk |
 
 > [!NOTE]
-> Ny ADE implementeringen har stöd för RHEL-OS- och datadisk för RHEL7 betala per användning-avbildningar. ADE stöds för närvarande inte för RHEL Bring-Your-Own-prenumeration (BYOS)-avbildningar. Se [Azure Disk Encryption för Linux](azure-security-disk-encryption-linux.md) för mer information.
+> Den nya ADE-implementeringen stöds för RHEL OS och datadisk för RHEL7 avbildningar enligt principen betala per användning. ADE stöds för närvarande inte för RHEL-avbildningar (BYOS). Mer information finns i [Azure Disk Encryption för Linux](azure-security-disk-encryption-linux.md) .
 
 - Azure Disk Encryption kräver att dina nyckelvalv och virtuella datorer finns i samma Azure-region och prenumeration. Konfigurera resurserna i olika områden orsakar ett fel i Azure Disk Encryption-funktionen aktiveras.
 
-#### <a name="additional-prerequisites-for-linux-iaas-vms"></a>Ytterligare krav för Linux IaaS-datorer 
+#### <a name="additional-prerequisites-for-linux-iaas-vms"></a>Ytterligare krav för virtuella Linux IaaS-datorer 
 
-- Azure Disk Encryption kräver dm-crypt och vfat moduler är finns på systemet. Ta bort eller inaktivera vfat från standardavbildningen förhindrar att systemet från att läsa den viktiga volymen och hämta den nyckel som behövs för att låsa upp diskarna på efterföljande omstarter. System-härdningssteg som tar bort modulen vfat från systemet är inte kompatibla med Azure Disk Encryption. 
-- Innan du aktiverar kryptering måste på diskar som ska krypteras anges korrekt på/etc/fstab. Använd ett beständigt block enhetsnamn för den här posten som enhetens namn i formatet ”/ dev/sdX” det går inte att förlita sig på som ska associeras med samma disk mellan omstarter, särskilt när kryptering används. Mer information om detta finns här: [Felsöka ändringar av enhetsnamn Linux VM](../virtual-machines/linux/troubleshoot-device-names-problems.md)
+- Azure Disk Encryption kräver att dm-crypt-och vfat-modulerna finns i systemet. Om du tar bort eller inaktiverar vfat från standard avbildningen så förhindras systemet från att läsa nyckel volymen och hämta den nyckel som behövs för att låsa upp diskarna vid efterföljande omstarter. System härdnings steg som tar bort vfat-modulen från systemet är inte kompatibla med Azure Disk Encryption. 
+- Innan du aktiverar kryptering måste på diskar som ska krypteras anges korrekt på/etc/fstab. Använd ett beständigt block enhetsnamn för den här posten som enhetens namn i formatet ”/ dev/sdX” det går inte att förlita sig på som ska associeras med samma disk mellan omstarter, särskilt när kryptering används. Mer information om det här problemet finns i: [Felsöka ändringar av enhets namn för virtuella Linux-datorer](../virtual-machines/linux/troubleshoot-device-names-problems.md)
 - Kontrollera att/etc/fstab-inställningarna har konfigurerats korrekt för montering. Kör mount - ett kommando för att konfigurera de här inställningarna, eller starta om den virtuella datorn och utlösa återmontering på så sätt. När detta är slutfört kan du kontrollera resultatet av kommandot lsblk att verifiera att enheten fortfarande är ansluten. 
   - Om filen/etc/fstab inte montera enheten korrekt innan du aktiverar kryptering, Azure Disk Encryption inte montera den korrekt.
   - Azure Disk Encryption-processen flyttar mount-information från/etc/fstab och i sin egen konfigurationsfilen som en del av krypteringsprocessen. Inte vara alarmed att se posten saknas i/etc/fstab när data diskkryptering har slutförts.
-  - Innan du börjar kryptering, måste du stoppa alla tjänster och processer som kan skriva till monterad datadiskar och inaktivera dem, så att de inte startar om automatiskt efter en omstart. Dessa kan filerna är öppna på de här partitionerna förhindrar metoden kryptering för att montera om dem, orsakar fel för krypteringen. 
+  - Innan du startar kryptering måste du stoppa alla tjänster och processer som kan skrivas till monterade data diskar och inaktivera dem, så att de inte startar om automatiskt efter en omstart. Dessa kan hålla filerna öppna på dessa partitioner, vilket förhindrar krypterings proceduren att ommontera dem, vilket orsakar att krypteringen Miss lyckas. 
   - Efter omstart tar det tid för Azure Disk Encryption-processen för att montera de nyligen krypterade diskarna. De kommer inte blir tillgängliga omedelbart efter en omstart. Processen behöver tid att börja låsa upp och sedan montera de krypterade enheterna innan är tillgängliga för andra processer att få åtkomst till. Den här processen kan ta mer än en minut efter omstart beroende på system-egenskaper.
 
 Ett exempel på kommandon som kan användas för att montera datadiskarna och skapa de nödvändiga/etc/fstab poster finns i [linjer 244-248 i den här skriptfilen](https://github.com/ejarvi/ade-cli-getting-started/blob/master/validate.sh#L244-L248). 
@@ -116,9 +116,9 @@ Ett exempel på kommandon som kan användas för att montera datadiskarna och sk
 **Grupprincip:**
  - Azure Disk Encryption-lösningen använder de externa nyckelskyddet för BitLocker för Windows virtuella IaaS-datorer. Domänanslutna virtuella datorer, inte skicka någon grupprinciper som tillämpar TPM-skydd. Läs om hur en grupprincip för ”Tillåt BitLocker utan en kompatibel TPM” [gruppolicy referens för BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#bkmk-unlockpol1).
 
--  BitLocker-principen på domänanslutna virtuella datorer med anpassade Grupprincip måste innehålla följande inställning: [Konfigurera Användarlagring av BitLocker-återställningsinformation > Tillåt 256-bitars återställningsnyckel](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings). Azure Disk Encryption misslyckas när anpassade grupprincipinställningarna för BitLocker är inte kompatibla. Tillämpa den nya principen på datorer som inte har rätt principinställningen tvinga den nya principen för att uppdatera (gpupdate.exe/Force) och sedan omstart kan krävas.
+-  BitLocker-principen på domänanslutna virtuella datorer med anpassad grup princip måste innehålla följande inställning: [Konfigurera användar lagring av BitLocker-återställningsinformation – > tillåt 256-bitars återställnings nyckel](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings). Azure Disk Encryption Miss fungerar när anpassade grup princip inställningar för BitLocker inte är kompatibla. Tillämpa den nya principen på datorer som inte har rätt principinställningen tvinga den nya principen för att uppdatera (gpupdate.exe/Force) och sedan omstart kan krävas.
 
-- Azure Disk Encryption misslyckas om domänen nivån Grupprincip blockerar den AES-CBC-algoritmen som används av BitLocker.
+- Azure Disk Encryption Miss fungerar om grup principen på domän nivå blockerar AES-CBC-algoritmen som används av BitLocker.
 
 
 ## <a name="bkmk_PSH"></a> Azure PowerShell
@@ -127,16 +127,16 @@ Ett exempel på kommandon som kan användas för att montera datadiskarna och sk
 ### <a name="install-azure-powershell-for-use-on-your-local-machine-optional"></a>Installera Azure PowerShell för användning på den lokala datorn (valfritt): 
 1. Följ anvisningarna i länkarna för ditt operativsystem sedan fortsätta men resten av stegen nedan.      
    - [Installera och konfigurera Azure PowerShell](/powershell/azure/install-az-ps). 
-     - Installera PowerShellGet, Azure PowerShell, och Läs in Az-modulen. 
+     - Installera PowerShellGet, Azure PowerShell och läsa in AZ-modulen. 
 
-2. Kontrollera de installerade versionerna av Az-modulen. Om det behövs [uppdatera Azure PowerShell-modulen](/powershell/azure/install-az-ps#update-the-azure-powershell-module).
-    Du bör använda den senaste versionen av Az-modulen.
+2. Verifiera de installerade versionerna av AZ-modulen. Om det behövs [uppdatera Azure PowerShell-modulen](/powershell/azure/install-az-ps#update-the-azure-powershell-module).
+    Vi rekommenderar att du använder den senaste versionen av AZ-modulen.
 
      ```powershell
      Get-Module Az -ListAvailable | Select-Object -Property Name,Version,Path
      ```
 
-3. Logga in på Azure med hjälp av den [Connect AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
+3. Logga in på Azure med cmdleten [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) .
      
      ```azurepowershell-interactive
      Connect-AzAccount
@@ -181,7 +181,7 @@ Den [Azure CLI 2.0](/cli/azure) är ett kommandoradsverktyg för att hantera Azu
 
 
 ## <a name="prerequisite-workflow-for-key-vault"></a>Nödvändiga arbetsflöde för Key Vault
-Om du redan är bekant med Key Vault och Azure AD-krav för Azure Disk Encryption kan du använda den [PowerShell-skript för Azure Disk Encryption krav](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 ). Mer information om hur du använder skriptet krav finns i den [kryptera en virtuell dator-Snabbstart](quick-encrypt-vm-powershell.md) och [Azure Disk Encryption bilaga](azure-security-disk-encryption-appendix.md#bkmk_prereq-script). 
+Om du redan är bekant med Key Vault och Azure AD-krav för Azure Disk Encryption kan du använda den [PowerShell-skript för Azure Disk Encryption krav](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 ). Mer information om hur du använder skriptet krav finns i den [kryptera en virtuell dator-Snabbstart](azure-disk-encryption-linux-powershell-quickstart.md) och [Azure Disk Encryption bilaga](azure-security-disk-encryption-appendix.md#bkmk_prereq-script). 
 
 1. Om det behövs skapar du en resursgrupp.
 2. Skapa ett nyckelvalv. 
@@ -200,17 +200,17 @@ Azure Disk Encryption är integrerad med [Azure Key Vault](https://azure.microso
 
 ### <a name="bkmk_KVPSH"></a> Skapa ett nyckelvalv med PowerShell
 
-Du kan skapa ett nyckelvalv med Azure PowerShell med hjälp av den [New AzKeyVault](/powershell/module/az.keyvault/New-azKeyVault) cmdlet. Ytterligare cmdlets för Key Vault finns [Az.KeyVault](/powershell/module/az.keyvault/). 
+Du kan skapa ett nyckel valv med Azure PowerShell med hjälp av cmdleten [New-AzKeyVault](/powershell/module/az.keyvault/New-azKeyVault) . Ytterligare cmdlets för Key Vault finns i [AZ. nyckel valv](/powershell/module/az.keyvault/). 
 
 1. Om det behövs [ansluta till din Azure-prenumeration](azure-security-disk-encryption-appendix.md#bkmk_ConnectPSH). 
-2. Skapa en ny resursgrupp, om det behövs, med [New AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup).  Använd om du vill visa en lista över data center platser [Get-AzLocation](/powershell/module/az.resources/get-azlocation). 
+2. Skapa en ny resurs grupp, om det behövs, med [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup).  Om du vill visa en lista över data Center platser använder du [Get-AzLocation](/powershell/module/az.resources/get-azlocation). 
      
      ```azurepowershell-interactive
      # Get-AzLocation 
      New-AzResourceGroup –Name 'MyKeyVaultResourceGroup' –Location 'East US'
      ```
 
-3. Skapa ett nytt nyckelvalv med [New-AzKeyVault](/powershell/module/az.keyvault/New-azKeyVault)
+3. Skapa ett nytt nyckel valv med [New-AzKeyVault](/powershell/module/az.keyvault/New-azKeyVault)
     
       ```azurepowershell-interactive
      New-AzKeyVault -VaultName 'MySecureVault' -ResourceGroupName 'MyKeyVaultResourceGroup' -Location 'East US'
@@ -250,21 +250,21 @@ Du kan skapa ett nyckelvalv med hjälp av den [Resource Manager-mall](https://gi
 Azure-plattformen behöver åtkomst till krypteringsnycklar och hemligheter i ditt nyckelvalv och gör dem tillgängliga för den virtuella datorn för start och dekryptera volymerna. Aktivera diskkryptering på nyckelvalvet eller distributioner kommer att misslyckas.  
 
 ### <a name="bkmk_KVperPSH"></a> Ställ in avancerade åtkomstprinciper med Azure PowerShell för nyckelvalvet
- Använd key vault PowerShell-cmdlet [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) vill aktivera diskkryptering för key vault.
+ Använd Key Vault PowerShell-cmdleten [set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) för att aktivera disk kryptering för nyckel valvet.
 
-  - **Aktivera Key Vault för diskkryptering:** EnabledForDiskEncryption krävs för Azure Disk encryption.
+  - **Aktivera Key Vault för disk kryptering:** EnabledForDiskEncryption krävs för Azure Disk Encryption.
       
      ```azurepowershell-interactive 
      Set-AzKeyVaultAccessPolicy -VaultName 'MySecureVault' -ResourceGroupName 'MyKeyVaultResourceGroup' -EnabledForDiskEncryption
      ```
 
-  - **Aktivera Key Vault för distribution, om det behövs:** Gör det möjligt för Microsoft.Compute-resursprovidern att hämta hemligheter från det här nyckelvalvet när det här nyckelvalvet är refererad i resursskapande, till exempel när du skapar en virtuell dator.
+  - **Aktivera Key Vault för distribution vid behov:** Gör att Microsoft. Compute Resource-providern kan hämta hemligheter från det här nyckel valvet när det här nyckel valvet refereras till när en resurs skapas, till exempel när en virtuell dator skapas.
 
      ```azurepowershell-interactive
       Set-AzKeyVaultAccessPolicy -VaultName 'MySecureVault' -ResourceGroupName 'MyKeyVaultResourceGroup' -EnabledForDeployment
      ```
 
-  - **Aktivera Key Vault för malldistribution, om det behövs:** Gör det möjligt för Azure Resource Manager för att hämta hemligheter från det här nyckelvalvet när det här nyckelvalvet är refereras till i en för malldistribution.
+  - **Aktivera Key Vault vid distribution av mallar, om det behövs:** Gör det möjligt för Azure Resource Manager att hämta hemligheter från det här nyckel valvet när det här nyckel valvet refereras till i en mall distribution.
 
      ```azurepowershell-interactive             
      Set-AzKeyVaultAccessPolicy -VaultName 'MySecureVault' -ResourceGroupName 'MyKeyVaultResourceGroup' -EnabledForTemplateDeployment
@@ -273,19 +273,19 @@ Azure-plattformen behöver åtkomst till krypteringsnycklar och hemligheter i di
 ### <a name="bkmk_KVperCLI"></a> Ställ in avancerade åtkomstprinciper med hjälp av Azure CLI för nyckelvalvet
 Använd [az keyvault update](/cli/azure/keyvault#az-keyvault-update) vill aktivera diskkryptering för key vault. 
 
- - **Aktivera Key Vault för diskkryptering:** Aktiverad-för-disk-kryptering krävs. 
+ - **Aktivera Key Vault för disk kryptering:** Enabled-for-Disk-Encryption krävs. 
 
      ```azurecli-interactive
      az keyvault update --name "MySecureVault" --resource-group "MyKeyVaultResourceGroup" --enabled-for-disk-encryption "true"
      ```  
 
- - **Aktivera Key Vault för distribution, om det behövs:** Gör det möjligt för Microsoft.Compute-resursprovidern att hämta hemligheter från det här nyckelvalvet när det här nyckelvalvet är refererad i resursskapande, till exempel när du skapar en virtuell dator.
+ - **Aktivera Key Vault för distribution vid behov:** Gör att Microsoft. Compute Resource-providern kan hämta hemligheter från det här nyckel valvet när det här nyckel valvet refereras till när en resurs skapas, till exempel när en virtuell dator skapas.
 
      ```azurecli-interactive
      az keyvault update --name "MySecureVault" --resource-group "MyKeyVaultResourceGroup" --enabled-for-deployment "true"
      ``` 
 
- - **Aktivera Key Vault för malldistribution, om det behövs:** Tillåt Resource Manager för att hämta hemligheter från valvet.
+ - **Aktivera Key Vault vid distribution av mallar, om det behövs:** Tillåt Resource Manager att hämta hemligheter från valvet.
      ```azurecli-interactive  
      az keyvault update --name "MySecureVault" --resource-group "MyKeyVaultResourceGroup" --enabled-for-template-deployment "true"
      ```
@@ -302,9 +302,9 @@ Använd [az keyvault update](/cli/azure/keyvault#az-keyvault-update) vill aktive
 
 
 ## <a name="bkmk_KEK"></a> Konfigurera en nyckelkrypteringsnyckel (valfritt)
-Om du vill använda en krypteringsnyckel nyckel (KEK) för ett extra lager av säkerhet för krypteringsnycklar, lägger du till en KEK till ditt nyckelvalv. Använd den [Lägg till AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) cmdlet för att skapa en nyckelkrypteringsnyckel i nyckelvalvet. Du kan också importera en KEK från din lokala nyckelhantering HSM. Mer information finns i [dokumentation om Key Vault](../key-vault/key-vault-hsm-protected-keys.md). När du anger en nyckelkrypteringsnyckel använder Azure Disk Encryption nyckeln för att omsluta kryptering hemligheter innan du skriver till Key Vault.
+Om du vill använda en krypteringsnyckel nyckel (KEK) för ett extra lager av säkerhet för krypteringsnycklar, lägger du till en KEK till ditt nyckelvalv. Använd cmdleten [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) för att skapa en nyckel krypterings nyckel i nyckel valvet. Du kan också importera en KEK från din lokala nyckelhantering HSM. Mer information finns i [dokumentation om Key Vault](../key-vault/key-vault-hsm-protected-keys.md). När du anger en nyckelkrypteringsnyckel använder Azure Disk Encryption nyckeln för att omsluta kryptering hemligheter innan du skriver till Key Vault.
 
-* Använd en RSA-nyckeltyp vid generering av nycklar. Azure Disk Encryption stöder ännu inte med Elliptic Curve nycklar.
+* Använd en typ av RSA-nyckel när du skapar nycklar. Azure Disk Encryption har ännu inte stöd för att använda Elliptic kurv nycklar.
 
 * Din hemlighet i nyckelvalvet och KEK URL: er måste vara en ny version. Azure tillämpar den här begränsningen för versionshantering. Giltigt hemlighet och KEK URL: er finns i följande exempel:
 

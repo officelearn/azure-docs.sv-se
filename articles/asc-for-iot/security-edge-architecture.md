@@ -1,6 +1,6 @@
 ---
-title: Förstå Azure Security Center för IoT-säkerhetsmodul för IoT Edge | Microsoft Docs
-description: Förstå arkitekturen och funktionerna i Azure Security Center för IoT-säkerhetsmodul för IoT Edge.
+title: Förstå Azure Security Center för IoT-säkerhetsmodulen för IoT Edge för hands version | Microsoft Docs
+description: Förstå arkitekturen och funktionerna i Azure Security Center för IoT Security-modulen för IoT Edge.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -13,59 +13,59 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/25/2019
+ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 4581f66a3401764237621bee86228aac724ec0af
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 6114fc768ad04ef812f6093d006ec9ad91b17af3
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67616462"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596849"
 ---
-# <a name="azure-iot-edge-security-module"></a>Azure IoT Edge-säkerhetsmodul
+# <a name="azure-iot-edge-security-module"></a>Azure IoT Edge säkerhetsmodulen
 
 > [!IMPORTANT]
-> Azure Security Center för IoT är för närvarande i offentlig förhandsversion.
-> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktion worklo§1ads. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Azure Security Center för IoT-tjänsten för IoT Edge finns för närvarande i offentlig för hands version.
+> Den här för hands versionen tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-[Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/) ger kraftfulla funktioner för hantering och utföra affärs-arbetsflöden på gränsen.
-Den viktiga delen som IoT Edge spelar i IoT-miljöer gör det mycket attraktivt för skadliga aktörer.
+[Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/) tillhandahåller kraftfulla funktioner för att hantera och utföra affärs arbets flöden i gränsen.
+Den nyckel del som IoT Edge spelar i IoT-miljöer gör det särskilt attraktivt för skadliga aktörer.
 
-Azure Security Center (ASC) för IoT-säkerhetsmodul tillhandahåller en omfattande lösning för din IoT-Edge enheter.
-ASC för IoT-modulen samlar in, aggregerar och analyserar raw säkerhetsdata från ditt operativsystem och behållarsystem i handlingsbara rekommendationer och aviseringar.
+Azure Security Center för IoT-säkerhetsmodulen innehåller en omfattande säkerhetslösning för dina IoT Edge-enheter.
+Azure Security Center för IoT-modulen samlar in, samlar in och analyserar rå säkerhets data från operativ systemet och behållar systemet till rekommenderade säkerhets rekommendationer och aviseringar.
 
-Liknar ASC för IoT security agenter för IoT-enheter, ASC för IoT Edge-modul är mycket anpassningsbara via dess modultvilling.
-Se [konfigurera din agent](how-to-agent-configuration.md) vill veta mer.
+Precis som Azure Security Center för IoT-säkerhetsagenter för IoT-enheter, är Azure Security Center för IoT Edge modul mycket anpassningsbar genom sin modul.
+Mer information finns i [Konfigurera agenten](how-to-agent-configuration.md) .
 
-ASC för IoT-säkerhetsmodul för IoT Edge erbjuder följande funktioner:
+Azure Security Center för IoT Security-modulen för IoT Edge erbjuder följande funktioner:
 
-- Samlar in råa säkerhetshändelser från det underliggande operativsystemet (Linux) och behållare för IoT Edge-system.
+- Samlar in rå säkerhets händelser från det underliggande operativ systemet (Linux) och IoT Edge container system.
   
-  Se [ASC för IoT-agentkonfiguration](how-to-agent-configuration.md) mer information om tillgängliga säkerhetsuppdateringar datainsamlare.
+  Se [Azure Security Center för IoT agent-konfiguration](how-to-agent-configuration.md) för att lära dig mer om tillgängliga säkerhets data insamlare.
 
-- Analys av IoT Edge-distribution manifest.
+- Analys av IoT Edge distributions manifest.
 
-- Aggregerar rådata säkerhetshändelser i meddelanden som skickas via [IoT Edge Hub](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub).
+- Sammanställer rå säkerhets händelser till meddelanden som skickas via [IoT Edge Hub](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub).
 
-- Ta bort konfigurationen genom användning av modultvilling säkerhet.
+- Ta bort konfigurationen genom att använda säkerhetsmodulen dubbla.
 
-  Se [konfigurera en ASC för IoT-agenten](how-to-agent-configuration.md) vill veta mer.
+  Mer information finns i [Konfigurera ett Azure Security Center för IoT-agent](how-to-agent-configuration.md) .
 
-ASC för IoT-säkerhetsmodul för IoT Edge körs i ett privilegierat läge under IoT Edge.
-Privilegierat läge krävs för att tillåta modulen för att övervaka operativsystemet och andra IoT Edge-moduler.
+Azure Security Center för IoT-säkerhetsmodulen för IoT Edge körs i privilegierat läge under IoT Edge.
+Privilegierat läge krävs för att modulen ska kunna övervaka operativ systemet och andra IoT Edge moduler.
 
-## <a name="agent-supported-platforms"></a>Agent som stöds plattformar
+## <a name="module-supported-platforms"></a>Plattformar som stöds av moduler
 
-ASC för IoT-säkerhetsmodul för IoT Edge finns för närvarande endast för Linux.
+Azure Security Center för IoT-säkerhetsmodulen för IoT Edge är för närvarande bara tillgänglig för Linux. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du lärt dig om arkitekturen och funktionerna i ASC för IoT-säkerhetsmodul för IoT Edge.
+I den här artikeln har du lärt dig om arkitekturen och funktionerna i Azure Security Center för IoT Security-modulen för IoT Edge.
 
-Om du vill fortsätta att komma igång med ASC för IoT-distributionen, Använd följande artiklar:
+Använd följande artiklar om du vill fortsätta att komma igång med Azure Security Center för IoT-distribution:
 
-- Distribuera [säkerhetsmodul för IoT Edge](how-to-deploy-edge.md)
-- Lär dig hur du [konfigurera security-modulen](how-to-agent-configuration.md)
-- Granska ASC för IoT [tjänsten krav](service-prerequisites.md)
-- Lär dig hur du [aktivera ASC för IoT-tjänsten i din IoT-hubb](quickstart-onboard-iot-hub.md)
-- Mer information om tjänsten från den [ASC för IoT vanliga frågor och svar](resources-frequently-asked-questions.md)
+- Distribuera [säkerhetsmodulen för IoT Edge](how-to-deploy-edge.md)
+- Lär dig hur du [konfigurerar din säkerhetsmodul](how-to-agent-configuration.md)
+- Granska förutsättningarna för Azure Security Center för IoT [-tjänster](service-prerequisites.md)
+- Lär dig hur du [aktiverar Azure Security Center för IoT-tjänsten i din IoT Hub](quickstart-onboard-iot-hub.md)
+- Läs mer om tjänsten i [vanliga frågor och svar om Azure Security Center for IoT](resources-frequently-asked-questions.md)

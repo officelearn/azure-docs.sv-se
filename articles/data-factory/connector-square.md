@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: f22311af277f860c1501287b5be0f5dc149880b9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a88c58bd52ea816aaef1c628913ccbd7fcf1cd35
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61462368"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68720636"
 ---
 # <a name="copy-data-from-square-using-azure-data-factory-preview"></a>Kopiera data från ruta med Azure Data Factory (förhandsversion)
 
@@ -44,11 +44,11 @@ Följande egenskaper har stöd för kvadratisk länkade tjänsten:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Type-egenskapen måste anges till: **Ruta** | Ja |
+| type | Egenskapen Type måste anges till: **Square** | Ja |
 | host | URL till kvadratisk instansen. (d.v.s. mystore.mysquare.com)  | Ja |
 | clientId | Klient-ID som är associerade med ditt kvadratisk program.  | Ja |
 | clientSecret | Klienthemlighet som är kopplad till kvadratisk programmet. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
-| RedirectUri | Omdirigerings-URL som tilldelats i instrumentpanelen för kvadratisk program. (d.v.s. http:\//localhost:2500)  | Ja |
+| RedirectUri | Omdirigerings-URL som tilldelats i instrumentpanelen för kvadratisk program. (t. ex.\/http:/localhost: 2500)  | Ja |
 | useEncryptedEndpoints | Anger om käll-slutpunkter data krypteras med HTTPS. Standardvärdet är sant.  | Nej |
 | useHostVerification | Anger om värdnamnet i servercertifikatet så att de matchar värdnamnet för servern när du ansluter via SSL. Standardvärdet är sant.  | Nej |
 | usePeerVerification | Anger om du vill kontrollera identiteten på servern när du ansluter via SSL. Standardvärdet är sant.  | Nej |
@@ -81,7 +81,7 @@ Om du vill kopiera data från ruta, ange typegenskapen på datauppsättningen ti
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Type-egenskapen för datauppsättningen måste anges till: **SquareObject** | Ja |
+| type | Data uppsättningens typ-egenskap måste anges till: **SquareObject** | Ja |
 | tableName | Namnet på tabellen. | Nej (om ”frågan” i aktivitetskälla har angetts) |
 
 **Exempel**
@@ -91,11 +91,12 @@ Om du vill kopiera data från ruta, ange typegenskapen på datauppsättningen ti
     "name": "SquareDataset",
     "properties": {
         "type": "SquareObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Square linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
@@ -110,7 +111,7 @@ För att kopiera data från ruta, ange typ av datakälla i kopieringsaktiviteten
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **SquareSource** | Ja |
+| type | Typ egenskapen för kopierings aktivitets källan måste anges till: **SquareSource** | Ja |
 | query | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM Business"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
 
 **Exempel:**

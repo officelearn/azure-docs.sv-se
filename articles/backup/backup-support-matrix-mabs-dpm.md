@@ -1,18 +1,18 @@
 ---
 title: Support mat ris för Microsoft Azure Backup Server och System Center DPM
 description: I den här artikeln sammanfattas Azure Backup support när du använder Microsoft Azure Backup Server eller System Center DPM för att säkerhetskopiera lokala och virtuella Azure-resurser.
-author: rayne-wiselman
+author: dcurwin
 ms.service: backup
 ms.date: 02/17/2019
 ms.topic: conceptual
-ms.author: raynew
+ms.author: dacurwin
 manager: carmonm
-ms.openlocfilehash: 777d2286ed24123011e06edfb468d0f2db61715f
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: c4d01c3c72669f7fbfd5b2d8df0678cc0675ccde
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68464885"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639573"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Support mat ris för säkerhets kopiering med Microsoft Azure Backup Server eller System Center DPM
 

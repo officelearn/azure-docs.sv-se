@@ -1,9 +1,9 @@
 ---
-title: Azure Service Fabric Docker Compose distribution förhandsversion
-description: Azure Service Fabric accepterar Docker Compose-format för att göra det lättare att dirigera befintliga behållare med Service Fabric. Det här stödet förhandsvisas just nu.
+title: Azure Service Fabric Docker skapa förhands granskning av distribution
+description: Azure Service Fabric accepterar Docker-format för att göra det enklare att dirigera befintliga behållare med hjälp av Service Fabric. Det här stödet förhandsvisas just nu.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
@@ -14,63 +14,63 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 6e8cbf30044f95c2514a3a1af15cb58868957a16
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: de02c9a8580527ab708418aa266f1b56411fb95b
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620723"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599569"
 ---
-# <a name="docker-compose-deployment-support-in-azure-service-fabric-preview"></a>Docker Compose-distributionsstöd i Azure Service Fabric (förhandsversion)
+# <a name="docker-compose-deployment-support-in-azure-service-fabric-preview"></a>Docker skapa distributions stöd i Azure Service Fabric (för hands version)
 
-Docker används den [docker-compose.yml](https://docs.docker.com/compose) till att definiera program med flera behållare. Om du vill göra det enklare för kunder vana vid Docker att orkestrera befintliga behållarprogram i Azure Service Fabric, har vi inkluderat förhandsversion av stöd för Docker Compose-distributionen har inbyggt i plattformen. Service Fabric kan acceptera version 3 eller senare av `docker-compose.yml` filer. 
+Docker använder filen [filen Docker. yml](https://docs.docker.com/compose) för att definiera program med flera behållare. För att göra det lättare för kunder att bekanta sig med Docker för att dirigera befintliga behållar program på Azure Service Fabric har vi inkluderat för hands versions stöd för Docker-distribution inbyggt i plattformen. Service Fabric kan acceptera version 3 och senare av `docker-compose.yml` filer. 
 
-Eftersom det här stödet finns i förhandsversion, stöds endast en delmängd av Compose. Till exempel stöds programuppgraderingar inte. Du kan alltid ta bort och distribuera program i stället för att uppgradera dem.
+Eftersom detta stöds i för hands versionen stöds endast en delmängd av skapa-direktiv. Till exempel stöds inte program uppgraderingar. Du kan dock alltid ta bort och distribuera program i stället för att uppgradera dem.
 
-För att använda den här förhandsversionen måste du skapa ditt kluster med version 5.7 eller högre av Service Fabric-körningen via Azure-portalen tillsammans med motsvarande SDK. 
+Om du vill använda den här för hands versionen skapar du klustret med version 5,7 eller senare av Service Fabric körningen genom Azure Portal tillsammans med motsvarande SDK. 
 
 > [!NOTE]
-> Den här funktionen är en förhandsversion och stöds inte i produktion.
-> I exemplen nedan baseras på runtime version 6.0 och SDK-version 2.8.
+> Den här funktionen är i för hands version och stöds inte i produktion.
+> Exemplen nedan baseras på Kör tids version 6,0 och SDK version 2,8.
 
-## <a name="deploy-a-docker-compose-file-on-service-fabric"></a>Distribuera en Docker Compose-fil i Service Fabric
+## <a name="deploy-a-docker-compose-file-on-service-fabric"></a>Distribuera en Docker-filfil på Service Fabric
 
-Följande kommandon för att skapa ett Service Fabric-program (med namnet `fabric:/TestContainerApp`), som du kan övervaka och hantera precis som alla andra Service Fabric-program. Du kan använda det angivna programnamnet för hälsoförfrågningar.
-Service Fabric identifierar ”DeploymentName” som identifierare för Compose-distributionen.
+Följande kommandon skapar ett Service Fabric-program (med `fabric:/TestContainerApp`namnet) som du kan övervaka och hantera precis som andra Service Fabric program. Du kan använda det angivna program namnet för hälso frågor.
+Service Fabric identifierar "DeploymentName" som identifierare för Skriv distributionen.
 
 ### <a name="use-powershell"></a>Använd PowerShell
 
-Skapa ett Service Fabric Compose-distributionen från en docker-compose.yml-fil genom att köra följande kommando i PowerShell:
+Skapa en Service Fabric skapa en distribution från en filen Docker. YML-fil genom att köra följande kommando i PowerShell:
 
 ```powershell
 New-ServiceFabricComposeDeployment -DeploymentName TestContainerApp -Compose docker-compose.yml [-RegistryUserName <>] [-RegistryPassword <>] [-PasswordEncrypted]
 ```
 
-`RegistryUserName` och `RegistryPassword` avser container registreringsanvändarnamn och lösenord. När du har slutfört distributionen, kan du kontrollera dess status med hjälp av följande kommando:
+`RegistryUserName`och `RegistryPassword` se användar namn och lösen ord för behållar registret. När du har slutfört distributionen kan du kontrol lera statusen med hjälp av följande kommando:
 
 ```powershell
 Get-ServiceFabricComposeDeploymentStatus -DeploymentName TestContainerApp
 ```
 
-Om du vill ta bort Compose-distributionen via PowerShell, använder du följande kommando:
+Använd följande kommando för att ta bort Skriv distributionen via PowerShell:
 
 ```powershell
 Remove-ServiceFabricComposeDeployment  -DeploymentName TestContainerApp
 ```
 
-Om du vill starta en uppgradering av Compose-distributionen via PowerShell använder du följande kommando:
+Om du vill starta en uppgraderings uppgradering via PowerShell använder du följande kommando:
 
 ```powershell
 Start-ServiceFabricComposeDeploymentUpgrade -DeploymentName TestContainerApp -Compose docker-compose-v2.yml -Monitored -FailureAction Rollback
 ```
 
-Uppgradera via PowerShell, Använd följande kommando för att återställa Compose-distributionen:
+Använd följande kommando för att återställa uppgraderingen av Skriv distributionen via PowerShell:
 
 ```powershell
 Start-ServiceFabricComposeDeploymentRollback -DeploymentName TestContainerApp
 ```
 
-När uppgraderingen har godkänts kan följa spåras med hjälp av följande kommando:
+När uppgraderingen har godkänts kan uppgraderings förloppet spåras med hjälp av följande kommando:
 
 ```powershell
 Get-ServiceFabricComposeDeploymentUpgrade -DeploymentName TestContainerApp
@@ -84,84 +84,84 @@ Du kan också använda följande Service Fabric CLI-kommando:
 sfctl compose create --deployment-name TestContainerApp --file-path docker-compose.yml [ [ --user --encrypted-pass ] | [ --user --has-pass ] ] [ --timeout ]
 ```
 
-När du har skapat distributionen, kan du kontrollera dess status med hjälp av följande kommando:
+När du har skapat distributionen kan du kontrol lera dess status med hjälp av följande kommando:
 
 ```azurecli
 sfctl compose status --deployment-name TestContainerApp [ --timeout ]
 ```
 
-Om du vill ta bort Compose-distributionen, använder du följande kommando:
+Om du vill ta bort Skriv distributionen använder du följande kommando:
 
 ```azurecli
 sfctl compose remove  --deployment-name TestContainerApp [ --timeout ]
 ```
 
-Starta en uppgradering av Compose-distributionen med följande kommando:
+Starta en uppgradering av Skriv distribution med följande kommando:
 
 ```azurecli
 sfctl compose upgrade --deployment-name TestContainerApp --file-path docker-compose-v2.yml [ [ --user --encrypted-pass ] | [ --user --has-pass ] ] [--upgrade-mode Monitored] [--failure-action Rollback] [ --timeout ]
 ```
 
-Uppgradera, Använd följande kommando för att återställa Compose-distributionen:
+Använd följande kommando för att återställa uppgraderingen av Skriv distributionen:
 
 ```azurecli
 sfctl compose upgrade-rollback --deployment-name TestContainerApp [ --timeout ]
 ```
 
-När uppgraderingen har godkänts kan följa spåras med hjälp av följande kommando:
+När uppgraderingen har godkänts kan uppgraderings förloppet spåras med hjälp av följande kommando:
 
 ```azurecli
 sfctl compose upgrade-status --deployment-name TestContainerApp
 ```
 
-## <a name="supported-compose-directives"></a>Stöds Compose-direktiven
+## <a name="supported-compose-directives"></a>Skriv direktiv som stöds
 
-Den här förhandsversionen stöder en delmängd av konfigurationsalternativ från Skriv version 3-format, inklusive följande primitiver:
+Den här för hands versionen stöder en delmängd av konfigurations alternativen från formatet format version 3, inklusive följande primitiver:
 
-* Tjänster > Distribuera > repliker
-* Tjänster > Distribuera > placering > begränsningar
-* Tjänster > Distribuera > resurser > gränser
-    * -cpu-shares
-    * -minne
-    * -memory-swap
+* Tjänster > distribuera > repliker
+* Tjänster > distribuera > placering > begränsningar
+* Tjänster > distribuera > resurser > gränser
+    * – CPU-resurser
+    * – minne
+    * -minnes växling
 * Tjänster > kommandon
-* Tjänster > miljö
+* Tjänster >s miljö
 * Tjänster > portar
-* Tjänster > bild
+* Avbildning av tjänster >
 * Tjänster > isolering (endast för Windows)
-* Tjänster > loggning > drivrutin
-* Tjänster > loggning > drivrutinen > Alternativ
-* Volym & Distribuera > volym
+* Tjänster > loggning > driv rutin
+* Tjänster > loggning > driv rutin > alternativ
+* Volym & distribuera > volym
 
-Konfigurera klustret för att genomdriva resursbegränsningar, enligt beskrivningen i [Service Fabric resursstyrning](service-fabric-resource-governance.md). Alla andra Docker Compose direktiv stöds inte för den här förhandsversionen.
+Konfigurera klustret för tvingande resurs gränser enligt beskrivningen i [Service Fabric resurs styrning](service-fabric-resource-governance.md). Alla andra Docker skapa-direktiv stöds inte för den här för hands versionen.
 
-### <a name="ports-section"></a>Portar avsnittet
+### <a name="ports-section"></a>Port avsnitt
 
-Ange antingen http eller https-protokollet i avsnittet portar som används av Service Fabric service-lyssnare. Detta säkerställer att protokollet som slutpunkten har publicerats korrekt med namngivningstjänsten att omvänd proxyserver som vidarebefordrar begäranden:
-* För att dirigera till oskyddade Service Fabric Compose-tjänster, ange **/http**. Till exempel- **”80:80 / http”** .
-* För att dirigera till säkra Service Fabric Compose-tjänster, ange **/https**. Till exempel- **”443:443 / https”** .
+Ange antingen http-eller HTTPS-protokollet i avsnittet portar som ska användas av den Service Fabric tjänst lyssnaren. Detta säkerställer att slut punkts protokollet publiceras korrekt med namngivnings tjänsten för att tillåta omvänd proxy att vidarebefordra begär Anden:
+* Ange **/http**för att dirigera till oskyddade Service Fabric Skriv tjänster. Till exempel – **"80:80/http"** .
+* Ange **/https**för att dirigera till säkra Service Fabric Skriv tjänster. Till exempel – **"443:443/https"** .
 
 > [!NOTE]
-> /Http och /https portar avsnittet syntax är specifika för Service Fabric för att registrera rätt URL för Service Fabric-lyssnare.  Om Docker compose file-syntax verifieras programmässigt, kan det orsaka ett valideringsfel.
+> /Http och/https ports section-syntax är särskilt Service Fabric för att registrera rätt Service Fabric lyssnar-URL.  Om Docker-filsyntaxen är program mässigt verifierad kan det orsaka ett verifierings fel.
 
-## <a name="servicednsname-computation"></a>ServiceDnsName beräkning
+## <a name="servicednsname-computation"></a>ServiceDnsName-beräkning
 
-Om tjänstnamnet som du anger i en Compose-fil är ett fullständigt kvalificerat domännamn (dvs, den innehåller en punkt [.]), DNS-namnet som registrerats av Service Fabric är `<ServiceName>` (inklusive punkten). Om inte, varje vägsegment i namnet på programmet blir en domänetiketten i tjänsten DNS-namn med den första vägsegment blir toppnivådomänen etiketten.
+Om tjänst namnet som du anger i en Skriv fil är ett fullständigt kvalificerat domän namn (det innehåller en punkt [.]), är `<ServiceName>` DNS-namnet som registreras av Service Fabric (inklusive punkten). Om inte, blir varje Sök vägs segment i program namnet en domän etikett i tjänstens DNS-namn, där det första Sök vägs segmentet blir den översta domän etiketten.
 
-Exempel: om det angivna programnamnet är `fabric:/SampleApp/MyComposeApp`, `<ServiceName>.MyComposeApp.SampleApp` skulle vara registrerat DNS-namn.
+Om det angivna program namnet till exempel är `fabric:/SampleApp/MyComposeApp`, `<ServiceName>.MyComposeApp.SampleApp` är det registrerade DNS-namnet.
 
-## <a name="compose-deployment-instance-definition-versus-service-fabric-app-model-type-definition"></a>Compose-distributionen (definition av instans) kontra appmodellen för Service Fabric (typdefinition)
+## <a name="compose-deployment-instance-definition-versus-service-fabric-app-model-type-definition"></a>Skriv distribution (instans definition) jämfört med Service Fabric app Model (typ definition)
 
-En docker-compose.yml-filen beskriver en distribuerbar uppsättning behållare, inklusive egenskaper och konfigurationer.
-Filen kan exempelvis innehålla miljövariabler och portar. Du kan även ange parametrar för distribution, till exempel placeringsbegränsningar, resursgränser och DNS-namn, i filen docker-compose.yml.
+En filen Docker. YML-fil beskriver en distributions uppsättning behållare, inklusive deras egenskaper och konfigurationer.
+Filen kan till exempel innehålla miljövariabler och portar. Du kan också ange distributions parametrar, till exempel placerings begränsningar, resurs gränser och DNS-namn i filen filen Docker. yml.
 
-Den [Service Fabric-programmodellen](service-fabric-application-model.md) använder tjänsten typer och programtyper, där du kan använda många instanser av samma typ av programmet. Du kan till exempel ha en programinstans per kund. Den här typen-baserade modellen har stöd för flera versioner av samma programtyp som har registrerats med körningsmiljön.
+[Service Fabric program modellen](service-fabric-application-model.md) använder tjänst typer och program typer, där du kan ha många program instanser av samma typ. Du kan till exempel ha en program instans per kund. Den här typen-baserade modellen stöder flera versioner av samma program typ som är registrerad i körnings miljön.
 
-Till exempel kund A kan ha ett program som instansierats med AppTypeA 1.0 och kunden B kan ha ett annat program instantieras med samma typ och version. Du definierar programtyperna i applikationsmanifesten och du anger programparametrar namn och en distribution när du skapar programmet.
+Kund A kan till exempel ha ett program instansierat med typ 1,0 av AppTypeA, och kund B kan ha ett annat program instansierat med samma typ och version. Du definierar program typerna i program manifesten och anger program namnet och distributions parametrarna när du skapar programmet.
 
-Även om den här modellen erbjuder flexibilitet, planerar vi också att stödja en enklare, instans-baserad distributionsmodell där typer är implicit från manifestfilen. I den här modellen får varje applikation en egen oberoende manifest. Vi förhandsgranskar den här insatsen genom att lägga till stöd för docker-compose.yml, vilket är ett instans-baserade distributionen-format.
+Även om den här modellen erbjuder flexibilitet, planerar vi också att stödja en enklare, instans-baserad distributions modell där typer är implicita från manifest filen. I den här modellen hämtar varje program sitt eget oberoende manifest. Vi för hands Grans kar den här ansträngningen genom att lägga till stöd för filen Docker. yml, som är ett domänbaserat distributions format.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs igenom den [Service Fabric-programmodellen](service-fabric-application-model.md)
+* Läs mer i [Service Fabric program modellen](service-fabric-application-model.md)
 * [Kom igång med Service Fabric CLI](service-fabric-cli.md)

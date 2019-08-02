@@ -1,6 +1,6 @@
 ---
-title: Att lägga till en shard med elastiska Databasverktyg | Microsoft Docs
-description: Ange hur du använder Elastic Scale APIs för att lägga till nya fragmenten i en shard.
+title: Lägga till en Shard med Elastic Database-verktyg | Microsoft Docs
+description: 'Använda API: er för elastisk skalning för att lägga till nya Shards i en Shard-uppsättning.'
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -10,26 +10,25 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: dda3c34dccfdaa041cf9f547244d5529482a3138
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 679c1bea640644cd46c436ec04278558f610ceda
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60585820"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568521"
 ---
-# <a name="adding-a-shard-using-elastic-database-tools"></a>Att lägga till en shard med elastiska Databasverktyg
+# <a name="adding-a-shard-using-elastic-database-tools"></a>Lägga till en Shard med hjälp av Elastic Database verktyg
 
-## <a name="to-add-a-shard-for-a-new-range-or-key"></a>Att lägga till en skärva för ett nytt intervall eller en nyckel
+## <a name="to-add-a-shard-for-a-new-range-or-key"></a>Lägga till en Shard för ett nytt intervall eller en ny nyckel
 
-Program behöver ofta att lägga till nya fragmenten för att hantera data som förväntas från nya nycklar eller nyckelintervall för en skärvkarta som redan finns. Till exempel ett delat program genom att klient-ID kan behöva etablera en ny shard för en ny klient eller varje månad shardade data måste en ny shard etableras innan början av varje ny månad.
+Program behöver ofta lägga till nya Shards för att hantera data som förväntas från nya nycklar eller nyckel intervall, för en Shard-karta som redan finns. Ett program shardade efter klient-ID kan till exempel behöva etablera en ny Shard för en ny klient, annars kan data shardade kräva en ny Shard som etableras innan varje ny månad börjar.
 
-Om det nya området med nyckelvärden inte redan är en del av en befintlig mappning är det enkelt att lägga till det nya fragmentet och associera den nya nyckeln eller området till fragmentet.
+Om det nya intervallet med nyckel värden inte redan ingår i en befintlig mappning är det enkelt att lägga till den nya Shard och koppla den nya nyckeln eller intervallet till Shard.
 
-### <a name="example--adding-a-shard-and-its-range-to-an-existing-shard-map"></a>Exempel: lägga till en shard och räckvidd till en befintlig fragmentkartan
+### <a name="example--adding-a-shard-and-its-range-to-an-existing-shard-map"></a>Exempel: lägga till en Shard och dess intervall till en befintlig Shard-karta
 
-Det här exemplet används TryGetShard ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.shardmap.trygetshard), [.NET](https://docs.microsoft.com/previous-versions/azure/dn823929(v=azure.100))) CreateShard ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.shardmap.createshard), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.createshard)), CreateRangeMapping ([ Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap.createrangemapping), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1) metoder, och skapar en instans av ShardLocation ([Java](/java/api/com.microsoft.azure.elasticdb.shard.base.shardlocation), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardlocation)) klass. I exemplet nedan, en databas med namnet **sample_shard_2** och alla nödvändiga schemaobjekt inuti den har skapats för att lagra intervallet [300, 400).  
+Det här exemplet använder TryGetShard ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.shardmap.trygetshard), [.net](https://docs.microsoft.com/previous-versions/azure/dn823929(v=azure.100))) CreateShard ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.shardmap.createshard), [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.createshard)), CreateRangeMapping ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map.rangeshardmap.createrangemapping), [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.rangeshardmap-1) -metoder och skapar en instans av ShardLocation ([Java](/java/api/com.microsoft.azure.elasticdb.shard.base.shardlocation), [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardlocation)) lektion. I exemplet nedan har en databas med namnet **sample_shard_2** och alla nödvändiga schema objekt i den skapats för att innehålla intervallet [300, 400).  
 
 ```csharp
 // sm is a RangeShardMap object.
@@ -46,15 +45,15 @@ sm.CreateRangeMapping(new RangeMappingCreationInfo<long>
                             (new Range<long>(300, 400), shard2, MappingStatus.Online));
 ```
 
-För .NET-versionen kan du också använda PowerShell som ett alternativ för att skapa en ny Karthanteraren. Ett exempel är tillgängliga [här](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
+För .NET-versionen kan du också använda PowerShell som ett alternativ till att skapa en ny Shard Map Manager. Ett exempel finns [här](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
 
-## <a name="to-add-a-shard-for-an-empty-part-of-an-existing-range"></a>Att lägga till en skärva för ett tomt område på ett befintligt intervall
+## <a name="to-add-a-shard-for-an-empty-part-of-an-existing-range"></a>Lägga till en Shard för en tom del av ett befintligt intervall
 
-I vissa fall kan du redan mappat en rad till en shard och delvis fylls den med data, men nu vill kommande data så att de dirigeras till en annan shard. Exempelvis kan du fragment av dagsintervall har redan den allokerade 50 dagar till en shard och dag 24, som du vill att framtida data hamnar i olika shards. Den elastiska databasen [dela / sammanslå verktyget](sql-database-elastic-scale-overview-split-and-merge.md) kan utföra denna åtgärd, men om dataförflyttning inte är nödvändigt (t.ex, data för antalet dagar [25, 50), det vill säga, dag 25 att de 50 uteslutande, inte finns ännu) du kan göra detta helt och hållet med API: er med fragment kartan Management direkt.
+I vissa fall kanske du redan har mappat ett intervall till en Shard och delvis fyllt det med data, men nu vill du att kommande data ska dirigeras till en annan Shard. Exempel: du Shard per dags intervall och redan har tilldelat 50 dagar till en Shard, men på dag 24 vill du att framtida data ska landa i en annan Shard. [Verktyget för delning och sammanslagning](sql-database-elastic-scale-overview-split-and-merge.md) av elastiska databaser kan utföra den här åtgärden, men om data flytten inte är nödvändig (till exempel data för intervallet med dagar [25, 50), det 50 vill säga den 25: e som är den 25 API: er för Shard Map Management direkt.
 
-### <a name="example-splitting-a-range-and-assigning-the-empty-portion-to-a-newly-added-shard"></a>Exempel: dela en rad och tilldelas en nyligen tillagd shard tom delen
+### <a name="example-splitting-a-range-and-assigning-the-empty-portion-to-a-newly-added-shard"></a>Exempel: dela ett intervall och tilldela den tomma delen till en nyligen tillagd Shard
 
-En databas med namnet ”sample_shard_2” och alla nödvändiga schemaobjekt inuti den har skapats.  
+En databas med namnet "sample_shard_2" och alla nödvändiga schema objekt i den har skapats.  
 
 ```csharp
 // sm is a RangeShardMap object.
@@ -79,6 +78,6 @@ upd.Shard = shard2;
 sm.MarkMappingOnline(sm.UpdateMapping(sm.GetMappingForKey(25), upd));
 ```
 
-**Viktiga**:  Använd den här tekniken bara om du är säker på att intervallet för uppdaterade mappningen är tom.  Föregående metoder Kontrollera inte data för intervallet som flyttas, så det är bäst att inkludera kontroller i din kod.  Om det finns rader i intervallet som flyttas, matchar inte den faktiska Datadistributionen uppdaterade fragmentkartan. Använd den [dela / sammanslå verktyget](sql-database-elastic-scale-overview-split-and-merge.md) att utföra åtgärden i stället i dessa fall.  
+**Viktigt**:  Använd endast den här tekniken om du är säker på att intervallet för den uppdaterade mappningen är tomt.  Föregående metoder kontrollerar inte data för det område som flyttas, så det är bäst att inkludera kontroller i koden.  Om det finns rader i det område som flyttas matchar den faktiska data distributionen inte den uppdaterade Shard-kartan. Använd [verktyget Dela-sammanslagning](sql-database-elastic-scale-overview-split-and-merge.md) för att utföra åtgärden i stället i dessa fall.  
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]

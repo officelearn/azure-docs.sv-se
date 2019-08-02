@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: glenga
-ms.openlocfilehash: 15fd8593f950e0f553d1b7ca34ee785692043cad
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: cfdc28486cf254c4dd808824ab167489818376ab
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68304364"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619591"
 ---
 # <a name="monitor-azure-functions"></a>Övervaka Azure Functions
 
@@ -97,7 +97,7 @@ Information om hur du använder Application Insights finns i Application Insight
 
 Följande områden i Application Insights kan vara användbara när du ska utvärdera beteende, prestanda och fel i dina funktioner:
 
-| Tabbtecken | Beskrivning |
+| Tab | Beskrivning |
 | ---- | ----------- |
 | **[Fel](../azure-monitor/app/asp-net-exceptions.md)** |  Skapa diagram och aviseringar baserat på funktions fel och Server undantag. **Åtgärds namnet** är funktions namnet. Felen i beroenden visas inte om du inte implementerar anpassad telemetri för beroenden. |
 | **[Historik](../azure-monitor/app/performance-counters.md)** | Analysera prestanda problem. |
@@ -152,9 +152,9 @@ Du kan använda Application Insights utan någon anpassad konfiguration. Standar
 
 Azure Functions loggen innehåller en *kategori* för varje logg. Kategorin visar vilken del av körnings koden eller din funktions kod som skrev loggen. 
 
-Funktions körningen skapar loggar med en kategori som börjar med "värd". Loggarna "funktion startade", "," och "Function Completed" har kategorin "Host. utförar". 
+Funktions körningen skapar loggar med en kategori som börjar med "värd". I version `function started`1. x har- `function executed`,-och `function completed` -loggarna kategorin `Host.Executor`. Från och med version 2. x har dessa loggar kategorin `Function.<YOUR_FUNCTION_NAME>`.
 
-Om du skriver loggar i funktions koden är deras kategori funktion.
+Om du skriver loggar i funktions koden är `Function` kategorin i version 1. x i functions-körningen. I version 2. x är `Function.<YOUR_FUNCTION_NAME>.User`kategorin.
 
 ### <a name="log-levels"></a>Logg nivåer
 
@@ -168,7 +168,7 @@ Azure Functions loggen innehåller också en *logg nivå* med varje logg. [LogLe
 |Varning     | 3 |
 |Fel       | 4 |
 |Kritiskt    | 5 |
-|Inga        | 6 |
+|Ingen        | 6 |
 
 Logg nivån `None` förklaras i nästa avsnitt. 
 
@@ -605,7 +605,7 @@ Du kan skriva anpassad kod för att Visa beroenden. Exempel finns i exempel kode
 
 [Skapa ett ärende i GitHub](https://github.com/Azure/Azure-Functions/issues/new)för att rapportera ett problem med Application Insights-integrering i functions eller för att göra ett förslag eller en begäran.
 
-## <a name="streaming-logs"></a>Strömmande loggar
+## <a name="streaming-logs"></a>Direktuppspelningsloggar
 
 När du utvecklar ett program är det ofta användbart att se loggnings information i nära real tid. Du kan visa en ström med loggfiler som genereras av funktionerna antingen i Azure Portal eller i en kommando rad session på den lokala datorn.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Azure Cosmos DB: SQL Java API, SDK och resurser'
+title: 'Azure Cosmos DB: SQL Java API, SDK &-resurser'
 description: Lär dig allt om SQL Java API och SDK, inklusive frisläppningsdatum, dras tillbaka datum och ändringar som gjorts mellan varje version av Azure Cosmos DB SQL Java SDK.
 author: SnehaGunda
 ms.service: cosmos-db
@@ -8,14 +8,14 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 03/13/2019
 ms.author: sngun
-ms.openlocfilehash: 7af43d24b03a4c548925bdca4189fd0524c701a4
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: bf89d419bcd97c276df35701bc4fd808f599094a
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341640"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68637704"
 ---
-# <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK för SQL-API: Viktig information och resurser
+# <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK för SQL API: Viktig information och resurser
 > [!div class="op_single_selector"]
 > * [NET](sql-api-sdk-dotnet.md)
 > * [.NET-Ändringsfeed](sql-api-sdk-dotnet-changefeed.md)
@@ -27,8 +27,8 @@ ms.locfileid: "67341640"
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST-resursprovider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [BulkExecutor – .NET](sql-api-sdk-bulk-executor-dot-net.md)
-> * [BulkExecutor – Java](sql-api-sdk-bulk-executor-java.md)
+> * [Mass utförar – .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Mass utförar – Java](sql-api-sdk-bulk-executor-java.md)
 
 SQL API Java SDK har stöd för synkrona åtgärder. Använd för asynkron support den [SQL API Async Java SDK](sql-api-sdk-async-java.md). 
 
@@ -44,22 +44,22 @@ SQL API Java SDK har stöd för synkrona åtgärder. Använd för asynkron suppo
 ## <a name="release-notes"></a>Viktig information
 
 ### <a name="a-name213213"></a><a name="2.1.3"/>2.1.3
-* En bugg har åtgärdats i PartitionKey för Hash-V2.
+* Fast bugg i PartitionKey för hash v2.
 
 ### <a name="a-name212212"></a><a name="2.1.2"/>2.1.2
-* Tillagt stöd för sammansatt index.
-* En bugg har åtgärdats i global endpoint manager för att tvinga uppdatering.
-* En bugg har åtgärdats för upsertar med villkoren i direkt-läge.
+* Stöd har lagts till för sammansatta index.
+* Åtgärdat fel i global slut punkts hanterare för att framtvinga uppdatering.
+* Fast bugg för upsertar med för-villkor i direkt läge.
 
 ### <a name="a-name211211"></a><a name="2.1.1"/>2.1.1
-* En bugg har åtgärdats i cacheminnet för gateway-adress.
+* Fast bugg i Gateway-diskcachen.
 
 ### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
 * Stöd för flera regioner skrivning har lagts till för direkt-läge.
 * Stöd har lagts till för att hantera IOExceptions genereras som ServiceUnavailable undantag från en proxy.
 * Ett fel har åtgärdats i återförsöksprincipen för slutpunkt för identifiering.
 * Ett fel om du vill se till att null-pekare undantag inte utlöses i BaseDatabaseAccountConfigurationProvider har åtgärdats.
-* En bugg för att säkerställa QueryIterator inte returnerar null-värden.
+* En bugg har åtgärd ATS för att säkerställa att QueryIterator inte returnerar null-värden.
 * En bugg så stora PartitionKey tillåts
 
 ### <a name="a-name200200"></a><a name="2.0.0"/>2.0.0
@@ -127,7 +127,7 @@ SQL API Java SDK har stöd för synkrona åtgärder. Använd för asynkron suppo
 * Tillagt stöd för ändringsfeed.
 * Stöd har lagts till för samlingen kvotinformation via RequestOptions.setPopulateQuotaInfo.
 * Stöd har lagts till för lagrad procedur skriptet loggning via RequestOptions.setScriptLoggingEnabled.
-* Ett fel har åtgärdats där frågan i DirectHttps läge slutar svara när den påträffar begränsning fel.
+* Ett fel har åtgärd ATS där fråga i DirectHttps-läge kan sluta svara vid upptäckt av begränsnings fel.
 * Ett fel har åtgärdats i sessionsläge för konsekvens.
 * Ett fel som kan orsaka ett Nullreferensundantag i HttpContext när frågehastigheten är för hög har åtgärdats.
 * Förbättrad prestanda för DirectHttps läge.
@@ -142,7 +142,7 @@ SQL API Java SDK har stöd för synkrona åtgärder. Använd för asynkron suppo
 
 ### <a name="a-name193193"></a><a name="1.9.3"/>1.9.3
 * Ett fel har åtgärdats i anslutningshanteringen att förhindra läckage av anslutning i direktanslutning läge.
-* Ett fel har åtgärdats i övre frågan där det kan utlösa NullReference undantag.
+* Ett fel har åtgärd ATS i den översta frågan där det kan utlösa NullReference-undantag.
 * Bättre prestanda genom att minska antalet nätverksanrop för det interna cacheminnet.
 * Har lagts till statuskoden, ActivityID och begära URI: N i DocumentClientException för bättre felsökning.
 
@@ -215,7 +215,7 @@ Nya funktioner och funktionalitet och optimeringar läggs endast till den aktuel
 Varje begäran till Cosmos DB med hjälp av en pensionerad SDK avvisas av tjänsten.
 
 > [!WARNING]
-> Alla versioner **1.x** av SQL-SDK för Java tas ur bruk **30 maj 2020**.
+> Alla versioner **1. x** av SQL SDK för Java kommer att dras tillbaka den **30 maj 2020**.
 > 
 >
 
@@ -228,10 +228,10 @@ Varje begäran till Cosmos DB med hjälp av en pensionerad SDK avvisas av tjäns
 
 | Version | Utgivningsdatum | Slutdatum |
 | --- | --- | --- |
-| [2.1.3](#2.1.3) |Den 13 mars 2018 |--- |
-| [2.1.2](#2.1.2) |09 mars 2018 |--- |
-| [2.1.1](#2.1.1) |13 december 2018 |--- |
-| [2.1.0](#2.1.0) |20 november 2018 |--- |
+| [2.1.3](#2.1.3) |Mar 13, 2018 |--- |
+| [2.1.2](#2.1.2) |Mar 09, 2018 |--- |
+| [2.1.1](#2.1.1) |Dec 13, 2018 |--- |
+| [2.1.0](#2.1.0) |Nov 20, 2018 |--- |
 | [2.0.0](#2.0.0) |Den 21 september 2018 |--- |
 | [1.16.4](#1.16.4) |Den 10 september 2018 |30 maj 2020 |
 | [1.16.3](#1.16.3) |09 september 2018 |30 maj 2020 |

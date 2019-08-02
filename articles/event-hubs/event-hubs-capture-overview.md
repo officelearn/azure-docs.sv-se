@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: 4ba3109460616be98b5330ec7175f161a6a3b750
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68326171"
 ---
 # <a name="capture-events-through-azure-event-hubs-in-azure-blob-storage-or-azure-data-lake-storage"></a>Samla in händelser via Azure Event Hubs i Azure Blob Storage eller Azure Data Lake Storage
@@ -73,7 +73,7 @@ De filer som skapas av Event Hubs Capture har följande Avro-schemat:
 
 ![Avro-schema][3]
 
-Ett enkelt sätt att utforska Avro-filer är genom att använda [Avro-verktygen][Avro Tools] jar from Apache. You can also use [Apache Drill][Apache Drill] för en förenklad SQL-driven miljö eller [Apache Spark][Apache Spark] för att utföra komplex distribuerad bearbetning av inmatade data. 
+Ett enkelt sätt att utforska Avro-filer är genom att använda [Avro-verktygen][Avro Tools] jar från Apache. Du kan också använda [Apache-granskning][Apache Drill] för en låg SQL-driven upplevelse eller [Apache Spark][Apache Spark] för att utföra komplex distribuerad bearbetning på inmatade data. 
 
 ### <a name="use-apache-drill"></a>Använda Apache-granskning
 
@@ -129,7 +129,7 @@ Du kan också använda Avro-verktyg för att konvertera filen till JSON-format o
 
 Om du vill utföra mer avancerad bearbetning, hämta och installera Avro för valfri plattform. När detta skrivs det finns implementeringar för C, C++, C\#, Java, NodeJS, Perl, PHP, Python och Ruby.
 
-Apache Avro har slutfört Komma igång guider för [Java][Java] and [Python][Python]. Du kan också läsa den [komma igång med Event Hubs Capture](event-hubs-capture-python.md) artikeln.
+Apache Avro har slutfört Komma igång guider för [Java][Java] och [python][Python]. Du kan också läsa den [komma igång med Event Hubs Capture](event-hubs-capture-python.md) artikeln.
 
 ## <a name="how-event-hubs-capture-is-charged"></a>Hur Event Hubs Capture debiteras
 

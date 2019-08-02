@@ -1,6 +1,6 @@
 ---
-title: Meddelande för gateway-migrering för Azure SQL Database från Gen2 till Gen3 | Microsoft Docs
-description: Artikeln innehåller meddelande till användare om migreringen av Azure SQL Database-gatewayer IP-adresser
+title: Meddelande om Gateway-migrering för Azure SQL Database från Gen2 till Gen3 | Microsoft Docs
+description: Artikeln innehåller information om migrering av Azure SQL Database Gateway-IP-adresser
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -9,24 +9,23 @@ ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
-manager: craigg
 ms.date: 07/01/2019
-ms.openlocfilehash: 5894579c62c524394c7fea044b96885f7c8e8204
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: 85691464684ff327c01a85bf357514f447564dd7
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67538385"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568117"
 ---
-# <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Azure SQL Database trafik migrering till nyare Gateways
+# <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Azure SQL Database trafikmigrering till nyare gateways
 
-Eftersom Azure-infrastrukturen förbättrar uppdaterar regelbundet Microsoft maskinvara för att se till att vi ger bästa möjliga kundupplevelse. Under de kommande månaderna kommer vi planerar att lägga till Gateways som bygger på nyare maskinvarugenerationer och inaktivera gatewayer som bygger på äldre maskinvara i vissa regioner.  
+När Azure-infrastrukturen förbättras kommer Microsoft regelbundet att uppdatera maskin varan så att vi ger bästa möjliga kund upplevelse. Under de kommande månaderna planerar vi att lägga till gatewayer som bygger på nyare maskin varu generationer och avställnings bara gatewayer som bygger på äldre maskin vara i vissa regioner.  
 
-Kunder kommer att meddelas via e-post och i Azure-portalen långt innan ändringar gatewayer som är tillgängliga i varje region. Den senaste informationen kommer att finnas kvar i den [IP-adresser för Azure SQL Database-gateway](sql-database-connectivity-architecture.md#azure-sql-database-gateway-ip-addresses) tabell.
+Kunderna får ett meddelande via e-post och i Azure Portal väl i förväg om eventuella ändringar av gatewayer som är tillgängliga i varje region. Den senaste informationen kommer att behållas i tabellen [Azure SQL Database Gateway IP-adresser](sql-database-connectivity-architecture.md#azure-sql-database-gateway-ip-addresses) .
 
-## <a name="impact-of-this-change"></a>Effekten av ändringen
+## <a name="impact-of-this-change"></a>Effekt av den här ändringen
 
-Den första runda över inaktivering av Gateway har schemalagts för den 1 September 2019 i följande regioner:
+Den första rundan av Gateway-avställningen är schemalagd för den 1 september 2019 i följande regioner:
 
 - Västra USA
 - Västra Europa
@@ -41,22 +40,22 @@ Den första runda över inaktivering av Gateway har schemalagts för den 1 Septe
 - USA, östra 2
 - Östasien
 
-IP-adressen ur slutar att acceptera trafik och eventuella nya anslutningsförsök kommer att dirigeras till en gateway i regionen.
+Den inaktiverade IP-adressen slutar att acceptera trafik och eventuella nya anslutnings försök dirigeras till en av Gatewayerna i regionen.
 
-Där du ser inte effekten av ändringen:
+Där du inte ser effekten av den här ändringen:
 
-- Kunder som använder omdirigering som sin anslutningsprincip inte kommer se någon inverkan.
-- Anslutningar till SQL Database från inuti Azure och använder Tjänsttaggar påverkas inte.
-- Anslutningar med versioner som stöds av JDBC-drivrutinen för SQL Server ser påverkas inte. JDBC-versioner som stöds, se [ladda ned Microsoft JDBC-drivrutinen för SQL Server](/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server).
+- Kunder som använder omdirigering som anslutnings princip ser inte någon påverkan.
+- Anslutningar till SQL Database inifrån Azure och användningen av service märken påverkas inte.
+- Anslutningar som görs med stödda versioner av JDBC-drivrutinen för SQL Server kommer inte att se någon påverkan. Information om vilka JDBC-versioner som stöds finns i [Hämta Microsoft JDBC-drivrutin för SQL Server](/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server).
 
-## <a name="what-to-do-you-do-if-youre-affected"></a>Vad kan jag göra om påverkas du
+## <a name="what-to-do-you-do-if-youre-affected"></a>Vad du gör om du påverkas
 
-Vi rekommenderar att du tillåter utgående trafik till IP-adresser för alla de [IP-adresser för Azure SQL Database-gateway](sql-database-connectivity-architecture.md#azure-sql-database-gateway-ip-addresses) i regionen på TCP-port 1433 och port intervallet 11000-11999 i enheten för brandväggen. Läs mer på portintervall [anslutningsprincip](sql-database-connectivity-architecture.md#connection-policy).
+Vi rekommenderar att du tillåter utgående trafik till IP-adresser för alla [Azure SQL Database Gateway-IP-adresser](sql-database-connectivity-architecture.md#azure-sql-database-gateway-ip-addresses) i regionen på TCP-port 1433 och port intervall 11000-11999 i brand Väggs enheten. Mer information om Port intervall finns i [anslutnings princip](sql-database-connectivity-architecture.md#connection-policy).
 
-Anslutningar från program som använder Microsoft JDBC-drivrutinen nedan version 4.0 misslyckas certifikatsverifiering. Lägre versioner av Microsoft JDBC förlitar sig på nätverksnamn (CN) i ämnesfältet för certifikatet. Minskningen är att säkerställa att egenskapen hostNameInCertificate anges till *. database.windows.net. Läs mer om hur du anger egenskapen hostNameInCertificate [ansluter med SSL-kryptering](/sql/connect/jdbc/connecting-with-ssl-encryption).
+Anslutningar som görs från program som använder Microsoft JDBC driv rutinen under version 4,0 kan inte verifiera certifikat verifiering. Lägre versioner av Microsoft JDBC förlitar sig på eget namn (CN) i certifikatets ämnes fält. Minskningen är att se till att egenskapen hostNameInCertificate är inställd på *. database.windows.net. Mer information om hur du anger egenskapen hostNameInCertificate finns i [ansluta med SSL-kryptering](/sql/connect/jdbc/connecting-with-ssl-encryption).
 
-Om ovanstående minskningen inte fungerar kan du skicka en supportbegäran om för SQL-databas som använder följande URL: https://aka.ms/getazuresupport
+Om ovanstående minskning inte fungerar kan du skicka en supportbegäran för SQL Database med hjälp av följande URL: https://aka.ms/getazuresupport
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig mer om [arkitektur för Azure SQL-anslutning](sql-database-connectivity-architecture.md)
+- Lär dig mer om [Azure SQL Connectivity-arkitekturen](sql-database-connectivity-architecture.md)

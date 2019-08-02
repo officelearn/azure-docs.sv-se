@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: zarhoads
-ms.openlocfilehash: 3230d85dfcf57bfd4e2e1684f4f5620600ec4e3a
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: c25bc316a345404c759b346b4fb877de42ee4d13
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68424199"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561557"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Skalnings alternativ för program i Azure Kubernetes service (AKS)
 
@@ -45,9 +45,9 @@ För att komma igång med den vågräta Pod-autoskalning i AKS, se AutoScale- [p
 
 I takt med att den vågräta Pod-autoskalning kontrollerar Metrics API var 30: e sekund kanske tidigare skalnings händelser inte har slutförts innan en annan kontroll görs. Detta kan orsaka att den vågräta Pod automatiskt skalar för att ändra antalet repliker innan föregående skalnings händelse har kunnat ta emot program arbets belastning och resurs behoven för att justera detta.
 
-För att minimera dessa tävlings händelser kan cooldown eller fördröjnings värden anges. Dessa värden definierar hur länge den automatiska skalningen av vågrät Pod måste vänta efter en skalnings händelse innan en annan skalnings händelse kan utlösas. Det här beteendet gör att det nya replik antalet börjar gälla och att mått-API: et återspeglar den distribuerade arbets belastningen. Som standard är fördröjningen för skala upp händelser 3 minuter och fördröjningen för att skala ned händelser är 5 minuter
+För att minimera dessa tävlings händelser anges cooldown eller fördröjnings värden. Dessa värden definierar hur länge den automatiska skalningen av vågrät Pod måste vänta efter en skalnings händelse innan en annan skalnings händelse kan utlösas. Det här beteendet gör att det nya replik antalet börjar gälla och att mått-API: et återspeglar den distribuerade arbets belastningen. Som standard är fördröjningen för skala upp händelser 3 minuter och fördröjningen för att skala ned händelser är 5 minuter
 
-Du kan behöva finjustera dessa cooldown-värden. Standardvärdena för cooldown kan ge intryck av att den vågräta Pod inte skalar replik antalet tillräckligt snabbt. Om du till exempel snabbt vill öka antalet repliker som används minskar `--horizontal-pod-autoscaler-upscale-delay` du när du skapar en horisontell Pod-definition för autoskalning med hjälp av. `kubectl`
+För närvarande kan du inte finjustera dessa cooldown-värden från standardvärdet.
 
 ## <a name="cluster-autoscaler"></a>Kluster autoskalning
 
@@ -93,7 +93,7 @@ Virtuella noder distribueras till ett extra undernät i samma virtuella nätverk
 
 För att komma igång med skalnings program, följ först [snabb starten för att skapa ett AKS-kluster med Azure CLI][aks-quickstart]. Du kan sedan starta manuellt eller automatiskt skala program i ditt AKS-kluster:
 
-- Skala [poddar][aks-manually-scale-pods] manuellt or [nodes][aks-manually-scale-nodes]
+- Skala [poddar][aks-manually-scale-pods] eller [noder][aks-manually-scale-nodes] manuellt
 - Använd den [vågräta Pod][aks-hpa] autoskalning
 - Använd [kluster][aks-cluster-autoscaler] autoskalning
 

@@ -1,57 +1,57 @@
 ---
-title: I stället för ETL, designa ELT för Azure SQL Data Warehouse | Microsoft Docs
-description: I stället för ETL, utforma en process för extrahering, inläsning och transformering (ELT) för att läsa in data eller Azure SQL Data Warehouse.
+title: I stället för ETL, utformar du ELT för Azure SQL Data Warehouse | Microsoft Docs
+description: I stället för ETL kan du utforma en process för att extrahera, läsa in och transformera (ELT) för att läsa in data eller Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: load-data
-ms.date: 05/10/2019
+ms.date: 07/28/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: fa688f40f8eb968f2c388601b387e4f584951a91
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: c90deefba75cd8bbeda126c9da8a05e1069831d4
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595610"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68597464"
 ---
-# <a name="designing-a-polybase-data-loading-strategy-for-azure-sql-data-warehouse"></a>Designa en PolyBase för datainläsning strategi för Azure SQL Data Warehouse
+# <a name="designing-a-polybase-data-loading-strategy-for-azure-sql-data-warehouse"></a>Utforma en PolyBase data inläsnings strategi för Azure SQL Data Warehouse
 
-Traditionella SMP-datalager kan du använda en process för extrahering, transformering och inläsning (ETL) för inläsning av data. Azure SQL Data Warehouse är en arkitektur för massiv parallellbearbetning (MPP) som drar nytta av skalbarheten och flexibiliteten i beräknings- och lagringsresurser. Använda en process för extrahering, inläsning och transformering (ELT) kan du utnyttja MPP och eliminera resurser som behövs för att transformera data innan de läses in. Medan SQL Data Warehouse stöder många läser in metoder, inklusive icke-Polybase, till exempel BCP och SQL BulkCopy API, är det snabbaste och mest skalbara sättet att läsa in datum via PolyBase.  PolyBase är en teknik som ansluter till externa data som lagras i Azure Blob storage eller Azure Data Lake Store via T-SQL-språket.
+Traditionella SMP-datalager använder en process för extrahering, transformering och inläsning (ETL) för att läsa in data. Azure SQL Data Warehouse är en arkitektur för massivt parallell bearbetning (MPP) som drar nytta av skalbarheten och flexibiliteten i beräknings-och lagrings resurser. Användning av en process för att extrahera, läsa in och transformera (ELT) kan dra nytta av MPP och eliminera resurser som behövs för att transformera data innan de läses in. Även om SQL Data Warehouse stöder många inläsnings metoder, inklusive icke-PolyBase-alternativ som BCP och SQL BulkCopy API, är det snabbaste och mest skalbara sättet att läsa in datumet genom PolyBase.  PolyBase är en teknik som använder externa data som lagras i Azure Blob Storage eller som Azure Data Lake Store via T-SQL-språket.
 
 > [!VIDEO https://www.youtube.com/embed/l9-wP7OdhDk]
 
 
 ## <a name="what-is-elt"></a>Vad är ELT?
 
-Extrahera, belastning, och omvandla (ELT) är en process som data extraheras från ett källsystem, läses in i ett data warehouse och sedan omvandlas. 
+Extrahera, läsa in och transformera (ELT) är en process genom vilken data extraheras från ett käll system som läses in i ett data lager och sedan omvandlas. 
 
-De grundläggande stegen för att implementera en PolyBase ELT för SQL Data Warehouse är:
+De grundläggande stegen för att implementera en PolyBase-ELT för SQL Data Warehouse är:
 
-1. Extrahera källdata i en textfil.
-2. Få data till Azure Blob storage eller Azure Data Lake Store.
-3. Förbereda data för inläsning.
-4. Läs in data i SQL Data Warehouse med PolyBase mellanlagringstabeller. 
+1. Extrahera källdata till textfiler.
+2. Landa data i Azure Blob Storage eller Azure Data Lake Store.
+3. Förbered data för inläsning.
+4. Läs in data i SQL Data Warehouse mellanlagrings tabeller med PolyBase. 
 5. Transformera data.
-6. Infoga data i produktionstabellerna.
+6. Infoga data i produktions tabeller.
 
 
-En självstudiekurs om inläsning finns i [använda PolyBase för att läsa in data från Azure blob storage till Azure SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md).
+En inläsnings kurs finns i [använda PolyBase för att läsa in data från Azure Blob Storage till Azure SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md).
 
-Mer information finns i [läser in mönster blogg](https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-loading-patterns-and-strategies/). 
+Mer information finns i blogg om inläsnings [mönster](https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-loading-patterns-and-strategies/). 
 
 
-## <a name="1-extract-the-source-data-into-text-files"></a>1. Extrahera källdata i en textfil
+## <a name="1-extract-the-source-data-into-text-files"></a>1. Extrahera källdata i textfiler
 
-Hämta data från källsystemet beror på lagringsplatsen.  Målet är att flytta data till PolyBase stöds avgränsade textfiler. 
+Att hämta data från käll systemet beror på lagrings platsen.  Målet är att flytta data till PolyBase-stödda avgränsade textfiler. 
 
-### <a name="polybase-external-file-formats"></a>PolyBase externa filformaten
+### <a name="polybase-external-file-formats"></a>Externa fil format för PolyBase
 
-PolyBase läser in data från UTF-8 och UTF-16-kodade textfiler. Förutom avgränsade textfiler laddas från Hadoop-filformat RC-filen, ORC och Parquet. PolyBase kan också läsa in data från Gzip och Snappy komprimerade filer. PolyBase stöder för närvarande inte utökade ASCII, fast bredd format och kapslade format, till exempel WinZip, JSON och XML. Om du exporterar från SQL Server, kan du använda [kommandoradsverktyget bcp](/sql/tools/bcp-utility) att exportera data till avgränsade textfiler. Parquet till SQL DW datatypsmappningen är följande:
+PolyBase läser in data från UTF-8-och UTF-16-kodade avgränsade textfiler. Förutom de avgränsade textfilerna läses de in från Hadoop-filformatet RC-filen, ORC och Parquet. PolyBase kan också läsa in data från gzip och fästa komprimerade filer. PolyBase stöder för närvarande inte utökade ASCII-, fast bredd-format och kapslade format som WinZip, JSON och XML. Om du exporterar från SQL Server kan du använda [kommando rads verktyget BCP](/sql/tools/bcp-utility) för att exportera data till avgränsade textfiler. Data typs mappningen Parquet till SQL DW är följande:
 
-| **Parquet-datatypen** |                      **SQL-datatypen**                       |
+| **Data typen Parquet** |                      **SQL-datatyp**                       |
 | :-------------------: | :----------------------------------------------------------: |
 |        tinyint        |                           tinyint                            |
 |       smallint        |                           smallint                           |
@@ -73,82 +73,82 @@ PolyBase läser in data från UTF-8 och UTF-16-kodade textfiler. Förutom avgrä
 |       timestamp       |                          datetime2                           |
 |       timestamp       |                           datetime                           |
 |       timestamp       |                             time                             |
-|       date        | (1) Läs in som int och konvertera till datum </br> 2) [använder Azure Databricks SQL DW-anslutningen](https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse#load-data-into-azure-sql-data-warehouse) med </br> spark.conf.set( "spark.sql.parquet.writeLegacyFormat", "true" ) </br> (**uppdatera kommer snart**) |
-|        decimal        | [Använda Azure Databricks SQL DW-koppling](https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse#load-data-into-azure-sql-data-warehouse) med </br> spark.conf.set( "spark.sql.parquet.writeLegacyFormat", "true" ) </br> (**uppdatera kommer snart**) |
+|       date            |                             date                             |
+|        decimal        |                            decimal                           |
 
-## <a name="2-land-the-data-into-azure-blob-storage-or-azure-data-lake-store"></a>2. Få data till Azure Blob storage eller Azure Data Lake Store
+## <a name="2-land-the-data-into-azure-blob-storage-or-azure-data-lake-store"></a>2. Landa data i Azure Blob Storage eller Azure Data Lake Store
 
-Om du vill få data i Azure storage kan du flytta den till [Azure Blob storage](../storage/blobs/storage-blobs-introduction.md) eller [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md). I båda fallen bör data lagras i textfiler. PolyBase kan läsa in från någon av platserna.
+Om du vill landa data i Azure Storage kan du flytta dem till [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md) eller [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md). På någon av platserna ska data lagras i textfiler. PolyBase kan läsas in från vilken plats som helst.
 
 Verktyg och tjänster som du kan använda för att flytta data till Azure Storage:
 
-- [Azure ExpressRoute](../expressroute/expressroute-introduction.md) tjänsten förbättrar nätverkets dataflöde, prestanda och förutsägbarhet. ExpressRoute är en tjänst som dirigerar data med en dedikerad privat anslutning till Azure. ExpressRoute-anslutningar dirigerar inte data via det offentliga internet. Anslutningarna är mer tillförlitlighet, snabbare hastigheter, kortare svarstider och högre säkerhet än vanliga anslutningar via det offentliga internet.
-- [AZCopy-verktyget](../storage/common/storage-moving-data.md) flyttar data till Azure Storage via det offentliga internet. Detta fungerar om dina datastorlekar är mindre än 10 TB. Testa nätverkshastigheten om du vill se om värdena är godtagbara för att utföra belastningar med jämna mellanrum med AZCopy. 
-- [Azure Data Factory (ADF)](../data-factory/introduction.md) har en gateway som du kan installera på den lokala servern. Du kan skapa en pipeline som flyttar data från din lokala server upp till Azure Storage. Om du vill använda Data Factory med SQL Data Warehouse, se [läser in data i SQL Data Warehouse](/azure/data-factory/load-azure-sql-data-warehouse).
+- [Azure ExpressRoute](../expressroute/expressroute-introduction.md) service förbättrar nätverks data flöde, prestanda och förutsägbarhet. ExpressRoute är en tjänst som dirigerar data med en dedikerad privat anslutning till Azure. ExpressRoute-anslutningar dirigerar inte data via det offentliga Internet. Anslutningarna ger högre tillförlitlighet, snabbare hastighet, lägre fördröjning och högre säkerhet än vanliga anslutningar via det offentliga Internet.
+- [AzCopy-verktyget](../storage/common/storage-moving-data.md) flyttar data till Azure Storage över det offentliga Internet. Detta fungerar om data storlekarna är mindre än 10 TB. Om du vill utföra belastningen regelbundet med AZCopy testar du nätverks hastigheten för att se om den är acceptabel. 
+- [Azure Data Factory (ADF)](../data-factory/introduction.md) har en gateway som du kan installera på den lokala servern. Sedan kan du skapa en pipeline för att flytta data från din lokala server upp till Azure Storage. Om du vill använda Data Factory med SQL Data Warehouse, se [Läs in data i SQL Data Warehouse](/azure/data-factory/load-azure-sql-data-warehouse).
 
 
 ## <a name="3-prepare-the-data-for-loading"></a>3. Förbereda data för inläsning
 
-Du kan behöva förbereda och rensa data i ditt storage-konto innan du läser in dem i SQL Data Warehouse. Förberedelse av data kan utföras medan dina data finns i källan, eftersom du exportera data till textfiler, eller när data är i Azure Storage.  Det är enklast att arbeta med data så tidigt i processen som möjligt.  
+Du kan behöva förbereda och rensa data i ditt lagrings konto innan du läser in det i SQL Data Warehouse. Data förberedelse kan utföras medan dina data är i källan, när du exporterar data till textfiler, eller när data har Azure Storage.  Det är enklast att arbeta med data så tidigt i processen som möjligt.  
 
 ### <a name="define-external-tables"></a>Definiera externa tabeller
 
-Innan du kan läsa in data, måste du definiera externa tabeller i datalagret. PolyBase använder externa tabeller för att definiera och komma åt data i Azure Storage. En extern tabell liknar en databasvy. Den externa tabellen innehåller tabellschemat och pekar på data som lagras utanför datalagret. 
+Innan du kan läsa in data måste du definiera externa tabeller i ditt informations lager. PolyBase använder externa tabeller för att definiera och komma åt data i Azure Storage. En extern tabell liknar en Database-vy. Den externa tabellen innehåller tabellens schema och pekar på data som lagras utanför data lagret. 
 
-Definiera externa tabeller som inkluderar det att ange datakällan, textfiler och tabelldefinitionerna. Det här är ämnen för T-SQL-syntax som du behöver:
-- [SKAPA EXTERN DATAKÄLLA](/sql/t-sql/statements/create-external-data-source-transact-sql)
+Definiera externa tabeller innebär att du anger data källan, formatet på textfilerna och tabell definitionerna. Det här är de avsnitt om T-SQL-syntax som du behöver:
+- [SKAPA EXTERN DATA KÄLLA](/sql/t-sql/statements/create-external-data-source-transact-sql)
 - [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql)
 - [SKAPA EXTERN TABELL](/sql/t-sql/statements/create-external-table-transact-sql)
 
-Ett exempel för att skapa externa objekt finns i den [skapa externa tabeller](load-data-from-azure-blob-storage-using-polybase.md#create-external-tables-for-the-sample-data) steg i självstudien läses in.
+Ett exempel på hur du skapar externa objekt finns i steget [skapa externa tabeller](load-data-from-azure-blob-storage-using-polybase.md#create-external-tables-for-the-sample-data) i inläsnings kursen.
 
-### <a name="format-text-files"></a>Textfiler format
+### <a name="format-text-files"></a>Formatera textfiler
 
-När de externa objekt har definierats måste du justera raderna i textfiler med extern tabell och fil formatdefinition. Data i varje rad i filen måste justeras med tabelldefinitionen.
-Att formatera textfiler:
+När de externa objekten har definierats måste du justera raderna i textfilerna med den externa tabell-och fil formats definitionen. Data i varje rad i text filen måste överensstämma med tabell definitionen.
+Formatera textfilerna:
 
-- Om dina data kommer från en icke-relationell källa, måste du omvandla det till rader och kolumner. Om data kommer från en relationsdatabas eller icke-relationell källa, måste du omvandlade data så att den överensstämmer med kolumndefinitionerna för tabellen som du planerar att läsa in data. 
-- Formatera data i filen för att anpassas till kolumner och datatyper i SQL Data Warehouse tabellen. Misspassning mellan datatyper i externa textfiler och data warehouse-tabell orsakar rader som ska avvisas under inläsningen.
-- Olika fält i textfilen med en avgränsare.  Var noga med att använda ett tecken eller en teckensekvens som inte går att hitta i dina källdata. Använd avgränsare som du angav med [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql).
+- Om dina data kommer från en icke-relationell källa måste du omvandla den till rader och kolumner. Oavsett om data kommer från en Relations källa eller icke-relationell källa måste data omvandlas för att anpassas efter kolumn definitionerna för den tabell som du planerar att läsa in data i. 
+- Formatera data i text filen så att de överensstämmer med kolumnerna och data typerna i SQL Data Warehouse mål tabellen. Fel justering mellan data typer i externa textfiler och data lager tabellen gör att rader avvisas under belastningen.
+- Separera fält i text filen med en avslutning.  Se till att du använder ett Character eller en teckensekvens som inte finns i dina källdata. Använd den avslutnings fil som du angav med [Skapa externt fil format](/sql/t-sql/statements/create-external-file-format-transact-sql).
 
 
-## <a name="4-load-the-data-into-sql-data-warehouse-staging-tables-using-polybase"></a>4. Läsa in data till SQL Data Warehouse med PolyBase mellanlagringstabeller
+## <a name="4-load-the-data-into-sql-data-warehouse-staging-tables-using-polybase"></a>4. Läs in data i SQL Data Warehouse mellanlagrings tabeller med PolyBase
 
-Det är bäst att läsa in data i en mellanlagringstabell. Mellanlagring tabeller kan du hantera fel utan att störa produktionstabellerna. En mellanlagringstabell ger dig också möjlighet att använda SQL Data Warehouse MPP för Datatransformationer innan du infogar data i produktionstabellerna.
+Vi rekommenderar att du läser in data i en mellanlagringsplats. Med mellanlagrings tabeller kan du hantera fel utan att störa produktions tabellerna. En mellanlagringsplats ger dig också möjlighet att använda SQL Data Warehouse MPP för data transformationer innan du infogar data i produktions tabeller.
 
 ### <a name="options-for-loading-with-polybase"></a>Alternativ för att läsa in med PolyBase
 
-Du kan använda något av dessa inläsning av alternativ för att läsa in data med PolyBase:
+Om du vill läsa in data med PolyBase kan du använda något av följande inläsnings alternativ:
 
-- [PolyBase med T-SQL](load-data-from-azure-blob-storage-using-polybase.md) fungerar bra när data kommer från Azure Blob storage eller Azure Data Lake Store. Det ger dig de flesta kontroll över inläsningen, men kräver också att definiera externa dataobjekt. De andra metoderna definiera objekten i bakgrunden som du mappa källtabellerna till måltabellerna.  Du kan använda Azure Data Factory, SSIS eller Azure functions för att dirigera T-SQL-belastning. 
-- [PolyBase med SSIS](/sql/integration-services/load-data-to-sql-data-warehouse) fungerar bra när dina källdata är i SQL Server, SQL Server lokalt eller i molnet. SSIS definierar källan till målet tabellkopplingar och också styr belastningen. Du kan ändra de paket som du arbetar med den nya data warehouse mål om du redan har SSIS-paket. 
-- [PolyBase med Azure Data Factory (ADF)](sql-data-warehouse-load-with-data-factory.md) är ett annat verktyg för dirigering.  Den definierar en pipeline och schemalägger jobb. 
-- [PolyBase med Azure DataBricks](../azure-databricks/databricks-extract-load-sql-data-warehouse.md) överför data från en SQL Data Warehouse-tabell till en Databricks-dataframe och/eller skriver data från en Databricks-dataframe till en SQL Data Warehouse-tabell med PolyBase.
+- [PolyBase med T-SQL](load-data-from-azure-blob-storage-using-polybase.md) fungerar bra när dina data finns i Azure Blob storage eller Azure Data Lake Store. Du får störst kontroll över inläsnings processen, men du måste också definiera externa data objekt. De andra metoderna definierar dessa objekt bakom scenerna när du mappar käll tabeller till mål tabeller.  För att dirigera T-SQL-inläsningar kan du använda Azure Data Factory, SSIS eller Azure Functions. 
+- [PolyBase med SSIS](/sql/integration-services/load-data-to-sql-data-warehouse) fungerar bra när dina källdata är i SQL Server, antingen SQL Server lokalt eller i molnet. SSIS definierar källa till mål tabell mappningar och dirigerar även belastningen. Om du redan har SSIS-paket kan du ändra paketen så att de fungerar med det nya informations lager målet. 
+- [PolyBase med Azure Data Factory (ADF)](sql-data-warehouse-load-with-data-factory.md) är ett annat Orchestration-verktyg.  Den definierar en pipeline och schemalägger jobb. 
+- [PolyBase med Azure DataBricks](../azure-databricks/databricks-extract-load-sql-data-warehouse.md) överför data från en SQL Data Warehouse tabell till en DataBricks-dataframe och/eller skriver data från en DataBricks dataframe till en SQL Data Warehouse tabell med PolyBase.
 
 ### <a name="non-polybase-loading-options"></a>Alternativ för icke-PolyBase-inläsning
 
-Om dina data inte är kompatibelt med PolyBase kan du använda [bcp](/sql/tools/bcp-utility) eller [SqlBulkCopy körs API](https://msdn.microsoft.com/library/system.data.sqlclient.sqlbulkcopy.aspx). BCP läser in direkt till SQL Data Warehouse utan att gå via Azure Blob storage och är endast avsett för små belastning. Observera att inläsningsprestanda av dessa alternativ är avsevärt långsammare än PolyBase. 
+Om dina data inte är kompatibla med PolyBase kan du använda [BCP](/sql/tools/bcp-utility) -eller [SQLBulkCopy-API: et](https://msdn.microsoft.com/library/system.data.sqlclient.sqlbulkcopy.aspx). BCP läser in direkt till SQL Data Warehouse utan att gå via Azure Blob Storage, och är endast avsett för små belastningar. Obs! belastnings prestandan för de här alternativen är betydligt långsammare än PolyBase. 
 
 
 ## <a name="5-transform-the-data"></a>5. Omvandla data
 
-När data är i mellanlagringstabellen kan utföra omvandlingar som kräver att din arbetsbelastning. Flytta data i en produktionstabell.
+När data finns i mellanlagringsplatsen ska du utföra omvandlingar som din arbets belastning kräver. Flytta sedan data till en produktions tabell.
 
 
-## <a name="6-insert-the-data-into-production-tables"></a>6. Infoga data i produktionstabellerna
+## <a name="6-insert-the-data-into-production-tables"></a>6. Infoga data i produktions tabeller
 
-INSERT INTO... SELECT-instruktion flyttas data från mellanlagringstabellen till tabellen permanent. 
+INSERT INTO... SELECT-instruktionen flyttar data från mellanlagrings tabellen till den permanenta tabellen. 
 
-När du utformar en ETL-processen, försök att köra processen på ett litet test-exempel. Försök att extrahera 1000 raderna från tabellen till en fil, flytta den till Azure och försök sedan läser in dem i en mellanlagringstabell. 
+När du utformar en ETL-process kan du prova att köra processen på ett litet test exempel. Försök att extrahera 1000 rader från tabellen till en fil, flytta den till Azure och försök sedan att läsa in den i en mellanlagringsplats. 
 
 
-## <a name="partner-loading-solutions"></a>Läser in partnerlösningar
+## <a name="partner-loading-solutions"></a>Lösningar för partner inläsning
 
-Många av våra partner har inläsning av lösningar. Om du vill veta mer kan du se en lista över våra [samarbetspartner](sql-data-warehouse-partner-business-intelligence.md). 
+Många av våra partner har inläsnings lösningar. Om du vill veta mer kan du se en lista över våra [lösnings partner](sql-data-warehouse-partner-business-intelligence.md). 
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Vägledning för inläsning av, finns i [vägledning för att läsa in data](guidance-for-loading-data.md).
+Information om hur du läser in vägledning finns i [rikt linjer för att läsa in data](guidance-for-loading-data.md).
 
 

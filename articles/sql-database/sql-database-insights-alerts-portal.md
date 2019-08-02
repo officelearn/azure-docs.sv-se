@@ -1,6 +1,6 @@
 ---
-title: Konfigurera aviseringar och meddelanden med hjälp av Azure portal | Microsoft Docs
-description: Använd Azure-portalen för att skapa SQL Database-aviseringar som kan utlösa aviseringar eller automation när angivna villkor är uppfyllda.
+title: Konfigurera aviseringar och meddelanden med Azure Portal | Microsoft Docs
+description: Använd Azure Portal för att skapa SQL Database aviseringar som kan utlösa meddelanden eller automatisering när de villkor du anger är uppfyllda.
 services: sql-database
 ms.service: sql-database
 ms.subservice: monitor
@@ -10,114 +10,113 @@ ms.topic: conceptual
 author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
-manager: craigg
 ms.date: 11/02/2018
-ms.openlocfilehash: 93337e39a117c1f8d38f24dc416ff8ae95513a34
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9468dbd71ee8da88cbabc3ca9f76c77d47adc221
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61036071"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567922"
 ---
-# <a name="create-alerts-for-azure-sql-database-and-data-warehouse-using-azure-portal"></a>Skapa aviseringar för Azure SQL Database och Data Warehouse med Azure portal
+# <a name="create-alerts-for-azure-sql-database-and-data-warehouse-using-azure-portal"></a>Skapa aviseringar för Azure SQL Database och informations lager med Azure Portal
 
 ## <a name="overview"></a>Översikt
-Den här artikeln visar hur du ställer in Azure SQL Database och Data Warehouse aviseringar med Azure portal. Aviseringar kan skicka ett e-postmeddelande eller anropa en webhook när vissa mått (till exempel databasens storlek eller CPU-användning) når tröskelvärdet. Den här artikeln innehåller också Metodtips för att ställa in aviseringar perioder.    
+Den här artikeln visar hur du ställer in Azure SQL Database och informations lager aviseringar med hjälp av Azure Portal. Aviseringar kan skicka ett e-postmeddelande till dig eller anropa en webbhook när något mått (till exempel databas storlek eller CPU-användning) når tröskelvärdet. Den här artikeln innehåller också metod tips för att ställa in aviserings perioder.    
 
 > [!IMPORTANT]
-> Den här funktionen är inte tillgänglig i hanterade instanser ännu. Alternativt kan du använda SQL Agent för att skicka e-postaviseringar för vissa mått baserat på [Dynamic Management Views](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views).
+> Den här funktionen är inte tillgänglig ännu i en hanterad instans. Alternativt kan du använda SQL-agenten för att skicka e-postaviseringar för vissa mått baserat på [vyer för dynamisk hantering](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views).
 
-Du kan få en avisering baserat på övervakning mått för eller händelser på dina Azure-tjänster.
+Du kan få en avisering baserat på övervaknings mått för, eller händelser på, dina Azure-tjänster.
 
-* **Måttvärden** -aviseringen utlöses när värdet för ett visst mått överskrider ett tröskelvärde som du tilldelar i båda riktningarna. Det vill säga den utlöser både när villkoret uppfylls först och sedan efteråt när villkoret som inte längre är uppfyllt.    
-* **Händelser i aktivitetsloggen** – en avisering kan utlösas vid *varje* händelse eller bara när ett visst antal händelser inträffar.
+* **Mått värden** – aviseringen utlöses när värdet för ett angivet mått korsar ett tröskelvärde som du tilldelar i båda riktningarna. Det innebär att den utlöses både när villkoret först uppfylls och sedan efteråt när det villkoret inte längre uppfylls.    
+* **Aktivitets logg händelser** – en avisering kan utlösas vid *varje* händelse, eller endast när ett visst antal händelser inträffar.
 
-Du kan konfigurera en avisering om du vill göra följande när den utlöses:
+Du kan konfigurera en avisering för att göra följande när den utlöser:
 
-* Skicka e-postmeddelanden till tjänstadministratören och medadministratörer
+* Skicka e-postaviseringar till tjänst administratören och medadministratörer
 * Skicka e-post till ytterligare e-postmeddelanden som du anger.
-* Anropa en webhook
+* anropa en webhook
 
-Du kan konfigurera och få information om Varningsregler med hjälp av
+Du kan konfigurera och hämta information om aviserings regler med hjälp av
 
 * [Azure Portal](../monitoring-and-diagnostics/insights-alerts-portal.md)
 * [PowerShell](../azure-monitor/platform/alerts-classic-portal.md)
-* [Kommandoradsgränssnittet (CLI)](../azure-monitor/platform/alerts-classic-portal.md)
-* [Azure Monitor REST-API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+* [kommando rads gränssnitt (CLI)](../azure-monitor/platform/alerts-classic-portal.md)
+* [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
-## <a name="create-an-alert-rule-on-a-metric-with-the-azure-portal"></a>Skapa en aviseringsregel på ett mått med Azure portal
-1. I den [portal](https://portal.azure.com/), letar du upp den resurs som du är intresserad av övervakning och markera den.
-2. Välj **aviseringar (klassisk)** under avsnittet övervakning. Text och ikonen kan variera något mellan olika resurser.  
+## <a name="create-an-alert-rule-on-a-metric-with-the-azure-portal"></a>Skapa en varnings regel för ett mått med Azure Portal
+1. I [portalen](https://portal.azure.com/)letar du reda på den resurs som du är intresse rad av övervakning och väljer den.
+2. Välj **aviseringar (klassisk)** under avsnittet övervakning. Texten och ikonen kan variera något för olika resurser.  
    
      ![Övervakning](media/sql-database-insights-alerts-portal/AlertsClassicButton.JPG)
   
-   - **SQL DW ENDAST**: Klicka på den **DWU-användning** graph. Välj **Visa klassiska aviseringar**
+   - **ENDAST SQL DW**: Klicka på diagram över **användning av DWU** . Välj **Visa klassiska aviseringar**
 
-3. Välj den **Lägg till måttavisering (klassisk)** knappen och Fyll i fälten.
+3. Välj knappen **Lägg till mått varning (klassisk)** och fyll i fälten.
    
     ![Lägg till avisering](media/sql-database-insights-alerts-portal/AddDBAlertPageClassic.JPG)
-4. **Namnet** aviseringen regel och väljer en **beskrivning**, som visar även i e-postaviseringar.
-5. Välj den **mått** du vill övervaka och väljer sedan en **villkor** och **tröskelvärdet** värdet för måttet. Också välja den **Period** tid som måttregel måste vara uppfyllda innan aviseringen utlösare. Till exempel om du använder perioden ”PT5M” och aviseringen söker efter CPU högre än 80%, en avisering utlöses när den **genomsnittlig** CPU har varit över 80% i 5 minuter. När den första utlösaren inträffar, utlöser igen när den genomsnittliga CPU som är mindre än 80% under 5 minuter. CPU-mätning sker varje minut. Med hjälp av tabellen nedan för stöds tidsfönster och aggregeringen Skriv som var Avisera använder inte alla aviseringar använder medelvärdet.   
-6. Kontrollera **e-ägare...**  om du vill att administratörer och medadministratörer för att få e-postaviseringar när aviseringen utlöses.
-7. Om du vill att ytterligare e-postmeddelanden tar emot ett meddelande när aviseringen utlöses, lägga till dem i den **administratören email(s)** fält. Avgränsa flera e-postmeddelanden med semikolon - *e-post\@contoso.com;email2\@contoso.com*
-8. Placera i en giltig URI i den **Webhook** fältet om du vill att den anropas när aviseringen utlöses.
-9. Välj **OK** när du är klar för att skapa aviseringen.   
+4. **Namnge** din aviserings regel och välj en **Beskrivning**, som också visas i e-postmeddelanden.
+5. Välj det **mått** som du vill övervaka och välj sedan ett **villkor** och ett **tröskel** värde för måttet. Välj också den tids **period** som mått regeln måste uppfylla innan aviseringen utlöses. Om du till exempel använder perioden "PT5M" och din avisering söker efter CPU över 80%, utlöses aviseringen när den **genomsnittliga** CPU: n är över 80% i 5 minuter. När den första utlösaren sker utlöses den igen när den genomsnittliga CPU: n är under 80% över 5 minuter. CPU-måttet sker var 1 minut. I tabellen nedan finns det stöd för tidsfönster som stöds och den agg regerings typ som varje varning använder – inte alla aviseringar använder det genomsnittliga värdet.   
+6. Kontrol lera **e-postägare...** om du vill att administratörer och medadministratörer ska skickas via e-post när aviseringen utlöses.
+7. Om du vill att ytterligare e-postmeddelanden ska ta emot ett meddelande när aviseringen utlöses, lägger du till dem i fältet **ytterligare administratörs e-post (er)** . Avgränsa flera e-postmeddelanden med semikolon – e- *post\@contoso. com; email2\@contoso.com*
+8. Placera i en giltig URI i fältet **webhook** om du vill att det ska anropas när aviseringen utlöses.
+9. Välj **OK** när du är färdig för att skapa aviseringen.   
 
-Inom några minuter, aviseringen är aktiv och utlöser som det beskrivits.
+Inom några minuter är aviseringen aktiv och utlösare enligt beskrivningen ovan.
 
-## <a name="managing-your-alerts"></a>Hantera dina aviseringar
-När du har skapat en avisering, kan du välja den och:
+## <a name="managing-your-alerts"></a>Hantera aviseringar
+När du har skapat en avisering kan du välja den och:
 
-* Visa ett diagram som visar tröskelvärde för mått och de faktiska värdena från föregående dag.
+* Visa ett diagram som visar mått tröskelvärdet och de faktiska värdena från föregående dag.
 * Redigera eller ta bort den.
-* **Inaktivera** eller **aktivera** det om du vill att tillfälligt stoppa eller återuppta ta emot meddelanden för den här aviseringen.
+* **Inaktivera** eller **Aktivera** det om du tillfälligt vill stoppa eller återuppta mottagning av aviseringar.
 
 
-## <a name="sql-database-alert-values"></a>Aviseringen värden för SQL-databas
+## <a name="sql-database-alert-values"></a>SQL Database aviserings värden
 
-| Resurstyp | Måttnamn | Eget namn | Sammansättningstyp: | Minsta avisering tidsfönstret|
+| Resurstyp | Måttnamn | Eget namn | Sammansättningstyp: | Minsta tids period för avisering|
 | --- | --- | --- | --- | --- |
-| SQL-databas | cpu_percent | CPU-procent | Medel | 5 minuter |
-| SQL-databas | physical_data_read_percent | Data IO-procent | Medel | 5 minuter |
-| SQL-databas | log_write_percent | Logg-IO-procent | Medel | 5 minuter |
-| SQL-databas | dtu_consumption_percent | DTU-procent | Medel | 5 minuter |
-| SQL-databas | lagring | Totala databasstorleken | Maximal | 30 minuter |
-| SQL-databas | connection_successful | Anslutningarna lyckades | Totalt | 10 minuter |
-| SQL-databas | connection_failed | Misslyckade anslutningar | Totalt | 10 minuter |
-| SQL-databas | blocked_by_firewall | Blockeras av brandvägg | Totalt | 10 minuter |
-| SQL-databas | deadlock | Låsningar | Totalt | 10 minuter |
-| SQL-databas | storage_percent | Databasstorlek i procent | Maximal | 30 minuter |
-| SQL-databas | xtp_storage_percent | Percent(Preview) för in-Memory OLTP-lagring | Medel | 5 minuter |
-| SQL-databas | workers_percent | Arbetare procent | Medel | 5 minuter |
-| SQL-databas | sessions_percent | Sessioner procent | Medel | 5 minuter |
-| SQL-databas | dtu_limit | DTU-gräns | Medel | 5 minuter |
-| SQL-databas | dtu_used | DTU används | Medel | 5 minuter |
+| SQL-databas | cpu_percent | Processorprocent | Average | 5 minuter |
+| SQL-databas | physical_data_read_percent | Data I/O-procent | Average | 5 minuter |
+| SQL-databas | log_write_percent | Logg I/O-procent | Average | 5 minuter |
+| SQL-databas | dtu_consumption_percent | DTU-procent | Average | 5 minuter |
+| SQL-databas | lagring | Total databas storlek | Maximal | 30 minuter |
+| SQL-databas | connection_successful | Lyckade anslutningar | Totalt | 10 minuter |
+| SQL-databas | connection_failed | Misslyckade anslutningar | Totalt | 10 minuter |
+| SQL-databas | blocked_by_firewall | Blockerad av brand väggen | Totalt | 10 minuter |
+| SQL-databas | hamn | Dödlägen | Totalt | 10 minuter |
+| SQL-databas | storage_percent | Databasstorlek i procent | Maximal | 30 minuter |
+| SQL-databas | xtp_storage_percent | Minnes intern OLTP-lagring i procent (för hands version) | Average | 5 minuter |
+| SQL-databas | workers_percent | Arbetarprocent | Average | 5 minuter |
+| SQL-databas | sessions_percent | Sessioner i procent | Average | 5 minuter |
+| SQL-databas | dtu_limit | DTU-gräns | Average | 5 minuter |
+| SQL-databas | dtu_used | Använt DTU | Average | 5 minuter |
 ||||||
-| Elastisk pool | cpu_percent | CPU-procent | Medel | 10 minuter |
-| Elastisk pool | physical_data_read_percent | Data IO-procent | Medel | 10 minuter |
-| Elastisk pool | log_write_percent | Logg-IO-procent | Medel | 10 minuter |
-| Elastisk pool | dtu_consumption_percent | DTU-procent | Medel | 10 minuter |
-| Elastisk pool | storage_percent | Lagringsprocent | Medel | 10 minuter |
-| Elastisk pool | workers_percent | Arbetare procent | Medel | 10 minuter |
-| Elastisk pool | eDTU_limit | eDTU-gränsen | Medel | 10 minuter |
-| Elastisk pool | storage_limit | Gränsen för lagring | Medel | 10 minuter |
-| Elastisk pool | eDTU_used | edtu: er används | Medel | 10 minuter |
-| Elastisk pool | storage_used | Använt lagringsutrymme | Medel | 10 minuter |
+| Elastisk pool | cpu_percent | Processorprocent | Average | 10 minuter |
+| Elastisk pool | physical_data_read_percent | Data I/O-procent | Average | 10 minuter |
+| Elastisk pool | log_write_percent | Logg I/O-procent | Average | 10 minuter |
+| Elastisk pool | dtu_consumption_percent | DTU-procent | Average | 10 minuter |
+| Elastisk pool | storage_percent | Lagrings procent | Average | 10 minuter |
+| Elastisk pool | workers_percent | Arbetarprocent | Average | 10 minuter |
+| Elastisk pool | eDTU_limit | eDTU-gräns | Average | 10 minuter |
+| Elastisk pool | storage_limit | Lagrings gräns | Average | 10 minuter |
+| Elastisk pool | eDTU_used | eDTU använt | Average | 10 minuter |
+| Elastisk pool | storage_used | Använt lagringsutrymme | Average | 10 minuter |
 ||||||               
-| SQL data warehouse | cpu_percent | CPU-procent | Medel | 10 minuter |
-| SQL data warehouse | physical_data_read_percent | Data IO-procent | Medel | 10 minuter |
-| SQL data warehouse | connection_successful | Anslutningarna lyckades | Totalt | 10 minuter |
-| SQL data warehouse | connection_failed | Misslyckade anslutningar | Totalt | 10 minuter |
-| SQL data warehouse | blocked_by_firewall | Blockeras av brandvägg | Totalt | 10 minuter |
-| SQL data warehouse | service_level_objective | Tjänstenivå för databasen | Totalt | 10 minuter |
-| SQL data warehouse | dwu_limit | dwu-gräns | Maximal | 10 minuter |
-| SQL data warehouse | dwu_consumption_percent | DWU-procent | Medel | 10 minuter |
-| SQL data warehouse | dwu_used | Använda DWU | Medel | 10 minuter |
+| SQL Data Warehouse | cpu_percent | Processorprocent | Average | 10 minuter |
+| SQL Data Warehouse | physical_data_read_percent | Data I/O-procent | Average | 10 minuter |
+| SQL Data Warehouse | connection_successful | Lyckade anslutningar | Totalt | 10 minuter |
+| SQL Data Warehouse | connection_failed | Misslyckade anslutningar | Totalt | 10 minuter |
+| SQL Data Warehouse | blocked_by_firewall | Blockerad av brand väggen | Totalt | 10 minuter |
+| SQL Data Warehouse | service_level_objective | Tjänst nivå för databasen | Totalt | 10 minuter |
+| SQL Data Warehouse | dwu_limit | DWU-gräns | Maximal | 10 minuter |
+| SQL Data Warehouse | dwu_consumption_percent | DWU procent | Average | 10 minuter |
+| SQL Data Warehouse | dwu_used | DWU som används | Average | 10 minuter |
 ||||||
 
 
 ## <a name="next-steps"></a>Nästa steg
-* [Få en översikt över Azure-övervakning](../monitoring-and-diagnostics/monitoring-overview.md) , inklusive typerna av information som du kan samla in och övervaka.
-* Läs mer om [konfigurerar webhooks i aviseringar](../azure-monitor/platform/alerts-webhooks.md).
-* Hämta en [översikt över diagnostikloggar](../azure-monitor/platform/diagnostic-logs-overview.md) och samla in detaljerade mätvärden för hög frekvens på din tjänst.
-* Hämta en [översikt över mått samling](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) att kontrollera att tjänsten är tillgänglig och svarar.
+* [Få en översikt över Azure-övervakning](../monitoring-and-diagnostics/monitoring-overview.md) , inklusive de typer av information som du kan samla in och övervaka.
+* Läs mer om hur du [konfigurerar Webhooks i aviseringar](../azure-monitor/platform/alerts-webhooks.md).
+* Få en [Översikt över diagnostikloggar](../azure-monitor/platform/diagnostic-logs-overview.md) och samla in detaljerade mått för hög frekvens på din tjänst.
+* Få en [Översikt över mått samlingen](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) för att se till att tjänsten är tillgänglig och svarar.

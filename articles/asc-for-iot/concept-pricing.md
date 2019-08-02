@@ -1,6 +1,6 @@
 ---
-title: Förstå Azure Security Center för IoT kostar förhandsversion | Microsoft Docs
-description: Läs mer om kostnaderna för IoT och hur du kan kontrollera dem med Azure Security Center.
+title: Förstå Azure Security Center för IoT-kostnader | Microsoft Docs
+description: Lär dig mer om kostnaderna som är associerade med Azure Security Center för IoT och hur du styr dem.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -13,79 +13,76 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/27/2019
+ms.date: 07/26/2019
 ms.author: mlottner
-ms.openlocfilehash: dd041cdb1608eab60fa2a5fa756f381656a13a46
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 603df1def011232ad2120c37ad1ba256f2a30526
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67618444"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596512"
 ---
 # <a name="pricing-and-associated-costs"></a>Prissättning och associerade kostnader
 
-> [!IMPORTANT]
-> Azure Security Center för IoT är för närvarande i offentlig förhandsversion.
-> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Den här artikeln förklarar Azure Security Center (ASC) IoT prissättningsmodell, sammanfattar alla associerade kostnader och förklarar hur du hanterar dem.
+Den här artikeln beskriver Azure Security Center för IoT-prismodellen, sammanfattar alla associerade kostnader och förklarar hur du hanterar dem.
 
 ## <a name="pricing"></a>Prissättning
 
-ASC för IoT prismodellen består av två delar och debiteras när en IoT-hubb är [aktiverat](quickstart-onboard-iot-hub.md) i ASC för IoT:
+Azure Security Center för IoT-prismodellen består av två delar och faktureras när en IoT Hub [aktive ras](quickstart-onboard-iot-hub.md) i Azure Security Center för IoT:
 
-- Kostnad per enhet – inbyggda säkerhetsfunktioner baserat på analysen av loggar för IoT Hub.
+- Kostnad per enhet – inbyggda säkerhetsfunktioner baserat på analys av IoT Hub loggar.
 
-- Kostnad per meddelande - funktioner för förbättrad säkerhet utifrån security meddelanden från IoT Edge eller löv enheter.
+- Kostnad per meddelande – utökade säkerhetsfunktioner baserat på säkerhets meddelanden från IoT Edge eller löv enheter.
 
   >[!Note]
-  > Säkerhetsvarningar medför också kvot för användning på IoT Hub.
+  > Säkerhets meddelanden kommer också att ha kvot förbrukning på IoT Hub.
 
-Mer information finns i [Security Center-prissättning](https://azure.microsoft.com/pricing/details/security-center/).
+Mer information finns i [Security Center prissättning](https://azure.microsoft.com/pricing/details/security-center/).
 
-## <a name="associated-costs"></a>Associerade kostnader
+## <a name="associated-costs"></a>Tillhör ande kostnader
 
-ASC för IoT har två typer av relaterade kostnader, som inte ingår i den direkta betalning:
+Azure Security Center for IoT har två typer av associerade kostnader som inte ingår i direkt prissättningen:
 
-- Förbrukning för IoT Hub-kvot
+- IoT Hub kvot förbrukning
 
-- Logga in kostnader för lagring av Analytics
+- Log Analytics lagrings kostnader
 
-Du kan minska kostnaderna genom att ta slut vissa funktioner genom att ändra dina inställningar.
+Du kan minska kostnaderna genom att väljer bort från vissa funktioner genom att ändra dina inställningar.
 
-Du ändrar inställningarna:
+Ändra inställningarna:
 
-1. Öppna IoT-hubb.
+1. Öppna IoT Hub.
 
-2. Under **Security**, klickar du på **översikt**.
+2. Klicka på **Översikt**under **säkerhet**.
 
 3. Klicka på **Inställningar**.
 
-Följande tabell innehåller en sammanfattning av associerade kostnader och konsekvenserna av varje alternativ.
+Följande tabell innehåller en sammanfattning av de associerade kostnaderna och konsekvenserna av varje alternativ.
 
 |     | Användning | Kommentar |
 | --- | --- | --- |
-| **Förbrukning för IoT Hub-kvot** |  |
-| [Exportera enheten](https://docs.microsoft.com/azure/iot-hub/iot-hub-bulk-identity-mgmt#export-devices) jobb (twin export) | En gång om dagen | Inaktivera _twin metadatasamlingen_ |
-| **Log Analytics-lagring** |  |
-| Rekommendation för enheten och aviseringar| Säkerhetsrekommendation och aviseringar som genereras av tjänsten | Inte valfritt |
-| Rå säkerhetsdata| Rå säkerhetsdata från IoT-enheter, som samlas in av security agenter | Inaktivera _lagra säkerhetshändelser för raw-enhet_ |
+| **IoT Hub kvot förbrukning** |  |
+| [Exportera enhets](https://docs.microsoft.com/azure/iot-hub/iot-hub-bulk-identity-mgmt#export-devices) jobb (dubbel export) | En gång om dagen | Inaktivera _insamling av dubbla metadata_ |
+| **Log Analytics lagring** |  |
+| Enhets rekommendation och aviseringar| Säkerhets rekommendationer och aviseringar som genererats av tjänsten | Inte valfritt |
+| Rå säkerhets data| Rå säkerhets data från IoT-enheter som samlas in av säkerhets agenter | Inaktivera _säkerhets händelser för lagring av rå enheter_ |
 
 >[!Important]
-> Avanmäla har allvarliga konsekvenser till tillgängliga säkerhetsfunktioner.
+> Väljer out har allvarliga konsekvenser för tillgängliga säkerhetsfunktioner.
   
-| Avanmäla dig | Effekter |
+| Avanmäl | Effekter |
 | --- | --- |
-| _Twin metadatasamlingen_ | Inaktivera [anpassade aviseringar](quickstart-create-custom-alerts.md) |
-| | Inaktivera manifest IoT Edge-rekommendationer |
-| | Inaktivera enheten identitetsbaserade rekommendationer och aviseringar |
-| _Säkerhetshändelser i Store raw-enhet_ | Information om enhetens OS grundläggande rekommendationer är inte tillgängliga |
-| | Information på [avisering](concept-security-alerts.md) och [rekommendation](concept-recommendations.md) undersökningar är inte tillgängliga |
+| _Samling med dubbla metadata_ | Inaktivera [anpassade aviseringar](quickstart-create-custom-alerts.md) |
+| | Inaktivera rekommendationer för IoT Edge manifest |
+| | Inaktivera rekommendationer och aviseringar för enhets identitet |
+| _Lagra säkerhets händelser för RAW-enhet_ | Information om bas linje rekommendationer för enhets operativ system är inte tillgänglig |
+| | Information om [varnings](concept-security-alerts.md) -och [rekommendations](concept-recommendations.md) undersökningar är inte tillgängliga |
+|
 
 
 ## <a name="see-also"></a>Se också
 
-- Åtkomst till din [raw säkerhetsdata](how-to-security-data-access.md)
-- [Undersöka en enhet](how-to-investigate-device.md)
-- Förstå och utforska [säkerhetsrekommendationer](concept-recommendations.md)
-- Förstå och utforska [säkerhetsaviseringar](concept-security-alerts.md)
+- Få åtkomst till dina [rå säkerhets data](how-to-security-data-access.md)
+- [Undersök en enhet](how-to-investigate-device.md)
+- Förstå och utforska [säkerhets rekommendationer](concept-recommendations.md)
+- Förstå och utforska [säkerhets aviseringar](concept-security-alerts.md)

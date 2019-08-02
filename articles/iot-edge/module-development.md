@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: dc17cb48f7e06757dacdca5f291ed4604bfc10ee
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: 923859fdb0b398d04e710810a96c33fb1c3cd9da
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68414399"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698566"
 ---
 # <a name="develop-your-own-iot-edge-modules"></a>Utveckla dina egna IoT Edge-moduler
 
@@ -44,7 +44,7 @@ En IoT Edge-modul, till skillnad från en normal IoT Hub device program, kan ta 
 
 IoT Edge Hub sprider meddelandena till modulen baserat på deklarativ vägar som beskrivs i distributions [manifestet](module-composition.md). När du utvecklar en IoT Edge-modul, kan du ta emot dessa meddelanden genom att ange meddelandehanterare.
 
-För att förenkla skapandet av vägar IoT Edge lägger till konceptet indata och  *utdata* -slutpunkter för moduler. En modul kan ta emot alla meddelanden från enheten till molnet dirigeras till den utan att ange några indata och kan skicka meddelanden från enheten till molnet utan att ange några utdata. Med hjälp av explicita indata och utdata, men gör routningsregler enklare att förstå. 
+För att förenkla skapandet av vägar IoT Edge lägger till konceptet indata och *utdata* -slutpunkter för moduler. En modul kan ta emot alla meddelanden från enheten till molnet dirigeras till den utan att ange några indata och kan skicka meddelanden från enheten till molnet utan att ange några utdata. Med hjälp av explicita indata och utdata, men gör routningsregler enklare att förstå. 
 
 Slutligen är enhet-till-moln-meddelanden som hanteras av Edge hub stämplad med följande Systemegenskaper för:
 
@@ -98,4 +98,4 @@ För alla språk i följande tabell IoT Edge stöder utveckling för AMD64 Windo
 
 [Använd Visual Studio Code för att utveckla moduler för IoT Edge](how-to-vs-code-develop-module.md)
 
-[Förstå och Använd Azure IoT Hub SDK: er](/iot-hub/iot-hub-devguide-sdks.md)
+[Förstå och Använd Azure IoT Hub SDK: er](../iot-hub/iot-hub-devguide-sdks.md)

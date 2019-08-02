@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: sngun
-ms.openlocfilehash: a53a62a7bc7a5c7f8d9bdabdf411588fdf7bd5e7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7923ce10912ebb6f09c1c3d8390dd51b4f876bea
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66257060"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68551996"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Använd Azure Cosmos DB-ändringsflödet att visualisera analyser av realtidsdata
 
@@ -30,7 +30,7 @@ Följande diagram representerar dataflöde och komponenter som ingår i lösning
 
 ![Projektet visuellt objekt](./media/changefeed-ecommerce-solution/project-visual.png)
  
-1. **Generering av data:** Datasimulatorn används för att generera detaljhandelsdata som representerar händelser, t.ex en användare visa ett objekt, att lägga till ett objekt i deras kundvagn och köpa ett objekt. Du kan generera stora uppsättning exempeldata med hjälp av datageneratorn. Genererade exempeldata innehåller dokument i följande format:
+1. **Generering av data:** Data Simulator används för att generera detalj handels data som representerar händelser, till exempel en användare som visar ett objekt, lägger till ett objekt i sin varukorg och köper ett objekt. Du kan generera stora uppsättning exempeldata med hjälp av datageneratorn. Genererade exempeldata innehåller dokument i följande format:
    
    ```json
    {      
@@ -41,17 +41,17 @@ Följande diagram representerar dataflöde och komponenter som ingår i lösning
    }
    ```
 
-2. **Cosmos DB:** Genererade data är butiker i en Azure Cosmos DB-samling.  
+2. **Cosmos DB:** Genererade data lagras i en Azure Cosmos DB-samling.  
 
-3. **Ändringsfeed:** Ändringsflöde att lyssna efter ändringar i Azure Cosmos DB-samlingen. Varje gång ett nytt dokument har lagts till i samlingen (som när en händelse inträffar, till exempel en användare som visar ett objekt när en artikel läggs till i sina kundvagn eller köpa ett objekt), kommer ändringsfeed utlösa en [Azure Function](../azure-functions/functions-overview.md).  
+3. **Ändra feed:** Ändrings flödet kommer att lyssna efter ändringar i Azure Cosmos DBs samlingen. Varje gång ett nytt dokument har lagts till i samlingen (som när en händelse inträffar, till exempel en användare som visar ett objekt när en artikel läggs till i sina kundvagn eller köpa ett objekt), kommer ändringsfeed utlösa en [Azure Function](../azure-functions/functions-overview.md).  
 
-4. **Azure Function:** Azure Function bearbetar nya data och skickar den till en [Azure Event Hub](../event-hubs/event-hubs-about.md).  
+4. **Azure Function:** Azure-funktionen bearbetar nya data och skickar dem till en [Azure Event Hub](../event-hubs/event-hubs-about.md).  
 
-5. **Händelsehubb:** Azure Event Hub lagrar dessa händelser och skickar dem till [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) att utföra ytterligare analyser.  
+5. **Händelsehubben:** Azure Event Hub lagrar dessa händelser och skickar dem till [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) för att utföra ytterligare analyser.  
 
-6. **Azure Stream Analytics:** Azure Stream Analytics definierar frågor för att bearbeta händelserna och utföra dataanalys i realtid. Dessa data skickas sedan till [Microsoft Power BI](https://docs.microsoft.com/power-bi/desktop-what-is-desktop).  
+6. **Azure Stream Analytics:** Azure Stream Analytics definierar frågor för att bearbeta händelserna och utföra data analys i real tid. Dessa data skickas sedan till [Microsoft Power BI](https://docs.microsoft.com/power-bi/desktop-what-is-desktop).  
 
-7. **Power BI:** Powerbi används för att visualisera data som skickas av Azure Stream Analytics. Du kan skapa en instrumentpanel om du vill se hur mått som ändras i realtid.  
+7. **Power BI:** Power BI används för att visualisera data som skickas av Azure Stream Analytics. Du kan skapa en instrumentpanel om du vill se hur mått som ändras i realtid.  
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -165,7 +165,7 @@ Se hur ändringsfeed bearbetar nya åtgärder på en e-handelswebbplats, har du 
 
 1. Gå tillbaka till lagringsplatsen i Utforskaren och högerklicka på **ChangeFeedFunction.sln** att öppna den i ett nytt Visual Studio-fönster.  
 
-2. Navigera till den **App.config** fil. I den `<appSettings>` blockera, lägga till slutpunkten och unikt **PRIMÄRNYCKEL** som Azure Cosmos DB-kontot som du hämtade tidigare.  
+2. Navigera till filen **app. config** . I blocket lägger du till slut punkten och unik **primär nyckel** för ditt Azure Cosmos DB-konto som du hämtade tidigare. `<appSettings>`  
 
 3. Lägg till i den **samling** och **databasen** namn. (Dessa namn bör vara **changefeedlabcollection** och **changefeedlabdatabase** om du inte väljer att namnge din på olika sätt.)
 

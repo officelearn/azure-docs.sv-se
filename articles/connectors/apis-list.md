@@ -9,16 +9,16 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: article
 ms.date: 05/08/2019
-ms.openlocfilehash: ab2413cfce8b87fbe1899a0b7c465c6e6c27a3f5
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 126c3fb348b1d53769a818ae4b21fcdbbef65615
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277647"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68517244"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Anslutningar för Azure Logic Apps
 
-Anslutningarna ger snabb åtkomst från Azure Logic Apps till händelser, data och åtgärder i andra appar, tjänster, system, protokoll och plattformar. Genom att använda kopplingar i dina Logi Kap par, expanderar du funktionerna för dina moln-och lokala appar för att utföra uppgifter med de data som du skapar och redan har.
+Anslutningsprogram ger snabb åtkomst från Azure Logic Apps till händelser, data och åtgärder i andra appar, tjänster, system, protokoll och plattformar. Genom att använda anslutningsprogram i dina logikappar kan du utöka funktionerna för dina molnappar och lokala appar så att du kan utföra olika åtgärder för de data som du skapar och redan har.
 
 Även om Logic Apps erbjuder [hundratals kopplingar](https://docs.microsoft.com/connectors), beskriver den här artikeln populära och ofta använda anslutningar som används av tusentals appar och miljoner körningar för bearbetning av data och information. Om du vill hitta en fullständig lista över kopplingar och varje kopplings referensinformation, till exempel utlösare, åtgärder och gränser, granskar du kopplings referens sidorna under [kopplings översikt](https://docs.microsoft.com/connectors). Lär dig även mer om [utlösare och åtgärder](#triggers-actions), [Logic Apps pris modell](../logic-apps/logic-apps-pricing.md)och [Logic Apps pris information](https://azure.microsoft.com/pricing/details/logic-apps/). 
 
@@ -35,7 +35,7 @@ Kopplingar är tillgängliga antingen som inbyggda utlösare och åtgärder elle
   > Logic Apps i en [integrerings tjänst miljö (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) kan komma åt resurser direkt i ett virtuellt Azure-nätverk.
   > När du använder en ISE, inbyggda utlösare och åtgärder som visar **kärn** etiketten körs i samma ISE som dina Logic Apps. Logic Apps, inbyggda utlösare och inbyggda åtgärder som körs i din ISE använder en pris sättnings plan som skiljer sig från den förbruknings pris planen.
   >
-  > Mer information om hur du skapar ISEs finns i [ansluta till virtuella Azure-nätverk från Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#create-logic-apps-environment). 
+  > Mer information om hur du skapar ISEs finns i [ansluta till virtuella Azure-nätverk från Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md). 
   > Mer information om priser finns i [Logic Apps pris modell](../logic-apps/logic-apps-pricing.md).
 
 <a name="managed-connectors"></a>
@@ -63,7 +63,7 @@ Kopplingar är tillgängliga antingen som inbyggda utlösare och åtgärder elle
   >
   > För lokala system som är anslutna till ett virtuellt Azure-nätverk, injicera du ISE i det nätverket så att dina Logi Kap par kan komma åt dessa system genom att använda antingen en anslutning som har en **ISE** -etikett, en HTTP-åtgärd eller en [anpassad anslutning](#custom). Logic Apps och kopplingar som körs i din ISE använder en pris sättnings plan som skiljer sig från den förbruknings bara pris planen. 
   >
-  > Mer information om hur du skapar ISEs finns i [ansluta till virtuella Azure-nätverk från Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#create-logic-apps-environment).
+  > Mer information om hur du skapar ISEs finns i [ansluta till virtuella Azure-nätverk från Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md).
   > Mer information om priser finns i [Logic Apps pris modell](../logic-apps/logic-apps-pricing.md).
 
   För en fullständig lista över kopplingar och varje kopplings referensinformation, till exempel åtgärder och utlösare, som definieras av en OpenAPI (tidigare Swagger), plus eventuella begränsningar, kan du hitta hela listan under [anslutnings översikten](/connectors/). Information om priser finns i [Logic Apps pris modell](../logic-apps/logic-apps-pricing.md)och [Logic Apps pris information](https://azure.microsoft.com/pricing/details/logic-apps/). 
@@ -112,7 +112,7 @@ Logic Apps tillhandahåller de här populära standard anslutningarna för autom
 
 |   |   |   |   | 
 |---|---|---|---| 
-| [![API-][azure-service-bus-icon]<br/>ikon**Azure Service Bus**][azure-service-bus-doc] | Hantera asynkrona meddelanden, sessioner och ämnes prenumerationer med den oftast använda anslutningen i Logic Apps. | [![API-][sql-server-icon]<br/>ikon**SQL Server**][sql-server-doc] | Anslut till din SQL Server lokalt eller en Azure SQL Database i molnet så att du kan hantera poster, köra lagrade procedurer eller köra frågor. | 
+| [![API-][azure-service-bus-icon]<br/>ikon**Azure Service Bus**][azure-service-bus-doc] | Hantera asynkrona meddelanden, sessioner och ämnesprenumerationer med det anslutningsprogram som oftast används i Logic Apps. | [![API-][sql-server-icon]<br/>ikon**SQL Server**][sql-server-doc] | Anslut till din SQL Server lokalt eller en Azure SQL Database i molnet så att du kan hantera poster, köra lagrade procedurer eller köra frågor. | 
 | [![API-][office-365-outlook-icon]<br/>ikon**Office<br/>365 Outlook**][office-365-outlook-doc] | Anslut till ditt Office 365-e-postkonto så att du kan skapa och hantera e-post, uppgifter, Kalender händelser och möten, kontakter, förfrågningar och mycket annat. | [![API-][azure-blob-storage-icon]<br/>ikon**Azure<br/>Blob Storage**][azure-blob-storage-doc] | Anslut till ditt lagrings konto så att du kan skapa och hantera BLOB-innehåll. | 
 | [![API-][sftp-icon]<br/>ikon**SFTP**][sftp-doc] | Anslut till SFTP-servrar som du kan komma åt från Internet så att du kan arbeta med dina filer och mappar. | [![API-][sharepoint-online-icon]<br/>ikon**SharePoint<br/>online**][sharepoint-online-doc] | Anslut till SharePoint Online så att du kan hantera filer, bilagor, mappar med mera. | 
 | [![API-][dynamics-365-icon]<br/>ikon**Dynamics<br/>365 CRM Online**][dynamics-365-doc] | Anslut till ditt Dynamics 365-konto så att du kan skapa och hantera poster, artiklar med mera. | [![API-][ftp-icon]<br/>ikon**FTP**][ftp-doc] | Anslut till FTP-servrar som du kan komma åt från Internet så att du kan arbeta med dina filer och mappar. | 
@@ -160,7 +160,7 @@ Logic Apps tillhandahåller de här företags anslutningarna för åtkomst till 
 
 ## <a name="triggers-and-actions---more-info"></a>Utlösare och åtgärder – mer information
 
-Kopplingar kan tillhandahålla utlösare, *åtgärder*eller både och. En  utlösare är det första steget i alla logiska appar, vanligt vis genom att ange den händelse som utlöser utlösaren och börjar köra din Logic app. FTP-anslutningen har till exempel en utlösare som startar din Logic app "när en fil läggs till eller ändras". Vissa utlösare söker regelbundet efter den angivna händelsen eller data och utlöses sedan när de identifierar den angivna händelsen eller informationen. Andra utlösare väntar men utlöses direkt när en enskild händelse inträffar eller när nya data är tillgängliga. Utlösare skickas också tillsammans med alla data som krävs till din Logic app. Din Logic app kan läsa och använda dessa data i hela arbets flödet.
+Kopplingar kan tillhandahållautlösare, *åtgärder*eller både och. En utlösare är det första steget i alla logiska appar, vanligt vis genom att ange den händelse som utlöser utlösaren och börjar köra din Logic app. FTP-anslutningen har till exempel en utlösare som startar din Logic app "när en fil läggs till eller ändras". Vissa utlösare söker regelbundet efter den angivna händelsen eller data och utlöses sedan när de identifierar den angivna händelsen eller informationen. Andra utlösare väntar men utlöses direkt när en enskild händelse inträffar eller när nya data är tillgängliga. Utlösare skickas också tillsammans med alla data som krävs till din Logic app. Din Logic app kan läsa och använda dessa data i hela arbets flödet.
 Twitter-anslutningen har exempelvis en utlösare, "när en ny tweet publiceras", som skickar Tweetens innehåll till din Logic app-arbetsflöde. 
 
 När en utlösare aktive ras skapar Azure Logic Apps en instans av din Logic app och börjar köra *åtgärderna* i din Logic app-arbetsflöde. Åtgärder är de steg som följer utlösaren och utför uppgifter i din Logic app-arbetsflöde. Du kan till exempel skapa en Logic-app som hämtar kund information från en SQL-databas och bearbetar dessa data i senare åtgärder. 
@@ -196,7 +196,7 @@ Om du vill göra anpassade API Apps eller anslutningar offentliga för alla som 
 >
 > Anpassade anslutningar som skapats i en ISE fungerar inte med den lokala datagatewayen. Dessa anslutningar kan dock direkt komma åt lokala data källor som är anslutna till ett virtuellt Azure-nätverk som är värd för ISE. Därför behöver Logic Apps i en ISE förmodligen inte datagatewayen när de kommunicerar med dessa resurser.
 >
-> Mer information om hur du skapar ISEs finns i [ansluta till virtuella Azure-nätverk från Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#create-logic-apps-environment).
+> Mer information om hur du skapar ISEs finns i [ansluta till virtuella Azure-nätverk från Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

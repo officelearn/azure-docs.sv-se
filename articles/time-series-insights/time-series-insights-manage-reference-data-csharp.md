@@ -1,6 +1,6 @@
 ---
-title: Hantera referensdata med Azure Time Series Insights-miljö med C# | Microsoft Docs
-description: Den här artikeln beskriver hur du hanterar referensdata för en Azure Time Series Insights-miljö genom att skapa ett anpassat program som skrivits i språket C# (c sharp) .NET.
+title: Hantera referens data i Azure Time Series Insights miljö med C# | Microsoft Docs
+description: Den här artikeln beskriver hur du hanterar referens data för en Azure Time Series Insightss miljö genom att skapa ett anpassat program C# som skrivits på (c-sharp) .net-språket.
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
@@ -12,37 +12,37 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0a482ae44c796e1519ffad0a604510166b1ac63c
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 4f2bb4a6d10f9e45a27b8b5e082b3cbec475b531
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165614"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68677806"
 ---
-# <a name="manage-ga-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>Hantera referensdata för allmän tillgänglighet för en Azure Time Series Insights-miljö med hjälp avC#
+# <a name="manage-ga-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>Hantera GA-referens data för en Azure Time Series Insights miljö med hjälp avC#
 
-Den här artikeln beskrivs ett exempel C#-projekt kan du sammanställa för att hantera referensdata för en Azure Time Series Insights-miljö.
+I den här artikeln beskrivs C# ett exempel projekt som du kan kompilera för att hantera referens data för en Azure Time Series Insightss miljö.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-Utför följande steg innan du kompilerar och kör exempelkoden:
+Slutför följande steg innan du kompilerar och kör exempel koden:
 
-1. [Skapa en referensdatauppsättning](time-series-insights-add-reference-data-set.md).
+1. [Skapa en referens data uppsättning](time-series-insights-add-reference-data-set.md).
 
-1. Konfigurera auktorisering åtkomst-token för programmet. Var noga med att token hämtas via Azure Active Directory API. Du bör vidarebefordra denna token i den `Authorization` huvudet i varje fråga API-begäran.
+1. Konfigurera åtkomsttoken för programmet. Se till att token har hämtats via Azure Active Directory-API: et. Du bör skicka denna token i `Authorization` rubriken för varje fråge-API-begäran.
 
-   Information om hur du ställer in icke-interaktiva program finns i [autentisering och auktorisering](time-series-insights-authentication-and-authorization.md).
+   Information om hur du konfigurerar icke-interaktiva program finns i [autentisering och auktorisering](time-series-insights-authentication-and-authorization.md).
 
-1. Redigera exempelkod för att ersätta exempel-konstanterna som anges på **DUMMY #** , nära början av koden.
+1. Redigera exempel koden för att ersätta exempel konstanterna som anges i **#DUMMY #** , nära början av koden.
 
 > [!NOTE]
-> Visa GA-exempelkod på [ https://github.com/Azure-Samples/Azure-Time-Series-Insights ](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample).
+> Visa exempel koden för GA på [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample).
 
-## <a name="project-dependencies"></a>Projektberoenden
+## <a name="project-dependencies"></a>Projekt beroenden
 
-Lägg till NuGet-paket `Microsoft.IdentityModel.Clients.ActiveDirectory` och `Newtonsoft.Json` i det här exemplet.
+Lägg till NuGet `Microsoft.IdentityModel.Clients.ActiveDirectory` - `Newtonsoft.Json` paket och i det här exemplet.
 
-## <a name="c-sample-code"></a>C#-exempelkod
+## <a name="c-sample-code"></a>C#exempel kod
 
 ```csharp
 // Copyright (c) Microsoft Corporation.  All rights reserved.
@@ -247,4 +247,4 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs den [referensdata API](/rest/api/time-series-insights/ga-reference-data-api).
+- Läs [referens data-API: et](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api).

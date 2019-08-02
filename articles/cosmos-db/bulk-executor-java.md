@@ -9,24 +9,24 @@ ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: 68c83809cba0585d99751760c0e4f51893806170
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f8cb7458deddc95f33fa5e4582ffa7c25c3c64e6
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66257203"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619824"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Använd bulk executor Java-bibliotek för att utföra massåtgärder på Azure Cosmos DB-data
 
 Den här självstudiekursen innehåller instruktioner om hur du använder Azure Cosmos DB: s bulk executor Java-bibliotek för att importera och uppdatera Azure Cosmos DB-dokument. Läs om bulk executor biblioteket och hur den hjälper dig att utnyttja massivt dataflöde och lagring i [bulk executor biblioteksöversikt](bulk-executor-overview.md) artikeln. I den här självstudien får du skapa ett Java-program som genererar slumpmässiga dokument och de är samtidigt som importeras till en Azure Cosmos DB-behållare. När du har importerat, bulk uppdatera vissa egenskaper för ett dokument. 
 
-Massinläsning executor biblioteket är för närvarande stöds av Azure Cosmos DB SQL API och Gremlin-API-konton. Den här artikeln beskriver hur du använder bulk executor-biblioteket för .NET med SQL API-konton. Läs om hur du använder .NET-biblioteket för bulk-executor med Gremlin-API i [utföra massåtgärder i Azure Cosmos DB Gremlin API](bulk-executor-graph-dotnet.md).
+För närvarande stöds inte bulk utförar-biblioteket av Azure Cosmos DB SQL API-och Gremlin API-konton. Den här artikeln beskriver hur du använder bulk utförar Java-bibliotek med SQL API-konton. Läs om hur du använder .NET-biblioteket för bulk-executor med Gremlin-API i [utföra massåtgärder i Azure Cosmos DB Gremlin API](bulk-executor-graph-dotnet.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 * Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.  
 
-* Du kan [Testa Azure Cosmos DB kostnadsfritt](https://azure.microsoft.com/try/cosmosdb/) utan en Azure-prenumeration, utan kostnad och åtaganden. Du kan också använda den [Azure Cosmos DB-emulatorn](https://docs.microsoft.com/azure/cosmos-db/local-emulator) med den `https://localhost:8081` slutpunkt. Primärnyckeln finns i [Autentisera begäranden](local-emulator.md#authenticating-requests).  
+* Du kan [prova Azure Cosmos DB kostnads fritt](https://azure.microsoft.com/try/cosmosdb/) utan en Azure-prenumeration, utan kostnad och åtaganden. Du kan också använda [Azure Cosmos DB emulatorn](https://docs.microsoft.com/azure/cosmos-db/local-emulator) med `https://localhost:8081` slut punkten. Primärnyckeln finns i [Autentisera begäranden](local-emulator.md#authenticating-requests).  
 
 * [Java Development Kit (JDK) 1.7+](https://aka.ms/azure-jdks)  
   - I Ubuntu kör du `apt-get install default-jdk` för att installera JDK-paketet.  
@@ -37,7 +37,7 @@ Massinläsning executor biblioteket är för närvarande stöds av Azure Cosmos 
   
   - I Ubuntu kan du köra `apt-get install maven` för att installera Maven.
 
-* Skapa ett Azure Cosmos DB SQL API-konto med hjälp av stegen som beskrivs i [skapa databaskonto](create-sql-api-java.md#create-a-database-account) i artikeln för Java-Snabbstart.
+* Skapa ett Azure Cosmos DB SQL API-konto med hjälp av stegen som beskrivs i avsnittet [skapa databas konto](create-sql-api-java.md#create-a-database-account) i artikeln Java snabb start.
 
 ## <a name="clone-the-sample-application"></a>Klona exempelprogrammet
 
@@ -118,8 +118,8 @@ Den klonade lagringsplatsen innehåller två exempel ”bulkimport” och ”bul
    |int getNumberOfDocumentsImported()  |   Det totala antalet dokument som importerades från de dokument som angetts för stora importera API-anrop.      |
    |dubbla getTotalRequestUnitsConsumed()   |  De totala begäransenheter (RU) som används av stora importera API-anrop.       |
    |Varaktighet getTotalTimeTaken()   |    Den totala tid som massimporten API-anrop för att slutföra körning.     |
-   |Lista\<undantag > getErrors() |  Hämtar lista över fel om vissa dokumenten batch som angetts för stora importera API-anrop som det gick inte att hämta infogas.       |
-   |List\<Object> getBadInputDocuments()  |    Listan över dokument felaktig-format som inte har importerats i grupp importera API-anrop. Användaren bör åtgärda dokumenten som returneras och försök att importera igen. Felaktig-formaterade dokument innehålla dokument vars ID-värdet inte är en sträng (det är ogiltiga null eller andra datatype).     |
+   |Visa\<undantag > getErrors () |  Hämtar lista över fel om vissa dokumenten batch som angetts för stora importera API-anrop som det gick inte att hämta infogas.       |
+   |List\<objekt > getBadInputDocuments ()  |    Listan över dokument felaktig-format som inte har importerats i grupp importera API-anrop. Användaren bör åtgärda dokumenten som returneras och försök att importera igen. Felaktig-formaterade dokument innehålla dokument vars ID-värdet inte är en sträng (det är ogiltiga null eller andra datatype).     |
 
 5. När du har den stora importera program är klara kan du skapa kommandoradsverktyget från källan med hjälp av kommandot mvn ren paketet. Det här kommandot genererar en jar-filen i målmappen:  
 
@@ -182,7 +182,7 @@ Du kan uppdatera befintliga dokument med hjälp av BulkUpdateAsync-API. I det h�
    |int getNumberOfDocumentsUpdated()  |   Det totala antalet dokument som har uppdaterats av dokumenten som angetts för massuppdatering API-anrop.      |
    |dubbla getTotalRequestUnitsConsumed() |  Totalt antal begäransenheter (RU) används av Massuppdatering API-anrop.       |
    |Varaktighet getTotalTimeTaken()  |   Den totala tid som stora uppdatera API-anrop för att slutföra körning.      |
-   |Lista\<undantag > getErrors()   |    Hämtar lista över fel om vissa dokumenten batch kan du API-anrop samtidigt uppdateringen kunde inte hämta infogas.      |
+   |Visa\<undantag > getErrors ()   |    Hämtar lista över fel om vissa dokumenten batch kan du API-anrop samtidigt uppdateringen kunde inte hämta infogas.      |
 
 3. När du har den stora uppdatera programmet är klara kan skapa kommandoradsverktyget från källan med hjälp av kommandot mvn ren paketet. Det här kommandot genererar en jar-filen i målmappen:  
 

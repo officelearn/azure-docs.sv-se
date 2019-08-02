@@ -1,7 +1,7 @@
 ---
-title: Hur du loggar in dialogrutor i en modell för Konversationsdeltagare – Microsoft Cognitive Services | Microsoft Docs
+title: Logga dialog rutor i en Conversation Learner modell – Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Lär dig mer om att logga dialogrutor i en Konversationsdeltagare-modell.
+description: Lär dig hur du loggar dialoger i en Conversation Learners modell.
 services: cognitive-services
 author: nitinme
 manager: nolachar
@@ -10,57 +10,58 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
-ms.openlocfilehash: f1e161fa05a77682d0b5eb1c6c21975ac87028a3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: 388942e8195048d7528a54e5a290f1724c8e876b
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66387671"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68703979"
 ---
-# <a name="how-to-log-dialogs-in-a-conversation-learner-model"></a>Hur du loggar in dialogrutor i en Konversationsdeltagare-modell
+# <a name="how-to-log-dialogs-in-a-conversation-learner-model"></a>Så här loggar du dialog rutor i en Conversation Learner modell
 
-Den här kursen visar hur Log-dialogrutor utnyttjas för att skapa bättre Konversationsdeltagare modeller från registrerade interaktioner med verkliga användare.
+Den här självstudien visar hur logg dialog rutor används för att bättre träna Conversation Learner modeller från inspelade interaktioner med verkliga användare i världen.
 
 ## <a name="video"></a>Video
 
-[![Självstudiekursen förhandsversionen av log dialogrutor](https://aka.ms/cl_Tutorial_v3_LogDialogs_Preview)](https://aka.ms/cl_Tutorial_v3_LogDialogs)
+[![Förhands granskning av dialog rutor för loggar](https://aka.ms/cl_Tutorial_v3_LogDialogs_Preview)](https://aka.ms/cl_Tutorial_v3_LogDialogs)
 
 ## <a name="requirements"></a>Krav
-Den här självstudien krävs att Allmänt självstudiekursen bot körs
+Den här självstudien kräver att roboten för allmän självstudie körs
 
     npm run tutorial-general
 
-och väder-modellen som skapats i tidigare självstudier.
+och väder modellen som skapats i tidigare självstudier.
 
 ## <a name="details"></a>Information
-Log dialoger är inspelade loggarna för din robot interaktion med slutanvändarna. Du kan åtgärda entitet etiketter och åtgärden val för att förbättra modellens prestanda och hela systemets prestanda med hjälp av dessa Log-dialogrutor.
+Logg dialog rutor registreras loggar av din robots interaktion med slutanvändare. Genom att använda dessa logg dialog rutor kan du åtgärda enhets etiketter och åtgärds val för att förbättra modellens prestanda och övergripande system prestanda.
 
 ## <a name="steps"></a>Steg
 
-Klicka på ”Importera Tutorials” och välja modellen med namnet ”självstudien-11-LogDialogs” i webbgränssnittet.
+I webb gränssnittet klickar du på "Importera självstudier" och väljer modellen med namnet "självstudie-11-LogDialogs".
 
-Den här modellen innehåller en entitet med namnet ”stad” och åtgärder som utformats för att svara på förfrågningar om väder i den staden. Två träna-dialogrutor har använts för att träna modellen så att prestandaförväntningarna är något låga. Modellen skulle förbättra med ytterligare utbildning och få tillgång till verkliga användarinteraktioner.
+Den här modellen innehåller en entitet med namnet "stad" och åtgärder som har utformats för att svara på frågor om väder i denna stad. Två träna-dialog rutor användes för att träna modellen så att prestanda förväntningarna är lite låga. Modellen skulle förbättra med ytterligare utbildning och exponering för verkliga användar interaktioner i hela världen.
 
 ### <a name="create-a-new-conversation"></a>Skapa en ny konversation
 
-1. Klicka på ”Log-dialogrutor” och knappen ”Ny Log dialogruta” på den vänstra panelen.
-2. På panelen chatt står det ”Skriv meddelandet...”, ange ”Austin väderprognos”
-3. Klicka på knappen ”klar testning”.
-4. Klicka på ”Austin väderprognos” log-dialogrutan i listan.
-5. Klicka på ”Austin väderprognos”-uttryck på panelen chatt.
-6. Klicka på ”Austin” och sedan på ”stad” från entitetslistan.
-7. Klicka på knappen ”Skicka ändringar”.
-    - Den här ändringen i värdet för entiteten ändras underordnade konversationen eftersom vi har nya entitetsvärden i minnet. Senare åtgärder har blivit ogiltig särskilt sådana som rör ”stad”-entitet.
-8. Klicka på ”vilken stad”? uttryck i panelen chatt.
-9. Välj svar ”vädret i Austin är förmodligen vackert”.
-10. Klicka på knappen ”Spara som träna dialogrutan”.
-    - Träning har startats omedelbart
+1. Klicka på "Logga dialog rutor" i den vänstra panelen, sedan på knappen "ny logg dialog ruta".
+2. I panelen chat, där det står "Skriv ditt meddelande...", skriver du in "Austin väder prognos"
+3. Klicka på knappen "Slutför testning".
+4. Klicka på logg dialog rutan "Austin väder prognos" i listan.
+5. Klicka på uttryck "Austin väder prognos" i Chat-panelen.
+6. Klicka på "Austin" och klicka sedan på "stad" från listan entitet.
+7. Klicka på knappen Skicka ändringar.
+    - Den här ändringen i enhet svärdet orsakar efterföljande ändringar i konversationen eftersom vi har nya enhets värden i minnet. Senare åtgärder har troligt vis blivit ogiltiga, särskilt för entiteten "ort".
+8. Klicka på "vilken ort?" uttryck på panelen chat.
+9. Välj svaret, "Väder i Austin är förmodligen solig".
+10. Klicka på knappen "Spara som träna".
+    - Träningen har inaktiverats omedelbart
 
 ![](../media/T11_logdialog.png)
 
-Senaste en anteckning. Beroende på företagets behov, kan konversationsfunktion för loggning stängas av genom att gå till inställningar och avmarkera ”Log konversationer”.
+En sista anteckning. Beroende på affärs behov kan funktionen konversations loggning stängas av genom att gå till Inställningar och avmarkera "Logga konversationer".
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Entiteten identifiering av återanrop](./12-entity-detection-callback.md)
+> [Återanrop för enhets identifiering](./12-entity-detection-callback.md)

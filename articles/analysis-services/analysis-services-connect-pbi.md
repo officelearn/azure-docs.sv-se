@@ -1,23 +1,23 @@
 ---
-title: Ansluta till Azure Analysis Services med Powerbi | Microsoft Docs
+title: Anslut till Azure Analysis Services med Power BI | Microsoft Docs
 description: Lär dig hur du ansluter till en Azure Analysis Services-server med hjälp av Power BI.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 07/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: cb93c29ae4cb8d365cd128c52ee726c10c94bc19
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: eadba5397655809dc4f3e6d5f9d6c79addde68a6
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61023582"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619296"
 ---
 # <a name="connect-with-power-bi"></a>Anslut med Power BI
 
-När du har skapat en server i Azure och distribuerat en tabellmodell till den, är användare i din organisation redo att ansluta och börja utforska data. 
+När du har skapat en server i Azure och distribuerat en tabell modell till den, är användare i din organisation redo att ansluta och börja utforska data. 
 
 > [!TIP]
 > Se till att använda den senaste versionen av [Power BI Desktop](https://powerbi.microsoft.com/desktop/).
@@ -28,26 +28,26 @@ När du har skapat en server i Azure och distribuerat en tabellmodell till den, 
 
 1. I Power BI Desktop klickar du på **Hämta data** > **Azure** > **Azure Analysis Services-databas**.
 
-2. I **Server**, ange namnet på servern. Se till att inkludera en fullständig URL; till exempel asazure://westcentralus.asazure.windows.net/advworks.
+2. I **Server**anger du Server namnet. Se till att ta med den fullständiga URL: en. till exempel asazure://westcentralus.asazure.windows.net/advworks.
 
-3. I **databasen**, om du känner till namnet på den tabellmodelldatabas eller ett perspektiv som du vill ansluta till, klistra in den här. I annat fall kan du lämna fältet tomt och välja en databas eller ett perspektiv senare.
+3. I **databasen**, om du känner till namnet på den tabell modell databas eller det perspektiv som du vill ansluta till, klistrar du in den här. Annars kan du lämna det här fältet tomt och välja en databas eller ett perspektiv senare.
 
-4. Välj ett anslutningsalternativ för och tryck sedan på **Connect**. 
+4. Välj ett anslutnings alternativ och tryck sedan på **Anslut**. 
 
-    Båda **Anslut live** och **Import** alternativ stöds. Men rekommenderar vi att du använder live-anslutningar eftersom importläge har vissa begränsningar. framför, kan serverprestanda påverkas under importen. Även om modellen är uppdateras i Power BI-tjänsten i **tillåter åtkomst från Power BI** inställningen gäller bara när du väljer **Anslut live**.
+    Båda alternativen för att **ansluta Live** och **Importera** stöds. Vi rekommenderar dock att du använder Live-anslutningar eftersom import läget har vissa begränsningar. främst kan Server prestanda påverkas under importen. Om modellen ska uppdateras i Power BI-tjänst gäller även inställningen **Tillåt åtkomst från Power BI** endast när du väljer **Anslut Live**.
 
-5. Om du uppmanas, anger du dina inloggningsuppgifter. 
+5. Ange dina inloggnings uppgifter om du uppmanas att göra det. 
 
-6. I **Navigator**, expandera servern och välj sedan modellen eller perspektiv som du vill ansluta till och klicka sedan på **Connect**. Klicka på en modell eller ett perspektiv för att visa alla objekt för vyn.
+6. I **Navigator**expanderar du-servern och väljer sedan den modell eller det perspektiv som du vill ansluta till och klickar sedan på **Anslut**. Klicka på en modell eller ett perspektiv för att visa alla objekt för vyn.
 
-    Modellen öppnas i Power BI Desktop med en tom rapport i rapportvyn. Fältlistan visar alla ej dold modellobjekt. Anslutningsstatus visas i det nedre högra hörnet.
+    Modellen öppnas i Power BI Desktop med en tom rapport i rapportvyn. Fält listan visar alla icke-dolda modell objekt. Anslutningsstatus visas i det nedre högra hörnet.
 
-## <a name="connect-in-power-bi-service"></a>Ansluta i Power BI (tjänst)
+## <a name="connect-in-power-bi-service"></a>Anslut i Power BI (tjänst)
 
-1. Skapa en Power BI Desktop-fil som har en aktiv anslutning till din modell på din server.
-2. I [Power BI](https://powerbi.microsoft.com), klickar du på **hämta Data** > **filer**, och leta upp och välj din .pbix-fil.
+1. Skapa en Power BI Desktop-fil som har en Live-anslutning till din modell på servern.
+2. I [Power BI](https://powerbi.microsoft.com)klickar du > på Hämta datafiler och letar upp och väljer din. pbix-fil.
 
 ## <a name="see-also"></a>Se också
-[Ansluta till Azure Analysis Services](analysis-services-connect.md)   
+[Anslut till Azure Analysis Services](analysis-services-connect.md)   
 [Klientbibliotek](analysis-services-data-providers.md)
 

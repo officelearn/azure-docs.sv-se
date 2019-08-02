@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 50d91c03ac33c32577ddf3838ed6b10024133333
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: a91860e9ec8d503a01d079925466093d19bbbccf
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68414549"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698611"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Konfigurera en IoT Edge-enhet kan fungera som en transparent gateway
 
@@ -50,8 +50,8 @@ Följande steg vägleder dig genom processen att skapa certifikaten och installe
 ## <a name="prerequisites"></a>Förutsättningar
 
 En Azure IoT Edge-enhet för att konfigurera som en gateway. Använd IoT Edge installations steg för något av följande operativ system:
-  * [Windows](/how-to-install-iot-edge-windows.md)
-  * [Linux](/how-to-install-iot-edge-linux.md)
+  * [Windows](how-to-install-iot-edge-windows.md)
+  * [Linux](how-to-install-iot-edge-linux.md)
 
 Den här artikeln hänvisar till *Gateway* -värdnamnet på flera punkter. Gateway-värdnamnet deklareras i parametern **hostname** i filen config. yaml på den IoT Edge gateway-enheten. Den används för att skapa certifikaten i den här artikeln och det hänvisas till anslutnings strängen för de underordnade enheterna. Gateway-värdnamnet måste matchas till en IP-adress, antingen med DNS eller en värd fil post.
 

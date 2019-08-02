@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Database DTU-baserad resurs begränsar enskilda databaser | Microsoft Docs
-description: Den här sidan beskriver några vanliga DTU-baserade resursbegränsningar för enskilda databaser i Azure SQL Database.
+title: Azure SQL Database DTU-baserade resurs gränser enskilda databaser | Microsoft Docs
+description: På den här sidan beskrivs några vanliga DTU-baserade resurs gränser för enskilda databaser i Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
@@ -10,88 +10,87 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 03/20/2019
-ms.openlocfilehash: 0e4d87ee0d0d09a84e960d511ded87dc226515ea
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 84e39a727d5be842b356e5bd30333cb154df86aa
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65762667"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568779"
 ---
-# <a name="resource-limits-for-single-databases-using-the-dtu-based-purchasing-model"></a>Resursgränser för enskilda databaser med hjälp av den DTU-baserade inköpsmodellen
+# <a name="resource-limits-for-single-databases-using-the-dtu-based-purchasing-model"></a>Resurs gränser för enskilda databaser som använder den DTU-baserade inköps modellen
 
-Den här artikeln innehåller detaljerade resursgränser för enskilda databaser i Azure SQL Database med hjälp av den DTU-baserade inköpsmodellen.
+Den här artikeln innehåller detaljerade resurs gränser för Azure SQL Database enskilda databaser med hjälp av den DTU-baserade inköps modellen.
 
-DTU-baserade inköpschef modellen resursgränser för elastiska pooler, se [DTU-baserade resursbegränsningar - elastiska pooler](sql-database-dtu-resource-limits-elastic-pools.md). VCore-baserade resursbegränsningar finns [vCore-baserade resursbegränsningar - enskilda databaser](sql-database-vcore-resource-limits-single-databases.md) och [vCore-baserade resursbegränsningar - elastiska pooler](sql-database-vcore-resource-limits-elastic-pools.md). Läs mer om de olika modellerna för inköp, [köpa modeller och tjänstnivåer](sql-database-purchase-models.md).
+För DTU-baserade inköps modell gränser för elastiska pooler, se [DTU-baserade resurs gränser-elastiska pooler](sql-database-dtu-resource-limits-elastic-pools.md). För vCore resurs gränser, se [vCore resurs gränser – enkla databaser](sql-database-vcore-resource-limits-single-databases.md) och [vCore resurs gränser-elastiska pooler](sql-database-vcore-resource-limits-elastic-pools.md). Mer information om olika inköps modeller finns i [inköps modeller och tjänst nivåer](sql-database-purchase-models.md).
 
-## <a name="single-database-storage-sizes-and-compute-sizes"></a>Databas: Lagringsstorlekar och storlekar
+## <a name="single-database-storage-sizes-and-compute-sizes"></a>Enkel databas: Lagrings storlekar och beräknings storlekar
 
-Följande tabeller visar resurserna som är tillgängliga för en enskild databas på varje tjänstnivå och beräkna storleken. Du kan ange tjänstnivå, beräkningsstorleken och lagringsutrymmet för en enkel databas med hjälp av den [Azure-portalen](sql-database-single-databases-manage.md#manage-an-existing-sql-database-server), [Transact-SQL](sql-database-single-databases-manage.md#transact-sql-manage-sql-database-servers-and-single-databases), [PowerShell](sql-database-single-databases-manage.md#powershell-manage-sql-database-servers-and-single-databases), [ Azure CLI](sql-database-single-databases-manage.md#azure-cli-manage-sql-database-servers-and-single-databases), eller [REST-API](sql-database-single-databases-manage.md#rest-api-manage-sql-database-servers-and-single-databases).
+Följande tabeller visar de resurser som är tillgängliga för en enskild databas på varje tjänst nivå och beräknings storlek. Du kan ange tjänst nivå, beräknings storlek och lagrings belopp för en enskild databas med hjälp av [Azure Portal](sql-database-single-databases-manage.md#manage-an-existing-sql-database-server), [Transact-SQL](sql-database-single-databases-manage.md#transact-sql-manage-sql-database-servers-and-single-databases), [PowerShell](sql-database-single-databases-manage.md#powershell-manage-sql-database-servers-and-single-databases), [Azure CLI](sql-database-single-databases-manage.md#azure-cli-manage-sql-database-servers-and-single-databases)eller [REST API](sql-database-single-databases-manage.md#rest-api-manage-sql-database-servers-and-single-databases).
 
 > [!IMPORTANT]
-> Skala vägledning och överväganden finns i [skala en enskild databas](sql-database-single-database-scale.md)
+> Information om skalning och överväganden finns i [skala en enskild databas](sql-database-single-database-scale.md)
 
 ### <a name="basic-service-tier"></a>Basic tjänstnivå
 
-| **Beräkna storlek** | **Basic** |
+| **Beräknings storlek** | **Basic** |
 | :--- | --: |
 | Maximala DTU:er | 5 |
-| Lagringsutrymme (GB) | 2 |
-| Maximalt antal lagringsalternativ (GB) | 2 |
+| Inkluderat lagrings utrymme (GB) | 2 |
+| Maximalt lagrings alternativ (GB) | 2 |
 | Maximal InMemory-OLTP-lagring (GB) |Gäller inte |
-| Maximalt antal samtidiga arbetare (begäranden) | 30 |
+| Maximalt antal samtidiga arbetare (begär Anden) | 30 |
 | Maximalt antal samtidiga sessioner | 300 |
 |||
 
 ### <a name="standard-service-tier"></a>Standardtjänstnivå
 
-| **Beräkna storlek** | **S0** | **S1** | **S2** | **S3** |
+| **Beräknings storlek** | **S0** | **S1** | **S2** | **S3** |
 | :--- |---:| ---:|---:|---:|
 | Maximala DTU:er | 10 | 20 | 50 | 100 |
-| Lagringsutrymme (GB) | 250 | 250 | 250 | 250 |
-| Maximalt antal lagringsalternativ (GB) | 250 | 250 | 250 | 250, 500, 750, 1024 |
+| Inkluderat lagrings utrymme (GB) | 250 | 250 | 250 | 250 |
+| Maximalt lagrings alternativ (GB) | 250 | 250 | 250 | 250, 500, 750, 1024 |
 | Maximal InMemory-OLTP-lagring (GB) | Gäller inte | Saknas | Saknas | Gäller inte |
-| Maximalt antal samtidiga arbetare (begäranden)| 60 | 90 | 120 | 200 |
+| Maximalt antal samtidiga arbetare (begär Anden)| 60 | 90 | 120 | 200 |
 | Maximalt antal samtidiga sessioner |600 | 900 | 1200 | 2400 |
 ||||||
 
-### <a name="standard-service-tier-continued"></a>Standard-tjänstnivå (forts.)
+### <a name="standard-service-tier-continued"></a>Standard tjänst nivå (forts.)
 
-| **Beräkna storlek** | **S4** | **S6** | **S7** | **S9** | **S12** |
+| **Beräknings storlek** | **S4** | **S6** | **S7** | **S9** | **S12** |
 | :--- |---:| ---:|---:|---:|---:|
 | Maximala DTU:er | 200 | 400 | 800 | 1600 | 3000 |
-| Lagringsutrymme (GB) | 250 | 250 | 250 | 250 | 250 |
-| Maximalt antal lagringsalternativ (GB) | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 |
+| Inkluderat lagrings utrymme (GB) | 250 | 250 | 250 | 250 | 250 |
+| Maximalt lagrings alternativ (GB) | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 |
 | Maximal InMemory-OLTP-lagring (GB) | Gäller inte | Saknas | Saknas | Saknas |Gäller inte |
-| Maximalt antal samtidiga arbetare (begäranden)| 400 | 800 | 1600 | 3200 |6000 |
+| Maximalt antal samtidiga arbetare (begär Anden)| 400 | 800 | 1600 | 3200 |6000 |
 | Maximalt antal samtidiga sessioner |4800 | 9600 | 19200 | 30000 |30000 |
 |||||||
 
 ### <a name="premium-service-tier"></a>Premium tjänstnivån
 
-| **Beräkna storlek** | **P1** | **P2** | **P4** | **P6** | **P11** | **P15** |
+| **Beräknings storlek** | **P1** | **P2** | **P4** | **P6** | **P11** | **P15** |
 | :--- |---:|---:|---:|---:|---:|---:|
 | Maximala DTU:er | 125 | 250 | 500 | 1000 | 1750 | 4000 |
-| Lagringsutrymme (GB) | 500 | 500 | 500 | 500 | 4096* | 4096* |
-| Maximalt antal lagringsalternativ (GB) | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 4096* | 4096* |
+| Inkluderat lagrings utrymme (GB) | 500 | 500 | 500 | 500 | 4096* | 4096* |
+| Maximalt lagrings alternativ (GB) | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 4096* | 4096* |
 | Maximal InMemory-OLTP-lagring (GB) | 1 | 2 | 4 | 8 | 14 | 32 |
-| Maximalt antal samtidiga arbetare (begäranden)| 200 | 400 | 800 | 1600 | 2400 | 6400 |
+| Maximalt antal samtidiga arbetare (begär Anden)| 200 | 400 | 800 | 1600 | 2400 | 6400 |
 | Maximalt antal samtidiga sessioner | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
 |||||||
 
-\* Från 1 024 GB upp till 4096 GB ökningar på 256 GB
+\*Från 1024 GB upp till 4096 GB i steg om 256 GB
 
 > [!IMPORTANT]
 > Mer än 1 TB lagringsutrymme på Premium-nivån är för närvarande tillgängligt i alla regioner förutom: Kina, östra; Kina, norra; Tyskland, centrala; Tyskland, nordöstra; USA, västra centrala; US DoD-regioner samt US Government Central. I dessa regioner är det maximala lagringsutrymmet på Premium-nivån begränsat till 1 TB.  Mer information finns i [Aktuella begränsningar för P11–P15](sql-database-single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb).  
 > [!NOTE]
-> För `tempdb` begränsningar, finns i [tempdb gränser](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database?view=sql-server-2017#tempdb-database-in-sql-database).
+> För `tempdb` gränser, se [tempdb-gränser](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database?view=sql-server-2017#tempdb-database-in-sql-database).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- VCore-resursgränser för en enskild databas, se [resursgränser för enskilda databaser med hjälp av den vCore-baserade inköpsmodellen](sql-database-vcore-resource-limits-single-databases.md)
-- VCore-resursgränser för elastiska pooler, se [resursgränser för elastiska pooler med hjälp av den vCore-baserade inköpsmodellen](sql-database-vcore-resource-limits-elastic-pools.md)
-- DTU-resursgränser för elastiska pooler, se [resursgränser för elastiska pooler med hjälp av den DTU-baserade inköpsmodellen](sql-database-dtu-resource-limits-elastic-pools.md)
-- Resursgränser för hanterade instanser, se [hanterad instans resursbegränsningar](sql-database-managed-instance-resource-limits.md).
-- Information om allmänna Azure-begränsningar finns i [Azure-prenumeration och tjänstbegränsningar, kvoter och begränsningar](../azure-subscription-service-limits.md).
-- Läs om hur resursbegränsningar på en databasserver, [översikt över resursgränser på en SQL-databasserver](sql-database-resource-limits-database-server.md) information om begränsningar på de server och prenumeration.
+- För vCore resurs gränser för en enskild databas, se [resurs gränser för enskilda databaser med den vCore-baserade inköps modellen](sql-database-vcore-resource-limits-single-databases.md)
+- VCore resurs gränser för elastiska pooler finns i [resurs gränser för elastiska pooler med hjälp av vCore-baserad inköps modell](sql-database-vcore-resource-limits-elastic-pools.md)
+- För DTU-resurs gränser för elastiska pooler, se [resurs gränser för elastiska pooler med hjälp av den DTU-baserade inköps modellen](sql-database-dtu-resource-limits-elastic-pools.md)
+- Resurs begränsningar för hanterade instanser finns i [resurs gränser](sql-database-managed-instance-resource-limits.md)för hanterade instanser.
+- Information om allmänna Azure-gränser finns i [Azure-prenumeration och tjänst begränsningar, kvoter och begränsningar](../azure-subscription-service-limits.md).
+- Information om resurs gränser på en databas server finns i [Översikt över resurs gränser på en SQL Database-Server](sql-database-resource-limits-database-server.md) för information om begränsningar på Server-och prenumerations nivåer.

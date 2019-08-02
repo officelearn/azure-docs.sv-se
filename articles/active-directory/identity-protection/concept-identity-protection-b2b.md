@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9128a747dcd42ada2feefd72ad8bfebdf7bfb25a
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: c5d374f4ddac2e4d013bab1c5e88a87af1da2c1f
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68334039"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68667142"
 ---
 # <a name="identity-protection-and-b2b-users"></a>Identitetsskydd och B2B-användare
 
@@ -47,7 +47,7 @@ Om en riskfylld B2B-användare i din katalog blockeras av en riskfylld princip, 
 
 ### <a name="how-do-i-prevent-b2b-collaboration-users-from-being-impacted-by-risk-based-policies"></a>Hur gör jag för att förhindrar du att B2B-samarbets användare påverkas av riskfyllda principer?
 
-Om du undantar B2B-användare från din organisations riskfyllda principer för villkorlig åtkomst hindras B2B-användare från att påverkas eller blockeras av riskbedömningen. Om du vill utesluta dessa B2B-användare skapar du en grupp i Azure AD som innehåller alla användare i din organisations gäst. Lägg sedan till den här gruppen som ett undantag för din inbyggda identitets skydds användar risk och inloggnings risk principer, samt alla principer för villkorlig åtkomst som användarna loggar in som ett villkor.
+Om du undantar B2B-användare från din organisations riskfyllda principer för villkorlig åtkomst hindras B2B-användare från att påverkas eller blockeras av riskbedömningen. Om du vill utesluta dessa B2B-användare skapar du en grupp i Azure AD som innehåller alla användare i din organisations gäst. Lägg sedan till den här gruppen som ett undantag för din inbyggda identitets skydds användar risk och inloggnings risk principer, samt alla principer för villkorlig åtkomst som använder inloggnings risker som ett villkor.
 
 ## <a name="next-steps"></a>Nästa steg
 

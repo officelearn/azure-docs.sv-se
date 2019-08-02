@@ -1,18 +1,19 @@
 ---
 title: DPM/Azure Backup Server skydd för en SharePoint-grupp till Azure
 description: Den här artikeln innehåller en översikt över DPM/Azure Backup Server skydd för en SharePoint-grupp till Azure
-author: kasinh
-manager: vvithal
+ms.reviewer: kasinh
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/09/2019
-ms.author: kasinh
-ms.openlocfilehash: 91b3105bc2aafba10f4bf105bee851743dcf5282
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: f17cc71e0666ccf08d90fcef8f18552c09761cbc
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466675"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689410"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure"></a>Säkerhetskopiera en SharePoint-servergrupp till Azure
 Du säkerhetskopierar en SharePoint-grupp till Microsoft Azure med hjälp av System Center Data Protection Manager (DPM) på samma sätt som du säkerhetskopierar andra data källor. Azure Backup ger flexibilitet i schemat för säkerhets kopiering för att skapa dagliga, vecko Visa eller årliga säkerhets kopierings punkter och ger dig bevarande princip alternativ för olika säkerhets kopierings punkter. DPM ger möjlighet att lagra lokala disk kopior för snabba återställnings mål (RTO) och för att lagra kopior till Azure för ekonomisk, långsiktig kvarhållning.
@@ -34,7 +35,7 @@ Innan du fortsätter kontrollerar du att du har uppfyllt alla [krav för att anv
 DPM-agenten måste vara installerad på den server som kör SharePoint, de servrar som kör SQL Server och alla andra servrar som ingår i SharePoint-servergruppen. Mer information om hur du konfigurerar skydds agenten finns i [installations skydds agenten](https://technet.microsoft.com/library/hh758034\(v=sc.12\).aspx).  Ett undantag är att du bara installerar agenten på en enda front webb server (WFE). DPM behöver agenten på en WFE-server som endast fungerar som start punkt för skydd.
 
 ### <a name="sharepoint-farm"></a>SharePoint-grupp
-För varje 10 000 000-objekt i Server gruppen måste det finnas minst 2 GB utrymme på den volym där DPM-mappen finns. Det här utrymmet krävs för att skapa kataloger. För att DPM ska kunna återställa specifika objekt (webbplats samlingar, webbplatser, listor, dokument bibliotek, mappar, enskilda dokument och list objekt) skapar katalog skapande en lista över de URL: er som finns i varje innehålls databas. Du kan visa listan över URL: er i fönstret återställnings Bart objekt i  återställnings aktivitets avsnittet i DPM-administratörskonsol.
+För varje 10 000 000-objekt i Server gruppen måste det finnas minst 2 GB utrymme på den volym där DPM-mappen finns. Det här utrymmet krävs för att skapa kataloger. För att DPM ska kunna återställa specifika objekt (webbplats samlingar, webbplatser, listor, dokument bibliotek, mappar, enskilda dokument och list objekt) skapar katalog skapande en lista över de URL: er som finns i varje innehålls databas. Du kan visa listan över URL: er i fönstret återställnings Bart objekt i återställnings aktivitets avsnittet i DPM-administratörskonsol.
 
 ### <a name="sql-server"></a>SQL Server
 DPM körs som ett LocalSystem-konto. Om du vill säkerhetskopiera SQL Server-databaser behöver DPM sysadmin-behörighet för kontot för den server som kör SQL Server. Ange NT instans\system till *sysadmin* på den server som kör SQL Server innan du säkerhetskopierar den.

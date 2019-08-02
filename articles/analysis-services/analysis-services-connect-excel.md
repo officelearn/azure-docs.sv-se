@@ -5,45 +5,45 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 07/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5c46d4e4d23744cf07ccf7857a33990bf405a6a1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4e6c73ad465f362a046a339f286cc25b4af508cf
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61023280"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619181"
 ---
 # <a name="connect-with-excel"></a>Anslut med Excel
 
-När du har skapat en server och distribuerat en tabellmodell till den, kan klienterna ansluta och börja utforska data. 
+När du har skapat en server och distribuerat en tabell modell till den, kan klienterna ansluta till och börja utforska data. 
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Du loggar in med kontot måste tillhöra en databasroll i modellen med minst läsbehörighet. Mer information finns i [Autentisering och användarbehörigheter](analysis-services-manage-users.md). 
+Det konto som du loggar in med måste tillhöra en modell databas roll med minst Läs behörighet. Mer information finns i [Autentisering och användarbehörigheter](analysis-services-manage-users.md). 
 
-## <a name="connect-in-excel"></a>Ansluta i Excel
+## <a name="connect-in-excel"></a>Anslut i Excel
 
-Ansluta till en server i Excel stöds genom att använda hämta Data i Excel 2016 och senare. Det går inte att ansluta med hjälp av guiden Importera tabell i Power Pivot. 
+Att ansluta till en server i Excel stöds med hämta data i Excel 2016 och senare. Att ansluta med hjälp av guiden Importera tabell i Power Pivot stöds inte. 
 
-1. I Excel, på den **Data** menyfliksområdet, klickar du på **hämta externa Data** > **från andra källor** > **från Analysis Services**.
+1. I Excel, i menyfliksområdet för **data** , klickar du på **Hämta externa data** > **från andra källor** > **från Analysis Services**.
 
-2. I guiden Dataanslutning i **servernamn**, ange namnet på servern, inklusive protokoll och URI: N. Till exempel asazure://westcentralus.asazure.windows.net/advworks. I **logga in autentiseringsuppgifter**väljer **använder följande användarnamn och lösenord**, och skriv sedan organisationens användarnamnet, till exempel nancy@adventureworks.com, och lösenord.
+2. I guiden data anslutning, i **Server namn**, anger du Server namnet inklusive protokoll och URI. Till exempel asazure://westcentralus.asazure.windows.net/advworks. I inloggnings **uppgifter**väljer du sedan **Använd följande användar namn och lösen ord**och anger sedan organisationens användar namn, till exempel nancy@adventureworks.comoch lösen ord.
 
     > [!IMPORTANT]
-    > Om du loggar in med en Account, Live ID, Yahoo, Gmail, etc., eller du måste logga in med multifaktorautentisering, lämna lösenordsfältet tomt. Du uppmanas ange ett lösenord när du klickar på Nästa. 
+    > Om du loggar in med ett Microsoft-konto, Live ID, Yahoo, Gmail osv. eller om du behöver logga in med Multi-Factor Authentication lämnar du fältet lösen ord tomt. Du uppmanas att ange ett lösen ord när du klickar på Nästa. 
 
-    ![Ansluta från Excel-inloggning](./media/analysis-services-connect-excel/aas-connect-excel-logon.png)
+    ![Anslut från Excel-inloggning](./media/analysis-services-connect-excel/aas-connect-excel-logon.png)
 
-3. I **Markera databas och tabell**väljer databasen och modellen eller ett perspektiv och klicka sedan på **Slutför**.
+3. I **Välj databas och tabell**väljer du databasen och modellen eller perspektivet och klickar sedan på **Slutför**.
    
-    ![Ansluta från Excel väljer datamodellen](./media/analysis-services-connect-excel/aas-connect-excel-select.png)
+    ![Anslut från Excel Välj modell](./media/analysis-services-connect-excel/aas-connect-excel-select.png)
 
 
 ## <a name="see-also"></a>Se också
 
-[Klientbibliotek](analysis-services-data-providers.md)   
+[Klient bibliotek](analysis-services-data-providers.md)   
 [Hantera servern](analysis-services-manage.md)     
 
 

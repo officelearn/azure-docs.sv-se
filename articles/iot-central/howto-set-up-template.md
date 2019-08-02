@@ -1,6 +1,6 @@
 ---
-title: Konfigurera en mall för enheten i ett program med Azure IoT Central | Microsoft Docs
-description: Lär dig hur du ställer in en mall för enheten med mått, inställningar, egenskaper, regler och en instrumentpanel.
+title: Konfigurera en enhets mall i ett Azure IoT Central-program | Microsoft Docs
+description: Lär dig hur du konfigurerar en enhets mall med mätningar, inställningar, egenskaper, regler och en instrument panel.
 author: viv-liu
 ms.author: viviali
 ms.date: 06/19/2019
@@ -8,137 +8,138 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: d27fd9460685c08a2b13936415935f5aaf893797
-ms.sourcegitcommit: dda9fc615db84e6849963b20e1dce74c9fe51821
+ms.openlocfilehash: ede7167d570c7bd2ba7e04c3a9a703555efb35cd
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67622400"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698529"
 ---
 # <a name="set-up-a-device-template"></a>Konfigurera en enhetsmall
 
-En mall för enheten är en skiss som definierar egenskaper och beteenden för en typ av enhet som ansluter till ett Azure IoT Central program.
+En enhets mall är en skiss som definierar egenskaper och beteenden för en typ av enhet som ansluter till ett Azure IoT Central-program.
 
-Hjälpverktyg kan till exempel skapa en mall för enheten för en ansluten fläkt som har följande egenskaper:
+Ett verktyg kan till exempel skapa en enhets mal len för en ansluten fläkt med följande egenskaper:
 
-- Temperaturen som telemetri mätning
-- Mätning av plats
-- Fläkt meddelar fel händelse mätning
-- Fläkt fungerar tillstånd mätning
-- Fläkt hastighet
+- Mätning av temperatur telemetri
+- Plats mätning
+- Mätning av fel händelse för fläkt motor
+- Mätning av fläktens drift tillstånd
+- Inställning för fläkt hastighet
 - Regler som skickar aviseringar
-- Instrumentpanel som ger dig en övergripande vy av enheten
+- Instrument panel som ger dig en övergripande vy av enheten
 
-Från den här enheten mallen en operatör kan skapa och ansluta riktiga fläkt enheter med namn som **fläkt-1** och **fläkt 2**. Alla dessa fans ha mått, inställningar, egenskaper, regler och en instrumentpanel som användare av ditt program kan övervaka och hantera.
+Med den här enhets mal len kan en operatör skapa och ansluta Real fläkt enheter med namn som **fläkt-1** och **fläkt-2**. Alla dessa fläktar har mått, inställningar, egenskaper, regler och en instrument panel som användare av ditt program kan övervaka och hantera.
 
 > [!NOTE]
-> Endast builders och administratörer kan skapa, redigera och ta bort enheten mallar. Alla användare kan skapa enheter på den **Device Explorer** sida från befintliga mallar för enheten.
+> Endast konstruktörer och administratörer kan skapa, redigera och ta bort mallar för enheter. Alla användare kan skapa enheter på sidan **Device Explorer** från befintliga enhets mallar.
 
-## <a name="create-a-device-template"></a>Skapa en mall för enhet
+## <a name="create-a-device-template"></a>Skapa en enhets mall
 
-1. Navigera till den **enheten mallar** sidan.
+1. Gå till sidan **mallar för enheter** .
 
-2. Om du vill skapa en mall, starta genom att välja **+ ny**.
+2. Börja med att välja **+ ny**för att skapa en mall.
 
-3. Kom igång snabbt genom att välja från befintliga färdiga mallar. Annars väljer **anpassade**, ange ett namn och klicka på **skapa** att skapa en egen mall från början.
+3. Kom igång snabbt genom att välja bland de befintliga färdiga mallarna. Annars väljer du **anpassad**, anger ett namn och klickar på **skapa** för att skapa en egen mall från grunden.
 
-   ![Mallbibliotek för enhet](./media/howto-set-up-template/newtemplate.png)
+   ![Bibliotek för enhets mallar](./media/howto-set-up-template/newtemplate.png)
 
-4. När du skapar en anpassad mall kan du se den **enhetsinformation** för den nya mallen för enheten. IoT Central skapar automatiskt en simulerad enhet när du skapar en mall för enheten. En simulerad enhet kan du testa hur ditt program innan du ansluter en riktig enhet.
+4. När du skapar en anpassad mall visas **enhets informations** sidan för din nya enhets mall. IoT Central skapar automatiskt en simulerad enhet när du skapar en enhets mall. Med en simulerad enhet kan du testa appens beteende innan du ansluter en riktig enhet.
 
-I följande avsnitt beskrivs var och en av flikarna på den **enheten mallen** sidan.
+I följande avsnitt beskrivs var och en av flikarna på sidan **enhets mal len** .
 
 ## <a name="measurements"></a>Mått
 
-Mätning av faktisk användning är de data som kommer från din enhet. Du kan lägga till flera mått till mallen för enheten att matcha funktionerna i din enhet.
+Mått är de data som kommer från din enhet. Du kan lägga till flera mätningar till din enhets mall för att matcha funktionerna i enheten.
 
-- **Telemetri** måtten är numeriska datapunkter som din enhet som samlar in över tid. De är representeras som en löpande ström. Ett exempel är temperatur.
-- **Händelsen** måtten är point-in-time-data som representerar något signifikanta på enheten. En allvarlighetsgrad som representerar vikten av en händelse. Ett exempel är ett meddelar fläkt-fel.
-- **Tillstånd** mått representerar tillståndet för enheten eller dess komponenter under en viss tidsperiod. Till exempel ett fläkt-läge kan definieras som att ha **Operating** och **stoppad** som två möjliga tillstånd.
-- **Plats** måtten är longitud och latitud koordinaterna för enheten under en viss tidsperiod i. Exempelvis kan en fläkt flyttas från en plats till en annan.
+- Mått för **telemetri** är de numeriska data punkter som enheten samlar in över tid. De representeras som en kontinuerlig ström. Ett exempel är temperatur.
+- **Händelse** mätningar är tidpunkts data som representerar något av betydelsen på enheten. En allvarlighets grad representerar en händelses betydelse. Ett exempel är ett fläkt motor fel.
+- **Tillstånds** mått representerar enhetens eller komponenternas status under en viss tids period. Till exempel kan ett fläkt läge definieras som att ha **drift** och **stoppas** som de två möjliga tillstånden.
+- **Plats** mått är de longitud-och latitud-koordinaterna för enheten under en viss tids period. Till exempel kan en fläkt flyttas från en plats till en annan.
 
-### <a name="create-a-telemetry-measurement"></a>Skapa ett telemetri-mått
+### <a name="create-a-telemetry-measurement"></a>Skapa ett mått för telemetri
 
-Om du vill lägga till ett nytt mått i telemetri, Välj **+ ny mätning**, Välj **telemetri** som mätningen skriver och ange information i formuläret.
+Om du vill lägga till ett nytt mått för telemetri väljer du **+ ny mätning**, väljer **telemetri** som mått typ och anger informationen i formuläret.
 
 > [!NOTE]
-> Fältnamn i mallen enheten måste matcha egenskapsnamnen i motsvarande enhet koden för telemetri-mått som ska visas i programmet när en riktig enhet är ansluten. Göra detsamma när du konfigurerar inställningar och egenskaper för enhet kommandon när du fortsätter att definiera enhet-mall i följande avsnitt.
-.PNG exempel: du kan lägga till ett nytt temperatur telemetri mått:
+> Fält namnen i enhets mal len måste matcha egenskaps namnen i motsvarande enhets kod för att måttet för telemetri ska visas i programmet när en riktig enhet är ansluten. Gör samma sak när du konfigurerar inställningar, enhets egenskaper och kommandon när du fortsätter att definiera enhets mal len i följande avsnitt.
+
+Du kan till exempel lägga till en ny mätning av temperatur telemetri:
 
 | Visningsnamn        | Fältnamn    |  Enheter    | Min   |Max|
 | --------------------| ------------- |-----------|-------|---|
-| Temperatur         | temp          |  degC     |  0    |100|
+| Temperatur         | styr          |  degC     |  0    |100|
 
-![”Skapa telemetri” formuläret med information om temperatur mätning](./media/howto-set-up-template/measurementsform.png)
+![Formuläret "skapa telemetri" med information om temperatur mått](./media/howto-set-up-template/measurementsform.png)
 
-När du har valt **spara**, **temperatur** mått visas i listan över mått. I en liten stund visas visualisering av temperaturdata från den simulerade enheten.
+När du har valt **Spara**visas **temperatur** måttet i listan över mått. I korthet visas visualiseringen av temperatur data från den simulerade enheten.
 
-När du visar telemetri som du kan välja bland följande alternativ för aggregeringen: Medelvärde, lägsta, högsta, Sum och Count. **Genomsnittlig** väljs som standard aggregering i diagrammet.
+När du visar telemetri kan du välja bland följande sammansättnings alternativ: Genomsnitt, lägsta, högsta, sum och Count. **Genomsnitt** väljs som standard agg regering i diagrammet.
 
 > [!NOTE]
-> Datatypen för måttet telemetri är en flytande peka tal.
+> Data typen för måttet telemetri är ett flytt ALS nummer.
 
-### <a name="create-an-event-measurement"></a>Skapa en händelse
+### <a name="create-an-event-measurement"></a>Skapa en händelse mätning
 
-Om du vill lägga till en ny händelse mätning, Välj **+ ny mätning** och välj **händelse** som måttenhet. Ange information den **Skapa händelse** formuläret.
+Om du vill lägga till en ny händelse mätning väljer du **+ ny mätning** och väljer **händelse** som mått typ. Ange information om formuläret **Skapa händelse** .
 
-Ange den **visningsnamn**, **fältnamn**, och **allvarlighetsgrad** information om händelsen. Du kan välja mellan tre tillgängliga nivåer av allvarlighetsgrad: **Fel**, **varning**, och **Information**.
+Ange **visnings namn**, **fält namn**och **allvarlighets grad** information för händelsen. Du kan välja bland de tre tillgängliga allvarlighets graderna: **Fel**, **Varning**och **information**.
 
-Exempel: du kan lägga till en ny **fläkt meddelar fel** händelse.
+Du kan till exempel lägga till en ny **fläkt motor fel** händelse.
 
-| Visningsnamn        | Fältnamn    |  Standard-allvarlighetsgrad |
+| Visningsnamn        | Fältnamn    |  Standardvärde för allvarlighetsgrad |
 | --------------------| ------------- |-----------|
 | Fel på fläktmotor     | fanmotorerror |  Fel    |
 
-![”Skapa händelse” formuläret med information om en fläkt meddelar händelse](./media/howto-set-up-template/eventmeasurementsform.png)
+![Formuläret "Skapa händelse" med information om en fläkt motor händelse](./media/howto-set-up-template/eventmeasurementsform.png)
 
-När du har valt **spara**, **fläkt meddelar fel** mått visas i listan över mått. I en liten stund visas visualiseringen av händelsedata från den simulerade enheten.
+När du har valt **Spara**visas **fläktens motor fel** mått i listan över mått. I korthet visas visualiseringen av händelse data från den simulerade enheten.
 
-Välj ikonen händelse i diagrammet om du vill visa mer information om en händelse:
+Om du vill visa mer information om en händelse väljer du händelse ikonen i diagrammet:
 
-![Information om händelsen ”fläkt meddelar fel”](./media/howto-set-up-template/eventmeasurementsdetail.png)
+![Information om händelsen "fläkt motor fel"](./media/howto-set-up-template/eventmeasurementsdetail.png)
 
 > [!NOTE]
-> Datatypen för måttet händelse är sträng.
+> Data typen för händelse mätningen är sträng.
 
-### <a name="create-a-state-measurement"></a>Skapa ett mått för tillstånd
+### <a name="create-a-state-measurement"></a>Skapa en tillstånds mätning
 
-Om du vill lägga till ett nytt tillstånd mått, Välj den **+ ny mätning** och välj **tillstånd** som måttenhet. Ange information den **skapa tillstånd** formuläret.
+Om du vill lägga till ett nytt tillstånds mått väljer du knappen **+ ny mätning** och väljer **tillstånd** som mått typ. Ange information i formuläret **skapa tillstånd** .
 
-Ange information för **visningsnamn**, **fältnamn**, och **värden** av tillstånd. Varje värde kan också ha ett namn som ska användas när värdet visas i diagram och tabeller.
+Ange information om **visnings namn**, **fält namn**och **värden** för tillstånd. Varje värde kan också ha ett visnings namn som ska användas när värdet visas i diagram och tabeller.
 
-Exempel: du kan lägga till en ny **fläkt läge** tillstånd som har två möjliga värden som enheten kan skicka **Operating** och **stoppad**.
+Du kan till exempel lägga till ett nytt tillstånd för **fläkt läge** som har två möjliga värden som enheten kan skicka, **arbeta** och **stoppa**.
 
-| Visningsnamn | Fältnamn    |  Värdet 1   | Visningsnamn | Värdet 2    |Visningsnamn  | 
+| Visningsnamn | Fältnamn    |  Värde 1   | Visningsnamn | Värde 2    |Visningsnamn  |
 | -------------| ------------- |----------- | -------------| -----------| -------------|
 | Fläktläge     | fläktläge       |  1         | Drift    |     0      | Stoppad      |
 
-![”Redigeringsläge” formuläret med information om fläkt läge](./media/howto-set-up-template/statemeasurementsform.png)
+![Formuläret "redigera tillstånd" med information om fläkt läget](./media/howto-set-up-template/statemeasurementsform.png)
 
-När du har valt **spara**, **fläkt läge** tillstånd mått visas i listan över mått. En kort stund har du se visualisering av systemtillstånd från den simulerade enheten.
+När du har valt **Spara**visas status mått för **fläkt läge** i listan över mått. I korthet visas visualiseringen av tillstånds data från den simulerade enheten.
 
-Om enheten skickar för många datapunkter i en liten varaktighet, visas mätningen tillstånd med ett annat visuellt objekt. Välj diagrammet för att visa alla datapunkter inom den tidsperioden i kronologisk ordning. Du kan också begränsa tidsintervall för mätningen ritas i diagrammet.
+Om enheten skickar för många data punkter med en liten varaktighet, visas tillstånds måttet med ett annat visuellt objekt. Välj diagrammet för att visa alla data punkter inom den tids perioden i kronologisk ordning. Du kan också begränsa tidsintervallet för att se måttet som ritats i diagrammet.
 
 > [!NOTE]
-> Datatypen för måttet tillstånd är sträng.
+> Data typen för tillstånds måttet är sträng.
 
-### <a name="create-a-location-measurement"></a>Skapa en plats
+### <a name="create-a-location-measurement"></a>Skapa en plats mätning
 
-Om du vill lägga till en ny plats mätning, Välj **+ ny mätning**, Välj **plats** som värdet skriver och ange information den **skapa mått** formuläret.
+Om du vill lägga till en ny plats mätning väljer du **+ ny mätning**, väljer **plats** som mått typ och anger informationen i formuläret **skapa mått** .
 
-Du kan till exempel lägga till en ny plats telemetri mätning:
+Du kan till exempel lägga till en ny mätning av telemetri för platser:
 
 | Visningsnamn        | Fältnamn    |
 | --------------------| ------------- |
-| Tillgången plats      |  assetloc     |
+| Till gångs plats      |  assetloc     |
 
-![”Skapa plats” formuläret med information om plats mätning](./media/howto-set-up-template/locationmeasurementsform.png)
+![Formuläret "skapa plats" med information om plats mått](./media/howto-set-up-template/locationmeasurementsform.png)
 
-När du har valt **spara**, **plats** mått visas i listan över mått. I en liten stund visas visualisering av platsdata från den simulerade enheten.
+När du har valt **Spara**visas **plats** måttet i listan över mått. I korthet visas visualiseringen av plats data från den simulerade enheten.
 
-Vid visning av plats måste du kan välja mellan följande alternativ: senaste plats och platshistorik. **Platshistorik** tillämpas endast via det valda tidsintervallet.
+När du visar plats kan du välja bland följande alternativ: senaste plats och plats historik. **Plats historiken** gäller endast för det valda tidsintervallet.
 
-Datatypen för måttet plats är ett objekt som innehåller longitud, latitud och en valfri höjd. Följande kodfragment visar JavaScript-struktur:
+Data typen för plats mätningen är ett objekt som innehåller longitud, latitud och en valfri höjd. Följande fragment visar JavaScript-strukturen:
 
 ```javascript
 assetloc: {
@@ -148,163 +149,182 @@ assetloc: {
 }
 ```
 
+När den riktiga enheten är ansluten uppdateras platsen som du lade till som mått med det värde som skickas av enheten. När du har konfigurerat måttet för din plats kan du [lägga till en karta för att visualisera platsen på enhets instrument panelen](#add-a-location-measurement-in-the-dashboard).
+
 ## <a name="settings"></a>Inställningar
 
-Inställningar styr en enhet. De operatörer kan ange indata till enheten. Du kan lägga till flera inställningar till mallen för enheten som visas som paneler på den **inställningar** fliken för operatörer att använda. Du kan lägga till många typer av inställningar: tal, text, datum, växla och områdesetikett.
+Inställningar styr en enhet. De gör det möjligt för operatörer att tillhandahålla indata till enheten. Du kan lägga till flera inställningar till din enhets mall som visas som paneler på fliken **Inställningar** för de operatörer som ska användas. Du kan lägga till många typer av inställningar: tal, text, datum, växling och avsnitts etikett.
 
-Inställningarna kan vara i något av tre tillstånd. Enheten rapporterar tillståndet.
+Inställningarna kan ha ett av tre tillstånd. Enheten rapporterar dessa tillstånd.
 
-- **Synkroniserad**: Enheten har ändrats för att återspegla värdet.
+- **Synkroniserad**: Enheten har ändrats för att återspegla inställning svärdet.
 
-- **Väntande**: Enheten för närvarande ändrar till inställningens värde.
+- **Väntar**: Enheten håller på att ändras till inställning svärdet.
 
-- **Fel**: Enheten har returnerat ett fel.
+- **Fel**: Enheten returnerade ett fel.
 
-Du kan till exempel lägga till en ny fläkt hastighet inställning genom att välja **inställningar** och ange i den nya **nummer** inställningen:
+Du kan till exempel lägga till en ny inställning för fläkt hastighet genom att välja **Inställningar** och ange i den nya **tal** inställningen:
 
-| Visningsnamn  | Fältnamn    |  Enheter  | Decimals |Inledande|
+| Visningsnamn  | Fältnamn    |  Enheter  | Decimaler |Inledande|
 | --------------| ------------- |---------| ---------|---- |
-| Fläkthastighet     | fanSpeed      | RPM     | 2        | 0   |
+| Fläkt hastighet     | fanSpeed      | RPM     | 2        | 0   |
 
-![”Konfigurera tal” formuläret med information om inställningar för uppspelningshastighet](./media/howto-set-up-template/settingsform.png)
+![Formuläret "Konfigurera nummer" med information om hastighets inställningar](./media/howto-set-up-template/settingsform.png)
 
-När du har valt **spara**, **fläkthastighet** inställningen visas som en panel. En operatör kan använda inställningen på den **Device Explorer** sidan för att ändra fläkt hastigheten på enheten.
+När du har valt **Spara**visas **fläkt hastigheten** som en panel. En operatör kan använda inställningen på sidan **Device Explorer** för att ändra enhetens fläkt hastighet.
 
 ## <a name="properties"></a>properties
 
-Egenskaperna är metadata som associeras med enheten, till exempel en fast enhetsplats och serienummer. Lägga till flera egenskaper i mallen för enheten som visas som paneler på den **egenskaper** fliken. En egenskap har en typ som tal, text, datum, växla, enhetsegenskap, etikett eller en fast plats. En operator anger värden för egenskaper när de skapar en enhet och de kan redigera dessa värden när som helst. Enhetsegenskaper är skrivskyddade och skickas från enheten till programmet. En operatör kan inte ändra egenskaper för enhet. När en riktig enhet ansluter uppdaterar egenskapen enhetspanelen i programmet.
+Egenskaper är metadata som är associerade med enheten, till exempel en fast enhets plats och ett serie nummer. Lägg till flera egenskaper till din enhets mall som visas som paneler på fliken **Egenskaper** . En egenskap har en typ som Number, text, date, växling, enhets egenskap, etikett eller en fast plats. En operator anger värden för egenskaper när de skapar en enhet och de kan redigera dessa värden när som helst. Enhets egenskaperna är skrivskyddade och skickas från enheten till programmet. En operatör kan inte ändra enhets egenskaper. När en riktig enhet ansluter uppdateras enhetens egenskaps panel i programmet.
 
 Det finns två kategorier med egenskaper:
 
-- _Enhetsegenskaper_ som enheten rapporterar till programmet IoT Central. Enhetsegenskaper är skrivskyddade värdena som rapporteras av enheten och uppdateras i programmet när en riktig enhet är ansluten.
-- _Programegenskaper_ som lagras i programmet och kan redigeras av operatorn. Programegenskaper lagras endast i programmet och ses aldrig av en enhet.
+- _Enhets egenskaper_ som enheten rapporterar till IoT Central programmet. Enhets egenskaperna är skrivskyddade värden som rapporteras av enheten och uppdateras i programmet när en riktig enhet är ansluten.
+- _Program egenskaper_ som lagras i programmet och som kan redige ras av operatören. Program egenskaper lagras endast i programmet och visas aldrig av en enhet.
 
-Du kan till exempel lägga till datum för senaste underhållna för enheten som en ny **datum** egenskapen (en programegenskap) på den **egenskaper** fliken:
+Du kan till exempel lägga till senaste service datum för enheten som en ny **datum** egenskap (en program egenskap) på fliken **Egenskaper** :
 
-| Visningsnamn  | Fältnamn | Initialt värde   |
+| Visningsnamn  | Fältnamn | Startvärde   |
 | --------------| -----------|-----------------|
 | Senaste service      | lastServiced        | 01/29/2019     |
 
-![”Konfigurera senaste Serviced” formuläret på fliken ”Egenskaper”](./media/howto-set-up-template/propertiesform.png)
+!["Konfigurera senaste tjänst"-formuläret på fliken "egenskaper"](./media/howto-set-up-template/propertiesform.png)
 
-När du har valt **spara**, senaste servas datum för enheten visas som en panel.
+När du har valt **Spara**visas det senaste service datumet för enheten som en panel.
 
-När du har skapat panelen kan du ändra egenskapsvärdet för program i den **Device Explorer**.
+När du har skapat panelen kan du ändra värdet för program egenskapen i **Device Explorer**.
 
-### <a name="create-a-location-property"></a>Skapa en plats-egenskap
+### <a name="create-a-location-property"></a>Skapa en plats egenskap
 
-Du kan ge geografisk kontext till dina platsdata i Azure IoT Central och mappa alla latitud och longitud koordinater eller en gatuadress. Azure Maps gör det möjligt för den här funktionen i IoT Central.
+Du kan ge geografisk kontext till dina plats data i Azure IoT Central och mappa alla latitud-och longitud-koordinater eller en gatuadress. Azure Maps aktiverar den här funktionen i IoT Central.
 
-Du kan lägga till två typer av platsegenskaper:
+Du kan lägga till två typer av plats egenskaper:
 
-- **Plats som en programegenskap**, som lagras i programmet. Programegenskaper lagras endast i programmet och ses aldrig av en enhet.
-- **Plats som en enhetsegenskap**, som enheten rapporterar till programmet. Den här typen av egenskapen passar bäst för en statisk plats.
+- **Plats som en program egenskap**, som lagras i programmet. Program egenskaper lagras endast i programmet och visas aldrig av en enhet.
+- **Plats som enhets egenskap**, som enheten rapporterar till programmet. Den här typen av egenskap används bäst för en statisk plats.
 
 > [!NOTE]
-> En historik registreras inte i platsen som en egenskap. Om historik är det önskade kan du använda ett plats-mått.
+> Plats som en egenskap spelar inte in en historik. Om historik önskas kan du använda en plats mätning.
 
-#### <a name="add-location-as-an-application-property"></a>Lägg till-plats som en egenskap för programmet
+#### <a name="add-location-as-an-application-property"></a>Lägg till plats som en program egenskap
 
-Du kan skapa en plats-egenskap som en programegenskap med hjälp av Azure Maps i ditt IoT Central-program. Du kan exempelvis lägga till enhetsadress för installation:
+Du kan skapa en plats egenskap som en program egenskap genom att använda Azure Maps i IoT Central programmet. Du kan till exempel lägga till installations adressen för enheten:
 
-1. Navigera till den **egenskaper** fliken.
+1. Gå till fliken **Egenskaper** .
 
-2. Välj i biblioteket, **plats**.
+2. I biblioteket väljer du **plats**.
 
-3. Konfigurera **visningsnamn**, **fältnamn**, och (frivilligt) **ursprungsvärdet** för platsen.
+3. Konfigurera **visnings namn**, **fält namn**och (valfritt) initialt **värde** för platsen.
 
-    | Visningsnamn  | Fältnamn | Initialt värde |
+    | Visningsnamn  | Fältnamn | Startvärde |
     | --------------| -----------|---------|
-    | Installationen adress | installAddress | Microsoft, 1 Microsoft Way, Redmond, WA 98052   |
+    | Installations adress | installAddress | Microsoft, 1 Microsoft Way, Redmond, WA 98052   |
 
-   ![”Konfigurera platsen” formuläret med information om plats](./media/howto-set-up-template/locationcloudproperty2.png)
+   ![Formuläret "Konfigurera plats" med information om platsen](./media/howto-set-up-template/locationcloudproperty2.png)
 
    Det finns två format som stöds för att lägga till en plats:
-   - **Platsen som en adress**
-   - **Platsen som koordinater**
+   - **Plats som en adress**
+   - **Plats som koordinater**
 
-4. Välj **Spara**. En operatör kan du uppdatera platsvärdet i den **Device Explorer**.
+4. Välj **Spara**. En operatör kan uppdatera plats svärdet i **Device Explorer**.
 
-#### <a name="add-location-as-a-device-property"></a>Lägg till plats som en enhetsegenskap
+#### <a name="add-location-as-a-device-property"></a>Lägg till plats som en enhets egenskap
 
-Du kan skapa en plats-egenskap som en enhet som enheten rapporterar. Exempel: Om du vill spåra enhetens plats:
+Du kan skapa en plats egenskap som en enhets egenskap som enheten rapporterar. Om du till exempel vill spåra enhets platsen:
 
-1. Navigera till den **egenskaper** fliken.
+1. Gå till fliken **Egenskaper** .
 
-2. Välj **enhetsegenskap** från biblioteket.
+2. Välj **enhets egenskap** från biblioteket.
 
-3. Konfigurera visningsnamn och fältnamn och välj **plats** som datatyp:
+3. Konfigurera visnings namn och fält namn och välj **plats** som data typ:
 
     | Visningsnamn  | Fältnamn | Datatyp |
     | --------------| -----------|-----------|
     | Enhetsplats | deviceLocation | location  |
 
    > [!NOTE]
-   > Fältnamn måste matcha egenskapsnamnen i motsvarande kod för enhet
+   > Fält namnen måste matcha egenskaps namnen i motsvarande enhets kod
 
-   ![”Konfigurera enhetsegenskaper” formuläret med information om plats](./media/howto-set-up-template/locationdeviceproperty2.png)
+   ![Formuläret "Konfigurera enhets egenskaper" med information om platsen](./media/howto-set-up-template/locationdeviceproperty2.png)
 
-När den faktiska enheten är ansluten, platsen du lagt till som en enhetsegenskap uppdateras med värdet som skickas från enheten. När du har konfigurerat din Platsegenskapen, kan du [lägga till en karta för att visualisera plats i instrumentpanelen för enheten](#add-a-location-in-the-dashboard).
+När den riktiga enheten är ansluten uppdateras den plats som du har lagt till som enhets egenskap med det värde som skickas av enheten. När du har konfigurerat din plats egenskap kan du [lägga till en karta för att visualisera platsen i enhets instrument panelen](#add-a-location-property-in-the-dashboard).
 
 ## <a name="commands"></a>Kommandon
 
-Kommandon används för att hantera en enhet. De operatörer kan köra kommandon på enheten. Du kan lägga till flera kommandon till mallen för enheten som visas som paneler på den **kommandon** fliken för operatörer att använda. Som enhetens builder har du möjlighet att definiera kommandon efter behov.
+Kommandon används för att fjärrhantera en enhet. De gör det möjligt för operatörer att köra kommandon på enheten. Du kan lägga till flera kommandon till din enhets mall som visas som paneler på fliken **kommandon** för de operatörer som ska användas. Som verktyg för enheten har du flexibiliteten att definiera kommandon enligt dina krav.
 
 Hur skiljer sig ett kommando från en inställning?
 
-* **Ange**: En inställning är en konfiguration som du vill tillämpa på en enhet. Du vill att enheten ska spara konfigurationen tills du ändrar den. Till exempel vill du ange temperaturen för din frysfartyg och du vill att även om frysfartyg startas om.
+- **Inställning**: En inställning är en konfiguration som du vill tillämpa på en enhet. Du vill att enheten ska spara konfigurationen tills du ändrar den. Du kan till exempel ange temperatur för din fryser och du vill att inställningen även när frysningen startar om.
 
-* **Kommandot**: Du kan använda kommandon för att omedelbart köra ett kommando på enheten via en fjärranslutning från IoT Central. Om en enhet inte är ansluten kommandot tidsgränsen och misslyckas. Exempelvis kan du starta om en enhet.
+- **Kommando**: Du använder kommandon för att direkt köra ett kommando på enheten via en fjärr anslutning från IoT Central. Om en enhet inte är ansluten är kommandot timeout och fungerar inte. Till exempel vill du starta om en enhet.
 
-Exempel: du kan lägga till en ny **Echo** kommandot genom att välja den **kommandon** och sedan välja **+ nytt kommando**, och ange information om nya kommandot:
+Du kan till exempel lägga till ett nytt **eko** kommando genom att välja fliken **kommandon** och sedan välja **+ nytt kommando**och ange den nya kommando informationen:
 
 | Visningsnamn  | Fältnamn | Standardvärde för tidsgräns | Datatyp |
 | --------------| -----------|---------------- | --------- |
 | Ekokommando  | eko       |  30             | text      |
 
-![”Konfigurera kommandot” formuläret med information om echo](./media/howto-set-up-template/commandsecho1.png)
+![Formuläret "Konfigurera kommando" med information om eko](./media/howto-set-up-template/commandsecho1.png)
 
-När du har valt **spara**, **Echo** kommandot visas som en panel och är redo att användas från den **Device Explorer** när verkliga enheten ansluts. Fältnamn för kommandot måste matcha egenskapsnamnen i motsvarande enhet koden för kommandon att kunna köras.
+När du har valt **Spara**visas **ECHO** -kommandot som en panel och är redo att användas från **Device Explorer** när den riktiga enheten ansluter. Fält namnen för ditt kommando måste matcha egenskaps namnen i motsvarande enhets kod för att kommandona ska kunna köras.
+
+[Här är en länk till exempel C-enhets kod.](https://github.com/Azure/iot-central-firmware/blob/ad40358906aeb8f2040a822ba5292df866692c16/MXCHIP/mxchip_advanced/src/AzureIOTClient.cpp#L34)
 
 ## <a name="rules"></a>Regler
 
-Regler för operatörerna kan övervaka enheter i nära realtid. Regler för anropa automatiskt åtgärder som att skicka ett e-postmeddelande när regeln utlöses. En typ av regel är tillgängliga idag:
+Regler gör det möjligt för operatörer att övervaka enheter i nära real tid. Regler anropar automatiskt åtgärder som att skicka ett e-postmeddelande när regeln utlöses. En typ av regel är tillgänglig idag:
 
-- **Telemetri regeln**, som utlöses när den valda enhetstelemetri överskrider ett angivet tröskelvärde. [Mer information om regler för telemetri](howto-create-telemetry-rules.md).
+- **Telemetri-regel**, som aktive ras när den valda enhetens telemetri korsar ett angivet tröskelvärde. [Lär dig mer om regler för telemetri](howto-create-telemetry-rules.md).
 
 ## <a name="dashboard"></a>Instrumentpanel
 
-Instrumentpanelen är där en operatör går för att se information om en enhet. Som en builder du lägga till paneler till den här sidan för att hjälpa operatörer att förstå hur enheten fungerar. Du kan lägga till många typer av paneler som bild, linjediagram, stapeldiagram, nyckeltal (KPI), inställningar och egenskaper och etiketten.
+Instrument panelen är den plats där en operatör går att se information om en enhet. Som ett verktyg lägger du till paneler på den här sidan för att hjälpa operatörer att förstå hur enheten fungerar. Du kan lägga till många typer av instrument panels paneler, till exempel bild, linje diagram, stapeldiagram, Key Performance Indicator (KPI), inställningar och egenskaper och etikett.
 
-Du kan till exempel lägga till en **inställningar och egenskaper** rutan för att visa ett urval av de aktuella värdena för inställningar och egenskaper genom att välja den **instrumentpanelen** fliken och panel från biblioteket:
+Du kan till exempel lägga till en panel med **Inställningar och egenskaper** för att visa ett urval av de aktuella värdena för inställningar och egenskaper genom att välja fliken **instrument panel** och panelen från biblioteket:
 
-![”Konfigurera enhetsinformation” formuläret med information om inställningar och egenskaper](./media/howto-set-up-template/dashboardsettingsandpropertiesform1.png)
+![Formuläret "Konfigurera enhets information" med information om inställningar och egenskaper](./media/howto-set-up-template/dashboardsettingsandpropertiesform1.png)
 
-Nu när en operatör visar instrumentpanelen på den **Device Explorer**, de kan se panelen.
+Nu när en operator visar instrument panelen i **Device Explorer**kan de se panelen.
 
-### <a name="add-a-location-in-the-dashboard"></a>Lägg till en plats på instrumentpanelen
+### <a name="add-a-location-measurement-in-the-dashboard"></a>Lägg till en plats mätning på instrument panelen
 
-Om du har konfigurerat ett plats-mått, kan du visualisera plats med en karta i instrumentpanelen i enheten.
+Om du har konfigurerat en plats mätning kan du visualisera platsen med en karta i din enhets instrument panel. För plats mått har du möjlighet att rita plats historiken.
 
-1. Navigera till den **instrumentpanelen** fliken.
+1. Gå till fliken **instrument panel** .
 
-1. På instrumentpanelen för enheten väljer **kartan** från biblioteket.
+1. På instrument panelen för enheten väljer du **Mappa** från biblioteket.
 
-1. Ge kartan en rubrik. I följande exempel har rubriken **aktuella enhetsplats**. Välj plats-mått som du tidigare har konfigurerat på den **mätningar** fliken. I följande exempel visas den **tillgången plats** mätning:
+1. Ge kartan en rubrik. I följande exempel finns rubriken **enhetens aktuella plats**. Välj sedan den plats mätning som du tidigare har konfigurerat på fliken **mått** . I följande exempel är måttet **till till gångs plats** valt:
 
-   ![”Konfigurera kartan” formuläret med information om namn och egenskaper](./media/howto-set-up-template/locationcloudproperty5map.png)
+   ![Formuläret "konfigurera mappning" med information om rubrik och egenskaper](./media/howto-set-up-template/locationcloudproperty5map.png)
 
-1. Välj **Spara**. Panelen tjänstkarta visar nu den plats som du har valt.
+1. Välj **Spara**. Kart panelen visar nu den plats som du har valt.
 
-Du kan ändra storlek på panelen tjänstkarta. När en operatör visar instrumentpanelen på den **Device Explorer**, paneler på instrumentpanelen att du har konfigurerat, inklusive en platskarta är synliga.
+Du kan ändra storlek på kart panelen. När en operator visar instrument panelen i **Device Explorer**visas alla paneler i instrument panelen som du har konfigurerat, inklusive en plats karta.
 
-Mer information om hur du använder paneler i Azure IoT Central finns [använda instrumentpaneler](howto-use-tiles.md).
+### <a name="add-a-location-property-in-the-dashboard"></a>Lägg till en plats egenskap på instrument panelen
+
+Om du har konfigurerat en plats egenskap kan du visualisera platsen med en karta i din enhets instrument panel.
+
+1. Gå till fliken **instrument panel** .
+
+1. På instrument panelen för enheten väljer du **Mappa** från biblioteket.
+
+1. Ge kartan en rubrik. I följande exempel finns rubriken **enhetens aktuella plats**. Välj sedan den plats egenskap som du tidigare har konfigurerat på fliken **Egenskaper** . I följande exempel väljs mått **enhets platsen** :
+
+   ![Konfigurera kart formulär med information om rubrik och egenskaper](./media/howto-set-up-template/locationcloudproperty6map.png)
+
+1. Välj **Spara**. Kart panelen visar nu den plats som du har valt.
+
+Du kan ändra storlek på kart panelen. När en operator visar instrument panelen i **Device Explorer**visas alla paneler i instrument panelen som du har konfigurerat, inklusive en plats karta.
+
+Mer information om hur du använder paneler i Azure IoT Central finns i [använda paneler i instrument paneler](howto-use-tiles.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har lärt dig hur du ställer in en mall för enheten i Azure IoT Central programmet, kan du:
+Nu när du har lärt dig hur du konfigurerar en enhets mall i ditt Azure IoT Central-program kan du:
 
-> [!div class="nextstepaction"]
-> [Skapa en ny enhet mallversion](howto-version-device-template.md)
-> [ansluta en MXChip IoT DevKit enhet till Azure IoT Central programmet](howto-connect-devkit.md)
-> [ansluta ett allmänt klientprogram till din Azure IoT Central-program (Node.js)](howto-connect-nodejs.md)
+- [Skapa en ny version av enhets mal len](howto-version-device-template.md)
+- [Ansluta en MXChip IoT DevKit-enhet till ditt Azure IoT Central-program](howto-connect-devkit.md)
+- [Ansluta ett allmänt klient program till ditt Azure IoT Central-program (Node. js)](howto-connect-nodejs.md)

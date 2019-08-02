@@ -1,109 +1,109 @@
 ---
-title: Azure Analysis Services-databassäkerhetskopiering och återställning | Microsoft Docs
-description: Beskriver hur du säkerhetskopierar och återställer en Azure Analysis Services-databas.
+title: Säkerhets kopiering och återställning av Azure Analysis Services databasen | Microsoft Docs
+description: Beskriver hur du säkerhetskopierar och återställer en Azure Analysis Services databas.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 07/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 31e8e65b382a3a6bcad2998a0babdf9605dc4968
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 15d2d0a043271da18d7884b684ffe8cf5c1f4dc8
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61023953"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619207"
 ---
 # <a name="backup-and-restore"></a>Säkerhetskopiering och återställning
 
-Säkerhetskopiera tabellmodell databaser i Azure Analysis Services är ungefär samma sätt som för den lokala Analysis Services. Den viktigaste skillnaden är där du kan lagra säkerhetskopiorna. Säkerhetskopiera filer måste sparas till en behållare i ett [Azure storage-konto](../storage/common/storage-create-storage-account.md). Du kan använda en lagringskontot och behållaren som du redan har och de kan skapas när du konfigurerar inställningarna för din server.
+Att säkerhetskopiera tabell modell databaser i Azure Analysis Services är ungefär samma som för lokala Analysis Services. Den främsta skillnaden är den plats där du lagrar dina säkerhets kopior. Säkerhetskopierade filer måste sparas i en behållare i ett [Azure Storage-konto](../storage/common/storage-create-storage-account.md). Du kan använda ett lagrings konto och en behållare som du redan har, eller så kan de skapas när du konfigurerar lagrings inställningar för servern.
 
 > [!NOTE]
-> Skapa ett lagringskonto kan resultera i en ny fakturerbar tjänst. Mer information finns i [priser för Azure Storage](https://azure.microsoft.com/pricing/details/storage/blobs/).
+> Att skapa ett lagrings konto kan resultera i en ny fakturerbar tjänst. Mer information finns i [Azure Storage prissättning](https://azure.microsoft.com/pricing/details/storage/blobs/).
 > 
 > 
 
-Säkerhetskopior sparas med tillägget .abf. För InMemory-tabellmodeller lagras både modelldata och metadata. För DirectQuery-tabellmodeller lagras endast modellmetadata. Säkerhetskopieringar kan komprimeras och krypteras, beroende på vilka alternativ du väljer.
+Säkerhets kopior sparas med tillägget. ABF. För i-minnes tabell modeller lagras både modell data och metadata. För DirectQuery-tabell modeller lagras bara modellens metadata. Säkerhets kopior kan komprimeras och krypteras beroende på vilka alternativ du väljer.
 
 
-## <a name="configure-storage-settings"></a>Konfigurera lagringsinställningar för
-Innan du säkerhetskopierar, måste du konfigurera inställningarna för din server.
+## <a name="configure-storage-settings"></a>Konfigurera lagrings inställningar
+Innan du säkerhetskopierar måste du konfigurera lagrings inställningarna för servern.
 
 
-### <a name="to-configure-storage-settings"></a>Konfigurera lagringsinställningarna
-1.  I Azure portal > **inställningar**, klickar du på **Backup**.
+### <a name="to-configure-storage-settings"></a>Konfigurera lagrings inställningar
+1.  Klicka på **säkerhetskopiera**i Azure Portal > **Inställningar**.
 
-    ![Säkerhetskopior i inställningar](./media/analysis-services-backup/aas-backup-backups.png)
+    ![Säkerhets kopieringar i inställningar](./media/analysis-services-backup/aas-backup-backups.png)
 
-2.  Klicka på **aktiverad**, klicka sedan på **Lagringsinställningar**.
+2.  Klicka på **aktive rad**och sedan på **lagrings inställningar**.
 
     ![Aktivera](./media/analysis-services-backup/aas-backup-enable.png)
 
-3. Välj ditt lagringskonto eller skapa en ny.
+3. Välj ditt lagrings konto eller skapa ett nytt.
 
 4. Välj en behållare eller skapa en ny.
 
     ![Välj container](./media/analysis-services-backup/aas-backup-container.png)
 
-5. Spara inställningarna för säkerhetskopiering.
+5. Spara inställningarna för säkerhets kopiering.
 
-    ![Spara inställningar för säkerhetskopiering](./media/analysis-services-backup/aas-backup-save.png)
+    ![Spara inställningar för säkerhets kopiering](./media/analysis-services-backup/aas-backup-save.png)
 
-## <a name="backup"></a>Backup
+## <a name="backup"></a>Säkerhetskopiera
 
-### <a name="to-backup-by-using-ssms"></a>Att säkerhetskopiera med hjälp av SSMS
+### <a name="to-backup-by-using-ssms"></a>Säkerhetskopiera med hjälp av SSMS
 
-1. I SSMS högerklickar du på en databas > **säkerhetskopiera**.
+1. I SSMS högerklickar du på en databas > **säkerhets kopiering**.
 
-2. I **Backup Database** > **säkerhetskopian**, klickar du på **Bläddra**.
+2. I > säkerhets kopierings databasens**säkerhets kopia**klickar du på **Bläddra**.
 
-3. I den **spara fil som** dialogrutan Kontrollera sökvägen till mappen och skriv sedan ett namn för den säkerhetskopiera filen. 
+3. I dialog rutan **Spara filen som** kontrollerar du mappsökvägen och skriver sedan ett namn för säkerhets kopian. 
 
-4. I den **Backup Database** dialogrutan, Välj alternativ.
+4. I dialog rutan **Säkerhetskopiera databas** väljer du alternativ.
 
-    **Tillåt skriva över** – Välj det här alternativet om du vill skriva över säkerhetskopior med samma namn. Om det här alternativet inte väljs, kan inte du sparar filen ha samma namn som en fil som redan finns på samma plats.
+    **Tillåt att filen skrivs över** – Välj det här alternativet om du vill skriva över säkerhetskopierade filer med samma namn. Om det här alternativet inte är markerat kan filen du sparar inte ha samma namn som en fil som redan finns på samma plats.
 
-    **Gäller komprimering** – Välj det här alternativet för att komprimera säkerhetskopian. Komprimerade säkerhetskopieringsfiler spara diskutrymme, men kräver något högre CPU-användning. 
+    **Tillämpa komprimering** – Välj det här alternativet om du vill komprimera säkerhets kopierings filen. Komprimerade säkerhets kopior sparar disk utrymme, men kräver lite högre processor belastning. 
 
-    **Kryptera säkerhetskopian** – Välj det här alternativet för att kryptera säkerhetskopian. Det här alternativet kräver ett lösenord som användaren har angett att skydda filen med säkerhetskopian. Lösenordet går inte att läsa av säkerhetskopieringsdata annat sätt än en återställningsåtgärd. Om du väljer att kryptera säkerhetskopior, lagra lösenordet på en säker plats.
+    **Kryptera säkerhets kopierings fil** – Välj det här alternativet om du vill kryptera säkerhets kopian. För det här alternativet krävs ett användar lösen ord för att skydda säkerhets kopierings filen. Lösen ordet förhindrar läsning av säkerhets kopierings data på annat sätt än en återställnings åtgärd. Om du väljer att kryptera säkerhets kopior lagrar du lösen ordet på en säker plats.
 
-5. Klicka på **OK** att skapa och spara säkerhetskopian.
+5. Klicka på **OK** för att skapa och spara säkerhets kopian.
 
 
 ### <a name="powershell"></a>PowerShell
-Använd [Backup ASDatabase](https://docs.microsoft.com/sql/analysis-services/powershell/backup-asdatabase-cmdlet) cmdlet.
+Använd [backup-databas-](https://docs.microsoft.com/sql/analysis-services/powershell/backup-asdatabase-cmdlet) cmdlet.
 
 ## <a name="restore"></a>Återställ
-När du återställer, måste din säkerhetskopia vara i storage-konto som du har konfigurerat för din server. Om du vill flytta en säkerhetskopia från en lokal plats till ditt lagringskonto kan använda [Microsoft Azure Lagringsutforskaren](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer) eller [AzCopy](../storage/common/storage-use-azcopy.md) kommandoradsverktyget. 
+När du återställer måste säkerhets kopian finnas i det lagrings konto som du har konfigurerat för servern. Om du behöver flytta en säkerhets kopia från en lokal plats till ditt lagrings konto använder du [Microsoft Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer) eller kommando rads verktyget [AzCopy](../storage/common/storage-use-azcopy.md) . 
 
 
 
 > [!NOTE]
-> Om du återställa från en lokal server, måste du ta bort alla domänanvändare från modellens roller och lägga till dem till rollerna som Azure Active Directory-användare.
+> Om du återställer från en lokal server måste du ta bort alla domän användare från modellens roller och lägga tillbaka dem till rollerna som Azure Active Directory användare.
 > 
 > 
 
 ### <a name="to-restore-by-using-ssms"></a>Återställa med hjälp av SSMS
 
-1. I SSMS högerklickar du på en databas > **återställa**.
+1. I SSMS högerklickar du på en databas > **återställning**.
 
-2. I den **Backup Database** dialogrutan i **säkerhetskopian**, klickar du på **Bläddra**.
+2. I dialog rutan **Säkerhetskopiera databas** i **säkerhets kopia**klickar du på **Bläddra**.
 
-3. I den **Leta upp databasfiler** dialogrutan, Välj den fil som du vill återställa.
+3. I dialog rutan **Leta upp databasfiler** väljer du den fil som du vill återställa.
 
-4. I **återställningsdatabasen**, väljer du databasen.
+4. I **restore Database**väljer du databasen.
 
-5. Ange alternativ. Säkerhetsalternativ måste matcha de alternativ som du använde när du säkerhetskopierar.
+5. Ange alternativ. Säkerhets alternativen måste matcha de säkerhets kopierings alternativ som du använde när du säkerhetskopierade.
 
 
 ### <a name="powershell"></a>PowerShell
 
-Använd [återställning ASDatabase](https://docs.microsoft.com/sql/analysis-services/powershell/restore-asdatabase-cmdlet) cmdlet.
+Använd [restore-Database-](https://docs.microsoft.com/sql/analysis-services/powershell/restore-asdatabase-cmdlet) cmdlet.
 
 
 ## <a name="related-information"></a>Relaterad information
 
-[Azure storage-konton](../storage/common/storage-create-storage-account.md)  
+[Azure Storage-konton](../storage/common/storage-create-storage-account.md)  
 [Hög tillgänglighet](analysis-services-bcdr.md)     
-[Manage Azure Analysis Services](analysis-services-manage.md)
+[Hantera Azure Analysis Services](analysis-services-manage.md)

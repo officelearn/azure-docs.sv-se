@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Database Managed Instance tidszoner | Microsoft-Docs ”
-description: Lär dig om Azure SQL Database Managed Instance det tidszon
+title: Tids zoner för Azure SQL Database hanterade instanser | Microsoft Docs "
+description: Läs mer om tids zons information för Azure SQL Database Hanterad instans
 services: sql-database
 ms.service: sql-database
 ms.custom: ''
@@ -9,49 +9,48 @@ ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: ''
-manager: craigg
 ms.date: 07/05/2019
-ms.openlocfilehash: 05ec49c98c5bcfe40346550f5570c03a8fb3f881
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 33c844374d6d2b8e64cde6c7c9633e54a292d95f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67657996"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567278"
 ---
-# <a name="time-zones-in-azure-sql-database-managed-instance"></a>Tidszoner i Azure SQL Database Managed Instance
+# <a name="time-zones-in-azure-sql-database-managed-instance"></a>Tids zoner i Azure SQL Database Hanterad instans
 
-Coordinated Universal Time (UTC) är den rekommenderade tidszonen för datanivån för molnlösningar. Azure SQL Database Managed Instance erbjuder även välja mellan olika tidszoner att uppfylla behoven i befintliga program som lagrar datum- och tidsvärden och anropa datum- och tidsfunktioner med en implicit kontexten för en viss tidszon.
+UTC (Coordinated Universal Time) är den rekommenderade tids zonen för data nivån för moln lösningar. Azure SQL Database Hanterad instans erbjuder också ett urval av tids zoner för att uppfylla behoven hos befintliga program som lagrar datum-och tids värden och anropar datum-och tids funktioner med en implicit kontext för en speciell tidszon.
 
-T-SQL-funktioner som [GETDATE()](https://docs.microsoft.com/sql/t-sql/functions/getdate-transact-sql) och CLR-kod Observera tidszonen som angetts på instansen. SQL Server Agent-jobb kan du även följa scheman enligt tidszonen för instansen.
+T-SQL-funktioner som [getDate ()](https://docs.microsoft.com/sql/t-sql/functions/getdate-transact-sql) eller CLR-kod studerar tids zonen på instans nivå. SQL Server Agents jobb följer också scheman enligt tids zonen för instansen.
 
   >[!NOTE]
-  > Managed Instance är alternativet endast distribution av Azure SQL-databas som har stöd för tidszon. Andra distributionsalternativ följer alltid UTC.
-Använd [AT TIME ZONE](https://docs.microsoft.com/sql/t-sql/queries/at-time-zone-transact-sql) i enkel och grupperade SQL-databaser om du behöver att tolka information datum och tid i en icke-UTC-tidszonen.
+  > Hanterad instans är det enda distributions alternativet för Azure SQL Database som stöder tids zons inställningen. Andra distributions alternativ följer alltid UTC.
+Använd i [tids zonen](https://docs.microsoft.com/sql/t-sql/queries/at-time-zone-transact-sql) i enskilda och pooler SQL-databaser om du behöver tolka datum-och tidsinformation i en tids zon som inte är UTC-tid.
 
-## <a name="supported-time-zones"></a>Tidszoner som stöds
+## <a name="supported-time-zones"></a>Tids zoner som stöds
 
-En uppsättning stöds tidszoner ärvs från det underliggande operativsystemet för den hanterade instansen. Den uppdateras regelbundet för att hämta den nya tidszonsdefinitioner och förändringar i befintliga.
+En uppsättning tids zoner som stöds ärvs från det underliggande operativ systemet för den hanterade instansen. Den uppdateras regelbundet för att hämta nya definitioner för tids zoner och återspegla ändringar av befintliga.
 
-[Sommartid/tidszon ändras princip](https://aka.ms/time) garanterar historiska Precision från 2010 framåt.
+[Princip för sommar tid/tids zons ändringar](https://aka.ms/time) garanterar historisk noggrannhet från 2010 forward.
 
-En lista med namnen på tidszonerna som stöds är tillgängliga via den [sys.time_zone_info](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql) systemvy.
+En lista med namn på de tids zoner som stöds exponeras i system visningen [sys. time_zone_info](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql) .
 
 ## <a name="set-a-time-zone"></a>Ange en tidszon
 
-En tidszonen för en hanterad instans kan anges när instans skapas endast. Standardtidszon är UTC.
+En tids zon för en hanterad instans kan bara anges när en instans skapas. Standard tids zonen är UTC.
 
   >[!NOTE]
-  > Tidszonen för en befintlig hanterad instans kan inte ändras.
+  > Det går inte att ändra tids zonen för en befintlig hanterad instans.
 
-### <a name="set-the-time-zone-through-the-azure-portal"></a>Ange tidszonen via Azure portal
+### <a name="set-the-time-zone-through-the-azure-portal"></a>Ange tids zonen via Azure Portal
 
-Välj en tidszon i listan över tidszoner som stöds när du anger parametrar för en ny instans.
+När du anger parametrar för en ny instans väljer du en tidszon i listan över tids zoner som stöds.
   
-![Konfigurera en tidszon under instans skapas](media/sql-database-managed-instance-timezone/01-setting_timezone-during-instance-creation.png)
+![Ange en tidszon när en instans skapas](media/sql-database-managed-instance-timezone/01-setting_timezone-during-instance-creation.png)
 
 ### <a name="azure-resource-manager-template"></a>Azure Resource Manager-mall
 
-Ange egenskapen timezoneId i din [Resource Manager-mall](https://aka.ms/sql-mi-create-arm-posh) att ställa in den aktuella tidszonen när instans skapas.
+Ange timezoneId-egenskapen i [Resource Manager-mallen](https://aka.ms/sql-mi-create-arm-posh) för att ställa in tids zonen under skapandet av instansen.
 
 ```json
 "properties": {
@@ -68,67 +67,67 @@ Ange egenskapen timezoneId i din [Resource Manager-mall](https://aka.ms/sql-mi-c
 
 ```
 
-En lista med värden som stöds för egenskapen timezoneId är i slutet av den här artikeln.
+En lista med värden som stöds för egenskapen timezoneId finns i slutet av den här artikeln.
 
-Om inte anges är tidszonen inställd på UTC.
+Om detta inte anges anges tids zonen till UTC.
 
-## <a name="check-the-time-zone-of-an-instance"></a>Kontrollera tidszonen för en instans
+## <a name="check-the-time-zone-of-an-instance"></a>Kontrol lera tids zonen för en instans
 
-Den [CURRENT_TIMEZONE](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-transact-sql) returnerar funktionen ett namn på tidszonen för instansen.
+Funktionen [CURRENT_TIMEZONE](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-transact-sql) returnerar ett visnings namn för instansens tidszon.
 
-## <a name="cross-feature-considerations"></a>Överväganden för Cross-funktionen
+## <a name="cross-feature-considerations"></a>Överväganden för olika funktioner
 
-### <a name="restore-and-import"></a>Återställning och importera
+### <a name="restore-and-import"></a>Återställa och importera
 
-Du kan återställa en säkerhetskopia eller importera data till en hanterad instans från en instans eller en server med olika tidszonsinställningar. Se till att göra det med försiktighet. Analysera programmets beteende och resultatet av frågor och rapporter, precis som när du överför data mellan två SQL Server-instanser med olika tidszonsinställningar.
+Du kan återställa en säkerhets kopia eller importera data till en hanterad instans från en instans eller en server med olika tids zons inställningar. Se till att göra det med försiktighet. Analysera program beteendet och resultaten av frågorna och rapporterna, precis som när du överför data mellan två SQL Server instanser med olika tids zons inställningar.
 
 ### <a name="point-in-time-restore"></a>Återställning från tidpunkt
 
-<del>När du utför en point-in-time-återställning, tolkas det hög tid att återställa till som UTC-tid. Den här inställningen förhindrar all tvetydighet på grund av sommartid och dess eventuella ändringar.<del>
+<del>När du utför en tidpunkts återställning, tolkas tiden för att återställa till UTC-tid. Den här inställningen undviker tvetydighet på grund av sommar tid och eventuella ändringar.<del>
 
  >[!WARNING]
-  > Fungerar inte i enlighet med instruktionen ovan och tid att återställa till tolkas enligt tidszonen för den hanterade instansen för källa där automatiska databassäkerhetskopieringar tas från. Vi arbetar på att korrigera problemet att tolka angivna punkt i tiden som UTC-tid. Se [kända problem](sql-database-managed-instance-timezone.md#known-issues) för mer information.
+  > Det aktuella beteendet är inte i linje med instruktionen ovan och tiden att återställa till tolkas enligt tids zonen för den hanterade käll instans där automatiska databas säkerhets kopior tas från. Vi arbetar på att korrigera det här beteendet för att tolka den aktuella tidpunkten som UTC-tid. Se [kända problem](sql-database-managed-instance-timezone.md#known-issues) för mer information.
 
 ### <a name="auto-failover-groups"></a>Automatiska redundansgrupper
 
-Med hjälp av samma tidszon mellan en primär och sekundär instans i en redundansgrupp är inte aktiv, men vi rekommenderar den.
+Att använda samma tidszon i en primär och sekundär instans i en grupp för växling vid fel är inte tvingande, men vi rekommenderar starkt.
 
   >[!WARNING]
-  > Vi rekommenderar starkt att du använder samma tidszon för den primära och sekundära instansen i en redundansgrupp. På grund av vissa sällsynta fall kan är inte hålla samma tidszon mellan primära och sekundära instanser aktiv. Det är viktigt att förstå att när det gäller manuell eller automatisk redundans, den sekundära instansen behåller sin ursprungliga tidszon.
+  > Vi rekommenderar starkt att du använder samma tidszon för den primära och sekundära instansen i en grupp för växling vid fel. På grund av vissa sällsynta scenarier tillämpas inte samma tidszon på primära och sekundära instanser. Det är viktigt att förstå att om du använder manuell eller automatisk redundans behåller den sekundära instansen den ursprungliga tids zonen.
 
 ## <a name="limitations"></a>Begränsningar
 
-- Tidszonen för den befintliga hanterade instansen kan inte ändras.
-- Externa processer som startas från SQL Server Agent-jobb Se inte tidszonen för instansen.
+- Det går inte att ändra tids zonen för den befintliga hanterade instansen.
+- Externa processer som startas från SQL Server Agent jobben observerar inte tids zonen för instansen.
 
 ## <a name="known-issues"></a>Kända problem
 
-När point-in-time återställer (PITR) åtgärden utförs, tiden för att återställa till tolkas enligt tidszonen på den hanterade instansen där automatiska databassäkerhetskopieringar tas från, även om Portalsida för PITR tyder på att tiden tolkas som UTC.
+När en PITR-åtgärd (Point-in-Time Restore) utförs tolkas tiden för att återställa till enligt tids zonen på den hanterade instansen där automatiska databas säkerhets kopieringar tas från, även om Portal sidan för PITR antyder att tiden tolkas som UTC.
 
 Exempel:
 
-Anta att den instans där automatiska säkerhetskopieringar tas från har Eastern, normaltid (UTC-5) tidszon.
-Portalsida för point-in-time-återställning tyder på att den tid som du väljer att återställa till är UTC-tid:
+Anta att den här instansen där automatiska säkerhets kopieringar tas från har standard tids zon uppsättningen (UTC-5).
+Portal sida för återställning vid tidpunkt föreslår att tiden du väljer att återställa till är UTC-tid:
 
 ![PITR med lokal tid med hjälp av portalen](media/sql-database-managed-instance-timezone/02-pitr-with-nonutc-timezone.png)
 
-Men det hög tid att återställa till tolkas faktiskt som Eastern, normaltid och i det här exemplet databasen kommer att återställas till tillståndet i 9 AM Eastern Standard Time och inte UTC-tid.
+Tiden för att återställa till tolkas dock som Eastern, normal tid, och i det här exemplet kommer databasen att återställas till tillstånds nivån 9 AM Eastern, normal tid och inte UTC-tid.
 
-Om du vill göra point-in-time-återställning till en viss tidpunkt i UTC-tid först beräkna motsvarande tid i tidszonen för instansen av datakällan och använder den tidpunkten i portalen eller PowerShell/CLI-skript.
+Om du vill göra en tidpunkts återställning till en viss tidpunkt i UTC-tid, beräknar du först motsvarande tid i tids zonen för käll instansen och använder den tiden i portalen eller PowerShell/CLI-skriptet.
 
-## <a name="list-of-supported-time-zones"></a>Lista med tidszoner som stöds
+## <a name="list-of-supported-time-zones"></a>Lista över tids zoner som stöds
 
-| **Tidszons-ID:** | **Visningsnamn för tidszonen** |
+| **Tidszons-ID** | **Visnings namn för tidszon** |
 | --- | --- |
 | Datumgränsen, normaltid | (UTC-12:00) Internationella datumlinjen, väst |
 | UTC-11 | (UTC-11:00) Coordinated Universal Time-11 |
 | Aleuterna, normaltid | (UTC-10:00) Aleuterna |
-| Hawaiian Standard Time | (UTC-10:00) Hawaii |
-| Marquesas Standard Time | (UTC-09:30) Marquesasöarna |
-| Alaskan Standard Time | (UTC-09:00) Alaska |
-| UTC-09 | (UTC-09:00) Coordinated Universal Time-09 |
+| Hawaii, normaltid | (UTC-10:00) Hawaii |
+| Marquesas, normaltid | (UTC-09:30) Marquesasöarna |
+| Alaska, normaltid | (UTC-09:00) Alaska |
+| UTC-09 | (UTC-09:00) Koordinerad universell tid-09 |
 | Pacific, normaltid (Mexiko) | (UTC-08:00) Baja California |
-| UTC-08 | (UTC-08:00) Coordinated Universal Time-08 |
+| UTC-08 | (UTC-08:00) Koordinerad universaltid-08 |
 | Pacific, normaltid | (UTC-08:00) Pacific Time (USA och Kanada) |
 | US Mountain, normaltid | (UTC-07:00) Arizona |
 | Mountain, normaltid (Mexiko) | (UTC-07:00) Chihuahua, La Paz, Mazatlan |
@@ -136,81 +135,81 @@ Om du vill göra point-in-time-återställning till en viss tidpunkt i UTC-tid f
 | Centralamerika, normaltid | (UTC-06:00) Centralamerika |
 | Central, normaltid | (UTC-06:00) Central Time (USA och Kanada) |
 | Påskön, normaltid | (UTC-06:00) Påskön |
-| Central, normaltid (Mexiko) | (UTC-06:00) Guadalajara, Mexico City, Monterrey |
-| Kanada Central, normaltid | (UTC-06:00) Saskatchewan |
+| Central normaltid (Mexiko) | (UTC-06:00) Guadalajara, Mexico City, Monterrey |
+| Kanada, centrala, normaltid | (UTC-06:00) Saskatchewan |
 | SA Pacific, normaltid | (UTC-05:00) Bogota, Lima, Quito, Rio Branco |
-| Eastern, normaltid (Mexiko) | (UTC-05:00) Chetumal |
+| Normaltid, östra (Mexiko) | (UTC-05:00) Chetumal |
 | Eastern, normaltid | (UTC-05:00) Eastern Time (USA och Kanada) |
 | Haiti, normaltid | (UTC-05:00) Haiti |
 | Kuba, normaltid | (UTC-05:00) Havanna |
 | US Eastern, normaltid | (UTC-05:00) Indiana (östra) |
-| Turks- och Caicosöarna, normaltid | (UTC-05:00) Turks- och Caicosöarna |
-| Paraguay Standard Time | (UTC-04:00) Asunción |
+| Turks-och Caicosöarna, normal tid | (UTC – 05:00) Turks- och Caicosöarna |
+| Paraguay, normaltid | (UTC-04:00) Asunción |
 | Atlantic, normaltid | (UTC-04:00) Atlantic Time (Kanada) |
-| Venezuela Standard Time | (UTC-04:00) Caracas |
+| Venezuela, normaltid | (UTC-04:00) Caracas |
 | Centrala Brasilien, normaltid | (UTC-04:00) Cuiaba |
 | Västra Sydamerika, normaltid | (UTC-04:00) Georgetown, La Paz, Manaus, San Juan |
 | Pacific SA, normaltid | (UTC-04:00) Santiago |
 | Newfoundland, normaltid | (UTC-03:30) Newfoundland |
 | Tocantins, normaltid | (UTC-03:00) Araguaina |
-| E. Sydamerika, normaltid | (UTC-03:00) Brasilia |
-| SA Eastern, normaltid | (UTC-03:00) Cayenne, Fortaleza |
+| E. Södra Amerika, normal tid | (UTC-03:00) Brasilia |
+| Sydamerika (östra), normaltid | (UTC-03:00) Cayenne, Fortaleza |
 | Argentina, normaltid | (UTC-03:00) Buenos Aires |
 | Grönland, normaltid | (UTC-03:00) Grönland |
 | Montevideo, normaltid | (UTC-03:00) Montevideo |
 | Magallanes, normaltid | (UTC-03:00) Punta Arenas |
-| Saint Pierre, normaltid | (UTC-03:00) Saint Pierre och Miquelon |
-| Bahia Standard Time | (UTC-03:00) Salvador |
+| Saint Pierre, normaltid | (UTC-03:00) Saint-Pierre and Miquelon |
+| Bahia, normaltid | (UTC-03:00) Salvador |
 | UTC-02 | (UTC-02:00) Coordinated Universal Time-02 |
 | Mid-Atlantic, normaltid | (UTC-02:00) Mid-Atlantic - gammal |
 | Azorerna, normaltid | (UTC-01:00) Azorerna |
-| Cabo Verde, normaltid | (UTC-01:00) Cabo Verde |
+| Kap Verde, normal tid | (UTC-01:00) Cabo Verde |
 | UTC | (UTC) Coordinated Universal Time |
 | GMT, normaltid | (UTC+00:00) Dublin, Edinburgh, Lissabon, London |
 | Greenwich, normaltid | (UTC+00:00) Monrovia, Reykjavik |
-| W. Europa, normaltid | (UTC+01:00) Amsterdam, Berlin, Bern, Rom, Stockholm, Wien |
+| W. Europa, normal tid | (UTC+01:00) Amsterdam, Berlin, Bern, Rom, Stockholm, Wien |
 | Centraleuropa, normaltid | (UTC+01:00) Belgrad, Bratislava, Budapest, Ljubljana, Prag |
 | Paris, Madrid, normaltid | (UTC+01:00) Bryssel, Köpenhamn, Madrid, Paris |
 | Marocko, normaltid | (UTC+01:00) Casablanca |
-| Sao Tome normaltid | (UTC+01:00) Sao Tome |
+| São Tomé, normaltid | (UTC+01:00) São Tomé |
 | Centraleuropeisk normaltid | (UTC+01:00) Sarajevo, Skopje, Warszawa, Zagreb |
-| W. Centralafrika, normaltid | (UTC+01:00) Västra Centralafrika |
+| W. Central Afrika, normal tid | (UTC+01:00) Västra Centralafrika |
 | Jordanien, normaltid | (UTC+02:00) Amman |
 | GTB, normaltid | (UTC+02:00) Aten, Bukarest |
 | Mellanöstern, normaltid | (UTC+02:00) Beirut |
 | Egypten, normaltid | (UTC+02:00) Kairo |
-| E. Europa, normaltid | (UTC+02:00) Chisinau |
+| E. Europa, normal tid | (UTC+02:00) Chisinau |
 | Syrien, normaltid | (UTC+02:00) Damaskus |
-| Västbanken, normaltid | (UTC+02:00) Gaza, Hebron |
-| Sydafrika, normaltid | (UTC+02:00) Harare, Pretoria |
-| Fle, normaltid | (UTC+02:00) Helsingfors, Kiev, Riga, Sofia, Tallinn, Vilnius |
-| Israel Standard Time | (UTC+02:00) Jerusalem |
-| Kaliningrad, normaltid | (UTC+02:00) Kaliningrad |
-| Sudan, normaltid | (UTC+02:00) Khartoum |
+| Västra bankens normal tid | (UTC+02:00) Gaza, Hebron |
+| Södra Afrika, normaltid | (UTC+02:00) Harare, Pretoria |
+| FLE, normaltid | (UTC+02:00) Helsingfors, Kiev, Riga, Sofia, Tallinn, Vilnius |
+| Israel, normal tid | (UTC+02:00) Jerusalem |
+| Kaliningrad normal tid | (UTC+02:00) Kaliningrad |
+| Sudan, normaltid | (UTC + 02:00) Khartoum |
 | Libyen, normaltid | (UTC+02:00) Tripoli |
 | Namibia, normaltid | (UTC+02:00) Windhoek |
 | Irak, normaltid | (UTC+03:00) Bagdad |
 | Turkiet, normaltid | (UTC+03:00) Istanbul |
 | Arabien, normaltid | (UTC+03:00) Kuwait, Riyad |
 | Vitryssland, normaltid | (UTC+03:00) Minsk |
-| Ryssland, normaltid | (UTC+03:00) Moscow, St. Petersburg |
-| E. Afrika, normaltid | (UTC+03:00) Nairobi |
+| Ryssland, normal tid | (UTC+03:00) Moskva, St. Petersburg |
+| E. Afrika, normal tid | (UTC+03:00) Nairobi |
 | Iran, normaltid | (UTC+03:30) Teheran |
 | Arabisk normaltid | (UTC+04:00) Abu Dhabi, Muskat |
-| Astrakhan Standard Time | (UTC+04:00) Astrakhan, Ulyanovsk |
+| Astrachan, normaltid | (UTC+04:00) Astrakhan, Ulyanovsk |
 | Azerbajdzjan, normaltid | (UTC+04:00) Baku |
-| Ryssland tidszon 3 | (UTC+04:00) Izhevsk, Samara |
+| Ryssland-tid Zon 3 | (UTC+04:00) Izhevsk, Samara |
 | Mauritius, normaltid | (UTC+04:00) Port Louis |
 | Saratov, normaltid | (UTC+04:00) Saratov |
 | Georgien, normaltid | (UTC+04:00) Tbilisi |
-| Volgograd normaltid | (UTC+04:00) Volgograd |
+| Volgograd standardtid | (UTC+04:00) Volgograd |
 | Kaukasus, normaltid | (UTC+04:00) Jerevan |
-| Afghanistan Standard Time | (UTC+04:30) Kabul |
+| Afghanistan, normaltid | (UTC+04:30) Kabul |
 | Västra Asien, normaltid | (UTC+05:00) Asjchabad, Tasjkent |
-| Ekaterinburg, normaltid | (UTC+05:00) Ekaterinburg |
+| Jekaterinburg normal tid | (UTC+05:00) Ekaterinburg |
 | Pakistan, normaltid | (UTC+05:00) Islamabad, Karachi |
 | Indien, normaltid | (UTC+05:30) Chennai, Kolkata, Mumbai, New Delhi |
-| Sri Lanka Standard Time | (UTC+05:30) Sri Jayawardenepura |
+| Sri Lanka, normaltid | (UTC+05:30) Sri Jayawardenepura |
 | Nepal, normaltid | (UTC+05:45) Katmandu |
 | Centralasien, normaltid | (UTC+06:00) Astana |
 | Bangladesh, normaltid | (UTC+06:00) Dhaka |
@@ -218,49 +217,49 @@ Om du vill göra point-in-time-återställning till en viss tidpunkt i UTC-tid f
 | Unionen Myanmar, normaltid | (UTC+06:30) Yangon |
 | Sydostasien, normaltid | (UTC+07:00) Bangkok, Hanoi, Jakarta |
 | Altaj, normaltid | (UTC+07:00) Barnaul, Gorno-Altaysk |
-| W. Mongoliet, normaltid | (UTC+07:00) Hovd |
-| Nordasien, normaltid | (UTC+07:00) Krasnoyarsk |
+| W. Mongoliet, normal tid | (UTC+07:00) Hovd |
+| Nord Asien, normal tid | (UTC+07:00) Krasnoyarsk |
 | N. Centralasien, normaltid | (UTC+07:00) Novosibirsk |
 | Tomsk, normaltid | (UTC+07:00) Tomsk |
-| Kina, normaltid | (UTC+08:00) Beijing, Chongqing, Hongkong SAR, Urumqi |
-| Östra Nordasien, normaltid | (UTC+08:00) Irkutsk |
-| Singapore, normaltid | (UTC+08:00) Kuala Lumpur, Singapore |
-| W. Australien, normaltid | (UTC+08:00) Perth |
+| Kina, normaltid | (UTC+08:00) Beijing, Chongqing, Hongkong, Urumqi |
+| Östra Nord Asien, normal tid | (UTC+08:00) Irkutsk |
+| Singapore, normal tid | (UTC+08:00) Kuala Lumpur, Singapore |
+| W. Australien, normal tid | (UTC+08:00) Perth |
 | Taipei, normaltid | (UTC+08:00) Taipei |
 | Ulan Bator, normaltid | (UTC+08:00) Ulan Bator |
-| Centrala Australien W. normaltid | (UTC+08:45) Eucla |
-| Transbaikal Standard Time | (UTC+09:00) Chita |
+| Centr. v. Australien, normaltid | (UTC+08:45) Eucla |
+| Transbajkal, normaltid | (UTC+09:00) Chita |
 | Tokyo, normaltid | (UTC+09:00) Osaka, Sapporo, Tokyo |
-| Nordkorea, normaltid | (UTC+09:00) Pyongyang |
+| Nordkorea, normaltid | (UTC + 09:00) Pyongyang |
 | Korea, normaltid | (UTC+09:00) Söul |
-| Yakutsk, normaltid | (UTC+09:00) Yakutsk |
-| Cen. Australien, normaltid | (UTC+09:30) Adelaide |
+| Jakutsk normal tid | (UTC+09:00) Yakutsk |
+| Cent. Australien, normal tid | (UTC+09:30) Adelaide |
 | Centrala Australien, normaltid | (UTC+09:30) Darwin |
-| E. Australien, normaltid | (UTC+10:00) Brisbane |
-| Analysenheter Eastern, normaltid | (UTC+10:00) Canberra, Melbourne, Sydney |
+| E. Australien, normal tid | (UTC+10:00) Brisbane |
+| Östra Australien, normaltid | (UTC+10:00) Canberra, Melbourne, Sydney |
 | West Pacific, normaltid | (UTC+10:00) Guam, Port Moresby |
 | Tasmanien, normaltid | (UTC+10:00) Hobart |
-| Vladivostok, normaltid | (UTC+10:00) Vladivostok |
+| Vladivostok, normal tid | (UTC+10:00) Vladivostok |
 | Lord Howe, normaltid | (UTC+10:30) Lord Howeön |
-| Bougainville Standard Time | (UTC+11:00) Bougainville |
-| Ryssland tidszon 10 | (UTC+11:00) Chokurdakh |
+| Bougainville, normaltid | (UTC+11:00) Bougainville |
+| Ryssland-tidszon 10 | (UTC+11:00) Chokurdakh |
 | Magadan, normaltid | (UTC+11:00) Magadan |
-| Norfolk, normaltid | (UTC+11:00) Norfolkön |
-| Sakhalin Standard Time | (UTC+11:00) Sakhalin |
+| Norfolk, normaltid | (UTC+11:00) Norfolköarna |
+| Sachalin, normaltid | (UTC+11:00) Sakhalin |
 | Central Pacific, normaltid | (UTC+11:00) Salomonöarna, Nya Kaledonien |
-| Ryssland tidszon 11 | (UTC+12:00) Anadyr, Petropavlovsk-Kamchatsky |
+| Ryssland-tidszon 11 | (UTC+12:00) Anadyr, Petropavlovsk-Kamchatsky |
 | Nya Zeeland, normaltid | (UTC+12:00) Auckland, Wellington |
 | UTC+12 | (UTC+12:00) Coordinated Universal Time+12 |
 | Fidji, normaltid | (UTC+12:00) Fiji |
 | Kamtjatka, normaltid | (UTC+12:00) Petropavlovsk-Kamtjatskij - gammal |
 | Chathamöarna, normaltid | (UTC+12:45) Chathamöarna |
 | UTC+13 | (UTC+13:00) Coordinated Universal Time+13 |
-| Tonga Standard Time | (UTC+13:00) Nuku'alofa |
+| Tonga, normaltid | (UTC+13:00) Nuku'alofa |
 | Samoa, normaltid | (UTC+13:00) Samoa |
 | Linjeöarna, normaltid | (UTC+14:00) Kiritimati (Julön) |
 
 ## <a name="see-also"></a>Se också 
 
 - [CURRENT_TIMEZONE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-transact-sql)
-- [VID TIDSZON (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/queries/at-time-zone-transact-sql)
+- [I tidszon (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/queries/at-time-zone-transact-sql)
 - [sys.time_zone_info (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql)

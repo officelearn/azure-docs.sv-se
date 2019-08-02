@@ -1,18 +1,19 @@
 ---
 title: Säkerhetskopiera en SharePoint-grupp på Azure Stack
 description: Använd Azure Backup Server för att säkerhetskopiera och återställa dina SharePoint-data på Azure Stack. Den här artikeln innehåller information om hur du konfigurerar SharePoint-servergruppen så att önskade data kan lagras i Azure. Du kan återställa skyddade SharePoint-data från disk eller från Azure.
-author: adigan
-manager: shivamg
+ms.reviewer: adigan
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 6/8/2018
-ms.author: adigan
-ms.openlocfilehash: 729b21095f14463cb6fb1615a9f61f1189a3bbce
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: ac87fa66b72f2d7eaaf1ae2cd71bfeb827469444
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465180"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688689"
 ---
 # <a name="back-up-a-sharepoint-farm-on-azure-stack"></a>Säkerhetskopiera en SharePoint-grupp på Azure Stack
 Du säkerhetskopierar en SharePoint-grupp på Azure Stack till Microsoft Azure genom att använda Microsoft Azure Backup Server (MABS) på ett mycket sätt som du säkerhetskopierar andra data källor. Azure Backup ger flexibilitet i schemat för säkerhets kopiering för att skapa dagliga, vecko Visa eller årliga säkerhets kopierings punkter och ger dig bevarande princip alternativ för olika säkerhets kopierings punkter. Det ger också möjlighet att lagra lokala disk kopior för snabba återställnings mål (RTO) och för att lagra kopior till Azure för ekonomisk, långsiktig kvarhållning.
@@ -34,7 +35,7 @@ Innan du fortsätter måste du kontrol lera att du har [installerat och förbere
 Azure Backup agenten måste vara installerad på den server som kör SharePoint, de servrar som kör SQL Server och alla andra servrar som ingår i SharePoint-servergruppen. Mer information om hur du konfigurerar skydds agenten finns i [installations skydds agenten](https://technet.microsoft.com/library/hh758034\(v=sc.12\).aspx).  Ett undantag är att du bara installerar agenten på en enda front webb server (WFE). Azure Backup Server behöver agenten på en WFE-server som endast fungerar som start punkt för skydd.
 
 ### <a name="sharepoint-farm"></a>SharePoint-grupp
-För varje 10 000 000-objekt i Server gruppen måste det finnas minst 2 GB utrymme på den volym där MABS-mappen finns. Det här utrymmet krävs för att skapa kataloger. För att MABS ska kunna återställa specifika objekt (webbplats samlingar, webbplatser, listor, dokument bibliotek, mappar, enskilda dokument och list objekt) skapar katalog skapande en lista över de URL: er som finns i varje innehålls databas. Du kan visa listan över URL: er i fönstret återställnings Bart objekt i  återställnings aktivitets avsnittet i Mabs administratörskonsol.
+För varje 10 000 000-objekt i Server gruppen måste det finnas minst 2 GB utrymme på den volym där MABS-mappen finns. Det här utrymmet krävs för att skapa kataloger. För att MABS ska kunna återställa specifika objekt (webbplats samlingar, webbplatser, listor, dokument bibliotek, mappar, enskilda dokument och list objekt) skapar katalog skapande en lista över de URL: er som finns i varje innehålls databas. Du kan visa listan över URL: er i fönstret återställnings Bart objekt i återställnings aktivitets avsnittet i Mabs administratörskonsol.
 
 ### <a name="sql-server"></a>SQL Server
 Azure Backup Server körs som ett LocalSystem-konto. Om du vill säkerhetskopiera SQL Server-databaser behöver MABS sysadmin-behörighet för kontot för den server som kör SQL Server. Ange NT instans\system till *sysadmin* på den server som kör SQL Server innan du säkerhetskopierar den.

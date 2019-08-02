@@ -16,12 +16,12 @@ ms.date: 05/30/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25ad17f4c4d338e1d0b8118c1a172e0aaad7118e
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: eb5f322d8bc974274f7f2da7811b124499224635
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489103"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68678134"
 ---
 # <a name="request-process-and-email-notifications-in-azure-ad-entitlement-management-preview"></a>Begär process och e-postmeddelanden i hantering av Azure AD-hantering (för hands version)
 
@@ -47,7 +47,7 @@ En användare som behöver åtkomst till ett Access-paket kan skicka en åtkomst
 | Har upphört att gälla | Om inga god kännare godkänner en begäran inom tids gränsen för godkännandebegäran, förfaller begäran. Användaren måste skicka in begäran igen för att försöka igen. |
 | Avvisad | God kännaren nekar en begäran. |
 | GODKÄND | God kännaren godkänner en begäran. |
-| Levererar | Användaren har **inte** tilldelats åtkomst till alla resurser i åtkomst paketet. Om det är en extern användare har användaren ännu inte till gång till resurs katalogen och accepterade behörighets frågan. |
+| Levererar | Användaren har **inte** tilldelats åtkomst till alla resurser i åtkomst paketet. Om det är en extern användare kanske användaren ännu inte har åtkomst till resurs katalogen och godkänt medgivande meddelandet. |
 | Levererade | Användaren har tilldelats åtkomst till alla resurser i åtkomst paketet. |
 | Utökad åtkomst | Användaren utökat tilldelningen om tillägg tillåts i principen. |
 | Åtkomst upphör | Användarens åtkomst till Access-paketet har upphört att gälla. Användaren måste skicka en begäran för att få åtkomst igen. |

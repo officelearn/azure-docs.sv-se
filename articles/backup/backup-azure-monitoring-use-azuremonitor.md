@@ -1,20 +1,21 @@
 ---
 title: 'Azure Backup: Övervaka Azure Backup med Azure Monitor'
 description: Övervaka Azure Backup arbets belastningar och skapa anpassade aviseringar med Azure Monitor.
-author: pvrk
-manager: shivamg
+ms.reviewer: pullabhk
+author: dcurwin
+manager: carmonm
 keywords: Log Analytics; Azure Backup; Aviseringar Diagnostikinställningar; Åtgärds grupper
 ms.service: backup
 ms.topic: conceptual
 ms.date: 06/04/2019
-ms.author: pullabhk
+ms.author: dacurwin
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 15b701a9ccc469636875736b6e316c150615aa16
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: de13518173f21a0a802c37eb7be3cd6c4926d884
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465935"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689194"
 ---
 # <a name="monitor-at-scale-by-using-azure-monitor"></a>Övervaka i skala med hjälp av Azure Monitor
 
@@ -58,7 +59,7 @@ När data finns i arbets ytan Log Analytics distribuerar du [en GitHub-mall](htt
 
 När mallen har distribuerats visas lösningen för övervakning och rapportering i Azure Backup i området Sammanfattning för arbets yta. Gå till sammanfattningen genom att följa någon av följande sökvägar:
 
-- **Azure Monitor**: I avsnittet  insikter väljer du **mer** och väljer sedan relevant arbets yta.
+- **Azure Monitor**: I avsnittet insikter väljer du **mer** och väljer sedan relevant arbets yta.
 - **Log Analytics arbets ytor**: Välj relevant arbets yta och under **Allmänt**väljer du **arbets ytans Sammanfattning**.
 
 ![Panelerna Log Analytics övervakning och rapportering](media/backup-azure-monitoring-laworkspace/la-azurebackup-overview-dashboard.png)

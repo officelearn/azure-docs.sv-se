@@ -1,45 +1,43 @@
 ---
-title: Så här skapar du en blob i Azure Storage med hjälp av klientbiblioteket för Java v7 | Microsoft Docs
-description: Skapa ett lagringskonto och en container i objektlagring (Blob). Sedan använda Azure Storage-klientbibliotek för Java v7 och ladda upp en blob till Azure Storage, laddar ned en blob och listar blobarna i en behållare.
-services: storage
+title: Så här skapar du en BLOB i Azure Storage använder klient biblioteket för Java-v7 | Microsoft Docs
+description: Skapa ett lagringskonto och en container i objektlagring (Blob). Använd sedan Azure Storage klient bibliotek för Java-v7 för att ladda upp en blob till Azure Storage, hämta en blob och lista blobarna i en behållare.
 author: mhopkins-msft
-ms.custom: mvc
-ms.service: storage
-ms.topic: conceptual
-ms.date: 02/04/2019
 ms.author: mhopkins
-ms.reviewer: seguler
-ms.openlocfilehash: f7cae5b3c7b0a7da6420674635ff9c3420a6436a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 02/04/2019
+ms.service: storage
+ms.subservice: blobs
+ms.topic: conceptual
+ms.openlocfilehash: 8cb9a9c6dd2e84318cd4d05bf6e67e127fc39ce3
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65154421"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726369"
 ---
-# <a name="how-to-upload-download-and-list-blobs-using-the-client-library-for-java-v7"></a>Hur du laddar upp, ladda ned och lista blobar med hjälp av klientbiblioteket för Java v7
+# <a name="how-to-upload-download-and-list-blobs-using-the-client-library-for-java-v7"></a>Ladda upp, ladda ned och lista blobar med hjälp av klient biblioteket för Java-v7
 
-I den här guiden att lära dig hur du använder klientbiblioteket för Java v7 att ladda upp, ladda ned och lista blockblobar i en behållare i Azure Blob storage.
+I den här instruktions guiden får du lära dig hur du använder klient biblioteket för Java-v7 för att ladda upp, ladda ned och lista block-blobar i en behållare i Azure Blob Storage.
 
 > [!TIP]
-> Den senaste versionen av Azure Storage-klientbibliotek för Java är v10. Microsoft rekommenderar att du använder den senaste versionen av klientbiblioteket när det är möjligt. Kom igång med v10, se [snabbstarten: Ladda upp, ladda ned och lista blobar med hjälp av Java Storage SDK V10](storage-quickstart-blobs-java-v10.md).
+> Den senaste versionen av Azure Storage klient biblioteket för Java är v10. Microsoft rekommenderar att du använder den senaste versionen av klient biblioteket när det är möjligt. Information om hur du kommer igång med [v10 finns i snabb start: Ladda upp, ladda ned och lista blobar med hjälp av Java Storage SDK](storage-quickstart-blobs-java-v10.md)-v10.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-Också skapa ett Azure storage-konto i den [Azure-portalen](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). Hjälp med att skapa kontot finns i [Skapa ett lagringskonto](../common/storage-quickstart-create-account.md).
+Skapa också ett Azure Storage-konto i [Azure Portal](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). Hjälp med att skapa kontot finns i [Skapa ett lagringskonto](../common/storage-quickstart-create-account.md).
 
-Kontrollera att du har följande krav:
+Kontrol lera att du har följande krav:
 
 * Installera en IDE som har Maven-integrering.
 
 * Du kan även installera och konfigurera Maven så att det fungerar från kommandoraden.
 
-Den här guiden används [Eclipse](https://www.eclipse.org/downloads/) med konfigurationen ”Eclipse IDE for Java Developers”.
+Den här guiden använder [Sol förmörkelse](https://www.eclipse.org/downloads/) med konfigurationen "Sol förmörkelse IDE för Java-utvecklare".
 
 ## <a name="download-the-sample-application"></a>Hämta exempelprogrammet
 
-Den [exempelprogrammet](https://github.com/Azure-Samples/storage-blobs-java-quickstart) är ett grundläggande konsolprogram.  
+[Exempel programmet](https://github.com/Azure-Samples/storage-blobs-java-quickstart) är ett grundläggande konsol program.  
 
 Använd [git](https://git-scm.com/) för att ladda ned en kopia av programmet till utvecklingsmiljön. 
 
@@ -134,7 +132,7 @@ container.createIfNotExists(BlobContainerPublicAccessType.CONTAINER, new BlobReq
 
 ### <a name="upload-blobs-to-the-container"></a>Ladda upp blobar i containern
 
-Hämta en referens till bloben i Målbehållaren om du vill överföra en fil till en blockblob. När du har blobbreferensen kan du ladda upp data till den med hjälp av [CloudBlockBlob.Upload](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.upload). Den här åtgärden skapar bloben om den inte redan finns, eller skriver över bloben om den redan finns.
+Hämta en referens till bloben i mål behållaren om du vill överföra en fil till en Block-Blob. När du har blobbreferensen kan du ladda upp data till den med hjälp av [CloudBlockBlob.Upload](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.upload). Den här åtgärden skapar bloben om den inte redan finns, eller skriver över bloben om den redan finns.
 
 Exempelkoden skapar en lokal fil som ska användas för uppladdning och nedladdning, och lagrar den fil som ska laddas upp som **source** (källa) och namnet på bloben i **blob**. I följande exempel laddas filen upp till containern med namnet **quickstartcontainer**.
 
@@ -186,7 +184,7 @@ blob.downloadToFile(downloadedFile.getAbsolutePath());
 
 ### <a name="clean-up-resources"></a>Rensa resurser
 
-Om du inte längre behöver blobarna som du har överfört kan du ta bort hela behållaren med [CloudBlobContainer.DeleteIfExists](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob_container.deleteifexists). Denna metod tar även bort filerna i containern.
+Om du inte längre behöver de blobbar som du har överfört kan du ta bort hela behållaren med hjälp av [CloudBlobContainer. DeleteIfExists](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob_container.deleteifexists). Denna metod tar även bort filerna i containern.
 
 ```java
 try {
@@ -207,9 +205,9 @@ sourceFile.deleteOnExit();
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln beskrivs hur du överför filer mellan en lokal disk och Azure Blob storage med Java. För att få mer information om hur du arbetar med Java fortsätter du till vår lagringsplats för GitHub-källkod.
+I den här artikeln har du lärt dig hur du överför filer mellan en lokal disk och Azure Blob Storage med Java. För att få mer information om hur du arbetar med Java fortsätter du till vår lagringsplats för GitHub-källkod.
 
 > [!div class="nextstepaction"]
-> [Microsoft Azure Storage SDK v10 för Java](https://github.com/azure/azure-storage-java) 
+> [Microsoft Azure Storage SDK-v10 för Java](https://github.com/azure/azure-storage-java) 
 > [Java API-referens](https://docs.microsoft.com/java/azure/)
-> [kodexempel för Java](../common/storage-samples-java.md)
+> [kod exempel för Java](../common/storage-samples-java.md)

@@ -16,10 +16,10 @@ ms.date: 04/17/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: cc6a607da2227ecf9acd6209e31b7aa0ef1c62d8
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68323367"
 ---
 # <a name="run-tasks-concurrently-to-maximize-usage-of-batch-compute-nodes"></a>Kör uppgifter samtidigt för att maximera användningen av batch Compute-noder 
@@ -39,7 +39,7 @@ Som exempel för att illustrera fördelarna med parallell aktivitets körningen 
 I stället för att\_använda standard D1-noder som har 1 processor kärna kan du använda [standard\_D14](../cloud-services/cloud-services-sizes-specs.md) -noder som har 16 kärnor och aktivera parallell körning av aktiviteter. Därför skulle *16 gånger färre noder* användas – i stället för 1 000-noder krävs bara 63. Om stora programfiler eller referens data krävs för varje nod förbättras dessutom jobbets varaktighet och effektivitet eftersom data kopieras till endast 63 noder.
 
 ## <a name="enable-parallel-task-execution"></a>Aktivera parallell körning av uppgift
-Du konfigurerar Compute-noder för parallell körning av aktiviteter på Poolnivå. Med batch .net-biblioteket anger du elementet [CloudPool. MaxTasksPerComputeNode][maxtasks_net] property when you create a pool. If you are using the Batch REST API, set the [maxTasksPerNode][rest_addpool] i begär ande texten när du skapar en pool.
+Du konfigurerar Compute-noder för parallell körning av aktiviteter på Poolnivå. Med batch .NET-biblioteket ställer du in egenskapen [CloudPool. MaxTasksPerComputeNode][maxtasks_net] när du skapar en pool. Om du använder batch-REST API anger du [maxTasksPerNode][rest_addpool] -elementet i begär ande texten när du skapar en pool.
 
 Med Azure Batch kan du ange aktiviteter per nod upp till (4x) Antalet Core-noder. Om poolen till exempel har kon figurer ATS med noder med storleken "stor" (fyra kärnor) `maxTasksPerNode` kan du ange 16. Men oavsett hur många kärnor noden har kan du inte ha fler än 256 aktiviteter per nod. Mer information om antalet kärnor för varje nods storlek finns i [storlekar för Cloud Services](../cloud-services/cloud-services-sizes-specs.md). Mer information om tjänst begränsningar finns i [kvoter och begränsningar för tjänsten Azure Batch](batch-quota-limit.md).
 
@@ -53,10 +53,10 @@ När Compute-noderna i en pool kan köra uppgifter samtidigt är det viktigt att
 
 Genom att använda egenskapen [CloudPool. TaskSchedulingPolicy][task_schedule] kan du ange att aktiviteterna ska tilldelas jämnt över alla noder i poolen ("spridning"). Du kan också ange att så många aktiviteter som möjligt ska tilldelas varje nod innan aktiviteter tilldelas till en annan nod i poolen ("packning").
 
-Som ett exempel på hur den här funktionen är värdefull bör du överväga poolen [med\_standard D14](../cloud-services/cloud-services-sizes-specs.md) -noder (i exemplet ovan) som är konfigurerad med en [CloudPool. MaxTasksPerComputeNode][maxtasks_net] value of 16. If the [CloudPool.TaskSchedulingPolicy][task_schedule] konfigureras med en [ ComputeNodeFillType][Fill_type] of *Pack*skulle maximera användningen av alla 16 kärnor i varje nod och tillåta en pool för automatisk [skalning](batch-automatic-scaling.md) att rensa oanvända noder från poolen (noder utan tilldelade aktiviteter). Detta minimerar resursanvändningen och sparar pengar.
+Som ett exempel på hur den här funktionen är värdefull, bör du överväga poolen med [standard\_D14](../cloud-services/cloud-services-sizes-specs.md) -noder (i exemplet ovan) som är konfigurerade med ett [CloudPool. MaxTasksPerComputeNode][maxtasks_net] -värde på 16. Om [CloudPool. TaskSchedulingPolicy][task_schedule] har kon figurer ATS med [ett ComputeNodeFillType][fill_type] - *paket*skulle det maximera användningen av alla 16 kärnor i varje nod och tillåta en pool för automatisk [skalning](batch-automatic-scaling.md) att rensa oanvända noder från poolen (noder utan tilldelade aktiviteter). Detta minimerar resursanvändningen och sparar pengar.
 
 ## <a name="batch-net-example"></a>Batch .NET-exempel
-Den här [batchen .net][api_net] API code snippet shows a request to create a pool that contains four nodes with a maximum of four tasks per node. It specifies a task scheduling policy that will fill each node with tasks prior to assigning tasks to another node in the pool. For more information on adding pools by using the Batch .NET API, see [BatchClient.PoolOperations.CreatePool][poolcreate_net].
+I det här [batch .net][api_net] API-kodfragmentet visas en begäran om att skapa en pool som innehåller fyra noder med högst fyra aktiviteter per nod. Den specificerar en schemaläggnings princip för aktiviteter som fyller varje nod med aktiviteter innan aktiviteter tilldelas till en annan nod i poolen. Mer information om hur du lägger till pooler med hjälp av batch .NET-API: et finns i [metoden batchclient. PoolOperations. CreatePool][poolcreate_net].
 
 ```csharp
 CloudPool pool =
@@ -72,7 +72,7 @@ pool.Commit();
 ```
 
 ## <a name="batch-rest-example"></a>Batch-REST-exempel
-Den här [batchen rest][api_rest] API snippet shows a request to create a pool that contains two large nodes with a maximum of four tasks per node. For more information on adding pools by using the REST API, see [Add a pool to an account][rest_addpool].
+Den här [batch rest][api_rest] API-kodfragmentet visar en begäran om att skapa en pool som innehåller två stora noder med högst fyra aktiviteter per nod. Mer information om hur du lägger till pooler med hjälp av REST API finns i [lägga till en pool till ett konto][rest_addpool].
 
 ```json
 {
@@ -95,7 +95,7 @@ Den här [batchen rest][api_rest] API snippet shows a request to create a pool t
 >
 
 ## <a name="code-sample"></a>Kodexempel
-Egenskapen [ParallelNodeTasks][parallel_tasks_sample] project on GitHub illustrates the use of the [CloudPool.MaxTasksPerComputeNode][maxtasks_net] .
+[ParallelNodeTasks][parallel_tasks_sample] -projektet på GitHub illustrerar användningen av egenskapen [CloudPool. MaxTasksPerComputeNode][maxtasks_net] .
 
 Det C# här konsol programmet använder [batch .net][api_net] -biblioteket för att skapa en pool med en eller flera Compute-noder. Den kör ett konfigurerbart antal aktiviteter på noderna för att simulera variabel belastning. Utdata från programmet anger vilka noder som utförde varje aktivitet. Programmet innehåller också en sammanfattning av jobb parametrarna och varaktigheten. Sammanfattnings delen av utdata från två olika körningar av exempel programmet visas nedan.
 
@@ -120,7 +120,7 @@ Duration: 00:08:48.2423500
 Den andra körningen av exemplet visar en betydande minskning av jobbets varaktighet. Detta beror på att poolen har kon figurer ATS med fyra aktiviteter per nod, vilket möjliggör körning av parallell aktivitet för att slutföra jobbet i nästan en fjärdedel av tiden.
 
 > [!NOTE]
-> Jobbets varaktigheter i sammanfattningarna ovan omfattar inte skapande tiden för poolen. Varje jobb ovan skickades till tidigare skapade pooler vars datornoder var i inaktivt läge vid  överförings tillfället.
+> Jobbets varaktigheter i sammanfattningarna ovan omfattar inte skapande tiden för poolen. Varje jobb ovan skickades till tidigare skapade pooler vars datornoder var i inaktivt läge vid överförings tillfället.
 >
 >
 

@@ -1,6 +1,6 @@
 ---
-title: Exempel på Azure SQL Database fleranvändarapp – Wingtip SaaS | Microsoft Docs
-description: Lär dig med hjälp av ett exempelprogram för flera innehavare som använder Azure SQL Database, Wingtip SaaS-exempel
+title: Azure SQL Database multiapps-exempel – Wingtip SaaS | Microsoft Docs
+description: Lär dig genom att använda ett exempel program för flera innehavare som använder Azure SQL Database, Wingtip SaaS-exemplet
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
@@ -10,50 +10,49 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 09/24/2018
-ms.openlocfilehash: 1c16ea44418d99ee1f80a7d0ef7a3e5b3f118f46
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 16f4bb946af4720a327a8755c6bf9187f3b71ba6
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61485247"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570345"
 ---
-# <a name="introduction-to-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Introduktion till en multitenant SaaS-app som använder mönstret databas-per-klient med SQL Database
+# <a name="introduction-to-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Introduktion till en SaaS-app med flera innehavare som använder mönstret för databas per klient organisation med SQL Database
 
-Wingtip SaaS-program är en exempelapp för flera innehavare. Appen använder databas-per-klient SaaS-programmönster för att hantera flera klienter. Appen visar funktionerna i Azure SQL Database som möjliggör SaaS-scenarier med hjälp av flera SaaS-design och -hanteringsmönster. För att snabbt komma igång, distribuerar Wingtip SaaS-appen på mindre än fem minuter.
+Wingtip SaaS-programmet är ett exempel på en app för flera klienter. Appen använder program mönstret databas-per-innehavare SaaS för att betjäna flera klienter. Appen visar funktioner i Azure SQL Database som möjliggör SaaS-scenarier genom att använda flera design-och hanterings mönster för SaaS. För att snabbt komma igång distribuerar Wingtip SaaS-appen på mindre än fem minuter.
 
-Programmet källa kod och hantering av skript är tillgängliga i den [WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub-lagringsplatsen. Innan du börjar bör du se den [allmänna riktlinjer](saas-tenancy-wingtip-app-guidance-tips.md) steg att ladda ned och avblockera management Wingtip biljettskripten.
+Program käll kod och hanterings skript är tillgängliga i [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub lagrings platsen. Innan du börjar, se den [allmänna vägledningen](saas-tenancy-wingtip-app-guidance-tips.md) för steg för att ladda ned och avblockera hanterings skripten för Wingtip Ticket.
 
 ## <a name="application-architecture"></a>Programarkitektur
 
-Wingtip SaaS-appen använder modellen databas-per-klient. Elastiska SQL-pooler används för att maximera effektiviteten. För etablering och mappning av klienter till sina data används en katalogdatabas. Core Wingtip SaaS-program använder en pool med tre exempelklienter, plus katalogdatabasen. Katalog- och klient-servrar har etablerats med DNS-alias. Dessa alias används för att underhålla en referens till de aktiva resurser som används av Wingtip-programmet. Dessa alias har uppdaterats för att peka på recovery resurser i disaster recovery självstudier. Du har slutfört många av Wingtip SaaS-självstudier resulterar i tillägg till den första distributionen. Tillägg till exempel analytiska databaser och databasöverskridande schemahantering införs.
+Wingtip SaaS-appen använder modellen för databas per klient. Den använder elastiska SQL-pooler för att maximera effektiviteten. För att kunna konfigurera och mappa klienter till deras data används en katalog databas. Core Wingtip SaaS-programmet använder en pool med tre exempel klienter, plus katalog databasen. Katalogen och klient servrarna har etablerats med DNS-alias. Dessa alias används för att upprätthålla en referens till de aktiva resurser som används av Wingtip-programmet. Dessa alias uppdateras för att peka på återställnings resurser i självstudierna om haveri beredskap. Att slutföra många av Wingtip SaaS-självstudierna leder till tillägg i den första distributionen. Tillägg som analys databaser och schema hantering över databaser införs.
 
 
-![Wingtip SaaS-arkitekturen](media/saas-dbpertenant-wingtip-app-overview/app-architecture.png)
+![Wingtip SaaS-arkitektur](media/saas-dbpertenant-wingtip-app-overview/app-architecture.png)
 
 
-När du går igenom självstudierna och arbeta med appen behöver fokusera på SaaS-mönstren som är relaterade till datanivån. Med andra ord kan du fokusera på datanivån och inte overanalyze själva appen. Förstå implementeringen av dessa SaaS mönster är nyckeln till att implementera dem i dina program. Överväg också att alla ändringar som krävs för dina specifika affärsbehov.
+När du går igenom självstudierna och arbetar med appen kan du fokusera på SaaS-mönstren när de relaterar till data nivån. Du kan med andra ord fokusera på data nivån och inte analysera själva appen. Att förstå implementeringen av dessa SaaS-mönster är nyckeln till att implementera dessa mönster i dina program. Överväg även eventuella nödvändiga ändringar för dina specifika affärs behov.
 
-## <a name="sql-database-wingtip-saas-tutorials"></a>SQL Database Wingtip SaaS-självstudier
+## <a name="sql-database-wingtip-saas-tutorials"></a>Självstudier om SQL Database Wingtip SaaS
 
-När du har distribuerat appen, utforska följande självstudier som bygger på den första distributionen. De här självstudierna utforska vanliga SaaS-mönster som utnyttjar de inbyggda funktionerna i SQL Database, Azure SQL Data Warehouse och andra Azure-tjänster. Självstudier innehåller PowerShell-skript med detaljerade förklaringar. Förklaringarna förenklar förståelsen och implementeringen av samma SaaS-hanteringsmönster i dina program.
+När du har distribuerat appen kan du utforska följande självstudier som bygger på den första distributionen. De här självstudierna visar vanliga SaaS-mönster som utnyttjar inbyggda funktioner i SQL Database, Azure SQL Data Warehouse och andra Azure-tjänster. Självstudier innehåller PowerShell-skript med detaljerade förklaringar. Förklaringarna fören klar förståelse och implementering av samma SaaS hanterings mönster i dina program.
 
 
-| Självstudier | Beskrivning |
+| Självstudie | Beskrivning |
 |:--|:--|
-| [Vägledning och tips för SQL Database-principexempel för flera innehavare SaaS](saas-tenancy-wingtip-app-guidance-tips.md) | Hämta och kör PowerShell-skript för att förbereda delar av programmet. |
-|[Distribuera och utforska Wingtip SaaS-program](saas-dbpertenant-get-started-deploy.md)|  Distribuera och utforska Wingtip SaaS-program med din Azure-prenumeration. |
-|[Etablera och katalogisera klienter](saas-dbpertenant-provision-and-catalog.md)| Lär dig hur programmet ansluter till klienter med hjälp av en katalogdatabas och hur klienter mappas till sina data i katalogen. |
-|[Övervaka och hantera prestanda](saas-dbpertenant-performance-monitoring.md)| Lär dig hur du använder övervakningsfunktionerna i SQL-databas och ställa in aviseringar om prestanda tröskelvärden överskrids. |
-|[Övervaka med Azure Monitor-loggar](saas-dbpertenant-log-analytics.md) | Lär dig hur du använder [Azure Monitor loggar](../log-analytics/log-analytics-overview.md) övervaka stora mängder resurser över flera pooler. |
-|[Återställa en enskild klientorganisation](saas-dbpertenant-restore-single-tenant.md)| Lär dig mer om att återställa en klientdatabas till en tidigare tidpunkt. Lär dig också att återställa till en parallell databas, vilket lämnar befintliga klientdatabasen online. |
-|[Hantera klientorganisationsschema för databasen](saas-tenancy-schema-management.md)| Lär dig hur du uppdaterar schemat och uppdaterar referensdata för alla klientdatabaser. |
-|[Köra distribuerade frågor för flera klienter](saas-tenancy-cross-tenant-reporting.md) | Skapa en ad hoc-analysdatabas och kör i realtid distribuerade frågor över alla klienter.  |
-|[Köra analyser på extraherade klientdata](saas-tenancy-tenant-analytics.md) | Extrahera klientdata till en analytics-databasen eller datalagret för offline analysfrågor. |
+| [Vägledning och tips för SQL Database SaaS-exempel för flera klient organisationer](saas-tenancy-wingtip-app-guidance-tips.md) | Hämta och kör PowerShell-skript för att förbereda delar av programmet. |
+|[Distribuera och utforska Wingtip SaaS-programmet](saas-dbpertenant-get-started-deploy.md)|  Distribuera och utforska Wingtip SaaS-programmet med din Azure-prenumeration. |
+|[Etablera och katalogisera klienter](saas-dbpertenant-provision-and-catalog.md)| Lär dig hur programmet ansluter till klienter med hjälp av en katalog databas och hur katalogen mappar klienter till sina data. |
+|[Övervaka och hantera prestanda](saas-dbpertenant-performance-monitoring.md)| Lär dig hur du använder övervaknings funktioner i SQL Database och ställer in aviseringar när tröskelvärden för prestanda överskrids. |
+|[Övervaka med Azure Monitor loggar](saas-dbpertenant-log-analytics.md) | Lär dig hur du använder [Azure Monitor loggar](../log-analytics/log-analytics-overview.md) för att övervaka stora mängder resurser över flera pooler. |
+|[Återställa en enskild klientorganisation](saas-dbpertenant-restore-single-tenant.md)| Lär dig hur du återställer en klient databas till en tidigare tidpunkt. Lär dig också hur du återställer till en parallell databas som lämnar den befintliga klient databasen online. |
+|[Hantera klient organisationens databas schema](saas-tenancy-schema-management.md)| Lär dig hur du uppdaterar schema och uppdaterar referens data över alla klient databaser. |
+|[Kör distribuerade frågor mellan klienter](saas-tenancy-cross-tenant-reporting.md) | Skapa en ad hoc Analytics-databas och kör distribuerade frågor i real tid över alla klienter.  |
+|[Köra analyser på extraherade klient data](saas-tenancy-tenant-analytics.md) | Extrahera klient data till en Analytics-databas eller ett informations lager för offline Analytics-frågor. |
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Allmänna riktlinjer och tips när du distribuerar och använder exemplet för Wingtip biljetter SaaS-app](saas-tenancy-wingtip-app-guidance-tips.md)
-- [Distribuera Wingtip SaaS-program](saas-dbpertenant-get-started-deploy.md)
+- [Allmänna rikt linjer och tips när du distribuerar och använder Wingtip Ticket SaaS app-exempel](saas-tenancy-wingtip-app-guidance-tips.md)
+- [Distribuera Wingtip SaaS-programmet](saas-dbpertenant-get-started-deploy.md)

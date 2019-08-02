@@ -1,5 +1,5 @@
 ---
-title: 'Översätta länkar och URL: er Azure AD App Proxy | Microsoft Docs'
+title: 'Översätt länkar och URL: er Azure AD App proxy | Microsoft Docs'
 description: Beskriver grunderna om Azure AD Application Proxy-kopplingar.
 services: active-directory
 documentationcenter: ''
@@ -16,137 +16,137 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0899a127566c4d06de7d42443a956c2660a7a6d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e6d85fc7ed16f397cb91232e9648df4e8741b37a
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65956899"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68705788"
 ---
-# <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Omdirigera hårdkodad länkar till appar som publiceras med Azure AD Application Proxy
+# <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Omdirigera hårdkodad-Länkar för appar som publicerats med Azure AD-programproxy
 
-Azure AD-programproxyn gör lokala appar tillgängliga för användare som är fjärranslutna eller på sina egna enheter. Vissa appar har utvecklats med lokala länkar som är inbäddad i HTML. Länkarna fungerar inte när appen används via fjärranslutning. När du har flera lokala program som pekar på varandra kan användarna förväntar sig länkar kan fortsätta att arbeta när de inte är på kontoret. 
+Azure AD-programproxy gör dina lokala appar tillgängliga för användare som är fjärranslutna eller på sina egna enheter. Vissa appar har dock utvecklats med lokala länkar som är inbäddade i HTML. Dessa länkar fungerar inte korrekt när appen används via fjärr anslutning. När du har flera lokala program som pekar på varandra, förväntar användarna att länkarna ska fortsätta att fungera när de inte är på kontoret. 
 
-Det bästa sättet att se till att länkar fungerar på samma både i och utanför företagets nätverk är att konfigurera de externa URL: er för dina appar för att vara samma som deras interna URL: er. Använd [anpassade domäner](application-proxy-configure-custom-domain.md) att konfigurera din externa URL: er om du vill att företagets domännamn i stället för standarddomänen application proxy.
+Det bästa sättet att se till att länkarna fungerar likadant i och utanför företagets nätverk är att konfigurera de externa URL: erna för dina appar att vara samma som deras interna URL: er. Använd [anpassade domäner](application-proxy-configure-custom-domain.md) för att konfigurera dina externa webb adresser så att de har företagets domän namn i stället för standard domänen för programproxyn.
 
 
-Om du inte kan använda anpassade domäner i din klient, finns det flera alternativ för att tillhandahålla den här funktionen. Alla dessa är också kompatibla med anpassade domäner och varandra, så att du kan konfigurera anpassade domäner och andra lösningar om det behövs. 
+Om du inte kan använda anpassade domäner i din klient organisation finns det flera andra alternativ för att tillhandahålla den här funktionen. Alla dessa är också kompatibla med anpassade domäner och varandra, så att du kan konfigurera anpassade domäner och andra lösningar om det behövs. 
 
-**Alternativ 1: Använda Managed Browser** – den här lösningen gäller endast om du planerar att rekommenderar eller kräva att användarna kommer åt programmet via Intune Managed Browser. Det kan hantera alla publicerade URL: er. 
+**Alternativ 1: Använd Managed Browser eller Microsoft Edge** – den här lösningen är bara tillgänglig om du planerar att rekommendera eller kräva att användarna får åtkomst till programmet via Intune Managed Browser eller Microsoft Edge-webbläsaren. Den hanterar alla publicerade URL: er. 
 
-**Alternativ 2: Använda tillägget MyApps** – den här lösningen kräver att användarna ska kunna installera ett webbläsartillägg på klientsidan, men det kan hantera alla publicerade URL: er och fungerar i de flesta populära webbläsare. 
+**Alternativ 2: Använd tillägget** för Mina appar – den här lösningen kräver att användare installerar ett webb läsar tillägg på klient sidan, men hanterar alla publicerade URL: er och fungerar med de flesta populära webbläsare. 
 
-**Alternativ 3: Använd länken translation inställningen** – detta är en administratör på klientsidan inställning som inte visas för användarna. Det kan endast hantera URL: er i HTML och CSS. Hårdkodade interna URL: er genereras via Javascript fungerar (till exempel) inte.  
+**Alternativ 3: Använd inställningen** länk översättning – det här är en inställning för administratörs sidan som är dold för användare. Det kommer dock bara att hantera URL: er i HTML och CSS. Hårdkodade interna URL: er som genereras via Java Script (till exempel) fungerar inte.  
 
-Dessa tre funktioner Behåll länkarna fungerar oavsett var dina användare är. När du har appar som pekar direkt på interna slutpunkter eller portar, kan du mappa dessa interna URL: er publicerade externa Application Proxy URL: er. 
+De här tre funktionerna gör att dina länkar fungerar oavsett var dina användare finns. När du har appar som pekar direkt till interna slut punkter eller portar kan du mappa dessa interna URL: er till URL: erna för publicerade externa programproxy. 
 
  
 > [!NOTE]
-> Det sista alternativet är endast för klienter som av något skäl inte kan använda anpassade domäner har samma interna och externa URL: er för sina appar. Innan du aktiverar den här funktionen kan du se om [anpassade domäner i Azure AD Application Proxy](application-proxy-configure-custom-domain.md) kan hjälpa dig. 
+> Det sista alternativet är endast för klienter som av någon anledning inte kan använda anpassade domäner för att ha samma interna och externa URL: er för sina appar. Innan du aktiverar den här funktionen kan du se om [anpassade domäner i Azure AD-programproxy](application-proxy-configure-custom-domain.md) kan arbeta åt dig. 
 > 
-> Eller, om programmet som du vill konfigurera med länken är translation SharePoint finns i [konfigurera alternativa åtkomstmappningar för SharePoint 2013](https://technet.microsoft.com/library/cc263208.aspx) en annan metod för mappning av länkar. 
+> Eller, om programmet du behöver konfigurera med länk översättning är SharePoint, se [Konfigurera alternativa åtkomst mappningar för SharePoint 2013](https://technet.microsoft.com/library/cc263208.aspx) för en annan metod för att mappa länkar. 
 
  
-### <a name="option-1-intune-managed-browser-integration"></a>Alternativ 1: Intune Managed Browser-integrering 
+### <a name="option-1-intune-managed-browser-and-microsoft-edge-integration"></a>Alternativ 1: Intune Managed Browser och Microsoft Edge-integration 
 
-Du kan använda Intune Managed Browser för att ytterligare skydda ditt program och innehåll. Om du vill använda den här lösningen, måste du kräver/rekommenderar användare åtkomst till programmet via Intune Managed Browser. Alla interna URL: er som publiceras med Application Proxy ska identifieras av Managed Browser och omdirigeras till motsvarande extern URL. Detta säkerställer att alla hårdkodade interna URL: er fungerar och om en användare går till webbläsaren och skriver den interna URL: en direkt, den fungerar även om användaren är en fjärrplats.  
+Du kan använda Intune Managed Browser eller Microsoft Edge för att ytterligare skydda ditt program och ditt innehåll. Om du vill använda den här lösningen måste du kräva/rekommendera användares åtkomst till programmet via Intune Managed Browser. Alla interna URL: er som publicerats med programproxyn kommer att identifieras av Managed Browser och omdirigeras till motsvarande externa URL. Detta säkerställer att alla hårdkodade interna URL: er fungerar, och om en användare går till webbläsaren och direkt skriver den interna URL: en, fungerar den även om användaren är fjärran sluten.  
 
-Mer information, inklusive hur du konfigurerar det här alternativet finns i [Managed Browser](https://docs.microsoft.com/intune/app-configuration-managed-browser) dokumentation.  
+Mer information, inklusive hur du konfigurerar det här alternativet finns i [Managed Browser](https://docs.microsoft.com/intune/app-configuration-managed-browser) -dokumentationen.  
 
-### <a name="option-2-myapps-browser-extension"></a>Alternativ 2: MyApps webbläsartillägg 
+### <a name="option-2-myapps-browser-extension"></a>Alternativ 2: Webb läsar tillägg för Mina appar 
 
-Med webbläsartillägget MyApps är alla interna URL: er som publiceras med Application Proxy kan identifieras av tillägget och omdirigeras till motsvarande extern URL. Detta säkerställer att alla hårdkodade interna URL: er fungerar och om en användare går till i webbläsarens adressfält och skriver den interna URL: en direkt, den fungerar även om användaren är en fjärrplats.  
+Med webb läsar tillägget för appar, identifieras alla interna URL: er som publicerats med Application Proxy av tillägget och dirigeras till motsvarande externa URL. Detta säkerställer att alla hårdkodade interna URL: er fungerar, och om en användare går till webbläsarens Adress fält och direkt skriver den interna URL: en fungerar den även om användaren är fjärran sluten.  
 
-Användaren måste ladda ned tillägget och logga in om du vill använda den här funktionen. Det finns ingen annan konfiguration som krävs för administratörer eller användare. 
+Användaren måste ladda ned tillägget och vara inloggad för att kunna använda den här funktionen. Det finns ingen annan konfiguration som krävs för administratörer eller användare. 
 
-Mer information, inklusive hur du konfigurerar det här alternativet finns i [MyApps webbläsartillägget](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access#download-and-install-the-my-apps-secure-sign-in-extension) dokumentation.
+Mer information, inklusive hur du konfigurerar det här alternativet finns i dokumentationen för [webb läsar tillägget för appar](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access#download-and-install-the-my-apps-secure-sign-in-extension) .
 
-### <a name="option-3-link-translation-setting"></a>Alternativ 3: Link Translation Setting 
+### <a name="option-3-link-translation-setting"></a>Alternativ 3: Länk översättnings inställning 
 
-När länken translation är aktiverat programproxytjänsten söker igenom HTML och CSS för publicerade interna länkar och omvandlar dem så att användarna får en oavbruten upplevelse. Med hjälp av webbläsartillägget MyApps är att föredra att länken anonymt eftersom det ger en mer bättre upplevelse för användare.
+När länk översättning är aktiverat söker Application Proxy-tjänsten igenom HTML och CSS efter publicerade interna länkar och översätter dem så att användarna får en oavbruten upplevelse. Om du använder webb läsar tillägget för appar föredrar du inställningen länk översättning eftersom det ger en mer välfungerande upplevelse för användarna.
 
 > [!NOTE]
-> Om du använder alternativet 2 eller 3, ska endast en av dessa vara aktiverad i taget.
+> Om du använder alternativ 2 eller 3 ska endast en av dessa vara aktive rad i taget.
 
-## <a name="how-link-translation-works"></a>Hur länkar translation fungerar
+## <a name="how-link-translation-works"></a>Så här fungerar länk Översättning
 
-Efter autentisering, när proxyservern skickas programdata till användaren, Application Proxy söker igenom program för hårdkodad länkar och ersätter dem med deras respektive publicerade externa URL: er.
+Efter autentiseringen, när proxyservern skickar program data till användaren, genomsöker Application Proxy programmet efter hårdkodad-länkar och ersätter dem med deras respektive publicerade externa URL: er.
 
-Programproxy förutsätter att program är kodade i UTF-8. Om detta inte är fallet, ange kodningstyp i en http-Svarsrubrik som `Content-Type:text/html;charset=utf-8`.
+Programproxyn förutsätter att programmen kodas i UTF-8. Om så inte är fallet, anger du kodnings typen i ett HTTP-svarshuvuden, som `Content-Type:text/html;charset=utf-8`.
 
-### <a name="which-links-are-affected"></a>Vilka länkar som påverkas?
+### <a name="which-links-are-affected"></a>Vilka länkar påverkas?
 
-Översättningsfunktionen länk söker bara efter länkar som finns i kodtaggarna i brödtexten i en app. Programproxyn har en separat funktion för översättning av cookies eller URL: er i rubriker. 
+Funktionen länk översättning söker bara efter länkar som finns i kodmoduler i bröd texten i en app. Programproxyn har en separat funktion för översättning av cookies eller URL: er i huvuden. 
 
-Det finns två vanliga typer av interna länkar i dina lokala program:
+Det finns två vanliga typer av interna länkar i lokala program:
 
-- **Relativa interna länkar** som pekar på en delad resurs i en lokal fil-struktur som `/claims/claims.html`. Länkarna fungerar automatiskt i appar som publicerats via programproxy och fortsätta att arbeta med eller utan länköversättning. 
-- **Hårdkodad interna länkar** till andra lokala appar som `http://expenses` eller publicerat filer som `http://expenses/logo.jpg`. Översättningsfunktionen länken fungerar på hårdkodad interna länkar och ändrar dem så att den pekar till de externa URL: er som fjärranslutna användare måste du gå igenom.
+- **Relativa interna länkar** som pekar på en delad resurs i en lokal fil struktur som `/claims/claims.html`. Dessa länkar fungerar automatiskt i appar som publiceras via programproxy och fortsätter att arbeta med eller utan länk översättning. 
+- **Hårdkodad interna länkar** till andra lokala appar som `http://expenses` eller publicerade filer som. `http://expenses/logo.jpg` Funktionen länk översättning fungerar på hårdkodad interna länkar och ändrar dem så att de pekar på de externa URL: er som fjärran vändarna måste gå igenom.
 
-Den fullständiga listan med HTML-kod taggar som Application Proxy stöder länköversättning för inkludera:
+Den fullständiga listan med HTML-taggar som Application Proxy stöder för länk översättning för inkluderar:
 * a
-* Ljud
-* Base
-* Knappen
+* in
+* grund
+* Slutför
 * div
-* Bädda in
-* formuläret
+* inbädda
+* typ
 * ramens
-* HEAD
+* företagets
 * html
-* IFRAME
+* iframe
 * bild
 * indata
-* Länk
-* MenuItem
+* länk
+* MENUITEM
 * meta
-* objekt
+* object
 * script
 * source
-* Spåra
+* Ban
 * video
 
-Dessutom översättas URL-attributet i CSS också.
+Dessutom översätts URL-attributet även i CSS.
 
 ### <a name="how-do-apps-link-to-each-other"></a>Hur länkar appar till varandra?
 
-Länköversättning är aktiverat för varje program, så att du har kontroll över användarupplevelsen på per app-nivå. Aktivera länköversättning för en app när du vill ha länkarna *från* appen ska översättas länkar inte *till* appen. 
+Länk översättning är aktiverat för varje program, så att du har kontroll över användar upplevelsen på nivån per app. Aktivera länk översättning för en app när du vill att länkarna *från* appen ska översättas, inte länkar *till* den appen. 
 
-Anta att du har tre program som publicerats via programproxy att alla länkar till varandra: Fördelar, kostnader och resa. Det finns en fjärde app Feedback, som inte har publicerats via programproxy.
+Anta till exempel att du har tre program som publicerats via programproxyn som alla länkar till varandra: Fördelar, utgifter och resor. Det finns en fjärde app, feedback, som inte har publicerats via programproxyn.
 
-När du aktiverar länköversättning för appen fördelar, länkar till utgifter och resor omdirigeras till de externa URL: er för dessa appar, men en länk till Feedback omdirigeras inte eftersom det finns inga externa URL: en. Länkar från utgifter och resor tillbaka till förmånerna fungerar inte, eftersom länken translation inte har aktiverats för dessa två appar.
+När du aktiverar länk översättning för Benefits-appen omdirigeras länkarna till utgifter och resor till de externa URL: erna för dessa appar, men länken till feedback omdirigeras inte eftersom det inte finns någon extern URL. Länkar från kostnader och tillbaka till förmåner fungerar inte, eftersom länk översättning inte har Aktiver ATS för dessa två appar.
 
-![Länkar från förmåner till andra appar när länken translation är aktiverat](./media/application-proxy-configure-hard-coded-link-translation/one_app.png)
+![Länkar från förmåner till andra appar när länk översättning har Aktiver ATS](./media/application-proxy-configure-hard-coded-link-translation/one_app.png)
 
-### <a name="which-links-arent-translated"></a>Vilka länkar inte är översatt?
+### <a name="which-links-arent-translated"></a>Vilka länkar är inte översatta?
 
-För att förbättra prestanda och säkerhet, inte är länkar som översatt:
+Vissa länkar är inte översatta för att förbättra prestanda och säkerhet:
 
-- Länkar inte i kodtaggarna. 
-- Länkar inte i HTML- eller CSS. 
+- Länkar som inte ingår i kod taggar. 
+- Länkar som inte är i HTML eller CSS. 
 - Länkar i URL-kodat format.
-- Interna länkar öppnas från andra program. Länkar skickas via e-post eller snabbmeddelande eller ingår i andra dokument kommer inte att översätta. Användarna behöver veta för att gå till den externa URL: en.
+- Interna länkar som öppnas från andra program. Länkar som skickas via e-post eller snabb meddelanden eller som ingår i andra dokument översätts inte. Användarna måste känna till att gå till den externa URL: en.
 
-Om du behöver stöd för ett av dessa två scenarier kan du använda samma interna och externa URL: er i stället länköversättning.  
+Om du behöver stöda ett av dessa två scenarier använder du samma interna och externa webb adresser i stället för länk översättning.  
 
-## <a name="enable-link-translation"></a>Aktivera länköversättning
+## <a name="enable-link-translation"></a>Aktivera länk Översättning
 
-Det är lika enkelt som att klicka på en knapp för att komma igång med länköversättning:
+Att komma igång med länk översättning är lika enkelt som att klicka på en knapp:
 
 1. Logga in på [Azure Portal](https://portal.azure.com) som administratör.
-2. Gå till **Azure Active Directory** > **företagsprogram** > **alla program** > Välj den app som du vill hantera >  **Programproxy**.
-3. Aktivera **Översätt URL: er i brödtext för program** till **Ja**.
+2. Gå till **Azure Active Directory** > **företags program** > **alla program** > Välj den app som du vill hantera > **Application Proxy**.
+3. Omvandla **URL: er i program texten** till **Ja**.
 
-   ![Välj Ja om du vill översätta URL: er i brödtext för program](./media/application-proxy-configure-hard-coded-link-translation/select_yes.png)
-4. Välj **spara** att tillämpa ändringarna.
+   ![Välj Ja om du vill översätta URL: er i program texten](./media/application-proxy-configure-hard-coded-link-translation/select_yes.png)
+4. Välj **Spara** för att tillämpa ändringarna.
 
-Nu när dina användare har åtkomst till det här programmet, genomsökas proxyn för interna URL: er som har publicerats via programproxy på din klient.
+När dina användare till gång till det här programmet söker proxyen automatiskt efter interna URL: er som har publicerats via programproxyn på din klient organisation.
 
 ## <a name="send-feedback"></a>Skicka feedback
 
-Vi vill ha din hjälp för att den här funktionen fungerar för alla dina appar. Vi söker efter 30 taggar i HTML och CSS. Om du har ett exempel på genererade länkar som inte är som översätts skickar du ett kodfragment till [Proxy programfeedback](mailto:aadapfeedback@microsoft.com). 
+Vi vill att den här funktionen ska fungera för alla dina appar. Vi söker över 30 Taggar i HTML och CSS. Om du har ett exempel på genererade länkar som inte översätts skickar du ett kodfragment till [feedback](mailto:aadapfeedback@microsoft.com)för programproxy. 
 
 ## <a name="next-steps"></a>Nästa steg
-[Använda anpassade domäner med Azure AD Application Proxy](application-proxy-configure-custom-domain.md) ha samma interna och externa URL: en
+[Använd anpassade domäner med Azure AD-programproxy](application-proxy-configure-custom-domain.md) att ha samma interna och externa URL
 
-[Konfigurera alternativa åtkomstmappningar för SharePoint 2013](https://technet.microsoft.com/library/cc263208.aspx)
+[Konfigurera alternativa åtkomst mappningar för SharePoint 2013](https://technet.microsoft.com/library/cc263208.aspx)

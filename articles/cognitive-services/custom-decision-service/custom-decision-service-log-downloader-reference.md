@@ -1,7 +1,7 @@
 ---
 title: LogDownloader – Custom Decision Service
 titlesuffix: Azure Cognitive Services
-description: Ladda ned loggfiler som genereras av Azure Custom Decision Service.
+description: Hämta loggfiler som skapas av Azure Custom Decision Service.
 services: cognitive-services
 author: marco-rossi29
 manager: nitinme
@@ -10,23 +10,24 @@ ms.subservice: custom-decision-service
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: marossi
-ms.openlocfilehash: 8a8f669c33f40fb80dc826ec04203880dee74d82
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: 33cc0d0dcf16ff82ac128507566427e123020236
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60829998"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68707228"
 ---
 # <a name="logdownloader"></a>LogDownloader
 
-Ladda ned loggfiler som produceras av Azure Custom Decision Service och generera de *.gz* filer som används av experimentering.
+Hämta loggfiler som skapas av Azure Custom Decision Service och generera de *. gz* -filer som används av experimentering.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-- Python 3: Installerad och i sökvägen. Vi rekommenderar den 64-bitars-versionen för att hantera stora filer.
-- Den *Microsoft/mwt-ds* lagringsplats: [Klona lagringsplatsen](https://github.com/Microsoft/mwt-ds).
-- Den *azure blobblagring* paketet: För information om installationen går du till [Microsoft Azure Storage-biblioteket för Python](https://github.com/Azure/azure-storage-python#option-1-via-pypi).
-- Ange din anslutningssträng för Azure storage i *mwt-ds/DataScience/ds.config*: Följ den *my_app_id: my_connectionString* mall. Du kan ange flera `app_id`. När du kör `LogDownloader.py`om indata `app_id` hittades inte i `ds.config`, `LogDownloader.py` använder den `$Default` anslutningssträngen.
+- Python 3: Installerat och på din sökväg. Vi rekommenderar 64-bitars versionen för att hantera stora filer.
+- *Microsoft/MWT-DS-* lagringsplatsen: [Klona lagrings platsen](https://github.com/Microsoft/mwt-ds).
+- *Azure-Storage-BLOB-* paketet: Installations information finns i [Microsoft Azure Storage Library för python](https://github.com/Azure/azure-storage-python#option-1-via-pypi).
+- Ange anslutnings strängen för Azure Storage i *MWT-DS/DataScience/DS. config*: Följ mallen *my_app_id: my_connectionString* . Du kan ange flera `app_id`. När du kör `LogDownloader.py`, om inmatade `app_id` inte `$Default` hittas i `ds.config`, `LogDownloader.py` använder anslutnings strängen.
 
 ## <a name="usage"></a>Användning
 
@@ -43,38 +44,38 @@ python LogDownloader.py [-h] -a APP_ID -l LOG_DIR [-s START_DATE]
 
 | Indata | Beskrivning | Standard |
 | --- | --- | --- |
-| `-h`, `--help` | Visa hjälpmeddelande och avsluta. | |
-| `-a APP_ID`, `--app_id APP_ID` | App-ID (det vill säga namnet på Azure Storage blob-behållare). | Obligatoriskt |
-| `-l LOG_DIR`, `--log_dir LOG_DIR` | Den grundläggande katalogen för att ladda ned data (en undermapp skapas).  | Obligatoriskt |
-| `-s START_DATE`, `--start_date START_DATE` | Hämtning startdatum (inkluderat) är i *åååå-MM-DD* format. | `None` |
-| `-e END_DATE`, `--end_date END_DATE` | Hämtar slutdatumet (ingår), i *åååå-MM-DD* format. | `None` |
-| `-o OVERWRITE_MODE`, `--overwrite_mode OVERWRITE_MODE` | Överskrivningsläge att använda. | |
-| | `0`: Skriv aldrig över; Be användaren om BLOB-objekt används för närvarande. | Standard |
-| | `1`: Be användaren hur du fortsätter när filerna har olika storlekar eller när blobarna som används för närvarande. | |
-| | `2`: Alltid över; ladda ned används blobar. | |
-| | `3`: Skriv aldrig över och till om den är större, utan att be; ladda ned används blobar. | |
-| | `4`: Skriv aldrig över och till om den är större, utan att be; Hoppa över för närvarande används blobbar. | |
-| `--dry_run` | Skriv ut vilka blobar skulle har laddats ned, utan att hämta. | `False` |
-| `--create_gzip` | Skapa en *gzip* -filen för Vowpal Wabbit. | `False` |
-| `--delta_mod_t DELTA_MOD_T` | Tidsfönster, i sekunder, för att upptäcka om en fil är för närvarande används. | `3600` SEK (`1` timme) |
-| `--verbose` | Skriva ut mer information. | `False` |
-| `-v VERSION`, `--version VERSION` | Installationshämtaren loggversion du använder. | |
-| | `1`: För rå loggar (endast för bakåtkompatibilitet). | Inaktuell |
+| `-h`, `--help` | Visa hjälp meddelandet och avsluta. | |
+| `-a APP_ID`, `--app_id APP_ID` | App-ID: t (det vill säga Azure Storage namn på BLOB-behållare). | Obligatorisk |
+| `-l LOG_DIR`, `--log_dir LOG_DIR` | Bas katalogen för att hämta data (en undermapp skapas).  | Obligatorisk |
+| `-s START_DATE`, `--start_date START_DATE` | Start datum för hämtning (ingår) i formatet *åååå-mm-dd* . | `None` |
+| `-e END_DATE`, `--end_date END_DATE` | Slutdatumet för hämtningen (inkluderat) i *åååå-mm-dd* -format. | `None` |
+| `-o OVERWRITE_MODE`, `--overwrite_mode OVERWRITE_MODE` | Det överskrivnings läge som ska användas. | |
+| | `0`: Skriv aldrig över; fråga användaren om blobbar används för närvarande. | Standard |
+| | `1`: Be användaren att fortsätta när filerna har olika storlekar eller när blobbar används för närvarande. | |
+| | `2`: Skriv alltid över; Hämta aktuella blobar som används. | |
+| | `3`: Skriv aldrig över och Lägg till om storleken är större, utan att fråga; Hämta aktuella blobar som används. | |
+| | `4`: Skriv aldrig över och Lägg till om storleken är större, utan att fråga; hoppa över blobar som används för närvarande. | |
+| `--dry_run` | Skriv ut vilka blobbar som har hämtats, utan att ladda ned. | `False` |
+| `--create_gzip` | Skapa en *gzip* -fil för Vowpal Wabbit. | `False` |
+| `--delta_mod_t DELTA_MOD_T` | Tids perioden, i sekunder, för att identifiera om en fil används för närvarande. | `3600`SEK (`1` timme) |
+| `--verbose` | Skriv ut mer information. | `False` |
+| `-v VERSION`, `--version VERSION` | Den version av logg hämtaren som ska användas. | |
+| | `1`: För återkokta loggar (endast för bakåtkompatibilitet). | Inaktuell |
 | | `2`: För kokta loggar. | Standard |
 
 ### <a name="examples"></a>Exempel
 
-Använd följande kod för en testsändning för att hämta alla data i Azure Storage blob-behållaren:
+För en torr körning av nedladdning av alla data i Azure Storage BLOB-behållaren använder du följande kod:
 ```cmd
 python LogDownloader.py -a your_app_id -l d:\data --dry_run
 ```
 
-Så här hämtar endast loggar som skapats sedan den 1 januari 2018 med `overwrite_mode=4`, Använd följande kod:
+Om du bara vill hämta loggar som skapats sedan 1 januari `overwrite_mode=4`2018 med använder du följande kod:
 ```cmd
 python LogDownloader.py -a your_app_id -l d:\data -s 2018-1-1 -o 4
 ```
 
-Skapa en *gzip* fil sammanslagning hämtade filer ska du använda följande kod:
+Använd följande kod för att skapa en *gzip* -fil som sammanfogar alla hämtade filer:
 ```cmd
 python LogDownloader.py -a your_app_id -l d:\data -s 2018-1-1 -o 4 --create_gzip
 ```

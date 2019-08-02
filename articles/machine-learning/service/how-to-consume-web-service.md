@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 070dd07aa6705e97a532bdc5f53a08a9abe0f83d
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 7799b62b2c330610663e361bbb3930340b1ebdaf
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68361011"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726287"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Använd en Azure Machine Learning-modell som distribueras som en webbtjänst
 
@@ -37,8 +37,10 @@ Det allmänna arbets flödet för att skapa en klient som använder en Machine L
 
 [Azureml. Core. WebService-](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) klassen innehåller den information du behöver för att skapa en-klient. Följande `Webservice` egenskaper är användbara när du skapar ett klient program:
 
-* `auth_enabled` – Om autentisering har aktiverats, `True`, annars `False`.
+* `auth_enabled`– Om Key Authentication har Aktiver ATS `True`, `False`annars,.
+* `token_auth_enabled`– Om token-autentisering är `True`aktiverat, annars `False`,.
 * `scoring_uri` – REST API-adress.
+
 
 Det finns tre sätt att hämta den här informationen för distribuerade webbtjänster:
 
@@ -67,7 +69,15 @@ Det finns tre sätt att hämta den här informationen för distribuerade webbtj�
     print(service.scoring_uri)
     ```
 
-### <a name="authentication-key"></a>Autentiseringsnyckel
+### <a name="authentication-for-services"></a>Autentisering för tjänster
+
+Azure Machine Learning ger dig möjlighet att styra åtkomsten till dina webb tjänster på två sätt. 
+
+|Autentiseringsmetod|ACI|AKS|
+|---|---|---|
+|Nyckel|Inaktiverat som standard| Aktive rad som standard|
+|Token| Ej tillgänglig| Inaktiverat som standard |
+#### <a name="authentication-with-keys"></a>Autentisering med nycklar
 
 När du aktiverar autentisering för en distribution skapar du automatiskt nycklar för autentisering.
 
@@ -85,6 +95,26 @@ print(primary)
 
 > [!IMPORTANT]
 > Om du vill återskapa en nyckel kan du använda [ `service.regen_key` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py).
+
+
+#### <a name="authentication-with-tokens"></a>Autentisering med token
+
+När du aktiverar token-autentisering för en webb tjänst måste en användare ange en Azure Machine Learning JWT-token för webb tjänsten för att få åtkomst till den. 
+
+* Token-autentisering inaktive ras som standard när du distribuerar till Azure Kubernetes-tjänsten.
+* Token-autentisering stöds inte när du distribuerar till Azure Container Instances.
+
+Om du vill kontrol lera token `token_auth_enabled` -autentisering använder du parametern när du skapar eller uppdaterar en distribution.
+
+Om token-autentisering har Aktiver ATS kan `get_token` du använda metoden för att hämta en Bearer-token och förfallo tiden för token:
+
+```python
+token, refresh_by = service.get_tokens()
+print(token)
+```
+
+> [!IMPORTANT]
+> Du måste begära en ny token efter det att token `refresh_by` har uppnåtts. 
 
 ## <a name="request-data"></a>Data för programbegäranden
 

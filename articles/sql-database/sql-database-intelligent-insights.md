@@ -1,6 +1,6 @@
 ---
-title: Övervaka databasprestanda med Intelligent Insights – Azure SQL Database | Microsoft Docs
-description: Azure SQL Database Intelligent Insights använder inbyggd intelligens för att kontinuerligt övervaka databasanvändningen via artificiell intelligens och identifiera störande händelser som kan försämra prestandan.
+title: Övervaka databas prestanda med Intelligent Insights-Azure SQL Database | Microsoft Docs
+description: Azure SQL Database Intelligent Insights använder inbyggd intelligens för att kontinuerligt övervaka databas användningen via artificiell intelligens och identifiera störande händelser som orsakar dåliga prestanda.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -10,174 +10,173 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-manager: craigg
 ms.date: 12/19/2018
-ms.openlocfilehash: 15154844c954e53ca1add5d3fbaa3e9d02152ad2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d77557f6d5d6a7bb741b9ff6caa4ea8f76db19c0
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60703225"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567880"
 ---
-# <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance"></a>Intelligent Insights med hjälp av AI att övervaka och felsöka databasen prestanda
+# <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance"></a>Intelligent Insights att använda AI för att övervaka och felsöka databas prestanda
 
-Azure SQL Database Intelligent Insights får du reda på vad som händer med din SQL-databas och Managed Instance databasprestanda.
+Azure SQL Database Intelligent Insights kan du veta vad som händer med din SQL Database och hanterade instans databas prestanda.
 
-Intelligent Insights använder inbyggd intelligens för att kontinuerligt övervaka databasanvändningen via artificiell intelligens och identifiera störande händelser som kan försämra prestandan. När upptäckte, utförs en detaljerad analys som genererar en diagnostiklogg med en intelligent bedömning av problemet. Den här utvärderingen består av en Rotorsaksanalys av prestandaproblem för databasen och, om möjligt, rekommendationer för att öka prestanda.
+Intelligent Insights använder inbyggd intelligens för att kontinuerligt övervaka databas användningen via artificiell intelligens och identifiera störande händelser som orsakar dåliga prestanda. När den har identifierats utförs en detaljerad analys som genererar en diagnostisk logg med en intelligent utvärdering av problemet. Den här utvärderingen består av en rotor Saks analys av databasens prestanda problem och, om möjligt, rekommendationer för prestanda förbättringar.
 
-## <a name="what-can-intelligent-insights-do-for-you"></a>Vad gör smarta insikter för dig
+## <a name="what-can-intelligent-insights-do-for-you"></a>Vad kan Intelligent Insights göra
 
-Intelligent Insights är en unik funktion i Azure inbyggd intelligens som ger följande fördelar:
+Intelligent Insights är en unik funktion i Azure inbyggda intelligens som ger följande värde:
 
 - Proaktiv övervakning
-- Skräddarsydda prestandainsikter
-- Tidig upptäckt av databasen prestandaförsämring
-- Analys av problem som identifieras av Rotorsak
-- Rekommendationer om prestandaförbättring prestanda
-- Skala ut-funktionen på hundratusentals databaser
-- Positiv påverkan på DevOps-resurser och den totala ägandekostnaden
+- Skräddarsydda prestanda insikter
+- Tidig identifiering av databas prestanda försämring
+- Rotor Saks analys av problem som upptäckts
+- Rekommendationer för prestanda förbättring
+- Skala ut kapacitet på hundratals tusentals databaser
+- Positiv påverkan på DevOps-resurser och den totala ägande kostnaden
 
 ## <a name="how-does-intelligent-insights-work"></a>Hur fungerar Intelligent Insights
 
-Smarta insikter analyserar databasens prestanda genom att jämföra databas-arbetsbelastning från den senaste timmen med de senaste sju dagar baslinje arbetsbelastningen. Databas-arbetsbelastning består av frågor för de viktigaste databasprestanda, till exempel de största och mest upprepade frågorna. Eftersom varje databas är unikt baserat på dess struktur, data, användning och program, är varje arbetsbelastning baslinje som genereras specifika och unik för en enskild instans. Smarta insikter, oberoende av baslinjen arbetsbelastning också övervakar absolut operativa tröskelvärden och identifierar problem med långa väntetider, kritiska undantag och problem med frågan parameterizations som kan påverka prestanda.
+Intelligent Insights analyserar databas prestanda genom att jämföra databas arbets belastningen från den senaste timmen med den senaste sju dagars bas belastningen. Databasens arbets belastning består av frågor som bedöms vara mest betydelsefulla för databasens prestanda, till exempel de mest upprepande och största frågorna. Eftersom varje databas är unik baserat på dess struktur, data, användning och program, är varje bas linje för arbets belastningar som genereras specifik och unik för en enskild instans. Intelligent Insights, oberoende av arbets belastnings bas linjen, övervakar även absoluta drift tröskelvärden och identifierar problem med onödigt vänte tider, kritiska undantag och problem med parameterizations som kan påverka prestandan.
 
-Om en försämring prestandaproblem har identifierats från flera observerade mått med hjälp av artificiell intelligens, utförs analysen. En diagnostiklogg skapas med en intelligent insight på vad som händer med din databas. Intelligent Insights gör det enkelt att spåra prestandaproblemet databasen från utseendet första fram till lösning. Alla upptäckta problem spåras under dess livscykel från första problemet identifiering och kontroll av prestandaförbättring den har slutförts.
+När ett problem med prestanda försämring har upptäckts från flera observerade mått med hjälp av artificiell intelligens utförs analysen. En diagnostisk logg skapas med en intelligent insikt om vad som händer med din databas. Intelligent Insights är det enkelt att spåra problem med databas prestanda från det första utseendet tills lösningen upprättas. Varje identifierat problem spåras genom livs cykeln från inledande problem identifiering och verifiering av prestanda förbättringar för slut för ande.
 
-![Databasen prestanda analysis arbetsflöde](./media/sql-database-intelligent-insights/intelligent-insights-concept.png)
+![Arbets flöde för databas prestanda analys](./media/sql-database-intelligent-insights/intelligent-insights-concept.png)
 
-De mått som används för att mäta och identifiera databasen prestandaproblem baseras på frågevaraktigheten, timeout för begäranden, långa väntetider och felaktiga begäranden. Mer information om mått finns i den [identifiering mått](sql-database-intelligent-insights.md#detection-metrics) i det här dokumentet.
+Måtten som används för att mäta och identifiera problem med databas prestanda baseras på frågans varaktighet, timeout-begär Anden, överdriven vänte tid och felaktiga begär Anden. Mer information om mått finns i avsnittet identifierings [mått](sql-database-intelligent-insights.md#detection-metrics) i det här dokumentet.
 
-Identifierat SQL Database prestandaförsämringar registreras i diagnostiklogg med smarta poster som består av följande egenskaper:
+Identifierade SQL Database prestanda försämringar registreras i Diagnostic-loggen med intelligenta poster som består av följande egenskaper:
 
 | Egenskap             | Information              |
 | :------------------- | ------------------- |
-| databasinformation | Metadata om en databas som en insikt har identifierats, till exempel en resurs-URI. |
-| Observerad tidsintervall | Börja och sluta när perioden för de identifierade insikter. |
-| Påverkat mått | Mått som orsakade insikter som ska genereras: <ul><li>Fråga varaktighet ökar [sekunder].</li><li>Långa väntetiden [sekunder].</li><li>Tidsgränsen nåddes för begäranden [procent].</li><li>Felaktiga ut begäranden [procent].</li></ul>|
-| Påverkan värde | Värdet för ett mått beräknas. |
-| Berörda frågor och felkoder | Fråga hash eller-felkod. Dessa kan användas för att enkelt stämmer med frågor som påverkas. Mått som består av fråga varaktighet ökning, väntetiden, antal tidsgräns eller felkoder finns. |
-| Identifieringar | Identifiering av identifierades på databasen vid tidpunkten för en händelse. Det finns 15 identifiering av mönster. Mer information finns i [Felsöka prestandaproblem för databasen med intelligenta insikter](sql-database-intelligent-insights-troubleshoot-performance.md). |
-| Rotorsaksanalys | Rotorsak analys av de problem som identifieras i formatet läsbart för människor. Några insikter kan innehålla en rekommendation för förbättring av prestanda när det är möjligt. |
+| Databas information | Metadata om en databas där insikter upptäcktes, till exempel en resurs-URI. |
+| Observerat tidsintervall | Start-och slut tid för den identifierade insikten. |
+| Påverkade mått | Mått som gjorde att en insikt genererades: <ul><li>Ökning av frågans varaktighet [sekunder].</li><li>Överdriven väntan [sekunder].</li><li>Timeout-begär Anden [procent].</li><li>Misslyckade begär Anden [procent].</li></ul>|
+| Effekt värde | Värde för uppmätt mått. |
+| Påverkade frågor och felkoder | Fråga hash-kod eller felkod. Dessa kan användas för att enkelt korrelera till berörda frågor. Mått som består av en ökning av frågans varaktighet, vänte tid, timeout-antal eller felkoder tillhandahålls. |
+| Identifieringar | Identifiering som identifieras i databasen under tiden för en händelse. Det finns 15 identifierings mönster. Mer information finns i [Felsöka problem med databas prestanda med intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md). |
+| Rotorsaksanalys | Rotor Saks analys av problemet som identifieras i ett läsbart format. Vissa insikter kan innehålla en rekommendation om prestanda förbättringar där det är möjligt. |
 |||
 
-Finns det inbäddade videoklippet för en praktisk översikt om hur du använder intelligenta insikter med Azure SQL Analytics och för vanliga Användningsscenarier:
+En praktisk översikt över hur du använder Intelligent Insights med Azure SQL-analys och för vanliga användnings scenarier finns i inbäddad video:
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Get-Intelligent-Insights-for-Improving-Azure-SQL-Database-Performance/player]
 >
 
-Intelligent Insights glänser identifiering och felsökning av problem med SQL Database-prestanda. För att kunna använda intelligenta insikter för att felsöka prestandaproblem för SQL-databas och hanterad instans-databasen, se [felsöka Azure SQL Database prestandaproblem med smarta insikter](sql-database-intelligent-insights-troubleshoot-performance.md).
+Intelligent Insights Skins vid identifiering och fel sökning SQL Database prestanda problem. För att kunna använda Intelligent Insights för att felsöka prestanda problem med SQL Database och hanterade instans databaser, se [felsök Azure SQL Database prestanda problem med intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md).
 
-## <a name="configure-intelligent-insights"></a>Konfigurera smarta insikter
+## <a name="configure-intelligent-insights"></a>Konfigurera Intelligent Insights
 
-Utdata från Intelligent Insights är en diagnostiklogg med smarta prestanda. Den här loggfilen kan användas på flera olika sätt – via strömma det till Azure SQL Analytics, Azure Event Hubs och Azure storage eller en tredje part produkten.
+Utdata från Intelligent Insights är en diagnostisk logg för prestanda. Den här loggen kan användas på flera sätt – genom att strömma den till Azure SQL-analys, Azure Event Hubs och Azure Storage eller en produkt från tredje part.
 
-- Använder produkten med [Azure SQL Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql) att visa insikter via användargränssnittet i Azure Portal. Detta är den inbyggda Azure-lösningen och det vanligaste sättet att visa insikter.
-- Använd produkten med Händelsehubbar i Azure för utveckling av anpassade övervakning och avisering scenarier
-- Använder produkten med Azure storage för utveckling av anpassade program, till exempel är till exempel anpassade rapportdata, långsiktig arkivering och så vidare.
+- Använd produkten med [Azure SQL-analys](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql) för att Visa insikter via användar gränssnittet i Azure Portal. Det här är den integrerade Azure-lösningen och det vanligaste sättet att Visa insikter.
+- Använd produkten med Azure Event Hubs för utveckling av anpassade övervaknings-och aviserings scenarier
+- Använd produkten med Azure Storage för anpassad program utveckling, t. ex. anpassad rapportering, långsiktig data arkivering och så vidare.
 
-Integrering av smarta insikter med andra produkter Azure SQL Analytics, Azure Event Hub, Azure storage eller produkter från tredje part för förbrukning utförs via första Aktivera smarta insikter loggning (”SQLInsights”-loggen) i diagnostiken inställningsbladet för en databas och sedan konfigurera smarta insikter logga data strömmas i någon av dessa produkter.
+Integrering av Intelligent Insights med andra produkter Azure SQL-analys, Azure Event Hub, Azure Storage eller produkter från tredje part för förbrukning utförs genom att först aktivera Intelligent Insights loggning ("SQLInsights"-loggen) i diagnostiken inställningar-bladet för en databas och sedan konfigurera Intelligent Insights loggdata som ska strömmas till någon av dessa produkter.
 
-Mer information om hur du aktiverar loggning för intelligenta insikter och konfigurera loggdata strömmas till en konsumerande produkt finns i [Azure SQL Database-mått och diagnostikloggning](sql-database-metrics-diag-logging.md).
+Mer information om hur du aktiverar Intelligent Insights loggning och konfigurerar loggdata så att de strömmas till en konsumerande produkt finns i [Azure SQL Database statistik och diagnostisk loggning](sql-database-metrics-diag-logging.md).
 
-### <a name="set-up-with-azure-sql-analytics"></a>Ställ in med Azure SQL Analytics
+### <a name="set-up-with-azure-sql-analytics"></a>Konfigurera med Azure SQL-analys
 
-Azure SQL Analytics-lösningen innehåller grafiskt användargränssnitt, rapportering och aviseringsfunktioner på databasprestanda, tillsammans med smarta insikter diagnostiklogg för data.
+Azure SQL-analys-lösningen tillhandahåller grafiskt användar gränssnitt, rapporterings-och aviserings funktioner för databas prestanda, tillsammans med logg data för Intelligent Insights-diagnostik.
 
 > [!TIP]
-> Snabbt komma igång: Det enklaste sättet att få från grunden med hjälp av intelligenta insikter är att använda den tillsammans med Azure SQL Analytics som tillhandahåller ett grafiskt användargränssnitt till prestandaproblem för databasen. Lägg till Azure SQL Analytics-lösningen från marketplace, skapa en arbetsyta i den här lösningen och sedan konfigurera strömning av ”SQLInsights” logga in diagnostik inställningsbladet för en databas till för varje databas som du vill aktivera smarta insikter på den Azure SQL Analytics-arbetsytan.
+> Snabb komma igång: Det enklaste sättet att komma igång med att använda Intelligent Insights är att använda det tillsammans med Azure SQL-analys som ger ett grafiskt användar gränssnitt till databas prestanda problem. Lägg till Azure SQL-analys lösning från Marketplace, skapa en arbets yta i den här lösningen och välj sedan för varje databas som du vill aktivera Intelligent Insights på, konfigurera strömning av "SQLInsights"-loggen på bladet diagnostikinställningar i en databas till arbets yta för Azure SQL-analys.
 >
 
-Före kravet är att ha Azure SQL Analytics läggs till instrumentpanelen i Azure portal från marketplace och för att skapa en arbetsyta i [konfigurera Azure SQL Analytics](../azure-monitor/insights/azure-sql.md#configuration)
+För krav är att Azure SQL-analys läggas till i Azure Portal instrument panelen från Marketplace och att skapa en arbets yta, se [konfigurera Azure SQL-analys](../azure-monitor/insights/azure-sql.md#configuration)
 
-Konfigurera smarta insikter loggdata strömmas till Azure SQL Analytics-arbetsytan som du har skapat i föregående steg, för att använda smarta insikter med Azure SQL Analytics, se [Azure SQL Database-mått och diagnostik loggning](sql-database-metrics-diag-logging.md).
+Om du vill använda Intelligent Insights med Azure SQL-analys konfigurerar du Intelligent Insights loggdata som ska strömmas till Azure SQL-analys arbets ytan som du skapade i föregående steg, se [Azure SQL Database mått och](sql-database-metrics-diag-logging.md)diagnostikloggning.
 
-I följande exempel visas ett Intelligent Insights visas via Azure SQL Analytics:
+I följande exempel visas en Intelligent Insights som visas via Azure SQL-analys:
 
 ![Intelligent Insights-rapport](./media/sql-database-intelligent-insights/intelligent-insights-azure-sql-analytics.png)
 
 ### <a name="set-up-with-event-hubs"></a>Konfigurera med Event Hubs
 
-För att använda smarta insikter med Event Hubs, konfigurera smarta insikter loggdata strömma till Event Hubs kan du läsa [Stream Azure-diagnostikloggar till Event Hubs](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md).
+Om du vill använda Intelligent Insights med Event Hubs konfigurerar du Intelligent Insights loggdata som ska strömmas till Event Hubs, se [strömma Azure-diagnostikloggar till Event Hubs](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md).
 
-Om du vill använda Event Hubs för att konfigurera anpassade övervakning och avisering, se [vad du gör med mått och diagnostik för loggar i Event Hubs](sql-database-metrics-diag-logging.md#what-to-do-with-metrics-and-diagnostics-logs-in-event-hubs).
+Om du vill använda Event Hubs för att konfigurera anpassad övervakning och aviseringar, se [vad du kan göra med mått och diagnostikloggar i Event Hubs](sql-database-metrics-diag-logging.md#what-to-do-with-metrics-and-diagnostics-logs-in-event-hubs).
 
-### <a name="set-up-with-azure-storage"></a>Ställ in med Azure Storage
+### <a name="set-up-with-azure-storage"></a>Konfigurera med Azure Storage
 
-För att använda smarta insikter med lagring, konfigurera smarta insikter loggdata strömmas till Storage kan du läsa [Stream till Azure Storage](sql-database-metrics-diag-logging.md#stream-into-storage).
+Om du vill använda Intelligent Insights med lagring konfigurerar du Intelligent Insights loggdata som ska strömmas till lagring, se [strömma till Azure Storage](sql-database-metrics-diag-logging.md#stream-into-storage).
 
-### <a name="custom-integrations-of-intelligent-insights-log"></a>Anpassad integrering av Intelligent Insights log
+### <a name="custom-integrations-of-intelligent-insights-log"></a>Anpassad integrering av Intelligent Insights logg
 
-För att använda smarta insikter med verktyg från tredje part eller anpassade varningar och övervaka utveckling, se [Använd Prestandadiagnostik för Intelligent Insights databasen logga](sql-database-intelligent-insights-use-diagnostics-log.md).
+Om du vill använda Intelligent Insights med verktyg från tredje part, eller om du vill ha anpassad utveckling och övervakning, kan du läsa mer i [använda loggen för att logga in i intelligent Insights Database](sql-database-intelligent-insights-use-diagnostics-log.md)
 
-## <a name="detection-metrics"></a>Identifiering av mått
+## <a name="detection-metrics"></a>Identifierings mått
 
-Mått som används för identifiering av modeller som genererar smarta insikter baseras på övervakning:
+Mått som används för identifierings modeller som genererar Intelligent Insights baseras på övervakning:
 
 - Frågevaraktighet
-- Timeout för begäranden
-- Långa väntetiden
-- Felaktiga ut begäranden
+- Timeout-begäranden
+- Lång vänte tid
+- Misslyckade förfrågningar
 
-Varaktighet och timeout frågebegäranden används som primära modeller för identifiering av problem med arbetsbelastningen databasprestanda. De används eftersom de direkt mäta vad som händer med arbetsbelastningen. För att identifiera alla eventuella fall av arbetsbelastningsprestandan försämring, långa Väntetid och felaktiga ut begäranden används som ytterligare modeller för att tyda på problem som påverkar arbetsbelastningens prestanda.
+Frågans varaktighet och tids gräns för förfrågningar används som primära modeller vid identifiering av problem med databasens arbets belastnings prestanda. De används eftersom de direkt mäter vad som händer med arbets belastningen. För att identifiera alla möjliga fall av prestanda försämring av arbets belastningen, används en alltför lång vänte tid och fel förfrågningar som ytterligare modeller för att ange problem som påverkar arbets belastnings prestandan.
 
-Systemet tar hänsyn till automatiskt ändringar i arbetsbelastningen och förändringar i antalet fråga begäranden som görs till databasen för att dynamiskt bestämma normala databaser med out extraordinära prestanda tröskelvärden.
+Systemet tar automatiskt hänsyn till ändringar i arbets belastningen och ändrar antalet förfrågningar som görs till databasen dynamiskt för att dynamiskt fastställa normala och färdiga tröskelvärden för databas prestanda.
 
-Alla mått bedöms tillsammans i olika relationer via en vetenskapligt härledda datamodell som kategoriserar varje prestandaproblem som har identifierats. Information som tillhandahålls via en intelligent insight inkluderar:
+Alla mät värden beaktas tillsammans i olika relationer via en vetenskapligt härledd data modell som kategoriserar varje identifierat prestanda problem. Information som tillhandahålls via intelligenta insikter innehåller:
 
-- Information om prestandaproblemet har identifierats.
-- En Rotorsaksanalys för det identifierade problemet.
-- Rekommendationer om hur du förbättrar prestandan för övervakade SQL-databasen, där det är möjligt.
+- Information om prestanda problem har identifierats.
+- En rotor Saks analys av problemet upptäcktes.
+- Rekommendationer för hur du kan förbättra prestandan hos den övervakade SQL-databasen, där det är möjligt.
 
 ## <a name="query-duration"></a>Frågevaraktighet
 
-Frågemodell för försämring av varaktigheten analyserar enskilda frågor och identifierar ökningen i den tid det tar att kompilera och köra en fråga som jämfört med baslinje för prestanda.
+Modellen för frågans varaktighets försämring analyserar enskilda frågor och upptäcker ökningen under den tid det tar att kompilera och köra en fråga jämfört med prestanda bas linjen.
 
-Om SQL Database inbyggd intelligens upptäcker en kraftig ökning i frågan kompilerades eller fråga körningstid som påverkar arbetsbelastningens prestanda, de här frågorna har flaggats som frågevaraktigheten prestandan skulle försämras.
+Om SQL Database inbyggda intelligens identifierar en betydande ökning av frågan kompilera eller fråga som påverkar arbets belastnings prestanda flaggas dessa frågor som problem med prestanda försämring av frågor.
 
-Diagnostiklogg Intelligent Insights matar ut fråge-hash frågans försämrad prestanda. Fråge-hash anger om försämrade prestanda har relaterat till frågan kompilerades eller körningstid ökning, som ökade varaktigheten för frågan.
+I Intelligent Insights Diagnostics-loggen visas frågans hash-nummer för frågan försämrad i prestanda. Frågans hash anger om prestanda försämringen var relaterad till en fråga kompilera eller körnings tids ökning, vilket ökar frågans varaktighets tid.
 
-## <a name="timeout-requests"></a>Timeout för begäranden
+## <a name="timeout-requests"></a>Timeout-begäranden
 
-Timeout för begäranden försämring modellen analyserar enskilda frågor och identifierar en ökning i tidsgränser på nivån för körning av fråga och den övergripande begäran timeout på databasnivå jämfört med baslinjeperioden prestanda.
+Modellen för tids gräns för tids gräns analys analyserar enskilda frågor och identifierar eventuella ökningar i tids gränsen på frågans körnings nivå och den övergripande tids gränsen för begäran på databas nivån jämfört med prestanda bas linje perioden.
 
-Några av frågorna som kan timeout även innan de når fasen körning. Sätt avbrutna arbetstagarnas jämfört med begäranden som görs, SQL Database inbyggd intelligens mäter och analyserar alla frågor som nått databasen om de har fått till körning scenen eller inte.
+Vissa av frågorna kan ta lång tid även innan de når körnings fasen. Med hjälp av förkastade arbetare och begär Anden, SQL Database inbyggda Intelligence-åtgärder och analysera alla frågor som har nått databasen, oavsett om de kommer till körnings fasen eller inte.
 
-När antalet tidsgränser för utförda frågor eller antal avbrutna begäran arbetare överskrider tröskelvärdet hanteras av datorn, fylls en diagnostiklogg med smarta insikter.
+När antalet tids gränser för exekverade frågor eller antalet avbrutna förfrågningar om arbetare korsar det systemhanterade tröskelvärdet fylls en diagnostisk logg med intelligenta insikter.
 
-De information som genererats innehålla antalet begäranden som tog för lång tid och antalet frågor som orsakade timeout. Uppgift om försämrade prestanda är relaterad till timeout ökning i körningen skedet eller övergripande databasnivå har angetts. När ökade timeout anses betydande databasprestanda, har de här frågorna flaggats som timeout prestandan skulle försämras.
+De insikter som genereras innehåller antalet förfrågningar om timeout och antalet tids gräns frågor. Indikationen på prestanda försämringen är relaterad till att tids gränsen ökar vid körningen, eller så tillhandahålls den övergripande databas nivån. När tids gränsen bedöms vara viktig för databas prestanda flaggas dessa frågor som tids gräns för försämring av prestanda problem.
 
-## <a name="excessive-wait-times"></a>Långa väntetider
+## <a name="excessive-wait-times"></a>Lång vänte tid
 
-Den långa väntetid tid modellen övervakar enskilda databasfrågor. Den identifierar ovanligt stort fråga väntestatistik som uppnås absolut tröskelvärdena hanteras av datorn. Följande fråga långa väntetiden mått jobbnivå genom att använda den nya SQL Server-funktionen Query Store vänta statistik (sys.query_store_wait_stats):
+Den förstora vänte tids modellen övervakar enskilda databas frågor. Den identifierar ovanligt hög vänte tid för frågor som korsade de absoluta tröskelvärdena som hanteras av systemet. Följande fråga för överdriven väntan/tid-mått observeras med hjälp av den nya SQL Server funktionen, väntande statistik för Query Store (sys. query_store_wait_stats):
 
-- Nådde resursbegränsningar
-- Nådde resursgränser för elastisk pool
-- Överdrivet antal worker eller session trådar
-- Långa databasen låsning
-- Minnesbelastning
-- Andra väntestatistik
+- Når resurs gränser
+- Når resurs gränser för elastisk pool
+- Högt antal arbets-eller sessions trådar
+- Överdriven databas låsning
+- Minnes belastning
+- Annan wait-statistik
 
-Nådde resursbegränsningar eller elastisk pool resursbegränsningar anger att användningen av tillgängliga resurser på en prenumeration eller i den elastiska poolen överskred absolut tröskelvärden. Dessa statistik visar arbetsbelastning prestandaförsämring. Ett orimligt antal worker eller session trådar Anger ett villkor där antalet arbetstrådar eller sessioner som initierats överskred absolut tröskelvärden. Dessa statistik visar arbetsbelastning prestandaförsämring.
+Att nå resurs gränser eller resurs gränser för elastisk pool anger att förbrukningen av tillgängliga resurser i en prenumeration eller i den elastiska poolen överskrider absoluta tröskelvärden. Den här statistiken indikerar försämring av arbets belastnings prestanda. Ett högt antal arbets trådar eller sessionsnycklar anger ett villkor där antalet arbets trådar eller sessioner initieras över absoluta tröskelvärden. Den här statistiken indikerar försämring av arbets belastnings prestanda.
 
-Långa databasen låsning anger ett villkor där antalet lås på en databas har passerat absolut tröskelvärden. Den här stat anger en arbetsbelastning prestandaförsämring. Minne trycket är ett villkor där antalet trådar som begär minne ger överskred en absolut tröskelvärdet. Den här stat anger en arbetsbelastning prestandaförsämring.
+Överdriven databas låsning anger ett villkor där antalet lås på en databas har korsade absoluta tröskelvärden. Denna stat anger prestanda försämring av arbets belastningar. Minnes belastning är ett villkor där antalet trådar som begär minnes anslag korsar ett absolut tröskelvärde. Denna stat anger prestanda försämring av arbets belastningar.
 
-Andra vänta stats identifiering visar ett tillstånd där diverse mått som mäts via Query Store vänta statistiken överskred en absolut tröskelvärdet. Dessa statistik visar arbetsbelastning prestandaförsämring.
+Annan identifiering av väntande statistik indikerar ett villkor där Diverse mått som mäts genom Query Store wait-statistik korsar ett absolut tröskelvärde. Den här statistiken indikerar försämring av arbets belastnings prestanda.
 
-När långa väntetider identifieras, beroende på data som är tillgängliga, smarta insikter diagnostiken loggar du in utdata hash-värden för de som påverkar och berörda frågor försämrad prestanda, information om mått som orsakar frågor för att vänta i körningen och uppmätt väntetid.
+När alltför långa vänte tider har identifierats, beroende på vilka data som är tillgängliga, visar Intelligent Insights Diagnostics-loggen hashar av de påverkade och påverkade frågorna som försämras i prestanda, information om de mått som orsakar att frågor väntar på att köras och uppmätt vänte tid.
 
-## <a name="errored-requests"></a>Felaktiga begäranden
+## <a name="errored-requests"></a>Felaktiga begär Anden
 
-Felaktiga begäranden försämring modell Övervakare person frågar och identifierar en ökning i antalet frågor att felaktiga ut jämfört med baslinjeperioden. Den här modellen övervakar även kritiska undantag som uppnås absolut tröskelvärden som hanteras av SQL Database inbyggd intelligens. Antal frågebegäranden som gjorts i databasen och konton för ändringar arbetsbelastning i den övervakade perioden är automatiskt.
+Den felaktiga begär ande försämrings modellen övervakar enskilda frågor och identifierar en ökning av antalet frågor som har fel jämfört med bas linje perioden. Den här modellen övervakar också kritiska undantag som överskrider absoluta tröskelvärden som hanteras av SQL Database inbyggd intelligens. Systemet betraktar automatiskt antalet förfrågningar som gjorts till databasen och kontona för eventuella arbets belastnings ändringar i den övervakade perioden.
 
-När den uppmätta ökade felaktiga begäranden i förhållande till det totala antalet begäranden som görs anses vara relevanta för att arbetsbelastningens prestanda, är frågor som påverkas flaggade som felaktiga begäranden prestandan skulle försämras.
+När den uppmätta ökningen av felaktiga begär anden i förhållande till det totala antalet begär Anden som har gjorts bedöms vara viktig för arbets belastnings prestanda, flaggas berörda frågor som fel vid problem med prestanda försämring.
 
-Intelligent Insights-loggen visar antal felaktiga begäranden. Indikerar om försämrade prestanda har relaterat till en ökning av felaktiga begäranden eller korsa en övervakade kritiskt undantag tröskelvärde och uppmätt tid för försämrade prestanda.
+I Intelligent Insights loggen visas antalet felaktiga begär Anden. Det anger om prestanda försämringen var relaterad till en ökning av felorsakade begär Anden eller för att passera en övervakad kritisk undantags tröskel och uppmätt tid för prestanda försämring.
 
-Om någon av de övervakade kritiska undantag mellan de absoluta tröskelvärden som hanteras av systemet genereras intelligenta insikter med information om kritiska undantag.
+Om något av de övervakade kritiska undantagen passerar de absoluta tröskelvärdena som hanteras av systemet, genereras en intelligent insikt med information om kritiskt undantag.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig hur du [Felsöka prestandaproblem för SQL-databas med intelligenta insikter](sql-database-intelligent-insights-troubleshoot-performance.md).
-- Använd den [diagnostikloggen för Intelligent Insights SQL Database prestanda](sql-database-intelligent-insights-use-diagnostics-log.md).
-- Lär dig hur du [övervaka SQL-databas med hjälp av SQL Analytics](../azure-monitor/insights/azure-sql.md).
-- Lär dig hur du [samla in och använda loggdata från resurserna i Azure](../azure-monitor/platform/diagnostic-logs-overview.md).
+- Lär dig hur du [felsöker SQL Database prestanda problem med intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md).
+- Använd [loggen Intelligent Insights SQL Database prestanda diagnos](sql-database-intelligent-insights-use-diagnostics-log.md).
+- Lär dig hur du [övervakar SQL Database med hjälp av SQL Analytics](../azure-monitor/insights/azure-sql.md).
+- Lär dig hur du [samlar in och använder loggdata från dina Azure-resurser](../azure-monitor/platform/diagnostic-logs-overview.md).

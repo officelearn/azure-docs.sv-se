@@ -9,12 +9,12 @@ ms.service: application-insights
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: mbullwin
-ms.openlocfilehash: 69ae6ab6caedd9e89d277b92558931685d2ea320
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: f2c6b98fd0be2061e9d8cab5c063cafadf71476a
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67877316"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68597449"
 ---
 # <a name="monitor-application-performance-hosted-on-azure-vm-and-azure-virtual-machine-scale-sets"></a>Övervaka program prestanda som finns på Azure VM och skalnings uppsättningar för virtuella Azure-datorer
 
@@ -42,7 +42,7 @@ Det finns två sätt att aktivera program övervakning för virtuella Azure-dato
     * Om du behöver göra anpassade API-anrop för att spåra händelser/beroenden som inte har registrerats som standard med en agent-baserad övervakning, behöver du använda den här metoden. Mer information finns i [artikeln om API för anpassade händelser och mått](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics) .
 
 > [!NOTE]
-> Om både agentbaserade övervakning och manuellt SDK-baserad Instrumentation identifieras, kommer de manuella Instrumentation inställningarna att påverkas. Detta är för att förhindra att duplicerade data skickas. Mer information om det här finns i [fel söknings avsnittet](https://docs.microsoft.com/azure/azure-monitor/app/azure-vm-apps#troubleshooting) nedan.
+> Om både agentbaserade övervakning och manuellt SDK-baserad Instrumentation identifieras, kommer de manuella Instrumentation inställningarna att påverkas. Detta är för att förhindra att duplicerade data skickas. Mer information om det här finns i [fel söknings avsnittet](#troubleshooting) nedan.
 
 ## <a name="manage-agent-based-monitoring-for-net-applications-on-vm-using-powershell"></a>Hantera agentbaserade övervakning av .NET-program på en virtuell dator med hjälp av PowerShell
 

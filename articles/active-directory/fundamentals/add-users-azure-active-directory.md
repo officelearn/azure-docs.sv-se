@@ -2,32 +2,32 @@
 title: Lägga till eller ta bort användare – Azure Active Directory | Microsoft Docs
 description: Anvisningar om hur du lägger till nya användare eller ta bort befintliga användare med Azure Active Directory.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 04/01/2019
-ms.author: lizross
+ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c1bac4d2c0f236b8fca611c7391846abdb782796
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a8b436fbdb0d70318e6820d3f59f1e198c639e5a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60247776"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561688"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>Lägga till eller ta bort användare som använder Azure Active Directory
-Lägga till nya användare eller ta bort befintliga användare från din organisation i Azure Active Directory (AD Azure).
+Lägg till nya användare eller ta bort befintliga användare från din Azure Active Directory (Azure AD)-organisation.
 
 ## <a name="add-a-new-user"></a>Lägg till en ny användare
 Du kan skapa en ny användare med hjälp av Azure Active Directory-portalen.
 
 ### <a name="to-add-a-new-user"></a>Lägga till en ny användare
-1. Logga in på den [Azure-portalen](https://portal.azure.com/) som en användare med rollen för organisationen.
+1. Logga in på [Azure Portal](https://portal.azure.com/) som användar administratör för organisationen.
 
 2. Välj **Azure Active Directory**väljer **användare**, och välj sedan **ny användare**.
 
@@ -47,7 +47,7 @@ Du kan skapa en ny användare med hjälp av Azure Active Directory-portalen.
 
    - **Grupper.** Du kan också kan du lägga till användaren till en eller flera befintliga grupper. Du kan också lägga till användaren till grupper vid ett senare tillfälle. Mer information om att lägga till användare till grupper finns i [hur du skapar en grundläggande grupp och Lägg till medlemmar](active-directory-groups-create-azure-portal.md).
 
-   - **Katalogroll.** Alternativt kan du lägga till användaren till en Azure AD-administratörsroll. Du kan tilldela användaren vara en Global administratör eller en eller flera av de begränsade administratörsroller i Azure AD. Mer information om hur du tilldelar roller finns i [tilldela roller till användare](active-directory-users-assign-role-azure-portal.md).
+   - **Katalogroll.** Du kan också lägga till användaren i en administratörs roll för Azure AD. Du kan tilldela användaren till en global administratör eller en eller flera av de begränsade administratörs rollerna i Azure AD. Mer information om hur du tilldelar roller finns i [tilldela roller till användare](active-directory-users-assign-role-azure-portal.md).
 
 4. Kopiera det automatiskt genererade lösenordet som angavs i den **lösenord** box. Du behöver ge det här lösenordet till användaren för första inloggningsprocess.
 
@@ -62,7 +62,7 @@ Om du har en miljö med både Azure Active Directory (moln) och Windows Server A
 Du kan ta bort en befintlig användare med hjälp av Azure Active Directory-portalen.
 
 ### <a name="to-delete-a-user"></a>Ta bort en användare
-1. Logga in på den [Azure-portalen](https://portal.azure.com/) med ett användarkonto för administratör för organisationen.
+1. Logga in på [Azure Portal](https://portal.azure.com/) med ett användar administratörs konto för organisationen.
 
 2. Välj **Azure Active Directory**väljer **användare**, och sök sedan efter och välj den användare som du vill ta bort från Azure AD-klienten. Till exempel _Mary Parker_.
 
@@ -70,7 +70,7 @@ Du kan ta bort en befintlig användare med hjälp av Azure Active Directory-port
 
     ![Användare - sidan för alla användare med ta bort användaren markerat](media/add-users-azure-active-directory/delete-user-all-users-blade.png)
 
-    Användaren tas bort och inte längre visas på den **användare – alla användare** sidan. Användaren visas på den **borttagna användare** för de närmaste 30 dagarna och kan återställas under den tiden. Mer information om hur du återställer en användare finns i [återställa eller ta bort en nyligen borttagna användare permanent](active-directory-users-restore.md). När en användare tas bort, görs eventuella licenser som används av användaren tillgängliga för andra användare som ska förbrukas.
+    Användaren tas bort och inte längre visas på den **användare – alla användare** sidan. Användaren visas på den **borttagna användare** för de närmaste 30 dagarna och kan återställas under den tiden. Mer information om hur du återställer en användare finns i [återställa eller ta bort en nyligen borttagna användare permanent](active-directory-users-restore.md). När en användare tas bort görs alla licenser som används av användaren tillgängliga för andra användare som ska förbrukas.
 
     >[!Note]
     >Du måste använda Windows Server Active Directory för att uppdatera identitet, kontaktinformation eller jobbinformation för användare vars auktoritetskälla är Windows Server Active Directory. När du har slutfört uppdateringen måste du vänta tills nästa synkroniseringscykel ska slutföras innan ändringarna visas.

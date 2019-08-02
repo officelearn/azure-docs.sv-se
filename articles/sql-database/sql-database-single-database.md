@@ -1,6 +1,6 @@
 ---
-title: Vad är en enkel databas i Azure SQL Database | Microsoft Docs
-description: Lär dig mer om enkel databas i Azure SQL Database
+title: Vad är en Azure SQL Database enskild databas | Microsoft Docs
+description: Lär dig mer om en databas i Azure SQL Database
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
@@ -10,56 +10,55 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 04/08/2019
-ms.openlocfilehash: 36b1fb96ac1dd89375588a65063ce729f6ac825d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1dc1d2780dcaf27e0c60cfffe84581c0278491dd
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65794396"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68566531"
 ---
 # <a name="what-is-a-single-database-in-azure-sql-database"></a>Vad är en enskild databas i Azure SQL Database
 
-Alternativ för distribution av enskild databas skapar en databas i Azure SQL Database med en egen uppsättning resurser och hanteras via en SQL Database-server. Med en enkel databas, alla databaser vara isolerade från varandra och portabla, var och en med sin egen tjänstnivå inom den [DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md) eller [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md) och en garanterad beräkna storleken.
+Med distributions alternativet för enskild databas skapas en databas i Azure SQL Database med en egen uppsättning resurser och hanteras via en SQL Database Server. Med en enda databas är varje databas isolerad från varandra och portabel, var och en med sin egen tjänst nivå inom den [DTU-baserade inköps modellen](sql-database-service-tiers-dtu.md) eller [vCore inköps modell](sql-database-service-tiers-vcore.md) och en garanterad beräknings storlek.
 
 > [!IMPORTANT]
-> Enkel databas är en av tre distributionsalternativen för Azure SQL Database. De andra två är [elastiska pooler](sql-database-elastic-pool.md) och [hanterad instans](sql-database-managed-instance.md).
+> En enkel databas är ett av tre distributions alternativ för Azure SQL Database. De andra två är [elastiska pooler](sql-database-elastic-pool.md) och en [hanterad instans](sql-database-managed-instance.md).
 > [!NOTE]
-> En ordlista i Azure SQL Database finns [SQL Database allmänna ordlista](sql-database-glossary-terms.md)
+> En ord lista med termer i Azure SQL Database finns i [ord lista för SQL Database termer](sql-database-glossary-terms.md)
 
 ## <a name="dynamic-scalability"></a>Dynamisk skalbarhet
 
-Du kan skapa din första app på en liten, enkel databas för låg kostnad i Beräkningsnivån utan server (förhandsversion) eller en liten storlek på den etablerade beräkning-nivån. Du ändrar den [beräkning eller service-nivån](sql-database-single-database-scale.md) manuellt eller programmässigt när som helst för att uppfylla behoven i din lösning. Du kan justera prestandan utan driftavbrott för din app eller dina kunder. Dynamisk skalbarhet gör att databasen transparent kan svara på snabbt förändrade resurskrav och gör det möjligt för dig att endast betala för de resurser som du behöver, när du behöver dem.
+Du kan bygga din första app på en liten, enkel databas till låg kostnad på Server lös (för hands version) beräknings nivå eller en liten beräknings storlek i den allokerade beräknings nivån. Du kan ändra [beräknings-eller tjänst nivå](sql-database-single-database-scale.md) manuellt eller program mässigt när som helst för att uppfylla lösningens behov. Du kan justera prestandan utan driftavbrott för din app eller dina kunder. Dynamisk skalbarhet gör att databasen transparent kan svara på snabbt förändrade resurskrav och gör det möjligt för dig att endast betala för de resurser som du behöver, när du behöver dem.
 
 ## <a name="single-databases-and-elastic-pools"></a>Enkla databaser och elastiska pooler
 
-En enskild databas kan flyttas till eller från en [elastisk pool](sql-database-elastic-pool.md) för resursdelning. För många företag och appar räcker det att kunna skapa enkla databaser och reglera prestanda för fristående databaser upp eller ner efter behov, speciellt om användningsmönstren är relativt förutsägbara. Men om du har oförutsägbara användningsmönster, kan det vara svårt att hantera kostnader och din affärsmodell. Elastiska pooler är utformade för att lösa problemet. Konceptet är enkelt. Du allokerar prestandaresurser till en pool i stället för en individuell databas och betalar för de samlade prestandaresurserna för poolen istället för prestandan för enskilda databaser.
+En enskild databas kan flyttas till eller från en [elastisk pool](sql-database-elastic-pool.md) för resurs delning. För många företag och appar räcker det att kunna skapa enkla databaser och reglera prestanda för fristående databaser upp eller ner efter behov, speciellt om användningsmönstren är relativt förutsägbara. Men om du har oförutsägbara användningsmönster, kan det vara svårt att hantera kostnader och din affärsmodell. Elastiska pooler är utformade för att lösa det här problemet. Konceptet är enkelt. Du allokerar prestanda resurser till en pool i stället för en enskild databas och betalar för de sammanslagna prestanda resurserna i poolen snarare än för enkel databas prestanda.
 
 ## <a name="monitoring-and-alerting"></a>Övervakning och avisering
 
-Du använder inbyggt [prestandaövervakning](sql-database-performance.md) och [aviseringsverktygen](sql-database-insights-alerts-portal.md), kombinerat med prestandaklassificeringarna. Med dessa verktyg kan du snabbt utvärdera effekten av att skala upp eller ner baserat på dina aktuella eller projekterade prestandakrav. Dessutom kan SQL-databasen [skapa mått och diagnostikloggar](sql-database-metrics-diag-logging.md) för lättare övervakning.
+Du använder de inbyggda verktygen för [prestanda övervakning](sql-database-performance.md) och [avisering](sql-database-insights-alerts-portal.md), kombinerat med prestanda klassificeringen. Med dessa verktyg kan du snabbt utvärdera effekten av att skala upp eller ner baserat på dina aktuella eller projekterade prestandakrav. Dessutom kan SQL-databasen [skapa mått och diagnostikloggar](sql-database-metrics-diag-logging.md) för lättare övervakning.
 
 ## <a name="availability-capabilities"></a>Kapacitet för tillgänglighet
 
-Enkla databaser, elastiska pooler och hanterade instanser ger många tillgänglighet egenskaper. Mer information finns i [tillgänglighet egenskaper](sql-database-technical-overview.md#availability-capabilities).
+Enskilda databaser, elastiska pooler och hanterade instanser ger alla tillgänglighets egenskaper. Mer information finns i [tillgänglighets egenskaper](sql-database-technical-overview.md#availability-capabilities).
 
 ## <a name="transact-sql-differences"></a>Transact-SQL-skillnader
 
-De flesta Transact-SQL-funktioner som använder program stöds helt i både Microsoft SQL Server och Azure SQL Database. Till exempel fungerar SQL-kärnkomponenter, till exempel datatyper, operatörer, sträng, aritmetiska, logiska och markören functions identiskt i SQL Server och SQL-databas. Det finns dock några T-SQL skillnader i DDL (data definition language) och DML (data manipulation language) element, vilket resulterar i T-SQL-uttryck och frågor som stöds endast delvis (vilket beskrivs senare i den här artikeln).
-Dessutom finns vissa funktioner och syntax som inte stöds på alla eftersom Azure SQL Database har utformats för att isolera funktioner från beroenden på huvuddatabasen och operativsystemet. Därför är de flesta aktiviteter på servernivå olämpliga för SQL Database. T-SQL-uttryck och alternativ är inte tillgängliga om de konfigurerar servernivåalternativ, operativsystemets komponenter eller anger systemkonfigurationen för filen. När sådana funktioner krävs ett lämpligt alternativ ofta är tillgänglig på annat sätt från SQL Database eller från en annan Azure-funktion eller -tjänst.
+De flesta Transact-SQL-funktioner som program använder stöds fullt ut i både Microsoft SQL Server och Azure SQL Database. Till exempel fungerar kärn SQL-komponenter, till exempel data typer, operatorer, strängar, aritmetiska, logiska och markör funktioner, på samma sätt i SQL Server och SQL Database. Det finns dock några skillnad i T-SQL i DDL (Data Definition Language) och DML-element (Data Manipulation Language) som resulterar i T-SQL-uttryck och frågor som bara delvis stöds (som vi diskuterar senare i den här artikeln).
+Dessutom finns det vissa funktioner och syntax som inte stöds alls eftersom Azure SQL Database är utformad för att isolera funktioner från beroenden i huvud databasen och operativ systemet. Därför är de flesta server nivå aktiviteter olämpliga för SQL Database. T-SQL-uttryck och alternativ är inte tillgängliga om de konfigurerar alternativ på server nivå, operativ system komponenter eller ange fil system konfiguration. När sådana funktioner krävs är ett lämpligt alternativ ofta tillgängligt på något annat sätt från SQL Database eller från en annan Azure-funktion eller-tjänst.
 
-Mer information finns i [lösa Transact-SQL-skillnader vid migrering till SQL Database](sql-database-transact-sql-information.md).
+Mer information finns i [lösa skillnader i Transact-SQL under migrering till SQL Database](sql-database-transact-sql-information.md).
 
 ## <a name="security"></a>Säkerhet
 
-SQL Database erbjuder en uppsättning [inbyggd säkerhet och efterlevnad](sql-database-security-overview.md) funktioner för att hjälpa programmet att uppfylla olika krav för säkerhet och efterlevnad.
+SQL Database innehåller en uppsättning inbyggda funktioner för [säkerhet och efterlevnad](sql-database-security-overview.md) som hjälper ditt program att uppfylla olika krav på säkerhet och efterlevnad.
 
 > [!IMPORTANT]
-> Azure SQL Database (alla distributionsalternativ), har certifierats mot ett antal efterlevnadsstandarder. Mer information finns i den [Microsoft Azure Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) där du hittar den senaste listan med SQL Database-kompatibilitetscertifieringar.
+> Azure SQL Database (alla distributions alternativ) har certifierats mot ett antal efterlevnads standarder. Mer information finns i [Microsoft Azure Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) där du hittar den mest aktuella listan med SQL Database certifierings certifieringar.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- För att snabbt komma igång med en enkel databas, börja med den [enkel database Snabbstart guide.md](sql-database-single-database-quickstart-guide.md).
-- Läs om hur du migrerar en SQL Server-databas till Azure i [migrera till Azure SQL Database](sql-database-single-database-migrate.md).
+- Om du snabbt vill komma igång med en enda databas börjar du med snabb starten för [enkel databas guide.MD](sql-database-single-database-quickstart-guide.md).
+- Information om hur du migrerar en SQL Server-databas till Azure finns i [migrera till Azure SQL Database](sql-database-single-database-migrate.md).
 - Information om vilka funktioner som stöds finns i avsnittet [Funktioner](sql-database-features.md).

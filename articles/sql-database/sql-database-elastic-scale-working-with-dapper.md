@@ -1,6 +1,6 @@
 ---
-title: Använda elastic database-klientbibliotek med Dapper | Microsoft Docs
-description: Använda elastic database-klientbibliotek med Dapper.
+title: Använda klient biblioteket för Elastic Database med dapper | Microsoft Docs
+description: Använda klient biblioteket för Elastic Database med dapper.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -10,58 +10,57 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: c6ca7637c8e251fa29781503ffc18227c51bb4da
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1eafb123014effad9daca89dc1b852367d9cbbf1
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60335305"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568272"
 ---
-# <a name="using-elastic-database-client-library-with-dapper"></a>Använda elastic database-klientbibliotek med Dapper
-Det här dokumentet är för utvecklare som förlitar sig på Dapper att skapa program, men också vilja ta del av [elastisk databas-tooling](sql-database-elastic-scale-introduction.md) skapar du program att implementera horisontell partitionering för att skala ut datanivån.  Det här dokumentet visar ändringarna i Dapper-baserade program som är nödvändiga för att integrera med verktyg för elastiska databaser. Vår fokus ligger på att skriva fragmenthanterings för elastiska databaser och databeroende routning med Dapper. 
+# <a name="using-elastic-database-client-library-with-dapper"></a>Använda klient biblioteket för Elastic Database med dapper
+Det här dokumentet är för utvecklare som är beroende av dapper för att skapa program, men som även vill använda [elastiska databas verktyg](sql-database-elastic-scale-introduction.md) för att skapa program som implementerar horisontell partitionering för att skala ut data nivån.  Det här dokumentet illustrerar ändringarna i dapper-baserade program som behövs för att integrera med Elastic Database-verktyg. Vårt fokus är att skapa en elastisk databas Shard hantering och data beroende routning med dapper. 
 
-**Exempelkoden**: [Elastic database-verktyg för Azure SQL Database – Dapper integrering](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-e19fc77f).
+**Exempel kod**: [Elastiska databas verktyg för Azure SQL Database-dapper-integrering](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-e19fc77f).
 
-Integrera **Dapper** och **DapperExtensions** med elastic database-klientbiblioteket för Azure SQL Database är enkelt. Dina program kan använda databeroende routning genom att ändra skapandet och öppna i nytt [SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) objekt att använda den [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) anropa från den [klientbibliotek ](https://msdn.microsoft.com/library/azure/dn765902.aspx). Detta begränsar ändringar i ditt program bara där det nya anslutningar skapas och öppnas. 
+Det är enkelt att integrera **dapper** och **DapperExtensions** med klient biblioteket för Elastic Database för Azure SQL Database. Dina program kan använda data beroende routning genom att ändra skapandet och öppningen av nya [SQLConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) -objekt för att använda [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) -anropet från [klient biblioteket](https://msdn.microsoft.com/library/azure/dn765902.aspx). Detta begränsar ändringar i programmet till endast de nya anslutningar som skapas och öppnas. 
 
-## <a name="dapper-overview"></a>Dapper översikt
-**Dapper** är en objektrelationell mappningskomponent. Det mappas .NET-objekt från ditt program till en relationsdatabas (och vice versa). Den första delen av exempelkoden visar hur du kan integrera elastic database-klientbibliotek med Dapper-baserade program. Den andra delen av exempelkoden visar hur du integrerar när du använder både Dapper och DapperExtensions.  
+## <a name="dapper-overview"></a>Översikt över dapper
+**Dapper** är en objekt Relations mappning. Den mappar .NET-objekt från ditt program till en Relations databas (och vice versa). Den första delen av exempel koden illustrerar hur du kan integrera klient biblioteket för Elastic Database med dapper-baserade program. Den andra delen av exempel koden illustrerar hur du integrerar när du använder både dapper och DapperExtensions.  
 
-Funktionen mapper i Dapper innehåller tilläggsmetoder om databasanslutningar som förenklar skickar T-SQL-uttryck för körning eller en fråga till databasen. Exempelvis Dapper gör det enkelt att mappa mellan .NET-objekt och parametrarna för SQL-uttryck för **kör** anrop, eller för att använda resultatet för dina SQL-frågor i .NET-objekt med hjälp av **fråga** anrop från Dapper. 
+Funktionen Mapper i dapper ger tilläggs metoder för databas anslutningar som fören klar sändning av T-SQL-uttryck för att köra eller fråga databasen. Till exempel gör dapper det enkelt att mappa mellan dina .NET-objekt och parametrarna för SQL-uttryck för att **köra** anrop, eller för att använda resultatet av dina SQL-frågor i .net-objekt med hjälp av **fråga** -anrop från dapper. 
 
-När du använder DapperExtensions, behöver du inte längre att tillhandahålla SQL-uttryck. Tillägg metoder som **GetList** eller **infoga** över databasanslutningen skapa SQL-instruktioner i bakgrunden.
+När du använder DapperExtensions behöver du inte längre ange SQL-uttryck. Utöknings metoder som **GetList** eller **insert** över databas anslutningen skapar SQL-uttryck bakom scenerna.
 
-En annan fördel med Dapper och DapperExtensions är att programmet styr skapandet av anslutningen till databasen. På så sätt kan du interagera med klientbiblioteket för elastiska databaser som mäklare databasanslutningar som baserats på mappningen av shardletar till databaser.
+En annan fördel med dapper och även DapperExtensions är att programmet styr skapandet av databas anslutningen. Detta hjälper till att interagera med klient biblioteket för Elastic Database som utlöser databas anslutningar baserat på mappningen av shardletar till databaser.
 
-Dapper sammansättningarna finns [Dapper punkt net](https://www.nuget.org/packages/Dapper/). Dapper tillägg, se [DapperExtensions](https://www.nuget.org/packages/DapperExtensions).
+För att hämta dapper-sammansättningarna, se [dapper dot net](https://www.nuget.org/packages/Dapper/). För dapper-tilläggen, se [DapperExtensions](https://www.nuget.org/packages/DapperExtensions).
 
-## <a name="a-quick-look-at-the-elastic-database-client-library"></a>En snabb inblick i klientbiblioteket för elastiska databaser
-Med klientbiblioteket för elastiska databaser kan du definiera partitioner för dina programdata som kallas *shardletar*, mappa den till databaser och identifiera dem genom *horisontell partitionering nycklar*. Du kan ha så många databaser som du behöver och distribuera din shardletar över dessa databaser. Mappningen för horisontell partitionering nyckelvärden till databaser lagras av en skärvkarta som tillhandahålls av API: er i biblioteket. Den här funktionen kallas **fragmentkarthantering**. Fragmentkartan fungerar också som den asynkrona meddelandekön till databaser för begäranden som innehåller en shardingnyckel. Den här funktionen kallas **databeroende routning**.
+## <a name="a-quick-look-at-the-elastic-database-client-library"></a>En snabb titt på klient biblioteket för Elastic Database
+Med klient biblioteket för Elastic Database definierar du partitioner för dina program data som kallas *shardletar*, mappar dem till databaser och identifierar dem med *horisontell partitionering-nycklar*. Du kan ha så många databaser som du behöver och distribuera shardletar över dessa databaser. Mappningen av horisontell partitionering-nyckel värden till databaserna lagras av en Shard-mappning från bibliotekets API: er. Den här funktionen kallas **Shard Map Management**. Shard-kartan fungerar också som koordinator för databas anslutningar för begär Anden som har en horisontell partitionering-nyckel. Den här funktionen kallas för **data beroende routning**.
 
-![Shard-kartor och databeroende Routning][1]
+![Shard Maps och data beroende routning][1]
 
-Fragmentkartehanteraren skyddar användare från inkonsekvent vyer i shardlet data som kan uppstå när samtidiga shardlet hanteringsåtgärder sker på databaserna. Om du vill göra det mäkla shard-kartor databasanslutningar för ett program som skapats med biblioteket. När fragment hanteringsåtgärder kan påverka shardlet, på så sätt kan funktionen fragment kartan att automatiskt avsluta en databasanslutning. 
+Shard Map Manager skyddar användare från inkonsekventa vyer till shardlet-data som kan uppstå när samtidiga shardlet hanterings åtgärder sker i databaserna. För att göra det, Shard Maps-tjänsten databas anslutningarna för ett program som skapats med biblioteket. När Shard hanterings åtgärder kan påverka shardlet, tillåter detta att funktionen Shard mappar automatiskt avdöda en databas anslutning. 
 
-Istället för att använda det traditionella sättet att skapa anslutningar för Dapper, måste du använda den [OpenConnectionForKey metoden](https://msdn.microsoft.com/library/azure/dn824099.aspx). Detta säkerställer att alla verifieringen sker och anslutningar hanteras korrekt när data flyttas mellan shards.
+I stället för att använda det traditionella sättet att skapa anslutningar för dapper, måste du använda [OpenConnectionForKey-metoden](https://msdn.microsoft.com/library/azure/dn824099.aspx). Detta säkerställer att alla verifieringar sker och att anslutningar hanteras korrekt när data flyttas mellan Shards.
 
-### <a name="requirements-for-dapper-integration"></a>Krav för Dapper integrering
-När du arbetar med både elastic database-klientbibliotek och Dapper-API: er som du vill behålla följande egenskaper:
+### <a name="requirements-for-dapper-integration"></a>Krav för dapper-integrering
+När du arbetar med både klient biblioteket för Elastic Database och dapper-API: erna, vill du behålla följande egenskaper:
 
-* **Skala ut**: Vi vill lägga till eller ta bort databaser från datanivån för delat program efter behov för kapacitetskraven för programmet. 
-* **Konsekvens**: Du behöver utföra databeroende routning eftersom programmet skalas ut med horisontell partitionering. Vi vill använda databeroende routning funktionerna i biblioteket för att göra detta. I synnerhet du vill behålla verifieringen och konsekvens garanterar tillhandahålls av anslutningar som är asynkron via fragmentkartehanteraren för att undvika skadade eller fel frågeresultat. Detta säkerställer att anslutningar till en viss shardlet avvisade eller stoppas om (till exempel) i shardlet för närvarande har flyttats till en annan shard med dela/Sammanslå API: er.
-* **Objekt-mappning**: Vi vill behålla praktiskt mappningar som tillhandahålls av Dapper att översätta mellan klasser i programmet och de underliggande strukturerna för databasen. 
+* **Skala ut**: Vi vill lägga till eller ta bort databaser från data nivån i shardade-programmet vid behov för programmets kapacitets krav. 
+* **Konsekvens**: Eftersom programmet skalas ut med horisontell partitionering måste du utföra data beroende routning. Vi vill använda de data beroende Dirigerings funktionerna i biblioteket. I synnerhet vill du behålla de verifierings-och konsekvens garantier som tillhandahålls av anslutningar som har frigörs genom Shard Map Manager för att undvika fel eller felaktiga frågeresultat. Detta säkerställer att anslutningar till en specifik shardlet avvisas eller stoppas om shardlet för närvarande flyttas till en annan Shard med hjälp av API: er för delad/sammanslagning.
+* **Objekt mappning**: Vi vill behålla bekvämligheten för de mappningar som tillhandahålls av dapper för att översätta mellan klasser i programmet och de underliggande databas strukturerna. 
 
-Följande avsnitt innehåller råd om kraven för programmen baserat på **Dapper** och **DapperExtensions**.
+Följande avsnitt innehåller vägledning för de här kraven för program som baseras på **dapper** och **DapperExtensions**.
 
 ## <a name="technical-guidance"></a>Teknisk vägledning
-### <a name="data-dependent-routing-with-dapper"></a>Databeroende routning med Dapper
-Med Dapper är programmet vanligtvis ansvarar för att skapa och öppna anslutningar till den underliggande databasen. En typ T som angetts av programmet, returnerar Dapper frågeresultatet som .NET samlingar av typen T. Dapper utför mappningen från rader för T-SQL-resultatet till objekt av typen T. Dapper mappar på samma sätt kan .NET-objekt till SQL-värden eller parametrar för uttryck för data manipulation language (DML). Dapper erbjuder den här funktionen via tilläggsmetoder på vanliga [SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) objekt från ADO .NET SQL-klientbiblioteken. SQL-anslutning som returneras av Elastic Scale APIs för DDR är också regelbundna [SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) objekt. På så sätt kan vi använda direkt Dapper tillägg över typen som returnerades av klientbiblioteket DDR-API, eftersom det är också en enkel anslutning för SQL-klient.
+### <a name="data-dependent-routing-with-dapper"></a>Data beroende routning med dapper
+Med dapper ansvarar programmet vanligt vis för att skapa och öppna anslutningarna till den underliggande databasen. Med en typ T för programmet returnerar dapper frågeresultat som .NET-samlingar av typen T. dapper utför mappningen från T-SQL-resultat raderna till objekt av typen T. På samma sätt mappar dapper .NET-objekt till SQL-värden eller parametrar för DML-uttryck (Data Manipulation Language). Dapper erbjuder den här funktionen via tilläggs metoder på det vanliga [SQLConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) -objektet från ADO .net SQL-klientens bibliotek. SQL-anslutningen som returneras av de elastiska skalnings-API: erna för DDR är också vanliga [SQLConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) -objekt. Detta gör att vi kan använda dapper-tillägg direkt via den typ som returneras av klient bibliotekets DDR-API, eftersom det också är en enkel SQL-klient anslutning.
 
-Dessa observationer gör det enkelt att använda asynkrona av klientbiblioteket för elastiska databaser för Dapper-anslutningar.
+Dessa observationer gör det enkelt att använda anslutningar som har utjämnas av klient biblioteket för Elastic Database för dapper.
 
-Det här kodexemplet (från tillhörande exemplet) visar den metoden där nyckeln för horisontell partitionering tillhandahålls av programmet i biblioteket för att mäkla anslutningen till rätt fragment.   
+Det här kod exemplet (från det medföljande exemplet) illustrerar hur horisontell partitionering-nyckeln tillhandahålls av programmet till biblioteket för att tillämpa anslutningen till rätt Shard.   
 
     using (SqlConnection sqlconn = shardingLayer.ShardMap.OpenConnectionForKey(
                      key: tenantId1,
@@ -76,15 +75,15 @@ Det här kodexemplet (från tillhörande exemplet) visar den metoden där nyckel
                         );
     }
 
-Anropet till den [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) API ersätter standard skapas och öppnas av en SQL-klientanslutning. Den [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) anrop använder argument som krävs för databeroende routning: 
+Anropet till [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) -API: et ersätter standard skapandet och öppningen av en SQL-klient anslutning. [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) -anropet tar de argument som krävs för data beroende Routning: 
 
-* Fragmentkartan för att komma åt databeroende routning-gränssnitt
-* Nyckeln för horisontell partitionering för att identifiera shardlet
-* Autentiseringsuppgifterna (användarnamn och lösenord) för att ansluta till fragment
+* Shard-kartan för att komma åt data beroende routningsgränssnitt
+* Horisontell partitionering-nyckeln för att identifiera shardlet
+* Autentiseringsuppgifterna (användar namn och lösen ord) för att ansluta till Shard
 
-Kartobjekt fragment skapar en anslutning till den shard som innehåller shardlet för den angivna shardingnyckel. Elastic database-klientens API: er tagga också anslutningen till implementera dess konsekvensgarantier. Sedan anropet till [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) returnerar en vanlig SQL Client anslutningsobjektet, efterföljande anrop till den **kör** tilläggsmetod från Dapper följer det Dapper praxis.
+Shard Map-objektet skapar en anslutning till Shard som innehåller shardlet för den aktuella horisontell partitionering-nyckeln. Klient-API: erna för Elastic Database tagga också anslutningen för att implementera konsekvens garantier. Eftersom anropet till [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) returnerar ett objekt av vanlig SQL-klient är det efterföljande anropet till metoden för att **köra** tillägg från dapper följande standard-dapper-praxis.
 
-Frågor fungerar mycket på samma sätt – du först öppnar anslutningen med [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) från klienten API. Du kan använda de vanliga Dapper tilläggsmetoder för att mappa resultatet av dina SQL-fråga till .NET-objekt:
+Frågor fungerar mycket på samma sätt – du först öppnar anslutningen med [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) från klient-API: et. Sedan använder du de vanliga dapper-tilläggs metoderna för att mappa resultatet av din SQL-fråga till .NET-objekt:
 
     using (SqlConnection sqlconn = shardingLayer.ShardMap.OpenConnectionForKey(
                     key: tenantId1,
@@ -104,12 +103,12 @@ Frågor fungerar mycket på samma sätt – du först öppnar anslutningen med [
             }
     }
 
-Observera att den **med** blockera alla databasåtgärder i kodblocket till en shard där tenantId1 sparas med DDR anslutning omfång. Frågan returnerar endast bloggar som lagras på den aktuella sharden, men inte de som finns på andra shards. 
+Observera att det **använda** blocket med DDR-anslutningen omfattar alla databas åtgärder i blocket till den Shard där tenantId1 hålls. Frågan returnerar bara Bloggar lagrade på den aktuella Shard, men inte de som lagras på andra Shards. 
 
-## <a name="data-dependent-routing-with-dapper-and-dapperextensions"></a>Databeroende routning med Dapper och DapperExtensions
-Dapper levereras med ett ekosystem med ytterligare filnamnstillägg som ger ytterligare bekvämlighet och abstraktion från databasen när du utvecklar databasprogram. DapperExtensions är ett exempel. 
+## <a name="data-dependent-routing-with-dapper-and-dapperextensions"></a>Data beroende routning med dapper och DapperExtensions
+Dapper levereras med ett eko system med ytterligare tillägg som kan ge ytterligare bekvämlighet och abstraktion från databasen när du utvecklar databas program. DapperExtensions är ett exempel. 
 
-Med hjälp av DapperExtensions i ditt program ändras inte hur databasanslutningar skapas och hanteras. Det är fortfarande programmets ansvar att öppna anslutningar och regelbundna SQL Client-anslutningsobjekt förväntas av metoderna som tillägg. Vi kan lita på den [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) som beskrivs ovan. Följande kodexempel visas den enda förändringen är att du inte längre behöver skriva T-SQL-uttryck:
+Om du använder DapperExtensions i ditt program ändras inte hur databas anslutningar skapas och hanteras. Det är fortfarande programmets ansvar att öppna anslutningar och vanliga SQL-klientanslutningar förväntas av tilläggs metoderna. Vi kan lita på [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) enligt beskrivningen ovan. Som följande kod exempel visar är den enda ändringen att du inte längre behöver skriva T-SQL-uttryck:
 
     using (SqlConnection sqlconn = shardingLayer.ShardMap.OpenConnectionForKey(
                     key: tenantId2,
@@ -120,7 +119,7 @@ Med hjälp av DapperExtensions i ditt program ändras inte hur databasanslutning
            sqlconn.Insert(blog);
     }
 
-Och här är exempelkod för frågan: 
+Här är kod exemplet för frågan: 
 
     using (SqlConnection sqlconn = shardingLayer.ShardMap.OpenConnectionForKey(
                     key: tenantId2,
@@ -136,10 +135,10 @@ Och här är exempelkod för frågan:
            }
     }
 
-### <a name="handling-transient-faults"></a>Hantering av tillfälliga fel
-Microsoft Patterns & Practices-teamet publicerade den [hantering av Programblocket tillfälliga](https://msdn.microsoft.com/library/hh680934.aspx) kan hjälpa programutvecklare minimera villkor för vanliga tillfälliga fel påträffades vid körning i molnet. Mer information finns i [Perseverance, hemlighet för alla framgångar: Med hjälp av Programblocket för hantering av tillfälliga fel](https://msdn.microsoft.com/library/dn440719.aspx).
+### <a name="handling-transient-faults"></a>Hantera tillfälliga fel
+Microsoft patterns & Practices-teamet publicerade det [tillfälliga fel hanterings program blocket](https://msdn.microsoft.com/library/hh680934.aspx) för att hjälpa programutvecklare att minimera vanliga tillfälliga fel tillstånd när de körs i molnet. Mer information finns i [perseverance, Secret of all Triumphs: Använda det tillfälliga fel hanterings applikations blocket](https://msdn.microsoft.com/library/dn440719.aspx).
 
-Kodexemplet är beroende av tillfälliga fel-biblioteket för att skydda mot tillfälliga fel. 
+Kod exemplet förlitar sig på det tillfälliga fel biblioteket för att skydda mot tillfälliga fel. 
 
     SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
     {
@@ -151,16 +150,16 @@ Kodexemplet är beroende av tillfälliga fel-biblioteket för att skydda mot til
           }
     });
 
-**SqlDatabaseUtils.SqlRetryPolicy** i koden ovan definieras som en **SqlDatabaseTransientErrorDetectionStrategy** med ett återförsöksvärde på 10 och 5 sekunder väntetid mellan återförsök. Om du använder transaktioner, se till att din omgång för återförsök går tillbaka till början av transaktionen om ett tillfälligt fel.
+**SqlDatabaseUtils. SqlRetryPolicy** i koden ovan definieras som en **SqlDatabaseTransientErrorDetectionStrategy** med ett antal återförsök på 10 och 5 sekunders vänte tid mellan återförsök. Om du använder transaktioner ska du se till att omfånget för återförsök återgår till början av transaktionen om det rör sig om ett tillfälligt fel.
 
 ## <a name="limitations"></a>Begränsningar
-De metoder som beskrivs i det här dokumentet medföra några begränsningar:
+De metoder som beskrivs i det här dokumentet medför några begränsningar:
 
-* Exempelkod för det här dokumentet visar inte hur du hanterar schema över shards.
-* Med en begäran kan förutsätter vi att alla dess databasbearbetning ingår i en enda shard som identifieras av shardingnyckel som anges i begäran. Men innehåller här antagandet inte alltid, till exempel när det inte går att göra en shardingnyckel som är tillgängliga. För att lösa det klientbibliotek för elastiska databaser innehåller den [MultiShardQuery klass](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardexception.aspx). Klassen implementerar en anslutning abstraktion för att fråga över flera fragment. Använda MultiShardQuery i kombination med Dapper ligger utanför omfånget för det här dokumentet.
+* Exempel koden för det här dokumentet visar inte hur du hanterar schemat i Shards.
+* Vi förutsätter att all databas bearbetning finns i en enda Shard som identifieras av horisontell partitionering-nyckeln som anges i begäran. Detta antagande är dock inte alltid kvar, till exempel när det inte går att göra en horisontell partitionering-nyckel tillgänglig. Klient biblioteket för Elastic Database inkluderar [MultiShardQuery-klassen](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardexception.aspx). Klassen implementerar en anslutnings abstraktion för frågor över flera Shards. Användning av MultiShardQuery i kombination med dapper ligger utanför det här dokumentets omfattning.
 
 ## <a name="conclusion"></a>Sammanfattning
-Program med Dapper och DapperExtensions dra enkelt nytta av verktyg för elastiska databaser för Azure SQL Database. Genom att följa stegen i det här dokumentet, programmen kan använda verktyget kapaciteten för databeroende routning genom att ändra skapandet och öppna i nytt [SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) objekt att använda den [ OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) anrop av klientbiblioteket för elastiska databaser. Detta begränsar programändringar som krävs för att de platser där nya anslutningar skapas och öppnas. 
+Program som använder dapper och DapperExtensions kan enkelt dra nytta av elastiska databas verktyg för Azure SQL Database. Genom de steg som beskrivs i det här dokumentet kan dessa program använda verktygets funktion för data beroende routning genom att ändra skapandet och öppningen av nya [SQLConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) -objekt för att använda det [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) anropet av den elastiska databas klient bibliotek. Detta begränsar de program ändringar som krävs för de platser där nya anslutningar skapas och öppnas. 
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

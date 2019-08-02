@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: tamram
 ms.reviewer: cbrooks
-ms.openlocfilehash: 5d0b41344f4a77f3205799be7c30526e2a150523
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: bb2d5733704b0b31dc010cec2a90e99e1be07b56
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479937"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68592025"
 ---
 # <a name="advanced-threat-protection-for-azure-storage"></a>Advanced Threat Protection för Azure Storage
 
@@ -46,14 +46,14 @@ Avancerat skydd för Azure Storage matar in diagnostikloggar för Läs-, skriv-o
 
 När du prenumererar på standard nivån i Azure Security Center konfigureras Avancerat skydd automatiskt på alla dina lagrings konton. Du kan aktivera eller inaktivera Avancerat skydd för dina lagrings konton under en speciell prenumeration på följande sätt:
 
-1. Starta **Azure Security Center** i [Azure Portal]([https://portal.azure.com).
+1. Starta **Azure Security Center** i [Azure Portal](https://portal.azure.com).
 1. Klicka på **priser & inställningar**på huvud menyn.
 1. Klicka på den prenumeration som du vill aktivera eller inaktivera hot skydd för dess lagrings konton.
 
     ![Välj en prenumeration](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-subscription.png)
 
 1. Klicka på **pris nivå**.
-1. I avsnittet **Välj pris nivå efter resurs typ** klickar du på aktive rad eller inaktive rad på raden **lagrings konton** .
+1. I avsnittet **Välj pris nivå efter resurs typ** klickar du på aktive rad eller inaktive radpå raden **lagrings konton** .
 
     ![Aktivera ATP i Security Center](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-pricing2.png)
 1. Klicka på **Spara**.

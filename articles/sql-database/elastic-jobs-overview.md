@@ -1,6 +1,6 @@
 ---
 title: Azure SQL Elastic Database-jobb | Microsoft Docs
-description: Konfigurera Elastic Database-jobb för att köra Transact-SQL (T-SQL)-skript i en uppsättning med en eller flera Azure SQL-databaser
+description: Konfigurera Elastic Database jobb för att köra Transact-SQL-skript (T-SQL) i en uppsättning med en eller flera Azure SQL-databaser
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -10,25 +10,24 @@ ms.topic: conceptual
 author: srinia
 ms.author: srinia
 ms.reviewer: sstein
-manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 62efee57f3663f1dad0446da659de16d2800bf75
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7c5905716c0aada4a5070b9968c330eafaffb741
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61482966"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561336"
 ---
 # <a name="create-configure-and-manage-elastic-jobs"></a>Skapa, konfigurera och hantera elastiska jobb
 
-I den här artikeln får lära du dig att skapa, konfigurera och hantera elastiska jobb. Om du inte har använt elastiska jobb [mer information om jobbet automation begreppen i Azure SQL Database](sql-database-job-automation-overview.md).
+I den här artikeln får du lära dig hur du skapar, konfigurerar och hanterar elastiska jobb. Om du inte har använt elastiska jobb kan du [läsa mer om jobb automatiserings begreppen i Azure SQL Database](sql-database-job-automation-overview.md).
 
 ## <a name="create-and-configure-the-agent"></a>Skapa och konfigurera agenten
 
-1. Skapa eller identifiera en tom SQL-databas på S0-nivå eller högre. Den här databasen kommer att användas som den *jobbet databasen* under skapande av elastiska jobb agent.
+1. Skapa eller identifiera en tom SQL-databas på S0-nivå eller högre. Den här databasen kommer att användas som *jobb databas* när en elastisk jobb agent skapas.
 2. Skapa en elastisk jobbagent i [portalen](https://portal.azure.com/#create/Microsoft.SQLElasticJobAgent) eller med [PowerShell](elastic-jobs-powershell.md#create-the-elastic-job-agent).
 
-   ![Skapa elastiska jobbagenten](media/elastic-jobs-overview/create-elastic-job-agent.png)
+   ![Skapa en elastisk jobb agent](media/elastic-jobs-overview/create-elastic-job-agent.png)
 
 ## <a name="create-run-and-manage-jobs"></a>Skapa, kör och hantera jobb
 
@@ -49,8 +48,8 @@ Jobbet använder [databasbegränsade autentiseringsuppgifter](/sql/t-sql/stateme
 Att konfigurera rätt autentiseringsuppgifter för att köra ett jobb kan vara något förvirrande, så tänk på följande punkter:
 
 - De databasbegränsade autentiseringsuppgifterna måste skapas i *jobbdatabasen*.
-- **Alla måldatabaserna måste ha en inloggning med [behörighet](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine) för jobbet har slutförts** (`jobuser` i diagrammet nedan).
-- Autentiseringsuppgifter kan återanvändas i jobb och lösenord för autentiseringsuppgifter krypteras och skyddas från användare som har skrivskyddad åtkomst till jobbobjekt.
+- **Alla mål databaser måste ha en inloggning med [tillräckliga behörigheter](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine) för att jobbet ska** kunna slutföras (`jobuser` i diagrammet nedan).
+- Autentiseringsuppgifter kan återanvändas mellan jobb och lösen ord för autentiseringsuppgifter krypteras och skyddas från användare som har skrivskyddad åtkomst till jobb objekt.
 
 Följande bild är utformad för att underlätta förståelse och konfiguration av rätt autentiseringsuppgifter för jobb. **Kom ihåg att skapa användaren i varje databas (alla *målanvändardatabaser*) som jobbet behöver köras mot**.
 
@@ -61,8 +60,8 @@ Följande bild är utformad för att underlätta förståelse och konfiguration 
 Några metodtips för att arbeta med elastiska jobb:
 
 - Begränsa användningen av API:er till betrodda personer.
-- Autentiseringsuppgifter ska ha minsta möjliga behörigheter som krävs för att utföra jobbsteget. Mer information finns i [auktorisering och behörigheter för SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/authorization-and-permissions-in-sql-server).
-- När du använder en server och/eller pool mål medlem kan rekommenderar vi med hög att du skapar separata autentiseringsuppgifter med behörighet i master-databasen för att visa/lista databaser som används för att expandera listorna databasen av servrar och/eller lagringspoolerna före jobbkörningen.
+- Autentiseringsuppgifter ska ha minsta möjliga behörigheter som krävs för att utföra jobbsteget. Mer information finns i [auktorisering och behörigheter SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/authorization-and-permissions-in-sql-server).
+- När du använder en mål grupps medlem för Server och/eller pool, rekommenderar vi starkt att du skapar en separat autentiseringsuppgift med behörighet på huvud databasen för att Visa/lista databaser som används för att expandera databas listor för-servrar och/eller pooler innan jobb körningen.
 
 ## <a name="agent-performance-capacity-and-limitations"></a>Agentprestanda, kapacitet och begränsningar
 
@@ -76,7 +75,7 @@ För tillfället är förhandsgranskningen begränsad till 100 samtidiga jobb.
 
 För att resurser inte ska överbelastas vid körning av jobb mot databaser i en elastisk SQL-pool kan jobb konfigureras för att begränsa antalet databaser som ett jobb kan köras mot samtidigt.
 
-Ange hur många samtidiga databaser som ett jobb körs på genom att ange den `sp_add_jobstep` lagrade procedurens `@max_parallelism` parameter i T-SQL, eller `Add-AzSqlElasticJobStep -MaxParallelism` i PowerShell.
+Ange antalet samtidiga databaser som ett jobb körs på genom att `sp_add_jobstep` ange den lagrade `@max_parallelism` procedurens parameter i T-SQL `Add-AzSqlElasticJobStep -MaxParallelism` eller i PowerShell.
 
 ## <a name="best-practices-for-creating-jobs"></a>Metodtips för att skapa jobb
 

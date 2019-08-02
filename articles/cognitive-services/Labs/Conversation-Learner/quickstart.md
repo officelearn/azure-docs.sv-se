@@ -1,7 +1,7 @@
 ---
-title: Så här skapar du en Konversationsdeltagare modell med hjälp av Node.js - Microsoft Cognitive Services | Microsoft Docs
+title: Så här skapar du en Conversation Learner modell med Node. js-Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Lär dig hur du skapar en Konversationsdeltagare modell med hjälp av Node.js.
+description: Lär dig hur du skapar en Conversation Learner modell med Node. js.
 services: cognitive-services
 author: nitinme
 manager: nolachar
@@ -10,46 +10,47 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
-ms.openlocfilehash: cc071d59a387c8ae4982eacbce6812526f447788
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: 7ab32fb421a2c0db72652d1bbf12d312bffd5d1e
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66388770"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68706535"
 ---
-# <a name="create-a-conversation-learner-model-using-nodejs"></a>Skapa en Konversationsdeltagare modell med hjälp av Node.js
+# <a name="create-a-conversation-learner-model-using-nodejs"></a>Skapa en Conversation Learner modell med Node. js
 
-Konversationsdeltagare minskar komplexiteten med att skapa robotar. Det gör att en hybrid utveckling-arbetsflödet för att tillåta handskrivna kod och maskininlärning att minska mängden kod som krävs för att skriva robotar. Vissa fast delar av din modell, till exempel kontrollerar om användaren är inloggad eller gör en API-begäran för att kontrollera Lagerhantering, kan fortfarande kodas. Andra ändringar i val av tillstånd och åtgärder kan dock läras in från exempel-dialogrutor som anges av domänexpert eller utvecklare.
+Conversation Learner minskar komplexiteten med att skapa robotar. Det möjliggör ett hybrid utvecklings arbets flöde som tillåter handskriven kod och maskin inlärning för att minska den mängd kod som krävs för att skriva robotar. Vissa fasta delar av din modell, till exempel att kontrol lera om användaren är inloggad eller göra en API-begäran för att kontrol lera lager inventeringen, kan fortfarande kodas. Andra ändringar i tillstånds-och åtgärds urvalet kan dock läsas från exempel dialog rutor som ges av domän experten eller utvecklaren.
 
 ## <a name="invitation-required"></a>Inbjudan krävs
 
-*En inbjudan krävs för att komma åt Konversationsdeltagare för projektet.*
+*En inbjudan krävs för att få åtkomst till Project Conversation Learner.*
 
-Projektet Konversationsdeltagare består av ett SDK som du lägger till att din robot, och en molntjänst som SDK: N har åtkomst till för machine learning.  För närvarande kräver åtkomst till Molntjänsten projekt konversationen Leaner inbjudan.  Om du inte har blivit inbjuden redan [begära en inbjudan](https://aka.ms/conversation-learner-request-invite).  Om du inte har fått en inbjudan kan du inte få tillgång till molnet API.
+Project Conversation Learner består av ett SDK som du lägger till i din robot och en moln tjänst som SDK-åtkomsten till för Machine Learning.  För närvarande krävs en inbjudan för att få åtkomst till projekt konversationens moln tjänst.  Om du inte redan har bjudit in [den begär du en inbjudan](https://aka.ms/conversation-learner-request-invite).  Om du inte har fått någon inbjudan kan du inte komma åt moln-API: et.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-- Noden 8.5.0 eller senare och npm 5.3.0 eller senare. Installera från [ https://nodejs.org ](https://nodejs.org).
+- Node 8.5.0 eller högre och NPM 5.3.0 eller högre. Installera från [https://nodejs.org](https://nodejs.org).
   
-- LUIS redigering nyckel:
+- LUIS redigerings nyckel:
 
-  1. Logga in på [ https://www.luis.ai ](https://www.luis.ai).
+  1. Logga in [https://www.luis.ai](https://www.luis.ai)på.
 
-  2. Klicka på ditt namn i det övre högra hörnet på ”inställningar”
+  2. Klicka på ditt namn längst upp till höger, sedan på "Inställningar"
 
-  3. Redigera nyckel visas på sidan resulterande
+  3. Redigerings nyckeln visas på den resulterande sidan
 
-  (Din LUIS redigering nyckel fungerar 2-roller.  Först, fungerar den som din Konversationsdeltagare redigering av nyckeln.  Andra använder Konversationsdeltagare LUIS för entitetextrahering; LUIS redigering nyckel används för att skapa LUIS modeller för din räkning)
+  (Din LUIS redigerings nyckel har 2 roller.  Först fungerar det som Conversation Learner redigerings nyckel.  För det andra använder Conversation Learner LUIS för enhets extrahering. LUIS Authoring-nyckeln används för att skapa LUIS-modeller för din räkning)
 
-- Webbläsaren Google Chrome. Installera från [ https://www.google.com/chrome/index.html ](https://www.google.com/chrome/index.html).
+- Google Chrome-webbläsare. Installera från [https://www.google.com/chrome/index.html](https://www.google.com/chrome/index.html).
 
-- Git. Installera från [ https://git-scm.com/downloads ](https://git-scm.com/downloads).
+- git. Installera från [https://git-scm.com/downloads](https://git-scm.com/downloads).
 
-- VSCode. Installera från [ https://code.visualstudio.com/ ](https://code.visualstudio.com/). Observera rekommenderas det inte krävs.
+- VSCode. Installera från [https://code.visualstudio.com/](https://code.visualstudio.com/). OBS! detta rekommenderas inte, vilket inte krävs.
 
 ## <a name="quick-start"></a>Snabbstart 
 
-1. Installera och skapa:
+1. Installera och bygg:
 
     ```bash    
     git clone https://github.com/Microsoft/ConversationLearner-Samples cl-bot-01
@@ -59,11 +60,11 @@ Projektet Konversationsdeltagare består av ett SDK som du lägger till att din 
     ```
 
     > [!NOTE]
-    > Under `npm install`, du kan ignorera det här felet om det inträffar: `gyp ERR! stack Error: Can't find Python executable`
+    > Under `npm install`kan du ignorera det här felet om det inträffar:`gyp ERR! stack Error: Can't find Python executable`
 
 2. Konfigurera:
 
-   Skapa en fil med namnet `.env` i katalogen `cl-bot-01`.  Innehållet i filen bör vara:
+   Skapa en fil som `.env` heter i katalogen `cl-bot-01`.  Filens innehåll ska vara:
 
    ```
    NODE_ENV=development
@@ -76,24 +77,24 @@ Projektet Konversationsdeltagare består av ett SDK som du lägger till att din 
     npm start
     ```
 
-    Den här raden kör allmän tom roboten `cl-bot-01/src/app.ts`.
+    Detta kör den generiska tomma roboten `cl-bot-01/src/app.ts`i.
 
-3. Öppna webbläsaren till `http://localhost:3978`
+3. Öppna webbläsare för att`http://localhost:3978`
 
-Du kan använder nu Konversationsdeltagare och skapa och undervisar en Konversationsdeltagare-modell.  
+Du använder nu Conversation Learner och kan skapa och lära en Conversation Learner modell.  
 
 > [!NOTE]
-> Projektet Konversationsdeltagare är tillgängligt genom inbjudan via vid start.  Om `http://localhost:3978/ui` visar HTTP `403` fel, det innebär att ditt konto inte har blivit inbjudet.  . [Begära en inbjudan](https://aka.ms/conversation-learner-request-invite).
+> Vid lanseringen är Project Conversation Learner tillgängligt via inbjudan.  Om `http://localhost:3978/ui` visar ett http `403` -fel innebär det att ditt konto inte har bjudits in.  [Be om en inbjudan](https://aka.ms/conversation-learner-request-invite).
 
-## <a name="tutorials-demos-and-switching-between-bots"></a>Självstudier, demonstrationer och växla mellan robotar
+## <a name="tutorials-demos-and-switching-between-bots"></a>Självstudier, demonstrationer och växlar mellan robotar
 
-Anvisningarna ovan igång allmän tom roboten.  Att köra en självstudiekurs eller demonstrera bot i stället:
+Anvisningarna ovan startade den generiska tomma roboten.  För att köra en självstudie eller demo-robot i stället:
 
-1. Om du har Konversationsdeltagare webben öppna Användargränssnittet kan gå tillbaka till listan över modeller i `http://localhost:3978/ui/home`.
+1. Om du har öppnat Conversation Learner webb gränssnittet går du tillbaka till listan över modeller i `http://localhost:3978/ui/home`.
     
-2. Om en annan bot körs (t.ex. `npm start` eller `npm run demo-pizza`), stoppa den.  Du behöver inte att stoppa processen Användargränssnittet eller stänger webbläsaren.
+2. Om en annan robot körs (som `npm start` eller `npm run demo-pizza`) stoppar du den.  Du behöver inte stoppa UI-processen eller stänga webbläsaren.
 
-3. Kör en demo-robot från kommandoraden (steg 2 ovan).  Demonstrationer är:
+3. Kör en demo-robot från kommando raden (steg 2 ovan).  I demonstrationer ingår:
 
    ```bash
    npm run tutorial-general
@@ -106,65 +107,65 @@ Anvisningarna ovan igång allmän tom roboten.  Att köra en självstudiekurs el
    npm run demo-storage
    ```
 
-4. Om du inte redan, växla till Konversationsdeltagare webbgränssnittet i Chrome genom att läsa in `http://localhost:3978/ui/home`. 
+4. Om du inte redan har gjort det växlar du till Conversation Learner webb gränssnitt i Chrome genom `http://localhost:3978/ui/home`att läsa in. 
 
-5. Klicka på ”Importera tutorials” och välj demo-modell i Användargränssnittet för konversationen Learner som motsvarar demon du igång.
+5. Klicka på "Importera självstudier" och välj demonstrations modellen i Conversation Learner gränssnittet som motsvarar den demo som du startade.
 
-Källfilerna för demonstrationerna finns i `cl-bot-01/src/demos`
+Källfiler för demonstrationerna finns i`cl-bot-01/src/demos`
 
-## <a name="create-a-bot-which-includes-back-end-code"></a>Skapa en robot som innehåller backend-koden
+## <a name="create-a-bot-which-includes-back-end-code"></a>Skapa en robot som innehåller backend-kod
 
-1. Om du har Konversationsdeltagare webben öppna Användargränssnittet kan gå tillbaka till listan över modeller i `http://localhost:3978/ui/home`.
+1. Om du har öppnat Conversation Learner webb gränssnittet går du tillbaka till listan över modeller i `http://localhost:3978/ui/home`.
     
-2. Om en bot körs (t.ex. `npm run demo-pizza`), stoppa den.  Du behöver inte att stoppa processen Användargränssnittet eller stänger webbläsaren.
+2. Stoppa den om en robot körs ( `npm run demo-pizza`som).  Du behöver inte stoppa UI-processen eller stänga webbläsaren.
 
-3. Om du vill kan du redigera koden i `cl-bot-01/src/app.ts`.
+3. Om du vill kan du redigera `cl-bot-01/src/app.ts`kod i.
 
-4. Återskapa och starta bot:
+4. Återskapa och starta om bot:
 
     ```bash    
     npm run build
     npm start
     ```
 
-5. Om du inte redan, växla till Konversationsdeltagare webbgränssnittet i Chrome genom att läsa in `http://localhost:3978/ui/home`. 
+5. Om du inte redan har gjort det växlar du till Conversation Learner webb gränssnitt i Chrome genom `http://localhost:3978/ui/home`att läsa in. 
 
-6. Skapa en ny modell för Konversationsdeltagare i Användargränssnittet och starta undervisning.
+6. Skapa en ny Conversation Learner modell i användar gränssnittet och börja undervisningen.
 
-7. Att göra kodändringar i `cl-bot-01/src/app.ts`, upprepa stegen ovan, med början från steg 2.
+7. Om du vill göra kod `cl-bot-01/src/app.ts`ändringar i upprepar du stegen ovan, från steg 2.
 
 ## <a name="vscode"></a>VSCode
 
-I VSCode, det körs konfigurationer för varje demo och för ”tom roboten” i `cl-bot-01/src/app.ts`.  Öppna den `cl-bot-01` mapp i VSCode.
+I VSCode körs konfigurationer för varje demo och för "Tom robot" i `cl-bot-01/src/app.ts`.  `cl-bot-01` Öppna mappen i VSCode.
 
 ## <a name="advanced-configuration"></a>Avancerad konfiguration
 
-Det finns en mall `.env.example` filen visar vilken miljö variabler som du kan ställa in för att konfigurera exemplen.
+Det finns en mallfil `.env.example` som visar vilka miljövariabler som du kan konfigurera för att konfigurera exemplen.
 
-Du kan justera de här portarna för att undvika konflikter mellan andra tjänster som körs på datorn genom att lägga till en `.env` filen till roten av projektet:
+Du kan justera dessa portar för att undvika konflikter mellan andra tjänster som körs på datorn genom att `.env` lägga till en fil i roten för projektet:
 
 ```bash
 cp .env.example .env
 ```
 
-Här används i standardkonfigurationen som låter dig köra din robot lokalt och börja använda Konversationsdeltagare.  (Vid ett senare tillfälle för att distribuera din robot i Bot Framework, vissa ändringar i den här filen krävs.)
+Detta använder standard konfigurationen, som gör att du kan köra din robot lokalt och börja använda Conversation Learner.  (Senare om du vill distribuera din robot till bot-ramverket krävs vissa ändringar i den här filen.)
 
 ## <a name="support"></a>Support
 
-- Märk dina frågor [Stack Overflow](https://stackoverflow.com) med ”microsoft cognitive”
-- Begär en funktion på vår [User Voice-sidan](https://aka.ms/conversation-learner-uservoice)
-- Skapa ett problem på vår [GitHub-lagringsplatsen](https://github.com/Microsoft/ConversationLearner-Samples)
+- Tagga frågor på [Stack Overflow](https://stackoverflow.com) med "Microsoft kognitivt"
+- Begär en funktion på vår [användares röst sida](https://aka.ms/conversation-learner-uservoice)
+- Öppna ett ärende på vår [GitHub-lagrings platsen](https://github.com/Microsoft/ConversationLearner-Samples)
 
-## <a name="contributing"></a>Bidra
+## <a name="contributing"></a>Bidrag
 
 Det här projektet använder sig av [Microsofts uppförandekod för öppen källkod](https://opensource.microsoft.com/codeofconduct/). Läs [Vanliga frågor och svar om uppförandekoden](https://opensource.microsoft.com/codeofconduct/faq/) eller kontakta [opencode@microsoft.com](mailto:opencode@microsoft.com) om du har några andra frågor eller kommentarer.
 
-## <a name="source-repositories"></a>Lagringsplatser för källkod
+## <a name="source-repositories"></a>Käll databaser
 
-- [conversationlearner-exempel](https://github.com/Microsoft/ConversationLearner-Samples)
+- [conversationlearner – exempel](https://github.com/Microsoft/ConversationLearner-Samples)
 - [conversationlearner-sdk](https://github.com/Microsoft/ConversationLearner-SDK)
 - [conversationlearner-models](https://github.com/Microsoft/ConversationLearner-Models)
-- [conversationlearner-ui](https://github.com/Microsoft/ConversationLearner-UI)
+- [conversationlearner-UI](https://github.com/Microsoft/ConversationLearner-UI)
 - [conversationlearner-webchat](https://github.com/Microsoft/ConversationLearner-WebChat)
 
 ## <a name="next-steps"></a>Nästa steg

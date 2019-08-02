@@ -16,12 +16,12 @@ ms.date: 07/23/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c07f9dbcc21840bec4b4487225dfb8108586865e
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 17c85d53d05193313f9e166b88beb2a0f82eb197
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489192"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68618367"
 ---
 # <a name="edit-and-manage-an-existing-access-package-in-azure-ad-entitlement-management-preview"></a>Redigera och hantera ett befintligt Access-paket i Azure AD-hantering av rättigheter (för hands version)
 
@@ -38,7 +38,7 @@ I den här artikeln beskrivs hur du redigerar och hanterar befintliga åtkomst p
 
 En resurs roll är en samling behörigheter som är kopplade till en resurs. Hur du gör resurser som är tillgängliga för användare att begära är att lägga till resurs roller till ditt åtkomst paket. Du kan lägga till resurs roller för grupper, program och SharePoint-webbplatser.
 
-**Nödvändig roll:** Användar administratör, katalog ägare eller åtkomst till paket hanteraren
+**Nödvändig roll:** Global administratör, användar administratör, katalog ägare eller åtkomst till paket hanteraren
 
 1. Klicka på **Azure Active Directory** i Azure Portal och klicka sedan på **identitets styrning**.
 
@@ -62,7 +62,7 @@ Du kan låta rättighets hantering automatiskt lägga till användare till en gr
 Du kan välja valfri Office 365-grupp eller Azure AD-säkerhetsgrupp.  Administratörer kan lägga till valfri grupp i en katalog. Katalog ägare kan lägga till valfri grupp till katalogen om de är ägare till gruppen. Behåll följande Azure AD-begränsningar i åtanke när du väljer en grupp:
 
 - När en användare, inklusive en gäst, läggs till som en medlem i en grupp kan de Se alla andra medlemmar i gruppen.
-- Azure AD kan inte ändra medlemskap för en grupp som synkroniserades från Windows Server Active Directory att använda Azure AD Connect.  
+- Azure AD kan inte ändra medlemskap för en grupp som har synkroniserats från Windows Server Active Directory att använda Azure AD Connect eller som skapades i Exchange Online som en distributions grupp.  
 - Det går inte att uppdatera medlemskapet i dynamiska grupper genom att lägga till eller ta bort en medlem, så dynamiska grupp medlemskap är inte lämpliga för användning med hantering av rättigheter.
 
 1. Öppna fönstret Välj grupper genom att klicka på **grupper** på sidan **Lägg till resurs roller för åtkomst till paket** .
@@ -136,7 +136,7 @@ Azure AD kan automatiskt tilldela användare åtkomst till en SharePoint Online-
 
 ## <a name="remove-resource-roles"></a>Ta bort resurs roller
 
-**Nödvändig roll:** Användar administratör, katalog ägare eller åtkomst till paket hanteraren
+**Nödvändig roll:** Global administratör, användar administratör, katalog ägare eller åtkomst till paket hanteraren
 
 1. Klicka på **Azure Active Directory** i Azure Portal och klicka sedan på **identitets styrning**.
 
@@ -158,7 +158,7 @@ Följande diagram visar den övergripande processen för att skapa en princip f�
 
 ![Skapa en princip process](./media/entitlement-management-access-package-edit/policy-process.png)
 
-**Nödvändig roll:** Användar administratör, katalog ägare eller åtkomst till paket hanteraren
+**Nödvändig roll:** Global administratör, användar administratör, katalog ägare eller åtkomst till paket hanteraren
 
 1. Klicka på **Azure Active Directory** i Azure Portal och klicka sedan på **identitets styrning**.
 
@@ -178,7 +178,7 @@ Följande diagram visar den övergripande processen för att skapa en princip f�
 
 Du kan redigera en princip när du vill. Om du ändrar utgångs datumet för en princip ändras inte förfallo datumet för begär Anden som redan har statusen väntar på godkännande eller godkänt.
 
-**Nödvändig roll:** Användar administratör, katalog ägare eller åtkomst till paket hanteraren
+**Nödvändig roll:** Global administratör, användar administratör, katalog ägare eller åtkomst till paket hanteraren
 
 1. Klicka på **Azure Active Directory** i Azure Portal och klicka sedan på **identitets styrning**.
 
@@ -200,13 +200,13 @@ Du kan redigera en princip när du vill. Om du ändrar utgångs datumet för en 
 
 I vissa fall kanske du vill tilldela vissa användare direkt till ett Access-paket så att användarna inte behöver gå igenom processen för att begära åtkomst paketet. För att kunna tilldela användare direkt måste åtkomst paketet ha en princip som tillåter administratörs direkta tilldelningar.
 
-**Nödvändig roll:** Användar administratör, katalog ägare eller åtkomst till paket hanteraren
+**Nödvändig roll:** Global administratör, användar administratör, katalog ägare eller åtkomst till paket hanteraren
 
 1. Klicka på **Azure Active Directory** i Azure Portal och klicka sedan på **identitets styrning**.
 
 1. I den vänstra menyn klickar du på **åtkomst paket** och öppnar sedan Access-paketet.
 
-1. Klicka på tilldelningar på den vänstra menyn.
+1. Klicka på tilldelningar på denvänstra menyn.
 
 1. Klicka på **ny tilldelning** för att öppna Lägg till användare för att komma åt paketet.
 
@@ -228,13 +228,13 @@ I vissa fall kanske du vill tilldela vissa användare direkt till ett Access-pak
 
 ## <a name="view-who-has-an-assignment"></a>Visa vem som har en tilldelning
 
-**Nödvändig roll:** Användar administratör, katalog ägare eller åtkomst till paket hanteraren
+**Nödvändig roll:** Global administratör, användar administratör, katalog ägare eller åtkomst till paket hanteraren
 
 1. Klicka på **Azure Active Directory** i Azure Portal och klicka sedan på **identitets styrning**.
 
 1. I den vänstra menyn klickar du på **åtkomst paket** och öppnar sedan Access-paketet.
 
-1. Klicka  på tilldelningar för att visa en lista över aktiva tilldelningar.
+1. Klicka på tilldelningar för att visa en lista över aktiva tilldelningar.
 
 1. Klicka på en uppgift om du vill visa mer information.
 
@@ -248,7 +248,7 @@ I vissa fall kanske du vill tilldela vissa användare direkt till ett Access-pak
 
 ## <a name="view-requests"></a>Visa begär Anden
 
-**Nödvändig roll:** Användar administratör, katalog ägare eller åtkomst till paket hanteraren
+**Nödvändig roll:** Global administratör, användar administratör, katalog ägare eller åtkomst till paket hanteraren
 
 1. Klicka på **Azure Active Directory** i Azure Portal och klicka sedan på **identitets styrning**.
 
@@ -260,7 +260,7 @@ I vissa fall kanske du vill tilldela vissa användare direkt till ett Access-pak
 
 ## <a name="view-a-requests-delivery-errors"></a>Visa leverans fel för en begäran
 
-**Nödvändig roll:** Användar administratör, katalog ägare eller åtkomst till paket hanteraren
+**Nödvändig roll:** Global administratör, användar administratör, katalog ägare eller åtkomst till paket hanteraren
 
 1. Klicka på **Azure Active Directory** i Azure Portal och klicka sedan på **identitets styrning**.
 
@@ -280,7 +280,7 @@ I vissa fall kanske du vill tilldela vissa användare direkt till ett Access-pak
 
 Du kan bara avbryta en väntande begäran som ännu inte har levererats.
 
-**Nödvändig roll:** Användar administratör, katalog ägare eller åtkomst till paket hanteraren
+**Nödvändig roll:** Global administratör, användar administratör, katalog ägare eller åtkomst till paket hanteraren
 
 1. Klicka på **Azure Active Directory** i Azure Portal och klicka sedan på **identitets styrning**.
 
@@ -296,7 +296,7 @@ Du kan bara avbryta en väntande begäran som ännu inte har levererats.
 
 De flesta användare i din katalog kan logga in på portalen My Access och automatiskt se en lista över de åtkomst paket som de kan begära. Men för externa affärs partner användare som ännu inte finns i din katalog måste du skicka dem en länk som de kan använda för att begära ett Access-paket. Så länge åtkomst paketet är aktiverat för externa användare och du har en princip för den externa användarens katalog, kan den externa användaren använda länken My Access Portal för att begära åtkomst paketet.
 
-**Nödvändig roll:** Användar administratör, katalog ägare eller åtkomst till paket hanteraren
+**Nödvändig roll:** Global administratör, användar administratör, katalog ägare eller åtkomst till paket hanteraren
 
 1. Klicka på **Azure Active Directory** i Azure Portal och klicka sedan på **identitets styrning**.
 
@@ -312,7 +312,7 @@ De flesta användare i din katalog kan logga in på portalen My Access och autom
 
 Åtkomst paketen kan identifieras som standard. Det innebär att om en princip tillåter att en användare begär åtkomst paketet, ser de automatiskt Access-paketet som anges i deras åtkomst Portal.
 
-**Nödvändig roll:** Användar administratör, katalog ägare eller åtkomst till paket hanteraren
+**Nödvändig roll:** Global administratör, användar administratör, katalog ägare eller åtkomst till paket hanteraren
 
 1. Klicka på **Azure Active Directory** i Azure Portal och klicka sedan på **identitets styrning**.
 
@@ -330,13 +330,13 @@ De flesta användare i din katalog kan logga in på portalen My Access och autom
 
 Ett Access-paket kan bara tas bort om det inte har några aktiva användar tilldelningar.
 
-**Nödvändig roll:** Användar administratör, katalog ägare eller åtkomst till paket hanteraren
+**Nödvändig roll:** Global administratör, användar administratör, katalog ägare eller åtkomst till paket hanteraren
 
 1. Klicka på **Azure Active Directory** i Azure Portal och klicka sedan på **identitets styrning**.
 
 1. I den vänstra menyn klickar du på **åtkomst paket** och öppnar sedan Access-paketet.
 
-1. Klicka på tilldelningar på den  vänstra menyn och ta bort åtkomsten för alla användare.
+1. Klicka på tilldelningar på den vänstra menyn och ta bort åtkomsten för alla användare.
 
 1. I den vänstra menyn klickar du på **Översikt** och sedan på **ta bort**.
 

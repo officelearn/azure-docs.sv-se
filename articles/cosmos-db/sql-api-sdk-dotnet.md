@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/09/2018
 ms.author: sngun
-ms.openlocfilehash: d68e957ece5c634ed1ce069218df717a4fe0952f
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 4380bf81d05aa5247b57605b2aa53d24a73a0f68
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68261270"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638585"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET SDK för SQL API: Information om hämtning och version
 > [!div class="op_single_selector"]
@@ -28,8 +28,8 @@ ms.locfileid: "68261270"
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST-resursprovider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [BulkExecutor – .NET](sql-api-sdk-bulk-executor-dot-net.md)
-> * [BulkExecutor – Java](sql-api-sdk-bulk-executor-java.md)
+> * [Mass utförar – .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Mass utförar – Java](sql-api-sdk-bulk-executor-java.md)
 
 | |  |
 |---|---|
@@ -218,7 +218,7 @@ ms.locfileid: "68261270"
 * Åtgärdar att göra SDK mer robust för automatisk redundans under vissa omständigheter.
 
 ### <a name="a-name11221122"></a><a name="1.12.2"/>1.12.2
-* Åtgärda ett problem som ibland orsakar en WebException: Det gick inte att matcha fjärrnamnet.
+* Åtgärda ett problem som ibland orsakar en WebException: Fjärrnamnet kunde inte lösas.
 * Lagt till stöd för att läsa in ett skrivet dokument genom att lägga till nya överlagringar till ReadDocumentAsync API direkt.
 
 ### <a name="a-name11211121"></a><a name="1.12.1"/>1.12.1

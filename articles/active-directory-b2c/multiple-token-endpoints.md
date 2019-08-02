@@ -1,0 +1,156 @@
+---
+title: Stöd för flera token utfärdare i ett OWIN-baserat webb program – Azure Active Directory B2C
+description: Lär dig hur du aktiverar ett .NET-webb program för att stödja token som utfärdats av flera domäner.
+services: active-directory-b2c
+author: mmacy
+manager: celestedg
+ms.service: active-directory
+ms.workload: identity
+ms.topic: conceptual
+ms.date: 07/31/2019
+ms.author: marsma
+ms.subservice: B2C
+ms.openlocfilehash: 31ab19b8b3adbef1f0ea573af13b98750d278db8
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68716727"
+---
+# <a name="support-multiple-token-issuers-in-an-owin-based-web-application"></a>Stöd för flera token utfärdare i ett OWIN-baserat webb program
+
+Den här artikeln beskriver en teknik för att aktivera stöd för flera token-utfärdare i webbappar och API: er som implementerar [Open Web Interface för .net (OWIN)](http://owin.org/). Stöd för flera token-slutpunkter är användbart när du migrerar Azure Active Directory (Azure AD) B2C-program från *login.microsoftonline.com* till *b2clogin.com*.
+
+I följande avsnitt finns ett exempel på hur du aktiverar flera utfärdare i ett webb program och motsvarande webb-API som använder [Microsoft OWIN][katana] -komponenter för mellanprogram (Katana). Även om kod exemplen är speciella för Microsoft OWIN mellanprogram, bör den allmänna tekniken vara tillämplig på andra OWIN-bibliotek.
+
+> [!NOTE]
+> Den här artikeln är avsedd för Azure AD B2C kunder med för närvarande distribuerade program `login.microsoftonline.com` som refererar till och som vill migrera till `b2clogin.com` den rekommenderade slut punkten. Om du konfigurerar ett nytt program ska du använda [b2clogin.com](b2clogin.md) som dirigerad.
+
+## <a name="prerequisites"></a>Förutsättningar
+
+Du behöver följande Azure AD B2C resurser på plats innan du fortsätter med stegen i den här artikeln:
+
+* [Användar flöden](tutorial-create-user-flows.md) eller [anpassade principer](active-directory-b2c-get-started-custom.md) som skapats i din klient organisation
+
+## <a name="get-token-issuer-endpoints"></a>Hämta token för utfärdarens slut punkter
+
+Du måste först hämta slut punkts-URI: er för token för varje utfärdare som du vill stödja i ditt program. Använd följande procedur i Azure Portal för att hämta de *b2clogin.com* -och *login.microsoftonline.com* -slutpunkter som stöds av din Azure AD B2C klient.
+
+Börja med att välja ett befintligt användar flöde:
+
+1. Navigera till din Azure AD B2C-klient i [Azure Portal](https://portal.azure.com)
+1. Under **principer**väljer du **användar flöden (principer)**
+1. Välj en befintlig princip, till exempel *B2C_1_signupsignin1*, och välj sedan **Kör användar flöde**
+1. Under rubriken **Kör användar flöde** längst upp på sidan väljer du hyperlänken för att navigera till OpenID Connect Discovery-slutpunkten för det användar flödet.
+
+    ![Välkänd URI-hyperlänk på sidan kör nu i Azure Portal](media/multi-token-endpoints/portal-01-policy-link.png)
+
+1. Registrera `issuer` värdet på sidan som öppnas i webbläsaren, till exempel:
+
+    `https://your-b2c-tenant.b2clogin.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/v2.0/`
+
+1. Använd List rutan **Välj domän** för att välja den andra domänen och utför sedan de föregående två stegen igen och registrera dess `issuer` värde.
+
+Du bör nu ha två registrerade URI: er som liknar:
+
+```
+https://login.microsoftonline.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/v2.0/
+https://your-b2c-tenant.b2clogin.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/v2.0/
+```
+
+### <a name="custom-policies"></a>Anpassade principer
+
+Om du har anpassade principer i stället för användar flöden kan du använda en liknande process för att hämta utfärdar-URI: er.
+
+1. Navigera till din Azure AD B2C-klient
+1. Välj **ramverk för identitets upplevelse**
+1. Välj en av de förlitande part principerna, till exempel *B2C_1A_signup_signin*
+1. Använd List rutan **Välj domän** för att välja en domän, till exempel *yourtenant.b2clogin.com*
+1. Välj den hyperlänk som visas under **OpenID Connect Discovery-slutpunkt**
+1. `issuer` Registrera värdet
+1. Utför stegen 4-6 för den andra domänen, till exempel *login.microsoftonline.com*
+
+## <a name="get-the-sample-code"></a>Hämta exempelkoden
+
+Nu när du har båda URI: erna för token för token måste du uppdatera koden för att ange att båda slut punkterna är giltiga utfärdare. Du kan gå igenom ett exempel genom att ladda ned eller klona exempel programmet och sedan uppdatera exemplet så att det stöder båda slut punkterna som giltiga utfärdare.
+
+Hämta arkivet: [Active-Directory-B2C-dotNet-webapp-and-WebAPI-Master. zip][sample-archive]
+
+```
+git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi.git
+```
+
+## <a name="enable-multiple-issuers-in-web-api"></a>Aktivera flera utfärdare i webb-API
+
+I det här avsnittet uppdaterar du koden för att ange att både token utfärdarens slut punkter är giltiga.
+
+1. Öppna lösningen **B2C-WebAPI-dotNet. SLN** i Visual Studio
+1. I **TaskService** -projektet öppnar du filen *TaskService\\App_Start\\* * startup.auth.cs** * i redigeraren
+1. Lägg till följande `using` direktiv överst i filen:
+
+    `using System.Collections.Generic;`
+1. Lägg till [`TokenValidationParameters`][tokenvalidationparameters] egenskapen i definitionen och ange båda URI: er som du registrerade i föregående avsnitt: [`ValidIssuers`][validissuers]
+
+    ```csharp
+    TokenValidationParameters tvps = new TokenValidationParameters
+    {
+        // Accept only those tokens where the audience of the token is equal to the client ID of this app
+        ValidAudience = ClientId,
+        AuthenticationType = Startup.DefaultPolicy,
+        ValidIssuers = new List<string> {
+            "https://login.microsoftonline.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/v2.0/",
+            "https://{your-b2c-tenant}.b2clogin.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/v2.0/"
+        }
+    };
+    ```
+
+`TokenValidationParameters`tillhandahålls av MSAL.NET och används av OWIN mellanprogram i nästa avsnitt av kod i *startup.auth.cs*. När flera giltiga utfärdare har angetts görs OWIN program pipelinen medveten om att båda token-slutpunkterna är giltiga utfärdare.
+
+```csharp
+app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions
+{
+    // This SecurityTokenProvider fetches the Azure AD B2C metadata &  from the OpenID Connect metadata endpoint
+    AccessTokenFormat = new JwtFormat(tvps, new tCachingSecurityTokenProvider(String.Format(AadInstance, ultPolicy)))
+});
+```
+
+Som tidigare nämnts tillhandahåller andra OWIN-bibliotek vanligt vis en liknande funktion för att stödja flera utfärdare. Även om det finns exempel för varje bibliotek som ligger utanför omfånget för den här artikeln, kan du använda en liknande teknik för de flesta bibliotek.
+
+## <a name="switch-endpoints-in-web-app"></a>Växla slut punkter i webb program
+
+Med båda URI: erna som stöds av ditt webb-API, behöver du nu uppdatera webb programmet så att det hämtar tokens från b2clogin.com-slutpunkten.
+
+Du kan till exempel konfigurera exempel webb programmet att använda den nya slut punkten genom att ändra `ida:AadInstance` värdet i filen *TaskWebApp\\* * Web. config** * i **TaskWebApp** -projektet.
+
+Ändra värdet i *Web. config* för TaskWebApp så att det refererar `{your-b2c-tenant-name}.b2clogin.com` till i stället för. `login.microsoftonline.com` `ida:AadInstance`
+
+Innan:
+
+```xml
+<!-- Old value -->
+<add key="ida:AadInstance" value="https://login.microsoftonline.com/tfp/{0}/{1}" />
+```
+
+Efter (Ersätt `{your-b2c-tenant}` med namnet på din B2C-klient):
+
+```xml
+<!-- New value -->
+<add key="ida:AadInstance" value="https://{your-b2c-tenant}.b2clogin.com/tfp/{0}/{1}" />
+```
+
+När slut punkts strängarna skapas när webbappen körs, används b2clogin.com-baserade slut punkter när den begär token.
+
+## <a name="next-steps"></a>Nästa steg
+
+I den här artikeln presenteras en metod för att konfigurera ett webb-API som implementerar Microsoft OWIN mellanprogram (Katana) för att acceptera tokens från flera utfärdares slut punkter. Som du kanske märker finns det flera andra strängar i *Web. config-* filerna för både TaskService-och TaskWebApp-projekt som skulle behöva ändras om du vill skapa och köra dessa projekt mot din egen klient. Du är välkommen att ändra projekten på rätt sätt om du vill se dem i praktiken, men en fullständig genom gång av detta ligger utanför omfånget för den här artikeln.
+
+Mer information om de olika typerna av säkerhetstoken som genereras av Azure AD B2C finns i [Översikt över tokens i Azure Active Directory B2C](active-directory-b2c-reference-tokens.md).
+
+<!-- LINKS - External -->
+[sample-archive]: https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi/archive/master.zip
+[sample-repo]: https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi
+
+<!-- LINKS - Internal -->
+[katana]: https://docs.microsoft.com/aspnet/aspnet/overview/owin-and-katana/
+[validissuers]: https://docs.microsoft.com/dotnet/api/microsoft.identitymodel.tokens.tokenvalidationparameters.validissuers
+[tokenvalidationparameters]: https://docs.microsoft.com/dotnet/api/microsoft.identitymodel.tokens.tokenvalidationparameters

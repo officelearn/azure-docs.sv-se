@@ -15,12 +15,12 @@ ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05596365dfa011675f38beda2435fdda1a53a5a3
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 6e952b011eb760ebc9dcf5fe7250cf56ec67465f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68488867"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562346"
 ---
 # <a name="desktop-app-that-calls-web-apis---acquire-a-token"></a>Skriv bords app som anropar webb-API: er – hämta en token
 
@@ -126,7 +126,7 @@ Klassen definierar följande konstanter:
 
 #### <a name="withextrascopetoconsent"></a>WithExtraScopeToConsent
 
-Den här modifieraren används i ett avancerat scenario där du vill att användaren ska godkänna flera resurser på förhand (och inte vill använda det stegvisa godkännandet som normalt används med MSAL.NET/Microsoft Identity Platform v 2.0). Mer information finns i [så här gör du för att få användar medgivande för flera resurser](scenario-desktop-production.md#how-to-have--the-user-consent-upfront-for-several-resources).
+Den här modifieraren används i ett avancerat scenario där du vill att användaren ska godkänna flera resurser på förhand (och inte vill använda det stegvisa godkännandet som normalt används med MSAL.NET/Microsoft Identity Platform). Mer information finns i [så här gör du för att få användar medgivande för flera resurser](scenario-desktop-production.md#how-to-have--the-user-consent-upfront-for-several-resources).
 
 ```CSharp
 var result = await app.AcquireTokenInteractive(scopesForCustomerApi)
@@ -198,7 +198,7 @@ AcquireTokenByIntegratedWindowsAuth(IEnumerable<string> scopes)
 
 - Det här flödet är aktiverat för .net Desktop-, .net Core-och Windows Universal-appar (UWP). I .NET Core är det bara den överbelastning som tar användar namnet tillgängligt, eftersom .NET Core Platform inte kan be användar namnet till operativ systemet.
   
-Mer information om medgivande finns i [v 2.0-behörigheter och medgivande](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent)
+Mer information om medgivande finns i [behörigheter för Microsoft Identity Platform och medgivande](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent)
 
 ### <a name="how-to-use-it"></a>Hur du använder den
 
@@ -652,7 +652,7 @@ Klasser och gränssnitt som ingår i cachelagring av token cache är följande t
 > [!IMPORTANT]
 > MSAL.net skapar token-cacheminnen för dig och ger dig `IToken` cachen när du anropar ett `UserTokenCache` programs och `AppTokenCache` egenskaper. Du ska inte implementera gränssnittet själv. Ditt ansvar när du implementerar en anpassad token cache-serialisering är att:
 >
-> - Reagera på `BeforeAccess` och `AfterAccess` "Events" (eller  de asynkrona motsvarigheterna). Delegaten ansvarar för deserialisering av cacheminnet, medan den `AfterAccess` som ansvarar för serialisering av cachen.`BeforeAccess`
+> - Reagera på `BeforeAccess` och `AfterAccess` "Events" (eller de asynkrona motsvarigheterna). Delegaten ansvarar för deserialisering av cacheminnet, medan den `AfterAccess` som ansvarar för serialisering av cachen.`BeforeAccess`
 > - En del av dessa händelser lagrar eller läser in blobbar som skickas genom händelse argumentet till vilken lagring du vill ha.
 
 Strategierna skiljer sig beroende på om du skriver en cachelagring för token-cache för ett offentligt klient program (skriv bord) eller ett konfidentiellt klient program (webbapp/webb-API, daemon-app).

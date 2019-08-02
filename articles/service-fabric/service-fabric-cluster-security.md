@@ -1,9 +1,9 @@
 ---
-title: Skydda en Azure Service Fabric-kluster | Microsoft Docs
-description: Läs mer om säkerhetsscenarier för ett Azure Service Fabric-kluster och de olika tekniker som du kan använda för att implementera dem.
+title: Skydda ett Azure Service Fabric-kluster | Microsoft Docs
+description: Lär dig mer om säkerhets scenarier för ett Azure Service Fabric-kluster och de olika tekniker som du kan använda för att implementera dem.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: 26b58724-6a43-4f20-b965-2da3f086cf8a
@@ -13,129 +13,129 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/14/2018
-ms.author: aljo
-ms.openlocfilehash: 6d67fa4af031480fda4a91f7356bff69830a654c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: atsenthi
+ms.openlocfilehash: 6ee7c71a66488e9636752676d68a79fdfaf855cb
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60711517"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599825"
 ---
-# <a name="service-fabric-cluster-security-scenarios"></a>Säkerhetsscenarier för Service Fabric-kluster
-Ett Azure Service Fabric-kluster är en resurs som du äger. Det är ditt ansvar att skydda dina kluster för att förhindra att obehöriga användare från att ansluta till dem. Ett säkert kluster är särskilt viktigt när du kör produktionsarbetsbelastningar i klustret. Även om det är möjligt att skapa ett oskyddat kluster om klustret exponerar hanteringsslutpunkter till det offentliga internet, kan anonyma användare ansluta till den. Oskyddade kluster stöds inte för produktionsarbetsbelastningar. 
+# <a name="service-fabric-cluster-security-scenarios"></a>Service Fabric kluster säkerhets scenarier
+Ett Azure Service Fabric-kluster är en resurs som du äger. Det är ditt ansvar att skydda dina kluster så att obehöriga användare kan ansluta till dem. Ett säkert kluster är särskilt viktigt när du kör produktions arbets belastningar i klustret. Även om det är möjligt att skapa ett oskyddat kluster, kan anonyma användare ansluta till det om klustret exponerar hanterings slut punkter för det offentliga Internet. Oskyddade kluster stöds inte för produktions arbets belastningar. 
 
-Den här artikeln är en översikt över säkerhetsscenarier för Azure-kluster och fristående kluster och de olika tekniker som du kan använda för att implementera dem:
+Den här artikeln är en översikt över säkerhets scenarier för Azure-kluster och fristående kluster och de olika tekniker som du kan använda för att implementera dem:
 
-* Nod-till-nod-säkerhet
-* Klient-till-nod-säkerhet
+* Säkerhet från nod till nod
+* Säkerhet från klient till nod
 * Rollbaserad åtkomstkontroll (RBAC)
 
-## <a name="node-to-node-security"></a>Nod-till-nod-säkerhet
-Nod-till-nod security hjälper att säkra kommunikationen mellan virtuella datorer eller datorer i ett kluster. Det här scenariot security säkerställer att endast de datorer som har behörighet att ansluta till klustret kan delta i som är värd för program och tjänster i klustret.
+## <a name="node-to-node-security"></a>Säkerhet från nod till nod
+Säkerhet från nod till nod hjälper till att säkra kommunikationen mellan de virtuella datorerna eller datorerna i ett kluster. Det här säkerhets scenariot säkerställer att endast datorer som har behörighet att ansluta till klustret kan delta i värdbaserade program och tjänster i klustret.
 
-![Diagram över nod till nod-kommunikation][Node-to-Node]
+![Diagram över nod-till-nod-kommunikation][Node-to-Node]
 
-Kluster som körs på Azure och fristående kluster som körs på Windows både kan använda antingen [certifikat security](https://msdn.microsoft.com/library/ff649801.aspx) eller [Windows security](https://msdn.microsoft.com/library/ff649396.aspx) för Windows Server-datorer.
+Kluster som körs på Azure och fristående kluster som körs på Windows kan båda använda antingen [certifikat säkerhet](https://msdn.microsoft.com/library/ff649801.aspx) eller [Windows-säkerhet](https://msdn.microsoft.com/library/ff649396.aspx) för Windows Server-datorer.
 
-### <a name="node-to-node-certificate-security"></a>För nod-till-nod-Certifikatsäkerhet
-Service Fabric använder X.509-servercertifikat som du anger som en del av nodtyp konfigurationen när du skapar ett kluster. Du kan se en kort översikt över dessa certifikat är och hur du kan hämta eller skapa dem i slutet av den här artikeln.
+### <a name="node-to-node-certificate-security"></a>Säkerhet för nod-till-nod-certifikat
+Service Fabric använder de X. 509-Server certifikat som du anger som en del av konfigurationen för Node-typ när du skapar ett kluster. I slutet av den här artikeln kan du se en kort översikt över vad dessa certifikat är och hur du kan hämta eller skapa dem.
 
-Ställ in Certifikatsäkerhet när du skapar klustret, antingen i Azure-portalen med hjälp av en Azure Resource Manager-mall eller genom att använda en fristående JSON-mall. Standardbeteendet för Service Fabric SDK är att distribuera och installera certifikatet med längst fram i framtida utgångna certifikatet. beteendet klassiska tillåtna definiera primära och sekundära certifikat för att tillåta manuellt initierad överrullningar och rekommenderas inte för användning över de nya funktionerna. De primära certifikat som har längst fram till det utgående datumet i framtiden, ska skilja sig från admin-klienten och skrivskyddade klientcertifikat som du anger för [klient-till-nod-säkerhet](#client-to-node-security).
+Konfigurera certifikat säkerhet när du skapar klustret, antingen i Azure Portal, genom att använda en Azure Resource Manager mall eller med en fristående JSON-mall. Service Fabric SDK: s standard beteende är att distribuera och installera certifikatet med den sista i det framtida certifikatet som upphör att gälla. det klassiska beteendet tillåter definition av primära och sekundära certifikat, för att tillåta manuella initierade förnyelser och rekommenderas inte för användning över de nya funktionerna. De primära certifikat som ska användas har det sista datumet som upphör att gälla, bör skilja sig från administratörs klienten och de skrivskyddade klient certifikaten som du anger för [säkerhet från klient till nod](#client-to-node-security).
 
-Läs hur du ställer in Certifikatsäkerhet i ett kluster för Azure i [konfigurera ett kluster med hjälp av en Azure Resource Manager-mall](service-fabric-cluster-creation-via-arm.md).
+Information om hur du konfigurerar certifikat säkerhet i ett kluster för Azure finns i [Konfigurera ett kluster med hjälp av en Azure Resource Manager mall](service-fabric-cluster-creation-via-arm.md).
 
-Läs hur du ställer in Certifikatsäkerhet i ett kluster för ett fristående Windows Server-kluster i [skydda ett fristående kluster i Windows genom att använda X.509-certifikat](service-fabric-windows-cluster-x509-security.md).
+Information om hur du konfigurerar certifikat säkerhet i ett kluster för ett fristående Windows Server-kluster finns i [skydda ett fristående kluster i Windows med hjälp av X. 509-certifikat](service-fabric-windows-cluster-x509-security.md).
 
-### <a name="node-to-node-windows-security"></a>Nod-till-nod Windows-säkerhet
-Läs hur du konfigurerar Windows-säkerhet för ett fristående Windows Server-kluster i [skydda ett fristående kluster i Windows med hjälp av Windows security](service-fabric-windows-cluster-windows-security.md).
+### <a name="node-to-node-windows-security"></a>Windows-säkerhet från nod till nod
+Information om hur du konfigurerar Windows-säkerhet för ett fristående Windows Server-kluster finns i [skydda ett fristående kluster i Windows med hjälp av Windows-säkerhet](service-fabric-windows-cluster-windows-security.md).
 
-## <a name="client-to-node-security"></a>Klient-till-nod-säkerhet
-Klient-till-nod-säkerhet autentiserar klienter och hjälper till att säker kommunikation mellan en klient och enskilda noder i klustret. Den här typen av security hjälper till att säkerställa att endast behöriga användare har åtkomst till klustret och de program som distribueras i klustret. Klienter kan identifieras unikt genom sina Windows-autentiseringsuppgifter eller deras säkerhetsreferenser för certifikatet.
+## <a name="client-to-node-security"></a>Säkerhet från klient till nod
+Säkerhet mellan klienter autentiserar klienter och skyddar kommunikationen mellan en klient och enskilda noder i klustret. Den här typen av säkerhet hjälper till att säkerställa att endast behöriga användare kan komma åt klustret och de program som distribueras i klustret. Klienterna identifieras unikt genom sina Windows-säkerhetsautentiseringsuppgifter eller deras autentiseringsuppgifter för certifikat säkerhet.
 
 ![Diagram över klient-till-nod-kommunikation][Client-to-Node]
 
-Kluster som körs på Azure och fristående kluster som körs på Windows både kan använda antingen [certifikat security](https://msdn.microsoft.com/library/ff649801.aspx) eller [Windows security](https://msdn.microsoft.com/library/ff649396.aspx).
+Kluster som körs på Azure och fristående kluster som körs på Windows kan båda använda antingen [certifikat säkerhet](https://msdn.microsoft.com/library/ff649801.aspx) eller [Windows-säkerhet](https://msdn.microsoft.com/library/ff649396.aspx).
 
-### <a name="client-to-node-certificate-security"></a>För klient-till-nod-Certifikatsäkerhet
-Konfigurera för klient-till-nod-Certifikatsäkerhet när du skapar klustret, antingen i Azure-portalen med hjälp av Resource Manager-mall eller genom att använda en fristående JSON-mall. Ange ett klientcertifikat för administratör eller ett klientcertifikat för att skapa certifikatet. Som bästa praxis, admin klient- och klientcertifikat du anger ska skilja sig från de primära och sekundära certifikat som du anger för [nod till nod-säkerhet](#node-to-node-security). Som standard läggs klustercertifikat för nod-till-nod-säkerhet till listan över tillåtna klienter admin certifikat.
+### <a name="client-to-node-certificate-security"></a>Säkerhet för klient-till-nod-certifikat
+Konfigurera säkerhet för klient-till-nod-certifikat när du skapar klustret, antingen i Azure Portal, med hjälp av en Resource Manager-mall eller med en fristående JSON-mall. Om du vill skapa certifikatet anger du ett administratörs klient certifikat eller ett användar klient certifikat. Som bästa praxis bör administratörs klienten och användar klient certifikaten som du anger skilja sig från de primära och sekundära certifikat som du anger för [nod-till-nod-säkerhet](#node-to-node-security). Som standard läggs kluster certifikaten för nod-till-nod-säkerhet till i listan över tillåtna klient administratörs certifikat.
 
-Klienter som ansluter till klustret med hjälp av admin-certifikatet har fullständig åtkomst till funktioner för hantering. Klienter som ansluter till klustret med hjälp av klientcertifikatet skrivskyddad användare har bara läsbehörighet till hanteringsfunktioner. Dessa certifikat används för RBAC som beskrivs senare i den här artikeln.
+Klienter som ansluter till klustret med hjälp av administratörs certifikatet har fullständig åtkomst till hanterings funktionerna. Klienter som ansluter till klustret med hjälp av det skrivskyddade användar klient certifikatet har bara Läs behörighet till hanterings funktionerna. Dessa certifikat används för RBAC som beskrivs längre fram i den här artikeln.
 
-Läs hur du ställer in Certifikatsäkerhet i ett kluster för Azure i [konfigurera ett kluster med hjälp av en Azure Resource Manager-mall](service-fabric-cluster-creation-via-arm.md).
+Information om hur du konfigurerar certifikat säkerhet i ett kluster för Azure finns i [Konfigurera ett kluster med hjälp av en Azure Resource Manager mall](service-fabric-cluster-creation-via-arm.md).
 
-Läs hur du ställer in Certifikatsäkerhet i ett kluster för ett fristående Windows Server-kluster i [skydda ett fristående kluster i Windows genom att använda X.509-certifikat](service-fabric-windows-cluster-x509-security.md).
+Information om hur du konfigurerar certifikat säkerhet i ett kluster för ett fristående Windows Server-kluster finns i [skydda ett fristående kluster i Windows med hjälp av X. 509-certifikat](service-fabric-windows-cluster-x509-security.md).
 
-### <a name="client-to-node-azure-active-directory-security-on-azure"></a>Klient-till-nod Azure Active Directory-säkerhetsgrupp i Azure
-Med Azure AD kan organisationer (som kallas klientorganisationer) hantera användaråtkomst till program. Program är indelade i dem med en webbaserad Användargränssnittet för inloggning och personer med en intern klient-upplevelse. Om du inte redan har skapat en klient som börjar med att läsa [skaffa en Azure Active Directory-klient][active-directory-howto-tenant].
+### <a name="client-to-node-azure-active-directory-security-on-azure"></a>Azure Active Directory säkerhet från klient till nod på Azure
+Med Azure AD kan organisationer (som kallas klientorganisationer) hantera användaråtkomst till program. Programmen är indelade i de med ett webbaserat inloggnings gränssnitt och de har en inbyggd klient upplevelse. Om du inte redan har skapat en klient börjar du med [att läsa hur du får en Azure Active Directory klient][active-directory-howto-tenant].
 
-Service Fabric-kluster erbjuder flera startpunkter för dess hanteringsfunktioner, inklusive den webbaserade [Service Fabric Explorer] [ service-fabric-visualizing-your-cluster] och [Visual Studio] [ service-fabric-manage-application-in-visual-studio]. Därför kan skapa du två Azure AD-program för att styra åtkomsten till klustret, ett webbprogram och ett internt program.
+Service Fabric-kluster erbjuder flera startpunkter för dess hanteringsfunktioner, däribland den webbaserade [Service Fabric Explorer][service-fabric-visualizing-your-cluster] och [Visual Studio][service-fabric-manage-application-in-visual-studio]. Därför kan du skapa två Azure AD-program för att kontrol lera åtkomsten till klustret, ett webb program och ett internt program.
 
-För kluster som körs på Azure kan skydda du också åtkomst till hanteringsslutpunkter genom att använda Azure Active Directory (AD Azure). Lär dig hur du skapar de nödvändiga Azure AD-artefakter och hur du kan fylla dem när du skapar klustret, se [ställa in Azure AD för att autentisera klienter](service-fabric-cluster-creation-setup-aad.md).
+För kluster som körs på Azure kan du också skydda åtkomsten till hanterings slut punkter med hjälp av Azure Active Directory (Azure AD). Information om hur du skapar nödvändiga Azure AD-artefakter och hur du fyller dem när du skapar klustret finns i [Konfigurera Azure AD för att autentisera klienter](service-fabric-cluster-creation-setup-aad.md).
 
 ## <a name="security-recommendations"></a>Säkerhetsrekommendationer
 För Service Fabric-kluster som distribueras i ett offentligt nätverk som hanteras i Azure är rekommendationen för ömsesidig klient-till-nod-autentisering:
 *   Använd Azure Active Directory för klientidentitet
 *   Ett certifikat för serveridentitet och SSL-kryptering av http-kommunikation
 
-Rekommendationen för nod-till-nod-säkerhet är att använda ett klustercertifikat för att autentisera noder för Service Fabric-kluster som distribueras i ett offentligt nätverk finns i Azure. 
+För Service Fabric kluster som distribueras i ett offentligt nätverk som finns på Azure, är rekommendationen för nod-till-nod-säkerhet att använda ett kluster certifikat för att autentisera noder. 
 
 
-Om du har Windows Server 2012 R2 och Windows Active Directory, fristående Windows Server-kluster kan rekommenderar vi att du använder Windows-säkerhet med grupphanterade tjänstkonton. Annars kan du använda Windows-säkerhet med Windows-konton.
+Om du har Windows Server 2012 R2 och Windows Active Directory, rekommenderar vi att du använder Windows-säkerhet med grupphanterade tjänst konton för fristående Windows Server-kluster. Annars använder du Windows-säkerhet med Windows-konton.
 
 ## <a name="role-based-access-control-rbac"></a>Rollbaserad åtkomstkontroll (RBAC)
-Du kan använda åtkomstkontroll för att begränsa åtkomsten till vissa klusteråtgärder för olika grupper av användare. Detta hjälper att skydda klustret. Två typer av access control har stöd för klienter som ansluter till ett kluster: Administratörsrollen och användarrollen.
+Du kan använda åtkomst kontroll för att begränsa åtkomsten till vissa kluster åtgärder för olika användar grupper. Detta gör klustret säkrare. Två åtkomst kontroll typer stöds för klienter som ansluter till ett kluster: Administratörs roll och användar roll.
 
-Användare som har tilldelats rollen administratör har fullständig åtkomst till funktioner för hantering, inklusive läsa och skriva funktioner. Användare som har tilldelats rollen, som standard har bara läsbehörighet till funktioner för hantering (till exempel frågefunktioner). De kan också lösa program och tjänster.
+Användare som har tilldelats rollen administratör har fullständig åtkomst till hanterings funktioner, inklusive Läs-och skriv funktioner. Användare som har tilldelats användar rollen har som standard endast Läs behörighet till hanterings funktioner (till exempel fråge funktioner). De kan också lösa program och tjänster.
 
-Ange administratörs- och klienten roller när du skapar klustret. Tilldela roller genom att tillhandahålla separata identiteter (till exempel genom att använda certifikat eller Azure AD) för varje rolltyp. Mer information om standardinställningar för åtkomstkontroll och hur du ändrar standardinställningarna finns i [rollbaserad åtkomstkontroll för Service Fabric-klienter](service-fabric-cluster-security-roles.md).
+Ange administratörs-och användar klient roller när du skapar klustret. Tilldela roller genom att ange separata identiteter (till exempel med hjälp av certifikat eller Azure AD) för varje roll typ. För ytterligare information om standardinställningar för åtkomst kontroll och hur du ändrar standardinställningarna, se [rollbaserad Access Control för Service Fabric klienter](service-fabric-cluster-security-roles.md).
 
-## <a name="x509-certificates-and-service-fabric"></a>X.509-certifikat och Service Fabric
-Digitala X.509-certifikat används ofta att autentisera klienter och servrar. De används också för att kryptera och digitalt signera meddelanden. Service Fabric använder X.509-certifikat för att skydda ett kluster och säkerhetsfunktioner för programmet. Läs mer om X.509 digitala certifikat, [arbeta med certifikat](https://msdn.microsoft.com/library/ms731899.aspx). Du använder [Key Vault](../key-vault/key-vault-overview.md) att hantera certifikat för Service Fabric-kluster i Azure.
+## <a name="x509-certificates-and-service-fabric"></a>X. 509-certifikat och Service Fabric
+X. 509 digitala certifikat används ofta för att autentisera klienter och servrar. De används också för att kryptera och signera meddelanden digitalt. Service Fabric använder X. 509-certifikat för att skydda ett kluster och tillhandahålla funktioner för program säkerhet. Mer information om digitala X. 509-certifikat finns i [arbeta med certifikat](https://msdn.microsoft.com/library/ms731899.aspx). Du använder [Key Vault](../key-vault/key-vault-overview.md) för att hantera certifikat för Service Fabric kluster i Azure.
 
 Några viktiga saker att tänka på:
 
-* Du kan skapa certifikat för kluster som kör produktionsarbetsbelastningar med en korrekt konfigurerad Windows Server-certifikat eller en från en godkänd [certifikatutfärdare (CA)](https://en.wikipedia.org/wiki/Certificate_authority).
-* Aldrig använda någon tillfälliga eller testa certifikat som du skapar med hjälp av verktyg som MakeCert.exe i en produktionsmiljö.
-* Du kan använda ett självsignerat certifikat, men endast i ett testkluster. Använd inte ett självsignerat certifikat i produktion.
-* När du genererar tumavtrycket för certifikatet, måste du generera ett SHA1-tumavtryck. SHA1 är vad som används när du konfigurerar certifikattumavtryck för klienten och kluster.
+* Om du vill skapa certifikat för kluster som kör produktions arbets belastningar använder du en korrekt konfigurerad Windows Server-certifikatutfärdare eller en från en godkänd [certifikat utfärdare (ca)](https://en.wikipedia.org/wiki/Certificate_authority).
+* Använd aldrig temporära eller test certifikat som du skapar med hjälp av verktyg som MakeCert. exe i en produktions miljö.
+* Du kan använda ett självsignerat certifikat, men endast i ett test kluster. Använd inte ett självsignerat certifikat i produktionen.
+* När du genererar certifikatets tumavtryck ska du se till att generera ett SHA1-tumavtryck. SHA1 är det som används när du konfigurerar klient-och kluster certifikat tumavtrycken.
 
-### <a name="cluster-and-server-certificate-required"></a>Klustret och server-certifikat (krävs)
-Dessa certifikat (en primär och eventuellt en sekundär) krävs för att skydda ett kluster och förhindra obehörig åtkomst till den. Dessa certifikat autentisering med klustret och server.
+### <a name="cluster-and-server-certificate-required"></a>Kluster-och Server certifikat (obligatoriskt)
+Dessa certifikat (en primär och eventuellt en sekundär) krävs för att skydda ett kluster och förhindra obehörig åtkomst till det. Dessa certifikat tillhandahåller autentisering av kluster och server.
 
-Klustret autentisering autentiserar kommunikation från nod till nod för klustret federation. Endast de noder som kan bevisa sin identitet med det här certifikatet kan ansluta till klustret. Serverautentisering autentiserar slutpunkterna för klusterhantering i en Hanteringsklient så att hanteringsklienten vet att det pratar med verkliga klustret och inte en ”man in the middle”. Det här certifikatet ger också en SSL för HTTPS-hanterings-API och för Service Fabric Explorer över HTTPS. När en klient eller noden autentiserar en nod, en av de inledande kontrollerna är värdet för eget namn i den **ämne** fält. Den här nätverksnamn eller en av certifikat Alternativt ämnesnamn (SAN) måste finnas i listan över tillåtna namn.
+Cluster Authentication autentiserar kommunikation mellan noder för kluster Federation. Endast noder som kan bevisa sin identitet med det här certifikatet kan ansluta till klustret. Serverautentisering autentiserar kluster hanterings slut punkter till en hanterings klient, så att hanterings klienten vet att den pratar med det riktiga klustret och inte en "man i mitten". Det här certifikatet tillhandahåller också en SSL för HTTPS Management API och för Service Fabric Explorer över HTTPS. När en klient eller nod autentiserar en nod, är en av de inledande kontrollerna värdet för det egna namnet i fältet **ämne** . Antingen detta egna namn eller något av certifikatets alternativa namn (San) måste finnas i listan över tillåtna gemensamma namn.
 
 Certifikatet måste uppfylla följande krav:
 
-* Certifikatet måste innehålla en privat nyckel. De här certifikaten har vanligtvis tillägg .pfx eller .pem  
-* Certifikatet måste skapas för nyckelutbyte som kan exporteras till en Personal Information Exchange (.pfx)-fil.
-* Den **certifikatets ämnesnamn måste matcha den domän som du använder för att få åtkomst till Service Fabric-klustret**. Matchningen krävs för att tillhandahålla en SSL för klustrets HTTPS-slutpunkt för hantering och Service Fabric Explorer. Du kan inte hämta ett SSL-certifikat från en certifikatutfärdare (CA) för den *. cloudapp.azure.com domän. Du måste skaffa ett anpassat domännamn för ditt kluster. När du begär ett certifikat från en certifikatutfärdare måste certifikatets ämnesnamn matcha det anpassade domännamn du använder för klustret.
+* Certifikatet måste innehålla en privat nyckel. Dessa certifikat har vanligt vis Extensions. pfx eller. pem  
+* Certifikatet måste skapas för nyckel utbyte, vilket kan exporteras till en personal information Exchange-fil (. pfx).
+* **Certifikatets ämnes namn måste matcha den domän som du använder för att få åtkomst till Service Fabric klustret**. Den här matchningen krävs för att tillhandahålla en SSL för klustrets slut punkt för HTTPS-hantering och Service Fabric Explorer. Du kan inte hämta ett SSL-certifikat från en certifikat utfärdare (CA) för *. cloudapp.azure.com-domänen. Du måste skaffa ett anpassat domännamn för ditt kluster. När du begär ett certifikat från en certifikatutfärdare måste certifikatets ämnesnamn matcha det anpassade domännamn du använder för klustret.
 
 Några andra saker att tänka på:
 
-* Den **ämne** fält kan ha flera värden. Varje värde är föregås av ett initieringen du ange vilken värdetyp. Initieringen är vanligtvis **CN** (för *nätverksnamn*), till exempel **CN = www\.contoso.com**. 
-* Den **ämne** fältet kan vara tomt. 
-* Om den valfria **Alternativt ämnesnamn** fylls, måste den ha både vanliga namn för certifikatet och en post per SAN. Dessa anges som **DNS-namnet** värden. Läs hur du genererar certifikat som har SAN-nätverk i [lägga till ett alternativt namn i certifikatet för säkert LDAP](https://support.microsoft.com/kb/931351).
-* Värdet för den **avsedda syften** fält för certifikatet ska innehålla ett lämpligt värde som **serverautentisering** eller **klientautentisering**.
+* **Ämnes** fältet kan ha flera värden. Varje värde föregås av en initiering som anger värde typen. Normalt är initieringen **CN** (för *eget namn*). till exempel **CN = www\.contoso.com**. 
+* **Ämnes** fältet kan vara tomt. 
+* Om fältet **Alternativt namn på certifikat mottagare** är ifyllt, måste det ha både det egna namnet på certifikatet och en post per San. Dessa anges som **DNS-namn** värden. Information om hur du skapar certifikat som har San finns i [så här lägger du till ett alternativt namn för certifikat mottagare i ett säkert LDAP-certifikat](https://support.microsoft.com/kb/931351).
+* Värdet för fältet **avsett syfte** för certifikatet bör innehålla ett lämpligt värde, till exempel **serverautentisering** eller **klientautentisering**.
 
-### <a name="application-certificates-optional"></a>Certifikat för programmet (valfritt)
-Valfritt antal ytterligare certifikat kan installeras på ett kluster av säkerhetsskäl för programmet. Tänk på applikationssäkerhets-scenarier som kräver ett certifikat installeras på noderna, till exempel innan du skapar klustret:
+### <a name="application-certificates-optional"></a>Program certifikat (valfritt)
+Valfritt antal ytterligare certifikat kan installeras i ett kluster för program säkerhets syfte. Innan du skapar klustret bör du tänka på vilka program säkerhets scenarier som kräver att ett certifikat installeras på noderna, till exempel:
 
-* Kryptering och dekryptering av konfigurationsvärden för programmet.
-* Kryptering av data över noder under replikeringen.
+* Kryptering och dekryptering av program konfigurations värden.
+* Kryptering av data mellan noder under replikering.
 
-Skapa säkra kluster är samma, oavsett om de är Linux eller Windows-kluster.
+Konceptet att skapa säkra kluster är detsamma, oavsett om de är Linux-eller Windows-kluster.
 
 ### <a name="client-authentication-certificates-optional"></a>Certifikat för klientautentisering (valfritt)
-Valfritt antal ytterligare certifikat kan anges för administratör eller användare Klientåtgärder. Klienten kan använda det här certifikatet när ömsesidig autentisering krävs. Klientcertifikaten utfärdas vanligtvis inte av en tredjeparts Certifikatutfärdare. I stället innehåller det personliga arkivet för den aktuella användare platsen normalt klientcertifikat som placerats där av en rotcertifikatutfärdare. Certifikatet måste ha en **avsedda syften** värdet för **klientautentisering**.  
+Valfritt antal ytterligare certifikat kan anges för administratörs-eller användar klient åtgärder. Klienten kan använda det här certifikatet när ömsesidig autentisering krävs. Klient certifikat utfärdas vanligt vis inte av en certifikat utfärdare från tredje part. I stället innehåller det personliga arkivet för den aktuella användar platsen vanligt vis klient certifikat som placeras där av en rot utfärdare. Certifikatet bör ha ett **avsett syfte** värde för **klientautentisering**.  
 
-Klustercertifikatet har administratörsrättigheter för klienten som standard. Dessa ytterligare klientcertifikat bör inte installeras i klustret, men har angetts som tillåten i klusterkonfigurationen.  Klientcertifikat måste vara installerad på klientdatorerna så att ansluta till klustret och utföra åtgärder.
+Som standard har kluster certifikatet administratörs behörighet för klienten. Dessa ytterligare klient certifikat bör inte installeras i klustret, men de anges som tillåtna i kluster konfigurationen.  Klient certifikaten måste dock installeras på klient datorerna för att ansluta till klustret och utföra alla åtgärder.
 
 > [!NOTE]
-> Alla hanteringsåtgärder på Service Fabric-kluster kräver certifikat. Klientcertifikat kan inte användas för hantering.
+> Alla hanterings åtgärder på ett Service Fabric-kluster kräver Server certifikat. Det går inte att använda klient certifikat för hantering.
 
 ## <a name="next-steps"></a>Nästa steg
-* [Skapa ett kluster i Azure med hjälp av Resource Manager-mall](service-fabric-cluster-creation-via-arm.md) 
-* [Skapa ett kluster med hjälp av Azure portal](service-fabric-cluster-creation-via-portal.md)
+* [Skapa ett kluster i Azure med hjälp av en Resource Manager-mall](service-fabric-cluster-creation-via-arm.md) 
+* [Skapa ett kluster med hjälp av Azure Portal](service-fabric-cluster-creation-via-portal.md)
 
 <!--Image references-->
 [Node-to-Node]: ./media/service-fabric-cluster-security/node-to-node.png

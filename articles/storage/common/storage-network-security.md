@@ -9,12 +9,12 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: cc0ba80f7aef53568e048b8285800982c818b004
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 3a49681c5c5fa081157e1264f3e9f757c3ee0e6c
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68334593"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516971"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Konfigurera Azure Storage-brandväggar och virtuella nätverk
 
@@ -348,19 +348,20 @@ För att den här typen av tjänsten fungerar som avsett, Tillåt att uppsättni
 
 Om du aktiverar den **Tillåt att betrodda Microsoft-tjänster...**  undantag, följande tjänster (när registrerad för din prenumeration), beviljas åtkomst till lagringskontot:
 
-|Tjänst|Providernamn för resursen|Syfte|
-|:------|:---------------------|:------|
-|Azure Backup|Microsoft.RecoveryServices|Köra säkerhetskopieringar och återställningar av ohanterade diskar i virtuella IAAS-datorer. (krävs inte för hanterade diskar.) [Läs mer](/azure/backup/backup-introduction-to-azure-backup).|
-|Azure Data Box|Microsoft.DataBox|Gör det möjligt att importera data till Azure med hjälp av Data Box-enhet. [Läs mer](/azure/databox/data-box-overview).|
-|Azure DevTest Labs|Microsoft.DevTestLab|Anpassad avbildning skapande och artefakt installation. [Läs mer](/azure/devtest-lab/devtest-lab-overview).|
-|Azure Event Grid|Microsoft.EventGrid|Aktivera publicering av Blob Storage-händelser och låt Event Grid att publicera till storage-köer. Lär dig mer om [blob storage-händelser](/azure/event-grid/event-sources) och [publicering till köer](/azure/event-grid/event-handlers).|
-|Azure Event Hubs|Microsoft.EventHub|Arkivera data med Event Hubs Capture. [Läs mer](/azure/event-hubs/event-hubs-capture-overview).|
-| Azure File Sync| Microsoft.StorageSync| Gör att du kan omvandla din lokal fil server till ett cacheminne för Azure-filresurser. Tillåter synkronisering av flera platser, snabb katastrof återställning och säkerhets kopiering på moln sidan. [Läs mer](../files/storage-sync-files-planning.md)|
-|Azure HDInsight|Microsoft.HDInsight|Etablera det inledande innehållet i standard fil systemet för ett nytt HDInsight-kluster. [Läs mer](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/).|
-|Azure Monitor|Microsoft.Insights|Tillåter skrivning av övervakning av data till en säker lagringskonto [mer](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security).|
-|Azure-nätverk|Microsoft.Network|Store och analysera loggar med webbtrafik. [Läs mer](/azure/network-watcher/network-watcher-packet-capture-overview).|
-|Azure Site Recovery|Microsoft.SiteRecovery |Konfigurera haveriberedskap genom att aktivera replikering för Azure IaaS-datorer. Detta krävs om du använder brandvägg är aktiverad cachelagringskontot eller källagringskontot eller mållagringskontot.  [Läs mer](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication).|
-|Azure SQL Data Warehouse|Microsoft.Sql|Tillåter import-och export scenarier från vissa instanser av SQL-databaser med PolyBase. [Läs mer](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview).|
+| Tjänst                  | Providernamn för resursen     | Syfte                                                                                                                                                                                                                                                                                                                      |
+|:-------------------------|:---------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Azure Backup             | Microsoft.RecoveryServices | Köra säkerhetskopieringar och återställningar av ohanterade diskar i virtuella IAAS-datorer. (krävs inte för hanterade diskar.) [Läs mer](/azure/backup/backup-introduction-to-azure-backup).                                                                                                                                                     |
+| Azure Data Box           | Microsoft.DataBox          | Gör det möjligt att importera data till Azure med hjälp av Data Box-enhet. [Läs mer](/azure/databox/data-box-overview).                                                                                                                                                                                                                              |
+| Azure DevTest Labs       | Microsoft.DevTestLab       | Anpassad avbildning skapande och artefakt installation. [Läs mer](/azure/devtest-lab/devtest-lab-overview).                                                                                                                                                                                                                      |
+| Azure Event Grid         | Microsoft.EventGrid        | Aktivera publicering av Blob Storage-händelser och låt Event Grid att publicera till storage-köer. Lär dig mer om [blob storage-händelser](/azure/event-grid/event-sources) och [publicering till köer](/azure/event-grid/event-handlers).                                                                                                     |
+| Azure Event Hubs         | Microsoft.EventHub         | Arkivera data med Event Hubs Capture. [Läs mer](/azure/event-hubs/event-hubs-capture-overview).                                                                                                                                                                                                                           |
+| Azure File Sync          | Microsoft.StorageSync      | Gör att du kan omvandla din lokal fil server till ett cacheminne för Azure-filresurser. Tillåter synkronisering av flera platser, snabb katastrof återställning och säkerhets kopiering på moln sidan. [Läs mer](../files/storage-sync-files-planning.md)                                                                                                       |
+| Azure HDInsight          | Microsoft.HDInsight        | Etablera det inledande innehållet i standard fil systemet för ett nytt HDInsight-kluster. [Läs mer](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/).                                                                                                                                    |
+| Azure Monitor            | Microsoft.Insights         | Tillåter skrivning av övervakning av data till en säker lagringskonto [mer](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security).                                                                                                                                                                        |
+| Azure-nätverk         | Microsoft.Network          | Store och analysera loggar med webbtrafik. [Läs mer](/azure/network-watcher/network-watcher-packet-capture-overview).                                                                                                                                                                                                        |
+| Azure Site Recovery      | Microsoft.SiteRecovery     | Konfigurera haveriberedskap genom att aktivera replikering för Azure IaaS-datorer. Detta krävs om du använder brandvägg är aktiverad cachelagringskontot eller källagringskontot eller mållagringskontot.  [Läs mer](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication). |
+| Azure SQL Data Warehouse | Microsoft.Sql              | Tillåter import-och export scenarier från vissa instanser av SQL-databaser med PolyBase. [Läs mer](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview).                                                                                                                                                 |
+| Azure Stream Analytics   | Microsoft.StreamAnalytics  | Tillåter att data från ett strömmande jobb skrivs till Blob Storage. Observera att den här funktionen för närvarande är en för hands version. [Läs mer](../../stream-analytics/blob-output-managed-identity.md).                                                                                                                                        |
 
 ### <a name="storage-analytics-data-access"></a>Dataåtkomst för Storage analytics
 

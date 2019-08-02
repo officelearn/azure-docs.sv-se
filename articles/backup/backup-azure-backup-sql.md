@@ -1,18 +1,19 @@
 ---
 title: Azure Backup för SQL Server-arbetsbelastningar med DPM
 description: En introduktion till att säkerhetskopiera SQL Server databaser med hjälp av tjänsten Azure Backup
-author: kasinh
-manager: vvithal
+ms.reviewer: kasinh
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.author: kasinh
-ms.openlocfilehash: 60afba5d094d730aab20f2a7d50206c063f390ff
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 744c954c9192f75489911f09a1ef7195c5bbd1fa
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466632"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689377"
 ---
 # <a name="back-up-sql-server-to-azure-as-a-dpm-workload"></a>Säkerhetskopiera SQL Server till Azure som en DPM-arbetsbelastning
 Den här artikeln vägleder dig genom konfigurations stegen för säkerhets kopiering av SQL Server databaser med hjälp av Azure Backup.
@@ -130,7 +131,7 @@ Medan föregående steg skapade en säkerhets kopierings policy skapas en "åter
 ## <a name="recover-a-sql-server-database-from-azure"></a>Återställa en SQL Server databas från Azure
 Följande steg krävs för att återställa en skyddad entitet (SQL Server databas) från Azure.
 
-1. Öppna DPM-serverns hanterings konsol. Gå till  återställnings arbets ytan där du kan se servrarna som säkerhets kopie ras av DPM. Bläddra igenom den nödvändiga databasen (i det här fallet ReportServer $ MSDPM2012). Välj en **återställning från** en tid som slutar med **online**.
+1. Öppna DPM-serverns hanterings konsol. Gå till återställnings arbets ytan där du kan se servrarna som säkerhets kopie ras av DPM. Bläddra igenom den nödvändiga databasen (i det här fallet ReportServer $ MSDPM2012). Välj en **återställning från** en tid som slutar med **online**.
 
     ![Välj återställnings punkt](./media/backup-azure-backup-sql/sqlbackup-restorepoint.png)
 2. Högerklicka på databas namnet och klicka på **Återställ**.

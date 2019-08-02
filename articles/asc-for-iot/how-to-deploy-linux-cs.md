@@ -1,5 +1,5 @@
 ---
-title: Guide om hur du installerar och distribuerar Linux C# agent för Azure Security Center för förhandsversionen av IoT | Microsoft Docs
+title: Guide för att installera och distribuera C# Linux-agenten för Azure Security Center för IoT | Microsoft Docs
 description: Lär dig hur du installerar Azure Security Center för IoT-agenten på både 32-bitars och 64-bitars Linux.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -13,22 +13,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/27/2019
+ms.date: 07/27/2019
 ms.author: mlottner
-ms.openlocfilehash: 808ff912a997a4c09a22048ada7546daab895701
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 0d77a1be2a3469282dabb646b02c43e350313ce5
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67618252"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596297"
 ---
-# <a name="deploy-azure-security-center-for-iot-c-based-security-agent-for-linux"></a>Distribuera Azure Security Center för IoT C#-baserade security-agenten för Linux
+# <a name="deploy-azure-security-center-for-iot-c-based-security-agent-for-linux"></a>Distribuera Azure Security Center för IoT C# -baserad säkerhets agent för Linux
 
-> [!IMPORTANT]
-> Azure Security Center för IoT är för närvarande i offentlig förhandsversion.
-> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Den här handboken beskrivs hur du installerar och distribuerar Azure Security Center (ASC) för IoT C#-baserad säkerhetsagenten på Linux.
+Den här guiden beskriver hur du installerar och distribuerar Azure Security Center för IoT C#-baserad säkerhets agent på Linux.
 
 I den här guiden får du lära du dig att: 
 > [!div class="checklist"]
@@ -39,64 +36,64 @@ I den här guiden får du lära du dig att:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Andra plattformar och agenten varianter finns i [väljer rätt säkerhetsagenten](how-to-deploy-agent.md).
+För andra plattformar och agent-varianter, se [Välj rätt säkerhets agent](how-to-deploy-agent.md).
 
-1. Om du vill distribuera säkerhetsagenten krävs lokala administratörsrättigheter på den dator som du vill installera på. 
+1. Om du vill distribuera säkerhets agenten krävs lokala administratörs rättigheter på den dator som du vill installera på. 
 
-1. [Skapa en modul för maskinvarusäkerhet](quickstart-create-security-twin.md) för enheten.
+1. [Skapa en säkerhetsmodul](quickstart-create-security-twin.md) för enheten.
 
 ## <a name="installation"></a>Installation 
 
-Om du vill distribuera säkerhetsagenten, gör du följande:
+Använd följande steg för att distribuera säkerhets agenten:
 
-1. Ladda ned den senaste versionen på din dator från [Github](https://aka.ms/iot-security-github-cs).
+1. Hämta den senaste versionen till datorn från [GitHub](https://aka.ms/iot-security-github-cs).
 
-1. Extrahera innehållet i paketet och navigera till den _/Install_ mapp.
+1. Extrahera innehållet i paketet och navigera till mappen _/install_ .
 
-1. Lägg till som körs behörigheter till den **InstallSecurityAgent skriptet** genom att köra `chmod +x InstallSecurityAgent.sh` 
+1. Lägg till behörigheter som körs i **InstallSecurityAgent-skriptet** genom att köra`chmod +x InstallSecurityAgent.sh` 
 
-1. Kör: 
+1. Kör sedan: 
 
    ```
    ./InstallSecurityAgent.sh -i -aui <authentication identity>  -aum <authentication method> -f <file path> -hn <host name>  -di <device id> -cl <certificate location kind>
    ```
    
-   Se [hur du konfigurerar autentisering](concept-security-agent-authentication-methods.md) för mer information om autentiseringsparametrar.
+   Mer information om autentiseringsmetoder finns i [så här konfigurerar du autentisering](concept-security-agent-authentication-methods.md).
 
-Skriptet gör följande:
+Det här skriptet utför följande åtgärder:
 
 - Installerar nödvändiga komponenter.
 
-- Lägger till en Serviceanvändare (med interaktiv inloggning inaktiverad).
+- Lägger till en tjänst användare (med interaktiv inloggning inaktive rad).
 
-- Installerar agent som en **Daemon** -detta förutsätter att enheten använder **systemd** för tjänsthantering.
+- Installerar agenten som en **daemon** – förutsätter att enheten använder **system** för klassisk distributions modell.
 
-- Konfigurerar **sudoers** så att agenten att utföra vissa uppgifter som rot.
+- Konfigurerar **sudoers** så att agenten kan utföra vissa uppgifter som rot.
 
-- Konfigurerar agenten med de angivna autentiseringsparametrar.
+- Konfigurerar agenten med de angivna autentiseringsinställningarna.
 
 
-Kör skript för ytterligare hjälp med parametern – hjälp: `./InstallSecurityAgent.sh --help`
+Om du behöver ytterligare hjälp kör du skriptet med parametern – Help:`./InstallSecurityAgent.sh --help`
 
 ### <a name="uninstall-the-agent"></a>Avinstallera agenten
 
 Avinstallera agenten genom att köra skriptet med parametern – u: `./InstallSecurityAgent.sh -u`. 
 
 > [!NOTE]
-> Avinstallera tar inte bort allt saknas som installerades under installationen.
+> Avinstallationen tar inte bort saknade nödvändiga komponenter som installerades under installationen.
 
 ## <a name="troubleshooting"></a>Felsökning  
 
-1. Kontrollera distributionens status genom att köra:
+1. Kontrol lera distributions statusen genom att köra:
 
     `systemctl status ASCIoTAgent.service`
 
 2. Aktivera loggning.  
-   Om agenten inte kan starta, aktivera loggning för att få mer information.
+   Om agenten inte kan starta aktiverar du loggning för att få mer information.
 
-   Aktivera loggning av:
+   Aktivera loggningen genom att:
 
-   1. Öppna konfigurationsfilen för redigering i en Linux-Redigerare:
+   1. Öppna konfigurations filen för redigering i valfri Linux-redigerare:
 
         `vi /var/ASCIoTAgent/General.config`
 
@@ -108,25 +105,25 @@ Avinstallera agenten genom att köra skriptet med parametern – u: `./InstallSe
       <add key="diagnosticVerbosityLevel" value="Some" /> 
       <add key="logFilePath" value="IotAgentLog.log"/>
       ```
-       Den **logFilePath** värde kan konfigureras. 
+       **LogFilePath** -värdet kan konfigureras. 
 
        > [!NOTE]
-       > Vi rekommenderar att aktivera loggning **av** när felsökningen har slutförts. Lämna loggning **på** ökar logga användning av storlek och data.
+       > Vi rekommenderar att du **inaktiverar utloggning när** fel sökningen har slutförts. **Om** du lämnar loggning ökar logg filens storlek och data användningen.
 
    1. Starta om agenten genom att köra:
 
        `systemctl restart ASCIoTAgent.service`
 
-   1. Mer information om felet finns i loggfilen.  
+   1. Visa logg filen om du vill ha mer information om det här problemet.  
 
-       Plats för loggfil är: `/var/ASCIoTAgent/IotAgentLog.log`
+       Logg filens plats är:`/var/ASCIoTAgent/IotAgentLog.log`
 
-       Ändra sökvägen till filen med det namn som du valde för den **logFilePath** i steg 2. 
+       Ändra sökvägen till fil platsen enligt det namn som du valde för **logFilePath** i steg 2. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läsa ASC för IoT-tjänsten [översikt](overview.md)
-- Läs mer om ASC för IoT [arkitektur](architecture.md)
-- Aktivera den [service](quickstart-onboard-iot-hub.md)
-- Läs den [vanliga frågor och svar](resources-frequently-asked-questions.md)
+- Läs [översikten över](overview.md) Azure Security Center för IoT-tjänsten
+- Läs mer om Azure Security Center för IoT- [arkitektur](architecture.md)
+- Aktivera [tjänsten](quickstart-onboard-iot-hub.md)
+- Läs [vanliga frågor och svar](resources-frequently-asked-questions.md)
 - Förstå [aviseringar](concept-security-alerts.md)

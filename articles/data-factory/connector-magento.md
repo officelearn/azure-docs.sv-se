@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: cecdb9f9af9c5194eb56cfefd63b31348f111980
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 424a2c28176813abc10011c030971047ea50e3da
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61400738"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726115"
 ---
 # <a name="copy-data-from-magento-using-azure-data-factory-preview"></a>Kopiera data från Magento med Azure Data Factory (förhandsversion)
 
@@ -44,7 +44,7 @@ Följande egenskaper har stöd för Magento länkade tjänsten:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Type-egenskapen måste anges till: **Magento** | Ja |
+| type | Egenskapen Type måste anges till: **Magento** | Ja |
 | host | URL till Magento-instans. (det vill säga 192.168.222.110/magento3)  | Ja |
 | accessToken | Åtkomst-token från Magento. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | useEncryptedEndpoints | Anger om käll-slutpunkter data krypteras med HTTPS. Standardvärdet är sant.  | Nej |
@@ -80,7 +80,7 @@ Kopiera data från Magento genom att ange typegenskapen på datauppsättningen t
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Type-egenskapen för datauppsättningen måste anges till: **MagentoObject** | Ja |
+| type | Data uppsättningens typ-egenskap måste anges till: **MagentoObject** | Ja |
 | tableName | Namnet på tabellen. | Nej (om ”frågan” i aktivitetskälla har angetts) |
 
 **Exempel**
@@ -90,11 +90,12 @@ Kopiera data från Magento genom att ange typegenskapen på datauppsättningen t
     "name": "MagentoDataset",
     "properties": {
         "type": "MagentoObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Magento linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
@@ -109,7 +110,7 @@ Om du vill kopiera data från Magento, ange typ av datakälla i kopieringsaktivi
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **MagentoSource** | Ja |
+| type | Typ egenskapen för kopierings aktivitets källan måste anges till: **MagentoSource** | Ja |
 | query | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM Customers"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
 
 **Exempel:**

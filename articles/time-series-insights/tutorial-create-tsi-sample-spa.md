@@ -8,12 +8,12 @@ ms.date: 06/29/2019
 ms.author: dpalled
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: bd50fb4a28aa0ab71c1fb0aeba772a2bd7d1df9d
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 4d9af918c222107cfca5863309efb391b8e6d2e0
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68677732"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68720870"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-single-page-web-app"></a>Självstudier: Skapa en enkelsidig Azure Time Series Insights-webbapp
 
@@ -38,7 +38,7 @@ Registrera dig för en [kostnads fri Azure-prenumeration](https://azure.microsof
 
 * Komponenterna IIS Express, webb distribution och Azure Cloud Services Core Tools för Visual Studio. Lägg till komponenterna genom att ändra Visual Studio-installationen.
 
-## <a name="application-design"></a>Programdesign
+## <a name="understand-application-design"></a>Förstå program design
 
 Time Series Insights SPA är grunden för den design och kod som används i den här självstudien. Koden använder klient biblioteket för Time Series Insights Java Script. Time Series Insights klient biblioteket tillhandahåller en abstraktion för två huvudsakliga API-kategorier:
 
@@ -48,11 +48,11 @@ Time Series Insights SPA är grunden för den design och kod som används i den 
 
 I den här självstudien används även data från exempel programmets Time Series Insightss miljö. Mer information om strukturen i Time Series Insights exempel program och hur den använder Time Series Insights klient bibliotek finns i självstudien [utforska Azure Time Series Insights Java Script-klient biblioteket](tutorial-explore-js-client-lib.md).
 
-## <a name="register-the-application-with-azure-ad"></a>Registrera ett program med Azure AD
+## <a name="register-with-azure-ad"></a>Registrera dig för Azure AD
 
 [!INCLUDE [Azure Active Directory app registration](../../includes/time-series-insights-aad-registration.md)]
 
-## <a name="build-and-publish-the-web-application"></a>Bygg och publicera webbappen
+## <a name="build-and-publish"></a>Bygg och publicera
 
 1. Skapa en katalog för att lagra din apps projektfiler. Gå sedan till var och en av följande URL: er. Högerklicka på den **råa** länken i det övre högra hörnet på sidan och välj **Spara som** för att spara filerna i projekt katalogen.
 
@@ -101,7 +101,7 @@ I den här självstudien används även data från exempel programmets Time Seri
       <link rel="stylesheet" type="text/css" href="../../dist/tsiclient.css"> -->
       ```
 
-   1. Om du vill konfigurera appen så att den använder ditt ID för Azure AD- `clientID` app-registrering ändrar du värdet så att det använder det **program-ID** som du kopierade i **steg 3** när du [registrerade programmet för att använda Azure AD](#register-the-application-with-azure-ad). Om du har skapat en utloggnings- **URL** i Azure AD anger du det `postLogoutRedirectUri` värdet som värde.
+   1. Om du vill konfigurera appen så att den använder ditt ID för Azure AD- `clientID` app-registrering ändrar du värdet så att det använder det **program-ID** som du kopierade i **steg 3** när du [registrerade programmet för att använda Azure AD](#register-with-azure-ad). Om du har skapat en utloggnings- **URL** i Azure AD anger du det `postLogoutRedirectUri` värdet som värde.
 
       [!code-javascript[head-sample](~/samples-javascript/pages/tutorial/index.html?range=147-153&highlight=4-5)]
 
@@ -141,9 +141,9 @@ I den här självstudien används även data från exempel programmets Time Seri
 
 Felkod/-villkor | Beskrivning
 ---------------------| -----------
-*AADSTS50011: Ingen svarsadress har registrerats för appen.* | Azure AD-registreringen saknar egenskapen svars- **URL** . Gå till **Inställningar** > svars-**URL: er** för din Azure AD-programregistrering. Kontrol lera att omdirigerings- **URI: n** du hade möjlighet att ange i **steg 2** när du [registrerade programmet för att använda Azure AD](#register-the-application-with-azure-ad) finns.
-*AADSTS50011: Svars-URL: en som anges i begäran matchar inte svars-URL: er som har kon figurer ATS för programmet: '\<Program-ID-GUID > '.* | Som `postLogoutRedirectUri` anges i **steg 6** i [build och publicera webb programmet](#build-and-publish-the-web-application) måste matcha det värde som anges under **Inställningar** > svars-**URL: er** i din Azure AD-programregistrering. Se också till att ändra värdet för **mål-URL** till att använda *https* per **steg 5** i [build och publicera webb programmet](#build-and-publish-the-web-application).
-Webb programmet läses in, men det har en ej formaterad, text inloggnings sida med en vit bakgrund. | Kontrol lera att Sök vägarna som beskrivs i **steg 4** i [build och publicera webb programmet](#build-and-publish-the-web-application) är korrekta. Om webbappen inte kan hitta CSS-filer kommer sidan inte att formateras korrekt.
+*AADSTS50011: Ingen svarsadress har registrerats för appen.* | Azure AD-registreringen saknar egenskapen svars- **URL** . Gå till **Inställningar** > svars-**URL: er** för din Azure AD-programregistrering. Kontrol lera att omdirigerings- **URI: n** du hade möjlighet att ange i **steg 2** eller **steg 4** när du [registrerade programmet för att använda Azure AD](#register-with-azure-ad) finns.
+*AADSTS50011: Svars-URL: en som anges i begäran matchar inte svars-URL: er som har kon figurer ATS för programmet: '\<Program-ID-GUID > '.* | Den `postLogoutRedirectUri` som anges i **steg 6. b** i [build och publicera webb programmet](#build-and-publish) måste matcha värdet som anges under **Inställningar** > svars-**URL: er** i din Azure AD-programregistrering. |
+Webb programmet läses in, men det har en ej formaterad, text inloggnings sida med en vit bakgrund. | Kontrol lera att Sök vägarna som beskrivs i **steg 6** i [build och publicera webb programmet](#build-and-publish) är korrekta. Om webbappen inte kan hitta CSS-filer kommer sidan inte att formateras korrekt.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

@@ -1,6 +1,6 @@
 ---
 title: Trafik täckning i Azure Maps | Microsoft Docs
-description: Lär dig mer om trafiktäckning i Azure Maps
+description: Läs mer om trafik täckning i Azure Maps
 author: walsehgal
 ms.author: v-musehg
 ms.date: 09/22/2018
@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: ad7d4dceefcaa06effa6b2974b0a8a03ad641372
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f9a3c4875f01c650485034fe46f53bb5aa1fd75b
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60794019"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68722642"
 ---
-# <a name="azure-maps-traffic-coverage"></a>Azure Maps-trafiktäckning
+# <a name="azure-maps-traffic-coverage"></a>Azure Maps trafik täckning
 
-Azure Maps ger omfattande trafikinformation i form av trafik **flow** och **incidenter**. Dessa data kan visualiseras i maps eller används för att generera smartare vägar som faktor i realtid som driver villkor.
+Azure Maps ger omfattande trafik information i form av trafikflöde och **incidenter**. Dessa data kan visualiseras på kartor eller användas för att generera smartare vägar som faktorr i verkliga kör förhållanden.
 
-Maps har dock inte samma grad av information och Precision för alla regioner. I följande tabell innehåller information om vilken typ av information om trafik som du kan begära från varje region: 
+Maps har dock inte samma nivå av information och exakthet för alla regioner. Följande tabell innehåller information om vilken typ av trafik information som du kan begära från varje region: 
 
 ## <a name="americas"></a>Nord- och Sydamerika
 
@@ -30,7 +30,7 @@ Maps har dock inte samma grad av information och Precision för alla regioner. I
 |Kanada     |✓         |✓         |
 |Chile     |✓         |✓         |
 |Colombia      |✓         |✓         |
-|Mexiko     |✓         |✓         |
+|Mexico     |✓         |✓         |
 |Peru       |✓         |✓         | 
 |USA     |✓         |✓        |
 |+Puerto Rico     |✓         |✓         |
@@ -62,14 +62,16 @@ Maps har dock inte samma grad av information och Precision för alla regioner. I
 |---------|:---------:|:---------:|
 |Andorra   |✓         |✓         |
 |Österrike     |✓         |✓         |
+|Republiken Vitryssland    |✓         |✓         |
 |Belgien     |✓         |✓         |
+|Bosnien och Hercegovina    |✓         |✓         |
 |Bulgarien     |✓         |✓         |
 |Kroatien     |✓         |✓         |
 |Tjeckien     |✓         |✓         |
 |Danmark     |✓         |✓         |
 |Estland     |         | ✓        |
 |Finland     |✓         |✓         |
-|\+ Åland-öarna      |✓         |✓         |
+|\+ Åland      |✓         |✓         |
 |Frankrike     |✓         |✓         |
 |Monaco     |✓         |✓         |
 |Tyskland     |✓         |✓         |
@@ -78,6 +80,7 @@ Maps har dock inte samma grad av information och Precision för alla regioner. I
 |Island     |✓         |✓         |
 |Irland     |✓         |✓         |
 |Italien     |✓         |✓        |
+|Kazakstan    |✓         |✓        |
 |Lettland     |✓         |✓         |
 |Lesotho     |✓         |✓         |
 |Liechtenstein      |✓         |✓         |
@@ -93,20 +96,21 @@ Maps har dock inte samma grad av information och Precision för alla regioner. I
 |Rumänien     |✓         |✓         |
 |Ryska federationen     |✓         |✓         |
 |San Marino    |✓         |✓         |
+|Serbien   |✓         |✓         |
 |Slovakien     |✓         |✓         |
 |Slovenien     |✓         |✓         |
 |Spanien     |✓         |✓         |
 |+Andorra     |✓         |✓         |
-|\+ Balearerna     |✓         |✓         |
-|\+ Kanarieöarna     |✓         |✓         |
+|\+ Balearic öarna     |✓         |✓         |
+|\+ Kanarie öarna     |✓         |✓         |
 |Sverige     |✓         |✓         |
 |Schweiz     |✓         |✓        |
 |Turkiet     |✓         |✓         |
 |Ukraina     |✓         |✓         |
-|Storbritannien     |✓         |✓         |
+|Storbritannien och Nordirland     |✓         |✓         |
 |+Gibraltar     |✓         |✓         |
 |+Guernsey & Jersey     |✓         |✓         |
-|\+ Isle of Man     |✓         |✓         |
+|\+ Isle of man     |✓         |✓         |
 |Vatikanstaten   |✓         |✓         |
 
 
@@ -119,7 +123,7 @@ Maps har dock inte samma grad av information och Precision för alla regioner. I
 |Israel     |✓         |✓         |
 |Kenya     |✓         |✓         |
 |Kuwait     |✓         |✓         |
-|Marocko     |✓         |✓         |
+|Marokko     |✓         |✓         |
 |Moçambique  |✓         |✓         |
 |Nigeria   |✓        |✓        |
 |Oman     |✓         |✓         |
@@ -130,4 +134,4 @@ Maps har dock inte samma grad av information och Precision för alla regioner. I
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om Azure Maps trafikdata den [trafik](https://docs.microsoft.com/rest/api/maps/traffic) referera till sidorna.
+Mer information om Azure Maps trafik data finns på sidan med [trafik](https://docs.microsoft.com/rest/api/maps/traffic) referens sidor.

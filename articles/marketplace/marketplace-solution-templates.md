@@ -1,6 +1,6 @@
 ---
-title: Lösningsmall för Azure-program erbjuder publicera Guide | Azure Marketplace
-description: Den här artikeln beskrivs kraven för att publicera en mall i Azure Marketplace.
+title: Publicerings guide för Azure Applications-lösning | Azure Marketplace
+description: I den här artikeln beskrivs kraven för att publicera en lösnings mall på Azure Marketplace.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: ellacroi
 manager: nunoc
@@ -8,32 +8,32 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 11/15/2018
 ms.author: ellacroi
-ms.openlocfilehash: c2393b6ea9f1a2c2b35be63272743e081f4ae240
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8d02d942fce7bd51a116cc4c19eac9faca0060ef
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64937753"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561493"
 ---
-# <a name="azure-applications-solution-template-offer-publishing-guide"></a>Azure-program: Lösningen mall erbjudandet publicera Guide
+# <a name="azure-applications-solution-template-offer-publishing-guide"></a>Azure-program: Lösnings mal len tillhandahåller publicerings guide
 
-Lösningsmallar är en av huvudmetoderna för att publicera en lösning i Marketplace. Använd den här guiden för att förstå kraven för det här erbjudandet. 
+Solution templates är ett av de viktigaste sätten att publicera en lösning på Marketplace. Använd den här guiden för att förstå kraven för det här erbjudandet. 
 
-Använda Azure-appen: mall erbjudandet typ av lösning när lösningen kräver ytterligare distribution och konfiguration av automation utöver en enstaka virtuell dator. Du kan automatisera etablering av en eller flera virtuella datorer med Azure-appar: lösningsmallar. Du kan också etablera nätverks- och lagringsresurser. Azure-appar: lösningsmallar erbjuder typ har automation fördelar för enskilda virtuella datorer och hela IaaS-baserade lösningar.
+Använd typ av lösnings mal len Azure app: för lösnings mal len när din lösning kräver ytterligare distribution och konfigurations automatisering utöver en enskild virtuell dator. Du kan automatisera etableringen av en eller flera virtuella datorer med hjälp av Azure Apps: Solution templates. Du kan också etablera nätverks-och lagrings resurser. Azure Apps: erbjudande typ för Solution templates ger Automation-förmåner för enskilda virtuella datorer och hela IaaS-baserade lösningar.
 
-Dessa mallar för lösningar är transaktion erbjudanden som distribueras och faktureras via Marketplace. Anropet till åtgärden som en användare ser är ”Hämta nu”.
+Dessa Solution templates är transaktions erbjudanden som distribueras och faktureras via Marketplace. Anropet till åtgärden som en användare ser är "Hämta nu".
 
 
-## <a name="requirements-for-solution-templates"></a>Krav för Lösningsmallar
+## <a name="requirements-for-solution-templates"></a>Krav för Solution templates
 
-| **Krav** | **Detaljer**  |
+| **Signaturkrav** | **Detaljer**  |
 | ---------------  | -----------  |
-|Fakturering och mätning    |  Resurserna som ska etableras i kundens Azure-prenumeration. Betala per användning (betalning per användning) virtuella datorer ska ingå i en transaktion med kunden via Microsoft, faktureras via kundens Azure-prenumeration (betalning per användning).  <br/> När det gäller bring-your-own-license (BYOL), medan Microsoft att debitera infrastrukturkostnader som tillkommer i kundens prenumeration, kommer du transact dina programvarulicenser avgifter för kunden direkt.   |
-|Azure-kompatibel virtuell hårddisk (VHD)  |   Virtuella datorer måste vara baserade på Windows eller Linux.  Mer information [Se Skapa en Azure-kompatibel VHD](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md). |
-| Kundens användning Attribution | Aktivera kundens användning attribution krävs på alla mallar för lösningar som publicerats på Azure Marketplace. Läs mer på kundens användning attribution och hur du aktiverar det [Azure-partner kundens användning attribution](./azure-partner-customer-usage-attribution.md).  |
-|  |  |
+|Fakturering och mätning    |  Resurserna kommer att tillhandahållas i kundens Azure-prenumeration. De virtuella datorerna betala per användning (PAYGO) kommer att meddelas med kunden via Microsoft, debiteras via kundens Azure-prenumeration (PAYGO).  <br/> I händelse av att du har en egen licens (BYOL), medan Microsoft fakturerar infrastruktur kostnader i kund prenumerationen, kommer du att licensiera dina licens avgifter till kunden direkt.   |
+|Azure-kompatibel virtuell hård disk (VHD)  |   Virtuella datorer måste byggas på Windows eller Linux.  Mer information [finns i skapa en Azure-kompatibel virtuell hård disk](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md). |
+| Kund användnings behörighet | Aktivering av kund användnings behörighet krävs för alla Solution-mallar som publicerats på Azure Marketplace. Mer information om kund användnings behörighet och hur du aktiverar det finns i [Azure-partner kund användnings behörighet](./azure-partner-customer-usage-attribution.md).  |
+| Använd Managed Disks | [Managed disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) är standard alternativet för beständiga diskar med virtuella IaaS-datorer i Azure. Du måste använda Managed Disks i Solution templates. <br> <br> 1. Följ [vägledningen](https://docs.microsoft.com/azure/virtual-machines/windows/using-managed-disks-template-deployments) och [exemplen](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md) för att använda Managed disks i Azure arm-mallarna för att uppdatera dina Solution templates. <br> <br> 2. Följ instruktionerna nedan för att importera den underliggande virtuella hård disken för Managed Disks till ett lagrings konto för att publicera den virtuella hård disken som en avbildning på Marketplace: <br> <ul> <li> [PowerShell](https://docs.microsoft.com/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-vhd?toc=%2fpowershell%2fmodule%2ftoc.json) </li> <li> [CLI](https://docs.microsoft.com/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-managed-disks-vhd?toc=%2fcli%2fmodule%2ftoc.json) </li> </ul> |
 
 ## <a name="next-steps"></a>Nästa steg
-Om du inte redan gjort det, [registrera](https://azuremarketplace.microsoft.com/sell) i marketplace.
+[Registrera](https://azuremarketplace.microsoft.com/sell) dig på Marketplace om du inte redan gjort det.
 
-Om du är registrerad och skapar ett nytt erbjudande eller arbetar på en befintlig inloggning på [Cloud Partner Portal](https://cloudpartner.azure.com) att skapa eller slutföra ditt erbjudande.
+Om du har registrerat och skapat ett nytt erbjudande eller arbetar med ett befintligt, loggar du in på [Cloud Partner Portal](https://cloudpartner.azure.com) för att skapa eller slutföra ditt erbjudande.

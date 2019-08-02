@@ -1,6 +1,6 @@
 ---
-title: Korrigera shard-kartproblem med Recovery Manager | Microsoft Docs
-description: Använd RecoveryManager-klassen för att lösa problem med fragmentkartor
+title: Åtgärda Shard-mappnings problem med hjälp av Recovery Manager | Microsoft Docs
+description: Använd klassen RecoveryManager för att lösa problem med Shard Maps
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -10,46 +10,45 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: 1bab1ed9e2a24b0a84f4327d47a910934319b397
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cbc4985f032c228db7a9ddf719390bbf2d0166b9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61475902"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568696"
 ---
 # <a name="using-the-recoverymanager-class-to-fix-shard-map-problems"></a>Korrigera shard-kartproblem med RecoveryManager-klassen
 
-Den [RecoveryManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager) klassen ger ADO.NET-program möjlighet att enkelt identifiera och åtgärda eventuella inkonsekvenser mellan globala fragmentkartan (GSM) och lokala fragmentkartan (LSM) i en databasmiljö med fragmenterade (sharded).
+[RecoveryManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager) -klassen ger ADO.NET-program möjlighet att enkelt upptäcka och korrigera eventuella inkonsekvenser mellan den globala Shard-mappningen (GSM) och den lokala Shard Map (LSM) i en shardade databas miljö.
 
-Spåra mappningen av varje databas i ett delat GSM och LSM. Ibland kan sker ett avbrott mellan GSM och LSM. I så fall använda RecoveryManager-klassen för att identifiera och reparera avbrottet.
+GSM-och LSM spårar mappningen av varje databas i en shardade-miljö. Ibland sker en rast mellan GSM-och LSM. I så fall använder du klassen RecoveryManager för att identifiera och reparera rasten.
 
-RecoveryManager-klassen är en del av den [Elastic Database-klientbiblioteket](sql-database-elastic-database-client-library.md).
+RecoveryManager-klassen är en del av [Elastic Database-klient biblioteket](sql-database-elastic-database-client-library.md).
 
-![Fragmentkartan][1]
+![Shard-karta][1]
 
-Termdefinitioner finns [ordlista för verktyg i elastiska databaser](sql-database-elastic-scale-glossary.md). Att förstå hur **ShardMapManager** används för att hantera data i en shardad lösning, se [fragmentkarthantering](sql-database-elastic-scale-shard-map-management.md).
+För term definitioner, se [Elastic Database tools-ordlista](sql-database-elastic-scale-glossary.md). Mer information om hur **ShardMapManager** används för att hantera data i en shardade-lösning finns i [Shard Map Management](sql-database-elastic-scale-shard-map-management.md).
 
-## <a name="why-use-the-recovery-manager"></a>Varför ska man använda recovery manager
+## <a name="why-use-the-recovery-manager"></a>Varför använda återställnings hanteraren
 
-I en databasmiljö för fragmenterade (sharded) finns en klient per databas och många databaser per server. Det kan också finnas många servrar i miljön. Varje databas mappas i fragmentkartan, så att anrop kan dirigeras till rätt server och databas. Databaser spåras enligt en **shardingnyckel**, och varje shard har tilldelats en **viktiga värdeintervallet**. En shardingnyckel kan till exempel representera kundernas namn från ”D” till ”F.” Mappningen av alla shards (även kallat databaser) och deras mappning intervall finns i den **globala fragmentkartan (GSM)** . Varje databas innehåller också en karta över de intervall som finns på den shard som kallas den **lokala fragmentkartan (LSM)** . När en app som ansluter till en shard, cachelagras mappningen med appen för snabb hämtning. LSM används för att verifiera cachelagrade data.
+I en shardade Database-miljö finns det en klient per databas och många databaser per server. Det kan också finnas många servrar i miljön. Varje databas mappas i Shard-kartan så anrop kan dirigeras till rätt server och databas. Databaser spåras enligt en horisontell partitionering- **nyckel**och varje Shard tilldelas ett **intervall med nyckel värden**. Till exempel kan en horisontell partitionering-nyckel representera kundens namn från "D" till "F". Mappningen av alla Shards (aka-databaser) och deras mappnings intervall finns i **Global Shard Map (GSM)** . Varje databas innehåller också en karta över de intervall som finns på den Shard som kallas för den **lokala Shard-kartan (LSM)** . När en app ansluter till en Shard cachelagras mappningen med appen för snabb hämtning. LSM används för att validera cachelagrade data.
 
-GSM och LSM kan bli osynkroniserad av följande skäl:
+GSM-och LSM kan bli osynkroniserade av följande orsaker:
 
-1. Borttagningen av ett fragment vars intervallet anses inte längre används eller byta namn på en shard. Tar bort ett fragment resulterar i en **frånkopplade fragment mappning**. På samma sätt kan kan en omdöpt databas orsaka en överblivna shard-mappning. Beroende på syftet med ändringen fragmentet kan behöva tas bort eller fragmentets placering måste uppdateras. Om du vill återställa en borttagen databas finns i [återställa en borttagen databas](sql-database-recovery-using-backups.md).
-2. En geo-redundans-händelse inträffar. Om du vill fortsätta, måste en uppdatera servernamnet och databasnamnet för karthanteraren i programmet och sedan uppdatera fragment mappning information för alla shards i en skärvkarta. Om det finns en geo-redundans, bör sådana recovery logic automatiseras inifrån själva arbetsflödet för redundans. Automatisera återställningsåtgärder möjliggör en smidig hanterbarhet för geo-aktiverade databaser och undviker manuella mänskliga åtgärder. Mer information om alternativ för att återställa en databas om det finns ett avbrott på datacentret, se [affärskontinuitet](sql-database-business-continuity.md) och [Disaster Recovery](sql-database-disaster-recovery.md).
-3. En shard eller ShardMapManager-databasen återställs till en tidigare punkt i tiden. Mer information om punkt i tiden återställning med hjälp av säkerhetskopior, se [återställning med hjälp av säkerhetskopior](sql-database-recovery-using-backups.md).
+1. Borttagning av en Shard vars intervall förväntas användas eller byter namn på en Shard. Om du tar bort ett Shard resulterar det i en **överbliven Shard-mappning**. På samma sätt kan en omdöpt databas orsaka en överblivna Shard-mappning. Beroende på syftet med ändringen kan Shard behöva tas bort eller så måste Shard-platsen uppdateras. Information om hur du återställer en borttagen databas finns i [återställa en borttagen](sql-database-recovery-using-backups.md)databas.
+2. En händelse för GEO-redundans inträffar. Om du vill fortsätta måste en uppdatera Server namnet och databas namnet för Shard Map Manager i programmet och sedan uppdatera Shard-mappnings informationen för alla Shards i en Shard-karta. Om det finns en geo-redundansväxling bör sådan återställnings logik automatiseras inom arbets flödet för redundansväxling. Automatisering av återställnings åtgärder möjliggör en friktions fri hanterbarhet för geo-aktiverade databaser och förhindrar manuella mänsklig åtgärder. Om du vill veta mer om alternativ för att återställa en databas om det uppstår avbrott i data centret kan du läsa mer i [verksamhets kontinuitet](sql-database-business-continuity.md) och [haveri beredskap](sql-database-disaster-recovery.md).
+3. Antingen en Shard eller ShardMapManager-databasen återställs till en tidigare tidpunkt. Om du vill veta mer om tidpunkts återställning med hjälp av säkerhets kopior, se [återställning med säkerhets kopiering](sql-database-recovery-using-backups.md).
 
-Mer information om Azure SQL Database Elastic Database-verktyg, geo-replikering och återställning finns i följande:
+Mer information om Azure SQL Database Elastic Database verktyg, geo-replikering och återställning finns i följande avsnitt:
 
-* [Översikt: Företag affärskontinuitet och databasen haveriberedskap med SQL-databas i molnet](sql-database-business-continuity.md)
-* [Kom igång med elastiska Databasverktyg](sql-database-elastic-scale-get-started.md)  
-* [ShardMap-hantering](sql-database-elastic-scale-shard-map-management.md)
+* [: Verksamhets kontinuitet för företag och databas haveri beredskap med SQL Database](sql-database-business-continuity.md)
+* [Kom igång med elastiska databas verktyg](sql-database-elastic-scale-get-started.md)  
+* [Hantering av ShardMap](sql-database-elastic-scale-shard-map-management.md)
 
 ## <a name="retrieving-recoverymanager-from-a-shardmapmanager"></a>Hämta RecoveryManager från en ShardMapManager
 
-Det första steget är att skapa en RecoveryManager-instans. Den [GetRecoveryManager metoden](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getrecoverymanager) returnerar recovery manager för aktuellt [ShardMapManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager) instans. För att åtgärda eventuella inkonsekvenser i fragmentkartan, måste du först hämta RecoveryManager för viss fragmentkartan.
+Det första steget är att skapa en RecoveryManager-instans. [GetRecoveryManager-metoden](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getrecoverymanager) returnerar återställnings hanteraren för den aktuella [ShardMapManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager) -instansen. Om du vill åtgärda eventuella inkonsekvenser i Shard-kartan måste du först hämta RecoveryManager för den specifika Shard-kartan.
 
    ```java
     ShardMapManager smm = ShardMapManagerFactory.GetSqlShardMapManager(smmConnectionString,  
@@ -57,65 +56,65 @@ Det första steget är att skapa en RecoveryManager-instans. Den [GetRecoveryMan
              RecoveryManager rm = smm.GetRecoveryManager();
    ```
 
-I det här exemplet har RecoveryManager initierats från ShardMapManager. ShardMapManager som innehåller en ShardMap har också redan initierats.
+I det här exemplet initieras RecoveryManager från ShardMapManager. ShardMapManager som innehåller en ShardMap har också redan initierats.
 
-Eftersom den här koden ändrar fragmentkartan själva, ska de autentiseringsuppgifter som används i standardmetoden (i det föregående exemplet smmConnectionString) vara autentiseringsuppgifter som har skrivskyddad behörighet för GSM-databasen som refereras av anslutningen sträng. De här autentiseringsuppgifterna är vanligtvis skiljer sig från autentiseringsuppgifterna som används för att öppna anslutningar för databeroende routning. Mer information finns i [med autentiseringsuppgifter i elastiska databaser klienten](sql-database-elastic-scale-manage-credentials.md).
+Eftersom den här program koden ändrar själva Shard-kartan ska de autentiseringsuppgifter som används i fabriks metoden (i föregående exempel smmConnectionString) vara autentiseringsuppgifter som har Läs-och Skriv behörighet för den GSM-databas som anslutningen refererar till nollängd. Dessa autentiseringsuppgifter skiljer sig vanligt vis från autentiseringsuppgifter som används för att öppna anslutningar för data beroende routning. Mer information finns i [använda autentiseringsuppgifter i den elastiska databas klienten](sql-database-elastic-scale-manage-credentials.md).
 
-## <a name="removing-a-shard-from-the-shardmap-after-a-shard-is-deleted"></a>Ta bort ett fragment från ShardMap när en shard har tagits bort
+## <a name="removing-a-shard-from-the-shardmap-after-a-shard-is-deleted"></a>Ta bort en Shard från ShardMap efter att en Shard har tagits bort
 
-Den [DetachShard metoden](https://docs.microsoft.com/previous-versions/azure/dn842083(v=azure.100)) kopplar från det angivna fragmentet från fragmentkartan och tar bort mappningar som är associerade med fragmentet.  
+[Metoden DetachShard](https://docs.microsoft.com/previous-versions/azure/dn842083(v=azure.100)) kopplar från den aktuella Shard från Shard-mappningen och tar bort mappningar som är associerade med Shard.  
 
-* Parametern plats är fragmentets placering, särskilt servernamnet och databasnamnet för den shard som håller på att frånkopplas.
-* Parametern shardMapName är mappningsnamn fragment. Detta är endast krävs när flera fragmentkartor som hanteras av samma fragmentkartehanteraren. Valfri.
+* Parametern Location är Shard-platsen, särskilt Server namnet och databas namnet, för Shard som kopplas från.
+* Parametern shardMapName är namnet på Shard-kartan. Detta krävs endast om flera Shard Maps hanteras av samma Shard Map Manager. Valfri.
 
 > [!IMPORTANT]
-> Använd den här tekniken bara om du är säker på att intervallet för uppdaterade mappningen är tom. Metoderna ovan Kontrollera inte data för intervallet som flyttas, så det är bäst att inkludera kontroller i din kod.
+> Använd endast den här tekniken om du är säker på att intervallet för den uppdaterade mappningen är tomt. Metoderna ovan kontrollerar inte data för det område som flyttas, så det är bäst att inkludera kontroller i koden.
 
-Det här exemplet tar bort shards från fragmentkartan.
+I det här exemplet tas Shards bort från Shard-kartan.
 
    ```java
    rm.DetachShard(s.Location, customerMap);
    ```
 
-Fragmentkartan återspeglar fragmentets placering i GSM före borttagning av fragmentet. Eftersom sharden har tagits bort, förutsätts det var avsiktlig och nyckelintervall för horisontell partitionering är inte längre används. Om inte, du kan köra point in time-återställning. att återställa fragmentet från en tidigare punkt i tiden. (I så fall kan granska följande avsnitt för att identifiera fragment inkonsekvenser.) Om du vill återställa, se [punkten i tidsåterställning](sql-database-recovery-using-backups.md).
+Shard-kartan visar Shard-platsen i GSM innan du tar bort Shard. Eftersom Shard har tagits bort antas detta vara avsiktligt, och horisontell partitionering nyckel intervallet används inte längre. Om inte, kan du köra återställning av tidpunkter. för att återställa Shard från en tidigare tidpunkt. (I så fall kan du läsa följande avsnitt för att identifiera Shard inkonsekvenser.) För att återställa, se tidpunkt [för återställning](sql-database-recovery-using-backups.md).
 
-Eftersom det förutsätts borttagningen databasen var avsiktlig är slutlig rensning av administrativa åtgärden att ta bort posten till fragment i fragmentkartehanteraren. Detta hindrar programmet från oavsiktligt skriva information till ett område som inte förväntades.
+Eftersom det antas att borttagningen av databasen var avsiktlig, är den slutliga administrativa Rensnings åtgärden att ta bort posten till Shard i Shard Map Manager. Detta förhindrar att programmet oavsiktligt skriver information till ett intervall som inte förväntas.
 
-## <a name="to-detect-mapping-differences"></a>Att identifiera mappning skillnader
+## <a name="to-detect-mapping-differences"></a>Identifiera mappnings skillnader
 
-Den [DetectMappingDifferences metoden](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.detectmappingdifferences) markerar och returnerar en av fragmentkartor (lokal eller global) som källa till sanningen och synkroniserar mappningar på båda fragmentkartor (GSM och LSM).
+[Metoden DetectMappingDifferences](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.detectmappingdifferences) väljer och returnerar en av Shard Maps (antingen lokal eller global) som källa för sanningen och synkroniserar mappningar i båda Shard Maps (GSM och lsm).
 
    ```java
    rm.DetectMappingDifferences(location, shardMapName);
    ```
 
-* Den *plats* anger servernamnet och databasnamnet.
-* Den *shardMapName* parametern är mappningsnamn fragment. Detta är endast krävs om flera fragmentkartor som hanteras av samma fragmentkartehanteraren. Valfri.
+* *Platsen* anger Server namnet och databas namnet.
+* Parametern *shardMapName* är namnet på Shard-kartan. Detta krävs endast om flera Shard Maps hanteras av samma Shard Map Manager. Valfri.
 
-## <a name="to-resolve-mapping-differences"></a>Du löser mappning skillnader
+## <a name="to-resolve-mapping-differences"></a>Lösa mappnings skillnader
 
-Den [ResolveMappingDifferences metoden](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.resolvemappingdifferences) väljer någon av fragmentkartor (lokal eller global) som källa till sanningen och synkroniserar mappningar på båda fragmentkartor (GSM och LSM).
+[Metoden ResolveMappingDifferences](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.resolvemappingdifferences) väljer en av Shard Maps (antingen lokal eller global) som källa för sanningen och synkroniserar mappningar i båda Shard Maps (GSM och lsm).
 
    ```java
    ResolveMappingDifferences (RecoveryToken, MappingDifferenceResolution.KeepShardMapping);
    ```
 
-* Den *RecoveryToken* parametern räknar upp skillnader i mappningarna mellan GSM och LSM för det specifika fragmentet.
-* Den [MappingDifferenceResolution uppräkning](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.mappingdifferenceresolution) används för att ange metoden för att lösa skillnaden mellan fragment-mappningar.
-* **MappingDifferenceResolution.KeepShardMapping** som rekommenderas när LSM innehåller korrekt mappning och därför mappningen i fragment ska användas. Detta är vanligtvis fallet om det finns en redundans: fragmentet finns nu på en ny server. Eftersom sharden måste först tas bort från GSM (metoden RecoveryManager.DetachShard), finns inte längre en mappning på GSM. Därför måste LSM användas för att återupprätta fragment mappningen.
+* Parametern *RecoveryToken* räknar upp skillnaderna i mappningarna mellan GSM och lsm för den speciella Shard.
+* [MappingDifferenceResolution](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.mappingdifferenceresolution) -uppräkningen används för att ange metoden för att lösa skillnaden mellan Shard-mappningarna.
+* **MappingDifferenceResolution. KeepShardMapping** rekommenderas att när lsm innehåller korrekt mappning och därför ska mappningen i Shard användas. Detta är vanligt vis fallet om det finns en redundansväxling: Shard finns nu på en ny server. Eftersom Shard måste först tas bort från GSM (med hjälp av metoden RecoveryManager. DetachShard), finns det inte längre någon mappning i GSM. Därför måste LSM användas för att återupprätta Shard-mappningen.
 
-## <a name="attach-a-shard-to-the-shardmap-after-a-shard-is-restored"></a>Koppla en shard till ShardMap när en shard har återställts
+## <a name="attach-a-shard-to-the-shardmap-after-a-shard-is-restored"></a>Koppla en Shard till ShardMap efter att en Shard har återställts
 
-Den [AttachShard metoden](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.attachshard) kopplar det angivna fragmentet till fragmentkartan. Den identifierar inkonsekvenser fragment kartan och uppdaterar mappningarna för att matcha fragment vid återställningen fragment. Det förutsätts att databasen har även bytt namn för att återspegla det ursprungliga databasnamnet (innan sharden har återställts), eftersom point-in-time-återställning som standard till en ny databas läggas till med tidsstämpel.
+[Metoden AttachShard](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.attachshard) bifogar den aktuella Shard till Shard-kartan. Den identifierar sedan alla Shard Map-inkonsekvenser och uppdaterar mappningarna för att matcha Shard vid tidpunkten för återställningen av Shard. Det förutsätts att databasen också har fått ett nytt namn för att återspegla det ursprungliga databas namnet (innan Shard återställdes), eftersom återställnings tiden för tidpunkten återställs som standard till en ny databas som lagts till med tidsstämpeln.
 
    ```java
    rm.AttachShard(location, shardMapName)
    ```
 
-* Den *plats* parametern är servernamnet och databasnamnet för fragmentet som kopplas.
-* Den *shardMapName* parametern är mappningsnamn fragment. Detta är endast krävs när flera fragmentkartor som hanteras av samma fragmentkartehanteraren. Valfri.
+* *Plats* parametern är Server namnet och databas namnet för den Shard som bifogas.
+* Parametern *shardMapName* är namnet på Shard-kartan. Detta krävs endast om flera Shard Maps hanteras av samma Shard Map Manager. Valfri.
 
-Det här exemplet lägger till en shard fragmentkartan som nyligen har återställts från en tidigare återställningspunkt-tidpunkt. Eftersom fragment (nämligen mappningen fragment i LSM) har återställts, är det eventuellt inte överens med posten fragment i GSM. Utanför den här exempelkoden har fragmentet återställts och bytt namn till det ursprungliga namnet på databasen. Eftersom den har återställts, antas det att mappningen i LSM är betrodda mappningen.
+Det här exemplet lägger till en Shard till Shard-kartan som nyligen har återställts från en tidigare tidpunkt. Eftersom Shard (dvs mappningen för Shard i LSM) har återställts, kan den vara inkonsekvent med Shard-posten i GSM. Utanför den här exempel koden återställdes Shard och bytt namn till databasens ursprungliga namn. Eftersom den återställdes antas det att mappningen i LSM är den betrodda mappningen.
 
    ```java
    rm.AttachShard(s.Location, customerMap);
@@ -126,26 +125,26 @@ Det här exemplet lägger till en shard fragmentkartan som nyligen har återstä
        }
    ```
 
-## <a name="updating-shard-locations-after-a-geo-failover-restore-of-the-shards"></a>Uppdatera platser för shards när en geo-redundans (återställning) för shards
+## <a name="updating-shard-locations-after-a-geo-failover-restore-of-the-shards"></a>Uppdatera Shard-platser efter en GEO-redundans (återställning) av Shards
 
-Om det finns en geo-redundans, den sekundära databasen är åtkomlig skriva och blir den nya primära databasen. Namnet på servern och potentiellt databasen (beroende på din konfiguration), kan skilja sig från den ursprungliga primära databasen. Därför måste avbildningar för fragment i GSM och LSM åtgärdas. På samma sätt, om databasen har återställts till ett annat namn eller plats eller till en tidigare tidpunkt, detta kan orsaka inkonsekvenser i shard-kartor. Fragmentkartehanteraren hanterar distributionen av öppna anslutningar till rätt databas. Distribution är baserad på data i fragmentkartan och värdet för nyckeln för horisontell partitionering som är mål för program-begäran. När du har en geo-redundans, måste du uppdatera den här informationen med korrekt servernamnet, databasnamnet och shard mappning av den återställda databasen.
+Om det finns en geo-redundansväxling, blir den sekundära databasen skrivbar och blir den nya primära databasen. Namnet på servern och eventuellt databasen (beroende på din konfiguration) kan skilja sig från den ursprungliga primära servern. Därför måste mappnings posterna för Shard i GSM-och LSM åtgärdas. På samma sätt kan detta orsaka inkonsekvenser i Shard Maps om databasen återställs till ett annat namn eller en annan plats, eller till en tidigare tidpunkt. Shard Map Manager hanterar distributionen av öppna anslutningar till rätt databas. Fördelningen baseras på data i Shard-kartan och värdet för horisontell partitionering-nyckeln som är målet för programbegäran. Efter en geo-redundansväxling måste den här informationen uppdateras med rätt server namn, databas namn och Shard mappning för den återställda databasen.
 
 ## <a name="best-practices"></a>Bästa praxis
 
-GEO-redundans och återställning är åtgärder som oftast hanteras av en molnadministratör av programmet avsiktligt använder en Azure SQL-databaser funktioner för affärskontinuitet. Affärskontinuitet planering kräver processer, procedurer och åtgärder för att säkerställa att verksamheten kan fortsätta utan avbrott. Metoderna som är tillgängliga baserat som en del av RecoveryManager-klassen ska användas i det här arbetsflödet så GSM och LSM hålls uppdaterade på de recovery-åtgärder som vidtagits. Det finns fem grundläggande steg för att garantera korrekt GSM och LSM återspeglar korrekt information efter en redundansväxling. Programkod för att köra de här stegen kan integreras i befintliga verktyg och arbetsflöde.
+GEO-redundans och återställning hanteras vanligt vis av en moln administratör i programmet som avsiktligen använder en av funktionerna i affärs kontinuitet för Azure SQL-databaser. Planering av affärs kontinuitet kräver processer, procedurer och åtgärder för att säkerställa att affärs åtgärder kan fortsätta utan avbrott. Metoderna som är tillgängliga som en del av RecoveryManager-klassen ska användas i det här arbets flödet för att se till att GSM-och LSM hålls uppdaterade baserat på den återställnings åtgärd som vidtagits. Det finns fem grundläggande steg för att säkerställa att GSM-och LSM motsvarar korrekt information efter en redundansväxling. Program koden för att utföra dessa steg kan integreras i befintliga verktyg och arbets flöden.
 
 1. Hämta RecoveryManager från ShardMapManager.
-2. Koppla från det gamla fragmentet från fragmentkartan.
-3. Koppla det nya fragmentet till fragmentkartan, inklusive den nya shard-platsen.
-4. Identifiera inkonsekvenser i mappningen mellan GSM och LSM.
-5. Lösa skillnader mellan GSM och LSM, betrodda LSM.
+2. Koppla från den gamla Shard från Shard-kartan.
+3. Koppla den nya Shard till Shard-kartan, inklusive den nya Shard-platsen.
+4. Identifiera inkonsekvenser i mappningen mellan GSM-och LSM.
+5. Lös skillnaderna mellan GSM-och LSM, och lita på LSM.
 
 Det här exemplet utför följande steg:
 
-1. Tar bort shards från Fragmentkartan som återspeglar platser för shards innan redundansväxlingen.
-2. Bifogar fragment till i Fragmentkartan återger de nya platser för shards (parametern ”Configuration.SecondaryServer” är det nya servernamnet men samma databasnamn).
-3. Hämtar token för återställning med hjälp av mappning skillnader mellan GSM och LSM för varje fragment.
-4. Löser inkonsekvenser genom att lita mappningen från LSM för varje shard.
+1. Tar bort Shards från Shard-kartan som återspeglar Shard platser före redundansväxlingen.
+2. Bifogar Shards till Shard-kartan som återspeglar de nya Shard-platserna (parametern "Configuration. SecondaryServer" är det nya Server namnet men samma databas namn).
+3. Hämtar återställnings-token genom att identifiera mappnings skillnader mellan GSM-och LSM för varje Shard.
+4. Löser inkonsekvenser genom att lita på mappningen från LSM för varje Shard.
 
    ```java
    var shards = smm.GetShards();

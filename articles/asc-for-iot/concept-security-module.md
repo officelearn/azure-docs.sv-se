@@ -1,6 +1,6 @@
 ---
-title: Förstå Azure Security Center för IoT-säkerhetsmodul twins förhandsversion | Microsoft Docs
-description: Läs mer om begreppet modultvillingar för säkerhet och hur de används i Azure Security Center för IoT.
+title: Förstå Azure Security Center för IoT-säkerhetsmodulen, dubbla | Microsoft Docs
+description: Lär dig mer om konceptet med säkerhetsmoduler och hur de används i Azure Security Center för IoT.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -13,41 +13,38 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/26/2019
+ms.date: 07/24/2019
 ms.author: mlottner
-ms.openlocfilehash: 8f964fd2b121c6232081673666f5babb160e1721
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: ab3b6e740e644a1ed1495eb776045888be448047
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67618315"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596492"
 ---
 # <a name="security-module"></a>Säkerhetsmodul
 
-> [!IMPORTANT]
-> Azure Security Center för IoT är för närvarande i offentlig förhandsversion.
-> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Den här artikeln förklarar hur Azure Security Center (ASC) för IoT använder enhetstvillingar och moduler. 
+I den här artikeln förklaras hur Azure Security Center for IoT använder enhets dubbla och moduler. 
 
-## <a name="device-twins"></a>Enhetstvillingar
+## <a name="device-twins"></a>Enhets dubbla
 
-För IoT-lösningar som skapats i Azure, spela enhetstvillingar en viktig roll i både enhetshantering och automatisering av affärsprocesser.  
+För IoT-lösningar som är inbyggda i Azure spelar enheten upp en viktig roll i både enhets hantering och process automatisering.  
 
-ASC för IoT erbjuder fullständig integrering med din befintliga IoT plattform för enhetshantering, så att du kan hantera säkerhetsstatusen enheten samt kontrollera användning av befintliga funktioner för kontroll av enheter. Integration uppnås genom att använda IoT-hubben twin mekanism.  
+Azure Security Center for IoT erbjuder fullständig integrering med din befintliga plattform för IoT-enhets hantering, så att du kan hantera din enhets säkerhets status och använda befintliga funktioner för enhets kontroll. Integreringen uppnås genom att använda den IoT Hub dubbla mekanismen.  
 
-Läs mer om begreppet [enhetstvillingar](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins) i Azure IoT Hub. 
+Lär dig mer om begreppet [enhets enheter](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins) i Azure IoT Hub. 
 
-## <a name="security-module-twins"></a>Security modultvillingar
+## <a name="security-module-twins"></a>Säkerhetsmodul, dubbla
 
-ASC för IoT upprätthåller en security modultvillingen för varje enhet i tjänsten.
-Modultvilling security innehåller all information som rör enhetssäkerhet för varje specifik enhet i din lösning.
-Egenskaper för enhet security underhålls i en dedikerad security modultvilling för säkrare kommunikation och för att aktivera uppdateringar och underhåll som kräver färre resurser.  
+Azure Security Center for IoT underhåller en säkerhetsmodul för varje enhet i tjänsten.
+Säkerhetsmodulen är dubbelt innehåller all information som är relevant för enhets säkerhet för varje enskild enhet i din lösning.
+Egenskaperna för enhets säkerhet underhålls i en dedikerad säkerhetsmodul för säkrare kommunikation och för att aktivera uppdateringar och underhåll som kräver färre resurser.  
 
-Se [skapa security modultvilling](quickstart-create-security-twin.md) och [konfigurera säkerhetsagenter](how-to-agent-configuration.md) om du vill lära dig mer om att skapa, anpassa och konfigurera läsningen. Se [förstå modultvillingar](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-module-twins) vill veta mer om begreppet modultvillingar i IoT Hub. 
+Mer information om hur du skapar, anpassar och konfigurerar den dubbla finns i [skapa säkerhetsmodul](quickstart-create-security-twin.md) , grupp två och [Konfigurera säkerhets agenter](how-to-agent-configuration.md) . Mer information om hur modulen finns i IoT Hub finns i [förstå modulernas dubblare](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-module-twins) . 
  
 
 ## <a name="see-also"></a>Se också
-- [ASC för förhandsversionen av IoT](overview.md)
-- [Distribuera säkerhetsagenter](how-to-deploy-agent.md)
-- [Security-agenten autentiseringsmetoder](concept-security-agent-authentication-methods.md)
+- [Översikt över Azure Security Center för IoT](overview.md)
+- [Distribuera säkerhets agenter](how-to-deploy-agent.md)
+- [Autentiseringsmetoder för säkerhets agent](concept-security-agent-authentication-methods.md)

@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: magoedte
-ms.openlocfilehash: dd4efcd2f1d4cbf497ad1fde6936088513cb5fd0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 407aaf15808d1d1420fd1a3804651d29a407d4b3
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60759948"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68606666"
 ---
 # <a name="log-analytics-data-security"></a>Logga Analytics-datasäkerhet
-Det här dokumentet är avsedd att ge specifik information till Log Analytics, som är en funktion i Azure Monitor för att komplettera informationen på [Azure Trust Center](../../security/security-microsoft-trust-center.md).  
+Det här dokumentet är avsedd att ge specifik information till Log Analytics, som är en funktion i Azure Monitor för att komplettera informationen på [Azure Trust Center](../../security/fundamentals/trust-center.md).  
 
 Den här artikeln förklarar hur data som samlas in, bearbetas och skyddas av Log Analytics. Du kan använda agenter att ansluta till webbtjänsten bör använda System Center Operations Manager för att samla in användningsdata eller hämta data från Azure-diagnostik för användning av Log Analytics. 
 
@@ -77,7 +77,7 @@ I följande tabell visas exempel på datatyper:
 | --- | --- |
 | Varning |Avisera namn, Aviseringsbeskrivningen, BaseManagedEntityId, Problem-ID, IsMonitorAlert, RuleId, ResolutionState, prioritet, allvarlighetsgrad, kategori, ägare, ResolvedBy, TimeRaised, TimeAdded, LastModified, LastModifiedBy, LastModifiedExceptRepeatCount, TimeResolved, TimeResolutionStateLastModified, TimeResolutionStateLastModifiedInDB, RepeatCount |
 | Konfiguration |CustomerID, AgentID, EntityID, ManagedTypeID, ManagedTypePropertyID, CurrentValue, ChangeDate |
-| Händelse |EventId, EventOriginalID, BaseManagedEntityInternalId, RuleId, PublisherId, PublisherName, FullNumber, Number, Category, ChannelLevel, LoggingComputer, EventData, EventParameters, TimeGenerated, TimeAdded <br>**Obs:** När du skriver händelser med anpassade fält i Windows-händelseloggen, Log Analytics samlar in dem. |
+| Händelse |EventId, EventOriginalID, BaseManagedEntityInternalId, RuleId, PublisherId, PublisherName, FullNumber, Number, Category, ChannelLevel, LoggingComputer, EventData, EventParameters, TimeGenerated, TimeAdded <br>**Obs:** När du skriver händelser med anpassade fält i till händelse loggen i Windows samlar Log Analytics in dem. |
 | Metadata |BaseManagedEntityId, ObjectStatus, OrganizationalUnit, ActiveDirectoryObjectSid, PhysicalProcessors, nätverksnamn, IP-adress, ForestDNSName, NetbiosComputerName, VirtualMachineName, LastInventoryDate, HostServerNameIsVirtualMachine, IP Adress, NetbiosDomainName, LogicalProcessors, DNSName, DisplayName, DomainDnsName, ActiveDirectorySite, Principalnamnet, OffsetInMinuteFromGreenwichTime |
 | Prestanda |Objektnamn, CounterName, PerfmonInstanceName, PerformanceDataId, PerformanceSourceInternalID, SampleValue, TimeSampled, TimeAdded |
 | Status |StateChangeEventId, StateId, NewHealthState, OldHealthState, Context, TimeGenerated, TimeAdded, StateId2, BaseManagedEntityId, MonitorId, HealthState, LastModified, LastGreenAlertGenerated, DatabaseTimeModified |
@@ -173,7 +173,7 @@ Enligt beskrivningen ovan, skickas data från den hanteringsserver eller direkta
 ## <a name="3-the-log-analytics-service-receives-and-processes-data"></a>3. Log Analytics-tjänsten tar emot och bearbetar data
 Log Analytics-tjänsten garanterar att inkommande data är från en betrodd källa genom att verifiera certifikat och dataintegritet med Azure-autentisering. Obearbetade rådata lagras sedan i en Azure-Händelsehubb i regionen kommer så småningom att lagras data i vila. Vilken typ av data som lagras beror på vilka typer av lösningar som har importerats och används för att samla in data. Log Analytics service processer rådata och matar in den i databasen.
 
-Kvarhållningsperioden för insamlade data som lagras i databasen är beroende av den valda prisplanen. För den *kostnadsfri* nivå, insamlade data är tillgängliga i sju dagar. För den *betald* nivå, insamlade data är tillgängliga i 31 dagar som standard, men kan utökas till 730 dagar. Data lagras krypterat i vila i Azure storage, för att säkerställa datasekretess, och data replikeras inom lokala region med hjälp av lokalt redundant lagring (LRS). De senaste två veckorna data lagras också i SSD-baserad cacheminnet och det här cacheminnet är krypterad.
+Kvarhållningsperioden för insamlade data som lagras i databasen är beroende av den valda prisplanen. För den *kostnadsfri* nivå, insamlade data är tillgängliga i sju dagar. För den *betald* nivå, insamlade data är tillgängliga i 31 dagar som standard, men kan utökas till 730 dagar. Data lagras krypterat i vila i Azure storage, för att säkerställa datasekretess, och data replikeras inom lokala region med hjälp av lokalt redundant lagring (LRS). De senaste två veckorna med data lagras också i SSD-baserad cache och denna cache är krypterad.
 
 ## <a name="4-use-log-analytics-to-access-the-data"></a>4. Använd Log Analytics för att få åtkomst till data
 För att få åtkomst till Log Analytics-arbetsytan måste du logga in på Azure-portalen med organisationens konto eller Microsoft-konto som du tidigare har konfigurerat. All trafik mellan portalen och Log Analytics-tjänsten skickas via en säker HTTPS-kanal. När du använder portalen, genereras ett sessions-ID på klienten för användare (webbläsare) och data lagras i ett lokalt cacheminne tills sessionen avslutas. När avslutas, tas cachen bort. Klientsidan cookies, som inte innehåller personligt identifierbar information tas inte bort automatiskt. Sessionscookies är markerad HTTPOnly och skyddas. Efter en förutbestämd inaktiv tid, har Azure portal sessionen avslutats.

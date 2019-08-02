@@ -1,6 +1,6 @@
 ---
 title: Verktyg för att arbeta med Azure Storage | Microsoft Docs
-description: En lista över verktyg som gör det möjligt att visa/interagera med dina Azure Storage-data.
+description: En lista med verktyg som gör att du kan visa/interagera med dina Azure Storage data.
 services: storage
 author: tamram
 ms.service: storage
@@ -9,26 +9,26 @@ ms.date: 09/06/2017
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
-ms.openlocfilehash: 6d80bc71c01d0f1c887d9161edee5516d6b0925b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 14cbc076f4c9eebd2647cd667acc856b393e4d93
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443687"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68665735"
 ---
 # <a name="azure-storage-client-tools"></a>Azure Storage-klientverktyg
-Användare av Azure Storage vill ofta kunna visa/interagera med sina data med ett Azure Storage-klientverktyg. I tabellerna nedan listas vi ett antal verktyg som gör det möjligt att göra detta. Vi placera ett ”X” i varje block om tjänsten ger möjlighet att antingen räkna upp och/eller få åtkomst till data abstraction. Tabellen visar även om verktyg är kostnadsfria eller inte. ”Utvärderingsversion” anger att det finns en kostnadsfri utvärderingsversion, men den fullständiga produkten är inte kostnadsfri. ”J/N” anger att en version är tillgänglig kostnadsfritt, medan en annan version är tillgänglig för köp.
+Användare av Azure Storage ofta vill kunna visa/interagera med sina data med hjälp av ett Azure Storage klient verktyg. I tabellerna nedan visar vi ett antal verktyg som gör det möjligt att göra detta. Vi skriver "X" i varje block om det ger möjlighet att antingen räkna upp och/eller komma åt data abstraktionen. Tabellen visar även om verktygen är kostnads fria eller inte. "Utvärderings version" anger att det finns en kostnads fri utvärderings version, men den fullständiga produkten är inte kostnads fri. "Y/N" anger att en version är tillgänglig kostnads fritt, medan en annan version är tillgänglig för köp.
 
-Vi tillhandahåller endast en ögonblicksbild av de tillgängliga Azure Storage-klientverktyg. Dessa verktyg kan fortsätta att utvecklas och växer i funktioner. Om det finns ändringar eller uppdateringar kan du lämna en kommentar för att berätta för oss. Detsamma gäller om du känner av verktyg som bör vara här – vi är glada över att lägga till dem.
+Vi har bara tillhandahållit en ögonblicks bild av tillgängliga Azure Storage klient verktyg. Dessa verktyg kan fortsätta att utvecklas och växa i funktioner. Om det finns korrigeringar eller uppdateringar ber vi dig lämna en kommentar för att berätta för oss. Samma sak gäller om du vet vilka verktyg som bör vara här – vi skulle vara glada att lägga till dem.
 
-**Microsoft Azure Storage-klientverktyg**
+**Microsoft Azure Storage klient verktyg**
 
 <table>
   <tr>
-    <th rowspan="2">Azure Storage-klientverktyg</th>
+    <th rowspan="2">Azure Storage klient verktyg</th>
     <th rowspan="2">Blockblob</th>
     <th rowspan="2">Sidblob</th>
-    <th rowspan="2">Bifoga Blob</th>
+    <th rowspan="2">Bifoga blob</th>
     <th rowspan="2">Tabeller</th>
     <th rowspan="2">Köer</th>
     <th rowspan="2">Filer</th>
@@ -49,7 +49,7 @@ Vi tillhandahåller endast en ögonblicksbild av de tillgängliga Azure Storage-
     <td>X</td>
     <td>X</td>
     <td>X</td>
-    <td>Y</td>
+    <td>J</td>
     <td>X</td>
     <td></td>
     <td></td>
@@ -63,21 +63,21 @@ Vi tillhandahåller endast en ögonblicksbild av de tillgängliga Azure Storage-
     <td>X</td>
     <td>X</td>
     <td>X</td>
-    <td>Y</td>
+    <td>J</td>
     <td></td>
     <td>X</td>
     <td>X</td>
     <td>X</td>
   </tr>
   <tr>
-    <td><a href="https://www.visualstudio.com/features/azure-tools-vs.aspx">Microsoft Visual Studio Server Explorer</a></td>
+    <td><a href="https://www.visualstudio.com/features/azure-tools-vs.aspx">Microsoft Visual Studio-Server Explorer</a></td>
     <td>X</td>
     <td>X</td>
     <td>X</td>
     <td>X</td>
     <td>X</td>
     <td></td>
-    <td>Y</td>
+    <td>J</td>
     <td></td>
     <td>X</td>
     <td></td>
@@ -85,16 +85,16 @@ Vi tillhandahåller endast en ögonblicksbild av de tillgängliga Azure Storage-
   </tr>
 </table>
 
-**Tredjeparts-Azure Storage-klientverktyg**
+**Klient verktyg från tredje part Azure Storage**
 
-Vi har inte kontrollerat funktioner eller kvalitet som ägs av följande verktyg från tredje part och deras lista innebär inte att Microsoft.
+Vi har inte kontrollerat de funktioner eller den kvalitet som har ansökts av följande verktyg från tredje part och att deras lista inte innebär en bekräftelse från Microsoft.
 
 <table>
   <tr>
-    <th rowspan="2">Azure Storage-klientverktyg</th>
+    <th rowspan="2">Azure Storage klient verktyg</th>
     <th rowspan="2">Blockblob</th>
     <th rowspan="2">Sidblob</th>
-    <th rowspan="2">Bifoga Blob</th>
+    <th rowspan="2">Bifoga blob</th>
     <th rowspan="2">Tabeller</th>
     <th rowspan="2">Köer</th>
     <th rowspan="2">Filer</th>
@@ -122,14 +122,14 @@ Vi har inte kontrollerat funktioner eller kvalitet som ägs av följande verktyg
     <td></td>
   </tr>
   <tr>
-    <td><a href="https://www.red-gate.com/products/azure-development/azure-explorer/index">Redgate: Azure Explorer</a></td>
+    <td><a href="https://www.red-gate.com/products/azure-development/azure-explorer/index">Redgates Azure Explorer</a></td>
     <td>X</td>
     <td>X</td>
     <td>X</td>
     <td></td>
     <td></td>
     <td></td>
-    <td>Y</td>
+    <td>J</td>
     <td></td>
     <td>X</td>
     <td></td>
@@ -142,10 +142,10 @@ Vi har inte kontrollerat funktioner eller kvalitet som ägs av följande verktyg
     <td></td>
     <td>X</td>
     <td>X</td>
-    <td></td>
-    <td>Y</td>
-    <td></td>
     <td>X</td>
+    <td>J</td>
+    <td>X</td>
+    <td></td>
     <td></td>
     <td></td>
   </tr>
@@ -164,7 +164,7 @@ Vi har inte kontrollerat funktioner eller kvalitet som ägs av följande verktyg
     <td></td>
   </tr>
   <tr>
-    <td><a href="https://www.gapotchenko.com/cloudcombine">Kombinera för molnet</a></td>
+    <td><a href="https://www.gapotchenko.com/cloudcombine">Molnbaserad kombination</a></td>
     <td>X</td>
     <td>X</td>
     <td></td>
@@ -185,14 +185,14 @@ Vi har inte kontrollerat funktioner eller kvalitet som ägs av följande verktyg
     <td>X</td>
     <td>X</td>
     <td>X</td>
-    <td>Y</td>
+    <td>J</td>
     <td></td>
     <td>X</td>
     <td></td>
     <td></td>
   </tr>
   <tr>
-    <td><a href="https://www.gladinet.com/Azure-Storage/index.htm">Gladinet Cloud</a></td>
+    <td><a href="https://www.gladinet.com/Azure-Storage/index.htm">Gladinet-moln</a></td>
     <td>X</td>
     <td></td>
     <td></td>

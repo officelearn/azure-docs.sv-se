@@ -1,7 +1,7 @@
 ---
-title: Author entity attributes - Academic Knowledge API
+title: Redigera entitets-attribut – Academic Knowledge API
 titlesuffix: Azure Cognitive Services
-description: Läs om de attribut som du kan använda med entitet som författare i Academic Knowledge API.
+description: Lär dig de attribut som du kan använda med entiteten Author i Academic Knowledge API.
 services: cognitive-services
 author: alch-msft
 manager: nitinme
@@ -10,29 +10,30 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: d4b33c06ab023023aadf403cf0ef0b08c2bafc5f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ROBOTS: NOINDEX
+ms.openlocfilehash: e63e9d3f8f17a2473caf3d31b83e318ddb132b43
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60609746"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68705091"
 ---
 # <a name="author-entity"></a>Redigera entitet
-<sub> * Följande attribut är specifika för författare entitet. (Ty = '1') </sub>
+<sub>* Följande attribut är speciella för Author-entiteten. (Ty = ' 1 ')</sub>
 
-Namn    |Beskrivning                            |Typ       | Åtgärder
+Namn    |Beskrivning                            |type       | Åtgärder
 ------- | ------------------------------------- | --------- | ----------------------------
-Id      |Entitets-ID                              |Int64      |Lika med
-AuN     |Författarens normaliserade namn                 |String     |Lika med
-DAuN    |Redigera visningsnamn                    |String     |Ingen
-CC      |Antalet för författare totala källhänvisningar            |Int32      |Ingen  
-ECC     |Antalet för författare totala uppskattade källhänvisningar  |Int32      |Ingen
-E       |Utökade metadata (se tabellen ”utökade metadata attribut”)  |String     |Ingen  
+ID      |Enhets-id                              |Int64      |Lika med
+AuN     |Redigera normaliserat namn                 |Sträng     |Lika med
+DAuN    |Författarens visnings namn                    |Sträng     |inga
+Kopia      |Redigera totalt antal käll hänvisningar            |Int32      |inga  
+ECC     |Författare totalt antal uppskattat antal hänvisningar  |Int32      |inga
+E       |Utökade metadata (se tabellen utökade meta-attribut)  |Sträng     |inga  
 
 
-## <a name="extended-metadata-attributes"></a>Utökade attribut Metadata ##
+## <a name="extended-metadata-attributes"></a>Utökade metadata-attribut ##
 
 Namn    | Beskrivning               
 --------|---------------------------    
-LKA.Afn     | anknytnings visningsnamnet som hör till författaren  
-LKA.AfId        | anknytnings entitets-ID som är associerade med författaren
+LKA.Afn     | anknytningens visnings namn som är kopplat till författaren  
+LKA. AfId        | anknytningens entitets-ID som är kopplat till författaren

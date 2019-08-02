@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: d6d6517a85997265021573b2f9d481c81283c216
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 37634a76b0c8e08d7a4688a7ba3fd913391cd408
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61400465"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726138"
 ---
 # <a name="copy-data-from-marketo-using-azure-data-factory-preview"></a>Kopiera data från Marketo med Azure Data Factory (förhandsversion)
 
@@ -33,7 +33,7 @@ Du kan kopiera data från Marketo till alla datalager för mottagare som stöds.
 Azure Data Factory tillhandahåller en inbyggd drivrutin för att aktivera anslutning, måste du därför inte att manuellt installera en drivrutin som använder den här anslutningen.
 
 >[!NOTE]
->Den här Marketo-kopplingen är byggt på Marketo REST API. Tänk på att Marketo har [samtidiga begäranden överskridits](https://developers.marketo.com/rest-api/) på serversidan. Om du stöter på fel som säger ”fel vid försök att använda REST-API: Maximal hastighet har överskridits ”100” med ”20” sekunder (606) ”eller” fel vid försök att använda REST-API: Samtidig åtkomst begränsa '10' nått (615) ”, Överväg för att minska samtidiga kopiera aktivitetskörningar för att minska antalet begäranden till tjänsten.
+>Den här Marketo-kopplingen är byggt på Marketo REST API. Tänk på att Marketo har [samtidiga begäranden överskridits](https://developers.marketo.com/rest-api/) på serversidan. Om du trycker på fel som säger "fel vid försök att använda REST API: Max hastighets begränsningen "100" överskreds med "20" sekunder (606) "eller" fel vid försök att använda REST API: Gränsen för samtidig åtkomst ' 10 ' nåddes (615) ", Överväg att minska antalet samtidiga kopierings aktiviteter till att minska antalet begär anden till tjänsten.
 
 ## <a name="getting-started"></a>Komma igång
 
@@ -47,7 +47,7 @@ Följande egenskaper har stöd för Marketo länkade tjänsten:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Type-egenskapen måste anges till: **Marketo** | Ja |
+| type | Egenskapen Type måste anges till: **Marketo** | Ja |
 | endpoint | Slutpunkten för Marketo-server. (i.e. 123-ABC-321.mktorest.com)  | Ja |
 | clientId | Klient-Id för din Marketo-tjänst.  | Ja |
 | clientSecret | Klienthemlighet för din Marketo-tjänst. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
@@ -82,7 +82,7 @@ För att kopiera data från Marketo, ange typegenskapen på datauppsättningen t
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Type-egenskapen för datauppsättningen måste anges till: **MarketoObject** | Ja |
+| type | Data uppsättningens typ-egenskap måste anges till: **MarketoObject** | Ja |
 | tableName | Namnet på tabellen. | Nej (om ”frågan” i aktivitetskälla har angetts) |
 
 **Exempel**
@@ -92,11 +92,12 @@ För att kopiera data från Marketo, ange typegenskapen på datauppsättningen t
     "name": "MarketoDataset",
     "properties": {
         "type": "MarketoObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Marketo linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 ```
@@ -111,7 +112,7 @@ För att kopiera data från Marketo, ange typ av datakälla i kopieringsaktivite
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **MarketoSource** | Ja |
+| type | Typ egenskapen för kopierings aktivitets källan måste anges till: **MarketoSource** | Ja |
 | query | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM Activitiy_Types"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
 
 **Exempel:**

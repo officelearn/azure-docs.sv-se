@@ -9,12 +9,12 @@ ms.date: 04/06/2018
 ms.author: lahugh
 ms.custom: include file
 ms.openlocfilehash: 7ba4c90811bd8051ed9c307d9f9fa33e08e69dc7
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "67187696"
 ---
-En aktivitet som körs i Azure Batch kan producera utdata när den körs. Uppgift utdata data behöver ofta lagras för hämtning av andra aktiviteter i jobbet, det klientprogram som körs jobbet eller båda. Uppgifter skriva utdata till filsystemet för en Batch-beräkningsnod, men alla data på noden förloras när den återställs eller när nod lämnar poolen. Uppgifter kan också ha en kvarhållningsperiod för filen, varefter filer som skapas av aktiviteten tas bort. Därför är det viktigt att bevara uppgiftsutdata som du behöver senare till ett datalager som [Azure Storage](https://docs.microsoft.com/azure/storage/).
+En aktivitet som körs i Azure Batch kan producera utdata när den körs. Uppgifter om utdata för uppgifter behöver ofta lagras för hämtning av andra uppgifter i jobbet, klient programmet som körde jobbet eller båda. Aktiviteter skriver utdata till fil systemet i en batch-datornod, men alla data på noden förloras när de är avbildade eller när noden lämnar poolen. Aktiviteter kan också ha en kvarhållning av filer, efter vilken filer som skapats av uppgiften tas bort. Av dessa skäl är det viktigt att spara Uppgiftsutdata som du behöver senare till ett data lager, till exempel [Azure Storage](https://docs.microsoft.com/azure/storage/).
 
 För olika alternativ för lagringskonton, se [Översikt över Batch-funktionen](../articles/batch/batch-api-basics.md#azure-storage-account).

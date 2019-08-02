@@ -16,10 +16,10 @@ ms.date: 06/20/2017
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 431212b2b0ac7bba209130e511e3510e3008a6c4
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68500026"
 ---
 # <a name="create-an-automatic-scaling-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Skapa en formel för automatisk skalning för skalning av Compute-noder i en batch-pool
@@ -167,7 +167,7 @@ De här åtgärderna tillåts för de typer som anges i föregående avsnitt.
 | Åtgärd | Operatorer som stöds | Resultat typ |
 | --- | --- | --- |
 | dubbel *operator* dubbel |+, -, *, / |double |
-| TimeInterval  med dubbla operatorer |* |timeinterval |
+| TimeInterval med dubbla operatorer |* |timeinterval |
 | doubleVec- *operator* dubbel |+, -, *, / |doubleVec |
 | doubleVec- *operatör* doubleVec |+, -, *, / |doubleVec |
 | TimeInterval- *operator* dubbel |*, / |timeinterval |

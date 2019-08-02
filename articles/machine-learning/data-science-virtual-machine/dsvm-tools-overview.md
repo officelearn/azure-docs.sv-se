@@ -4,7 +4,7 @@ description: Läs mer om verktyg och hjälpmedel som har förinstallerats på de
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 ms.custom: seodec18
 ms.assetid: ''
@@ -15,22 +15,22 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/22/2019
-ms.author: gokuma
-ms.openlocfilehash: 0a503b82c07da62b5c5c768d8e1c92cb19e75aee
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: vijetaj
+ms.openlocfilehash: d48c2b849f875289c89201f20478deebf4c00db9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66236465"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565225"
 ---
 # <a name="get-to-know-your-data-science-virtual-machine"></a>Lär dig mer om Data Science Virtual Machine
 
 Den virtuella datorn på datavetenskap (DSVM) innehåller en omfattande lista med populära datavetenskaps, machine learning/AI-verktyg och Dataplattformar. Verktyget konfigurationer är noggrant testade av dataexperter och utvecklare på Microsoft och av bredare dataexpertcommunityn så stabilitet och allmän fungera i framtiden.
 
-DSVM innehåller också flera kodexempel och genomgångar i form av Jupyter-anteckningsböcker som kan köras lokalt. Det finns också dokumentationen för de här exemplen att underlätta förståelsen. 
+DSVM innehåller också flera kod exempel och genom gångar i form av Jupyter-anteckningsböcker som kan köras lokalt. Det finns också dokumentation för dessa exempel för att under lätta förståelsen. 
 
 > [!NOTE]
-> Du kan använda [Azure anteckningsböcker](/azure/notebooks/azure-notebooks-overview) att skapa, köra och dela Jupyter notebooks i molnet. Du kan [koppla en virtuell dator för datavetenskap till Azure-anteckningsböcker](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier) att expandera den tillgängliga beräkningskraften.
+> Du kan använda [Azure Notebooks](../../notebooks/azure-notebooks-overview.md) för att skapa, köra och dela Jupyter-anteckningsböcker i molnet. Du kan [koppla en data science VM till Azure Notebooks](../../notebooks/configure-manage-azure-notebooks-projects.md#compute-tier) för att expandera den tillgängliga beräknings kraften.
 
 Verktyg, plattformar, verktyg och exempel som ingår i den virtuella datorn för datavetenskap är ordnade i följande avsnitt:
 

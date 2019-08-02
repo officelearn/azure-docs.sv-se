@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: c5a27a8016202f7f8c9e256eaf6b3077fbef295b
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: 5932d51ecaca3c827ae6de268711c7f4d1b28d0a
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68414532"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640652"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge-preview"></a>Store data på gränsen med Azure Blob Storage på IoT Edge (förhandsversion)
 
@@ -87,7 +87,7 @@ Namnet på den här inställningen är`deviceToCloudUploadProperties`
 | ----- | ----- | ---- | ---- |
 | uploadOn | true, false | Ange som `false` standard. Om du vill aktivera funktionen väljer du det här fältet till `true`. | `deviceToCloudUploadProperties__uploadOn={false,true}` |
 | uploadOrder | NewestFirst, OldestFirst | Gör att du kan välja i vilken ordning data ska kopieras till Azure. Ange som `OldestFirst` standard. Ordningen bestäms efter tidpunkten för senaste ändring av Bloben | `deviceToCloudUploadProperties__uploadOrder={NewestFirst,OldestFirst}` |
-| cloudStorageConnectionString |  | `"DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>"`är en anslutnings sträng som gör att du kan ange det Azure Storage konto som du vill att dina data ska överföras till. Ange `Azure Storage Account Name`, `Azure Storage Account Key`, .`End point suffix` Lägg till lämpliga EndpointSuffix av Azure där data ska överföras, det varierar för Global Azure, Azure och Microsoft Azure Stack. | `deviceToCloudUploadProperties__cloudStorageConnectionString=<connection string>` |
+| cloudStorageConnectionString |  | `"DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>"`är en anslutnings sträng som gör att du kan ange det lagrings konto som du vill att dina data ska överföras till. Ange `Azure Storage Account Name`, `Azure Storage Account Key`, .`End point suffix` Lägg till lämpliga EndpointSuffix av Azure där data ska överföras, det varierar för Global Azure, Azure och Microsoft Azure Stack. <br><br> Du kan välja att ange Azure Storage SAS-anslutningssträng här. Men du måste uppdatera den här egenskapen när den upphör att gälla.  | `deviceToCloudUploadProperties__cloudStorageConnectionString=<connection string>` |
 | storageContainersForUpload | `"<source container name1>": {"target": "<target container name>"}`,<br><br> `"<source container name1>": {"target": "%h-%d-%m-%c"}`, <br><br> `"<source container name1>": {"target": "%d-%c"}` | Gör att du kan ange de behållar namn som du vill överföra till Azure. Med den här modulen kan du ange namn på både käll-och mål behållare. Om du inte anger namnet på mål behållaren tilldelas behållar namnet automatiskt som `<IoTHubName>-<IotEdgeDeviceID>-<ModuleName>-<SourceContainerName>`. Du kan skapa mall strängar för mål behållar namn, se kolumnen möjliga värden. <br>*% h – > IoT Hub namn (3-50 tecken). <br>*% d-> IoT Edge enhets-ID (1 till 129 tecken). <br>*% m – > modulens namn (1 till 64 tecken). <br>*% c – > käll behållar namn (3 till 63 tecken). <br><br>Den maximala storleken på behållar namnet är 63 tecken och tilldelar mål behållar namnet automatiskt om storleken på containern överskrider 63 tecken så trimmas varje avsnitt (IoTHubName, IotEdgeDeviceID, Modulnamn, SourceContainerName) till 15 tabbtecken. | `deviceToCloudUploadProperties__storageContainersForUpload__<sourceName>__target: <targetName>` |
 | deleteAfterUpload | true, false | Ange som `false` standard. När det är inställt på `true`tas data bort automatiskt när uppladdning till moln lagring är klart | `deviceToCloudUploadProperties__deleteAfterUpload={false,true}` |
 
@@ -101,6 +101,23 @@ Namnet på den här inställningen är`deviceAutoDeleteProperties`
 | deleteOn | true, false | Ange som `false` standard. Om du vill aktivera funktionen väljer du det här fältet till `true`. | `deviceAutoDeleteProperties__deleteOn={false,true}` |
 | deleteAfterMinutes | `<minutes>` | Ange tiden i minuter. Dina blobar tas bort automatiskt från den lokala lagrings platsen när det här värdet upphör att gälla | `deviceAutoDeleteProperties__ deleteAfterMinutes=<minutes>` |
 | retainWhileUploading | true, false | Som standard är den inställd på `true`och den behåller blobben medan den laddas upp till moln lagring om deleteAfterMinutes upphör att gälla. Du kan ställa in det `false` på så att det tar bort data så snart deleteAfterMinutes går ut. Anteckning: För att den här egenskapen ska fungera måste uploadOn anges till sant| `deviceAutoDeleteProperties__retainWhileUploading={false,true}` |
+
+## <a name="using-smb-share-as-your-local-storage"></a>Använda SMB-resurs som lokal lagring
+Du kan ange SMB-resurs som din lokala lagrings Sök väg när du distribuerar Windows-behållare för den här modulen på Windows-värden.
+Du kan köra `New-SmbGlobalMapping` PowerShell-kommandot för att mappa SMB-resursen lokalt på IoT-enheten som kör Windows. Se till att IoT-enheten kan läsa och skriva till fjärr-SMB-resursen.
+
+Nedan visas konfigurations stegen:
+```PowerShell
+$creds = Get-Credential
+New-SmbGlobalMapping -RemotePath <remote SMB path> -Credential $creds -LocalPath <Any available drive letter>
+```
+Exempel: <br>
+`$creds = Get-Credentials` <br>
+`New-SmbGlobalMapping -RemotePath \\contosofileserver\share1 -Credential $creds -LocalPath G: `
+
+Det här kommandot använder autentiseringsuppgifterna för att autentisera med fjärr-SMB-servern. Mappa sedan sökvägen till fjär resursen till G: enhets beteckningen (kan vara en annan tillgänglig enhets beteckning). IoT-enheten har nu data volymen mappad till en sökväg på enheten G:. 
+
+För distributionen `<storage directory bind>` kan värdet vara **G:/ContainerData: C:/BlobRoot**.
 
 ## <a name="configure-log-files"></a>Konfigurera loggfiler
 
@@ -221,4 +238,4 @@ Du kan kontakta oss påabsiotfeedback@microsoft.com
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om att [Distribuera Azure Blob Storage på IoT Edge](how-to-deploy-blob.md)
+Lär dig hur du [distribuerar Azure Blob Storage på IoT Edge](how-to-deploy-blob.md)

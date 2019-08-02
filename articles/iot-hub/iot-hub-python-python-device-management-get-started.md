@@ -1,20 +1,19 @@
 ---
 title: Kom igång med Azure IoT Hub Device Management (python) | Microsoft Docs
 description: Så här använder du IoT Hub enhets hantering för att starta en fjärran sluten enhet. Du använder Azure IoT SDK för python för att implementera en simulerad enhets app som innehåller en direkt metod och en tjänst-app som anropar den direkta metoden.
-author: kgremban
-manager: philmea
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: python
 ms.topic: conceptual
-ms.date: 02/20/2019
-ms.author: kgremban
-ms.openlocfilehash: c4c8957e8d9b355216e10503d58915977c3b9b1a
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.date: 07/30/2019
+ms.author: robinsh
+ms.openlocfilehash: daba6601c0da2bd6d1b76897e7ce1ff75da67b5b
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68403403"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68667983"
 ---
 # <a name="get-started-with-device-management-python"></a>Kom igång med enhets hantering (python)
 
@@ -34,17 +33,11 @@ I slutet av den här självstudien har du två python-konsol program:
 
 * **dmpatterns_getstarted_service. py**, som anropar en direkt metod i den simulerade Device-appen, visar svaret och visar de uppdaterade egenskaper som rapporteras.
 
-För att kunna genomföra den här kursen behöver du följande:
+[!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
 
-* [Python 2. x eller 3. x](https://www.python.org/downloads/). Se till att använda en 32-bitars eller 64-bitars installation beroende på vad som krävs för din konfiguration. Se till att du lägger till Python i den plattformsspecifika miljövariabeln när du uppmanas att göra det under installationen. Om du använder Python 2.x kan du behöva [installera eller uppgradera *PIP* (pakethanteringssystemet för Python)](https://pip.pypa.io/en/stable/installing/).
+Följande är installations anvisningarna för kraven.
 
-* Installera paketet [Azure-iothub-Device-client](https://pypi.org/project/azure-iothub-device-client/) med kommandot`pip install azure-iothub-device-client`
-
-* Installera [Azure-iothub-service-client-](https://pypi.org/project/azure-iothub-service-client/) paketet med hjälp av kommandot`pip install azure-iothub-service-client`
-
-* Om du använder Windows OS installerar du [Visual C++ redistributable package](https://www.microsoft.com/download/confirmation.aspx?id=48145) så att du kan använda native-DLL:er från Python.
-
-* Ett aktivt Azure-konto. (Om du inte har något konto kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/pricing/free-trial/) på bara några minuter.)
+[!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
 
 ## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
 

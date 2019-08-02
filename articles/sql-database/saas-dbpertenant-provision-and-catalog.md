@@ -1,6 +1,6 @@
 ---
-title: Etablera nya klienter i en multitenant-app som använder Azure SQL Database | Microsoft Docs
-description: Lär dig hur du etablera och katalogisera nya klienter i en Azure SQL Database med flera klienter SaaS-app
+title: Etablera nya klienter i en app för flera klient organisationer som använder Azure SQL Database | Microsoft Docs
+description: Lär dig att etablera och katalogisera nya klienter i en Azure SQL Database SaaS-app med flera innehavare
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
@@ -10,142 +10,141 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 09/24/2018
-ms.openlocfilehash: 803d05e1aaf4d9c26a6132bde30f101ce3905924
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b5a996fe6be5aa839b78b6693accac9b1000cef8
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61388367"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570430"
 ---
-# <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Lär dig hur du etablerar nya klienter och registrera dem i katalogen
+# <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Lär dig hur du etablerar nya klienter och registrerar dem i katalogen
 
-I den här självstudien får du lära dig hur du etablera och katalogisera SaaS-mönstren. Du lär dig också hur de är implementerade i databas-per-klient-programmet Wingtip biljetter SaaS. Skapa och initiera nya klientdatabaserna och registrerar dem i programmets klientkatalog. Katalogen är en databas som upprätthåller mappningen mellan SaaS-programmets många klienter och deras data. Katalogen spelar en viktig roll i att dirigera program och av hanteringsbegäranden till rätt databas.
+I den här självstudien får du lära dig hur du etablerar och katalogiserar SaaS mönster. Du får också lära dig hur de implementeras i Wingtip Ticket SaaS Database-användarspecifika program. Du skapar och initierar nya klient databaser och registrerar dem i programmets klient katalog. Katalogen är en databas som upprätthåller mappningen mellan SaaS-programmets många klienter och deras data. Katalogen spelar en viktig roll för att dirigera program-och hanterings begär anden till rätt databas.
 
 I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > 
-> * Etablera en enskild ny klient.
+> * Etablera en enda ny klient.
 > * Etablera en batch med ytterligare klienter.
 
 
 Följande krav måste uppfyllas för att kunna köra den här självstudiekursen:
 
-* Wingtip biljetter SaaS databas-per-klient appen har distribuerats. Om du vill distribuera den i mindre än fem minuter, [distribuera och utforska Wingtip biljetter SaaS databas-per-klient programmet](saas-dbpertenant-get-started-deploy.md).
+* Wingtip-biljetterna SaaS Database-per-klient-app distribueras. Information om hur du distribuerar den på mindre än fem minuter finns i [distribuera och utforska Wingtip Ticket SaaS Database-användarspecifika program](saas-dbpertenant-get-started-deploy.md).
 * Azure PowerShell ska ha installerats. Mer information finns i [Kom igång med Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
-## <a name="introduction-to-the-saas-catalog-pattern"></a>Introduktion till SaaS-katalogmönstret
+## <a name="introduction-to-the-saas-catalog-pattern"></a>Introduktion till SaaS Catalog-mönstret
 
-I en databasstödd multitenant SaaS-program är det viktigt att veta var informationen för varje klient lagras. I SaaS-katalogmönstret används en katalogdatabas att hålla reda på mappningen mellan varje klient och databasen där deras data lagras. Det här mönstret används när klientdata fördelas över flera databaser.
+I ett SaaS program med en databas som har stöd för flera innehavare är det viktigt att veta var informationen för varje klient är lagrad. I SaaS Catalog-mönstret används en katalog databas för att lagra mappningen mellan varje klient organisation och databasen där deras data lagras. Det här mönstret gäller när klient data distribueras över flera databaser.
 
-Varje klient har identifierats av en nyckel i katalogen, som mappas till platsen för sin databas. I appen Wingtip biljetter Skapad är nyckeln från en hash av klientens namn. Det här schemat tillåter appen att skapa nyckeln från klientnamnet ingår i programmets URL. Andra viktiga klient-scheman kan användas.  
+Varje klient identifieras av en nyckel i katalogen som mappas till platsen för databasen. I Wingtip biljetter-appen skapas nyckeln från en hash av klientens namn. Det här schemat tillåter att appen skapar nyckeln från klient namnet som ingår i programmets URL. Andra klient nyckel scheman kan användas.  
 
-Katalogen kan namn eller plats på databasen som ska ändras med minimal inverkan på programmet. I en multitenant databasmodell har den här funktionen också flytta en klient mellan databaser. Katalogen kan också användas för att indikera om en klient eller databasen är offline för underhåll och andra åtgärder. Den här funktionen är utforskat i den [återställning enskild klient självstudien](saas-dbpertenant-restore-single-tenant.md).
+Katalogen gör det möjligt att ändra namnet eller platsen för databasen med minimal påverkan på programmet. I en databas modell med flera innehavare kan den här funktionen också flytta en klient mellan-databaser. Katalogen kan också användas för att ange om en klient eller databas är offline för underhåll eller andra åtgärder. Den här funktionen finns i [själv studie kursen för att återställa en enda klient](saas-dbpertenant-restore-single-tenant.md).
 
-Katalogen också lagra ytterligare klient eller databasens metadata som schemaversion, service-plan och serviceavtal erbjuds till klienter. Katalogen kan lagra annan information som gör det möjligt för programhantering, kundsupport och DevOps. 
+Katalogen kan också lagra ytterligare klient-eller databas-metadata, till exempel schema version, service plan eller service avtal som erbjuds till klienter. Katalogen kan lagra annan information som möjliggör program hantering, kund support eller DevOps. 
 
-Katalogen kan aktivera Databasverktyg bortom SaaS-program. I exemplet Wingtip biljetter SaaS databas-per-klient i katalogen används för att aktivera fråga flera klienter som är utforskat i den [Ad hoc-rapportering självstudien](saas-tenancy-cross-tenant-reporting.md). Jobbhantering databasöverskridande utforskat i den [schemahantering](saas-tenancy-schema-management.md) och [Klientanalys](saas-tenancy-tenant-analytics.md) självstudier. 
+Katalogen kan aktivera databas verktyg utanför SaaS-programmet. I Wingtip Ticket SaaS-databas per klient exempel används katalogen för att aktivera frågor över flera klienter, som visas i självstudien om [ad hoc-rapportering](saas-tenancy-cross-tenant-reporting.md). Jobb hantering i flera databaser utforskas i självstudierna [schema hantering](saas-tenancy-schema-management.md) och [klient analys](saas-tenancy-tenant-analytics.md) . 
 
-I Wingtip biljetter SaaS-exempel katalogen implementeras med hjälp av Fragmenthanterings funktionerna i den [Elastic Database-klientbibliotek (EDCL)](sql-database-elastic-database-client-library.md). EDCL finns i Java och .NET Framework. EDCL kan ett program för att skapa, hantera och använda en databasstödd fragmentkartan. 
+I Wingtip Ticket SaaS-exempel implementeras katalogen med hjälp av Shard hanterings funktioner i [Elastic Database klient bibliotek (EDCL)](sql-database-elastic-database-client-library.md). EDCL är tillgänglig i Java och .NET Framework. EDCL gör det möjligt för ett program att skapa, hantera och använda en Shard-karta för databas. 
 
-En fragmentkartan innehåller en lista över fragment (databaser) och mappningen mellan nycklar (klienter) och shards. EDCL funktioner används under klientorganisationens Etableringsläge för att skapa poster i fragmentkartan. De används vid körning av program för att ansluta till rätt databas. EDCL cachelagrar anslutningsinformationen för att minimera trafiken till katalogdatabasen och snabba upp programmet. 
+En Shard-karta innehåller en lista över Shards (databaser) och mappningen mellan nycklar (klienter) och Shards. EDCL-funktioner används vid klient etablering för att skapa poster i Shard-kartan. De används vid körnings tillfället av program för att ansluta till rätt databas. EDCL cachelagrar anslutnings information för att minimera trafik till katalog databasen och påskynda programmet. 
 
 > [!IMPORTANT]
-> Mappningsdata är tillgängliga i katalogdatabasen, men *inte redigera den*. Redigera mappningsdata genom att endast använda Elastic Database klient biblioteket API: er. Direkt manipulering av mappningsdatan riskerar att skada katalogen och stöds inte.
+> Mappnings data är tillgängliga i katalog databasen, men *du kan inte redigera den*. Redigera mappnings data genom att endast använda Elastic Database klient biblioteks-API: er. Direkt manipulering av mappnings data risker som skadar katalogen och stöds inte.
 
 
-## <a name="introduction-to-the-saas-provisioning-pattern"></a>Introduktion till mönster för SaaS-etablering
+## <a name="introduction-to-the-saas-provisioning-pattern"></a>Introduktion till SaaS-etablerings mönster
 
-När du lägger till en ny klient i ett SaaS-program som använder en enda klient databasmodell måste du etablera en ny klientdatabas. Databasen måste skapas i rätt plats och tjänstnivå. Det måste också initieras med lämpligt schema och referensdata. Och det måste vara registrerat i katalogen under lämplig klientnyckeln. 
+När du lägger till en ny klient i ett SaaS-program som använder en databas modell med en enda klient måste du etablera en ny klient databas. Databasen måste skapas på rätt plats och på tjänst nivå. Det måste också initieras med lämpligt schema-och referens data. Och måste registreras i katalogen under lämplig klient nyckel. 
 
-Du kan använda olika metoder för databasetablering. Du kan köra SQL-skript, distribuera en bacpac eller kopiera en mall-databas. 
+Olika metoder för databas etablering kan användas. Du kan köra SQL-skript, distribuera en BACPAC eller kopiera en mall-databas. 
 
-Databasetableringen måste vara en del av din strategi för hantering av schemat. Du måste se till att nya databaser är etablerad med det senaste schemat. Det här kravet är utforskat i den [schemat självstudiekurs om enhetshantering](saas-tenancy-schema-management.md). 
+Databas etableringen måste ingå i din strategi för schema hantering. Du måste se till att nya databaser är etablerade med det senaste schemat. Det här kravet har upptäckts i självstudien om [schema hantering](saas-tenancy-schema-management.md). 
 
-Wingtip biljetter databas-per-klient-appen etablerar nya klienter genom att kopiera en mall-databas med namnet _basetenantdb_, som har distribuerats på katalogservern. Etablering kan integreras i programmet som en del av en inloggning. Den kan också användas offline med hjälp av skript. Den här guiden utforskar etablering med hjälp av PowerShell. 
+Programmet Wingtip ticks databas-per-klient etablerar nya klienter genom att kopiera en mall-databas med namnet _basetenantdb_, som distribueras på katalog servern. Etableringen kan integreras i programmet som en del av registrerings upplevelsen. Det kan också stödjas offline med hjälp av skript. I den här självstudien utforskas etablering med hjälp av PowerShell. 
 
-Etablering skript kopiera den _basetenantdb_ databasen för att skapa en ny klientdatabas i en elastisk pool. Klientdatabasen har skapats i klient-server som mappats till den _newtenant_ DNS-alias. Det här aliaset underhåller en referens till den server som används för att etablera nya klienter och har uppdaterats för att peka på en klient återställningsservern i disaster recovery självstudier ([DR med georestore](saas-dbpertenant-dr-geo-restore.md), [DR med georeplikering](saas-dbpertenant-dr-geo-replication.md)). Skripten sedan initiera databasen med klientspecifik information och registrera den i katalogen fragmentkartan. Klient-databaserna finns angivna namn baserat på innehavarens namn. Den här namngivningsschemat är inte en viktig del av mönstret. Katalogen mappar klientnyckeln till namnet på databasen, så alla namngivningskonvention kan användas. 
+Med etablerings skript kopieras _basetenantdb_ -databasen för att skapa en ny klient databas i en elastisk pool. Klient databasen skapas i klient servern som är mappad till _newtenant_ DNS-alias. Det här aliaset innehåller en referens till den server som används för att etablera nya klienter och uppdateras för att peka på en återställnings klient server i självstudierna om haveri beredskap ([Dr med hjälp av omåterställ](saas-dbpertenant-dr-geo-restore.md), [Dr med hjälp av replikering](saas-dbpertenant-dr-geo-replication.md)). Skripten initierar sedan databasen med klient information och registrerar den i katalogen Shard Map. Klient databaser får namn baserat på klient organisationens namn. Detta namngivnings schema är inte en kritisk del av mönstret. Katalogen mappar klient nyckeln till databas namnet, så att alla namngivnings konventioner kan användas. 
 
 
-## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Hämta Wingtip biljetter SaaS databas-per-klient programskript
+## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Hämta Wingtip-biljetterna SaaS Database-användarspecifika program skript
 
-Wingtip biljetter SaaS-skript och programmets källkod finns tillgängliga i den [WingtipTicketsSaaS DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub-lagringsplatsen. Kolla in den [allmänna riktlinjer](saas-tenancy-wingtip-app-guidance-tips.md) steg att ladda ned och avblockera Wingtip biljetter SaaS-skript.
+Wingtip Ticket SaaS-skript och program käll kod är tillgängliga i [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub lagrings platsen. Ta en titt på den [allmänna vägledningen](saas-tenancy-wingtip-app-guidance-tips.md) för steg för att ladda ned och avblockera Wingtip Ticket SaaS-skript.
 
 
 ## <a name="provision-and-catalog-detailed-walkthrough"></a>Etablera och katalogisera detaljerad genomgång
 
-För att förstå hur Wingtip biljetter programmet implementerar etableringen av nya klienter, Lägg till en brytpunkt och följ arbetsflödet medan du etablera en klient.
+Om du vill förstå hur Wingtip biljetter-programmet implementerar ny klient etablering, lägger du till en Bryt punkt och följer arbets flödet medan du etablerar en klient.
 
-1. I PowerShell ISE öppnar du... \\Inlärningsmoduler\\ProvisionAndCatalog\\_Demo-ProvisionAndCatalog.ps1_ och ange följande parametrar:
+1. I PowerShell ISE öppnar du... \\Learning modules\\ProvisionAndCatalogprovisionandcatalog\\ _. ps1_ och ange följande parametrar:
 
    * **$TenantName** = namnet på den nya platsen (till exempel *Bushwillow Blues*).
-   * **$VenueType** = en av de fördefinierade platstyperna: _blues, classicalmusic, dance, jazz, judo, motor tävling, multipurpose, opera, rockmusic, soccer_.
-   * **$DemoScenario** = **1**, *etablera en enda klient*.
+   * **$VenueType** = en av de fördefinierade plats typerna: _blått, ClassicalMusic, kontrollen åt, jazz, Judo, bil racing, Multipurpose, Opera, rockmusic, fotboll_.
+   * $DemoScenario = **1**, *etablera en enda klient*.
 
-2. Om du vill lägga till en brytpunkt, placera markören var som helst på raden *New-Tenant ”* . Tryck på F9.
+2. Om du vill lägga till en Bryt punkt placerar du markören var som helst på den rad som står för *ny klient*. Tryck sedan på F9.
 
-   ![Brytpunkt](media/saas-dbpertenant-provision-and-catalog/breakpoint.png)
+   ![Brytning](media/saas-dbpertenant-provision-and-catalog/breakpoint.png)
 
 3. Tryck på F5 för att köra skriptet.
 
-4. När körningen av skriptet stannar vid brytpunkten, trycker du F11 gå igenom koden.
+4. När skript körningen stoppas vid Bryt punkten trycker du på F11 för att stega in i koden.
 
    ![Felsökning](media/saas-dbpertenant-provision-and-catalog/debug.png)
 
 
 
-Spåra de skriptkörningen med hjälp av den **felsöka** menyalternativ. Tryck på F10 och F11 för att gå över eller in i de anropade funktionerna. Mer information om hur du felsöker PowerShell-skript finns i [Tips om att arbeta med och felsöka PowerShell-skript](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise).
+Spåra skript körningen med hjälp av meny alternativen för **fel sökning** . Tryck på F10 och F11 för att gå över eller till de anropade funktionerna. Mer information om hur du felsöker PowerShell-skript finns i [tips om att arbeta med och felsöka PowerShell-skript](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise).
 
 
-Du behöver inte uttryckligen följa det här arbetsflödet. Den förklarar hur du felsöka skript.
+Du behöver inte uttryckligen följa det här arbets flödet. Den förklarar hur du felsöker skriptet.
 
-* **Importera modulen CatalogAndDatabaseManagement.psm1.** Den innehåller en katalog och abstraktion på klientnivå över den [Fragmenthanterings](sql-database-elastic-scale-shard-map-management.md) funktioner. Den här modulen innehåller en stor del av katalogmönstret och är värd att utforska.
-* **Importera modulen SubscriptionManagement.psm1.** Den innehåller funktioner för att logga in på Azure och välja den Azure-prenumeration du vill arbeta med.
-* **Hämta information om konfigurationen.** Stega in Get-konfiguration med hjälp av F11 och se hur appkonfigurationen specificeras. Resursnamn och andra appspecifika värden definieras här. Inte ändra dessa värden innan du bekantat dig med skript.
-* **Hämta katalogobjektet.** Stega in Get-katalogen, som composes och returnerar ett katalogobjekt som används i skriptet på högre nivå. Den här funktionen används fragment hanteringsfunktioner som importeras från **AzureShardManagement.psm1**. Katalogobjektet består av följande element:
+* **Importera modulen CatalogAndDatabaseManagement. psm1.** Det ger en abstraktion av katalogen och klient nivån över hanterings funktionerna för [Shard](sql-database-elastic-scale-shard-map-management.md) . Den här modulen kapslar in mycket av katalog mönstret och är värt att utforska.
+* **Importera modulen SubscriptionManagement. psm1.** Den innehåller funktioner för att logga in på Azure och välja den Azure-prenumeration som du vill arbeta med.
+* **Hämta konfigurations information.** Gå till Hämta-konfiguration med hjälp av F11 och se hur appens konfiguration anges. Resurs namn och andra AppData-värden definieras här. Ändra inte värdena förrän du är van vid skripten.
+* **Hämta katalogobjektet.** Stega in i get-Catalog, som skapar och returnerar ett katalog objekt som används i skriptet på högre nivå. Den här funktionen använder Shard hanterings funktioner som importeras från **AzureShardManagement. psm1**. Katalogobjektet består av följande element:
 
-   * $catalogServerFullyQualifiedName konstrueras med standardstammen plus ditt användarnamn: _catalog -\<användaren\>. database.windows .net_.
+   * $catalogServerFullyQualifiedName konstrueras med hjälp av standard skaftet plus ditt användar namn: _katalog\<-\>User. Database. Windows .net_.
    * $catalogDatabaseName hämtas från konfigurationen: *tenantcatalog*.
    * $shardMapManager-objektet initieras från katalogdatabasen.
-   * $shardMap-objektet initieras från fragmentkartan _tenantcatalog_ i katalogdatabasen. Ett katalogobjekt består och returneras. Den används i skriptet på högre nivå.
-* **Beräkna den nya klientnyckeln.** En hash-funktion används för att skapa klientnyckeln från klientnamnet.
-* **Kontrollera om klientnyckeln redan finns.** Katalogen kontrolleras för att kontrollera att nyckeln är tillgänglig.
-* **Klientdatabasen etableras med New-TenantDatabase.** Använda F11 gå igenom hur databasen etableras med hjälp av en [Azure Resource Manager-mall](../azure-resource-manager/resource-manager-template-walkthrough.md).
+   * $shardMap-objektet initieras från fragmentkartan _tenantcatalog_ i katalogdatabasen. Ett katalog objekt består och returneras. Den används i skriptet på högre nivå.
+* **Beräkna den nya klient nyckeln.** En hash-funktion används för att skapa klientnyckeln från klientnamnet.
+* **Kontrol lera om klient nyckeln redan finns.** Katalogen kontrol leras för att se till att nyckeln är tillgänglig.
+* **Klientdatabasen etableras med New-TenantDatabase.** Använd F11 för att gå till hur databasen är etablerad genom att använda en [Azure Resource Manager mall](../azure-resource-manager/resource-manager-template-walkthrough.md).
 
-    Databasnamnet skapas från klientnamnet för att klargöra vilket fragment som tillhör vilken klient. Du kan också använda andra namngivningskonventioner för databasen. En Resource Manager-mallen skapar en klientdatabas genom att kopiera en mall för databas (_baseTenantDB_) på katalogservern. Alternativt kan du skapa en databas och initiera den genom att importera en bacpac. Eller du kan köra ett Initieringsskript för från en känd plats.
+    Databasnamnet skapas från klientnamnet för att klargöra vilket fragment som tillhör vilken klient. Du kan också använda andra namngivnings konventioner för databaser. En Resource Manager-mall skapar en klient databas genom att kopiera en mall databas (_baseTenantDB_) på katalog servern. Alternativt kan du skapa en databas och initiera den genom att importera en BACPAC. Eller så kan du köra ett initierings skript från en välkänd plats.
 
-    Resource Manager-mallen finns i mappen ...\Learning Modules\Common\: *tenantdatabasecopytemplate.json*
+    Resource Manager-mallen finns i mappen. ..\Learning Modules\Common\: *tenantdatabasecopytemplate. JSON*
 
-* **Ytterligare har klientdatabasen initierats.** Lokal (klient)-namnet och platstypen har lagts till. Du kan också göra övrig initialisering här.
+* **Klient databasen initieras ytterligare.** Platsens namn och plats typen läggs till. Du kan också göra andra initieringar här.
 
-* **Klientdatabasen registreras i katalogen.** Den är registrerad med *Add-TenantDatabaseToCatalog* med hjälp av klientnyckeln. Använd F11 gå igenom informationen:
+* **Klient databasen är registrerad i katalogen.** Den har registrerats med *Add-TenantDatabaseToCatalog* med hjälp av klient nyckeln. Använd F11 för att stega igenom informationen:
 
     * Katalogdatabasen läggs till i fragmentkartan (listan över kända databaser).
     * Mappningen som länkar nyckelvärdet till fragmentet skapas.
-    * Ytterligare metadata om klienten (platsnamnet) läggs till i tabellen klienter i katalogen. Tabellen klienter är inte en del av Fragmenthanterings schemat och det är inte installerat på EDCL. Den här tabellen visar hur katalogdatabasen kan utökas för att stödja ytterligare programspecifik data.
+    * Ytterligare metadata om innehavaren (platsens namn) läggs till i tabellen innehavare i katalogen. Tabellen innehavare är inte en del av Shard Management schema och installeras inte av EDCL. Den här tabellen illustrerar hur katalog databasen kan utökas för att stödja ytterligare programspecifika data.
 
 
-När etableringen har slutförts, återgår körningen till ursprungligt *Demo-ProvisionAndCatalog* skript. Den **händelser** öppnas för den nya innehavaren i webbläsaren.
+När etableringen har slutförts återgår körningen till det ursprungliga *demo-ProvisionAndCatalog-* skriptet. Sidan **händelser** öppnas för den nya klienten i webbläsaren.
 
-   ![Sidan för evenemang](media/saas-dbpertenant-provision-and-catalog/new-tenant.png)
+   ![Sidan händelser](media/saas-dbpertenant-provision-and-catalog/new-tenant.png)
 
 
 ## <a name="provision-a-batch-of-tenants"></a>Etablera en batch med klienter
 
-Den här övningen etablerar en batch med 17 klienter. Vi rekommenderar att du etablerar den här batchen med klienter innan du startar andra självstudier för databas-per-klient Wingtip biljetter SaaS. Det finns mer än bara några få databaser du arbetar med.
+Den här övningen etablerar en batch med 17 klienter. Vi rekommenderar att du etablerar den här batchen av klienter innan du påbörjar andra Wingtip-biljetter SaaS-självstudier för databas per klient. Det finns mer än bara några få databaser att arbeta med.
 
-1. I PowerShell ISE öppnar du... \\Inlärningsmoduler\\ProvisionAndCatalog\\*Demo-ProvisionAndCatalog.ps1*. Ändra den *$DemoScenario* parameter 3:
+1. I PowerShell ISE öppnar du... Learning-\\modulerProvisionAndCatalog\\*provisionandcatalog. ps1.* \\ Ändra parametern *$DemoScenario* till 3:
 
-   * **$DemoScenario** = **3**, *etablera en batch med klienter*.
+   * $DemoScenario = **3**, *etablera en batch med klienter*.
 2. Tryck på F5 för att köra skriptet.
 
-Skriptet etablerar en batch med ytterligare klienter. Den använder en [Azure Resource Manager-mall](../azure-resource-manager/resource-manager-template-walkthrough.md) som styr batchen och delegerar etableringen av varje databas till en länkad mall. Om du använder mallar på det här sättet, kan Azure Resource Manager mäkla etableringsprocessen för ditt skript. Mallar etablerar databaser i parallella och hantera återförsök, om det behövs. Skriptet är idempotenta, så om det misslyckas eller stoppas av någon anledning, kör den igen.
+Skriptet etablerar en batch med ytterligare klienter. Den använder en [Azure Resource Manager-mall](../azure-resource-manager/resource-manager-template-walkthrough.md) som styr batchen och delegerar etablering av varje databas till en länkad mall. Om du använder mallar på det här sättet, kan Azure Resource Manager mäkla etableringsprocessen för ditt skript. Mallarna etablerar databaser parallellt och hanterar nya försök, om det behövs. Skriptet är idempotenta, så om det Miss lyckas eller stoppas av någon anledning kan du köra det igen.
 
-### <a name="verify-the-batch-of-tenants-that-successfully-deployed"></a>Verifiera att batchen med klienter som har distribuerats
+### <a name="verify-the-batch-of-tenants-that-successfully-deployed"></a>Verifiera batchen av de klienter som har distribuerats
 
-* I den [Azure-portalen](https://portal.azure.com)bläddrar du till listan över servrar och öppna den *tenants1* server. Välj **SQL-databaser**, och verifiera att batchen 17 nya databaser finns i listan.
+* I [Azure Portal](https://portal.azure.com)bläddrar du till listan med servrar och öppnar *tenants1* -servern. Välj **SQL-databaser**och kontrol lera att batchen för 17 ytterligare databaser finns nu i listan.
 
    ![Lista över databaser](media/saas-dbpertenant-provision-and-catalog/database-list.png)
 
@@ -153,13 +152,13 @@ Skriptet etablerar en batch med ytterligare klienter. Den använder en [Azure Re
 
 ## <a name="other-provisioning-patterns"></a>Andra etableringsmönster
 
-Andra etableringsmönster som inte ingår i den här självstudien:
+Andra etablerings mönster som inte ingår i den här självstudien:
 
-**Företablering av databaser**: Företablering mönstret utnyttjar faktumet att databaser i en elastisk pool inte lägga till extra kostnader. Faktureringen sker för den elastiska poolen, inte databaserna. Inaktiva databaser inte konsumerar några resurser. Du kan minska tiden för att lägga till klientorganisationer genom företablering av databaser i poolen och allokera dem efter behov. Antalet företablerade databaser kan justeras efter behov för att ha en buffert som är lämpliga för den förväntade etableringstakten.
+**För etablering av databaser**: För etablerings mönstret utnyttjar faktum att databaser i en elastisk pool inte lägger till extra kostnad. Faktureringen är för den elastiska poolen, inte databaserna. Inaktiva databaser förbrukar inga resurser. Genom att förkonfigurera databaser i en pool och tilldela dem vid behov kan du minska tiden för att lägga till klienter. Antalet företablerade databaser kan justeras efter behov för att behålla en buffert som är lämplig för den förväntade etablerings hastigheten.
 
-**Automatisk etablering**: I mönstret för automatisk etablering etablerar en etableringstjänst servrar, pooler och databaser automatiskt efter behov. Om du vill kan inkludera du företablering av databaser i elastiska pooler. Om databaser inaktiveras och tas bort, kan luckorna i elastiska pooler fyllas av etableringstjänsten. En sådan tjänst kan vara enkla eller komplexa, till exempel hantera etablering över flera geografier och ställa in geo-replikering för haveriberedskap. 
+**Automatisk etablering**: I det automatiska etablerings mönstret etablerar en etablerings tjänst servrar, pooler och databaser automatiskt efter behov. Om du vill kan du inkludera för etablering av databaser i elastiska pooler. Om databaserna tas ur bruk och tas bort kan luckor i elastiska pooler fyllas av etablerings tjänsten. En sådan tjänst kan vara enkel eller komplex, till exempel hanterings etablering över flera geografiska områden och konfigurera geo-replikering för haveri beredskap. 
 
-Med mönstret för automatisk etablering skickar ett program eller skript du en etableringsbegäran till en kö för att behandlas av etableringstjänsten. Den frågar sedan tjänsten för att avgöra när det slutförts. Om företablering används, hanteras begäranden snabbt. Tjänsten etablerar en ersättningsdatabas i bakgrunden.
+Med det automatiska etablerings mönstret skickar ett klient program eller-skript en etablerings förfrågan till en kö som ska bearbetas av etablerings tjänsten. Tjänsten avsöker sedan tjänsten för att fastställa slut för ande. Om för etablering används, hanteras förfrågningar snabbt. Tjänsten etablerar en ersättnings databas i bakgrunden.
 
 
 ## <a name="next-steps"></a>Nästa steg
@@ -168,14 +167,14 @@ I den här självstudiekursen lärde du dig att:
 
 > [!div class="checklist"]
 > 
-> * Etablera en enskild ny klient.
+> * Etablera en enda ny klient.
 > * Etablera en batch med ytterligare klienter.
-> * Stega in etablerar klienter och registrerar dem i katalogen.
+> * Stega in i informationen om att etablering av klienter och registrera dem i katalogen.
 
-Prova den [guide för prestandaövervakning](saas-dbpertenant-performance-monitoring.md).
+Prova [själv studie kursen om prestanda övervakning](saas-dbpertenant-performance-monitoring.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* Ytterligare [självstudier som bygger på databas-per-klient-programmet Wingtip biljetter SaaS](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
+* Ytterligare [självstudier som bygger på Wingtip-biljetter SaaS-program för databas per klient](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * [Klientbibliotek för elastiska databaser](sql-database-elastic-database-client-library.md)
-* [Felsök skript i Windows PowerShell ISE](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise)
+* [Felsöka skript i Windows PowerShell ISE](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise)

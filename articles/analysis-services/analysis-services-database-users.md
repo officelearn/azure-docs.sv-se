@@ -1,96 +1,96 @@
 ---
-title: Hantera databasroller och användare i Azure Analysis Services | Microsoft Docs
-description: Lär dig hur du hanterar databasroller och användare på en Analysis Services-server i Azure.
+title: Hantera databas roller och användare i Azure Analysis Services | Microsoft Docs
+description: Lär dig hur du hanterar databas roller och användare på en Analysis Services-server i Azure.
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 07/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 462625ce61f4538aa0769667648e07cc6307cbb3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c38b11ceda010c122e17a7fad3df1684e0a1cf42
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61023639"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68696278"
 ---
-# <a name="manage-database-roles-and-users"></a>Hantera databasroller och användare
+# <a name="manage-database-roles-and-users"></a>Hantera databas roller och användare
 
-På databasnivå modellen måste alla användare hör till en roll. Rollerna definierar användare med specifika behörigheter för modelldatabasen. Alla användare eller säkerhetsgrupp som tilldelas en roll måste ha ett konto i en Azure AD-klient i samma prenumeration som servern. 
+På modell databas nivå måste alla användare tillhöra en roll. Roller definierar användare med särskilda behörigheter för modell databasen. Alla användare eller säkerhets grupper som läggs till i en roll måste ha ett konto i en Azure AD-klient i samma prenumeration som servern. 
 
-Hur du definierar roller skiljer sig beroende på vilket verktyg som du använder, men effekten är samma.
+Hur du definierar roller varierar beroende på vilket verktyg du använder, men resultatet är detsamma.
 
-Behörigheter är:
-*  **Administratören** -användare har fullständiga behörigheter för databasen. Databasroller med administratörsbehörighet skiljer sig från server-administratörer.
-*  **Processen** -användare kan ansluta till och utföra processen åtgärder på databasen och analysera modellen databasdata.
-*  **Läs** -användare kan använda ett klientprogram för att ansluta till och analysera modellen databasdata.
+Roll behörigheter är:
+*  **Administratör** – användare har fullständig behörighet för databasen. Databas roller med administratörs behörighet skiljer sig från Server administratörer.
+*  **Process** -användare kan ansluta till och utföra process åtgärder på databasen och analysera modell databas data.
+*  **Read** -Users kan använda ett klient program för att ansluta till och analysera modell databas data.
 
-När du skapar ett projekt för tabellmodeller kan du skapa roller och lägga till användare eller grupper i rollerna genom att använda rollhanteraren i SSDT. När du distribuerat till en server kan du använda SSMS, [Analysis Services PowerShell-cmdletar](/sql/analysis-services/powershell/analysis-services-powershell-reference), eller [Tabular Model Scripting Language](https://msdn.microsoft.com/library/mt614797.aspx) (TMSL) för att lägga till eller ta bort roller och användarmedlemmar.
+När du skapar ett tabell modell projekt skapar du roller och lägger till användare eller grupper i rollerna med hjälp av roll hanteraren i SQL Server Data Tools (SSDT). När du har distribuerat till en server använder du SQL Server Management Studio (SSMS), [Analysis Services PowerShell](/sql/analysis-services/powershell/analysis-services-powershell-reference)-cmdletar eller TMSL ( [tabell modell skript språk](https://msdn.microsoft.com/library/mt614797.aspx) ) för att lägga till eller ta bort roller och användar medlemmar.
 
-> [!NOTE]
-> Säkerhetsgrupper måste ha den `MailEnabled` egenskapen `True`.
+**Säkerhets grupper** måste vara [e](https://docs.microsoft.com/exchange/recipients-in-exchange-online/manage-mail-enabled-security-groups) -postaktiverade `MailEnabled` med egenskapen inställd `True`på. När du anger en grupp per e- `obj:groupid@tenantid`postadress använder du.
 
-## <a name="to-add-or-manage-roles-and-users-in-ssdt"></a>Att lägga till eller hantera roller och användare i SSDT  
+
+## <a name="to-add-or-manage-roles-and-users-in-ssdt"></a>Lägga till eller hantera roller och användare i SSDT  
   
-1.  I SSDT > **Tabellmodellutforskaren**, högerklicka på **roller**.  
+1.  Högerklicka på **roller**i SSDT > **tabell modell Utforskaren**.  
   
 2.  Klicka på **Ny** i **rollhanteraren**.  
   
-3.  Skriv ett namn för rollen.  
+3.  Ange ett namn för rollen.  
   
-     Som standard är namnet på standardrollen stegvis numrerade för varje ny roll. Vi rekommenderar att du skriver ett namn som tydligt identifierar medlemstypen, till exempel Ekonomi chefer eller personal specialister.  
+     Som standard är namnet på standard rollen stegvist numrerat för varje ny roll. Vi rekommenderar att du anger ett namn som tydligt identifierar medlems typen, till exempel ekonomi chefer eller personal specialister.  
   
-4.  Välj något av följande behörigheter:  
+4.  Välj en av följande behörigheter:  
   
     |Behörighet|Beskrivning|  
     |----------------|-----------------|  
-    |**Ingen**|Medlemmar kan inte ändra modellschemat och det går inte att fråga efter data.|  
-    |**Läsa**|Medlemmar kan fråga efter data (baserat på radfilter) men det går inte att ändra modellschemat.|  
-    |**Läsa och bearbeta**|Medlemmar kan fråga data (baserat på radnivå filter) och kör processen och bearbeta alla åtgärder, men det går inte att ändra modellschemat.|  
-    |**Process**|Medlemmar kan köra processen och bearbeta alla åtgärder. Det går inte att ändra modellschemat och det går inte att fråga efter data.|  
-    |**Administrator**|Medlemmar kan ändra modellschemat och fråga efter alla data.|   
+    |**Alternativet**|Medlemmar kan inte ändra modell schema och kan inte fråga efter data.|  
+    |**Läsa**|Medlemmar kan fråga data (baserat på rad filter) men inte ändra modell schema.|  
+    |**Läsa och bearbeta**|Medlemmar kan fråga data (baserat på rad nivå filter) och köra process och bearbeta alla åtgärder, men kan inte ändra modell schemat.|  
+    |**Uppgraderingen**|Medlemmar kan köra process och bearbeta alla åtgärder. Det går inte att ändra modell schema och kan inte fråga efter data.|  
+    |**Administratörstoken**|Medlemmar kan ändra modell schemat och fråga alla data.|   
   
-5.  Om rollen som du skapar har läs- eller läsa och bearbeta behörighet, du kan lägga till radfilter med hjälp av en DAX-formel. Klicka på den **radfilter** , och sedan markera en tabell och klicka sedan på den **DAX-Filter** fältet och skriv sedan en DAX-formel.
+5.  Om rollen som du skapar har Läs-eller Läs-och process behörighet kan du lägga till rad filter med hjälp av en DAX-formel. Klicka på fliken **rad filter** , Välj en tabell och klicka sedan på fältet **DAX-filter** och skriv sedan en DAX-formel.
   
 6.  Klicka på **medlemmar** > **Lägg till extern**.  
   
-8.  I **Lägg till extern medlem**, ange användare eller grupper i Azure AD-klienten genom e-postadress. När du klickar på OK och stänga rollhanteraren visas roller och rollmedlemmar i Tabellmodellutforskaren. 
+8.  I **Lägg till extern medlem**, anger du användare eller grupper i din klient organisation Azure AD via e-postadress. När du klickar på OK och stänger roll hanteraren visas roller och roll medlemmar i tabell modell Utforskaren. 
  
-     ![Roller och användare i Tabellmodellutforskaren](./media/analysis-services-database-users/aas-roles-tmexplorer.png)
+     ![Roller och användare i tabell modell Utforskaren](./media/analysis-services-database-users/aas-roles-tmexplorer.png)
 
-9. Distribuera till Azure Analysis Services-servern.
+9. Distribuera till din Azure Analysis Services-server.
 
 
-## <a name="to-add-or-manage-roles-and-users-in-ssms"></a>Att lägga till eller hantera roller och användare i SSMS
+## <a name="to-add-or-manage-roles-and-users-in-ssms"></a>Lägga till eller hantera roller och användare i SSMS
 
-Om du vill lägga till roller och användare i en distribuerad modell-databas, måste du vara ansluten till servern som en serveradministratör eller redan i en databasroll med administratörsbehörighet.
+Om du vill lägga till roller och användare i en distribuerad modell databas måste du vara ansluten till servern som Server administratör eller redan i en databas roll med administratörs behörighet.
 
-1. Högerklicka i objektet Exporer **roller** > **ny roll**.
+1. I objekt Exporer högerklickar du på **roller** > **ny roll**.
 
-2. I **skapa roll**, ange ett rollnamn och beskrivning.
+2. Ange ett rollnamn och en beskrivning i **skapa roll**.
 
-3. Markera en behörighet.
+3. Välj en behörighet.
 
    |Behörighet|Beskrivning|  
    |----------------|-----------------|  
-   |**Fullständig kontroll (administratör)**|Medlemmar kan ändra modellschemat, bearbeta och kan fråga efter alla data.| 
-   |**Process-databas**|Medlemmar kan köra processen och bearbeta alla åtgärder. Det går inte att ändra modellschemat och det går inte att fråga efter data.|  
-   |**Läsa**|Medlemmar kan fråga efter data (baserat på radfilter) men det går inte att ändra modellschemat.|  
+   |**Fullständig behörighet (administratör)**|Medlemmar kan ändra modell schema, bearbeta och kan fråga alla data.| 
+   |**Process databas**|Medlemmar kan köra process och bearbeta alla åtgärder. Det går inte att ändra modell schema och kan inte fråga efter data.|  
+   |**Läsa**|Medlemmar kan fråga data (baserat på rad filter) men inte ändra modell schema.|  
   
-4. Klicka på **medlemskap**, ska du ange en användare eller grupp i Azure AD-klienten genom e-postadress.
+4. Klicka på **medlemskap**och ange sedan en användare eller grupp i din klient organisations Azure AD via e-postadress.
 
-     ![Lägga till användare](./media/analysis-services-database-users/aas-roles-adduser-ssms.png)
+     ![Lägg till användare](./media/analysis-services-database-users/aas-roles-adduser-ssms.png)
 
-5. Om du skapar rollen har läsbehörighet, kan du lägga till radfilter med hjälp av en DAX-formel. Klicka på **radfilter**, markera en tabell och skriv sedan en DAX-formel i den **DAX-Filter** fält. 
+5. Om rollen som du skapar har Läs behörighet kan du lägga till rad filter genom att använda en DAX-formel. Klicka på **rad filter**, Välj en tabell och skriv sedan en DAX-formel i fältet **DAX-filter** . 
 
-## <a name="to-add-roles-and-users-by-using-a-tmsl-script"></a>Att lägga till roller och användare genom att använda en TMSL-skript
+## <a name="to-add-roles-and-users-by-using-a-tmsl-script"></a>Lägga till roller och användare med hjälp av ett TMSL-skript
 
-Du kan köra ett TMSL-skript i XMLA-fönstret i SSMS eller med hjälp av PowerShell. Använd den [CreateOrReplace](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/createorreplace-command-tmsl) kommandot och [roller](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-objects/roles-object-tmsl) objekt.
+Du kan köra ett TMSL-skript i XMLA-fönstret i SSMS eller med hjälp av PowerShell. Använd kommandot [CreateOrReplace](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/createorreplace-command-tmsl) och objektet [roller](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-objects/roles-object-tmsl) .
 
-**Exempelskript för TMSL**
+**Exempel på TMSL-skript**
 
-I det här exemplet läggs en externa B2B-användare och en grupp till rollen analytiker med läsbehörighet för databasen SalesBI. Både externa användare och grupper måste vara i samma Azure AD-klient.
+I det här exemplet läggs en extern B2B-användare och en grupp till i analytiker rollen med Läs behörighet för SalesBI-databasen. Både den externa användaren och gruppen måste finnas i samma klient Azure AD.
 
 ```
 {
@@ -118,39 +118,39 @@ I det här exemplet läggs en externa B2B-användare och en grupp till rollen an
 }
 ```
 
-## <a name="to-add-roles-and-users-by-using-powershell"></a>Att lägga till roller och användare med hjälp av PowerShell
+## <a name="to-add-roles-and-users-by-using-powershell"></a>Lägga till roller och användare med hjälp av PowerShell
 
-Den [SqlServer](/sql/analysis-services/powershell/analysis-services-powershell-reference) modulen innehåller uppgiftsspecifika database management-cmdletar och den allmänna Invoke-ASCmd-cmdlet som accepterar en fråga Tabular Model Tabellmodellskriptspråket (TMSL) eller ett skript. Följande cmdletar som används för att hantera databasroller och användare.
+[SQLServer](/sql/analysis-services/powershell/analysis-services-powershell-reference) -modulen innehåller verksamhetsspecifika databas hanterings-cmdletar och den allmänna cmdleten Invoke-ASCmd som accepterar en fråga eller ett skript för tabell modell skript språk (TMSL). Följande cmdletar används för att hantera databas roller och användare.
   
-|Cmdlet|Beskrivning|
+|Cmdlet:|Beskrivning|
 |------------|-----------------| 
-|[Lägg till RoleMember](/sql/analysis-services/powershell/analysis-services-powershell-reference)|Lägga till en medlem i en databasroll.| 
-|[Remove-RoleMember](/sql/analysis-services/powershell/analysis-services-powershell-reference)|Ta bort medlem från en databasroll.|   
-|[Invoke-ASCmd](/sql/analysis-services/powershell/analysis-services-powershell-reference)|Köra ett TMSL-skript.|
+|[Add-RoleMember](/sql/analysis-services/powershell/analysis-services-powershell-reference)|Lägg till en medlem i en databas roll.| 
+|[Remove-RoleMember](/sql/analysis-services/powershell/analysis-services-powershell-reference)|Ta bort en medlem från en databas roll.|   
+|[Invoke-ASCmd](/sql/analysis-services/powershell/analysis-services-powershell-reference)|Kör ett TMSL-skript.|
 
-## <a name="row-filters"></a>Radfilter  
+## <a name="row-filters"></a>Rad filter  
 
-Radfilter definierar vilka rader i en tabell kan efterfrågas av medlemmar i en viss roll. Radfilter definieras för varje tabell i en modell med hjälp av DAX-formler.  
+Rad filter definierar vilka rader i en tabell som kan frågas efter medlemmar i en viss roll. Rad filter definieras för varje tabell i en modell med hjälp av DAX-formler.  
   
-Radfilter kan definieras endast för roller med läs- och läsa och bearbeta behörigheter. Som standard om ett radfilter inte har definierats för en viss tabell, medlemmar kan fråga efter alla rader i tabellen, såvida inte korsfiltrering gäller från en annan tabell.
+Rad filter kan bara definieras för roller med behörigheterna Läs och läsa och bearbeta. Som standard, om ett rad filter inte har definierats för en viss tabell, kan medlemmar fråga alla rader i tabellen om inte kors filtrering tillämpas från en annan tabell.
   
- Radfilter kräver en DAX-formel, som måste utvärderas till ett TRUE/FALSE-värde, att definiera de rader som kan efterfrågas av medlemmar i specifika rollen. Rader som inte ingår i DAX-formeln kan inte frågas. Till exempel tabellen kunder med följande rad filtrerar uttryck, *= kunder [Land] = ”USA”* , medlemmar i rollen kan bara se kunder i USA.  
+ Rad filter kräver en DAX-formel som måste utvärderas till TRUE/FALSe-värdet för att definiera vilka rader som kan frågas av medlemmar i den specifika rollen. Det går inte att skicka frågor till rader som inte ingår i DAX-formeln. Till exempel kan tabellen kunder med följande rad filter uttryck, *= kunder [land] = "USA"* , medlemmar i Sälj rollen bara se kunder i USA.  
   
-Radfilter gäller för de angivna raderna och relaterade rader. När en tabell har flera relationer, tillämpa filter säkerhet för relationen är aktiv. Radfilter överlappar med andra raden filter som definierats för relaterade tabeller, till exempel:  
+Rad filter gäller för de angivna raderna och relaterade rader. När en tabell har flera relationer, använder filter säkerhet för den aktiva relationen. Rad filter korsas med andra raddata som definierats för relaterade tabeller, till exempel:  
   
 |Tabell|DAX-uttryck|  
 |-----------|--------------------|  
 |Region|=Region[Country]="USA"|  
 |ProductCategory|=ProductCategory[Name]="Bicycles"|  
-|Transaktioner|=Transactions[Year]=2016|  
+|Transaktioner|= Transaktioner [Year] = 2016|  
   
- Nettoeffekten är medlemmar kan fråga efter rader med data där kunden finns i USA, produktkategorin cyklar och året 2016. Användare kan inte fråga transaktioner utanför USA, transaktioner som inte cyklar eller transaktioner inte i 2016 om de inte är medlem i en annan roll som ger dessa behörigheter.
+ Netto resultatet är att medlemmar kan fråga rader med data där kunden är i USA, produkt kategorin är cyklar och året är 2016. Användare kan inte fråga transaktioner utanför USA, transaktioner som inte är cyklar eller transaktioner som inte är i 2016, om de inte är medlemmar i en annan roll som ger behörighet.
   
- Du kan använda filtret, *=FALSE()* , för att neka åtkomst till alla rader för en hel tabell.
+ Du kan använda filtret, *= falskt ()* för att neka åtkomst till alla rader för en hel tabell.
 
 ## <a name="next-steps"></a>Nästa steg
 
-  [Hantera serveradministratörer](analysis-services-server-admins.md)   
+  [Hantera Server administratörer](analysis-services-server-admins.md)   
   [Hantera Azure Analysis Services med PowerShell](analysis-services-powershell.md)  
-  [Tabular Model Scripting Språkreferens (TMSL)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)
+  [TMSL-referens (tabell modell skript språk)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)
 

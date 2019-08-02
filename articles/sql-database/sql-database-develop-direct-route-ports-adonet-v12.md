@@ -1,6 +1,6 @@
 ---
-title: Portar utöver 1433 för SQL-databas | Microsoft Docs
-description: Klientanslutningar från ADO.NET till Azure SQL Database kan kringgå proxyn och interagera direkt med databasen med andra portar än 1433.
+title: Portar utöver 1433 för SQL Database | Microsoft Docs
+description: Klient anslutningar från ADO.NET till Azure SQL Database kan kringgå proxyn och interagera direkt med databasen med andra portar än 1433.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -10,58 +10,57 @@ ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
-manager: craigg
 ms.date: 04/03/2019
-ms.openlocfilehash: d861ccb93de7aa0b84b20215afb5fddf49aa94c9
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: a39cfd1981041c807a91a08c198378d238f0846e
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67427952"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568913"
 ---
-# <a name="ports-beyond-1433-for-adonet-45"></a>Portar utöver 1433 för ADO.NET 4.5
+# <a name="ports-beyond-1433-for-adonet-45"></a>Portar utöver 1433 för ADO.NET 4,5
 
-Det här avsnittet beskriver beteendet för Azure SQL Database-anslutning för klienter som använder ADO.NET 4.5 eller senare.
+I det här avsnittet beskrivs Azure SQL Database anslutnings beteendet för klienter som använder ADO.NET 4,5 eller en senare version.
 
 > [!IMPORTANT]
-> Läs om hur anslutningsarkitektur [Azure SQL Database anslutningsarkitektur](sql-database-connectivity-architecture.md).
+> Information om anslutnings arkitektur finns i [Azure SQL Database anslutnings arkitektur](sql-database-connectivity-architecture.md).
 >
 
-## <a name="outside-vs-inside"></a>Utanför eller inuti
+## <a name="outside-vs-inside"></a>Utanför vs inuti
 
-För anslutningar till Azure SQL Database, måste vi först be om klientprogrammet körs *utanför* eller *inuti* gränsen för Azure-molnet. I underavsnitt beskrivs två vanliga scenarier.
+För att anslutningar ska kunna Azure SQL Database måste vi först fråga om klient programmet körs *utanför* eller *innanför* molnets gränser i Azure. Underavsnitten diskuterar två vanliga scenarier.
 
-### <a name="outside-client-runs-on-your-desktop-computer"></a>*Utomhus:* Klienten kör på din dator
+### <a name="outside-client-runs-on-your-desktop-computer"></a>*Utanpå* Klienten körs på din station ära dator
 
-Port 1433 är den enda port som måste vara öppna på din dator som är värd för din SQL Database-klientprogram.
+Port 1433 är den enda port som måste vara öppen på den station ära datorn som är värd för SQL Database klient programmet.
 
-### <a name="inside-client-runs-on-azure"></a>*Inuti:* Klienten kör på Azure
+### <a name="inside-client-runs-on-azure"></a>*Någonstans* Klienten körs på Azure
 
-När klienten körs inom gränsen för Azure-molnet, använder vi kan anropa en *vägen* att interagera med SQL Database-servern. När en anslutning har upprättats kan ytterligare omfattar samverkan mellan klienten och databasen inga Azure SQL Database-Gateway.
+När klienten körs inom Azure-molnets gränser, använder den vad vi kan anropa en *direkt väg* för att interagera med den SQL Database servern. När en anslutning har upprättats omfattar ytterligare interaktioner mellan klienten och databasen ingen Azure SQL Database Gateway.
 
-Sekvensen är följande:
+Ordningen är följande:
 
-1. ADO.NET 4.5 (eller senare) initierar en kort interaktion med Azure-molnet och tar emot ett dynamiskt identifierade portnummer.
+1. ADO.NET 4,5 (eller senare) initierar en kort interaktion med Azure-molnet och tar emot ett dynamiskt identifierat port nummer.
 
-   * Dynamiskt identifierade portnumret är i intervallet 11000 11999.
-2. ADO.NET ansluter sedan till SQL Database-server direkt, med inga mellanprogram däremellan.
+   * Det dynamiskt identifierade port numret är inom intervallet 11000-11999.
+2. ADO.NET ansluter sedan till SQL Database-servern direkt, utan mellan.
 3. Frågor skickas direkt till databasen och resultaten returneras direkt till klienten.
 
-Kontrollera att port intervallen för 11000-11999 på Azure klientdatorn lämnas tillgänglig för ADO.NET 4.5 klienten interaktioner med SQL-databas.
+Se till att port intervallen för 11000-11999 på Azure-klientdatorn lämnas tillgängliga för ADO.NET 4,5-klienter med SQL Database.
 
-* I synnerhet måste portar i intervallet vara fria från andra utgående blockeringar.
-* På din Azure-dator, den **Windows-brandväggen med avancerad säkerhet** styr vilka portinställningar som.
+* I synnerhet måste portarna i intervallet vara fria från andra utgående blockerare.
+* På din virtuella Azure-dator kontrollerar **Windows-brandväggen med avancerad säkerhet** port inställningarna.
   
-  * Du kan använda den [brandväggens gränssnitt](https://msdn.microsoft.com/library/cc646023.aspx) att lägga till en regel som du anger den **TCP** protokollet tillsammans med ett portintervall med syntax som **11000 11999**.
+  * Du kan använda [brand väggens användar gränssnitt](https://msdn.microsoft.com/library/cc646023.aspx) för att lägga till en regel för vilken du anger **TCP** -protokollet tillsammans med ett port intervall med syntaxen som **11000-11999**.
 
-## <a name="version-clarifications"></a>Version förtydliganden
+## <a name="version-clarifications"></a>Versions klargöranden
 
-Det här avsnittet visar monikers som refererar till produktversioner. Den visar även vissa par mellan produkter.
+I det här avsnittet klargöras de monikers som refererar till produkt versioner. Här visas även några par olika versioner mellan produkter.
 
 ### <a name="adonet"></a>ADO.NET
 
-* ADO.NET 4.0 stöder 7.3 TDS-protokollet, men inte 7.4.
-* ADO.NET 4.5 och senare stöder 7.4 TDS-protokollet.
+* ADO.NET 4,0 stöder TDS 7,3-protokollet, men inte 7,4.
+* ADO.NET 4,5 och senare har stöd för TDS 7,4-protokollet.
 
 ### <a name="odbc"></a>ODBC
 
@@ -69,21 +68,21 @@ Det här avsnittet visar monikers som refererar till produktversioner. Den visar
 
 ### <a name="jdbc"></a>JDBC
 
-* Microsoft SQL Server JDBC 4.2 eller senare (JDBC 4.0 faktiskt stöder TDS 7.4 men implementerar inte ”omdirigering”)
+* Microsoft SQL Server JDBC 4,2 eller senare (JDBC 4,0 faktiskt stöder TDS 7,4 men implementerar inte "omdirigering")
 
 ## <a name="related-links"></a>Relaterade länkar
 
-* ADO.NET 4.6 gavs ut den 20 juli 2015. En bloggmeddelandet från .NET-teamet är tillgängligt [här](https://blogs.msdn.com/b/dotnet/archive/20../../announcing-net-framework-4-6.aspx).
-* ADO.NET 4.5 gavs ut den 15 augusti 2012. En bloggmeddelandet från .NET-teamet är tillgängligt [här](https://blogs.msdn.com/b/dotnet/archive/20../../announcing-the-release-of-net-framework-4-5-rtm-product-and-source-code.aspx).
-  * Det finns ett blogginlägg om ADO.NET 4.5.1 [här](https://blogs.msdn.com/b/dotnet/archive/20../../announcing-the-net-framework-4-5-1-preview.aspx).
+* ADO.NET 4,6 gavs ut den 20 juli 2015. Ett blogg meddelande från .NET-teamet finns [här](https://blogs.msdn.com/b/dotnet/archive/20../../announcing-net-framework-4-6.aspx).
+* ADO.NET 4,5 släpptes den 15 augusti 2012. Ett blogg meddelande från .NET-teamet finns [här](https://blogs.msdn.com/b/dotnet/archive/20../../announcing-the-release-of-net-framework-4-5-rtm-product-and-source-code.aspx).
+  * Ett blogg inlägg om ADO.NET 4.5.1 finns [här](https://blogs.msdn.com/b/dotnet/archive/20../../announcing-the-net-framework-4-5-1-preview.aspx).
 
-* Microsoft® ODBC Driver 17 för SQL Server® – Windows, Linux och macOS https://www.microsoft.com/download/details.aspx?id=56567
+* Microsoft® ODBC driv rutin 17 för SQL Server® – Windows, Linux, & macOS https://www.microsoft.com/download/details.aspx?id=56567
 
-* Ansluta till Azure SQL Database V12 via omdirigering https://techcommunity.microsoft.com/t5/DataCAT/Connect-to-Azure-SQL-Database-V12-via-Redirection/ba-p/305362
+* Anslut till Azure SQL Database V12 via omdirigering https://techcommunity.microsoft.com/t5/DataCAT/Connect-to-Azure-SQL-Database-V12-via-Redirection/ba-p/305362
 
-* [TDS-protokollversionslistan](https://www.freetds.org/userguide/tdshistory.htm)
-* [Översikt över SQL Database-utveckling](sql-database-develop-overview.md)
-* [Azure SQL Database-brandvägg](sql-database-firewall-configure.md)
+* [Lista över TDS-protokoll](https://www.freetds.org/userguide/tdshistory.htm)
+* [Översikt över SQL Database utveckling](sql-database-develop-overview.md)
+* [Azure SQL Database brand vägg](sql-database-firewall-configure.md)
 * [Anvisningar: Konfigurera brandväggsinställningar för SQL Database](sql-database-configure-firewall-settings.md)
 
 

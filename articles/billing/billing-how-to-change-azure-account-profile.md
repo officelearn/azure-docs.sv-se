@@ -1,6 +1,6 @@
 ---
-title: Ändra profilinformationen för ditt Azure-konto | Microsoft Docs
-description: Beskriver hur du ändrar profilen för ditt Azure administratörskonto och kontakta e-postadress.
+title: Ändra profil informationen för ditt Azure-konto | Microsoft Docs
+description: Beskriver hur du ändrar profilen för ditt Azure-administratörskonto och kontaktar e-postadressen.
 author: genlin
 manager: alherz
 tags: billing
@@ -13,94 +13,94 @@ ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 87de721f596eb4148939c00bc4b4db270a87c24e
-ms.sourcegitcommit: 0ebc62257be0ab52f524235f8d8ef3353fdaf89e
+ms.openlocfilehash: dea54f2e692174e12cb2dc1f0e0e0ed9fca127bc
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67724096"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516577"
 ---
-# <a name="change-the-profile-information-for-your-azure-account"></a>Ändra profilinformationen för ditt Azure-konto
+# <a name="change-the-profile-information-for-your-azure-account"></a>Ändra profil informationen för ditt Azure-konto
 
-Microsoft använder den e-postadressen i profilen för den kontoadministratören för att skicka viktiga fakturering, tjänst och rekommendation-relaterade meddelanden om ett Azure-konto. Vi rekommenderar att du anger en e-postadress som du kontrollerar regelbundet. Som kontoadministratör, du kan också uppdatera din profil för att ändra numret e adress och telefonnummer för kontot.
+Microsoft använder e-postadressen i konto administratörens profil för att skicka viktiga meddelanden om fakturering, tjänst och rekommendation om ett Azure-konto. Vi rekommenderar att du anger en e-postadress som du kontrollerar regelbundet. Som konto administratör kan du också uppdatera din profil för att ändra e-postadressen och telefonnumret för kontot.
 
-Microsoft använder den e-postadressen i en användares profil, konto-användare och inte är kontoadministratör, för att skicka tjänstrelaterade meddelanden och rekommendationer. Alla fakturering meddelanden skickas till kontoadministratör. Du kan också uppdatera din profil om du vill ändra din e-postadress och telefonnummer, men den ändrar inte kontot e-postadress eller telefonnummer.
+Microsoft använder e-postadressen i en användar profil, en konto användare som inte är konto administratör, för att skicka service-relaterade meddelanden och konto rekommendationer. Alla fakturerings aviseringar skickas till konto administratören. Du kan också uppdatera din profil för att ändra din e-postadress och ditt telefonnummer, men det ändrar inte kontots e-postadress eller telefonnummer.
 
-## <a name="change-your-profile-information"></a>Ändra profilinformationen
+## <a name="change-your-profile-information"></a>Ändra profil informationen
 
-1. Logga in i [Azure-kontocentret](https://account.azure.com/Profile).
+1. Logga in i [Azure-kontocentret](https://account.azure.com/subscriptions).
 1. Välj knappen **Redigera information** och uppdatera information i **profilen**.
 
-   ![Exempel på Azure profilinformation](./media/billing-how-to-change-azure-account-profile/profile.png)
+   ![Exempel på information om Azure-profiler](./media/billing-how-to-change-azure-account-profile/profile.png)
 
-### <a name="send-notifications-to-an-additional-email-address"></a>Skicka meddelanden till en ytterligare e-postadress
+### <a name="send-notifications-to-an-additional-email-address"></a>Skicka meddelanden till ytterligare en e-postadress
 
-Du kan ha tjänstmeddelanden och rekommendationer för skickas till en e-postadress förutom kontot administratörens e-postadress som är associerat med ditt konto. Konto-administratörens e-postadress hämtar viktig information om alla prenumerationer i kontot, inklusive faktureringsrelaterade uppdateringar.
+Du kan använda tjänst meddelanden och konto rekommendationer som skickas till en e-postadress förutom konto administratörens e-postadress som är kopplad till ditt konto. Konto administratörens e-postadress får viktiga meddelanden om alla prenumerationer på kontot, inklusive fakturerings bara uppdateringar.
 
 ### <a name="change-the-account-administrators-email-address-in-your-profile"></a>Ändra konto administratörens e-postadress i din profil
 
 Kontoadministratören är den person som ställer in Azure-kontot och som tar emot viktiga e-postaviseringar om alla prenumerationer som ingår i kontot. Vi rekommenderar att du anger en e-postadress som kontoadministratören kontrollerar regelbundet.
 
-### <a name="update-your-sign-in-email-address"></a>Uppdatera din inloggning e-postadress
+### <a name="update-your-sign-in-email-address"></a>Uppdatera din inloggnings-e-postadress
 
-Uppdaterar profilen e-postadressen uppdateras inte din inloggning e-postadress. Om du vill ändra din inloggning e-postadress som du behöver överföra ägarskapet för kontot.
+Om du uppdaterar profilens e-postadress uppdateras inte din inloggnings-e-postadress. Om du vill ändra din inloggnings-e-postadress måste du överföra ägarskapet för kontot.
 
-### <a name="update-the-billing-address-for-your-credit-card"></a>Uppdatera din faktureringsadress för ditt kreditkort
+### <a name="update-the-billing-address-for-your-credit-card"></a>Uppdatera fakturerings adressen för ditt kredit kort
 
-Läs hur du uppdaterar din faktureringsinformation i [ändra det kreditkort som används för att betala för en Azure-prenumeration](billing-how-to-change-credit-card.md).
+Information om hur du uppdaterar din fakturerings information finns i [ändra det kredit kort som används för att betala för en Azure-prenumeration](billing-how-to-change-credit-card.md).
 
-### <a name="update-your-countryregion"></a>Uppdatera land/region
+### <a name="update-your-countryregion"></a>Uppdatera ditt land/din region
 
-Vi kan inte ändra land/region för ett befintligt konto på grund av tekniska begränsningar. Men du kan skapa ett konto i den önskade land/regionen och sedan kontakta Azures support och migrera dina tjänster till det kontot.
+På grund av tekniska begränsningar kan vi inte ändra land/region för ett befintligt konto. Men du kan skapa ett konto i önskat land/region och sedan kontakta Azure-supporten för att migrera dina tjänster till det kontot.
 
-## <a name="service-and-marketing-emails"></a>Tjänsten och marknadsföring e-postmeddelanden
+## <a name="service-and-marketing-emails"></a>Service-och marknadsförings-e-post
 
-Du uppmanas i den [Azure-portalen](https://portal.azure.com) att kontrollera eller uppdatera din e-postadress var 90: e dag. Microsoft skickar e-postmeddelanden till din e-postadress för profilen med Azure-konto-relaterad information för:
+Du uppmanas att [Azure Portal](https://portal.azure.com) att verifiera eller uppdatera din e-postadress var 90 dag. Microsoft skickar e-post till din profil-e-postadress med Azure-relaterad information för:
 
 - Tjänstmeddelanden
-- Säkerhetsaviseringar
-- Fakturering syften
+- Säkerhetsvarningar
+- Fakturerings syfte
 - Support
-- Marknadsföring kommunikation
-- Rekommendationer om bästa praxis, baserat på din Azure-användning
+- Marknadsförings kommunikation
+- Rekommendationer för bästa praxis, baserat på din Azure-användning
 
-Ange den e-postadressen där du vill få information om ditt konto. Genom att ange en e-postadress, du bara i ska ta emot kommunikationer från Microsoft.
+Ange den e-postadress dit du vill få meddelanden om ditt konto. Genom att ange en e-postadress är du väljer i för att ta emot kommunikation från Microsoft.
 
-![Exempel på meddelandet för att uppdatera din kontaktinformation](./media/billing-how-to-change-azure-account-profile/update-contact-information.png)
+![Exempel på uppfrågan om att uppdatera din kontakt information](./media/billing-how-to-change-azure-account-profile/update-contact-information.png)
 
-### <a name="change-your-contact-email-address"></a>Ändra din e-postadress
+### <a name="change-your-contact-email-address"></a>Ändra e-postadress till din kontakt
 
-Du kan ändra din e-postadress genom att använda någon av följande metoder:
+Du kan ändra kontaktens e-postadress genom att använda någon av följande metoder:
 
-* Logga in i [Azure-kontocentret](https://account.azure.com/Profile). Välj **redigera information** och sedan uppdatera profilen e-postadress. Uppdatera din profil e-postadress uppdatera inte din inloggning e-postadress.
+* Logga in i [Azure-kontocentret](https://account.azure.com/subscriptions). Välj **Redigera information** och uppdatera sedan profilens e-postadress. När du uppdaterar din profils e-postadress uppdateras inte din inloggnings-e-postadress.
 
-* Gå till den [kontaktinformation](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade) område i Azure-portalen och ange en e-postadress. Adressen som du anger får-tjänsten och marknadsföringsmaterial. E-postadressen i Azure-konto Center profil uppdateras för att matcha automatiskt. Uppdatera din profil e-postadress uppdatera inte din inloggning e-postadress.
+* Gå till avsnittet [kontakt information](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade) i Azure Portal och ange en e-postadress. Adressen som du anger tar emot service-och marknadsförings kommunikation. E-postadressen i Azure-kontocenter profilen uppdateras för automatisk matchning. När du uppdaterar din profils e-postadress uppdateras inte din inloggnings-e-postadress.
 
-* I den [Azure-portalen](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade)väljer du ikonen med dina initialer eller bild. Välj snabbmenyn ( **...** ). Välj sedan **Min kontaktinformation** från menyn och ange en e-postadress. Adressen som du anger får-tjänsten och marknadsföringsmaterial. E-postadressen i din Azure-konto Center profil uppdateras för att matcha automatiskt. Uppdatera din profil e-postadress uppdatera inte din inloggning e-postadress.
+* I [Azure Portal](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade)väljer du ikonen med dina initialer eller bilder. Välj sedan snabb menyn ( **...** ). Välj sedan **min kontakt information** på menyn och ange en e-postadress. Adressen som du anger tar emot service-och marknadsförings kommunikation. E-postadressen i din Azure-kontocenter profil uppdateras för automatisk matchning. När du uppdaterar din profils e-postadress uppdateras inte din inloggnings-e-postadress.
 
-![Exempel för att uppdatera en e-postadress i Azure](./media/billing-how-to-change-azure-account-profile/azure-contact-information.png)
+![Exempel på uppdatering av en e-postadress i Azure](./media/billing-how-to-change-azure-account-profile/azure-contact-information.png)
 
-### <a name="opt-out-of-marketing-emails"></a>Välja bort marknadsföring e-postmeddelanden
+### <a name="opt-out-of-marketing-emails"></a>Välj bort e-post för marknadsföring
 
-Att välja bort marknadsföring e-postmeddelanden som tar emot:
+Så här tar du bort e-post till marknadsföring:
 
-1. Gå till den [rapportformuläret](https://account.microsoft.com/profile/permissions-link-request) att skicka en begäran med hjälp av din profil e-postadress. Du får en länk via e-post att uppdatera dina inställningar.
-2. Klicka på länken för att öppna den **hantera kommunikation behörigheter** sidan. Den här sidan visas typerna av marknadsföringsmaterial som e-postadressen har valts i. Rensa alla ämnen som du vill välja ut och välj sedan **spara**.
+1. Gå till [formuläret för begäran](https://account.microsoft.com/profile/permissions-link-request) om du vill skicka en begäran med din profil-e-postadress. Du får en länk via e-post för att uppdatera dina inställningar.
+2. Välj länken för att öppna sidan **Hantera kommunikations behörigheter** . På den här sidan visas de typer av marknadsförings kommunikation som e-postadressen har valt. Avmarkera de avsnitt som du vill välja bort och välj sedan **Spara**.
 
-![Exempel på sidan för att hantera behörigheter för kommunikation](./media/billing-how-to-change-azure-account-profile/manage-communication-permissions.png)
+![Exempel på sidan för hantering av kommunikations behörigheter](./media/billing-how-to-change-azure-account-profile/manage-communication-permissions.png)
 
-När du välja bort marknadskommunikation du fortfarande ta emot tjänstmeddelanden, baserat på ditt konto.
+När du avanmäler marknadsförings kommunikationen får du fortfarande tjänst meddelanden, baserat på ditt konto.
 
-## <a name="change-the-subscription-name"></a>Ändra prenumerationens namn
+## <a name="change-the-subscription-name"></a>Ändra prenumerations namnet
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com)väljer **prenumeration** från den vänstra rutan och välj sedan den prenumeration som du vill byta namn på.
-1. Välj **översikt**, och välj sedan **Byt namn på** i kommandofältet.
-    ![Exempel på att byta namn på Azure-prenumeration](./media/billing-how-to-change-azure-account-profile/rename-sub.png)
-1. När du har ändrat namnet, Välj **spara**.
+1. Logga in på [Azure Portal](https://portal.azure.com), Välj **prenumeration** i den vänstra rutan och välj sedan den prenumeration som du vill byta namn på.
+1. Välj **Översikt**och välj sedan **Byt namn** från kommando fältet.
+    ![Exempel på namnbyte av Azure-prenumeration](./media/billing-how-to-change-azure-account-profile/rename-sub.png)
+1. När du har ändrat namnet väljer du **Spara**.
 
 ## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
 
 Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Nästa steg
-- [Visa din faktureringsinformation konton](billing-view-all-accounts.md)
+- [Visa dina fakturerings konton](billing-view-all-accounts.md)

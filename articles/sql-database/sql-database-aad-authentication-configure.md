@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
-manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: eb96b60593dc660682c6376c0e0133be8f371176
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: b6414ac41b1bb43e3fe1470a7ae2b1358126003a
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68348676"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569680"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql"></a>Konfigurera och hantera Azure Active Directory autentisering med SQL
 
@@ -203,7 +202,7 @@ Cmdletar som används för att etablera och hantera Azure AD-administratör:
 
 Använd PowerShell-kommandot Get-Help för att se mer information för vart och ett av dessa ``get-help Set-AzSqlServerActiveDirectoryAdministrator``kommandon, till exempel.
 
-Följande skript etablerar en Azure AD-administratörs  grupp med namnet DBA_Group `40b79501-b343-44ed-9ce7-da4c8cc7353f`(objekt-ID) för **demo_server** -servern i en resurs grupp med namnet **Group-23**:
+Följande skript etablerar en Azure AD-administratörs grupp med namnet DBA_Group `40b79501-b343-44ed-9ce7-da4c8cc7353f`(objekt-ID) för **demo_server** -servern i en resurs grupp med namnet **Group-23**:
 
 ```powershell
 Set-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23"

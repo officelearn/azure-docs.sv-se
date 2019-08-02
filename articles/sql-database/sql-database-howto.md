@@ -10,22 +10,21 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
-manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: cd2406bb4825ac295a6f9a3a18ba466cdc20c55d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 98c522f3d2718691e32b4e78180027b69f28289f
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67120862"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568006"
 ---
-# <a name="how-to-use-azure-sql-database"></a>Hur du använder Azure SQL Database
+# <a name="how-to-use-azure-sql-database"></a>Använda Azure SQL Database
 
-I det här avsnittet kan du hitta olika guider, skript och förklaringar som kan hjälpa dig att hantera och konfigurera Azure SQL Database. Du kan också hitta specifika instruktionsguider för [enkel databas](sql-database-howto-single-database.md) och [Managed Instance](sql-database-howto-managed-instance.md).
+I det här avsnittet hittar du olika guider, skript och förklaringar som kan hjälpa dig att hantera och konfigurera din Azure SQL Database. Du kan också hitta detaljerade instruktions guider för [en enkel databas och en](sql-database-howto-single-database.md) [hanterad instans](sql-database-howto-managed-instance.md).
 
 ## <a name="load-data"></a>Läsa in data
 
-- [Kopiera en enkel databas eller en databas i Azure](sql-database-copy.md)
+- [Kopiera en enskild databas eller en databas i pooler i Azure](sql-database-copy.md)
 - [Importera en databas från en BACPAC](sql-database-import.md)
 - [Exportera en databas till BACPAC](sql-database-export.md)
 - [Läs in data med BCP](sql-database-load-from-csv-with-bcp.md)
@@ -34,36 +33,36 @@ I det här avsnittet kan du hitta olika guider, skript och förklaringar som kan
 ### <a name="data-sync"></a>Datasynkronisering
 
 - [SQL Data Sync](sql-database-sync-data.md)
-- [Data Sync-agenten](sql-database-data-sync-agent.md)
-- [Replikera schemaändringar](sql-database-update-sync-schema.md)
+- [Data Sync-agent](sql-database-data-sync-agent.md)
+- [Replikera schema ändringar](sql-database-update-sync-schema.md)
 - [Övervaka med OMS](sql-database-sync-monitor-oms.md)
-- [Metodtips för datasynkronisering](sql-database-best-practices-data-sync.md)
+- [Metod tips för datasynkronisering](sql-database-best-practices-data-sync.md)
 - [Felsöka datasynkronisering](sql-database-troubleshoot-data-sync.md)
 
 ## <a name="monitoring-and-tuning"></a>Övervakning och justering
 
-- [Manuell inställning](sql-database-performance-guidance.md)
-- [Använda DMV: er för att övervaka prestanda](sql-database-monitoring-with-dmvs.md)
-- [Använda Query store för att övervaka prestanda](sql-database-operate-query-store.md)
-- [Felsöka prestanda med smarta insikter](sql-database-intelligent-insights-troubleshoot-performance.md)
-- [Använda diagnostiklogg med smarta insikter](sql-database-intelligent-insights-use-diagnostics-log.md)
-- [Övervaka minnesintern OLTP-utrymme](sql-database-in-memory-oltp-monitoring.md)
+- [Manuell justering](sql-database-performance-guidance.md)
+- [Använd DMV: er för att övervaka prestanda](sql-database-monitoring-with-dmvs.md)
+- [Använd Query Store för att övervaka prestanda](sql-database-operate-query-store.md)
+- [Felsöka prestanda med Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md)
+- [Använd Intelligent Insights diagnostikloggar](sql-database-intelligent-insights-use-diagnostics-log.md)
+- [Övervaka minnes intern OLTP-rymd](sql-database-in-memory-oltp-monitoring.md)
 
 ### <a name="extended-events"></a>Utökade händelser
 
 - [Utökade händelser](sql-database-xevent-db-diff-from-svr.md)
-- [Store utökade händelser till event-fil](sql-database-xevent-code-event-file.md)
-- [Store utökade händelser i ringbufferten](sql-database-xevent-code-ring-buffer.md)
+- [Lagra utökade händelser i händelse filen](sql-database-xevent-code-event-file.md)
+- [Lagra utökade händelser i ringbufferten](sql-database-xevent-code-ring-buffer.md)
 
 ## <a name="configure-features"></a>Konfigurera funktioner
 
 - [Konfigurera Azure AD-autentisering](sql-database-aad-authentication-configure.md)
 - [Konfigurera villkorlig åtkomst](sql-database-conditional-access.md)
-- [Multifaktorautentisering för AAD](sql-database-ssms-mfa-authentication.md)
-- [Konfigurera multifaktorautentisering](sql-database-ssms-mfa-authentication-configure.md)
-- [Konfigurera temporala bevarandeprincip](sql-database-temporal-tables-retention-policy.md)
-- [Konfigurera transparent Datakryptering med BYOK](transparent-data-encryption-byok-azure-sql-configure.md)
-- [Rotera TDE BYOK nycklar](transparent-data-encryption-byok-azure-sql-key-rotation.md)
+- [AAD-autentisering med flera faktorer](sql-database-ssms-mfa-authentication.md)
+- [Konfigurera Multi-factor auth](sql-database-ssms-mfa-authentication-configure.md)
+- [Konfigurera princip för temporal bevarande](sql-database-temporal-tables-retention-policy.md)
+- [Konfigurera TDE med BYOK](transparent-data-encryption-byok-azure-sql-configure.md)
+- [Rotera TDE BYOK-nycklar](transparent-data-encryption-byok-azure-sql-key-rotation.md)
 - [Ta bort TDE-skydd](transparent-data-encryption-byok-azure-sql-remove-tde-protector.md)
 - [Konfigurera minnesintern OLTP](sql-database-in-memory-oltp-migration.md)
 - [Konfigurera Azure Automation](sql-database-manage-automation.md)
@@ -71,10 +70,10 @@ I det här avsnittet kan du hitta olika guider, skript och förklaringar som kan
 ## <a name="develop-applications"></a>Utveckla program
 
 - [Anslutning](sql-database-libraries.md)
-- [Använda Spark-Anslutningsappen](sql-database-spark-connector.md)
+- [Använd Spark-anslutning](sql-database-spark-connector.md)
 - [Autentisera app](sql-database-client-id-keys.md)
 - [Felmeddelanden](sql-database-develop-error-messages.md)
-- [Använda batchbearbetning för bättre prestanda](sql-database-use-batching-to-improve-performance.md)
+- [Använd batching för bättre prestanda](sql-database-use-batching-to-improve-performance.md)
 - [Vägledning för anslutning](sql-database-connectivity-issues.md)
 - [DNS-alias](dns-alias-overview.md)
 - [Konfigurera DNS-alias PowerShell](dns-alias-powershell.md)
@@ -88,13 +87,13 @@ I det här avsnittet kan du hitta olika guider, skript och förklaringar som kan
 - [Design för elastiska pooler](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md)
 - [Design för uppgraderingar av appar](sql-database-manage-application-rolling-upgrade.md)
 
-### <a name="design-multi-tenant-saas-applications"></a>Utforma flera innehavare SaaS-program
+### <a name="design-multi-tenant-saas-applications"></a>Designa SaaS-program för flera innehavare
 
-- [Designmönster för SaaS](saas-tenancy-app-design-patterns.md)
-- [SaaS-videoindexerare](saas-tenancy-video-index-wingtip-brk3120-20171011.md)
-- [Säkerhet för SaaS-app](saas-tenancy-elastic-tools-multi-tenant-row-level-security.md)
+- [Design mönster för SaaS](saas-tenancy-app-design-patterns.md)
+- [SaaS video Indexer](saas-tenancy-video-index-wingtip-brk3120-20171011.md)
+- [SaaS App Security](saas-tenancy-elastic-tools-multi-tenant-row-level-security.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om [anvisningar hjälper för hanterade instanser](sql-database-howto-managed-instance.md).
-- Läs mer om [anvisningar hjälper för enskilda databaser](sql-database-howto-single-database.md).
+- Lär dig mer om [instruktions guider för hanterade instanser](sql-database-howto-managed-instance.md).
+- Lär dig mer om [instruktions guider för enskilda databaser](sql-database-howto-single-database.md).

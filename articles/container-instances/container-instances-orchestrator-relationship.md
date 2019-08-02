@@ -10,10 +10,10 @@ ms.date: 04/15/2019
 ms.author: danlep
 ms.custom: mvc
 ms.openlocfilehash: c83648124f616670423b2ef459530c191d7e17e4
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68325766"
 ---
 # <a name="azure-container-instances-and-container-orchestrators"></a>Azure Container Instances-och behållar dirigering
@@ -61,7 +61,7 @@ Om du snabbt vill skala program arbets belastningar i ett [Azure Kubernetes serv
 
 Virtuella noder har för närvarande stöd för Linux container instances. Kom igång med virtuella noder med hjälp av [Azure CLI](https://go.microsoft.com/fwlink/?linkid=2047538) eller [Azure Portal](https://go.microsoft.com/fwlink/?linkid=2047545).
 
-Virtuella noder använder den [virtuella Kubelet][aci-connector-k8s] to mimic the Kubernetes [kubelet][kubelet-doc] med öppen källkod genom att registrera sig som en nod med obegränsad kapacitet. Den virtuella Kubelet skickar skapandet av [poddar][Pod-doc] som behållar grupper i Azure Container instances.
+Virtuella noder använder den [virtuella Kubelet][aci-connector-k8s] med öppen källkod för att efterlikna Kubernetes- [Kubelet][kubelet-doc] genom att registrera sig som en nod med obegränsad kapacitet. Den virtuella Kubelet skickar skapandet av [poddar][pod-doc] som behållar grupper i Azure Container instances.
 
 I det [virtuella Kubelet](https://github.com/virtual-kubelet/virtual-kubelet) -projektet finns ytterligare exempel på hur du utökar Kubernetes-API: et till Server lös behållar plattformar.
 

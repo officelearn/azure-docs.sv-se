@@ -1,6 +1,6 @@
 ---
-title: Konfigurera identifiering av hot – Azure SQL Database managed instance | Microsoft Docs
-description: Hotidentifiering identifierar avvikande databasaktiviteter som indikerar potentiella säkerhetshot mot databasen i en hanterad instans.
+title: Konfigurera hot identifiering – Azure SQL Database Hanterad instans | Microsoft Docs
+description: Hot identifiering identifierar avvikande databas aktiviteter som indikerar potentiella säkerhetshot till databasen i en hanterad instans.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -10,39 +10,38 @@ ms.topic: conceptual
 author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto
-manager: craigg
 ms.date: 02/04/2019
-ms.openlocfilehash: a8e9dfe70e300e6b1d0d50aae60660644f2ab31d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6d1f2a9547f01de91a8e7739d827a91154842d7b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61313909"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567293"
 ---
-# <a name="configure-threat-detection-preview-in-azure-sql-database-managed-instance"></a>Konfigurera hotidentifiering (förhandsversion) i Azure SQL Database-hanterad instans
+# <a name="configure-threat-detection-preview-in-azure-sql-database-managed-instance"></a>Konfigurera hot identifiering (för hands version) i Azure SQL Database Hanterad instans
 
-[Hotidentifiering](sql-database-threat-detection-overview.md) för en [hanterad instans](sql-database-managed-instance-index.yml) identifierar avvikande aktiviteter som visar onormala och potentiellt skadliga försök att komma åt eller utnyttja databaser. Hotidentifiering kan identifiera **potentiell SQL-inmatning**, **åtkomst från ovanlig plats eller data center**, **åtkomst från okänd huvudnamn eller potentiellt skadliga program**, och **Brute force SQL autentiseringsuppgifter** -finns mer information finns i [hot aviseringar för identifiering av](sql-database-threat-detection-overview.md#advanced-threat-protection-alerts).
+[Hot identifiering](sql-database-threat-detection-overview.md) för en [hanterad instans](sql-database-managed-instance-index.yml) identifierar avvikande aktiviteter som visar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja databaser. Hot identifiering kan identifiera **potentiell SQL-inmatning**, **komma åt från ovanliga platser eller data Center**, **komma åt från okända huvud konton eller potentiellt skadliga program och orsaka**SQL-autentiseringsuppgifter i **bruten** läge – se mer information i [aviseringar om hot identifiering](sql-database-threat-detection-overview.md#advanced-threat-protection-alerts).
 
-Du kan ta emot aviseringar om de identifierade hoten via [e-postmeddelanden](sql-database-threat-detection-overview.md#explore-anomalous-database-activities-upon-detection-of-a-suspicious-event) eller [Azure-portalen](sql-database-threat-detection-overview.md#explore-advanced-threat-protection-alerts-for-your-database-in-the-azure-portal)
+Du kan få meddelanden om identifierade hot via [e-postmeddelanden](sql-database-threat-detection-overview.md#explore-anomalous-database-activities-upon-detection-of-a-suspicious-event) eller [Azure Portal](sql-database-threat-detection-overview.md#explore-advanced-threat-protection-alerts-for-your-database-in-the-azure-portal)
 
-[Hotidentifiering](sql-database-threat-detection-overview.md) är en del av den [avancerade datasäkerhet](sql-database-advanced-data-security.md) (ADS) erbjudande som en enhetlig paket för avancerade funktioner för SQL-säkerhet. Hotidentifiering kan nås och hanteras via den centrala SQL ADS-portalen. Threat detection-tjänsten debiteras 15$ / månad per hanterade instansen med de första 30 dagarna kostnadsfritt.
+[Hot identifiering](sql-database-threat-detection-overview.md) är en del av erbjudandet för [Avancerad data säkerhet](sql-database-advanced-data-security.md) (Ads), som är ett enhetligt paket för avancerade SQL-säkerhetsfunktioner. Hot identifiering kan nås och hanteras via den centrala SQL ADS-portalen. Hot identifierings tjänsten debiteras 15 $/månad per hanterad instans, med de första 30 dagarna utan kostnad.
 
-## <a name="set-up-threat-detection-for-your-managed-instance-in-the-azure-portal"></a>Konfigurera identifiering av hot för din hanterade instans i Azure portal
+## <a name="set-up-threat-detection-for-your-managed-instance-in-the-azure-portal"></a>Konfigurera hot identifiering för din hanterade instans i Azure Portal
 
-1. Starta Azure-portalen på [ https://portal.azure.com ](https://portal.azure.com).
-2. Gå till konfigurationssidan för den hanterade instansen som du vill skydda. I den **inställningar** väljer **Hotidentifiering**.
-3. Konfigurationssida för identifiering av hot
-   - Aktivera **på** Hotidentifiering.
-   - Konfigurera den **lista över e-postmeddelanden** att få säkerhetsaviseringar när avvikande databasaktiviteter.
-   - Välj den **Azure storage-konto** där avvikande threat granskningsposter sparas.
-4. Klicka på **spara** att spara principen för nya eller uppdaterade hot.
+1. Starta Azure Portal på [https://portal.azure.com](https://portal.azure.com).
+2. Gå till konfigurations sidan för den hanterade instans som du vill skydda. På sidan **Inställningar** väljer du **hot identifiering**.
+3. På sidan konfiguration av hot identifiering
+   - Aktivera **hot** identifiering.
+   - Konfigurera **listan med e-postmeddelanden** som ska ta emot säkerhets aviseringar vid identifiering av avvikande databas aktiviteter.
+   - Välj det **Azure Storage-konto** där avvikande hot gransknings poster sparas.
+4. Klicka på **Spara** för att spara den nya eller uppdaterade principen för hot identifiering.
 
-   ![Identifiering av hot](./media/sql-database-managed-instance-threat-detection/threat-detection.png)
+   ![Hot identifiering](./media/sql-database-managed-instance-threat-detection/threat-detection.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om [hotidentifiering](sql-database-threat-detection-overview.md).
-- Lär dig mer om hanterade instanser, se [vad är en hanterad instans](sql-database-managed-instance.md).
-- Läs mer om [hotidentifiering för enkel databas](sql-database-threat-detection.md).
-- Läs mer om [hanterad instans granskning](https://go.microsoft.com/fwlink/?linkid=869430).
-- Läs mer om [Azure security center](https://docs.microsoft.com/azure/security-center/security-center-intro).
+- Läs mer om [hot identifiering](sql-database-threat-detection-overview.md).
+- Lär dig mer om hanterade instanser, se [Vad är en hanterad instans](sql-database-managed-instance.md).
+- Läs mer om [hot identifiering för en enskild databas](sql-database-threat-detection.md).
+- Läs mer om [granskning av hanterade instanser](https://go.microsoft.com/fwlink/?linkid=869430).
+- Läs mer om [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro).

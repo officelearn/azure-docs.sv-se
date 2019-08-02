@@ -1,18 +1,19 @@
 ---
 title: Säkerhetskopiera SQL Server arbets belastningar på Azure Stack
 description: Använd Azure Backup Server för att skydda SQL Server arbets belastning på Azure Stack.
-author: adigan
-manager: shivamg
+ms.reviewer: adigan
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 6/8/2018
-ms.author: adigan
-ms.openlocfilehash: 11d03a9c5cc81b915f48bc66f5a0e5ab034662ed
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 3b116e25635873429dd164288c2764fd76c8f7a7
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465158"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689004"
 ---
 # <a name="back-up-sql-server-on-stack"></a>Säkerhetskopiera SQL Server på stacken
 Använd den här artikeln för att konfigurera Microsoft Azure Backup Server (MABS) för att skydda SQL Server databaser på Azure Stack.
@@ -129,7 +130,7 @@ Medan föregående steg skapade en säkerhets kopierings policy skapas en "åter
 ## <a name="recover-a-sql-server-database-from-azure"></a>Återställa en SQL Server databas från Azure
 Följande steg krävs för att återställa en skyddad entitet (SQL Server databas) från Azure.
 
-1. Öppna konsolen för Azure Backup Server hantering. Gå till  återställnings arbets ytan där du kan se de skyddade servrarna. Bläddra igenom den nödvändiga databasen (i det här fallet ReportServer $ MSDPM2012). Välj en **återställning från** tid som har angetts som en **online** -punkt.
+1. Öppna konsolen för Azure Backup Server hantering. Gå till återställnings arbets ytan där du kan se de skyddade servrarna. Bläddra igenom den nödvändiga databasen (i det här fallet ReportServer $ MSDPM2012). Välj en **återställning från** tid som har angetts som en **online** -punkt.
 
     ![Välj återställnings punkt](./media/backup-azure-backup-sql/sqlbackup-restorepoint.png)
 2. Högerklicka på databas namnet och klicka på **Återställ**.

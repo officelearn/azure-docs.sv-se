@@ -1,5 +1,5 @@
 ---
-title: Guide om hur du installerar och distribuerar Linux C-agenten i Azure Security Center för IoT-agenten förhandsversionen | Microsoft Docs
+title: Guide för att installera och distribuera Linux C-agenten för Azure Security Center för IoT-agent | Microsoft Docs
 description: Lär dig hur du installerar Azure Security Center för IoT-agenten på både 32-bitars och 64-bitars Linux.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -13,22 +13,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/28/2019
+ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 7f5b98060486e6c55bb1702386cd5438f558254b
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 3fd4287c6dd1cc42f419cfa6b252c1d276d1d5a5
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67616852"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68597235"
 ---
-# <a name="deploy-azure-security-center-for-iot-c-based-security-agent-for-linux"></a>Distribuera Azure Security Center för IoT-C-baserade security-agenten för Linux
+# <a name="deploy-azure-security-center-for-iot-c-based-security-agent-for-linux"></a>Distribuera Azure Security Center för IoT C-baserad säkerhets agent för Linux
 
-> [!IMPORTANT]
-> Azure Security Center för IoT är för närvarande i offentlig förhandsversion.
-> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Den här guiden beskriver hur du installerar och distribuerar Azure Security Center (ASC) för IoT-C-baserade säkerhetsagenten på Linux.
+Den här guiden beskriver hur du installerar och distribuerar Azure Security Center för IoT C-baserad säkerhets agent på Linux.
 
 I den här guiden får du lära du dig att: 
 > [!div class="checklist"]
@@ -39,64 +35,64 @@ I den här guiden får du lära du dig att:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Andra plattformar och agenten varianter finns i [väljer rätt säkerhetsagenten](how-to-deploy-agent.md).
+För andra plattformar och agent-varianter, se [Välj rätt säkerhets agent](how-to-deploy-agent.md).
 
-1. Om du vill distribuera säkerhetsagenten krävs lokala administratörsrättigheter på den dator som du vill installera på (sudo).
+1. Om du vill distribuera säkerhets agenten krävs lokala administratörs rättigheter på den dator som du vill installera på (sudo).
 
-1. [Skapa en modul för maskinvarusäkerhet](quickstart-create-security-twin.md) för enheten.
+1. [Skapa en säkerhetsmodul](quickstart-create-security-twin.md) för enheten.
 
 ## <a name="installation"></a>Installation 
 
-Om du vill installera och distribuera säkerhetsagenten, gör du följande:
+Använd följande arbets flöde om du vill installera och distribuera säkerhets agenten:
 
 
-1. Ladda ned den senaste versionen på din dator från [Github](https://aka.ms/iot-security-github-c).
+1. Hämta den senaste versionen till datorn från [GitHub](https://aka.ms/iot-security-github-c).
 
-1. Extrahera innehållet i paketet och navigera till den _/Install_ mapp.
+1. Extrahera innehållet i paketet och navigera till mappen _/install_ .
 
-1. Lägg till som körs behörigheter till den **InstallSecurityAgent skriptet** genom att köra följande:
+1. Lägg till behörigheter som körs i **InstallSecurityAgent-skriptet** genom att köra följande kommando:
     
    ```
    chmod +x InstallSecurityAgent.sh
    ```
 
-1. Kör: 
+1. Kör sedan: 
 
    ```
    ./InstallSecurityAgent.sh -aui <authentication identity> -aum <authentication method> -f <file path> -hn <host name> -di <device id> -i
    ```
    
-   Se [hur du konfigurerar autentisering](concept-security-agent-authentication-methods.md) för mer information om autentiseringsparametrar.
+   Mer information om autentiseringsmetoder finns i [Konfigurera autentisering](concept-security-agent-authentication-methods.md) .
 
-Skriptet gör följande:
+Det här skriptet utför följande funktion:
 
 1. Installerar nödvändiga komponenter.
 
-2. Lägger till en Serviceanvändare (med interaktiv inloggning inaktiverad).
+2. Lägger till en tjänst användare (med interaktiv inloggning inaktive rad).
 
-3. Installerar agent som en **Daemon** -förutsätter att enheten använder **systemd** för tjänsthantering.
+3. Installerar agenten som en **daemon** – förutsätter att enheten använder **system** för tjänst hantering.
 
-4. Agenten konfigureras med de tillhandahållna parametrarna för autentisering. 
+4. Konfigurerar agenten med de autentiseringsmetoder som anges. 
 
-Kör skript för ytterligare hjälp med parametern – hjälp: 
+Om du behöver ytterligare hjälp kör du skriptet med parametern – Help: 
     
     ./InstallSecurityAgent.sh --help
 
 ### <a name="uninstall-the-agent"></a>Avinstallera agenten
 
-Avinstallera agenten genom att köra skriptet med –-avinstallera parameter:
+Avinstallera agenten genom att köra skriptet med parametern –-Uninstall:
 
     ./InstallSecurityAgent.sh -–uninstall
 
 ## <a name="troubleshooting"></a>Felsökning
-Kontrollera distributionens status genom att köra:
+Kontrol lera distributions statusen genom att köra:
 
     systemctl status ASCIoTAgent.service
 
 
 ## <a name="next-steps"></a>Nästa steg
-- Läsa ASC för IoT-tjänsten [översikt](overview.md)
-- Läs mer om ASC för IoT [arkitektur](architecture.md)
-- Aktivera den [service](quickstart-onboard-iot-hub.md)
-- Läs den [vanliga frågor och svar](resources-frequently-asked-questions.md)
-- Förstå [säkerhetsaviseringar](concept-security-alerts.md)
+- Läs [översikten över](overview.md) Azure Security Center för IoT-tjänsten
+- Läs mer om Azure Security Center för IoT- [arkitektur](architecture.md)
+- Aktivera [tjänsten](quickstart-onboard-iot-hub.md)
+- Läs [vanliga frågor och svar](resources-frequently-asked-questions.md)
+- Förstå [säkerhets aviseringar](concept-security-alerts.md)

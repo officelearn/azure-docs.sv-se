@@ -1,9 +1,9 @@
 ---
-title: Lägg till en nodtyp i ett Azure Service Fabric-kluster | Microsoft Docs
-description: Lär dig mer om att skala ut ett Service Fabric-kluster genom att lägga till en Virtual Machine Scale Sets.
+title: Lägga till en nodtyp i ett Azure Service Fabric-kluster | Microsoft Docs
+description: Lär dig hur du skalar ut ett Service Fabric kluster genom att lägga till en skalnings uppsättning för virtuella datorer.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: 5441e7e0-d842-4398-b060-8c9d34b07c48
@@ -13,21 +13,21 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/13/2019
-ms.author: aljo
-ms.openlocfilehash: ed5bf829e2fbff6c286acdb21a8d0158148483d9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: atsenthi
+ms.openlocfilehash: 1414e656a358af1e258c823cc7ec747fefa986ba
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60506730"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598685"
 ---
-# <a name="scale-a-service-fabric-cluster-out-by-adding-a-virtual-machine-scale-set"></a>Skala ut ett Service Fabric-kluster genom att lägga till en VM-skalningsuppsättning
-Den här artikeln beskriver hur du skalar en Azure Service Fabric-kluster genom att lägga till en ny nodtyp i ett befintligt kluster. Service Fabric-kluster är en nätverksansluten uppsättning virtuella eller fysiska datorer som dina mikrotjänster distribueras och hanteras. En dator eller virtuell dator som ingår i ett kluster kallas för en nod. Virtual machine scale sets är en Azure-beräkningsresurs som används för att distribuera och hantera en uppsättning virtuella datorer som en uppsättning. Varje nodtyp som definieras i ett Azure-kluster är [ställa in som en separat skalningsuppsättning](service-fabric-cluster-nodetypes.md). Varje nodtyp kan sedan hanteras separat. När du har skapat ett Service Fabric-kluster, kan du skala ett kluster horisontellt genom att lägga till en ny nodtyp (virtual machine scale Sets) i ett befintligt kluster.  Du kan skala klustret när som helst, även när arbetsbelastningar sedan körs på klustret.  När klustret skalas skalas programmen automatiskt samt.
+# <a name="scale-a-service-fabric-cluster-out-by-adding-a-virtual-machine-scale-set"></a>Skala ett Service Fabric kluster genom att lägga till en skalnings uppsättning för virtuella datorer
+Den här artikeln beskriver hur du skalar ett Azure Service Fabric-kluster genom att lägga till en ny nodtyp i ett befintligt kluster. Ett Service Fabric kluster är en nätverksansluten uppsättning virtuella eller fysiska datorer som dina mikrotjänster distribueras och hanteras i. En dator eller en virtuell dator som ingår i ett kluster kallas för en nod. Skalnings uppsättningar för virtuella datorer är en Azure Compute-resurs som du använder för att distribuera och hantera en samling virtuella datorer som en uppsättning. Varje nodtyp som definieras i ett Azure-kluster har [kon figurer ATS som en separat skalnings uppsättning](service-fabric-cluster-nodetypes.md). Varje nodtyp kan sedan hanteras separat. När du har skapat ett Service Fabric-kluster kan du skala ett kluster vågrätt genom att lägga till en ny nodtyp (skalnings uppsättning för virtuell dator) i ett befintligt kluster.  Du kan skala klustret när som helst, även när arbets belastningar körs på klustret.  När klustret skalas, skalas programmen automatiskt.
 
-## <a name="add-an-additional-scale-set-to-an-existing-cluster"></a>Lägg till en ytterligare skalningsuppsättning i ett befintligt kluster
-Att lägga till en ny nodtyp (som backas upp av en VM-skalningsuppsättning) i ett befintligt kluster liknar [uppgradering av den primära nodtypen](service-fabric-scale-up-node-type.md), men du inte använder samma NodeTypeRef; naturligtvis kommer inte att inaktivera alla används aktivt VM-skalningsuppsättningar, och du förlorar klustret om du inte uppdaterar den primära nodtypen. 
+## <a name="add-an-additional-scale-set-to-an-existing-cluster"></a>Lägg till ytterligare en skalnings uppsättning i ett befintligt kluster
+Att lägga till en ny nodtyp (som backas upp av en skalnings uppsättning för virtuella datorer) till ett befintligt kluster liknar [uppgradering av den primära nodtypen](service-fabric-scale-up-node-type.md), förutom att du inte använder samma NodeTypeRef. Det går inte att inaktivera några aktivt använda skalnings uppsättningar för virtuella datorer och du förlorar inte kluster tillgänglighet om du inte uppdaterar den primära nodtypen. 
 
-NodeTypeRef egenskap har deklarerats i den virtuella datorn tilläggsegenskaper för Service Fabric-skalningsuppsättning:
+NodeTypeRef-egenskapen har deklarerats i skalnings uppsättningen för den virtuella datorn Service Fabric tilläggs egenskaper:
 ```json
 <snip>
 "publisher": "Microsoft.Azure.ServiceFabric",
@@ -39,7 +39,7 @@ NodeTypeRef egenskap har deklarerats i den virtuella datorn tilläggsegenskaper 
 <snip>
 ```
 
-Dessutom behöver du lägga till den här nya nodtyp till Service Fabric-kluster-resursen:
+Dessutom måste du lägga till den nya nodtypen till Service Fabric kluster resurs:
 
 ```json
 <snip>
@@ -64,9 +64,9 @@ Dessutom behöver du lägga till den här nya nodtyp till Service Fabric-kluster
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-* Lär dig hur du [skala upp den primära nodtypen](service-fabric-scale-up-node-type.md)
+* Lär dig hur du [skalar upp den primära nodtypen](service-fabric-scale-up-node-type.md)
 * Lär dig mer om [program skalbarhet](service-fabric-concepts-scalability.md).
 * [Skala ett Azure-kluster in eller ut](service-fabric-tutorial-scale-cluster.md).
-* [Skala ett Azure-kluster programmässigt](service-fabric-cluster-programmatic-scaling.md) med fluent Azure compute SDK.
+* [Skala ett Azure-kluster program mässigt](service-fabric-cluster-programmatic-scaling.md) med hjälp av Fluent Azure Compute SDK.
 * [Skala ett fristående kluster in eller ut](service-fabric-cluster-windows-server-add-remove-nodes.md).
 

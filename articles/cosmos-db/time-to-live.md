@@ -4,19 +4,21 @@ description: Med TTL ger Microsoft Azure Cosmos DB möjlighet att automatiskt re
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 07/26/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 7a29e9446a8c3b703c2ec3140711f44f3c81535f
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: c3e1c4f56c641bf5bfa189836a4bcdf99672a3c1
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467592"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68597482"
 ---
 # <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Time to Live (TTL) i Azure Cosmos DB 
 
 Med **Time to Live** eller TTL ger Azure Cosmos DB möjlighet att ta bort objekt automatiskt från en behållare efter en viss tids period. Som standard kan du ange Time to Live på behållar nivån och åsidosätta värdet per objekt-basis. När du har ställt in TTL på en behållare eller på en objekt nivå, tar Azure Cosmos DB automatiskt bort objekten efter tids perioden, sedan den tid de senast ändrades. Time to Live-värdet är konfigurerat på några sekunder. När du konfigurerar TTL tar systemet automatiskt bort de utgångna objekten baserat på TTL-värdet, utan att det krävs någon borttagnings åtgärd som uttryckligen utfärdas av klient programmet.
+
+Borttagning av utgångna objekt är en bakgrunds aktivitet som förbrukar [enheter](request-units.md)med överdrivet utrymme, det vill säga enheter som inte har använts av användar förfrågningar. Förfallo datum kan fördröjas om behållaren är hårt belastad och ingen enhet för begäran har kvar för underhålls aktiviteter.
 
 ## <a name="time-to-live-for-containers-and-items"></a>Tid till Live för behållare och objekt
 

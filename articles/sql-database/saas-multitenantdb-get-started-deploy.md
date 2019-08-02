@@ -1,6 +1,6 @@
 ---
-title: Distribuera en fragmenterade (sharded) databas för flera innehavare SaaS-app som använder Azure SQL Database | Microsoft Docs
-description: Distribuera och utforska shardade Wingtip biljetter SaaS databas för flera innehavare programmet, som visar SaaS-mönstren med hjälp av Azure SQL Database.
+title: Distribuera en shardade SaaS-app med flera innehavare som använder Azure SQL Database | Microsoft Docs
+description: Distribuera och utforska shardade Wingtip ticks-SaaS för flera klient organisationer, som demonstrerar SaaS mönster med hjälp av Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
@@ -10,122 +10,121 @@ ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib, stein
-manager: craigg
 ms.date: 10/16/2018
-ms.openlocfilehash: 350e67f5a1e7e1eab7abe27a6ca851ed2420af84
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2ddb1fe40507da5caa218f73284a1095035df951
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65978531"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68570376"
 ---
-# <a name="deploy-and-explore-a-sharded-multi-tenant-application"></a>Distribuera och utforska ett delat program för flera innehavare
+# <a name="deploy-and-explore-a-sharded-multi-tenant-application"></a>Distribuera och utforska ett shardade-program för flera innehavare
 
-I den här självstudien, distribuera och utforska ett exempel SaaS-program som kallas Wingtip biljetter. Appen Wingtip biljetter är utformad för att demonstrera funktionerna i Azure SQL Database som förenklar implementeringen av SaaS-scenarier.
+I den här självstudien får du distribuera och utforska ett exempel på ett SaaS-program med flera innehavare som heter Wingtip-biljetter. Wingtip biljetter-appen är utformad för att demonstrera funktioner i Azure SQL Database som fören klar implementeringen av SaaS-scenarier.
 
-Den här implementeringen av Wingtip biljetter appen använder ett mönster för fragmenterade (sharded) databas för flera innehavare. Den horisontell partitionering är genom att klient-ID. Klientorganisationens data ska distribueras till en viss databas enligt klient-ID-värden. 
+Den här implementeringen av Wingtip biljetters-appen använder ett shardade databas mönster för flera innehavare. Horisontell partitionering är av klient-ID. Klient data distribueras till en viss databas enligt klient-ID-värdena. 
 
-Det här mönstret för databasen kan du lagra en eller flera innehavare i varje shard eller databasen. Du kan optimera för lägsta kostnad genom att konfigurera varje databas som delas av flera klienter. Eller du kan optimera för isolering genom att konfigurera varje databas som lagrar bara en klient. Valfri optimering kan göras separat för varje specifik klient. Ditt val kan göras när klienten först lagras, eller när du ändrar dig senare. Programmet är utformade att fungera bra i båda fallen.
+Med det här databas mönstret kan du lagra en eller flera klienter i varje Shard eller databas. Du kan optimera för lägsta kostnad genom att varje databas delas av flera klienter. Eller så kan du optimera för isolering genom att bara låta varje databas lagra en klient. Optimerings valet kan göras oberoende för varje enskild klient. Du kan välja att göra det när klienten är lagrad första gången eller ändra dig senare. Programmet är utformat för att fungera på ett bra sätt.
 
 ## <a name="app-deploys-quickly"></a>Appen distribueras snabbt
 
-Appen körs i Azure-molnet och använder Azure SQL Database. I följande distribution avsnitt ger det blå fältet **distribuera till Azure** knappen. När knappen trycks distribueras helt appen till din Azure-prenumeration inom fem minuter. Du har fullständig åtkomst till arbete med de olika programkomponenterna.
+Appen körs i Azure-molnet och använder Azure SQL Database. Avsnittet distribution som följer innehåller knappen blå **distribution till Azure** . När knappen trycks ned, distribueras appen fullständigt till din Azure-prenumeration inom fem minuter. Du har fullständig åtkomst för att arbeta med de enskilda program komponenterna.
 
-Programmet har distribuerats med data för tre exempelklienter. Klienterna lagras tillsammans i en databas för flera innehavare.
+Programmet distribueras med data för tre exempel klienter. Klienterna lagras tillsammans i en databas med flera innehavare.
 
-Vem som helst kan ladda ned källkoden C# och PowerShell för Wingtip-biljetter från [dess GitHub-lagringsplatsen][link-github-wingtip-multitenantdb-55g].
+Vem som helst kan C# Ladda ned och PowerShell-källkoden för Wingtip-biljetter från [sin GitHub-lagringsplats][link-github-wingtip-multitenantdb-55g].
 
 ## <a name="learn-in-this-tutorial"></a>Lär dig i den här självstudien
 
 > [!div class="checklist"]
-> - Hur du distribuerar Wingtip biljetter SaaS-program.
-> - Var du kan hämta programmets källkod och skript.
-> - Om servrar och databaser som ingår i appen.
-> - Hur klienter mappas till sina data med den *catalog*.
-> - Hur du etablerar en ny klient.
-> - Så här att övervaka klientaktivitet i appen.
+> - Så här distribuerar du Wingtip Ticket SaaS-program.
+> - Var du får program käll koden och hanterings skript.
+> - Om de servrar och databaser som utgör appen.
+> - Hur klienter mappas till sina data med *katalogen*.
+> - Så här etablerar du en ny klient.
+> - Övervaka klient aktivitet i appen.
 
-Det finns en uppsättning relaterade guider som bygger på den här inledande distributionen. Självstudierna utforska ett intervall av SaaS-design och -hanteringsmönster. När du har gått igenom självstudierna uppmanas du att gå igenom de skript som tillhandahålls för att se hur de olika SaaS-mönstren implementeras.
+Det finns en serie relaterade självstudier som bygger på den här första distributionen. Självstudierna utforskar en rad SaaS design-och hanterings mönster. När du arbetar med självstudierna rekommenderar vi att du stega igenom de tillhandahållna skripten för att se hur de olika SaaS-mönstren implementeras.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Följande krav måste uppfyllas för att kunna köra den här självstudiekursen:
 
-- Den senaste Azure PowerShell har installerats. Mer information finns i [komma igång med Azure PowerShell][link-azure-get-started-powershell-41q].
+- Den senaste Azure PowerShell är installerad. Mer information finns i [komma igång med Azure PowerShell][link-azure-get-started-powershell-41q].
 
-## <a name="deploy-the-wingtip-tickets-app"></a>Distribuera Wingtip biljetter app
+## <a name="deploy-the-wingtip-tickets-app"></a>Distribuera Wingtip Ticket-appen
 
 ### <a name="plan-the-names"></a>Planera namnen
 
-I stegen i det här avsnittet anger du en *användaren* värde som används för att säkerställa att resursnamn är globalt unikt och ett namn för den *resursgrupp* som innehåller alla resurser som skapades i en distribution appens. För en person med namnet *Ann Finley*, föreslår vi att:
-- *Användare:* **af1** *(initialer plus en siffra. Använd ett annat värde (t.ex. af2) om du distribuerar appen en gång.)*
-- *Resursgrupp:* **wingtip-mt-af1** *(wingtip-mt innebär att det är shardad app för flera klienter. Lägga till användaren namnet af1 korrelerar resursgruppens namn med namnen på de resurser som den innehåller.)*
+I stegen i det här avsnittet anger du ett *användar* värde som används för att säkerställa att resurs namn är globalt unika och ett namn för *resurs gruppen* som innehåller alla resurser som har skapats av en distribution av appen. För en person med namnet *Ann Finley*föreslår vi:
+- *Användare:* **AF1** *(Deras initialer, plus en siffra.   Använd ett annat värde (t. ex. af2) om du distribuerar appen en andra gång.)*
+- *Resurs grupp:* **Wingtip-MT-AF1** *(Wingtip-MT indikerar att det här är shardade-appen för flera innehavare. När du lägger till användar namnet AF1 korreleras resurs gruppens namn med namnen på de resurser som det innehåller.)*
 
-Välj ditt namn nu och Skriv ned dem. 
+Välj dina namn nu och skriv ned dem. 
 
 ### <a name="steps"></a>Steg
 
-1. Klicka på följande blå **distribuera till Azure** knappen.
-   - Azure-portalen öppnas med Wingtip biljetter SaaS-Distributionsmall.
+1. Klicka på knappen följande blå **distribution till Azure** .
+   - Den öppnar Azure Portal med distributions mal len Wingtip biljetter SaaS.
 
-     [![Knappen för att distribuera till Azure.][image-deploy-to-azure-blue-48d]][link-aka-ms-deploywtp-mtapp-52k]
+     [![Knapp för att distribuera till Azure.][image-deploy-to-azure-blue-48d]][link-aka-ms-deploywtp-mtapp-52k]
 
-1. Ange nödvändiga parametervärden för distributionen.
+1. Ange de parameter värden som krävs för distributionen.
 
     > [!IMPORTANT]
-    > För den här demonstrationen, Använd inte några befintliga resursgrupper, servrar eller pooler. I stället välja **skapa en ny resursgrupp**. Ta bort den här resursgruppen när du är klar med att programmet för att stoppa relaterad fakturering.
-    > Använd inte det här programmet eller resurser som det skapar för produktion. Vissa aspekter av autentisering och serverbrandväggsinställningarna är inte avsiktligt säkra i appen för att underlätta demonstrationen av.
+    > I den här demonstrationen ska du inte använda några befintliga resurs grupper, servrar eller pooler. Välj i stället **skapa en ny resurs grupp**. Ta bort den här resursgruppen när du är klar med att programmet för att stoppa relaterad fakturering.
+    > Använd inte det här programmet eller några resurser som skapas för produktion. Vissa aspekter av autentiseringen och inställningarna för Server brand väggen är avsiktligt oskyddade i appen för att under lätta demonstrationen.
 
-    - För **resursgrupp** – Välj **Skapa nytt**, och ange sedan en **namn** för resursgruppen (skiftlägeskänsligt).
-        - Välj en **plats** från den nedrullningsbara listan.
-    - För **användaren** -vi rekommenderar att du väljer en kort **användaren** värde.
+    - För **resurs grupp** – Välj **Skapa ny**och ange ett **namn** för resurs gruppen (Skift läges känsligt).
+        - Välj en **plats** i list rutan.
+    - För **användare** – vi rekommenderar att du väljer ett kort **användar** värde.
 
 1. **Distribuera programmet**.
 
-    - Klicka för att godkänna de allmänna villkoren.
+    - Klicka om du vill godkänna de allmänna villkoren.
     - Klicka på **Köp**.
 
-1. Övervaka Distributionsstatus genom att klicka på **meddelanden**, vilket är klockikonen till höger om sökrutan. Distribuera Wingtip appen tar cirka fem minuter.
+1. Övervaka distributions status genom att klicka på **meddelanden**, som är klock ikonen till höger om sökrutan. Distribution av Wingtip-appen tar cirka fem minuter.
 
    ![distributionen lyckades](media/saas-multitenantdb-get-started-deploy/succeeded.png)
 
-## <a name="download-and-unblock-the-management-scripts"></a>Ladda ned och avblockera-hanteringsskript
+## <a name="download-and-unblock-the-management-scripts"></a>Ladda ned och avblockera hanterings skript
 
-Ladda ned programmet källa kod- och skripten medan programmet distribueras.
+När programmet distribueras laddar du ned program käll koden och hanterings skripten.
 
 > [!NOTE]
-> Körbart innehåll (skript, DLL-filer) kan blockeras av Windows när zip-filer laddas ned från en extern källa och extraheras. Vid extrahering av skripten från en zip-fil, Använd följande steg för att avblockera .zip-filen innan du extrahera. Genom att avblockera .zip-filen, garanteras du skripten ska tillåtas att köras.
+> Körbart innehåll (skript, DLL-filer) kan blockeras av Windows när zip-filer laddas ned från en extern källa och extraheras. När du extraherar skripten från en zip-fil kan du använda följande steg för att avblockera zip-filen innan du extraherar. Genom att avblockera. zip-filen ser du till att skripten tillåts köra.
 
-1. Bläddra till [WingtipTicketsSaaS MultiTenantDb GitHub-lagringsplatsen](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb).
-2. Klicka på **klona eller ladda ned**.
-3. Klicka på **ladda ned ZIP** och spara filen.
-4. Högerklicka på den **WingtipTicketsSaaS-MultiTenantDb-master.zip** och väljer **egenskaper**.
-5. På den **Allmänt** fliken **avblockera**, och klicka på **tillämpa**.
+1. Bläddra till [WingtipTicketsSaaS-MultiTenantDb GitHub-lagrings platsen](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb).
+2. Klicka på **klona eller hämta**.
+3. Klicka på **Hämta zip** och spara filen.
+4. Högerklicka på filen **WingtipTicketsSaaS-MultiTenantDb-Master. zip** och välj **Egenskaper**.
+5. På fliken **Allmänt** väljer du **avblockera**och klickar på **Använd**.
 6. Klicka på **OK**.
 7. Extrahera filerna.
 
-Skript finns i den *... \\WingtipTicketsSaaS-MultiTenantDb-master\\inlärningsmoduler\\*  mapp.
+Skripten finns i *... WingtipTicketsSaaS – MultiTenantDb-Master\\Learning\\ moduless-mappen. \\*
 
-## <a name="update-the-configuration-file-for-this-deployment"></a>Uppdatera konfigurationsfilen för den här distributionen
+## <a name="update-the-configuration-file-for-this-deployment"></a>Uppdatera konfigurations filen för den här distributionen
 
-Innan du kör alla skript måste ange den *resursgrupp* och *användaren* värdena i **UserConfig.psm1**. Ange variablerna till samma värden som du angav under distributionen.
+Ange *resurs grupp* och *användar* värden i **userconfig. psm1**innan du kör skript. Ange dessa variabler till samma värden som du angav under distributionen.
 
-1. Öppna... \\Inlärningsmoduler\\*UserConfig.psm1* i den *PowerShell ISE*.
-2. Uppdatera *ResourceGroupName* och *namn* med specifika värden för din distribution (på raderna 10 och 11 endast).
+1. Öppna... Learning-\\moduler*userconfig. psm1* i *PowerShell ISE.* \\
+2. Uppdatera *ResourceGroupName* och *namn* med de angivna värdena för din distribution (endast på raderna 10 och 11).
 3. Spara ändringarna.
 
-De värden som anges i den här filen som används av alla skript, så det är viktigt att de stämmer. Om du distribuerar om appen måste du välja olika värden för användar- och resursgrupp. Uppdatera filen UserConfig.psm1 sedan, igen med de nya värdena.
+Värdena som anges i den här filen används av alla skript, så det är viktigt att de är korrekta. Om du distribuerar om appen måste du välja olika värden för användar-och resurs grupp. Uppdatera sedan filen UserConfig. psm1 igen med de nya värdena.
 
 ## <a name="run-the-application"></a>Köra programmet
 
-Klienterna finns i appen Wingtip platser. En plats kan vara konserthall, en sport club eller någon annan plats som är värd för händelser. Platser registrera i Wingtip som kunder och ett klient-ID genereras för varje plats. Varje plats visas dess kommande händelser i Wingtip, så offentligt kan köpa biljetter på händelser.
+I Wingtip-appen är klienterna platser. En plats kan vara konsert Hall, en idrotts klubb eller annan plats som är värd för händelser. Platserna registreras i Wingtip som kunder och ett klient-ID genereras för varje plats. Varje plats visar sina kommande händelser i Wingtip, så att allmänheten kan köpa biljetter till händelserna.
 
-Varje plats får en personaliserad webbapp sina evenemang och sälja biljetter. Varje webbapp är oberoende och isolerat från andra klienter. Internt i Azure SQL Database, var och en data för varje klient lagras i en fragmenterade (sharded) databas för flera innehavare som standard. Alla data taggas med klient-ID.
+Varje plats får en anpassad webbapp som visar sina händelser och säljer biljetter. Varje webbapp är oberoende och isolerad från andra klienter. Internt i Azure SQL Database lagras varje data för varje klient i en shardade-databas som standard. Alla data är taggade med klient-ID: n.
 
-En central **Evenemangshubben** webbsidan innehåller en lista med länkar till klienter i din viss distribution. Använd följande steg för att uppleva de **Evenemangshubben** webbsidan och en enskild webbapp:
+En webb sida för central **evenemangs hubb** innehåller en lista över länkar till klienterna i din specifika distribution. Använd följande steg för att uppleva webb sidan för **Events Hub** och en enskild webbapp:
 
-1. Öppna den **Evenemangshubben** i webbläsaren:
-   - http://events.wingtip-mt.&lt ; användare&gt;. trafficmanager.net &nbsp; *(Ersätt &lt; användaren&gt; med värdet för användarnamn för din distribution.)*
+1. Öppna Events- **hubben** i webbläsaren:
+   - http://events.wingtip-mt.&lt ; User&gt;. trafficmanager.net &nbsp; *(Ersätt &lt; användare&gt; med distributionens användar värde.)*
 
      ![evenemangshubben](media/saas-multitenantdb-get-started-deploy/events-hub.png)
 
@@ -135,122 +134,122 @@ En central **Evenemangshubben** webbsidan innehåller en lista med länkar till 
 
 ### <a name="azure-traffic-manager"></a>Azure Traffic Manager
 
-Om du vill styra distributionen av inkommande begäranden, Wingtip-appen använder [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). Sidan händelser för varje klient innehåller klientnamnet i URL: en. Varje URL innehåller också ditt specifika användare-värde. Varje URL följs formatet visas med hjälp av följande steg:
+Wingtip-appen använder [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md)för att kontrol lera distributionen av inkommande begär Anden. Sidan händelser för varje klient innehåller klient namnet i URL: en. Varje URL innehåller också ditt speciella användar värde. Varje URL lyder under det visade formatet med hjälp av följande steg:
 
 - http://events.wingtip-mt.&lt ;user&gt;.trafficmanager.net/*fabrikamjazzclub*
 
-1. Evenemangsappen Parsar klientnamnet från URL: en. Innehavarens namn är *fabrikamjazzclub* i föregående exempel-URL.
-2. Appen sedan hashar klientnamnet för att skapa en nyckel för att komma åt en katalog med hjälp av [fragmentkarthantering](sql-database-elastic-scale-shard-map-management.md).
-3. Appen söker efter nyckeln i katalogen och erhåller motsvarande platsen för klientens databas.
-4. Appen använder informationen som platsen för att hitta och tillgång till en databas som innehåller alla data för klientorganisationen.
+1. I appen händelser parsas klient namnet från URL: en. Klient namnet är *fabrikamjazzclub* i föregående exempel-URL.
+2. Appen hashar sedan klient namnet för att skapa en nyckel för att få åtkomst till en katalog med hjälp av [Shard Map Management](sql-database-elastic-scale-shard-map-management.md).
+3. Appen hittar nyckeln i katalogen och hämtar motsvarande plats för klientens databas.
+4. Appen använder plats informationen för att hitta och komma åt den databas som innehåller alla data för klienten.
 
 ### <a name="events-hub"></a>Events Hub
 
-1. Den **Evenemangshubben** visar en lista över alla klienter som är registrerade i katalogen och deras platser.
-2. Den **Evenemangshubben** använder utökade metadata i katalogen för att hämta det klientnamn som är associerade med varje avbildning att konstruera URL: er.
+1. Events- **hubben** visar en lista över alla klienter som är registrerade i katalogen och deras platser.
+2. **Events Hub** använder utökade metadata i katalogen för att hämta klient organisationens namn som är associerat med varje mappning för att skapa URL: erna.
 
-I en produktionsmiljö kan du vanligtvis skapa en CNAME DNS-post till [peka företagets Internetdomän](../traffic-manager/traffic-manager-point-internet-domain.md) till traffic manager-profil.
+I en produktions miljö skapar du vanligt vis en CNAME DNS-post för att [peka företagets Internet domän](../traffic-manager/traffic-manager-point-internet-domain.md) mot Traffic Manager-profilen.
 
 ## <a name="start-generating-load-on-the-tenant-databases"></a>Börja generera belastningar på klient-databaserna
 
-Nu när appen har distribuerats kan vi få det att fungera! Den *Demo-LoadGenerator* PowerShell-skriptet startar en arbetsbelastning som körs för varje klient. Den verkliga belastningen på många SaaS-appar är vanligtvis sporadisk och oförutsägbar. Om du vill simulera den här typen av belastningen producerar generatorn en belastning som distribueras över alla klienter. Belastningen innehåller slumpmässig belastning på varje klient som sker med slumpmässiga intervall. Det tar flera minuter för mönster för belastningsutjämning till dyker upp så att det är bäst att låta generatorn köra i minst tre eller fyra minuter innan du övervakar belastningen.
+Nu när appen har distribuerats kan vi placera den i arbetet! PowerShell *-skriptet demo-LoadGenerator* startar en arbets belastning som körs för varje klient. Den verkliga belastningen på många SaaS-appar är vanligt vis sporadisk och oförutsägbar. För att simulera den här typen av belastning ger generatorn en belastning fördelad över alla klienter. Belastningen inkluderar slumpmässiga burst-överföringar på varje klient som inträffar med slumpmässiga intervall. Det tar flera minuter för inläsnings mönstret att visas, så det är bäst att låta generatorn köras i minst tre minuter innan belastningen övervakas.
 
-1. I den *PowerShell ISE*öppnar den... \\Inlärningsmoduler\\verktyg\\*Demo-LoadGenerator.ps1* skript.
+1. I *POWERSHELL ISE*öppnar du... Learning modules\\-verktyg\\*demo-LoadGenerator. ps1* -skript. \\
 2. Tryck **F5** för att köra skriptet och starta belastningsgeneratorn (Lämna standardvärdet för parametern för tillfället).
 
-Den *Demo-LoadGenerator.ps1* skriptet öppnas en annan PowerShell-session där belastningsgeneratorn körs. Belastningsgeneratorn körs i den här sessionen som en aktivitet i förgrunden som anropar bakgrundsjobb för load generations, en för varje klient.
+Skriptet *demo-LoadGenerator. ps1* öppnar en annan PowerShell-session där belastnings generatorn körs. Belastnings generatorn körs i den här sessionen som en förgrunds aktivitet som anropar bakgrunds jobb för inläsnings jobb, en för varje klient.
 
-När aktiviteten förgrunden har startat den finns kvar i tillståndet anrop av jobbet. Uppgiften startar ytterligare bakgrundsjobb för alla nya klienter som etableras därefter.
+När förgrunds aktiviteten startar är den kvar i ett jobb som anropas. Aktiviteten startar ytterligare bakgrunds jobb för alla nya klienter som senare har allokerats.
 
-Stänger PowerShell-sessionen avbryts alla jobb.
+Om du stänger PowerShell-sessionen stoppas alla jobb.
 
-Du kanske vill starta om generator belastningssessionen om du vill använda olika parametervärden. I så fall stänger PowerShell generation session och kör sedan den *Demo-LoadGenerator.ps1*.
+Du kanske vill starta om belastnings Generator-sessionen för att använda olika parameter värden. I så fall, Stäng PowerShell-sessionen och kör sedan *demo-LoadGenerator. ps1*igen.
 
-## <a name="provision-a-new-tenant-into-the-sharded-database"></a>Etablera en ny klient till fragmenterade (sharded) databas
+## <a name="provision-a-new-tenant-into-the-sharded-database"></a>Etablera en ny klient i shardade-databasen
 
-Den första distributionen omfattar tre exempelklienter i den *Tenants1* databas. Nu ska vi skapa en annan klient och notera dess påverkan på det distribuerade programmet. Tryck på en tangent för att skapa en ny klient i det här steget:
+Den första distributionen innehåller tre exempel klienter i *Tenants1* -databasen. Nu ska vi skapa en annan klient och observera dess effekter på det distribuerade programmet. I det här steget trycker du på en nyckel för att skapa en ny klient:
 
-1. Öppna... \\Inlärningsmoduler\\etablera och katalogisera\\*Demo-ProvisionTenants.ps1* i den *PowerShell ISE*.
-2. Tryck på **F5** (inte **F8**) att köra skriptet (lämna standardvärdena för tillfället).
+1. Öppna... \\\\Inlärnings moduler etablerar och katalogiserar*demo-ProvisionTenants. ps1* i *PowerShell ISE.* \\
+2. Tryck på **F5** (inte **F8**) för att köra skriptet (lämna standardvärdena för tillfället).
 
    > [!NOTE]
-   > Du måste köra PowerShell-skript enbart genom att trycka på den **F5** nyckel inte genom att trycka på **F8** att köra valda delar av skriptet. Problem med **F8** är att den *$PSScriptRoot* variabeln utvärderas inte. Den här variabeln krävs av många skript att navigera mappar anropa andra skript eller importera moduler.
+   > Du måste bara köra PowerShell-skripten genom att trycka på **F5** , inte genom att trycka på **F8** för att köra en markerad del av skriptet. Problemet med **F8** är att variabeln *$PSScriptRoot* inte utvärderas. Den här variabeln krävs av många skript för att navigera bland mappar, anropa andra skript eller importera moduler.
 
-Den nya innehavaren Red Maple Racing läggs till i den *Tenants1* databasen och registrerat i katalogen. Den nya innehavaren är biljett sälja **händelser** plats öppnas i webbläsaren:
+Den nya röda Tenants1-klienten läggs till i -databasen och registreras i katalogen. Den nya klient organisationens biljett försäljnings **evenemang** öppnas i webbläsaren:
 
 ![Ny klient](./media/saas-multitenantdb-get-started-deploy/red-maple-racing.png)
 
-Uppdatera den **Evenemangshubben**, och den nya innehavaren visas i listan.
+Uppdatera **händelsehubben**och den nya klient organisationen visas nu i listan.
 
 ## <a name="provision-a-new-tenant-in-its-own-database"></a>Etablera en ny klient i en egen databas
 
-Shardade modell för flera klienter kan du välja om du vill etablera en ny klient till en databas som innehåller andra klienter eller till en databas med sin egen. En klient som är isolerade i en egen databas har följande fördelar:
+Med shardade för flera klienter kan du välja om du vill etablera en ny klient i en databas som innehåller andra klienter eller i en egen databas. En klient som är isolerad i en egen databas har följande fördelar:
 
-- Du kan hantera klientens databasens prestanda utan att behöva äventyra med behov för andra klienter.
-- Om det behövs kan databasen återställas till en tidigare tidpunkt, eftersom inga andra klienter kan påverkas.
+- Prestanda för klient organisationens databas kan hanteras utan att behöva kompromissa med behoven hos andra klienter.
+- Vid behov kan databasen återställas till en tidigare tidpunkt, eftersom inga andra klienter påverkas.
 
-Du kan välja att lägga till kunder för kostnadsfri utvärderingsversion eller ekonomin kunder till flera klientdatabaser. Du kan placera varje premium-klient i en egen dedikerade databas. Om du skapar flera databaser som innehåller endast en klient kan hantera du dem alla gemensamt i en elastisk pool för att optimera resurskostnader.
+Du kan välja att publicera kostnads fria utvärderings kunder eller ekonomi kunder i databaser med flera klienter. Du kan ställa in varje Premium-klient i sin egen dedikerade databas. Om du skapar många databaser som bara innehåller en klient kan du hantera dem tillsammans i en elastisk pool för att optimera resurs kostnaderna.
 
-Nu ska etablerar vi en annan klient nu i en egen databas:
+Sedan etablerar vi en annan klient, den här gången i en egen databas:
 
-1. I... \\Inlärningsmoduler\\etablera och katalogisera\\*Demo-ProvisionTenants.ps1*, ändra *$TenantName* till **Salix Salsa**, *$VenueType* till **dance** och *$Scenario* till **2**.
+1. I... \\\\Inlärnings moduler etablerar och katalogiserar demo-ProvisionTenants. ps1, ändrar $TenantName till Salix salsa, $VenueType till kontrollen åt och $scenario till \\ **2**.
 
-2. Tryck på **F5** att köra skriptet igen.
-    - Detta **F5** press etablerar ny klient i en separat databas. Databasen och klienten har registrerats i katalogen. Sedan öppnar webbläsaren sidan händelser på klienten.
+2. Tryck på **F5** för att köra skriptet igen.
+    - Den här **F5** -tryckningen etablerar den nya klienten i en separat databas. Databasen och klient organisationen är registrerade i katalogen. Sedan öppnas webbläsaren på sidan händelser för klient organisationen.
 
-   ![Sidan för Salix Salsa evenemang](./media/saas-multitenantdb-get-started-deploy/salix-salsa.png)
+   ![Sidan Salix salsa-händelser](./media/saas-multitenantdb-get-started-deploy/salix-salsa.png)
 
-   - Bläddra längst ned på sidan. Du kan det se namnet på databasen där data för klientorganisationen lagras i popup-meddelandet.
+   - Bläddra till längst ned på sidan. I informations texten ser du databas namnet där klient data lagras.
 
-3. Uppdatera den **Evenemangshubben** och två nya klienter visas i listan.
+3. Uppdatera **Event Hub** och de två nya klient organisationerna visas nu i listan.
 
-## <a name="explore-the-servers-and-tenant-databases"></a>Utforska servrar och klientdatabaser
+## <a name="explore-the-servers-and-tenant-databases"></a>Utforska servrar och klient databaser
 
-Nu titta vi på några av de resurser som har distribuerats:
+Nu tittar vi på några av de resurser som har distribuerats:
 
-1. I den [Azure-portalen](https://portal.azure.com), bläddra i listan över resursgrupper. Öppna resursgruppen du skapade när du har distribuerat programmet.
+1. I [Azure Portal](https://portal.azure.com)bläddrar du till listan över resurs grupper. Öppna resurs gruppen som du skapade när du distribuerade programmet.
 
-   ![Resursgrupp](./media/saas-multitenantdb-get-started-deploy/resource-group.png)
+   ![resursgrupp](./media/saas-multitenantdb-get-started-deploy/resource-group.png)
 
-2. Klicka på **catalog mt&lt;användaren&gt;**  server. Katalogservern innehåller två databaser med namnet *tenantcatalog* och *basetenantdb*. Den *basetenantdb* databasen är en tom mall-databas. Kopieras för att skapa en ny klientdatabas, oavsett om de används för många klienter eller bara en klient.
+2. Klicka på **katalog-&lt;MT&gt; användar** Server. Katalog servern innehåller två databaser med namnet *tenantcatalog* och *basetenantdb*. *Basetenantdb* -databasen är en tom mall databas. Den kopieras för att skapa en ny klient databas, oavsett om den används för många klienter eller bara en klient.
 
    ![katalogserver](./media/saas-multitenantdb-get-started-deploy/catalog-server.png)
 
-3. Gå tillbaka till den resursgrupp och välj den *tenants1-mt* server som innehåller klientdatabaserna.
-    - Tenants1-databasen är en databas för flera innehavare som där de ursprungliga tre innehavarna, plus den första klienten som du lagt till, lagras. Den är konfigurerad som en 50 DTU Standard-databas.
-    - Den **salixsalsa** databas innehåller Salix Salsa sköta plats som den enda klienten. Den är konfigurerad som en Standard edition-databas med 50 dtu: er som standard.
+3. Gå tillbaka till resurs gruppen och välj den *tenants1-MT-* server som innehåller klient databaserna.
+    - Tenants1-databasen är en databas för flera innehavare där de tre ursprungliga klienterna, plus den första klient organisationen som du lade till, lagras. Den är konfigurerad som en 50 DTU standard-databas.
+    - **Salixsalsa** -databasen innehåller Salix salsa kontrollen åt-platsen som sin enda klient. Den konfigureras som en standard-versions databas med 50 DTU: er som standard.
 
-   ![klienter server](./media/saas-multitenantdb-get-started-deploy/tenants-server.png)
+   ![klient organisations Server](./media/saas-multitenantdb-get-started-deploy/tenants-server.png)
 
-## <a name="monitor-the-performance-of-the-database"></a>Övervaka prestanda för databasen
+## <a name="monitor-the-performance-of-the-database"></a>Övervaka databasens prestanda
 
-Om belastningsgeneratorn har körts i flera minuter, finns tillräckligt med telemetri att titta på databasen övervakningsfunktioner som är inbyggda i Azure-portalen.
+Om belastnings generatorn har körts i flera minuter finns tillräckligt med telemetri för att titta på de databas övervaknings funktioner som är inbyggda i Azure Portal.
 
-1. Bläddra till den **tenants1-mt&lt;användaren&gt;**  server och klicka på **tenants1** att visa resursanvändningen för den databas som innehåller fyra klienter. Varje klient kan komma från belastningsgeneratorn sporadiska hård belastning:
+1. Bläddra till **tenants1-MT&lt;-användar&gt;**  servern och klicka på **tenants1** för att Visa resursutnyttjande för den databas som har fyra klienter. Varje klient är underkastad sporadiskt hög belastning från belastnings generatorn:
 
    ![övervaka tenants1](./media/saas-multitenantdb-get-started-deploy/monitor-tenants1.png)
 
-   DTU användning diagrammet illustrerar ett snyggt sätt hur en databas för flera innehavare kan stödja en oförutsägbar arbetsbelastning över många klienter. I det här fallet tillämpar belastningsgeneratorn en sporadiska belastning på ungefär 30 dtu: er till varje klient. Den här belastningen motsvarar 60% utnyttjande av en 50 DTU-databas. Toppar som överstiger 60% är resultatet av belastning som tillämpas på fler än en klient på samma gång.
+   Användnings diagrammet för DTU illustrerar snyggt hur en databas med flera innehavare kan stödja en oförutsägbar arbets belastning över flera klienter. I det här fallet använder belastnings generatorn en sporadisk belastning på ungefär 30 DTU: er till varje klient. Den här belastningen motsvarar 60% användning av en 50 DTU-databas. Toppar som överstiger 60% är resultatet av belastningen som tillämpas på fler än en klient på samma tidpunkt.
 
-2. Bläddra till den **tenants1-mt&lt;användaren&gt;**  server och klicka på den **salixsalsa** databas. Du kan se resursanvändningen för den här databasen som innehåller endast en klient.
+2. Bläddra till **tenants1-MT&lt;-användar&gt;**  servern och klicka på **salixsalsa** -databasen. Du kan se resursutnyttjande för den här databasen som bara innehåller en klient.
 
-   ![salixsalsa databas](./media/saas-multitenantdb-get-started-deploy/monitor-salix.png)
+   ![salixsalsa-databas](./media/saas-multitenantdb-get-started-deploy/monitor-salix.png)
 
-Belastningsgeneratorn tillämpar en liknande belastning till varje klient, oavsett vilken databas varje klient finns i. Med bara en klient i den **salixsalsa** databas, kan du se att databasen stöder en mycket högre belastning än databasen med flera innehavare. 
+Belastnings generatorn använder en liknande belastning för varje klient, oavsett vilken databas varje klient är i. Med bara en klient i **salixsalsa** -databasen kan du se att databasen kan hantera en mycket högre belastning än databasen med flera klienter. 
 
-### <a name="resource-allocations-vary-by-workload"></a>Resursallokeringar varierar beroende på arbetsbelastning
+### <a name="resource-allocations-vary-by-workload"></a>Resurs tilldelningar varierar mellan arbets belastning
 
-Ibland en databas för flera klienter kräver mer resurser för bra prestanda än en enda klient-databas, men inte alltid. Optimala allokeringen av resurser beror på viss arbetsbelastningsegenskaperna för klienterna i systemet.
+Ibland kräver en databas för flera innehavare fler resurser för att få bättre prestanda än en enda klient databas, men inte alltid. Den optimala fördelningen av resurser beror på arbets Belastningens egenskaper för klienterna i systemet.
 
-De arbetsbelastningar som genererats av skriptet belastningen generator är endast illustrativa.
+Arbets belastningarna som genereras av belastnings Generator skriptet är endast avsedda som illustration.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- Mer information om delade SaaS-program, se [designmönster för SaaS-program för flera innehavare](saas-tenancy-app-design-patterns.md).
+- Mer information om SaaS-program för flera innehavare finns i [design mönster för SaaS-program med flera innehavare](saas-tenancy-app-design-patterns.md).
 
-- Mer information om elastiska pooler finns i:
+- Information om elastiska pooler finns i:
 
-  - [Hjälper dig att hantera och skala flera Azure SQL-databaser för elastiska pooler](sql-database-elastic-pool.md)
+  - [Elastiska pooler hjälper dig att hantera och skala flera Azure SQL-databaser](sql-database-elastic-pool.md)
   - [Skala ut med Azure SQL Database](sql-database-elastic-scale-introduction.md)
 
 ## <a name="next-steps"></a>Nästa steg
@@ -258,14 +257,14 @@ De arbetsbelastningar som genererats av skriptet belastningen generator är enda
 I den här guiden har du lärt dig:
 
 > [!div class="checklist"]
-> - Hur du distribuerar databas för flera klienter i Wingtip biljetter SaaS-program.
-> - Om servrar och databaser som ingår i appen.
-> - Klienter mappas till sina data med den *catalog*.
-> - Hur du etablerar nya klienter i en databas för flera innehavare och en enda klient-databasen.
-> - Så här ser poolanvändning för att övervaka klientaktivitet.
-> - Hur du tar bort exempelresurser för att stoppa relaterad fakturering.
+> - Så här distribuerar du Wingtip-biljetterna SaaS-databasen för flera klient organisationer.
+> - Om de servrar och databaser som utgör appen.
+> - Klienter mappas till sina data med *katalogen*.
+> - Hur du etablerar nya klienter i en databas för flera klienter och en databas med en enda klient.
+> - Så här visar du användningen av poolen för att övervaka klient aktivitet.
+> - Så här tar du bort exempel resurser för att stoppa relaterad fakturering.
 
-Prova den [guiden etablera och katalogisera](sql-database-saas-tutorial-provision-and-catalog.md).
+Prova nu [själv studie kursen om etablering och katalog](sql-database-saas-tutorial-provision-and-catalog.md).
 
 
 <!--  Link references.
@@ -289,5 +288,5 @@ A [series of related tutorials] is available that build upon this initial deploy
 [image-deploy-to-azure-blue-48d]: https://aka.ms/deploywtp-mtapp "Button for Deploy to Azure."
 -->
 
-[image-deploy-to-azure-blue-48d]: media/saas-multitenantdb-get-started-deploy/deploy.png "Knappen för att distribuera till Azure."
+[image-deploy-to-azure-blue-48d]: media/saas-multitenantdb-get-started-deploy/deploy.png "Knapp för att distribuera till Azure."
 

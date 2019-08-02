@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: b000610b5cba6f768a629ad797500a57597f2569
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 25f8c19ad1c574f6a3d84d50d911b4da6b52cfc3
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335690"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516511"
 ---
 # <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>Replikera Azure Disk Encryption-aktiverade virtuella datorer till en annan Azure-region
 
@@ -23,9 +23,9 @@ Den här artikeln beskriver hur du replikerar Azure Disk Encryption-aktiverade v
 >Azure Site Recovery stöder för närvarande endast virtuella Azure-datorer som kör ett Windows-operativsystem och som är [aktiverat för kryptering med Azure Active Directory (Azure AD)](https://aka.ms/ade-aad-app).
 
 ## <a id="required-user-permissions"></a>Nödvändiga användar behörigheter
-Site Recovery kräver att användaren har behörighet att skapa nyckel valvet i mål regionen och kopiera nycklar till regionen.
+Site Recovery kräver att användaren har behörighet att skapa nyckel valvet i mål regionen och kopiera nycklar från nyckel valvet för käll regionen till nyckel valvet för mål regionen.
 
-För att aktivera replikering av disk kryptering – aktiverade virtuella datorer från den Azure Portal behöver användaren följande behörigheter:
+Om du vill aktivera replikering av disk kryptering – aktiverade virtuella datorer från den Azure Portal behöver användaren följande behörigheter för både **käll-och mål områdes** nyckel valv.
 
 - Nyckel valvs behörigheter
     - Lista, skapa och hämta

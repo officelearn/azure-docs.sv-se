@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 07/02/2019
 ms.author: danlep
-ms.openlocfilehash: 672d446fa8dc27612c7b046cac109bfa4ca5fec5
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 4585749c83432c19b6e62f57c1d954b3afc5ee33
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68309381"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68608397"
 ---
 # <a name="health-check-error-reference"></a>Fel referens för hälso kontroll
 
@@ -63,7 +63,7 @@ Det här felet innebär att DNS för den registrerade inloggnings servern för r
 
 ## <a name="connectivityforbiddenerror"></a>CONNECTIVITY_FORBIDDEN_ERROR
 
-Det här felet innebär att utmanings slut punkten för det aktuella registret svarade med en 403-otillåten HTTP-status. Det här felet innebär att användarna inte har åtkomst till registret, förmodligen på grund av en konfiguration av virtuellt nätverk.
+Det här felet innebär att utmanings slut punkten för det aktuella registret svarade med en 403-otillåten HTTP-status. Det här felet innebär att användarna inte har åtkomst till registret, förmodligen på grund av en konfiguration av virtuellt nätverk. Kör `az acr show --query networkRuleSet --name <registry>`för att se de konfigurerade brand Väggs reglerna.
 
 *Möjliga lösningar*: Ta bort de virtuella nätverks reglerna eller Lägg till den aktuella klientens IP-adress i listan över tillåtna.
 

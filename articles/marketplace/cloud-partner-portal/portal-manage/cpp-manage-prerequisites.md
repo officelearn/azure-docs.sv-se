@@ -1,49 +1,49 @@
 ---
-title: Förutsättningar för att hantera konton på partnerportalen i molnet | Azure Marketplace
-description: Förutsättningar för att hantera konton för Azure Marketplace på partnerportalen i molnet.
+title: Krav för att hantera konton på Cloud Partner Portal | Azure Marketplace
+description: Krav för att hantera Azure Marketplace-konton på Cloud Partner Portal.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: pabutler
-ms.openlocfilehash: 8c32043d9bf3ca68563ae01d415bdc0e1f6993f7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 62269490355414a6b75759361cd574ac7e90e162
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66258131"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598680"
 ---
-# <a name="prerequisites-for-managing-accounts-on-the-cloud-partner-portal"></a>Förutsättningar för att hantera konton på partnerportalen i molnet 
+# <a name="prerequisites-for-managing-accounts-on-the-cloud-partner-portal"></a>Krav för att hantera konton på Cloud Partner Portal 
 
-Innan du kan använda den [Cloud Partner Portal](https://cloudpartner.azure.com/) för en funktion, inklusive hantera konton, måste du följa en serie steg för att registrera sig och deras organisation utgivare för Microsoft-molnet.
-
-
-## <a name="account-terms-and-guidelines"></a>Konto för Användarvillkor riktlinjer
-
-Noga igenom dina rättigheter och skyldigheter enligt den [avtalet om Microsofts](https://www.microsoft.com/servicesagreement) och [Microsofts Terms](https://www.microsoft.com/legal/intellectualproperty/copyright) innan du skapar ett konto.  
-
-Välj namnet på ditt konto noggrant.  Representerar din organisation, så att den inte får innehålla några ord upphovsrättsskyddade eller läget.  Microsoft tillåter exempelvis inte användning av dess upphovsrättsskyddade villkor, till exempel ”Azure” och ”Microsoft”, i namn på konto.  Mer information finns i [riktlinjer för Azure Marketplace](https://docs.microsoft.com/azure/marketplace/guidelines)
+Innan du kan använda [Cloud Partner Portal](https://cloudpartner.azure.com/) för alla funktioner, inklusive hantera konton, måste du följa ett antal steg för att registrera sig och deras organisation som Microsoft Cloud Publisher.
 
 
-## <a name="registration-steps"></a>Steg för registrering
+## <a name="account-terms-and-guidelines"></a>Konto villkor och rikt linjer
 
-I följande tabell visas steg som krävs för att fullständigt registrera som en utgivare för Microsoft-molnet.  Fullständiga anvisningar finns i [blir molnet Marketplace utgivare](https://docs.microsoft.com/azure/marketplace/become-publisher
-). 
+Läs noggrant igenom dina rättigheter och ansvar under [villkor för Microsoft-tjänster](https://www.microsoft.com/servicesagreement) och [Microsofts användnings villkor](https://www.microsoft.com/en-us/legal/intellectualproperty/copyright/default.aspx) innan du skapar ett konto.  
+
+Välj ditt konto namn noggrant.  Den representerar din organisation, så den bör inte innehålla upphovsrättsskyddade eller Contentious ord.  Microsoft tillåter till exempel inte att dess upphovsrättsskyddade villkor används, till exempel "Azure" och "Microsoft", i konto namn.  Mer information finns i [rikt linjer för Azure Marketplace](https://docs.microsoft.com/azure/marketplace/guidelines)
+
+
+## <a name="registration-steps"></a>Registrerings steg
+
+I följande tabell visas de steg som krävs för att helt registrera dig som en Microsoft Cloud Publisher.  Fullständiga instruktioner finns i [bli en Cloud Marketplace-utgivare.](https://docs.microsoft.com/azure/marketplace/become-publisher
+) 
 
 
 |                   Steg                   |  Resulterande registrering eller resurs                     |
 |                  ------                  |  -----------------------------------                    |
-| 1. Registrera i Microsoft Partner Network |  En Microsoft Partner Network-ID för din organisation |
-| 2. Skapa ett Microsoft-konto *           |  En verifierad Microsoft-konto som slutar på @outlook.com, @live.comosv. |
-| 3. Skicka formuläret av marketplace-registrering | Ett utgivarkonto på partnerportalen i molnet      |
-| 4. Logga in på partnerportalen i molnet        | Behörighet att skapa och publicera erbjudanden, hantera användare, samla in marketplace mått, osv. |
-| 5. Registrera dig i Microsoft Developer Center * | En verifierad Dev Center-konto. behörighet att göra marketplace transaktioner  |
+| 1. Registrera dig i Microsoft Partner Network |  Ett Microsoft Partner Network-ID för din organisation |
+| 2. Skapa en Microsoft-konto *           |  Ett verifierat Microsoft-konto, som @outlook.comslutar @live.compå, osv. |
+| 3. Skicka in registrerings formuläret för Marketplace | Ett utgivar konto på Cloud Partner Portal      |
+| 4. Logga in på Cloud Partner Portal        | Utfärdare för att skapa och publicera erbjudanden, hantera användare, samla in marknads mått osv. |
+| 5. Registrera dig i Microsoft Developer Center * | Ett verifierat dev Center-konto; utfärdare för att genomföra Marketplace-transaktioner  |
 |   |   |
 
-\* Dessa steg krävs för Azure Marketplace transact erbjudanden, men rekommenderas starkt för alla erbjudanden.  När du upprättar ett Microsoft-konto och registrera dig som ett Microsoft Developer kan du komma åt ytterligare Microsoft-kunder och utvecklare resurser samt valfritt partnererbjudanden.  
+\*De här stegen krävs för Azure Marketplace Transact-erbjudanden, men rekommenderas för alla erbjudanden.  När du har upprättat en Microsoft-konto och registrerat dig som Microsoft-utvecklare, kan du komma åt ytterligare resurser för Microsoft-kunder och-utvecklare samt valfria partner erbjudanden.  
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har slutfört registreringen steg du ska kunna logga in på [Cloud Partner Portal](https://cloudpartner.azure.com/).  Du kan använda den här portalen och hantera profiler för utgivaren och hanterar användarkonton.
+När du har slutfört registrerings stegen bör du kunna logga in på [Cloud Partner Portal](https://cloudpartner.azure.com/).  Du kan använda den här portalen för att hantera utgivar profiler och hantera användar konton.

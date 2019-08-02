@@ -1,18 +1,19 @@
 ---
 title: Använda Modern Backup Storage med Azure Backup Server
 description: Lär dig mer om de nya funktionerna i Azure Backup Server. Den här artikeln beskriver hur du uppgraderar installationen av säkerhets kopierings servern.
-author: rayne-wiselman
+ms.reviewer: adigan
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: adigan
-ms.openlocfilehash: 1a265579593c8eb39f0df4037f8ec39c788ddbce
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 38d86d55be119dab3645fb4bedb9ba4bf910bcab
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465114"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688969"
 ---
 # <a name="add-storage-to-azure-backup-server"></a>Lägga till lagringsutrymme på Azure Backup Server
 
@@ -97,7 +98,7 @@ När du har uppgraderat till eller installerat säkerhets kopierings Server v2 o
 
 Att uppdatera skydds grupper för att använda Modern Backup Storage är valfritt. Om du vill uppdatera skydds gruppen stoppar du skyddet av alla data källor med alternativet Kvarhåll data. Lägg sedan till data källorna i en ny skydds grupp.
 
-1. I Administratörskonsol väljer du skydds  funktionen. I listan **skydds grupps medlem** högerklickar du på medlemmen och väljer sedan **stoppa skyddet av medlem**.
+1. I Administratörskonsol väljer du skydds funktionen. I listan **skydds grupps medlem** högerklickar du på medlemmen och väljer sedan **stoppa skyddet av medlem**.
 
    ![Stoppa skyddet av medlem](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-stop-protection1.png)
 

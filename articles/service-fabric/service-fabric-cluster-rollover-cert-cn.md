@@ -1,11 +1,10 @@
 ---
-title: Förnya ett certifikat för Azure Service Fabric-kluster | Microsoft Docs
-description: Lär dig hur att förnya ett certifikat för Service Fabric-kluster identifieras av certifikatets unika namn.
+title: Förnya ett Azure Service Fabric-kluster certifikat | Microsoft Docs
+description: Lär dig hur du förnyar ett Service Fabric kluster certifikat som identifieras av certifikatets egna namn.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
-editor: aljo
 ms.assetid: 5441e7e0-d842-4398-b060-8c9d34b07c48
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -13,20 +12,20 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/24/2018
-ms.author: aljo
-ms.openlocfilehash: dd4b6026772a20c522532e1ba65c6846addfa161
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: atsenthi
+ms.openlocfilehash: 5d11054ca8eb684f1f25a25ddeac1b53e82b3775
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66159903"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599913"
 ---
-# <a name="manually-roll-over-a-service-fabric-cluster-certificate"></a>Manuellt förnya ett certifikat för Service Fabric-kluster
-När ett certifikat för Service Fabric-klustret är att löpa ut kan behöva du uppdatera certifikatet.  Förnya certifikatet är enkel om klustret var [ställts in använder certifikat baserat på nätverksnamn](service-fabric-cluster-change-cert-thumbprint-to-cn.md) (i stället för tumavtryck).  Få ett nytt certifikat från en certifikatutfärdare med ett nytt utgångsdatum.  Självsignerade certifikat är inte stöd för produktion Service Fabric-kluster för att inkludera certifikat som genereras under Azure portal kluster skapa arbetsflöde. Det nya certifikatet måste ha samma allmänna namn som det äldre certifikatet. 
+# <a name="manually-roll-over-a-service-fabric-cluster-certificate"></a>Manuellt återställa ett Service Fabric kluster certifikat
+När ett Service Fabric kluster certifikat snart går ut måste du uppdatera certifikatet.  Certifikat förnyelse är enkelt om klustret har [kon figurer ATS för att använda certifikat baserat på eget namn](service-fabric-cluster-change-cert-thumbprint-to-cn.md) (i stället för tumavtryck).  Hämta ett nytt certifikat från en certifikat utfärdare med ett nytt förfallo datum.  Självsignerade certifikat har inte stöd för produktions Service Fabric kluster, för att inkludera certifikat som genereras under Azure Portal kluster skapande av arbets flöde. Det nya certifikatet måste ha samma egna namn som det äldre certifikatet. 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Service Fabric-klustret ska använda deklarerade certifikatet automatiskt med ytterligare i framtida utgångsdatum; När fler än en verifiera installeras certifikatet på värden. Ett bra tips är att använda en Resource Manager-mall för att etablera Azure-resurser. För icke-produktionsmiljö skriptet nedan kan användas för att ladda upp ett nytt certifikat till key vault och installerar certifikatet på virtuella datorns skalningsuppsättning: 
+Service Fabric klustret använder automatiskt det deklarerade certifikatet med längre fram till framtida förfallo datum. När mer än ett verifierat certifikat är installerat på värden. Ett bra tips är att använda en Resource Manager-mall för att etablera Azure-resurser. I icke-produktions miljö kan följande skript användas för att ladda upp ett nytt certifikat till ett nyckel valv och installerar sedan certifikatet på den virtuella datorns skal uppsättning: 
 
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser -Force
@@ -82,9 +81,9 @@ Update-AzVmss -ResourceGroupName $VmssResourceGroupName -Name $VmssName -Virtual
 ```
 
 >[!NOTE]
-> Beräknar VM Scale ange hemligheter inte stöder samma resurs-id för två separata hemligheter, eftersom varje hemlighet är en version unik resurs. 
+> Beräknar att hemligheter för skalnings uppsättningar för virtuella datorer inte stöder samma resurs-ID för två separata hemligheter, eftersom varje hemlighet är en versions unik resurs. 
 
-Om du vill veta mer kan du läsa följande:
-* Lär dig mer om [kluster security](service-fabric-cluster-security.md).
-* [Uppdatera och hantera klustercertifikat](service-fabric-cluster-security-update-certs-azure.md)
+Läs följande om du vill veta mer:
+* Lär dig mer om [kluster säkerhet](service-fabric-cluster-security.md).
+* [Uppdatera och hantera kluster certifikat](service-fabric-cluster-security-update-certs-azure.md)
 

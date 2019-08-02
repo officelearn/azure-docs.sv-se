@@ -1,9 +1,9 @@
 ---
-title: Aktivera diskkryptering för Azure Service Fabric Windows-kluster | Microsoft Docs
-description: Den här artikeln beskriver hur du aktiverar diskkryptering för Azure Service Fabric-klusternoder med hjälp av Azure Key Vault i Azure Resource Manager.
+title: Aktivera disk kryptering för Azure Service Fabric Windows-kluster | Microsoft Docs
+description: I den här artikeln beskrivs hur du aktiverar disk kryptering för Azure Service Fabric klusternoder genom att använda Azure Key Vault i Azure Resource Manager.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: navya
 ms.assetid: 15d0ab67-fc66-4108-8038-3584eeebabaa
 ms.service: service-fabric
@@ -12,56 +12,56 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/22/2019
-ms.author: aljo
-ms.openlocfilehash: c31fc43729bcb58c755959db0c8bc5185b8197f4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: atsenthi
+ms.openlocfilehash: 64abc48d57196fe20466032652c4b9bfb2e6c71f
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66471408"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599543"
 ---
-# <a name="enable-disk-encryption-for-azure-service-fabric-cluster-nodes-in-windows"></a>Aktivera diskkryptering för Azure Service Fabric-klusternoder i Windows 
+# <a name="enable-disk-encryption-for-azure-service-fabric-cluster-nodes-in-windows"></a>Aktivera disk kryptering för Azure Service Fabric klusternoder i Windows 
 > [!div class="op_single_selector"]
-> * [Disk Encryption för Windows](service-fabric-enable-azure-disk-encryption-windows.md)
-> * [Diskkryptering för Linux](service-fabric-enable-azure-disk-encryption-linux.md)
+> * [Disk kryptering för Windows](service-fabric-enable-azure-disk-encryption-windows.md)
+> * [Disk kryptering för Linux](service-fabric-enable-azure-disk-encryption-linux.md)
 >
 >
 
-I de här självstudierna lär du dig att aktivera diskkryptering på Service Fabric-klusternoder i Windows. Du måste följa dessa steg för varje nodtyper och VM-skalningsuppsättningar. För att kryptera noderna, använder vi Azure Disk Encryption-funktionen på VM-skalningsuppsättningar.
+I den här självstudien får du lära dig hur du aktiverar disk kryptering på Service Fabric klusternoder i Windows. Du måste följa dessa steg för var och en av nodtypen och skalnings uppsättningar för virtuella datorer. För att kryptera noderna använder vi Azure Disk Encryption-funktionen på virtuella datorers skalnings uppsättningar.
 
-Guiden innehåller följande avsnitt:
+Guiden omfattar följande ämnen:
 
-* Viktiga begrepp att känna till när aktiverar diskkryptering på VM-skalningsuppsättning i Service Fabric-kluster anger i Windows.
-* Steg för att följas innan du aktiverar diskkryptering på Service Fabric klusternoderna i Windows.
-* Steg för att om du vill aktivera diskkryptering på Service Fabric-klusternoder i Windows.
+* Viktiga begrepp som du bör känna till när du aktiverar disk kryptering på Service Fabric skalnings uppsättningar för virtuella kluster datorer i Windows.
+* Steg att följa innan du aktiverar disk kryptering på Service Fabric klusternoder i Windows.
+* Steg som ska följas för att aktivera disk kryptering på Service Fabric klusternoder i Windows.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-**Självregistrering** 
+**Själv registrering** 
 
-Självregistrering kräver att förhandsversionen av disk-kryptering för virtuella datorns skalningsuppsättning. Använd följande steg: 
+För hands versionen av disk kryptering för den virtuella datorns skalnings uppsättning krävs själv registrering. Använd följande steg: 
 
-1. Först kör du följande kommando:
+1. Kör först följande kommando:
     ```powershell
     Register-AzProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
     ```
-2. Vänta ungefär 10 minuter förrän statusen har ändrats *registrerad*. Du kan kontrollera statusen genom att köra följande kommando: 
+2. Vänta cirka 10 minuter tills statusen har lästs *.* Du kan kontrol lera statusen genom att köra följande kommando: 
     ```powershell
     Get-AzProviderFeature -ProviderNamespace "Microsoft.Compute" -FeatureName "UnifiedDiskEncryption"
     Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
     ```
 **Azure Key Vault** 
 
-1. Skapa ett nyckelvalv i samma prenumeration och region som skalningsuppsättningen och välj sedan den **EnabledForDiskEncryption** åtkomstprincipen i nyckelvalvet med hjälp av dess PowerShell-cmdlet. Du kan också ange principen med hjälp av Key Vault-Användargränssnittet i Azure-portalen med följande kommando:
+1. Skapa ett nyckel valv i samma prenumeration och region som skalnings uppsättningen och välj sedan **EnabledForDiskEncryption** åtkomst princip i nyckel valvet med hjälp av dess PowerShell-cmdlet. Du kan också ange principen med hjälp av Key Vault gränssnittet i Azure Portal med följande kommando:
     ```powershell
     Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -EnabledForDiskEncryption
     ```
-2. Installera den senaste versionen av den [Azure CLI](/cli/azure/install-azure-cli), som innehåller de nya kommandona för kryptering.
-3. Installera den senaste versionen av den [Azure SDK från Azure PowerShell](https://github.com/Azure/azure-powershell/releases) versionen. Följande är VM-skalningsuppsättningen Azure Disk Encryption-cmdletar för att aktivera ([ange](/powershell/module/az.compute/set-azvmssdiskencryptionextension))-kryptering, hämta ([hämta](/powershell/module/az.compute/get-azvmssvmdiskencryption)) krypteringsstatus och ta bort ([inaktivera](/powershell/module/az.compute/disable-azvmssdiskencryption)) kryptering på skalan skalningsuppsättningsinstans.
+2. Installera den senaste versionen av [Azure CLI](/cli/azure/install-azure-cli), som har de nya krypterings kommandona.
+3. Installera den senaste versionen av [Azure SDK från Azure PowerShell](https://github.com/Azure/azure-powershell/releases) -versionen. Följande är skalnings uppsättningen för den virtuella datorn Azure Disk Encryption-cmdletar för att aktivera ([Ange](/powershell/module/az.compute/set-azvmssdiskencryptionextension)) kryptering, Hämta ([Hämta](/powershell/module/az.compute/get-azvmssvmdiskencryption)) krypterings status och ta bort ([inaktivera](/powershell/module/az.compute/disable-azvmssdiskencryption)) kryptering på skalnings uppsättnings instansen.
 
-| Kommando | Version |  source  |
+| Kommando | Version |  Source  |
 | ------------- |-------------| ------------|
 | Get-AzVmssDiskEncryptionStatus   | 1.0.0 eller senare | Az.Compute |
 | Get-AzVmssVMDiskEncryptionStatus   | 1.0.0 eller senare | Az.Compute |
@@ -71,15 +71,15 @@ Självregistrering kräver att förhandsversionen av disk-kryptering för virtue
 | Set-AzVmssDiskEncryptionExtension   | 1.0.0 eller senare | Az.Compute |
 
 
-## <a name="supported-scenarios-for-disk-encryption"></a>Scenarier som stöds för diskkryptering
-* Kryptering för VM-skalningsuppsättningar stöds endast för skalningsuppsättningar som skapats med hanterade diskar. Det finns inte stöd för internt (eller ohanterade) disk scale sets.
-* Kryptering stöds för Operativsystemet och datavolymer i VM-skalningsuppsättning som anger i Windows. Inaktivera kryptering stöds också för Operativsystemet och datavolymer för VM-skalningsuppsättning anger i Windows.
-* Virtuell dator åtgärderna reimage och uppgraderingen åtgärder för VM-skalningsuppsättningar stöds inte i den aktuella förhandsversionen.
+## <a name="supported-scenarios-for-disk-encryption"></a>Scenarier som stöds för disk kryptering
+* Kryptering för skalnings uppsättningar för virtuella datorer stöds bara för skalnings uppsättningar som skapats med hanterade diskar. Det finns inte stöd för interna (eller ohanterade) disk skalnings uppsättningar.
+* Kryptering stöds för OS-och data volymer i skalnings uppsättningar för virtuella datorer i Windows. Inaktivera kryptering stöds också för OS-och data volymer för skalnings uppsättningar för virtuella datorer i Windows.
+* Avbildnings-och uppgraderings åtgärder för virtuella datorer för virtuella datorer stöds inte i den aktuella för hands versionen.
 
 
-## <a name="create-a-new-cluster-and-enable-disk-encryption"></a>Skapa ett nytt kluster och aktivera diskkryptering
+## <a name="create-a-new-cluster-and-enable-disk-encryption"></a>Skapa ett nytt kluster och aktivera disk kryptering
 
-Använd följande kommandon för att skapa ett kluster och aktivera diskkryptering med hjälp av en Azure Resource Manager-mall och ett självsignerat certifikat.
+Använd följande kommandon för att skapa ett kluster och aktivera disk kryptering med hjälp av en Azure Resource Manager-mall och ett självsignerat certifikat.
 
 ### <a name="sign-in-to-azure"></a>Logga in på Azure 
 Logga in med följande kommandon:
@@ -98,9 +98,9 @@ az account set --subscription $subscriptionId
 
 ### <a name="use-the-custom-template-that-you-already-have"></a>Använd den anpassade mall som du redan har 
 
-Om du behöver skapa en anpassad mall så att den passar dina behov, rekommenderar vi att du börjar med en av de mallar som är tillgängliga på den [mallexempel för Azure Service Fabric-kluster skapas](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master) sidan. Att [anpassa klustermallen] [ customize-your-cluster-template] avsnittet, se följande riktlinjer.
+Om du behöver skapa en anpassad mall för att passa dina behov rekommenderar vi starkt att du börjar med en av mallarna som är tillgängliga på sidan [exempel på mall för skapande av Azure Service Fabric-kluster](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master) . Information om hur du [anpassar mallen kluster mal len][customize-your-cluster-template] finns i följande rikt linjer.
 
-Om du redan har en anpassad mall kan du kontrollera att alla tre certifikatrelaterade parametrar i mallen och parameterfilen namnges enligt följande och att värden är null på följande sätt:
+Om du redan har en anpassad mall, kontrol lera att alla tre certifikat-relaterade parametrar i mallen och parameter filen har namnet enligt följande och att värdena är null enligt följande:
 
 ```Json
    "certificateThumbprint": {
@@ -149,13 +149,13 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 
 ```
 
-### <a name="deploy-an-application-to-a-service-fabric-cluster-in-windows"></a>Distribuera ett program till ett Service Fabric-kluster i Windows
-Om du vill distribuera ett program i klustret, följer du stegen och vägledning vid [distribuera och ta bort program med hjälp av PowerShell](service-fabric-deploy-remove-applications.md).
+### <a name="deploy-an-application-to-a-service-fabric-cluster-in-windows"></a>Distribuera ett program till ett Service Fabric kluster i Windows
+Om du vill distribuera ett program till klustret följer du stegen och anvisningarna i [distribuera och ta bort program med hjälp av PowerShell](service-fabric-deploy-remove-applications.md).
 
 
-### <a name="enable-disk-encryption-for-the-virtual-machine-scale-sets-created-previously"></a>Aktivera diskkryptering för VM-skalningsuppsättningar som skapats tidigare
+### <a name="enable-disk-encryption-for-the-virtual-machine-scale-sets-created-previously"></a>Aktivera disk kryptering för de virtuella datorernas skalnings uppsättningar som skapats tidigare
 
-Anger du skapade via de föregående stegen, kör följande kommandon om du vill aktivera diskkryptering för VM-skalningsuppsättningen:
+Om du vill aktivera disk kryptering för de skalnings uppsättningar för virtuella datorer som du skapade i föregående steg, kör du följande kommandon:
  
 ```powershell
 
@@ -177,8 +177,8 @@ az vmss encryption enable -g <resourceGroupName> -n <VMSS name> --disk-encryptio
 ```
 
 
-### <a name="validate-if-disk-encryption-is-enabled-for-a-virtual-machine-scale-set-in-windows"></a>Verifiera om diskkryptering är aktiverat för en VM-skalningsuppsättning i Windows
-Hämta status för en skalningsuppsättning för hela den virtuella datorn eller en instans i en skalningsuppsättning genom att köra följande kommandon.
+### <a name="validate-if-disk-encryption-is-enabled-for-a-virtual-machine-scale-set-in-windows"></a>Verifiera om disk kryptering har Aktiver ATS för en skalnings uppsättning för virtuella datorer i Windows
+Hämta status för en hel skalnings uppsättning för virtuella datorer eller en instans i en skalnings uppsättning genom att köra följande kommandon.
 
 ```powershell
 
@@ -197,10 +197,10 @@ az vmss encryption show -g <resourceGroupName> -n <VMSS name>
 ```
 
 
-Dessutom kan du logga in på virtuella datorns skalningsuppsättning och kontrollera att enheterna som är krypterade.
+Dessutom kan du logga in på skalnings uppsättningen för den virtuella datorn och kontrol lera att enheterna är krypterade.
 
-### <a name="disable-disk-encryption-for-a-virtual-machine-scale-set-in-a-service-fabric-cluster"></a>Inaktivera disk encryption för en VM-skalningsuppsättning i Service Fabric-kluster 
-Inaktivera diskkryptering för en VM-skalningsuppsättning genom att köra följande kommandon. Observera att inaktiverar diskkryptering gäller skalningsuppsättningen hela den virtuella datorn och inte en enskild instans.
+### <a name="disable-disk-encryption-for-a-virtual-machine-scale-set-in-a-service-fabric-cluster"></a>Inaktivera disk kryptering för en skalnings uppsättning för virtuella datorer i ett Service Fabric kluster 
+Inaktivera disk kryptering för en skalnings uppsättning för virtuella datorer genom att köra följande kommandon. Observera att om du inaktiverar disk kryptering gäller hela skalnings uppsättningen för den virtuella datorn och inte en enskild instans.
 
 ```powershell
 
@@ -218,6 +218,6 @@ az vmss encryption disable -g <resourceGroupName> -n <VMSS name>
 
 
 ## <a name="next-steps"></a>Nästa steg
-Du bör nu ha ett säkert kluster och vet hur du aktiverar och inaktiverar diskkryptering för Service Fabric-klusternoder och VM-skalningsuppsättningar. Liknande vägledning på noder i Service Fabric i Linux finns i [diskkryptering för Linux](service-fabric-enable-azure-disk-encryption-linux.md).
+I det här läget bör du ha ett säkert kluster och veta hur du aktiverar och inaktiverar disk kryptering för Service Fabric klusternoder och skalnings uppsättningar för virtuella datorer. Liknande vägledning om Service Fabric klusternoder i Linux finns i [disk kryptering för Linux](service-fabric-enable-azure-disk-encryption-linux.md).
 
 [customize-your-cluster-template]: https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure#creating-a-custom-arm-template

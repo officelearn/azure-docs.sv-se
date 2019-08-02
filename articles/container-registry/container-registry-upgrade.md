@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: danlep
 ms.openlocfilehash: 05c227e7de078c6bb371049f16e191598b9ca4e5
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68310382"
 ---
 # <a name="upgrade-a-classic-container-registry"></a>Uppgradera ett klassiskt behållar register
@@ -23,7 +23,7 @@ Den klassiska SKU: n är inaktuell och kommer inte att vara tillgänglig efter 2
 
 ## <a name="why-upgrade"></a>Varför uppgradera?
 
-Den klassiska register-SKU: n är inaktuell och kommer inte att vara tillgänglig efter **2019 april**. Alla befintliga klassiska register bör uppgraderas före 2019 april. Portal hanterings funktionerna i klassiska register kommer att avvecklas. Skapandet av nya klassiska register kommer att inaktive ras efter 2019 april.
+Den klassiska register-SKU:n är inaktuell och kommer inte att vara tillgänglig efter **2019 april**. Alla befintliga klassiska register bör uppgraderas före 2019 april. Portal hanterings funktionerna i klassiska register kommer att avvecklas. Skapandet av nya klassiska register kommer att inaktive ras efter 2019 april.
 
 På grund av planerade inaktuella och begränsade funktioner i klassiska ohanterade register, bör alla klassiska register uppgraderas till hanterade register (Basic, standard eller Premium). Dessa SKU: er på högre nivå integrerar registret i funktionerna i Azure. Mer information om priser och funktioner för de olika tjänst nivåerna finns i [container Registry SKU: er](container-registry-skus.md).
 
@@ -53,7 +53,7 @@ När migreringen är klar används inte längre det lagrings konto i din prenume
 
 ## <a name="how-to-upgrade"></a>Så här uppgraderar du
 
-Du kan uppgradera ett ohanterat klassiskt register till en av de hanterade SKU: erna på flera olika sätt. I följande avsnitt beskriver vi processen för att använda [Azure CLI][azure-cli] and the [Azure portal][azure-portal].
+Du kan uppgradera ett ohanterat klassiskt register till en av de hanterade SKU: erna på flera olika sätt. I följande avsnitt beskriver vi processen för att använda [Azure CLI][azure-cli] och [Azure Portal][azure-portal].
 
 ## <a name="upgrade-in-azure-cli"></a>Uppgradera i Azure CLI
 
@@ -106,7 +106,7 @@ Under migreringen anger portalen att registrets etablerings **status** *uppdater
 
 ![Den klassiska register uppgraderings förloppet i Azure Portal användar gränssnittet][update-classic-03-updating]
 
-När migreringen är klar visar **etablerings statusen** slutförd och du kan återuppta normala åtgärder med ditt register.
+När migreringen är klar visar **etablerings statusen** slutförd ochdu kan återuppta normala åtgärder med ditt register.
 
 ![Klassiskt läge för slut för ande av register uppgradering i Azure Portal användar gränssnitt][update-classic-04-updated]
 

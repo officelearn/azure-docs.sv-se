@@ -1,104 +1,104 @@
 ---
-title: Använda Azure-portalen för att hantera Azure AD-åtkomsträttigheter till blob och kö data med RBAC - Azure Storage | Microsoft Docs
-description: Använda rollbaserad åtkomstkontroll (RBAC från Azure-portalen) för att tilldela åtkomst till behållare och köer till säkerhetsobjekt. Azure Storage stöder inbyggda och anpassade RBAC-roller för autentisering via Azure AD.
+title: Använd Azure Portal för att hantera åtkomst rättigheter för Azure AD till blob-och Queue-data med RBAC-Azure Storage | Microsoft Docs
+description: Använd rollbaserad åtkomst kontroll (RBAC) från Azure Portal för att tilldela åtkomst till behållare och köer till säkerhets objekt. Azure Storage stöder inbyggda och anpassade RBAC-roller för autentisering via Azure AD.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 07/25/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 959d96a9bc1dd9f28e62d904248cd1f18d73c27d
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: 4c558da6b0a9267c03b26ca1b5f57eb5e7444881
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67563917"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68515013"
 ---
-# <a name="grant-access-to-azure-blob-and-queue-data-with-rbac-in-the-azure-portal"></a>Bevilja åtkomst till Azure blob och kö data med RBAC i Azure portal
+# <a name="grant-access-to-azure-blob-and-queue-data-with-rbac-in-the-azure-portal"></a>Bevilja åtkomst till Azure blob-och Queue-data med RBAC i Azure Portal
 
-Azure Active Directory (Azure AD) auktoriserar åtkomsträttigheter till skyddade resurser via [rollbaserad åtkomstkontroll (RBAC)](../../role-based-access-control/overview.md). Azure Storage definierar en uppsättning inbyggda RBAC-roller som omfattar vanliga uppsättningar av behörigheter som används för att komma åt data blob eller kön. 
+Azure Active Directory (Azure AD) tillåter åtkomst rättigheter till skyddade resurser via [rollbaserad åtkomst kontroll (RBAC)](../../role-based-access-control/overview.md). Azure Storage definierar en uppsättning inbyggda RBAC-roller som omfattar vanliga uppsättningar av behörigheter som används för att få åtkomst till BLOB-eller Queue data. 
 
-När en RBAC-roll tilldelas till en Azure AD-säkerhetsobjekt, Azure beviljar åtkomst till att dessa resurser för det säkerhetsobjektet. Åtkomst kan begränsas till nivån för prenumerationen, resursgruppen, storage-konto eller en enskild behållare eller en kö. En Azure AD-säkerhetsobjekt kan vara en användare, en grupp, tjänstens huvudnamn för ett program eller en [hanterad identitet för Azure-resurser](../../active-directory/managed-identities-azure-resources/overview.md).
+När en RBAC-roll tilldelas till ett säkerhets objekt i Azure AD ger Azure åtkomst till dessa resurser för säkerhets objekt. Åtkomst kan begränsas till prenumerations nivån, resurs gruppen, lagrings kontot eller en enskild behållare eller kö. Ett säkerhets objekt i Azure AD kan vara en användare, en grupp, ett huvud namn för program tjänsten eller en [hanterad identitet för Azure-resurser](../../active-directory/managed-identities-azure-resources/overview.md).
 
-Den här artikeln beskriver hur du använder Azure-portalen för att tilldela RBAC-roller. Azure portal innehåller ett enkelt gränssnitt för att tilldela RBAC-roller och hantera åtkomst till dina lagringsresurser. Du kan också tilldela RBAC-roller för blob och kö resurser med hjälp av Azure-kommandoradsverktygen eller Azure Storage management API: er. Mer information om RBAC-roller för storage-resurser finns i [autentisera åtkomst till Azure-blobbar och köer med hjälp av Azure Active Directory](storage-auth-aad.md). 
+Den här artikeln beskriver hur du använder Azure Portal för att tilldela RBAC-roller. Azure Portal ger ett enkelt gränssnitt för att tilldela RBAC-roller och hantera åtkomst till dina lagrings resurser. Du kan också tilldela RBAC-roller för blob-och Queue-resurser med hjälp av Azures kommando rads verktyg eller API: er för Azure Storage hantering. Mer information om RBAC-roller för lagrings resurser finns i [autentisera åtkomst till Azure-blobbar och köer med hjälp av Azure Active Directory](storage-auth-aad.md). 
 
 ## <a name="rbac-roles-for-blobs-and-queues"></a>RBAC-roller för blobbar och köer
 
 [!INCLUDE [storage-auth-rbac-roles-include](../../../includes/storage-auth-rbac-roles-include.md)]
 
-## <a name="determine-resource-scope"></a>Bestäm resource omfattning 
+## <a name="determine-resource-scope"></a>Bestäm resurs omfång 
 
 [!INCLUDE [storage-auth-resource-scope-include](../../../includes/storage-auth-resource-scope-include.md)]
 
-## <a name="assign-rbac-roles-using-the-azure-portal"></a>Tilldela RBAC-roller med hjälp av Azure portal
+## <a name="assign-rbac-roles-using-the-azure-portal"></a>Tilldela RBAC-roller med hjälp av Azure Portal
 
-När du har fastställt lämplig omfattning för en rolltilldelning, navigerar du till resursen i Azure-portalen. Visa den **åtkomstkontroll (IAM)** inställningar för resursen, och Följ dessa instruktioner för att hantera rolltilldelningar:
+När du har bestämt lämplig omfattning för en roll tilldelning navigerar du till resursen i Azure Portal. Visa inställningarna för **Access Control (IAM)** för resursen och följ de här anvisningarna för att hantera roll tilldelningar:
 
-1. Tilldela rollen RBAC i Azure Storage att bevilja åtkomst till Azure AD-säkerhetsgrupper huvudnamn.
+1. Tilldela lämplig Azure Storage RBAC-roll för att bevilja åtkomst till ett säkerhets objekt i Azure AD.
 
-1. Tilldela Azure Resource Manager [läsare](../../role-based-access-control/built-in-roles.md#reader) roll till användare som behöver åtkomst till behållare eller köer via Azure-portalen med sina autentiseringsuppgifter för Azure AD. 
+1. Tilldela rollen Azure Resource Manager [läsare](../../role-based-access-control/built-in-roles.md#reader) till användare som behöver åtkomst till behållare eller köer via Azure Portal med sina autentiseringsuppgifter för Azure AD. 
 
 I följande avsnitt beskrivs var och en av de här stegen i detalj.
 
 > [!NOTE]
-> Ägare för Azure Storage-kontot kan tilldelas du automatiskt inte behörighet att komma åt data. Du måste uttryckligen tilldela dig själv en RBAC-roll för Azure Storage. Du kan tilldela den på nivån för din prenumeration, resursgrupp, storage-konto, eller en behållare eller en kö.
+> Ägare för Azure Storage-kontot kan tilldelas du automatiskt inte behörighet att komma åt data. Du måste uttryckligen tilldela dig själv en RBAC-roll för Azure Storage. Du kan tilldela den på nivån för din prenumeration, resurs grupp, lagrings konto eller en behållare eller kö.
 > 
-> Du kan inte tilldela en roll som är begränsade till en behållare eller en kö om ditt storage-konto har ett hierarkiskt namnområde aktiverat.
+> Du kan inte tilldela en roll som är begränsad till en behållare eller kö om ditt lagrings konto har ett hierarkiskt namn område aktiverat.
 
 ### <a name="assign-a-built-in-rbac-role"></a>Tilldela en inbyggd RBAC-roll
 
-Innan du tilldelar en roll till en säkerhetsprincip måste du Överväg omfattningen för de behörigheter som du beviljar. Granska den [Bestäm resource omfattning](#determine-resource-scope) avsnitt för att bestämma lämpliga omfattningar.
+Innan du tilldelar en roll till ett säkerhets objekt måste du ta hänsyn till omfattningen av de behörigheter som du beviljar. Granska avsnittet [Bestäm resurs omfång](#determine-resource-scope) för att bestämma lämplig omfattning.
 
-Proceduren som visas här tilldelas en roll som är begränsade till en behållare, men du kan följa samma steg för att tilldela en roll som är begränsade till en kö: 
+Proceduren som visas här tilldelar en behållare en roll som är begränsad till en behållare, men du kan följa samma steg för att tilldela en roll som är begränsad till en kö: 
 
-1. I den [Azure-portalen](https://portal.azure.com)går du till ditt lagringskonto och visa den **översikt** för kontot.
-1. Under Services väljer **Blobar**. 
-1. Leta rätt på behållaren som du vill tilldela en roll och visa behållarens inställningar. 
-1. Välj **åtkomstkontroll (IAM)** att visa inställningar för åtkomstkontroll för behållaren. Välj den **rolltilldelningar** flik för att se en lista över rolltilldelningar.
+1. I [Azure Portal](https://portal.azure.com)navigerar du till ditt lagrings konto och visar **översikten** för kontot.
+1. Under tjänster väljer du **blobbar**. 
+1. Leta upp den behållare som du vill tilldela en roll till och Visa behållarens inställningar. 
+1. Välj **åtkomst kontroll (IAM)** om du vill visa inställningar för åtkomst kontroll för behållaren. Välj fliken **roll tilldelningar** om du vill se en lista över roll tilldelningar.
 
-    ![Skärmbild som visar behörighetsinställningar för behållare](media/storage-auth-aad-rbac-portal/portal-access-control-container.png)
+    ![Skärm bild som visar inställningar för åtkomst kontroll för behållare](media/storage-auth-aad-rbac-portal/portal-access-control-container.png)
 
-1. Klicka på den **Lägg till rolltilldelning** för att lägga till en ny roll.
-1. I den **Lägg till rolltilldelning** fönstret, Välj den Azure Storage-roll som du vill tilldela. Och sedan söka efter säkerhetsobjektet som du vill tilldela rollen.
+1. Klicka på knappen **Lägg till roll tilldelning** för att lägga till en ny roll.
+1. I fönstret **Lägg till roll tilldelning** väljer du den Azure Storages roll som du vill tilldela. Sök sedan efter det säkerhets objekt som du vill tilldela rollen.
 
-    ![Skärmbild som visar hur du tilldelar en RBAC-roll](media/storage-auth-aad-rbac-portal/add-rbac-role.png)
+    ![Skärm bild som visar hur du tilldelar en RBAC-roll](media/storage-auth-aad-rbac-portal/add-rbac-role.png)
 
-1. Klicka på **Spara**. Identiteten som du tilldelats rollen visas listan under rollen. Följande bild visar till exempel att användaren nu har läsbehörighet till data i behållare med namnet *exempelbehållaren*.
+1. Klicka på **Spara**. Identiteten som du har tilldelat rollen visas i listan under den rollen. Följande bild visar till exempel att användaren lade till nu har Läs behörighet till data i behållaren med namnet *Sample-container*.
 
-    ![Skärmbild som visar listan över användare som har tilldelats en roll](media/storage-auth-aad-rbac-portal/container-scoped-role.png)
+    ![Skärm bild som visar en lista över användare som har tilldelats en roll](media/storage-auth-aad-rbac-portal/container-scoped-role.png)
 
-Du kan följa liknande steg om du vill tilldela en roll som är begränsade till storage-konto, resursgrupp eller prenumeration.
+Du kan följa liknande steg för att tilldela en roll som är begränsad till lagrings kontot, resurs gruppen eller prenumerationen.
 
-### <a name="assign-the-reader-role-for-portal-access"></a>Tilldela rollen Läsare för portalåtkomst
+### <a name="assign-the-reader-role-for-portal-access"></a>Tilldela rollen läsare för åtkomst till portalen
 
-När du tilldelar en inbyggda eller anpassade roll för Azure Storage till säkerhetsobjekt, beviljar du behörigheter till det säkerhetsobjektet att utföra åtgärder på data i ditt storage-konto. Inbyggt **Dataläsaren** roller ger läsbehörighet för data i en behållare eller en kö, samtidigt som inbyggt **Data-deltagare** roller tillhandahåller läsa, skriva och ta bort behörigheter till en behållare eller kön. Behörigheter är begränsade till den angivna resursen.  
+När du tilldelar en inbyggd eller anpassad roll för Azure Storage till ett säkerhets objekt beviljar du behörigheter till säkerhets objekt för att utföra åtgärder på data i ditt lagrings konto. De inbyggda rollerna för **data läsare** ger Läs behörighet för data i en behållare eller kö, medan de inbyggda rollerna för **data deltagare** ger Läs-, skriv-och borttagnings behörighet till en behållare eller kö. Behörigheter tilldelas till den angivna resursen.  
 
-Exempel: Om du tilldelar den **Storage Blob Data-deltagare** roll till användare Mary på nivån för en behållare med namnet **exempelbehållaren**, sedan Mary beviljas läsa, skriva och ta bort åtkomst till alla blobar i den behållaren.
+Om du till exempel tilldelar rollen **Storage BLOB data Contributor** till användare Maria på nivån för en behållare med namnet **Sample-container**, beviljas Marys Läs-, skriv-och borttagnings åtkomst till alla blobar i behållaren.
 
-Men om Mary vill visa en blob i Azure-portalen kommer **Storage Blob Data-deltagare** rollen påverkar i sig inte ger tillräcklig behörighet för att gå via portalen till bloben för att kunna visa den. Ytterligare Azure AD-behörigheter krävs för att gå via portalen och visa de resurser som är synliga det.
+Men om Mary vill visa en BLOB i Azure Portal, ger inte rollen **Storage BLOB data Contributor** av sig tillräckliga behörigheter för att navigera via portalen till blobben för att kunna visa den. Ytterligare Azure AD-behörigheter krävs för att navigera via portalen och Visa de andra resurser som är synliga där.
 
-Om användarna behöver för att kunna få åtkomst till blobar i Azure portal och sedan tilldela dem en ytterligare RBAC-roll i [läsare](../../role-based-access-control/built-in-roles.md#reader) roll, som dessa användare på nivån för storage-konto eller högre. Den **läsare** är en Azure Resource Manager-roll som tillåter användare att visa lagringskontoresurserna, men inte ändra dem. Det ger inte läsbehörighet till data i Azure Storage, men endast konto management-resurser.
+Om användarna behöver kunna komma åt blobbar i Azure Portal, tilldelar du dem en ytterligare RBAC-roll, rollen [läsare](../../role-based-access-control/built-in-roles.md#reader) , till dessa användare på lagrings kontots nivå eller över. Rollen **läsare** är en Azure Resource Manager roll som tillåter användare att Visa lagrings konto resurser, men inte ändra dem. Den ger inte Läs behörighet till data i Azure Storage, men endast för att hantera resurser för hantering.
 
-Följ dessa steg för att tilldela den **läsare** rollen så att en användare kan komma åt blobar från Azure-portalen. Tilldelningen är begränsad till storage-kontot i det här exemplet:
+Följ dessa steg om du vill tilldela rollen **läsare** så att en användare kan komma åt blobbar från Azure Portal. I det här exemplet är tilldelningen begränsad till lagrings kontot:
 
-1. I den [Azure-portalen](https://portal.azure.com), navigera till ditt lagringskonto.
-1. Välj **åtkomstkontroll (IAM)** att visa inställningarna av åtkomstkontrollen för lagringskontot. Välj den **rolltilldelningar** flik för att se en lista över rolltilldelningar.
-1. I den **Lägg till rolltilldelning** väljer den **läsare** roll. 
-1. Från den **tilldela åtkomst till** väljer **Azure AD-användare, grupp eller tjänstens huvudnamn**.
-1. Söka efter säkerhetsobjektet som du vill tilldela rollen.
-1. Spara rolltilldelningen.
+1. I [Azure Portal](https://portal.azure.com)navigerar du till ditt lagrings konto.
+1. Välj **åtkomst kontroll (IAM)** om du vill visa inställningarna för åtkomst kontroll för lagrings kontot. Välj fliken **roll tilldelningar** om du vill se en lista över roll tilldelningar.
+1. I fönstret **Lägg till roll tilldelning** väljer du rollen **läsare** . 
+1. I fältet **tilldela åtkomst till väljer du** **Azure AD-användare, grupp eller tjänstens huvud namn**.
+1. Sök efter den säkerhets princip som du vill tilldela rollen.
+1. Spara roll tilldelningen.
 
 > [!NOTE]
-> Tilldela rollen Läsare krävs endast för användare som behöver åtkomst till blobar eller köer med hjälp av Azure-portalen. 
+> Du behöver bara tilldela rollen läsare för användare som behöver åtkomst till blobbar eller köer med hjälp av Azure Portal. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information om RBAC-roller för storage-resurser finns i [autentisera åtkomst till Azure-blobbar och köer med hjälp av Azure Active Directory](storage-auth-aad.md). 
-- Läs mer om RBAC i [vad är rollbaserad åtkomstkontroll (RBAC)?](../../role-based-access-control/overview.md).
-- Om du vill lära dig mer om att tilldela och hantera RBAC-rolltilldelningar med Azure PowerShell, Azure CLI eller REST-API kan du läsa följande artiklar:
-    - [Hantera rollbaserad åtkomstkontroll (RBAC) med Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
-    - [Hantera rollbaserad åtkomstkontroll (RBAC) med Azure CLI](../../role-based-access-control/role-assignments-cli.md)
-    - [Hantera rollbaserad åtkomstkontroll (RBAC med REST API)](../../role-based-access-control/role-assignments-rest.md)
-- Läs hur du tillåter åtkomst till behållare och köer från i ditt storage-program i [använda Azure AD med Azure Storage-program](storage-auth-aad-app.md).
+- Mer information om RBAC-roller för lagrings resurser finns i [autentisera åtkomst till Azure-blobbar och köer med hjälp av Azure Active Directory](storage-auth-aad.md). 
+- Mer information om RBAC finns i [Vad är rollbaserad åtkomst kontroll (RBAC)?](../../role-based-access-control/overview.md).
+- Information om hur du tilldelar och hanterar RBAC-roll tilldelningar med Azure PowerShell, Azure CLI eller REST API finns i följande artiklar:
+    - [Hantera rollbaserad åtkomst kontroll (RBAC) med Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
+    - [Hantera rollbaserad åtkomst kontroll (RBAC) med Azure CLI](../../role-based-access-control/role-assignments-cli.md)
+    - [Hantera rollbaserad åtkomst kontroll (RBAC) med REST API](../../role-based-access-control/role-assignments-rest.md)
+- Information om hur du auktoriserar åtkomst till behållare och köer från dina lagrings program finns i [använda Azure AD med Azure Storage-program](storage-auth-aad-app.md).

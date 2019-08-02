@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 3d0c7c10b03169e5d78b833df5a26d83b04b9240
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: 9623c4782dec6c3df5b226a3321d3750909e8369
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68347837"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698921"
 ---
 # <a name="predefined-skills-for-content-enrichment-azure-search"></a>Fördefinierade kunskaper för innehålls anrikning (Azure Search)
 
@@ -39,7 +39,7 @@ Flera färdigheter är flexibla i vad de använder eller producerar. I allmänhe
 | [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md) | Den här kunskapen använder en förtränad modell för att upprätta entiteter för en fast uppsättning kategorier: personer, plats, organisation, e-post, URL: er, DateTime-fält. |
 | [Microsoft.Skills.Text.SentimentSkill](cognitive-search-skill-sentiment.md)  | Den här kunskapen använder en förtränad modell för att räkna upp positiva eller negativa sentiment på en post efter post. Poängen är mellan 0 och 1. Neutrala Poäng inträffar för både null-fall när sentiment inte kan identifieras och för text som betraktas som neutral.  |
 | [Microsoft.Skills.Text.SplitSkill](cognitive-search-skill-textsplit.md) | Delar upp text i sidor så att du kan utöka eller utöka innehållet stegvis. |
-| [Microsoft. färdigheter. text. TranslationSkill (för hands version)](cognitive-search-skill-text-translation.md) | Den här kunskapen använder en förtränad modell för att översätta inmatad text till en rad olika språk för normalisering eller lokalisering av användnings fall. |
+| [Microsoft. färdigheter. text. TranslationSkill](cognitive-search-skill-text-translation.md) | Den här kunskapen använder en förtränad modell för att översätta inmatad text till en rad olika språk för normalisering eller lokalisering av användnings fall. |
 | [Microsoft.Skills.Vision.ImageAnalysisSkill](cognitive-search-skill-image-analysis.md) | Den här kunskapen använder en algoritm för avbildnings avkänning för att identifiera innehållet i en bild och generera en text beskrivning. |
 | [Microsoft.Skills.Vision.OcrSkill](cognitive-search-skill-ocr.md) | Optisk typsnitts igenkänning. |
 | [Microsoft. färdigheter. util. ConditionalSkill](cognitive-search-skill-conditional.md) | Tillåter filtrering, tilldelar ett standardvärde och sammanfogar data baserat på ett villkor.|

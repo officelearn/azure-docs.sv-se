@@ -13,51 +13,51 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 07/17/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59f716ccd7b2e02c9064f13cf1ffd6e8180858c9
-ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
+ms.openlocfilehash: c872d5151ac0b7bb650e2de68b9e631e8254ba94
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67827918"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68618902"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Granska aktivitetsrapporter i Azure Active Directory-portalen 
 
-Med Azure Active Directory (Azure AD) rapporter får du den information du behöver för att fastställa hur din miljö.
+Med Azure Active Directory (Azure AD)-rapporter kan du få den information du behöver för att avgöra hur din miljö fungerar.
 
-Rapporteringsarkitekturen består av följande komponenter:
+Rapporterings arkitekturen består av följande komponenter:
 
 - **Aktivitet** 
-    - **Inloggningar** – den [rapporten inloggningar](concept-sign-ins.md) innehåller information om användningen av hanterade program och användare logga in aktiviteter.
-    - **Granskningsloggar** – Ger spårbarhet via loggar för alla ändringar som gjorts via olika funktioner i Azure AD. Exempel på granskningsloggar är de resursändringar som görs i Azure AD, som att lägga till eller ta bort användare, appar, grupper, roller och principer.
+    - **Inloggningar** – inloggnings [rapporten](concept-sign-ins.md) innehåller information om användningen av hanterade program och användar inloggnings aktiviteter.
+    - **Granskningsloggar** – Ger spårbarhet via loggar för alla ändringar som gjorts via olika funktioner i Azure AD. Exempel på gransknings loggar är ändringar som har gjorts i alla resurser i Azure AD, till exempel att lägga till eller ta bort användare, appar, grupper, roller och principer.
 - **Säkerhet** 
-    - **Riskfyllda inloggningar** – en [riskfyllda inloggningen](concept-risky-sign-ins.md) indikerar en inloggningsförsök som kan ha utförts av någon som inte är tillförlitligt ägare för ett användarkonto. 
-    - **Användare som har flaggats för risk** – en [riskfylld användare](concept-user-at-risk.md) är en indikator för ett användarkonto som kan ha komprometterats.
+    - **Riskfyllda inloggningar** – en [riskfylld inloggning](concept-risky-sign-ins.md) är en indikator för ett inloggnings försök som kan ha utförts av någon som inte är en legitim ägare till ett användar konto. 
+    - **Användare som har flaggats för risk** – en [riskfylld användare](concept-user-at-risk.md) är en indikator för ett användar konto som kan ha komprometterats.
 
-Den här artikeln ger en översikt över granskningsrapporten.
+Den här artikeln ger en översikt över gransknings rapporten.
  
 ## <a name="who-can-access-the-data"></a>Vem kan komma åt dessa data?
 
-* Användare i den **säkerhetsadministratör**, **Säkerhetsläsare**, **rapportläsare** eller **Global administratör** roller
-* Dessutom kan kan alla användare (icke-administratörer) Se sina egna granskningsaktiviteter
+* Användare i rollerna **säkerhets administratör**, **säkerhets läsare**, **rapport läsare** eller **Global administratör**
+* Dessutom kan alla användare (icke-administratörer) se sina egna gransknings aktiviteter
 
 ## <a name="audit-logs"></a>Granskningsloggar
 
-Azure AD-audit-loggarna ger dokumentation över systemaktiviteter för efterlevnad av. För att komma åt granskningsrapporten, Välj **granskningsloggar** i den **aktivitet** delen av **Azure Active Directory**. Observera att granskningsloggar kan ha en fördröjning på upp till en timme, så det kan ta så lång tid för aktiviteten granskningsdata visas i portalen när du har slutfört uppgiften.
+I gransknings loggarna i Azure AD finns register över system aktiviteter för efterlevnad. Välj **gransknings loggar** i avsnittet **aktivitet** i **Azure Active Directory**för att få åtkomst till gransknings rapporten. Observera att gransknings loggar kan ha en fördröjning på upp till en timme, så det kan ta lång tid för gransknings aktivitets data att visas i portalen när du har slutfört uppgiften.
 
-![Granskningsloggar](./media/concept-audit-logs/61.png "Granskningsloggar")
+
 
 En granskningslogg har en standardlistvy som visar:
 
 - datum och tid för förekomsten
-- den tjänst som visar
-- kategori och namnet på aktiviteten (*vad*) 
-- status för aktivitet (lyckade eller misslyckade)
+- tjänsten som loggade förekomsten
+- aktivitetens kategori och namn (*vad*) 
+- aktivitetens status (lyckades eller misslyckades)
 - målet
-- Initieraren / aktören (vem) för en aktivitet
+- initieraren/aktören (som) för en aktivitet
 
 ![Granskningsloggar](./media/concept-audit-logs/listview.png "Granskningsloggar")
 
@@ -69,14 +69,14 @@ På så sätt kan du visa ytterligare fält eller ta bort fält som redan visas.
 
 ![Granskningsloggar](./media/concept-audit-logs/columnselect.png "Granskningsloggar")
 
-Markera ett objekt i listvyn för att få mer detaljerad information.
+Välj ett objekt i listvyn om du vill ha mer detaljerad information.
 
 ![Granskningsloggar](./media/concept-audit-logs/details.png "Granskningsloggar")
 
 
 ## <a name="filtering-audit-logs"></a>Filtrera granskningsloggar
 
-Du kan filtrera granskningsdata på följande fält:
+Du kan filtrera gransknings data i följande fält:
 
 - Tjänsten
 - Category
@@ -88,25 +88,25 @@ Du kan filtrera granskningsdata på följande fält:
 
 ![Granskningsloggar](./media/concept-audit-logs/filter.png "Granskningsloggar")
 
-Den **Service** filter kan du välja från en listruta för följande tjänster:
+Med **tjänst** filtret kan du välja från en listruta med följande tjänster:
 
 - Alla
 - Åtkomstgranskningar
 - Kontoetablering 
-- Programmet SSO
+- SSO för program
 - Autentiseringsmetoder
 - B2C
-- Villkorlig åtkomst
+- Villkorad åtkomst
 - Kärnkatalog
-- Hantering av behörighet
+- Berättigandehantering
 - Identity Protection
 - Inbjudna användare
 - PIM
 - Självbetjäning, grupphantering
-- Självbetjäning Passord Management
+- Hantering av lösenord för självbetjäning
 - Användningsvillkor
 
-Den **kategori** filter kan du välja något av följande filter:
+Med filtret **kategori** kan du välja något av följande filter:
 
 - Alla
 - AdministrativeUnit
@@ -125,21 +125,21 @@ Den **kategori** filter kan du välja något av följande filter:
 - RoleManagement
 - UserManagement
 
-Den **aktivitet** filter baserat på kategori och aktivitet resursen typ du väljer. Du kan välja en specifik aktivitet som du vill visa eller välja alla. 
+**Aktivitets** filtret baseras på resurs typs valet kategori och aktivitet som du gör. Du kan välja en specifik aktivitet som du vill visa eller välja alla. 
 
-Du kan hämta listan över alla granskningsaktiviteter med Graph API https://graph.windows.net/ $tenantdomain/activities/auditActivityTypes?api-version=beta, där $tenantdomain = ditt domännamn eller refererar till artikeln [Granska rapporthändelser](reference-audit-activities.md).
+Du kan hämta listan över alla gransknings aktiviteter med hjälp av Graph API:`https://graph.windows.net/<tenantdomain>/activities/auditActivityTypesV2?api-version=beta`
 
-Den **Status** filter kan du filtrera baserat på status för en åtgärd för granskning. Statusen kan vara något av följande:
+Med **status** filtret kan du filtrera baserat på status för en gransknings åtgärd. Statusen kan vara något av följande:
 
 - Alla
 - Lyckades
 - Fel
 
-Den **Target** filter kan du söka efter ett visst mål efter namn eller användarens huvudnamn (UPN). Målnamn och UPN är skiftlägeskänsliga. 
+Med **mål** filtret kan du söka efter ett visst mål efter namn eller User Principal Name (UPN). Mål namnet och UPN är Skift läges känsliga. 
 
-Den **initieras av** filter kan du definiera en aktörs namn eller ett universal principal name (UPN). Namn- och UPN är skiftlägeskänsliga.
+Med filtret **initierad av** kan du definiera en aktörs namn eller ett universellt huvud namn (UPN). Namnet och UPN är Skift läges känsliga.
 
-Den **datumintervall** filter kan du definiera en tidsram för data som returneras.  
+Med filtret för **datum intervall** kan du definiera en tidsram för de data som returneras.  
 Möjliga värden är:
 
 - 1 månad
@@ -149,7 +149,7 @@ Möjliga värden är:
 
 När du väljer en anpassad tidsram kan du konfigurera en starttid och en sluttid.
 
-Du kan också välja att hämta filtrerade data, upp till 250 000 poster genom att välja den **hämta** knappen. Du kan välja att hämta loggarna i CSV eller JSON-format. Antalet poster som du kan ladda ned är begränsad av den [rapportkvarhållningsregler i Azure Active Directory](reference-reports-data-retention.md).
+Du kan också välja att ladda ned filtrerade data, upp till 250 000 poster, genom att välja knappen **Hämta** . Du kan hämta loggarna i antingen CSV-eller JSON-format. Antalet poster som du kan hämta begränsas av [Azure Active Directory bevarande principer för rapporter](reference-reports-data-retention.md).
 
 ![Granskningsloggar](./media/concept-audit-logs/download.png "Granskningsloggar")
 
@@ -180,11 +180,11 @@ Med användar- och gruppbaserade granskningsrapporter kan du få svar på frågo
 
 - Vilka licenser har tilldelats en grupp eller en användare?
 
-Om du bara vill kontrollera granskningsdata som relateras till användare kan du hitta en filtrerad vy under **granskningsloggar** i den **aktivitet** delen av den **användare** fliken. Den här registreringspunkten har **UserManagement** som förvalda kategori.
+Om du bara vill granska gransknings data som är relaterade till användare kan du hitta en filtrerad vy under **gransknings loggar** i avsnittet **aktivitet** på fliken **användare** . Den här start punkten har **UserManagement** som förvalt kategori.
 
 ![Granskningsloggar](./media/concept-audit-logs/users.png "Granskningsloggar")
 
-Om du bara vill kontrollera granskningsdata som relateras till grupper kan du hitta en filtrerad vy under **granskningsloggar** i den **aktivitet** delen av den **grupper** fliken. Den här registreringspunkten har **GroupManagement** som förvalda kategori.
+Om du bara vill granska gransknings data som är relaterade till grupper kan du hitta en filtrerad vy under **gransknings loggar** i avsnittet **aktivitet** på fliken **grupper** . Den här start punkten har **GroupManagement** som förvalt kategori.
 
 ![Granskningsloggar](./media/concept-audit-logs/groups.png "Granskningsloggar")
 
@@ -194,22 +194,22 @@ Med programbaserade granskningsrapporter kan du få svar på frågor som:
 
 * Vilka program har lagts till eller uppdaterats?
 * Vilka program har tagits bort?
-* Har ett huvudnamn för tjänsten för ett program ändrats?
+* Har ett tjänst huvud namn för ett program ändrats?
 * Har namnen på program ändrats?
 * Vem gav tillstånd till ett program?
 
-Om du vill kontrollera granskningsdata relaterade till dina program kan du hitta en filtrerad vy under **granskningsloggar** i den **aktivitet** delen av den **företagsprogram** blad. Den här registreringspunkten har **företagsprogram** förvalda som den **programtyp**.
+Om du vill granska gransknings data som är relaterade till dina program kan du hitta en filtrerad vy under **gransknings loggar** i avsnittet **aktivitet** på bladet **företags program** . Den här start punkten har **företags program** som är förvalda som **program typ**.
 
 ![Granskningsloggar](./media/concept-audit-logs/enterpriseapplications.png "Granskningsloggar")
 
-## <a name="office-365-activity-logs"></a>Office 365-aktivitetsloggar
+## <a name="office-365-activity-logs"></a>Office 365-aktivitets loggar
 
-Du kan visa Office 365-aktivitetsloggar från den [Microsoft 365 Administrationscenter](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Även om Office 365-aktivitet och Azure AD delar en massa directory-resurser, endast Microsoft 365 Administrationscenter ger en fullständig överblick över aktivitetsloggarna i Office 365. 
+Du kan visa Office 365-aktivitets loggar från [Microsoft 365 administrations Center](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Även om Office 365-aktivitet och Azure AD-aktivitets loggar delar mycket av katalog resurserna, ger endast Microsoft 365 administrations Center en fullständig översikt över aktivitets loggarna för Office 365. 
 
-Du kan också komma åt Office 365-aktivitetsloggar programmässigt med hjälp av den [API: er för Office 365-Management](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview).
+Du kan också få åtkomst till Office 365-aktivitets loggarna via programmering med hjälp av [office 365 Management-API: er](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Referens för granskningsaktiviteter i Azure AD](reference-audit-activities.md)
-- [Kvarhållning referens för Azure AD-rapporter](reference-reports-data-retention.md)
-- [Referera till Azure AD log svarstider](reference-reports-latencies.md)
+- [Referens för gransknings aktiviteter i Azure AD](reference-audit-activities.md)
+- [Referens för kvarhållning av Azure AD-rapporter](reference-reports-data-retention.md)
+- [Referens för fördröjning i Azure AD-logg](reference-reports-latencies.md)

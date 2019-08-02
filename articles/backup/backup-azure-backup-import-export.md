@@ -1,18 +1,19 @@
 ---
 title: Azure Backup-offline-säkerhetskopiering eller inledande dirigering med tjänsten Azure import/export
 description: Lär dig hur Azure Backup ger dig möjlighet att skicka data från nätverket med Azure import/export-tjänsten. I den här artikeln förklaras dirigeringen av de första säkerhets kopierings data med hjälp av Azure import export-tjänsten.
-author: saurabhsensharma
-manager: shivamg
+ms.reviewer: saurse
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 05/17/2018
-ms.author: saurse
-ms.openlocfilehash: e852e1595be5b564bd1a6326d41115496284506f
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 2c628b94879e54616f294e4c5f349f241fbbb98b
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466790"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689480"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Arbetsflöde för säkerhetskopiering offline i Azure Backup
 Azure Backup har flera inbyggda effektivitets vinster som sparar kostnader för nätverk och lagring under de första fullständiga säkerhets kopieringarna av data till Azure. De första fullständiga säkerhets kopieringarna överför ofta stora mängder data och kräver mer nätverks bandbredd jämfört med efterföljande säkerhets kopieringar som bara överför delta/steg. Genom processen för dirigering av dirigering kan Azure Backup använda diskar för att ladda upp offline-säkerhetskopierade data till Azure.
@@ -55,14 +56,14 @@ Innan du påbörjar arbets flödet offline måste du uppfylla följande krav:
 * Skapa ett Azure Storage-konto i samma prenumeration som Recovery Services-valvet. 
 * Kontrol lera att du har de [behörigheter som krävs](../active-directory/develop/howto-create-service-principal-portal.md) för att skapa Azure Active Directory-programmet. Arbets flödet offline-säkerhetskopiering skapar ett Azure Active Directory-program i prenumerationen som är kopplad till Azure Storage kontot. Målet med programmet är att tillhandahålla Azure Backup med säker och begränsad åtkomst till Azure import-tjänsten som krävs för arbets flödet offline-säkerhetskopiering. 
 * Registrera Microsoft. ImportExport-resurs leverantören med prenumerationen som innehåller det Azure Storage kontot. Så här registrerar du resurs leverantören:
-    1. Klicka på prenumerationer i huvud menyn.
+    1. Klicka på prenumerationer i huvudmenyn.
     2. Om du prenumererar på flera prenumerationer väljer du den prenumeration som du använder för säkerhets kopiering offline. Om du bara använder en prenumeration visas din prenumeration.
     3. I menyn prenumeration klickar du på **resurs leverantörer** för att visa listan över leverantörer.
     4. I listan över providers bläddrar du ned till Microsoft. ImportExport. Om statusen är NotRegistered klickar du på **Registrera**.
     ![resurs leverantören registreras](./media/backup-azure-backup-import-export/registerimportexport.png)
 * En mellanlagringsplats, som kan vara en nätverks resurs eller ytterligare en enhet på datorn, intern eller extern, med tillräckligt disk utrymme för att lagra din ursprungliga kopia skapas. Om du till exempel försöker säkerhetskopiera en fil server på 500 GB måste du kontrol lera att mellanlagringsområdet är minst 500 GB. (En mindre mängd används på grund av komprimering.)
 * När du skickar diskar till Azure använder du endast 2,5-tums SSD eller 2,5-tums eller 3,5-tums interna SATA II/III-hårddiskar. Du kan använda hård diskar upp till 10 TB. Läs [dokumentationen för Azure import/export-tjänsten](../storage/common/storage-import-export-requirements.md#supported-hardware) för den senaste uppsättningen enheter som stöds av tjänsten.
-* SATA-enheterna måste vara anslutna till en dator (kallas *kopierings dator*) från den plats där kopian av säkerhets kopierings data  från MELLANlagringsplatsen till SATA-enheterna görs. Se till att BitLocker är aktiverat på *kopierings datorn*.
+* SATA-enheterna måste vara anslutna till en dator (kallas *kopierings dator*) från den plats där kopian av säkerhets kopierings data från MELLANlagringsplatsen till SATA-enheterna görs. Se till att BitLocker är aktiverat på *kopierings datorn*.
 
 ## <a name="workflow"></a>Arbetsflöde
 I det här avsnittet beskrivs arbets flödet för offline-säkerhetskopiering så att dina data kan skickas till ett Azure-datacenter och laddas upp till Azure Storage. Om du har frågor om import tjänsten eller någon del av processen går du till översikts [dokumentationen för import tjänsten](../storage/common/storage-import-export-service.md).
@@ -80,7 +81,7 @@ I det här avsnittet beskrivs arbets flödet för offline-säkerhetskopiering s�
     * **ID för Azure-prenumeration**: ID för den Azure-prenumeration där Azure Storages kontot skapas.
     * **Namn på Azure import-jobb**: Det unika namnet som Azure import service och Azure Backup spåra överföringen av data som skickas på diskar till Azure. 
   
-   Ange indata på skärmen och klicka på **Nästa**. Spara den angivna  mellanlagringsplatsen och *Azures import jobbnamn*, eftersom den här informationen krävs för att förbereda diskarna.
+   Ange indata på skärmen och klicka på **Nästa**. Spara den angivna mellanlagringsplatsen och *Azures import jobbnamn*, eftersom den här informationen krävs för att förbereda diskarna.
 
 2. Logga in på din Azure-prenumeration när du uppmanas till det. Du måste logga in så att Azure Backup kan skapa Azure Active Directory programmet och ange de behörigheter som krävs för att få åtkomst till Azure import service.
 

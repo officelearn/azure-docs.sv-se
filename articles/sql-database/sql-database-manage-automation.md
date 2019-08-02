@@ -1,6 +1,6 @@
 ---
 title: Hantera Azure SQL-databaser med Azure Automation | Microsoft Docs
-description: Läs mer om hur Azure Automation-tjänsten kan användas för att hantera Azure SQL-databaser i stor skala.
+description: Lär dig mer om hur Azure Automation-tjänsten kan användas för att hantera Azure SQL-databaser i stor skala.
 services: sql-database
 ms.service: sql-database
 ms.subservice: operations
@@ -10,43 +10,42 @@ ms.topic: conceptual
 author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: e488e742fc49102f7c58d132a66bca2347ad575c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bb195d5809ef0e2af2a4975a263a9739db1cdfa6
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60702103"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567743"
 ---
-# <a name="managing-azure-sql-databases-using-azure-automation"></a>Hantera Azure SQL-databaser med Azure Automation
+# <a name="managing-azure-sql-databases-using-azure-automation"></a>Hantera Azure SQL-databaser med hjälp av Azure Automation
 
-Den här guiden innehåller en introduktion till Azure Automation-tjänsten och hur den kan användas för att förenkla hanteringen av din Azure SQL-databaser.
+I den här guiden får du lära dig Azure Automation tjänsten och hur den kan användas för att förenkla hanteringen av dina Azure SQL-databaser.
 
 ## <a name="what-is-azure-automation"></a>Vad är Azure Automation?
 
-[Azure Automation](https://azure.microsoft.com/services/automation/) är en Azure-tjänst för att förenkla molnhantering med Processautomatisering. Med Azure Automation, kan tidskrävande, manuell, felbenägna och regelbundet återkommande uppgifter automatiseras för att öka tillförlitligheten, effektivitet och tid till värde för din organisation.
+[Azure Automation](https://azure.microsoft.com/services/automation/) är en Azure-tjänst för att förenkla moln hantering genom process automatisering. Att använda Azure Automation, långvariga, manuella, fel känsliga och ofta återkommande uppgifter kan automatiseras för att öka tillförlitligheten, effektiviteten och tiden för din organisation.
 
-Azure Automation tillhandahåller en arbetsflödeskörningsmotor med hög tillgänglighet och hög tillgänglighet och som kan skalas efter dina behov när organisationen växer. I Azure Automation kan processer vara startats manuellt, genom att program från tredje part eller med schemalagda intervall så att uppgifter inträffa exakt när det behövs.
+Azure Automation tillhandahåller en motor för körning av arbets flöden med hög tillförlitlighet och hög tillgänglighet och som kan skalas för att uppfylla dina behov när organisationen växer. I Azure Automation kan processer startas manuellt, av system från tredje part eller med schemalagda intervall så att aktiviteterna sker exakt vid behov.
 
-Minska driftsomkostnader och frigör IT / DevOps-personal att fokusera på arbete som lägger till företag värde genom att flytta din molnhanteringsuppgifter att köras automatiskt av Azure Automation.
+Sänk drifts kostnader och frigör IT/DevOps-personalen och fokusera på arbete som lägger till affärs värde genom att flytta dina moln hanterings uppgifter så att de körs automatiskt av Azure Automation.
 
-## <a name="how-can-azure-automation-help-manage-azure-sql-databases"></a>Hur kan Azure Automation till att hantera Azure SQL-databaser?
+## <a name="how-can-azure-automation-help-manage-azure-sql-databases"></a>Hur kan Azure Automation hjälpa till att hantera Azure SQL-databaser?
 
-Azure SQL Database kan hanteras i Azure Automation med hjälp av den [Azure SQL Database PowerShell-cmdletar](https://docs.microsoft.com/powershell/module/servicemanagement/azure/#sql) som är tillgängliga i den [Azure PowerShell-verktyg](/powershell/azure/overview). Azure Automation har dessa Azure SQL Database PowerShell-cmdletar som är tillgängliga direkt, så att du kan utföra alla dina SQL DB-hanteringsuppgifter i tjänsten. Du kan också koppla dessa cmdletar i Azure Automation med cmdlets för andra Azure-tjänster, att automatisera avancerade uppgifter olika Azure-tjänster och i tredjepartssystem.
+Azure SQL Database kan hanteras i Azure Automation med hjälp av de [Azure SQL Database PowerShell](https://docs.microsoft.com/powershell/module/servicemanagement/azure/#sql) -cmdletar som är tillgängliga i [Azure PowerShell-verktygen](/powershell/azure/overview). Azure Automation har dessa Azure SQL Database PowerShell-cmdlets tillgängliga i rutan så att du kan utföra alla dina hanterings uppgifter för SQL DB i tjänsten. Du kan också para ihop dessa cmdlets i Azure Automation med cmdletar för andra Azure-tjänster, för att automatisera komplexa uppgifter i Azure-tjänster och på olika system.
 
-Azure Automation har också möjlighet att kommunicera med SQL-servrar direkt, genom att utfärda SQL-kommandon med hjälp av PowerShell.
+Azure Automation kan också kommunicera med SQL-servrar direkt genom att utfärda SQL-kommandon med PowerShell.
 
-Den [Azure Automation runbook-galleriet](https://azure.microsoft.com/blog/20../../introducing-the-azure-automation-runbook-gallery/) innehåller en rad olika produkt-teamet och community runbooks för att komma igång med automatiserade hantering av Azure SQL-databaser, andra Azure-tjänster och program från tredje part. Runbooks från galleriet är:
+[Azure Automation Runbook](https://azure.microsoft.com/blog/20../../introducing-the-azure-automation-runbook-gallery/) -galleriet innehåller en rad produkt team och community-Runbooks för att komma igång med automatisering av hantering av Azure SQL-databaser, andra Azure-tjänster och tredje parts system. Galleri Runbooks innehåller:
 
-- [Kör SQL-frågor mot en SQL Server-databas](https://gallery.technet.microsoft.com/scriptcenter/How-to-use-a-SQL-Command-be77f9d2)
-- [Lodrätt skalning (upp eller ned) en Azure SQL Database enligt ett schema](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-Database-e957354f)
-- [Trunkera en SQL-tabell om databasen närmar sig maximal storlek](https://gallery.technet.microsoft.com/scriptcenter/Azure-Automation-Your-SQL-30f8736b)
-- [Indexera tabeller i en Azure SQL-databas om de är mycket fragmenterat](https://gallery.technet.microsoft.com/scriptcenter/Indexes-tables-in-an-Azure-73a2a8ea)
+- [Köra SQL-frågor mot en SQL Server-databas](https://gallery.technet.microsoft.com/scriptcenter/How-to-use-a-SQL-Command-be77f9d2)
+- [Lodrätt skala (upp eller ned) ett Azure SQL Database enligt ett schema](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-Database-e957354f)
+- [Trunkera en SQL-tabell om dess databas närmar sig maximal storlek](https://gallery.technet.microsoft.com/scriptcenter/Azure-Automation-Your-SQL-30f8736b)
+- [Indexera tabeller i en Azure SQL Database om de är mycket fragmenterade](https://gallery.technet.microsoft.com/scriptcenter/Indexes-tables-in-an-Azure-73a2a8ea)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har lärt dig grunderna i Azure Automation och hur den kan användas för att hantera Azure SQL-databaser kan du följa dessa länkar om du vill veta mer om Azure Automation.
+Nu när du har lärt dig grunderna om Azure Automation och hur det kan användas för att hantera Azure SQL-databaser, kan du följa dessa länkar om du vill veta mer om Azure Automation.
 
 - [Översikt över Azure Automation](../automation/automation-intro.md)
 - [Min första Runbook](../automation/automation-first-runbook-graphical.md)

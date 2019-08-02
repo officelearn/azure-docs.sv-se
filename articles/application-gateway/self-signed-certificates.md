@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 07/23/2019
 ms.author: victorh
-ms.openlocfilehash: 0b97f2f6df87255e10faaf58c40ea9136354bff6
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 9966164ec1b6a37538a24d2ef8cb80007e6f6d29
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68386309"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698237"
 ---
 # <a name="generate-an-azure-application-gateway-self-signed-certificate-with-a-custom-root-ca"></a>Generera ett självsignerat certifikat för Azure Application Gateway med en anpassad rot certifikat utfärdare
 
@@ -161,7 +161,7 @@ Följande konfiguration är ett exempel på [nginx Server block](http://nginx.or
    ![Betrodda rot certifikat](media/self-signed-certificates/trusted-root-cert.png)
 
    > [!NOTE]
-   > Det förutsätts att DNS har kon figurer ATS för att peka på webb serverns namn (i det här exemplet www.fabrikam.com) till din webb servers IP-adress. Om inte, kan du redigera hosts- [filen](https://answers.microsoft.com/windows/forum/windows_10-other_settings-winpc/how-to-edit-host-file-in-windows-10/7696f204-2aaf-4111-913b-09d6917f7f3d) för att matcha namnet.
+   > Det förutsätts att DNS har kon figurer ATS för att peka på webb serverns namn (i det här exemplet www.fabrikam.com) till din webb servers IP-adress. Om inte, kan du redigera hosts- [filen](https://answers.microsoft.com/en-us/windows/forum/all/how-to-edit-host-file-in-windows-10/7696f204-2aaf-4111-913b-09d6917f7f3d) för att matcha namnet.
 1. Bläddra till din webbplats och klicka på Lås ikonen i webbläsarens Adress fält för att kontrol lera plats-och certifikat information.
 
 ## <a name="verify-the-configuration-with-openssl"></a>Verifiera konfigurationen med OpenSSL

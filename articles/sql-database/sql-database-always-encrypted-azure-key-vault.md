@@ -11,14 +11,13 @@ ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: ''
-manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: a833c255e7a4e83c003fbef72367c5e271f380c5
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: 924ec20b9922d12da7291dc4f44b7413c68728c6
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68347225"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569570"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-azure-key-vault"></a>Always Encrypted: Skydda känsliga data och lagra krypterings nycklar i Azure Key Vault
 
@@ -92,7 +91,7 @@ Du kan snabbt skapa ett nyckel valv genom att köra följande skript. En detalje
 
 Du behöver anslutnings strängen senare i själv studie kursen, så när du har skapat databasen bläddrar du till den nya klinik-databasen och kopierar anslutnings strängen. Du kan hämta anslutnings strängen när som helst, men det är enkelt att kopiera den i Azure Portal.
 
-1. Gå till  > lektionerför > SQL-databaser**Visa databas anslutnings strängar**.
+1. Gå till > lektionerför > SQL-databaser**Visa databas anslutnings strängar**.
 2. Kopiera anslutnings strängen för **ADO.net**.
    
     ![Kopiera anslutningssträngen](./media/sql-database-always-encrypted-azure-key-vault/connection-strings.png)
@@ -133,7 +132,7 @@ I det här avsnittet ska du skapa en tabell för att lagra patient data. Den är
 ## <a name="encrypt-columns-configure-always-encrypted"></a>Kryptera kolumner (Konfigurera Always Encrypted)
 SSMS innehåller en guide som hjälper dig att enkelt konfigurera Always Encrypted genom att ställa in kolumnens huvud nyckel, kolumn krypterings nyckel och krypterade kolumner åt dig.
 
-1. Expandera  > klinik- > **tabeller**för databaser.
+1. Expandera > klinik- > **tabeller**för databaser.
 2. Högerklicka på tabellen **patienter** och välj **kryptera kolumner** för att öppna guiden Always Encrypted:
    
     ![Kryptera kolumner](./media/sql-database-always-encrypted-azure-key-vault/encrypt-columns.png)

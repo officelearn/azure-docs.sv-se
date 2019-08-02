@@ -1,49 +1,40 @@
 ---
-title: Koppla ifrån en datadisk från en Linux VM – Azure | Microsoft Docs
-description: Lär dig att koppla ifrån en datadisk från en virtuell dator i Azure med hjälp av Azure CLI eller Azure-portalen.
-services: virtual-machines-linux
-documentationcenter: ''
+title: Koppla från en datadisk från en virtuell Linux-dator – Azure | Microsoft Docs
+description: Lär dig hur du kopplar från en datadisk från en virtuell dator i Azure med hjälp av Azure CLI eller Azure Portal.
 author: roygara
-manager: twooley
-editor: ''
-tags: azure-service-management
-ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-ms.devlang: azurecli
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 02cb970b5c70064abbbc71e585fe3dd1540fda90
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e026617db4da58c12a454000f6d97f8b6843e95d
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64696722"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68695865"
 ---
-# <a name="how-to-detach-a-data-disk-from-a-linux-virtual-machine"></a>Hur du koppla ifrån en datadisk från en Linux-dator
+# <a name="how-to-detach-a-data-disk-from-a-linux-virtual-machine"></a>Så här kopplar du från en datadisk från en virtuell Linux-dator
 
-När du inte längre behöver en datadisk som är ansluten till en virtuell dator kan du enkelt koppla bort den. Detta tar bort disken från den virtuella datorn, men tas inte bort från storage. I den här artikeln har arbetar vi med ett Ubuntu LTS, 16.04-distribution. Om du använder en annan distributionsplats kan anvisningarna för att demontera disken vara annorlunda.
+När du inte längre behöver en datadisk som är ansluten till en virtuell dator kan du enkelt koppla bort den. Disken tas bort från den virtuella datorn, men den tas inte bort från lagrings platsen. I den här artikeln arbetar vi med en Ubuntu LTS 16,04-distribution. Om du använder en annan distribution kan det vara olika instruktioner för att demontera disken.
 
 > [!WARNING]
-> Om du koppla bort en disk som den inte tas bort automatiskt. Om du har prenumererat på Premium-lagring, fortsätter att kosta lagringsavgifter för disken. Mer information finns i [priser och fakturering när du använder Premiumlagring](https://azure.microsoft.com/pricing/details/storage/page-blobs/).
+> Om du kopplar från en disk tas den inte bort automatiskt. Om du prenumererar på Premium Storage kommer du att fortsätta att betala lagrings avgifter för disken. Mer information finns i [priser och fakturering när du använder Premium Storage](https://azure.microsoft.com/pricing/details/storage/page-blobs/).
 
 Om du vill använda befintliga data på disken igen kan du ansluta den igen till samma virtuella dator, eller till en annan.  
 
 
-## <a name="connect-to-the-vm-to-unmount-the-disk"></a>Ansluta till den virtuella datorn att demontera disken
+## <a name="connect-to-the-vm-to-unmount-the-disk"></a>Anslut till den virtuella datorn för att demontera disken
 
-Innan du kan koppla bort disken med CLI eller portalen måste du demontera disken och tagit bort referenser till om från din fstab-filen.
+Innan du kan koppla från disken med CLI eller portalen måste du demontera disken och ta bort referenser till om från din fstab-fil.
 
-Anslut till den virtuella datorn. I det här exemplet, offentliga IP-adressen för den virtuella datorn är *is 10.0.1.4* med användarnamnet *azureuser*: 
+Anslut till den virtuella datorn. I det här exemplet är den offentliga IP-adressen för den virtuella datorn *10.0.1.4* med namnet *azureuser*: 
 
 ```bash
 ssh azureuser@10.0.1.4
 ```
 
-Ta först reda datadisken som du vill koppla från. I följande exempel används dmesg för att filtrera på SCSI-diskar:
+Börja med att leta upp den datadisk som du vill koppla från. I följande exempel används dmesg för att filtrera på SCSI-diskar:
 
 ```bash
 dmesg | grep SCSI
@@ -59,13 +50,13 @@ Utdata ser ut ungefär så här:
 [ 1828.162306] sd 5:0:0:0: [sdc] Attached SCSI disk
 ```
 
-Här kan *sdc* är den disk som vi vill koppla från. Du bör också hämta diskens UUID.
+Här är *SDC* den disk som vi vill koppla från. Du bör också ta tag i diskens UUID.
 
 ```bash
 sudo -i blkid
 ```
 
-Utdata ser ut ungefär så här:
+Utdata ser ut ungefär som i följande exempel:
 
 ```bash
 /dev/sda1: UUID="11111111-1b1b-1c1c-1d1d-1e1e1e1e1e1e" TYPE="ext4"
@@ -74,33 +65,33 @@ Utdata ser ut ungefär så här:
 ```
 
 
-Redigera den */etc/fstab* filen för att ta bort referenser till disken. 
+Redigera */etc/fstab* -filen för att ta bort referenser till disken. 
 
 > [!NOTE]
-> Felaktigt redigerar den **/etc/fstab** filen kan resultera i ett system som inte kan startas. Om du är osäker, finns det distribution dokumentationen för information om hur du ska redigera den här filen. Vi rekommenderar också att en säkerhetskopia av/etc/fstab-filen har skapats innan du redigerar.
+> Felaktig redigering av **/etc/fstab** -filen kan leda till ett system som inte kan startas. Om du vill veta mer om hur du redigerar den här filen i distributionens dokumentation. Vi rekommenderar också att du skapar en säkerhets kopia av/etc/fstab-filen innan du redigerar.
 
-Öppna den */etc/fstab* filen i en textredigerare på följande sätt:
+Öppna */etc/fstab* -filen i en text redigerare enligt följande:
 
 ```bash
 sudo vi /etc/fstab
 ```
 
-I det här exemplet följande rad måste tas bort från den */etc/fstab* fil:
+I det här exemplet måste följande rad tas bort från */etc/fstab* -filen:
 
 ```bash
 UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail   1   2
 ```
 
-Använd `umount` demontera disken. I följande exempel demonteras den */dev/sdc1* partition från den */datadrive* monteringspunkt:
+Används `umount` för att demontera disken. I följande exempel demonteras */dev/sdc1* -partitionen från */datadrive* -monterings punkten:
 
 ```bash
 sudo umount /dev/sdc1 /datadrive
 ```
 
 
-## <a name="detach-a-data-disk-using-azure-cli"></a>Koppla ifrån en datadisk med hjälp av Azure CLI 
+## <a name="detach-a-data-disk-using-azure-cli"></a>Koppla från en datadisk med Azure CLI 
 
-Det här exemplet kopplar från den *myDataDisk* disk från virtuell dator med namnet *myVM* i *myResourceGroup*.
+Det här exemplet kopplar bort *myDataDisk* -disken från den virtuella datorn med namnet *myVM* i *myResourceGroup*.
 
 ```azurecli
 az vm disk detach \
@@ -109,23 +100,23 @@ az vm disk detach \
     -n myDataDisk
 ```
 
-Disken kvar i lagring, men är inte längre kopplad till en virtuell dator.
+Disken finns kvar i lagrings utrymmet men är inte längre kopplad till en virtuell dator.
 
 
 ## <a name="detach-a-data-disk-using-the-portal"></a>Koppla ifrån en datadisk med hjälp av portalen
 
-1. I den vänstra menyn väljer du **virtuella datorer**.
-2. Välj den virtuella dator som har datadisken som du vill koppla från och klickar på **stoppa** att frigöra den virtuella datorn.
-3. I den virtuella dator i rutan Välj **diskar**.
-4. Överst på den **diskar** väljer **redigera**.
-5. I den **diskar** i fönstret till höger i datadisken som du vill koppla från, klickar du på den ![koppla från knappbild](./media/detach-disk/detach.png) koppla från knappen.
-5. När disken har tagits bort, klickar du på Spara överst i fönstret.
-6. I den virtuella dator i rutan klickar du på **översikt** och klicka sedan på den **starta** längst upp i fönstret för att starta om den virtuella datorn.
+1. På den vänstra menyn väljer du **Virtual Machines**.
+2. Välj den virtuella dator som innehåller den datadisk som du vill koppla från och klicka på **stoppa** för att frigöra den virtuella datorn.
+3. I fönstret virtuell dator väljer du **diskar**.
+4. Överst i fönstret **diskar** väljer du **Redigera**.
+5. I rutan **diskar** längst till höger på den datadisk som du vill koppla från, klickar du på ![knappen Koppla bort bild](./media/detach-disk/detach.png) från.
+5. När disken har tagits bort klickar du på Spara längst upp i fönstret.
+6. I fönstret virtuell dator klickar du på **Översikt** och sedan på **Start** -knappen längst upp i fönstret för att starta om den virtuella datorn.
 
-Disken kvar i lagring, men är inte längre kopplad till en virtuell dator.
+Disken finns kvar i lagrings utrymmet men är inte längre kopplad till en virtuell dator.
 
 
 
 ## <a name="next-steps"></a>Nästa steg
-Om du vill återanvända datadisken kan du enkelt [koppla den till en annan virtuell dator](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Om du vill återanvända data disken kan du bara [ansluta den till en annan virtuell dator](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 

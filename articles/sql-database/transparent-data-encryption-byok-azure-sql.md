@@ -10,14 +10,13 @@ ms.topic: conceptual
 author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
-manager: craigg
 ms.date: 07/18/2019
-ms.openlocfilehash: cdd5e29fcc01639c03da70614f53ac648ee6620c
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 6b1b706e68b090090ed4268b70b7c9d254f8b629
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68318573"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596712"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-keys-in-azure-key-vault-bring-your-own-key-support"></a>Azure SQL transparent datakryptering med Kundhanterade nycklar i Azure Key Vault: Bring Your Own Key support
 
@@ -74,7 +73,7 @@ När TDE först konfigureras för att använda ett TDE-skydd från Key Vault, sk
 - Ge SQL Database Server åtkomst till nyckel valvet med hjälp av Azure Active Directory (Azure AD)-identiteten.  När du använder användar gränssnittet för portalen skapas Azure AD-identiteten automatiskt och åtkomst behörigheterna för nyckel valvet beviljas till servern.  Genom att använda PowerShell för att konfigurera TDE med BYOK måste Azure AD-identiteten skapas och slutföras kontrol leras. Se [Konfigurera TDE med BYOK](transparent-data-encryption-byok-azure-sql-configure.md) och [Konfigurera TDE med BYOK för hanterad instans](https://aka.ms/sqlmibyoktdepowershell) för detaljerade steg-för-steg-instruktioner när du använder PowerShell.
 
    > [!NOTE]
-   > Om Azure AD-identiteten **tas bort av misstag eller om serverns behörigheter återkallas** med nyckel valvets åtkomst princip eller oavsiktligt genom att flytta servern till en annan klient, förlorar servern åtkomst till nyckel valvet och TDE krypterade databaser går inte att komma åt och inloggningar nekas tills den logiska serverns Azure AD-identitet och behörigheter har återställts.  
+   > Om Azure AD-identiteten **tas bort av misstag eller om serverns behörigheter återkallas** med nyckel valvets åtkomst princip eller oavsiktligt genom att flytta servern till en annan klient, förlorar servern åtkomst till nyckel valvet och TDE krypterade databaser kommer inte att vara tillgänglig och inloggningar nekas förrän den logiska serverns Azure AD-identitet och behörigheter har återställts.  
 
 - När du använder brand väggar och virtuella nätverk med Azure Key Vault måste du tillåta att betrodda Microsoft-tjänster kringgår den här brand väggen. Välj Ja.
 
@@ -87,14 +86,14 @@ När TDE först konfigureras för att använda ett TDE-skydd från Key Vault, sk
 
 ### <a name="guidelines-for-configuring-the-tde-protector-asymmetric-key"></a>Rikt linjer för att konfigurera TDE-skydd (asymmetrisk nyckel)
 
-- Skapa din krypterings nyckel lokalt på en lokal HSM-enhet. Se till att det är en asymmetrisk, RSA 2048-nyckel så att den är storable i Azure Key Vault.
+- Skapa din krypterings nyckel lokalt på en lokal HSM-enhet. Se till att det är en asymmetrisk, RSA 2048-eller RSA HSM 2048-nyckel så att den är storable i Azure Key Vault.
 - Depositions nyckeln i ett nyckel depositions system.  
 - Importera krypterings nyckel filen (. pfx,. BYOK eller. backup) till Azure Key Vault.
 
    > [!NOTE]
    > I test syfte är det möjligt att skapa en nyckel med Azure Key Vault, men den här nyckeln kan inte deponerats eftersom den privata nyckeln inte kan lämna nyckel valvet.  Säkerhetskopiera alltid och Depositions nycklar som används för att kryptera produktions data, eftersom den förlorade nyckeln (oavsiktlig borttagning i Key Vault, förfallo datum osv.) resulterar i permanent data förlust.
 
-- Om du använder en nyckel med ett utgångs datum – implementera ett varnings system för förfallo datum för att rotera nyckeln innan den upphör att gälla: **när nyckeln har gått ut förlorar de krypterade databaserna åtkomst till deras TDE-skydd och kommer inte att vara tillgängligt** och alla inloggningar kommer att nekas tills nyckeln har roterats till en ny nyckel.
+- Om du använder en nyckel med ett utgångs datum – implementera ett varnings system för förfallo datum för att rotera nyckeln innan den upphör att gälla: **när nyckeln har gått ut förlorar de krypterade databaserna åtkomst till deras TDE-skydd och kommer inte att vara tillgängligt** och alla inloggningar kommer att nekas tills nyckeln har roterats till en ny nyckel och valts som den nya nyckeln och standard skydds TDE för den logiska SQL-servern.
 - Se till att nyckeln är aktive rad och har behörighet att utföra *Get*-, *wrap*-och unwrap-nycklar.
 - Skapa en säkerhets kopia av en Azure Key Vault nyckel innan du använder nyckeln i Azure Key Vault för första gången. Läs mer om kommandot [Backup-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey) .
 - Skapa en ny säkerhets kopia när ändringar görs i nyckeln (till exempel lägga till ACL: er, Lägg till taggar, Lägg till nyckelattribut).
@@ -107,7 +106,7 @@ När TDE först konfigureras för att använda ett TDE-skydd från Key Vault, sk
 
 Om den logiska SQL-servern förlorar åtkomsten till det Kundhanterade TDE-skyddskomponenten i Azure Key Vault, kommer databasen att neka alla anslutningar och visas oåtkomlig i Azure Portal.  De vanligaste orsakerna till detta är:
 - Nyckel valv har tagits bort av misstag eller bakom en brand vägg
-- Key Vault-nyckeln har tagits bort eller gått ut av misstag
+- Key Vault-nyckeln har tagits bort av misstag, inaktiverats eller gått ut
 - Den logiska SQL Server instansen AppId togs bort av misstag
 - Viktiga behörigheter för den logiska SQL Server instansen med AppId har återkallats
 

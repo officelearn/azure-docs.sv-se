@@ -14,18 +14,18 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: a1dafb8e4c16a59bfed51016ce9ccb0ec3eb7d6c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 460ea15b0827ea307d64d1bd92d9bd14d5919d73
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66754760"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68704383"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Event Hubs - geohaveriberedskap 
 
 När hela Azure-regioner eller Datacenter (om ingen [tillgänglighetszoner](../availability-zones/az-overview.md) används) drabbas, det är viktigt för att bearbeta till fortsätter att fungera i en annan region eller datacenter. Därför *geohaveriberedskap* och *Geo-replikering* är viktiga funktioner för vilket företag som helst. Azure Event Hubs stöder både geo-haveriberedskap och geo-replikering på namnområdesnivå. 
 
-Geo-disaster recovery-funktionen är globalt tillgänglig för Event Hubs Standard och dedikerade SKU. Observera att du kan bara geo-par namnområden på samma nivå av SKU: N. Till exempel om du har ett namnområde i ett kluster som erbjuds endast i vår dedikerade SKU, kan den bara kopplas till ett namnområde i ett annat kluster. 
+Funktionen för att återställa geo-katastrofer är globalt tillgänglig för både Event Hubs standard och dedikerade SKU. Observera att du bara kan använda geo-par-namnområden på samma nivå av SKU. Om du till exempel har ett namn område i ett kluster som bara erbjuds i vår dedikerade SKU, kan det bara kombineras med ett namn område i ett annat kluster. 
 
 ## <a name="outages-and-disasters"></a>Avbrott och katastrofer
 
@@ -41,13 +41,13 @@ Funktionen disaster recovery implementerar metadata katastrofåterställning och
 
 I den här artikeln används följande termer:
 
--  *Alias*: Namnet på en haveriberedskapskonfiguration som du har konfigurerat. Aliaset som innehåller en enda stabil anslutningssträng för fullständigt kvalificerade domännamn (FQDN). Program använder den här anslutningssträngen för alias för att ansluta till ett namnområde. 
+-  *Alias*: Namnet på en katastrof återställnings konfiguration som du ställer in. Aliaset som innehåller en enda stabil anslutningssträng för fullständigt kvalificerade domännamn (FQDN). Program använder den här anslutningssträngen för alias för att ansluta till ett namnområde. 
 
--  *Primära och sekundära namnområdet*: Namnområden som motsvarar aliaset. Det primära namnområdet är ”aktiv” och tar emot meddelanden (det kan vara ett namnområde för befintliga eller nya). Det sekundära namnområdet är ”passiva” och ta emot inte meddelanden. Metadata mellan båda är synkroniserade, så att båda sömlöst kan godkänna meddelanden utan program kod eller anslutningen sträng ändringar. För att säkerställa att endast aktiva namnområdet tar emot meddelanden, måste du använda detta alias. 
+-  *Primär/sekundär namnrymd*: De namn områden som motsvarar aliaset. Det primära namnområdet är ”aktiv” och tar emot meddelanden (det kan vara ett namnområde för befintliga eller nya). Det sekundära namnområdet är ”passiva” och ta emot inte meddelanden. Metadata mellan båda är synkroniserade, så att båda sömlöst kan godkänna meddelanden utan program kod eller anslutningen sträng ändringar. För att säkerställa att endast aktiva namnområdet tar emot meddelanden, måste du använda detta alias. 
 
--  *Metadata*: Entiteter, till exempel händelsehubbar och konsumentgrupper; och deras egenskaper för tjänsten som är associerade med namnområdet. Observera att endast entiteter och deras inställningar replikeras automatiskt. Meddelanden och händelser som replikeras inte. 
+-  *Metadata*: Entiteter som händelse hubbar och konsument grupper; och deras egenskaper för tjänsten som är associerad med namn området. Observera att endast entiteter och deras inställningar replikeras automatiskt. Meddelanden och händelser som replikeras inte. 
 
--  *Redundans*: Att aktivera det sekundära namnområdet.
+-  *Redundans*: Processen för att aktivera det sekundära namn området.
 
 ## <a name="setup-and-failover-flow"></a>Installation och redundans flöde
 
@@ -84,7 +84,7 @@ Om du har gjort ett misstag; till exempel du länkade fel regioner under den fö
 
 ## <a name="samples"></a>Exempel
 
-Den [i GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/GeoDRClient) visar hur du ställer in och initiera redundans. Detta exempel visar följande begrepp:
+Den [i GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/GeoDRClient) visar hur du ställer in och initiera redundans. Detta exempel visar följande begrepp:
 
 - Inställningar som krävs i Azure Active Directory för att använda Azure Resource Manager med Event Hubs. 
 - Steg som krävs för att köra exempelkoden. 
@@ -104,10 +104,10 @@ Observera följande överväganden att tänka på med den här versionen:
 
 ## <a name="availability-zones"></a>Tillgänglighetszoner 
 
-Har stöd för Event Hubs Standard-SKU [Tillgänglighetszoner](../availability-zones/az-overview.md), vilket ger felisolerade platser inom en Azure-region. 
+Event Hubs standard-SKU: n stöder [Tillgänglighetszoner](../availability-zones/az-overview.md), vilket ger felisolerade platser inom en Azure-region. 
 
 > [!NOTE]
-> Tillgänglighetszoner support för Azure Event Hubs Standard ingår endast i [Azure-regioner](../availability-zones/az-overview.md#services-support-by-region) där tillgänglighetszoner finns.
+> Tillgänglighetszoner stöd för Azure Event Hubs standard är bara tillgängligt i [Azure-regioner](../availability-zones/az-overview.md#services-support-by-region) där tillgänglighets zoner finns.
 
 Du kan aktivera Tillgänglighetszoner på nya namnområden, med hjälp av Azure portal. Event Hubs stöder inte migreringen av befintliga namnområden. Du kan inte inaktivera redundans när du har aktiverat i namnområdet.
 
@@ -115,7 +115,7 @@ Du kan aktivera Tillgänglighetszoner på nya namnområden, med hjälp av Azure 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Den [i GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/GeoDRClient) går igenom ett enkelt arbetsflöde som skapar ett geo-par och initierar en redundansväxling för en katastrofåterställning.
+* Den [i GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/GeoDRClient) går igenom ett enkelt arbetsflöde som skapar ett geo-par och initierar en redundansväxling för en katastrofåterställning.
 * Den [REST API-referens](/rest/api/eventhub/disasterrecoveryconfigs) beskriver API: er för att utföra Geo-katastrofberedskapskonfigurationen.
 
 Besök följande länkar för mer utförlig information om Event Hubs:

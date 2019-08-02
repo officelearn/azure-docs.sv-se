@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 08/01/2018
 ms.author: jingwang
-ms.openlocfilehash: 45208b5c6538ea523a7b87d6dbdeb99e792783ff
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3b4f1cfe4dbd15f25b4fab92a4bd3b7aee309cb2
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61262309"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68720839"
 ---
 # <a name="copy-data-from-amazon-marketplace-web-service-using-azure-data-factory-preview"></a>Kopiera data från Amazon Marketplace-webbtjänst med hjälp av Azure Data Factory (förhandsversion)
 
@@ -44,7 +44,7 @@ Följande egenskaper har stöd för Amazon Marketplace Web Service-länkade tjä
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Type-egenskapen måste anges till: **AmazonMWS** | Ja |
+| type | Egenskapen Type måste anges till: **AmazonMWS** | Ja |
 | endpoint | Slutpunkten för Amazon MWS-servern (det vill säga mws.amazonservices.com)  | Ja |
 | marketplaceID | Amazon Marketplace ID du vill hämta data från. Om du vill hämta data från flera Marketplace-ID: N, avgränsar du dem med kommatecken (`,`). (det vill säga A2EUQ1WTGCTBG2)  | Ja |
 | sellerID | Amazon försäljning-ID.  | Ja |
@@ -88,7 +88,7 @@ Om du vill kopiera data från Amazon Marketplace Web Service, ange typegenskapen
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Type-egenskapen för datauppsättningen måste anges till: **AmazonMWSObject** | Ja |
+| type | Data uppsättningens typ-egenskap måste anges till: **AmazonMWSObject** | Ja |
 | tableName | Namnet på tabellen. | Nej (om ”frågan” i aktivitetskälla har angetts) |
 
 **Exempel**
@@ -98,11 +98,12 @@ Om du vill kopiera data från Amazon Marketplace Web Service, ange typegenskapen
     "name": "AmazonMWSDataset",
     "properties": {
         "type": "AmazonMWSObject",
+        "typeProperties": {},
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<AmazonMWS linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {}
+        }
     }
 }
 
@@ -118,7 +119,7 @@ Om du vill kopiera data från Amazon Marketplace Web Service, ange källtypen i 
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **AmazonMWSSource** | Ja |
+| type | Typ egenskapen för kopierings aktivitets källan måste anges till: **AmazonMWSSource** | Ja |
 | query | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM Orders where  Amazon_Order_Id = 'xx'"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
 
 **Exempel:**

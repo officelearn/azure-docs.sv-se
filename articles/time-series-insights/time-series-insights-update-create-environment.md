@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: tutorial
 ms.date: 07/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: b462f0c427020b1422b91fbd7ac34e3023e546b8
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 998471d99a785eeff39ef7c99e60e1d9b49e0d7a
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68677871"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68725833"
 ---
 # <a name="tutorial-set-up-an-azure-time-series-insights-preview-environment"></a>Självstudie: Konfigurera en Azure Time Series Insights-miljö (förhandsversion)
 
@@ -62,7 +62,7 @@ I det här avsnittet skapar du tre simulerade enheter som skickar data till en A
 
     [![Sidan skapa lösning för enhets simulering](media/v2-update-provision/device-two-create.png)](media/v2-update-provision/device-two-create.png#lightbox)
 
-## <a name="create-a-time-series-insights-preview-payg-environment"></a>Skapa en Time Series Insights-miljö (förhandsversion) med PAYG (betala per användning)
+## <a name="create-a-preview-payg-environment"></a>Skapa en förhands granskning PAYG-miljö
 
 I det här avsnittet beskrivs hur du skapar en Azure Time Series Insights för hands versions miljö och ansluter den till IoT-hubben som skapats av IoT Solution Accelerator med hjälp av [Azure Portal](https://portal.azure.com/).
 
@@ -130,7 +130,9 @@ I det här avsnittet beskrivs hur du skapar en Azure Time Series Insights för h
 
    Om dina autentiseringsuppgifter inte visas måste du ge dig behörighet att komma åt miljön. Läs [Bevilja åtkomst till data](./time-series-insights-data-access.md) om du vill veta mer om hur du anger behörigheter.
 
-## <a name="stream-data-into-your-environment"></a>Strömma data till din miljö
+## <a name="stream-data"></a>Strömma data
+
+Nu när du har distribuerat din Time Series Insights-miljö, strömma data till den för analys.
 
 1. Gå tillbaka till [sidan med Azure IoT Solution Accelerators](https://www.azureiotsolutions.com/Accelerators). Leta upp din lösning på din instrument panel för Solution Accelerator. Välj sedan **Starta**:
 
@@ -158,7 +160,7 @@ I det här avsnittet beskrivs hur du skapar en Azure Time Series Insights för h
 
     [![Instrument panel för Azure IoT-simulering](media/v2-update-provision/device-seven-dashboard.png)](media/v2-update-provision/device-seven-dashboard.png#lightbox)
 
-## <a name="analyze-data-in-your-environment"></a>Analysera data i din miljö
+## <a name="analyze-data"></a>Analysera data
 
 I det här avsnittet utför du grundläggande analys på dina tidsseriedata med hjälp av [Azure Time Series Insights-utforskaren (förhandsversion)](./time-series-insights-update-explorer.md).
 

@@ -1,6 +1,6 @@
 ---
-title: Hämta värden för appautentisering – Azure SQL Database | Microsoft Docs
-description: Skapa ett huvudnamn för tjänsten för att komma åt SQL-databas från kod.
+title: Hämta värden för app-autentisering – Azure SQL Database | Microsoft Docs
+description: Skapa ett huvud namn för tjänsten för att komma åt SQL Database från kod.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -10,24 +10,23 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 1d60e875b12f02c957ebd6259eb0e7267f23ee51
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d7c8c6788a8699c5b57c39731c148454ad8dcfcf
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66150204"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569314"
 ---
-# <a name="get-the-required-values-for-authenticating-an-application-to-access-sql-database-from-code"></a>Hämta värdena som krävs för att autentisera ett program för att få åtkomst till SQL-databas från kod
+# <a name="get-the-required-values-for-authenticating-an-application-to-access-sql-database-from-code"></a>Hämta de värden som krävs för att autentisera ett program för att få åtkomst till SQL Database från kod
 
-Du måste registrera din app i Azure Active Directory (AAD)-domän i prenumerationen där dina Azure-resurser har tagits fram för att skapa och hantera SQL-databas från kod.
+Om du vill skapa och hantera SQL Database från kod måste du registrera din app i Azure Active Directory-domänen (AAD) i prenumerationen där dina Azure-resurser har skapats.
 
-## <a name="create-a-service-principal-to-access-resources-from-an-application"></a>Skapa tjänstens huvudnamn för åtkomst till resurser från ett program
+## <a name="create-a-service-principal-to-access-resources-from-an-application"></a>Skapa ett huvud namn för tjänsten för att få åtkomst till resurser från ett program
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Modulen PowerShell Azure Resource Manager är fortfarande stöds av Azure SQL Database, men alla framtida utveckling är för modulen Az.Sql. Dessa cmdlets finns i [i AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenten för kommandon i modulen Az och AzureRm-moduler är avsevärt identiska.
+> PowerShell Azure Resource Manager-modulen stöds fortfarande av Azure SQL Database, men all framtida utveckling gäller AZ. SQL-modulen. De här cmdletarna finns i [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenten för kommandona i AZ-modulen och i AzureRm-modulerna är i stort sett identiska.
 
 Följande PowerShell-skript skapar Active Directory-programmet (AD) och tjänstobjektet som vi behöver för att autentisera vår C#-app. Skriptet matar ut värden som vi behöver för det föregående C#-exemplet. Detaljerad information finns i [Skapa ett tjänstobjekt med Azure PowerShell för att komma åt resurser](../active-directory/develop/howto-authenticate-service-principal-powershell.md).
 
@@ -73,6 +72,6 @@ Följande PowerShell-skript skapar Active Directory-programmet (AD) och tjänsto
 
 
 ## <a name="see-also"></a>Se också
-* [Skapa en SQL-databas med C#](sql-database-get-started-csharp.md)
-* [Ansluta till SQL Database med hjälp av Azure Active Directory-autentisering](sql-database-aad-authentication.md)
+* [Skapa en SQL-databas medC#](sql-database-get-started-csharp.md)
+* [Ansluta till SQL Database med Azure Active Directory autentisering](sql-database-aad-authentication.md)
 

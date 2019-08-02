@@ -1,20 +1,19 @@
 ---
 title: Schemalägga jobb med Azure IoT Hub (python) | Microsoft Docs
 description: 'Schemalägga ett Azure IoT Hub-jobb för att anropa en direkt metod på flera enheter. Du använder Azure IoT SDK: er för python för att implementera de simulerade enhetens appar och en tjänst-app för att köra jobbet.'
-author: kgremban
-manager: philmea
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: python
 ms.topic: conceptual
-ms.date: 02/16/2019
-ms.author: kgremban
-ms.openlocfilehash: f4a7cbb5c4f8f4a019cbf5d63a6f2ffe8092546e
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.date: 07/30/2019
+ms.author: robinsh
+ms.openlocfilehash: 81b2145e6107558f2d9698c7e5d03658f1129b00
+ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68405884"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68667932"
 ---
 # <a name="schedule-and-broadcast-jobs-python"></a>Schema-och sändnings jobb (python)
 
@@ -48,16 +47,14 @@ I slutet av den här självstudien har du två python-appar:
 
 **scheduleJobService.py**, som anropar en direkt metod i den simulerade Device-appen och uppdaterar enhetens dubbla egenskaper med ett jobb.
 
-För att kunna genomföra den här kursen behöver du följande:
+[!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
 
-* [Python 2. x eller 3. x](https://www.python.org/downloads/). Se till att använda en 32-bitars eller 64-bitars installation beroende på vad som krävs för din konfiguration. Se till att du lägger till Python i den plattformsspecifika miljövariabeln när du uppmanas att göra det under installationen. Om du använder Python 2.x kan du behöva [installera eller uppgradera *PIP* (pakethanteringssystemet för Python)](https://pip.pypa.io/en/stable/installing/).
+Följande är installations anvisningarna för kraven.
 
-* Om du använder Windows OS installerar du [Visual C++ redistributable package](https://www.microsoft.com/download/confirmation.aspx?id=48145) så att du kan använda native-DLL:er från Python.
-
-* Ett aktivt Azure-konto. (Om du inte har något konto kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/pricing/free-trial/) på bara några minuter.)
+[!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
 
 > [!NOTE]
-> **Azure IoT SDK för python** stöder inte **jobb** funktioner direkt. I stället erbjuder den här självstudien en alternativ lösning som använder asynkrona trådar och timers. Mer uppdateringar finns i funktions listan för **service client SDK** på sidan [Azure IoT SDK för python](https://github.com/Azure/azure-iot-sdk-python) . 
+> **Azure IoT SDK för python** stöder inte **jobb** funktioner direkt. I stället erbjuder den här självstudien en alternativ lösning som använder asynkrona trådar och timers. Mer uppdateringar finns i funktions listan för **service client SDK** på sidan [Azure IoT SDK för python](https://github.com/Azure/azure-iot-sdk-python) .
 >
 
 ## <a name="create-an-iot-hub"></a>Skapa en IoT Hub

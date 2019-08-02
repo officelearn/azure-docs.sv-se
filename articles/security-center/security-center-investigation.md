@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2018
 ms.author: rkarlin
-ms.openlocfilehash: 55def52d248babd439227cdcd4170c0a3ca91bb1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 476bdd50a56b953585a8a4e9cea05975c9922e0f
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64569822"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68662957"
 ---
-# <a name="investigate-incidents-and-alerts-in-azure-security-center-preview"></a>Undersöka incidenter och aviseringar i Azure Security Center (förhandsversion)
-Det här dokumentet hjälper dig att använda undersökningsfunktionen i Azure Security Center för att undersöka incidenter och aviseringar.
+# <a name="investigate-incidents-and-alerts-in-azure-security-center-retired"></a>Undersöka incidenter och aviseringar i Azure Security Center (dras tillbaka)
+Det här dokumentet hjälper dig att använda undersöknings funktionen (för hands version) i Azure Security Center för att undersöka säkerhets incidenter och aviseringar.
 
 > [!NOTE]
-> Undersökning aviseringarna och incidenterna tas ur bruk 31 juli 2019. Mer information och alternativa tjänster finns i [tillbakadragning av Security Center-funktioner (juli 2019)](security-center-features-retirement-july2019.md#menu_investigate).
+> Undersökningen om varningar och incidenter (för hands version) har dragits tillbaka den 31 juli 2019. Mer information och alternativa tjänster finns i [dra tillbaka Security Center funktioner (2019 juli)](security-center-features-retirement-july2019.md#menu_investigate).
 
 ## <a name="what-is-investigation-in-security-center"></a>Vad är undersökning i Security Center?
 Med undersökningsfunktionen i Security Center kan du sortera, förstå omfattningen av och spåra rotorsaken till en potentiell [säkerhetsincident](https://docs.microsoft.com/azure/security-center/security-center-incident).
@@ -34,8 +34,8 @@ Avsikten är att underlätta undersökningsprocessen genom att länka alla entit
 
 
 > [!NOTE]
-> * [Anpassade aviseringar](security-center-custom-alert.md) stöds inte i undersökningsfunktionen i Security Center.
-> * Undersökning har endast stöd för aviseringar baserat på data som samlas in från Windows-servrar.
+> * [Anpassade aviseringar](security-center-custom-alert.md) stöds inte i Security Centers undersöknings funktion.
+> * Undersökningen stöds endast för aviseringar som baseras på data som samlas in från Windows-servrar.
 
 
 ## <a name="how-investigation-works"></a>Hur fungerar undersökningen?
@@ -99,7 +99,7 @@ Följande objekt visas oavsett den valda tidsomfattningen:
 
 ## <a name="how-to-perform-an-investigation"></a>Hur utför du en undersökning?
 
-Du kan starta en undersökningen utifrån en säkerhetsincident eller från en avisering – alternativet du väljer varierar beroende på dina behov. Stegen som följer används för att starta en undersökning från en avisering:
+Du kan starta en undersökningen utifrån en säkerhetsincident eller från en avisering – alternativet du väljer varierar beroende på dina behov. Stegen nedan används för att starta en undersökning från en avisering:
 
 1.  Öppna instrumentpanelen **Security Center**.
 2.  Klicka på **Säkerhetsaviseringar** och väljer incidenten som du vill undersöka.

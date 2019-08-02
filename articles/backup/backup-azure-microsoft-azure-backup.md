@@ -1,18 +1,19 @@
 ---
 title: Använda Azure Backup Server för att säkerhetskopiera arbets belastningar till Azure
 description: Använd Azure Backup Server för att skydda eller säkerhetskopiera arbets belastningar till Azure Portal.
-author: kasinh
-manager: vvithal
+ms.reviewer: kasinh
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: kasinh
-ms.openlocfilehash: bf0e964c46088947fa50d1eadbcc12b78978251f
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: f5367e1ca3e950126766e788323cb1d4749e9b0c
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466383"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688406"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Installera och uppgradera Azure Backup Server
 > [!div class="op_single_selector"]
@@ -137,7 +138,7 @@ Så här redigerar du inställningen för lagringsreplikering:
     Eftersom nedladdnings storleken för alla filer tillsammans är > 3G, kan det ta upp till 60 minuter för nedladdning av en 10 Mbit/e minuter att slutföra nedladdningen.
 
 ### <a name="extracting-the-software-package"></a>Extrahera programpaketet
-När du har hämtat alla filer klickar du på **MicrosoftAzureBackupInstaller. exe**. Då startas **guiden Microsoft Azure Backup installations guiden** för att extrahera installationsfilerna till en plats som du har angett. Fortsätt genom guiden och klicka på extraherings  knappen för att starta extraherings processen.
+När du har hämtat alla filer klickar du på **MicrosoftAzureBackupInstaller. exe**. Då startas **guiden Microsoft Azure Backup installations guiden** för att extrahera installationsfilerna till en plats som du har angett. Fortsätt genom guiden och klicka på extraherings knappen för att starta extraherings processen.
 
 > [!WARNING]
 > Det krävs minst 4 GB ledigt utrymme för att extrahera installationsfilerna.
@@ -225,12 +226,12 @@ MABS använder System Center Data Protection Manager Protection Agent. [Här fö
 
 I följande avsnitt beskrivs hur du uppdaterar skydds agenter för klient datorer.
 
-1. I administratörskonsol säkerhets kopierings server väljer  > du hanterings**agenter**.
+1. I administratörskonsol säkerhets kopierings server väljer > du hanterings**agenter**.
 
 2. I visningsfönstret väljer du de klient datorer som du vill uppdatera skydds agenten för.
 
    > [!NOTE]
-   > Kolumnen **agent uppdateringar** visar när en uppdatering av skydds agenten är tillgänglig för varje skyddad dator. I fönstret **åtgärder** är uppdaterings  åtgärden bara tillgänglig när en skyddad dator är vald och uppdateringar är tillgängliga.
+   > Kolumnen **agent uppdateringar** visar när en uppdatering av skydds agenten är tillgänglig för varje skyddad dator. I fönstret **åtgärder** är uppdaterings åtgärden bara tillgänglig när en skyddad dator är vald och uppdateringar är tillgängliga.
    >
    >
 
@@ -294,10 +295,10 @@ Om du har en brand vägg eller en proxy som förhindrar åtkomst till Azure mås
 När anslutningen till Azure har återställts till den Azure Backup Server datorn, bestäms de åtgärder som kan utföras av Azures prenumerations tillstånd. Tabellen ovan innehåller information om de åtgärder som tillåts när datorn är ansluten.
 
 ### <a name="handling-subscription-states"></a>Hantera prenumerations tillstånd
-Det går att ta en Azure-prenumeration från ett  utgånget eller avetablerat tillstånd till det *aktiva* tillståndet. Detta har dock vissa konsekvenser för produktens beteende medan statusen inte är *aktiv*:
+Det går att ta en Azure-prenumeration från ett utgånget eller avetablerat tillstånd till det *aktiva* tillståndet. Detta har dock vissa konsekvenser för produktens beteende medan statusen inte är *aktiv*:
 
 * En *avetablerad* prenumeration förlorar funktioner under den period som den avetableras. När den *aktive*ras är produkt funktionerna i Backup/Restore återupplivat. Du kan också hämta säkerhets kopierings data på den lokala disken om den behålls med en tillräckligt stor kvarhållningsperiod. Säkerhets kopierings data i Azure är dock irretrievably förlorade när prenumerationen övergår till *avetablerat* tillstånd.
-* En  utgången prenumeration förlorar bara funktioner för tills den har gjorts *aktiv* igen. Eventuella säkerhets kopieringar som är schemalagda för den period då prenumerationen gick *ut* kommer inte att köras.
+* En utgången prenumeration förlorar bara funktioner för tills den har gjorts *aktiv* igen. Eventuella säkerhets kopieringar som är schemalagda för den period då prenumerationen gick *ut* kommer inte att köras.
 
 ## <a name="upgrade-mabs"></a>Uppgradera MABS
 Använd följande procedurer för att uppgradera MABS.

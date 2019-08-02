@@ -1,26 +1,24 @@
 ---
 title: Azure snabbstart – Skapa en blob i objektlagring med hjälp av Go | Microsoft Docs
 description: I den här snabbstarten skapar du ett lagringskonto och en container i objektlagring (Blob). Sedan använder du lagringsklientbiblioteket för Go och laddar upp en blob till Azure Storage, laddar ned en blob och listar blobarna i en container.
-services: storage
 author: mhopkins-msft
-ms.custom: mvc
-ms.service: storage
-ms.topic: quickstart
-ms.date: 11/14/2018
 ms.author: mhopkins
-ms.reviewer: seguler
-ms.openlocfilehash: 5b5d0663166c6889d25c0fdd578aadbac3436931
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.date: 11/14/2018
+ms.service: storage
+ms.subservice: blobs
+ms.topic: quickstart
+ms.openlocfilehash: f4016349e354c84e9e096ac6d5072a4870e9ef29
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65152785"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68726464"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-go"></a>Snabbstart: Ladda upp, ladda ned och lista blobar med Go
 
 I den här snabbstarten får du lära dig att använda Go-programmeringsspråket för att ladda upp, hämta och lista blockblobar i en container i Azure Blob-lagring. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
@@ -112,7 +110,7 @@ När du har ContainerURL kan du instansiera **BlobURL**-objektet som pekar på e
 > [!IMPORTANT]
 > Containernamn måste använda gemener. Mer information om containrar och blobnamn finns i [Namngivning och referens av containrar, blobar och metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
-I det här avsnittet skapar du en ny container. Containern heter **quickstartblobs-[random string]**. 
+I det här avsnittet skapar du en ny container. Containern heter **quickstartblobs-[random string]** . 
 
 ```go 
 // From the Azure portal, get your storage account name and key and set environment variables.
@@ -153,7 +151,7 @@ Om du vill ladda upp en fil till en blob öppnar du filen med **os.Open**. Du ka
 
 SDK:erna erbjuder även [högnivå-API:er](https://github.com/Azure/azure-storage-blob-go/blob/master/azblob/highlevel.go) som är skapade ovanpå lågnivå-REST API:erna. Som ett exempel på detta använder funktionen ***UploadFileToBlockBlob*** StageBlock (PutBlock)-åtgärder för att ladda upp en fil i segment för att optimera dataflödet samtidigt. Om filen är mindre än 256 MB använder den Upload (PutBlob) i stället för att slutföra överföringen i en enda transaktion.
 
-I följande exempel överförs filen till containern med namnet **quickstartblobs-[randomstring]**.
+I följande exempel överförs filen till containern med namnet **quickstartblobs-[randomstring]** .
 
 ```go
 // Create a file to test the upload and download.
@@ -209,7 +207,7 @@ for marker := (azblob.Marker{}); marker.NotDone(); {
 
 ### <a name="download-the-blob"></a>Ladda ned bloben
 
-Ladda ned blobar med hjälp av **Download**-lågnivåfunktionen på en BlobURL. Detta returnerar struct-datatypen **DownloadResponse**. Kör funktionen **Body** på struct-datatypen för att få en **RetryReader**-ström för läsning av data. Om en anslutning misslyckas vid inläsning, gör det ytterligare begäranden för att återupprätta anslutningen och fortsätt att läsa. Om du anger en RetryReaderOption med MaxRetryRequests inställt på 0 (standardvärdet) returneras den ursprungliga svarstexten, och det utförs inga nya försök. Alternativt kan du använda de högnivå-API:erna **DownloadBlobToBuffer** eller **DownloadBlobToFile** för att förenkla koden.
+Ladda ned blobar med hjälp av **Download**-lågnivåfunktionen på en BlobURL. Detta returnerar struct-datatypen **DownloadResponse**. Kör funktionen **Body** på struct-datatypen för att få en **RetryReader**-ström för läsning av data. Om anslutningen Miss lyckas under läsningen, kommer den att göra ytterligare förfrågningar för att återupprätta anslutningen och fortsätta att läsa. Om du anger en RetryReaderOption med MaxRetryRequests inställt på 0 (standardvärdet) returneras den ursprungliga svarstexten, och det utförs inga nya försök. Alternativt kan du använda de högnivå-API:erna **DownloadBlobToBuffer** eller **DownloadBlobToFile** för att förenkla koden.
 
 Följande kod laddar ned bloben med hjälp av funktionen **Download**. Blobens innehåll skrivs till en buffert och visas på konsolen.
 

@@ -1,9 +1,9 @@
 ---
-title: Kör en Azure Service Fabric-tjänst under system- och lokala säkerhetskonton | Microsoft Docs
-description: Lär dig mer om att köra ett Service Fabric-program under system- och lokala säkerhetskonton.  Skapa säkerhetsobjekt och tillämpa kör som-principen för att köra dina tjänster på ett säkert sätt.
+title: Köra en Azure Service Fabric-tjänst under system-och lokala säkerhets konton | Microsoft Docs
+description: Lär dig hur du kör ett Service Fabric program under system-och lokala säkerhets konton.  Skapa säkerhets objekt och tillämpa kör som-principen för att på ett säkert sätt köra dina tjänster.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: 4242a1eb-a237-459b-afbf-1e06cfa72732
@@ -13,29 +13,29 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/29/2018
-ms.author: aljo
-ms.openlocfilehash: 28cd1162d7cae2b3a16062bdf18a2971e1f05aad
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: atsenthi
+ms.openlocfilehash: 8b0ddc619a7e840b0379a790bd21e7beae812109
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60621181"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68600045"
 ---
-# <a name="run-a-service-as-a-local-user-account-or-local-system-account"></a>Köra tjänster som ett lokalt användarkonto eller kontot Lokalt system
-Med hjälp av Azure Service Fabric kan skydda du program som körs i klustret under olika användarkonton. Service Fabric-program körs under kontot som Fabric.exe processen körs under som standard. Service Fabric ger också möjlighet att köra program under ett lokalt konto för användaren eller systemet. Typer av lokala system som stöds är **Lokalanvändare**, **NetworkService**, **LocalService**, och **LocalSystem**.  Om du använder Service Fabric på ett fristående kluster för Windows, kan du köra en tjänst under [Active Directory-domänkonton](service-fabric-run-service-as-ad-user-or-group.md) eller [gruppen hanterade tjänstkonton](service-fabric-run-service-as-gmsa.md).
+# <a name="run-a-service-as-a-local-user-account-or-local-system-account"></a>Köra en tjänst som ett lokalt användar konto eller lokalt system konto
+Genom att använda Azure Service Fabric kan du skydda program som körs i klustret under olika användar konton. Som standard körs Service Fabric-program under det konto som Fabric. exe-processen körs under. Service Fabric ger också möjlighet att köra program under ett lokalt användar-eller system konto. Lokala system konto typer som stöds är **lokal användare**, **NetworkService**, **LocalService**och **LocalSystem**.  Om du kör Service Fabric på ett fristående Windows-kluster kan du köra en tjänst under [Active Directory domän konton](service-fabric-run-service-as-ad-user-or-group.md) eller grupphanterade [tjänst konton](service-fabric-run-service-as-gmsa.md).
 
-I applikationsmanifestet, definierar du de användarkonton som krävs för att köra tjänster eller säkra resurser i den **huvudkonton** avsnittet. Du kan också definiera och skapa användargrupper så att en eller flera användare kan hanteras tillsammans. Detta är användbart när det finns flera användare för olika startpunkter och de behöver vanliga behörigheter som är tillgängliga på gruppnivå.  Användarna sedan refereras till i en RunAs-princip som tillämpas på en specifik tjänst eller alla tjänster i programmet. 
+I applikations manifestet definierar du de användar konton som krävs för att köra tjänster eller säkra resurser i avsnittet **säkerhets objekt** . Du kan också definiera och skapa användar grupper så att en eller flera användare kan hanteras tillsammans. Detta är användbart när det finns flera användare för olika tjänst start punkter och de behöver vanliga behörigheter på grupp nivå.  Användarna refereras sedan till i en RunAs-princip som tillämpas på en specifik tjänst eller alla tjänster i programmet. 
 
-Som standard tillämpas RunAs-principen på den huvudsakliga startpunkten.  Du kan också använda en RunAs-princip för konfigurationsstartpunkten, om du behöver [kör vissa åtgärder med hög behörighetsnivå installationsprogrammet under ett systemkonto](service-fabric-run-script-at-service-startup.md), eller båda main och konfigurera startpunkter.  
+Som standard tillämpas RunAs-principen på huvud start punkten.  Du kan också använda en RunAs-princip för installations start punkten, om du behöver [köra vissa åtgärder med hög behörighet under ett system konto](service-fabric-run-script-at-service-startup.md)eller både huvud-och installations start punkter.  
 
 > [!NOTE] 
-> Om du tillämpa en RunAs-princip till en tjänst och tjänstmanifestet deklarerar endpoint-resurser med HTTP-protokollet, måste du ange en **SecurityAccessPolicy**.  Mer information finns i [tilldela en säkerhetsåtkomstprincip för HTTP och HTTPS-slutpunkterna](service-fabric-assign-policy-to-endpoint.md). 
+> Om du använder en RunAs-princip för en tjänst och tjänst manifestet deklarerar slut punkts resurser med HTTP-protokollet måste du ange en **SecurityAccessPolicy**.  Mer information finns i [tilldela en säkerhets åtkomst princip för HTTP-och https-](service-fabric-assign-policy-to-endpoint.md)slutpunkter. 
 >
 
-## <a name="run-a-service-as-a-local-user"></a>Köra tjänster som en lokal användare
-Du kan skapa en lokal användare som kan användas för att skydda en tjänst i programmet. När en **Lokalanvändare** typ har angetts i avsnittet säkerhetsobjekt i applikationsmanifestet, Service Fabric skapar lokala användarkonton på datorer där programmet har distribuerats. Som standard dessa konton inte har samma namn som de som anges i applikationsmanifestet (till exempel *Customer3* i följande exempel för program-manifest). I stället de genereras dynamiskt och ha slumpmässiga lösenord.
+## <a name="run-a-service-as-a-local-user"></a>Köra en tjänst som lokal användare
+Du kan skapa en lokal användare som kan användas för att skydda en tjänst i programmet. När en **lokal användare** -kontotyp anges i avsnittet säkerhets objekt i program manifestet skapar Service Fabric lokala användar konton på datorer där programmet distribueras. Som standard har dessa konton inte samma namn som de som anges i applikations manifestet (till exempel *Customer3* i följande program manifest exempel). De genereras i stället dynamiskt och har slumpmässiga lösen ord.
 
-I den **RunAsPolicy** för en **ServiceManifestImport**, ange användarkontot från den **huvudkonton** avsnitt för att köra kod tjänstpaketet.  I följande exempel visar hur du skapar en lokal användare och tillämpa en RunAs-principen på huvudsakliga startpunkt:
+I avsnittet **runas policy** för en **service manifest import**anger du användar kontot från avsnittet **säkerhets objekt** för att köra service kod paketet.  I följande exempel visas hur du skapar en lokal användare och tillämpar en RunAs-princip på huvud start punkten:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -65,8 +65,8 @@ I den **RunAsPolicy** för en **ServiceManifestImport**, ange användarkontot fr
 </ApplicationManifest>
 ```
 
-## <a name="create-a-local-user-group"></a>Skapa en lokal användargrupp
-Du kan skapa användargrupper och lägga till en eller flera användare i gruppen. Detta är användbart om det finns flera användare för olika startpunkter och de måste ha vissa vanliga behörigheter som är tillgängliga på gruppnivå. I följande application manifest exempel visas en lokal grupp med namnet *LocalAdminGroup* som har administratörsbehörighet. Två användare *Customer1* och *Customer2*, läggs till som medlemmar i den här lokala gruppen. I den **ServiceManifestImport** avsnittet, en RunAs som principen tillämpas för att köra den *Stateful1Pkg* kodpaketet som *Customer2*.  En annan RunAs-principen har tillämpats för att köra den *Web1Pkg* kodpaketet som *Customer1*.
+## <a name="create-a-local-user-group"></a>Skapa en lokal användar grupp
+Du kan skapa användar grupper och lägga till en eller flera användare i gruppen. Detta är användbart om det finns flera användare för olika tjänst start punkter och de måste ha vissa gemensamma behörigheter som är tillgängliga på grupp nivå. I följande program manifest exempel visas en lokal grupp med namnet *LocalAdminGroup* som har administratörs behörighet. Två användare, *Customer1* och *Customer2*, blir medlemmar i den här lokala gruppen. I avsnittet **service manifest import** används en runas-princip för att köra *Stateful1Pkg* -kod paketet som *Customer2*.  En annan RunAs-princip används för att köra *Web1Pkg* -kod paketet som *Customer1*.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -127,8 +127,8 @@ Du kan skapa användargrupper och lägga till en eller flera användare i gruppe
 </ApplicationManifest>
 ```
 
-## <a name="apply-a-default-policy-to-all-service-code-packages"></a>Gäller en standardprincip för alla kodpaket för tjänsten
-Du använder den **DefaultRunAsPolicy** att ange en standardanvändarkontot för all kod paket som inte har en specifik **RunAsPolicy** definierats. Om de flesta av kodpaket som anges i tjänstmanifestet som används av ett program behöver köras under samma användare kan definiera programmet kan bara en standardprincip för RunAs till det aktuella användarkontot. I följande exempel anger att om ett kodpaket inte har en **RunAsPolicy** anges kodpaketet ska köras under den **MyDefaultAccount** användare som anges i avsnittet säkerhetsobjekt.  Stöds kontotyperna är Lokalanvändare, NetworkService, LocalSystem och LocalService.  Om du använder en lokal användare eller tjänst kan du även ange kontonamn och lösenord.
+## <a name="apply-a-default-policy-to-all-service-code-packages"></a>Tillämpa en standard princip för alla service kod paket
+Du använder avsnittet **DefaultRunAsPolicy** för att ange ett standard användar konto för alla kod paket som inte har någon angiven **runas policy** definierad. Om de flesta kod paket som anges i tjänst manifestet som används av ett program måste köras under samma användare, kan programmet bara definiera en standard-RunAs-princip med det användar kontot. I följande exempel anges att om ett kod paket inte har något angivet **runas policy** , ska kod paketet köras under den **MyDefaultAccount** -användare som anges i avsnittet säkerhets objekt.  Konto typer som stöds är lokal användare, NetworkService, LocalSystem och LocalService.  Om du använder en lokal användare eller tjänst anger du även konto namn och lösen ord.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -159,15 +159,15 @@ Du använder den **DefaultRunAsPolicy** att ange en standardanvändarkontot för
 </ApplicationManifest>
 ```
 
-## <a name="debug-a-code-package-locally-using-console-redirection"></a>Felsöka ett kodpaket lokalt med hjälp av omdirigering av konsol
-Ibland kan är det användbart för felsökning i konsolens utdata från en pågående tjänst. Du kan ange en princip för omdirigering av konsol på startpunkten i tjänstmanifestet som skriver utdata till en fil. Filen utdata skrivs till programmappen kallas **log** till klusternoden där programmet har distribuerats och körs. 
+## <a name="debug-a-code-package-locally-using-console-redirection"></a>Felsöka ett kod paket lokalt med omdirigering av konsol
+Ibland är det användbart för fel söknings syfte att se konsolens utdata från en aktiv tjänst. Du kan ange en princip för omdirigering av konsol på Start punkten i tjänst manifestet, som skriver utdata till en fil. Filens utdata skrivs till programmappen som heter **log** på den klusternod där programmet distribueras och körs. 
 
 > [!WARNING]
-> Använd aldrig omdirigeringspolicyn konsolen i ett program som har distribuerats i produktionsmiljön, eftersom detta kan påverka program redundans. *Endast* använda detta för lokal utveckling och felsökning.  
+> Använd aldrig konsolens omdirigerings policy i ett program som distribueras i produktion eftersom detta kan påverka programmets redundans. Använd *endast* detta för lokal utveckling och fel sökning.  
 > 
 > 
 
-Följande tjänst manifest exempel visas att aktivera omdirigering av konsol med ett FileRetentionCount-värde:
+Följande tjänst manifest exempel visar hur du aktiverar omdirigering av konsol med ett FileRetentionCount-värde:
 
 ```xml
 <CodePackage Name="Code" Version="1.0.0">
@@ -184,8 +184,8 @@ Följande tjänst manifest exempel visas att aktivera omdirigering av konsol med
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Nästa steg
-* [Förstå programmodellen](service-fabric-application-model.md)
-* [Ange resurser i ett tjänstmanifest](service-fabric-service-manifest-resources.md)
+* [Förstå program modellen](service-fabric-application-model.md)
+* [Ange resurser i ett tjänst manifest](service-fabric-service-manifest-resources.md)
 * [Distribuera ett program](service-fabric-deploy-remove-applications.md)
 
 [image1]: ./media/service-fabric-application-runas-security/copy-to-output.png

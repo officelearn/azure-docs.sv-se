@@ -1,6 +1,6 @@
 ---
-title: Autentiseringsmetoder för Azure Security Center för förhandsversionen av IoT | Microsoft Docs
-description: Läs mer om de olika autentiseringsmetoderna som är tillgängliga när du använder Azure Security Center för IoT-tjänsten.
+title: Autentiseringsmetoder för Azure Security Center för IoT | Microsoft Docs
+description: Lär dig mer om de olika autentiseringsmetoder som är tillgängliga när du använder Azure Security Center för IoT-tjänsten.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -13,79 +13,74 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/26/2019
+ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: d5701ae37d64e25fba981cd85deed2c4e4d87a15
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 16f7f91e02d118d9f9a295ebb79a6cd0187dd9fd
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67618343"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596467"
 ---
-# <a name="security-agent-authentication-methods"></a>Security-agenten autentiseringsmetoder 
+# <a name="security-agent-authentication-methods"></a>Autentiseringsmetoder för säkerhets agent 
 
-> [!IMPORTANT]
-> Azure Security Center för IoT är för närvarande i offentlig förhandsversion.
-> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+I den här artikeln beskrivs de olika autentiseringsmetoderna som du kan använda med AzureIoTSecurity-agenten för att autentisera med IoT Hub.
 
-Den här artikeln beskrivs de olika autentiseringsmetoderna som du kan använda med AzureIoTSecurity agent för att autentisera med IoT Hub.
-
-En modul för maskinvarusäkerhet krävs för varje enhet publicerats till Azure Security Center (ASC) för IoT i IoT Hub. ASC för IoT som för att autentisera enheten kan använda någon av två metoder. Välj den metod som passar bäst för din befintliga IoT-lösning. 
+En säkerhetsmodul krävs för varje enhet som har registrerats för att Azure Security Center för IoT i IoT Hub. Azure Security Center för IoT kan använda en av två metoder för att autentisera enheten. Välj den metod som passar bäst för din befintliga IoT-lösning. 
 
 > [!div class="checklist"]
-> * Modulen säkerhetsalternativ
-> * Enhetsinställningar
+> * Alternativet SecurityModule
+> * Enhets alternativ
 
 ## <a name="authentication-methods"></a>Autentiseringsmetoder
 
-De två metoderna för att AzureIoTSecurity agenten ska utföra autentisering:
+De två metoderna för AzureIoTSecurity-agenten att utföra autentisering:
 
- - **Modulen** autentiseringsläge<br>
-   Modulen är autentiserad oberoende av enhetstvillingen.
-   Använd den här autentiseringstypen om du vill ha säkerhetsagenten att använda en dedikerad autentiseringsmetod via säkerhetsmodul (endast för den symmetriska nyckeln).
+ - **SecurityModule** -autentiseringsläge<br>
+   Agenten autentiseras med säkerhetsmodulens identitet oberoende av enhetens identitet.
+   Använd den här typen av autentisering om du vill att säkerhets agenten ska använda en dedikerad autentiseringsmetod via säkerhetsmodulen (endast symmetrisk nyckel).
         
- - **Enheten** autentiseringsläge<br>
-    I den här metoden autentiserar säkerhetsagenten först med enhetens identitet. När den första autentiseringen ASC för IoT-agenten utför en **REST** anrop till IoT-hubben med hjälp av REST-API med autentiseringsinformationen för enheten. ASC för IoT-agenten begär sedan autentiseringsmetoden för nätverkssäkerhet modulen och data från IoT Hub. I det sista steget utför ASC för IoT-agenten en autentisering mot ASC för IoT-modulen.
+ - Autentiseringsläge för **enhet**<br>
+    I den här metoden autentiserar säkerhets agenten först med enhets identiteten. Efter den inledande autentiseringen utför Azure Security Center för IoT-agenten ett **rest** -anrop till IoT Hub med hjälp av REST API med enhetens autentiseringsdata. Azure Security Center för IoT-agenten begär sedan autentiseringsmetoden för säkerhetsmodulen och data från IoT Hub. I det sista steget utför Azure Security Center för IoT-agenten en autentisering mot Azure Security Center för IoT-modulen.
     
-    Använd den här autentiseringstypen om du vill ha säkerhetsagenten om du vill återanvända en befintlig enhet-autentiseringsmetod (självsignerade certifikat eller symmetrisk nyckel). 
+    Använd den här autentiseringstypen om du vill att säkerhets agenten ska återanvända en befintlig autentiseringsmetod för enheten (självsignerat certifikat eller symmetrisk nyckel). 
 
-Se [Security agent installationsparametrar](#security-agent-installation-parameters) att lära dig hur du konfigurerar.
+Se [installations parametrar för säkerhets agent](#security-agent-installation-parameters) för att lära dig hur du konfigurerar.
                                 
-## <a name="authentication-methods-known-limitations"></a>Autentiseringsmetoder som är kända begränsningar
+## <a name="authentication-methods-known-limitations"></a>Kända begränsningar för autentiseringsmetoder
 
-- **Modulen** autentiseringsläge stöder endast symmetrisk nyckelautentisering.
-- CA-signerat certifikat stöds inte av **enhet** autentiseringsläge.  
+- **SecurityModule** autentiseringsläget stöder endast symmetrisk nyckel autentisering.
+- CA-signerat certifikat stöds inte av autentiseringsläge för **enhet** .  
 
-## <a name="security-agent-installation-parameters"></a>Parametrar för installation av agent
+## <a name="security-agent-installation-parameters"></a>Installations parametrar för säkerhets agent
 
-När [distribuerar en säkerhetsagenten](how-to-deploy-agent.md), autentisering-information om måste anges som argument.
-De här argumenten finns dokumenterade i följande tabell.
-
-
-|Parameter|Beskrivning|Alternativ|
-|---------|---------------|---------------|
-|**Identitet**|Autentiseringsläge| **Modulen** eller **enhet**|
-|**type**|Autentiseringstyp|**SymmetricKey** eller **SelfSignedCertificate**|
-|**filePath**|Absolut fullständig sökväg till filen som innehåller certifikatet eller den symmetriska nyckeln| |
-|**gatewayHostname**|FQDN för IoT Hub|Exempel: ContosoIotHub.azure-devices.net|
-|**deviceId**|Enhets-ID|Exempel: MyDevice1|
-|**certificateLocationKind**|Lagringsplats för certifikat|**Lokalfil** eller **Store**|
+När du [distribuerar en säkerhets agent](how-to-deploy-agent.md)måste autentiserings information tillhandahållas som argument.
+Dessa argument beskrivs i följande tabell.
 
 
-När du använder installationsskriptet security-agenten, utförs automatiskt följande konfiguration.
+|Linux-parameter namn | Windows-parameter namn | Stenografisk parameter |Beskrivning|Alternativ|
+|---------------------|---------------|---------|---------------|---------------|
+|autentisering-identitet|AuthenticationIdentity|aui|Autentiseringsidentitet| **SecurityModule** eller **enhet**|
+|autentisering-metod|AuthenticationMethod|aum|Autentiseringsmetod|**SymmetricKey** eller **SelfSignedCertificate**|
+|fil Sök väg|FilePath|b|Absolut fullständig sökväg för filen som innehåller certifikatet eller den symmetriska nyckeln| |
+|värd namn|Värdnamn|HN|FQDN för IoT Hub|Exempel: ContosoIotHub.azure-devices.net|
+|enhets-ID|DeviceId|di|Enhets-ID|Exempel: MyDevice1|
+|certifikat – plats-typ|CertificateLocationKind|cl|Lagrings plats för certifikat|**Lokalfil** eller **butik**|
+|
 
-Redigera säkerhetsautentisering för agenten manuellt genom att redigera konfigurationsfilen. 
 
-## <a name="change-authentication-method-after-deployment"></a>Ändra autentiseringsmetod efter distributionen
+När du använder skriptet installera säkerhets agent utförs följande konfiguration automatiskt. Redigera konfigurations filen manuellt om du vill redigera säkerhets agentens autentisering manuellt. 
 
-När du distribuerar en security-agenten med ett skript för installation, skapas automatiskt en konfigurationsfil.
+## <a name="change-authentication-method-after-deployment"></a>Ändra autentiseringsmetod efter distribution
 
-Om du vill ändra autentiseringsmetoder efter distributionen, krävs manuell redigering av konfigurationsfilen.
+När du distribuerar en säkerhets agent med ett installations skript skapas en konfigurations fil automatiskt.
+
+Om du vill ändra autentiseringsmetoder efter distributionen krävs manuell redigering av konfigurations filen.
 
 
-### <a name="c-based-security-agent"></a>C#-baserade säkerhetsagenten
+### <a name="c-based-security-agent"></a>C#-baserad säkerhets agent
 
-Redigera _Authentication.config_ med följande parametrar:
+Redigera _Authentication. config_ med följande parametrar:
 
 ```xml
 <Authentication>
@@ -98,9 +93,9 @@ Redigera _Authentication.config_ med följande parametrar:
 </Authentication>
 ```
 
-### <a name="c-based-security-agent"></a>C-baserade security-agenten
+### <a name="c-based-security-agent"></a>C-baserad säkerhets agent
 
-Redigera _LocalConfiguration.json_ med följande parametrar:
+Redigera _LocalConfiguration. JSON_ med följande parametrar:
 
 ```json
 "Authentication" : {
@@ -113,6 +108,6 @@ Redigera _LocalConfiguration.json_ med följande parametrar:
 ```
 
 ## <a name="see-also"></a>Se också
-- [Säkerhetsöversikt för agenter](security-agent-architecture.md)
-- [Distribuera säkerhetsagenten](how-to-deploy-agent.md)
-- [Rå säkerhetsdata för åtkomst](how-to-security-data-access.md)
+- [Översikt över säkerhets agenter](security-agent-architecture.md)
+- [Distribuera säkerhets agent](how-to-deploy-agent.md)
+- [Åtkomst till rå säkerhets data](how-to-security-data-access.md)

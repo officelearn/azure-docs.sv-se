@@ -1,6 +1,6 @@
 ---
-title: Ordlista för verktyg för elastiska databaser | Microsoft Docs
-description: Förklaring av termer som används för elastiska Databasverktyg
+title: Ord lista för Elastic Database tools | Microsoft Docs
+description: Förklaring av termer som används för Elastic Database-verktyg
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -10,79 +10,78 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: 446203b45744a95c32cd41d9ded26fd960ac8a22
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3ed0cc9dce312cb9736b3e32ba46d2cb1cca3ef8
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60585627"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68568452"
 ---
-# <a name="elastic-database-tools-glossary"></a>Ordlista för verktyg för elastiska databaser
+# <a name="elastic-database-tools-glossary"></a>Ord lista för Elastic Database tools
 
-Följande villkor har definierats för den [elastiska Databasverktyg](sql-database-elastic-scale-introduction.md), en funktion i Azure SQL Database. Verktygen används för att hantera [shardkartor](sql-database-elastic-scale-shard-map-management.md), och inkluderar den [klientbiblioteket](sql-database-elastic-database-client-library.md), [dela / sammanslå verktyget](sql-database-elastic-scale-overview-split-and-merge.md), [elastiska pooler](sql-database-elastic-pool.md), och [frågor](sql-database-elastic-query-overview.md). 
+Följande villkor definieras för [Elastic Database-verktyg](sql-database-elastic-scale-introduction.md), en funktion i Azure SQL Database. Verktygen används för att hantera [Shard Maps](sql-database-elastic-scale-shard-map-management.md)och inkluderar [klient biblioteket](sql-database-elastic-database-client-library.md), [verktyget för delad sammanslagning](sql-database-elastic-scale-overview-split-and-merge.md), [elastiska pooler](sql-database-elastic-pool.md)och [frågor](sql-database-elastic-query-overview.md). 
 
-Dessa villkor används i [att lägga till en shard med elastiska Databasverktyg](sql-database-elastic-scale-add-a-shard.md) och [korrigera shard-kartproblem med RecoveryManager-klassen](sql-database-elastic-database-recovery-manager.md).
+Dessa villkor används när du [lägger till en Shard med hjälp av Elastic Database verktyg](sql-database-elastic-scale-add-a-shard.md) och [använder klassen RecoveryManager för att åtgärda Shard Map-problem](sql-database-elastic-database-recovery-manager.md).
 
 ![Villkor för elastisk skala][1]
 
-**Databasen**: En Azure SQL-databas. 
+**Databas**: En Azure SQL-databas. 
 
-**Databeroende routning**: Funktioner som gör att ett program kan ansluta till en shard som ett specifikt horisontell partitionering nyckel. Se [databeroende routning](sql-database-elastic-scale-data-dependent-routing.md). Jämför med  **[Multi-shard fråga](sql-database-elastic-scale-multishard-querying.md)** .
+**Data beroende routning**: Funktionen som gör det möjligt för ett program att ansluta till en Shard som har fått en specifik horisontell partitionering-nyckel. Se [data beroende routning](sql-database-elastic-scale-data-dependent-routing.md). Jämför med **[multi-Shard-fråga](sql-database-elastic-scale-multishard-querying.md)** .
 
-**Global fragmentkartan**: Mappningen mellan nycklar för horisontell partitionering och deras respektive fragment i en **shard set**. Global fragmentkartan lagras i den **karthanteraren**. Jämför med **lokala fragmentkartan**.
+**Global Shard-karta**: Kartan mellan horisontell partitionering-nycklar och deras respektive Shards i en **Shard-uppsättning**. Den globala Shard-kartan lagras i **Shard Map Manager**. Jämför med den **lokala Shard-kartan**.
 
-**Listfragmentkarta**: En skärvkarta i vilken horisontell partitionering nycklar mappas individuellt. Jämför med **intervall Fragmentkartan**.   
+**Visa lista Shard-karta**: En Shard-karta där horisontell partitionering-nycklar mappas individuellt. Jämför med **intervall Shard-kartan**.   
 
-**Lokala fragmentkartan**: Lagras på ett fragment, innehåller lokala fragmentkartan mappningar för shardletar som finns på fragmentet.
+**Lokal Shard-karta**: Den lokala Shard-kartan innehåller mappningar för den shardletar som finns på Shard-Shard.
 
-**Multi-shard fråga**: Möjligheten att köra en fråga mot flera shards; Anger resultat returneras med hjälp av UNION ALL semantik (även kallat ”förgreningsfråga”). Jämför med **databeroende routning**.
+**Fråga om flera Shard**: Möjlighet att utfärda en fråga mot flera Shards; resultat uppsättningar returneras med UNION ALL semantik (kallas även "fläkt-ut-fråga"). Jämför med **data beroende routning**.
 
-**Flera innehavare** och **enda klient**: Detta visar en enda klient-databas och en databas för flera innehavare:
+**Flera innehavare** och **en enda klient**: Detta visar en databas för en enskild klient och en databas för flera innehavare:
 
-![Enstaka och flera innehavare databaser](./media/sql-database-elastic-scale-glossary/multi-single-simple.png)
+![Databaser med en och flera klienter](./media/sql-database-elastic-scale-glossary/multi-single-simple.png)
 
-Här är en representation av **shardade** enstaka och flera innehavare databaser. 
+Här är en representation av **shardade** -databaser med en och flera innehavare. 
 
-![Enstaka och flera innehavare databaser](./media/sql-database-elastic-scale-glossary/shards-single-multi.png)
+![Databaser med en och flera klienter](./media/sql-database-elastic-scale-glossary/shards-single-multi.png)
 
-**Intervallfragmentkarta**: En skärvkarta där shard-distributionsstrategi utifrån flera intervall med sammanhängande värden. 
+**Shard karta för intervall**: En Shard-karta där distributions strategin för Shard baseras på flera intervall av sammanhängande värden. 
 
-**Tabeller**: Tabeller som inte är fragmenterade (sharded) men replikeras över shards. Postnummer kan till exempel lagras i en tabell. 
+**Referens tabeller**: Tabeller som inte är shardade men replikeras över Shards. Post nummer kan till exempel lagras i en referens tabell. 
 
-**Shard**: En Azure SQL-databas som lagrar data från en shardade data. 
+**Shard**: En Azure SQL-databas som lagrar data från en shardade-data uppsättning. 
 
-**Skärvelasticitet**: Möjligheten att utföra både **horisontell skalning** och **vertikal skalning**.
+**Shard**-elastiskhet: Möjlighet att utföra både **horisontell skalning** och **vertikal skalning**.
 
-**Shardade tabeller**: Tabeller som är shardade, d.v.s., vars data är fördelad i shards baserat på deras nyckelvärden för horisontell partitionering. 
+**Shardade-tabeller**: Tabeller som är shardade, d.v.s. vars data fördelas på Shards baserat på deras horisontell partitionering nyckel värden. 
 
-**Shardingnyckel**: Ett kolumnvärde som avgör hur data ska distribueras över shards. Värdetypen kan vara något av följande: **int**, **bigint**, **varbinary**, eller **uniqueidentifier**. 
+**Horisontell partitionering-nyckel**: Ett kolumn värde som avgör hur data fördelas mellan Shards. Värde typen kan vara något av följande: **int**, **bigint**, **varbinary**eller **uniqueidentifier**. 
 
-**Shard set**: Fragment som hänföras till på samma fragmentkartan i fragmentkartehanteraren samling.  
+**Shard uppsättning**: Samlingen av Shards som är attribut till samma Shard-karta i Shard Map Manager.  
 
-**Shardlet**: Alla data som är associerade med ett enda värde för en shardingnyckel på en shard. En shardlet är den minsta enheten av dataförflyttning som möjligt när distribuera shardade tabeller. 
+**Shardlet**: Alla data som är associerade med ett enda värde för en horisontell partitionering-nyckel på en Shard. En shardlet är den minsta enheten av data förflyttning möjlig när du distribuerar om shardade-tabeller. 
 
-**Fragmentkartan**: Uppsättningen mappningar mellan horisontell partitionering nycklar och deras respektive shards.
+**Shard-karta**: Uppsättningen mappningar mellan horisontell partitionering-nycklar och deras respektive Shards.
 
-**Karthanteraren**: En management-objekt och i datalagret som innehåller den shard map(s) och platser för shards mappningar för en eller flera fragment uppsättningar.
+**Shard Map Manager**: Ett hanterings objekt och data lager som innehåller Shard-kartor, Shard-platser och mappningar för en eller flera Shard-uppsättningar.
 
 ![Mappningar][2]
 
 ## <a name="verbs"></a>Verb
-**Horisontell skalning**: Av skala ut (eller i) i en samling fragment genom att lägga till eller ta bort en skärvkarta partitioner enligt nedan.
+**Vågrät skalning**: Vid utskalning (eller i) en samling av Shards genom att lägga till eller ta bort Shards till en Shard-mappning, som visas nedan.
 
 ![Vågrät och lodrät skalning][3]
 
-**Sammanfoga**: Act flyttar shardletar från två fragment till en shard och därefter uppdatera fragmentkartan.
+**Sammanslagning**: Syftet med att flytta shardletar från två Shards till en Shard och uppdatera Shard-kartan enligt detta.
 
-**Shardlet flytta**: Åtgärden för att flytta en enda shardlet till en annan shard. 
+**Shardlet flytta**: Åtgärden att flytta en enskild shardlet till en annan Shard. 
 
-**Shard**: Av horisontell partitionering identiskt strukturerade data över flera databaser baserat på en shardingnyckel.
+**Shard**: Syftet med horisontell partitionering av identiskt strukturerade data över flera databaser baserat på en horisontell partitionering nyckel.
 
-**Dela**: Åtgärden för att överföra flera shardletar från en shard till en annan (normalt nya) shard. En shardingnyckel tillhandahålls av användaren som delad punkt.
+**Dela**: Åtgärden att flytta flera shardletar från en Shard till en annan (vanligt vis ny) Shard. En horisontell partitionering-nyckel tillhandahålls av användaren som delnings punkt.
 
-**Vertikal skalning**: Av skala upp (eller ned) beräkningsstorleken för en enskild fragment. Till exempel ändrar ett fragment från Standard till Premium (vilket resulterar i fler datorresurser). 
+**Lodrät skalning**: Att skala upp (eller ned) beräknings storleken för en enskild Shard. Du kan till exempel ändra en Shard från standard till Premium (vilket resulterar i mer data bearbetnings resurser). 
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

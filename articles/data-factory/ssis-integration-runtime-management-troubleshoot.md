@@ -12,142 +12,148 @@ author: chinadragon0515
 ms.author: dashe
 ms.reviewer: sawinark
 manager: craigg
-ms.openlocfilehash: 17fe8d9ed02156b8fe9aafd7adca946531895883
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 8abffdf443e26c03c38c12a3947a47a94157c9da
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68253024"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68609614"
 ---
 # <a name="troubleshoot-ssis-integration-runtime-management-in-azure-data-factory"></a>Felsöka SSIS Integration Runtime Management i Azure Data Factory
 
-Det här dokumentet innehåller fel söknings guider för hanterings problem i SSIS Integration Runtime (SSIS IR).
+Den här artikeln innehåller fel söknings vägledning för hanterings problem i Azure-SQL Server Integration Services (SSIS) Integration Runtime (IR), även kallat SSIS IR.
 
 ## <a name="overview"></a>Översikt
 
-Ett fel meddelande visas i ADF-portalen eller returneras från PowerShell-cmdleten om det finns något problem med etableringen eller avetableringen av SSIS IR. Felet är alltid i formatet som en felkod med ett detaljerat fel meddelande.
+Om du stöter på ett problem under etableringen eller avetableringen av SSIS IR visas ett fel meddelande i Microsoft Azure Data Factory portalen eller ett fel som returneras från en PowerShell-cmdlet. Felet visas alltid i formatet för en felkod med ett detaljerat fel meddelande.
 
-Det innebär att tjänsten har några tillfälliga problem om felkoden är InternalServerError. Du kan försöka igen senare. Kontakta Azure Data Factory support team om det inte går att göra ett nytt försök.
+Om felkoden är InternalServerError har tjänsten tillfälliga problem och du bör försöka igen senare. Kontakta Azure Data Factory support-teamet om det inte går att göra ett nytt försök.
 
-Det finns tre huvudsakliga externa beroenden som kan orsaka fel: Azure SQL Database Server eller hanterad instans, anpassat installations skript och Virtual Network konfiguration om felkoden inte är InternalServerError.
+I annat fall kan tre större externa beroenden orsaka fel: en Azure SQL Database Server eller en hanterad instans, ett anpassat installations skript och en virtuell nätverks konfiguration.
 
 ## <a name="azure-sql-database-server-or-managed-instance-issues"></a>Problem med Azure SQL Database Server eller hanterade instanser
 
-En Azure SQL Database Server eller en hanterad instans krävs om etableringen av SSIS IR med SSIS Catalog-databasen. Azure SQL Database-servern eller den hanterade instansen bör vara tillgänglig för SSIS IR. Kontot för Azure SQL Database-servern eller den hanterade instansen måste ha behörighet att skapa SSIS-katalog databas (SSISDB). Om det uppstår något fel visas en felkod med information om SQL-undantag i ADF-portalen. Felsök fel koderna genom att följa stegen nedan.
+En Azure SQL Database Server eller en hanterad instans krävs om du ska tillhandahålla SSIS IR med en SSIS-katalog databas. SSIS IR måste kunna komma åt Azure SQL Database Server eller en hanterad instans. Kontot för Azure SQL Database-servern eller den hanterade instansen bör också ha behörighet att skapa en SSIS-katalog databas (SSISDB). Om det uppstår ett fel visas en felkod med ett detaljerat SQL-undantags meddelande i Data Factory portalen. Använd informationen i följande lista för att felsöka fel koderna.
 
 ### <a name="azuresqlconnectionfailure"></a>AzureSqlConnectionFailure
 
-Det här problemet kan uppstå när du konfigurerar en ny SSIS-IR eller under IR-körning.
+Du kan se det här problemet när du konfigurerar en ny SSIS IR eller medan IR körs. Om det här felet uppstår under IR-etableringen kan du få ett detaljerat SqlException-meddelande i fel meddelandet som anger något av följande problem:
 
-Det kan bero på följande: om du ser felet under IR-etableringen och du kan få detalj SqlException-meddelande i fel meddelandet.
+* Ett problem med nätverks anslutningen. Kontrol lera om SQL Server eller värd namnet för den hanterade instansen är tillgängligt. Kontrol lera också att ingen brand vägg eller nätverks säkerhets grupp (NSG) blockerar SSIS IR-åtkomst till servern.
+* Inloggningen misslyckades under SQL-autentisering. Det angivna kontot kan inte logga in på den SQL Server databasen. Se till att du anger rätt användar konto.
+* Inloggningen misslyckades under Microsoft Azure Active Directory (Azure AD)-autentisering (hanterad identitet). Lägg till den hanterade identiteten för din fabrik i en AAD-grupp och se till att den hanterade identiteten har åtkomst behörighet till katalog databas servern.
+* Tids gräns för anslutning. Det här felet orsakas alltid av en säkerhetsrelaterad konfiguration. Vi rekommenderar att du:
+  1. Skapa en ny virtuell dator.
+  1. Anslut den virtuella datorn till samma Microsoft Azure Virtual Network av IR om IR finns i ett virtuellt nätverk.
+  1. Installera SSMS och kontrol lera status för Azure SQL Database Server eller hanterad instans.
 
-* Problem med nätverks anslutningen. Kontrol lera att det SQL Server eller den hanterade instansens värd namn är tillgängligt och att det inte finns någon brand vägg eller NSG blockerar SSIS IR för att få åtkomst till servern.
-* Inloggningen misslyckades och SQL-autentisering används. Det innebär att det angivna kontot inte kan logga in på SQL Server. Kontrol lera att rätt användar konto har angetts.
-* Inloggningen misslyckades och AAD-autentisering (hanterad identitet) används. Lägg till den hanterade identiteten för din fabrik i en AAD-grupp och se till att den hanterade identiteten har åtkomst behörighet till katalog databas servern.
-* Timeout för anslutning, det är alltid på grund av en säkerhetsrelaterad konfiguration. Vi rekommenderar att du skapar en ny virtuell dator, gör den virtuella datorn kopplad till samma VNet för IR om IR är i ett VNet, sedan installerar du SSMS och kontrollerar den Azure SQL Database servern eller status för hanterade instanser.
+Lös problemet som visas i det detaljerade fel meddelandet om SQL-undantag för andra problem. Om du fortfarande har problem kan du kontakta Azure SQL Database Server eller support teamet för hanterade instanser.
 
-Information om andra problem finns i fel meddelandet detaljerad SQL-undantag och åtgärda problemet som visas i fel meddelandet. Kontakta Azure SQL Database Server eller support teamet för hanterade instanser om du fortfarande har problem.
-
-Det är troligt att vissa nätverks säkerhets grupper eller brand Väggs ändringar visas om felet uppstår under IR-körning, vilket leder till att SSIS IR Worker-noden inte kan komma åt Azure SQL Database-servern eller den hanterade instansen längre. Avblockera SSIS IR Worker-noden för att få åtkomst till Azure SQL Database Server eller hanterad instans.
+Om du ser felet när IR körs, förhindrar nätverks säkerhets gruppen eller brand Väggs ändringar förmodligen SSIS IR Worker-noden från att komma åt Azure SQL Database Server eller en hanterad instans. Avblockera SSIS IR Worker-noden så att den kan komma åt Azure SQL Database Server eller hanterad instans.
 
 ### <a name="catalogcapacitylimiterror"></a>CatalogCapacityLimitError
 
-Fel meddelandet liknar "databasen" SSISDB "har nått sin storleks kvot. Partitionera eller ta bort data, släpp index eller Läs om möjliga lösningar i dokumentationen. " Möjliga lösningar är:
-* Öka storleks kvoten för din SSISDB.
-* Ändra konfigurationerna för SSISDB för att minska storleken som:
+Den här typen av fel meddelande kan se ut så här: "Databasen" SSISDB "har nått sin storleks kvot. Partitionera eller ta bort data, släpp index eller Läs om möjliga lösningar i dokumentationen. " 
+
+Möjliga lösningar är:
+* Öka kvot storleken för din SSISDB.
+* Ändra konfigurationen för SSISDB för att minska storleken genom att:
    * Reducering av kvarhållningsperioden och antal projekt versioner.
    * Minskar loggens kvarhållningsperiod.
-   * Ändra standard nivån för loggen och så vidare.
+   * Ändra standard nivån för loggen.
 
 ### <a name="catalogdbbelongstoanotherir"></a>CatalogDbBelongsToAnotherIR
 
-Det här felet innebär att Azure SQL Database-servern eller den hanterade instansen redan har en SSISDB som skapats och används av en annan IR. Du behöver antingen ange en annan Azure SQL Database Server eller en hanterad instans eller ta bort befintliga SSISDB och starta om den nya IR-filen.
+Det här felet innebär att Azure SQL Database-servern eller den hanterade instansen redan har en SSISDB och att den används av en annan IR. Du måste antingen ange en annan Azure SQL Database Server eller en hanterad instans eller ta bort den befintliga SSISDB och sedan starta om den nya IR-filen.
 
 ### <a name="catalogdbcreationfailure"></a>CatalogDbCreationFailure
 
-Felet kan bero på följande:
+Felet kan bero på någon av följande orsaker:
 
-* Det användar konto som har kon figurer ATS för SSIS IR har inte behörighet att skapa databasen. Du kan ge användaren behörighet att skapa databasen.
-* Skapa tids gräns för databas, t. ex. tids gräns för databas, tids gräns för databas åtgärd. Du kan försöka igen senare för att se om problemet är löst. Kontakta support teamet för Azure SQL Database Server eller Managed instance om försöket inte fungerar.
+* Det användar konto som har kon figurer ATS för SSIS IR har inte behörighet att skapa databasen. Du kan bevilja användaren behörighet att skapa databasen.
+* En timeout inträffar när databasen skapas, till exempel tids gräns för körning eller tids gräns för databas åtgärd. Försök igen senare. Om försöket inte fungerar kontaktar du Azure SQL Database Server eller support teamet för hanterade instanser.
 
-För andra problem kontrollerar du fel meddelandet SQL-undantag och löser problemet som nämns i fel meddelande. Om du fortfarande har problem kontaktar du Azure SQL Database Server eller support teamet för hanterade instanser.
+Mer information om andra problem finns i fel meddelandet om SQL-undantag och åtgärda problemet som beskrivs i fel informationen. Om du fortfarande har problem kan du kontakta Azure SQL Database Server eller support teamet för hanterade instanser.
 
 ### <a name="invalidcatalogdb"></a>InvalidCatalogDb
 
-Fel meddelandet är som "ogiltigt objekt namn" Catalog. catalog_properties ".", det betyder att du redan har en databas med namnet SSISDB, men att den inte har skapats av SSIS IR, eller att databasen är i ett ogiltigt tillstånd som orsakas av fel under den senaste SSIS IR-etableringen. Du kan släppa den befintliga databasen med namnet SSISDB eller konfigurera en ny Azure SQL Database Server eller en hanterad instans för IR.
+Den här typen av fel meddelande ser ut så här: "Ogiltigt objekt namn ' Catalog. catalog_properties '." I så fall har du redan en databas med namnet SSISDB men den skapades inte av SSIS IR, eller så är databasen i ett ogiltigt tillstånd som orsakas av fel under den senaste SSIS IR-etableringen. Du kan släppa den befintliga databasen med namnet SSISDB, eller så kan du konfigurera en ny Azure SQL Database Server eller en hanterad instans för IR.
 
-## <a name="custom-setup"></a>Anpassad installation
+## <a name="custom-setup-issues"></a>Anpassade installations problem
 
 Anpassad installation tillhandahåller ett gränssnitt för att lägga till egna installations steg under etableringen eller omkonfigurationen av din SSIS IR. Mer information finns i [Anpassa installations programmet för Azure-SSIS integration runtime](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup).
 
-Se till att din behållare bara innehåller de nödvändiga anpassade installationsfilerna, eftersom alla filer i behållaren kommer att laddas ned till noden SSIS IR Worker. Vi rekommenderar att du testar det anpassade installations skriptet på en lokal dator för att åtgärda eventuella skript körnings problem innan du kör skriptet i SSIS IR.
+Kontrol lera att din behållare bara innehåller nödvändiga anpassade installationsfiler. alla filer i behållaren kommer att laddas ned till noden SSIS IR Worker. Vi rekommenderar att du testar det anpassade installations skriptet på en lokal dator för att åtgärda eventuella skript körnings problem innan du kör skriptet i SSIS IR.
 
-Den anpassade installations skript behållaren kontrol leras under IR-körningen för eftersom SSIS IR uppdateras regelbundet, vilket behöver åtkomst till behållaren igen för att ladda ned det anpassade installations skriptet och installera igen. Kontrollen kommer att inkludera om behållaren är tillgänglig och om filen main. cmd finns.
+Den anpassade installations skript behållaren kontrol leras medan IR körs, eftersom SSIS IR uppdateras regelbundet. Den här uppdateringen kräver åtkomst till behållaren för att ladda ned det anpassade installations skriptet och installera det igen. Processen kontrollerar också om behållaren är tillgänglig och om filen main. cmd finns.
 
-Fel med anpassad installation visas ett fel meddelande med koden CustomSetupScriptFailure. kontrol lera fel meddelandet som innehåller en under fel kod.  Följ stegen nedan för att felsöka under fel koderna.  
+För alla fel som inbegriper anpassad installation visas en CustomSetupScriptFailure-felkod med under kod som CustomSetupScriptBlobContainerInaccessible eller CustomSetupScriptNotFound.
 
 ### <a name="customsetupscriptblobcontainerinaccessible"></a>CustomSetupScriptBlobContainerInaccessible
 
-Det innebär att SSIS IR inte kan komma åt din Azure Blob-behållare för anpassad installation. Kontrol lera att det går att hitta SAS-URI: n för behållaren och att den inte har gått ut.
+Det här felet innebär att SSIS IR inte kan komma åt din Azure Blob-behållare för anpassad installation. Kontrol lera att det går att hitta SAS-URI: n för behållaren och att den inte har upphört att gälla.
 
-Stoppa IR först om IR är i körnings läge, konfigurera om IR med en ny egen SAS-URI för installations behållaren och starta sedan IR igen.
+Stoppa IR om den körs, konfigurera om IR med en ny egen SAS-URI för installations behållaren och starta sedan om IR.
 
 ### <a name="customsetupscriptnotfound"></a>CustomSetupScriptNotFound
 
-Det innebär att SSIS IR inte kan hitta något anpassat installations skript (Main. cmd) i BLOB-behållaren. Se till att main. cmd finns i behållaren, vilket är start punkten för anpassad installation.
+Det här felet innebär att SSIS IR inte kan hitta ett anpassat installations skript (Main. cmd) i BLOB-behållaren. Se till att main. cmd finns i behållaren, vilket är start punkten för anpassad installation.
 
 ### <a name="customsetupscriptexecutionfailure"></a>CustomSetupScriptExecutionFailure
 
-Det innebär att det inte går att köra anpassade installations skript (Main. cmd). du kan prova skriptet på den lokala datorn först eller kontrol lera de anpassade konfigurations körnings loggarna i BLOB-behållaren.
+Detta fel innebär att det inte gick att köra anpassade installations skript (Main. cmd). Testa skriptet på den lokala datorn först eller kontrol lera de anpassade konfigurations körnings loggarna på BLOB-behållaren.
 
 ### <a name="customsetupscripttimeout"></a>CustomSetupScriptTimeout
 
-Det innebär att kör anpassad installations skript tids gräns. Se till att BLOB-behållaren bara innehåller nödvändiga anpassade installationsfiler. Du kan också kontrol lera körnings loggar för anpassade installationer i BLOB-behållaren. Den maximala tids perioden för anpassad konfiguration ställs in på 45 minuter innan tids gränsen uppnåddes och den längsta perioden innehåller tiden för att ladda ned alla filer från behållaren och installera dem på SSIS IR. Om en längre period krävs, Utlös ett support ärende.
+Det här felet anger tids gränsen för körning av anpassade installations skript. Se till att BLOB-behållaren bara innehåller nödvändiga anpassade installationsfiler. Du bör också kontrol lera de anpassade konfigurations körnings loggarna i BLOB-behållaren. Den maximala tids perioden för anpassad installation är 45 minuter innan tids gränsen uppnåddes, och den längsta perioden innehåller tiden för att ladda ned alla filer från behållaren och installera dem på SSIS IR. Om du behöver en längre period kan du generera ett support ärende.
 
 ### <a name="customsetupscriptloguploadfailure"></a>CustomSetupScriptLogUploadFailure
 
-Det innebär att det inte gick att överföra anpassade konfigurations körnings loggar till BLOB-behållaren, antingen på grund av att SSIS IR inte har Skriv behörighet till din BLOB-behållare, eller vissa lagrings-eller nätverks problem. Om den anpassade installationen lyckas, påverkar det här felet inte någon SSIS-funktion, men loggarna saknas. Om anpassad installation misslyckades med ett annat fel och vi inte kan ladda upp loggen, kommer vi att rapportera det här felet först så att loggen kan laddas upp för analys och när problemet har lösts, kommer vi att rapportera fler specifika problem. Kontakta Azure Data Factory support teamet om problemet inte är löst efter ett nytt försök.
+Det här felet innebär att försöket att överföra körnings loggar för anpassade installationer till BLOB-behållaren misslyckades. Det här problemet inträffar antingen på grund av att SSIS IR inte har Skriv behörighet till din BLOB-behållare eller på grund av lagrings-eller nätverks problem. Om den anpassade installationen lyckas kommer det här felet inte att påverka någon SSIS-funktion, men loggarna saknas. Om anpassad installation Miss lyckas med ett annat fel och loggen inte överförs, kommer vi att rapportera felet först så att loggen kan laddas upp för analys. När det här problemet har lösts kommer vi också att rapportera eventuella mer specifika problem. Om problemet inte är löst efter ett nytt försök kontaktar du Azure Data Factory support-teamet.
 
 ## <a name="virtual-network-configuration"></a>Konfiguration av virtuellt nätverk
 
-När du ansluter SSIS IR till en Virtual Network (VNet) använder den VNet under användar prenumerationen. Mer information finns i [ansluta en Azure-SSIS integration runtime till ett virtuellt nätverk](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network).
+När du ansluter SSIS IR till Azure Virtual Network använder SSIS IR det virtuella nätverk som finns under användar prenumerationen. Mer information finns i [ansluta en Azure-SSIS integration runtime till ett virtuellt nätverk](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network).
 
-Om det finns ett VNet-relaterat problem visas felet enligt nedan
+När det finns ett Virtual Network-relaterat problem ser du något av följande fel.
 
 ### <a name="invalidvnetconfiguration"></a>InvalidVnetConfiguration
 
-Det kan bero på variant-orsaker. Följ stegen nedan för att felsöka under fel koderna.
+Det här felet kan inträffa av olika orsaker. Information om hur du felsöker det finns i avsnitten om [förbjudna](#forbidden), [InvalidPropertyValue](#invalidpropertyvalue)och [MisconfiguredDnsServerOrNsgSettings](#misconfigureddnsserverornsgsettings) .
 
 ### <a name="forbidden"></a>Förbjudna
 
-Fel meddelandet liknar "subnetId är inte aktiverat för det aktuella kontot. Microsoft. batch Resource Provider är inte registrerad under samma prenumeration av VNet. "
+Den här typen av fel kan likna detta: "SubnetId har inte Aktiver ATS för det aktuella kontot. Microsoft. batch Resource Provider är inte registrerad under samma prenumeration av VNet. "
 
-Det innebär att Azure Batch inte kan komma åt ditt VNet. Registrera Microsoft. batch Resource Provider under samma prenumeration av VNet.
+Den här informationen innebär att Azure Batch inte kan komma åt ditt virtuella nätverk. Registrera providern Microsoft. batch-resurs under samma prenumeration som Virtual Network.
 
 ### <a name="invalidpropertyvalue"></a>InvalidPropertyValue
 
-Fel meddelandet liknar "antingen det angivna virtuella nätverket finns inte eller också har batch-tjänsten inte åtkomst till det" eller "det angivna under nätet XXX finns inte".
+Den här typen av fel kan likna något av följande: 
 
-Det innebär att VNet inte finns eller att Azure Batch tjänsten inte kan komma åt det, eller att det angivna under nätet inte finns. Kontrol lera att VNet och undernät finns och att Azure Batch kan komma åt dem.
+- "Antingen finns inte det angivna virtuella nätverket eller också har batch-tjänsten inte åtkomst till det."
+- "Det angivna under nätet XXX finns inte."
+
+Dessa fel innebär att det virtuella nätverket inte finns, Azure Batch tjänsten inte kan komma åt det, eller att det angivna under nätet inte finns. Kontrol lera att det virtuella nätverket och under nätet finns och att Azure Batch kan komma åt dem.
 
 ### <a name="misconfigureddnsserverornsgsettings"></a>MisconfiguredDnsServerOrNsgSettings
 
-Meddelandet liknar "Det gick inte att etablera Integration Runtime i VNet. Om DNS-servern eller NSG-inställningarna konfigureras kontrollerar du att DNS-servern är tillgänglig och att NSG är korrekt konfigurerat.
+Den här typen av fel meddelande kan se ut så här: "Det gick inte att etablera Integration Runtime i VNet. Om DNS-servern eller NSG-inställningarna konfigureras kontrollerar du att DNS-servern är tillgänglig och att NSG har kon figurer ATS korrekt. "
 
-Det är troligt att du har en anpassad konfiguration av DNS-serverns eller NSG inställningar, vilket gör att det inte går att matcha det Azure Server-namn som krävs av SSIS IR eller inte går att komma åt. Mer information finns i konfigurations dokument för [SSIS IR VNet](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network) . Kontakta Azure Data Factory support-teamet om du fortfarande har problem.
+I den här situationen har du förmodligen en anpassad konfiguration av DNS-serverns eller NSG inställningar, vilket förhindrar att det Azure Server-namn som krävs av SSIS IR matchas eller nås. Mer information finns i [SSIS IR Virtual Network Configuration](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network). Om du fortfarande har problem kan du kontakta Azure Data Factory support-teamet.
 
 ### <a name="vnetresourcegrouplockedduringupgrade"></a>VNetResourceGroupLockedDuringUpgrade
 
-SSIS IR uppdateras regelbundet regelbundet och en ny Azure Batch-pool skapas under uppgraderingen och den gamla Azure Batchs poolen tas bort, VNet-relaterad resurs för den gamla poolen tas bort och den nya VNet-relaterade resursen skapas under din Prenumerera. Det här felet innebär att det inte gick att ta bort VNet-relaterade resurser för den gamla poolen på grund av borttagnings låset vid prenumerationen eller resurs grupp Hjälp att ta bort borttagnings låset.
+SSIS IR uppdateras regelbundet med jämna mellanrum. En ny Azure Batch pool skapas under uppgraderingen och den gamla Azure Batch-poolen tas bort. Virtual Network-relaterade resurser för den gamla poolen tas också bort och de nya Virtual Network-relaterade resurserna skapas under din prenumeration. Det här felet innebär att borttagning av Virtual Network-relaterade resurser för den gamla poolen misslyckades på grund av ett borttagnings lås på prenumerations-eller resurs grupps nivån. Eftersom kunden kontrollerar och anger borttagnings låset måste de ta bort borttagnings låset i den här situationen.
 
 ### <a name="vnetresourcegrouplockedduringstart"></a>VNetResourceGroupLockedDuringStart
 
-SSIS IR-etablering kan Miss lyckas på grund av olika typer av orsaker, och om ett misslyckande inträffar tas alla resurser som skapas bort. Dock kunde inte VNet-resurserna tas bort på grund av att det finns ett resurs borttagnings lås på prenumerations-eller resurs grupps nivå. Ta bort borttagnings låset och starta om IR.
+Om IR-etableringen av SSIS Miss lyckas tas alla resurser som har skapats bort. Men om det finns ett resurs borttagnings lås på prenumerations-eller resurs grupps nivån, tas Virtual Network resurser inte bort som förväntat. Åtgärda felet genom att ta bort borttagnings låset och starta om IR.
 
 ### <a name="vnetresourcegrouplockedduringstop"></a>VNetResourceGroupLockedDuringStop
 
-När du stoppar SSIS IR tas all resurs som är relaterad till VNet bort, men borttagningen misslyckades på grund av att det finns ett resurs borttagnings lås på prenumerations-eller resurs grupps nivå. Hjälp att ta bort borttagnings låset och försök att stoppa det igen.
+När du stoppar SSIS IR tas alla resurser som är relaterade till Virtual Network bort. Men det går inte att ta bort om det finns ett resurs borttagnings lås på prenumerations-eller resurs grupps nivån. Här är det också kunden som kontrollerar och ställer in borttagnings låset. De måste därför ta bort borttagnings låset och sedan stoppa SSIS IR igen.
 
 ### <a name="nodeunavailable"></a>NodeUnavailable
 
-Det här felet uppstår under IR-körningen, det innebär att IR är hälso tillstånd innan och skadas, det är alltid på grund av att DNS-servern eller NSG-konfigurationen har ändrats och orsakar att SSIS IR inte kan ansluta till en beroende tjänst, hjälpa till att åtgärda DNS-serverns eller NSG konfigurations problem Mer information finns i [SSIS IR VNet Configuration](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network). Kontakta Azure Data Factory support-teamet om du fortfarande har problem.
+Felet uppstår när IR körs, och det innebär att IR har blivit ohälsosamt. Det här felet orsakas alltid av en ändring i DNS-servern eller NSG-konfigurationen som blockerar SSIS IR från att ansluta till en nödvändig tjänst. Eftersom konfigurationen av DNS-server och NSG styrs av kunden måste kunden åtgärda spärrnings problemen. Mer information finns i [SSIS IR Virtual Network Configuration](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network). Om du fortfarande har problem kan du kontakta Azure Data Factory support-teamet.

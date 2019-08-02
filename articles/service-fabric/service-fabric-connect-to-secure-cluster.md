@@ -1,9 +1,9 @@
 ---
-title: Anslut säkert till ett Azure Service Fabric-kluster | Microsoft Docs
-description: Beskriver hur du autentiserar klientåtkomst till Service Fabric-kluster och hur för säker kommunikation mellan klienter och ett kluster.
+title: Ansluta säkert till ett Azure Service Fabric-kluster | Microsoft Docs
+description: Beskriver hur du autentiserar klient åtkomst till ett Service Fabric kluster och hur du skyddar kommunikationen mellan klienter och ett kluster.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: 759a539e-e5e6-4055-bff5-d38804656e10
@@ -13,73 +13,73 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2019
-ms.author: aljo
-ms.openlocfilehash: 703830778edb73781a263ae4d92529f7f79a0eb2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: atsenthi
+ms.openlocfilehash: c350b53b2d0b235c5e34431386205f090f37b482
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66306845"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599709"
 ---
 # <a name="connect-to-a-secure-cluster"></a>Ansluta till ett säkert kluster
 
-När en klient ansluter till en Service Fabric-klusternod, kan klienten vara autentiserade och säker kommunikation upprättas med hjälp av certifikatet säkerhets- eller Azure Active Directory (AAD). Den här autentiseringen säkerställer att endast behöriga användare har åtkomst till klustret och distribuerade program och utföra administrativa uppgifter.  Certifikat eller AAD säkerhet måste har tidigare aktiverats på klustret när klustret skapades.  Mer information om säkerhetsscenarier för kluster finns i [kluster security](service-fabric-cluster-security.md). Om du ansluter till ett kluster som skyddas med certifikat, [konfigurera klientcertifikatet](service-fabric-connect-to-secure-cluster.md#connectsecureclustersetupclientcert) på den dator som ansluter till klustret. 
+När en klient ansluter till en Service Fabric klusternod kan klienten autentiseras och säkra kommunikationen som etableras med hjälp av certifikat säkerhet eller Azure Active Directory (AAD). Den här autentiseringen säkerställer att endast behöriga användare kan komma åt klustret och distribuerade program och utföra hanterings uppgifter.  Certifikat-eller AAD-säkerhet måste ha Aktiver ATS tidigare på klustret när klustret skapades.  Mer information om kluster säkerhets scenarier finns i [kluster säkerhet](service-fabric-cluster-security.md). Om du ansluter till ett kluster som är skyddat med certifikat [konfigurerar du klient certifikatet](service-fabric-connect-to-secure-cluster.md#connectsecureclustersetupclientcert) på den dator som ansluter till klustret. 
 
 <a id="connectsecureclustercli"></a> 
 
-## <a name="connect-to-a-secure-cluster-using-azure-service-fabric-cli-sfctl"></a>Ansluta till ett säkert kluster med hjälp av Azure Service Fabric CLI (sfctl)
+## <a name="connect-to-a-secure-cluster-using-azure-service-fabric-cli-sfctl"></a>Ansluta till ett säkert kluster med Azure Service Fabric CLI (sfctl)
 
-Det finns några olika sätt att ansluta till ett säkert kluster med Service Fabric CLI (sfctl). När du använder ett klientcertifikat för autentisering måste certifikatinformationen matcha ett certifikat som distribuerats till klusternoderna. Om ditt certifikat har certifikatutfärdare (CA), måste du dessutom ange betrodda certifikatutfärdare.
+Det finns flera olika sätt att ansluta till ett säkert kluster med hjälp av Service Fabric CLI (sfctl). När du använder ett klientcertifikat för autentisering måste certifikatinformationen matcha ett certifikat som distribuerats till klusternoderna. Om ditt certifikat har certifikat utfärdare måste du också ange betrodda certifikat utfärdare.
 
-Du kan ansluta till ett kluster som använder den `sfctl cluster select` kommando.
+Du kan ansluta till ett kluster med hjälp `sfctl cluster select` av kommandot.
 
-Klientcertifikat kan anges i två olika sätt, antingen som ett certifikat och nyckelpar, eller som en PFX-fil. För lösenordsskyddade PEM-filer, uppmanas du att automatiskt att ange lösenordet. Om du har köpt klientcertifikatet som en PFX-fil måste du först konvertera PFX-filen till en PEM-fil med följande kommando. 
+Klient certifikat kan anges på två olika sätt, antingen som ett certifikat och nyckel par, eller som en enda PFX-fil. För lösenordsskyddade PEM-filer uppmanas du att ange lösen ordet automatiskt. Om du har fått klient certifikatet som en PFX-fil måste du först konvertera PFX-filen till en PEM-fil med hjälp av följande kommando. 
 
 ```bash
 openssl pkcs12 -in your-cert-file.pfx -out your-cert-file.pem -nodes -passin pass:your-pfx-password
 ```
 
-Om din .pfx-filen inte är lösenordsskyddad, använda - passin pass: för den sista parametern.
+Om PFX-filen inte är lösenordsskyddad använder du-Passin pass: för den sista parametern.
 
-Om du vill ange klientcertifikatet som en pem-fil, ange sökvägen till filen i den `--pem` argumentet. Exempel:
+Om du vill ange klient certifikatet som en PEM-fil anger du fil Sök vägen `--pem` i argumentet. Exempel:
 
 ```azurecli
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem
 ```
 
-Lösenordsskyddade pem-filer efterfrågar lösenord innan du kör ett kommando.
+Lösenordsskyddade PEM-filer kommer att uppmanas att ange lösen ord innan kommandot körs.
 
-Nyckeln par används för att ange ett certifikat, den `--cert` och `--key` argument för att ange sökvägarna till varje respektive fil.
+Om du vill ange ett certifikat använder `--cert` nyckel paret argumenten och `--key` för att ange sökvägar till varje respektive fil.
 
 ```azurecli
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --cert ./client.crt --key ./keyfile.key
 ```
 
-Certifikat som används för att skydda test- eller dev kluster misslyckas ibland certifikatsverifiering. Om du vill kringgå certifikatverifiering, ange den `--no-verify` alternativet. Exempel:
+Ibland kan certifikat som används för att skydda test-eller dev-kluster inte verifiera certifikat. Om du vill kringgå certifikat verifieringen `--no-verify` anger du alternativet. Exempel:
 
 > [!WARNING]
-> Använd inte den `no-verify` alternativet när du ansluter till produktion som Service Fabric-kluster.
+> Använd `no-verify` inte alternativet när du ansluter till produktions Service Fabric kluster.
 
 ```azurecli
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --no-verify
 ```
 
-Du kan dessutom ange sökvägar till kataloger för betrodda CA-certifikat eller enskilda certifikat. Om du vill ange sökvägarna, använda den `--ca` argumentet. Exempel:
+Dessutom kan du ange sökvägar till kataloger för betrodda CA-certifikat eller enskilda certifikat. Använd `--ca` argumentet för att ange dessa sökvägar. Exempel:
 
 ```azurecli
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --ca ./trusted_ca
 ```
 
-När du ansluter kan du ska kunna [köra andra sfctl kommandon](service-fabric-cli.md) att interagera med klustret.
+När du har anslutit bör du kunna [köra andra sfctl-kommandon](service-fabric-cli.md) för att interagera med klustret.
 
 <a id="connectsecurecluster"></a>
 
-## <a name="connect-to-a-cluster-using-powershell"></a>Ansluta till ett kluster med hjälp av PowerShell
-Innan du utför åtgärder på ett kluster via PowerShell måste du först upprätta en anslutning till klustret. Klusteranslutningen används för alla efterföljande kommandon i den angivna PowerShell-sessionen.
+## <a name="connect-to-a-cluster-using-powershell"></a>Ansluta till ett kluster med PowerShell
+Innan du utför åtgärder på ett kluster via PowerShell upprättar du först en anslutning till klustret. Kluster anslutningen används för alla efterföljande kommandon i den aktuella PowerShell-sessionen.
 
 ### <a name="connect-to-an-unsecure-cluster"></a>Ansluta till ett oskyddat kluster
 
-För att ansluta till ett oskyddat kluster, anger du adressen till kluster-slutpunkten till den **Connect-ServiceFabricCluster** kommando:
+Om du vill ansluta till ett oskyddat kluster anger du klustrets slut punkts adress till kommandot **Connect-ServiceFabricCluster** :
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 
@@ -87,7 +87,7 @@ Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000
 
 ### <a name="connect-to-a-secure-cluster-using-azure-active-directory"></a>Ansluta till ett säkert kluster med Azure Active Directory
 
-Ange kluster certifikatets tumavtryck för att ansluta till ett säkert kluster som använder Azure Active Directory för att auktorisera administratörsåtkomst för klustret, och använda den *AzureActiveDirectory* flaggan.  
+Om du vill ansluta till ett säkert kluster som använder Azure Active Directory för att auktorisera kluster administratörs åtkomst, anger du tumavtryck för kluster certifikat och använder flaggan *AzureActiveDirectory* .  
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
@@ -95,11 +95,11 @@ Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
 -AzureActiveDirectory
 ```
 
-### <a name="connect-to-a-secure-cluster-using-a-client-certificate"></a>Ansluta till ett säkert kluster som använder ett klientcertifikat
-Kör följande PowerShell-kommando för att ansluta till ett säkert kluster som använder klientcertifikat för att auktorisera administratörsåtkomst. 
+### <a name="connect-to-a-secure-cluster-using-a-client-certificate"></a>Ansluta till ett säkert kluster med ett klient certifikat
+Kör följande PowerShell-kommando för att ansluta till ett säkert kluster som använder klient certifikat för att auktorisera administratörs åtkomst. 
 
-#### <a name="connect-using-certificate-common-name"></a>Ansluta med certifikatets unika namn
-Ange kluster certifikatets unika namn och namnet på det klientcertifikat som har beviljats behörigheter för klusterhantering. Certifikatinformationen måste matcha ett certifikat på noderna i klustret.
+#### <a name="connect-using-certificate-common-name"></a>Anslut med certifikatets nätverks namn
+Ange kluster certifikatets nätverks namn och det egna namnet på det klient certifikat som har beviljats behörigheter för kluster hantering. Certifikat informationen måste matcha ett certifikat på klusternoderna.
 
 ```powershell
 Connect-serviceFabricCluster -ConnectionEndpoint $ClusterName -KeepAliveIntervalInSec 10 `
@@ -110,7 +110,7 @@ Connect-serviceFabricCluster -ConnectionEndpoint $ClusterName -KeepAliveInterval
     -StoreLocation CurrentUser `
     -StoreName My 
 ```
-*ServerCommonName* är det egna namnet för certifikatet installeras på noderna i klustret. *FindValue* är namnet på klientcertifikat för administratör. När parametrarna är ifyllt kommandot ser ut som i följande exempel:
+*ServerCommonName* är det gemensamma namnet på det Server certifikat som är installerat på klusternoderna. *FindValue* är det unika namnet för administratörs klient certifikatet. När parametrarna är ifyllda ser kommandot ut som i följande exempel:
 ```powershell
 $ClusterName= "sf-commonnametest-scus.southcentralus.cloudapp.azure.com:19000"
 $certCN = "sfrpe2eetest.southcentralus.cloudapp.azure.com"
@@ -124,8 +124,8 @@ Connect-serviceFabricCluster -ConnectionEndpoint $ClusterName -KeepAliveInterval
     -StoreName My 
 ```
 
-#### <a name="connect-using-certificate-thumbprint"></a>Ansluta med tumavtryck för certifikat
-Ange kluster certifikatets tumavtryck och tumavtrycket för det klientcertifikat som har beviljats behörigheter för klusterhantering. Certifikatinformationen måste matcha ett certifikat på noderna i klustret.
+#### <a name="connect-using-certificate-thumbprint"></a>Anslut med tumavtryck för certifikat
+Ange tumavtryck för klustrets certifikat och tumavtryck för det klient certifikat som har beviljats behörigheter för kluster hantering. Certifikat informationen måste matcha ett certifikat på klusternoderna.
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `  
@@ -135,7 +135,7 @@ Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
           -StoreLocation CurrentUser -StoreName My
 ```
 
-*ServerCertThumbprint* är tumavtrycket för certifikatet installeras på noderna i klustret. *FindValue* är tumavtrycket för klientcertifikat för administratör.  När parametrarna är ifyllt kommandot ser ut som i följande exempel:
+*ServerCertThumbprint* är tumavtrycket för det Server certifikat som är installerat på klusternoderna. *FindValue* är tumavtrycket för administratörs klient certifikatet.  När parametrarna är ifyllda ser kommandot ut som i följande exempel:
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint clustername.westus.cloudapp.azure.com:19000 `  
@@ -146,7 +146,7 @@ Connect-ServiceFabricCluster -ConnectionEndpoint clustername.westus.cloudapp.azu
 ```
 
 ### <a name="connect-to-a-secure-cluster-using-windows-active-directory"></a>Ansluta till ett säkert kluster med Windows Active Directory
-Om ditt fristående kluster distribueras med hjälp av AD-säkerhetsgrupper, kan du ansluta till klustret genom att lägga till växeln ”WindowsCredential”.
+Om det fristående klustret distribueras med hjälp av AD-säkerhet ansluter du till klustret genom att lägga till växeln "WindowsCredential".
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
@@ -155,26 +155,26 @@ Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
 
 <a id="connectsecureclusterfabricclient"></a>
 
-## <a name="connect-to-a-cluster-using-the-fabricclient-apis"></a>Ansluta till ett kluster med FabricClient APIs
-Service Fabric SDK innehåller de [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) klass för klusterhantering. Hämta Microsoft.ServiceFabric NuGet-paketet om du vill använda FabricClient APIs.
+## <a name="connect-to-a-cluster-using-the-fabricclient-apis"></a>Ansluta till ett kluster med FabricClient-API: erna
+Service Fabric SDK tillhandahåller [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) -klassen för kluster hantering. Om du vill använda FabricClient-API: erna hämtar du Microsoft. ServiceFabric NuGet-paketet.
 
 ### <a name="connect-to-an-unsecure-cluster"></a>Ansluta till ett oskyddat kluster
 
-Skapa en FabricClient-instans för att ansluta till ett oskyddat fjärrkluster, och ange klusteradressen:
+Om du vill ansluta till ett fjärran slutet oskyddat kluster skapar du en FabricClient-instans och anger kluster adressen:
 
 ```csharp
 FabricClient fabricClient = new FabricClient("clustername.westus.cloudapp.azure.com:19000");
 ```
 
-För kod som körs från inom ett kluster, till exempel i en tillförlitlig tjänst, skapa en FabricClient *utan* att ange klusteradressen. FabricClient som ansluter till lokala management-gatewayen på den nod som koden körs på, och undvika en extra nätverk hopp.
+För kod som körs i ett kluster, till exempel i en tillförlitlig tjänst, skapar du en FabricClient *utan att* ange kluster adressen. FabricClient ansluter till den lokala hanterings-gatewayen på den nod som koden körs på, vilket undviker en extra nätverks hopp.
 
 ```csharp
 FabricClient fabricClient = new FabricClient();
 ```
 
-### <a name="connect-to-a-secure-cluster-using-a-client-certificate"></a>Ansluta till ett säkert kluster som använder ett klientcertifikat
+### <a name="connect-to-a-secure-cluster-using-a-client-certificate"></a>Ansluta till ett säkert kluster med ett klient certifikat
 
-Noder i klustret måste ha giltiga certifikat vars nätverksnamn eller DNS-namnet i SAN-nätverk som visas i den [RemoteCommonNames egenskapen](https://docs.microsoft.com/dotnet/api/system.fabric.x509credentials) nastavit [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient). Efter den här processen gör det möjligt för ömsesidig autentisering mellan klienten och noderna i klustret.
+Noderna i klustret måste ha giltiga certifikat vars nätverks namn eller DNS-namn i SAN visas i [RemoteCommonNames-egenskapen](https://docs.microsoft.com/dotnet/api/system.fabric.x509credentials) som angetts för [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient). Genom att följa den här processen möjliggörs ömsesidig autentisering mellan klienten och klusternoderna.
 
 ```csharp
 using System.Fabric;
@@ -212,11 +212,11 @@ static X509Credentials GetCredentials(string clientCertThumb, string serverCertT
 }
 ```
 
-### <a name="connect-to-a-secure-cluster-interactively-using-azure-active-directory"></a>Ansluta till ett säkert kluster interaktivt med Azure Active Directory
+### <a name="connect-to-a-secure-cluster-interactively-using-azure-active-directory"></a>Ansluta till ett säkert kluster interaktivt med hjälp av Azure Active Directory
 
-I följande exempel används Azure Active Directory för identitets- och klientcertifikat för serveridentitet.
+I följande exempel används Azure Active Directory för klient identitet och Server certifikat för Server identitet.
 
-En dialogruta visas automatiskt för interaktiv inloggning vid anslutning till klustret.
+Ett dialog fönster öppnas automatiskt för interaktiv inloggning vid anslutning till klustret.
 
 ```csharp
 string serverCertThumb = "A8136758F4AB8962AF2BF3F27921BE1DF67F4326";
@@ -238,11 +238,11 @@ catch (Exception e)
 }
 ```
 
-### <a name="connect-to-a-secure-cluster-non-interactively-using-azure-active-directory"></a>Ansluta till ett säkert kluster som icke-interaktivt med Azure Active Directory
+### <a name="connect-to-a-secure-cluster-non-interactively-using-azure-active-directory"></a>Ansluta till ett säkert kluster icke-interaktivt med hjälp av Azure Active Directory
 
-I följande exempel är beroende av Microsoft.IdentityModel.Clients.ActiveDirectory, Version: 2.19.208020213.
+Följande exempel använder Microsoft. IdentityModel. clients. ActiveDirectory, version: 2.19.208020213.
 
-Läs mer på AAD tokenförvärv [Microsoft.IdentityModel.Clients.ActiveDirectory](https://msdn.microsoft.com/library/microsoft.identitymodel.clients.activedirectory.aspx).
+Mer information om hämtning av AAD-token finns i [Microsoft. IdentityModel. clients. ActiveDirectory](https://msdn.microsoft.com/library/microsoft.identitymodel.clients.activedirectory.aspx).
 
 ```csharp
 string tenantId = "C15CFCEA-02C1-40DC-8466-FBD0EE0B05D2";
@@ -295,9 +295,9 @@ static string GetAccessToken(
 
 ```
 
-### <a name="connect-to-a-secure-cluster-without-prior-metadata-knowledge-using-azure-active-directory"></a>Ansluta till ett säkert kluster utan tidigare metadata kunskaper med Azure Active Directory
+### <a name="connect-to-a-secure-cluster-without-prior-metadata-knowledge-using-azure-active-directory"></a>Anslut till ett säkert kluster utan kunskaper om tidigare metadata med hjälp av Azure Active Directory
 
-I följande exempel använder icke-interaktiv tokenförvärv, men samma metod som kan användas för att skapa en anpassad interaktiva tokenförvärv-upplevelse. Azure Active Directory-metadata som behövs för tokenförvärv läses från klusterkonfigurationen.
+I följande exempel används icke-interaktiv token-hämtning, men samma metod kan användas för att bygga en anpassad hämtnings upplevelse för interaktiva token. De Azure Active Directory metadata som krävs för hämtning av token läses från kluster konfigurationen.
 
 ```csharp
 string serverCertThumb = "A8136758F4AB8962AF2BF3F27921BE1DF67F4326";
@@ -341,37 +341,37 @@ static string GetAccessToken(AzureActiveDirectoryMetadata aad)
 <a id="connectsecureclustersfx"></a>
 
 ## <a name="connect-to-a-secure-cluster-using-service-fabric-explorer"></a>Ansluta till ett säkert kluster med Service Fabric Explorer
-Nå [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) för ett kluster, pekar du webbläsaren för att:
+För att uppnå [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) för ett specifikt kluster, peka din webbläsare för att:
 
 `http://<your-cluster-endpoint>:19080/Explorer`
 
-En fullständig URL är också tillgängligt i klustret essentials-rutan i Azure-portalen.
+Den fullständiga URL: en är också tillgänglig i fönstret kluster Essentials i Azure Portal.
 
-Du kan importera klientcertifikatet för att ansluta till ett säkert kluster på Windows- eller OS X med en webbläsare och webbläsaren uppmanar dig för certifikatet som ska användas för att ansluta till klustret.  På Linux-datorer måste måste certifikatet importeras med hjälp av avancerade webbläsarinställningar (varje webbläsare har olika sätt) och gå till platsen för certifikat på disken. Läs [ställa in ett klientcertifikat](#connectsecureclustersetupclientcert) för mer information.
+För att ansluta till ett säkert kluster i Windows eller OS X med en webbläsare, kan du importera klient certifikatet och webbläsaren uppmanas att ange det certifikat som ska användas för att ansluta till klustret.  På Linux-datorer måste certifikatet importeras med avancerade webb läsar inställningar (varje webbläsare har olika mekanismer) och peka på certifikat platsen på disken. Läs [Konfigurera ett klient certifikat](#connectsecureclustersetupclientcert) för mer information.
 
 ### <a name="connect-to-a-secure-cluster-using-azure-active-directory"></a>Ansluta till ett säkert kluster med Azure Active Directory
 
-Om du vill ansluta till ett kluster som skyddas med AAD, pekar du webbläsaren för att:
+För att ansluta till ett kluster som skyddas med AAD, peka din webbläsare för att:
 
 `https://<your-cluster-endpoint>:19080/Explorer`
 
 Du uppmanas automatiskt att logga in med AAD.
 
-### <a name="connect-to-a-secure-cluster-using-a-client-certificate"></a>Ansluta till ett säkert kluster som använder ett klientcertifikat
+### <a name="connect-to-a-secure-cluster-using-a-client-certificate"></a>Ansluta till ett säkert kluster med ett klient certifikat
 
-Om du vill ansluta till ett kluster som skyddas med certifikat, pekar du webbläsaren för att:
+Om du vill ansluta till ett kluster som skyddas med certifikat, kan du peka din webbläsare för att:
 
 `https://<your-cluster-endpoint>:19080/Explorer`
 
-Du uppmanas automatiskt att välja ett klientcertifikat.
+Du uppmanas automatiskt att välja ett klient certifikat.
 
 <a id="connectsecureclustersetupclientcert"></a>
 
-## <a name="set-up-a-client-certificate-on-the-remote-computer"></a>Konfigurera ett klientcertifikat på fjärrdatorn
+## <a name="set-up-a-client-certificate-on-the-remote-computer"></a>Konfigurera ett klient certifikat på fjärrdatorn
 
-Minst två certifikat ska användas för att skydda klustret, en för klustret och server och en annan för klientåtkomst.  Vi rekommenderar att du även använda ytterligare sekundära certifikat och klientcertifikat för åtkomst.  För att skydda kommunikationen mellan en klient och en klusternod med Certifikatsäkerhet, måste du först hämta och installera klientcertifikatet. Du kan installera certifikatet i det personliga (min) arkivet för den lokala datorn eller den aktuella användaren.  Du måste också tumavtrycket för certifikatet så att klienten kan autentisera i klustret.
+Minst två certifikat ska användas för att skydda klustret, ett för kluster-och Server certifikat och ett annat för klient åtkomst.  Vi rekommenderar att du också använder ytterligare sekundära certifikat och klient åtkomst certifikat.  För att skydda kommunikationen mellan en klient och en klusternod med hjälp av certifikat säkerhet måste du först skaffa och installera klient certifikatet. Certifikatet kan installeras i det personliga arkivet (My) på den lokala datorn eller den aktuella användaren.  Du behöver också tumavtrycket för Server certifikatet så att klienten kan autentisera klustret.
 
-* I Windows: Dubbelklicka på PFX-filen och följ anvisningarna för att installera certifikatet i ditt personliga arkiv, `Certificates - Current User\Personal\Certificates`. Du kan också använda PowerShell-kommando:
+* I Windows: Dubbelklicka på PFX-filen och följ anvisningarna för att installera certifikatet i ditt personliga arkiv, `Certificates - Current User\Personal\Certificates`. Du kan också använda PowerShell-kommandot:
 
     ```powershell
     Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
@@ -379,7 +379,7 @@ Minst två certifikat ska användas för att skydda klustret, en för klustret o
             -Password (ConvertTo-SecureString -String test -AsPlainText -Force)
     ```
 
-    Om det är ett självsignerat certifikat, måste du importera det till din dator ”betrodda personer” store innan du kan använda det här certifikatet för att ansluta till ett säkert kluster.
+    Om det är ett självsignerat certifikat måste du importera det till din dators Arkiv "betrodda personer" innan du kan använda det här certifikatet för att ansluta till ett säkert kluster.
 
     ```powershell
     Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\TrustedPeople `
@@ -391,8 +391,8 @@ Minst två certifikat ska användas för att skydda klustret, en för klustret o
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Uppgraderingsprocessen för Service Fabric-kluster och förväntningar från dig](service-fabric-cluster-upgrade.md)
+* [Service Fabric kluster uppgraderings process och förväntningar från dig](service-fabric-cluster-upgrade.md)
 * [Hantera dina Service Fabric-program i Visual Studio](service-fabric-manage-application-in-visual-studio.md)
-* [Service Fabric Health modellen introduktion](service-fabric-health-introduction.md)
-* [Programsäkerhet och RunAs](service-fabric-application-runas-security.md)
+* [Introduktion till Service Fabric hälso modell](service-fabric-health-introduction.md)
+* [Program säkerhet och RunAs](service-fabric-application-runas-security.md)
 * [Kom igång med Service Fabric CLI](service-fabric-cli.md)

@@ -1,6 +1,6 @@
 ---
-title: Felsökning av problem med Azure Automation Desired State Configuration (DSC)
-description: Den här artikeln innehåller information om hur du felsöker Desired State Configuration (DSC)
+title: Fel sökning av problem med Azure Automation önskad tillstånds konfiguration (DSC)
+description: Den här artikeln innehåller information om hur du felsöker önskad tillstånds konfiguration (DSC)
 services: automation
 ms.service: automation
 ms.subservice: ''
@@ -9,24 +9,46 @@ ms.author: robreed
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 53fef426c927c690a3b697055f467f6cd35c532c
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 6de348a19081eba685deafebd8a7c9b9d6556444
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477527"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68688119"
 ---
-# <a name="troubleshoot-desired-state-configuration-dsc"></a>Felsöka Desired State Configuration (DSC)
+# <a name="troubleshoot-desired-state-configuration-dsc"></a>Felsök önskad tillstånds konfiguration (DSC)
 
-Den här artikeln innehåller information om felsökning av problem med Desired State Configuration (DSC).
+Den här artikeln innehåller information om fel sökning av problem med önskad tillstånds konfiguration (DSC).
 
-## <a name="common-errors-when-working-with-desired-state-configuration-dsc"></a>Vanliga fel när du arbetar med Desired State Configuration (DSC)
+## <a name="steps-to-troubleshoot-desired-state-configuration-dsc"></a>Steg för att felsöka önskad tillstånds konfiguration (DSC)
 
-### <a name="unsupported-characters"></a>Scenario: En konfiguration med specialtecken kan inte tas bort från portalen
+När du har problem med att kompilera eller distribuera konfigurationer i Azure-tillstånds konfiguration så är det några steg som hjälper dig att diagnostisera problemet.
+
+1. **Se till att konfigurationen kompileras korrekt på den lokala datorn:**  Azure State Configuration bygger på PowerShell DSC. Du hittar dokumentationen för DSC-språket och syntaxen i [POWERSHELL DSC](/powershell/dsc/overview/overview)-dokumenten.
+
+   Genom att kompilera DSC-konfigurationen på den lokala datorn kan du identifiera och lösa vanliga fel, till exempel:
+
+   - **Moduler som saknas**
+   - **Syntaxfel**
+   - **Logic-fel**
+2. **Visa DSC-loggar på din nod:** Om konfigurationen kompileras korrekt, men Miss lyckas när den tillämpas på en nod, kan du hitta detaljerad information i loggarna. Information om var du hittar DSC-loggar finns i [var är DSC-händelseloggen](/powershell/dsc/troubleshooting/troubleshooting#where-are-dsc-event-logs).
+
+   Futhermore kan [xDscDiagnostics](https://github.com/PowerShell/xDscDiagnostics) hjälpa dig att parsa detaljerad information från DSC-loggarna. Om du kontaktar supporten kräver de dessa loggar för att dianose ditt problem.
+
+   Du kan installera **xDscDiagnostics** på din lokala dator med hjälp av anvisningarna som finns under [installera den säkra versionen av modulen](https://github.com/PowerShell/xDscDiagnostics#install-the-stable-version-module).
+
+   Om du vill installera **xDscDiagnostics** på din Azure-dator kan du använda [AZ VM Run-Command](/cli/azure/vm/run-command) eller [Invoke-AzVMRunCommand](/powershell/module/azurerm.compute/invoke-azurermvmruncommand). Du kan också använda **kommando alternativet Kör** från portalen genom att följa stegen i [köra PowerShell-skript i din virtuella Windows-dator med kommandot kör](../../virtual-machines/windows/run-command.md).
+
+   Information om hur du använder **xDscDiagnostics**finns i [använda xDscDiagnostics för att analysera DSC-loggar](/powershell/dsc/troubleshooting/troubleshooting#using-xdscdiagnostics-to-analyze-dsc-logs), samt xDscDiagnostics- [cmdletar](https://github.com/PowerShell/xDscDiagnostics#cmdlets).
+3. **Se till att noderna och automation-arbetsytan har de moduler som krävs:** Önskad tillstånds konfiguration är beroende av moduler som är installerade på noden.  När du använder Azure Automation tillstånds konfiguration importerar du alla obligatoriska moduler till ditt Automation-konto med hjälp av stegen i [importera moduler](../shared-resources/modules.md#import-modules). Konfigurationer kan också vara beroende av vissa versioner av moduler.  Mer information finns i [fel sökning av moduler](shared-resources.md#modules).
+
+## <a name="common-errors-when-working-with-desired-state-configuration-dsc"></a>Vanliga fel när du arbetar med önskad tillstånds konfiguration (DSC)
+
+### <a name="unsupported-characters"></a>Situationen Det går inte att ta bort en konfiguration med specialtecken från portalen
 
 #### <a name="issue"></a>Problem
 
-När du försöker ta bort en DSC-konfiguration från portalen kan du se följande fel:
+När du försöker ta bort en DSC-konfiguration från portalen visas följande fel:
 
 ```error
 An error occurred while deleting the DSC configuration '<name>'.  Error-details: The argument configurationName with the value <name> is not valid.  Valid configuration names can contain only letters,  numbers, and underscores.  The name must start with a letter.  The length of the name must be between 1 and 64 characters.
@@ -34,19 +56,19 @@ An error occurred while deleting the DSC configuration '<name>'.  Error-details:
 
 #### <a name="cause"></a>Orsak
 
-Det här felet är ett tillfälligt fel som ska matchas.
+Det här felet är ett tillfälligt problem som planeras att lösas.
 
 #### <a name="resolution"></a>Lösning
 
-* Använd cmdleten ”Remove-AzAutomationDscConfiguration” Az för att ta bort konfigurationen.
-* I dokumentationen för denna cmdlet har inte uppdaterats ännu.  Fram till dess, finns i dokumentationen för AzureRM-modulen.
+* Använd cmdleten AZ "Remove-AzAutomationDscConfiguration" för att ta bort konfigurationen.
+* Dokumentationen för den här cmdleten har ännu inte uppdaterats.  Tills dess kan du läsa dokumentationen för AzureRM-modulen.
   * [Remove-AzureRmAutomationDSCConfiguration](/powershell/module/azurerm.automation/Remove-AzureRmAutomationDscConfiguration)
 
-### <a name="failed-to-register-agent"></a>Scenario: Det gick inte att registrera Dsc-agenten
+### <a name="failed-to-register-agent"></a>Situationen Det gick inte att registrera DSC-agenten
 
 #### <a name="issue"></a>Problem
 
-När du försöker köra `Set-DscLocalConfigurationManager` eller en annan DSC-cmdlet som du får felet:
+När du försöker köra `Set-DscLocalConfigurationManager` eller en annan DSC-cmdlet får du ett fel meddelande:
 
 ```error
 Registration of the Dsc Agent with the server
@@ -61,17 +83,17 @@ ps://<location>-agentservice-prod-1.azure-automation.net/accounts/00000000-0000-
 
 #### <a name="cause"></a>Orsak
 
-Det här felet orsakas normalt av en brandvägg, datorn är bakom en proxyserver eller andra nätverksfel.
+Det här felet orsakas normalt av en brand vägg, datorn är bakom en proxyserver eller andra nätverks fel.
 
 #### <a name="resolution"></a>Lösning
 
-Kontrollera att datorn har åtkomst till rätt slutpunkterna för Azure Automation DSC och försök igen. En lista över portar och adresser som behövs finns i [nätverksplanering](../automation-dsc-overview.md#network-planning)
+Kontrol lera att datorn har åtkomst till rätt slut punkter för Azure Automation DSC och försök igen. En lista över portar och adresser som behövs finns i [nätverks planering](../automation-dsc-overview.md#network-planning)
 
-### <a name="failed-not-found"></a>Scenario: Noden är i ett misslyckat tillstånd med ett ”kunde inte hittas”-fel
+### <a name="failed-not-found"></a>Situationen Noden har statusen misslyckades med felet "hittades inte"
 
 #### <a name="issue"></a>Problem
 
-Noden har en rapport med **misslyckades** status och som innehåller felet:
+Noden har en rapport med **felaktig** status och innehåller felet:
 
 ```error
 The attempt to get the action from server https://<url>//accounts/<account-id>/Nodes(AgentId=<agent-id>)/GetDscAction failed because a valid configuration <guid> cannot be found.
@@ -79,21 +101,21 @@ The attempt to get the action from server https://<url>//accounts/<account-id>/N
 
 #### <a name="cause"></a>Orsak
 
-Det här felet uppstår vanligen när noden har tilldelats ett namn (till exempel ABC) i stället för en nodkonfigurationsnamn (till exempel ABC. Webbserver).
+Det här felet uppstår vanligt vis när noden tilldelas ett konfigurations namn (till exempel ABC) i stället för ett konfigurations namn för noden (till exempel ABC. Webbserver).
 
 #### <a name="resolution"></a>Lösning
 
-* Kontrollera att du tilldelar nod med ”nodkonfigurationsnamn” och inte ”Konfigurationsnamnet”.
-* Du kan tilldela en nodkonfiguration till en nod med hjälp av Azure portal eller med en PowerShell-cmdlet.
+* Se till att du tilldelar noden "konfigurations namn för nod" och inte "konfigurations namn".
+* Du kan tilldela en nods konfiguration till en nod med Azure Portal eller med en PowerShell-cmdlet.
 
-  * Om du vill tilldela en nodkonfiguration till en nod med hjälp av Azure portal, öppna den **DSC-noder** , och sedan väljer en nod och klickar på **tilldela nodkonfiguration** knappen.  
-  * Om du vill tilldela en nodkonfiguration till en nod med hjälp av PowerShell-cmdleten, använda **Set-AzureRmAutomationDscNode** cmdlet
+  * Om du vill tilldela en nods konfiguration till en nod med hjälp av Azure Portal öppnar du sidan **DSC-noder** och väljer sedan en nod och klickar på **tilldela konfigurations** knapp för nod.
+  * Om du vill tilldela en nods konfiguration till en nod med PowerShell-cmdlet använder du **set-AzureRmAutomationDscNode-** cmdleten
 
-### <a name="no-mof-files"></a>Scenario: Inga nodkonfigurationer (MOF-filer) skapas när en konfiguration kompileras
+### <a name="no-mof-files"></a>Situationen Inga nodkonfigurationer (MOF-filer) skapades när en konfiguration kompilerades
 
 #### <a name="issue"></a>Problem
 
-Dina DSC-Kompileringsjobb pausar med fel:
+DSC-kompileringen pausas med felet:
 
 ```error
 Compilation completed successfully, but no node configuration.mofs were generated.
@@ -101,20 +123,20 @@ Compilation completed successfully, but no node configuration.mofs were generate
 
 #### <a name="cause"></a>Orsak
 
-När följande uttryck i **nod** nyckelord i DSC-konfigurationen utvärderas till `$null`, och inga nodkonfigurationer produceras.
+När uttrycket efter nodens nyckelord i DSC-konfigurationen utvärderas till `$null`, skapas inga nodkonfigurationer.
 
 #### <a name="resolution"></a>Lösning
 
-Någon av följande lösningar problemet på:
+Någon av följande lösningar löser problemet:
 
-* Se till att uttrycket bredvid den **noden** nyckelord i konfigurationen definitionen är inte utvärderar till $null.
-* Om du skickar ConfigurationData vid kompilering konfigurationen, se till att du passerar de förväntade värdena som konfigurationen kräver från [ConfigurationData](../automation-dsc-compile.md#configurationdata).
+* Se till att uttrycket bredvid nyckelordet **Node** i konfigurations definitionen inte utvärderas till $null.
+* Om du skickar ConfigurationData när du kompilerar konfigurationen kontrollerar du att du skickar de förväntade värdena som krävs av konfigurationen från [ConfigurationData](../automation-dsc-compile.md#configurationdata).
 
-### <a name="dsc-in-progress"></a>Scenario: DSC-nod-rapporten blir fastnat tillståndet ”pågår”
+### <a name="dsc-in-progress"></a>Situationen DSC-nodens rapport har fastnat i status
 
 #### <a name="issue"></a>Problem
 
-DSC-agenten utdata:
+DSC-agentens utdata:
 
 ```error
 No instance found with given property values
@@ -122,17 +144,17 @@ No instance found with given property values
 
 #### <a name="cause"></a>Orsak
 
-Du har uppgraderat din version av WMF och har skadad WMI.
+Du har uppgraderat din WMF-version och har skadat WMI.
 
 #### <a name="resolution"></a>Lösning
 
-Åtgärda problemet genom att följa instruktionerna i den [DSC kända problem och begränsningar](https://msdn.microsoft.com/powershell/wmf/5.0/limitation_dsc) artikeln.
+Åtgärda problemet genom att följa anvisningarna i artikeln om [kända problem och begränsningar i DSC](https://msdn.microsoft.com/powershell/wmf/5.0/limitation_dsc) .
 
-### <a name="issue-using-credential"></a>Scenario: Det går inte att använda en autentiseringsuppgift i en DSC-konfiguration
+### <a name="issue-using-credential"></a>Situationen Det går inte att använda autentiseringsuppgifter i en DSC-konfiguration
 
 #### <a name="issue"></a>Problem
 
-Dina DSC-Kompileringsjobb pausades med fel:
+Ditt DSC-kompilator jobb pausades med felet:
 
 ```error
 System.InvalidOperationException error processing property 'Credential' of type <some resource name>: Converting and storing an encrypted password as plaintext is allowed only if PSDscAllowPlainTextPassword is set to true.
@@ -140,17 +162,17 @@ System.InvalidOperationException error processing property 'Credential' of type 
 
 #### <a name="cause"></a>Orsak
 
-Du har använt en autentiseringsuppgift i en konfiguration, men inte anger rätt **ConfigurationData** att ställa in **PSDscAllowPlainTextPassword** till true för varje nodkonfiguration.
+Du har använt en autentiseringsuppgift i en konfiguration men angav inte rätt **ConfigurationData** för att ange **PSDscAllowPlainTextPassword** till true för varje nods konfiguration.
 
 #### <a name="resolution"></a>Lösning
 
-* Se till att skicka in rätt **ConfigurationData** att ställa in **PSDscAllowPlainTextPassword** till true för varje nodkonfiguration som nämns i konfigurationen. Mer information finns i [tillgångar i Azure Automation DSC](../automation-dsc-compile.md#assets).
+* Se till att skicka in rätt **ConfigurationData** för att ange **PSDscAllowPlainTextPassword** till true för varje nods konfiguration som nämns i konfigurationen. Mer information finns i [till gångar i Azure Automation DSC](../automation-dsc-compile.md#assets).
 
-### <a name="failure-processing-extension"></a>Scenario: Onboarding från dsc-tillägget ”fel vid bearbetningen av tillägget” fel
+### <a name="failure-processing-extension"></a>Situationen Onboarding från DSC-tillägg, fel vid bearbetning av fel bearbetning
 
 #### <a name="issue"></a>Problem
 
-När onboarding med hjälp av DSC-tillägg, ett fel uppstår med felet:
+När du använder DSC-tillägg uppstår ett fel som innehåller felet:
 
 ```error
 VM has reported a failure when processing extension 'Microsoft.Powershell.DSC'. Error message: \"DSC COnfiguration 'RegistrationMetaConfigV2' completed with error(s). Following are the first few: Registration of the Dsc Agent with the server <url> failed. The underlying error is: The attempt to register Dsc Agent with Agent Id <ID> with the server <url> return unexpected response code BadRequest. .\".
@@ -158,18 +180,18 @@ VM has reported a failure when processing extension 'Microsoft.Powershell.DSC'. 
 
 #### <a name="cause"></a>Orsak
 
-Det här felet uppstår vanligen när noden har tilldelats ett nodnamn konfiguration som inte finns i tjänsten.
+Det här felet uppstår vanligt vis när noden tilldelas ett konfigurations namn för noden som inte finns i tjänsten.
 
 #### <a name="resolution"></a>Lösning
 
-* Kontrollera att du tilldelar nod med en nodkonfigurationsnamn som exakt matchar namnet i tjänsten.
-* Du kan välja att inte inkludera namnet på noden konfigurationen, vilket leder onboarding noden men inte tilldela en nodkonfiguration
+* Kontrol lera att du har tilldelats noden med ett konfigurations namn för noden som exakt matchar namnet i tjänsten.
+* Du kan välja att inte inkludera konfigurations namnet för noden, vilket leder till att du registrerar noden men inte tilldelar en nods konfiguration
 
-### <a name="failure-linux-temp-noexec"></a>Scenario: Tillämpa en konfiguration i Linux, uppstår ett fel med ett allmänt fel
+### <a name="failure-linux-temp-noexec"></a>Situationen Att tillämpa en konfiguration i Linux uppstår ett fel med ett allmänt fel
 
 #### <a name="issue"></a>Problem
 
-När du använder en konfiguration i Linux, inträffar ett fel med felet:
+När du använder en konfiguration i Linux uppstår ett fel som innehåller felet:
 
 ```error
 This event indicates that failure happens when LCM is processing the configuration. ErrorId is 1. ErrorDetail is The SendConfigurationApply function did not succeed.. ResourceId is [resource]name and SourceInfo is ::nnn::n::resource. ErrorMessage is A general error occurred, not covered by a more specific error code..
@@ -177,16 +199,16 @@ This event indicates that failure happens when LCM is processing the configurati
 
 #### <a name="cause"></a>Orsak
 
-Kunder har identifierat att den aktuella versionen av DSC kommer inte att tillämpa konfigurationer om/tmp-plats har angetts till noexec.
+Kunder har identifierat att om katalogen/tmp-platsen är inställd på noexec, kommer den aktuella versionen av DSC inte att tillämpa konfigurationer.
 
 #### <a name="resolution"></a>Lösning
 
-* Ta bort alternativet noexec från/tmp-platsen.
+* Ta bort noexec-alternativet från katalogen/tmp-platsen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du inte ser ditt problem eller inte kan lösa problemet besöker du någon av följande kanaler för ytterligare support:
+Om du inte ser problemet eller inte kan lösa problemet kan du gå till någon av följande kanaler för mer support:
 
 * Få svar från Azure-experter via [Azure-forumen](https://azure.microsoft.com/support/forums/)
 * Anslut till [@AzureSupport](https://twitter.com/azuresupport) – det officiella Microsoft Azure-kontot för att förbättra kundtjänstupplevelsen genom att ansluta Azure-communityn till rätt resurser: svar, support och experter.
-* Om du behöver mer hjälp kan öppna du en incident i Azure-supporten. Gå till den [Azure supportwebbplats](https://azure.microsoft.com/support/options/) och välj **hämta stöder**.
+* Om du behöver mer hjälp kan du skriva en support incident för Azure. Gå till [Support webbplatsen för Azure](https://azure.microsoft.com/support/options/) och välj **få support**.

@@ -1,91 +1,90 @@
 ---
-title: Översikt över resursögonblicksbilder för Azure Files | Microsoft Docs
-description: En ögonblicksbild är en skrivskyddad version av en Azure Files-resurs som händer vid en tidpunkt i tid, som ett sätt att säkerhetskopiera filresursen.
-services: storage
+title: Översikt över resurs ögonblicks bilder för Azure Files | Microsoft Docs
+description: En resurs ögonblicks bild är en skrivskyddad version av en Azure Files resurs som tas vid en tidpunkt, som ett sätt att säkerhetskopiera resursen.
 author: roygara
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: d83cf20c856d37d337f4eb22c30ee9b6823d096b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f3cbf740016a4c162c63343be4cb9cd577f85935
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65235808"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699359"
 ---
-# <a name="overview-of-share-snapshots-for-azure-files"></a>Översikt över resursögonblicksbilder för Azure Files 
-Azure Files ger möjlighet att ta ögonblicksbilder av filresurser. Dela ögonblicksbilder in tillstånd för filresurs i det här läget i tid. I den här artikeln beskrivs vilka funktioner som ger resursögonblicksbilder och hur du kan dra nytta av dem i dina anpassade användningsfall.
+# <a name="overview-of-share-snapshots-for-azure-files"></a>Översikt över resurs ögonblicks bilder för Azure Files 
+Azure Files ger möjlighet att ta bort ögonblicks bilder av fil resurser. Dela ögonblicks bilder fångar resurs statusen vid den tidpunkten. I den här artikeln beskriver vi vilka funktioner som delar ögonblicks bilder och hur du kan dra nytta av dem i ditt anpassade användnings fall.
 
-## <a name="when-to-use-share-snapshots"></a>När du ska använda resursögonblicksbilder
+## <a name="when-to-use-share-snapshots"></a>När du ska använda resurs ögonblicks bilder
 
-### <a name="protection-against-application-error-and-data-corruption"></a>Skydd mot fel och data skadas i programmet
-Program som använder filresurser utföra åtgärder som att skriva, läsning, lagring, överföring och bearbetning. Om ett program är felkonfigurerad eller en oavsiktlig bugg introduceras, kan oavsiktlig överskrivning eller skada inträffa för ett par block. För att skydda mot dessa scenarier, kan du ta en ögonblicksbild innan du distribuerar nya programkod. Om en bugg eller ett program fel introduceras med den nya distributionen kan kan du gå tillbaka till en tidigare version av dina data på filresursen. 
+### <a name="protection-against-application-error-and-data-corruption"></a>Skydd mot program fel och skadade data
+Program som använder fil resurser utför åtgärder som att skriva, läsa, lagra, överföra och bearbeta. Om ett program är felkonfigurerat eller om ett oavsiktligt fel har införts, kan oavsiktlig överskrivning eller skada ske i ett fåtal block. För att skydda dig mot dessa scenarier kan du ta en ögonblicks bild av en resurs innan du distribuerar ny program kod. Om ett fel eller ett program fel introduceras med den nya distributionen kan du gå tillbaka till en tidigare version av dina data på fil resursen. 
 
-### <a name="protection-against-accidental-deletions-or-unintended-changes"></a>Skydd mot oavsiktliga borttagningar eller ändringar av oönskade
-Anta att du arbetar med en textfil i en filresurs. När filen har stängts kan du förlora möjligheten att ångra ändringarna. I dessa fall kan behöver du sedan återställa en tidigare version av filen. Du kan använda ögonblicksbilder av filresurser för att återställa tidigare versioner av filen om den har ändrats eller tagits bort av misstag.
+### <a name="protection-against-accidental-deletions-or-unintended-changes"></a>Skydd mot oavsiktliga borttagningar eller oavsiktliga ändringar
+Tänk dig att du arbetar med en textfil i en fil resurs. När text filen har stängts förlorar du möjligheten att ångra ändringarna. I dessa fall måste du återställa en tidigare version av filen. Du kan använda resurs ögonblicks bilder för att återställa tidigare versioner av filen om den av misstag har bytt namn eller tagits bort.
 
-### <a name="general-backup-purposes"></a>Allmän säkerhetskopiering
-När du har skapat en filresurs kan du skapa en ögonblicksbild för filresursen för att använda den för säkerhetskopiering av data med jämna mellanrum. En resurs som ögonblicksbild, när de tas med jämna mellanrum, hjälper till att upprätthålla tidigare versioner av data som kan användas för framtida granskningskrav eller katastrofåterställning.
+### <a name="general-backup-purposes"></a>Allmänna säkerhets kopierings syfte
+När du har skapat en fil resurs kan du regelbundet skapa en resurs ögonblicks bild av fil resursen för att använda den för säkerhets kopiering av data. En resurs ögonblicks bild, när den tas med jämna mellanrum, hjälper till att underhålla tidigare versioner av data som kan användas för framtida gransknings krav eller katastrof återställning.
 
-## <a name="capabilities"></a>Funktioner
-En ögonblicksbild är en point-in-time, skrivskyddad kopia av dina data. Du kan skapa, ta bort och hantera ögonblicksbilder med hjälp av REST-API. Samma funktioner är också tillgängliga i-klientbiblioteket, Azure CLI och Azure-portalen. 
+## <a name="capabilities"></a>FUNKTIONER
+En ögonblicks bild av en resurs är en skrivskyddad kopia av dina data vid en viss tidpunkt. Du kan skapa, ta bort och hantera ögonblicks bilder med hjälp av REST API. Samma funktioner är också tillgängliga i klient biblioteket, Azure CLI och Azure Portal. 
 
-Du kan visa ögonblicksbilder av en resurs med hjälp av REST API och ett SMB. Du kan hämta listan över versioner av katalogen eller filen och du kan montera en specifik version direkt som en enhet (endast tillgängligt på Windows - Se [gränser](#limits)). 
+Du kan visa ögonblicks bilder av en resurs med hjälp av både REST API och SMB. Du kan hämta listan över versioner av katalogen eller filen och du kan montera en speciell version direkt som en enhet (endast tillgänglig i Windows-se [gränser](#limits)). 
 
-När en ögonblicksbild har skapats kan kan den läsas, kopieras, eller ta bort, men inte har ändrats. Du kan inte kopiera en resursögonblicksbild av hela till ett annat lagringskonto. Du måste göra det varje fil, med hjälp av AzCopy och andra mekanismer som kopiering.
+När en resurs ögonblicks bild har skapats kan den läsas, kopieras eller tas bort, men inte ändras. Du kan inte kopiera en fullständig resurs ögonblicks bild till ett annat lagrings konto. Du måste göra filen efter fil genom att använda AzCopy eller andra kopierings metoder.
 
-Kapaciteten för ögonblicksbild av filresurs finns i filresursen. Hämtning tillhandahålls enskilda filnivå, så att återställa enskilda filer. Du kan återställa en fullständig filresurs med hjälp av SMB, REST-API, portalen, klientbibliotek eller PowerShell/CLI-verktyg.
+Delning av ögonblicks bilder ges på fil resurs nivå. Hämtning ges på enskild filnivå, så att enskilda filer kan återställas. Du kan återställa en fullständig fil resurs med hjälp av SMB, REST API, portalen, klient biblioteket eller PowerShell/CLI-verktyget.
 
-En ögonblicksbild av en filresurs är identiskt med dess grundläggande filresurs. Den enda skillnaden är att en **DateTime** värde läggs till resurs-URI för att ange den tid då resursen ögonblicksbilden togs. Till exempel om en filresurs för URI: N är http://storagesample.core.file.windows.net/myshare, URI: N är liknar ögonblicksbilden för resursen:
+En resurs ögonblicks bild av en fil resurs är identisk med bas fil resursen. Den enda skillnaden är att ett **datetime** -värde läggs till i resurs-URI: n för att ange den tid då resurs ögonblicks bilden togs. Om till exempel en fil resurs-URI är http://storagesample.core.file.windows.net/myshare, liknar resursens ögonblicks bilds-URI följande:
 ```
 http://storagesample.core.file.windows.net/myshare?snapshot=2011-03-09T01:42:34.9360000Z
 ```
 
-Ögonblicksbilder av filresurser kvar tills de uttryckligen tas bort. En ögonblicksbild av en resurs kan inte sträcker sig längre än dess grundläggande filresurs. Du kan räkna upp ögonblicksbilder som är associerade med grundläggande filresursen för att spåra din aktuella ögonblicksbilder. 
+Resurs ögonblicks bilder sparas tills de tas bort explicit. En resurs ögonblicks bild kan inte leva ut från sin bas fil resurs. Du kan räkna upp ögonblicks bilderna som är associerade med bas fil resursen för att spåra dina befintliga ögonblicks bilder. 
 
-När du skapar en ögonblicksbild av en filresurs, kopieras filerna i resursens Systemegenskaper till ögonblicksbilden för resursen med samma värden. Grundläggande filer och metadata för den delade filresursen kopieras även till ögonblicksbilden för resursen om du inte anger separat metadata för resursen ögonblicksbild när du skapar den.
+När du skapar en resurs ögonblicks bild av en fil resurs kopieras filerna i resursens system egenskaper till resursens ögonblicks bild med samma värden. Bas filerna och fil resursens metadata kopieras också till resursens ögonblicks bild, om du inte anger separata metadata för resurs ögonblicks bilden när du skapar den.
 
-Du kan inte ta bort en resurs som har ögonblicksbilder, såvida inte du först ta bort alla ögonblicksbilder.
+Det går inte att ta bort en resurs som har ögonblicks bilder av resursen om du inte tar bort alla ögonblicks bilder först.
 
-## <a name="space-usage"></a>Användning av diskutrymme 
-Resursögonblicksbilder är inkrementell sin natur. Endast de data som har ändrats när din senaste resursögonblicksbild har sparats. Detta minimerar den tid som krävs för att skapa ögonblicksbilden för resursen och sparar på lagringskostnaderna. Någon skriva åtgärden till objektet eller egenskapen eller metadata uppdateringsåtgärden räknas mot ”ändrade innehåll” och lagras i ögonblicksbilden för resursen. 
+## <a name="space-usage"></a>Utrymmes användning 
+Resurs ögonblicks bilder är stegvisa. Endast de data som har ändrats efter att du har sparat den senaste ögonblicks bilden av resursen. Detta minimerar den tid som krävs för att skapa ögonblicks bilden av resursen och sparar pengar på lagrings kostnaderna. Alla Skriv åtgärder till åtgärden för objekt-eller egenskaps-eller metadata-uppdatering räknas till "ändrat innehåll" och lagras i resurs ögonblicks bilden. 
 
-Om du vill spara utrymme kan du ta bort ögonblicksbilden för resursen under när omsättningen har högsta.
+För att spara utrymme kan du ta bort resurs ögonblicks bilden för den period då omsättningen var högst.
 
-Även om ögonblicksbilder av filresurser har sparats stegvis, måste du behålla bara den senaste ögonblicksbilden för resursen om du vill återställa till resursen. När du tar bort en resursögonblicksbild tas endast data som är unika för den ögonblicksbilden av en resurs bort. Aktiva ögonblicksbilder innehåller den information som du behöver för att söka och återställa data (från den tidpunkt som ögonblicksbilden för resursen togs) till den ursprungliga platsen eller en annan plats. Du kan återställa på objektnivå.
+Även om resurs ögonblicks bilder sparas stegvis, behöver du bara behålla den senaste ögonblicks bilden för att återställa resursen. När du tar bort en resurs ögonblicks bild tas endast de data som är unika för den delade ögonblicks bilden bort. Aktiva ögonblicks bilder innehåller all information som du behöver för att bläddra bland och återställa dina data (från den tidpunkt då resursens ögonblicks bild togs) till den ursprungliga platsen eller en alternativ plats. Du kan återställa på objekt nivå.
 
-Ögonblicksbilder räknas inte mot din gräns på 5 TB resurs. Det finns ingen gräns för hur mycket utrymme resursögonblicksbilder upptar totalt. Lagringskontogränser gäller fortfarande.
+Ögonblicks bilder räknas inte mot din gräns för 5 TB-resursen. Det finns ingen gräns för hur mycket utrymmes resurs ögonblicks bilder som upptas totalt. Lagrings konto gränser gäller fortfarande.
 
-## <a name="limits"></a>Limits
-Det maximala antalet ögonblicksbilder som Azure Files gör i dag är 200. Du måste ta bort äldre ögonblicksbilder av filresurser för att skapa nya efter 200 ögonblicksbilder. 
+## <a name="limits"></a>Begränsningar
+Det maximala antalet resurs ögonblicks bilder som Azure Files tillåter idag är 200. Efter 200 resurs ögonblicks bilder måste du ta bort gamla ögonblicks bilder av resurser för att skapa nya. 
 
-Det finns ingen gräns för samtidiga anrop för att skapa resursögonblicksbilder. Det finns ingen gräns för mängden utrymme som delar ögonblicksbilder av en viss resurs kan använda. 
+Det finns ingen gräns för samtidiga anrop för att skapa resurs ögonblicks bilder. Det finns ingen gräns för mängden utrymme som delar ögonblicks bilder av en viss fil resurs som kan använda. 
 
-Idag är går det inte att montera ögonblicksbilder i Linux. Det beror på att Linux SMB-klienten inte har stöd för montering ögonblicksbilder som Windows har.
+Idag är det inte möjligt att montera ögonblicks bilder av resurser i Linux. Detta beror på att Linux SMB-klienten inte stöder montering av ögonblicks bilder som Windows gör.
 
-## <a name="copying-data-back-to-a-share-from-share-snapshot"></a>Kopiera data till en resurs från en ögonblicksbild av filresurs
-Kopia av åtgärder som omfattar filer och dela ögonblicksbilder Följ de här reglerna:
+## <a name="copying-data-back-to-a-share-from-share-snapshot"></a>Kopiera data tillbaka till en resurs från resurs ögonblicks bild
+Kopierings åtgärder som involverar filer och resurs ögonblicks bilder följer dessa regler:
 
-Du kan kopiera enskilda filer i en ögonblicksbild av filresurs via dess grundläggande resurs eller någon annan plats. Du kan återställa en tidigare version av en fil eller återställa fullständig filresursen genom att kopiera varje fil från ögonblicksbilden för resursen. Ögonblicksbilden för resursen befordras inte till grundläggande resurs. 
+Du kan kopiera enskilda filer i en ögonblicks bild av en fil resurs till dess bas resurs eller någon annan plats. Du kan återställa en tidigare version av en fil eller återställa hela fil resursen genom att kopiera filen från den delade ögonblicks bilden. Resurs ögonblicks bilden höjs inte till bas resursen. 
 
-Ögonblicksbilden för resursen bevaras när du har kopierat, men de grundläggande filresursen skrivs över med en kopia av informationen som fanns i ögonblicksbilden för resursen. Alla de återställda filerna räkningen in i ”ändra innehåll”.
+Resurs ögonblicks bilden förblir intakt efter kopiering, men bas fil resursen skrivs över med en kopia av de data som var tillgängliga i ögonblicks bilden av resursen. Alla återställda filer räknas till "ändrat innehåll".
 
-Du kan kopiera en fil i en ögonblicksbild till ett mål med ett annat namn. Resulterande målfilen är en skrivbar fil och inte en ögonblicksbild.
+Du kan kopiera en fil i en resurs ögonblicks bild till ett mål med ett annat namn. Den resulterande mål filen är en skrivbar fil och inte en resurs ögonblicks bild.
 
-När en målfil skrivas över med en kopia, förblir alla ögonblicksbilder som är associerade med den ursprungliga målfilen intakta.
+När en målfil skrivs över med en kopia förblir alla resurs ögonblicks bilder som är associerade med den ursprungliga mål filen oförändrade.
 
-## <a name="general-best-practices"></a>Allmänna Metodtips 
-När du kör infrastruktur på Azure, automatisera säkerhetskopieringar för återställning av data när det är möjligt. Automatiska åtgärder är mer tillförlitligt än att manuella processer som hjälper till att förbättra dataskydd och återställning. Du kan använda REST-API, klient-SDK eller skript för automatisering.
+## <a name="general-best-practices"></a>Allmänna metod tips 
+När du kör en infrastruktur på Azure kan du automatisera säkerhets kopieringar för data återställning närhelst det är möjligt. Automatiserade åtgärder är mer pålitliga än manuella processer, vilket hjälper till att förbättra data skydd och återställning. Du kan använda REST API, klient-SDK eller skript för automatisering.
 
-Innan du distribuerar dela ögonblicksbild scheduler måste du noga överväga dina frekvensen för ögonblicksbilder för resursen och inställningarna för datakvarhållning till att undvika onödiga kostnader.
+Innan du distribuerar Schemaläggaren för resurs ögonblicks bilder bör du ta hänsyn till din resurs frekvens för ögonblicks bilder och inställningarna för kvarhållning för att undvika onödiga kostnader.
 
-Ögonblicksbilder av filresurser skyddar bara på filnivå. Ögonblicksbilder av filresurser förhindra inte fat-finger borttagningar på en fil resurs eller storage-konto. För att skydda ett lagringskonto från oavsiktliga borttagningar, kan du låsa storage-konto eller resursgruppen.
+Resurs ögonblicks bilder tillhandahåller bara skydd på filnivå. Resurs ögonblicks bilder förhindrar inte borttagning av fat-fingrar på en fil resurs eller ett lagrings konto. För att skydda ett lagrings konto från oavsiktliga borttagningar kan du låsa lagrings kontot eller resurs gruppen.
 
 ## <a name="next-steps"></a>Nästa steg
-- Arbeta med ögonblicksbilder av filresurser i:
+- Arbeta med resurs ögonblicks bilder i:
     - [PowerShell](storage-how-to-use-files-powershell.md)
     - [CLI](storage-how-to-use-files-cli.md)
     - [Windows](storage-how-to-use-files-windows.md#accessing-share-snapshots-from-windows)
-    - [Dela ögonblicksbild vanliga frågor och svar](storage-files-faq.md#share-snapshots)
+    - [Vanliga frågor och svar om att dela bilder](storage-files-faq.md#share-snapshots)

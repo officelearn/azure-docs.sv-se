@@ -2,7 +2,7 @@
 title: Återställa en användares lösenord – Azure Active Directory | Microsoft Docs
 description: Anvisningar om hur du återställer en användares lösenord med Azure Active Directory.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.assetid: fad5624b-2f13-4abc-b3d4-b347903a8f16
 ms.service: active-directory
@@ -10,16 +10,16 @@ ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/05/2018
-ms.author: lizross
+ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4db6554e86cef61f2fc8e7a466919d2ce723f0e5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 382ffab090613a2b14ce710a45be10b4c36e5222
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60248001"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561749"
 ---
 # <a name="reset-a-users-password-using-azure-active-directory"></a>Återställa en användares lösenord med Azure Active Directory
 
@@ -33,7 +33,7 @@ Som administratör kan återställa du en användares lösenord om du har glömt
 
 ## <a name="to-reset-a-password"></a>Lösenordsåterställning
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com/) som en användare med rollen eller lösenordsadministratör. Läs mer om de tillgängliga rollerna [Tilldela administratörsroller i Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md#available-roles)
+1. Logga in på [Azure Portal](https://portal.azure.com/) som användar administratör eller lösen ords administratör. Läs mer om de tillgängliga rollerna [Tilldela administratörsroller i Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md#available-roles)
 
 2. Välj **Azure Active Directory**väljer **användare**, söka efter och välj den användare som behöver återställningen och välj sedan **Återställ lösenord**.
 

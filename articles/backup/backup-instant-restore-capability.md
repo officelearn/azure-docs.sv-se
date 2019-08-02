@@ -1,18 +1,19 @@
 ---
 title: Azure Instant Restore-funktion
 description: Azure Instant Restore-funktion och vanliga frågor och svar om VM backup stack, Resource Manager distributions modell
-author: sogup
-manager: vijayts
+ms.reviewer: sogup
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.author: sogup
-ms.openlocfilehash: 8bbf24fdd05fa0d70bcadae4f21e599dc8bef3a5
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 0f31320a638dd4741d940d0b459575b66149b829
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465098"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698399"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Få förbättrad säkerhets kopiering och återställning av prestanda med Azure Backup omedelbar återställnings funktion
 
@@ -25,7 +26,8 @@ Den nya modellen för omedelbar återställning ger följande funktions förbät
 * Minskar antalet säkerhets kopierings-och återställnings tider genom att behålla ögonblicks bilderna lokalt, under två dagar som standard. Standardvärdet för kvarhållning av ögonblicks bilder kan konfigureras till ett värde mellan 1 och 5 dagar.
 * Stöder disk storlekar upp till 4 TB. Att ändra storlek på disken rekommenderas inte av Azure Backup.
 * Stöder Standard SSD diskar tillsammans med Standard HDD diskar och Premium SSD diskar.
-*   Möjlighet att använda en ohanterad virtuell dators ursprungliga lagrings konton (per disk) när du återställer. Den här funktionen finns även när den virtuella datorn har diskar som är distribuerade över lagrings konton. Den påskyndar återställnings åtgärder för en mängd olika VM-konfigurationer.
+* Möjlighet att använda en ohanterad virtuell dators ursprungliga lagrings konton (per disk) när du återställer. Den här funktionen finns även när den virtuella datorn har diskar som är distribuerade över lagrings konton. Den påskyndar återställnings åtgärder för en mängd olika VM-konfigurationer.
+* För säkerhets kopiering av virtuella datorer som använder Premium Storage, med omedelbar återställning, rekommenderar vi att du allokerar *50%* ledigt utrymme för det totala allokerade lagrings utrymmet, vilket **endast** krävs för den första säkerhets kopieringen. Det lediga utrymmet på 50% är inte ett krav för säkerhets kopieringar när den första säkerhets kopieringen har slutförts.
 
 
 ## <a name="whats-new-in-this-feature"></a>Vad är nytt i den här funktionen
@@ -103,4 +105,4 @@ Om återställnings typen är "ögonblicks bild och valv" görs återställninge
 Den nya modellen tillåter inte borttagning av återställnings punkten (– nivå 2) om inte ögonblicks bilden (1) tas bort. Vi rekommenderar att du schemalägger – nivå 2-kvarhållning (schema för återställnings punkt) som är större än kvarhållningsperioden för ögonblicks bilder.
 
 ### <a name="why-is-my-snapshot-existing-even-after-the-set-retention-period-in-backup-policy"></a>Varför är min ögonblicks bild befintlig även efter den angivna kvarhållningsperioden i säkerhets kopierings policyn?
-Om återställnings punkten har ögonblicks bilder och det är den senaste tillgängliga RP-filen, behålls den tills tiden det finns en nästa lyckade säkerhets kopiering. Detta är enligt den designade GC-principen idag som kräver att minst en senaste RP alltid är tillgänglig om alla säkerhets kopieringar sker på grund av ett problem på den virtuella datorn. I normala scenarier rensas RPs på högst 24 timmar efter att de gått ut.
+Om återställnings punkten har ögonblicks bilder och det är den senaste tillgängliga RP-filen, behålls den tills tiden det finns en nästa lyckade säkerhets kopiering. Detta är enligt den designade principen "skräp insamling" (GC) idag som bestämmer att minst en senaste RP alltid är tillgänglig om alla säkerhets kopieringar är misslyckade på grund av ett problem på den virtuella datorn. I normala scenarier rensas RPs på högst 24 timmar efter att de gått ut.

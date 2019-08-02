@@ -1,18 +1,19 @@
 ---
 title: Data modell för Azure Backup
 description: Den här artikeln beskriver information om Power BI data modell för Azure Backup rapporter.
-author: adigan
-manager: shivamg
+ms.reviewer: adigan
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 06/26/2017
-ms.author: adigan
-ms.openlocfilehash: 66245a25af000d999ded87c58e3ba225b373b101
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 53051c88d5723f61fa08e431bdf7ab531e88123e
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68465599"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689153"
 ---
 # <a name="data-model-for-azure-backup-reports"></a>Datamodell för Azure Backup-rapporter
 I den här artikeln beskrivs Power BI data modell som används för att skapa Azure Backup rapporter. Med den här data modellen kan du filtrera befintliga rapporter baserat på relevanta fält och på ett mer viktigt, skapa egna rapporter med hjälp av tabeller och fält i modellen. 

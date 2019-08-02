@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 5/2/2019
-ms.openlocfilehash: 8e3ae84242a1a9b76fbb18a8d8164c97a62a97d9
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: a6e5cd69a0655bf8235bf5755ab596ca2bde0387
+ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68003916"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68716164"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Kompatibilitetsnivån för Azure Stream Analytics-jobb
 
@@ -90,6 +90,12 @@ Upsert beteende är *Infoga eller Ersätt*.
 **Tidigare nivåer:** Värdena trunkerades baserat på måltypen.
 
 **1,2-nivå:** Värden som inte passar i måltypen hanteras enligt principen för utgående fel.
+
+### <a name="record-and-array-serialization-when-writing-to-sql-output"></a>Post-och mat ris serialisering vid skrivning till SQL-utdata
+
+**Tidigare nivåer:** Poster skrevs som "Record" och matriser skrevs som "matris".
+
+**1,2-nivå:** Poster och matriser serialiseras i JSON-format.
 
 ### <a name="strict-validation-of-prefix-of-functions"></a>Strikt validering av prefix för functions
 

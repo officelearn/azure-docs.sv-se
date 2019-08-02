@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/29/2019
 ms.author: dpalled
 ms.custom: seodec18
-ms.openlocfilehash: 2c1013829a7e6e94712e22ae235a47490c8c5eaa
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 3e56792673c33ac641ce23213f2b3662b889ec2a
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68677669"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68725665"
 ---
 # <a name="tutorial-explore-the-azure-time-series-insights-javascript-client-library"></a>Självstudier: Utforska JavaScript-klientbiblioteket i Azure Time Series Insights
 
@@ -40,14 +40,14 @@ Registrera dig för en [kostnads fri Azure-prenumeration](https://azure.microsof
 
 * I den här självstudien används webbläsarens **utvecklarverktyg** funktion. Moderna webbläsare ([Microsoft Edge](/microsoft-edge/devtools-guide), [Chrome](https://developers.google.com/web/tools/chrome-devtools/), [Firefox](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools), [Safari](https://developer.apple.com/safari/tools/)och andra) ger vanligt vis åtkomst till webbkontrollanten via F12-snabb tangenten på tangent bordet. Ett annat sätt att komma åt vyn är att högerklicka på en webb sida och sedan välja **Undersök element**.
 
-## <a name="video"></a>Video
+## <a name="review-video"></a>Granska video
 
 I den här videon introducerar vi Time Series Insights Java Script SDK med öppen källkod:
 <br /><br />
 
 > [!VIDEO https://www.youtube.com/embed/X8sSm7Pl9aA]
 
-## <a name="time-series-insights-sample-application"></a>Time Series Insights-exempelprogram
+## <a name="sample-application"></a>Exempelprogram
 
 I den här självstudien använder vi en kostnads fri, värdbaserad Time Series Insights exempel-app för att utforska käll koden bakom programmet och för att utforska Time Series Insights Java Script-klient bibliotek. Genom att använda exempel appen får du lära dig hur du interagerar med Time Series Insights i Java Script och visualiserar data genom diagram och diagram.
 
@@ -100,7 +100,7 @@ Först ska vi visa [HTML-och JavaScript-källkoden](https://github.com/Microsoft
 
    [![Body-skript](media/tutorial-explore-js-client-lib/tcs-devtools-callouts-body-script.png)](media/tutorial-explore-js-client-lib/tcs-devtools-callouts-body-script.png#lightbox)
 
-## <a name="time-series-insights-javascript-client-library-concepts"></a>Time Series Insights JavaScript-koncept för klient bibliotek
+## <a name="javascript-client-library"></a>Java Script-klient bibliotek
 
 Time Series Insights klient biblioteket (*tsiclient. js*) tillhandahåller abstraktioner för två viktiga JavaScript-funktioner:
 
@@ -231,7 +231,7 @@ De tre diagrammen visas på följande sätt vid renderingen:
 
 [![Flera diagramtyper från samma data](media/tutorial-explore-js-client-lib/tcs-multiple-chart-types-from-the-same-data.png)](media/tutorial-explore-js-client-lib/tcs-multiple-chart-types-from-the-same-data.png#lightbox)
 
-## <a name="advanced-features"></a>Avancerade funktioner
+## <a name="learn-about-advanced-features"></a>Lär dig mer om avancerade funktioner
 
 Time Series Insights klient biblioteket har flera ytterligare funktioner som du kan använda för att implementera data visualiseringar kreativt.
 

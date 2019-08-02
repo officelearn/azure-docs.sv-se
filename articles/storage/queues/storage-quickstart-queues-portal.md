@@ -1,26 +1,25 @@
 ---
 title: Azure-snabbstart – Skapa en kö i Azure Storage med hjälp av Azure-portalen | Microsoft Docs
-description: I den här snabbstarten använder du Azure-portalen för att skapa en fråga. Sedan använder du Azure-portalen för att lägga till ett meddelande, visa meddelandets egenskaper och ta bort från kön meddelandet.
-services: storage
+description: I den här snabbstarten använder du Azure-portalen för att skapa en fråga. Sedan använder du Azure Portal för att lägga till ett meddelande, Visa meddelandets egenskaper och ta bort kön för meddelandet.
 author: mhopkins-msft
-ms.custom: mvc
-ms.service: storage
-ms.topic: quickstart
-ms.date: 03/06/2019
 ms.author: mhopkins
+ms.date: 03/06/2019
+ms.service: storage
+ms.subservice: queues
+ms.topic: quickstart
 ms.reviewer: cbrooks
-ms.openlocfilehash: 3b355aa2f3fd5e381ca922ada1444dd281fe74ec
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: d2f7b01c03b877a3dede496fc02f0d0cc9525cef
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138278"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68721323"
 ---
 # <a name="quickstart-create-a-queue-and-add-a-message-with-the-azure-portal"></a>Snabbstart: Skapa en kö och lägga till ett meddelande med Azure-portalen
 
 I den här snabbstarten får du lära dig hur du använder [Azure-portalen](https://portal.azure.com/) till att skapa en kö i Azure Storage samt lägga till meddelanden i och ta dem ur kön.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: b6b4cd38ce5f591d43f27f735a48993cc1a1ab63
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: 27f0ebab1fd87eb1870c5a8be21c4f80be4132f1
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68414462"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698594"
 ---
 # <a name="update-the-iot-edge-security-daemon-and-runtime"></a>Uppdatera IoT Edge security daemon och runtime
 
@@ -24,14 +24,6 @@ När IoT Edge service släpper nya versioner vill du uppdatera dina IoT Edge enh
 Två komponenter i en IoT Edge-enhet måste uppdateras om du vill flytta till en nyare version. Det första är Security daemon, som körs på enheten och startar körnings moduler när enheten startar. Daemonen säkerhet kan för närvarande kan bara uppdateras från själva enheten. Den andra komponenten är körning, som består av IoT Edge hubb och IoT Edge agent-moduler. Beroende på hur du strukturera distributionen av kan körningen uppdateras från enheten eller på distans. 
 
 Du hittar den senaste versionen av Azure IoT Edge [Azure IoT Edge släpper](https://github.com/Azure/azure-iotedge/releases).
-
->[!IMPORTANT]
->Om du kör Azure IoT Edge på en Windows-enhet ska du inte uppdatera till version 1.0.5 om något av följande gäller för din enhet: 
->* Du har inte uppgraderat enheten till Windows version 17763. IoT Edge version 1.0.5 stöder inte Windows-versioner som är äldre än 17763.
->* Du kör Java-eller Node. js-moduler på din Windows-enhet. Hoppa över version 1.0.5 även om du har uppdaterat Windows-enheten till den senaste versionen. 
->
->Mer information om IoT Edge version 1.0.5 finns i viktig information för [1.0.5](https://github.com/Azure/azure-iotedge/releases/tag/1.0.5). Mer information om hur du förhindrar att utvecklings verktygen uppdateras till den senaste versionen finns i [IoT Developer-bloggen](https://devblogs.microsoft.com/iotdev/).
-
 
 ## <a name="update-the-security-daemon"></a>Uppdatera daemonen säkerhet
 

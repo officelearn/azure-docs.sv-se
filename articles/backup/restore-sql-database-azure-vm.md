@@ -1,18 +1,18 @@
 ---
 title: Använd Azure Backup för att återställa säkerhetskopierade SQL Server-databaser på en virtuell Azure-dator | Microsoft Docs
 description: Den här artikeln beskriver hur du återställer SQL Server databaser som körs på en virtuell Azure-dator och som säkerhets kopie ras med Azure Backup.
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.author: raynew
-ms.openlocfilehash: f6bd9ea70a3334fbf3843a6b5d44d10a929e20ae
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 71867e520d9c98b4af4d4f18f3d08c9e8cc4a8c4
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467205"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639558"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Återställa SQL Server databaser på virtuella Azure-datorer
 
@@ -130,7 +130,7 @@ Om du har valt **loggar (tidpunkt)** som återställnings typ gör du följande:
     ![Menyn Avancerad konfiguration](./media/backup-azure-sql-database/restore-point-advanced-configuration.png)
 
 1. På menyn **Återställ** väljer du **Återställ** för att starta återställningsjobbet.
-1. Spåra återställnings förloppet  i aviserings området eller spåra det genom att välja återställnings **jobb** på menyn databas.
+1. Spåra återställnings förloppet i aviserings området eller spåra det genom att välja återställnings **jobb** på menyn databas.
 
     ![Förlopp för återställningsjobb](./media/backup-azure-sql-database/restore-job-notification.png)
 
@@ -149,7 +149,7 @@ Om du har valt **fullständig & differentiell** som återställnings typ gör du
     ![Menyn Avancerad konfiguration](./media/backup-azure-sql-database/restore-point-advanced-configuration.png)
 
 1. På menyn **Återställ** väljer du **Återställ** för att starta återställningsjobbet.
-1. Spåra återställnings förloppet  i aviserings området eller spåra det genom att välja återställnings **jobb** på menyn databas.
+1. Spåra återställnings förloppet i aviserings området eller spåra det genom att välja återställnings **jobb** på menyn databas.
 
     ![Förlopp för återställningsjobb](./media/backup-azure-sql-database/restore-job-notification.png)
 

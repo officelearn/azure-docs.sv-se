@@ -1,5 +1,5 @@
 ---
-title: Så här använder du AMQP 1,0 med Java-JMS Service Bus API | Microsoft Docs
+title: Använd AMQP 1,0 med Java Message Service API och Azure Service Bus
 description: Så här använder du JMS (Java Message Service) med Azure Service Bus och Advanced Message Queueing Protocol (AMQP) 1,0.
 services: service-bus-messaging
 documentationcenter: java
@@ -14,12 +14,13 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 03/05/2019
 ms.author: aschhab
-ms.openlocfilehash: 47b077dbb62088093c60a588660045529678c58f
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.custom: seo-java-july2019
+ms.openlocfilehash: f816a5c84416b7f40e3062bf22dd70cbb356c6f1
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68318461"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68662887"
 ---
 # <a name="how-to-use-the-java-message-service-jms-api-with-service-bus-and-amqp-10"></a>Så här använder du JMS-API: et (Java Message Service) med Service Bus och AMQP 1,0
 Advanced Message Queueing Protocol (AMQP) 1,0 är ett effektivt, tillförlitligt meddelande protokoll på trådnivå som du kan använda för att bygga robusta program för meddelanden mellan plattformar.
@@ -371,9 +372,10 @@ Dessutom, Azure Service Bus delar kontroll planet från data planet och stöder 
 | createTemporaryTopic        | skapa ett ämne via hanterings-API/verktyg/Portal med *AutoDeleteOnIdle* inställd på en förfallo period |
 | createTopic                 | skapa ett ämne via hanterings-API/verktyg/Portal                                           |
 | avbryta prenumerationen                 | ta bort API/verktyg/Portal för ämnes hantering                                             |
-| createBrowser               | Som inte stöds. Använd funktionerna Peek () i Service Bus-API: et                         |
+| createBrowser               | som inte stöds. Använd funktionerna Peek () i Service Bus-API: et                         |
 | createQueue                 | skapa en kö via hanterings-API/verktyg/Portal                                           | 
 | createTemporaryQueue        | skapa en kö via hanterings-API/verktyg/Portal med *AutoDeleteOnIdle* inställd på en förfallo period |
+| receiveNoWait               | Använd metoden receive () som tillhandahålls av Service Bus SDK och ange en väldigt låg eller noll tids gräns |
 
 ## <a name="summary"></a>Sammanfattning
 Den här instruktions guiden visar hur du använder Service Bus Brokered Messaging-funktioner (köer och publicera/prenumerera ämnen) från Java med hjälp av det populära JMS-API: et och AMQP 1,0.

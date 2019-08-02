@@ -7,77 +7,71 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 4/26/2019
+ms.date: 7/29/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 02591185914f3b04a70af3b7c5d607f4a2865806
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 04d63b2c1583228a274c0ba21c87df08886f5cdb
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65154252"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619064"
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>Felsöka Azure SQL Data Warehouse
-Den här artikeln innehåller vanliga frågor för felsökning.
+Den här artikeln innehåller vanliga fel söknings frågor.
 
-## <a name="connecting"></a>Ansluta
+## <a name="connecting"></a>Ansluter
 | Problem                                                        | Lösning                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
-| Inloggningen misslyckades för användaren ”NT AUTHORITY\\ANONYMOUS LOGON”. (Microsoft SQL Server, fel: 18456) | Det här felet uppstår när en AAD-användare försöker ansluta till master-databasen, men har inte en användare i huvuddatabasen.  Om du vill åtgärda problemet antingen ange SQL Data Warehouse som du vill ansluta till vid anslutningstid eller lägga till användaren i master-databasen.  Se [Säkerhetsöversikt] [ Security overview] nedan för mer information. |
-| Servern huvudnamn ”MyUserName” kan inte få åtkomst till databasen ”master” under det aktuella säkerhetssammanhanget. Det går inte att öppna användarens standarddatabas. Inloggningen misslyckades. Inloggningen misslyckades för användaren 'MyUserName'. (Microsoft SQL Server, fel: 916) | Det här felet uppstår när en AAD-användare försöker ansluta till master-databasen, men har inte en användare i huvuddatabasen.  Om du vill åtgärda problemet antingen ange SQL Data Warehouse som du vill ansluta till vid anslutningstid eller lägga till användaren i master-databasen.  Se [Säkerhetsöversikt] [ Security overview] nedan för mer information. |
-| CTAIP fel                                                  | Det här felet kan inträffa när en inloggning som har skapats i SQL server master-databasen, men inte i SQL Data Warehouse-databas.  Om du får det här felet kan ta en titt på de [Säkerhetsöversikt] [ Security overview] artikeln.  Den här artikeln förklarar hur du skapar en inloggning och användare på master och hur du skapar en användare i SQL Data Warehouse-databas. |
-| Blockeras av brandvägg                                          | Azure SQL-databaser skyddas av servern och databasen på brandväggar för att se till att endast kända IP-adresser som har åtkomst till en databas. Brandväggarna är säkert som standard, vilket innebär att du måste uttryckligen aktivera och IP-adressen eller adressintervallet innan du kan ansluta.  Om du vill konfigurera din brandvägg för åtkomst, följer du stegen i [konfigurera brandväggen serveråtkomst för din klient-IP] [ Configure server firewall access for your client IP] i den [etablering instruktioner] [Provisioning instructions]. |
-| Det går inte att ansluta med verktyget eller drivrutinen                           | SQL Data Warehouse rekommenderar att du använder [SSMS][SSMS], [SSDT för Visual Studio][SSDT for Visual Studio], eller [sqlcmd] [ sqlcmd] att fråga data. Mer information om drivrutiner och ansluta till SQL Data Warehouse finns i [drivrutiner för Azure SQL Data Warehouse] [ Drivers for Azure SQL Data Warehouse] och [Anslut till Azure SQL Data Warehouse] [ Connect to Azure SQL Data Warehouse] artiklar. |
+| Inloggningen misslyckades för användaren NT AUTHORITY\ANONYMOUS-inloggning. (Microsoft SQL Server, Fel: 18456) | Felet uppstår när en AAD-användare försöker ansluta till huvud databasen, men inte har en användare i huvud gruppen.  Du kan åtgärda det här problemet genom att antingen ange SQL Data Warehouse som du vill ansluta till vid anslutningen eller lägga till användaren i huvud databasen.  Mer information finns i [säkerhets översikts][Security overview] artikeln. |
+| Serverns huvud namn kan inte komma åt databasen "Master" i det aktuella säkerhets sammanhanget. Det går inte att öppna användarens standard databas. Inloggningen misslyckades. Inloggningen misslyckades för användaren ' användar namn '. (Microsoft SQL Server, Fel: 916) | Felet uppstår när en AAD-användare försöker ansluta till huvud databasen, men inte har en användare i huvud gruppen.  Du kan åtgärda det här problemet genom att antingen ange SQL Data Warehouse som du vill ansluta till vid anslutningen eller lägga till användaren i huvud databasen.  Mer information finns i [säkerhets översikts][Security overview] artikeln. |
+| CTAIP-fel                                                  | Det här felet kan inträffa när en inloggning har skapats på SQL Server-huvuddatabasen, men inte i SQL Data Warehouse databasen.  Om du stöter på det här felet kan du ta en titt på artikeln [säkerhets översikt][Security overview] .  Den här artikeln förklarar hur du skapar en inloggning och användare på huvud servern och hur du skapar en användare i SQL Data Warehouse databasen. |
+| Blockerad av brand väggen                                          | Azure SQL-databaser skyddas av brand väggar på Server-och databas nivå så att endast kända IP-adresser har åtkomst till en databas. Brand väggarna är säkra som standard, vilket innebär att du måste uttryckligen aktivera och IP-adresser eller adress intervall innan du kan ansluta.  Konfigurera brand väggen för åtkomst genom att följa stegen i [Konfigurera serverns brand Väggs åtkomst för klientens IP-adress][Configure server firewall access for your client IP] i [etablerings anvisningarna][Provisioning instructions]. |
+| Det går inte att ansluta med verktyget eller driv rutinen                           | SQL Data Warehouse rekommenderar att du använder [SSMS][SSMS], [SSDT för Visual Studio][SSDT for Visual Studio]eller [SQLCMD][sqlcmd] för att fråga dina data. Mer information om driv rutiner och hur du ansluter till SQL Data Warehouse finns i [driv rutiner för Azure SQL Data Warehouse][Drivers for Azure SQL Data Warehouse] och [ansluta till Azure SQL Data Warehouse][Connect to Azure SQL Data Warehouse] artiklar. |
 
 ## <a name="tools"></a>Verktyg
 | Problem                                                        | Lösning                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
-| Visual Studio-Objektutforskaren saknar AAD-användare           | Det här är ett känt problem.  Som en lösning kan du visa användarna i [sys.database_principals][sys.database_principals].  Se [autentisera till Azure SQL Data Warehouse] [ Authentication to Azure SQL Data Warehouse] mer information om hur du använder Azure Active Directory med SQL Data Warehouse. |
-| Manuell scripting, med hjälp av guiden skript eller ansluta via SSMS är långsam, inte svarar eller ger upphov till fel | Se till att användarna har skapats i huvuddatabasen. I skriptalternativ, också se till att versionen av motorn har angetts som ”Microsoft Azure SQL Data Warehouse Edition” och motortyp är ”Microsoft Azure SQL Database”. |
-| Generera skript misslyckas i SSMS                             | Generera ett skript för SQL data warehouse misslyckas om alternativet ”generera skript för beroende objekt”-alternativet är inställt på ”True”. Som en lösning kan användare manuellt måste gå till Verktyg -> Alternativ -> SQL Server Object Explorer -> Generera skript för beroende alternativ och inställd på false |
+| AAD-användare saknas i Visual Studio Object Explorer           | Detta är ett känt problem.  Som en lösning kan du Visa användarna i [sys. database_principals][sys.database_principals].  Mer information om hur du använder Azure Active Directory med SQL Data Warehouse finns i [autentisering till Azure SQL Data Warehouse][Authentication to Azure SQL Data Warehouse] . |
+| Manuell skript användning med skript guiden eller anslutning via SSMS är långsam, svarar inte eller skapar fel | Se till att användarna har skapats i huvud databasen. I skript alternativ ser du också till att motor versionen är inställd på "Microsoft Azure SQL Data Warehouse Edition" och att motor typen är "Microsoft Azure SQL Database". |
+| Generera skript Miss lyckas i SSMS                               | Det går inte att skapa ett skript för SQL Data Warehouse om alternativet "skapa skript för beroende objekt" är inställt på "true". Som en lösning måste användarna manuellt gå till Verktyg-> Alternativ-> SQL Server Object Explorer-> Skapa skript för beroende alternativ och ange värdet FALSKT |
 
 ## <a name="performance"></a>Prestanda
 | Problem                                                        | Lösning                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
-| Prestandafelsökning för fråga                            | Om du vill felsöka en viss fråga, börjar du med [lära dig hur du övervakar dina frågor][Learning how to monitor your queries]. |
-| Dålig frågeprestanda och planer är ofta ett resultat av saknas statistik | Den vanligaste orsaken med sämre prestanda är bristande statistik på dina tabeller.  Se [underhålla tabellstatistik] [ Statistics] mer information om hur du skapar statistik och varför de är viktiga för din prestanda. |
-| Låg samtidighet / frågor i kö                             | Förstå [arbetsbelastningshantering] [ Workload management] är viktigt att förstå hur du balanserar minnesallokering med samtidighet. |
-| Hur du implementerar Metodtips                              | Den bästa platsen för att lära dig att förbättra frågeprestanda är [Metodtips för SQL Data Warehouse] [ SQL Data Warehouse best practices] artikeln. |
-| Förbättra prestandan med skalning                      | Ibland lösning för att förbättra prestanda är att helt enkelt lägga till mer datorkraft i dina frågor av [skala ditt SQL Data Warehouse][Scaling your SQL Data Warehouse]. |
-| Dåliga prestanda på grund av dålig index kvalitet     | Ibland kan saktas ned grund av [Poor columnstore index quality][Poor columnstore index quality].  Se den här artikeln för mer information och hur du [återskapa index för att förbättra segmentkvaliteten][Rebuild indexes to improve segment quality]. |
+| Felsöka prestanda fel sökning                            | Om du försöker Felsöka en viss fråga börjar du med [att lära dig hur du övervakar dina frågor][Learning how to monitor your queries]. |
+| Dåliga frågor och prestanda är ofta en följd av statistik som saknas | Den vanligaste orsaken till dåliga prestanda är brist på statistik för dina tabeller.  Mer information om hur du skapar statistik och varför de är viktiga för dina prestanda finns i [underhålla tabell statistik][Statistics] . |
+| Låg concurrency/frågor i kö                             | Det är viktigt att förstå [arbets belastnings hanteringen][Workload management] för att förstå hur du balanserar minnesallokering med samtidighet. |
+| Så här implementerar du bästa metoder                              | Den bästa platsen för att lära dig hur du kan förbättra prestanda för frågor är [SQL Data Warehouse metod tips][SQL Data Warehouse best practices] . |
+| Förbättra prestanda med skalning                      | Ibland är lösningen för att förbättra prestandan att helt enkelt lägga till mer beräknings kraft för dina frågor genom [att skala SQL Data Warehouse][Scaling your SQL Data Warehouse]. |
+| Dåliga frågeresultat på grund av dålig index kvalitet     | Vissa gånger kan frågor sakta ned på grund av [dålig kolumn kvalitet i columnstore-index][Poor columnstore index quality].  Se den här artikeln för mer information och hur du [bygger om index för att förbättra segment kvaliteten][Rebuild indexes to improve segment quality]. |
 
-## <a name="system-management"></a>Systemhantering
+## <a name="system-management"></a>System hantering
 | Problem                                                        | Lösning                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
-| Msg 40847: Det gick inte att utföra åtgärden eftersom servern skulle överskrida den tillåtna Database Transaction Unit-kvoten för 45000. | Antingen den [DWU] [ DWU] av databasen som du försöker skapa eller [öka kvoten][request a quota increase]. |
-| Undersöka användningen                              | Se [tabellen storlekar] [ Table sizes] att förstå användningen av systemet. |
-| Hjälp med att hantera tabeller                                    | Se den [tabellöversikt] [ Overview] artikeln om du behöver hjälp med att hantera dina tabeller.  Den här artikeln innehåller också länkar till mer detaljerad information som [Tabelldatatyper][Data types], [distribuerar en tabell][Distribute], [Indexera en tabell][Index], [partitionering en tabell][Partition], [underhålla tabellstatistik] [ Statistics] och [temporära tabeller][Temporary]. |
-| Transparent data encryption (TDE) förloppsindikatorn uppdateras inte i Azure Portal | Du kan visa status för transparent Datakryptering via [powershell](/powershell/module/az.sql/get-azsqldatabasetransparentdataencryption). |
+| MSG 40847: Det gick inte att utföra åtgärden eftersom servern skulle överskrida den tillåtna kvoten för databas transaktions enheten på 45000. | Du kan antingen minska [DWU][DWU] för den databas som du försöker skapa eller [begära en kvot ökning][request a quota increase]. |
+| Undersöka utrymmes användningen                              | Se [tabell storlekar][Table sizes] för att förstå systemets utrymmes användning. |
+| Hjälp med att hantera tabeller                                    | Mer information om hur du hanterar tabeller finns i artikeln [Översikt över][Overview] tabeller.  Den här artikeln innehåller också länkar till mer detaljerade ämnen som [tabell data typer][Data types], [distribuera en tabell][Distribute], [indexera en tabell][Index], [partitionera en tabell][Partition], [underhålla tabell statistik][Statistics] och [temporära tabeller][Temporary]. |
+| Förlopps indikatorn för transparent data kryptering (TDE) uppdateras inte i Azure Portal | Du kan visa statusen för TDE via [PowerShell](/powershell/module/az.sql/get-azsqldatabasetransparentdataencryption). |
 
-## <a name="polybase"></a>Polybase
-| Problem                                           | Lösning                                                   |
-| :---------------------------------------------- | :----------------------------------------------------------- |
-| Exporterar misslyckas med typerna TINYINT och datum             | För Parquet och ORC-filformat, datumvärden typ måste vara mellan 1970-01-01-01:00:00 UTC-tid och 2038-01-19 03:14:07. TINYINT typ värdena måste vara mellan 0-127.    |
-| Problem med Parquet decimaltyp: skriva från Spark skriver DecimalType(18,4) och importera till en kolumn av typen double eller riktig ger ”fel: java.base/java.lang.Long kan inte typkonverteras till java.base/java.lang.Float”. | Du måste importera till bigint och dela med 10000 eller Använd den [Databricks] SQL DW-koppling. |
-| Problem med Parquet Datumtyp: skriva från Spark typen Date och importera till en kolumn med skriver datum eller datum/tid ger ”fel: java.base/java.lang.Integer kan inte typkonverteras till parquet.io.api.Binary”. | Du måste använda en annan Spark-typ (int) och beräkna datum eller använda den [Databricks] SQL DW-koppling. |
 
-## <a name="differences-from-sql-database"></a>Skillnader från SQL-databas
+## <a name="differences-from-sql-database"></a>Skillnader från SQL Database
 | Problem                                 | Lösning                                                   |
 | :------------------------------------ | :----------------------------------------------------------- |
-| SQL Database-funktioner som inte stöds     | Se [table-funktioner som inte stöds][Unsupported table features]. |
-| Datatyper stöds inte SQL-databas   | Se [datatyper][Unsupported data types].        |
-| Ta bort och uppdatera begränsningar         | Se [uppdatering lösningar][UPDATE workarounds], [ta bort lösningar] [ DELETE workarounds] och [med hjälp av CTAS för att kringgå stöds inte UPPDATERINGEN och Ta bort syntax][Using CTAS to work around unsupported UPDATE and DELETE syntax]. |
-| MERGE-instruktion stöds inte      | Se [MERGE lösningar][MERGE workarounds].                  |
-| Begränsningar för lagrad procedur          | Se [lagrade proceduren begränsningar] [ Stored procedure limitations] att förstå vissa begränsningar för lagrade procedurer. |
-| UDF: er stöder inte SELECT-uttryck | Det här är en aktuell begränsning i vår UDF: er.  Se [CREATE FUNCTION] [ CREATE FUNCTION] syntaxen som vi har stöd för. |
+| SQL Database funktioner som inte stöds     | Se [tabell funktioner som inte stöds][Unsupported table features]. |
+| SQL Database data typer som inte stöds   | Se [data typer som inte stöds][Unsupported data types].        |
+| TA bort och uppdatera begränsningar         | Se [uppdaterings lösningar][UPDATE workarounds], [ta bort lösningar][DELETE workarounds] och [Använd CTAs för att arbeta runt en uppdaterings-och borttagnings-syntax som inte stöds][Using CTAS to work around unsupported UPDATE and DELETE syntax]. |
+| MERGE-instruktionen stöds inte      | Se [sammanfognings lösningar][MERGE workarounds].                  |
+| Begränsningar för lagrade procedurer          | Se [begränsningar för lagrade][Stored procedure limitations] procedurer för att förstå vissa begränsningar för lagrade procedurer. |
+| UDF: er stöder inte SELECT-instruktioner | Detta är en aktuell begränsning i vår UDF: er.  Se [skapa funktion][CREATE FUNCTION] för den syntax som vi stöder. |
 
 ## <a name="next-steps"></a>Nästa steg
-För mer hjälp med att hitta lösning på problemet, är här några resurser som du kan prova.
+Om du vill ha hjälp med att hitta en lösning på problemet kan du göra något av följande resurser.
 
 * [Bloggar]
 * [Funktionsbegäranden]
 * [Videoklipp]
-* [CAT-teambloggar]
+* [CAT team-Bloggar]
 * [Skapa ett supportärende]
 * [MSDN-forum]
 * [Stack Overflow-forum]
@@ -127,7 +121,7 @@ För mer hjälp med att hitta lösning på problemet, är här några resurser s
 
 <!--Other Web references-->
 [Bloggar]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
-[CAT-teambloggar]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
+[CAT team-Bloggar]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [Funktionsbegäranden]: https://feedback.azure.com/forums/307516-sql-data-warehouse
 [MSDN-forum]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse
 [Stack Overflow-forum]: https://stackoverflow.com/questions/tagged/azure-sqldw

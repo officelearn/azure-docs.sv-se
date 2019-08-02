@@ -9,39 +9,52 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 05/28/2019
+ms.date: 07/26/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: a597ab3519f4ba1696e111622541bcab89488558
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8809bf25c3bcfb26fb0ad251a2b09dfdca2a3e04
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66425428"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68679195"
 ---
 # <a name="content-key-policies"></a>Viktiga innehållsprinciper
 
-Med medietjänster kan leverera du live och på begäran innehållet krypteras dynamiskt med Advanced Encryption Standard (AES-128) eller någon av de tre största digital rights management (DRM) system: Microsoft PlayReady, Google Widevine och FairPlay för Apple. Media Services tillhandahåller också en tjänst för att leverera AES-nycklar och DRM (PlayReady, Widevine och FairPlay) licenser till auktoriserade klienter. 
+Med Media Services kan du leverera direktsänd och innehåll på begäran som krypteras dynamiskt med Advanced Encryption Standard (AES-128) eller någon av de tre större Digital Rights Management-systemen (DRM): Microsoft PlayReady, Google Widevine och Apple FairPlay. Media Services tillhandahåller också en tjänst för att leverera AES-nycklar och DRM (PlayReady, Widevine och FairPlay) licenser till auktoriserade klienter. 
 
-Om du vill ange alternativ för kryptering på din stream, måste du skapa en [Streaming princip](streaming-policy-concept.md) och associera det med dina [Strömningspositionerare](streaming-locators-concept.md). Du skapar den [innehåll nyckel princip](https://docs.microsoft.com/rest/api/media/contentkeypolicies) att konfigurera hur innehållsnyckeln (som ger säker åtkomst till din [tillgångar](assets-concept.md)) levereras om du vill avsluta klienter. Du måste ange krav (begränsningar) på innehåll nyckel principen som måste uppfyllas för att nycklar med den angivna konfigurationen som ska levereras till klienterna. Policyn innehåll nyckeln behövs inte för Rensa streaming eller ladda ned. 
+Om du vill ange krypterings alternativ för data strömmen måste du skapa en [strömmande princip](streaming-policy-concept.md) och koppla den till din [strömmande positionerare](streaming-locators-concept.md). Du skapar en [innehålls nyckel princip](https://docs.microsoft.com/rest/api/media/contentkeypolicies) för att konfigurera hur innehålls nyckeln (som ger säker åtkomst till [till gångar](assets-concept.md)) levereras till slut klienter. Du måste ange kraven (begränsningar) för den innehålls nyckel princip som måste uppfyllas för att nycklar med den angivna konfigurationen ska skickas till klienter. Innehålls nyckel principen behövs inte för att rensa strömma eller ladda ned. 
 
-Vanligtvis du associera din **innehåll nyckel princip** med din [Strömningspositionerare](streaming-locators-concept.md). Du kan också ange principen innehåll nyckel i en [Streaming princip](streaming-policy-concept.md) (när skapar en anpassad princip för strömning för avancerade scenarier). 
+Vanligt vis associerar du din innehålls nyckel princip med din [streaming Locator](streaming-locators-concept.md). Du kan också ange innehålls nyckel principen i en strömmande [princip](streaming-policy-concept.md) (när du skapar en anpassad strömnings princip för avancerade scenarier). 
 
-Vi rekommenderar att Media Services för att skapa nycklar. Du skulle normalt en standardlagringen av långlivade nyckel och kontrollera om principer med **hämta**. Om du vill hämta nyckel, måste du anropa en separat åtgärd-metod för att hämta hemligheter eller autentiseringsuppgifter, finns i följande exempel.
+> [!NOTE]
+> Egenskaperna för de innehålls nyckel principer som är av `Datetime` typen är alltid i UTC-format.
 
-**Innehålls-principer för nycklar** kan uppdateras. Det kan ta upp till 15 minuter för leverans av nyckel-cacheminne för att uppdatera och hämta den uppdaterade policyn. 
+## <a name="best-practices-and-considerations"></a>Metod tips och överväganden
 
 > [!IMPORTANT]
-> * Egenskaper för **Innehållsprinciper nyckel** som är av typen är alltid i UTC-format för datum/tid.
-> * Du bör utforma en begränsad uppsättning principer för ditt Media Services-konto och återanvända dem för din positionerare för direktuppspelning när samma alternativ behövs. Mer information finns i [kvoter och begränsningar](limits-quotas-constraints.md).
+> Kontrol lera följande rekommendationer.
 
-### <a name="example"></a>Exempel
+* Du bör utforma en begränsad uppsättning principer för ditt Media Service-konto och återanvända dem för dina strömmande positionerare när samma alternativ behövs. Mer information finns i [kvoter och begränsningar](limits-quotas-constraints.md).
+* Innehålls nyckel principer kan uppdateras. Det kan ta upp till 15 minuter för nyckel leverans-cachen att uppdatera och hämta den uppdaterade principen. 
 
-Gå till nyckeln genom att använda **GetPolicyPropertiesWithSecretsAsync**, enligt den [få en signeringsnyckel från den befintliga principen](get-content-key-policy-dotnet-howto.md#get-contentkeypolicy-with-secrets) exempel.
+   Genom att uppdatera principen skriver du över din befintliga CDN-cache som kan orsaka uppspelnings problem för kunder som använder cachelagrat innehåll.  
+* Vi rekommenderar att du inte skapar en ny innehålls nyckel princip för varje till gång. De största fördelarna med att dela samma innehålls nyckel princip mellan till gångar som behöver samma princip alternativ är:
+   
+   * Det är enklare att hantera ett litet antal principer.
+   * Om du behöver göra uppdateringar av innehålls nyckel principen, kommer ändringarna att börja gälla på alla nya licens förfrågningar nästan direkt.
+* Om du behöver skapa en ny princip måste du skapa en ny plats för direkt uppspelning för till gången.
+* Vi rekommenderar att Media Services automatiskt genererar innehålls nyckeln. 
+
+   Normalt använder du en lång livs längds nyckel och kontrollerar om det finns en innehålls nyckel princip med [Get](https://docs.microsoft.com/rest/api/media/contentkeypolicies/get). För att hämta nyckeln måste du anropa en separat åtgärds metod för att få hemligheter eller autentiseringsuppgifter, se exemplet nedan.
+
+## <a name="example"></a>Exempel
+
+För att komma till nyckeln använder `GetPolicyPropertiesWithSecretsAsync`du, som du ser i [Hämta en signerings nyckel från den befintliga princip](get-content-key-policy-dotnet-howto.md#get-contentkeypolicy-with-secrets) exemplet.
 
 ## <a name="filtering-ordering-paging"></a>Filtrering, skrivordning, växling
 
-Se [filtrering, sortering, växling av Media Services entiteter](entities-overview.md).
+Se [filtrering, sortering, sid indelning för Media Services entiteter](entities-overview.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

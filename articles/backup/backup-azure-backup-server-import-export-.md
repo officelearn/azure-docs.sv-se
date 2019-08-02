@@ -1,18 +1,19 @@
 ---
 title: Azure Backup-offline-säkerhetskopiering för DPM och Azure Backup Server
 description: Lär dig hur Azure Backup ger dig möjlighet att skicka data från nätverket med Azure import/export-tjänsten. I den här artikeln förklaras dirigeringen av de första säkerhets kopierings data med hjälp av Azure import export-tjänsten.
-author: saurabhsensharma
-manager: shivamg
+ms.reviewer: saurse
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 5/8/2018
-ms.author: saurse
-ms.openlocfilehash: 8a8571230b24d76482c505ec22d6faaa0caec5e6
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.author: dacurwin
+ms.openlocfilehash: 4bc0421f16d56d34e3f3156700a7a141d38fd63d
+ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466724"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68689383"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server"></a>Arbets flöde för offline-säkerhetskopiering för DPM och Azure Backup Server
 Azure Backup har flera inbyggda effektivitets vinster som sparar kostnader för nätverk och lagring under de första fullständiga säkerhets kopieringarna av data till Azure. De första fullständiga säkerhets kopieringarna överför ofta stora mängder data och kräver mer nätverks bandbredd jämfört med efterföljande säkerhets kopieringar som bara överför delta/steg. Azure Backup komprimerar de första säkerhets kopiorna. Genom processen för dirigering av dirigering kan Azure Backup använda diskar för att ladda upp komprimerade första säkerhets kopierings data offline till Azure.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: 63275db36bdb64985625c3789d558bd09e2d47bc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 93656578fac52e4ba5ff96e655ea51678f2292cd
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60912067"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68609917"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Felsökningsguide för Azure Security Center
 Den här guiden riktar sig till de som arbetar med IT, informationssäkerhetsanalytiker och molnadministratörer i organisationer som använder Azure Security Center och behöver felsöka Security Center-relaterade problem.
@@ -40,7 +40,7 @@ I den här guiden förklaras hur du felsöker Security Center-relaterade problem
 Granskningsloggen innehåller alla skrivåtgärder (PUT, POST, DELETE) som utförs på dina resurser, men omfattar inte läsåtgärder (GET).
 
 ## <a name="microsoft-monitoring-agent"></a>Microsoft Monitoring Agent
-Security Center använder Microsoft Monitoring Agent – det här är samma agent används av tjänsten Azure Monitor – för att samla in säkerhetsdata från dina Azure-datorer. När datainsamling är aktiverat och agenten är korrekt installerad i måldatorn, ska de här processerna köras:
+Security Center använder Microsoft Monitoring Agent – det här är samma agent som används av Azure Monitor-tjänsten – för att samla in säkerhets data från dina virtuella Azure-datorer. När datainsamling är aktiverat och agenten är korrekt installerad i måldatorn, ska de här processerna köras:
 
 * HealthService.exe
 
@@ -74,8 +74,8 @@ Det finns två installationsscenarier som kan ge olika resultat när du installe
 | Azure VM-agent saknas eller är ogiltig | Microsoft Monitoring Agent är inte installerat ännu.  En giltig agent för virtuella Azure-datorer krävs för att Security Center ska installera tillägget. | Installera, installera om eller uppgradera agenten för virtuella Azure-datorer på den virtuella datorn. |
 | VM-status inte är redo för installation  | Microsoft Monitoring Agent har inte installerats ännu eftersom den virtuella datorn inte är redo för installation. Den virtuella datorn är inte redo för installation på grund av ett problem med VM-agenten eller VM-etableringen. | Kontrollera den virtuella datorns status. Återgå till **Virtual Machines** i portalen och välj den virtuella datorn för att få statusinformation. |
 |Installationen misslyckades – allmänt fel | Microsoft Monitoring Agent installerades men misslyckades på grund av ett fel. | [Installera tillägget manuellt](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension) eller avinstallera tillägget så försöker Security Center att installera det igen. |
-| Installationen misslyckades – den lokala agenten är redan installerad | Installationen av Microsoft Monitoring Agent misslyckades. Security Center identifierade en lokal agent (Log Analytics eller System Center Operations Manager) redan är installerad på den virtuella datorn. För att undvika konfiguration av flera värdar, där den virtuella datorn rapporterar till två separata arbetsytor, stoppades installationen av Microsoft Monitoring Agent. | Det finns två sätt att lösa detta: [att installera tillägget manuellt](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension) och ansluta det till önskad arbetsyta. Du kan även ange den önskade arbetsytan som standardarbetsyta och aktivera automatisk etablering av agenten.  Se [aktivera automatisk etablering](security-center-enable-data-collection.md). |
-| Agenten kan inte ansluta till arbetsytan | Microsoft Monitoring Agent installerades men misslyckades på grund av ett fel med nätverksanslutningen.  Kontrollera att du har internetåtkomst eller att en giltig HTTP-proxy har konfigurerats för agenten. | Se övervakningen nätverkskrav. |
+| Installationen misslyckades – den lokala agenten är redan installerad | Installationen av Microsoft Monitoring Agent misslyckades. Security Center identifierat en lokal agent (Log Analytics eller System Center Operations Manager) som redan har installerats på den virtuella datorn. För att undvika konfiguration av flera värdar, där den virtuella datorn rapporterar till två separata arbetsytor, stoppades installationen av Microsoft Monitoring Agent. | Det finns två sätt att lösa detta: [att installera tillägget manuellt](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension) och ansluta det till önskad arbetsyta. Du kan även ange den önskade arbetsytan som standardarbetsyta och aktivera automatisk etablering av agenten.  Se [aktivera automatisk etablering](security-center-enable-data-collection.md). |
+| Agenten kan inte ansluta till arbetsytan | Microsoft Monitoring Agent installerades men misslyckades på grund av ett fel med nätverksanslutningen.  Kontrollera att du har internetåtkomst eller att en giltig HTTP-proxy har konfigurerats för agenten. | Se övervaknings agentens nätverks krav. |
 | Agenten ansluten till arbetsyta som saknas eller är okänd | Security Center identifierade att Microsoft Monitoring Agent som är installerat på den virtuella datorn är anslutet till en arbetsyta som det inte har åtkomst till. | Det kan hända i två fall. Arbetsytan togs bort eller finns inte längre. Installera om agenten med rätt arbetsyta eller avinstallera agenten och tillåt att Security Center slutför sin automatiska etableringsinstallation. Det andra fallet är när arbetsytan är en del av en prenumeration som Security Center inte har behörighet till. Security Center kräver att prenumerationer tillåter att Microsoft Security Resource Provider får åtkomst till dem. Aktivera genom att registrera prenumerationen på Microsoft Security Resource Provider. Du kan göra det via API, PowerShell, portalen eller helt enkelt genom att filtrera prenumerationen i Security Centers **översiktsinstrumentpanel**. Mer information finns i [Resursproviders och resurstyper](../azure-resource-manager/resource-manager-supported-services.md#azure-portal). |
 | Agenten svarar inte eller saknar ID | Security Center kan inte hämta säkerhetsdata som genomsökts från den virtuella datorn, trots att agenten är installerad. | Agenten rapporterar inga data, inte heller pulsslag. Agenten kan vara skadad eller så är det något som blockerar trafiken. Eller så rapporterar agenten data men saknar Azure-resurs-ID så att det är omöjligt att matcha data till den virtuella Azure-datorn. Felsökning av Linux beskrivs [felsökningsguide för Log Analytics-agenten för Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md#im-not-seeing-any-linux-data-in-the-oms-portal). Om du vill felsöka i Windows läser du [Felsökning av virtuella Windows-datorer](https://github.com/MicrosoftDocs/azure-docs/blob/8c53ac4371d482eda3d85819a4fb8dac09996a89/articles/log-analytics/log-analytics-azure-vm-extension.md#troubleshooting-windows-virtual-machines). |
 | Agenten har inte installerats | Datainsamling är inaktiverat. | Aktivera datainsamling i säkerhetsprincipen eller installera Microsoft Monitoring Agent manuellt. |
@@ -101,7 +101,7 @@ Om du får problem med att komma igång med agenten, kan du hitta mer informatio
 
 ## <a name="troubleshooting-endpoint-protection-not-working-properly"></a>Felsökning om Endpoint Protection inte fungerar korrekt
 
-Gästagenten är den överordnade processen av allt tillägget [Microsoft Antimalware](../security/azure-security-antimalware.md) gör. När gästagentprocessen misslyckas kan även Microsoft Antimalware som körs som en underordnad process för gästagenten misslyckas.  I scenarier som dessa rekommenderas det att verifiera följande alternativ:
+Gästagenten är den överordnade processen av allt tillägget [Microsoft Antimalware](../security/fundamentals/antimalware.md) gör. När gästagentprocessen misslyckas kan även Microsoft Antimalware som körs som en underordnad process för gästagenten misslyckas.  I scenarier som dessa rekommenderas det att verifiera följande alternativ:
 
 - Om den virtuella datorn som är målet är en anpassad avbildning och skaparen av den virtuella datorn aldrig installerade gästagenten.
 - Om målet är en virtuell Linux-dator i stället för en virtuell Windows-dator så kommer installationen av Windows-versionen av tillägget mot skadlig kod att misslyckas. Linux-gästagenten har särskilda krav gällande OS-version och nödvändiga paket. Om de här kraven inte uppfylls kommer inte VM-agenten att fungera där heller.

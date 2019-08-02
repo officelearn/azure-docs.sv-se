@@ -1,6 +1,6 @@
 ---
-title: Sparade sökningar i hanteringslösningar | Microsoft Docs
-description: I hanteringslösningarna ingår vanligtvis sparade sökningar i Log Analytics för att analysera data som samlas in av lösningen. De kan också definiera varningar som meddelar användaren eller automatiskt vidta åtgärder som svar på ett kritiskt problem. Den här artikeln beskriver hur du definierar sparade sökningar i en Resource Manager-mall så att de kan ingå i lösningar för hantering av Log Analytics.
+title: Sparade sökningar i hanterings lösningar | Microsoft Docs
+description: Hanterings lösningar omfattar vanligt vis sparade sökningar i Log Analytics för att analysera data som samlas in av lösningen. De kan också definiera aviseringar för att meddela användaren eller automatiskt vidta åtgärder som svar på ett kritiskt problem. I den här artikeln beskrivs hur du definierar Log Analytics sparade sökningar i en Resource Manager-mall så att de kan ingå i hanterings lösningar.
 services: monitoring
 documentationcenter: ''
 author: bwren
@@ -10,54 +10,54 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/27/2019
+ms.date: 07/29/2019
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0975b23a8f96da6fc2dfcc8bd9ad046847a68aa9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e2e32fb57a5ee34da8c342649cc1740d111723ec
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62104841"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68662895"
 ---
-# <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Lägga till Log Analytics sparade sökningar och aviseringar till lösning för hantering (förhandsversion)
+# <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Lägga till Log Analytics sparade sökningar och varningar till hanterings lösningen (förhands granskning)
 
 > [!IMPORTANT]
-> Informationen här för att skapa en avisering med en Resource Manager-mall är av datum nu när [Log Analytics-aviseringar har utökats till Azure Monitor](../platform/alerts-extend.md). Mer information om hur du skapar en avisering om log med en Resource Manager-mall finns i [Hantera aviseringar med hjälp av Azure-resursmall](../platform/alerts-log.md#managing-log-alerts-using-azure-resource-template).
+> Som vi [presenterade tidigare](https://azure.microsoft.com/updates/switch-api-preference-log-alerts/), kan Log Analytics-arbetsytor som skapats efter den *1 juni 2019* -hantera aviserings regler med **bara** Azure-ScheduledQueryRules [REST API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/), [Azure Resource Manager mall](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-azure-resource-template) och [PowerShell cmdlet](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-powershell). Kunder kan enkelt [ändra sina önskade metoder för varnings regel hantering](../../azure-monitor/platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api) för äldre arbets ytor för att utnyttja Azure Monitor scheduledQueryRules som standard och få många [nya fördelar](../../azure-monitor/platform/alerts-log-api-switch.md#benefits-of-switching-to-new-azure-api) som möjligheten att använda inbyggda PowerShell-cmdlets, ökad lookback tids period i regler, skapande av regler i separat resurs grupp eller prenumeration och mycket mer.
 
 > [!NOTE]
-> Det här är preliminära dokumentationen för att skapa lösningar för hantering som för närvarande i förhandsversion. Ett schema som beskrivs nedan kan komma att ändras.
+> Det här är en preliminär dokumentation för att skapa hanterings lösningar som för närvarande finns i för hands version. Alla scheman som beskrivs nedan kan komma att ändras.
 
-[Lösningar för hantering av](solutions.md) inkluderar vanligtvis [sparade sökningar](../../azure-monitor/log-query/log-query-overview.md) i Log Analytics för att analysera data som samlas in av lösningen. De kan också definiera [aviseringar](../../azure-monitor/platform/alerts-overview.md) att meddela användaren eller automatiskt vidta åtgärder som svar på ett kritiskt problem. Den här artikeln beskriver hur du definierar Log Analytics sparade sökningar och aviseringar i en [Resource Manager-mall](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md) så att de kan ingå i [hanteringslösningar](solutions-creating.md).
+[Hanterings lösningar](solutions.md) innehåller vanligt vis [sparade sökningar](../../azure-monitor/log-query/log-query-overview.md) i Log Analytics för att analysera data som samlas in av lösningen. De kan också definiera [aviseringar](../../azure-monitor/platform/alerts-overview.md) för att meddela användaren eller automatiskt vidta åtgärder som svar på ett kritiskt problem. I den här artikeln beskrivs hur du definierar Log Analytics sparade sökningar och aviseringar i en [mall för resurs hantering](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md) så att de kan ingå i [hanterings lösningar](solutions-creating.md).
 
 > [!NOTE]
-> Exemplen i den här artikeln använder parametrar och variabler som är obligatoriska eller vanligt att hanteringslösningar och beskrivs i [utforma och skapa en lösning i Azure](solutions-creating.md)
+> I exemplen i den här artikeln används parametrar och variabler som antingen är obligatoriska eller vanliga för hanterings lösningar och som beskrivs i [utforma och skapa en hanterings lösning i Azure](solutions-creating.md)
 
 ## <a name="prerequisites"></a>Förutsättningar
-Den här artikeln förutsätter att du redan är bekant med hur du [skapa en lösning för](solutions-creating.md) och strukturen för en [Resource Manager-mall](../../azure-resource-manager/resource-group-authoring-templates.md) och lösningsfilen.
+Den här artikeln förutsätter att du redan är bekant med hur du [skapar en hanterings lösning](solutions-creating.md) och strukturen i en [Resource Manager-mall](../../azure-resource-manager/resource-group-authoring-templates.md) och lösnings fil.
 
 
 ## <a name="log-analytics-workspace"></a>Log Analytics-arbetsyta
-Alla resurser i Log Analytics finns i en [arbetsytan](../../azure-monitor/platform/manage-access.md). Mer information finns i [Log Analytics-arbetsytan och Automation-kontot](solutions.md#log-analytics-workspace-and-automation-account), arbetsytan ingår inte i hanteringslösningen men måste finnas innan lösningen är installerad. Om den inte är tillgänglig misslyckas lösning installationen.
+Alla resurser i Log Analytics finns i en [arbets yta](../../azure-monitor/platform/manage-access.md). Som det beskrivs i [Log Analytics arbets yta och Automation-konto](solutions.md#log-analytics-workspace-and-automation-account)ingår inte arbets ytan i hanterings lösningen utan måste finnas innan lösningen installeras. Om den inte är tillgänglig går det inte att installera lösningen.
 
-Namnet på arbetsytan är namnet på varje Log Analytics-resurs. Detta görs i lösningen med den **arbetsytan** parameter som i följande exempel för en resurs för SavedSearch.
+Namnet på arbets ytan är namnet på varje Log Analytics resurs. Detta görs i lösningen med parametern **Workspace** som i följande exempel för en SavedSearch-resurs.
 
     "name": "[concat(parameters('workspaceName'), '/', variables('SavedSearchId'))]"
 
-## <a name="log-analytics-api-version"></a>Log Analytics-API-version
-Alla Log Analytics-resurser som definierats i en Resource Manager-mallen har en egenskap **apiVersion** som definierar versionen av API: et som resursen ska använda.
+## <a name="log-analytics-api-version"></a>Log Analytics API-version
+Alla Log Analytics resurser som definierats i en Resource Manager-mall har en egenskaps- **API version** som definierar den version av API som resursen ska använda.
 
-I följande tabell visas den API-versionen för resursen i det här exemplet.
+I följande tabell visas API-versionen för den resurs som används i det här exemplet.
 
 | Resurstyp | API-version | Söka i data |
 |:---|:---|:---|
-| savedSearches | 2017-03-15-preview | Händelsen &#124; där EventLevelName == ”Error”  |
+| savedSearches | 2017-03-15 – för hands version | Händelse &#124; där EventLevelName = = "Error"  |
 
 
 ## <a name="saved-searches"></a>Sparade sökningar
-Inkludera [sparade sökningar](../../azure-monitor/log-query/log-query-overview.md) i en lösning för att tillåta användare att köra frågor mot data som samlas in av din lösning. Sparade sökningar visas under **sparade sökningar** i Azure-portalen. En sparad sökning krävs också för varje avisering.
+Inkludera [sparade sökningar](../../azure-monitor/log-query/log-query-overview.md) i en lösning så att användarna kan fråga data som samlas in av din lösning. Sparade sökningar visas under **sparade sökningar** i Azure Portal. En sparad sökning krävs också för varje avisering.
 
-[Sparade log Analytics-sökningen](../../azure-monitor/log-query/log-query-overview.md) resurser har en typ av `Microsoft.OperationalInsights/workspaces/savedSearches` och har följande struktur. Detta inkluderar vanliga variabler och parametrar så att du kan kopiera och klistra in det här kodfragmentet i dina lösningsfilen och ändra parameternamnen.
+[Log Analytics sparade Sök](../../azure-monitor/log-query/log-query-overview.md) resurser har en typ av `Microsoft.OperationalInsights/workspaces/savedSearches` och har följande struktur. Detta inkluderar vanliga variabler och parametrar så att du kan kopiera och klistra in kodfragmentet i lösnings filen och ändra parameter namnen.
 
     {
         "name": "[concat(parameters('workspaceName'), '/', variables('SavedSearch').Name)]",
@@ -74,36 +74,32 @@ Inkludera [sparade sökningar](../../azure-monitor/log-query/log-query-overview.
         }
     }
 
-I följande tabell beskrivs varje egenskap för en sparad sökning.
+Varje egenskap i en sparad sökning beskrivs i följande tabell.
 
 | Egenskap | description |
 |:--- |:--- |
-| category | Kategorin för den sparade sökningen.  Alla sparade sökningar i samma lösning kommer ofta att dela en enskild kategori så att de grupperas tillsammans i konsolen. |
-| displayName | Namn som ska visas på den sparade sökningen i portalen. |
-| query | Frågan ska köras. |
+| category | Kategorin för den sparade sökningen.  Alla sparade sökningar i samma lösning delar ofta en enda kategori så att de grupperas tillsammans i-konsolen. |
+| displayName | Namn som ska visas för den sparade sökningen i portalen. |
+| query | Fråga att köra. |
 
 > [!NOTE]
-> Du kan behöva använda escape-tecken i frågan om den innehåller tecken som kan tolkas som JSON. Exempel: om din fråga var **AzureActivity | OperationName:"Microsoft.Compute/virtualMachines/write”** , den måste skrivas i lösningsfilen som **AzureActivity | OperationName: /\"Microsoft.Compute/virtualMachines/write\"** .
+> Du kan behöva använda escape-tecken i frågan om den innehåller tecken som kan tolkas som JSON. Om din fråga exempelvis var **AzureActivity | OperationName: "Microsoft. Compute/virtualMachines/Write"** , den ska vara skriven i lösnings filen som **AzureActivity | OperationName:/\"Microsoft. Compute/virtualMachines/Write\"** .
 
 ## <a name="alerts"></a>Aviseringar
-[Azure loggaviseringar](../../azure-monitor/platform/alerts-unified-log.md) skapas av Azure Varningsregler som kör angivna loggfrågor med jämna mellanrum. Om resultatet av frågan matchar angivna villkor, skapas en aviseringspost och en eller flera åtgärder körs med hjälp av [åtgärdsgrupper](../../azure-monitor/platform/action-groups.md).
+[Azures logg aviseringar](../../azure-monitor/platform/alerts-unified-log.md) skapas av Azures aviserings regler som kör angivna logg frågor med jämna mellanrum. Om resultatet av frågan matchar de angivna villkoren skapas en aviserings post och en eller flera åtgärder körs med hjälp av [Åtgärds grupper](../../azure-monitor/platform/action-groups.md).
 
-> [!NOTE]
-> Från och den 14 maj 2018 började alla aviseringar i en offentliga Azure-molninstans av Log Analytics-arbetsyta kopieras till Azure. Mer information finns i [utöka aviseringarna till Azure](../../azure-monitor/platform/alerts-extend.md). För användare som utökar aviseringar till Azure, styrs nu åtgärder i Azure åtgärdsgrupper. När en arbetsyta och dess aviseringar har utökats till Azure, hämta eller lägga till åtgärder med hjälp av den [åtgärdsgrupp – Azure Resource Manager-mall](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
-Aviseringsregler i en hanteringslösning består av följande tre olika resurser.
+För användare som utökar aviseringar till Azure, styrs nu åtgärder i Azure åtgärdsgrupper. När en arbets yta och dess aviseringar utökas till Azure kan du hämta eller lägga till åtgärder med hjälp av [Åtgärds gruppen-Azure Resource Manager mall](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
+Aviserings regler i en äldre hanterings lösning består av följande tre olika resurser.
 
-- **Sparad sökning.** Definierar loggsökningen som körs. Flera Varningsregler kan dela en sparad sökning.
-- **Schema.** Definierar hur ofta loggsökningen körs. Varje regel för varning har ett och endast ett schema.
-- **Aviseringsåtgärd.** Varje regel för varning har en åtgärd gruppresurs eller åtgärd resurs (äldre) med en typ av **avisering** som definierar information om aviseringen, till exempel kriterier för när en aviseringspost skapas och aviseringens allvarlighetsgrad. [Åtgärdsgrupp](../../azure-monitor/platform/action-groups.md) resursen kan ha en lista över konfigurerade åtgärder som ska vidtas när aviseringen utlöses – till exempel röstsamtal, SMS, e-post, webhook, ITSM-verktyg, automation-runbook, logikapp, osv.
+- **Sparad sökning.** Definierar loggs ökningen som körs. Flera varnings regler kan dela en enda Sparad sökning.
+- **Ange.** Definierar hur ofta loggs ökningen körs. Varje varnings regel har ett och endast ett schema.
+- **Aviserings åtgärd.** Varje varnings regel har en åtgärds grupp resurs eller åtgärds resurs (bakåtkompatibelt) med en typ av **avisering** som definierar information om aviseringen, till exempel villkoren för när en aviserings post skapas och aviseringens allvarlighets grad. En [Åtgärds grupp](../../azure-monitor/platform/action-groups.md) resurs kan ha en lista över konfigurerade åtgärder som ska vidtas när aviseringen utlöses, till exempel röst samtal, SMS, e-post, webhook, ITSM-verktyget, Automation Runbook, Logic app osv.
 
-Åtgärd-resursen (äldre) kommer du även definiera ett e-post och runbook-svar.
-- **Webhook-åtgärd (äldre).** Om regeln anropar en webhook, så det krävs en ytterligare åtgärd-resurs med en typ av **Webhook**.
+De sparade Sök resurserna beskrivs ovan. De andra resurserna beskrivs nedan.
 
-Sparad sökning resurser som beskrivs ovan. De övriga resurserna som beskrivs nedan.
+### <a name="schedule-resource"></a>Schemalägg resurs
 
-### <a name="schedule-resource"></a>Schema-resurs
-
-En sparad sökning kan ha ett eller flera scheman med ett schema som representerar en separat aviseringsregel. Schemat definierar hur ofta sökningen ska köras och det tidsintervall som data ska hämtas. Schemalägga resurser har en typ av `Microsoft.OperationalInsights/workspaces/savedSearches/schedules/` och har följande struktur. Detta inkluderar vanliga variabler och parametrar så att du kan kopiera och klistra in det här kodfragmentet i dina lösningsfilen och ändra parameternamnen.
+En sparad sökning kan ha ett eller flera scheman med varje schema som representerar en separat aviserings regel. Schemat definierar hur ofta sökningen körs och det tidsintervall under vilket data hämtas. Schemalägga resurser har en typ `Microsoft.OperationalInsights/workspaces/savedSearches/schedules/` av och har följande struktur. Detta inkluderar vanliga variabler och parametrar så att du kan kopiera och klistra in kodfragmentet i lösnings filen och ändra parameter namnen.
 
     {
         "name": "[concat(parameters('workspaceName'), '/', variables('SavedSearch').Name, '/', variables('Schedule').Name)]",
@@ -119,26 +115,25 @@ En sparad sökning kan ha ett eller flera scheman med ett schema som representer
             "enabled": "[variables('Schedule').Enabled]"
         }
     }
-Egenskaper för schema resurser beskrivs i följande tabell.
+Egenskaperna för schema resurser beskrivs i följande tabell.
 
 | Elementnamn | Krävs | description |
 |:--|:--|:--|
-| enabled       | Ja | Anger om aviseringen är aktiverad när den skapas. |
-| interval      | Ja | Hur ofta frågan körs på bara några minuter. |
-| queryTimeSpan | Ja | Lång tid i minuter under som du vill beräkna resultat. |
+| enabled       | Ja | Anger om aviseringen är aktive rad när den skapas. |
+| intervall      | Ja | Hur ofta frågan körs på några minuter. |
+| queryTimeSpan | Ja | Hur lång tid i minuter som resultatet ska utvärderas. |
 
-Schema-resurs bör beror på den sparade sökningen så att den har skapats innan schemat.
+Schema resursen bör vara beroende av den sparade sökningen så att den skapas före schemat.
 > [!NOTE]
-> Namn på schema måste vara unika i en viss arbetsyta; två scheman kan inte ha samma ID, även om de är associerade med olika sparade sökningar. Namnet på alla sparade sökningar, scheman och åtgärder som skapats med Log Analytics-API måste också vara med små bokstäver.
+> Schema namnet måste vara unikt på en specifik arbets yta. två scheman kan inte ha samma ID även om de är kopplade till olika sparade sökningar. Namn på alla sparade sökningar, scheman och åtgärder som skapats med Log Analytics API måste vara i gemener.
 
 ### <a name="actions"></a>Åtgärder
 Ett schema kan ha flera åtgärder. En åtgärd kan definiera en eller flera processer för att utföra, till exempel skickar ett e-postmeddelande eller starta en runbook eller den kan definiera ett tröskelvärde som bestämmer när resultatet av en sökning som matchar vissa kriterier. Vissa åtgärder kommer definiera både så att processerna som utförs när tröskelvärdet är uppfyllt.
-Åtgärder kan definieras med hjälp av [åtgärdsgrupp] eller åtgärd resurs.
-> [!NOTE]
-> Från och den 14 maj 2018 alla aviseringar i en offentliga Azure-molninstans av Log Analytics-arbetsyta som började automatiskt ska utöka till Azure. Mer information finns i [utöka aviseringarna till Azure](../../azure-monitor/platform/alerts-extend.md). För användare som utökar aviseringar till Azure, styrs nu åtgärder i Azure åtgärdsgrupper. När en arbetsyta och dess aviseringar har utökats till Azure, hämta eller lägga till åtgärder med hjälp av den [åtgärdsgrupp – Azure Resource Manager-mall](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
-Det finns två typer av åtgärden resursen som anges av den **typ** egenskapen. Ett schema som kräver en **avisering** åtgärd, som definierar varningsregeln och vilka åtgärder vidtas när en avisering skapas. Åtgärden resurser har en typ av `Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions`.
+Åtgärder kan definieras med hjälp av [åtgärds grupp] resurs eller åtgärds resurs.
 
-Aviseringsåtgärder har följande struktur. Detta inkluderar vanliga variabler och parametrar så att du kan kopiera och klistra in det här kodfragmentet i dina lösningsfilen och ändra parameternamnen.
+Det finns två typer av åtgärds resurser som anges av **typ** egenskapen. Ett schema kräver en **aviserings** åtgärd som definierar information om varnings regeln och vilka åtgärder som vidtas när en avisering skapas. Åtgärds resurser har en typ `Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions`av.
+
+Aviserings åtgärder har följande struktur. Detta inkluderar vanliga variabler och parametrar så att du kan kopiera och klistra in kodfragmentet i lösnings filen och ändra parameter namnen.
 
 ```json
 {
@@ -172,119 +167,61 @@ Aviseringsåtgärder har följande struktur. Detta inkluderar vanliga variabler 
 }
 ```
 
-Egenskaper för Aviseringsåtgärd resurser beskrivs i följande tabeller.
+Egenskaperna för aviserings åtgärds resurser beskrivs i följande tabeller.
 
 | Elementnamn | Krävs | description |
 |:--|:--|:--|
-| type | Ja | Typ av åtgärd.  Det här är **avisering** för aviseringsåtgärder. |
-| name | Ja | Visningsnamn för aviseringen.  Detta är det namn som visas i konsolen för regeln. |
+| type | Ja | Typ av åtgärd.  Detta är en **avisering** för aviserings åtgärder. |
+| name | Ja | Visningsnamn för aviseringen.  Detta är det namn som visas i konsolen för varnings regeln. |
 | description | Nej | Valfri beskrivning av aviseringen. |
-| severity | Ja | Allvarlighetsgrad för avisering posten bland följande värden:<br><br> **Kritiska**<br>**warning**<br>**informational**
+| severity | Ja | Allvarlighets grad för aviserings posten från följande värden:<br><br> **mindre**<br>**honom**<br>**informations**
 
 
 #### <a name="threshold"></a>Tröskelvärde
-Det här avsnittet är obligatoriskt. Den definierar egenskaperna för tröskelvärdet.
+Det här avsnittet är obligatoriskt. Den definierar egenskaperna för aviserings tröskelvärdet.
 
 | Elementnamn | Krävs | description |
 |:--|:--|:--|
-| Operator | Ja | Operator för jämförelse bland följande värden:<br><br>**gt = större än<br>lt = mindre än** |
-| Value | Ja | Värde att jämföra resultatet. |
+| Operator | Ja | Operator för jämförelsen från följande värden:<br><br>**gt = större än<br>lt = mindre än** |
+| Value | Ja | Värdet att jämföra resultaten. |
 
 ##### <a name="metricstrigger"></a>MetricsTrigger
-Det här avsnittet är valfritt. Tar med riskfaktorn för en avisering om metriska måttenheter.
-
-> [!NOTE]
-> Metrisk måttenhet aviseringar är för närvarande i offentlig förhandsversion.
+Det här avsnittet är valfritt. Ta med en mått mätnings avisering.
 
 | Elementnamn | Krävs | description |
 |:--|:--|:--|
-| TriggerCondition | Ja | Anger om tröskelvärdet för totalt antal överträdelser eller efterföljande överträdelser bland följande värden:<br><br>**Totalt antal<br>i följd** |
-| Operator | Ja | Operator för jämförelse bland följande värden:<br><br>**gt = större än<br>lt = mindre än** |
-| Value | Ja | Antal gånger villkoren måste vara uppfyllda för att utlösa aviseringen. |
+| TriggerCondition | Ja | Anger om tröskelvärdet gäller för det totala antalet överträdelser eller över flera överträdelser från följande värden:<br><br>**Totalt<br>antal i följd** |
+| Operator | Ja | Operator för jämförelsen från följande värden:<br><br>**gt = större än<br>lt = mindre än** |
+| Value | Ja | Antalet gånger som kriteriet måste uppfyllas för att utlösa aviseringen. |
 
 
 #### <a name="throttling"></a>Begränsning
-Det här avsnittet är valfritt. Inkludera det här avsnittet om du vill visa inga aviseringar från samma regel under en tidsperiod när en avisering har skapats.
+Det här avsnittet är valfritt. Inkludera det här avsnittet om du vill ignorera aviseringar från samma regel under en viss tid efter att en avisering har skapats.
 
 | Elementnamn | Krävs | description |
 |:--|:--|:--|
-| DurationInMinutes | Ja om begränsning element som ingår | Antal minuter för att visa inga aviseringar när en från samma regeln har skapats. |
+| DurationInMinutes | Ja om begränsnings element ingår | Antal minuter att ignorera aviseringar efter att en från samma aviserings regel har skapats. |
 
-#### <a name="azure-action-group"></a>Azure åtgärdsgrupp
+#### <a name="azure-action-group"></a>Azure-åtgärds grupp
 Alla aviseringar i Azure, använda åtgärdsgrupp som standardmekanism för att hantera åtgärder. Med åtgärdsgrupp kan du ange dina åtgärder en gång och sedan associerar åtgärdsgrupp att flera aviseringar – i Azure. Utan att behöva flera gånger deklarera samma åtgärder om och om igen. Åtgärdsgrupper stöd för flera åtgärder – inklusive e-post, SMS, röstsamtal, ITSM-anslutningen, Automation-Runbook, Webhook URI med mera.
 
-För användare som har utökat sin aviseringar i Azure – bör ett schema nu ha åtgärdsgrupp information skickas tillsammans med tröskelvärdet för att kunna skapa en avisering. Information om e-post, Webhook-URL: er, Runbook Automation-information och andra åtgärder måste vara definierade i sida en åtgärdsgrupp innan du kan skapa en avisering; går att skapa [åtgärdsgrupp från Azure Monitor](../../azure-monitor/platform/action-groups.md) i portalen eller Använd [åtgärdsgrupp - resursmall](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
+För användare som har utökat sin aviseringar i Azure – bör ett schema nu ha åtgärdsgrupp information skickas tillsammans med tröskelvärdet för att kunna skapa en avisering. E-postinformation, webhook-URL: er, information om Runbook-automatisering och andra åtgärder måste definieras på sidan en åtgärds grupp först innan en avisering skapas. en kan skapa en [Åtgärds grupp från Azure Monitor](../../azure-monitor/platform/action-groups.md) i portalen eller använda [Åtgärds grupp-resurs mal len](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
 
 | Elementnamn | Krävs | description |
 |:--|:--|:--|
-| AzNsNotification | Ja | Resurs-ID för Azure åtgärdsgruppen som ska associeras med aviseringen för att utföra nödvändiga åtgärder när aviseringsvillkoren uppfylls. |
-| CustomEmailSubject | Nej | Anpassade ämnesraden för e-postmeddelandet som skickas till alla adresser som anges i åtgärdsgruppen associerade. |
-| CustomWebhookPayload | Nej | Anpassad nyttolast som ska skickas till alla webhook-slutpunkter som definierats i associerade åtgärdsgruppen. Formatet är beroende av vad webhooken förväntar och bör vara en giltig serialiserade JSON. |
-
-#### <a name="actions-for-oms-legacy"></a>Åtgärder för OMS (äldre)
-
-Varje schema har en **avisering** åtgärd. Detta definierar information om aviseringen och eventuellt meddelande- och reparationsloggarna åtgärder. Ett meddelande skickas ett e-postmeddelande till en eller flera adresser. En reparation startar en runbook i Azure Automation att försöka åtgärda ett identifierat problem.
-
-> [!NOTE]
-> Från och den 14 maj 2018 alla aviseringar i en offentliga Azure-molninstans av Log Analytics-arbetsyta som började automatiskt ska utöka till Azure. Mer information finns i [utöka aviseringarna till Azure](../../azure-monitor/platform/alerts-extend.md). För användare som utökar aviseringar till Azure, styrs nu åtgärder i Azure åtgärdsgrupper. När en arbetsyta och dess aviseringar har utökats till Azure, hämta eller lägga till åtgärder med hjälp av den [åtgärdsgrupp – Azure Resource Manager-mall](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
-
-##### <a name="emailnotification"></a>EmailNotification
- Det här avsnittet är valfritt inkluderar den om du vill att aviseringen för att skicka e-post till en eller flera mottagare.
-
-| Elementnamn | Krävs | description |
-|:--|:--|:--|
-| Mottagare | Ja | Kommaavgränsad lista över e-postadresser för att skicka meddelande när en avisering skapas som i följande exempel.<br><br>**[ "recipient1\@contoso.com", "recipient2\@contoso.com" ]** |
-| Subject | Ja | Ämnesrad i e-postmeddelandet. |
-| Bifogad fil | Nej | Bifogade filer stöds inte för närvarande. Om det här elementet ingår, bör den vara **ingen**. |
-
-##### <a name="remediation"></a>Åtgärd
-Det här avsnittet är valfritt inkluderar den om du vill att en runbook startas som svar på aviseringen. 
-
-| Elementnamn | Krävs | description |
-|:--|:--|:--|
-| RunbookName | Ja | Namnet på runbook att starta. |
-| WebhookUri | Ja | URI för webhook för runbooken. |
-| Förfallodatum | Nej | Datum och tid då reparationen upphör att gälla. |
-
-##### <a name="webhook-actions"></a>Webhook-åtgärder
-
-Webhook-åtgärder kan du starta en process genom att anropa en URL och att du kan också tillhandahålla en nyttolast som ska skickas. De liknar åtgärder förutom de är avsedda för webhooks som kan anropa processer än Azure Automation-runbooks. Användaren kan även ange ytterligare alternativ för att tillhandahålla en nyttolast som ska levereras till fjärr-processen.
-
-Om aviseringen anropar en webhook, så måste en åtgärd-resurs med en typ av **Webhook** utöver den **avisering** åtgärd resurs.
-
-    {
-      "name": "name": "[concat(parameters('workspaceName'), '/', variables('SavedSearch').Name, '/', variables('Schedule').Name, '/', variables('Webhook').Name)]",
-      "type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions/",
-      "apiVersion": "[variables('LogAnalyticsApiVersion')]",
-      "dependsOn": [
-        "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'), '/savedSearches/', variables('SavedSearch').Name, '/schedules/', variables('Schedule').Name)]"
-      ],
-      "properties": {
-        "etag": "*",
-        "type": "[variables('Alert').Webhook.Type]",
-        "name": "[variables('Alert').Webhook.Name]",
-        "webhookUri": "[variables('Alert').Webhook.webhookUri]",
-        "customPayload": "[variables('Alert').Webhook.CustomPayLoad]"
-      }
-    }
-Egenskaper för Webhook-åtgärd resurser beskrivs i följande tabeller.
-
-| Elementnamn | Krävs | description |
-|:--|:--|:--|
-| type | Ja | Typ av åtgärd. Det här är **Webhook** för webhook-åtgärder. |
-| namn | Ja | Visningsnamn för åtgärden. Detta visas inte i konsolen. |
-| webhookUri | Ja | URI för webhook. |
-| customPayload | Nej | Anpassad nyttolast som ska skickas till webhooken. Formatet beror på vad webhooken förväntas. |
+| AzNsNotification | Ja | Resurs-ID för den Azure-åtgärds grupp som ska associeras med avisering för att vidta nödvändiga åtgärder när aviserings villkoret är uppfyllt. |
+| CustomEmailSubject | Nej | Anpassad ämnesrad för e-postmeddelandet som skickas till alla adresser som anges i den associerade åtgärds gruppen. |
+| CustomWebhookPayload | Nej | Anpassad nytto last som ska skickas till alla webhook-slutpunkter som definierats i den associerade åtgärds gruppen. Formatet beror på vad webhook förväntar sig och bör vara en giltig serialiserad JSON. |
 
 ## <a name="sample"></a>Exempel
 
-Nedan följer ett exempel på en lösning som innehåller följande resurser:
+Följande är ett exempel på en lösning som innehåller följande resurser:
 
 - Sparad sökning
 - Schema
 - Åtgärdsgrupp
 
-I exemplet används [standardlösning parametrar]( solutions-solution-file.md#parameters) variabler som ofta används i en lösning till skillnad från hardcoding värden i resursdefinitionerna.
+Exemplet använder variabler för standardlösnings [parametrar]( solutions-solution-file.md#parameters) som vanligt vis används i en lösning i stället för hårdkoda-värden i resurs definitionerna.
 
 ```json
 {
@@ -441,7 +378,7 @@ I exemplet används [standardlösning parametrar]( solutions-solution-file.md#pa
 }
 ```
 
-Följande parameterfilen ger exempel värden för den här lösningen.
+Följande parameter fil innehåller exempel värden för den här lösningen.
 
 ```json
 {
@@ -471,5 +408,5 @@ Följande parameterfilen ger exempel värden för den här lösningen.
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-* [Lägga till vyer](solutions-resources-views.md) till din lösning.
-* [Lägg till Automation-runbooks och andra resurser](solutions-resources-automation.md) till din lösning.
+* [Lägg till vyer](solutions-resources-views.md) i hanterings lösningen.
+* [Lägg till Automation-runbooks och andra resurser](solutions-resources-automation.md) i hanterings lösningen.

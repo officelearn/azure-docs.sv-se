@@ -1,7 +1,7 @@
 ---
-title: Hantera användardata med Konversationsdeltagare - Microsoft Cognitive Services | Microsoft Docs
+title: Hantera användar data med Conversation Learner-Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Lär dig hur du hanterar användardata med Konversationsdeltagare.
+description: Lär dig hur du hanterar användar data med Conversation Learner.
 services: cognitive-services
 author: nitinme
 manager: nolachar
@@ -10,36 +10,37 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: nitinme
-ms.openlocfilehash: 7ea0b246a16ff196a4160d9822b5db15cd39a4a6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ROBOTS: NOINDEX
+ms.openlocfilehash: 857e899764d284e2d78f1172fa8eeac04c57d618
+ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66385207"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68705202"
 ---
-# <a name="managing-user-data"></a>Hantera användardata
+# <a name="managing-user-data"></a>Hantera användar data
 
-Den här sidan beskriver vilka Molntjänsten Konversationsdeltagare loggar vid dialogrutor med slutanvändare.  Det beskriver också hur du associerar Konversationsdeltagare loggar med användar-ID, så att du kan hämta eller ta bort alla loggar som är associerade med en viss användare.
+Den här sidan beskriver vad Conversation Learner moln tjänsten loggar när du utför dialoger med slutanvändare.  Det beskriver också hur du associerar Conversation Learner loggar med användar-ID: n, så att du kan hämta eller ta bort alla loggar som är kopplade till en viss användare.
 
-## <a name="overview-of-end-user-data-logging"></a>Översikt över loggning av data för slutanvändare
+## <a name="overview-of-end-user-data-logging"></a>Översikt över loggning av slut användar data
 
-Som standard loggar Molntjänsten Konversationsdeltagare samverkan mellan användare och din robot.  Dessa loggar är viktiga för att förbättra din robot, så att du kan identifiera fall där din robot extraherade felaktig entitet eller valt felaktig åtgärd.  Dessa fel kan sedan korrigeras genom att gå till sidan ”Log-dialogrutor” i Användargränssnittet, att göra korrigeringar och lagra den här korrigerad dialogrutan som en ny train-dialogruta. Mer information finns i självstudiekursen på ”Log dialogrutor”.
+Som standard loggar Conversation Learner moln tjänsten interaktioner mellan slutanvändare och din robot.  Dessa loggar är viktiga för att förbättra din robot, så att du kan identifiera fall där din robot extraherade felaktig entitet eller valt felaktig åtgärd.  Felen kan sedan korrigeras genom att gå till sidan "Logga dialoger" i användar gränssnittet, göra ändringar och lagra den korrigerade dialog rutan som en ny träna-dialog ruta. Mer information finns i självstudierna i "Logga dialoger".
 
-## <a name="how-to-disable-logging"></a>Så här inaktiverar loggning
+## <a name="how-to-disable-logging"></a>Så här inaktiverar du loggning
 
-Du kan styra om konversationer med slutanvändare finns på sidan ”Inställningar” för din Konversationsdeltagare-modell.  Det finns en kryssruta för ”Log konversationer”.  Genom att avmarkera den här kryssrutan, loggas inte konversationer med användare.
+Du kan kontrol lera om konversationer med slutanvändare finns på sidan Inställningar för din Conversation Learners modell.  Det finns en kryss ruta för "logg konversationer".  Genom att avmarkera den här rutan loggas inte konversationer med slutanvändare.
 
-## <a name="what-is-logged"></a>Vad är inloggad 
+## <a name="what-is-logged"></a>Vad är loggat 
 
-I loggen dialogrutor lagrar Konversationsdeltagare indata från användaren, entitetsvärden, valda åtgärder och tidsstämplar för varje gång.  Dessa loggar lagras under en viss tidsperiod, och sedan tas bort (finns på hjälpsidan på ”standardvärdet och gränser” mer information).  
+I dialog rutor i loggar Conversation Learner lagrar användarindata, enhets värden, valda åtgärder och tidsstämplar för varje tur.  Dessa loggar lagras under en viss tids period och ignoreras sedan (se hjälp sidan för "standardvärde och gränser" för information).  
 
-Konversationsdeltagare skapar ett unikt ID för varje loggade dialogrutan.  Konversationsdeltagare har *inte* lagra användar-ID med loggade dialogrutor.  
+Conversation Learner skapar ett unikt ID för varje loggad dialog ruta.  Conversation Learner lagrar *inte* en användar identifierare med loggade dialog rutor.  
 
-## <a name="associating-logged-dialogs-with-a-user-id"></a>Associera loggas dialogrutor med ett användar-ID
+## <a name="associating-logged-dialogs-with-a-user-id"></a>Associera loggade dialog rutor med ett användar-ID
 
-Ofta är det viktigt att du kan associera loggade dialogrutor med ID för användaren – till exempel, för att kunna hämta eller ta bort loggade dialogrutor från en viss användare.  Eftersom Konversationsdeltagare inte lagrar användar-ID, måste den här associationen utvecklarens kod ska behållas.  
+Det är ofta viktigt att kunna associera loggade dialog rutor med ID: t för användaren, till exempel för att kunna hämta eller ta bort Inloggade dialog rutor från en viss användare.  Eftersom Conversation Learner inte lagrar en användar identifierare måste den här associationen upprätthållas av utvecklarens kod.  
 
-Hämta ID i dialogrutan loggas i för att skapa den här mappningen `EntityDetectionCallback`; sedan lagrar associationen mellan användar-ID och den här dialogrutan som loggas i din robot-lagring.  
+Om du vill skapa den här mappningen hämtar du ID: t `EntityDetectionCallback`för den loggade dialog rutan i. sedan kan du lagra associationen mellan användar-ID och den här loggade dialog rutan i robotens lagring.  
 
 ```
 cl.EntityDetectionCallback(async (text: string, memoryManager: ClientMemoryManager): Promise<void> => {
@@ -65,61 +66,61 @@ cl.EntityDetectionCallback(async (text: string, memoryManager: ClientMemoryManag
 
 ## <a name="headers-for-http-calls"></a>Rubriker för HTTP-anrop
 
-Lägg till följande huvud i var och en av HTTP-anrop nedan:
+I vart och ett av HTTP-anropen nedan lägger du till följande huvud:
 
 ```
 Ocp-Apim-Subscription-Key=<LUIS_AUTHORING_KEY>
 ```
 
-där `<LUIS_AUTHORING_KEY>` är LUIS redigering av nyckel som används för att få åtkomst till dina konversationen Learner program.
+där `<LUIS_AUTHORING_KEY>` är redigerings nyckeln för Luis som används för att komma åt dina Conversation Learner-program.
 
-## <a name="how-to-obtain-raw-data-for-a-logged-dialog"></a>Hur du skaffar rådata för en loggade dialogruta
+## <a name="how-to-obtain-raw-data-for-a-logged-dialog"></a>Hämta rå data för en loggad dialog ruta
 
-Du kan använda den här HTTP-anrop för att hämta rådata för en logg-dialogruta:
+Du kan använda detta HTTP-anrop för att hämta rå data för en logg dialog ruta:
 
 ```
 GET https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/app/<appId>/logdialog/<logDialogId>
 ```
 
-Där `<appId>` är GUID för den här Konversationsdeltagare-modellen och `<logDialgoId>` är ID för log-dialogrutan som du vill hämta.  
+Där `<appId>` är GUID för den här Conversation Learner modellen och `<logDialgoId>` är ID: t för logg dialog rutan som du vill hämta.  
 
 > [!NOTE]
-> Log dialogrutor kan redigeras av utvecklaren och sedan lagras som tränar dialogrutor.  När det är klart, lagrar Konversationsdeltagare ID för ”källa” log dialogen med train-dialogrutan.  Dessutom kan kan en dialogruta för träna vara ”förgrenade” i Användargränssnittet för; Om en dialogruta för träna har en associerad källa log dialog-ID, kommer grenar från dialogrutan träna markeras med samma log dialogrutan ID.
+> Logg dialog rutor kan redige ras av utvecklaren och sedan lagras som träna dialog rutor.  När detta är slutfört lagrar Conversation Learner ID: t för "källa"-logg dialog rutan med träna-dialog rutan.  Dessutom kan en träna-dialog ruta bli "branchd" i användar gränssnittet. om en träna-dialog ruta har ett associerat dialog-ID för käll loggen, markeras grenar från den träna-dialog rutan med samma logg dialog-ID.
 
-Följ dessa steg om du vill hämta alla träna dialogrutor som skapats från en log-dialogruta.
+Följ dessa steg om du vill hämta alla träna dialog rutor som har härletts från en logg dialog.
 
-Först hämta alla träna dialogrutor:
+Börja med att hämta alla träna dialog rutor:
 
 ```
 GET https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/app/<appId>/traindialogs
 ```
 
-Där `<appId>` är GUID för den här Konversationsdeltagare-modellen.  
+Där `<appId>` är GUID för den här Conversation learners modellen.  
 
-Det här returnerar alla träna dialogrutor.  Sök efter den här listan för den associerade `sourceLogDialogId`, och notera den associerade `trainDialogId`. 
+Detta returnerar alla träna-dialog rutor.  Sök i den här listan efter `sourceLogDialogId`associerade och anteckna associerade. `trainDialogId` 
 
-Träna dialogrutan efter ID till en enda:
+Till en enda träna-dialog efter ID:
 
 ```
 GET https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/app/<appId>/traindialog/<trainDialogId>
 ```
 
-Där `<appId>` är GUID för den här Konversationsdeltagare-modellen och `<trainDialogId>` är ID för dialogrutan träna som du vill hämta.  
+Där `<appId>` är GUID för den här Conversation Learner modellen och `<trainDialogId>` är ID: t för den träna-dialog som du vill hämta.  
 
-## <a name="how-to-delete-a-logged-dialog"></a>Hur du tar bort en loggade dialogruta
+## <a name="how-to-delete-a-logged-dialog"></a>Så här tar du bort en loggad dialog ruta
 
-Om du vill ta bort en log-dialogruta beroende dess ID, kan du använda den här HTTP-anrop:
+Om du vill ta bort en logg dialog ruta med ett ID kan du använda HTTP-anropet:
 
 ```
 DELETE https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/app/<appId>/logdialog/<logDialogId>
 ```
 
-Där `<appId>` är GUID för den här Konversationsdeltagare-modellen och `<logDialogId>` är ID för log-dialogrutan som du vill ta bort. 
+Där `<appId>` är GUID för den här Conversation Learner modellen och `<logDialogId>` är ID: t för logg dialog rutan som du vill ta bort. 
 
-Om du vill ta bort en träna dialogruta beroende dess ID, kan du använda den här HTTP-anrop:
+Om du vill ta bort en dialog ruta för ett tränat ID kan du använda HTTP-anropet:
 
 ```
 DELETE https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/app/<appId>/traindialog/<trainDialogId>
 ```
 
-Där `<appId>` är GUID för den här Konversationsdeltagare-modellen och `<trainDialogId>` är ID för dialogrutan träna som du vill ta bort. 
+Där `<appId>` är GUID för den här Conversation Learner modellen och `<trainDialogId>` är ID: t för den träna-dialog som du vill ta bort. 

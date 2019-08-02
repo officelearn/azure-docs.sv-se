@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 09/24/2018
 ms.author: iainfou
 ms.openlocfilehash: 2135a3a5a8f14cf6c2e7fd2984d9b221e2445c1d
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68309513"
 ---
 # <a name="use-azure-container-registry-as-a-helm-repository-for-your-application-charts"></a>Använda Azure Container Registry som Helm-lagringsplats för dina program diagram
@@ -31,7 +31,7 @@ Den här artikeln visar hur du använder en Helm-databas lagring som lagras i Az
 För att slutföra stegen i den här artikeln måste följande krav vara uppfyllda:
 
 - **Azure Container Registry** – skapa ett behållar register i din Azure-prenumeration. Använd till exempel [Azure Portal](container-registry-get-started-portal.md) eller [Azure CLI](container-registry-get-started-azure-cli.md).
-- **Helm klient version 2.11.0 (inte en RC-version) eller senare** – `helm version` kör för att hitta din aktuella version. Du behöver också en Helm-Server (till gång) som initierats i ett Kubernetes-kluster. Om det behövs kan du [skapa ett Azure Kubernetes service-kluster][aks-quickstart]. For more information on how to install and upgrade Helm, see [Installing Helm][helm-install].
+- **Helm klient version 2.11.0 (inte en RC-version) eller senare** – `helm version` kör för att hitta din aktuella version. Du behöver också en Helm-Server (till gång) som initierats i ett Kubernetes-kluster. Om det behövs kan du [skapa ett Azure Kubernetes service-kluster][aks-quickstart]. Mer information om hur du installerar och uppgraderar Helm finns i [Installera Helm][helm-install].
 - **Azure CLI version 2.0.46 eller senare** – kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
 
 ## <a name="add-a-repository-to-helm-client"></a>Lägga till en lagrings plats i Helm-klienten
@@ -69,7 +69,7 @@ mkdir ~/acr-helm && cd ~/acr-helm
 helm fetch stable/wordpress
 ```
 
-Ange det hämtade diagrammet och anteckna WordPress-versionen som ingår i fil namnet. Kommandot angav inte någon särskild version, så den senaste versionen hämtades.  `helm fetch stable/wordpress` Alla Helm-diagram innehåller ett versions nummer i fil namnet som följer [SemVer 2][semver2] -standarden. I följande exempel utdata är WordPress-diagrammet version *2.1.10*:
+Ange det hämtade diagrammet och anteckna WordPress-versionen som ingår i fil namnet. Kommandot angav inte någon särskild version, så den senaste versionen hämtades. `helm fetch stable/wordpress` Alla Helm-diagram innehåller ett versions nummer i fil namnet som följer [SemVer 2][semver2] -standarden. I följande exempel utdata är WordPress-diagrammet version *2.1.10*:
 
 ```
 $ ls

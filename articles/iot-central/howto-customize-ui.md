@@ -1,6 +1,6 @@
 ---
-title: Anpassa Azure IoT Central Användargränssnittet | Microsoft Docs
-description: Hur du anpassar tema och hjälper dig att länkar till din Azure IoT central-App
+title: Anpassa Azure IoT Central-ANVÄNDARGRÄNSSNITTET | Microsoft Docs
+description: Anpassa temat och hjälp Länkar för ditt Azure IoT Central-program
 author: dominicbetts
 ms.author: dobett
 ms.date: 04/25/2019
@@ -8,72 +8,72 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 4d385f1e8c883453b4153ca4c9119d3be0a608bb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cef0014fb47aeddcad785fb3f938ab928964a942
+ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66495564"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68725714"
 ---
 # <a name="customize-the-azure-iot-central-ui"></a>Anpassa Azure IoT Central UI 
 
-*Den här artikeln gäller för administratörer.*
+Den här artikeln beskriver hur du, som administratör, kan anpassa användar gränssnittet för ditt program genom att använda anpassade teman och ändra hjälp länkar så att de pekar på dina egna anpassade hjälp resurser. 
 
-IoT Central kan du anpassa Användargränssnittet för ditt program genom att använda anpassade teman och ändra hjälplänkar så att den pekar till dina egna anpassade hjälpresurser. I följande skärmbild visas en sida med standard temat:
+På följande skärm bild visas en sida med standard temat:
 
 ![Standard IoT Central-tema](./media/howto-customize-ui/standard-ui.png)
 
-I följande skärmbild visas en sida med en anpassad skärmbild med de anpassade UI-element som är markerade:
+På följande skärm bild visas en sida med en anpassad skärm bild med de anpassade GRÄNSSNITTs elementen markerade:
 
-![Anpassat IoT Central tema](./media/howto-customize-ui/themed-ui.png)
+![Anpassat IoT Central-tema](./media/howto-customize-ui/themed-ui.png)
 
 ## <a name="create-theme"></a>Skapa tema
 
-Skapa ett anpassat tema, gå till den **anpassa programmet** sidan i den **Administration** avsnittet:
+Om du vill skapa ett anpassat tema navigerar du till sidan **Anpassa ditt program** i avsnittet **Administration** :
 
 ![IoT Central teman](./media/howto-customize-ui/themes.png)
 
-Du kan anpassa följande aspekter av ditt program på den här sidan:
+På den här sidan kan du anpassa följande aspekter av ditt program:
 
-### <a name="application-logo"></a>Programlogotyp
+### <a name="application-logo"></a>Program logo typ
 
-En PNG-bild, inte är större än 1 MB, med en genomskinlig bakgrund. Den här logotypen visas till vänster i namnlisten för IoT Central-programmet.
+En PNG-bild, som inte är större än 1 MB, med en genomskinlig bakgrund. Logo typen visas till vänster i namn listen för IoT Centrals programmet.
 
-Om logotypen innehåller namnet på ditt program kan dölja du program namn text. Mer information finns i [Hantera tillämpningsinställningar](./howto-administer.md#manage-application-settings).
+Om logo typens bild innehåller namnet på ditt program kan du dölja texten i program namnet. Mer information finns i [Hantera ditt program](./howto-administer.md#change-application-name-and-url).
 
-### <a name="browser-icon-favicon"></a>Bläddringsikonen (favicon)
+### <a name="browser-icon-favicon"></a>Webb läsar ikon (favicon)
 
-En PNG-bild, inte är större än 32 x 32 bildpunkter med genomskinlig bakgrund. En webbläsare kan använda den här avbildningen i adressfältet, tidigare, bokmärken och flik i webbläsaren.
+En PNG-bild, inte större än 32 x 32 pixlar, med en genomskinlig bakgrund. En webbläsare kan använda den här avbildningen i adress fältet, historik, bok märken och fliken webbläsare.
 
-### <a name="browser-colors"></a>Webbläsarfärger
+### <a name="browser-colors"></a>Webb läsar färger
 
-Du kan ändra färg på sidhuvudet och den färg som används för accenting knappar och andra viktiga funktioner. Använda ett värde för sex tecken hexadecimal färg i formatet `##ff6347`. Mer information om **HEX värdet** färg notation, se [HTML färger](https://www.w3schools.com/html/html_colors.asp).
+Du kan ändra färg på sidhuvudet och färgen som används för accent knappar och andra höjd punkter. Använd ett hexadecimalt färg värde med sex bokstäver i `##ff6347`formatet. Mer information om färg notation för **HEX-värde** finns i [HTML-färger](https://www.w3schools.com/html/html_colors.asp).
 
 > [!NOTE]
-> Du kan alltid återgå till standardalternativen på den **anpassa programmet** sidan.
+> Du kan alltid återgå till standard alternativen på sidan **Anpassa ditt program** .
 
 ### <a name="changes-for-operators"></a>Ändringar för operatörer
 
-Om en administratör skapar ett anpassat tema operatörer och användare av ditt program kan inte längre och välj sedan ett tema i **inställningar**.
+Om en administratör skapar ett anpassat tema kan operatörer och andra användare av programmet inte längre välja ett tema i **Inställningar**.
 
-## <a name="replace-help-links"></a>Ersätt hjälplänkar
+## <a name="replace-help-links"></a>Ersätt hjälp länkar
 
-För att tillhandahålla anpassade hjälpinformation åt dina operatörer och användare, kan du ändra länkarna på programmet **hjälpa** menyn.
+Om du vill tillhandahålla anpassad hjälp information till dina operatörer och andra användare kan du ändra länkarna på programmets **Hjälp** -meny.
 
-Om du vill ändra hjälplänkar, navigera till den **Anpassa hjälp** sidan i den **Administration** avsnittet:
+Om du vill ändra hjälp länkarna navigerar du till sidan **Anpassa hjälp** i avsnittet **Administration** :
 
-![Anpassa länkar i IoT Central](./media/howto-customize-ui/help-links.png)
+![Anpassa IoT Central hjälp länkar](./media/howto-customize-ui/help-links.png)
 
-Du kan också lägga till nya poster i Hjälp-menyn och ta bort standardposter:
+Du kan också lägga till nya poster på Hjälp-menyn och ta bort standard poster:
 
-![Anpassad IoT Central-hjälp](./media/howto-customize-ui/custom-help.png)
+![Anpassad IoT Central hjälp](./media/howto-customize-ui/custom-help.png)
 
 > [!NOTE]
-> Du kan alltid återgå till standard hjälplänkar på den **Anpassa hjälp** sidan.
+> Du kan alltid återgå till standard hjälp länkarna på sidan **Anpassa hjälp** .
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har lärt dig hur du anpassar Användargränssnittet i ditt IoT Central-program, är här några nästa föreslagna steg:
+Nu när du har lärt dig hur du anpassar användar gränssnittet i ditt IoT Central-program, är det här några förslag på nästa steg:
 
 - [Administrera ditt program](./howto-administer.md)
-- [Konfigurera instrumentpanel för program](./howto-configure-homepage.md)
+- [Konfigurera program instrument panelen](./howto-configure-homepage.md)

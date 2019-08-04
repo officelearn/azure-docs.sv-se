@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 4350cc215c776317d3bde24c7561c317a31fb4c3
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 53f8742df0a03327069da083e6cb46a7c03118c1
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68321876"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68773068"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>Självstudier: Köra en parallell arbetsbelastning med Azure Batch med hjälp av .NET API:et
 
@@ -175,7 +175,7 @@ Sedan laddas filerna upp till containern för indata från den lokala mappen `In
 
 Två metoder i `Program.cs` hanterar uppladdningen av filerna:
 
-* `UploadResourceFilesToContainerAsync`: Returnerar en samling ResourceFile-objekt och anropar `UploadResourceFileToContainerAsync` internt för att ladda upp varje fil som skickas i parametern `inputFilePaths`.
+* `UploadFilesToContainerAsync`: Returnerar en samling ResourceFile-objekt och anropar `UploadResourceFileToContainerAsync` internt för att ladda upp varje fil som skickas i parametern `inputFilePaths`.
 * `UploadResourceFileToContainerAsync`: Laddar upp varje fil som en blob till indatacontainern. När filen har laddats upp hämtar den en signatur för delad åtkomst (SAS) för bloben och returnerar ett ResourceFile-objekt som representerar den.
 
 ```csharp
@@ -184,7 +184,7 @@ string inputPath = Path.Combine(Environment.CurrentDirectory, "InputFiles");
 List<string> inputFilePaths = new List<string>(Directory.GetFileSystemEntries(inputPath, "*.mp4",
     SearchOption.TopDirectoryOnly));
 
-List<ResourceFile> inputFiles = await UploadResourceFilesToContainerAsync(
+List<ResourceFile> inputFiles = await UploadFilesToContainerAsync(
   blobClient,
   inputContainerName,
   inputFilePaths);

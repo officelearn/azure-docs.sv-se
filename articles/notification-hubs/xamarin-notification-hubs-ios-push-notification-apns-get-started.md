@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 05/23/2019
 ms.author: jowargo
-ms.openlocfilehash: baf7d5bdb156cc85a06ea2e315caca87832f3810
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: ba392f69c0c5803768a04b94d9f9c0ed4f032fbf
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742514"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68775028"
 ---
 # <a name="tutorial-push-notifications-to-xamarinios-apps-using-azure-notification-hubs"></a>Självstudier: Skicka push-meddelanden till Xamarin.iOS-appar med hjälp av Azure Notification Hubs
 
@@ -56,25 +56,6 @@ I den här självstudiekursen får du skapa/uppdatera kod för att utföra följ
 Du måste slutföra den här självstudiekursen innan du påbörjar någon annan kurs om Notification Hubs för Xamarin.iOS-appar.
 
 [!INCLUDE [Notification Hubs Enable Apple Push Notifications](../../includes/notification-hubs-enable-apple-push-notifications.md)]
-
-## <a name="configure-your-notification-hub-for-ios-push-notifications"></a>Konfigurera din meddelandehubb för att skicka push-meddelanden till iOS
-
-Det här avsnittet vägleder dig genom stegen för att skapa en ny meddelandehubb och konfigurera autentisering med APNs med hjälp av push-certifikatet **.p12** som du har skapat tidigare. Om du vill använda en meddelandehubb som du redan har skapat går du vidare till steg 5.
-
-[!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
-
-### <a name="configure-ios-settings-for-the-notification-hub"></a>Konfigurera iOS-inställningar för meddelandehubben
-
-1. Välj **Apple (APNS)** i gruppen **MEDDELANDEINSTÄLLNINGAR**.
-2. Välj **Certifikat**, klicka på **fil**ikonen och välj den **.p12**-fil som du exporterade tidigare.
-3. Lägg också till certifikatets **lösenord**.
-4. Välj **Sandbox**-läge. Använd läget **Produktion** enbart om du vill skicka push-meddelanden till användare som har köpt din app i butiken.
-
-    ![Konfigurera APNs i Azure-portalen][6]
-
-    ![Konfigurera APNs-certifikat i Azure-portalen][7]
-
-Din meddelandehubb har nu konfigurerats för att fungera med APNs och du har anslutningssträngar för att registrera din app och skicka push-meddelanden.
 
 ## <a name="connect-your-app-to-the-notification-hub"></a>Anslut appen till meddelandehubben
 

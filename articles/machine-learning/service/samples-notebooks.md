@@ -11,12 +11,12 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 07/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7fdf9c52df502bc94519ab6c65be2e9fb546ce48
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: e5088cfa417c76933be6785188f2b173b7b461d0
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699140"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68772579"
 ---
 # <a name="explore-azure-machine-learning-service-with-jupyter-notebooks"></a>Utforska Azure Machine Learning-tjänsten med Jupyter-anteckningsböcker
 
@@ -35,7 +35,7 @@ Den här artikeln visar hur du kommer åt databasen från följande miljöer:
 <a name="notebookvm"></a>
 ## <a name="get-samples-on-azure-machine-learning-notebook-vm"></a>Hämta exempel på Azure Machine Learning Notebook VM
 
-Det enklaste sättet att komma igång med exemplen är att slutföra den [molnbaserade snabb starten för bärbara datorer](quickstart-run-cloud-notebook.md). När du är klar har du en dedikerad Notebook-server som är förinstallerad med SDK och exempel lagrings plats. Inga hämtningar eller installationer krävs.
+Det enklaste sättet att komma igång med exemplen är att slutföra [självstudien: Installations miljö och arbets](tutorial-1st-experiment-sdk-setup.md)yta. När du är klar har du en dedikerad Notebook-server som är förinstallerad med SDK och exempel lagrings plats. Inga hämtningar eller installationer krävs.
 
 <a name="byo"></a>
 

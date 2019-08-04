@@ -11,12 +11,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: a164276d41d182c5b439efc691d80693f1ac831e
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 2bc036fcde7ac541dbf7d8511f82080e52135777
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360127"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68772627"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>Vad hände med Azure Machine Learning Workbench?
 
@@ -120,8 +120,8 @@ Domänpaketen för visuellt innehåll, textanalys och prognostisering kan inte a
 
 Lär dig mer om den [senaste arkitekturen för Azure Machine Learning Service](concept-azure-machine-learning-architecture.md). 
 
-En översikt över tjänsten finns i [Vad är tjänsten Azure Machine Learning?](overview-what-is-azure-ml.md)
+En översikt över tjänsten finns i [Vad är Azure Machine Learning tjänst?](overview-what-is-azure-ml.md).
 
-För en snabb start som visar hur du kör ett skript och utforskar körnings historiken för skriptet med den senaste versionen av Azure Machine Learning-tjänsten kan du försöka [komma igång med Azure Machine Learning-tjänsten](quickstart-run-cloud-notebook.md).
+Skapa ditt första experiment med självstudierna i två delar för att [Konfigurera miljön och arbets ytan](tutorial-1st-experiment-sdk-setup.md) och [träna din första modell](tutorial-1st-experiment-sdk-train.md)
 
 För en mer ingående beskrivning av det här arbetsflödet kan du följa den [fullständiga självstudien](tutorial-train-models-with-aml.md), som innehåller detaljerade anvisningar för att träna och distribuera modeller med Azure Machine Learning-tjänsten. 

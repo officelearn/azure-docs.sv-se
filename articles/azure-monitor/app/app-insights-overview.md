@@ -13,18 +13,18 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 06/03/2019
 ms.author: mbullwin
-ms.openlocfilehash: 5e42c36e6a321775e6017a2318857e20b7dcaf0d
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: d702b2f76531bad53e3fd98645d2b6bbf0582c54
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876466"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774727"
 ---
 # <a name="what-is-application-insights"></a>Vad är Application Insights?
 Application Insights är en utökningsbar APM-tjänst (Application Performance Management) för webbutvecklare på flera plattformar. Du kan använda den för att övervaka ditt live-webbprogram. Den identifierar automatiskt prestandaavvikelser. Den inkluderar kraftfulla analysverktyg för att hjälpa dig diagnosticera problem och förstå vad användare faktiskt gör med din app.  Den hjälper dig att kontinuerligt förbättra prestanda och användbarhet. Den fungerar för appar på en rad olika plattformar såsom .NET, Node.js och Java EE i lokala infrastrukturer, hybridkonfigurationer och offentliga moln. Den integrerar med din DevOps-process och kan användas med en rad olika utvecklingsverktyg. Den kan övervaka och analysera telemetri från mobilappar genom integrering med Visual Studio App Center.
 
 ## <a name="how-does-application-insights-work"></a>Hur fungerar Application Insights?
-Du installerar ett litet instrumentationspaket i ditt program och konfigurerar en Application Insights-resurs på Microsoft Azure Portal. Instrumentationen övervakar din app och skickar telemetridata till portalen. (Programmet kan köras överallt – det behöver inte finnas i Azure.)
+Du installerar ett litet instrumentationspaket i ditt program och konfigurerar en Application Insights-resurs på Microsoft Azure Portal. Instrumentation övervakar din app och skickar telemetridata till Azure Monitor. (Programmet kan köras överallt – det behöver inte finnas i Azure.)
 
 Förutom att instrumentera webbtjänstprogrammet kan du även instrumentera bakgrundskomponenter och JavaScript-koden på själva webbsidorna. 
 
@@ -32,8 +32,7 @@ Förutom att instrumentera webbtjänstprogrammet kan du även instrumentera bakg
 
 Du kan också hämta telemetri från värdmiljöerna, t.ex. prestandaräknare, Azure Diagnostics eller Docker-loggar. Du kan även konfigurera webbtester som regelbundet skickar syntetiska förfrågningar till din webbtjänst.
 
-Alla dessa telemetriströmmar är integrerade på Azure Portal, där du kan använda kraftfulla analys- och sökverktyg med dina rådata.
-
+Alla dessa telemetri strömmar är integrerade i Azure Monitor. I Azure Portal kan du använda kraftfulla analys-och sökverktyg för rå data.
 
 ### <a name="whats-the-overhead"></a>Hur påverkas prestanda?
 Effekten på din apps prestanda är mycket liten. Anropsspårning är icke-blockerande, och grupperas och skickas i en separat tråd.
@@ -141,7 +140,7 @@ Kom igång under utvecklingsfasen med:
 * Blogg:
   * [Application Insights-blogg](https://azure.microsoft.com/blog/tag/application-insights)
 
-## <a name="videos"></a>Videoklipp
+## <a name="videos"></a>Videor
 
 - Extern video: [konfigurera Application Insights med ett ASP.NET-program](https://www.youtube.com/watch?v=blnGAVgMAfA).
 - Extern video: [konfigurera Application Insights med ASP.net Core och Visual Studio](https://www.youtube.com/watch?v=NoS9UhcR4gA&t).

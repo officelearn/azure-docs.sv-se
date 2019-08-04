@@ -1,7 +1,7 @@
 ---
 title: 'Självstudier: Installations miljö och arbets yta.'
 titleSuffix: Azure Machine Learning service
-description: I den här självstudien slutför du stegen från slut punkt till slut punkt för att komma igång med Azure Machine Learning python SDK som körs i Jupyter Notebooks.
+description: I den här själv studie serien slutför du stegen från slut punkt till slut punkt för att komma igång med Azure Machine Learning python SDK som körs i Jupyter Notebooks.  Del ett omfattar att skapa en bärbar Server miljö för molnet och att skapa en arbets yta för att hantera experiment-och maskin inlärnings modeller.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 07/20/2019
-ms.openlocfilehash: e17d9286453aeb5c7eac688555177c2c42faad21
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: baeb175c57573e557d298ff3197394ab619434ff
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668632"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68772636"
 ---
 # <a name="tutorial-setup-environment-and-workspace"></a>Självstudier: Installations miljö och arbets yta
 
@@ -25,7 +25,7 @@ I den här kursen för du göra följande:
 
 > [!div class="checklist"]
 > * Skapa en Machine Learning-arbetsyta som ska användas i nästa självstudie.
-> * Skapa en moln antecknings boks Server miljö.
+> * Skapa en virtuell dator för Notebook, en molnbaserad Jupyter Notebook-server med Azure Machine Learning python SDK förinstallerat och förkonfigurerat.
 
 ## <a name="prerequisites"></a>Förutsättningar
 

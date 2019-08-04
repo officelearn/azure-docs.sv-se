@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: overview
 ms.date: 6/12/2019
 ms.author: victorh
-ms.openlocfilehash: 35a4c7410b36e9716d2ee9625ed98fcc34043e58
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: 0921a1ac7aa1192fae78f168c2eb51ee3e74e24a
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742468"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774609"
 ---
 # <a name="what-is-azure-private-dns"></a>Vad är Azure Privat DNS?
 
@@ -71,10 +71,11 @@ Följande objekt är kända buggar och problem i för hands versionen:
 
 Azure DNS har följande begränsningar:
 
-* Ett enskilt virtuellt nätverk kan bara länkas till en privat zon som om automatisk registrering av VM DNS-poster är aktiverat. Du kan dock länka flera virtuella nätverk till en enda DNS-zon.
+* Ett enskilt virtuellt nätverk kan bara länkas till en privat zon om automatisk registrering av VM DNS-poster är aktiverat. Du kan dock länka flera virtuella nätverk till en enda DNS-zon.
 * Omvänd DNS fungerar endast för privat IP-utrymme i det länkade virtuella nätverket
 * Omvänd DNS för en privat IP-adress för ett länkat virtuellt nätverk returnerar "internal.cloudapp.net" som standard suffix för den virtuella datorn. För virtuella nätverk som är länkade till en privat zon där autoregistrering är aktiverat returnerar omvänd DNS för en privat IP-adress 2 FQDN, en med standardsuffixet *Internal.cloudapp.net* och en annan med den privata zonens suffix.
-* Villkorlig vidarebefordran stöds inte internt för tillfället. För att aktivera matchning mellan Azure och lokala nätverk. Se [namn matchning för virtuella datorer och roll instanser](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)
+* Villkorlig vidarebefordran stöds inte internt för tillfället. Information om hur du aktiverar matchning mellan Azure och lokala nätverk finns i [namn matchning för virtuella datorer och roll instanser](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
+
  
 ## <a name="pricing"></a>Prissättning
 

@@ -536,6 +536,8 @@
           href: how-to-schedule-azure-ssis-integration-runtime.md
         - name: Anslut Azure-SSIS IR till ett virtuellt nätverk
           href: join-azure-ssis-integration-runtime-virtual-network.md
+        - name: Konfigurera lokalt installerad IR som en proxy för Azure-SSIS IR
+          href: self-hosted-integration-runtime-proxy-ssis.md
         - name: Aktivera Azure AD-autentisering för Azure-SSIS IR
           href: enable-aad-authentication-azure-ssis-ir.md
         - name: Etablera Enterprise Edition för Azure-SSIS IR

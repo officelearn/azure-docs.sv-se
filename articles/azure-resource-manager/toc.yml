@@ -87,6 +87,8 @@
       items:
         - name: Skapa mallen
           href: how-to-create-template.md
+        - name: Underordnat resursnamn och typ
+          href: child-resource-name-type.md
         - name: Skapa resursgrupper och resurser i prenumerationen
           displayName: subscription level deployment
           href: deploy-to-subscription.md

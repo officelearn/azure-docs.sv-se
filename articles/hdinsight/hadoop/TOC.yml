@@ -56,6 +56,8 @@
       maintainContext: true
     - name: Felsöka
       items:
+        - name: Det går inte att logga in i HDInsight-kluster
+          href: ./hdinsight-troubleshoot-unable-log-in-cluster.md
         - name: Det går inte att lägga till noder i HDInsight-kluster
           href: ./hdinsight-troubleshoot-unable-add-nodes.md
         - name: InvalidNetworkSecurityGroupSecurityRules – det går inte att skapa kluster

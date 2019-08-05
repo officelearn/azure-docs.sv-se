@@ -36,6 +36,26 @@ sections:
           - html: <a href="service/quickstart-run-local-notebook">Köra ett experiment med hjälp av en lokal notebook-server</a> (installation av lokal SDK)
         style: unordered
         type: list
+      - text: '<b>Självstudier: Träna och distribuera din första automatiserade ML-modell i Azure Portal:</b>'
+        type: paragraph
+      - items:
+          - html: <a href="service/tutorial-first-experiment-automated-ml">Använd automatiserad maskininlärning för att träna och distribuera din första klassificeringsmodell</a>
+        style: unordered
+        type: list
+      - text: '<b>Självstudier: Träna din första ML-modell med SDK:</b>'
+        type: paragraph
+      - items:
+          - html: 'Del 1: <a href="service/tutorial-1st-experiment-sdk-setup">Konfigurera miljö och arbetsyta</a>'
+          - html: 'Del 2: <a href="service/tutorial-1st-experiment-sdk-train">Träna din första modell</a>'
+        style: unordered
+        type: list
+      - text: '<b>Självstudier: Träna och distribuera ditt första experiment med visuellt gränssnitt:</b>'
+        type: paragraph
+      - items:
+          - html: 'Del 1: <a href="service/ui-tutorial-automobile-price-train-score">Träna regressionsmodellen</a>'
+          - html: 'Del 2: <a href="service/ui-tutorial-automobile-price-deploy">Distribuera modellen</a>'
+        style: unordered
+        type: list
       - text: '<b>Självstudier: Avbildningsklassificering av MNIST-data med SDK:</b>'
         type: paragraph
       - items:

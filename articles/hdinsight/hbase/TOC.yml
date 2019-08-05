@@ -25,6 +25,10 @@
       href: ../hdinsight-component-versioning.md
     - name: HDInsight 4.0
       href: ../hdinsight-version-release.md
+    - name: Felsöka
+      items:
+        - name: Timeouter med kommandot hbase hbck
+          href: ./hbase-troubleshoot-timeouts-hbase-hbck.md
 - name: Gör så här för att
   items:
     - name: Använda klusterlagring

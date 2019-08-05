@@ -43,6 +43,9 @@ sections:
       - type: list
         style: unordered
         items:
+          - html: 'Kom igång: <a href="tutorial-first-experiment-automated-ml">Träna och distribuera</a> din första automatiserade ML-modell i Azure Portal.'
+          - html: 'Kom igång: <a href="tutorial-1st-experiment-sdk-setup">Konfigurera utvecklingsmiljö</a> och <a href="tutorial-1st-experiment-sdk-train">träna din första ML-modell</a> med en Jupyter-notebook-fil (<b>serie i två delar</b>).'
+          - html: 'Kom igång: <a href="ui-tutorial-automobile-price-train-score">Träna</a> och <a href="ui-tutorial-automobile-price-deploy">distribuera</a> ditt första ML-experiment med det visuella gränssnittet med dra-och-släpp-funktion (<b>serie i två delar</b>).'
           - html: <a href="tutorial-train-models-with-aml">Träna</a> och <a href="tutorial-deploy-models-with-aml">distribuera</a> avbildningsklassificeringsmodeller (<b>serie i två delar</b>).
           - html: <a href="tutorial-data-prep">Förbereda data</a> och <a href="tutorial-auto-train-models">använda automatiserad maskininlärning</a> för att träna och justera regressionsmodeller (<b>serie i två delar</b>).
           - html: <a href="ui-tutorial-automobile-price-train-score">Förutse bilpriser</a> med det visuella gränssnittet och <a href="ui-tutorial-automobile-price-deploy">distribuera</a> regressionsmodellen.

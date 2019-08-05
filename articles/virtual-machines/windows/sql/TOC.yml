@@ -68,6 +68,8 @@
       items:
         - name: Migrera en SQL Server-databas
           href: virtual-machines-windows-migrate-sql.md
+        - name: Virtuell dator till en ny region
+          href: virtual-machines-windows-sql-move-different-region.md
     - name: Konfigurera hög tillgänglighet
       items:
         - name: Använda Azure Storage för säkerhetskopiering och återställning

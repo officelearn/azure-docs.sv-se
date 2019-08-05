@@ -43,6 +43,8 @@
       href: security-center-incident.md
     - name: Incidenthantering
       href: security-center-incident-response.md
+    - name: Hantering av flera klienter
+      href: security-center-cross-tenant-management.md
 - name: Instruktionsguider
   items:
     - name: Förbättra dina säkerhetspoäng
@@ -81,6 +83,8 @@
       items:
         - name: Vad är säkerhetsrekommendationer
           href: security-center-recommendations.md
+        - name: Åtgärda rekommendationer
+          href: security-center-remediate-recommendations.md
         - name: Förbättra säkerheten
           href: security-center-monitoring.md
         - name: Skydda dina datorer och appar

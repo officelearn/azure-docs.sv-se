@@ -18,11 +18,10 @@
           href: secure-develop.md
         - name: Distribuera säkra appar
           href: secure-deploy.md
-- name: Lösningar
+- name: Resurser
   expanded: true
   items:
     - name: Analys av Microsoft-säkerhetskod
-      expanded: true
       items:
         - name: Översikt
           href: security-code-analysis-overview.md
@@ -32,3 +31,49 @@
           href: security-code-analysis-customize.md
         - name: Vanliga frågor och svar
           href: security-code-analysis-faq.md
+    - name: Microsoft Threat Modeling Tool
+      displayName: stride
+      href: threat-modeling-tool.md
+      items:
+        - name: Komma igång
+          href: threat-modeling-tool-getting-started.md
+        - name: Översikt över funktioner
+          href: threat-modeling-tool-feature-overview.md
+        - name: Hot
+          href: threat-modeling-tool-threats.md
+        - name: Versioner
+          href: threat-modeling-tool-releases.md
+          items:
+            - name: Threat Modeling Tool GA-version 7.1.5091.2 – 12 sept. 2018
+              href: threat-modeling-tool-releases-71509112.md
+            - name: Threat Modeling Tool GA-uppdateringsversion 7.1.51023.1 – 1 nov. 2018
+              href: threat-modeling-tool-releases-71510231.md
+            - name: "Threat Modeling Tool-uppdateringsversion 7.1.60126.1\_–\_29 jan. 2019"
+              href: threat-modeling-tool-releases-71601261.md
+            - name: "Threat Modeling Tool-uppdateringsversion 7.1.60408.1\_–\_9 april 2019"
+              href: threat-modeling-tool-releases-71604081.md
+            - name: 'Threat Modeling Tool, uppdaterad version 7.1.60702.1 – 2019-07-02'
+              href: threat-modeling-tool-releases-71607021.md
+        - name: Åtgärder
+          href: threat-modeling-tool-mitigations.md
+          items:
+            - name: Granskning och loggning
+              href: threat-modeling-tool-auditing-and-logging.md
+            - name: Autentisering
+              href: threat-modeling-tool-authentication.md
+            - name: Auktorisering
+              href: threat-modeling-tool-authorization.md
+            - name: Kommunikationssäkerhet
+              href: threat-modeling-tool-communication-security.md
+            - name: Konfigurationshantering
+              href: threat-modeling-tool-configuration-management.md
+            - name: Kryptografi
+              href: threat-modeling-tool-cryptography.md
+            - name: Hantering av undantag
+              href: threat-modeling-tool-exception-management.md
+            - name: Indataverifiering
+              href: threat-modeling-tool-input-validation.md
+            - name: Känsliga data
+              href: threat-modeling-tool-sensitive-data.md
+            - name: Sessionshantering
+              href: threat-modeling-tool-session-management.md

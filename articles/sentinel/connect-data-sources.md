@@ -1,6 +1,6 @@
 ---
-title: Ansluta datakällor till Sentinel-förhandsversion i Azure? | Microsoft Docs
-description: Lär dig hur du ansluter datakällor till Azure Sentinel.
+title: Vill du ansluta data källor till Azure Sentinel Preview? | Microsoft Docs
+description: Lär dig hur du ansluter data källor till Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -16,83 +16,83 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/04/2019
 ms.author: rkarlin
-ms.openlocfilehash: 9f64497cdf27729cebc243deca1def9ff1e5c680
-ms.sourcegitcommit: 80aaf27e3ad2cc4a6599a3b6af0196c6239e6918
+ms.openlocfilehash: 4928657aa9052b50faf1f326cc09797c5aaf69bb
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67673816"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780506"
 ---
 # <a name="connect-data-sources"></a>Ansluta till datakällor
 
 > [!IMPORTANT]
-> Azure Sentinel är för närvarande i offentlig förhandsversion.
+> Azure Sentinel är för närvarande en offentlig för hands version.
 > Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
 
-Att integrera Azure Sentinel måste du först ansluta till dina datakällor. Azure Sentinel levereras med ett antal anslutningsappar för Microsoft-lösningar, tillgängliga utanför rutan och ge i realtid integration, inklusive Microsoft Threat Protection lösningar och Microsoft 365 källor, till exempel Office 365, Azure AD, Azure ATP och Microsoft Cloud App Security, och mycket mer. Det finns dessutom inbyggda anslutningar till bredare säkerhetsekosystemet för icke-Microsoft-lösningar. Du kan också använda common event format, Syslog eller REST-API för att ansluta dina datakällor med Azure Sentinel samt.  
+För att kunna använda Azure Sentinel måste du först ansluta till dina data källor. Azure Sentinel levereras med ett antal anslutningar för Microsoft-lösningar, som är tillgängliga direkt och ger real tids integrering, inklusive Microsoft Threat Protection-lösningar och Microsoft 365 källor, inklusive Office 365, Azure AD, Azure ATP och Microsoft Cloud App Security med mera. Dessutom finns det inbyggda anslutnings program till det bredare säkerhets eko systemet för lösningar som inte kommer från Microsoft. Du kan också använda vanliga händelse format, syslog eller REST-API för att ansluta dina data källor med Azure Sentinel.  
 
-1. På menyn, Välj **datakopplingar**. Den här sidan kan du se en fullständig lista över kopplingar som Sentinel-Azure tillhandahåller och deras status. Välj den koppling som du vill ansluta och välj **öppna anslutningsapp-sidan**. 
+1. På menyn väljer du **data kopplingar**. På den här sidan kan du se en fullständig lista över de anslutningar som Azure Sentinel tillhandahåller och deras status. Välj den anslutning som du vill ansluta och välj **Öppna kopplings sida**. 
 
-   ![Datainsamlare](./media/collect-data/collect-data-page.png)
+   ![Data insamlare](./media/collect-data/collect-data-page.png)
 
-1. Kontrollera att du har uppfyllt alla krav och följ instruktionerna för att ansluta data till Azure Sentinel på sidan viss koppling. Det kan ta lite tid att börja synkronisera med Azure Sentinel-loggar. När du ansluter kan du se en sammanfattning av data i den **mottagna Data** graph och anslutningsstatusen för datatyperna.
+1. På sidan för den aktuella anslutningen ser du till att du har uppfyllt alla krav och följer anvisningarna för att ansluta data till Azure Sentinel. Det kan ta lite tid innan loggarna börjar synkronisera med Azure Sentinel. När du har anslutit visas en sammanfattning av data i grafen med **mottagna data** och anslutnings status för data typerna.
 
-   ![Ansluta insamlare](./media/collect-data/opened-connector-page.png)
+   ![Anslut insamlare](./media/collect-data/opened-connector-page.png)
   
-1. Klicka på den **nästa steg** fliken för att få en lista över out-of the box innehåll Sentinel-Azure tillhandahåller för den specifika datatypen.
+1. Klicka på fliken **Nästa steg** om du vill hämta en lista över innehåll i Azure Sentinel som är färdiga för den aktuella data typen.
 
-   ![Datainsamlare](./media/collect-data/data-insights.png)
+   ![Data insamlare](./media/collect-data/data-insights.png)
  
 
-## <a name="data-connection-methods"></a>Data anslutningsmetoder
+## <a name="data-connection-methods"></a>Data anslutnings metoder
 
-Följande data anslutningsmetoder stöds av Azure Sentinel:
+Följande data anslutnings metoder stöds av Azure Sentinel:
 
-- **Microsoft-tjänster**:<br> Microsoft-tjänster är anslutna internt, att utnyttja Azure grunden för out-nyckelfärdig integrering, följande lösningar kan anslutas med några få klick:
+- **Microsoft-tjänster**:<br> Microsoft-tjänster är internt anslutna, och använder Azure Foundation för out-of-Box-integrering, kan följande lösningar vara anslutna med några klick:
     - [Office 365](connect-office-365.md)
-    - [Azure AD granska loggar och inloggningar](connect-azure-active-directory.md)
+    - [Gransknings loggar och inloggningar i Azure AD](connect-azure-active-directory.md)
     - [Azure-aktivitet](connect-azure-activity.md)
     - [Azure AD Identity Protection](connect-azure-ad-Identity-protection.md)
     - [Azure Security Center](connect-azure-security-center.md)
     - [Azure Information Protection](connect-azure-information-protection.md)
     - [Azure Advanced Threat Protection](connect-azure-atp.md)
     - [Cloud App Security](connect-cloud-app-security.md)
-    - [Säkerhetshändelser i Windows](connect-windows-security-events.md) 
-    - [Windows-brandväggen](connect-windows-firewall.md)
+    - [Windows säkerhets händelser](connect-windows-security-events.md) 
+    - [Windows-brandvägg](connect-windows-firewall.md)
 
-- **Externa lösningar via API: et**: Vissa datakällor är anslutna med API: er som tillhandahålls av den anslutna datakällan. De flesta säkerhetstekniker ger vanligtvis en uppsättning API: er som händelseloggar kan hämtas. API: erna ansluta till Azure Sentinel och samla in specifika datatyper och skicka dem till Azure Log Analytics. Enheter som är anslutna via API: T är:
+- **Externa lösningar via API**: Vissa data källor är anslutna via API: er som tillhandahålls av den anslutna data källan. Oftast tillhandahåller de flesta säkerhets tekniker en uppsättning API: er via vilka händelse loggar som kan hämtas. API: erna ansluter till Azure Sentinel och samlar in vissa data typer och skickar dem till Azure Log Analytics. Enheter som är anslutna via API inkluderar:
     - [Barracuda](connect-barracuda.md)
     - [Symantec](connect-symantec.md)
-- **Externa lösningar via agent**: Azure Sentinel kan anslutas till andra datakällor som kan utföra i realtid loggströmningen med hjälp av protokollet Syslog via en agent. <br>De flesta installationer använda Syslog-protokollet för att skicka meddelanden om händelser som innehåller loggen själva och data om loggen. Formatet på loggarna varierar, men de flesta installationer stöder Common Event Format (CEF)-standarden. <br>Azure Sentinel agenten som är baserad på Microsoft Monitoring Agent, konverterar formaterad CEF-loggar till ett format som kan matas in av Log Analytics. Beroende på typen av enhet installeras agenten direkt på installationen eller på en dedikerad server för Linux. Agenten för Linux tar emot händelser från Syslog-daemon över UDP, men i fall där en Linux-dator förväntas samla in en stor mängd Syslog-händelser, skickas de via TCP från Syslog-daemon till agenten och därifrån till Log Analytics.
-    - Brandväggar, proxyservrar och slutpunkter:
+- **Externa lösningar via agent**: Azure Sentinel kan anslutas till alla andra data källor som kan utföra logg strömning i real tid med syslog-protokollet via en agent. <br>De flesta apparater använder syslog-protokollet för att skicka händelse meddelanden som innehåller själva loggen och data om loggen. Formatet på loggarna varierar, men de flesta apparater stöder common Event format (CEF)-standarden. <br>Azure Sentinel-agenten, som baseras på Microsoft Monitoring Agent, konverterar CEF-formaterade loggar till ett format som kan matas in med Log Analytics. Beroende på typ av installation installeras agenten antingen direkt på enheten eller på en särskild Linux-server. Agenten för Linux tar emot händelser från syslog-daemon över UDP, men om en Linux-dator förväntas samla in en stor mängd Syslog-händelser skickas de via TCP från syslog-daemon till agenten och därifrån att Log Analytics.
+    - Brand väggar, proxyservrar och slut punkter:
         - [F5](connect-f5.md)
         - [Check Point](connect-checkpoint.md)
         - [Cisco ASA](connect-cisco.md)
         - [Fortinet](connect-fortinet.md)
-        - [Palo Alto](connect-paloalto.md)
-        - [Andra CEF-installationer](connect-common-event-format.md)
-        - [Andra Syslog-installationer](connect-syslog.md)
+        - [Palo-](connect-paloalto.md)
+        - [Andra CEF-enheter](connect-common-event-format.md)
+        - [Andra syslog-enheter](connect-syslog.md)
     - DLP-lösningar
-    - [Säkerhetsexperter](connect-threat-intelligence.md)
-    - [DNS-datorer](connect-dns.md) -agenten är installerad direkt på DNS-dator
+    - [Hot informations leverantörer](connect-threat-intelligence.md)
+    - [DNS-datorer](connect-dns.md) – Agent installeras direkt på DNS-datorn
     - Linux-servrar
     - Andra moln
     
-## Anslutningsalternativ för agenten<a name="agent-options"></a>
+## Anslutnings alternativ för agent<a name="agent-options"></a>
 
-Om du vill ansluta din externa installation till Azure Sentinel agenten måste distribueras på en dedikerad dator (VM eller lokalt) för kommunikationen mellan enheten och Azure Sentinel. Du kan distribuera agenten automatiskt eller manuellt. Automatisk distribution är endast tillgänglig om den dedikerade datorn är en ny virtuell dator som du skapar i Azure. 
+Om du vill ansluta din externa installation till Azure Sentinel måste agenten distribueras på en dedikerad dator (VM eller lokalt) för att stödja kommunikationen mellan-enheten och Azure Sentinel. Du kan distribuera agenten automatiskt eller manuellt. Automatisk distribution är bara tillgängligt om din dedikerade dator är en ny virtuell dator som du skapar i Azure. 
 
 
 ![CEF i Azure](./media/connect-cef/cef-syslog-azure.png)
 
-Du kan också distribuera agenten manuellt på en befintlig Azure-dator på en virtuell dator i ett annat moln eller på en lokal dator.
+Alternativt kan du distribuera agenten manuellt på en befintlig virtuell Azure-dator, på en virtuell dator i ett annat moln eller på en lokal dator.
 
 ![CEF lokalt](./media/connect-cef/cef-syslog-onprem.png)
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du vill komma igång med Azure Sentinel, behöver du en prenumeration på Microsoft Azure. Om du inte har någon prenumeration kan du registrera dig för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/free/).
-- Lär dig hur du [publicera dina data till Azure Sentinel](quickstart-onboard.md), och [få insyn i dina data och potentiella hot](quickstart-get-visibility.md).
+- För att komma igång med Azure Sentinel behöver du en prenumeration på Microsoft Azure. Om du inte har någon prenumeration kan du registrera dig för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/free/).
+- Lär dig hur du kan [publicera dina data till Azure Sentinel](quickstart-onboard.md)och [få insyn i dina data och potentiella hot](quickstart-get-visibility.md).

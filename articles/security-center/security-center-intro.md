@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 6/06/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 28e85f2e9caacc0cc30dcc1a073414c34bc2ab0e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f0ee4a1129246cedd7899056359144cab75f9475
+ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67064333"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68782438"
 ---
 # <a name="what-is-azure-security-center"></a>Vad är Azure Security Center?
 
@@ -34,7 +34,7 @@ Azure Security Center adresserar de tre mest brådskande säkerhetsutmaningarna:
 
 -   **Allt mer sofistikerade attacker** – Oavsett var du kör dina arbetsbelastningar blir attackerna ständigt alltmer avancerade. Du måste skydda dina arbetsbelastningar i det offentliga molnet, vilka i praktiken är en Internet-inriktad arbetsbelastning som kan gör dig ännu mer sårbar om du inte följer rekommenderade säkerhetsmetoder.
 
--   **Behovet av säkerhetsfärdigheter är kort sagt mycket stort** – Antalet säkerhetsaviseringar och aviseringssystem överträffar vida antalet administratörer med den nödvändiga bakgrund och erfarenhet som krävs för att se till att dina miljöer är skyddade. Att hålla sig informerad om de senaste attackerna är en konstant utmaning, vilket gör det omöjligt att alltid vara på rätt plats eftersom kampen mot säkerhetshoten sker vid en ständigt föränderlig stridslinje.
+-   **Säkerhets kunskaper har kort till gång** – antalet säkerhets aviseringar och aviserings system i stort antal administratörer med nödvändig bakgrund och erfarenhet för att se till att dina miljöer är skyddade. Att hålla sig informerad om de senaste attackerna är en konstant utmaning, vilket gör det omöjligt att alltid vara på rätt plats eftersom kampen mot säkerhetshoten sker vid en ständigt föränderlig stridslinje.
 
 Som en hjälp i skyddet mot dessa utmaningar erbjuder Security Center dig verktyg för att:
 
@@ -126,13 +126,13 @@ Security Center hjälper dig att begränsa exponeringen för råstyrkeattacker. 
 
 Security Center innehåller funktioner som hjälper dig att utföra automatisk klassificering av dina data i Azure SQL. Du kan också få utvärderingar avseende potentiella säkerhetsrisker för Azure SQL- och lagringstjänster och rekommendationer för hur du löser dem.
 
-### <a name="protect-iot-and-hybrid-cloud-workloads-preview"></a>Skydda IoT och hybrid arbetsbelastningar (förhandsversion)
+### <a name="protect-iot-and-hybrid-cloud-workloads-preview"></a>Skydda IoT och hybrid moln arbets belastningar (för hands version)
 
-Azure Security Center för IoT (Internet of Things) förenklar hybrid skydd av arbetsbelastningar genom att tillhandahålla enhetlig synlighet och kontroll, adaptivt skydd och intelligent hotidentifiering och svar i arbetsbelastningar som körs på edge, lokalt, Azure, och i andra moln. Mer information finns i [Azure Security Center för IoT (förhandsversion)](https://docs.microsoft.com/azure/asc-for-iot/).
+Azure Security Center for IoT (Sakernas Internet) fören klar hybrid arbets belastnings skyddet genom att leverera enhetlig synlighet och kontroll, anpassningsbart hot skydd och intelligent hot identifiering och-svar mellan arbets belastningar som körs på Edge, lokalt, i Azure och i andra moln. Mer information finns i [Azure Security Center for IoT (för hands version)](https://docs.microsoft.com/azure/asc-for-iot/).
 
 ## <a name="get-secure-faster"></a>Bli skyddad snabbare
 
-Inbyggd integrering med Azure (inklusive Azure Policy och Azure Monitor-loggar) tillsammans med sömlös integrering med andra Microsoft-säkerhetslösningarna som Microsoft Cloud App Security och Windows Defender Avancerat skydd att se att din Security-lösningen är omfattande samt enkelt att publicera och distribuera.
+Intern Azure-integration (inklusive Azure Policy och Azure Monitor loggar) kombinerat med sömlös integrering med andra Microsoft-säkerhetslösningar, till exempel Microsoft Cloud App Security och Windows Defender Avancerat skydd se till att din säkerhetslösningen är omfattande och enkelt att publicera och distribuera.
 
 Dessutom kan du utöka den fullständiga lösningen utöver Azure till arbetsbelastningar som körs i andra moln och i lokala datacentra.
 

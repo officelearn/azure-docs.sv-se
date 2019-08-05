@@ -1,5 +1,5 @@
 ---
-title: Konfigurera Apache Kafka på HDInsight med hjälp av Azure portal – Snabbstart
+title: Konfigurera Apache Kafka på HDInsight med Azure Portal-snabb start
 description: I den här snabbstarten lär du dig hur du skapar ett Apache Kafka-kluster på Azure HDInsight med hjälp av Azure Portal. Du lär dig också om Kafka-ämnen, -prenumeranter och -konsumenter.
 ms.service: hdinsight
 author: hrasheed-msft
@@ -7,14 +7,14 @@ ms.author: hrasheed
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 06/12/2019
-ms.openlocfilehash: 61ae6cdf7c31c9a6e40860eb1dc4628bb2d37496
-ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
+ms.openlocfilehash: 9fa6ad3c52e9b01fe9a62a2de52f62b1b1a95aa8
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67150885"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779530"
 ---
-# <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-azure-portal"></a>Snabbstart: Skapa Apache Kafka-kluster i Azure HDInsight med hjälp av Azure portal
+# <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-azure-portal"></a>Snabbstart: Skapa Apache Kafka kluster i Azure HDInsight med Azure Portal
 
 Apache Kafka är en distribuerad direktuppspelningsplattform med öppen källkod. Den används ofta som en asynkron meddelandekö eftersom den innehåller funktioner som påminner om en publicera-prenumerera-meddelandekö. 
 
@@ -26,7 +26,7 @@ Apache Kafka-API:et kan endast användas av resurser i samma virtuella nätverk.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 En SSH-klient. Mer information finns i [Ansluta till HDInsight (Apache Hadoop) med hjälp av SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -36,29 +36,29 @@ Använd följande steg om du vill skapa ett Apache Kafka i HDInsight-kluster:
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 
-2. I den vänstra menyn navigerar du till **+ skapa en resurs** > **Analytics** > **HDInsight**.
+2. På den vänstra menyn navigerar du till **+ skapa en resurs** > **analys** > **HDInsight**.
    
     ![Skapa ett HDInsight-kluster](./media/apache-kafka-get-started/create-hdinsight.png)
 
 3. Från **Grundläggande**, ange eller välj följande information:
 
-    | Inställning | Värde |
+    | Inställning | Value |
     | --- | --- |
     | Klusternamn | Ett unikt namn för HDInsight-klustret. |
-    | Prenumeration | Välj din prenumeration. |
+    | Subscription | Välj din prenumeration. |
     
    Välj __Klustertyp__ för att visa **Klusterkonfiguration**.
    
    ![Grundläggande konfiguration för Apache Kafka-kluster i HDInsight](./media/apache-kafka-get-started/custom-basics-kafka.png)
 
-4. Från __klusterkonfiguration__, väljer du följande värden:
+4. Välj följande värden från __kluster konfiguration__:
 
     | Inställning | Värde |
     | --- | --- |
-    | Typ av kluster | Kafka |
+    | Klustertyp | Kafka |
     | Version | Kafka 1.1.0 (HDI 3.6) |
 
-    Välj **Välj** att spara inställningarna för klustret och återgå till __grunderna__.
+    Välj **Välj** för att spara inställningarna för kluster typ och gå tillbaka till __grunderna__.
 
     ![Välj klustertyp](./media/apache-kafka-get-started/kafka-cluster-type.png)
 
@@ -78,7 +78,7 @@ Använd följande steg om du vill skapa ett Apache Kafka i HDInsight-kluster:
 
    ![Välj en prenumeration](./media/apache-kafka-get-started/hdinsight-basic-configuration-2.png)
 
-    Välj __nästa__ att slutföra den grundläggande konfigurationen.
+    Välj __Nästa__ för att slutföra den grundläggande konfigurationen.
 
 6. Använd standardinställningarna för säkerhet för den här kursen. Du kan läsa mer om Enterprise Security-paketet i [Konfigurera ett HDInsight-kluster med Enterprise Security-paket med hjälp av Azure Active Directory Domain Services](../domain-joined/apache-domain-joined-configure-using-azure-adds.md). Mer information om hur du använder den egen nyckel för Apache Kafka-diskkryptering finns i [Använd en egen nyckel för Apache Kafka på Azure HDInsight](apache-kafka-byok.md)
 
@@ -102,7 +102,7 @@ Använd följande steg om du vill skapa ett Apache Kafka i HDInsight-kluster:
 
 10. Från __Avancerade inställningar__ väljer du __Nästa__ för att fortsätta med standardinställningarna.
 
-11. Från **Sammanfattning** kan du granska konfigurationen för klustret. Använd länkarna __Redigera__ om du behöver ändra eventuella inställningar som är felaktiga. Välj slutligen **skapa** att skapa klustret.
+11. Från **Sammanfattning** kan du granska konfigurationen för klustret. Använd länkarna __Redigera__ om du behöver ändra eventuella inställningar som är felaktiga. Slutligen väljer du **skapa** för att skapa klustret.
 
     ![Sammanfattning av klusterkonfiguration](./media/apache-kafka-get-started/kafka-configuration-summary.png)
 
@@ -122,7 +122,7 @@ Använd följande steg om du vill skapa ett Apache Kafka i HDInsight-kluster:
 
     När du är ansluten visas ett meddelande av följande slag:
     
-    ```text
+    ```output
     Authorized uses only. All activity may be monitored and reported.
     Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.13.0-1011-azure x86_64)
     
@@ -140,7 +140,6 @@ Använd följande steg om du vill skapa ett Apache Kafka i HDInsight-kluster:
     Welcome to Apache Kafka on HDInsight.
     
     Last login: Thu Mar 29 13:25:27 2018 from 108.252.109.241
-    ssuhuser@hn0-mykafk:~$
     ```
 
 ## <a id="getkafkainfo"></a>Hämta information om värden i Apache Zookeeper och Broker
@@ -149,33 +148,33 @@ När du arbetar med Kafka måste du känna till *Apache Zookeeper*- och *Broker*
 
 I det här avsnittet hämtar du värdinformation från om värden från Apache Ambari REST API på klustret.
 
-1. Installera [jq](https://stedolan.github.io/jq/), en kommandorad JSON-processor. Det här verktyget används för att parsa JSON-dokument och är användbart vid tolkning av värdinformationen. Från den öppna SSH-anslutningen anger du följande kommando för att installera `jq`:
+1. Installera [JQ](https://stedolan.github.io/jq/), en JSON-processor med kommando rad. Det här verktyget används för att parsa JSON-dokument och är användbart vid parsning av värd informationen. I den öppna SSH-anslutningen anger du följande kommando för `jq`att installera:
    
     ```bash
     sudo apt -y install jq
     ```
 
-2. Konfigurera miljövariabler. Ersätt `PASSWORD` och `CLUSTERNAME` med inloggningslösenordet för klustret och klustret namnge respektive genom att ange sedan kommandot:
+2. Konfigurera miljövariabler. Ersätt `PASSWORD` och`CLUSTERNAME` med klustrets inloggnings lösen ord respektive kluster namn och ange sedan kommandot:
 
     ```bash
     export password='PASSWORD'
     export clusterNameA='CLUSTERNAME'
     ```
 
-3. Extrahera korrekt alltid i klustrets namn. Faktiska versaler och gemener i klustrets namn kan skilja sig än förväntat, beroende på hur klustret har skapats. Det här kommandot ska hämta faktiska gemener och versaler, lagra det i en variabel och sedan visa korrekt cased namn och det namn du angav tidigare. Ange följande kommando:
+3. Extrahera korrekt bokstäver-kluster namn. Det faktiska Skift läget i kluster namnet kan skilja sig från förväntat, beroende på hur klustret skapades. Det här kommandot hämtar det faktiska Skift läget, lagrar det i en variabel och visar sedan det korrekta bokstäver-namnet och det namn som du angav tidigare. Ange följande kommando:
 
     ```bash
     export clusterName=$(curl -u admin:$password -sS -G "https://$clusterNameA.azurehdinsight.net/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
     echo $clusterName, $clusterNameA
     ```
 
-4. Använd kommandot nedan för att ange en miljövariabel med Zookeeper-värdens information. Kommandot hämtar alla Zookeeper-värdar och returnerar bara de första två posterna. Det beror på att det är bra att ha viss redundans ifall en värd inte kan nås.
+4. Använd kommandot nedan om du vill ange en miljö variabel med Zookeeper-värd information. Kommandot hämtar alla Zookeeper-värdar och returnerar sedan bara de första två posterna. Det beror på att det är bra att ha viss redundans ifall en värd inte kan nås.
 
     ```bash
     export KAFKAZKHOSTS=`curl -sS -u admin:$password -G http://headnodehost:8080/api/v1/clusters/$clusterName/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
     ```
 
-    Det här kommandot frågar Ambari-tjänsten på klustrets huvudnod direkt. Du kan också komma åt Ambari med hjälp av den offentliga adressen för `https://$CLUSTERNAME.azurehdinsight.net:80/`. Vissa nätverkskonfigurationer kan förhindra åtkomst till den offentliga adressen. Till exempel, användning av nätverkssäkerhetsgrupper (NSG) för att begränsa åtkomsten till HDInsight i ett virtuellt nätverk.
+    Det här kommandot frågar Ambari-tjänsten på klustrets huvudnod direkt. Du kan också få åtkomst till Ambari med hjälp av `https://$CLUSTERNAME.azurehdinsight.net:80/`den offentliga adressen för. Vissa nätverkskonfigurationer kan förhindra åtkomst till den offentliga adressen. Till exempel, användning av nätverkssäkerhetsgrupper (NSG) för att begränsa åtkomsten till HDInsight i ett virtuellt nätverk.
 
 5. Använd följande kommando om du vill kontrollera att miljövariabeln är korrekt:
 

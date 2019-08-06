@@ -1,24 +1,24 @@
 ---
-title: 'Snabbstart: Fråga mot data med hjälp av Python-biblioteket i Azure Data Explorer'
-description: I den här snabbstarten får du lära dig hur du frågar efter data i Azure Data Explorer med hjälp av Python.
+title: Fråga mot data med hjälp av Python-biblioteket i Azure Data Explorer
+description: I den här artikeln får du lära dig hur du frågar efter data från Azure Datautforskaren med hjälp av python.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 10/16/2018
-ms.openlocfilehash: 253629bab6b0985ab8f540c653f3671c49e6d278
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.topic: conceptual
+ms.date: 08/05/2019
+ms.openlocfilehash: 2c32e67bb2b47a24036a341ea4e1b83037abbaee
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360229"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827532"
 ---
-# <a name="quickstart-query-data-using-the-azure-data-explorer-python-library"></a>Snabbstart: Fråga mot data med hjälp av Python-biblioteket i Azure Data Explorer
+# <a name="query-data-using-the-azure-data-explorer-python-library"></a>Fråga mot data med hjälp av Python-biblioteket i Azure Data Explorer
 
-Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. Azure Data Explorer tillhandahåller ett [dataklientbibliotek för Python](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data). Med det här biblioteket kan du fråga efter data från din kod. I den här snabbstarten ansluter du till en tabell i det *hjälpkluster* som vi har skapat som stöd för kursen. Sedan frågar du en tabell i klustret och returnerar resultatet.
+Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. Azure Data Explorer tillhandahåller ett [dataklientbibliotek för Python](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data). Med det här biblioteket kan du fråga efter data från din kod. I den här artikeln ansluter du till en tabell i *Hjälp klustret* som vi har konfigurerat för att hjälpa till med inlärning. Sedan frågar du en tabell i klustret och returnerar resultatet.
 
-Den här snabbstarten är också tillgänglig som en [Azure Notebook](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueryKusto.ipynb).
+Den här artikeln är även tillgänglig som en [Azure-anteckningsbok](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueryKusto.ipynb).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -98,4 +98,4 @@ Du bör se de tio främsta resultaten från tabellen StormEvents.
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Snabbstart: Mata in data med hjälp av Python-biblioteket](python-ingest-data.md) i Azure Data Explorer
+> [Mata in data med Azure Datautforskaren python-biblioteket](python-ingest-data.md)

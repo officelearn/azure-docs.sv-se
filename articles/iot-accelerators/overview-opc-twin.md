@@ -1,6 +1,6 @@
 ---
-title: What is OPC Twin - Azure | Microsoft Docs
-description: Översikt över OPC-Twin
+title: Vad är OPC med dubbla – Azure | Microsoft Docs
+description: Översikt över OPC-dubbla
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018
@@ -8,38 +8,38 @@ ms.topic: overview
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: d58dc18d5513259d5c01f7ddcc54736796e5c824
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: c0d824e23a98aa14081fbd21bd6a9fbec5d583e0
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603632"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815951"
 ---
-# <a name="what-is-opc-twin"></a>Vad är OPC-Twin?
+# <a name="what-is-opc-twin"></a>Vad är OPC?
 
-OPC-Twin består av mikrotjänster som använder Azure IoT Edge och IoT Hub för att ansluta molnet och factory nätverket. OPC-Twin innehåller identifiering, registrering och fjärrstyrning av industriella enheter via REST API: er. OPC-Twin kräver inte en OPC Unified arkitektur (OPC UA) SDK, programmering språkoberoende och kan tas med i ett arbetsflöde för utan server. Den här artikeln beskriver flera OPC-Twin-användningsfall.
+OPC garn består av mikrotjänster som använder Azure IoT Edge och IoT Hub för att ansluta molnet och fabriks nätverket. OPC dubbla ger identifiering, registrering och fjärrkontroll av industriella enheter via REST-API: er. OPC fläta kräver inte en OPC-SDK (Unified Architecture), är programmerings språk oberoende och kan ingå i ett Server lös arbets flöde. I den här artikeln beskrivs flera OPCs dubbla användnings fall.
 
 ## <a name="discovery-and-control"></a>Identifiering och kontroll
-Du kan använda OPC-Twin för enkel för identifiering och registrering.
+Du kan använda OPC-dubbla för enkel identifiering och registrering.
 
 ### <a name="simple-discovery-and-registration"></a>Enkel identifiering och registrering
-OPC-Twin kan factory operatörer att skanna factory nätverket, så att OPC UA-servrar kan identifieras och registreras. Alternativt kan kan factory operatörer också manuellt registrera OPC UA-enheter med hjälp av en känd identifierings-URL. Till exempel för att ansluta till alla OPC UA-enheter när du har installerat IoT Edge-gateway med en OPC-Twin-modulen på fabriksgolvet, kan operatorn factory utlösa en avsökning av nätverket via en fjärranslutning och visuellt se alla OPC UA-servrar. 
+OPC med dubbla ger fabriks operatörer möjlighet att söka igenom fabriks nätverket så att OPC UA-servrar kan identifieras och registreras. Som ett alternativ kan fabriks operatörer även registrera OPC UA-enheter manuellt med hjälp av en känd identifierings-URL. Om du till exempel vill ansluta till alla OPC UA-enheter efter att IoT Edge Gateway med en OPC-multimodul har installerats på fabriks golvet, kan fabriks operatören fjärrutlösa en sökning i nätverket och visuellt se alla OPC UA-servrar. 
 
-### <a name="simple-control"></a>Enkel åtkomstkontroll
-OPC-Twin kan factory operatörer att reagera på händelser och konfigurera om sina factory våning datorer från molnet automatiskt eller manuellt i farten. OPC-Twin ger REST API: er att anropa tjänster på OPC UA-servern, bläddra sitt adressutrymme avseende skrivbara variabler och execute-metoder. En behållare använder till exempel temperatur KPI för att styra produktionsraden. Temperatursensor publicerar ändringen i data med hjälp av OPC Publisher. Operatorn factory tar emot aviseringen att temperaturen har nått tröskelvärdet. Produktionsraden kylningspaket automatiskt via OPC-Twin. Operatorn factory meddelas om coolbar ned.
+### <a name="simple-control"></a>Enkel kontroll
+OPC med dubbla ger fabriks operatörerna möjlighet att reagera på händelser och omkonfigurera sina fabriks maskiner från molnet antingen automatiskt eller manuellt i farten. OPC dubbla tillhandahåller REST-API: er för att anropa tjänster på OPC UA-servern, bläddra i adress utrymmet och läsa/skriva variabler och köra metoder. En panna använder till exempel temperatur-KPI för att kontrol lera produktions linjen. Temperatur sensorn publicerar ändringen i data med hjälp av OPC Publisher. Fabriks operatören tar emot en avisering om att temperaturen har nått tröskelvärdet. Produktions linjen svalnar automatiskt genom OPC. Fabriks operatören meddelas om den nedkylningen.
 
 ## <a name="authentication"></a>Authentication
-Du kan använda OPC-Twin för enkelt för autentisering och för en enkel utvecklarupplevelse.
+Du kan använda OPC-dubbla för enkel autentisering och för en enkel utvecklare.
 
 ### <a name="simple-authentication"></a>Enkel autentisering 
-OPC-Twin använder Azure Active Directory AAD-baserad autentisering och granskning från slutpunkt till slutpunkt. Till exempel gör OPC-Twin att programmet kan byggas ovanpå OPC-Twin att fastställa vad operatören har utförts på en dator. På dator-sida är det via OPC UA-granskning. På sidan moln är det genom att lagra en oföränderlig klienten granskningsloggen och AAD-autentisering på REST API.
+OPCs dubbla använder Azure Active Directory (AAD)-baserad autentisering och granskning från slut punkt till slut punkt. Till exempel kan OPC dubbla göra att programmet kan byggas ovanpå OPC, så att du kan avgöra vilken operatör som har utförts på en dator. På dator sidan är det genom OPC UA-granskning. På moln sidan är det genom att lagra en oföränderlig klient Gransknings logg och AAD-autentisering på REST API.
 
-### <a name="simple-developer-experience"></a>Enkel utvecklarupplevelse 
-OPC-Twin kan användas med appar som skrivits i alla programmeringsspråk via REST API: er. Som utvecklare integrera en OPC UA-klient i en lösning, behövs inte kunskap om OPC UA-SDK. OPC-Twin kan smidigt integrera tillståndslösa, serverlös arkitektur. Till exempel fullständig stack webbutvecklare som utvecklar ett program för ett larm och händelse-instrumentpanelen kan skriva logik för att svara på händelser i JavaScript- eller TypeScript med hjälp av OPC-Twin utan kunskaper om C, C#, eller fullständig OPC UA-stacken implementeringen. 
+### <a name="simple-developer-experience"></a>Enkel utvecklings upplevelse 
+OPCs dubbla kan användas med program som skrivits i programmeringsspråk via REST-API: er. Eftersom utvecklare integrerar en OPC UA-klient i en lösning behövs inte kunskap om OPC UA SDK. OPC skarv kan integreras sömlöst i tillstånds lösa, Server lösa arkitekturer. Till exempel kan en full stack-webbutvecklare som utvecklar ett program för en alarm-och händelse instrument panel skriva logiken för att svara på händelser i Java Script eller TypeScript med OPC dubbla utan C#kunskap om C, eller den fullständiga OPC UA stack-implementeringen. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har lärt dig om OPC-Twin och dess användning, är här nästa föreslagna steg:
+Nu när du har lärt dig om OPC och dess användnings områden är det föreslagna nästa steg:
 
 > [!div class="nextstepaction"]
-> [Vad är OPC-valv](overview-opc-twin-architecture.md)
+> [Vad är OPC Vault](overview-opc-vault.md)

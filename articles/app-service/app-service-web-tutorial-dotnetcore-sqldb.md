@@ -1,5 +1,5 @@
 ---
-title: ASP.NET Core med SQL-databas – Azure Apptjänst | Microsoft Docs
+title: ASP.NET Core med SQL Database-Azure App Service | Microsoft Docs
 description: Lär dig hur du får igång en .NET Core-app som fungerar i Azure App Service med anslutning till en SQL Database.
 services: app-service\web
 documentationcenter: dotnet
@@ -11,17 +11,17 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 01/31/2019
+ms.date: 08/06/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: ad211eef673731a856c4db99fe0b4712217b23e5
-ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
+ms.openlocfilehash: 800454c3a8037d4562ae80d1093519733472c89c
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66808493"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68824608"
 ---
-# <a name="tutorial-build-an-aspnet-core-and-sql-database-app-in-azure-app-service"></a>Självstudier: Skapa en ASP.NET Core och SQL Database-app i Azure App Service
+# <a name="tutorial-build-an-aspnet-core-and-sql-database-app-in-azure-app-service"></a>Självstudier: Bygg en ASP.NET Core-och SQL Database-app i Azure App Service
 
 > [!NOTE]
 > I den här artikeln distribueras en app till App Service i Windows. Om du vill distribuera en app till App Service i _Linux_ kan du läsa [Skapa en .NET Core- och SQL Database-app i Azure App Service i Linux](./containers/tutorial-dotnetcore-sqldb-app.md).
@@ -131,7 +131,7 @@ När den logiska SQL Database-servern har skapats visar Azure CLI information so
 Skapa en [brandväggsregel på servernivå för Azure SQL Database](../sql-database/sql-database-firewall-configure.md) via kommandot[`az sql server firewall create`](/cli/azure/sql/server/firewall-rule?view=azure-cli-latest#az-sql-server-firewall-rule-create). När både start-IP och slut-IP har angetts till 0.0.0.0 öppnas brandväggen endast för andra Azure-resurser. 
 
 ```azurecli-interactive
-az sql server firewall-rule create --resource-group myResourceGroup --server <server_name> --name AllowYourIp --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
+az sql server firewall-rule create --resource-group myResourceGroup --server <server_name> --name AllowAllIps --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
 ```
 
 > [!TIP] 
@@ -172,7 +172,7 @@ I det här steget distribuerar du din SQL Database-anslutna .NET Core-app till A
 
 [!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-dotnetcore-win-no-h.md)] 
 
-### <a name="configure-an-environment-variable"></a>Konfigurera en miljövariabel
+### <a name="configure-connection-string"></a>Konfigurera anslutnings sträng
 
 Ange anslutningssträngar för din Azure-app med hjälp av kommandot [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) i Cloud Shell. I följande kommando ska du ersätta *\<app name>* och parametern *\<connection_string>* med den anslutningssträng du skapade tidigare.
 
@@ -180,13 +180,21 @@ Ange anslutningssträngar för din Azure-app med hjälp av kommandot [`az webapp
 az webapp config connection-string set --resource-group myResourceGroup --name <app name> --settings MyDbConnection='<connection_string>' --connection-string-type SQLServer
 ```
 
-Därefter anger du appinställningen `ASPNETCORE_ENVIRONMENT` till _Produktion_. Med den här inställningen kan du hålla reda på om du kör i Azure, eftersom du använder SQLite som lokal utvecklingsmiljö och SQL Database som Azure-miljö.
+I ASP.net Core kan du använda den här namngivna anslutnings strängen (`MyDbConnection`) med standard mönstret, till exempel vilken anslutnings sträng som anges i *appSettings. JSON*. I det här fallet `MyDbConnection` definieras även i din *appSettings. JSON*. När du kör i App Service prioriteras den anslutnings sträng som definieras i App Service över anslutnings strängen som definierats i *appSettings. JSON*. Koden använder *appSettings. JSON* -värdet under lokal utveckling och samma kod använder App Service-värdet när det distribueras.
+
+Om du vill se hur anslutnings strängen refereras i din kod, se [Anslut till SQL Database i produktion](#connect-to-sql-database-in-production).
+
+### <a name="configure-environment-variable"></a>Konfigurera miljö variabel
+
+Därefter anger du appinställningen `ASPNETCORE_ENVIRONMENT` till _Produktion_. Med den här inställningen kan du se om du kör i Azure, eftersom du använder SQLite för din lokala utvecklings miljö och SQL Database för din Azure-miljö.
 
 I följande exempel konfigureras appinställningen `ASPNETCORE_ENVIRONMENT` i Azure-appen. Ersätt platshållaren *\<app_name>* .
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings ASPNETCORE_ENVIRONMENT="Production"
 ```
+
+Om du vill se hur miljövariabeln refereras till i din kod, se [Anslut till SQL Database i produktion](#connect-to-sql-database-in-production).
 
 ### <a name="connect-to-sql-database-in-production"></a>Ansluta till SQL Database i produktion
 
@@ -212,9 +220,9 @@ else
 services.BuildServiceProvider().GetService<MyDatabaseContext>().Database.Migrate();
 ```
 
-Om den här koden identifierar att den körs i produktion (vilket indikeras av Azure-miljön) så används den anslutningssträng du konfigurerade för att ansluta till SQL Database.
+Om den här koden upptäcker att den körs i produktion (som anger Azure-miljön) använder den anslutnings strängen som du konfigurerade för att ansluta till SQL Database.
 
-Anropet `Database.Migrate()` är till hjälp när det körs i Azure, eftersom de databaser som .NET Core-appen behöver skapas automatiskt baserat på migreringskonfigurationen. 
+`Database.Migrate()` Anropet hjälper dig när det körs i Azure, eftersom det automatiskt skapar de databaser som din .net Core-app behöver, baserat på dess migrerings konfiguration. 
 
 > [!IMPORTANT]
 > För produktionsappar som behöver skala ut följer du bästa praxis i avsnittet om att [tillämpa migreringar i produktion](/aspnet/core/data/ef-rp/migrations#applying-migrations-in-production).
@@ -361,7 +369,7 @@ git commit -m "added done field"
 git push azure master
 ```
 
-När `git push` har slutförts kan du gå till App Service-appen och prova att använda de nya funktionerna.
+När du `git push` är klar navigerar du till din app service-app och försöker lägga till ett att göra-objekt och checken är **klar**.
 
 ![Azure-appen efter Code First Migration](./media/app-service-web-tutorial-dotnetcore-sqldb/this-one-is-done.png)
 
@@ -374,9 +382,9 @@ När ASP.NET Core-appen körs i Azure App Service kan du skicka konsolloggarna t
 Exempelprojektet följer redan riktlinjerna i [ASP.NET Core-loggning i Azure](https://docs.microsoft.com/aspnet/core/fundamentals/logging#azure-app-service-provider) med två konfigurationsändringar:
 
 - Innehåller en referens till `Microsoft.Extensions.Logging.AzureAppServices` i *DotNetCoreSqlDb.csproj*.
-- Anropar `loggerFactory.AddAzureWebAppDiagnostics()` i *Startup.cs*.
+- Anrop `loggerFactory.AddAzureWebAppDiagnostics()` i *program.cs*.
 
-För att ange [loggnivå](https://docs.microsoft.com/aspnet/core/fundamentals/logging#log-level) för ASP.NET Core i App Service till `Information` från standardnivån `Warning`använder du kommandot [`az webapp log config`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-config) i Cloud Shell.
+För att ange [loggnivå](https://docs.microsoft.com/aspnet/core/fundamentals/logging#log-level) för ASP.NET Core i App Service till `Information` från standardnivån `Error`använder du kommandot [`az webapp log config`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-config) i Cloud Shell.
 
 ```azurecli-interactive
 az webapp log config --name <app_name> --resource-group myResourceGroup --application-logging true --level information
@@ -394,7 +402,7 @@ az webapp log tail --name <app_name> --resource-group myResourceGroup
 
 Uppdatera Azure-app i webbläsaren så hämtas webbtrafik när loggströmningen har startats. Du kan nu se konsolloggarna som skickas till terminalen. Om du inte ser konsolloggarna omedelbart kan du titta efter igen efter 30 sekunder.
 
-Skriv när som helst `Ctrl`+`C` om du vill stoppa loggströmningen.
+Om du vill stoppa logg strömningen när som `Ctrl`helst skriver + `C`du.
 
 Mer information om att anpassa ASP.NET Core-loggar finns i [Loggning i ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging).
 

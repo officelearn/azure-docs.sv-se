@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2019
 ms.author: lbosq
-ms.openlocfilehash: 18f54e64498c7809e662ceb71d1e497a0f275ad6
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 545f679b11295485567a817d144225b361a262ce
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66480442"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815232"
 ---
 # <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-python-and-the-azure-portal"></a>Snabbstart: Skapa en grafdatabas i Azure Cosmos DB med hjälp av Python och Azure-portalen
 
@@ -173,13 +173,13 @@ Gå nu tillbaka till Azure Portal för att hämta anslutningsinformation och kop
 <a id="add-sample-data"></a>
 ## <a name="review-and-add-sample-data"></a>Granska och lägg till exempeldata
 
-Nu kan du gå tillbaka till datautforskaren och se de hörn som lagts till i grafen, och lägga till ytterligare datapunkter.
+När hörnen och kanterna har infogats kan du nu gå tillbaka till Datautforskaren och se de hörn som har lagts till i grafen och lägga till ytterligare data punkter.
 
 1. Klicka på **Datautforskaren**, expandera **sample-graph**, klicka på **Diagram** och klicka sedan på **Tillämpa filter**. 
 
    ![Skapa nya dokument i datautforskaren i Azure Portal](./media/create-graph-python/azure-cosmosdb-data-explorer-expanded.png)
 
-2. I listan **Resultat** kan du se nya användare som har lagts till i grafen. Välj **ben** och Lägg märke till att de är anslutna till robin. Du kan flytta hörnen genom att dra och släppa, zooma in och ut genom att bläddra med mushjulet, och utöka diagrammets storlek med hjälp av dubbelpilen. 
+2. Lägg märke till att tre nya användare läggs till i diagrammet i **resultat** listan. Du kan flytta hörnen genom att dra och släppa, zooma in och ut genom att bläddra med mushjulet, och utöka diagrammets storlek med hjälp av dubbelpilen. 
 
    ![Nya hörn i grafen i datautforskaren på Azure Portal](./media/create-graph-python/azure-cosmosdb-graph-explorer-new.png)
 
@@ -193,6 +193,7 @@ Nu kan du gå tillbaka till datautforskaren och se de hörn som lagts till i gra
 
     key|värde|Anteckningar
     ----|----|----
+    villkor|/pk| 
     id|ashley|Den unika identifieraren för hörnet. Om du inte anger något id skapas ett automatiskt.
     kön|kvinna| 
     teknik | Java | 
@@ -210,6 +211,7 @@ Nu kan du gå tillbaka till datautforskaren och se de hörn som lagts till i gra
 
     key|värde|Anteckningar
     ----|----|----
+    villkor|/pk| 
     id|rakesh|Den unika identifieraren för hörnet. Om du inte anger något id skapas ett automatiskt.
     kön|man| 
     skola|MIT| 

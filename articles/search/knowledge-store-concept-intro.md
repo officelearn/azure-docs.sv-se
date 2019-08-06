@@ -1,5 +1,5 @@
 ---
-title: Introduktion och översikt över kunskaps lager (för hands version) – Azure Search
+title: Introduktion till Knowledge Store (för hands version) – Azure Search
 description: Skicka berikade dokument till Azure Storage där du kan visa, ändra form på och använda berikade dokument i Azure Search och i andra program.
 manager: cgronlun
 author: HeidiSteen
@@ -9,12 +9,12 @@ ms.devlang: NA
 ms.topic: overview
 ms.date: 08/02/2019
 ms.author: heidist
-ms.openlocfilehash: 6cbf8dfe51e8b553fd84e9eb81a2ea37a65c387e
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 21530ca309a18c95e947a265b951fe78044aec93
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668283"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828484"
 ---
 # <a name="what-is-knowledge-store-in-azure-search"></a>Vad är kunskaps lager i Azure Search?
 

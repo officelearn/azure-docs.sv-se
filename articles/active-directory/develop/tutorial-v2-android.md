@@ -3,7 +3,7 @@ title: Komma igång med Android – Microsoft Identity Platform | Azure
 description: 'Hur en Android-app kan få en åtkomsttoken och anropa Microsoft Graph API eller API: er som kräver åtkomsttoken från Microsoft Identity Platform.'
 services: active-directory
 documentationcenter: dev-center-name
-author: danieldobalian
+author: tylermsft
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -16,12 +16,12 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5bd19b6094d68277130916b5cda565ba9e633c59
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 76547fd708f880bdf5167d71db121e69fc5b1d30
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68334121"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68823793"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-android-app"></a>Logga in användare och anropa Microsoft Graph från en Android-app
 
@@ -84,7 +84,7 @@ I den här kursen skapas ett nytt projekt. Om du vill ladda ned den slutförda s
 1. I Android Studio projekt fönstret navigerar du till **app\src\main\res**.
 2. Högerklicka på **res** och välj **ny** > **katalog**. Ange `raw` som det nya katalog namnet och klicka på **OK**.
 3. I **app** >  `auth_config.json` **src** **res** **RAW**skapar du en ny JSON-fil med namnet och klistrar in den MSAL-konfiguration som du sparade tidigare. >  >  [Mer information](https://github.com/AzureAD/microsoft-authentication-library-for-android/wiki/Configuring-your-app)finns i MSAL-konfigurationen.
-4. Lägg  >  > till > aktiviteten nedan i appens src main AndroidManifest. xml. `BrowserTabActivity` Med den här posten kan Microsoft anropa programmet igen när autentiseringen är klar:
+4. Lägg >  > till > aktiviteten nedan i appens src main AndroidManifest. xml. `BrowserTabActivity` Med den här posten kan Microsoft anropa programmet igen när autentiseringen är klar:
 
     ```xml
     <!--Intent filter to capture System Browser or Authenticator calling back to our app after sign-in-->
@@ -531,7 +531,7 @@ Bygg och distribuera appen till en test enhet eller emulator. Du bör kunna logg
 
 När du har loggat in visar appen de data som returneras från Microsoft Graph `/me` slut punkten.
 
-### <a name="consent"></a>Givit
+### <a name="consent"></a>Samtycke
 
 Första gången användaren loggar in i din app uppmanas de av Microsoft-identiteten att godkänna de behörigheter som begärs.  Även om de flesta användare kan samtycka har vissa Azure AD-klienter inaktiverat användar medgivande som kräver att administratörer samtycker till alla användares räkning. För att stödja det här scenariot registrerar du appens scope i Azure Portal.
 

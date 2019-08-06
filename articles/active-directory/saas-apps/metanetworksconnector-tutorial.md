@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 82097b075ab86c4de5ab45e3110c9bc192ac7edb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5ef49cb2e245e4af7b5d7f7d250194761cf0b375
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67097357"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68826362"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-meta-networks-connector"></a>Självstudier: Azure Active Directory-integrering med Meta Networks Connector
 
@@ -33,7 +33,7 @@ Integreringen av Meta Networks Connector med Azure AD medför följande fördela
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Meta Networks Connector behöver du följande:
 
@@ -121,7 +121,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Meta 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk identifierare, svars-URL och inloggnings-URL. Detta förklaras senare i självstudien.
 
-6. Meta Networks Connector-programmet förväntar sig SAML-försäkringarna i ett visst format, vilket kräver att du lägger till anpassade attributmappningar i din konfiguration av SAML-tokenattribut. I följande skärmbild visas listan över standardattribut. Klicka på ikonen  **Redigera** för att öppna dialogrutan **Användarattribut** .
+6. Meta Networks Connector-programmet förväntar sig SAML-försäkringarna i ett visst format, vilket kräver att du lägger till anpassade attributmappningar i din konfiguration av SAML-tokenattribut. I följande skärmbild visas listan över standardattribut. Klicka på **Redigera** ikon för att öppna dialog rutan **användarattribut** .
 
     ![image](common/edit-attribute.png)
     
@@ -133,7 +133,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Meta 
     | lastname | user.surname | |
     | emailaddress| user.mail| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
     | name | user.userprincipalname| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
-    | phone | user.telephonenumber | |
+    | telefon | user.telephonenumber | |
 
     a. Klicka på **Lägg till nytt anspråk** för att öppna dialogrutan **Hantera användaranspråk**.
 
@@ -172,7 +172,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Meta 
 1. Öppna en ny flik i webbläsaren och logga in på ditt Meta Networks Connector-administratörskonto.
     
     > [!NOTE]
-    > Meta Networks Connector är ett säkert system. Så innan åtkomst till sina portal måste du hämta din offentliga IP-adress som lagts till i en lista över tillåtna på sidan. Hämta din offentliga IP-adress genom att följa den länk som anges [här](https://whatismyipaddress.com/). Skicka din IP-adress till den [Meta nätverk Connector-klient supportteamet](mailto:support@metanetworks.com) att hämta din IP-adress som har lagts till i en lista över tillåtna.
+    > Meta Networks Connector är ett säkert system. Innan du får åtkomst till portalen måste du hämta din offentliga IP-adress till en lista över tillåtna på sidan. Hämta din offentliga IP-adress genom att följa den länk som anges [här](https://whatismyipaddress.com/). Skicka IP-adressen till [klient support teamet för meta Networks Connector](mailto:support@metanetworks.com) för att hämta din IP-adress till en lista över tillåtna.
     
 2. Gå till **Administratör** och välj **Inställningar**.
     
@@ -228,7 +228,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I den **namn** anger **BrittaSimon**.
   
-    b. I den **användarnamn** skriver **brittasimon\@yourcompanydomain.extension**  
+    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.

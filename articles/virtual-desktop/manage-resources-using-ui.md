@@ -1,109 +1,109 @@
 ---
-title: Distribuera hanteringsverktyg – Azure
-description: Så här installerar du ett användargränssnitt för att hantera resurser för virtuella Windows-skrivbordet.
+title: Distribuera hanterings verktyget – Azure
+description: Så här installerar du ett användar gränssnitts verktyg för att hantera Windows-resurser för för hands versioner av virtuella datorer.
 services: virtual-desktop
-author: ChJenk
+author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 06/04/2019
-ms.author: v-chjenk
-ms.openlocfilehash: 9579db9836ef41706f2c6be09570fa7c1459e14f
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.author: helohr
+ms.openlocfilehash: e0f9dbd9bf6b0c12d3e3f028ab9cd4c80cdb5124
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620455"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816501"
 ---
 # <a name="tutorial-deploy-a-management-tool"></a>Självstudier: Distribuera ett hanteringsverktyg
 
-Verktyget management innehåller ett användargränssnitt (UI) för att hantera Microsoft Virtual Desktop Preview resurser. I de här självstudierna lär du dig att skapa och ansluta till hanteringsverktyget.
+Hanterings verktyget tillhandahåller ett användar gränssnitt för att hantera förhands gransknings resurser för Microsoft virtuella skriv bord. I den här självstudien får du lära dig hur du distribuerar och ansluter till hanterings verktyget.
 
 >[!NOTE]
->Dessa instruktioner är för en virtuell Windows-skrivbordet förhandsversion konfiguration som kan användas med din organisations befintliga processer.
+>Dessa anvisningar gäller för en för hands version av en Windows Virtual Desktop-konfiguration som kan användas med din organisations befintliga processer.
 
-## <a name="important-considerations"></a>Att tänka på
+## <a name="important-considerations"></a>Viktiga överväganden
 
-Eftersom appen kräver godkännande för att interagera med virtuella Windows-skrivbordet, det här verktyget stöder inte Business-to-Business (B2B)-scenarier. Varje Azure Active Directory (AAD)-innehavarens prenumeration behöver en egen separat distributionen av management-verktyget.
+Eftersom appen kräver medgivande för att interagera med Windows Virtual Desktop, stöder det här verktyget inte Business-to-Business-scenarier (B2B). Varje Azure Active Directory (AAD)-klient organisations prenumeration måste ha en egen separat distribution av hanterings verktyget.
 
-Den här hanteringsverktyg är ett exempel. Microsoft meddelar viktiga säkerhets- och kvalitetsuppdateringar. Den [källkoden finns i GitHub](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy). Kunder och partner uppmuntras att anpassa verktyget för att anpassa sina affärsbehov.
+Det här hanterings verktyget är ett exempel. Microsoft kommer att tillhandahålla viktiga säkerhets-och kvalitets uppdateringar. [Käll koden finns i GitHub](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy). Kunder och partner uppmanas att anpassa verktyget så att det passar deras affärs behov.
 
-## <a name="what-you-need-to-run-the-azure-resource-manager-template"></a>Vad du behöver att köra Azure Resource Manager-mall
+## <a name="what-you-need-to-run-the-azure-resource-manager-template"></a>Vad du behöver för att köra Azure Resource Manager-mallen
 
-Innan du distribuerar Azure Resource Manager-mall, måste en Azure Active Directory-användare att distribuera management UI. Den här användaren måste:
+Innan du distribuerar Azure Resource Manager-mallen behöver du en Azure Active Directory användare för att distribuera hanterings gränssnittet. Den här användaren måste:
 
-- Har Azure Multi-Factor Authentication (MFA) är inaktiverad
-- Behörighet att skapa resurser i din Azure-prenumeration
-- Behörighet att skapa ett Azure AD-program. Följ stegen nedan för att kontrollera om användaren har den [behörigheter som krävs för](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions).
+- Ha Azure Multi-Factor Authentication (MFA) inaktiverat
+- Har behörighet att skapa resurser i din Azure-prenumeration
+- Har behörighet att skapa ett Azure AD-program. Följ de här stegen för att kontrol lera om användaren har de [behörigheter som krävs](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions).
 
-När du har distribuerat Azure Resource Manager-mallen, bör du starta management användargränssnitt för att verifiera. Den här användaren måste:
-- Har någon rolltilldelning för att visa eller redigera din virtuella skrivbordet i Windows-klient
+När du har distribuerat Azure Resource Manager-mallen vill du starta hanterings gränssnittet för att verifiera. Den här användaren måste:
+- Ha en roll tilldelning för att visa eller redigera din Windows-klient för virtuella skriv bord
 
-## <a name="run-the-azure-resource-manager-template-to-provision-the-management-ui"></a>Kör Azure Resource Manager-mall för att etablera management UI
+## <a name="run-the-azure-resource-manager-template-to-provision-the-management-ui"></a>Kör Azure Resource Manager-mallen för att etablera hanterings gränssnittet
 
-Innan du börjar, kontrollera server- och -appar har medgivande genom att besöka den [Windows Virtual Desktop godkänna sidan](https://rdweb.wvd.microsoft.com) för den Azure Active Directory (AAD) visas.
+Innan du börjar bör du kontrol lera att servern och klientens appar har medgivande genom att besöka [sidan för godkännande av Windows-dator](https://rdweb.wvd.microsoft.com) för den Azure Active Directory (AAD) som visas.
 
-Följ dessa instruktioner för att distribuera Azure Resource Manager-mallen:
+Följ de här anvisningarna för att distribuera Azure-resurs hanterings mal len:
 
-1. Gå till den [GitHub RDS-mallar för Azure-sidan](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy).
+1. Gå till [sidan GitHub Azure RDS – templates](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy).
 2. Distribuera mallen till Azure.
-    - Om du distribuerar i en prenumeration på Enterprise, rulla nedåt och välj **distribuera till Azure**. Se [vägledning för mallparametrarna](#guidance-for-template-parameters).
-    - Om du distribuerar i en Cloud Solution Provider-prenumeration, följer du dessa instruktioner för att distribuera till Azure:
-        1. Rulla nedåt och högerklicka på **distribuera till Azure**och välj sedan **kopia länkplats**.
-        2. Öppna en textredigerare, till exempel Anteckningar och klistra in det på länken.
-        3. Direkt efter <https://portal.azure.com/> och innan hashtaggen (#), ange ett snabel-a (@) följt av klientens domännamn. Här är ett exempel på format: <https://portal.azure.com/@Contoso.onmicrosoft.com#create/>.
-        4. Logga in på Azure Portal som en användare med behörigheter för administratör/deltagare i Cloud Solution Provider-prenumerationen.
-        5. Klistra in länken som du kopierade till textredigeraren i adressfältet.
+    - Om du distribuerar i en Enterprise-prenumeration kan du rulla nedåt och välja **distribuera till Azure**. Se [rikt linjer för mallparametrar](#guidance-for-template-parameters).
+    - Om du distribuerar i en prenumeration på Cloud Solution Provider följer du de här anvisningarna för att distribuera till Azure:
+        1. Rulla nedåt och högerklicka på **distribuera till Azure**och välj sedan **Kopiera länk plats**.
+        2. Öppna en text redigerare som anteckningar och klistra in länken där.
+        3. Direkt efter <https://portal.azure.com/> och före hashtagg (#), ange ett snabel-sign (@) följt av innehavarens domän namn. Här är ett exempel på formatet: <https://portal.azure.com/@Contoso.onmicrosoft.com#create/>.
+        4. Logga in på Azure Portal som en användare med administratörs-/deltagar behörighet för Cloud Solution Provider-prenumerationen.
+        5. Klistra in länken som du kopierade till text redigeraren i adress fältet.
 
 ### <a name="guidance-for-template-parameters"></a>Vägledning för mallparametrar
-Nedan visas hur du ange parametrar för att konfigurera verktyget:
+Så här anger du parametrar för att konfigurera verktyget:
 
-- Det här är URL: en för RD broker: https:\//rdbroker.wvd.microsoft.com/
-- Det här är resurs-URL: https:\//mrs-prod.ame.gbl/mrs-RDInfra-prod
-- Använd dina AAD-autentiseringsuppgifter med MFA inaktiveras för att logga in på Azure. Se [vad du behöver att köra Azure Resource Manager-mallen](#what-you-need-to-run-the-azure-resource-manager-template).
-- Använd ett unikt namn för det program som ska registreras i Azure Active Directory för hanteringsverktyg; till exempel Apr3UX.
+- Detta är URL: en för RD Broker:\/https:/rdbroker.WVD.Microsoft.com/
+- Detta är resurs-URL: en:\/https:/Mrs-Prod.AME.GBL/Mrs-RDInfra-Prod
+- Använd dina AAD-autentiseringsuppgifter med MFA inaktiverat för att logga in på Azure. Se [vad du behöver för att köra Azure Resource Manager-mallen](#what-you-need-to-run-the-azure-resource-manager-template).
+- Använd ett unikt namn för programmet som ska registreras i Azure Active Directory för hanterings verktyget. till exempel Apr3UX.
 
-## <a name="provide-consent-for-the-management-tool"></a>Ge medgivande för hanteringsverktyget
+## <a name="provide-consent-for-the-management-tool"></a>Tillhandahåll medgivande för hanterings verktyget
 
-När du har GitHub Azure Resource Manager mallen är klar, hittar du en resursgrupp som innehåller två apptjänster tillsammans med en app service-plan i Azure-portalen.
+När GitHub Azure Resource Manager-mallen har slutförts hittar du en resurs grupp som innehåller två app Services tillsammans med en app service-plan i Azure Portal.
 
-Innan du loggar in och använda hanteringsverktyget behöver du ge medgivande för det nya Azure Active Directory-programmet som är associerad med verktyget management. Genom att tillhandahålla medgivande, tillåter du att hanteringsverktyg att göra virtuellt skrivbord i Windows management-anrop för den användare som är inloggad i verktyget.
+Innan du loggar in och använder hanterings verktyget måste du ange ett medgivande för det nya Azure Active Directorys programmet som är associerat med hanterings verktyget. Genom att tillhandahålla medgivande kan du låta hanterings verktyget göra Windows-hantering för virtuella skriv bord åt den användare som är inloggad i verktyget.
 
-![En skärmbild som visar de behörigheter som tillhandahålls när samtycker du till UI-hanteringsverktyg.](media/management-ui-delegated-permissions.png)
+![En skärm bild som visar de behörigheter som tillhandahålls när du godkänner användar gränssnitts hanterings verktyget.](media/management-ui-delegated-permissions.png)
 
-För att avgöra vilken användare som du kan använda för att logga in på verktyget går du till din [inställningssidan för Azure Active Directory-användare](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/) och anteckna värdet för **användare kan godkänna att appar får åtkomst till företagets data å deras vägnar** .
+För att avgöra vilken användare du kan använda för att logga in på verktyget går du till [sidan Azure Active Directory användar inställningar](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/) och noterar värdet för **användarna kan godkänna att appar får åtkomst till företags data för deras räkning**.
 
-![En skärmbild som visar om användare kan ge medgivande till program för just deras användare.](media/management-ui-user-consent-allowed.png)
+![En skärm bild som visar om användarna kan ge tillåtelse till program enbart för användare.](media/management-ui-user-consent-allowed.png)
 
-- Om värdet anges till **Ja**, du kan logga in med ett användarkonto i Azure Active Directory och ge medgivande för den användaren. Men om du loggar in till hanteringsverktyget med en annan användare senare, måste du utföra samma medgivande igen.
-- Om värdet anges till **nr**, måste du logga in som Global administratör i Azure Active Directory och ange administratörens godkännande för alla användare i katalogen. Inga andra användare kommer att stöta på Kommandotolken medgivande.
+- Om värdet är inställt på **Ja**kan du logga in med ett användar konto i Azure Active Directory och bara ge användaren tillåtelse. Men om du loggar in på hanterings verktyget med en annan användare senare, måste du utföra samma medgivande igen.
+- Om värdet är inställt på **Nej**, måste du logga in som global administratör i Azure Active Directory och ge administratörs tillåtelse för alla användare i katalogen. Inga andra användare får ett medgivande.
 
 
-Följ dessa instruktioner för att ge medgivande till verktyget när du har bestämt vilken användare som du använder för att ge medgivande:
+När du har bestämt vilken användare du ska använda för att ge sitt medgivande följer du de här anvisningarna för att ge ditt medgivande till verktyget:
 
-1. Gå till dina Azure-resurser, Välj den Azure App Services-resursen med det namn du angav i mallen (till exempel Apr3UX) och gå till den URL som är associerade med den. till exempel <https://rdmimgmtweb-210520190304.azurewebsites.net>.
-2. Logga in med rätt Azure Active Directory-konto.
-3. Om du autentiseras med en Global administratör, kan du nu välja kryssrutan för att **ge samtycke åt din organisation**. Välj **acceptera** att ge medgivande.
+1. Gå till dina Azure-resurser, Välj resursen för Azure App tjänster med det namn som du angav i mallen (till exempel Apr3UX) och navigera till den URL som är kopplad till den. till exempel <https://rdmimgmtweb-210520190304.azurewebsites.net>.
+2. Logga in med lämpligt Azure Active Directory användar konto.
+3. Om du har autentiserats med en global administratör kan du nu Markera kryss rutan för **din organisations räkning**. Välj **acceptera** för att ge medgivande.
    
-   ![En skärmbild som visar sidan fullständig medgivande att användaren eller administratören visas.](media/management-ui-consent-page.png)
+   ![En skärm bild som visar sidan för fullständigt godkännande som användaren eller administratören ser.](media/management-ui-consent-page.png)
 
-Nu då kommer du till hanteringsverktyget.
+Nu ska du gå till hanterings verktyget.
 
-## <a name="use-the-management-tool"></a>Använd hanteringsverktyget för
+## <a name="use-the-management-tool"></a>Använd hanterings verktyget
 
-När du har angett ditt medgivande för organisationen eller för en viss användare, kan du komma åt verktyget management när som helst.
+När du har beviljat godkännande för organisationen eller för en viss användare kan du när som helst komma åt hanterings verktyget.
 
 Följ dessa instruktioner för att starta verktyget:
 
-1. Välj den Azure App Services-resursen med det namn du angav i mallen (till exempel Apr3UX) och gå till den URL som är associerade med den. till exempel <https://rdmimgmtweb-210520190304.azurewebsites.net>.
-2. Logga in med dina autentiseringsuppgifter för virtuella Windows-skrivbordet.
-3. När du uppmanas att välja en klient-grupp, Välj **standard klient grupp** från den nedrullningsbara listan.
+1. Välj resursen Azure App tjänster med det namn som du angav i mallen (till exempel Apr3UX) och navigera till den URL som är kopplad till den. till exempel <https://rdmimgmtweb-210520190304.azurewebsites.net>.
+2. Logga in med dina Windows-autentiseringsuppgifter för virtuella skriv bord.
+3. När du uppmanas att välja en klient grupp väljer du **standard grupp för klient organisation** i list rutan.
 
 > [!NOTE]
-> Om du har en anpassad klient-grupp anger du namnet manuellt i stället för att välja från den nedrullningsbara listan.
+> Om du har en anpassad klient grupp anger du namnet manuellt i stället för att välja i list rutan.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har lärt dig hur du distribuerar och ansluta till hanteringsverktyget, kan du lära dig hur du använder Azure Service Health övervakar karaktär och hälsoråd.
+Nu när du har lärt dig hur du distribuerar och ansluter till hanterings verktyget kan du lära dig hur du använder Azure Service Health för att övervaka tjänst problem och hälso rekommendationer.
 
 > [!div class="nextstepaction"]
-> [Konfigurera självstudie för service-aviseringar](./set-up-service-alerts.md)
+> [Själv studie kurs om att konfigurera service varningar](./set-up-service-alerts.md)

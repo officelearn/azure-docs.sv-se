@@ -1,6 +1,6 @@
 ---
-title: PowerShell-exempel – granska identifiering av hot – Azure SQL Database | Microsoft Docs
-description: Azure PowerShell-exempelskript för att konfigurera granskning och identifiering av hot i en Azure SQL-databas
+title: PowerShell-exempel på gransknings-och Avancerat skydd – Azure SQL Database | Microsoft Docs
+description: Azure PowerShell exempel skript för att konfigurera gransknings-och Avancerat skydd i en Azure SQL Database
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -9,18 +9,18 @@ ms.devlang: PowerShell
 ms.topic: sample
 author: ronitr
 ms.author: ronitr
-ms.reviewer: carlrab
-ms.date: 03/12/2019
-ms.openlocfilehash: c0293cd8f06a1988d89e9a88d9b03f71f1181765
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.reviewer: carlrab, vanto
+ms.date: 08/05/2019
+ms.openlocfilehash: f9ef894f4c4d1d0ad0ab43b538c984f9cf5b2d01
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570038"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816685"
 ---
-# <a name="use-powershell-to-configure-sql-database-auditing-and-threat-detection"></a>Använd PowerShell till att konfigurera SQL Database-granskning och identifiering av hot
+# <a name="use-powershell-to-configure-sql-database-auditing-and-advanced-threat-protection"></a>Använd PowerShell för att konfigurera SQL Database granskning och Avancerat skydd
 
-Det här PowerShell-skriptexemplet konfigurerar SQL Database-granskning och identifiering av hot.
+Detta exempel på PowerShell-skript konfigurerar SQL Database granskning och Avancerat skydd.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
@@ -51,7 +51,7 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 | [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) | Skapar en enkel databas eller en elastisk pool. |
 | [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) | Skapar ett lagringskonto. |
 | [Set-AzSqlDatabaseAuditing](/powershell/module/az.sql/set-azsqldatabaseauditing) | Anger granskningsprincipen för en databas. |
-| [Set-AzSqlDatabaseThreatDetectionPolicy](/powershell/module/az.sql/set-azsqldatabasethreatdetectionpolicy) | Anger en princip för identifiering av hot för en databas. |
+| [Set-AzSqlDatabaseThreatDetectionPolicy](/powershell/module/az.sql/set-azsqldatabasethreatdetectionpolicy) | Ställer in en princip för avancerat skydd på en databas. |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 |||
 

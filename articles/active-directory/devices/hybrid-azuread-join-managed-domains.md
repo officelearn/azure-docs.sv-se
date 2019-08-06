@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c7781651536275eba60bfde49e00a450dde6d3e1
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 787900918035dc8b14d3a173496ab1a23b0f93bb
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68357040"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68813084"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Självstudier: Konfigurera en Azure Active Directory-hybridanslutning för hanterade domäner
 
@@ -74,6 +74,8 @@ Om du inte använder WPAD och behöver konfigurera proxyinställningar på dator
 > Om du konfigurerar proxyinställningar på datorn med hjälp av WinHTTP-inställningar kommer alla datorer som inte kan ansluta till den konfigurerade proxyn inte att kunna ansluta till Internet.
 
 Om din organisation kräver åtkomst till Internet via en autentiserad utgående proxy, måste du se till att dina Windows 10-datorer kan autentiseras mot den utgående proxyn. Eftersom Windows 10-datorer kör enhets registrering med hjälp av dator kontext måste du konfigurera utgående proxyautentisering med hjälp av dator kontext. Kontrollera konfigurationskraven med leverantören av den utgående proxyn.
+
+För att kontrol lera om enheten har åtkomst till ovanstående Microsoft-resurser under system kontot kan du använda anslutnings skriptet för [test av enhets registrering](https://gallery.technet.microsoft.com/Test-Device-Registration-3dc944c0) .
 
 ## <a name="configure-hybrid-azure-ad-join"></a>Konfigurera Hybrid Azure Active Directory-anslutning
 
@@ -161,7 +163,7 @@ När du använder cmdleten **Get-MSolDevice** för att kontrol lera tjänst info
 
 - Det måste finnas ett objekt med det **enhets-ID** som matchar ID: t för Windows-klienten.
 - Värdet för **DeviceTrustType** måste vara **Domänansluten**. Den här inställningen motsvarar **hybrid Azure AD-anslutna** tillstånd på sidan **enheter** i Azure AD-portalen.
-- För enheter som används i villkorlig åtkomst måste värdet för Enabled  vara **True** och **DeviceTrustLevel** måste **hanteras**.
+- För enheter som används i villkorlig åtkomst måste värdet för Enabled vara **True** och **DeviceTrustLevel** måste **hanteras**.
 
 **Så här kontrollerar du tjänst informationen**:
 

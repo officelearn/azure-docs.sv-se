@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med SD-element | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory integrering med SD-element | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och SD-element.
 services: active-directory
 documentationCenter: na
@@ -15,41 +15,41 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 9e6deb8b31559b8c5add06f1771cd69df0c1f136
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a0272de238055151e73c13687f25745c3f402eb4
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67091354"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68826154"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-sd-elements"></a>Självstudier: Azure Active Directory-integrering med SD-element
+# <a name="tutorial-azure-active-directory-integration-with-sd-elements"></a>Självstudier: Azure Active Directory integrering med SD-element
 
-I den här självstudien får du lära dig hur du integrerar SD-element med Azure Active Directory (AD Azure).
-Integrera SD-element med Azure AD ger dig följande fördelar:
+I den här självstudien får du lära dig att integrera SD-element med Azure Active Directory (Azure AD).
+Genom att integrera SD-element med Azure AD får du följande fördelar:
 
-* Du kan styra i Azure AD som har åtkomst till SD-element.
-* Du kan aktivera användarna att vara automatiskt inloggad till SD-element (Single Sign-On) med sina Azure AD-konton.
+* Du kan styra Azure AD som har åtkomst till SD-element.
+* Du kan göra det möjligt för användarna att logga in automatiskt till SD-element (enkel inloggning) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure portal.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill konfigurera Azure AD-integrering med SD-element, behöver du följande objekt:
+Om du vill konfigurera Azure AD-integrering med SD-element behöver du följande objekt:
 
 * En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
-* SD-element med enkel inloggning aktiverad prenumeration
+* Den aktiverade prenumerationen för enkel inloggning för SD-element
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* Har stöd för SD element **IDP** -initierad SSO
+* SD-element stöder **IDP** -INITIERAd SSO
 
-## <a name="adding-sd-elements-from-the-gallery"></a>Att lägga till SD-element från galleriet
+## <a name="adding-sd-elements-from-the-gallery"></a>Lägga till SD-element från galleriet
 
-För att konfigurera integrering av SD-element i Azure AD, som du behöver lägga till SD-element från galleriet i din lista över hanterade SaaS-appar.
+Om du vill konfigurera integrering av SD-element i Azure AD måste du lägga till SD-element från galleriet i listan över hanterade SaaS-appar.
 
 **Utför följande steg för att lägga till SD-element från galleriet:**
 
@@ -65,31 +65,31 @@ För att konfigurera integrering av SD-element i Azure AD, som du behöver lägg
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver **SD element**väljer **SD element** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+4. I rutan Sök skriver du **SD-element**, väljer **SD-element** från resultat panelen och klickar sedan på **Lägg till** för att lägga till programmet.
 
-    ![SD-element i listan med resultat](common/search-new-app.png)
+    ![SD-element i resultat listan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med SD-element som baseras på en testanvändare kallas **Britta Simon**.
-För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i SD-element ska upprättas.
+I det här avsnittet ska du konfigurera och testa enkel inloggning med Azure AD med SD-element baserat på en test användare som kallas **Britta Simon**.
+För att enkel inloggning ska fungera måste en länk relation mellan en Azure AD-användare och den relaterade användaren i SD-element upprättas.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med SD-element, måste du utföra följande byggblock:
+Om du vill konfigurera och testa enkel inloggning med Azure AD med SD-element måste du slutföra följande Bygg stenar:
 
 1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Konfigurera enkel inloggning för SD-element](#configure-sd-elements-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
+2. **[Konfigurera enkel inloggning för SD-element](#configure-sd-elements-single-sign-on)** för att konfigurera inställningarna för enkel inloggning på program sidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
 4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Skapa SD element testanvändare](#create-sd-elements-test-user)**  – du har en motsvarighet för Britta Simon i SD-element som är länkad till en Azure AD-representation av användaren.
+5. **[Skapa SD-element testa användare](#create-sd-elements-test-user)** – för att få en motsvarighet till Britta Simon i SD-element som är länkad till Azure AD-representation av användare.
 6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Utför följande steg för att konfigurera Azure AD enkel inloggning med SD-element:
+Utför följande steg för att konfigurera enkel inloggning med SD-element i Azure AD:
 
-1. I den [Azure-portalen](https://portal.azure.com/)på den **SD element** application integration markerar **enkel inloggning**.
+1. På sidan för **SD** -elementens program integration i [Azure Portal](https://portal.azure.com/)väljer du **enkel inloggning**.
 
     ![Konfigurera enkel inloggning för länken](common/select-sso.png)
 
@@ -103,16 +103,16 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med SD-elem
 
 4. På sidan **Konfigurera enkel inloggning med SAML** utför du följande steg:
 
-    ![SD element domän och URL: er med enkel inloggning för information](common/idp-intiated.png)
+    ![Information om enkel inloggning för SD-element och-URL](common/idp-intiated.png)
 
     a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://<tenantname>.sdelements.com/sso/saml2/metadata`
 
     b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<tenantname>.sdelements.com/sso/saml2/acs/`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifieraren och svars-URL. Kontakta [SD element klienten supportteamet](mailto:support@sdelements.com) att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifieraren och svars-URL. Kontakta [support teamet för SD-element](mailto:support@sdelements.com) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-5. Programmets SD-element förväntas SAML-intyg i ett visst format, vilket kräver att du kan lägga till anpassade attributmappningar i SAML-tokenattribut konfigurationen. I följande skärmbild visas listan över standardattribut. Klicka på ikonen  **Redigera** för att öppna dialogrutan **Användarattribut** .
+5. Dina program med SD-element förväntar sig SAML-intyg i ett särskilt format, vilket kräver att du lägger till anpassade mappningar av attribut i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut. Klicka på **Redigera** ikon för att öppna dialog rutan **användarattribut** .
 
     ![image](common/edit-attribute.png)
 
@@ -146,7 +146,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med SD-elem
 
     ![Länk för hämtning av certifikat](common/certificatebase64.png)
 
-8. På den **konfigurera SD element** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
+8. I avsnittet **Konfigurera SD-element** kopierar du lämpliga URL: er enligt ditt krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
@@ -158,23 +158,23 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med SD-elem
 
 ### <a name="configure-sd-elements-single-sign-on"></a>Konfigurera enkel inloggning för SD-element
 
-1. För att få enkel inloggning aktiverat kan du kontakta din [SD element supportteam](mailto:support@sdelements.com) och ge dem hämtade certifikatfilen.
+1. Om du vill få enkel inloggning aktive rad kontaktar du [support teamet för SD-element](mailto:support@sdelements.com) och ger dem den hämtade certifikat filen.
 
-1. I ett annat webbläsarfönster inloggning till SD-element-klienten som administratör.
+1. Logga in på dina SD-element i ett annat webbläsarfönster som administratör.
 
-1. Klicka på menyn längst upp **System**, och sedan **enkel inloggning**.
+1. I menyn högst upp klickar du på **system**och sedan **på enkel inloggning**.
 
     ![Konfigurera enkel inloggning](./media/sd-elements-tutorial/tutorial_sd-elements_09.png)
 
-1. På den **inställningar för enkel inloggning** dialogrutan utför följande steg:
+1. I dialog rutan **Inställningar för enkel inloggning** utför du följande steg:
 
     ![Konfigurera enkel inloggning](./media/sd-elements-tutorial/tutorial_sd-elements_10.png)
 
-    a. Som **SSO typ**väljer **SAML**.
+    a. Som **SSO-typ**väljer du **SAML**.
 
-    b. I den **identitet providern entitets-ID** textrutan klistra in värdet för **Azure AD-identifierare**, som du har kopierat från Azure-portalen.
+    b. I text rutan för **entitets-ID för identitetsprovider** klistrar du in värdet för **Azure AD-identifierare**, som du har kopierat från Azure Portal.
 
-    c. I den **providern enkel inloggning Identitetstjänst** textrutan klistra in värdet för **inloggnings-URL**, som du har kopierat från Azure-portalen.
+    c. Klistra in värdet för inloggnings- **URL: en**som du har kopierat från Azure Portal i text rutan för **enkel inloggning i identitetsprovider** .
 
     d. Klicka på **Spara**.
 
@@ -205,15 +205,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till SD-element.
+I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till SD-element.
 
-1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **SD element**.
+1. I Azure Portal väljer du **företags program**, väljer **alla program**och väljer sedan **SD-element**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan med program väljer **SD element**.
+2. I listan program väljer du **SD-element**.
 
-    ![Länken SD-element i listan med program](common/all-applications.png)
+    ![SD-element länken i program listan](common/all-applications.png)
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 
@@ -229,33 +229,33 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-sd-elements-test-user"></a>Skapa testanvändare SD-element
+### <a name="create-sd-elements-test-user"></a>Skapa SD-element testa användare
 
-Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i SD-element. När det gäller SD-element är skapa SD element användare en manuell aktivitet.
+Syftet med det här avsnittet är att skapa en användare med namnet Britta Simon i SD-element. När det gäller SD-element skapar SD-element användare en manuell uppgift.
 
 **Utför följande steg för att skapa Britta Simon i SD-element:**
 
-1. I ett webbläsarfönster inloggning till webbplatsen för företagets SD-element som administratör.
+1. Logga in på dina SD-element på företags platsen som administratör i ett webbläsarfönster.
 
-1. Klicka på menyn längst upp **Användarhantering**, och sedan **användare**.
+1. Klicka på **användar hantering**på menyn längst upp och sedan på **användare**.
 
-    ![Skapa en testanvändare SD-element](./media/sd-elements-tutorial/tutorial_sd-elements_11.png) 
+    ![Skapa ett SD-element test användare](./media/sd-elements-tutorial/tutorial_sd-elements_11.png) 
 
 1. Klicka på **Lägg till ny användare**.
 
-    ![Skapa en testanvändare SD-element](./media/sd-elements-tutorial/tutorial_sd-elements_12.png)
+    ![Skapa ett SD-element test användare](./media/sd-elements-tutorial/tutorial_sd-elements_12.png)
 
-1. På den **Lägg till ny användare** dialogrutan utför följande steg:
+1. I dialog rutan **Lägg till ny användare** utför du följande steg:
 
-    ![Skapa en testanvändare SD-element](./media/sd-elements-tutorial/tutorial_sd-elements_13.png) 
+    ![Skapa ett SD-element test användare](./media/sd-elements-tutorial/tutorial_sd-elements_13.png) 
 
-    a. I den **e** textrutan Ange e-postadress för användaren som **brittasimon@contoso.com** .
+    a. I text rutan **e-post** anger du e-postmeddelandet för användaren **brittasimon@contoso.com** .
 
     b. I textrutan **Förnamn** skriver du förnamnet på användaren som **Britta**.
 
-    c. I den **efternamn** textrutan Ange efternamn för användaren som **Simon**.
+    c. I text rutan **efter namn** anger du det senaste namnet på användaren som **Simon**.
 
-    d. Som **rollen**väljer **användaren**.
+    d. Som **roll**väljer du **användare**.
 
     e. Klicka på **Skapa användare**.
 
@@ -263,7 +263,7 @@ Målet med det här avsnittet är att skapa en användare som kallas Britta Simo
 
 I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
-När du klickar på panelen SD-element i åtkomstpanelen, bör det vara loggas in automatiskt till SD-element som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen för SD-element på åtkomst panelen, bör du loggas in automatiskt på de SD-element som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

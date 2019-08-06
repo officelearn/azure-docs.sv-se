@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 07/20/2019
-ms.openlocfilehash: 8b89f5572ae94986590fe76096daeb0ad088fe59
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 66a0c625d300a74787e3640992675d5a3f31610c
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668618"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828528"
 ---
 # <a name="tutorial-train-your-first-model"></a>Självstudier: Träna din första modell
 
@@ -111,7 +111,7 @@ När utbildningen har slutförts anropar `experiment` du variabeln för att häm
 experiment
 ```
 
-<table style="width:100%"><tr><th>Namn</th><th>Arbetsyta</th><th>Rapport sida</th><th>Sidan dokument</th></tr><tr><td>diabetes – experiment</td><td>ditt-arbetsyte namn</td><td><a href="" target="_blank" rel="noopener">Länka till Azure Portal</a></td><td><a href="" target="_blank" rel="noopener">Länk till dokumentation</a></td></tr></table>
+<table style="width:100%"><tr><th>Namn</th><th>Arbetsyta</th><th>Rapport sida</th><th>Sidan dokument</th></tr><tr><td>diabetes – experiment</td><td>ditt-arbetsyte namn</td><td>Länka till Azure Portal</td><td>Länk till dokumentation</td></tr></table>
 
 ## <a name="view-training-results-in-portal"></a>Visa utbildnings resultat i portalen
 
@@ -121,7 +121,7 @@ När utbildnings modeller skalas över hundratals och tusentals separata körnin
 
 ![Huvud experiment sidan i portalen](./media/tutorial-quickstart/experiment-main.png)
 
-Om du klickar på en körnings nummer `RUN NUMBER` länk i kolumnen går du till sidan för varje enskild körning. På **fliken standard** visas mer detaljerad information om varje körning. Navigera till fliken **utdata** och se `.pkl` filen för den modell som överfördes till körningen under varje inlärnings upprepning. Här kan du ladda ned modell filen i stället för att behöva träna den manuellt.
+Om du klickar på en körnings nummer `RUN NUMBER` länk i kolumnen går du till sidan för varje enskild körning. På fliken standard visas mer detaljerad information om varje körning. Navigera till fliken **utdata** och se `.pkl` filen för den modell som överfördes till körningen under varje inlärnings upprepning. Här kan du ladda ned modell filen i stället för att behöva träna den manuellt.
 
 ![Sidan kör information i portalen](./media/tutorial-quickstart/model-download.png)
 
@@ -181,7 +181,7 @@ Om du har använt en molnbaserad Notebook-Server stoppar du den virtuella datorn
 
 1. I arbets ytan väljer du **Notebook VM**: ar.
 
-   ![Stoppa VM-servern](./media/quickstart-run-cloud-notebook/stop-server.png)
+   ![Stoppa VM-servern](./media/tutorial-1st-experiment-sdk-setup/stop-server.png)
 
 1. Välj den virtuella datorn i listan.
 

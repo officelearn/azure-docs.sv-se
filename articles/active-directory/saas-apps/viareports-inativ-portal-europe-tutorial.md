@@ -1,6 +1,6 @@
 ---
-title: 'Självstudier: Azure Active Directory integrering med Viareport Inativ-portalen (Europa) | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Viareport Inativ-portalen (Europa).
+title: 'Självstudier: Azure Active Directory integrering med Viareport (Europa) | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Viareport (Europa).
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,22 +13,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/19/2019
+ms.date: 07/30/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4a7e8359d3c4b80a4dc29a4845749ea690b57fc
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: e7589875356c3d40248c798e753a0e95d900c5b4
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68480512"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68825504"
 ---
-# <a name="tutorial-integrate-viareports-inativ-portal-europe-with-azure-active-directory"></a>Självstudier: Integrera Viareports Inativ-portal (Europa) med Azure Active Directory
+# <a name="tutorial-integrate-viareport-europe-with-azure-active-directory"></a>Självstudier: Integrera Viareport (Europa) med Azure Active Directory
 
-I den här självstudien får du lära dig hur du integrerar Viareports Inativ-portal (Europa) med Azure Active Directory (Azure AD). När du integrerar Viareports Inativ-portal (Europa) med Azure AD kan du:
+I den här självstudien får du lära dig att integrera Viareport (Europa) med Azure Active Directory (Azure AD). När du integrerar Viareport (Europa) med Azure AD kan du:
 
-* Kontroll i Azure AD som har åtkomst till Viareport-Inativ portal (Europa).
-* Gör det möjligt för användarna att logga in automatiskt till Viareport-Inativ portal (Europa) med sina Azure AD-konton.
+* Kontroll i Azure AD som har åtkomst till Viareport (Europa).
+* Gör det möjligt för användarna att logga in automatiskt till Viareport (Europa) med sina Azure AD-konton.
 * Hantera dina konton på en central plats – Azure Portal.
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -38,44 +38,44 @@ Mer information om SaaS app integration med Azure AD finns i [Vad är program å
 För att komma igång behöver du följande objekt:
 
 * En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
-* Viareport Inativ portal (Europa) enkel inloggning (SSO) aktive rad.
+* Viareport (Europa) enkel inloggning (SSO) aktive rad prenumeration.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
 
-* Viareport Inativ-portalen (Europa) stöder **SP-och IDP** -INITIERAd SSO
+* Viareport (Europa) stöder **SP-och IDP** -INITIERAd SSO
 
-## <a name="adding-viareports-inativ-portal-europe-from-the-gallery"></a>Lägga till Viareport Inativ-portalen (Europa) från galleriet
+## <a name="adding-viareport-europe-from-the-gallery"></a>Lägga till Viareport (Europa) från galleriet
 
-Om du vill konfigurera integreringen av Viareport-portalen (Europa) i Azure AD måste du lägga till Viareport Inativ portal (Europa) från galleriet till listan över hanterade SaaS-appar.
+Om du vill konfigurera integreringen av Viareport (Europa) i Azure AD måste du lägga till Viareport (Europa) från galleriet till listan över hanterade SaaS-appar.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
 1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** .
 1. Navigera till **företags program** och välj sedan **alla program**.
 1. Välj **nytt program**om du vill lägga till ett nytt program.
-1. I avsnittet **Lägg till från galleriet** skriver du **Viareport Inativ portal (Europa)** i sökrutan.
-1. Välj **Viareport Inativ portal (Europa)** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
+1. I avsnittet **Lägg till från galleriet** , skriver du **Viareport (Europa)** i sökrutan.
+1. Välj **Viareport (Europa)** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
-Konfigurera och testa Azure AD SSO med Viareport Inativ-portalen (Europa) med en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i Viareport Inativ portal (Europa).
+Konfigurera och testa Azure AD SSO med Viareport (Europa) med en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i Viareport (Europa).
 
-Om du vill konfigurera och testa Azure AD SSO med Viareport Inativ-portalen (Europa) fyller du i följande Bygg stenar:
+Om du vill konfigurera och testa Azure AD SSO med Viareport (Europa) fyller du i följande Bygg stenar:
 
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera Viareport Inativ portal (Europa) SSO](#configure-viareports-inativ-portal-europe-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
+2. **[Konfigurera Viareport (Europa) SSO](#configure-viareport-europe-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
 3. **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
 4. **[Tilldela Azure AD](#assign-the-azure-ad-test-user)** -testuser-för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
-5. **[Skapa Viareport Inativ portal (Europa)](#create-viareports-inativ-portal-europe-test-user)** för att få en motsvarighet till B. Simon i Viareports Inativ-portal (Europa) som är länkad till Azure AD-representation av användare.
+5. **[Skapa Viareport (Europa)-test användare](#create-viareport-europe-test-user)** – om du vill ha en motsvarighet till B. Simon i Viareport (Europa) som är länkad till Azure AD-representation av användare.
 6. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
 Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
-1. På sidan [Azure Portal](https://portal.azure.com/)går du till sidan för program integration i **Viareport Inativ portal (Europa)** och letar upp avsnittet **Hantera** och väljer **enkel inloggning**.
+1. I [Azure Portal](https://portal.azure.com/)på sidan **Viareport (Europa)** program integration, letar du upp avsnittet **Hantera** och väljer **enkel inloggning**.
 1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
 1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
 
@@ -90,15 +90,15 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
     I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://inativ.viareport.com/SSO/<tenant_id>/login`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera värdena med faktisk svars-URL och inloggnings-URL. Kontakta [Viareport för Inativ portal (Europa)](mailto:ycezard@viareport.com) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera värdena med faktisk svars-URL och inloggnings-URL. Kontakta [Viareport (Europa) support teamet](mailto:ycezard@viareport.com) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 4. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på kopieringsknappen för att kopiera **App Federation Metadata-URL** och spara den på datorn.
 
     ![Länk för hämtning av certifikat](common/copy-metadataurl.png)
 
-### <a name="configure-viareports-inativ-portal-europe-sso"></a>Konfigurera Viareport Inativ portal (Europa) SSO
+### <a name="configure-viareport-europe-sso"></a>Konfigurera Viareport (Europa) SSO
 
-Om du vill konfigurera enkel inloggning på **Viareports Inativ portal (Europa)** måste du skicka **URL: en** för appens Federations-metadata till [Viareport-support teamet för Inativ portal (Europa)](mailto:ycezard@viareport.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+Om du vill konfigurera enkel inloggning på **Viareport (Europa)** måste du skicka **URL: en** för appens Federations-metadata till [Viareport (Europa) support teamet](mailto:ycezard@viareport.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
 I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
@@ -113,10 +113,10 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till Viareport Inativ-portalen (Europa).
+I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till Viareport (Europa).
 
 1. I Azure Portal väljer du **företags program**och väljer sedan **alla program**.
-1. I listan program väljer du **Viareport Inativ portal (Europa)** .
+1. I listan program väljer du **Viareport (Europa)** .
 1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
 
    ![Länken ”användare och grupper”](common/users-groups-blade.png)
@@ -129,15 +129,15 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 1. Om du förväntar dig ett roll värde i SAML Assertion, i dialog rutan **Välj roll** , väljer du lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 1. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-viareports-inativ-portal-europe-test-user"></a>Skapa Viareport Inativ portal (Europa)-test användare
+### <a name="create-viareport-europe-test-user"></a>Skapa Viareport (Europa)-test användare
 
-I det här avsnittet skapar du en användare som heter B. Simon i Viareport Inativ-portalen (Europa). Arbeta med [Viareports Inativ portal (Europa) support team](mailto:ycezard@viareport.com) för att lägga till användarna i Viareports Inativ Portal-plattform (Europa). Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som heter B. Simon i Viareport (Europa). Arbeta med [support teamet för Viareport (Europa)](mailto:ycezard@viareport.com) om du vill lägga till användarna på Viareport (Europa)-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="test-sso"></a>Testa SSO 
 
 I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
-När du klickar på Viareport Inativ portal (Europa) på åtkomst panelen, bör du loggas in automatiskt på Viareport-Inativ portal (Europa) som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen Viareport (Europa) i åtkomst panelen, bör du loggas in automatiskt på den Viareport (Europa) som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

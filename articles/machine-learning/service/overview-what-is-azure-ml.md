@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: overview
 author: j-martens
 ms.author: jmartens
-ms.date: 05/02/2019
+ms.date: 08/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: c1ec9db2b026dd1853eceb1f110878d6b2beb4d4
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 5323c996b8d974c9db11a508503f767cfee80301
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68678036"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828103"
 ---
 # <a name="what-is-azure-machine-learning-service"></a>Vad är tjänsten Azure Machine Learning?
 
@@ -29,7 +29,7 @@ Prognoser eller förutsägelser från maskininlärning kan göra appar och enhet
 
 ## <a name="what-is-azure-machine-learning-service"></a>Vad är tjänsten Azure Machine Learning?
 
-Tjänsten Azure Machine Learning tillhandahåller en molnbaserad miljö som du kan använda för att förbereda data och träna, testa, distribuera, hantera och spåra maskininlärningsmodeller. Starta utbildningen på den lokala datorn och skala sedan ut till molnet. Tjänsten har fullt stöd för tekniker med öppen källkod som PyTorch, TensorFlow och scikit – lära sig och kan användas för alla typer av maskin inlärning, från klassisk ml till djup inlärning, övervakad och oövervakad inlärning. 
+Tjänsten Azure Machine Learning tillhandahåller en molnbaserad miljö som du kan använda för att förbereda data och träna, testa, distribuera, hantera och spåra maskininlärningsmodeller. Starta utbildningen på den lokala datorn och skala sedan ut till molnet. Tjänsten har fullt stöd för tekniker med öppen källkod som PyTorch, TensorFlow och scikit – lära sig och kan användas för alla typer av maskin inlärning, från klassisk ml till djup inlärning, övervakad och oövervakad inlärning.
 
 Utforska och Förbered data, träna och testa modeller och distribuera dem med hjälp av omfattande verktyg som:
 + Ett [visuellt gränssnitt](ui-tutorial-automobile-price-train-score.md) där du kan dra-n-släpp-moduler för att bygga experiment och sedan distribuera modeller
@@ -55,20 +55,25 @@ Du kan också [Automatisera modell träning och-justering](tutorial-auto-train-m
 Prova följande för kod fri utbildning:
 
 + Det visuella gränssnittet för experimentering och distribution med dra-n-drop
-    
+
     ![Visuellt gränssnitt för Azure Machine Learning tjänst](media/overview-what-is-azure-ml/visual-interface.png)
 
 + Alternativet Azure Portal för automatiserade ML-experiment
 
 ### <a name="operationalization-mlops"></a>Driftsättning (MLOps)
 
-När du har rätt modell kan du enkelt använda den i en webb tjänst, på en IoT-enhet eller från Power BI. Mer information finns i artikeln om [hur och var man distribuerar](how-to-deploy-and-where.md). 
+När du har rätt modell kan du enkelt använda den i en webb tjänst, på en IoT-enhet eller från Power BI. Mer information finns i artikeln om [hur och var man distribuerar](how-to-deploy-and-where.md).
 
-Du kan sedan hantera dina distribuerade modeller med hjälp av [Azure Machine Learning SDK för Python](https://aka.ms/aml-sdk) eller [Azure-portalen](https://portal.azure.com/). 
+Du kan sedan hantera dina distribuerade modeller med hjälp av [Azure Machine Learning SDK för Python](https://aka.ms/aml-sdk) eller [Azure-portalen](https://portal.azure.com/).
 
 Dessa modeller kan förbrukas och returnera förutsägelser i [real tid](how-to-consume-web-service.md) eller [asynkront](how-to-run-batch-predictions.md) på stora mängder data.
 
-Och med avancerade [maskin inlärnings pipeliner](concept-ml-pipelines.md)kan du samar beta med varje steg från förberedelse av data, modell utbildning och utvärdering, via distribution.
+Och med avancerade [maskin inlärnings pipeliner](concept-ml-pipelines.md)kan du samar beta med varje steg från förberedelse av data, modell utbildning och utvärdering, via distribution. Med pipelines kan du:
+
+* Automatisera dator inlärnings processen från slut punkt till slut punkt i molnet
+* Återanvänd komponenter och kör bara stegen igen när du behöver
+* Använd olika beräknings resurser i varje steg
+* köra batch-bedömnings uppgifter
 
 Kom igång med tjänsten Azure Machine Learning genom att gå till [Nästa steg](#next-steps).
 
@@ -86,7 +91,7 @@ Här är en snabb jämförelse.
 |Moduler för gränssnitt| Mycket | Inledande uppsättning populära moduler|
 |Inlärnings mål| Patentskyddat beräknings mål, endast CPU-stöd| Stöder Azure Machine Learning Compute, GPU eller CPU.<br/>(Andra beräkningar som stöds i SDK)|
 |Beräknings mål för distribution| Eget webb tjänst format, inte anpassningsbart | Företags säkerhets alternativ & Azure Kubernetes-tjänsten. <br/>([Andra beräkningar](how-to-deploy-and-where.md) som stöds i SDK) |
-|Automatisk modell inlärning och inställning för att justera dem | Nej | Ännu inte i Visual Interface. <br/> (Stöds i SDK och Azure Portal.) | 
+|Automatisk modell inlärning och inställning för att justera dem | Nej | Ännu inte i Visual Interface. <br/> (Stöds i SDK och Azure Portal.) |
 
 Prova Visual Interface (för hands version) med [Självstudier: Förutsäg bil priset med det visuella gränssnittet](ui-tutorial-automobile-price-train-score.md).
 
@@ -103,8 +108,8 @@ Du får krediter som du kan använda för att köpa Azure-tjänster. När de är
 
 - Kom igång genom att [skapa en Machine Learning service-arbetsyta](setup-create-workspace.md) .
 
-- Följ de fullständiga självstudierna: 
-  + [Träna en modell för bildklassificering med Azure Machine Learning-tjänsten](tutorial-train-models-with-aml.md) 
+- Följ de fullständiga självstudierna:
+  + [Träna en modell för bildklassificering med Azure Machine Learning-tjänsten](tutorial-train-models-with-aml.md)
   + [Förbereda data och använda automatiserad maskininlärning för att automatiskt träna en regressionsmodell](tutorial-data-prep.md)
 
 - Lär dig mer om [pipelines för maskininlärning](/azure/machine-learning/service/concept-ml-pipelines) för att skapa, optimera och hantera dina maskininlärningsscenarier.

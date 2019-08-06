@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 04/22/2019
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 55bcce3c5a4b0dd00d9217d6cb3cc2cfbe6d5828
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: da7e41ae77226c2a18b92329507855ac30891058
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66753800"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816102"
 ---
 # <a name="overview-of-azure-service-fabric"></a>Översikt över Azure Service Fabric
 Azure Service Fabric är en distribuerad systemplattform som gör det enkelt att paketera, distribuera och hantera skalbara och tillförlitliga mikrotjänster och containrar. Service Fabric tar också itu med betydande utmaningar vid utveckling och hantering av inbyggda molnprogram. Utvecklare och administratörer kan undvika komplexa infrastrukturproblem och fokusera på att implementera verksamhetskritiska, krävande arbetsbelastningar som är skalbara, tillförlitliga och hanterbara. Service Fabric representerar nästa generations plattform för att skapa och hantera dessa molskalningsprogram i företagsklass på nivå 1 som körs i containrar.
@@ -29,7 +29,7 @@ Denna korta video presenterar Service Fabric och mikrotjänster:
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Service-Fabric/player]
 
 ## <a name="compliance"></a>Efterlevnad
-Azure Service Fabric-Resursprovider är tillgänglig i alla Azure-regioner och är kompatibel med alla efterlevnad certifikat som Azure har; Detta omfattar följande: SOC, ISO, PCI DSS, HIPAA och GDPR. Läs följande för en fullständig lista över efterlevnad certifikat: [Efterlevnadserbjudanden](https://www.microsoft.com/trustcenter/compliance/complianceofferings)
+Azure Service Fabric Resource Provider är tillgänglig i alla Azure-regioner och är kompatibel med alla certifikat för regelefterlevnad som Azure har; Detta omfattar följande: SOC, ISO, PCI DSS, HIPAA och GDPR. Läs igenom följande om du vill ha en fullständig lista över certifikat för regelefterlevnad: [Erbjudanden för regelefterlevnad](https://www.microsoft.com/trustcenter/compliance/complianceofferings)
 
 ## <a name="applications-composed-of-microservices"></a>Program som består av mikrotjänster 
 Med Service Fabric kan du skapa och hantera skalbara och tillförlitliga program som består av mikrotjänster och som körs med hög densitet på en delad pool med datorer, som kallas ett kluster. Det ger en avancerad och lättviktig körning för att skapa distribuerade, skalbara, tillståndslösa och tillståndskänsliga mikrotjänster som körs i containrar. Det ger även omfattande funktioner för programhantering för att etablera, distribuera, övervaka, uppgradera/korrigera och ta bort distribuerade program, inklusive tjänster i containrar.
@@ -67,7 +67,7 @@ Service Fabric har stöd för hela programlivscykeln och CI/CD för molnprogram,
 
 Hanteringsfunktioner för programlivscykel i Service Fabric gör det möjligt för programadministratörer och IT-personal att använda enkla arbetsflöden med låg insats för att etablera, distribuera, korrigera och övervaka program. Dessa inbyggda arbetsflöden innebär en stor minskning av arbetsbelastningen för IT-personal när det gäller att se till att programmen ständigt är tillgängliga.
 
-De flesta program består av en kombination av tillståndslösa och tillståndskänsliga mikrotjänster, containrar och andra körbara funktioner som distribueras tillsammans. Genom att ha starka typer i programmen gör Service Fabric det möjligt att distribuera flera programinstanser. Varje instans hanteras och uppgraderas separat. En viktig funktion är att Service Fabric kan distribuera containrar och eventuella körbara filer och göra dem tillförlitliga. Service Fabric kan till exempel distribuera .NET, ASP.NET Core, node.js, Windows-containrar, Linux-containrar, virtuella Java-datorer, skript, Angular – i princip allt som programmet består av.
+De flesta program består av en kombination av tillståndslösa och tillståndskänsliga mikrotjänster, containrar och andra körbara funktioner som distribueras tillsammans. Genom att ha starka typer i programmen gör Service Fabric det möjligt att distribuera flera programinstanser. Varje instans hanteras och uppgraderas separat. En viktig funktion är att Service Fabric kan distribuera containrar och eventuella körbara filer och göra dem tillförlitliga. Service Fabric kan till exempel distribuera .NET, ASP.NET Core, python, Node. js, Windows-behållare, Linux-behållare, Java-virtuella datorer, skript, vinkel eller bokstavligen vad som utgör ditt program.
 
 Service Fabric är integrerat med CI/CD-verktyg som [Azure Pipelines](https://www.visualstudio.com/team-services/), [Jenkins](https://jenkins.io/index.html) och [Octopus Deploy](https://octopus.com/), och kan användas med valfritt annat populärt CI/CD-verktyg.
 

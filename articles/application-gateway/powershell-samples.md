@@ -1,26 +1,26 @@
 ---
-title: Azure Application Gateway PowerShell-exempel
-description: Azure Application Gateway PowerShell-exempel
+title: Azure PowerShell exempel för Azure Application Gateway
+description: Azure PowerShell exempel för Azure Application Gateway
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
-ms.date: 6/18/2019
+ms.topic: sample
+ms.date: 08/07/2019
 ms.author: victorh
-ms.openlocfilehash: ce86a97f8f565c7917c8f71b8910acf8ceffbede
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 2fb809026e8b604ddf25a8160774972eae99411a
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67164642"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68824343"
 ---
-# <a name="azure-application-gateway-powershell-samples"></a>Azure Application Gateway PowerShell-exempel
+# <a name="azure-powershell-examples-for-azure-application-gateway"></a>Azure PowerShell exempel för Azure Application Gateway
 
-I följande tabell innehåller länkar till Azure PowerShell-skriptexempel som skapar programgatewayer.
+Följande tabell innehåller länkar till Azure PowerShell skript exempel för Azure Application Gateway.
 
 | | |
 |---|---|
-| [Hantera webbtrafik](./scripts/create-vmss-powershell.md) | Skapar en Programgateway och alla relaterade resurser.|
-| [Begränsa webbtrafik](./scripts/create-vmss-waf-powershell.md) | Skapar en Programgateway som begränsar trafik med hjälp av OWASP-regler.|
-|[Anpassade regler för WAF v2](scripts/waf-custom-rules-powershell.md)|Skapar en Application Gateway Web Application Firewall v2 med anpassade regler.
+| [Hantera webb trafik](./scripts/create-vmss-powershell.md) | Skapar en Application Gateway och alla relaterade resurser.|
+| [Begränsa webb trafik](./scripts/create-vmss-waf-powershell.md) | Skapar ett Application Gateway som begränsar trafik med hjälp av OWASP-regler.|
+|[Anpassade regler för WAF v2](scripts/waf-custom-rules-powershell.md)|Skapar en Application Gateway brand vägg för webbaserade program v2 med anpassade regler.
 | | |

@@ -6,14 +6,14 @@ author: alinamstanciu
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 12/18/2018
+ms.date: 08/05/2019
 ms.author: alinast
-ms.openlocfilehash: 2b84fa2fd8053ca4dc7ef0ad246d29b2bba3dae5
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 30d43831b73edc52b461512faecac369f6bf00b0
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67484703"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827825"
 ---
 # <a name="tutorial-receive-notifications-from-your-azure-digital-twins-spaces-by-using-logic-apps"></a>Självstudier: Ta emot meddelanden från dina Azure Digital Twins-utrymmen med hjälp av Logic Apps
 
@@ -85,7 +85,7 @@ I det här avsnittet konfigurerar du en [Event Grid](../event-grid/overview.md) 
 
 1. Ersätt platshållaren `<Secondary connection string for your Event Grid>` med värdet för **YOUR_KEY_2**.
 
-1. Ersätt platshållaren för **sökväg** med sökvägen till event grid-ämne. Hämta den här sökvägen genom att ta bort den **https://** och avslutande resurssökvägar från **Ämnesslutpunkt**-URL: en. Det bör se ut ungefär som det här formatet: *yourEventGridName.yourLocation.eventgrid.azure.net*.
+1. Ersätt plats hållaren för **sökväg** med sökvägen till Event Grid-ämnet. Hämta den här sökvägen genom att ta bort den **https://** och avslutande resurssökvägar från **Ämnesslutpunkt**-URL: en. Det bör se ut ungefär som det här formatet: *yourEventGridName.yourLocation.eventgrid.azure.net*.
 
     > [!IMPORTANT]
     > Ange alla värden utan citattecken. Se till att det finns minst ett blanksteg efter kolonen i YAML-filen. Du kan även verifiera YAML-filinnehållet med hjälp av en YAML-onlineverifierare, till exempel [det här verktyget](https://onlineyamltools.com/validate-yaml).
@@ -114,7 +114,7 @@ Du kan använda [Azure Logic Apps](../logic-apps/logic-apps-overview.md)-tjänst
 
 1. Öppna logikappresursen när den har distribuerats och öppna sedan fönsterrutan **Logic App Designer**. 
 
-1. Välj den **när en Event Grid-resurshändelse inträffar** utlösaren. Logga in till din klientorganisation med Azure-kontot när du tillfrågas. Välj **Tillåt åtkomst** för Event Grid om du tillfrågas. Välj **Fortsätt**.
+1. Välj **när en Event Grid resurs händelse inträffar** som utlösare. Logga in till din klientorganisation med Azure-kontot när du tillfrågas. Välj **Tillåt åtkomst** till din event Grid-resurs om du uppmanas att göra det. Välj **Fortsätt**.
 
 1. I fönstret **When a resource event occurs (Preview)** (När en resurshändelse inträffar (förhandsversion)): 
    
@@ -174,7 +174,7 @@ Du kan använda [Azure Logic Apps](../logic-apps/logic-apps-overview.md)-tjänst
 
    a. Markera **Lägg till en åtgärd** och väljer **Office 365 Outlook**.
 
-   b. I listan med **Åtgärder** väljer du **Skicka ett e-postmeddelande**. Välj **Logga in** och använd autentiseringsuppgifterna för ditt e-postkonto. Välj **Tillåt åtkomst** om du tillfrågas.
+   b. I listan med **Åtgärder** väljer du **Skicka ett e-postmeddelande**. Välj **Logga in** och använd autentiseringsuppgifterna för ditt e-postkonto. Välj **Tillåt åtkomst** om du uppmanas till detta.
 
    c. I rutan **Till** anger du ditt e-post-ID för att få meddelanden. I **Ämne** anger du texten **Digital Twins notification for poor air quality in space** (Digital Twins-meddelande för dålig luftkvalitet i utrymmet). Välj sedan **TopologyObjectId** på listan **Dynamiskt innehåll** för **Parsa JSON**.
 
@@ -188,7 +188,7 @@ Du kan använda [Azure Logic Apps](../logic-apps/logic-apps-overview.md)-tjänst
 
 Om några minuter bör du börja få e-postmeddelanden från den här Logic Apps-resursen. 
 
-   ![E-postavisering](./media/tutorial-facilities-events/logic-app-notification.png)
+   ![E-postmeddelande](./media/tutorial-facilities-events/logic-app-notification.png)
 
 Om du vill sluta få dessa e-postmeddelanden går du till din logikappresurs i portalen och väljer fönsterrutan **Översikt**. Välj **inaktivera**.
 
@@ -208,7 +208,7 @@ Om du inte vill utforska Azure Digital Twins nu kan du ta bort resurser som du h
 Du kan gå till nästa självstudie och lära dig att visualisera dina sensordata, analysera trender och upptäcka avvikelser:
 
 > [!div class="nextstepaction"]
-> [Självstudie: Visualisera och analysera händelser från dina Azure Digital Twins-utrymmen med hjälp av Time Series Insights](tutorial-facilities-analyze.md)
+> [Självstudier: Visualisera och analysera händelser från dina Azure Digital Twins-utrymmen med hjälp av Time Series Insights](tutorial-facilities-analyze.md)
 
 Du kan även lära dig mer om diagram för spatial intelligens och objektmodeller i Azure Digital Twins:
 

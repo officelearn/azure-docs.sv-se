@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: ac476e2a66f7fd1d315adb37258917b3ff47373f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 92df57737b75ab2c9bb9992dd3f223f55dbc39bb
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67093467"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68826131"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-purecloud-by-genesys"></a>Självstudier: Azure Active Directory-integrering med PureCloud by Genesys
 
@@ -33,7 +33,7 @@ När du integrerar PureCloud by Genesys med Azure AD innebär det följande för
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med PureCloud by Genesys behöver du följande:
 
@@ -138,7 +138,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med PureC
     | `https://login.mypurecloud.ie` |
     | `https://login.mypurecloud.com.au` |
 
-6. PureCloud by Genesys-programmet förväntar sig SAML-intyg i ett visst format, vilket kräver att du lägger till anpassade attributmappningar i konfigurationen av SAML-tokenattribut. I följande skärmbild visas listan över standardattribut. Klicka på ikonen  **Redigera** för att öppna dialogrutan **Användarattribut** .
+6. PureCloud by Genesys-programmet förväntar sig SAML-intyg i ett visst format, vilket kräver att du lägger till anpassade attributmappningar i konfigurationen av SAML-tokenattribut. I följande skärmbild visas listan över standardattribut. Klicka på **Redigera** ikon för att öppna dialog rutan **användarattribut** .
 
     ![image](common/edit-attribute.png)
 
@@ -146,7 +146,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med PureC
 
     | Namn | Källattribut|
     | ---------------| --------------- |
-    | E-post | user.userprinicipalname |
+    | Email | user.userprinicipalname |
     | OrganizationName | `Your organization name` |
 
     a. Klicka på **Lägg till nytt anspråk** för att öppna dialogrutan **Hantera användaranspråk**.
@@ -223,7 +223,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I den **användarnamn** fälttyp **brittasimon\@yourcompanydomain.extension**  
+    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
@@ -278,7 +278,7 @@ Om du vill ge Azure AD-användare möjlighet att logga in i PureCloud by Genesys
 
     a. I textrutan **Fullständigt namn** anger du namnet på användaren, t.ex. **Brittasimon**.
 
-    b. I **e-post** text, ange den e-postadressen för användaren som **brittasimon\@contoso.com**.
+    b. I text rutan **e-postadress** anger du e-postmeddelandet som **\@brittasimon contoso.com**.
     
     c. Klicka på **Skapa**.
 

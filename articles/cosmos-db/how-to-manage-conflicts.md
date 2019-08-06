@@ -4,14 +4,14 @@ description: Lär du hur du hanterar konflikter i Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 06/25/2019
+ms.date: 08/05/2019
 ms.author: mjbrown
-ms.openlocfilehash: 96171d4729187ca03f1e9529551a7fb6a26c6976
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 77fb0e195cee03405c4a601fe8c57d4a2690a4b2
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360370"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815073"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>Hantera principer för konfliktlösning i Azure Cosmos DB
 
@@ -19,7 +19,7 @@ Om flera regioner skrivs, när flera klienter skriver till samma objekt, kan det
 
 ## <a name="create-a-last-writer-wins-conflict-resolution-policy"></a>Skapa en senaste skrivning vinner-konfliktlösningsprincip
 
-De här exemplen visar hur du konfigurerar en container med en senaste skrivning vinner-konfliktlösningsprincip. Standard Sök vägen för senaste Writer-WINS är tidsstämpel-fältet eller `_ts` egenskapen. Detta kan också anges till en användardefinierad sökväg för en numerisk typ. I en konflikt är det högsta värdet WINS. Om sökvägen inte har angetts eller är ogiltig är den standard `_ts`. Konflikter som lösts med den här principen visas inte i den motstridiga feeden. Den här principen kan användas av alla API: er.
+De här exemplen visar hur du konfigurerar en container med en senaste skrivning vinner-konfliktlösningsprincip. Standard Sök vägen för senaste Writer-WINS är tidsstämpel-fältet eller `_ts` egenskapen. För SQL API kan detta också anges till en användardefinierad sökväg med en numerisk typ. I en konflikt är det högsta värdet WINS. Om sökvägen inte har angetts eller är ogiltig är den standard `_ts`. Konflikter som lösts med den här principen visas inte i den motstridiga feeden. Den här principen kan användas av alla API: er.
 
 ### <a id="create-custom-conflict-resolution-policy-lww-dotnet"></a>.NET SDK V2
 
@@ -114,7 +114,6 @@ De lagrade procedurerna för anpassad konflikt lösning måste implementeras med
 
 > [!IMPORTANT]
 > Precis som med alla lagrade procedurer kan en anpassad lösning för konflikt lösning komma åt alla data med samma partitionsnyckel och kan utföra alla åtgärder för att infoga, uppdatera eller ta bort för att lösa konflikter.
-
 
 Den här exempel lagrade proceduren löser konflikter genom att välja det lägsta värdet från `/myCustomId` sökvägen.
 
@@ -273,7 +272,6 @@ udp_collection = self.try_create_document_collection(
 
 När containern har skapats måste du skapa den lagrade proceduren `resolver`.
 
-
 ## <a name="create-a-custom-conflict-resolution-policy"></a>Skapa en anpassad konfliktlösningsprincip
 
 De här exemplen visar hur du konfigurerar en container med en anpassad konfliktlösningsprincip. De här konflikterna visas i konfliktflödet.
@@ -428,10 +426,10 @@ while conflict:
 
 Läs mer om följande Azure Cosmos DB-begrepp:
 
-* [Global distribution – under huven](global-dist-under-the-hood.md)
-* [Så här konfigurerar du flera huvud i dina program](how-to-multi-master.md)
-* [Konfigurera klienter för multihoming](how-to-manage-database-account.md#configure-multiple-write-regions)
-* [Lägg till eller ta bort regioner från ditt Azure Cosmos DB konto](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
-* [Så här konfigurerar du flera original i dina program](how-to-multi-master.md).
-* [Partitionering och datadistribution](partition-data.md)
-* [Indexering i Azure Cosmos DB](indexing-policies.md)
+- [Global distribution – under huven](global-dist-under-the-hood.md)
+- [Så här konfigurerar du flera huvud i dina program](how-to-multi-master.md)
+- [Konfigurera klienter för multihoming](how-to-manage-database-account.md#configure-multiple-write-regions)
+- [Lägg till eller ta bort regioner från ditt Azure Cosmos DB konto](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
+- [Så här konfigurerar du flera original i dina program](how-to-multi-master.md).
+- [Partitionering och datadistribution](partition-data.md)
+- [Indexering i Azure Cosmos DB](indexing-policies.md)

@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2018
 ms.author: rkarlin
-ms.openlocfilehash: 9f4e001909fb739aa368e5201649e85cce9906d3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 110dcb1531390b207ae741af07fe0ad18964aae1
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60910650"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816132"
 ---
 # <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>Snabbstart: Publicera Linux-datorer till Azure Security Center
-När du har publicerat dina Azure-prenumerationer kan du aktivera Security Center för Linux-resurser som körs utanför Azure, till exempel lokalt eller i andra moln, genom att etablera Linux-agenten.
+När du har publicerat dina Azure-prenumerationer kan du aktivera Security Center för Linux-resurser som körs utanför Azure, till exempel lokalt eller i andra moln, genom att tillhandahålla en agent. Agenten kallas Microsoft Monitoring Agent (MMA), men kallas även OMS-agenten.
 
-I den här snabbstarten får du lära dig att installera Linux-agenten på en Linux-dator.
+Den här snabb starten visar hur du installerar agenten på en Linux-dator.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 Du måste ha en prenumeration på Microsoft Azure för att komma igång med Security Center. Om du inte har någon prenumeration kan du registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/).
 
 Innan du startar den här snabbstarten måste du ha standardnivån i Security Center. Läs [Publicera din Azure-prenumeration till Security Center Standard](security-center-get-started.md) för instruktioner om uppgradering. Du kan prova Security Center Standard utan kostnad. Mer information finns på [prissidan](https://azure.microsoft.com/pricing/details/security-center/).
@@ -57,7 +57,7 @@ Innan du startar den här snabbstarten måste du ha standardnivån i Security Ce
 
    ![Installera agenten][5]
 
-Loggar för Security Center-agenten för Linux finns på: */var/opt/microsoft/omsagent/\<arbetsyte-id > /log/*
+Loggarna för agenten finns på: */var/opt/Microsoft/omsagent/\<arbetsyte-ID >/log/*
 
   ![Loggar för agent][6]
 
@@ -85,7 +85,7 @@ Så här tar du bort agenten:
 I den här snabbstarten etablerade du agenten på en Linux-dator. Om du vill läsa mer om hur du använder Security Center fortsätter du till självstudien om konfiguration av en säkerhetsprincip och utvärderar resursers säkerhet.
 
 > [!div class="nextstepaction"]
-> [Självstudie: Definiera och utvärdera säkerhetsprinciper](tutorial-security-policy.md)
+> [Självstudier: Definiera och utvärdera säkerhetsprinciper](tutorial-security-policy.md)
 
 <!--Image references-->
 [1]: ./media/quick-onboard-linux-computer/portal.png

@@ -1,60 +1,60 @@
 ---
-title: Konfigurera aviseringar för Windows virtuella skrivbordet – Azure
-description: Hur du ställer in Azure Service Health att ta emot tjänstmeddelanden för virtuella Windows-skrivbordet.
+title: Konfigurera tjänst aviseringar för Windows Virtual Desktop – Azure
+description: Konfigurera Azure Service Health för att ta emot tjänst meddelanden för virtuella Windows-datorer.
 services: virtual-desktop
-author: ChJenk
+author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 06/11/2019
-ms.author: v-chjenk
-ms.openlocfilehash: cae75f16da2cad453c74b7e6e9fb62dd789fe5c7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: helohr
+ms.openlocfilehash: cbd55d3243426f2e6ec84986a2147ff94574bdda
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67081373"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816380"
 ---
-# <a name="tutorial-set-up-service-alerts"></a>Självstudier: Konfigurera aviseringar
+# <a name="tutorial-set-up-service-alerts"></a>Självstudier: Konfigurera tjänstaviseringar
 
-Du kan använda Azure Service Health övervakar karaktär och hälsoråd för virtuella Windows-skrivbordet. Azure Service Health kan meddela dig med olika typer av aviseringar (till exempel e-post eller SMS) hjälper dig att förstå effekten av ett problem och hålla dig uppdaterad under löser problemet. Azure Service Health kan också hjälpa dig att minimera driftstopp och förbereda för planerat underhåll och ändringar som kan påverka tillgängligheten för dina resurser.
+Du kan använda Azure Service Health för att övervaka tjänst problem och hälso rekommendationer för virtuella Windows-datorer. Azure Service Health kan meddela dig om olika typer av aviseringar (t. ex. e-post eller SMS), hjälpa dig att förstå resultatet av ett problem och hålla dig uppdaterad när problemet löses. Azure Service Health kan också hjälpa dig att minska stillestånds tiden och förbereda för planerat underhåll och ändringar som kan påverka tillgängligheten för dina resurser.
 
 I den här kursen får du lära du dig att:
 
 > [!div class="checklist"]
-> * Skapa och konfigurera aviseringar.
+> * Skapa och konfigurera tjänst aviseringar.
 
-Mer information om Azure Service Health finns i [Health-dokumentation för Azure](https://docs.microsoft.com/azure/service-health/).
+Mer information om Azure Service Health finns i [Azure Health-dokumentationen](https://docs.microsoft.com/azure/service-health/).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-- [Självstudie: Skapa en klient i förhandsversion för virtuella skrivbord i Windows](https://docs.microsoft.com/azure/virtual-desktop/tenant-setup-azure-active-directory)
-- [Självstudie: Skapa tjänstens huvudnamn och rolltilldelningar med PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-service-principal-role-powershell)
-- [Självstudie: Skapa en värd-pool med Azure Marketplace](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-azure-marketplace)
+- [Självstudier: Skapa en klient i för hands versionen av Windows Virtual Desktop](https://docs.microsoft.com/azure/virtual-desktop/tenant-setup-azure-active-directory)
+- [Självstudier: Skapa tjänstens huvud namn och roll tilldelningar med PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-service-principal-role-powershell)
+- [Självstudier: Skapa en värdbaserad pool med Azure Marketplace](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-azure-marketplace)
 
-## <a name="create-service-alerts"></a>Skapa aviseringar
+## <a name="create-service-alerts"></a>Skapa tjänst aviseringar
 
-Det här avsnittet visar hur du konfigurerar Azure Service Health och hur du ställer in meddelanden, som du kan komma åt på Azure portal. Du kan ställa in olika typer av aviseringar och schemalägger dem att meddela dig i rätt tid.
+I det här avsnittet visas hur du konfigurerar Azure Service Health och hur du konfigurerar aviseringar som du kan komma åt på Azure Portal. Du kan ställa in olika typer av aviseringar och schemalägga dem för att meddela dig inom rimlig tid.
 
-### <a name="recommended-service-alerts"></a>Rekommenderade aviseringar
+### <a name="recommended-service-alerts"></a>Rekommenderade tjänst aviseringar
 
-Vi rekommenderar att du skapar aviseringar för följande typer av hälsotillstånd händelse:
+Vi rekommenderar att du skapar tjänst aviseringar för följande typer av hälso händelser:
 
-- **Tjänsten problem:** Ta emot meddelanden på allvarliga problem som påverkar anslutningen för dina användare med tjänsten eller möjlighet att hantera virtuella skrivbord i Windows-klienten.
-- **Hälsostatus:** Ta emot meddelanden som kräver din uppmärksamhet. Här följer några exempel på den här typen av meddelande:
-    - Virtuella datorer (VM), inte på ett säkert sätt konfigureras som öppnar port 3389
+- **Tjänst problem:** Ta emot meddelanden om större problem som påverkar anslutningarna för dina användare med tjänsten eller med möjligheten att hantera din Windows-klient för virtuella skriv bord.
+- **Hälso rådgivning:** Ta emot meddelanden som kräver din uppmärksamhet. Följande är några exempel på den här typen av avisering:
+    - Virtual Machines (VM) har inte kon figurer ATS på ett säkert sätt som öppen port 3389
     - Utfasning av funktioner
 
-### <a name="configure-service-alerts"></a>Konfigurera aviseringar
+### <a name="configure-service-alerts"></a>Konfigurera tjänst aviseringar
 
-Konfigurera aviseringar:
+Konfigurera tjänst aviseringar:
 
 1. Logga in på [Azure Portal](https://portal.azure.com/).
-2. Välj **Service Health.**
-3. Följ instruktionerna i [skapa aviseringar för aktivitetsloggen för tjänstmeddelanden](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log-service-notifications?toc=%2Fazure%2Fservice-health%2Ftoc.json#alert-and-new-action-group-using-azure-portal) att ställa in dina aviseringar och meddelanden.
+2. Välj **service Health.**
+3. Följ anvisningarna i [skapa aktivitets logg aviseringar på tjänst aviseringar](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log-service-notifications?toc=%2Fazure%2Fservice-health%2Ftoc.json#alert-and-new-action-group-using-azure-portal) för att konfigurera aviseringar och meddelanden.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien lärde du dig att konfigurera och använda Azure Service Health för att övervaka karaktär och hälsoråd för virtuella Windows-skrivbordet. Mer information om hur du loggar in till virtuella Windows-skrivbordet, fortsätter du att ansluta till virtuella skrivbord instruktioner för Windows.
+I den här självstudien har du lärt dig hur du konfigurerar och använder Azure Service Health för att övervaka tjänst problem och hälso rekommendationer för virtuella Windows-datorer. Om du vill veta mer om hur du loggar in på det virtuella Windows-skrivbordet fortsätter du till instruktionen Anslut till Windows Virtual Desktop.
 
 > [!div class="nextstepaction"]
-> [Ansluta till fjärrskrivbord-klienten på Windows 7 och Windows 10](./connect-windows-7-and-10.md)
+> [Ansluta till fjärr skrivbords klienten på Windows 7 och Windows 10](./connect-windows-7-and-10.md)

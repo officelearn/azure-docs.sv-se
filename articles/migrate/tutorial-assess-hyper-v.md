@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: c790667c73adfed061b97b14ebb7df4c68461786
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: 60e1db913336cc9f9e355c2e8f8466854de20389
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663790"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828339"
 ---
 # <a name="assess-hyper-v-vms-with-azure-migrate-server-assessment"></a>Utvärdera virtuella Hyper-V-datorer med Azure Migrate Server-utvärdering
 
@@ -98,7 +98,7 @@ Azure Migrate Server utvärderingen kör en förenklad Hyper-V VM-enhet.
 
 Hämta den zippade VHD-mallen för enheten.
 
-1. I >  **** Serverför > migreringsmålAzureMigrate: **Server utvärdering**, klicka på **identifiera**.
+1. I > Serverför > migreringsmålAzureMigrate: **Server utvärdering**, klicka på **identifiera**.
 2. I **identifiera datorer** > **är dina datorer virtualiserade?** , klicka på **Ja, med Hyper-V**.
 3. Klicka på **Ladda ned** för att ladda ned VHD-filen.
 
@@ -115,12 +115,12 @@ Kontrol lera att den zippade filen är säker innan du distribuerar den.
     - ```C:\>Get-FileHash -Path <file_location> -Algorithm [Hashing Algorithm]```
     - Exempel på användning: ```C:\>Get-FileHash -Path ./AzureMigrateAppliance_v1.19.06.27.zip -Algorithm SHA256```
 
-3.  För version 1.19.06.27 ska den genererade hashen matcha de här inställningarna.
+3.  För version 2.19.07.30 ska den genererade hashen matcha de här inställningarna.
 
   **Algoritm** | **Hash-värde**
   --- | ---
-  MD5 | 3681F745FA2B0A0A6910707D85161EC5
-  SHA256 | E6CA109AFAB9657BDCFB291C343B3E3ABCED9A273D25273059171F9954D25832
+  MD5 | d0a68e76ea24ba4e4a494c0dab95e90e
+  SHA256 | 0551221d2a9de75c352c201ccc88f7f10e87e5df1ecda42bfd4ec6c8defc57c0
 
 
 
@@ -201,7 +201,7 @@ Exempel: ` Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contos
 
 Du kan också göra detta i redigerare för lokalt grupprincipobjekt på enheten:
 
-1.  > I >  **** **dator konfiguration för** **lokal dator princip**klickar du på **administrativa mallar** **** delegeringavsystemautentiseringsuppgifter > .
+1.  > I > **dator konfiguration för** **lokal dator princip**klickar du på **administrativa mallar**delegeringavsystemautentiseringsuppgifter > .
 2. Dubbelklicka på **Tillåt att delegera nya autentiseringsuppgifter**och välj **aktive rad**.
 3. I **alternativ**klickar du på **Visa**och lägger till varje Hyper-V-värd som du vill identifiera i listan med **WSMan/** som prefix.
 4. I delegering av **autentiseringsuppgifter**dubbelklickar du sedan på **Tillåt att delegera nya AUTENTISERINGSUPPGIFTER med endast NTLM-** serverautentisering. Lägg återigen till varje Hyper-V-värd som du vill identifiera i listan, med **WSMan/** som prefix.
@@ -274,7 +274,7 @@ En utvärdering beskriver:
 
 ### <a name="view-an-assessment"></a>Visa en utvärdering
 
-1. I >   **** Serverför > migreringsmålAzureMigrate: **Server utvärdering**, klickapå utvärderingar.
+1. I >  Serverför > migreringsmålAzureMigrate: **Server utvärdering**, klickapå utvärderingar.
 2. I **bedömningar**klickar du på en utvärdering för att öppna den.
 
     ![Utvärderingssammanfattning](./media/tutorial-assess-hyper-v/assessment-summary.png)

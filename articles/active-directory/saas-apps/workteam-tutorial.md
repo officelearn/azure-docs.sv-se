@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med Workteam | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory integrering med Workteam | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Workteam.
 services: active-directory
 documentationCenter: na
@@ -15,41 +15,41 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 697f5c06d2c1d6b669cfa244f0328f4fb86aeea2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d628b12171cd67455ea308a2ca2b29e67855cccc
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67086835"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68825615"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-workteam"></a>Självstudier: Azure Active Directory-integrering med Workteam
+# <a name="tutorial-azure-active-directory-integration-with-workteam"></a>Självstudier: Azure Active Directory integrering med Workteam
 
-I den här självstudien får du lära dig hur du integrerar Workteam med Azure Active Directory (AD Azure).
-Integrera Workteam med Azure AD ger dig följande fördelar:
+I den här självstudien får du lära dig hur du integrerar Workteam med Azure Active Directory (Azure AD).
+Genom att integrera Workteam med Azure AD får du följande fördelar:
 
 * Du kan styra i Azure AD som har åtkomst till Workteam.
-* Du kan aktivera användarna att vara automatiskt inloggad till Workteam (Single Sign-On) med sina Azure AD-konton.
+* Du kan göra det möjligt för användarna att logga in automatiskt till Workteam (enkel inloggning) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure portal.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill konfigurera Azure AD-integrering med Workteam, behöver du följande objekt:
+Om du vill konfigurera Azure AD-integrering med Workteam behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en [kostnadsfritt konto](https://azure.microsoft.com/free/).
-* Workteam enkel inloggning aktiverat prenumeration
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
+* Workteam-aktiverad prenumeration med enkel inloggning
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* Har stöd för Workteam **SP** och **IDP** -initierad SSO
+* Workteam stöder **SP** -och **IDP** -initierad SSO
 
-## <a name="adding-workteam-from-the-gallery"></a>Att lägga till Workteam från galleriet
+## <a name="adding-workteam-from-the-gallery"></a>Lägga till Workteam från galleriet
 
-För att konfigurera integrering av Workteam i Azure AD, som du behöver lägga till Workteam från galleriet i din lista över hanterade SaaS-appar.
+Om du vill konfigurera integreringen av Workteam i Azure AD måste du lägga till Workteam från galleriet i listan över hanterade SaaS-appar.
 
 **Utför följande steg för att lägga till Workteam från galleriet:**
 
@@ -65,31 +65,31 @@ För att konfigurera integrering av Workteam i Azure AD, som du behöver lägga 
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver **Workteam**väljer **Workteam** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+4. I rutan Sök skriver du **Workteam**, väljer **Workteam** från resultat panelen och klickar sedan på **Lägg till** för att lägga till programmet.
 
-     ![Workteam i resultatlistan](common/search-new-app.png)
+     ![Workteam i resultat listan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Workteam baserat på en testanvändare kallas **Britta Simon**.
-För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i Workteam upprättas.
+I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med Workteam baserat på en test användare som kallas **Britta Simon**.
+För att enkel inloggning ska fungera måste en länk relation mellan en Azure AD-användare och den relaterade användaren i Workteam upprättas.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med Workteam, måste du utföra följande byggblock:
+Om du vill konfigurera och testa enkel inloggning med Workteam i Azure AD måste du slutföra följande Bygg stenar:
 
 1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Konfigurera Workteam Single Sign-On](#configure-workteam-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
+2. **[Konfigurera Workteam-enkel inloggning](#configure-workteam-single-sign-on)** för att konfigurera inställningarna för enkel inloggning på program sidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
 4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Skapa testanvändare Workteam](#create-workteam-test-user)**  – du har en motsvarighet för Britta Simon i Workteam som är länkad till en Azure AD-representation av användaren.
+5. **[Skapa Workteam test User](#create-workteam-test-user)** – om du vill ha en motsvarighet till Britta Simon i Workteam som är länkad till Azure AD-representation av användare.
 6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Utför följande steg för att konfigurera Azure AD enkel inloggning med Workteam:
+Utför följande steg för att konfigurera enkel inloggning med Workteam i Azure AD:
 
-1. I den [Azure-portalen](https://portal.azure.com/)på den **Workteam** application integration markerar **enkel inloggning**.
+1. Välj **enkel inloggning**på sidan **Workteam** Application Integration i [Azure Portal](https://portal.azure.com/).
 
     ![Konfigurera enkel inloggning för länken](common/select-sso.png)
 
@@ -101,13 +101,13 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Worktea
 
     ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-4. På den **SAML grundkonfiguration** om du vill konfigurera programmet i **IDP** initierad läge som användaren inte behöver utföra några steg som appen är redan förintegrerade med Azure.
+4. I avsnittet **grundläggande SAML-konfiguration** , om du vill konfigurera programmet i **IDP** initierat läge, behöver användaren inte utföra några steg eftersom appen redan är Förintegrerad med Azure.
 
-    ![Workteam domän och URL: er med enkel inloggning för information](common/preintegrated.png)
+    ![Information om enkel inloggning för Workteam-domän och URL: er](common/preintegrated.png)
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    ![Workteam domän och URL: er med enkel inloggning för information](common/metadata-upload-additional-signon.png)
+    ![Information om enkel inloggning för Workteam-domän och URL: er](common/metadata-upload-additional-signon.png)
 
     I rutan **Inloggnings-URL** anger du en URL: `https://app.workte.am`
 
@@ -115,7 +115,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Worktea
 
     ![Länk för hämtning av certifikat](common/certificatebase64.png)
 
-7. På den **konfigurera Workteam** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
+7. I avsnittet **Konfigurera Workteam** kopierar du lämpliga URL: er enligt ditt krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
@@ -125,29 +125,29 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Worktea
 
     c. Utloggnings-URL
 
-### <a name="configure-workteam-single-sign-on"></a>Konfigurera Workteam Single Sign-On
+### <a name="configure-workteam-single-sign-on"></a>Konfigurera Workteam enkel inloggning
 
-1. I ett annat webbläsarfönster, loggar du in Workteam som en administratör.
+1. Logga in på Workteam som säkerhets administratör i ett annat webbläsarfönster.
 
-2. I övre högra hörnet klickar du på **profilera logotyp** och klicka sedan på **organisationsinställningar**. 
+2. Klicka på **profil logo typ** i det övre högra hörnet och klicka sedan på **organisations inställningar**. 
 
-    ![Workteam inställningar](./media/workteam-tutorial/tutorial_workteam_settings.png)
+    ![Workteam-inställningar](./media/workteam-tutorial/tutorial_workteam_settings.png)
 
-3. Under **AUTENTISERING** klickar du på **inställningar logotyp**.
+3. Under avsnittet **autentisering** klickar du på **Inställningar logo typ**.
 
-     ![Workteam azure](./media/workteam-tutorial/tutorial_workteam_azure.png)
+     ![Workteam Azure](./media/workteam-tutorial/tutorial_workteam_azure.png)
 
-4. På den **SAML-inställningar** utför följande steg:
+4. Utför följande steg på sidan **SAML-inställningar** :
 
-     ![Workteam saml](./media/workteam-tutorial/tutorial_workteam_saml.png)
+     ![Workteam SAML](./media/workteam-tutorial/tutorial_workteam_saml.png)
 
-    a. Välj **SAML IdP** som **AD Azure**.
+    a. Välj **SAML-IDP** som **AD Azure**.
 
-    b. I den **SAML enkel inloggning för tjänst-URL** textrutan klistra in värdet för **inloggnings-URL**, som du har kopierat från Azure-portalen.
+    b. I text rutan för **SAML-tjänsten för enkel inloggnings-URL** klistrar du in värdet för inloggnings- **URL: en**som du har kopierat från Azure Portal.
 
-    c. I den **SAML entitets-ID** textrutan klistra in värdet för **Azure AD-identifierare**, som du har kopierat från Azure-portalen.
+    c. I text rutan **SAML-entitets-ID** klistrar du in värdet för **Azure AD-identifierare**, som du har kopierat från Azure Portal.
 
-    d. I anteckningar, öppna den **Base64-kodade certifikat** som du laddade ned från Azure-portalen, kopiera innehållet och klistra in den i den **SAML-signeringscertifikat (Base64)** box.
+    d. I anteckningar öppnar du det **bas-64-kodade certifikatet** som du laddade ned från Azure Portal, kopierar dess innehåll och klistrar in det i rutan **SAML signerings certifikat (base64)** .
 
     e. Klicka på **OK**.
 
@@ -178,15 +178,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Workteam.
+I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till Workteam.
 
-1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **Workteam**.
+1. I Azure Portal väljer du **företags program**, väljer **alla program**och väljer sedan **Workteam**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan med program väljer **Workteam**.
+2. I listan program väljer du **Workteam**.
 
-    ![Länken Workteam i listan med program](common/all-applications.png)
+    ![Workteam-länken i program listan](common/all-applications.png)
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 
@@ -202,25 +202,25 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-workteam-test-user"></a>Skapa Workteam testanvändare
+### <a name="create-workteam-test-user"></a>Skapa Workteam test användare
 
-Om du vill aktivera Azure AD-användare att logga in på Workteam, måste de etableras i Workteam. I Workteam är etablering en manuell aktivitet.
+Om du vill att Azure AD-användare ska kunna logga in på Workteam måste de tillhandahållas i Workteam. I Workteam är etableringen en manuell uppgift.
 
 **Utför följande steg för att etablera ett användarkonto:**
 
-1. Logga in på Workteam som en administratör.
+1. Logga in på Workteam som säkerhets administratör.
 
-2. På överst i mitten på den **organisationsinställningar** klickar du på **användare** och klicka sedan på **ny användare**.
+2. Klicka på **användare** längst upp i mitten av sidan **organisations inställningar** och klicka sedan på **ny användare**.
 
-    ![Workteam användare](./media/workteam-tutorial/tutorial_workteam_user.png)
+    ![Workteam-användare](./media/workteam-tutorial/tutorial_workteam_user.png)
 
-3. På den **nyanställd** utför följande steg:
+3. På sidan **Ny medarbetare** utför du följande steg:
 
-    ![Workteam ny användare](./media/workteam-tutorial/tutorial_workteam_newuser.png)
+    ![Workteam newuser](./media/workteam-tutorial/tutorial_workteam_newuser.png)
 
-    a. I den **namn** text, ange först namnet på användaren som **Brittasimon**.
+    a. I text rutan **namn** anger du det första namnet på användaren som **Brittasimon**.
 
-    b. I **e-post** text, ange den e-postadressen för användaren som **Brittasimon\@contoso.com**.
+    b. I text rutan **e-postadress** anger du e-postmeddelandet som **\@Brittasimon contoso.com**.
 
     c. Klicka på **OK**.
 
@@ -228,7 +228,7 @@ Om du vill aktivera Azure AD-användare att logga in på Workteam, måste de eta
 
 I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Workteam i åtkomstpanelen, bör det vara loggas in automatiskt till Workteam som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen Workteam på åtkomst panelen, bör du loggas in automatiskt på den Workteam som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: overview
-ms.date: 02/13/2019
+ms.date: 08/05/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c20256fb712d9381ba2adc90e2e68ce4fdc8911a
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: d4ca21ecf7ad0707ad33220a8e8c2700638f8e25
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68382774"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68824808"
 ---
 # <a name="set-up-your-security-info-preview-from-the-sign-in-page-prompt"></a>Konfigurera din säkerhetsinformation (förhandsversion) från uppmaningen på inloggningssidan
 
@@ -75,7 +75,7 @@ Följ de här stegen för att konfigurera säkerhetsinformation för ditt arbets
 
 8. Godkänn meddelandet i Microsoft Authenticator-appen och välj sedan **Nästa**.
 
-    ![Meddelande om att det lyckades; appen och ditt konto ansluts](media/security-info/securityinfo-prompt-auth-app-success.png).
+    ![Meddelande om att det lyckades; appen och ditt konto ansluts](media/security-info/securityinfo-prompt-auth-app-success.png)
 
     Din säkerhetsinformation uppdateras till att använda Microsoft Authenticator-appen som standard för att verifiera din identitet vid användning av tvåstegsverifiering eller återställning av lösenord.
 
@@ -98,6 +98,40 @@ Följ de här stegen för att konfigurera säkerhetsinformation för ditt arbets
 12. Granska sidan **Success** (Lyckades) för att kontrollera att du har konfigurerat både Microsoft Authenticator-appen och en telefonmetod (SMS eller telefonsamtal) för din säkerhetsinformation, och välj sedan **Klar**.
 
     ![Sidan om att guiden har slutförts](media/security-info/securityinfo-prompt-setup-success.png)
+
+    >[!Note]
+    >Om din organisation kräver att du använder applösenord, kan du se ytterligare ett avsnitt i den här guiden, där du kan konfigurera den. Om du ser ett tredje avsnitt, som kallas **applösenord**, måste du fylla i det innan du kan slutföra guiden. Anvisningar om hur du lägger till ett applösenord finns i avsnittet [Hantera applösenord](#manage-your-app-passwords) i den här artikeln.
+
+### <a name="manage-your-app-passwords"></a>Hantera dina applösenord
+
+Vissa appar, till exempel Outlook 2010, stöder inte tvåstegsverifiering. Detta saknar stöd innebär att om du använder tvåstegsverifiering i din organisation fungerar inte appen. För att komma runt det här problemet kan du skapa ett automatiskt genererat lösen ord som ska användas med varje icke-webbapp, separat från det normala lösen ordet.
+
+>[!Note]
+>Om du inte ser det här alternativet i guiden innebär det att administratören inte har konfigurerat det. Om detta inte är konfigurerat, men du vet att du behöver använda applösenord, kan du följa stegen i [sidan Konfigurera applösenord från sidan säkerhets information (förhands granskning)](security-info-app-passwords.md).
+
+När du använder applösenord är det viktigt att komma ihåg:
+
+- Applösenord skapas automatiskt och anges bara en gång per app.
+
+- Det finns en gräns på 40 lösen ord per användare. Om du försöker skapa en efter den gränsen uppmanas du att ta bort ett befintligt lösen ord innan du får skapa det nya.
+
+- Använd ett applösenord per enhet, inte per app. Du kan till exempel skapa ett enda lösen ord för alla appar på din bärbara dator och sedan ett nytt lösen ord för alla appar på Skriv bordet.
+
+#### <a name="to-add-app-passwords-in-the-sign-in-wizard"></a>Så här lägger du till applösenord i inloggnings guiden
+
+1. När du har slutfört de föregående avsnitten i guiden väljer du **Nästa** och slutför **appens lösen ord** .
+
+2. Skriv namnet på den app som behöver lösen ordet, till exempel `Outlook 2010`, och välj sedan **Nästa**.
+
+    ![Lägg till appens lösen ords namn i guiden](media/security-info/app-password-app-password.png)
+
+3. Kopiera lösen ords koden från skärmen **applösenord** och klistra in den i appens **lösen ord** (i det här exemplet Outlook 2010).
+
+    ![Sidan applösenord med lösen ord för kopiering](media/security-info/app-password-copy-password.png)
+
+4. När du har kopierat lösen ordet och klistrat in det i appen går du tillbaka till den här guiden för att se till att all information om inloggnings metoden ärkorrekt och väljer sedan slutförd.
+
+    ![Sidan applösenord, med kompletterings meddelande](media/security-info/app-password-complete.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

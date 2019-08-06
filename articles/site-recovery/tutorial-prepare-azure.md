@@ -8,16 +8,16 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: cb2ca7229524cf8d84041140129c7b9ca6876ea3
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 87216317a965e85d83aede468163f43b1716c45a
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66417803"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827233"
 ---
 # <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>Förbereda Azure-resurser för haveriberedskap för lokala datorer
 
-Den här artikeln beskriver hur du förbereder Azure-resurser och komponenter så att du kan konfigurera haveriberedskap för lokala virtuella VMware-datorer, Hyper-V-datorer eller Windows-/ Linux fysiska servrar till Azure, med hjälp av den [Azure Site Recovery](site-recovery-overview.md) service.
+Den här artikeln beskriver hur du förbereder Azure-resurser och-komponenter så att du kan konfigurera haveri beredskap för lokala virtuella VMware-datorer, virtuella Hyper-V-datorer eller Windows/Linux fysiska servrar till Azure med hjälp av tjänsten [Azure Site Recovery](site-recovery-overview.md) .
 
 Den här artikeln är den första kursen i en serie som illustrerar hur du ställer in haveriberedskap för lokala virtuella datorer. 
 
@@ -25,37 +25,37 @@ Den här artikeln är den första kursen i en serie som illustrerar hur du stäl
 I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
-> * Kontrollera att Azure-konto har Replikeringsbehörighet.
+> * Kontrol lera att Azure-kontot har behörighet för replikering.
 > * Skapa ett Recovery Services-valv. Ett valv innehåller metadata och konfigurationsinformation för virtuella datorer och andra replikeringskomponenter.
-> * Konfigurera ett Azure-nätverk (VNet). När virtuella Azure-datorerna skapats efter redundansen, är de anslutna till det här nätverket.
+> * Konfigurera ett virtuellt Azure-nätverk (VNet). När virtuella Azure-datorer skapas efter en redundansväxling är de anslutna till det här nätverket.
 
 > [!NOTE]
-> Självstudier visar den enklaste distribution sökvägen för ett scenario. De använder standardalternativ där så är möjligt och visar inte alla möjliga inställningar och sökvägar. Detaljerade anvisningar finns i artikel i avsnittet How To i Site Recovery i innehållsförteckningen.
+> Självstudier visar den enklaste distributions vägen för ett scenario. De använder standardalternativ där så är möjligt och visar inte alla möjliga inställningar och sökvägar. Detaljerade anvisningar finns i artikeln i avsnittet så här i Site Recovery innehålls förteckningen.
 
 ## <a name="before-you-start"></a>Innan du börjar
 
-- Granska arkitekturen för [VMware](vmware-azure-architecture.md), [Hyper-V](hyper-v-azure-architecture.md), och [fysisk server](physical-azure-architecture.md) katastrofåterställning.
+- Granska arkitekturen för haveri beredskap för [VMware](vmware-azure-architecture.md), [Hyper-V](hyper-v-azure-architecture.md)och [fysisk server](physical-azure-architecture.md) .
 - Läs vanliga frågor för [VMware](vmware-azure-common-questions.md) och [Hyper-V](hyper-v-azure-common-questions.md)
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar. Logga sedan in på den [Azure-portalen](https://portal.azure.com).
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar. Logga sedan in på [Azure Portal](https://portal.azure.com).
 
 
 ## <a name="verify-account-permissions"></a>Verifiera kontobehörighet
 
-Om du nyligen skapade ditt kostnadsfria Azure-konto du är administratör för din prenumeration och du har de behörigheter som du behöver. Om du inte är administratör för prenumerationen kan du tillsammans med administratören tilldela de behörigheter som du behöver. Om du vill aktivera replikering för en ny virtuell dator måste du ha behörighet för att:
+Om du precis har skapat ditt kostnads fria Azure-konto är du administratör för din prenumeration och du har de behörigheter som du behöver. Om du inte är administratör för prenumerationen kan du tillsammans med administratören tilldela de behörigheter som du behöver. Om du vill aktivera replikering för en ny virtuell dator måste du ha behörighet för att:
 
 - Skapa en virtuell dator i den valda resursgruppen.
 - Skapa en virtuell dator i det valda virtuella nätverket.
-- Skriva till ett Azure storage-konto.
-- Skriva till en Azure hanterade diskar.
+- Skriv till ett Azure Storage-konto.
+- Skriv till en Azure-hanterad disk.
 
 För att slutföra dessa uppgifter måste ditt konto tilldelas en inbyggd roll som virtuell datordeltagare. För att hantera Site Recovery-åtgärder i ett valv, måste ditt konto också tilldelas en inbyggd roll som Site Recovery-deltagare.
 
 
 ## <a name="create-a-recovery-services-vault"></a>skapar ett Recovery Services-valv
 
-1. I Azure-portalen klickar du på **+ skapa en resurs**, och Sök på Marketplace efter **Recovery**.
-2. Klicka på **Backup och Site Recovery (OMS)** . På sidan Backup och Site Recovery klickar du på **Skapa**. 
+1. I Azure Portal klickar du på **+ skapa en resurs**och söker efter **återställning**i Marketplace.
+2. Klicka på **säkerhets kopiering och Site Recovery**och på sidan säkerhets kopiering och Site Recovery klickar du på **skapa**. 
 1. I **Recovery Services-valv** > **Namn** anger du ett eget namn som identifierar valvet. I de här självstudierna använder vi namnet **ContosoVMVault**.
 2. I **Resursgrupp** väljer du en befintlig resursgrupp eller skapar en ny. I den här självstudien använder vi **contosoRG**.
 3. I **Plats** väljer du den region där valvet ska finnas. Använder vi **Västeuropa**.
@@ -67,15 +67,15 @@ För att slutföra dessa uppgifter måste ditt konto tilldelas en inbyggd roll s
 
 ## <a name="set-up-an-azure-network"></a>Skapa ett Azure-nätverk
 
-Lokala datorer replikeras till Azure hanterade diskar. Vid redundans virtuella Azure-datorer skapas från dessa hanterade diskar, och ansluten till Azure-nätverket du anger i den här proceduren.
+Lokala datorer replikeras till Azure Managed disks. När redundansväxlingen inträffar skapas virtuella Azure-datorer från dessa hanterade diskar och ansluts till det Azure-nätverk som du anger i den här proceduren.
 
 1. I [Azure Portal](https://portal.azure.com) markerar du **Skapa en resurs** > **Nätverk** > **Virtuellt nätverk**.
-2. Behåll **Resource Manager** valt som distributionsmodell.
+2. Behåll **Resource Manager** valt som distributions modell.
 3. I **Namn** anger du ett nätverksnamn. Namnet måste vara unikt inom Azure-resursgruppen. Vi använder **ContosASRnet** i den här självinlärningskursen.
 4. Ange resursgruppen där nätverket kommer att skapas. Vi använder den befintliga resursgruppen **contosoRG**.
-5. I **adressintervall**, ange intervallet för det virtuella nätverket. Vi använder **10.1.0.0/24**, och inte använder ett undernät.
+5. I **adress intervall**anger du intervallet för nätverket. Vi använder **10.1.0.0/24**och använder inte ett undernät.
 6. I **Prenumeration** väljer du den prenumeration där du vill skapa nätverket.
-7. I **plats**, Välj samma region som Recovery Services-valvet har skapats. I våra självstudier har **Västeuropa**. Nätverket måste finnas i samma region som valvet.
+7. I **plats**väljer du samma region som Recovery Servicess valvet har skapats i. I vår självstudie är det **Västeuropa**. Nätverket måste finnas i samma region som valvet.
 8. Vi lämnar standardalternativen för grundläggande DDoS-skydd utan tjänstslutpunkten i nätverket.
 9. Klicka på **Skapa**.
 
@@ -88,8 +88,8 @@ Det tar några sekunder att skapa ditt virtuella nätverk. När det har skapats 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- För VMware-haveriberedskap [förbereda lokala VMware-infrastruktur](tutorial-prepare-on-premises-vmware.md).
-- För Hyper-V disaster recovery [och Förbered lokalerna Hyper-V-servrar](hyper-v-prepare-on-premises-tutorial.md).
-- För fysisk server disaster recovery [ställa in miljön för configuration server- och källor](physical-azure-disaster-recovery.md)
+- [Förbered den lokala VMware-infrastrukturen](tutorial-prepare-on-premises-vmware.md)för katastrof återställning i VMware.
+- För haveri beredskap för Hyper-V [förbereder du de lokala Hyper-V-servrarna](hyper-v-prepare-on-premises-tutorial.md).
+- För haveri beredskap för fysiska servrar [ställer du in konfigurations servern och käll miljön](physical-azure-disaster-recovery.md)
 - [Lär dig om](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) Azure-nätverk.
-- [Lär dig mer om](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) hanterade diskar.
+- [Lär dig mer om](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) Managed disks.

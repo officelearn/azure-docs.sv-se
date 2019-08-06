@@ -8,18 +8,18 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 02/23/2019
-ms.openlocfilehash: bd8fa10ca0a9809891efc67ff930ab01d502eda9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1ee5a8d5f55422c9f8a0f20f3c6eb039f080dc2d
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60640970"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815736"
 ---
 # <a name="deploy-to-azure-functions-using-the-jenkins-azure-functions-plugin"></a>Distribuera till Azure Functions med hjälp av plugin-programmet Jenkins i Azure Functions
 
 [Azure Functions](/azure/azure-functions/) är en "serverlös" beräkningstjänst. Med Azure Functions kan köra du kod på begäran utan att tillhandahålla eller hantera infrastruktur. I den är självstudien får du lära dig att distribuera en Java-funktion till Azure Functions med hjälp av Azure Functions-plugin-programmet.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - **Azure-prenumeration**: Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
 - **Jenkins-server**: Om du inte har en Jenkins-server installerad kan du läsa artikeln [Skapa en Jenkins-server i Azure](./install-jenkins-solution-template.md).
@@ -49,12 +49,6 @@ Följande steg visar hur du skapar en Java-funktion med Azure CLI:
 
     ```cli
     az functionapp create --resource-group <resource_group> --consumption-plan-location eastus --name <function_app> --storage-account <storage_account>
-    ```
-    
-1. Uppdatera till version 2.x-körningen som ersätter platshållarna med lämpliga värden.
-
-    ```cli
-    az functionapp config appsettings set --name <function_app> --resource-group <resource_group> --settings FUNCTIONS_EXTENSION_VERSION=~2
     ```
 
 ## <a name="prepare-jenkins-server"></a>Förbereda Jenkins-servern
@@ -89,9 +83,9 @@ Följande steg beskriver hur du förbereder Jenkins-servern:
 
 1. Med Azure-tjänstens huvudnamn lägger du till ”Microsoft Azure Service Principal” som autentiseringstyp i Jenkins. Referera till självstudien [Distribuera till Azure App Service](./tutorial-jenkins-deploy-web-app-azure-app-service.md#add-service-principal-to-jenkins).
 
-## <a name="fork-the-sample-github-repo"></a>Förgrening GitHub-exempellager
+## <a name="fork-the-sample-github-repo"></a>Förgrena exempel GitHub lagrings platsen
 
-1. [Logga in på GitHub-lagringsplatsen för appen udda eller även exempel](https://github.com/VSChina/odd-or-even-function.git).
+1. [Logga in på GitHub-lagrings platsen för udda eller jämna exempel-appen](https://github.com/VSChina/odd-or-even-function.git).
 
 1. I det övre högra hörnet i GitHub väljer du **Fork** (Förgrening).
 
@@ -115,7 +109,7 @@ I det här avsnittet skapar du en [Jenkins-pipeline](https://jenkins.io/doc/book
     
 1. I avsnittet **Pipeline->Definition** väljer du **Pipeline-skript från SCM**.
 
-1. Ange din GitHub-förgrening URL och skript sökväg (”doc/resurser/jenkins/JenkinsFile”) ska användas i den [JenkinsFile exempel](https://github.com/VSChina/odd-or-even-function/blob/master/doc/resources/jenkins/JenkinsFile).
+1. Ange GitHub-delens URL och skript Sök väg ("doc/Resources/Jenkins/JenkinsFile") som ska användas i [JenkinsFile-exemplet](https://github.com/VSChina/odd-or-even-function/blob/master/doc/resources/jenkins/JenkinsFile).
 
    ```
    node {

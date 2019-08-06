@@ -53,13 +53,7 @@
     - name: Felsöka
       items:
         - name: OutOfMemoryError-undantag
-          items:
-            - name: Otillräckligt heapminne
-              href: ./apache-spark-troubleshoot-outofmemory-heap.md
-            - name: Java-heaputrymme
-              href: ./apache-spark-troubleshoot-outofmemory-heap-space.md
-            - name: Livy-servern startar inte
-              href: ./apache-spark-troubleshoot-outofmemory-native-thread.md
+          href: ./apache-spark-troubleshoot-outofmemory.md
         - name: Apache Spark-jobbet misslyckades – NoClassDefFoundError
           href: ./apache-spark-troubleshoot-job-fails-noclassdeffounderror.md
         - name: Apache Spark-jobbet misslyckades – InvalidClassException

@@ -1,6 +1,6 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med Tableau Server | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Tableau Server.
+title: 'Självstudier: Azure Active Directory integrering med Tableau-Server | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory-och Tableau-servern.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,43 +15,43 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/22/2019
 ms.author: jeedes
-ms.openlocfilehash: ed8e63a49702e8ba951990f8d7ff19b8f058fa74
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f9ef179c1a93d8b2f97c47eb4c68d0312d55d3d1
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67089394"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68825976"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-tableau-server"></a>Självstudier: Azure Active Directory-integrering med Tableau Server
+# <a name="tutorial-azure-active-directory-integration-with-tableau-server"></a>Självstudier: Azure Active Directory integrering med Tableau-Server
 
-I den här självstudien får du lära dig hur du integrerar Tableau Server med Azure Active Directory (AD Azure).
-Integrera Tableau Server med Azure AD ger dig följande fördelar:
+I den här självstudien får du lära dig att integrera Tableau-servern med Azure Active Directory (Azure AD).
+Genom att integrera Tableau-servern med Azure AD får du följande fördelar:
 
-* Du kan styra i Azure AD som har åtkomst till Tableau Server.
-* Du kan aktivera användarna att vara automatiskt inloggad till Tableau Server (enkel inloggning) med sina Azure AD-konton.
+* Du kan styra Azure AD som har åtkomst till Tableau-servern.
+* Du kan låta dina användare vara automatiskt inloggade på Tableau Server (enkel inloggning) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure portal.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill konfigurera Azure AD-integrering med Tableau Server behöver du följande objekt:
+Om du vill konfigurera Azure AD-integrering med Tableau-servern behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en [kostnadsfritt konto](https://azure.microsoft.com/free/)
-* Tableau Server enkel inloggning aktiverat prenumeration
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/)
+* Tableau Server, enkel inloggning aktive rad prenumeration
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* Tableau Server stöder **SP** -initierad SSO
+* Tableau Server stöder **SP** -INITIERAd SSO
 
-## <a name="adding-tableau-server-from-the-gallery"></a>Att lägga till Tableau Server från galleriet
+## <a name="adding-tableau-server-from-the-gallery"></a>Lägga till Tableau-Server från galleriet
 
-För att konfigurera integrering av Tableau Server i Azure AD, som du behöver lägga till Tableau Server från galleriet i din lista över hanterade SaaS-appar.
+Om du vill konfigurera integrering av Tableau-servern i Azure AD måste du lägga till Tableau-servern från galleriet i listan över hanterade SaaS-appar.
 
-**Utför följande steg för att lägga till Tableau Server från galleriet:**
+**Utför följande steg för att lägga till Tableau-servern från galleriet:**
 
 1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
@@ -65,31 +65,31 @@ För att konfigurera integrering av Tableau Server i Azure AD, som du behöver l
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver **Tableau Server**väljer **Tableau Server** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+4. I rutan Sök skriver du **Tableau Server**, väljer **Tableau Server** från resultat panelen och klickar sedan på **Lägg till** för att lägga till programmet.
 
-    ![Tableau Server i listan med resultat](common/search-new-app.png)
+    ![Tableau-server i resultat listan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Tableau Server baserat på en testanvändare kallas **Britta Simon**.
-För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i Tableau Server ska upprättas.
+I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med Tableau-servern baserat på en test användare som kallas **Britta Simon**.
+För att enkel inloggning ska fungera måste en länk relation mellan en Azure AD-användare och den relaterade användaren i Tableau-servern upprättas.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med Tableau Server, måste du utföra följande byggblock:
+Om du vill konfigurera och testa enkel inloggning med Azure AD med Tableau Server måste du slutföra följande Bygg stenar:
 
 1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Konfigurera Tableau Server enkel inloggning](#configure-tableau-server-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
+2. **[Konfigurera Tableau Server Single Sign-on](#configure-tableau-server-single-sign-on)** -för att konfigurera inställningarna för enkel inloggning på program sidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
 4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Skapa Tableau Server testanvändare](#create-tableau-server-test-user)**  – du har en motsvarighet för Britta Simon i Tableau Server som är länkad till en Azure AD-representation av användaren.
+5. **[Skapa Tableau Server test User](#create-tableau-server-test-user)** – om du vill ha en motsvarighet till Britta Simon på Tableau-server som är länkad till Azure AD-representation av användare.
 6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Utför följande steg för att konfigurera Azure AD enkel inloggning med Tableau Server:
+Utför följande steg för att konfigurera enkel inloggning med Azure AD med Tableau-servern:
 
-1. I den [Azure-portalen](https://portal.azure.com/)på den **Tableau Server** application integration markerar **enkel inloggning**.
+1. I [Azure Portal](https://portal.azure.com/)på sidan **Tableau Server** Application Integration väljer du **enkel inloggning**.
 
     ![Konfigurera enkel inloggning för länken](common/select-sso.png)
 
@@ -103,7 +103,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Tableau
 
 4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    ![Tableau Server-domän och URL: er med enkel inloggning för information](common/sp-identifier-reply.png)
+    ![Information om enkel inloggning för Tableau-Server-domän och URL-adresser](common/sp-identifier-reply.png)
 
     a. I textrutan **Inloggnings-URL** skriver du en URL med följande mönster: `https://azure.<domain name>.link`
 
@@ -112,13 +112,13 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Tableau
     c. I textrutan **Svars-URL** skriver du in en URL med följande mönster: `https://azure.<domain name>.link/wg/saml/SSO/index.html`
 
     > [!NOTE]
-    > Föregående värden är inte riktiga värden. Uppdatera värden med faktiska URL och identifierare från sidan Tableau Server konfiguration som beskrivs senare i självstudien.
+    > Föregående värden är inte verkliga värden. Uppdatera värdena med den faktiska URL: en och identifieraren från sidan för konfiguration av Tableau-servern som beskrivs senare i självstudien.
 
-5. Tableau Server-programmet förväntar sig ett anpassat anspråk **användarnamn** som måste definieras enligt nedan. Detta används som användar-ID i stället för unik identifierare för användaranspråk. Du kan hantera värdena för dessa attribut i avsnittet om **användarattribut och anspråk** på sidan för programintegrering. Klicka på **redigera** knappen för att öppna **användarattribut och anspråk** dialogrutan.
+5. Tableau Server-programmet förväntar sig ett anpassat anspråk **användar namn** som måste definieras enligt nedan. Detta används som användar identifierare i stället för ett unikt anspråk för användar-ID. Du kan hantera värdena för dessa attribut i avsnittet om **användarattribut och anspråk** på sidan för programintegrering. Klicka på knappen **Redigera** för att öppna dialog rutan **användarattribut & anspråk** .
 
     ![image](common/edit-attribute.png)
 
-6. I den **användaranspråk** avsnittet på den **användarattribut och anspråk** dialogrutan Konfigurera SAML-token attributet som visas i bilden ovan och utför följande steg:
+6. I avsnittet **användar anspråk** i dialog rutan användarattribut **& anspråk** konfigurerar du SAML-token som visas i bilden ovan och utför följande steg:
 
     | Namn | Källattribut | Namnrymd |
     | ---------------| --------------- | ----------- |
@@ -133,7 +133,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Tableau
 
     b. I textrutan **Namn** skriver du det attributnamn som visas för den raden.
 
-    c. Ange den **Namespace** värde.
+    c. Ange **namn områdets** värde.
 
     d. Välj Källa som **Attribut**.
 
@@ -147,7 +147,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Tableau
 
     ![Länk för hämtning av certifikat](common/metadataxml.png)
 
-8. På den **konfigurera Tableau Server** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
+8. I avsnittet **Konfigurera Tableau-Server** kopierar du lämpliga URL: er enligt ditt krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
@@ -157,36 +157,36 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Tableau
 
     c. Utloggnings-URL
 
-### <a name="configure-tableau-server-single-sign-on"></a>Konfigurera Tableau Server enkel inloggning
+### <a name="configure-tableau-server-single-sign-on"></a>Konfigurera enkel inloggning för Tableau Server
 
-1. För att få SSO konfigurerats för ditt program, måste du logga in på din Tableau Server-klient som administratör.
+1. För att få SSO konfigurerat för ditt program måste du logga in på Tableau-serverns klient organisation som administratör.
 
-2. På den **CONFIGURATION** fliken **användarens identitet och åtkomst**, och välj sedan den **autentisering** metoden fliken.
+2. På fliken **konfiguration** väljer du **användar identitet & åtkomst**och väljer sedan fliken **autentiseringsmetod** .
 
     ![Konfigurera enkel inloggning](./media/tableauserver-tutorial/tutorial-tableauserver-auth.png)
 
-3. På den **CONFIGURATION** utför följande steg:
+3. Utför följande steg på sidan **konfiguration** :
 
     ![Konfigurera enkel inloggning](./media/tableauserver-tutorial/tutorial-tableauserver-config.png)
 
-    a. För **autentiseringsmetod**, Välj SAML.
+    a. Som **autentiseringsmetod**väljer du SAML.
 
-    b. Markera kryssrutan för **aktivera SAML-autentisering för servern**.
+    b. Markera kryss rutan för **Aktivera SAML-autentisering för servern**.
 
-    c. Tableau Server Retur-URL – URL: en som Tableau Server-användare kommer att använda, till exempel <http://tableau_server>. Med hjälp av `http://localhost` rekommenderas inte. Med en URL med ett avslutande snedstreck (till exempel `http://tableau_server/`) stöds inte. Kopiera **Tableau Server Retur-URL** och klistra in den i **inloggning på URL: en** -textrutan i **SAML grundkonfiguration** avsnitt i Azure-portalen
+    c. Tableau Server retur-URL – den URL som Tableau-användare kommer att komma åt, till <http://tableau_server>exempel. Använd `http://localhost` rekommenderas inte. Användning av en URL med ett avslutande snedstreck (till exempel `http://tableau_server/`) stöds inte. Kopiera **Tableau Server Return URL** och klistra in den i text rutan för att **signera URL-adresser** i avsnittet **grundläggande SAML-konfiguration** i Azure Portal
 
-    d. SAML entitets-ID – entitets-ID som unikt identifierar din Tableau Server-installation att IDP: N. Du kan ange din Tableau Server URL: en igen här, om du vill, men den behöver inte vara din Tableau Server-URL. Kopiera **SAML entitets-ID** och klistra in den i **identifierare** -textrutan i **SAML grundkonfiguration** avsnitt i Azure-portalen
+    d. SAML-entitets-ID – entitets-ID: t identifierar unikt Tableau-Server installationen till IdP. Du kan ange din Tableau-server-URL igen, om du vill, men den behöver inte vara Tableau-serverns URL. Kopiera **SAML entitets-ID** och klistra in det i text rutan **identifierare** i avsnittet **grundläggande SAML-konfiguration** i Azure Portal
 
-    e. Klicka på den **hämta XML-metadatafil** och öppna den i redigeringsprogrammet text. Leta upp URL för Konsumenttjänst för försäkran med Http Post och Index 0 och kopiera URL: en. Klistra in den i **svars-URL** -textrutan i **SAML grundkonfiguration** avsnitt i Azure-portalen
+    e. Klicka på **filen Ladda ned XML-metadata** och öppna den i text redigerings programmet. Hitta intygets konsument tjänst-URL med http post och index 0 och kopiera URL: en. Klistra in den i text rutan för svars- **URL** i avsnittet **grundläggande SAML-konfiguration** i Azure Portal
 
-    f. Leta upp din Federationsmetadata-fil som hämtats från Azure-portalen och ladda upp den i den **IDP: N för SAML-metadatafil**.
+    f. Leta upp din federationsmetadata som hämtades från Azure Portal och ladda sedan upp den i **SAML-IDP metadata-fil**.
 
-    g. Ange namn för de attribut som IDP: N använder för att lagra användarnamn, visningsnamn och e-postadresser.
+    g. Ange namnen på de attribut som IdP använder för att lagra användar namn, visnings namn och e-postadresser.
 
     h. Klicka på **Spara**
 
     > [!NOTE]
-    > Kunden behöver ladda upp alla certifikat i Tableau Server SAML SSO-konfigurationen och kommer få ignoreras i flödet för enkel inloggning. Om du behöver för att konfigurera SAML på Tableau Server finns i den här artikeln [konfigurera SAML](https://onlinehelp.tableau.com/v2018.2/server/en-us/saml_config_steps_tsm_ui.htm).
+    > Kunden måste ladda upp certifikat i Tableau-serverns SAML SSO-konfiguration och den kommer att ignoreras i SSO-flödet. Om du behöver hjälp med att konfigurera SAML på Tableau-servern kan du läsa den här artikeln [Konfigurera SAML](https://help.tableau.com/current/server/en-gb/saml_config_steps_tsm_ui.htm).
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -206,7 +206,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I den **användarnamn** fälttyp `brittasimon@yourcompanydomain.extension`  
+    b. I fältet **användar namn** anger du`brittasimon@yourcompanydomain.extension`  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
@@ -215,15 +215,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Tableau Server.
+I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till Tableau-servern.
 
-1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **Tableau Server**.
+1. I Azure Portal väljer du **företags program**, väljer **alla program**och väljer sedan **Tableau Server**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan med program väljer **Tableau Server**.
+2. I listan program väljer du **Tableau-Server**.
 
-    ![Länken Tableau Server i listan med program](common/all-applications.png)
+    ![Länken Tableau server i listan program](common/all-applications.png)
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 
@@ -239,20 +239,20 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-tableau-server-test-user"></a>Skapa Tableau Server testanvändare
+### <a name="create-tableau-server-test-user"></a>Skapa Tableau-Server test användare
 
-Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i Tableau Server. Du måste etablera alla användare i Tableau server.
+Syftet med det här avsnittet är att skapa en användare som kallas Britta Simon i Tableau Server. Du måste etablera alla användare på Tableau-servern.
 
-Det aktuella användarnamnet för användaren bör matcha värdet som du har konfigurerat i det anpassade attributet Azure AD av **användarnamn**. Integrationen bör fungera konfigurera Azure AD enkel inloggning med korrekt mappning.
+Användar namnet för användaren ska matcha det värde som du har konfigurerat i det anpassade Azure AD-attributet för **användar namn**. Med rätt mappning bör integrationen fungera för att konfigurera enkel inloggning för Azure AD.
 
 > [!NOTE]
-> Om du vill skapa en användare manuellt kan behöva du kontakta Tableau Server-administratör i din organisation.
+> Om du behöver skapa en användare manuellt måste du kontakta Tableau-serverns administratör i din organisation.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
 I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Tableau Server på åtkomstpanelen, bör det vara loggas in automatiskt till Tableau Server som du konfigurerar enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen Tableau server på åtkomst panelen, bör du loggas in automatiskt på den Tableau-server som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

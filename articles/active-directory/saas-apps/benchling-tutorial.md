@@ -1,6 +1,6 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med Benchling | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Benchling.
+title: 'Självstudier: Azure Active Directory integrering med bänk | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och bänk.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,45 +15,45 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 57d234578f1ecdd020e5f147a8614b715f954c3b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 98ef1b3a44b6db49048ea53b2539e3d7c7e743d8
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67106348"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68823899"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-benchling"></a>Självstudier: Azure Active Directory-integrering med Benchling
+# <a name="tutorial-azure-active-directory-integration-with-benchling"></a>Självstudier: Azure Active Directory integrering med bänk
 
-I den här självstudien får du lära dig hur du integrerar Benchling med Azure Active Directory (AD Azure).
-Integrera Benchling med Azure AD ger dig följande fördelar:
+I den här självstudien får du lära dig hur du integrerar bänken med Azure Active Directory (Azure AD).
+Att integrera bänk med Azure AD ger följande fördelar:
 
-* Du kan styra i Azure AD som har åtkomst till Benchling.
-* Du kan aktivera användarna att vara automatiskt inloggad till Benchling (Single Sign-On) med sina Azure AD-konton.
+* Du kan styra i Azure AD som har åtkomst till bänk.
+* Du kan göra det möjligt för användarna att logga in automatiskt till bänken (enkel inloggning) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure portal.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill konfigurera Azure AD-integrering med Benchling, behöver du följande objekt:
+Om du vill konfigurera Azure AD-integrering med bänk behöver du följande objekt:
 
 * En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
-* Benchling enkel inloggning aktiverat prenumeration
+* Aktive rad prenumeration för enkel inloggning med bänk
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* Har stöd för Benchling **SP** och **IDP** -initierad SSO
+* Bänk stöd för **SP** -och **IDP** -initierad SSO
 
-* Har stöd för Benchling **Just-in-Time** etableringen av användare
+* Bänk stöd **för just-in-Time** User-etablering
 
-## <a name="adding-benchling-from-the-gallery"></a>Att lägga till Benchling från galleriet
+## <a name="adding-benchling-from-the-gallery"></a>Lägga till bänk från galleriet
 
-För att konfigurera integrering av Benchling i Azure AD, som du behöver lägga till Benchling från galleriet i din lista över hanterade SaaS-appar.
+Om du vill konfigurera integrering av bänk i Azure AD måste du lägga till en bänk från galleriet till din lista över hanterade SaaS-appar.
 
-**Utför följande steg för att lägga till Benchling från galleriet:**
+**Utför följande steg för att lägga till en bänk från galleriet:**
 
 1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
@@ -67,31 +67,31 @@ För att konfigurera integrering av Benchling i Azure AD, som du behöver lägga
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver **Benchling**väljer **Benchling** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+4. I rutan Sök skriver du **bänk**, väljer **bänk** från resultat panelen och klickar sedan på **Lägg till** för att lägga till programmet.
 
-     ![Benchling i resultatlistan](common/search-new-app.png)
+     ![Bänk i resultat listan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Benchling baserat på en testanvändare kallas **Britta Simon**.
-För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i Benchling upprättas.
+I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med bänk baserat på en test användare som kallas **Britta Simon**.
+För att enkel inloggning ska fungera måste en länk relation mellan en Azure AD-användare och den relaterade användaren i bänken upprättas.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med Benchling, måste du utföra följande byggblock:
+Om du vill konfigurera och testa enkel inloggning med Azure AD med bänk måste du slutföra följande Bygg stenar:
 
 1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Konfigurera Benchling Single Sign-On](#configure-benchling-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
+2. **[Konfigurera enkel inloggning på bänk](#configure-benchling-single-sign-on)** för att konfigurera inställningarna för enkel inloggning på program sidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
 4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Skapa testanvändare Benchling](#create-benchling-test-user)**  – du har en motsvarighet för Britta Simon i Benchling som är länkad till en Azure AD-representation av användaren.
+5. **[Skapa en tävlings test användare](#create-benchling-test-user)** – för att få en motsvarighet till Britta Simon i bänken som är kopplad till Azure AD-representation av användare.
 6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Utför följande steg för att konfigurera Azure AD enkel inloggning med Benchling:
+Utför följande steg för att konfigurera enkel inloggning för Azure AD med bänk:
 
-1. I den [Azure-portalen](https://portal.azure.com/)på den **Benchling** application integration markerar **enkel inloggning**.
+1. På sidan [Azure Portal](https://portal.azure.com/)på sidan för **bänk** program integrering väljer du **enkel inloggning**.
 
     ![Konfigurera enkel inloggning för länken](common/select-sso.png)
 
@@ -105,7 +105,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Benchli
 
 4. Om du vill konfigurera programmet i **IDP**-initierat läge gör du följande i avsnittet **Grundläggande SAML-konfiguration**:
 
-    ![Benchling domän och URL: er med enkel inloggning för information](common/idp-intiated.png)
+    ![Information om enkel inloggning för bänk domäner och URL: er](common/idp-intiated.png)
 
     a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://<SUBDOMAIN>.benchling.com/ext/saml/metadata.xml`
 
@@ -113,24 +113,24 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Benchli
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    ![Benchling domän och URL: er med enkel inloggning för information](common/metadata-upload-additional-signon.png)
+    ![Information om enkel inloggning för bänk domäner och URL: er](common/metadata-upload-additional-signon.png)
 
     I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://<SUBDOMAIN>.benchling.com`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [Benchling klienten supportteamet](mailto:support@benchling.com) att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [bänkens support team](mailto:support@benchling.com) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-6. Benchling program som förväntar SAML-intyg i ett visst format, vilket kräver att du kan lägga till anpassade attributmappningar i SAML-tokenattribut konfigurationen. I följande skärmbild visas listan över standardattribut. Klicka på ikonen  **Redigera** för att öppna dialogrutan **Användarattribut** .
+6. I bänk programmet förväntas SAML-kontroller i ett särskilt format, vilket kräver att du lägger till anpassade mappningar av attribut i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut. Klicka på **Redigera** ikon för att öppna dialog rutan **användarattribut** .
 
     ![image](common/edit-attribute.png)
 
-7. Förutom ovanstående Benchling program som förväntar få fler attribut som ska skickas tillbaka i SAML-svar. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** utför du följande steg för att lägga till SAML-tokenattributet enligt det som visas i tabellen nedan: 
+7. Utöver ovan förväntar sig bänk programmet fler attribut som ska skickas tillbaka i SAML-svar. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** utför du följande steg för att lägga till SAML-tokenattributet enligt det som visas i tabellen nedan: 
 
     | Namn | Källattribut|
     | ---------------| --------------- |
     | FirstName | user.givenname |
     | LastName | user.surname |
-    | E-post | user.mail |
+    | Email | user.mail |
 
     a. Klicka på **Lägg till nytt anspråk** för att öppna dialogrutan **Hantera användaranspråk**.
 
@@ -154,9 +154,9 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Benchli
 
     ![Länk för hämtning av certifikat](common/copy-metadataurl.png)
 
-### <a name="configure-benchling-single-sign-on"></a>Konfigurera Benchling Single Sign-On
+### <a name="configure-benchling-single-sign-on"></a>Konfigurera enkel inloggning för bänkar
 
-Att konfigurera enkel inloggning på **Benchling** sida, som du behöver skicka den **Appfederationsmetadata** till [Benchling supportteamet](mailto:support@benchling.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+Om du vill konfigurera enkel inloggning på **bänk** sidan måste du skicka **URL: en** för appens Federations-metadata till [support teamet för bänk](mailto:support@benchling.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
@@ -176,7 +176,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I den **användarnamn** fälttyp brittasimon@yourcompanydomain.extension. Till exempel, BrittaSimon@contoso.com
+    b. I brittasimon@yourcompanydomain.extensionfältet **användar namn** . Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
@@ -184,15 +184,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Benchling.
+I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till bänk.
 
-1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **Benchling**.
+1. I Azure Portal väljer du **företags program**, väljer **alla program**och väljer sedan **bänk**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan med program väljer **Benchling**.
+2. Välj **bänk**i listan program.
 
-    ![Länken Benchling i listan med program](common/all-applications.png)
+    ![Bänk länken i program listan](common/all-applications.png)
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 
@@ -208,15 +208,15 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-benchling-test-user"></a>Skapa Benchling testanvändare
+### <a name="create-benchling-test-user"></a>Skapa användare av bänk test
 
-I det här avsnittet skapas en användare som kallas Britta Simon i Benchling. Benchling stöder etableringen av just-in-time-användare som är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i Benchling, skapas en ny efter autentisering.
+I det här avsnittet skapas en användare som kallas Britta Simon i bänken. Bänk stöd för just-in-Time-etablering av användare, som är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i bänken skapas en ny efter autentiseringen.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
 I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Benchling i åtkomstpanelen, bör det vara loggas in automatiskt till Benchling som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen bänk i åtkomst panelen, bör du loggas in automatiskt på den bänk som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

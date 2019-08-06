@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 07/20/2019
-ms.openlocfilehash: baeb175c57573e557d298ff3197394ab619434ff
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: b3fdcfbb9869c0199c91f5bbc6ca1f02fec996cf
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68772636"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828655"
 ---
 # <a name="tutorial-setup-environment-and-workspace"></a>Självstudier: Installations miljö och arbets yta
 
@@ -49,14 +49,12 @@ Från din arbets yta skapar du en moln resurs för att komma igång med Jupyter-
 
 1. Välj **+ ny** för att skapa en Notebook VM.
 
-     ![Välj ny virtuell dator](./media/quickstart-run-cloud-notebook/add-workstation.png)
+     ![Välj ny virtuell dator](./media/tutorial-1st-experiment-sdk-setup/add-workstation.png)
 
 1. Ange ett namn för den virtuella datorn. Välj sedan **Skapa**.
 
     > [!NOTE]
     > Namnet på den virtuella dator datorn måste innehålla mellan 2 och 16 tecken. Giltiga tecken är bokstäver, siffror och tecknet-Character.  Namnet måste också vara unikt i din Azure-prenumeration.
-
-    ![Skapa en ny virtuell dator](media/quickstart-run-cloud-notebook/create-new-workstation.png)
 
 1. Vänta tills statusen ändras till **körs**.
 
@@ -66,7 +64,7 @@ När den virtuella datorn har körts använder du avsnittet **Notebook VM** : ar
 
 1. Välj **Jupyter** i **URI** -kolumnen för den virtuella datorn.
 
-    ![Starta Jupyter Notebook-servern](./media/quickstart-run-cloud-notebook/start-server.png)
+    ![Starta Jupyter Notebook-servern](./media/tutorial-1st-experiment-sdk-setup/start-server.png)
 
     Länken startar din Notebook-Server och öppnar Jupyter Notebook-webbsida på en ny flik i webbläsaren.  Den här länken fungerar bara för den person som skapar den virtuella datorn. Varje användare av arbets ytan måste skapa sin egen virtuella dator.
 
@@ -87,7 +85,7 @@ Om du har använt en molnbaserad Notebook-Server stoppar du den virtuella datorn
 
 1. I arbets ytan väljer du **Notebook VM**: ar.
 
-   ![Stoppa VM-servern](./media/quickstart-run-cloud-notebook/stop-server.png)
+   ![Stoppa VM-servern](./media/tutorial-1st-experiment-sdk-setup/stop-server.png)
 
 1. Välj den virtuella datorn i listan.
 

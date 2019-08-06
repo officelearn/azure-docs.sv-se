@@ -1,6 +1,6 @@
 ---
-title: ASP.NET Core med SQL-databas på Linux – Azure Apptjänst | Microsoft Docs
-description: Lär dig hur du får en ASP.NET Core-app som fungerar i Azure App Service på Linux, med anslutning till en SQL-databas.
+title: ASP.NET Core med SQL Database på Linux-Azure App Service | Microsoft Docs
+description: Lär dig hur du får en ASP.NET Core app som arbetar i Azure App Service på Linux, med anslutning till en SQL Database.
 services: app-service\web
 documentationcenter: dotnet
 author: cephalin
@@ -12,17 +12,17 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 03/27/2019
+ms.date: 08/06/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 4837867188721b13b3f4cb64245ae85a1e32fe50
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: a4774431b6a6e37ee9e175e161813936a71cdee9
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67656628"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68824716"
 ---
-# <a name="build-an-aspnet-core-and-sql-database-app-in-azure-app-service-on-linux"></a>Skapa en ASP.NET Core och SQL Database-app i Azure App Service i Linux
+# <a name="build-an-aspnet-core-and-sql-database-app-in-azure-app-service-on-linux"></a>Bygg en ASP.NET Core-och SQL Database-app i Azure App Service på Linux
 
 > [!NOTE]
 > I den här artikeln distribueras en app till App Service i Linux. Om du vill distribuera en app till App Service i _Windows_ kan du läsa [Skapa en .NET Core- och SQL Database-app i Azure App Service](../app-service-web-tutorial-dotnetcore-sqldb.md).
@@ -100,7 +100,7 @@ För SQL Database används [Azure SQL Database](/azure/sql-database/) i den här
 
 Skapa en logisk SQL Database-server i Cloud Shell med kommandot [`az sql server create`](/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-create).
 
-Ersätt den  *\<servernamn >* med ett unikt namn för SQL-databas. Det här namnet används som en del av SQL Database-slutpunkten `<server-name>.database.windows.net`, så namnet måste vara unikt för alla logiska servrar i Azure. Namnet får endast innehålla gemener, siffror och bindestreck och måste vara mellan 3 och 50 tecken långt. Dessutom måste du ersätta  *\<db-username >* och  *\<db-password >* med ett användarnamn och lösenord för serveradministratören. 
+Ersätt *Server namnet > plats hållaren med ett unikt SQL Database namn. \<* Det här namnet används som en del av SQL Database-slutpunkten `<server-name>.database.windows.net`, så namnet måste vara unikt för alla logiska servrar i Azure. Namnet får endast innehålla gemener, siffror och bindestreck och måste vara mellan 3 och 50 tecken långt. *Ersätt\<också DB-username >* och  *\<DB-Password >* med ett användar namn och lösen ord som du själv väljer. 
 
 
 ```azurecli-interactive
@@ -132,7 +132,7 @@ När den logiska SQL Database-servern har skapats visar Azure CLI information so
 Skapa en [brandväggsregel på servernivå för Azure SQL Database](../../sql-database/sql-database-firewall-configure.md) via kommandot[`az sql server firewall create`](/cli/azure/sql/server/firewall-rule?view=azure-cli-latest#az-sql-server-firewall-rule-create). När både start-IP och slut-IP har angetts till 0.0.0.0 öppnas brandväggen endast för andra Azure-resurser. 
 
 ```azurecli-interactive
-az sql server firewall-rule create --resource-group myResourceGroup --server <server-name> --name AllowYourIp --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
+az sql server firewall-rule create --resource-group myResourceGroup --server <server-name> --name AllowAzureIps --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
 ```
 
 ### <a name="create-a-database"></a>Skapa en databas
@@ -145,7 +145,7 @@ az sql db create --resource-group myResourceGroup --server <server-name> --name 
 
 ### <a name="create-connection-string"></a>Skapa anslutningssträng
 
-Ersätt följande sträng med den  *\<servernamn >* ,  *\<db-username >* , och  *\<db-password >* du använde tidigare.
+Ersätt följande sträng med  *\<Server namnet >* ,  *\<DB-username >* och  *\<DB-Password >* som du använde tidigare.
 
 ```
 Server=tcp:<server-name>.database.windows.net,1433;Database=coreDB;User ID=<db-username>;Password=<db-password>;Encrypt=true;Connection Timeout=30;
@@ -169,21 +169,29 @@ I det här steget distribuerar du din SQL Database-anslutna .NET Core-app till A
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-dotnetcore-linux-no-h.md)] 
 
-### <a name="configure-an-environment-variable"></a>Konfigurera en miljövariabel
+### <a name="configure-connection-string"></a>Konfigurera anslutnings sträng
 
-Ange anslutningssträngar för din Azure-app med hjälp av kommandot [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) i Cloud Shell. I följande kommando, ersätter  *\<appens namn->* , samt de  *\<anslutningssträng >* parametern med den anslutningssträng som du skapade tidigare.
+Ange anslutningssträngar för din Azure-app med hjälp av kommandot [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) i Cloud Shell. I följande kommando ersätter  *\<du App-Name->* ,  *\<samt parametern anslutnings sträng >* med den anslutnings sträng som du skapade tidigare.
 
 ```azurecli-interactive
 az webapp config connection-string set --resource-group myResourceGroup --name <app name> --settings MyDbConnection='<connection-string>' --connection-string-type SQLServer
 ```
 
-Därefter anger du appinställningen `ASPNETCORE_ENVIRONMENT` till _Produktion_. Med den här inställningen kan du hålla reda på om du kör i Azure, eftersom du använder SQLite som lokal utvecklingsmiljö och SQL Database som Azure-miljö.
+I ASP.net Core kan du använda den här namngivna anslutnings strängen (`MyDbConnection`) med standard mönstret, till exempel vilken anslutnings sträng som anges i *appSettings. JSON*. I det här fallet `MyDbConnection` definieras även i din *appSettings. JSON*. När du kör i App Service prioriteras den anslutnings sträng som definieras i App Service över anslutnings strängen som definierats i *appSettings. JSON*. Koden använder *appSettings. JSON* -värdet under lokal utveckling och samma kod använder App Service-värdet när det distribueras.
 
-I följande exempel konfigureras appinställningen `ASPNETCORE_ENVIRONMENT` i Azure-appen. Ersätt den  *\<appens namn->* platshållare.
+Om du vill se hur anslutnings strängen refereras i din kod, se [Anslut till SQL Database i produktion](#connect-to-sql-database-in-production).
+
+### <a name="configure-environment-variable"></a>Konfigurera miljö variabel
+
+Därefter anger du appinställningen `ASPNETCORE_ENVIRONMENT` till _Produktion_. Med den här inställningen kan du se om du kör i Azure, eftersom du använder SQLite för din lokala utvecklings miljö och SQL Database för din Azure-miljö.
+
+I följande exempel konfigureras appinställningen `ASPNETCORE_ENVIRONMENT` i Azure-appen. Ersätt appens  *namn>platshållaren.\<*
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings ASPNETCORE_ENVIRONMENT="Production"
 ```
+
+Om du vill se hur miljövariabeln refereras till i din kod, se [Anslut till SQL Database i produktion](#connect-to-sql-database-in-production).
 
 ### <a name="connect-to-sql-database-in-production"></a>Ansluta till SQL Database i produktion
 
@@ -209,9 +217,9 @@ else
 services.BuildServiceProvider().GetService<MyDatabaseContext>().Database.Migrate();
 ```
 
-Om den här koden identifierar att den körs i produktion (vilket indikeras av Azure-miljön) så används den anslutningssträng du konfigurerade för att ansluta till SQL Database. Information om hur appinställningar som används i App Service finns i [Åtkomstmiljövariabler](configure-language-dotnetcore.md#access-environment-variables).
+Om den här koden upptäcker att den körs i produktion (som anger Azure-miljön) använder den anslutnings strängen som du konfigurerade för att ansluta till SQL Database. Information om hur du använder appinställningar i App Service finns i [Access Environment-variabler](configure-language-dotnetcore.md#access-environment-variables).
 
-Anropet `Database.Migrate()` är till hjälp när det körs i Azure, eftersom de databaser som .NET Core-appen behöver skapas automatiskt baserat på migreringskonfigurationen.
+`Database.Migrate()` Anropet hjälper dig när det körs i Azure, eftersom det automatiskt skapar de databaser som din .net Core-app behöver, baserat på dess migrerings konfiguration.
 
 Spara dina ändringar och genomför den på Git-lagringsplatsen.
 
@@ -405,9 +413,9 @@ Vad du lärt dig:
 Gå vidare till nästa självstudie för att läsa hur du mappar ett anpassat DNS-namn till din app.
 
 > [!div class="nextstepaction"]
-> [Självstudie: Mappa anpassad DNS-namn till din app](../app-service-web-tutorial-custom-domain.md)
+> [Självstudier: Mappa ett anpassat DNS-namn till din app](../app-service-web-tutorial-custom-domain.md)
 
-Eller titta på andra resurser:
+Eller kolla ut andra resurser:
 
 > [!div class="nextstepaction"]
-> [Konfigurera ASP.NET Core-app](configure-language-dotnetcore.md)
+> [Konfigurera ASP.NET Core app](configure-language-dotnetcore.md)

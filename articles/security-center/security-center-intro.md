@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 6/06/2019
 ms.author: v-mohabe
-ms.openlocfilehash: f0ee4a1129246cedd7899056359144cab75f9475
-ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
+ms.openlocfilehash: 7bd18ab0cedf94f0ecc08c3523a608a8d554e6b2
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68782438"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827920"
 ---
 # <a name="what-is-azure-security-center"></a>Vad är Azure Security Center?
 
@@ -126,9 +126,9 @@ Security Center hjälper dig att begränsa exponeringen för råstyrkeattacker. 
 
 Security Center innehåller funktioner som hjälper dig att utföra automatisk klassificering av dina data i Azure SQL. Du kan också få utvärderingar avseende potentiella säkerhetsrisker för Azure SQL- och lagringstjänster och rekommendationer för hur du löser dem.
 
-### <a name="protect-iot-and-hybrid-cloud-workloads-preview"></a>Skydda IoT och hybrid moln arbets belastningar (för hands version)
+### <a name="protect-iot-and-hybrid-cloud-workloads"></a>Skydda IoT-och hybrid moln arbets belastningar
 
-Azure Security Center for IoT (Sakernas Internet) fören klar hybrid arbets belastnings skyddet genom att leverera enhetlig synlighet och kontroll, anpassningsbart hot skydd och intelligent hot identifiering och-svar mellan arbets belastningar som körs på Edge, lokalt, i Azure och i andra moln. Mer information finns i [Azure Security Center for IoT (för hands version)](https://docs.microsoft.com/azure/asc-for-iot/).
+Azure Security Center for IoT (Sakernas Internet) fören klar hybrid arbets belastnings skyddet genom att leverera enhetlig synlighet och kontroll, anpassningsbart hot skydd och intelligent hot identifiering och-svar mellan arbets belastningar som körs på Edge, lokalt, i Azure och i andra moln. Mer information finns i [Azure Security Center for IoT](https://docs.microsoft.com/azure/asc-for-iot/).
 
 ## <a name="get-secure-faster"></a>Bli skyddad snabbare
 

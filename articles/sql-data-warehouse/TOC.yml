@@ -287,8 +287,6 @@
       items:
         - name: Uppgradera till Gen2
           href: upgrade-to-latest-generation.md
-        - name: Återställ ditt informationslager
-          href: sql-data-warehouse-restore.md
         - name: Övervaka din arbetsbelastning – portalen
           href: sql-data-warehouse-monitor-workload-portal.md
         - name: 'Övervaka din arbetsbelastning – DVM:er'

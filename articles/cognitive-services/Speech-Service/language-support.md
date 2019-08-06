@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 031367a8a05defad475ae077f9b38b7294837460
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: ac3cb1d637eae1b4ee0a7db59efe631c7eb1ac6f
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559398"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815271"
 ---
 # <a name="language-and-region-support-for-the-speech-services"></a>Språk-och region stöd för tal tjänsterna
 
@@ -31,12 +31,12 @@ Både Microsoft Speech igenkänning SDK och REST API stöder följande språk (l
  ar-t.ex. | Arabiska (Egypten), moderna standard | Nej | Ja | Nej
  CA-ES | Katalanska | Nej | Nej | Nej
  da-DK | Danska (Danmark) | Nej | Nej | Nej
- de-DE | Tyska (Tyskland) | Ja | Ja | Nej
- SV-Australien | Engelska (Australien) | Nej | Ja | Ja
- en CA: N | Engelska (Kanada) | Nej | Ja | Ja
- en-GB | Engelska (Storbritannien) | Nej | Ja | Ja
- en Indien | English (India) | Ja | Ja | Ja
- en NZ | Engelska (Nya Zeeland) | Nej | Ja | Ja  
+ de-DE | Tyska (Tyskland) | Ja | Ja | Ja
+ SV-Australien | Engelska (Australien) | Nej | Ja | Nej
+ en CA: N | Engelska (Kanada) | Nej | Ja | Nej
+ en-GB | Engelska (Storbritannien) | Nej | Ja | Nej
+ en Indien | English (India) | Ja | Ja | Nej
+ en NZ | Engelska (Nya Zeeland) | Nej | Ja | Nej 
  en-US | Engelska (USA) | Ja | Ja | Ja
  es-ES | Spanska (Spanien) | Ja | Ja | Nej
  es-MX | Spanska (Mexiko) | Nej | Ja | Nej

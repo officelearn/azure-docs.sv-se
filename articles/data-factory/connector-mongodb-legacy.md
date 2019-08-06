@@ -182,8 +182,8 @@ När du kopierar data från MongoDB, används följande mappningar från MongoDB
 | NumberDouble |Double |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
-| ObjectId |String |
-| Sträng |String |
+| ObjectID |String |
+| String |String |
 | UUID |Guid |
 | Object |Renormalized till att platta ut kolumner med ”_” som kapslade avgränsare |
 

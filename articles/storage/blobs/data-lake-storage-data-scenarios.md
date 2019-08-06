@@ -87,7 +87,7 @@ Information om hur du konfigurerar andra säkerhets aspekter finns [Azure Data L
 
 I det här avsnittet beskrivs de olika data källorna och de olika sätt som data kan matas in i ett Data Lake Storage Gen2-konto.
 
-Mata ![in data i data Lake Storage Gen2] Mata (./media/data-lake-storage-data-scenarios/ingest-data.png "in data i data Lake Storage Gen2")
+Mata ![in data i data Lake Storage Gen2](./media/data-lake-storage-data-scenarios/ingest-data.png "Mata in data i data Lake Storage Gen2")
 
 ### <a name="ad-hoc-data"></a>Ad hoc-data
 

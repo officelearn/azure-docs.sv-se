@@ -27,6 +27,8 @@
       href: ../hdinsight-version-release.md
     - name: Felsöka
       items:
+        - name: Peggad CPU på regionsserver
+          href: ./hbase-troubleshoot-pegged-cpu-region-server.md
         - name: Timeouter med kommandot hbase hbck
           href: ./hbase-troubleshoot-timeouts-hbase-hbck.md
 - name: Gör så här för att

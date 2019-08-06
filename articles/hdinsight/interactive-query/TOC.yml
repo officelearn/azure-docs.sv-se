@@ -28,6 +28,8 @@
           items:
             - name: GC-utgiftsgränsen har överskridits
               href: ./interactive-query-troubleshoot-outofmemory-overhead-exceeded.md
+        - name: ZooKeeperHiveClientException – HiveServer2-konfigurationer
+          href: ./interactive-query-troubleshoot-zookeeperhiveclientexception-hiveserver-configs.md
         - name: Apache Hive LLAP-frågeprestanda
           href: ./interactive-query-troubleshoot-query-performance.md
 - name: Gör så här för att

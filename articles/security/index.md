@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 06/11/2019
 ms.author: angrobe
-ms.openlocfilehash: d921e529140bc7446e3c9f97b33ba226431d7b91
-ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.openlocfilehash: 7c41b09c35de7ef8694f9215b8f3dc271e243de2
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67143517"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780495"
 ---
 # <a name="azure-security-documentation"></a>Dokumentation om Azure-säkerhet
 
@@ -70,7 +70,7 @@ Säkerheten är integrerad i alla aspekter av Azure. Azure erbjuder dig unika s�
         </a>
     </li>
     <li style="list-style: none;">
-        <a href="/azure/security/azure-security-infrastructure">
+        <a href="/azure/security/fundamentals/infrastructure">
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">
@@ -135,7 +135,7 @@ Säkerheten är integrerad i alla aspekter av Azure. Azure erbjuder dig unika s�
         </a>
     </li>
     <li style="list-style: none;">
-        <a href="/azure/security/azure-security-encryption-atrest">
+        <a href="/azure/security/fundamentals/encryption-atrest">
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">
@@ -192,13 +192,13 @@ Säkerheten är integrerad i alla aspekter av Azure. Azure erbjuder dig unika s�
                                 <a class="barLink" href="https://aka.ms/SecurityResponsepaper">Azure-säkerhetssvar i molnet</a>
                             </li>
                             <li style="list-style: none;">
-                                <a class="barLink" href="/azure/security/azure-threat-detection">Avancerad hotidentifiering i Azure</a>
+                                <a class="barLink" href="/azure/security/fundamentals/threat-detection">Avancerad hotidentifiering i Azure</a>
                             </li>
                             <li style="list-style: none;">
-                                <a class="barLink" href="/azure/security/abstract-azure-network-security">Azure-nätverkssäkerhet</a>
+                                <a class="barLink" href="/azure/security/fundamentals/abstract-network-security>Azure network security"</a>
                             </li>
                             <li style="list-style: none;">
-                                <a class="barLink" href="/azure/security/abstract-develop-secure-apps">Utveckla säkra program på Azure</a>
+                                <a class="barLink" href="/azure/security/fundamentals/abstract-develop-secure-apps">Utveckla säkra program på Azure</a>
                             </li>
                         </ul>
                     </div>
@@ -218,25 +218,25 @@ Säkerheten är integrerad i alla aspekter av Azure. Azure erbjuder dig unika s�
                                 <a class="barLink" href="https://azure.microsoft.com/resources/security-best-practices-for-azure-solutions/">Metodtips för säkerhet för Azure</a>
                             </li>
                             <li style="list-style: none;">
-                                <a class="barLink" href="/azure/security/azure-security-network-security-best-practices">Nätverkssäkerhet</a>
+                                <a class="barLink" href="/azure/security/fundamentals/network-best-practices">Nätverkssäkerhet</a>
                             </li>
                             <li style="list-style: none;">
-                                <a class="barLink" href="/azure/security/azure-security-data-encryption-best-practices">Datasäkerhet</a>
+                                <a class="barLink" href="/azure/security/fundamentals/data-encryption-best-practices">Datasäkerhet</a>
                             </li>
                             <li style="list-style: none;">
                                 <a class="barLink" href="/azure/security/azure-security-best-practices-vms">Säkerhet för virtuella datorer</a>
                             </li>
                             <li style="list-style: none;">
-                                <a class="barLink" href="/azure/security/azure-security-identity-management-best-practices">Identitet och åtkomst</a>
+                                <a class="barLink" href="/azure/security/fundamentals/identity-management-best-practices">Identitet och åtkomst</a>
                             </li>
                             <li style="list-style: none;">
-                                <a class="barLink" href="/azure/security/azure-security-iaas">IaaS-säkerhet</a>
+                                <a class="barLink" href="/azure/security/fundamentals/iaas">IaaS-säkerhet</a>
                             </li>
                             <li style="list-style: none;">
                                 <a class="barLink" href="/azure/security/security-paas-deployments">Skydda PaaS-distributioner</a>
                             </li>
                             <li style="list-style: none;">
-                                <a class="barLink" href="/azure/security/azure-security-global-admin">Skydda Azure-administratörskonton</a>
+                                <a class="barLink" href="/azure/security/fundamentals/global-admin">Skydda Azure-administratörskonton</a>
                             </li>
                         </ul>
                     </div>
@@ -380,7 +380,7 @@ Säkerheten är integrerad i alla aspekter av Azure. Azure erbjuder dig unika s�
         </a>
     </li>
     <li style="list-style: none;">
-        <a href="/azure/security/azure-security-cyber-services">
+        <a href="/azure/security/fundamentals/cyber-services">
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">
@@ -393,7 +393,7 @@ Säkerheten är integrerad i alla aspekter av Azure. Azure erbjuder dig unika s�
         </a>
     </li>
     <li style="list-style: none;">
-        <a href="/azure/security/azure-security-pen-testing">
+        <a href="/azure/security/fundamentals/pen-testing">
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">

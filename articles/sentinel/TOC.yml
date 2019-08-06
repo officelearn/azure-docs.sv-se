@@ -13,7 +13,7 @@
   items:
     - name: Identifiera misstänkta hot
       href: tutorial-detect-threats.md
-    - name: Undersöka ärenden
+    - name: Undersöka incidenter
       href: tutorial-investigate-cases.md
     - name: Reagera på hot
       href: tutorial-respond-threats-playbook.md

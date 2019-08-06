@@ -55,8 +55,8 @@ Precis som med vilken lagrings lösning som helst är det viktigt att en noggran
 
 StorSimple är utformad för att tillhandahålla lagring till program som fungerar med en väldefinierad arbets uppsättning data (frekventa data). I den här modellen lagras den aktiva data uppsättningen på de lokala nivåerna, och återstående icke-arbetsminne/kall/arkiverad data uppsättning för data skiktas i molnet. Den här modellen visas i följande figur. Den nästan platta gröna linjen representerar de data som lagras på de lokala nivåerna på StorSimple-enheten. Den röda linjen representerar den totala mängden data som lagras i StorSimple-lösningen på alla nivåer. Utrymmet mellan den platta gröna linjen och den exponentiella röda kurvan representerar den totala mängden data som lagras i molnet.
 
-
-Diagram över![StorSimple för StorSimple-skiktning](./media/storsimple-configure-backup-target-using-backup-exec/image1.jpg)
+**Diagram över**
+![StorSimple för StorSimple-skiktning](./media/storsimple-configure-backup-target-using-backup-exec/image1.jpg)
 
 Med den här arkitekturen i åtanke kommer du att se att StorSimple passar utmärkt för att hantera säkerhets kopierings mål. Du kan använda StorSimple för att:
 -   Utför dina mest frekventa återställningar från den lokala arbets uppsättningen med data.

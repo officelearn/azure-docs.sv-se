@@ -51,8 +51,8 @@ Följande egenskaper har stöd för en OData-länkad tjänst:
 | type | Den **typ** egenskapen måste anges till **OData**. |Ja |
 | url | Rot-URL för OData-tjänsten. |Ja |
 | authenticationType | Vilken typ av autentisering som används för att ansluta till OData-källan. Tillåtna värden är **anonym**, **grundläggande**, **Windows**, **AadServicePrincipal**, och **ManagedServiceIdentity** . Användare baserat OAuth inte stöds. | Ja |
-| userName | Ange **användarnamn** om du använder grundläggande eller Windows-autentisering. | Nej |
-| password | Ange **lösenord** för användaren-konto som du angav för **användarnamn**. Markera det här fältet som en **SecureString** Skriv för att lagra den på ett säkert sätt i Data Factory. Du kan också [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Nej |
+| userName | Ange **userName** om du använder grundläggande eller Windows-autentisering. | Nej |
+| password | Ange **password** för användaren-konto som du angav för **användarnamn**. Markera det här fältet som en **SecureString** Skriv för att lagra den på ett säkert sätt i Data Factory. Du kan också [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Nej |
 | servicePrincipalId | Ange Azure Active Directory-programmets klient-ID. | Nej |
 | aadServicePrincipalCredentialType | Ange autentiseringstypen som ska användas för autentisering av tjänstens huvudnamn. Tillåtna värden är: `ServicePrincipalKey` eller `ServicePrincipalCert`. | Nej |
 | servicePrincipalKey | Ange nyckel för Azure Active Directory-programmet. Markera det här fältet som en **SecureString** ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Nej |

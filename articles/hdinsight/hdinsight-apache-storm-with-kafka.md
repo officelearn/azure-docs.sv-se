@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/25/2019
-ms.openlocfilehash: 001739d337d8c123023ccbf037933938113aaf2a
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 181d052501b9c418fad10a2069dde928a7ff9f38
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779598"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840251"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>Självstudie: Använda Apache Storm med Apache Kafka i HDInsight
 
@@ -130,7 +130,7 @@ Två topologier medföljer den här självstudien:
     >
     > Skript åtgärden finns i [https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh](https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh) och tillämpas på noderna ansvariga och Nimbus i Storm-klustret. Mer information om hur du använder skriptåtgärder finns i dokumentet [Anpassa HDInsight med hjälp av skriptåtgärder](hdinsight-hadoop-customize-cluster-linux.md).
 
-Topologierna definieras med hjälp av [Flux](https://storm.apache.org/releases/1.1.2/flux.html). Flux introducerades i Storm-0.10.x för att du ska kunna avgränsa topologikonfigurationen från koden. För topologier som använder Flux-ramverket definieras topologin i en YAML-fil. YAML-filen kan ingå i topologin. Den kan också vara en fristående fil som används när du skickar topologin. Flux stöder också variabelersättning vid körning, vilket används i det här exemplet.
+Topologierna definieras med hjälp av [Flux](https://storm.apache.org/releases/current/flux.html). Flux introducerades i Storm-0.10.x för att du ska kunna avgränsa topologikonfigurationen från koden. För topologier som använder Flux-ramverket definieras topologin i en YAML-fil. YAML-filen kan ingå i topologin. Den kan också vara en fristående fil som används när du skickar topologin. Flux stöder också variabelersättning vid körning, vilket används i det här exemplet.
 
 Följande parametrar anges vid körning för dessa topologier:
 
@@ -144,7 +144,7 @@ Följande parametrar anges vid körning för dessa topologier:
 
 * `${hdfs.write.dir}`: Den katalog som data skrivs till.
 
-Mer information om Flux-topologier finns i [https://storm.apache.org/releases/1.1.2/flux.html](https://storm.apache.org/releases/1.1.2/flux.html).
+Mer information om Flux-topologier finns i [https://storm.apache.org/releases/current/flux.html](https://storm.apache.org/releases/current/flux.html).
 
 ### <a name="kafka-writer"></a>Kafka-skrivare
 
@@ -406,7 +406,7 @@ Om du vill skapa ett Azure Virtual Network och sedan skapa Kafka- och Storm-klus
 
    1. Använd följande information för att fylla i posterna i avsnittet **Anpassad mall**:
 
-      | Inställning | Value |
+      | Inställning | Värde |
       | --- | --- |
       | Subscription | Din Azure-prenumeration |
       | Resource group | Resursgruppen som innehåller resurserna. |

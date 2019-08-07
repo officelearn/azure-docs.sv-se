@@ -5,15 +5,16 @@ manager: cgronlun
 author: HeidiSteen
 services: search
 ms.service: search
+ms.subservice: cognitive-search
 ms.topic: tutorial
 ms.date: 06/29/2019
 ms.author: heidist
-ms.openlocfilehash: 139cb598ee774e52da8d97e8d209e11ec4ffc94d
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 7539481105e1c1fd3b6816778e31e6edde8842d3
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828450"
+ms.locfileid: "68840808"
 ---
 # <a name="how-to-get-started-with-knowledge-store-in-azure-search"></a>Så här kommer du igång med kunskaps lager i Azure Search
 

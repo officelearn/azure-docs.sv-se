@@ -4,16 +4,17 @@ description: Skapa ett kunskaps lager med hjälp av guiden Importera data i Azur
 author: heidisteen
 services: search
 ms.service: search
+ms.subservice: cognitive-search
 ms.devlang: NA
 ms.topic: tutorial
 ms.date: 07/30/2019
 ms.author: heidist
-ms.openlocfilehash: 66a051c430be9f59569a5843c0138c7ddc15b87c
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 518a96ae8ace5c9630d594fe70487635b6ec1d2c
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68707156"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840837"
 ---
 # <a name="create-an-azure-search-knowledge-store-and-connect-using-power-bi"></a>Skapa en Azure Search kunskaps lager och Anslut med Power BI
 

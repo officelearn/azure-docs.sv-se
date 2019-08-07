@@ -9,18 +9,18 @@ ms.topic: include
 ms.date: 04/16/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: ba3cf3e77e5414804e881e0cddb151fb14fb7fd5
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: abb8b6bed6766ff0ea85eab1434014a057af4ca3
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68669847"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68843341"
 ---
 ## <a name="publish-the-project-to-azure"></a>Publicera projektet på Azure
 
 I Visual Studio Code kan du publicera funktionsprojektet direkt på Azure. Samtidigt skapar du en funktionsapp och relaterade resurser i Azure-prenumerationen. Funktionsappen är ett körningssammanhang för dina funktioner. Projektet paketeras och distribueras till den nya funktionsappen i Azure-prenumerationen.
 
-Som standard skapar Visual Studio alla Azure-resurser som krävs för att skapa din Function-app. Namnen på de här resurserna baseras på det program namn för funktionen som du väljer. Om du behöver fullständig kontroll över de skapade resurserna kan du i stället [publicera med avancerade alternativ](../articles/azure-functions/functions-develop-vs-code.md#enable-publishing-with-advanced-create-options).
+Som standard skapar Visual Studio Code alla Azure-resurser som krävs för att skapa din Function-app. Namnen på de här resurserna baseras på det program namn för funktionen som du väljer. Om du behöver fullständig kontroll över de skapade resurserna kan du i stället [publicera med avancerade alternativ](../articles/azure-functions/functions-develop-vs-code.md#enable-publishing-with-advanced-create-options).
 
 Det här avsnittet förutsätter att du skapar en ny function-app i Azure.
 

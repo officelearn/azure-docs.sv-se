@@ -1,20 +1,21 @@
 ---
-title: 'Python-självstudie: Anropa Cognitive Services i en indexerings pipeline – Azure Search'
+title: 'Python-självstudie: Anropa Cognitive Services i en pipeline för AI-anrikning – Azure Search'
 description: Stega genom ett exempel på data extrahering, naturligt språk och bild-AI-bearbetning i Azure Search med en Jupyter python-anteckningsbok. Extraherade data indexeras och lätt nås av frågan.
 manager: cgronlun
 author: LisaLeib
 services: search
 ms.service: search
+ms.subservice: cognitive-search
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 06/04/2019
 ms.author: v-lilei
-ms.openlocfilehash: b7f1baa473ca28db696835a7b0895f1603c74770
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: af355ec353e12c30723597927883cb23dfa31e71
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359406"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840933"
 ---
 # <a name="python-tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline"></a>Python-självstudie: Anropa API:er för Cognitive Services i en Azure Search indexerings pipeline
 

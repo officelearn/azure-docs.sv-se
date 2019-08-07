@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: 29a842f7dfcf720f29fcff80d2e736893c824f5a
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 9f7e0e23a04c6b141c6e0c5ff88b3d5ff2d76e1d
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65949555"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840427"
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Distribuera till Azure App Service med plugin-programmet Jenkins 
 
@@ -35,7 +35,7 @@ Om du inte redan har ett Jenkins-original börjar du med [lösningsmallen](insta
 * [Azure Credentials](https://plugins.jenkins.io/azure-credentials) version 1.2
 * [Azure App Service](https://plugins.jenkins.io/azure-app-service) version 0.1
 
-Du kan använda plugin-programmet Jenkins för att distribuera en webbapp på valfritt språk som stöds av Web Apps, till exempel C#, PHP, Java eller Node.js. I den här självstudien använder vi en [enkel Java-webbapp för Azure](https://github.com/azure-devops/javawebappsample). Om du vill förgrena lagringsplatsen till ditt eget GitHub-konto väljer du knappen **Fork** (Förgrening) i det övre högra hörnet i GitHub-gränssnittet.  
+Du kan använda plugin-programmet Jenkins för att distribuera en webbapp på alla språk som stöds av Web Apps, till exempel C#php, python, Java och Node. js. I den här självstudien använder vi en [enkel Java-webbapp för Azure](https://github.com/azure-devops/javawebappsample). Om du vill förgrena lagringsplatsen till ditt eget GitHub-konto väljer du knappen **Fork** (Förgrening) i det övre högra hörnet i GitHub-gränssnittet.  
 
 > [!NOTE]
 > Java JDK och Maven krävs för att skapa Java-projektet. Installera komponenterna på Jenkins-originalet, eller på VM-agenten om du använder agenten för kontinuerlig integrering. Om du distribuerar ett Java SE-program måste det även finnas en ZIP-fil på versionsservern.
@@ -56,7 +56,7 @@ Du behöver ett Azure-tjänsthuvudnamn för att kunna distribuera till Azure.
 
 
 1. Skapa ett Azure-tjänsthuvudnamn med hjälp av [Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json) eller [Azure-portalen](/azure/azure-resource-manager/resource-group-create-service-principal-portal).
-2. På Jenkins-instrumentpanelen väljer du **Autentiseringsuppgifter** > **System**. Välj sedan **Globala autentiseringsuppgifter (obegränsade)**.
+2. På Jenkins-instrumentpanelen väljer du **Autentiseringsuppgifter** > **System**. Välj sedan **Globala autentiseringsuppgifter (obegränsade)** .
 3. Lägg till ett tjänsthuvudnamn för Microsoft Azure genom att välja **Lägg till autentiseringsuppgifter**. Ange värden i fälten **Prenumerations-ID**, **Klient-ID**, **Klienthemlighet** och **OAuth 2.0 Token Endpoint**. Ange fältet **ID** till **mySp**. Vi använder detta ID i efterföljande steg i den här artikeln.
 
 
@@ -90,7 +90,7 @@ Innan du konfigurerar jobbet i Jenkins behöver du en Azure App Service-plan och
 ### <a name="set-up-the-jenkins-job"></a>Konfigurera Jenkins-jobbet
 
 1. Skapa ett nytt **freestyle**-projekt på Jenkins-instrumentpanelen.
-2. Konfigurera fältet **Source Code Management** (Källkodshantering) att använda din lokala förgrening av den [enkla Java-webbappen för Azure](https://github.com/azure-devops/javawebappsample). Ange värdet **lagringsplats-URL**. Till exempel: http:\//github.com/&lt;your_ID > / javawebappsample.
+2. Konfigurera fältet **Source Code Management** (Källkodshantering) att använda din lokala förgrening av den [enkla Java-webbappen för Azure](https://github.com/azure-devops/javawebappsample). Ange värdet **lagringsplats-URL**. Exempel: http:\//GitHub.com/&lt;your_ID >/javawebappsample.
 3. Lägg till ett steg för att kompilera projektet med hjälp av Maven genom att lägga till kommandot **Execute shell**. I det här exemplet behöver vi ett extra kommando för att byta namn på \*.war-filen i målmappen till **ROOT.war**:   
     ```bash
     mvn clean package
@@ -143,7 +143,7 @@ Innan du konfigurerar jobbet i Jenkins behöver du ha en webbapp på Linux. Du b
 ### <a name="set-up-the-jenkins-job-for-docker"></a>Konfigurera Jenkins-jobbet för Docker
 
 1. Skapa ett nytt **freestyle**-projekt på Jenkins-instrumentpanelen.
-2. Konfigurera fältet **Source Code Management** (Källkodshantering) att använda din lokala förgrening av den [enkla Java-webbappen för Azure](https://github.com/azure-devops/javawebappsample). Ange värdet **lagringsplats-URL**. Till exempel: http:\//github.com/&lt;your_ID > / javawebappsample.
+2. Konfigurera fältet **Source Code Management** (Källkodshantering) att använda din lokala förgrening av den [enkla Java-webbappen för Azure](https://github.com/azure-devops/javawebappsample). Ange värdet **lagringsplats-URL**. Exempel: http:\//GitHub.com/&lt;your_ID >/javawebappsample.
 3. Lägg till ett steg för att kompilera projektet med hjälp av Maven genom att lägga till kommandot **Execute shell**. Inkludera följande rad i kommandot:
     ```bash
     mvn clean package

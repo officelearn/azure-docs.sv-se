@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 07/10/2019
+ms.date: 08/06/2019
 ms.author: diberry
-ms.openlocfilehash: af3de85cb2d32b4828a4641318f66f91c9254e24
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 686bdf834efd637db49a7b51dc2bf7effa1eb4cb
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563022"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839979"
 ---
 # <a name="quickstart-qna-maker-client-library-for-net"></a>Snabbstart: QnA Maker klient bibliotek för .NET
 
@@ -26,6 +26,7 @@ Använd QnA Maker klient bibliotek för .NET för att:
 * Skapa en kunskapsbas 
 * Hantera en kunskaps bas
 * Publicera en kunskapsbas
+* Generera ett svar från kunskaps basen
 
 [Referens dokumentation](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker?view=azure-dotnet) | [bibliotek käll kods](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Knowledge.QnAMaker) | [paket (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker/)  |  [ exempelC# ](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp)
 
@@ -68,7 +69,6 @@ Build succeeded.
 ...
 ```
 
-
 ### <a name="install-the-sdk"></a>Installera SDK:n
 
 I program katalogen installerar du QnA Maker klient biblioteket för .NET med följande kommando:
@@ -99,6 +99,7 @@ De här kodfragmenten visar hur du gör följande med QnA Maker klient bibliotek
 * [Publicera en kunskapsbas](#publish-a-knowledge-base)
 * [Ta bort en kunskaps bas](#delete-a-knowledge-base)
 * [Hämta status för en åtgärd](#get-status-of-an-operation)
+* [Generera ett svar från kunskaps basen](#generate-an-answer-from-the-knowledge-base)
 
 ## <a name="add-the-dependencies"></a>Lägg till beroenden
 
@@ -106,7 +107,7 @@ Från projekt katalogen öppnar du **program.cs** -filen i önskat redigerings p
 
 [!code-csharp[Using statements](~/samples-qnamaker-csharp/documentation-samples/quickstarts/Knowledgebase_Quickstart/Program.cs?name=Dependencies)]
 
-## <a name="authenticate-the-client"></a>Autentisera klienten
+## <a name="authenticate-the-client-for-authoring-the-knowledge-base"></a>Autentisera klienten för att redigera kunskaps basen
 
 I **main** -metoden skapar du en variabel för resursens Azure-nyckel som hämtas från en miljö variabel `QNAMAKER_SUBSCRIPTION_KEY`med namnet. Om du har skapat miljövariabeln när programmet har startats måste redigeraren, IDE eller gränssnittet som kör den stängas och läsas in igen för att få åtkomst till variabeln. Metoderna kommer att skapas senare.
 
@@ -115,6 +116,14 @@ Skapa sedan ett [ApiKeyServiceClientCredentials](https://docs.microsoft.com/dotn
 Om nyckeln inte finns i `westus` regionen, som exempel koden visar, ändrar du plats för **slut punkts** variabeln. Den här platsen finns på **översikts** sidan för din QNA Maker-resurs i Azure Portal.
 
 [!code-csharp[Authorization to resource key](~/samples-qnamaker-csharp/documentation-samples/quickstarts/Knowledgebase_Quickstart/Program.cs?name=Authorization)]
+
+## <a name="authenticate-the-runtime-for-generating-an-answer"></a>Autentisera körningen för att skapa ett svar
+
+I **main** -metoden skapar du en variabel för resursens Azure-nyckel som hämtas från en miljövariabler `QNAMAKER_ENDPOINT_HOSTNAME` med `QNAMAKER_ENDPOINT_KEY`namnet och. När du publicerar din kunskaps bas returneras dessa värden. När du har publicerat kan du hitta de här inställningarna på sidan **Inställningar** på QNA Maker-portalen. 
+
+Skapa en [QnAMakerRuntimeClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.qnamakerruntimeclient?view=azure-dotnet) för att söka i kunskaps basen för att skapa ett svar eller träna från aktiv inlärning.
+
+[!code-csharp[Authenticate the runtime](~/samples-qnamaker-csharp/documentation-samples/quickstarts/Knowledgebase_Quickstart/Program.cs?name=EndpointKey)]
 
 ## <a name="create-a-knowledge-base"></a>Skapa en kunskapsbas
 
@@ -138,7 +147,7 @@ Du kan uppdatera en kunskaps bas genom att skicka i kunskaps bas-ID: t och en [U
 
 ## <a name="download-a-knowledge-base"></a>Hämta en kunskaps bas
 
-Använd metoden [DownloadAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.knowledgebaseextensions.downloadasync?view=azure-dotnet) för att ladda ned databasen som en lista över [QnADocumentsDTO](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.models.qnadocumentsdto?view=azure-dotnet). Detta motsvarar _inte_ QNA Maker portalens export från inställnings sidan eftersom  resultatet av den här metoden inte är en TSV-fil.
+Använd metoden [DownloadAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.knowledgebaseextensions.downloadasync?view=azure-dotnet) för att ladda ned databasen som en lista över [QnADocumentsDTO](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.models.qnadocumentsdto?view=azure-dotnet). Detta motsvarar _inte_ QNA Maker portalens export från inställnings sidan eftersom resultatet av den här metoden inte är en TSV-fil.
 
 [!code-csharp[Download a knowledge base](~/samples-qnamaker-csharp/documentation-samples/quickstarts/Knowledgebase_Quickstart/Program.cs?name=DownloadKB&highlight=2)]
 
@@ -147,6 +156,13 @@ Använd metoden [DownloadAsync](https://docs.microsoft.com/dotnet/api/microsoft.
 Publicera kunskaps basen med [PublishAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.knowledgebaseextensions.publishasync?view=azure-dotnet) -metoden. Detta tar den aktuella sparade och utbildade modellen som refereras till av kunskaps bas-ID: t och publicerar den på en slut punkt. 
 
 [!code-csharp[Publish a knowledge base](~/samples-qnamaker-csharp/documentation-samples/quickstarts/Knowledgebase_Quickstart/Program.cs?name=PublishKB&highlight=2)]
+
+## <a name="generate-an-answer-from-the-knowledge-base"></a>Generera ett svar från kunskaps basen
+
+Generera ett svar från en publicerad kunskaps bas med hjälp av [RuntimeClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.qnamakerclient.knowledgebase?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Knowledge_QnAMaker_QnAMakerClient_Knowledgebase). [GenerateAnswerAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.runtimeextensions.generateanswerasync?view=azure-dotnet) -metod. Den här metoden godkänner kunskaps bas-ID: t och [QueryDTO](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.models.querydto?view=azure-dotnet). Få åtkomst till ytterligare egenskaper för QueryDTO, till exempel [Top](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.models.querydto.top?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Knowledge_QnAMaker_Models_QueryDTO_Top) och [context](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.models.querydto.context?view=azure-dotnet) , som ska användas i din Chat-robot. 
+
+[!code-csharp[Generate an answer from a knowledge base](~/samples-qnamaker-csharp/documentation-samples/quickstarts/Knowledgebase_Quickstart/Program.cs?name=GenerateAnswer&highlight=2)]
+
 
 ## <a name="delete-a-knowledge-base"></a>Ta bort en kunskapsbas
 
@@ -169,6 +185,8 @@ Kör programmet med kommandot dotNet `run` från program katalogen.
 ```dotnet
 dotnet run
 ```
+
+[Käll koden för den här snabb](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/blob/master/documentation-samples/quickstarts/Knowledgebase_Quickstart/Program.css) starten är tillgänglig i QNA Maker C# samples GitHub-lagringsplatsen.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

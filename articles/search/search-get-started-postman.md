@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Skapa, läsa in och fråga index med Postman och REST-API: er – Azure Search'
+title: 'REST-snabb start: Skapa, läsa in och fråga index med Postman-Azure Search'
 description: 'Lär dig hur du anropar Azure Search REST-API: er med Postman och exempel data och definitioner.'
 author: HeidiSteen
 manager: cgronlun
@@ -9,13 +9,12 @@ ms.devlang: rest-api
 ms.topic: quickstart
 ms.date: 07/11/2019
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 5a61f5476551d785f2db0ef52dff45554302fd07
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 5ad1708475200475669c5de8f4fbd316f04ebd04
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67849796"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840786"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-postman-using-rest-apis"></a>Snabbstart: Skapa ett Azure Search-index i Postman med hjälp av REST API: er
 > [!div class="op_single_selector"]

@@ -7,14 +7,14 @@ ms.service: managed-applications
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
-ms.date: 10/04/2018
+ms.date: 08/06/2019
 ms.author: tomfitz
-ms.openlocfilehash: 1f80d7e63d994f0e3eb3733b99afaa1b056f4686
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7682670131b0ef50a1480285bc379b634169e49e
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60252402"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840616"
 ---
 # <a name="publish-an-azure-managed-application-definition"></a>Publicera en definition av Azure-hanterat program
 
@@ -41,7 +41,7 @@ När du definierar det hanterade programmet så väljer du en användare, grupp 
 Ange ditt UPN-namn i följande kommando för att hämta objekt-ID för din identitet:
 
 ```azurecli-interactive
-userid=$(az ad user show --upn-or-object-id example@contoso.org --query objectId --output tsv)
+userid=$(az ad user show --id example@contoso.org --query objectId --output tsv)
 ```
 
 Sedan måste du använda rolldefinitions-ID för den inbyggda RBAC-rollen som du vill bevilja användaren åtkomst till. Följande kommando visar hur du hämtar rolldefinitions-ID:t för ägarrollen:
@@ -68,14 +68,14 @@ När kommandot har slutförts har du en definition för det hanterade programmet
 
 Några av de parametrar som användes i det föregående exemplet är:
 
-* **resursgrupp**: Namnet på resursgruppen där definitionen för hanterade programmet skapas.
-* **lock-level**: Typ av Lås placeras på den hanterade resursgruppen. Det förhindrar kunden från att utföra oönskade åtgärder på den här resursgruppen. ReadOnly stöds för närvarande endast på låsnivå. När ReadOnly har angivits kan kunden endast läsa resurser som finns i den hanterade resursgruppen. Utgivaridentiteter som beviljas åtkomst till den hanterade resursgruppen är undantagna från låset.
-* **auktoriseringar**: Beskriver huvudkontots ID och rolldefinitions-ID som används för att ge behörighet till den hanterade resursgruppen. Det anges i formatet `<principalId>:<roleDefinitionId>`. Om det krävs fler än ett värde anger du dem i formatet `<principalId1>:<roleDefinitionId1> <principalId2>:<roleDefinitionId2>`. Värdena avgränsas med ett blanksteg.
-* **package-file-uri**: Platsen för ett ZIP-paket som innehåller filerna som krävs. Paketet måste ha filerna **mainTemplate.json** och **createUiDefinition.json**. **mainTemplate.json** definierar de Azure-resurser som skapas som en del av det hanterade programmet. Mallen skiljer sig inte från en vanlig Resource Manager-mall. **createUiDefinition.json** genererar användargränssnittet för användare som skapar det hanterade programmet via portalen.
+* **resurs grupp**: Namnet på resurs gruppen där definitionen för det hanterade programmet skapas.
+* **Lås nivå**: Typen av lås som placerats i den hanterade resurs gruppen. Det förhindrar kunden från att utföra oönskade åtgärder på den här resursgruppen. ReadOnly stöds för närvarande endast på låsnivå. När ReadOnly har angivits kan kunden endast läsa resurser som finns i den hanterade resursgruppen. Utgivaridentiteter som beviljas åtkomst till den hanterade resursgruppen är undantagna från låset.
+* **auktoriseringar**: Beskriver huvud-ID: t och roll Definitions-ID: t som används för att bevilja behörighet till den hanterade resurs gruppen. Det anges i formatet `<principalId>:<roleDefinitionId>`. Om det krävs fler än ett värde anger du dem i formatet `<principalId1>:<roleDefinitionId1> <principalId2>:<roleDefinitionId2>`. Värdena avgränsas med ett blanksteg.
+* **package-file-uri**: Platsen för ett. zip-paket som innehåller de filer som krävs. Paketet måste ha filerna **mainTemplate.json** och **createUiDefinition.json**. **mainTemplate.json** definierar de Azure-resurser som skapas som en del av det hanterade programmet. Mallen skiljer sig inte från en vanlig Resource Manager-mall. **createUiDefinition.json** genererar användargränssnittet för användare som skapar det hanterade programmet via portalen.
 
 ## <a name="next-steps"></a>Nästa steg
 
 Du har publicerat definitionen av det hanterade programmet. Nu ska du lära dig hur du distribuerar en instans av den definitionen.
 
 > [!div class="nextstepaction"]
-> [Snabbstart: Distribuera service catalog-app](deploy-service-catalog-quickstart.md)
+> [Snabbstart: Distribuera tjänst katalog program](deploy-service-catalog-quickstart.md)

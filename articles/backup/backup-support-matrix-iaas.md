@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/02/2019
 ms.author: dacurwin
-ms.openlocfilehash: 2556887008ecbe081168d3fc81fa07b45cda4bcb
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 369be73e2884594171419a66b94db64184582e58
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639593"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68813823"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Support mat ris för säkerhets kopiering av virtuella Azure-datorer
 Du kan använda [tjänsten Azure Backup](backup-overview.md) för att säkerhetskopiera lokala datorer och arbets belastningar och virtuella datorer i Azure. Den här artikeln sammanfattar support inställningar och begränsningar när du säkerhetskopierar virtuella Azure-datorer med Azure Backup.
@@ -130,7 +130,6 @@ I följande tabell sammanfattas stödet för säkerhets kopiering under aktivite
 Återställa till en befintlig virtuell dator | Använd alternativet Ersätt disk.
 Återställa disk med lagrings konto aktiverat för Azure Storage Service Encryption (SSE) | Stöds ej.<br/><br/> Återställ till ett konto som inte har SSE aktiverat.
 Återställ till blandade lagrings konton | Stöds ej.<br/><br/> Alla återställda diskar är antingen Premium eller standard och inte blandade, baserat på lagrings konto typen.
-Återställa till lagrings konto med hjälp av zon redundant lagring (ZRS) | Stöds (för virtuell dator som har säkerhetskopierats efter Jan 2019 och där [tillgänglighets zon](https://azure.microsoft.com/global-infrastructure/availability-zones/) är tillgänglig)
 Återställa den virtuella datorn direkt till en tillgänglighets uppsättning | För hanterade diskar kan du återställa disken och använda alternativet tillgänglighets uppsättning i mallen.<br/><br/> Stöds inte för ohanterade diskar. För ohanterade diskar återställer du disken och skapar sedan en virtuell dator i tillgänglighets uppsättningen.
 Återställa säkerhets kopia av ohanterade virtuella datorer efter uppgradering till hanterad virtuell dator| Stöds.<br/><br/> Du kan återställa diskar och sedan skapa en hanterad virtuell dator.
 Återställ den virtuella datorn till återställnings punkten innan den virtuella datorn migrerades till Managed disks | Stöds.<br/><br/> Du återställer till ohanterade diskar (standard), konverterar de återställda diskarna till den hanterade disken och skapar en virtuell dator med de hanterade diskarna.
@@ -151,6 +150,7 @@ Säkerhetskopiera virtuella datorer som distribueras från en anpassad avbildnin
 Säkerhetskopiera virtuella datorer som migreras till Azure  | Stöds.<br/><br/> För att säkerhetskopiera den virtuella datorn måste den virtuella dator agenten vara installerad på den migrerade datorn.
 Säkerhetskopiera konsekvens för flera virtuella datorer | Azure Backup tillhandahåller inte data-och program konsekvens över flera virtuella datorer.
 Säkerhetskopiera med [diagnostikinställningar](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview)  | Som inte stöds. <br/><br/> Om återställningen av den virtuella Azure-datorn med diagnostiska inställningar utlöses med alternativet [Skapa nytt](backup-azure-arm-restore-vms.md#create-a-vm) , Miss lyckas återställningen.
+Återställa zoner-fästa virtuella datorer | Stöds (för VM som säkerhets kopie ras efter 2019 och där [tillgänglighets zon](https://azure.microsoft.com/global-infrastructure/availability-zones/) är tillgängliga).<br/><br/>Vi stöder för närvarande återställning till samma zon som är fäst i virtuella datorer. Men om zonen inte är tillgänglig, Miss lyckas återställningen.
 
 
 ## <a name="vm-storage-support"></a>Stöd för VM-lagring
@@ -158,8 +158,8 @@ Säkerhetskopiera med [diagnostikinställningar](https://docs.microsoft.com/azur
 **Komponent** | **Support**
 --- | ---
 Datadiskar för virtuella Azure-datorer | Säkerhetskopiera en virtuell dator med 16 eller färre data diskar. <br/><br/> Stöder disk storlekar upp till 4 TB.
-Data disk storlek | Enskilda disk kan vara upp till 4 095 GB.<br/><br/> Om dina valv kör den senaste versionen av Azure Backup (kallas omedelbar återställning), stöds disk storlekar upp till 4 TB. [Läs mer](backup-instant-restore-capability.md).  
-Lagringstyp | Standard HDD, standard SSD, Premium SSD. <br/><br/> Standard SSD stöds om dina valv uppgraderas till den senaste versionen av Azure VM Backup (kallas snabb återställning). [Läs mer](backup-instant-restore-capability.md).
+Data disk storlek | Enskilda disk kan vara upp till 4 095 GB.<br/><br/>Om du vill registrera dig för en privat för hands version av Azure Backup stöd för stora diskar för diskar som är större än 4 TB upp till AskAzureBackupTeam@microsoft.com30TB i storlek, skriver du tillbaka till oss.  
+Lagringstyp | Standard HDD Standard SSD Premium SSD.
 Hanterade diskar | Stöds.
 Krypterade diskar | Stöds.<br/><br/> Virtuella Azure-datorer med Azure Disk Encryption kan säkerhets kopie ras (med eller utan Azure AD-appen).<br/><br/> Det går inte att återställa krypterade virtuella datorer på nivån fil/mapp. Du måste återställa hela den virtuella datorn.<br/><br/> Du kan aktivera kryptering på virtuella datorer som redan skyddas av Azure Backup.
 Diskar med Skrivningsaccelerator aktiverat | Stöds ej.<br/><br/> Azure Backup undantar automatiskt diskarna med Skrivningsaccelerator aktiverat under säkerhets kopieringen. Eftersom de inte har säkerhetskopierats kommer du inte att kunna återställa diskarna från återställnings punkter för den virtuella datorn.
@@ -167,7 +167,6 @@ Säkerhetskopiera deduplicerade diskar | Stöds ej.
 Lägg till disk i skyddad virtuell dator | Stöds.
 Ändra storlek på disk på skyddad virtuell dator | Stöds.
 Delad lagring| Det rekommenderas inte att säkerhetskopiera virtuella datorer med klusterdelad volym (CSV) eller skalbar fil server. CSV-skrivare fungerar sannolikt inte under säkerhets kopieringen. Vid återställning kanske diskar som innehåller CSV-volymer inte kommer att visas.
-
 
 
 ## <a name="vm-network-support"></a>Stöd för virtuella dator nätverk

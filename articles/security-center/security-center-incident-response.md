@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 99bfab5a5f80fc0a49c7cc6405154394391f43e0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3a55de2d5f47274ea112e52ddbcc0d946db56470
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60908228"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68775334"
 ---
 # <a name="using-azure-security-center-for-an-incident-response"></a>Använda Azure Security Center vid incidenthantering
 Många organisationer lär sig att reagera på säkerhetsincidenter först när de har drabbats av en attack. För att minska kostnaderna och skadorna är det viktigt att ha en incidenthanteringsplan på plats innan en attack äger rum. Azure Security Center kan användas i olika faser av en incidenthantering.
@@ -51,12 +51,12 @@ I det här scenariot ska vi fokusera på rollerna för följande personer som in
 
 ![Livscykel för incidenthantering](./media/security-center-incident-response/security-center-incident-response-fig2.png)
 
-Johanna, som arbetar med säkerheten. Hennes ansvarsområden är följande:
+Johanna, som arbetar med säkerheten. Deras ansvar omfattar:
 
 * Övervakning och hantering av säkerhetshot dygnet runt.
 * Eskalering till molnets arbetsbelastningsägare eller säkerhetsanalytiker vid behov.
 
-Sam är säkerhetsanalytiker och hans ansvar omfattar:
+Sam är en säkerhetsanalytiker och deras ansvar omfattar:
 
 * Undersöka attacker.
 * Åtgärda aviseringar.
@@ -65,17 +65,17 @@ Sam är säkerhetsanalytiker och hans ansvar omfattar:
 Som du kan se har Johanna och Sam olika ansvarsområden och de måste samarbeta för att dela informationen från Security Center.
 
 ## <a name="recommended-solution"></a>Rekommenderad lösning
-Eftersom Johanna och Sam har olika roller kommer de att använda olika områden i Security Center till att skaffa relevant information för sitt dagliga arbete. Johanna använder **Säkerhetsaviseringar** som en del av sin dagliga övervakning.
+Eftersom Johanna och Sam har olika roller kommer de att använda olika områden i Security Center till att skaffa relevant information för sitt dagliga arbete. Jenny kommer att använda **säkerhets aviseringar** som en del av den dagliga övervakningen.
 
-![Säkerhetsaviseringar](./media/security-center-incident-response/security-center-incident-response-fig3.png)
+![Säkerhetsvarningar](./media/security-center-incident-response/security-center-incident-response-fig3.png)
 
-Johanna använder säkerhetsaviseringar under identifierings- och utvärderingsstegen. När Johanna har avslutat den inledande utvärderingen kan hon eskalera problemet till Sam om det krävs ytterligare undersökningar. Sam använder nu informationen från Security Center, ibland tillsammans med andra datakällor, för att gå vidare till diagnostiseringsskedet.
+Johanna använder säkerhetsaviseringar under identifierings- och utvärderingsstegen. När Judy har slutfört den första utvärderingen kan de eskalera problemet till Sam om ytterligare undersökning krävs. Sam använder nu informationen från Security Center, ibland tillsammans med andra datakällor, för att gå vidare till diagnostiseringsskedet.
 
 ## <a name="how-to-implement-this-solution"></a>Hur man implementerar denna lösning
 Om du vill se hur du använder Azure Security Center i ett scenario för incidenthantering, följer vi Johanna i identifierings- och utvärderingsstegen och ser sedan vad Sam gör för att diagnosticera problemet.
 
 ### <a name="detect-and-assess-incident-response-stages"></a>Identifiera och utvärdera stegen vid incidenthantering
-Johanna har loggat in på Azure Portal arbetar med Security Center-konsolen. Som en del av sin dagliga övervakning har hon börjat granska säkerhetsaviseringar med hög prioritet genom att utföra följande steg:
+Johanna har loggat in på Azure Portal arbetar med Security Center-konsolen. Som en del av hennes dagliga övervaknings aktiviteter började de granska säkerhets aviseringar med hög prioritet genom att utföra följande steg:
 
 1. Klicka på ikonen **Säkerhetsaviseringar** och gå till bladet **Säkerhetsaviseringar**.
     ![Bladet Säkerhetsaviseringar](./media/security-center-incident-response/security-center-incident-response-fig4.png)
@@ -84,12 +84,12 @@ Johanna har loggat in på Azure Portal arbetar med Security Center-konsolen. Som
    > I det här scenariot ska Johanna utföra en utvärdering av aviseringen om skadlig SQL-aktivitet som visas på bilden ovan.
    >
    >
-2. Klicka på den **skadlig SQL-aktivitet** Avisera och granska de attackerade resurserna i den **skadlig SQL-aktivitet** bladet:  ![Incidentinformation](./media/security-center-incident-response/security-center-incident-response-fig5.png)
+2. Klicka på aviseringen **skadlig SQL-aktivitet** och granska de attackerade resurserna på bladet **skadlig SQL-aktivitet** :  ![Incident information](./media/security-center-incident-response/security-center-incident-response-fig5.png)
 
     På det här bladet kan Johanna föra anteckningar om de attackerade resurserna, hur många gånger attacken har utförts och när den upptäcktes.
 3. Klicka på den **attackerade resursen** för att få mer information om angreppet.
 
-När hon har läst beskrivningen är Johanna övertygad om att detta inte är falskt positivt och att hon bör eskalera fallet till Sam.
+När du har läst beskrivningen är Judy övertygad om att detta inte är ett falskt positivt värde och att det ska eskalera ärendet till Sam.
 
 ### <a name="diagnose-incident-response-stage"></a>Steget att diagnosticera incidenthantering
 Sam får ärendet från Johanna och börjar gå igenom de åtgärdssteg som föreslås i Security Center.

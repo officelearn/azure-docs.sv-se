@@ -1,6 +1,6 @@
 ---
-title: Hantering av administrativa enheter (förhandsversion) – Azure Active Directory | Microsoft Docs
-description: Med hjälp av administrativa enheter för mer detaljerade delegeringen av behörigheter i Azure Active Directory
+title: Hantering av administrativa enheter (för hands version) – Azure Active Directory | Microsoft Docs
+description: Använd administrativa enheter för mer detaljerad delegering av behörigheter i Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -10,35 +10,36 @@ ms.service: active-directory
 ms.topic: article
 ms.subservice: users-groups-roles
 ms.workload: identity
-ms.date: 01/31/2019
+ms.date: 08/01/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77f1a6e5b1e8191c1497e437cc26e1caf1255ba7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7b4bdced50f806367a53881d5ef0abd0a3710496
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60472376"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736787"
 ---
-# <a name="administrative-units-management-in-azure-active-directory-public-preview"></a>Hantering av administrativa enheter i Azure Active Directory (förhandsversion)
+# <a name="administrative-units-management-in-azure-active-directory-public-preview"></a>Hantering av administrativa enheter i Azure Active Directory (offentlig för hands version)
 
-Den här artikeln beskriver administrativa enheter – en ny Azure Active Directory (Azure AD)-behållare för resurser som kan användas för att delegera administrativa behörigheter över delmängder av användare och tillämpa principer på en del av användarna. I Azure Active Directory aktivera administrativa enheter centrala administratörer att delegera behörigheter till regionadministratörer eller ange principen på en detaljerad nivå.
+I den här artikeln beskrivs administrativa enheter i Azure Active Directory (Azure AD), som är en behållare med resurser som kan användas för att delegera administrativa behörigheter över del mängder av användare och tillämpa principer på en delmängd av användare. I Azure AD gör administrativa enheter det möjligt för centrala administratörer att delegera behörigheter till regionala administratörer eller att ange en princip på en detaljerad nivå.
 
-Detta är användbart i organisationer med oberoende avdelningar, till exempel en stor university som består av många autonoma skolor (Business skola, tekniker skola och så vidare) som är oberoende av varandra. Sådana avdelningar har sina egna IT-administratörer som åtkomst, hantera användare och ange principer specifikt för deras avdelning. Central Administratörer vill kunna bevilja dessa avdelningar administratörer behörighet över användare i deras specifika avdelningar. Mer specifikt kan i det här exemplet en central administratör, till exempel skapa en administrativ enhet för en viss skola (Business skola) och fyller den med endast företagsanvändare för skolan. Sedan en central administratör kan lägga till i företag skola IT-personal till en begränsad roll, med andra ord bevilja IT-personal behörigheter för företag school endast med school administrativa affärsenhet.
+Detta är användbart i organisationer med oberoende avdelningar, till exempel ett stort universitet som består av många autonoma skolor (affärs skola, teknik skola och så vidare) som är oberoende av varandra. Dessa avdelningar har sina egna IT-administratörer som kontrollerar åtkomst, hanterar användare och anger principer specifikt för deras delning. Centrala administratörer vill kunna ge dessa avdelnings administratörer behörigheter över användarna i sina specifika avdelningar. Mer specifikt, i det här exemplet, kan en central administratör t. ex. skapa en administrativ enhet för en viss skola (affärs skola) och fylla den med endast affärs skolans användare. Sedan kan en central administratör lägga till affärs skolans IT-personal till en begränsad roll, med andra ord, ge IT-personalen i affärsskola administrativ behörighet enbart över den administrativa enheten i Business School.
 
 > [!IMPORTANT]
-> Om du vill använda administrativa enheter kräver att administrativ enhet-omfattande administratören har en Azure Active Directory Premium-licens och Azure Active Directory Basic-licenser för alla användare i den administrativa enheten. Mer information finns i [komma igång med Azure AD Premium](../fundamentals/active-directory-get-started-premium.md).
+> För att kunna använda administrativa enheter måste administratören av administratörs enheten ha en Azure Active Directory Premium-licens. Mer information finns i [komma igång med Azure AD Premium](../fundamentals/active-directory-get-started-premium.md).
 >
 
-
-Från den centrala administratörs synsätt är en administrativ enhet ett katalogobjekt som kan skapas och fylls i med resurser. **Dessa resurser kan vara endast användare i den här förhandsversionen.** När skapas och konfigureras kan den administrativa enheten användas som omfattning för att begränsa behörigheten beviljade endast med resurser som ingår i den administrativa enheten.
+Från den centrala administratörens sikt är en administrativ enhet ett katalog objekt som kan skapas och fyllas i med resurser. **I den här för hands versionen kan de här resurserna endast vara användare.** När du har skapat och fyllt i den kan den administrativa enheten användas som ett omfång för att begränsa den beviljade behörigheten endast för de resurser som finns i den administrativa enheten.
 
 ## <a name="managing-administrative-units"></a>Hantera administrativa enheter
-I den här förhandsversionen kan du skapa och hantera administrativa enheter med hjälp av Azure Active Directory-modulen för Windows PowerShell-cmdletar. Mer information om hur du gör finns i [arbeta med administrativa enheter](https://docs.microsoft.com/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0)
 
-Mer information om programvarukrav och installera Azure AD-modulen, samt information om Azure AD-modulen-cmdletar för att hantera administrativa enheter, inklusive syntax, beskrivningar och exempel finns i [Azure Active Directory PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-2.0).
+I den här för hands versionen kan du skapa och hantera administrativa enheter med hjälp av Azure Active Directory-modulen för Windows PowerShell-cmdletar. Mer information om hur du gör finns i [arbeta med administrativa enheter](https://docs.microsoft.com/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0)
+
+Mer information om program varu krav och installation av Azure AD-modulen och information om Azure AD-modulen cmdlets för att hantera administrativa enheter, inklusive syntax, parameter beskrivningar och exempel finns i [Azure Active Directory PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-2.0).
 
 ## <a name="next-steps"></a>Nästa steg
+
 [Azure Active Directory-versioner](../fundamentals/active-directory-whatis.md)

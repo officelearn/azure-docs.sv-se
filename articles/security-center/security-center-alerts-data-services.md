@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/24/2019
 ms.author: v-mohabe
-ms.openlocfilehash: f33b69ac443a1bb8f6b7d6e1b19f2f077bf38f58
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 8812ac325e6bfd5ee019f6ddd6bf86c846ed5c10
+ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68501483"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68782451"
 ---
 # <a name="threat-detection-for-data-services-in-azure-security-center"></a>Hot identifiering för data tjänster i Azure Security Center
 
@@ -60,6 +60,7 @@ Security Center analyserar diagnostiska loggar med Läs-, skriv-och borttagnings
 |**Ovanlig plats åtkomst avvikelse**|Analys av exempel på nätverks trafik upptäckte avvikande RDP-kommunikation (utgående Remote Desktop Protocol) som kommer från en resurs i distributionen. Den här aktiviteten betraktas som onormal för den här miljön och kan tyda på att din resurs har komprometterats och nu används för att stoppa extern RDP-slutpunkt. Observera att den här typen av aktivitet skulle kunna göra att din IP-adress flaggas som skadlig av externa enheter.|
 |**Åtkomst avvikelse för program**|Indikerar att ett ovanligt program har åtkomst till det här lagrings kontot. En möjlig orsak är att en angripare har åtkomst till ditt lagrings konto med hjälp av ett nytt program.|
 |**Avvikelse för anonym åtkomst**|Anger att åtkomst mönstret har ändrats till ett lagrings konto. Till exempel har kontot åtkomst till anonymt (utan autentisering), vilket är oväntat jämfört med det senaste åtkomst mönstret för det här kontot. En möjlig orsak är att en angripare har utnyttjat offentlig Läs behörighet till en behållare som innehåller BLOB (s)-lagring.|
+|**Tor avvikelse**|Anger att det här kontot har öppnats från en IP-adress som kallas en aktiv stängningsmodul för Tor (en maskera proxy). Allvarlighets graden för den här aviseringen tar hänsyn till den autentiseringstyp som används (om det finns någon) och om detta är första fallet för sådan åtkomst. Potentiella orsaker kan vara att en angripare har åtkomst till ditt lagrings konto med hjälp av Tor, eller legitim användare har åtkomst till ditt lagrings konto med Tor.|
 |**Data exfiltrering avvikelse**|Anger att en ovanligt stor mängd data har extraherats jämfört med senaste aktivitet på den här lagrings behållaren. En möjlig orsak är att en angripare har extraherat en stor mängd data från en behållare som innehåller BLOB (s)-lagring.|
 |**Oväntad borttagnings avvikelse**|Indikerar att en eller flera oväntade borttagnings åtgärder har inträffat i ett lagrings konto, jämfört med senaste aktivitet på det här kontot. En möjlig orsak är att en angripare har tagit bort data från ditt lagrings konto.|
 |**Ladda upp Azure Cloud Service-paket**|Indikerar att ett Azure Cloud Service-paket (. cspkg-fil) har laddats upp till ett lagrings konto på ett onormalt sätt, jämfört med senaste aktivitet på det här kontot. En möjlig orsak är att en angripare har förberett att distribuera skadlig kod från ditt lagrings konto till en Azure-moln tjänst.|
@@ -70,7 +71,7 @@ Security Center analyserar diagnostiska loggar med Läs-, skriv-och borttagnings
 >[!NOTE]
 >Avancerat skydd för Azure Storage är för närvarande inte tillgängligt i moln regioner i Azure myndigheter och i vår suveräna region.
 
-Mer information om aviseringar för lagring finns i artikeln [Avancerat skydd mot Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection) och i avsnittet skydds aviseringar.
+Mer information om aviseringar för lagring finns i artikeln [Avancerat skydd mot Azure Storage](../storage/common/storage-advanced-threat-protection.md) och i avsnittet skydds aviseringar.
 
 ## Cosmos DB<a name="cosmos-db"></a>
 

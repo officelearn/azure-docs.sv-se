@@ -1,6 +1,6 @@
 ---
-title: Ansluta med ExpressRoute i Azure med Oracle-Molninfrastruktur | Microsoft Docs
-description: Anslut Azure ExpressRoute med molnet infrastruktur OCI (Oracle) FastConnect att aktivera molnöverskridande Oracle-programlösningar
+title: Anslut Azure ExpressRoute med Oracle Cloud Infrastructure | Microsoft Docs
+description: Anslut Azure-ExpressRoute med OCI-FastConnect (Oracle Cloud Infrastructure) för att aktivera Oracle-programlösningar mellan moln
 documentationcenter: virtual-machines
 author: romitgirdhar
 manager: gwallace
@@ -12,97 +12,95 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/24/2019
+ms.date: 08/02/2019
 ms.author: rogirdh
-ms.openlocfilehash: 671d7c8eb9f10e346b49056e1cc117c9882bb6e8
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 3b901f7aba40f3548a259d36b83fedca0ff2a5c2
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67707586"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68781297"
 ---
-# <a name="set-up-a-direct-interconnection-between-azure-and-oracle-cloud-infrastructure"></a>Konfigurera en direkt gränssnittet mellan Azure och Oracle-Molninfrastruktur  
+# <a name="set-up-a-direct-interconnection-between-azure-and-oracle-cloud-infrastructure"></a>Konfigurera en direkt anslutning mellan Azure och Oracle Cloud Infrastructure  
 
-Skapa en [integrerad upplevelse i flera moln](oracle-oci-overview.md) (förhandsversion), Microsoft och Oracle erbjuder direkt gränssnittet mellan Azure och molnet infrastruktur OCI (Oracle) via [ExpressRoute](../../../expressroute/expressroute-introduction.md) och [ FastConnect](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/fastconnectoverview.htm). Via ExpressRoute och FastConnect gränssnittet får kunder med låg latens, högt dataflöde, privata direkt anslutning mellan de två moln.
+För att skapa en [integrerad miljö för flera moln](oracle-oci-overview.md) (för hands version), erbjuder Microsoft och Oracle direkt samtrafik mellan Azure och Oracle Cloud Infrastructure (OCI) via [ExpressRoute](../../../expressroute/expressroute-introduction.md) och [FastConnect](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/fastconnectoverview.htm). Med ExpressRoute och FastConnect-samtrafik kan kunderna uppleva låg latens, högt data flöde, privat direkt anslutning mellan de två molnen.
 
 > [!IMPORTANT]
-> Anslutningen mellan Microsoft Azure och OCI är i Förhandsgranska. Om du vill aktivera svarstider anslutningar mellan Azure och OCI måste Azure-prenumeration och OCI innehavare först vara godkänd för den här funktionen.
+> Anslutningen mellan Microsoft Azure och OCI är i förhands gransknings fasen. Om du vill aktivera anslutningar med låg latens mellan Azure och OCI måste Azure-prenumerationen först vara vit listas för den här funktionen.
 
-Följande bild visar en översikt över gränssnittet:
+Följande bild visar en översikt över sammanlänkningen:
 
-![Nätverksanslutningen mellan moln](media/configure-azure-oci-networking/azure-oci-connect.png)
+![Nätverks anslutning mellan moln](media/configure-azure-oci-networking/azure-oci-connect.png)
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* För att upprätta anslutningar mellan Azure och OCI, måste du ha en aktiv Azure-prenumeration och en aktiv OCI innehavare.
+* Om du vill upprätta en anslutning mellan Azure och OCI måste du ha en aktiv Azure-prenumeration och ett aktivt OCI-innehav.
 
-* Anslutningen är endast möjligt där en peering Azure ExpressRoute-plats är i närhet eller i samma peering plats som OCI FastConnect. Se [begränsningar i förhandsversionen](oracle-oci-overview.md#preview-limitations).
+* Anslutning är bara möjlig när en peering-plats i Azure ExpressRoute är i närheten av eller på samma peering-plats som OCI-FastConnect. Se [begränsningar för för hands versionen](oracle-oci-overview.md#preview-limitations).
 
-* Din Azure-prenumeration måste vara godkänd för den här funktionen i förhandsversionen. Kontakta din Microsoft-representant om du vill aktivera den här funktionen på din prenumeration.
-
-* OCI-innehavare måste vara godkänd för den här funktionen i förhandsversionen. Kontakta din Oracle-representant för mer information.
+* Din Azure-prenumeration måste vara vit listas för den här förhands gransknings funktionen. Kontakta din Microsoft-representant om du vill aktivera den här funktionen i din prenumeration.
 
 ## <a name="configure-direct-connectivity-between-expressroute-and-fastconnect"></a>Konfigurera direkt anslutning mellan ExpressRoute och FastConnect
 
-1. Skapa en ExpressRoute-krets som standard på din Azure-prenumeration under en resursgrupp. 
-    * När du skapar ExpressRoute, Välj **Oracle Cloud FastConnect** som tjänstleverantören. För att skapa en ExpressRoute-krets, se den [stegvis guide](../../../expressroute/expressroute-howto-circuit-portal-resource-manager.md).
-    * En Azure ExpressRoute-krets ger detaljerade bandbreddsalternativ, medan FastConnect stöder 1, 2, 5 eller 10 Gbit/s. Vi rekommenderar därför att välja ett av alternativen med matchande bandbredd under ExpressRoute.
+1. Skapa en standard ExpressRoute-krets på din Azure-prenumeration under en resurs grupp. 
+    * När du skapar ExpressRoute väljer du **Oracle Cloud FastConnect** som tjänst leverantör. Information om hur du skapar en ExpressRoute-krets finns i [steg-för-steg-guiden](../../../expressroute/expressroute-howto-circuit-portal-resource-manager.md).
+    * En Azure ExpressRoute-krets tillhandahåller detaljerade bandbredds alternativ, medan FastConnect stöder 1, 2, 5 eller 10 Gbit/s. Därför rekommenderar vi att du väljer någon av dessa matchande bandbredds alternativ under ExpressRoute.
 
     ![Skapa ExpressRoute-krets](media/configure-azure-oci-networking/exr-create-new.png)
-1. Anteckna din ExpressRoute **tjänstnyckeln**. Du måste ange nyckeln när du konfigurerar din FastConnect-krets.
+1. Anteckna din ExpressRoute **-tjänst nyckel**. Du måste ange nyckeln när du konfigurerar FastConnect-kretsen.
 
-    ![ExpressRoute Service nyckel](media/configure-azure-oci-networking/exr-service-key.png)
+    ![ExpressRoute-tjänst nyckel](media/configure-azure-oci-networking/exr-service-key.png)
 
     > [!IMPORTANT]
-    > Du kommer att debiteras för ExpressRoute-avgifter när ExpressRoute-kretsen har etablerats (även om den **Providerstatus** är **inte etablerats**).
+    > Du debiteras för ExpressRoute-avgifter så snart ExpressRoute-kretsen har tillhandahållits (även om **providerns status** **inte är etablerad**).
 
-1. Få två privata IP-adressutrymmena/30 varje som inte överlappar med ditt Azure-nätverk eller molnnätverk för OCI virtuella IP-adressutrymme. Vi ska referera till det första IP-adressutrymmet som primär adressutrymme och andra IP-adressutrymmet som sekundär adressutrymme. Anteckna de adresser som du behöver när du konfigurerar din FastConnect-krets.
-1. Skapa en dynamisk Routningsgateway (DRG). Du behöver detta när du skapar din FastConnect-krets. Mer information finns i den [Dynamic Routing Gateway](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/managingDRGs.htm) dokumentation.
-1. Skapa en FastConnect krets under Oracle-klient. Mer information finns i den [Oracle-dokumentationen](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/azure.htm).
+1. Dela ut två privata IP-adressutrymmet som inte överlappar med ditt virtuella Azure-nätverk eller det virtuella OCI-nätverkets IP-adressutrymme. Vi kommer att referera till det första IP-adressutrymmet som primärt adress utrymme och det andra IP-adressutrymmet som sekundärt adress utrymme. Anteckna de adresser som du behöver när du konfigurerar FastConnect-kretsen.
+1. Skapa en gateway för dynamisk routning (DRG). Du behöver det när du skapar din FastConnect-krets. Mer information finns i dokumentationen för [Dynamic routing Gateway](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/managingDRGs.htm) .
+1. Skapa en FastConnect-krets under din Oracle-klient. Mer information finns i Oracle- [dokumentationen](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/azure.htm).
   
-    * Välj under FastConnect konfiguration, **Microsoft Azure: ExpressRoute** som provider.
-    * Välj Dynamic Routing Gateway som du etablerade i föregående steg.
-    * Välj bandbredden som ska etableras. Bandbredden måste matcha den bandbredd som är markerade när du skapade ExpressRoute-kretsen för optimala prestanda.
-    * I **Provider Tjänstnyckeln**, klistra in nyckeln för ExpressRoute-tjänsten.
-    * Använd det första/30 privat IP-adressutrymme som vis i föregående steg för den **primära BGP IP-adressen** och det andra/30 privata IP-adressutrymmet för det **sekundära BGP IP** adress.
-        * Tilldela den första riktlinje adressen för de två områdena för Oracle BGP IP-adress (primär och sekundär) och den andra adressen för kunden BGP IP-adress (från en FastConnect perspektiv). Den första riktlinje IP-adressen är den andra IP-adressen i/30-adressutrymmen (den första IP-adressen är reserverad av Microsoft).
+    * Under konfiguration av FastConnect väljer **du Microsoft Azure: ExpressRoute** som Provider.
+    * Välj den gateway för dynamisk routning som du etablerade i föregående steg.
+    * Välj den bandbredd som ska tillhandahållas. För bästa prestanda måste bandbredden matcha den bandbredd som väljs när du skapar ExpressRoute-kretsen.
+    * I **Provider service Key**klistrar du in ExpressRoute-tjänst nyckeln.
+    * Använd det första/30 privata IP-adressutrymmet hämtas i ett föregående steg för den **primära BGP-IP-adressen** och det andra/30 privata IP-adressutrymmet för den **sekundära BGP-IP** -adressen.
+        * Tilldela den första användbara adressen för de två intervallen för Oracle BGP IP-adressen (primär och sekundär) och den andra adressen till kundens BGP IP-adress (från ett FastConnect-perspektiv). Den första användbara IP-adressen är den andra IP-adressen i adress utrymmet/30 (den första IP-adressen är reserverad av Microsoft).
     * Klicka på **Skapa**.
-1. Slutför länka FastConnect till virtuellt molnnätverk under din Oracle-klient via Dynamic Routing Gateway, med hjälp av routningstabellen.
-1. Gå till Azure och se till att den **Providerstatus** för din ExpressRoute-krets har ändrats till **etablerad** och som en peering av typen **privat Azure** har etableras. Det här är ett krav för följande steg.
+1. Slutför länkningen av FastConnect till det virtuella moln nätverket under din Oracle-klient via dynamisk routning-Gateway med routningstabellen.
+1. Gå till Azure och se till att **leverantörs statusen** för din ExpressRoute-krets har ändrats till **etablerad** och att en peering av typen **Azure Private** har etablerats. Detta är ett krav för följande steg.
 
-    ![Status för ExpressRoute-provider](media/configure-azure-oci-networking/exr-provider-status.png)
-1. Klicka på den **privat Azure** peering. Peering-information automatiskt konfigurerade utifrån den information som du angav när du ställer in din FastConnect krets visas.
+    ![Status för ExpressRoute-Provider](media/configure-azure-oci-networking/exr-provider-status.png)
+1. Klicka på **Azures privata** peering. Du ser att peering-informationen har kon figurer ATS automatiskt baserat på den information som du angav när du konfigurerade FastConnect-kretsen.
 
-    ![Privata peering-inställningar](media/configure-azure-oci-networking/exr-private-peering.png)
+    ![Inställningar för privat peering](media/configure-azure-oci-networking/exr-private-peering.png)
 
-## <a name="connect-virtual-network-to-expressroute"></a>Ansluta virtuella nätverk till ExpressRoute
+## <a name="connect-virtual-network-to-expressroute"></a>Anslut virtuellt nätverk till ExpressRoute
 
-1. Skapa ett virtuellt nätverk och virtuella nätverksgateway, om du inte redan har gjort. Mer information finns i [stegvis guide](../../../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md).
-1. Konfigurera anslutningen mellan den virtuella nätverksgatewayen och ExpressRoute-kretsen genom att köra den [Terraform skriptet](https://github.com/microsoft/azure-oracle/tree/master/InterConnect-2) eller genom att köra PowerShell-kommando till [konfigurera ExpressRoute FastPath](../../../expressroute/expressroute-howto-linkvnet-arm.md#configure-expressroute-fastpath).
+1. Skapa ett virtuellt nätverk och en virtuell nätverksgateway om du inte redan har gjort det. Mer information finns i [steg-för-steg-guiden](../../../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md).
+1. Konfigurera anslutningen mellan den virtuella Nätverksgatewayen och din ExpressRoute-krets genom att köra [terraform-skriptet](https://github.com/microsoft/azure-oracle/tree/master/InterConnect-2) eller genom att köra PowerShell-kommandot för att [Konfigurera ExpressRoute FastPath](../../../expressroute/expressroute-howto-linkvnet-arm.md#configure-expressroute-fastpath).
 
-När du har slutfört nätverkskonfigurationen, du kan kontrollera giltigheten för din konfiguration genom att klicka på **hämta ARP-poster** och **Get routningstabellen** under bladet ExpressRoute privat peering i Azure-portalen.
+När du har slutfört nätverks konfigurationen kan du kontrol lera giltigheten för konfigurationen genom att klicka på **Hämta ARP-poster** och **Hämta** routningstabell under bladet ExpressRoute Private peering i Azure Portal.
 
 ## <a name="automation"></a>Automation
 
-Microsoft har skapat Terraform skript om du vill aktivera automatisk distribution av network sammankoppling. Terraform-skript måste autentisera med Azure innan körningen, eftersom de kräver behörighet på Azure-prenumeration. Autentisering kan utföras med hjälp av en [Azure Active Directory-tjänstobjekt](../../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) eller med hjälp av Azure CLI. Mer information finns i den [dokumentation om Terraform](https://www.terraform.io/docs/providers/azurerm/auth/azure_cli.html).
+Microsoft har skapat terraform-skript för att aktivera automatisk distribution av nätverks Interconnect. Terraform-skripten måste autentiseras med Azure före körningen, eftersom de kräver tillräckliga behörigheter för Azure-prenumerationen. Autentisering kan utföras med hjälp av ett [Azure Active Directory tjänstens huvud namn](../../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) eller med hjälp av Azure CLI. Mer information finns i terraform- [dokumentationen](https://www.terraform.io/docs/providers/azurerm/auth/azure_cli.html).
 
-Terraform skript och relaterad dokumentation för att distribuera inter-connect finns i den här [GitHub-lagringsplatsen](https://aka.ms/azureociinterconnecttf).
+Terraform-skript och relaterad dokumentation för att distribuera mellan Connect finns i den här GitHub- [lagringsplatsen](https://aka.ms/azureociinterconnecttf).
 
 ## <a name="monitoring"></a>Övervakning
 
-Installera agenter på båda molnen, kan du utnyttja Azure [nätverk prestanda Övervakare (NPM)](../../../expressroute/how-to-npm.md) att övervaka prestanda för slutpunkt till slutpunkt-nätverk. NPM hjälper dig att lätt identifiera nätverksproblem och hjälper till att eliminera dem.
+Genom att installera agenter på båda molnen kan du använda Azure [övervakare av nätverksprestanda (NPM)](../../../expressroute/how-to-npm.md) för att övervaka prestanda för slut punkt till slut punkt. NPM hjälper dig att enkelt identifiera nätverks problem och hjälper dem att eliminera dem.
 
-## <a name="delete-the-interconnect-link"></a>Ta bort länken sammankoppling
+## <a name="delete-the-interconnect-link"></a>Ta bort Interconnect-länken
 
-Ta bort sammankopplingen genom måste följande steg följas, i den specifika ordning. Det gick inte att göra det resulterar i en ”felaktigt tillstånd” ExpressRoute-krets.
+Om du vill ta bort kopplingen måste följande steg följas i den angivna ordningen. Om du inte gör det leder det till "ExpressRoute-krets".
 
-1. Ta bort ExpressRoute-anslutning. Ta bort anslutningen genom att klicka på den **ta bort** ikonen på sidan för din anslutning. Mer information finns i den [dokumentation om ExpressRoute](../../../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md#delete-a-connection-to-unlink-a-vnet).
-1. Ta bort Oracle FastConnect från Oracle Cloud-konsolen.
-1. När Oracle FastConnect kretsen har tagits bort, kan du ta bort Azure ExpressRoute-krets.
+1. Ta bort ExpressRoute-anslutningen. Ta bort anslutningen genom att klicka på ikonen **ta bort** på sidan för din anslutning. Mer information finns i ExpressRoute- [dokumentationen](../../../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md#delete-a-connection-to-unlink-a-vnet).
+1. Ta bort Oracle-FastConnect från moln konsolen i Oracle.
+1. När du har tagit bort Oracle FastConnect-kretsen kan du ta bort Azure ExpressRoute-kretsen.
 
-Nu har kommer att tas bort och avetablering processen slutförts.
+I det här läget är borttagnings-och avetablerings processen slutförd.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om molnöverskridande anslutningen mellan OCI och Azure finns i den [Oracle-dokumentationen](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/azure.htm).
-* Använd [Terraform skript](https://aka.ms/azureociinterconnecttf) att distribuera infrastrukturen för berörda Oracle-program via Azure och konfigurera nätverket sammankoppling. 
+* Mer information om mellan moln anslutningen mellan OCI och Azure finns i [Oracle-dokumentationen](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/azure.htm).
+* Använd [terraform-skript](https://aka.ms/azureociinterconnecttf) för att distribuera infrastruktur för riktade Oracle-program över Azure och konfigurera nätverks sammanlänkning. 

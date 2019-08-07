@@ -1,6 +1,6 @@
 ---
 title: Parquet-format i Azure Data Factory | Microsoft Docs
-description: Det här avsnittet beskriver hur du arbetar med Parquet-format i Azure Data Factory.
+description: I det här avsnittet beskrivs hur du hanterar Parquet-format i Azure Data Factory.
 author: linda33wj
 manager: craigg
 ms.reviewer: craigg
@@ -9,18 +9,18 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: 360b794f0d8ba9c145a92f015f264eb624fbb0f1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 572547f4e22a4fcb63a030e64ca95a0b9d3eff00
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65144886"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68734488"
 ---
 # <a name="parquet-format-in-azure-data-factory"></a>Parquet-format i Azure Data Factory
 
-Följ den här artikeln när du vill **parsa Parquet-filer eller skriva data i Parquet-format**. 
+Följ den här artikeln när du vill **parsa Parquet-filerna eller skriva data i Parquet-format**. 
 
-Parquet-format stöds för följande kopplingar: [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [Filsystem](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), och [ SFTP](connector-sftp.md).
+Parquet-formatet stöds för följande anslutningar: [Amazon S3](connector-amazon-simple-storage-service.md), [azure BLOB](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [fil system](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [http](connector-http.md)och [SFTP](connector-sftp.md).
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 
@@ -28,14 +28,14 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 | Egenskap         | Beskrivning                                                  | Krävs |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| type             | Type-egenskapen för datauppsättningen måste anges till **Parquet**. | Ja      |
-| location         | Platsinställningar för filen eller filerna. Varje filbaserade anslutning har sin egen platstyp och stöds egenskaper under `location`. **Mer information finns i artikeln connector -> datauppsättning egenskapsavsnittet**. | Ja      |
-| compressionCodec | Komprimerings-codec ska användas vid skrivning till Parquet-filer. Vid läsning från Parquet-filer, fastställa Data Factory automatiskt komprimerings-codec baserat på filens metadata.<br>Typer som stöds är ”**ingen**” ”,**gzip**” ”,**snappy**” (standard), och ”**lzo**”. Observera för närvarande Kopieringsaktivitet inte stöder LZO. | Nej       |
+| type             | Data uppsättningens typ-egenskap måste anges till **Parquet**. | Ja      |
+| location         | Plats inställningar för filen/filerna. Varje filbaserad koppling har sin egen plats typ och de egenskaper som stöds `location`under. **Se information i avsnittet kopplings artikel – egenskaper för > data uppsättning**. | Ja      |
+| compressionCodec | Den komprimerings-codec som ska användas när du skriver till Parquet-filer. Vid läsning från Parquet-filer bestämmer Data Factory automatiskt komprimerings-codecen baserat på filens metadata.<br>De typer som stöds är "**none**", "**gzip**", "**fästfunktionen**" (standard) och "**LZO**". Obs! kopierings aktiviteten stöder för närvarande inte LZO. | Nej       |
 
 > [!NOTE]
-> Tomt utrymme i kolumnnamn stöds inte för Parquet-filer.
+> Tomt utrymme i kolumn namn stöds inte för Parquet-filer.
 
-Nedan visas ett exempel på Parquet-datauppsättningen på Azure Blob Storage:
+Nedan visas ett exempel på en Parquet-datauppsättning på Azure Blob Storage:
 
 ```json
 {
@@ -61,54 +61,54 @@ Nedan visas ett exempel på Parquet-datauppsättningen på Azure Blob Storage:
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i den [Pipelines](concepts-pipelines-activities.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av Parquet källa och mottagare.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i den [Pipelines](concepts-pipelines-activities.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av Parquet-källan och Sink.
 
 ### <a name="parquet-as-source"></a>Parquet som källa
 
-Följande egenskaper stöds i kopieringsaktiviteten ***\*källa\**** avsnittet.
+Följande egenskaper stöds i avsnittet Kopiera aktivitets ***\*källa\**** .
 
 | Egenskap      | Beskrivning                                                  | Krävs |
 | ------------- | ------------------------------------------------------------ | -------- |
-| type          | Type-egenskapen för aktiviteten kopieringskälla måste anges till **ParquetSource**. | Ja      |
-| storeSettings | En grupp egenskaper för hur du läser data från ett datalager. Varje filbaserade anslutningsprogrammet har sin egen Läs inställningar som stöds under `storeSettings`. **Mer information finns i artikeln connector -> Kopiera aktivitet egenskapsavsnittet**. | Nej       |
+| type          | Typ egenskapen för kopierings aktivitets källan måste anges till **ParquetSource**. | Ja      |
+| storeSettings | En grupp egenskaper för att läsa data från ett data lager. Varje filbaserad koppling har sina egna Läs inställningar som stöds under `storeSettings`. **Se information i kopplings artikeln – > avsnittet Egenskaper för kopierings aktivitet**. | Nej       |
 
 ### <a name="parquet-as-sink"></a>Parquet som mottagare
 
-Följande egenskaper stöds i kopieringsaktiviteten ***\*mottagare\**** avsnittet.
+Följande egenskaper stöds i avsnittet Kopiera aktivitets ***\*mottagare\**** .
 
 | Egenskap      | Beskrivning                                                  | Krävs |
 | ------------- | ------------------------------------------------------------ | -------- |
-| type          | Type-egenskapen för aktiviteten kopieringskälla måste anges till **ParquetSink**. | Ja      |
-| storeSettings | En grupp egenskaper om hur du skriver data till ett datalager. Varje filbaserade anslutning har sin egen stöds skrivning inställningar under `storeSettings`. **Mer information finns i artikeln connector -> Kopiera aktivitet egenskapsavsnittet**. | Nej       |
+| type          | Typ egenskapen för kopierings aktivitets källan måste anges till **ParquetSink**. | Ja      |
+| storeSettings | En grupp egenskaper för hur du skriver data till ett data lager. Varje filbaserad koppling har sina egna Skriv inställningar som stöds under `storeSettings`. **Se information i kopplings artikeln – > avsnittet Egenskaper för kopierings aktivitet**. | Nej       |
 
-## <a name="mapping-data-flow-properties"></a>Egenskaper för mappning av dataflöde
+## <a name="mapping-data-flow-properties"></a>Mappa data flödes egenskaper
 
-Få mer detaljerad information från [source omvandling](data-flow-source.md) och [mottagare omvandling](data-flow-sink.md) i mappning dataflöde.
+Lär dig mer om omvandling av [käll omvandling](data-flow-source.md) och [mottagare](data-flow-sink.md) i mappnings data flödet.
 
-## <a name="data-type-support"></a>Stöd för datatypen
+## <a name="data-type-support"></a>Data typs stöd
 
-Parquet komplexa datatyper inte är för närvarande stöds (t.ex. MAP, LIST, STRUCT).
+Parquet komplexa data typer stöds för närvarande inte (t. ex. MAP, LIST, STRUCT).
 
-## <a name="using-self-hosted-integration-runtime"></a>Med hjälp av lokal Integration Runtime
+## <a name="using-self-hosted-integration-runtime"></a>Använda egen värd Integration Runtime
 
 > [!IMPORTANT]
-> För att kopiera möjligheter med lokal Integration Runtime t.ex. mellan lokala och molnbaserade datalager, om du inte kopierar Parquet-filer **som – är**, måste du installera den **64-bitars JRE 8 (Java Runtime Environment) eller OpenJDK** på IR-datorn. Se följande stycke med mer information.
+> Om du inte kopierar Parquet-filer i **befintligt skick som är som är**integration runtime behöriga för den lokala datorn och data lager i molnet, måste du installera **64-bitars JRE 8 (Java Runtime Environment) eller OPENJDK** på din IR-dator. Se följande stycke med mer information.
 
-För kopiering som körs på lokal IR med Parquet-fil serialisering/deserialisering ADF söker efter Java runtime genom att först kontrollera registret *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* för JRE, om inte hittas för det andra kontrollerar systemvariabeln *`JAVA_HOME`* för OpenJDK.
+För kopiering som körs på egen värd-IR med Parquet-filserialisering/deserialisering, hittar ADF Java-körningen genom att först kontrol lera registret *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* för JRE, om det inte hittas, och sedan kontrol lera *`JAVA_HOME`* system variabeln för openjdk.
 
-- **Att använda JRE**: 64-bitars IR kräver 64-bitars JRE. Du hittar den från [här](https://go.microsoft.com/fwlink/?LinkId=808605).
-- **Att använda OpenJDK**: den stöds sedan IR version 3.13. Paketet jvm.dll med alla andra krävs sammansättningar av OpenJDK i lokal IR-datorn och system för set-miljövariabeln JAVA_HOME därefter.
+- **Så här använder du JRE**: 64-bitars IR kräver 64-bitars JRE. Du hittar den [här](https://go.microsoft.com/fwlink/?LinkId=808605).
+- **Om du vill använda openjdk**: stöds den sedan IR version 3,13. Paketera JVM. dll med alla andra nödvändiga sammansättningar av OpenJDK till IR-datorn med egen värd och ange system miljö variabeln JAVA_HOME.
 
 > [!TIP]
-> Om du kopierar data till/från Parquet-format med hjälp av lokal Integration Runtime och tryck på fel som säger ”ett fel uppstod när java-anrop meddelande: **java.lang.OutOfMemoryError:Java heap utrymme**”, kan du lägga till en miljövariabel `_JAVA_OPTIONS` på den dator som är värd för lokal IR för att justera storleken på heap min/max för JVM att driva denna kopia, sedan kör pipelinen igen.
+> Om du kopierar data till/från Parquet-format med hjälp av självbetjäning integration Runtime och träffa fel som säger "ett fel uppstod vid aktivering av Java, meddelande: **Java. lang. OutOfMemoryError: Java heap-utrymme**" kan du lägga `_JAVA_OPTIONS` till en miljö variabel i en dator som är värd för IR med egen värd för att justera den minsta/högsta heap-storleken för JVM för att ge en sådan kopia och sedan köra pipelinen igen.
 
-![Ange JVM heap-storlek för lokal IR](C:/AzureContent/azure-docs-pr/articles/data-factory/media/supported-file-formats-and-compression-codecs/set-jvm-heap-size-on-selfhosted-ir.png)
+![Ange JVM heap-storlek för IR med egen värd](./media/supported-file-formats-and-compression-codecs/set-jvm-heap-size-on-selfhosted-ir.png)
 
-Exempel: Ange variabel `_JAVA_OPTIONS` med värdet `-Xms256m -Xmx16g`. Flaggan `Xms` anger inledande allokering minnespoolen för en Java Virtual Machine (JVM), medan `Xmx` anger den högsta mängd minne allokering poolen. Det innebär att du kommer igång JVM med `Xms` mängden minne och kommer att kunna använda högst `Xmx` mängden minne. Som standard ADF använda min 64MB och max 1G.
+Exempel: Ange variabeln `_JAVA_OPTIONS` med värde. `-Xms256m -Xmx16g` Flaggan `Xms` anger den första poolen för minnesallokering för en Java Virtual Machine (JVM), medan `Xmx` anger den maximala poolen för minnesallokering. Det innebär att JVM startas med `Xms` mängden minne och kommer att kunna använda `Xmx` maximalt mängd minne. Som standard använder ADF den minsta 64 MB och Max 1G.
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Översikt över Kopieringsaktivitet](copy-activity-overview.md)
-- [Mappning av dataflöde](concepts-data-flow-overview.md)
+- [Mappa data flöde](concepts-data-flow-overview.md)
 - [Sökningsaktivitet](control-flow-lookup-activity.md)
-- [GetMetadata-aktiviteten](control-flow-get-metadata-activity.md)
+- [GetMetadata-aktivitet](control-flow-get-metadata-activity.md)

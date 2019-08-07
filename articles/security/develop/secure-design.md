@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 67687e217372c17b007982ef99bf1f80c3e6be5f
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: e31db74807b850b3d8cb8fc057e94e98db18fca2
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68728704"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780632"
 ---
 # <a name="design-secure-applications-on-azure"></a>Utforma säkra program på Azure
 I den här artikeln presenterar vi säkerhets aktiviteter och kontroller som du bör tänka på när du utformar program för molnet. Utbildnings resurser tillsammans med säkerhets frågor och koncept som du bör tänka på under krav och design faser i Microsoft [Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) omfattas. Målet är att hjälpa dig att definiera aktiviteter och Azure-tjänster som du kan använda för att utforma ett säkrare program.
@@ -156,7 +156,7 @@ Att utforma program designen och räkna upp [kliv](https://docs.google.com/viewe
 | Förfalskning               | Authentication        | [KRÄV HTTPS-anslutningar](https://docs.microsoft.com/aspnet/core/security/enforcing-ssl?view=aspnetcore-2.1&tabs=visual-studio). |
 | Manipulation              | Integritet             | Verifiera SSL/TLS-certifikat. Program som använder SSL/TLS måste fullständigt verifiera X. 509-certifikaten för de entiteter som de ansluter till. Använd Azure Key Vault certifikat för att [Hantera dina x509-certifikat](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates). |
 | Avvislighet            | Oavvislighet       | Aktivera [övervakning och diagnostik](https://docs.microsoft.com/azure/architecture/best-practices/monitoring)i Azure.|
-| Avslöjande av information | Sekretess       | Kryptera känsliga data i [vila](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest) och [under överföring](https://docs.microsoft.com/azure/security/azure-security-data-encryption-best-practices#protect-data-in-transit). |
+| Avslöjande av information | Sekretess       | Kryptera känsliga data i [vila](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest) och [under överföring](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices#protect-data-in-transit). |
 | Denial of Service-attack      | Tillgänglighet          | Övervaka prestanda mått för potentiella denial of service-villkor. Implementera anslutnings filter. [Azure DDoS Protection](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview#next-steps), kombinerat med bästa praxis för program design, ger skydd mot DDoS-attacker.|
 | Upphöjning av rättigheter | Authorization         | Använd Azure Active Directory <span class="underline"></span> [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure).|
 
@@ -267,7 +267,7 @@ Märk alla aktuella data som känsliga när du utformar dina data format. Se til
 #### <a name="use-encryption"></a>Använd kryptering
 
 Att skydda data bör vara en viktig del av din säkerhets strategi.
-Om dina data lagras i en databas eller om de flyttas fram och tillbaka mellan platser, använder du kryptering av [data i vila](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest) (i databasen) och kryptering av [data under överföring](https://docs.microsoft.com/azure/security/azure-security-data-encryption-best-practices#protect-data-in-transit) (på väg till och från användaren, databasen, ett API eller en tjänst slut punkt). Vi rekommenderar att du alltid använder SSL/TLS-protokoll för att utbyta data. Se till att du använder den senaste versionen av TLS för kryptering (för närvarande är version 1,2).
+Om dina data lagras i en databas eller om de flyttas fram och tillbaka mellan platser, använder du kryptering av [data i vila](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest) (i databasen) och kryptering av [data under överföring](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices#protect-data-in-transit) (på väg till och från användaren, databasen, ett API eller en tjänst slut punkt). Vi rekommenderar att du alltid använder SSL/TLS-protokoll för att utbyta data. Se till att du använder den senaste versionen av TLS för kryptering (för närvarande är version 1,2).
 
 #### <a name="avoid-hard-coding"></a>Undvik fast kodning
 

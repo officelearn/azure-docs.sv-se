@@ -1,69 +1,67 @@
 ---
-title: Hantera datatillgångar i Azure Data Catalog
-description: Artikeln visar hur du styr synlighet och ägarskapet för datatillgångar som har registrerats i Azure Data Catalog.
-services: data-catalog
+title: Hantera data till gångar i Azure Data Catalog
+description: Artikeln visar hur du styr synlighet och ägarskap för data till gångar som registrerats i Azure Data Catalog.
 author: JasonWHowell
 ms.author: jasonh
-ms.assetid: 623f5ed4-8da7-48f5-943a-448d0b7cba69
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 01/18/2018
-ms.openlocfilehash: 407e25b7bb1a2220448c9701bbef208195c50b63
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/01/2019
+ms.openlocfilehash: 9905ed72ec54304bbdb0f7ee607cbb013fc645bb
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65953106"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736332"
 ---
-# <a name="manage-data-assets-in-azure-data-catalog"></a>Hantera datatillgångar i Azure Data Catalog
+# <a name="manage-data-assets-in-azure-data-catalog"></a>Hantera data till gångar i Azure Data Catalog
 ## <a name="introduction"></a>Introduktion
-Azure Data Catalog är utformat för identifiering av datakällan, så att du enkelt kan identifiera och förstå datakällorna måste du utföra analyser och fatta beslut. Dessa funktioner för identifiering av få den största effekten när du och andra användare kan hitta och förstå det bredaste utbudet av tillgängliga datakällor. Med de här elementen i åtanke är standardbeteendet för Data Catalog för alla registrerade datakällor ska vara synliga för och kan identifieras av alla kataloganvändare.
+Azure Data Catalog är utformad för identifiering av data källor så att du enkelt kan identifiera och förstå de data källor du behöver för att utföra analyser och fatta beslut. De här identifierings funktionerna gör den största påverkan när du och andra användare kan hitta och förstå de många tillgängliga data källorna. Med dessa element i åtanke är standard beteendet för Data Catalog för alla registrerade data källor som ska vara synliga för och kan identifieras av alla katalog användare.
 
-Data Catalog ger inte åtkomst till själva informationen. Dataåtkomst styrs av ägaren av datakällan. Med Data Catalog kan du identifiera datakällor och visa metadata som är relaterade till de datakällor som är registrerade i katalogen.
+Data Catalog ger dig inte till gång till själva data. Data åtkomsten styrs av data källans ägare. Med Data Catalog kan du identifiera data källor och visa metadata som är relaterade till de källor som är registrerade i katalogen.
 
-Det kan finnas situationer, men där datakällor endast bör visas för särskilda användare eller för medlemmar i specifika grupper. Användare kan i sådana scenarier kan bli ägare av registrerade datatillgångar i katalogen och styra visningen av de resurser som de äger.
-
-> [!NOTE]
-> Funktioner som beskrivs i den här artikeln är bara tillgängliga i Standard Edition av Azure Data Catalog. Den kostnadsfria versionen ger inte funktioner för ägarskap och begränsa datatillgång synlighet.
->
->
-
-## <a name="manage-ownership-of-data-assets"></a>Hantera ägarskapet för datatillgångar
-Som standard är datatillgångar som är registrerade i Data Catalog oägd. Alla användare med behörighet att komma åt katalogen kan identifiera och anteckna dessa tillgångar. Användare kan bli ägare till oägd datatillgångar och begränsa visningen av de resurser som de äger.
-
-När en datatillgång i Data Catalog ägs endast användare som har auktoriserats av ägare kan identifiera tillgången och visa dess metadata och endast ägare kan ta bort tillgången från katalogen.
+Det kan dock finnas situationer där data källor endast bör vara synliga för vissa användare eller för medlemmar i vissa grupper. I sådana fall kan användare bli ägare till registrerade data till gångar i katalogen och sedan styra synligheten för de till gångar som de äger.
 
 > [!NOTE]
-> Ägarskap i Data Catalog påverkar endast de metadata som lagras i katalogen. Ägarskap ger inte några behörigheter på den underliggande datakällan.
+> De funktioner som beskrivs i den här artikeln är bara tillgängliga i standard versionen av Azure Data Catalog. Den kostnads fria versionen tillhandahåller inte funktioner för ägarskap och begränsning av data till gångs synlighet.
 >
 >
 
-### <a name="take-ownership"></a>Bli ägare
-Användare kan ta över ägarskapet för datatillgångar genom att välja den **bli ägare** alternativ i Data Catalog-portalen. Inga särskilda behörigheter krävs för att överta ägarskapet för en oägd datatillgången. Alla användare kan bli ägare till en oägd datatillgången.
+## <a name="manage-ownership-of-data-assets"></a>Hantera ägarskap för data till gångar
+Som standard ägs inte data till gångar som är registrerade i Data Catalog. Alla användare med behörighet att komma åt katalogen kan identifiera och kommentera dessa till gångar. Användare kan bli ägare till ägda data till gångar och sedan begränsa synligheten för de till gångar som de äger.
 
-### <a name="add-owners-and-co-owners"></a>Lägg till ägare och Medägare
-Om en datatillgång ägs redan, kan inte andra användare bara bli ägare. De måste läggas till som Medägare av en befintlig ägare. Alla ägare kan lägga till ytterligare användare eller säkerhetsgrupper som Medägare.
+När en data till gång i Data Catalog ägs, kan endast användare som har behörighet för ägare identifiera till gången och visa dess metadata, och endast ägare kan ta bort till gången från katalogen.
 
 > [!NOTE]
-> Det är en bra idé att ha minst två personer som ägare för alla ägda datatillgångar.
+> Ägarskap i Data Catalog påverkar bara de metadata som lagras i katalogen. Ägarskap ger inte någon behörighet till den underliggande data källan.
+>
+>
+
+### <a name="take-ownership"></a>Överta ägarskap
+Användare kan bli ägare till data till gångar genom att välja alternativet **bli ägare** i Data Catalog portalen. Inga särskilda behörigheter krävs för att bli ägare till en icke-ägda data till gång. Alla användare kan bli ägare till en ägd data till gång.
+
+### <a name="add-owners-and-co-owners"></a>Lägg till ägare och medägare
+Om en data till gång redan ägs kan andra användare inte bara bli ägare. De måste läggas till som medägare av en befintlig ägare. Alla ägare kan lägga till ytterligare användare eller säkerhets grupper som medägare.
+
+> [!NOTE]
+> Vi rekommenderar att du har minst två personer som ägare till en ägd data till gång.
 >
 >
 
 ### <a name="remove-owners"></a>Ta bort ägare
-Precis som alla tillgångens ägare kan lägga till Medägare måste alla tillgångens ägare kan ta bort alla Medägare.
+Precis som en till gångs ägare kan lägga till medägare kan alla till gångs ägare ta bort alla medägare.
 
-En tillgångsägare som tar bort själva som ägare kan inte längre hantera tillgången. Om tillgångens ägare tar bort själva som ägare och det finns inga andra Medägare, återgår tillgången till oägd status.
+En till gångs ägare som tar bort sig själva som en ägare kan inte längre hantera till gången. Om till gångs ägaren tar bort sig själva som en ägare och det inte finns några andra medägare, återgår till gången till ett icke ägda tillstånd.
 
-## <a name="control-visibility"></a>Kontrollen synlighet
-Data-tillgångsägare kan styra synligheten för de dataresurser som de äger. Om du vill begränsa synligheten som standard, där alla Data Catalog-användare kan identifiera och visa datatillgången, tillgångens ägare kan växla synlighetsinställningen från **alla** till **ägare och dessa användare** i Egenskaper för tillgången. Ägare kan sedan lägga till specifika användare och säkerhetsgrupper.
+## <a name="control-visibility"></a>Kontroll synlighet
+Data till gångs ägare kan styra synligheten för de data till gångar som de äger. Om du vill begränsa synligheten som standard, där alla Data Catalog användare kan identifiera och visa data till gången, kan till gångens ägare växla Synlighets inställningen från **alla** till **ägare & dessa användare** i egenskaperna för till gången. Ägare kan sedan lägga till vissa användare och säkerhets grupper.
 
 > [!NOTE]
-> När det är möjligt ska tillgången ägarskap och synlighet behörigheter tilldelas till säkerhetsgrupper och inte till enskilda användare.
+> När det är möjligt ska till gångens ägande-och Synlighets behörigheter tilldelas till säkerhets grupper och inte till enskilda användare.
 >
 >
 
-## <a name="catalog-administrators"></a>Katalogadministratörer
-Data Catalog-administratörer är implicit Medägare över alla tillgångar i katalogen. Tillgångsägare kan inte ta bort synlighet från administratörer och administratörer kan hantera ägarskap och synlighet för alla datatillgångar i katalogen.
+## <a name="catalog-administrators"></a>Katalog administratörer
+Data Catalog-administratörer är implicit medägare till alla till gångar i katalogen. Till gångs ägare kan inte ta bort synlighet från administratörer och administratörer kan hantera ägarskap och synlighet för alla data till gångar i katalogen.
 
 ## <a name="summary"></a>Sammanfattning
-Data Catalog gemensam modell för metadata och data tillgångsidentifiering kan alla kataloganvändare bidra och identifiera. Standard Edition av Data Catalog är utformat för ägarskap och hantering för att begränsa synligheten och användningen av specifika datatillgångar.
+Med den Data Catalog gemensamt skapade-modellen för metadata och data till gångs identifiering kan alla katalog användare bidra och identifiera sig. Standard versionen av Data Catalog är utformad för ägarskap och hantering för att begränsa synligheten och användningen av vissa data till gångar.

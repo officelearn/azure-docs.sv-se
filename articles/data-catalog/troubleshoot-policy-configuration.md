@@ -1,39 +1,39 @@
 ---
 title: Så här felsöker du Azure Data Catalog
-description: Den här artikeln beskriver vanliga felsökning frågor för Azure Data Catalog-resurser.
+description: I den här artikeln beskrivs vanliga fel söknings problem för Azure Data Catalog-resurser.
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: troubleshooting
-ms.date: 06/13/2019
-ms.openlocfilehash: ed74e90e5e8ed55b75968f51cb50e6a1b4cdd75d
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.date: 08/01/2019
+ms.openlocfilehash: f37110138ae62272e56b155b7e8a9aac2f80cdf8
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67203511"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68734588"
 ---
-# <a name="troubleshooting-azure-data-catalog"></a>Felsökning av Azure Data Catalog
+# <a name="troubleshooting-azure-data-catalog"></a>Felsöka Azure Data Catalog
 
-Den här artikeln beskriver vanliga felsökning frågor för Azure Data Catalog-resurser. 
+I den här artikeln beskrivs vanliga fel söknings problem för Azure Data Catalog-resurser. 
 
-## <a name="functionality-limitations"></a>Funktionen begränsningar
+## <a name="functionality-limitations"></a>Funktions begränsningar
 
-När du använder Azure Data Catalog, begränsas följande funktioner:
+När du använder Azure Data Catalog är följande funktioner begränsade:
 
-- Konton med typen **gästrollen** stöds inte. Du kan inte lägga till gästkonton som användare av Azure Data Catalog och gästanvändare kan inte använda portalen på www.azuredatacatalog.com.
+- Konton av typen **gäst roll** stöds inte. Du kan inte lägga till gäst konton som användare av Azure Data Catalog, och gäst användare kan inte använda portalen på www.azuredatacatalog.com.
 
-- Det går inte att skapa Azure Data Catalog-resurser med hjälp av Azure Resource Manager-mallar eller Azure PowerShell-kommandon.
+- Det går inte att skapa Azure Data Catalog-resurser med hjälp av Azure Resource Manager mallar eller Azure PowerShell kommandon.
 
-- Azure Data Catalog-resursen kan inte flyttas mellan Azure-klienter.
+- Det går inte att flytta den Azure Data Catalog resursen mellan Azure-klienter.
 
 ## <a name="azure-active-directory-policy-configuration"></a>Konfiguration av Azure Active Directory-principer
 
-Det kan uppstå en situation då du kan logga in på Azure Data Catalog-portalen, men då du får ett felmeddelande när du försöker logga in till registreringsverktyget för datakällan. Det här felet kan uppstå när du är ansluten till företagets nätverk eller när du ansluter från utanför företagets nätverk.
+Det kan uppstå en situation då du kan logga in på Azure Data Catalog-portalen, men då du får ett felmeddelande när du försöker logga in till registreringsverktyget för datakällan. Det här felet kan inträffa när du är ansluten till företagets nätverk eller när du ansluter utanför företags nätverket.
 
 Registreringsverktyget använder *formulärautentisering* för att validera användarinloggningar mot Azure Active Directory. För att inloggningen ska lyckas måste en Azure Active Directory-administratör aktivera formulärautentisering i *den globala autentiseringsprincipen*.
 
-Med den globala autentiseringsprincipen kan du aktivera autentisering separat för intranät- och extranätsanslutningar, som du ser i följande bild. Inloggningsfel kan uppstå om formulärautentisering inte är aktiverat för det nätverk som du ansluter.
+Med den globala autentiseringsprincipen kan du aktivera autentisering separat för intranät- och extranätsanslutningar, som du ser i följande bild. Inloggnings fel kan inträffa om formulärautentisering inte är aktiverat för det nätverk som du ansluter från.
 
  ![Global Azure Active Directory-autentiseringsprincip](./media/troubleshoot-policy-configuration/global-auth-policy.png)
 

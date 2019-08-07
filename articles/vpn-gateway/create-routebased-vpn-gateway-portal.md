@@ -1,100 +1,55 @@
 ---
-title: 'Skapa en ruttbaserad VPN-gateway: Azure-portalen | Microsoft Docs'
-description: Skapa en ruttbaserad VPN-Gateway med Azure portal
+title: 'Skapa en Route-baserad VPN-Gateway: Azure Portal | Microsoft Docs'
+description: Skapa en Route-baserad VPN Gateway med hjälp av Azure Portal
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 10/18/2018
+ms.date: 08/02/2019
 ms.author: cherylmc
-ms.openlocfilehash: ddc42023bae3403e7778327a40316462c85222c0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2a04c0fa2d92514103377c2aef420290d1bdd057
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60390078"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68781177"
 ---
-# <a name="create-a-route-based-vpn-gateway-using-the-azure-portal"></a>Skapa en ruttbaserad VPN-gateway med Azure portal
+# <a name="create-a-route-based-vpn-gateway-using-the-azure-portal"></a>Skapa en Route-baserad VPN-gateway med hjälp av Azure Portal
 
-Den här artikeln hjälper dig att snabbt skapa en ruttbaserad Azure VPN gateway med Azure portal.  En VPN-gateway för att skapa en VPN-anslutning till ditt lokala nätverk. Du kan också använda en VPN-gateway för att ansluta virtuella nätverk. 
+Den här artikeln hjälper dig att snabbt skapa en Route-baserad Azure VPN-gateway med hjälp av Azure Portal.  En VPN-gateway används när du skapar en VPN-anslutning till ditt lokala nätverk. Du kan också använda en VPN-gateway för att ansluta virtuella nätverk. 
 
-Stegen i den här artikeln skapar ett virtuellt nätverk, ett undernät, ett gateway-undernät och en routningsbaserad VPN-gateway (virtuella nätverksgateway). Du kan sedan skapa anslutningar när skapa gatewayen är klar. Dessa steg kräver en Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Stegen i den här artikeln skapar ett VNet, ett undernät, ett Gateway-undernät och en Route-baserad VPN-gateway (virtuell nätverksgateway). När gatewayen har skapats kan du skapa anslutningar. De här stegen kräver en Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="vnet"></a>Skapa ett virtuellt nätverk
 
-1. Öppna en webbläsare, navigera till [Azure Portal](https://portal.azure.com) och logga in med ditt Azure-konto.
-2. Klicka på **Skapa en resurs**. Skriv ”virtuellt nätverk” i fältet **Sök på marketplace**. Leta upp **Virtuellt nätverk** bland sökresultaten och klicka för att öppna sidan **Virtuellt nätverk**.
-3. Nästan längst ned på sidan virtuellt nätverk från den **Välj en distributionsmodell** Kontrollera som **Resource Manager** väljs i listrutan och klicka sedan på **skapa**. Då öppnas det **skapa virtuellt nätverk** sidan.
-4. Konfigurera VNet-inställningarna på sidan **Skapa virtuellt nätverk**. När du fyller i fälten blir det röda utropstecknet en grön bock om tecknen som anges i fältet är giltiga. Ange följande värden:
+[!INCLUDE [create-gateway](../../includes/vpn-gateway-create-virtual-network-portal-include.md)]
 
-   - **Namn på**: TestVNet1
-   - **Adressutrymme**: 10.1.0.0/16
-   - **Prenumeration**: Kontrollera att prenumerationen som visas är den som du vill använda. Du kan ändra prenumerationer i listrutan.
-   - **Resursgrupp**: TestRG1
-   - **Plats**: Östra USA
-   - **Undernät**: Klientdel
-   - **Adressintervall**: 10.1.0.0/24
+## <a name="gwsubnet"></a>Lägg till ett Gateway-undernät
 
-   ![Sidan Skapa virtuellt nätverk](./media/create-routebased-vpn-gateway-portal/create-virtual-network.png "Sidan Skapa virtuellt nätverk")
-5. När du har angett värdena, Välj **fäst på instrumentpanelen** att göra det enkelt att hitta ditt VNet på instrumentpanelen och klicka sedan på **skapa**. När du klickar på **skapa**, visas en panel på instrumentpanelen som visar framstegen för ditt VNet. Panelen ändras när VNet skapas.
+[!INCLUDE [gateway subnet](../../includes/vpn-gateway-add-gateway-subnet-portal-include.md)]
 
-## <a name="gwsubnet"></a>Lägg till ett gateway-undernät
+## <a name="gwvalues"></a>Konfigurera och skapa gatewayen
 
-Gateway-undernätet innehåller reserverade IP-adresser som gatewaytjänsterna för virtuella nätverk använder. Skapa ett gateway-undernät.
+[!INCLUDE [create-gateway](../../includes/vpn-gateway-add-gw-p2s-rm-portal-include.md)]
 
-1. På portalen går du till det virtuella Resource Manager-nätverk som du vill skapa en virtuell nätverksgateway för.
-2. På sidan för virtuella nätverk klickar du på **undernät** att expandera **VNet1 - undernät** sidan.
-3. Klicka på **+ Gateway-undernät** överst för att öppna den **Lägg till undernät** sidan.
+>[!NOTE]
+>Basic Gateway-SKU: n stöder inte IKEv2-eller RADIUS-autentisering. Om du planerar att låta Mac-klienter ansluta till ditt virtuella nätverk ska du inte använda den grundläggande SKU: n.
 
-   ![Lägg till gatewayundernätet](./media/create-routebased-vpn-gateway-portal/gateway-subnet.png "Lägg till gatewayundernätet")
-4. Den **namn** för undernätet fylls automatiskt i med det obligatoriska värdet ”GatewaySubnet”. Justera de automatiskt ifyllda **adressintervall** värdena för att matcha följande värden:
+## <a name="viewgw"></a>Visa VPN-gatewayen
 
-   **Adressintervall (CIDR-block)** : 10.1.255.0/27
+1. När gatewayen har skapats navigerar du till VNet1 i portalen. VPN-gatewayen visas på sidan Översikt som en ansluten enhet.
 
-   ![Lägg till gatewayundernät](./media/create-routebased-vpn-gateway-portal/add-gateway-subnet.png "Lägg till gatewayundernät")
-5. Om du vill skapa gateway-undernätet, klickar du på **OK** längst ned på sidan.
+   ![Anslutna enheter](./media/create-routebased-vpn-gateway-portal/view-connected-devices.png "Anslutna enheter")
 
-## <a name="gwvalues"></a>Konfigurera inställningar för gateway
+2. I enhets listan klickar du på **VNet1GW** för att visa mer information.
 
-1. Till vänster på portalen klickar du på **+ skapa en resurs** och skriver ”virtuell nätverksgateway” som i sökrutan, sedan trycka på **RETUR**. I **Resultat** letar du upp och klickar på **Virtuell nätverksgateway**.
-2. Längst ned på sidan ”virtuell nätverksgateway” klickar du på **skapa** att öppna den **Skapa virtuell nätverksgateway** sidan.
-3. På sidan **Skapa virtuell nätverksgateway** anger du värdena för din virtuella nätverksgateway.
-
-   - **Namn på**: Vnet1GW
-   - **Gateway-typ**: VPN 
-   - **VPN-typ**: Routningsbaserad
-   - **SKU**: VpnGw1
-   - **Plats**: Östra USA
-   - **Virtuellt nätverk**: Klicka på **virtuella nätverk/Välj ett virtuellt nätverk** att öppna den **Välj ett virtuellt nätverk** sidan. Välj **VNet1**.
-   - **Offentlig IP-adress**: Den här inställningen anger den offentliga IP-adressobjekt som kopplas till VPN-gateway. Den offentliga IP-adressen tilldelas dynamiskt till detta objekt när en VPN-gateway skapas. VPN Gateway stöder för närvarande endast *dynamisk* offentlig IP-adressallokering. Det innebär emellertid inte att IP-adressen ändras när den har tilldelats din VPN-gateway. Den enda gången den offentliga IP-adressen ändras är när gatewayen tas bort och återskapas. Den ändras inte vid storleksändring, återställning eller annat internt underhåll/uppgraderingar av din VPN-gateway.
-
-     - Lämna alternativet **Skapa nytt** markerat.
-     - I textrutan anger du sedan ett **namn** för den offentliga IP-adressen. I den här övningen använder **VNet1GWIP**.<br>
-
-     ![Konfigurera inställningar för gateway](./media/create-routebased-vpn-gateway-portal/gw.png "konfigurera gateway-inställningar")
-
-## <a name="creategw"></a>Skapa VPN-gateway
-
-1. Granska inställningarna på den **Skapa virtuell nätverksgateway** sidan. Justera värden om det behövs.
-2. Klicka på **skapa** längst ned på sidan.
-
-   När du klickar på **skapa**, inställningarna verifieras och **distribuera virtuell nätverksgateway** ikon på instrumentpanelen. En VPN-gateway kan ta upp till 45 minuter. Det är möjligt att du behöver uppdatera din portalsida för att se statusen som slutförd.
-
-## <a name="viewgw"></a>Visa VPN-gateway
-
-1. När gatewayen har skapats kan du gå till VNet1 i portalen. VPN-gateway visas på sidan Översikt som en ansluten enhet.
-
-   ![Anslutna enheter](./media/create-routebased-vpn-gateway-portal/view-connected-devices.png "anslutna enheter")
-
-2. I listan över enheter klickar du på **VNet1GW** att visa mer information.
-
-   ![Visa VPN-gateway](./media/create-routebased-vpn-gateway-portal/view-gateway.png "visa VPN-gateway")
+   ![Visa VPN-gateway](./media/create-routebased-vpn-gateway-portal/view-gateway.png "Visa VPN-gateway")
 
 ## <a name="next-steps"></a>Nästa steg
 
-När gatewayen har skapats, kan du skapa en anslutning mellan ditt virtuella nätverk och ett annat virtuellt nätverk. Eller skapa en anslutning mellan ditt virtuella nätverk och en lokal plats.
+När gatewayen har skapats kan du skapa en anslutning mellan ditt virtuella nätverk och ett annat VNet. Eller skapa en anslutning mellan ditt virtuella nätverk och en lokal plats.
 
 > [!div class="nextstepaction"]
 > [Skapa en plats-till-plats-anslutning](vpn-gateway-howto-site-to-site-resource-manager-portal.md)<br><br>
 > [Skapa en punkt-till-plats-anslutning](vpn-gateway-howto-point-to-site-resource-manager-portal.md)<br><br>
-> [Skapa en anslutning till ett annat virtuellt nätverk](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> [Skapa en anslutning till ett annat VNet](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)

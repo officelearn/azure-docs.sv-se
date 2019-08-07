@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: 06532369efb802606eb13a4b38a8579a3528f999
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dacc4179483de5d5ef8a05fd836e4241c161deac
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60777037"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68741268"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Lösning i Azure Log Analytics för aviseringshantering
 
 ![Varningsikon för hantering](media/alert-management-solution/icon.png)
 
 > [!NOTE]
->  Azure Monitor nu stöder förbättrade funktioner för [hantera dina aviseringar i stor skala](https://aka.ms/azure-alerts-overview), inklusive de som genererats av [övervakningsverktyg som SCOM, Zabbix eller Nagios](https://aka.ms/managing-alerts-other-monitoring-services).
+>  Azure Monitor stöder nu förbättrade funktioner för [att hantera dina aviseringar i skala](https://aka.ms/azure-alerts-overview), inklusive de som genereras av [övervaknings verktyg som SCOM, zabbix eller nagios](https://aka.ms/managing-alerts-other-monitoring-services).
 >  
 
 
@@ -87,28 +87,28 @@ Aviseringshantering lösningen analyserar en post med en typ av **avisering**.  
 
 Lösningen går att importera aviseringar från System Center Operations Manager och skapar en post för var och en med en typ av **avisering** och SourceSystem **OpsManager**.  Dessa poster har egenskaper i följande tabell:  
 
-| Egenskap | Description |
+| Egenskap | Beskrivning |
 |:--- |:--- |
-| Typ |*Avisera* |
-| SourceSystem |*OpsManager* |
-| AlertContext |Information om de dataobjekt som orsakade aviseringen ska genereras i XML-format. |
-| AlertDescription |Detaljerad beskrivning av aviseringen. |
-| AlertId |GUID för aviseringen. |
-| AlertName |Namnet på aviseringen. |
-| AlertPriority |Prioritetsnivån för aviseringen. |
-| AlertSeverity |Allvarlighetsgraden för aviseringen. |
-| AlertState |Senaste lösningstillståndet för aviseringen. |
-| LastModifiedBy |Namn på den användare som senast ändrade aviseringen. |
-| ManagementGroupName |Namnet på hanteringsgruppen där aviseringen genererades. |
-| RepeatCount |Många gånger samma avisering har genererats för samma övervakade objekt sedan matchas. |
-| ResolvedBy |Namnet på användaren som stängde aviseringen. Tomt om aviseringen inte har åtgärdats. |
-| SourceDisplayName |Visningsnamnet för övervakningsobjektet som skapade aviseringen. |
-| SourceFullName |Övervakningsobjektet som skapade aviseringen fullständiga namn. |
-| TicketId |Biljett-ID för avisering om System Center Operations Manager-miljö är integrerad med en process för att tilldela biljetter för aviseringar.  Tom av inga biljett ID tilldelas. |
-| TimeGenerated |Datum och tid då aviseringen skapades. |
-| TimeLastModified |Datum och tid då aviseringen senast ändrades. |
-| TimeRaised |Datum och tid då aviseringen genererades. |
-| TimeResolved |Datum och tid då aviseringen löstes. Tomt om aviseringen inte har åtgärdats. |
+| `Type` |*Avisera* |
+| `SourceSystem` |*OpsManager* |
+| `AlertContext` |Information om de dataobjekt som orsakade aviseringen ska genereras i XML-format. |
+| `AlertDescription` |Detaljerad beskrivning av aviseringen. |
+| `AlertId` |GUID för aviseringen. |
+| `AlertName` |Namnet på aviseringen. |
+| `AlertPriority` |Prioritetsnivån för aviseringen. |
+| `AlertSeverity` |Allvarlighetsgraden för aviseringen. |
+| `AlertState` |Senaste lösningstillståndet för aviseringen. |
+| `LastModifiedBy` |Namn på den användare som senast ändrade aviseringen. |
+| `ManagementGroupName` |Namnet på hanteringsgruppen där aviseringen genererades. |
+| `RepeatCount` |Många gånger samma avisering har genererats för samma övervakade objekt sedan matchas. |
+| `ResolvedBy` |Namnet på användaren som stängde aviseringen. Tomt om aviseringen inte har åtgärdats. |
+| `SourceDisplayName` |Visningsnamnet för övervakningsobjektet som skapade aviseringen. |
+| `SourceFullName` |Övervakningsobjektet som skapade aviseringen fullständiga namn. |
+| `TicketId` |Biljett-ID för avisering om System Center Operations Manager-miljö är integrerad med en process för att tilldela biljetter för aviseringar.  Tom av inga biljett ID tilldelas. |
+| `TimeGenerated` |Datum och tid då aviseringen skapades. |
+| `TimeLastModified` |Datum och tid då aviseringen senast ändrades. |
+| `TimeRaised` |Datum och tid då aviseringen genererades. |
+| `TimeResolved` |Datum och tid då aviseringen löstes. Tomt om aviseringen inte har åtgärdats. |
 
 ## <a name="sample-log-searches"></a>Exempel på loggsökningar
 Följande tabell innehåller exempel på loggsökningar för aviseringsposter som samlas in av den här lösningen: 

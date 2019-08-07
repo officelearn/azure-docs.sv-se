@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 05/04/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 9d19441b2f2202573086a711c202d4b36bbee5fa
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: b1fa24f919888e4454096e1ef84d2ba2948b865a
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67846154"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774299"
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Hur du etablerar en virtuell Windows SQL Server-dator i Azure Portal
 
@@ -96,9 +96,9 @@ Ange följande information på fliken **grundläggande** :
     1. Välj en plats för din **region**. 
     1. I den här hand boken lämnar du **tillgänglighets alternativ** inställda på _ingen infrastrukturs-redundans krävs_. Om du vill veta mer om tillgänglighets alternativ, se [tillgänglighet](../../windows/availability.md). 
     1. I listan **avbildning** väljer _du gratis SQL Server licens: SQL Server 2017-utvecklare på Windows Server_2016.  
-    1. Välj att **ändra storleken** **på den** virtuella datorn och välj **a2 Basic** -erbjudandet. Se till att rensa dina resurser när du är klar med dem för att förhindra eventuella oväntade kostnader. Vad gäller produktionsarbetsbelastningar hittar du rekommendationer för datorstorlek och konfiguration i [Prestandametodtips för SQL Server på virtuella Azure-datorer](virtual-machines-windows-sql-performance.md).
+    1. Välj att **ändra storleken** på den virtuella datorn och välj **a2 Basic** -erbjudandet. Se till att rensa dina resurser när du är klar med dem för att förhindra eventuella oväntade kostnader. Vad gäller produktionsarbetsbelastningar hittar du rekommendationer för datorstorlek och konfiguration i [Prestandametodtips för SQL Server på virtuella Azure-datorer](virtual-machines-windows-sql-performance.md).
 
-    ![Instans information](media/quickstart-sql-vm-create-portal/basics-instance-details.png)
+    ![Instansinformation](media/quickstart-sql-vm-create-portal/basics-instance-details.png)
 
 > [!IMPORTANT]
 > Den uppskattade månadskostnaden som visas på sidan **Välj en storlek** omfattar inte SQL Server-licenskostnaden. Den här uppskattningen är endast kostnaden för den virtuella datorn. För Express-och Developer-utgåvorna av SQL Server är denna uppskattning den totala beräknade kostnaden. För andra utgåvor kan du se [sidan med priser för Windows Virtual Machines](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) and och välja din utgåva av SQL Server. Se även [pris vägledningen för SQL Server virtuella Azure-datorer](virtual-machines-windows-sql-server-pricing-guidance.md) och [storlekar för virtuella datorer](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -133,7 +133,7 @@ Konfigurera nätverks alternativen på fliken **nätverk** .
 
 * Skapa ett nytt **virtuellt nätverk**eller Använd ett befintligt vNet för SQL Server VM. Ange även ett **undernät** . 
 
-* Under **nätverkskort säkerhets grupp**väljer du antingen en grundläggande säkerhets grupp eller den avancerade säkerhets gruppen. Om du väljer alternativet grundläggande kan du välja inkommande portar för SQL Server VM (samma värden som har kon figurer ATS på fliken **grundläggande** ). Genom att välja alternativet Avancerat kan du välja en befintlig nätverks säkerhets grupp eller skapa en ny. 
+* Under **nätverkskort nätverks säkerhets grupp**väljer du antingen en grundläggande säkerhets grupp eller den avancerade säkerhets gruppen. Om du väljer alternativet grundläggande kan du välja inkommande portar för SQL Server VM (samma värden som har kon figurer ATS på fliken **grundläggande** ). Genom att välja alternativet Avancerat kan du välja en befintlig nätverks säkerhets grupp eller skapa en ny. 
 
 * Du kan göra andra ändringar i nätverks inställningarna eller behålla standardvärdena.
 
@@ -143,7 +143,7 @@ Konfigurera nätverks alternativen på fliken **nätverk** .
 
 Konfigurera övervakning och automatisk avstängning på fliken **övervakning** . 
 
-* Azure aktiverar **Start övervakning** som standard med samma lagrings konto som har angetts för den virtuella datorn. Du kan ändra dessa inställningar här, samt aktivera diagnostik för **operativ systemets gäst**. 
+* Azure aktiverar **startdiagnostik** som standard med samma lagrings konto som har angetts för den virtuella datorn. Du kan ändra dessa inställningar här, samt aktivera diagnostik för **operativ systemets gäst**. 
 * Du kan även aktivera systemtilldelad **hanterad identitet** och automatisk **avstängning** på den här fliken. 
 
 ![Hanterings inställningar för virtuella SQL-datorer](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-management.png)
@@ -166,7 +166,7 @@ Konfigurera vissa inställningar och optimeringar för SQL Server på fliken **S
 | [R Services (avancerad analys)](#r-services-advanced-analytics) |
 
 
-### <a name="connectivity"></a>Anslutning
+### <a name="connectivity"></a>Anslutningar
 
 Under **SQL-anslutning** anger du vilken typ av åtkomst du vill ha till SQL Server-instansen på den här virtuella datorn. I den här genom gången väljer du **offentlig (Internet)** för att tillåta att anslutningar SQL Server från datorer eller tjänster på Internet. När det här alternativet är markerat konfigurerar Azure automatiskt brand väggen och nätverks säkerhets gruppen för att tillåta trafik på den valda porten.
 

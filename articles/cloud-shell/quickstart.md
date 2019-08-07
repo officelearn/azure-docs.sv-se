@@ -1,6 +1,6 @@
 ---
-title: Bash i snabbstarten för Azure Cloud Shell | Microsoft Docs
-description: Snabbstart för Bash i Cloudshell
+title: Azure Cloud Shell snabb start | Microsoft Docs
+description: Snabb start för Azure Cloud Shell
 services: ''
 documentationcenter: ''
 author: maertendMSFT
@@ -14,32 +14,32 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: damaerte
-ms.openlocfilehash: b8f96de7214a46c9e38182c141343a46c0e28139
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8151013f263c6cf2f90e89fa1c3b0b3025f2ea38
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60199625"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68741992"
 ---
-# <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Snabbstart för Bash i Azure Cloudshell
+# <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Snabb start för bash i Azure Cloud Shell
 
-Det här dokumentet beskriver hur du använder Bash i Azure Cloud Shell i den [Azure-portalen](https://ms.portal.azure.com/).
+Det här dokumentet innehåller information om hur du använder bash i Azure Cloud Shell i [Azure Portal](https://ms.portal.azure.com/).
 
 > [!NOTE]
-> En [PowerShell i Azure Cloud Shell](quickstart-powershell.md) Snabbstart finns också.
+> Det finns även en [PowerShell i Azure Cloud Shell](quickstart-powershell.md) snabb start.
 
-## <a name="start-cloud-shell"></a>Starta Cloudshell
-1. Starta **Cloud Shell** från det övre navigeringsfältet i Azure Portal. <br>
+## <a name="start-cloud-shell"></a>Starta Cloud Shell
+1. Starta **Cloud Shell** från det övre navigerings fältet i Azure Portal. <br>
 ![](media/quickstart/shell-icon.png)
 
-2. Välj en prenumeration för att skapa ett lagringskonto och dela Microsoft Azure Files.
-3. Välj ”Skapa storage”
+2. Välj en prenumeration för att skapa ett lagrings konto och Microsoft Azure fil resurs.
+3. Välj "skapa lagring"
 
 > [!TIP]
 > Du autentiseras automatiskt för Azure CLI i varje session.
 
-### <a name="select-the-bash-environment"></a>Välj Bash-miljön
-Kontrollera att miljön listrutan till vänster shell-fönstret säger `Bash`. <br>
+### <a name="select-the-bash-environment"></a>Välj bash-miljön
+Kontrol lera att den nedrullningsbara miljön i rutan till vänster i Shell-fönstret står `Bash`. <br>
 ![](media/quickstart/env-selector.png)
 
 ### <a name="set-your-subscription"></a>Ange din prenumeration
@@ -48,57 +48,57 @@ Kontrollera att miljön listrutan till vänster shell-fönstret säger `Bash`. <
    az account list
    ```
 
-2. Ställ in din önskade prenumeration: <br>
+2. Ange önskad prenumeration: <br>
 ```azurecli-interactive
 az account set --subscription 'my-subscription-name'
 ```
 
 > [!TIP]
-> Din prenumeration kommer att kommas ihåg för framtida sessioner med hjälp av `/home/<user>/.azure/azureProfile.json`.
+> Din prenumeration kommer att sparas i framtida sessioner med `/home/<user>/.azure/azureProfile.json`hjälp av.
 
 ### <a name="create-a-resource-group"></a>Skapa en resursgrupp
-Skapa en ny resursgrupp i WestUS med namnet ”MyRG”.
+Skapa en ny resurs grupp i väster med namnet "MyRG".
 ```azurecli-interactive
 az group create --location westus --name MyRG
 ```
 
 ### <a name="create-a-linux-vm"></a>Skapa en virtuell Linux-dator
-Skapa en Ubuntu-VM i din nya resursgrupp. Azure CLI skapar SSH-nycklar och konfigurera den virtuella datorn med dem. <br>
+Skapa en virtuell Ubuntu-dator i din nya resurs grupp. Azure CLI skapar SSH-nycklar och konfigurerar den virtuella datorn med dem. <br>
 
 ```azurecli-interactive
 az vm create -n myVM -g MyRG --image UbuntuLTS --generate-ssh-keys
 ```
 
 > [!NOTE]
-> Med hjälp av `--generate-ssh-keys` instruerar Azure CLI för att skapa och konfigurera offentliga och privata nycklar i den virtuella datorn och `$Home` directory. Som standard nycklar är placerade i Cloud Shell på `/home/<user>/.ssh/id_rsa` och `/home/<user>/.ssh/id_rsa.pub`. Din `.ssh` mappen sparas i dina anslutna filresurs 5 GB avbildning som används för att bevara `$Home`.
+> Använd `--generate-ssh-keys` instruerar Azure CLI för att skapa och konfigurera offentliga och privata nycklar i din virtuella dator `$Home` och katalog. Som standard placeras nycklar i Cloud Shell på `/home/<user>/.ssh/id_rsa` och. `/home/<user>/.ssh/id_rsa.pub` Mappen finns kvar i den bifogade fil resursens 5 GB-avbildning som används för att `$Home`Spara. `.ssh`
 
-Ditt användarnamn på den här virtuella datorn kommer att ditt användarnamn som används i Cloud Shell ($User@Azure:).
+Ditt användar namn på den här virtuella datorn är ditt användar namn som användsUser@Azure:i Cloud Shell ($).
 
-### <a name="ssh-into-your-linux-vm"></a>SSH till den virtuella Linux-datorn
-1. Sök efter namnet på din virtuella dator i Azure portal sökfältet.
-2. Klicka på ”Anslut” för att få dina virtuella datorns namn och en offentlig IP-adress. <br>
+### <a name="ssh-into-your-linux-vm"></a>SSH till din virtuella Linux-dator
+1. Sök efter namnet på den virtuella datorn i Azure Portal Sök fältet.
+2. Klicka på Anslut för att hämta namnet på den virtuella datorn och den offentliga IP-adressen. <br>
    ![](media/quickstart/sshcmd-copy.png)
 
-3. SSH till den virtuella datorn med den `ssh` cmd.
+3. SSH till den virtuella datorn med `ssh` kommandot cmd.
    ```
    ssh username@ipaddress
    ```
 
-Du bör se Ubuntu Välkommen prompten vid upprätta SSH-anslutningen. <br>
+När du har upprättat SSH-anslutningen bör du se Ubuntu Välkommen-prompten. <br>
 ![](media/quickstart/ubuntu-welcome.png)
 
 ## <a name="cleaning-up"></a>Rensa 
-1. Avsluta ditt ssh session.
+1. Avsluta SSH-sessionen.
    ```azurecli-interactive
    exit
    ```
 
-2. Ta bort resursgruppen och alla resurser i den.
+2. Ta bort resurs gruppen och alla resurser i den.
    ```azurecli-interactive
    az group delete -n MyRG
    ```
 
 ## <a name="next-steps"></a>Nästa steg
-[Läs mer om bevara filer för Bash i Cloud Shell](persisting-shell-storage.md) <br>
+[Lär dig mer om att spara filer för bash i Cloud Shell](persisting-shell-storage.md) <br>
 [Lär dig mer om Azure CLI](https://docs.microsoft.com/cli/azure/) <br>
-[Lär dig mer om Azure File storage](../storage/files/storage-files-introduction.md) <br>
+[Läs mer om Azure Files Storage](../storage/files/storage-files-introduction.md) <br>

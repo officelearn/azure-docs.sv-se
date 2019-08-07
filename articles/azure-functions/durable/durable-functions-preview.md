@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 7356541ed6288603a66d5caa43138284d8d4d918
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 1609931cd5fcab0977ff64f680fbb1f253f3caaf
+ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68320475"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68782178"
 ---
 # <a name="durable-functions-20-preview-azure-functions"></a>Durable Functions 2,0 för hands version (Azure Functions)
 
@@ -97,11 +97,11 @@ Om en abstrakt basklass innehåller virtuella metoder har de här virtuella meto
 
 ## <a name="entity-functions"></a>Enhets funktioner
 
-Entitets funktioner definierar åtgärder för att läsa och uppdatera små delar av tillstånd, så kallade varaktiga entiteter. Precis som med Orchestrator Functions är enhets funktionerna funktioner med en särskild utlösnings typ, enhets utlösare. Till skillnad från Orchestrator-funktioner har enhets funktioner inga speciella kod begränsningar. Enhets funktionerna hanterar också tillstånd explicit snarare än implicit som representerar tillstånd via kontroll flödet.
+Entitets funktioner definierar åtgärder för att läsa och uppdatera små delar av tillstånd,så kallade varaktiga entiteter. Precis som med Orchestrator Functions är enhets funktionerna funktioner med en särskildutlösnings typ, enhets utlösare. Till skillnad från Orchestrator-funktioner har enhets funktioner inga speciella kod begränsningar. Enhets funktionerna hanterar också tillstånd explicit snarare än implicit som representerar tillstånd via kontroll flödet.
 
 ### <a name="net-programing-models"></a>.NET-program modeller
 
-Det finns två valfria programmerings modeller för att redigera varaktiga entiteter. Följande kod är ett exempel på en enkel *Counter* -entitet som implementeras som en standard funktion. Den här funktionen definierar tre åtgärder `add`, `reset`, och `get`, som körs på ett heltals tillstånds värde `currentValue`.
+Det finns två valfria programmerings modeller för att redigera varaktiga entiteter. Följande kod är ett exempel på en enkel *Counter* -entitet som implementeras som en standard funktion. Den här funktionen definierartre åtgärder `add`, `reset`, och `get`, som körs på ett heltals tillstånds värde `currentValue`.
 
 ```csharp
 [FunctionName("Counter")]
@@ -242,6 +242,16 @@ public static async Task AddValueClient(
 ```
 
 I föregående exempel `proxy` är parametern en dynamiskt genererad instans av `ICounter`, som internt översätter anropet till `Add` till motsvarande (inte avskrivit) anrop till `SignalEntityAsync`.
+
+Typ parametern för `SignalEntityAsync<T>` har följande begränsningar:
+
+* Typ parametern måste vara ett gränssnitt.
+* Det går bara att definiera metoder i gränssnittet. Egenskaper stöds inte.
+* Varje metod måste definiera antingen en eller inga parametrar.
+* Varje metod måste returnera antingen `void`, `Task`eller `Task<T>` där `T` är en JSON-serializeable typ.
+* Gränssnittet måste implementeras av exakt en typ inom gränssnittets sammansättning.
+
+I de flesta fall leder gränssnitt som inte uppfyller dessa krav på ett körnings undantag.
 
 > [!NOTE]
 > Det är viktigt att notera att metoderna `ReadEntityStateAsync` och `SignalEntityAsync` för `IDurableOrchestrationClient` att prioritera prestanda över konsekvens. `ReadEntityStateAsync`kan returnera ett inaktuellt värde `SignalEntityAsync` och kan returneras innan åtgärden har slutförts.

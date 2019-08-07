@@ -1,6 +1,6 @@
 ---
-title: Använd Azure Functions för att utföra en databas rensningsuppgiften | Microsoft Docs
-description: Använd Azure Functions för att schemalägga en aktivitet som ansluter till Azure SQL Database att regelbundet rensa rader.
+title: Använd Azure Functions för att utföra en databas rensnings uppgift | Microsoft Docs
+description: Använd Azure Functions för att schemalägga en aktivitet som ansluter till Azure SQL Database för att regelbundet rensa rader.
 services: functions
 documentationcenter: na
 author: ggailey777
@@ -11,89 +11,89 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/28/2018
 ms.author: glenga
-ms.openlocfilehash: 19a5fe4c087d477ff15d2237a36d1c4ecaa0e070
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f81337cea3ece822ea05bcc94f4e05d6e177bf93
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65908189"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68735585"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Använd Azure Functions för att ansluta till en Azure SQL Database
 
-Den här artikeln visar hur du använder Azure Functions för att skapa ett schemalagt jobb som ansluter till en Azure SQL Database-instans. Funktionskoden rensar rader i en tabell i databasen. Den nya C# funktionen skapas baserat på en fördefinierad timer utlösarmallen i Visual Studio 2019. För det här scenariot måste ange du också en anslutningssträng för databasen som en appinställning i funktionsappen. Det här scenariot använder en bulkåtgärd mot databasen. 
+Den här artikeln visar hur du använder Azure Functions för att skapa ett schemalagt jobb som ansluter till en Azure SQL Database-instans. Funktions koden rensar rader i en tabell i databasen. Den nya C# funktionen skapas baserat på en fördefinierad timer-mall i Visual Studio 2019. För att stödja det här scenariot måste du också ange en databas anslutnings sträng som en app-inställning i Function-appen. I det här scenariot används en Mass åtgärd mot databasen. 
 
-Om det här är din första erfarenhet av att arbeta med C# funktioner, bör du läsa den [Azure Functions C# utvecklarreferens](functions-dotnet-class-library.md).
+Om det är första gången du arbetar med C# funktioner bör du läsa [Azure Functions C# Developer](functions-dotnet-class-library.md)-referensen.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-+ Utför stegen i artikeln [skapa din första funktion med Visual Studio](functions-create-your-first-function-visual-studio.md) att skapa en lokal funktionsapp som riktar sig till version 2.x-körningen. Du måste också har publicerat ditt projekt till en funktionsapp i Azure.
++ Slutför stegen i artikeln [skapa din första funktion med Visual Studio](functions-create-your-first-function-visual-studio.md) för att skapa en lokal Function-app som är avsedd för version 2. x-körningsmiljön. Du måste också ha publicerat projektet till en Function-app i Azure.
 
-+ Den här artikeln visar ett Transact-SQL-kommando som kör en bulkåtgärd rensning i den **SalesOrderHeader** tabell i AdventureWorksLT-exempeldatabasen. Skapa AdventureWorksLT-exempeldatabasen genom att slutföra stegen i artikeln [skapa en Azure SQL database i Azure-portalen](../sql-database/sql-database-get-started-portal.md).
++ Den här artikeln visar ett Transact-SQL-kommando som kör en Mass rensnings åtgärd i **SalesOrderHeader** -tabellen i AdventureWorksLT-exempel databasen. Skapa AdventureWorksLT-exempel databasen genom att följa anvisningarna i artikeln [skapa en Azure SQL-databas i Azure Portal](../sql-database/sql-database-get-started-portal.md).
 
-+ Du måste lägga till en [brandväggsregel på servernivå](../sql-database/sql-database-get-started-portal-firewall.md) för den offentliga IP-adressen på den dator som du använder för den här snabbstarten. Den här regeln krävs att du kan få åtkomst till SQL database-instans från din lokala dator.  
++ Du måste lägga till en [brand Väggs regel på server nivå](../sql-database/sql-database-get-started-portal-firewall.md) för den offentliga IP-adressen för den dator som du använder för den här snabb starten. Den här regeln krävs för att kunna komma åt SQL Database-instansen från den lokala datorn.  
 
 ## <a name="get-connection-information"></a>Hämta anslutningsinformation
 
-Du måste hämta anslutningssträngen för databasen som du skapade när du slutfört [skapa en Azure SQL database i Azure-portalen](../sql-database/sql-database-get-started-portal.md).
+Du måste hämta anslutnings strängen för den databas som du skapade när du har skapat [en Azure SQL-databas i Azure Portal](../sql-database/sql-database-get-started-portal.md).
 
 1. Logga in på [Azure Portal](https://portal.azure.com/).
 
-1. Välj **SQL-databaser** på den vänstra menyn och välj din databas på den **SQL-databaser** sidan.
+1. Välj **SQL-databaser** på den vänstra menyn och välj din databas på sidan SQL- **databaser** .
 
-1. Välj **anslutningssträngar** under **inställningar** och kopiera den fullständiga **ADO.NET** anslutningssträngen.
+1. Välj **anslutnings strängar** under **Inställningar** och kopiera den fullständiga **ADO.net** -anslutningssträngen.
 
-    ![Kopiera ADO.NET-anslutningssträngen.](./media/functions-scenario-database-table-cleanup/adonet-connection-string.png)
+    ![Kopiera anslutnings strängen ADO.NET.](./media/functions-scenario-database-table-cleanup/adonet-connection-string.png)
 
 ## <a name="set-the-connection-string"></a>Ange anslutningssträngen
 
-En funktionsapp är värd för körningen av dina funktioner i Azure. Som bästa säkerhetspraxis, lagra anslutningssträngar och andra hemligheter i dina funktionsappinställningarna. Med hjälp av programinställningar förhindrar oavsiktlig utlämnande av anslutningssträngen med din kod. Du kan komma åt appinställningar för din funktionsapp direkt från Visual Studio.
+En funktionsapp är värd för körningen av dina funktioner i Azure. Som bästa säkerhets praxis lagrar du anslutnings strängar och andra hemligheter i dina funktioner i appens inställningar. Om du använder program inställningar förhindras oavsiktligt avslöjande av anslutnings strängen med koden. Du kan komma åt appinställningar för din Function-app direkt från Visual Studio.
 
-Du måste ha tidigare publicerat din app till Azure. Om du inte redan gjort det, [publicera din funktionsapp i Azure](functions-develop-vs.md#publish-to-azure).
+Du måste ha publicerat din app tidigare på Azure. [Publicera din Function-app till Azure](functions-develop-vs.md#publish-to-azure)om du inte redan gjort det.
 
-1. I Solution Explorer högerklickar du på approjektet funktionen och välj **publicera** > **hantera programinställningar...** . Välj **Lägg till inställning**i **nya app inställningsnamn**, typ `sqldb_connection`, och välj **OK**.
+1. I Solution Explorer högerklickar du på programmets Function-projekt och väljer **publicera** > **hantera program inställningar.** ... Välj **Lägg till inställning**, i **nytt inställnings namn**för `sqldb_connection`appen, skriv och välj **OK**.
 
-    ![Programinställningar för funktionsappen.](./media/functions-scenario-database-table-cleanup/functions-app-service-add-setting.png)
+    ![Program inställningar för Function-appen.](./media/functions-scenario-database-table-cleanup/functions-app-service-add-setting.png)
 
-1. I den nya **sqldb_connection** inställningen, klistra in anslutningssträngen som du kopierade i föregående avsnitt i den **lokala** fältet och Ersätt `{your_username}` och `{your_password}` platshållare med real värden. Välj **Infoga värde från lokala** att kopiera det uppdaterade värdet till den **Remote** och välj sedan **OK**.
+1. I den nya **sqldb_connection** -inställningen klistrar du in anslutnings strängen som du kopierade i föregående avsnitt i det lokala `{your_username}` fältet `{your_password}` och ersätter plats hållarna med verkliga värden. Välj **Infoga värde från lokal** för att kopiera det uppdaterade värdet till fältet **Remote** och välj sedan **OK**.
 
-    ![Lägg till SQL inställning för anslutningssträngen.](./media/functions-scenario-database-table-cleanup/functions-app-service-settings-connection-string.png)
+    ![Lägg till inställningen för SQL-anslutningssträng.](./media/functions-scenario-database-table-cleanup/functions-app-service-settings-connection-string.png)
 
-    Anslutningssträngar lagras krypterade i Azure (**Remote**). Att förhindra läckande hemligheter, filen local.settings.json projekt (**lokala**) bör undantas från källkontroll, till exempel med hjälp av en .gitignore-fil.
+    Anslutnings strängarna lagras krypterade i Azure (**fjärr**). För att förhindra att hemligheter läcker, ska den lokala. Settings. JSON-projektfilen (**lokal**) uteslutas från käll kontroll, till exempel genom att använda en. gitignore-fil.
 
 ## <a name="add-the-sqlclient-package-to-the-project"></a>Lägg till SqlClient-paketet i projektet
 
-Du måste lägga till NuGet-paket som innehåller SqlClient-biblioteket. Det här biblioteket för åtkomst av data krävs för att ansluta till en SQL-databas.
+Du måste lägga till NuGet-paketet som innehåller SqlClient-biblioteket. Det här data åtkomst biblioteket krävs för att ansluta till en SQL-databas.
 
-1. Öppna ditt lokala funktionsappsprojekt i Visual Studio 2019.
+1. Öppna det lokala projektet för Function-appen i Visual Studio 2019.
 
-1. I Solution Explorer högerklickar du på approjektet funktionen och välj **hantera NuGet-paket**.
+1. I Solution Explorer högerklickar du på programmets Function-projekt och väljer **Hantera NuGet-paket**.
 
 1. På fliken **Bläddra** söker du efter ```System.Data.SqlClient``` och markerar det när du hittar det.
 
-1. I den **System.Data.SqlClient** sidan, väljer version `4.5.1` och klicka sedan på **installera**.
+1. På sidan **system. data. SqlClient** väljer du version `4.5.1` och klickar sedan på **Installera**.
 
 1. När installationen har slutförts granskar du ändringarna och klickar på **OK** för att stänga fönstret **Förhandsgranska**.
 
 1. Om ett fönster för **Godkännande av licens** visas klickar du på **Jag accepterar**.
 
-Nu kan du lägga till C#-Funktionskoden som ansluter till din SQL-databas.
+Nu kan du lägga till C# funktions koden som ansluter till din SQL Database.
 
 ## <a name="add-a-timer-triggered-function"></a>Skapa en timerutlöst funktion
 
-1. I Solution Explorer högerklickar du på approjektet funktionen och välj **Lägg till** > **nya Azure-funktion**.
+1. I Solution Explorer högerklickar du på programmets Function-projekt och väljer **Lägg till** > **ny Azure-funktion**.
 
-1. Med den **Azure Functions** mall som har valts, namnge det nya objektet något som liknar `DatabaseCleanup.cs` och välj **Lägg till**.
+1. När du har valt mallen **Azure Functions** väljer du **Lägg till**det nya `DatabaseCleanup.cs` objektet.
 
-1. I den **nya Azure-funktion** dialogrutan väljer du **timerutlösare** och sedan **OK**. Den här dialogrutan skapar en kodfil för timerutlöst funktion.
+1. I dialog rutan **ny Azure Function** väljer du **timer** -utlösare och sedan **OK**. Den här dialog rutan skapar en kod fil för den timer-aktiverade funktionen.
 
-1. Öppna den nya kodfilen och Lägg till följande using-satser överst i filen:
+1. Öppna den nya kod filen och Lägg till följande using-uttryck högst upp i filen:
 
     ```cs
     using System.Data.SqlClient;
     using System.Threading.Tasks;
     ```
 
-1. Ersätt de befintliga `Run` funktionen med följande kod:
+1. Ersätt den befintliga `Run` funktionen med följande kod:
 
     ```cs
     [FunctionName("DatabaseCleanup")]
@@ -117,21 +117,21 @@ Nu kan du lägga till C#-Funktionskoden som ansluter till din SQL-databas.
     }
     ```
 
-    Den här funktionen körs var 15: e sekund att uppdatera den `Status` kolumnen baserat på leverera datum. Läs mer om den Timer som utlösaren i [Timer som utlösare för Azure Functions](functions-bindings-timer.md).
+    Den här funktionen körs var 15: e sekund `Status` för att uppdatera kolumnen baserat på speditions datum. Mer information om timer-utlösaren finns i timer-utlösare [för Azure Functions](functions-bindings-timer.md).
 
-1. Tryck på **F5** att starta funktionsappen. Den [Azure Functions Core Tools](functions-develop-local.md) körning öppnas bakom Visual Studio.
+1. Tryck på **F5** för att starta Function-appen. Fönstret [Azure Functions Core tools](functions-develop-local.md) körning öppnas bakom Visual Studio.
 
-1. På 15 sekunder efter start körs funktionen. Titta på resultatet och Observera hur många rader som uppdateras i den **SalesOrderHeader** tabell.
+1. Vid 15 sekunder efter starten körs funktionen. Titta på utdata och anteckna antalet rader som har uppdaterats i tabellen **SalesOrderHeader** .
 
-    ![Visa funktionsloggarna.](./media/functions-scenario-database-table-cleanup/function-execution-results-log.png)
+    ![Visa funktions loggarna.](./media/functions-scenario-database-table-cleanup/function-execution-results-log.png)
 
-    Du bör uppdatera 32 rader med data på den första körningen. Följande körningar uppdatera inga rader med data om du gör ändringar i de SalesOrderHeader data så att fler rader är markerade som den `UPDATE` instruktionen.
+    Vid den första körningen bör du uppdatera 32 rader med data. Följande kör uppdatering av inga data rader, om du inte gör ändringar i SalesOrderHeader-tabellens data så att fler rader väljs av `UPDATE` instruktionen.
 
-Om du planerar att [publicera den här funktionen](functions-develop-vs.md#publish-to-azure), Kom ihåg att ändra den `TimerTrigger` attributet till ett mer rimligt [cron-schemat](functions-bindings-timer.md#cron-expressions) än var 15: e sekund.
+Om du planerar att [publicera den här funktionen](functions-develop-vs.md#publish-to-azure)måste du komma ihåg `TimerTrigger` att ändra attributet till ett mer rimligt [cron-schema](functions-bindings-timer.md#ncrontab-expressions) än var 15: e sekund.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Därefter lär du dig hur du använder. Funktioner med Logic Apps och integrera med andra tjänster.
+Nu ska du lära dig hur du använder. Funktioner med Logic Apps för att integrera med andra tjänster.
 
 > [!div class="nextstepaction"]
 > [Skapa en funktion som kan integreras med Logic Apps](functions-twitter-email.md)

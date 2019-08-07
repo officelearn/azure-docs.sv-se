@@ -7,12 +7,12 @@ ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: a4947349e64d5f9bf95a9213701dc62a0e018b8f
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 300dd634cc99e5203145619b475d813705f09553
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68501313"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815686"
 ---
 # <a name="create-a-new-saas-offer"></a>Skapa ett nytt SaaS-erbjudande
 
@@ -431,7 +431,7 @@ Om du redan har angett priser för din plan i USA dollar (USD) och lagt till en 
 
 **Fast pris:** Ge åtkomst till ditt erbjudande med ett enkelt pris per månad eller årligt pris. Detta kallas ibland för platsbaserade priser. Med den här pris sättnings modellen kan du välja att definiera förmätnings planer som använder API: et för avläsning av program vara för att debitera kunder enligt andra enheter än standard enheter.  Mer information om avgiftsbelagd fakturering finns i [mäta fakturering med Marketplace-avläsning](./saas-metered-billing.md).
 
-**Plats baserad:** Ge åtkomst till ditt erbjudande med priset baserat på antalet användare som har åtkomst till erbjudandet eller med *platser*. Med den här platsbaserade modellen kan du ange det lägsta och högsta antalet platser som tillåts baserat på priset. På så sätt kan olika pris punkter konfigureras baserat på antalet användare genom att konfigurera flera planer.  Dessa fält är valfria. Om inget anges kommer antalet platser att tolkas som att de inte har en gräns (minst 1 och högst lika många som systemet kan stödja). De här fälten kan redige ras som en del av en uppdatering av planen.
+**Per användare:** Ge åtkomst till ditt erbjudande med priset baserat på antalet användare som har åtkomst till erbjudandet eller med platser. Med den här användarbaserade modellen kan du ange det lägsta och högsta antalet användare som tillåts baserat på priset. På så sätt kan olika pris punkter konfigureras baserat på antalet användare genom att konfigurera flera planer.  Dessa fält är valfria. Om alternativet inte är markerat tolkas antalet användare som att de inte har en gräns (minst 1 och högst lika många som systemet kan stödja). De här fälten kan redige ras som en del av en uppdatering av planen.
 
 När du har publicerat det kan du inte ändra fakturerings pris modellen. Dessutom måste alla planer för samma erbjudande dela samma pris modell.
 
@@ -477,7 +477,7 @@ En klient organisation är en representation av en organisation med ett ID som r
 
 ## <a name="test-drive"></a>Testkör
 
-På  fliken testenhet kan du konfigurera en demonstration (eller "testenhet") som gör det möjligt för kunder att prova ditt erbjudande innan de genomför det. Läs mer i artikeln [Vad är Test Drive?](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive). Om du inte längre vill ange en testen het för ditt erbjudande går du tillbaka till sidan **[erbjudande konfiguration](#offer-setup)** och avmarkerar **Aktivera test enhet**.
+På fliken testenhet kan du konfigurera en demonstration (eller "testenhet") som gör det möjligt för kunder att prova ditt erbjudande innan de genomför det. Läs mer i artikeln [Vad är Test Drive?](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive). Om du inte längre vill ange en testen het för ditt erbjudande går du tillbaka till sidan **[erbjudande konfiguration](#offer-setup)** och avmarkerar **Aktivera test enhet**.
 
 ### <a name="technical-configuration"></a>Teknisk konfiguration
 Följande typer av test enheter är tillgängliga, var och en med sina egna tekniska konfigurations krav.
@@ -541,7 +541,7 @@ Produkter som vill demonstrera ett interaktivt Power BI visuellt objekt kan anv�
 
 För att kunna distribuera test enheten åt dig kan du skapa och tillhandahålla en separat, unik Azure-prenumeration. (Krävs inte för Power BI test enheter).
 
-- **ID för Azure-prenumeration** (krävs för Azure Resource Manager-och Logic Apps): Ange prenumerations-ID för att bevilja åtkomst till dina Azure-Kontotjänster för rapportering och fakturering av resursanvändning. Vi rekommenderar att du [skapar en separat Azure-prenumeration](https://docs.microsoft.com/azure/billing/billing-create-subscription) som ska användas för test enheter om du inte redan har en. Du hittar ditt prenumerations-ID för Azure genom att logga in på [Azure Portal](https://portal.azure.com/) och navigera till  fliken prenumerationer på den vänstra menyn. Om du väljer fliken visas ditt prenumerations-ID (t. ex. "a83645ac-1234-5AB6-6789-1h234g764ghty").
+- **ID för Azure-prenumeration** (krävs för Azure Resource Manager-och Logic Apps): Ange prenumerations-ID för att bevilja åtkomst till dina Azure-Kontotjänster för rapportering och fakturering av resursanvändning. Vi rekommenderar att du [skapar en separat Azure-prenumeration](https://docs.microsoft.com/azure/billing/billing-create-subscription) som ska användas för test enheter om du inte redan har en. Du hittar ditt prenumerations-ID för Azure genom att logga in på [Azure Portal](https://portal.azure.com/) och navigera till fliken prenumerationer på den vänstra menyn. Om du väljer fliken visas ditt prenumerations-ID (t. ex. "a83645ac-1234-5AB6-6789-1h234g764ghty").
 
 - **ID för Azure AD-klient** (krävs): Ange din Azure Active Directory (AD) [klient-ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in). Om du vill hitta detta ID loggar du in på [Azure Portal](https://portal.azure.com/), väljer fliken Active Directory på den vänstra menyn, väljer **Egenskaper** och letar efter **katalog-ID** -nummer som anges (t. ex. 50c464d3-4930-494c-963c-1e951d15360e). Du kan också leta upp organisationens klient-ID med din domän namns-URL [https://www.whatismytenantid.com](https://www.whatismytenantid.com)på:.
 

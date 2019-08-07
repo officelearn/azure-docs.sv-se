@@ -4,14 +4,14 @@ description: Använd Azure Resource Manager mallar för att skapa och konfigurer
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/25/2019
+ms.date: 08/05/2019
 ms.author: mjbrown
-ms.openlocfilehash: 4cd66c9da0650c9eb9de5b51ce82b48fe781c6f4
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: b4d121e0628512f7bbd6aedc0a9067b31d46d0ed
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68500510"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68814971"
 ---
 # <a name="manage-azure-cosmos-db-sql-core-api-resources-using-azure-resource-manager-templates"></a>Hantera Azure Cosmos DB SQL (Core) API-resurser med Azure Resource Manager-mallar
 
@@ -23,6 +23,7 @@ Skapa Azure Cosmos DB-resurser med en Azure Resource Manager-mall. Den här mall
 >
 > - För närvarande går det inte att distribuera användardefinierade funktioner (UDF: er), lagrade procedurer och utlösare med hjälp av Resource Manager-mallar.
 > - Du kan inte lägga till eller ta bort platser samtidigt i ett Azure Cosmos-konto och ändra andra egenskaper. Dessa måste göras som separata åtgärder.
+> - Konto namn måste innehålla gemener och < 31 tecken.
 
 [!code-json[create-cosmosdb-sql](~/quickstart-templates/101-cosmosdb-sql/azuredeploy.json)]
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 6/1/2019
 ms.author: victorh
-ms.openlocfilehash: dc3b9cceda10ae1ff648306236d5ac4868b5b426
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 5bfb3a093cd101f30daf4439dc8f58b5b4f693ca
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68722163"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68740873"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Vanliga frågor och svar om Application Gateway
 
@@ -101,7 +101,7 @@ Ja. Se [ändringar av en begäran](https://docs.microsoft.com/azure/application-
 
 Det kan ta upp till 20 minuter att etablera nya Application Gateway v1 SKU-distributioner. Ändringar av instans storleken eller antalet är inte störande och gatewayen förblir aktiv under den här tiden.
 
-Distributioner som använder v2-SKU: n kan ta upp till 6 minuter att etablera.
+De flesta distributioner som använder v2-SKU: n tar cirka 6 minuter att etablera. Det kan dock ta längre tid beroende på typen av distribution. Till exempel kan distributioner över flera Tillgänglighetszoner med många instanser ta mer än 6 minuter. 
 
 ### <a name="can-i-use-exchange-server-as-a-backend-with-application-gateway"></a>Kan jag använda Exchange Server som Server del med Application Gateway?
 
@@ -323,10 +323,6 @@ Ja. Du kan aktivera DDoS-skydd på det virtuella nätverk där programgatewayen 
 ### <a name="is-there-guidance-available-to-migrate-from-the-v1-sku-to-the-v2-sku"></a>Finns det några rikt linjer som du kan använda för att migrera från v1 SKU till v2-SKU: n?
 
 Ja. Mer information finns i [migrera Azure Application Gateway och brand vägg för webbaserade program från v1 till v2](migrate-v1-v2.md).
-
-### <a name="does-waf-support-non-utf-8-encoding"></a>Stöder WAF icke-UTF-8-kodning?
-
-Nej. WAF stöder för närvarande endast UTF-8-kodning.
 
 ## <a name="diagnostics-and-logging"></a>Diagnostik och loggning
 

@@ -8,14 +8,14 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 6/8/2018
 ms.author: dacurwin
-ms.openlocfilehash: 22f43bf1d3ac8282c4de3349656a21f51e788942
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 7a19b97e36bc28e5e629391f799b69370cf0fa38
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689490"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68737282"
 ---
-# <a name="back-up-a-sharepoint-farm-to-azure"></a>Säkerhetskopiera en SharePoint-servergrupp till Azure
+# <a name="back-up-a-sharepoint-farm-to-azure-with-mabs"></a>Säkerhetskopiera en SharePoint-grupp till Azure med MABS
 Du säkerhetskopierar en SharePoint-grupp till Microsoft Azure med hjälp av Microsoft Azure Backup Server (MABS) på samma sätt som du säkerhetskopierar andra data källor. Azure Backup ger flexibilitet i schemat för säkerhets kopiering för att skapa dagliga, vecko Visa eller årliga säkerhets kopierings punkter och ger dig bevarande princip alternativ för olika säkerhets kopierings punkter. Det ger också möjlighet att lagra lokala disk kopior för snabba återställnings mål (RTO) och för att lagra kopior till Azure för ekonomisk, långsiktig kvarhållning.
 
 ## <a name="sharepoint-supported-versions-and-related-protection-scenarios"></a>SharePoint-versioner som stöds och relaterade skydds scenarier

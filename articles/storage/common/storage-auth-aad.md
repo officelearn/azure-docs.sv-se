@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 07/25/2019
+ms.date: 08/02/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 236d880af780114dfb906021f53d5c09aee75332
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: f33193e3102afca73344fcd640d14d9af9c1d46e
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514888"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68775347"
 ---
 # <a name="authorize-access-to-azure-blobs-and-queues-using-azure-active-directory"></a>Ge åtkomst till Azure-blobbar och köer med hjälp av Azure Active Directory
 
@@ -22,7 +22,7 @@ Azure Storage stöder användning av Azure Active Directory (AD) för att auktor
 
 Auktorisering av användare eller program med hjälp av en OAuth 2,0-token som returnerades av Azure AD ger överlägsen säkerhet och enkel användning över delad nyckeltoken och signaturer för delad åtkomst (SAS). Med Azure AD behöver du inte lagra konto åtkomst nyckeln med din kod och riskerar att innebära potentiella säkerhets risker. Även om du kan fortsätta att använda autentisering med delad nyckel med dina program kan du använda Azure AD för att kringgå behovet av att lagra din konto åtkomst nyckel med din kod. Du kan även fortsätta att använda signaturer för delad åtkomst (SAS) för att ge detaljerad åtkomst till resurser i ditt lagrings konto, men Azure AD erbjuder liknande funktioner utan att behöva hantera SAS-token eller oroa dig för att återkalla en komprometterad SAS. Microsoft rekommenderar att du använder Azure AD-auktorisering med dina Azure Storage-program när det är möjligt.
 
-Auktorisering med Azure AD är tillgängligt för alla generella och Blob Storage-konton i alla offentliga regioner och nationella moln. Endast lagrings konton som skapats med Azure Resource Manager distributions modell har stöd för Azure AD-auktorisering.
+Auktorisering med Azure AD är tillgängligt för alla generella och Blob Storage-konton i alla offentliga regioner och nationella moln. Endast lagrings konton som skapats med Azure Resource Manager distributions modell har stöd för Azure AD-auktorisering. Auktorisering med Azure AD stöds inte för Azure Table Storage.
 
 ## <a name="overview-of-azure-ad-for-blobs-and-queues"></a>Översikt över Azure AD för blobbar och köer
 

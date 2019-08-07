@@ -1,39 +1,43 @@
 ---
-title: Det går inte att lägga till noder i Azure HDInsight-kluster
-description: Det går inte att lägga till noder i Azure HDInsight-kluster
+title: Apache Hive Zeppelin-tolken ger ett Zookeeper-fel i Azure HDInsight
+description: Zeppelin Hive JDBC-tolken pekar på fel URL
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
-ms.date: 07/31/2019
-ms.openlocfilehash: 6c2e2c7395fcc45fe74c50beb3624eabb1d395c9
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.date: 07/30/2019
+ms.openlocfilehash: f623d2516a2cf069b6347ebe8366b9b437228a87
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828021"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68781353"
 ---
-# <a name="scenario-unable-to-add-nodes-to-azure-hdinsight-cluster"></a>Scenario: Det går inte att lägga till noder i Azure HDInsight-kluster
+# <a name="scenario-apache-hive-zeppelin-interpreter-gives-a-zookeeper-error-in-azure-hdinsight"></a>Scenario: Apache Hive Zeppelin-tolken ger ett Zookeeper-fel i Azure HDInsight
 
-Den här artikeln beskriver fel söknings steg och möjliga lösningar för problem med att interagera med Azure HDInsight-kluster.
+I den här artikeln beskrivs fel söknings steg och möjliga lösningar på problem vid användning av interaktiva frågekomponenter i Azure HDInsight-kluster.
 
 ## <a name="issue"></a>Problem
 
-Det går inte att lägga till noder i Azure HDInsight-klustret.
+I ett Apache Hive LLAP-kluster ger Zeppelin-tolken följande fel meddelande vid försök att köra en fråga:
+
+```
+java.sql.SQLException: org.apache.hive.jdbc.ZooKeeperHiveClientException: Unable to read HiveServer2 configs from ZooKeeper
+```
 
 ## <a name="cause"></a>Orsak
 
-Anledningen kan variera.
+Zeppelin Hive JDBC-tolken pekar på fel URL.
 
 ## <a name="resolution"></a>Lösning
 
-Använd funktionen [kluster storlek](../hdinsight-scaling-best-practices.md) och beräkna antalet ytterligare kärnor som krävs för klustret. Detta baseras på det totala antalet kärnor i de nya arbetsnoderna. Prova sedan ett eller flera av följande steg:
+1. Navigera till sammanfattningen av Hive-komponenten och kopiera "Hive JDBC URL" till Urklipp.
 
-* Kontrol lera om det finns några tillgängliga kärnor på klustrets plats.
+1. Navigera till`https://clustername.azurehdinsight.net/zeppelin/#/interpreter`
 
-* Ta en titt på hur många tillgängliga kärnor som finns på andra platser. Överväg att återskapa ditt kluster på en annan plats med tillräckligt många tillgängliga kärnor.
+1. Redigera inställningarna för JDBC: uppdatera värdet Hive. URL till Hive-URL: en som kopierades i steg 1
 
-* Om du vill öka kärnkvoten för en specifik plats skapar du ett supportärende för en HDInsight-kärnkvotökning.
+1. Spara och försök sedan köra frågan igen
 
 ## <a name="next-steps"></a>Nästa steg
 

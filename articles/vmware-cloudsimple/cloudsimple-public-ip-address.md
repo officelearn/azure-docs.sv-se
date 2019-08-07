@@ -1,36 +1,36 @@
 ---
-title: VMware Solution by CloudSimple - Azure Public IP address
-description: Läs mer om offentliga IP-adresser och sina förmåner på VMware-lösning genom CloudSimple
+title: VMware-lösning av CloudSimple – offentlig IP-adress för Azure
+description: Lär dig mer om offentliga IP-adresser och deras fördelar med VMware-lösningen av CloudSimple
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 04/10/2019
 ms.topic: article
-ms.service: vmware
+ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: f57b7397f4a2d288cd2b8b55cf23b2d635aa5f8c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 29d2bdb75a7f4409e6b3ffee2608cfe7adde6b1f
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65209551"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68812534"
 ---
-# <a name="cloudsimple-public-ip-address-overview"></a>Översikt för CloudSimple offentliga IP-adress
+# <a name="cloudsimple-public-ip-address-overview"></a>Översikt över CloudSimple offentlig IP-adress
 
-En offentlig IP-adress kan Internetresurser kommunicerar inbördes till resurser för privata moln på en privat IP-adress. Den privata IP-adressen är en virtuell dator eller en belastningsutjämnare för programvara. Den privata IP-adressen finns på ditt privata moln vCenter. Offentliga IP-adress kan du exponera tjänster som körs i ditt privata moln till internet.
+En offentlig IP-adress gör det möjligt för Internet resurser att kommunicera inkommande, till privata moln resurser på en privat IP-adress. Den privata IP-adressen är antingen en virtuell dator eller en belastningsutjämnare för program vara. Den privata IP-adressen finns i ditt privata moln vCenter. Med den offentliga IP-adressen kan du exponera tjänster som körs i ditt privata moln till Internet.
 
-Den offentliga IP-adressen är dedikerad till den privata IP-adressen tills du ta bort den. En offentlig IP-adress kan endast tilldelas en privat IP-adress.
+Den offentliga IP-adressen är dedikerad till den privata IP-adressen tills du tar bort tilldelningen. En offentlig IP-adress kan bara tilldelas en privat IP-adress.
 
-En resurs som är associerade med en offentlig IP-adress alltid använder den offentliga IP-adressen för internet-åtkomst. Som standard tillåts endast utgående internet-åtkomst på en offentlig IP-adress.  Inkommande trafik på den offentliga IP-adressen nekas.  Skapa en brandväggsregel för den offentliga IP-adressen till den specifika porten som tillåter inkommande trafik.
+En resurs som är associerad med en offentlig IP-adress använder alltid den offentliga IP-adressen för Internet åtkomst. Som standard tillåts endast utgående Internet åtkomst på en offentlig IP-adress.  Inkommande trafik på den offentliga IP-adressen nekas.  Om du vill tillåta inkommande trafik skapar du en brand Väggs regel för den offentliga IP-adressen till den aktuella porten.
 
 ## <a name="benefits"></a>Fördelar
 
-Med en offentlig IP-adress kan kommunicera inkommande innehåller:
+Genom att använda en offentlig IP-adress för att kommunicera inkommande tillhandahåller:
 
-* Datorn service (DDoS) skydd mot attacker. Det här skyddet aktiveras automatiskt för den offentliga IP-adressen.
-* Ständigt aktiverad övervakning och i realtid minskning av vanliga attacker på nätverksnivå. Dessa försvar är samma försvar som används av Microsoft online services.
-* Hela skalan av Azure globala nätverk. Nätverket kan användas för att distribuera och minimera attack trafik mellan regioner.  
+* DDoS-skydd (distributed denial of Service). Det här skyddet aktive ras automatiskt för den offentliga IP-adressen.
+* Always on trafikövervakning och real tids minskning av vanliga attacker på nätverks nivå. De här försvaren är samma försvar som används av Microsoft onlinetjänster.
+* Hela skalan för det globala Azure-nätverket. Nätverket kan användas för att distribuera och minimera angrepps trafik mellan regioner.  
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig hur du [allokera en offentlig IP-adress](https://docs.azure.cloudsimple.com/public-ips/)
+* Lär dig hur du [allokerar en offentlig IP-adress](https://docs.azure.cloudsimple.com/public-ips/)

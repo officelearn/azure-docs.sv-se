@@ -1,83 +1,81 @@
 ---
-title: Registrera datakällor i Azure Data Catalog
-description: Den här artikeln visar hur du registrerar datakällor i Azure Data Catalog, inklusive metadatafälten som extraherats under registreringen.
-services: data-catalog
+title: Registrera data källor i Azure Data Catalog
+description: I den här artikeln beskrivs hur du registrerar data källor i Azure Data Catalog, inklusive de metadatafält som extraheras under registreringen.
 author: JasonWHowell
 ms.author: jasonh
-ms.assetid: bab89906-186f-4d35-9ffd-61b1d903905d
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 01/18/2018
-ms.openlocfilehash: 57b9a040b875c584b126e2062e4938b37875a31b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/01/2019
+ms.openlocfilehash: 0c5fdac7df41fec3a6206dbd78af74b7f1b58c7f
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61001301"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736328"
 ---
-# <a name="register-data-sources-in-azure-data-catalog"></a>Registrera datakällor i Azure Data Catalog
+# <a name="register-data-sources-in-azure-data-catalog"></a>Registrera data källor i Azure Data Catalog
 ## <a name="introduction"></a>Introduktion
-Azure Data Catalog är en fullständigt hanterad molntjänst som fungerar som ett system för registrering och upptäckt för företagsdatakällor. Med andra ord Data Catalog hjälper människor att identifiera, förstå och använda datakällor och det hjälper organisationer att få ut mer av sina befintliga data. Det första steget att som en datakälla kan identifieras via Data Catalog är att registrera datakällan.
+Azure Data Catalog är en helt hanterad moln tjänst som fungerar som ett registrerings-och identifierings system för företags data källor. Med andra ord kan Data Catalog hjälpa människor att upptäcka, förstå och använda data källor, och det hjälper organisationer att få mer värde än befintliga data. Det första steget för att göra en data källa som kan upptäckas via Data Catalog är att registrera data källan.
 
 ## <a name="register-data-sources"></a>Registrera datakällor
-Registreringen är processen där du extraherar metadata från datakällan och kopierar dessa data till Data Catalog-tjänsten. Informationen ligger kvar där den är och är under kontroll av det aktuella systemets administratörer och principer.
+Registreringen är en process där metadata från data källan extraheras och data kopieras till Data Catalog-tjänsten. Informationen ligger kvar där den är och är under kontroll av det aktuella systemets administratörer och principer.
 
-Registrera en datakälla genom att göra följande:
-1. Starta Data Catalog registreringsverktyget i Azure Data Catalog-portalen. 
-2. Logga in med ditt arbets- eller skolkonto med samma Azure Active Directory-autentiseringsuppgifter som används för att logga in på portalen.
-3. Välj den datakälla som du vill registrera.
+Registrera en data källa genom att göra följande:
+1. Starta Data Catalog registrerings verktyget för data källor i Azure Data Catalog-portalen. 
+2. Logga in på ditt arbets-eller skolkonto med samma Azure Active Directorys autentiseringsuppgifter som du använder för att logga in på portalen.
+3. Välj den data källa som du vill registrera.
 
-Stegvisa mer i den [Kom igång med Azure Data Catalog](data-catalog-get-started.md) självstudien.
+Mer information om steg-för-steg-anvisningar finns i själv studie kursen [komma igång med Azure Data Catalog](data-catalog-get-started.md) .
 
-När du har registrerat datakällan, katalogen spårar dess plats och indexeras dess metadata. Användare kan söka, bläddra, och identifiera datakällan och sedan använda dess plats för att ansluta till den med hjälp av program eller deras verktyg.
+När du har registrerat data källan spårar katalogen sin plats och indexerar dess metadata. Användare kan söka, bläddra i och identifiera data källan och sedan använda sin plats för att ansluta till den med hjälp av det program eller verktyg som du väljer.
 
 ## <a name="supported-data-sources"></a>Datakällor som stöds
-En lista över datakällor som stöds för närvarande finns i [DSR för Data Catalog](data-catalog-dsr.md).
+En lista över data källor som stöds för närvarande finns i [Data Catalog DSR](data-catalog-dsr.md).
 
 ## <a name="structural-metadata"></a>Strukturella metadata
-När du registrerar en datakälla extraherar registreringsverktyget information om strukturen för de objekt som du väljer. Den här informationen kallas strukturella metadata.
+När du registrerar en data källa hämtar registrerings verktyget information om strukturen för de objekt som du väljer. Den här informationen kallas för strukturella metadata.
 
-Den här strukturella metadata innehåller objektets plats, så att användare som identifierar data som kan använda informationen för att ansluta till objektet i klientverktyg för valfri för alla objekt. Andra strukturella metadata innehåller objektnamn och typ och attributet/kolumnnamn och data.
+För alla objekt innehåller dessa strukturella metadata objektets plats, så att användare som identifierar data kan använda informationen för att ansluta till objektet i de klient verktyg som de väljer. Andra strukturella metadata inkluderar objekt namn, typ, och attribut/kolumn namn och datatyp.
 
 ## <a name="descriptive-metadata"></a>Beskrivande metadata
-Förutom core strukturella metadata som extraheras från datakällan, extraherar registreringsverktyget beskrivande metadata. För SQL Server Analysis Services och SQL Server Reporting Services hämtas metadata från beskrivning-egenskaper som exponeras av dessa tjänster. För SQL Server, värden med hjälp av ms\_beskrivning utökad egenskap ska extraheras. För Oracle Database, extraherar registreringsverktyget för datakällor kolumnen kommentarer från alla\_FLIKEN\_kommentarer vy.
+Förutom de grundläggande strukturella metadata som extraheras från data källan, extraherar data källans registrerings verktyg beskrivande metadata. För SQL Server Analysis Services och SQL Server Reporting Services hämtas dessa metadata från beskrivningen egenskaper som exponeras av dessa tjänster. För SQL Server extraheras värden som anges med\_den utökade egenskapen MS Description. För Oracle Database extraherar registrerings verktyget för data källor kommentars kolumnen från vyn alla\_\_kommentarer.
 
-Förutom de beskrivande metadata som extraheras från datakällan, kan användare ange beskrivande metadata med hjälp av registreringsverktyget för källan. Användare kan lägga till taggar och de kan identifiera experter för de objekt som håller på att registreras. Dessa beskrivande metadata kopieras till Data Catalog-tjänsten tillsammans med strukturella metadata.
+Förutom de beskrivande metadata som extraheras från data källan kan användarna ange beskrivande metadata med hjälp av registrerings verktyget för data källor. Användare kan lägga till taggar, och de kan identifiera experter för de objekt som registreras. Alla dessa beskrivande metadata kopieras till Data Catalogs tjänsten tillsammans med strukturella metadata.
 
-## <a name="include-previews"></a>Ta med förhandsvisningar
-Som standard extraheras från datakällor och kopieras till Data Catalog-tjänsten, men om en datakälla ofta enklare när du visar ett exempel på data som den innehåller endast metadata.
+## <a name="include-previews"></a>Ta med för hands vyer
+Som standard extraheras endast metadata från data källor och kopieras till den Data Catalog tjänsten, men förståelse av en data källa är ofta enklare när du kan visa ett exempel på de data som det innehåller.
 
-Du kan inkludera en ögonblicksbild förhandsgranskning av data i varje tabell och en vy som har registrerats med hjälp av registreringsverktyget för Data Catalog-datakällan. Om du väljer att inkludera förhandsversioner under registreringen, inkluderar registreringsverktyget upp till 20 poster från varje tabell och visa. Den här ögonblicksbilden kopieras sedan till katalogen tillsammans med strukturella och beskrivande metadata.
+Genom att använda Data Catalog registrerings verktyget för data källor kan du inkludera en ögonblicks bild för hands version av data i varje tabell och vy som är registrerad. Om du väljer att inkludera för hands versionerna under registreringen innehåller registrerings verktyget upp till 20 poster från varje tabell och vy. Den här ögonblicks bilden kopieras sedan till katalogen tillsammans med struktur och beskrivande metadata.
 
 > [!NOTE]
-> Breda tabeller med ett stort antal kolumner kan ha färre än 20 poster som ingår i deras förhandsversion.
+> Breda tabeller med ett stort antal kolumner kan ha färre än 20 poster som ingår i deras för hands version.
 >
 >
 
-## <a name="include-data-profiles"></a>Innefattar data-profiler
-Precis som inklusive förhandsgranskningar kan ge värdefulla kontext för användare som söker efter datakällor i Data Catalog, kan inklusive en dataprofil göra det lättare att förstå identifierade datakällor.
+## <a name="include-data-profiles"></a>Inkludera data profiler
+Precis som för för hands versionerna kan du ge värdefull kontext för användare som söker efter data källor i Data Catalog, inklusive en data profil som gör det lättare att förstå identifierade data källor.
 
-Du kan inkludera en dataprofil för varje tabell och en vy som har registrerats med hjälp av registreringsverktyget för Data Catalog-datakällan. Om du väljer att inkludera en dataprofil vid registreringen, registreringsverktyget innehåller sammanställd statistik om hur data i varje tabell och vyn, inklusive:
+Genom att använda Data Catalog registrerings verktyget för data källor kan du inkludera en data profil för varje tabell och vy som har registrerats. Om du väljer att inkludera en data profil under registreringen, innehåller registrerings verktyget sammanställd statistik om data i varje tabell och vy, inklusive:
 
-* Antalet rader och storleken på data i objektet.
-* Datum för senaste uppdatering av data och objekt-schemat.
+* Antalet rader och storlek för data i objektet.
+* Datumet för den senaste uppdateringen av data och objekt schema.
 * Antalet null-poster och distinkta värden för kolumner.
-* Lägsta, högsta, genomsnitt och standardavvikelsen värden för kolumner.
+* Värdena för minsta, högsta, genomsnittliga och standard avvikelse för kolumner.
 
-Statistiken kopieras sedan till katalogen tillsammans med strukturella och beskrivande metadata.
+Statistiken kopieras sedan till katalogen tillsammans med struktur och beskrivande metadata.
 
 > [!NOTE]
-> Text och datum kolumner omfattar inte medelvärde eller standardavvikelse statistik i profilen för deras data.
+> Text-och datum kolumner innehåller inte genomsnitts statistik eller standard avvikelser i data profilen.
 >
 >
 
 ## <a name="update-registrations"></a>Uppdatera registreringar
-Registrering av datakälla gör det synliga i Data Catalog när du använder metadata och valfritt förhandsversion extraheras under registreringen. Om datakällan måste uppdateras i katalogen (till exempel om schemat för ett objekt har ändrats, tabeller som ursprungligen exkluderade ska inkluderas eller du vill uppdatera de data som ingår i förhandsgranskning), kan registreringsverktyget köras igen.
+När du registrerar en data källa kan den upptäckas i Data Catalog när du använder metadata och valfri för hands version som extraheras under registreringen. Om data källan behöver uppdateras i katalogen (till exempel om schemat för ett objekt har ändrats, ska tabeller som ursprungligen uteslutits inkluderas eller om du vill uppdatera data som ingår i förhands visningen), kan registrerings verktyget för data källor köras igen.
 
-Registrera en datakälla som har redan registrerats utför en ”upsert” merge-operation: befintliga objekt uppdateras, och nya objekt skapas. Alla metadata som tillhandahålls av användare med hjälp av Data Catalog-portalen finns kvar.
+Omregistrering av en data källa som redan är registrerad utför en sammanfogad "upsert"-åtgärd: befintliga objekt uppdateras och nya objekt skapas. Alla metadata som användare tillhandahåller via Data Catalog-portalen behålls.
 
 ## <a name="summary"></a>Sammanfattning
-Eftersom den kopierat strukturella och beskrivande metadata från en datakälla till katalogtjänsten gör registrering av datakällan i Data Catalog data enklare att identifiera och förstå. När du har registrerat datakällan kan du lägga till anteckningar, hantera och identifierar dem med hjälp av Data Catalog-portalen.
+Eftersom det kopierar strukturella och beskrivande metadata från en data källa till katalog tjänsten, gör det lättare att identifiera och förstå data källan i Data Catalog. När du har registrerat data källan kan du kommentera, hantera och identifiera den med hjälp av Data Catalog portalen.
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om hur du registrerar datakällor finns i den [Kom igång med Azure Data Catalog](data-catalog-get-started.md) självstudien.
+Mer information om hur du registrerar data källor finns i själv studie kursen [komma igång med Azure Data Catalog](data-catalog-get-started.md) .

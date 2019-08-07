@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: f53d3bd64b4f837fe29baa338cd338158d59d95d
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 0dd61deb372822c5c564758d26d4c4a4938c1064
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466955"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68741467"
 ---
 # <a name="work-with-strings-in-azure-monitor-log-queries"></a>Arbeta med strängar i Azure Monitor logg frågor
 
@@ -30,11 +30,11 @@ ms.locfileid: "68466955"
 
 I den här artikeln beskrivs hur du redigerar, jämför, söker i och utför en rad andra åtgärder på strängar.
 
-Varje tecken i en sträng har ett index nummer, baserat på dess plats. Det första symbolen är vid index 0, nästa steg är 1 och så ett. Olika sträng funktioner använder index nummer som du ser i följande avsnitt. I många av följande exempel används kommandot **Print** för att demonstrera sträng manipulation utan att använda en speciell data källa.
+Varje tecken i en sträng har ett index nummer, baserat på dess plats. Det första symbolen är vid index 0, nästa steg är 1 och så vidare. Olika sträng funktioner använder index nummer som du ser i följande avsnitt. I många av följande exempel används kommandot **Print** för att demonstrera sträng manipulation utan att använda en speciell data källa.
 
 
 ## <a name="strings-and-escaping-them"></a>Strängar och undantags tecken
-Sträng värden radbryts med antingen enkla eller dubbla citat tecken. Omvänt\) snedstreck (används för att undanta tecken till tecknet som följer, till exempel \t för tab, \n för ny rad \" och citat tecknet.
+Sträng värden radbryts med antingen enkla eller dubbla citat tecken. Omvänt\\snedstreck () används för att undanta tecken till tecknet som följer, till exempel \t för tab, \n för ny rad \" och citat tecken.
 
 ```Kusto
 print "this is a 'string' literal in double \" quotes"
@@ -90,7 +90,7 @@ Operator       |Beskrivning                         |Skift läges känslig|Exemp
 
 ## <a name="countof"></a>countof
 
-Räknar förekomster av en del sträng i en sträng. Kan matcha vanliga strängar eller använda regex. Vanliga sträng matchningar kan överlappa när regex matchar inte.
+Räknar förekomster av en del sträng i en sträng. Kan matcha vanliga strängar eller använda regex. Matchningar med oformaterade strängar kan överlappa även om regex matchar inte.
 
 ### <a name="syntax"></a>Syntax
 ```
@@ -179,7 +179,7 @@ print Duration_seconds =  extract("Duration=([0-9.]+)", 1, Trace, typeof(real)) 
 ## <a name="isempty-isnotempty-notempty"></a>IsEmpty, isnotempty, nofrestar
 
 - *IsEmpty* returnerar true om argumentet är en tom sträng eller null (se även *IsNull*).
-- *isnotempty* returnerar true om argumentet inte är en tom sträng eller ett null-värde (se även *isnotnull*). alias: nofrestar.
+- *isnotempty* returnerar true om argumentet inte är en tom sträng eller ett null-värde (se även *isnotnull*). alias:nofrestar.
 
 ### <a name="syntax"></a>Syntax
 

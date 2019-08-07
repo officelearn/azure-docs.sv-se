@@ -1,6 +1,6 @@
 ---
-title: Felsök VM och miljö skapas Azure DevTest Labs | Microsoft Docs
-description: Lär dig hur du felsöker virtuell dator (VM) och miljö skapas fel i Azure DevTest Labs.
+title: Felsöka fel i VM-och miljö skapande Azure DevTest Labs | Microsoft Docs
+description: Lär dig hur du felsöker fel i virtuella datorer och miljö skapande i Azure DevTest Labs.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -10,36 +10,42 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2019
+ms.date: 08/02/2019
 ms.author: spelluru
-ms.openlocfilehash: 7baa5e4c113e6c21c6123ac7c8399533a7dfb358
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bcdb549ce5b522b2d456e2cbeb5471b9df984514
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65410307"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774414"
 ---
-# <a name="troubleshoot-virtual-machine-vm-and-environment-creation-failures-in-azure-devtest-labs"></a>Felsökning av virtuell dator (VM) och fel för miljön när skapas i Azure DevTest Labs
-DevTest Labs ger varningar om ett namn för datorn är ogiltigt eller om du är på väg att bryta mot en princip för labb. Ibland kan du se red `X` bredvid ditt labb status för virtuell dator eller miljö som meddelar dig om att något gick fel.  Den här artikeln innehåller några tips som du kan använda för att hitta det underliggande problemet och förhoppningsvis kan undvika problemet i framtiden.
+# <a name="troubleshoot-virtual-machine-vm-and-environment-creation-failures-in-azure-devtest-labs"></a>Felsöka fel i den virtuella datorn (VM) och miljö skapande i Azure DevTest Labs
+DevTest Labs ger dig varningar om ett dator namn är ogiltigt eller om du är på väg att bryta mot en labb princip. Ibland visas röda `X` intill din labb-VM eller miljö status som informerar dig om att något har gått fel.  Den här artikeln innehåller några knep som du kan använda för att hitta det underliggande problemet och kan förhoppnings vis undvika problemet i framtiden.
 
-## <a name="portal-notifications"></a>Portalaviseringarna
-Om du använder Azure-portalen är den första platsen för att titta på den **meddelandepanelen**.  Meddelanden panelen, tillgängliga i det huvudsakliga kommandofältet genom att klicka på den **klockikonen**, talar du om labbet skapa en virtuell dator eller miljö lyckades eller inte.  Om ett fel uppstod, visas ett felmeddelande som är associerade med fel vid skapande. Informationen ger ofta ytterligare information för att hjälpa dig att lösa problemet. I följande exempel, skapa en virtuell dator misslyckades på grund av slut på kärnor. Detaljerat meddelande visar hur du åtgärdar problemet och begära en kvot för kärnor.
+## <a name="portal-notifications"></a>Portal meddelanden
+Om du använder Azure Portal, är det första stället att titta på **meddelande panelen**.  Panelen meddelanden, som är tillgänglig i huvud kommando fältet genom att klicka på **klock ikonen**, visar om den virtuella labb datorn eller miljön har skapats.  Om ett fel uppstår visas ett fel meddelande som är kopplat till felet. Informationen ger ofta ytterligare information som kan hjälpa dig att lösa problemet. I följande exempel gick det inte att skapa den virtuella datorn eftersom det inte gick att köra kärnor. I det detaljerade meddelandet får du information om hur du löser problemet och begär en ökad kärn kvot.
 
-![Azure portal-meddelande](./media/troubleshoot-vm-environment-creation-failures/portal-notification.png)
+![Azure Portal meddelande](./media/troubleshoot-vm-environment-creation-failures/portal-notification.png)
+
+### <a name="vm-in-corruption-state"></a>VM i skadat läge
+Om du ser statusen för din virtuella dator i labbet som **skadad**kan den underliggande virtuella datorn ha tagits bort från den **virtuella dator** sidan som användaren kan navigera till från sidan **Virtual Machines** (inte från sidan DevTest Labs). Rensa ditt labb i DevTest Labs genom att ta bort den virtuella datorn från labbet. Återskapa sedan den virtuella datorn i labbet. 
+
+![Virtuell dator i skadat tillstånd](./media/troubleshoot-vm-environment-creation-failures/vm-corrupted-state.png)
+
 
 
 ## <a name="activity-logs"></a>Aktivitetsloggar
-Titta på aktivitetsloggar om ett fel undersöker en stund efter ett försökt skapandet av din VM eller miljö. Det här avsnittet visar hur du hittar loggar för virtuella datorer och miljöer.
+Titta på aktivitets loggarna om du undersöker ett haveri när du har försökt att skapa en virtuell dator eller miljö. Det här avsnittet visar hur du hittar loggar för virtuella datorer och miljöer.
 
-## <a name="activity-logs-for-virtual-machines"></a>Aktivitetsloggar för virtuella datorer
+## <a name="activity-logs-for-virtual-machines"></a>Aktivitets loggar för virtuella datorer
 
-1. På startsidan för labbet, väljer du den virtuella datorn att starta den **VM** sidan.
-2. På den **VM** sidan den **övervakning** avsnitt i den vänstra menyn och välj **aktivitetsloggen** kan se alla loggar som är associerade med den virtuella datorn.
-3. Välj den åtgärd som misslyckades i loggen aktivitetsobjekt. Normalt den misslyckade åtgärden kallas `Write Virtualmachines`.
-4. Växla till JSON-fliken i den högra rutan. Du kan se information i JSON-vy av loggen.
+1. På Start sidan för ditt labb väljer du den virtuella dator där du vill starta sidan för den **virtuella datorn** .
+2. På sidan **virtuell dator** går du till avsnittet **övervakning** på den vänstra menyn och väljer **aktivitets logg** för att se alla loggar som är associerade med den virtuella datorn.
+3. I aktivitets logg objekt väljer du den åtgärd som misslyckades. Normalt kallas `Write Virtualmachines`den misslyckade åtgärden.
+4. Växla till fliken JSON i den högra rutan. Du ser informationen i loggens JSON-vy.
 
-    ![Aktivitetsloggen för en virtuell dator](./media/troubleshoot-vm-environment-creation-failures/vm-activity-log.png)
-5. Titta igenom JSON-loggen tills du hittar den `statusMessage` egenskapen. Det ger dig de viktigaste felmeddelande och mer detaljerad information om det är tillämpligt. Följande JSON är ett exempel för core citattecken har överskridits-fel som visas tidigare i den här artikeln.
+    ![Aktivitets logg för en virtuell dator](./media/troubleshoot-vm-environment-creation-failures/vm-activity-log.png)
+5. Titta igenom JSON-loggen tills du hittar `statusMessage` egenskapen. Det ger dig huvud fel meddelandet och ytterligare detaljerad information, om tillämpligt. Följande JSON är ett exempel på ett fel som har inträffat i den här artikeln.
 
     ```json
     "properties": {
@@ -48,27 +54,27 @@ Titta på aktivitetsloggar om ett fel undersöker en stund efter ett försökt s
     },
     ```
 
-## <a name="activity-log-for-an-environment"></a>Aktivitetsloggen för en miljö
+## <a name="activity-log-for-an-environment"></a>Aktivitets logg för en miljö
 
-Följ dessa steg om du vill se aktivitetsloggen för att skapa en miljö:
+Följ dessa steg om du vill se aktivitets loggen för att skapa en miljö:
 
-1. På startsidan för labbet, väljer **konfiguration och principer** på den vänstra menyn.
-2. på den **konfiguration och principer** väljer **aktivitetsloggar** på menyn.
-3. Leta efter fel i aktivitetslistan i loggen och markera den.
-4. Växla till JSON-fliken i den högra rutan, och leta efter den **statusMessage**.
+1. På Start sidan för ditt labb väljer du **konfiguration och principer** på den vänstra menyn.
+2. på sidan **konfiguration och principer** väljer du **aktivitets loggar** på menyn.
+3. Leta efter felen i aktivitets listan i loggen och markera den.
+4. I den högra rutan växlar du till fliken JSON och letar efter **statusMessage**.
 
-    ![Miljö aktivitetsloggen](./media/troubleshoot-vm-environment-creation-failures/envirionment-activity-log.png)
+    ![Miljö aktivitets logg](./media/troubleshoot-vm-environment-creation-failures/envirionment-activity-log.png)
 
-## <a name="resource-manager-template-deployment-logs"></a>Distributionsloggar för Resource Manager-mall
-Om din miljö eller virtuella datorn har skapats via automation, är det en sista ställe med information om felet. Det är distributionsloggen för Azure Resource Manager-mall. När en labb-resurs skapas via automation, görs den ofta via en Azure Resource Manager för malldistribution. Se[ https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates ](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates) för exemplet Azure Resource Manager-mallar som skapar DevTest Labs-resurser.
+## <a name="resource-manager-template-deployment-logs"></a>Distributions loggar för Resource Manager-mall
+Om din miljö eller virtuella dator har skapats via Automation finns det en sista plats för att se fel information. Det är distributions loggen för Azure Resource Manager mallar. När en labb resurs skapas via Automation görs det ofta genom en Azure Resource Manager mall-distribution. Se[https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates) exempel Azure Resource Manager mallar som skapar DevTest Labs-resurser.
 
-Följ dessa steg om du vill visa lab mall distributionsloggarna:
+Följ dessa steg om du vill se distributions loggar för labb mal len:
 
-1. Starta sidan för resursgruppen där labbet finns.
-2. Välj **distributioner** på den vänstra menyn under **inställningar**.
-3. Leta efter distributioner med en felstatus och markera den.
-4. På den **distribution** väljer **åtgärdsinformation** länk för den åtgärd som misslyckades.
-5. Du ser information om den åtgärd som misslyckades i den **åtgärdsinformation** fönster.
+1. Starta sidan för resurs gruppen där labbet finns.
+2. Välj **distributioner** på den vänstra menyn under **Inställningar**.
+3. Sök efter distributioner med statusen Misslyckad och markera den.
+4. På sidan **distribution** väljer du länken **Åtgärds information** för den åtgärd som misslyckades.
+5. Du ser information om den åtgärd som misslyckades i fönstret **Åtgärds information** .
 
 ## <a name="next-steps"></a>Nästa steg
-Se [felsökning av fel i artefakter](devtest-lab-troubleshoot-artifact-failure.md)
+Se [fel sökning av artefakt fel](devtest-lab-troubleshoot-artifact-failure.md)

@@ -8,14 +8,14 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: dacurwin
-ms.openlocfilehash: bfc9d01284bb5623989676afbdeadc1c91c14ab0
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 025052a5005702232eb9eaf255e6aac2c58fec98
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688386"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68735572"
 ---
-# <a name="manage-azure-vm-backups"></a>Hantera säkerhetskopior av virtuella Azure-datorer
+# <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Hantera virtuella Azure-säkerhetskopieringar med Azure Backup tjänsten
 
 Den här artikeln beskriver hur du hanterar virtuella datorer i Azure som säkerhets kopie ras med hjälp av [tjänsten Azure Backup](backup-overview.md). Artikeln sammanfattar också den säkerhets kopierings information som du hittar på instrument panelen för valvet.
 

@@ -7,12 +7,12 @@ ms.author: tacox
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.openlocfilehash: b9bf3b41bcd0a79027c5dd9a4f3df979fb0bd9f0
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: eb6b42a88e47e3fcb35700ec542c8ca642e17a6a
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68250156"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815801"
 ---
 # <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>Migrera Azure HDInsight 3,6 Hive-arbetsbelastningar till HDInsight 4,0
 
@@ -30,7 +30,7 @@ Den här artikeln beskriver följande ämnen:
 En fördel med Hive är möjligheten att exportera metadata till en extern databas (kallas Hive-Metaarkiv). **Hive-metaarkiv** ansvarar för att lagra tabell statistik, inklusive tabell lagrings plats, kolumn namn och tabell index information. Metaarkiv-databasschemat skiljer sig mellan Hive-versioner. Gör följande för att uppgradera en HDInsight 3,6 Hive-Metaarkiv så att den är kompatibel med HDInsight 4,0.
 
 1. Skapa en ny kopia av din externa metaarkiv. HDInsight 3,6 och HDInsight 4,0 kräver olika metaarkiv-scheman och kan inte dela en enda metaarkiv. Mer information om hur du kopplar en extern metaarkiv till ett HDInsight-kluster finns i [använda externa metadata butiker i Azure HDInsight](../hdinsight-use-external-metadata-stores.md) . 
-2. Starta en skript åtgärd mot ditt HDI 3,6-kluster med "Head Nodes" som nodtypen för körning. Klistra in följande URI i text rutan som är markerad som "bash script https://hdiconfigactions.blob.core.windows.net/hivemetastoreschemaupgrade/launch-schema-upgrade.sh URI":. I text rutan som marker ATS som "argument" anger du Server namn, databas, användar namn  och lösen ord för den kopierade Hive-metaarkiv, avgränsade med blank steg. Ta inte med ". database.windows.net" när du anger servername.
+2. Starta en skript åtgärd mot ditt HDI 3,6-kluster med "Head Nodes" som nodtypen för körning. Klistra in följande URI i text rutan som är markerad som "bash script https://hdiconfigactions.blob.core.windows.net/hivemetastoreschemaupgrade/launch-schema-upgrade.sh URI":. I text rutan som marker ATS som "argument" anger du Server namn, databas, användar namn och lösen ord för den kopierade Hive-metaarkiv, avgränsade med blank steg. Ta inte med ". database.windows.net" när du anger servername.
 
 > [!Warning]
 > Uppgraderingen som konverterar HDInsight 3,6-metadata-schemat till HDInsight 4,0-schemat kan inte ångras.
@@ -99,9 +99,7 @@ I HDInsight 3,6 är GUI-klienten för att interagera med Hive-Server den Ambari 
 
 Starta en skript åtgärd mot klustret med "Head Nodes" som nodtyp för körning. Klistra in följande URI i text rutan som är markerad som "bash script URI": https://hdiconfigactions.blob.core.windows.net/dasinstaller/LaunchDASInstaller.sh
 
-Data Analytics Studio kan startas med URL: https://\<kluster namn >. azurehdinsight. net/Das/
-
-
+Vänta 5 till 10 minuter och starta sedan data Analytics Studio med följande URL: https://\<kluster namn >. azurehdinsight. net/Das/
 
 När DAS har installerats, om du inte ser frågorna som du har kört i visnings programmet för frågor, så gör du följande:
 

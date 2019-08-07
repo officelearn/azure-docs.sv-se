@@ -9,14 +9,14 @@ editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
-ms.date: 07/01/2019
+ms.date: 08/01/2019
 ms.author: apimpm
-ms.openlocfilehash: 9eb03be5cd9704c3b124bfb16fd30c5c3466890d
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: b3513ab2583939943ff188b582f57f49530e5ded
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326144"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736247"
 ---
 # <a name="configure-a-custom-domain-name"></a>Konfigurera ett anpassat domännamn
 
@@ -40,17 +40,19 @@ För att utföra stegen som beskrivs i den här artikeln måste du ha:
 ## <a name="use-the-azure-portal-to-set-a-custom-domain-name"></a>Använd Azure Portal för att ange ett anpassat domän namn
 
 1. Navigera till din API Management-instans i [Azure Portal](https://portal.azure.com/).
-1. Välj **anpassade domäner och SSL**.
+1. Välj **anpassade domäner**.
 
     Det finns ett antal slut punkter som du kan tilldela ett anpassat domän namn. För närvarande är följande slut punkter tillgängliga:
 
-    - **Proxy** (standard är: `<apim-service-name>.azure-api.net`),
+    - **Gateway** (standard är: `<apim-service-name>.azure-api.net`),
     - **Portal** (standard är: `<apim-service-name>.portal.azure-api.net`),
     - **Hantering** (standard är: `<apim-service-name>.management.azure-api.net`),
     - **SCM** (standard är: `<apim-service-name>.scm.azure-api.net`).
 
     > [!NOTE]
-    > Du kan uppdatera alla slut punkter eller några av dem. Ofta används kunders uppdaterings- **proxy** (denna URL används för att anropa API: t som exponeras via API Management) och **portalen** (utvecklings portalens URL). **Hanterings** -och **SCM** -slutpunkter används internt av API Management instansens ägare och därför är de mindre ofta tilldelade till ett anpassat domän namn. I de flesta fall kan endast ett enda anpassat domän namn anges för en viss slut punkt. **Premium** -nivån har dock stöd för att ange flera värdnamn för **proxy** -slutpunkten.
+    > Endast **Gateway** -slutpunkten i tillgänglig för konfiguration i förbruknings nivån.
+    > Du kan uppdatera alla slut punkter eller några av dem. Kunder som uppdaterar **gatewayen** (denna URL används ofta för att anropa API: et som exponeras via API Management) och **portalen** (URL: en Developer Portal).
+    > **Hanterings** -och **SCM** -slutpunkter används internt av API Management instansens ägare och därför är de mindre ofta tilldelade till ett anpassat domän namn. **Premium** -nivån stöder inställning av flera värdnamn för **Gateway** -slutpunkten.
 
 1. Välj den slut punkt som du vill uppdatera.
 1. I fönstret till höger klickar du på **anpassad**.

@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: vijetaj
-ms.openlocfilehash: 81aac356f49f7bf8dc57f77054d10aa3e09d473f
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 40b8f101d968514ac599b43a79b7e62b7fd837a4
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565258"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779469"
 ---
 # <a name="data-science-virtual-machine-based-team-analytics-and-ai-environment"></a>Data Science Virtual Machine-baserade team analys och AI-miljö 
 Den [Data Science Virtual Machine](overview.md) (DSVM) tillhandahåller en omfattande miljö i Azure-plattformen med färdiga programvara för artificiell intelligens (AI) och dataanalys. 
@@ -43,12 +43,12 @@ Några av de viktigaste byggstenarna i en företagsmiljö team analytics är:
 
 Den här artikelserien ger vägledning och pekare för var och en av ovanstående objekt. Det täcker inte alla överväganden och behov distribuera DSVM i stort företag konfigurationer. Här är andra Azure-dokumentation som du kan använda när du implementerar DSVM-instanser i ditt företag: 
 
-* [Nätverkssäkerhet](https://docs.microsoft.com/azure/security/azure-network-security)
+* [Nätverks säkerhet] (https://docs.microsoft.com/azure/security/fundamentals/network-security
 * [Övervakning av](https://docs.microsoft.com/azure/virtual-machines/windows/monitor) och [management](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates)
-* [Loggning och granskning](https://docs.microsoft.com/azure/security/azure-log-audit)
+* [Loggning och granskning](https://docs.microsoft.com/azure/security/fundamentals/log-audit)
 * [Rollbaserad åtkomstkontroll](https://docs.microsoft.com/azure/role-based-access-control/overview)
 * [Principinställningen och tvingande](../../governance/policy/overview.md)
-* [Programvara mot skadlig kod](https://docs.microsoft.com/azure/security/azure-security-antimalware)
+* [Programvara mot skadlig kod](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
 * [Kryptering](https://docs.microsoft.com/azure/virtual-machines/windows/encrypt-disks)
 * [Identifiering och styrning](https://docs.microsoft.com/azure/data-catalog/)
 

@@ -7,12 +7,12 @@ ms.service: governance
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: dacoulte
-ms.openlocfilehash: 520b84722d9434b309d3eb6da0baa3c1e4da33d0
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 958f82ef94a08adaf2bbae1ef8ceefae5db289ea
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68608186"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780798"
 ---
 # <a name="overview-of-management-services-in-azure"></a>Översikt över hanterings tjänster i Azure
 
@@ -40,7 +40,7 @@ Automatisering av dessa uppgifter kan du eliminera redundans och minimera tiden 
 ## <a name="govern"></a>Styrning
 
 Styrning tillhandahåller mekanismer och processer för att behålla kontrollen över dina program och resurser i Azure. Det omfattar att planera initiativ och att fatta beslut om strategiska prioriteringar.
-Styrning i Azure implementeras främst genom två tjänster. [Azure Policy](./policy/overview.md) kan du skapa, tilldela och hantera principdefinitioner för att tillämpa regler för dina resurser. Den här funktionen gör att dessa resurser i enlighet med företagets standarder. [Azure Cost Management från Cloudyn](../cost-management/overview.md) kan du spåra molnanvändning och utgifter för dina Azure-resurser och andra molnleverantörer.
+Styrning i Azure implementeras främst genom två tjänster. [Azure Policy](./policy/overview.md) kan du skapa, tilldela och hantera principdefinitioner för att tillämpa regler för dina resurser. Den här funktionen gör att dessa resurser i enlighet med företagets standarder. Med [Azure Cost Management](../cost-management/overview-cost-mgt.md) kan du spåra moln användning och utgifter för dina Azure-resurser och andra moln leverantörer.
 
 ## <a name="secure"></a>Skydda
 

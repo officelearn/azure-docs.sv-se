@@ -8,38 +8,32 @@ ms.topic: include
 ms.date: 09/07/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: b2bce9788006a564def9bd8c1375a85dc4184b67
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1e919f22d5dd7975f055f262ec9ba69230aebd17
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66814751"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780825"
 ---
-## <a name="create-a-device-identity"></a>Skapa en enhetsidentitet
+I det här avsnittet använder du Azure CLI för att skapa en enhets identitet för den här artikeln. Enhets-ID är skiftlägeskänsliga.
 
-I det här avsnittet använder du Azure CLI för att skapa en enhetsidentitet i den här självstudien. Azure CLI installeras automatiskt i den [Azure Cloud Shell](~/articles/cloud-shell/overview.md), eller så kan du [installera Azure CLI lokalt](/cli/azure/install-azure-cli). Enhets-ID är skiftlägeskänsliga.
+1. Öppna [Azure Cloud Shell](https://shell.azure.com/).
 
-1. Kör följande kommando i kommandoradsverktyget miljön där du använder Azure CLI för att installera IoT-tillägget:
+1. I Azure Cloud Shell kör du följande kommando för att installera Microsoft Azure IoT-tillägget för Azure CLI:
 
-    ```cmd/sh
+    ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
     ```
 
-1. Om du kör Azure CLI lokalt, använder du följande kommando för att logga in på ditt Azure-konto (om du använder Cloud Shell, du har loggat in automatiskt och du behöver inte köra det här kommandot):
+2. Skapa en ny enhets identitet `myDeviceId` med namnet och hämta anslutnings strängen för enheten med följande kommandon:
 
-    ```cmd/sh
-    az login
-    ```
-
-1. Slutligen skapar en ny enhetsidentitet som kallas `myDeviceId` och hämta enhetens anslutningssträng med följande kommandon:
-
-    ```cmd/sh
+    ```azurecli-interactive
     az iot hub device-identity create --device-id myDeviceId --hub-name {Your IoT Hub name}
     az iot hub device-identity show-connection-string --device-id myDeviceId --hub-name {Your IoT Hub name} -o table
     ```
 
    [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
-Anteckna enhetsanslutningssträngen från resultatet. Den här enhetens anslutningssträng används av app för enheter för att ansluta till din IoT-hubb som en enhet.
+Anteckna enhetens anslutnings sträng från resultatet. Den här enhets anslutnings strängen används av Device-appen för att ansluta till din IoT Hub som en enhet.
 
 <!-- images and links -->

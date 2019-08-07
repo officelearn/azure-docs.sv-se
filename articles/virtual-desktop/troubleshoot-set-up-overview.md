@@ -1,57 +1,57 @@
 ---
-title: Windows virtuellt skrivbord översikt, feedback och support – Azure
-description: En översikt för att felsöka problem när du konfigurerar en miljö för virtuella Windows-skrivbordet organisationer.
+title: Översikt över fel sökning av virtuella Windows-datorer, feedback och support – Azure
+description: En översikt för fel sökning av problem när du konfigurerar en Windows-miljö för virtuella Skriv bords klienter.
 services: virtual-desktop
-author: ChJenk
+author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 04/08/2019
-ms.author: v-chjenk
-ms.openlocfilehash: b349d7f384c801e95d745f7a18535f9f5d13cf86
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.author: helohr
+ms.openlocfilehash: e652c8a67db686159a2c3fd48e2ea65888bcc10d
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67605215"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816346"
 ---
 # <a name="troubleshooting-overview-feedback-and-support"></a>Översikt, feedback och support för felsökning
 
-Den här artikeln innehåller en översikt över de problem du kan stöta på när du konfigurerar en miljö för virtuella Windows-skrivbordet organisationer och innehåller olika sätt att lösa problemen.
+Den här artikeln innehåller en översikt över de problem som du kan stöta på när du konfigurerar en Windows-klient för virtuella skriv bord och ger lösningar på problemen.
 
 ## <a name="provide-feedback"></a>Ge feedback
 
-Vi inte är för närvarande tar supportärenden när virtuella Windows-skrivbordet är i förhandsversionen. Gå till den [Windows Desktop Tech-Community virtuella](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) att diskutera virtuellt skrivbord i Windows-tjänsten med produktteamet och aktiva community-medlemmar.
+Vi tar för närvarande inte support ärenden när Windows Virtual Desktop är i för hands version. Besök [Windows-Tech](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) -communityn för Windows för att diskutera Windows Virtual Desktop-tjänsten med produkt teamet och aktiva community-medlemmar.
 
-## <a name="escalation-tracks"></a>Eskalering spår
+## <a name="escalation-tracks"></a>Eskalerade spår
 
-Använd följande tabell för att identifiera och lösa problem som kan uppstå när du installerar en klient-miljön med hjälp av fjärrskrivbordsklienten. När din klient är konfigurerat kan du använda vår nya [Diagnostics service](https://docs.microsoft.com/azure/virtual-desktop/diagnostics-role-service) att identifiera problem för vanliga scenarier.
+Använd följande tabell för att identifiera och lösa problem som kan uppstå när du konfigurerar en klient miljö med hjälp av fjärr skrivbords klienten. När din klient organisation har konfigurerat kan du använda vår nya [diagnostik-tjänst](https://docs.microsoft.com/azure/virtual-desktop/diagnostics-role-service) för att identifiera problem med vanliga scenarier.
 
 >[!NOTE]
->Vi inte är för närvarande tar supportärenden när virtuella Windows-skrivbordet är i förhandsversionen. När vi refererar till stöd för virtuella Windows-skrivbordet, kan du gå till vårt Tech Community-forum för tillfället. Gå till den [Windows Desktop Tech-Community virtuella](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) att diskutera problem med produktteamet och aktiva community-medlemmar. Om du vill lösa ett supportärende inkludera aktivitets-ID och ungefärliga tidsram för när problemet uppstod.
+>Vi tar för närvarande inte support ärenden när Windows Virtual Desktop är i för hands version. När vi refererar till stöd för virtuella Windows-datorer går du till vårt Tech community-forum för tillfället. Besök Tech-communityn för [Windows Virtual Desktop](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) för att diskutera problem med produkt teamet och aktiva community-medlemmar. Om du behöver lösa ett support ärende ska du inkludera aktivitets-ID och ungefärlig tidsram för när problemet uppstod.
 
-| **Problemet**                                                            | **Föreslagen lösning**  |
+| **Ge**                                                            | **Föreslagen lösning**  |
 |----------------------------------------------------------------------|-------------------------------------------------|
-| Skapa en klient                                                    | Om det finns ett avbrott i Azure, kontakta [supporten](https://azure.microsoft.com/support/options/); annars Kontakta **stöd för Remote Desktop Services/Windows virtuellt skrivbord**.|
-| Åtkomst till Marketplace-mallar i Azure-portalen       | Om det finns ett avbrott i Azure, kontakta [Azure-supporten](https://azure.microsoft.com/support/options/). <br> <br> Azure Marketplace Windows virtuellt skrivbord mallar är gratis.|
-| Åtkomst till Azure Resource Manager-mallar från GitHub                                  | Se avsnittet ”Skapa Windows virtuell värd för virtuella datorer” i [klient och värden lagringspoolen skapa](troubleshoot-set-up-issues.md). Om problemet fortfarande olösta kontaktar den [GitHub-supportteamet](https://github.com/contact). <br> <br> Om felet uppstår när du har åtkomst till mallen i GitHub, kontakta [Azure-supporten](https://azure.microsoft.com/support/options/).|
-| Sessionen pool Azure Virtual Network (VNET) och Express Route Värdinställningar               | Kontakta **Azure-supporten (nätverk)** . |
-| Sessionen värd pool skapa en virtuell dator (VM) när Azure Resource Manager-mallar som medföljer Windows virtuella skrivbordet inte används | Kontakta **Azure-supporten (beräkning)** . <br> <br> Problem med Azure Resource Manager-mallar som tillhandahålls med virtuella Windows-skrivbordet, finns i Skapa virtuella Windows-skrivbordet klient avsnittet av [klient och värden lagringspoolen skapa](troubleshoot-set-up-issues.md). |
-| Hantera virtuella Windows-skrivbordet värdmiljön för sessionen från Azure portal    | Kontakta **Azure-supporten**. <br> <br> Av hanteringsproblem när du använder Remote Desktop Services/Windows Virtual Desktop PowerShell, se [Windows PowerShell för virtuella skrivbord](troubleshoot-powershell.md) eller kontakta den **Remote Desktop Services/Windows virtuellt skrivbord support-teamet** . |
-| Hantera virtuella Windows-skrivbordet konfigurationer är kopplad till värden pooler och programgrupper (app-grupper)      | Se [Windows PowerShell för virtuella skrivbord](troubleshoot-powershell.md), eller kontakta den **Remote Desktop Services/Windows virtuellt skrivbord supportteamet**. <br> <br> Om problem är knutna till det grafiska användargränssnittet (GUI) för exemplet, kan du nå ut till Yammer-community.|
-| Fjärrskrivbordsklienter skador på start                                                 | Se [Remote Desktop-klientanslutningar](troubleshoot-client-connection.md) och om detta inte löser problemet, kontakta **Remote Desktop Services/Windows virtuellt skrivbord supportteamet**.  <br> <br> Om det är ett nätverksproblem, måste användarna kontakta nätverksadministratören. |
-| Nätverket är anslutet men ingen feed                                                                 | Felsök med hjälp av den ”användare ansluter men inget att visas (inga matning)” avsnittet av [Remote Desktop-klientanslutningar](troubleshoot-client-connection.md). <br> <br> Om dina användare har tilldelats till en appgrupp, eskalera till den **Remote Desktop Services/Windows virtuellt skrivbord supportteamet**. |
-| Feed-identifiering av problem på grund av nätverket                                            | Användarna måste du kontakta nätverksadministratören. |
-| Anslutande klienter                                                                    | Se [Remote Desktop-klientanslutningar](troubleshoot-client-connection.md) och om det inte löser problemet, se [Session Värdkonfiguration för virtuell dator](troubleshoot-vm-configuration.md). |
-| Svarstiden för fjärrprogram eller desktop                                      | Om problem är knutna till ett visst program eller en produkt, kontakta teamet som ansvarar för den här produkten. |
-| Licensiering meddelanden eller fel                                                          | Om problem är knutna till ett visst program eller en produkt, kontakta teamet som ansvarar för den här produkten. |
+| Skapa en klient                                                    | Kontakta [Azure](https://azure.microsoft.com/support/options/)-supporten om det uppstår ett Azure-avbrott. Annars kontaktar du **Fjärrskrivbordstjänster/Windows stöd för virtuella skriv bord**.|
+| Åtkomst till Marketplace-mallar i Azure Portal       | Om det uppstår ett Azure-avbrott kan du kontakta [Azure](https://azure.microsoft.com/support/options/)-supporten. <br> <br> Windows Virtual Desktop-mallar för Azure Marketplace är tillgängliga på ett kostnads fritt.|
+| Få åtkomst till Azure Resource Manager mallar från GitHub                                  | Se avsnittet "skapa virtuella datorer med virtuella skriv bord för fjärrskrivbordssession" i [klient-och anslutningspoolen](troubleshoot-set-up-issues.md). Kontakta [GitHub support-teamet](https://github.com/contact)om problemet fortfarande inte är löst. <br> <br> Kontakta [Azure](https://azure.microsoft.com/support/options/)-supporten om felet uppstår när du har åtkomst till mallen i GitHub.|
+| Session Host pool Azure-Virtual Network (VNET) och Express Route-inställningar               | Kontakta **Azure-supporten (nätverk)** . |
+| Skapa virtuell dator för Session Host pool (VM) när Azure Resource Manager mallar som medföljer Windows Virtual Desktop används inte | Kontakta **Azure-supporten (Compute)** . <br> <br> Om du har problem med Azure Resource Manager mallar som medföljer Windows Virtual Desktop kan du läsa avsnittet Skapa Windows-klient för virtuella skriv bord för [klient organisation och skapa värddator](troubleshoot-set-up-issues.md). |
+| Hantera Windows virtuell skrivbord värd miljö från Azure Portal    | Kontakta **Azure**-supporten. <br> <br> För hanterings problem när du använder Fjärrskrivbordstjänster/Windows Virtual Desktop PowerShell, se [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md) eller kontakta **support teamet för Fjärrskrivbordstjänster/Windows-support för virtuella skriv bord**. |
+| Hantera konfiguration av virtuella Windows-skrivbordet knutna till värdar och program grupper (app-grupper)      | Se [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md)eller kontakta **support teamet för Fjärrskrivbordstjänster/Windows Virtual Desktop**. <br> <br> Om problemen är knutna till det grafiska användar gränssnittet i exemplet kan du kontakta Yammer-communityn.|
+| Fjärr skrivbords klienter fungerar inte på Start                                                 | Se [fjärr skrivbords klient anslutningar](troubleshoot-client-connection.md) och om det inte löser problemet kontaktar du **Fjärrskrivbordstjänster/Windows Virtual Desktop support team**.  <br> <br> Om det är ett nätverks problem måste användarna kontakta sin nätverks administratör. |
+| Ansluten men ingen feed                                                                 | Felsök med hjälp av avsnittet "användaren ansluter men ingenting visas (ingen feed)" i [fjärr skrivbords klient anslutningar](troubleshoot-client-connection.md). <br> <br> Om dina användare har tilldelats en app-grupp eskalerar du till **support teamet Fjärrskrivbordstjänster/Windows Virtual Desktop**. |
+| Problem med identifiering av feed på grund av nätverket                                            | Användarna måste kontakta sin nätverks administratör. |
+| Ansluta klienter                                                                    | Se [fjärr skrivbords klient anslutningar](troubleshoot-client-connection.md) och om det inte löser problemet kan du se [konfiguration av virtuell dator i Session Host](troubleshoot-vm-configuration.md). |
+| Svars tider för fjärrprogram eller skriv bord                                      | Om problemen är knutna till en specifik applikation eller produkt kontaktar du det team som ansvarar för produkten. |
+| Licensierings meddelanden eller fel                                                          | Om problemen är knutna till en specifik applikation eller produkt kontaktar du det team som ansvarar för produkten. |
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Felsökning av problem när du skapar en pool med klient- och värden i en miljö med virtuella Windows-skrivbordet beskrivs [klient och värden lagringspoolen skapa](troubleshoot-set-up-issues.md).
-- Felsökning av problem när du konfigurerar en virtuell dator (VM) i virtuella Windows-skrivbordet beskrivs [Session Värdkonfiguration för virtuell dator](troubleshoot-vm-configuration.md).
-- Felsökning av problem med virtuella skrivbord i Windows-klientanslutningar beskrivs [Remote Desktop-klientanslutningar](troubleshoot-client-connection.md).
-- När du felsöker problem när du använder PowerShell med virtuella Windows-skrivbordet, se [Windows PowerShell för virtuella skrivbord](troubleshoot-powershell.md).
-- Läs mer om förhandsversionen av tjänsten i [Windows Desktop förhandsversionsmiljön](https://docs.microsoft.com/azure/virtual-desktop/environment-setup).
-- Om du vill gå igenom en självstudiekurs om felsökning finns i [självstudien: Felsöka malldistributioner för Resource Manager-](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot).
-- Läs om granskning åtgärder i [granskningsåtgärder med Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
-- Mer information om åtgärder för att avgöra felen under distributionen, se [visa distributionsåtgärder](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations).
+- Information om hur du felsöker problem när du skapar en klient och en adresspool i en Windows Virtual Desktop-miljö finns i [skapa innehavare och skapa värdar för pooler](troubleshoot-set-up-issues.md).
+- Information om hur du felsöker problem när du konfigurerar en virtuell dator (VM) i Windows Virtual Desktop finns i [konfiguration av Session Host-dator](troubleshoot-vm-configuration.md).
+- Information om hur du felsöker problem med klient anslutningar för virtuella Windows-datorer finns i [fjärr skrivbords klient anslutningar](troubleshoot-client-connection.md).
+- Information om hur du felsöker problem när du använder PowerShell med Windows Virtual Desktop finns i [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md).
+- Mer information om för hands versions tjänsten finns i [Windows Desktop Preview-miljö](https://docs.microsoft.com/azure/virtual-desktop/environment-setup).
+- Information om hur du går igenom en fel [söknings kurs finns i Självstudier: Felsök distributioner](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot)av Resource Manager-mallar.
+- Mer information om gransknings åtgärder finns i [gransknings åtgärder med Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
+- Information om åtgärder för att fastställa felen under distributionen finns i [Visa distributions åtgärder](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations).

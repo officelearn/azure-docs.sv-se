@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/22/2019
+ms.date: 08/02/2019
 ms.author: magoedte
-ms.openlocfilehash: 96a312630c92048f36f79e3bec18f83ed5a445ff
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: e1fca1532352c4955f478df70f818ee3151053c1
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68414131"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742212"
 ---
 # <a name="azure-monitor-for-containers-overview"></a>Azure Monitor för översikt över behållare
 
@@ -40,9 +40,11 @@ Azure Monitor för behållare ger en omfattande övervaknings upplevelse med oli
 * Konfigurera aviseringar för att proaktivt meddela dig eller registrera den när processor-och minnes användning på noder eller behållare överskrider tröskelvärdena.
 * Integrera med [Prometheus](https://prometheus.io/docs/introduction/overview/) för att visa program-och arbets belastnings mått som samlas in från noder och Kubernetes med hjälp av [frågor](container-insights-log-search.md) för att skapa anpassade aviseringar, instrument paneler och detaljerad analys.
 
->[!NOTE]
->Stöd för Prometheus är en funktion i offentlig för hands version för tillfället.
->
+    >[!NOTE]
+    >Stöd för Prometheus är en funktion i offentlig för hands version för tillfället.
+    >
+
+* Övervaka arbets belastningar [för behållare distribuerade till AKS-motor](https://github.com/microsoft/OMS-docker/tree/aks-engine).
 
 Titta på följande videoklipp med en mellanliggande nivå för att hjälpa dig att lära dig mer om att övervaka ditt AKS-kluster med Azure Monitor för behållare.
 

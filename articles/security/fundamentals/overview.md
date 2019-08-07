@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 62fd2c3f46104fdf3193f105c234f1dae417b0fd
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 527c9cfa64eab9fe2286098d2c10186391bdde4d
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726870"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780576"
 ---
 # <a name="introduction-to-azure-security"></a>Introduktion till Azure-säkerhet
 ## <a name="overview"></a>Översikt
@@ -114,7 +114,7 @@ Avsnittet innehåller ytterligare information om viktiga funktioner i program s�
 Ett av de enklaste sätten att komma igång med att testa om säkerhets risker i [App Service-appen](https://docs.microsoft.com/azure/app-service/overview) är att använda [integrering med TINFOIL-säkerhet](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) för att utföra en sårbarhets sökning i ett enda klick i din app. Du kan visa test resultaten i en lättanvänd rapport och lära dig hur du åtgärdar varje sårbarhet med stegvisa instruktioner.
 
 ### <a name="penetration-testing"></a>Genomslagstestning
-Om du föredrar att utföra dina egna inläsnings test eller om du vill använda ett annat skanner paket eller en annan leverantör måste du följa [godkännande processen för Azure](https://docs.microsoft.com/azure/security/azure-security-pen-testing ) -inträngning och få ett tidigare godkännande för att kunna utföra önskade inläsnings test.
+Om du föredrar att utföra dina egna inläsnings test eller om du vill använda ett annat skanner paket eller en annan leverantör måste du följa [godkännande processen för Azure](https://docs.microsoft.com/azure/security/fundamentals/pen-testing ) -inträngning och få ett tidigare godkännande för att kunna utföra önskade inläsnings test.
 
 ### <a name="web-application-firewall"></a>Brand vägg för webbaserade program
 Brand väggen för webbaserade program (WAF) i [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) skyddar webb program från vanliga webbaserade attacker som SQL-inmatning, Cross-Site skript attacker och kapning av sessioner. Den är förkonfigurerad med skydd mot hot som identifieras av [OWASP (Open Web Application Security Project) som de viktigaste 10 vanligaste säkerhets problemen](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project).
@@ -313,7 +313,7 @@ Tillgängliga nätverks rekommendationer är följande:
 Avsnittet innehåller ytterligare information om viktiga funktioner i det här området och sammanfattnings information om dessa funktioner.
 
 ### <a name="antimalware--antivirus"></a>Antivirus program & antivirus
-Med Azure IaaS kan du använda program mot skadlig kod från säkerhets leverantörer som Microsoft, Symantec, Trend Micro, McAfee och Kasper Sky för att skydda dina virtuella datorer från skadliga filer, annons program och andra hot. [Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) för Azure Cloud Services och Virtual Machines är en skydds funktion som hjälper dig att identifiera och ta bort virus, spionprogram och annan skadlig program vara. Microsoft Antimalware tillhandahåller konfigurerbara aviseringar när kända skadlig eller oönskad program vara försöker installera sig själv eller köra på dina Azure-system. Microsoft Antimalware kan också distribueras med hjälp av Azure Security Center
+Med Azure IaaS kan du använda program mot skadlig kod från säkerhets leverantörer som Microsoft, Symantec, Trend Micro, McAfee och Kasper Sky för att skydda dina virtuella datorer från skadliga filer, annons program och andra hot. [Microsoft Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware) för Azure Cloud Services och Virtual Machines är en skydds funktion som hjälper dig att identifiera och ta bort virus, spionprogram och annan skadlig program vara. Microsoft Antimalware tillhandahåller konfigurerbara aviseringar när kända skadlig eller oönskad program vara försöker installera sig själv eller köra på dina Azure-system. Microsoft Antimalware kan också distribueras med hjälp av Azure Security Center
 
 ### <a name="hardware-security-module"></a>Modul för maskin varu säkerhet
 Kryptering och autentisering förbättrar inte säkerheten om inte själva nycklarna är skyddade. Du kan förenkla hanteringen och säkerheten för viktiga hemligheter och nycklar genom att lagra dem i [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis). Key Vault ger dig möjlighet att lagra dina nycklar i HSM: er (Hardware Security modules) som är certifierade enligt standarden FIPS 140-2 på nivå 2. Dina SQL Server krypterings nycklar för säkerhets kopiering eller [transparent data kryptering](https://msdn.microsoft.com/library/bb934049.aspx) kan lagras i Key Vault med alla nycklar och hemligheter från dina program. Behörigheter och åtkomst till dessa skyddade objekt hanteras via [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/).

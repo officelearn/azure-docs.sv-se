@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Konfigurera Salesforce för automatisk användaretablering med Azure Active Directory | Microsoft Docs'
+title: 'Självstudier: Konfigurera Salesforce för automatisk användar etablering med Azure Active Directory | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Salesforce.
 services: active-directory
 documentationCenter: na
@@ -12,112 +12,115 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/08/2018
+ms.date: 08/01/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 712cc5ce62225987f8cc3ea13b5e4fd10a7d5eaf
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 64de004a1d9b3aa011c447fdded51658582586b0
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60515804"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68825774"
 ---
-# <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Salesforce för automatisk användaretablering
+# <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Salesforce för automatisk användar etablering
 
-Målet med den här självstudien är att visa steg som krävs för att utföra i Salesforce och Azure AD för att automatiskt etablera och användares användarkonton från Azure AD för till Salesforce.
+Syftet med den här självstudien är att visa de steg som krävs för att utföra i Salesforce och Azure AD för att automatiskt etablera och avetablera användar konton från Azure AD till Salesforce.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande objekt:
 
-* En Azure Active directory-klient
-* En Salesforce.com-klientorganisation
+* En Azure Active Directory-klient
+* En Salesforce.com-klient
 
 > [!IMPORTANT]
-> Om du använder ett utvärderingskonto för Salesforce.com, sedan går du inte att konfigurera automatisk användaretablering. Utvärderingskonton har inte de nödvändiga API-åtkomst aktiverat tills de köps. Du kan komma runt denna begränsning med hjälp av en kostnadsfri [utvecklarkonto](https://developer.salesforce.com/signup) att slutföra den här självstudien.
+> Om du använder ett Salesforce.com utvärderings konto kan du inte konfigurera automatisk användar etablering. Utvärderings kontona har inte den nödvändiga API-åtkomsten aktiverat förrän de har köpts. Du kan komma runt den här begränsningen genom att använda ett kostnads fritt [utvecklare](https://developer.salesforce.com/signup) för att slutföra den här kursen.
 
-Om du använder en testmiljö för Salesforce, finns det [Salesforce Sandbox-integrationsvägledning](https://go.microsoft.com/fwLink/?LinkID=521879).
+Om du använder en sandbox-miljö med en Salesforce-miljö kan du läsa självstudien för [Salesforce-integrering](https://go.microsoft.com/fwLink/?LinkID=521879).
 
 ## <a name="assigning-users-to-salesforce"></a>Tilldela användare till Salesforce
 
-Azure Active Directory använder ett begrepp som kallas ”tilldelningar” för att avgöra vilka användare får åtkomst till valda appar. I samband med automatisk användarkontoetablering, synkroniseras de användare och grupper som är ”kopplade” till ett program i Azure AD.
+Azure Active Directory använder ett begrepp som kallas "tilldelningar" för att avgöra vilka användare som ska få åtkomst till valda appar. I kontexten för automatisk användar konto etablering synkroniseras endast de användare och grupper som har tilldelats till ett program i Azure AD.
 
-Innan du konfigurerar och aktiverar etableringstjänsten, måste du bestämma vilka användare eller grupper i Azure AD behöver åtkomst till ditt Salesforce-app. När du har gjort detta beslut, du kan tilldela dessa användare till din Salesforce-app genom att följa instruktionerna i [tilldela en användare eller grupp till en företagsapp](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+Innan du konfigurerar och aktiverar etablerings tjänsten måste du bestämma vilka användare eller grupper i Azure AD som behöver åtkomst till din Salesforce-app. När du har gjort det här beslutet kan du tilldela dessa användare till din Salesforce-app genom att följa instruktionerna i [tilldela en användare eller grupp till en företags app](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
 ### <a name="important-tips-for-assigning-users-to-salesforce"></a>Viktiga tips för att tilldela användare till Salesforce
 
-* Vi rekommenderar att en enda Azure AD-användare har tilldelats Salesforce för att testa etablering konfigurationen. Ytterligare användare och/eller grupper kan tilldelas senare.
+* Vi rekommenderar att en enda Azure AD-användare tilldelas Salesforce för att testa etablerings konfigurationen. Ytterligare användare och/eller grupper kan tilldelas senare.
 
-* Du måste välja en giltig användarroll när du tilldelar en användare till Salesforce. Rollen ”standard åtkomst” fungerar inte för etablering
+* När du tilldelar en användare till Salesforce måste du välja en giltig användar roll. Rollen "standard åtkomst" fungerar inte för etablering
 
     > [!NOTE]
-    > Den här appen importerar profiler från Salesforce som en del av etableringen, som kunden kanske du väljer när du tilldelar användare i Azure AD. Observera att de profiler som importeras från Salesforce visas som roller i Azure AD.
+    > Den här appen importerar profiler från Salesforce som en del av etablerings processen, som kunden kanske vill välja när de tilldelar användare i Azure AD. Observera att profilerna som importeras från Salesforce visas som roller i Azure AD.
 
-## <a name="enable-automated-user-provisioning"></a>Aktivera automatisk användaretablering
+## <a name="enable-automated-user-provisioning"></a>Aktivera automatisk användar etablering
 
-Det här avsnittet hjälper dig att ansluta din Azure AD till Salesforces användarkonto etablering API och konfigurera etableringstjänsten att skapa, uppdatera och inaktivera tilldelade användarkonton i Salesforce baserat på användar- och grupptilldelningar i Azure AD.
+Det här avsnittet vägleder dig genom att ansluta Azure AD till Salesforces etablerings-API för användar konton och konfigurera etablerings tjänsten för att skapa, uppdatera och inaktivera tilldelade användar konton i Salesforce baserat på användare och grupp tilldelning i Azure AD.
 
 > [!Tip]
-> Du kan också välja att aktiveras SAML-baserad enkel inloggning för Salesforce, följa anvisningarna enligt [Azure-portalen](https://portal.azure.com). Enkel inloggning kan konfigureras oberoende av Automatisk etablering, även om de här två funktionerna komplettera varandra.
+> Du kan också välja att aktivera SAML-baserad enkel inloggning för Salesforce genom att följa anvisningarna i [Azure Portal](https://portal.azure.com). Enkel inloggning kan konfigureras oberoende av automatisk etablering, även om dessa två funktioner är gemensamt.
 
-### <a name="configure-automatic-user-account-provisioning"></a>Konfigurera automatisk användarens kontoetablering
+### <a name="configure-automatic-user-account-provisioning"></a>Konfigurera automatisk etablering av användar konto
 
-Målet med det här avsnittet som beskriver hur du aktiverar etableringen av användare i Active Directory-användarkonton till Salesforce.
+Syftet med det här avsnittet är att skapa en översikt över hur du aktiverar användar etablering av Active Directory användar konton till Salesforce.
 
-1. I den [Azure-portalen](https://portal.azure.com), bläddra till den **Azure Active Directory > Företagsappar > alla program** avsnittet.
+1. I [Azure Portal](https://portal.azure.com)bläddrar du till avsnittet **Azure Active Directory > Enterprise-appar > alla program** .
 
-2. Om du redan har konfigurerat Salesforce för enkel inloggning, söka efter din instans av Salesforce med sökfältet. Annars väljer **Lägg till** och Sök efter **Salesforce** i programgalleriet. Välj Salesforce i sökresultatet och lägga till den i din lista över program.
+2. Om du redan har konfigurerat Salesforce för enkel inloggning söker du efter din instans av Salesforce med Sök fältet. Annars väljer du **Lägg till** och Sök efter **Salesforce** i program galleriet. Välj Salesforce från Sök resultaten och Lägg till det i listan över program.
 
-3. Välj din instans av Salesforce och välj sedan den **etablering** fliken.
+3. Välj din instans av Salesforce och välj sedan fliken **etablering** .
 
-4. Ange den **Etableringsläge** till **automatisk**.
+4. Ställ in **etablerings läget** på **automatiskt**.
 
-    ![Etablering](./media/salesforce-provisioning-tutorial/provisioning.png)
+    ![etablering](./media/salesforce-provisioning-tutorial/provisioning.png)
 
-5. Under den **administratörsautentiseringsuppgifter** avsnittet tillhandahåller följande konfigurationsinställningar:
+5. Ange följande konfigurations inställningar under avsnittet **admin credentials** :
 
-    a. I den **Admin Username** textrutan skriver ett Salesforce-kontonamn som har den **systemadministratören** profil i Salesforce.com som tilldelats.
+    a. I text rutan **admin-användar** namn anger du ett Salesforce-kontonamn som har **system administratörs** profilen i Salesforce.com tilldelad.
 
-    b. I den **adminlösenord** textrutan skriver du lösenordet för det här kontot.
+    b. I text rutan **Administratörs lösen ord** skriver du lösen ordet för det här kontot.
 
-6. Om du vill hämta din Salesforce säkerhetstoken, öppna en ny flik och logga till samma Salesforce-administratörskonto. I det övre högra hörnet på sidan klickar du på ditt namn och sedan på **inställningar**.
+6. Om du vill hämta din Salesforce-säkerhetstoken öppnar du en ny flik och loggar in på samma Salesforce-administratörskonto. Klicka på ditt namn i det övre högra hörnet på sidan och klicka sedan på **Inställningar**.
 
-    ![Aktivera automatisk användaretablering](./media/salesforce-provisioning-tutorial/sf-my-settings.png "aktivera automatisk användaretablering")
+    ![Aktivera automatisk användar etablering](./media/salesforce-provisioning-tutorial/sf-my-settings.png "Aktivera automatisk användar etablering")
 
-7. I det vänstra navigeringsfönstret klickar du på **mina personuppgifter** Expandera avsnittet relaterade och klicka sedan på **återställa Mina Security Token**.
+7. I det vänstra navigerings fönstret klickar du på **Mina personliga uppgifter** för att expandera det relaterade avsnittet och klicka sedan på **Återställ min säkerhetstoken**.
   
-    ![Aktivera automatisk användaretablering](./media/salesforce-provisioning-tutorial/sf-personal-reset.png "aktivera automatisk användaretablering")
+    ![Aktivera automatisk användar etablering](./media/salesforce-provisioning-tutorial/sf-personal-reset.png "Aktivera automatisk användar etablering")
 
-8. På den **återställa Security Token** klickar du på **återställa Security Token** knappen.
+8. På sidan **Återställ** säkerhetstoken klickar du på knappen **Återställ säkerhetstoken** .
 
-    ![Aktivera automatisk användaretablering](./media/salesforce-provisioning-tutorial/sf-reset-token.png "aktivera automatisk användaretablering")
+    ![Aktivera automatisk användar etablering](./media/salesforce-provisioning-tutorial/sf-reset-token.png "Aktivera automatisk användar etablering")
 
-9. Kontrollera Inkorgen för e-post som är associerade med den här administratörskonto. Leta efter ett e-postmeddelande från Salesforce.com som innehåller nya säkerhetstoken.
+9. Kontrol lera e-postinkorgen som är associerad med det här administratörs kontot. Sök efter ett e-postmeddelande från Salesforce.com som innehåller den nya säkerhetstoken.
 
-10. Kopiera token, gå till din Azure AD-fönstret och klistra in den i den **hemlighet Token** fält.
+10. Kopiera token, gå till Azure AD-fönstret och klistra in den i fältet **hemlig token** .
 
-11. Den **klient-URL** ska anges om Salesforce-instansen finns på Salesforce Government-molnet. I annat fall kan det är valfritt. Ange klient-URL i formatet för ”https://\<din instans\>. my.salesforce.com”, ersätter \<din instans\> med namnet på din Salesforce-instans.
+11. **Klient-URL: en** måste anges om instansen av Salesforce finns på molnet för Salesforce-myndigheter. Annars är det valfritt. Ange klient webb adressen\<med formatet "https://Your-instance\>. My.Salesforce.com" och Ersätt \<din-instance\> med namnet på din Salesforce-instans.
 
-12. I Azure-portalen klickar du på **Testanslutningen** att se till att Azure AD kan ansluta till ditt Salesforce-app.
+12. I Azure Portal klickar du på **Testa anslutning** för att se till att Azure AD kan ansluta till din Salesforce-app.
 
-13. I den **e-postmeddelande** fältet, anger du den e-postadressen för en person eller grupp som ska ta emot meddelanden om etablering fel och markera kryssrutan nedan.
+13. I fältet **e-postavisering** anger du e-postadressen till den person eller grupp som ska få etablerings fel meddelanden och markerar kryss rutan nedan.
 
-14. Klicka på **spara.**  
+14. Klicka på **Spara.**  
 
-15. Under avsnittet mappningar väljer **synkronisera Azure Active Directory-användare till Salesforce.**
+15. Under avsnittet mappningar väljer du **synkronisera Azure Active Directory användare till Salesforce.**
 
-16. I den **attributmappningar** går du igenom användarattribut som synkroniseras från Azure AD till Salesforce. Observera att attribut som är markerade som **matchande** egenskaper som används för att matcha användarkonton i Salesforce för uppdateringsåtgärder. Välj knappen Spara för att genomföra ändringarna.
+16. I avsnittet **mappningar för attribut** granskar du de användarattribut som synkroniseras från Azure AD till Salesforce. Observera att attributen som har valts som **matchande** egenskaper används för att matcha användar kontona i Salesforce för uppdaterings åtgärder. Välj knappen Spara för att genomföra ändringarna.
 
-17. Om du vill aktivera den Azure AD-etableringstjänsten för Salesforce, ändra den **Etableringsstatus** till **på** i avsnittet Inställningar
+17. Om du vill aktivera Azure AD Provisioning-tjänsten för Salesforce ändrar du **etablerings statusen** till **på** i avsnittet Inställningar
 
-18. Klicka på **spara.**
+18. Klicka på **Spara.**
 
-Detta startar den första synkroniseringen av användare och/eller grupper som har tilldelats till Salesforce i avsnittet användare och grupper. Observera att den inledande synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar som sker ungefär var 40 minut så länge som tjänsten körs. Du kan använda den **synkroniseringsinformation** avsnitt för att övervaka förloppet och följer länkar till att etablera aktivitetsloggar som beskriver alla åtgärder som utförs av etableringstjänsten på din Salesforce-app.
+> [!NOTE]
+> När användarna har tillhandahållits i Salesforce-programmet måste administratören konfigurera språkspecifika inställningar för dem. I [den här](https://help.salesforce.com/articleView?id=setting_your_language.htm&type=5) artikeln finns mer information om språk konfiguration.
+
+Detta startar den inledande synkroniseringen av alla användare och/eller grupper som tilldelats Salesforce i avsnittet användare och grupper. Observera att den inledande synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar, vilket inträffar ungefär var 40: e minut så länge tjänsten körs. Du kan använda avsnittet **synkroniseringsinformation** för att övervaka förloppet och följa länkar till etablering av aktivitets loggar, som beskriver alla åtgärder som utförs av etablerings tjänsten i Salesforce-appen.
 
 Mer information om hur du läser den Azure AD etablering loggar finns i [rapportering om automatisk användarkontoetablering](../manage-apps/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantering av användarkontoetablering för Företagsappar](tutorial-list.md)
+* [Hantera användar konto etablering för företags program](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 * [Konfigurera enkel inloggning](https://docs.microsoft.com/azure/active-directory/active-directory-saas-salesforce-tutorial)

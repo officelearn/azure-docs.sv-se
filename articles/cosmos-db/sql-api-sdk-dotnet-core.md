@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: ce22efd6eccdc067b05697b8389c821c4c01a347
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 58db76401439befd476bc78c1a1a20eeed5c2342
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638606"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779172"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB .NET Core SDK för SQL-API: Viktig information och resurser
 > [!div class="op_single_selector"]
@@ -45,13 +45,18 @@ ms.locfileid: "68638606"
 > [!NOTE]
 > Om du använder .NET Core, se den senaste versionen 3. x av [.NET SDK](sql-api-sdk-dotnet-standard.md), som är riktad mot .net standard. 
 
+### <a name="a-name251251"></a><a name="2.5.1"/>2.5.1
+
+* SDK: s system .net. http-version matchar nu vad som definieras i NuGet-paketet.
+* Tillåt Skriv förfrågningar för att återgå till en annan region om den ursprungliga misslyckades.
+* Lägg till princip för återförsök av session för Skriv förfrågan.
+
 ### <a name="a-name241241"></a><a name="2.4.1"/>2.4.1
 
 * Åtgärdar villkor för att spåra tävling för frågor som orsakade tomma sidor
 
 ### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
 
-* SDK: s system .net. http-version matchar vad som definieras i NuGet-paketet
 * Ökad decimal precisions storlek för LINQ-frågor.
 * Nya klasser har lagts till CompositePath, CompositePathSortOrder, SpatialSpec, SpatialType och PartitionKeyDefinitionVersion
 * Lade till TimeToLivePropertyPath till DocumentCollection
@@ -250,6 +255,7 @@ Om du har frågor som rör detta SDK, publicera på [StackOverflow](https://stac
 
 | Version | Utgivningsdatum | Slutdatum |
 | --- | --- | --- |
+| [2.5.1](#2.5.1) |Den 02 juli 2019 |--- |
 | [2.4.1](#2.4.1) |20 juni 2019 |--- |
 | [2.4.0](#2.4.0) |Maj 05, 2019 |--- |
 | [2.3.0](#2.3.0) |04 april 2019 |--- |

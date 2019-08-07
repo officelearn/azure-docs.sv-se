@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e58762bd5bf4342804767a200c94b432dd152a0
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: e5dc1c3fb7ae12c36a8c1fe383290435c03ee0c4
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562219"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68741373"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Anvisningar: Planera implementeringen av Azure AD-anslutningen
 
@@ -68,7 +68,11 @@ De här scenarierna kräver inte att du konfigurerar en Federations Server för 
 En federerad miljö bör ha en identitets leverantör som stöder både WS-Trust och WS-utfodras protokoll:
 
 - **WS-utfodras:** Det här protokollet krävs för att ansluta en enhet till Azure AD.
-- **WS-förtroende:** Det här protokollet krävs för att logga in på en Azure AD-ansluten enhet. 
+- **WS-förtroende:** Det här protokollet krävs för att logga in på en Azure AD-ansluten enhet.
+När du använder AD FS måste du aktivera följande WS-Trust-slutpunkter:`/adfs/services/trust/2005/usernamemixed`
+ `/adfs/services/trust/13/usernamemixed`
+ `/adfs/services/trust/2005/certificatemixed`
+ `/adfs/services/trust/13/certificatemixed`
 
 Om din identitetsprovider inte stöder dessa protokoll fungerar inte Azure AD Join. Från och med Windows 10 1809 kan användarna logga in på en Azure AD-ansluten enhet med en SAML-baserad identitets leverantör via [webb inloggning i Windows 10](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1809#web-sign-in-to-windows-10). För närvarande är webb inloggning en förhands gransknings funktion och rekommenderas inte för produktions distributioner.
 

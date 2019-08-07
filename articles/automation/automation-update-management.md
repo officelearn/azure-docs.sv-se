@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 150d30085976c89e9053d4715da98e487684e45c
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 1bb437511ed89de626489516ce5b06664ace6fba
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68717244"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68741842"
 ---
 # <a name="update-management-solution-in-azure"></a>Uppdateringshantering lösning i Azure
 
@@ -23,7 +23,7 @@ Du kan använda Uppdateringshantering lösning i Azure Automation för att hante
 Du kan aktivera Uppdateringshantering för virtuella datorer direkt från ditt Azure Automation-konto. Information om hur du aktiverar Uppdateringshantering för virtuella datorer från ditt Automation-konto finns i [Hantera uppdateringar för flera virtuella datorer](manage-update-multi.md). Du kan också aktivera Uppdateringshantering för en virtuell dator från sidan virtuell dator i Azure Portal. Det här scenariot är tillgängligt för virtuella [Linux](../virtual-machines/linux/tutorial-monitoring.md#enable-update-management) -och [Windows](../virtual-machines/windows/tutorial-monitoring.md#enable-update-management) -datorer.
 
 > [!NOTE]
-> Uppdateringshantering-lösningen kräver att du länkar en Log Analytics arbets yta till ditt Automation-konto. En slutgiltig lista över regioner som stöds finns i [https://docs.microsoft.com/en-us/azure/automation/how-to/region-mappings ]. Region mappningarna påverkar inte möjligheten att hantera virtuella datorer i en separat region än ditt Automation-konto.
+> Uppdateringshantering-lösningen kräver att du länkar en Log Analytics arbets yta till ditt Automation-konto. En slutgiltig lista över regioner som stöds finns i [mappningar för Azure-arbetsytor](./how-to/region-mappings.md). Region mappningarna påverkar inte möjligheten att hantera virtuella datorer i en separat region än ditt Automation-konto.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 

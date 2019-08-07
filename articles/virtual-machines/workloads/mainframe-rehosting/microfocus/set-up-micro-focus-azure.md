@@ -1,6 +1,6 @@
 ---
-title: Installera Micro fokus Enterprise Server 4.0 och företagsutvecklare 4.0 på Azure | Microsoft Docs
-description: Ange ny värd för dina IBM z/OS stordatorprogram arbetsbelastningar med Micro fokus utvecklingen och testmiljö i Azure virtual machines (VM).
+title: Installera Micro Focus Enterprise Server 4,0 och Enterprise Developer 4,0 på Azure | Microsoft Docs
+description: Revara värd för dina IBM z/OS-arbetsbelastningar med hjälp av Micro Focus-utveckling och test miljö på Azure Virtual Machines (VM).
 services: virtual-machines-linux
 documentationcenter: ''
 author: njray
@@ -11,116 +11,117 @@ ms.topic: conceptual
 ms.date: 05/29/2019
 tags: ''
 keywords: ''
-ms.openlocfilehash: de4bdcb14aa1b5aa1f757da7be4db7d93dd13ff0
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.service: multiple
+ms.openlocfilehash: a5426c3cd7552b24739f9a20e01d5a4b42bd383c
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620304"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68834568"
 ---
-# <a name="install-micro-focus-enterprise-server-40-and-enterprise-developer-40-on-azure"></a>Installera Micro fokus Enterprise Server 4.0 och företagsutvecklare 4.0 på Azure
+# <a name="install-micro-focus-enterprise-server-40-and-enterprise-developer-40-on-azure"></a>Installera Micro Focus Enterprise Server 4,0 och Enterprise Developer 4,0 på Azure
 
-Den här artikeln visar hur du ställer in [Micro fokus Enterprise Server 4.0](https://www.microfocus.com/documentation/enterprise-developer/es30/) och [Micro fokus Enterprise Developer 4.0](https://www.microfocus.com/documentation/enterprise-developer/ed_30/) på Azure.
+Den här artikeln visar hur du konfigurerar [Micro Focus Enterprise Server 4,0](https://www.microfocus.com/documentation/enterprise-developer/es30/) och [Micro Focus enterprise Developer 4,0](https://www.microfocus.com/documentation/enterprise-developer/ed_30/) på Azure.
 
-En gemensam arbetsbelastning i Azure är en miljö för utveckling och testning. Det här scenariot är vanligt eftersom det är så kostnadseffektivt och enkelt att distribuera och plocka ner. Med Enterprise-Server, har Micro fokus skapat en av de största stordatorprogram rehosting plattformarna tillgängliga. Du kan köra z/OS-arbetsbelastningar på en billigare x86 plattform på Azure med hjälp av antingen Windows eller Linux-datorer (VM).
+En gemensam arbets belastning i Azure är en utvecklings-och test miljö. Det här scenariot är vanligt eftersom det är så kostnads effektivt och enkelt att distribuera och avbryta. Med Enterprise Server har Micro Focus skapat en av de största tillgängliga plattformarna för stordatorer som är tillgängliga. Du kan köra z/OS-arbetsbelastningar på en billigare x86-plattform på Azure med antingen virtuella Windows-eller Linux-datorer (VM).
 
-Den här konfigurationen använder virtuella Azure-datorer som kör Windows Server 2016-avbildning från Azure Marketplace med Microsoft SQL Server 2017 är redan installerad. Den här inställningen gäller även för Azure Stack.
+Den här installationen använder virtuella Azure-datorer som kör Windows Server 2016-avbildningen från Azure Marketplace med Microsoft SQL Server 2017 redan har installerats. Den här inställningen gäller även för Azure Stack.
 
-Motsvarande utvecklingsmiljö för Enterprise Server är företagsutvecklare som kör antingen Microsoft Visual Studio 2017 eller senare, Visual Studio Community (gratis att ladda ned), eller Eclipse. Den här artikeln visar hur du distribuerar den med hjälp av en virtuell dator för Windows Server 2016 som levereras med Visual Studio 2017 eller senare installerad.
+Motsvarande utvecklings miljö för Enterprise Server är företags utvecklare, som körs på antingen Microsoft Visual Studio 2017 eller senare, Visual Studio Community (kostnads fri att ladda ned) eller Sol förmörkelse. Den här artikeln visar hur du distribuerar den med en virtuell Windows Server 2016-dator som medföljer Visual Studio 2017 eller senare installerat.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Kolla in dessa krav innan du börjar:
+Innan du börjar bör du gå igenom följande krav:
 
 - En Azure-prenumeration. Om du inte har ett konto kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-- Programvaran Micro fokus och en giltig licens (eller utvärderingslicens). Om du är en befintlig Micro fokus-kund kan du kontakta din Micro fokus-representant. I annat fall [begär en utvärderingsversion](https://www.microfocus.com/products/enterprise-suite/enterprise-server/trial/).
+- Micro Focus-programvaran och en giltig licens (eller prov licens). Om du är en befintlig Micro Focus-kund kontaktar du din Micro Focus-representant. Annars kan du [begära en utvärderings version](https://www.microfocus.com/products/enterprise-suite/enterprise-server/trial/).
 
-- Hämta dokumentationen för [Enterprise Server och företagsutvecklare](https://www.microfocus.com/documentation/enterprise-developer/#").
+- Hämta dokumentationen för [Enterprise Server och Enterprise Developer](https://www.microfocus.com/documentation/enterprise-developer/#").
 
 > [!NOTE]
-> Ett bra tips är att konfigurera en tunnel för plats-till-plats virtuellt privat nätverk (VPN) eller en jumpbox så att du kan styra åtkomsten till virtuella Azure-datorer.
+> Ett bra tips är att konfigurera en plats-till-plats-tunnel för virtuella privata nätverk (VPN) eller en hopp ruta så att du kan styra åtkomsten till de virtuella Azure-datorerna.
 
 ## <a name="install-enterprise-server"></a>Installera Enterprise Server
 
-1. Överväg att skapa en ny resursgrupp för det här projektet för bättre säkerhet och hanterbarhet – till exempel **RGMicroFocusEntServer**. Använd den första delen av namnet i Azure för att välja typ av resurs att göra det enklare att hitta i en lista.
+1. Överväg att skapa en ny resurs grupp för det här projektet, till exempel **RGMicroFocusEntServer**, för bättre säkerhet och hanterbarhet. Använd den första delen av namnet i Azure om du vill välja typ av resurs för att göra det lättare att hitta dem i en lista.
 
-2. Skapa en virtuell dator. Azure Marketplace, Välj den virtuella datorn och operativsystemet som du vill. Här är en rekommenderad konfiguration:
+2. Skapa en virtuell dator. Från Azure Marketplace väljer du den virtuella dator och det operativ system som du vill använda. Här är en rekommenderad installation:
 
-    - **Enterprise Server**: Välj ES2 v3 VM (med 2 virtuella processorer och 16 GB minne) med Windows Server 2016 och SQL Server 2017 installerat. Den här bilden är tillgängliga från Azure Marketplace. Enterprise Server kan också använda Azure SQL Database.
+    - **Enterprise Server**: Välj ES2 v3 VM (med 2 virtuella processorer och 16 GB minne) med Windows Server 2016 och SQL Server 2017 installerat. Den här avbildningen är tillgänglig från Azure Marketplace. Företags servern kan även använda Azure SQL Database.
 
-    - **Företagsutvecklare**: Välj B2ms virtuell dator (med 2 virtuella processorer och 8 GB minne) med Windows 10 och Visual Studio installerat. Den här bilden är tillgängliga från Azure Marketplace.
+    - **Enterprise-utvecklare**: Välj B2ms VM (med 2 virtuella processorer och 8 GB minne) med Windows 10 och Visual Studio installerat. Den här avbildningen är tillgänglig från Azure Marketplace.
 
-3. I den **grunderna** anger ditt användarnamn och lösenord. Välj den **prenumeration** och **plats/Region** som ska användas för de virtuella datorerna. Välj **RGMicroFocusEntServer** för resursgruppen.
+3. I avsnittet **grundläggande** anger du ditt användar namn och lösen ord. Välj den **prenumeration** och **plats/region** som du vill använda för de virtuella datorerna. Välj **RGMicroFocusEntServer** för resurs gruppen.
 
-4. Placera båda virtuella datorerna i samma virtuella nätverk så att de kan kommunicera med varandra.
+4. Sätt båda virtuella datorerna i samma virtuella nätverk så att de kan kommunicera med varandra.
 
-5. Acceptera standardinställningarna för resten av inställningarna. Kom ihåg att användarnamnet och lösenordet som du skapar för administratören för dessa virtuella datorer.
+5. Acceptera standardinställningarna för resten av inställningarna. Kom ihåg det användar namn och lösen ord som du skapar för administratören för dessa virtuella datorer.
 
-6. När de virtuella datorerna har skapats, öppna ingående portar 9003, 86 och 80 för HTTP och 3389 för RDP på Enterprise Server-datorn och 3389 på Developer-datorn.
+6. När de virtuella datorerna har skapats öppnar du de inkommande portarna 9003, 86 och 80 för HTTP och 3389 för RDP på Enterprise Server-datorn och 3389 på Developer-datorn.
 
-7. Välj den virtuella datorn v3 ES2 för att logga in till Enterprise Server-dator, Azure-portalen. Gå till den **översikt** och väljer **Connect** att starta en RDP-session. Logga in med de autentiseringsuppgifter som du skapade för den virtuella datorn.
+7. Om du vill logga in på den virtuella Enterprise Server-datorn väljer du den virtuella ES2 v3-datorn i Azure Portal. Gå till avsnittet **Översikt** och välj **Anslut** för att starta en RDP-session. Logga in med de autentiseringsuppgifter som du skapade för den virtuella datorn.
 
-8. Läsa in följande två filer från RDP-session. Eftersom du använder Windows kan du dra och släppa filer till RDP-session:
+8. Läs in följande två filer från RDP-sessionen. Eftersom du använder Windows kan du dra och släppa filerna i RDP-sessionen:
 
-    - **ES\_40. exe**, Enterprise Server-installationsfilen.
+    - **es\_40. exe**, installations filen för företags servern.
 
-    - **mflic**, motsvarande licensfilen – Enterprise Server inte kan läsas in utan den.
+    - **mflic**, motsvarande licens fil – Enterprise Server läser inte in utan den.
 
-9. Dubbelklicka på filen för att starta installationen. I det första fönstret Välj installationsplats och acceptera licensavtalet för slutanvändare.
+9. Starta installationen genom att dubbelklicka på filen. I det första fönstret väljer du installations platsen och accepterar slut användar avtalet.
 
-     ![Micro fokus Enterprise Server-konfiguration av företagsåtkomst](media/01-enterprise-server.png)
+     ![Installations skärmen för Micro Focus Enterprise Server](media/01-enterprise-server.png)
 
      När installationen är klar visas följande meddelande:
 
-     ![Micro fokus Enterprise Server-konfiguration av företagsåtkomst](media/02-enterprise-server.png)
+     ![Installations skärmen för Micro Focus Enterprise Server](media/02-enterprise-server.png)
 
 ### <a name="check-for-updates"></a>Sök efter uppdateringar
 
-Efter installationen, måste du söka efter eventuella ytterligare uppdateringar sedan ett antal förutsättningar som Microsoft C++ Redistributable och .NET Framework installeras tillsammans med Enterprise Server.
+Efter installationen måste du kontrol lera om det finns fler uppdateringar, till exempel Microsoft C++ redistributable och .NET Framework installeras tillsammans med Enterprise Server.
 
 ### <a name="upload-the-license"></a>Ladda upp licensen
 
-1. Starta Micro fokus licens Administration.
+1. Starta licens administration för Micro Focus.
 
-2. Klicka på **starta** \> **Micro fokus License Manager** \> **licens Administration**, och klicka sedan på den **installera** fliken. Välj typ av licens-format för att ladda upp: en licensfil eller en licenskod på 16 tecken. Till exempel för en fil i **licensfil**, bläddra till den **mflic** tidigare överföra filen till den virtuella datorn och välj **installera licenser**.
+2. Klicka på **Start** \> **Micro Focus** \> License Manager **License administration**och klicka sedan på fliken **Installera** . Välj typ av licens format som ska överföras: en licens fil eller en licens kod på 16 tecken. Till exempel, i **licens fil**, bläddrar du till **mflic** -filen som laddades upp tidigare till den virtuella datorn och väljer **Installera licenser**.
 
-     ![Dialogrutan för Micro fokus licens Administration](media/03-enterprise-server.png)
+     ![Dialog rutan licens administration för Micro Focus](media/03-enterprise-server.png)
 
-3. Kontrollera att Enterprise Server läses in. Försök starta den Enterprise Server-administrationsplatsen från en webbläsare med den här URL: en <http://localhost:86/> . Sidan Enterprise Server Administration visas som visas.
+3. Kontrol lera att Enterprise Server läser in. Försök att starta företags serverns administrations webbplats från en webbläsare som <http://localhost:86/>använder den här URL: en. Sidan administration av företags server visas som visas.
 
-     ![Enterprise Server administrationssidan](media/04-enterprise-admin.png)
+     ![Sidan administration av företags server](media/04-enterprise-admin.png)
 
-## <a name="install-enterprise-developer-on-the-developer-machine"></a>Installera företagsutvecklare på developer-dator
+## <a name="install-enterprise-developer-on-the-developer-machine"></a>Installera Enterprise Developer på Developer Machine
 
-1. Välj den resursgrupp som du skapade tidigare (till exempel **RGMicroFocusEntServer**), Välj developer-bild.
+1. Välj den resurs grupp som skapades tidigare (till exempel **RGMicroFocusEntServer**) och välj sedan Developer-avbildningen.
 
-2. Om du vill logga in på den virtuella datorn, gå till den **översikt** och väljer **Connect**. Den här inloggningen startar en RDP-session. Logga in med de autentiseringsuppgifter som du skapade för den virtuella datorn.
+2. Om du vill logga in på den virtuella datorn går du till avsnittet **Översikt** och väljer **Anslut**. Den här inloggningen startar en RDP-session. Logga in med de autentiseringsuppgifter som du skapade för den virtuella datorn.
 
-3. Läs in följande två filer (dra och släpp om du vill) från RDP-session:
+3. Läs in följande två filer från RDP-sessionen (dra och släpp om du vill):
 
-    - **edvs2017.exe**, Enterprise Server-installationsfilen.
+    - **edvs2017. exe**, installations filen för företags servern.
 
-    - **mflic**, motsvarande licensfilen (företagsutvecklare inte kommer att läsa in utan det).
+    - **mflic**, motsvarande licens fil (Enterprise Developer kommer inte att läsas in utan den).
 
-4. Dubbelklicka på den **edvs2017.exe** filen för att starta installationen. I det första fönstret Välj installationsplats och acceptera licensavtalet för slutanvändare. Om du vill välja **installera surfa 9.5** att installera den här terminalemulator som du behöver förmodligen.
+4. Starta installationen genom att dubbelklicka på filen **edvs2017. exe** . I det första fönstret väljer du installations platsen och accepterar slut användar avtalet. Om du vill kan du välja **Installera Rumba 9,5** för att installera denna termin Ale mula Tor som du förmodligen behöver.
 
-     ![Micro fokus företagsutvecklare för dialogrutan Installationsprogram för Visual Studio 2017](media/04-enterprise-server.png)
+     ![Konfigurations dialog rutan för Micro Focus Enterprise Developer för Visual Studio 2017](media/04-enterprise-server.png)
 
 5. När installationen är klar visas följande meddelande:
 
-     ![Installationen lyckades meddelande](media/05-enterprise-server.png)
+     ![Installations meddelandet har slutförts](media/05-enterprise-server.png)
 
-6. Starta Micro fokus License Manager precis som du gjorde för Enterprise-Server. Välj **starta** \> **Micro fokus License Manager** \> **licens Administration**, och klicka på den **installera**fliken.
+6. Starta Micro Focus License Manager precis som du gjorde för företags servern. Välj **Starta** \> **Micro Focus** \> License Manager **License administration**och klicka på fliken **Installera** .
 
-7. Välj typ av licens-format för att ladda upp: en licensfil eller en licenskod på 16 tecken. Till exempel för en fil i **licensfil**, bläddra till den **mflic** tidigare överföra filen till den virtuella datorn och välj **installera licenser**.
+7. Välj typ av licens format som ska överföras: en licens fil eller en licens kod på 16 tecken. Till exempel, i **licens fil**, bläddrar du till **mflic** -filen som laddades upp tidigare till den virtuella datorn och väljer **Installera licenser**.
 
-     ![Dialogrutan för Micro fokus licens Administration](media/07-enterprise-server.png)
+     ![Dialog rutan licens administration för Micro Focus](media/07-enterprise-server.png)
 
-När företagsutvecklare har lästs in är din miljö för utveckling och test en Micro fokus på Azure-distribution klar!
+När Enterprise Developer laddas, är din distribution av en Micro Focus-utveckling och test miljö på Azure slutförd!
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Konfigurera Bank demoprogrammet](./demo.md)
-- [Kör företagsservern i Docker-behållare](./run-enterprise-server-container.md)
-- [Stordatormigrering för program](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/application-strategies)
+- [Konfigurera bank demonstrations programmet](./demo.md)
+- [Kör Enterprise Server i Docker-behållare](./run-enterprise-server-container.md)
+- [Migrering av stordator program](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/application-strategies)

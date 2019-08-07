@@ -1,5 +1,5 @@
 ---
-title: Kopiera data till och från Azure Data Lake Storage Gen2 med Data Factory | Microsoft Docs
+title: Kopiera data till eller från Azure Data Lake Storage Gen2 med Data Factory | Microsoft Docs
 description: Lär dig hur du kopierar data till och från Azure Data Lake Storage Gen2 med hjälp av Azure Data Factory.
 services: data-factory
 author: linda33wj
@@ -8,60 +8,60 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 07/02/2019
+ms.date: 08/06/2019
 ms.author: jingwang
-ms.openlocfilehash: 9f60c6258da77c0aaa99d16e178f4b3531ce90d9
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: a0a7a413d6c3344ccf5c3f7e4d14dd3d82715034
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509247"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840320"
 ---
-# <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Kopiera data till och från Azure Data Lake Storage Gen2 med Azure Data Factory
+# <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Kopiera data till eller från Azure Data Lake Storage Gen2 med Azure Data Factory
 
-Azure Data Lake Storage Gen2 är en uppsättning funktioner för analys av stordata är inbyggda i [Azure Blob storage](../storage/blobs/storage-blobs-introduction.md). Du kan använda den för att samverka med dina data med hjälp av paradigm för lagring av system- och båda fil.
+Azure Data Lake Storage Gen2 är en uppsättning funktioner som är avsedda för stor data analys som är inbyggd i [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md). Du kan använda den för att samverka med dina data med hjälp av både fil systemet och objekt lagrings paradigm.
 
-Den här artikeln beskrivs hur du kopierar data till och från Azure Data Lake Storage Gen2. Läs om Azure Data Factory den [introduktionsartikeln](introduction.md).
+Den här artikeln beskriver hur du kopierar data till och från Azure Data Lake Storage Gen2. Läs om Azure Data Factory den [introduktionsartikeln](introduction.md).
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
-Den här anslutningen för Azure Data Lake Storage Gen2 stöds för följande aktiviteter:
+Den här Azure Data Lake Storage Gen2 anslutningen stöds för följande aktiviteter:
 
-- [Kopiera aktivitet](copy-activity-overview.md) med [källan eller mottagaren matris som stöds](copy-activity-overview.md)
-- [Mappning av dataflöde](concepts-data-flow-overview.md)
+- [Kopierings aktivitet](copy-activity-overview.md) med [käll-eller mottagar mat ris som stöds](copy-activity-overview.md)
+- [Mappa data flöde](concepts-data-flow-overview.md)
 - [Sökningsaktivitet](control-flow-lookup-activity.md)
-- [GetMetadata-aktiviteten](control-flow-get-metadata-activity.md)
+- [GetMetadata-aktivitet](control-flow-get-metadata-activity.md)
 
-Med den här anslutningen kan du mer specifikt:
+Med den här anslutningen kan du särskilt:
 
-- Kopiera data med hjälp av nyckeln, tjänstens huvudnamn eller hanterade identiteter för Azure-resurser autentiseringar.
-- Kopiera filer som är eller parsa eller generera filer med [stöds filformat och komprimering codec](supported-file-formats-and-compression-codecs.md).
+- Kopiera data med hjälp av konto nyckel, tjänstens huvud namn eller hanterade identiteter för Azure-resursers autentiseringar.
+- Kopiera filer som är eller tolka eller generera filer med [fil format och komprimerings-codec som stöds](supported-file-formats-and-compression-codecs.md).
 
 >[!TIP]
->Om du aktiverar hierarkiskt namnområde, finns det för närvarande inga samverkan mellan åtgärder mellan Blob och Data Lake Storage Gen2 API: er. Om du stöter på felet ”ErrorCode = FilesystemNotFound” med meddelandet ”det angivna filsystemet inte finns”, beror det på filsystemet för angivna mottagare som har skapats via Blob-API: et i stället för Data Lake Storage Gen2 API någon annanstans. Åtgärda problemet genom att ange ett nytt filsystem med ett namn som inte finns som namnet på en blobbehållare. Data Factory skapar sedan automatiskt det filsystemet under Datakopieringen.
+>Om du aktiverar det hierarkiska namn området finns det för närvarande ingen samverkan mellan åtgärder mellan blob-och Data Lake Storage Gen2-API: er. Om du träffar felet "ErrorCode = FilesystemNotFound" med meddelandet "det angivna fil systemet finns inte", orsakas det av det angivna Sink-filsystemet som skapades via BLOB-API: et i stället för att Data Lake Storage Gen2 API någon annan stans. Åtgärda problemet genom att ange ett nytt fil system med ett namn som inte finns som namn på en BLOB-behållare. Sedan skapar Data Factory automatiskt fil systemet under data kopieringen.
 
 >[!NOTE]
->Om du aktiverar den **Tillåt att betrodda Microsoft-tjänster för att komma åt det här lagringskontot** alternativet i inställningarna för brandväggen för Azure Storage, Azure integration runtime inte går att ansluta till Data Lake Storage Gen2 och visar ett förbjudet fel. Ett felmeddelande visas eftersom Data Factory inte är behandlas som en betrodd Microsoft-tjänst. Använd lokal integration runtime för att ansluta i stället.
+>Om du aktiverar alternativet **Tillåt betrodda Microsoft-tjänster för att komma åt det här lagrings kontot** i Azure Storage brand Väggs inställningar, ansluter inte Azure integration runtime till data Lake Storage Gen2 och visar ett otillåtet fel. Fel meddelandet visas eftersom Data Factory inte behandlas som en betrodd Microsoft-tjänst. Använd den egen värdbaserade integrerings körningen för att ansluta i stället.
 
 ## <a name="get-started"></a>Kom igång
 
 >[!TIP]
->En genomgång av hur du använder Data Lake Storage Gen2-anslutningen finns i [läser in data i Azure Data Lake Storage Gen2](load-azure-data-lake-storage-gen2.md).
+>En genom gång av hur du använder Data Lake Storage Gen2-anslutningen finns i [läsa in data i Azure Data Lake Storage Gen2](load-azure-data-lake-storage-gen2.md).
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory-entiteter som är specifika för Data Lake Storage Gen2.
+I följande avsnitt finns information om egenskaper som används för att definiera Data Factory entiteter som är speciella för Data Lake Storage Gen2.
 
 ## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
 
-Azure Data Lake Storage Gen2 anslutningsappen stöder följande autentiseringstyper av. Finns i motsvarande avsnitt för mer information:
+Azure Data Lake Storage Gen2-anslutningen har stöd för följande typer av autentisering. Mer information finns i motsvarande avsnitt:
 
 - [Konto-nyckelautentisering](#account-key-authentication)
 - [Autentisering av tjänstens huvudnamn](#service-principal-authentication)
 - [Hanterade identiteter för autentisering av Azure-resurser](#managed-identity)
 
 >[!NOTE]
->När du använder PolyBase för att läsa in data till SQL Data Warehouse, om källan Data Lake Storage Gen2 har konfigurerats med slutpunkt för virtuellt nätverk, måste du använda hanterad identitetsautentisering som krävs av PolyBase. Se den [hanterade identitetsautentisering](#managed-identity) avsnittet med mer konfigurationskraven.
+>När du använder PolyBase för att läsa in data i SQL Data Warehouse måste du använda hanterad identitetsautentisering som krävs för PolyBase om din käll Data Lake Storage Gen2 har kon figurer ATS med Virtual Network-slutpunkt. Se avsnittet [hanterad identitets autentisering](#managed-identity) med fler konfigurations krav.
 
 ### <a name="account-key-authentication"></a>Konto-nyckelautentisering
 
@@ -70,9 +70,9 @@ Om du vill använda nyckelautentisering för storage-konto, stöds följande ege
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen måste anges till **AzureBlobFS**. |Ja |
-| url | Slutpunkt för Data Lake Storage Gen2 med mönstret för `https://<accountname>.dfs.core.windows.net`. | Ja |
-| accountKey | Kontonyckel för Data Lake Storage Gen2. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
-| connectVia | Den [integreringskörningen](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda Azure integration runtime eller en lokal integration runtime om ditt datalager är i ett privat nätverk. Om egenskapen inte anges används standard Azure integration runtime. |Nej |
+| url | Slut punkt för Data Lake Storage Gen2 med mönstret för `https://<accountname>.dfs.core.windows.net`. | Ja |
+| accountKey | Konto nyckel för Data Lake Storage Gen2. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
+| connectVia | Den [integreringskörningen](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda Azure integration runtime eller en lokal integration Runtime om ditt data lager finns i ett privat nätverk. Om den här egenskapen inte anges används standard körningen av Azure integration. |Nej |
 
 **Exempel:**
 
@@ -98,35 +98,35 @@ Om du vill använda nyckelautentisering för storage-konto, stöds följande ege
 
 ### <a name="service-principal-authentication"></a>Autentisering av tjänstens huvudnamn
 
-Följ dessa steg om du vill använda autentisering av tjänstens huvudnamn.
+Följ dessa steg om du vill använda autentisering av tjänstens huvud namn.
 
-1. Registrera en entitet för program i Azure Active Directory (Azure AD) genom att följa stegen i [registrera ditt program med en Azure AD-klient](../storage/common/storage-auth-aad-app.md#register-your-application-with-an-azure-ad-tenant). Anteckna följande värden som du använder för att definiera den länkade tjänsten:
+1. Registrera en program enhet i Azure Active Directory (Azure AD) genom att följa stegen i [Registrera ditt program med en Azure AD-klient](../storage/common/storage-auth-aad-app.md#register-your-application-with-an-azure-ad-tenant). Anteckna följande värden som du använder för att definiera den länkade tjänsten:
 
     - Program-ID:t
     - Programnyckel
     - Klient-ID:t
 
-2. Ge tjänstens huvudnamn rätt behörighet. Läs mer om hur behörighet fungerar i Data Lake Storage Gen2 från [åtkomstkontrollistor för filer och kataloger](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories)
+2. Ge tjänstens huvud behörighet rätt behörighet. Läs mer om hur behörigheten fungerar i Data Lake Storage Gen2 från [åtkomst kontrol listor på filer och kataloger](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories)
 
-    - **Som källa**: I Lagringsutforskaren kan ge minst **kör** behörighet från käll-filsystem, tillsammans med **Läs** behörighet att kopiera filerna. Du kan också i åtkomstkontroll (IAM), beviljar minst **Storage Blob Data-läsare** roll.
-    - **Som mottagare**: I Lagringsutforskaren kan ge minst **kör** behörighet från filsystemet mottagare, tillsammans med **skriva** behörighet för mappen mottagare. Du kan också i åtkomstkontroll (IAM), beviljar minst **Storage Blob Data-deltagare** roll.
+    - **Som källa**: I Storage Explorer beviljar du minst **Kör** behörighet från käll fil systemet, tillsammans med **Läs** behörighet för de filer som ska kopieras. I åtkomst kontroll (IAM) beviljar du minst rollen **Storage BLOB data Reader** .
+    - **Som mottagare**: I Storage Explorer beviljar du minst **Kör** behörighet från mottagar fil systemet, tillsammans med **Skriv** behörighet för mappen mottagare. Alternativt, i åtkomst kontroll (IAM), beviljar du minst rollen **Storage BLOB data Contributor** .
 
 >[!NOTE]
->Listan mappar som börjar från kontonivå eller att testa anslutning, måste du ange behörigheten för tjänstens huvudnamn som beviljas till **storage-konto med ”Storage Blob Data Reader” behörighet i IAM**. Detta gäller när du använder den:
->- **Kopiera data verktyget** att författaren kopiering av pipeline.
->- **Användargränssnittet för data Factory** att testa anslutningen och navigera mappar under redigering. 
->Om du har frågor om hur du beviljar behörighet på kontonivå, under redigering, hoppar du över anslutning och indata som en överordnad sökväg med behörighet som beviljas sedan välja att bläddra från som angetts av sökvägen. Kopiera aktivitet fungerar så länge tjänstens huvudnamn har beviljats med rätt behörighet på filerna som ska kopieras.
+>Om du vill visa en lista över mappar som börjar från konto nivån eller för att testa anslutningen måste du ange behörighet för tjänstens huvud namn till **lagrings kontot med behörigheten "Storage BLOB data Reader" i IAM**. Detta gäller när du använder:
+>- **Verktyget kopiera data** till redigerare för att skapa kopia.
+>- **Data Factory UI** för att testa anslutningen och navigera i mappar under redigeringen. 
+>Om du har problem med att bevilja behörighet på konto nivå, under redigering, hoppa över test anslutning och ange en överordnad sökväg med behörighet som beviljats väljer du att bläddra från den angivna sökvägen. Kopierings aktiviteten fungerar så länge som tjänstens huvud namn beviljas med rätt behörighet till de filer som ska kopieras.
 
-De här egenskaperna har stöd för den länkade tjänsten:
+De här egenskaperna stöds för den länkade tjänsten:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen måste anges till **AzureBlobFS**. |Ja |
-| url | Slutpunkt för Data Lake Storage Gen2 med mönstret för `https://<accountname>.dfs.core.windows.net`. | Ja |
+| url | Slut punkt för Data Lake Storage Gen2 med mönstret för `https://<accountname>.dfs.core.windows.net`. | Ja |
 | servicePrincipalId | Ange programmets klient-ID. | Ja |
-| servicePrincipalKey | Ange programmets nyckel. Markera det här fältet som en `SecureString` ska lagras på ett säkert sätt i Data Factory. Du kan också [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
-| tenant | Ange klientinformation (domain name eller klient-ID) under där programmet finns. Hämta det håller musen i det övre högra hörnet i Azure Portal. | Ja |
-| connectVia | Den [integreringskörningen](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda Azure integration runtime eller en lokal integration runtime om ditt datalager är i ett privat nätverk. Om den inte anges används standard Azure integration runtime. |Nej |
+| servicePrincipalKey | Ange programmets nyckel. Markera det här fältet som `SecureString` en för att lagra det på ett säkert sätt i Data Factory. Eller så kan du [referera till en hemlighet som lagrats i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| tenant | Ange klientinformation (domain name eller klient-ID) under där programmet finns. Hämta det genom att hovra musen i det övre högra hörnet av Azure Portal. | Ja |
+| connectVia | Den [integreringskörningen](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda Azure integration runtime eller en lokal integration Runtime om ditt data lager finns i ett privat nätverk. Om inget värde anges används standard Azure integration Runtime. |Nej |
 
 **Exempel:**
 
@@ -154,33 +154,33 @@ De här egenskaperna har stöd för den länkade tjänsten:
 
 ### <a name="managed-identity"></a> Hanterade identiteter för autentisering av Azure-resurser
 
-En data factory kan associeras med en [hanterad identitet för Azure-resurser](data-factory-service-identity.md), som representerar den här specifika data factory. Du kan använda den här hanterade identiteten direkt för Data Lake Storage Gen2 autentisering, ungefär som att använda tjänstens huvudnamn. Det gör den här avsedda fabriken kan komma åt och kopiera data till eller från ditt Data Lake Storage Gen2.
+En data factory kan associeras med en [hanterad identitet för Azure-resurser](data-factory-service-identity.md), som representerar den här specifika data factory. Du kan använda den här hanterade identiteten direkt för Data Lake Storage Gen2 autentisering, på samma sätt som du använder ditt eget tjänst huvud namn. Det gör att den här fabriken kan komma åt och kopiera data till eller från din Data Lake Storage Gen2.
 
-Följ dessa steg om du vill använda hanterade identiteter för Azure-resurs-autentisering.
+Följ dessa steg om du vill använda hanterade identiteter för Azure Resource Authentication.
 
-1. [Hämta Data Factory hanteras identitetsinformation](data-factory-service-identity.md#retrieve-managed-identity) genom att kopiera värdet för den **identitet program-ID för tjänstens** genereras tillsammans med din datafabrik.
+1. [Hämta data Factory hanterad identitets information](data-factory-service-identity.md#retrieve-managed-identity) genom att kopiera värdet för det **tjänst identitet program-ID** som genererats tillsammans med din fabrik.
 
-2. Ge hanterad identitet rätt behörighet. Läs mer om hur behörighet fungerar i Data Lake Storage Gen2 från [åtkomstkontrollistor för filer och kataloger](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories).
+2. Ge behörigheten hanterad identitet korrekt. Läs mer om hur behörigheten fungerar i Data Lake Storage Gen2 från [åtkomst kontrol listor på filer och kataloger](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories).
 
-    - **Som källa**: I Lagringsutforskaren kan ge minst **kör** behörighet från käll-filsystem, tillsammans med **Läs** behörighet att kopiera filerna. Du kan också i åtkomstkontroll (IAM), beviljar minst **Storage Blob Data-läsare** roll.
-    - **Som mottagare**: I Lagringsutforskaren kan ge minst **kör** behörighet från filsystemet mottagare, tillsammans med **skriva** behörighet för mappen mottagare. Du kan också i åtkomstkontroll (IAM), beviljar minst **Storage Blob Data-deltagare** roll.
+    - **Som källa**: I Storage Explorer beviljar du minst **Kör** behörighet från käll fil systemet, tillsammans med **Läs** behörighet för de filer som ska kopieras. I åtkomst kontroll (IAM) beviljar du minst rollen **Storage BLOB data Reader** .
+    - **Som mottagare**: I Storage Explorer beviljar du minst **Kör** behörighet från mottagar fil systemet, tillsammans med **Skriv** behörighet för mappen mottagare. Alternativt, i åtkomst kontroll (IAM), beviljar du minst rollen **Storage BLOB data Contributor** .
 
 >[!NOTE]
->Listan mappar som börjar från kontonivå eller att testa anslutning, måste du ange behörighet för den hanterade identitet som beviljas till **storage-konto med ”Storage Blob Data Reader” behörighet i IAM**. Detta gäller när du använder den:
->- **Kopiera data verktyget** att författaren kopiering av pipeline.
->- **Användargränssnittet för data Factory** att testa anslutningen och navigera mappar under redigering. 
->Om du har frågor om hur du beviljar behörighet på kontonivå, under redigering, hoppar du över anslutning och indata som en överordnad sökväg med behörighet som beviljas sedan välja att bläddra från som angetts av sökvägen. Kopiera aktivitet fungerar så länge tjänstens huvudnamn har beviljats med rätt behörighet på filerna som ska kopieras.
+>Om du vill visa en lista över mappar som börjar från konto nivån eller för att testa anslutningen måste du ange behörighet för den hanterade identiteten som beviljats till **lagrings kontot med behörigheten "Storage BLOB data Reader" i IAM**. Detta gäller när du använder:
+>- **Verktyget kopiera data** till redigerare för att skapa kopia.
+>- **Data Factory UI** för att testa anslutningen och navigera i mappar under redigeringen. 
+>Om du har problem med att bevilja behörighet på konto nivå, under redigering, hoppa över test anslutning och ange en överordnad sökväg med behörighet som beviljats väljer du att bläddra från den angivna sökvägen. Kopierings aktiviteten fungerar så länge som tjänstens huvud namn beviljas med rätt behörighet till de filer som ska kopieras.
 
 >[!IMPORTANT]
->Om du använder PolyBase för att läsa in data från Data Lake Storage Gen2 till SQL Data Warehouse, när du använder hanterade identitetsautentisering för Data Lake Storage Gen2, se till att du även följa steg 1 och 2 i [den här vägledningen](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage) till 1) registrera din SQL Database-server med Azure Active Directory (Azure AD) och 2) deltagarrollen Storage Blob Data till SQL Database-servern; resten hanteras av Data Factory. Om dina Data Lake Storage Gen2 konfigureras med en Azure Virtual Network-slutpunkt, för att använda PolyBase för att läsa in data från den, måste du använda hanterad identitetsautentisering som krävs av PolyBase.
+>Om du använder PolyBase för att läsa in data från Data Lake Storage Gen2 till SQL Data Warehouse, ska du, när du använder hanterad identitetsautentisering för Data Lake Storage Gen2, kontrol lera att du också följer steg 1 och 2 i [den här vägledningen](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage) till 1) registrera din SQL Database-Server med Azure Active Directory (Azure AD) och 2) tilldela rollen Storage BLOB data Contributor till din SQL Database-Server. resten hanteras av Data Factory. Om din Data Lake Storage Gen2 har kon figurer ATS med en Azure Virtual Network-slutpunkt, för att använda PolyBase för att läsa in data från den, måste du använda hanterad identitetsautentisering som krävs av PolyBase.
 
-De här egenskaperna har stöd för den länkade tjänsten:
+De här egenskaperna stöds för den länkade tjänsten:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen måste anges till **AzureBlobFS**. |Ja |
-| url | Slutpunkt för Data Lake Storage Gen2 med mönstret för `https://<accountname>.dfs.core.windows.net`. | Ja |
-| connectVia | Den [integreringskörningen](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda Azure integration runtime eller en lokal integration runtime om ditt datalager är i ett privat nätverk. Om den inte anges används standard Azure integration runtime. |Nej |
+| url | Slut punkt för Data Lake Storage Gen2 med mönstret för `https://<accountname>.dfs.core.windows.net`. | Ja |
+| connectVia | Den [integreringskörningen](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda Azure integration runtime eller en lokal integration Runtime om ditt data lager finns i ett privat nätverk. Om inget värde anges används standard Azure integration Runtime. |Nej |
 
 **Exempel:**
 
@@ -202,24 +202,24 @@ De här egenskaperna har stöd för den länkade tjänsten:
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i [datauppsättningar](concepts-datasets-linked-services.md).
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera data uppsättningar finns i [data uppsättningar](concepts-datasets-linked-services.md).
 
-- Parquet och avgränsat textformat finns i den [Parquet och avgränsad text formatera datauppsättning](#parquet-and-delimited-text-format-dataset) avsnittet.
-- Andra format som ORC, Avro, JSON eller binärt format, finns det [andra format datauppsättning](#other-format-dataset) avsnittet.
+- För **Parquet, avgränsad text och binärt format**, se avsnittet [Parquet, avgränsad text och binära format](#format-based-dataset) .
+- Andra format som **Orc/Avro/JSON-format**finns i avsnittet [annan format data uppsättning](#other-format-dataset) .
 
-### <a name="parquet-and-delimited-text-format-dataset"></a>Parquet och avgränsad text format datauppsättning
+### <a name="format-based-dataset"></a>Parquet, avgränsad text och binärt format data uppsättning
 
-För att kopiera data till och från Data Lake Storage Gen2 i parquet eller avgränsat textformat, se den [Parquet-format](format-parquet.md) och [avgränsat textformat](format-delimited-text.md) artiklar om format-baserade datauppsättning och inställningar som stöds. Följande egenskaper har stöd för Data Lake Storage Gen2 under `location` inställningar i datauppsättningen format-baserade:
+Om du vill kopiera data till och från **Parquet, avgränsade text-eller binärformat**, kan du läsa mer i [Parquet format](format-parquet.md), avgränsat [text format](format-delimited-text.md) och binära [format](format-binary.md) i artikeln format-baserad data uppsättning och inställningar som stöds. Följande egenskaper stöds för data Lake Storage Gen2 under `location` inställningar i den formatbaserade data uppsättningen:
 
 | Egenskap   | Beskrivning                                                  | Krävs |
 | ---------- | ------------------------------------------------------------ | -------- |
-| type       | Egenskapen type under `location` i datauppsättningen måste anges till **AzureBlobFSLocation**. | Ja      |
-| fileSystem | Data Lake Storage Gen2 system filnamnet.                              | Nej       |
-| folderPath | Sökvägen till en mapp under det angivna filsystemet. Om du vill använda ett jokertecken för att filtrera mappar, hoppa över den här inställningen och anger den i inställningarna för kopieringsaktiviteten källa. | Nej       |
-| fileName   | Filnamnet under den angivna filsystem + folderPath. Om du vill använda ett jokertecken för att filtrera filer, hoppa över den här inställningen och anger den i inställningarna för kopieringsaktiviteten källa. | Nej       |
+| type       | Egenskapen Type under `location` i data uppsättningen måste anges till **AzureBlobFSLocation**. | Ja      |
+| fileSystem | Namnet på filen med Data Lake Storage Gen2-systemet.                              | Nej       |
+| folderPath | Sökvägen till en mapp under det angivna fil systemet. Om du vill använda ett jokertecken för att filtrera mappar, hoppar du över den här inställningen och anger den i aktivitets källans inställningar. | Nej       |
+| fileName   | Fil namnet under angivet fileSystem + folderPath. Om du vill använda ett jokertecken för att filtrera filer, hoppar du över den här inställningen och anger den i aktivitets källans inställningar. | Nej       |
 
 > [!NOTE]
-> Den **AzureBlobFSFile** typ datauppsättning med parquet- eller text-format som anges i följande avsnitt stöds fortfarande skick för kopia, sökning och GetMetadata-aktiviteten för bakåtkompatibilitet. Men det fungerar inte med i flow-funktionen för mappning av data. Vi rekommenderar att du använder den nya modellen framöver. Data Factory redigering Användargränssnittet genererar dessa nya typer.
+> Data uppsättningen för **AzureBlobFSFile** -typ med Parquet eller text format som nämns i följande avsnitt stöds fortfarande för kopierings-, lookup-eller getMetaData-aktivitet för bakåtkompatibilitet. Men det fungerar inte med funktionen mappa data flöde. Vi rekommenderar att du använder den här nya modellen som går framåt. Användar gränssnittet för Data Factory redigering genererar dessa nya typer.
 
 **Exempel:**
 
@@ -248,22 +248,22 @@ För att kopiera data till och från Data Lake Storage Gen2 i parquet eller avgr
 }
 ```
 
-### <a name="other-format-dataset"></a>Andra format-datauppsättning
+### <a name="other-format-dataset"></a>Data uppsättning för andra format
 
-För att kopiera data till och från Data Lake Storage Gen2 i ORC-, Avro-, JSON- eller binärt format, stöds följande egenskaper:
+Följande egenskaper stöds för att kopiera data till och från Data Lake Storage Gen2 i **Orc/Avro/JSON-format**:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen för datauppsättningen måste anges till **AzureBlobFSFile**. |Ja |
-| folderPath | Sökvägen till mappen i Data Lake Storage Gen2. Om den inte anges som den pekar till roten. <br/><br/>Jokertecken-filtret stöds. Tillåtna jokertecken är `*` (matchar noll eller flera tecken) och `?` (matchar noll eller valfritt tecken). Använd `^` att undvika om din faktiska mappnamn har ett jokertecken eller har tillgång till den här escape-tecken. <br/><br/>Exempel: filsystem/mapp /. Se fler exempel i [mapp och fil Filterexempel](#folder-and-file-filter-examples). |Nej |
-| fileName | Namn eller jokertecken filter för filerna under den angivna ”folderPath”. Om du inte anger ett värde för den här egenskapen datauppsättningen pekar på alla filer i mappen. <br/><br/>För filter jokertecken tillåts är `*` (matchar noll eller flera tecken) och `?` (matchar noll eller valfritt tecken).<br/>– Exempel 1: `"fileName": "*.csv"`<br/>– Exempel 2: `"fileName": "???20180427.txt"`<br/>Använd `^` att undvika om din faktiska filnamnet har ett jokertecken eller har tillgång till den här escape-tecken.<br/><br/>Om filnamnet har inte angetts för en utdatauppsättning och **preserveHierarchy** inte har angetts i aktiviteten-mottagare kopieringsaktiviteten genererar automatiskt filnamnet med följande mönster: ”*Data. [aktivitet köras ID GUID]. [GUID om FlattenHierarchy]. [format om konfigurerat]. [komprimering om konfigurerat]* ”, till exempel” Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz ”. Om du kopierar från en tabular källa med ett tabellnamn i stället för en fråga namnet har formatet är ” *[tabellnamn]. [ format]. [komprimering om konfigurerat]* ”, till exempel” MyTable.csv ”. |Nej |
-| modifiedDatetimeStart | Filter för filer baserat på attribut som senast ändrad. Filerna har valts om deras tid för senaste ändring ligger inom tidsintervallet mellan `modifiedDatetimeStart` och `modifiedDatetimeEnd`. Tid som tillämpas på UTC-tidszonen i formatet ”2018-12-01T05:00:00Z”. <br/><br/> Dataförflyttning serverns prestanda påverkas genom att aktivera den här inställningen när du vill filen filter med stora mängder filer. <br/><br/> Egenskaperna kan vara NULL, vilket innebär att inga attributfiltret tillämpas på datauppsättningen. När `modifiedDatetimeStart` har ett datetime-värde men `modifiedDatetimeEnd` är NULL, innebär det att filer vars senaste ändrade attribut är större än eller lika med datetime-värde har valts. När `modifiedDatetimeEnd` har ett datetime-värde men `modifiedDatetimeStart` är NULL, betyder det filer vars senaste ändrade attributet är mindre än det datum/tid-värdet är markerade.| Nej |
-| modifiedDatetimeEnd | Filter för filer baserat på attribut som senast ändrad. Filerna har valts om deras tid för senaste ändring ligger inom tidsintervallet mellan `modifiedDatetimeStart` och `modifiedDatetimeEnd`. Tid som tillämpas på UTC-tidszonen i formatet ”2018-12-01T05:00:00Z”. <br/><br/> Dataförflyttning serverns prestanda påverkas genom att aktivera den här inställningen när du vill filen filter med stora mängder filer. <br/><br/> Egenskaperna kan vara NULL, vilket innebär att inga attributfiltret tillämpas på datauppsättningen. När `modifiedDatetimeStart` har ett datetime-värde men `modifiedDatetimeEnd` är NULL, innebär det att filer vars senaste ändrade attribut är större än eller lika med datetime-värde har valts. När `modifiedDatetimeEnd` har ett datetime-värde men `modifiedDatetimeStart` är NULL, betyder det filer vars senaste ändrade attributet är mindre än det datum/tid-värdet är markerade.| Nej |
-| format | Om du vill kopiera filer som finns mellan filbaserade lager (binär kopia), kan du hoppa över avsnittet format i både inkommande och utgående datamängd definitionerna.<br/><br/>Om du vill parsa eller generera filer med ett visst format stöds format för följande filtyper: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, och **ParquetFormat**. Ange den **typ** egenskapen under **format** till någon av dessa värden. Mer information finns i den [textformat](supported-file-formats-and-compression-codecs.md#text-format), [JSON-format](supported-file-formats-and-compression-codecs.md#json-format), [Avro-formatet](supported-file-formats-and-compression-codecs.md#avro-format), [ORC-format](supported-file-formats-and-compression-codecs.md#orc-format), och [Parquet-format ](supported-file-formats-and-compression-codecs.md#parquet-format) avsnitt. |Nej (endast för binär kopia scenario) |
+| folderPath | Sökväg till mappen i Data Lake Storage Gen2. Om den inte anges som den pekar till roten. <br/><br/>Wildcard-filtret stöds. Tillåtna jokertecken är `*` (matchar noll eller flera tecken) och `?` (matchar inget eller ett enskilt tecken). Används `^` för att kringgå om det faktiska mappnamnet har ett jokertecken eller om detta escape-tecken finns inuti. <br/><br/>Exempel: filesystem/Folder/. Se fler exempel i [exempel på mapp-och fil filter](#folder-and-file-filter-examples). |Nej |
+| fileName | Namn eller Wildcard-filter för filerna under den angivna "folderPath". Om du inte anger ett värde för den här egenskapen datauppsättningen pekar på alla filer i mappen. <br/><br/>För filter är `*` tillåtna jokertecken (matchar noll eller flera tecken) och `?` (matchar inget eller ett enskilt tecken).<br/>– Exempel 1: `"fileName": "*.csv"`<br/>– Exempel 2: `"fileName": "???20180427.txt"`<br/>Används `^` för att kringgå om det faktiska fil namnet har ett jokertecken eller om detta escape-tecken är inuti.<br/><br/>När fil namnet inte har angetts för en data uppsättning för utdata och **preserveHierarchy** inte har angetts i aktivitets mottagaren genererar kopierings aktiviteten automatiskt fil namnet med följande mönster: "*Data. [GUID för aktivitets körnings-ID]. [GUID om FlattenHierarchy]. [format om det är konfigurerat]. [komprimering om konfigurerad]* ", till exempel" data. 0a405f8a-93ff-4c6f-B3BE-f69616f1df7a. txt. gz ". Om du kopierar från en tabell källa med ett tabell namn i stället för en fråga, är namn mönstret " *[tabell namn]. [ format]. [komprimering om konfigurerad]* ", till exempel" Table. csv ". |Nej |
+| modifiedDatetimeStart | Filter för filer baserat på det senast ändrade attributet. Filerna väljs om deras senaste ändrings tid ligger inom tidsintervallet mellan `modifiedDatetimeStart` och `modifiedDatetimeEnd`. Tiden tillämpas på UTC-tidszonen i formatet "2018-12-01T05:00:00Z". <br/><br/> Den övergripande prestandan för data förflyttning påverkas om du aktiverar den här inställningen när du vill göra fil filter till stora mängder filer. <br/><br/> Egenskaperna kan vara NULL, vilket innebär att inget attribut filter används för data uppsättningen. När `modifiedDatetimeStart` har ett datetime-värde `modifiedDatetimeEnd` men är null, innebär det att filerna vars senast ändrade attribut är större än eller lika med värdet för datetime är markerade. När `modifiedDatetimeEnd` har ett datetime-värde `modifiedDatetimeStart` men är null, innebär det att filerna vars senast ändrade attribut är mindre än värdet för datetime är markerat.| Nej |
+| modifiedDatetimeEnd | Filter för filer baserat på det senast ändrade attributet. Filerna väljs om deras senaste ändrings tid ligger inom tidsintervallet mellan `modifiedDatetimeStart` och `modifiedDatetimeEnd`. Tiden tillämpas på UTC-tidszonen i formatet "2018-12-01T05:00:00Z". <br/><br/> Den övergripande prestandan för data förflyttning påverkas om du aktiverar den här inställningen när du vill göra fil filter till stora mängder filer. <br/><br/> Egenskaperna kan vara NULL, vilket innebär att inget attribut filter används för data uppsättningen. När `modifiedDatetimeStart` har ett datetime-värde `modifiedDatetimeEnd` men är null, innebär det att filerna vars senast ändrade attribut är större än eller lika med värdet för datetime är markerade. När `modifiedDatetimeEnd` har ett datetime-värde `modifiedDatetimeStart` men är null, innebär det att filerna vars senast ändrade attribut är mindre än värdet för datetime är markerat.| Nej |
+| format | Om du vill kopiera filer som finns mellan filbaserade lager (binär kopia), kan du hoppa över avsnittet format i både inkommande och utgående datamängd definitionerna.<br/><br/>Om du vill parsa eller generera filer med ett speciellt format stöds följande fil format typer:Text Forms, **JsonFormat**, **AvroFormat**, **OrcFormat**och **ParquetFormat**. Ange den **typ** egenskapen under **format** till någon av dessa värden. Mer information finns i avsnitten [text format](supported-file-formats-and-compression-codecs.md#text-format), [JSON-format](supported-file-formats-and-compression-codecs.md#json-format), [Avro format](supported-file-formats-and-compression-codecs.md#avro-format), [Orc format](supported-file-formats-and-compression-codecs.md#orc-format)och [Parquet format](supported-file-formats-and-compression-codecs.md#parquet-format) . |Nej (endast för binär kopia scenario) |
 | compression | Ange typ och komprimeringsnivå för data. Mer information finns i [stöds filformat och komprimering codec](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Typer som stöds är **GZip**, **Deflate**, **BZip2**, och **ZipDeflate**.<br/>Stöds nivåer **Optimal** och **snabbast**. |Nej |
 
 >[!TIP]
->Kopiera alla filer i en mapp genom att ange **folderPath** endast.<br>Om du vill kopiera en enstaka fil med ett givet namn, ange **folderPath** med en mappdelen och **fileName** med ett filnamn.<br>Om du vill kopiera en delmängd av filerna under en mapp, anger **folderPath** med en mappdelen och **fileName** med jokertecken-filtret. 
+>Kopiera alla filer i en mapp genom att ange **folderPath** endast.<br>Om du vill kopiera en enskild fil med ett visst namn anger du **folderPath** med en mapp och ett fil namn med ett fil namn.<br>Om du vill kopiera en delmängd av filer under en mapp anger du **folderPath** med en mapp och ett **fil namn** med ett Wildcard-filter. 
 
 **Exempel:**
 
@@ -297,29 +297,29 @@ För att kopiera data till och från Data Lake Storage Gen2 i ORC-, Avro-, JSON-
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i [kopiera aktivitetskonfigurationer](copy-activity-overview.md#configuration) och [Pipelines och aktiviteter](concepts-pipelines-activities.md). Det här avsnittet innehåller en lista över egenskaper som stöds av Data Lake Storage Gen2 källa och mottagare.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i [Kopiera aktivitets konfigurationer](copy-activity-overview.md#configuration) och [pipeliner och aktiviteter](concepts-pipelines-activities.md). Det här avsnittet innehåller en lista över egenskaper som stöds av Data Lake Storage Gen2 källa och mottagare.
 
-### <a name="azure-data-lake-storage-gen2-as-a-source-type"></a>Azure Data Lake Storage Gen2 som en typ av datakälla
+### <a name="azure-data-lake-storage-gen2-as-a-source-type"></a>Azure Data Lake Storage Gen2 som typ av källa
 
-- Om du vill kopiera från parquet eller avgränsat textformat, se den [Parquet och avgränsad text format källa](#parquet-and-delimited-text-format-source) avsnittet.
-- Kopiera från andra format som ORC-, Avro-, JSON- eller binärt format genom att se den [annan format källa](#other-format-source) avsnittet.
+- Om du vill kopiera från **Parquet, avgränsad text och binärt format**, se avsnittet [Parquet, avgränsad text och binärt format](#format-based-source) .
+- Om du vill kopiera från andra format som **Orc/Avro/JSON-format**, se avsnittet [annan format källa](#other-format-source) .
 
-#### <a name="parquet-and-delimited-text-format-source"></a>Parquet och avgränsad text format källa
+#### <a name="format-based-source"></a>Parquet, avgränsad text-och binär format källa
 
-Om du vill kopiera data från Data Lake Storage Gen2 i parquet eller avgränsat textformat, se den [Parquet-format](format-parquet.md) och [avgränsat textformat](format-delimited-text.md) format-baserade aktiviteten kopieringskälla och inställningar som stöds. Följande egenskaper har stöd för Data Lake Storage Gen2 under `storeSettings` inställningar i formatet-baserade kopieringskälla:
+Om du vill kopiera data från **Parquet, avgränsad text eller binärt format**, referera till [Parquet-format](format-parquet.md), avgränsat [text format](format-delimited-text.md) och binära [format](format-binary.md) -artikel med formatbaserade kopierings aktivitets källor och inställningar som stöds. Följande egenskaper stöds för data Lake Storage Gen2 under `storeSettings` inställningar i format-baserad kopierings Källa:
 
 | Egenskap                 | Beskrivning                                                  | Krävs                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
-| type                     | Egenskapen type under `storeSettings` måste anges till **AzureBlobFSReadSetting**. | Ja                                           |
-| recursive                | Anger om data läses rekursivt från undermapparna eller endast från den angivna mappen. När rekursiv har angetts till true och mottagaren är en filbaserad store, en tom mapp eller undermapp inte kopieras eller skapat i mottagaren. Tillåtna värden är **SANT** (standard) och **FALSKT**. | Nej                                            |
-| wildcardFolderPath       | Sökvägen till mappen med jokertecken under den angivna filsystem som konfigurerats i datauppsättningen för att filtrera källa mappar. <br>Tillåtna jokertecken är `*` (matchar noll eller flera tecken) och `?` (matchar noll eller valfritt tecken). Använd `^` att undvika om din faktiska mappnamn har ett jokertecken eller den här escape-tecken i. <br>Se fler exempel i [mapp och fil Filterexempel](#folder-and-file-filter-examples). | Nej                                            |
-| wildcardFileName         | Filnamn med jokertecken under den angivna filsystemet + folderPath/wildcardFolderPath filter källfilerna för. <br>Tillåtna jokertecken är `*` (matchar noll eller flera tecken) och `?` (matchar noll eller valfritt tecken). Använd `^` att undvika om din faktiska mappnamn har ett jokertecken eller den här escape-tecken i. Se fler exempel i [mapp och fil Filterexempel](#folder-and-file-filter-examples). | Ja om `fileName` inte har angetts i datauppsättningen |
-| modifiedDatetimeStart    | Filter för filer baserat på attribut som senast ändrad. Filerna har valts om deras tid för senaste ändring ligger inom tidsintervallet mellan `modifiedDatetimeStart` och `modifiedDatetimeEnd`. Tid som tillämpas på UTC-tidszonen i formatet ”2018-12-01T05:00:00Z”. <br> Egenskaperna kan vara NULL, vilket innebär att inga attributfiltret tillämpas på datauppsättningen. När `modifiedDatetimeStart` har ett datetime-värde men `modifiedDatetimeEnd` är NULL, innebär det att filer vars senast ändrades attribut är större än eller lika med datetime-värde har valts. När `modifiedDatetimeEnd` har ett datetime-värde men `modifiedDatetimeStart` är NULL, betyder det att filer vars senaste ändrade attributet är mindre än det datum/tid-värdet är markerade. | Nej                                            |
+| type                     | Typ egenskapen under `storeSettings` måste anges till **AzureBlobFSReadSetting**. | Ja                                           |
+| recursive                | Anger om data läses rekursivt från undermapparna eller endast från den angivna mappen. När rekursivt är inställt på True och sinken är en filbaserad lagring, kopieras inte en tom mapp eller undermapp till mottagaren. Tillåtna värden är **SANT** (standard) och **FALSKT**. | Nej                                            |
+| wildcardFolderPath       | Mappsökvägen med jokertecken under det angivna fil systemet som kon figurer ATS i data uppsättningen för att filtrera källmappen. <br>Tillåtna jokertecken är `*` (matchar noll eller flera tecken) och `?` (matchar inget eller ett enskilt tecken). Används `^` för att kringgå om det faktiska mappnamnet har ett jokertecken eller detta escape-tecken inuti. <br>Se fler exempel i [exempel på mapp-och fil filter](#folder-and-file-filter-examples). | Nej                                            |
+| wildcardFileName         | Fil namnet med jokertecken under angivet fil system + folderPath/wildcardFolderPath för att filtrera källfiler. <br>Tillåtna jokertecken är `*` (matchar noll eller flera tecken) och `?` (matchar inget eller ett enskilt tecken). Används `^` för att kringgå om det faktiska mappnamnet har ett jokertecken eller detta escape-tecken inuti. Se fler exempel i [exempel på mapp-och fil filter](#folder-and-file-filter-examples). | Ja om `fileName` inte anges i data uppsättningen |
+| modifiedDatetimeStart    | Filter för filer baserat på det senast ändrade attributet. Filerna väljs om deras senaste ändrings tid ligger inom tidsintervallet mellan `modifiedDatetimeStart` och `modifiedDatetimeEnd`. Tiden tillämpas på UTC-tidszonen i formatet "2018-12-01T05:00:00Z". <br> Egenskaperna kan vara NULL, vilket innebär att inget filter för filattribut används för data uppsättningen. När `modifiedDatetimeStart` har ett datetime-värde `modifiedDatetimeEnd` men är null, innebär det att filerna vars senast ändrade attribut är större än eller lika med värdet för datetime är markerade. När `modifiedDatetimeEnd` har ett datetime-värde `modifiedDatetimeStart` men är null, innebär det att filerna vars senast ändrade attribut är mindre än värdet för datetime är markerat. | Nej                                            |
 | modifiedDatetimeEnd      | Samma som ovan.                                               | Nej                                            |
-| maxConcurrentConnections | Antal anslutningar för att ansluta till storage store samtidigt. Ange bara när du vill begränsa samtidiga anslutningen till datalagret. | Nej                                            |
+| maxConcurrentConnections | Antalet anslutningar för att ansluta till lagrings lager samtidigt. Ange bara när du vill begränsa den samtidiga anslutningen till data lagret. | Nej                                            |
 
 > [!NOTE]
-> För parquet eller avgränsat textformat den **AzureBlobFSSource** typen kopiera aktivitetskälla som nämns i följande avsnitt stöds fortfarande skick för bakåtkompatibilitet. Vi rekommenderar att du använder den nya modellen framöver. Data Factory redigering Användargränssnittet genererar dessa nya typer.
+> För Parquet eller avgränsat text format har **AzureBlobFSSource** typ kopierings aktivitet som anges i följande avsnitt fortfarande stöd för bakåtkompatibilitet. Vi rekommenderar att du använder den här nya modellen som går framåt. Användar gränssnittet för Data Factory redigering genererar dessa nya typer.
 
 **Exempel:**
 
@@ -362,15 +362,15 @@ Om du vill kopiera data från Data Lake Storage Gen2 i parquet eller avgränsat 
 ]
 ```
 
-#### <a name="other-format-source"></a>Andra format-källa
+#### <a name="other-format-source"></a>Annan format källa
 
-För att kopiera data från Data Lake Storage Gen2 i ORC-, Avro-, JSON- eller binärt format stöds följande egenskaper i kopieringsaktiviteten **källa** avsnittet:
+Om du vill kopiera data från Data Lake Storage Gen2 i **Orc/Avro/JSON-format**, stöds följande egenskaper i avsnittet Kopiera aktivitets **källa** :
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen för aktiviteten kopieringskälla måste anges till **AzureBlobFSSource**. |Ja |
-| recursive | Anger om data läses rekursivt från undermapparna eller endast från den angivna mappen. När rekursiv har angetts till true och mottagaren är en filbaserad store, en tom mapp eller undermapp inte kopieras eller skapat i mottagaren.<br/>Tillåtna värden är **SANT** (standard) och **FALSKT**. | Nej |
-| maxConcurrentConnections | Antal anslutningar för att ansluta till datalagret samtidigt. Ange bara när du vill begränsa samtidiga anslutningen till datalagret. | Nej |
+| recursive | Anger om data läses rekursivt från undermapparna eller endast från den angivna mappen. När rekursivt är inställt på True och sinken är en filbaserad lagring, kopieras inte en tom mapp eller undermapp till mottagaren.<br/>Tillåtna värden är **SANT** (standard) och **FALSKT**. | Nej |
+| maxConcurrentConnections | Antalet anslutningar för att ansluta till data lagret samtidigt. Ange bara när du vill begränsa den samtidiga anslutningen till data lagret. | Nej |
 
 **Exempel:**
 
@@ -406,21 +406,21 @@ För att kopiera data från Data Lake Storage Gen2 i ORC-, Avro-, JSON- eller bi
 
 ### <a name="azure-data-lake-storage-gen2-as-a-sink-type"></a>Azure Data Lake Storage Gen2 som en Mottagartyp
 
-- Om du vill kopiera till parquet eller avgränsat textformat, se den [Parquet och avgränsad text format mottagare](#parquet-and-delimited-text-format-sink) avsnittet.
-- Kopiera till andra format som ORC-, Avro-, JSON- eller binärt format genom att se den [andra format mottagare](#other-format-sink) avsnittet.
+- Om du vill kopiera till **Parquet, avgränsad text eller binärt format**, se avsnittet [Parquet, avgränsad text och binära format mottagare](#format-based-sink) .
+- Om du vill kopiera till andra format som **Orc/Avro/JSON-format**, se avsnittet [annat format mottagare](#other-format-sink) .
 
-#### <a name="parquet-and-delimited-text-format-sink"></a>Parquet och avgränsad text format mottagare
+#### <a name="format-based-sink"></a>Parquet, avgränsad text och binära format mottagare
 
-För att kopiera data till Data Lake Storage Gen2 i parquet eller avgränsat textformat, se den [Parquet-format](format-parquet.md) och [avgränsat textformat](format-delimited-text.md) artiklar om format-baserade kopiera aktivitet mottagare och inställningar som stöds. Följande egenskaper har stöd för Data Lake Storage Gen2 under `storeSettings` inställningar i formatet-baserad kopia mottagare:
+Om du vill kopiera data till **Parquet, avgränsad text eller binärt format**, referera till [Parquet-format](format-parquet.md), avgränsat [text format](format-delimited-text.md) och binära [format](format-binary.md) -artikel för formatbaserade kopierings aktivitets mottagare och inställningar som stöds. Följande egenskaper stöds för data Lake Storage Gen2 under `storeSettings` inställningar i format-baserad kopierings mottagare:
 
 | Egenskap                 | Beskrivning                                                  | Krävs |
 | ------------------------ | ------------------------------------------------------------ | -------- |
-| type                     | Egenskapen type under `storeSettings` måste anges till **AzureBlobFSWriteSetting**. | Ja      |
-| copyBehavior             | Definierar kopieringsbeteendet när källan är filer från ett filbaserat datalager.<br/><br/>Tillåtna värden är:<br/><b>-PreserveHierarchy (standard)</b>: Bevarar filen hierarkin i målmappen. Den relativa sökvägen på källfilen för målmappen är identisk med den relativa sökvägen till målfilen till målmappen.<br/><b>-FlattenHierarchy</b>: Alla filer från källmappen finns i den första nivån i målmappen. Målfiler har automatiskt genererade unika namn. <br/><b>-MergeFiles</b>: Slår samman alla filer från källmappen till en fil. Om filnamnet har angetts är namnet på sammanfogade filen det angivna namnet. Annars är det en automatiskt skapade filnamnet. | Nej       |
-| maxConcurrentConnections | Antal anslutningar för att ansluta till datalagret samtidigt. Ange bara när du vill begränsa samtidiga anslutningen till datalagret. | Nej       |
+| type                     | Typ egenskapen under `storeSettings` måste anges till **AzureBlobFSWriteSetting**. | Ja      |
+| copyBehavior             | Definierar kopieringsbeteendet när källan är filer från ett filbaserat datalager.<br/><br/>Tillåtna värden är:<br/><b>-PreserveHierarchy (standard)</b>: Bevarar filens hierarki i målmappen. Den relativa sökvägen till käll filen till källmappen är identisk med den relativa sökvägen till mål filen i målmappen.<br/><b>-FlattenHierarchy</b>: Alla filer från källmappen är på den första nivån i målmappen. Målfiler har automatiskt genererade unika namn. <br/><b>-MergeFiles</b>: Sammanfogar alla filer från källmappen till en fil. Om filnamnet har angetts är namnet på sammanfogade filen det angivna namnet. Annars är det en automatiskt skapade filnamnet. | Nej       |
+| maxConcurrentConnections | Antalet anslutningar för att ansluta till data lagret samtidigt. Ange bara när du vill begränsa den samtidiga anslutningen till data lagret. | Nej       |
 
 > [!NOTE]
-> För parquet eller avgränsat textformat den **AzureBlobFSSink** typen kopiera aktivitet mottagare som nämns i följande avsnitt stöds fortfarande skick för bakåtkompatibilitet. Vi rekommenderar att du använder den nya modellen framöver. Data Factory redigering Användargränssnittet genererar dessa nya typer.
+> För Parquet eller avgränsat text format har **AzureBlobFSSink** typ kopierings aktivitet som anges i följande avsnitt fortfarande stöd för bakåtkompatibilitet. Vi rekommenderar att du använder den här nya modellen som går framåt. Användar gränssnittet för Data Factory redigering genererar dessa nya typer.
 
 **Exempel:**
 
@@ -457,15 +457,15 @@ För att kopiera data till Data Lake Storage Gen2 i parquet eller avgränsat tex
 ]
 ```
 
-#### <a name="other-format-sink"></a>Andra format-mottagare
+#### <a name="other-format-sink"></a>Övrigt format mottagare
 
-För att kopiera data till Data Lake Storage Gen2 i ORC-, Avro-, JSON- eller binärt format stöds följande egenskaper i den **mottagare** avsnittet:
+För att kopiera data till Data Lake Storage Gen2 i **Orc/Avro/JSON-format**, stöds följande egenskaper i avsnittet **mottagare** :
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Egenskapen type kopiera aktivitet komprimeringstyp måste anges till **AzureBlobFSSink**. |Ja |
-| copyBehavior | Definierar kopieringsbeteendet när källan är filer från ett filbaserat datalager.<br/><br/>Tillåtna värden är:<br/><b>-PreserveHierarchy (standard)</b>: Bevarar filen hierarkin i målmappen. Den relativa sökvägen på källfilen för målmappen är identisk med den relativa sökvägen till målfilen till målmappen.<br/><b>-FlattenHierarchy</b>: Alla filer från källmappen finns i den första nivån i målmappen. Målfiler har automatiskt genererade unika namn. <br/><b>-MergeFiles</b>: Slår samman alla filer från källmappen till en fil. Om filnamnet har angetts är namnet på sammanfogade filen det angivna namnet. Annars är det en automatiskt skapade filnamnet. | Nej |
-| maxConcurrentConnections | Antal anslutningar för att ansluta till datalagret samtidigt. Ange bara när du vill begränsa samtidiga anslutningen till datalagret. | Nej |
+| copyBehavior | Definierar kopieringsbeteendet när källan är filer från ett filbaserat datalager.<br/><br/>Tillåtna värden är:<br/><b>-PreserveHierarchy (standard)</b>: Bevarar filens hierarki i målmappen. Den relativa sökvägen till käll filen till källmappen är identisk med den relativa sökvägen till mål filen i målmappen.<br/><b>-FlattenHierarchy</b>: Alla filer från källmappen är på den första nivån i målmappen. Målfiler har automatiskt genererade unika namn. <br/><b>-MergeFiles</b>: Sammanfogar alla filer från källmappen till en fil. Om filnamnet har angetts är namnet på sammanfogade filen det angivna namnet. Annars är det en automatiskt skapade filnamnet. | Nej |
+| maxConcurrentConnections | Antalet anslutningar för att ansluta till data lagret samtidigt. Ange bara när du vill begränsa den samtidiga anslutningen till data lagret. | Nej |
 
 **Exempel:**
 
@@ -499,53 +499,53 @@ För att kopiera data till Data Lake Storage Gen2 i ORC-, Avro-, JSON- eller bin
 ]
 ```
 
-### <a name="folder-and-file-filter-examples"></a>Mapp och fil filter-exempel
+### <a name="folder-and-file-filter-examples"></a>Exempel på mapp-och fil filter
 
-Det här avsnittet beskriver resultatet av sökvägen och namnet på mappen med jokertecken filter.
+I det här avsnittet beskrivs det resulterande beteendet hos mappsökvägen och fil namnet med filter för jokertecken.
 
-| folderPath | fileName | recursive | Käll-mappen struktur och filtrera resultatet (filer i **fetstil** hämtas)|
+| folderPath | fileName | recursive | Källans mappstruktur och filter resultat (filer i **fetstil** hämtas)|
 |:--- |:--- |:--- |:--- |
-| `Folder*` | (Tom, Använd standard) | false | FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File2.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5.csv<br/>AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
-| `Folder*` | (Tom, Använd standard) | true | FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File2.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File4.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
-| `Folder*` | `*.csv` | false | FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5.csv<br/>AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
-| `Folder*` | `*.csv` | true | FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
+| `Folder*` | (Tom, Använd standard) | false | Mappa<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File2.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5. csv<br/>AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;File6. csv |
+| `Folder*` | (Tom, Använd standard) | true | Mappa<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File2.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File4.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;File6. csv |
+| `Folder*` | `*.csv` | false | Mappa<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5. csv<br/>AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;File6. csv |
+| `Folder*` | `*.csv` | true | Mappa<br/>&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;File6. csv |
 
 ### <a name="some-recursive-and-copybehavior-examples"></a>Några exempel rekursiv och copyBehavior
 
-Det här avsnittet beskrivs kopieringsåtgärden för olika kombinationer av värden för rekursiv och copyBehavior resulterande beteende.
+I det här avsnittet beskrivs det resulterande beteendet för kopierings åtgärden för olika kombinationer av rekursiva och copyBehavior värden.
 
 | recursive | copyBehavior | Mappstruktur för källa | Resulterande mål |
 |:--- |:--- |:--- |:--- |
-| true |preserveHierarchy | Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fil3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | Målet Mapp1 skapas med samma struktur som källa:<br/><br/>Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fil3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 |
-| true |flattenHierarchy | Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fil3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | Målet Mapp1 skapas med följande struktur: <br/><br/>Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt skapade namn på File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererade namnet för fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererade namnet för fil3<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererade namnet för File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererade namnet för File5 |
-| true |mergeFiles | Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fil3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | Målet Mapp1 skapas med följande struktur: <br/><br/>Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1 + fil2 + fil3 + File4 + File5 innehållet slås samman i en fil med ett automatiskt genererade namnet. |
-| false |preserveHierarchy | Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fil3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | Målet Mapp1 skapas med följande struktur: <br/><br/>Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/><br/>Subfolder1 med fil3, File4 och File5 hämtas inte. |
-| false |flattenHierarchy | Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fil3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | Målet Mapp1 skapas med följande struktur: <br/><br/>Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt skapade namn på File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererade namnet för fil2<br/><br/>Subfolder1 med fil3, File4 och File5 hämtas inte. |
-| false |mergeFiles | Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fil3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | Målet Mapp1 skapas med följande struktur: <br/><br/>Mapp1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1 + fil2 innehållet slås samman i en fil med ett automatiskt genererade namnet. automatiskt skapade namn på File1<br/><br/>Subfolder1 med fil3, File4 och File5 hämtas inte. |
+| true |preserveHierarchy | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fil3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | Mål-Mapp1 skapas med samma struktur som källan:<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fil3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 |
+| true |flattenHierarchy | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fil3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | Målet Mapp1 skapas med följande struktur: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt skapade namn på File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererade namnet för fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererade namnet för fil3<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererade namnet för File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererade namnet för File5 |
+| true |mergeFiles | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fil3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | Målet Mapp1 skapas med följande struktur: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1 + fil2 + fil3 + File4 + File5 innehållet slås samman i en fil med ett automatiskt genererade namnet. |
+| false |preserveHierarchy | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fil3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | Målet Mapp1 skapas med följande struktur: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/><br/>Subfolder1 med File3, File4 och File5 har inte hämtats. |
+| false |flattenHierarchy | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fil3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | Målet Mapp1 skapas med följande struktur: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt skapade namn på File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;automatiskt genererade namnet för fil2<br/><br/>Subfolder1 med File3, File4 och File5 har inte hämtats. |
+| false |mergeFiles | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fil3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | Målet Mapp1 skapas med följande struktur: <br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fil1 + fil2 innehållet slås samman i en fil med ett automatiskt genererade namnet. automatiskt skapade namn på File1<br/><br/>Subfolder1 med File3, File4 och File5 har inte hämtats. |
 
-## <a name="preserve-acls-from-data-lake-storage-gen1"></a>Bevara ACL: er från Data Lake Storage Gen1
+## <a name="preserve-acls-from-data-lake-storage-gen1"></a>Behåll ACL: er från Data Lake Storage Gen1
 
 >[!TIP]
->Om du vill kopiera data från Azure Data Lake Storage Gen1 till Gen2 i allmänhet, se [kopiera data från Azure Data Lake Storage Gen1 till Gen2 med Azure Data Factory](load-azure-data-lake-storage-gen2-from-gen1.md) för en genomgång och bästa praxis.
+>Information om hur du kopierar data från Azure Data Lake Storage Gen1 till Gen2 i allmänhet finns i [Kopiera data från Azure Data Lake Storage gen1 till Gen2 med Azure Data Factory](load-azure-data-lake-storage-gen2-from-gen1.md) för en genom gång och bästa praxis.
 
-När du kopierar filer från Azure Data Lake Storage Gen1 till Gen2, kan du välja att bevara de POSIX åtkomstkontrollistor (ACL) tillsammans med data. Mer information om behörighet finns i [åtkomstkontroll i Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-access-control.md) och [åtkomstkontroll i Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-access-control.md).
+När du kopierar filer från Azure Data Lake Storage Gen1 till Gen2, kan du välja att behålla åtkomst kontrol listorna för POSIX (ACL) tillsammans med data. Mer information om åtkomst kontroll finns i [åtkomst kontroll i Azure Data Lake Storage gen1](../data-lake-store/data-lake-store-access-control.md) och [åtkomst kontroll i Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-access-control.md).
 
-Följande typer av ACL: er kan bevaras med hjälp av Azure Data Factory-kopieringsaktiviteten. Du kan välja en eller flera typer:
+Följande typer av ACL: er kan bevaras med hjälp av Azure Data Factory kopierings aktiviteten. Du kan välja en eller flera typer:
 
-- **ACL**: Kopiera och bevara POSIX-åtkomstkontrollistor för filer och kataloger. Fullständig befintliga ACL: er kopieras från källan till mottagare. 
-- **Ägare**: Kopiera och bevara ägande användare av filer och kataloger. En användaråtkomst till mottagare Data Lake Storage Gen2 krävs.
-- **Grupp**: Kopiera och bevara den ägande gruppen för filer och kataloger. En användaråtkomst till mottagare Data Lake Storage Gen2 eller ägande användare (om den ägande användaren också är medlem i målgruppen) krävs.
+- **ACL**: Kopiera och bevara POSIX-åtkomst kontrol listor på filer och kataloger. Den kopierar alla befintliga ACL: er från källan till Sink. 
+- **Ägare**: Kopiera och bevara ägande användare av filer och kataloger. Super-User-åtkomst till Sink Data Lake Storage Gen2 krävs.
+- **Grupp**: Kopiera och bevara den ägande gruppen av filer och kataloger. Super-User-åtkomst till Sink Data Lake Storage Gen2 eller ägande användare (om ägande användare också är medlem i mål gruppen) krävs.
 
-Om du anger för att kopiera från en mapp, replikerar Data Factory ACL: er för den angivna mappen och filer och kataloger under det om `recursive` har angetts till true. Om du anger för att kopiera från en enda fil, kopieras filen åtkomstkontrollistor.
+Om du väljer att kopiera från en mapp replikeras Data Factory ACL: er för den aktuella mappen och de filer och kataloger under den, om `recursive` har angetts till sant. Om du väljer att kopiera från en enskild fil kopieras ACL: erna på den filen.
 
 >[!IMPORTANT]
->När du väljer att bevara ACL: er kan du kontrollera att du hög beviljar tillräcklig behörighet för Data Factory ska kunna arbeta mot dina mottagare Gen2 för Data Lake Storage-konto. Till exempel använder kontot nyckelautentisering eller tilldela rollen ägare för Storage Blob-Data till primära eller hanterad tjänstidentitet.
+>När du väljer att bevara ACL: er bör du se till att du beviljar hög tillräcklig behörighet för Data Factory att använda ditt mottagares Data Lake Storage Gen2-konto. Använd t. ex. autentisering av konto nycklar eller tilldela rollen Storage BLOB data-ägare till tjänstens huvud namn eller hanterad identitet.
 
-När du konfigurerar källa som Data Lake Storage Gen1 med alternativet binär kopia eller binärt format och mottagare som Data Lake Storage Gen2 med alternativet binär kopia eller binärt format, du kan hitta den **bevara** alternativet på den **kopia Inställningar för verktyget** sidan eller på den **Kopieringsaktiviteten** > **inställningar** fliken för redigering av aktivitet.
+När du konfigurerar källa som Data Lake Storage Gen1 med alternativet binär kopia eller binärt format och handfat som Data Lake Storage Gen2 med alternativet binär kopia eller binärt format, kan du hitta alternativet för att **Spara** på **Kopiera data verktygs inställningar** eller på fliken **Kopiera aktivitets** > **Inställningar** för aktivitets redigering.
 
-![Data Lake Storage Gen1 till Gen2 Preserve ACL](./media/connector-azure-data-lake-storage/adls-gen2-preserve-acl.png)
+![Data Lake Storage Gen1 bevara ACL-Gen2](./media/connector-azure-data-lake-storage/adls-gen2-preserve-acl.png)
 
-Här är ett exempel på JSON-konfiguration (se `preserve`): 
+Här är ett exempel på en JSON-konfiguration `preserve`(se): 
 
 ```json
 "activities":[
@@ -583,9 +583,9 @@ Här är ett exempel på JSON-konfiguration (se `preserve`):
 ]
 ```
 
-## <a name="mapping-data-flow-properties"></a>Mappning av egenskaper för flödet av data
+## <a name="mapping-data-flow-properties"></a>Mappa data flödes egenskaper
 
-Läs mer om [source omvandling](data-flow-source.md) och [mottagare omvandling](data-flow-sink.md) i mappningsfunktionen av flödet.
+Lär dig mer om omvandling av [käll omvandling](data-flow-source.md) och [mottagare](data-flow-sink.md) i funktionen mappa data flöde.
 
 ## <a name="next-steps"></a>Nästa steg
 

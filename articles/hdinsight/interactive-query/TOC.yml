@@ -28,6 +28,10 @@
           items:
             - name: GC-utgiftsgränsen har överskridits
               href: ./interactive-query-troubleshoot-outofmemory-overhead-exceeded.md
+        - name: Felmeddelande visas inte i Apache Hive-vyn
+          href: ./interactive-query-troubleshoot-error-message-hive-view.md
+        - name: Otillgänglig Apache Hive-vy
+          href: ./interactive-query-troubleshoot-inaccessible-hive-view.md
         - name: ZooKeeperHiveClientException – HiveServer2-konfigurationer
           href: ./interactive-query-troubleshoot-zookeeperhiveclientexception-hiveserver-configs.md
         - name: Apache Hive LLAP-frågeprestanda

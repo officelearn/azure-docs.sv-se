@@ -10,12 +10,12 @@ ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: edcde083934bb454f62ce3dd55c026138ad8fcca
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: fe947dbb7effde7bfa4f0b9824c6af645c85691c
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67797684"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840189"
 ---
 # <a name="deploy-azure-iot-edge-modules-with-azure-cli"></a>Distribuera Azure IoT Edge-moduler med Azure CLI
 
@@ -73,7 +73,7 @@ Här är ett manifest för grundläggande distribution med en modul som exempel:
              }
            },
            "modules": {
-             "tempSensor": {
+             "SimulatedTemperatureSensor": {
                "version": "1.0",
                "type": "docker",
                "status": "running",
@@ -97,7 +97,7 @@ Här är ett manifest för grundläggande distribution med en modul som exempel:
            }
          }
        },
-       "tempSensor": {
+       "SimulatedTemperatureSensor": {
          "properties.desired": {}
        }
      }
@@ -108,7 +108,7 @@ Här är ett manifest för grundläggande distribution med en modul som exempel:
 
 Du distribuerar moduler på din enhet genom att använda manifestet distribution som du har konfigurerat med informationen som modulen.
 
-Ändra sökvägen till mappen där ditt manifest för distribution har sparats. Om du använde en av VS Code IoT Edge-mallar, använder den `deployment.json` fil i den **config** mapp på din katalog för lösningen och inte den `deployment.template.json` filen.
+Ändra sökvägen till mappen där ditt manifest för distribution har sparats. Om du använde en av vs Code IoT Edge-mallarna använder `deployment.json` du filen i mappen **config** i din lösnings `deployment.template.json` katalog och inte filen.
 
 Använd följande kommando för att tillämpa konfigurationen till en IoT Edge-enhet:
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ebeed3636ea6da77e05a9a790e51c7771ebe685
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 596020952fd02a414c050ac7fe7ab37d7137c391
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68666292"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779668"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Distribuera Azure AD-lösenordsskydd
 
@@ -38,7 +38,7 @@ Det är också möjligt att använda starkare lösen ords verifiering för att p
 * [Befordran av replik på domänkontrollant Miss lyckas på grund av ett svagt lösen ord för reparations läge för katalog tjänster](howto-password-ban-bad-on-premises-troubleshoot.md#domain-controller-replica-promotion-fails-because-of-a-weak-dsrm-password)
 * [Degradering av domänkontrollanten Miss lyckas på grund av ett svagt lokalt administratörs lösen ord](howto-password-ban-bad-on-premises-troubleshoot.md#domain-controller-demotion-fails-due-to-a-weak-local-administrator-password)
 
-När funktionen har körts i gransknings läge under en rimlig period, kan du växla konfigurationen från *granskning* *till att* kräva säkrare lösen ord. Fokuserad övervakning under den här tiden är en bra idé.
+När funktionen har körts i gransknings läge under en rimlig period, kan du växla konfigurationen från *granskning* till att kräva säkrare lösen ord. Fokuserad övervakning under den här tiden är en bra idé.
 
 ## <a name="deployment-requirements"></a>Distributions krav
 
@@ -282,12 +282,29 @@ Det finns två installations program som krävs för lösen ords skydd i Azure A
 
    Du kan automatisera program varu installationen med hjälp av standard-MSI-procedurer. Exempel:
 
-   `msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn`
+   `msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn /norestart`
 
-   > [!WARNING]
-   > Exemplet msiexec-kommando här orsakar en omedelbar omstart. Använd `/norestart` flaggan för att undvika detta.
+   Du kan utelämna `/norestart` flaggan om du hellre vill att installations programmet ska starta om datorn automatiskt.
 
 Installationen slutförs när DC-agentens program vara har installerats på en domänkontrollant och datorn startas om. Ingen annan konfiguration krävs eller är möjlig.
+
+## <a name="upgrading-the-proxy-agent"></a>Uppgradera proxyagenten
+
+Om det finns en nyare version av proxy-programvaran för lösen ords skydd i Azure AD utförs uppgraderingen genom att den senaste versionen av `AzureADPasswordProtectionProxySetup.exe` program varan körs. Du behöver inte avinstallera den aktuella versionen av proxy-programvaran. installations programmet kommer att utföra en uppgradering på plats. Ingen omstart krävs vid uppgradering av proxy-programvaran. Program uppgraderingen kan automatiseras med hjälp av standard-MSI-procedurer, `AzureADPasswordProtectionProxySetup.exe /quiet`till exempel:.
+
+Proxyagenten stöder automatisk uppgradering. Vid automatisk uppgradering används tjänsten Microsoft Azure AD Connect agent Updateer som installeras sida vid sida med proxy-tjänsten. Automatisk uppgradering är aktiverat som standard och kan aktive ras eller inaktive ras med cmdleten Set-AzureADPasswordProtectionProxyConfiguration. Den aktuella inställningen kan frågas med hjälp av cmdleten Get-AzureADPasswordProtectionProxyConfiguration. Microsoft rekommenderar att den automatiska uppgraderingen lämnas aktive rad.
+
+`Get-AzureADPasswordProtectionProxy` Cmdleten kan användas för att fråga program varu versionen för alla installerade proxy-agenter i en skog.
+
+## <a name="upgrading-the-dc-agent"></a>Uppgradera DC-agenten
+
+När en nyare version av Azure AD Password Protection DC Agent-programvaran är tillgänglig utförs uppgraderingen genom att den senaste versionen av `AzureADPasswordProtectionDCAgentSetup.msi` program varu paketet körs. Du behöver inte avinstallera den aktuella versionen av program varan för DC-agenten. installations programmet kommer att utföra en uppgradering på plats. En omstart krävs alltid vid uppgradering av DC Agent-programvaran – Detta orsakas av kärnan i Windows. 
+
+Program uppgraderingen kan automatiseras med hjälp av standard-MSI-procedurer, `msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn /norestart`till exempel:.
+
+Du kan utelämna `/norestart` flaggan om du hellre vill att installations programmet ska starta om datorn automatiskt.
+
+`Get-AzureADPasswordProtectionDCAgent` Cmdleten kan användas för att fråga program varu versionen av alla installerade DC-agenter i en skog.
 
 ## <a name="multiple-forest-deployments"></a>Distributioner av flera skogar
 
@@ -301,7 +318,7 @@ Lösen ords ändringar/uppsättningar bearbetas inte och sparas inte på skrivsk
 
 Det huvudsakliga tillgänglighets skyddet för lösen ords skydd är tillgängligheten till proxyservrar när domän kontrol Lanterna i en skog försöker ladda ned nya principer eller andra data från Azure. Varje DC-Agent använder en enkel algoritm för resursallokering när du bestämmer vilken proxyserver som ska anropas. Agenten hoppar över proxyservrar som inte svarar. För de flesta fullständigt anslutna Active Directory-distributioner som har felfri replikering av både katalog-och SYSVOL-mappar räcker det med två proxyservrar för att säkerställa tillgängligheten. Detta resulterar i en tids nedladdning av nya principer och andra data. Men du kan distribuera ytterligare proxyservrar.
 
-Utformningen av program varan för DC-agenten minskar de vanliga problem som är associerade med hög tillgänglighet. DC-agenten upprätthåller en lokal cache med den senast hämtade lösen ords principen. Även om alla registrerade proxyservrar blir otillgängliga fortsätter DC-agenterna att tillämpa sin cachelagrade lösen ords princip. En rimlig uppdaterings frekvens för lösen ords principer i en stor distribution är vanligt vis *dagar*, inte timmar eller mindre. Det innebär att proxyservrarna inte kraftigt påverkar lösen ords skyddet i Azure AD.
+Utformningen av program varan för DC-agenten minskar de vanliga problem som är associerade med hög tillgänglighet. DC-agenten upprätthåller en lokal cache med den senast hämtade lösen ords principen. Även om alla registrerade proxyservrar blir otillgängliga fortsätter DC-agenterna att tillämpa sin cachelagrade lösen ords princip. En rimlig uppdaterings frekvens för lösen ords principer i en stor distribution är vanligt vis dagar, inte timmar eller mindre. Det innebär att proxyservrarna inte kraftigt påverkar lösen ords skyddet i Azure AD.
 
 ## <a name="next-steps"></a>Nästa steg
 

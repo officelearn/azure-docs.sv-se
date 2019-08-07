@@ -7,18 +7,18 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 05/22/2019
+ms.date: 08/06/2019
 ms.author: jingwang
-ms.openlocfilehash: 9f6edc45316eaeceb75da643ed64b39382712852
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f2ffd88b21d8cf331435a030199b562e6b5b979f
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66165945"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840263"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Filformat som stöds och komprimering codec-enheter i Azure Data Factory
 
-*Den här artikeln gäller för följande kopplingar: [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [Filsystem](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), och [ SFTP](connector-sftp.md).*
+*Den här artikeln gäller följande anslutningar: [Amazon S3](connector-amazon-simple-storage-service.md), [azure BLOB](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [fil system](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [http](connector-http.md)och [SFTP](connector-sftp.md).*
 
 Om du vill **kopiera filer som – är** hoppa över avsnittet format i både inkommande och utgående datamängd definitioner mellan filbaserade (binär kopia). Om du vill **parsa eller generera filer med ett visst format**, Azure Data Factory stöder följande filtyper format:
 
@@ -27,14 +27,15 @@ Om du vill **kopiera filer som – är** hoppa över avsnittet format i både in
 * [Parquet-format](#parquet-format)
 * [ORC-format](#orc-format)
 * [Avro-format](#avro-format)
+* [Binärt format](#binary-format)
 
 > [!TIP]
-> Lär dig hur kopieringsaktiviteten mappar dina källdata till mottagare från [schemamappning i kopieringsaktiviteten](copy-activity-schema-and-type-mapping.md).
+> Lär dig hur kopierings aktiviteten mappar dina källdata till mottagare från [schema mappning i kopierings aktiviteten](copy-activity-schema-and-type-mapping.md).
 
 ## <a name="text-format"></a>Textformat
 
 >[!NOTE]
->Data Factory introduceras nya avgränsad text format datset, se [avgränsat textformat](format-delimited-text.md) artikeln med information. Följande konfigurationer för filbaserade data store datauppsättningen stöds fortfarande som-avser bakåt compabitility. Du rekommenderas för att använda den nya modellen framöver.
+>Data Factory introducerade ett nytt avgränsat text format datset, se artikeln med avgränsat [text format](format-delimited-text.md) med information. Följande konfigurationer på filbaserad data lager data uppsättning stöds fortfarande som-är för bakåtkompatibla compabitility. Du rekommenderas att använda den nya modellen som går framåt.
 
 Om du vill läsa från en textfil eller skriva till en textfil, anger den `type` -egenskapen i den `format` avsnittet på datauppsättningen till **TextFormat**. Du kan också ange följande **valfria** egenskaper i avsnittet `format`. Konfigurationsinformation finns i avsnittet med [TextFormat-exempel](#textformat-example).
 
@@ -42,7 +43,7 @@ Om du vill läsa från en textfil eller skriva till en textfil, anger den `type`
 | --- | --- | --- | --- |
 | columnDelimiter |Det tecken som används för att avgränsa kolumner i en fil. Du kan överväga för att använda ett sällsynt icke utskrivbart tecken som inte kan finnas i dina data. Ange till exempel ”\u0001” som representerar Start av rubriken (SOH). |Endast ett tecken är tillåtet. **Standardvärdet** är **kommatecken (,)** . <br/><br/>Om du vill använda ett Unicode-tecken, som avser [Unicode-tecken](https://en.wikipedia.org/wiki/List_of_Unicode_characters) att hämta motsvarande kod för den. |Nej |
 | rowDelimiter |Det tecken som används för att avgränsa rader i en fil. |Endast ett tecken är tillåtet. **Standardvärdet** är något av följande värden vid läsning: **["\r\n", "\r", "\n"]** och **"\r\n"** vid skrivning. |Nej |
-| escapeChar |Det specialtecken som används för att undanta en kolumnavgränsare i innehållet i indatafilen. <br/><br/>Du kan inte ange både escapeChar och quoteChar för en tabell. |Endast ett tecken är tillåtet. Inget standardvärde. <br/><br/>Exempel: Om du använder kommatecken (”,) som kolumnavgränsare, men du vill använda ett kommatecken i texten (exempel: ”Hello, world”), kan du definiera ”$” som escape-tecken och använda strängen ”$hello, world” i källan. |Nej |
+| escapeChar |Det specialtecken som används för att undanta en kolumnavgränsare i innehållet i indatafilen. <br/><br/>Du kan inte ange både escapeChar och quoteChar för en tabell. |Endast ett tecken är tillåtet. Inget standardvärde. <br/><br/>Exempel: om du har kommatecken (,) som kolumn avgränsare, men vill ha ett kommatecken i texten (exempel: "Hello, World") kan du definiera "$" som escape-tecken och använda strängen "Hej $, World" i källan. |Nej |
 | quoteChar |Det tecken som används för att referera till ett strängvärde. Kolumn- och radavgränsarna innanför citattecknen behandlas som en del av strängvärdet. Den här egenskapen gäller både in- och utdatauppsättningar.<br/><br/>Du kan inte ange både escapeChar och quoteChar för en tabell. |Endast ett tecken är tillåtet. Inget standardvärde. <br/><br/>Om du till exempel använder kommatecken (,) som kolumnavgränsare, men vill använda ett kommatecken i texten (till exempel <Hello, world>), kan du definiera " (dubbla citattecken) som citattecknet och använda strängen "Hello, world" i källan. |Nej |
 | nullValue |Ett eller flera tecken som används för att representera ett null-värde. |Ett eller flera tecken. **Standardvärdena** är **"\N" och "NULL"** vid läsning och **"\N"** vid skrivning. |Nej |
 | encodingName |Ange kodningsnamnet. |Ett giltigt kodningsnamn. Se [Egenskapen Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Exempel: windows-1250 or shift_jis. **Standardvärdet** är **UTF-8**. |Nej |
@@ -81,7 +82,7 @@ Om du vill använda ett `escapeChar` i stället för `quoteChar` ersätter du ra
 
 ### <a name="scenarios-for-using-firstrowasheader-and-skiplinecount"></a>Användningsscenarier för firstRowAsHeader och skipLineCount
 
-* Du kopierar från en källa inte är filbaserad till en textfil och vill lägga till en rubrikrad som innehåller schemametadata (till exempel: SQL-schemat). Ange `firstRowAsHeader` som true i utdatauppsättningen för det här scenariot.
+* Du kopierar från en icke-filkälla till en textfil och vill lägga till en rubrik rad som innehåller metadata för schemat (till exempel: SQL-schema). Ange `firstRowAsHeader` som true i utdatauppsättningen för det här scenariot.
 * Du kopierar från en textfil som innehåller en rubrikrad till en mottagare som inte är filbaserad och vill ignorera raden. Ange `firstRowAsHeader` som true i indatauppsättningen.
 * Du kopierar från en textfil och vill hoppa över några rader i början som antingen inte innehåller några data eller som innehåller rubrikinformation. Ange `skipLineCount` för att ange antalet rader som ska hoppas över. Om resten av filen innehåller en rubrikrad kan du också ange `firstRowAsHeader`. Om både `skipLineCount` och `firstRowAsHeader` anges hoppas raderna över först, varefter rubrikinformationen läses från indatafilen
 
@@ -95,12 +96,12 @@ Om du vill parsa JSON-filerna eller skriva data i JSON-format anger den `type` -
 | --- | --- | --- |
 | filePattern |Ange mönstret för de data som lagras i varje JSON-fil. Tillåtna värden är: **setOfObjects** och **arrayOfObjects**. **Standardvärdet** är **setOfObjects**. Detaljerad information om dessa mönster finns i avsnittet om [JSON-filmönster](#json-file-patterns). |Nej |
 | jsonNodeReference | Om du vill iterera och extrahera data från objekten i ett matrisfält med samma mönster anger du JSON-sökvägen för matrisen. Den här egenskapen stöds endast när du kopierar data **från** JSON-filer. | Nej |
-| jsonPathDefinition | Ange JSON-sökvägsuttrycket för varje kolumnmappning med ett anpassat kolumnnamn (inled med liten bokstav). Den här egenskapen stöds endast när du kopierar data **från** JSON-filer, och du kan extrahera data från objekt eller matriser. <br/><br/> För fält under rotobjektet börjar du med $; för fält inuti matrisen som väljs av egenskapen `jsonNodeReference` börjar du från matriselementet. Konfigurationsinformation finns i avsnittet med [JsonFormat-exempel](#jsonformat-example). | Nej |
-| encodingName |Ange kodningsnamnet. Lista över giltiga kodningsnamn finns i: [Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx) Property. Exempel: windows-1250 or shift_jis. Den **standard** värdet är: **UTF-8**. |Nej |
+| jsonPathDefinition | Ange JSON-sökvägsuttrycket för varje kolumnmappning med ett anpassat kolumnnamn (inled med liten bokstav). Den här egenskapen stöds endast när du kopierar data **från** JSON-filer och du kan extrahera data från objekt eller matris. <br/><br/> För fält under rotobjektet börjar du med $; för fält inuti matrisen som väljs av egenskapen `jsonNodeReference` börjar du från matriselementet. Konfigurationsinformation finns i avsnittet med [JsonFormat-exempel](#jsonformat-example). | Nej |
+| encodingName |Ange kodningsnamnet. En lista över giltiga kodnings namn finns i: [Encoding. EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx) -egenskapen. Exempel: windows-1250 or shift_jis. Standardvärdet är: **UTF-8**. |Nej |
 | nestingSeparator |Tecken som används för att avgränsa kapslingsnivåer. Standardvärdet är ”.” (punkt). |Nej |
 
 >[!NOTE]
->Om-korstillämpa data i matrisen i flera rader (fall 1 -> exempel 2 i [JsonFormat-exempel](#jsonformat-example)), du kan endast välja att expandera enskild matris med hjälp av egenskapen `jsonNodeReference`.
+>När det gäller kors användnings data i matrisen i flera rader (fall 1 – > exempel 2 i [JsonFormat-exempel](#jsonformat-example)) kan du bara välja att expandera en enskild matris med `jsonNodeReference`egenskap.
 
 ### <a name="json-file-patterns"></a>JSON-filmönster
 
@@ -355,7 +356,7 @@ Indatauppsättningen med typen **JsonFormat** definieras så här: (partiell def
 * Om det finns dubblettnamn på samma nivå väljer kopieringsaktiviteten det sista.
 * Egenskapsnamn är skiftlägeskänsliga. Två egenskaper med samma namn men med olika skiftlägen behandlas som två olika egenskaper.
 
-**Fall 2: Skriva data till JSON-fil**
+**Fall 2: Skriver data till JSON-fil**
 
 Om du har följande tabell i SQL-databas:
 
@@ -412,7 +413,7 @@ Utdatauppsättningen med typen **JsonFormat** definieras så här: (partiell def
 ## <a name="parquet-format"></a>Parquet-format
 
 >[!NOTE]
->Data Factory introduceras nya Parquet-format datset, se [Parquet-format](format-parquet.md) artikeln med information. Följande konfigurationer för filbaserade data store datauppsättningen stöds fortfarande som-avser bakåt compabitility. Du rekommenderas för att använda den nya modellen framöver.
+>Data Factory introducerade nya Parquet format datset, se [Parquet format](format-parquet.md) -artikel med information. Följande konfigurationer på filbaserad data lager data uppsättning stöds fortfarande som-är för bakåtkompatibla compabitility. Du rekommenderas att använda den nya modellen som går framåt.
 
 Om du vill parsa Parquet-filer eller skriva data i Parquet-format anger du egenskapen `format` `type` till **ParquetFormat**. Du behöver inte ange några egenskaper i avsnittet Format i avsnittet typeProperties. Exempel:
 
@@ -425,24 +426,24 @@ Om du vill parsa Parquet-filer eller skriva data i Parquet-format anger du egens
 
 Observera följande punkter:
 
-* Komplexa typer stöds inte (MAP, LIST).
-* Tomt utrymme i kolumnnamn stöds inte.
-* Parquet-filer har följande komprimeringsrelaterade alternativ: NONE, SNAPPY, GZIP och LZO. Data Factory stöder läsning av data från Parquet-filer i någon av dessa komprimerade format utom LZO – den använder komprimerings-codec i metadata för att läsa data. Men vid skrivning till en Parquet-fil väljer Data Factory SNAPPY, som är standard för Parquet-formatet. För närvarande finns det inget alternativ för att åsidosätta det här beteendet.
+* Komplexa data typer stöds inte (MAP, LIST).
+* Tomt utrymme i kolumn namnet stöds inte.
+* Parquet-filen har följande komprimerings bara alternativ: INGEN, fästning, GZIP och LZO. Data Factory har stöd för att läsa data från Parquet-filen i någon av dessa komprimerade format förutom LZO – den använder komprimerings-codec i metadata för att läsa data. Men vid skrivning till en Parquet-fil väljer Data Factory SNAPPY, som är standard för Parquet-formatet. För närvarande finns det inget alternativ för att åsidosätta det här beteendet.
 
 > [!IMPORTANT]
-> För att kopiera möjligheter med lokal Integration Runtime t.ex. mellan lokala och molnbaserade datalager, om du inte kopierar Parquet-filer **som – är**, måste du installera den **64-bitars JRE 8 (Java Runtime Environment) eller OpenJDK** på IR-datorn. Se följande stycke med mer information.
+> Om du inte kopierar Parquet-filer i **befintligt skick som är som är**integration runtime behöriga för den lokala datorn och data lager i molnet, måste du installera **64-bitars JRE 8 (Java Runtime Environment) eller OPENJDK** på din IR-dator. Se följande stycke med mer information.
 
-För kopiering som körs på lokal IR med Parquet-fil serialisering/deserialisering ADF söker efter Java runtime genom att först kontrollera registret *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* för JRE, om inte hittas för det andra kontrollerar systemvariabeln *`JAVA_HOME`* för OpenJDK.
+För kopiering som körs på egen värd-IR med Parquet-filserialisering/deserialisering, hittar ADF Java-körningen genom att först kontrol lera registret *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* för JRE, om det inte hittas, och sedan kontrol lera *`JAVA_HOME`* system variabeln för openjdk.
 
-- **Att använda JRE**: 64-bitars IR kräver 64-bitars JRE. Du hittar den från [här](https://go.microsoft.com/fwlink/?LinkId=808605).
-- **Att använda OpenJDK**: den stöds sedan IR version 3.13. Paketet jvm.dll med alla andra krävs sammansättningar av OpenJDK i lokal IR-datorn och system för set-miljövariabeln JAVA_HOME därefter.
+- **Så här använder du JRE**: 64-bitars IR kräver 64-bitars JRE. Du hittar den [här](https://go.microsoft.com/fwlink/?LinkId=808605).
+- **Om du vill använda openjdk**: stöds den sedan IR version 3,13. Paketera JVM. dll med alla andra nödvändiga sammansättningar av OpenJDK till IR-datorn med egen värd och ange system miljö variabeln JAVA_HOME.
 
 >[!TIP]
->Om du kopierar data till/från Parquet-format med hjälp av lokal Integration Runtime och tryck på fel som säger ”ett fel uppstod när java-anrop meddelande: **java.lang.OutOfMemoryError:Java heap utrymme**”, kan du lägga till en miljövariabel `_JAVA_OPTIONS` på den dator som är värd för lokal IR för att justera storleken på heap min/max för JVM att driva denna kopia, sedan kör pipelinen igen.
+>Om du kopierar data till/från Parquet-format med hjälp av självbetjäning integration Runtime och träffa fel som säger "ett fel uppstod vid aktivering av Java, meddelande: **Java. lang. OutOfMemoryError: Java heap-utrymme**" kan du lägga `_JAVA_OPTIONS` till en miljö variabel i en dator som är värd för IR med egen värd för att justera den minsta/högsta heap-storleken för JVM för att ge en sådan kopia och sedan köra pipelinen igen.
 
-![Ange JVM heap-storlek för lokal IR](./media/supported-file-formats-and-compression-codecs/set-jvm-heap-size-on-selfhosted-ir.png)
+![Ange JVM heap-storlek för IR med egen värd](./media/supported-file-formats-and-compression-codecs/set-jvm-heap-size-on-selfhosted-ir.png)
 
-Exempel: Ange variabel `_JAVA_OPTIONS` med värdet `-Xms256m -Xmx16g`. Flaggan `Xms` anger inledande allokering minnespoolen för en Java Virtual Machine (JVM), medan `Xmx` anger den högsta mängd minne allokering poolen. Det innebär att du kommer igång JVM med `Xms` mängden minne och kommer att kunna använda högst `Xmx` mängden minne. Som standard ADF använda min 64MB och max 1G.
+Exempel: Ange variabeln `_JAVA_OPTIONS` med värde. `-Xms256m -Xmx16g` Flaggan `Xms` anger den första poolen för minnesallokering för en Java Virtual Machine (JVM), medan `Xmx` anger den maximala poolen för minnesallokering. Det innebär att JVM startas med `Xms` mängden minne och kommer att kunna använda `Xmx` maximalt mängd minne. Som standard använder ADF den minsta 64 MB och Max 1G.
 
 ### <a name="data-type-mapping-for-parquet-files"></a>Datatypen mappning för Parquet-filer
 
@@ -482,17 +483,17 @@ Om du vill parsa ORC-filerna eller skriva data i ORC-format ange du egenskapen `
 
 Observera följande punkter:
 
-* Komplexa typer stöds inte (STRUCT, MAP, LIST, UNION).
-* Tomt utrymme i kolumnnamn stöds inte.
-* ORC-filen har tre [komprimeringsrelaterade alternativ](https://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): NONE, ZLIB OCH SNAPPY. Data Factory stöder läsning av data från ORC-filer i alla dessa komprimerade format. Data Factory använder komprimerings-codec i metadata för att läsa data. Men vid skrivning till en ORC-fil väljer Data Factory ZLIB, som är standard för ORC. För närvarande finns det inget alternativ för att åsidosätta det här beteendet.
+* Komplexa data typer stöds inte (STRUCT, MAP, LIST, UNION).
+* Tomt utrymme i kolumn namnet stöds inte.
+* ORC-filen har tre komprimerings bara [alternativ](https://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): INGEN, ZLIB, FÄSTNING. Data Factory stöder läsning av data från ORC-filer i alla dessa komprimerade format. Data Factory använder komprimerings-codec i metadata för att läsa data. Men vid skrivning till en ORC-fil väljer Data Factory ZLIB, som är standard för ORC. För närvarande finns det inget alternativ för att åsidosätta det här beteendet.
 
 > [!IMPORTANT]
-> För att kopiera möjligheter med lokal Integration Runtime t.ex. mellan lokala och molnbaserade datalager, om du inte kopierar ORC-filer **som – är**, måste du installera den **64-bitars JRE 8 (Java Runtime Environment) eller OpenJDK**  på IR-datorn. Se följande stycke med mer information.
+> Om du inte kopierar ORC-filer i **befintligt skick som är som är**integration runtime behöriga för den lokala datorn och data lager i molnet, måste du installera **64-bitars JRE 8 (Java Runtime Environment) eller OPENJDK** på din IR-dator. Se följande stycke med mer information.
 
-För kopiering som körs på lokal IR med ORC-filen serialisering/deserialisering ADF söker efter Java runtime genom att först kontrollera registret *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* för JRE, om inte hittas för det andra kontrollerar systemvariabeln *`JAVA_HOME`* för OpenJDK.
+För kopiering som körs på egen värd-IR med Orc-filserialisering/deserialisering, hittar ADF Java-körningen genom att först kontrol lera registret *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* för JRE, om det inte hittas, och sedan kontrol lera *`JAVA_HOME`* system variabeln för openjdk.
 
-- **Att använda JRE**: 64-bitars IR kräver 64-bitars JRE. Du hittar den från [här](https://go.microsoft.com/fwlink/?LinkId=808605).
-- **Att använda OpenJDK**: den stöds sedan IR version 3.13. Paketet jvm.dll med alla andra krävs sammansättningar av OpenJDK i lokal IR-datorn och system för set-miljövariabeln JAVA_HOME därefter.
+- **Så här använder du JRE**: 64-bitars IR kräver 64-bitars JRE. Du hittar den [här](https://go.microsoft.com/fwlink/?LinkId=808605).
+- **Om du vill använda openjdk**: stöds den sedan IR version 3,13. Paketera JVM. dll med alla andra nödvändiga sammansättningar av OpenJDK till IR-datorn med egen värd och ange system miljö variabeln JAVA_HOME.
 
 ### <a name="data-type-mapping-for-orc-files"></a>Datatypen mappning för ORC-filer
 
@@ -535,6 +536,10 @@ Observera följande punkter:
 
 * [Komplexa datatyper](https://avro.apache.org/docs/current/spec.html#schema_complex) stöds inte (poster, uppräkningar, matriser, mappningar, unioner, och fasta).
 
+## <a name="binary-format"></a>Binärt format
+
+Mer information finns i artikeln om [binärt format](format-binary.md) .
+
 ## <a name="compression-support"></a>Komprimeringsstöd för
 
 Azure Data Factory stöder compress/dekomprimera data vid kopiering. När du anger `compression` egenskapen i en indatauppsättning kopieringsaktiviteten läsa komprimerade data från källan och expandera den; och när du anger egenskapen i en utdatauppsättning kopieringsaktiviteten komprimera och sedan skriva data till mottagaren. Här följer några exempelscenarier:
@@ -575,22 +580,22 @@ Den **komprimering** avsnittet har två egenskaper:
 * **Typ:** komprimerings-codec som kan vara **GZIP**, **Deflate**, **BZIP2**, eller **ZipDeflate**.
 * **Nivå:** komprimeringsförhållandet, vilket kan vara **Optimal** eller **snabbast**.
 
-  * **Snabbaste:** Komprimeringsåtgärden ska slutföras så snabbt som möjligt, även om den resulterande filen inte är optimalt komprimerad.
-  * **Optimal**: Komprimeringsåtgärden ska komprimeras optimalt, även om åtgärden tar längre tid att slutföra.
+  * **Snabbaste** Komprimerings åtgärden bör utföras så snabbt som möjligt, även om den resulterande filen inte komprimeras optimalt.
+  * **Optimal**: Komprimerings åtgärden bör komprimeras optimalt, även om åtgärden tar längre tid att slutföra.
 
     Mer information finns i [komprimeringsnivå](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) avsnittet.
 
 > [!NOTE]
 > Inställningarna för komprimering stöds inte för data i den **AvroFormat**, **OrcFormat**, eller **ParquetFormat**. Vid läsning av filer i formaten, Data Factory identifierar och använder komprimerings-codec i metadata. Vid skrivning till filer i formaten, väljer Data Factory standard komprimerings-codec för formatet. Till exempel ZLIB för OrcFormat och SNAPPY för ParquetFormat.
 
-## <a name="unsupported-file-types-and-compression-formats"></a>Filtyper som inte stöds och komprimeringsformat
+## <a name="unsupported-file-types-and-compression-formats"></a>Filtyper och komprimerings format som inte stöds
 
-Du kan använda funktionerna för utökningsbarhet i Azure Data Factory för att omvandla filer som inte stöds.
-Två alternativ inkluderar Azure Functions och anpassade aktiviteter med hjälp av Azure Batch.
+Du kan använda utöknings funktionerna i Azure Data Factory för att transformera filer som inte stöds.
+Två alternativ är Azure Functions och anpassade aktiviteter med hjälp av Azure Batch.
 
-Du kan se ett exempel som använder en Azure-funktion till [extrahera innehållet i tar-filen](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV2/UntarAzureFilesWithAzureFunction). Mer information finns i [Azure Functions aktivitet](https://docs.microsoft.com/azure/data-factory/control-flow-azure-function-activity).
+Du kan se ett exempel som använder en Azure-funktion för att [extrahera innehållet i en tar-fil](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV2/UntarAzureFilesWithAzureFunction). Mer information finns i [Azure Functions-aktivitet](https://docs.microsoft.com/azure/data-factory/control-flow-azure-function-activity).
 
-Du kan också skapa den här funktionen med hjälp av en anpassad dotnet-aktivitet. Ytterligare information finns [här](https://docs.microsoft.com/azure/data-factory/transform-data-using-dotnet-custom-activity)
+Du kan också bygga den här funktionen med en anpassad dotNet-aktivitet. Ytterligare information finns [här](https://docs.microsoft.com/azure/data-factory/transform-data-using-dotnet-custom-activity)
 
 ## <a name="next-steps"></a>Nästa steg
 

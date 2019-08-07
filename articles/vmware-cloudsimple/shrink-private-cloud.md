@@ -1,60 +1,60 @@
 ---
-title: Minska Azure VMware-lösning av CloudSimple privat moln
-description: Beskriver hur du minska ett CloudSimple privat moln.
+title: Minska Azure VMware-lösningen genom CloudSimple privat moln
+description: Beskriver hur du krymper ett privat CloudSimple-moln.
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 07/01/2019
 ms.topic: article
-ms.service: vmware
+ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 6e639feb603f1654b4dcd40f16d8e3094307839a
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: 67bb7e0cd8a800c2c2ba87c768739fd573ef6888
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67544522"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68812202"
 ---
-# <a name="shrink-a-cloudsimple-private-cloud"></a>Minska ett CloudSimple privat moln
+# <a name="shrink-a-cloudsimple-private-cloud"></a>Krymp ett privat CloudSimple-moln
 
-CloudSimple ger dig flexibilitet att krympa dynamiskt ett privat moln.  Ett privat moln består av en eller flera vSphere-kluster. Varje kluster kan ha 3 till 16 noder. När ett privat moln, ta bort en nod från det befintliga klustret eller ta bort ett helt kluster. 
+CloudSimple ger flexibiliteten att dynamiskt minska ett privat moln.  Ett privat moln består av ett eller flera vSphere-kluster. Varje kluster kan ha 3 till 16 noder. När du krymper ett privat moln tar du bort en nod från det befintliga klustret eller tar bort ett helt kluster. 
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Följande villkor måste uppfyllas för förminskas för ett privat moln.  Hantering av kluster (första kluster) skapas när ett privat moln har skapats kan inte tas bort.
+Följande villkor måste vara uppfyllda för krympning av ett privat moln.  Hanterings kluster (det första klustret) som skapades när ett privat moln skapades går inte att ta bort.
 
-* Ett vSphere-kluster måste ha tre noder.  Ett kluster med bara tre noder kan inte krympas.
-* Totalt lagringsutrymme som förbrukas bör inte överskrida den totala kapaciteten efter förminskas i klustret. 
+* Ett vSphere-kluster måste ha tre noder.  Det går inte att krympa ett kluster med tre noder.
+* Den totala förbrukade lagringen bör inte överskrida den totala kapaciteten efter krympning av klustret. 
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
 Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
 
-## <a name="shrink-a-private-cloud"></a>Minska ett privat moln 
+## <a name="shrink-a-private-cloud"></a>Krymp ett privat moln 
 
-1. [Få åtkomst till portalen CloudSimple](access-cloudsimple-portal.md).
+1. [Få åtkomst till CloudSimple-portalen](access-cloudsimple-portal.md).
 
-2. Öppna den **resurser** sidan.
+2. Öppna sidan **resurser** .
 
-3. Klicka på det privata molnet som du vill minska
+3. Klicka på det privata moln som du vill krympa
 
-4. På sidan Sammanfattning klickar du på **minska**.
+4. På sidan Sammanfattning klickar du på **Krymp**.
 
-    ![Minska privat moln](media/shrink-private-cloud.png)
+    ![Krymp privat moln](media/shrink-private-cloud.png)
 
-5. Välj det kluster som du vill minska eller ta bort. 
+5. Välj det kluster som du vill krympa eller ta bort. 
 
-    ![Minska privat moln - väljer kluster](media/shrink-private-cloud-select-cluster.png)
+    ![Krymp privat moln – Välj kluster](media/shrink-private-cloud-select-cluster.png)
 
 6. Välj **ta bort en nod** eller **ta bort hela klustret**. 
 
-7. Verifiera klusterkapacitet
+7. Verifiera kluster kapaciteten
 
-8. Klicka på **skicka** att minska det privata molnet.
+8. Klicka på **Skicka** för att krympa det privata molnet.
 
-Förminskas för privat moln startar.  Du kan övervaka förloppet i uppgifter.  Förminskas-processen kan ta några timmar beroende på data som måste vara resynced på virtuellt SAN-nätverk.
+Krympningen av det privata molnet startar.  Du kan övervaka förloppet i aktiviteterna.  Krympnings processen kan ta några timmar beroende på vilka data som behöver synkroniseras om på virtuellt San.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Använda virtuella VMware-datorer på Azure](quickstart-create-vmware-virtual-machine.md)
+* [Använda virtuella VMware-datorer i Azure](quickstart-create-vmware-virtual-machine.md)
 * Läs mer om [privata moln](cloudsimple-private-cloud.md)

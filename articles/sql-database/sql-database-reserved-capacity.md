@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
-ms.date: 07/19/2019
-ms.openlocfilehash: adbc2c8818a3d7eff679dadc2245fb0ff8686fc2
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 08/02/2019
+ms.openlocfilehash: 0139b3471eb9117830180088498eb14efd6ab661
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566926"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68781303"
 ---
 # <a name="prepay-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Förskotts betalning för SQL Database beräknings resurser med Azure SQL Database reserverad kapacitet
 
@@ -63,13 +63,9 @@ I följande tabell beskrivs obligatoriska fält.
 1. Välj **Köp**.
 1. Välj **Visa den här reservationen** för att se inköpets status.
 
-## <a name="cancellations-and-exchanges"></a>Avbokningar och byten
+## <a name="cancel-exchange-or-refund-reservations"></a>Avbryta, byta ut eller återbetala reservationer
 
-Om du behöver avbryta din SQL Database reservation av reserverad kapacitet kan det finnas 12% tidig uppsägnings avgift. Återbetalningar baseras på det lägsta priset – antingen ditt inköpspris eller det aktuella priset för reservationen. Återbetalningar begränsas till 50 000 USD per år. Din återbetalning består av det återstående proportionellt beräknade saldot minus uppsägningsavgiften på 12 %. Om du vill avbryta går du till reservationen i Azure Portal och väljer **åter betalning**.
-
-Om du behöver ändra din reservation av SQL Database-reserverad kapacitet till en annan region, distributionstyp, prestandanivå eller period kan du byta till en annan reservation med samma eller högre värde. Startdatumet för den nya reservationens överförs inte från den utbytte reservationen. Perioden på 1 eller 3 år startar när du skapar den nya reservationen. Till Exchange går du till reservationen i Azure Portal och väljer **Exchange**.
-
-Mer information om hur du utbyter eller återbetalar reservationer finns i [reservations utbyte och åter betalningar](../billing/billing-azure-reservations-self-service-exchange-and-refund.md).
+Du kan avbryta, byta ut eller återbetala reservationer med vissa begränsningar. Mer information finns i självbetjänings [utbyten och åter betalningar för Azure reservations](../billing/billing-azure-reservations-self-service-exchange-and-refund.md).
 
 ## <a name="vcore-size-flexibility"></a>flexibilitet för vCore-storlek
 

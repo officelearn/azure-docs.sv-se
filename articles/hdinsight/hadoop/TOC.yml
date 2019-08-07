@@ -56,14 +56,20 @@
       maintainContext: true
     - name: Felsöka
       items:
+        - name: Mjuk låsning – CPU
+          href: ./hdinsight-troubleshoot-soft-lockup-cpu.md
+        - name: InvalidNetworkConfigurationErrorCode – det går inte att skapa kluster
+          href: ./troubleshoot-invalidnetworkconfigurationerrorcode-cluster-creation-fails.md
+        - name: InvalidNetworkSecurityGroupSecurityRules – det går inte att skapa kluster
+          href: ./hdinsight-troubleshoot-invalidnetworksecuritygroupsecurityrules-cluster-creation-fails.md
         - name: Det går inte att logga in i HDInsight-kluster
           href: ./hdinsight-troubleshoot-unable-log-in-cluster.md
         - name: Det går inte att lägga till noder i HDInsight-kluster
           href: ./hdinsight-troubleshoot-unable-add-nodes.md
-        - name: InvalidNetworkSecurityGroupSecurityRules – det går inte att skapa kluster
-          href: ./hdinsight-troubleshoot-invalidnetworksecuritygroupsecurityrules-cluster-creation-fails.md
         - name: Konvertera certifikat för tjänstens huvudnamn
           href: ./hdinsight-troubleshoot-converting-service-principal-certificate.md
+        - name: Lokal HDFS fast i felsäkert läge
+          href: ./hdinsight-hdfs-troubleshoot-safe-mode.md
         - name: Problem med pulsslag från Apache Ambari
           href: ./apache-ambari-troubleshoot-heartbeat-issues.md
 - name: Gör så här för att

@@ -131,6 +131,8 @@
   items:
     - name: Hantera Azure Monitor
       items:
+        - name: Designa en arbetsyta för distribution
+          href: platform/design-logs-deployment.md
         - name: Rollbehörigheter och säkerhet
           href: platform/roles-permissions-security.md
         - name: IP-adresser

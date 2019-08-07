@@ -70,6 +70,8 @@
     - name: Kunskapsbas
       href: Concepts/knowledge-base.md
       displayName: 'metadata, pair'
+    - name: Använda LUIS och QnA Maker
+      href: ../luis/choose-natural-language-processing-service.md?toc=/azure/cognitive-services/qnamaker/toc.json
     - name: Utvecklingslivscykel för en kunskapsbas
       href: Concepts/development-lifecycle-knowledge-base.md
     - name: Bästa praxis

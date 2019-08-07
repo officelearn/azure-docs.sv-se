@@ -128,8 +128,6 @@
           href: directory-assign-admin-roles.md
         - name: Visa och tilldela roller
           href: directory-manage-roles-portal.md
-        - name: Tilldela anpassade roller i Graph API
-          href: roles-assign-powershell.md
         - name: Förhandsversion av anpassade roller
           items:
             - name: Förhandsversion av anpassade roller
@@ -142,6 +140,8 @@
               href: /azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
             - name: Tilldela anpassade roller i Graph API
               href: roles-assign-graph.md
+            - name: Tilldela anpassade roller i PowerShell
+              href: roles-assign-powershell.md
             - name: Förhandsgranskningsbehörigheter för anpassade roller
               href: roles-custom-available-permissions.md
             - name: Delegera behörigheter för appadministratörer

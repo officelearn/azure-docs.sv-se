@@ -253,6 +253,8 @@
               href: integrate-environments-devops-pipeline.md
             - name: Använda DevTest Labs i Azure DevOps-versionen och versionspipelines
               href: use-devtest-labs-build-release-pipelines.md
+        - name: Rapportera användning av labb
+          href: report-usage-across-multiple-labs-subscriptions.md
         - name: DevTest Labs i företaget
           items:
             - name: DevTest Labs med skalbarhet i företagsklass

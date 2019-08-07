@@ -27,64 +27,31 @@ sections:
         style: cards
         type: list
   - items:
-      - text: 'Komma igång med tjänsten Azure Machine Learning Service:'
+      - text: Komma igång med tjänsten Azure Machine Learning Service.
         type: paragraph
-      - text: '<b>Snabbstarter:</b>'
-        type: paragraph
-      - items:
-          - html: <a href="service/quickstart-run-cloud-notebook">Köra ett experiment i molnet</a> (ingen installation krävs)
-          - html: <a href="service/quickstart-run-local-notebook">Köra ett experiment med hjälp av en lokal notebook-server</a> (installation av lokal SDK)
-        style: unordered
-        type: list
-      - text: '<b>Självstudier: Träna och distribuera din första automatiserade ML-modell i Azure Portal:</b>'
+      - text: 'Azure Portal är ett kodlöst gränssnitt för maskininlärning som är enkelt att använda. Använd det för att träna, distribuera och hantera ML-modeller:'
         type: paragraph
       - items:
+          - html: <a href="service/ui-tutorial-automobile-price-train-score">Träna ditt första experiment i visuellt gränssnitts dra och släpp-användargränssnitt</a>
           - html: <a href="service/tutorial-first-experiment-automated-ml">Använd automatiserad maskininlärning för att träna och distribuera din första klassificeringsmodell</a>
         style: unordered
         type: list
-      - text: '<b>Självstudier: Träna din första ML-modell med SDK:</b>'
+      - text: 'Använd Python-SDK i skript och notebook-filer för att träna, distribuera och hantera ML-modeller:'
         type: paragraph
       - items:
-          - html: 'Del 1: <a href="service/tutorial-1st-experiment-sdk-setup">Konfigurera miljö och arbetsyta</a>'
-          - html: 'Del 2: <a href="service/tutorial-1st-experiment-sdk-train">Träna din första modell</a>'
+          - html: <a href="service/tutorial-1st-experiment-sdk-setup">Konfigurera din miljö och träna ditt första ML-experiment</a>
+          - html: <a href="service/tutorial-train-models-with-aml">Träna och distribuera bildklassificeringsmodeller</a>
+          - html: <a href="service/tutorial-data-prep">Förbered data och använda automatiserad ML för att förutsäga taxipriser</a>
         style: unordered
         type: list
-      - text: '<b>Självstudier: Träna och distribuera ditt första experiment med visuellt gränssnitt:</b>'
-        type: paragraph
-      - items:
-          - html: 'Del 1: <a href="service/ui-tutorial-automobile-price-train-score">Träna regressionsmodellen</a>'
-          - html: 'Del 2: <a href="service/ui-tutorial-automobile-price-deploy">Distribuera modellen</a>'
-        style: unordered
-        type: list
-      - text: '<b>Självstudier: Avbildningsklassificering av MNIST-data med SDK:</b>'
-        type: paragraph
-      - items:
-          - html: 'Del 1: <a href="service/tutorial-train-models-with-aml">Träna din modell</a>'
-          - html: 'Del 2: <a href="service/tutorial-deploy-models-with-aml">Distribuera modellen</a>'
-        style: unordered
-        type: list
-      - text: '<b>Självstudier: Förutse priset för taxiresor med hjälp av SDK:</b>'
-        type: paragraph
-      - items:
-          - html: 'Del 1: <a href="service/tutorial-data-prep">Förbereda data för modellering</a>'
-          - html: 'Del 2: <a href="service/tutorial-auto-train-models">Använd automatiserad maskininlärning för att träna modeller</a>'
-        style: unordered
-        type: list
-      - text: '<b>Självstudier: Förutse bilpriser med hjälp av det visuella gränssnittet:</b>'
-        type: paragraph
-      - items:
-          - html: 'Del 1: <a href="service/ui-tutorial-automobile-price-train-score">Förutse bilpriser</a>'
-          - html: 'Del 2: <a href="service/ui-tutorial-automobile-price-deploy">Distribuera regressionsmodellen</a>'
-        style: unordered
-        type: list
-      - text: '<b>Förbruka dina modeller:</b>'
+      - text: 'Förbruka dina modeller:'
         type: paragraph
       - items:
           - html: <a href="service/how-to-consume-web-service">Förbrukning av begäran-svar-modeller</a>
           - html: <a href="service/how-to-run-batch-predictions">Batch-förutsägelser med ML-pipelines</a>
         style: unordered
         type: list
-    title: Snabbstarter och självstudier
+    title: Stegvisa självstudier
   - items:
       - className: cardsM
         columns: 2

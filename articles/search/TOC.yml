@@ -53,15 +53,21 @@
           href: cognitive-search-tutorial-blob-python.md
 - name: Exempel
   items:
-    - name: Azure-kodexempel
-      href: 'https://azure.microsoft.com/resources/samples/?service=search'
+    - name: 'C#-exempel'
+      href: 'https://docs.microsoft.com/samples/browse/?products=azure-search&languages=csharp'
+    - name: Java-exempel
+      href: 'https://docs.microsoft.com/samples/browse/?products=azure-search&languages=java'
+    - name: Python-exempel
+      href: 'https://docs.microsoft.com/samples/browse/?products=azure-search&languages=python'
+    - name: REST-exempel
+      href: 'https://docs.microsoft.com/samples/browse/?products=azure-search&languages=rest'
 - name: Utbildning
   items:
-    - name: Kunskapsutvinning – fördjupningskurs
-      href: 'https://azure.github.io/LearnAI-KnowledgeMiningBootcamp/'
+    - name: Introduktion (Microsoft Learn)
+      href: 'https://docs.microsoft.com/learn/modules/intro-to-azure-search/'
     - name: Lägga till sökning i appar (Pluralsight)
       href: 'https://www.pluralsight.com/courses/azure-adding-search-abilities-apps'
-    - name: Microsoft Azure Developer-kurs (Pluralsight)
+    - name: Developer-kurs (Pluralsight)
       href: 'https://www.pluralsight.com/courses/microsoft-azure-textual-content-search-enabling'
 - name: Begrepp
   items:

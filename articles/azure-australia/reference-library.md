@@ -6,12 +6,12 @@ ms.service: azure-australia
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: grgale
-ms.openlocfilehash: 0c575076439e3405d34fe0ef3beff0242a53a8c5
-ms.sourcegitcommit: 15f7b641a67f3d6cf4fb4b4c11eaee18cf335923
+ms.openlocfilehash: 48b4b71d80bcef1eaf3bf89c0b14c8033748684e
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68601820"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779338"
 ---
 # <a name="additional-documentation-and-resources-by-focus-area"></a>Ytterligare dokumentation och resurser efter fokus områden
 
@@ -22,7 +22,7 @@ Resurs biblioteket innehåller ytterligare länkar och referenser som är releva
 * [Sidan Microsoft Service Trust Portal, Australien](https://aka.ms/au-irap)
 * [Sidan Microsoft Trust Center CCSL](https://www.microsoft.com/trustcenter/compliance/ccsl)
 * [Ritningar för säkerhet och efterlevnad i Azure för skyddade](https://aka.ms/au-protected)
-* [Klient isolering i Microsoft Azure](https://docs.microsoft.com/azure/security/azure-isolation)
+* [Klient isolering i Microsoft Azure](https://docs.microsoft.com/azure/security/fundamentals/isolation-choices)
 * [Australisk information säkerhets hand bok](https://www.cyber.gov.au/ism)
 * [Cyberhot Security Center (ACSC) Certified Cloud List](https://www.cyber.gov.au/irap/asd-certified-cloud-services)
 
@@ -32,7 +32,7 @@ Resurs biblioteket innehåller ytterligare länkar och referenser som är releva
 * [Om nycklar, hemligheter och certifikat](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates)
 * [Konfigurera Azure Key Vault brand väggar och virtuella nätverk](https://docs.microsoft.com/azure/key-vault/key-vault-network-security)
 * [Säker åtkomst till ett nyckel valv](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault)
-* [Azure Data Encryption – i vila](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest)
+* [Azure Data Encryption – i vila](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)
 * [Använda Azure Key Vault med Azure Virtuella Windows-datorer i .NET](https://docs.microsoft.com/azure/key-vault/tutorial-net-windows-virtual-machine)
 * [Azure Key Vault hanterat lagrings konto – PowerShell](https://docs.microsoft.com/azure/key-vault/tutorial-net-windows-virtual-machine)
 * [Konfigurera nyckel rotation och-granskning](https://docs.microsoft.com/azure/key-vault/key-vault-key-rotation-log-monitoring)
@@ -68,7 +68,7 @@ Resurs biblioteket innehåller ytterligare länkar och referenser som är releva
 * [Översikt över Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
 * [Översikt över Azure Privileged Identify Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure)
 * [Översikt över Azure Hanteringsgrupper](https://docs.microsoft.com/azure/governance/management-groups/)
-* [Metod tips för Azure Identity och Access Control](https://docs.microsoft.com/azure/security/azure-security-identity-management-best-practices)
+* [Metod tips för Azure Identity och Access Control](https://docs.microsoft.com/azure/security/fundamentals/identity-management-best-practices)
 * [Hantera Azure AD-grupper](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups)
 * [Hybrid identitet](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-hybrid-identity)
 * [Anpassade RBAC-roller](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)

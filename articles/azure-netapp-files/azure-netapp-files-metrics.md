@@ -1,6 +1,6 @@
 ---
-title: Mätvärden för Azure NetApp-filer | Microsoft Docs
-description: Beskriver mätvärden för Azure NetApp-filer.
+title: Mått för Azure NetApp Files | Microsoft Docs
+description: Beskriver mått för Azure NetApp Files.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -12,38 +12,44 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/15/2019
+ms.date: 08/06/2019
 ms.author: b-juche
-ms.openlocfilehash: 1563b60ef26ac5e4d40f45095d0109dd9dd71570
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9a56fb27fdf9e196291942041d68b249d7f16648
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61084947"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839246"
 ---
 # <a name="metrics-for-azure-netapp-files"></a>Mått för Azure NetApp Files
 
-NetApp-filer som Azure tillhandahåller mått för allokerat lagringsutrymme, faktiska lagringsanvändning, genomströmning, IOPS och svarstider. Genom att analysera de här måtten kan få du en bättre förståelse på användning mönstret och volym prestanda för dina NetApp-konton.  
+Azure NetApp Files tillhandahåller mått för allokerat lagrings utrymme, faktisk lagrings användning, volym data flöde, IOPS och latens. Genom att analysera dessa mått kan du få en bättre förståelse för användnings mönstret och volym prestandan för dina NetApp-konton.  
 
-## <a name="capacity_pools"></a>Användningsstatistik för kapacitet pooler
+## <a name="capacity_pools"></a>Användnings statistik för kapacitets grupper
 
-- *Volymstorlek för poolen som allokerats*  
-    Det här är etablerad kapacitet poolen storlek (GiB).  
-- *Volymen poolen allokeras används*  
-    Detta är summan av kvot för samtalsvolym (GiB) i en viss kapacitet pool (d.v.s. summan av de volymer etablerade storlekar i poolen kapacitet). Detta är den storleken som du valde under skapa volymer.  
-- *Volymen Totalt antal logiska poolstorlek*  
-    Det här är det totala antalet logiska utrymme (GiB) används av volymer i en pool kapacitet.  
-- *Volymstorlek pool totala ögonblicksbild*  
-    Detta är summan av inkrementell logiska utrymmet som används av ögonblicksbilder.  
+<!-- 
+- *Volume pool allocated size*  
+    This is the size (GiB) of the provisioned capacity pool.  
+--> 
+- *Allokerad volym pool används*  
+    Detta är summan av volym kvoten (GiB) i en specifik kapacitets grupp (det vill säga summan av volymernas etablerade storlekar i kapacitets gruppen). Detta är den storlek som du valde när du skapade volymen.  
+- *Total logisk storlek i volymprocent*  
+    Detta är den totala mängden logiskt utrymme (GiB) som används för volymer i en kapacitets grupp.  
+<!-- 
+- *Volume pool total snapshot size*  
+    This is the total of incremental logical space used by the snapshots.  
+-->
 
-## <a name="volumes"></a>Användningsstatistik för volymer
+## <a name="volumes"></a>Användnings statistik för volymer
 
-- *Volymen som allokerats storlek*   
-    Det här är volymens storlek (quota) som etablerats i GiB.  
-- *Logisk storlek*   
-    Det här är det totala logiska utrymmet som används i en volym (GiB). Den här storleken innehåller logiska utrymmet som används av aktiva filsystem och ögonblicksbilder.  
-- *Volymstorlek för ögonblicksbild*   
-    Det här är inkrementell logiska utrymmet som används av ögonblicksbilder för en volym.  
+<!-- 
+- *Volume allocated size*   
+    This is the volume size (quota) provisioned in GiB.  
+--> 
+- *Logisk volym storlek*   
+    Detta är det totala logiska utrymmet som används i en volym (GiB). Den här storleken inkluderar det logiska utrymmet som används av aktiva fil system och ögonblicks bilder.  
+- *Storlek på volym ögonblicks bild*   
+    Detta är det stegvisa logiska utrymmet som används av ögonblicks bilder i en volym.  
 
 ## <a name="next-steps"></a>Nästa steg
 

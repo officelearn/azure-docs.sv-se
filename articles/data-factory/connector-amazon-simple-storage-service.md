@@ -8,42 +8,42 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 08/06/2019
 ms.author: jingwang
-ms.openlocfilehash: 088dfdbfbadfa43dc2bd161f56f0e2a6dbb94bb7
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: 7b47aadc28a5e2ea6dbf2a7a8a23cdb713a0b981
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67312000"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839879"
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Kopiera data från Amazon Simple Storage Service med Azure Data Factory
-> [!div class="op_single_selector" title1="Välj versionen av Data Factory-tjänsten som du använder:"]
+> [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
 >
 > * [Version 1](v1/data-factory-amazon-simple-storage-service-connector.md)
 > * [Aktuell version](connector-amazon-simple-storage-service.md)
 
-Den här artikeln beskrivs hur du kopierar data från Amazon Simple Storage Service (Amazon S3). Läs om Azure Data Factory den [introduktionsartikeln](introduction.md).
+Den här artikeln beskriver hur du kopierar data från Amazon Simple Storage Service (Amazon S3). Läs om Azure Data Factory den [introduktionsartikeln](introduction.md).
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
-Den här Amazon S3-anslutningsappen stöds för följande aktiviteter:
+Den här Amazon S3-kopplingen stöds för följande aktiviteter:
 
-- [Kopiera aktivitet](copy-activity-overview.md) med [källa/mottagare matris som stöds](copy-activity-overview.md)
+- [Kopierings aktivitet](copy-activity-overview.md) med [matrisen source/Sink som stöds](copy-activity-overview.md)
 - [Sökningsaktivitet](control-flow-lookup-activity.md)
-- [GetMetadata-aktiviteten](control-flow-get-metadata-activity.md)
+- [GetMetadata-aktivitet](control-flow-get-metadata-activity.md)
 
-Mer specifikt den här Amazon S3-anslutningsappen stöder kopiera filer som-är eller parsningsfilerna med den [stöds filformat och komprimering codec](supported-file-formats-and-compression-codecs.md). Den använder [AWS signatur Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) att autentisera förfrågningar till S3.
+Mer specifikt den här Amazon S3-anslutningsappen stöder kopiera filer som-är eller parsningsfilerna med den [stöds filformat och komprimering codec](supported-file-formats-and-compression-codecs.md). Den använder [AWS Signature version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) för att autentisera begär anden till S3.
 
 >[!TIP]
->Du kan använda den här Amazon S3-anslutningen för att kopiera data från **alla S3-kompatibla lagringsprovidrar** t.ex. [Google Cloud Storage](connector-google-cloud-storage.md). Ange den motsvarande URL i konfigurationen av den länkade tjänsten.
+>Du kan använda den här Amazon S3-anslutningen för att kopiera data från **alla S3-kompatibla lagringsmatriser** , t. ex. [Google Cloud Storage](connector-google-cloud-storage.md). Ange motsvarande tjänst-URL i den länkade tjänst konfigurationen.
 
 ## <a name="required-permissions"></a>Nödvändiga behörigheter
 
 För att kopiera data från Amazon S3, kontrollera att du har beviljats följande behörigheter:
 
 - **För körning av kopiera aktivitet:** : `s3:GetObject` och `s3:GetObjectVersion` för Amazon S3-objektet.
-- **För redigering av Data Factory GUI**: `s3:ListAllMyBuckets` och `s3:ListBucket` / `s3:GetBucketLocation` för Amazon S3-Bucket åtgärder behörigheter krävs dessutom för, till exempel Testa anslutning och bläddra/navigera filsökvägar. Om du inte vill att bevilja dessa behörigheter, hoppa över Testa anslutning i sidan för att skapa den länkade tjänsten och anger du sökvägen direkt i inställningarna för datauppsättningen.
+- **För redigering av Data Factory GUI**: `s3:ListAllMyBuckets` och `s3:ListBucket` / `s3:GetBucketLocation` för Amazon S3-Bucket åtgärder behörigheter krävs dessutom för, till exempel Testa anslutning och bläddra/navigera filsökvägar. Om du inte vill bevilja behörigheterna hoppar du över testa anslutning på sidan för att skapa länkade tjänster och anger sökvägen direkt i inställningar för data uppsättning.
 
 Mer information om en fullständig lista över Amazon S3-behörigheter finns i [att ange behörigheter i en princip](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html).
 
@@ -62,11 +62,11 @@ Följande egenskaper har stöd för Amazon S3 länkade tjänsten:
 | type | Type-egenskapen måste anges till **AmazonS3**. | Ja |
 | accessKeyId | ID för den hemliga åtkomstnyckeln. |Ja |
 | secretAccessKey | Den hemliga åtkomstnyckeln själva. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
-| serviceUrl | Ange anpassade S3 slutpunkten om du kopierar data från en S3-kompatibla lagringsprovider än den officiella Amazon S3-tjänsten. Ange till exempel för att kopiera data från Google Cloud Storage `https://storage.googleapis.com`. | Nej |
+| serviceUrl | Ange den anpassade S3-slutpunkten om du kopierar data från en S3-kompatibel lagringsprovider än den officiella Amazon S3-tjänsten. Om du till exempel vill kopiera data från Google Cloud Storage anger `https://storage.googleapis.com`du. | Nej |
 | connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda Azure Integration Runtime eller lokal Integration Runtime (om ditt datalager finns i privat nätverk). Om den inte anges används standard Azure Integration Runtime. |Nej |
 
 >[!TIP]
->Ange anpassade S3 tjänstens URL Om du kopierar data från en S3-kompatibel lagring än den officiella Amazon S3-tjänsten.
+>Ange URL: en för den anpassade S3-tjänsten om du kopierar data från en S3-kompatibel lagrings plats än den officiella Amazon S3-tjänsten.
 
 >[!NOTE]
 >Den här anslutningen kräver åtkomstnycklarna för IAM-konto för att kopiera data från Amazon S3. [Tillfällig autentiseringsuppgift](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) stöds inte.
@@ -98,23 +98,23 @@ Här är ett exempel:
 
 En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i den [datauppsättningar](concepts-datasets-linked-services.md) artikeln. 
 
-- För **Parquet och avgränsat textformat**, referera till [Parquet och avgränsad text formatera datauppsättning](#parquet-and-delimited-text-format-dataset) avsnittet.
-- För andra format som **ORC/Avro/JSON/binära formatet**, referera till [andra format datauppsättning](#other-format-dataset) avsnittet.
+- För **Parquet, avgränsad text och binärt format**, se avsnittet [Parquet, avgränsad text och binära format](#format-based-dataset) .
+- Andra format som **Orc/Avro/JSON-format**finns i avsnittet [annan format data uppsättning](#other-format-dataset) .
 
-### <a name="parquet-and-delimited-text-format-dataset"></a>Parquet och avgränsad text format datauppsättning
+### <a name="format-based-dataset"></a>Parquet, avgränsad text och binärt format data uppsättning
 
-Kopiera data från Amazon S3 i **Parquet eller avgränsat textformat**, referera till [Parquet-format](format-parquet.md) och [avgränsat textformat](format-delimited-text.md) artikel om format-baserade datauppsättning och som stöds inställningar. Följande egenskaper har stöd för Amazon S3 under `location` inställningar i formatet-baserade datauppsättning:
+Om du vill kopiera data från Amazon S3 i **Parquet, avgränsad text eller binärt format**, referera till [Parquet format](format-parquet.md), avgränsat [text format](format-delimited-text.md) och binära [format](format-binary.md) -artikel i format-baserad data uppsättning och inställningar som stöds. Följande egenskaper stöds för Amazon S3 under `location` inställningar i format-baserad data mängd:
 
 | Egenskap   | Beskrivning                                                  | Krävs |
 | ---------- | ------------------------------------------------------------ | -------- |
-| type       | Egenskapen type under `location` i datauppsättningen måste anges till **AmazonS3Location**. | Ja      |
+| type       | Typ egenskapen under `location` i data mängden måste anges till **AmazonS3Location**. | Ja      |
 | bucketName | S3-Bucketnamn.                                          | Ja      |
-| folderPath | Sökvägen till mappen under en viss bucket. Om du vill använda jokertecken för att filtrera mappar hoppa över den här inställningen och ange i källinställningar för aktiviteten. | Nej       |
-| fileName   | Filnamnet under den angivna bucket + folderPath. Om du vill använda jokertecken för att filtrera filerna hoppa över den här inställningen och ange i källinställningar för aktiviteten. | Nej       |
-| version | Versionen av S3-objektet, om S3 versionshantering är aktiverad. Om inte anges kommer att hämta den senaste versionen. |Nej |
+| folderPath | Sökvägen till mappen under den angivna Bucket. Om du vill använda jokertecken för att filtrera mappar hoppar du över den här inställningen och anger i aktivitets källans inställningar. | Nej       |
+| fileName   | Fil namnet under angivet Bucket + folderPath. Om du vill använda jokertecken för att filtrera filer, hoppar du över den här inställningen och anger i aktivitets källans inställningar. | Nej       |
+| version | Versionen av S3-objektet, om S3 versionshantering är aktiverad. Om detta inte anges kommer den senaste versionen att hämtas. |Nej |
 
 > [!NOTE]
-> **AmazonS3Object** typ datauppsättning med Parquet-/ textformat som nämns i nästa avsnitt stöds fortfarande som – är för kopiera/Lookup/GetMetadata-aktiviteten för bakåtkompatibilitet, men den inte fungerar med mappning av dataflöde. Du rekommenderas för att använda den nya modellen framöver och ADF redigering Användargränssnittet har ändrats till att generera dessa nya typer.
+> **AmazonS3Object** Type-datauppsättning med Parquet/text format som nämns i nästa avsnitt stöds fortfarande som-är för kopierings-/Sök-/getMetaData-aktivitet för bakåtkompatibilitet, men den fungerar inte med mappnings data flödet. Du rekommenderas att använda den här nya modellen för att vidarebefordra och användar gränssnittet för ADF-redigering har växlat till att generera dessa nya typer.
 
 **Exempel:**
 
@@ -143,21 +143,21 @@ Kopiera data från Amazon S3 i **Parquet eller avgränsat textformat**, referera
 }
 ```
 
-### <a name="other-format-dataset"></a>Andra format-datauppsättning
+### <a name="other-format-dataset"></a>Data uppsättning för andra format
 
-Kopiera data från Amazon S3 i **ORC/Avro/JSON/binära formatet**, stöds följande egenskaper:
+Följande egenskaper stöds för att kopiera data från Amazon S3 i **Orc/Avro/JSON-format**:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Type-egenskapen för datauppsättningen måste anges till: **AmazonS3Object** |Ja |
+| type | Data uppsättningens typ-egenskap måste anges till: **AmazonS3Object** |Ja |
 | bucketName | S3-Bucketnamn. Jokerteckenfilter stöds inte. |Ja för kopiera/Lookup-aktivitet, inte för GetMetadata-aktiviteten |
-| key | Den **namn eller jokertecken-filtret** för S3 Objektnyckel under en angiven bucket. Gäller endast när egenskapen ”prefixet” inte har angetts. <br/><br/>Jokertecken-filtret har stöd för både mappen och filen Namndelen. Tillåtna jokertecken är: `*` (matchar noll eller flera tecken) och `?` (matchar noll eller valfritt tecken).<br/>– Exempel 1: `"key": "rootfolder/subfolder/*.csv"`<br/>– Exempel 2: `"key": "rootfolder/subfolder/???20180427.txt"`<br/>Se fler exempel i [mapp och fil Filterexempel](#folder-and-file-filter-examples). Använd `^` att undvika om din faktiska mappen/filen namn innehåller jokertecken eller den här escape-tecken i. |Nej |
+| key | Den **namn eller jokertecken-filtret** för S3 Objektnyckel under en angiven bucket. Gäller endast när egenskapen ”prefixet” inte har angetts. <br/><br/>Wildcard-filtret stöds för både del-och fil namns delen. Tillåtna jokertecken är: `*` (matchar noll eller flera tecken) och `?` (matchar noll eller valfritt tecken).<br/>– Exempel 1: `"key": "rootfolder/subfolder/*.csv"`<br/>– Exempel 2: `"key": "rootfolder/subfolder/???20180427.txt"`<br/>Se fler exempel i [exempel på mapp-och fil filter](#folder-and-file-filter-examples). Används `^` för att kringgå om din faktiska mapp/fil namn har jokertecken eller detta escape-tecken inuti. |Nej |
 | prefix | Prefix för Objektnyckel S3. Objekt vars nycklar som börjar med prefixet är markerade. Gäller endast när egenskapen ”nyckeln” inte har angetts. |Nej |
-| version | Versionen av S3-objektet, om S3 versionshantering är aktiverad. Om inte anges kommer att hämta den senaste versionen. |Nej |
-| modifiedDatetimeStart | Filter för filer baserat på attributet: Senast ändrades. Filerna markerade om deras tid för senaste ändring är inom tidsintervallet mellan `modifiedDatetimeStart` och `modifiedDatetimeEnd`. Tid som tillämpas på UTC-tidszonen i formatet ”2018-12-01T05:00:00Z”. <br/><br/> Tänk på dataförflyttning serverns prestanda påverkas genom att aktivera den här inställningen när du vill filen filter från stora mängder filer. <br/><br/> Egenskaperna kan vara NULL vilket innebär att inga filfilter för attributet som ska användas för datauppsättningen.  När `modifiedDatetimeStart` har datetime-värde men `modifiedDatetimeEnd` är NULL, innebär det att filer vars senaste ändrade attribut är större än eller lika med datum/tid-värde väljs.  När `modifiedDatetimeEnd` har datetime-värde men `modifiedDatetimeStart` är NULL, innebär det att filer vars senaste ändrade attributet är mindre än det markerade datetime-värde.| Nej |
-| modifiedDatetimeEnd | Filter för filer baserat på attributet: Senast ändrades. Filerna markerade om deras tid för senaste ändring är inom tidsintervallet mellan `modifiedDatetimeStart` och `modifiedDatetimeEnd`. Tid som tillämpas på UTC-tidszonen i formatet ”2018-12-01T05:00:00Z”. <br/><br/> Tänk på dataförflyttning serverns prestanda påverkas genom att aktivera den här inställningen när du vill filen filter från stora mängder filer. <br/><br/> Egenskaperna kan vara NULL vilket innebär att inga filfilter för attributet som ska användas för datauppsättningen.  När `modifiedDatetimeStart` har datetime-värde men `modifiedDatetimeEnd` är NULL, innebär det att filer vars senaste ändrade attribut är större än eller lika med datum/tid-värde väljs.  När `modifiedDatetimeEnd` har datetime-värde men `modifiedDatetimeStart` är NULL, innebär det att filer vars senaste ändrade attributet är mindre än det markerade datetime-värde.| Nej |
-| format | Om du vill **kopiera filer som – är** hoppa över avsnittet format i både inkommande och utgående datamängd definitioner mellan filbaserade (binär kopia).<br/><br/>Om du vill parsa eller generera filer med ett visst format stöds format för följande filtyper: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange den **typ** egenskapen under format till ett av dessa värden. Mer information finns i [textformat](supported-file-formats-and-compression-codecs.md#text-format), [Json-Format](supported-file-formats-and-compression-codecs.md#json-format), [Avro-formatet](supported-file-formats-and-compression-codecs.md#avro-format), [Orc-Format](supported-file-formats-and-compression-codecs.md#orc-format), och [Parquet-Format](supported-file-formats-and-compression-codecs.md#parquet-format) avsnitt. |Nej (endast för binär kopia scenario) |
-| compression | Ange typ och komprimeringsnivå för data. Mer information finns i [stöds filformat och komprimering codec](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Typer som stöds är: **GZip**, **Deflate**, **BZip2**, och **ZipDeflate**.<br/>Nivåer som stöds är: **Optimal** och **snabbaste**. |Nej |
+| version | Versionen av S3-objektet, om S3 versionshantering är aktiverad. Om detta inte anges kommer den senaste versionen att hämtas. |Nej |
+| modifiedDatetimeStart | Filter för filer baserat på attributet: Senast ändrad. Filerna markerade om deras tid för senaste ändring är inom tidsintervallet mellan `modifiedDatetimeStart` och `modifiedDatetimeEnd`. Tid som tillämpas på UTC-tidszonen i formatet ”2018-12-01T05:00:00Z”. <br/><br/> Tänk på att den övergripande prestandan för data förflyttning påverkas genom att aktivera den här inställningen när du vill göra fil filter från enorma mängder filer. <br/><br/> Egenskaperna kan vara NULL vilket innebär att inga filfilter för attributet som ska användas för datauppsättningen.  När `modifiedDatetimeStart` har datetime-värde men `modifiedDatetimeEnd` är NULL, innebär det att filer vars senaste ändrade attribut är större än eller lika med datum/tid-värde väljs.  När `modifiedDatetimeEnd` har datetime-värde men `modifiedDatetimeStart` är NULL, innebär det att filer vars senaste ändrade attributet är mindre än det markerade datetime-värde.| Nej |
+| modifiedDatetimeEnd | Filter för filer baserat på attributet: Senast ändrad. Filerna markerade om deras tid för senaste ändring är inom tidsintervallet mellan `modifiedDatetimeStart` och `modifiedDatetimeEnd`. Tid som tillämpas på UTC-tidszonen i formatet ”2018-12-01T05:00:00Z”. <br/><br/> Tänk på att den övergripande prestandan för data förflyttning påverkas genom att aktivera den här inställningen när du vill göra fil filter från enorma mängder filer. <br/><br/> Egenskaperna kan vara NULL vilket innebär att inga filfilter för attributet som ska användas för datauppsättningen.  När `modifiedDatetimeStart` har datetime-värde men `modifiedDatetimeEnd` är NULL, innebär det att filer vars senaste ändrade attribut är större än eller lika med datum/tid-värde väljs.  När `modifiedDatetimeEnd` har datetime-värde men `modifiedDatetimeStart` är NULL, innebär det att filer vars senaste ändrade attributet är mindre än det markerade datetime-värde.| Nej |
+| format | Om du vill **kopiera filer som – är** hoppa över avsnittet format i både inkommande och utgående datamängd definitioner mellan filbaserade (binär kopia).<br/><br/>Om du vill parsa eller generera filer med ett speciellt format stöds följande fil format typer: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange den **typ** egenskapen under format till ett av dessa värden. Mer information finns i [textformat](supported-file-formats-and-compression-codecs.md#text-format), [Json-Format](supported-file-formats-and-compression-codecs.md#json-format), [Avro-formatet](supported-file-formats-and-compression-codecs.md#avro-format), [Orc-Format](supported-file-formats-and-compression-codecs.md#orc-format), och [Parquet-Format](supported-file-formats-and-compression-codecs.md#parquet-format) avsnitt. |Nej (endast för binär kopia scenario) |
+| compression | Ange typ och komprimeringsnivå för data. Mer information finns i [stöds filformat och komprimering codec](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Typer som stöds: **Gzip**,DEFLATE, **BZip2**och **ZipDeflate**.<br/>Nivåer som stöds är: **Optimal** och **snabbast**. |Nej |
 
 >[!TIP]
 >Kopiera alla filer i en mapp genom att ange **bucketName** för bucket och **prefix** för mappdelen.<br>Om du vill kopiera en enstaka fil med ett givet namn, ange **bucketName** för bucket och **nyckel** för en del plus filen mappnamn.<br>Om du vill kopiera en delmängd av filerna under en mapp, anger **bucketName** för bucket och **nyckel** för mappen del plus jokertecken-filtret.
@@ -227,26 +227,26 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 ### <a name="amazon-s3-as-source"></a>Amazon S3 som källa
 
-- För kopia från **Parquet och avgränsat textformat**, referera till [Parquet och avgränsad text format källa](#parquet-and-delimited-text-format-source) avsnittet.
-- För kopia från andra format som **ORC/Avro/JSON/binära formatet**, referera till [annan format källa](#other-format-source) avsnittet.
+- Om du vill kopiera från **Parquet, avgränsat text-och binärt format**, se avsnittet [Parquet, avgränsad text och källa för binärt format](#format-based-source) .
+- Om du vill kopiera från andra format som **Orc/Avro/JSON-format**, se avsnittet [annan format källa](#other-format-source) .
 
-#### <a name="parquet-and-delimited-text-format-source"></a>Parquet och avgränsad text format källa
+#### <a name="format-based-source"></a>Parquet, avgränsad text-och binär format källa
 
-Kopiera data från Amazon S3 i **Parquet eller avgränsat textformat**, referera till [Parquet-format](format-parquet.md) och [avgränsat textformat](format-delimited-text.md) artikel om format-baserade aktiviteten kopieringskälla och inställningar som stöds. Följande egenskaper har stöd för Amazon S3 under `storeSettings` inställningar i formatet-baserade kopieringskälla:
+Om du vill kopiera data från Amazon S3 i **Parquet, avgränsad text eller binärt format**, se [Parquet format](format-parquet.md), avgränsat [text format](format-delimited-text.md) och binära [format](format-binary.md) -artikel om formatbaserade kopierings aktivitets källor och inställningar som stöds. Följande egenskaper stöds för Amazon S3 under `storeSettings` inställningar i format-baserad kopierings Källa:
 
 | Egenskap                 | Beskrivning                                                  | Krävs                                                    |
 | ------------------------ | ------------------------------------------------------------ | ----------------------------------------------------------- |
-| type                     | Egenskapen type under `storeSettings` måste anges till **AmazonS3ReadSetting**. | Ja                                                         |
+| type                     | Typ egenskapen under `storeSettings` måste anges till **AmazonS3ReadSetting**. | Ja                                                         |
 | recursive                | Anger om data läses rekursivt från undermapparna eller endast från den angivna mappen. Observera att när rekursiv har angetts till true och mottagaren är en filbaserad store, en tom mapp eller undermapp inte kopieras eller skapat i mottagaren. Tillåtna värden är **SANT** (standard) och **FALSKT**. | Nej                                                          |
-| prefix                   | Prefix för S3 objektsnyckeln under en viss bucket konfigurerats i datauppsättningen för att filtrera källobjekt. Objekt vars nycklar som börjar med prefixet är markerade. <br>Gäller endast när `wildcardFolderPath` och `wildcardFileName` egenskaper har inte angetts. | Nej                                                          |
-| wildcardFolderPath       | Sökvägen till mappen med jokertecken under en viss bucket konfigurerats i datauppsättningen för att filtrera källa mappar. <br>Tillåtna jokertecken är: `*` (matchar noll eller flera tecken) och `?` (matchar noll eller valfritt tecken); Använd `^` att undvika om din faktiska mappnamn har jokertecken eller den här escape-tecken i. <br>Se fler exempel i [mapp och fil Filterexempel](#folder-and-file-filter-examples). | Nej                                                          |
-| wildcardFileName         | Filnamn med jokertecken under viss bucket + folderPath/wildcardFolderPath till källfilerna för filtret. <br>Tillåtna jokertecken är: `*` (matchar noll eller flera tecken) och `?` (matchar noll eller valfritt tecken); Använd `^` att undvika om din faktiska mappnamn har jokertecken eller den här escape-tecken i.  Se fler exempel i [mapp och fil Filterexempel](#folder-and-file-filter-examples). | Ja om `fileName` i datauppsättningen och `prefix` har inte angetts |
-| modifiedDatetimeStart    | Filter för filer baserat på attributet: Senast ändrades. Filerna markerade om deras tid för senaste ändring är inom tidsintervallet mellan `modifiedDatetimeStart` och `modifiedDatetimeEnd`. Tid som tillämpas på UTC-tidszonen i formatet ”2018-12-01T05:00:00Z”. <br> Egenskaperna kan vara NULL vilket innebär att inga filfilter för attributet som ska användas för datauppsättningen.  När `modifiedDatetimeStart` har datetime-värde men `modifiedDatetimeEnd` är NULL, innebär det att filer vars senaste ändrade attribut är större än eller lika med datum/tid-värde väljs.  När `modifiedDatetimeEnd` har datetime-värde men `modifiedDatetimeStart` är NULL, innebär det att filer vars senaste ändrade attributet är mindre än det markerade datetime-värde. | Nej                                                          |
+| prefix                   | Prefix för S3-objekt nyckeln under den angivna Bucket som kon figurer ATS i data uppsättningen för att filtrera käll objekt. Objekt vars nycklar som börjar med prefixet är markerade. <br>Gäller endast när `wildcardFolderPath` och `wildcardFileName` egenskaper inte anges. | Nej                                                          |
+| wildcardFolderPath       | Mappsökvägen med jokertecken under den angivna Bucket som kon figurer ATS i data uppsättningen för att filtrera källmappen för mappar. <br>Tillåtna jokertecken är: `*` (matchar noll eller flera tecken) och `?` (matchar inget eller enstaka tecken). Använd `^` om du vill använda Escape om det faktiska mappnamnet har jokertecken eller detta escape-tecken inuti. <br>Se fler exempel i [exempel på mapp-och fil filter](#folder-and-file-filter-examples). | Nej                                                          |
+| wildcardFileName         | Fil namnet med jokertecken under den aktuella Bucket + folderPath/wildcardFolderPath för att filtrera källfiler. <br>Tillåtna jokertecken är: `*` (matchar noll eller flera tecken) och `?` (matchar inget eller enstaka tecken). Använd `^` om du vill använda Escape om det faktiska mappnamnet har jokertecken eller detta escape-tecken inuti.  Se fler exempel i [exempel på mapp-och fil filter](#folder-and-file-filter-examples). | Ja om `fileName` i data uppsättning `prefix` och inte har angetts |
+| modifiedDatetimeStart    | Filter för filer baserat på attributet: Senast ändrad. Filerna markerade om deras tid för senaste ändring är inom tidsintervallet mellan `modifiedDatetimeStart` och `modifiedDatetimeEnd`. Tid som tillämpas på UTC-tidszonen i formatet ”2018-12-01T05:00:00Z”. <br> Egenskaperna kan vara NULL vilket innebär att inga filfilter för attributet som ska användas för datauppsättningen.  När `modifiedDatetimeStart` har datetime-värde men `modifiedDatetimeEnd` är NULL, innebär det att filer vars senaste ändrade attribut är större än eller lika med datum/tid-värde väljs.  När `modifiedDatetimeEnd` har datetime-värde men `modifiedDatetimeStart` är NULL, innebär det att filer vars senaste ändrade attributet är mindre än det markerade datetime-värde. | Nej                                                          |
 | modifiedDatetimeEnd      | Samma som ovan.                                               | Nej                                                          |
-| maxConcurrentConnections | Antal anslutningar för att ansluta till storage store samtidigt. Ange bara när du vill begränsa samtidiga anslutningen till datalagret. | Nej                                                          |
+| maxConcurrentConnections | Antalet anslutningar för att ansluta till lagrings lagret samtidigt. Ange bara när du vill begränsa den samtidiga anslutningen till data lagret. | Nej                                                          |
 
 > [!NOTE]
-> För Parquet/avgränsat textformat **FileSystemSource** typen kopiera aktivitetskälla som nämns i nästa avsnitt stöds fortfarande som – är för bakåtkompatibilitet. Du rekommenderas för att använda den nya modellen framöver och ADF redigering Användargränssnittet har ändrats till att generera dessa nya typer.
+> För Parquet/avgränsat text format stöds **FileSystemSource** typ kopierings aktivitet som anges i nästa avsnitt fortfarande som-är för bakåtkompatibilitet. Du rekommenderas att använda den här nya modellen för att vidarebefordra och användar gränssnittet för ADF-redigering har växlat till att generera dessa nya typer.
 
 **Exempel:**
 
@@ -289,15 +289,15 @@ Kopiera data från Amazon S3 i **Parquet eller avgränsat textformat**, referera
 ]
 ```
 
-#### <a name="other-format-source"></a>Andra format-källa
+#### <a name="other-format-source"></a>Annan format källa
 
-Kopiera data från Amazon S3 i **ORC/Avro/JSON/binära formatet**, följande egenskaper stöds i kopieringsaktiviteten **källa** avsnittet:
+För att kopiera data från Amazon S3 i **Orc/Avro/JSON-format**, stöds följande egenskaper i avsnittet Kopiera aktivitets **källa** :
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **FileSystemSource** |Ja |
+| type | Typ egenskapen för kopierings aktivitets källan måste anges till: **FileSystemSource** |Ja |
 | recursive | Anger om data läses rekursivt från undermappar eller endast från den angivna mappen. Obs när rekursiv har angetts till true och mottagare är filbaserade store, tom mapp/underanvändningsfall-folder kan inte kopieras/skapas vid mottagare.<br/>Tillåtna värden är: **SANT** (standard), **FALSKT** | Nej |
-| maxConcurrentConnections | Antal anslutningar för att ansluta till datalagret samtidigt. Ange bara när du vill begränsa samtidiga anslutningen till datalagret. | Nej |
+| maxConcurrentConnections | Antalet anslutningar som ska anslutas till data lagret samtidigt. Ange bara när du vill begränsa den samtidiga anslutningen till data lagret. | Nej |
 
 **Exempel:**
 
@@ -331,16 +331,16 @@ Kopiera data från Amazon S3 i **ORC/Avro/JSON/binära formatet**, följande ege
 ]
 ```
 
-### <a name="folder-and-file-filter-examples"></a>Mapp och fil filter-exempel
+### <a name="folder-and-file-filter-examples"></a>Exempel på mapp-och fil filter
 
-Det här avsnittet beskriver resultatet av sökvägen och namnet på mappen med jokertecken filter.
+I det här avsnittet beskrivs det resulterande beteendet hos mappsökvägen och fil namnet med filter för jokertecken.
 
-| bucket | key | recursive | Käll-mappen struktur och filtrera resultatet (så hämtas filer i fetstil)|
+| bucket | key | recursive | Källans mappstruktur och filter resultat (filer i fetstil hämtas)|
 |:--- |:--- |:--- |:--- |
-| bucket | `Folder*/*` | false | bucket<br/>&nbsp;&nbsp;&nbsp;&nbsp;FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File2.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
-| bucket | `Folder*/*` | true | bucket<br/>&nbsp;&nbsp;&nbsp;&nbsp;FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File2.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File4.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
-| bucket | `Folder*/*.csv` | false | bucket<br/>&nbsp;&nbsp;&nbsp;&nbsp;FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5.csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
-| bucket | `Folder*/*.csv` | true | bucket<br/>&nbsp;&nbsp;&nbsp;&nbsp;FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File6.csv |
+| bucket | `Folder*/*` | false | bucket<br/>&nbsp;&nbsp;&nbsp;&nbsp;Mappa<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File2.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3. csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5. csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File6. csv |
+| bucket | `Folder*/*` | true | bucket<br/>&nbsp;&nbsp;&nbsp;&nbsp;Mappa<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File2.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File4.json**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File6. csv |
+| bucket | `Folder*/*.csv` | false | bucket<br/>&nbsp;&nbsp;&nbsp;&nbsp;Mappa<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3. csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5. csv<br/>&nbsp;&nbsp;&nbsp;&nbsp;AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File6. csv |
+| bucket | `Folder*/*.csv` | true | bucket<br/>&nbsp;&nbsp;&nbsp;&nbsp;Mappa<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;AnotherFolderB<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File6. csv |
 
 ## <a name="next-steps"></a>Nästa steg
-En lista över datalager som stöds som källor och mottagare av kopieringsaktiviteten i Azure Data Factory finns i [datalager som stöds](copy-activity-overview.md##supported-data-stores-and-formats).
+En lista över data lager som stöds som källor och mottagare av kopierings aktiviteten i Azure Data Factory finns i [data lager som stöds](copy-activity-overview.md##supported-data-stores-and-formats).

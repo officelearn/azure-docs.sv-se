@@ -1,6 +1,6 @@
 ---
-title: Övervakning och loggning i Azure AD-lösenordsskydd – Azure Active Directory
-description: Förstå Azure AD lösenordsskydd övervakning och loggning
+title: Övervakning och loggning i Azure AD Password Protection – Azure Active Directory
+description: Förstå övervakning och loggning av lösen ords skydd i Azure AD
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,22 +11,22 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a029135da79d1a0b24b2941873a0fe3187ac9f7c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1bd6d3abc6080c0ab1b6137511af719b23e5bcd4
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60414808"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736824"
 ---
-# <a name="azure-ad-password-protection-monitoring-and-logging"></a>Azure AD-lösenordsskydd övervakning och loggning
+# <a name="azure-ad-password-protection-monitoring-and-logging"></a>Övervakning och loggning av lösen ords skydd i Azure AD
 
-Är viktiga uppgifter efter distribution av Azure AD-lösenordsskydd, övervakning och rapportering. Den här artikeln innehåller information för att du lär dig vilka olika övervakning tekniker, inklusive där varje tjänst loggar information och rapportera om användning av Azure AD-lösenordsskydd.
+Efter distributionen av lösen ords skydd i Azure AD är övervakning och rapportering viktiga uppgifter. Den här artikeln innehåller information som hjälper dig att förstå olika övervaknings tekniker, inklusive var varje tjänst loggar information och hur du rapporterar om användningen av lösen ords skydd i Azure AD.
 
-Övervakning och rapportering utförs av meddelanden eller genom att köra PowerShell-cmdletar. DC-agenten proxy tjänsterna och båda logga meddelanden. Alla PowerShell-cmdlets som beskrivs nedan är bara tillgängliga på proxyservern (se AzureADPasswordProtection PowerShell-modulen). DC-agentprogramvaran installerar inte en PowerShell-modul.
+Övervakning och rapportering görs antingen av händelse logg meddelanden eller genom att köra PowerShell-cmdlets. DC-agenten och proxy Services loggar både logg meddelanden för händelse loggen. Alla PowerShell-cmdletar som beskrivs nedan är bara tillgängliga på proxyservern (se AzureADPasswordProtection PowerShell-modulen). Program varan för DC-agenten installerar inte någon PowerShell-modul.
 
-## <a name="dc-agent-event-logging"></a>Händelseloggning för DC-agent
+## <a name="dc-agent-event-logging"></a>Händelse loggning för DC-agent
 
-På varje domänkontrollant skriver DC service Agentprogrammet som är resultatet av varje enskild åtgärd för verifiering (och andra status) till en lokal händelselogg:
+På varje domänkontrollant skriver DC agent service-programvaran resultaten av varje enskild lösen ords validerings åtgärd (och annan status) till en lokal händelse logg:
 
 `\Applications and Services Logs\Microsoft\AzureADPasswordProtection\DCAgent\Admin`
 
@@ -34,52 +34,52 @@ På varje domänkontrollant skriver DC service Agentprogrammet som är resultate
 
 `\Applications and Services Logs\Microsoft\AzureADPasswordProtection\DCAgent\Trace`
 
-DC-agentloggen för administratören är den primära källan för information om hur programvaran fungerar.
+Administratörs loggen för DC-agenten är den främsta informations källan för hur program varan fungerar.
 
-Observera att spårningsloggen är inaktiverat som standard.
+Observera att spårnings loggen är inaktive rad som standard.
 
-Händelser som loggats av olika DC-agentkomponenterna faller inom följande intervall:
+Händelser som loggats av olika komponenter för DC-agenten ligger inom följande intervall:
 
-|Komponent |Händelse-ID-intervall|
+|Komponent |Intervall för händelse-ID|
 | --- | --- |
-|DC-agenten lösenord DLL-fil| 10000-19999|
-|Värdprocessen för DC agent-tjänsten| 20000-29999|
-|Validering av logik för DC agent-tjänsten princip| 30000-39999|
+|DLL för lösen ords filter för DC-agent| 10000-19999|
+|Värd process för DC-agenttjänsten| 20000-29999|
+|Validerings logik för DC-agentens tjänst princip| 30000-39999|
 
-## <a name="dc-agent-admin-event-log"></a>DC-agenten Admin-händelseloggen
+## <a name="dc-agent-admin-event-log"></a>Händelse logg för DC-agentens administratör
 
-### <a name="password-validation-outcome-events"></a>Lösenord verifiering resultatet händelser
+### <a name="password-validation-outcome-events"></a>Händelse av lösen ords verifierings resultat
 
-På varje domänkontrollant skriver DC service Agentprogrammet som är resultatet av varje enskild lösenordsverifieringen DC agenten admin-händelseloggen.
+På varje domänkontrollant skriver DC agent service-programvaran resultaten av varje enskild lösen ords verifiering till händelse loggen för DC-agenten.
 
-För en lyckad validering åtgärd, det är vanligtvis en händelse loggas från DLL-filen DC agenten lösenord filter. För en misslyckad åtgärd för verifiering, finns vanligtvis två händelser som loggats, en från DC-agenttjänsten och en från DC agenten lösenord filter DLL-filen.
+För att det ska gå att verifiera lösen ord finns det vanligt vis en händelse som loggas från dll-filen med lösen ords filter för DC För att det ska gå att verifiera lösen ord, finns det vanligt vis två händelser som loggats, en från DC-agenttjänsten och en från dll-filen för lösen ords filter för DC-agent.
 
-Diskret händelser att samla in dessa fall loggas, baserat på följande faktorer:
+Diskreta händelser för att avbilda dessa situationer loggas utifrån följande faktorer:
 
-* Om en viss lösenord håller på att ställa in eller ändrats.
-* Om valideringen av en viss lösenordet skickas eller misslyckades.
-* Om valideringen misslyckades på grund av den globala principen för Microsoft, organisationens princip eller en kombination.
-* Om endast granskningsläge har för närvarande aktiverats eller inaktiverats för den aktuella lösenordsprincipen.
+* Anger om ett angivet lösen ord ska anges eller ändras.
+* Om validering av ett angivet lösen ord har skickats eller misslyckats.
+* Om verifieringen misslyckades på grund av den globala Microsoft-principen, organisations principen eller en kombination.
+* Om läget endast granskning för närvarande är aktiverat eller inte för den aktuella lösen ords principen.
 
-Viktiga lösenord-verifiering-relaterade händelser är följande:
+De viktigaste händelserna för lösen ords validering är följande:
 
-|   |Lösenordsändring |Lösenordsändring|
+|   |Ändring av lösenord |Lösen ords uppsättning|
 | --- | :---: | :---: |
-|Skicka |10014 |10015|
-|Misslyckas (på grund av kunden Lösenordsprincip)| 10016, 30002| 10017, 30003|
-|Misslyckas (på grund av Microsoft Lösenordsprincip)| 10016, 30004| 10017, 30005|
-|Misslyckas (på grund av kombinerade Microsoft och kundens lösenordsprinciper)| 10016, 30026| 10017, 30027|
-|Endast granskning Pass (skulle ha misslyckats kunden Lösenordsprincip)| 10024, 30008| 10025, 30007|
-|Endast granskning Pass (skulle ha misslyckats Microsoft Lösenordsprincip)| 10024, 30010| 10025, 30009|
-|Endast granskning Pass (skulle ha misslyckats kombinerade Microsoft och kundens lösenordsprinciper)| 10024, 30028| 10025, 30029|
+|Godkänd |10014 |10015|
+|Misslyckande (på grund av lösen ords princip för kunder)| 10016, 30002| 10017, 30003|
+|Misslyckande (på grund av lösen ords princip från Microsoft)| 10016, 30004| 10017, 30005|
+|Misslyckad (på grund av kombinerad lösen ords princip för Microsoft och kunder)| 10016, 30026| 10017, 30027|
+|Endast gransknings pass (skulle ha misslyckats med kundens lösen ords princip)| 10024, 30008| 10025, 30007|
+|Endast gransknings pass (den skulle ha misslyckats med Microsofts lösen ords princip)| 10024, 30010| 10025, 30009|
+|Endast gransknings pass (skulle ha misslyckats med att kombinera principer för lösen ord för Microsoft och kunden)| 10024, 30028| 10025, 30029|
 
-Ärenden i tabellen ovan som refererar till ”kombineras principer” refererar till situationer där en användares lösenord hittades som innehåller minst en token från både Microsoft förbjudna lösenord listan och kundlistan som förbjuds lösenord.
+De fall i tabellen ovan som refererar till "kombinerade principer" avser situationer där en användares lösen ord hittades som innehåller minst en token från både Microsoft-listan över förbjudna lösen ord och listan över blockerade lösen ord för kunder.
 
-När ett par med händelser loggas tillsammans, associerade både händelser uttryckligen genom att använda samma CorrelationId.
+När ett par med händelser loggas tillsammans, associeras båda händelserna explicit genom att ha samma CorrelationId.
 
-### <a name="password-validation-summary-reporting-via-powershell"></a>Lösenord verifieringssammanfattning reporting via PowerShell
+### <a name="password-validation-summary-reporting-via-powershell"></a>Sammanfattnings rapportering av lösen ords validering via PowerShell
 
-Den `Get-AzureADPasswordProtectionSummaryReport` cmdlet kan användas för att generera en övergripande vy över aktiviter för verifiering av lösenord. Ett exempel på utdata från denna cmdlet är följande:
+`Get-AzureADPasswordProtectionSummaryReport` Cmdleten kan användas för att skapa en sammanfattande vy över aktiviteten för lösen ords validering. Exempel på utdata från denna cmdlet är följande:
 
 ```powershell
 Get-AzureADPasswordProtectionSummaryReport -DomainController bplrootdc2
@@ -94,11 +94,11 @@ PasswordChangeErrors            : 0
 PasswordSetErrors               : 1
 ```
 
-Omfånget för cmdletens reporting kan påverkas med någon av parametrarna – skog, - domän eller – DomainController. Inte anger en parameter innebär – skog.
+Omfattningen av cmdletens rapportering kan påverkas av en av parametrarna – skog,-Domain eller – DomainController. Att inte ange en parameter innebär – skog.
 
-Den `Get-AzureADPasswordProtectionSummaryReport` cmdlet fungerar genom att fråga DC agenten admin-händelseloggen och sedan räkna det totala antalet händelser som motsvarar varje kategori visas resultatet. I följande tabell innehåller mappningar mellan varje resultat och dess motsvarande händelse-id:
+`Get-AzureADPasswordProtectionSummaryReport` Cmdleten fungerar genom att köra en fråga till händelse loggen för DC-agenten och sedan räkna in det totala antalet händelser som motsvarar varje visad resultat kategori. Följande tabell innehåller mappningarna mellan varje utfall och dess motsvarande händelse-ID:
 
-|Get-AzureADPasswordProtectionSummaryReport property |Motsvarande händelse-id|
+|Get-AzureADPasswordProtectionSummaryReport-egenskap |Motsvarande händelse-ID|
 | :---: | :---: |
 |PasswordChangesValidated |10014|
 |PasswordSetsValidated |10015|
@@ -109,17 +109,17 @@ Den `Get-AzureADPasswordProtectionSummaryReport` cmdlet fungerar genom att fråg
 |PasswordChangeErrors |10012|
 |PasswordSetErrors |10013|
 
-Observera att den `Get-AzureADPasswordProtectionSummaryReport` cmdlet levererat i form av PowerShell-skript och vid behov kan refereras direkt på följande plats:
+Observera att `Get-AzureADPasswordProtectionSummaryReport` cmdleten levereras i PowerShell-skript och om det behövs kan hänvisas direkt till följande plats:
 
 `%ProgramFiles%\WindowsPowerShell\Modules\AzureADPasswordProtection\Get-AzureADPasswordProtectionSummaryReport.ps1`
 
 > [!NOTE]
-> Denna cmdlet fungerar genom att öppna en PowerShell-session till varje domänkontrollant. För att lyckas, stöd för PowerShell-fjärrsession måste vara aktiverat på varje domänkontrollant och klienten måste ha tillräcklig behörighet. Mer information om kraven för PowerShell-fjärrsession kör du ”Get-Help about_Remote_Troubleshooting” i ett PowerShell-fönster.
+> Den här cmdleten fungerar genom att öppna en PowerShell-session till varje domänkontrollant. För att lyckas måste stöd för PowerShell-fjärrsession vara aktiverat på varje domänkontrollant och klienten måste ha tillräcklig behörighet. Mer information om kraven för PowerShell-fjärrsessioner får du genom att köra "Get-Help about_Remote_Troubleshooting" i ett PowerShell-fönster.
 
 > [!NOTE]
-> Denna cmdlet fungerar genom att via fjärranslutning fråga varje DC agenttjänsten Admin-händelseloggen. Om Loggboken innehåller stora mängder händelser, kan cmdlet: en ta lång tid att slutföra. Massinläsning nätverket förfrågningar av stora datauppsättningar kan också påverka domänkontrollantens prestanda. Den här cmdleten bör därför användas noggrant i produktionsmiljöer.
+> Den här cmdleten fungerar genom att skicka frågor till varje administratörs händelse logg för DC-agenten. Om händelse loggarna innehåller ett stort antal händelser kan cmdleten ta lång tid att slutföra. Dessutom kan Mass nätverks frågor för stora data uppsättningar påverka domänkontrollantens prestanda. Därför bör denna cmdlet användas noggrant i produktions miljöer.
 
-### <a name="sample-event-log-message-for-event-id-10014-successful-password-change"></a>Exemplet händelseloggmeddelande för händelse-ID 10014 (lyckad lösenordsändring)
+### <a name="sample-event-log-message-for-event-id-10014-successful-password-change"></a>Exempel på händelse logg meddelande för händelse-ID 10014 (lösen ords ändring lyckades)
 
 ```text
 The changed password for the specified user was validated as compliant with the current Azure password policy.
@@ -128,7 +128,7 @@ The changed password for the specified user was validated as compliant with the 
  FullName:
 ```
 
-### <a name="sample-event-log-message-for-event-id-10017-and-30003-failed-password-set"></a>Exemplet händelseloggmeddelande för händelse-ID 10017 och 30003 (misslyckade lösenord set)
+### <a name="sample-event-log-message-for-event-id-10017-and-30003-failed-password-set"></a>Exempel på händelse logg meddelande för händelse-ID 10017 och 30003 (uppsättning med misslyckade lösen ord)
 
 10017:
 
@@ -148,7 +148,7 @@ The reset password for the specified user was rejected because it matched at lea
  FullName:
 ```
 
-### <a name="sample-event-log-message-for-event-id-30001-password-accepted-due-to-no-policy-available"></a>Exemplet händelseloggmeddelande för händelse-ID 30001 (lösenord accepteras på grund av någon princip som är tillgänglig)
+### <a name="sample-event-log-message-for-event-id-30001-password-accepted-due-to-no-policy-available"></a>Exempel på händelse logg meddelande för händelse-ID 30001 (lösen ord accepteras eftersom ingen princip är tillgänglig)
 
 ```text
 The password for the specified user was accepted because an Azure password policy is not available yet
@@ -175,7 +175,7 @@ This condition may be caused by one or more of the following reasons:%n
    Resolution steps: ensure network connectivity exists to the domain.
 ```
 
-### <a name="sample-event-log-message-for-event-id-30006-new-policy-being-enforced"></a>Exemplet händelseloggmeddelande för händelse-ID 30006 (ny princip tillämpas)
+### <a name="sample-event-log-message-for-event-id-30006-new-policy-being-enforced"></a>Exempel på händelse logg meddelande för händelse-ID 30006 (ny princip tillämpas)
 
 ```text
 The service is now enforcing the following Azure password policy.
@@ -187,7 +187,7 @@ The service is now enforcing the following Azure password policy.
  Enforce tenant policy: 1
 ```
 
-### <a name="sample-event-log-message-for-event-id-30019-azure-ad-password-protection-is-disabled"></a>Exemplet händelseloggmeddelande för händelse-ID 30019 (Azure AD-lösenordsskydd är inaktiverat)
+### <a name="sample-event-log-message-for-event-id-30019-azure-ad-password-protection-is-disabled"></a>Exempel på händelse logg meddelande för händelse-ID 30019 (Azure AD Password Protection är inaktive rad)
 
 ```text
 The most recently obtained Azure password policy was configured to be disabled. All passwords submitted for validation from this point on will automatically be considered compliant with no processing performed.
@@ -196,63 +196,63 @@ No further events will be logged until the policy is changed.%n
 
 ```
 
-## <a name="dc-agent-operational-log"></a>DC-agenten arbetslogg
+## <a name="dc-agent-operational-log"></a>Drift logg för DC-agent
 
-DC-agenttjänsten loggar även operativa händelser in i följande:
+DC-agenttjänsten kommer också att logga operativa händelser till följande logg:
 
 `\Applications and Services Logs\Microsoft\AzureADPasswordProtection\DCAgent\Operational`
 
-## <a name="dc-agent-trace-log"></a>DC-agenten spårningsloggen
+## <a name="dc-agent-trace-log"></a>Spårnings logg för DC-agent
 
-DC-Agenttjänsten kan också logga utförliga felsökningsnivå spårningshändelser in i följande:
+DC-agenttjänsten kan också logga utförliga spårnings händelser på fel söknings nivå till följande logg:
 
 `\Applications and Services Logs\Microsoft\AzureADPasswordProtection\DCAgent\Trace`
 
-Spårningsloggning är inaktiverad som standard.
+Spårnings loggning är inaktiverat som standard.
 
 > [!WARNING]
-> När aktiverad, tar emot ett stort antal händelser i spårningsloggen och kan påverka domänkontrollantens prestanda. Den här förbättrade loggfilen ska därför bara aktiveras när ett problem som kräver mer ingående undersökning och sedan endast för kortast möjliga tid.
+> När det här alternativet är aktiverat får spårnings loggen en stor mängd händelser och kan påverka domänkontrollantens prestanda. Därför bör den här utökade loggen bara aktive ras när ett problem kräver djupare undersökningar och sedan bara under en minimal tid.
 
-## <a name="dc-agent-text-logging"></a>DC-agenten textloggning
+## <a name="dc-agent-text-logging"></a>Text loggning för DC-agent
 
-DC-agent-tjänsten kan konfigureras för att skriva till en textlogg genom att ange följande registervärde:
+DC-agenttjänsten kan konfigureras att skriva till en text logg genom att ange följande register värde:
 
 ```text
 HKLM\System\CurrentControlSet\Services\AzureADPasswordProtectionDCAgent\Parameters!EnableTextLogging = 1 (REG_DWORD value)
 ```
 
-Textloggning är inaktiverad som standard. En omstart av DC-agenttjänsten måste anges för ändringar i det här värdet ska börja gälla. När aktiverat domänkontrollanten agent-tjänsten skriver till en loggfil som finns under:
+Text loggning är inaktiverat som standard. En omstart av DC-agenttjänsten krävs för att ändringar av det här värdet ska börja gälla. När den här inställningen är aktive rad skrivs DC-agenttjänsten till en loggfil som finns under:
 
 `%ProgramFiles%\Azure AD Password Protection DC Agent\Logs`
 
 > [!TIP]
-> Textlogg får samma felsökningsnivå poster som kan loggas till spårningsloggen, men är vanligtvis i ett format som är enklare att granska och analysera.
+> Text loggen får samma fel söknings nivå poster som kan loggas i spårnings loggen, men är ofta i ett enklare format för att granska och analysera.
 
 > [!WARNING]
-> När aktiverat den här loggfilen tar emot ett stort antal händelser och kan påverka domänkontrollantens prestanda. Den här förbättrade loggfilen ska därför bara aktiveras när ett problem som kräver mer ingående undersökning och sedan endast för kortast möjliga tid.
+> När den här loggen är aktive rad tar den en stor mängd händelser och kan påverka domänkontrollantens prestanda. Därför bör den här utökade loggen bara aktive ras när ett problem kräver djupare undersökningar och sedan bara under en minimal tid.
 
-## <a name="dc-agent-performance-monitoring"></a>Prestandaövervakning för DC-agent
+## <a name="dc-agent-performance-monitoring"></a>Prestanda övervakning av DC-agent
 
-DC-agentprogramvaran för tjänsten installerar ett prestandaräknarobjektet med namnet **Azure AD-lösenordsskydd**. Följande prestandaräknare är tillgängliga:
+Program varan för DC-agenten installerar ett prestanda räknar objekt med namnet **Azure AD Password Protection**. Följande prestanda räknare är tillgängliga för närvarande:
 
-|Perf räknarnamnet | Beskrivning|
+|Prestanda räknar namn | Beskrivning|
 | --- | --- |
-|Lösenord som bearbetats |Den här räknaren visar det totala antalet lösenord som bearbetas (godkännas eller avvisas) sedan senaste omstarten.|
-|Lösenord som har accepterat |Den här räknaren visar det totala antalet lösenord som godkändes sedan senaste omstarten.|
-|Lösenord som har avvisats |Den här räknaren visar det totala antalet lösenord som avvisas sedan senaste omstarten.|
-|Lösenord filtrera begäranden pågår |Räknaren visar antalet lösenord filtrera begäranden som för närvarande pågår.|
-|Högsta lösenord filtrera begäranden |Den här räknaren visar det högsta antalet samtidiga lösenord filtrera begäranden sedan den senaste omstarten.|
-|Lösenord filterfel för begäran |Den här räknaren visar det totala antalet lösenord filtrera begäranden som misslyckades pga ett fel sedan senaste omstarten. Fel kan inträffa när Azure AD-lösenord DC Protection agent-tjänsten inte körs.|
-|Lösenord filter begäranden/sek |Den här räknaren visar det pris som lösenord som bearbetas.|
-|Bearbetningstid för lösenord filter begäran |Den här räknaren visar Genomsnittlig tid för att bearbeta en begäran om lösenord filter.|
-|Bearbetningstid för högsta lösenord filter begäran |Den här räknaren visar det högsta lösenord filter behandling av tid sedan den senaste omstarten.|
-|Lösenord som accepteras på grund av granskningsläge |Den här räknaren visar det totala antalet lösenord som skulle normalt har avvisats, men godkändes eftersom lösenordsprincipen som har konfigurerats för att vara i läget granska (sedan senaste omstarten).|
+|Bearbetade lösen ord |Den här räknaren visar det totala antalet bearbetade lösen ord (accepterade eller avvisade) sedan den senaste omstarten.|
+|Accepterade lösen ord |Den här räknaren visar det totala antalet lösen ord som har godkänts sedan den senaste omstarten.|
+|Nekade lösen ord |Den här räknaren visar det totala antalet lösen ord som har avvisats sedan den senaste omstarten.|
+|Begär Anden om lösen ords filter pågår |Den här räknaren visar antalet begär Anden om lösen ords filter som pågår.|
+|Högsta antal begär Anden om lösen ords filter |Den här räknaren visar det högsta antalet samtidiga begär Anden om lösen ords filter sedan den senaste omstarten.|
+|Fel vid begäran om lösen ords filter |Den här räknaren visar det totala antalet begär Anden om lösen ords filter som misslyckades på grund av ett fel sedan den senaste omstarten. Fel kan uppstå när tjänsten Azure AD Password Protection DC agent inte körs.|
+|Begär Anden om lösen ords filter/SEK |Den här räknaren visar den hastighet med vilken lösen ord bearbetas.|
+|Bearbetnings tid för begäran om lösen ords filter |Den här räknaren visar den genomsnittliga tid som krävs för att bearbeta en begäran om lösen ords filter.|
+|Bearbetnings tid för begäran om högsta lösen ords filter |Den här räknaren visar bearbetnings tiden för antalet tillåtna lösen ords filter sedan den senaste omstarten.|
+|Lösen ord som accepterats på grund av gransknings läge |Den här räknaren visar det totala antalet lösen ord som normalt skulle ha avvisats, men som har godkänts eftersom lösen ords principen har kon figurer ATS för gransknings läge (sedan senaste omstart).|
 
-## <a name="dc-agent-discovery"></a>Identifiering av DC-Agent
+## <a name="dc-agent-discovery"></a>Identifiering av DC-agent
 
-Den `Get-AzureADPasswordProtectionDCAgent` cmdlet kan användas för att visa grundläggande information om de olika DC-agenter som körs i en domän eller skog. Den här informationen hämtas från serviceConnectionPoint-objekt som har registrerats av körs DC agenten tjänster.
+`Get-AzureADPasswordProtectionDCAgent` Cmdleten kan användas för att visa grundläggande information om de olika DC-agenter som körs i en domän eller skog. Den här informationen hämtas från de serviceConnectionPoint-objekt som registreras av som kör DC-agenttjänsten.
 
-Ett exempel på utdata från denna cmdlet är följande:
+Exempel på utdata från denna cmdlet är följande:
 
 ```powershell
 Get-AzureADPasswordProtectionDCAgent
@@ -263,17 +263,38 @@ PasswordPolicyDateUTC : 2/16/2018 8:35:01 AM
 HeartbeatUTC          : 2/16/2018 8:35:02 AM
 ```
 
-De olika egenskaperna uppdateras med varje DC-agenttjänsten ungefärliga timme. Data kan fortfarande komma replikeringsfördröjning för Active Directory.
+De olika egenskaperna uppdateras av varje DC-agenttjänsten i en ungefärlig timme. Data omfattas fortfarande Active Directory replikeringsfördröjning.
 
-Omfånget för cmdletens fråga kan påverkas med hjälp av antingen parametrarna – skog eller -domän.
+Omfattningen av cmdletens fråga kan påverkas av parametrarna-skog eller – domän.
 
-Om värdet HeartbeatUTC blir inaktuella, kan detta vara ett tecken på att Azure AD-lösenord Protection DC-agenten på den domänkontrollanten körs inte eller har avinstallerats eller den virtuella datorn har degraderas och inte längre är en domänkontrollant.
+Om värdet HeartbeatUTC är inaktuellt kan detta vara ett symtom på att Azure AD Password Protection DC-agenten inte körs eller har avinstallerats, eller att datorn har degraderats och inte längre är en domänkontrollant.
 
-Om PasswordPolicyDateUTC värdet hämtar inaktuella, detta kan vara ett tecken på att Azure AD-lösenord DC Skyddsagenten på den datorn har inte fungerar korrekt.
+Om värdet PasswordPolicyDateUTC är inaktuellt kan detta vara ett symtom på att Azure AD Password Protection DC-agenten på den datorn inte fungerar korrekt.
 
-## <a name="proxy-service-event-logging"></a>Händelseloggning för proxy-tjänsten
+## <a name="dc-agent-newer-version-available"></a>En nyare version av DC-agent är tillgänglig
 
-Proxy-tjänsten genererar en minimal uppsättning händelser till följande händelseloggar:
+DC-agenttjänsten loggar en 30034 varnings händelse till den operativa loggen vid identifiering av att en nyare version av DC-agentens program vara är tillgänglig, till exempel:
+
+```text
+An update for Azure AD Password Protection DC Agent is available.
+
+If autoupgrade is enabled, this message may be ignored.
+
+If autoupgrade is disabled, refer to the following link for the latest version available:
+
+https://aka.ms/AzureADPasswordProtectionAgentSoftwareVersions
+
+Current version: 1.2.116.0
+```
+
+Händelsen ovan anger inte versionen för den nya program varan. Du bör gå till länken i händelse meddelandet för denna information.
+
+> [!NOTE]
+> Trots referenserna till "autoupgrade" i ovanstående händelse meddelande, stöder inte DC-agentprogram varan den här funktionen.
+
+## <a name="proxy-service-event-logging"></a>Händelse loggning för proxy service
+
+Proxyservern avger en minimal uppsättning händelser för följande händelse loggar:
 
 `\Applications and Services Logs\Microsoft\AzureADPasswordProtection\ProxyService\Admin`
 
@@ -281,50 +302,50 @@ Proxy-tjänsten genererar en minimal uppsättning händelser till följande hän
 
 `\Applications and Services Logs\Microsoft\AzureADPasswordProtection\ProxyService\Trace`
 
-Observera att spårningsloggen är inaktiverat som standard.
+Observera att spårnings loggen är inaktive rad som standard.
 
 > [!WARNING]
-> När aktiverad spårningsloggen tar emot ett stort antal händelser och detta kan påverka prestanda för proxy-värden. Den här loggfilen ska därför bara aktiveras när ett problem som kräver mer ingående undersökning och sedan endast för kortast möjliga tid.
+> När den är aktive rad får spårnings loggen en stor mängd händelser och detta kan påverka prestandan för proxyservern. Därför bör den här loggen bara aktive ras när ett problem kräver djupare undersökningar och sedan bara under en minimal tid.
 
-Händelser som loggas av olika Proxy-komponenter med hjälp av följande intervall:
+Händelser loggas av de olika proxy-komponenterna med följande intervall:
 
-|Komponent |Händelse-ID-intervall|
+|Komponent |Intervall för händelse-ID|
 | --- | --- |
-|Värdprocessen för proxy-tjänst| 10000-19999|
-|Proxy-tjänsten core affärslogik| 20000-29999|
+|Värd process för proxy-tjänst| 10000-19999|
+|Proxy service Core affärs logik| 20000-29999|
 |PowerShell-cmdletar| 30000-39999|
 
-## <a name="proxy-service-text-logging"></a>Textloggning för proxy-tjänsten
+## <a name="proxy-service-text-logging"></a>Text loggning för proxy service
 
-Proxy-tjänsten kan konfigureras för att skriva till en textlogg genom att ange följande registervärde:
+Proxy-tjänsten kan konfigureras att skriva till en text logg genom att ange följande register värde:
 
-HKLM\System\CurrentControlSet\Services\AzureADPasswordProtectionProxy\Parameters!EnableTextLogging = 1 (REG_DWORD value)
+HKLM\System\CurrentControlSet\Services\AzureADPasswordProtectionProxy\Parameters! EnableTextLogging = 1 (REG_DWORD-värde)
 
-Textloggning är inaktiverad som standard. En omstart av Proxy-tjänsten krävs för ändringar i det här värdet ska börja gälla. När aktiverat proxyn skriver till en loggfil som finns under:
+Text loggning är inaktiverat som standard. En omstart av proxy-tjänsten krävs för att ändringar av det här värdet ska börja gälla. När den är aktive rad skrivs proxyservern till en loggfil som finns under:
 
 `%ProgramFiles%\Azure AD Password Protection Proxy\Logs`
 
 > [!TIP]
-> Textlogg får samma felsökningsnivå poster som kan loggas till spårningsloggen, men är vanligtvis i ett format som är enklare att granska och analysera.
+> Text loggen får samma fel söknings nivå poster som kan loggas i spårnings loggen, men är ofta i ett enklare format för att granska och analysera.
 
 > [!WARNING]
-> När aktiverat den här loggfilen tar emot ett stort antal händelser och kan påverka datorns prestanda. Den här förbättrade loggfilen ska därför bara aktiveras när ett problem som kräver mer ingående undersökning och sedan endast för kortast möjliga tid.
+> När den här loggen är aktive rad tar den en stor mängd händelser och kan påverka datorns prestanda. Därför bör den här utökade loggen bara aktive ras när ett problem kräver djupare undersökningar och sedan bara under en minimal tid.
 
 ## <a name="powershell-cmdlet-logging"></a>PowerShell-cmdlet-loggning
 
-PowerShell-cmdletar som resulterar i en tillståndsändring (till exempel registrera-AzureADPasswordProtectionProxy) loggar normalt en händelse i resultatet till arbetsloggen.
+PowerShell-cmdletar som resulterar i en tillstånds ändring (till exempel register-AzureADPasswordProtectionProxy) loggar normalt en resultat händelse i drift loggen.
 
-Dessutom kan skriver de flesta av Azure AD-lösenord Protection PowerShell-cmdlets till en textlogg som finns under:
+Dessutom skrivs de flesta av PowerShell-cmdletarna för Azure AD Password Protection till en text logg som finns under:
 
 `%ProgramFiles%\Azure AD Password Protection Proxy\Logs`
 
-Om en cmdlet-fel inträffar inte och orsak ut lösningen gång, kan även dessa textloggar samråda.
+Om ett cmdlet-fel uppstår och orsaken och/eller-lösningen inte är tydligare kan dessa text loggar också konsulteras.
 
-## <a name="proxy-discovery"></a>Proxy-identifiering
+## <a name="proxy-discovery"></a>Identifiering av proxy
 
-Den `Get-AzureADPasswordProtectionProxy` cmdlet kan användas för att visa grundläggande information om de olika Azure AD-lösenord Protection Proxy-tjänsterna som körs i en domän eller skog. Den här informationen hämtas från serviceConnectionPoint-objekt som har registrerats av körs Proxy-tjänster.
+`Get-AzureADPasswordProtectionProxy` Cmdleten kan användas för att visa grundläggande information om de olika proxy-tjänster för Azure AD-lösenordsautentisering som körs i en domän eller skog. Den här informationen hämtas från de serviceConnectionPoint-objekt som registrerats av den eller de Proxy-tjänster som körs.
 
-Ett exempel på utdata från denna cmdlet är följande:
+Exempel på utdata från denna cmdlet är följande:
 
 ```powershell
 Get-AzureADPasswordProtectionProxy
@@ -334,14 +355,35 @@ Forest                : bplRootDomain.com
 HeartbeatUTC          : 12/25/2018 6:35:02 AM
 ```
 
-De olika egenskaperna uppdateras med varje proxytjänsten ungefärliga timme. Data kan fortfarande komma replikeringsfördröjning för Active Directory.
+De olika egenskaperna uppdateras av varje proxyserver med en ungefärlig per timme. Data omfattas fortfarande Active Directory replikeringsfördröjning.
 
-Omfånget för cmdletens fråga kan påverkas med hjälp av antingen parametrarna – skog eller -domän.
+Omfattningen av cmdletens fråga kan påverkas av parametrarna-skog eller – domän.
 
-Om värdet HeartbeatUTC blir inaktuella, kan detta vara ett tecken på att Azure AD-lösenord Protection Proxy på den datorn inte körs eller har avinstallerats.
+Om värdet HeartbeatUTC är inaktuellt kan detta vara ett symtom på att Azure AD-lösenordet för lösen ords skydd på den datorn inte körs eller har avinstallerats.
+
+## <a name="proxy-agent-newer-version-available"></a>En nyare version av proxyagenten är tillgänglig
+
+Proxy-tjänsten kommer att logga en 20002 varnings händelse till den operativa loggen vid identifiering av att en nyare version av proxy-programvaran är tillgänglig, till exempel:
+
+```text
+An update for Azure AD Password Protection Proxy is available.
+
+If autoupgrade is enabled, this message may be ignored.
+
+If autoupgrade is disabled, refer to the following link for the latest version available:
+
+https://aka.ms/AzureADPasswordProtectionAgentSoftwareVersions
+
+Current version: 1.2.116.0
+.
+```
+
+Händelsen ovan anger inte versionen för den nya program varan. Du bör gå till länken i händelse meddelandet för denna information.
+
+Den här händelsen genereras även om proxyagenten har kon figurer ATS med autoupgrade aktiverat.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Felsökning för Azure AD-lösenordsskydd](howto-password-ban-bad-on-premises-troubleshoot.md)
+[Fel sökning av lösen ords skydd i Azure AD](howto-password-ban-bad-on-premises-troubleshoot.md)
 
-Mer information om listor med globala och anpassade förbjudna lösenord, finns i artikeln [förbjuda felaktiga lösenord](concept-password-ban-bad.md)
+Mer information om globala och anpassade listor över blockerade lösen ord finns i artikeln [förbjuda Felaktiga lösen ord](concept-password-ban-bad.md)

@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: 45b28b4d88c670a8b2ec34b93a342f06b80e02d7
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: efe5829ffbe4db304f9ffab0a259ab9d10279b27
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668486"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68772695"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Konfigurera en utvecklingsmiljö för Azure Machine Learning
 
@@ -28,7 +28,7 @@ I följande tabell visas varje utvecklings miljö som beskrivs i den här artike
 | --- | --- | --- |
 | [Molnbaserad VM-baserad virtuell dator](#notebookvm) | Enkelt sätt att komma igång. Hela SDK är redan installerat på den virtuella arbets ytan och själv studie kurser för bärbara datorer är förklonade och redo att köras. | Brist på kontroll över utvecklings miljön och beroenden. Ytterligare kostnader för virtuella Linux-datorer (VM kan stoppas när de inte används för att undvika avgifter). Se [pris information](https://azure.microsoft.com/pricing/details/virtual-machines/linux/). |
 | [Lokal miljö](#local) | Fullständig kontroll över utvecklings miljön och beroenden. Kör med valfri build-verktyg, miljö eller IDE som du väljer. | Det tar längre tid att komma igång. Nödvändiga SDK-paket måste vara installerade och en miljö måste också installeras om du inte redan har ett. |
-| [Azure Databricks](#aml-databricks) | Perfekt för att köra storskaliga arbets flöden med storskaliga maskin inlärning på den skalbara Apache Sparks plattformen. | Överkurs för experimentell maskin inlärning, eller mindre skalade experiment och arbets flöden. Ytterligare kostnader för Azure Databricks. Se [pris information](https://azure.microsoft.com/pricing/details/databricks/). |
+| [Azure Databricks](#aml-databricks) | Perfekt för att köra storskaliga arbets flöden för storskalig dator inlärning på den skalbara Apache Sparks plattformen. | Överkurs för experimentell maskin inlärning, eller mindre skalade experiment och arbets flöden. Ytterligare kostnader för Azure Databricks. Se [pris information](https://azure.microsoft.com/pricing/details/databricks/). |
 | [Data Science Virtual Machine (DSVM)](#dsvm) | Precis som den molnbaserade Notebook VM (python och SDK är förinstallerade), men med ytterligare populära data vetenskaps-och maskin inlärnings verktyg förinstallerade. Lätt att skala och kombinera med andra anpassade verktyg och arbets flöden. | En långsammare upplevelse jämfört med den molnbaserade Notebook VM. |
 | [Azure Notebooks](#aznotebooks) | Den kostnads fria och lätta kom igång-upplevelsen, med python och SDK förinstallerat. | Mindre kraftfulla virtuella datorer som är tillgängliga jämfört med molnbaserad Notebook VM. Isolerade från arbets ytan och andra resurser. |
 
@@ -72,11 +72,11 @@ Den virtuella Notebook-datorn är:
 
   Om du är i kod innehåller den virtuella datorn självstudier och exempel som hjälper dig att utforska och lära dig hur du använder Azure Machine Learning-tjänsten. Exempel antecknings böckerna lagras i Azure Blob Storage-kontot på arbets ytan som gör att de kan delas mellan virtuella datorer. När det körs har de också åtkomst till data lager och beräknings resurser för din arbets yta.
 
-+ **Enkel installation**: Skapa en när som helst i din Azure Machine Learning-arbetsyta. Ange ett namn och ange en typ av virtuell Azure-dator. Prova nu med den här [snabb starten: Använd en molnbaserad Notebook-Server för att komma igång med Azure Machine Learning](quickstart-run-cloud-notebook.md).
++ **Enkel installation**: Skapa en när som helst i din Azure Machine Learning-arbetsyta. Ange ett namn och ange en typ av virtuell Azure-dator. Prova nu med den här [självstudien: Installations miljö och arbets](tutorial-1st-experiment-sdk-setup.md)yta.
 
 + **Anpassningsbar**. Även om det finns ett hanterat och säkert VM-erbjudande behåller du full till gång till maskin varu funktionerna och anpassar dem till ditt hjärta. Du kan till exempel snabbt skapa den senaste NVidia V100-baserade virtuella datorn för att utföra steg-för-steg-felsökning av den nya neurala-nätverks arkitekturen.
 
-[Stoppa den virtuella Notebook](quickstart-run-cloud-notebook.md#stop-the-notebook-vm)-datorn om du vill sluta debitera VM-kostnader för bärbara datorer.
+[Stoppa den virtuella Notebook](tutorial-1st-experiment-sdk-setup.md#stop-the-notebook-vm)-datorn om du vill sluta debitera VM-kostnader för bärbara datorer. 
 
 ## <a id="dsvm"></a>Virtuell dator för datavetenskap
 
@@ -294,7 +294,7 @@ Skapa ett [Databricks-kluster](https://docs.microsoft.com/azure/azure-databricks
 
 Använd de här inställningarna:
 
-| Inställning |Gäller| Value |
+| Inställning |Gäller| Värde |
 |----|---|---|
 | Klusternamn |alltid| yourclustername |
 | Databricks Runtime |alltid| En icke ML-körning (icke-ML 4. x, 5. x) |

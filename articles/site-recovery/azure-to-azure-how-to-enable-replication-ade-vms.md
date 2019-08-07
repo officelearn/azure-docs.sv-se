@@ -8,19 +8,19 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: 25f8c19ad1c574f6a3d84d50d911b4da6b52cfc3
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 5e5ae11a00b2a3656deceeeaf928536238a325fc
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516511"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840646"
 ---
 # <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>Replikera Azure Disk Encryption-aktiverade virtuella datorer till en annan Azure-region
 
 Den här artikeln beskriver hur du replikerar Azure Disk Encryption-aktiverade virtuella datorer från en Azure-region till en annan.
 
 >[!NOTE]
->Azure Site Recovery stöder för närvarande endast virtuella Azure-datorer som kör ett Windows-operativsystem och som är [aktiverat för kryptering med Azure Active Directory (Azure AD)](https://aka.ms/ade-aad-app).
+>Azure Site Recovery stöder för närvarande endast virtuella Azure-datorer som kör ett Windows-operativsystem.
 
 ## <a id="required-user-permissions"></a>Nödvändiga användar behörigheter
 Site Recovery kräver att användaren har behörighet att skapa nyckel valvet i mål regionen och kopiera nycklar från nyckel valvet för käll regionen till nyckel valvet för mål regionen.

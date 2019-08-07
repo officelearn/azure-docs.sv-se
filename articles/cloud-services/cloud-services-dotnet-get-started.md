@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: gwallace
-ms.openlocfilehash: 802ece106099e8a475b83c820130c3c238d330d2
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 3f2c60be29d679d0b0d30b6bf471f083c66ba93f
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359211"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827672"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Kom igång med Azure Cloud Services och ASP.NET
 
@@ -514,7 +514,7 @@ var imagesQueue = queueClient.GetQueueReference("images");
 imagesQueue.CreateIfNotExists();
 ```
 
-### <a name="contosoadsweb---layoutcshtml"></a>ContosoAdsWeb – \_Layout.cshtml
+### <a name="contosoadsweb---_layoutcshtml"></a>ContosoAdsWeb – \_Layout.cshtml
 Filen *_Layout.cshtml* anger appnamnet i sidhuvudet och sidfoten, och skapar en menypost som heter ”Ads”.
 
 ### <a name="contosoadsweb---viewshomeindexcshtml"></a>ContosoAdsWeb – Views\Home\Index.cshtml
@@ -696,7 +696,7 @@ public override void Run()
 }
 ```
 
-Om inget kömeddelande hittas efter varje upprepning av loopen, försätts programmet i viloläge i en sekund. Det förhindrar att arbetsrollen använder orimlig processortid och orsakar lagringstransaktionskostnader. Microsoft Customer Advisory Team berättar om en utvecklare som glömde bort att ta med det här, distribuerade till produktion, och åkte på semester. När han fick tillbaka kostade hans misstag mer än semestern.
+Om inget kömeddelande hittas efter varje upprepning av loopen, försätts programmet i viloläge i en sekund. Det förhindrar att arbetsrollen använder orimlig processortid och orsakar lagringstransaktionskostnader. Microsoft Customer Advisory Team berättar om en utvecklare som glömde bort att ta med det här, distribuerade till produktion, och åkte på semester. När de blev tillbaka är deras överblicks kostnad mer än semestern.
 
 Ibland orsakar innehållet i ett kömeddelande ett fel i bearbetningen. Det kallas för *meddelande om ej utförd åtgärd*, och om du precis har loggat ett fel och startat loopen igen kan du försöka bearbeta det meddelandet i oändlighet.  Därför innehåller catch-blocket en if-sats som kontrollerar hur många gånger appen har försökt att bearbeta det aktuella meddelandet, och om det har hänt fler än fem gånger, tas meddelandet bort från kön.
 

@@ -6,12 +6,12 @@ ms.service: azure-australia
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: grgale
-ms.openlocfilehash: 5971fe53f52725a88c484edcc9a5a672fceceb07
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 153b9d503dfece404455fbb7e8cb51c51686ec57
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68571372"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68824296"
 ---
 # <a name="gateway-logging-auditing-and-visibility-in-azure-australia"></a>Gateway-loggning, granskning och synlighet i Azure Australien
 
@@ -149,7 +149,7 @@ VPN Gateway är en potentiell start punkt för en mängd olika typer av kommunik
 |Resurser|Länka|
 |---|---|
 |Dokumentation om VPN Gateway|[https://docs.microsoft.com/azure/vpn-gateway/](https://docs.microsoft.com/azure/vpn-gateway)|
-|Australisk myndighets VPN Gateway vägledning|[https://aka.ms/AzGovAUSecurity](https://aka.ms/AzGovAUSecurity)|
+|Australisk myndighets VPN Gateway vägledning|[Konfiguration av Azure-VPN Gateway](vpn-gateway.md)|
 |
 
 ### <a name="azure-firewall"></a>Azure Firewall

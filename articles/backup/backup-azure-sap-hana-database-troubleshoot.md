@@ -6,18 +6,18 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 07/22/2019
+ms.date: 08/03/2019
 ms.author: dacurwin
-ms.openlocfilehash: a2711339f5e952747adeeb6217b283770cb6cc6b
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 0512facbdf5f2222aee1e9bb5d2be64e22bf1a69
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689046"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774635"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Felsöka säkerhets kopiering av SAP HANA databaser på Azure
 
-Den här artikeln innehåller felsöknings information för att säkerhetskopiera SAP HANA databaser på virtuella Azure-datorer.
+Den här artikeln innehåller felsöknings information för att säkerhetskopiera SAP HANA databaser på virtuella Azure-datorer. I följande avsnitt beskrivs viktiga konceptuella data som krävs för att diagnostisera vanliga fel i SAP HANA säkerhets kopiering.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -56,6 +56,26 @@ När en databas har valts för säkerhets kopiering konfigurerar Azure Backups t
 
 > [!NOTE]
 > Se till att dessa parametrar *inte* finns på värdnivå. Parametrar på värdnivå åsidosätter dessa parametrar och kan orsaka oväntade beteenden.
+
+## <a name="restore-checks"></a>Återställnings kontroller
+
+### <a name="single-container-database-sdc-restore"></a>Återställning av en SDC-databas (Single container Database)
+
+Ta hand om indata när du återställer en enda behållar databas (SDC) för HANA till en annan SDC-dator. Databas namnet måste anges med gemener och "SDC" har lagts till inom hakparenteser. HANA-instansen kommer att visas med versaler.
+
+Anta att en SDC HANA-instans "H21" säkerhets kopie ras. På sidan säkerhets kopierings objekt visas namnet **"H21 (SDC)"** för säkerhets kopierings objekt. Om du försöker återställa den här databasen till en annan mål SDC, säg H11, måste du ange följande indata.
+
+![SDC Återställ indata](media/backup-azure-sap-hana-database/hana-sdc-restore.png)
+
+Observera följande
+- Som standard fylls det återställda DB-namnet på med namnet för säkerhets kopian, t. ex. H21 (SDC)
+- Om du väljer målet som H11 ändras inte det återställda databas namnet automatiskt. **Den bör redige ras till H11 (SDC)** . I händelse av SDC kommer det återställda DB-namnet att vara mål instans-ID: t med gemena bokstäver och "SDC" i hakparenteser.
+- Eftersom SDC bara kan ha en enda databas, måste du också klicka på kryss rutan för att tillåta åsidosättning av befintliga databas data med återställnings punkt data.
+- Linux är Skift läges känsligt och säkerställer därför att ärendet bevaras.
+
+### <a name="multiple-container-database-mdc-restore"></a>Återställning av MDC (Multiple container Database)
+
+I flera container-databaser för HANA är standard konfigurationen SYSTEMDB + 1 eller flera klient-databaser. Att återställa en hel SAP HANA instans innebär att återställa både SYSTEMDB-och klient databaser. En återställer SYSTEMDB först och fortsätter sedan för klient organisations databasen. System DB innebär i princip att åsidosätta system informationen på det valda målet. Detta åsidosätter även BackInt-relaterad information i mål instansen. När system databasen har återställts till en mål instans måste därför en köra skriptet för för registrering igen. Det går bara att återställa efterföljande klient databas återställningar.
 
 ## <a name="common-user-errors"></a>Vanliga användar fel
 

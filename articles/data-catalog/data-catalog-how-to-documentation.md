@@ -1,47 +1,45 @@
 ---
-title: Så här dokumenterar du datakällor i Azure Data Catalog
-description: Artikel visar hur du kan dokumentera datatillgångar i Azure Data Catalog.
-services: data-catalog
+title: Så här dokumenterar du data källor i Azure Data Catalog
+description: Instruktions artikel för att markera hur du ska dokumentera data till gångar i Azure Data Catalog.
 author: JasonWHowell
 ms.author: jasonh
-ms.assetid: 053b1701-b848-4ada-b726-6f485caa9961
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 01/18/2018
-ms.openlocfilehash: 9049e0b25db37f296e27476fbb93418d13c4dcc1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/01/2019
+ms.openlocfilehash: 46e3780c7fc6e6a2481e774b89bfb69510865db3
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61001572"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68734615"
 ---
 # <a name="document-data-sources"></a>Dokumentera datakällor
 ## <a name="introduction"></a>Introduktion
-**Microsoft Azure Data Catalog** är en fullständigt hanterad molntjänst som fungerar som ett registrerings- och identifieringssystem för företagsdatakällor. Med andra ord **Azure Data Catalog** handlar om hjälper användarna att identifiera, *förstå*, och använda datakällor och hjälper organisationer att få ut mer av sina befintliga data.
+**Microsoft Azure Data Catalog** är en fullständigt hanterad moln tjänst som fungerar som ett system för registrering och identifierings system för företags data källor. Med andra ord är **Azure Data Catalog** att hjälpa människor att upptäcka, *förstå*och använda data källor och hjälpa organisationer att få mer värde än befintliga data.
 
-När en datakälla har registrerats med **Azure Data Catalog**, dess metadata kopieras och indexeras av tjänsten, men budskapet slutar inte det. **Azure Data Catalog** låter också användare innehåller sina egna komplett dokumentation som kan beskriva användnings- och vanliga scenarier för datakällan.
+När en data källa registreras med **Azure Data Catalog**kopieras och indexeras dess metadata av tjänsten, men artikeln slutar inte där. **Azure Data Catalog** ger också användarna möjlighet att ange sin egen fullständiga dokumentation som kan beskriva användningen och vanliga scenarier för data källan.
 
-I [så här kommenterar du datakällor](data-catalog-how-to-annotate.md), du lära dig att kan kommentera av experter som känner till datakällan med taggar och en beskrivning. Den **Azure Data Catalog** portal innehåller en textredigerare så att användare kan fullständigt dokumentera datatillgångar och behållare. Redigeraren innehåller punkt formatering, till exempel rubriker, textformatering, punktlistor, numrerade listor och tabeller.
+När du [kommenterar data källor](data-catalog-how-to-annotate.md), lär du dig att experter som vet att data källan kan kommentera den med taggar och en beskrivning. **Azure Data Catalog** -portalen innehåller en RTF-redigerare så att användarna helt kan dokumentera data till gångar och behållare. Redigeraren innehåller styckeformatering, till exempel rubriker, textformatering, punkt listor, numrerade listor och tabeller.
 
-Taggar och beskrivningar är användbara för enkel anteckningar. Dock kan en expert för att bättre förstå användningen av en datakälla och affärsscenarier för en datakälla datakonsumenter kan tillhandahålla fullständig, detaljerad dokumentation. Det är enkelt att dokumentera en datakälla. Välj en datatillgång eller behållare och välj **dokumentation**.
+Taggar och beskrivningar är fantastiska för enkla anteckningar. Men för att hjälpa data konsumenter att bättre förstå användningen av en data källa och affärs scenarier för en data källa kan en expert tillhandahålla fullständig, detaljerad dokumentation. Det är enkelt att dokumentera en data källa. Välj en data till gång eller behållare och välj **dokumentation**.
 
 ![](media/data-catalog-documentation/data-catalog-documentation.png)
 
-## <a name="documenting-data-assets"></a>Dokumentera datatillgångar
-Fördelen med **Azure Data Catalog** dokumentationen kan du använda datakatalogen som en för att skapa en fullständig berättelse för dina datatillgångar. Du kan utforska detaljerat innehåll som beskriver behållare och tabeller. Om du redan har innehållet i en annan innehållsdatabas använder till exempel SharePoint eller en filresurs, du kan lägga till i tillgången dokumentationslänkarna att referera till den här befintligt innehåll. Den här funktionen gör det enklare att hitta dina befintliga dokument.
+## <a name="documenting-data-assets"></a>Dokumentera data till gångar
+Fördelen med **Azure Data Catalog** dokumentation gör att du kan använda din Data Catalog som en innehålls lagrings plats för att skapa en fullständig text av dina data till gångar. Du kan utforska detaljerad information som beskriver behållare och tabeller. Om du redan har innehåll i en annan innehålls lagrings plats, till exempel SharePoint eller en fil resurs, kan du lägga till i till gångs dokumentations länkarna för att referera till det befintliga innehållet. Den här funktionen gör dina befintliga dokument mer synliga.
 
 > [!NOTE]
-> Dokumentation om ingår inte i search-index.
+> Dokumentationen ingår inte i Sök indexet.
 >
 >
 
 ![](media/data-catalog-documentation/data-catalog-documentation2.png)
 
-Nivån av dokumentationen kan variera mellan som beskriver egenskaper och värdet för en databehållare tillgång till en detaljerad beskrivning av tabellens schema i en behållare. Nivån av dokumentationen bör styras av dina affärsbehov. Men i allmänhet följer här några- och nackdelar med dokumentera datatillgångar:
+Informations nivån kan variera från att beskriva egenskaperna och värdet för en data till gångs behållare till en detaljerad beskrivning av tabell schema i en behållare. Vilken dokumentations nivå som tillhandahålls bör drivas av dina affärs behov. Men i allmänhet är det några få och nack delar med att dokumentera data till gångar:
 
-* Dokument bara en behållare: Allt innehåll som är på samma plats, men kanske saknar nödvändig information för användare att fatta ett välgrundat beslut.
-* Dokumentera bara tabeller: Innehållet är specifika för objektet, men användarna har flera platser för dokument.
-* Dokumentera behållare och tabeller: Mest omfattande metod, men kan leda till mer underhåll av dokument.
+* Dokumentera bara en behållare: Allt innehåll är på ett ställe, men det kan hända att användare saknar nödvändig information för att användarna ska kunna fatta ett välgrundat beslut.
+* Dokumentera bara tabellerna: Innehållet är bara för det objektet, men användarna har flera platser för dokument.
+* Dokument behållare och tabeller: Mest omfattande metod, men kan introducera mer underhåll av dokumenten.
 
 ## <a name="summary"></a>Sammanfattning
-Dokumentera datakällor med **Azure Data Catalog** kan skapa en berättelse om dina datatillgångar i så mycket information som du behöver.  Du kan länka till innehåll som lagras i en befintlig innehållsdatabas använder som sammanför dina befintliga docs och datatillgångar med hjälp av länkar. När användarna identifiera lämpliga datatillgångar, kan de ha en fullständig uppsättning dokumentation.
+Genom att dokumentera data källor med **Azure Data Catalog** kan du skapa en berättelse om dina data till gångar i så mycket information som du behöver.  Med hjälp av länkar kan du länka till innehåll som lagras i en befintlig innehålls lagrings plats, vilket ger dina befintliga dokument och data till gångar tillsammans. När användarna har identifierat lämpliga data till gångar kan de ha en fullständig uppsättning dokumentation.

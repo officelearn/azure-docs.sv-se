@@ -1,68 +1,56 @@
 ---
-title: Azure VMware-lösning av CloudSimple Quickstart – skapa tjänst
-description: Lär dig hur du skapar tjänsten CloudSimple etablera noder och reservera noder
+title: Azure VMware-lösning av CloudSimple snabb start – skapa tjänst
+description: Lär dig att skapa CloudSimple-tjänsten, etablera noder och reservera noder
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 04/10/2019
 ms.topic: article
-ms.service: vmware
+ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 5732ea726bdecc10d0757224870ee5d8be83a2b2
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 13b07b3b50bdb03373275ca9594baa6357e9f66f
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67164225"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68812287"
 ---
-# <a name="quickstart---create-service"></a>Snabbstart – skapa tjänst
+# <a name="quickstart---create-service"></a>Snabb start – skapa tjänst
 
-Kom igång genom att skapa Azure VMware-lösning genom CloudSimple i Azure-portalen.
+Kom igång genom att skapa Azure VMware-lösningen genom CloudSimple i Azure Portal.
 
-## <a name="vmware-solution-by-cloudsimple---service-overview"></a>VMware-lösning genom CloudSimple - tjänstöversikt
+## <a name="vmware-solution-by-cloudsimple---service-overview"></a>VMware-lösning av CloudSimple-service – översikt
 
-Tjänsten CloudSimple kan du använda Azure VMware-lösning genom CloudSimple.  Skapa tjänsten gör det möjligt att etablera noder, Reservera noder och skapar privata moln.  Du lägger till tjänsten CloudSimple i varje Azure-region där CloudSimple-tjänsten är tillgänglig.  Tjänsten definierar edge-nätverk med Azure VMware-lösning genom CloudSimple.  Det här Microsoft edge-nätverket används för tjänster som omfattar VPN och ExpressRoute Internet-anslutning till dina privata moln.
+Med CloudSimple-tjänsten kan du använda Azure VMware-lösningen från CloudSimple.  Genom att skapa tjänsten kan du etablera noder, reservera noder och skapa privata moln.  Du lägger till CloudSimple-tjänsten i varje Azure-region där CloudSimple-tjänsten är tillgänglig.  Tjänsten definierar Edge-nätverket för Azure VMware-lösningen från CloudSimple.  Det här Edge-nätverket används för tjänster som omfattar VPN, ExpressRoute och Internet anslutning till dina privata moln.
 
-Om du vill lägga till tjänsten CloudSimple, måste du skapa ett gateway-undernät. Gateway-undernätet används när du skapar edge-nätverket och kräver en/28 CIDR-block. Adressutrymme för gateway-undernätet måste vara unikt. Det får inte överlappa med några av dina lokala nätverksadressutrymmen eller Azure virtuella nätverkets adressutrymme.
+Om du vill lägga till CloudSimple-tjänsten måste du skapa ett Gateway-undernät. Gateway-undernätet används när du skapar Edge-nätverket och kräver ett/28 CIDR-block. Adress utrymmet för Gateway-under nätet måste vara unikt. Det får inte överlappa något av dina lokala nätverks adress utrymmen eller adress utrymmet för det virtuella Azure-nätverket.
+
+## <a name="before-you-begin"></a>Innan du börjar
+
+Allokera ett/28 CIDR-block för gateway-undernät.  Ett Gateway-undernät krävs per CloudSimple-tjänst och är unikt för den region där det skapats. Gateway-undernätet används för gräns nätverks tjänster och kräver ett/28 CIDR-block. Adress utrymmet för Gateway-under nätet måste vara unikt. Det får inte överlappa något nätverk som kommunicerar med CloudSimple-miljön.  De nätverk som kommunicerar med CloudSimple omfattar lokala nätverk och virtuella Azure-nätverk. 
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
 Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
 
-## <a name="enable-microsoftvmwarecloudsimple-resource-provider"></a>Enable Microsoft.VMwareCloudSimple resource provider
-
-Följ stegen nedan för att aktivera resursprovidern för CloudSimple-tjänsten.
-
-1. Välj **Alla tjänster**.
-2. Sök efter och välj **prenumerationer**.
-
-    ![Välj prenumerationer](media/cloudsimple-service-select-subscriptions.png)
-
-3. Välj den prenumeration som du vill aktivera CloudSimple service
-4. Klicka på **resursprovidrar** för prenumerationen
-5. Använd **Microsoft.VMwareCloudSimple** att filtrera resursprovidern
-6. Välj den **Microsoft.VMwareCloudSimple** resursprovidern och klicka på **registrera**
-
-    ![Registrera resursprovider](media/cloudsimple-service-enable-resource-provider.png)
-
 ## <a name="create-the-service"></a>Skapa tjänsten
 
 1. Välj **Alla tjänster**.
-2. Sök efter **CloudSimple Service**.
+2. Sök efter **CloudSimple-tjänst**.
 
-    ![Search CloudSimple Service](media/create-cloudsimple-service-search.png)
+    ![Sök CloudSimple-tjänst](media/create-cloudsimple-service-search.png)
 
-3. Välj **CloudSimple Services**.
-4. Klicka på **Lägg till** att skapa en ny tjänst.
+3. Välj **CloudSimple-tjänster**.
+4. Klicka på **Lägg till** för att skapa en ny tjänst.
 
     ![Add CloudSimple Service](media/create-cloudsimple-service-add.png)
 
-5. Välj den prenumeration där du vill skapa den CloudSimple-tjänsten.
-6. Välj resursgrupp för tjänsten. Lägg till en ny resursgrupp genom att klicka på **Skapa ny**.
-7. Ange namn för att identifiera tjänsten.
-8. Ange CIDR för service-gateway. Ange en/28 undernät som inte överlappar några av dina lokala undernät, Azure-undernät eller planerade CloudSimple undernät. Du kan inte ändra CIDR när tjänsten har skapats.
+5. Välj den prenumeration där du vill skapa CloudSimple-tjänsten.
+6. Välj resurs grupp för tjänsten. Om du vill lägga till en ny resurs grupp klickar du på **Skapa ny**.
+7. Ange namnet för att identifiera tjänsten.
+8. Ange CIDR för service Gateway. Ange ett/28-undernät som inte överlappar med något av dina lokala undernät, Azure-undernät eller planerade CloudSimple-undernät. Du kan inte ändra CIDR när tjänsten har skapats.
 
-    ![Skapa CloudSimple-tjänst](media/create-cloudsimple-service.png)
+    ![Skapa CloudSimple-tjänsten](media/create-cloudsimple-service.png)
 
 9. Klicka på **OK**.
 
@@ -70,30 +58,30 @@ Tjänsten skapas och läggs till i listan över tjänster.
 
 ## <a name="provision-nodes"></a>Etablera noder
 
-Om du vill konfigurera betala-som-du gå kapacitet för en CloudSimple privat molnmiljö först etablera noder i Azure-portalen.
+Om du vill ställa in betala per användning-kapacitet för en CloudSimple privat moln miljö ska du först etablera noder i Azure Portal.
 
 1. Välj **Alla tjänster**.
-2. Sök efter **CloudSimple noder**.
+2. Sök efter **CloudSimple-noder**.
 
-    ![Sök efter CloudSimple noder](media/create-cloudsimple-node-search.png)
+    ![Sök CloudSimple-noder](media/create-cloudsimple-node-search.png)
 
-3. Välj **CloudSimple noder**.
-4. Klicka på **Lägg till** att skapa noderna.
+3. Välj **CloudSimple-noder**.
+4. Klicka på **Lägg till** för att skapa noder.
 
-    ![Add CloudSimple Nodes](media/create-cloudsimple-node-add.png)
+    ![Lägg till CloudSimple-noder](media/create-cloudsimple-node-add.png)
 
-5. Välj den prenumeration där du vill etablera CloudSimple noder.
-6. Välj resursgrupp för noderna. Lägg till en ny resursgrupp genom att klicka på **Skapa ny**.
-7. Ange prefix för att identifiera noderna.
-8. Välj plats för nod-resurser.
-9. Välj den dedikerade platsen som värd för nod-resurser.
-10. Välj nodtyp av. Du kan välja den [CS28 eller CS36](cloudsimple-node.md). Det senare alternativet innehåller maximal kapacitet för beräkning och minne.
-11. Välj antalet noder för att etablera.
+5. Välj den prenumeration där du vill etablera CloudSimple-noder.
+6. Välj resurs grupp för noderna. Om du vill lägga till en ny resurs grupp klickar du på **Skapa ny**.
+7. Ange prefixet för att identifiera noderna.
+8. Välj platsen för nodens resurser.
+9. Välj den dedikerade plats som ska vara värd för nodens resurser.
+10. Välj nodtyp. Du kan välja [alternativet CS28 eller CS36](cloudsimple-node.md). Det senare alternativet inkluderar den maximala beräknings-och minnes kapaciteten.
+11. Välj antalet noder som ska etableras.
 12. Välj **Granska + Skapa**.
-13. Granska inställningarna. Om du vill ändra inställningar klickar du på **föregående**.
+13. Granska inställningarna. Klicka på **föregående**om du vill ändra inställningarna.
 14. Välj **Skapa**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Skapa privata moln och konfigurera miljön](quickstart-create-private-cloud.md)
-* Läs mer om [CloudSimple service](https://docs.azure.cloudsimple.com/cloudsimple-service)
+* [Skapa ett privat moln och konfigurera miljön](quickstart-create-private-cloud.md)
+* Läs mer om [CloudSimple-tjänsten](https://docs.azure.cloudsimple.com/cloudsimple-service)

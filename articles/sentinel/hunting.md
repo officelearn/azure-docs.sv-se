@@ -1,6 +1,6 @@
 ---
-title: Jakt funktionerna i Azure Sentinel-förhandsversionen | Microsoft Docs
-description: Den här artikeln beskriver hur du använder Azure Sentinel jakt funktionerna.
+title: Jakt funktioner i Azure Sentinel Preview | Microsoft Docs
+description: Den här artikeln beskriver hur du använder funktionerna i Azure Sentinel-jakt.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -16,127 +16,127 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 23e7db25e5ebed2a23b4d38bcfe9597b77c6b04b
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 5e6ad3c0b415722349dc584434add1031b7c3cb1
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620747"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780462"
 ---
-# <a name="hunt-for-threats-with-in-azure-sentinel-preview"></a>Hitta hot med Azure Sentinel-förhandsversion
+# <a name="hunt-for-threats-with-in-azure-sentinel-preview"></a>Söker efter hot med i för hands versionen av Azure Sentinel
 
 > [!IMPORTANT]
-> Azure Sentinel är för närvarande i offentlig förhandsversion.
+> Azure Sentinel är för närvarande en offentlig för hands version.
 > Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Om du är en utredaren som vill vara proaktiv leta efter säkerhetshot jakt Azure Sentinel kraftfulla Sök och fråga i Verktyg för jakt efter säkerhetshot via din organisations datakällor. Men dina system och säkerhetsenheter genererar bergen som kan vara svårt att tolka och filtrera till meningsfulla händelser. För att säkerhet analytiker leta proaktivt efter nya avvikelser som inte identifieras av dina appar med säkerhet, Azure Sentinel' inbyggda jakt frågor hjälper dig i ställa de rätta frågorna för att hitta problem i de data som du redan har i nätverket. 
+Om du är en utredare som vill vara proaktiv om att söka efter säkerhetshot, kan du söka efter säkerhetshot i Azure Sentinel i din organisations data källor. Men dina system-och säkerhets apparater genererar berg data som kan vara svåra att parsa och filtrera i meningsfulla händelser. För att hjälpa säkerhetsanalytikerna att titta proaktivt för nya avvikelser som inte identifierats av dina säkerhetsappar, kan du med Azure Sentinel-de inbyggda jakt frågorna ställa rätt frågor till att hitta problem i de data som du redan har i nätverket. 
 
-Till exempel en inbyggd fråga tillhandahåller data om mest ovanliga processer som körs på din infrastruktur – du vill inte en avisering om varje gång de körs, de kan vara ofarliga försöker helt, men kanske du vill ta en titt på frågan ibland för att se om th är något annorlunda ere. 
+En inbyggd fråga ger till exempel information om de mest ovanliga processerna som körs i din infrastruktur – du vill inte ha en avisering om varje gång de körs, men de kan vara helt Innocent, men du kanske vill ta en titt på frågan om du vill se om den ere är något ovanligt. 
 
 
 
-Med Azure Sentinel jakt kan du dra nytta av följande funktioner:
+Med Azure Sentinel-jakt kan du dra nytta av följande funktioner:
 
-- Inbyggda frågor: Om du vill komma igång, ger en startsidan förinlästa fråga exempel utformats för att komma igång och bekanta dig med tabellerna och frågespråket. Dessa inbyggda jakt frågor har utvecklats av Microsofts säkerhetsforskare kontinuerligt, att lägga till nya frågor och justera befintliga frågor så att du får en startpunkt för att söka efter nya identifieringar och ta reda på var du ska börja jaga den början av nya attacker. 
+- Inbyggda frågor: För att komma igång innehåller en start sida förinstallerade fråge exempel utformade för att komma igång och bekanta dig med tabellerna och frågespråket. Dessa inbyggda jakt frågor utvecklas av Microsofts säkerhets forskare på en kontinuerlig basis, nya frågor och fin justering av befintliga frågor för att ge dig en start punkt för att söka efter nya identifieringar och ta reda på var du ska börja med börjar med nya attacker. 
 
-- Kraftfullt frågespråk med IntelliSense-stöd: Bygger på ett frågespråk som ger dig den flexibilitet du behöver ta jakt till nästa nivå.
+- Kraftfullt frågespråk med IntelliSense: Byggd ovanpå ett frågespråk som ger dig den flexibilitet du behöver för att kunna ta jakt till nästa nivå.
 
-- Skapa din egen bokmärken: Du kan träffa på matchningar eller resultat, instrumentpaneler eller aktiviteter som ser ut ovanliga eller misstänkta under jakt-processen. För att markera de objekt så att du kan gå tillbaka till dem i framtiden, använder du funktionen bokmärket. Bokmärken kan du spara objekt för senare, som används för att skapa ett ärende för undersökning. Mer information om bokmärken finns i använda [bokmärken i jakt].
+- Skapa egna bok märken: Under jakt processen kan du stöta på matchningar eller resultat, instrument paneler eller aktiviteter som ser ovanliga eller misstänkta. Använd bok märkes funktionen för att markera dessa objekt så att du kan komma tillbaka till dem i framtiden. Med bok märken kan du Spara poster för senare, som ska användas för att skapa en incident för undersökning. Mer information om bok märken finns i använda [bok märken i jakt].
 
-- Använda anteckningsböcker för att automatisera undersökning: Anteckningsböcker liknar stegvisa spelböcker som du kan skapa för att gå igenom stegen för en undersökning och jakt.  Anteckningsböcker kapslar in alla jakt steg i en återanvändbara spelbok som kan delas med andra i din organisation. 
-- Fråga för lagrade data: Data är tillgängliga i tabeller som du kan fråga. Du kan till exempel fråga processgenerering, DNS-händelser och många andra händelsetyper.
+- Använd antecknings böcker för att automatisera undersökningen: Bärbara datorer är som steg-för-steg-spel böcker som du kan bygga för att gå igenom stegen i en undersökning och jakt.  Antecknings böcker kapslar in alla jakt steg i en återanvändbar Spelbok som kan delas med andra i din organisation. 
+- Fråga lagrade data: Du kan söka efter data i tabeller. Du kan till exempel skapa en fråga om process skapande, DNS-händelser och många andra händelse typer.
 
-- Länkar till communityn: Dra nytta av större communityn att hitta ytterligare frågor och datakällor.
+- Länkar till community: Utnyttja kraften i den större communityn för att hitta fler frågor och data källor.
  
-## <a name="get-started-hunting"></a>Kom igång fiske
+## <a name="get-started-hunting"></a>Kom igång med jakt
 
-1. Sentinel-Azure-portalen klickar du på **jakt**.
+1. Klicka på **jakt**i Azure Sentinel-portalen.
   ![Azure Sentinel startar jakt](media/tutorial-hunting/hunting-start.png)
 
-2. När du öppnar den **jakt** alla jakt frågorna visas i en enda tabell. Tabellen innehåller alla frågor som skrivits av Microsofts team med säkerhetsanalytiker samt eventuella ytterligare frågan du skapas eller ändras. Varje fråga innehåller en beskrivning av vad det hunts för och vilken typ av data som den körs på. Dessa mallar är grupperade efter sina olika taktik - ikonerna till höger kategorisera typ av hot, till exempel initial åtkomst, persistence och exfiltrering. Du kan filtrera mallarna jakt fråga med hjälp av något av fälten. Du kan spara alla frågor till dina Favoriter. Genom att spara en fråga till dina Favoriter, kör frågan automatiskt varje gång den **jakt** komma åt sidan. Du kan skapa egna jakt fråga eller klona och anpassa en befintlig mall för jakt fråga. 
+2. När du öppnar sidan **jakt** visas alla jakt frågor i en enda tabell. I tabellen visas alla frågor som har skrivits av Microsofts team med säkerhetsanalytiker och ytterligare frågor som du har skapat eller ändrat. Varje fråga innehåller en beskrivning av vad den söker efter och vilken typ av data som den körs på. De här mallarna grupperas efter deras olika taktiker – ikonerna till höger klassificerar typ av hot, till exempel initial åtkomst, persistence och exfiltrering. Du kan filtrera dessa jakt-fråge mallar med något av fälten. Du kan spara alla frågor till dina favoriter. Genom att spara en fråga till dina favoriter körs frågan automatiskt varje gång **jakt** sidan nås. Du kan skapa en egen jakt fråga eller klona och anpassa en befintlig jakt-frågegrupp. 
  
-2. Klicka på **Kör fråga** i jakten Frågedetaljer sidan om du vill köra en fråga utan att lämna sidan jakt.  Antal matchningar visas i tabellen. Granska listan över jakt frågor och deras matchningar. Kolla in vilken fas i kedjan kill matchningen är associerad med.
+2. Klicka på **Kör fråga** på informations sidan för jakt för att köra en fråga utan att lämna sidan jakt.  Antalet matchningar visas i tabellen. Granska listan över jakt frågor och deras matchningar. Kolla in vilket stadium i Kill-kedjan som matchningen är associerad med.
 
-3. Utföra en snabb genomgång av den underliggande frågan i informationsfönstret eller klicka på **Visa frågeresultat** att öppna frågan i Log Analytics. Granska matchningarna för frågan längst ned.
+3. Utför en snabb genom gång av den underliggande frågan i rutan Frågedetaljer eller klicka på **Visa frågeresultat** för att öppna frågan i Log Analytics. Granska matchningarna för frågan längst ned.
 
-4.  Klicka på raden och välj **Lägg till bokmärke** att lägga till rader undersökas – du kan göra detta för sådant som ser misstänkt ut. 
+4.  Klicka på raden och välj **Lägg till bok märke** för att lägga till de rader som ska undersökas – du kan göra detta för allt som ser misstänkt ut. 
 
-5. Gå sedan tillbaka till huvudfönstret **jakt** och klicka på den **bokmärken** fliken för att se alla misstänkta aktiviteter. 
+5. Gå sedan tillbaka till sidan för huvud **jakt** och klicka på fliken **bok märken** för att se alla misstänkta aktiviteter. 
 
-6. Välj ett bokmärke och klicka sedan på **Undersök** att öppna felsökningsfunktionen. Du kan filtrera bokmärken. Om du undersöker en kampanj kan du skapa en tagg för kampanjen och sedan filtrera alla bokmärken som baseras på kampanjen.
+6. Välj ett bok märke och klicka sedan på **Undersök** för att öppna gransknings upplevelsen. Du kan filtrera bok märkena. Om du till exempel undersöker en kampanj kan du skapa en tagg för kampanjen och sedan filtrera alla bok märken baserat på kampanjen.
 
-1. Du kan också skapa anpassade identifiering regler baserat på din fråga och visa upp dessa insikter som varningar till din security incident svarare när du upptäckt vilken jakt fråga ger värdefulla insikter om eventuella attacker.
+1. När du har identifierat vilken jakt fråga som ger hög värdes insikter om eventuella attacker kan du också skapa anpassade identifierings regler baserat på din fråga och få fram de insikter som aviseringar till dina säkerhets incident svarare.
 
  
 
 ## <a name="query-language"></a>Frågespråk 
 
-Jakt i Azure Sentinel baseras på Azure Log Analytics-frågespråket. Mer information om frågespråk och operatorer som stöds finns i [Frågespråksreferens](https://docs.loganalytics.io/docs/Language-Reference/).
+Jakt i Azure Sentinel baseras på Azure Log Analytics frågespråk. Mer information om frågespråket och operatörer som stöds finns i [frågespråk](https://docs.loganalytics.io/docs/Language-Reference/).
 
-## <a name="public-hunting-query-github-repository"></a>Offentliga jakt fråga GitHub-lagringsplats
+## <a name="public-hunting-query-github-repository"></a>Offentlig jakt fråga GitHub-lagringsplats
 
-Kolla in den [jakt fråga databasen](https://github.com/Azure/Orion). Bidra med och använda exempelfrågor som delas av våra kunder.
+Kolla in [jakt](https://github.com/Azure/Orion)-lagringsplatsen. Delta och Använd exempel frågor som delas av våra kunder.
 
  
 
-## <a name="sample-query"></a>Exempelfråga
+## <a name="sample-query"></a>Exempel fråga
 
-En typisk frågan börjar med ett tabellnamn följt av en serie operatörer avgränsade med \|.
+En typisk fråga börjar med ett tabell namn följt av en serie operatorer avgränsade med \|.
 
-Namnge SecurityEvent i exemplet ovan start med tabell- och lägga till via rörledningar element efter behov.
+I exemplet ovan börjar du med tabell namnet SecurityEvent och lägger till skickas-element vid behov.
 
-1. Definiera ett tidsfilter för att granska bara poster från de senaste sju dagarna.
+1. Definiera ett tids filter om du bara vill granska poster från de senaste sju dagarna.
 
 2. Lägg till ett filter i frågan för att endast visa händelse-ID 4688.
 
-3. Lägg till ett filter i frågan på kommandoraden innehåller bara instanser av cscript.exe.
+3. Lägg till ett filter i frågan på kommando raden för att bara innehålla instanser av cscript. exe.
 
-4. Projektet endast de kolumner som du är intresserad av att utforska och begränsa resultaten till 1000 och på **Kör fråga**.
-5. Klicka på grön triangel och köra frågan. Du kan testa frågan och kör det du söker efter avvikande beteende.
+4. Projicera bara de kolumner som du är intresse rad av att utforska och begränsa resultatet till 1000 och klicka på **Kör fråga**.
+5. Klicka på den gröna triangeln och kör frågan. Du kan testa frågan och köra den för att söka efter avvikande beteende.
 
 ## <a name="useful-operators"></a>Användbara operatorer
 
-Frågespråket är kraftfulla och har många tillgängliga operatörer, vissa användbara operatorer visas här:
+Frågespråket är kraftfullt och har många tillgängliga operatorer, men vissa användbara operatörer visas här:
 
-**där** -filtrera en tabell till underuppsättningen av rader som uppfyller ett predikat.
+**WHERE** – filtrera en tabell till delmängd av rader som uppfyller ett predikat.
 
-**Sammanfatta** – skapa en tabell som sammanställer innehållet i indatatabellen.
+**sammanfatta** – skapa en tabell som sammanställer innehållet i Indatakällan.
 
-**Anslut till** -sammanfogar raderna i två tabeller för att skapa en ny tabell genom att matcha värdena för den eller de angivna kolumnerna från varje tabell.
+sammanfoga rader med två tabeller för att skapa en ny tabell genom att matcha värdena för de angivna kolumnerna från varje tabell.
 
-**antal** -returnerar antalet poster i den inkommande uppsättningen av poster.
+**Count** – returnera antalet poster i den angivna Indataposten.
 
-**översta** -returnera den första N poster sorterade efter de angivna kolumnerna.
+returnera de första N posterna sorterade efter de angivna kolumnerna.
 
-**gränsen** -gå tillbaka upp till det angivna antalet rader.
+**Limit** -returnera upp till det angivna antalet rader.
 
-**projektet** – Markera kolumnerna som ska tas med, byta namn på eller ta bort och infoga nya beräknade kolumner.
+**projekt** – Markera de kolumner som du vill inkludera, byta namn på eller släppa och infoga nya beräknade kolumner.
 
-**utöka** – skapa beräknade kolumner och lägga till dem i resultatmängden.
+**utöka** – skapa beräknade kolumner och Lägg till dem i resultat uppsättningen.
 
-**makeset** -returnerar en dynamisk (JSON)-matris av en uppsättning distinkta värden som uttryck tar i gruppen
+**makeset** – returnera en dynamisk (JSON) matris av uppsättningen distinkta värden som uttryck tar i gruppen
 
-**hitta** -hitta rader som matchar ett predikat över en uppsättning tabeller.
+**hitta** – Hitta rader som matchar ett predikat i en uppsättning tabeller.
 
 ## <a name="save-a-query"></a>Spara en fråga
 
-Du kan skapa eller ändra en fråga och spara den som en egen fråga eller dela den med användare som ingår i samma klient.
+Du kan skapa eller ändra en fråga och spara den som en egen fråga eller dela den med användare som tillhör samma klient organisation.
 
    ![Spara fråga](./media/tutorial-hunting/save-query.png)
 
-Skapa en ny jakt-fråga:
+Skapa en ny jakt fråga:
 
-1. Klicka på **ny fråga** och välj **spara**.
-2. Fyll i alla tomma fält och välj **spara**.
+1. Klicka på **ny fråga** och välj **Spara**.
+2. Fyll i alla tomma fält och välj **Spara**.
 
    ![Ny fråga](./media/tutorial-hunting/new-query.png)
 
-Klona och ändra en befintlig jakt-fråga:
+Klona och ändra en befintlig jakt fråga:
 
-1. Välj frågan som jakt i tabellen som du vill ändra.
-2. Välj ellipsen (...) i raden för den fråga du vill ändra och välj **klona frågan**.
+1. Välj frågan jakt i den tabell som du vill ändra.
+2. Välj ellipsen (...) på raden i frågan som du vill ändra och välj **klonings fråga**.
 
-   ![Klona frågan](./media/tutorial-hunting/clone-query.png)
+   ![klona fråga](./media/tutorial-hunting/clone-query.png)
  
 
 3. Ändra frågan och välj **skapa**.
@@ -144,8 +144,8 @@ Klona och ändra en befintlig jakt-fråga:
    ![anpassad fråga](./media/tutorial-hunting/custom-query.png)
 
 ## <a name="next-steps"></a>Nästa steg
-I den här artikeln har du lärt dig hur du kör en jakt undersökning med Sentinel-Azure. Mer information om Azure Sentinel finns i följande artiklar:
+I den här artikeln har du lärt dig hur du kör en jakt undersökning med Azure Sentinel. Mer information om Azure Sentinel finns i följande artiklar:
 
 
-- [Använda anteckningsböcker för att köra automatiserade jakt kampanjer](notebooks.md)
-- [Använda bokmärken för att spara intressant information vid jakt](bookmarks.md)
+- [Använd antecknings böcker för att köra automatiserade jakt kampanjer](notebooks.md)
+- [Använd bok märken för att spara intressant information under jakt](bookmarks.md)

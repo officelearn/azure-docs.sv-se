@@ -6,15 +6,15 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/26/2018
+ms.date: 07/29/2019
 ms.author: lyhughes
 ms.custom: seodec18
-ms.openlocfilehash: a57089eb2cd87b08ba647afed002d90d6f14891a
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 968ae62344f99edf8eb46eb62a4cf13f300c868f
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67846650"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815641"
 ---
 # <a name="create-and-manage-role-assignments-in-azure-digital-twins"></a>Skapa och hantera roll tilldelningar i Azure Digitals flätas
 
@@ -39,7 +39,7 @@ Varje roll tilldelning överensstämmer med följande definition:
 
 I tabellen nedan beskrivs varje attribut:
 
-| Attribut | Namn | Krävs | Typ | Beskrivning |
+| Attribut | Namn | Obligatorisk | Typ | Beskrivning |
 | --- | --- | --- | --- | --- |
 | roleId | Identifierare för roll definition | Ja | Sträng | Unikt ID för den önskade roll tilldelningen. Hitta roll definitioner och deras identifierare genom att fråga system-API: et eller granska tabellen nedan. |
 | objekt-ID | Objekt identifierare | Ja | Sträng | Ett Azure Active Directory-ID, tjänstens huvud objekt-ID eller domän namn. Vad eller vem roll tilldelningen är tilldelad till. Roll tilldelningen måste vara formaterad enligt dess associerade typ. För objectIdType måste ObjectID börja `“@”` med-symbolen. `DomainName` |
@@ -180,7 +180,7 @@ Om du vill hämta alla roll tilldelningar för en sökväg gör du en autentiser
 YOUR_MANAGEMENT_API_URL/roleassignments?path=YOUR_PATH
 ```
 
-| Värde | Ersätt med |
+| Value | Ersätt med |
 | --- | --- |
 | YOUR_PATH | Den fullständiga sökvägen till utrymmet |
 
@@ -238,7 +238,7 @@ En lyckad begäran returnerar en 201 svars status tillsammans med **ID: t** för
 "d92c7823-6e65-41d4-aaaa-f5b32e3f01b9"
 ```
 
-## <a name="configuration-examples"></a>Konfigurations exempel
+## <a name="configuration-examples"></a>Exempel på konfigurationer
 
 Följande exempel visar hur du konfigurerar din JSON-brödtext i flera vanliga scenarier för roll tilldelning.
 

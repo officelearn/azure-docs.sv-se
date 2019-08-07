@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 91104b36b4821d8b1e0350d4eeb20d652de1242b
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 934300351c05b1709dc9df38909edb1bb4ae73ea
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68406246"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779575"
 ---
 # <a name="connect-to-hdinsight-apache-hadoop-using-ssh"></a>Ansluta till HDInsight (Apache Hadoop) med SSH
 
@@ -171,7 +171,9 @@ Arbetarnoder och Zookeeper-noder är inte tillgängliga direkt från internet. D
 
 2. Från SSH-anslutningen till huvud- eller kantnoden använder du `ssh`-kommandot för att ansluta till en arbetarnod i klustret:
 
+        ```bash
         ssh sshuser@wn0-myhdi
+        ```
 
     Om du vill hämta en lista över nodnamn, se [Hantera HDInsight med hjälp av Apache Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes) Document.
 

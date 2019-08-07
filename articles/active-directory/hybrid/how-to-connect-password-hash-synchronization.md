@@ -15,12 +15,12 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d74eb91b5122f63088f3344836eab8decf5c57d2
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 98101973627750f87fd06d3f617a1af764a837ee
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227375"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774241"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implementera lösenordshashsynkronisering med Azure AD Connect-synkronisering
 Den här artikeln innehåller information du behöver för att synkronisera dina lösenord från en lokal Active Directory-instans till en molnbaserad Azure Active Directory (Azure AD)-instans.
@@ -63,9 +63,6 @@ I följande avsnitt beskrivs, djupgående, hur synkronisering av lösenordshash 
 >[!Note] 
 >Den ursprungliga MD4-hashen överförs inte till Azure AD. I stället överförs SHA256-hash för den ursprungliga MD4-hashen. Därför om hash-värdet lagras i Azure AD hämtas kan den inte användas i en lokal pass-the-hash-attack.
 
-### <a name="how-password-hash-synchronization-works-with-azure-active-directory-domain-services"></a>Hur synkronisering av lösenordshash fungerar med Azure Active Directory Domain Services
-Du kan också använda funktionen lösenord hash-synkronisering för att synkronisera dina lokala lösenord till [Azure Active Directory Domain Services](../../active-directory-domain-services/overview.md). I det här scenariot autentiserar dina användare i molnet med metoderna som är tillgängliga i din lokala Active Directory-instans i Azure Active Directory Domain Services-instans. Upplevelsen av det här scenariot är ungefär som att använda den Active Directory ADMT (Migration Tool) i en lokal miljö.
-
 ### <a name="security-considerations"></a>Säkerhetsöverväganden
 Vid synkronisering av lösenord exponeras inte textformat-versionen av ditt lösenord till Azure AD synkroniseringsfunktionen lösenordshash eller någon av de associera tjänsterna.
 
@@ -104,6 +101,39 @@ Synkronisering av lösenord har ingen inverkan på Azure-användare som är inlo
 
 - I allmänhet är det enklare att implementera än en federationstjänst med synkronisering av lösenordshash. Det kräver inte några ytterligare servrar och eliminerar beroendet av en högtillgänglig federationstjänsten att autentisera användare.
 - Synkronisering av lösenordshash kan även aktiveras förutom federation. Den kan användas som reserv om din federationstjänst uppstår ett avbrott.
+
+## <a name="password-hash-sync-process-for-azure-ad-domain-services"></a>Synkronisering av lösenords-hash för Azure AD Domain Services
+
+Om du använder Azure AD Domain Services för att tillhandahålla äldre autentisering för program och tjänster som behöver använda Keberos, LDAP eller NTLM, ingår vissa ytterligare processer i flödet för Lösenordssynkronisering. Azure AD Connect använder ytterligare följande process för att synkronisera Password-hashar till Azure AD för användning i Azure AD Domain Services:
+
+> [!IMPORTANT]
+> Azure AD Connect synkroniserar bara äldre lösen ords-hashar när du aktiverar Azure AD DS för Azure AD-klienten. Följande steg används inte om du bara använder Azure AD Connect för att synkronisera en lokal AD DS-miljö med Azure AD.
+>
+> Om dina äldre program inte använder NTLM-autentisering eller enkla LDAP-bindningar, rekommenderar vi att du inaktiverar hash-synkronisering av NTLM-lösenord för Azure AD DS. Mer information finns i [inaktivera svaga chiffersviter och hash-synkronisering av NTLM-autentiseringsuppgifter](../../active-directory-domain-services/secure-your-domain.md).
+
+1. Azure AD Connect hämtar den offentliga nyckeln för klient Azure AD Domain Servicess instansen.
+1. När en användare ändrar sitt lösen ord lagrar den lokala domänkontrollanten resultatet av lösen ords ändringen (hash-värden) i två attribut:
+    * *unicodePwd* för NTLM-lösenords-hash.
+    * *supplementalCredentials* för Kerberos-lösenords-hash.
+1. Azure AD Connect identifierar lösen ords ändringar via Directory Replication-kanal (attributändringar som behöver replikeras till andra domänkontrollanter).
+1. För varje användare vars lösen ord har ändrats utför Azure AD Connect följande steg:
+    * Genererar en slumpmässig AES 256-bitars symmetrisk nyckel.
+    * Genererar en slumpmässig initierings vektor som krävs för den första avrundade krypteringen.
+    * Extraherar Kerberos-lösenords-hashvärden från *supplementalCredentials* -attributen.
+    * Kontrollerar inställningen för *SyncNtlmPasswords* Azure AD Domain Services av säkerhets konfiguration.
+        * Om den här inställningen är inaktive rad genererar en slumpmässig, hög entropi NTLM-hash (skiljer sig från användarens lösen ord). Denna hash kombineras sedan med exakta Kerberos-lösenords-hashvärden från attributet *supplementalCrendetials* till en data struktur.
+        * Om aktive rad kombineras värdet för attributet *unicodePwd* med de extraherade Kerberos-lösenords-hasharna från attributet *supplementalCredentials* till en data struktur.
+    * Krypterar den enkla data strukturen med hjälp av den symmetriska AES-nyckeln.
+    * Krypterar den symmetriska AES-nyckeln med klientens Azure AD Domain Services offentliga nyckel.
+1. Azure AD Connect skickar den krypterade AES symmetriska nyckeln, den krypterade data strukturen som innehåller lösen ordets hash-värden och initierings vektorn till Azure AD.
+1. Azure AD lagrar den krypterade AES symmetriska nyckeln, den krypterade data strukturen och initierings vektorn för användaren.
+1. Azure AD push-överför den krypterade AES symmetriska nyckeln, den krypterade data strukturen och initierings vektorn med hjälp av en intern synkronisering över en krypterad HTTP-session till Azure AD Domain Services.
+1. Azure AD Domain Services hämtar den privata nyckeln för klient organisationens instans från Azure Key Vault.
+1. För varje krypterad data uppsättning (som representerar en enskild användares lösen ords ändring) utför Azure AD Domain Services följande steg:
+    * Använder den privata nyckeln för att dekryptera den symmetriska AES-nyckeln.
+    * Använder den symmetriska AES-nyckeln med initierings vektorn för att dekryptera den krypterade data strukturen som innehåller lösen ordets hash-värden.
+    * Skriver de Kerberos-lösenords-hashar som den tar emot till Azure AD Domain Services domänkontrollanten. Hasharna sparas i användarobjektet *supplementalCredentials* -attribut som är krypterade till den Azure AD Domain Services domänkontrollantens publika nyckel.
+    * Azure AD Domain Services skriver det NTLM-lösenord som det fick till Azure AD Domain Services domänkontrollanten. Hashen sparas i objektet för attributet *unicodePwd* som är krypterat till den Azure AD Domain Services domänkontrollantens publika nyckel.
 
 ## <a name="enable-password-hash-synchronization"></a>Aktivera synkronisering av lösenordshash
 

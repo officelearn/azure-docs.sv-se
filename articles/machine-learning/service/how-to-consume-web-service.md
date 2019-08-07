@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7799b62b2c330610663e361bbb3930340b1ebdaf
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: a007e3adb72148cfde1590e996f7df9082159445
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726287"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840509"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Använd en Azure Machine Learning-modell som distribueras som en webbtjänst
 
@@ -29,6 +29,9 @@ Det allmänna arbets flödet för att skapa en klient som använder en Machine L
 1. Hämta anslutnings informationen med hjälp av SDK.
 1. Bestäm vilken typ av begär ande data som används av modellen.
 1. Skapa ett program som anropar webb tjänsten.
+
+> [!TIP]
+> Exemplen i det här dokumentet skapas manuellt utan användning av OpenAPI-specifikationer (Swagger). Om du har aktiverat en OpenAPI-specifikation för distributionen kan du använda verktyg som [Swagger-CODEGEN](https://github.com/swagger-api/swagger-codegen) för att skapa klient bibliotek för din tjänst.
 
 ## <a name="connection-information"></a>Anslutningsinformation
 

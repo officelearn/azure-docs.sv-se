@@ -1,6 +1,6 @@
 ---
-title: Administratören övertagande av en ohanterad katalog - Azure Active Directory | Microsoft Docs
-description: Så här att ta över en DNS-domännamnet i en ohanterad katalog (shadow klient) i Azure Active Directory.
+title: Administratörs övertag ande av en ohanterad katalog – Azure Active Directory | Microsoft Docs
+description: Hur du tar över ett DNS-domännamn i en ohanterad katalog (skugg klient) i Azure Active Directory.
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -10,21 +10,21 @@ ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 03/18/2019
+ms.date: 08/01/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b32ef37c6d61c88a18acd5ddc80cc6154369ca29
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 553118486d1148f63e79ca25c32ed7dd8a3b7414
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65780527"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736801"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Ta över en ohanterad katalog som administratör i Azure Active Directory
 
-Den här artikeln beskrivs två sätt att ta över en DNS-domännamnet i en ohanterad katalog i Azure Active Directory (AD Azure). När en självbetjäningsanvändare registrerar sig för en molntjänst som använder Azure AD läggs de till i en ohanterad Azure AD-katalog baserat på e-postdomän. Mer information om självbetjäning eller ”viral” registrering för en tjänst finns i [vad är självbetjäningsregistrering för Azure Active Directory?](directory-self-service-signup.md)
+I den här artikeln beskrivs två sätt att ta över ett DNS-domännamn i en ohanterad katalog i Azure Active Directory (Azure AD). När en självbetjäningsanvändare registrerar sig för en molntjänst som använder Azure AD läggs de till i en ohanterad Azure AD-katalog baserat på e-postdomän. Mer information om självbetjäning eller "virus registrering" för en tjänst finns i [Vad är självbetjänings registrering för Azure Active Directory?](directory-self-service-signup.md)
 
 ## <a name="decide-how-you-want-to-take-over-an-unmanaged-directory"></a>Bestäm hur du vill ta över en ohanterad katalog
 Under administratörsövertagandet kan du bevisa ägarskapet enligt instruktionerna i [Add a custom domain name to Azure AD](../fundamentals/add-custom-domain.md) (Lägga till ett anpassat domännamn i Azure AD). I nästa avsnitt beskrivs administratörsupplevelsen mer detaljerat, men här följer en sammanfattning:
@@ -33,106 +33,106 @@ Under administratörsövertagandet kan du bevisa ägarskapet enligt instruktione
 
 * När du utför ett [”externt” adminövertagande](#external-admin-takeover) av en ohanterad Azure-katalog lägger du till DNS-domännamnet på den ohanterade katalogen till din hanterade Azure-katalog. När du lägger till domännamnet skapas en mappning av användare till resurser i din hanterade Azure-katalog så att användare kan fortsätta att använda tjänsterna utan avbrott. 
 
-## <a name="internal-admin-takeover"></a>Intern adminövertagande
+## <a name="internal-admin-takeover"></a>Intern administratörs övertag Ande
 
-Vissa produkter som innehåller SharePoint och OneDrive, till exempel Office 365 har inte stöd för extern övertagning. Om det är ditt scenario, eller om du är administratör och vill ta över en ohanterad eller ”shadow” klient skapa av användare som har använt självbetjäningsregistrering, kan du göra detta med en intern adminövertagande.
+Vissa produkter som innehåller SharePoint och OneDrive, till exempel Office 365, har inte stöd för extern övertag Ande. Om det är ditt scenario, eller om du är administratör och vill ta över en ohanterad eller "skugga"-klient som använder självbetjänings registrering, kan du göra det med en intern administratörs övertag Ande.
 
-1. Skapa en användarkontext i ohanterad klient genom att registrera dig för Power BI. Dessa instruktioner förutsätter att sökvägen för att underlätta för till exempel.
+1. Skapa en användar kontext i den ohanterade klienten genom att registrera dig för Power BI. För enkelhetens skull antar de här stegen den sökvägen.
 
-2. Öppna den [Power BI-webbplatsen](https://powerbi.com) och välj **starta kostnadsfri**. Ange ett användarkonto som använder domännamnet för organisationen, till exempel `admin@fourthcoffee.xyz`. Kontrollera din e-post för bekräftelsekoden när du har angett i verifieringskoden.
+2. Öppna [Power BI-webbplatsen](https://powerbi.com) och välj **Starta kostnads fritt**. Ange ett användar konto som använder organisationens domän namn. till exempel `admin@fourthcoffee.xyz`. När du har angett i verifierings koden kontrollerar du din e-postadress för bekräftelse koden.
 
-3. I e-postbekräftelsen från Power BI, väljer **Ja, det är jag**.
+3. I bekräftelse meddelandet från Power BI väljer du **Ja, det är jag**.
 
-4. Logga in på den [Microsoft 365 Administrationscenter](https://admin.microsoft.com) med Power BI-konto. Du får ett meddelande där du uppmanas att **bli administratör** för det domännamn som har redan verifierats i en ohanterad klient. Välj **Ja, jag vill att administratören**.
+4. Logga in på [Microsoft 365 administrations Center](https://admin.microsoft.com) med Power BI användar kontot. Du får ett meddelande som uppmanar dig att **bli administratör** för domän namnet som redan har verifierats i den ohanterade klienten. Välj **Ja, jag vill vara administratör**.
   
-   ![första skärmbild för bli administratör](./media/domains-admin-takeover/become-admin-first.png)
+   ![första skärm bilden för att bli administratör](./media/domains-admin-takeover/become-admin-first.png)
   
-5. Lägg till TXT-posten för att bevisa att du äger domännamnet **fourthcoffee.xyz** på din domänregistrator. I det här exemplet är det GoDaddy.com.
+5. Lägg till TXT-posten för att bevisa att du äger domän namnet **fourthcoffee. xyz** på domän namns registratorn. I det här exemplet är det GoDaddy.com.
   
-   ![Lägg till en txt-post för domännamnet](./media/domains-admin-takeover/become-admin-txt-record.png)
+   ![Lägg till en TXT-post för domän namnet](./media/domains-admin-takeover/become-admin-txt-record.png)
 
-Du kan hantera Azure AD-klienten när DNS TXT-poster har verifierats i din domännamnsregistrator.
+När DNS-TXT-posterna verifieras på domän namns registratorn kan du hantera Azure AD-klienten.
 
-När du har slutfört föregående steg, men du är nu global administratör för den fjärde kaffe klienten i Office 365. Om du vill integrera domännamnet med dina andra Azure-tjänster, kan du ta bort den från Office 365 och lägga till den i en annan hanterad klient i Azure.
+När du har slutfört föregående steg är du nu den globala administratören för den fjärde kaffe klienten i Office 365. Om du vill integrera domän namnet med dina andra Azure-tjänster kan du ta bort det från Office 365 och lägga till det i en annan hanterad klient i Azure.
 
-### <a name="adding-the-domain-name-to-a-managed-tenant-in-azure-ad"></a>Att lägga till domännamnet till en hanterad klient i Azure AD
+### <a name="adding-the-domain-name-to-a-managed-tenant-in-azure-ad"></a>Lägga till domän namnet till en hanterad klient i Azure AD
 
-1. Öppna den [Microsoft 365 Administrationscenter](https://admin.microsoft.com).
-2. Välj **användare** fliken och skapa ett nytt användarkonto med ett namn som liknar *användaren\@fourthcoffeexyz.onmicrosoft.com* som inte använder det anpassade domännamnet. 
-3. Kontrollera att det nya användarkontot har globala administratörsrättigheter för Azure AD-klient.
-4. Öppna **domäner** fliken i Microsoft 365 Administrationscenter, Välj domännamnet och välj **ta bort**. 
+1. Öppna [Microsoft 365 administrations Center](https://admin.microsoft.com).
+2. Välj fliken **användare** och skapa ett nytt användar konto med ett namn som *användar\@-fourthcoffeexyz.onmicrosoft.com* som inte använder det anpassade domän namnet. 
+3. Se till att det nya användar kontot har globala administratörs behörigheter för Azure AD-klienten.
+4. Öppna fliken **domäner** i Microsoft 365 administrations Center väljer du domän namnet och väljer **ta bort**. 
   
-   ![ta bort domännamnet från Office 365](./media/domains-admin-takeover/remove-domain-from-o365.png)
+   ![ta bort domän namnet från Office 365](./media/domains-admin-takeover/remove-domain-from-o365.png)
   
-5. Om du har några användare eller grupper i Office 365 som refererar till borttagna domännamnet, måste de ändras till den. onmicrosoft.com-domän. Om du tvingar ta bort domännamnet, alla användare får automatiskt ett nytt namn, i det här exemplet till *användaren\@fourthcoffeexyz.onmicrosoft.com*.
+5. Om du har användare eller grupper i Office 365 som refererar till det borttagna domän namnet, måste de byta namn till. onmicrosoft.com-domänen. Om du tvingar bort domän namnet, kommer alla användare att byta namn automatiskt, i det här exemplet till *User\@fourthcoffeexyz.onmicrosoft.com*.
   
-6. Logga in på den [Azure AD administratörscenter](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) med ett konto som är global administratör för Azure AD-klient.
+6. Logga in på [administrations centret för Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) med ett konto som är den globala administratören för Azure AD-klienten.
   
-7. Välj **anpassade domännamn**, lägga till domännamnet. Du måste ange DNS TXT-poster för att verifiera ditt ägarskap till domännamnet. 
+7. Välj **anpassade domän namn**och Lägg sedan till domän namnet. Du måste ange DNS-TXT-posterna för att verifiera ägande av domän namnet. 
   
-   ![domänkontrollerats som lagts till i Azure AD](./media/domains-admin-takeover/add-domain-to-azure-ad.png)
+   ![domän verifierad som tillagd i Azure AD](./media/domains-admin-takeover/add-domain-to-azure-ad.png)
   
 > [!NOTE]
-> Alla användare av Power BI eller Azure Rights Management-tjänsten som har licenser som tilldelats i Office 365-klient måste spara sina instrumentpaneler om domännamnet har tagits bort. De måste logga in med ett användarnamn som *användaren\@fourthcoffeexyz.onmicrosoft.com* snarare än *användaren\@fourthcoffee.xyz*.
+> Alla användare av Power BI eller Azure Rights Management-tjänsten som har licenser tilldelade i Office 365-klienten måste spara sina instrument paneler om domän namnet tas bort. De måste logga in med ett användar namn som *\@användarens fourthcoffeexyz.onmicrosoft.com* i stället för *User\@fourthcoffee. xyz*.
 
-## <a name="external-admin-takeover"></a>Externa adminövertagande
+## <a name="external-admin-takeover"></a>Extern administratörs övertag Ande
 
-Om du redan hanterar en klient med Azure-tjänster eller Office 365 kan du inte lägga till ett anpassat domännamn om det redan är verifierat i en annan Azure AD-klient. Från din hanterade klient i Azure AD ta du dock över en ohanterad klient som en extern adminövertagande. Allmänna förfarandet följer artikeln [lägga till en anpassad domän till Azure AD](../fundamentals/add-custom-domain.md).
+Om du redan hanterar en klient med Azure-tjänster eller Office 365 kan du inte lägga till ett anpassat domän namn om det redan har verifierats i en annan Azure AD-klient. Från din hanterade klient i Azure AD kan du dock ta över en ohanterad klient som en extern administratörs övertag Ande. Den allmänna proceduren följer artikeln [lägga till en anpassad domän i Azure AD](../fundamentals/add-custom-domain.md).
 
-När du verifiera ditt ägarskap till domännamnet Azure AD tar bort domännamnet från ohanterad klient och flyttar det till din befintliga klient. Externa adminövertagande av en ohanterad katalog kräver samma DNS TXT-verifieringsprocessen som interna adminövertagande. Skillnaden är att följande också flyttas med domännamn:
+När du verifierar ägarskapet för domän namnet tar Azure AD bort domän namnet från den ohanterade klienten och flyttar den till din befintliga klient. Extern administratörs övertag ande av en ohanterad katalog kräver samma validerings process för DNS-TXT som intern administratörs övertag Ande. Skillnaden är att följande även flyttas över med domän namnet:
 
 - Användare
-- Subscriptions
-- Licenstilldelningar
+- Prenumerationer
+- Licens tilldelningar
 
-### <a name="support-for-external-admin-takeover"></a>Stöd för externa adminövertagande
-Externa adminövertagande stöds av följande onlinetjänster:
+### <a name="support-for-external-admin-takeover"></a>Stöd för extern administratörs övertag Ande
+Extern administratörs övertag ande stöds av följande onlinetjänster:
 
 - Power BI
 - Azure Rights Management
 - exchange online
 
-Stöds service-planerna inkluderar:
+Service planerna som stöds är:
 
-- Powerbi kostnadsfri
+- Power BI kostnads fritt
 - Power BI Pro
-- Kostnadsfria PowerApps
-- PowerFlow kostnadsfritt
+- PowerApps kostnads fritt
+- PowerFlow kostnads fritt
 - RMS för enskilda användare
 - Microsoft Stream
-- Kostnadsfri utvärderingsversion av Dynamics 365
+- Dynamics 365 kostnads fri utvärdering
 
-Externa adminövertagande stöds inte för alla tjänster som har service-planer med SharePoint, OneDrive eller Skype för företag; till exempel via en kostnadsfri Office-prenumeration eller Office grundläggande SKU. Alternativt kan du använda den [ **ForceTakeover** alternativet](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option) för att ta bort domännamnet från ohanterad klient och verifiera den på den önskade klienten. Det här alternativet om ForceTakeover ska inte flytta över användare eller behålla åtkomst till prenumerationen. I stället flyttas det här alternativet bara domännamnet. 
+Extern administratörs övertag ande stöds inte för tjänster som har tjänst planer som omfattar SharePoint, OneDrive eller Skype för företag. till exempel genom en kostnads fri prenumeration på Office. Du kan också använda [alternativet **ForceTakeover** ](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option) för att ta bort domän namnet från den ohanterade klienten och verifiera den på önskad klient. Detta ForceTakeover-alternativ flyttar inte över användare eller bevarar åtkomst till prenumerationen. I stället flyttas bara domän namnet i det här alternativet. 
 
 #### <a name="more-information-about-rms-for-individuals"></a>Mer information om RMS för enskilda användare
 
-För [RMS för enskilda användare](/azure/information-protection/rms-for-individuals), när ohanterad klient är i samma region som klientorganisationen att du äger, den automatiskt skapade [Azure Information Protection-klientnyckel](/azure/information-protection/plan-implement-tenant-key) och [standard skyddsmallar](/azure/information-protection/configure-usage-rights#rights-included-in-the-default-templates) dessutom flyttas över domänens namn. 
+För [RMS för enskilda användare](/azure/information-protection/rms-for-individuals), när den ohanterade klienten finns i samma region som den klient som du äger, flyttas automatiskt de automatiskt skapade [Azure information Protection klient nyckeln](/azure/information-protection/plan-implement-tenant-key) och standardskydds [mallarna](/azure/information-protection/configure-usage-rights#rights-included-in-the-default-templates) över med domän namnet. 
 
-Nyckel och mallar flyttas inte när ohanterad klient är i en annan region. Ohanterad klient är till exempel i Europa och den klient som du äger är i nordamerikanska. 
+Nyckeln och mallarna flyttas inte över när den ohanterade klienten är i en annan region. Den ohanterade klienten är till exempel i Europa och den klient som du äger är i Nord Amerika. 
 
-Även om RMS för enskilda användare är utformat för att stödja Azure AD-autentisering för att öppna skyddat innehåll, det inte förhindra att användarna även skyddar innehåll. Om användare skydda innehåll med RMS för enskild prenumeration och nyckel och mallar har inte flyttats, kommer innehållet inte att komma åt efter domän övertagande.
+Även om RMS för enskilda användare har utformats för att ge stöd för Azure AD-autentisering för att öppna skyddat innehåll, hindras inte användare från att också skydda innehåll. Om användarna har skyddat innehåll med prenumerationen RMS för enskilda användare och nyckeln och mallarna inte flyttats över, kommer det innehållet inte att vara tillgängligt efter att domänen har övertagits.
 
 #### <a name="more-information-about-power-bi"></a>Mer information om Power BI
 
-När du utför en extern gäller, Power BI-innehåll som har skapats innan övertagande placeras i en [Power BI-arkiverad arbetsyta](/power-bi/service-admin-power-bi-archived-workspace). Manuellt måste du migrera allt innehåll som du vill använda i den nya innehavaren.
+När du utför en extern Övertagning placeras Power BI innehåll som skapades innan övertaget placeras i en [Power BI Arkiverad arbets yta](/power-bi/service-admin-power-bi-archived-workspace). Du måste manuellt Migrera innehåll som du vill använda i den nya klienten.
 
-### <a name="azure-ad-powershell-cmdlets-for-the-forcetakeover-option"></a>Azure AD PowerShell-cmdlets för alternativet ForceTakeover
-Du kan se dessa cmdletar som används i [PowerShell-exempel](#powershell-example).
+### <a name="azure-ad-powershell-cmdlets-for-the-forcetakeover-option"></a>Azure AD PowerShell-cmdletar för alternativet ForceTakeover
+Du kan se dessa cmdletar som används i [PowerShell-exemplet](#powershell-example).
 
 
-cmdlet | Användning 
+kommandon | Användning 
 ------- | -------
-`connect-msolservice` | När du uppmanas logga in på din hanterad klient.
-`get-msoldomain` | Visar dina domännamn som är associerade med den aktuella klienten.
-`new-msoldomain –name <domainname>` | Lägger till domännamnet till klient som inte verifierad (ingen DNS-verifiering har utförts ännu).
-`get-msoldomain` | Domännamnet ingår nu i listan över domännamn som är associerade med din hanterad klient, men visas som **inte verifierad**.
-`get-msoldomainverificationdns –Domainname <domainname> –Mode DnsTxtRecord` | Innehåller informationen som att lägga till nya DNS TXT-post för domänen (MS = xxxxx). Verifiering kan inte utföras direkt eftersom det tar lite tid för TXT-posten att spridas, så Vänta några minuter innan den **- ForceTakeover** alternativet. 
-`confirm-msoldomain –Domainname <domainname> –ForceTakeover Force` | <li>Om ditt domännamn är fortfarande inte verifieras, du kan fortsätta med den **- ForceTakeover** alternativet. Verifierar att TXT-posten har skapats och inleder gäller processen.<li>Den **- ForceTakeover** alternativet ska läggas till cmdlet: en endast när tvinga en extern adminövertagande, till exempel när ohanterad klient har Office 365-tjänster som blockerar övertagande.
-`get-msoldomain` | Listan visar nu domännamnet som **verifierad**.
+`connect-msolservice` | När du uppmanas till det loggar du in på den hanterade klienten.
+`get-msoldomain` | Visar dina domän namn som är kopplade till den aktuella klienten.
+`new-msoldomain –name <domainname>` | Lägger till domän namnet till klienten som overifierad (ingen DNS-verifiering har utförts ännu).
+`get-msoldomain` | Domän namnet ingår nu i listan över domän namn som är kopplade till den hanterade klienten, men visas som **overifierat**.
+`get-msoldomainverificationdns –Domainname <domainname> –Mode DnsTxtRecord` | Innehåller informationen som ska läggas till i nya DNS TXT-poster för domänen (MS = xxxxx). Verifieringen kanske inte sker direkt eftersom det tar lite tid för TXT-posten att spridas, så vänta några minuter innan du överväger alternativet **-ForceTakeover** . 
+`confirm-msoldomain –Domainname <domainname> –ForceTakeover Force` | <li>Om ditt domän namn fortfarande inte verifieras kan du fortsätta med alternativet **-ForceTakeover** . Den verifierar att TXT-posten har skapats och att den avslutar insamlings processen.<li>Alternativet **-ForceTakeover** ska bara läggas till i cmdleten vid Tvingad extern administratörs övertag Ande, till exempel när den ohanterade klienten har Office 365 Services som blockerar övertagningen.
+`get-msoldomain` | I listan domän visas nu domän namnet som **verifierat**.
 
 ### <a name="powershell-example"></a>PowerShell-exempel
 
-1. Anslut till Azure AD med de autentiseringsuppgifter som användes för att svara på självbetjäning erbjudandet:
+1. Anslut till Azure AD med hjälp av de autentiseringsuppgifter som användes för att svara på självbetjänings erbjudandet:
    ```powershell
     Install-Module -Name MSOnline
     $msolcred = get-credential
@@ -157,8 +157,8 @@ cmdlet | Användning
    ```powershell
     MS=32DD01B82C05D27151EA9AE93C5890787F0E65D9
    ```
-5. Skapa en DNS txt-post som innehåller värdet som du kopierade i föregående steg i ditt offentliga DNS-namnområde. Namn för den här posten är namnet på den överordnade domänen, så om du skapar denna resurspost med hjälp av DNS-roll från Windows Server, post namn tomt och bara klistra in värdet i textrutan.
-6. Kör cmdleten Confirm-MsolDomain för att verifiera utmaningen:
+5. I ditt offentliga DNS-namnområde skapar du en DNS-TXT-post som innehåller värdet som du kopierade i föregående steg. Namnet på den här posten är namnet på den överordnade domänen, så om du skapar den här resurs posten med hjälp av DNS-rollen från Windows Server lämnar du post namnet tomt och klistrar in värdet i text rutan.
+6. Kör Confirm-MsolDomain-cmdlet: en för att verifiera utmaningen:
   
    ```powershell
     Confirm-MsolEmailVerifiedDomain -DomainName *your_domain_name*
@@ -170,11 +170,11 @@ cmdlet | Användning
     Confirm-MsolEmailVerifiedDomain -DomainName contoso.com
    ```
 
-En lyckad utmaning återgår till Kommandotolken utan fel.
+En lyckad utmaning går tillbaka till prompten utan ett fel.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Lägga till ett anpassat domännamn i Azure AD](../fundamentals/add-custom-domain.md)
+* [Lägg till ett anpassat domän namn i Azure AD](../fundamentals/add-custom-domain.md)
 * [Installera och konfigurera Azure PowerShell](/powershell/azure/overview)
 * [Azure PowerShell](/powershell/azure/overview)
 * [Azure Cmdlet-referens](/powershell/azure/get-started-azureps)

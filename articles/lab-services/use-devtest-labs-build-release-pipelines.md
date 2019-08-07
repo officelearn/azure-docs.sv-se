@@ -1,6 +1,6 @@
 ---
-title: Använda DevTest Labs i Azure DevOps build and release-pipelines | Microsoft Docs
-description: Lär dig hur du använder Azure DevTest Labs i Azure DevOps build and release-pipelines.
+title: Använda DevTest Labs i Azure pipelines build and release pipelines | Microsoft Docs
+description: 'Lär dig hur du använder Azure DevTest Labs i pipeline: build och release i Azure.'
 services: devtest-lab, lab-services
 documentationcenter: na
 author: spelluru
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/29/2019
 ms.author: spelluru
-ms.openlocfilehash: 606563cd7d7adcdd79bf9561876eb0640fb68b21
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 032f598fed765b281d4a6a124f8855abc201ee94
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68620901"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774555"
 ---
-# <a name="use-devtest-labs-in-azure-devops-build-and-release-pipelines"></a>Använda DevTest Labs i Azure DevOps-versionen och versionspipelines
-Den här artikeln innehåller information om hur DevTest Labs kan användas i Azure DevOps-build och release-pipelines. 
+# <a name="use-devtest-labs-in-azure-pipelines-build-and-release-pipelines"></a>Använda DevTest Labs i Azure pipelines build and release-pipelines
+Den här artikeln innehåller information om hur DevTest Labs kan användas i pipeline: build och release i Azure. 
 
 ## <a name="overall-flow"></a>Övergripande flöde
 Det grundläggande flödet är att ha en **pipeline** för bygge som utför följande uppgifter:
@@ -49,7 +49,7 @@ Det finns ett par objekt som måste skapas i förväg:
 Pipelinen build skapar en DevTest Labs-miljö och distribuerar koden för testning.
 
 ## <a name="set-up-a-build-pipeline"></a>Konfigurera en pipeline för bygge
-I Azure DevOps skapar du en pipeline för build med hjälp av koden från [självstudien: Bygg en .NET Core-och SQL Database-webbapp i](../app-service/app-service-web-tutorial-dotnetcore-sqldb.md)Azure App Service. Använd **ASP.net Core** mall, som fyller i den nödvändiga uppgiften för att bygga, testa och publicera koden.
+I Azure-pipeline skapar du en versions pipeline med hjälp av koden från [självstudien: Bygg en .NET Core-och SQL Database-webbapp i](../app-service/app-service-web-tutorial-dotnetcore-sqldb.md)Azure App Service. Använd **ASP.net Core** mall, som fyller i den nödvändiga uppgiften för att bygga, testa och publicera koden.
 
 ![Välj mallen ASP.NET](./media/use-devtest-labs-build-release-pipelines/select-asp-net.png)
 
@@ -85,7 +85,7 @@ Den tredje aktiviteten är aktiviteten **Azure App service distribution** . Appe
 
 ![App Service distribuera uppgift](./media/use-devtest-labs-build-release-pipelines/app-service-deploy.png)
 
-## <a name="setup-release-pipeline"></a>Installera release pipeline
+## <a name="set-up-release-pipeline"></a>Konfigurera versions pipeline
 Du skapar en versions pipeline med två uppgifter: **Azure-distribution: Skapa eller uppdatera resurs gruppen** och **Distribuera Azure App Service**. 
 
 För den första aktiviteten anger du namn och plats för resurs gruppen. Sökvägen är en länkad artefakt. Om Resource Manager-mallen innehåller länkade mallar måste en anpassad distribution av resurs grupper implementeras. Mallen finns i den publicerade Drop-artefakten. Åsidosätt mallparametrar för Resource Manager-mallen. Du kan lämna kvar de återstående inställningarna med standardvärdena. 
@@ -98,5 +98,5 @@ Nu när båda pipelinen har kon figurer ATS kan du skapa en version i kö manuel
 ## <a name="next-steps"></a>Nästa steg
 Se följande artiklar:
 
-- [Integrera Azure DevTest Labs i din Azure-DevOps kontinuerlig integrering och leverans pipelines](devtest-lab-integrate-ci-cd-vsts.md)
-- [Integrera miljöer i Azure DevOps CI/CD-pipeliner](integrate-environments-devops-pipeline.md)
+- [Integrera Azure DevTest Labs i dina Azure-pipeliner kontinuerlig integrering och leverans pipeline](devtest-lab-integrate-ci-cd-vsts.md)
+- [Integrera miljöer i Azures pipelines CI/CD-pipelines](integrate-environments-devops-pipeline.md)

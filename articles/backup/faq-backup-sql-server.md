@@ -1,5 +1,5 @@
 ---
-title: Vanliga frågor om att säkerhetskopiera SQL Server databaser på virtuella Azure-datorer med Azure Backup
+title: Vanliga frågor och svar – säkerhetskopiera SQL Server databaser på virtuella Azure-datorer med Azure Backup
 description: Få svar på vanliga frågor om hur du säkerhetskopierar SQL Server databaser på virtuella Azure-datorer med Azure Backup.
 ms.reviewer: vijayts
 author: dcurwin
@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: dacurwin
-ms.openlocfilehash: 23dda22a8350591d5cf87cefc1a2f15fd90f17c7
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: a600c50e97f0d069443112a59d529c0d6f6fecad
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688836"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68737066"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Vanliga frågor om SQL Server databaser som körs på en virtuell Azure-säkerhetskopiering
 

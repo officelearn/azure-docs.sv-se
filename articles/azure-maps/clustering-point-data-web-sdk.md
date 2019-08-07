@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen
-ms.openlocfilehash: 69e95a9e6c76da5d502314a7190e99fc10e968f7
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 5f51c1166364a3470a1cc943e66d429c32cdc49b
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639081"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839474"
 ---
 # <a name="clustering-point-data"></a>Kluster plats data
 
@@ -35,7 +35,7 @@ var datasource = new atlas.source.DataSource(null, {
 
     //The maximum zoom level in which clustering occurs.
     //If you zoom in more than this, all points are rendered as symbols.
-    clusterMaxZoom: 15 
+    clusterMaxZoom: 15
 });
 ```
 
@@ -107,6 +107,16 @@ De punkt data som ett kluster representerar sprids över ett utrymme. I det här
 
  <iframe height="500" style="width: 100%;" scrolling="no" title="Kluster Area konvex skrov" src="//codepen.io/azuremaps/embed/QoXqWJ/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Se rit <a href='https://codepen.io/azuremaps/pen/QoXqWJ/'>kluster ytan konvext skrov</a> genom Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+## <a name="aggregating-data-in-clusters"></a>Aggregera data i kluster
+
+Kluster representeras ofta med hjälp av en symbol med antalet platser som finns i klustret, men ibland är det önskvärt att ytterligare anpassa formatet på kluster baserat på vissa mått, t. ex. den totala intäkten för alla punkter i ett kluster. Med kluster agg regeringar kan anpassade egenskaper skapas och fyllas i med en [mängd](data-driven-style-expressions-web-sdk.md#aggregate-expression) uttrycks beräkning.  Kluster agg regeringar kan definieras i `clusterProperties` alternativ `DataSource`för.
+
+I följande exempel används ett mängd uttryck för att beräkna ett antal baserat på egenskapen entitetstyp för varje data punkt i ett kluster.
+
+<iframe height="500" style="width: 100%;" scrolling="no" title="Kluster mängd" src="//codepen.io/azuremaps/embed/jgYyRL/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+Se mängd med Penn <a href='https://codepen.io/azuremaps/pen/jgYyRL/'>kluster</a> med Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="next-steps"></a>Nästa steg

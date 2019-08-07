@@ -1,85 +1,85 @@
 ---
-title: VLAN och undernät i VMware-lösning genom CloudSimple - Azure
-description: Lär dig mer om VLAN och undernät i ett privat moln CloudSimple
+title: VLAN och undernät i VMware-lösningen av CloudSimple – Azure
+description: Läs om VLAN och undernät i ett privat CloudSimple-moln
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 04/10/2019
 ms.topic: article
-ms.service: vmware
+ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 9d29445054848d798476fed8184b89f9b6c1210f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d6659c50b79237907cf596d65e0ba9fb72113246
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66497584"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68812472"
 ---
-# <a name="vlans-and-subnets-overview"></a>Översikt över virtuella lokala nätverk och undernät
+# <a name="vlans-and-subnets-overview"></a>Översikt över VLAN och undernät
 
-CloudSimple ger en nätverket för varje region där din CloudSimple-tjänsten har distribuerats.  Nätverket är ett enda TCP Layer 3-adressutrymme med routning aktiverad som standard.  Alla privata moln och undernät som skapats i den här regionen kan kommunicera med varandra utan någon ytterligare konfiguration.  Du kan skapa distribuerade portgrupper på vCenter med hjälp av de virtuella lokala nätverken.
+CloudSimple tillhandahåller ett nätverk per region där din CloudSimple-tjänst har distribuerats.  Nätverket är ett enskilt adress utrymme för TCP-skikt 3 med Routning aktiverat som standard.  Alla privata moln och undernät som skapats i den här regionen kan kommunicera med varandra utan ytterligare konfiguration.  Du kan skapa distribuerade Port grupper på vCenter med hjälp av VLAN.
 
-![CloudSimple nätverkstopologi](media/cloudsimple-network-topology.png)
+![CloudSimple nätverk sto pol Ogin](media/cloudsimple-network-topology.png)
 
 ## <a name="vlans"></a>VLAN
 
-VLAN (Layer 2-nätverk) skapas per privat moln.  Layer 2-trafiken stannar inom gränserna för ett privat moln, så att du kan isolera lokala trafiken i det privata molnet.  Ett VLAN som skapats på det privata molnet kan användas för att skapa distribuerade portgrupper endast i det privata molnet.  Ett VLAN som skapats på ett privat moln konfigureras automatiskt på alla växlar som är anslutna till värdar i ett privat moln.
+VLAN (Layer 2-nätverk) skapas per privat moln.  Layer 2-trafiken ligger kvar inom gränserna för ett privat moln, så att du kan isolera den lokala trafiken i det privata molnet.  Ett VLAN som skapats i det privata molnet kan bara användas för att skapa distribuerade Port grupper i det privata molnet.  Ett VLAN som skapats i ett privat moln konfigureras automatiskt på alla växlar som är anslutna till värdarna i ett privat moln.
 
 ## <a name="subnets"></a>Undernät
 
-Du kan skapa ett undernät när du skapar ett VLAN, genom att definiera adressutrymmet för undernätet. En IP-adress från adressutrymmet är tilldelad som en gateway för undernätet. Ett enda privat Layer 3-adressutrymme tilldelas per kund och region. Du kan konfigurera alla RFC 1918 inte överlappar adressutrymmet, med ditt lokala nätverk eller Azure-nätverk i din region för nätverket.
+Du kan skapa ett undernät när du skapar ett VLAN genom att definiera adress utrymmet för under nätet. En IP-adress från adress utrymmet tilldelas som en under näts Gateway. Ett enskilt privat lager 3-adressutrymme tilldelas per kund och region. Du kan konfigurera alla RFC 1918 icke-överlappande adress utrymmen, med ditt lokala nätverk eller Azure Virtual Network, i din nätverks region.
 
-Alla undernät kan kommunicera med varandra som standard, vilket minskar konfigurationen användning för routning mellan privata moln. Öst-väst data över datorer i samma region kvar i samma Layer 3-nätverk och överför över lokala nätverksinfrastruktur för regionen. Ingen utgående krävs för kommunikation mellan privata moln i en region. Den här metoden eliminerar påföljd WAN/utgång prestanda i distribution av olika arbetsbelastningar i olika privata moln.
+Alla undernät kan kommunicera med varandra som standard, vilket minskar konfigurationen för routning mellan privata moln. Öst-väst-data mellan datorer i samma region förblir i samma nivå 3-nätverk och överföringar över den lokala nätverks infrastrukturen i regionen. Ingen utgående krävs för kommunikation mellan privata moln i en region. Den här metoden eliminerar alla WAN/utgångs prestanda straff vid distribution av olika arbets belastningar i olika privata moln.
 
-## <a name="vspherevsan-subnets-cidr-range"></a>vSphere/virtuellt SAN undernät CIDR-intervall
+## <a name="vspherevsan-subnets-cidr-range"></a>CIDR-intervall för vSphere/virtuellt San-undernät
 
-Ett privat moln skapas som en isolerad VMware-stacken (ESXi-värdar, vCenter, virtuellt SAN-nätverk och NSX) miljön som hanteras av en vCenter-server.  Komponenterna distribueras i nätverket som valts för **vSphere/virtuellt SAN undernät CIDR**.  Nätverket CIDR-intervall är indelade i olika undernät under distributionen.
+Ett privat moln skapas som en isolerad VMware-stack (ESXi-värdar, vCenter-, virtuellt San-och NSX)-miljö som hanteras av en vCenter-Server.  Hanterings komponenter distribueras i det nätverk som valts för **vSphere/virtuellt San-UNDERNÄT CIDR**.  Nätverks-CIDR-intervallet är indelat i olika undernät under distributionen.
 
-Minsta vSphere/virtuellt SAN undernät CIDR-intervall prefix: **/24** maximalt vSphere/virtuellt SAN undernät CIDR-intervall prefix:   **/21**
+Lägsta vSphere/virtuellt San-undernät CIDR-intervall prefix: **/24** högsta vSphere/virtuellt San-undernät CIDR-intervall prefix: **/21**
 
 > [!CAUTION]
-> IP-adresser i CIDR-intervall för virtuella vSphere/SAN-nätverket är reserverade för användning av privat moln-infrastruktur. Använd inte en IP-adress i det här intervallet på någon virtuell dator.
+> IP-adresser i CIDR-intervallet vSphere/virtuellt San är reserverade för användning av privata moln infrastrukturer. Använd inte en IP-adress i det här intervallet på någon virtuell dator.
 
 
-### <a name="vspherevsan-subnets-cidr-range-limits"></a>vSphere/virtuellt SAN undernät CIDR-intervall gränser
+### <a name="vspherevsan-subnets-cidr-range-limits"></a>vSphere/virtuellt San-undernät CIDR-intervall gränser
 
-Att välja virtuella vSphere/SAN-nätverket undernät CIDR-intervall storlek har en inverkan på storleken på ditt privata moln.  Tabellen nedan visar det maximala antalet noder som du kan ha baserat på storleken på vSphere/virtuellt SAN undernät CIDR.
+Om du väljer vSphere/virtuellt San-undernät kan storleken på det privata molnet påverka storleken på det privata molnet.  Tabellen nedan visar det maximala antalet noder som du kan ha baserat på storleken på vSphere/virtuellt San-undernät CIDR.
 
-| Den angivna virtuella vSphere/SAN-nätverket undernät CIDR prefixlängd | Högsta antalet noder |
+| Angivna vSphere/virtuellt San-undernät CIDR-prefix längd | Maximalt antal noder |
 |---------------------------------------------------|-------------------------|
 | /24 | 26 |
 | /23 | 58 |
 | /22 | 118 |
 | /21 | 220 |
 
-### <a name="management-subnets-created-on-a-private-cloud"></a>Management-undernät som skapats på ett privat moln
+### <a name="management-subnets-created-on-a-private-cloud"></a>Hanterings under nät som skapats i ett privat moln
 
-Följande management undernät skapas när du skapar ett privat moln. 
+Följande hanterings under nät skapas när du skapar ett privat moln. 
 
-* **Systemhantering** -VLAN och undernät för hantering av ESXi-värdar-nätverk, DNS-server, vCenter-servern.
-* **VMotion** -VLAN och undernät för ESXi-värdar vMotion nätverk.
-* **Virtuellt SAN** -VLAN och undernät för ESXi-värdar virtuellt SAN-nätverk.
-* **NsxtEdgeUplink1** -VLAN och undernät för virtuellt lokalt nätverk överordnade länkar till ett externt nätverk.
-* **NsxtEdgeUplink2** -VLAN och undernät för virtuellt lokalt nätverk överordnade länkar till ett externt nätverk.
-* **NsxtEdgeTransport** -VLAN och undernät för transport zoner styra räckvidden för Layer 2-nätverk i NSX T.
+* **System Management** – VLAN och undernät för ESXi-värdars hanterings nätverk, DNS-server, vCenter-Server.
+* **VMotion** -VLAN och undernät för ESXi-värdar ' vMotion Network.
+* **Virtuellt San** -VLAN och undernät för ESXi-värdar ' virtuellt San Network.
+* **NsxtEdgeUplink1** -VLAN och UNDERNÄT för VLAN länkar till ett externt nätverk.
+* **NsxtEdgeUplink2** -VLAN och UNDERNÄT för VLAN länkar till ett externt nätverk.
+* **NsxtEdgeTransport** -VLAN och undernät för transport zoner styr räckvidden för Layer 2-nätverk i NSX-T.
 * **NsxtHostTransport** -VLAN och undernät för värd transport zon.
 
-### <a name="management-network-cidr-range-breakdown"></a>Hantering av nätverket CIDR-intervall analys på detaljnivå
+### <a name="management-network-cidr-range-breakdown"></a>Hantering av CIDR-intervall i hanterings nätverk
 
-vSphere/virtuellt SAN undernät CIDR-intervall som angetts är uppdelad i flera undernät.  Tabellen nedan visar ett exempel på en analys på detaljnivå för tillåtna prefix.  I exemplet används **192.168.0.0** som CIDR-intervall.
+det angivna CIDR-intervallet för vSphere/virtuellt San-undernät delas upp i flera undernät.  I tabellen nedan visas ett exempel på en analys av tillåtna prefix.  Exemplet använder **192.168.0.0** som CIDR-intervall.
 
 Exempel:
 
-| Den angivna virtuella vSphere/SAN-nätverket undernät CIDR-prefixet | 192.168.0.0/21 | 192.168.0.0/22 | 192.168.0.0/23 | 192.168.0.0/24 |
+| Angivet vSphere/virtuellt San-undernät CIDR/prefix | 192.168.0.0/21 | 192.168.0.0/22 | 192.168.0.0/23 | 192.168.0.0/24 |
 |---------------------------------|----------------|----------------|----------------|----------------|
-| Systemhantering | 192.168.0.0/24 | 192.168.0.0/24 | 192.168.0.0/25 | 192.168.0.0/26 |
+| System hantering | 192.168.0.0/24 | 192.168.0.0/24 | 192.168.0.0/25 | 192.168.0.0/26 |
 | vMotion | 192.168.1.0/24 | 192.168.1.0/25 | 192.168.0.128/26 | 192.168.0.64/27 |
 | vSAN | 192.168.2.0/24 | 192.168.1.128/25 | 192.168.0.192/26 | 192.168.0.96/27 |
-| NSX-T värd Transport | 192.168.4.0/23 | 192.168.2.0/24 | 192.168.1.0/25 | 192.168.0.128/26 |
-| NSX-T Edge Transport | 192.168.7.208/28 | 192.168.3.208/28 | 192.168.1.208/28 | 192.168.0.208/28 |
-| NSX-T Edge Uplink1 | 192.168.7.224/28 | 192.168.3.224/28 | 192.168.1.224/28 | 192.168.0.224/28 |
-| NSX-T Edge uplink2 | 192.168.7.240/28 | 192.168.3.240/28 | 192.168.1.240/28 | 192.168.0.240/28 |
+| NSX-T-värd-transport | 192.168.4.0/23 | 192.168.2.0/24 | 192.168.1.0/25 | 192.168.0.128/26 |
+| NSX-T-Edge-Transport | 192.168.7.208/28 | 192.168.3.208/28 | 192.168.1.208/28 | 192.168.0.208/28 |
+| NSX – T Edge Uplink1 | 192.168.7.224/28 | 192.168.3.224/28 | 192.168.1.224/28 | 192.168.0.224/28 |
+| NSX – T Edge uplink2 | 192.168.7.240/28 | 192.168.3.240/28 | 192.168.1.240/28 | 192.168.0.240/28 |
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Skapa och hantera virtuella lokala nätverk och undernät](https://docs.azure.cloudsimple.com/create-vlan-subnet/)
+* [Skapa och hantera VLAN och undernät](https://docs.azure.cloudsimple.com/create-vlan-subnet/)

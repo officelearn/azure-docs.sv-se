@@ -15,12 +15,12 @@ ms.workload: azure-vs
 ms.date: 02/18/2019
 ms.author: glenga
 ms.reviewer: david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: 2695ee2751a2834466c42d224101af246b829aca
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: d50acc50880229626c847d41d9abe9a9e13d9c6e
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68717626"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736120"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>Utveckla och distribuera WebJobs med Visual Studio – Azure App Service
 
@@ -228,7 +228,7 @@ När du [skapar ett webb jobb från Azure Portal](webjobs-create.md)skapas inst�
 
 ### <a name="cron-expressions"></a>CRON-uttryck
 
-WebJobs använder samma CRON-uttryck för schemaläggning som timer-utlösaren i Azure Functions. Mer information om CRON-support finns i [referens artikeln om timer](../azure-functions/functions-bindings-timer.md#cron-expressions)-utlösare.
+WebJobs använder samma CRON-uttryck för schemaläggning som timer-utlösaren i Azure Functions. Mer information om CRON-support finns i [referens artikeln om timer](../azure-functions/functions-bindings-timer.md#ncrontab-expressions)-utlösare.
 
 ### <a name="settingjob-reference"></a>inställning. jobb referens
 
@@ -238,7 +238,7 @@ Följande inställningar stöds av WebJobs:
 | ----------- | --------- | --------------- |
 | `is_in_place` | Alla | Tillåter att jobbet körs på plats utan att först kopieras till en Temp-mapp. Mer information finns i [WebJobs arbets katalog](https://github.com/projectkudu/kudu/wiki/WebJobs#webjob-working-directory). |
 | `is_singleton` | Kontinuerlig | Kör bara webbjobben på en enskild instans vid utskalning. Läs mer i [Ange ett kontinuerligt jobb som singleton](https://github.com/projectkudu/kudu/wiki/WebJobs-API#set-a-continuous-job-as-singleton). |
-| `schedule` | Utlöst | Kör webb jobbet på ett CRON-baserat schema. Mer information finns i [referens artikeln om timer](../azure-functions/functions-bindings-timer.md#cron-expressions)-utlösare. |
+| `schedule` | Utlöst | Kör webb jobbet på ett CRON-baserat schema. Mer information finns i [referens artikeln om timer](../azure-functions/functions-bindings-timer.md#ncrontab-expressions)-utlösare. |
 | `stopping_wait_time`| Alla | Tillåter kontroll av avstängnings beteendet. Läs mer i en [korrekt avstängning](https://github.com/projectkudu/kudu/wiki/WebJobs#graceful-shutdown). |
 
 ## <a name="next-steps"></a>Nästa steg

@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 07/23/2019
+ms.date: 08/05/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da9bc3906e6f39b2d943708eb6a1b930ac8cc5a5
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 9b6b310e2ca2c19bf4b163704627943a881501bd
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68401935"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68823847"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>Vad är Azure AD Access-granskningar?
 
@@ -45,7 +45,7 @@ Med Azure AD kan du samar beta internt i din organisation och med användare fr�
 - **För många användare i privilegierade roller:** Det är en bra idé att kontrol lera hur många användare som har administrativ åtkomst, hur många av dem som är globala administratörer och om det finns inbjudna gäster eller partners som inte har tagits bort efter att ha tilldelats en administrativ uppgift. Du kan omcertifiera roll tilldelnings användare i [Azure AD-roller](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) som globala administratörer eller [Azure-resurser](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) , t. ex. administratör för användar åtkomst i [Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) .
 - **När Automation är ogenomförbart:** Du kan skapa regler för dynamiskt medlemskap i säkerhets grupper eller Office 365-grupper, men vad händer om data i HR inte finns i Azure AD eller om användarna fortfarande behöver åtkomst efter att gruppen har lämnats för att träna utbyte av dem? Du kan sedan skapa en granskning av den gruppen för att säkerställa att de som fortfarande behöver åtkomst har fortsatt åtkomst.
 - **När en grupp används för ett nytt syfte:** Om du har en grupp som kommer att synkroniseras till Azure AD, eller om du planerar att aktivera programmet Salesforce för alla i Sälj grupps gruppen, är det bra att be grupp ägaren att granska grupp medlemskapet innan gruppen används i ett annat risk samarbete chning.
-- **Affärs kritisk data åtkomst:** för vissa resurser kan det vara nödvändigt att be personer utanför IT att regelbundet signera och ge en motivering för varför de behöver åtkomst för gransknings syfte.
+- **Affärs kritisk data åtkomst:** för vissa resurser kan det vara nödvändigt att be personer utanför IT att regelbundet logga ut och ge en motivering för varför de behöver åtkomst till gransknings syfte.
 - **För att underhålla undantags listan för en princip:** I en idealisk värld följer alla användare åtkomst principerna för att skydda åtkomsten till organisationens resurser. Ibland finns det dock affärs fall där du behöver göra undantag. Som IT-administratör kan du hantera den här uppgiften, undvika överblick av princip undantag och tillhandahålla granskare med bevis på att dessa undantag granskas regelbundet.
 - **Be grupp ägare att bekräfta att de fortfarande behöver gäster i sina grupper:** Åtkomst till anställda kan automatiseras med vissa lokalt IAM, men inte inbjudna gäster. Om en grupp ger gäster åtkomst till företagets känsliga innehåll, är det grupp ägarens ansvar att bekräfta att gästerna fortfarande har till gång till ett legitimt verksamhets behov.
 - **Låt granskningar upprepas regelbundet:** Du kan ställa in återkommande åtkomst granskningar av användare i angivna frekvenser, till exempel varje vecka, varje kvartal eller varje kvartal, och granskarna meddelas i början av varje granskning. Granskare kan godkänna eller neka åtkomst med ett vänligt gränssnitt och med hjälp av smarta rekommendationer.
@@ -60,28 +60,6 @@ Beroende på vad du vill granska kommer du att skapa din åtkomst granskning i A
 | Tilldelad till en ansluten app | Angivna granskare</br>Själv granskning | Azure AD-åtkomstgranskningar</br>Azure AD Enterprise-appar (för hands version) | Åtkomstpanelen |
 | Azure AD-roll | Angivna granskare</br>Själv granskning | [Azure AD PIM](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Azure Portal |
 | Resurs roll för Azure | Angivna granskare</br>Själv granskning | [Azure AD PIM](../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Azure Portal |
-
-## <a name="which-users-must-have-licenses"></a>Vilka användare måste ha licenser?
-
-Varje användare som interagerar med åtkomst granskningar måste ha en betald Azure AD Premium P2-licens. Exempel:
-
-- Administratörer som skapar en åtkomst granskning
-- Grupp ägare som utför en åtkomst granskning
-- Användare som tilldelats som granskare
-- Användare som utför en själv granskning
-
-Du kan också be gäst användare att granska sin egen åtkomst. För varje betald Azure AD Premium P2-licens som du tilldelar till en av dina egna organisations användare kan du använda Azure AD Business-to-Business (B2B) för att bjuda in upp till fem gäst användare under tilldelningen av externa användare. Dessa gäst användare kan också använda Azure AD Premium P2-funktioner. Mer information finns i [rikt linjer för Azure AD B2B-samarbets licensiering](../b2b/licensing-guidance.md).
-
-Här följer några exempel scenarier som hjälper dig att avgöra antalet licenser som du måste ha.
-
-| Scenario | Beräkning | Antalet licenser som krävs |
-| --- | --- | --- |
-| En administratör skapar en åtkomst granskning av grupp A med 500-användare.<br/>Tilldelar 3 grupp ägare som granskare. | 1 administratör + 3 grupp ägare | 4 |
-| En administratör skapar en åtkomst granskning av grupp A med 500-användare.<br/>Gör det till en själv granskning. | 1 administratör + 500 användare som självgranskare | 501 |
-| En administratör skapar en åtkomst granskning av grupp A med 5 användare och 25 gäst användare.<br/>Gör det till en själv granskning. | 1 administratör + 5 användare som självgranskare<br/>(gäst användare omfattas av den obligatoriska 1:5-kvoten) | 6 |
-| En administratör skapar en åtkomst granskning av grupp A med 5 användare och 28 gäst användare.<br/>Gör det till en själv granskning. | 1 administratör + 5 användare som självgranskare + 1 användare för att få gäst användare i det obligatoriska 1:5-förhållandet | 7 |
-
-Information om hur du tilldelar licenser till dina användnings områden finns i [tilldela eller ta bort licenser med hjälp av Azure Active Directory portalen](../fundamentals/license-users-groups.md).
 
 ## <a name="onboard-access-reviews"></a>Publicera åtkomstgranskningar
 
@@ -115,6 +93,28 @@ Om du är redo att distribuera åtkomst granskningar i din organisation följer 
 ## <a name="license-requirements"></a>Licenskrav
 
 [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
+
+### <a name="which-users-must-have-licenses"></a>Vilka användare måste ha licenser?
+
+Varje användare som interagerar med åtkomst granskningar måste ha en betald Azure AD Premium P2-licens. Exempel:
+
+- Administratörer som skapar en åtkomst granskning
+- Grupp ägare som utför en åtkomst granskning
+- Användare som tilldelats som granskare
+- Användare som utför en själv granskning
+
+Du kan också be gäst användare att granska sin egen åtkomst. För varje betald Azure AD Premium P2-licens som du tilldelar till en av dina egna organisations användare kan du använda Azure AD Business-to-Business (B2B) för att bjuda in upp till fem gäst användare under tilldelningen av externa användare. Dessa gäst användare kan också använda Azure AD Premium P2-funktioner. Mer information finns i [rikt linjer för Azure AD B2B-samarbets licensiering](../b2b/licensing-guidance.md).
+
+Här följer några exempel scenarier som hjälper dig att avgöra antalet licenser som du måste ha.
+
+| Scenario | Beräkning | Antalet licenser som krävs |
+| --- | --- | --- |
+| En administratör skapar en åtkomst granskning av grupp A med 500-användare. Tilldelar 3 grupp ägare som granskare. | 1 licens för administratörs-och 3-licenser för varje grupp ägare som granskare. | 4 |
+| En administratör skapar en åtkomst granskning av grupp A med 500-användare. Gör det till en själv granskning. | 1 licens för administratör + 500-licenser för varje användare som självgranskare. | 501 |
+| En administratör skapar en åtkomst granskning av grupp B med 5 användare och 25 gäst användare. Gör det till en själv granskning. | 1 licens för administratör + 5-licenser för varje användare som självgranskare.<br/>(gäst användare omfattas av den obligatoriska 1:5-kvoten) | 6 |
+| En administratör skapar en åtkomst granskning av grupp C med 5 användare och 108 gäst användare. Gör det till en själv granskning. | 1 licens för administratör + 5-licenser för varje användare som självgranskare och 16 ytterligare licenser för att se alla 108 gäst användare i det obligatoriska 1:5-förhållandet.<br/>1 + 5 = 6 licenser, som avser 5\*6 = 30 gäst användare. För återstående (108-5\*6) = 78 gäst användare, 78/5 = 16 ytterligare licenser krävs ytterligare licenser. Därför krävs 6 + 16 = 22 licenser. | 22 |
+
+Information om hur du tilldelar licenser till dina användnings områden finns i [tilldela eller ta bort licenser med hjälp av Azure Active Directory portalen](../fundamentals/license-users-groups.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

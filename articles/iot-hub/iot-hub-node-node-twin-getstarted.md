@@ -8,12 +8,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: elioda
-ms.openlocfilehash: eb8b7c62e765ab233b50310dca9c21e9728ed56a
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: edbeffebd1f4ee41d8a2bdaddcdc7d84cbe1affe
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668006"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780938"
 ---
 # <a name="get-started-with-device-twins-nodejs"></a>Kom igång med enhets dubbla (Node. js)
 
@@ -38,6 +38,8 @@ För att slutföra den här självstudien behöver du följande:
 ## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
+
+## <a name="register-a-new-device-in-the-iot-hub"></a>Registrera en ny enhet i IoT Hub
 
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
@@ -128,7 +130,7 @@ I det här avsnittet skapar du en Node. js-konsol som lägger till platsens meta
 
     Föregående kod kör två frågor: först väljer den först enheten med dubbla enheter som finns i **Redmond43** -anläggningen, och den andra refinar frågan så att endast de enheter som också är anslutna via mobil nät verket återställs.
 
-    Föregående kod **när objektet skapas** , anger ett maximalt antal returnerade dokument. **Frågespråket** innehåller en **hasMoreResults** Boolean-egenskap som du kan använda för att anropa **nextAsTwin** -metoderna flera gånger för att hämta alla resultat. En metod som heter **Next** är tillgänglig för resultat som inte är enhets dubbla, till exempel resultat av agg regerings frågor.
+    Föregående kod när objektet skapas, anger ett maximalt antal returnerade dokument. **Frågespråket** innehåller en **hasMoreResults** Boolean-egenskap som du kan använda för att anropa **nextAsTwin** -metoderna flera gånger för att hämta alla resultat. En metod som heter **Next** är tillgänglig för resultat som inte är enhets dubbla, till exempel resultat av agg regerings frågor.
 
 6. Kör programmet med:
 

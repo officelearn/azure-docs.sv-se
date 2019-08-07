@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.date: 04/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 93b26b2861c5603770a954943174d6436296ad07
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 10aee302377c4f71e47d93f5cd975043efcea375
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668382"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815914"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>Träna modeller med Azure Machine Learning med hjälp av uppskattning
 
 Med Azure Machine Learning kan du enkelt skicka ditt utbildnings skript till [olika beräknings mål](how-to-set-up-training-targets.md#compute-targets-for-training), med hjälp av [RunConfiguration-objekt](how-to-set-up-training-targets.md#whats-a-run-configuration) och ScriptRunConfig- [objekt](how-to-set-up-training-targets.md#submit). Det här mönstret ger dig mycket flexibilitet och maximal kontroll.
 
-För att under lätta djup inlärnings modellen är Azure Machine Learning python SDK en alternativ högre abstraktion, klassen uppskattning, som gör det möjligt för användarna att enkelt konstruera kör konfigurationer. Du kan skapa och använda en generisk [uppskattning](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) för att skicka ett utbildnings skript med hjälp av valfritt ramverk som du väljer (till exempel scikit-information) som du vill köra på alla beräknings mål, oavsett om det är en lokal dator, en enskild virtuell dator i Azure eller ett GPU-kluster i Azure. För PyTorch-, TensorFlow-och kedje uppgifter-aktiviteter tillhandahåller Azure Machine Learning också respektive [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) och [kedje](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) bedömare för att förenkla användningen av dessa ramverk.
+För att under lätta djup inlärnings modellen är Azure Machine Learning python SDK en alternativ högre abstraktion, klassen uppskattning, som gör det möjligt för användarna att enkelt konstruera kör konfigurationer. Du kan skapa och använda en generisk [uppskattning](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) för att skicka utbildnings skript med hjälp av valfritt ramverk som du väljer (till exempel scikit-information) på alla beräknings mål du väljer, oavsett om det är en lokal dator, en enskild virtuell dator i Azure eller ett GPU-kluster i Azure. För PyTorch-, TensorFlow-och kedje uppgifter-aktiviteter tillhandahåller Azure Machine Learning även de olika uppskattningarna [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py)och [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) för att förenkla användningen av dessa ramverk.
 
 ## <a name="train-with-an-estimator"></a>Träna med en kostnadsuppskattning
 
@@ -58,13 +58,13 @@ Det här kodfragmentet anger följande parametrar till den `Estimator` konstrukt
 
 Parameter | Beskrivning
 --|--
-`source_directory`| Lokal katalog som innehåller hela din kod som behövs för utbildningsjobbet. Den här mappen kopieras från din lokala dator till den fjärranslutna beräkningen 
-`script_params`| Ord lista som anger kommando rads argument för ditt utbildnings skript `entry_script`, i form av `<command-line argument, value>` par. Om du vill ange en utförlig flagga `script_params`i använder `<command-line argument, "">`du.
+`source_directory`| Lokal katalog som innehåller hela din kod som behövs för utbildningsjobbet. Den här mappen kopieras från den lokala datorn till fjärrdatorn.
+`script_params`| Ord lista som anger de kommando rads argument som ska skickas till ditt `entry_script`utbildnings skript i form av `<command-line argument, value>` par. Om du vill ange en utförlig flagga `script_params`i använder `<command-line argument, "">`du.
 `compute_target`| Fjärrberäknings mål som ditt utbildnings skript ska köras på, i det här fallet ett Azure Machine Learning Compute-kluster ([AmlCompute](how-to-set-up-training-targets.md#amlcompute)). (Observera även om AmlCompute-kluster är det vanligaste målet, är det också möjligt att välja andra beräknings mål typer, till exempel virtuella Azure-datorer eller till och med lokal dator.)
-`entry_script`| FilePath (relativt till den `source_directory`) för utbildning-skriptet som ska köras på den fjärranslutna databearbetning. Den här filen och eventuella ytterligare filer som den är beroende av, bör finnas i den här mappen
+`entry_script`| FilePath (relativt till den `source_directory`) för utbildning-skriptet som ska köras på den fjärranslutna databearbetning. Den här filen och eventuella ytterligare filer som den är beroende av bör finnas i den här mappen.
 `conda_packages`| Lista över Python-paket installeras via conda som krävs för dina utbildningsskript.  
 
-Konstruktorn har en annan parameter med namnet `pip_packages` som du använder för eventuella pip-paket som behövs
+Konstruktorn har en annan parameter `pip_packages` som heter att du använder för alla pip-paket som behövs.
 
 Nu när du har skapat din `Estimator` objekt, skicka utbildningsjobbet som ska köras på den fjärranslutna beräkningen med ett anrop till den `submit` fungerar på din [Experiment](concept-azure-machine-learning-architecture.md#experiments) objektet `experiment`. 
 
@@ -112,7 +112,7 @@ Parameter | Beskrivning | Standard
 `custom_docker_image`| Namnet på avbildningen som du vill använda. Ange endast-avbildningarna i offentliga docker-databaser (i det här fallet Docker Hub). Använd konstruktorns `environment_definition` parameter i stället om du vill använda en avbildning från en privat Docker-lagringsplats. [Se exempel](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/how-to-use-estimator.ipynb). | `None`
 `node_count`| Antalet noder som ska användas för utbildning-jobbet. | `1`
 `process_count_per_node`| Antal processer (eller ”anställda”) för att köra på varje nod. I sådana fall kan du använda den `2` GPU: er tillgängliga på varje nod.| `1`
-`distributed_backend`| Serverdelen för att starta distribuerade utbildning som kostnadsuppskattning erbjuder via MPI.  Att utföra parallella eller distribuerade utbildning (t.ex. `node_count`> 1 eller `process_count_per_node`> 1 eller båda), ange `distributed_backend='mpi'`. MPI-implementering som används av AML [öppna MPI](https://www.open-mpi.org/).| `None`
+`distributed_backend`| Serverdelen för att starta distribuerade utbildning som kostnadsuppskattning erbjuder via MPI.  För att utföra parallell eller distribuerad utbildning (t. `node_count`ex. > `process_count_per_node`1 eller > 1 eller båda) `distributed_backend='mpi'`anger du. MPI-implementering som används av AML [öppna MPI](https://www.open-mpi.org/).| `None`
 
 Slutligen skicka utbildningsjobbet:
 ```Python

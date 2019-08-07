@@ -12,17 +12,17 @@ ms.custom: aaddev
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: ryanwi
 ms.reviewer: zachowd
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac9d278053f05f9041a002b1c6ef3f873b0d9efb
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 012a79969f2fa72589ba6b70aa5398b6f4e7e811
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68324853"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68835243"
 ---
 # <a name="understanding-azure-ad-application-consent-experiences"></a>Förstå medgivande i Azure AD-program
 
@@ -47,9 +47,9 @@ Följande diagram och tabell innehåller information om bygg blocken i medgivand
 
 | # | Komponent | Syfte |
 | ----- | ----- | ----- |
-| 1 | Användar identifierare | Den här identifieraren representerar användaren som klient programmet begär för att få åtkomst till skyddade resurser åt. |
+| 1 | Användaridentifierare | Den här identifieraren representerar användaren som klient programmet begär för att få åtkomst till skyddade resurser åt. |
 | 2 | Titel | Rubriken ändras baserat på om användarna ska gå igenom flödet för användare eller administrativt godkännande. I användarens godkännande flöde blir rubriken "behörighet begärs", medan rubriken i det administrativa godkännande flödet har en rad "acceptera för din organisation". |
-| 3 | App-logotyp | Den här bilden bör hjälpa användarna att ha en visuell ikon för om den här appen är den app som de är avsedd att komma åt. Den här avbildningen tillhandahålls av programutvecklare och ägarskapet för den här avbildningen är inte verifierad. |
+| 3 | Applogotyp | Den här bilden bör hjälpa användarna att ha en visuell ikon för om den här appen är den app som de är avsedd att komma åt. Den här avbildningen tillhandahålls av programutvecklare och ägarskapet för den här avbildningen är inte verifierad. |
 | 4 | Appnamn | Det här värdet bör informera användarna om vilka program som begär åtkomst till sina data. Obs! det här namnet tillhandahålls av utvecklarna och ägarskapet för det här namnet på appen är inte verifierat. |
 | 5 | Utgivardomän | Det här värdet bör ge användare en domän som de kan utvärdera för pålitlighet. Den här domänen tillhandahålls av utvecklare och ägarskapet för den här utgivarens domän är verifierad. |
 | 6 | Behörigheter | Den här listan innehåller de behörigheter som begärs av klient programmet. Användare bör alltid utvärdera de typer av behörigheter som begärs för att förstå vilka data som klient programmet kommer att ha behörighet att komma åt för deras räkning om de accepterar. Som programutvecklare är det bäst att begära åtkomst till behörigheterna med minsta behörighet. |

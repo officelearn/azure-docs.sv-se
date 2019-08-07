@@ -1,5 +1,5 @@
 ---
-title: Skicka och ta emot händelser med hjälp av .NET Core - Azure Event Hubs | Microsoft Docs
+title: Skicka och ta emot händelser med .NET Core – Azure Event Hubs | Microsoft Docs
 description: Den här artikeln innehåller en genomgång för att skapa ett .NET Core-program som skickar händelser till Azure Event Hubs.
 services: event-hubs
 documentationcenter: na
@@ -15,29 +15,29 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 04/15/2019
 ms.author: shvija
-ms.openlocfilehash: 001abd15c88ae717fa0fb91605b2f0822a38973d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 736612398861cc7a168fd24e83bc28e3815a8a28
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65603541"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742154"
 ---
 # <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-net-core"></a>Skicka händelser till eller ta emot händelser från Azure Event Hubs med .NET Core
 Händelsehubbar är en tjänst som bearbetar stora mängder händelsedata (telemetri) från anslutna enheter och program. När du har samlat in data i händelsehubbar kan du lagra dem med ett lagringskluster eller omvandla dem med hjälp av en leverantör av realtidsanalys. Den här storskaliga händelseinsamlingen och bearbetningsfunktionen är en viktig komponent inom moderna programarkitekturer som t.ex. sakernas internet. En detaljerad översikt över Event Hubs finns i [Översikt över Event Hubs](event-hubs-about.md) och [Event Hubs-funktioner](event-hubs-features.md).
 
-Den här kursen visar hur du skapar .NET Core-program i C# skicka händelser till eller ta emot händelser från en händelsehubb. 
+Den här självstudien visar hur du skapar .NET C# Core-program i för att skicka händelser till eller ta emot händelser från en händelsehubben. 
 
 > [!NOTE]
 > Du kan ladda ned den här snabbstarten som ett exempel från [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender). Ersätt strängarna `EventHubConnectionString` och `EventHubName` med värdena för din händelsehubb och kör den. Alternativt kan du följa stegen i den här självstudiekursen och skapa ett eget.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - [Microsoft Visual Studio 2019](https://www.visualstudio.com).
 - [.NET Core Visual Studio 2015- eller 2017-verktyg](https://www.microsoft.com/net/core). 
-- **Skapa ett Event Hubs-namnområde och en event hub**. Det första steget är att använda [Azure Portal](https://portal.azure.com) till att skapa ett namnområde av typen Event Hubs och hämta de autentiseringsuppgifter för hantering som programmet behöver för att kommunicera med händelsehubben. Om du vill skapa ett namnområde och en händelsehubb följer du anvisningarna i [i den här artikeln](event-hubs-create.md). Sedan, i **anslutningssträngen för händelsehubbens namnområde** genom att följa instruktionerna från artikeln: [Hämta anslutningssträng](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Du kan använda anslutningssträngen för senare i den här självstudien.
+- **Skapa ett Event Hubs-namnområde och en Event Hub**. Det första steget är att använda [Azure Portal](https://portal.azure.com) till att skapa ett namnområde av typen Event Hubs och hämta de autentiseringsuppgifter för hantering som programmet behöver för att kommunicera med händelsehubben. Om du vill skapa ett namnområde och en händelsehubb följer du anvisningarna i [i den här artikeln](event-hubs-create.md). Hämta sedan **anslutnings strängen för Event Hub** -namnområdet genom att följa anvisningarna i artikeln: [Hämta anslutningssträng](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Du kan använda anslutningssträngen för senare i den här självstudien.
 
 ## <a name="send-events"></a>Skicka händelser 
-Det här avsnittet visar hur du skapar ett .NET Core-konsolprogram för att skicka händelser till en händelsehubb. 
+Det här avsnittet visar hur du skapar ett .NET Core-konsolprogram för att skicka händelser till en händelsehubben. 
 
 ### <a name="create-a-console-application"></a>Skapa ett konsolprogram
 
@@ -97,7 +97,7 @@ Lägg till [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Microsof
 4. Lägg till en ny metod som heter `SendMessagesToEventHub` till `Program`-klassen enligt följande:
 
     ```csharp
-    // Creates an event hub client and sends 100 messages to the event hub.
+    // Uses the event hub client to send 100 messages to the event hub.
     private static async Task SendMessagesToEventHub(int numMessagesToSend)
     {
         for (var i = 0; i < numMessagesToSend; i++)
@@ -167,7 +167,7 @@ Lägg till [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Microsof
                 Console.ReadLine();
             }
 
-            // Creates an event hub client and sends 100 messages to the event hub.
+            // Uses the event hub client to send 100 messages to the event hub.
             private static async Task SendMessagesToEventHub(int numMessagesToSend)
             {
                 for (var i = 0; i < numMessagesToSend; i++)
@@ -195,7 +195,7 @@ Lägg till [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Microsof
 6. Kör programmet och kontrollera att det inte finns några fel.
 
 ## <a name="receive-events"></a>Ta emot händelser
-Det här avsnittet visas hur du skriver ett .NET Core-konsolprogram som tar emot meddelanden från en event hub med den [Eventprocessorhost](event-hubs-event-processor-host.md). [Värden för händelsebearbetning](event-hubs-event-processor-host.md) är en .NET-klass som förenklar mottagandet av händelser från händelsehubbar genom att hantera permanenta kontrollpunkter och parallella mottaganden från händelsehubbar. Med hjälp av värden för händelsebearbetning kan du dela upp händelser över flera olika mottagare, även när de ligger på olika noder. Det här exemplet visas hur man använder värden för händelsebearbetning för en enda mottagare.
+Det här avsnittet visar hur du skriver ett .NET Core-konsolprogram som tar emot meddelanden från en Event Hub med hjälp av [händelse bearbetnings värden](event-hubs-event-processor-host.md). [Värden för händelsebearbetning](event-hubs-event-processor-host.md) är en .NET-klass som förenklar mottagandet av händelser från händelsehubbar genom att hantera permanenta kontrollpunkter och parallella mottaganden från händelsehubbar. Med hjälp av värden för händelsebearbetning kan du dela upp händelser över flera olika mottagare, även när de ligger på olika noder. Det här exemplet visas hur man använder värden för händelsebearbetning för en enda mottagare.
 > [!NOTE]
 > Du kan ladda ned den här snabbstarten som ett exempel från [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver). Ersätt strängarna `EventHubConnectionString`, `EventHubName`, `StorageAccountName`, `StorageAccountKey` och `StorageContainerName` med värdena för din händelsehubb och kör den. Alternativt kan du följa stegen i den här självstudiekursen och skapa ett eget.
 
@@ -368,7 +368,7 @@ Lägg till [**Microsoft.Azure.EventHubs**](https://www.nuget.org/packages/Micros
 Läs följande artiklar:
 
 - [EventProcessorHost](event-hubs-event-processor-host.md)
-- [Funktionerna och terminologin i Azure Event Hubs](event-hubs-features.md)
+- [Funktioner och terminologi i Azure Event Hubs](event-hubs-features.md)
 - [Vanliga frågor och svar om Event Hubs](event-hubs-faq.md)
 
 

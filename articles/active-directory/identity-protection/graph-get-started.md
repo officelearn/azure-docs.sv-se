@@ -11,20 +11,21 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f939811bec312baa1f4c37f0f915d2e881121af
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 1640511c2f97865f5026f9f977ed0e4a9c03e338
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68334075"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774381"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Kom igång med Azure Active Directory Identity Protection och Microsoft Graph
 
-Microsoft Graph är Microsoft Unified API-slutpunkten och start för [Azure Active Directory Identity Protection](../active-directory-identityprotection.md) -API: er. Det finns tre API: er som visar information om riskfyllda användare och inloggningar. Med det första API: et, **identityRiskEvents**, kan du fråga Microsoft Graph om du vill ha en lista över [risk händelser](../reports-monitoring/concept-risk-events.md) och tillhör ande information. Med det andra API: et, **riskyUsers**, kan du fråga Microsoft Graph om du vill ha information om användarnas identitets skydd som har identifierats som risk Med det tredje API: t **loggar**du kan du fråga Microsoft Graph om du vill veta mer om Azure AD-inloggningar med särskilda egenskaper som rör risk tillstånd, information och nivå. Den här artikeln hjälper dig att komma igång med att ansluta till Microsoft Graph och fråga dessa API: er. För en djupgående introduktion, fullständig dokumentation och åtkomst till Graph Explorer, se [Microsoft Graph webbplats](https://graph.microsoft.io/) eller den speciella referens dokumentationen för dessa API: er:
+Microsoft Graph är Microsoft Unified API-slutpunkten och start för [Azure Active Directory Identity Protection](../active-directory-identityprotection.md) -API: er. Det finns fyra API: er som visar information om riskfyllda användare och inloggningar. Med det första API: et, **riskDetection**, kan du fråga Microsoft Graph om du vill visa en lista över både användare och inloggning länkade risk identifieringar och tillhör ande information om identifieringen. Med det andra API: et, **riskyUsers**, kan du fråga Microsoft Graph om du vill ha information om användarnas identitets skydd som har identifierats som risk Med det tredje API: t **loggar**du kan du fråga Microsoft Graph om du vill veta mer om Azure AD-inloggningar med särskilda egenskaper som rör risk tillstånd, information och nivå. Med det fjärde API: et, **identityRiskEvents**, kan du fråga Microsoft Graph om du vill ha en lista över [risk händelser](../reports-monitoring/concept-risk-events.md) och tillhör ande information. Den här artikeln hjälper dig att komma igång med att ansluta till Microsoft Graph och fråga dessa API: er. För en djupgående introduktion, fullständig dokumentation och åtkomst till Graph Explorer, se [Microsoft Graph webbplats](https://graph.microsoft.io/) eller den speciella referens dokumentationen för dessa API: er:
 
-* [identityRiskEvents-API](https://docs.microsoft.com/graph/api/resources/identityriskevent?view=graph-rest-beta)
+* [riskDetection-API](https://docs.microsoft.com/graph/api/resources/riskdetection?view=graph-rest-beta)
 * [riskyUsers-API](https://docs.microsoft.com/graph/api/resources/riskyuser?view=graph-rest-beta)
 * [inloggnings-API](https://docs.microsoft.com/graph/api/resources/signin?view=graph-rest-beta)
+* [identityRiskEvents-API](https://docs.microsoft.com/graph/api/resources/identityriskevent?view=graph-rest-beta)
 
 ## <a name="connect-to-microsoft-graph"></a>Anslut till Microsoft Graph
 
@@ -194,6 +195,14 @@ Lägg bara till klient-ID, hemlig nyckel och klient domän.
 ## <a name="query-the-apis"></a>Fråga API: erna
 
 Dessa tre API: er ger en mängd möjligheter att hämta information om riskfyllda användare och inloggningar i din organisation. Nedan visas några vanliga användnings fall för dessa API: er och de associerade exempel förfrågningarna. Du kan köra dessa frågor med hjälp av exempel koden ovan eller med hjälp av [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
+
+### <a name="get-all-of-the-offline-risk-detections-riskdetection-api"></a>Hämta alla identifieringar av offline-risk (riskDetection-API)
+
+Med identitets skydds principer för inloggnings risker kan du tillämpa villkor när risken identifieras i real tid. Men vad händer om identifieringar som upptäcks offline (eller inte i real tid)? Du kan fråga riskDetection-API: et för att förstå vilka identifieringar som har inträffat offline och därmed inte har utlöst inloggnings risk principen.
+
+```
+GET https://graph.microsoft.com/beta/riskDetections?$filter=detectionTimingType eq 'offline'
+```
 
 ### <a name="get-the-high-risk-and-medium-risk-events-identityriskevents-api"></a>Hämta händelser med hög risk och medelhög risk (identityRiskEvents-API)
 

@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 07/31/2019
+ms.date: 08/06/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 896bd7f9af3c319ec4190131036d8aa8ee49bb79
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: e15fa8c79663fc2517039124f9be8c1ecd57b8a8
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68705441"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68837873"
 ---
 # <a name="delegate-app-registration-permissions-in-azure-active-directory"></a>Delegera registrerings behörigheter för app i Azure Active Directory
 
@@ -29,7 +29,7 @@ Den här artikeln beskriver hur du använder app-behörigheter i anpassade rolle
 - [Begränsa vem som kan skapa program](#restrict-who-can-create-applications) och hantera de program som de skapar. Som standard i Azure AD kan alla användare registrera program registreringar och hantera alla aspekter av program som de skapar. Detta kan begränsas till att endast tillåta valda personer som har behörighet.
 - [Tilldela en eller flera ägare till ett program](#assign-application-owners). Detta är ett enkelt sätt att ge någon möjlighet att hantera alla aspekter av Azure AD-konfigurationen för ett enskilt program.
 - [Tilldela en inbyggd administrativ roll](#assign-built-in-application-admin-roles) som beviljar åtkomst för att hantera konfiguration i Azure AD för alla program. Detta är det rekommenderade sättet att ge IT-experter åtkomst till att hantera omfattande program konfigurations behörigheter utan att bevilja åtkomst till att hantera andra delar av Azure AD som inte är relaterade till program konfigurationen.
-- [Skapa en anpassad roll](#create-and-assign-a-custom-role) som definierar mycket specifika behörigheter och tilldela den till någon antingen till omfånget för ett enskilt program som en begränsad ägare, eller i katalogens omfattning (alla program) som en begränsad administratör.
+- [Skapa en anpassad roll](#create-and-assign-a-custom-role-preview) som definierar mycket specifika behörigheter och tilldela den till någon antingen till omfånget för ett enskilt program som en begränsad ägare, eller i katalogens omfattning (alla program) som en begränsad administratör.
 
 Det är viktigt att överväga att bevilja åtkomst med hjälp av någon av ovanstående metoder av två orsaker. Innan du delegerar möjligheten att utföra administrativa uppgifter minskar du den globala administratörs belastningen. För det andra ökar säkerheten position med begränsade behörigheter och risken för obehörig åtkomst minskas. Delegerings problem och allmänna rikt linjer beskrivs i [delegerad administration i Azure Active Directory](roles-concept-delegation.md).
 
@@ -86,16 +86,21 @@ Följ anvisningarna i guiden [tilldela roller till användare med Azure Active D
 > Program administratörer och moln program administratörer kan lägga till autentiseringsuppgifter till ett program och använda dessa autentiseringsuppgifter för att personifiera programmets identitet. Programmet kan ha behörigheter som är en utökning av behörighet över administratörs rollens behörigheter. En administratör i den här rollen kan potentiellt skapa eller uppdatera användare eller andra objekt vid personifiering av programmet, beroende på programmets behörigheter.
 > Ingen av rollerna ger möjlighet att hantera inställningar för villkorlig åtkomst.
 
-## <a name="create-and-assign-a-custom-role"></a>Skapa och tilldela en anpassad roll
+## <a name="create-and-assign-a-custom-role-preview"></a>Skapa och tilldela en anpassad roll (förhands granskning)
 
 Att skapa anpassade roller och tilldela anpassade roller är separata steg:
 
 - [Skapa en anpassad *roll definition* ](roles-create-custom.md) och [Lägg till behörigheter till den från en för inställnings lista](roles-custom-available-permissions.md). Detta är samma behörigheter som används i de inbyggda rollerna.
-- [Skapa en *roll tilldelning* ](roles-assign-graph.md) för att tilldela den anpassade rollen.
+- [Skapa en *roll tilldelning* ](roles-assign-powershell.md) för att tilldela den anpassade rollen.
 
 Den här separationen gör att du kan skapa en enda roll definition och sedan tilldela den flera gånger i olika *omfång*. En anpassad roll kan tilldelas i hela organisationen, eller så kan den tilldelas i omfånget om ett enskilt Azure AD-objekt. Ett exempel på ett objekt omfång är en registrering av en enda app. Med olika omfång kan samma roll definition tilldelas till Lisa över alla app-registreringar i organisationen och sedan till Naveen över enbart appen contoso utgifts rapporter.
 
-Mer information om grunderna för anpassade roller finns i [Översikt över anpassade roller](roles-custom-overview.md), samt hur du [skapar en anpassad roll](roles-create-custom.md) och hur du [tilldelar en roll](roles-assign-graph.md).
+Tips när du skapar och använder anpassade roller för att delegera program hantering:
+- Anpassade roller beviljar endast åtkomst i de senaste program registrerings bladen i Azure AD-portalen. De beviljar inte åtkomst i bladet för den äldre appens registreringar.
+- Anpassade roller beviljar inte åtkomst till Azure AD-portalen när användar inställningen "begränsa åtkomst till Azure AD-administrationskonsolen" är inställd på Ja.
+- Appregistreringar användaren har åtkomst till att använda roll tilldelningar visas bara på fliken alla program på registrerings sidan för appen. De visas inte i fliken ' ägda program '.
+
+Mer information om grunderna för anpassade roller finns i [Översikt över anpassade roller](roles-custom-overview.md), samt hur du [skapar en anpassad roll](roles-create-custom.md) och hur du [tilldelar en roll](roles-assign-powershell.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

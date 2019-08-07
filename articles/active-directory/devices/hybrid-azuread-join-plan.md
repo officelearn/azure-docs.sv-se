@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee3309bdd3629057d174866dde58ffd95e9e5ca8
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 49f8d0e418f43648665b95f5bf1f672e9f9dae28
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562142"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779461"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Instruktioner: Planera implementeringen av hybrid Azure Active Directorys anslutning
 
@@ -111,12 +111,18 @@ De här scenarierna kräver inte att du konfigurerar en Federations Server för 
 
 ### <a name="federated-environment"></a>Federerad miljö
 
-En federerad miljö bör ha en identitets leverantör som stöder följande krav:
+En federerad miljö bör ha en identitetsprovider som uppfyller följande krav. Om du har en federerad miljö som använder Active Directory Federation Services (AD FS) (AD FS) stöds redan nedanstående krav.
 
-- **WS-Trust-protokoll:** Det här protokollet krävs för att autentisera Windows aktuella hybrid Azure AD-anslutna enheter med Azure AD.
 - **WIAORMULTIAUTHN-anspråk:** Detta anspråk krävs för att göra en hybrid Azure AD-anslutning för Windows-enheter på hög nivå.
+- **WS-Trust-protokoll:** Det här protokollet krävs för att autentisera Windows aktuella hybrid Azure AD-anslutna enheter med Azure AD. När du använder AD FS måste du aktivera följande WS-Trust-slutpunkter:`/adfs/services/trust/2005/windowstransport`  
+`/adfs/services/trust/13/windowstransport`  
+  `/adfs/services/trust/2005/usernamemixed` 
+  `/adfs/services/trust/13/usernamemixed`
+  `/adfs/services/trust/2005/certificatemixed` 
+  `/adfs/services/trust/13/certificatemixed` 
 
-Om du har en federerad miljö som använder Active Directory Federation Services (AD FS) (AD FS) stöds redan ovanstående krav.
+> [!WARNING] 
+> Både **ADFS/tjänster/Trust/2005/windowstransport** eller **adfs/services/trust/13/windowstransport** ska aktive ras som enbart intranät riktade slut punkter och får inte visas som extra näts slut punkter via webbprogramproxy. Läs mer om hur du inaktiverar WIndows-slutpunkter för WS-Trust i [inaktivera WS-Trust Windows-slutpunkter på proxyn](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). Du kan se vilka slutpunkter som är aktiverade via AD FS-hanteringskonsolen under **Tjänst** > **Slutpunkter**.
 
 > [!NOTE]
 > Azure AD har inte stöd för smartkort eller certifikat i hanterade domäner.
@@ -130,7 +136,7 @@ Baserat på scenariot som matchar din identitets infrastruktur, se:
 
 ## <a name="review-on-premises-ad-upn-support-for-hybrid-azure-ad-join"></a>Granska lokala AD UPN-stöd för Hybrid Azure AD-anslutning
 
-Ibland kan dina lokala AD-UPN skilja sig från dina Azure AD-UPN. I sådana fall ger Windows 10 hybrid Azure AD Join begränsat stöd för lokala AD-UPN: er baserat på [autentiseringsmetoden](https://docs.microsoft.com/azure/security/azure-ad-choose-authn), domän typen och Windows 10-versionen. Det finns två typer av lokala AD-UPN: er som kan finnas i din miljö:
+Ibland kan dina lokala AD-UPN skilja sig från dina Azure AD-UPN. I sådana fall ger Windows 10 hybrid Azure AD Join begränsat stöd för lokala AD-UPN: er baserat på [autentiseringsmetoden](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn), domän typen och Windows 10-versionen. Det finns två typer av lokala AD-UPN: er som kan finnas i din miljö:
 
 - Dirigerbart UPN: Ett dirigerbart UPN har en giltig verifierad domän som har registrerats hos en domän registrator. Om contoso.com till exempel är den primära domänen i Azure AD, är contoso.org den primära domänen i den lokala AD som ägs av Contoso och [verifierats i Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain)
 - Icke-dirigerbart UPN: Ett icke-dirigerbart UPN har ingen verifierad domän. Den kan bara användas inom din organisations privata nätverk. Om contoso.com till exempel är den primära domänen i Azure AD, är contoso. local den primära domänen i den lokala AD-domänen, men är inte en verifierbar domän på Internet och används endast i Contosos nätverk.

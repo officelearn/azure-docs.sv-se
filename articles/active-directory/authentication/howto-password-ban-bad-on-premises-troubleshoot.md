@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d96f5bb189dfd20c65fc6fc6ddcb8fff66d52ff
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 07c035f4823ea8c8eaa96ca9bda22450246811cd
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68666242"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779631"
 ---
 # <a name="azure-ad-password-protection-troubleshooting"></a>Fel sökning av lösen ords skydd i Azure AD
 
@@ -32,7 +32,7 @@ Den vanligaste orsaken till det här problemet är att en proxy ännu inte har r
 
 Huvud symptomet för det här problemet är 30018 händelser i händelse loggen för DC-agenten. Det här problemet kan ha flera möjliga orsaker:
 
-1. DC-agenten finns i en isolerad del av nätverket som inte tillåter nätverks anslutning till den eller de registrerade proxyservrarna. Det här problemet kan därför vara ofarligt så länge andra DC-agenter kan kommunicera med proxyn (-proxyservrarna) för att ladda ned lösen ords principer från Azure, som sedan kommer att erhållas av den isolerade DOMÄNKONTROLLANTen via replikering av principfiler i Sysvol-resursen.
+1. DC-agenten finns i en isolerad del av nätverket som inte tillåter nätverks anslutning till den eller de registrerade proxyservrarna. Det här problemet kan vara ofarligt så länge andra DC-agenter kan kommunicera med proxyn eller proxyservrarna för att ladda ned lösen ords principer från Azure. När de har hämtats kommer de principerna att erhållas av den isolerade DOMÄNKONTROLLANTen via replikering av principfiler i Sysvol-resursen.
 
 1. Proxyservern blockerar åtkomst till slut punkten för RPC-slutpunktsmapparen (port 135)
 
@@ -48,7 +48,7 @@ Huvud symptomet för det här problemet är 30018 händelser i händelse loggen 
 
 1. Se till att skogen och alla proxyservrar är registrerade gentemot samma Azure-klient.
 
-   Du kan kontrol lera detta krav genom att `Get-AzureADPasswordProtectionProxy` köra `Get-AzureADPasswordProtectionDCAgent` -och PowerShell-cmdletarna och `AzureTenant` sedan jämföra egenskapen för varje returnerad artikel. För korrekt åtgärd måste det rapporterade klient namnet vara detsamma för alla domänkontrollanter och proxyservrar.
+   Du kan kontrol lera detta krav genom att `Get-AzureADPasswordProtectionProxy` köra `Get-AzureADPasswordProtectionDCAgent` -och PowerShell-cmdletarna och `AzureTenant` sedan jämföra egenskapen för varje returnerad artikel. För korrekt åtgärd måste det rapporterade klient namnet vara detsamma för alla DC-agenter och proxyservrar.
 
    Om ett matchnings fel för ett Azure-klientnummer finns kan det här problemet åtgärdas `Register-AzureADPasswordProtectionProxy` genom att köra `Register-AzureADPasswordProtectionForest` och/eller PowerShell-cmdletar efter behov, och se till att använda autentiseringsuppgifter från samma Azure-klient för alla registreringar.
 
@@ -69,6 +69,8 @@ Den vanligaste rotor saken som KDS-tjänsten inte kan starta är att objektet Ac
 ## <a name="weak-passwords-are-being-accepted-but-should-not-be"></a>Svaga lösen ord godkänns men bör inte
 
 Det här problemet kan ha flera orsaker.
+
+1. DC-agenterna kör en offentlig för hands version av program vara som har upphört att gälla. Se [Public Preview DC Agent-programvaran har upphört att gälla](howto-password-ban-bad-on-premises-troubleshoot.md#public-preview-dc-agent-software-has-expired).
 
 1. Det går inte att hämta en princip eller också går det inte att dekryptera befintliga principer. Sök efter möjliga orsaker i ovanstående avsnitt.
 
@@ -99,7 +101,7 @@ Setting password failed.
         Error Message: Password doesn't meet the requirements of the filter dll's
 ```
 
-När Azure AD Password Protection loggar inloggnings händelser för lösen ord för ett Active Directory DSRM-lösenord förväntas att händelse logg meddelandena inte ska innehålla något användar namn. Detta inträffar eftersom DSRM-kontot är ett lokalt konto som inte ingår i den faktiska Active Directorys domänen.  
+När Azure AD Password Protection loggar inloggnings händelser för lösen ord för ett Active Directory DSRM-lösenord förväntas att händelse logg meddelandena inte ska innehålla något användar namn. Det här problemet beror på att DSRM-kontot är ett lokalt konto som inte ingår i den faktiska Active Directorys domänen.  
 
 ## <a name="domain-controller-replica-promotion-fails-because-of-a-weak-dsrm-password"></a>Befordran av replik på domänkontrollanten Miss lyckas på grund av ett svagt DSRM-lösenord
 
@@ -119,7 +121,67 @@ När degraderingen har slutförts och domänkontrollanten har startats om och k�
 
 ## <a name="booting-into-directory-services-repair-mode"></a>Starta i reparations läge för katalog tjänster
 
-Om domänkontrollanten har startats i reparations läge för katalog tjänster identifierar DC-agenttjänsten det här tillståndet och gör att alla lösen ords validerings-eller tvångs aktiviteter inaktive ras, oavsett den aktuella aktiva princip konfigurationen.
+Om domänkontrollanten har startats i reparations läge för katalog tjänster identifierar det här tillståndet i DLL-filen för DC-agentens lösen ords filter och gör att alla lösen ords validerings-eller tvingande aktiviteter inaktive ras, oavsett den aktuella aktiva principen inställningarna. DLL-filen med lösen ords filter för DC-agenten loggar en 10023 varnings händelse i administratörs händelse loggen, till exempel:
+
+```text
+The password filter dll is loaded but the machine appears to be a domain controller that has been booted into Directory Services Repair Mode. All password change and set requests will be automatically approved. No further messages will be logged until after the next reboot.
+```
+## <a name="public-preview-dc-agent-software-has-expired"></a>Offentlig för hands version av DC Agent-programvara har upphört
+
+Under den offentliga för hands versionen av Azure AD Password Protection var DC-agenten hårdkodad för att sluta bearbeta begär Anden om lösen ords verifiering vid följande datum:
+
+* 1\.2.65.0 för version slutar att bearbeta begär Anden om lösen ords verifiering den 1 2019 september.
+* Version 1.2.25.0 och tidigare slutade bearbeta begär Anden om lösen ords verifiering den 1 2019 juli.
+
+I takt med att tids gränsen närmar sig, genererar alla tidsbegränsade DC agent-versioner en 10021-händelse i händelse loggen för DC-agenten vid start som ser ut så här:
+
+```text
+The password filter dll has successfully loaded and initialized.
+
+The allowable trial period is nearing expiration. Once the trial period has expired, the password filter dll will no longer process passwords. Please contact Microsoft for an newer supported version of the software.
+
+Expiration date:  9/01/2019 0:00:00 AM
+
+This message will not be repeated until the next reboot.
+```
+
+När tids gränsen har passerat genererar alla tidsbegränsade DC agent-versioner en 10022-händelse i händelse loggen för DC agent-administratörer vid start som ser ut så här:
+
+```text
+The password filter dll is loaded but the allowable trial period has expired. All password change and set requests will be automatically approved. Please contact Microsoft for a newer supported version of the software.
+
+No further messages will be logged until after the next reboot.
+```
+
+Eftersom tids gränsen bara kontrol leras vid den första starten kanske du inte ser dessa händelser förrän du har gått igenom kalenderns tids gräns. När tids gränsen har identifierats kommer inga negativa effekter på antingen domänkontrollanten eller den större miljön att inträffa, förutom att alla lösen ord godkänns automatiskt.
+
+> [!IMPORTANT]
+> Microsoft rekommenderar att inaktuella offentliga för hands versioner av DC-agenter omedelbart uppgraderas till den senaste versionen.
+
+Ett enkelt sätt att identifiera DC-agenter i din miljö som måste uppgraderas är genom att köra `Get-AzureADPasswordProtectionDCAgent` cmdleten, till exempel:
+
+```powershell
+PS C:\> Get-AzureADPasswordProtectionDCAgent
+
+ServerFQDN            : bpl1.bpl.com
+SoftwareVersion       : 1.2.125.0
+Domain                : bpl.com
+Forest                : bpl.com
+PasswordPolicyDateUTC : 8/1/2019 9:18:05 PM
+HeartbeatUTC          : 8/1/2019 10:00:00 PM
+AzureTenant           : bpltest.onmicrosoft.com
+```
+
+I det här avsnittet är fältet SoftwareVersion självklart vilken nyckel egenskap du ska titta på. Du kan också använda PowerShell-filtrering för att filtrera ut DC-agenter som redan är i eller över den nödvändiga bas linje versionen, till exempel:
+
+```powershell
+PS C:\> $LatestAzureADPasswordProtectionVersion = "1.2.125.0"
+PS C:\> Get-AzureADPasswordProtectionDCAgent | Where-Object {$_.SoftwareVersion -lt $LatestAzureADPasswordProtectionVersion}
+```
+
+Azure AD-proxyn för lösen ords skydd är inte tidsbegränsad i någon version. Microsoft rekommenderar fortfarande att både DC-och proxy-agenter uppgraderas till de senaste versionerna när de släpps. `Get-AzureADPasswordProtectionProxy` Cmdleten kan användas för att hitta proxy-agenter som kräver uppgraderingar, ungefär som i exemplet ovan för DC-agenter.
+
+Se [Uppgradera DC](howto-password-ban-bad-on-premises-deploy.md#upgrading-the-dc-agent) -agenten och [Uppgradera proxyagenten](howto-password-ban-bad-on-premises-deploy.md#upgrading-the-proxy-agent) för mer information om de olika uppgraderings procedurerna.
 
 ## <a name="emergency-remediation"></a>Nöd reparation
 

@@ -1,7 +1,7 @@
 ---
 title: Justera hyperparametrar för din modell
 titleSuffix: Azure Machine Learning service
-description: Effektivt justera hyperparametrar för din deep learning / machine learning-modellen med hjälp av Azure Machine Learning-tjänsten. Du kommer lära dig att definiera parametern search utrymme, ange ett primära mått för att optimera och tidigt avsluta dåligt utför körs.
+description: Effektivt justera hyperparametrar för din deep learning / machine learning-modellen med hjälp av Azure Machine Learning-tjänsten. Du får lära dig hur du definierar parameter Sök utrymmet, anger ett primärt mått som ska optimeras och tidigt avslutar dåligt utförande av körningar.
 ms.author: swatig
 author: swatig007
 ms.reviewer: sgilley
@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 730f39bf0b05ef33bbbca150532f96f1e495a9ed
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: cb4378047f34f3f635b2f1dd2425bbee28f91178
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302350"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815718"
 ---
 # <a name="tune-hyperparameters-for-your-model-with-azure-machine-learning-service"></a>Justera hyperparametrar för din modell med Azure Machine Learning-tjänsten
 
@@ -45,7 +45,7 @@ Justera hyperparametrar genom att utforska vilka värden som definierats för va
 
 ### <a name="types-of-hyperparameters"></a>Typer av hyperparametrar
 
-Varje finjustering kan antingen vara diskret eller kontinuerlig.
+Varje enskild parameter kan antingen vara diskret eller kontinuerlig och har en fördelning av värden som beskrivs av ett [parameter uttryck](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.parameter_expressions?view=azure-ml-py).
 
 #### <a name="discrete-hyperparameters"></a>Diskret hyperparametrar 
 
@@ -129,7 +129,7 @@ param_sampling = GridParameterSampling( {
 
 När du använder Bayesian sampling, påverkar antalet samtidiga körningar effektiviteten i justering processen. Vanligtvis kan ett mindre antal samtidiga körningar leda till bättre sampling konvergens, eftersom mindre graden av parallellitet ökar antalet körningar som har nytta av tidigare slutförda körningar.
 
-Bayesian sampling stöder endast `choice` och `uniform` distributioner över search utrymmet. 
+Bayesian-sampling stöder `choice`bara `uniform`, och `quniform` distributioner över Sök utrymmet.
 
 ```Python
 from azureml.train.hyperdrive import BayesianParameterSampling
@@ -179,7 +179,7 @@ Skriptet utbildning beräknar den `val_accuracy` och loggar som ”Precision” 
 
 ## <a name="specify-early-termination-policy"></a>Ange princip för tidig uppsägning
 
-Avsluta dåligt utförande körs automatiskt med en [tidig avslutnings princip. Avslutning minskar slöseri med resurser och i stället använder de här resurserna för att utforska andra parameterkonfigurationer.
+Avsluta dåligt utför körs automatiskt med en princip för tidig uppsägning. Avslutning minskar slöseri med resurser och i stället använder de här resurserna för att utforska andra parameterkonfigurationer.
 
 När du använder en tidig uppsägning princip kan konfigurera du följande parametrar som styr när en princip tillämpas:
 
@@ -234,7 +234,7 @@ from azureml.train.hyperdrive import TruncationSelectionPolicy
 early_termination_policy = TruncationSelectionPolicy(evaluation_interval=1, truncation_percentage=20, delay_evaluation=5)
 ```
 
-I det här exemplet tillämpas tidig uppsägning principen vid varje intervall med början vid utvärderingsintervall 5. En körning kommer att avslutas med intervall 5, om prestanda med intervallet 5 i den lägsta 20% över alla körningar prestanda på intervallet 5.
+I det här exemplet tillämpas tidig uppsägning principen vid varje intervall med början vid utvärderingsintervall 5. En körning avslutas med intervall 5 om dess prestanda vid intervall 5 är i den lägsta 20% av prestandan för alla körningar i intervallet 5.
 
 ### <a name="no-termination-policy"></a>Ingen princip för uppsägning
 
@@ -246,7 +246,7 @@ policy=None
 
 ### <a name="default-policy"></a>Standardprincipen
 
-Om ingen princip har angetts kan finjustering justering tjänsten alla träningskörningar att slutföras.
+Om ingen princip har angetts, kommer tjänsten för egenskaps justering att låta all utbildning köras på Slutför.
 
 >[!NOTE] 
 >Om du letar efter en konservativ princip som ger besparingar utan avslutande lovande jobb kan du använda en Median stoppar princip med `evaluation_interval` 1 och `delay_evaluation` 5. Det här är konservativ inställningar som kan ge cirka 25% – 35% billigare utan att förlora på primära mått (baserat på vår utvärdering av data).
@@ -275,7 +275,7 @@ max_total_runs=20,
 max_concurrent_runs=4
 ```
 
-Den här koden konfigurerar finjustering justering experimentet för att använda högst 20 Totalt antal körningar, kör 4 konfigurationer i taget.
+Den här koden konfigurerar experimentet för inställning av parameter till att använda maximalt 20 Totalt antal körningar som kör fyra konfigurationer i taget.
 
 ## <a name="configure-experiment"></a>Konfigurera experiment
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: rajanaki
-ms.openlocfilehash: 305ff610c0f8962f2b50789d8af0a5f6e2fbf046
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: e06cd77a1d46208fe0f7aa166be3ccd3b9b7dbb4
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68717375"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828608"
 ---
 # <a name="service-updates-in-site-recovery"></a>Tjänst uppdateringar i Site Recovery
 
@@ -72,7 +72,7 @@ Följ samma process för alla relevanta komponenter.
 
 1. Innan du uppgraderar operativ systemet/kernel-versioner kontrollerar du om mål versionen stöds Site Recovery. 
 
-    - Stöd för [virtuella Azure-datorer](/azure-to-azure-support-matrix.md#replicated-machine-operating-systems) .
+    - Stöd för [virtuella Azure-datorer](azure-to-azure-support-matrix.md#replicated-machine-operating-systems) .
     - Stöd för [VMware/fysisk server](vmware-physical-azure-support-matrix.md#replicated-machines)
     - Stöd för [Hyper-V](hyper-v-azure-support-matrix.md#replicated-vms) .
 2. Granska [tillgängliga uppdateringar](site-recovery-whats-new.md) för att ta reda på vad du vill uppgradera.

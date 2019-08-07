@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect: Direktautentisering – vanliga frågor och svar | Microsoft Docs'
-description: Svar på vanliga frågor om Azure Active Directory-direktautentisering
+title: 'Azure AD Connect: Direkt autentisering – vanliga frågor och svar | Microsoft Docs'
+description: Svar på vanliga frågor om Azure Active Directory direktautentisering
 services: active-directory
 keywords: Azure AD Connect direktautentisering, installera Active Directory, nödvändiga komponenter för Azure AD, SSO, enkel inloggning
 documentationcenter: ''
@@ -16,79 +16,79 @@ ms.date: 04/15/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd41bdfb90e5e8428a747832c10fe23a2cac4560
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6c7199cd8e5dbde1f6ff2f5cea56a4191211c853
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67109393"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779088"
 ---
-# <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory-direktautentisering: Vanliga frågor och svar
+# <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory direktautentisering: Vanliga frågor och svar
 
-Den här artikeln tar upp vanliga frågor och svar om Azure Active Directory (Azure AD)-direktautentisering. Kontrollera tillbaka för uppdaterat innehåll.
+Den här artikeln behandlar vanliga frågor om Azure Active Directory (Azure AD) genom strömnings-autentisering. Fortsätt att söka efter uppdaterat innehåll.
 
-## <a name="which-of-the-methods-to-sign-in-to-azure-ad-pass-through-authentication-password-hash-synchronization-and-active-directory-federation-services-ad-fs-should-i-choose"></a>Vilka metoder för att logga in på Azure AD, direktautentisering, lösenord hash-synkronisering och Active Directory Federation Services (AD FS) ska jag välja?
+## <a name="which-of-the-methods-to-sign-in-to-azure-ad-pass-through-authentication-password-hash-synchronization-and-active-directory-federation-services-ad-fs-should-i-choose"></a>Vilken av metoderna för att logga in på Azure AD, direktautentisering, Password-hash-synkronisering och Active Directory Federation Services (AD FS) (AD FS), ska jag välja?
 
-Granska [den här guiden](https://docs.microsoft.com/azure/security/azure-ad-choose-authn) en jämförelse av de olika Azure AD-inloggning metoderna och hur du väljer den direkt inloggningsmetoden för din organisation.
+Läs [den här guiden](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn) för en jämförelse av de olika inloggnings metoderna för Azure AD och hur du väljer rätt inloggnings metod för din organisation.
 
-## <a name="is-pass-through-authentication-a-free-feature"></a>Är en kostnadsfri funktion för direktautentisering?
+## <a name="is-pass-through-authentication-a-free-feature"></a>Är direkt autentisering en kostnads fri funktion?
 
-Direktautentisering är en kostnadsfri funktion. Du behöver inte några betald utgåvor av Azure AD för att använda den.
+Direktautentisering är en kostnads fri funktion. Du behöver inte några betalda versioner av Azure AD för att använda den.
 
-## <a name="is-pass-through-authentication-available-in-the-microsoft-azure-germany-cloudhttpswwwmicrosoftdecloud-deutschland-and-the-microsoft-azure-government-cloudhttpsazuremicrosoftcomfeaturesgov"></a>Finns direktautentisering i den [Microsoft Azure Tyskland](https://www.microsoft.de/cloud-deutschland) och [Microsoft Azure Government-molnet](https://azure.microsoft.com/features/gov/)?
+## <a name="is-pass-through-authentication-available-in-the-microsoft-azure-germany-cloudhttpswwwmicrosoftdecloud-deutschland-and-the-microsoft-azure-government-cloudhttpsazuremicrosoftcomfeaturesgov"></a>Är direkt autentisering tillgängligt i [Microsoft Azure Tyskland molnet](https://www.microsoft.de/cloud-deutschland) och [Microsoft Azure Government molnet](https://azure.microsoft.com/features/gov/)?
 
-Nej. Direktautentisering är endast tillgängligt i den globala instansen av Azure AD.
+Nej. Direkt autentisering är bara tillgängligt i den globala instansen av Azure AD.
 
-## <a name="does-conditional-accessactive-directory-conditional-access-azure-portalmd-work-with-pass-through-authentication"></a>Har [villkorlig åtkomst](../active-directory-conditional-access-azure-portal.md) fungerar med direktautentisering?
+## <a name="does-conditional-accessactive-directory-conditional-access-azure-portalmd-work-with-pass-through-authentication"></a>Fungerar [villkorlig åtkomst](../active-directory-conditional-access-azure-portal.md) med direktautentisering?
 
-Ja. Alla funktioner för villkorlig åtkomst, inklusive Azure Multi-Factor Authentication fungerar med direktautentisering.
+Ja. Alla funktioner för villkorlig åtkomst, inklusive Azure Multi-Factor Authentication, fungerar med direktautentisering.
 
-## <a name="does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>Stöder direktautentisering ”alternativa ID” som användarnamn, i stället för ”userPrincipalName”?
+## <a name="does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>Stöder direkt autentisering "alternativ-ID" som användar namn, i stället för "userPrincipalName"?
 
-Ja, har stöd för direktautentisering `Alternate ID` som användarnamn när du konfigurerade i Azure AD Connect. Azure AD Connect som en förutsättning, som behövs för att synkronisera lokala Active Directory `UserPrincipalName` attributet Azure AD. Mer information finns i [anpassad installation av Azure AD Connect](how-to-connect-install-custom.md). Inte alla Office 365-program som stöder `Alternate ID`. Finns det specifika programmet dokumentation support-instruktionen.
+Ja, direktautentisering stöder `Alternate ID` som användar namn när de konfigureras i Azure AD Connect. Som en förutsättning måste Azure AD Connect synkronisera det lokala Active Directory `UserPrincipalName` -attributet till Azure AD. Mer information finns i [anpassad installation av Azure AD Connect](how-to-connect-install-custom.md). Inte alla stöd `Alternate ID`för Office 365-program. Läs det specifika programmets dokumentations stöd.
 
-## <a name="does-password-hash-synchronization-act-as-a-fallback-to-pass-through-authentication"></a>Synkronisering av lösenordshash fungera som reserv för direktautentisering?
+## <a name="does-password-hash-synchronization-act-as-a-fallback-to-pass-through-authentication"></a>Fungerar hash-synkronisering av lösen ord som reserv för direktautentisering?
 
-Nej. Direktautentisering _inte_ automatiskt växla över till synkronisering av lösenordshash. Om du vill undvika användaren inloggningar, bör du konfigurera direktautentisering för [hög tillgänglighet](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability).
+Nej. Direktautentisering växlar _inte_ automatiskt till hash-synkronisering av lösen ord. För att undvika användar inloggnings problem bör du konfigurera direktautentisering för [hög tillgänglighet](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability).
 
-## <a name="what-happens-when-i-switch-from-password-hash-synchronization-to-pass-through-authentication"></a>Vad händer när jag växlar från synkronisering av lösenordshash till direktautentisering?
+## <a name="what-happens-when-i-switch-from-password-hash-synchronization-to-pass-through-authentication"></a>Vad händer när jag växlar från hash-synkronisering av lösen ord för att passera autentisering?
 
-När du använder Azure AD Connect för att växla metoden inloggning från synkronisering av lösenordshash till direktautentisering blir direktautentisering den primära inloggningsmetoden för dina användare i hanterade domäner. Observera att alla användare lösenords-hash som tidigare har synkroniserats med synkronisering av lösenordshash finns lagrade i Azure AD.
+När du använder Azure AD Connect för att växla inloggnings metoden från hash-synkronisering av lösen ord för att sprida autentisering, blir direktautentisering den primära inloggnings metoden för dina användare i hanterade domäner. Observera att alla användares lösen ords-hashar som tidigare har synkroniserats med hash-synkronisering av lösen ord förblir lagrade i Azure AD.
 
-## <a name="can-i-install-an-azure-ad-application-proxymanage-appsapplication-proxymd-connector-on-the-same-server-as-a-pass-through-authentication-agent"></a>Kan jag installera en [Azure AD Application Proxy](../manage-apps/application-proxy.md) anslutningsapp på samma server som en Autentiseringsagenten för direktautentisering?
+## <a name="can-i-install-an-azure-ad-application-proxymanage-appsapplication-proxymd-connector-on-the-same-server-as-a-pass-through-authentication-agent"></a>Kan jag installera en [Azure AD-programproxy](../manage-apps/application-proxy.md) -anslutning på samma server som en genom strömnings agent för autentisering?
 
-Ja. Rebranded versioner av Autentiseringsagenten för direktautentisering, version 1.5.193.0 eller senare, stöder den här konfigurationen.
+Ja. De versioner av direkt verifierings agenten, version 1.5.193.0 eller senare, som stöds av den här konfigurationen.
 
-## <a name="what-versions-of-azure-ad-connect-and-pass-through-authentication-agent-do-you-need"></a>Vilka versioner av Azure AD Connect och Autentiseringsagenten för direktautentisering behöver du?
+## <a name="what-versions-of-azure-ad-connect-and-pass-through-authentication-agent-do-you-need"></a>Vilka versioner av Azure AD Connect och vidarekoppling av agenter behöver du?
 
-För den här funktionen ska fungera måste version 1.1.750.0 eller senare för Azure AD Connect och 1.5.193.0 eller senare för Autentiseringsagenten för direktautentisering. Installera all programvara på servrar med Windows Server 2012 R2 eller senare.
+För att den här funktionen ska fungera måste du ha version 1.1.750.0 eller senare för Azure AD Connect och 1.5.193.0 eller senare för genom strömnings agenten. Installera all program vara på servrar med Windows Server 2012 R2 eller senare.
 
-## <a name="what-happens-if-my-users-password-has-expired-and-they-try-to-sign-in-by-using-pass-through-authentication"></a>Vad händer om min användarens lösenord har upphört att gälla och de försöker logga in med hjälp av direktautentisering?
+## <a name="what-happens-if-my-users-password-has-expired-and-they-try-to-sign-in-by-using-pass-through-authentication"></a>Vad händer om min användares lösen ord har upphört att gälla och de försöker logga in med hjälp av direktautentisering?
 
-Om du har konfigurerat [tillbakaskrivning av lösenord](../authentication/concept-sspr-writeback.md) för en viss användare, och om användaren loggar in med hjälp av direktautentisering, de kan ändra eller återställa sina lösenord. Lösenorden som skrivs tillbaka till den lokala Active Directory som förväntat.
+Om du har konfigurerat [tillbakaskrivning av lösen ord](../authentication/concept-sspr-writeback.md) för en speciell användare, och om användaren loggar in med hjälp av direktautentisering, kan de ändra eller återställa sina lösen ord. Lösen orden skrivs tillbaka till den lokala Active Directory som förväntat.
 
-Om du inte har konfigurerat tillbakaskrivning av lösenord för en viss användare eller om användaren inte har en giltig Azure AD-licens, användaren kan inte uppdatera sina lösenord i molnet. De kan inte uppdatera sina lösenord, även om deras lösenord har upphört att gälla. I stället ser användaren det här meddelandet: ”Din organisation tillåter inte att du ändrar ditt lösenord på den här platsen. Uppdatera den enligt den metod som din organisation rekommenderar eller be din administratör om du behöver hjälp ”. Användaren eller administratören måste återställa sina lösenord i den lokala Active Directory.
+Om du inte har konfigurerat tillbakaskrivning av lösen ord för en särskild användare eller om användaren inte har någon giltig Azure AD-licens tilldelad, kan användaren inte uppdatera sitt lösen ord i molnet. De kan inte uppdatera sina lösen ord, även om deras lösen ord har upphört att gälla. Användaren ser i stället det här meddelandet: "Din organisation tillåter inte att du uppdaterar ditt lösen ord på den här webbplatsen. Uppdatera den enligt den metod som organisationen rekommenderar eller be administratören om hjälp. " Användaren eller administratören måste återställa sina lösen ord i lokala Active Directory.
 
-## <a name="how-does-pass-through-authentication-protect-you-against-brute-force-password-attacks"></a>Hur direktautentisering skyddar dig mot lösenord brute force-attacker?
+## <a name="how-does-pass-through-authentication-protect-you-against-brute-force-password-attacks"></a>Hur skyddar direkt autentiseringen mot brute-force-angrepp för lösen ord?
 
-[Information om Smart kontoutelåsning](../authentication/howto-password-smart-lockout.md).
+[Läs information om Smart utelåsning](../authentication/howto-password-smart-lockout.md).
 
-## <a name="what-do-pass-through-authentication-agents-communicate-over-ports-80-and-443"></a>Vad direkt Autentiseringsagenter kommunicerar via port 80 och 443?
+## <a name="what-do-pass-through-authentication-agents-communicate-over-ports-80-and-443"></a>Vad kommunicerar genom strömnings agenter över portarna 80 och 443?
 
-- Autentisering-agenter gör HTTPS-begäranden via port 443 för alla åtgärder för funktionen.
-- Autentisering-agenter gör HTTP-förfrågningar via port 80 för att ladda ned de SSL listor över återkallade certifikat (CRL).
+- Autentiserings agenter gör HTTPS-begäranden via port 443 för alla funktions åtgärder.
+- Autentiserings agenter gör HTTP-förfrågningar via port 80 för att hämta listor över återkallade SSL-certifikat (CRL).
 
      >[!NOTE]
-     >De senaste uppdateringarna minskar antalet portar som kräver funktionen. Om du har äldre versioner av Azure AD Connect eller autentiseringsagent ha dessa portar öppna även: 5671 8080, 9090, 9091, 9350, 9352 och 10100 10120.
+     >De senaste uppdateringarna reducerade antalet portar som krävs av funktionen. Om du har äldre versioner av Azure AD Connect eller Authentication-agenten så kan dessa portar vara öppna även: 5671, 8080, 9090, 9091, 9350, 9352 och 10100-10120.
 
-## <a name="can-the-pass-through-authentication-agents-communicate-over-an-outbound-web-proxy-server"></a>Autentiseringsagenter direktautentisering kan kommunicera via en utgående webbproxyserver?
+## <a name="can-the-pass-through-authentication-agents-communicate-over-an-outbound-web-proxy-server"></a>Kan direktautentisering genom strömning kommunicera via en utgående webbproxyserver?
 
-Ja. Om Web Proxy Auto-Discovery (WPAD) är aktiverad i din lokala miljö, försöker Autentiseringsagenter automatiskt hitta och använda en proxyserver i nätverket.
+Ja. Om Web Proxy Auto-Discovery (WPAD) är aktiverat i din lokala miljö försöker Authentication-agenter automatiskt att hitta och använda en webbproxyserver i nätverket.
 
-Om du inte har WPAD i din miljö kan du lägga till proxyinformation (som visas nedan) för att tillåta en Autentiseringsagenten för direktautentisering att kommunicera med Azure AD:
-- Konfigurera proxyinformation i Internet Explorer innan du installerar Autentiseringsagenten för direktautentisering på servern. Detta gör att du att slutföra installationen av Autentiseringsagenten, men den fortfarande visas som **inaktiv** på administratörsportalen.
-- Navigera till ”C:\Program Files\Microsoft Azure AD Connect-Autentiseringsagenten” på servern.
-- Redigera konfigurationsfilen ”AzureADConnectAuthenticationAgentService” och Lägg till följande rader (Ersätt ”http\:/ / contosoproxy.com:8080” med din faktiska proxyadress):
+Om du inte har WPAD i din miljö kan du lägga till proxyinformation (enligt nedan) så att en direktautentisering kan kommunicera med Azure AD:
+- Konfigurera proxyinformation i Internet Explorer innan du installerar agenten för direkt autentisering på servern. Detta gör att du kan slutföra installationen av Autentiseringstjänsten, men den visas fortfarande som inaktiv på administrations portalen.
+- På-servern navigerar du till "C:\Program\Microsoft Azure AD Connect Authentication agent".
+- Redigera konfigurations filen "AzureADConnectAuthenticationAgentService" och Lägg till följande rader (Ersätt "http\://contosoproxy.com:8080" med din faktiska proxyadress):
 
 ```
    <system.net>
@@ -102,87 +102,87 @@ Om du inte har WPAD i din miljö kan du lägga till proxyinformation (som visas 
    </system.net>
 ```
 
-## <a name="can-i-install-two-or-more-pass-through-authentication-agents-on-the-same-server"></a>Kan jag installera två eller flera Autentiseringsagenter för direkt på samma server?
+## <a name="can-i-install-two-or-more-pass-through-authentication-agents-on-the-same-server"></a>Kan jag installera två eller flera direktautentisering på samma server?
 
-Nej, kan du endast installera en Autentiseringsagenten för direktautentisering på en enskild server. Om du vill konfigurera direktautentisering för hög tillgänglighet, [följa instruktionerna här](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability).
+Nej, du kan bara installera en genom strömnings agent på en enskild server. Om du vill konfigurera direktautentisering för hög tillgänglighet [följer du instruktionerna här](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability).
 
-## <a name="do-i-have-to-manually-renew-certificates-used-by-pass-through-authentication-agents"></a>Måste jag manuellt förnya certifikat som används av direktautentisering Autentiseringsagenter?
+## <a name="do-i-have-to-manually-renew-certificates-used-by-pass-through-authentication-agents"></a>Måste jag manuellt Förnya certifikat som används av genom strömnings agenter?
 
-Kommunikationen mellan varje Autentiseringsagenten för direktautentisering och Azure AD skyddas med certifikatbaserad autentisering. Dessa [certifikat förnyas varje månaderna av Azure AD](how-to-connect-pta-security-deep-dive.md#operational-security-of -the-authentication-agents). Det finns inget behov att manuellt förnya certifikaten. Du kan rensa äldre utgångna certifikat som krävs.
+Kommunikationen mellan varje direktautentisering och Azure AD skyddas med certifikatbaserad autentisering. Dessa [certifikat förnyas automatiskt med några månader av Azure AD](how-to-connect-pta-security-deep-dive.md#operational-security-of -the-authentication-agents). Du behöver inte förnya dessa certifikat manuellt. Du kan rensa äldre utgångna certifikat efter behov.
 
-## <a name="how-do-i-remove-a-pass-through-authentication-agent"></a>Hur tar jag bort en Autentiseringsagenten för direktautentisering?
+## <a name="how-do-i-remove-a-pass-through-authentication-agent"></a>Hur gör jag för att ta bort en direktautentisering för direkt autentisering?
 
-Så länge en Autentiseringsagenten för direktautentisering körs, förblir aktiv och kontinuerligt hanterar användarbegäranden logga in. Om du vill avinstallera en Agent för autentisering går du till **Kontrollpanelen -> program -> program och funktioner** och avinstallera både den **Microsoft Azure AD Connect-Autentiseringsagenten** och  **Microsoft Azure AD Connect-agenten Updater** program.
+Så länge en direktautentisering körs förblir den aktiv och hanterar ständigt användar inloggnings begär Anden. Om du vill avinstallera en autentiseringsnyckel går du till **kontroll panelen-> program-> program och funktioner** och avinstallerar både **Microsoft Azure AD Connect Authentication agent** och **Microsoft Azure AD Connect agent updateer** tilläggs.
 
-Om du markerar bladet direktautentisering på den [Azure Active Directory Administrationscenter](https://aad.portal.azure.com) när du har slutfört föregående steg, ser du autentiseringsagent dyker som **inaktiv**. Det här är _förväntat_. Autentisering-agenten släpps automatiskt i listan efter några dagar.
+Om du markerar bladet direkt autentisering i [Azure Active Directory administrations Center](https://aad.portal.azure.com) när du har slutfört föregående steg, ser du att Autentiseringstjänsten visas som inaktiv. Detta ärförväntat. Autentiseringstjänsten tas automatiskt bort från listan efter några dagar.
 
-## <a name="i-already-use-ad-fs-to-sign-in-to-azure-ad-how-do-i-switch-it-to-pass-through-authentication"></a>Jag använder redan AD FS för att logga in på Azure AD. Hur växlar jag det till direktautentisering?
+## <a name="i-already-use-ad-fs-to-sign-in-to-azure-ad-how-do-i-switch-it-to-pass-through-authentication"></a>Jag använder redan AD FS för att logga in på Azure AD. Hur gör jag för att växlar det till genom strömning?
 
-Om du migrerar från AD FS (eller andra tekniker för federation) till direktautentisering, rekommenderar vi att du följer våra detaljerad Distributionsguide publicerade [här](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx?raw=true).
+Om du migrerar från AD FS (eller andra Federations tekniker) till direktautentisering, rekommenderar vi starkt att du följer vår detaljerade distributions guide publicerad [här](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx?raw=true).
 
-## <a name="can-i-use-pass-through-authentication-in-a-multi-forest-active-directory-environment"></a>Kan jag använda direktautentisering i en Active Directory-miljö med flera skogar?
+## <a name="can-i-use-pass-through-authentication-in-a-multi-forest-active-directory-environment"></a>Kan jag använda direktautentisering i en Active Directory miljö med flera skogar?
 
-Ja. Miljöer med Multi-Forest stöds om det finns skogsförtroenden mellan dina Active Directory-skogar och om routning är korrekt konfigurerad.
+Ja. Miljöer med flera skogar stöds om det finns skogs förtroenden mellan dina Active Directory skogar och om routning av namnsuffix har kon figurer ATS korrekt.
 
-## <a name="does-pass-through-authentication-provide-load-balancing-across-multiple-authentication-agents"></a>Tillhandahåller direktautentisering belastningsutjämning över flera Autentiseringsagenter?
+## <a name="does-pass-through-authentication-provide-load-balancing-across-multiple-authentication-agents"></a>Tillhandahåller direkt autentisering belastnings utjämning över flera autentiseringspaket?
 
-Nej, genom att installera flera Autentiseringsagenter för vidarekoppling säkerställer endast [hög tillgänglighet](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability). Det ger inte deterministisk belastningsutjämning mellan agenter för autentisering. Alla Autentiseringsagenten kan (slumpmässigt) bearbeta en viss användare logga in begäran.
+Nej, om du installerar flera pass-through Authentication-agenter ser du bara [hög tillgänglighet](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability). Den ger ingen deterministisk belastnings utjämning mellan Authentication-agenterna. Alla autentiseringsprinciper (slumpmässigt) kan bearbeta en viss användar inloggnings förfrågan.
 
-## <a name="how-many-pass-through-authentication-agents-do-i-need-to-install"></a>Hur många direkt Autentiseringsagenter jag behöver installera?
+## <a name="how-many-pass-through-authentication-agents-do-i-need-to-install"></a>Hur många strömnings agenter måste jag installera?
 
-Installera flera Autentiseringsagenter för vidarekoppling säkerställer [hög tillgänglighet](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability). Men det ger inte deterministisk belastningsutjämning mellan agenter för autentisering.
+Att installera flera direktautentisering för direktautentisering säkerställer [hög tillgänglighet](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability). Men den ger inte en deterministisk belastnings utjämning mellan Authentication-agenterna.
 
-Överväg att högsta och genomsnittliga belastningen för inloggningsförfrågningar du förväntar dig att se på din klient. Som prestandamått, kan en enda autentiseringsagent hantera 300 och 400 autentiseringar per sekund på en standard processor i 4 kärnor, 16 GB RAM-servern.
+Överväg den högsta och genomsnittliga belastningen för de inloggnings begär Anden som du förväntar dig att se på din klient. Som riktmärke kan en enda autentiserings-agent hantera 300 till 400-autentiseringar per sekund på en standard processor på 4 kärnor, 16 GB RAM-Server.
 
-Du kan beräkna nätverkstrafik, använder du följande storlek-riktlinjer:
-- Varje begäran har en nyttolast på (0,5 k + 1 K * num_of_agents) byte. d.v.s. utgående data från Azure AD-autentisering-agenten. Här anger ”num_of_agents” antalet Autentiseringsagenter registrerad på din klient.
-- Varje svar har en nyttolast på 1K byte. d.v.s. utgående data från agenten autentisering till Azure AD.
+Använd följande vägledning för att beräkna nätverks trafik:
+- Varje begäran har en nytto Last storlek på (0,5 K + num_of_agents) byte; t. ex. data från Azure AD till Authentication agent. Här anger "num_of_agents" antalet autentiseringsscheman som har registrerats för din klient.
+- Varje svar har en nytto Last storlek på 1 kB byte; dvs. data från Authentication agent till Azure AD.
 
-Två eller tre Autentiseringsagenter totalt är tillräckliga för hög tillgänglighet och kapacitet för de flesta kunder. Du bör installera Autentiseringsagenter nära domänkontrollanterna för att förbättra inloggningen svarstid.
+För de flesta kunder räcker två eller tre autentiseringsscheman för hög tillgänglighet och kapacitet. Du bör installera autentiseringsprinciper nära domän kontrol Lanterna för att förbättra inloggnings fördröjningen.
 
 >[!NOTE]
->Det finns en systemgränsen på 40 Autentiseringsagenter per klient.
+>Det finns en system gräns på 40-autentiseringspaket per klient.
 
-## <a name="can-i-install-the-first-pass-through-authentication-agent-on-a-server-other-than-the-one-that-runs-azure-ad-connect"></a>Kan jag installera den första Autentiseringsagenten för direktautentisering på en server än den som kör Azure AD Connect?
+## <a name="can-i-install-the-first-pass-through-authentication-agent-on-a-server-other-than-the-one-that-runs-azure-ad-connect"></a>Kan jag installera den första genom strömnings agenten på en annan server än den som kör Azure AD Connect?
 
-Nej, det här scenariot är _inte_ stöds.
+Nej, det här scenariot stöds _inte_ .
 
-## <a name="why-do-i-need-a-cloud-only-global-administrator-account-to-enable-pass-through-authentication"></a>Varför behöver jag en endast molnbaserad globala administratörskonto för att aktivera direktautentisering
+## <a name="why-do-i-need-a-cloud-only-global-administrator-account-to-enable-pass-through-authentication"></a>Varför behöver jag ett globalt administratörs konto med enbart moln för att möjliggöra direktautentisering?
 
-Vi rekommenderar att du aktiverar eller inaktiverar direktautentisering med ett globalt administratörskonto enbart i molnet. Lär dig mer om [att lägga till ett globalt administratörskonto molnbaserad](../active-directory-users-create-azure-portal.md). Göra det på så sätt säkerställer du att du inte blir utelåst från klientorganisationen.
+Vi rekommenderar att du aktiverar eller inaktiverar direkt autentisering med hjälp av ett globalt administratörs konto för molnet. Lär dig mer om [att lägga till ett globalt administratörs konto](../active-directory-users-create-azure-portal.md)för molnet. På så sätt ser du till att du inte blir utelåst från din klient.
 
-## <a name="how-can-i-disable-pass-through-authentication"></a>Hur kan jag inaktivera direktautentisering?
+## <a name="how-can-i-disable-pass-through-authentication"></a>Hur gör jag för att inaktivera direkt autentisering?
 
-Kör Azure AD Connect-guiden och ändrar användarens inloggningsmetod från direktautentisering till en annan metod. Den här ändringen inaktiverar direktautentisering på klienten och avinstallerar agenten autentisering från servern. Du måste manuellt avinstallera den Autentiseringsagenter från de andra servrarna.
+Kör guiden Azure AD Connect igen och ändra användar inloggnings metoden från direktautentisering till en annan metod. Den här ändringen inaktiverar direktautentisering på klienten och avinstallerar Autentiseringstjänsten från servern. Du måste avinstallera autentiseringsinställningarna från de andra servrarna manuellt.
 
-## <a name="what-happens-when-i-uninstall-a-pass-through-authentication-agent"></a>Vad händer när jag för att avinstallera en Autentiseringsagenten för direktautentisering?
+## <a name="what-happens-when-i-uninstall-a-pass-through-authentication-agent"></a>Vad händer när jag avinstallerar en genom strömnings agent?
 
-Om du avinstallerar en Agent för autentisering av direkt från en server gör servern att sluta ta emot inloggningsförfrågningar. Om du vill undvika att skada funktionen för användare logga in på din klient, kontrollera att du har en annan Autentiseringsagenten körs innan du avinstallerar en Autentiseringsagenten för direktautentisering.
+Om du avinstallerar en direktautentisering från en server kan servern sluta att acceptera inloggnings förfrågningar. För att undvika att dela användar inloggnings funktionen på din klient organisation, se till att du har en annan autentiserings agent som körs innan du avinstallerar en direktautentisering för direkt autentisering.
 
-## <a name="i-have-an-older-tenant-that-was-originally-setup-using-ad-fs--we-recently-migrated-to-pta-but-now-are-not-seeing-our-upn-changes-synchronizing-to-azure-ad--why-are-our-upn-changes-not-being-synchronized"></a>Jag har en äldre klient som ursprungligen installationen med hjälp av AD FS.  Vi har nyligen har migreras till PTA men nu kan inte se våra UPN-ändringar synkroniseras med Azure AD.  Varför är vår UPN ändras inte synkroniseras?
+## <a name="i-have-an-older-tenant-that-was-originally-setup-using-ad-fs--we-recently-migrated-to-pta-but-now-are-not-seeing-our-upn-changes-synchronizing-to-azure-ad--why-are-our-upn-changes-not-being-synchronized"></a>Jag har en äldre klient som ursprungligen konfigurerades med hjälp av AD FS.  Vi migrerade nyligen till PTA, men nu ser vi inte våra ändringar i UPN-ändringar till Azure AD.  Varför synkroniseras inte våra UPN-ändringar?
 
-S: Under följande omständigheter ändringarna lokala UPN kan inte längre synkronisera när:
+S: I följande fall kanske dina lokala UPN-ändringar inte synkroniseras om:
 
-- Azure AD-klienten skapades före den 15 juni-2015
-- Inledningsvis har federerat med Azure AD-klienten med hjälp av AD FS för autentisering
-- Du har växlat till att hanterade användare som använder PTA-autentisering
+- Din Azure AD-klient skapades före den 15 juni 2015
+- Du förinstallerades ursprungligen med din Azure AD-klient med hjälp av AD FS för autentisering
+- Du har växlat till att hantera användare med PTA som autentisering
 
-Det beror på att standardbeteendet för klienter som har skapats innan den 15 juni-2015 var att blockera UPN ändringar.  Om du vill ta bort blockering UPN ändringar måste du köra följande PowerShell-cmdlt:  
+Detta beror på att standard beteendet för klienter som skapats före den 15 juni 2015 var att blockera ändringar i UPN.  Om du behöver avinstallera UPN-ändringar måste du köra följande PowerShell-cmdlt:  
 
 `Set-MsolDirSyncFeature -Feature SynchronizeUpnForManagedUsers-Enable $True`
 
-Klienter som skapats efter den 15 juni-2015 har standardbeteendet för synkronisering av UPN-ändringar.   
+Innehavare som skapats efter den 15 juni 2015 har standard beteende för synkronisering av UPN-ändringar.   
 
 
 
 ## <a name="next-steps"></a>Nästa steg
-- [Aktuella begränsningar](how-to-connect-pta-current-limitations.md): Läs om vilka scenarier som stöds och vilka som inte är.
-- [Snabbstart](how-to-connect-pta-quick-start.md): Kom igång på Azure AD-direktautentisering.
-- [Migrera från AD FS till direktautentisering](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx?raw=true) -en detaljerad vägledning för att migrera från AD FS (eller andra tekniker för federation) till direktautentisering.
-- [Smart kontoutelåsning](../authentication/howto-password-smart-lockout.md): Lär dig hur du konfigurerar funktionen för smarta kontoutelåsning på din klient för att skydda användarkonton.
-- [Teknisk djupdykning](how-to-connect-pta-how-it-works.md): Förstå hur funktionen direktautentisering fungerar.
-- [Felsöka](tshoot-connect-pass-through-authentication.md): Lär dig hur du löser vanliga problem med funktionen direktautentisering.
-- [Djupgående om säkerhet](how-to-connect-pta-security-deep-dive.md): Få djupgående teknisk information om funktionen direktautentisering.
-- [Azure AD Seamless SSO](how-to-connect-sso.md): Läs mer om den här tilläggsfunktionen.
-- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): Använd Azure Active Directory-forumet till filen nya funktionbegäran.
+- [Aktuella begränsningar](how-to-connect-pta-current-limitations.md): Lär dig vilka scenarier som stöds och vilka som inte är det.
+- [Snabb start](how-to-connect-pta-quick-start.md): Kom igång med Azure AD-direktautentisering.
+- [Migrera från AD FS till vidarekoppling](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx?raw=true) – en detaljerad guide för att migrera från AD FS (eller andra Federations tekniker) till vidarekoppling.
+- [Smart utelåsning](../authentication/howto-password-smart-lockout.md): Lär dig hur du konfigurerar funktionen för smart utelåsning på klienten för att skydda användar konton.
+- [Teknisk djupgående](how-to-connect-pta-how-it-works.md): Förstå hur funktionen för direkt autentisering fungerar.
+- [Felsöka](tshoot-connect-pass-through-authentication.md): Lär dig hur du löser vanliga problem med funktionen för direkt autentisering.
+- [Djupgående säkerhets nivå](how-to-connect-pta-security-deep-dive.md): Få djupgående teknisk information om funktionen för direkt autentisering.
+- [Azure AD sömlös SSO](how-to-connect-sso.md): Läs mer om den här kompletterande funktionen.
+- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): Använd Azure Active Directory-forumet för att fil nya funktions begär Anden.
 

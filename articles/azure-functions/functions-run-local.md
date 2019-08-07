@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: glenga
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: cee91de9e0a5d75be258705f636248a6a6213664
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 16e12021a65a09376293f28efe9a6e9ef74ef5c2
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68444052"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839565"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Arbeta med Azure Functions Core Tools
 
@@ -314,7 +314,7 @@ Http Function MyHttpTrigger: http://localhost:7071/api/MyHttpTrigger
 Om du vill testa dina funktioner lokalt [startar](#start) du Functions-värden och anropar slut punkter på den lokala servern med HTTP-begäranden. Slut punkten som du anropar beror på typen av funktion.
 
 >[!NOTE]
-> Exemplen i det här avsnittet använder verktyget för att skicka HTTP-förfrågningar från terminalen eller en kommando tolk. Du kan använda ett verktyg som du väljer för att skicka HTTP-begäranden till den lokala servern. Verktyget vänd är tillgängligt som standard på Linux-baserade system. I Windows måste du först ladda ned och installera [verktyget sväng](https://curl.haxx.se/).
+> Exemplen i det här avsnittet använder verktyget för att skicka HTTP-förfrågningar från terminalen eller en kommando tolk. Du kan använda ett verktyg som du väljer för att skicka HTTP-begäranden till den lokala servern. Verktyget vänd är tillgängligt som standard på Linux-baserade system och Windows 10 version 17063 och senare. I äldre fönster måste du först hämta och installera [verktyget sväng](https://curl.haxx.se/).
 
 Mer allmän information om testning av funktioner finns [i strategier för att testa koden i Azure Functions](functions-test-a-function.md).
 

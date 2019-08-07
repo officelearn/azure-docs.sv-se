@@ -1,6 +1,6 @@
 ---
-title: Autentisering med hjälp av Azure Active Directory i nationella moln
-description: Läs mer om app-registrering och autentisering slutpunkter för nationella moln.
+title: Autentisering med Azure Active Directory i nationella moln
+description: Lär dig mer om app-registrering och autentiserings slut punkter för nationella moln.
 services: active-directory
 documentationcenter: ''
 author: negoe
@@ -9,7 +9,7 @@ editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
@@ -17,75 +17,75 @@ ms.author: negoe
 ms.reviewer: negoe,CelesteDG
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd37366697a9c1f5019d2864e6d81a4dcd02e3a2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: abaf8c910710000930f4e0ab6200d0ebd75b8d46
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66235479"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68835195"
 ---
 # <a name="national-clouds"></a>Nationella moln
 
-Nationella moln är fysiskt isolerat instanser av Azure. Dessa områden av Azure är utformade för att se till att dataplacering och landsbaserad placering efterlevnad datakrav respekteras inom geografiska gränser.
+Nationella moln är fysiskt isolerade instanser av Azure. Dessa regioner i Azure är utformade för att säkerställa att kraven på data placering, suveränitet och efterlevnad är uppfyllda inom geografiska gränser.
 
-Azure Active Directory (Azure AD) har distribuerats i följande nationella moln, inklusive det globala molnet:  
+Med det globala molnet distribueras Azure Active Directory (Azure AD) i följande nationella moln:  
 
 - Azure Government
 - Azure Tyskland
 - Azure Kina 21Vianet
 
-Nationella moln är unika och en separat miljö från Azure-global. Det är viktigt att känna till viktiga skillnader när du utvecklar ditt program för dessa miljöer. Skillnader är registrerar program, hämta token och konfigurera slutpunkter.
+Nationella moln är unika och en separat miljö från Azure Global. Det är viktigt att vara medveten om viktiga skillnader när du utvecklar ditt program för de här miljöerna. Skillnaderna är att registrera program, förvärva token och konfigurera slut punkter.
 
-## <a name="app-registration-endpoints"></a>App-slutpunkter för registrering
+## <a name="app-registration-endpoints"></a>Slut punkter för program registrering
 
-Det finns en separat Azure-portalen för var och en av de nationella moln. Om du vill integrera med Microsoft identity-plattformen i ett nationella moln, måste du registrera ditt program separat på varje Azure-portalen som är specifika för miljön.
+Det finns en separat Azure Portal för var och en av de nationella molnen. Om du vill integrera program med Microsoft Identity Platform i ett nationellt moln måste du registrera ditt program separat i varje Azure Portal som är specifik för miljön.
 
-I följande tabell visas de grundläggande URL: er för Azure AD-slutpunkter som används för att registrera ett program för varje nationella moln.
+I följande tabell visas de grundläggande URL: erna för de Azure AD-slutpunkter som används för att registrera ett program för varje nationellt moln.
 
-| Nationella moln | Azure AD-portalen slutpunkt |
+| Nationellt moln | Azure AD Portal-slutpunkt |
 |----------------|--------------------------|
 | Azure AD för amerikanska myndigheter | `https://portal.azure.us` |
 | Azure AD Germany | `https://portal.microsoftazure.de` |
-| Azure AD-Kina som drivs av 21Vianet | `https://portal.azure.cn` |
-| Azure AD (tjänsten för global) |`https://portal.azure.com` |
+| Azure AD, Kina drivs av 21Vianet | `https://portal.azure.cn` |
+| Azure AD (global tjänst) |`https://portal.azure.com` |
 
-## <a name="azure-ad-authentication-endpoints"></a>Azure AD-autentisering-slutpunkter
+## <a name="azure-ad-authentication-endpoints"></a>Azure AD-autentiserings slut punkter
 
-Nationella moln autentisera användare separat i varje miljö och har separat autentiseringsslutpunkter.
+Alla nationella moln autentiserar användare separat i varje miljö och har separata autentiserings slut punkter.
 
-I följande tabell visas de grundläggande URL: er för Azure AD-slutpunkter som används för att hämta token för varje nationella moln.
+I följande tabell visas de grundläggande URL: erna för de Azure AD-slutpunkter som används för att hämta tokens för varje nationellt moln.
 
-| Nationella moln | Azure AD-autentisering-slutpunkt |
+| Nationellt moln | Azure AD-autentiseringens slut punkt |
 |----------------|-------------------------|
 | Azure AD för amerikanska myndigheter | `https://login.microsoftonline.us` |
 | Azure AD Germany| `https://login.microsoftonline.de` |
-| Azure AD-Kina som drivs av 21Vianet | `https://login.chinacloudapi.cn` |
-| Azure AD (tjänsten för global)| `https://login.microsoftonline.com` |
+| Azure AD, Kina drivs av 21Vianet | `https://login.chinacloudapi.cn` |
+| Azure AD (global tjänst)| `https://login.microsoftonline.com` |
 
-Med hjälp av lämplig regionspecifika grundläggande URL: en kan du skapa förfrågningar till Azure AD-auktorisering eller token slutpunkter. Till exempel för Azure Germany:
+Du kan skapa förfrågningar till Azure AD-auktorisering eller token-slutpunkter med hjälp av lämplig region-/regionsspecifika bas-URL. Till exempel för Azure Germany:
 
-  - Vanliga auktoriseringsslutpunkt är `https://login.microsoftonline.de/common/oauth2/authorize`.
-  - Vanliga tokenslutpunkten är `https://login.microsoftonline.de/common/oauth2/token`.
+  - Vanlig slut punkt för `https://login.microsoftonline.de/common/oauth2/authorize`auktorisering är.
+  - Vanlig slut punkt för `https://login.microsoftonline.de/common/oauth2/token`token är.
 
-Ersätt ”vanliga” i de föregående URL: er med din klient-ID eller namn för enstaka klientorganisationer program. Ett exempel är `https://login.microsoftonline.de/contoso.com`.
+För program med en enda klient ersätter du "common" i föregående URL: er med ditt klient-ID eller namn. Ett exempel är `https://login.microsoftonline.de/contoso.com`.
 
 > [!NOTE]
-> Den [Azure AD v2.0-auktorisering]( https://docs.microsoft.com/azure/active-directory/develop/active-directory-appmodel-v2-overview) och token slutpunkter är endast tillgängliga för tjänsten för global. De har inte stöd för distribution i nationella moln.
+> [Azure AD v 2.0-auktorisering]( https://docs.microsoft.com/azure/active-directory/develop/active-directory-appmodel-v2-overview) och token-slutpunkter är bara tillgängliga för den globala tjänsten. De har inte stöd för nationella moln distributioner.
 
-## <a name="microsoft-graph-api"></a>Microsoft Graph API
+## <a name="microsoft-graph-api"></a>Microsoft Graph-API
 
-Om du vill lära dig mer om att anropa Microsoft Graph API: er i en nationell molnmiljö, gå till [Microsoft Graph i nationella molndistributioner](https://developer.microsoft.com/graph/docs/concepts/deployments).
+Information om hur du anropar Microsoft Graph-API: er i en nationell moln miljö finns i [Microsoft Graph i nationella moln distributioner](https://developer.microsoft.com/graph/docs/concepts/deployments).
 
 > [!IMPORTANT]
-> Vissa tjänster och funktioner som finns i vissa områden av tjänsten för global kanske inte tillgänglig i alla nationella moln. Om du vill ta reda på vilka tjänster som är tillgängliga kan du gå till [produkttillgänglighet per region](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia,china-non-regional,china-east,china-east-2,china-north,china-north-2,germany-non-regional,germany-central,germany-northeast).
+> Vissa tjänster och funktioner i vissa regioner i den globala tjänsten kanske inte är tillgängliga i alla nationella moln. Om du vill ta reda på vilka tjänster som är tillgängliga går du till [produkter som är tillgängliga efter region](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia,china-non-regional,china-east,china-east-2,china-north,china-north-2,germany-non-regional,germany-central,germany-northeast).
 
-Information om hur du skapar en App med hjälp av Microsoft identity-plattformen, följer du de [Microsoft Authentication Library (MSAL) självstudien](msal-national-cloud.md). Den här appen kommer mer specifikt kan logga in en användare och få en åtkomsttoken att anropa Microsoft Graph API.
+Om du vill lära dig hur du skapar ett program med hjälp av Microsoft Identity Platform följer du [själv studie kursen för Microsoft Authentication Library (MSAL)](msal-national-cloud.md). Mer specifikt kommer den här appen att logga in en användare och få en åtkomsttoken för att anropa Microsoft Graph-API: et.
 
 ## <a name="next-steps"></a>Nästa steg
 
 Läs mer om:
 
 - [Azure Government](https://docs.microsoft.com/azure/azure-government/)
-- [Azure China 21Vianet](https://docs.microsoft.com/azure/china/)
+- [Azure Kina 21Vianet](https://docs.microsoft.com/azure/china/)
 - [Azure Germany](https://docs.microsoft.com/azure/germany/)
-- [Grunder för Azure AD](authentication-scenarios.md)
+- [Grundläggande Azure AD-autentisering](authentication-scenarios.md)

@@ -10,20 +10,20 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 61a3c1cdccf01b266581a13fe3c660bd57f59b2c
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 2601d05c5d2302bedb51e959747939aa3c33db44
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67796209"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839624"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>Distribuera och övervaka IoT Edge-moduler i stor skala med Azure CLI
 
-Skapa en **IoT Edge automatisk distribution** använder Azures kommandoradsgränssnitt för att hantera pågående distributioner för många enheter på samma gång. Automatisk distribution för IoT Edge är en del av den [automatisk enhetshantering](/azure/iot-hub/iot-hub-automatic-device-management) funktion i IoT Hub. Distributioner är dynamisk processer som gör att du kan distribuera flera moduler till flera enheter, spåra status och hälsa moduler och göra ändringar när det behövs. 
+Skapa en **IoT Edge automatisk distribution** med hjälp av Azures kommando rads gränssnitt för att hantera pågående distributioner för många enheter samtidigt. Automatiska distributioner för IoT Edge ingår i funktionen [Automatisk enhets hantering](/azure/iot-hub/iot-hub-automatic-device-management) i IoT Hub. Distributioner är dynamiska processer som gör att du kan distribuera flera moduler till flera enheter, spåra status och hälsa för modulerna och göra ändringar när det behövs. 
 
-Mer information finns i [förstå IoT Edge automatiska distributioner för enskilda enheter eller i stor skala](module-deployment-monitoring.md).
+Mer information finns i [förstå IoT Edge automatiska distributioner för enskilda enheter eller i skala](module-deployment-monitoring.md).
 
-I den här artikeln kan du ställa in Azure CLI och IoT-tillägget. Du sedan lära dig hur du distribuerar moduler till en uppsättning IoT Edge-enheter och övervaka förloppet med hjälp av de tillgängliga CLI-kommandona.
+I den här artikeln kan du ställa in Azure CLI och IoT-tillägget. Du lär dig sedan att distribuera moduler till en uppsättning IoT Edge enheter och övervaka förloppet med hjälp av tillgängliga CLI-kommandon.
 
 ## <a name="cli-prerequisites"></a>CLI-krav
 
@@ -34,9 +34,9 @@ I den här artikeln kan du ställa in Azure CLI och IoT-tillägget. Du sedan lä
 
 ## <a name="configure-a-deployment-manifest"></a>Konfigurera ett manifest för distribution
 
-Ett manifest för distribution är ett JSON-dokument som beskriver vilka moduler för att distribuera, hur data flödar mellan moduler och önskade egenskaper för modultvillingar. Mer information finns i [Lär dig hur du distribuerar moduler och upprätta vägar i IoT Edge](module-composition.md).
+Ett manifest för distribution är ett JSON-dokument som beskriver vilka moduler för att distribuera, hur data flödar mellan moduler och önskade egenskaper för modultvillingar. Mer information finns i [Lär dig hur du distribuerar moduler och etablerar vägar i IoT Edge](module-composition.md).
 
-Om du vill distribuera moduler med Azure CLI, spara manifestet distribution lokalt som en txt-fil. Du kan använda sökvägen till filen i nästa avsnitt när du kör kommandot för att tillämpa konfigurationen på din enhet. 
+Om du vill distribuera moduler med Azure CLI, spara manifestet distribution lokalt som en txt-fil. Du använder fil Sök vägen i nästa avsnitt när du kör kommandot för att tillämpa konfigurationen på enheten. 
 
 Här är ett manifest för grundläggande distribution med en modul som exempel:
 
@@ -80,7 +80,7 @@ Här är ett manifest för grundläggande distribution med en modul som exempel:
             }
           },
           "modules": {
-            "tempSensor": {
+            "SimulatedTemperatureSensor": {
               "version": "1.0",
               "type": "docker",
               "status": "running",
@@ -104,7 +104,7 @@ Här är ett manifest för grundläggande distribution med en modul som exempel:
           }
         }
       },
-      "tempSensor": {
+      "SimulatedTemperatureSensor": {
         "properties.desired": {}
       }
     }
@@ -114,7 +114,7 @@ Här är ett manifest för grundläggande distribution med en modul som exempel:
 
 ## <a name="identify-devices-using-tags"></a>Identifiera enheter med hjälp av taggar
 
-Innan du kan skapa en distribution måste ha för att kunna ange vilka enheter som du vill påverka. Azure IoT Edge identifierar enheter med hjälp av **taggar** i enhetstvillingen. Varje enhet kan ha flera taggar som du definierar på något sätt som passar för din lösning. Om du hanterar en campus av smarta byggnader kan du lägga till följande taggar till en enhet:
+Innan du kan skapa en distribution måste ha för att kunna ange vilka enheter som du vill påverka. Azure IoT Edge identifierar enheter med hjälp av **taggar** i enhetstvillingen. Varje enhet kan ha flera taggar som du definierar på ett sätt som passar din lösning. Om du hanterar en campus av smarta byggnader kan du lägga till följande taggar till en enhet:
 
 ```json
 "tags":{
@@ -133,30 +133,30 @@ Mer information om enhetstvillingar och taggar finns i [förstå och använda en
 
 Du distribuerar moduler till ditt målenheter genom att skapa en distribution som består av distribution manifestet samt andra parametrar. 
 
-Använd den [az iot edge-distribution skapa](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-edge-deployment-create) kommando för att skapa en distribution:
+Använd kommandot [AZ IoT Edge Deployment Create](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-edge-deployment-create) för att skapa en distribution:
 
 ```cli
 az iot edge deployment create --deployment-id [deployment id] --hub-name [hub name] --content [file path] --labels "[labels]" --target-condition "[target query]" --priority [int]
 ```
 
-Distributionen skapar kommandot tar följande parametrar: 
+Kommandot för att skapa distribution tar följande parametrar: 
 
 * **– id för distributionstyp** -namnet på distributionen som skapas i IoT hub. Ge distributionen ett unikt namn som är upp till 128 gemener. Undvika blanksteg och följande ogiltiga tecken: `& ^ [ ] { } \ | " < > /`.
-* **--hubbnamn** -namnet på IoT-hubben distributionen kommer att skapas. Hubben måste finnas i den aktuella prenumerationen. Ändra din aktuella prenumeration med den `az account set -s [subscription name]` kommando.
+* **--hubbnamn** -namnet på IoT-hubben distributionen kommer att skapas. Hubben måste finnas i den aktuella prenumerationen. Ändra den aktuella prenumerationen med `az account set -s [subscription name]` kommandot.
 * **--innehåll** -filsökväg till distributionen manifest JSON. 
-* **--etiketter** – lägga till etiketter för att spåra dina distributioner. Etiketter är namn/värde-par som beskriver distributionen. Etiketter ta JSON formatering för namn och värden. Till exempel, `{"HostPlatform":"Linux", "Version:"3.0.1"}`
+* **--etiketter** – lägga till etiketter för att spåra dina distributioner. Etiketter är namn/värde-par som beskriver distributionen. Etiketter tar JSON-formatering för namn och värden. Till exempel, `{"HostPlatform":"Linux", "Version:"3.0.1"}`
 * **--Målvillkor** -ange ett Målvillkor som bestämmer vilka enheter som ska användas med den här distributionen. Villkoret är baserat på enhet twin taggar eller enhetstvillingen rapporterade egenskaper och måste matcha uttrycket-format. Till exempel `tags.environment='test' and properties.reported.devicemodel='4000x'`. 
 * **--prioritet** -ett positivt heltal. I händelse av att två eller fler distributioner är inriktade på samma enhet, gäller distribution med det högsta numeriska värdet för prioritet.
 
 ## <a name="monitor-a-deployment"></a>Övervaka en distribution
 
-Använd den [az iot edge-distribution show](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-edge-deployment-show) kommando för att visa information om en enskild distribution:
+Använd kommandot [AZ IoT Edge Deployment show](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-edge-deployment-show) för att visa information om en enda distribution:
 
 ```cli
 az iot edge deployment show --deployment-id [deployment id] --hub-name [hub name]
 ```
 
-Distributionen Visa kommandot tar följande parametrar:
+Kommandot Deployment show tar följande parametrar:
 * **– id för distributionstyp** -namnet på distributionen som finns i IoT hub.
 * **--hubbnamn** -namnet på IoT hub där distributionen finns. Hubben måste finnas i den aktuella prenumerationen. Växla till den önskade prenumerationen med kommandot `az account set -s [subscription name]`
 
@@ -164,16 +164,16 @@ Kontrollera distributionen i kommandofönstret. Den **mått** egenskapen inneh�
 
 * **targetedCount** -ett system-mått som anger antalet enhetstvillingar i IoT Hub som matchar villkoret målobjekt.
 * **appliedCount** -ett system mått anger hur många enheter som har haft distributionens innehåll som tillämpas på deras modultvillingar i IoT Hub.
-* **reportedSuccessfulCount** -ett mått för enheten som anger hur många av IoT Edge-enheter i distributionen rapporterar lyckade från klienten IoT Edge-körningen.
-* **reportedFailedCount** -ett mått för enheten som anger hur många av IoT Edge-enheter i distributionen rapporterar fel från klienten IoT Edge-körningen.
+* **reportedSuccessfulCount** – ett enhets mått som anger antalet IoT Edge enheter i distributions rapporten som lyckas från IoT Edge klient körning.
+* **reportedFailedCount** – ett enhets mått som anger antalet IoT Edge enheter i distributions rapporterings felen från IoT Edge klient körningen.
 
-Du kan visa en lista över enhets-ID eller objekt för varje mått med hjälp av den [az iot edge-distribution show-mått](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-edge-deployment-show-metric) kommando:
+Du kan visa en lista över enhets-ID: n eller objekt för varje mått med hjälp av kommandot [AZ IoT Edge Deployment show-Metric](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-edge-deployment-show-metric) :
 
 ```cli
 az iot edge deployment show-metric --deployment-id [deployment id] --metric-id [metric id] --hub-name [hub name] 
 ```
 
-Distribution show-mått-kommandot stöder följande parametrar: 
+Kommandot Deployment show-Metric använder följande parametrar: 
 * **– id för distributionstyp** -namnet på distributionen som finns i IoT hub.
 * **--mått-id** – namnet på det mått som du vill se en lista över enhets-ID, till exempel `reportedFailedCount`
 * **--hubbnamn** -namnet på IoT hub där distributionen finns. Hubben måste finnas i den aktuella prenumerationen. Växla till den önskade prenumerationen med kommandot `az account set -s [subscription name]`
@@ -188,13 +188,13 @@ Om du uppdaterar målvillkoret, inträffar följande uppdateringar:
 * Om en enhet som körs på den här distributionen inte längre uppfyller målvillkoret, avinstallerar den här distributionen och tar på nästa distributionen med högst prioritet. 
 * Om en enhet som körs på den här distributionen inte längre uppfyller målvillkoret och uppfyller inte target villkoret för alla andra distributioner, sker ingen ändring på enheten. Enheten fortsätter att köra dess aktuella moduler i det aktuella tillståndet, men hanteras inte som en del av den här distributionen längre. När den uppfyller målvillkoret för alla andra distributioner, avinstallerar den här distributionen och tar på den nya servern. 
 
-Använd den [az iot edge-distribution update](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-edge-deployment-update) kommando för att uppdatera en distribution:
+Använd kommandot [AZ IoT Edge Deployment Update](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-edge-deployment-update) för att uppdatera en-distribution:
 
 ```cli
 az iot edge deployment update --deployment-id [deployment id] --hub-name [hub name] --set [property1.property2='value']
 ```
 
-Kommandot update distribution använder följande parametrar:
+Kommandot för distributions uppdatering tar följande parametrar:
 * **– id för distributionstyp** -namnet på distributionen som finns i IoT hub.
 * **--hubbnamn** -namnet på IoT hub där distributionen finns. Hubben måste finnas i den aktuella prenumerationen. Växla till den önskade prenumerationen med kommandot `az account set -s [subscription name]`
 * **--Ange** – uppdaterar en egenskap i distributionen. Du kan uppdatera följande egenskaper:
@@ -207,16 +207,16 @@ Kommandot update distribution använder följande parametrar:
 
 När du tar bort en distribution kan ta några enheter på deras nästa högsta prioritet distribution. Om din enhet inte uppfyller målvillkoret för alla andra distributioner, tas sedan moduler inte bort när distributionen har tagits bort. 
 
-Använd den [az iot edge-distribution ta bort](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-edge-deployment-delete) kommando för att ta bort en distribution:
+Använd kommandot [AZ IoT Edge Deployment Delete](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-edge-deployment-delete) för att ta bort en distribution:
 
 ```cli
 az iot edge deployment delete --deployment-id [deployment id] --hub-name [hub name] 
 ```
 
-Borttagningskommandot distribution använder följande parametrar: 
+Kommandot för att ta bort distribution tar följande parametrar: 
 * **– id för distributionstyp** -namnet på distributionen som finns i IoT hub.
 * **--hubbnamn** -namnet på IoT hub där distributionen finns. Hubben måste finnas i den aktuella prenumerationen. Växla till den önskade prenumerationen med kommandot `az account set -s [subscription name]`
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om [distribuerar moduler till IoT Edge-enheter](module-deployment-monitoring.md).
+Lär dig mer om [att distribuera moduler till IoT Edge enheter](module-deployment-monitoring.md).

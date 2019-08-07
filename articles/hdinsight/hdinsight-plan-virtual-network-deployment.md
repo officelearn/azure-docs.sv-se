@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: 9906fe5de9c24f1b1a8c3f713fa772e56ed4e13f
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 135855ee33f783e85b398c7f9716c2c897633de9
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68441962"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779542"
 ---
 # <a name="plan-a-virtual-network-for-azure-hdinsight"></a>Planera ett virtuellt nätverk för Azure HDInsight
 
@@ -117,7 +117,7 @@ Azure tillhandahåller namn matchning för Azure-tjänster som är installerade 
 
 * Alla resurser som är tillgängliga på Internet. Till exempel microsoft.com, windowsupdate.com.
 
-* Alla resurser som finns i samma Azure-Virtual Network med hjälp av resursens __interna DNS-namn__ . Exempel: när du använder standard namn matchning, är följande exempel på interna DNS-namn tilldelade till HDInsight Worker-noder:
+* Alla resurser som finns i samma Azure-Virtual Network med hjälp av resursens __interna DNS-namn__ . Exempel: när du använder standard namn matchningen är följande exempel på interna DNS-namn som tilldelats till HDInsight Worker-noder:
 
   * wn0-hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net
   * wn2-hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net
@@ -232,7 +232,7 @@ Mer information om nätverks säkerhets grupper finns i [Översikt över nätver
 
 Mer information om hur du styr utgående trafik från HDInsight-kluster finns i [Konfigurera begränsning av utgående nätverks trafik för Azure HDInsight-kluster](hdinsight-restrict-outbound-traffic.md).
 
-#### <a name="forced-tunneling-to-on-premise"></a>Tvingad tunnel trafik till lokalt
+#### <a name="forced-tunneling-to-on-premise"></a>Tvingad tunneltrafik till lokalt
 
 Tvingad tunnel trafik är en användardefinierad routningstabell där all trafik från ett undernät tvingas till ett nätverk eller en viss plats, till exempel ditt lokala nätverk. HDInsight har __inte__ stöd för Tvingad tunnel trafik till lokala nätverk. 
 

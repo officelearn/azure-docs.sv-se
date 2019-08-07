@@ -1,6 +1,6 @@
 ---
 title: Vägledning för personliga data som lagras i Azure Log Analytics | Microsoft Docs
-description: Den här artikeln beskriver hur du hanterar personliga data som lagras i Azure Log Analytics och metoderna för att identifiera och ta bort den.
+description: Den här artikeln beskriver hur du hanterar personliga data som lagras i Azure Log Analytics och metoder för att identifiera och ta bort dem.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,118 +13,118 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: magoedte
-ms.openlocfilehash: 0cf5a80e3eedbe7efb8463162b5b3ed489ac08c8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 29c91f2dcff04a2d21973e79c5719c3f4d84181b
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61087297"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827369"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Vägledning för personliga data som lagras i Log Analytics och Application Insights
 
-Log Analytics är ett datalager där personliga data är sannolikt kommer att finnas. Application Insights lagras data i en Log Analytics-partition. Den här artikeln diskuterar där i Log Analytics och Application Insights sådana data ofta finns, samt funktioner som är tillgängliga för dig att hantera sådana data.
+Log Analytics är ett data lager där personliga data troligt vis hittas. Application Insights lagrar data i en Log Analytics partition. Den här artikeln beskriver var i Log Analytics och Application Insights sådana data vanligt vis hittas, samt de funktioner som är tillgängliga för att hantera sådana data.
 
 > [!NOTE]
-> För den här artikeln _logga data över_ refererar till data som skickas till en Log Analytics-arbetsyta, medan _programdata_ refererar till data som samlas in av Application Insights.
+> I den här artikeln refererar _data_ till data som skickas till en Log Analytics-arbetsyta, medan _program data_ refererar till data som samlas in av Application Insights.
 
 [!INCLUDE [gdpr-dsr-and-stp-note](../../../includes/gdpr-dsr-and-stp-note.md)]
 
-## <a name="strategy-for-personal-data-handling"></a>Strategi för hantering av personuppgifter
+## <a name="strategy-for-personal-data-handling"></a>Strategi för personlig data hantering
 
-När det kommer att vara upp till dig och ditt företag slutänden att avgöra vilken strategi som du hanterar dina privata data (om alls), följer några strategier som möjligt. De visas i prioritetsordning från en teknisk synvinkel från mest till minst bättre:
+Även om det är upp till dig och ditt företag för att ta reda på vilken strategi du ska använda för att hantera dina privata data (om du vill), är följande några möjliga metoder. De visas i prioritetsordning från en teknisk visnings punkt från de flesta till minst bättre:
 
-* Om möjligt, stoppa insamling av, Förvräng, maskera eller justera de data som samlas in för att undanta den från ses som ”privat”. Det här är _överlägset_ önskad metod som gör att du sparar behovet av att skapa en hantera strategi dyrt och påverkar data.
-* Om möjligt, försöka att normalisera data för att minska påverkan på dataplattform och prestanda. I stället för att logga en explicit användar-ID kan du till exempel skapa en lookup-data som kommer korrelera användarnamnet och deras information till ett internt ID som sedan kan loggas någon annanstans. På så sätt kan bör en av dina användare att be dig att ta bort sin personliga information, är det möjligt att endast borttagning av raden i uppslagstabellen för användaren är tillräckligt. 
-* Slutligen privata data måste samlas in, skapar du en process runt Rensa API sökvägen och befintlig fråga API sökväg för att uppfylla alla skyldigheter som du kan ha runt exportera och ta bort alla privata data som hör till en användare. 
+* Stoppa, om möjligt, stoppa insamling av, obfuscate, maskera eller på annat sätt justera data som samlas in för att utesluta att de betraktas som "privata". Detta är _av_ den bästa metoden, vilket innebär att du slipper skapa en mycket kostsam och påverkan på data hanterings strategin.
+* Om det inte är möjligt försöker du normalisera data för att minska påverkan på data plattformen och prestandan. I stället för att logga ett explicit användar-ID ska du till exempel skapa en uppslags data som korrelerar användar namnet och deras information till ett internt ID som sedan kan loggas någon annan stans. På så sätt kan en av dina användare be dig att ta bort sin personliga information, men det är möjligt att bara ta bort raden i uppslags tabellen som motsvarar användaren. 
+* Slutligen, om privata data måste samlas in, skapar du en process runt rensnings-API-sökvägen och den befintliga API-sökvägen för frågor för att uppfylla alla skyldigheter som du kan ha vid export och borttagning av privata data som är associerade med en användare. 
 
-## <a name="where-to-look-for-private-data-in-log-analytics"></a>Var ska se ut för privata data i Log Analytics?
+## <a name="where-to-look-for-private-data-in-log-analytics"></a>Var ska du söka efter privata data i Log Analytics?
 
-Log Analytics är en flexibel store, som vid datavetenskapsmetod som fastställer ett schema till dina data, kan du åsidosätta varje fält med anpassade värden. Dessutom kan alla anpassade schemaobjekt matas in. Därför är det omöjligt att säga exakt där personliga data finns i din specifika arbetsyta. Följande platser, men är bra startpunkter i inventeringen:
+Log Analytics är ett flexibelt lager, som när du förväntar dig ett schema för dina data, kan du åsidosätta alla fält med anpassade värden. Dessutom kan alla anpassade scheman matas in. Det är därför omöjligt att säga exakt var du kan hitta privata data i din speciella arbets yta. Följande platser är dock lämpliga start punkter i inventeringen:
 
 ### <a name="log-data"></a>Loggdata
 
-* *IP-adresser*: Log Analytics samlar in en mängd olika IP-information i många olika tabeller. Följande fråga visar till exempel alla tabeller där IPv4-adresser har samlats in under de senaste 24 timmarna:
+* *IP-adresser*: Log Analytics samlar in flera olika IP-uppgifter över flera olika tabeller. Följande fråga visar till exempel alla tabeller där IPv4-adresser har samlats in under de senaste 24 timmarna:
     ```
     search * 
     | where * matches regex @'\b((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\.|$)){4}\b' //RegEx originally provided on https://stackoverflow.com/questions/5284147/validating-ipv4-addresses-with-regexp
     | summarize count() by $table
     ```
-* *Användar-ID*: Användar-ID finns i en mängd olika lösningar och tabeller. Du kan söka efter ett visst användarnamn över hela datauppsättningen med hjälp av kommandot search:
+* *Användar-ID*: Användar-ID: n finns i många olika lösningar och tabeller. Du kan söka efter ett visst användar namn i hela data uppsättningen med kommandot search:
     ```
     search "[username goes here]"
     ```
-  Kom ihåg att se ut för läsbara användarnamn men GUID som kan spåras tillbaka direkt till en viss användare!
-* *Enhets-ID*: Som användar-ID anses ibland enhets-ID ”privat”. Använd samma metod som anges ovan för användar-ID för att identifiera tabeller där det kan vara ett problem. 
-* *Anpassade data*: Log Analytics möjliggör insamling i flera olika sätt: anpassade loggar och anpassade fält, de [HTTP Data Collector API](../../azure-monitor/platform/data-collector-api.md) , och anpassade data som samlas in som en del av systemets händelseloggar. Alla dessa kan vara utsatta för som innehåller privata data och bör undersökas för att kontrollera om några sådana data finns.
-* *Lösningen insamlade data*: Eftersom mekanismen för lösningen är en kunskapsuppsättning, rekommenderar vi att granska alla tabeller som genererats av lösningar för att säkerställa att.
+  Kom ihåg att se till att du inte bara kan läsa av människo användare, utan även GUID som direkt kan spåras tillbaka till en viss användare!
+* *Enhets-ID*: Precis som användar-ID: n betraktas enhets-ID: n ibland som "privat". Använd samma metod som i listan ovan för användar-ID: n för att identifiera tabeller där detta kan vara ett problem. 
+* *Anpassade data*: Log Analytics tillåter samlingen på flera olika sätt: anpassade loggar och anpassade fält, [API för http-datainsamling](../../azure-monitor/platform/data-collector-api.md) och anpassade data som samlas in som en del av system händelse loggarna. Alla dessa är känsliga för att innehålla privata data och bör undersökas för att kontrol lera om det finns några sådana data.
+* *Lösning – fångade data*: Eftersom lösnings mekanismen är en öppen avslutad lösning rekommenderar vi att du visar alla tabeller som genereras av lösningar för att säkerställa efterlevnad.
 
 ### <a name="application-data"></a>Programdata
 
-* *IP-adresser*: Application Insights kommer som standard Förvräng alla fält för IP-adress att ”0.0.0.0”, men det är ett relativt vanligt mönster för att åsidosätta det här värdet med faktiska användar-IP-adress för att upprätthålla sessionsinformation. Analytics-frågan nedan kan användas för att hitta någon tabell som innehåller värdena i kolumnen IP-adress än ”0.0.0.0” under de senaste 24 timmarna:
+* *IP-adresser*: Medan Application Insights som standard obfuscate alla IP-postadresser till "0.0.0.0", är det ett ganska vanligt mönster att åsidosätta det här värdet med den faktiska användar-IP-adressen för att underhålla sessionsinformation. Analytics-frågan nedan kan användas för att hitta tabeller som innehåller värden i IP-adress kolumnen förutom "0.0.0.0" under de senaste 24 timmarna:
     ```
     search client_IP != "0.0.0.0"
     | where timestamp > ago(1d)
     | summarize numNonObfuscatedIPs_24h = count() by $table
     ```
-* *Användar-ID*: Som standard använder Application Insights slumpmässigt genererat ID: N för användar- och sessionsspårning. Det är dock vanligt att de här fälten åsidosätts för att lagra ett ID som är mer relevant för programmet. Till exempel: användarnamn, AAD-GUID, osv. Dessa ID: N ofta anses omfattade som personliga data, och därför bör hanteras på rätt sätt. Vår rekommendation är alltid att försöka Förvräng eller maskera dessa ID: N. Fält där dessa värden finns vanligtvis är session_Id, user_Id, user_AuthenticatedId, user_AccountId samt customDimensions.
-* *Anpassade data*: Application Insights kan du lägga till en uppsättning av anpassade dimensioner till någon datatyp av. Dessa dimensioner kan vara *alla* data. Använd följande fråga för att identifiera eventuella anpassade dimensioner som samlas in under de senaste 24 timmarna:
+* *Användar-ID*: Som standard använder Application Insights slumpmässigt genererade ID: n för att spåra användare och sessioner. Det är dock vanligt att se dessa fält som åsidosätts för att lagra ett ID som är relevant för programmet. Till exempel: användar namn, AAD GUID osv. Dessa ID: n anses ofta vara i omfattning som personliga data och bör därför hanteras på lämpligt sätt. Vår rekommendation är alltid att försöka obfuscate eller maskera dessa ID: n. Fält där dessa värden brukar hittas är session_Id, user_Id, user_AuthenticatedId, user_AccountId, samt customDimensions.
+* *Anpassade data*: Med Application Insights kan du lägga till en uppsättning anpassade dimensioner i vilken datatyp som helst. Dessa dimensioner kan vara data. Använd följande fråga för att identifiera anpassade dimensioner som samlats in under de senaste 24 timmarna:
     ```
     search * 
     | where isnotempty(customDimensions)
     | where timestamp > ago(1d)
     | project $table, timestamp, name, customDimensions 
     ```
-* *Data i minnet och under överföring*: Application Insights spårar undantag, begäranden, beroendeanrop och spårningar. Privata data kan ofta samlas på koden och HTTP-anrop nivå. Granska undantag, begäranden, beroenden och spårningar tabeller för att identifiera sådana data. Använd [telemetri-initierare](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling) där det är möjligt att Förvräng dessa data.
-* *Snapshot Debugger insamlingar*: Den [Snapshot Debugger](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger) funktion i Application Insights kan du samla in ögonblicksbilder för felsökning när ett undantag har inträffat på instansen av ditt program. Ögonblicksbilder utsätter den fullständiga stackspårningen som leder till undantagen som värden för lokala variabler vid varje steg i stacken. Tyvärr tillåter inte den här funktionen för selektiv radering av fästpunkter eller programmatisk åtkomst till data i ögonblicksbilden. Om frekvensen för standard ögonblicksbilder kvarhållning inte uppfyller efterlevnadskraven, därför rekommenderar vi att stänga av funktionen.
+* *InMemory-och överförings data*: Application Insights kommer att spåra undantag, begär Anden, beroende anrop och spår. Privata data kan ofta samlas in på koden och HTTP-anrops nivån. Granska tabellerna undantag, förfrågningar, beroenden och spår för att identifiera dessa data. Använd [telemetri](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling) -initierare där det är möjligt att obfuscate dessa data.
+* *Snapshot debugger avbildningar*: Med funktionen [Snapshot debugger](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger) i Application Insights kan du samla in fel söknings ögonblicks bilder när ett undantag påträffas i programmets produktions instans. Ögonblicks bilder kommer att exponera den fullständiga stack spårningen som leder till undantag och värden för lokala variabler i varje steg i stacken. Den här funktionen tillåter tyvärr inte selektiv borttagning av fäst punkter eller programmerings åtkomst till data i ögonblicks bilden. Om standard lagrings takten för ögonblicks bilder inte uppfyller dina krav, är det därför dags att inaktivera funktionen.
 
 ## <a name="how-to-export-and-delete-private-data"></a>Exportera och ta bort privata data
 
-Som vi nämnde i den [strategi för hantering av personuppgifter](#strategy-for-personal-data-handling) ovan, är det __starkt__ rekommenderas om den allt möjligt, för att omstrukturera din princip för insamling av data om du vill inaktivera insamling av privata data, dölja eller maskera det eller på annat sätt modifiera den för att ta bort den från ses som ”privat”. Hantering av data kommer främsta resultera i kostnader för dig och ditt team att definiera och automatisera en strategi, skapa ett gränssnitt för kunderna att interagera med sina data via och löpande underhållskostnader. Dessutom är det beräkningsmässigt dyra för Log Analytics och Application Insights och ett stort antal samtidiga fråga eller rensa API-anrop har möjlighet att påverka all interaktion med Log Analytics-funktioner. Som SA, det finns faktiskt fanns några giltiga scenarier där privata data måste samlas in. De här fallen, bör data hanteras enligt beskrivningen i det här avsnittet.
+Som vi nämnt i avsnittet [strategi för hantering av personliga data](#strategy-for-personal-data-handling) tidigare rekommenderar vi __starkt__ att om det är möjligt, så att du kan strukturera om policyn för data insamling för att inaktivera insamlingen av privata data, dölja eller maskera den, eller Annars kan du ändra den för att ta bort den från att betraktas som "privat". Att hantera data leder till att du och ditt team kan definiera och automatisera en strategi, bygga ett gränssnitt för dina kunder så att de kan interagera med sina data via och löpande underhålls kostnader. Vidare är det kostsamt kostsamt för Log Analytics och Application Insights, och en stor mängd samtidiga frågor eller rensnings-API-anrop har möjlighet att negativt påverka all annan interaktion med Log Analytics funktioner. I detta fall är det verkligen några giltiga scenarier där privata data måste samlas in. I dessa fall bör data hanteras enligt beskrivningen i det här avsnittet.
 
 [!INCLUDE [gdpr-intro-sentence](../../../includes/gdpr-intro-sentence.md)]
 
 ### <a name="view-and-export"></a>Visa och exportera
 
-För både visa och exportera databegäranden, den [Log Analytics-fråga API: N](https://dev.loganalytics.io/) eller [Application Insights fråga API: N](https://dev.applicationinsights.io/quickstart) ska användas. Logik för att omvandla formen av data till ett lämpligt alternativ för att förse dina användare kommer att upp till dig att implementera. [Azure Functions](https://azure.microsoft.com/services/functions/) gör ett bra ställe att vara värd för sådana logik.
+För både Visa och exportera data begär Anden, ska [API för Log Analytics fråga](https://dev.loganalytics.io/) eller [API för Application Insights fråga](https://dev.applicationinsights.io/quickstart) användas. Logik för att konvertera en form av data till en lämplig som du kan leverera till användarna är upp till dig att implementera. [Azure Functions](https://azure.microsoft.com/services/functions/) är en bra plats som värd för sådan logik.
 
 > [!IMPORTANT]
->  Även om merparten av Rensa åtgärder kan slutföra mycket snabbare än serviceavtalet, **en formell serviceavtal (SLA) för att slutföra åtgärder för rensning har ställts in till 30 dagar** på grund av deras stor inverkan på dataplattform som används. Det här är en automatisk process. Det går inte att begära att en åtgärd ska hanteras snabbare.
+>  Det stora flertalet rensnings åtgärder kan utföras mycket snabbare än SLA, och **det formella service avtalet för slut för ande av rensnings åtgärder anges till 30 dagar** på grund av deras tunga påverkan på den data plattform som används. Detta är en automatiserad process. Det finns inget sätt att begära att en åtgärd hanteras snabbare.
 
 ### <a name="delete"></a>Ta bort
 
 > [!WARNING]
-> Tar bort i Log Analytics är destruktiva och icke-reversibelt! Du vara mycket försiktig i sina körning.
+> Borttagningar i Log Analytics är destruktiva och icke-reversibela! Var ytterst försiktig när de körs.
 
-Vi har gjort tillgänglig som en del av en sekretess hantering av en *Rensa* API-sökväg. Den här sökvägen bör användas sparsamt på grund av riskerna med att göra det, potentiell prestandapåverkan och kan ge skeva upp alla aggregeringar, mått och andra aspekter av din Log Analytics-data. Se den [strategi för hantering av personuppgifter](#strategy-for-personal-data-handling) för alternativa metoder för att hantera privata data.
+Vi har gjort tillgängliga som en del av en sekretess hantering som hanterar en rensnings-API-sökväg. Den här sökvägen bör användas sparsamt på grund av risken som är kopplad till att göra detta, den potentiella prestanda påverkan och potentialen att skeva alla agg regeringar, mätningar och andra aspekter av dina Log Analytics data. I avsnittet [strategi för personlig data hantering](#strategy-for-personal-data-handling) finns alternativa metoder för att hantera privata data.
 
-Rensa är en mycket Privilegierade åtgärd att ingen app eller användare i Azure (inklusive även resursägaren) har behörighet att köra utan att uttryckligen beviljas en roll i Azure Resource Manager. Den här rollen är _Data Purger_ och bör delegeras försiktighet på grund av risken för dataförlust. 
+Rensa är en hög privilegie rad åtgärd som ingen app eller användare i Azure (inklusive resurs ägaren) har behörighet att köra utan att uttryckligen beviljas en roll i Azure Resource Manager. Den här rollen är _data rensning_ och bör delegeras försiktigt på grund av risken för data förlust. 
 
-När de har tilldelats rollen Azure Resource Manager finns två nya API-sökvägar: 
+När Azure Resource Manager rollen har tilldelats är två nya API-sökvägar tillgängliga: 
 
 #### <a name="log-data"></a>Loggdata
 
-* [Rensa efter](https://docs.microsoft.com/rest/api/loganalytics/workspaces%202015-03-20/purge) – tar ett objekt som att ange parametrar för att ta bort och returnerar en referens-GUID 
-* Rensa status för GET - INLÄGG Rensa anropet returnerar en x-ms-status-location-rubriken som innehåller en URL som du kan anropa för att fastställa statusen för din Rensa API. Exempel:
+* [Efter rensning](https://docs.microsoft.com/rest/api/loganalytics/workspaces%202015-03-20/purge) – tar ett objekt som anger data parametrar som ska tas bort och returnerar en referens-GUID 
+* Hämta rensnings status: POST rensnings anropet returnerar ett "x-MS-status-plats"-huvud som innehåller en URL som du kan anropa för att fastställa status för ditt rensnings-API. Exempel:
 
     ```
-    x-ms-status-location: https://management.azure.com/subscriptions/[SubscriptionId]/resourceGroups/[ResourceGroupName]/providers/Microsoft.OperatonalInsights/workspaces/[WorkspaceName]/operations/purge-[PurgeOperationId]?api-version=2015-03-20
+    x-ms-status-location: https://management.azure.com/subscriptions/[SubscriptionId]/resourceGroups/[ResourceGroupName]/providers/Microsoft.OperationalInsights/workspaces/[WorkspaceName]/operations/purge-[PurgeOperationId]?api-version=2015-03-20
     ```
 
 > [!IMPORTANT]
->  Medan vi förväntar oss merparten av Rensa åtgärder för att slutföra mycket snabbare än serviceavtal på grund av deras stor inverkan på dataplattform som används av Log Analytics, **en formell serviceavtal (SLA) för att slutföra åtgärder för rensning har ställts in till 30 dagar**. 
+>  Även om vi förväntar dig att de flesta rensnings åtgärder ska gå snabbare än vårt service avtal, på grund av deras tunga påverkan på den data plattform som används av Log Analytics, **anges det formella service avtalet för slut för ande av rensnings åtgärder till 30 dagar**. 
 
 #### <a name="application-data"></a>Programdata
 
-* [Rensa efter](https://docs.microsoft.com/rest/api/application-insights/components/purge) – tar ett objekt som att ange parametrar för att ta bort och returnerar en referens-GUID
-* Rensa status för GET - INLÄGG Rensa anropet returnerar en x-ms-status-location-rubriken som innehåller en URL som du kan anropa för att fastställa statusen för din Rensa API. Exempel:
+* [Efter rensning](https://docs.microsoft.com/rest/api/application-insights/components/purge) – tar ett objekt som anger data parametrar som ska tas bort och returnerar en referens-GUID
+* Hämta rensnings status: POST rensnings anropet returnerar ett "x-MS-status-plats"-huvud som innehåller en URL som du kan anropa för att fastställa status för ditt rensnings-API. Exempel:
 
    ```
    x-ms-status-location: https://management.azure.com/subscriptions/[SubscriptionId]/resourceGroups/[ResourceGroupName]/providers/microsoft.insights/components/[ComponentName]/operations/purge-[PurgeOperationId]?api-version=2015-05-01
    ```
 
 > [!IMPORTANT]
->  Även om merparten av Rensa åtgärder kan slutföra mycket snabbare än serviceavtalet, på grund av deras stor inverkan på dataplattform som används av Application Insights **en formell serviceavtal (SLA) för att slutföra åtgärder för rensning har ställts in till 30 dagar**.
+>  Det stora flertalet rensnings åtgärder kan slutföras mycket snabbare än SLA, på grund av den stora påverkan på den data plattform som används av Application Insights, **det formella service avtalet för slut för ande av rensnings åtgärder anges till 30 dagar**.
 
 ## <a name="next-steps"></a>Nästa steg
-- Läs mer om hur Log Analytics-data som samlas in, bearbetas och skyddas i [Log Analytics-datasäkerhet](../../azure-monitor/platform/data-security.md).
-- Läs mer om hur Application Insights-data som samlas in, bearbetas och skyddas i [Application Insights datasäkerhet](../../azure-monitor/app/data-retention-privacy.md).
+- Mer information om hur Log Analytics data samlas in, bearbetas och skyddas finns i [Log Analytics data säkerhet](../../azure-monitor/platform/data-security.md).
+- Mer information om hur Application Insights data samlas in, bearbetas och skyddas finns i [Application Insights data säkerhet](../../azure-monitor/app/data-retention-privacy.md).

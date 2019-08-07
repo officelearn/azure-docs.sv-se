@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 6dc8fcc32d7f05063da15eb6ca6bf7a7d69baebb
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: f4d3a4d9a5785ae350874c400384477da1a6c22e
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663126"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774715"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Skapa, Visa och hantera logg aviseringar med Azure Monitor
 
@@ -58,7 +58,7 @@ Detaljerad information finns i steg-för-steg-instruktioner för att använda lo
 
    > [!NOTE]
    > 
-   > Aviserings listor kan importera Analytics-fråga som signal typ – **logg (sparad fråga)** som visas i bilden ovan. Det innebär att användarna kan vara perfekta för din fråga i Analytics och sedan spara dem för framtida användning i aviseringar – mer information om hur du använder Spara fråga som är tillgänglig vid [användning av logg frågor i Azure Monitor](../log-query/log-query-overview.md) eller [delad fråga i Application Insights Analytics](../log-query/log-query-overview.md).
+   > Aviserings listor kan importera Analytics-fråga som signal typ – **logg (sparad fråga)** som visas i bilden ovan. Det innebär att användarna kan vara perfekta för din fråga i Analytics och sedan spara dem för framtida användning i aviseringar – mer information om hur du använder Spara fråga som är tillgänglig vid [användning av logg frågor i Azure Monitor](../log-query/log-query-overview.md) eller [delad fråga i Application Insights Analytics](../app/app-insights-overview.md).
 
 1. *Logg aviseringar*: När du har valt kan du ange en fråga för aviseringar i fältet **Sök fråga** . om frågesyntaxen är felaktig visas fel i fältet röd. Om frågesyntaxen är korrekt – för referens historiska data för den angivna frågan visas som en graf med alternativ för att justera tidsfönstret från de senaste sex timmarna till förra veckan.
 

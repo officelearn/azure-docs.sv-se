@@ -10,19 +10,19 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.reviewer: brahmnes
-ms.date: 03/07/2019
+ms.date: 08/06/2019
 ms.author: mbullwin
-ms.openlocfilehash: 4157285e8af67acd1dc3627bebc12076d7fe072c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 02d72ab877577e97592dfdd763a58cb01b201d8b
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65595588"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839366"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Felsök ögonblicksbilder på undantag i .NET-appar
 Om ett undantag inträffar, kan du automatiskt samla in en felsökning för ögonblicksbilder från ditt webbprogram. Ögonblicksbilden visar tillståndet för källkoden och variabler för tillfället som undantaget uppstod. Felsökning av ögonblicksbild (förhandsversion) i [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) övervakar undantagstelemetri från din webbapp. Den samlar in ögonblicksbilder i din upp utlöser undantag så att du har den information du behöver att diagnostisera problem i produktionsmiljön. Inkludera den [Snapshot collector NuGet-paketet](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) i ditt program och om du vill konfigurera insamlingsparametrarna i [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md). Ögonblicksbilder som visas på [undantag](../../azure-monitor/app/asp-net-exceptions.md) i Application Insights-portalen.
 
-Du kan visa debug ögonblicksbilder i portalen för att se anropet stacken och inspektera variabler vid varje anropsstacken. För att få en mer kraftfullt felsökningsverktyg som fungerar med källkoden kan du öppna ögonblicksbilder med Visual Studio 2019 Enterprise. I Visual Studio kan du också [ange Snappoints att interaktivt ta ögonblicksbilder](https://aka.ms/snappoint) utan att behöva vänta ett undantag.
+Du kan visa debug ögonblicksbilder i portalen för att se anropet stacken och inspektera variabler vid varje anropsstacken. För att få en mer kraftfull fel söknings upplevelse med källkod öppnar du ögonblicks bilder med Visual Studio 2019 Enterprise. I Visual Studio kan du också [ange Snappoints att interaktivt ta ögonblicksbilder](https://aka.ms/snappoint) utan att behöva vänta ett undantag.
 
 Felsök ögonblicksbilder lagras i sju dagar. Den här bevarandeprincipen är inställd på basis av per program. Om du vill öka det här värdet kan du begära en ökning genom att öppna ett supportärende i Azure-portalen.
 
@@ -34,15 +34,15 @@ Felsök ögonblicksbilder lagras i sju dagar. Den här bevarandeprincipen är in
 Följande miljöer stöds:
 
 * [Azure App Service](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)
-* [Azure Cloud Services](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) köra OS-familj 4 eller senare
+* [Azure Cloud Services](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) som kör OS-familjen 4 eller senare
 * [Azure Service Fabric-tjänster](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) som körs på Windows Server 2012 R2 eller senare
-* [Azure virtuella datorer och VM-skalningsuppsättningar](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) som kör Windows Server 2012 R2 eller senare
+* [Azure-Virtual Machines och skalnings uppsättningar för virtuella datorer som](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) kör Windows Server 2012 R2 eller senare
 * [Lokala virtuella eller fysiska datorer](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) som kör Windows Server 2012 R2 eller senare
 
 > [!NOTE]
 > Klientprogram (till exempel WPF, Windows-formulär eller UWP) stöds inte.
 
-Om du har aktiverat Snapshot Debugger men inte ser ögonblicksbilder, kontrollera våra [felsökningsguide för](snapshot-debugger-troubleshoot.md?toc=/azure/azure-monitor/toc.json).
+Om du har aktiverat Snapshot Debugger men inte ser ögonblicks bilder, se vår [fel söknings guide](snapshot-debugger-troubleshoot.md?toc=/azure/azure-monitor/toc.json).
 
 ## <a name="grant-permissions"></a>Bevilja behörigheter
 
@@ -64,13 +64,13 @@ Prenumerationsägare ska tilldela den `Application Insights Snapshot Debugger` r
 > [!IMPORTANT]
 > Ögonblicksbilder kan innehålla personligt och annan känslig information i variabeln och parametervärden.
 
-## <a name="view-snapshots-in-the-portal"></a>Visa ögonblicksbilder i Portal
+## <a name="view-snapshots-in-the-portal"></a>Visa ögonblicks bilder i portalen
 
-När ett undantag inträffade i ditt program och en ögonblicksbild har skapats, bör du ha ögonblicksbilder för att visa. Det kan ta 5 – 10 minuter från ett undantag som uppstår för en ögonblicksbild redo och kan visas från portalen. Visa ögonblicksbilder, i den **fel** väljer den **Operations** knappen när du visar den **Operations** fliken eller Välj den **undantag**knappen när du visar den **undantag** fliken:
+När ett undantag har inträffat i ditt program och en ögonblicks bild har skapats bör du ha ögonblicks bilder att visa. Det kan ta 5 till 10 minuter från ett undantag som inträffar till en ögonblicks bild som är klar och kan visas från portalen. Om du vill visa ögonblicks bilder väljer du knappen **åtgärder** i rutan **fel** när du visar fliken **åtgärder** , eller så klickar du på knappen **undantag** när du visar fliken **undantag** :
 
-![Fel-sidan](./media/snapshot-debugger/failures-page.png)
+![Sidan problem](./media/snapshot-debugger/failures-page.png)
 
-Välj en åtgärd eller ett undantag i det högra fönstret för att öppna den **slutpunkt till slutpunkt transaktionsinformation** fönstret och sedan välja undantagshändelse. Om en ögonblicksbild är tillgängligt för det angivna undantaget en **Open Debug Snapshot** knappen visas i den högra rutan med information om den [undantag](../../azure-monitor/app/asp-net-exceptions.md).
+Välj en åtgärd eller ett undantag i den högra rutan för att öppna fönstret **transaktions information från slut punkt till slut punkt** och välj sedan undantags händelsen. Om det finns en ögonblicks bild för det här undantaget visas en knapp för att **Öppna fel söknings ögonblicks bilder** i den högra rutan med information om [undantaget](../../azure-monitor/app/asp-net-exceptions.md).
 
 ![Öppna Felsök ögonblicksbild knappen undantag](./media/snapshot-debugger/e2e-transaction-page.png)
 
@@ -80,10 +80,10 @@ I vyn Felsök ögonblicksbild visas en anropsstack och en variabler-fönstret. N
 
 Ögonblicksbilder kan innehålla känslig information och som standard de inte kan visas. Om du vill visa ögonblicksbilder, måste du ha den `Application Insights Snapshot Debugger` roll som tilldelats dig.
 
-## <a name="view-snapshots-in-visual-studio-2017-enterprise-or-above"></a>Visa ögonblicksbilder i Visual Studio 2017 Enterprise eller senare
-1. Klicka på den **ladda ned ögonblicksbild** för att ladda ned en `.diagsession` -fil som kan öppnas av Visual Studio Enterprise.
+## <a name="view-snapshots-in-visual-studio-2017-enterprise-or-above"></a>Visa ögonblicks bilder i Visual Studio 2017 Enterprise eller senare
+1. Klicka på knappen **Hämta ögonblicks bild** för `.diagsession` att ladda ned en fil som kan öppnas av Visual Studio Enterprise.
 
-2. Öppna den `.diagsession` filen, måste du ha installerat komponenten Snapshot Debugger Visual Studio. Snapshot Debugger-komponenten är en obligatorisk del av arbetsbelastningen ASP.net i Visual Studio och kan väljas från listan över enskilda komponenter i installationsprogrammet för Visual Studio. Om du använder en version av Visual Studio innan Visual Studio 2017 version 15.5, måste du installerar tillägget från den [Visual Studio Marketplace](https://aka.ms/snapshotdebugger).
+2. Du måste ha `.diagsession` installerat Snapshot debugger Visual Studio-komponenten för att kunna öppna filen. Snapshot Debugger-komponenten är en obligatorisk komponent i ASP.net-arbetsbelastningen i Visual Studio och kan väljas från listan med enskilda komponenter i Visual Studio-installationsprogrammet. Om du använder en version av Visual Studio innan du börjar med Visual Studio 2017 version 15,5 måste du installera tillägget från [Visual Studio Marketplace](https://aka.ms/snapshotdebugger).
 
 3. När du har öppnat ögonblicksbildfilen visas sidan Minidump felsökning i Visual Studio. Klicka på **felsöka förvaltad kod** att starta felsökningen ögonblicksbilden. Ögonblicksbilden öppnar rad med kod som undantaget uppstod där så att du kan felsöka det aktuella tillståndet för processen.
 
@@ -112,7 +112,7 @@ Den huvudsakliga processen fortsätter att köra och hantera trafik till använd
 
 ## <a name="limitations"></a>Begränsningar
 
-Standardkvarhållningsperioden för data är 15 dagar. För varje Application Insights-instans tillåts högst 50 ögonblicksbilder per dag.
+Standardvärdet för kvarhållning av data är 15 dagar. För varje Application Insights instans tillåts ett maximalt antal 50 ögonblicks bilder per dag.
 
 ### <a name="publish-symbols"></a>Publicera symboler
 Snapshot Debugger kräver symbolfiler på produktionsservern att avkoda variabler och felsöka problem i Visual Studio.
@@ -123,6 +123,10 @@ Version 15.2 (eller senare) för Visual Studio 2017 publicerar symboler för ver
 ```
 
 För Azure Compute och andra typer, se till att symbolfiler finns i samma mapp med huvudprogrammet DLL-filen (vanligtvis `wwwroot/bin`) eller är tillgängliga på den aktuella sökvägen.
+
+> [!NOTE]
+> Mer information om de olika symbol alternativen som är tillgängliga finns [i Visual Studio-dokumentationen.](https://docs.microsoft.com/visualstudio/ide/reference/advanced-build-settings-dialog-box-csharp?view=vs-2019#output
+) För bästa resultat rekommenderar vi att du använder "fullständig", "portabel" eller "inbäddad".
 
 ### <a name="optimized-builds"></a>Optimerad versioner
 I vissa fall kan visas lokala variabler inte i version versioner på grund av optimeringar av JIT-kompilatorn.
@@ -137,7 +141,7 @@ Aktivera Application Insights Snapshot Debugger för ditt program:
 * [Azure App Service](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Cloud Services](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Service Fabric-tjänster](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
-* [Azure virtuella datorer och VM-skalningsuppsättningar](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
+* [Azure Virtual Machines och skalnings uppsättningar för virtuella datorer](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 * [Lokala virtuella eller fysiska datorer](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 
 Utöver Application Insights Snapshot Debugger:

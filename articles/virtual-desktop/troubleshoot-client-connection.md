@@ -1,85 +1,85 @@
 ---
-title: Fjärrskrivbordsklienten anslutningar i Windows virtuellt skrivbord – Azure
-description: Så här att lösa problem när du ställer in klientanslutningar i en miljö för virtuella Windows-skrivbordet organisationer.
+title: Fjärr skrivbords klient anslutningar i Windows Virtual Desktop – Azure
+description: Så här löser du problem när du konfigurerar klient anslutningar i en Windows-klient för virtuella skriv bord.
 services: virtual-desktop
-author: ChJenk
+author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 04/08/2019
-ms.author: v-chjenk
-ms.openlocfilehash: b7a6daa791e44227fd146c9c328a939560ebb3b1
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.author: helohr
+ms.openlocfilehash: 9cd754b1810595c3ae82a7e4edfd9a3abe145b3f
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67605300"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816412"
 ---
 # <a name="remote-desktop-client-connections"></a>Anslutningar för fjärrskrivbordsklienten
 
-Använd den här artikeln för att lösa problem med virtuella skrivbord i Windows-klientanslutningar.
+Använd den här artikeln för att lösa problem med klient anslutningar för virtuella Windows-datorer.
 
 ## <a name="provide-feedback"></a>Ge feedback
 
-Vi inte är för närvarande tar supportärenden när virtuella Windows-skrivbordet är i förhandsversionen. Gå till den [Windows Desktop Tech-Community virtuella](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) att diskutera virtuellt skrivbord i Windows-tjänsten med produktteamet och aktiva community-medlemmar.
+Vi tar för närvarande inte support ärenden när Windows Virtual Desktop är i för hands version. Besök [Windows-Tech](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) -communityn för Windows för att diskutera Windows Virtual Desktop-tjänsten med produkt teamet och aktiva community-medlemmar.
 
-## <a name="you-cant-open-a-web-client"></a>Du kan inte öppna en webbklient
+## <a name="you-cant-open-a-web-client"></a>Du kan inte öppna en webb klient
 
-Bekräfta att det finns en internet-anslutning genom att öppna en annan webbplats; till exempel [www.Bing.com](https://www.bing.com).
+Bekräfta att det finns en Internet anslutning genom att öppna en annan webbplats; till exempel [www.Bing.com](https://www.bing.com).
 
-Använd **nslookup** att bekräfta DNS kan matcha detta FQDN:
+Använd **nslookup** för att bekräfta att DNS kan matcha FQDN:
 
 ```cmd
 nslookup rdweb.wvd.microsoft.com
 ```
 
-Vill du försöka ansluta med en annan klient, t.ex. fjärrskrivbord-klienten för Windows 7 eller Windows 10 och kontroll att se om du kan öppna webbklienten.
+Försök att ansluta till en annan klient, t. ex. fjärr skrivbords klienten för Windows 7 eller Windows 10, och kontrol lera om du kan öppna webb klienten.
 
-### <a name="error-opening-another-site-fails"></a>Fel: Öppna en annan plats misslyckas
+### <a name="error-opening-another-site-fails"></a>Fel: Det går inte att öppna en annan webbplats
 
-**Orsak:** Nätverksproblem och/eller avbrott.
+**Orsak** Nätverks problem och/eller avbrott.
 
-**Fix:** Kontakta supporten för nätverket.
+**Fix:** Kontakta nätverks supporten.
 
-### <a name="error-nslookup-cannot-resolve-the-name"></a>Fel: Nslookup matcha inte namnet
+### <a name="error-nslookup-cannot-resolve-the-name"></a>Fel: Det går inte att matcha namnet i nslookup
 
-**Orsak:** Nätverksproblem och/eller avbrott.
+**Orsak** Nätverks problem och/eller avbrott.
 
-**Fix:** Kontakta supporten för nätverk
+**Fix:** Kontakta nätverks support
 
 ### <a name="error-you-cant-connect-but-other-clients-can-connect"></a>Fel: Du kan inte ansluta men andra klienter kan ansluta
 
-**Orsak:** Webbläsaren fungerar inte som förväntat och Stoppad fungerande.
+**Orsak** Webbläsaren fungerar inte som förväntat och har slutat fungera.
 
-**Fix:** Följ dessa instruktioner för att felsöka webbläsaren.
+**Fix:** Följ dessa anvisningar för att felsöka webbläsaren.
 
 1. Starta om webbläsaren.
-2. Rensa webbläsarcookies. Se [hur du tar bort cookie-filer i Internet Explorer](https://support.microsoft.com/help/278835/how-to-delete-cookie-files-in-internet-explorer).
-3. Rensa webbläsarens cache. Se [rensa webbläsarens cacheminne för din webbläsare](https://binged.it/2RKyfdU).
-4. Öppna webbläsaren i privat läge.
+2. Rensa webbläsarens cookies. Se [hur du tar bort cookie-filer i Internet Explorer](https://support.microsoft.com/help/278835/how-to-delete-cookie-files-in-internet-explorer).
+3. Rensa webbläsarens cache. Se [Rensa webbläsarens cacheminne för webbläsaren](https://binged.it/2RKyfdU).
+4. Öppna webbläsare i privat läge.
 
-## <a name="web-client-stops-responding-or-disconnects"></a>Webbklienten slutar svara eller kopplar
+## <a name="web-client-stops-responding-or-disconnects"></a>Webb klienten slutar svara eller kopplas från
 
-Försök att ansluta med hjälp av en annan webbläsare eller klient.
+Försök att ansluta med en annan webbläsare eller klient.
 
-### <a name="error-other-browsers-and-clients-also-malfunction-or-fail-to-open"></a>Fel: Andra webbläsare och klienter också köras felaktigt eller så öppnas inte
+### <a name="error-other-browsers-and-clients-also-malfunction-or-fail-to-open"></a>Fel: Andra webbläsare och klienter fungerar inte heller eller kan inte öppnas
 
-**Orsak:** Nätverk och/eller åtgärden systemproblem eller bortfall
+**Orsak** Problem med nätverk och/eller operativ system eller drift avbrott
 
-**Fix:** Kontakta supportteam.
+**Fix:** Kontakta support team.
 
-## <a name="web-client-keeps-prompting-for-credentials"></a>Webbklienten håller förfrågning om autentiseringsuppgifter
+## <a name="web-client-keeps-prompting-for-credentials"></a>Webb klienten kommer att uppmanas att ange autentiseringsuppgifter
 
-Om webbklienten håller förfrågning om autentiseringsuppgifter, följer du dessa instruktioner.
+Följ dessa instruktioner om webb klienten ska fråga om autentiseringsuppgifter.
 
-1. Bekräfta Webbadress för klienten är korrekt.
-2. Kontrollera att autentiseringsuppgifterna är för virtuellt skrivbord i Windows-miljö som är kopplad till URL: en.
-3. Rensa webbläsarcookies. Se [hur du tar bort cookie-filer i Internet Explorer](https://support.microsoft.com/help/278835/how-to-delete-cookie-files-in-internet-explorer).
-4. Rensa webbläsarens cache. Se [rensa webbläsarens cacheminne för din webbläsare](https://binged.it/2RKyfdU).
-5. Öppna webbläsaren i privat läge.
+1. Webb adressen till webb klienten är korrekt.
+2. Bekräfta att autentiseringsuppgifterna för den virtuella Windows-skrivbordet är knutna till URL: en.
+3. Rensa webbläsarens cookies. Se [hur du tar bort cookie-filer i Internet Explorer](https://support.microsoft.com/help/278835/how-to-delete-cookie-files-in-internet-explorer).
+4. Rensa webbläsarens cache. Se [Rensa webbläsarens cacheminne för webbläsaren](https://binged.it/2RKyfdU).
+5. Öppna webbläsare i privat läge.
 
-## <a name="remote-desktop-client-for-windows-7-or-windows-10-stops-responding-or-cannot-be-opened"></a>Fjärrskrivbordsklient för Windows 7 eller Windows 10 slutar svara eller kan inte öppnas
+## <a name="remote-desktop-client-for-windows-7-or-windows-10-stops-responding-or-cannot-be-opened"></a>Fjärr skrivbords klienten för Windows 7 eller Windows 10 slutar svara eller kan inte öppnas
 
-Använd följande PowerShell-cmdletar för att rensa out-of-band (OOB) klienten register.
+Använd följande PowerShell-cmdlets för att rensa out-of-band-klientens register (out-of-band).
 
 ```PowerShell
 Remove-ItemProperty 'HKCU:\Software\Microsoft\Terminal Server Client\Default' - Name FeedURLs
@@ -91,38 +91,38 @@ Remove-Item 'HKCU:\Software\Microsoft\RdClientRadc' -Recurse
 Remove-Item C:\Users\pavithir\AppData\Roaming\RdClientRadc\* -Recurse
 ```
 
-Gå till **%AppData%\RdClientRadc** och ta bort allt innehåll.
+Navigera till **%AppData%\RdClientRadc** och ta bort allt innehåll.
 
-Avinstallera och installera fjärrskrivbord-klienten för Windows 7 och Windows 10.
+Avinstallera och installera om fjärr skrivbords klienten för Windows 7 och Windows 10.
 
-## <a name="troubleshooting-end-user-connectivity"></a>Felsökning av anslutningsmöjligheter för slutanvändare
+## <a name="troubleshooting-end-user-connectivity"></a>Felsöka slut användar anslutning
 
-Ibland användare kan komma åt sina feed och lokala resurser, men ändå konfiguration, tillgänglighet eller prestandaproblem som hindrar dem från att komma åt fjärresurser. I dessa fall kan användaren får meddelanden liknar dessa:
+Ibland kan användare komma åt sina flöden och lokala resurser, men fortfarande ha konfigurations-, tillgänglighets-eller prestanda problem som hindrar dem från att komma åt fjär resurser. I dessa fall får användaren meddelanden som liknar dessa:
 
-![Remote Desktop Connection felmeddelande.](media/eb76b666808bddb611448dfb621152ce.png)
+![Anslutning till fjärrskrivbord fel meddelande.](media/eb76b666808bddb611448dfb621152ce.png)
 
-![Det går inte att ansluta till gateway-felmeddelandet.](media/a8fbb9910d4672147335550affe58481.png)
+![Det går inte att ansluta till gateway-fel meddelandet.](media/a8fbb9910d4672147335550affe58481.png)
 
-De här instruktionerna allmän felsökning för klienten felkoder för anslutningen.
+Följ dessa allmänna fel söknings anvisningar för fel koder för klient anslutningar.
 
-1. Kontrollera användarnamnet och tid när problemet uppstod i samband med.
-2. Öppna **PowerShell** och upprätta anslutning till virtuella skrivbord i Windows-klient där problemet har rapporterats.
+1. Bekräfta användar namn och tidpunkt när problem uppstod.
+2. Öppna **PowerShell** och upprätta en anslutning till den virtuella Windows-klient där problemet rapporterades.
 3. Bekräfta anslutningen till rätt klient med **Get-RdsTenant.**
-4. Med hjälp av **Get-RdsHostPool** och **Get-RdsSessionHost** cmdlet: ar, bekräfta att felsöka görs på rätt värden poolen.
-5. Kör kommandot nedan för att hämta en lista över alla misslyckade aktiviteter av typen anslutning för det angivna tidsfönstret:
+4. Använd cmdletarna **Get-RdsHostPool** och **Get-RdsSessionHost** för att kontrol lera att fel sökning utförs på rätt adresspool.
+5. Kör kommandot nedan för att hämta en lista över alla misslyckade aktiviteter av typen anslutning under den angivna tids perioden:
 
     ```PowerShell
      Get-RdsDiagnosticActivities -TenantName <TenantName> -username <UPN> -StartTime
      "11/21/2018 1:07:03 PM" -EndTime "11/21/2018 1:27:03 PM" -Outcome Failure -ActivityType Connection
     ```
 
-6. Med hjälp av den **ActivityId** från föregående cmdlet-utdatan, kör du kommandot nedan:
+6. Använd **ActivityId** från föregående cmdlet-utdata och kör kommandot nedan:
 
     ```PowerShell
     (Get-RdsDiagnosticActivities -TenantName $tenant -ActivityId <ActivityId> -Detailed).Errors
     ```
 
-7. Kommandot producerar utdata som liknar de utdata som visas nedan. Använd **ErrorCodeSymbolic** och **ErrorMessage** att felsöka rotorsaken.
+7. Kommandot ger utdata som liknar de utdata som visas nedan. Använd **ErrorCodeSymbolic** och **errormessage** för att felsöka rotor saken.
 
     ```PowerShell
     ErrorSource       : <Source>
@@ -135,29 +135,29 @@ De här instruktionerna allmän felsökning för klienten felkoder för anslutni
     Time              : <Timestampt>
     ```
 
-### <a name="error-oaddusertogroupfailed--failed-to-add-user--username-to-group--remote-desktop-users-reason-win32errornosuchmember"></a>Fel: O_ADD_USER_TO_GROUP_FAILED / det gick inte att lägga till användare = ≤username≥ till grupp = användare av fjärrskrivbord. Orsak: Win32.ERROR_NO_SUCH_MEMBER
+### <a name="error-o_add_user_to_group_failed--failed-to-add-user--username-to-group--remote-desktop-users-reason-win32error_no_such_member"></a>Fel: O_ADD_USER_TO_GROUP_FAILED/kunde inte lägga till användare = ≤ användar namn ≥ till grupp = fjärr skrivbords användare. Orsak: Win32.ERROR_NO_SUCH_MEMBER
 
-**Orsak:** Virtuell dator ingår inte i den domän där användarobjektet är.
+**Orsak** Den virtuella datorn har inte anslutits till domänen där användar objekt är.
 
-**Fix:** Lägg till virtuell dator till rätt domän. Se [ansluta en Windows Server-dator till en hanterad domän](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal).
+**Fix:** Lägg till den virtuella datorn i rätt domän. Se [Anslut en virtuell Windows Server-dator till en hanterad domän](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal).
 
-### <a name="error-nslookup-cannot-resolve-the-name"></a>Fel: Nslookup matcha inte namnet
+### <a name="error-nslookup-cannot-resolve-the-name"></a>Fel: Det går inte att matcha namnet i nslookup
 
-**Orsak:** Nätverks- eller avbrott.
+**Orsak** Nätverks problem eller avbrott.
 
-**Fix:** Kontakta supporten för nätverk
+**Fix:** Kontakta nätverks support
 
 ### <a name="error-connectionfailedclientprotocolerror"></a>Fel: ConnectionFailedClientProtocolError
 
-**Orsak:** Virtuella datorer som användaren försöker ansluta till är inte ansluten till en domän.
+**Orsak** Virtuella datorer som användaren försöker ansluta till är inte domänanslutna.
 
-**Fix:** Anslut alla virtuella datorer som ingår i poolen värden till domänkontrollanten.
+**Fix:** Anslut alla virtuella datorer som ingår i en adresspool till domänkontrollanten.
 
-## <a name="user-connects-but-nothing-is-displayed-no-feed"></a>Användare ansluter men inget att visas (inga matning)
+## <a name="user-connects-but-nothing-is-displayed-no-feed"></a>Användaren ansluter men inget visas (ingen feed)
 
-En användare kan starta fjärrskrivbordsklienter och kan autentisera, men användaren inte se några ikonerna i webbsökning feed.
+En användare kan starta fjärr skrivbords klienter och kan autentisera, men användaren ser inga ikoner i webb identifierings flödet.
 
-Bekräfta att användaren problemen som har tilldelats till programgrupper genom att använda den här kommandoraden:
+Bekräfta att användaren som rapporterar problemen har tilldelats program grupper genom att använda den här kommando raden:
 
 ```PowerShell
 Get-RdsAppGroupUser <tenantname> <hostpoolname> <appgroupname>
@@ -165,15 +165,15 @@ Get-RdsAppGroupUser <tenantname> <hostpoolname> <appgroupname>
 
 Bekräfta att användaren loggar in med rätt autentiseringsuppgifter.
 
-Om webbklienten används, kontrollerar du att det inte finns några problem med cachelagrade autentiseringsuppgifter.
+Om webb klienten används kontrollerar du att det inte finns några problem med cachelagrade autentiseringsuppgifter.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- En översikt om hur du felsöker virtuella Windows-skrivbordet och Eskalering spårar finns [översikt, feedback och support](troubleshoot-set-up-overview.md).
-- Felsökning av problem när du skapar en pool med klient- och värden i en miljö med virtuella Windows-skrivbordet beskrivs [klient och värden lagringspoolen skapa](troubleshoot-set-up-issues.md).
-- Felsökning av problem när du konfigurerar en virtuell dator (VM) i virtuella Windows-skrivbordet beskrivs [Session Värdkonfiguration för virtuell dator](troubleshoot-vm-configuration.md).
-- När du felsöker problem när du använder PowerShell med virtuella Windows-skrivbordet, se [Windows PowerShell för virtuella skrivbord](troubleshoot-powershell.md).
-- Läs mer om förhandsversionen av tjänsten i [Windows Desktop förhandsversionsmiljön](https://docs.microsoft.com/azure/virtual-desktop/environment-setup?).
-- Om du vill gå igenom en självstudiekurs om felsökning finns i [självstudien: Felsöka malldistributioner för Resource Manager-](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot).
-- Läs om granskning åtgärder i [granskningsåtgärder med Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
-- Mer information om åtgärder för att avgöra felen under distributionen, se [visa distributionsåtgärder](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations).
+- En översikt över fel sökning av virtuella Windows-datorer och eskalerade spår finns i [fel söknings översikt, feedback och support](troubleshoot-set-up-overview.md).
+- Information om hur du felsöker problem när du skapar en klient och en adresspool i en Windows Virtual Desktop-miljö finns i [skapa innehavare och skapa värdar för pooler](troubleshoot-set-up-issues.md).
+- Information om hur du felsöker problem när du konfigurerar en virtuell dator (VM) i Windows Virtual Desktop finns i [konfiguration av Session Host-dator](troubleshoot-vm-configuration.md).
+- Information om hur du felsöker problem när du använder PowerShell med Windows Virtual Desktop finns i [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md).
+- Mer information om för hands versions tjänsten finns i [Windows Desktop Preview-miljö](https://docs.microsoft.com/azure/virtual-desktop/environment-setup?).
+- Information om hur du går igenom en fel [söknings kurs finns i Självstudier: Felsök distributioner](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot)av Resource Manager-mallar.
+- Mer information om gransknings åtgärder finns i [gransknings åtgärder med Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
+- Information om åtgärder för att fastställa felen under distributionen finns i [Visa distributions åtgärder](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations).

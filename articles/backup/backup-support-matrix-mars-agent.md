@@ -1,5 +1,5 @@
 ---
-title: Support mat ris för säkerhets kopiering av datorer som kör Microsoft Azure Recovery Services (MARS)-agenten med Azure Backup
+title: Stöd mat ris för Microsoft Azure Recovery Services (MARS)-agenten – Azure Backup
 description: I den här artikeln sammanfattas Azure Backup support när du säkerhetskopierar datorer som kör Microsoft Azure Recovery Services-agenten (MARS).
 author: dcurwin
 ms.service: backup
@@ -7,12 +7,12 @@ ms.date: 02/17/2019
 ms.topic: conceptual
 ms.author: dacurwin
 manager: carmonm
-ms.openlocfilehash: 46863b2eed8e5c5c4074a713b50739820a1e5bc9
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 6d05b6ac49b372caff1bdc2f03358598fcc1afba
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639529"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68737093"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Support mat ris för säkerhets kopiering med Microsoft Azure Recovery Services MARS-agenten
 

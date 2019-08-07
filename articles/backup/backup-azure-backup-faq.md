@@ -1,5 +1,5 @@
 ---
-title: Vanliga frågor och svar om Azure Backup
+title: Svar på vanliga frågor om Azure Backup funktioner
 description: 'Svar på vanliga frågor om: Azure Backup funktioner, inklusive Recovery Services-valv, vad det kan säkerhetskopiera, hur det fungerar, kryptering och begränsningar. '
 author: dcurwin
 manager: carmonm
@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/07/2019
 ms.author: dacurwin
-ms.openlocfilehash: c60b2bfae0d974d454c03b7eba655cbdacab5943
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: c41381dd3e53c80e74da3dc0d0a08e1ac83daec6
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68466679"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827628"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Vanliga frågor och svar om Azure Backup
 I den här artikeln besvaras vanliga frågor om tjänsten Azure Backup.
@@ -24,6 +24,13 @@ Ja. Du kan skapa upp till 500 Recovery Services-valv, per region som stöds för
 
 ### <a name="are-there-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault"></a>Finns det några begränsningar för hur många servrar/datorer som kan registreras mot varje valv?
 Du kan registrera upp till 1000 virtuella Azure-datorer per valv. Om du använder Microsoft Azure Backup-agenten kan du registrera upp till 50 MONOKLONALa agenter per valv. Och du kan registrera 50 monoklonal-servrar/DPM-servrar i ett valv.
+
+### <a name="how-many-datasourcesitems-can-be-protected-in-a-vault"></a>Hur många data källor/objekt kan skyddas i ett valv? 
+Du kan skydda upp till 2000 data källor/objekt över alla arbets belastningar (IaaS VM, SQL, AFS osv.) i ett valv.<br>  
+Om du t. ex. redan har skyddat 500 VM och 400 Azure Files resurser i valvet kan du bara skydda upp till 1100 SQL-databaser. 
+
+### <a name="how-many-policies-can-i-create-per-vault"></a>Hur många principer kan jag skapa per valv? 
+Du kan bara ha upp till 200 principer per valv.
 
 ### <a name="if-my-organization-has-one-vault-how-can-i-isolate-data-from-different-servers-in-the-vault-when-restoring-data"></a>Hur kan jag isolera data från olika servrar i valvet vid återställning av data om min organisation har ett valv?
 Server data som du vill återställa tillsammans bör använda samma lösen fras när du konfigurerar säkerhets kopiering. Om du vill isolera återställning till en bestämd Server eller servrar använder du bara en lösen fras för den servern eller servrarna. HR-servrarna kan till exempel använda en krypteringslösenfras, redovisningsservrarna en annan och lagringsservrar en tredje.

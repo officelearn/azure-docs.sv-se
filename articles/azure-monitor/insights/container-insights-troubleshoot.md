@@ -13,33 +13,33 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/27/2018
 ms.author: magoedte
-ms.openlocfilehash: 2e3e39ef24d82393d981c0ce276b3338419e0b2d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b6c245142eea12bcec5ed642ec9bd91a58e10eb0
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65521759"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68813770"
 ---
 # <a name="troubleshooting-azure-monitor-for-containers"></a>Felsökning Azure Monitor för behållare
 
 När du konfigurerar övervakning av ditt Azure Kubernetes Service (AKS)-kluster med Azure Monitor för behållare kan du kan stöta på ett problem som förhindrar insamling av data eller rapporterar status. Den här artikeln beskriver några vanliga problem och felsökning.
 
-## <a name="authorization-error-during-onboarding-or-update-operation"></a>Behörighetsfel under onboarding- eller update-åtgärd
-När du aktiverar Azure Monitor för behållare eller uppdaterar ett kluster för att stödja samla in mått, kan du få ett felmeddelande liknar följande: *klienten < användarens identitet >' med objektet har inte id ”< användarens objectId >” behörighet att utföra åtgärden ”Microsoft.Authorization/roleAssignments/write' över område*
+## <a name="authorization-error-during-onboarding-or-update-operation"></a>Auktoriseringsfel vid onboarding eller uppdaterings åtgärd
+När du aktiverar Azure Monitor för behållare eller uppdaterar ett kluster för att stödja insamling av mått, kan det hända att du får ett fel som liknar följande – *klienten < användarens identitet > med objekt-id < användarens objectId > har inte behörighet att utför åtgärden Microsoft. Authorization/roleAssignments/Write över omfång*
 
-Under onboarding eller uppdatering, beviljar den **övervakning mått Publisher** rolltilldelning har påbörjats på klusterresursen. Användaren initierar processen att aktivera Azure Monitor för behållare eller uppdateringen för insamling av mått måste ha åtkomst till den **Microsoft.Authorization/roleAssignments/write** behörighet på AKS-kluster resurs-omfattningen. Endast medlemmar i den **ägare** och **administratör för användaråtkomst** inbyggda roller beviljas åtkomst till den här behörigheten. Om dina säkerhetsprinciper behöver tilldela detaljerade behörigheter på kolumnnivå, vi rekommenderar att du ser [anpassade roller](../../role-based-access-control/custom-roles.md) och tilldela den till användare som behöver den. 
+Under onboarding-eller uppdaterings processen görs försök att tilldela **övervaknings mått utgivar** roll tilldelningen på kluster resursen. Användaren som initierar processen för att aktivera Azure Monitor för behållare eller uppdateringen för att stödja insamling av mått måste ha åtkomst till **Microsoft. Authorization/roleAssignments/Write-** behörigheten för kluster resurs omfånget i AKS. Endast medlemmar i de inbyggda rollerna **ägare** och **användar åtkomst administratör** beviljas åtkomst till den här behörigheten. Om dina säkerhets principer kräver att du tilldelar detaljerade nivå behörigheter rekommenderar vi att du visar [anpassade roller](../../role-based-access-control/custom-roles.md) och tilldelar dem till de användare som behöver den. 
 
-Du kan också manuellt bevilja den här rollen från Azure portal genom att utföra följande steg:
+Du kan också bevilja rollen manuellt från Azure Portalen genom att utföra följande steg:
 
 1. Logga in på [Azure Portal](https://portal.azure.com). 
-2. I Azure Portal klickar du på **Alla tjänster** längst upp till vänster. I listan över resurser skriver **Kubernetes**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Azure Kubernetes**.
-3. I listan över Kubernetes-kluster, väljer du ett i listan.
-2. I den vänstra menyn klickar du på **åtkomstkontroll (IAM)** .
-3. Välj **+ Lägg till** att lägga till en rolltilldelning och välj den **övervakning mått Publisher** roll och under den **Välj** skriver **AKS** till Filtrera resultatet för just kluster tjänsthuvudnamn som definierats i prenumerationen. Välj det i listan som är specifik för klustret.
+2. I Azure Portal klickar du på **Alla tjänster** längst upp till vänster. Skriv **Kubernetes**i listan över resurser. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Azure-Kubernetes**.
+3. I listan över Kubernetes-kluster väljer du en i listan.
+2. I den vänstra menyn klickar du på **åtkomst kontroll (IAM)** .
+3. Välj **+ Lägg** till för att lägga till en roll tilldelning och välj utgivar rollen **övervaknings mått** och välj **AKS** i rutan **Välj** typ för att filtrera resultaten för bara de kluster tjänstens huvud namn som definierats i prenumerationen. Välj den från listan som är speciell för klustret.
 4. Välj **spara** Slutför tilldela rollen. 
 
 ## <a name="azure-monitor-for-containers-is-enabled-but-not-reporting-any-information"></a>Azure Monitor för behållare har aktiverats men inte rapporterar någon information
-Om Azure Monitor för behållare har aktiverats och konfigurerats, men du kan inte visa statusinformation eller inga resultat som returneras från en loggfråga, kan du diagnostisera problemet genom att följa dessa steg: 
+Om Azure Monitor för behållare har Aktiver ATS och kon figurer ATS, men du inte kan visa statusinformation eller inga resultat returneras från en logg fråga, diagnostiserar du problemet genom att följa dessa steg: 
 
 1. Kontrollera statusen för agenten genom att köra kommandot: 
 
@@ -80,7 +80,7 @@ Om Azure Monitor för behållare har aktiverats och konfigurerats, men du kan in
 
 4. Loggarna för agenten. När behållare agenten distribueras, kör en snabb kontroll genom att köra OMI kommandon och visar versionen av agenten och providern. 
 
-5. Kontrollera att agenten har distribuerats korrekt genom att köra kommandot: `kubectl logs omsagent-484hw --namespace=kube-system`
+5. Verifiera att agenten har distribuerats genom att köra kommandot:`kubectl logs omsagent-484hw --namespace=kube-system`
 
     Statusen bör likna följande exempel:
 
@@ -111,11 +111,12 @@ I tabellen nedan sammanfattas kända fel kan uppstå när du använder Azure Mon
 
 | Felmeddelanden  | Åtgärd |  
 | ---- | --- |  
-| Felmeddelande `No data for selected filters`  | Det kan ta lite tid att upprätta övervakning dataflöde för nyligen skapade kluster. Tillåt minst 10 – 15 minuter innan data visas för klustret. |   
-| Felmeddelande `Error retrieving data` | Medan Azure Kubenetes Service-kluster att konfigurera för hälso- och prestandaövervakning, upprättas en anslutning mellan kluster och Azure Log Analytics-arbetsyta. En Log Analytics-arbetsyta används för att lagra alla övervakningsdata för klustret. Det här felet kan uppstå när Log Analytics-arbetsytan har tagits bort eller tappas bort. Kontrollera om din arbetsyta är tillgänglig genom att granska [hantera åtkomst](../platform/manage-access.md#view-workspace-details). Om arbetsytan saknas, måste du återaktivera övervakning av ditt kluster med Azure Monitor för behållare. Om du vill återaktivera, behöver du [inaktivera](container-insights-optout.md) övervakning för klustret och [aktivera](container-insights-enable-new-cluster.md) Azure Monitor för behållare igen. |  
-| `Error retrieving data` När du lägger till Azure Monitor för behållare via az aks cli | När aktiverar övervakning med hjälp av `az aks cli`, Azure Monitor för behållare kan inte distribueras korrekt. Kontrollera om lösningen har distribuerats. Gör detta genom att gå till Log Analytics-arbetsytan och se om lösningen är tillgänglig genom att välja **lösningar** från fönstret till vänster. För att lösa problemet måste du distribuera lösningen igen genom att följa anvisningarna [så här distribuerar du Azure Monitor för behållare](container-insights-onboard.md) |  
+| Felmeddelande `No data for selected filters`  | Det kan ta lite tid att upprätta övervakning dataflöde för nyligen skapade kluster. Tillåt minst 10 till 15 minuter innan data visas för klustret. |   
+| Felmeddelande `Error retrieving data` | Medan Azure Kubenetes Service-kluster att konfigurera för hälso- och prestandaövervakning, upprättas en anslutning mellan kluster och Azure Log Analytics-arbetsyta. En Log Analytics-arbetsyta används för att lagra alla övervakningsdata för klustret. Det här felet kan inträffa när din Log Analytics-arbetsyta har tagits bort. Kontrol lera att arbets ytan har tagits bort och om den var måste du aktivera övervakning av klustret igen med Azure Monitor för behållare och ange en befintlig eller skapa en ny arbets yta. Om du vill aktivera igen måste du [inaktivera](container-insights-optout.md) övervakning av klustret och [Aktivera](container-insights-enable-new-cluster.md) Azure Monitor för behållare igen. |  
+| `Error retrieving data` När du lägger till Azure Monitor för behållare via az aks cli | När du aktiverar övervakning `az aks cli`med kan Azure Monitor för behållare inte distribueras korrekt. Kontrol lera om lösningen har distribuerats. Gör detta genom att gå till Log Analytics-arbetsytan och se om lösningen är tillgänglig genom att välja **lösningar** från fönstret till vänster. För att lösa problemet måste du distribuera lösningen igen genom att följa anvisningarna [så här distribuerar du Azure Monitor för behållare](container-insights-onboard.md) |  
 
 För att diagnosticera problemet, har vi lagt till ett felsökning skript som är tillgängliga [här](https://github.com/Microsoft/OMS-docker/tree/ci_feature_prod/Troubleshoot#troubleshooting-script).  
 
 ## <a name="next-steps"></a>Nästa steg
+
 Med övervakning aktiverat för att avbilda hälsomått för både noder i AKS och poddar är dessa health-mått tillgängliga i Azure-portalen. Läs hur du använder Azure Monitor för behållare i [visa Azure Kubernetes Service health](container-insights-analyze.md).

@@ -1,71 +1,71 @@
 ---
-title: Azure VMware-lösning av CloudSimple - översikt
-description: Läs mer om funktioner, scenarier och fördelar med VMware-lösning på Azure av CloudSimple-tjänsten.
+title: Azure VMware-lösning av CloudSimple – översikt
+description: Lär dig mer om funktioner, scenarier och fördelar med VMware-lösningar på Azure av CloudSimple-tjänsten.
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 04/10/2019
 ms.topic: article
-ms.service: vmware
+ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 6e84801875cf0a77990a63db5c28eedc2128c504
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 01fd132b3e43d15c5f2eee0114ef09dbac6df2a6
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64866823"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68812455"
 ---
-# <a name="what-is-vmware-solution-on-azure-by-cloudsimple"></a>Vad är VMware-lösning på Azure via CloudSimple
+# <a name="what-is-vmware-solution-on-azure-by-cloudsimple"></a>Vad är VMware-lösning på Azure av CloudSimple
 
-**VMware-lösning på Azure genom att CloudSimple** är en fullständigt hanterad tjänst som låter dig köra VMware-plattformen i Azure. Den här lösningen inkluderar vSphere, vCenter, virtuellt SAN-nätverk, NSX-T och motsvarande verktyg.
-Din VMware-miljö körs internt på Azure utan operativsystem infrastruktur på Azure-molnet platser. Tjänsten omfattar alla funktioner som krävs för att använda VMware-plattformar, effektivt och säkert sätt.
+**VMware-lösningen på Azure av CloudSimple** är en helt hanterad tjänst som gör att du kan köra VMware-plattformen i Azure. Den här lösningen omfattar vSphere, vCenter, virtuellt San, NSX-T och motsvarande verktyg.
+Din VMware-miljö körs internt i Azure-infrastrukturen för Bare Metal på Azures moln platser. Tjänsten innehåller alla funktioner som krävs för att använda VMware-plattformarna på ett effektivt och säkert sätt.
 
-![VMware-lösning på Azure via CloudSimple översikt](media/azure-vmware-solution-by-cloudsimple.png)
+![VMware-lösning på Azure av CloudSimple-översikt](media/azure-vmware-solution-by-cloudsimple.png)
 
 ## <a name="features"></a>Funktioner
 
-* Självbetjäning etableringen av VMware molnmiljöer. Möjligheten att lägga till och ta bort kapacitet på begäran
-* VMware plattform distribution, uppgradering, management plan säkerhetskopiering, health/kapacitet övervakning, aviseringar, felsökning och reparation.
-* Underlay nätverkstjänster som krävs för att aktivera VMware, inklusive L2/L3-tjänster och brandväggen regeln management.
-* Edge-type nätverkstjänster, inklusive VPN, offentlig IP-adress och Internet-Gateways. Dessa edge-tjänster körs på Azure och har motsvarande säkerhet och DDoS-skydd i Azure.
-* Kapacitetsreservation till lägre kostnader.
-* Hög hastighet och låg latens anslutning till Azure och lokalt.
-* Lösningsarkitekturer för kunder att använda Azure-tjänster på ett integrerat sätt dra nytta av den här unika ”VMware moln i ett offentligt moln”-arkitekturen. Dessa Azure-tjänster inkluderar Azure AD, lagring och programgatewayer.
-* Infrastruktur är helt dedikerade till dig och är fysiskt isolerade från infrastrukturen för andra kunder.
-* Hanteringsfunktioner sådana aktivitetshantering, användning, fakturering/mätning och hantering av användare.
-* 24 x 7 teknisk support.
+* Självbetjänings etablering på begäran av VMware Cloud-miljöer. Möjlighet att lägga till och ta bort kapacitet på begäran
+* Distribution av VMware Platform, uppgradering, hanterings plan, säkerhets kopiering, hälso tillstånd/kapacitets övervakning, varningar, fel sökning och reparation.
+* Underlay nätverks tjänster som krävs för att aktivera VMware, inklusive L2/L3-tjänster och hantering av brand Väggs regler.
+* Nätverks tjänster för Edge-typ, inklusive VPN, offentlig IP och Internet-gatewayer. Dessa Edge-tjänster körs på Azure och har motsvarande säkerhets-och DDoS-skydd i Azure.
+* Kapacitets reservation till lägre kostnader.
+* Höghastighets anslutning med låg latens med hög hastighet till Azure och lokalt.
+* Lösnings arkitekturer för kunder att använda Azure-tjänster på ett integrerat sätt kan du dra nytta av detta unika "VMware-moln i en offentlig moln arkitektur". Dessa Azure-tjänster inkluderar Azure AD, Storage, Application gateways och andra.
+* Infrastrukturen är fullständigt dedikerad och är fysiskt isolerad från andra kunders infrastruktur.
+* Hanterings funktioner som hantering av aktiviteter, användning, fakturering/mätning och användar hantering.
+* kund support dygnet runt.
 
 ## <a name="benefits"></a>Fördelar
 
-* **Kontinuiteten:** CloudSimple erbjuder inbyggd åtkomst till VMware-plattformar. Det är kompatibelt med din befintliga CloudSimple arkitekturen:
+* **Drift kontinuitet:** CloudSimple erbjuder inbyggd åtkomst till VMware-plattformar. CloudSimple-arkitekturen är kompatibel med din befintliga:
   * Program
   * Åtgärder
   * Nätverk
   * Säkerhet
-  * Backup
+  * Säkerhetskopiera
   * Haveriberedskap
   * Granska
-  * Efterlevnadsverktyg
+  * Verktyg för efterlevnad
   * Processer
-* **Ingen Retraining:** VMware-plattformen är kompatibel kan du använda befintliga färdigheter och kunskaper.
-* **Infrastruktur flexibilitet:** Du behöver längre inte att förutsäga kapacitetsbehoven och sedan avslutas med oanvänt kapacitet eller brist på infrastrukturen. CloudSimple levereras som en tjänst i molnet, och du kan lägga till eller minska kapacitet när som helst
-* **Säkerhet:** Åtkomst till miljön CloudSimple via Azure tillhandahåller inbyggda DDoS protection and säkerhetsövervakning.
-* **Lägre kostnad:** CloudSimple plattformen är utformat med hög och ger stora möjligheter till automatisering och effektiviteten stordriftsfördelar. Dessutom publicerar CloudSimple lösningsarkitekturer som drar nytta av förekomsten av VMware i ett offentligt moln och Sänk kostnaderna. Exempel inkluderar Azure AD, säkerhetskopiering till Azure storage, application gateway, belastningsutjämnaren och andra.
-* **En ny Hybridplattform:** Tjänsten ger hög hastighet, låg svarstid till resten av Azure. Dessutom kan CloudSimple management enhetlig hantering av virtuella VMware-datorer och resten av Azure med hjälp av samma användargränssnitt och API: et. Dina utvecklingsteam kan dra nytta av både offentliga och privata plattformar integrerad och enhetlig dirigering.
-* **Övervakning av infrastruktur, felsökning och support:** CloudSimple fungerar din underliggande infrastruktur som en tjänst. Misslyckas maskinvaran ersätts automatiskt. Du kan fokusera på förbrukning medan CloudSimple säkerställer att miljön kör smidigt.
-* **Kompatibilitet för principen:** Håll din VMware-baserade verktyg, säkerhet, granskning metoder och certifieringar för regelefterlevnad.
+* **Ingen omskolning:** Med VMware Platform-kompatibilitet kan du använda befintliga kunskaper och kunskaper.
+* **Flexibilitet i infrastrukturen:** Du behöver inte längre förutsäga alla dina kapacitets behov och sedan få slut på utrymmes kapacitet eller infrastrukturs brist. CloudSimple levereras som en moln tjänst och du kan lägga till eller minska kapaciteten när som helst
+* **Bullet** Åtkomst till CloudSimple-miljön via Azure innehåller inbyggt DDoS-skydd och säkerhets övervakning.
+* **Lägre kostnad:** CloudSimple-plattformen är hög utformad och ger höga nivåer av automatisering, operationell effektivitet och stor drifts skala. Vidare publicerar CloudSimple lösnings arkitekturer som utnyttjar VMware i ett offentligt moln för att sänka kostnaderna. Exempel är Azure AD, backup till Azure Storage, Application Gateway, belastningsutjämnare och andra.
+* **En ny hybrid plattform:** Tjänsten ger hög hastighet med låg latens åtkomst till resten av Azure. Dessutom möjliggör CloudSimple-hantering enhetlig hantering av VMware Virtual Machines och resten av Azure med samma användar gränssnitt och API. Dina utvecklings grupper kan dra nytta av både offentliga och privata plattformar på ett integrerat, konsekvent sätt.
+* **Infrastruktur övervakning, fel sökning och support:** CloudSimple fungerar som en tjänst för den underliggande infrastrukturen. Felaktig maskin vara byts ut automatiskt. Du kan fokusera på förbrukning medan CloudSimple säkerställer att miljön fungerar smidigt.
+* **Kompatibilitet för princip:** Behåll dina VMware-baserade verktyg, säkerhets procedurer, gransknings metoder och certifierings certifieringar.
 
 ## <a name="scenarios"></a>Scenarier
 
-* **Data Center dras tillbaka eller migrering:** Få ytterligare kapacitet när du når gränsen för ditt befintliga datacenter eller uppdaterar maskinvara. Det är enkelt att lägga till nödvändiga kapacitet i molnet och slipper besväret med att hantera uppdateringar av maskinvara. Minska risken och kostnaderna för molnmigreringar jämfört med tidskrävande konverteringar eller rearchitecture. Använd välkända VMware-verktyg och kunskaper för att påskynda molnmigreringar. En gång i molnet, använder du Azure-tjänster för att modernisera dina program i din takt.
-* **Expandera på begäran:** Utöka till molnet för att uppfylla oväntade behov, till exempel nya utvecklingsmiljöer eller toppar på säsongens kapacitet. Du kan enkelt skapa nya kapacitet på begäran och hålla dem så länge du behöver den. Minska dina direkta investeringar, snabbare hastighet för etablering och minska komplexiteten med samma arkitektur och principer för både lokalt och i molnet.
-* **Haveriberedskap och virtuella skrivbord i Azure-molnet:** Upprätta fjärråtkomst till data, appar och stationära datorer i Azure-molnet. Med snabba anslutningar kan du ladda upp / ned data snabbt för att komma tillrätta med incidenter. Låg latens nätverk ger du snabba svar gånger som användarna förväntar sig från en skrivbordsapp. Med CloudSimple är det enkelt att replikera alla principer och nätverk i molnet med CloudSimple portal och välbekanta VMware-verktyg. Enkel återställning och replikering minskar ansträngning och risken för att skapa och hantera DR och VDI-implementeringar.
-* **Program med höga prestanda och databaser:** CloudSimple är en hyperkonvergerad arkitektur som utformats för att köra dina mest krävande VMware-arbetsbelastningar. Kör Oracle, Microsoft SQL server, mellanprogram system och högpresterande icke-SQL-databaser. Upplev molnet som ditt eget datacenter med hög hastighet 25 Gbit/s-nätverksanslutningar som låter dig köra hybridappar som täcker användning lokalt VMware i Azure och Azure privata arbetsbelastningar utan att kompromissa med prestanda.
-* **SANT-Hybrid:** Förena DevOps i VMware och Azure. Optimera VMware administration för Azure-tjänster och lösningar som kan användas i alla arbetsbelastningar. Komma åt offentliga molntjänster utan att behöva Utöka ditt datacenter eller Omforma dina program. Centralisera identiteter, principer för åtkomstkontroll, loggning och övervakning för VMware-program på Azure.
+* **Data Center pension eller migrering:** Få ytterligare kapacitet när du når gränser för ditt befintliga data Center eller uppdatera maskin vara. Det är enkelt att lägga till nödvändig kapacitet i molnet och slippa att hantera maskin varu uppdateringar. Minska risken och kostnaden för migrering av moln jämfört med tids krävande konverteringar eller omarkitektur. Använd välkända VMware-verktyg och-kunskaper för att påskynda migreringen av molnet. Använd Azure-tjänster i molnet för att modernisera dina program i din takt.
+* **Expandera på begäran:** Utöka molnet för att möta oväntade behov, till exempel nya utvecklings miljöer eller säsongs kapacitets burst. Du kan enkelt skapa en ny kapacitet på begäran och bara hålla den så länge du behöver den. Minska din första investering, påskynda etableringen och minska komplexiteten med samma arkitektur och principer i både lokalt och i molnet.
+* **Haveri beredskap och virtuella skriv bord i Azure-molnet:** Upprätta fjärråtkomst till data, appar och skriv bord i Azure-molnet. Med anslutningar med hög bandbredd laddar du upp/ladda ned data snabbt för att återställa från incidenter. Nätverk med låg latens ger snabba svars tider som användarna förväntar sig från en Skriv bords app. Med CloudSimple är det enkelt att replikera alla principer och nätverk i molnet med hjälp av CloudSimple-portalen och välkända VMware-verktyg. Enkel återställning och replikering minskar kraftigt ansträngningen och risken för att skapa och hantera DR-och VDI-implementeringar.
+* **Program och databaser med hög prestanda:** CloudSimple tillhandahåller en konvergerad arkitektur som är utformad för att köra dina mest krävande VMware-arbetsbelastningar. Kör Oracle, Microsoft SQL Server, mellanprogram och databaser med höga prestanda SQL. Upplev molnet som ditt eget Data Center med höghastighets nätverk på 25 Gbit/s som gör att du kan köra hybrid program som omfattar lokala, VMware på Azure och privata arbets belastningar i Azure utan att kompromissa med prestanda.
+* **True hybrid:** Förena DevOps över VMware och Azure. Optimera VMware-administration för Azure-tjänster och-lösningar som kan tillämpas på alla dina arbets belastningar. Få åtkomst till offentliga moln tjänster utan att behöva expandera ditt data Center eller skapa en ny arkitektur för dina program. Centralisera identiteter, åtkomst kontroll principer, loggning och övervakning av VMware-program på Azure.
 
 ![Scenarier](media/cloudsimple-scenarios.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Skapa CloudSimple tjänst](quickstart-create-cloudsimple-service.md)
-* [Skapa privata moln](quickstart-create-private-cloud.md)
+* [Skapa CloudSimple-tjänst](quickstart-create-cloudsimple-service.md)
+* [Skapa privat moln](quickstart-create-private-cloud.md)

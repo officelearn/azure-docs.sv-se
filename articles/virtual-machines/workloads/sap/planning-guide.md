@@ -18,10 +18,10 @@ ms.date: 05/07/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 11a54dee653bcfa6c94a861e483183ac39f465bf
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
+ms.lasthandoff: 08/06/2019
 ms.locfileid: "67710186"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure Virtual Machines planera och implementera SAP-NetWeaver
@@ -484,7 +484,7 @@ Det är inte alla olika VM-serier som erbjuds i var och en av Azure-regionerna (
 >
 
 ### <a name="be80d1b9-a463-4845-bd35-f4cebdb5424a"></a>Azure Regions
-Virtual Machines distribueras till så kallade *Azure-regioner*. En Azure-region kan vara en eller flera data Center som finns nära varandra. För de flesta regionerna i världen har Microsoft minst två Azure-regioner. I Europa finns det till exempel en Azure-region i *Nord Europa* och *en av Västeuropa*. Sådana två Azure-regioner i ett geografiskt politisk region skiljs åt med tillräckligt stort avstånd så att fysiska eller tekniska haveri effekter inte påverkar både Azure-regioner i samma geografiskt politisk region. Eftersom Microsoft ständigt skapar nya Azure-regioner i olika politiska regioner globalt, växer antalet regioner ständigt och från och med dec 2015 uppnås antalet 20 Azure-regioner med ytterligare regioner som redan har meddelats. Du som kund kan distribuera SAP-system i alla dessa regioner, inklusive de två Azure-regionerna i Kina. Aktuell information om Azure-regioner finns på följande webbplats:<https://azure.microsoft.com/regions/>
+Virtual Machines distribueras till så kallade *Azure-regioner*. En Azure-region kan vara en eller flera data Center som finns nära varandra. För de flesta regionerna i världen har Microsoft minst två Azure-regioner. I Europa finns det till exempel en Azure-region i *Nord Europa* och en avVästeuropa. Sådana två Azure-regioner i ett geografiskt politisk region skiljs åt med tillräckligt stort avstånd så att fysiska eller tekniska haveri effekter inte påverkar både Azure-regioner i samma geografiskt politisk region. Eftersom Microsoft ständigt skapar nya Azure-regioner i olika politiska regioner globalt, växer antalet regioner ständigt och från och med dec 2015 uppnås antalet 20 Azure-regioner med ytterligare regioner som redan har meddelats. Du som kund kan distribuera SAP-system i alla dessa regioner, inklusive de två Azure-regionerna i Kina. Aktuell information om Azure-regioner finns på följande webbplats:<https://azure.microsoft.com/regions/>
 
 ### <a name="8d8ad4b8-6093-4b91-ac36-ea56d80dbf77"></a>Koncept för Microsoft Azure virtuell dator
 Microsoft Azure erbjuder en IaaS-lösning (Infrastructure as a Service) som fungerar som värd för Virtual Machines med liknande funktioner som en lokal virtualiseringslösning. Du kan skapa Virtual Machines inifrån Azure Portal, PowerShell eller CLI, som även erbjuder funktioner för distribution och hantering.
@@ -1959,7 +1959,7 @@ Här följer två exempel på en komplett SAP NetWeaver HA-arkitektur i Azure �
 Endast ohanterade diskar: Begreppen som beskrivs nedan kan behöva komprometteras när du distribuerar många SAP-system och antalet distribuerade virtuella datorer överskrider max gränsen för lagrings konton per prenumeration. I sådana fall måste virtuella hård diskar i virtuella datorer kombineras inom ett lagrings konto. Vanligt vis skulle du göra detta genom att kombinera virtuella hård diskar med SAP-programlager på olika SAP-system.  Vi har också kombinerat olika virtuella hård diskar av olika DBMS-VM: er för olika SAP-system i ett Azure Storage-konto. Att bevara de IOPS-gränser som Azure Storage konton i åtanke<https://azure.microsoft.com/documentation/articles/storage-scalability-targets>()
 
 
-##### <a name="windowslogowindows-ha-on-windows"></a>![Windows][Logo_Windows] HA på Windows
+##### <a name="windowslogo_windows-ha-on-windows"></a>![Windows][Logo_Windows] HA på Windows
 
 ![SAP NetWeaver Application HA-arkitektur med SQL Server i Azure IaaS][planning-guide-figure-3200]
 
@@ -1981,7 +1981,7 @@ Följande figur illustrerar samma liggande med Managed Disks.
 
 ![SAP NetWeaver Application HA-arkitektur med SQL Server i Azure IaaS][planning-guide-figure-3201]
 
-##### <a name="linuxlogolinux-ha-on-linux"></a>![Linux][Logo_Linux] HA på Linux
+##### <a name="linuxlogo_linux-ha-on-linux"></a>![Linux][Logo_Linux] HA på Linux
 
 Arkitekturen för SAP HA på Linux på Azure är i princip samma som för Windows enligt beskrivningen ovan. Se SAP NOTE [1928533] för en lista över lösningar med hög tillgänglighet som stöds.
 

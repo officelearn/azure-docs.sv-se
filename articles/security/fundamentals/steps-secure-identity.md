@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: martinco
-ms.openlocfilehash: 0ccd2ee8b2c9f542eabe7a297f4c99a3993a47e9
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: c5cdd12c3075d48ff32c40d686b32a650ec43d8e
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726743"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779786"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Fem steg för att skydda din identitets infrastruktur
 
@@ -74,7 +74,7 @@ Du kan använda [PowerShell för att förhindra att lösen ord upphör att gäll
 Om din organisation använder en hybrid identitets lösning med direktautentisering eller Federation, bör du aktivera lösen ords-hash-synkronisering av följande två orsaker:
 
 * Rapporten [användare med läckta autentiseringsuppgifter](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-risk-events) i Azure AD-hanteringen varnar dig om användar namn och lösen ord, som har exponerats på den "mörka webben". En otrolig mängd lösen ord läcker genom nätfiske, skadlig kod och återkoppling av lösen ord på tredje parts webbplatser som senare strider mot varandra. Microsoft hittar många av dessa autentiseringsuppgifter och meddelar dig, i den här rapporten, om de stämmer överens med autentiseringsuppgifter i din organisation, men bara om du [aktiverar lösen ords synkronisering av lösen ord](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization)!
-* I händelse av ett lokalt avbrott (till exempel i en utpressnings attack) kan du växla över till att använda [molnbaserad autentisering med hjälp av hash-synkronisering av lösen ord](https://docs.microsoft.com/azure/security/azure-ad-choose-authn). Med den här metoden för säkerhets kopiering kan du fortsätta att komma åt appar som kon figurer ATS för autentisering med Azure Active Directory, inklusive Office 365. I det här fallet behöver IT-personalen inte använda personliga e-postkonton för att dela data förrän det lokala avbrottet har åtgärd ATS.
+* I händelse av ett lokalt avbrott (till exempel i en utpressnings attack) kan du växla över till att använda [molnbaserad autentisering med hjälp av hash-synkronisering av lösen ord](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn). Med den här metoden för säkerhets kopiering kan du fortsätta att komma åt appar som kon figurer ATS för autentisering med Azure Active Directory, inklusive Office 365. I det här fallet behöver IT-personalen inte använda personliga e-postkonton för att dela data förrän det lokala avbrottet har åtgärd ATS.
 
 Lär dig mer om hur [synkronisering av lösen ord för hash](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization) fungerar.
 
@@ -146,7 +146,7 @@ Granskning och loggning av säkerhetsrelaterade händelser och relaterade aviser
 
 ### <a name="monitor-azure-ad"></a>Övervaka Azure AD
 
-Microsoft Azure tjänster och funktioner ger dig möjlighet att konfigurera säkerhets gransknings-och loggnings alternativ som hjälper dig att identifiera luckor i dina säkerhets principer och mekanismer och åtgärda dessa luckor för att förhindra överträdelser. Du kan använda [Azure-loggning och granskning](https://docs.microsoft.com/azure/security/azure-log-audit) och använda [gransknings aktivitets rapporter i Azure Active Directory-portalen](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-audit-logs).
+Microsoft Azure tjänster och funktioner ger dig möjlighet att konfigurera säkerhets gransknings-och loggnings alternativ som hjälper dig att identifiera luckor i dina säkerhets principer och mekanismer och åtgärda dessa luckor för att förhindra överträdelser. Du kan använda [Azure-loggning och granskning](https://docs.microsoft.com/azure/security/fundamentals/log-audit) och använda [gransknings aktivitets rapporter i Azure Active Directory-portalen](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-audit-logs).
 
 ### <a name="monitor-azure-ad-connect-health-in-hybrid-environments"></a>Övervaka Azure AD Connect Health i hybrid miljöer
 

@@ -1,90 +1,90 @@
 ---
-title: Förbereda för Azure Monitor klassiska aviseringar migrering genom att uppdatera dina logic apps och runbooks
-description: Lär dig hur du ändrar din webhooks, logic apps och runbooks för att förbereda för frivillig migrering.
+title: Förbered för Azure Monitor klassisk migrering av aviseringar genom att uppdatera dina Logic Apps och Runbooks
+description: Lär dig hur du ändrar dina Webhooks, Logi Kap par och Runbooks för att förbereda för frivillig migrering.
 author: snehithm
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: bdbd45c2b10dec8f1c0a85110747a470e818dbf9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5235db5cab39be6e36bdf145d3edc7c73fe9da54
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66015611"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827385"
 ---
-# <a name="prepare-your-logic-apps-and-runbooks-for-migration-of-classic-alert-rules"></a>Förbered logikappar och runbooks för migrering av klassiska Varningsregler
+# <a name="prepare-your-logic-apps-and-runbooks-for-migration-of-classic-alert-rules"></a>Förbered dina Logi Kap par och Runbooks för migrering av klassiska varnings regler
 
-Som [tidigare meddelats](monitoring-classic-retirement.md), klassiska aviseringar i Azure Monitor är att tas ur drift i September 2019 (var ursprungligen juli 2019). Migreringsverktyg finns i Azure portal för att kunder som använder klassiska Varningsregler och som vill aktivera migrering själva.
+Som [tidigare](monitoring-classic-retirement.md)meddelats kommer de klassiska aviseringarna i Azure monitor att tas ur drift i september 2019 (ursprungligen juli 2019). Ett Migreringsverktyg är tillgängligt i Azure Portal till kunder som använder klassiska aviserings regler och som vill utlösa migrering själva.
 
 > [!NOTE]
-> Fördröjning i lansering av migreringsverktyget har slutdatum för migrering av klassiska aviseringar utökats till den 31 augusti 2019 ursprungligen presenterade efter den 30 juni 2019.
+> På grund av fördröjning i uppsamlingen av migreringen har den senaste indragnings tiden för migrering av klassisk avisering utökats till 31 augusti 2019 från det ursprungligen presenterade datumet den 30 juni 2019.
 
-Om du väljer att migrera din klassiska Varningsregler frivilligt i nya Varningsregler, Tänk på att det inte finns några skillnader mellan de två systemen. Den här artikeln förklarar dessa skillnader och hur du kan förbereda för att ändringen.
+Om du väljer att frivilligt migrera dina klassiska aviserings regler till nya varnings regler bör du vara medveten om att det finns några skillnader mellan de två systemen. I den här artikeln beskrivs skillnaderna och hur du kan förbereda dig för ändringen.
 
 ## <a name="api-changes"></a>API-ändringar
 
-API: er som skapar och hanterar klassiska Varningsregler (`microsoft.insights/alertrules`) skiljer sig från API: er som skapar och hanterar nya måttaviseringar (`microsoft.insights/metricalerts`). Om du programmässigt skapar och hanterar klassiska Varningsregler idag, uppdaterar du din distributionsskript för den nya API: erna.
+De API: er som skapar och hanterar klassiska varnings regler (`microsoft.insights/alertrules`) skiljer sig från de API: er som skapar och hanterar nya mått varningar (`microsoft.insights/metricalerts`). Om du program mässigt skapar och hanterar klassiska varnings regler idag, kan du uppdatera dina distributions skript så att de fungerar med de nya API: erna.
 
-I följande tabell är en referens till programgränssnitt för både klassiska och nya aviseringar:
+Följande tabell är en referens till programmerings gränssnitten för både de klassiska och nya aviseringarna:
 
-|         |Klassiska aviseringar  |Nya aviseringar för mått |
+|         |Klassiska aviseringar  |Nya mått varningar |
 |---------|---------|---------|
 |REST-API     | [microsoft.insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules)         | [microsoft.insights/metricalerts](https://docs.microsoft.com/rest/api/monitor/metricalerts)       |
-|Azure CLI     | [avisering för AZ-Övervakare](https://docs.microsoft.com/cli/azure/monitor/alert?view=azure-cli-latest)        | [AZ monitor metrics avisering](https://docs.microsoft.com/cli/azure/monitor/metrics/alert?view=azure-cli-latest)        |
+|Azure CLI     | [avisering om AZ-övervakaren](https://docs.microsoft.com/cli/azure/monitor/alert?view=azure-cli-latest)        | [avisering om AZ Monitor-mått](https://docs.microsoft.com/cli/azure/monitor/metrics/alert?view=azure-cli-latest)        |
 |PowerShell      | [Referens](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrule)       |  [Referens](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrulev2)    |
-| Azure Resource Manager-mall | [För klassiska aviseringar](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-enable-template)|[För nya måttaviseringar](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates)|
+| Azure Resource Manager-mall | [För klassiska aviseringar](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-enable-template)|[För nya mått varningar](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates)|
 
-## <a name="notification-payload-changes"></a>Meddelandet nyttolast ändras
+## <a name="notification-payload-changes"></a>Ändringar i meddelande nytto Last
 
-Meddelandeformat för nyttolasten skiljer sig mellan [klassiska Varningsregler](alerts-webhooks.md) och [nya måttaviseringar](alerts-metric-near-real-time.md#payload-schema). Om du har webhook, logikapp eller runbook-åtgärder som utlöses av klassiska Varningsregler, måste du uppdatera dessa aviseringsslutpunkter för att godkänna nyttolastformatet av nya måttaviseringar.
+Formatet för meddelande nytto Last skiljer sig något från de [klassiska aviserings reglerna](alerts-webhooks.md) och [nya mått varningar](alerts-metric-near-real-time.md#payload-schema). Om du har webhook-, Logic app-eller Runbook-åtgärder som utlöses av klassiska varnings regler måste du uppdatera meddelande slut punkterna för att godkänna nytto Last formatet för nya mått varningar.
 
-Använd följande tabell för att mappa fälten webhook-nyttolasten från det klassiska formatet till det nya formatet:
+Använd följande tabell för att Mappa fälten för webhook-nyttolasten från det klassiska formatet till det nya formatet:
 
-|  |Klassiska aviseringar  |Nya aviseringar för mått |
+|  |Klassiska aviseringar  |Nya mått varningar |
 |---------|---------|---------|
-|Var aviseringen aktiveras eller löst?    | **status**       | **data.status** |
-|Sammanhangsbaserad information om aviseringen     | **context**        | **data.context**        |
-|Tidsstämpeln då aviseringen har aktiverats eller löst     | **context.timestamp**       | **data.context.timestamp**        |
-| Varningsregeln-ID | **context.id** | **data.context.id** |
+|Har aviseringen Aktiver ATS eller lösts?    | **status**       | **data.status** |
+|Sammanhangsbaserad information om aviseringen     | **Edit**        | **data.context**        |
+|Tidstämpeln som aviseringen aktiverades eller löstes i     | **context.timestamp**       | **data.context.timestamp**        |
+| Varnings regel-ID | **context.id** | **data.context.id** |
 | Namn på aviseringsregel | **context.name** | **data.context.name** |
-| Beskrivning av regeln | **context.description** | **data.context.description** |
-| Varningsregeln villkor | **context.condition** | **data.context.condition** |
+| Beskrivning av aviserings regeln | **context.description** | **data.context.description** |
+| Villkor för varnings regel | **Context. Condition** | **data.context.condition** |
 | Måttnamn | **context.condition.metricName** | **data.context.condition.allOf[0].metricName** |
-| Tidsmängd (hur måttet slås samman under fönstret utvärdering)| **data.context.condition.timeAggregation** | **data.context.condition.timeAggregation** |
-| Utvärderingsperioden har löpt ut | **context.condition.windowSize** | **data.context.condition.windowSize** |
-| Operatorn (hur aggregerade mätvärdet jämföras med tröskelvärdet) | **context.condition.operator** | **data.context.condition.operator** |
-| Tröskelvärde | **Context.condition.Threshold** | **data.context.condition.allOf[0].threshold** |
-| Måttvärde | **context.condition.metricValue** | **data.context.condition.allOf[0].metricValue** |
+| Tids mängd (hur måttet sammanställs över utvärderings perioden)| **Context. condition. timeAggregation** | **Context. condition. timeAggregation** |
+| Utvärderings period | **Context. condition. windowSize** | **data. context. condition. windowSize** |
+| Operator (hur det aggregerade Metric-värdet jämförs mot tröskelvärdet) | **context.condition.operator** | **data.context.condition.operator** |
+| Tröskelvärde | **Context. condition. Threshold** | **data. context. condition. allOf [0]. tröskel** |
+| Mått värde | **context.condition.metricValue** | **data.context.condition.allOf[0].metricValue** |
 | Prenumerations-ID:t | **context.subscriptionId** | **data.context.subscriptionId** |
-| Resursgruppen för resursen som påverkas | **context.resourceGroup** | **data.context.resourceGroup** |
-| Namnet på resursen som påverkas | **context.resourceName** | **data.context.resourceName** |
+| Resurs grupp för den berörda resursen | **context.resourceGroup** | **data.context.resourceGroup** |
+| Namnet på den berörda resursen | **context.resourceName** | **data.context.resourceName** |
 | Typ av resurs som påverkas | **context.resourceType** | **data.context.resourceType** |
-| Resurs-ID för resursen som påverkas | **context.resourceId** | **data.context.resourceId** |
-| Direktlänk till sammanfattningssidan portal resurs | **context.portalLink** | **data.context.portalLink** |
-| Anpassad nyttolast fält som ska skickas till webhook eller logic app | **Egenskaper** | **data.Properties** |
+| Resurs-ID för den berörda resursen | **context.resourceId** | **data.context.resourceId** |
+| Direkt länk till sammanfattnings sidan för Portal resursen | **context.portalLink** | **data.context.portalLink** |
+| Anpassade nytto Last fält som ska skickas till webhooken eller Logic app | **Egenskaper** | **data. Properties** |
 
-Nyttolasterna är liknande, som du kan se. Följande avsnitt innehåller:
+Nytto lasterna är liknande, som du ser. Följande avsnitt innehåller:
 
-- Information om hur du ändrar logikappar att arbeta med det nya formatet.
-- En runbook-exempel som Parsar meddelandets nyttolast för nya aviseringar.
+- Information om hur du ändrar Logi Kap par för att arbeta med det nya formatet.
+- Ett Runbook-exempel som analyserar meddelande nytto lasten för nya aviseringar.
 
-## <a name="modify-a-logic-app-to-receive-a-metric-alert-notification"></a>Ändra en logikapp för att ta emot en avisering om mått
+## <a name="modify-a-logic-app-to-receive-a-metric-alert-notification"></a>Ändra en Logi Kap par-app för att få ett mått på varnings meddelande
 
-Om du använder logic apps med klassiska aviseringar, måste du ändra din logikapp kod för att analysera nya måttaviseringar nyttolasten. Följ de här stegen:
+Om du använder Logi Kap par med klassiska aviseringar måste du ändra logik-app-koden för att parsa de nya måtten för mått aviseringar. Följ de här stegen:
 
-1. Skapa en ny logikapp.
+1. Skapa en ny Logic-app.
 
-1. Med mallen ”Azure Monitor – mått avisering hanteraren”. Den här mallen har en **HTTP-begäran** utlösare med lämpligt schema som definierats.
+1. Använd mallen Azure Monitor-Metrics-aviserings hanterare. Den här mallen har en **http-begäran-** utlösare med lämpligt schema definierat.
 
-    ![-mall för logikapp](media/alerts-migration/logic-app-template.png "metrisk varning mall")
+    ![Logic – app-Template](media/alerts-migration/logic-app-template.png "Mall för mått varningar")
 
-1. Lägg till en åtgärd för att vara värd för bearbetning av dataströmmar.
+1. Lägg till en åtgärd som är värd för bearbetnings logiken.
 
-## <a name="use-an-automation-runbook-that-receives-a-metric-alert-notification"></a>Använda en automation-runbook som tar emot en avisering om mått
+## <a name="use-an-automation-runbook-that-receives-a-metric-alert-notification"></a>Använd en Automation-Runbook som tar emot ett varnings meddelande om mått
 
-I följande exempel innehåller PowerShell-kod för användning i din runbook. Den här koden kan parsa nyttolaster för både klassiska måttaviseringsregler och nya måttaviseringsregler.
+I följande exempel visas PowerShell-kod som används i din Runbook. Den här koden kan parsa nytto lasterna för både klassiska mått och nya mått för varnings regler.
 
 ```PowerShell
 ## Example PowerShell code to use in a runbook to handle parsing of both classic and new metric alerts.
@@ -151,19 +151,19 @@ else {
 
 ```
 
-Ett fullständigt exempel av en runbook som stoppar en virtuell dator när en avisering har utlösts finns den [dokumentation om Azure Automation](https://docs.microsoft.com/azure/automation/automation-create-alert-triggered-runbook).
+Ett fullständigt exempel på en Runbook som stoppar en virtuell dator när en avisering utlöses finns i [Azure Automation-dokumentationen](https://docs.microsoft.com/azure/automation/automation-create-alert-triggered-runbook).
 
-## <a name="partner-integration-via-webhooks"></a>Partnerintegrering via webhooks
+## <a name="partner-integration-via-webhooks"></a>Partner integrering via Webhooks
 
-De flesta av [våra partners som integreras med klassiska aviseringar](https://docs.microsoft.com/azure/azure-monitor/platform/partners) stöder redan nyare måttaviseringar via sina integreringar. Kända integreringar som redan fungerar med nya måttaviseringar är:
+De flesta av [våra partner som integrerar med klassiska aviseringar har](https://docs.microsoft.com/azure/azure-monitor/platform/partners) redan stöd för nya mått aviseringar via deras integreringar. Kända integreringar som redan fungerar med nya mått aviseringar är:
 
 - [PagerDuty](https://www.pagerduty.com/docs/guides/azure-integration-guide/)
 - [OpsGenie](https://docs.opsgenie.com/docs/microsoft-azure-integration)
 - [Signl4](https://www.signl4.com/blog/mobile-alert-notifications-azure-monitor/)
 
-Om du använder en partnerintegration som inte listas här, kontrollera med integration-leverantören att integrationen fungerar med nya måttaviseringar.
+Om du använder en partner integrering som inte listas här, bekräftar du med integrerings leverantören att integrationen fungerar med nya mått varningar.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Så här använder du Migreringsverktyget](alerts-using-migration-tool.md)
-- [Förstå hur Migreringsverktyget fungerar](alerts-understand-migration.md)
+- [Använda migreringsverktyget](alerts-using-migration-tool.md)
+- [Förstå hur migreringsverktyget fungerar](alerts-understand-migration.md)

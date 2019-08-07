@@ -1,6 +1,6 @@
 ---
 title: Hur och varför program läggs till i Azure Active Directory
-description: Vad innebär det för ett program som ska läggas till Azure AD och hur kommer de dit?
+description: Vad innebär det att ett program läggs till i Azure AD och hur kommer de att få dit?
 services: active-directory
 documentationcenter: ''
 author: rwike77
@@ -10,7 +10,7 @@ ms.assetid: 3321d130-f2a8-4e38-b35e-0959693f3576
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/04/2019
@@ -18,136 +18,136 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: elisol, lenalepa
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1b92b174d48c710a763857951d66d00956fa0f9
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 6bb3ef2a86c523d7cda5bc7da5d83ec4ac741abf
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67483077"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68835382"
 ---
-# <a name="how-and-why-applications-are-added-to-azure-ad"></a>Hur och varför program läggs till Azure AD
+# <a name="how-and-why-applications-are-added-to-azure-ad"></a>Hur och varför program läggs till i Azure AD
 
 Det finns två representationer av program i Azure AD: 
-* [Programobjekt](app-objects-and-service-principals.md#application-object) – även om det finns [undantag](#notes-and-exceptions), programobjekt kan ses definitionen av ett program.
-* [Tjänsthuvudnamn](app-objects-and-service-principals.md#service-principal-object) -kan betraktas som en instans av ett program. Tjänstens huvudnamn Allmänt refererar ett programobjekt och ett programobjekt kan refereras av flera tjänstens huvudnamn i kataloger.
+* [Program objekt](app-objects-and-service-principals.md#application-object) – även om det finns [undantag](#notes-and-exceptions)kan program objekt anses vara definitionen av ett program.
+* [Tjänstens huvud namn](app-objects-and-service-principals.md#service-principal-object) – kan betraktas som en instans av ett program. Tjänstens huvud namn refererar vanligt vis till ett program objekt, och ett program objekt kan refereras till av flera huvud namn för tjänsten mellan kataloger.
 
-## <a name="what-are-application-objects-and-where-do-they-come-from"></a>Vad är programobjekt och de varifrån kommer?
-Du kan hantera [programobjekt](app-objects-and-service-principals.md#application-object) i Azure-portalen via den [Appregistreringar](https://aka.ms/appregistrations) upplevelse. Programobjekt beskriver programmet till Azure AD och kan ses definitionen av programmet, vilket gör att tjänsten att se hur du utfärda token till appen baserat på dess inställningar. Programobjektet finns bara i sin hemkatalog, även om det är ett program för flera innehavare som stöd för tjänstens huvudnamn i andra kataloger. Programobjektet kan vara något av följande (som även följande ytterligare information som inte anges här):
-* Namn, logotyp och utgivare
-* Omdirigerings-URI: er
-* Hemligheter (symmetriska och/eller asymmetriska nycklar används för att autentisera programmet)
+## <a name="what-are-application-objects-and-where-do-they-come-from"></a>Vad är program objekt och var de kommer från?
+Du kan hantera [program objekt](app-objects-and-service-principals.md#application-object) i Azure Portal via appens [registrerings](https://aka.ms/appregistrations) upplevelse. Program objekt beskriver programmet till Azure AD och kan betraktas som definition av programmet, vilket gör att tjänsten vet hur token ska utfärdas till programmet baserat på dess inställningar. Programobjektet finns bara i sin Hem Katalog, även om det är ett program med flera innehavare som stöder tjänstens huvud namn i andra kataloger. Programobjektet kan innehålla något av följande (och ytterligare information som inte nämns här):
+* Namn, logo typ och utgivare
+* Omdirigerings-URI:er
+* Hemligheter (symmetriska och/eller asymmetriska nycklar som används för att autentisera programmet)
 * API-beroenden (OAuth)
-* Publicerade API: er/resurser/områden (OAuth)
-* Roller (RBAC)
-* Metadata för enkel inloggning och konfiguration
-* Användaretablering metadata och konfiguration
-* Proxy-metadata och konfiguration
+* Publicerade API: er/resurser/scope (OAuth)
+* App-roller (RBAC)
+* SSO-metadata och konfiguration
+* Användar etablering av metadata och konfiguration
+* Metadata och konfiguration för proxy
 
-Programobjekt kan skapas via flera sökvägar, inklusive:
-* Programregistreringar i Azure portal
-* Skapa ett nytt program med Visual Studio och konfigurera den att använda Azure AD-autentisering
-* När en administratör lägger till ett program från appgalleriet (som ska också skapa ett tjänstobjekt)
-* Med Microsoft Graph API, Azure AD Graph API eller PowerShell till att skapa ett nytt program
-* Många andra inklusive olika utvecklarfunktioner i Azure och i API: et explorer upplevelser i utvecklarcenter
+Program objekt kan skapas via flera vägar, inklusive:
+* Program registreringar i Azure Portal
+* Skapa ett nytt program med Visual Studio och konfigurera det för att använda Azure AD-autentisering
+* När en administratör lägger till ett program från App-galleriet (som också kommer att skapa ett huvud namn för tjänsten)
+* Skapa ett nytt program med hjälp av Microsoft Graph API, Azure AD Graph API eller PowerShell
+* Många andra, inklusive olika utvecklares upplevelser i Azure och i API Explorer-upplevelser i olika utvecklings Center
 
-## <a name="what-are-service-principals-and-where-do-they-come-from"></a>Vad är tjänstens huvudnamn och de varifrån kommer?
-Du kan hantera [tjänsthuvudnamn](app-objects-and-service-principals.md#service-principal-object) i Azure-portalen via den [företagsprogram](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) upplevelse. Tjänstens huvudnamn är vad styr ett program som ansluter till Azure AD och kan ses instans av programmet i din katalog. Det kan ha högst en programobjektet (som är registrerad i en ”” arbetskatalog) och en eller flera objekt för tjänstens huvudnamn som representerar instanser av programmet i alla kataloger som fungerar för alla angivna program. 
+## <a name="what-are-service-principals-and-where-do-they-come-from"></a>Vad är tjänstens huvud namn och var de kommer från?
+Du kan hantera [tjänstens huvud namn](app-objects-and-service-principals.md#service-principal-object) i Azure Portal via [företags program](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) upplevelsen. Tjänstens huvud namn är det som styr ett program som ansluter till Azure AD och som kan anses vara instansen av programmet i din katalog. För ett angivet program kan det ha högst ett program objekt (som är registrerat i en "Hem Katalog") och ett eller flera tjänst huvud objekt som representerar instanser av programmet i varje katalog där det fungerar. 
 
-Tjänstens huvudnamn kan innefatta:
+Tjänstens huvud namn kan innehålla:
 
-* En referens till ett programobjekt via programegenskapen-ID
-* Poster för lokala användare och programrolltilldelningar för grupp
-* Poster för lokala användare och administratör behörigheterna för programmet
-  * Till exempel: behörighet för programmet åt en viss användares e-post
-* Poster i lokala principer, inklusive principen för villkorlig åtkomst
-* Poster i alternativa lokala inställningar för ett program
-  * Regler för omvandling av anspråk
-  * Attributmappningar (etableringen av användare)
-  * Directory-specifika approller (om programmet stöder anpassade roller)
-  * Directory-specifika namn eller logotyp
+* En referens tillbaka till ett program objekt via egenskapen program-ID
+* Poster för program för lokala användare och grupper-roll tilldelningar
+* Poster för lokala användar-och administratörs behörigheter som beviljats för programmet
+  * Till exempel: behörighet för programmet för åtkomst till en viss användares e-post
+* Poster för lokala principer inklusive princip för villkorlig åtkomst
+* Poster över alternativa lokala inställningar för ett program
+  * Omvandlings regler för anspråk
+  * Mappningar av attribut (användar etablering)
+  * Katalogaktiverade app-roller (om programmet stöder anpassade roller)
+  * Katalog-/regionsspecifika namn eller logo typ
 
-Som programobjekt, kan tjänstens huvudnamn skapas via flera sökvägar, inklusive:
+Precis som program objekt kan tjänstens huvud namn också skapas via flera vägar, inklusive:
 
-* När användare loggar in på ett program från tredje part integrerad med Azure AD
-  * Under inloggning uppmanas användarna att ge behörighet till programmet för att få åtkomst till deras profil och andra behörigheter. Den första personen som samtycka orsakar ett huvudnamn för tjänsten som representerar programmet som ska läggas till katalogen.
-* När användare loggar in på Microsoft online services som [Office 365](https://products.office.com/)
-  * När du prenumererar på Office 365 eller starta en utvärderingsversion, skapas en eller flera tjänstens huvudnamn i katalogen som representerar de olika tjänsterna som används för att leverera alla funktioner som är associerade med Office 365.
-  * Vissa Office 365-tjänster som SharePoint skapa tjänstens huvudnamn med jämna mellanrum att tillåta säker kommunikation mellan komponenter, inklusive arbetsflöden.
-* När en administratör lägger till ett program från appgalleriet (det skapas också en underliggande app-objekt)
-* Lägg till ett program att använda den [Azure AD Application Proxy](/azure/active-directory/manage-apps/application-proxy)
-* Ansluta ett program för enkel inloggning om hur du använder SAML eller ett lösenord med enkel inloggning (SSO)
-* Programmässigt via Azure AD Graph API eller PowerShell
+* När användarna loggar in på ett program från tredje part som är integrerat med Azure AD
+  * Under inloggningen uppmanas användarna att ge programmet behörighet att få åtkomst till sin profil och andra behörigheter. Den första personen som ger sitt medgivande orsakar ett huvud namn för tjänsten som representerar det program som ska läggas till i katalogen.
+* När användarna loggar in på Microsoft onlinetjänster som [Office 365](https://products.office.com/)
+  * När du prenumererar på Office 365 eller startar en utvärderings version skapas ett eller flera tjänst huvud namn i katalogen som representerar de olika tjänsterna som används för att leverera alla funktioner som är associerade med Office 365.
+  * Vissa Office 365-tjänster som SharePoint skapar tjänstens huvud namn kontinuerligt för att tillåta säker kommunikation mellan komponenter, inklusive arbets flöden.
+* När en administratör lägger till ett program från App-galleriet (då skapas även ett underliggande app-objekt)
+* Lägg till ett program för att använda [Azure-AD-programproxy](/azure/active-directory/manage-apps/application-proxy)
+* Ansluta ett program för enkel inloggning med hjälp av SAML eller lösen ord enkel inloggning (SSO)
+* Via programmering via Azure AD Graph API eller PowerShell
 
-## <a name="how-are-application-objects-and-service-principals-related-to-each-other"></a>Hur är programobjekt och tjänstens huvudnamn relaterade till varandra?
+## <a name="how-are-application-objects-and-service-principals-related-to-each-other"></a>Hur är program objekt och tjänstens huvud namn relaterade till varandra?
 
-Ett program har ett programobjekt i sin hemkatalog som refereras av en eller flera tjänsthuvudnamn i var och en av de kataloger som där den fungerar (inklusive programmets arbetskatalog).
+Ett program har ett program objekt i sin hem katalog som refereras till av ett eller flera tjänst huvud namn i var och en av de kataloger där det fungerar (inklusive programmets Hem Katalog).
 
-![Visar relationen mellan appen och tjänstens huvudnamn][apps_service_principals_directory]
+![Visar förhållandet mellan app-objekt och tjänstens huvud namn][apps_service_principals_directory]
 
-I det föregående diagrammet Microsoft har två kataloger internt (visas till vänster) som används för att publicera program:
+I föregående diagram behåller Microsoft två kataloger internt (visas till vänster) som används för att publicera program:
 
-* En för Microsoft Apps (Microsoft services-katalog)
-* En för förintegrerade tredjepartsprogram (App-galleriet directory)
+* En för Microsoft-appar (Microsoft Services-katalogen)
+* En för Förintegrerad program vara från tredje part (App Gallery-katalog)
 
-Programmet utgivare/leverantörer som integreras med Azure AD måste ha en publishing katalog (visas till höger som ”vissa SaaS Directory”).
+Program utgivare/-leverantörer som integreras med Azure AD måste ha en publicerings katalog (visas till höger som "vissa SaaS-kataloger").
 
-Program som du lägger till dig själv (som **App (själv)** i diagrammet) inkluderar:
+Program som du lägger till själv (representeras som **app (dina)** i diagrammet) inkluderar:
 
-* Appar som du har utvecklat (integrerad med Azure AD)
+* Appar som du har utvecklat (integrerat med Azure AD)
 * Appar som du har anslutit för enkel inloggning
-* Appar som du publicerat med hjälp av Azure AD-programproxyn
+* Appar som du har publicerat med Azure AD Application Proxy
 
-### <a name="notes-and-exceptions"></a>Viktig information och undantag
+### <a name="notes-and-exceptions"></a>Anteckningar och undantag
 
-* Inte alla tjänsthuvudnamn refererar till ett programobjekt. När Azure AD har ursprungligen skapats de tjänster som tillhandahålls till program var mer begränsade och tjänstens huvudnamn har tillräckliga för att upprätta en Programidentitet. Ursprungliga tjänstens huvudnamn var närmare i formen för Windows Server Active Directory-tjänstkontot. Därför är det fortfarande möjligt att skapa tjänstens huvudnamn via olika vägar, till exempel med Azure AD PowerShell, utan att först skapa ett programobjekt. Azure AD Graph API kräver ett programobjekt innan du skapar ett tjänstens huvudnamn.
-* Inte alla de uppgifter som beskrivs ovan är för närvarande visas programmässigt. Följande är endast tillgängliga i Användargränssnittet:
-  * Regler för omvandling av anspråk
-  * Attributmappningar (etableringen av användare)
-* Mer detaljerad information om tjänstens huvudnamn och programobjekt finns i dokumentationen för Azure AD Graph REST API-referens:
+* Alla tjänst huvud namn pekar inte tillbaka till ett program objekt. När Azure AD ursprungligen byggdes de tjänster som tillhandahölls för program var mer begränsad och tjänstens huvud namn var tillräckligt för att upprätta en program identitet. Det ursprungliga tjänst huvud namnet var närmare i form till Windows Server Active Directory-tjänstkontot. Därför är det fortfarande möjligt att skapa tjänstens huvud namn via olika vägar, till exempel att använda Azure AD PowerShell, utan att först skapa ett program objekt. Azure AD-Graph API kräver ett program objekt innan du skapar ett huvud namn för tjänsten.
+* All information som beskrivs ovan exponeras för närvarande inte program mässigt. Följande är endast tillgängligt i användar gränssnittet:
+  * Omvandlings regler för anspråk
+  * Mappningar av attribut (användar etablering)
+* Mer detaljerad information om tjänstens huvud namn och program objekt finns i referens dokumentationen för Azure AD Graph REST API:
   * [Programmet](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity)
-  * [Tjänstens huvudnamn](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#serviceprincipal-entity)
+  * [Tjänstens huvud namn](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#serviceprincipal-entity)
 
-## <a name="why-do-applications-integrate-with-azure-ad"></a>Varför program integreras med Azure AD?
+## <a name="why-do-applications-integrate-with-azure-ad"></a>Varför integreras program med Azure AD?
 
-Program läggs till Azure AD för att använda en eller flera av de tjänster, bland annat:
+Program läggs till i Azure AD för att utnyttja en eller flera av de tjänster som tillhandahålls, inklusive:
 
-* Program-autentisering och auktorisering
+* Programautentisering och-auktorisering
 * Användarautentisering och auktorisering
-* Enkel inloggning med federation eller lösenord
-* Etableringen av användare och synkronisering
-* Rollbaserad åtkomstkontroll – Använd katalogen för att definiera roller för programmet för att utföra rollbaserad auktorisering kontrollerar i ett program
-* Auktoriseringstjänster för OAuth - används av Office 365 och andra Microsoft-program för att auktorisera åtkomst till API: er/resurser
-* Programpublicering och proxy - publicera ett program från ett privat nätverk till internet
+* Enkel inloggning med federation eller lösen ord
+* Användar etablering och synkronisering
+* Rollbaserad åtkomst kontroll – Använd katalogen för att definiera program roller för att utföra rollbaserade verifierings kontroller i ett program
+* OAuth Authorization Services – används av Office 365 och andra Microsoft-program för att ge åtkomst till API: er/resurser
+* Program publicering och proxy – publicera ett program från ett privat nätverk till Internet
 
-## <a name="who-has-permission-to-add-applications-to-my-azure-ad-instance"></a>Vem har behörighet att lägga till program i min Azure AD-instans?
+## <a name="who-has-permission-to-add-applications-to-my-azure-ad-instance"></a>Vem har behörighet att lägga till program till min Azure AD-instans?
 
-Det finns några uppgifter som att endast globala administratörer kan utföra (till exempel lägga till program från appgalleriet och konfigurera ett program att använda Application Proxy) som standard alla användare i katalogen har behörighet att registrera program objekt som de är utveckla och gottfinnande över vilka program som de resurs/ge åtkomst till sin organisations data via ditt medgivande. Om en person är den första användaren i din katalog för att logga in till ett program och ge ditt medgivande, som skapar ett huvudnamn för tjänsten i din klient; i annat fall lagras medgivande bevilja information på den befintliga tjänsten huvudnamn.
+Det finns vissa aktiviteter som bara globala administratörer kan göra (till exempel att lägga till program från App-galleriet och konfigurera ett program för att använda programproxyn) som standard som standard alla användare i katalogen har behörighet att registrera program objekt som de utvecklar och ser över vilka program som de delar/ger åtkomst till organisationens data genom medgivande. Om en person är den första användaren i din katalog för att logga in i ett program och bevilja medgivande, skapas ett huvud namn för tjänsten i din klient organisation. Annars lagras medgivande beviljad information på det befintliga huvud namnet för tjänsten.
 
-Så att användarna kan registrera och samtycka till program kan ursprungligen ljud om, men tänk på följande:
+Att tillåta att användare registrerar och samtycker till program kan ha ett inlednings vis ljud om, men tänk på följande i åtanke:
 
 
-* Program har kunnat använda Windows Server Active Directory för autentisering under många år utan att programmet registreras eller läggas till i katalogen. Organisationen kommer nu har förbättrat synlighet till exakt hur många program använder katalogen och i vilket syfte.
-* Dessa uppgifter för användare att delegera eliminerar behovet av en administratör-drivna programregistrering och publiceringsprocessen. Med Active Directory Federation Services (ADFS) och det var sannolikt att en administratör måste lägga till ett program som en förlitande part för utvecklarna. Nu kan utvecklare självbetjäning.
-* Användare som loggar in till program med hjälp av sina organisationskonton för företag är bra. Om de senare lämnar organisationen förlorar de automatiskt åtkomst till sitt konto i programmet som de använder.
-* Att ha koll på vilka data som har delats med vilket program som är bra. Data är transportera än någonsin och det är praktiskt att ha en tydlig post med som delas vilka data med vilka program.
-* API-ägare som använder Azure AD för OAuth bestämma exakt vilka behörigheter som användarna ska kunna bevilja till program och vilka behörigheter kräver en administratör att godkänna. Endast administratörer kan godkänna större omfång och mer betydande behörigheter, även om användarens medgivande begränsas till användarnas egna data och funktioner.
-* När en användare lägger till eller gör att ett program för att komma åt sina data, kan händelsen granskas så att du kan visa granskningsrapporter i Azure-portalen för att avgöra hur ett program har lagts till i katalogen.
+* Program har kunnat utnyttja Windows Server Active Directory för användarautentisering under många år utan att programmet måste registreras eller registreras i katalogen. Organisationen har nu förbättrad insyn för exakt hur många program som använder katalogen och för vilket syfte.
+* Genom att delegera dessa ansvars områden till användare kan du negera behovet av en administratörs driven registrerings-och publicerings process. Med Active Directory Federation Services (AD FS) (ADFS) var det troligt att en administratör skulle lägga till ett program som en förlitande part åt deras utvecklare. Nu kan utvecklare själv underhålla.
+* Användare som loggar in på program som använder sina organisations konton i affärs syfte är en bra sak. Om de senare lämnar organisationen kommer de automatiskt att förlora åtkomsten till sitt konto i programmet som de använde.
+* En förteckning över vilka data som delats med vilket program som är en bra sak. Data är mer spridda än någonsin och det är praktiskt att ha en tydlig post över vem som delat vilka data med vilka program.
+* API-ägare som använder Azure AD för OAuth Bestäm exakt vilka behörigheter användare kan ge till gång till program och vilka behörigheter som krävs för att en administratör ska acceptera. Endast administratörer kan samtycka till större omfattningar och viktiga behörigheter, medan användar medgivande begränsas till användarnas egna data och funktioner.
+* När en användare lägger till eller tillåter ett program att komma åt sina data, kan händelsen granskas så att du kan visa gransknings rapporterna i Azure Portal för att avgöra hur ett program har lagts till i katalogen.
 
-Om du vill förhindra att användare i din katalog från att registrera program och logga in i program utan administratörsgodkännande finns det två inställningar som du kan ändra om du vill inaktivera dessa funktioner:
+Om du fortfarande vill förhindra att användare i din katalog registrerar program och loggar in på program utan Administratörs godkännande, finns det två inställningar som du kan ändra för att inaktivera dessa funktioner:
 
-* Att hindra användare från principer för program på egen hand:
-  1. I Azure-portalen går du till den [användarinställningar](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/) avsnittet under företagsprogram.
-  2. Ändra **användare kan godkänna att appar får åtkomst till företagets data å deras vägnar** till **nr**.
+* För att förhindra att användare samtycker till program på egen ställe:
+  1. I Azure Portal går du till avsnittet [användar inställningar](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/) under företags program.
+  2. Ändra **användarnas tillstånd till appar som har åtkomst till företags data för deras räkning** till **Nej**.
      
      > [!NOTE]
-     > Om du vill stänga av användarens medgivande kan en administratör krävas samtycker till att alla nya program som en användare behöver använda.
+     > Om du väljer att inaktivera användar medgivande krävs en administratör för att godkänna alla nya program som en användare behöver använda.
 
-* Att hindra användare från att registrera sina egna program:
-  1. I Azure-portalen går du till den [användarinställningar](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings) avsnittet under Azure Active Directory
-  2. Ändra **användare kan registrera program** till **nr**.
+* Förhindra att användare registrerar sina egna program:
+  1. I Azure Portal går du till avsnittet [användar inställningar](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings) under Azure Active Directory
+  2. Ändra **användare kan registrera program** på **Nej**.
 
 > [!NOTE]
-> Microsoft själva använder standardkonfigurationen med användare kan registrera program och samtycka till program på egen hand.
+> Microsoft använder sig av standard konfigurationen med användare som kan registrera program och samtycka till program för egen räkning.
 
 <!--Image references-->
 [apps_service_principals_directory]:../media/active-directory-how-applications-are-added/HowAppsAreAddedToAAD.jpg

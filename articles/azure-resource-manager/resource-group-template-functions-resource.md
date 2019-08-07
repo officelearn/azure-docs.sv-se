@@ -4,14 +4,14 @@ description: Beskriver funktionerna du använder i en Azure Resource Manager-mal
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 07/31/2019
+ms.date: 08/06/2019
 ms.author: tomfitz
-ms.openlocfilehash: 7548b75f201c896e3a5248cb9d0154a9a676a86f
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 2ec6e58438e7be953e1f672fb815ff3f68a7f252
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698202"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839250"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Resursfunktioner för Azure Resource Manager-mallar
 
@@ -342,8 +342,8 @@ Returnerar ett objekt som representerar en resurs runtime-tillståndet.
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| resourceName eller resourceIdentifier |Ja |sträng |Namn eller unik identifierare för en resurs. |
-| apiVersion |Nej |sträng |API-versionen av den angivna resursen. Inkludera den här parametern när resursen inte är tillhandahållits i samma mall. Normalt i format, **åååå-mm-dd**. |
+| resourceName eller resourceIdentifier |Ja |sträng |Namn eller unik identifierare för en resurs. När du refererar till en resurs i den aktuella mallen, anger du bara resursnamn som en parameter. Ange resurs-ID när du refererar till en tidigare distribuerad resurs. |
+| apiVersion |Nej |sträng |API-versionen av den angivna resursen. Inkludera den här parametern när resursen inte är tillhandahållits i samma mall. Normalt i format, **åååå-mm-dd**. Giltiga API-versioner för din resurs finns i [referens för mallar](/azure/templates/). |
 | ”Fullständig” |Nej |sträng |Värde som anger om du vill returnera fullständiga resurs-objekt. Om du inte anger `'Full'`, egenskaper för objekt av resursen returneras. Fullständig objektet innehåller värden som resurs-ID och plats. |
 
 ### <a name="return-value"></a>Returvärde
@@ -352,17 +352,7 @@ Alla resurstyper returnerar olika egenskaper för funktionen referens. Funktione
 
 ### <a name="remarks"></a>Kommentarer
 
-Funktionen referens hämtar körtiden för en tidigare distribuerad resurs eller en resurs som distribuerats i den aktuella mallen. Den här artikeln visar exempel på båda scenarierna. När du refererar till en resurs i den aktuella mallen, anger du bara resursnamn som en parameter. När du refererar till en tidigare distribuerad resurs, ange resurs-ID och en API-version för resursen. Du kan fastställa giltig API-versioner för din resurs i den [mallreferensen](/azure/templates/).
-
-Referens-funktionen kan endast användas i egenskaperna för en resursdefinition och outputs-avsnittet av en mall eller distribution. När det används med [egenskapen iteration](resource-group-create-multiple.md#property-iteration)kan du använda funktionen Reference för `input` eftersom uttrycket har tilldelats till resurs egenskapen. Du kan inte använda den `count` med eftersom antalet måste bestämmas innan referens funktionen har åtgärd ATS.
-
-Du kan inte använda funktionen reference i utdata för en kapslad [mall](resource-group-linked-templates.md#nested-template) för att returnera en resurs som du har distribuerat i den kapslade mallen. Använd i stället en [länkad mall](resource-group-linked-templates.md#external-template-and-external-parameters).
-
-Med hjälp av funktionen referens deklarera du implicit att en resurs beror på en annan resurs om refererade resursen har tillhandahållits i samma mall och du referera till resursen med sitt namn (inte resurs-ID). Du behöver inte också använda egenskapen dependsOn. Funktionen utvärderas inte förrän den refererade resursen har slutfört distributionen.
-
-Om du använder funktionen **Reference** i en resurs som är villkorligt distribuerad utvärderas funktionen även om resursen inte har distribuerats.  Du får ett fel meddelande om **referens** funktionen hänvisar till en resurs som inte finns. Använd funktionen **IF** för att se till att funktionen endast utvärderas när resursen distribueras. Se [funktionen IF](resource-group-template-functions-logical.md#if) för en exempel mall som använder IF och Reference med en villkorligt distribuerad resurs.
-
-Skapa en mall som returnerar objektet i outputs-avsnittet om du vill se egenskapsnamn och värden för en resurstyp. Om du har en befintlig resurs av den typen returnerar objektet utan att distribuera nya resurser i din mall. 
+Funktionen referens hämtar körtiden för en tidigare distribuerad resurs eller en resurs som distribuerats i den aktuella mallen. Den här artikeln visar exempel på båda scenarierna.
 
 Normalt använder du den **referens** funktionen för att returnera ett visst värde från ett objekt, till exempel blob-slutpunkt URI eller fullständigt domännamn.
 
@@ -403,7 +393,45 @@ Använd `'Full'` när du behöver resurs-värden som inte ingår i Egenskaper f�
     ...
 ```
 
-Det fullständiga exemplet i föregående mall, se [Windows till Key Vault](https://github.com/rjmax/AzureSaturday/blob/master/Demo02.ManagedServiceIdentity/demo08.msiWindowsToKeyvault.json). Ett liknande exempel är tillgänglig för [Linux](https://github.com/rjmax/AzureSaturday/blob/master/Demo02.ManagedServiceIdentity/demo07.msiLinuxToArm.json).
+### <a name="valid-uses"></a>Giltig användning
+
+Referens-funktionen kan endast användas i egenskaperna för en resursdefinition och outputs-avsnittet av en mall eller distribution. När det används med [egenskapen iteration](resource-group-create-multiple.md#property-iteration)kan du använda funktionen Reference för `input` eftersom uttrycket har tilldelats till resurs egenskapen. Du kan inte använda den `count` med eftersom antalet måste bestämmas innan referens funktionen har åtgärd ATS.
+
+Du kan inte använda funktionen reference i utdata för en kapslad [mall](resource-group-linked-templates.md#nested-template) för att returnera en resurs som du har distribuerat i den kapslade mallen. Använd i stället en [länkad mall](resource-group-linked-templates.md#external-template-and-external-parameters).
+
+Om du använder funktionen **Reference** i en resurs som är villkorligt distribuerad utvärderas funktionen även om resursen inte har distribuerats.  Du får ett fel meddelande om **referens** funktionen hänvisar till en resurs som inte finns. Använd funktionen **IF** för att se till att funktionen endast utvärderas när resursen distribueras. Se [funktionen IF](resource-group-template-functions-logical.md#if) för en exempel mall som använder IF och Reference med en villkorligt distribuerad resurs.
+
+### <a name="implicit-dependency"></a>Implicit beroende
+
+Med hjälp av funktionen referens deklarera du implicit att en resurs beror på en annan resurs om refererade resursen har tillhandahållits i samma mall och du referera till resursen med sitt namn (inte resurs-ID). Du behöver inte också använda egenskapen dependsOn. Funktionen utvärderas inte förrän den refererade resursen har slutfört distributionen.
+
+### <a name="resource-name-or-identifier"></a>Resurs namn eller identifierare
+
+Ange namnet på resursen när du refererar till en resurs som har distribuerats i samma mall.
+
+```json
+"value": "[reference(parameters('storageAccountName'))]"
+```
+
+Ange resurs-ID när du refererar till en resurs som inte har distribuerats i samma mall.
+
+```json
+"value": "[reference(resourceId(parameters('storageResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2018-07-01')]"
+```
+
+För att undvika tvetydighet om vilken resurs du refererar till, kan du ange ett fullständigt resurs namn.
+
+```json
+"value": "[reference(concat('Microsoft.Network/publicIPAddresses/', parameters('ipAddressName')))]"
+```
+
+När du skapar en fullständigt kvalificerad referens till en resurs, är ordningen för att kombinera segment från typ och namn inte bara en sammanfogning av de två. Använd i stället en sekvens av *typnamn/namn* -par från minst för de mest aktuella för namn området:
+
+**{Resource-Provider-namespace}/{Parent-Resource-Type}/{Parent-Resource-Name} [/{Child-Resource-Type}/{Child-Resource-Name}]**
+
+Exempel:
+
+`Microsoft.Compute/virtualMachines/myVM/extensions/myExt``Microsoft.Compute/virtualMachines/extensions/myVM/myExt` stämmer inte korrekt
 
 ### <a name="example"></a>Exempel
 
@@ -539,7 +567,9 @@ Det returnerade objektet är i följande format:
 {
   "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}",
   "name": "{resourceGroupName}",
+  "type":"Microsoft.Resources/resourceGroups",
   "location": "{resourceGroupLocation}",
+  "managedBy": "{identifier-of-managing-resource}",
   "tags": {
   },
   "properties": {
@@ -547,6 +577,8 @@ Det returnerade objektet är i följande format:
   }
 }
 ```
+
+Egenskapen **managedBy** returneras bara för resurs grupper som innehåller resurser som hanteras av en annan tjänst. För hanterade program, Databricks och AKS är egenskapens värde resurs-ID för hanterings resursen.
 
 ### <a name="remarks"></a>Kommentarer
 
@@ -592,6 +624,7 @@ Föregående exempel returnerar ett objekt i följande format:
 {
   "id": "/subscriptions/{subscription-id}/resourceGroups/examplegroup",
   "name": "examplegroup",
+  "type":"Microsoft.Resources/resourceGroups",
   "location": "southcentralus",
   "properties": {
     "provisioningState": "Succeeded"

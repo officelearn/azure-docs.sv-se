@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 7/30/2019
-ms.openlocfilehash: 780b9ae6e4664af86fa655c9136193bed58526d9
-ms.sourcegitcommit: 6ad03fa28a0f60cb6dce6144f728c2ceb56ff6e2
+ms.openlocfilehash: a61ddf57d4f01fcaf4a949add29c677aa94060a9
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68708503"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827856"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-your-data-lake-or-data-warehouse-to-azure"></a>Använd Azure Data Factory för att migrera data från data Lake eller data lager till Azure 
 
@@ -26,7 +26,7 @@ Azure Data Factory kan vara verktyget för datamigrering när du vill migrera da
 - Stor migrering av data arbets belastning från AWS S3, lokal Hadoop-filsystem till Azure. 
 - ANALYSLÖSNINGAR-migrering från Oracle Exadata, Netezza, Teradata, AWS RedShift till Azure. 
 
-Azure Data Factory kan flytta PBs-datanivån för data Lake migration och styrkan i TB data Warehouse-migrering. 
+Azure Data Factory kan flytta PBs för data för data Lake migration och flera på flera TB-data för migrering av data lager. 
 
 ## <a name="why-azure-data-factory-can-be-used-for-data-migration"></a>Varför Azure Data Factory kan användas för datamigrering 
 
@@ -59,4 +59,4 @@ Om du vill slutföra datamigreringen inom två veckor (migreringstabellen) kan d
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Kopiera filer från flera behållare med Azure Data Factory](solution-template-copy-files-multiple-containers.md)
+- [Migrera data från AWS S3 till Azure](data-migration-guidance-s3-azure-storage.md)

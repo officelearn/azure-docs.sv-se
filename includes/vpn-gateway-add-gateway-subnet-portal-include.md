@@ -5,24 +5,26 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 04/04/2018
+ms.date: 08/02/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 9132cf438cab518e20e6c2ddfdb7d0928753bd19
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 52ab0413dffeee59cb9d34c6276a0c806a4d0322
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187190"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780180"
 ---
+Gateway-undernätet innehåller de reserverade IP-adresser som används av tjänsten för virtuell nätverksgateway. Skapa ett Gateway-undernät.
+
 1. På portalen går du till det virtuella Resource Manager-nätverk som du vill skapa en virtuell nätverksgateway för.
-2. I avsnittet **Inställningar** på sidan för det virtuella nätverket, klickar du på **Undernät** så att sidan Undernät öppnas.
-3. På sidan **Undernät** klickar du på **+Gateway-undernät** längst upp så att sidan **Lägg till undernät** öppnas.
+2. På sidan virtuellt nätverk klickar du på **undernät** för att expandera sidan med **VNet1-undernät** .
+3. Klicka på **+ Gateway-undernät** längst upp för att öppna sidan **Lägg till undernät** .
 
    ![Lägg till gatewayundernätet](./media/vpn-gateway-add-gateway-subnet-portal-include/gateway-subnet.png "Lägg till gatewayundernätet")
-  
-4. **Namnet** på undernätet fylls automatiskt i med värdet GatewaySubnet. GatewaySubnet-värdet krävs för att Azure ska kunna identifiera undernätet som gateway-undernätet. Justera de automatiskt ifyllda värdena för **adressintervall** så att de motsvarar dina konfigurationskrav.
+4. **Namnet** på ditt undernät fylls i automatiskt med det obligatoriska värdet ' GatewaySubnet '. Justera det automatiskt ifyllda **adress intervallet (CIDR-block)** så att det matchar följande värde:
 
-   ![Lägg till gatewayundernät](./media/vpn-gateway-add-gateway-subnet-portal-include/add-gateway-subnet.png "Lägg till gatewayundernät")
-  
-5. Klicka på **OK** längst ned på sidan för att skapa undernätet.
+   **Adress intervall (CIDR-block)** : 10.1.255.0/27
+
+   ![Lägg till gatewayundernätet](./media/vpn-gateway-add-gateway-subnet-portal-include/add-gateway-subnet1.png "Lägg till gatewayundernätet")
+5. Lämna resten av inställningarna som standardvärden **none** eller **0 markerade**. Klicka sedan på **OK** för att skapa Gateway-undernätet.

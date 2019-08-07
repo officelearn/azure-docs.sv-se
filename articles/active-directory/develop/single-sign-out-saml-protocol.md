@@ -1,6 +1,6 @@
 ---
-title: Azure enkel utloggning SAML-protokoll | Microsoft Docs
-description: Den här artikeln beskriver enkel utloggning SAML-protokoll i Azure Active Directory
+title: SAML-protokoll för enkel inloggning i Azure | Microsoft Docs
+description: I den här artikeln beskrivs SAML-protokollet enkel utloggning i Azure Active Directory
 services: active-directory
 documentationcenter: .net
 author: rwike77
@@ -12,29 +12,29 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/19/2017
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06fd36935c1f43cc14697748666eccd9e6d31168
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 66c509b1b901889241d6837611a2c373750fdb3a
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65545970"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68834792"
 ---
-# <a name="single-sign-out-saml-protocol"></a>Enkel utloggning SAML-protokoll
+# <a name="single-sign-out-saml-protocol"></a>SAML-protokoll för enkel utloggning
 
-Azure Active Directory (Azure AD) stöder SAML 2.0 web webbläsarprofilen för enkel utloggning. För enkel utloggning ska fungera korrekt, den **LogoutURL** för programmet explicit måste registreras med Azure AD under programregistrering. Azure AD använder LogoutURL för att omdirigera användare när de har loggat ut.
+Azure Active Directory (Azure AD) stöder en enkel inloggnings profil för SAML 2,0-webbläsare. För att enkel utloggning ska fungera korrekt måste **LogoutURL** för programmet uttryckligen registreras med Azure AD under program registreringen. Azure AD använder LogoutURL för att omdirigera användare när de har loggat ut.
 
-Följande diagram visar arbetsflödet om hur Azure AD enkel utloggning.
+Följande diagram visar arbets flödet för processen för enkel inloggning i Azure AD.
 
-![Azure AD enkel utloggning arbetsflöde](./media/single-sign-out-saml-protocol/active-directory-saml-single-sign-out-workflow.png)
+![Arbets flöde för enkel inloggning i Azure AD](./media/single-sign-out-saml-protocol/active-directory-saml-single-sign-out-workflow.png)
 
 ## <a name="logoutrequest"></a>LogoutRequest
-Cloud service skickar en `LogoutRequest` meddelande till Azure AD för att indikera att en session har avslutats. Följande utdrag visar ett exempel `LogoutRequest` element.
+Moln tjänsten skickar ett `LogoutRequest` meddelande till Azure AD för att indikera att en session har avslut ATS. Följande utdrag visar ett exempel `LogoutRequest` element.
 
 ```
 <samlp:LogoutRequest xmlns="urn:oasis:names:tc:SAML:2.0:metadata" ID="idaa6ebe6839094fe4abc4ebd5281ec780" Version="2.0" IssueInstant="2013-03-28T07:10:49.6004822Z" xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
@@ -44,20 +44,20 @@ Cloud service skickar en `LogoutRequest` meddelande till Azure AD för att indik
 ```
 
 ### <a name="logoutrequest"></a>LogoutRequest
-Den `LogoutRequest` skickas till Azure AD-elementet kräver följande attribut:
+Det `LogoutRequest` element som skickas till Azure AD kräver följande attribut:
 
-* `ID` -Detta identifierar utloggning begäran. Värdet för `ID` får inte inledas med en siffra. Den vanliga metoden är att lägga till **id** till strängrepresentation av ett GUID.
-* `Version` -Ange värdet för det här elementet till **2.0**. Det här värdet är obligatoriskt.
-* `IssueInstant` – Detta är en `DateTime` sträng med ett värde för samordna Universal Time (UTC) och [fram och åter format (”o”)](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD måste ha ett värde av den här typen, men använda inte den.
+* `ID`-Detta identifierar utloggnings förfrågan. Värdet för `ID` får inte börja med en siffra. Den typiska metoden är att lägga till **ID** i sträng representationen av ett GUID.
+* `Version`– Ange värdet för det här elementet som **2,0**. Det här värdet är obligatoriskt.
+* `IssueInstant`– Det här är `DateTime` en sträng med ett UTC-värde (Coordination Universal Time) och tur och [RETUR-format ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD förväntar sig ett värde av den här typen, men tvingar inte det.
 
 ### <a name="issuer"></a>Utfärdare
-Den `Issuer` element i en `LogoutRequest` måste exakt matcha en av de **ServicePrincipalNames** i Molntjänsten i Azure AD. Normalt detta är inställt på den **Appidentitets-URI** som har angetts under registreringen av program.
+Elementet i en `LogoutRequest` måste exakt matcha ett av ServicePrincipalNames i moln tjänsten i Azure AD. `Issuer` Detta är vanligt vis inställt på **app-ID-URI: n** som anges vid program registrering.
 
 ### <a name="nameid"></a>NameID
-Värdet för den `NameID` elementet måste exakt matcha de `NameID` för den användare som loggas ut.
+Värdet för `NameID` elementet måste exakt `NameID` matcha användarens som loggas ut.
 
 ## <a name="logoutresponse"></a>LogoutResponse
-Azure AD skickar en `LogoutResponse` som svar på en `LogoutRequest` element. Följande utdrag visar ett exempel `LogoutResponse`.
+Azure AD skickar ett `LogoutResponse` som svar på ett `LogoutRequest` -element. Följande utdrag visar ett exempel `LogoutResponse`.
 
 ```
 <samlp:LogoutResponse ID="_f0961a83-d071-4be5-a18c-9ae7b22987a4" Version="2.0" IssueInstant="2013-03-18T08:49:24.405Z" InResponseTo="iddce91f96e56747b5ace6d2e2aa9d4f8c" xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
@@ -69,12 +69,12 @@ Azure AD skickar en `LogoutResponse` som svar på en `LogoutRequest` element. F�
 ```
 
 ### <a name="logoutresponse"></a>LogoutResponse
-Azure AD-uppsättningar på `ID`, `Version` och `IssueInstant` värdena i den `LogoutResponse` element. I exemplet anges också den `InResponseTo` element till värdet för den `ID` attributet för den `LogoutRequest` som förvärvas svaret.
+Azure AD anger `ID`-och `Version` `IssueInstant` -värden i `LogoutResponse` -elementet. Den anger `InResponseTo` också elementet till värdet `ID` för attributet för det `LogoutRequest` som har bevarat svaret.
 
 ### <a name="issuer"></a>Utfärdare
-Azure AD anger det här värdet till `https://login.microsoftonline.com/<TenantIdGUID>/` där \<TenantIdGUID > är klient-ID för Azure AD-klient.
+Azure AD ställer in det här `https://login.microsoftonline.com/<TenantIdGUID>/` värdet \<på där TenantIdGUID > är klient-ID: t för Azure AD-klienten.
 
-Att utvärdera värdet för den `Issuer` element, Använd värdet för den **Appidentitets-URI** angavs under registreringen av program.
+Om du vill utvärdera värdet för `Issuer` elementet använder du värdet för **app-ID-URI: n** som angavs under program registreringen.
 
 ### <a name="status"></a>Status
-Azure AD använder den `StatusCode` elementet i den `Status` element att ange lyckad eller misslyckad utloggning. När det utloggning försöket misslyckas, den `StatusCode` element kan också innehålla anpassade felmeddelanden.
+Azure AD använder `StatusCode` elementet `Status` i-elementet för att ange att utloggningen lyckades eller misslyckades. När utloggnings försöket Miss lyckas `StatusCode` kan elementet också innehålla anpassade fel meddelanden.

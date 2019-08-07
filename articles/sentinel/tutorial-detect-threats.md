@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: ad9c752898733286701db2d0f0b1fc40029b7521
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: 2cc33a9ac55ae9e906d88b72476d4b5ee244d2c8
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68370704"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780431"
 ---
 # <a name="tutorial-detect-threats-with-azure-sentinel-preview"></a>Självstudier: Identifiera hot med Azure Sentinel Preview
 
@@ -28,7 +28,7 @@ ms.locfileid: "68370704"
 > Azure Sentinel är för närvarande en offentlig för hands version.
 > Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-När du har [anslutit dina data källor](quickstart-onboard.md) till Azure Sentinel vill du bli meddelad när något misstänkt inträffar. För att du ska kunna göra detta kan du använda Azure Sentinel för att skapa avancerade aviserings regler, som genererar ärenden som du kan tilldela och använda för att skapa en djup undersökning av avvikelser och hot i din miljö. 
+När du har [anslutit dina data källor](quickstart-onboard.md) till Azure Sentinel vill du bli meddelad när något misstänkt inträffar. För att du ska kunna göra detta kan du använda Azure Sentinel för att skapa avancerade aviserings regler som genererar incidenter som du kan tilldela och använda för att skapa en djup undersökning av avvikelser och hot i din miljö. 
 
 Den här självstudien hjälper dig att identifiera hot med Azure Sentinel.
 > [!div class="checklist"]
@@ -37,7 +37,7 @@ Den här självstudien hjälper dig att identifiera hot med Azure Sentinel.
 
 ## <a name="create-detection-rules"></a>Skapa identifierings regler
 
-Om du vill undersöka ärenden måste du först skapa identifierings regler. 
+För att undersöka incidenter måste du först skapa identifierings regler. 
 
 > [!NOTE]
 > Aviseringar som genereras i Azure Sentinel är tillgängliga via [Microsoft Graph säkerhet](https://aka.ms/securitygraphdocs). Mer information och integrerings partner finns i [dokumentationen om Microsoft Graph säkerhets aviseringar](https://aka.ms/graphsecurityreferencebetadocs) .
@@ -67,19 +67,19 @@ Identifierings regler baseras på de typer av hot och avvikelser som kan vara mi
 
 5. I avsnittet **entitets mappning** använder du fälten under **entitetstyp** för att mappa kolumnerna i din fråga till entitetsfält som identifieras av Azure Sentinel. För varje fält mappar du relevant kolumn i frågan som du skapade i Log Analytics till lämpligt entitetsfält. Välj det relevanta kolumn namnet under **egenskapen**. Varje entitet innehåller flera fält, till exempel SID, GUID, osv. Du kan mappa entiteten enligt något av fälten, inte bara entiteten på den översta nivån.
 
-6. Definiera villkor för aviserings Utlös under aviserings utlösare. Detta definierar de villkor som utlöser aviseringen. 
+6. Definiera villkor för aviseringsUtlös under aviserings utlösare. Detta definierar de villkor som utlöser aviseringen. 
 
 7. Ange **frekvensen** för hur ofta frågan ska köras – så ofta som var femte minut eller som sällan som en gång om dagen. 
 
 8. Ange **perioden** för att kontrol lera tidsfönstret för hur mycket data frågan körs på, till exempel kan den köras varje timme i 60 minuter med data.
 
-9. Du kan också ställa in undertrycket. Under tryckning är användbart när du vill förhindra att dubbla aviseringar utlöses för samma incident. På så sätt kan du förhindra att aviseringar utlöses under en viss period. Detta kan hjälpa dig att undvika dubbla aviseringar för samma incident och gör att du kan ignorera aviseringar i följd under en viss tids period. Om till exempel frekvensen för **aviserings schemaläggning**  är inställt på 60 minuter och tids gränsen för **aviserings perioden** är inställd på två timmar och frågeresultaten överskrider det definierade tröskelvärdet utlöses en avisering två gånger, en gång när den identifieras första gången under de senaste 60 minuterna och igen när det är inom de första 60 minuterna av de 2 timmars data som samplas. Vi rekommenderar att om en avisering utlöses bör under tryckningen vara för den mängd tid som anges i aviserings perioden. I vårt exempel kanske du vill ställa in Undertryckning i 60 minuter, så att aviseringar endast utlöses för händelser som har inträffat under den senaste timmen.
+9. Du kan också ställa inundertrycket. Under tryckning är användbart när du vill förhindra att dubbla aviseringar utlöses för samma incident. På så sätt kan du förhindra att aviseringar utlöses under en viss period. Detta kan hjälpa dig att undvika dubbla aviseringar för samma incident och gör att du kan ignorera aviseringar i följd under en viss tids period. Om till exempel frekvensen för **aviserings schemaläggning** är inställt på 60 minuter och tids gränsen för **aviserings perioden** är inställd på två timmar och frågeresultaten överskrider det definierade tröskelvärdet utlöses en avisering två gånger, en gång när den identifieras första gången under de senaste 60 minuterna och igen när det är inom de första 60 minuterna av de 2 timmars data som samplas. Vi rekommenderar att om en avisering utlöses bör under tryckningen vara för den mängd tid som anges i aviserings perioden. I vårt exempel kanske du vill ställa in Undertryckning i 60 minuter, så att aviseringar endast utlöses för händelser som har inträffat under den senaste timmen.
 
 8. När du har klistrat in frågan i fältet **Ange aviserings regel** kan du direkt se en simulering av aviseringen under **logik aviserings simulering** så att du kan få reda på hur mycket data som genereras under ett angivet tidsintervall för aviseringen du har skapat. Detta beror på vad du anger för **frekvens** och **tröskel**. Om du ser detta i genomsnitt utlöses aviseringen för ofta, du vill ange antalet resultat högre så att det är högre än den genomsnittliga bas linjen.
 
-9. Klicka på **skapa** för att initiera aviserings regeln. När aviseringen har skapats skapas ett ärende som innehåller aviseringen. Du kan se de definierade identifierings reglerna som rader på fliken **säkerhets analys** . Du kan också se antalet matchningar för varje regel – aviseringarna utlöses. I den här listan kan du aktivera, inaktivera eller ta bort varje regel. Du kan också högerklicka på ellipsen (...) i slutet av raden för varje avisering för att redigera, inaktivera, klona, Visa matchningar eller ta bort en regel. **Analytics** -sidan är ett galleri med alla aktiva aviserings regler, inklusive mallar som du aktiverar och aviserings regler som du skapar baserat på mallar.
+9. Klicka på **skapa** för att initiera aviserings regeln. När aviseringen har skapats skapas en incident som innehåller aviseringen. Du kan se de definierade identifierings reglerna som rader på fliken **säkerhets analys** . Du kan också se antalet matchningar för varje regel – aviseringarna utlöses. I den här listan kan du aktivera, inaktivera eller ta bort varje regel. Du kan också högerklicka på ellipsen (...) i slutet av raden för varje avisering för att redigera, inaktivera, klona, Visa matchningar eller ta bort en regel. **Analytics** -sidan är ett galleri med alla aktiva aviserings regler, inklusive mallar som du aktiverar och aviserings regler som du skapar baserat på mallar.
 
-1. Resultaten av aviserings reglerna kan visas på sidan **ärenden** där du kan prioritering, [undersöka ärenden](tutorial-investigate-cases.md)och åtgärda hot.
+1. Resultaten av aviserings reglerna visas på sidan incidenter där du kan prioritering, [undersöka incidenter](tutorial-investigate-cases.md)och åtgärda hot.
 
 
 

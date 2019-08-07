@@ -1,6 +1,6 @@
 ---
-title: Behåll filer för Bash i Azure Cloud Shell | Microsoft Docs
-description: Genomgång av hur Bash i Azure Cloud Shell kvarstår filer.
+title: Spara filer i Azure Cloud Shell | Microsoft Docs
+description: Genom gång av hur Azure Cloud Shell sparar filer.
 services: azure
 documentationcenter: ''
 author: maertendMSFT
@@ -14,68 +14,68 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2018
 ms.author: damaerte
-ms.openlocfilehash: 0aa00af543a3d21db9b8ad0ed808a8bff0b534e1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f60125123d019cbfa93bfc1b06da7ac90b54e311
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60200299"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742043"
 ---
 [!INCLUDE [PersistingStorage-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
 
-## <a name="how-cloud-shell-storage-works"></a>Så här fungerar Cloud Shell-lagring 
-Cloudshell kvarstår filerna med båda av följande metoder: 
-* Skapa en avbildning av din `$Home` directory för att bevara allt innehåll i katalogen. Disk image sparas i angivna filresursen som `acc_<User>.img` på `fileshare.storage.windows.net/fileshare/.cloudconsole/acc_<User>.img`, och synkroniserar automatiskt ändringar. 
-* Montera angivna filresursen som `clouddrive` i din `$Home` katalogen för direkta filresurs interaktion. `/Home/<User>/clouddrive` mappas till `fileshare.storage.windows.net/fileshare`.
+## <a name="how-cloud-shell-storage-works"></a>Så här fungerar Cloud Shell Storage 
+Cloud Shell sparar filer genom båda följande metoder: 
+* Skapa en disk avbildning av `$Home` katalogen för att spara allt innehåll i katalogen. Disk avbildningen sparas i den angivna fil resursen som `acc_<User>.img` på `fileshare.storage.windows.net/fileshare/.cloudconsole/acc_<User>.img`och synkroniserar automatiskt ändringar. 
+* Montera din angivna fil resurs som `clouddrive` i din `$Home` katalog för direkt interaktion av fil resurser. `/Home/<User>/clouddrive`är mappad `fileshare.storage.windows.net/fileshare`till.
  
 > [!NOTE]
-> Alla filer i din `$Home` katalog, t.ex SSH-nycklar finns kvar i din användaravbildning för disk som är lagrat i monterade filresursen. Gäller bästa praxis när du bevara informationen i din `$Home` directory och monterade filresurs.
+> Alla filer i `$Home` katalogen, till exempel SSH-nycklar, finns kvar i din användar disk avbildning, som lagras i den monterade fil resursen. Använd bästa praxis när du bevarar information `$Home` i din katalog och monterade fil resursen.
 
-## <a name="bash-specific-commands"></a>Bash-fil
+## <a name="bash-specific-commands"></a>Bash kommandon
 
-### <a name="use-the-clouddrive-command"></a>Använd den `clouddrive` kommando
-Med Bash i Cloud Shell, kan du köra ett kommando som kallas `clouddrive`, vilket gör att du manuellt uppdatera filresursen som är kopplad till Cloud Shell.
-![Kör kommandot ”clouddrive”](media/persisting-shell-storage/clouddrive-h.png)
+### <a name="use-the-clouddrive-command"></a>`clouddrive` Använda kommandot
+Med bash i Cloud Shell kan du köra ett kommando som kallas `clouddrive`, vilket gör att du kan uppdatera fil resursen som är monterad till Cloud Shell manuellt.
+![Köra kommandot "clouddrive"](media/persisting-shell-storage/clouddrive-h.png)
 
 ### <a name="mount-a-new-clouddrive"></a>Montera en ny clouddrive
 
 #### <a name="prerequisites-for-manual-mounting"></a>Krav för manuell montering
-Du kan uppdatera filresursen som är associerat med Cloud Shell med hjälp av den `clouddrive mount` kommando.
+Du kan uppdatera fil resursen som är kopplad till Cloud Shell med hjälp `clouddrive mount` av kommandot.
 
-Om du monterar en befintlig resurs måste storage-konton finnas i din väljer Cloud Shell-region. Hämta platsen genom att köra `env` från Bash och kontrollerar de `ACC_LOCATION`.
+Om du monterar en befintlig fil resurs måste lagrings kontona finnas i din SELECT Cloud Shell-region. Hämta platsen genom att köra `env` från bash och `ACC_LOCATION`kontrol lera.
 
-#### <a name="the-clouddrive-mount-command"></a>Den `clouddrive mount` kommando
+#### <a name="the-clouddrive-mount-command"></a>`clouddrive mount` Kommandot
 
 > [!NOTE]
-> Om du montera en ny filresurs, skapas en ny användaravbildning för din `$Home` directory. Den föregående `$Home` avbildningen sparas i föregående filresursen.
+> Om du monterar en ny fil resurs skapas en ny användar avbildning för din `$Home` katalog. Din föregående `$Home` bild behålls i din tidigare fil resurs.
 
-Kör den `clouddrive mount` kommandot med följande parametrar:
+`clouddrive mount` Kör kommandot med följande parametrar:
 
 ```
 clouddrive mount -s mySubscription -g myRG -n storageAccountName -f fileShareName
 ```
 
-Om du vill visa mer information om kör `clouddrive mount -h`enligt nedan:
+Om du vill visa mer information `clouddrive mount -h`, kör, som du ser här:
 
-![Kör den ' clouddrive mount'command](media/persisting-shell-storage/mount-h.png)
+![Kör clouddrive-mount'command](media/persisting-shell-storage/mount-h.png)
 
 ### <a name="unmount-clouddrive"></a>Demontera clouddrive
-Du kan demontera en filresurs som är kopplad till Cloud Shell när som helst. Eftersom Cloud Shell kräver en monterad filresurs som ska användas, uppmanas du att skapa och montera en annan filresurs i nästa session.
+Du kan demontera en fil resurs som är monterad till Cloud Shell när som helst. Eftersom Cloud Shell kräver att en monterad fil resurs används uppmanas du att skapa och montera en annan fil resurs i nästa session.
 
 1. Kör `clouddrive unmount`.
-2. Bekräfta och bekräfta att anvisningarna.
+2. Bekräfta och bekräfta prompter.
 
-Filresursen fortsätter att existera såvida inte du ta bort den manuellt. Cloudshell efter inte längre den här filresursen på framtida sessioner. Om du vill visa mer information om kör `clouddrive unmount -h`enligt nedan:
+Fil resursen kommer att finnas kvar om du inte tar bort den manuellt. Cloud Shell kommer inte längre att söka efter den här fil resursen på efterföljande sessioner. Om du vill visa mer information `clouddrive unmount -h`, kör, som du ser här:
 
-![Kör den ' clouddrive unmount'command](media/persisting-shell-storage/unmount-h.png)
+![Kör clouddrive-unmount'command](media/persisting-shell-storage/unmount-h.png)
 
 > [!WARNING]
-> Även om inte tas bort några resurser genom att köra följande kommando, ta bort en resursgrupp, en storage-konto eller en filresurs som är mappad till Cloud Shell manuellt raderar din `$Home` directory diskavbildning och alla filer i filresursen. Den här åtgärden kan inte ångras.
+> Även om du kör det här kommandot tar du `$Home` inte bort några resurser, manuellt tar bort en resurs grupp, ett lagrings konto eller en fil resurs som är mappad till Cloud Shell raderar katalog disk avbildningen och eventuella filer i fil resursen. Det går inte att ångra den här åtgärden.
 
-### <a name="list-clouddrive"></a>Lista `clouddrive`
-Identifiera vilka filresursen monteras som `clouddrive`, kör den `df` kommando. 
+### <a name="list-clouddrive"></a>Lista`clouddrive`
+För att identifiera vilken fil resurs som monteras som `clouddrive`kör du `df` kommandot. 
 
-Sökvägen till clouddrive visar ditt lagringskontonamn och filresurs i URL: en. Till exempel, `//storageaccountname.file.core.windows.net/filesharename`
+Fil Sök vägen till clouddrive visar ditt lagrings konto namn och fil resurs i URL: en. Till exempel, `//storageaccountname.file.core.windows.net/filesharename`
 
 ```
 justin@Azure:~$ df
@@ -88,24 +88,24 @@ shm                                                    65536       0      65536 
 //mystoragename.file.core.windows.net/fileshareName 5368709120    64 5368709056   1% /home/justin/clouddrive
 justin@Azure:~$
 ```
-## <a name="powershell-specific-commands"></a>PowerShell-fil
+## <a name="powershell-specific-commands"></a>PowerShell-/regionsspecifika kommandon
 
-### <a name="list-clouddrive-azure-file-shares"></a>Lista `clouddrive` Azure-filresurser
-Den `Get-CloudDrive` cmdlet: en hämtar den Azure information om filresurs monterad genom den `clouddrive` i Cloud Shell. <br>
-![Kör Get-CloudDrive](media/persisting-shell-storage-powershell/Get-Clouddrive.png)
+### <a name="list-clouddrive-azure-file-shares"></a>Visa `clouddrive` en lista över Azure-filresurser
+Cmdleten hämtar information om Azure-filresurser som för närvarande monteras `clouddrive` av i Cloud Shell. `Get-CloudDrive` <br>
+![Kör get-CloudDrive](media/persisting-shell-storage-powershell/Get-Clouddrive.png)
 
-### <a name="unmount-clouddrive"></a>Demontera `clouddrive`
-Du kan demontera en Azure-filresurs som är kopplad till Cloud Shell när som helst. Om Azure-filresursen har tagits bort, uppmanas du att skapa och montera en ny Azure-filresurs vid nästa session.
+### <a name="unmount-clouddrive"></a>Demontera`clouddrive`
+Du kan demontera en Azure-filresurs som är monterad till Cloud Shell när som helst. Om Azure-filresursen har tagits bort uppmanas du att skapa och montera en ny Azure-fil resurs vid nästa session.
 
-Den `Dismount-CloudDrive` cmdlet demonteras en Azure-filresurs från det aktuella storage-kontot. Demontera den `clouddrive` avslutas den aktuella sessionen. Användaren uppmanas att skapa och montera en ny Azure-filresurs under nästa session.
-![Running Dismount-CloudDrive](media/persisting-shell-storage-powershell/Dismount-Clouddrive.png)
+`Dismount-CloudDrive` Cmdleten demonterar en Azure-filresurs från det aktuella lagrings kontot. Demonteringen av `clouddrive` avslutar den aktuella sessionen. Användaren uppmanas att skapa och montera en ny Azure-fil resurs under nästa session.
+![Köra dismount-CloudDrive](media/persisting-shell-storage-powershell/Dismount-Clouddrive.png)
 
 [!INCLUDE [PersistingStorage-endblock](../../includes/cloud-shell-persisting-shell-storage-endblock.md)]
 
-Obs! Om du vill definiera en funktion i en fil och anropa det från PowerShell-cmdlets kan måste sedan punktoperatorn inkluderas. Till exempel:. .\MyFunctions.ps1
+Anteckning: Om du behöver definiera en funktion i en fil och anropa den från PowerShell-cmdletarna måste punkt operatorn inkluderas. Till exempel:. .\MyFunctions.ps1
 
 ## <a name="next-steps"></a>Nästa steg
-[Bash i Cloud Shell-Snabbstart](quickstart.md) <br>
-[PowerShell i Cloud Shell-Snabbstart](quickstart-powershell.md) <br>
-[Lär dig mer om Microsoft Azure File storage](https://docs.microsoft.com/azure/storage/storage-introduction) <br>
-[Lär dig mer om storage taggar](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) <br>
+[Bash i Cloud Shell snabb start](quickstart.md) <br>
+[PowerShell i Cloud Shell snabb start](quickstart-powershell.md) <br>
+[Läs mer om lagring av Microsoft Azure filer](https://docs.microsoft.com/azure/storage/storage-introduction) <br>
+[Läs mer om lagrings märken](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) <br>

@@ -12,12 +12,12 @@ ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba63f9c04e062741eded9c39e44ba64281931387
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 6646217149cec48ca5fcee59b3dd9d850965c602
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68311339"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779908"
 ---
 # <a name="migrate-from-federation-to-pass-through-authentication-for-azure-active-directory"></a>Migrera från Federation till direktautentisering för Azure Active Directory
 
@@ -454,5 +454,5 @@ Mer information finns i [felsöka Azure Active Directory direktautentisering](ht
 ## <a name="next-steps"></a>Nästa steg
 
 * Lär dig mer om att [Azure AD Connect design koncept](plan-connect-design-concepts.md).
-* Välj [rätt autentisering](https://docs.microsoft.com/azure/security/azure-ad-choose-authn).
+* Välj [rätt autentisering](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn).
 * Lär dig mer om topologier som [stöds](plan-connect-design-concepts.md).

@@ -1,36 +1,35 @@
 ---
-title: Datakällor som stöds i Azure Data Catalog
-description: Den här artikeln visas ett av datakällorna som stöds för närvarande.
-services: data-catalog
+title: Data källor som stöds i Azure Data Catalog
+description: Den här artikeln innehåller specifikationer för de data källor som stöds för tillfället.
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 04/15/2019
-ms.openlocfilehash: 85753e788284396262053aad8cf567ad5cd71fee
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.date: 08/01/2019
+ms.openlocfilehash: 6b5c75e928b62181f2ea2b51a11cd997a9942bca
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509279"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736440"
 ---
-# <a name="supported-data-sources-in-azure-data-catalog"></a>Datakällor som stöds i Azure Data Catalog
+# <a name="supported-data-sources-in-azure-data-catalog"></a>Data källor som stöds i Azure Data Catalog
 
-Du kan publicera metadata med hjälp av en offentlig API eller ett klick – en gång registrering verktyget eller genom att manuellt ange information direkt till Azure Data Catalog webbportal. I följande tabell sammanfattas alla datakällor som stöds av katalogen idag och publicera funktionerna för var och en. Listan finns även de externa data-verktyg som varje datakälla kan starta från vår erfarenhet av portal ”öppna i”. Den andra tabellen innehåller en mer teknisk specifikation av Anslutningsegenskapen varje datakälla.
+Du kan publicera metadata med hjälp av ett offentligt API eller ett klick för registrerings verktyg, eller genom att manuellt ange information direkt till Azure Data Catalog webb portalen. I följande tabell sammanfattas alla data källor som stöds av katalogen idag och publicerings funktionerna för var och en. I listan visas även de externa data verktyg som varje data källa kan starta från vår portal "öppna i"-upplevelse. Den andra tabellen innehåller en mer teknisk specifikation av varje anslutnings egenskap för data källa.
 
-## <a name="list-of-supported-data-sources"></a>Lista över datakällor som stöds
+## <a name="list-of-supported-data-sources"></a>Lista över data källor som stöds
 
 <table>
     <tr>
-       <td><b>Datakällobjektet</b></td>
+       <td><b>Data käll objekt</b></td>
        <td><b>API</b></td>
        <td><b>Manuell inmatning</b></td>
-       <td><b>Registreringsverktyget</b></td>
-       <td><b>Öppna i Verktyg</b></td>
+       <td><b>Registrerings verktyg</b></td>
+       <td><b>Öppna i-verktyg</b></td>
        <td><b>Anteckningar</b></td>
     </tr>
     <tr>
-      <td>Azure Data Lake Store-katalogen (endast Gen 1)</td>
+      <td>Azure Data Lake Store katalog (endast gen 1)</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -38,7 +37,7 @@ Du kan publicera metadata med hjälp av en offentlig API eller ett klick – en 
       <td></td>
     </tr>
     <tr>
-      <td>Azure Data Lake Store-fil (endast Gen 1)</td>
+      <td>Azure Data Lake Store fil (endast gen 1)</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -54,7 +53,7 @@ Du kan publicera metadata med hjälp av en offentlig API eller ett klick – en 
       <td></td>
     </tr>
     <tr>
-      <td>Azure Storage-katalog</td>
+      <td>Azure Storage katalog</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -62,7 +61,7 @@ Du kan publicera metadata med hjälp av en offentlig API eller ett klick – en 
       <td></td>
     </tr>
     <tr>
-      <td>Azure Storage-tabell</td>
+      <td>Azure Storage tabell</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -96,7 +95,7 @@ Du kan publicera metadata med hjälp av en offentlig API eller ett klick – en 
       <td></td>
     </tr>
     <tr>
-      <td>Hive-vyn</td>
+      <td>Hive-vy</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -120,7 +119,7 @@ Du kan publicera metadata med hjälp av en offentlig API eller ett klick – en 
       <td></td>
     </tr>
     <tr>
-      <td>Oracle Database-tabell</td>
+      <td>Oracle Database tabell</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -128,7 +127,7 @@ Du kan publicera metadata med hjälp av en offentlig API eller ett klick – en 
       <td></td>
     </tr>
     <tr>
-      <td>Oracle Database-vy</td>
+      <td>Oracle Database vy</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -136,7 +135,7 @@ Du kan publicera metadata med hjälp av en offentlig API eller ett klick – en 
       <td></td>
     </tr>
     <tr>
-      <td>Andra (allmän tillgång)</td>
+      <td>Övrigt (allmän till gång)</td>
       <td>✓</td>
       <td>✓</td>
       <td></td>
@@ -144,23 +143,23 @@ Du kan publicera metadata med hjälp av en offentlig API eller ett klick – en 
       <td></td>
     </tr>
     <tr>
-      <td>Azure SQL Data Warehouse-tabell</td>
+      <td>Azure SQL Data Warehouse tabell</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td>Excel, Power BI Desktop, SQL Server data tools</td>
+      <td>Excel, Power BI Desktop SQL Server data verktyg</td>
       <td></td>
     </tr>
     <tr>
-      <td>Azure SQL Data Warehouse-vy</td>
+      <td>Azure SQL Data Warehouse vy</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td>Excel, Power BI Desktop, SQL Server data tools</td>
+      <td>Excel, Power BI Desktop SQL Server data verktyg</td>
       <td></td>
     </tr>
     <tr>
-      <td>SQL Server Analysis Services-dimension</td>
+      <td>SQL Server Analysis Services dimension</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -176,7 +175,7 @@ Du kan publicera metadata med hjälp av en offentlig API eller ett klick – en 
       <td>SQL Server 2008 och senare versioner.</td>
     </tr>
     <tr>
-      <td>SQL Server Analysis Services-mått</td>
+      <td>SQL Server Analysis Services mått</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -184,7 +183,7 @@ Du kan publicera metadata med hjälp av en offentlig API eller ett klick – en 
       <td>SQL Server 2008 och senare versioner.</td>
     </tr>
     <tr>
-      <td>SQL Server Analysis Services-tabell</td>
+      <td>SQL Server Analysis Services tabell</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -192,27 +191,27 @@ Du kan publicera metadata med hjälp av en offentlig API eller ett klick – en 
       <td>SQL Server 2008 och senare versioner.</td>
     </tr>
     <tr>
-      <td>SQL Server Reporting Services-rapport</td>
+      <td>SQL Server Reporting Services rapport</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
       <td>Browser</td>
-      <td>Enhetligt läge-servrar. SharePoint-läge stöds inte. SQL Server 2008 och senare versioner</td>
+      <td>Endast servrar för enhetligt läge. SharePoint-läge stöds inte. Endast SQL Server 2008 och senare versioner</td>
     </tr>
     <tr>
       <td>SQL Server-tabell</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td>Excel, Power BI Desktop, SQL Server data tools</td>
+      <td>Excel, Power BI Desktop SQL Server data verktyg</td>
       <td>SQL Server 2008 och senare versioner.</td>
     </tr>
     <tr>
-      <td>SQL Server-vy</td>
+      <td>SQL Server vy</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
-      <td>Excel, Power BI Desktop, SQL Server data tools</td>
+      <td>Excel, Power BI Desktop SQL Server data verktyg</td>
       <td>SQL Server 2008 och senare versioner.</td>
     </tr>
     <tr>
@@ -237,10 +236,10 @@ Du kan publicera metadata med hjälp av en offentlig API eller ett klick – en 
       <td>✓</td>
       <td>✓</td>
       <td></td>
-      <td>Fungerar bara på engelska. Mått är stöds inte.</td>
+      <td>Fungerar bara på engelska. Mått stöds inte.</td>
     </tr>
     <tr>
-      <td>SAP HANA-vyn</td>
+      <td>SAP HANA vy</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -264,7 +263,7 @@ Du kan publicera metadata med hjälp av en offentlig API eller ett klick – en 
       <td></td>
     </tr>
     <tr>
-      <td>Fil för system</td>
+      <td>Fil system fil</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -312,7 +311,7 @@ Du kan publicera metadata med hjälp av en offentlig API eller ett klick – en 
       <td></td>
     </tr>
     <tr>
-      <td>OData-entitetsuppsättning</td>
+      <td>OData-enhets uppsättning</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -336,7 +335,7 @@ Du kan publicera metadata med hjälp av en offentlig API eller ett klick – en 
       <td></td>
     </tr>
     <tr>
-      <td>PostgreSQL-vy</td>
+      <td>PostgreSQL vy</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -344,7 +343,7 @@ Du kan publicera metadata med hjälp av en offentlig API eller ett klick – en 
       <td></td>
     </tr>
     <tr>
-      <td>SAP HANA-vyn</td>
+      <td>SAP HANA vy</td>
       <td>✓</td>
       <td></td>
       <td></td>
@@ -368,12 +367,12 @@ Du kan publicera metadata med hjälp av en offentlig API eller ett klick – en 
       <td></td>
     </tr>
     <tr>
-      <td>Azure Cosmos DB-samling</td>
+      <td>Azure Cosmos DB samling</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
       <td></td>
-      <td>Endast äldre samlingar från Azure DocumentDB och SQL API-samlingar i Azure Cosmos DB är kompatibla. Nyare Cosmos DB API: er stöds inte ännu. Välj Azure DocumentDB i listan datakälla.</td>
+      <td>Endast äldre samlingar från Azure DocumentDB och SQL API-samlingar i Azure Cosmos DB är kompatibla. Nyare Cosmos DB-API: er stöds inte ännu. Välj Azure-DocumentDB i listan över data källor.</td>
     </tr>
     <tr>
       <td>Allmän ODBC-tabell</td>
@@ -397,15 +396,15 @@ Du kan publicera metadata med hjälp av en offentlig API eller ett klick – en 
       <td>✓</td>
       <td>✓</td>
       <td></td>
-      <td>Publicera som en allmän tillgång för ODBC</td>
+      <td>Publicera som en generisk ODBC-till gång</td>
     </tr>
     <tr>
-      <td>Cassandra-vy</td>
+      <td>Cassandra vy</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
       <td></td>
-      <td>Publicera som en allmän tillgång för ODBC</td>
+      <td>Publicera som en generisk ODBC-till gång</td>
     </tr>
     <tr>
       <td>Sybase-tabell</td>
@@ -429,30 +428,30 @@ Du kan publicera metadata med hjälp av en offentlig API eller ett klick – en 
       <td>✓</td>
       <td>✓</td>
       <td></td>
-      <td>Publicera som en allmän tillgång för ODBC</td>
+      <td>Publicera som en generisk ODBC-till gång</td>
     </tr>
     <tr>
-      <td>MongoDB-vy</td>
+      <td>MongoDB vy</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
       <td></td>
-      <td>Publicera som en allmän tillgång för ODBC</td>
+      <td>Publicera som en generisk ODBC-till gång</td>
     </tr>
 </table>
 
-Om du vill se en särskild datakälla som stöds, föreslå den (eller röst support om det redan har föreslagits) genom att gå till den [datakatalog på Azure Feedback-forum](https://feedback.azure.com/forums/906052-data-catalog).
+Om du vill se en speciell data källa som stöds, föreslår du (eller röstar support om det redan har föreslagits) genom att gå till [Data Catalog i Azure feedback-forumet](https://feedback.azure.com/forums/906052-data-catalog).
 
 
-## <a name="data-source-reference-specification"></a>Referens-specifikation för datakälla
+## <a name="data-source-reference-specification"></a>Referens specifikation för data Källa
 > [!NOTE]
-> Den **DSL struktur** kolumnen i tabellen nedan visas endast de anslutningsegenskaper för ”adress” egenskapsuppsättning som används av Azure Data Catalog. Det vill säga kan ”adress” egenskapsuppsättningen innehålla andra anslutningsegenskaper för datakällan som Azure Data Catalog kvarstår, men använder inte.
+> I kolumnen **DSL-struktur** i följande tabell visas endast anslutnings egenskaperna för "Address"-egenskaps uppsättningen som används av Azure Data Catalog. Det vill säga att egenskaps uppsättningen "Address" kan innehålla andra anslutnings egenskaper för data källan som Azure Data Catalog kvarstår, men som inte används.
 
 <table>
     <tr>
        <td><b>Källtyp</b></td>
-       <td><b>Tillgångstyp</b></td>
-       <td><b>Objekt av typen</b></td>
+       <td><b>Till gångs typ</b></td>
+       <td><b>Objekt typer</b></td>
        <td><b>DSL-struktur<b></td>
     </tr>
     <tr>

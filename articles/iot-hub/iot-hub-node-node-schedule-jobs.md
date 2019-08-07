@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 10/06/2017
-ms.openlocfilehash: 7dc3c19db7dc71a593c3fa9bd05db37968257d31
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 243f4e63cc04bca018c2bf69492dccf163e92b73
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668023"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780839"
 ---
 # <a name="schedule-and-broadcast-jobs-nodejs"></a>Schema-och sändnings jobb (Node. js)
 
@@ -57,6 +57,8 @@ För att kunna genomföra den här kursen behöver du följande:
 ## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
+
+## <a name="register-a-new-device-in-the-iot-hub"></a>Registrera en ny enhet i IoT Hub
 
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 

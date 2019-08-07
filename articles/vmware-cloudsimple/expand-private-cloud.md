@@ -1,35 +1,35 @@
 ---
-title: Expandera Azure VMware-lösning av CloudSimple privat moln
-description: Beskriver hur du expanderar en befintlig CloudSimple privata moln för att lägga till kapacitet i ett befintligt eller ett nytt kluster
+title: Expandera Azure VMware-lösning via CloudSimple privat moln
+description: Beskriver hur du expanderar ett befintligt privat CloudSimple-moln för att lägga till kapacitet i ett befintligt eller nytt kluster
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 06/06/2019
 ms.topic: article
-ms.service: vmware
+ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 293a09c57ca95e2774e44ff4bc9f9f2c31be2f49
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: a82ba1b433e62ed1c4b72b8e942d4ade29f26c4a
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67333171"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816157"
 ---
-# <a name="expand-a-cloudsimple-private-cloud"></a>Expandera ett CloudSimple privat moln
+# <a name="expand-a-cloudsimple-private-cloud"></a>Expandera ett privat CloudSimple-moln
 
-CloudSimple ger flexibilitet för att dynamiskt expandera ett privat moln. Du kan börja med en konfiguration med mindre och sedan utöka när du behöver högre kapacitet. Eller du kan skapa ett privat moln baserat på aktuella behov och sedan utöka när förbrukning växer.
+CloudSimple ger flexibiliteten att dynamiskt expandera ett privat moln. Du kan börja med en mindre konfiguration och sedan expandera när du behöver större kapacitet. Eller så kan du skapa ett privat moln baserat på aktuella behov och sedan expandera som förbrukning växer.
 
-Ett privat moln består av en eller flera vSphere-kluster. Varje kluster kan ha 3 till 16 noder.  När du expanderar ett privat moln måste du lägga till noder i det befintliga klustret eller skapa ett nytt kluster. Ytterligare noder måste vara av samma typ (SKU) som de befintliga noderna för att utöka ett befintligt kluster. Noderna kan vara av en annan typ för att skapa ett nytt kluster. Mer information om privat moln begränsar begränsar finns i avsnittet i [CloudSimple optimeras översikt](cloudsimple-private-cloud.md) artikeln.
+Ett privat moln består av ett eller flera vSphere-kluster. Varje kluster kan ha 3 till 16 noder.  När du expanderar ett privat moln lägger du till noder i det befintliga klustret eller skapar ett nytt kluster. Om du vill expandera ett befintligt kluster måste ytterligare noder vara av samma typ (SKU) som de befintliga noderna. Noderna kan vara av en annan typ för att skapa ett nytt kluster. Mer information om begränsningar för privata moln finns i avsnittet begränsningar i översikts artikeln om [CloudSimple privat moln](cloudsimple-private-cloud.md) .
 
-Ett privat moln skapas med en standard **Datacenter** på vCenter.  Varje datacenter fungerar som en översta management-entitet.  För ett nytt kluster ger CloudSimple valet av att lägga till befintliga datacenter eller skapa ett nytt datacenter.
+Ett privat moln skapas med ett standard **Data Center** på vCenter.  Varje data Center fungerar som en hanterings enhet på den översta nivån.  För ett nytt kluster ger CloudSimple möjlighet att lägga till i det befintliga data centret eller skapa ett nytt Data Center.
 
-Som en del av den nya konfigurationen för klustret konfigurerar CloudSimple VMware-infrastruktur.  Inställningarna omfattar lagringsinställningar för virtuellt SAN diskgrupper, VMware, hög tillgänglighet och distribuerade resursen Scheduler (DRS).
+Som en del av den nya kluster konfigurationen konfigurerar CloudSimple VMware-infrastrukturen.  Inställningarna omfattar lagrings inställningar för virtuellt San disk grupper, VMware hög tillgänglighet och Distributed Resource Scheduler (DRS).
 
-Ett privat moln kan utökas flera gånger. Expansion kan göras endast när du håller dig inom gränserna för övergripande noden. Varje gång du expandera ett privat moln som du lägger till att det befintliga klustret eller skapa en ny.
+Ett privat moln kan expanderas flera gånger. Expansion kan bara utföras när du ligger inom gränserna för den totala noden. Varje gången du expanderar ett privat moln som du lägger till i det befintliga klustret eller skapar ett nytt.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Noder måste etableras innan du kan expandera ditt privata moln.  Mer information om etablering noder finns i [etablera noder för VMware-lösning genom CloudSimple - Azure](create-nodes.md) artikeln.  För att skapa ett nytt kluster, måste du ha minst tre tillgängliga noder i samma SKU.
+Noder måste vara etablerade innan du kan expandera ditt privata moln.  Mer information om hur du etablerar noder finns i [etablera noder för VMware-lösning av CloudSimple-Azure-](create-nodes.md) artikeln.  För att skapa ett nytt kluster måste du ha minst tre tillgängliga noder av samma SKU.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -37,24 +37,24 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 
 ## <a name="expand-a-private-cloud"></a>Expandera ett privat moln
 
-1. [Få åtkomst till portalen CloudSimple](access-cloudsimple-portal.md).
+1. [Få åtkomst till CloudSimple-portalen](access-cloudsimple-portal.md).
 
-2. Öppna den **resurser** sidan och väljer du det privata moln som du vill expandera.
+2. Öppna sidan **resurser** och välj det privata moln som du vill expandera.
 
-3. Klicka på Sammanfattning under **Expandera**.
+3. I avsnittet Sammanfattning klickar du på **expandera**.
 
     ![Expandera privat moln](media/resources-expand-private-cloud.png)
 
-4. Välj om du vill visa ditt befintliga kluster eller skapa ett nytt vSphere-kluster. När du gör ändringar, uppdateras den sammanfattande informationen på sidan.
+4. Välj om du vill utöka det befintliga klustret eller skapa ett nytt vSphere-kluster. När du gör ändringar uppdateras sammanfattnings informationen på sidan.
 
-    * Om du vill expandera ditt befintliga kluster, klickar du på **Expandera klustret med befintliga**. Välj det kluster du vill expandera och ange antalet noder för att lägga till. Varje kluster kan ha högst 16 noder.
-    * Lägg till ett nytt kluster, klicka på **Skapa nytt kluster**. Ange ett namn för klustret. Välj ett befintligt datacenter eller ange ett namn för att skapa ett nytt datacenter. Välj den noden. Du kan välja en annan nod-typ när du skapar ett nytt vSphere-kluster, men inte när du expanderar ett befintligt vSphere-kluster. Välj antalet noder. Varje nytt kluster måste ha minst tre noder.
+    * Klicka på **Visa befintligt kluster**för att expandera det befintliga klustret. Välj det kluster som du vill expandera och ange antalet noder som ska läggas till. Varje kluster kan ha högst 16 noder.
+    * Om du vill lägga till ett nytt kluster klickar du på **Skapa nytt kluster**. Ange ett namn för klustret. Välj ett befintligt Data Center eller ange ett namn för att skapa ett nytt Data Center. Välj nodtyp. Du kan välja en annan nodtyp när du skapar ett nytt vSphere-kluster, men inte när du expanderar ett befintligt vSphere-kluster. Välj antalet noder. Varje nytt kluster måste ha minst tre noder.
 
-    ![Expandera privat moln – lägga till noder](media/resources-expand-private-cloud-add-nodes.png)
+    ![Expandera privat moln – Lägg till noder](media/resources-expand-private-cloud-add-nodes.png)
 
-5. Klicka på **skicka** att utöka det privata molnet.
+5. Klicka på **Skicka** för att expandera det privata molnet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Använda virtuella VMware-datorer på Azure](quickstart-create-vmware-virtual-machine.md)
+* [Använda virtuella VMware-datorer i Azure](quickstart-create-vmware-virtual-machine.md)
 * Läs mer om [privata moln](cloudsimple-private-cloud.md)

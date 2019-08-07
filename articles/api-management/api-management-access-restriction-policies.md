@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: apimpm
-ms.openlocfilehash: 8ee7db3ade594958729deeb12007f528376d5179
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 4f06e579e8548f4220d8f3fb4b618902f18b538e
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68442423"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774796"
 ---
 # <a name="api-management-access-restriction-policies"></a>Principer för begränsning av API Management åtkomst
 
@@ -34,6 +34,9 @@ Det här avsnittet innehåller en referens för följande API Managements princi
 -   [Ange användnings kvot per prenumeration](api-management-access-restriction-policies.md#SetUsageQuota) – gör att du kan tvinga en förnyad eller livs längds samtals volym och/eller bandbredds kvot, per prenumeration.
 -   [Ange användnings kvot per nyckel](#SetUsageQuotaByKey) – gör att du kan framtvinga en förnyad eller livs längds samtals volym och/eller bandbredds kvot, per nyckel.
 -   [Verifiera att JWT](api-management-access-restriction-policies.md#ValidateJWT) -framtvingar förekomst och giltighet av ett JWT extraheras från antingen ett angivet http-huvud eller en angiven frågeparameter.
+
+> [!TIP]
+> Du kan använda principer för begränsning av åtkomst i olika omfång för olika användnings områden. Du kan till exempel skydda hela API: t med AAD-autentisering genom att `validate-jwt` tillämpa principen på API-nivå eller så kan du använda den på API-åtgärds `claims` nivå och använda för mer detaljerad kontroll.
 
 ## <a name="CheckHTTPHeader"></a>Kontrol lera HTTP-huvud
 

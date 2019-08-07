@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/31/2019
 ms.author: TomSh
-ms.openlocfilehash: 688492188bb8a29e33568011c2cf75439ca5f4af
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: fbce475e1f783595fb67e62e15d5a503a4c687ed
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726655"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780602"
 ---
 # <a name="azure-security-technical-capabilities"></a>Tekniska funktioner för Azure-säkerhet
 Den här artikeln innehåller en introduktion till säkerhets tjänster i Azure som hjälper dig att skydda dina data, resurser och program i molnet och uppfylla verksamhetens säkerhets behov.
@@ -331,7 +331,7 @@ Azure tillhandahåller också flera lättanvända funktioner som hjälper dig at
 
 - [Anslut appen på ett säkert sätt med resurser i ett privat nätverk med hjälp av Hybridanslutningar](https://docs.microsoft.com/azure/app-service/app-service-hybrid-connections)
 
-Azure App Service använder samma lösning för program mot skadlig kod som används av Azure Cloud Services och Virtual Machines. Mer information om detta hittar du i vår [dokumentation om program mot skadlig kod](https://docs.microsoft.com/azure/security/azure-security-antimalware).
+Azure App Service använder samma lösning för program mot skadlig kod som används av Azure Cloud Services och Virtual Machines. Mer information om detta hittar du i vår [dokumentation om program mot skadlig kod](https://docs.microsoft.com/azure/security/fundamentals/antimalware).
 
 ## <a name="secure-your-network"></a>Skydda ditt nätverk
 Microsoft Azure innehåller en robust nätverks infrastruktur som stöder dina anslutnings krav för program och tjänster. Nätverks anslutningen är möjlig mellan resurser som finns i Azure, mellan lokala och Azure-värdbaserade resurser och till och från Internet och Azure.
@@ -352,7 +352,7 @@ Azure har stöd för dedikerad WAN-anslutning till ditt lokala nätverk och en A
 
 Med [Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/) kan du distribuera en mängd olika data behandlings lösningar på ett flexibelt sätt. Med support för Microsoft Windows, Linux, Microsoft SQL Server, Oracle, IBM, SAP och Azure BizTalk Services kan du distribuera alla arbetsbelastningar och alla språk på nästan alla operativsystem.
 
-Med Azure kan du använda [program mot skadlig kod](https://docs.microsoft.com/azure/security/azure-security-antimalware) från säkerhets leverantörer som Microsoft, Symantec, Trend Micro och Kasper Sky för att skydda dina virtuella datorer från skadliga filer, annons program och andra hot.
+Med Azure kan du använda [program mot skadlig kod](https://docs.microsoft.com/azure/security/fundamentals/antimalware) från säkerhets leverantörer som Microsoft, Symantec, Trend Micro och Kasper Sky för att skydda dina virtuella datorer från skadliga filer, annons program och andra hot.
 
 Microsoft Antimalware för Azure Cloud Services och Virtual Machines är en real tids skydds funktion som hjälper dig att identifiera och ta bort virus, spionprogram och annan skadlig program vara. Microsoft Antimalware tillhandahåller konfigurerbara aviseringar när kända skadlig eller oönskad program vara försöker installera sig själv eller köra på dina Azure-system.
 
@@ -382,7 +382,7 @@ Dessutom visas check listan:
 
 ## <a name="azure-infrastructure-and-application-security-validation"></a>Azure-infrastruktur och program säkerhets validering
 
-[Azures drift säkerhet](https://docs.microsoft.com/azure/security/azure-operational-security) syftar på tjänster, kontroller och funktioner som är tillgängliga för användare för att skydda data, program och andra till gångar i Microsoft Azure.
+[Drift säkerhet för Azure] (https://docs.microsoft.com/azure/security/fundamentals/operational-security avser tjänster, kontroller och funktioner som är tillgängliga för användare för att skydda data, program och andra till gångar i Microsoft Azure.
 
 ![säkerhets verifiering (identifiera)](./media/technical-capabilities/azure-security-technical-capabilities-fig7.png)
 

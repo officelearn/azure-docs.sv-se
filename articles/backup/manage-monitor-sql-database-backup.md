@@ -1,5 +1,5 @@
 ---
-title: Hantera och övervaka SQL Server databaser på en virtuell Azure-dator som säkerhets kopie ras av Azure Backup | Microsoft Docs
+title: Hantera och övervaka SQL Server databaser på en virtuell Azure-dator med Azure Backup
 description: Den här artikeln beskriver hur du hanterar och övervakar SQL Server databaser som körs på en virtuell Azure-dator.
 author: dcurwin
 manager: carmonm
@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: dacurwin
-ms.openlocfilehash: c5f61c778849a57d9143580e0e1041c7fe992d52
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 7cd916c8e52b40dee3ce2d63d43dc88f09001b32
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639581"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827560"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Hantera och övervaka säkerhetskopierade SQL Server-databaser
 
@@ -120,7 +120,7 @@ Du kan köra olika typer av säkerhets kopieringar på begäran:
 * Differentiell säkerhetskopia
 * Loggsäkerhetskopia
 
-Du måste ange kvarhållningsperioden för fullständig säkerhets kopiering, men kvarhållningsintervallet för andra säkerhets kopierings typer anges automatiskt till 30 dagar från aktuell tid. <br/>
+Du måste ange kvarhållningsperioden för fullständig säkerhets kopiering, men kvarhållningsintervallet för den fullständiga och fullständiga säkerhets kopieringen anges automatiskt till 45 dagar från aktuell tid. <br/>
 Mer information finns i [SQL Server säkerhets kopierings typer](backup-architecture.md#sql-server-backup-types).
 
 ## <a name="unregister-a-sql-server-instance"></a>Avregistrera en SQL-serverinstans

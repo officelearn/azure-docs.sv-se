@@ -10,12 +10,12 @@ ms.subservice: security-fundamentals
 ms.topic: conceptual
 ms.date: 07/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: be39a623dc5dac09dcfe47de67e025191b5c7de3
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 43eb7e5c4cab722eb97f9e2fe819c9c79bae45d9
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727487"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828782"
 ---
 # <a name="security-attributes-for-azure-services"></a>Säkerhetsattribut för Azure-tjänster
 
@@ -646,7 +646,7 @@ SQL Database innehåller både [en enkel databas och en](/azure/sql-database/sql
 | Stöd för tjänst slut punkt| Ja | Gäller endast för [en enskild databas](/azure/sql-database/sql-database-single-index) . |
 | Stöd för Azure Virtual Network-injektering| Ja | Gäller endast för [hanterade instanser](/azure/sql-database/sql-database-managed-instance) . |
 | Nätverks isolering och brand Väggs stöd| Ja | Brand väggen på både databas nivå och server nivå. Nätverks isolering är endast för [hanterad instans](/azure/sql-database/sql-database-managed-instance) . |
-| Stöd för Tvingad tunnel trafik| Ja | [Hanterad instans](/azure/sql-database/sql-database-managed-instance) via en [ExpressRoute](/azure/expressroute/index.yml) VPN. |
+| Stöd för Tvingad tunnel trafik| Ja | [Hanterad instans](/azure/sql-database/sql-database-managed-instance) via en [ExpressRoute](/azure/expressroute/index) VPN. |
 
 ### <a name="detection"></a>Identifiering
 

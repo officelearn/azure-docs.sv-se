@@ -10,12 +10,12 @@ ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 07/22/2019
-ms.openlocfilehash: d4724672510d6ccbbc819691d621400cb00d8c9a
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: cd55e078e14ec34006df05096f161e7bdef39a03
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68405454"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827220"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Uppgradera ditt informations lager till Gen2
 
@@ -88,7 +88,7 @@ Det finns två alternativ när du utför en själv uppgradering.  Du kan antinge
 - [Uppgradera på plats – med](upgrade-to-latest-generation.md) det här alternativet uppgraderas ditt befintliga gen1-datalager till Gen2. Uppgraderings processen innebär en kort nedrullningsbar anslutning (cirka 5 min) när vi startar om data lagret.  När data lagret har startats om är det helt tillgängligt för användning. Om det uppstår problem under uppgraderingen öppnar du en [support förfrågan](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) och en referens "Gen2 uppgradering" som möjlig orsak.
 - [Uppgradera från återställnings punkt](sql-data-warehouse-restore.md) – skapa en användardefinierad återställnings punkt på det aktuella gen1 data lagret och återställ sedan direkt till en Gen2-instans. Det befintliga gen1-datalagret förblir på plats. När återställningen har slutförts kommer ditt Gen2 data lager att vara fullständigt tillgängligt för användning.  När du har kört alla testnings-och validerings processer på den återställda Gen2-instansen kan den ursprungliga gen1-instansen tas bort.
 
-   - Steg 1: [Skapa en användardefinierad återställnings punkt](sql-data-warehouse-restore.md#create-a-user-defined-restore-point-using-the-azure-portal)från Azure Portal.
+   - Steg 1: [Skapa en användardefinierad återställnings punkt](sql-data-warehouse-restore-active-paused-dw.md#restore-an-existing-data-warehouse-through-the-azure-portal)från Azure Portal.
    - Steg 2: När du återställer från en användardefinierad återställnings punkt ställer du in "prestanda nivå" på din önskade Gen2-nivå.
 
 Det kan uppstå en prestandaförsämring när datafilerna uppgraderas i bakgrunden. Hur länge prestandaförsämringen pågår beror på storleken på dina filer.
@@ -155,6 +155,6 @@ Mer information finns i [Uppgradera till Gen2](upgrade-to-latest-generation.md).
 - [Övervakaren resurs hälsa](https://docs.microsoft.com/azure/service-health/resource-health-overview)
 - [Granska innan du påbörjar en migrering](upgrade-to-latest-generation.md#before-you-begin)
 - [Uppgradera på plats och uppgradera från en återställnings punkt](upgrade-to-latest-generation.md)
-- [Skapa en användardefinierad återställnings punkt](sql-data-warehouse-restore.md#restore-through-the-azure-portal)
-- [Lär dig hur du återställer till Gen2](sql-data-warehouse-restore.md#restore-an-active-or-paused-database-using-the-azure-portal)
+- [Skapa en användardefinierad återställnings punkt](sql-data-warehouse-restore-points.md)
+- [Lär dig hur du återställer till Gen2](sql-data-warehouse-restore-active-paused-dw.md#restore-an-existing-data-warehouse-through-the-azure-portal)
 - [Öppna en SQL Data Warehouse support förfrågan](https://go.microsoft.com/fwlink/?linkid=857950)

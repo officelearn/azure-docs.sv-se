@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 974243da07a2570e851b7d44eac2556c201c2782
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 3c81ec5e213364ed6f159fd20e12879a098caad4
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68678536"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774993"
 ---
 # <a name="mapping-data-flow-select-transformation"></a>Mappa data flöde Välj omvandling
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
@@ -35,6 +35,8 @@ Välj kan också användas på ett sätt som avmarkerar kolumner från ditt data
 * Välj hoppa över dubbletter för att eliminera dubblerade kolumner från indata-eller utdata-metadata.
 
 ![Hoppa över dubbletter](media/data-flow/select-skip-dup.png "Hoppa över dubbletter")
+
+* När du väljer att hoppa över dubbletter visas resultaten på fliken Granska. ADF behåller den första förekomsten av kolumnen och du ser att varje efterföljande förekomst av samma kolumn har tagits bort från ditt flöde.
 
 > [!NOTE]
 > Om du vill rensa mappnings reglerna trycker du på knappen **Återställ** .

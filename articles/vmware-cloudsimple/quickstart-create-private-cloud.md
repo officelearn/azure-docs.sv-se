@@ -1,23 +1,30 @@
 ---
-title: Azure VMware-lösning av CloudSimple Quickstart – skapa ett privat moln
-description: Lär dig hur du skapar och konfigurerar ett privat moln med Azure VMware-lösning genom CloudSimple
+title: Azure VMware-lösning från CloudSimple snabb start – skapa ett privat moln
+description: Lär dig hur du skapar och konfigurerar ett privat moln med en Azure VMware-lösning av CloudSimple
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 04/10/2019
 ms.topic: article
-ms.service: vmware
+ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 85a8840ccf6f6fe6390b5eeaccd715d87169f157
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 6b68dcd47377ee56c4ebedc94905e1f0a8b70b38
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476032"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68812337"
 ---
-# <a name="quickstart---configure-a-private-cloud-environment"></a>Snabbstart – konfigurera en privat molnmiljö
+# <a name="quickstart---configure-a-private-cloud-environment"></a>Snabb start – konfigurera en privat moln miljö
 
-I den här artikeln lär du dig hur du skapar ett privat moln CloudSimple och konfigurera din miljö för privata moln.
+I den här artikeln lär du dig hur du skapar ett privat CloudSimple-moln och konfigurerar din privata moln miljö.
+
+## <a name="before-you-begin"></a>Innan du börjar
+
+Allokera ett CIDR-intervall för vSphere/virtuellt San-undernät för det privata molnet. Ett privat moln skapas som en isolerad VMware-stack (ESXi-värdar, vCenter-, virtuellt San-och NSX)-miljö som hanteras av en vCenter-Server. Hanterings komponenter distribueras i det nätverk som valts för vSphere/virtuellt San-undernät CIDR. Nätverks-CIDR-intervallet är indelat i olika undernät under distributionen.  Adress utrymmet för vSphere/virtuellt San-under nätet måste vara unikt. Det får inte överlappa något nätverk som kommunicerar med CloudSimple-miljön.  De nätverk som kommunicerar med CloudSimple omfattar lokala nätverk och virtuella Azure-nätverk.  Mer information om vSphere/virtuellt San-undernät finns i [Översikt över VLAN och undernät](cloudsimple-vlans-subnets.md).
+
+* Minsta vSphere/virtuellt San-undernät CIDR-intervall prefix:/24 
+* Maximalt vSphere/virtuellt San-undernät CIDR-intervall prefix:/21
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
@@ -25,183 +32,183 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 ## <a name="create-a-private-cloud"></a>Skapa ett privat moln
 
 1. Välj **Alla tjänster**.
-2. Sök efter **CloudSimple Services**.
-3. Välj tjänsten CloudSimple där du vill skapa ditt privata moln.
-4. Översikt över, klickar du på **skapa privata moln** att öppna en ny webbläsarflik för CloudSimple-portalen.  Om du uppmanas logga in med ditt Azure inloggningsuppgifter.  
+2. Sök efter **CloudSimple-tjänster**.
+3. Välj den CloudSimple-tjänst som du vill skapa ditt privata moln på.
+4. Från Översikt klickar du på **skapa privat moln** för att öppna en ny flik i webbläsaren för CloudSimple-portalen.  Logga in med dina inloggnings uppgifter för Azure om du uppmanas till detta.  
 
-    ![Skapa privat moln från Azure](media/create-private-cloud-from-azure.png)
+    ![Skapa ett privat moln från Azure](media/create-private-cloud-from-azure.png)
 
-5. Ange ett namn för ditt privata moln i CloudSimple-portalen
-6. Välj den **plats** för privat moln
-7. Välj den **nodtyp** du etablerat på Azure.  Du kan välja den [CS28 eller CS36](cloudsimple-node.md#vmware-solution-by-cloudsimple-nodes-sku). Det senare alternativet innehåller maximal kapacitet för beräkning och minne.
-8. Ange den **nodantal**.  Minst tre noder krävs för att skapa ett privat moln
+5. I CloudSimple-portalen anger du ett namn för ditt privata moln
+6. Välj **plats** för ditt privata moln
+7. Välj **nodtypen** som du etablerade i Azure.  Du kan välja [alternativet CS28 eller CS36](cloudsimple-node.md#vmware-solution-by-cloudsimple-nodes-sku). Det senare alternativet inkluderar den maximala beräknings-och minnes kapaciteten.
+8. Ange **antalet noder**.  Minst tre noder krävs för att skapa ett privat moln
 
     ![Skapa privat moln – grundläggande information](media/create-private-cloud-basic-info.png)
 
 9. Klicka på **Nästa: Avancerade alternativ**.
-10. Ange CIDR-intervall för undernät för virtuella vSphere/SAN-nätverket. Se till att CIDR-intervall inte överlappar något av dina lokala eller andra Azure-undernät.
+10. Ange CIDR-intervallet för vSphere/virtuellt San-undernät. Se till att CIDR-intervallet inte överlappar något av dina lokala eller andra Azure-undernät.
 
     ![Skapa privat moln – avancerade alternativ](media/create-private-cloud-advanced-options.png)
 
 11. Välj **Nästa: Granska och skapa**.
-12. Granska inställningarna. Om du behöver ändra eventuella inställningar klickar du på **föregående**.
+12. Granska inställningarna. Om du behöver ändra några inställningar klickar du på **föregående**.
 13. Klicka på **Skapa**.
 
-Privat moln etableringsprocessen kommer att startas.  Det kan ta upp till två timmar för det privata molnet som ska etableras.
+Etablerings processen för privata moln kommer att startas.  Det kan ta upp till två timmar för det privata molnet att tillhandahållas.
 
 ## <a name="launch-cloudsimple-portal"></a>Starta CloudSimple-portalen
 
-Du kan komma åt CloudSimple portalen från Azure-portalen.  CloudSimple portal kommer att startas med din Azure inloggningsuppgifter med hjälp av enkel inloggning (SSO).  Åtkomst till CloudSimple portal kräver att du ska kunna bevilja den **CloudSimple Service auktorisering** program.  Mer information om hur du beviljar behörigheter finns i [Samtyck till program CloudSimple Service-auktorisering](https://docs.azure.cloudsimple.com/access-cloudsimple-portal/#consent-to-cloudsimple-service-authorization-application)
+Du kan komma åt CloudSimple-portalen från Azure Portal.  CloudSimple-portalen startas med dina Azure-inloggnings uppgifter med hjälp av enkel inloggning (SSO).  För att få åtkomst till CloudSimple-portalen måste du auktorisera programmet för **CloudSimple-auktorisering** .  Mer information om hur du beviljar behörigheter finns i [medgivande to CloudSimple service Authorization Application](https://docs.azure.cloudsimple.com/access-cloudsimple-portal/#consent-to-cloudsimple-service-authorization-application)
 
 1. Välj **Alla tjänster**.
-2. Sök efter **CloudSimple Services**.
-3. Välj tjänsten CloudSimple där du vill skapa ditt privata moln.
-4. Översikt över, klickar du på **gå till portalen CloudSimple** att öppna en ny webbläsarflik för CloudSimple-portalen.  Om du uppmanas logga in med ditt Azure inloggningsuppgifter.  
+2. Sök efter **CloudSimple-tjänster**.
+3. Välj den CloudSimple-tjänst som du vill skapa ditt privata moln på.
+4. Från Översikt klickar **du på gå till CloudSimple-portalen** för att öppna en ny flik i webbläsaren för CloudSimple-portalen.  Logga in med dina inloggnings uppgifter för Azure om du uppmanas till detta.  
 
     ![Starta CloudSimple-portalen](media/launch-cloudsimple-portal.png)
 
 ## <a name="create-point-to-site-vpn"></a>Skapa punkt-till-plats-VPN
 
-En punkt-till-plats VPN-anslutning är det enklaste sättet att ansluta till ditt privata moln från datorn. Använd punkt-till-plats VPN-anslutning om du ansluter till det privata molnet via en fjärranslutning.  Följ stegen nedan för snabb åtkomst till ditt privata moln.  Åtkomst till CloudSimple region från ditt lokala nätverk kan göras med hjälp av [plats-till-plats VPN](https://docs.azure.cloudsimple.com/vpn-gateway/) eller [Azure ExpressRoute](https://docs.azure.cloudsimple.com/on-premises-connection/).
+En punkt-till-plats-VPN-anslutning är det enklaste sättet att ansluta till ditt privata moln från datorn. Använd punkt-till-plats-VPN-anslutning om du ansluter till det privata molnet via en fjärr anslutning.  Följ stegen nedan för snabb åtkomst till ditt privata moln.  Åtkomst till CloudSimple region från ditt lokala nätverk kan göras med [plats-till-plats-VPN](https://docs.azure.cloudsimple.com/vpn-gateway/) eller [Azure ExpressRoute](https://docs.azure.cloudsimple.com/on-premises-connection/).
 
-### <a name="create-gateway"></a>Skapa gateway
+### <a name="create-gateway"></a>Skapa Gateway
 
-1. Starta CloudSimple portalen och välj **nätverk**.
-2. Välj **VPN-Gateway**.
-3. Klicka på **nya VPN-Gateway**.
+1. Starta CloudSimple-portalen och välj **nätverk**.
+2. Välj **VPN gateway**.
+3. Klicka på **ny VPN gateway**.
 
     ![Skapa VPN-gateway](media/create-vpn-gateway.png)
 
-4. För **gatewaykonfiguration**, anger du följande inställningar och klickar på **nästa**.
+4. För **gateway-konfiguration**anger du följande inställningar och klickar på **Nästa**.
 
-    * Välj **punkt-till-plats VPN** som gateway-typen.
-    * Ange ett namn som identifierar gatewayen.
-    * Välj den Azure-plats där CloudSimple tjänsten distribueras.
-    * Ange klient-undernät för punkt-till-plats-gateway.  När du ansluter får DHCP-adresser från det här undernätet.
+    * Välj **punkt-till-plats-VPN** som gateway-typ.
+    * Ange ett namn för att identifiera gatewayen.
+    * Välj den Azure-plats där din CloudSimple-tjänst har distribuerats.
+    * Ange klient under nätet för punkt-till-plats-Gateway.  DHCP-adresser tilldelas från det här under nätet när du ansluter.
 
-5. För **anslutning/användare**, anger du följande inställningar och klickar på **nästa**.
+5. För **anslutning/användare**anger du följande inställningar och klickar på **Nästa**.
 
-    * Om du vill tillåta automatiskt alla nuvarande och framtida användare tillgång till det privata molnet genom den här punkt-till-plats-gateway, Välj **Lägg automatiskt till alla användare**. När du väljer det här alternativet väljs automatiskt alla användare i användarlistan. Du kan åsidosätta det automatiska alternativet genom att avmarkera enskilda användare i listan.
-    * För att välja endast enskilda användare, klickar du på kryssrutorna i användarlistan.
+    * Om du automatiskt vill tillåta alla aktuella och framtida användare åtkomst till det privata molnet via den här punkt-till-plats-gatewayen väljer du **Lägg automatiskt till alla användare**. När du väljer det här alternativet markeras alla användare i användar listan automatiskt. Du kan åsidosätta det automatiska alternativet genom att avmarkera enskilda användare i listan.
+    * Om du bara vill välja enskilda användare klickar du på kryss rutorna i användar listan.
 
-6. Avsnittet VLAN/undernät kan du ange hanterings- och användaren VLAN/undernät för gateway och anslutningar.
+6. I avsnittet VLAN/undernät kan du ange hanterings-och användar-VLAN/undernät för gatewayen och anslutningarna.
 
-    * Den **Lägg automatiskt till** alternativ Ställ in den globala principen för den här gatewayen. Inställningarna tillämpas på den nuvarande gatewayen. Inställningarna kan åsidosättas i den **Välj** området.
-    * Välj **lägga till hantering av VLAN/undernät för privata moln**. 
-    * Lägg till alla användardefinierade VLAN/undernät, klicka på **lägga till egna VLAN/undernät**. 
-    * Den **Välj** inställningar åsidosätter de globala inställningarna under **Lägg automatiskt till**. 
+    * Alternativen **Lägg till automatiskt** anger den globala principen för den här gatewayen. Inställningarna gäller för den aktuella gatewayen. Inställningarna kan åsidosättas i **Select** -ytan.
+    * Välj **Lägg till hanterings-VLAN/undernät för privata moln**. 
+    * Om du vill lägga till alla användardefinierade VLAN/undernät klickar du på **Lägg till användardefinierade VLAN/undernät**. 
+    * **Välj** inställningar åsidosätter de globala inställningarna under **Lägg till automatiskt**. 
 
-7. Klicka på **nästa** till granskar du inställningarna. Klicka på Redigera ikoner för att göra några ändringar.
-8. Klicka på **skapa** att skapa VPN-gatewayen.
+7. Klicka på **Nästa** för att granska inställningarna. Klicka på Redigera ikoner för att göra ändringar.
+8. Klicka på **skapa** för att skapa VPN-gatewayen.
 
-### <a name="connect-to-cloudsimple-using-point-to-site-vpn"></a>Ansluta till CloudSimple med hjälp av punkt-till-plats-VPN
+### <a name="connect-to-cloudsimple-using-point-to-site-vpn"></a>Ansluta till CloudSimple med punkt-till-plats-VPN
 
-VPN-klient krävs för att ansluta till CloudSimple från datorn.  Ladda ned [OpenVPN klienten](https://openvpn.net/community-downloads/) för Windows eller [minst](https://www.sparklabs.com/viscosity/download/) för macOS- och OS X.
+VPN-klienten krävs för att ansluta till CloudSimple från din dator.  Ladda ned [OpenVPN-klienten](https://openvpn.net/community-downloads/) för Windows eller [viskositet](https://www.sparklabs.com/viscosity/download/) för MacOS och OS X.
 
-1. Starta CloudSimple portalen och välj **nätverk**.
-2. Välj **VPN-Gateway**.
-3. Klicka på punkt-till-plats VPN-gateway från listan över VPN-gatewayer.
+1. Starta CloudSimple-portalen och välj **nätverk**.
+2. Välj **VPN gateway**.
+3. I listan med VPN-gatewayer klickar du på punkt-till-plats-VPN-gatewayen.
 4. Välj **användare**.
-5. Klicka på **hämta min VPN-konfiguration**
+5. Klicka på **Ladda ned min VPN-konfiguration**
 
-    ![Ladda ned VPN-konfiguration](media/download-p2s-vpn-configuration.png)
+    ![Ladda ned VPN-anslutning](media/download-p2s-vpn-configuration.png)
 
 6. Importera konfigurationen på VPN-klienten
 
-    * Anvisningar om hur [importerar konfiguration på Windows-klienten](https://openvpn.net/vpn-server-resources/connecting-to-access-server-with-windows/#openvpn-open-source-openvpn-gui-program)
-    * Anvisningar om hur [importerar konfiguration på macOS- eller OS X](https://www.sparklabs.com/support/kb/article/getting-started-with-viscosity-mac/#creating-your-first-connection)
+    * Instruktioner för att [importera konfigurationen på Windows-klienten](https://openvpn.net/vpn-server-resources/connecting-to-access-server-with-windows/#openvpn-open-source-openvpn-gui-program)
+    * Instruktioner för att [importera konfigurationen på MacOS eller OS X](https://www.sparklabs.com/support/kb/article/getting-started-with-viscosity-mac/#creating-your-first-connection)
 
-7. Ansluta till CloudSimple
+7. Anslut till CloudSimple
 
-## <a name="create-a-vlan-for-your-workload-vms"></a>Skapa ett VLAN för din arbetsbelastning virtuella datorer
+## <a name="create-a-vlan-for-your-workload-vms"></a>Skapa ett virtuellt lokalt nätverk för dina virtuella arbets belastningar
 
-När du skapar ett privat moln, skapar du ett VLAN där du ska distribuera din arbetsbelastning eller ditt program virtuella datorer.
+När du har skapat ett privat moln skapar du ett VLAN där du distribuerar dina virtuella datorer/program.
 
-1. I portalen CloudSimple väljer **nätverk**.
+1. I CloudSimple-portalen väljer du **nätverk**.
 2. Klicka på **VLAN/undernät**.
 3. Klicka på **skapa VLAN/undernät**
 
     ![Skapa VLAN/undernät](media/create-new-vlan-subnet.png)
 
-4. Välj den **privat moln** för de nya VLAN/undernät.
+4. Välj det **privata molnet** för det nya VLAN/undernät.
 5. Välj ett VLAN-ID i listan.  
-6. Ange ett undernätsnamn som identifierar undernätet.
-7. Ange CIDR-intervall för undernät och mask.  Det här intervallet får inte överlappa eventuella befintliga undernät.
+6. Ange ett under näts namn för att identifiera under nätet.
+7. Ange CIDR-intervall och mask för undernät.  Intervallet får inte överlappa några befintliga undernät.
 8. Klicka på **Skicka**.
 
-    ![Skapa information om VLAN/undernät](media/create-new-vlan-subnet-details.png)
+    ![Information om skapa VLAN/undernät](media/create-new-vlan-subnet-details.png)
 
-VLAN/undernät kommer att skapas.  Du kan nu använda den här VLAN-ID för att skapa en distribuerad portgrupp på privat moln-vCenter. 
+VLAN/undernät kommer att skapas.  Du kan nu använda detta VLAN-ID för att skapa en distribuerad port grupp i ditt privata moln vCenter. 
 
-## <a name="connect-your-environment-to-an-azure-virtual-network"></a>Anslut din miljö till en Azure-nätverk
+## <a name="connect-your-environment-to-an-azure-virtual-network"></a>Ansluta din miljö till ett virtuellt Azure-nätverk
 
-CloudSimple ger dig en ExpressRoute-krets för ditt privata moln. Du kan ansluta ditt virtuella nätverk på Azure till ExpressRoute-kretsen. Fullständig information om hur du konfigurerar anslutningen följer du stegen i [Azure virtuellt nätverksanslutning med ExpressRoute](https://docs.azure.cloudsimple.com/cloudsimple-azure-network-connection/)
+CloudSimple tillhandahåller en ExpressRoute-krets för ditt privata moln. Du kan ansluta ditt virtuella nätverk på Azure till ExpressRoute-kretsen. Om du vill ha fullständig information om hur du konfigurerar anslutningen följer du stegen i [Azure Virtual Network-anslutning med ExpressRoute](https://docs.azure.cloudsimple.com/cloudsimple-azure-network-connection/)
 
-## <a name="sign-in-to-vcenter"></a>Logga in till vCenter
+## <a name="sign-in-to-vcenter"></a>Logga in på vCenter
 
-Du kan nu logga in till vCenter att konfigurera virtuella datorer och principer.
+Nu kan du logga in på vCenter för att konfigurera virtuella datorer och principer.
 
-1. Starta från CloudSimple-portal för att komma åt vCenter. På startsidan, under **vanliga uppgifter**, klickar du på **starta vSphere-klienten**.  Välj privat moln och klickar sedan på **starta vSphere-klienten** på privat moln.
+1. Kom åt vCenter genom att starta från CloudSimple-portalen. På Start sidan, under **vanliga uppgifter**, klickar du på **Starta vSphere-klient**.  Välj det privata molnet och klicka sedan på **Starta vSphere-klient** i det privata molnet.
 
     ![Starta vSphere-klienten](media/launch-vcenter-from-cloudsimple-portal.png)
 
-2. Välj din önskade vSphere-klienten att komma åt vCenter och logga in med ditt användarnamn och lösenord.  Standardvärdena är:
-    * Användarnamn: **CloudOwner@cloudsimple.local**
+2. Välj önskad vSphere-klient för att komma åt vCenter och logga in med ditt användar namn och lösen ord.  Standardvärdena är:
+    * Användar namn: **CloudOwner@cloudsimple.local**
     * Lösenord: **CloudSimple123!**  
 
-VCenter-skärmar i nästa procedurer är från klienten vSphere (HTML5).
+VCenter-skärmarna i nästa procedur är från vSphere-klienten (HTML5).
 
-## <a name="change-your-vcenter-password"></a>Ändra lösenordet vCenter
+## <a name="change-your-vcenter-password"></a>Ändra ditt vCenter-lösenord
 
-CloudSimple rekommenderar att du ändrar lösenordet första gången du loggar in till vCenter.  
-Det lösenord som anges måste uppfylla följande krav:
+CloudSimple rekommenderar att du ändrar ditt lösen ord första gången du loggar in på vCenter.  
+Det lösen ord som du anger måste uppfylla följande krav:
 
-* Högsta livstid: Lösenord måste ändras varje 365 dagar
-* Begränsa återanvändning: Användare kan inte återanvända någon av de tidigare fem lösenord
-* Längd: 8 – 20 tecken
+* Högsta livstid: Lösen ordet måste ändras var 365 dag
+* Begränsa åter användning: Användare kan inte återanvända något av de föregående fem lösen orden
+* Längd: 8-20 tecken
 * Specialtecken: Minst ett specialtecken
-* Alfabetiska tecken: Minst en versal, A – Z och minst en gemen, a – z
-* Siffror: Minst ett numeriska tecken, 0-9
-* Maximal identiska intilliggande tecken: Tre
+* Alfabetiska tecken: Minst en versal, A-Z och minst en gemen, a-z
+* Nummer Minst ett numeriskt tecken, 0-9
+* Maximalt antal identiska intilliggande tecken: Tre
 
-    Exempel: Kopia eller kopia är acceptabelt som en del av lösenordet, men CCCC inte.
+    Exempel: CC eller kopia är acceptabelt som en del av lösen ordet, men CCCC är inte.
 
-Om du anger ett lösenord som inte uppfyller kraven:
+Om du anger ett lösen ord som inte uppfyller kraven:
 
-* Om du använder vSphere-Flash-klienten, rapporterar den ett fel
-* Om du använder HTML5-klienten, kan den inte rapporterar ett fel. Klienten Acceptera inte ändringen och det gamla lösenordet fortsätter att fungera.
+* Om du använder vSphere Flash-klienten rapporterar den ett fel
+* Om du använder HTML5-klienten rapporteras inget fel. Klienten accepterar inte ändringen och det gamla lösen ordet fortsätter att fungera.
 
-## <a name="change-nsx-administrator-password"></a>Ändra NSX administratörslösenord
+## <a name="change-nsx-administrator-password"></a>Ändra NSX administratörs lösen ord
 
-NSX manager distribueras med ett standardlösenord.  Vi rekommenderar att du ändrar lösenordet när du har skapat ditt privata moln.
+NSX Manager distribueras med ett standard lösen ord.  Vi rekommenderar att du ändrar lösen ordet när du har skapat ditt privata moln.
 
-   * Användarnamn: **admin**
+   * Användar namn: **admin**
    * Lösenord: **CloudSimple123!**
 
-Du hittar den fullständigt kvalificerade domännamnet (FQDN) och IP-adressen för NSX manager på CloudSimple-portalen.
+Du kan hitta det fullständigt kvalificerade domän namnet (FQDN) och IP-adressen för NSX Manager på CloudSimple-portalen.
 
-1. Starta CloudSimple portalen och välj **resurser**.
-2. Klicka på privata moln, vilket du vill använda.
-3. Välj **vSphere hanteringsnätverket**
-4. Använd fullständigt domännamn eller IP-adressen för **NSX Manager** och ansluta med hjälp av en webbläsare. 
+1. Starta CloudSimple-portalen och välj **resurser**.
+2. Klicka på det privata moln som du vill använda.
+3. Välj **vSphere Management Network**
+4. Använd FQDN eller IP-adressen för **NSX Manager** och Anslut med en webbläsare. 
 
     ![Hitta NSX Manager FQDN](media/private-cloud-nsx-manager-fqdn.png)
 
-Om du vill ändra lösenordet, följer du anvisningarna i [hantera en användares lösenord](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/2.4/administration/GUID-DB31B304-66A5-4516-9E55-2712D12B4F27.html).
+Om du vill ändra lösen ordet följer du anvisningarna i [hantera en användares lösen ord](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/2.4/administration/GUID-DB31B304-66A5-4516-9E55-2712D12B4F27.html).
 
 > [!WARNING]
-> Som standard det NSX upphör administratörslösenordet att gälla efter 90 dagar.
+> Som standard upphör administratörs lösen ordet för NSX att gälla efter 90 dagar.
 
-## <a name="create-a-port-group"></a>Skapa en portgrupp
+## <a name="create-a-port-group"></a>Skapa en port grupp
 
-Skapa en distribuerad portgrupp i vSphere:
+Skapa en distribuerad port grupp i vSphere:
 
-1. Följ anvisningarna i ”Lägg till en distribuerad portgrupp” i den [vSphere Nätverksguiden för](https://docs.vmware.com/en/VMware-vSphere/6.5/vsphere-esxi-vcenter-server-65-networking-guide.pdf).
-2. När du konfigurerar gruppen distribuerade port, ange VLAN-ID som skapats i [skapa ett VLAN för din arbetsbelastning virtuella datorer](#create-a-vlan-for-your-workload-vms).
+1. Följ instruktionerna i "lägga till en distribuerad port grupp" i [vSphere Networking guide](https://docs.vmware.com/en/VMware-vSphere/6.5/vsphere-esxi-vcenter-server-65-networking-guide.pdf).
+2. När du konfigurerar den distribuerade port gruppen anger du det VLAN-ID som skapades i [skapa ett virtuellt lokalt nätverk för dina virtuella arbets belastningar](#create-a-vlan-for-your-workload-vms).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Använda virtuella VMware-datorer på Azure](https://docs.azure.cloudsimple.com/quickstart-create-vmware-virtual-machine)
-* [Använda virtuella VMware-datorer på Azure](quickstart-create-vmware-virtual-machine.md)
-* [Ansluta till lokala nätverk med Azure ExpressRoute](https://docs.azure.cloudsimple.com/on-premises-connection/)
-* [Konfigurera VPN för plats-till-plats från en lokal plats](https://docs.azure.cloudsimple.com/vpn-gateway/)
+* [Använda virtuella VMware-datorer i Azure](https://docs.azure.cloudsimple.com/quickstart-create-vmware-virtual-machine)
+* [Använda virtuella VMware-datorer i Azure](quickstart-create-vmware-virtual-machine.md)
+* [Ansluta till ett lokalt nätverk med hjälp av Azure ExpressRoute](https://docs.azure.cloudsimple.com/on-premises-connection/)
+* [Konfigurera plats-till-plats-VPN från lokal plats](https://docs.azure.cloudsimple.com/vpn-gateway/)

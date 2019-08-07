@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/24/2019
 ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: 0674d8c98f4bf37bbf9417de60ff4c60910d802a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 429e201ba1d15103ae130ee2fb767cd1b4fa909a
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66258294"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779415"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Vanliga frågor och svar för skalningsuppsättningar för virtuella Azure-datorer
 
@@ -61,7 +61,7 @@ Om du ökar kapaciteten till 18 skapas 3 nya virtuella datorer. Varje gång öka
 
 ### <a name="when-im-using-multiple-extensions-in-a-scale-set-can-i-enforce-an-execution-sequence"></a>Kan jag framtvinga en körning av sekvensen när jag använder flera tillägg i en skalningsuppsättning?
 
-Ja, du kan använda skalningsuppsättning [ordningsföljd för](virtual-machine-scale-sets-extension-sequencing.md).
+Ja, du kan använda [tillägg](virtual-machine-scale-sets-extension-sequencing.md)för skalnings uppsättning.
 
 ### <a name="do-scale-sets-work-with-azure-availability-sets"></a>Fungerar skalningsuppsättningar med Azures tillgänglighetsuppsättningar?
 
@@ -167,14 +167,14 @@ Koden har stöd för Windows och Linux.
 Mer information finns i [skapa eller uppdatera en VM-skalningsuppsättningen](https://msdn.microsoft.com/library/mt589035.aspx).
 
 
-### <a name="how-do-i-use-self-signed-certificates-provisioned-for-azure-service-fabric-clusters"></a>Hur kan jag använda självsignerade certifikat som tillhandahållits för Azure Service Fabric-kluster?
-Senaste exempel användning finns på följande azure CLI-instruktionen i azure shell Service fabric CLI-modulen exempeldokumentationen som ska skrivas till stdout:
+### <a name="how-do-i-use-self-signed-certificates-provisioned-for-azure-service-fabric-clusters"></a>Hur gör jag för att använda självsignerade certifikat för Azure Service Fabric-kluster?
+I det senaste exemplet använder du följande Azure CLI-instruktion i Azure-gränssnittet: läsa Service Fabric CLI module exempel dokumentation, som skrivs ut till stdout:
 
 ```bash
 az sf cluster create -h
 ```
 
-Självsignerade certifikat kan inte användas för distribuerade förtroende som tillhandahålls av en certifikatutfärdare och ska inte användas för alla Service Fabric-kluster som är avsedda att värden företagslösningar till produktion; för ytterligare hjälp med Service Fabric-säkerhet, granska [Azure Service Fabric säkerhetsmetoder](https://docs.microsoft.com/azure/security/azure-service-fabric-security-best-practices) och [säkerhetsscenarier för Service Fabric-kluster](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/).
+Självsignerade certifikat kan inte användas för distribuerat förtroende från en certifikat utfärdare och ska inte användas för Service Fabric kluster som är värdar för företags produktions lösningar. Mer Service Fabric säkerhets rikt linjer finns i [metod tips för Azure Service Fabric säkerhet](https://docs.microsoft.com/azure/security/fundamentals/service-fabric-best-practices) och [Service Fabric kluster säkerhets scenarier](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/).
 
 ### <a name="can-i-specify-an-ssh-key-pair-to-use-for-ssh-authentication-with-a-linux-virtual-machine-scale-set-from-a-resource-manager-template"></a>Kan jag ange en SSH-nyckelpar ska användas för SSH-autentisering med en Linux VM-skalningsuppsättning från en mall i Resource Manager?
 
@@ -200,7 +200,7 @@ Inkludera **osProfile** i mallen:
 }
 ```
 
-Det här JSON-blocket används i [den här Azure-snabbstartsmall](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
+Detta JSON-block används i [den här snabb starts mal len för Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
 
 Mer information finns i [skapa eller uppdatera en VM-skalningsuppsättningen](https://msdn.microsoft.com/library/azure/mt589035.aspx#linuxconfiguration).
 
@@ -208,7 +208,7 @@ Mer information finns i [skapa eller uppdatera en VM-skalningsuppsättningen](ht
 
 Ta bort inaktuella certifikat genom att ta bort det gamla certifikatet från valvet certifikat. Lämna de certifikat som du vill behålla på datorn i listan. Certifikatet tas inte bort från dina virtuella datorer. Den också lägger inte till certifikatet till nya virtuella datorer som skapas i virtuella datorns skalningsuppsättning.
 
-Ta bort certifikatet från befintliga virtuella datorer med ett anpassat skripttillägg manuellt ta bort certifikat från certifikatarkivet.
+Ta bort certifikatet från befintliga virtuella datorer genom att använda ett anpassat skript tillägg för att manuellt ta bort certifikaten från certifikat arkivet.
 
 ### <a name="how-do-i-inject-an-existing-ssh-public-key-into-the-virtual-machine-scale-set-ssh-layer-during-provisioning"></a>Hur jag mata in en befintlig offentlig SSH-nyckel i VM scale set SSH lagret under etableringen?
 
@@ -239,7 +239,7 @@ Ett exempel finns i [101 – vm-sshkey GitHub-snabbstartsmall](https://github.co
 
 ### <a name="when-i-run-update-azvmss-after-adding-more-than-one-certificate-from-the-same-key-vault-i-see-the-following-message"></a>När jag kör `Update-AzVmss` när du lägger till fler än ett certifikat från samma nyckelvalvet, visas följande meddelande:
 
->Update-AzVmss: Lista hemlighet innehåller upprepade instanser av /subscriptions/\<min-prenumerations-id > / resourceGroups/internal-rg-dev/providers/Microsoft.KeyVault/vaults/internal-keyvault-dev, vilket inte är tillåtet.
+>Update-AzVmss: Lista hemlighet innehåller upprepade instanser av/Subscriptions/\<My-Subscription-ID >/resourceGroups/Internal-RG-dev/providers/Microsoft.KeyVault/Vaults/Internal-keyvault-dev, vilket inte är tillåtet.
 
 Detta kan inträffa om du försöker lägga till samma valv istället för att använda ett nytt valv-certifikat för den befintliga källvalv igen. Den `Add-AzVmssSecret` kommandot fungerar inte korrekt om du lägger till ytterligare hemligheter.
 
@@ -311,7 +311,7 @@ För att distribuera .cer offentliga nycklar till en virtuell datorskalning ange
 
 Mer information finns i [X509Certificate.Export-metoden (X509ContentType, String)](https://msdn.microsoft.com/library/24ww6yzk(v=vs.110.aspx)).
 
-### <a name="how-do-i-pass-in-certificates-as-base64-strings"></a>Hur jag skicka in certifikat som base64 strängar?
+### <a name="how-do-i-pass-in-certificates-as-base64-strings"></a>Hur gör jag för att skicka in certifikat som base64-strängar?
 
 Du kan extrahera den senaste version URL i en Resource Manager-mall för att emulera skicka i ett certifikat som en base64-sträng. Ta med följande JSON-egenskapen i Resource Manager-mallen:
 
@@ -341,7 +341,7 @@ Mer information finns i [Microsoft Trust Center](https://www.microsoft.com/Trust
 
 ### <a name="does-managed-identities-for-azure-resourceshttpsdocsmicrosoftcomazureactive-directorymsi-overview-work-with-virtual-machine-scale-sets"></a>Har [hanterade identiteter för Azure-resurser](https://docs.microsoft.com/azure/active-directory/msi-overview) fungerar med VM-skalningsuppsättningar?
 
-Ja. Du kan se några exempel MSI-mallar i Azure-snabbstartmallar för [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi) och [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi).
+Ja. Du kan se några exempel på MSI-mallar i Azure snabb starts mallar för [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi) och [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi).
 
 
 ## <a name="extensions"></a>Tillägg
@@ -360,9 +360,9 @@ Update-AzVmss -ResourceGroupName "resource_group_name" -VMScaleSetName "vmssName
 
 Du kan hitta Tilläggsnamn värdet i `$vmss`.
 
-### <a name="is-there-a-virtual-machine-scale-set-template-example-that-integrates-with-azure-monitor-logs"></a>Finns det en VM-skalningsuppsättningen exempelmall som kan integreras med Azure Monitor-loggar?
+### <a name="is-there-a-virtual-machine-scale-set-template-example-that-integrates-with-azure-monitor-logs"></a>Finns det ett exempel på en mall för skalnings uppsättning för virtuell dator som kan integreras med Azure Monitor loggar?
 
-En VM-skalningsuppsättningen exempelmall som kan integreras med Azure Monitor-loggar, finns i det andra exemplet i [distribuera ett Azure Service Fabric-kluster och aktivera övervakning genom att använda Azure Monitor-loggar](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric).
+Ett exempel på en mall för skalnings uppsättning för virtuell dator som integreras med Azure Monitor loggar finns i det andra exemplet i [distribuera ett Azure Service Fabric-kluster och aktivera övervakning med hjälp av Azure Monitor loggar](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric).
 
 ### <a name="how-do-i-add-an-extension-to-all-vms-in-my-virtual-machine-scale-set"></a>Hur lägger jag till ett tillägg för alla virtuella datorer i min skalningsuppsättning för virtuella datorer?
 
@@ -374,9 +374,9 @@ Om uppdateringsprincip har angetts till **manuell**först uppdatera tillägget o
 
 Om tillägget definitionen i VM-skalningsuppsättningar uppdateras och upgradePolicy-egenskapen är inställd **automatisk**, uppdateras de virtuella datorerna. Om egenskapen upgradePolicy anges till **manuell**, tillägg har flaggats som inte matchar modellen.
 
-### <a name="are-extensions-run-again-when-an-existing-machine-is-service-healed-or-reimaged"></a>Tillägg körs igen när en befintlig dator service har lagats eller avbildningen?
+### <a name="are-extensions-run-again-when-an-existing-machine-is-service-healed-or-reimaged"></a>Körs tilläggen igen när en befintlig dator är servad eller avbildningad?
 
-Om en befintlig virtuell dator är tjänsten har lagats, visas den som en omstart och tillägg som inte körs igen. Om en virtuell dator återställs går påminner processen om ersätta operativsystemenheten med Källavbildningen. Alla specialisering från den senaste modellen, till exempel tillägg, körs igen.
+Om en befintlig virtuell dator är servad visas den som en omstart och tilläggen körs inte igen. Om en virtuell dator har återställts på avbildningen, liknar processen samma som att ersätta operativ system enheten med käll avbildningen. Alla specialiseringar från den senaste modellen, till exempel tillägg, körs igen.
 
 ### <a name="how-do-i-join-a-virtual-machine-scale-set-to-an-active-directory-domain"></a>Hur jag för att koppla en VM-skalningsuppsättning i en Active Directory-domän?
 
@@ -432,9 +432,9 @@ Add-AzVmssExtension -VirtualMachineScaleSet $VMSS -Name "IaaSAntimalware" -Publi
 Update-AzVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineScaleSet $VMSS
 ```
 
-### <a name="how-do-i-execute-a-custom-script-thats-hosted-in-a-private-storage-account"></a>Hur jag för att köra ett anpassat skript som finns i ett privat storage-konto?
+### <a name="how-do-i-execute-a-custom-script-thats-hosted-in-a-private-storage-account"></a>Hur gör jag för att köra ett anpassat skript som finns i ett privat lagrings konto?
 
-Ställa in skyddade inställningarna med storage-kontonyckel och namn för att köra ett anpassat skript som finns i ett privat storage-konto. Mer information finns i [tillägget för anpassat skript](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/#template-example-for-a-windows-vm-with-protected-settings).
+Ställa in skyddade inställningarna med storage-kontonyckel och namn för att köra ett anpassat skript som finns i ett privat storage-konto. Mer information finns i [tillägg för anpassat skript](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/#template-example-for-a-windows-vm-with-protected-settings).
 
 ## <a name="passwords"></a>Lösenord
 
@@ -442,7 +442,7 @@ Ställa in skyddade inställningarna med storage-kontonyckel och namn för att k
 
 Det finns två huvudsakliga sätt att ändra lösenordet för virtuella datorer i skalningsuppsättningar.
 
-- Ändra VM-skalningsuppsättningen direkt. Tillgänglig med API-2017-12-01 och senare.
+- Ändra VM-skalningsuppsättningen direkt. Tillgängligt med API 2017-12-01 och senare.
 
     Uppdatera administratörsautentiseringsuppgifter direkt i skalningsuppsättningen (till exempel med Azure Resource Explorer, PowerShell eller CLI). När skalningsuppsättningen är uppdaterade, alla nya har virtuella datorer de nya autentiseringsuppgifterna. Befintliga virtuella datorer har endast nya autentiseringsuppgifter om de avbildning återställs.
 
@@ -562,7 +562,7 @@ Om du vill skapa en VM-skalningsuppsättning som tilldelar en offentlig IP-adres
 
 ### <a name="can-i-configure-a-scale-set-to-work-with-multiple-application-gateways"></a>Kan jag konfigurera en skalningsuppsättning för att arbeta med flera Programgatewayer?
 
-Ja. Du kan lägga till resurs-ID: N för flera Application Gateway serverdelsadresspooler för den _applicationGatewayBackendAddressPools_ lista i den _ipConfigurations_ delen av din skalningsuppsättning inställd nätverk profil.
+Ja. Du kan lägga till resurs-ID: n för flera Application Gateway backend-adresspooler i listan _applicationGatewayBackendAddressPools_ i avsnittet _ipConfigurations_ i nätverks profilen för skalnings uppsättningen.
 
 ## <a name="scale"></a>Skala
 
@@ -621,11 +621,11 @@ Har du viss flexibilitet i hur du hanterar aviseringar för angivna tröskelvär
 
 ## <a name="patching-and-operations"></a>Uppdatering och drift
 
-### <a name="can-i-create-a-scale-set-in-an-existing-resource-group"></a>Kan jag skapa en skalningsuppsättning i en befintlig resursgrupp?
+### <a name="can-i-create-a-scale-set-in-an-existing-resource-group"></a>Kan jag skapa en skalnings uppsättning i en befintlig resurs grupp?
 
-Ja, du kan skapa en skalningsuppsättning i en befintlig resursgrupp.
+Ja, du kan skapa en skalnings uppsättning i en befintlig resurs grupp.
 
-### <a name="can-i-move-a-scale-set-to-another-resource-group"></a>Kan jag flytta en skalningsuppsättning till en annan resursgrupp?
+### <a name="can-i-move-a-scale-set-to-another-resource-group"></a>Kan jag flytta en skalnings uppsättning till en annan resurs grupp?
 
 Ja, kan du flytta scale Sets resurser till en ny prenumeration eller resursgrupp.
 
@@ -637,16 +637,16 @@ Uppdatera din VM-skalningsuppsättning till en ny avbildning och hantera uppdate
 
 Ja, du kan använda avbildningsåterställningsåtgärden för att återställa en virtuell dator utan att ändra bilden. Men om din VM-skalningsuppsättningen refererar till en plattformsavbildning med `version = latest`, den virtuella datorn kan uppdatera till en senare OS-avbildning när du anropar `reimage`.
 
-### <a name="is-it-possible-to-integrate-scale-sets-with-azure-monitor-logs"></a>Är det möjligt att integrera skalningsuppsättningar med Azure Monitor-loggar?
+### <a name="is-it-possible-to-integrate-scale-sets-with-azure-monitor-logs"></a>Är det möjligt att integrera skalnings uppsättningar med Azure Monitor loggar?
 
-Ja, du kan installera tillägget Azure Monitor på skalan som virtuella datorer. Här är ett Azure CLI-exempel:
+Ja, du kan installera tillägget Azure Monitor på de virtuella datorerna i skalnings uppsättningen. Här är ett Azure CLI-exempel:
 ```
 az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group Team-03 --vmss-name nt01 --settings "{'workspaceId': '<your workspace ID here>'}" --protected-settings "{'workspaceKey': '<your workspace key here'}"
 ```
 Du hittar den nödvändiga workspaceId och workspaceKey i Log Analytics-arbetsyta för Azure-portalen. Klicka på panelen inställningar på sidan Översikt. Klicka på fliken anslutna källor högst upp.
 
 > [!NOTE]
-> Om din skalningsuppsättning _upgradePolicy_ har angetts till manuell, måste du tillämpa tillägget för alla virtuella datorer i uppsättningen genom att anropa uppgraderingen på dem. Detta kan vara i CLI _az vmss update-instances_.
+> Om din skalnings uppsättnings _upgradePolicy_ är inställd på manuell, måste du tillämpa tillägget på alla virtuella datorer i uppsättningen genom att anropa uppgraderingen på dem. Detta kan vara i CLI _az vmss update-instances_.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -701,8 +701,8 @@ Den största skillnaden mellan tar bort en virtuell dator i en skalningsuppsätt
   - Relaterat till det här scenariot, kan du ha skapat en egen motor för automatisk skalning och vill en snabbare slutpunkt till slutpunkt-skala.
 - Du har en skalningsuppsättning för virtuella datorer som är ojämnt fördelade mellan feldomäner och uppdateringsdomäner. Det kan vara eftersom du selektivt ta bort virtuella datorer eller virtuella datorer har tagits bort efter överetablering. Kör `stop deallocate` följt av `start` på den virtuella datorn skaluppsättningen jämnt distribuerar de virtuella datorerna mellan feldomäner och uppdateringsdomäner.
 
-### <a name="how-do-i-take-a-snapshot-of-a-virtual-machine-scale-set-instance"></a>Hur jag för att ta en ögonblicksbild av en VM scale set-instans?
-Skapa en ögonblicksbild från en instans av en VM-skalningsuppsättning.
+### <a name="how-do-i-take-a-snapshot-of-a-virtual-machine-scale-set-instance"></a>Hur gör jag för att ta en ögonblicks bild av en instans av en skalnings uppsättning för virtuella datorer?
+Skapa en ögonblicks bild från en instans av en skalnings uppsättning för virtuella datorer.
 
 ```azurepowershell-interactive
 $rgname = "myResourceGroup"
@@ -715,7 +715,7 @@ $snapshotconfig = New-AzSnapshotConfig -Location $location -AccountType Standard
 New-AzSnapshot -ResourceGroupName $rgname -SnapshotName 'mySnapshot' -Snapshot $snapshotconfig
 ```
 
-Skapa en hanterad disk från ögonblicksbilden.
+Skapa en hanterad disk från ögonblicks bilden.
 
 ```azurepowershell-interactive
 $snapshotName = "myShapshot"

@@ -1,108 +1,108 @@
 ---
-title: Azure VMware-lösning av CloudSimple - CloudSimple underhåll och uppdateringar
-description: Beskriver hur CloudSimple tjänsten för schemalagt underhåll och uppdateringar
+title: Azure VMware-lösning av CloudSimple-CloudSimple-underhåll och uppdateringar
+description: Beskriver CloudSimple-tjänstens process för schemalagt underhåll och uppdateringar
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 04/30/2019
 ms.topic: article
-ms.service: vmware
+ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 4dde358f10e9ac5054297ff68a0971404c0dc135
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5d6eeecbecc89995c25e687cc6808ed3b0c5dc5c
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65160252"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816213"
 ---
-# <a name="cloudsimple-maintenance-and-updates"></a>CloudSimple underhåll och uppdateringar
+# <a name="cloudsimple-maintenance-and-updates"></a>Underhåll och uppdateringar av CloudSimple
 
-Privat moln-miljön är lätt att ingen enskild felpunkt:
+Den privata moln miljön har utformats för att inte ha någon enskild felpunkt:
 
-* ESXi-klustren har konfigurerats med hög tillgänglighet för vSphere. Klustren storlek om du vill ha minst en extra nod för återhämtning.
-* Redundant primärlagring tillhandahålls av virtuellt SAN-nätverk, vilket kräver minst tre noder för att ge skydd mot ett enstaka fel. virtuellt SAN-nätverk kan konfigureras för att ge högre återhämtning för större kluster.
-* vCenter och PSC NSX Manager virtuella datorer är konfigurerade med RAID 10-principen för lagring som skydd mot fel för lagring. De virtuella datorerna skyddas mot noden/nätverksfel av vSphere hög tillgänglighet.
-* ESXi-värdar ha redundanta fläktar och nätverkskort.
-* TOR och stamnät växlar konfigureras parvis hög tillgänglighet för att tillhandahålla återhämtning.
+* ESXi-kluster konfigureras med vSphere hög tillgänglighet. Det finns minst en reserv nod för återhämtning i klustret.
+* Redundant primär lagring tillhandahålls av virtuellt San, vilket kräver minst tre noder för att ge skydd mot ett enskilt haveri. Virtuellt SAN kan konfigureras för att ge högre återhämtning för större kluster.
+* vCenter-, PSC-och NSX Manager-VM: ar konfigureras med RAID-10 Storage-principer för att skydda mot lagrings problem. De virtuella datorerna skyddas mot nod-/nätverks problem av vSphere HA.
+* ESXi-värdar har redundanta fläktar och nätverkskort.
+* Växlarna TOR och rygg har kon figurer ATS i HA par för att ge återhämtning.
 
-CloudSimple som ständigt övervakar följande virtuella datorer för drifttid och tillgänglighet och som ger tillgänglighets-SLA:
+CloudSimple övervakar kontinuerligt följande virtuella datorer för drift tid och tillgänglighet och ger tillgänglighets service avtal:
 
 * ESXi-värdar
 * vCenter
 * PSC
 * NSX Manager
 
-CloudSimple övervakar även följande kontinuerligt för fel:
+CloudSimple övervakar också följande kontinuerligt för problem:
 
-* Hårddiskar
+* Hård diskar
 * Fysiska NIC-portar
 * Servrar
-* Fans
-* Power
-* Växlar
-* Switch-portar
+* Fläktar
+* Befogenhet
+* Parametrar
+* Växla portar
 
-Om en disk eller en nod misslyckas, läggs automatiskt en ny nod i berörda VMware-klustret att ta med dem till hälsotillståndet omedelbart.
+Om en disk eller nod Miss lyckas läggs en ny nod automatiskt till i det berörda VMware-klustret för att få tillbaka tillståndet omedelbart.
 
-CloudSimple säkerhetskopierar, underhåller och uppdaterar dessa VMware-element i privata moln:
+CloudSimple säkerhetskopierar, underhåller och uppdaterar dessa VMware-element i de privata molnen:
 
 * ESXi
-* vCenter-plattformstjänster
-* domänkontrollant
+* vCenter Platform-tjänster
+* Kontrollenhet
 * vSAN
 * NSX
 
 ## <a name="back-up-and-restore"></a>Säkerhetskopiera och återställa
 
-CloudSimple säkerhetskopiering inkluderar:
+CloudSimple säkerhets kopiering inkluderar:
 
-* Inkrementella säkerhetskopieringar av vCenter och PSC DVS regler.
-* Användning av vCenter interna API: er för säkerhetskopiering av komponenter på programnivå.
-* Automatisk säkerhetskopiering innan en uppdatering eller uppgradering av hanteringsprogramvara för VMware.
-* Datakryptering vid källan av vCenter innan dataöverföring via en krypterad kanal TLS1.2 till Azure. Data lagras i en Azure-blob där de replikeras över regioner.
+* Stegvisa säkerhets kopieringar av vCenter-, PSC-och DVS-regler.
+* Använda vCenter-inbyggda API: er för att säkerhetskopiera komponenter i program skiktet.
+* Automatisk säkerhets kopiering före eventuell uppdatering eller uppgradering av VMware Management-programvaran.
+* Data kryptering vid källan, efter vCenter, innan data överföring via en krypterad TLS 1.2-kanal till Azure. Data lagras i en Azure-Blob där den replikeras mellan regioner.
 
-Du kan begära en återställning genom att öppna en [supportförfrågan](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Du kan begära en återställning genom att öppna en [supportbegäran](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 ## <a name="maintenance"></a>Underhåll
 
-CloudSimple har flera typer av planerat underhåll.
+CloudSimple gör flera typer av planerat underhåll.
 
-### <a name="backendinternal-maintenance"></a>Serverdel/internt Underhåll
+### <a name="backendinternal-maintenance"></a>Server del/internt underhåll
 
-Det här underhållet omfattar vanligtvis konfigureras om fysiska tillgångar eller installera programuppdateringar. Det påverkar inte normal konsumtion av de resurser som betjänas. Med redundanta nätverkskort ska varje fysisk rack, påverkas normal nätverkstrafik och privata moln åtgärder inte. Du kanske märker en prestandapåverkan endast om din organisation förväntar sig att använda den fullständiga redundant bandbredden under intervallet för underhåll.
+Det här underhållet omfattar vanligt vis omkonfigurering av fysiska till gångar eller installation av program varu uppdateringar. Den påverkar inte normal förbrukning av de till gångar som servas. Med redundanta nätverkskort som ska gå till varje fysiskt rack påverkas inte normala nätverks trafik och privata moln åtgärder. Du kanske upptäcker att en prestanda påverkas endast om organisationen förväntar sig att använda den fullständiga redundanta bandbredden under underhålls intervallet.
 
-### <a name="cloudsimple-portal-maintenance"></a>CloudSimple portal Underhåll
+### <a name="cloudsimple-portal-maintenance"></a>Underhåll av CloudSimple-portalen
 
-Vissa begränsad service avbrottstid krävs när CloudSimple kontrollplanet eller infrastruktur uppdateras. Underhållsfrekvens kan för närvarande kan vara så ofta som en gång per månad. Frekvensen är förväntat att avstå från att över tid. CloudSimple ger meddelanden för underhåll i portalen och ser till att intervallet som är så korta som möjligt. Följande tjänster fortsätta att fungera utan påverkas under ett portal Underhåll intervall:
+Vissa begränsade avbrott i tjänsten krävs när kontroll planet eller infrastrukturen för CloudSimple uppdateras. För närvarande kan underhålls intervall vara så frekventa som ofta en gång per månad. Frekvensen förväntas nekas över tid. CloudSimple tillhandahåller ett meddelande om Portal underhåll och håller intervallet så kort som möjligt. Följande tjänster fortsätter att fungera utan påverkan under ett underhålls intervall för portalen:
 
-* VMware Hanteringsplanet och program
+* Hanterings plan och program för VMware
 * vCenter-åtkomst
 * Alla nätverk och lagring
-* Alla Azure-trafik
+* All Azure-trafik
 
-### <a name="vmware-infrastructure-maintenance"></a>VMware infrastrukturunderhåll
+### <a name="vmware-infrastructure-maintenance"></a>Underhåll av VMware-infrastruktur
 
-Ibland är det nödvändigt att göra ändringar i konfigurationen av VMware-infrastruktur.  För närvarande kan dessa intervall kan inträffa var 1 – 2 månad, men frekvensen förväntas att avstå från att över tid. Den här typen av underhåll kan vanligtvis göras utan att avbryta normal konsumtion av CloudSimple-tjänster. Följande tjänster fortsätta att fungera utan någon inverkan under ett Underhåll intervall VMware:
+Ibland är det nödvändigt att göra ändringar i konfigurationen av VMware-infrastrukturen.  För närvarande kan dessa intervall inträffa var 1-2 månad, men frekvensen förväntas avböjas över tid. Den här typen av underhåll kan vanligt vis utföras utan att den normala förbrukningen av CloudSimple-tjänsterna avbryts. Under ett underhålls intervall för VMware fortsätter följande tjänster att fungera utan påverkan:
 
-* VMware Hanteringsplanet och program
+* Hanterings plan och program för VMware
 * vCenter-åtkomst
 * Alla nätverk och lagring
-* Alla Azure-trafik
+* All Azure-trafik
 
 ## <a name="updates-and-upgrades"></a>Uppdateringar och uppgraderingar
 
-CloudSimple ansvarar för livscykelhantering av VMware-programvara (ESXi, vCenter, PSC och NSX) i det privata molnet.
+CloudSimple ansvarar för livs cykel hantering av VMware-programvara (ESXi, vCenter, PSC och NSX) i det privata molnet.
 
-Programuppdateringar är:
+Program uppdateringar omfattar:
 
-* **Korrigeringar**. Säkerhetsuppdateringar eller felkorrigeringar som publicerats av VMware.
-* **Uppdateringar**. Lägre version ändring av en VMware-stacken komponent.
-* **Uppgraderingar**. Huvudversion ändring av en VMware-stacken komponent.
+* **Korrigeringar**. Säkerhets korrigeringar eller fel korrigeringar som publicerats av VMware.
+* **Uppdateringar**. Lägre versions ändring av en VMware stack-komponent.
+* **Uppgraderingar**. Huvud versions ändring av en VMware stack-komponent.
 
-CloudSimple testar en viktig säkerhetskorrigering så snart det blir tillgängligt från VMware. Per serviceavtal samlar CloudSimple ut säkerhetskorrigeringen till privata molnmiljöer inom en vecka.
+CloudSimple testar en kritisk säkerhets korrigering så snart den blir tillgänglig från VMware. Enligt SLA samlar CloudSimple ut säkerhets korrigeringen till privata moln miljöer inom en vecka.
 
-CloudSimple innehåller kvartalsvis underhållsuppdateringar av programkomponenter för VMware. När en ny huvudversion av VMware-programvara är tillgänglig fungerar CloudSimple med kunder för att samordna en lämplig underhållsperiod för uppgraderingen.
+CloudSimple tillhandahåller kvartals Visa uppdateringar av VMware-programkomponenter. När en ny huvud version av VMware-programvaran är tillgänglig fungerar CloudSimple med kunder för att samordna en lämplig underhålls period för uppgradering.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Säkerhetskopiera virtuella datorer arbetsbelastning med Veeam](https://docs.azure.cloudsimple.com/backup-workloads-veeam/).
+[Säkerhetskopiera virtuella arbets belastningar med Veeam](https://docs.azure.cloudsimple.com/backup-workloads-veeam/).

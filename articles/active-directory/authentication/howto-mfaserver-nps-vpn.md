@@ -1,53 +1,53 @@
 ---
-title: Avancerade scenarier med Azure MFA och tredje parts VPN - Azure Active Directory
-description: Stegvisa konfigurationsguider för Azure MFA att integrera med Cisco, Citrix och Juniper.
+title: Avancerade scenarier med Azure MFA Server och VPN från tredje part – Azure Active Directory
+description: Steg-för-steg-konfigurations guider för Azure MFA Server för integrering med Cisco, Citrix och Juniper.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 08/05/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2ad2b3075ae9d5ccd7e32f039fbbbc8583cde73c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f99df5daf559ef0d08b18104331c688503719e9b
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055959"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68811792"
 ---
-# <a name="advanced-scenarios-with-azure-multi-factor-authentication-and-third-party-vpn-solutions"></a>Avancerade scenarier med Azure Multi-Factor Authentication och tredje parts VPN-lösningar
+# <a name="advanced-scenarios-with-azure-mfa-server-and-third-party-vpn-solutions"></a>Avancerade scenarier med Azure MFA Server och VPN-lösningar från tredje part
 
-Azure Multi-Factor Authentication kan användas för att smidigt ansluta till olika tredje parts VPN-lösningar. Den här artikeln handlar om Cisco® ASA VPN-installationen, Citrix NetScaler SSL VPN-installationen och Juniper nätverk säker åtkomst/Pulse Secure ansluta säkra SSL VPN-installationen. Vi har skapat guider för enhetskonfiguration för att åtgärda dessa tre vanliga installationer. Multi-Factor Authentication Server kan också integreras med de flesta andra system som använder RADIUS, LDAP, IIS eller Anspråksbaserad autentisering till AD FS. Du hittar mer information finns i [MFA Server-konfigurationer](howto-mfaserver-deploy.md#next-steps).
+Azure Multi-Factor Authentication Server (Azure MFA Server) kan användas för att sömlöst ansluta till olika VPN-lösningar från tredje part. Den här artikeln fokuserar på Cisco® ASA VPN-installation, Citrix NetScaler SSL VPN-installation och Juniper-nätverk säker åtkomst/puls säker anslutning säker SSL VPN-installation. Vi har skapat konfigurations guider för att hantera dessa tre vanliga apparater. Azure MFA Server kan också integreras med de flesta andra system som använder RADIUS, LDAP, IIS eller anspråksbaserad autentisering för att AD FS. Du hittar mer information i [Azure MFA Server-konfigurationer](howto-mfaserver-deploy.md#next-steps).
 
 > [!IMPORTANT]
-> Från och med den 1 juli 2019 erbjuder Microsoft inte längre MFA Server för nya distributioner. Nya kunder som vill kräva multifaktorautentisering från sina användare ska använda molnbaserade Azure Multi-Factor Authentication. Befintliga kunder som har aktiverat MFA Server före 1 juli kommer att kunna hämta den senaste versionen, framtida uppdateringar och skapa autentiseringsuppgifter för aktivering som vanligt.
+> Från och med den 1 juli 2019 kommer Microsoft inte längre att erbjuda MFA Server för nya distributioner. Nya kunder som vill kräva Multi-Factor Authentication från sina användare bör använda molnbaserad Azure Multi-Factor Authentication. Befintliga kunder som har aktiverat MFA Server tidigare än 1 juli kommer att kunna ladda ned den senaste versionen, framtida uppdateringar och generera autentiseringsuppgifter för aktivering som vanligt.
 
-## <a name="cisco-asa-vpn-appliance-and-azure-multi-factor-authentication"></a>Cisco ASA VPN-enhet och Azure Multi-Factor Authentication
-Azure Multi-Factor Authentication integreras med din Cisco® ASA VPN-installation för att ge ytterligare säkerhet för Cisco AnyConnect® VPN inloggningar och portalåtkomst.  Du kan använda antingen RADIUS eller LDAP-protokollet.  Välj något av följande för att ladda ned de detaljerade stegvisa konfigurationsguider.
+## <a name="cisco-asa-vpn-appliance-and-azure-mfa-server"></a>Cisco ASA VPN-installation och Azure MFA Server
+Azure MFA Server integreras med din Cisco® ASA VPN-installation för att ge ytterligare säkerhet för Cisco AnyConnect® VPN-inloggningar och Portal åtkomst.  Du kan antingen använda LDAP-eller RADIUS-protokollet.  Välj något av följande för att ladda ned detaljerade steg-för-steg-konfigurations guider.
 
-| Konfigurationsguide | Beskrivning |
+| Konfigurations guide | Beskrivning |
 | --- | --- |
-| [Cisco ASA med Anyconnect VPN- och Azure MFA-konfiguration för LDAP](https://download.microsoft.com/download/A/2/0/A201567C-C3DE-4227-AF89-4567A470899E/Cisco_ASA_Azure_MFA_LDAP.docx) | Integrera din Cisco ASA VPN-installation med Azure MFA med LDAP |
-| [Cisco ASA med Anyconnect VPN- och Azure MFA-konfigurationen för RADIUS](https://download.microsoft.com/download/4/5/7/4579C1CF-35B0-4FBE-8A1A-B49CB2CC0382/Cisco_ASA_Azure_MFA_RADIUS.docx) | Integrera din Cisco ASA VPN-installation med Azure MFA med RADIUS |
+| [Cisco ASA med AnyConnect VPN och Azure MFA-konfiguration för LDAP](https://download.microsoft.com/download/A/2/0/A201567C-C3DE-4227-AF89-4567A470899E/Cisco_ASA_Azure_MFA_LDAP.docx) | Integrera din Cisco ASA VPN-enhet med Azure MFA med LDAP |
+| [Cisco ASA med AnyConnect VPN och Azure MFA-konfiguration för RADIUS](https://download.microsoft.com/download/4/5/7/4579C1CF-35B0-4FBE-8A1A-B49CB2CC0382/Cisco_ASA_Azure_MFA_RADIUS.docx) | Integrera din Cisco ASA VPN-enhet med Azure MFA med RADIUS |
 
-## <a name="citrix-netscaler-ssl-vpn-and-azure-multi-factor-authentication"></a>Citrix NetScaler SSL VPN- och Azure Multi-Factor Authentication
-Azure Multi-Factor Authentication integreras med din Citrix NetScaler SSL VPN-installation för att ge ytterligare säkerhet för Citrix NetScaler SSL VPN-inloggningar och portalåtkomst.  Du kan använda antingen RADIUS eller LDAP-protokollet.  Välj något av följande för att ladda ned de detaljerade stegvisa konfigurationsguider.
+## <a name="citrix-netscaler-ssl-vpn-and-azure-mfa-server"></a>Citrix NetScaler SSL VPN och Azure MFA Server
+Azure MFA Server integreras med Citrix NetScaler SSL VPN-installationen för att ge ytterligare säkerhet för Citrix NetScaler SSL VPN-inloggningar och Portal åtkomst.  Du kan antingen använda LDAP-eller RADIUS-protokollet.  Välj något av följande för att ladda ned detaljerade steg-för-steg-konfigurations guider.
 
-| Konfigurationsguide | Beskrivning |
+| Konfigurations guide | Beskrivning |
 | --- | --- |
-| [Citrix NetScaler SSL VPN- och Azure MFA-konfigurationen för LDAP](https://download.microsoft.com/download/2/4/E/24E1E722-72DF-471F-A88A-D1338DB1AF83/Citrix_NS_Azure_MFA_LDAP.docx) | Integrera din Citrix NetScaler SSL VPN med Azure MFA-installationen genom att använda LDAP |
-| [Citrix NetScaler SSL VPN- och Azure MFA-konfigurationen för RADIUS](https://download.microsoft.com/download/1/A/4/1A482764-4A63-45C2-A5EC-2B673ACCDD12/Citrix_NS_Azure_MFA_RADIUS.docx) | Integrera din Citrix NetScaler SSL VPN-installation med Azure MFA med RADIUS |
+| [Citrix NetScaler SSL VPN och Azure MFA-konfiguration för LDAP](https://download.microsoft.com/download/2/4/E/24E1E722-72DF-471F-A88A-D1338DB1AF83/Citrix_NS_Azure_MFA_LDAP.docx) | Integrera din Citrix netscaleer SSL VPN med Azure MFA-installation med hjälp av LDAP |
+| [Citrix NetScaler SSL VPN och Azure MFA-konfiguration för RADIUS](https://download.microsoft.com/download/1/A/4/1A482764-4A63-45C2-A5EC-2B673ACCDD12/Citrix_NS_Azure_MFA_RADIUS.docx) | Integrera din Citrix NetScaler SSL VPN-installation med Azure MFA med RADIUS |
 
-## <a name="juniperpulse-secure-ssl-vpn-appliance-and-azure-multi-factor-authentication"></a>Juniper/Pulse Secure SSL VPN-enhet och Azure Multi-Factor Authentication
-Azure Multi-Factor Authentication integreras med din Juniper/Pulse Secure SSL VPN-installation för att ge ytterligare säkerhet för Juniper/Pulse Secure SSL VPN-inloggningar och portalåtkomst.  Du kan använda antingen RADIUS eller LDAP-protokollet.  Välj något av följande för att ladda ned de detaljerade stegvisa konfigurationsguider.
+## <a name="juniperpulse-secure-ssl-vpn-appliance-and-azure-mfa-server"></a>Juniper/Pulse Secure SSL VPN-installation och Azure MFA Server
+Azure MFA Server integreras med din Juniper/Pulse Secure SSL VPN-installation för att ge ytterligare säkerhet för Juniper/Pulse Secure SSL VPN-inloggningar och Portal åtkomst.  Du kan antingen använda LDAP-eller RADIUS-protokollet.  Välj något av följande för att ladda ned detaljerade steg-för-steg-konfigurations guider.
 
-| Konfigurationsguide | Beskrivning |
+| Konfigurations guide | Beskrivning |
 | --- | --- |
-| [Juniper/Pulse Secure SSL VPN- och Azure MFA-konfigurationen för LDAP](https://download.microsoft.com/download/6/5/8/6587B418-75B1-4FCB-84D4-984BC479309E/JuniperPulse_Azure_MFA_LDAP.docx) | Integrera din Juniper/Pulse Secure SSL VPN med Azure MFA-installationen genom att använda LDAP |
-| [Juniper/Pulse Secure SSL VPN- och Azure MFA-konfigurationen för RADIUS](https://download.microsoft.com/download/7/9/A/79AB3DAD-4799-4379-B1DA-B95ABDF231DC/JuniperPulse_Azure_MFA_RADIUS.docx) | Integrera din Juniper/Pulse Secure SSL VPN-installation med Azure MFA med RADIUS |
+| [Juniper/Pulse Secure SSL VPN och Azure MFA-konfiguration för LDAP](https://download.microsoft.com/download/6/5/8/6587B418-75B1-4FCB-84D4-984BC479309E/JuniperPulse_Azure_MFA_LDAP.docx) | Integrera din Juniper/Pulse Secure SSL VPN med Azure MFA-installation med hjälp av LDAP |
+| [Juniper/Pulse Secure SSL VPN och Azure MFA-konfiguration för RADIUS](https://download.microsoft.com/download/7/9/A/79AB3DAD-4799-4379-B1DA-B95ABDF231DC/JuniperPulse_Azure_MFA_RADIUS.docx) | Integrera din Juniper/Pulse Secure SSL VPN-installation med Azure MFA med RADIUS |
 
 ## <a name="next-steps"></a>Nästa steg
 

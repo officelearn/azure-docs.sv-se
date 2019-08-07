@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/22/2019
+ms.date: 08/05/2019
 ms.author: raynew
-ms.openlocfilehash: 787bcf28a64c98f82deb0725e2362bf8144d6c4e
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: da68c0ae1dc92f5b854c30c90b93856248c43281
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640863"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828346"
 ---
 # <a name="support-matrix-for-hyper-v-assessment-and-migration"></a>Stödmatris för utvärdering och migrering av Hyper-V
 
@@ -36,14 +36,18 @@ Tabellen sammanfattar scenarier som stöds för virtuella Hyper-V-datorer.
 **Support** | **Detaljer**
 --- | ---
 Azure-behörigheter | Du måste ha deltagar-eller ägar behörigheter i prenumerationen för att kunna skapa ett Azure Migrate-projekt.
-Hyper-V:s virtuella datorer | Utvärdera upp till 10 000 virtuella Hyper-V-datorer i ett enda projekt. Du kan ha flera projekt i en Azure-prenumeration. Ett projekt kan innehålla både virtuella VMware-datorer och virtuella Hyper-V-datorer, upp till utvärderings gränserna.
+Hyper-V:s virtuella datorer | Utvärdera upp till 35 000 virtuella Hyper-V-datorer i ett enda projekt. Du kan ha flera projekt i en Azure-prenumeration. Ett projekt kan innehålla både virtuella VMware-datorer och virtuella Hyper-V-datorer, upp till utvärderings gränserna.
 Geografi | Du kan skapa Azure Migrate projekt i ett antal geografiska områden. Även om du kan skapa projekt i specifika ographies kan du utvärdera eller migrera datorer för andra mål platser. Projektets geografi används bara för att lagra identifierade metadata.
 
   **Geografi** | **Lagrings plats för metadata**
   --- | ---
   Azure Government | Virginia (USA-förvaltad region)
-  Asien och stillahavsområdet | Sydostasien eller Asien, östra
-  Europa | Europa, södra eller Västeuropa
+  Asien och stillahavsområdet | Asien, östra eller Sydostasien
+  Australien | Östra Australien eller Australien, sydöstra
+  Kanada | Kanada, centrala eller Kanada, öst
+  Europa | Europa, norra eller Europa, västra
+  Indien | Centrala Indien eller södra Indien
+  Japan |  Japan, östra eller Japan, väst
   Storbritannien och Nordirland | Storbritannien, södra eller Storbritannien, västra
   USA | USA, centrala eller västra USA 2
 
@@ -84,7 +88,7 @@ Vid utvärdering kör Azure Migrate en förenklad installation för att identifi
 | **Support**                | **Detaljer**               
 | :-------------------       | :------------------- |
 | **Azure Migrate projekt**  |  En apparat kan associeras med ett enda projekt.<br/> Du kan identifiera upp till 5000 virtuella Hyper-V-datorer med en enda apparat.
-| **Hyper-V**    |  Du distribuerar installationen som en virtuell Hyper-V-dator.<br/> Den virtuella dator som tillhandahålls är Hyper-V VM version 5,0.<br/> Den virtuella datorns värd måste köra Windows Server 2012 R2 eller senare.<br/> Det behöver tillräckligt med utrymme för att allokera 16 GB RAM, 4 virtuella processorer och 1 extern växel för den virtuella datorn.<br/> Enheten kräver en statisk eller dynamisk IP-adress och Internet åtkomst.
+| **Hyper-V**    |  Du distribuerar installationen som en virtuell Hyper-V-dator.<br/> Den virtuella dator som tillhandahålls är Hyper-V VM version 5,0.<br/> Den virtuella datorns värd måste köra Windows Server 2012 R2 eller senare.<br/> Det behöver tillräckligt med utrymme för att allokera 16 GB RAM, 8 virtuella processorer och 1 extern växel för den virtuella datorn.<br/> Enheten kräver en statisk eller dynamisk IP-adress och Internet åtkomst.
 
 
 ## <a name="assessment-appliance-url-access"></a>URL-åtkomst för utvärderings utrustning

@@ -1,6 +1,6 @@
 ---
-title: Använda Fjärrskrivbord för att en virtuell Linux-dator i Azure | Microsoft Docs
-description: Lär dig att installera och konfigurera fjärrskrivbord (xrdp) för att ansluta till en Linux-VM i Azure med grafiska verktyg
+title: Använda fjärr skrivbord till en virtuell Linux-dator i Azure | Microsoft Docs
+description: Lär dig hur du installerar och konfigurerar fjärr skrivbord (xrdp) för att ansluta till en virtuell Linux-dator i Azure med hjälp av grafiska verktyg
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -14,30 +14,30 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: cynthn
-ms.openlocfilehash: 63f66d345b88984a49b8eb18b02fd79fb0603022
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 64f287a98af6cb353117ec1de1f9f0d55b367085
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67695505"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774365"
 ---
-# <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Installera och konfigurera Fjärrskrivbord för att ansluta till en Linux-VM i Azure
-Linux-datorer (VM) i Azure hanteras vanligtvis från kommandoraden med hjälp av en secure shell (SSH)-anslutning. När nya till Linux, eller för snabb felsökning scenarier kan det vara enklare användning av fjärrskrivbord. Den här artikeln beskriver hur du installerar och konfigurerar en Skrivbordsmiljö ([xfce](https://www.xfce.org)) och fjärrskrivbord ([xrdp](https://www.xrdp.org)) för din Linux-VM med hjälp av Resource Manager-distributionsmodellen.
+# <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Installera och konfigurera fjärr skrivbord för att ansluta till en virtuell Linux-dator i Azure
+Virtuella Linux-datorer (VM: ar) i Azure hanteras vanligt vis från kommando raden med hjälp av en SSH-anslutning (Secure Shell). När du har använt New to Linux eller för snabb fel söknings scenarier kan det vara enklare att använda fjärr skrivbord. Den här artikeln beskriver hur du installerar och konfigurerar en Skriv bords miljö ([xfce](https://www.xfce.org)) och fjärr skrivbord ([xrdp](https://www.xrdp.org)) för din virtuella Linux-dator med hjälp av distributions modellen för Resource Manager.
 
 
 ## <a name="prerequisites"></a>Förutsättningar
-Den här artikeln kräver en befintlig virtuell Ubuntu 16.04 LTS-dator i Azure. Om du vill skapa en virtuell dator kan använda en av följande metoder:
+Den här artikeln kräver en befintlig Ubuntu 16,04 LTS-VM i Azure. Om du behöver skapa en virtuell dator kan du använda någon av följande metoder:
 
-- Den [Azure CLI](quick-create-cli.md)
+- [Azure CLI](quick-create-cli.md)
 - [Azure Portal](quick-create-portal.md)
 
 
-## <a name="install-a-desktop-environment-on-your-linux-vm"></a>Installera en Skrivbordsmiljö på din Linux-VM
-De flesta virtuella Linux-datorer i Azure har inte en Skrivbordsmiljö som installeras som standard. Virtuella Linux-datorer hanteras ofta med hjälp av SSH-anslutningar i stället för en Skrivbordsmiljö. Det finns olika skrivbordsmiljöerna i Linux som du själv väljer. Beroende på ditt val av Skrivbordsmiljö, kan den använda en till 2 GB diskutrymme och tar 5 till 10 minuter att installera och konfigurera de nödvändiga paketen.
+## <a name="install-a-desktop-environment-on-your-linux-vm"></a>Installera en Skriv bords miljö på din virtuella Linux-dator
+De flesta virtuella Linux-datorer i Azure har inte någon Skriv bords miljö installerad som standard. Virtuella Linux-datorer hanteras ofta med SSH-anslutningar i stället för en Skriv bords miljö. Det finns olika Skriv bords miljöer i Linux som du kan välja mellan. Beroende på ditt val av Skriv bords miljö kan det förbruka en till 2 GB disk utrymme och ta 5 till 10 minuter att installera och konfigurera alla paket som krävs.
 
-I följande exempel installeras lightweight [xfce4](https://www.xfce.org/) Skrivbordsmiljö på en dator med Ubuntu 16.04 LTS. Kommandon för andra distributioner kan skilja sig något (Använd `yum` installera på Red Hat Enterprise Linux och konfigurera lämplig `selinux` regler eller Använd `zypper` att installera på SUSE, till exempel).
+I följande exempel installeras den lätta [xfce4](https://www.xfce.org/) Desktop-miljön på en Ubuntu 16,04 LTS VM. Kommandon för andra distributioner varierar något (används `yum` för att installera på Red Hat Enterprise Linux och konfigurera `selinux` lämpliga regler, eller `zypper` Använd för att installera på SUSE, till exempel).
 
-Först SSH till den virtuella datorn. I följande exempel ansluter till den virtuella datorn med namnet *myvm.westus.cloudapp.azure.com* med användarnamnet för *azureuser*. Använd dina egna värden:
+Först, SSH till den virtuella datorn. Följande exempel ansluter till den virtuella datorn med namnet *myvm.westus.cloudapp.Azure.com* med användar namnet *azureuser*. Använd dina egna värden:
 
 ```bash
 ssh azureuser@myvm.westus.cloudapp.azure.com
@@ -45,100 +45,100 @@ ssh azureuser@myvm.westus.cloudapp.azure.com
 
 Om du använder Windows och behöver mer information om hur du använder SSH, se [hur du använder SSH-nycklar med Windows](ssh-from-windows.md).
 
-Installera med hjälp av xfce `apt` på följande sätt:
+Installera sedan xfce med `apt` enligt följande:
 
 ```bash
 sudo apt-get update
 sudo apt-get install xfce4
 ```
 
-## <a name="install-and-configure-a-remote-desktop-server"></a>Installera och konfigurera en stationär fjärrserver
-Nu när du har en Skrivbordsmiljö installerad kan du konfigurera Fjärrskrivbordstjänster för att lyssna efter inkommande anslutningar. [xrdp](http://xrdp.org) är en öppen källkod Remote Desktop Protocol (RDP)-server som är tillgängliga i de flesta Linux-distributioner och fungerar bra med xfce. Installera xrdp på Ubuntu-VM på följande sätt:
+## <a name="install-and-configure-a-remote-desktop-server"></a>Installera och konfigurera en fjärr skrivbords server
+Nu när du har installerat en Skriv bords miljö kan du konfigurera en fjärr skrivbords tjänst för att lyssna efter inkommande anslutningar. [xrdp](http://xrdp.org) är en RDP-server (open source Remote Desktop Protocol) som är tillgänglig på de flesta Linux-distributioner och fungerar bra med xfce. Installera xrdp på den virtuella Ubuntu-datorn enligt följande:
 
 ```bash
-sudo apt-get install xrdp
+sudo apt-get install xrdp=0.6.1-2
 sudo systemctl enable xrdp
 ```
 
-Berätta xrdp vilka Skrivbordsmiljö ska användas när du startar din session. Konfigurera xrdp för att använda xfce som skrivbordsmiljön på följande sätt:
+Berätta för xrdp vilken Skriv bords miljö som ska användas när du startar sessionen. Konfigurera xrdp så att xfce används som Skriv bords miljö enligt följande:
 
 ```bash
 echo xfce4-session >~/.xsession
 ```
 
-Starta om tjänsten xrdp för att ändringarna ska börja gälla enligt följande:
+Starta om xrdp-tjänsten för att ändringarna ska börja gälla enligt följande:
 
 ```bash
 sudo service xrdp restart
 ```
 
 
-## <a name="set-a-local-user-account-password"></a>Ange lösenordet för ett lokalt användarkonto
-Hoppa över det här steget om du har skapat ett lösenord för ditt konto när du skapade den virtuella datorn. Om du bara använder SSH-nyckelautentisering och inte har ett lokalt kontolösenord som angetts, ange ett lösenord innan du använder xrdp för att logga in på den virtuella datorn. xrdp kan inte acceptera SSH-nycklar för autentisering. I följande exempel anger ett lösenord för användarkontot *azureuser*:
+## <a name="set-a-local-user-account-password"></a>Ange lösen ord för lokalt användar konto
+Om du har skapat ett lösen ord för ditt användar konto när du skapade den virtuella datorn hoppar du över det här steget. Om du bara använder SSH-autentiseringsnyckel och inte har angett ett lokalt konto lösen ord anger du ett lösen ord innan du använder xrdp för att logga in på den virtuella datorn. xrdp kan inte acceptera SSH-nycklar för autentisering. Följande exempel anger ett lösen ord för användar kontot *azureuser*:
 
 ```bash
 sudo passwd azureuser
 ```
 
 > [!NOTE]
-> SSHD-konfigurationen för att tillåta inloggningar med lösenord om det för närvarande inte uppdateras inte att ange ett lösenord. Från ett säkerhetsperspektiv kanske du vill ansluta till den virtuella datorn med en SSH-tunnel med nyckel-baserad autentisering och sedan ansluta till xrdp. I så, fall hoppar du över följande steg om hur du skapar en nätverkssäkerhetsgruppregel för att tillåta trafik för fjärrskrivbordet.
+> Att ange ett lösen ord uppdaterar inte SSHD-konfigurationen för att tillåta inloggningar för lösen ord om den inte gör det. Från ett säkerhets perspektiv kanske du vill ansluta till din virtuella dator med en SSH-tunnel med hjälp av nyckelbaserad autentisering och sedan ansluta till xrdp. I så fall kan du hoppa över följande steg för att skapa en regel för nätverks säkerhets grupper för att tillåta fjärr skrivbords trafik.
 
 
-## <a name="create-a-network-security-group-rule-for-remote-desktop-traffic"></a>Skapa en regel för Nätverkssäkerhetsgrupp för Remote Desktop-trafik
-Om du vill tillåta Remote Desktop att nå din Linux-VM, en nätverkssäkerhetsgrupp kan gruppen regel måste skapas som TCP på port 3389 nå din virtuella dator. Mer information om regler för nätverkssäkerhetsgrupper finns i [vad är en nätverkssäkerhetsgrupp?](../../virtual-network/security-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) Du kan också [använda Azure-portalen för att skapa en nätverkssäkerhetsgruppregel](../windows/nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+## <a name="create-a-network-security-group-rule-for-remote-desktop-traffic"></a>Skapa en regel för nätverks säkerhets grupp för fjärr skrivbords trafik
+Om du vill tillåta fjärr skrivbords trafik att komma åt din virtuella Linux-dator måste en regel för nätverks säkerhets grupp skapas som tillåter TCP på port 3389 att komma åt den virtuella datorn. Mer information om regler för nätverks säkerhets grupper finns i [Vad är en nätverks säkerhets grupp?](../../virtual-network/security-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) Du kan också [använda Azure Portal för att skapa en regel för nätverks säkerhets grupper](../windows/nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-I följande exempel skapas en nätverkssäkerhetsgruppregel med [az vm open-port](/cli/azure/vm#az-vm-open-port) på port *3389*. Inte SSH-sessionen till den virtuella datorn, öppna följande nätverkssäkerhetsgruppregel från Azure-CLI:
+I följande exempel skapas en regel för nätverks säkerhets grupper med [AZ VM Open-port](/cli/azure/vm#az-vm-open-port) på port *3389*. Från Azure CLI, inte SSH-sessionen till den virtuella datorn, öppnar du följande regel för nätverks säkerhets grupp:
 
 ```azurecli
 az vm open-port --resource-group myResourceGroup --name myVM --port 3389
 ```
 
 
-## <a name="connect-your-linux-vm-with-a-remote-desktop-client"></a>Ansluta din Linux-VM med en fjärrskrivbordsklienten
-Öppna din lokala fjärrskrivbordsklienten och ansluta till IP-adressen eller DNS-namnet på din Linux-VM. Ange användarnamnet och lösenordet för användarkontot på den virtuella datorn på följande sätt:
+## <a name="connect-your-linux-vm-with-a-remote-desktop-client"></a>Ansluta din virtuella Linux-dator till en fjärr skrivbords klient
+Öppna den lokala fjärr skrivbords klienten och Anslut till IP-adressen eller DNS-namnet för din virtuella Linux-dator. Ange användar kontot och lösen ordet för användar kontot på den virtuella datorn enligt följande:
 
-![Ansluta till xrdp med hjälp av fjärrskrivbord-klienten](./media/use-remote-desktop/remote-desktop-client.png)
+![Ansluta till xrdp med hjälp av fjärr skrivbords klienten](./media/use-remote-desktop/remote-desktop-client.png)
 
-När de har autentiserat, xfce Skrivbordsmiljö läsa in och se ut ungefär så här:
+Efter autentiseringen kommer xfce desktop-miljön att läsas in och likna följande exempel:
 
-![xfce Skrivbordsmiljö via xrdp](./media/use-remote-desktop/xfce-desktop-environment.png)
+![xfce desktop-miljö via xrdp](./media/use-remote-desktop/xfce-desktop-environment.png)
 
-Om din lokala RDP-klient använder autentisering på nätverksnivå (NLA), kan du behöva inaktivera anslutningsinställningen. XRDP stöder för närvarande inte NLA. Du kan också titta på alternativa RDP-lösningar som har stöd för NLA, till exempel [FreeRDP](https://www.freerdp.com).
+Om din lokala RDP-klient använder autentisering på nätverks nivå (NLA) kan du behöva inaktivera anslutnings inställningen. XRDP stöder för närvarande inte NLA. Du kan också titta på alternativa RDP-lösningar som stöder NLA, till exempel [FreeRDP](https://www.freerdp.com).
 
 
 ## <a name="troubleshoot"></a>Felsöka
-Om du inte kan ansluta till din Linux-VM med hjälp av fjärrskrivbord-klienten kan använda `netstat` på din Linux-VM för att verifiera att den virtuella datorn lyssnar för RDP-anslutningar på följande sätt:
+Om du inte kan ansluta till din virtuella Linux-dator med hjälp av en `netstat` fjärr skrivbords klient använder du den virtuella Linux-datorn för att kontrol lera att den virtuella datorn lyssnar efter RDP-anslutningar på följande sätt:
 
 ```bash
 sudo netstat -plnt | grep rdp
 ```
 
-I följande exempel visas den virtuella datorn lyssnar på TCP-port 3389 som förväntat:
+I följande exempel visas den virtuella datorn som lyssnar på TCP-port 3389 som förväntat:
 
 ```bash
 tcp     0     0      127.0.0.1:3350     0.0.0.0:*     LISTEN     53192/xrdp-sesman
 tcp     0     0      0.0.0.0:3389       0.0.0.0:*     LISTEN     53188/xrdp
 ```
 
-Om den *xrdp sesman* tjänsten inte lyssnar, på en Ubuntu-VM startar du om tjänsten på följande sätt:
+Om tjänsten *xrdp-sesman* inte lyssnar går du till en virtuell Ubuntu-dator som startar om tjänsten på följande sätt:
 
 ```bash
 sudo service xrdp restart
 ```
 
-Granska loggarna i */var/log* på din Ubuntu VM bryts till varför tjänsten svarar inte. Du kan också övervaka syslog under en anslutning till fjärrskrivbord försöker visa eventuella fel:
+Granska loggarna i */var/log* på din Ubuntu-VM för instruktioner om varför tjänsten kanske inte svarar. Du kan också övervaka syslog under en fjärr skrivbords anslutning försök att visa eventuella fel:
 
 ```bash
 tail -f /var/log/syslog
 ```
 
-Andra Linux-distributioner som Red Hat Enterprise Linux och SUSE kan ha olika sätt att starta om tjänster och alternativa loggfilens platser att granska.
+Andra Linux-distributioner som Red Hat Enterprise Linux och SUSE kan ha olika sätt att starta om tjänster och alternativa logg fils platser att granska.
 
-Om du inte får några svar i din fjärrskrivbordsklienten och inte ser alla händelser i systemloggen, anger detta att trafik för fjärrskrivbordet inte kan nå den virtuella datorn. Granska dina regler för nätverkssäkerhetsgrupper för att säkerställa att du har en regel för att tillåta TCP på port 3389. Mer information finns i [felsöka problem med programanslutningar](../windows/troubleshoot-app-connection.md).
+Om du inte får några svar på fjärr skrivbords klienten och inte ser några händelser i system loggen visar det här beteendet att fjärr skrivbords trafik inte kan komma åt den virtuella datorn. Granska reglerna för nätverks säkerhets gruppen så att du har en regel för att tillåta TCP på port 3389. Mer information finns i [Felsöka problem med program anslutningen](../windows/troubleshoot-app-connection.md).
 
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om hur du skapar och använder SSH-nycklar med Linux-datorer finns i [skapa SSH-nycklar för Linux-datorer i Azure](mac-create-ssh-keys.md).
+Mer information om hur du skapar och använder SSH-nycklar med virtuella Linux-datorer finns i [skapa SSH-nycklar för virtuella Linux-datorer i Azure](mac-create-ssh-keys.md).
 
-Information om hur du använder SSH från Windows finns i [hur du använder SSH-nycklar med Windows](ssh-from-windows.md).
+Information om hur du använder SSH från Windows finns i [så här använder du SSH-nycklar med Windows](ssh-from-windows.md).
 

@@ -8,14 +8,14 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/09/2019
 ms.author: dacurwin
-ms.openlocfilehash: f17cc71e0666ccf08d90fcef8f18552c09761cbc
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 75916655f1b46cd1b84220cba9db441d54486927
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689410"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68735651"
 ---
-# <a name="back-up-a-sharepoint-farm-to-azure"></a>Säkerhetskopiera en SharePoint-servergrupp till Azure
+# <a name="back-up-a-sharepoint-farm-to-azure-with-dpm"></a>Säkerhetskopiera en SharePoint-grupp till Azure med DPM
 Du säkerhetskopierar en SharePoint-grupp till Microsoft Azure med hjälp av System Center Data Protection Manager (DPM) på samma sätt som du säkerhetskopierar andra data källor. Azure Backup ger flexibilitet i schemat för säkerhets kopiering för att skapa dagliga, vecko Visa eller årliga säkerhets kopierings punkter och ger dig bevarande princip alternativ för olika säkerhets kopierings punkter. DPM ger möjlighet att lagra lokala disk kopior för snabba återställnings mål (RTO) och för att lagra kopior till Azure för ekonomisk, långsiktig kvarhållning.
 
 ## <a name="sharepoint-supported-versions-and-related-protection-scenarios"></a>SharePoint-versioner som stöds och relaterade skydds scenarier

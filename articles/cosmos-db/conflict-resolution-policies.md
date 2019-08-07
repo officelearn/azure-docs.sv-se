@@ -4,15 +4,15 @@ description: I den här artikeln beskrivs de olika kategorierna och konflikt lö
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 08/05/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 45b7257f67be8ba5c134717d73488916056b7a7d
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: f69a70ef3bfc8830ed12173fddee41095937a1c0
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68384210"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815092"
 ---
 # <a name="conflict-types-and-resolution-policies"></a>Konflikttyper och matchningsprinciper
 
@@ -30,16 +30,16 @@ För Azure Cosmos-konton som kon figurer ATS med flera Skriv regioner kan uppdat
 
 Azure Cosmos DB erbjuder en flexibel princip driven mekanism för att lösa Skriv konflikter. Du kan välja mellan två principer för konflikt lösning på en Azure Cosmos-behållare:
 
-- **Senaste Skriv WINS (LWW)** : Den här lösnings principen använder som standard en systemdefinierad timestamp-egenskap. Den baseras på Time-Synchronize Clock-protokollet. Om du använder SQL-API: et kan du ange andra anpassade numeriska egenskaper (t. ex. det egna begreppet tidstämpel) som ska användas för konflikt lösning. En anpassad numerisk egenskap kallas även för *konflikt lösnings Sök vägen*. 
+* **Senaste Skriv WINS (LWW)** : Den här lösnings principen använder som standard en systemdefinierad timestamp-egenskap. Den baseras på Time-Synchronize Clock-protokollet. Om du använder SQL-API: et kan du ange andra anpassade numeriska egenskaper (t. ex. det egna begreppet tidstämpel) som ska användas för konflikt lösning. En anpassad numerisk egenskap kallas även för *konflikt lösnings Sök vägen*. 
 
   Om två eller flera objekt står i konflikt med åtgärderna Infoga eller Ersätt, blir objektet med det högsta värdet för matchnings Sök vägen för konflikten den vinnare. Systemet fastställer vinnare om flera objekt har samma numeriska värde för matchnings Sök vägen för konflikten. Alla regioner är garanterat konvergerade till en enda vinnare och har samma version av det allokerade objektet. När borttagnings konflikter är inblandade är den borttagna versionen alltid WINS över antingen infoga eller Ersätt konflikter. Detta inträffar oavsett vad värdet för konflikt lösnings Sök vägen är.
 
   > [!NOTE]
-  > Senaste Skriv-WINS är standard lösnings principen för konflikt lösning. Den är tillgänglig för följande API: er: SQL, MongoDB, Cassandra, Gremlin och Table.
+  > Senaste Skriv-WINS är standard lösnings principen för konflikt lösning `_ts` och använder tidsstämplar för följande API: er: SQL, MongoDB, Cassandra, Gremlin och Table. Anpassad numerisk egenskap är endast tillgänglig för SQL API.
 
   Läs mer i [exempel som använder LWW konflikt lösnings principer](how-to-manage-conflicts.md).
 
-- **Anpassat**: Den här lösnings principen är utformad för programdefinierade semantik för avstämning av konflikter. När du ställer in den här principen på din Azure Cosmos-behållare måste du också registrera en *lagrad lagrad procedur*. Den här proceduren anropas automatiskt när konflikter identifieras under en databas transaktion på servern. Systemet innehåller exakt en gång garanterar för körning av en merge-procedur som en del av protokollet åtagande.  
+* **Anpassat**: Den här lösnings principen är utformad för programdefinierade semantik för avstämning av konflikter. När du ställer in den här principen på din Azure Cosmos-behållare måste du också registrera en *lagrad lagrad procedur*. Den här proceduren anropas automatiskt när konflikter identifieras under en databas transaktion på servern. Systemet innehåller exakt en gång garanterar för körning av en merge-procedur som en del av protokollet åtagande.  
 
   Om du konfigurerar din behållare med alternativet för anpassad upplösning och du inte kan registrera en sammanfognings procedur på behållaren eller om sammanfognings proceduren genererar ett undantag vid körningen, skrivs konflikterna till den *konflikter*som uppstår. Ditt program måste sedan manuellt lösa konflikterna i den motstridiga feeden. Mer information finns i [exempel på hur du använder den anpassade lösnings principen och hur du använder den här feeden](how-to-manage-conflicts.md).
 

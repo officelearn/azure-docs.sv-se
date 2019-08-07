@@ -1,57 +1,61 @@
 ---
-title: Azure Active Directory lösenordslös inloggning (förhandsversion)
-description: Konfiguration av lösenordsfri inloggning på Azure AD med FIDO2 säkerhetsnycklar eller Microsoft Authenticator-appen (förhandsversion)
+title: Azure Active Directory lösen ords utan lösen ord (för hands version)
+description: Lösen ords lös inloggning till Azure AD med hjälp av FIDO2-säkerhetsnycklar eller Microsoft Authenticator app (för hands version)
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/09/2019
+ms.date: 08/05/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d80b359be0a6249327ba1ba1d51ffbc330bb073
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 3ae8f6854241240249cb3b7494872cbbd8fd41e6
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67712090"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68823751"
 ---
-# <a name="what-is-passwordless"></a>Vad är lösenordslös?
+# <a name="what-is-passwordless"></a>Vad är lösen ord?
 
-Multifaktorautentisering (MFA) är ett bra sätt att skydda din organisation, men användarna frustrerade med extra lager ovanpå att behöva komma ihåg sina lösenord. Konfiguration av lösenordsfri autentiseringsmetoder är enklare eftersom lösenordet tas bort och ersätts med något användaren har plus något du är eller något användaren vet.
+Multi-Factor Authentication (MFA) är ett bra sätt att skydda din organisation, men användarna kan bli frustrerade med det extra lagret ovanpå att de behöver komma ihåg sina lösen ord. Metoder för lösen ords kryptering är bekvämare eftersom lösen ordet tas bort och ersätts med något som du har, samt något du känner till.
 
-|   | Något du har | Något du eller vet |
+|   | Något du har | Något som du är eller vet |
 | --- | --- | --- |
-| Lösenordsfri | Telefon eller säkerhet | Biometrisk eller PIN-kod |
+| Lösenordsfri | Telefon-eller säkerhets nyckel | Bio metrisk eller PIN-kod |
 
-Vi känner igen att varje organisation har olika behov när det gäller autentisering. Microsoft erbjuder för närvarande Windows Hello, våra premier lösenordslös upplevelse för Windows-dator. Vi lägger till nya autentiseringsuppgifter i lösenordslös familjen: Microsoft Authenticator-appen och FIDO2 säkerhetsnycklar.
+Varje organisation har olika behov när den kommer till autentiseringen. Microsoft erbjuder för närvarande Windows Hello, våra för Windows-datorer. Vi lägger till Microsoft Authenticator-appen och FIDO2-säkerhetsnycklarna i den lösenordsskyddade familjen.
 
 ## <a name="microsoft-authenticator-app"></a>Microsoft Authenticator-appen
 
-Tillåt att en anställd telefon för att bli en lösenordslös autentiseringsmetod. Du kanske redan använder Microsoft Authenticator-appen som en praktisk multifaktorautentisering alternativ utöver ett lösenord. Men nu är tillgängligt som ett alternativ för konfiguration av lösenordsfri.
+Tillåt din anställdas telefon att bli en metod för lösen ords lös autentisering. Du kanske redan använder Microsoft Authenticator-appen som ett bekvämt alternativ för Multi-Factor Authentication förutom ett lösen ord. Men nu är det tillgängligt som ett lösen ords utan alternativ.
 
-Det blir iOS- eller Android-telefon autentiseringsuppgift för stark, konfiguration av lösenordsfri genom att tillåta användare att logga in på valfri plattform eller en webbläsare genom att få ett meddelande till telefonen, matchar ett tal som visas på skärmen för att en på sin telefon och sedan använda sina biometriska ( touch eller står inför) eller PIN-kod för att bekräfta.
+![Logga in på Microsoft Edge med Microsoft Authenticator-appen](./media/concept-authentication-passwordless/concept-web-sign-in-microsoft-authenticator-app.png)
 
-## <a name="fido2-security-keys"></a>FIDO2 säkerhetsnycklar
+Den vänder sig till en stark och lösenordsskyddad autentiseringsuppgift genom att tillåta att användare loggar in på valfri plattform eller webbläsare genom att få ett meddelande till telefonen, som matchar ett tal som visas på skärmen till det som visas på telefonen och sedan använder sina bio metriska mått ( touch eller FACET) eller fäst för att bekräfta.
 
-FIDO2 säkerhetsnycklar är en unphishable standardbaserad lösenordslös autentiseringsmetod som kan finnas i vilken anslutningstyp. Snabb identitet Online (FIDO) är en öppen standard för konfiguration av lösenordsfri autentisering. Det gör att användare och organisationer utnyttja standarden att logga in på sina resurser utan användarnamn och lösenord med en extern säkerhetsnyckel eller en platform-nyckel som är inbyggda i en enhet.
+## <a name="fido2-security-keys"></a>FIDO2 säkerhets nycklar
 
-För en förhandsversion, anställda använda externa säkerhetsnycklar för att logga in på sina Azure Active Directory anslutna Windows 10-datorer (som kör version 1809 eller senare) och få enkel inloggning på sina molnresurser. De kan också logga in på webbläsare som stöds.
+FIDO2-säkerhetsnycklar är en unphishable standard-baserad autentiseringsmetod för lösen ords skydd som kan komma i vilken form som helst. Snabb identitet Online (FIDO) är en öppen standard för lösen ords mässig autentisering. Det gör att användare och organisationer kan använda standard för att logga in på sina resurser utan användar namn eller lösen ord med hjälp av en extern säkerhets nyckel eller en plattforms nyckel som är inbyggd i en enhet.
 
-Det finns många nycklar som är FIDO2 som certifierats av FIDO-Alliance, kräver Microsoft att vissa valfria tillägg i specifikationen FIDO2 CTAP implementeras av leverantören att säkerställa maximal säkerhet och den bästa upplevelsen.
+För en offentlig för hands version kan anställda använda externa säkerhets nycklar för att logga in på sina Azure Active Directory anslutna Windows 10-datorer (som kör version 1809 eller senare) och få enkel inloggning till deras moln resurser. De kan också logga in i webbläsare som stöds.
 
-En säkerhetsnyckel **måste** implementerar följande funktioner och tillägg från FIDO2 CTAP protokoll ska vara kompatibel med Microsoft:
+![Logga in på Microsoft Edge med en säkerhets nyckel](./media/concept-authentication-passwordless/concept-web-sign-in-security-key.png)
 
-| # | Funktionen / lita på tillägg | Varför krävs detta? |
+Även om det finns många nycklar som är FIDO2-certifierade av FIDO Alliance, kräver Microsoft några valfria tillägg till FIDO2 CTAP-specifikationen som ska implementeras av leverantören för att säkerställa maximal säkerhet och bästa möjliga upplevelse.
+
+En säkerhets nyckel **måste** implementera följande funktioner och tillägg från FIDO2 CTAP-protokollet som ska vara Microsoft-kompatibelt:
+
+| # | Funktion/tillägg-förtroende | Varför krävs den här funktionen eller tillägget? |
 | --- | --- | --- |
-| 1 | Fasta nyckel | Den här funktionen gör det möjligt för säkerhetsnyckel kan flyttas, där dina autentiseringsuppgifter lagras på säkerhetsnyckeln. |
-| 2 | Klienten PIN-kod | Den här funktionen kan du skydda dina autentiseringsuppgifter med en andra faktor och gäller för säkerhetsnycklar som inte har ett användargränssnitt. |
-| 3 | hmac-secret | Det här tillägget säkerställer att du kan logga in på din enhet när den är offline eller i Flygplansläge. |
-| 4 | Flera konton per RP | Den här funktionen ser till att du kan använda samma säkerhetsnyckeln för flera tjänster som Account och Azure Active Directory. |
+| 1 | Resident nyckel | Den här funktionen gör att säkerhets nyckeln kan vara portabel, där autentiseringsuppgifterna lagras på säkerhets nyckeln. |
+| 2 | Klientens PIN-kod | Med den här funktionen kan du skydda dina autentiseringsuppgifter med en andra faktor och gälla säkerhets nycklar som inte har något användar gränssnitt. |
+| 3 | HMAC-hemlighet | Det här tillägget garanterar att du kan logga in på enheten när den är offline eller i flyg Plans läge. |
+| 4 | Flera konton per RP | Den här funktionen garanterar att du kan använda samma säkerhets nyckel för flera tjänster som Microsoft-konto och Azure Active Directory. |
 
-Följande leverantörer tillhandahåller FIDO2 säkerhetsnycklar för olika formfaktorer som har visat sig vara kompatibel med paswordless-upplevelse. Microsoft uppmuntrar kunder säkerhetsegenskaperna för de här nycklarna genom att kontakta leverantören samt FIDO Alliance.
+Följande leverantörer ger FIDO2 säkerhets nycklar för olika form faktorer som är kända för att vara kompatibla med paswordless-upplevelsen. Microsoft uppmuntrar kunderna att utvärdera säkerhets egenskaperna för dessa nycklar genom att kontakta leverantören och FIDO Alliance.
 
 | Leverantör | Kontakta |
 | --- | --- |
@@ -61,22 +65,24 @@ Följande leverantörer tillhandahåller FIDO2 säkerhetsnycklar för olika form
 | Ensurity | [https://ensurity.com/contact-us.html](https://ensurity.com/contact-us.html) |
 | eWBM | [https://www.ewbm.com/page/sub1_5](https://www.ewbm.com/page/sub1_5) |
 
-Om du är en leverantör och vill få din enhet i listan kan du kontakta [ Fido2Request@Microsoft.com ](mailto:Fido2Request@Microsoft.com).
+Om du är en leverantör och vill få din enhet i den här listan kan du [Fido2Request@Microsoft.com](mailto:Fido2Request@Microsoft.com)kontakta.
 
-FIDO2 säkerhetsnycklar är ett bra alternativ för företag som är mycket säkerhet som är känsliga eller har scenarier eller medarbetare som inte är villig eller använda telefonen som en andra faktor.
+FIDO2-säkerhetsnycklar är ett bra alternativ för företag som är mycket känsliga eller har scenarier eller anställda som inte är villiga eller kan använda sin telefon som en andra faktor.
 
-## <a name="what-scenarios-work-with-the-preview"></a>Vilka scenarier som fungerar med förhandsversionen?
+## <a name="what-scenarios-work-with-the-preview"></a>Vilka scenarier fungerar med för hands versionen?
 
-1. Administratörer kan aktivera lösenordslös autentiseringsmetoder för klienten
-1. Administratörer kan fokusera på alla användare eller Välj användare/grupper i klientorganisationen för varje metod
-1. Slutanvändare kan registrera och hantera dessa lösenordslös autentiseringsmetoder i sina-kontoportalen
-1. Slutanvändarna kan logga in med dessa lösenordslös autentiseringsmetoder
-   1. Microsoft Authenticator-appen: Inklusive i alla webbläsare, kommer arbete i alla scenarier där Azure AD-autentisering används under Windows 10 ut (OOBE) installationen och med integreras mobilappar på alla operativsystem.
-   1. Säkerhetsnycklarna: Fungerar på låsskärmen för Windows 10 version 1809 eller senare och webb i webbläsare som stöds som Microsoft Edge.
+- Administratörer kan aktivera metoder för lösen ords kryptering för sina klienter
+- Administratörer kan rikta alla användare eller välja användare/grupper inom sin klient organisation för varje metod
+- Slutanvändare kan registrera och hantera dessa metoder för lösen ords kryptering i sin konto Portal
+- Slutanvändare kan logga in med dessa metoder för lösen ords kryptering
+   - Microsoft Authenticator app: Fungerar i scenarier där Azure AD-autentisering används, inklusive i alla webbläsare, under installationen av Windows 10 out-of-Box (OOBE) och med integrerade mobilappar på alla operativ system.
+   - Säkerhets nycklar: Fungerar på Lås skärmen för Windows 10 version 1809 eller senare och webben i webbläsare som stöds, t. ex. Microsoft Edge.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Aktivera lösenordslös alternativ i din organisation](howto-authentication-passwordless-enable.md)
+[Aktivera FIDO2 säkerhets nyckel passwordlesss alternativ i din organisation](howto-authentication-passwordless-security-key.md)
+
+[Aktivera telefonbaserade lösen ords alternativ i din organisation](howto-authentication-passwordless-phone.md)
 
 ### <a name="external-links"></a>Externa länkar
 

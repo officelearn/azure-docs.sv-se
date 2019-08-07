@@ -1,7 +1,7 @@
 ---
-title: Träna och registrera Keras modeller som körs på TensorFlow
+title: Träna djup inlärning neurala Network med keras
 titleSuffix: Azure Machine Learning service
-description: Den här artikeln visar hur du tränar och registrera en Keras-modell som körs på TensorFlow med hjälp av Azure Machine Learning-tjänsten.
+description: Lär dig att träna och registrera en keras djup neurala nätverks klassificerings modell som körs på TensorFlow med hjälp av Azure Machine Learning-tjänsten.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,47 +9,49 @@ ms.topic: conceptual
 ms.author: maxluk
 author: maxluk
 ms.reviewer: peterlu
-ms.date: 06/07/2019
+ms.date: 08/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9d405b454d755e0c848e9422c8d4cf6e7c505b68
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: bfe7f975539c76c1d369d111729820f4d0ada470
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67840053"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68775069"
 ---
-# <a name="train-and-register-keras-models-at-scale-with-azure-machine-learning-service"></a>Träna och registrera Keras modeller i hög skala med Azure Machine Learning-tjänsten
+# <a name="train-and-register-a-keras-classification-model-with-azure-machine-learning-service"></a>Träna och registrera en keras klassificerings modell med Azure Machine Learning tjänsten
 
-Den här artikeln visar hur du tränar och registrera en Keras-modell som bygger på TensorFlow med hjälp av Azure Machine Learning-tjänsten. Den använder de populära [MNIST datauppsättning](http://yann.lecun.com/exdb/mnist/) att klassificera handskriven siffror med hjälp av ett djupa neurala nätverk (DNN) som skapats med den [Keras Python-bibliotek](https://keras.io) som körs ovanpå [TensorFlow](https://www.tensorflow.org/overview) .
+Den här artikeln visar hur du tränar och registrerar en keras-klassificerings modell som bygger på TensorFlow med hjälp av Azure Machine Learning-tjänsten. Den använder den populära [MNIST](http://yann.lecun.com/exdb/mnist/) -datauppsättningen för att klassificera handskrivna siffror med ett djup neurala-nätverk (DNN) som skapats med det [keras python-biblioteket](https://keras.io) som körs ovanpå [TensorFlow](https://www.tensorflow.org/overview).
 
-Keras är ett övergripande neurala nätverk API kan köra upp i andra populära DNN-ramverk för att förenkla utvecklingen. Med Azure Machine Learning-tjänsten kan du snabbt skala ut utbildningsjobb med hjälp av elastisk molnberäkningsresurser. Du kan också spåra ditt träningskörningar, version modeller, distribuera modeller och mycket mer.
+Keras är en neurala nätverks-API på hög nivå som kan köra andra populära DNN-ramverk för att förenkla utvecklingen. Med Azure Machine Learning tjänsten kan du snabbt skala ut utbildnings jobb med elastiska moln beräknings resurser. Du kan också spåra dina utbildnings körningar, versions modeller, distribuera modeller och mycket mer.
 
-Om du utvecklar en modell för Keras från grunden eller du behöver en befintlig modell i molnet, Azure Machine Learning-tjänsten kan hjälpa dig att skapa modeller för produktionsklart.
+Oavsett om du utvecklar en keras-modell från grunden eller om du använder en befintlig modell i molnet kan Azure Machine Learning tjänsten hjälpa dig att skapa produktions klara modeller.
+
+I den [konceptuella artikeln](concept-deep-learning-vs-machine-learning.md) finns information om skillnaderna mellan maskin inlärning och djup inlärning.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Kör den här koden på något av dessa miljöer:
+Kör den här koden i någon av följande miljöer:
 
- - Azure Machine Learning Notebook VM - inga nedladdningar eller installeras
+ - Azure Machine Learning Notebook VM – inga hämtningar eller installationer behövs
 
-     - Slutför den [molnbaserade notebook Snabbstart](quickstart-run-cloud-notebook.md) att skapa en dedikerad anteckningsboksserver förinstallerade med SDK: N och exempellagringsplatsen.
-    - I mappen samples på notebook-server kan du hitta en slutförd och utökade anteckningsbok genom att navigera till den här katalogen: **How-to-till-användning – azureml > utbildning med deep learning > train-hyperparameter-tune-deploy-with-keras** mappen. 
- 
- - En egen Jupyter Notebook-server
+     - Slutför [Självstudie: Konfigurera miljö och arbets](tutorial-1st-experiment-sdk-setup.md) yta för att skapa en dedikerad Notebook-server som är förinstallerad med SDK och exempel lagrings plats.
+    - I mappen Samples på Notebook-servern letar du reda på en slutförd och utökad antecknings bok genom att gå till den här katalogen: **How-to-use-azureml > utbildning-with-djupgående-learning > träna-keras parameter-Tune-Deploy-with-** Folder.
 
-     - [Installera Azure Machine Learning SDK för Python](setup-create-workspace.md#sdk)
-    - [Skapa en konfigurationsfil för arbetsyta](setup-create-workspace.md#write-a-configuration-file)
-    - [Ladda ned skriptet exempelfilerna](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras) `mnist-keras.py` och `utils.py`
-     
-    Du kan också hitta en slutförd [Jupyter Notebook version](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb) i den här guiden på sidan med kodexempel på GitHub. Den bärbara datorn innehåller utökade avsnitt som täcker intelligent finjustering av hyperparametrar, distribution av modeller och notebook widgetar.
+ - Din egen Jupyter Notebook Server
+
+     - [Installera Azure Machine Learning SDK för python](setup-create-workspace.md#sdk)
+    - [Skapa en konfigurations fil för arbets ytor](setup-create-workspace.md#write-a-configuration-file)
+    - [Hämta exempel skript filen](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras) `mnist-keras.py` och`utils.py`
+
+    Du kan också hitta en slutförd [Jupyter Notebook version](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb) av den här guiden på sidan med GitHub-exempel. Antecknings boken innehåller utökade avsnitt som täcker intelligenta parametrar, modell distribution och Notebook-widgetar.
 
 ## <a name="set-up-the-experiment"></a>Konfigurera experimentet
 
-Det här avsnittet konfigurerar träningsexperimentet av inläsning av nödvändiga python-paket, initierar en arbetsyta, skapa ett experiment och laddar upp den utbildningsinformationen och skripten för utbildning.
+I det här avsnittet anges övnings experimentet genom att läsa in de nödvändiga python-paketen, initiera en arbets yta, skapa ett experiment och ladda upp utbildnings data och utbildnings skript.
 
 ### <a name="import-packages"></a>Importera paket
 
-Först importera de nödvändiga Python-biblioteken.
+Importera först de nödvändiga python-biblioteken.
 
 ```Python
 import os
@@ -64,11 +66,11 @@ from azureml.core.compute import ComputeTarget, AmlCompute
 from azureml.core.compute_target import ComputeTargetException
 ```
 
-### <a name="initialize-a-workspace"></a>Initiera en arbetsyta
+### <a name="initialize-a-workspace"></a>Initiera en arbets yta
 
-Den [Azure Machine Learning-tjänstens arbetsyta](concept-workspace.md) är den översta resursen för tjänsten. Den ger dig en centraliserad plats för att arbeta med alla artefakter som du skapar. I Python-SDK kan du komma åt arbetsytan artefakter genom att skapa en [ `workspace` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) objekt.
+Den [Azure Machine Learning service-arbetsytan](concept-workspace.md) är resursen på den översta nivån för tjänsten. Det ger dig en central plats för att arbeta med alla artefakter som du skapar. I python SDK har du åtkomst till arbets ytans artefakter genom att skapa [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) ett objekt.
 
-Skapa en arbetsyta objekt från den `config.json` fil som skapats i den [krav](#prerequisites).
+Skapa ett objekt för arbets ytan `config.json` från filen som skapats i [avsnittet krav](#prerequisites).
 
 ```Python
 ws = Workspace.from_config()
@@ -76,7 +78,7 @@ ws = Workspace.from_config()
 
 ### <a name="create-an-experiment"></a>Skapa ett experiment
 
-Skapa ett experiment och en mapp för att lagra dina utbildningsskript. I det här exemplet skapar du ett experiment som kallas ”keras-mnist”.
+Skapa ett experiment och en mapp för att lagra dina utbildnings skript. I det här exemplet skapar du ett experiment med namnet "keras-mnist".
 
 ```Python
 script_folder = './keras-mnist'
@@ -85,11 +87,11 @@ os.makedirs(script_folder, exist_ok=True)
 exp = Experiment(workspace=ws, name='keras-mnist')
 ```
 
-### <a name="upload-dataset-and-scripts"></a>Ladda upp datauppsättningen och skript
+### <a name="upload-dataset-and-scripts"></a>Ladda upp data uppsättning och skript
 
-Den [datalager](how-to-access-data.md) är en plats där data kan lagras och nås genom att montera eller kopiera data till beräkningsmål-. Varje arbetsyta innehåller ett standard-datalager. Ladda upp data och utbildningsskript till databasen så att de enkelt kan nås vid träning.
+Data [lagret](how-to-access-data.md) är en plats där data kan lagras och nås genom att montera eller kopiera data till beräknings målet. Varje arbets yta tillhandahåller ett standard data lager. Överför data och utbildnings skript till data lagret så att de enkelt kan nås under utbildningen.
 
-1. Hämta MNIST datauppsättningen lokalt.
+1. Ladda ned MNIST-datauppsättningen lokalt.
 
     ```Python
     os.makedirs('./data/mnist', exist_ok=True)
@@ -100,14 +102,14 @@ Den [datalager](how-to-access-data.md) är en plats där data kan lagras och nå
     urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz', filename = './data/mnist/test-labels.gz')
     ```
 
-1. Ladda upp MNIST datauppsättningen till standard-databasen.
+1. Överför MNIST-datauppsättningen till standard data lagret.
 
     ```Python
     ds = ws.get_default_datastore()
     ds.upload(src_dir='./data/mnist', target_path='mnist', overwrite=True, show_progress=True)
     ```
 
-1. Ladda upp inlärningsskript Keras `keras_mnist.py`, och filen helper `utils.py`.
+1. Ladda upp utbildnings skriptet `keras_mnist.py`keras, och hjälp `utils.py`filen.
 
     ```Python
     shutil.copy('./keras_mnist.py', script_folder)
@@ -116,7 +118,7 @@ Den [datalager](how-to-access-data.md) är en plats där data kan lagras och nå
 
 ## <a name="create-a-compute-target"></a>Skapa ett beräkningsmål
 
-Skapa ett beräkningsmål för TensorFlow jobbet ska köras på. I det här exemplet skapar du ett GPU-aktiverade Azure Machine Learning-beräkningskluster.
+Skapa ett beräknings mål för ditt TensorFlow-jobb som ska köras. I det här exemplet skapar du ett GPU-aktiverat Azure Machine Learning beräknings kluster.
 
 ```Python
 cluster_name = "gpucluster"
@@ -126,7 +128,7 @@ try:
     print('Found existing compute target')
 except ComputeTargetException:
     print('Creating a new compute target...')
-    compute_config = AmlCompute.provisioning_configuration(vm_size='STANDARD_NC6', 
+    compute_config = AmlCompute.provisioning_configuration(vm_size='STANDARD_NC6',
                                                            max_nodes=4)
 
     compute_target = ComputeTarget.create(ws, cluster_name, compute_config)
@@ -134,13 +136,13 @@ except ComputeTargetException:
     compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
 ```
 
-Mer information om beräkningsmål finns i den [vad är ett beräkningsmål](concept-compute-target.md) artikeln.
+Mer information om beräknings mål finns i artikeln [Vad är en Compute Target](concept-compute-target.md) -artikel.
 
-## <a name="create-a-tensorflow-estimator-and-import-keras"></a>Skapa en kostnadsuppskattning TensorFlow och importera Keras
+## <a name="create-a-tensorflow-estimator-and-import-keras"></a>Skapa en TensorFlow-uppskattning och importera keras
 
-Den [TensorFlow kostnadsuppskattning](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) ger ett enkelt sätt att starta jobb för TensorFlow-utbildning på beräkningsmål. Eftersom Keras körs ovanpå TensorFlow, du kan använda TensorFlow-kostnadsuppskattning och importera den Keras bibliotek med hjälp av den `pip_packages` argumentet.
+[TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) -uppskattningen ger ett enkelt sätt att starta TensorFlow utbildnings jobb på beräknings mål. Eftersom keras körs ovanpå TensorFlow kan du använda TensorFlow-uppskattningen och importera keras-biblioteket med `pip_packages` argumentet.
 
-TensorFlow-kostnadsuppskattning implementeras via ett allmänt [ `estimator` ](https://docs.microsoft.com//python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) klass, som kan användas för att stödja valfritt ramverk. Läs mer om träna modeller med hjälp av generiska kostnadsuppskattning [träna modeller med Azure Machine Learning med hjälp av kostnadsuppskattning](how-to-train-ml-models.md)
+TensorFlow-uppskattningen implementeras via den generiska [`estimator`](https://docs.microsoft.com//python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) klassen, som kan användas för att stödja eventuella ramverk. Skapa dessutom en ord lista `script_params` som innehåller inställningarna för DNN. Mer information om tränings modeller med hjälp av den generiska uppskattningen finns i [träna modeller med Azure Machine Learning med hjälp av uppskattning](how-to-train-ml-models.md)
 
 ```Python
 script_params = {
@@ -159,34 +161,34 @@ est = TensorFlow(source_directory=script_folder,
                  use_gpu=True)
 ```
 
-## <a name="submit-a-run"></a>Skicka en körning
+## <a name="submit-a-run"></a>Skicka in en körning
 
-Den [köra objekt](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py) tillhandahåller gränssnitt för körningshistoriken medan jobbet körs och när den är slutförd.
+[Kör-objektet](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py) tillhandahåller gränssnittet till körnings historiken medan jobbet körs och när det har slutförts.
 
 ```Python
 run = exp.submit(est)
 run.wait_for_completion(show_output=True)
 ```
 
-Eftersom körningen körs passerar i följande steg:
+När körningen körs går den igenom följande steg:
 
-- **Förbereda**: En docker-avbildning skapas enligt TensorFlow-kostnadsuppskattning. Avbildningen överförs till den arbetsytan container registry och cachelagras för senare körningar. Loggarna strömmas också till körningshistoriken och kan visas för att övervaka förloppet.
+- **Förbereder**: En Docker-avbildning skapas enligt TensorFlow-uppskattningen. Avbildningen överförs till arbets ytans behållar register och cachelagras för senare körningar. Loggarna strömmas också till körnings historiken och kan visas för att övervaka förloppet.
 
-- **Skalning**: Klustret försöker att skala upp om Batch AI-kluster kräver fler noder att köra körningen än vad som är tillgängliga.
+- **Skalning**: Klustret försöker skala upp om Batch AI klustret kräver fler noder för att köra körningen än vad som är tillgängligt.
 
-- **Körning**: Alla skript i mappen skript överförs till beräkningsmål datalager monterad eller kopieras och entry_script körs. Utdata från stdout och. / loggkatalogen strömmas till körningshistoriken och kan användas för att övervaka körningen.
+- **Körning**: Alla skript i mappen skript överförs till Compute-målet, data lager monteras eller kopieras och entry_script körs. Utdata från STDOUT och./logs-mappen strömmas till körnings historiken och kan användas för att övervaka körningen.
 
-- **Efterbearbetning**: Det. / matar ut mappen för körningen kopieras till körningshistoriken.
+- **Efterbearbetning**: Mappen./outputs för körningen kopieras till körnings historiken.
 
 ## <a name="register-the-model"></a>Registrera modellen
 
-När du har tränat modellen, kan du registrera den till din arbetsyta. Modellen kan du lagra och version dina modeller i din arbetsyta för att förenkla [modellera hantering och distribution](concept-model-management-and-deployment.md).
+När du har tränat DNN-modellen kan du registrera den på din arbets yta. Med modell registreringen kan du lagra och version av dina modeller i din arbets yta för att förenkla [modell hantering och distribution](concept-model-management-and-deployment.md).
 
 ```Python
 model = run.register_model(model_name='keras-dnn-mnist', model_path='outputs/model')
 ```
 
-Du kan också hämta en lokal kopia av modellen. Detta kan vara användbart för att göra ytterligare verifiering lokalt arbete. I skriptet utbildning `mnist-keras.py`, ett TensorFlow skärmsläckare objekt kvarstår modellen till en lokal mapp (lokal till beräkningsmål-). Du kan använda objektet kör för att ladda ned en kopia från datalagret.
+Du kan också hämta en lokal kopia av modellen. Detta kan vara användbart för att göra ytterligare modell validerings arbete lokalt. I övnings skriptet `mnist-keras.py`sparar ett TensorFlow-sparfunktionen modellen till en lokal mapp (lokal till beräknings målet). Du kan använda kör-objektet för att ladda ned en kopia från data lagret.
 
 ```Python
 # Create a model folder in the current directory
@@ -201,7 +203,7 @@ for f in run.get_file_names():
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln får du tränas och registrerat en Keras-modell i Azure Machine Learning-tjänsten. Lär dig hur du distribuerar en modell, Fortsätt till vår artikel för distribution av modellen.
+I den här artikeln har du tränat och registrerat en keras-modell på Azure Machine Learning-tjänsten. Om du vill lära dig hur du distribuerar en modell fortsätter du till vår modell distributions artikel.
 
 > [!div class="nextstepaction"]
-> [Hur och var du vill distribuera modeller](how-to-deploy-and-where.md)
+> [Hur och var modeller ska distribueras](how-to-deploy-and-where.md)

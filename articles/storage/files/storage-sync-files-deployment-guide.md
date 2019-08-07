@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 7b9c9a7639ed7a9938052197758e5796fb9fc879
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 6fe08c15de7ea388a5194054791eb394dc2f6e01
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699422"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840597"
 ---
 # <a name="deploy-azure-file-sync"></a>Distribuera Azure File Sync
 Använd Azure File Sync för att centralisera organisationens fil resurser i Azure Files, samtidigt som du behåller flexibilitet, prestanda och kompatibilitet för en lokal fil server. Azure File Sync transformerar Windows Server till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -237,7 +237,7 @@ $registeredServer = Register-AzStorageSyncServer -ParentObject $storageSync
 ---
 
 ## <a name="create-a-sync-group-and-a-cloud-endpoint"></a>Skapa en synkroniseringsgrupp och en molnslutpunkt
-En synkroniseringsgrupp definierar synkroniseringstopologin för en uppsättning filer. Slutpunkter i en synkroniseringsgrupp synkroniseras med varandra. En synkroniseringsgrupp måste innehålla en molnslutpunkt, som representerar en Azure-filresurs och en eller flera serverslutpunkter. En server slut punkt representerar en sökväg på den registrerade servern. En server kan ha Server slut punkter i flera Sync-grupper. Du kan skapa så många Sync-grupper som du behöver för att beskriva önskad frågetopologi.
+En synkroniseringsgrupp definierar synkroniseringstopologin för en uppsättning filer. Slutpunkter i en synkroniseringsgrupp synkroniseras med varandra. En synkroniseringsgrupp måste innehålla en molnslutpunkt, som representerar en Azure-filresurs och en eller flera serverslutpunkter. En server slut punkt representerar en sökväg på en registrerad Server. En server kan ha Server slut punkter i flera Sync-grupper. Du kan skapa så många Sync-grupper som du behöver för att beskriva önskad frågetopologi.
 
 En moln slut punkt är en pekare till en Azure-filresurs. Alla Server slut punkter synkroniseras med en moln slut punkt, vilket gör moln slut punkten till hubben. Lagrings kontot för Azure-filresursen måste finnas i samma region som tjänsten för synkronisering av lagring. Hela Azure-filresursen kommer att synkroniseras, med ett undantag: En särskild mapp, som är jämförbar med den dolda mappen "System Volume Information" på en NTFS-volym, kommer att tillhandahållas. Den här katalogen kallas ". SystemShareInformation". Den innehåller viktiga metadata för synkronisering som inte kommer att synkroniseras med andra slut punkter. Använd inte eller ta inte bort!
 
@@ -381,7 +381,7 @@ De rekommenderade stegen för att integrera Azure File Sync för det första med
 6. När den första överföringen är klar installerar du Azure File Sync agent på var och en av de återstående servrarna.
 7. Skapa nya fil resurser på var och en av de återstående servrarna.
 8. Skapa server slut punkter på nya fil resurser med princip för moln skikt, om det behövs. (Det här steget kräver att ytterligare lagrings utrymme är tillgängligt för den första installationen.)
-9. Låt Azure File Sync agent göra en snabb återställning av hela namn området utan den faktiska data överföringen. När den fullständiga namn rymden synkroniseras fyller Synkroniseringsmotorn det lokala disk utrymmet baserat på moln nivå principen för Server slut punkten. 
+9. Låt Azure File Sync-agenten göra en snabb återställning av hela namn området utan den faktiska data överföringen. När den fullständiga namn rymden synkroniseras fyller Synkroniseringsmotorn det lokala disk utrymmet baserat på moln nivå principen för Server slut punkten. 
 10. Se till att synkroniseringen är klar och testa din topologi som önskad. 
 11. Omdirigera användare och program till den här nya resursen.
 12. Du kan också ta bort alla duplicerade resurser på servrarna.

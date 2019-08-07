@@ -10,18 +10,75 @@ ms.author: jmartens
 author: j-martens
 ms.date: 07/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: ade107f51fabb133e8e4046bf645f4dff284102b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: ec913133ef97a632b12db2859bd4ac32df70a1c5
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565116"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828614"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Viktig information för Azure Machine Learning-tjänsten
 
 I den här artikeln lär du dig om Azure Machine Learning-tjänstversioner.  Information om fullständiga SDK-referenser finns på Azure Machine Learning huvud sidan [**för SDK för python**](https://aka.ms/aml-sdk) -referens.
 
 Se [lista över kända problem](resource-known-issues.md) att lära dig om kända fel och lösningar.
+
+## <a name="2019-08-05"></a>2019-08-05
+
+### <a name="azure-machine-learning-sdk-for-python-v1055"></a>Azure Machine Learning SDK för python v-1.0.55
+
++ **Nya funktioner**
+  + Token-baserad autentisering stöds nu för anrop som görs till poängsättnings slut punkten som distribueras på AKS. Vi kommer att fortsätta att stödja den aktuella nyckelbaserade autentiseringen och användarna kan använda någon av dessa autentiseringsmekanismer i taget.
+  + Möjlighet att registrera en blob-lagring som ligger bakom det virtuella nätverket (VNet) som ett data lager.
+  
++ **Fel korrigeringar och förbättringar**
+  + **azureml-automl-Core**
+    + Åtgärdar ett fel där verifierings storleken för ka-delningar är liten och resulterar i dåliga förutsägande eller sanna diagram för regression och Prognosticering.
+    + Loggningen av prognos uppgifter på fjärrdatorn körs bättre, och nu tillhandahålls användaren med ett omfattande fel meddelande om körningen misslyckades.
+    + Åtgärdat avbrott i timeseries om preprocess-flaggan är true.
+    + Det gick inte att utföra några validerings fel meddelanden i prognos data mer åtgärds bara.
+    + Minskad minnes förbrukning av AutoML körs genom att släppa och/eller Lazy inläsning av data uppsättningar, särskilt i mellan processens upphämtningar
+  + **azureml-contrib-förklara-modell**
+    + Flaggan model_task har lagts till för förklaringar som gör att användaren kan åsidosätta standard logiken för automatisk härledning för modell typ
+    + Ändringar i widgeten: Installeras automatiskt med contrib, ingen mer nbextension install/enable-support-förklaring med bara global funktions betydelse (tex Permutative)
+    + Instrument panels ändringar:-ruta ritas och violin ritas i stället för beeswarm-observation på sammanfattnings sidan – mycket snabbare åter givning av beeswarm-observationer på "Top-k"-skjutreglaget – användbart meddelande som förklarar hur översta-k är beräknade – användbara anpassningsbara meddelanden i stället för diagram när data har inte angetts
+  + **azureml-core**
+    + Metoden Model. Package () har lagts till för att skapa Docker-avbildningar och Dockerfiles som kapslar in modeller och deras beroenden.
+    + Uppdaterade lokala webbtjänster för att acceptera InferenceConfigs som innehåller miljö objekt.
+    + Fast Model. register () genererar ogiltiga modeller när "." (för den aktuella katalogen) skickas som parametern model_path.
+    + Lägg till Run. submit_child, funktionen speglar experimentet. submit när du anger Kör som överordnad för den skickade underordnade körningen.
+    + Stöd för konfigurations alternativ från Model. register i Run. register_model.
+    + Möjlighet att köra JAR-jobb på ett befintligt kluster.
+    + Stöder nu instance_pool_id-och cluster_log_dbfs_path-parametrar.
+    + Stöd har lagts till för användning av ett miljö objekt när en modell distribueras till en WebService. Environment-objektet kan nu anges som en del av InferenceConfig-objektet.
+    + Lägg till appinsifht-mappning för nya regioner – västra-väst-usanorracentrala
+    + Lade till dokumentation för alla attribut i alla data lager klasser.
+    + Parametern blob_cache_timeout har lagts `Datastore.register_azure_blob_container`till i.
+    + Save_to_directory-och load_from_directory-metoder har lagts till i azureml. Core. Environment. Environment.
+    + Har lagt till kommandona "AZ ml miljö hämtning" och "AZ ml-miljö registrera" i CLI.
+    + Miljön har lagts till. Lägg till _private_pip_wheel-metod.
+  + **azureml-explain-model**
+    + Data uppsättnings spårning har lagts till i förklaringar med data uppsättnings tjänsten (för hands version).
+    + Minskad standard grupp storlek vid strömning av globala förklaringar från 10 000 till 100.
+    + Flaggan model_task har lagts till för förklaringar som gör att användaren kan åsidosätta standard logiken för automatisk härledning för modell typ.
+  + **azureml-mlflow**
+    + Åtgärdat fel i mlflow. azureml. build_image där kapslade kataloger ignoreras.
+  + **azureml-pipeline-steps**
+    + Möjlighet att köra JAR-jobb på befintliga Azure Databricks-kluster har lagts till.
+    + Stöd för instance_pool_id och cluster_log_dbfs_path-parametrar har lagts till för steget DatabricksStep.
+    + Stöd har lagts till för pipeline-parametrar i DatabricksStep-steget.
+  + **azureml-train-automl**
+    + Lade till docstrings för de Ensemble-relaterade filerna.
+    + Uppdaterade dokument till ett mer lämpligt språk `max_cores_per_iteration` för och`max_concurrent_iterations`
+    + Loggningen av prognos uppgifter på fjärrdatorn körs bättre, och nu tillhandahålls användaren med ett omfattande fel meddelande om körningen misslyckades.
+    + Tog bort get_data från pipeline automlstep Notebook.
+    + Startade support nu i automlstep.
+
+### <a name="azure-machine-learning-data-prep-sdk-v1110"></a>Azure Machine Learning data prep SDK v 1.1.10
+
++ **Nya funktioner**
+  + Du kan nu begära att köra vissa kontroller (t. ex. histogram, punkt diagram osv.) på vissa kolumner.
+  + Ett parallellisera-argument har `append_columns`lagts till i. Om värdet är true kommer data att läsas in i minnet, men körningen körs parallellt. om det här värdet är False kommer körningen att strömmas, men en enkel tråd.
 
 ## <a name="2019-07-23"></a>2019-07-23
 
@@ -244,7 +301,7 @@ Vi har återställt en ändring som förbättrade prestanda, eftersom det orsaka
 ### <a name="azure-machine-learning-sdk-for-python-v1043"></a>Azure Machine Learning SDK för python v-1.0.43
 
 + **Nya funktioner**
-  + Azure Machine Learning erbjuder nu förstklassig support för populära Machine Learning-och Data Analysis Framework-Scikit – lär dig. Med [ `SKLearn` hjälp](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py)av uppskattare kan användare enkelt träna och distribuera Scikit – lära sig modeller.
+  + Azure Machine Learning erbjuder nu förstklassig support för populära Machine Learning-och Data Analysis Framework-Scikit – lär dig. Med [ `SKLearn` ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py)hjälp av uppskattare kan användare enkelt träna och distribuera Scikit – lära sig modeller.
     + Lär dig hur du [kör en inställning för Scikit med hjälp av HyperDrive](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-hyperparameter-tune-deploy-with-sklearn/train-hyperparameter-tune-deploy-with-sklearn.ipynb).
   + Stöd har lagts till för att skapa ModuleStep i pipelines tillsammans med modul-och ModuleVersion-klasser för att hantera återanvändbara beräknings enheter.
   + ACI-webbtjänster stöder nu permanent scoring_uri via uppdateringar. Scoring_uri kommer att ändras från IP till fullständigt domän namn. DNS-namnets etikett för FQDN kan konfigureras genom att ange dns_name_label på deploy_configuration. 
@@ -352,7 +409,7 @@ I Azure Portal kan du nu:
 ### <a name="notebook-virtual-machine"></a>Virtuell dator för Notebook 
 
 Använd en Notebook VM som en säker, företags färdig värd miljö för Jupyter-anteckningsböcker där du kan köra maskin inlärnings experiment, distribuera modeller som webb slut punkter och utföra alla andra åtgärder som stöds av Azure Machine Learning SDK med python. Det ger flera funktioner:
-+ [Skapa snabbt en förkonfigurerad virtuell](quickstart-run-cloud-notebook.md) dator med den senaste versionen av Azure Machine Learning SDK och relaterade paket.
++ [Skapa snabbt en förkonfigurerad virtuell](tutorial-1st-experiment-sdk-setup.md) dator med den senaste versionen av Azure Machine Learning SDK och relaterade paket.
 + Åtkomst skyddas via beprövad teknik, till exempel HTTPS, Azure Active Directory autentisering och auktorisering.
 + Tillförlitlig moln lagring med antecknings böcker och kod i ditt Azure Machine Learning-arbetsyta Blob Storage-konto. Du kan på ett säkert sätt ta bort den virtuella Notebook-datorn utan att förlora ditt arbete.
 + Förinstallerade exempel antecknings böcker för att utforska och experimentera med Azure Machine Learning service-funktioner.

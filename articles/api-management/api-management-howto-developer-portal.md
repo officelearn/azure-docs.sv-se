@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2019
 ms.author: apimpm
-ms.openlocfilehash: d902a65c4e36ff698e486e2af899d055de1afca0
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 2756444db010e23f7114e99f474de9ce6614aaee
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638550"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68837922"
 ---
 # <a name="access-and-customize-the-new-developer-portal-in-azure-api-management"></a>Få åtkomst till och anpassa den nya Developer-portalen i Azure API Management
 
@@ -77,6 +77,10 @@ Ja, det är inaktuellt när den nya är allmänt tillgänglig. Om du har problem
 Målet för allmän tillgänglighet är att tillhandahålla en scenario-baserad funktions paritet med den gamla portalen. Fram till dess kan för hands versions versionen inte ha de valda funktionerna implementerade.
 
 Undantag är *program* och *problem* från den gamla portalen, som inte är tillgängliga i den nya portalen. Om du använder *problem* i den gamla portalen och behöver dem i den nya, så publicera en kommentar i [ett dedikerat GitHub-problem](https://github.com/Azure/api-management-developer-portal/issues/122).
+
+### <a name="ive-found-bugs-andor-id-like-to-request-a-feature"></a>Jag har hittat buggar och/eller jag vill begära en funktion.
+
+Bra! Du kan ge oss feedback, skicka in en funktions förfrågan eller en fel rapport via [GitHub-databasens problem](https://github.com/Azure/api-management-developer-portal/issues). Även om du är där kommer vi också att uppskatta din feedback om problemen som har marker `community` ATS med etiketten.
 
 ### <a name="i-want-to-move-the-content-of-the-new-portal-between-environments-how-can-i-do-that-and-do-i-need-to-go-with-the-self-hosted-version"></a>Jag vill flytta innehållet i den nya portalen mellan miljöer. Hur kan jag göra det och jag måste använda den själv värdbaserade versionen?
 

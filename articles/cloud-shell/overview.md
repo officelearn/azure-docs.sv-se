@@ -1,9 +1,9 @@
 ---
 title: Översikt över Azure Cloud Shell | Microsoft Docs
-description: Översikt över Azure Cloudshell.
+description: Översikt över Azure Cloud Shell.
 services: ''
 documentationcenter: ''
-author: jluk
+author: maertendMSFT
 manager: timlt
 tags: azure-resource-manager
 ms.assetid: ''
@@ -14,83 +14,81 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2018
 ms.author: damaerte
-ms.openlocfilehash: 5608b3e0f9b98db62d22245de5a864f757f48799
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f3d7edf21edf116732eceb332cb8725a0dee85dc
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60199691"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742021"
 ---
-# <a name="overview-of-azure-cloud-shell"></a>Översikt över Azure Cloudshell
-Azure Cloud Shell är en interaktiv, tillgängligt via webbläsaren gränssnitt för att hantera Azure-resurser.
-Det ger dig flexibilitet att välja den skalupplevelse som passar bäst för ditt sätt att arbeta.
+# <a name="overview-of-azure-cloud-shell"></a>Översikt över Azure Cloud Shell
+Azure Cloud Shell är ett interaktivt, webb läsar gränssnitt som är tillgängligt för hantering av Azure-resurser.
+Det ger dig möjlighet att välja den skal upplevelse som passar bäst för ditt sätt att arbeta.
 Linux-användare kan välja Bash och Windows-användare kan välja PowerShell.
 
-Testa från shell.azure.com genom att klicka nedan.
+Försök från shell.azure.com genom att klicka nedan.
 
-[![Bädda in Start](https://shell.azure.com/images/launchcloudshell.png "starta Azure Cloud Shell")](https://shell.azure.com)
+[![Bädda in start](https://shell.azure.com/images/launchcloudshell.png "Starta Azure Cloud Shell")](https://shell.azure.com)
 
-Försök från Azure-portalen med hjälp av Cloud Shell-ikonen.
+Försök från Azure Portal att använda Cloud Shell-ikonen.
 
-![Portalen Start](media/overview/portal-launch-icon.png)
+![Portal lansering](media/overview/portal-launch-icon.png)
 
 ## <a name="features"></a>Funktioner
 
-### <a name="browser-based-shell-experience"></a>Webbläsarbaserad skalupplevelse
-Cloudshell kan åtkomst till en webbläsarbaserad kommandoradsmiljö som skapats med Azure-hanteringsuppgifter i åtanke.
-Utnyttja molnet gränssnittet för att arbeta gå fritt från en lokal dator på ett sätt endast molnet kan ge.
+### <a name="browser-based-shell-experience"></a>Webbläsarbaserad skal upplevelse
+Cloud Shell ger åtkomst till en webbläsarbaserad kommando rads upplevelse som skapats med Azures hanterings uppgifter i åtanke.
+Använd Cloud Shell för att arbeta lokalt från en lokal dator på ett sätt som bara molnet kan tillhandahålla.
 
-### <a name="choice-of-preferred-shell-experience"></a>Val av önskad skalupplevelse
-Användare kan välja mellan Bash eller PowerShell i listrutan shell.
+### <a name="choice-of-preferred-shell-experience"></a>Val av önskad Shell-upplevelse
+Användarna kan välja mellan bash eller PowerShell från List rutan Shell.
 
-![Bash i Cloudshell](media/overview/overview-bash-pic.png)
+![Bash i Cloud Shell](media/overview/overview-bash-pic.png)
 
 ![PowerShell i Cloud Shell](media/overview/overview-ps-pic.png)
 
-### <a name="authenticated-and-configured-azure-workstation"></a>Autentiserade och konfigurerade Azure arbetsstation
-Cloudshell hanteras av Microsoft, så det levereras med populära kommandoradsverktyg och språk som stöds. Cloudshell är också på ett säkert sätt autentiserar automatiskt för omedelbar åtkomst till dina resurser via Azure CLI eller Azure PowerShell-cmdletar.
+### <a name="authenticated-and-configured-azure-workstation"></a>Autentiserad och konfigurerad Azure-arbetsstation
+Cloud Shell hanteras av Microsoft så att det levereras med populära kommando rads verktyg och språk stöd. Cloud Shell autentiseras också automatiskt för omedelbar åtkomst till dina resurser via Azure CLI-eller Azure PowerShell-cmdletar.
 
-Visa hela [lista över verktyg som installerats i Cloud Shell.](features.md#tools)
+Visa en fullständig [lista över verktyg som är installerade i Cloud Shell.](features.md#tools)
 
-### <a name="integrated-cloud-shell-editor"></a>Integrerad Cloud Shell-redigeraren
-Cloudshell tillhandahåller en integrerad grafiska textredigerare baserat på öppen källkod Monaco redigeraren. Helt enkelt skapa och redigera konfigurationsfiler genom att köra `code .` för sömlös distribution via Azure CLI eller Azure PowerShell.
+### <a name="integrated-cloud-shell-editor"></a>Integrerad Cloud Shell redigerare
+Cloud Shell erbjuder en integrerad grafisk text redigerare som baseras på redigeraren för öppen källkod i Monaco. Skapa och redigera bara konfigurationsfiler genom att köra `code .` för sömlös distribution via Azure CLI eller Azure PowerShell.
 
-[Läs mer om Cloud Shell-redigeraren](using-cloud-shell-editor.md).
+[Läs mer om Cloud Shell redigeraren](using-cloud-shell-editor.md).
 
-### <a name="integrated-with-docsmicrosoftcom"></a>Integrerad med docs.microsoft.com
+### <a name="integrated-with-docsmicrosoftcom"></a>Integrerat med docs.microsoft.com
 
-Du kan använda Cloud Shell direkt från dokumentation som finns på [docs.microsoft.com](https://docs.microsoft.com). Det är integrerat i [Microsoft Learn](https://docs.microsoft.com/learn/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) och [Azure CLI-dokumentationen](https://docs.microsoft.com/cli/azure) -Klicka på knappen ”prova” i ett kodfragment för att öppna uppslukande-gränssnittet upplevelse. 
+Du kan använda Cloud Shell direkt från dokumentationen som finns på [docs.Microsoft.com](https://docs.microsoft.com). Den är integrerad i [Microsoft Learn](https://docs.microsoft.com/learn/), [Azure POWERSHELL](https://docs.microsoft.com/powershell/azure/overview) och [Azure CLI-dokumentation](https://docs.microsoft.com/cli/azure) – Klicka på knappen "testa" i ett kodfragment för att öppna den fördjupade Shell-upplevelsen. 
 
-### <a name="multiple-access-points"></a>Flera anslutningsplatser
-Cloudshell är ett flexibelt verktyg som kan användas från:
+### <a name="multiple-access-points"></a>Flera åtkomst punkter
+Cloud Shell är ett flexibelt verktyg som kan användas från:
 * [portal.azure.com](https://portal.azure.com)
 * [shell.azure.com](https://shell.azure.com)
 * [Azure CLI-dokumentation](https://docs.microsoft.com/cli/azure)
-* [Dokumentation om Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
-* [Azure-mobilappen](https://azure.microsoft.com/features/azure-portal/mobile-app/)
-* [Visual Studio Code Azure-kontotillägg](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
+* [Azure PowerShell dokumentation](https://docs.microsoft.com/powershell/azure/overview)
+* [Azure-mobilapp](https://azure.microsoft.com/features/azure-portal/mobile-app/)
+* [Tillägg för Visual Studio Code Azure-konto](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 
-### <a name="connect-your-microsoft-azure-files-storage"></a>Ansluta din Microsoft Azure Files-lagring
-Cloud Shell datorer är tillfälliga och kräver en ny eller befintlig Azure Files-resurs som ska monteras som `clouddrive` för bevarande av filer.
+### <a name="connect-your-microsoft-azure-files-storage"></a>Anslut lagringen för Microsoft Azure filer
+Cloud Shell datorer är tillfälliga, men dina filer sparas på två sätt: via en disk avbildning och via en monterad fil resurs med namnet `clouddrive`.  Vid den första starten skapar Cloud Shell en resurs grupp, ett lagrings konto och en Azure Files resurs för din räkning. Det här är ett engångs steg och kommer automatiskt att bifogas för alla sessioner. En enda fil resurs kan mappas och kommer att användas av både bash och PowerShell i Cloud Shell.
 
-Vid första start Cloud Shell uppmanas du för att skapa en resurs dela gruppen, storage-konto och Azure Files för din räkning. Detta är ett enstaka steg och bifogas automatiskt för alla sessioner. En enda filresurs kan mappas och används av både Bash och PowerShell i Cloud Shell.
-
-Läs mer om du vill veta hur du monterar en [nytt eller befintligt lagringskonto](persisting-shell-storage.md).
+Läs mer om hur du monterar ett [nytt eller befintligt lagrings konto](persisting-shell-storage.md) eller Lär dig mer om de [beständiga mekanismer som används i Cloud Shell](persisting-shell-storage.md#how-cloud-shell-storage-works).
 
 ## <a name="concepts"></a>Begrepp
-* Cloudshell som körs på en tillfällig värd på en per session, per användare
-* Cloudshell gör timeout när 20 minuter utan interaktiva aktivitet
-* Cloudshell kräver en Azure-filresurs som ska monteras
-* Cloudshell använder samma Azure-filresurs för både Bash och PowerShell
-* Cloudshell tilldelas en dator per användarkonto
-* Cloudshell kvarstår $HOME med en avbildning för 5 GB som lagras i filresursen
-* Behörigheter har angetts som en vanlig Linux-användare i Bash
+* Cloud Shell körs på en tillfällig värd som tillhandahålls per-session per användare
+* Cloud Shell timeout efter 20 minuter utan interaktiv aktivitet
+* Cloud Shell kräver att en Azure-filresurs monteras
+* Cloud Shell använder samma Azure-filresurs för både bash och PowerShell
+* Cloud Shell tilldelas en dator per användar konto
+* Cloud Shell kvarstår $HOME att använda en 5 GB-avbildning som lagras i fil resursen
+* Behörigheter anges som en vanlig Linux-användare i bash
 
-Läs mer om funktionerna i [Bash i Cloud Shell](features.md) och [PowerShell i Cloud Shell](features-powershell.md).
+Lär dig mer om funktioner i [bash i Cloud Shell](features.md) och [PowerShell i Cloud Shell](features-powershell.md).
 
 ## <a name="pricing"></a>Prissättning
-Den datorn som är värd för Cloud Shell är kostnadsfri, med ett krav för en monterad Azure Files-resurs. Vanliga storage kan tillkomma.
+Datorn som är värd för Cloud Shell är kostnads fri, med en för hands version av en monterad Azure Files-resurs. Vanliga lagrings kostnader gäller.
 
 ## <a name="next-steps"></a>Nästa steg
-[Bash i Cloud Shell-Snabbstart](quickstart.md) <br>
-[PowerShell i Cloud Shell-Snabbstart](quickstart-powershell.md)
+[Bash i Cloud Shell snabb start](quickstart.md) <br>
+[PowerShell i Cloud Shell snabb start](quickstart-powershell.md)

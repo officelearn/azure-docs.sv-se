@@ -10,7 +10,7 @@ ms.assetid: a242a5ff-7300-40c2-ba83-fb6035707433
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/15/2019
@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf5ee766a1db51e14ca5bc6ee2d447e3db374683
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 4bc671080a05e2c4e27fabcbab5cc40b9717dc85
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68276777"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68834891"
 ---
 # <a name="azure-active-directory-code-samples-v10-endpoint"></a>Azure Active Directory kod exempel (v 1.0-slut punkt)
 
@@ -88,7 +88,7 @@ Mobile (Android)           | ![Den här bilden visar Android-logotypen](media/sa
 Mobil (iOS)           | ![Den här bilden visar iOS/mål C eller Swift](media/sample-v2-code/logo_iOS.png) | Interaktiv |   [nativeClient-iOS](https://github.com/azureadquickstarts/nativeclient-ios) |
 Skriv bord (konsol)          | ![Den här bilden visar .NET/C# logo typen](media/sample-v2-code/logo_NET.png) | Användar namn/lösen ord </p>  Integrerad Windows-autentisering | | [dotNet-automatisk-konsol](https://github.com/azure-samples/active-directory-dotnet-native-headless)
 Skriv bord (konsol)          | ![Den här bilden visar Java-logotypen](media/sample-v2-code/logo_Java.png) | Användar namn/lösen ord | | [java-native-headless](https://github.com/Azure-Samples/active-directory-java-native-headless)
-Skriv bord (konsol)           | ![Den här bilden visar .NET Core/C# logo typ](media/sample-v2-code/logo_NETcore.png) | Enhets kod flöde | | [dotnet-deviceprofile](https://github.com/Azure-Samples/active-directory-dotnet-deviceprofile)
+Skriv bord (konsol)           | ![Den här bilden visar .NET Core/C# logo typ](media/sample-v2-code/logo_NETcore.png) | Enhetskodflöde | | [dotnet-deviceprofile](https://github.com/Azure-Samples/active-directory-dotnet-deviceprofile)
 
 ## <a name="daemon-applications-accessing-web-apis-with-the-applications-identity"></a>Daemon-program (åtkomst till webb-API: er med programmets identitet)
 
@@ -106,7 +106,7 @@ ASP.NET-webbapp  | ![Den här bilden visar .NET-logo typen](media/sample-v2-code
 
 Följande exempel visar hur du skyddar ett Node. js-webb-API med Azure AD.
 
-I föregående avsnitt i den här artikeln kan du också hitta andra exempel som illustrerar ett klient program  som anropar ett ASP.net **-eller ASP.net Core-webb-API**. Dessa exempel nämns inte igen i det här avsnittet, men du hittar dem i den sista kolumnen i tabellerna ovan eller nedanför
+I föregående avsnitt i den här artikeln kan du också hitta andra exempel som illustrerar ett klient program som anropar ett ASP.net **-eller ASP.net Core-webb-API**. Dessa exempel nämns inte igen i det här avsnittet, men du hittar dem i den sista kolumnen i tabellerna ovan eller nedanför
 
 | Plattform | Exempel |
 |--------|-------------------|

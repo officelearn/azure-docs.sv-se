@@ -1,6 +1,6 @@
 ---
-title: Vanliga frågor och svar - Övervakare av nätverksprestanda lösning i Azure | Microsoft Docs
-description: Den här artikeln innehåller vanliga frågor om Övervakare av nätverksprestanda i Azure. Nätverket prestanda Övervakare (NPM) hjälper dig att övervaka prestanda för dina nätverk i nära realtid och identifiera och leta upp network flaskhalsar i prestanda.
+title: Vanliga frågor och svar – Övervakare av nätverksprestanda lösning i Azure | Microsoft Docs
+description: Den här artikeln innehåller vanliga frågor om Övervakare av nätverksprestanda i Azure. Övervakare av nätverksprestanda (NPM) hjälper dig att övervaka nätverkets prestanda i nära real tid och identifiera och hitta Flask halsar i nätverks prestanda.
 services: log-analytics
 documentationcenter: ''
 author: vinynigam
@@ -12,217 +12,227 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: vinigam
-ms.openlocfilehash: 71eb789c92452353029613265fe97411c8c00649
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: b3274c214aa60c930e62e651af960d5f01cbdd20
+ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706334"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68782115"
 ---
-# <a name="network-performance-monitor-solution-faq"></a>Vanliga frågor och svar Network Performance Monitor-lösningen
+# <a name="network-performance-monitor-solution-faq"></a>Vanliga frågor om Övervakare av nätverksprestanda-lösning
 
-![Network Performance Monitor symbol](media/network-performance-monitor-faq/npm-symbol.png)
+![Övervakare av nätverksprestanda symbol](media/network-performance-monitor-faq/npm-symbol.png)
 
-Den här artikeln innehåller vanliga frågor (FAQ) om nätverket prestanda Övervakare (NPM) i Azure
+Den här artikeln innehåller vanliga frågor och svar om Övervakare av nätverksprestanda (NPM) i Azure
 
-[Övervakaren av nätverksprestanda](/azure/networking/network-monitoring-overview) är en molnbaserad [hybrid nätverksövervakning](../../azure-monitor/insights/network-performance-monitor-performance-monitor.md) som hjälper dig att övervaka nätverksprestanda mellan olika platser i din nätverksinfrastruktur. Du kan också övervaka nätverksanslutningar till [slutpunkter för tjänsten och programmet](../../azure-monitor/insights/network-performance-monitor-service-connectivity.md) och [övervaka prestanda för Azure ExpressRoute](../../azure-monitor/insights/network-performance-monitor-expressroute.md). 
+[Övervakare av nätverksprestanda](/azure/networking/network-monitoring-overview) är en molnbaserad [hybrid nätverks övervaknings](../../azure-monitor/insights/network-performance-monitor-performance-monitor.md) lösning som hjälper dig att övervaka nätverks prestanda mellan olika platser i din nätverks infrastruktur. Du kan också övervaka nätverks anslutningen till [tjänst-och program slut punkter](../../azure-monitor/insights/network-performance-monitor-service-connectivity.md) och [övervaka Azure-ExpressRoute prestanda](../../azure-monitor/insights/network-performance-monitor-expressroute.md). 
 
-Övervakare av nätverksprestanda identifierar nätverksproblem som trafik blackholing, routning fel och problem som konventionella nätverk övervakning metoder som inte kan identifiera. Lösningen genererar aviseringar och meddelar dig när ett tröskelvärde överskrids för en nätverkslänk. Detta säkerställer att problem med nätverksprestanda upptäcks i god tid och att källan till problemet kan ringas in till ett visst nätverkssegment eller enhet. 
+Övervakare av nätverksprestanda identifierar nätverks problem som trafik blackholing, synkroniseringsfel och problem som konventionella nätverks övervaknings metoder inte kan identifiera. Lösningen genererar aviseringar och meddelar dig när ett tröskelvärde överskrids för en nätverkslänk. Detta säkerställer att problem med nätverksprestanda upptäcks i god tid och att källan till problemet kan ringas in till ett visst nätverkssegment eller enhet. 
 
-Mer information om de olika funktionerna som stöds av [Övervakare av nätverksprestanda](https://docs.microsoft.com/azure/networking/network-monitoring-overview) finns tillgänglig online.
+Mer information om de olika funktionerna som stöds av [övervakare av nätverksprestanda](https://docs.microsoft.com/azure/networking/network-monitoring-overview) finns online.
 
-## <a name="set-up-and-configure-agents"></a>Installera och konfigurera agenter
+## <a name="set-up-and-configure-agents"></a>Konfigurera och konfigurera agenter
 
-### <a name="what-are-the-platform-requirements-for-the-nodes-to-be-used-for-monitoring-by-npm"></a>Vilka är plattformskraven på för noder som ska användas för övervakning av NPM?
-Nedan visas Plattformskrav för NPM-olika funktioner:
+### <a name="what-are-the-platform-requirements-for-the-nodes-to-be-used-for-monitoring-by-npm"></a>Vilka är plattforms kraven för de noder som ska användas för övervakning av NPM?
+Nedan visas plattforms kraven för NPM olika funktioner:
 
-- NPM-Prestandaövervakaren och funktioner för övervakning av tjänstens anslutning stöder både Windows server och Windows-skrivbord/klientoperativsystem. Windows server-OS-versioner som stöds är 2008 SP1 eller senare. Windows skrivbord/klient-versioner som stöds är Windows 10, Windows 8.1, Windows 8 och Windows 7. 
-- NPM-ExpressRoute-övervakning funktionen stöder endast Windows server (2008 SP1 eller senare) operativsystem.
+- NPM för prestanda övervakning och tjänst anslutnings funktioner stöder både Windows Server och Windows-datorer/-klient operativ system. Windows Server OS-versioner som stöds är 2008 SP1 eller senare. Windows-datorer/-klient versioner som stöds är Windows 10, Windows 8,1, Windows 8 och Windows 7. 
+- NPM för ExpressRoute-övervakaren stöder bara Windows Server (2008 SP1 eller senare) operativ system.
 
-### <a name="can-i-use-linux-machines-as-monitoring-nodes-in-npm"></a>Kan jag använda Linux-datorer som övervakning av noder i NPM?
-Möjlighet att övervaka nätverk med hjälp av Linux-baserade noder förhandsvisas just nu. Nå till din Kontoansvariga för vill veta mer. Linux-agenter anger övervakningsfunktionen endast för NPM-Prestandaövervakaren kapaciteten och är inte tillgängliga för funktioner för övervakning av tjänstens anslutning och ExpressRoute-övervakning
+### <a name="can-i-use-linux-machines-as-monitoring-nodes-in-npm"></a>Kan jag använda Linux-datorer som övervaknings-noder i NPM?
+Möjligheten att övervaka nätverk som använder Linux-baserade noder är för närvarande en för hands version. Kontakta din konto ansvarige om du vill veta mer. Linux-agenter tillhandahåller endast övervaknings funktioner för prestanda övervakaren i NPM och är inte tillgängliga för övervaknings funktionerna för tjänst anslutning och ExpressRoute
 
-### <a name="what-are-the-size-requirements-of-the-nodes-to-be-used-for-monitoring-by-npm"></a>Vad är storlekskraven noder som ska användas för övervakning av NPM?
-För att köra NPM-lösningen på noden virtuella datorer för att övervaka nätverk, bör du vara minst 500 MB minne och kärna noder. Du behöver inte använda separata noder för att köra NPM. Lösningen kan köras på noder som har andra arbetsbelastningar som körs på den. Lösningen har möjlighet att stoppa övervakningsprocessen om används mer än 5% CPU.
+### <a name="what-are-the-size-requirements-of-the-nodes-to-be-used-for-monitoring-by-npm"></a>Vilka är storleks kraven för noderna som ska användas för övervakning av NPM?
+För att köra NPM-lösningen på nod-VM: ar för att övervaka nätverk ska noderna ha minst 500 MB minne och en kärna. Du behöver inte använda separata noder för att köra NPM. Lösningen kan köras på noder som har andra arbets belastningar som körs på den. Lösningen har möjlighet att stoppa övervaknings processen om den använder mer än 5% processor.
 
-### <a name="to-use-npm-should-i-connect-my-nodes-as-direct-agent-or-through-system-center-operations-manager"></a>Om du vill använda NPM ska jag ansluta min noder som direktagent eller via System Center Operations Manager?
-Både prestanda och funktioner för övervakning av tjänstens anslutning stöder noder [ansluten som direkta agenter](../../azure-monitor/platform/agent-windows.md) och [är anslutna via Operations Manager](../../azure-monitor/platform/om-agents.md).
+### <a name="to-use-npm-should-i-connect-my-nodes-as-direct-agent-or-through-system-center-operations-manager"></a>Ska jag använda NPM för att ansluta mina noder som direkt agent eller via System Center Operations Manager?
+Både prestanda övervakaren och tjänsten för tjänst anslutnings övervakaren stöder noder [som är anslutna som direkta agenter](../../azure-monitor/platform/agent-windows.md) och [anslutna via Operations Manager](../../azure-monitor/platform/om-agents.md).
 
-För ExpressRoute-övervakning funktionen måste Azure-noder vara anslutna som direkta agenter endast. Azure-noder som är anslutna via Operations Manager stöds inte. Noder som är anslutna som direkta agenter och genom Operations Manager stöds för lokala noder för övervakning av en ExpressRoute-krets.
+För ExpressRoute Monitor-kapacitet ska Azure-noderna endast anslutas som direkta agenter. Azure-noder som är anslutna via Operations Manager stöds inte. Noder som är anslutna som direkta agenter och via Operations Manager stöds för att övervaka en ExpressRoute-krets för lokala noder.
 
-### <a name="which-protocol-among-tcp-and-icmp-should-be-chosen-for-monitoring"></a>Vilket protokoll bland TCP och ICMP bör väljas för övervakning av?
-Om du övervakar ditt nätverk med hjälp av Windows server-baserade noder, rekommenderar vi att du använder TCP som protokoll för övervakning, eftersom det ger bättre precision. 
+### <a name="which-protocol-among-tcp-and-icmp-should-be-chosen-for-monitoring"></a>Vilka protokoll mellan TCP och ICMP ska väljas för övervakning?
+Om du övervakar nätverket med hjälp av Windows Server-baserade noder rekommenderar vi att du använder TCP som övervaknings protokoll eftersom det ger bättre noggrannhet. 
 
-ICMP rekommenderas för Windows skrivbord/client systembaserad noder. Den här plattformen does'nt tillåta TCP-data som ska skickas över råa sockets, NPM använder för att identifiera nätverkets topologi.
+ICMP rekommenderas för noder i Windows-datorer/klient operativ system. Den här plattformen does'nt tillåter att TCP-data skickas över RAW-Sockets, vilket NPM använder för att identifiera nätverkstopologi.
 
-Du kan visa mer information om de relativa fördelarna med varje protokoll [här](../../azure-monitor/insights/network-performance-monitor-performance-monitor.md#choose-the-protocol).
+Du kan få mer information om de relativa fördelarna med varje protokoll [här](../../azure-monitor/insights/network-performance-monitor-performance-monitor.md#choose-the-protocol).
 
-### <a name="how-can-i-configure-a-node-to-support-monitoring-using-tcp-protocol"></a>Hur kan jag konfigurera en nod för övervakning med hjälp av TCP-protokollet?
-För att noden har stöd för övervakning med TCP-protokoll: 
-* Kontrollera att noden plattformen är Windows Server (2008 SP1 eller senare).
-* Kör [EnableRules.ps1](https://aka.ms/npmpowershellscript) Powershell-skript på noden. Se [instruktioner](../../azure-monitor/insights/network-performance-monitor.md#configure-log-analytics-agents-for-monitoring) för mer information.
+### <a name="how-can-i-configure-a-node-to-support-monitoring-using-tcp-protocol"></a>Hur gör jag för att konfigurera en nod för att stödja övervakning med TCP-protokoll?
+För noden för att stödja övervakning med TCP-protokoll: 
+* Se till att Node Platform är Windows Server (2008 SP1 eller senare).
+* Kör PowerShell-skriptet [EnableRules. ps1](https://aka.ms/npmpowershellscript) på noden. Se [anvisningar](../../azure-monitor/insights/network-performance-monitor.md#configure-log-analytics-agents-for-monitoring) för mer information.
 
 
-### <a name="how-can-i-change-the-tcp-port-being-used-by-npm-for-monitoring"></a>Hur kan jag ändra TCP-port som används av NPM för att övervaka?
-Du kan ändra den TCP-port som används av NPM för övervakning, genom att köra den [EnableRules.ps1](https://aka.ms/npmpowershellscript) skript. Du måste ange det portnummer som du tänker använda som en parameter. Till exempel om du vill aktivera TCP på port 8060 köra `EnableRules.ps1 8060`. Kontrollera att du använder samma TCP-port på alla noder som används för övervakning.
+### <a name="how-can-i-change-the-tcp-port-being-used-by-npm-for-monitoring"></a>Hur kan jag ändra TCP-porten som används av NPM för övervakning?
+Du kan ändra TCP-porten som används av NPM för övervakning genom att köra skriptet [EnableRules. ps1](https://aka.ms/npmpowershellscript) . Du måste ange det port nummer som du vill använda som parameter. Om du till exempel vill aktivera TCP på port 8060 kör `EnableRules.ps1 8060`du. Se till att du använder samma TCP-port på alla noder som används för övervakning.
 
-Skriptet konfigurerar bara Windows-brandväggen lokalt. Om du har nätverksbrandvägg eller regler för Nätverkssäkerhetsgrupp (NSG) kan du se till att de tillåter trafik till TCP-port som används av NPM.
+Skriptet konfigurerar endast Windows-brandväggen lokalt. Om du har regler för nätverks brand vägg eller nätverks säkerhets grupp (NSG) kontrollerar du att de tillåter trafik till TCP-porten som används av NPM.
 
 ### <a name="how-many-agents-should-i-use"></a>Hur många agenter ska jag använda?
 Du bör använda minst en agent för varje undernät som du vill övervaka.
 
-### <a name="what-is-the-maximum-number-of-agents-i-can-use-or-i-see-error--youve-reached-your-configuration-limit"></a>Vad är det maximala antalet agenter som jag kan använda eller fel visas ”... du har nått konfigurationsgränsen ”?
-NPM begränsar antalet IP-adresser till 5000 IP-adresser per arbetsyta. Om en nod har både IPv4 och IPv6-adresser, räknas det som 2 IP-adresser för noden. Den här gräns på 5000 IP-adresser skulle därför bestämma den övre gränsen för antalet agenter. Du kan ta bort inaktiva agenter från noder-fliken i NPM >> Konfigurera. NPM sparar också historik över alla IP-adresser som någonsin har tilldelats till den virtuella datorn som är värd för agenten och var och en räknas som separata IP som bidrar till den övre gränsen på 5000 IP-adresser. Att frigöra IP-adresser för arbetsytan och du kan använda sidan noder att ta bort IP-adresser som inte används.
+### <a name="what-is-the-maximum-number-of-agents-i-can-use-or-i-see-error--youve-reached-your-configuration-limit"></a>Det maximala antalet agenter jag kan använda eller jag ser fel meddelandet ".... har du nått din konfigurations gräns "?
+NPM begränsar antalet IP-adresser till 5000 IP-adresser per arbets yta. Om en nod har både IPv4-och IPv6-adresser räknas detta som två IP-adresser för noden. Den här gränsen på 5000 IP-adresser skulle därför bestämma den övre gränsen för antalet agenter. Du kan ta bort inaktiva agenter från fliken noder i NPM > > Konfigurera. NPM upprätthåller också historiken för alla IP-adresser som någonsin har tilldelats den virtuella dator som är värd för agenten och var och en räknas som separat IP-adress som bidrar till den övre gränsen på 5000 IP-adresser. Om du vill frigöra IP-adresser för din arbets yta kan du använda sidan noder för att ta bort de IP-adresser som inte används.
 
 ## <a name="monitoring"></a>Övervakning
 
-### <a name="how-are-loss-and-latency-calculated"></a>Hur beräknas förlust och fördröjning
-Källa agenter skickar antingen TCP SYN begäranden (om du väljer TCP som protokoll för övervakning av) eller ICMP-ekobegäranden (om du väljer ICMP som protokoll för att övervaka) till mål-IP med jämna mellanrum för att se till att alla sökvägar mellan källa-mål-IP kombination omfattas. Procentandel mottagna paket och paket tidsfördröjningen mäts för att beräkna förlust och svarstid för varje sökväg. Dessa data sammanställs via avsökningsintervallet och över alla sökvägar för att hämta de sammanställda värdena av förlust och fördröjning för IP-kombination för viss avsökningsintervallet.
+### <a name="how-are-loss-and-latency-calculated"></a>Hur beräknas förlust och svars tid
+Käll agenter skickar antingen TCP/versal-begäranden (om TCP väljs som protokoll för övervakning) eller ICMP-EKOBEGÄRAN (om ICMP väljs som protokoll för övervakning) till målets IP-adress med jämna mellanrum för att säkerställa att alla sökvägar mellan käll-och mål-IP: en kombinationen omfattas. Procent andelen mottagna paket och svars tid för Packet mäts för att beräkna förlust och svars tid för varje sökväg. Dessa data sammanställs under avsöknings intervallet och över alla sökvägar för att hämta de sammanställda värdena för förlust och svars tid för IP-kombinationen för det specifika avsöknings intervallet.
 
-### <a name="with-what-frequency-does-the-source-agent-send-packets-to-the-destination-for-monitoring"></a>Hur ofta käll-agenten skickar paket till målet för övervakning?
-För Övervakare av nätverksprestanda-och ExpressRoute-övervakning källan och skickar paket var femte sekund och registrerar nätverksmätningar. Dessa data slås samman under ett avsökningsintervall för 3 minuter att beräkna de genomsnittliga och högsta värdena för förlust och fördröjning. För övervakning av tjänstens anslutning funktionen bestäms frekvensen för att skicka paket för nätverksmätning av den frekvens som anges av användaren för den specifika testning när du konfigurerar testet.
+### <a name="with-what-frequency-does-the-source-agent-send-packets-to-the-destination-for-monitoring"></a>I vilken frekvens skickar käll agenten paket till målet för övervakning?
+För prestanda övervakaren och ExpressRoute övervakar källan paketen var femte sekund och registrerar nätverks måtten. Dessa data sammanställs under ett avsöknings intervall på tre minuter för att beräkna de genomsnittliga och högsta värdena för förlust och latens. För övervakning av tjänst anslutnings funktioner bestäms frekvensen för hur många paket som ska skickas för nätverks mätning av den frekvens som användaren har angett för det aktuella testet när testet konfigureras.
 
-### <a name="how-many-packets-are-sent-for-monitoring"></a>Hur många paket skickas för att övervaka?
-Antalet paket som skickas av agenten källa till mål i en avsökning är anpassningsbar och beslutar om vår upphovsrättsskyddade algoritm som kan vara olika för olika nätverkstopologier. Mer antalet sökvägar på nätverket mellan källa-mål-IP-kombination, mer är antalet paket som skickas. Systemet garanterar att alla sökvägar mellan källa-mål-IP-kombinationen omfattas.
+### <a name="how-many-packets-are-sent-for-monitoring"></a>Hur många paket skickas för övervakning?
+Antalet paket som skickas av käll agenten till målet i en avsökning är anpassningsbart och bestäms av vår tillverkarspecifika algoritm, som kan vara olika för olika nätverkstopologier. Fler nätverks Sök vägar mellan käll målets IP-kombination, mer är antalet paket som skickas. Systemet ser till att alla sökvägar mellan IP-kombinationen för käll målet täcks.
 
-### <a name="how-does-npm-discover-network-topology-between-source-and-destination"></a>Hur identifiera nätverkets topologi mellan källan och målet av NPM?
-NPM använder en upphovsrättsskyddade algoritm baserat på Traceroute för att identifiera alla sökvägar och hopp mellan källan och målet.
+### <a name="how-does-npm-discover-network-topology-between-source-and-destination"></a>Hur upptäcker NPM nätverks sto pol Ogin mellan källa och mål?
+NPM använder en tillverkarspecifik algoritm baserat på traceroute för att identifiera alla sökvägar och hopp mellan källa och mål.
 
-### <a name="does-npm-provide-routing-and-switching-level-info"></a>Tillhandahåller NPM Routning och byta nivå information 
-Även om NPM kan identifiera alla vägar mellan agenten källa och mål, ger inte synlighet som vägen har kopplats av paket som skickas av dina specifika arbetsbelastningar. Lösningen kan hjälpa dig att identifiera sökvägar och underliggande nätverkssteg som lägger till mer fördröjning än du förväntade dig.
+### <a name="does-npm-provide-routing-and-switching-level-info"></a>Tillhandahåller NPM information om Routning och växlings nivå 
+Även om NPM kan identifiera alla möjliga vägar mellan käll agenten och målet, ger den ingen insyn i vilken väg som har tagits emot av de paket som har skickats av dina speciella arbets belastningar. Lösningen kan hjälpa dig att identifiera Sök vägarna och underliggande nätverks hopp, vilket ökar svars tiden än förväntat.
 
-### <a name="why-are-some-of-the-paths-unhealthy"></a>Varför är vissa av sökvägarna feltillstånd?
-Olika nätverkssökvägar kan finnas mellan källa och mål IP-adresser och varje sökväg kan ha ett annat värde för förlust och fördröjning. NPM markerar de sökvägarna som skadad (betecknat med röd färg) där värdena för förlust och/eller svarstiden är större än det respektive tröskelvärdet som angetts i konfigurationen av övervakningen.
+### <a name="why-are-some-of-the-paths-unhealthy"></a>Varför är vissa av Sök vägarna felaktiga?
+Olika nätverks Sök vägar kan finnas mellan käll-och mål-IP-adresser och varje sökväg kan ha olika värde för förlust och svars tid. NPM markerar dessa sökvägar som felaktiga (med röd färg) för vilka värdena för förlust och/eller svars tid är större än respektive tröskelvärde som angetts i övervaknings konfigurationen.
 
-### <a name="what-does-a-hop-in-red-color-signify-in-the-network-topology-map"></a>Vad ett hopp i röd färg en obestämd i topologin Nätverkskarta?
-Om ett hopp är röd, innebär det att det är en del av minst en defekt sökväg. NPM markerar endast sökvägar som skadad, det särskilja inte hälsotillståndet för varje sökväg. Du kan visa hopp för hopp-fördröjning och särskilja de som att lägga till fler än förväntade svarstiden för att identifiera problematiska hopp.
+### <a name="what-does-a-hop-in-red-color-signify-in-the-network-topology-map"></a>Vad indikerar en hopp i röd färg i nätverk sto pol Map?
+Om ett hopp är rött betyder det att det är en del av minst en felaktig sökväg. NPM markerar bara Sök vägarna som felaktiga, den särskiljer inte hälso status för varje sökväg. Om du vill identifiera problematiska-hoppen kan du Visa hopp svars tiden och särskilja de som lägger till mer än förväntad svars tid.
 
-### <a name="how-does-fault-localization-in-performance-monitor-work"></a>Hur fungerar lokalisering av fel i Prestandaövervakaren?
-NPM används en mekanism för avsnittet om sannolikhetsbunden tilldelas varje nätverkssökvägen, nätverkssegment, fel-sannolikhet och de ingående nätverkssteg baserat på antal defekta sökvägar är en del av. När blir en del av större antal defekta sökvägar nätverkssegment och hopp, ökar fault-sannolikheten kopplade till standardrisknivåer. Den här algoritmen fungerar bäst när du har många noder med NPM-agenten som är anslutna till varandra när detta ökar datapunkter för att beräkna fault-sannolikhet.
+### <a name="how-does-fault-localization-in-performance-monitor-work"></a>Hur fungerar fel lokalisering i prestanda övervakaren?
+I NPM används en Probabilistic-mekanism för att tilldela fel sannolikhet till varje nätverks Sök väg, nätverks segment och komponenternas nätverks hopp baserat på antalet felaktiga sökvägar som de är en del av. När nätverks segmenten och hoppen blir en del av fler felaktiga sökvägar ökar sannolikheten för att risken för fel. Den här algoritmen fungerar bäst om du har många noder med NPM-agenten ansluten till varandra eftersom detta ökar data punkterna för att beräkna fel sannolikheten.
 
 ### <a name="how-can-i-create-alerts-in-npm"></a>Hur kan jag skapa aviseringar i NPM?
-Referera till [aviseringar avsnittet i dokumentationen](https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor#alerts) stegvisa instruktioner.
+[I avsnittet aviseringar i dokumentationen](https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor#alerts) hittar du stegvisa instruktioner.
 
-### <a name="can-npm-monitor-routers-and-servers-as-individual-devices"></a>NPM kan övervaka routrar och servrar som enskilda enheter?
-NPM identifierar bara namnet på IP- och värden för underliggande nätverkssteg (växlar, routrar, servrar, osv.) mellan källa och mål IP-adresser. Den identifierar också fördröjning mellan dessa identifierade hopp. Det övervakar individuellt inte dessa underliggande hopp.
+### <a name="can-npm-monitor-routers-and-servers-as-individual-devices"></a>Kan NPM övervaka routrar och servrar som enskilda enheter?
+NPM identifierar bara IP-och värd namnet för underliggande nätverks hopp (växlar, routrar, servrar osv.) mellan käll-och mål-IP-adresser. Den identifierar även svars tiden mellan dessa identifierade hopp. Dessa underliggande hopp övervakas inte separat.
 
-### <a name="can-npm-be-used-to-monitor-network-connectivity-between-azure-and-aws"></a>NPM användas för att övervaka Nätverksanslutningar mellan Azure och AWS?
-Ja. Finns i artikeln [övervaka Azure, AWS och lokala nätverk med NPM](https://blogs.technet.microsoft.com/msoms/2016/08/30/monitor-on-premises-cloud-iaas-and-hybrid-networks-using-oms-network-performance-monitor/) mer information.
+### <a name="can-npm-be-used-to-monitor-network-connectivity-between-azure-and-aws"></a>Kan NPM användas för att övervaka nätverks anslutningen mellan Azure och AWS?
+Ja. Mer information finns i artikeln [övervaka Azure, AWS och lokala nätverk med hjälp av NPM](https://blogs.technet.microsoft.com/msoms/2016/08/30/monitor-on-premises-cloud-iaas-and-hybrid-networks-using-oms-network-performance-monitor/) .
 
-### <a name="is-the-expressroute-bandwidth-usage-incoming-or-outgoing"></a>Är ExpressRoute bandbreddsanvändning inkommande eller utgående?
-Användning av nätverksbandbredd är summan av inkommande och utgående bandbredd. Det uttrycks i bit/s.
+### <a name="is-the-expressroute-bandwidth-usage-incoming-or-outgoing"></a>Är ExpressRoute bandbredds användning inkommande eller utgående?
+Bandbredds användning är summan av inkommande och utgående bandbredd. Den uttrycks i bitar per sekund.
 
-### <a name="can-we-get-incoming-and-outgoing-bandwidth-information-for-the-expressroute"></a>Kan vi få information om inkommande och utgående bandbredd för ExpressRoute?
-Inkommande och utgående värden för både primär och sekundär bandbredd kan hämtas.
+### <a name="can-we-get-incoming-and-outgoing-bandwidth-information-for-the-expressroute"></a>Kan vi hämta information om inkommande och utgående bandbredd för ExpressRoute?
+Inkommande och utgående värden för både primär och sekundär bandbredd kan fångas.
 
-För peering nivåinformation använder den nedan nämnda frågan i Loggsökning
+Om du vill ha information om peering-nivå använder du ovanstående fråga i loggs ökning
 
     NetworkMonitoring 
     | where SubType == "ExpressRoutePeeringUtilization"
     | project CircuitName,PeeringName,PrimaryBytesInPerSecond,PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
   
-Kretsen nivåinformation, använda den nedanför nämnda fråga 
+Använd nedanstående fråga för information om krets nivå 
 
     NetworkMonitoring 
     | where SubType == "ExpressRouteCircuitUtilization"
     | project CircuitName,PrimaryBytesInPerSecond, PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
 
-### <a name="which-regions-are-supported-for-npms-performance-monitor"></a>Vilka regioner har stöd för NPM-Prestandaövervakaren?
-NPM kan övervaka anslutningen mellan nätverk i någon del av världen, från en arbetsyta som är värd för en av de [regioner som stöds](../../azure-monitor/insights/network-performance-monitor.md#supported-regions)
+### <a name="which-regions-are-supported-for-npms-performance-monitor"></a>Vilka regioner stöds för NPM-prestanda övervakaren?
+NPM kan övervaka anslutningar mellan nätverk i valfri del av världen, från en arbets yta som finns i någon av de [regioner som stöds](../../azure-monitor/insights/network-performance-monitor.md#supported-regions)
 
-### <a name="which-regions-are-supported-for-npms-service-connectivity-monitor"></a>Vilka regioner har stöd för övervakning av NPM-tjänstens anslutning?
-NPM kan övervaka anslutningen till tjänster i andra delar av världen, från en arbetsyta som är värd för en av de [regioner som stöds](../../azure-monitor/insights/network-performance-monitor.md#supported-regions)
+### <a name="which-regions-are-supported-for-npms-service-connectivity-monitor"></a>Vilka regioner stöds av tjänst anslutnings övervakaren i NPM?
+NPM kan övervaka anslutningar till tjänster i valfri del av världen, från en arbets yta som finns i någon av de [regioner som stöds](../../azure-monitor/insights/network-performance-monitor.md#supported-regions)
 
-### <a name="which-regions-are-supported-for-npms-expressroute-monitor"></a>Vilka regioner har stöd för NPM-ExpressRoute-övervakning?
-NPM kan övervaka din ExpressRoute-kretsar som finns i alla Azure-regioner. Att publicera till NPM, behöver du en Log Analytics-arbetsyta som måste finnas i något av de [regioner som stöds](/azure/expressroute/how-to-npm)
+### <a name="which-regions-are-supported-for-npms-expressroute-monitor"></a>Vilka regioner stöds för NPM ExpressRoute-övervakaren?
+NPM kan övervaka dina ExpressRoute-kretsar som finns i valfri Azure-region. Om du vill publicera till NPM måste du ha en Log Analytics arbets yta som måste finnas i någon av de [regioner som stöds](/azure/expressroute/how-to-npm)
 
 ## <a name="troubleshoot"></a>Felsöka
 
-### <a name="why-are-some-of-the-hops-marked-as-unidentified-in-the-network-topology-view"></a>Varför är vissa av hopp som markerats som oidentifierade i nätverket topologiska vyn?
-NPM använder en modifierad version av traceroute för att identifiera topologin från agenten källan till målet. En oidentifierat hopp representerar nätverk hopp inte svarade på käll-agentens traceroute begäran. Om tre på varandra följande nätverkssteg inte svarar på agentens traceroute, lösningen markerar inte svarar hopp som oidentifierade och försöker inte identifiera mer hopp.
+### <a name="why-are-some-of-the-hops-marked-as-unidentified-in-the-network-topology-view"></a>Varför har vissa hopp marker ATS som oidentifierade i vyn nätverkstopologi?
+NPM använder en modifierad version av traceroute för att identifiera topologin från käll agenten till målet. Ett oidentifierat hopp representerar att nätverks hoppet inte svarade på käll agentens traceroute-begäran. Om tre efterföljande nätverks hopp inte svarar på agentens traceroute, markerar lösningen de svar som inte svarar som oidentifierade och försöker inte identifiera fler hopp.
 
-Ett hopp svarar inte på en traceroute i en eller flera av de nedan scenarier:
+Ett hopp kan inte svara på en traceroute i ett eller flera av följande scenarier:
 
-* Routrarna har konfigurerats för att inte visa sin identitet.
-* Nätverksenheter som inte tillåter att ICMP_TTL_EXCEEDED trafik.
-* En brandvägg blockerar ICMP_TTL_EXCEEDED svaret från nätverksenheten.
+* Routrarna har kon figurer ATS för att inte avslöja sin identitet.
+* Nätverks enheterna tillåter inte ICMP_TTL_EXCEEDED-trafik.
+* En brand vägg blockerar ICMP_TTL_EXCEEDED-svaret från nätverks enheten.
 
-### <a name="why-does-my-link-show-unhealthy-but-the-topology-does-not"></a>Varför min länken Visa feltillstånd medan topologin inte 
-NPM övervakar slutpunkt till slutpunkt mot dataförlust, svarstid och topologi med olika intervall. Förlust och fördröjning mäts en gång var femte sekund och sammanställs var tredje minut (för Prestandaövervakaren och Express Route-övervakaren) medan topologi beräknas med hjälp av traceroute var tionde minut. Till exempel mellan 3:44 och 4:04 topologi kan uppdateras tre gånger (3:44, 3:54, 4:04), men förlust och fördröjning uppdateras ungefär sju gånger (3:44, 3:47 3:50 3:53, 3:56 3:59, 4:02). Topologi som genererats på 3:54 återges för förlust och fördröjning som hämtar beräknas på 3:56 3:59 och 4:02. Anta att du får en avisering som var ER kretsen skadad på 3:59. Du kan logga in på NPM och försöker ställa in tiden topologi 3:59. NPM renderas topologin som genererats på 3:54. För att förstå den senaste kända topologin för ditt nätverk, jämför fälten TimeProcessed (tid på vilken förlust och fördröjning beräknades) och TracerouteCompletedTime (tid på vilken topologi som beräknades). 
+### <a name="i-get-alerts-for-unhealthy-tests-but-i-do-not-see-the-high-values-in-npms-loss-and-latency-graph-how-do-i-check-what-is-unhealthy-"></a>Jag får aviseringar om fel test, men jag ser inte de höga värdena i NPM förlust och svars tid. Hur gör jag för att kontrollerar du vad som är ohälsosamt?
+NPM genererar en avisering om slut punkt till slut punkt mellan källa och mål korsar tröskelvärde utelåsning för valfri sökväg mellan dem. Vissa nätverk har fler än en sökväg som ansluter samma källa och mål. NPM genererar en avisering. sökvägen är felaktig. Förlusten och svars tiden som visas i graferna är det genomsnittliga värdet för alla sökvägar, och därför kanske det inte visar exakt värdet för en enskild sökväg. För att förstå var tröskelvärdet har brutits, kan du leta efter kolumnen "undertyp" i aviseringen. Om problemet orsakas av en sökväg, kommer under typens värde att NetworkPath (för test av prestanda övervakare), EndpointPath (för övervakning av tjänst anslutnings övervakare) och ExpressRoutePath (för ExpressRotue övervaknings test). 
+
+Exempel frågan för att hitta är en felaktig sökväg:
+
+    NetworkMonitoring 
+    | where ( SubType == "ExpressRoutePath")
+    | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or UtilizationHealthState == "Unhealthy") and          CircuitResourceID =="<your ER circuit ID>" and ConnectionResourceId == "<your ER connection resource id>"
+    | project SubType, LossHealthState, LatencyHealthState, MedianLatency 
+
+### <a name="why-does-my-test-show-unhealthy-but-the-topology-does-not"></a>Varför visar mitt test inte felfri men topologin har inte 
+NPM övervakar avbrott i slut punkt till slut punkt, svars tid och topologi med olika intervall. Förlust och svars tider mäts en gång var femte sekund och sammanställt var tredje minut (för prestanda övervakaren och Express Route Monitor) medan topologin beräknas med traceroute en gång var tionde minut. 4:04 3:44 till exempel kan topologin uppdateras tre gånger (3:44, 3:54, 4:04), men förlust och svars tid uppdateras ungefär sju gånger (3:44, 3:47, 3:50, 3:53, 3:56, 3:59, 4:02). Topologin som genereras vid 3:54 kommer att återges för den förlust och svars tid som beräknas vid 3:56, 3:59 och 4:02. Anta att du får en avisering om att ER-kretsen var ohälsosam vid 3:59. Du loggar in på NPM och försöker ange topologins tid till 3:59. NPM kommer att återge topologin som genererats vid 3:54. För att förstå den senaste kända topologin i nätverket, jämför fälten TimeProcessed (tid då förlust och svars tid beräknades) och TracerouteCompletedTime (tid då topologin beräknades). 
 
 ### <a name="what-is-the-difference-between-the-fields-e2emedianlatency-and-avghoplatencylist-in-the-networkmonitoring-table"></a>Vad är skillnaden mellan fälten E2EMedianLatency och AvgHopLatencyList i tabellen NetworkMonitoring
-E2EMedianLatency är svarstiden uppdateras var tredje minut efter att sammanställa resultaten av tcp-Pingtest, AvgHopLatencyList är uppdateras var 10 minuter baserat på traceroute. Använd fältet TimeProcessed för att förstå den exakta tidpunkt då E2EMedianLatency beräknades. För att förstå den exakta tidpunkt på vilka traceroute slutfört och uppdaterade AvgHopLatencyList, använder du fältet TracerouteCompletedTime
+E2EMedianLatency är svars tiden uppdaterad var tredje minut efter att ha samlat in resultaten av TCP ping-tester, medan AvgHopLatencyList uppdateras var tionde minut baserat på traceroute. Använd fältet TimeProcessed för att förstå exakt den tid då E2EMedianLatency beräknades. Om du vill förstå exakt hur lång tid traceroute slutfördes och uppdaterade AvgHopLatencyList använder du fältet TracerouteCompletedTime
 
-### <a name="why-does-hop-by-hop-latency-numbers-differ-from-hoplatencyvalues"></a>Varför skiljer hopp för hopp-fördröjning siffror från HopLatencyValues 
-HopLatencyValues är källa till slutpunkten.
-Till exempel: Hopp - A, B, C. AvgHopLatency - 10,15,20. Det innebär att källan till en fördröjning = 10, källa för B fördröjningen = 15 och källan för C fördröjningen är 20. Användargränssnittet beräknas A-B hopp-fördröjning som 5 i topologin
+### <a name="why-does-hop-by-hop-latency-numbers-differ-from-hoplatencyvalues"></a>Varför skiljer sig hopp på hopp-nummer från HopLatencyValues 
+HopLatencyValues är källa till slut punkt.
+Till exempel: Humle – A, B, C. AvgHopLatency – 10, 15, 20. Det innebär att källa till en svars tid = 10, källa till B latens = 15 och källa till C-svars tid är 20. UI beräknar en-B-hopp fördröjning som 5 i topologin
 
-### <a name="the-solution-shows-100-loss-but-there-is-connectivity-between-the-source-and-destination"></a>Lösningen visar 100% förlust men det finns en anslutning mellan källa och mål
-Detta kan inträffa om av värdens brandvägg eller mellanliggande brandvägg (nätverksbrandvägg eller Azure NSG) blockerar kommunikation mellan agenten källan och målet via porten som används för övervakning av NPM (som standard porten är 8084, såvida inte den kunden har ändrats för detta).
+### <a name="the-solution-shows-100-loss-but-there-is-connectivity-between-the-source-and-destination"></a>Lösningen visar 100% förlust, men det finns en anslutning mellan källan och målet
+Detta kan inträffa om antingen värd brand väggen eller den mellanliggande brand väggen (nätverks brand väggen eller Azure-NSG) blockerar kommunikationen mellan käll agenten och målet via den port som används för övervakning av NPM (som standard är porten 8084, om inte kunden har ändrat detta).
 
-* Visa hälsotillståndet för käll- och målnoder från följande vy för att kontrollera att värdens brandvägg inte blockerar kommunikation på porten som krävs: Network Performance Monitor -> konfigurationsserver -> noder. 
-  Om de inte är felfria instruktioner och vidta åtgärder. Om noderna fungerar felfritt, gå vidare till steg b. nedan.
-* För att kontrollera att en mellanliggande brandvägg eller en Azure-Nätverkssäkerhetsgrupper inte blockerar kommunikation på den begärda porten, använder du tredje parts PsPing verktyget med i instruktionerna nedan:
-  * psping verktyget är tillgänglig för hämtning [här](https://technet.microsoft.com/sysinternals/psping.aspx) 
+* Kontrol lera att värd brand väggen inte blockerar kommunikationen på den begärda porten genom att Visa hälso statusen för käll-och mål-noderna från följande vy: Övervakare av nätverksprestanda-> konfigurations > noder. 
+  Om de inte är felfria kan du Visa anvisningarna och vidta lämpliga åtgärder. Om noderna är felfria flyttar du till steg b. nedan.
+* Kontrol lera att en mellanliggande nätverks brand vägg eller Azure-NSG inte blockerar kommunikationen på den begärda porten genom att använda PsPing för tredje part med hjälp av anvisningarna nedan:
+  * psping-verktyget är tillgängligt för nedladdning [här](https://technet.microsoft.com/sysinternals/psping.aspx) 
   * Kör följande kommando från Källnoden.
-    * psping -n 15 \<målnoden IPAddress\>: portNumber NPM som standard använder 8084 port. Om du uttryckligen har ändrat detta med hjälp av skriptet EnableRules.ps1, ange anpassat portnummer som du använder). Det här är en ping från Azure-datorer till en lokal
-* Kontrollera om ping är klar. Annars kan du sedan indikerar att en mellanliggande brandvägg eller en Azure-Nätverkssäkerhetsgrupp blockerar trafik på den här porten.
-* Nu kan köra kommandot från målnoden som källa för nod-IP.
+    * psping-n 15 \<-målnod IPAddress\>:p ortnumber som standard använder NPM 8084-port. Om du uttryckligen har ändrat detta genom att använda skriptet EnableRules. ps1 anger du det anpassade port numret som du använder). Det här är ett ping från en Azure-dator till en lokal plats
+* Kontrol lera att pingarna fungerar. Annars indikerar det att en mellanliggande nätverks brand vägg eller Azure-NSG blockerar trafiken på den här porten.
+* Kör nu kommandot från målnod till nodens IP-adress.
 
 
-### <a name="there-is-loss-from-node-a-to-b-but-not-from-node-b-to-a-why"></a>Det finns förlust från nod A till B, men inte från nod B till A. Varför?
-Eftersom nätverkssökvägar mellan A till B kan skilja sig från nätverkssökvägar mellan B till A, kan olika värden för förlust och fördröjning observeras.
+### <a name="there-is-loss-from-node-a-to-b-but-not-from-node-b-to-a-why"></a>Det går förlorad från nod A till B, men inte från nod B till en. Varför?
+Eftersom nätverks Sök vägarna mellan A och B kan skilja sig från nätverks Sök vägarna mellan B till en, kan olika värden för förlust och svars tid observeras.
 
-### <a name="why-are-all-my-expressroute-circuits-and-peering-connections-not-being-discovered"></a>Varför är min ExpressRoute-kretsar och peering-anslutningarna inte identifieras?
-NPM identifieras nu ExpressRoute-kretsar och peering-anslutningar i alla prenumerationer som användaren har åtkomst till. Välj alla prenumerationer där resurserna i Express Route kopplas och aktivera övervakning för varje identifierad resurs. NPM letar efter anslutningsobjekt när identifiering av en privat peering, så kontrollera om ett virtuellt nätverk är associerat med din peering.
+### <a name="why-are-all-my-expressroute-circuits-and-peering-connections-not-being-discovered"></a>Varför identifieras inte alla mina ExpressRoute-kretsar och peering-anslutningar?
+NPM identifierar nu ExpressRoute-kretsar och peering-anslutningar i alla prenumerationer som användaren har åtkomst till. Välj alla prenumerationer där dina ExpressRoute-resurser är länkade och aktivera övervakning för varje identifierad resurs. NPM söker efter anslutnings objekt när en privat peering identifieras, så kontrol lera om ett VNET är associerat med din peering.
 
-### <a name="the-er-monitor-capability-has-a-diagnostic-message-traffic-is-not-passing-through-any-circuit-what-does-that-mean"></a>Funktionen för ER övervakaren har en diagnostikmeddelande ”trafiken passerar inte genom alla kretsar”. Vad betyder det?
+### <a name="the-er-monitor-capability-has-a-diagnostic-message-traffic-is-not-passing-through-any-circuit-what-does-that-mean"></a>ER-skärms funktion har ett diagnostiskt meddelande "trafiken passerar inte genom någon krets". Vad betyder det?
 
-Det kan finnas ett scenario där det finns en felfri anslutning mellan lokala platser och Azure-noder men trafiken inte ska via ExpressRoute-krets som har konfigurerats för att övervakas av NPM. 
+Det kan finnas ett scenario där det finns en felfri anslutning mellan de lokala och Azure-noderna, men trafiken går inte över ExpressRoute-kretsen som kon figurer ATS för att övervakas av NPM. 
 
 Detta kan inträffa om:
 
-* ER kretsen har stoppats.
-* Route-filter är konfigurerade på ett sådant sätt att de ger prioritet till andra vägar (till exempel en VPN-anslutning eller en annan ExpressRoute-krets) över avsedd ExpressRoute-kretsen. 
-* Lokala och Azure-noder valt för att övervaka ExpressRoute-kretsen i konfigurationen av övervakningen har inte anslutning till varandra över avsedd ExpressRoute-kretsen. Se till att du har valt rätt noder som har anslutning till varandra via ExpressRoute-krets som du vill övervaka.
+* ER-kretsen är inte tillgänglig.
+* Flödes filtren konfigureras på ett sådant sätt att de ger prioritet till andra vägar (t. ex. en VPN-anslutning eller en annan ExpressRoute-krets) över avsedd ExpressRoute-krets. 
+* De lokala och Azure-noderna som väljs för att övervaka ExpressRoute-kretsen i övervaknings konfigurationen har ingen anslutning till varandra via den avsedda ExpressRoute-kretsen. Se till att du har valt rätt noder som har anslutning till varandra över den ExpressRoute-krets som du vill övervaka.
 
-### <a name="while-configuring-monitoring-of-my-expressroute-circuit-the-azure-nodes-are-not-being-detected"></a>När du konfigurerar övervakning av min ExpressRoute-krets, identifieras inte Azure-noder.
-Detta kan inträffa om Azure-noder är anslutna via Operations Manager. ExpressRoute-övervakning-funktionen stöder bara dessa Azure-noder som är ansluten som direkta agenter.
+### <a name="while-configuring-monitoring-of-my-expressroute-circuit-the-azure-nodes-are-not-being-detected"></a>När du konfigurerar övervakning av min ExpressRoute-krets identifieras inte Azure-noderna.
+Detta kan inträffa om Azure-noderna är anslutna via Operations Manager. ExpressRoute Monitor-kapacitet stöder bara de Azure-noder som är anslutna som direkta agenter.
 
 ### <a name="i-cannot-discover-by-expressroute-circuits-in-the-oms-portal"></a>Jag kan inte identifiera av ExpressRoute-kretsar i OMS-portalen
-Även om NPM kan användas både från Azure portal samt OMS-portalen, fungerar krets identifiering i funktionen för ExpressRoute-övervakning endast via Azure portal. När kretsarna identifieras via Azure-portalen, kan du sedan använda funktionen i någon av de två portalerna. 
+Även om NPM kan användas både från Azure Portal och OMS-portalen, fungerar krets identifieringen i ExpressRoute-övervakarens funktion bara genom Azure Portal. När kretsarna har identifierats via Azure Portal kan du använda funktionen i någon av de två portalerna. 
 
-### <a name="in-the-service-connectivity-monitor-capability-the-service-response-time-network-loss-as-well-as-latency-are-shown-as-na"></a>I funktionen för övervakning av tjänstens anslutning visas den tjänstens svarstid, nätverksförluster, samt svarstid som NA
-Detta kan inträffa om en eller flera är sant:
+### <a name="in-the-service-connectivity-monitor-capability-the-service-response-time-network-loss-as-well-as-latency-are-shown-as-na"></a>I tjänst anslutnings övervakarens funktion, svars tiden för tjänsten, nätverks förlust, samt svars tid visas som NA
+Detta kan inträffa om en eller flera är sanna:
 
-* Tjänsten är igång.
-* Noden som används för att kontrollera nätverksanslutningen till tjänsten har stoppats.
-* Målet som angetts i testkonfigurationen är felaktig.
-* Noden har inte någon nätverksanslutning.
+* Tjänsten är avstängd.
+* Noden som används för att kontrol lera nätverks anslutningen till tjänsten är avstängd.
+* Målet som angavs i test konfigurationen är felaktigt.
+* Noden har ingen nätverks anslutning.
 
-### <a name="in-the-service-connectivity-monitor-capability-a-valid-service-response-time-is-shown-but-network-loss-as-well-as-latency-are-shown-as-na"></a>I funktionen för övervakning av tjänstens anslutning, visas en giltig tjänstens svarstid men nätverksförluster samt svarstid visas som NA
- Detta kan inträffa om en eller flera är sant:
+### <a name="in-the-service-connectivity-monitor-capability-a-valid-service-response-time-is-shown-but-network-loss-as-well-as-latency-are-shown-as-na"></a>I tjänst anslutnings övervakarens funktion visas en giltig svars tid för tjänsten, men både nätverks förlust och svars tid visas som NA
+ Detta kan inträffa om en eller flera är sanna:
 
-* Om noden som används för att kontrollera nätverksanslutningen till tjänsten är en Windows-klientdator, Måltjänsten blockerar ICMP-begäranden, eller en brandvägg blockerar ICMP-begäranden som kommer från noden.
-* Kryssrutan utför nätverk mätning av faktisk användning har inte angetts i testkonfigurationen.
+* Om noden som används för att kontrol lera nätverks anslutningen till tjänsten är en Windows-klientdator blockerar antingen mål tjänsten ICMP-begäranden eller så blockerar den nätverks brand väggen ICMP-begäranden som kommer från noden.
+* Kryss rutan utför nätverks mätningar är tom i test konfigurationen.
 
-### <a name="in-the-service-connectivity-monitor-capability-the-service-response-time-is-na-but-network-loss-as-well-as-latency-are-valid"></a>Tjänstens svarstid är NA i funktionen för övervakning av tjänstens anslutning, men nätverksförluster samt svarstid är giltiga
-Detta kan inträffa om Måltjänsten är inte ett webbprogram men testet har konfigurerats som ett webbtest. Redigera testkonfigurationen och välj testtypen som nätverk istället för webben.
+### <a name="in-the-service-connectivity-monitor-capability-the-service-response-time-is-na-but-network-loss-as-well-as-latency-are-valid"></a>I tjänst anslutnings övervakarens funktion är svars tiden för tjänsten, men både nätverks förlust och svars tid är giltiga
+Detta kan inträffa om mål tjänsten inte är ett webb program, men testet är konfigurerat som ett webb test. Redigera test konfigurationen och välj test typ som nätverk i stället för webben.
 
-## <a name="miscellaneous"></a>Övrigt
+## <a name="miscellaneous"></a>Diverse
 
-### <a name="is-there-a-performance-impact-on-the-node-being-used-for-monitoring"></a>Finns det en prestandapåverkan på noden som används för övervakning?
-NPM-processen har konfigurerats för att stoppa om det använder mer än 5% av processorresurserna värden. Detta är att säkerställa att du kan fortsätta att använda noderna för sina vanliga arbetsbelastningar utan att påverka prestanda.
+### <a name="is-there-a-performance-impact-on-the-node-being-used-for-monitoring"></a>Påverkas prestandan på noden som används för övervakning?
+NPM-processen har kon figurer ATS att stoppa om den använder mer än 5% av värd processor resurserna. Detta är för att säkerställa att du kan fortsätta att använda noderna för sina vanliga arbets belastningar utan att påverka prestandan.
 
-### <a name="does-npm-edit-firewall-rules-for-monitoring"></a>Kan du redigera brandväggsregler för att övervaka NPM?
-NPM skapar bara en lokal Windows-brandväggsregel på noderna där EnableRules.ps1 Powershell-skriptet körs så att agenterna ska skapa TCP-anslutningar med varandra på den angivna porten. Lösningen ändras inte någon brandvägg eller regler för Nätverkssäkerhetsgrupp (NSG).
+### <a name="does-npm-edit-firewall-rules-for-monitoring"></a>Kan NPM redigera brand Väggs regler för övervakning?
+NPM skapar bara en lokal regel för Windows-brandväggen på noderna där PowerShell-skriptet EnableRules. ps1 körs för att tillåta agenterna att skapa TCP-anslutningar med varandra på den angivna porten. Lösningen ändrar inte någon nätverks brand vägg eller regler för nätverks säkerhets grupper (NSG).
 
-### <a name="how-can-i-check-the-health-of-the-nodes-being-used-for-monitoring"></a>Hur kan jag kontrollera hälsotillståndet för noderna som används för övervakning?
-Du kan visa hälsostatus noder som används för att övervaka från följande vy: Network Performance Monitor -> konfigurationsserver -> noder. Om en nod är felaktiga kan du visa felinformationen och vidta rekommenderad åtgärd.
+### <a name="how-can-i-check-the-health-of-the-nodes-being-used-for-monitoring"></a>Hur kan jag kontrol lera hälso tillståndet för noderna som används för övervakning?
+Du kan visa hälso status för de noder som används för övervakning från följande vy: Övervakare av nätverksprestanda-> konfigurations > noder. Om en nod inte är felfri kan du Visa fel informationen och vidta den föreslagna åtgärden.
 
-### <a name="can-npm-report-latency-numbers-in-microseconds"></a>NPM kan rapportera latens på mikrosekunder?
-NPM Avrundar talen svarstid i Användargränssnittet och i millisekunder. Samma data lagras i en mer detaljrikedom (ibland upp till fyra decimaler).
+### <a name="can-npm-report-latency-numbers-in-microseconds"></a>Kan NPM rapportera latens i mikrosekunder?
+NPM avrundar latens-talen i användar gränssnittet och i millisekunder. Samma data lagras med en högre precision (ibland upp till fyra decimaler).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om Övervakare av nätverksprestanda genom att referera till [Network Performance Monitor-lösning i Azure](../../azure-monitor/insights/network-performance-monitor.md).
+- Läs mer om Övervakare av nätverksprestanda genom att referera till [övervakare av nätverksprestanda-lösning i Azure](../../azure-monitor/insights/network-performance-monitor.md).

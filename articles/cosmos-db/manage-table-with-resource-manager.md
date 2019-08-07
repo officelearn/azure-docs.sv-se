@@ -1,29 +1,32 @@
 ---
-title: Azure Resource Manager-mallar för Azure Cosmos DB Table API
-description: Använd Azure Resource Manager-mallar för att skapa och konfigurera Azure Cosmos DB Table API.
+title: Azure Resource Manager mallar för Azure Cosmos DB Tabell-API
+description: Använd Azure Resource Manager mallar för att skapa och konfigurera Azure Cosmos DB Tabell-API.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 08/05/2019
 ms.author: mjbrown
-ms.openlocfilehash: 82e2a436bf6b25b6164d845d234896390a262292
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4dd636be60233beafca8e8680551bd7c711a4ccc
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65968819"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68814868"
 ---
-# <a name="manage-azure-cosmos-db-table-api-resources-using-azure-resource-manager-templates"></a>Hantera Azure Cosmos DB Table API med Azure Resource Manager-mallar
+# <a name="manage-azure-cosmos-db-table-api-resources-using-azure-resource-manager-templates"></a>Hantera Azure Cosmos DB Tabell-API resurser med Azure Resource Manager mallar
 
-## Skapa Azure Cosmos-konto och en tabell <a id="create-resource"></a>
+## Skapa ett Azure Cosmos-konto och-tabell<a id="create-resource"></a>
 
-Skapa Azure Cosmos DB-resurser med hjälp av en Azure Resource Manager-mall. Den här mallen skapar ett Azure Cosmos-konto för tabell-API med en tabell med 400 RU/s-dataflöde. Kopiera mallen och distribuera enligt nedan eller gå till [Azure Snabbstartsgalleriet](https://azure.microsoft.com/resources/templates/101-cosmosdb-table/) och distribuera från Azure-portalen. Du kan också ladda ned mallen till din lokala dator eller skapa en ny mall och ange den lokala sökvägen med den `--template-file` parametern.
+Skapa Azure Cosmos DB-resurser med en Azure Resource Manager-mall. Den här mallen skapar ett Azure Cosmos-konto för Tabell-API med en tabell med 400 RU/s-genomflöde. Kopiera mallen och distribuera på det sätt som visas nedan eller gå till [Azure snabb starts galleriet](https://azure.microsoft.com/resources/templates/101-cosmosdb-table/) och distribuera från Azure Portal. Du kan också hämta mallen till den lokala datorn eller skapa en ny mall och ange den lokala sökvägen med `--template-file` parametern.
+
+> [!NOTE]
+> Konto namn måste innehålla gemener och < 31 tecken.
 
 [!code-json[create-cosmos-table](~/quickstart-templates/101-cosmosdb-table/azuredeploy.json)]
 
 ### <a name="deploy-via-powershell"></a>Distribuera via PowerShell
 
-Att distribuera Resource Manager-mallen med hjälp av PowerShell, **kopia** skript och välj **prova** att öppna Azure Cloud shell. Högerklicka i gränssnittet för att klistra in skriptet, och välj sedan **klistra in**:
+Om du vill distribuera Resource Manager-mallen med hjälp av PowerShell **kopierar** du skriptet och väljer **prova** att öppna Azure Cloud Shell. Om du vill klistra in skriptet högerklickar du på gränssnittet och väljer **Klistra in**:
 
 ```azurepowershell-interactive
 
@@ -45,11 +48,11 @@ New-AzResourceGroupDeployment `
  (Get-AzResource --ResourceType "Microsoft.DocumentDb/databaseAccounts" --ApiVersion "2015-04-08" --ResourceGroupName $resourceGroupName).name
 ```
 
-Om du vill använda ett lokalt installerade versionen av PowerShell i stället för från Azure Cloud shell kan du behöva [installera](/powershell/azure/install-az-ps) Azure PowerShell-modulen. Kör `Get-Module -ListAvailable Az` för att hitta versionen.
+Om du väljer att använda en lokalt installerad version av PowerShell i stället för från Azure Cloud Shell måste du [installera](/powershell/azure/install-az-ps) Azure PowerShell-modulen. Kör `Get-Module -ListAvailable Az` för att hitta versionen.
 
 ### <a name="deploy-via-azure-cli"></a>Distribuera via Azure CLI
 
-Att distribuera Resource Manager-mallen med hjälp av Azure CLI, **kopia** skript och välj **prova** att öppna Azure Cloud shell. Högerklicka i gränssnittet för att klistra in skriptet, och välj sedan **klistra in**:
+Om du vill distribuera Resource Manager-mallen med hjälp av Azure CLI **kopierar** du skriptet och väljer **prova** att öppna Azure Cloud Shell. Om du vill klistra in skriptet högerklickar du på gränssnittet och väljer **Klistra in**:
 
 ```azurecli-interactive
 read -p 'Enter the Resource Group name: ' resourceGroupName
@@ -67,17 +70,17 @@ az group deployment create --resource-group $resourceGroupName \
 az cosmosdb show --resource-group $resourceGroupName --name accountName --output tsv
 ```
 
-Den `az cosmosdb show` -kommando visar det nya Azure Cosmos-kontot när den har etablerats. Om du väljer att använda ett lokalt installerade versionen av Azure CLI istället för att använda CloudShell, se [Azure kommandoradsgränssnitt (CLI)](/cli/azure/) artikeln.
+`az cosmosdb show` Kommandot visar det nyligen skapade Azure Cosmos-kontot efter att det har etablerats. Om du väljer att använda en lokalt installerad version av Azure CLI i stället för att använda CloudShell, kan du läsa artikeln om [kommando rads gränssnittet i Azure (CLI)](/cli/azure/) .
 
-## Uppdatera dataflöde (RU/s) för en tabell <a id="table-ru-update"></a>
+## Uppdatera data flödet (RU/s) i en tabell<a id="table-ru-update"></a>
 
-Följande mall uppdateras dataflödet för en tabell. Kopiera mallen och distribuera enligt nedan eller gå till [Azure Snabbstartsgalleriet](https://azure.microsoft.com/resources/templates/101-cosmosdb-table-ru-update/) och distribuera från Azure-portalen. Du kan också ladda ned mallen till din lokala dator eller skapa en ny mall och ange den lokala sökvägen med den `--template-file` parametern.
+Följande mall kommer att uppdatera data flödet för en tabell. Kopiera mallen och distribuera på det sätt som visas nedan eller gå till [Azure snabb starts galleriet](https://azure.microsoft.com/resources/templates/101-cosmosdb-table-ru-update/) och distribuera från Azure Portal. Du kan också hämta mallen till den lokala datorn eller skapa en ny mall och ange den lokala sökvägen med `--template-file` parametern.
 
 [!code-json[cosmosdb-table-ru-update](~/quickstart-templates/101-cosmosdb-table-ru-update/azuredeploy.json)]
 
-### <a name="deploy-table-throughput-via-powershell"></a>Distribuera tabell dataflöde via PowerShell
+### <a name="deploy-table-throughput-via-powershell"></a>Distribuera tabell data flöde via PowerShell
 
-Att distribuera Resource Manager-mallen med hjälp av PowerShell, **kopia** skript och välj **prova** att öppna Azure Cloud shell. Högerklicka i gränssnittet för att klistra in skriptet, och välj sedan **klistra in**:
+Om du vill distribuera Resource Manager-mallen med hjälp av PowerShell **kopierar** du skriptet och väljer **prova** att öppna Azure Cloud Shell. Om du vill klistra in skriptet högerklickar du på gränssnittet och väljer **Klistra in**:
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -93,9 +96,9 @@ New-AzResourceGroupDeployment `
     -throughput $throughput
 ```
 
-### <a name="deploy-table-template-via-azure-cli"></a>Distribuera mall via Azure CLI
+### <a name="deploy-table-template-via-azure-cli"></a>Distribuera tabell mal len via Azure CLI
 
-För att distribuera Resource Manager-mallen med hjälp av Azure CLI, Välj **prova** att öppna Azure Cloud shell. Högerklicka i gränssnittet för att klistra in skriptet, och välj sedan **klistra in**:
+Om du vill distribuera Resource Manager-mallen med Azure CLI väljer du **prova** att öppna Azure Cloud Shell. Om du vill klistra in skriptet högerklickar du på gränssnittet och väljer **Klistra in**:
 
 ```azurecli-interactive
 read -p 'Enter the Resource Group name: ' resourceGroupName
@@ -112,7 +115,7 @@ az group deployment create --resource-group $resourceGroupName \
 
 Här följer några ytterligare resurser:
 
-- [Dokumentation om Azure Resource Manager](/azure/azure-resource-manager/)
-- [Providerschema för Azure Cosmos DB-resurs](/azure/templates/microsoft.documentdb/allversions)
-- [Azure Cosmos DB-Quickstart-mallar](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.DocumentDB&pageNumber=1&sort=Popular)
-- [Felsök vanliga distributionsfel för Azure Resource Manager](../azure-resource-manager/resource-manager-common-deployment-errors.md)
+- [Azure Resource Manager dokumentation](/azure/azure-resource-manager/)
+- [Schema för Azure Cosmos DB Resource Provider](/azure/templates/microsoft.documentdb/allversions)
+- [Azure Cosmos DB Snabb starts mallar](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.DocumentDB&pageNumber=1&sort=Popular)
+- [Felsök vanliga Azure Resource Manager distributions fel](../azure-resource-manager/resource-manager-common-deployment-errors.md)

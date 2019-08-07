@@ -1,5 +1,5 @@
 ---
-title: 'Anslut ditt lokala nätverk till ett virtuellt Azure-nätverk: Plats-till-plats-VPN: Portal | Microsoft Docs'
+title: 'Anslut ditt lokala nätverk till ett virtuellt Azure-nätverk: VPN för plats-till-plats: Portal | Microsoft Docs'
 description: Steg för att skapa en IPsec-anslutning från ditt lokala nätverk till ett virtuellt Azure-nätverk via offentligt Internet. Dessa steg hjälper dig att skapa en plats-till-plats-anslutning med VPN Gateway med hjälp av portalen.
 services: vpn-gateway
 author: cherylmc
@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: cherylmc
-ms.openlocfilehash: 032b6a4f5147d06a4613a827a0372437dca47f47
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5b4be7464a4c19cd0a71d5a786b46091cdbc074b
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60407753"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780122"
 ---
 # <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>Skapa en plats-till-plats-anslutning på Azure Portal
 
@@ -42,23 +42,23 @@ Kontrollera att du har uppfyllt följande villkor innan du påbörjar konfigurat
 
 Vi använder följande värden i exemplen. Du kan använda värdena till att skapa en testmiljö eller hänvisa till dem för att bättre förstå exemplen i den här artikeln. Mer information om VPN-gatewayinställningar finns i [Om VPN Gateway-inställningar](vpn-gateway-about-vpn-gateway-settings.md).
 
-* **VNet-namn:** TestVNet1
+* **VNet-namn:** VNet1
 * **Adressutrymme:** 10.1.0.0/16
 * **Prenumeration:** Den prenumeration som du vill använda
 * **Resursgrupp:** TestRG1
-* **Plats:** Östra USA
-* **Undernät:** FrontEnd: 10.1.0.0/24, BackEnd: 10.1.1.0/24 (valfritt för den här övningen)
-* **Namn på gateway-undernät:** GatewaySubnet (det här kommer Autofyll i portalen)
-* **Adressintervall för Gatewayundernät:** 10.1.255.0/27
+* **Plats:** East US
+* **Delnät** FrontEnd: 10.1.0.0/24, BackEnd: 10.1.1.0/24 (valfritt för den här övningen)
+* **Gateway-undernätets namn:** GatewaySubnet (detta kommer automatiskt att fylla i portalen)
+* **Adress intervall för Gateway-under nätet:** 10.1.255.0/27
 * **DNS-server:** 8.8.8.8 – valfritt. IP-adressen för din DNS-server.
-* **Det virtuella nätverkets Gateway Name:** VNet1GW
-* **Offentlig IP-adress:** VNet1GWIP
+* **Virtual Network Gateway-namn:** VNet1GW
+* **Offentlig IP:** VNet1GWIP
 * **VPN-typ:** Routningsbaserad
-* **Anslutningstyp:** Plats-till-plats (IPsec)
+* **Anslutnings typ:** Plats-till-plats (IPsec)
 * **Gateway-typ:** VPN
-* **Lokala Gateway-namn:** Site1
-* **Anslutningsnamn:** VNet1toSite1
-* **Delad nyckel:** I det här exemplet använder vi abc123. Men du kan använda det som är kompatibelt med din VPN-maskinvara. Huvudsaken är att värdena matchar på båda sidorna av anslutningen.
+* **Namn på lokal nätverksgateway:** Site1
+* **Anslutnings namn:** VNet1toSite1
+* **Delad nyckel:** I det här exemplet använder vi vi abc123. Men du kan använda det som är kompatibelt med din VPN-maskinvara. Huvudsaken är att värdena matchar på båda sidorna av anslutningen.
 
 ## <a name="CreatVNet"></a>1. Skapa ett virtuellt nätverk
 
@@ -66,9 +66,11 @@ Vi använder följande värden i exemplen. Du kan använda värdena till att ska
 
 ## <a name="dns"></a>2. Ange en DNS-server
 
-DNS krävs inte för att skapa plats-till-plats-anslutningar. Om du vill använda namnmatchning för resurser som distribueras till ditt virtuella nätverk bör du dock ange en DNS-server. Med den här inställningen kan du ange vilken DNS-server du vill använda för namnmatchning för det här virtuella nätverket. Den skapar inte någon DNS-server. Mer information om namnmatchning finns i [Namnmatchning för virtuella datorer](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
+DNS krävs inte för att skapa plats-till-plats-anslutningar.
 
-[!INCLUDE [Specify a dns server - optional](../../includes/vpn-gateway-specify-dns-portal-include.md)]
+Om du vill använda namnmatchning för resurser som distribueras till ditt virtuella nätverk bör du dock ange en DNS-server. Med den här inställningen kan du ange vilken DNS-server du vill använda för namnmatchning för det här virtuella nätverket. Den skapar inte någon DNS-server. Mer information om namnmatchning finns i [Namnmatchning för virtuella datorer](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
+
+[!INCLUDE [Specify a dns server - optional](../../includes/vpn-gateway-add-dns-rm-portal-include.md)]
 
 ## <a name="gatewaysubnet"></a>3. Skapa gateway-undernätet
 

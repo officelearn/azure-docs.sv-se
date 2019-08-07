@@ -1,6 +1,6 @@
 ---
-title: Azure AD Federation Metadata | Microsoft Docs
-description: Den här artikeln beskriver federationsmetadatadokumentet som Azure Active Directory publicerar för tjänster som har stöd för Azure Active Directory-token.
+title: Azure AD Federation-Metadata | Microsoft Docs
+description: I den här artikeln beskrivs det dokument för federationsmetadata som Azure Active Directory publiceras för tjänster som accepterar Azure Active Directory tokens.
 services: active-directory
 documentationcenter: .net
 author: rwike77
@@ -12,48 +12,48 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/07/2017
 ms.author: ryanwi
 ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 32f105c0d4f8807b53d400a1c198edd504c0aef3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fefaf618ff29cc2186dc555eb6f452223f4cd097
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65544505"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68835125"
 ---
 # <a name="federation-metadata"></a>Federationsmetadata
-Azure Active Directory (Azure AD) publicerar ett dokument med federationsmetadata för tjänster som är konfigurerad för att acceptera de säkerhetstoken som Azure AD utfärdar. Dokumentformat för federation metadata som beskrivs i den [Web Services Federation Language (WS-Federation) Version 1.2](https://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html), som utökar [Metadata för OASIS Security Assertion Markup Language (SAML) v2.0](https://docs.oasis-open.org/security/saml/v2.0/saml-metadata-2.0-os.pdf).
+Azure Active Directory (Azure AD) publicerar ett dokument för federationsmetadata för tjänster som är konfigurerade för att godkänna de säkerhetstoken som Azure AD utfärdar. Dokument formatet för federationsmetadata beskrivs i [Web Services Federation Language (WS-Federation) Version 1,2](https://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html), som utökar [metadata för Oasis Security Assertion Markup Language (SAML) v 2.0](https://docs.oasis-open.org/security/saml/v2.0/saml-metadata-2.0-os.pdf).
 
-## <a name="tenant-specific-and-tenant-independent-metadata-endpoints"></a>Klientspecifik och klient-oberoende Metadataslutpunkter
-Azure AD publicerar klientspecifik och klient-oberoende slutpunkter.
+## <a name="tenant-specific-and-tenant-independent-metadata-endpoints"></a>Klient-och klient oberoende slut punkter för klienter
+Azure AD publicerar klient-och klient oberoende slut punkter.
 
-Klientspecifik slutpunkter är utformade för en viss klient. Klientspecifik federationsmetadata innehåller information om klienten, inklusive klientspecifik utfärdare och slutpunkten information. Program som begränsar åtkomsten till en enda klient använda klientspecifik slutpunkter.
+Klient specifika slut punkter är utformade för en viss klient. De klient-/regionsspecifika federationsmetadata innehåller information om klienten, inklusive klient organisations information och slut punkts information. Program som begränsar åtkomsten till en enda klient organisation använder klient-/regionsspecifika slut punkter.
 
-Klient-oberoende slutpunkter innehåller information som är gemensamma för alla Azure AD-klienter. Den här informationen gäller för klienter som finns på *login.microsoftonline.com* och delas mellan klienter. Klient-oberoende slutpunkter rekommenderas för program med flera klienter, eftersom de inte är associerade med viss innehavare.
+Klient oberoende slut punkter tillhandahåller information som är gemensam för alla Azure AD-klienter. Den här informationen gäller för klienter som finns på *login.microsoftonline.com* och delas mellan klienter. Klient oberoende slut punkter rekommenderas för program med flera klienter, eftersom de inte är associerade med någon viss klient.
 
-## <a name="federation-metadata-endpoints"></a>Slutpunkter för Federation metadata
-Azure AD publicerar federationsmetadata på `https://login.microsoftonline.com/<TenantDomainName>/FederationMetadata/2007-06/FederationMetadata.xml`.
+## <a name="federation-metadata-endpoints"></a>Slut punkter för federationsmetadata
+Azure AD publicerar federationsmetadata i `https://login.microsoftonline.com/<TenantDomainName>/FederationMetadata/2007-06/FederationMetadata.xml`.
 
-För **klientspecifik slutpunkter**, `TenantDomainName` kan vara något av följande typer:
+För **klient-/regionsspecifika slut punkter** `TenantDomainName` kan vara en av följande typer:
 
-* Ett registrerat domännamn för en Azure AD-klient, till exempel: `contoso.onmicrosoft.com`.
-* Den kan ändras klient-ID i domänen, till exempel `72f988bf-86f1-41af-91ab-2d7cd011db45`.
+* Ett registrerat domän namn för en Azure AD-klient, t. `contoso.onmicrosoft.com`ex.:.
+* Det oåterkalleliga klient organisations-ID: t `72f988bf-86f1-41af-91ab-2d7cd011db45`för domänen, till exempel.
 
-För **klient oberoende slutpunkter**, `TenantDomainName` är `common`. Det här dokumentet visas endast de Federationsmetadata-element som är gemensamma för alla Azure AD-klienter som finns på login.microsoftonline.com.
+För **klient oberoende slut punkter** `TenantDomainName` är `common`. I det här dokumentet visas endast de federationsmetadata som är gemensamma för alla Azure AD-klienter som finns på login.microsoftonline.com.
 
-Till exempel en klientspecifik slutpunkt kanske `https://login.microsoftonline.com/contoso.onmicrosoft.com/FederationMetadata/2007-06/FederationMetadata.xml`. Oberoende av klient-slutpunkten är [ https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml ](https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml). Du kan visa federationsmetadatadokumentet genom att skriva följande URL i en webbläsare.
+Till exempel kan en klient-/regionsspecifika slut punkt vara `https://login.microsoftonline.com/contoso.onmicrosoft.com/FederationMetadata/2007-06/FederationMetadata.xml`. Klient oberoende slut punkt är [https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml](https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml). Du kan visa dokumentet för federationsmetadata genom att skriva denna URL i en webbläsare.
 
-## <a name="contents-of-federation-metadata"></a>Innehållet i federation Metadata
-Följande avsnitt innehåller information som krävs av tjänster som använder de token som utfärdats av Azure AD.
+## <a name="contents-of-federation-metadata"></a>Innehåll i federationsmetadata
+Följande avsnitt innehåller information som behövs för tjänster som använder token som utfärdats av Azure AD.
 
-### <a name="entity-id"></a>Entitets-ID
-Den `EntityDescriptor` elementet innehåller ett `EntityID` attribut. Värdet för den `EntityID` attributet representerar utfärdaren, det vill säga den säkerhetstokentjänst (STS) som utfärdade token. Det är viktigt att verifiera utfärdaren när du tar emot en token.
+### <a name="entity-id"></a>Enhets-id
+Elementet innehåller ett `EntityID` -attribut. `EntityDescriptor` Värdet för `EntityID` attributet representerar utfärdaren, det vill säga den säkerhetstokentjänst som utfärdade token. Det är viktigt att verifiera utfärdaren när du får en token.
 
-Följande metadata visar ett urval klientspecifik `EntityDescriptor` element med ett `EntityID` element.
+Följande metadata visar ett exempel på ett klient- `EntityDescriptor` /regionsspecifika element med `EntityID` ett-element.
 
 ```
 <EntityDescriptor
@@ -61,9 +61,9 @@ xmlns="urn:oasis:names:tc:SAML:2.0:metadata"
 ID="_b827a749-cfcb-46b3-ab8b-9f6d14a1294b"
 entityID="https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db45/">
 ```
-Du kan ersätta klient-ID i slutpunkten klient oberoende med ditt klient-ID för att skapa en klientspecifik `EntityID` värde. Resultatvärdet ska vara samma som tokenutfärdaren. Strategin kan ett program för flera användare att verifiera utfärdaren för en viss klient.
+Du kan ersätta klient-ID: t i den klient oberoende slut punkten med klient-ID för att skapa ett `EntityID` klient-/regionsspecifika värde. Det resulterande värdet är detsamma som för token-utfärdaren. Strategin gör det möjligt för ett program för flera innehavare att verifiera utfärdaren för en specifik klient.
 
-Följande metadata visar ett urval klient oberoende `EntityID` element. Observera att som den `{tenant}` är en literal, inte en platshållare.
+Följande metadata visar ett exempel på ett klient oberoende `EntityID` element. Observera att `{tenant}` är en literal, inte en plats hållare.
 
 ```
 <EntityDescriptor
@@ -72,12 +72,12 @@ ID="="_0e5bd9d0-49ef-4258-bc15-21ce143b61bd"
 entityID="https://sts.windows.net/{tenant}/">
 ```
 
-### <a name="token-signing-certificates"></a>Certifikat för tokensignering
-När en tjänst tar emot en token som utfärdas av en Azure AD-klient, måste signaturen för token verifieras med en signeringsnyckel som publiceras i federationsmetadatadokumentet. Federationsmetadata innehåller den offentliga delen av de certifikat som klienterna använder för tokensignering. Certifikatet rå byte visas i den `KeyDescriptor` element. Certifikatet för tokensignering är giltig för signering bara när värdet för den `use` attributet är `signing`.
+### <a name="token-signing-certificates"></a>Token signerings certifikat
+När en tjänst tar emot en token som utfärdats av en Azure AD-klient måste signaturen för token verifieras med en signerings nyckel som publiceras i federationsmetadata. Federationsmetadata innehåller den offentliga delen av de certifikat som klienterna använder för Token-signering. Certifikatets RAW-byte visas i `KeyDescriptor` -elementet. Token signerings certifikatet är giltigt endast för signering när värdet för `use` attributet är. `signing`
 
-En federationsmetadatadokumentet som publicerats av Azure AD kan ha flera nycklar för signering, till exempel när Azure AD förbereds för att uppdatera signeringscertifikatet. När ett dokument med federationsmetadata innehåller fler än ett certifikat, en tjänst som verifieras token ska ha stöd för alla certifikat i dokumentet.
+Ett dokument för federationsmetadata som publicerats av Azure AD kan ha flera signerings nycklar, till exempel när Azure AD förbereder uppdatering av signerings certifikatet. När ett dokument för federationsmetadata innehåller mer än ett certifikat, ska en tjänst som verifierar token ha stöd för alla certifikat i dokumentet.
 
-Följande metadata visar ett urval `KeyDescriptor` element med en signeringsnyckel.
+Följande metadata visar ett exempel `KeyDescriptor` element med en signerings nyckel.
 
 ```
 <KeyDescriptor use="signing">
@@ -91,29 +91,29 @@ MIIDPjCCAiqgAwIBAgIQVWmXY/+9RqFA/OG9kFulHDAJBgUrDgMCHQUAMC0xKzApBgNVBAMTImFjY291
 </KeyDescriptor>
   ```
 
-Den `KeyDescriptor` elementet förekommer på två platser i federationsmetadatadokumentet; i avsnittet WS-Federation-specifika och avsnittet SAML-specifika. De certifikat som publicerats i båda avsnitten är samma.
+`KeyDescriptor` Elementet visas på två platser i dokumentet för federationsmetadata; i avsnittet WS-Federation-Specific och avsnittet SAML-Specific. De certifikat som publiceras i båda avsnitten blir desamma.
 
-I avsnittet WS-Federation-specifika en läsare för WS-Federation metadata läser certifikat från en `RoleDescriptor` element med den `SecurityTokenServiceType` typen.
+I WS-Federation-Specific-avsnittet läser en WS-Federation Metadata-läsare certifikaten från ett `RoleDescriptor` -element `SecurityTokenServiceType` med typen.
 
-Följande metadata visar ett urval `RoleDescriptor` element.
+Följande metadata visar ett exempel `RoleDescriptor` element.
 
 ```
 <RoleDescriptor xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns:fed="https://docs.oasis-open.org/wsfed/federation/200706" xsi:type="fed:SecurityTokenServiceType"protocolSupportEnumeration="https://docs.oasis-open.org/wsfed/federation/200706">
 ```
 
-I avsnittet SAML-specifika en läsare för WS-Federation metadata läser certifikat från en `IDPSSODescriptor` element.
+I det SAML-specificerade avsnittet läser en WS-Federation Metadata Reader certifikaten från ett `IDPSSODescriptor` -element.
 
-Följande metadata visar ett urval `IDPSSODescriptor` element.
+Följande metadata visar ett exempel `IDPSSODescriptor` element.
 
 ```
 <IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
 ```
-Det finns inga skillnader i formatet klientspecifik och klient-oberoende certifikat.
+Det finns inga skillnader i formatet för klient-och klient oberoende certifikat.
 
-### <a name="ws-federation-endpoint-url"></a>Slutpunkts-URL för WS-Federation
-Federationsmetadata innehåller den URL som använder Azure AD för enkel inloggning och enkel utloggning i WS-Federation-protokollet. Den här slutpunkten visas i den `PassiveRequestorEndpoint` element.
+### <a name="ws-federation-endpoint-url"></a>Slut punkts-URL för WS-Federation
+Federationsmetadata omfattar den URL som används i Azure AD för enkel inloggning och enkel utloggning i WS-Federation-protokollet. Den här slut punkten visas `PassiveRequestorEndpoint` i-elementet.
 
-Följande metadata visar ett urval `PassiveRequestorEndpoint` element för en klientspecifik slutpunkt.
+Följande metadata visar ett exempel `PassiveRequestorEndpoint` element för en klient-Specific-slutpunkt.
 
 ```
 <fed:PassiveRequestorEndpoint>
@@ -124,7 +124,7 @@ https://login.microsoftonline.com/72f988bf-86f1-41af-91ab-2d7cd011db45/wsfed
 </EndpointReference>
 </fed:PassiveRequestorEndpoint>
 ```
-För oberoende av klient-slutpunkt för WS-Federation Webbadressen som visas i WS-Federation-slutpunkt som visas i följande exempel.
+WS-Federation-URL: en för klient oberoende slut punkt visas i WS-Federation-slutpunkten, som du ser i följande exempel.
 
 ```
 <fed:PassiveRequestorEndpoint>
@@ -136,12 +136,12 @@ https://login.microsoftonline.com/common/wsfed
 </fed:PassiveRequestorEndpoint>
 ```
 
-### <a name="saml-protocol-endpoint-url"></a>Slutpunkts-URL för SAML-protokoll
-Federationsmetadata innehåller den URL som Azure AD använder för enkel inloggning och enkel utloggning i SAML 2.0-protokollet. De här slutpunkterna visas i den `IDPSSODescriptor` element.
+### <a name="saml-protocol-endpoint-url"></a>Slut punkts-URL för SAML-protokoll
+Federationsmetadata innehåller den URL som Azure AD använder för enkel inloggning och enkel utloggning i SAML 2,0-protokollet. De här slut punkterna visas i `IDPSSODescriptor` -elementet.
 
-URL: er med inloggning och utloggning visas i den `SingleSignOnService` och `SingleLogoutService` element.
+URL: erna för inloggning och utloggning visas i `SingleSignOnService` elementen och. `SingleLogoutService`
 
-Följande metadata visar ett urval `PassiveResistorEndpoint` för en klientspecifik slutpunkt.
+Följande metadata visar ett exempel `PassiveResistorEndpoint` för en klient-/regionsspecifika slut punkt.
 
 ```
 <IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
@@ -151,7 +151,7 @@ Följande metadata visar ett urval `PassiveResistorEndpoint` för en klientspeci
   </IDPSSODescriptor>
 ```
 
-På samma sätt publiceras slutpunkterna för vanliga SAML 2.0-protokollslutpunkterna i klient oberoende federationsmetadata som visas i följande exempel.
+Slut punkterna för de gemensamma SAML 2,0-protokollets slut punkter publiceras i de klient oberoende federationsmetadata, som visas i följande exempel.
 
 ```
 <IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">

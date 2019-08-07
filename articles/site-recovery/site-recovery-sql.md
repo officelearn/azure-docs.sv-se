@@ -6,14 +6,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 06/30/2019
+ms.date: 08/02/2019
 ms.author: sutalasi
-ms.openlocfilehash: 7ee7d6434058da63883f8db0eae6a3f91c778338
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 14fbca6dea735ed1ee13fca20f19379cc2c4d0a9
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325120"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742328"
 ---
 # <a name="set-up-disaster-recovery-for-sql-server"></a>Konfigurera katastrof återställning för SQL Server
 
@@ -39,7 +39,7 @@ SQL Server på en virtuell Azure IaaS-dator eller lokalt.| [Kluster för växlin
 SQL Server på en virtuell Azure IaaS-dator eller lokalt.| [Databas spegling (högpresterande läge)](https://docs.microsoft.com/sql/database-engine/database-mirroring/database-mirroring-sql-server?view=sql-server-2017) | Den tid det tar att framtvinga tjänsten, som använder speglings servern som en varm standby-Server. | Replikeringen är asynkron. Speglings databasen kan vara en fördröjning bakom huvud databasen. Fördröjningen är vanligt vis liten. Men den kan bli stor om huvud-eller speglings serverns system är hårt belastat.<br/><br/>Logg överföring kan vara ett tillägg till databas spegling. Det är ett fördelaktig alternativ till asynkron databas spegling.
 SQL as Platform as a Service (PaaS) på Azure.<br/><br/>Den här distributions typen innehåller elastiska pooler och Azure SQL Database-servrar. | Aktiv geo-replikering | 30 sekunder efter att redundansväxlingen har utlösts.<br/><br/>När redundans aktive ras för en av de sekundära databaserna, länkas alla andra sekundära sekundära automatiskt till den nya primära. | Återställningen av fem sekunder.<br/><br/>Aktiv geo-replikering använder alltid teknik på SQL Server. Den replikerar allokerade transaktioner asynkront på den primära databasen till en sekundär databas med hjälp av ögonblicks bild isolering.<br/><br/>Sekundär data garanteras att aldrig ha partiella transaktioner.
 SQL as-PaaS har kon figurer ATS med aktiv geo-replikering på Azure.<br/><br/>Den här distributions typen innehåller en SQL Database Hanterad instans, elastiska pooler och SQL Database-servrar. | Automatiska redundansgrupper | RTO på en timme. | Återställningen av fem sekunder.<br/><br/>Grupper för automatisk redundans ger gruppsemantiken ovanpå aktiv geo-replikering. Men samma mekanism för asynkron replikering används.
-SQL Server på en virtuell Azure IaaS-dator eller lokalt.| Replikering med Azure Site Recovery | RTO är vanligt vis mindre än 15 minuter. Läs mer i [RTO-SLA som tillhandahålls av Site Recovery](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/). | En timme för program konsekvens och fem minuter för krasch konsekvens.
+SQL Server på en virtuell Azure IaaS-dator eller lokalt.| Replikering med Azure Site Recovery | RTO är vanligt vis mindre än 15 minuter. Läs mer i [RTO-SLA som tillhandahålls av Site Recovery](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/). | En timme för program konsekvens och fem minuter för krasch konsekvens. Om du vill ha lägre återställnings punkt använder du andra BCDR-tekniker.
 
 > [!NOTE]
 > Några viktiga överväganden när du hjälper till att skydda SQL-arbetsbelastningar med Site Recovery:

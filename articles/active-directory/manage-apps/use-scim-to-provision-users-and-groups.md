@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 07/31/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7e28e92da319580baa9b4cadc4bc17f862b69e2
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 48eb36151948dc6e39edd4ae0fd863c63e83a52b
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68494510"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68741350"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Med hjälp av System för domänerna Identity Management (SCIM) att automatiskt etablera användare och grupper från Azure Active Directory till program
 
@@ -73,7 +73,7 @@ Program som stöder SCIM-profilen som beskrivs i den här artikeln kan anslutas 
    ![Exempel: Etablerings sidan för en app i Azure Portal][2]<br/>
    *Bild 3: Konfigurera etablering i Azure Portal*
 
-1. I den **klient-URL** fältet, anger du URL till slutpunkten för programmets SCIM. Exempel: https://api.contoso.com/scim/v2/
+1. I den **klient-URL** fältet, anger du URL till slutpunkten för programmets SCIM. Exempel: https://api.contoso.com/scim/
 1. Om SCIM-slutpunkten kräver en OAuth-ägartoken från en utfärdare än Azure AD kan sedan kopiera den obligatoriska OAuth-ägartoken till det valfria **hemlighet Token** fält. Om det här fältet lämnas tomt innehåller Azure AD en OAuth Bearer-token som utfärdats från Azure AD med varje begäran. Appar som använder Azure AD som en identitetsprovider kan verifiera den här Azure AD-utfärdade token.
 1. Välj **test anslutning** för att Azure Active Directory försöka ansluta till scim-slutpunkten. Om försöket Miss lyckas visas fel information.  
 
@@ -678,7 +678,7 @@ Det enklaste sättet att implementera en SCIM-slutpunkt som kan ta emot etableri
 1. Ange ett namn för ditt program och välj **Lägg till** för att skapa ett app-objekt. Det programobjekt som skapas är avsedd att representera målappen du skulle etablering för och implementera enkel inloggning för och inte bara SCIM-slutpunkten.
 1. På skärmen hantering av appar väljer du **etablering** i den vänstra panelen.
 1. I den **etablering läge** menyn och välj **automatisk**.    
-1. I den **klient-URL** fältet, anger du URL: en och en port för din SCIM-slutpunkt som visas på internet. Posten är något som liknar http://testmachine.contoso.com:9000 eller http://\< IP-address >: 9000/, där \< IP-adress > är den Internet-exponerade IP-adressen.
+1. I den **klient-URL** fältet, anger du URL till slutpunkten för programmets SCIM. Exempel: https://api.contoso.com/scim/
 
 1. Om SCIM-slutpunkten kräver en OAuth-ägartoken från en utfärdare än Azure AD kan sedan kopiera den obligatoriska OAuth-ägartoken till det valfria **hemlighet Token** fält. Om det här fältet lämnas tomt innehåller Azure AD en OAuth Bearer-token som utfärdats från Azure AD med varje begäran. Appar som använder Azure AD som en identitetsprovider kan verifiera den här Azure AD-utfärdade token.
 1. Välj **test anslutning** för att Azure Active Directory försöka ansluta till scim-slutpunkten. Om försöket Miss lyckas visas fel information.  
@@ -834,7 +834,7 @@ För att vara värd för tjänsten inom Internet Information Services skapar en 
 
 ### <a name="handling-endpoint-authentication"></a>Hantering av slutpunktsautentisering
 
-Begäranden från Azure Active Directory omfattar en OAuth 2.0-ägartoken.   Alla tjänster som tar emot begäran ska autentisera utfärdaren som Azure Active Directory för den förväntade Azure Active Directory klienten, för åtkomst till Azure Active Directory Graph-webbtjänsten.  I token utfärdaren identifieras med ett iss-anspråk som ”iss” ”:"https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/ ".  I det här exemplet är bas adressen för anspråks värdet https://sts.windows.net , identifierar Azure Active Directory som utfärdaren, medan det relativa adress segmentet cbb1a5ac-f33b-45fa-9bf5-f37db0fed422 är en unik identifierare för Azure Active Directory klienten för vilken token utfärdades. Mål gruppen för token är programmets mall-ID för appen i galleriet. Programmets mall-ID för alla anpassade appar är 8adf8e6e-67b2-4cf2-a259-e3dc5476c621. Programmets mall-ID för varje app i galleriet varierar. Kontakta ProvisioningFeedback@microsoft.com för att få frågor om Programmall-ID för ett galleri program. Varje program som registreras i en enda klient organisation kan få samma `iss` anspråk med scim-begäranden.
+Begäranden från Azure Active Directory omfattar en OAuth 2.0-ägartoken.   Alla tjänster som tar emot begäran ska autentisera utfärdaren som Azure Active Directory för den förväntade Azure Active Directory klienten, för åtkomst till Azure Active Directory Graph-webbtjänsten.  I token utfärdaren identifieras med ett iss-anspråk som ”iss” ”:"https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/".  I det här exemplet är bas adressen för anspråks värdet https://sts.windows.net, identifierar Azure Active Directory som utfärdaren, medan det relativa adress segmentet cbb1a5ac-f33b-45fa-9bf5-f37db0fed422 är en unik identifierare för Azure Active Directory klienten för vilken token utfärdades. Mål gruppen för token är programmets mall-ID för appen i galleriet. Programmets mall-ID för alla anpassade appar är 8adf8e6e-67b2-4cf2-a259-e3dc5476c621. Programmets mall-ID för varje app i galleriet varierar. Kontakta ProvisioningFeedback@microsoft.com för att få frågor om Programmall-ID för ett galleri program. Varje program som registreras i en enda klient organisation kan få samma `iss` anspråk med scim-begäranden.
 
 Utvecklare som använder CLI-biblioteken från Microsoft för att skapa en SCIM-tjänst kan autentisera begär Anden från Azure Active Directory med hjälp av Microsoft. OWIN. Security. ActiveDirectory-paketet genom att följa dessa steg: 
 

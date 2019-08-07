@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/10/2019
-ms.openlocfilehash: f9fd9f88a0aa6af9cd4160bf5879b9b8f383dca1
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: f0fb6f0d2b2579679ee8a6ec43b3241377701d48
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68720435"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780906"
 ---
 # <a name="enterprise-security-for-azure-machine-learning-service"></a>Företags säkerhet för Azure Machine Learning-tjänsten
 
@@ -161,7 +161,7 @@ Alla behållar avbildningar i registret (ACR) är krypterade i vila. Azure krypt
 
 Operativ system disken för varje Compute-nod lagras i Azure Storage krypteras med hjälp av Microsoft-hanterade nycklar i Azure Machine Learning tjänst lagrings konton. Den här beräkningen är tillfällig och kluster skalas vanligt vis ned när det inte finns några sekvenser i kön. Den underliggande virtuella datorn har tagits bort och OS-disken har tagits bort. Det finns inte stöd för Azure Disk Encryption för OS-disken.
 Varje virtuell dator har också en lokal temporär disk för OS-åtgärder. Du kan också använda den här disken för att mellanlagra tränings data. Disken är inte krypterad.
-Mer information om hur kryptering i vila fungerar i Azure finns i [Azure Data Encryption-at-rest](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest).
+Mer information om hur kryptering i vila fungerar i Azure finns i [Azure Data Encryption-at-rest](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest).
 
 ### <a name="encryption-in-transit"></a>Kryptering under överföring
 

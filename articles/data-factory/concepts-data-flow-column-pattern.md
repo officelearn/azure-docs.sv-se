@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 8f1fa6f7823c643278e52ffd0faa1c0ce4972ef8
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 41037e0687274d123bea742cee5cf2887548aa0f
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640255"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68775213"
 ---
 # <a name="mapping-data-flows-column-patterns"></a>Kolumn mönster för att mappa data flöden
 
@@ -45,6 +45,16 @@ Om du vill bygga mönster baserade på kolumner kan du matcha kolumn namn, typ, 
 När du mappar kolumner i källa och väljer omvandlingar kan du välja "fast mappning" eller "regelbaserade mappning". När du känner till schemat för dina data och förväntar dig vissa kolumner från käll data uppsättningen som alltid matchar vissa statiska namn, kan du använda fast mappning. Men när du arbetar med flexibla scheman använder du regelbaserade mappningar. Du kommer att kunna bygga en mönster matchning med hjälp av reglerna som beskrivs ovan.
 
 ![regel baserad mappning](media/data-flow/rule2.png "Regel baserad mappning")
+
+Bygg dina regler med uttrycks verktyget. Uttrycken returnerar ett booleskt värde som antingen matchar kolumner (true) eller exkluderings kolumner (falskt).
+
+## <a name="pattern-matching-special-columns"></a>Mönster som matchar särskilda kolumner
+
+* `$$`översätts till namnet på varje matchning vid design tillfället i fel söknings läge och vid körning vid körning
+* `name`representerar namnet på varje inkommande kolumn
+* `type`representerar data typen för varje inkommande kolumn
+* `stream`representerar namnet som är kopplat till varje data ström eller omvandling i ditt flöde
+* `position`är ordnings punkten för kolumner i ditt data flöde
 
 ## <a name="next-steps"></a>Nästa steg
 * Läs mer om data flödes uttrycks [språket](http://aka.ms/dataflowexpressions) för ADF-mappning för data transformationer

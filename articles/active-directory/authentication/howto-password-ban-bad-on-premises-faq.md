@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f1f2e06eb6b5f8d402515ff1c07a4163174495d
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 8ccefec9e548b7981f696712bb4a983f4b577a9b
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68666346"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779636"
 ---
 # <a name="azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Azure AD Password Protection lokalt – vanliga frågor och svar
 
@@ -40,15 +40,15 @@ Stöds ej. När den har distribuerats och Aktiver ATS kan inte Azure AD-lösenor
 
 **F: Vad är skillnaden mellan en lösen ords ändring och en lösen ords uppsättning (eller återställning)?**
 
-En lösen ords ändring är när en användare väljer ett nytt lösen ord när de har fått kännedom om det gamla lösen ordet. Detta är till exempel vad som händer när en användare loggar in i Windows och sedan uppmanas att välja ett nytt lösen ord.
+En lösen ords ändring är när en användare väljer ett nytt lösen ord när de har fått kännedom om det gamla lösen ordet. En lösen ords ändring är till exempel vad som händer när en användare loggar in i Windows och sedan uppmanas att välja ett nytt lösen ord.
 
-En lösen ords uppsättning (kallas ibland återställning av lösen ord) är när en administratör ersätter lösen ordet för ett konto med ett nytt lösen ord, till exempel med hjälp av verktyget Active Directory användare och datorer hantering. Den här åtgärden kräver en hög behörighets nivå (vanligt vis domän administratören) och den person som utför åtgärden har vanligt vis inte kunskap om det gamla lösen ordet. Support scenarier gör ofta detta, till exempel för att hjälpa en användare som har glömt sitt lösen ord. Du kan också se händelser för lösen ords uppsättning när ett helt nytt användar konto skapas för första gången med ett lösen ord.
+En lösen ords uppsättning (kallas ibland återställning av lösen ord) är när en administratör ersätter lösen ordet för ett konto med ett nytt lösen ord, till exempel med hjälp av verktyget Active Directory användare och datorer hantering. Den här åtgärden kräver en hög behörighets nivå (vanligt vis domän administratören) och den person som utför åtgärden har vanligt vis inte kunskap om det gamla lösen ordet. Support scenarier utför ofta lösen ords uppsättningar, till exempel för att hjälpa en användare som har glömt sitt lösen ord. Du kan också se händelser för lösen ords uppsättning när ett helt nytt användar konto skapas för första gången med ett lösen ord.
 
 Principen för lösen ords verifiering beter sig på samma sätt oavsett om en ändring eller uppsättning av lösen ord görs. Azure AD Password Protection DC Agent-tjänsten loggar olika händelser för att meddela dig om ett lösen ords ändring eller en åtgärd har gjorts.  Se [övervakning och loggning av lösen ords skydd i Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-ban-bad-on-premises-monitor).
 
 **F: Varför loggas dubbletter av lösen ords avvisande vid försök att ange ett svagt lösen ord med hjälp av snapin-modulen Active Directory användare och datorer hantering?**
 
-Snapin-modulen Active Directory användare och datorer hantering försöker först ange det nya lösen ordet med hjälp av Kerberos-protokollet. Vid misslyckad åtgärd kommer snapin-modulen att göra ett andra försök att ange lösen ordet med ett äldre (SAM RPC)-protokoll (de protokoll som används är inte viktiga). Om det nya lösen ordet anses vara svagt av lösen ords skyddet i Azure AD, kommer detta att resultera i att två uppsättningar lösen ords återställnings händelser loggas.
+Snapin-modulen Active Directory användare och datorer hantering försöker först ange det nya lösen ordet med hjälp av Kerberos-protokollet. Vid misslyckade försök att använda snapin-modulen för att ange lösen ordet med ett äldre (SAM RPC)-protokoll (de protokoll som används är inte viktiga). Om det nya lösen ordet anses vara svagt av lösen ords skyddet i Azure AD, kommer den här snapin-modulen att leda till att två uppsättningar med avvisnings händelser för lösen ords återställning loggas.
 
 **F: Varför loggas händelser för lösen ords validering i Azure AD med ett tomt användar namn?**
 
@@ -115,6 +115,10 @@ Ett sätt att delvis uppnå det här målet är att distribuera Azure AD Passwor
 Nej. När en användares lösen ord ändras på en specifik domänkontrollant som inte är PDC-domänkontrollant skickas aldrig lösen ordet för klartext till den primära domänkontrollanten (den här idén är en vanlig genom gång). När ett nytt lösen ord har accepterats på en angiven DOMÄNKONTROLLANT använder den DOMÄNKONTROLLANTen lösen ordet för att skapa de olika autentiserings-Protocol-specifikt hasharna för lösen ordet och sparar dessa hash-värden i katalogen. Lösen ordet för klartext är inte beständigt. De uppdaterade hasharna replikeras sedan till den primära domänkontrollanten. Användar lösen ord kan i vissa fall ändras direkt på den primära domänkontrollanten, beroende på olika faktorer som nätverkstopologi och Active Directory plats design. (Se föregående fråga.)
 
 I sammanfattning krävs distributionen av tjänsten Azure AD Password Protection DC agent på PDC: n för att uppnå 100% säkerhets täckning över domänen. Att distribuera funktionen på PDC ger inte säkerhet för lösen ords skydd i Azure AD för alla andra domänkontrollanter i domänen.
+
+**F: Varför fungerar inte anpassad Smart utelåsning trots att agenterna har installerats i min lokala Active Directorys miljö?**
+
+Anpassad Smart utelåsning stöds bara i Azure. Ändringar av anpassade inställningar för smart utelåsning i hanterings portalen för Azure har ingen påverkan på den lokala Active Directorys miljön, även om agenterna är installerade.
 
 **F: Är ett System Center Operations Manager hanterings paket tillgängligt för Azure AD Password Protection?**
 

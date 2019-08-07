@@ -1,7 +1,7 @@
 ---
-title: 'Klassificering: Förutsäga kundomsättning, begär och ökad försäljning '
+title: Klassning Förutsäg omsättning + begär + upp-säljning
 titleSuffix: Azure Machine Learning service
-description: Detta visuella gränssnittet exempelexperiment visar binär klassificerare förutsägelser av omsättningen, vanliga åtgärder för hantering av kundrelationer (CRM).
+description: Det här visuella gränssnittet exempel experiment visar binär klassificerar förutsägelse för omsättning, en vanlig uppgift för kund Relations hantering (CRM).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,62 +10,62 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: 7d10d996febd0e31c9085bf5cb82324cce101c80
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 172089d5371d8c3e38a2a22b3285b5eb180baf00
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606145"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742291"
 ---
-# <a name="sample-5---classification-predict-churn-appetency-and-up-selling"></a>Exempel 5 - klassificering: Förutsäga kundomsättning, begär och ökad försäljning 
+# <a name="sample-5---classification-predict-churn-appetency-and-up-selling"></a>Exempel 5 – klassificering: Förutsäga omsättning, begär och försäljning 
 
-Lär dig hur du skapar en komplexa machine learning-experiment utan att behöva skriva en enda rad kod med hjälp av det visuella gränssnittet.
+Lär dig hur du skapar ett komplext dator inlärnings experiment utan att skriva en enda rad kod med hjälp av det visuella gränssnittet.
 
-Det här experimentet träna tre, **tvåklassförhöjt beslutsträd** klassificerare att förutsäga vanliga uppgifter för CRM (CRM)-system: omsättning, begär och ökad försäljning. Datavärden och etiketter delas mellan flera datakällor och skrev ner texten att maskera kundinformation, vi kan dock fortfarande använda det visuella gränssnittet att kombinera datauppsättningar och tränar en modell med värdena som förvrängt.
+Det här experimentet tränar tre, **dubbelriktade besluts träd** med tre klasser för att förutsäga vanliga uppgifter för kund Relations hanterings system (CRM): omsättning, begär och försäljning. Data värden och etiketter delas upp i flera data källor och går att avkoda till maskera kund information, men vi kan fortfarande använda det visuella gränssnittet för att kombinera data uppsättningar och träna en modell med hjälp av de kodade värdena.
 
-Eftersom vi försöker besvara frågan ”vilken jag”? Detta kallas en klassificeringsproblem. Du kan dock använda samma steg i det här experimentet för att hantera alla typer av problem med machine learning, oavsett om det är regression, klassificering, klustring och så vidare.
+Eftersom vi försöker besvara frågan "vilket är en?" Detta kallas för ett klassificerings problem. Du kan dock använda samma steg i det här experimentet för att ta itu med alla typer av maskin inlärnings problem, oavsett om det är regression, klassificering, klustring och så vidare.
 
-Här är färdiga diagrammet det här experimentet:
+Här är det färdiga diagrammet för det här experimentet:
 
-![Experimentdiagram](./media/ui-sample-classification-predict-churn/experiment-graph.png)
+![Experiment diagram](./media/ui-sample-classification-predict-churn/experiment-graph.png)
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
-4. Välj den **öppna** knappen exempel 5-experimentet.
+4. Välj knappen **Öppna** för exempel 5-experimentet.
 
     ![Öppna experimentet](media/ui-sample-classification-predict-churn/open-sample5.png)
 
 ## <a name="data"></a>Data
 
-Informationen som vi använder det här experimentet är från KDD Cup 2009. Datauppsättningen har 50 000 rader och kolumner för 230 funktionen. Uppgiften är att förutsäga kundomsättning, begär och ökad försäljning för kunder som använder dessa funktioner. Mer information om data och aktiviteten finns i den [KDD webbplats](https://www.kdd.org/kdd-cup/view/kdd-cup-2009).
+De data vi använder för det här experimentet är från KDD-bägare 2009. Data uppsättningen har 50 000 rader och 230 funktions kolumner. Uppgiften är att förutse omsättning, begär och försäljning för kunder som använder dessa funktioner. Mer information om data och aktiviteter finns på [KDD-webbplatsen](https://www.kdd.org/kdd-cup/view/kdd-cup-2009).
 
-## <a name="experiment-summary"></a>Sammanfattning för experiment
+## <a name="experiment-summary"></a>Experiment Sammanfattning
 
-Detta visuella gränssnittet exempelexperiment visar binär klassificerare förutsägelse av omsättning, begär och ökad försäljning, vanliga åtgärder för hantering av kundrelationer (CRM).
+Det här visuella gränssnittets exempel experiment visar binära klassificeraren för omsättning, begär och försäljning, en vanlig uppgift för kund Relations hantering (CRM).
 
-Först måste göra vi några enkla databearbetning.
+Först utför vi lite enkel data bearbetning.
 
-- Rå datauppsättningen innehåller många värden som saknas. Vi använder den **Rensa Data som saknas** modulen att ersätta det saknade värden med 0.
+- RAW-datauppsättningen innehåller massor av saknade värden. Vi använder modulen **Rensa data som saknas** för att ersätta de värden som saknas med 0.
 
-    ![Rensa datauppsättningen](./media/ui-sample-classification-predict-churn/cleaned-dataset.png)
+    ![Rensa data uppsättningen](./media/ui-sample-classification-predict-churn/cleaned-dataset.png)
 
-- Funktionerna och motsvarande omsättning, begär, och ökad försäljning etiketter finns i olika datauppsättningar. Vi använder den **Lägg till kolumner** modulen att lägga till etikettkolumner till kolumner för funktionen. Den första kolumnen **Kol1**, är etikettkolumnen. Resten av kolumn, **Var1**, **Var2**och så vidare är funktionen kolumner.
+- Funktionerna och motsvarande omsättnings-, begär-och försäljnings etiketter finns i olika data uppsättningar. Vi använder modulen **Lägg till kolumner** för att lägga till etikett kolumner i funktions kolumnerna. Den första kolumnen, **Col1**, är kolumnen etikett. Resten av kolumnerna, **Var1**, **Var2**och så vidare, är funktions kolumnerna.
 
-    ![Lägg till kolumn-datauppsättning](./media/ui-sample-classification-predict-churn/added-column1.png)
+    ![Lägg till kolumn data uppsättningen](./media/ui-sample-classification-predict-churn/added-column1.png)
 
-- Vi använder den **dela Data** modul för att dela upp datauppsättningen i träna och testa uppsättningar.
+- Vi använder modulen **dela data** för att dela upp data uppsättningen i träna-och test uppsättningar.
 
-    Vi använder sedan den binär klassificeraren för beslutsträd med standardparametrarna för att skapa förutsägande modeller. Vi bygger en modell per aktivitet, det vill säga en modell varje att förutsäga ökad försäljning, begär och omsättning.
+    Vi använder sedan den binära klassificeraren för besluts trädet med standard parametrarna för att bygga förutsägelse modeller. Vi skapar en modell per uppgift, det vill säga en modell för att förutse försäljning, begär och omsättning.
 
 ## <a name="results"></a>Resultat
 
-Visualisera utdata från den **utvärdera modell** modul för att se modellen i test-grupp. För ökad försäljning-uppgiften visar ROC-kurvan att modellen har bättre än en slumpmässig modell. Området under kurvan (AUC) är 0.857. Precisionen är 0,7 med tröskelvärde 0,5 återkallelsen är 0.463 och F1-poängen är 0.545.
+Visualisera utdata från modulen **utvärdera modell** för att se modellens prestanda i test uppsättningen. ROC kurvan visar att modellen fungerar bättre än en slumpmässig modell för aktiviteten upp till Sälj Ande. Arean under kurvan (AUC) är 0,857. Vid tröskelvärdet är 0,5 precisionen 0,7, återkallning är 0,463 och F1-poängen är 0,545.
 
 ![Utvärdera resultaten](./media/ui-sample-classification-predict-churn/evaluate-result.png)
 
- Du kan flytta den **tröskelvärdet** skjutreglaget och se mått som ändrar för aktiviteten binär klassificering.
+ Du kan flytta skjutreglaget **tröskelvärde** och se måtten för den binära klassificerings aktiviteten.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -75,8 +75,8 @@ Visualisera utdata från den **utvärdera modell** modul för att se modellen i 
 
 Utforska de andra exempel som är tillgängliga för det visuella gränssnittet:
 
-- [Exempel 1 – Regression: Förutsäga priset på en bil](ui-sample-regression-predict-automobile-price-basic.md)
-- [Exempel 2 – Regression: Jämför algoritmer för bil pris förutsägelse](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
-- [Exempel 3 – klassificering: Förutsäga kreditrisk](ui-sample-classification-predict-credit-risk-basic.md)
-- [Exempel 4 - klassificering: Förutsäga kreditrisken (kostnad känsliga)](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
-- [Exempel 6 - klassificering: Förutsäga flygförseningar](ui-sample-classification-predict-flight-delay.md)
+- [Exempel 1 – regression: Förutsäga ett bils pris](ui-sample-regression-predict-automobile-price-basic.md)
+- [Exempel 2 – regression: Jämför algoritmer för bilpris förutsägelser för bilar](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
+- [Exempel 3 – klassificering: Förutsägelse kredit risk](ui-sample-classification-predict-credit-risk-basic.md)
+- [Exempel 4 – klassificering: Förutsägelse kredit risk (kostnads känsligt)](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
+- [Exempel 6 – klassificering: Förutsäg fördröjningar i flygning](ui-sample-classification-predict-flight-delay.md)

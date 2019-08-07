@@ -1,63 +1,61 @@
 ---
 title: Vanliga scenarier för Azure Data Catalog
-description: En översikt över vanliga scenarier för Azure Data Catalog, inklusive registrering och upptäckt värdefulla datakällor, aktivera självbetjäningslösning för business intelligence och samla in befintliga kunskaper om datakällor och processer.
-services: data-catalog
+description: En översikt över vanliga scenarier för Azure Data Catalog, inklusive registrering och identifiering av data källor med hög värde, aktivera självbetjänings Business Intelligence och samla in befintliga kunskaper om data källor och processer.
 author: JasonWHowell
 ms.author: jasonh
-ms.assetid: 60930d78-d2d4-4d5d-9651-bdda50b0da0e
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 01/18/2018
-ms.openlocfilehash: e95cc64b9086a6fb4c5e2d42521a5fd3f44244ba
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/01/2019
+ms.openlocfilehash: aeae505b510f563a6640726c384ea358983eb24f
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61003964"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736463"
 ---
 # <a name="azure-data-catalog-common-scenarios"></a>Vanliga scenarier för Azure Data Catalog
-Den här artikeln innehåller vanliga scenarier där Azure Data Catalog kan hjälpa organisationen att få ut mer av sina befintliga datakällor.
+Den här artikeln visar vanliga scenarier där Azure Data Catalog kan hjälpa din organisation att hämta mer värde från befintliga data källor.
 
-## <a name="scenario-1-registration-of-central-data-sources"></a>Scenario 1: Registrering av centrala datakällor
-Organisationer har ofta många värdefulla datakällor. Dessa datakällor är bland annat line-of-business, online transaktionsbearbetning (OLTP) system, informationslager och business intelligence/analytics-databaser. Antalet system och överlapp mellan dem, ökar vanligtvis över tid enligt dina affärsbehov och själva verksamheten utvecklas via, till exempel sammanslagningar och förvärv av organisationer.
+## <a name="scenario-1-registration-of-central-data-sources"></a>Scenario 1: Registrering av centrala data källor
+Organisationer har ofta många data källor med höga värden. De här data källorna innehåller OLTP-system (Line-of-Business, Online Transaction Processing), informations lager och Business Intelligence/analys-databaser. Antalet system, och överlappningen mellan dem, ökar vanligt vis med tiden när affärs behoven utvecklas och verksamheten utvecklas genom, till exempel fusioner och förvärv.
 
-Det kan vara svårt för organisationsmedlemmar att veta var man ska hitta data i dessa datakällor. Följande frågor är alltför vanliga:
+Det kan vara svårt för organisations medlemmar att veta var du kan hitta data i dessa data källor. Frågor som följande är för vanliga:
 
-* Av de tre HR-system som används inom företaget, vilket ska jag använda att skapa den här typen av rapporten?
-* Var ska gå för att få försäljningssiffrorna för certifierade för räkenskapsåret som precis har avslutats?
-* Vem ska jag ställa eller hur ser processen ut jag ska använda för att få åtkomst till data warehouse?
-* Jag vet inte om dessa siffror är rätt. Vem kan jag ställa om på hur dessa data ska användas innan jag dela den här instrumentpanelen med mitt team?
+* Av de tre HR-systemen som används i företaget, som ska jag använda för att skapa den här typen av rapport?
+* Var ska jag hämta de certifierade kund numren för det räkenskapsår som precis slutade?
+* Vem ska jag ställa in eller vilken process jag ska använda för att få åtkomst till data lagret?
+* Jag vet inte om talen är rätt. Vem kan jag be om insikter om hur dessa data ska användas innan jag delar den här instrument panelen med mitt team?
 
-Azure Data Catalog kan ge svar på dessa och andra frågor. De centrala värdefulla, IT-hanterad datakällor som används mellan olika organisationer är ofta logiska startpunkt för att fylla i katalogen. Även om alla användare kan registrera en datakälla, kan med katalogen kick-started med datakällor som mest sannolikt att ange värdet till det största antalet användare införa och användning av systemet. 
+Med dessa och andra frågor kan Azure Data Catalog ge svar. De centrala, högpresterande, IT-hanterade data källor som används i organisationer är ofta den logiska start punkten för att fylla katalogen. Även om en användare kan registrera en data källa, där katalogen är igång med de data källor som är mest sannolika för att ge ett värde till det största antalet användare, hjälper det att implementera och använda systemet. 
 
-Om du har kommit igång med Azure Data Catalog, kan identifiera och registrera viktiga datakällor som används av många olika team av datakonsumenterna vara din första steget.
+Om du kommer igång med Azure Data Catalog kan identifiering och registrering av viktiga data källor som används av många olika grupper av data konsumenter vara det första steget att lyckas.
 
-Det här scenariot presenterar även möjlighet att kommentera värdefulla datakällor så att de blir lättare att förstå och komma åt. En viktig aspekt av det är att inkludera information om hur användarna kan begära åtkomst till datakällan. Med Azure Data Catalog kan ange du den e-postadressen för den användare eller grupp som ansvarar för åtkomstkontroll till datakällan, länkar till befintliga verktyg eller dokumentation eller fri text som beskriver hur du åtkomstbegäran. Den här informationen hjälper medlemmar som upptäcka registrerade datakällor, men som inte har behörighet att komma åt data så att du enkelt begära åtkomst med hjälp av de processer som definieras och styrs av datakällan ägare.
+Det här scenariot ger också en möjlighet att kommentera data källor med höga värden så att de blir enklare att förstå och komma åt. En viktig aspekt av den här ansträngningen är att inkludera information om hur användare kan begära åtkomst till data källan. Med Azure Data Catalog kan du ange e-postadressen till den användare eller det team som ansvarar för att kontrol lera åtkomst till data källan, länkar till befintliga verktyg eller dokumentation eller fritext som beskriver processen för åtkomstbegäran. Den här informationen hjälper medlemmar som identifierar registrerade data källor men som ännu inte har behörighet att komma åt data för att enkelt begära åtkomst med hjälp av de processer som definieras och styrs av ägare av data källa.
 
-## <a name="scenario-2-self-service-business-intelligence"></a>Scenario 2: Affärsinformation med självbetjäning
-Även om traditionella business intelligence-lösningar som företagets fortsätter att vara en ovärderliga del av många organisationer datalandskap kan har ändra takten verksamhet gjort Självservice fler och fler viktiga. Med hjälp av BI av självbetjäningstyp kan informationsarbetare och analytiker skapa sina egna rapporter, arbetsböcker och instrumentpaneler utan att behöva en central IT-avdelningen eller begränsas av för att IT-teamet schema och tillgänglighet.
+## <a name="scenario-2-self-service-business-intelligence"></a>Scenario 2: Självbetjänings Business Intelligence
+Även om traditionella företags lösningar för företags information fortsätter att vara en värdefull del av många organisationers data landskap, har den ändrade takten i verksamheten gjort självbetjänings-BI och viktigare. Genom att använda självbetjänings-BI kan informations arbetare och analytiker skapa egna rapporter, arbets böcker och instrument paneler utan att behöva lita på ett central IT-team eller begränsas av IT-teamets schema och tillgänglighet.
 
-I BI självbetjäningsscenarier kombinera användare ofta data från flera källor, som inte kanske har tidigare använts för BI och analys. Även om vissa av dessa datakällor kan redan är känd, kan det vara svårt för att identifiera vad som ska göras för att hitta och utvärdera potentiella datakällor för en viss uppgift.
+I självbetjänings BI-scenarier kombinerar användarna ofta data från flera källor, och många av dessa kanske inte tidigare har använts för BI och analyser. Även om vissa av dessa data källor kanske redan är kända, kan det vara svårt att upptäcka vad du ska göra för att hitta och utvärdera potentiella data källor för en viss uppgift.
 
-Traditionellt har den här identifieringen är en manuell: analytikerna använder sina peer-nätverksanslutningar för att identifiera andra som arbetar med data som som eftersöks. När en datakälla finns och används, upprepas den igen för varje efterföljande självbetjäning BI arbete, med flera användare som utför en redundant manuell process för identifiering.
+Traditionellt är den här identifierings processen en manuell: analytiker använder sina peer-nätverksanslutningar för att identifiera andra som arbetar med de data som söks. När en data källa har hittats och använts upprepas processen igen för varje efterföljande självbetjänings-och BI-ansträngning, med flera användare som utför en redundant manuell process identifiering.
 
-Med Azure Data Catalog kan din organisation dela den här cykeln i arbete. Efter identifiering av en datakälla traditionella sätt, en analytiker kan du registrera det så att den blir enklare kan upptäckas av andra användare i framtiden. Analytiker kan lägga till mer värde av registrerade datatillgångar, behöver inte den här anteckningen ska kunna utföras samtidigt som registrering. Användare kan bidra med tiden då deras scheman tillståndet, gradvis mervärde till datakällor som registrerats i katalogen.
+Med Azure Data Catalog kan din organisation avbryta den här arbets cykeln. När du har identifierat en data källa på traditionella sätt kan en analytiker registrera den så att den blir lättare att upptäcka av andra användare i framtiden. Även om analytikern kan lägga till mer värde genom att kommentera registrerade data till gångar, behöver denna anteckning inte ske samtidigt som registreringen. Användare kan bidra över tid, eftersom deras scheman tillåter, att gradvis lägga till värden i de data källor som är registrerade i katalogen.
 
-Den här organisk tillväxt av katalogen innehåll är en naturlig komplement till direkta registreringen av centrala datakällor. Före fylla katalogen med data som många användare måste vara en motivator för den första användningen och identifiering. Aktivera användare att registrera och kommentera ytterligare källor kan vara ett sätt att hålla dem och andra organisationsmedlemmar engagerade.
+Den här organiska tillväxten för katalog innehållet är ett naturligt komplement till den första registreringen av centrala data källor. Att fylla i katalogen med data som många användare behöver kan vara en motiverad första användning och identifiering. Att göra det möjligt för användare att registrera och kommentera ytterligare källor kan vara ett sätt att hålla dem och andra organisations medlemmar sysselsatta.
 
-Det är värt att det här scenariot fokuserar särskilt på Självservice, samma mönster och utmaningar gäller även för storskaliga företagets BI projekt samt. Genom att använda Data Catalog kan kan din organisation förbättra alla arbete som inbegriper en manuell process för identifiering av datakällor.
+Det är värt att Observera att även om det här scenariot fokuserar på självbetjänings-BI, gäller samma mönster och utmaningar även storskaliga företags BI-projekt. Genom att använda Data Catalog kan din organisation förbättra all ansträngning som omfattar en manuell process för identifiering av data källor.
 
-## <a name="scenario-3-capturing-tribal-knowledge"></a>Scenario 3: Samla in tidigare oskriven kunskap
-Hur vet du vilka data som du behöver göra ditt jobb och var du hittar dessa data?
+## <a name="scenario-3-capturing-tribal-knowledge"></a>Scenario 3: Samla in stambaserad-kunskap
+Hur vet du vilka data du behöver för att utföra ditt jobb och var du hittar dessa data?
 
-Om du har i jobbet ett tag, vet antagligen bara du. Du har gått igenom en gradvis inlärningsprocessen och med tiden har lärt dig om de datakällor som är nyckeln till ditt dagliga arbete.
+Om du har använt jobbet en stund vet du förmodligen bara. Du har genomgått en gradvis inlärnings process och över tid har lärt dig om de data källor som är viktiga för ditt dagliga arbete.
 
-När en ny medarbetare ansluter till ditt team, hur den personen känner vilka data som krävs för jobbet, och var du hittar det?
+Hur vet personen vilka data som krävs för jobbet och var du hittar det när en ny medarbetare ansluter till ditt team?
 
-Oddsen är den nya personen som levereras till dig med dessa frågor.
+Strider är den nya personen som medföljer dessa frågor.
 
-Den här pågående överföring av tidigare oskriven kunskap är en del av datakällan identifieringsprocessen i stora och små. Senior och erfarna gruppmedlemmarna har skapats knowledge under åren och nyare gruppmedlemmarna har lärt dig att be dem när de har frågor. Ofta mest viktiga informationen finns bara i nytta av några få nyckelpersoner och när de personerna är på semester eller lämnar teamet kan drabbas av organisationen.
+Den här pågående överföringen av stambaserad-kunskap är en del av identifierings processen för data källor i organisationer som är stora och små. Fler erfarna och erfarna team medlemmar har skapat kunskaper under åren och nyare team medlemmar har lärt sig att ställa dem när de har frågor. Den viktigaste informationen finns ofta bara i huvudena om några viktiga personer, och när dessa personer är på semester eller lämnar gruppen, är organisationen lidande.
 
-Dataexperter göra normalt dokumentera sina kunskaper för att dela den via e-post eller i Word-dokument på en SharePoint-gruppwebbplatsen. Även om den här metoden kan vara värdefulla, det inför en ny identifiering av problemet: hur människor vet vilka dokumentation finns och var du hittar det?
+Data experter gör vanligt vis en ansträngning för att dokumentera sina kunskaper, dela den via e-post eller i Word-dokument på en SharePoint-webbplats för en grupp. Även om den här metoden kan vara värdefull, introducerar den ett nytt identifierings problem: Hur vet användarna vilken dokumentation som finns och var de hittar den?
 
-Med Azure Data Catalog kan har din organisation en gemensam, central plats för att lagra och dela den här tidigare oskriven kunskap och för att göra det enkelt att identifiera. I Data Catalog, dataexperter kommentera datatillgångar direkt och innehåller länkar till befintliga dokumentationen. När organisationsmedlemmar använder katalogen för att identifiera en datakälla kan hittar de inte bara datakällan själva, utan även den kunskap som tidigare fanns endast i din organisations experter hjärna.
+Med Azure Data Catalog har din organisation en enda, central plats för att lagra och dela den här stambaserad-kunskapen och för att göra det enkelt att upptäcka. I Data Catalog kan dina data experter kommentera data till gångar direkt och tillhandahålla länkar till befintlig dokumentation. När organisations medlemmar använder katalogen för att identifiera en data källa hittar de inte bara själva källan, utan även den kunskap som tidigare endast fanns i ångrar i din organisations experter.

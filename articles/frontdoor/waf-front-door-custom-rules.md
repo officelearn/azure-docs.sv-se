@@ -10,20 +10,20 @@ ms.workload: infrastructure-services
 ms.date: 04/07/2019
 ms.author: kumud
 ms.reviewer: tyao
-ms.openlocfilehash: 02b335de7f105d768168d5f798ec9109136d7430
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 344e04985c52945b2917d3b5f616d5fca6051ab9
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67846265"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839767"
 ---
 #  <a name="custom-rules-for-web-application-firewall-with-azure-front-door"></a>Anpassade regler för brand vägg för webb program med Azures front dörr
-Med Azure WebApplication-brandväggen (WAF) med frontend-tjänsten kan du kontrol lera åtkomsten till dina webb program baserat på de villkor som du definierar. En anpassad WAF-regel består av ett prioritets nummer, en regeltyp, matchnings villkor och en åtgärd. Det finns två typer av anpassade regler: matchnings regler och hastighets begränsnings regler. En matchnings regel styr åtkomst baserat på matchnings villkor medan en hastighets begränsnings regel styr åtkomst baserat på matchnings villkor och frekvensen av inkommande begär Anden. Du kan inaktivera en anpassad regel för att förhindra att den utvärderas, men behåll konfigurationen fortfarande. I den här artikeln beskrivs matchnings regler som baseras på http-parametrar.
+Med Azure WebApplication-brandväggen (WAF) med frontend-tjänsten kan du kontrol lera åtkomsten till dina webb program baserat på de villkor som du definierar. En anpassad WAF-regel består av ett prioritets nummer, regel typ, matchnings villkor och en åtgärd. Det finns två typer av anpassade regler: matchnings regler och hastighets begränsnings regler. En matchnings regel styr åtkomst baserat på en uppsättning matchnings villkor medan en hastighets begränsnings regel styr åtkomst baserat på matchnings villkor och frekvensen av inkommande begär Anden. Du kan inaktivera en anpassad regel för att förhindra att den utvärderas, men behåll konfigurationen fortfarande. 
 
 ## <a name="priority-match-conditions-and-action-types"></a>Prioritet, matchnings villkor och åtgärds typer
-Du kan kontrol lera åtkomst med en anpassad WAf-regel som definierar ett prioritets nummer, en regeltyp, matchnings villkor och en åtgärd. 
+Du kan kontrol lera åtkomst med en anpassad WAf-regel som definierar ett prioritets nummer, en regeltyp, en matris med matchnings villkor och en åtgärd. 
 
-- **Prioritet:** är ett unikt heltal som beskriver ordningen för utvärdering av WAF-regler. Regler med lägre värden utvärderas före regler med högre värden
+- **Prioritet:** är ett unikt heltal som beskriver ordningen för utvärdering av WAF-regler. Regler med lägre prioritets värden utvärderas före regler med högre värden. Prioritets nummer måste vara unika bland alla anpassade regler.
 
 - **Åtgärd:** definierar hur en begäran ska dirigeras om en WAF-regel matchas. Du kan välja en av nedanstående åtgärder som ska tillämpas när en begäran matchar en anpassad regel.
 
@@ -32,19 +32,17 @@ Du kan kontrol lera åtkomst med en anpassad WAf-regel som definierar ett priori
     - *Log* -WAF loggar en post i WAF-loggar och fortsätter att utvärdera nästa regel.
     - *Redirect* -WAF omdirigerar begäran till en angiven URI, loggar en post i WAF-loggar och avslutas.
 
-- **Matchnings villkor:** definierar en match variabel, en operator och ett matchnings värde. Varje regel kan innehålla flera matchnings villkor. Ett matchnings villkor kan baseras på nedanstående *matcha variabler*:
-    - RemoteAddr (klient-IP)
+- **Matchnings villkor:** definierar en match variabel, en operator och ett matchnings värde. Varje regel kan innehålla flera matchnings villkor. Ett matchnings villkor kan baseras på Geo-plats, klient-IP-adresser (CIDR), storlek eller sträng matchning. Sträng matchning kan vara mot en lista över matchande variabler.
+  - **Matcha variabel:**
     - RequestMethod
     - QueryString
     - PostArgs
     - RequestUri
     - RequestHeader
     - RequestBody
-
-- **Operator:** listan innehåller följande:
+    - Cookies
+  - **Operator**
     - Any: används ofta för att definiera standard åtgärder om inga regler matchas. Alla är en match alla-operator.
-    - IPMatch: definiera IP-begränsning för RemoteAddr-variabel
-    - Geografisk matchning: definiera geo-filtrering för RemoteAddr-variabel
     - Skeppningskvantiteten
     - innehåller
     - LessThan: storleks begränsning
@@ -52,26 +50,46 @@ Du kan kontrol lera åtkomst med en anpassad WAf-regel som definierar ett priori
     - LessThanOrEqual: storleks begränsning
     - GreaterThanOrEqual: storleks begränsning
     - BeginsWith
-     - EndsWith
+    - EndsWith
+    - Verifiering
+  
+  - **Regex** stöder inte följande åtgärder: 
+    - Referens och inhämtning av under uttryck
+    - Godtyckliga kontroller med noll bredd
+    - Subrutin-referenser och rekursiva mönster
+    - Villkors mönster
+    - Bakspårning-verb
+    - Single-byte-direktivet \c
+    - Direktivet \Rs rad träff
+    - \K början av matchnings reset-direktivet
+    - Bild texter och inbäddad kod
+    - Atomiska grupperingar och possessive-kvantifierare
 
-Du kan ställa  in negationt villkor så att det är sant om resultatet av ett villkor ska vara negationt.
-
-*Matchnings värde* definierar listan över möjliga matchnings värden.
-Värden för HTTP-begäran som stöds är:
-- HÄMTA
-- POST
-- PLACERA
-- FÖRETAGETS
-- DELETE
-- SKRIVLÅS
-- OLÅST
-- UPPHANDLARPROFIL
-- ALTERNATIV
-- PROPFIND
-- PROPPATCH
-- MKCOL
-- EXEMPLAR
-- FART
+  - **Negation [valfritt]:** Du kan ställa in negationt villkor så att det är sant om resultatet av ett villkor ska vara negationt.
+      
+  - **Transformering [valfritt]:** En lista med strängar med namn på omvandlingar som ska utföras innan matchningen görs. Dessa omvandlingar kan vara följande:
+     - Vers 
+     - Gemener
+     - Trimma
+     - RemoveNulls
+     - UrlDecode
+     - UrlEncode
+     
+   - **Matchnings värde:** Värden för HTTP-begäran som stöds är:
+     - HÄMTA
+     - POST
+     - PLACERA
+     - HEAD
+     - DELETE
+     - SKRIVLÅS
+     - OLÅST
+     - UPPHANDLARPROFIL
+     - ALTERNATIV
+     - PROPFIND
+     - PROPPATCH
+     - MKCOL
+     - EXEMPLAR
+     - FART
 
 ## <a name="examples"></a>Exempel
 

@@ -5,21 +5,23 @@ services: active-directory
 author: rolyon
 ms.service: active-directory
 ms.topic: include
-ms.date: 05/16/2019
+ms.date: 07/31/2019
 ms.author: rolyon
 ms.custom: include file
-ms.openlocfilehash: da4bc51cdd8cdfad8212ee5a288f03874f673c2c
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: db16a2f122da1bf6c767e0a47c93c22f1882c406
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68678202"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68817251"
 ---
 ### <a name="policy-for-users-in-your-directory"></a>Princip: För användare i din katalog
 
 Följ dessa steg om du vill att principen ska vara för användare i din katalog som kan begära det här åtkomst paketet.  **Användare i katalogen** avser både interna användare och externa användare som tidigare har bjudits in till katalogen, antingen genom att begära hantering av rättigheter med ett annat Access-paket eller bjudas in med Azure AD B2B. När du definierar principen kan du ange enskilda användare eller flera vanliga grupper av användare. Din organisation kanske redan har en grupp, till exempel **alla anställda**.  Om gruppen läggs till i principen för användare som kan begära åtkomst, kan alla medlemmar i gruppen sedan begära åtkomst.
 
 1. I avsnittet **användare som kan begära åtkomst** väljer du **för användare i din katalog**.
+
+    Observera att **för användarna i din katalog** inställning ingår både medlems användare och gäst användare som har lagts till i din katalog. Om du bara vill inkludera medlems användare och inte gäst användare väljer du **för användare i din katalog** och väljer sedan en grupp av medlems användare. Om det behövs kan du skapa en dynamisk grupp av medlems användare (User. userType-EQ "member"). Mer information finns i [regler för dynamiska medlemskap för grupper i Azure Active Directory](../articles/active-directory/users-groups-roles/groups-dynamic-membership.md).
 
 1. I avsnittet **Välj användare och grupper** klickar du på **Lägg till användare och grupper**.
 

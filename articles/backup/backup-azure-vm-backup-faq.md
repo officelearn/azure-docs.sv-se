@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: dacurwin
-ms.openlocfilehash: 8948a620c27311f0371a557c91a971da37111cb9
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 078c8763a08df339b9291807102e2d187d2a882f
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688581"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827584"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Vanliga frågor och svar – säkerhetskopiera virtuella Azure-datorer
 
@@ -64,14 +64,14 @@ Ja. Säkerhets kopieringar körs när en dator stängs av. Återställnings punk
 ### <a name="can-i-cancel-an-in-progress-backup-job"></a>Kan jag avbryta ett pågående säkerhets kopierings jobb?
 Ja. Du kan avbryta säkerhets kopierings jobbet i status för **ögonblicks bilder** . Du kan inte avbryta ett jobb om data överföringen från ögonblicks bilden pågår.
 
-### <a name="i-enabled-lock-on-resource-group-created-by-azure-backup-service-ie-azurebackuprggeonumber-will-my-backups-continue-to-work"></a>Jag har aktiverat lås på resurs grupp som skapats av Azure Backups tjänsten (dvs. `AzureBackupRG_<geo>_<number>`) kommer mina säkerhets kopieringar att fortsätta att fungera?
+### <a name="i-enabled-lock-on-resource-group-created-by-azure-backup-service-ie-azurebackuprg_geo_number-will-my-backups-continue-to-work"></a>Jag har aktiverat lås på resurs grupp som skapats av Azure Backups tjänsten (dvs. `AzureBackupRG_<geo>_<number>`) kommer mina säkerhets kopieringar att fortsätta att fungera?
 Om du låser resurs gruppen som skapats av Azure Backup-tjänsten, kommer säkerhets kopieringarna att Miss lyckas eftersom det finns en övre gräns på 18 återställnings punkter.
 
 Användaren måste ta bort låset och rensa återställnings punkt samlingen från den resurs gruppen för att de framtida säkerhets kopieringarna ska kunna utföras, [så följ stegen](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal) nedan för att ta bort återställnings punkts samlingen.
 
 
 ### <a name="does-azure-backup-support-standard-ssd-managed-disk"></a>Har Azure Backup stöd för standard SSD-hanterade diskar?
-Azure Backup stöder [standard SSD-hanterade diskar](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/). SSD-hanterade diskar ger en ny typ av varaktig lagring för virtuella Azure-datorer. Stöd för SSD-hanterade diskar finns i [direkt](backup-instant-restore-capability.md)återställningen.
+Ja, Azure Backup stöder [standard-SSD Managed disks](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/).
 
 ### <a name="can-we-back-up-a-vm-with-a-write-accelerator-wa-enabled-disk"></a>Kan vi säkerhetskopiera en virtuell dator med en Skrivningsaccelerator (WA)-aktiverad disk?
 Ögonblicks bilder kan inte utföras på den WA-aktiverade disken. Azure Backups tjänsten kan dock utesluta den WA-aktiverade disken från säkerhets kopian.
@@ -119,7 +119,7 @@ Ja. Även om du tar bort den virtuella datorn kan du gå till motsvarande säker
 För hanterad virtuell Azure-dator är återställning till tillgänglighets uppsättningarna aktive rad genom att tillhandahålla ett alternativ i mallen när de återställs som hanterade diskar. Den här mallen har Indataparametern inheter **tillgänglighets uppsättningar**.
 
 ### <a name="how-do-we-get-faster-restore-performances"></a>Hur får vi snabbare återställning av prestanda?
-För snabbare återställnings prestanda flyttas vi till [omedelbar](backup-instant-restore-capability.md) återställnings funktion.
+[Omedelbar](backup-instant-restore-capability.md) återställnings funktion hjälper till snabbare säkerhets kopieringar och återställningar direkt från ögonblicks bilderna.
 
 ## <a name="manage-vm-backups"></a>Hantera säkerhetskopior av virtuella datorer
 

@@ -7,14 +7,14 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: dacurwin
-ms.openlocfilehash: f88555c6a8b3d4122a1a8ef82f58788a46dd5226
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: f5a76ef44ebef0689ec0587434996f28ba7b7025
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639836"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68735542"
 ---
-# <a name="back-up-an-sap-hana-database"></a>Säkerhetskopiera en SAP HANA databas
+# <a name="back-up-an-sap-hana-database-to-azure"></a>Säkerhetskopiera en SAP HANA-databas till Azure
 
 [Azure Backup](backup-overview.md) stöder säkerhets kopiering av SAP HANA-databaser till Azure.
 

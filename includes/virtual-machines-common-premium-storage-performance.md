@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: d3d4679703f6d98cb2062144cfde7d11fe44130c
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 8aeb32ecddc0ef368b615a201179f17178ececad
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68386981"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68817252"
 ---
 ## <a name="application-performance-indicators"></a>Program prestanda indikatorer
 
@@ -268,6 +268,9 @@ Genom att konfigurera ReadOnly-cachelagring på Premium Storage data diskar kan 
 
 *ReadWrite*  
 Som standard har OS-diskar ReadWrite-cachelagring aktiverat. Vi har nyligen lagt till stöd för ReadWrite-cachelagring på data diskar även. Om du använder ReadWrite-cachelagring måste du ha ett korrekt sätt att skriva data från cache till beständiga diskar. SQL Server hanterar till exempel att skriva cachelagrade data till de beständiga lagrings diskarna. Att använda ReadWrite cache med ett program som inte hanterar beständiga data kan leda till data förlust, om den virtuella datorn kraschar.
+
+*Alternativet*  
+För närvarande stöds **ingen** på data diskar. Den stöds inte på OS-diskar. Om du anger **ingen** på en operativ system disk åsidosätts detta internt och anges som **skrivskyddad**.
 
 Du kan till exempel använda dessa rikt linjer för att SQL Server som körs på Premium Storage genom att göra följande:
 

@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 06/07/2019
-ms.openlocfilehash: a9de7c75ef2bd29b2e401ba387ca16a5dfda34fb
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 30eb922e17810ddd53166a702b5fc513684f2140
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68442036"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742378"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>Vilka Apache Hadoops komponenter och versioner är tillgängliga med HDInsight?
 
@@ -88,7 +88,7 @@ I följande tabell visas de versioner av HDInsight som **inte** är tillgänglig
 
 | HDInsight-version | HDP-version | VM-OPERATIVSYSTEM | Utgivningsdatum | Förfallo datum för support | Datum för indragning | Hög tillgänglighet |  Tillgänglighet på Azure Portal | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| HDInsight 3,5 <br> (Inte Spark) |HDP 2.5 |Ubuntu 16.0.4-LTS |30 september 2016 |5 september 2017 |28 juni 2018 |Ja |Nej |
+| HDInsight 3,5 |HDP 2.5 |Ubuntu 16.0.4-LTS |30 september 2016 |5 september 2017 |28 juni 2018 |Ja |Nej |
 | HDInsight 3,4 |HDP 2.4 |Ubuntu 14.0.4-LTS |Den 29 mars 2016 |29 december 2016 |9 januari 2018 |Ja |Nej |
 | HDInsight 3,3 |HDP 2.3 |Windows Server 2012 R2 |2 december 2015 |27 juni 2016 |31 juli 2018 |Ja |Nej |
 | HDInsight 3,3 |HDP 2.3 |Ubuntu 14.0.4-LTS |2 december 2015 |27 juni 2016 |31 juli 2017 |Ja |Nej |

@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/04/2019
 ms.author: raynew
-ms.openlocfilehash: 6537bfe5df8de298593428fb21448181ad8075fc
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: c31a9fde50de8190cdd7bc19600344a8e58cf60b
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663469"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827333"
 ---
 # <a name="azure-migrate-appliance"></a>Azure Migrate-installation
 
@@ -42,7 +42,7 @@ De här agenterna är installerade på enheten.
 
 **Agent** | **Detaljer**
 --- | ---
-Identifieringsagent | Samlar in konfigurations data från lokala virtuella datorer.
+Identifieringsagent | Samlar in konfigurations data för lokala virtuella datorer
 Utvärderingsagent | Profiler den lokala miljön för att samla in prestanda data för virtuella datorer.
 Migration adapter | Dirigerar VM-replikering och samordnar kommunikation mellan virtuella datorer och Azure.
 Gateway för migrering | Skickar replikerade VM-data till Azure.
@@ -200,8 +200,8 @@ Installationen uppgraderas eftersom Azure Migrate agenter som körs på enheten 
 
 - Detta sker automatiskt eftersom den automatiska uppdateringen är aktive rad som standard.
 - Du kan ändra den här standardinställningen för att uppdatera agenterna manuellt.
-- Om du vill inaktivera automatiska uppdateringar ställer du in automatisk uppdatering av register nyckel enheten i HKLM\SOFTWAREMicrosoft\Azure.
-
+- Om du vill inaktivera den automatiska uppdateringen går du till Registereditorn > HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance och anger register nyckeln "AutoUpdate" till 0 (DWORD).
+ 
 ### <a name="set-agent-updates-to-manual"></a>Konfigurera agent uppdateringar till manuell
 
 För manuella uppdateringar ser du till att du uppdaterar alla agenter på installationen på samma gång, med knappen **Uppdatera** för varje föråldrad agent på enheten. Du kan när som helst växla uppdaterings inställningen tillbaka till automatiska uppdateringar.

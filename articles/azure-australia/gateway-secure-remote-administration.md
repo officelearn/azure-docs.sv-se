@@ -6,12 +6,12 @@ ms.service: azure-australia
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: grgale
-ms.openlocfilehash: 827dffc1c7544d9373b5f8d4426ea8c448fa25ab
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1e4c4712312faf2274a4a0737c4fc1f7ce39f98e
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68571606"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68824201"
 ---
 # <a name="secure-remote-administration-of-your-gateway-in-azure-australia"></a>Säker fjärr administration av din gateway i Azure Australien
 
@@ -33,7 +33,6 @@ Det här dokumentet beskriver vikten av säker administration och föreslår en 
 |Loggning och granskning   |Automatisk generering, insamling och analys av säkerhet och administrativa relaterade händelser från arbets stationer, servrar, nätverks enheter och hopp rutor kommer att aktivera identifiering av kompromisser och försök till kompromisser. Automation gör det möjligt för organisationer att svara snabbare, vilket minskar konsekvenserna av en kompromiss.|
 |Nätverks segmentering och åtskillnad|Att segmentera ett nätverk i logiska zoner, till exempel olika säkerhets domäner, och ytterligare åtskilja dessa logiska nätverk genom att begränsa de typer av data som flödar från en zon till en annan, begränsar lateral förflyttning. Segmentering förhindrar att en angripare får åtkomst till ytterligare resurser.|
 |Hopp rutor|En hopp ruta är en skärpd fjärråtkomstserver som ofta använder Microsofts Fjärrskrivbordstjänster eller SSH-programvara (Secure Shell). Hopp rutor fungerar som en steg-punkt för administratörer som har åtkomst till kritiska system med alla administrativa åtgärder som utförs från den dedikerade värden.|
-|
 
 Den här artikeln innehåller en referens arkitektur för hur elementen ovan kan användas för säker administration av system som distribueras i Azure.
 
@@ -77,7 +76,6 @@ Att få åtkomst till administration är en process i flera steg som innefattar 
 |Villkorad åtkomst |Principer för villkorlig åtkomst kontrollerar autentiseringsförsök för att säkerställa att den uppfyller de nödvändiga kraven, till exempel IP-adressen som anslutningen kommer från, grupp medlemskap för det privilegierade kontot och hanterings-och kompatibilitetsstatus för privilegie rad arbets station som rapporteras av Intune. |
 |Privileged Identity Management (PIM) |Via Azure Portal kan administratören nu aktivera eller begära aktivering för de privilegierade roller som de har tillstånd till via PIM. PIM ser till att privilegierade konton inte har några stå-administratörs privilegier och att alla begär Anden om privilegie rad åtkomst endast gäller den tid som krävs för att utföra administrativa uppgifter. PIM tillhandahåller även loggning av alla förfrågningar och aktiveringar för gransknings syfte. |
 |Identitets- och åtkomsthantering|När det privilegierade kontot har identifierats säkert och roller aktive ras, ges administratören åtkomst till de Azure-prenumerationer och-resurser som de har tilldelats behörigheter till genom identitets-och åtkomst hantering.|
-|
 
 När det privilegierade kontot har slutfört stegen för att få administrativ åtkomst till Azure Portal, kan åtkomst till arbets belastningarna konfigureras och administrativa anslutningar kan göras.
 
@@ -91,7 +89,6 @@ När det privilegierade kontot har slutfört stegen för att få administrativ �
 |Nätverks princip Server (NPS)|NPS tar emot autentiseringsbegäran från Fjärrskrivbordsgateway och validerar användar namnet och lösen ordet mot Active Directory innan en begäran skickas till Azure Active Directory för att utlösa en Azure MFA-autentiseringsbegäran.|
 |Azure MFA|Azure MFA skickar en autentiseringsbegäran till den registrerade mobila enheten för det privilegierade kontot. Den mobila enheten hanteras av Intune för att säkerställa efterlevnaden av säkerhets kraven. Administratören måste först autentisera den mobila enheten och sedan till Microsoft Authenticator-appen med en PIN-kod eller ett bio metriskt system innan autentiseringsförsök tillåts för Azure MFA.|
 |Hopp Server|När en RDP-anslutning har autentiserats krypteras den med hjälp av Transport Layer Security (TLS) och skickas sedan via den krypterade IPSec-tunneln till Azure-VPN Gateway, via RD Gateway och på hopp servern. Från hopp servern kan administratören nu ha RDP eller SSH till virtuella arbets belastnings datorer som anges i JIT-begäran.|
-|
 
 ## <a name="general-guidance"></a>Allmänna riktlinjer
 
@@ -133,7 +130,6 @@ Den privilegierade arbets stationen är en härdad dator som kan användas för 
 |---|---|
 |Översikt över arbets stationer med privilegie rad åtkomst|[https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)|
 |Skydda Privileged Access Reference material|[https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)|
-|
 
 ### <a name="mobile-device"></a>Mobil enhet
 
@@ -143,7 +139,6 @@ En mobil enhet är större risk för oavsiktlig förlust eller stöld på grund 
 |---|---|
 |Autentiseringsmetoder för Azure AD|[https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-methods](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-methods)|
 |Använda appen Microsoft Authenticator|[https://support.microsoft.com/help/4026727/microsoft-account-how-to-use-the-microsoft-authenticator-app](https://support.microsoft.com/help/4026727/microsoft-account-how-to-use-the-microsoft-authenticator-app)|
-|
 
 ### <a name="microsoft-intune"></a>Microsoft Intune
 
@@ -153,7 +148,6 @@ Intune är komponenten i Enterprise Mobility + Security som hanterar mobila enhe
 |---|---|
 |Microsoft Intune dokumentation|[https://docs.microsoft.com/intune/](https://docs.microsoft.com/intune/)|
 |Kom igång med enhetens efterlevnad i Intune|[https://docs.microsoft.com/intune/device-compliance-get-started](https://docs.microsoft.com/intune/device-compliance-get-started)|
-|
 
 ### <a name="group-policy"></a>Grupprincip
 
@@ -162,7 +156,6 @@ Grupprincip används för att kontrol lera konfigurationen av operativ system oc
 |Resurser|Länka|
 |---|---|
 |Inställningen Tillåt inloggning lokalt grupprincip|[https://docs.microsoft.com/windows/security/threat-protection/security-policy-settings/allow-log-on-locally](https://docs.microsoft.com/windows/security/threat-protection/security-policy-settings/allow-log-on-locally)|
-|
 
 ### <a name="jump-server--bastion-host"></a>Hopp Server/skydds-värd
 
@@ -171,7 +164,6 @@ Hopp servern/skydds-värden är en centraliserad punkt för administration. Den 
 |Resurser|Länka|
 |---|---|
 |Implementera säkra administrativa värdar|[https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/implementing-secure-administrative-hosts](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/implementing-secure-administrative-hosts)|
-|
 
 ### <a name="just-in-time-jit-access"></a>JIT-åtkomst (just in Time)
 
@@ -181,7 +173,6 @@ JIT är en Azure Security Center-funktion som använder nätverks säkerhets gru
 |---|---|
 |Hantera just-in-Time (JIT)-åtkomst|[https://docs.microsoft.com/azure/security-center/security-center-just-in-time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)|
 |Automatisera Azures just-in-Time-åtkomst till virtuella datorer|[https://blogs.technet.microsoft.com/motiba/2018/06/24/automating-azure-just-in-time-vm-access](https://blogs.technet.microsoft.com/motiba/2018/06/24/automating-azure-just-in-time-vm-access)|
-|
 
 ## <a name="secure-communication"></a>Säker kommunikation
 
@@ -194,7 +185,6 @@ Kommunikation till Azure Portal krypteras med hjälp av Transport Layer Security
 |Resurser |Länka |
 |---|---|
 |Översikt över Azure-kryptering – kryptering under överföring|[https://docs.microsoft.com/azure/security/security-azure-encryption-overview#encryption-of-data-in-transit](https://docs.microsoft.com/azure/security/security-azure-encryption-overview#encryption-of-data-in-transit)|
-|
 
 ### <a name="azure-vpn-gateway"></a>Azure VPN Gateway
 
@@ -204,8 +194,7 @@ Azure-VPN Gateway tillhandahåller en säker krypterad anslutning från den priv
 |---|---|
 |Om punkt-till-plats-anslutningar|[https://docs.microsoft.com/azure/vpn-gateway/point-to-site-about](https://docs.microsoft.com/azure/vpn-gateway/point-to-site-about)|
 |Azure VPN Gateway kryptografisk information|[https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-compliance-crypto](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-compliance-crypto)|
-|Konfiguration av Azure-VPN Gateway|[https://aka.ms/AzGovAUSecurity](https://aka.ms/AzGovAUSecurity)|
-|
+|Konfiguration av Azure-VPN Gateway|[Konfiguration av Azure-VPN Gateway](vpn-gateway.md)|
 
 ### <a name="remote-desktop-rd-gateway"></a>Gateway för fjärr skrivbord (RD)
 
@@ -214,7 +203,6 @@ RD Gateway är en säker mekanism för att kontrol lera och godkänna RDP-anslut
 |Resurser |Länka |
 |---|---|
 |Fjärrskrivbordstjänster arkitektur|[https://docs.microsoft.com/windows-server/remote/remote-desktop-services/desktop-hosting-logical-architecture](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/desktop-hosting-logical-architecture)|
-|
 
 ### <a name="network-security-groups-nsgs"></a>Nätverks säkerhets grupper (NSG: er)
 
@@ -224,7 +212,6 @@ NSG: er fungerar som Access Control listor (ACL: er) för nätverks trafik som a
 |---|---|
 |Översikt över Azures säkerhets grupper|[https://docs.microsoft.com/azure/virtual-network/security-overview](https://docs.microsoft.com/azure/virtual-network/security-overview)|
 |Anvisningar: Planera virtuella nätverk|[https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm)|
-|
 
 ## <a name="strong-authentication"></a>Stark autentisering
 
@@ -237,7 +224,6 @@ På en hög nivå är en DOMÄNKONTROLLANT en kopia av den Active Directory data
 |Resurser |Länka |
 |---|---|
 |Översikt över Active Directory Domain Services|[https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview)|
-|
 
 ### <a name="azure-active-directory-azure-ad"></a>Azure Active Directory (Azure AD)
 
@@ -249,7 +235,6 @@ identiteter och tillhandahåller autentisering och auktorisering för en Azure-m
 |---|---|
 |Dokumentation om Azure Active Directory|[https://docs.microsoft.com/azure/active-directory](https://docs.microsoft.com/azure/active-directory)|
 |Dokumentation om hybrid identitet|[https://docs.microsoft.com/azure/active-directory/hybrid](https://docs.microsoft.com/azure/active-directory/hybrid)|
-|
 
 ### <a name="network-policy-server-nps"></a>Nätverks princip Server (NPS)
 
@@ -258,7 +243,6 @@ En NPS är en autentiserings-och princip server som tillhandahåller avancerade 
 |Resurser |Länka |
 |---|---|
 |Dokumentation om nätverks Policy Server|[https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top)|
-|
 
 ### <a name="azure-mfa"></a>Azure MFA
 
@@ -268,7 +252,6 @@ Azure MFA är en autentiseringstjänst i Azure Active Directory för att aktiver
 |---|---|
 |Så här fungerar det: Azure Multi-Factor Authentication|[https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks)|
 |Anvisningar: Distribuera molnbaserad Azure Multi-Factor Authentication|[https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)|
-|
 
 ## <a name="strong-authorisation"></a>Starkt tillstånd
 
@@ -282,7 +265,6 @@ När ett privilegierat konto har identifierats på ett säkert sätt kan det bev
 |---|---|
 |Azure-roll baserad Access Control|[https://docs.microsoft.com/azure/role-based-access-control](https://docs.microsoft.com/azure/role-based-access-control)|
 |Förstå roll definitioner|[https://docs.microsoft.com/azure/role-based-access-control/role-definitions](https://docs.microsoft.com/azure/role-based-access-control/role-definitions)|
-|
 
 ### <a name="privileged-identity-management-pim"></a>Privileged Identity Management (PIM)
 
@@ -292,7 +274,6 @@ PIM är en Azure Active Directory-komponent som styr åtkomst till privilegierad
 |---|---|
 |Dokumentation om Privileged Identity Management (PIM)|[https://docs.microsoft.com/azure/active-directory/privileged-identity-management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management)|
 |Börja använda PIM|[https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-getting-started](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-getting-started)|
-|
 
 ### <a name="conditional-access"></a>Villkorlig åtkomst
 
@@ -302,7 +283,6 @@ Villkorlig åtkomst är en komponent i Azure Active Directory som tillåter elle
 |---|---|
 |Dokumentation för villkorsstyrd åtkomst|[https://docs.microsoft.com/azure/active-directory/conditional-access](https://docs.microsoft.com/azure/active-directory/conditional-access)|
 |Anvisningar: Kräv hanterade enheter för Cloud app-åtkomst med villkorlig åtkomst|[https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices)|
-|
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -10,12 +10,12 @@ ms.reviewer: ''
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 91a074cf98291b105864a69730314efff3482254
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 61ea7eb0b81c5489ad2bf20e8148d2481bb4fb13
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62126417"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840175"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-visual-studio-code"></a>Distribuera Azure IoT Edge-moduler från Visual Studio Code
 
@@ -71,7 +71,7 @@ Här är ett manifest för grundläggande distribution med en modul som exempel:
              }
            },
            "modules": {
-             "tempSensor": {
+             "SimulatedTemperatureSensor": {
                "version": "1.0",
                "type": "docker",
                "status": "running",
@@ -95,7 +95,7 @@ Här är ett manifest för grundläggande distribution med en modul som exempel:
            }
          }
        },
-       "tempSensor": {
+       "SimulatedTemperatureSensor": {
          "properties.desired": {}
        }
      }
@@ -128,10 +128,10 @@ Du distribuerar moduler på din enhet genom att använda manifestet distribution
 
 1. I vyn Visual Studio Code-Utforskaren expanderar den **Azure IoT Hub-enheter** avsnittet.
 
-1. Högerklicka på IoT Edge-enhet som du vill konfigurera med distribution manifestet.
+1. Högerklicka på den IoT Edge enhet som du vill konfigurera med distributions manifestet.
 
     > [!TIP]
-    > För att bekräfta att den enhet som du har valt är en IoT Edge-enhet, väljer du den för att expandera listan över moduler och kontrollera förekomst av **$edgeHub** och **$edgeAgent**. Varje IoT Edge-enhet omfattar dessa två moduler.
+    > För att bekräfta att enheten du har valt är en IoT Edge enhet, väljer du den för att expandera listan över moduler och kontrollerar förekomsten av **$edgeHub** och **$edgeAgent**. Varje IoT Edge enhet innehåller dessa två moduler.
 
 1. Välj **skapa distribution för enskild enhet**.
 

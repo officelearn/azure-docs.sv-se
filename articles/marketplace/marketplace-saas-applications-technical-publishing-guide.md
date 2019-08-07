@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: kevidal
-ms.openlocfilehash: 92c3452e07dee126666e6ee1fe0c46b1f8f6dfa4
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: f9ff6e19a0f0091cb5b831279eee90727bbb89fd
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876524"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742262"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>Publicerings guide för SaaS-program
 
@@ -126,13 +126,13 @@ Om du är nybörjare på den federerade INLOGGNINGen i Azure AD gör du följand
 ## <a name="saas-subscriptions"></a>SaaS-prenumerationer
 
 Använd SaaS-appens erbjudande typ för att låta kunden köpa din SaaS-baserade, tekniska lösning som en prenumeration. Följande krav måste uppfyllas för din SaaS-app:
-- Pris och fakturera tjänsten med en fast månads taxa.
+- Pris och fakturera tjänsten på ett fast pris (per månad eller per år) eller per användar taxa.
 - Ange en metod för att uppgradera eller avbryta tjänsten när som helst.
-Microsoft är värd för handels transaktionen. Microsoft fakturerar kunden å dina vägnar. Om du vill använda Billing a SaaS-appen som en prenumeration måste du aktivera prenumerations hanterings tjänstens API. Prenumerations hanterings tjänstens API måste kommunicera direkt med Azure Resource Manager-API: er. Prenumerations hanterings tjänstens API måste ha stöd för tjänst etablering, uppgradering och annullering.
+Microsoft är värd för handels transaktionen. Microsoft fakturerar kunden å dina vägnar. Om du vill erbjuda en SaaS-app som en prenumeration måste du integrera med API: er för SaaS-utförande.  Tjänsten måste ha stöd för etablering, uppgradering och annullering.
 
 | Krav | Information |  
 |:--- |:--- |  
-|Fakturering och mätning | Ditt erbjudande priss ätts till en månatlig fast taxa. Användnings priser och användnings "sanna" funktioner stöds inte för tillfället. |  
+|Fakturering och mätning | Ditt erbjudande är priss ätts baserat på den pris modell du väljer innan du publicerar (fast pris eller per användare).  Om du använder den fasta pris modellen kan du också ta med ytterligare dimensioner som används för att debitera kunder för användning som inte ingår i den fasta taxan. |  
 |Annullering | Ditt erbjudande kan avbrytas av kunden när som helst. |  
 |Transaktions landnings sida | Du är värd för en Azure-anpassad transaktions landnings sida där användare kan skapa och hantera sitt SaaS-tjänstkonto. |   
 | Prenumerations-API | Du exponerar en tjänst som kan interagera med SaaS-prenumerationen för att skapa, uppdatera och ta bort ett användar konto och en tjänste plan. Viktiga API-ändringar måste stödjas inom 24 timmar. Icke-kritiska API-ändringar frigörs regelbundet. |  

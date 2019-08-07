@@ -5,18 +5,19 @@ services: search
 manager: pablocas
 author: luiscabrer
 ms.service: search
+ms.subservice: cognitive-search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 589f8c8f11138b4fb5c3c3096229e28c633efb0d
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: e60eeb601a0a5796609b9c38b7394c2de0610cdf
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68423003"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68841277"
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>Så här bearbetar och extraherar du information från bilder i kognitiva Sök scenarier
 
@@ -72,7 +73,8 @@ När *imageAction* är inställt på ett annat värde än "ingen", kommer fälte
 | originalWidth      | Bildens ursprungliga bredd före normalisering. |
 | originalHeight      | Bildens ursprungliga höjd innan normalisering. |
 | rotationFromOriginal |  Räknaren medsols rotation i grader som uppstod när den normaliserade bilden skulle skapas. Ett värde mellan 0 och 360 grader. Det här steget läser metadata från den avbildning som genereras av en kamera eller skanner. Vanligt vis en multipel av 90 grader. |
-| contentOffset |Den teckenuppsättning i innehålls fältet där avbildningen extraherades. Det här fältet gäller endast för filer med inbäddade bilder. |
+| contentOffset | Den teckenuppsättning i innehålls fältet där avbildningen extraherades. Det här fältet gäller endast för filer med inbäddade bilder. |
+| pageNumber | Om avbildningen extraherades eller renderades från en PDF innehåller det här fältet sid numret i PDF-filen som extraherades eller renderades från från 1.  Om avbildningen inte är från en PDF-fil kommer det här fältet att vara 0.  |
 
  Exempel värde för *normalized_images*:
 ```json
@@ -84,7 +86,8 @@ När *imageAction* är inställt på ett annat värde än "ingen", kommer fälte
     "originalWidth": 5000,  
     "originalHeight": 3000,
     "rotationFromOriginal": 90,
-    "contentOffset": 500  
+    "contentOffset": 500,
+    "pageNumber": 2
   }
 ]
 ```

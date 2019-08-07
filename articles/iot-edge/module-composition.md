@@ -9,23 +9,23 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: f4828b59ffa43365f48c002262368d383dfcff05
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f275cca664733f19d3f3c5b52d168ffad01cadad
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66389368"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839622"
 ---
 # <a name="learn-how-to-deploy-modules-and-establish-routes-in-iot-edge"></a>Lär dig hur du distribuerar moduler och upprätta vägar i IoT Edge
 
-Minst två moduler som körs för varje IoT Edge-enhet: $edgeAgent och $edgeHub, som ingår i IoT Edge-körningen. IoT Edge-enhet kan köra flera ytterligare moduler för valfritt antal processer. Använd ett manifest för distributionen ska berätta för din enhet vilka moduler som bör installeras och hur du konfigurerar dem att fungera tillsammans. 
+Minst två moduler som körs för varje IoT Edge-enhet: $edgeAgent och $edgeHub, som ingår i IoT Edge-körningen. IoT Edge enhet kan köra flera ytterligare moduler för valfritt antal processer. Använd ett distributions manifest för att berätta för enheten vilka moduler som ska installeras och hur de ska konfigureras för att fungera tillsammans. 
 
 Den *distribution manifest* är ett JSON-dokument som beskriver:
 
-* Den **IoT Edge-agenten** modultvilling som omfattar tre komponenter. 
-  * Behållaravbildning för varje modul som körs på enheten.
-  * Autentiseringsuppgifter för åtkomst till privata behållarregister som innehåller modulen bilder.
-  * Anvisningar för hur varje modul ska skapas och hanteras.
+* **IoT Edge agent** -modul, som innehåller tre komponenter. 
+  * Behållar avbildningen för varje modul som körs på enheten.
+  * Autentiseringsuppgifterna för åtkomst till privata behållar register som innehåller modul bilder.
+  * Instruktioner för hur varje modul ska skapas och hanteras.
 * Den **IoT Edge hub** modultvilling, vilket innefattar hur meddelanden mellan moduler och till slut till IoT Hub.
 * Du kan också önskade egenskaper för alla ytterligare modultvillingar.
 
@@ -78,9 +78,9 @@ Distribution manifest följande struktur:
 
 ## <a name="configure-modules"></a>Konfigurera moduler
 
-Definiera hur IoT Edge-körningen installerar moduler i distributionen. IoT Edge-agenten är runtime-komponent som hanterar installationen, uppdateringar och statusrapporteringen för en IoT Edge-enhet. Därför kräver modultvilling $edgeAgent konfigurations- och hanteringsinformation för alla moduler. Den här informationen innehåller konfigurationsparametrarna för själva IoT Edge-agenten. 
+Definiera hur IoT Edge-körningen installerar moduler i distributionen. IoT Edge-agenten är runtime-komponent som hanterar installationen, uppdateringar och statusrapporteringen för en IoT Edge-enhet. Därför kräver modultvilling $edgeAgent konfigurations- och hanteringsinformation för alla moduler. Den här informationen inkluderar konfigurations parametrar för själva IoT Edge agenten. 
 
-En fullständig lista över egenskaper som kan eller måste tas finns i [egenskaper för IoT Edge-agenten och IoT Edge hub](module-edgeagent-edgehub.md).
+En fullständig lista över egenskaper som kan eller måste inkluderas finns i [Egenskaper för IoT Edge agent och IoT Edge Hub](module-edgeagent-edgehub.md).
 
 Egenskaper för $edgeAgent följande struktur:
 
@@ -139,7 +139,7 @@ Varje väg behöver en källa och mottagare, men villkoret är en valfri typ som
 
 Källan anger var meddelanden kommer från. IoT Edge kan dirigera meddelanden från moduler eller löv enheter. 
 
-Med IoT SDK kan moduler deklarera specifika utgående köer för sina meddelanden med hjälp av klassen ModuleClient. Utgående köer är inte nödvändigt, men är användbara för att hantera flera vägar. Lövenheter kan använda klassen DeviceClient i IoT-SDK: er för att skicka meddelanden till IoT Edge gateway-enheter på samma sätt som de skickar meddelanden till IoT Hub. Mer information finns i [förstå och använda Azure IoT Hub SDK](../iot-hub/iot-hub-devguide-sdks.md).
+Med IoT SDK: er kan moduler deklarera vissa utdataportar för sina meddelanden med hjälp av klassen ModuleClient. Utgående köer är inte nödvändiga, men är användbara för att hantera flera vägar. Löv enheter kan använda DeviceClient-klassen i IoT SDK: er för att skicka meddelanden till IoT Edge gateway-enheter på samma sätt som de skulle skicka meddelanden till IoT Hub. Mer information finns i [förstå och använda Azure IoT Hub SDK](../iot-hub/iot-hub-devguide-sdks.md): er.
 
 Egenskapen source kan vara något av följande värden:
 
@@ -147,14 +147,14 @@ Egenskapen source kan vara något av följande värden:
 | ------ | ----------- |
 | `/*` | Alla meddelanden från enheten till molnet eller twin ändringsmeddelanden från vilken enhet som modulen eller lövmedlemmar |
 | `/twinChangeNotifications` | Ändringar twin (rapporterade egenskaper) kommer från vilken enhet som helst modulen eller lövmedlemmar |
-| `/messages/*` | Alla enhet-till-moln-meddelanden som skickas av en modul via vissa eller inga utdata eller av en löv-enhet |
+| `/messages/*` | Alla enhets-till-moln-meddelanden som skickas av en modul genom några eller inga utdata eller av en löv enhet |
 | `/messages/modules/*` | Valfri enhet-till-moln-meddelanden som skickas från en modul via vissa eller inga utdata |
 | `/messages/modules/<moduleId>/*` | Valfri enhet-till-moln-meddelanden som skickas från en specifik modul via vissa eller inga utdata |
 | `/messages/modules/<moduleId>/outputs/*` | Valfri enhet-till-moln-meddelanden som skickas från en specifik modul via vissa utdata |
 | `/messages/modules/<moduleId>/outputs/<output>` | Valfri enhet-till-moln-meddelanden som skickas från en specifik modul via en specifik utdata |
 
 ### <a name="condition"></a>Tillstånd
-Villkoret är valfri i en väg deklaration. Om du vill skicka alla meddelanden från källan till mottagaren, lämnar du bara den **där** satsen helt och hållet. Du kan också använda den [IoT Hub-frågespråk](../iot-hub/iot-hub-devguide-routing-query-syntax.md) filtervärde för vissa meddelanden eller typer av meddelanden som uppfyller villkoret. Vägar för IoT Edge stöder inte filtrera meddelanden baserat på enhetstvilling-taggar och egenskaper. 
+Villkoret är valfri i en väg deklaration. Om du vill skicka alla meddelanden från källan till mottagaren ska du bara lämna **WHERE** -satsen helt. Du kan också använda den [IoT Hub-frågespråk](../iot-hub/iot-hub-devguide-routing-query-syntax.md) filtervärde för vissa meddelanden eller typer av meddelanden som uppfyller villkoret. Vägar för IoT Edge stöder inte filtrera meddelanden baserat på enhetstvilling-taggar och egenskaper. 
 
 Meddelandena som skickas mellan moduler i IoT Edge har formaterats samma som meddelandena som skickas mellan dina enheter och Azure IoT Hub. Alla meddelanden som är formaterade som JSON och har **systemProperties**, **appProperties**, och **brödtext** parametrar. 
 
@@ -182,9 +182,9 @@ Egenskapen mottagare kan vara något av följande värden:
 | `$upstream` | Skicka meddelandet till IoT Hub |
 | `BrokeredEndpoint("/modules/<moduleId>/inputs/<input>")` | Skicka meddelandet till en specifik indata för en specifik modul |
 
-IoT Edge gör på minst en gång garantier. IoT Edge hub lagrar meddelanden lokalt om en väg det går inte att leverera meddelandet till dess mottagare. Till exempel om IoT Edge hub inte kan ansluta till IoT Hub eller mål-modulen är inte ansluten.
+IoT Edge gör på minst en gång garantier. IoT Edge Hub lagrar meddelanden lokalt om en väg inte kan leverera meddelandet till mottagaren. Om IoT Edge hubb till exempel inte kan ansluta till IoT Hub eller om mål modulen inte är ansluten.
 
-IoT Edge hub lagrar meddelanden upp till den tid som anges i den `storeAndForwardConfiguration.timeToLiveSecs` egenskapen för den [IoT Edge hub önskade egenskaper](module-edgeagent-edgehub.md).
+IoT Edge Hub lagrar meddelandena upp till den tid som anges i `storeAndForwardConfiguration.timeToLiveSecs` egenskapen för [önskade egenskaper för IoT Edge Hub](module-edgeagent-edgehub.md).
 
 ## <a name="define-or-update-desired-properties"></a>Definiera eller uppdatera önskade egenskaper 
 
@@ -237,7 +237,7 @@ I följande exempel visas hur en giltig distribution manifest dokumentet kan se 
           }
         },
         "modules": {
-          "tempSensor": {
+          "SimulatedTemperatureSensor": {
             "version": "1.0",
             "type": "docker",
             "status": "running",
@@ -264,7 +264,7 @@ I följande exempel visas hur en giltig distribution manifest dokumentet kan se 
       "properties.desired": {
         "schemaVersion": "1.0",
         "routes": {
-          "sensorToFilter": "FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/filtermodule/inputs/input1\")",
+          "sensorToFilter": "FROM /messages/modules/SimulatedTemperatureSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/filtermodule/inputs/input1\")",
           "filterToIoTHub": "FROM /messages/modules/filtermodule/outputs/output1 INTO $upstream"
         },
         "storeAndForwardConfiguration": {
@@ -278,6 +278,6 @@ I följande exempel visas hur en giltig distribution manifest dokumentet kan se 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* En fullständig lista över egenskaper som kan eller måste inkluderas i $edgeAgent och $edgeHub finns i [egenskaper för IoT Edge-agenten och IoT Edge hub](module-edgeagent-edgehub.md).
+* En fullständig lista över egenskaper som kan eller måste inkluderas i $edgeAgent och $edgeHub finns i [Egenskaper för IoT Edge agent och IoT Edge hubb](module-edgeagent-edgehub.md).
 
 * Nu när du vet hur IoT Edge-moduler används [förstå de krav och verktyg för att utveckla IoT Edge-moduler](module-development.md).

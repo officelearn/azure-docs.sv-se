@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
-ms.date: 07/18/2019
-ms.openlocfilehash: 7c10bdf5e4f47f5bb5ac97b610c605132c4b4a00
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 08/05/2019
+ms.openlocfilehash: 94035fda6b1dff491a69c0f0001019ccd753d4e8
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567209"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816631"
 ---
 # <a name="what-is-azure-sql-database-managed-instance"></a>Vad är Azure SQL Database Hanterad instans?
 
@@ -46,7 +46,7 @@ Den hanterade instansen kombinerar de bästa funktionerna som finns tillgänglig
 | --- | --- |
 |Ingen maskin varu inköp och-hantering <br>Ingen hanterings kostnad för hantering av underliggande infrastruktur <br>Snabb etablering och tjänst skalning <br>Automatiserad uppdatering och versions uppgradering <br>Integrering med andra PaaS Data Services |SLA för 99,99% drift tid  <br>Inbyggd [hög tillgänglighet](sql-database-high-availability.md) <br>Data som skyddas med [automatiserade säkerhets kopieringar](sql-database-automated-backups.md) <br>Kvarhållning av kundens bevarande period för säkerhets kopiering <br>Användarinitierad [säkerhets kopieringar](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql?view=azuresqldb-mi-current) <br>Återställnings funktion [för tidpunkts databas](sql-database-recovery-using-backups.md#point-in-time-restore) |
 |**Säkerhet och efterlevnad** | **Hantering**|
-|Isolerad miljö ([VNet-integrering](sql-database-managed-instance-connectivity-architecture.md), enskild klient tjänst, dedikerad beräkning och lagring) <br>[Transparent datakryptering (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Azure AD-autentisering](sql-database-aad-authentication.md), stöd för enkel inloggning <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Azure AD server-Huvudkonton (inloggningar)</a> (**offentlig för hands version**) <br>Följer standarderna för efterlevnad på samma sätt som Azure SQL Database <br>[SQL-granskning](sql-database-managed-instance-auditing.md) <br>[Hot identifiering](sql-database-managed-instance-threat-detection.md) |Azure Resource Manager-API för automatisering av tjänst etablering och skalning <br>Azure Portal funktioner för manuell tjänst etablering och skalning <br>Data migration service
+|Isolerad miljö ([VNet-integrering](sql-database-managed-instance-connectivity-architecture.md), enskild klient tjänst, dedikerad beräkning och lagring) <br>[Transparent datakryptering (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Azure AD-autentisering](sql-database-aad-authentication.md), stöd för enkel inloggning <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Azure AD server-Huvudkonton (inloggningar)</a> (**offentlig för hands version**) <br>Följer standarderna för efterlevnad på samma sätt som Azure SQL Database <br>[SQL-granskning](sql-database-managed-instance-auditing.md) <br>[Advanced Threat Protection](sql-database-managed-instance-threat-detection.md) |Azure Resource Manager-API för automatisering av tjänst etablering och skalning <br>Azure Portal funktioner för manuell tjänst etablering och skalning <br>Data migration service
 
 > [!IMPORTANT]
 > Azure SQL Database (alla distributions alternativ) har certifierats mot ett antal efterlevnads standarder. Mer information finns i [Microsoft Azure Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) där du hittar den mest aktuella listan med SQL Database certifierings certifieringar.
@@ -210,7 +210,7 @@ Azure SQL Database innehåller en uppsättning avancerade säkerhetsfunktioner s
 
 - [Granskning av hanterade instanser](sql-database-managed-instance-auditing.md) spårar databas händelser och skriver dem till en Gransknings logg fil som placeras i ditt Azure Storage-konto. Granskning kan hjälpa till att upprätthålla regelefterlevnad, förstå databas aktivitet och få insikt i avvikelser och avvikelser som kan tyda på affärs problem eller misstänkta säkerhets överträdelser.
 - Data kryptering i rörelse – en hanterad instans skyddar dina data genom att tillhandahålla kryptering för data i rörelse med hjälp av Transport Layer Security. Förutom Transport Layer Security ger distributions alternativet hanterad instans skydd av känsliga data i Flight, i vila och under bearbetning av frågor med [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine). Always Encrypted är först i branschen med att erbjuda oslagbar datasäkerhet mot överträdelser, inklusive stöld av viktiga data. Med Always Encrypted lagras exempelvis kreditkorts nummer krypterade i databasen alltid, även under frågekörning, vilket tillåter dekryptering vid användnings punkten av behörig personal eller program som behöver behandla dessa data.
-- [Hot identifiering](sql-database-managed-instance-threat-detection.md) kompletterar [granskning](sql-database-managed-instance-auditing.md) genom att tillhandahålla ett extra lager av säkerhets information som är inbyggt i tjänsten och som identifierar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja databaser. Du får varningar om misstänkta aktiviteter, potentiella sårbarheter och SQL-injektering, samt avvikande databas åtkomst mönster. Aviseringar om hot identifiering kan visas från [Azure Security Center](https://azure.microsoft.com/services/security-center/) och ger information om misstänkt aktivitet och rekommenderar åtgärder för att undersöka och minimera hotet.  
+- [Avancerat skydd](sql-database-managed-instance-threat-detection.md) kompletterar [granskning](sql-database-managed-instance-auditing.md) genom att tillhandahålla ett extra lager av säkerhets information som är inbyggt i tjänsten och som identifierar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja databaser. Du får varningar om misstänkta aktiviteter, potentiella sårbarheter och SQL-injektering, samt avvikande databas åtkomst mönster. Aviseringar för avancerat skydd kan visas från [Azure Security Center](https://azure.microsoft.com/services/security-center/) och ger information om misstänkt aktivitet och rekommenderar åtgärder för att undersöka och minimera hotet.  
 - [Dynamisk data maskning](/sql/relational-databases/security/dynamic-data-masking) begränsar känslig data exponering genom att maskera den till icke-privilegierade användare. Dynamisk datamaskering bidrar till att förhindra obehörig åtkomst till känsliga data genom att göra det möjligt att ange hur mycket av känsliga data som ska visas med minimal påverkan på program nivån. Det är en principbaserad säkerhetsfunktion som fungerar genom att dölja känslig data i resultatuppsättningen för en fråga över angivna databasfält, medan data i databasen förblir oförändrad.
 - [Säkerhet på radnivå](/sql/relational-databases/security/row-level-security) gör att du kan styra åtkomsten till rader i en databas tabell baserat på egenskaperna för användaren som kör en fråga (t. ex. efter grupp medlemskap eller körnings kontext). Säkerheten på radnivå (RLS) förenklar design och kodning av säkerheten i ditt program. RLS låter dig implementera begränsningar för dataåtkomst för raden. Du kan till exempel se till att anställda endast kan komma åt de data rader som är relevanta för deras avdelning eller begränsa en data åtkomst till enbart relevanta data.
 - [Transparent data kryptering (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) krypterar hanterade instans data filer, som kallas att kryptera data i vila. TDE utför I/O-kryptering i real tid och dekryptering av data-och loggfiler. Krypteringen använder en databas krypterings nyckel (DEK), som lagras i databasens start post för tillgänglighet under återställningen. Du kan skydda alla dina databaser i en hanterad instans med transparent data kryptering. TDE är SQL Server en beprövad krypterings-till-rest-teknik som krävs av många kompatibla standarder för att skydda mot stöld av lagrings medier.
@@ -292,7 +292,7 @@ Med distributions alternativet för hanterade instanser kan system administratö
 
 I följande tabell visas flera egenskaper, som är tillgängliga via Transact SQL, som du kan använda för att identifiera att programmet fungerar med en hanterad instans och hämta viktiga egenskaper.
 
-|Egenskap|Value|Kommentar|
+|Egenskap|Värde|Kommentar|
 |---|---|---|
 |`@@VERSION`|Microsoft SQL Azure (RTM) – 12.0.2000.8 2018-03-07 Copyright (C) 2018 Microsoft Corporation.|Värdet är samma som i SQL Database.|
 |`SERVERPROPERTY ('Edition')`|SQL Azure|Värdet är samma som i SQL Database.|

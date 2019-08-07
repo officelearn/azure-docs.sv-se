@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: bwren
-ms.openlocfilehash: 05d9dc8f676589dcb301c19b0a2e80e9fd4c1fa0
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: cc0fcbb2005ce2aaa70c9e1d2a9993d341169209
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249746"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68814234"
 ---
 # <a name="collect-iis-logs-in-azure-monitor"></a>Samla in IIS-loggar i Azure Monitor
 Internet Information Services (IIS) lagrar användar aktivitet i loggfiler som kan samlas in av Azure Monitor och lagras som [loggdata](data-platform.md).
@@ -34,7 +34,7 @@ Konfigurera IIS-loggar i Azure Monitor från [menyn Avancerade inställningar](a
 
 
 ## <a name="data-collection"></a>Datainsamling
-Azure Monitor samlar in IIS-loggfiler från varje agent varje gången loggens tidsstämpel ändras eller när en ny fil skapas. Loggen läses var 5: e minut. Frekvensen för att skapa nya filer styrs av inställningen för **förnyelse av logg filen** för IIS-platsen, vilket är en gång om dagen som standard. Om IIS inte uppdaterar tidsstämpeln före förnyelse tiden, om inställningen är **per timme**, Azure Monitor samla in loggen varje timme. Om inställningen är **dagligen**samlar Azure monitor in loggen var 24: e timme.
+Azure Monitor samlar in IIS-loggfiler från varje agent varje gången loggens tidsstämpel ändras. Loggen läses var **5: e minut**. Om IIS inte uppdaterar tidsstämpeln före förnyelse tiden när en ny fil skapas, kommer posterna att samlas in när den nya filen skapas. Frekvensen för att skapa nya filer styrs av inställningen för **förnyelse av logg filen** för IIS-platsen, vilket är en gång om dagen som standard. Om inställningen anges **per timme**Azure Monitors loggen varje timme. Om inställningen är **dagligen**samlar Azure monitor in loggen var 24: e timme.
 
 
 ## <a name="iis-log-record-properties"></a>Egenskaper för logg poster i IIS

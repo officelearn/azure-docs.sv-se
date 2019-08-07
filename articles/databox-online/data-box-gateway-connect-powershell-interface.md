@@ -1,40 +1,39 @@
 ---
-title: Ansluta till och hantera Microsoft Azure Data Box Gateway-enheten via Windows PowerShell-gränssnittet | Microsoft Docs
-description: Beskriver hur du ansluter till och hantera sedan Data Box Gateway via Windows PowerShell-gränssnittet.
+title: Ansluta till och hantera Microsoft Azure Data Box Gateway-enhet via Windows PowerShell-gränssnittet | Microsoft Docs
+description: Beskriver hur du ansluter till och sedan hanterar Data Box Gateway via Windows PowerShell-gränssnittet.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 08/02/2019
 ms.author: alkohli
-ms.openlocfilehash: 67caaa2c6c9bd615d0b88bdd5de3442b46aa32cb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 650777d849e172686e8b46502a84db8c519174e7
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64415165"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68775203"
 ---
-# <a name="manage-an-azure-data-box-gateway-device-via-windows-powershell"></a>Hantera en Azure Data Box Gateway-enheten via Windows PowerShell
+# <a name="manage-an-azure-data-box-gateway-device-via-windows-powershell"></a>Hantera en Azure Data Box Gateway-enhet via Windows PowerShell
 
-Azure Data Box Gateway-lösning kan du skicka data via nätverket till Azure. Den här artikeln beskriver några av konfiguration och hanteringsaktiviteter för din Data Box-Gateway-enhet. Du kan använda Azure-portalen, lokala webbgränssnittet eller Windows PowerShell-gränssnittet för att hantera din enhet.
+Med Azure Data Box Gateway lösning kan du skicka data via nätverket till Azure. I den här artikeln beskrivs några konfigurations-och hanterings uppgifter för din Data Box Gateway-enhet. Du kan använda Azure Portal, det lokala webb gränssnittet eller Windows PowerShell-gränssnittet för att hantera enheten.
 
-Den här artikeln handlar om de uppgifter som du gör med hjälp av PowerShell-gränssnittet.
+Den här artikeln fokuserar på de uppgifter du gör med PowerShell-gränssnittet.
 
 Den här artikeln innehåller följande procedurer:
 
 - Ansluta till PowerShell-gränssnittet
-- Starta en supportsession
-- Skapa ett supportpaket
+- Skapa ett support paket
 - Överför certifikat
 - Starta i icke-DHCP-miljö
-- Visa enhetsinformation
+- Visa enhets information
 
 ## <a name="connect-to-the-powershell-interface"></a>Ansluta till PowerShell-gränssnittet
 
 [!INCLUDE [Connect to admin runspace](../../includes/data-box-edge-gateway-connect-minishell.md)]
 
-## <a name="create-a-support-package"></a>Skapa ett supportpaket
+## <a name="create-a-support-package"></a>Skapa ett support paket
 
 [!INCLUDE [Create a support package](../../includes/data-box-edge-gateway-create-support-package.md)]
 
@@ -46,7 +45,7 @@ Den här artikeln innehåller följande procedurer:
 
 [!INCLUDE [Boot up in non-DHCP environment](../../includes/data-box-edge-gateway-boot-non-dhcp.md)]
 
-## <a name="view-device-information"></a>Visa enhetsinformation
+## <a name="view-device-information"></a>Visa enhets information
 
 [!INCLUDE [View device information](../../includes/data-box-edge-gateway-view-device-info.md)]
 

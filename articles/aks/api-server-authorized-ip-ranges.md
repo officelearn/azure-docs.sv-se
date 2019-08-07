@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
 ms.author: mlearned
-ms.openlocfilehash: 6516bbcb4ea879279812d61d9fe31f1ea4268280
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 7dcf962345a2453fca52825c4be33a439d25df54
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67616245"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68740937"
 ---
 # <a name="preview---secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>För hands version – säker åtkomst till API-servern med behöriga IP-adressintervall i Azure Kubernetes service (AKS)
 
@@ -218,13 +218,13 @@ Om du vill aktivera API-serverns auktoriserade IP-intervall anger du en lista ö
 
 Använd kommandot [AZ AKS Update][az-aks-update] och ange *--API-Server-auktoriserat IP-intervall* att tillåta. Dessa IP-adressintervall är vanligt vis adress intervall som används av dina lokala nätverk. Lägg till den offentliga IP-adressen för din egen Azure-brandvägg som hämtades i föregående steg, till exempel *20.42.25.196/32*.
 
-I följande exempel aktive ras API-servern auktoriserade IP-intervall i klustret med namnet *myAKSCluster* i resurs gruppen med namnet *myResourceGroup*. De IP-adressintervall som ska auktoriseras är *20.42.25.196/32* (Azure FIREWALL offentlig IP-adress), sedan *172.0.0.10/16* och *168.10.0.10/18*:
+I följande exempel aktive ras API-servern auktoriserade IP-intervall i klustret med namnet *myAKSCluster* i resurs gruppen med namnet *myResourceGroup*. De IP-adressintervall som ska auktoriseras är *20.42.25.196/32* (Azure FIREWALL offentlig IP-adress), sedan *172.0.0.0/16* och *168.10.0.0/18*:
 
 ```azurecli-interactive
 az aks update \
     --resource-group myResourceGroup \
     --name myAKSCluster \
-    --api-server-authorized-ip-ranges 20.42.25.196/32,172.0.0.10/16,168.10.0.10/18
+    --api-server-authorized-ip-ranges 20.42.25.196/32,172.0.0.0/16,168.10.0.0/18
 ```
 
 ## <a name="update-or-disable-authorized-ip-ranges"></a>Uppdatera eller inaktivera auktoriserade IP-intervall

@@ -1,94 +1,96 @@
 ---
-title: Optimera kostnaden för Azure Cosmos DB-resurser med reserverad kapacitet
-description: Lär dig hur du köper Azure Cosmos DB reserverad kapacitet för att spara dina beräkningskostnader.
+title: Optimera kostnader för Azure Cosmos DB resurser med reserverad kapacitet
+description: Lär dig hur du köper Azure Cosmos DB reserverad kapacitet för att spara pengar på dina beräknings kostnader.
 author: bandersmsft
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/01/2019
+ms.date: 08/02/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: b74fcc2e08f02be7adeeab4cfee5f36d5194392c
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: ab42c600b975adac9f13e8e75da9696e51e7e94d
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508630"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779867"
 ---
 # <a name="optimize-cost-with-reserved-capacity-in-azure-cosmos-db"></a>Optimera kostnader med reserverad kapacitet i Azure Cosmos DB
 
-Azure Cosmos DB reserverad kapacitet kan du spara pengar genom att betala förväg för Azure Cosmos DB-resurserna för antingen ett eller tre år. Du kan få en rabatt på dataflödet som tillhandahållits för Cosmos DB-resurser med Azure Cosmos DB reserverad kapacitet. Exempel på resurser är databaser och behållare (tabeller, samlingar och diagram).
+Azure Cosmos DB reserverad kapacitet hjälper dig att spara pengar genom förskotts betalning för Azure Cosmos DB resurser i ett år eller tre år. Med Azure Cosmos DB reserverad kapacitet kan du få rabatt på det data flöde som tillhandahålls för Cosmos DB resurser. Exempel på resurser är databaser och behållare (tabeller, samlingar och grafer).
 
-Azure Cosmos DB reserverad kapacitet kan avsevärt minska dina kostnader för Cosmos DB&mdash;upp till 65 procent på vanliga priser med en ettårig eller tre år i förskott. Reserverad kapacitet ger en rabatt på fakturering och påverkar inte runtime-tillståndet för dina Azure Cosmos DB-resurser.
+Azure Cosmos DB reserverad kapacitet kan avsevärt minska dina&mdash;Cosmos DBS kostnader upp till 65 procent på vanliga priser med ett års-eller tre års åtagande. Reserverad kapacitet ger en fakturerings rabatt och påverkar inte körnings statusen för dina Azure Cosmos DB-resurser.
 
-Azure Cosmos DB reserverad kapacitet täcker dataflödet som etableras för dina resurser. Det täcker inte lagring och nätverk avgifter. När du köper en reservation går dataflöde avgifterna som matchar reservationen attribut är inte längre debiteras enligt användningsbaserad-som-du priser. Mer information om reservationer finns i den [Azure reservationer](../billing/billing-save-compute-costs-reservations.md) artikeln.
+Azure Cosmos DB reserverad kapacitet täcker data flöde som har allokerats för dina resurser. Det behandlar inte lagrings-och nätverks avgifterna. Så snart du köper en reservation debiteras inte längre de data flödes kostnader som matchar reservations attributen enligt priserna för betala per användning. Mer information om reservationer finns i artikeln [Azure-reservationer](../billing/billing-save-compute-costs-reservations.md) .
 
-Du kan köpa Azure Cosmos DB reserverad kapacitet från den [Azure-portalen](https://portal.azure.com). Köpa reserverad kapacitet:
+Du kan köpa Azure Cosmos DB reserverad kapacitet från [Azure Portal](https://portal.azure.com). Så här köper du reserverad kapacitet:
 
-* Du måste vara i rollen ägare för minst en Enterprise eller enskild prenumeration med användningsbaserad betalning.  
-* För Enterprise-prenumerationer, **lägga till reserverade instanser** måste aktiveras i den [EA-portalen](https://ea.azure.com). Eller, om den här inställningen har inaktiverats kan du måste vara en EA-administratör för prenumerationen.
-* Efter programmet Cloud Solution Provider (CSP), kan endast admin-agenter eller försäljning agents köpa Azure Cosmos DB reserverad kapacitet.
+* Du måste ha ägar rollen för minst ett företag eller en enskild prenumeration med priser enligt principen betala per användning.  
+* För företags prenumerationer måste **Lägg till reserverade instanser** vara aktiverade i [EA-portalen](https://ea.azure.com). Eller, om inställningen är inaktive rad, måste du vara en EA-administratör i prenumerationen.
+* För ett CSP-program (Cloud Solution Provider) kan endast administratörs agenter eller försäljnings agenter köpa Azure Cosmos DB reserverad kapacitet.
 
-## <a name="determine-the-required-throughput-before-purchase"></a>Fastställa nödvändiga dataflödet innan du köper
+## <a name="determine-the-required-throughput-before-purchase"></a>Ta reda på vilket data flöde som krävs före köpet
 
-Storleken på reservationen ska baseras på den totala mängden dataflöde som Azure Cosmos DB-resurserna befintliga eller snart-till--distribueras ska använda. Du kan fastställa nödvändiga dataflödet på följande sätt:
+Reservationens storlek bör baseras på den totala mängden data flöde som den befintliga eller närmast distribuerade Azure Cosmos DB resurserna kommer att använda. Du kan bestämma vilket data flöde som krävs på följande sätt:
 
-* Hämta historiska data för totalt etablerat dataflöde i Azure Cosmos DB-konton, databaser och samlingar i alla regioner. Exempel: du kan utvärdera det dagliga genomsnittliga dataflöden genom att ladda ned din dagliga användningsinformation från `https://account.azure.com`.
+* Hämta historiska data för det totala etablerade data flödet i dina Azure Cosmos DB-konton, databaser och samlingar i alla regioner. Du kan till exempel utvärdera det dagliga genomsnittliga tillhandahållna data flödet genom att ladda ned den dagliga användnings `https://account.azure.com`satsen från.
 
-* Om du är kund med Enterprise Agreement (EA) kan hämta du din användningsfil information för Azure Cosmos DB-dataflöde. Referera till den **tjänsttyp** värde i den **ytterligare information** i användningsfilen.
+* Om du är en Enterprise-avtal (EA)-kund kan du hämta din användnings fil för att hämta Azure Cosmos DB data flödes information. Referera till **tjänst typs** värdet i avsnittet **Ytterligare information** i användnings filen.
 
-* Du kan summeras genomsnittlig genomströmning för alla arbetsbelastningar på ditt Azure Cosmos DB-konton som du förväntar dig att köra i bredvid ett eller tre år. Du kan sedan använda den kvantiteten för reservationen.
+* Du kan summera genomsnitts data flödet för alla arbets belastningar på dina Azure Cosmos DB-konton som du förväntar dig att köra under nästa eller tre år. Du kan sedan använda den kvantiteten för reservationen.
 
 ## <a name="buy-azure-cosmos-db-reserved-capacity"></a>Köp Azure Cosmos DB reserverad kapacitet
 
 1. Logga in på [Azure Portal](https://portal.azure.com).  
 
-2. Välj **alla tjänster** > **reservationer** > **Lägg till**.  
+2. Välj **alla tjänster** > -**reservationer** > **Lägg till**.  
 
-3. Från den **köpa reservationer** fönstret Välj **Azure Cosmos DB** att köpa en ny reservation.  
+3. I fönstret **inköps reservationer** väljer du **Azure Cosmos DB** för att köpa en ny reservation.  
 
-4. Fyll i de obligatoriska fälten som beskrivs i följande tabell:
+4. Fyll i de obligatoriska fälten enligt beskrivningen i följande tabell:
 
-   ![Fyll i formuläret med reserverad kapacitet](./media/cosmos-db-reserved-capacity/fill-reserved-capacity-form.png)
+   ![Fylla i formuläret för reserverad kapacitet](./media/cosmos-db-reserved-capacity/fill-reserved-capacity-form.png)
 
    |Fält  |Beskrivning  |
    |---------|---------|
-   |Scope   |   Alternativ som styr hur många prenumerationer kan använda faktureringsförmånen som är associerade med reservationen. Den styr hur reservationen ska gälla för specifika prenumerationer. <br/><br/>  Om du väljer **delad**, reservationsrabatten tillämpas på Azure Cosmos DB-instanser som körs i alla prenumerationer i din faktureringskontexten. Kontexten fakturering baseras på hur du registrerat dig för Azure. För företagskunder, den delade omfattningen registreringen och innehåller alla prenumerationer i registreringen. För kunder med användningsbaserad betalning är den delade omfattningen alla enskilda prenumerationer med användningsbaserad betalning som skapats av kontoadministratören.  <br/><br/>  Om du väljer **enstaka prenumeration**, reservationsrabatten tillämpas på Azure Cosmos DB-instanser i den valda prenumerationen. <br/><br/> Om du väljer **enskild resursgrupp**, reservationsrabatten tillämpas på Azure Cosmos DB-instanser i den valda prenumerationen och den valda resursgruppen inom den prenumerationen. <br/><br/> Du kan ändra omfång för reservation när du köper reserverad kapacitet.  |
-   |Prenumeration  |   Prenumeration som används för att betala för Azure Cosmos DB reserverad kapacitet. Den aktuella betalningsmetoden på den valda prenumerationen används i debitera några startkostnader. Prenumerationstypen måste vara något av följande: <br/><br/>  Enterprise-avtal (erbjuder siffror: MS-AZR-0017P eller MS-AZR - 0148 P): För en prenumeration på Enterprise, är kostnaderna som dras av från den registrering saldo för åtagandebelopp eller debiteras som överanvändning. <br/><br/> Enskild prenumeration med användningsbaserad betalning (erbjuder siffror: MS-AZR-0003P eller MS-AZR - 0023 P): För en enskild prenumeration med användningsbaserad betalning debiteras avgifterna till betalningsmetod kreditkort eller faktura för prenumerationen.    |
-   | Resursgrupp | Resursgrupp som reserverad kapacitet rabatten. |
-   |Term  |   Ett eller tre år.   |
-   |Typ av dataflöde   |  Dataflöde har etablerats som enheter för programbegäran. Du kan köpa en reservation för det etablerade dataflödet för båda inställningar – skriver en enda region skrivningar samt som flera regioner. Typen dataflöde har två värden för att välja mellan: 100 RU/s per timme och 100 multimaster RU/s per timme.|
-   | Reserverade kapacitetsenheter| Mängden dataflöde som du vill reservera. Du kan beräkna det här värdet genom att fastställa det dataflöde som krävs för alla dina Cosmos DB-resurser (till exempel databaser eller behållare) per region. Du sedan multiplicerar den med antalet regioner som ska associeras med din Cosmos DB-databas. Exempel: Om du har fem regioner med 1 miljon RU/sek i varje region, väljer du 5 miljoner RU/sek för reservationsköp för kapacitet. |
- 
+   |Omfång   |   Alternativ som styr hur många prenumerationer som kan använda fakturerings förmånen som är associerad med reservationen. Den styr också hur reservationen tillämpas på vissa prenumerationer. <br/><br/>  Om du väljer **delad**tillämpas reservations rabatten på Azure Cosmos DB instanser som körs i en prenumeration i din fakturerings kontext. Fakturerings kontexten baseras på hur du registrerade dig för Azure. För företags kunder är det delade omfånget registreringen och innehåller alla prenumerationer i registreringen. För kunder som betalar per användning är det delade omfånget alla enskilda prenumerationer med priser enligt principen betala per användning som har skapats av konto administratören.  <br/><br/>  Om du väljer **enskild prenumeration**tillämpas reservations rabatten på Azure Cosmos DB instanser i den valda prenumerationen. <br/><br/> Om du väljer **enskild resurs grupp**tillämpas reservations rabatten på Azure Cosmos DB instanser i den valda prenumerationen och den valda resurs gruppen i den prenumerationen. <br/><br/> Du kan ändra reservations omfånget när du har köpt den reserverade kapaciteten.  |
+   |Subscription  |   Prenumeration som används för att betala för Azure Cosmos DB reserverad kapacitet. Betalnings metoden för den valda prenumerationen används för att debitera de direkta kostnaderna. Prenumerationen måste vara någon av följande typer: <br/><br/>  Enterprise-avtal (erbjudande nummer: MS-AZR-0017P eller MS-AZR-0148P): För en företags prenumeration dras avgifterna från registreringen av betalnings åtagandet eller debiteras som överanvändning. <br/><br/> Enskild prenumeration med priser för betala per användning (erbjudande nummer: MS-AZR-0003P eller MS-AZR-0023P): För en enskild prenumeration med priser enligt principen betala per användning debiteras avgifterna till kredit kortet eller faktura betalnings metoden för prenumerationen.    |
+   | Resursgrupp | Resurs grupp som den reserverade kapacitets rabatten tillämpas på. |
+   |Term  |   Ett år eller tre år.   |
+   |Typ av dataflöde   |  Data flödet tillhandahålls som enheter för programbegäran. Du kan köpa en reservation för det etablerade data flödet för båda konfigurationerna – enstaka region skrivningar och flera region skrivningar. Data flödes typen har två värden att välja mellan: 100 RU/s per timme och 100 multi-master RU/s per timme.|
+   | Enheter för reserverad kapacitet| Den mängd data flöde som du vill reservera. Du kan beräkna det här värdet genom att fastställa det data flöde som krävs för alla Cosmos DB resurser (till exempel databaser eller behållare) per region. Sedan multiplicerar du det med antalet regioner som du associerar med din Cosmos DB databas. Exempel: Om du har fem regioner med 1 000 000 RU/SEK i varje region väljer du 5 000 000 RU/SEK för reservations kapacitets köpet. |
 
-5. När du har fyllt i formuläret beräknas priset som krävs för att köpa reserverad kapacitet. Utdata visar också procentandelen rabatt som du får med alternativ som du har valt. Klicka sedan på **Välj**
 
-6. I den **köpa reservationer** fönstret granska rabatten och priset för reservationen. Den här reservationen priset gäller för Azure Cosmos DB-resurser med dataflöde etablerat i alla regioner.  
+5. När du har fyllt i formuläret beräknas det pris som krävs för att köpa den reserverade kapaciteten. I resultatet visas även procent andelen rabatt som du får med de valda alternativen. Klicka sedan på **Välj**
 
-   ![Reserverad kapacitet sammanfattning](./media/cosmos-db-reserved-capacity/reserved-capacity-summary.png)
+6. I fönstret **inköps reservationer** granskar du rabatten och priset för reservationen. Detta reservations pris gäller Azure Cosmos DB resurser med data flöde som har allokerats i alla regioner.  
 
-7. Välj **granska + köp** och sedan **Köp nu**. Följande sida visas när köpet har slutförts:
+   ![Reserverad kapacitets Sammanfattning](./media/cosmos-db-reserved-capacity/reserved-capacity-summary.png)
 
-När du köper en reservation tillämpas omedelbart på alla befintliga Azure Cosmos DB-resurser som matchar villkoren i reservationen. Om du inte har några befintliga resurser i Azure Cosmos DB, gäller reservationen när du distribuerar en ny Cosmos DB-instans som matchar villkoren i reservationen. I båda fallen startas perioden för reservationen direkt efter en lyckad inköp.
+7. Välj **Granska + köp** och **Köp nu**. Följande sida visas när köpet har slutförts:
 
-När din reservationen går ut dina Azure Cosmos DB-instanser fortsätter att köras och debiteras enligt de användningsbaserad betalning.
+När du har köpt en reservation tillämpas den omedelbart på befintliga Azure Cosmos DB resurser som matchar villkoren i reservationen. Om du inte har några befintliga Azure Cosmos DB-resurser kommer reservationen att gälla när du distribuerar en ny Cosmos DB-instans som matchar villkoren i reservationen. I båda fallen startar reservations perioden direkt efter ett lyckat köp.
 
-## <a name="cancellation-and-exchanges"></a>Annulleringen och utbyten
+När reservationen går ut fortsätter dina Azure Cosmos DB instanser att köras och debiteras enligt de vanliga priserna för betala per användning.
 
-Hjälp med att identifiera rätt reserverad kapacitet finns i [förstå hur reservationsrabatten tillämpas på Azure Cosmos DB](../billing/billing-understand-cosmosdb-reservation-charges.md). Om du behöver avbryta eller byta en reservation för Azure Cosmos DB kan du läsa [Reservation utbyte och återbetalningar](../billing/billing-azure-reservations-self-service-exchange-and-refund.md).
+## <a name="cancel-exchange-or-refund-reservations"></a>Avbryta, byta ut eller återbetala reservationer
+
+Information om hur du identifierar rätt reserverad kapacitet finns i [förstå hur reservations rabatten tillämpas på Azure Cosmos DB](../billing/billing-understand-cosmosdb-reservation-charges.md).
+
+Du kan avbryta, byta ut eller återbetala reservationer med vissa begränsningar. Mer information finns i självbetjänings [utbyten och åter betalningar för Azure reservations](../billing/billing-azure-reservations-self-service-exchange-and-refund.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Reservationsrabatten tillämpas automatiskt på Azure Cosmos DB-resurserna som matchar reservationsomfånget och attribut. Du kan uppdatera reservationens via Azure portal, PowerShell, Azure CLI eller API: et omfång.
+Reservations rabatten tillämpas automatiskt på Azure Cosmos DB resurser som matchar reservations omfånget och attributen. Du kan uppdatera omfånget för reservationen via Azure Portal, PowerShell, Azure CLI eller API: et.
 
-*  Läs hur reserverad kapacitet rabatter till Azure Cosmos DB i [förstå Azure rabatten](../billing/billing-understand-cosmosdb-reservation-charges.md).
+*  Information om hur reserverade kapacitets rabatter tillämpas på Azure Cosmos DB finns i [förstå reservations rabatten i Azure](../billing/billing-understand-cosmosdb-reservation-charges.md).
 
-* Om du vill veta mer om Azure reservationer, finns i följande artiklar:
+* Mer information om Azure-reservationer finns i följande artiklar:
 
-   * [Vad är Azure reservationer?](../billing/billing-save-compute-costs-reservations.md)  
+   * [Vad är Azure-reservationer?](../billing/billing-save-compute-costs-reservations.md)  
    * [Hantera Azure-reservationer](../billing/billing-manage-reserved-vm-instance.md)  
-   * [Förstå användningen av reserverade för din Enterprise-registrering](../billing/billing-understand-reserved-instance-usage-ea.md)  
-   * [Förstå användningen av reservation för prenumerationen med användningsbaserad betalning](../billing/billing-understand-reserved-instance-usage.md)
-   * [Azure reservationer i Partner Center CSP-programmet](https://docs.microsoft.com/partner-center/azure-reservations)
+   * [Förstå reservations användningen för företags registreringen](../billing/billing-understand-reserved-instance-usage-ea.md)  
+   * [Förstå reservations användningen för din prenumeration enligt principen betala per användning](../billing/billing-understand-reserved-instance-usage.md)
+   * [Azure-reservationer i Partner Center CSP-programmet](https://docs.microsoft.com/partner-center/azure-reservations)
 
 ## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
 

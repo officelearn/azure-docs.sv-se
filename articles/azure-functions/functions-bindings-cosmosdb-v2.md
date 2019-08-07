@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 3c0a10bf03106bc7e1b89e4664dfed9fc76fc34f
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 67b70a67065bfc66639b0f6911f66111829c9a0f
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564841"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774916"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>Azure Cosmos DB bindningar för Azure Functions 2. x
 
@@ -1745,6 +1745,7 @@ Se exempel språkspecifika:
 * [F#](#output---f-examples)
 * [Java](#output---java-examples)
 * [JavaScript](#output---javascript-examples)
+* [Python](#output---python-examples)
 
 Se även de [inkommande exempel](#input---c-examples) som använder `DocumentClient`.
 
@@ -2274,6 +2275,57 @@ I följande exempel visas en Java-funktion som skriver flera dokument till Cosmo
 
 I [Java Functions runtime-biblioteket](/java/api/overview/azure/functions/runtime)använder du `@CosmosDBOutput` anteckningen för parametrar som ska skrivas till Cosmos dB.  Typ av antecknings parameter bör ```OutputBinding<T>```vara, där T är antingen en ursprunglig Java-typ eller en POJO.
 
+### <a name="output---python-examples"></a>Utdata – python-exempel
+
+I följande exempel visas hur du skriver ett dokument till en Azure CosmosDB-databas som utdata till en funktion.
+
+Bindnings definitionen definieras i *Function. JSON* där *Type* har angetts till `cosmosDB`.
+
+```json
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "authLevel": "function",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "cosmosDB",
+      "direction": "out",
+      "name": "doc",
+      "databaseName": "demodb",
+      "collectionName": "data",
+      "createIfNotExists": "true",
+      "connectionStringSetting": "AzureCosmosDBConnectionString"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "$return"
+    }
+  ]
+}
+```
+
+Skicka ett dokument objekt till `set` -metoden för databas parametern om du vill skriva till databasen.
+
+```python
+import azure.functions as func
+
+def main(req: func.HttpRequest, doc: func.Out[func.Document]) -> func.HttpResponse:
+
+    request_body = req.get_body()
+
+    doc.set(func.Document.from_json(request_body))
+
+    return 'OK'
+```
 
 ## <a name="output---attributes"></a>Utdata - attribut
 

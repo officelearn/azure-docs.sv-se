@@ -1,132 +1,132 @@
 ---
-title: Privata moln i VMware-lösning genom CloudSimple - Azure
-description: Läs mer om CloudSimple privata moln och begrepp.
+title: Privata moln i VMware-lösningen av CloudSimple – Azure
+description: Lär dig mer om CloudSimple privata moln och koncept.
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 04/10/2019
 ms.topic: article
-ms.service: vmware
+ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: e3ab53466cae5bd39d85f8d846c8e59ad94f1f2d
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 9885366d5987870fe2739083ff47abaae9ef6ed1
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165748"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816202"
 ---
-# <a name="cloudsimple-private-cloud-overview"></a>CloudSimple privat moln-översikt
+# <a name="cloudsimple-private-cloud-overview"></a>Översikt över CloudSimple privata moln
 
-CloudSimple transformerar och utökar VMware-arbetsbelastningar till offentliga moln på några minuter. Med tjänsten CloudSimple kan använda du VMware internt i Azure bare metal-infrastrukturen. Distributionen ligger på Azure-platser och integreras helt med resten av Azure-molnet.
+CloudSimple transformerar och utökar VMware-arbetsbelastningar till offentliga moln på några minuter. Med hjälp av CloudSimple-tjänsten kan du distribuera VMware internt i Azure Bare Metal-infrastruktur. Din distribution finns på Azure-platser och integreras helt med resten av Azure-molnet.
 
-* CloudSimple lösningen tillhandahåller fullständig kontinuiteten i VMware. Den här lösningen ger dig fördelarna med molnet:
+* CloudSimple-lösningen ger fullständig VMware-operationell kontinuitet. Den här lösningen ger dig fördelarna med offentliga moln för:
   * Elasticitet
   * Innovation
   * Effektivitet
-* Med CloudSimple dra nytta av en cloud-förbrukningsmodell som sänker den totala ägandekostnaden. Den erbjuder också på begäran etablering, betala som du-växer och optimering av kapacitet.
-* CloudSimple är helt kompatibel med:
+* Med CloudSimple kan du dra nytta av en moln förbruknings modell som sänker den totala ägande kostnaden. Den erbjuder även etablering på begäran, betala per användning och kapacitets optimering.
+* CloudSimple är helt kompatibelt med:
   * Befintliga verktyg
-  * Kunskaper
+  * Färdigheter
   * Processer
-* Denna kompatibilitet gör det möjligt för dina team att hantera arbetsbelastningar på Azure-molnet, utan att störa dina principer:
+* Den här kompatibiliteten gör det möjligt för dina team att hantera arbets belastningar i Azure-molnet, utan att störa dina principer:
   * Nätverk
   * Säkerhet  
   * Dataskydd  
   * Granska
-* CloudSimple hanterar infrastrukturen och alla nödvändiga nätverks- och hantering av tjänster. Med CloudSimple kan ditt team kan fokusera på:
-  * Affärsvärde
-  * Programetablering
+* CloudSimple hanterar infrastrukturen och alla nödvändiga nätverks-och hanterings tjänster. CloudSimple-tjänsten gör det möjligt för ditt team att fokusera på:
+  * Affärs värde
+  * Program etablering
   * Verksamhetskontinuitet
   * Support
-  * Policyframtvingande
+  * Principframtvingande
 
-## <a name="private-cloud-environment-overview"></a>Översikt över miljö för privat moln
+## <a name="private-cloud-environment-overview"></a>Översikt över privat moln miljö
 
-Ett privat moln är en isolerad VMware-stacken, till exempel dessa miljöer:
+Ett privat moln är en isolerad VMware-stack, till exempel de här miljöerna:
 
 * ESXi-värdar
 * vCenter
 * vSAN
 * NSX
 
-Privata moln som hanteras av en vCenter-server i sin egen hanteringsdomänen.
+Privata moln hanteras av en vCenter-Server i en egen hanterings domän.
 
 Stacken körs på:
 
-* Dedikerade noder
-* Isolerade bare metal maskinvarunoder
+* Reserverade noder
+* Isolerade Bare Metal-maskinvarukonfigurationer
 
-Användarna använder stack via native VMware-verktyg, bland annat:
+Användare använder stacken via inbyggda VMware-verktyg, inklusive:
 
 * vCenter
 * NSX Manager
 
-Du kan distribuera dedikerade noder i Azure-platser. Du kan sedan hantera dem med Azure och CloudSimple. Ett privat moln består av en eller flera vSphere-kluster och varje kluster innehåller 3 till 16 noder.
+Du kan distribuera dedikerade noder på Azure-platser. Sedan kan du hantera dem med Azure och CloudSimple. Ett privat moln består av ett eller flera vSphere-kluster, och varje kluster innehåller 3 till 16 noder.
 
 Du kan skapa ett privat moln med hjälp av etablerade noder:
 
 * Betala per användning-noder
 * Reserverade, dedikerade noder
 
-Du kan ansluta det privata molnet till din lokala miljö och Azure-nätverket med hjälp av följande anslutningar:
+Du kan ansluta det privata molnet till din lokala miljö och Azure-nätverket med följande anslutningar:
 
 * Skydda
 * Privat VPN
 * Azure ExpressRoute
 
-Privat moln-miljön har utformats för att undvika att ha en enskild felpunkt:
+Den privata moln miljön är utformad för att eliminera en enskild felpunkt:
 
-* ESXi-kluster har konfigurerats med hög tillgänglighet för vSphere och storlek för att ha minst en extra nod för återhämtning.
-* virtuellt SAN tillhandahåller redundanta primär lagring. virtuellt SAN-nätverk kräver minst tre noder för att ge skydd mot ett enstaka fel. Du kan konfigurera virtuellt SAN-nätverk för att ge högre återhämtning för större kluster.
-* Du kan konfigurera vCenter och PSC NSX Manager virtuella datorer med RAID 10-principen för lagring som skydd mot fel för lagring. Sedan kan skyddas de av vSphere HA mot fel på noden.
+* ESXi-kluster konfigureras med vSphere hög tillgänglighet och har minst en reserv nod för återhämtning.
+* Virtuellt San tillhandahåller redundant primär lagring. Virtuellt San kräver minst tre noder för att ge skydd mot ett enskilt haveri. Du kan konfigurera virtuellt San för att ge högre återhämtnings kapacitet för större kluster.
+* Du kan konfigurera vCenter-, PSC-och NSX Manager-VM: ar med RAID-10 Storage-principer för att skydda mot lagrings problem. Sedan skyddas de av vSphere HA mot nod-och nätverks problem.
 
 ## <a name="scenarios-for-deploying-a-private-cloud"></a>Scenarier för att distribuera ett privat moln
 
-* **Data center dras tillbaka eller migrering**
+* **Pension eller migrering av data Center**
 
-  * Få ytterligare kapacitet när du når databasens begränsningar av ditt befintliga datacenter eller uppdaterar maskinvara.
-  * Lägg till nödvändiga kapacitet i molnet och slipper besväret med att hantera uppdateringar av maskinvara.
-  * Minska risken och kostnaderna för molnmigreringar, jämfört med tidskrävande konverteringar eller rearchitecture.
-  * Använd välkända VMware-verktyg och kunskaper för att påskynda molnmigreringar. Använda Azure-tjänster i molnet, modernisera dina program i din takt.
+  * Få ytterligare kapacitet när du når gränserna för ditt befintliga data Center eller uppdatera maskin vara.
+  * Lägg till nödvändig kapacitet i molnet och Undvik att hantera maskin varu uppdateringar.
+  * Minska risken och kostnaden för migrering av moln, jämfört med tids krävande konverteringar eller arkitektur.
+  * Använd välkända VMware-verktyg och-kunskaper för att påskynda migreringen av molnet. I molnet använder du Azure-tjänster för att modernisera dina program i din takt.
 
 * **Expandera på begäran**
 
-  * Utöka till molnet för att uppfylla oväntade behov, till exempel nya utvecklingsmiljöer eller toppar på säsongens kapacitet.
-  * Skapa ny kapacitet på begäran och hålla dem så länge du behöver den.
-  * Minska dina direkta investeringar, snabbare hastighet för etablering och minska komplexiteten med samma arkitektur och principer för både lokalt och i molnet.
+  * Utöka molnet för att möta oväntade behov, till exempel nya utvecklings miljöer eller säsongs kapacitets burst.
+  * Skapa ny kapacitet på begäran och behåll det bara så länge du behöver det.
+  * Minska din första investering, påskynda etableringen och minska komplexiteten med samma arkitektur och principer i både lokalt och i molnet.
 
-* **Haveriberedskap och virtuella skrivbord i Azure-molnet**
+* **Haveri beredskap och virtuella skriv bord i Azure-molnet**
 
-  * Upprätta fjärråtkomst till data, appar och stationära datorer i Azure-molnet. Med snabba anslutningar kan du ladda upp / ned data snabbt för att komma tillrätta med incidenter. Låg latens nätverk ger du snabba svar gånger som användarna förväntar sig från en skrivbordsapp.
+  * Upprätta fjärråtkomst till data, appar och skriv bord i Azure-molnet. Med anslutningar med hög bandbredd laddar du upp/ladda ned data snabbt för att återställa från incidenter. Nätverk med låg latens ger snabba svars tider som användarna förväntar sig från en Skriv bords app.
 
-  * Replikera alla principer och nätverk i molnet med CloudSimple portal och välbekanta VMware-verktyg. Replikeringen minskar ansträngning och risken för att skapa och hantera DR och VDI-implementeringar.
+  * Replikera alla principer och nätverk i molnet med hjälp av CloudSimple-portalen och välkända VMware-verktyg. Den här replikeringen minskar ansträngningen och risken för att skapa och hantera DR-och VDI-implementeringar.
 
-* **Program med höga prestanda och databaser**
+* **Program och databaser med hög prestanda**
 
-  * Kör dina mest krävande arbetsbelastningar med hyperkonvergerat-arkitekturen som tillhandahålls av CloudSimple.
-  * Kör Oracle, Microsoft SQL server, mellanprogram system och högpresterande icke-SQL-databaser.
+  * Kör dina mest krävande arbets belastningar med den konvergerade arkitekturen från CloudSimple.
+  * Kör Oracle, Microsoft SQL Server, mellanprogram och databaser med höga prestanda SQL.
 
-  * Upplev molnet som ditt eget datacenter med hög hastighet 25 Gbit/s-nätverksanslutningar. Snabba anslutningar kan du köra hybridappar som täcker användning lokalt VMware på Azure, och Azure privata arbetsbelastningar, utan att kompromissa med prestanda.
+  * Upplev molnet som ditt eget Data Center med höghastighets nätverks anslutningar med 25 Gbit/s. Med höghastighets anslutningar kan du köra hybrid program som omfattar lokala, VMware på Azure och privata Azure-arbetsbelastningar, utan att kompromissa med prestanda.
 
-* **Verklig**
+* **True hybrid**
 
-  * Förena DevOps för VMware och Azure-tjänster.
-  * Optimera VMware administration för Azure-tjänster och lösningar som kan användas i alla arbetsbelastningar.
-  * Komma åt offentliga molntjänster utan att behöva Utöka ditt datacenter eller Omforma dina program.
-  * Centralisera identiteter, principer för åtkomstkontroll, loggning och övervakning för VMware-program på Azure.
+  * Förena DevOps över VMware-och Azure-tjänster.
+  * Optimera VMware-administration för Azure-tjänster och-lösningar som kan tillämpas på alla dina arbets belastningar.
+  * Få åtkomst till offentliga moln tjänster utan att behöva expandera ditt data Center eller skapa en ny arkitektur för dina program.
+  * Centralisera identiteter, åtkomst kontroll principer, loggning och övervakning av VMware-program på Azure.
 
-## <a name="limits"></a>Limits
+## <a name="limits"></a>Begränsningar
 
-Tabellen nedan visar noden gränserna på resurser för ett privat moln.
+I tabellen nedan visas de olika noderna för resurser i ett privat moln.
 
 | Resource | Gräns |
 |----------|-------|
-| Minsta antalet noder för att skapa ett privat moln | 3 |
-| Högsta antalet noder i ett kluster på ett privat moln | 16 |
-| Högsta antalet noder i ett privat moln | 64 |
-| Minsta antalet noder i ett nytt kluster | 3 |
+| Minsta antal noder för att skapa ett privat moln | 3 |
+| Maximalt antal noder i ett kluster i ett privat moln | 16 |
+| Maximalt antal noder i ett privat moln | 64 |
+| Minsta antal noder i ett nytt kluster | 3 |
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig hur du [skapa ett privat moln](https://docs.azure.cloudsimple.com/create-private-cloud/)
-* Lär dig hur du [konfigurera en privat molnmiljö](quickstart-create-private-cloud.md)
+* Lär dig hur du [skapar ett privat moln](https://docs.azure.cloudsimple.com/create-private-cloud/)
+* Lär dig hur du [konfigurerar en privat moln miljö](quickstart-create-private-cloud.md)

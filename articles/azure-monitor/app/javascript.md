@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 2192bad89764f20c24c85d9571bebbd6518de307
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: eb936e7ad863fc7816ee8ed3b5dd88a8f25dbef0
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66387278"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68813979"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights för webbsidor
 Visa prestanda och användning för webbsidor eller appar. Om du lägger till [Application Insights](app-insights-overview.md) i webbsidans skript så visas information om tider för sidinläsningar och AJAX-anrop, information om och antalet webbläsarundantag och AJAX-fel, samt information om antalet användare och sessioner. Allt detta kan visas efter sida, klientoperativsystem- och webbläsarversion, geografisk plats och andra dimensioner. Du kan ställa in varningar för antal fel eller långsam sidinläsning. Och genom att infoga spårning av anrop i JavaScript-kod kan du spåra hur olika funktioner i ditt webbsideprogram används.
@@ -57,13 +57,11 @@ and before any other scripts. Your first data will appear
 automatically in just a few seconds.
 -->
 <script type="text/javascript">
-var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=window[sdkInstance],aisdk=window[aiName]||function(e){
-  function n(e){t[e]=function(){var n=arguments;t.queue.push(function(){t[e].apply(t,n)})}}var t={config:e};t.initialize=!0;var i=document,a=window;setTimeout(function(){var n=i.createElement("script");n.src=e.url||"https://az416426.vo.msecnd.net/next/ai.2.min.js",i.getElementsByTagName("script")[0].parentNode.appendChild(n)});try{t.cookie=i.cookie}catch(e){}t.queue=[],t.version=2;for(var r=["Event","PageView","Exception","Trace","DependencyData","Metric","PageViewPerformance"];r.length;)n("track"+r.pop());n("startTrackPage"),n("stopTrackPage");var s="Track"+r[0];if(n("start"+s),n("stop"+s),n("setAuthenticatedUserContext"),n("clearAuthenticatedUserContext"),n("flush"),!(!0===e.disableExceptionTracking||e.extensionConfig&&e.extensionConfig.ApplicationInsightsAnalytics&&!0===e.extensionConfig.ApplicationInsightsAnalytics.disableExceptionTracking)){n("_"+(r="onerror"));var o=a[r];a[r]=function(e,n,i,a,s){var c=o&&o(e,n,i,a,s);return!0!==c&&t["_"+r]({message:e,url:n,lineNumber:i,columnNumber:a,error:s}),c},e.autoExceptionInstrumented=!0}return t
-  }({
-      instrumentationKey:"<your instrumentation key>"
-  });
-
-window[aiName]=aisdk,aisdk.queue&&0===aisdk.queue.length&&aisdk.trackPageView({});
+    var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=window[sdkInstance],aisdk=window[aiName]||function(e){function n(e){t[e]=function(){var n=arguments;t.queue.push(function(){t[e].apply(t,n)})}}var t={config:e};t.initialize=!0;var i=document,a=window;setTimeout(function(){var n=i.createElement("script");n.src=e.url||"https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js",i.getElementsByTagName("script")[0].parentNode.appendChild(n)});try{t.cookie=i.cookie}catch(e){}t.queue=[],t.version=2;for(var r=["Event","PageView","Exception","Trace","DependencyData","Metric","PageViewPerformance"];r.length;)n("track"+r.pop());n("startTrackPage"),n("stopTrackPage");var s="Track"+r[0];if(n("start"+s),n("stop"+s),n("setAuthenticatedUserContext"),n("clearAuthenticatedUserContext"),n("flush"),!(!0===e.disableExceptionTracking||e.extensionConfig&&e.extensionConfig.ApplicationInsightsAnalytics&&!0===e.extensionConfig.ApplicationInsightsAnalytics.disableExceptionTracking)){n("_"+(r="onerror"));var o=a[r];a[r]=function(e,n,i,a,s){var c=o&&o(e,n,i,a,s);return!0!==c&&t["_"+r]({message:e,url:n,lineNumber:i,columnNumber:a,error:s}),c},e.autoExceptionInstrumented=!0}return t}(
+    {
+      instrumentationKey:"INSTRUMENTATION_KEY"
+    }
+    );window[aiName]=aisdk,aisdk.queue&&0===aisdk.queue.length&&aisdk.trackPageView({});
 </script>
 ```
 
@@ -86,7 +84,7 @@ Du anger dessa parametrar genom att leta upp den här raden i kodfragmentet och 
       // Insert here
     });
 
-En fullständig lista över konfigurationsparametrar, finns i den [GitHub Page](https://github.com/microsoft/applicationinsights-js#configuration). Vissa tillgängliga parametrar är:
+En fullständig lista över konfigurations parametrar finns på GitHub- [sidan](https://github.com/microsoft/applicationinsights-js#configuration). Några tillgängliga parametrar är:
 
     // Send telemetry immediately without batching.
     // Remember to remove this when no longer required, as it
@@ -205,7 +203,7 @@ Ställ in Filter till Sidvy på bladet Diagnostiksökning.
 Välj en händelse om du vill visa mer information. Klicka på ”...” på detaljsidan om du vill visa ännu fler detaljer.
 
 > [!NOTE]
-> Om du använder [Search](diagnostic-search.md), Observera att du behöver matchar hela ord: ”Info” och ”formation” matchar inte ”information”.
+> Observera att du måste matcha hela ord om du använder [Sök](diagnostic-search.md): "Info" och "formation" matchar inte "om".
 > 
 > 
 
@@ -230,7 +228,7 @@ Sidans namn kan innehålla samma tecken som en URL, men allt efter ”#” eller
 ## <a name="usage-tracking"></a>Användningsspårning
 Vill du veta vad användarna gör med din app?
 
-* [Lär dig mer om analysverktyg som användaren beteende](usage-overview.md)
+* [Lär dig mer om analys verktygen för användar beteende](usage-overview.md)
 * [Lär dig mer om API:er för mätvärden och anpassade händelser](api-custom-events-metrics.md).
 
 ## <a name="video"></a> Video

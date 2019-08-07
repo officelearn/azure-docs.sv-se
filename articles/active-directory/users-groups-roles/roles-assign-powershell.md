@@ -1,6 +1,6 @@
 ---
-title: Tilldela och ta bort administratörs roll tilldelningar med Azure PowerShell-Azure Active Directory | Microsoft Docs
-description: För de som ofta hanterar roll tilldelningar kan du nu hantera medlemmar i en administratörs roll för Azure AD med Azure PowerShell.
+title: Tilldela anpassade roller med resurs omfång med Azure PowerShell-Azure Active Directory | Microsoft Docs
+description: Hantera medlemmar i en anpassad administratörs roll för Azure AD med Azure PowerShell.
 services: active-directory
 author: curtand
 manager: mtillman
@@ -8,161 +8,162 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 07/31/2019
+ms.date: 08/05/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa4bddf84720265afe361dff665f10ff8184f6f6
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 2ed8df92ac6a43a6cbf935bdb564f6cf0658608a
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68706486"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68812781"
 ---
-# <a name="assign-azure-active-directory-admin-roles-using-powershell"></a>Tilldela Azure Active Directory administratörs roller med hjälp av PowerShell
+# <a name="assign-custom-roles-with-resource-scope-using-powershell-in-azure-active-directory"></a>Tilldela anpassade roller med resurs omfång med PowerShell i Azure Active Directory
 
-Du kan automatisera hur du tilldelar roller till användar konton med hjälp av Azure PowerShell. Den här artikeln använder modulen [Azure Active Directory PowerShell version 2](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#directory_roles) .
+Den här artikeln beskriver hur du skapar en roll tilldelning i en företagsomfattande omfattning i Azure Active Directory (Azure AD). Genom att tilldela en roll i hela organisationen beviljar du åtkomst i Azure AD-organisationen. Information om hur du skapar en roll tilldelning med ett omfång för en enda Azure AD-resurs finns i [så här skapar du en anpassad roll och tilldelar den vid resurs](roles-create-custom.md)omfånget. Den här artikeln använder modulen [Azure Active Directory PowerShell version 2](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#directory_roles) .
 
-## <a name="prepare-powershell"></a>Förbered PowerShell
+Mer information om administratörs roller i Azure AD finns [i tilldela administratörs roller i Azure Active Directory](directory-assign-admin-roles.md).
 
-Först måste du [Ladda ned Azure AD PowerShell-modulen](https://www.powershellgallery.com/packages/AzureAD/).
-
-## <a name="install-the-azure-ad-powershell-module"></a>Installera Azure AD PowerShell-modulen
-
-Använd följande kommandon för att installera Azure AD PowerShell-modulen:
-
-```powershell
-install-module azuread
-import-module azuread
-```
-
-Kontrol lera att modulen är redo att användas genom att använda följande kommando:
-
-```powershell
-get-module azuread
-  ModuleType Version      Name                         ExportedCommands
-  ---------- ---------    ----                         ----------------
-  Binary     2.0.0.115    azuread                      {Add-AzureADAdministrati...}
-```
-
-Nu kan du börja använda cmdlet: arna i modulen. En fullständig beskrivning av cmdletarna i Azure AD-modulen finns i referens dokumentationen för online för [Azure Active Directory PowerShell version 2](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#directory_roles).
-
-## <a name="permissions-required"></a>Behörigheter som krävs
+## <a name="required-permissions"></a>Nödvändiga behörigheter
 
 Anslut till din Azure AD-klient med ett globalt administratörs konto för att tilldela eller ta bort roller.
 
-## <a name="assign-a-single-role"></a>Tilldela en enskild roll
+## <a name="prepare-powershell"></a>Förbered PowerShell
 
-Om du vill tilldela en roll måste du först hämta dess visnings namn och namnet på den roll som du tilldelar. När du har visnings namnet för kontot och namnet på rollen, använder du följande cmdlets för att tilldela användaren rollen.
+Installera Azure AD PowerShell-modulen från [PowerShell-galleriet](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.17). Importera sedan för hands versionen av Azure AD PowerShell med följande kommando:
 
 ``` PowerShell
-# Fetch user to assign to role
-$roleMember = Get-AzureADUser -ObjectId "username@contoso.com"
-
-# Fetch User Account Administrator role instance
-$role = Get-AzureADDirectoryRole | Where-Object {$_.displayName -eq 'User Account Administrator'}
-
-# If role instance does not exist, instantiate it based on the role template
-if ($role -eq $null) {
-    # Instantiate an instance of the role template
-    $roleTemplate = Get-AzureADDirectoryRoleTemplate | Where-Object {$_.displayName -eq 'User Account Administrator'}
-    Enable-AzureADDirectoryRole -RoleTemplateId $roleTemplate.ObjectId
-
-    # Fetch User Account Administrator role instance again
-    $role = Get-AzureADDirectoryRole | Where-Object {$_.displayName -eq 'User Account Administrator'}
-}
-
-# Add user to role
-Add-AzureADDirectoryRoleMember -ObjectId $role.ObjectId -RefObjectId $roleMember.ObjectId
-
-# Fetch role membership for role to confirm
-Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId | Get-AzureADUser
+import-module azureadpreview
 ```
 
-## <a name="assign-a-role-to-a-service-principal"></a>Tilldela en roll till ett huvud namn för tjänsten
+Kontrol lera att modulen är redo att användas genom att matcha den version som returneras av följande kommando till den som visas här:
 
-Exempel på tilldelning av ett huvud namn för tjänsten till en roll.
-
-```powershell
-# Fetch a service principal to assign to role
-$roleMember = Get-AzureADServicePrincipal -ObjectId "00221b6f-4387-4f3f-aa85-34316ad7f956"
- 
-#Fetch list of all directory roles with object ID
-Get-AzureADDirectoryRole
- 
-# Fetch a directory role by ID
-$role = Get-AzureADDirectoryRole -ObjectId "5b3fe201-fa8b-4144-b6f1-875829ff7543"
- 
-# Add user to role
-Add-AzureADDirectoryRoleMember -ObjectId $role.ObjectId -RefObjectId $roleMember.ObjectId
- 
-# Fetch the assignment for the role to confirm
-Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId | Get-AzureADServicePrincipal
+``` PowerShell
+get-module azureadpreview
+  ModuleType Version      Name                         ExportedCommands
+  ---------- ---------    ----                         ----------------
+  Binary     2.0.0.115    azureadpreview               {Add-AzureADMSAdministrati...}
 ```
 
-## <a name="multiple-role-assignments"></a>Flera rolltilldelningar
+Nu kan du börja använda cmdlet: arna i modulen. En fullständig beskrivning av cmdletarna i Azure AD-modulen finns i referens dokumentationen för [Azure AD Preview-modulen](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.17).
 
-Exempel på att tilldela och ta bort flera roller samtidigt.
+## <a name="assign-a-role-to-a-user-or-service-principal-with-resource-scope"></a>Tilldela en roll till en användare eller tjänstens huvud namn med resurs omfånget
 
-```powershell
-#File name
-$fileName="<file path>" 
- 
-$input_Excel = New-Object -ComObject Excel.Application
-$input_Workbook = $input_Excel.Workbooks.Open($fileName)
-$input_Worksheet = $input_Workbook.Sheets.Item(1)
- 
-        #Count number of users who have to be assigned to role
-$count = $input_Worksheet.UsedRange.Rows.Count
- 
-#Loop through each line of the csv file starting from line 2 (assuming first line is title)
-for ($i=2; $i -le $count; $i++)
-{
-       #Fetch user display name
-       $displayName = $input_Worksheet.Cells.Item($i,1).Text
-       
-       #Fetch role name
-       $roleName = $input_Worksheet.Cells.Item($i,2).Text
- 
-       #Assign role
-       Add-AzureADDirectoryRoleMember -ObjectId (Get-AzureADDirectoryRole | Where-Object DisplayName -eq $roleName).ObjectId -RefObjectId (Get-AzureADUser | Where-Object DisplayName -eq $displayName).ObjectId
-}
- 
-#Remove multiple role assignments
-for ($i=2; $i -le $count; $i++)
-{
-       $displayName = $input_Worksheet.Cells.Item($i,1).Text
-       $roleName = $input_Worksheet.Cells.Item($i,2).Text
- 
-       Remove-AzureADDirectoryRoleMember -ObjectId (Get-AzureADDirectoryRole | Where-Object DisplayName -eq $roleName).ObjectId -MemberId (Get-AzureADUser | Where-Object DisplayName -eq $displayName).ObjectId
-}
+1. Öppna PowerShell-modulen för för hands versionen av Azure AD.
+1. Logga in genom att köra kommandot `Connect-AzureAD`.
+1. Skapa en ny roll med hjälp av följande PowerShell-skript.
+
+``` PowerShell
+# Get the user and role definition you want to link
+ $user = Get-AzureADMSUser -Filter "userPrincipalName eq 'cburl@f128.info'"
+$roleDefinition = Get-AzureADMSRoleDefinition -Filter "displayName eq 'Application Support Administrator'"
+
+# Get app registration and construct resource scope for assignment.
+    "displayName eq 'f/128 Filter Photos'"
+$resourceScopes = '/' + $appRegistration.objectId
+
+# Create a scoped role assignment
+$roleAssignment = New-AzureADMSRoleAssignment -ResourceScopes $resourceScopes -RoleDefinitionId $roleDefinition.objectId -PrincipalId $user.objectId
 ```
 
-## <a name="remove-a-role-assignment"></a>Ta bort en rolltilldelning
+Om du vill tilldela rollen till ett huvud namn för tjänsten i stället för en användare använder du [cmdleten Get-AzureADMSServicePrincipal](https://docs.microsoft.com/powershell/module/azuread/get-azureadserviceprincipal?view=azureadps-2.0).
 
-I det här exemplet tas en roll tilldelning bort för den angivna användaren.
+## <a name="operations-on-roledefinition"></a>Åtgärder på roll definitions
 
-```powershell
-# Fetch user to assign to role
-$roleMember = Get-AzureADUser -ObjectId "username@contoso.com"
+Roll definitions objekt innehåller definitionen av den inbyggda eller anpassade rollen, tillsammans med de behörigheter som har beviljats av roll tilldelningen. Den här resursen visar både anpassade roll definitioner och inbyggda directoryRoles (som visas i roll definitions motsvarande form). I dag kan en Azure AD-organisation ha högst 30 unika anpassade RoleDefinitions definierade.
 
-#Fetch list of all directory roles with object id
-Get-AzureADDirectoryRole
+### <a name="create-operations-on-roledefinition"></a>Skapa åtgärder på roll definitions
 
-# Fetch a directory role by id
-$role = Get-AzureADDirectoryRole -ObjectId "5b3fe201-fa8b-4144-b6f1-875829ff7543"
+``` PowerShell
+# Basic information
 
-# Remove user from role
-Remove-AzureADDirectoryRoleMember -ObjectId $role.ObjectId -MemberId $roleMember.ObjectId 
+$description = "Application Registration Credential Administrator"
+$displayName = "Custom Demo Admin"
+$resourceScopes = @('/')
+$templateId = "355aed8a-864b-4e2b-b225-ea95482e7570"
 
-# Fetch role membership for role to confirm
-Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId | Get-AzureADUser
+# Set of actions to grant
+$allowedResourceAction =
+@(
+    "microsoft.directory/applications/default/read",
+    "microsoft.directory/applications/credentials/update"
+)
+$resourceActions = @{'allowedResourceActions'= $allowedResourceAction}
+$rolePermission = @{'resourceActions' = $resourceActions}
+$rolePermissions = $rolePermission
 
+# Create new custom admin role
+$customAdmin = New-AzureADMSRoleDefinitions -RolePermissions $rolePermissions -ResourceScopes $resourceScopes -DisplayName $displayName -Description $description -TemplateId $templateId -IsEnabled $true
+```
+
+### <a name="read-operations-on-roledefinition"></a>Läs åtgärder på roll definitions
+
+``` PowerShell
+# Get all role definitions
+Get-AzureADMSRoleDefinitions
+
+# Get single role definition by objectId
+$customAdmin = Get-AzureADMSRoleDefinitions -ObjectId '86593cfc-114b-4a15-9954-97c3494ef49b'
+
+# Get single role definition by templateId
+$customAdmin = Get-AzureADMSRoleDefinitions -Filter "templateId eq '355aed8a-864b-4e2b-b225-ea95482e757not
+```
+
+### <a name="update-operations-on-roledefinition"></a>Uppdatera åtgärder på roll definitions
+
+``` PowerShell
+# Update role definition
+# This works for any writable property on role definition. You can replace display name with other
+# valid properties.
+Set-AzureADMSRoleDefinitions -ObjectId $customAdmin.ObjectId -DisplayName "Updated DisplayName"
+```
+
+### <a name="delete-operations-on-roledefinition"></a>Ta bort åtgärder på roll definitions
+
+``` PowerShell
+# Delete role definition
+Remove-AzureADMSRoleDefinitions -ObjectId $customAdmin.ObjectId
+```
+
+## <a name="operations-on-roleassignment"></a>Åtgärder på RoleAssignment
+
+Roll tilldelningar innehåller information som länkar ett angivet säkerhets objekt (en användare eller ett program tjänst objekt) till en roll definition. Om det behövs kan du lägga till en omfattning för en enda Azure AD-resurs för de tilldelade behörigheterna.  Begränsning av behörighets omfånget stöds för inbyggda och anpassade roller.
+
+### <a name="create-operations-on-roleassignment"></a>Skapa åtgärder på RoleAssignment
+
+``` PowerShell
+# Scopes to scope granted permissions to
+$resourceScopes = @('/')
+
+# IDs of principal and role definition you want to link
+$principalId = "27c8ca78-ab1c-40ae-bd1b-eaeebd6f68ac"
+$roleDefinitionId = $customKeyCredAdmin.ObjectId
+
+# Create a scoped role assignment
+$roleAssignment = New-AzureADMSRoleAssignments -ResourceScopes $resourceScopes -RoleDefinitionId -PrincipalId $principalId
+```
+
+### <a name="read-operations-on-roleassignment"></a>Läs åtgärder på RoleAssignment
+
+``` PowerShell
+# Get role assignments for a given principal
+Get-AzureADMSRoleAssignments -Filter "principalId eq '27c8ca78-ab1c-40ae-bd1b-eaeebd6f68ac'"
+
+# Get role assignments for a given role definition 
+Get-AzureADMSRoleAssignments -Filter "principalId eq '355aed8a-864b-4e2b-b225-ea95482e7570'"
+```
+
+### <a name="delete-operations-on-roleassignment"></a>Ta bort åtgärder på RoleAssignment
+
+``` PowerShell
+# Delete role assignment
+Remove-AzureADMSRoleAssignments -ObjectId $roleAssignment.ObjectId
 ```
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Du kan gärna dela med oss i [Azure AD-forumet för administrativa roller](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
-* Mer information om roller och tilldelning av administratörs roller finns i [tilldela administratörs roller](directory-assign-admin-roles.md).
-* För standard användar behörigheter, se en [jämförelse av standard behörigheter för gäst-och medlems användare](../fundamentals/users-default-permissions.md).
+- Dela med oss i [forum för administrativa roller i Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
+- Mer information om roller och roll tilldelningar för Azure AD-administratörer finns i [tilldela administratörs roller](directory-assign-admin-roles.md).
+- För standard användar behörigheter, se en [jämförelse av standard behörigheter för gäst-och medlems användare](../fundamentals/users-default-permissions.md).

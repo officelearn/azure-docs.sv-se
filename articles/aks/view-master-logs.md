@@ -1,61 +1,48 @@
 ---
-title: Visa Azure Kubernetes Service (AKS) domänkontrollant loggar
-description: Lär dig hur du aktiverar och visa loggar för noden som Kubernetes i Azure Kubernetes Service (AKS)
+title: Visa Azure Kubernetes service (AKS)-styrenhets loggar
+description: Lär dig hur du aktiverar och visar loggarna för Kubernetes-huvudnoden i Azure Kubernetes service (AKS)
 services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: mlearned
-ms.openlocfilehash: ef77b991461c5d9640cbab9d53f8393540f47c9b
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: dc72a8d448a189918def35da0250d83c81da7fa0
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67613928"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68812807"
 ---
-# <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Aktivera och granska Kubernetes huvudnoden loggar i Azure Kubernetes Service (AKS)
+# <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Aktivera och granska Kubernetes huvud Node-loggar i Azure Kubernetes service (AKS)
 
-Med Azure Kubernetes Service (AKS), huvudkomponenter som den *kube apiserver* och *kube-controller-manager* tillhandahålls som en hanterad tjänst. Du skapar och hanterar de noder som kör den *kubelet* och körning av behållare, och distribuera dina program via den hanterade Kubernetes API-servern. För att felsöka dina program och tjänster, kan du behöva visa loggar som genereras av komponenterna master. Den här artikeln visar hur du använder Azure Monitor-loggar att aktivera och fråga loggar från komponenten som Kubernetes.
+Med Azure Kubernetes service (AKS) tillhandahålls huvud komponenterna som *Kube-apiserver* och *Kube-Controller-Manager* som en hanterad tjänst. Du skapar och hanterar noderna som kör *kubelet* -och container Runtime och distribuerar dina program via den hanterade Kubernetes API-servern. Du kan behöva se de loggar som genereras av dessa huvud komponenter för att felsöka program och tjänster. Den här artikeln visar hur du använder Azure Monitor loggar för att aktivera och skicka frågor till loggarna från Kubernetes huvud komponenter.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Den här artikeln kräver ett AKS-kluster som körs i ditt Azure-konto. Om du inte redan har ett AKS-kluster, skapar du en med den [Azure CLI][cli-quickstart] or [Azure portal][portal-quickstart]. Azure Monitor-loggar fungerar med båda RBAC och icke-RBAC aktiverat AKS-kluster.
+Den här artikeln kräver att ett befintligt AKS-kluster körs i ditt Azure-konto. Om du inte redan har ett AKS-kluster kan du skapa ett med hjälp av [Azure CLI][cli-quickstart] eller [Azure Portal][portal-quickstart]. Azure Monitor loggar fungerar med både RBAC-och icke-RBAC-aktiverade AKS-kluster.
 
 ## <a name="enable-diagnostics-logs"></a>Aktivera diagnostikloggar
 
-För att samla in och granska data från flera källor, ger Azure Monitor-loggar en frågespråk och en analytisk frågemotor som ger insikter i din miljö. En arbetsyta används för att sortera och analysera data och kan integreras med andra Azure-tjänster, till exempel Application Insights och Security Center. Om du vill använda en annan plattform för att analysera loggarna måste välja du i stället att skicka diagnostikloggar till en Azure storage-konto eller event hub. Mer information finns i [vad är Azure Monitor-loggar?][log-analytics-overview].
+För att hjälpa till att samla in och granska data från flera källor, innehåller Azure Monitor loggar ett frågespråk och analys motor som ger insikter om din miljö. En arbets yta används för att sortera och analysera data och kan integreras med andra Azure-tjänster, till exempel Application Insights och Security Center. Om du vill använda en annan plattform för att analysera loggarna kan du istället välja att skicka diagnostikloggar till ett Azure Storage-konto eller händelsehubben. Mer information finns i [Vad är Azure Monitor loggar?][log-analytics-overview].
 
-Azure Monitor-loggar är aktiverade och hanteras i Azure-portalen. Öppna Azure portal i en webbläsare om du vill aktivera insamling av supportloggar för huvudkomponenter Kubernetes AKS-klustret och utför följande steg:
+Azure Monitor loggar aktive ras och hanteras i Azure Portal. Om du vill aktivera logg insamling för Kubernetes huvud komponenter i ditt AKS-kluster öppnar du Azure Portal i en webbläsare och utför följande steg:
 
-1. Välj resursgrupp för AKS-klustret, till exempel *myResourceGroup*. Välj den resursgrupp som innehåller din enskilda AKS-kluster-resurser, som inte *MC_myResourceGroup_myAKSCluster_eastus*.
-1. Till vänster, Välj **diagnostikinställningar**.
-1. Välj AKS-klustret, till exempel *myAKSCluster*, sedan välja att **Lägg till diagnostikinställning**.
-1. Ange ett namn, till exempel *myAKSClusterLogs*, Välj alternativet att **skicka till Log Analytics**.
-1. Välj en befintlig arbetsyta eller skapa en ny. Om du skapar en arbetsyta, ange ett namn på arbetsytan, en resursgrupp och en plats.
-1. I listan över tillgängliga loggar, väljer du de loggar som du vill aktivera. Vanliga loggar innehåller den *kube apiserver*, *kube-controller-manager*, och *kube-schemaläggare*. Du kan aktivera ytterligare loggar som *kube-granskning* och *kluster autoskalningen*. Du kan gå tillbaka och ändra insamlade loggar när Log Analytics-arbetsytor är aktiverade.
-1. När du är klar väljer **spara** att aktivera insamling av valda loggarna.
+1. Välj resurs grupp för ditt AKS-kluster, till exempel *myResourceGroup*. Välj inte den resurs grupp som innehåller de enskilda AKS-kluster resurserna, till exempel *MC_myResourceGroup_myAKSCluster_eastus*.
+1. Välj **diagnostikinställningar**på vänster sida.
+1. Välj ditt AKS-kluster, till exempel *myAKSCluster*, och välj sedan att **lägga till diagnostikinställningar**.
+1. Ange ett namn, till exempel *myAKSClusterLogs*, och välj sedan alternativet att **Skicka till Log Analytics**.
+1. Välj en befintlig arbets yta eller skapa en ny. Om du skapar en arbets yta anger du ett namn på arbets ytan, en resurs grupp och en plats.
+1. I listan över tillgängliga loggar väljer du de loggar som du vill aktivera. Vanliga loggar omfattar *Kube-apiserver*, *Kube-Controller-Manager*och *Kube-Scheduler*. Du kan aktivera ytterligare loggar som *Kube-audit* och *cluster-* autoscaler. Du kan returnera och ändra de insamlade loggarna när Log Analytics arbets ytor har Aktiver ATS.
+1. När du är klar väljer du **Spara** för att aktivera insamling av de valda loggarna.
 
-> [!NOTE]
-> AKS samlar endast in granskningsloggar för kluster som skapas eller uppgraderas efter att en funktionsflagga har aktiverats på din prenumeration. Att registrera den *AKSAuditLog* funktion flaggan, använda den [az funktionen registrera][az-feature-register] kommandot som visas i följande exempel:
->
-> `az feature register --name AKSAuditLog --namespace Microsoft.ContainerService`
->
-> Vänta på status för att visa *registrerad*. Du kan kontrollera statusen registrering med den [az funktionslistan][az-feature-list] kommando:
->
-> `az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKSAuditLog')].{Name:name,State:properties.state}"`
->
-> När du är klar kan du uppdatera registreringen av resursprovidern AKS med hjälp av den [az provider register][az-provider-register] kommando:
->
-> `az provider register --namespace Microsoft.ContainerService`
+Följande exempel på en portal visar fönstret *diagnostikinställningar* :
 
-I följande exempel portal skärmbild visas den *diagnostikinställningar* fönster:
+![Aktivera Log Analytics arbets yta för Azure Monitor loggar för AKS-kluster](media/view-master-logs/enable-oms-log-analytics.png)
 
-![Aktivera Log Analytics-arbetsyta för Azure Monitor-loggarna för AKS-kluster](media/view-master-logs/enable-oms-log-analytics.png)
+## <a name="schedule-a-test-pod-on-the-aks-cluster"></a>Schemalägg en test-Pod på AKS-klustret
 
-## <a name="schedule-a-test-pod-on-the-aks-cluster"></a>Schemalägga en test-pod på AKS-kluster
-
-Skapa en ny pod AKS-klustret för att generera vissa loggar. Följande exempel YAML Manifestet kan användas för att skapa en grundläggande NGINX-instans. Skapa en fil med namnet `nginx.yaml` i en textredigerare och klistra in följande innehåll:
+Skapa en del loggar genom att skapa en ny Pod i ditt AKS-kluster. Följande exempel på YAML-manifest kan användas för att skapa en grundläggande NGINX-instans. Skapa en fil med `nginx.yaml` ett valfritt redigerings program och klistra in följande innehåll:
 
 ```yaml
 apiVersion: v1
@@ -77,7 +64,7 @@ spec:
     - containerPort: 80
 ```
 
-Skapa en pod med den [kubectl skapa][kubectl-create] kommandot och ange din YAML-fil som du ser i följande exempel:
+Skapa Pod med kommandot [kubectl Create][kubectl-create] och ange yaml-filen, som du ser i följande exempel:
 
 ```
 $ kubectl create -f nginx.yaml
@@ -87,11 +74,11 @@ pod/nginx created
 
 ## <a name="view-collected-logs"></a>Visa insamlade loggar
 
-Det kan ta några minuter för diagnostikloggar till aktiveras och visas i Log Analytics-arbetsytan. I Azure-portalen väljer du resursgruppen för din Log Analytics-arbetsyta som *myResourceGroup*, väljer din log analytics-resurs, till exempel *myAKSLogs*.
+Det kan ta några minuter innan diagnostikloggar är aktiverade och visas i arbets ytan Log Analytics. I Azure Portal väljer du resurs gruppen för arbets ytan Log Analytics, till exempel *myResourceGroup*, och väljer sedan din Log Analytics-resurs, till exempel *myAKSLogs*.
 
-![Välj Log Analytics-arbetsytan för AKS-kluster](media/view-master-logs/select-log-analytics-workspace.png)
+![Välj Log Analytics arbets yta för ditt AKS-kluster](media/view-master-logs/select-log-analytics-workspace.png)
 
-Till vänster, Välj **loggar**. Visa den *kube-apiserver*, anger du följande fråga i textrutan:
+På den vänstra sidan väljer du **loggar**. Om du vill visa *Kube-apiserver*anger du följande fråga i text rutan:
 
 ```
 AzureDiagnostics
@@ -99,7 +86,7 @@ AzureDiagnostics
 | project log_s
 ```
 
-Många loggar som returneras sannolikt för API-servern. Omfång av frågan för att visa loggarna om NGINX-pod som skapats i föregående steg genom att lägga till ytterligare *där* -uttrycket för att söka efter *poddar/nginx* som visas i följande exempelfråga:
+Många loggar returneras sannolikt för API-servern. Om du vill begränsa frågan till att visa loggarna om NGINX-Pod som skapades i föregående steg, lägger du till ytterligare en *WHERE* -instruktion för att söka efter *poddar/nginx* som visas i följande exempel fråga:
 
 ```
 AzureDiagnostics
@@ -108,32 +95,40 @@ AzureDiagnostics
 | project log_s
 ```
 
-Specifika loggar efter din pod för NGINX visas, enligt följande exempel skärmbild:
+De speciella loggarna för dina NGINX-Pod visas, som du ser i följande exempel skärm bild:
 
-![Log analytics-frågeresultat för exemplet NGINX pod](media/view-master-logs/log-analytics-query-results.png)
+![Log Analytics-frågeresultat för exempel NGINX Pod](media/view-master-logs/log-analytics-query-results.png)
 
-Om du vill visa ytterligare loggar, du kan uppdatera frågan för den *kategori* namn till *kube-controller-manager* eller *kube-schemaläggare*, beroende på vad ytterligare loggar du Aktivera. Ytterligare *där* instruktioner kan sedan användas för att förfina de händelser som du letar efter.
+Om du vill visa fler loggar kan du uppdatera frågan för *kategori* namnet till *Kube-Controller-Manager* eller *Kube-Scheduler*, beroende på vilka ytterligare loggar du aktiverar. Ytterligare *WHERE* -instruktioner kan sedan användas för att begränsa de händelser som du söker efter.
 
-Läs mer om hur du fråga och filtrera dina loggdata [visa eller analysera data som samlas in med log analytics-loggsökning][analyze-log-analytics].
+Mer information om hur du frågar och filtrerar logg data finns i [Visa eller analysera data som samlas in med Log Analytics-loggs ökning][analyze-log-analytics].
 
-## <a name="log-event-schema"></a>Händelseschema
+## <a name="log-event-schema"></a>Logga händelse schema
 
-I följande tabell beskrivs för att analysera loggdata, ett schema som används för varje händelse:
+Följande tabell beskriver det schema som används för varje händelse för att analysera loggdata:
 
 | Fältnamn               | Beskrivning |
 |--------------------------|-------------|
-| *Resurs-ID*             | Azure-resurs som skapas i loggen |
-| *tid*                   | Tidsstämpel för när loggen har överförts |
-| *Kategori*               | Namnet på behållaren/komponenten genererar loggen |
-| *OperationName*          | Alltid *Microsoft.ContainerService/managedClusters/diagnosticLogs/Read* |
-| *properties.log*         | Fulltext loggens från komponenten |
-| *properties.stream*      | *stderr* eller *stdout* |
-| *properties.pod*         | Podnamn loggen kommer ifrån |
-| *properties.containerID* | ID för docker-behållaren som den här loggen kommer ifrån |
+| *Resurs-ID*             | Azure-resurs som skapade loggen |
+| *tid*                   | Tidsstämpel för när loggen laddades upp |
+| *Kategori*               | Namn på container/komponent som genererar loggen |
+| *OperationName*          | Always *Microsoft. container service/managedClusters/diagnosticLogs/Read* |
+| *egenskaper. log*         | Fullständig text för loggen från komponenten |
+| *egenskaper. Stream*      | *stderr* eller *STDOUT* |
+| *properties.pod*         | Pod namn som loggen kom från |
+| *egenskaper. containerID* | ID för Docker-behållaren som loggen kom från |
+
+## <a name="log-roles"></a>Logg roller
+
+| Role                     | Beskrivning |
+|--------------------------|-------------|
+| *aksService*             | Visnings namnet i gransknings loggen för åtgärden kontroll plan (från hcpService) |
+| *masterclient*           | Visnings namnet i gransknings loggen för MasterClientCertificate, certifikatet du får från AZ AKS get-credentials |
+| *nodeclient*             | Visnings namnet för ClientCertificate, som används av agent-noder |
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du lärt dig hur du aktiverar och granska loggarna för huvudkomponenter Kubernetes AKS-klustret. Om du vill övervaka och felsöka ytterligare, kan du också [visa Kubelet-loggar][kubelet-logs] and [enable SSH node access][aks-ssh].
+I den här artikeln har du lärt dig hur du aktiverar och granskar loggarna för Kubernetes huvud komponenter i ditt AKS-kluster. För att övervaka och felsöka ytterligare kan du också [Visa Kubelet][kubelet-logs] -loggarna och [Aktivera åtkomst till SSH-noden][aks-ssh].
 
 <!-- LINKS - external -->
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create

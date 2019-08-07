@@ -1,40 +1,40 @@
 ---
-title: CloudSimple account management - Azure
-description: Läs om hur du hanterar CloudSimple konton
+title: CloudSimple-konto hantering – Azure
+description: Lär dig mer om att hantera CloudSimple-konton
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 04/10/2019
 ms.topic: article
-ms.service: vmware
+ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: da0b948ff1445c98d3c254e97d0a02a6641699db
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d9fc39edfad18c756c2816f9eb0b3774d8bf882c
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64577787"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68812677"
 ---
-# <a name="account-management-overview"></a>Hantering Kontoöversikt
+# <a name="account-management-overview"></a>Översikt över konto hantering
 
-När du skapar CloudSimple tjänsten skapar ett konto på CloudSimple.  Konton som är associerad med din Azure-prenumeration där tjänsten finns.  Alla användare med **ägare** och **deltagare** roller i prenumerationen har åtkomst till CloudSimple-portalen.  Azure-prenumerations-ID och klient-ID som är kopplade till CloudSimple-tjänsten finns på den [kontosidan](https://docs.azure.cloudsimple.com/account/).
+När du skapar din CloudSimple-tjänst skapas ett konto på CloudSimple.  Kontot är associerat med din Azure-prenumeration där tjänsten finns.  Alla användare med rollen **ägare** och **deltagare** i prenumerationen har åtkomst till CloudSimple-portalen.  Det ID för Azure-prenumeration och klient-ID som är associerat med CloudSimple-tjänsten finns på [konto sidan](https://docs.azure.cloudsimple.com/account/).
 
-## <a name="additional-alert-emails"></a>Ytterligare aviseringsmeddelanden
+## <a name="additional-alert-emails"></a>Ytterligare e-postaviseringar
 
-Du kan konfigurera e-post-ID: N i CloudSimple att ta emot aviseringar:
+Du kan konfigurera e-ID: n i CloudSimple för att ta emot aviseringar:
 
-* Relaterade till din tjänst
+* Relaterat till din tjänst
 * För automatisk bearbetning
 
-## <a name="cloudsimple-operator-access"></a>CloudSimple operatorn åtkomst
+## <a name="cloudsimple-operator-access"></a>Åtkomst till CloudSimple-operatör
 
-Du kan styra åtkomst till portalen CloudSimple för service operations personal.  Tjänsten anställda logga in på portalen när du skickar in ett supportärende.  Tjänståtgärder korrigerar eventuella problem som rapporteras och de åtgärder som vidtas är tillgängliga i granskningsloggarna.
+Du kan kontrol lera åtkomsten till CloudSimple-portalen för tjänste drifts personal.  Tjänste åtgärds personal loggar in på portalen när du skickar in ett support ärende.  Tjänst åtgärder åtgärdar eventuella problem som rapporteras och de åtgärder som vidtas är tillgängliga i gransknings loggar.
 
 ## <a name="users"></a>Användare
 
-Alla användare som har **ägare** och **deltagare** rollen i prenumerationen har åtkomst till CloudSimple-portalen.  När du har åtkomst till portalen skapas användaren på CloudSimple-konto.  På sidan konton kan du inaktivera åtkomst till portalen CloudSimple för specifika användare.
+Alla användare som har rollen **ägare** och **deltagare** i prenumerationen har åtkomst till CloudSimple-portalen.  När du ansluter till portalen skapas användaren på CloudSimple-kontot.  Du kan inaktivera åtkomst till CloudSimple-portalen för vissa användare från sidan konton.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Visa Kontosammanfattning](https://docs.azure.cloudsimple.com/account/)
-* [Visa användarlistan](https://docs.azure.cloudsimple.com/users/)
+* [Visa konto Sammanfattning](https://docs.azure.cloudsimple.com/account/)
+* [Visa användar lista](https://docs.azure.cloudsimple.com/users/)

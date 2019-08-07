@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 07/29/2019
 ms.author: cynthn
-ms.openlocfilehash: 7eda675ed7694e1ad7de90f89282bd7a3cc50ea1
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 0c060e2ab94c0a57d4d4dc897702e115cfabd9a0
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68700423"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827287"
 ---
 # <a name="preview-deploy-vms-to-dedicated-hosts-using-the-azure-cli"></a>Förhandsversion: Distribuera virtuella datorer till dedikerade värdar med hjälp av Azure CLI
  
@@ -53,7 +53,7 @@ I båda fallen måste du ange antalet fel domäner för värd gruppen. Om du int
 
 Du kan också välja att använda både tillgänglighets zoner och fel domäner. 
 
-I det här exemplet ska vi använda [AZ VM Host Group Create](/cli/azure/vm#az-vm-host-group-create) för att skapa en värd grupp med hjälp av både tillgänglighets zoner och fel domäner. 
+I det här exemplet ska vi använda [AZ VM Host Group Create](/cli/azure/vm/host/group#az-vm-host-group-create) för att skapa en värd grupp med hjälp av både tillgänglighets zoner och fel domäner. 
 
 ```bash
 az vm host group create \
@@ -65,7 +65,7 @@ az vm host group create \
 
 ### <a name="other-examples"></a>Andra exempel
 
-Du kan också använda [AZ VM Host Group Create](/cli/azure/vm#az-vm-host-group-create) för att skapa en värd grupp i tillgänglighets zon 1 (och inga fel domäner).
+Du kan också använda [AZ VM Host Group Create](/cli/azure/vm/host/group#az-vm-host-group-create) för att skapa en värd grupp i tillgänglighets zon 1 (och inga fel domäner).
 
 ```bash
 az vm host group create \
@@ -75,7 +75,7 @@ az vm host group create \
    --platform-fault-domain-count 1 
 ```
  
-Följande använder [AZ VM Host Group Create](/cli/azure/vm#az-vm-host-group-create) för att skapa en värd grupp genom att endast använda fel domäner (som ska användas i regioner där tillgänglighets zoner inte stöds). 
+Följande använder [AZ VM Host Group Create](/cli/azure/vm/host/group#az-vm-host-group-create) för att skapa en värd grupp genom att endast använda fel domäner (som ska användas i regioner där tillgänglighets zoner inte stöds). 
 
 ```bash
 az vm host group create \
@@ -91,7 +91,7 @@ Nu ska vi skapa en dedikerad värd i värd gruppen. Förutom ett namn för värd
 
 Mer information om värd-SKU: er och priser finns i [prissättning för Azure-dedikerad värd](https://aka.ms/ADHPricing).
 
-Använd [AZ VM Host Create](/cli/azure/vm#az-vm-host-create) för att skapa en värd. Om du anger ett fel domän antal för värd gruppen uppmanas du att ange fel domänen för värden.  
+Använd [AZ VM Host Create](/cli/azure/vm/host#az-vm-host-create) för att skapa en värd. Om du anger ett fel domän antal för värd gruppen uppmanas du att ange fel domänen för värden.  
 
 ```bash
 az vm host create \
@@ -126,7 +126,7 @@ az vm create \
 
 ## <a name="check-the-status-of-the-host"></a>Kontrol lera status för värden
 
-Du kan kontrol lera värdets hälso status och hur många virtuella datorer du kan distribuera till värden med [AZ VM Host get-instance-View](/cli/azure/vm#az-vm-host-get-instance-view).
+Du kan kontrol lera värdets hälso status och hur många virtuella datorer du kan distribuera till värden med [AZ VM Host get-instance-View](/cli/azure/vm/host#az-vm-host-get-instance-view).
 
 ```bash
 az vm host get-instance-view \
@@ -260,13 +260,13 @@ Du kan bara ta bort en värd när det inte finns några längre virtuella datore
 az vm delete -n myVM -g myDHResourceGroup
 ```
 
-När du har tagit bort de virtuella datorerna kan du ta bort värden med [AZ VM Host Delete](/cli/azure/vm#az-vm-host-delete).
+När du har tagit bort de virtuella datorerna kan du ta bort värden med [AZ VM Host Delete](/cli/azure/vm/host#az-vm-host-delete).
 
 ```bash
 az vm host delete -g myDHResourceGroup --host-group myHostGroup --name myHost 
 ```
  
-När du har tagit bort alla värdar kan du ta bort värd gruppen med [AZ VM Host Group Delete](/cli/azure/vm#az-vm-host-group-delete).  
+När du har tagit bort alla värdar kan du ta bort värd gruppen med [AZ VM Host Group Delete](/cli/azure/vm/host/group#az-vm-host-group-delete).  
  
 ```bash
 az vm host group delete -g myDHResourceGroup --host-group myHostGroup  

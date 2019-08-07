@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 07/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 82d3656e0adc03157de57b700f8f0be6bde1f2ee
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: 59ce6719c117db53b02ed6594de219010ee08ee6
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663474"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828226"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Så här fungerar Azure Machine Learning service: Arkitektur och koncept
 
@@ -40,13 +40,13 @@ Arbets flödet för Machine Learning-modellen följer i allmänhet den här ordn
 
 1. **Övervaka** -Övervakare för **data avvikelser** mellan inlärnings data uppsättningen och data härlednings data för en distribuerad modell. Om det behövs går du tillbaka till steg 1 för att träna om modellen med nya tränings data.
 
-## <a name="tools-for-azure-machine-learning"></a>Verktyg för Azure Machine Learning 
+## <a name="tools-for-azure-machine-learning"></a>Verktyg för Azure Machine Learning
 
 Använd följande verktyg för Azure Machine Learning:
 
 +  Interagera med tjänsten i valfri python-miljö med [Azure Machine Learning SDK för python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 + Automatisera dina Machine Learning-aktiviteter med [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli).
-+ Skriva kod i Visual Studio Code med [Azure Machine Learning vs Code-tillägg](how-to-vscode-tools.md) 
++ Skriva kod i Visual Studio Code med [Azure Machine Learning vs Code-tillägg](how-to-vscode-tools.md)
 + Använd [Visual Interface (för hands version) för att Azure Machine Learning tjänsten för](ui-concept-visual-interface.md) att utföra arbets flödes stegen utan att skriva kod.
 
 ## <a name="glossary-of-concepts"></a>Ord lista med begrepp
@@ -87,7 +87,7 @@ Mer information om arbets ytor finns i [Vad är en Azure Machine Learning arbets
 
 Ett experiment är en gruppering av många körningar från ett angivet skript. Det är alltid hör till en arbetsyta. När du skickar in en körning ska ange du ett namn på experiment. Information om körningen lagras under försöket. Om du skickar in en körning och anger ett experiment namn som inte finns, skapas ett nytt experiment med det nyligen angivna namnet automatiskt.
 
-Ett exempel på hur du använder ett experiment finns [i snabb start: Kom igång med Azure Machine Learning-](quickstart-run-cloud-notebook.md)tjänsten.
+Ett exempel på hur du använder ett experiment finns [i Självstudier: Träna din första modell](tutorial-1st-experiment-sdk-train.md).
 
 ### <a name="models"></a>Modeller
 
@@ -132,9 +132,9 @@ Ett **data lager** är en lagrings abstraktion över ett Azure Storage-konto. Da
 
 ### <a name="compute-targets"></a>Beräkningsmål
 
-Med ett [beräknings mål](concept-compute-target.md) kan du ange den beräknings resurs där du kör ditt utbildnings skript eller vara värd för tjänst distributionen. Den här platsen kan vara din lokala dator eller en molnbaserad beräknings resurs. Med beräknings mål är det enkelt att ändra beräknings miljön utan att ändra koden. 
+Med ett [beräknings mål](concept-compute-target.md) kan du ange den beräknings resurs där du kör ditt utbildnings skript eller vara värd för tjänst distributionen. Den här platsen kan vara din lokala dator eller en molnbaserad beräknings resurs. Med beräknings mål är det enkelt att ändra beräknings miljön utan att ändra koden.
 
-Lär dig mer om de [tillgängliga beräknings målen för utbildning och distribution](concept-compute-target.md). 
+Lär dig mer om de [tillgängliga beräknings målen för utbildning och distribution](concept-compute-target.md).
 
 ### <a name="training-scripts"></a>Utbildningsskript
 
@@ -153,7 +153,6 @@ En körning är en post som innehåller följande information:
 
 Du skapar en körning när du skickar ett skript för att träna en modell. En körning kan ha noll eller flera underordnade körs. Körningen på den översta nivån kan till exempel ha två underordnade körningar, som var och en kan ha sin egen underordnade körning.
 
-Ett exempel på hur du kan visa körningar som produceras genom att träna en [modell finns i snabb start: Kom igång med Azure Machine Learning-](quickstart-run-cloud-notebook.md)tjänsten.
 
 ### <a name="github-tracking-and-integration"></a>GitHub spårning och integrering
 
@@ -222,7 +221,9 @@ Azure IoT Edge säkerställer att modulen körs och övervakar den enhet som är
 
 ### <a name="ml-pipelines"></a>ML-Pipelines
 
-Du använder maskin inlärnings pipeliner för att skapa och hantera arbets flöden som häftar ihop Machine Learning-faser. En pipeline kan till exempel omfatta förberedelse av data, modell utbildning, modell distribution och steg för härledning/poängsättning. Varje fas kan omfatta flera steg, som kan köras obevakat i olika beräkningsmål.
+Du använder maskin inlärnings pipeliner för att skapa och hantera arbets flöden som häftar ihop Machine Learning-faser. En pipeline kan till exempel omfatta förberedelse av data, modell utbildning, modell distribution och steg för härledning/poängsättning. Varje fas kan omfatta flera steg, som kan köras obevakat i olika beräkningsmål. 
+
+Pipeline-steg kan återanvändas och kan köras utan att köra efterföljande steg om utdata från det steget inte har ändrats. Du kan till exempel omträna en modell utan att köra kostsamma data förberedelse steg om data inte har ändrats. Pipelines gör det också möjligt för data experter att samar beta medan de arbetar med olika delar av ett Machine Learning-arbetsflöde.
 
 Mer information om maskin inlärnings pipeliner med den här tjänsten finns i [pipelines och Azure Machine Learning](concept-ml-pipelines.md).
 

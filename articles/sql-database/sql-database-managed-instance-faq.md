@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: 32da92fb3c5573d24eb18a01a4ede8fe6a0bf36a
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 3637676a330b324d5620885f0cbe50d4aa68ed51
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567448"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779051"
 ---
 # <a name="sql-database-managed-instance-frequently-asked-questions-faq"></a>Vanliga frågor och svar om SQL Database Managed instance
 
@@ -79,9 +79,9 @@ Om båda maskin varu generationerna inte stöds i samma region, är det möjligt
 
 ## <a name="how-do-i-tune-performance-of-my-managed-instance"></a>Hur gör jag för att finjustera prestanda för min hanterade instans? 
 
-Generell användning hanterade instansen använder Fjärrlagring på grund av vilken storlek data och loggfiler som är viktiga för prestanda. Följ anvisningarna i det här blogg inlägget om du vill justera Generell användning tjänst nivå prestanda.
+Generell användning hanterade instansen använder Fjärrlagring på grund av vilken storlek data och loggfiler som är viktiga för prestanda. Mer information finns i [effekten av logg fils storleken på generell användning hanterade instans prestanda](https://medium.com/azure-sqldb-managed-instance/impact-of-log-file-size-on-general-purpose-managed-instance-performance-21ad170c823e).
 
-För i/o-intensiva arbets belastningar kan du använda generation 5-maskinvara, jämfört med gen 4 för beräknings intensiva arbets belastningar. Mer information finns i avsnittet Vanliga frågor och svar om hur du väljer mellan maskin varu generationer.
+För i/o-intensiva arbets belastningar kan du använda generation 5-maskinvara, jämfört med gen 4 för beräknings intensiva arbets belastningar. Mer information finns i [Hur gör jag för att Välj mellan gen 4 och gen 5](#how-do-i-choose-between-gen-4-and-gen-5-hardware-generation-for-managed-instance).
 
 Om din arbets belastning består av många små transaktioner bör du överväga att byta Anslutnings typ från proxy till omdirigeringsläge.
 

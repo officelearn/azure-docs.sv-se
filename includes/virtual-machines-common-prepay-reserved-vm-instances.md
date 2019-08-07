@@ -3,13 +3,13 @@ author: yashesvi
 ms.author: banders
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 07/19/2019
-ms.openlocfilehash: 763d424d9d462c4a9531df84f3e5e26bfc1b0a14
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.date: 08/02/2019
+ms.openlocfilehash: 5c300cb7d5416ada435811872e2cea8865e3c657
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68502334"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68781274"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances-ri"></a>Förskotts betalning för Virtual Machines med Azure Reserved VM Instances (RI)
 
@@ -132,13 +132,9 @@ Du kan inte göra följande typer av ändringar efter köpet, direkt:
 
 Du kan dock *byta* ut en reservation om du vill göra ändringar.
 
-## <a name="cancellations-and-exchanges"></a>Avbokningar och byten
+## <a name="cancel-exchange-or-refund-reservations"></a>Avbryta, byta ut eller återbetala reservationer
 
-Om du vill avbryta din reservation kan det medföra en avgift på 12 % för uppsägning i förtid. Återbetalningar baseras på det lägsta priset – antingen ditt inköpspris eller det aktuella priset för reservationen. Återbetalningar begränsas till 50 000 USD per år. Din återbetalning består av det återstående proportionellt beräknade saldot minus uppsägningsavgiften på 12 %. Om du vill avbryta går du till reservationen i Azure Portal och väljer **åter betalning**.
-
-Om du behöver ändra reservationen för reserverade VM-instanser till en annan region, storleks grupp för virtuell dator eller en period, kan du byta ut den. Exchange måste vara för en annan reservation som är lika med eller högre. Startdatumet för den nya reservationens överförs inte från den utbytte reservationen. En eller tre års perioden börjar från när du skapar den nya reservationen. Till Exchange går du till reservationen i Azure Portal och väljer **Exchange**.
-
-Mer information om hur du utbyter eller återbetalar reservationer finns i [reservations utbyte och åter betalningar](../articles/billing/billing-azure-reservations-self-service-exchange-and-refund.md).
+Du kan avbryta, byta ut eller återbetala reservationer med vissa begränsningar. Mer information finns i självbetjänings [utbyten och åter betalningar för Azure reservations](../articles/billing/billing-azure-reservations-self-service-exchange-and-refund.md).
 
 ## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
 

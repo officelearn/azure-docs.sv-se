@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 06/13/2019
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: c938d0badfdd23e78e7cf042b719d924aa4d3857
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
-ms.translationtype: MT
+ms.openlocfilehash: 58272bc1cceba6203445f011d7268471239b8ce7
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509925"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827462"
 ---
 | Kategori | Datalager | Stöds som en källa | Stöds som en mottagare | Stöds av [Azure IR](../articles/data-factory/concepts-integration-runtime.md#azure-integration-runtime) | Stöds av [lokal IR](../articles/data-factory/concepts-integration-runtime.md#self-hosted-integration-runtime) |
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | **Azure** |[Azure Blob Storage](../articles/data-factory/connector-azure-blob-storage.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure Cosmos DB (SQL API)](../articles/data-factory/connector-azure-cosmos-db.md) |✓ |✓ |✓ |✓  |
-| &nbsp; |[Azure Cosmos DB: s API för MongoDB](../articles/data-factory/connector-azure-cosmos-db-mongodb-api.md) |✓ |✓ |✓ |✓  |
-| &nbsp; |[Azure Data Explorer](../articles/data-factory/connector-azure-data-explorer.md) |✓ |✓ |✓ |✓ |
+| &nbsp; |[Azure Cosmos DB s API för MongoDB](../articles/data-factory/connector-azure-cosmos-db-mongodb-api.md) |✓ |✓ |✓ |✓  |
+| &nbsp; |[Azure-Datautforskaren](../articles/data-factory/connector-azure-data-explorer.md) |✓ |✓ |✓ |✓ |
 | &nbsp; |[Azure Data Lake Storage Gen1](../articles/data-factory/connector-azure-data-lake-store.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure Data Lake Storage Gen2](../articles/data-factory/connector-azure-data-lake-storage.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure Database för MariaDB](../articles/data-factory/connector-azure-database-for-mariadb.md) |✓ | |✓ |✓  |
@@ -28,7 +28,7 @@ ms.locfileid: "67509925"
 | &nbsp; |[Azure Database for PostgreSQL](../articles/data-factory/connector-azure-database-for-postgresql.md) |✓ | |✓ |✓  |
 | &nbsp; |[Azure File Storage](../articles/data-factory/connector-azure-file-storage.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure SQL Database](../articles/data-factory/connector-azure-sql-database.md) |✓ |✓ |✓ |✓  |
-| &nbsp; |[Azure SQL Database Managed Instance](../articles/data-factory/connector-azure-sql-database-managed-insance.md) |✓ |✓ |✓ |✓  |
+| &nbsp; |[Azure SQL Database Managed Instance](../articles/data-factory/connector-azure-sql-database-managed-instance.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure SQL Data Warehouse](../articles/data-factory/connector-azure-sql-data-warehouse.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure Search-index](../articles/data-factory/connector-azure-search.md) | |✓ |✓ |✓  |
 | &nbsp; |[Azure Table Storage](../articles/data-factory/connector-azure-table-storage.md) |✓ |✓ |✓ |✓  |
@@ -49,7 +49,7 @@ ms.locfileid: "67509925"
 | &nbsp; |[Phoenix](../articles/data-factory/connector-phoenix.md) |✓ | |✓ |✓  |
 | &nbsp; |[PostgreSQL](../articles/data-factory/connector-postgresql.md) |✓ | |✓ |✓  |
 | &nbsp; |[Presto (förhandsversion)](../articles/data-factory/connector-presto.md) |✓ | |✓ |✓  |
-| &nbsp; |[SAP Business Warehouse öppna Hub](../articles/data-factory/connector-sap-business-warehouse-open-hub.md) |✓ | | |✓  |
+| &nbsp; |[Öppet nav för SAP Business Warehouse](../articles/data-factory/connector-sap-business-warehouse-open-hub.md) |✓ | | |✓  |
 | &nbsp; |[SAP Business Warehouse via MDX](../articles/data-factory/connector-sap-business-warehouse.md) |✓ | | |✓  |
 | &nbsp; |[SAP HANA](../articles/data-factory/connector-sap-hana.md) |✓ |✓ | |✓  |
 | &nbsp; |[SAP-tabell](../articles/data-factory/connector-sap-table.md) |✓ | | |✓  |
@@ -70,7 +70,7 @@ ms.locfileid: "67509925"
 | **Generiskt protokoll** |[Generisk HTTP](../articles/data-factory/connector-http.md) |✓ | |✓ |✓  |
 | &nbsp; |[OData (allmän)](../articles/data-factory/connector-odata.md) |✓ | |✓ |✓  |
 | &nbsp; |[ODBC (allmän)](../articles/data-factory/connector-odbc.md) |✓ |✓ | |✓  |
-| &nbsp; |[Generic REST](../articles/data-factory/connector-rest.md) |✓ | |✓ |✓  |
+| &nbsp; |[Allmän REST](../articles/data-factory/connector-rest.md) |✓ | |✓ |✓  |
 | **Tjänster och appar** |[Amazon Marketplace Web Service (förhandsversion)](../articles/data-factory/connector-amazon-marketplace-web-service.md) |✓ | |✓ |✓  |
 | &nbsp; |[Common Data Service för appar](../articles/data-factory/connector-dynamics-crm-office-365.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Concur (förhandsversion)](../articles/data-factory/connector-concur.md) |✓ | |✓ |✓  |

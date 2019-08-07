@@ -1,6 +1,6 @@
 ---
-title: Förstå OAuth2 implicit flöde beviljat i Azure AD | Microsoft Docs
-description: Lär dig mer om Azure Active Directory-implementering av OAuth2 implicit ge flow, och om det är bäst för ditt program.
+title: Förstå det OAuth2 implicita bidrags flödet i Azure AD | Microsoft Docs
+description: Lär dig mer om Azure Active Directory implementering av OAuth2 implicita bidrags flöde och om det är rätt för ditt program.
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
@@ -10,7 +10,7 @@ ms.assetid: 90e42ff9-43b0-4b4f-a222-51df847b2a8d
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/24/2018
@@ -18,60 +18,60 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8fe0ee8021ae7e70654a161e37d072195bbc035f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8e30bd940d3312a16f2dd30b175deb6622cb8c01
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65545246"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68834739"
 ---
-# <a name="understanding-the-oauth2-implicit-grant-flow-in-azure-active-directory-ad"></a>Förstå implicit beviljande av OAuth2 flödet i Azure Active Directory (AD)
+# <a name="understanding-the-oauth2-implicit-grant-flow-in-azure-active-directory-ad"></a>Förstå OAuth2-flödet för implicit bidrag i Azure Active Directory (AD)
 
 [!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
 
-OAuth2-implicit beviljande är kända för att bevilja med den längsta listan över säkerhetsproblem i OAuth2-specifikationen. Och ännu, som är den metod som implementeras av ADAL JS och det rekommenderas när du skriver SPA-program. Vad får? Det handlar alla kompromisser: och eftersom det har visat sig implicit beviljande är det bästa sättet att försöka för program som använder ett webb-API via JavaScript från en webbläsare.
+OAuth2 implicita bidrag är Notorious för tilldelning med den längsta listan med säkerhets problem i OAuth2-specifikationen. Men det är den metod som implementeras av ADAL JS och den som vi rekommenderar när du skriver SPA-program. Vad ger? Det är allt som är fördelaktigt: och när det blir slut är den implicita tilldelningen den bästa metoden som du kan utföra för program som använder ett webb-API via Java Script från en webbläsare.
 
-## <a name="what-is-the-oauth2-implicit-grant"></a>Vad är OAuth2-implicit beviljande?
+## <a name="what-is-the-oauth2-implicit-grant"></a>Vad är OAuth2 implicit beviljad?
 
-Den quintessential [OAuth2-auktoriseringskodbeviljande](https://tools.ietf.org/html/rfc6749#section-1.3.1) är auktoriseringsbeviljande som använder två separata slutpunkter. Auktoriseringsslutpunkten används för användarens interaktion fas, vilket resulterar i en auktoriseringskod. Tokenslutpunkten används sedan av klienten för utbyte av koden för en åtkomsttoken och ofta en uppdateringstoken. Webbprogram krävs för att ge sina egna program autentiseringsuppgifter till tokenslutpunkten, så att auktoriseringsservern kan autentisera klienten.
+Quintessential [OAuth2 Authorization Code Granting](https://tools.ietf.org/html/rfc6749#section-1.3.1) är den auktorisering som använder två separata slut punkter. Slut punkten för auktorisering används för användar interaktions fasen, som resulterar i en auktoriseringskod. Token-slutpunkten används sedan av klienten för att utväxla koden för en åtkomsttoken, och ofta även en uppdateringstoken. Webb program krävs för att presentera sina egna programautentiseringsuppgifter för token-slutpunkten, så att auktoriseringsservern kan autentisera klienten.
 
-Den [OAuth2-implicit beviljande](https://tools.ietf.org/html/rfc6749#section-1.3.2) är en variant av andra auktoriseringsbeviljanden. Det gör att en klient att hämta en åtkomsttoken (och id_token, när du använder [OpenId Connect](https://openid.net/specs/openid-connect-core-1_0.html)) direkt från auktoriseringsslutpunkten utan att kontakta tokenslutpunkten eller autentisera klienten. Den här variant har utformats för JavaScript-baserade program som körs i en webbläsare: i den ursprungliga OAuth2-specifikationen token returneras i ett URI-fragment. Som tillgängliggör token bitarna till JavaScript-koden i klienten, men det garanterar att de inte inkluderas i omdirigeringar mot servern. Returnerar token via webbläsaren omdirigeras direkt från slutpunkten för auktorisering. Det har även fördelen med att ta bort eventuella krav för skriptkörning över flera ursprungsanrop, vilket är nödvändigt om JavaScript-program som krävs för att kontakta tokenslutpunkten.
+[OAuth2 implicita bidrag](https://tools.ietf.org/html/rfc6749#section-1.3.2) är en variant av andra auktoriserings bidrag. Det gör det möjligt för en klient att hämta en åtkomsttoken (och id_token, när du använder [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html)) direkt från slut punkten för auktorisering, utan att kontakta token-slutpunkten eller autentisera klienten. Den här varianten har utformats för JavaScript-baserade program som körs i en webbläsare: i den ursprungliga OAuth2-specifikationen returneras tokens i ett URI-fragment. Det gör token-bitarna tillgängliga för JavaScript-koden i klienten, men den garanterar att de inte tas med i omdirigeringar mot servern. Returnerade token via webbläsare omdirigeras direkt från slut punkten för auktorisering. Det har också fördelen att ta bort eventuella krav för cross origin-anrop, vilket är nödvändigt om JavaScript-programmet krävs för att kontakta token-slutpunkten.
 
-En viktig egenskap för OAuth2-implicit beviljande är det faktum att till exempel flödar uppdateringstoken som aldrig gå tillbaka till klienten. Nästa avsnitt visar hur detta inte är nödvändigt och i själva verket är ett säkerhetsproblem.
+En viktig egenskap för den implicita tilldelningen av OAuth2 är faktum att sådana flöden aldrig returnerar uppdateringstoken till klienten. I nästa avsnitt visas hur detta inte är nödvändigt och skulle faktiskt vara ett säkerhets problem.
 
-## <a name="suitable-scenarios-for-the-oauth2-implicit-grant"></a>Lämpliga scenarier för OAuth2-implicit beviljande
+## <a name="suitable-scenarios-for-the-oauth2-implicit-grant"></a>Lämpliga scenarier för OAuth2 implicita bidrag
 
-OAuth2-specifikationen deklarerar att implicit beviljande planeras för att aktivera användaragent program – det vill säga, JavaScript-program som körs i en webbläsare. Den definierar egenskap för sådana program är att JavaScript-kod används för att komma åt serverresurser (vanligtvis ett webb-API) och för att uppdatera programmet användarupplevelsen i enlighet med detta. Se program, t.ex. Gmail- eller Outlook Web Access: när du väljer ett meddelande från din inkorg, endast meddelandepanel för visualisering ändras för att visa ändringen, medan resten av sidan förblir oförändrat. Denna egenskap är till skillnad från traditionella omdirigerings-baserade webbappar, där varje användaråtgärd resulterar i en hel sida återanslående och en hel sida återgivningen av nya serversvaret.
+OAuth2-specifikationen deklarerar att den implicita beviljandet har gjorts för att aktivera användar agent program – det vill säga, JavaScript-program som körs i en webbläsare. Att definiera egenskaper för sådana program är att JavaScript-kod används för att få åtkomst till server resurser (vanligt vis ett webb-API) och för att uppdatera program användar upplevelsen i enlighet med detta. Tänk på program som Gmail eller Outlook Web Access: när du väljer ett meddelande från din inkorg ändras endast panelen för meddelande visualisering så att den nya markeringen visas, medan resten av sidan förblir oförändrad. Den här egenskapen är i motsats till traditionella omdirigerade webbappar, där varje användar interaktion resulterar i ett full sid återanslående och en full sid åter givning av det nya server svaret.
 
-Program som kan JavaScript-baserade metod till dess extreme kallas enkelsidigt program eller SPA. Tanken är att programmen bara ge en första HTML-sida och associerad JavaScript, med alla efterföljande interaktioner som drivs av webb-API-anrop utförs via JavaScript. Dock hybridmetoder, där programmet är i stort sett återanslående-drivna men utför tillfällig JS-anrop, är inte ovanliga – diskussion om implicit flödesanvändning som är relevant för dem också.
+Program som tar den JavaScript-baserade metoden till dess extrema kallas för program med en sida eller SPAs. Idén är att dessa program endast har en första HTML-sida och tillhör ande Java Script, och att alla efterföljande interaktioner drivs av webb-API-anrop som utförs via Java Script. Hybrid metoder, där programmet huvudsakligen är återanslående, men som utför tillfälliga JS-anrop, är inte ovanliga – diskussionen om implicit flödes användning är också relevant för dem.
 
-Omdirigerings-baserade program vanligtvis skydda sina begäranden via cookies, men att metoden inte fungerar även för JavaScript-program. Cookies fungerar endast mot domänen som har genererats för, medan JavaScript-anrop kan riktas mot andra domäner. I själva verket som är ofta fallet: Se program som anropar Microsoft Graph API, Office-API, Azure-API – alla som finns utanför domänen från där programmet har hämtats. En växande trend för JavaScript-program är att ha utan serverdel på alla förlitande 100% på från tredje part webb-API: er att implementera sina funktioner.
+Omdirigerade program säkrar vanligt vis förfrågningar via cookies, men den metoden fungerar inte även för JavaScript-program. Cookies fungerar endast mot den domän de har genererats för, medan JavaScript-anrop kan dirigeras till andra domäner. I själva verket är det ofta fallet: Tänk på att program som anropar Microsoft Graph API, Office API, Azure API – alla finns utanför domänen där programmet hanteras. En växande trend för JavaScript-program är att inte ha någon server del, som förlitar sig på 100% på webb-API: er från tredje part för att implementera sin affärs funktion.
 
-För närvarande är är den bästa metoden för att skydda ett webb-API-anrop att använda token metoden OAuth2 ägar där varje anrop åtföljs av en åtkomsttoken för OAuth2. Webb-API undersöker den inkommande åtkomst-token och om den hittar i den nödvändiga omfång, ger åtkomst till den begärda åtgärden. Implicit flöde är det lätt för JavaScript-program att hämta åtkomsttoken för ett webb-API, erbjuder flera fördelar i fråga om cookies:
+För närvarande är det bästa sättet att skydda anrop till ett webb-API att använda metoden OAuth2 Bearer-token, där varje anrop åtföljs av en OAuth2-åtkomsttoken. Webb-API: et undersöker inkommande åtkomsttoken och, om den hittar en nödvändig omfattning, beviljar åtkomst till den begärda åtgärden. Det implicita flödet ger en bekväm mekanism för JavaScript-program för att få åtkomst-token för ett webb-API, vilket ger flera fördelar avseende cookies:
 
-* Token kan hämtas på ett tillförlitligt sätt utan något behov för olika plattformar ursprungsanrop – obligatorisk registrering av omdirigerings-URI som token är returnerade garanterar att token inte förskjuts
-* JavaScript-program kan hämta så många åtkomsttoken som de behöver, för så många webb-API: er de är riktade mot – utan begränsning för domäner
-* HTML5-funktioner som sessionen eller lokal lagring bevilja fullständig kontroll över tokencachelagring och livstidshantering cookies management är täckande för appen
-* Åtkomsttoken är inte sårbara för attacker med förfalskning (CSRF) av skriptkörning begäran
+* Token kan erhållas på ett tillförlitligt sätt utan behov av cross origin-anrop – obligatorisk registrering av omdirigerings-URI: n som token är retur garantier till att token inte har avplacerats
+* JavaScript-program kan hämta så många åtkomsttoken som de behöver, för så många webb-API: er som de är riktade till – utan begränsning för domäner
+* HTML5-funktioner som session eller lokal lagring ger fullständig kontroll över cachelagring av token och livs längd hantering, medan cookies-hanteringen är ogenomskinlig för appen
+* Åtkomst-token är inte mottagliga för CSRF-attacker (Cross-Site request förfalskning)
 
-Implicit beviljande av flödet utfärdar inte tokens för användaruppdatering huvudsakligen av säkerhetsskäl. En uppdateringstoken är inte som snävare begränsade som åtkomsttoken, beviljar mycket mer kraft inflicting därför mycket stor skada om det är läcker. I det implicita flödet token levereras i URL: en, därför risk för avlyssning är högre än i auktoriseringskodsbeviljandet.
+Det implicita tilldelnings flödet utfärdar inte uppdaterade token, av säkerhets skäl. En uppdateringstoken är inte lika begränsad som åtkomst-token, vilket ger mycket mer energi inflictingt mycket mer skada om den läcker ut. I det implicita flödet levereras token i URL: en, och därför är risken för avlyssning högre än i tillåtndet av auktoriseringskod.
 
-Ett JavaScript-program har dock en annan mekanism tillgång för att förnya åtkomsttoken utan att fråga användaren om autentiseringsuppgifter flera gånger. Programmet kan använda en dold iframe för att utföra nya tokenbegäranden mot auktoriseringsslutpunkten av Azure AD: så länge som webbläsaren har fortfarande en aktiv session (Läs: har en sessions-cookie) mot Azure AD-domänen autentiseringsbegäran kan har ske utan interaktion från användaren.
+Ett JavaScript-program har dock en annan mekanism för att förnya åtkomsttoken utan att efter fråga användaren om autentiseringsuppgifter. Programmet kan använda en dold iframe för att utföra nya Tokenbegäran mot behörighets slut punkten för Azure AD: så länge webbläsaren fortfarande har en aktiv session (läsa: har en sessions-cookie) mot Azure AD-domänen kan autentiseringsbegäran Det har uppstått utan att användaren behöver göra något.
 
-Den här modellen ger JavaScript-program möjlighet att förnya åtkomsttoken oberoende av varandra och även skaffa nya för ett nytt API (förutsatt att du godkänt tidigare för dem). På så sätt undviker har lagts till bördan med att hämta, hantera och skydda ett högt värde artefakter, till exempel en uppdateringstoken. Den artefakt som gör det möjligt, tyst förnyelsen sessions-cookie Azure AD hanteras utanför programmet. En annan fördel med den här metoden är en användare kan logga ut från Azure AD, med någon av de program som har loggat in på Azure AD, som körs i något av flikarna i webbläsaren. Detta leder till borttagning av Azure AD-sessions-cookie och JavaScript-programmet kommer automatiskt att förlora möjligheten att förnya token för den signerade ut användaren.
+Den här modellen ger JavaScript-programmet möjlighet att oberoende förnya åtkomsttoken och till och med hämta nya för ett nytt API (förutsatt att användaren tidigare har meddelats för dem). På så sätt undviker du den extra bördan för att förvärva, underhålla och skydda en hög värdes artefakt, till exempel en Refresh-token. Artefakten som gör den tysta förnyelsen möjlig, Azure AD-sessionens cookie, hanteras utanför programmet. En annan fördel med den här metoden är att en användare kan logga ut från Azure AD med hjälp av något av de program som loggats in i Azure AD, som körs i någon av flikarna i webbläsaren. Detta resulterar i att du tar bort Azure AD-sessionens cookie och att JavaScript-programmet automatiskt förlorar möjligheten att förnya token för den inloggade användaren.
 
-## <a name="is-the-implicit-grant-suitable-for-my-app"></a>Lämpar sig implicit beviljande för min app?
+## <a name="is-the-implicit-grant-suitable-for-my-app"></a>Är den implicita beviljandet lämplig för min app?
 
-Implicit beviljande presenterar flera risker än andra stöd och de områden som du bör uppmärksamma till är väl dokumenterat (till exempel [missbruk av åtkomsttoken att personifiera Resursägaren i Implicit flöde] [ OAuth2-Spec-Implicit-Misuse]och [Hotmodell för OAuth 2.0- och säkerhetsaspekter][OAuth2-Threat-Model-And-Security-Implications]). Högre risk profilen är dock i stort sett på grund av att den är avsedd att programmen som kör active kod som hanteras av en fjärransluten resurs till en webbläsare. Om du planerar en SPA-arkitektur har inga backend-komponenter eller avser att anropa ett webb-API via JavaScript, bör du använda det implicita flödet för tokenförvärv.
+Den implicita tilldelningen ger fler risker än andra bidrag och de områden som du behöver tänka på är väl dokumenterade (till exempel [missbruk av åtkomsttoken för att personifiera resurs ägaren i implicit flöde][OAuth2-Spec-Implicit-Misuse] och [OAuth 2,0 hot modell och säkerhet Överväganden][OAuth2-Threat-Model-And-Security-Implications]). Den högre risk profilen är dock stor på grund av det faktum att den är avsedd att aktivera program som kör aktiv kod och som hanteras av en fjär resurs till en webbläsare. Om du planerar en SPA-arkitektur, inte har några Server dels komponenter eller tänker anropa ett webb-API via Java Script, rekommenderas användningen av det implicita flödet för hämtning av token.
 
-Om programmet är en intern klient, är det implicita flödet inte passade bra. Avsaknad av Azure AD-sessions-cookie i samband med en intern klient deprives ditt program från innebär att underhålla en standardlagringen av långlivade session. Vilket innebär att ditt program uppmanas upprepade gånger användaren vid hämtning av åtkomsttoken för nya resurser.
+Om ditt program är en intern klient är det implicita flödet inte en bra anpassning. Frånvaron av Azure AD-sessionens cookie i kontexten för en intern klient berövar ditt program från att underhålla en lång livs längd session. Det innebär att ditt program kommer att upprepade gånger uppmana användaren att hämta åtkomsttoken för nya resurser.
 
-Om du utvecklar ett program som innehåller en serverdel och använda ett API från dess serverdelskoden är det implicita flödet inte heller ett bra alternativ. Andra stöd ger dig mycket mer kraft. Till exempel ger OAuth2-klientautentiseringsuppgifter möjlighet att hämta token som återspeglar de behörigheter som tilldelats programmet, till skillnad från användardelegeringar. Det innebär att klienten har möjligheten att ha programmässig åtkomst till resurser även när en användare inte har blivit engagerade i en session och så vidare. Inte nog med det, men sådana bidrag ger högre säkerhetsgarantier. Till exempel åtkomsttoken aldrig överföra via webbläsaren användare, inte de riskerar att sparas i webbläsarhistoriken och så vidare. Klientprogrammet kan också utföra stark autentisering när du begär en token.
+Om du utvecklar ett webb program som innehåller en server del och använder ett API från sin backend-kod, är det implicita flödet inte heller en bra anpassning. Andra bidrag ger dig mycket mer kraft. Till exempel ger OAuth2-klientens autentiseringsuppgifter möjlighet att hämta token som återspeglar de behörigheter som tilldelats själva programmet, i stället för användar delegeringar. Det innebär att klienten har möjlighet att underhålla program mässig åtkomst till resurser även om en användare inte aktive ras aktivt i en session och så vidare. Inte bara det, men sådana bidrag ger högre säkerhets garantier. Till exempel går det inte att komma åt token via användarens webbläsare, de riskerar inte att sparas i webb läsar historiken och så vidare. Klient programmet kan också utföra stark autentisering när du begär en token.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* En fullständig lista över resurser för utvecklare, inklusive referensinformation för protokoll och OAuth2-auktorisering bevilja flöden support av Azure AD finns i den [utvecklarhandboken för Azure AD][AAD-Developers-Guide]
-* Se [hur du integrerar ett program med Azure AD] [ ACOM-How-To-Integrate] för kompletterande information på processen för dataintegrering i programmet.
+* En fullständig lista över utvecklarresurser, inklusive referensinformation för protokollen och OAuth2 för auktorisering av godkännande flöden av Azure AD, finns i [Azure AD Developer ' s guide][AAD-Developers-Guide]
+* Se [så här integrerar du ett program med Azure AD][ACOM-How-To-Integrate] för ytterligare djup i program integrerings processen.
 
 <!--Image references-->
 

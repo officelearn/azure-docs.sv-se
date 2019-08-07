@@ -5,14 +5,14 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 07/22/2019
+ms.date: 08/06/2019
 ms.author: danlep
-ms.openlocfilehash: 5100418651e24d74ad747e8c436ffce53c899a92
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 4e41bcaff8faef2c4eaec9ae852955d4b7ce354b
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68500901"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839909"
 ---
 # <a name="build-and-push-an-image-from-an-app-using-a-cloud-native-buildpack"></a>Bygga och skicka en avbildning från en app med hjälp av en inbyggd Cloud-Buildpack
 
@@ -44,11 +44,13 @@ I följande exempel skapas en behållar avbildning från Node. js-appen i avsnit
 az acr pack build \
     --registry myregistry \
     --image {{.Run.Registry}}/node-app:1.0 \
-    --builder cloudfoundry/cnb:bionic \
+    --pull --builder cloudfoundry/cnb:bionic \
     https://github.com/Azure-Samples/nodejs-docs-hello-world.git
 ```
 
-I det här exemplet `node-app` skapas avbildningen `1.0` med taggen och skickas till registret för *behållar* registret. Här är mål register namnet uttryckligen anpassningsprefix till avbildnings namnet. Om detta inte anges, anpassningsprefix-registrerings-URL: en automatiskt till avbildnings namnet.
+I det här exemplet `node-app` skapas avbildningen `1.0` med taggen och skickas till registret för behållar registret. Här är mål register namnet uttryckligen anpassningsprefix till avbildnings namnet. Om detta inte anges, anpassningsprefix-registrerings-URL: en automatiskt till avbildnings namnet.
+
+`--pull` Parametern anger att kommandot hämtar den senaste Builder-avbildningen.
 
 Kommandoutdata visar förloppet för att skapa och skicka avbildningen. 
 
@@ -78,9 +80,9 @@ az acr pack build \
     https://github.com/buildpack/sample-java-app.git
 ```
 
-I det här exemplet `java-app` skapas en avbildning som taggats med kommandots körnings-ID och push-överför den till registret för *behållar* behållaren.
+I det här exemplet `java-app` skapas en avbildning som taggats med kommandots körnings-ID och push -överför den till registret för behållar behållaren.
 
-`--pull` Parametern anger att kommandot hämtar den senaste Builder-avbildningen, vilket är nödvändigt eftersom Heroku Builder-avbildningen inte cachelagras av ACR-aktiviteter.
+`--pull` Parametern anger att kommandot hämtar den senaste Builder-avbildningen.
 
 Kommandoutdata visar förloppet för att skapa och skicka avbildningen. 
 

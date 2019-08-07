@@ -1,82 +1,80 @@
 ---
 title: Kortkommandon för Azure Data Catalog
-description: Den här artikeln visar kortkommandona för Azure Data Catalog.
-services: data-catalog
+description: I den här artikeln visas kortkommandon för Azure Data Catalog.
 author: JasonWHowell
 ms.author: jasonh
-ms.assetid: 00b77c88-fbca-4e6f-a175-d40b5cbbf144
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 01/18/2018
-ms.openlocfilehash: ed101df5cd3d6e5754b88c5f66807f9fda846cf4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/01/2019
+ms.openlocfilehash: 499067f33bddbede6510f61e2cb5da3fb33a5e7c
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60998817"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736310"
 ---
 # <a name="keyboard-shortcuts-for-azure-data-catalog"></a>Kortkommandon för Azure Data Catalog
-## <a name="keyboard-shortcuts-for-the-data-catalog-data-source-registration-tool"></a>Kortkommandon för Data Catalog-data source registreringsverktyget
+## <a name="keyboard-shortcuts-for-the-data-catalog-data-source-registration-tool"></a>Kortkommandon för registrerings verktyget för Data Catalog data källor
 ### <a name="general-keyboard-shortcuts"></a>Allmänna kortkommandon
-| Åtgärd | Tryck på |
+| Åtgärd | Håll |
 | --- | --- |
-| Fliken till alla kontroller på en sida |fliken |
-| Välj ett alternativ |Ange eller blanksteg |
+| Tabba till varje kontroll på en sida |Tab |
+| Välj ett alternativ |Ange eller blank steg |
 | Maximera sidan |WIN+UP |
-| Återställning/Minimera sidan |WIN + NEDPIL |
-| Öppna sidan menyn |ALT + BLANKSTEG |
+| Sidan Återställ/minimera |WIN OCH NEDÅT |
+| Öppna sidan-menyn |ALT + BLANK STEG |
 
-### <a name="authentication-page"></a>Autentiseringssidan
-| Åtgärd | Tryck på |
+### <a name="authentication-page"></a>Sidan autentisering
+| Åtgärd | Håll |
 | --- | --- |
-| Logga in på tjänsten |ALT+S |
+| Logga in på tjänsten |ALT + S |
 
-### <a name="data-source-selection-page"></a>Sidan val av datakällor
-| Åtgärd | Tryck på |
+### <a name="data-source-selection-page"></a>Sidan Välj data Källa
+| Åtgärd | Håll |
 | --- | --- |
-| Gå till nästa sida (om aktiverat) |ALT + N |
-| Ändra etikett när fokus ligger på en panel |VÄNSTER, uppåt, åt höger eller NEDPIL |
+| Gå till nästa sida (om den är aktive rad) |ALT + N |
+| Ändra markerad typ när fokus är på en panel |VÄNSTER-, UPPIL-eller HÖGERPIL |
 
-### <a name="data-source-connection-page"></a>Sidan anslutning datakällor
-| Åtgärd | Tryck på |
+### <a name="data-source-connection-page"></a>Sidan anslutning till data Källa
+| Åtgärd | Håll |
 | --- | --- |
-| Gå till föregående sida (om aktiverat) |ALT + P |
+| Gå till föregående sida (om den är aktive rad) |ALT + P |
 | Välj knappen Anslut. |ALT + C |
 
-### <a name="connection-context-page"></a>Sida för kontexten
-| Åtgärd | Tryck på |
+### <a name="connection-context-page"></a>Sidan anslutnings kontext
+| Åtgärd | Håll |
 | --- | --- |
-| Knappen registrera (om aktiverat) |ALT + R |
-| Inkludera förhandsversion kryssrutan (om tillgängligt) |ALT + P |
-| Inkludera Dataprofil kryssrutan (om tillgängligt) |ALT + D |
-| Gå till varje listobjekt |UPPIL eller NEDPIL |
-| Serverhierarki, expandera noden för en trädvy |HÖGERPIL |
-| Flytta valda objekt för **tillgängliga objekt** eller **objekt som ska registreras** |BLANKSTEG |
+| Knappen Registrera (om aktive rad) |ALT + R |
+| Inkludera kryss rutan för hands version (om tillgängligt) |ALT + P |
+| Kryss rutan inkludera data profil (om tillgänglig) |ALT + D |
+| Navigera till varje List objekt |UPPIL eller NEDPIL |
+| Server-hierarki, expandera en trädvys nod |HÖGERPIL |
+| Flytta markerade objekt för **tillgängliga objekt** eller **objekt som ska registreras** |NED |
 
-### <a name="publish-progress-page"></a>Publicera sidan för Installationsförlopp
-| Åtgärd | Tryck på |
+### <a name="publish-progress-page"></a>Sidan publicerings förlopp
+| Åtgärd | Håll |
 | --- | --- |
 | Knappen Avbryt |ALT + C |
-| Registrera fler objekt |ALT + R |
+| Knappen registrera fler objekt |ALT + R |
 | Visa Portal-knappen |ALT + V |
 
-### <a name="publish-progress-page"></a>Publicera sidan för Installationsförlopp
-| Åtgärd | Tryck på |
+### <a name="publish-progress-page"></a>Sidan publicerings förlopp
+| Åtgärd | Håll |
 | --- | --- |
-| Knappen Spara (om aktiverat) |ALT+S |
+| Knappen Spara (om den är aktive rad) |ALT + S |
 | Knappen Avbryt |ALT + C |
 
-## <a name="keyboard-shortcuts-for-the-data-catalog-portal"></a>Kortkommandon för Data Catalog-portalen
-| Åtgärd | Tryck på |
+## <a name="keyboard-shortcuts-for-the-data-catalog-portal"></a>Kortkommandon för Data Catalog Portal
+| Åtgärd | Håll |
 | --- | --- |
-| Navigera |FLIKEN och SKIFT + TABB |
-| Klicka på ett objekt |BLANKSTEG eller RETUR |
-| Granska nedåt i ett avsnitt |BLANKSTEG eller RETUR |
-| Stänger ner ett avsnitt |ESC |
-| Fäst/ta bort en tillgång |ALT + P |
-| På sidan identifiera när en tillgång har fokus, Välj tillgång |BLANKSTEG eller RETUR |
-| Lägger till/ta bort tillgången från flera val |CTRL + BLANKSTEG eller RETUR |
-| Växla sökning matchar-menyn |ALT+S |
-| Visa/dölj **öppna i** menyn |ALT + O |
-| Utforska behållare, om den är en behållare |ALT + L |
+| Navigera |TAB och SKIFT + TAB |
+| Klicka på ett objekt |UTRYMME eller ange |
+| Öka detalj nivån i ett avsnitt |UTRYMME eller ange |
+| Avsluta ett avsnitt |ESC |
+| Fäst/ta bort till gång |ALT + P |
+| På sidan identifiera när en till gång har fokus väljer du till gång |UTRYMME eller ange |
+| Lägger till/tar bort till gång från flera markeringar |CTRL + blank steg eller RETUR |
+| Växla menyn Sök matchningar |ALT + S |
+| Växla **Öppna i** meny |ALT + O |
+| Utforska container om till gången är en behållare |ALT + L |
 

@@ -7,12 +7,12 @@ ms.date: 07/31/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: a623aa98cd26e1636e47cb0e2831eeced17935b9
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: abaf96b11abee0bf519a276f825b9c47cd333c1b
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68695389"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816318"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Förhandsversion: Skapa en Azure Image Builder-mall 
 
@@ -65,7 +65,11 @@ Platsen är den region där den anpassade avbildningen kommer att skapas. För f
 ```json
     "location": "<region>",
 ```
-    
+
+## <a name="tags"></a>Tags
+
+Detta är nyckel/värde-par som du kan ange för den bild som genereras.
+
 ## <a name="depends-on-optional"></a>Är beroende av (valfritt)
 
 Det här valfria avsnittet kan användas för att säkerställa att beroenden har slutförts innan du fortsätter. 
@@ -344,7 +348,8 @@ Detta stöds av Windows-kataloger och Linux-sökvägar, men det finns vissa skil
  
 Om det uppstår ett fel vid försök att hämta filen, eller om den placeras i en angiven katalog, kommer anpassnings steget inte att fungera, och detta görs i anpassnings loggen.
 
->> Lägg! Fil anpassningen är bara lämplig för små fil hämtningar, < 20 MB. För större fil hämtningar används ett skript eller ett infogat kommando, koden används för att ladda ned filer, till `wget` exempel `curl`Linux eller Windows `Invoke-WebRequest`,.
+> [!NOTE]
+> Fil anpassningen är bara lämplig för små fil hämtningar, < 20 MB. För större fil hämtningar används ett skript eller ett infogat kommando, koden används för att ladda ned filer, till `wget` exempel `curl`Linux eller Windows `Invoke-WebRequest`,.
 
 Filer i fil anpassningen kan laddas ned från Azure Storage med [MSI](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage).
 

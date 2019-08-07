@@ -1,7 +1,8 @@
 ---
-title: IBM arbetsbelastningar på Azure | Microsoft Docs
-description: Använda en stordatorprogram emulator och andra tjänster från Microsoft-partners för att ange ny värd för dina IBM z/OS-arbetsbelastningar med Microsoft Azure.
+title: IBM-arbetsbelastningar på Azure | Microsoft Docs
+description: Använd en stordator-emulator och andra tjänster från Microsofts partner för att vara värd för dina IBM z/OS-arbetsbelastningar med hjälp av Microsoft Azure.
 services: virtual-machines-linux
+ms.service: virtual-machines-linux
 documentationcenter: ''
 author: njray
 ms.author: edprice
@@ -11,32 +12,32 @@ ms.topic: conceptual
 ms.date: 02/22/2019
 tags: ''
 keywords: ''
-ms.openlocfilehash: 4acf2fe1bc63061f17f90d6737f586408520dc13
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 13c83c53cdad719d6a4bed4cc1852b85d62082e8
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621325"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68834581"
 ---
-# <a name="ibm-workloads-on-azure"></a>IBM arbetsbelastningar på Azure
+# <a name="ibm-workloads-on-azure"></a>IBM-arbetsbelastningar på Azure
 
-Många IBM stordatorprogram arbetsbelastningar baserat på z/OS kan replikeras i Azure utan att förlora av funktioner och utan att användarna även upptäcka ändringar i underliggande systemen. Rehosting program på Azure får du stordatorprogram-liknande funktioner som du behöver dessutom flexibilitet, tillgänglighet, och potentiella besparingar i molnet.
+Många arbets belastningar i IBM-stordatorer som baseras på z/OS kan replikeras i Azure utan att några funktioner går förlorade och utan användare till och med märker ändringar i sina underliggande system. Att vara värd för program på Azure ger dig de stordatorer som du behöver samt elastiskhet, tillgänglighet och potentiella besparingar i molnet.
 
-Azure har stöd för integrering med befintliga miljöer för IBM stordatorprogram, så att du kan migrera applicates som passar, kör hybridlösningar där det behövs och migrerar över tid. Även om du kan helt skriva om befintliga stordatorprogram-baserade program för Azure, är det vanligare att rehost dem. Skriva om lägger till kostnaden och komplexiteten tid migreringsprojekt. Med att byta värd kan du:
+Azure har stöd för integrering med befintliga IBM-stordatorer, så att du kan migrera Applicates som gör det bäst att köra hybrid lösningar vid behov och migrera över tid. Även om du kan skriva om befintliga stordatorbaserade program för Azure, är det vanligare att vara värd för dem. När du skriver om läggs kostnaderna, komplexiteten och tiden till för migreringen. Med omvärdering kan du:
 
 - Flytta program till en molnbaserad emulator.
 
 - Migrera databasen till en molnbaserad databas.
 
-- Ersätt-moduler och kod med hjälp av kod omvandling motorer.
+- Ersätt moduler och kod med kod omvandlings motorer.
 
-IBM-program, bland annat WebSphere och MQ, är dessutom nu på Azure Marketplace. Med en licens för IBM-program kan du utnyttja Azures infrastrukturskalning på begäran för att snabbt starta en virtuell dator.
+Dessutom är IBM-programvara, inklusive WebSphere och MQ, nu på Azure Marketplace. Med en licens för IBM-program kan du utnyttja Azures infrastrukturskalning på begäran för att snabbt starta en virtuell dator.
 
-Ett omfattande ekosystem är tillgängliga för att hjälpa dig att migrera IBM-stordatorsystem till Azure. De flesta följa en pragmatisk metod för återanvändning möjligt innan du utvecklar en stegvis distribution av skriva om eller byta ut appar. Få mer information och hjälp från partners på den [Azure Stordatormigrering center](https://azure.microsoft.com/migration/mainframe/).
+Det finns ett omfattande partner eko system som hjälper dig att migrera IBM-stordatorer till Azure. I de flesta fall är det möjligt att återanvända en aktiv metod när det är möjligt innan du påbörjar en stegvis distribution av omskrivning eller ersättning av program. Få mer vägledning och hjälp från partner på Azures stordatorer- [flyttnings Center](https://azure.microsoft.com/migration/mainframe/).
 
 **Nästa steg**
 
-- [Stordatormigrering: myths och fakta](https://docs.microsoft.com/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/myths-and-facts)
+- [Stordator-migrering: myths och fakta](https://docs.microsoft.com/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/myths-and-facts)
 - [Installera IBM zD & T dev/test-miljö på Azure](./install-ibm-z-environment.md)
-- [Ange in ett program utvecklare kontrollerad Distribution (ADCD) i IBM zD & T v1](./demo.md)
-- [IBM DB2 pureScale på Azure](https://docs.microsoft.com/azure/virtual-machines/linux/ibm-db2-purescale-azure)
+- [Konfigurera en programutvecklare styrd distribution (ADCD) i IBM zD & T v1](./demo.md)
+- [IBM DB2-pureScale på Azure](https://docs.microsoft.com/azure/virtual-machines/linux/ibm-db2-purescale-azure)

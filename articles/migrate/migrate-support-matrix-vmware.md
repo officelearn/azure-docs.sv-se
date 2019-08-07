@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 07/22/2019
+ms.date: 08/05/2019
 ms.author: raynew
-ms.openlocfilehash: bbbec680cd2575cc63761c9fbe1335d548ec4d3b
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: ed7e53570127f12dbe41932481a3286a78865dde
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640783"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828274"
 ---
 # <a name="support-matrix-for-vmware-assessment-and-migration"></a>Stödmatris för utvärdering och migrering av VMware
 
@@ -42,8 +42,12 @@ Tabellen sammanfattar scenarier som stöds för virtuella VMware-datorer.
 **Geografi** | **Lagrings plats för metadata**
 --- | ---
 Azure Government | Virginia (USA-förvaltad region)
-Asien och stillahavsområdet | Sydostasien eller Asien, östra
-Europa | Europa, södra eller Västeuropa
+Asien och stillahavsområdet | Asien, östra eller Sydostasien
+Australien | Östra Australien eller Australien, sydöstra
+Kanada | Kanada, centrala eller Kanada, öst
+Europa | Europa, norra eller Europa, västra
+Indien | Centrala Indien eller södra Indien
+Japan |  Japan, östra eller Japan, väst
 Storbritannien och Nordirland | Storbritannien, södra eller Storbritannien, västra
 USA | USA, centrala eller västra USA 2
 
@@ -70,7 +74,7 @@ Azure Migrate-installationen för VMware distribueras med hjälp av en beredskap
 
 **Support** | **Detaljer**
 --- | ---
-**vCenter Server** | Du behöver tillräckligt med resurser på vCenter Server för att allokera en virtuell dator med 32 GB minne, 4 virtuella processorer och en extern virtuell växel.<br/><br/> Enheten kräver Internet åtkomst, antingen direkt eller via en proxyserver.
+**vCenter Server** | Du behöver tillräckligt med resurser på vCenter Server för att allokera en virtuell dator med 32 GB RAM, 8 virtuella processorer och en extern virtuell växel.<br/><br/> Enheten kräver Internet åtkomst, antingen direkt eller via en proxyserver.
 **ESXi** | Den virtuella datorn måste distribueras på en ESXi-värd som kör version 5,5 eller senare.
 **Azure Migrate projekt** | En apparat kan associeras med ett enda projekt.
 **vCenter Server** | En apparat kan identifiera upp till 10 000 virtuella VMware-datorer på en vCenter Server.<br/> En installation kan ansluta till en vCenter Server.
@@ -78,7 +82,7 @@ Azure Migrate-installationen för VMware distribueras med hjälp av en beredskap
 
 ## <a name="assessment-url-access-requirements"></a>Bedömnings krav för URL-åtkomst
 
-Azure Migrate-enheten behöver Internet anslutning till Internet.
+Azure Migrate-utrustningen behöver anslutning till Internet.
 
 - När du distribuerar installationen kontrollerar Azure Migrate en anslutning till de URL: er som sammanfattas i tabellen nedan.
 - Om du använder en URL-baserad proxy för att ansluta till Internet kan du ge åtkomst till dessa URL: er och se till att proxyservern matchar eventuella CNAME-poster som tas emot när URL: erna genomsöks.

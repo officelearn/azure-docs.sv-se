@@ -7,16 +7,16 @@ ms.subservice: security
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: oslake
-ms.author: moslake
+author: rohitnayakmsft
+ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 03/12/2019
-ms.openlocfilehash: fbe6c4cc82272c7ab82931b089dbc3c70b07bee0
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9b28a8efcc09954d9046ad1dda3ba5f10f45bdfa
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566234"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840468"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>Använd tjänst slut punkter och regler för virtuella nätverk för databas servrar
 
@@ -53,7 +53,7 @@ De virtuella datorerna i under näten kan inte kommunicera med din SQL Database 
 
 ### <a name="a-allow-access-to-azure-services"></a>A. Tillåt åtkomst till Azure-tjänster
 
-Fönstret brand vägg har en **på/av-** knapp med etiketten **Tillåt åtkomst till Azure-tjänster**. Inställningen **on** tillåter kommunikation från alla Azure IP-adresser och alla Azure-undernät. Dessa Azure IP-adresser eller undernät kanske inte ägs av dig. Den **här** inställningen är förmodligen mer öppen än du vill att din SQL Database ska vara. Funktionen för regel för virtuella nätverk ger en mycket noggrannare detaljerad kontroll.
+Fönstret brand vägg har en **på/av-** knapp med etiketten **Tillåt åtkomst till Azure-tjänster**. Inställningen **on** tillåter kommunikation från alla Azure IP-adresser och alla Azure-undernät. Dessa Azure IP-adresser eller undernät kanske inte ägs av dig. Den här inställningen är förmodligen mer öppen än du vill att din SQL Database ska vara. Funktionen för regel för virtuella nätverk ger en mycket noggrannare detaljerad kontroll.
 
 ### <a name="b-ip-rules"></a>B. IP-regler
 

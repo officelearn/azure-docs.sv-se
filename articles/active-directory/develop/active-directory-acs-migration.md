@@ -11,19 +11,19 @@ ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/03/2018
 ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3daf44ee29a2f7b29eec9215876ca6edc18a5800
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 59a2cc971fbc1df967bc2655c672ab8f419eef71
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325048"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68835515"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Anvisningar: Migrera från Azure Access Control Service
 
@@ -205,7 +205,7 @@ På hög nivå *är Azure Active Directory förmodligen det bästa valet för di
 | WS-Trust | Stöds | Stöds inte |
 | **Token-format** | | |
 | JWT | Stöds i beta | Stöds |
-| SAML 1,1 | Stöds | Förhandsversion |
+| SAML 1.1 | Stöds | Förhandsversion |
 | SAML 2.0 | Stöds | Stöds |
 | SWT | Stöds | Stöds inte |
 | **Anpassningar** | | |
@@ -256,7 +256,7 @@ I följande tabell jämförs funktionerna i Access Control som är relevanta fö
 | WS-Trust | Stöds | Stöds inte |
 | **Token-format** | | |
 | JWT | Stöds i beta | Stöds |
-| SAML 1,1 | Stöds | Stöds inte |
+| SAML 1.1 | Stöds | Stöds inte |
 | SAML 2.0 | Stöds | Stöds inte |
 | SWT | Stöds | Stöds inte |
 | **Anpassningar** | | |
@@ -325,7 +325,7 @@ Du kan också använda Azure AD för server-till-Server-autentisering med hjälp
 | Registrera en webb tjänst | Skapa en förlitande part i Access Control hanterings portalen | Skapa ett Azure AD-webbprogram i Azure Portal |
 | Registrera en klient | Skapa en tjänst identitet i Access Control hanterings Portal | Skapa ett annat Azure AD-webbprogram i Azure Portal |
 | Protokoll som används |– OAuth-protokollet för att packa<br />– OAuth 2,0 Draft 13-tilldelning av klientautentiseringsuppgifter | Beviljande av autentiseringsuppgifter för OAuth 2.0-klient |
-| Metoder för klientautentisering |– Enkelt lösen ord<br />-Signerad SWT<br />– SAML-token från en federerad identitets leverantör |– Enkelt lösen ord<br />-Signerat JWT |
+| Klientautentiseringsmetoder |– Enkelt lösen ord<br />-Signerad SWT<br />– SAML-token från en federerad identitets leverantör |– Enkelt lösen ord<br />-Signerat JWT |
 | Token-format |– JWT<br />– SAML 1,1<br />– SAML 2,0<br />– SWT<br /> | Endast JWT |
 | Token-transformering |-Lägg till anpassade anspråk<br />– Enkel om-then utfärdande logik för anspråk | Lägg till anpassade anspråk | 
 | Automatisera konfigurations-och hanterings uppgifter | Stöds via Access Control hanterings tjänst | Stöds via Microsoft Graph och Azure AD Graph API |

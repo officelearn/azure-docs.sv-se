@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 3f51f23f47cfbd81c71234bc2ce5a0adeeadd3f9
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: bf11d7a9dbaa37db521da67deddbed977cc1d251
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727379"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780543"
 ---
 # <a name="azure-database-security-checklist"></a>Check lista för Azure Database Security
 
@@ -41,7 +41,7 @@ Exempel på dessa är:
 Molnbaserad data behandling kräver nya säkerhets paradigm som är okända för många program användare, databas administratörer och programmerare. Därför är vissa organisationer tveka för att implementera en moln infrastruktur för data hantering på grund av uppfattade säkerhets risker. Mycket av detta kan dock minskas genom en bättre förståelse av säkerhetsfunktionerna som är inbyggda i Microsoft Azure och Microsoft Azure SQL Database.
 
 ## <a name="checklist"></a>Checklista
-Vi rekommenderar att du läser artikeln [metod tips för Azure Database Security](https://docs.microsoft.com/azure/security/azure-database-security-best-practices) innan du läser igenom check listan. Du kommer att kunna få ut det mesta av check listan när du förstår de bästa metoderna. Du kan sedan använda den här check listan för att kontrol lera att du har åtgärdat de viktiga problemen i Azure Database Security.
+Vi rekommenderar att du läser artikeln [metod tips för Azure Database Security](https://docs.microsoft.com/azure/security/fundamentals/database-best-practices) innan du läser igenom check listan. Du kommer att kunna få ut det mesta av check listan när du förstår de bästa metoderna. Du kan sedan använda den här check listan för att kontrol lera att du har åtgärdat de viktiga problemen i Azure Database Security.
 
 
 |Check lista kategori| Beskrivning|

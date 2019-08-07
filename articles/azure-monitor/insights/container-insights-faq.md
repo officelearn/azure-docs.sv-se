@@ -1,6 +1,6 @@
 ---
 title: Azure Monitor för behållare vanliga frågor och svar | Microsoft Docs
-description: Azure Monitor för behållare är en lösning som övervakar hälsotillståndet för dina AKS-kluster och Container Instances i Azure. Den här artikeln innehåller vanliga frågor och svar.
+description: Azure Monitor for containers är en lösning som övervakar hälso tillståndet för dina AKS-kluster och Container Instances i Azure. I den här artikeln besvaras vanliga frågor.
 services: azure-monitor
 author: mgoedtel
 manager: carmonm
@@ -8,48 +8,52 @@ editor: tysonn
 ms.service: azure-monitor
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 04/17/2019
+ms.date: 08/02/2019
 ms.author: magoedte
-ms.openlocfilehash: afa332b40884a79b5114b3b8093cd27108c39984
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3644b40311c037df800eb89ca26d1285fbf1e082
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65780008"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68741514"
 ---
 # <a name="azure-monitor-for-containers-frequently-asked-questions"></a>Azure Monitor för behållare vanliga frågor och svar
 
-Den här Microsoft-FAQ är en lista över vanliga frågor om Azure Monitor för behållare. Om du har ytterligare frågor om lösningen går du till den [diskussionsforum](https://feedback.azure.com/forums/34192--general-feedback) och ställa frågor. När en fråga är vanliga vi lägga till det i den här artikeln så att den finns snabbt och enkelt.
+Microsoft FAQ (vanliga frågor och svar) är en lista över vanliga frågor om Azure Monitor för behållare. Om du har ytterligare frågor om lösningen går du till [diskussions forumet](https://feedback.azure.com/forums/34192--general-feedback) och publicerar dina frågor. När en fråga är vanliga vi lägga till det i den här artikeln så att den finns snabbt och enkelt.
 
-## <a name="why-dont-i-see-data-in-my-log-analytics-workspace"></a>Varför visas inte data i Min arbetsyta för Log Analytics?
+## <a name="can-i-monitor-my-aks-engine-cluster-with-azure-monitor-for-containers"></a>Kan jag övervaka mitt AKS-kluster med Azure Monitor för behållare?
 
-Om du inte ser några data i Log Analytics-arbetsytan vid en viss tid dagliga har du nått gränsen på standard-500 MB eller den dagliga gränsen som vill styra mängden data som ska samlas in dagligen. När gränsen är uppfyllt för dagen, datainsamling stoppar och återupptar endast på nästa dag. Om du vill granska din dataanvändning och uppdatera till en annan prisnivå baserat på ditt förväntade användningsmönster, se [logga dataanvändning och kostnader](../platform/manage-cost-storage.md). 
+Azure Monitor för behållare stöder övervakning av arbets belastningar som distribueras till AKS-motorn (tidigare ACS-motor) som finns på Azure. Mer information och en översikt över de steg som krävs för att aktivera övervakning för det här scenariot finns i [använda Azure Monitor för behållare för AKS-Engine](https://github.com/microsoft/OMS-docker/tree/aks-engine).
 
-## <a name="what-are-the-container-states-specified-in-the-containerinventory-table"></a>Vilka är de behållare stater som anges i tabellen ContainerInventory?
+## <a name="why-dont-i-see-data-in-my-log-analytics-workspace"></a>Varför visas inte data i min Log Analytics-arbetsyta?
 
-Tabellen ContainerInventory innehåller information om både stoppad och köra behållare. Tabellen innehåller ett arbetsflöde i agenten som frågar docker för alla behållare (som körs och stoppad) och vidarebefordrar dessa data till Log Analytics-arbetsytan.
+Om du inte kan se några data i Log Analytics arbets ytan vid en viss tid varje dag, kan du ha uppnått standard gränsen på 500 MB eller den dagliga begränsningen för att styra mängden data som ska samlas in dagligen. När gränsen uppfylls för dagen stoppas data insamlingen och återupptas bara på nästa dag. Information om hur du granskar din data användning och uppdaterar till en annan pris nivå baserat på dina förväntade användnings mönster finns i [logga data användning och kostnad](../platform/manage-cost-storage.md). 
+
+## <a name="what-are-the-container-states-specified-in-the-containerinventory-table"></a>Vilka är behållar tillstånden angivna i ContainerInventory-tabellen?
+
+Tabellen ContainerInventory innehåller information om både stoppade och pågående behållare. Tabellen fylls i av ett arbets flöde i agenten som frågar Docker efter alla behållare (körs och stoppas) och vidarebefordrar dessa data till Log Analytics arbets ytan.
  
-## <a name="how-do-i-resolve-missing-subscription-registration-error"></a>Hur löser jag **saknas prenumerationsregistreringen** fel?
+## <a name="how-do-i-resolve-missing-subscription-registration-error"></a>Hur gör jag för att lösa **saknade prenumerations registrerings** fel?
 
-Om du får felet **saknas prenumerationsregistreringen för Microsoft.OperationsManagement**, du kan lösa det genom att registrera resursprovidern **Microsoft.OperationsManagement** i den prenumeration där arbetsytan har definierats. Dokumentation för hur du gör detta finns [här](../../azure-resource-manager/resource-manager-register-provider-errors.md).
+Om du får ett fel meddelande om att **prenumerations registrering saknas för Microsoft. OperationsManagement**kan du lösa det genom att registrera resurs leverantören **Microsoft. OperationsManagement** i prenumerationen där arbets ytan definieras. Dokumentationen för hur du kan göra detta finns [här](../../azure-resource-manager/resource-manager-register-provider-errors.md).
 
 ## <a name="is-there-support-for-rbac-enabled-aks-clusters"></a>Finns det stöd för RBAC-aktiverade AKS-kluster?
 
-Behållarövervakning-lösningen stöder inte RBAC, men det stöds med Azure Monitor för behållare. Lösningens detaljsida kan inte visa rätt information i blad som visar data för klustren.
+Lösningen för övervakning av behållare stöder inte RBAC, men den stöds med Azure Monitor för behållare. Sidan lösnings information visar kanske inte rätt information i bladet som visar data för de här klustren.
 
-## <a name="how-do-i-enable-log-collection-for-containers-in-the-kube-system-namespace-through-helm"></a>Hur aktiverar jag Logginsamling för behållare i namnområdet kube system via Helm?
+## <a name="how-do-i-enable-log-collection-for-containers-in-the-kube-system-namespace-through-helm"></a>Hur gör jag för att aktivera logg insamling för behållare i namn området Kube-system via Helm?
 
-Logginsamling från behållare i namnområdet kube system är inaktiverad som standard. Logginsamling kan aktiveras genom att ange en miljövariabel på omsagent. Mer information finns i den [Azure Monitor för behållare](https://github.com/helm/charts/tree/master/incubator/azuremonitor-containers) GitHub-sidan. 
+Logg samlingen från behållare i Kube-systemets namnrymd är inaktive rad som standard. Logg insamling kan aktive ras genom att ställa in en miljö variabel på omsagent. Mer information finns på sidan [Azure Monitor for containers](https://github.com/helm/charts/tree/master/incubator/azuremonitor-containers) GitHub. 
 
-## <a name="how-do-i-update-the-omsagent-to-the-latest-released-version"></a>Hur uppdaterar jag omsagent till den senaste versionen?
+## <a name="how-do-i-update-the-omsagent-to-the-latest-released-version"></a>Hur gör jag för att du uppdatera omsagent till den senaste versionen?
 
-Om du vill lära dig mer om att uppgradera agenten, se [agenthantering](container-insights-manage-agent.md).
+Information om hur du uppgraderar agenten finns i [agent hantering](container-insights-manage-agent.md).
 
-## <a name="how-do-i-enable-multi-line-logging"></a>Hur aktiverar jag loggning för flera rader?
+## <a name="how-do-i-enable-multi-line-logging"></a>Hur gör jag för att aktivera loggning på flera rader?
 
-Azure Monitor för behållare stöder inte för närvarande med flera rader loggning, men det finns lösningar tillgängliga. Du kan konfigurera alla tjänster att skriva i JSON-format och sedan Docker/Moby ska skriva dem som en enda rad.
+För närvarande har Azure Monitor för behållare inte stöd för flera rader, men det finns lösningar som är tillgängliga. Du kan konfigurera alla tjänster som ska skrivas i JSON-format och sedan Docker/Moby att skriva dem som en enda rad.
 
-Du kan till exempel omsluter din logg som ett JSON-objekt som visas i exemplet nedan för ett node.js-exempelprogram:
+Du kan till exempel figursätta loggen som ett JSON-objekt, som du ser i exemplet nedan för ett exempel på Node. js-program:
 
 ```
 console.log(json.stringify({ 
@@ -67,17 +71,17 @@ LogEntry : ({“Hello": "This example has multiple lines:","Docker/Moby": "will 
 
 ```
 
-För detaljerad information om problemet, granska följande [github link](https://github.com/moby/moby/issues/22920).
+En detaljerad översikt över problemet finns i följande [GitHub-länk](https://github.com/moby/moby/issues/22920).
 
-## <a name="how-do-i-resolve-azure-ad-errors-when-i-enable-live-logs"></a>Hur löser jag Azure AD-fel när jag aktivera live loggar? 
+## <a name="how-do-i-resolve-azure-ad-errors-when-i-enable-live-logs"></a>Hur gör jag för att lösa Azure AD-fel när jag aktiverar Live-loggar? 
 
-Du kan se följande fel: **Svaret från URL: en som anges i begäran överensstämmer inte med svars-URL som konfigurerats för programmet: ' < program-ID\>'** . Lösning som löste det finns i artikeln [visa behållarens loggar realtid med Azure Monitor för behållare](container-insights-live-logs.md#configure-aks-with-azure-active-directory). 
+Följande fel kan visas: Svars-URL: en som **anges i begäran matchar inte de svars-URL: er som har kon\>figurer ats för programmet: < program-ID**. Lösningen för att lösa problemet finns i artikeln [så här visar du behållar loggar real tid med Azure Monitor för behållare](container-insights-live-logs.md#configure-aks-with-azure-active-directory). 
 
-## <a name="why-cant-i-upgrade-cluster-after-onboarding"></a>Varför kan jag inte uppgradera klustret efter?
+## <a name="why-cant-i-upgrade-cluster-after-onboarding"></a>Varför kan jag inte uppgradera klustret efter onboarding?
 
-Om när du aktiverar Azure Monitor för behållare för ett AKS-kluster kan du ta bort Log Analytics-arbetsytan i klustret har skickat data, när du försöker uppgradera klustret kommer att misslyckas. Undvik detta genom kommer du behöva inaktivera övervakning och sedan återaktivera det refererar till en annan giltig arbetsyta i din prenumeration. Den ska bearbeta och slutförs när du försöker uppgradera klustret igen.  
+Om du när du har aktiverat Azure Monitor för behållare för ett AKS-kluster tar du bort arbets ytan Log Analytics som klustret skickade data till, vid försök att uppgradera klustret. För att undvika detta måste du inaktivera övervakning och sedan återaktivera den till en annan giltig arbets yta i din prenumeration. När du försöker utföra kluster uppgraderingen igen bör den bearbetas och slutföras.  
 
-## <a name="which-ports-and-domains-do-i-need-to-openwhitelist-for-the-agent"></a>Vilka portar och domäner behöver jag öppen/godkänna för agenten?
+## <a name="which-ports-and-domains-do-i-need-to-openwhitelist-for-the-agent"></a>Vilka portar och domäner behöver jag öppna/vitlista för agenten?
 - *.ods.opinsights.azure.com   443
 - *.oms.opinsights.azure.com   443
 - *.blob.core.windows.net      443

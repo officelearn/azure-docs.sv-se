@@ -1,6 +1,6 @@
 ---
-title: Konfigurera agenten datakällor i Azure Monitor | Microsoft Docs
-description: Datakällor definierar loggdata att Azure Monitor samlar in från agenter och andra anslutna datakällor.  Den här artikeln beskriver begreppet hur Azure Monitor datakällor, beskrivs detaljer om hur du konfigurerar dem och innehåller en sammanfattning av de olika datakällorna som är tillgängliga.
+title: Konfigurera agent data källor i Azure Monitor | Microsoft Docs
+description: Data källor definierar de loggdata som Azure Monitor samlar in från agenter och andra anslutna källor.  I den här artikeln beskrivs hur Azure Monitor använder data källor, förklarar hur du konfigurerar dem och ger en översikt över de olika data källor som är tillgängliga.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,55 +13,55 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: bwren
-ms.openlocfilehash: d7d4aa89c4dcf2ac9cc0c393e0481cae1f3aeaf2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f4e86a3a7b6a0781ea6c020bd0afc9364b7132f7
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60776092"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839351"
 ---
-# <a name="agent-data-sources-in-azure-monitor"></a>Agent-datakällor i Azure Monitor
-De data som Azure Monitor samlar in från agenter definieras av datakällor som du konfigurerar.  Data från agenter lagras som [logga data över](data-platform-logs.md) med en uppsättning poster.  Varje datakälla skapar poster i en viss typ med varje typ av att ha en egen uppsättning egenskaper.
+# <a name="agent-data-sources-in-azure-monitor"></a>Agent data källor i Azure Monitor
+De data som Azure Monitor samlar in från agenter definieras av de data källor som du konfigurerar.  Data från agenter lagras som [loggdata](data-platform-logs.md) med en uppsättning poster.  Varje data källa skapar poster av en viss typ med varje typ som har en egen uppsättning egenskaper.
 
-![Insamling av logg](media/agent-data-sources/overview.png)
+![Logg data insamling](media/agent-data-sources/overview.png)
 
-## <a name="summary-of-data-sources"></a>Översikt över datakällor
-I följande tabell visas de agent-datakällor som är tillgängliga i Azure Monitor.  Var och en har en länk till en separat artikel som tillhandahåller information för datakällan.   Det innehåller även information om deras metod och insamlingsfrekvensen. 
+## <a name="summary-of-data-sources"></a>Sammanfattning av data källor
+I följande tabell visas de agent data källor som för närvarande är tillgängliga i Azure Monitor.  Varje har en länk till en separat artikel som innehåller information om data källan.   Den innehåller också information om deras metod och frekvens för insamling. 
 
 
-| Datakälla | Plattform | Microsoft övervakningsagent | Operations Manager-agent | Azure-lagring | Operations Manager som krävs? | Operations Manager agent-data skickas via hanteringsgruppen | Insamlingsfrekvens |
+| Datakälla | Plattform | Log Analytics-agent | Operations Manager agent | Azure-lagring | Operations Manager krävs. | Operations Manager agent data som skickas via hanterings gruppen | Insamlingsfrekvens |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| [Anpassade loggar](data-sources-custom-logs.md) | Windows |&#8226; |  | |  |  | anländer |
-| [Anpassade loggar](data-sources-custom-logs.md) | Linux   |&#8226; |  | |  |  | anländer |
-| [IIS-loggar](data-sources-iis-logs.md) | Windows |&#8226; |&#8226; |&#8226; |  |  |beror på inställningen för loggfil |
-| [Prestandaräknare](data-sources-performance-counters.md) | Windows |&#8226; |&#8226; |  |  |  |som schemalagts, minst 10 sekunder |
-| [Prestandaräknare](data-sources-performance-counters.md) | Linux |&#8226; |  |  |  |  |som schemalagts, minst 10 sekunder |
-| [Syslog](data-sources-syslog.md) | Linux |&#8226; |  |  |  |  |från Azure storage: 10 minuter. från agent: anländer |
-| [Windows-händelseloggar](data-sources-windows-events.md) |Windows |&#8226; |&#8226; |&#8226; |  |&#8226; | anländer |
+| [Anpassade loggar](data-sources-custom-logs.md) | Windows |&#8226; |  | |  |  | vid ankomsten |
+| [Anpassade loggar](data-sources-custom-logs.md) | Linux   |&#8226; |  | |  |  | vid ankomsten |
+| [IIS-loggar](data-sources-iis-logs.md) | Windows |&#8226; |&#8226; |&#8226; |  |  |beror på inställningen för förnyelse av loggfil |
+| [Prestandaräknare](data-sources-performance-counters.md) | Windows |&#8226; |&#8226; |  |  |  |som schemalagt, minst 10 sekunder |
+| [Prestandaräknare](data-sources-performance-counters.md) | Linux |&#8226; |  |  |  |  |som schemalagt, minst 10 sekunder |
+| [Syslog](data-sources-syslog.md) | Linux |&#8226; |  |  |  |  |från Azure Storage: 10 minuter; från agent: vid ankomsten |
+| [Händelse loggar i Windows](data-sources-windows-events.md) |Windows |&#8226; |&#8226; |&#8226; |  |&#8226; | vid ankomsten |
 
 
-## <a name="configuring-data-sources"></a>Konfigurera datakällor
-Du konfigurerar datakällor från den **Data** menyn i **avancerade inställningar** för arbetsytan.  Valfri konfiguration levereras till alla anslutna källor i din arbetsyta.  Du kan inte för närvarande undanta alla eventuella agenter från den här konfigurationen.
+## <a name="configuring-data-sources"></a>Konfigurera data källor
+Du konfigurerar data källor från **data** -menyn i **Avancerade inställningar** för arbets ytan.  Alla konfigurationer levereras till alla anslutna källor i din arbets yta.  Du kan för närvarande inte undanta några agenter från den här konfigurationen.
 
 ![Konfigurera Windows-händelser](media/agent-data-sources/configure-events.png)
 
-1. I Azure-portalen väljer du **Log Analytics-arbetsytor** > din arbetsyta > **avancerade inställningar**.
-2. Välj **Data**.
-3. Klicka på datakällan som du vill konfigurera.
-4. Följer du länken till dokumentationen för varje datakälla i tabellen ovan för information på deras konfiguration.
+1. I Azure Portal väljer du **Log Analytics arbets ytor** > din arbets yta > **Avancerade inställningar**.
+2. Välj **data**.
+3. Klicka på den data källa som du vill konfigurera.
+4. Följ länken till dokumentationen för varje data källa i tabellen ovan om du vill ha mer information om deras konfiguration.
 
 
 ## <a name="data-collection"></a>Datainsamling
-Datakällskonfigurationer levereras till agenter som är direkt anslutna till Azure Monitor inom några minuter.  Angivna data samlas in från agenten och levereras direkt till Azure Monitor med intervall som är specifika för varje datakälla.  Finns i dokumentationen för varje datakälla dessa ge specifik information.
+Konfigurationer för data källa levereras till agenter som är direkt anslutna till Azure Monitor inom några minuter.  Angivna data samlas in från agenten och levereras direkt till Azure Monitor med intervall som är specifika för varje data källa.  Se dokumentationen för varje data källa för dessa uppgifter.
 
-System Center Operations Manager-agenter i en ansluten hanteringsgrupp, datakällskonfigurationer översättas till hanteringspaket och levereras till hanteringsgruppen var femte minut som standard.  Agenten hämtar hanteringspaket som med andra och samlar in angivna data. Beroende på datakällan, data kommer att antingen skickas till en hanteringsserver som vidarebefordrar data till Azure Monitor eller agenten skickar data till Azure Monitor utan att gå via management-servern. Se [samling som finns för att övervaka lösningar i Azure](../insights/solutions-inventory.md) mer information.  Du kan läsa om information om att ansluta Operations Manager och Azure Monitor och ändra frekvensen konfigurationen levereras på [konfigurerar integrering med System Center Operations Manager](om-agents.md).
+För System Center Operations Manager agenter i en ansluten hanterings grupp översätts data källans konfigurationer till hanterings paket och levereras till hanterings gruppen var femte minut som standard.  Agenten laddar ned hanterings paketet som alla andra och samlar in angivna data. Beroende på data källan skickas data antingen till en hanterings server som vidarebefordrar data till Azure Monitor eller så skickar agenten data till Azure Monitor utan att gå igenom hanterings servern. Mer information finns i information om [data insamling för övervakning av lösningar i Azure](../insights/solutions-inventory.md) .  Du kan läsa mer om att ansluta Operations Manager och Azure Monitor och ändra den frekvens som konfigurationen levereras i [Konfigurera integration med System Center Operations Manager](om-agents.md).
 
-Om agenten inte kan ansluta till Azure Monitor eller Operations Manager, fortsätter den att samla in data som den ger när den upprättar en anslutning.  Data kan förloras om mängden data når den största möjliga cachestorleken för klienten, eller om agenten inte kan upprätta en anslutning inom 24 timmar.
+Om agenten inte kan ansluta till Azure Monitor eller Operations Manager fortsätter den att samla in data som den kommer att leverera när en anslutning upprättas.  Data kan gå förlorade om mängden data når den maximala cache-storleken för klienten, eller om agenten inte kan upprätta en anslutning inom 24 timmar.
 
-## <a name="log-records"></a>Loggposter
-Alla loggdata som samlas in av Azure Monitor lagras som poster i arbetsytan.  Poster som samlas in av olika datakällor har sin egen uppsättning egenskaper och identifieras av sina **typ** egenskapen.  Finns i dokumentationen för varje datakälla och lösningen information på varje posttyp.
+## <a name="log-records"></a>Logg poster
+Alla loggdata som samlas in av Azure Monitor lagras i arbets ytan som poster.  Poster som samlas in av olika data källor har sin egen uppsättning egenskaper och identifieras av deras **typ** egenskap.  Se dokumentationen för varje data källa och lösning för information om varje posttyp.
 
 ## <a name="next-steps"></a>Nästa steg
-* Lär dig mer om [övervakningslösningar](../insights/solutions.md) som lägger till funktioner i Azure Monitor och också samla in data till arbetsytan.
-* Lär dig mer om [logga frågor](../log-query/log-query-overview.md) att analysera data som samlas in från datakällor och övervakningslösningar.  
-* Konfigurera [aviseringar](alerts-overview.md) att informera dig om viktiga data som samlas in från datakällor och övervakningslösningar.
+* Lär dig mer om att [övervaka lösningar](../insights/solutions.md) som lägger till funktioner i Azure Monitor och även samla in data i arbets ytan.
+* Lär dig mer om [logg frågor](../log-query/log-query-overview.md) för att analysera data som samlas in från data källor och övervaknings lösningar.  
+* Konfigurera [aviseringar](alerts-overview.md) för att proaktivt meddela dig om viktiga data som samlas in från data källor och övervaknings lösningar.

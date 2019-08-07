@@ -1,41 +1,41 @@
 ---
-title: Azure VMware-lösning av CloudSimple - CloudSimple aktivitetshantering
-description: Beskriver begrepp för aktivitet på VMware-lösning genom CloudSimple
+title: Azure VMware-lösning av CloudSimple-CloudSimple – aktivitets hantering
+description: Beskriver aktivitets koncept i VMware-lösningen av CloudSimple
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 04/30/2019
 ms.topic: article
-ms.service: vmware
+ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: dd073d040e6e7f149109c9988580dcd889f7c62f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b87a4e2889e9e65a3173a4c11d9c92a33e8e70b7
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65160147"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816242"
 ---
-# <a name="activity-management-overview"></a>Översikt över aktivitet
+# <a name="activity-management-overview"></a>Översikt över aktivitets hantering
 
-CloudSimple spårar alla aktiviteter som kan påverka driften av dina privata moln. Dessa aktiviteter, inklusive aviseringar, händelser, uppgifter och aktivitetsrapporter. Den [aktivitet sidor](https://docs.azure.cloudsimple.com/activity/) summerar den aktuella aktiviteten och där du vill öka detaljnivån för ytterligare information.
+CloudSimple spårar alla aktiviteter som kan påverka hur dina privata moln fungerar. Dessa aktiviteter, inklusive aviseringar, händelser, aktiviteter och gransknings aktiviteter. [Aktivitets sidorna](https://docs.azure.cloudsimple.com/activity/) sammanfattar all aktuell aktivitet och gör det möjligt att öka detalj nivån för ytterligare information.
 
 ## <a name="events"></a>Events
 
-Händelser spåra användar- och systemaktivitet på CloudSimple-portalen.  Händelser visar aktiviteten som är associerade med en specifik resurs och allvarlighetsgraden på de effekten.  Du kan visa händelser från CloudSimple-portalen.
+Händelser spårar användar-och system aktivitet på CloudSimple-portalen.  Händelser visar den aktivitet som är associerad med en speciell resurs och påverkannas allvarlighets grad.  Du kan visa händelserna från CloudSimple-portalen.
 
 ## <a name="alerts"></a>Aviseringar
 
-Aviseringar är meddelanden om alla betydande aktiviteter på miljön CloudSimple.  Händelser som påverkar fakturering eller användaren åtkomst visas som aviseringar.  Här bekräftar du aviseringarna som har aktiverats från CloudSimple-portalen.
+Aviseringar är aviseringar om viktiga aktiviteter i din CloudSimple-miljö.  Händelser som påverkar fakturerings-eller användar åtkomst visas som aviseringar.  Du kan bekräfta de genererade aviseringarna från CloudSimple-portalen.
 
-## <a name="tasks"></a>Uppgifter
+## <a name="tasks"></a>Aktiviteter
 
-Uppgifter spåra alla åtgärder för användare som tar mer än 30 sekunder att slutföra.  Du kan övervaka förloppet för en aktivitet från CloudSimple-portalen.  Slutföra uppgifter visar den totala tid det tar för åtgärden har slutförts.
+Aktiviteterna spårar alla användar åtgärder, vilket tar över 30 sekunder att slutföra.  Du kan övervaka förloppet för en aktivitet från CloudSimple-portalen.  Slutförda aktiviteter visar den totala tid som krävs för att aktiviteten ska slutföras.
 
 ## <a name="audit"></a>Granska
 
-Spåra åtgärder som användaren genomförde granskningsloggar.  Loggarna innehåller de parametrar som användaren har angett för åtgärden.  Du kan använda granskningsloggar för att övervaka användaraktivitet för alla användare.
+Gransknings loggar spårade åtgärder som användaren utför.  Loggarna innehåller de parametrar som användaren har angett för åtgärden.  Du kan använda gransknings loggar för att övervaka användar aktivitet för alla användare.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Visa sammanfattning av kontot](https://docs.azure.cloudsimple.com/account/)
-* [Visa loggen för användning](https://docs.azure.cloudsimple.com/usage/)
+* [Visa konto sammanfattningen](https://docs.azure.cloudsimple.com/account/)
+* [Visa användnings loggen](https://docs.azure.cloudsimple.com/usage/)

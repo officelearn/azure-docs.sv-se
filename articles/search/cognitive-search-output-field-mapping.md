@@ -1,6 +1,6 @@
 ---
-title: Kartan kognitiv sökning berikats inmatningsfält till fält för tabellutdata – Azure Search
-description: Extrahera och berika data källfält och mappar till utdatafält i ett Azure Search-index.
+title: Mappa kognitiva sökfält för att mata in fält – Azure Search
+description: Extrahera och utöka käll data fält och mappa till utdatakolumner i ett Azure Search index.
 manager: pablocas
 author: luiscabrer
 services: search
@@ -9,21 +9,21 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seodec2018
-ms.openlocfilehash: 506acee6cd9cd3c50e10f1c45768230564eeaaf1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.subservice: cognitive-search
+ms.openlocfilehash: 1fae611c202b77d222436b090f7e0c2f432de1f2
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65022082"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68841166"
 ---
-# <a name="how-to-map-enriched-fields-to-a-searchable-index"></a>Avancerad och mappning till ett sökbart index
+# <a name="how-to-map-enriched-fields-to-a-searchable-index"></a>Så här mappar du omfattande fält till ett sökbart index
 
-I den här artikeln får du lära dig mappning avancerad och indata till utdatafält i ett sökbart index. När du har [definieras en kompetens](cognitive-search-defining-skillset.md), måste du mappa fält för tabellutdata för alla färdigheter som direkt bidrar värden till ett visst fält i sökindexet. Fältmappningar krävs för att flytta innehåll från avancerad och dokument i indexet.
+I den här artikeln får du lära dig hur du mappar informativa inmatnings fält till utdatakolumner i ett sökbart index. När du har [definierat en färdigheter](cognitive-search-defining-skillset.md)måste du mappa utmatnings fälten för alla färdigheter som direkt bidrar med värden till ett angivet fält i ditt sökindex. Fält mappningar krävs för att flytta innehåll från berikade dokument till indexet.
 
 
-## <a name="use-outputfieldmappings"></a>Använda outputFieldMappings
-Om du vill mappa fält, lägga till `outputFieldMappings` till din indexerardefinitionen enligt nedan:
+## <a name="use-outputfieldmappings"></a>Använd outputFieldMappings
+Om du vill mappa fält `outputFieldMappings` lägger du till den i index definitions definitionen enligt nedan:
 
 ```http
 PUT https://[servicename].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
@@ -31,7 +31,7 @@ api-key: [admin key]
 Content-Type: application/json
 ```
 
-Brödtexten i begäran är strukturerade på följande sätt:
+Bröd texten i begäran är strukturerad enligt följande:
 
 ```json
 {
@@ -64,14 +64,14 @@ Brödtexten i begäran är strukturerade på följande sätt:
     ]
 }
 ```
-Ange namnet på fältet avancerad och (sourceFieldName) och namnet på fältet som refereras till i indexet (targetFieldName) för varje fältmappning för utdata.
+För varje fält mappning för utdata anger du namnet på det berikade fältet (sourceFieldName) och namnet på fältet som det refereras till i indexet (targetFieldName).
 
-Sökvägen i en sourceFieldName kan representera en eller flera element. I exemplet ovan, ```/document/content/sentiment``` representerar ett numeriskt värde, medan ```/document/content/organizations/*/description``` representerar flera organisation beskrivningar. I fall där det finns flera element, de är ”förenklas” till en matris som innehåller varje element. Fler concretely för den ```/document/content/organizations/*/description``` exempel måste data i den *beskrivningar* fältet skulle se ut som en fast mängd beskrivningar innan de indexeras:
+Sökvägen i en sourceFieldName kan representera ett eller flera element. I exemplet ovan ```/document/content/sentiment``` representerar ett enkelt numeriskt värde, medan ```/document/content/organizations/*/description``` representerar flera organisations beskrivningar. I de fall där det finns flera element blir de "förenklade" i en matris som innehåller varje element. Mer konkret, ```/document/content/organizations/*/description``` i exemplet skulle data i fältet *beskrivningar* se ut som en plan mat ris med beskrivningar innan de indexeras:
 
 ```
  ["Microsoft is a company in Seattle","LinkedIn's office is in San Francisco"]
 ```
 ## <a name="next-steps"></a>Nästa steg
-När du har mappat dina avancerad och fält till sökbara fält kan du ange fältattributen för var och en av de sökbara fälten [som en del av indexdefinitionen](search-what-is-an-index.md).
+När du har mappat dina berikade fält till sökbara fält kan du ange fältattribut för varje sökbart fält [som en del av index definitionen](search-what-is-an-index.md).
 
-Läs mer om fältmappning [fältmappningar för Azure Search-indexerare](search-indexer-field-mappings.md).
+Mer information om fält mappning finns [i fält mappningar i Azure Search indexerare](search-indexer-field-mappings.md).

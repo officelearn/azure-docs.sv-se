@@ -1,6 +1,6 @@
 ---
-title: Text Merge kognitiv sökning färdigheter – Azure Search
-description: Sammanfoga text från en uppsättning fält i ett konsoliderade fält. Använd den här kognitiva kunskaper i en Azure Search berikande pipeline.
+title: Text sammanfogning kognitiv Sök kompetens – Azure Search
+description: Sammanfoga text från en samling fält till ett konsoliderat fält. Använd den här kognitiva kunskapen i en Azure Search anriknings pipeline.
 services: search
 manager: pablocas
 author: luiscabrer
@@ -10,36 +10,36 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seodec2018
-ms.openlocfilehash: bbf2e524d626ac17596ded61746c26f20a6caf1b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.subservice: cognitive-search
+ms.openlocfilehash: 312caf2d514d630c5bc1fb7755b7ab7a6a3d443a
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65021825"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840906"
 ---
-#    <a name="text-merge-cognitive-skill"></a>Text Merge kognitiva kunskaper
+#    <a name="text-merge-cognitive-skill"></a>Text sammanfogning av kognitiva kunskaper
 
-Den **Text sammanfoga** färdighet konsoliderar text från en samling av fält till ett fält. 
+**Text sammanfognings** kunskapen konsoliderar text från en samling fält till ett enda fält. 
 
 > [!NOTE]
-> Kompetensen är inte bunden till en Cognitive Services-API och du debiteras inte för att använda den. Du bör fortfarande [bifoga en resurs för Cognitive Services](cognitive-search-attach-cognitive-services.md), men att åsidosätta den **kostnadsfri** resurs-alternativ som begränsar du till ett litet antal dagliga enrichments per dag.
+> Den här kunskapen är inte kopplad till ett Cognitive Services-API och du debiteras inte för att använda den. Du bör fortfarande [bifoga en Cognitive Services resurs](cognitive-search-attach-cognitive-services.md), men för att åsidosätta det **kostnads fria** resurs alternativet som begränsar dig till ett litet antal dagliga berikare per dag.
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.MergeSkill
 
-## <a name="skill-parameters"></a>Färdighet parametrar
+## <a name="skill-parameters"></a>Kunskaps parametrar
 
-Parametrar är skiftlägeskänsliga.
+Parametrar är Skift läges känsliga.
 
 | Parameternamn     | Beskrivning |
 |--------------------|-------------|
-| insertPreTag  | Strängen som ska tas med innan varje infogning. Standardvärdet är `" "`. Om du vill utelämna utrymmet Ställ in värdet `""`.  |
-| insertPostTag | Strängen som ska ingå efter varje infogning. Standardvärdet är `" "`. Om du vill utelämna utrymmet Ställ in värdet `""`.  |
+| insertPreTag  | Sträng som ska tas med före varje infogning. Standardvärdet är `" "`. Om du vill utelämna utrymmet ställer du in värdet `""`på.  |
+| insertPostTag | Sträng som ska tas med efter varje infogning. Standardvärdet är `" "`. Om du vill utelämna utrymmet ställer du in värdet `""`på.  |
 
 
-##  <a name="sample-input"></a>Exempelindata
-Ett JSON-dokument som tillhandahåller användbar indata för den här färdighet kan vara följande:
+##  <a name="sample-input"></a>Exempel på inmatade
+Ett JSON-dokument som ger användbar indatamängd för den här kunskapen kan vara:
 
 ```json
 {
@@ -58,7 +58,7 @@ Ett JSON-dokument som tillhandahåller användbar indata för den här färdighe
 ```
 
 ##  <a name="sample-output"></a>Exempel på utdata
-Det här exemplet visar utdata från föregående indata, under förutsättning att den *insertPreTag* är inställd på `" "`, och *insertPostTag* är inställd på `""`. 
+I det här exemplet visas resultatet av föregående indata, förutsatt att *insertPreTag* är inställt `" "`på, och *insertPostTag* är inställt på `""`. 
 
 ```json
 {
@@ -74,11 +74,11 @@ Det här exemplet visar utdata från föregående indata, under förutsättning 
 }
 ```
 
-## <a name="extended-sample-skillset-definition"></a>Utökade kompetens exempeldefinition
+## <a name="extended-sample-skillset-definition"></a>Utökad exempel på färdigheter-definition
 
-Ett vanligt scenario för att använda Text Merge är att slå samman textrepresentation av bilder (text från en OCR-kunskaper eller rubriken på en avbildning) i fältet content för ett dokument. 
+Ett vanligt scenario för att använda text sammanfogning är att slå samman text representationen av bilder (text från en OCR-kunskap eller bild text) i innehålls fältet i ett dokument. 
 
-Följande exempel kompetens använder OCR-kunskaper för att extrahera text från bilder som är inbäddade i dokumentet. Därefter skapas en *merged_text* fält som innehåller både ursprungliga och OCRed text från varje avbildning. Du kan läsa mer om OCR färdighet [här](https://docs.microsoft.com/azure/search/cognitive-search-skill-ocr).
+I följande exempel färdigheter används OCR-kunskaper för att extrahera text från bilder som är inbäddade i dokumentet. Därefter skapas ett *merged_text* -fält som innehåller både original-och OCRed text från varje bild. Du kan lära dig mer om OCR-kunskaper [här](https://docs.microsoft.com/azure/search/cognitive-search-skill-ocr).
 
 ```json
 {
@@ -129,7 +129,7 @@ Följande exempel kompetens använder OCR-kunskaper för att extrahera text frå
   ]
 }
 ```
-I exemplet ovan förutsätter att det finns ett normaliserat avbildningar fält. För att få normalized avbildningar fältet kan du ange den *imageAction* konfiguration i din indexerarens definition till *generateNormalizedImages* enligt nedan:
+Exemplet ovan förutsätter att det finns ett normaliserat avbildnings fält. För att hämta normaliserade-images-fält anger du *imageAction* -konfigurationen i din Indexer-definition till *generateNormalizedImages* enligt nedan:
 
 ```json
 {
@@ -146,5 +146,5 @@ I exemplet ovan förutsätter att det finns ett normaliserat avbildningar fält.
 ## <a name="see-also"></a>Se också
 
 + [Fördefinierade kunskaper](cognitive-search-predefined-skills.md)
-+ [Hur du definierar en kompetens](cognitive-search-defining-skillset.md)
++ [Så här definierar du en färdigheter](cognitive-search-defining-skillset.md)
 + [Skapa indexerare (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)

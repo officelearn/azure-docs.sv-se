@@ -6,14 +6,14 @@ author: yashesvi
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 07/19/2019
+ms.date: 08/02/2019
 ms.author: banders
-ms.openlocfilehash: 08c9f958f5103da9961f4c2d29be97f455cecc4b
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 6ee7a661434bb756c6cf196937229db19d06b373
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359260"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779990"
 ---
 # <a name="prepay-for-sql-data-warehouse-charges-with-reserved-capacity"></a>Förskottsbetala SQL Data Warehouse avgifter med reserverad kapacitet
 
@@ -61,15 +61,11 @@ Anta till exempel att den totala förbrukningen av SQL Data Warehouse är DW3000
 8. Välj **Köp**.
 9. Välj **Visa den här reservationen** för att se din inköps status.
 
-## <a name="cancellations-and-exchanges"></a>Avbokningar och byten
+## <a name="cancel-exchange-or-refund-reservations"></a>Avbryta, byta ut eller återbetala reservationer
 
-Om du behöver avbryta din SQL Data Warehouse reserverad kapacitet kan det finnas 12% tidig uppsägnings avgift. Återbetalningar baseras på det lägsta priset – antingen ditt inköpspris eller det aktuella priset för reservationen. Bidragen är begränsade till $50 000,00 per år. Den åter betalning du får är det återstående proportionella saldot minus 12% tidigt uppsägnings avgifter. Om du vill avbryta går du till reservationen i Azure Portal och väljer **åter betalning**.
+Du kan avbryta, byta ut eller återbetala reservationer med vissa begränsningar. Mer information finns i självbetjänings [utbyten och åter betalningar för Azure reservations](billing-azure-reservations-self-service-exchange-and-refund.md).
 
-Om du behöver ändra SQL Data Warehouse reserverad kapacitet till en annan region eller period kan du byta ut den mot en annan reservation som är lika med eller högre. Startdatumet för den nya reservationens överförs inte från den utbytte reservationen. En eller tre års perioden startar när du skapar den nya reservationen. Till Exchange öppnar du reservationen i Azure Portal och väljer **Exchange**.
-
-Mer information om hur du utbyter eller återbetalar reservationer finns i [reservations utbyte och åter betalningar](billing-azure-reservations-self-service-exchange-and-refund.md).
-
-Reservations rabatten tillämpas automatiskt på antalet SQL Data Warehouse-instanser som matchar den SQL Data Warehouse reserverade kapacitets området och regionen. Du kan uppdatera omfånget för den SQL Data Warehouse reserverad kapacitet med [Azure Portal](https://portal.azure.com/), POWERSHELL, CLI eller via API: et.
+En reservations rabatt tillämpas automatiskt på antalet SQL Data Warehouse instanser som matchar omfattnings området för den reserverade kapaciteten SQL Data Warehouse och regionen. Du kan uppdatera omfånget för den SQL Data Warehouse reserverad kapacitet med [Azure Portal](https://portal.azure.com/), POWERSHELL, CLI eller via API: et.
 
 ## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss
 

@@ -1,6 +1,6 @@
 ---
 title: Skapa en hanterad avbildning i Azure | Microsoft Docs
-description: Skapa en hanterad avbildning av en generaliserad virtuell dator eller virtuell Hårddisk i Azure. Bilder kan användas för att skapa flera virtuella datorer som använder hanterade diskar.
+description: Skapa en hanterad avbildning av en generaliserad virtuell dator eller virtuell hård disk i Azure. Avbildningar kan användas för att skapa flera virtuella datorer som använder hanterade diskar.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -15,88 +15,88 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: 75f1d9b945eab49fb633f2cd3f99f498e686bfab
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 84099a2695d8a26e538f4790b708bf2465ea1a5e
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67719341"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827682"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Skapa en hanterad avbildning av en generaliserad virtuell dator i Azure
 
-En hanterad avbildningsresurs kan skapas från en generaliserad virtuell dator (VM) som lagras som en hanterad disk eller en ohanterad disk i ett lagringskonto. Avbildningen kan sedan användas för att skapa flera virtuella datorer. Information om hur hanterade avbildningar faktureras, se [priser för Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks/). 
+En hanterad avbildnings resurs kan skapas från en generaliserad virtuell dator (VM) som lagras antingen som en hanterad disk eller en ohanterad disk i ett lagrings konto. Avbildningen kan sedan användas för att skapa flera virtuella datorer. Information om hur hanterade avbildningar faktureras finns i [Managed disks prissättning](https://azure.microsoft.com/pricing/details/managed-disks/). 
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="generalize-the-windows-vm-using-sysprep"></a>Generalisera den virtuella Windows-datorn med hjälp av Sysprep
 
-Sysprep tar bort all personligt konto och säkerhetsinformation och förbereder datorn som ska användas som en bild. Information om Sysprep finns i [Sysprep översikt](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
+Sysprep tar bort allt ditt personliga konto och din säkerhets information och förbereder sedan datorn som ska användas som en avbildning. Information om Sysprep finns i [Översikt över Sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
 
-Se till att serverroller som körs på datorn som stöds av Sysprep. Mer information finns i [Sysprep-stöd för serverroller](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep-support-for-server-roles).
+Kontrol lera att de Server roller som körs på datorn stöds av Sysprep. Mer information finns i [Sysprep-stöd för Server roller](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep-support-for-server-roles) och [scenarier som inte stöds](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview#unsupported-scenarios).
 
 > [!IMPORTANT]
-> När du har kört Sysprep på en virtuell dator, den virtuella datorn anses *generaliserad* och kan inte startas om. Det går inte att ångra processen för att generalisera en virtuell dator. Om du vill behålla den ursprungliga Virtuella fungerar kan du skapa en [kopia av den virtuella datorn](create-vm-specialized.md#option-3-copy-an-existing-azure-vm) och generalisera kopian. 
+> När du har kört Sysprep på en virtuell dator betraktas den virtuella datorn som generaliserad och kan inte startas om. Det går inte att ångra processen för att generalisera en virtuell dator. Om du behöver behålla den ursprungliga virtuella datorn bör du skapa en [kopia av den virtuella datorn](create-vm-specialized.md#option-3-copy-an-existing-azure-vm) och generalisera dess kopia. 
 >
-> Om du planerar att köra Sysprep innan du laddar upp din virtuella hårddisk (VHD) till Azure för första gången, kontrollera att du har [förberett din virtuella dator](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).  
+> Om du planerar att köra Sysprep innan du laddar upp den virtuella hård disken (VHD) till Azure för första gången ser du till att du har för [berett den virtuella](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)datorn.  
 > 
 > 
 
-Följ dessa steg för att generalisera den virtuella Windows-datorn:
+Följ dessa steg om du vill generalisera din virtuella Windows-dator:
 
-1. Logga in på din Windows-VM.
+1. Logga in på din virtuella Windows-dator.
    
-2. Öppna ett kommandotolksfönster som administratör. Ändra katalogen till % windir%\system32\sysprep och kör sedan `sysprep.exe`.
+2. Öppna ett kommando tolks fönster som administratör. Ändra katalogen till%WINDIR%\system32\sysprep och kör `sysprep.exe`sedan.
    
-3. I den **systemförberedelseverktyget** dialogrutan **ange System Out-of-Box Experience (OOBE)** och välj den **Generalize** markerar du kryssrutan.
+3. I dialog rutan **system förberedelse verktyg** väljer du **Skriv system out-of-Box Experience (OOBE)** och markerar kryss rutan **generalisera** .
    
-4. För **Avslutningsalternativ**väljer **avstängning**.
+4. För **avslutnings alternativ**väljer du **Stäng**av.
    
 5. Välj **OK**.
    
     ![Starta Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
 
-6. När Sysprep Slutför, stängs den virtuella datorn. Starta inte om den virtuella datorn.
+6. När Sysprep har slutförts stängs den virtuella datorn av. Starta inte om den virtuella datorn.
 
 
 ## <a name="create-a-managed-image-in-the-portal"></a>Skapa en hanterad avbildning i portalen 
 
 1. Öppna [Azure-portalen](https://portal.azure.com).
 
-2. I menyn till vänster väljer **virtuella datorer** och välj sedan den virtuella datorn från listan.
+2. I menyn till vänster väljer du **virtuella datorer** och väljer sedan den virtuella datorn i listan.
 
-3. I den **VM** för den virtuella datorn på den övre menyn, väljer **avbilda**.
+3. På sidan **virtuell dator** för den virtuella datorn väljer du **avbilda**på den övre menyn.
 
-   Den **Skapa avbildning** visas.
+   Sidan **Skapa avbildning** visas.
 
-4. För **namn**, acceptera förifyllda namnet eller ange ett namn som du vill använda för avbildningen.
+4. För **namn**, Godkänn antingen det ifyllda namnet eller ange ett namn som du vill använda för avbildningen.
 
-5. För **resursgrupp**, Välj antingen **Skapa nytt** och ange ett namn, eller välja **Använd befintlig** och välj en resursgrupp som ska användas från den nedrullningsbara listan.
+5. För **resurs grupp**, Välj **Skapa ny** och ange ett namn, eller Välj **Använd befintlig** och välj en resurs grupp som ska användas i list rutan.
 
-6. Om du vill ta bort den Virtuella källdatorn när avbildningen har skapat, Välj **automatiskt ta bort den här virtuella datorn när du har skapat avbildningen**.
+6. Om du vill ta bort den virtuella käll datorn när avbildningen har skapats väljer du **ta bort den här virtuella datorn automatiskt när du**har skapat avbildningen.
 
-7. Om du vill kunna använda avbildningen i någon [tillgänglighetszon](../../availability-zones/az-overview.md)väljer **på** för **zonelasticitet**.
+7. Om du vill kunna använda avbildningen i valfri tillgänglighets [zon](../../availability-zones/az-overview.md)väljer du **på** för **zon återhämtning**.
 
-8. Välj **skapa** att skapa avbildningen.
+8. Välj **skapa** för att skapa avbildningen.
 
-9. När avbildningen har skapats kan du kan hitta den som en **bild** resurs i listan över resurser i resursgruppen.
+9. När avbildningen har skapats kan du hitta den som en **avbildnings** resurs i listan över resurser i resurs gruppen.
 
 
 
-## <a name="create-an-image-of-a-vm-using-powershell"></a>Skapa en avbildning av en virtuell dator med Powershell
+## <a name="create-an-image-of-a-vm-using-powershell"></a>Skapa en avbildning av en virtuell dator med hjälp av PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Skapa en avbildning direkt från den virtuella datorn ser du till att avbildningen innehåller alla diskar som är associerade med den virtuella datorn, inklusive OS-disken och eventuella datadiskar. Det här exemplet visar hur du skapar en hanterad avbildning från en virtuell dator som använder hanterade diskar.
+Genom att skapa en avbildning direkt från den virtuella datorn kan du se till att avbildningen innehåller alla diskar som är associerade med den virtuella datorn, inklusive OS-disken och eventuella data diskar. Det här exemplet visar hur du skapar en hanterad avbildning från en virtuell dator som använder hanterade diskar.
 
-Innan du börjar måste du kontrollera att du har den senaste versionen av Azure PowerShell-modulen. Om du vill ta reda på vilken version du kör `Get-Module -ListAvailable Az` i PowerShell. Om du behöver uppgradera kan du läsa [installera Azure PowerShell på Windows med PowerShellGet](/powershell/azure/install-az-ps). Om du kör PowerShell lokalt, kör `Connect-AzAccount` att skapa en anslutning till Azure.
+Kontrol lera att du har den senaste versionen av Azure PowerShell-modulen innan du börjar. Du hittar versionen genom att köra `Get-Module -ListAvailable Az` i PowerShell. Om du behöver uppgradera kan du läsa [installera Azure PowerShell på Windows med PowerShellGet](/powershell/azure/install-az-ps). Om du kör PowerShell lokalt kör `Connect-AzAccount` du för att skapa en anslutning till Azure.
 
 
 > [!NOTE]
-> Om du vill lagra avbildningen i zonredundant lagring måste du skapa den i en region som har stöd för [tillgänglighetszoner](../../availability-zones/az-overview.md) och inkludera den `-ZoneResilient` parameter i bildkonfiguration (`New-AzImageConfig` kommandot).
+> Om du vill lagra avbildningen i zoner – redundant lagring måste du skapa den i en region som har stöd för tillgänglighets [zoner](../../availability-zones/az-overview.md) och inkludera `-ZoneResilient` parametern i avbildnings konfigurationen (`New-AzImageConfig` kommandot).
 
-Följ dessa steg om du vill skapa en VM-avbildning:
+Följ dessa steg om du vill skapa en avbildning av en virtuell dator:
 
-1. Skapa några variabler.
+1. Skapa vissa variabler.
 
     ```azurepowershell-interactive
     $vmName = "myVM"
@@ -104,13 +104,13 @@ Följ dessa steg om du vill skapa en VM-avbildning:
     $location = "EastUS"
     $imageName = "myImage"
     ```
-2. Kontrollera att den virtuella datorn har frigjorts.
+2. Se till att den virtuella datorn har frigjorts.
 
     ```azurepowershell-interactive
     Stop-AzVM -ResourceGroupName $rgName -Name $vmName -Force
     ```
     
-3. Ange status för den virtuella datorn till **generaliserad**. 
+3. Ange statusen för den virtuella datorn som **generaliserad**. 
    
     ```azurepowershell-interactive
     Set-AzVm -ResourceGroupName $rgName -Name $vmName -Generalized
@@ -135,10 +135,10 @@ Följ dessa steg om du vill skapa en VM-avbildning:
 
 ## <a name="create-an-image-from-a-managed-disk-using-powershell"></a>Skapa en avbildning från en hanterad disk med hjälp av PowerShell
 
-Om du vill skapa en avbildning av endast OS-disken kan du ange ID för hanterad disk som OS-disken:
+Om du bara vill skapa en avbildning av operativ system disken anger du det hanterade disk-ID: t som OS-disk:
 
     
-1. Skapa några variabler. 
+1. Skapa vissa variabler. 
 
     ```azurepowershell-interactive
     $vmName = "myVM"
@@ -153,7 +153,7 @@ Om du vill skapa en avbildning av endast OS-disken kan du ange ID för hanterad 
    $vm = Get-AzVm -Name $vmName -ResourceGroupName $rgName
    ```
 
-3. Hämta ID för den hantera disken.
+3. Hämta ID: t för den hanterade disken.
 
     ```azurepowershell-interactive
     $diskID = $vm.StorageProfile.OsDisk.ManagedDisk.Id
@@ -173,12 +173,12 @@ Om du vill skapa en avbildning av endast OS-disken kan du ange ID för hanterad 
     ``` 
 
 
-## <a name="create-an-image-from-a-snapshot-using-powershell"></a>Skapa en avbildning från en ögonblicksbild med hjälp av Powershell
+## <a name="create-an-image-from-a-snapshot-using-powershell"></a>Skapa en bild från en ögonblicks bild med PowerShell
 
-Du kan skapa en hanterad avbildning från en ögonblicksbild av en generaliserad virtuell dator genom att följa dessa steg:
+Du kan skapa en hanterad avbildning från en ögonblicks bild av en generaliserad virtuell dator genom att följa dessa steg:
 
     
-1. Skapa några variabler. 
+1. Skapa vissa variabler. 
 
     ```azurepowershell-interactive
     $rgName = "myResourceGroup"
@@ -187,7 +187,7 @@ Du kan skapa en hanterad avbildning från en ögonblicksbild av en generaliserad
     $imageName = "myImage"
     ```
 
-2. Hämta ögonblicksbilden.
+2. Hämta ögonblicks bilden.
 
    ```azurepowershell-interactive
    $snapshot = Get-AzSnapshot -ResourceGroupName $rgName -SnapshotName $snapshotName
@@ -206,12 +206,12 @@ Du kan skapa en hanterad avbildning från en ögonblicksbild av en generaliserad
     ``` 
 
 
-## <a name="create-an-image-from-a-vhd-in-a-storage-account"></a>Skapa en avbildning från en virtuell Hårddisk i ett lagringskonto
+## <a name="create-an-image-from-a-vhd-in-a-storage-account"></a>Skapa en avbildning från en virtuell hård disk i ett lagrings konto
 
-Skapa en hanterad avbildning från en generaliserad OS-VHD i ett lagringskonto. Behöver du URI för den virtuella Hårddisken i storage-konto, som finns i följande format: https://*mystorageaccount*.blob.core.windows.net/*vhdcontainer* /  *vhdfilename.VHD*. I det här exemplet är den virtuella Hårddisken i *mystorageaccount*, i en behållare med namnet *vhdcontainer*, och VHD-filnamn är *vhdfilename.vhd*.
+Skapa en hanterad avbildning från en generaliserad OS-VHD i ett lagrings konto. Du behöver URI för den virtuella hård disken i lagrings kontot, vilket är i följande format: https://*mystorageaccount*. blob.Core.Windows.net/*vhdcontainer*/*vhdfilename. VHD*. I det här exemplet är den virtuella hård disken i *mystorageaccount*, i en behållare med namnet *vhdcontainer*och VHD-filnamnet är *vhdfilename. VHD*.
 
 
-1.  Skapa några variabler.
+1.  Skapa vissa variabler.
 
     ```azurepowershell-interactive
     $vmName = "myVM"
@@ -231,7 +231,7 @@ Skapa en hanterad avbildning från en generaliserad OS-VHD i ett lagringskonto. 
     ```azurepowershell-interactive
     Set-AzVm -ResourceGroupName $rgName -Name $vmName -Generalized  
     ```
-4.  Skapa avbildningen med hjälp av din generaliserade OS-VHD.
+4.  Skapa avbildningen med hjälp av den generaliserade OS-VHD: n.
 
     ```azurepowershell-interactive
     $imageConfig = New-AzImageConfig -Location $location

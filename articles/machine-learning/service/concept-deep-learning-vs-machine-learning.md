@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
-ms.date: 07/30/2019
-ms.openlocfilehash: d97c3d47a277ecd8b1de635e3d835f9ee1f42057
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.date: 08/07/2019
+ms.openlocfilehash: 4b66d015e8a182e305a36dacaa2e082288a3e19e
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68700358"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840535"
 ---
 # <a name="introduction-to-deep-learning-vs-machine-learning"></a>Introduktion till djup inlärning eller Machine Learning
 
@@ -43,9 +43,9 @@ Nu när du har en översikt över Machine Learning eller djup inlärning kan du 
 
 I tabellen nedan jämförs de två metoderna i detalj:
 
-| |Maskininlärning |Deep learning|
+| |Alla Machine Learning |Endast djup inlärning|
 |---|---|---|
-|  **Antal data punkter** | Kan använda små data mängder från användare | Kräver en stor mängd omärkta tränings data för att göra kortfattade slut satser |
+|  **Antal data punkter** | Kan använda små data mängder från användare | Kräver en stor mängd tränings data för att göra kortfattade slut satser |
 |  **Maskin varu beroenden** | Kan arbeta på datorer med låg slut. Det behövs ingen stor mängd beräknings kraft | Är beroende av avancerade datorer. Det finns ett stort antal åtgärder för mat ris multiplikation. De här åtgärderna kan optimeras effektivt med en GPU |
 |  **Funktionalisering process** | Kräver att funktioner identifieras korrekt och skapas av användare | Den lär sig mer om hög nivå funktioner från data och skapar nya funktioner själva |
 |  **Inlärnings metod** | Delar upp uppgifter i små delar och kombinera sedan mottagna resultat till en slutsats | Löser problemet från slut punkt till slut punkt |

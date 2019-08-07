@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 07/23/2019
 ms.author: absha
-ms.openlocfilehash: 2d808548ef91ed416f27b0dbb3e3e93d79ade30c
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: ae1ac3df3da4e5c25e5538f0e8cc4cd12f9186c6
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68382050"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774780"
 ---
 # <a name="create-certificates-to-allow-the-backend-with-azure-application-gateway"></a>Skapa certifikat för att tillåta Server delen med Azure Application Gateway
 
@@ -73,7 +73,7 @@ Exportera filen offentlig Key. cer från SSL-certifikatet (inte den privata nyck
 
 ## <a name="export-trusted-root-certificate-for-v2-sku"></a>Exportera betrott rot certifikat (för v2-SKU)
 
-Ett betrott rot certifikat krävs för att tillåta Server dels instanser i Application Gateway v2-SKU: n. Rot certifikatet är en Base-64-kodad X. 509 (. CER) formatera rot certifikat från backend-serverns certifikat. I det här exemplet ska du använda ett SSL-certifikat för Server dels certifikatet och exportera dess offentliga nyckel. Sedan ska du exportera rot certifikatet för den betrodda certifikat utfärdaren från den offentliga nyckeln i Base64-kodat format för att hämta det betrodda rot certifikatet. 
+Ett betrott rot certifikat krävs för att vitlista Server dels instanser i Application Gateway v2 SKU. Rot certifikatet är en Base-64-kodad X. 509 (. CER) formatera rot certifikat från backend-serverns certifikat. I det här exemplet ska vi använda ett SSL-certifikat för Server dels certifikatet, exportera dess offentliga nyckel och sedan exportera rot certifikatet för den betrodda certifikat utfärdaren från den offentliga nyckeln i Base64-kodat format för att hämta det betrodda rot certifikatet. De mellanliggande certifikaten ska paketeras med ett Server certifikat och installeras på backend-servern.
 
 Med följande steg kan du exportera. CER-filen för certifikatet:
 
@@ -105,4 +105,5 @@ Med följande steg kan du exportera. CER-filen för certifikatet:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu har du autentiserings certifikatet/det betrodda rot certifikatet i Base-64-kodad X. 509 (. CER-format. Du kan lägga till den i programgatewayen så att backend-servrarna får slut på SSL-kryptering. Se [hur du konfigurerar SSL-kryptering från slut punkt till slut punkt](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
+Nu har du autentiserings certifikatet/det betrodda rot certifikatet i Base-64-kodad X. 509 (. CER-format. Du kan lägga till detta i Application Gateway för att vitlista backend-servrarna för slut punkt till slut punkt SSL-kryptering. Se [hur du konfigurerar SSL-kryptering från slut punkt till slut punkt](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
+

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/03/2019
 ms.author: atsenthi
-ms.openlocfilehash: 4ed076792e8b55661df2e5309f08391cf1e75013
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 8512b1c94145d573d96cd3a43190cda5b9cfa222
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598721"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68775311"
 ---
 # <a name="supported-service-fabric-versions"></a>Service Fabric versioner som stöds
 
@@ -107,3 +107,4 @@ I följande tabell visas versions namnen för Service Fabric och deras motsvaran
 | 6,4 CU8 | 6.4.670.9590 | Ej tillämpligt |
 | 6,5 RTO | 6.5.639.9590 | 6.5.435.1 |
 | 6,5 CU1 | 6.5.641.9590 | 6.5.454.1 |
+| 6,5 CU2 | 6.5.658.9590 | 6.5.460.1 |

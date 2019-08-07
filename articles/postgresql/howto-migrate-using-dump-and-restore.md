@@ -1,94 +1,94 @@
 ---
-title: Dumpa och återställa i Azure Database för PostgreSQL – enskild Server
-description: Beskriver hur du extrahera en PostgreSQL-databas till en dumpfil och återställa från en fil som skapats av pg_dump i Azure Database för PostgreSQL – enskild Server.
+title: Dumpa och återställa i Azure Database for PostgreSQL-enskild server
+description: Beskriver hur du extraherar en PostgreSQL-databas till en dumpfil och återställer från en fil som skapats av pg_dump i Azure Database for PostgreSQL-enskild server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: aa9485ec8fcabdc0276e0598bd3e19f04d70dfa1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 43e6fe301cf28b7a342ba2e802c9fce19bfeec4d
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65066967"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815850"
 ---
-# <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>Migrera din PostgreSQL-databas med säkerhetskopiering och återställning
-Du kan använda [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) att extrahera en PostgreSQL-databas till en dumpfil och [pg_restore](https://www.postgresql.org/docs/9.3/static/app-pgrestore.html) att återställa PostgreSQL-databasen från en arkivfil som skapats av pg_dump.
+# <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>Migrera din PostgreSQL-databas med dump och Restore
+Du kan använda [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) för att extrahera en PostgreSQL-databas till en dumpfil och [pg_restore](https://www.postgresql.org/docs/9.3/static/app-pgrestore.html) för att återställa PostgreSQL-databasen från en arkivfil som skapats av pg_dump.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
-För att gå igenom den här guiden, måste du:
-- En [Azure Database for PostgreSQL-server](quickstart-create-server-database-portal.md) med brandväggsregler som tillåter åtkomst och databasen under den.
-- [pg_dump](https://www.postgresql.org/docs/9.6/static/app-pgdump.html) och [pg_restore](https://www.postgresql.org/docs/9.6/static/app-pgrestore.html) kommandoradsverktyg som är installerad
+## <a name="prerequisites"></a>Förutsättningar
+För att gå igenom den här instruktions guiden behöver du:
+- En [Azure Database for postgresql-server](quickstart-create-server-database-portal.md) med brand Väggs regler för att tillåta åtkomst och databas under den.
+- kommando rads verktyg för [pg_dump](https://www.postgresql.org/docs/9.6/static/app-pgdump.html) och [pg_restore](https://www.postgresql.org/docs/9.6/static/app-pgrestore.html) har installerats
 
-Följ dessa steg för att dumpa och återställa din PostgreSQL-databas:
+Följ dessa steg för att dumpa och återställa PostgreSQL-databasen:
 
-## <a name="create-a-dump-file-using-pgdump-that-contains-the-data-to-be-loaded"></a>Skapa en kraschdump-fil med pg_dump som innehåller data som ska hämtas
-Tillbaka till en befintlig PostgreSQL-databas lokalt eller i en virtuell dator, kör du följande kommando:
+## <a name="create-a-dump-file-using-pg_dump-that-contains-the-data-to-be-loaded"></a>Skapa en dumpfil med pg_dump som innehåller de data som ska läsas in
+Om du vill säkerhetskopiera en befintlig PostgreSQL-databas lokalt eller i en virtuell dator kör du följande kommando:
 ```bash
 pg_dump -Fc -v --host=<host> --username=<name> --dbname=<database name> > <database>.dump
 ```
-Exempel: Om du har en lokal server och en databas som heter **testdb** i det.
+Om du till exempel har en lokal server och en databas med namnet **testdb**
 ```bash
 pg_dump -Fc -v --host=localhost --username=masterlogin --dbname=testdb > testdb.dump
 ```
 
 
-## <a name="restore-the-data-into-the-target-azure-database-for-postrgesql-using-pgrestore"></a>Återställa data till Azure-måldatabas för PostrgeSQL med pg_restore
-När du har skapat måldatabasen, kan du använda kommandot pg_restore och -d, parametern--dbname för att återställa data i måldatabasen från dumpfilen.
+## <a name="restore-the-data-into-the-target-azure-database-for-postrgesql-using-pg_restore"></a>Återställa data till Azures Azure-databas för PostrgeSQL med pg_restore
+När du har skapat mål databasen kan du använda kommandot pg_restore och parametern-d,--dbname för att återställa data till mål databasen från dumpfilen.
 ```bash
-pg_restore -v --no-owner –-host=<server name> --port=<port> --username=<user@servername> --dbname=<target database name> <database>.dump
+pg_restore -v --no-owner --host=<server name> --port=<port> --username=<user@servername> --dbname=<target database name> <database>.dump
 ```
-Inklusive--no-ägare parametern orsaker som alla objekt som skapas under återställningen som ägs av den användare som anges med--username. Mer information finns i officiella PostgreSQL-dokumentationen på [pg_restore](https://www.postgresql.org/docs/9.6/static/app-pgrestore.html).
+Inklusive parametern--No-Owner gör att alla objekt som skapas under återställningen ägs av den användare som anges med--username. Mer information finns i den officiella PostgreSQL-dokumentationen om [pg_restore](https://www.postgresql.org/docs/9.6/static/app-pgrestore.html).
 
 > [!NOTE]
-> PostgreSQL-servern kräver SSL-anslutningar (på som standard i Azure Database for PostgreSQL-servrar), ange en miljövariabel `PGSSLMODE=require` så att verktyget pg_restore ansluter med SSL. Felet kan läsa utan SSL,  `FATAL:  SSL connection is required. Please specify SSL options and retry.`
+> Om din postgresql-server kräver SSL-anslutningar (som standard i Azure Database for PostgreSQL-servrar) anger du en `PGSSLMODE=require` miljö variabel så att pg_restore-verktyget ansluter med SSL. Utan SSL kan felet läsa`FATAL:  SSL connection is required. Please specify SSL options and retry.`
 >
-> Kör kommando i Windows command line `SET PGSSLMODE=require` innan du kör kommandot pg_restore. Kör kommando i Linux eller Bash `export PGSSLMODE=require` innan du kör kommandot pg_restore.
+> På kommando raden i Windows kör du kommandot `SET PGSSLMODE=require` innan du kör kommandot pg_restore. I Linux eller bash kör du kommandot `export PGSSLMODE=require` innan du kör kommandot pg_restore.
 >
 
-I det här exemplet kan du återställa data från dumpfilen **testdb.dump** till databasen **mypgsqldb** på målservern **mydemoserver.postgres.database.azure.com**. 
+I det här exemplet återställer du data från dump-filen **testdb. dump** till databasen **mypgsqldb** på mål servern **mydemoserver.postgres.Database.Azure.com**. 
 ```bash
 pg_restore -v --no-owner --host=mydemoserver.postgres.database.azure.com --port=5432 --username=mylogin@mydemoserver --dbname=mypgsqldb testdb.dump
 ```
 
 ## <a name="optimizing-the-migration-process"></a>Optimera migreringsprocessen
 
-Ett sätt att migrera din befintliga PostgreSQL-databas till Azure Database för PostgreSQL-tjänsten är att säkerhetskopiera databasen på käll- och återställa det i Azure. Överväg att använda följande parametrar med backup och återställa kommandon för att minimera den tid som krävs för att slutföra migreringen.
+Ett sätt att migrera den befintliga PostgreSQL-databasen till Azure Database for PostgreSQL-tjänsten är att säkerhetskopiera databasen på källan och återställa den i Azure. Överväg att använda följande parametrar med kommandona för säkerhets kopiering och återställning för att minimera tiden som krävs för att slutföra migreringen.
 
 > [!NOTE]
-> Information om syntaxinformation finns i artiklarna [pg_dump](https://www.postgresql.org/docs/9.6/static/app-pgdump.html) och [pg_restore](https://www.postgresql.org/docs/9.6/static/app-pgrestore.html).
+> Detaljerad information om syntaxen finns i artiklarna [pg_dump](https://www.postgresql.org/docs/9.6/static/app-pgdump.html) och [pg_restore](https://www.postgresql.org/docs/9.6/static/app-pgrestore.html).
 >
 
-### <a name="for-the-backup"></a>För säkerhetskopiering
-- Utgår vi från säkerhetskopiering med växeln -Fc så att du kan utföra återställningen parallellt för att snabba upp. Exempel:
+### <a name="for-the-backup"></a>För säkerhets kopieringen
+- Ta säkerhets kopian med-FC-växeln så att du kan utföra återställningen parallellt för att göra den snabbare. Exempel:
 
     ```
     pg_dump -h MySourceServerName -U MySourceUserName -Fc -d MySourceDatabaseName > Z:\Data\Backups\MyDatabaseBackup.dump
     ```
 
-### <a name="for-the-restore"></a>Vid återställningen
-- Vi rekommenderar att du flyttar den säkerhetskopiera filen till en Azure-dator i samma region som Azure Database for PostgreSQL-server som du migrerar till och gör pg_restore från den virtuella datorn att minska Nätverksfördröjningen. Vi rekommenderar också att den virtuella datorn skapas med [nätverksaccelerering](../virtual-network/create-vm-accelerated-networking-powershell.md) aktiverat.
+### <a name="for-the-restore"></a>För återställning
+- Vi rekommenderar att du flyttar säkerhets kopian till en virtuell Azure-dator i samma region som den Azure Database for PostgreSQL server som du migrerar till och gör pg_restore från den virtuella datorn för att minska nätverks fördröjningen. Vi rekommenderar också att den virtuella datorn skapas med [accelererat nätverk](../virtual-network/create-vm-accelerated-networking-powershell.md) aktiverat.
 
-- Det bör göras redan som standard, men öppna dumpfilen för att verifiera att skapa index-instruktioner är efter infogningen av data. Om det inte är fallet, flytta create index-instruktioner när data infogas.
+- Det bör redan utföras som standard, men öppna dumpfilen för att kontrol lera att Create index-instruktionerna är efter infogning av data. Om så inte är fallet flyttar du Create index-instruktionerna när data har infogats.
 
-- Återställa med växlarna -Fc och -j *#* att parallellisera återställningen. *#* är antalet kärnor på målservern. Du kan också försöka med *#* inställd på två gånger antalet kärnor på målservern för att se hur. Exempel:
+- Återställ med växlarna-FC och-j *#* för att parallellisera återställningen. *#* är antalet kärnor på mål servern. Du kan också prova med *#* att ange dubbelt så många kärnor på mål servern för att se effekten. Exempel:
 
     ```
     pg_restore -h MyTargetServer.postgres.database.azure.com -U MyAzurePostgreSQLUserName -Fc -j 4 -d MyTargetDatabase Z:\Data\Backups\MyDatabaseBackup.dump
     ```
 
-- Du kan också redigera dumpfilen genom att lägga till kommandot *ange synchronous_commit = av;* i början och kommandot *ange synchronous_commit = on;* i slutet. Inte att aktivera det i slutet, innan apparna som ändrar data, kan det resultera i efterföljande förlust av data.
+- Du kan också redigera dumpfilen genom att lägga till kommandot *set synchronous_commit = off;* i början och kommandot *set synchronous_commit = on;* i slutet. Om du inte aktiverar den i slutet innan apparna ändrar data kan det leda till efterföljande förlust av data.
 
-- Bör du göra följande innan återställningen på aktiva Azure Database for PostgreSQL-server:
-    - Inaktivera fråga prestandaspårning, eftersom du inte behöver dessa statistik under migreringen. Du kan göra detta genom att ange pg_stat_statements.track och pg_qs.query_capture_mode pgms_wait_sampling.query_capture_mode till ingen.
+- På mål Azure Database for PostgreSQL servern kan du göra följande innan du återställer:
+    - Inaktivera prestanda spårning av frågor eftersom denna statistik inte behövs under migreringen. Du kan göra detta genom att ställa in pg_stat_statements. Track, pg_qs. query_capture_mode och pgms_wait_sampling. query_capture_mode till NONE.
 
-    - Använd en hög beräknings- och extra minne sku som 32 vCore Minnesoptimerade, för att snabba upp migreringen. Du kan enkelt skala tillbaka ned till din önskade sku när återställningen är klar. Ju högre SKU: n, mer parallellitet du kan uppnå genom att öka motsvarande `-j` parameter i kommandot pg_restore. 
+    - Använd en hög beräknings-och hög minnes-SKU, till exempel 32 vCore-minne som är optimerat, för att påskynda migreringen. Du kan enkelt skala tillbaka till den önskade SKU: n när återställningen har slutförts. Ju högre SKU, desto mer parallellitet kan du uppnå genom att öka motsvarande `-j` parameter i pg_restore-kommandot. 
 
-    - Fler IOPS på målservern kan förbättra prestandan för återställning. Du kan etablera fler IOPS genom att öka serverns lagringsstorlek. Det går inte att ångra den här inställningen, men överväga om en högre IOPS skulle ha nytta av din faktiska arbetsbelastning i framtiden.
+    - Mer IOPS på mål servern kan förbättra prestandan för återställning. Du kan etablera mer IOPS genom att öka serverns lagrings storlek. Den här inställningen går inte att ångra, men fundera över om en högre IOPS skulle gynna din faktiska arbets belastning i framtiden.
 
-Kom ihåg att testa och validera dessa kommandon i en testmiljö innan du använder dem i produktion.
+Kom ihåg att testa och validera dessa kommandon i en test miljö innan du använder dem i produktion.
 
 ## <a name="next-steps"></a>Nästa steg
-- Om du vill migrera en PostgreSQL-databas med exportera och importera, se [migrera din PostgreSQL-databas med exportera och importera](howto-migrate-using-export-and-import.md).
-- Mer information om hur du migrerar databaser till Azure Database för PostgreSQL, finns i den [Guide för Databasmigrering](https://aka.ms/datamigration).
+- Om du vill migrera en PostgreSQL-databas med export och import, se [migrera din PostgreSQL-databas med export och import](howto-migrate-using-export-and-import.md).
+- Mer information om hur du migrerar databaser till Azure Database for PostgreSQL finns i [Guide för databas migrering](https://aka.ms/datamigration).

@@ -11,12 +11,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 05/21/2019
 ms.author: shvija
-ms.openlocfilehash: dfdeee9591b5d6ccbadadaef83c6598dd0e850d8
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 117b7d4adb508628ee768bb9531d0bbc52f61121
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448147"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816058"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Aktiva Directory Role-Based Access Control (förhandsversion)
 
@@ -27,19 +27,19 @@ För Azure Event Hubs, hantering av namnområden och alla relaterade resurser vi
 Ett program som använder Azure AD RBAC behöver inte hantera SAS regler och nycklar eller andra åtkomsttoken specifika för Event Hubs. Klientappen interagerar med Azure AD för att upprätta en autentiseringskontext och hämtar en åtkomsttoken för Event Hubs. Med domänanvändarkonton som kräver interaktiv inloggning, hanterar programmet aldrig autentiseringsuppgifter direkt.
 
 ## <a name="event-hubs-roles-and-permissions"></a>Event Hubs roller och behörigheter
-Azure tillhandahåller följande inbyggda RBAC-roller för att auktorisera åtkomst till ett Event Hubs-namnområde:
+Azure tillhandahåller följande inbyggda RBAC-roller för att auktorisera åtkomst till en Event Hubs namnrymd:
 
-Den [Dataägaren (förhandsversion) för Azure Event Hubs](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner-preview) rollen kan åtkomst till ett Event Hubs-namnområde och entiteter (köer, ämnen, prenumerationer och filter)
+Rollen [Azure Event Hubs data Owner (förhands granskning)](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner-preview) ger data åtkomst till ett Event Hubs-namnområde och dess entiteter (köer, ämnen, prenumerationer och filter)
 
 >[!IMPORTANT]
-> Vi tidigare stöd för att lägga till hanterad identitet till den **ägare** eller **deltagare** roll. Men data behörighet för **ägare** och **deltagare** rollen respekteras inte längre. Om du använder den **ägare** eller **deltagare** roll, växla till med hjälp av den **Dataägaren (förhandsversion) för Azure Event Hubs** roll.
+> Vi har tidigare stöd för att lägga till hanterad identitet i **ägaren** eller **deltagar** rollen. Däremot går det inte längre att använda behörigheter för data åtkomst för rollen **ägare** och **deltagare** . Om du använder rollen **ägare** eller **deltagare** växlar du till att använda rollen **Azure Event Hubs data Owner (för hands version)** .
 
 
 ## <a name="use-event-hubs-with-an-azure-ad-domain-user-account"></a>Använda Event Hubs med ett användarkonto för Azure AD-domän
 
 I följande avsnitt beskrivs de steg som krävs för att skapa och kör ett exempelprogram som frågar efter en interaktiv Azure AD-användare att logga in, hur du ger Händelsehubbar åtkomst till det aktuella användarkontot och hur du använder den identiteten för att få åtkomst till Event Hubs. 
 
-Den här introduktionen beskriver ett enkelt konsolprogram i [kod som finns på GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Rbac/EventHubsSenderReceiverRbac/)
+Den här introduktionen beskriver ett enkelt konsol program, vilken [kod som finns på GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac/AzureEventHubsSDK)
 
 ### <a name="create-an-active-directory-user-account"></a>Skapa ett Active Directory-användarkonto
 
@@ -49,7 +49,7 @@ Om du vill skapa ett särskilt konto för det här scenariot [gör så här](../
 
 ### <a name="create-an-event-hubs-namespace"></a>Skapa ett Event Hubs-namnområde
 
-Nästa [skapa ett namnområde för Event Hubs](event-hubs-create.md). 
+Skapa sedan [ett Event Hubs-namnområde](event-hubs-create.md). 
 
 När namnområdet har skapats går du till dess **åtkomstkontroll (IAM)** på portalen och klicka sedan på **Lägg till rolltilldelning** att lägga till Azure AD-användarkontot i rollen ägare. Om du använder ett eget användarkonto och du skapade namnområdet, är du redan rollen ägare. Om du vill lägga till ett annat konto för rollen, Sök efter namnet på webbprogrammet i den **Lägg till behörigheter** panelen **Välj** fältet och sedan klickar du på posten. Klicka sedan på **Spara**. Användarkontot har nu tillgång till Event Hubs-namnområdet och till händelsehubben du skapade tidigare.
  
@@ -65,16 +65,16 @@ Detaljerad registrering stegen beskrivs i [den här självstudien](../active-dir
 
 Innan du kan köra det här exemplet redigera filen App.config och, beroende på ditt scenario, ange följande värden:
 
-- `tenantId`: Ange **TenantId** värde.
-- `clientId`: Ange **ApplicationId** värde. 
-- `clientSecret`: Om du vill logga in med klienthemligheten, kan du skapa det i Azure AD. Kan också använda en webbapp eller API: et i stället för en inbyggd app. Lägg även till appen under **åtkomstkontroll (IAM)** i namnområdet som du skapade tidigare.
-- `eventHubNamespaceFQDN`: Ange fullständigt kvalificerade DNS-namnet på nyligen skapade Event Hubs-namnområdet; till exempel `example.servicebus.windows.net`.
-- `eventHubName`: Ange namnet på den händelsehubb som du skapade.
+- `tenantId`: Ange som **TenantId** -värde.
+- `clientId`: Ange till **ApplicationId** -värde. 
+- `clientSecret`: Om du vill logga in med hjälp av klient hemligheten skapar du den i Azure AD. Kan också använda en webbapp eller API: et i stället för en inbyggd app. Lägg även till appen under **åtkomstkontroll (IAM)** i namnområdet som du skapade tidigare.
+- `eventHubNamespaceFQDN`: Ange det fullständigt kvalificerade DNS-namnet för ditt nyligen skapade Event Hubs namn område; till exempel `example.servicebus.windows.net`.
+- `eventHubName`: Ange till namnet på händelsehubben som du skapade.
 - Omdirigerings-URI som du angav i din app i föregående steg.
  
 När du kör konsolprogrammet, uppmanas du att välja ett scenario; Klicka på **interaktiv användarinloggning** genom att skriva dess nummer och trycka på RETUR. Programmet visas ett fönster för inloggning, begär tillstånd att få åtkomst till Event Hubs och sedan använder tjänsten för att gå igenom scenariot skicka och ta emot under inloggning identiteten.
 
-Appen använder `ServiceAudience.EventHubsAudience` som tokenmålgruppen. När du använder andra språk eller SDK: er där målgruppen inte är tillgänglig som en konstant, rätt värdet som ska användas är `https://eventhubs.azure.net/`.
+Appen används `ServiceAudience.EventHubsAudience` som mål grupp för token. När du använder andra språk eller SDK: er där mål gruppen inte är tillgänglig som en konstant, är `https://eventhubs.azure.net/`rätt värde att använda.
 
 ## <a name="next-steps"></a>Nästa steg
 

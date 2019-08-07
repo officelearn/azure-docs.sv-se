@@ -12,12 +12,12 @@ ms.date: 05/22/2019
 ms.author: baselden
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0602de13fefbf105e69ba42651216fb479c4c86
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 733b0d7650d68bddae60cf524947590c2b689968
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68477130"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779368"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Planera en distribution för enkel inloggning
 
@@ -95,7 +95,7 @@ I inloggnings perspektiv skiljer sig program med delade konton inte från ett ga
 
 Att välja rätt autentiseringsmetod är ett viktigt första beslut när du konfigurerar en Azure AD hybrid Identity-lösning. Implementera autentiseringsmetoden som konfigureras med hjälp av Azure AD Connect, som också etablerar användare i molnet.
 
-Om du vill välja en autentiseringsmetod måste du ta hänsyn till tiden, den befintliga infrastrukturen, komplexiteten och kostnaden för att implementera ditt val. Dessa faktorer är olika för alla organisationer och kan ändras med tiden. Du bör välja den som bäst motsvarar ditt speciella scenario. Mer information finns i [Välj rätt autentiseringsmetod för din Azure Active Directory hybrid identitets lösning](https://docs.microsoft.com/azure/security/azure-ad-choose-authn).
+Om du vill välja en autentiseringsmetod måste du ta hänsyn till tiden, den befintliga infrastrukturen, komplexiteten och kostnaden för att implementera ditt val. Dessa faktorer är olika för alla organisationer och kan ändras med tiden. Du bör välja den som bäst motsvarar ditt speciella scenario. Mer information finns i [Välj rätt autentiseringsmetod för din Azure Active Directory hybrid identitets lösning](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn).
 
 ## <a name="plan-your-security-and-governance"></a>Planera din säkerhet och styrning 
 
@@ -236,11 +236,11 @@ Använd alltid rollen med minst de behörigheter som krävs för att utföra den
 
 | Person| Roller | Azure AD-roll (om det behövs) |
 |--------|-------|-----------------------------|
-| Support administratör | Nivå 1-stöd | Inga |
+| Support administratör | Nivå 1-stöd | Ingen |
 | Identitets administratör | Konfigurera och Felsök när problem påverkar Azure AD | Global administratör |
-| Program administratör | Användar attestering i program, konfiguration av användare med behörigheter | Ingen |
+| Program administratör | Användar attestering i program, konfiguration av användare med behörigheter | Inga |
 | Infrastruktur administratörer | Certifikat förnyelse ägare | Global administratör |
-| Företags ägare/från intressenter | Användar attestering i program, konfiguration av användare med behörigheter | Ingen |
+| Företags ägare/från intressenter | Användar attestering i program, konfiguration av användare med behörigheter | Inga |
 
 Vi rekommenderar att du använder [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) (PIM) för att hantera dina roller för att ge ytterligare gransknings-, kontroll-och åtkomst granskning för användare med katalog behörigheter.
 

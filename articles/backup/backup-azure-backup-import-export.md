@@ -1,5 +1,5 @@
 ---
-title: Azure Backup-offline-säkerhetskopiering eller inledande dirigering med tjänsten Azure import/export
+title: Dirigering av säkerhets kopiering offline med Azure Backup import/export-tjänsten
 description: Lär dig hur Azure Backup ger dig möjlighet att skicka data från nätverket med Azure import/export-tjänsten. I den här artikeln förklaras dirigeringen av de första säkerhets kopierings data med hjälp av Azure import export-tjänsten.
 ms.reviewer: saurse
 author: dcurwin
@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.author: dacurwin
-ms.openlocfilehash: 2c628b94879e54616f294e4c5f349f241fbbb98b
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: a59cff3b2edc4d5b94cc0a44472665c95652f868
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689480"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736679"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Arbetsflöde för säkerhetskopiering offline i Azure Backup
 Azure Backup har flera inbyggda effektivitets vinster som sparar kostnader för nätverk och lagring under de första fullständiga säkerhets kopieringarna av data till Azure. De första fullständiga säkerhets kopieringarna överför ofta stora mängder data och kräver mer nätverks bandbredd jämfört med efterföljande säkerhets kopieringar som bara överför delta/steg. Genom processen för dirigering av dirigering kan Azure Backup använda diskar för att ladda upp offline-säkerhetskopierade data till Azure.

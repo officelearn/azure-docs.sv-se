@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 08/01/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8297a2b1e78da6685b3129071612dc4457990bc1
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 29188013b75dbefbaf80f3c59360f203ae5b5a82
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68696393"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736752"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Utskalning för Azure Analysis Services
 
@@ -143,9 +143,9 @@ För SSMS, SSDT och anslutnings strängar i PowerShell, Azure Function-appar och
 
 ![Server namn](media/analysis-services-scale-out/aas-scale-out-name.png)
 
-## <a name="scale-up--down-vs-scale-out"></a>Skala upp/ned jämfört med Skala ut
+## <a name="scale-up-scale-down-vs-scale-out"></a>Skala upp, skala ned jämfört med Skalbarhet
 
-Du kan ändra serverns pris nivå på servern med flera repliker. Samma pris nivå gäller för alla repliker. Med åtgärden för att skala upp och ned kan du först ta bort alla repliker på en gång och sedan hämta alla repliker på den nya pris nivån.
+Du kan ändra pris nivån på en server med flera repliker. Samma pris nivå gäller för alla repliker. En skalnings åtgärd förflyttar först alla repliker på en gång och hämtar alla repliker på den nya pris nivån.
 
 ## <a name="troubleshoot"></a>Felsöka
 

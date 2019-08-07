@@ -1,6 +1,6 @@
 ---
-title: Azure-säkerhet och efterlevnad skissen - PaaS-webbprogram som är värd för Storbritannien officiella arbetsbelastningar
-description: Azure-säkerhet och efterlevnad skissen - PaaS-webbprogram som är värd för Storbritannien officiella arbetsbelastningar
+title: Handlingsplan för säkerhet och efterlevnad i Azure-PaaS webb program som värd för de officiella arbets belastningarna i Storbritannien
+description: Handlingsplan för säkerhet och efterlevnad i Azure-PaaS webb program som värd för de officiella arbets belastningarna i Storbritannien
 services: security
 author: jomolesk
 ms.assetid: 446105ad-a863-44f5-a964-6ead1dac4787
@@ -8,52 +8,52 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: e3ee5a0aa22d1231dca7d02a77d39e0a2b569314
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 54bf4512785941ae1d09ae1436deefc032ec0037
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66753841"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780661"
 ---
-# <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure Blueprint för säkerhet och efterlevnad: PaaS-webbprogram som är värd för Storbritannien officiella arbetsbelastningar
+# <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure Security and Compliance Blueprint (Handlingsplan för säkerhet och efterlevnad i Azure): PaaS webb program som värd för offentliga Storbritannien-arbetsbelastningar
 
 ## <a name="azure-security-and-compliance-blueprints"></a>Skisser för säkerhet och efterlevnad i Azure
 
-Azure skisser bestå av vägledning dokument och automation-mallar som distribuerar molnbaserade arkitekturer för att erbjuda lösningar på scenarier där ackreditering eller efterlevnadskrav. Azure skisser är vägledning och automation-mall som möjligt för Microsoft Azure-kunder att leveransen av deras affärsmål genom att etablera en foundation-arkitektur som kan utökas för att uppfylla eventuella ytterligare krav.
+Azure-ritningar består av väglednings dokument och automatiserings mallar som distribuerar molnbaserade arkitekturer för att erbjuda lösningar till scenarier som har ackrediterings-eller efterlevnads krav. Azure-ritningar är vägledning och samlingar med automatiserings mallar som gör det möjligt för Microsoft Azure kunder att påskynda leverans av sina affärs mål genom att tillhandahålla en grund arkitektur som kan utökas för att uppfylla eventuella ytterligare krav.
 
 ## <a name="overview"></a>Översikt
 
-Den här Azure Blueprint för säkerhet och efterlevnad ger vägledning och automation-skript för att leverera en Microsoft Azure [plattform som en tjänst (PaaS)](https://azure.microsoft.com/overview/what-is-paas/) webbprogramarkitektur som är lämpliga för att hantera arbetsbelastningar som klassificeras som värd som [UK-OFFICIAL](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/715778/May-2018_Government-Security-Classifications-2.pdf). Den här säkerhetsklassificering omfattar merparten av information skapas eller bearbetas av den offentliga sektorn. Detta inkluderar rutinmässig verksamheten och tjänster, vilka om tappas bort, blir stulen eller publicerats i mediet, vilket kan ha skadas. Vanliga hot profilen för den officiella klassificeringen är ungefär samma sätt som ett privat företag som ger värdefull information och tjänster. Storbritannien officiella förutse behovet av att försvara Brittiska myndigheterna data eller tjänster mot hot eller kompromettering av angripare med bunden funktioner och resurser som (men inte begränsat till) hactivists single-issue tryck grupper, undersökande journalister behöriga enskilda hackare och flesta av straffrättsliga personer och grupper.
+Den här Handlingsplan för säkerhet och efterlevnad i Azure ger vägledning och automatiserings skript för att leverera en Microsoft Azure [plattform som en tjänst (PaaS)](https://azure.microsoft.com/overview/what-is-paas/) värd för webb program som är avsedd för hantering av arbets belastningar som klassificeras som [brittiskt officiellt ](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/715778/May-2018_Government-Security-Classifications-2.pdf). Den här säkerhets klassificeringen omfattar merparten av den information som skapas eller bearbetas av den offentliga sektorn. Detta omfattar rutinmässiga affärs åtgärder och tjänster, som om de tappas bort, blir stulna eller publiceras på mediet, vilket kan ha skadat konsekvenser. Den vanliga hot profilen för den officiella klassificeringen är mycket samma som en privat verksamhet som tillhandahåller värdefull information och tjänster. UK förväntar sig att skydda data från Storbritannien eller andra tjänster i Storbritannien mot hot eller komprometterade av angripare med begränsade möjligheter och resurser, till exempel (men är inte begränsat till) hactivists, uttrycks grupper med en enda utgåva, undersökande journalister, behöriga enskilda hackare och majoriteten av kriminella individer och grupper.
 
-Den här skissen har granskats av den Storbritannien nationella Cyberhot Security Center (NCSC) och stämmer överens med Molnsäkerhetsprinciper för NCSC 14.
+Den här skissen har granskats av Storbritannien National cyberhot Security Centre (NCSC) och överensstämmer med NCSC 14 Cloud Security-principer.
 
-Arkitekturen använder Azure [plattform som en tjänst](https://azure.microsoft.com/overview/what-is-paas/) komponenter för att leverera en miljö som gör att kunderna slipper du kostnaderna och besväret med att köpa programvarulicenser för att hantera underliggande programinfrastruktur och middleware eller utvecklingsverktygen och andra resurser. Kunderna hantera program och tjänster som de utvecklar fokusera på att leverera affärsvärde, även om Microsoft Azure hanterar andra Azure-resurser, till exempel virtuella datorer, lagring och nätverk, placera flera av de [divisionen av ansvar](https://docs.microsoft.com/azure/security/security-paas-deployments#division-of-responsibility) för infrastrukturhantering in på Azure-plattformen. [Azure App Services](https://azure.microsoft.com/services/app-service/) ger automatisk skalning, hög tillgänglighet, har stöd för Windows och Linux och möjliggör automatiska distributioner från GitHub, Azure DevOps eller valfri Git-lagringsplats som standardtjänster. Med hjälp av App Services, kan utvecklare koncentrera dig på att leverera värde utan att behöva hantera infrastrukturen. Det är möjligt att bygg nya webbprogram i Java, PHP, Node.js, Python, HTML eller C# eller också migrera befintliga molnet eller på lokala webbprogram till Azure App Services, (även om omfattande förfallodatum noggrannhet och testningen bekräfta prestanda krävs).
+Arkitekturen använder Azure [-plattformen som en tjänst](https://azure.microsoft.com/overview/what-is-paas/) komponent för att leverera en miljö som gör det möjligt för kunderna att undvika kostnader och komplexitet vid köp av program varu licenser, hantering av underliggande program infrastruktur och mellanprogram eller utvecklingsverktyg och andra resurser. Kunderna hanterar de program och tjänster som de utvecklar, vilket fokuserar på att leverera affärs värde, medan Microsoft Azure hanterar de andra Azure-resurserna, till exempel virtuella datorer, lagring och nätverk, och placerar mer av [delningen av ansvar](https://docs.microsoft.com/azure/security/security-paas-deployments#division-of-responsibility) för infrastruktur hantering på Azure-plattformen. [Azure App Services](https://azure.microsoft.com/services/app-service/) erbjuder automatisk skalning, hög tillgänglighet, stöder Windows och Linux och möjliggör automatiserade distributioner från GitHub, Azure DevOps eller git-lagringsplats som standard tjänster. Genom att använda App Services kan utvecklare koncentrera sig på att leverera affärs värde utan att behöva hantera infrastrukturen. Det är möjligt att bygga Bygg nya Java, PHP, Node. js, python, HTML eller C# webb program eller även för att migrera befintliga moln eller lokala webb program till Azure App tjänster (även om det finns en grundlig noggrannhet och testning för att bekräfta prestandan krävs).
 
-Den här skissen fokuserar på etablering av en säker grund [plattform som en tjänst](https://azure.microsoft.com/overview/what-is-paas/) webbaserat gränssnitt för offentliga och BackOffice-användare. Det här designscenariot skissen tar hänsyn till användningen av Azure värdbaserade webbaserade tjänster där en offentlig användare kan på ett säkert sätt skicka, visa och hantera känsliga data. också att en backend office eller government-operator på ett säkert sätt kan bearbeta känsliga data som offentliga användaren har skickat. Användningsområden för det här scenariot kan omfatta:
+Den här skissen fokuserar på etableringen av en säker Foundation- [plattform som ett](https://azure.microsoft.com/overview/what-is-paas/) webbaserat gränssnitt för tjänsten för offentliga och även Back-Office-användare. Det här skiss design scenariot betraktar användningen av Azure-värdbaserade webbaserade tjänster där en offentlig användare kan skicka, Visa och hantera känsliga data på ett säkert sätt. Dessutom kan en back kontor eller myndighets operatör på ett säkert sätt bearbeta känsliga data som den offentliga användaren har skickat. Användnings fall för det här scenariot kan vara:
 
-- En användare skickar en deklarationen, med en government operator bearbetning av bidrag;
-- En användare som begär en tjänst via ett webbaserat program med en användare för BackOffice-validering och leverera tjänsten; eller
-- En användare som vill ha och visa den offentliga domänen hjälpinformation om en tjänst för myndigheter.
+- En användare som lämnar in en skatte avkastning, med en myndighets operatör som bearbetar sändningen.
+- En användare som begär en tjänst via ett webbaserat program, med en Back Office-användare som verifierar och levererar tjänsten. eller
+- En användare som söker efter och visar hjälp information om offentliga domäner om en myndighets tjänst.
 
-Med hjälp av [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) mallar och Azure Command Line Interface skript skissen distribuerar en miljö som är knutet till de Storbritannien nationella Cyberhot Security Center (NCSC) 14 [Molnsäkerhetsprinciper](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) och Center för Internetsäkerhet (CIS) [kritiskt säkerhetskontroller](https://www.cisecurity.org/critical-controls.cfm). NCSC rekommenderar sina Molnsäkerhetsprinciper används av kunder för att utvärdera säkerhetsegenskaperna för tjänsten och för att förstå divisionen av ansvar mellan kunden och leverantören. Microsoft har tillhandahållit information mot alla dessa principer för att bättre förstå delningen av ansvarsområden. Den här arkitekturen och motsvarande Azure Resource Manager-mallar stöds av Microsoft-faktabladet [14 molnet säkerhetskontroller för Storbritannien cloud Using Microsoft Azure](https://gallery.technet.microsoft.com/14-Cloud-Security-Controls-670292c1). Den här arkitekturen har granskats av NCSC och överensstämmer med den Storbritannien NCSC 14 Molnsäkerhetsprinciper, vilket gör att organisationer inom offentlig sektor snabb åtkomst till sina möjligheter att uppfylla efterlevnad skyldigheter med molnbaserade tjänster globalt och i Storbritannien på den Microsoft Azure-molnet. Den här mallen distribuerar infrastrukturen för arbetsbelastningen. Programkod och stöd för affärsnivå och programvara för nivå måste installeras och konfigureras av kunder. Distribution av detaljerade instruktioner finns [här](https://aka.ms/ukofficial-paaswa-repo/).
+Med hjälp av [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) mallar och Azure kommando rads gränssnitts skript distribuerar skissen en miljö som motsvarar de nationella cyberhot Security Center (NCSC) 14- [moln säkerhets principer](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) och Center för Internet Säkerhet (CIS) [kritiska säkerhets kontroller](https://www.cisecurity.org/critical-controls.cfm). NCSC rekommenderar att deras moln säkerhets principer används av kunder för att utvärdera tjänstens säkerhets egenskaper och för att hjälpa till att förstå ansvars fördelningen mellan kunden och leverantören. Microsoft tillhandahåller information om var och en av dessa principer för att bättre förstå delning av ansvars områden. Den här arkitekturen och motsvarande Azure Resource Manager mallar stöds av Microsoft whitepaper, [14 Cloud Security-kontroller för brittiskt moln med Microsoft Azure](https://gallery.technet.microsoft.com/14-Cloud-Security-Controls-670292c1). Den här arkitekturen har granskats av NCSC och överensstämmer med NCSC 14-molnets säkerhets principer, vilket gör det möjligt för offentliga organisationer att snabbt spåra sin förmåga att uppfylla efterlevnads skyldigheter med hjälp av molnbaserade tjänster globalt och i Storbritannien på Microsoft Azure molnet. Den här mallen distribuerar infrastrukturen för arbets belastningen. Program kod och stöd för affärs nivå och program vara för datanivå måste installeras och konfigureras av kunderna. Detaljerade distributions anvisningar finns [här](https://aka.ms/ukofficial-paaswa-repo/).
 
-Den här skissen är en foundation-arkitektur. Våra kunder kan använda den här skissen som en grund för sina officiella klassificering webbaserade arbetsbelastningar och expandera de mallar och resurser med sina egna krav. Den här skissen bygger på principerna för den [Storbritannien officiella Trelagers-IaaS-webbprogram skiss](https://aka.ms/ukofficial-iaaswa) att erbjuda våra kunder, både [infrastruktur som en tjänst (IaaS)](https://azure.microsoft.com/overview/what-is-iaas/) och PaaS som redan för att hantera webbaserade arbetsbelastningar.
+Den här skissen är en grund arkitektur. Våra kunder kan använda den här skissen som grund för sina officiella klassificerings-baserade arbets belastningar och utöka de mallar och resurser som har sina egna krav. Den här skissen bygger på principerna för [OFFICAL i IaaS webb program i tre skikt](https://aka.ms/ukofficial-iaaswa) för att erbjuda våra kunder både [infrastruktur som en tjänst (IaaS)](https://azure.microsoft.com/overview/what-is-iaas/) och PaaS implementerings alternativ för att vara värd för webbaserade arbets belastningar.
 
-Om du vill distribuera den här skissen, krävs en Azure-prenumeration. Om du inte har en Azure-prenumeration kan registrera du dig snabbt och enkelt utan kostnad: Kom igång med Azure. Klicka på [här](https://aka.ms/ukofficial-paaswa-repo/) anvisningar för distribution.
+För att distribuera den här skissen krävs en Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du snabbt och enkelt registrera dig utan kostnad: Kom igång med Azure. Klicka [här](https://aka.ms/ukofficial-paaswa-repo/) om du vill ha distributions anvisningar.
 
 ## <a name="architecture-and-components"></a>Arkitektur och komponenter
 
-Denna skiss tillhandahåller ett webbprogram som värd-lösning i en miljö för Azure-molnet som har stöd för Storbritannien officiella arbetsbelastningar. Arkitekturen ger en säker miljö som utnyttjar Azure-plattformen som en tjänstfunktioner. I miljön, två App Service-webbappar som är distribuerade (en för offentliga användare) och en för BackOffice-användare, med en API-App-nivå att tillhandahålla företagstjänster för klientdelen. En Azure SQL Database distribueras som en hanterad relationsdatabas för programmet. Anslutningen till dessa komponenter från utanför plattformen och mellan dessa komponenter är krypterad via TLS 1.2 ska se till att data i transport sekretess med åtkomst som autentiseras av Azure Active Directory.
+Den här skissen levererar en webb program värd lösning i en Azure Cloud-miljö som stöder officiella arbets belastningar i Storbritannien. Arkitekturen ger en säker miljö som utnyttjar Azure-plattformen som tjänst funktioner. I miljön distribueras två App Service webbappar (en för offentliga användare och en för Back-Office-användare), med en API-app-nivå för att tillhandahålla företags tjänster för webb klient delen. En Azure SQL Database distribueras som ett hanterat Relations data lager för programmet. Anslutning till dessa komponenter utanför plattformen och mellan alla dessa komponenter krypteras via TLS 1,2 för att säkerställa att data transporteras med åtkomst som autentiseras av Azure Active Directory.
 
-![PaaS Webbprogramsvärden för Storbritannien officiella arbetsbelastningar referens för Arkitekturdiagram](images/ukofficial-paaswa-architecture.png?raw=true "PaaS Webbprogramsvärden för Arkitekturdiagram för Storbritannien officiella arbetsbelastningar referens")
+![PaaS-webbprogram som är värd för referens arkitektur diagram för Förenade arbets belastningar i Storbritannien](images/ukofficial-paaswa-architecture.png?raw=true "PaaS-webbprogram som är värd för referens arkitektur diagram för Förenade arbets belastningar i Storbritannien")
 
-Som en del av distributionsarkitektur, säker lagring etablera, övervakning & loggning, enhetlig säkerhetshantering och Avancerat skydd mot hot och management distribueras också funktioner för att se till att kunderna har alla verktyg som krävs för att skydda och övervaka deras miljö för den här lösningen.
+Som en del av distributions arkitekturen, distribueras etablering av säkra lagrings enheter, övervakning & loggning, enhetlig säkerhets hantering & Avancerat skydd av hot och hanterings funktioner distribueras också för att säkerställa att kunderna har alla verktyg som krävs för att skydda och övervaka deras miljö för den här lösningen.
 
-Den här lösningen använder följande Azure-tjänster. Mer information om distributionsarkitekturen finns i den [distributionsarkitektur](#deployment-architecture) avsnittet.
+Den här lösningen använder följande Azure-tjänster. Information om distributions arkitekturen finns i avsnittet [distributions arkitektur](#deployment-architecture) .
 
 - Azure Active Directory
 - App Service
-- Webbapp
+- Webbprogram
 - API-app
 - Azure DNS
 - Key Vault
@@ -64,190 +64,190 @@ Den här lösningen använder följande Azure-tjänster. Mer information om dist
 - Azure SQL Database
 - Azure Storage
 
-## <a name="deployment-architecture"></a>Distributionsarkitektur för
+## <a name="deployment-architecture"></a>Distributions arkitektur
 
-Följande avsnitt beskriver elementen distribution och implementering.
+I följande avsnitt beskrivs distributions-och implementerings elementen.
 
 ### <a name="security"></a>Säkerhet
 
-#### <a name="identity-and-authentication"></a>Enhetsidentitet samt autentisering
+#### <a name="identity-and-authentication"></a>Identitet och autentisering
 
-Den här skissen säkerställer att åtkomsten till resurser är skyddade genom företagskatalogen och identitetshanteringen hanteringstjänster. Den här arkitekturen gör fullt ut utnyttja [identitet som säkerhetsperimeter](https://docs.microsoft.com/azure/security/security-paas-deployments). 
+Den här skissen säkerställer att åtkomst till resurser skyddas via katalog-och identitets hanterings tjänster. Den här arkitekturen ger full användning av [identitet som säkerhetsperimeter](https://docs.microsoft.com/azure/security/security-paas-deployments). 
 
-Följande tekniker hanteringsfunktioner identitet i Azure-miljön:
+Följande tekniker tillhandahåller funktioner för identitets hantering i Azure-miljön:
 
-- [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) Microsofts molnbaserade katalog- och identitetstjänst management multiklienttjänst. Alla användare för lösningen har skapats i Azure Active Directory, inklusive användare med åtkomst till SQL-databasen.
-- Det utförs autentiseringen till operatorn mot webbprogram och åtkomst för administrationen av Azure-resurser med hjälp av Azure AD. Mer information finns i [integrera program med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).
-- Kolumnen databaskryptering använder Azure AD för att autentisera program till Azure SQL Database. Mer information finns i [Always Encrypted: Skydda känsliga data i SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault).
-- Kundorienterade webbprogram har konfigurerats för offentlig åtkomst. Att tillåta för nätverks-kontoskapandet och autentisering via active directory eller sociala identitetsleverantörer [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) kan integreras om det behövs.
-- [Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) identifierar potentiella säkerhetsproblem och riskfyllda konton ger rekommendationer för att förbättra säkerhetspositionen för din organisations identiteter, konfigurerar automatiska svar till har identifierats misstänkta åtgärder relaterade till din organisations identiteter, och undersöker misstänkta incidenter och vidtar lämpliga åtgärder du kan åtgärda detta.
-- [Azure rollbaserad åtkomstkontroll (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) aktiverar exakt fokuserade åtkomsthantering för Azure. Prenumerationsåtkomst är begränsad till administratör för prenumerationen och Azure Key Vault-åtkomst begränsas till användare som behöver åtkomst för nyckelhantering.
-- Genom att utnyttja [Azure Active Directory villkorsstyrd åtkomst](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) kunder kan tillämpa ytterligare säkerhetsåtgärder på åtkomst till appar eller användare i deras miljö utifrån särskilda villkor, till exempel plats, enhet, tillstånd och inloggning i risk.
-- [Azure DDoS Protection](https://docs.microsoft.com/azure/security/security-paas-deployments#security-advantages-of-a-paas-cloud-service-model) kombineras med metodtips för design av program, ger skydd mot DDoS-attacker med ständigt aktiverad övervakning, och i realtid minskning av vanliga attacker på nätverksnivå. Plattformsnivå DDoS protection är transparent för kunden och inbyggda i plattformen med en arkitektur för PaaS, men det är viktigt att notera att programmet security design ansvar ligger hos kunden.
+- [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) är Microsofts molnbaserade katalog-och identitets hanterings tjänst för flera innehavare. Alla användare för lösningen har skapats i Azure Active Directory, inklusive användare som har åtkomst till SQL Database.
+- Autentisering till operatören riktad mot webb program och åtkomst för administration av Azure-resurser utförs med hjälp av Azure AD. Mer information finns i [integrera program med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).
+- Databas kolumn kryptering använder Azure AD för att autentisera programmet för att Azure SQL Database. Mer information finns i [Always Encrypted: Skydda känsliga data i SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault).
+- Det medborgare-riktade webb programmet är konfigurerat för offentlig åtkomst. För att kunna skapa och autentisera konton via Active Directory eller sociala nätverks identitets leverantörer [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) kan integreras vid behov.
+- [Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) identifierar potentiella sårbarheter och riskfyllda konton ger rekommendationer för att förbättra säkerhets position i organisationens identiteter, konfigurerar automatiska svar på identifierade misstänkta åtgärder relaterade till din organisations identiteter och undersöker misstänkta incidenter och vidtar lämpliga åtgärder för att lösa dem.
+- Med [Azure Role-baserade Access Control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) kan du prioriterad åtkomst hantering för Azure. Åtkomst till prenumerationen är begränsad till prenumerations administratören och Azure Key Vault åtkomst begränsas endast till användare som behöver åtkomst till nyckel hantering.
+- Genom att [utnyttja Azure Active Directory villkorliga åtkomst](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) kunder kan använda ytterligare säkerhets kontroller för åtkomst till appar eller användare i deras miljö baserat på vissa villkor, till exempel plats, enhet, tillstånd och inloggnings risk.
+- [Azure DDoS Protection](https://docs.microsoft.com/azure/security/security-paas-deployments#security-advantages-of-a-paas-cloud-service-model) kombineras med bästa praxis för program design, ger skydd mot DDoS-attacker, med Always on trafikövervakning och real tids minskning av vanliga attacker på nätverks nivå. Med en PaaS-arkitektur är plattforms nivå DDoS-skyddet transparent för kunden och ingår i plattformen, men det är viktigt att notera att säkerhets design ansvaret för program säkerhet ligger hos kunden.
 
 #### <a name="data-in-transit"></a>Data under överföring
 
-Data överförs från utanför och mellan Azure-komponenter är skyddat med hjälp av [Transport Layer Security/Secure Sockets Layer (SSL/TLS)](https://www.microsoft.com/TrustCenter/Security/Encryption), som använder symmetrisk kryptering som baseras på en delad hemlighet för att kryptera kommunikation som de överföras via nätverket. Som standard skyddas nätverkstrafik med hjälp av TLS 1.2.
+Data överförs från utsidan och mellan Azure-komponenter skyddas med hjälp av [Transport Layer Security/Secure Sockets Layer (TLS/SSL)](https://www.microsoft.com/TrustCenter/Security/Encryption), som använder symmetrisk kryptering baserat på en delad hemlighet för att kryptera kommunikation när de reser över nätverket. Som standard skyddas nätverks trafik med TLS 1,2.
 
-#### <a name="security-and-malware-protection"></a>Säkerhet och skadlig kod protection
+#### <a name="security-and-malware-protection"></a>Säkerhet och skydd mot skadlig kod
 
-[Azure Security Center](https://azure.microsoft.com/services/security-center/) ger en central vy över säkerhetsläget hos alla dina Azure-resurser. På ett ögonblick, kan du kontrollera att rätt säkerhetskontroller är på plats och korrekt konfigurerad och att du snabbt kan identifiera eventuella resurser som kräver uppmärksamhet.
+[Azure Security Center](https://azure.microsoft.com/services/security-center/) ger en centraliserad vy över säkerhets läget för alla dina Azure-resurser. Du kan snabbt kontrol lera att rätt säkerhets kontroller är på plats och korrekt konfigurerade, och du kan snabbt identifiera eventuella resurser som kräver uppmärksamhet.
 
-[Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-overview) är en personligt anpassad molnrådgivare som hjälper dig att följa bästa praxis för att optimera dina Azure-distributioner. Advisor analyserar din resurskonfiguration och användningstelemetri och rekommenderar sedan lösningar som kan hjälpa dig att förbättra kostnadseffektiviteten, prestanda, tillgängligheten och säkerheten för dina Azure-resurser.
+[Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-overview) är en anpassad moln konsult som hjälper dig att följa bästa praxis för att optimera dina Azure-distributioner. Advisor analyserar din resurskonfiguration och användningstelemetri och rekommenderar sedan lösningar som kan hjälpa dig att förbättra kostnadseffektiviteten, prestanda, tillgängligheten och säkerheten för dina Azure-resurser.
 
-[Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) är en realtidsskydd-funktion som hjälper dig att identifiera och ta bort virus, spionprogram och annan skadlig programvara. Detta som standard är installerad på den underliggande PaaS-infrastrukturen för virtuell dator och hanteras av Azure-infrastrukturen transparent till kunden.
+[Microsoft Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware) är en real tids skydds funktion som hjälper dig att identifiera och ta bort virus, spionprogram och annan skadlig program vara. Detta är som standard installerat på den underliggande PaaS-infrastrukturen för virtuella datorer och hanteras av Azure Fabric transparent till kunden.
 
-### <a name="paas-services-in-this-blueprint"></a>PaaS-tjänster i den här skissen
+### <a name="paas-services-in-this-blueprint"></a>PaaS Services i den här skissen
 
 #### <a name="azure-app-service"></a>Azure App Service
 
-Azure App Service får du en fullständigt hanterad värdmiljö för webbprogram som har utvecklats i Java, PHP, Node.js, Python, HTML och C# utan att behöva hantera infrastrukturen. Den tillhandahåller automatisk skalning och hög tillgänglighet, har stöd för både Windows och Linux och möjliggör automatiska distributioner från [Azure DevOps](https://azure.microsoft.com/services/visual-studio-team-services/) eller valfri Git-baserade lagringsplats.
+Azure App Service tillhandahåller en fullständigt hanterad webb värd miljö för webb program som utvecklats i Java, PHP, Node. js python, C# HTML och utan att behöva hantera infrastrukturen. Den erbjuder automatisk skalning och hög tillgänglighet, stöder både Windows och Linux och möjliggör automatiserade distributioner från [Azure DevOps](https://azure.microsoft.com/services/visual-studio-team-services/) eller git-baserade lagrings platsen.
 
-App Service är [ISO, SOC och PCI-kompatibel](https://www.microsoft.com/TrustCenter/) och kan autentisera användare med [Azure Active Directory](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad) eller med social inloggning ([Google](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-google), [Facebook](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-facebook), [Twitter](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-twitter), och [Microsoft authentication](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-microsoft).
+App Service är [ISO, SOC och PCI-kompatibel](https://www.microsoft.com/TrustCenter/) och kan autentisera användare med [Azure Active Directory](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad) eller med social inloggning ([Google](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-google), [Facebook](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-facebook), [Twitter](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-twitter)och [Microsoft Authentication](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-microsoft).
 
-Basic, Standard och Premium-prenumerationer avser produktionsarbetsbelastningar och körs på särskilda virtuella datorinstanser. Varje instans har stöd för flera program och domäner. App services också stöd för [IP-adressbegränsningar](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions) att skydda trafik till betrodda IP-adresser om det behövs och även [hanterade identiteter för Azure-resurser](https://docs.microsoft.com/azure/app-service/overview-managed-identity) för säker anslutning till andra PaaS-tjänster till exempel [Nyckelvalv](https://azure.microsoft.com/services/key-vault/) och [Azure SQL Database](https://azure.microsoft.com/services/sql-database/). Om det krävs ytterligare säkerhet vår isolerad är värd för dina appar i en privat, dedikerad miljö för Azure och är perfekt för appar som kräver säkra anslutningar till ditt lokala nätverk eller ytterligare prestanda och skalning.
+Basic-, standard-och Premium-planer är för produktions arbets belastningar och körs på dedikerade instanser av virtuella datorer. Varje instans har stöd för flera program och domäner. App Services stöder också [IP-adressbegränsningar](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions) för att skydda trafik till betrodda IP-adresser om det behövs och även [hanterade identiteter för Azure-resurser](https://docs.microsoft.com/azure/app-service/overview-managed-identity) för säker anslutning till andra PaaS-tjänster, till exempel [Key Vault](https://azure.microsoft.com/services/key-vault/) och [Azure SQL Databas](https://azure.microsoft.com/services/sql-database/). Om ytterligare säkerhet krävs är det en isolerad plan som är värd för dina appar i en privat, dedikerad Azure-miljö och är idealisk för appar som kräver säkra anslutningar med ditt lokala nätverk, eller ytterligare prestanda och skalning.
 
-Den här mallen distribuerar följande App Service-funktioner:
+Den här mallen distribuerar följande App Service funktioner:
 
-- [Standard](https://docs.microsoft.com/azure/app-service/overview-hosting-plans) nivå för App Service-Plan
-- Flera Apptjänst [distributionsfack](https://docs.microsoft.com/azure/app-service/deploy-staging-slots): Utveckling, förhandsgranskning, QA, UAT och naturligtvis produktion (standard-port).
-- [Hanterade identiteter för Azure-resurser](https://docs.microsoft.com/azure/app-service/overview-managed-identity) att ansluta till [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) (Detta kan också användas för att ge åtkomst till [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) 
-- Integrering med [Azure Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-azure-web-apps) att övervaka prestanda
+- [Standard](https://docs.microsoft.com/azure/app-service/overview-hosting-plans) App Service plans nivå
+- Flera App Service [distributions fack](https://docs.microsoft.com/azure/app-service/deploy-staging-slots): Dev, Preview, frågor och svar, UAT och kurs produktion (standard fack).
+- [Hanterade identiteter för Azure-resurser](https://docs.microsoft.com/azure/app-service/overview-managed-identity) för att ansluta till [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) (detta kan också användas för att ge åtkomst till [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) 
+- Integrering med [Azure Application](https://docs.microsoft.com/azure/application-insights/app-insights-azure-web-apps) insikter för att övervaka prestanda
 - [Diagnostikloggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) 
-- Mått [aviseringar](https://docs.microsoft.com/azure/application-insights/app-insights-alerts) 
+- Mått [varningar](https://docs.microsoft.com/azure/application-insights/app-insights-alerts) 
 - [Azure API Apps](https://azure.microsoft.com/services/app-service/api/) 
 
 #### <a name="azure-sql-database"></a>Azure SQL Database
 
-SQL-databasen är en hanterad, allmän relationsdatabastjänst i Microsoft Azure som har stöd för strukturer som relationsdata, JSON, spatial och XML. SQL Database erbjuder hanterade enskild SQL-databaser, hanterade SQL-databaser i en [elastisk pool](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool), och SQL [instanser som hanteras av](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) (i allmänt tillgänglig förhandsversion). Ger [dynamiskt skalbar prestanda](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers) och innehåller alternativ som [kolumnlagringsindex](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) för extremanalys och rapporter, samt [minnesintern OLTP](https://docs.microsoft.com/azure/sql-database/sql-database-in-memory) för extrem transaktionell bearbetning. Microsoft hanterar alla korrigeringar och uppdateringar av SQL-kodbasen sömlöst och avlägsnar all hantering av underliggande den infrastrukturen.
+SQL-databasen är en hanterad, allmän relationsdatabastjänst i Microsoft Azure som har stöd för strukturer som relationsdata, JSON, spatial och XML. SQL Database erbjuder hanterade enskilda SQL-databaser, hanterade SQL-databaser i en [elastisk pool](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool)och SQL- [hanterade instanser](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) (i offentlig för hands version). Ger [dynamiskt skalbar prestanda](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers) och innehåller alternativ som [kolumnlagringsindex](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) för extremanalys och rapporter, samt [minnesintern OLTP](https://docs.microsoft.com/azure/sql-database/sql-database-in-memory) för extrem transaktionell bearbetning. Microsoft hanterar alla korrigeringar och uppdateringar av SQL-kodbasen sömlöst och avlägsnar all hantering av underliggande den infrastrukturen.
 
-Azure SQL-databas i den här skissen
+Azure SQL Database i den här skissen
 
-Azure SQL Database-instans använder följande säkerhetsåtgärder för databasen:
+Azure SQL Database-instansen använder följande säkerhets åtgärder för databasen:
 
-- [Brandväggsregler på servernivå och databasnivå](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure), eller via [tjänstslutpunkter i virtuella nätverk](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) med [virtuella Nätverksregler](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview).
-- [Transparent datakryptering](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) hjälper dig att skydda Azure SQL Database och Azure Data Warehouse mot skadlig aktivitet. Den utför i realtid kryptering och dekryptering av databasen, tillhörande säkerhetskopior och transaktionsloggfiler vilande utan ändringar i programmet.
-- [Azure AD-autentisering](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication), kan du centralt hantera identiteter för databasanvändare och andra Microsoft-tjänster på en central plats. Central hantering av ID innehåller en enda plats för att hantera databasanvändare och förenklar hanteringen av behörighet.
-- Användning av Azure Active Directory för databasadministration
-- [Granskningsloggar](https://docs.microsoft.com/azure/sql-database/sql-database-auditing) till storage-konton
-- Mått [aviseringar](https://docs.microsoft.com/azure/application-insights/app-insights-alerts) för misslyckade DB-anslutningar
-- [SQL-Hotidentifiering](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection)
-- [Alltid krypterad kolumner](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault)
+- [Brand Väggs regler på server nivå och databas nivå](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure), eller via [Virtual Network tjänst slut punkter](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) med hjälp av [regler för virtuella nätverk](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview).
+- [Transparent data kryptering](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) hjälper till att skydda Azure SQL Database och Azure Data Warehouse mot hot från skadlig aktivitet. Den utför kryptering och dekryptering i real tid av databasen, tillhör ande säkerhets kopior och transaktionsloggfiler i vila utan att det krävs några ändringar i programmet.
+- [Azure AD-autentisering](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication)kan du centralt hantera identiteter för databas användare och andra Microsoft-tjänster på en central plats. Hantering av central-ID är en enda plats för att hantera databas användare och för att förenkla behörighets hanteringen.
+- Användning av Azure Active Directory för databas administration
+- [Gransknings loggar](https://docs.microsoft.com/azure/sql-database/sql-database-auditing) till lagrings konton
+- Mått [aviseringar](https://docs.microsoft.com/azure/application-insights/app-insights-alerts) för MISSLYCKAde DB-anslutningar
+- [Identifiering av SQL-hot](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection)
+- [Always Encrypted kolumner](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault)
 
 ### <a name="azure-storage"></a>Azure Storage
 
-Microsoft [Azure Storage](https://azure.microsoft.com/services/storage/) är en Microsoft-hanterad molntjänst som tillhandahåller lagring som har hög tillgänglighet, säker, beständig, skalbar, och redundant. Azure Storage består av Blob Storage, File Storage och Queue Storage.
+Microsoft [Azure Storage](https://azure.microsoft.com/services/storage/) är en Microsoft-hanterad moln tjänst som tillhandahåller lagring som är mycket tillgänglig, säker, hållbar, skalbar och redundant. Azure Storage består av Blob Storage, File Storage och Queue Storage.
 
-#### <a name="azure-storage-in-this-blueprint"></a>Azure Storage i denna skiss
+#### <a name="azure-storage-in-this-blueprint"></a>Azure Storage i den här skissen
 
-Den här mallen använder följande komponenter i Azure Storage:
+Den här mallen använder följande Azure Storages komponenter:
 
-- [Kryptering av lagringstjänst](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) 
+- [Kryptering för lagringstjänst](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) 
 - Tillåt endast HTTPS-anslutningar
 
 #### <a name="data-at-rest"></a>Vilande data
 
-Via [Lagringstjänstkryptering](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) alla data som skrivs till Azure Storage krypteras med 256-bitars AES-kryptering, en av de starkaste blockchiffer som är tillgängliga. Du kan använda Microsoft-hanterade krypteringsnycklarna med SSE eller så kan du använda [era egna krypteringsnycklar](https://docs.microsoft.com/azure/storage/common/storage-service-encryption-customer-managed-keys).
+Genom att [kryptering för lagringstjänst](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) alla data som skrivs till Azure Storage krypteras med 256-bitars AES-kryptering, är en av de starkaste block krypteringarna tillgängliga. Du kan använda Microsoft-hanterade krypterings nycklar med SSE eller så kan du använda [dina egna krypterings nycklar](https://docs.microsoft.com/azure/storage/common/storage-service-encryption-customer-managed-keys).
 
-Storage-konton kan skyddas [tjänstslutpunkter i virtuella nätverk](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) med [virtuella Nätverksregler](https://docs.microsoft.com/azure/storage/common/storage-network-security).
+Lagrings konton kan skyddas via [Virtual Network tjänst slut punkter](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) med hjälp av [regler för virtuella nätverk](https://docs.microsoft.com/azure/storage/common/storage-network-security).
 
-Detaljerad information om hur du skyddar Azure Storage finns i den [säkerhetsguiden](https://docs.microsoft.com/azure/storage/common/storage-security-guide).
+Detaljerad information om hur du skyddar Azure Storage finns i [säkerhets hand boken](https://docs.microsoft.com/azure/storage/common/storage-security-guide).
 
 
-### <a name="secrets-management"></a>Hantering av hemligheter
+### <a name="secrets-management"></a>Hemligheter, hantering
 
 #### <a name="azure-key-vault"></a>Azure Key Vault
 
-[Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) används för att skydda programnycklar och hemligheter så att de inte är tillgänglig av tredje part. Key Vault är inte avsett att användas för lagring av användarlösenord. Det kan du skapa flera säkra behållare, som kallas valv. De här valven stöds av säkerhetsmoduler på maskinvarunivå (HSM:er). Med valv så minskar risken för att säkerhetsinformation förloras av misstag eftersom lagringen av hemligheter centraliseras. Key Vaults styr och loggar dessutom åtkomsten till informationen du lagrar. Azure Key Vault kan hantera förfrågningar om och förnyande av TLS-certifikat (Transport Layer Security), och du har tillgång till alla de funktioner som krävs för en robust livscykelhantering av certifikat.
+[Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) används för att skydda program nycklar och hemligheter för att säkerställa att de inte är tillgängliga av tredje part. Key Vault är inte avsett att användas för lagring av användarlösenord. Du kan skapa flera säkra behållare, som kallas valv. De här valven stöds av säkerhetsmoduler på maskinvarunivå (HSM:er). Med valv så minskar risken för att säkerhetsinformation förloras av misstag eftersom lagringen av hemligheter centraliseras. Key Vaults styr och loggar dessutom åtkomsten till informationen du lagrar. Azure Key Vault kan hantera förfrågningar om och förnyande av TLS-certifikat (Transport Layer Security), och du har tillgång till alla de funktioner som krävs för en robust livscykelhantering av certifikat.
 
 #### <a name="azure-key-vault-in-this-blueprint"></a>Azure Key Vault i den här skissen
 
-- Innehåller lagringsåtkomstnyckel med läsbehörighet för den [hanterad identitet](https://docs.microsoft.com/azure/app-service/overview-managed-identity) kunden riktade webbappens
-- Innehåller DBA-lösenord för SQL Server (i ett separat valv)
+- Innehåller lagrings åtkomst nyckeln med Läs behörighet till den hanterade [identiteten](https://docs.microsoft.com/azure/app-service/overview-managed-identity) för kundens webb program
+- Innehåller SQL Server DBA-lösenord (i ett separat valv)
 - Diagnostikloggning
 
 ### <a name="monitoring-logging-and-audit"></a>Övervakning, loggning och granskning
 
 #### <a name="azure-monitor-logs"></a>Azure Monitor-loggar
 
-[Azure Monitor-loggar](https://azure.microsoft.com/services/log-analytics/) är en tjänst i Azure som hjälper dig att samla in och analysera data som genereras av resurser i molnet och lokala miljöer.
+[Azure Monitor loggar](https://azure.microsoft.com/services/log-analytics/) är en tjänst i Azure som hjälper dig att samla in och analysera data som genererats av resurser i molnet och i lokala miljöer.
 
-#### <a name="azure-monitor-logs-in-this-blueprint"></a>Azure Monitor-loggar i den här skissen
+#### <a name="azure-monitor-logs-in-this-blueprint"></a>Azure Monitor loggar i den här skissen
 
 - SQL-bedömning
-- Key Vault-diagnostik
-- Application Insights-anslutning
+- Key Vault diagnostik
+- Application Insights anslutning
 - Azure-aktivitetsloggen
 
 #### <a name="application-insights"></a>Application Insights
 
-[Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) är en utökningsbar tjänst Application Performance Management (APM) för webbutvecklare på flera plattformar. Används för att övervaka live webbprogram det automatiskt ska identifiera prestandaavvikelser, analysera prestanda och diagnostisera problem och förstå hur användarna samverkar med appen. Application Insights kan distribueras på plattformar, inklusive .NET, Node.js och Java EE finns lokalt eller i molnet. Den integrerar med din DevOps-process och kan användas med en rad olika utvecklingsverktyg.
+[Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) är en utöknings bar APM-tjänst (Application Performance Management) för webbutvecklare på flera plattformar. Används för att övervaka Live-webbprogram den identifierar automatiskt prestanda avvikelser, analyserar prestanda, diagnostiserar problem och förstår hur användare interagerar med appen. Application Insights kan distribueras på plattformar, inklusive .NET, Node. js och Java-EE, som finns lokalt eller i molnet. Den integrerar med din DevOps-process och kan användas med en rad olika utvecklingsverktyg.
 
 #### <a name="application-insights-in-this-blueprint"></a>Application Insights i den här skissen
 
-Den här mallen använder följande Application Insights-komponenter:
+Den här mallen använder följande Application Insightss komponenter:
 
-- Instrumentpanel för program per plats (operatör, kund- och API)
+- Application Insights instrument panel per webbplats (operatör, kund och API)
 
-#### <a name="azure-activity-logs"></a>Azure-aktivitetsloggar
+#### <a name="azure-activity-logs"></a>Azure aktivitets loggar
 
-[Azure-aktivitetslogg](https://docs.microsoft.com/azure/azure-monitor/platform/activity-logs-overview) granskningar kontrollplanet händelser för dina prenumerationer. Med aktivitetsloggen kan du fastställa den ”vad, vem, och när” för alla skrivåtgärder (PUT, POST, ta bort) vidtas på resurserna i din prenumeration. Du kan också förstå statusen för åtgärden och andra relevanta egenskaper.
+[Azure aktivitets loggen](https://docs.microsoft.com/azure/azure-monitor/platform/activity-logs-overview) granskar kontroll Plans händelser för dina prenumerationer. Med aktivitets loggen kan du bestämma vad, vem och när som ska användas för alla Skriv åtgärder (skicka, skicka och ta bort) på resurserna i din prenumeration. Du kan också förstå statusen för åtgärden och andra relevanta egenskaper.
 
 #### <a name="azure-monitor"></a>Azure Monitor
 
-[Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor) aktiverar Kärnövervakning för Azure-tjänster genom att låta insamling av mått, aktivitetsloggar och diagnostikloggar. Azure Monitor ger grundläggande infrastruktursmått och loggar för de flesta tjänster i Microsoft Azure.
+[Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor) möjliggör kärn övervakning av Azure-tjänster genom att tillåta insamling av mått, aktivitets loggar och diagnostikloggar. Azure Monitor ger grundläggande infrastruktursmått och loggfiler för de flesta tjänster i Microsoft Azure.
 
-## <a name="threat-model"></a>Hotmodell
+## <a name="threat-model"></a>Hot modell
 
-Dataflödesdiagram för denna Referensarkitektur är tillgängligt för [hämta](https://aka.ms/ukofficial-paaswa-tm) eller finns nedan. Den här modellen kan hjälpa kunderna att förstå punkterna i risken i system-infrastruktur när du gör ändringar.
+Data flödes diagrammet för den här referens arkitekturen är tillgängligt för [hämtning](https://aka.ms/ukofficial-paaswa-tm) eller finns nedan. Den här modellen kan hjälpa kunder att förstå punkter av potentiell risk i system infrastrukturen när de gör ändringar.
 
-![PaaS Webbprogramsvärden för Storbritannien officiella arbetsbelastningar hotmodell](images/ukofficial-paaswa-threat-model.png?raw=true "PaaS Webbprogramsvärden för Storbritannien officiella arbetsbelastningar hotmodell")
+![PaaS-webbprogram som är värd för de officiella, officiella arbets belastningarna hot modell](images/ukofficial-paaswa-threat-model.png?raw=true "PaaS-webbprogram som är värd för de officiella, officiella arbets belastningarna hot modell")
 
-## <a name="ncsc-cloud-security-principles-compliance-documentation"></a>NCSC Molnsäkerhetsprinciper efterlevnad dokumentation
+## <a name="ncsc-cloud-security-principles-compliance-documentation"></a>Dokumentation om NCSC Cloud Security princips Compliance
 
-Den kommersiella krona-tjänsten (en myndighet som fungerar för att förbättra kommersiell och inköp av regeringen) förnyas klassificeringen av Microsofts omfattande enterprise molntjänster till G-Cloud v6, som omfattar alla erbjudanden på OFFICIAL-nivå. Information om Azure och G-Cloud finns i den [Azure UK G-Cloud security utvärderingssammanfattning](https://www.microsoft.com/trustcenter/compliance/uk-g-cloud).
+Den kommersiella tjänsten för Kron tjänster (ett organ som arbetar för att förbättra företagets handels-och anskaffnings aktivitet) har förnyat klassificeringen av Microsofts moln tjänster i företags klass till G-Cloud V6, som omfattar alla sina erbjudanden på den officiella nivån. Information om Azure och G-Cloud finns i sammanfattningen av [Azures utvärdering av säkerhets utvärderingen](https://www.microsoft.com/trustcenter/compliance/uk-g-cloud).
 
-Den här skissen stämmer överens med de 14 molnsäkerhetsprinciper som finns dokumenterade i NCSC [Molnsäkerhetsprinciper](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) för att säkerställa en miljö som har stöd för arbetsbelastningar som klassificeras som officiella Storbritannien.
+Den här skissen motsvarar de 14 moln säkerhets principer som dokumenteras i NCSC [Cloud Security-principer](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) för att säkerställa en miljö som stöder arbets belastningar som klassificeras som brittisk tjänsteman.
 
-Den [Azure säkerhet och efterlevnad skissen - Storbritannien officiella kundens ansvar matrisen](https://aka.ms/ukofficial-crm) (Excel-arbetsboken) visar en lista över alla 14 molnsäkerhetsprinciper och anger för varje princip (eller princip kapitel), om principen implementering ansvarar för Microsoft, kunden, eller delas mellan två.
+I [matrisen handlingsplan för säkerhet och efterlevnad i Azure-Storbritannien officiella kund ansvar](https://aka.ms/ukofficial-crm) (Excel-arbetsbok) visas alla 14 säkerhets principer för molnet och eventuella anmärkningar för varje princip (eller princip kapitel), om princip implementeringen är ansvaret hos Microsoft, kunden eller delas mellan de två.
 
-Den [Azure säkerhet och efterlevnad skissen - PaaS webbprogram för Storbritannien officiella princip implementering matrisen](https://aka.ms/ukofficial-paaswa-pim) (Excel-arbetsboken) visar en lista över alla 14 molnsäkerhetsprinciper och anger för varje princip (eller princip kapitel) som är utsedd ett kund-ansvar i matrisen kundens ansvarsområden (1) om skissen implementerar principen och 2) en beskrivning av hur implementeringen ska justeras med unika krav.  
+[PaaS webb program för handlingsplan för säkerhet och efterlevnad i Azure den officiella princip implementerings mat ris](https://aka.ms/ukofficial-paaswa-pim) (Excel-arbetsbok) listar alla 14 moln säkerhets principer och anmärkningar för varje princip (eller princip kapitel) som är angiven som en kund ansvar i matrisen för kund ansvar, 1) om skissen implementerar principen och 2) en beskrivning av hur implementeringen överensstämmer med princip kraven.  
 
-Dessutom publicerade Cloud Security Alliance (CSA) Cloud Control matrisen stöd till kunder i utvärderingen av molnleverantörer och för att identifiera frågor som ska besvaras innan du går till molntjänster. I svaret, Microsoft Azure besvarade CSA konsensus utvärdering initiativ enkäten ([CSA CAIQ](https://www.microsoft.com/TrustCenter/Compliance/CSA)), som beskriver hur Microsoft behandlar föreslagna principerna.
+Dessutom publicerade Cloud Security Alliance (CSA) moln kontroll mat ris som stöd för kunder i utvärderingen av moln leverantörer och för att identifiera frågor som ska besvaras innan flytt till moln tjänster. Microsoft Azure besvarade CSA-enkäten för CSA bedömning av initiativ ([CSA-CAIQ](https://www.microsoft.com/TrustCenter/Compliance/CSA)), som beskriver hur Microsoft hanterar de föreslagna principerna.
 
-## <a name="third-party-assessment"></a>Tredjeparts-utvärdering
+## <a name="third-party-assessment"></a>Utvärdering från tredje part
 
-Den här skissen har granskats av den Storbritannien nationella Cyberhot Security Center (NCSC) och stämmer överens med Molnsäkerhetsprinciper för NCSC 14
+Den här skissen har granskats av Storbritannien National cyberhot Security Centre (NCSC) och överensstämmer med NCSC 14 Cloud Security-principer
 
-Automation-mallar har testats av Storbritannien kundernas framgång enhet Azure Cloud Solution Architect-teamet och av våra Microsoft-partner [Ampliphae](https://www.ampliphae.com/).
+Automation-mallarna har testats av Storbritannien kund framgångs rik Azure Cloud Solution arkitekt-grupp och av vår Microsoft-partner, [Ampliphae](https://www.ampliphae.com/).
 
 
 ## <a name="deploy-the-solution"></a>Distribuera lösningen
 
-Den här Azure-säkerhet och efterlevnad skissen Automation består av JSON-konfigurationsfiler och PowerShell-skript som hanteras av Azure Resource Manager API-tjänsten för att distribuera resurser i Azure. Distribution av detaljerade instruktioner finns [här](https://aka.ms/ukofficial-paaswa-repo).
+Den här Handlingsplan för säkerhet och efterlevnad i Azure Automation består av JSON-konfigurationsfiler och PowerShell-skript som hanteras av Azure Resource Managers API-tjänst för att distribuera resurser i Azure. Detaljerade distributions anvisningar finns [här](https://aka.ms/ukofficial-paaswa-repo).
 
-Tre metoder har angetts för distribution; En enkel ”express” [Azure CLI 2](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) lämplig för att snabbt skapa ett test miljö; en parametriserade [Azure CLI 2](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) metod för att tillhandahålla större konfiguration för arbetsbelastningen-miljöer och en Azure-portalen baserad distribution där operatören kan ange distributionsparametrarna via Azure portal. 
+Det finns tre metoder för distribution. Ett enkelt "Express" [Azure CLI 2](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) är lämpligt för att snabbt skapa en test miljö. en parameter för [Azure CLI 2](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) -metod som ger bättre konfiguration för arbets belastnings miljöer. och en Azure Portal baserad distribution där operatören kan ange distributions parametrar via Azure Portal. 
 
-1.  Klona eller ladda ned [detta](https://aka.ms/ukofficial-paaswa-repo) GitHub-lagringsplatsen till den lokala arbetsstationen.
-2.  Granska [metod 1: Azure CLI-2 (Express-version)](https://aka.ms/ukofficial-paaswa-repo/#method-1-azure-cli-2-express-version) och kör angivna kommandon.
-3.  Granska [metoden 1a: Azure CLI-2 (Konfigurera distribution via skriptargument)](https://aka.ms/ukofficial-paaswa-repo/#method-1a-azure-cli-2-configuring-the-deployment-via-script-arguments) och kör angivna kommandon
-4.  Granska [metod 2: Azure-portalen distributionsprocessen](https://aka.ms/ukofficial-paaswa-repo/#method-2-azure-portal-deployment-process) och kör kommandon för listan
+1.  Klona eller ladda ned [den här](https://aka.ms/ukofficial-paaswa-repo) GitHub-lagringsplatsen till din lokala arbets Station.
+2.  Granska [metod 1: Azure CLI 2 (Express-version](https://aka.ms/ukofficial-paaswa-repo/#method-1-azure-cli-2-express-version) ) och kör de tillhandahållna kommandona.
+3.  Granska [metod 1a: Azure CLI 2 (konfigurera distributionen via skript argument)](https://aka.ms/ukofficial-paaswa-repo/#method-1a-azure-cli-2-configuring-the-deployment-via-script-arguments) och kör de tillhandahållna kommandona
+4.  Granska [metod 2: Azure Portal distributions](https://aka.ms/ukofficial-paaswa-repo/#method-2-azure-portal-deployment-process) process och köra de listade kommandona
 
 ## <a name="guidance-and-recommendations"></a>Vägledning och rekommendationer
 
 ### <a name="api-management"></a>API Management
 
-[Azure API Management](https://azure.microsoft.com/services/api-management/) skulle kunna användas framför API App Service för att tillhandahålla ytterligare lager av säkerhet, begränsning och kontroller för att exponera, proxy och skydda API: er.
+[Azure API Management](https://azure.microsoft.com/services/api-management/) kan användas framför API-app service för att tillhandahålla ytterligare lager av säkerhet, begränsning och kontroller för att exponera, proxy och skydda API: er.
 
 ### <a name="azure-b2c"></a>Azure B2C
 
-[Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) kan implementeras som en kontroll så att användarna kan registrera, skapa en identitet och aktivera auktorisering och åtkomstkontroll för offentliga webbprogrammet.
+[Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) kan implementeras som en kontroll för att tillåta att användare registrerar, skapar en identitet och aktiverar auktorisering och åtkomst kontroll för det offentliga webb programmet.
 
 ## <a name="disclaimer"></a>Ansvarsfriskrivning
 
-- Det här dokumentet är endast i informationssyfte. MICROSOFT LÄMNAR INGA GARANTIER, UTTRYCKLIGA, UNDERFÖRSTÅDDA ELLER LAGSTADGADE, VAD GÄLLER INFORMATIONEN I DET HÄR DOKUMENTET. Detta dokument tillhandahålls ”som – är”. Information och åsikter som uttrycks i detta dokument, inklusive Webbadresser och andra webbplatsreferenser, kan ändras utan föregående meddelande. Kunder i det här dokumentet bär risken för användningen av den.
-- Det här dokumentet ger inte kunder med inga juridiska rättigheter till någon immateriell egendom i någon Microsoft-produkt eller lösningar.
-- Kunderna får kopiera och använda det här dokumentet som intern referens.
-- Vissa rekommendationerna i det här dokumentet kan leda till ökad data, nätverk och beräkning Resursanvändning i Azure och öka kostnaderna för en kunds Azure-licens eller prenumeration.
-- Den här arkitekturen är avsedd att fungera som en grund för kunder att anpassa sig till sina specifika krav och ska inte användas som-är i en produktionsmiljö.
-- Det här dokumentet har utvecklats som en referens och ska inte användas för att definiera alla innebär som en kund kan uppfylla specifika efterlevnadskrav och föreskrifter. Kunder bör söka juridiskt stöd från organisationen på godkända kundimplementeringar.
+- Det här dokumentet är endast avsett för information. MICROSOFT LÄMNAR INGA GARANTIER, UTTRYCKLIGA, UNDERFÖRSTÅDDA ELLER LAGSTADGADE, ENLIGT INFORMATIONEN I DET HÄR DOKUMENTET. Detta dokument tillhandahålls "i befintligt skick". Information och vyer som uttrycks i detta dokument, inklusive URL: er och andra webbplats referenser, kan ändras utan föregående meddelande. Kunder som läser det här dokumentet bär risken för att använda det.
+- Detta dokument ger inte kunderna några juridiska rättigheter till någon immateriell egendom i någon Microsoft-produkt eller-lösning.
+- Kunder får kopiera och använda det här dokumentet för intern referens.
+- Vissa rekommendationer i det här dokumentet kan leda till ökad data-, nätverks-eller beräknings resursanvändning i Azure och kan öka en kunds Azure-licens eller prenumerations kostnader.
+- Den här arkitekturen är avsedd att fungera som grund för kunderna att anpassa sig efter sina särskilda krav och bör inte användas i en produktions miljö.
+- Det här dokumentet utvecklas som en referens och bör inte användas för att definiera alla medel som en kund kan uppfylla särskilda krav och föreskrifter för efterlevnad. Kunderna bör söka juridisk support från organisationen om godkända kund implementeringar.

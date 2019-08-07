@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 49e80c3fc8935064aceef8ef4e2bd3257c41e5e7
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: 6916eea26f03d7b9cd0b3792fa65354619f97f74
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67514192"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828501"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Förbereda utvecklingsmiljön i Linux
 > [!div class="op_single_selector"]
@@ -103,11 +103,11 @@ Om du vill installera SDK och det tillhörande runtime-paketet via kommandoradsv
     sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
     ```
 
-7. Lägg till Azul JDK nyckeln i din APT-nyckelring och Ställ in dess lagringsplats.
+7. Lägg till Azul JDK-nyckeln i APT-nyckelringen och konfigurera dess lagrings plats.
 
     ```bash
-    curl -fsSL https://repos.azul.com/azul-repo.key | sudo apt-key add -
-    sudo add-apt-repository 'deb http://repos.azulsystems.com/ubuntu stable main'
+    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0xB1998361219BD9C9
+    sudo apt-add-repository "deb http://repos.azul.com/azure-only/zulu/apt stable main"
     ```
 
 8. Uppdatera paketlistor baserat på nyligen tillagda lagringsplatser.
@@ -239,7 +239,7 @@ Installera [.NET Core 2.0 SDK för Ubuntu](https://www.microsoft.com/net/core#li
 
 ## <a name="set-up-java-development"></a>Konfigurera Java-utveckling
 
-Installera Gradle för att köra build-uppgifter för att skapa Service Fabric-tjänster med hjälp av Java. Kör den nedan kommando för att installera Gradle. Java-biblioteken för Service Fabric hämtas från Maven.
+Om du vill skapa Service Fabric tjänster med Java installerar du Gradle för att köra Bygg uppgifter. Kör kommandot nedan för att installera Gradle. Java-biblioteken för Service Fabric hämtas från Maven.
 
 
 * Ubuntu
@@ -272,7 +272,7 @@ Du kan installera Eclipse-pluginprogrammet för Service Fabric i Eclipse IDE fö
 > 
 > I Ubuntu rekommenderar vi att du installerar direkt från Eclipses webbplats i stället för att använda ett installationspaket (`apt` eller `apt-get`). På så sätt kan du vara säker på att du får den senaste versionen av Eclipse. Du kan installera Eclipse IDE för Java-utvecklare eller för Java EE-utvecklare.
 
-1. I Eclipse kontrollerar du att Eclipse Neon eller senare och Buildship version 2.2.1 eller senare är installerade. Kontrollera vilka versioner de installerade komponenterna har genom att välja **Hjälp** > **Om Eclipse** > **Installationsinformation**. Du kan uppdatera Buildship med hjälp av anvisningarna i [Eclipse Buildship: Eclipse plugin-program för Gradle][buildship-update].
+1. I Eclipse kontrollerar du att Eclipse Neon eller senare och Buildship version 2.2.1 eller senare är installerade. Kontrollera vilka versioner de installerade komponenterna har genom att välja **Hjälp** > **Om Eclipse** > **Installationsinformation**. Du kan uppdatera bygget med hjälp av instruktionerna i [Sol förmörkelse-bygge: Plugin-program för Sol förmörkelse][buildship-update]för Gradle.
 
 2. Om du vill installera Service Fabric-plugin-programmet väljer du **Hjälp** > **Installera ny programvara**.
 

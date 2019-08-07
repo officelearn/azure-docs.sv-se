@@ -5,14 +5,14 @@ author: yashesvi
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 07/19/2019
+ms.date: 08/06/2019
 ms.author: banders
-ms.openlocfilehash: c63447ff0a3329e0cc0dc0605984ae4f26e9c25f
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 2e595fbee90b710ec6b8090a770d93e688a04818
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359229"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839989"
 ---
 # <a name="what-are-azure-reservations"></a>Vad är Azure Reservations?
 
@@ -38,7 +38,7 @@ För virtuella Windows-datorer och SQL Database kan du försäkra licens kostnad
 
 Om du vill köpa en plan måste du ha en prenumerations ägar roll i ett företag (MS-AZR-0017P eller MS-AZR-0148P) eller prenumerationen betala per användning (MS-AZR-003P eller MS-AZR-0023P). Moln lösnings leverantörer kan använda Azure Portal eller [partner Center](/partner-center/azure-reservations) för att köpa Azure reservations.
 
-Enterprise-avtal-kunder (EA) kan begränsa köp till EA-administratörer. De gör detta genom att inaktivera alternativet **Lägg till reserverade instanser** i EA-portalen. EA-administratörer måste vara en prenumerations ägare för minst en EA-prenumeration för att köpa en reservation. Alternativet är användbart för företag som vill att ett centraliserat team ska köpa reservationer för olika kostnads ställen. Efter köpet kan centraliserade team lägga till kostnads ställe ägare till reservationerna. Ägare kan sedan begränsa reservationen till sina prenumerationer. Det centrala teamet behöver inte ha prenumerations ägar åtkomst där reservationen köps.
+Enterprise-avtal-kunder (EA) kan begränsa köp till EA-administratörer genom att inaktivera alternativet **Lägg till reserverade instanser** i EA-portalen. EA-administratörer måste vara en prenumerations ägare för minst en EA-prenumeration för att köpa en reservation. Alternativet är användbart för företag som vill att ett centraliserat team ska köpa reservationer för olika kostnads ställen. Efter köpet kan centraliserade team lägga till kostnads ställe ägare till reservationerna. Ägare kan sedan begränsa reservationen till sina prenumerationer. Det centrala teamet behöver inte ha prenumerations ägar åtkomst där reservationen köps.
 
 En reservations rabatt gäller bara för resurser som är kopplade till prenumerationer som köpts via Enterprise, Cloud Solution Provider (CSP) och enskilda planer med priser enligt principen betala per användning.
 

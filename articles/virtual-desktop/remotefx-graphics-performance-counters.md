@@ -2,17 +2,17 @@
 title: Diagnostisera problem med grafik prestanda i fjärr skrivbord – Azure
 description: Den här artikeln beskriver hur du använder RemoteFX-grafikkort i sessioner med fjärr skrivbords protokoll för att diagnostisera prestanda problem med grafik i Windows Virtual Desktop.
 services: virtual-desktop
-author: ChJenk
+author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 05/23/2019
-ms.author: v-chjenk
-ms.openlocfilehash: 8cd24861b9d7432a582d1b635b8ffcf0d8d2b9e6
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.author: helohr
+ms.openlocfilehash: de849701365438b21244d1e46ae657495d16c307
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68233627"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816399"
 ---
 # <a name="diagnose-graphics-performance-issues-in-remote-desktop"></a>Diagnostisera problem med grafik prestanda i fjärr skrivbord
 

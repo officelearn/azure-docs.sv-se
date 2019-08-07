@@ -9,12 +9,12 @@ ms.date: 07/22/2019
 ms.topic: article
 ms.service: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 3c9fd286fd28d55318221177f69948c20ed1b935
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: 0ed7d65601465a197cb4d7f92f500e1bf29ad8c2
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68414466"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839674"
 ---
 # <a name="use-visual-studio-2019-to-develop-and-debug-modules-for-azure-iot-edge"></a>Använd Visual Studio 2019 för att utveckla och felsöka moduler för Azure IoT Edge
 
@@ -105,13 +105,13 @@ Azure IoT Edge-projektmallen i Visual Studio skapar ett projekt som kan distribu
 
 1. Välj **OK** för att skapa Azure IoT Edge-lösningen med en modul som använder C# antingen eller C.
 
-Nu har du ett **AzureIoTEdgeApp1. Linux. amd64** -projekt eller ett **AzureIoTEdgeApp1. Windows. amd64** -projekt och även ett **IoTEdgeModule1** -projekt i din lösning. Varje **AzureIoTEdgeApp1** -projekt har `deployment.template.json` en fil som definierar de moduler som du vill bygga och distribuera för din IoT Edge-lösning, och som även definierar vägar mellan moduler. Standardlösningen har en **tempSensor** modulen och en **IoTEdgeModule1** modulen. **TempSensor** -modulen genererar simulerade data till **IoTEdgeModule1** -modulen, medan standard koden i modulen **IoTEdgeModule1** direkt rör mottagna meddelanden till Azure IoT Hub.
+Nu har du ett **AzureIoTEdgeApp1. Linux. amd64** -projekt eller ett **AzureIoTEdgeApp1. Windows. amd64** -projekt och även ett **IoTEdgeModule1** -projekt i din lösning. Varje **AzureIoTEdgeApp1** -projekt har `deployment.template.json` en fil som definierar de moduler som du vill bygga och distribuera för din IoT Edge-lösning, och som även definierar vägar mellan moduler. Standardlösningen har en **SimulatedTemperatureSensor** -modul och en **IoTEdgeModule1** -modul. **SimulatedTemperatureSensor** -modulen genererar simulerade data till **IoTEdgeModule1** -modulen, medan standard koden i modulen **IoTEdgeModule1** direkt rör mottagna meddelanden till Azure IoT Hub.
 
 **IoTEdgeModule1** -projektet är ett .net Core 2,1-konsolprogram om det är C# en modul. Den innehåller obligatoriska Docker-filer som du behöver för din IoT Edge-enhet som körs med antingen en Windows-behållare eller Linux-behållare. `module.json` Filen beskriver metadata för en modul. Den faktiska modul koden, som använder Azure IoT-enhetens SDK som ett beroende, finns i `Program.cs` filen eller. `main.c`
 
 ## <a name="develop-your-module"></a>Utveckla din modell
 
-Koden för standardmodulen som medföljer lösningen finns på **IoTEdgeModule1** > **program.cs** (for C#) eller **main. c** (c). Modulen och `deployment.template.json` filen har kon figurer ATS så att du kan skapa lösningen, push-överför den till behållar registret och distribuera den till en enhet för att starta testning utan att behöva röra någon kod. Modulen är byggd för att ta emot data från en källa (i det här fallet **tempSensor** -modulen som simulerar data) och rör den till Azure IoT Hub.
+Koden för standardmodulen som medföljer lösningen finns på **IoTEdgeModule1** > **program.cs** (for C#) eller **main. c** (c). Modulen och `deployment.template.json` filen har kon figurer ATS så att du kan skapa lösningen, push-överför den till behållar registret och distribuera den till en enhet för att starta testning utan att behöva röra någon kod. Modulen är byggd för att ta emot data från en källa (i det här fallet **SimulatedTemperatureSensor** -modulen som simulerar data) och rör den till Azure IoT Hub.
 
 När du är redo att anpassa mallen med din egen kod använder du [Azure IoT Hub SDK](../iot-hub/iot-hub-devguide-sdks.md) : er för att bygga moduler som uppfyller nyckel behoven för IoT-lösningar som säkerhet, enhets hantering och pålitlighet.
 
@@ -172,9 +172,9 @@ När du är klar med att utveckla en enda modul kanske du vill köra och felsök
     ```json
         "routes": {
           "IoTEdgeModule1ToIoTHub": "FROM /messages/modules/IoTEdgeModule1/outputs/* INTO $upstream",
-          "sensorToIoTEdgeModule1": "FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/IoTEdgeModule1/inputs/input1\")",
+          "sensorToIoTEdgeModule1": "FROM /messages/modules/SimulatedTemperatureSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/IoTEdgeModule1/inputs/input1\")",
           "IoTEdgeModule2ToIoTHub": "FROM /messages/modules/IoTEdgeModule2/outputs/* INTO $upstream",
-          "sensorToIoTEdgeModule2": "FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/IoTEdgeModule2/inputs/input1\")"
+          "sensorToIoTEdgeModule2": "FROM /messages/modules/SimulatedTemperatureSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/IoTEdgeModule2/inputs/input1\")"
         },
     ```
 
@@ -191,7 +191,7 @@ När du är klar med att utveckla en enda modul kanske du vill köra och felsök
 1. Kontrol lera att **AzureIoTEdgeApp1** är start projektet. Välj antingen **Felsök** eller **släpp** som konfiguration för att bygga för dina modul-avbildningar.
 
     > [!NOTE]
-    > När du väljer **Felsök**använder `Dockerfile.(amd64|windows-amd64).debug` Visual Studio för att bygga Docker-avbildningar. Detta inkluderar .NET Core kommandoradsverktyget felsökningsprogrammet VSDBG i en behållaravbildning när du skapar den. För produktions färdiga IoT Edge-moduler rekommenderar vi att du använder versions  konfigurationen, som använder `Dockerfile.(amd64|windows-amd64)` utan VSDBG.
+    > När du väljer **Felsök**använder `Dockerfile.(amd64|windows-amd64).debug` Visual Studio för att bygga Docker-avbildningar. Detta inkluderar .NET Core kommandoradsverktyget felsökningsprogrammet VSDBG i en behållaravbildning när du skapar den. För produktions färdiga IoT Edge-moduler rekommenderar vi att du använder versions konfigurationen, som använder `Dockerfile.(amd64|windows-amd64)` utan VSDBG.
 
 1. Om du använder ett privat register som Azure Container Registry använder du följande Docker-kommando för att logga in på den. Om du använder det lokala registret kan du [köra ett lokalt register](https://docs.docker.com/registry/deploying/#run-a-local-registry).
 
@@ -232,7 +232,7 @@ I stegen i snabbstartsartikeln som du följde för att konfigurera IoT Edge-enhe
    > [!NOTE]
    > Du måste inte välja `$AzureIoTEdgeAppSolutionDir\config\deployment_for_local_debug.json`
 
-1. Klicka på Uppdatera om du vill se de nya modulerna som körs tillsammans med **TempSensor** -modulen och **$edgeAgent** och **$edgeHub**.
+1. Klicka på Uppdatera om du vill se de nya modulerna som körs tillsammans med **SimulatedTemperatureSensor** -modulen och **$edgeAgent** och **$edgeHub**.
 
 ## <a name="view-generated-data"></a>Visa genererade data
 

@@ -1,6 +1,6 @@
 ---
-title: Kom igång med Key Vault-certifikat
-description: Följande scenarier beskriver flera av de primära användningarna av Key Vault-certifikat management-tjänsten, inklusive de ytterligare steg som krävs för att skapa din första certifikatet i ditt nyckelvalv.
+title: Kom igång med Key Vault certifikat
+description: I följande scenarier beskrivs flera av de primära användningarna av Key Vaults hanterings tjänst för certifikat, inklusive de ytterligare steg som krävs för att skapa ditt första certifikat i ditt nyckel valv.
 services: key-vault
 author: msmbaldwin
 manager: barbkess
@@ -9,121 +9,121 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 805f11d57a635f4e73309d025e185049b511570b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0c2581106466f7d84cc694cd47d4ba02e40bf60b
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66427839"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815753"
 ---
-# <a name="get-started-with-key-vault-certificates"></a>Kom igång med Key Vault-certifikat
-Följande scenarier beskriver flera av de primära användningarna av Key Vault-certifikat management-tjänsten, inklusive de ytterligare steg som krävs för att skapa din första certifikatet i ditt nyckelvalv.
+# <a name="get-started-with-key-vault-certificates"></a>Kom igång med Key Vault certifikat
+I följande scenarier beskrivs flera av de primära användningarna av Key Vaults hanterings tjänst för certifikat, inklusive de ytterligare steg som krävs för att skapa ditt första certifikat i ditt nyckel valv.
 
-Nedan beskrivs:
-- Skapa din första Key Vault-certifikat
-- Skapa ett certifikat med en certifikatutfärdare som har inlett ett samarbete med Key Vault
-- Skapa ett certifikat med en certifikatutfärdare som samarbetade inte med Key Vault
+Följande beskrivs:
+- Skapa ditt första Key Vault-certifikat
+- Skapa ett certifikat med en certifikat utfärdare som är partner med Key Vault
+- Skapa ett certifikat med en certifikat utfärdare som inte är partner med Key Vault
 - Importera ett certifikat
 
 ## <a name="certificates-are-complex-objects"></a>Certifikat är komplexa objekt
-Certifikat består av tre relaterade resurser som länkas samman som ett Key Vault-certifikat; certifikatet metadata, en nyckel och en hemlighet.
+Certifikat består av tre relaterade resurser som är länkade tillsammans som ett Key Vault certifikat. certifikatets metadata, en nyckel och en hemlighet.
 
 
 ![Certifikat är komplexa](media/azure-key-vault.png)
 
 
-## <a name="creating-your-first-key-vault-certificate"></a>Skapa din första Key Vault-certifikat  
- Innan ett certifikat kan skapas i en Key Vault (KV), nödvändiga steg 1 och 2 måste utföras har och ett nyckelvalv måste finnas för den här användaren / organisation.  
+## <a name="creating-your-first-key-vault-certificate"></a>Skapa ditt första Key Vault-certifikat  
+ Innan ett certifikat kan skapas i en Key Vault (KV) måste nödvändiga steg 1 och 2 slutföras och det måste finnas ett nyckel valv för den här användaren/organisationen.  
 
-**Steg 1** -Certificate Authority (CA)-Providers  
--   Registreringen som IT-administratören, PKI-administratör eller vem som helst hantera konton med CA: er för ett visst företag (ex.) Contoso) krävs för att använda Key Vault-certifikat.  
-    Följande certifikatutfärdare är de aktuella samarbetade providers med Key Vault:  
-    -   DigiCert - Key Vault erbjuder OV SSL-certifikat med DigiCert.  
-    -   Globaltrust - Key Vault erbjuder OV SSL-certifikat med Globaltrust.  
+**Steg 1** – certifikat utfärdare (ca)  
+-   Som IT-administratör, PKI-administratör eller någon som hanterar konton med certifikat utfärdare, för ett specifikt företag (t. ex. Contoso) är ett krav för att använda Key Vault certifikat.  
+    Följande ca: er är de aktuella partner leverantörer som har Key Vault:  
+    -   DigiCert-Key Vault erbjuder OV SSL-certifikat med DigiCert.  
+    -   GlobalSign-Key Vault erbjuder OV SSL-certifikat med GlobalSign.  
 
-**Steg 2** -kontoadministratör för en CA-providern skapar autentiseringsuppgifter som ska användas av Key Vault och registrera, förnya och använder SSL-certifikat via Key Vault.
+**Steg 2** – en konto administratör för en ca-Provider skapar autentiseringsuppgifter som ska användas av Key Vault för att registrera, förnya och använda SSL-certifikat via Key Vault.
 
-**Steg 3** -A Contoso admin, tillsammans med Contoso-anställda (Key Vault-användare) som äger certifikat, beroende på ca: N, kan få ett certifikat från administratören eller direkt från kontot med CA: N.  
+**Steg 3** – en Contoso-administratör, tillsammans med en Contoso-anställd (Key Vault användare) som äger certifikat, beroende på certifikat utfärdaren, kan hämta ett certifikat från administratören eller direkt från kontot med certifikat utfärdaren.  
 
-- Starta en åtgärd med Lägg till autentiseringsuppgifter till ett nyckelvalv av [ställa in en certifikatutfärdare](/rest/api/keyvault/setcertificateissuer/setcertificateissuer) resurs. En certifikatutfärdare är en entitet som representeras i Azure Key Vault (KV) som en CertificateIssuer resurs. Används för att ange information om källan för ett certifikat för KV; Utfärdarens namn, leverantör, autentiseringsuppgifter och andra administrativa uppgifter.
+- Påbörja åtgärden Lägg till autentiseringsuppgift till ett nyckel valv genom att [Ange en](/rest/api/keyvault/setcertificateissuer/setcertificateissuer) resurs för certifikat utfärdare. En certifikat utfärdare är en entitet som representeras i Azure Key Vault (KV) som en CertificateIssuer-resurs. Den används för att tillhandahålla information om källan till ett KV-certifikat; utfärdarens namn, Provider, autentiseringsuppgifter och annan administrativ information.
   - t.ex. MyDigiCertIssuer  
     -   Leverantör  
-    -   Autentiseringsuppgifter – autentiseringsuppgifter för CA: N. Varje Certifikatutfärdare har sina egna specifika data.  
+    -   Autentiseringsuppgifter – autentiseringsuppgifter för CA-konto. Varje certifikat utfärdare har sina egna specifika data.  
 
-    Mer information om hur du skapar konton med CA-providrar finns i relaterade inlägg på den [Key Vault-bloggen](https://aka.ms/kvcertsblog).  
+    Mer information om hur du skapar konton med CA-leverantörer finns i det relaterade inlägget på [Key Vault blogg](https://aka.ms/kvcertsblog).  
 
-**Steg 3.1** -konfigurera [certifikat kontakter](/rest/api/keyvault/setcertificatecontacts/setcertificatecontacts) för meddelanden. Det här är kontakten för Key Vault-användaren. Key Vault påtvingar inte det här steget.  
+**Steg 3,1** – konfigurera [certifikat kontakter](/rest/api/keyvault/setcertificatecontacts/setcertificatecontacts) för meddelanden. Detta är kontakten för den Key Vault användaren. Key Vault tvingar inte det här steget.  
 
-Obs! – den här processen via steg 3.1 är en onetime åtgärd.  
+OBS! den här processen, genom steg 3,1, är en Databasmigrering-åtgärd.  
 
-## <a name="creating-a-certificate-with-a-ca-partnered-with-key-vault"></a>Skapa ett certifikat med en Certifikatutfärdare som inlett ett samarbete med Key Vault
+## <a name="creating-a-certificate-with-a-ca-partnered-with-key-vault"></a>Skapa ett certifikat med en CA som samarbetar med Key Vault
 
-![Skapa ett certifikat med en certifikatutfärdare för Key Vault inlett ett samarbete](media/certificate-authority-2.png)
+![Skapa ett certifikat med en Key Vault-partner certifikat utfärdare](media/certificate-authority-2.png)
 
-**Steg 4** -med följande motsvarar grön stegen i föregående diagram.  
-  (1) – i diagrammet ovan programmet skapar ett certifikat som internt börjar genom att skapa en nyckel i ditt nyckelvalv.  
-  (2) - Key Vault skickar en SSL certifikatbegäran till Certifikatutfärdaren.  
-  (3) - programmet, i en loop och vänta process avsökningar efter ändrade ditt Nyckelvalv för certifikat slutförande. Skapandet av certifikat har slutförts när Key Vault får Certifikatutfärdarens svar med x509 certifikat.  
-  (4) - CA: N som svarar på Key Vault begäran av SSL-certifikat med en X509 SSL-certifikat.  
-  (5) - genereringen av din nya certifikatet har slutförts med en sammanslagning av X509 certifikatet för Certifikatutfärdaren.  
+**Steg 4** – följande beskrivningar motsvarar de gröna numrerade stegen i föregående diagram.  
+  (1) – i diagrammet ovan skapar ditt program ett certifikat som börjar med att skapa en nyckel i ditt nyckel valv.  
+  (2)-Key Vault skickar en begäran om SSL-certifikat till CA: n.  
+  (3) – dina program avsöker, i en slinga och väntar, för din Key Vault för slut för ande av certifikat. Certifikatet har skapats när Key Vault tar emot CA: ns svar med x509-certifikat.  
+  (4) – CA: n svarar på Key Vault SSL-certifikatbegäran med ett X509 SSL-certifikat.  
+  (5) – ditt nya certifikat har skapats med sammanslagningen av X509-certifikatet för CA: n.  
 
-  Key Vault-användare – skapar ett certifikat genom att ange en princip
+  Key Vault användare – skapar ett certifikat genom att ange en princip
 
-  -   Upprepa efter behov  
-  -   Principbegränsningar  
-      -   X509 egenskaper  
+  -   Upprepa vid behov  
+  -   Princip begränsningar  
+      -   X509-egenskaper  
       -   Nyckelegenskaper  
-      -   Referens för provider - > t.ex. MyDigiCertIssure  
-      -   Information om förnyelse - > t.ex. 90 dagar innan certifikatet går ut  
+      -   Leverantörs Referens-> ex. MyDigiCertIssure  
+      -   Förnyelse information – > ex. 90 dagar före förfallo datum  
 
-  - Process för att skapa ett certifikat är vanligtvis en asynkron åtgärd och omfattar avsökning nyckelvalvet för status för åtgärd för att skapa certifikatet.  
-[Åtgärd för hämtning av certifikat](/rest/api/keyvault/getcertificateoperation/getcertificateoperation)  
-      -   Status: slutfört, misslyckades. information om fel eller avbruten  
-      -   På grund av hur lång tid att skapa kan en avbrottsåtgärd initieras. Knappen Avbryt kanske eller kanske inte effektiva.  
+  - En process för att skapa certifikat är vanligt vis en asynkron process och innebär att du kan avsöka ditt nyckel valv efter status för åtgärden Skapa certifikat.  
+[Hämta certifikats åtgärd](/rest/api/keyvault/getcertificateoperation/getcertificateoperation)  
+      -   Status: slutförd, misslyckades med fel information eller, avbruten  
+      -   En avbrotts åtgärd kan initieras på grund av fördröjningen att skapa. Det går inte att avbryta eller så är det inte effektivt.  
 
 ## <a name="import-a-certificate"></a>Importera ett certifikat  
- Du kan också – ett certifikat kan importeras till Key Vault – PFX eller PEM.  
+ Alternativt – ett certifikat kan importeras till Key Vault – PFX eller PEM.  
 
  Mer information om PEM-format finns i avsnittet certifikat i [om nycklar, hemligheter och certifikat](about-keys-secrets-and-certificates.md).  
 
- Importera certifikat – kräver en PEM- eller PFX på disken och ha en privat nyckel. 
--   Du måste ange: valv namnet och certifikatets namn (princip är valfri)
+ Importera certifikat – kräver att en PEM eller PFX är på disk och har en privat nyckel. 
+-   Du måste ange: valv namn och certifikat namn (principen är valfritt)
 
--   PEM / PFX-filer innehåller attribut som KV kan parsa och använda för att fylla i certifikatprincipen. Om en certifikatprincip har redan angetts, KV görs ett försök att matcha data från PFX / PEM-fil.  
+-   PEM/PFX-filer innehåller attribut som KV kan parsa och använda för att fylla i certifikat principen. Om en certifikat princip redan har angetts försöker KV matcha data från PFX/PEM-filen.  
 
--   När importen är klar efterföljande åtgärder ska använda den nya principen (nya versioner).  
+-   När importen är slutgiltig använder efterföljande åtgärder den nya principen (nya versioner).  
 
--   Om det finns inga ytterligare åtgärder, är det första Key Vault så skicka ett meddelande om utgångsdatum. 
+-   Om det inte finns några ytterligare åtgärder skickas ett meddelande om att det första är Key Vault. 
 
--   Du kan också redigera principen som fungerar vid tidpunkten för import, men innehåller standardinställningar där ingen information angavs vid import. t.ex. Ingen utfärdare-information  
+-   Användaren kan också redigera principen, som fungerar vid tidpunkten för importen, men som innehåller standardinställningar där ingen information har angetts vid import. t.ex. ingen information om utfärdare  
 
-### <a name="formats-of-import-we-support"></a>Format för vi stöder Import
-Vi stöder följande typ av Import för PEM-filformatet. Ett enda PEM-kodat certifikat tillsammans med en PKCS #8-kodat, okrypterade nyckeln som har följande
+### <a name="formats-of-import-we-support"></a>Format för import vi stöder
+Vi stöder följande typ av import för fil formatet PEM. Ett enda PEM-kodat certifikat tillsammans med en PKCS # 8-kodad, okrypterad nyckel som har följande
 
----BEGIN CERTIFICATE------END CERTIFICATE---
+-----BEGIN CERTIFICATE----------END CERTIFICATE-----
 
----BEGIN PRIVATE KEY------END PRIVAT NYCKEL---
+-----STARTA PRIVAT NYCKEL----------SLUTEN PRIVAT NYCKEL-----
 
-Om certifikatet koppla stöder vi 2 baserat PEM-format. Du kan antingen koppla ett enda kodad PKCS #8-certifikat eller en base64-kodad P7B-fil. ---BEGIN CERTIFICATE------END CERTIFICATE---
+Vid koppling av certifikat stöder vi 2 PEM-baserade format. Du kan antingen sammanfoga ett enda PKCS # 8-kodat certifikat eller en Base64-kodad P7B-fil. -----BEGIN CERTIFICATE----------END CERTIFICATE-----
 
-Vi stöder för närvarande inte EG nycklar i PEM-format.
+Vi stöder för närvarande inte EG-nycklar i PEM-format.
 
-## <a name="creating-a-certificate-with-a-ca-not-partnered-with-key-vault"></a>Skapa ett certifikat med en Certifikatutfärdare som inte har gått samman med Key Vault  
- Den här metoden kan arbeta med andra certifikatutfärdare än Key Vault samarbetade providers, vilket innebär att din organisation kan utgå från en Certifikatutfärdare för eget val.  
+## <a name="creating-a-certificate-with-a-ca-not-partnered-with-key-vault"></a>Skapa ett certifikat med en CA som inte samarbetar med Key Vault  
+ Den här metoden gör det möjligt att arbeta med andra certifikat utfärdare än Key Vault partner leverantörer, vilket innebär att organisationen kan arbeta med en valfri CA.  
 
-![Skapa ett certifikat med en egen certifikatutfärdare](media/certificate-authority-1.png)  
+![Skapa ett certifikat med din egen certifikat utfärdare](media/certificate-authority-1.png)  
 
- Med följande steg motsvarar grön bokstäver stegen i föregående diagram.  
+ Följande steg beskrivningar motsvarar de gröna bokstavs stegen i föregående diagram.  
 
-  (1) – i diagrammet ovan programmet skapar ett certifikat, som internt börjar genom att skapa en nyckel i ditt nyckelvalv.  
+  (1) – i diagrammet ovan skapar ditt program ett certifikat som internt börjar genom att skapa en nyckel i ditt nyckel valv.  
 
-  (2) - Key Vault återgår till programmet en begäran om certifikatsignering (CSR).  
+  (2) – Key Vault återgår till programmet en certifikat signerings förfrågan (CSR).  
 
-  (3) – ditt program skickar CSR till vald CA: N.  
+  (3) – ditt program skickar CSR till din valda CA.  
 
-  (4) - vald CA svarar med en X509 certifikat.  
+  (4) – din valda CA svarar med ett X509-certifikat.  
 
-  (5) - programmet har nya certifikat skapat med en sammanslagning av X509 certifikat från Certifikatutfärdaren.
+  (5) – ditt program Slutför den nya skapande av certifikatet med en sammanslagning av X509-certifikatet från din certifikat utfärdare.
 
 ## <a name="see-also"></a>Se även
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 500ae75f9bf53c1633290e706e33165dd9d67a88
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 4e33b22c5bc931685f5848db55fc4b9b8fc6eafe
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726615"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780611"
 ---
 # <a name="azure-advanced-threat-detection"></a>Avancerad hot identifiering i Azure
 
@@ -216,7 +216,7 @@ Dessa kombinerade ansträngningar resulterar i nya och förbättrade identifieri
 
 ### <a name="virtual-machines-microsoft-antimalware"></a>Virtuella datorer: Microsoft Antimalware
 
-[Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) för Azure är en lösning för en lösning för program-och klient miljöer som är utformad för att köras i bakgrunden utan mänsklig inblandning. Du kan distribuera skydd baserat på dina arbets belastningar för dina program, med antingen grundläggande säkerhet eller avancerad anpassad konfiguration, inklusive övervakning av program mot skadlig kod. Azure antimalware är ett säkerhets alternativ för virtuella Azure-datorer som installeras automatiskt på alla virtuella Azure PaaS-datorer.
+[Microsoft Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware) för Azure är en lösning för en lösning för program-och klient miljöer som är utformad för att köras i bakgrunden utan mänsklig inblandning. Du kan distribuera skydd baserat på dina arbets belastningar för dina program, med antingen grundläggande säkerhet eller avancerad anpassad konfiguration, inklusive övervakning av program mot skadlig kod. Azure antimalware är ett säkerhets alternativ för virtuella Azure-datorer som installeras automatiskt på alla virtuella Azure PaaS-datorer.
 
 #### <a name="microsoft-antimalware-core-features"></a>Kärn funktioner i Microsoft Antimalware
 

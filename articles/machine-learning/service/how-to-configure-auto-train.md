@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3a316de54600d18f7ab839b8459bfe4eb0ff86e8
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 5dee966f8664bc14d81004e625ad9632066ffcb2
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479798"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742310"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Konfigurera automatiserade ML-experiment i python
 
@@ -40,7 +40,7 @@ Om du föredrar en ingen kod upplevelse kan du också [skapa dina automatiserade
 
 Innan du börjar experimentet måste bestämma du vilken typ av machine learning-problem som du vill lösa. Automatiserad maskininlärning stöder uppgift typer av klassificering, regression och prognostisering.
 
-Automatiserad maskininlärning stöder följande algoritmer under automation och justera processen. Som en användare finns det inget behov av att ange algoritmen. 
+Automatiserad maskininlärning stöder följande algoritmer under automation och justera processen. Som en användare finns det inget behov av att ange algoritmen.
 
 Klassificering | Regression | Prognosticering för tids serier
 |-- |-- |--
@@ -104,7 +104,7 @@ Här är ett exempel på hur `datastore`du använder:
 ```python
     import pandas as pd
     from sklearn import datasets
-    
+
     data_train = datasets.load_digits()
 
     pd.DataFrame(data_train.data[100:,:]).to_csv("data/X_train.csv", index=False)
@@ -114,7 +114,7 @@ Här är ett exempel på hur `datastore`du använder:
     ds.upload(src_dir='./data', target_path='digitsdata', overwrite=True, show_progress=True)
 ```
 
-### <a name="define-deprep-references"></a>Definiera deprepa referenser
+### <a name="define-dprep-references"></a>Definiera dprep-referenser
 
 Definiera X-och y som dprep-referens, som skickas till det automatiserade `AutoMLConfig` Machine Learning-objektet, ungefär så här:
 
@@ -122,8 +122,8 @@ Definiera X-och y som dprep-referens, som skickas till det automatiserade `AutoM
 
     X = dprep.auto_read_file(path=ds.path('digitsdata/X_train.csv'))
     y = dprep.auto_read_file(path=ds.path('digitsdata/y_train.csv'))
-    
-    
+
+
     automl_config = AutoMLConfig(task = 'classification',
                                  debug_log = 'automl_errors.log',
                                  path = project_folder,
@@ -253,9 +253,60 @@ automl_config = AutoMLConfig(task='forecasting',
                              **time_series_settings)
 ```
 
+### <a name="ensemble"></a>Konfiguration av Ensemble
+
+Ensemble-modeller är aktiverade som standard och visas som de slutliga körnings iterationerna i en automatiserad Machine Learning-körning. Aktuella Ensemble-metoder som stöds är röstning och stackning. Röstning implementeras som mjuk röstning med hjälp av viktade medelvärden och stack implementeringen använder en 2-nivå implementering, där det första lagret har samma modeller som röstnings ensemblen och den andra skikt modellen används för att hitta den optimala kombinationen av modeller från det första lagret. Om du använder ONNX-modeller **eller** om du har aktiverat modell förklaringen inaktive ras stackning och endast röstning används.
+
+Det finns flera standard argument som kan anges som `kwargs` i ett `AutoMLConfig` objekt för att ändra standardformat för stack-egenskapen.
+
+* `stack_meta_learner_type`: meta-eleven är en modell som är utbildad i resultatet av de enskilda heterogena-modellerna. Standard `LogisticRegression` -metadata är för klassificerings aktiviteter (eller `LogisticRegressionCV` om kors validering är aktiverat) och `ElasticNet` för Regressions-/prognos aktiviteter (eller `ElasticNetCV` om kors validering är aktive rad). Den här parametern kan vara en av följande strängar: `LogisticRegression` `LightGBMClassifier`, `LogisticRegressionCV` `LightGBMRegressor` `ElasticNet` `ElasticNetCV`,,,, eller `LinearRegression`.
+* `stack_meta_learner_train_percentage`: anger den del av inlärnings uppsättningen (när du väljer tåg-och validerings typ för utbildning) som ska reserveras för att träna meta-eleven. Standardvärdet `0.2`är.
+* `stack_meta_learner_kwargs`: valfria parametrar som ska skickas till initieraren för meta-eleven. Dessa parametrar och parameter typer speglar de från motsvarande modell-konstruktor och vidarebefordras till modell-konstruktorn.
+
+Följande kod visar ett exempel på hur du anger anpassade Ensemble-beteenden i ett `AutoMLConfig` objekt.
+
+```python
+ensemble_settings = {
+    "stack_meta_learner_type": "LogisticRegressionCV",
+    "stack_meta_learner_train_percentage": 0.3,
+    "stack_meta_learner_kwargs": {
+        "refit": True,
+        "fit_intercept": False,
+        "class_weight": "balanced",
+        "multi_class": "auto",
+        "n_jobs": -1
+    }
+}
+
+automl_classifier = AutoMLConfig(
+        task='classification',
+        primary_metric='AUC_weighted',
+        iterations=20,
+        X=X_train,
+        y=y_train,
+        n_cross_validations=5,
+        **ensemble_settings
+        )
+```
+
+Ensemble-utbildning är aktiverat som standard, men det kan inaktive ras `enable_voting_ensemble` med `enable_stack_ensemble` hjälp av parametrarna och.
+
+```python
+automl_classifier = AutoMLConfig(
+        task='classification',
+        primary_metric='AUC_weighted',
+        iterations=20,
+        X=X_train,
+        y=y_train,
+        n_cross_validations=5,
+        enable_voting_ensemble=False,
+        enable_stack_ensemble=False
+        )
+```
+
 ## <a name="run-experiment"></a>Kör experimentet
 
-För automatisk ml måste du skapa ett `Experiment` objekt, vilket är ett namngivet objekt i en `Workspace` som används för att köra experiment.
+För automatisk ml skapar du ett `Experiment` -objekt, som är ett namngivet objekt `Workspace` som används för att köra experiment.
 
 ```python
 from azureml.core.experiment import Experiment

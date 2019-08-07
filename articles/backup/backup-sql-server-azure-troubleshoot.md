@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: article
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 849065460acda36426f8a594a984ad1cc8590c34
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 323470adfe56ee20fe0fb64aeba38b6af4330351
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688826"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827596"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Felsöka SQL Server säkerhets kopiering av databasen med Azure Backup
 
@@ -119,6 +119,19 @@ Om du vill konfigurera skydd för en SQL Server-databas på en virtuell dator m�
 | Felmeddelande | Möjliga orsaker | Rekommenderad åtgärd |
 |---|---|---|
 | Automatiskt skydds avsikt har antingen tagits bort eller är inte mer giltigt. | När du aktiverar automatiskt skydd på en SQL Server instans måste du **Konfigurera säkerhets kopierings** jobb för alla databaser i den instansen. Om du inaktiverar automatiskt skydd medan jobben körs, avbryts **pågående** jobb med den här felkoden. | Aktivera automatiskt skydd en gång om du vill skydda alla återstående databaser. |
+
+### <a name="clouddosabsolutelimitreached"></a>CloudDosAbsoluteLimitReached
+
+| Felmeddelande | Möjliga orsaker | Rekommenderad åtgärd |
+|---|---|---|
+Åtgärden blockeras eftersom du har nått gränsen för antalet tillåtna åtgärder inom 24 timmar. | När du har nått den högsta tillåtna gränsen för en åtgärd i ett intervall på 24 timmar kommer det här felet att åtgärdas. <br> Exempel: Om du har nått gränsen för antalet konfigurations säkerhets kopierings jobb som kan utlösas per dag och du försöker konfigurera säkerhets kopiering för ett nytt objekt visas det här felet. | Vanligt vis åtgärdar du problemet igen efter 24 timmar. Men om problemet kvarstår kan du kontakta Microsoft-supporten om du behöver hjälp.
+
+### <a name="clouddosabsolutelimitreachedwithretry"></a>CloudDosAbsoluteLimitReachedWithRetry
+
+| Felmeddelande | Möjliga orsaker | Rekommenderad åtgärd |
+|---|---|---|
+Åtgärden blockeras eftersom valvet har uppnått Max gränsen för sådana åtgärder som tillåts inom ett intervall på 24 timmar. | När du har nått den högsta tillåtna gränsen för en åtgärd i ett intervall på 24 timmar kommer det här felet att åtgärdas. Det här felet uppstår vanligt vis vid vid skalnings åtgärder, till exempel ändra princip eller automatiskt skydd. Till skillnad från när det gäller CloudDosAbsoluteLimitReached, finns det inte mycket du kan göra för att lösa det här läget, i själva verket försöker Azure Backups tjänsten utföra åtgärderna internt för alla objekt i fråga.<br> Exempel: Om du har ett stort antal data källor som skyddas med en princip och du försöker ändra principen, utlöses konfigurationen av skydds jobb för var och en av de skyddade objekten och ibland kan det överskrida den maximala gräns som tillåts för sådana åtgärder per dag.| Azure Backup tjänsten gör om åtgärden automatiskt efter 24 timmar. 
+
 
 ## <a name="re-registration-failures"></a>Försök att registrera igen
 

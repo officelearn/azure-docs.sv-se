@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/25/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 20ef71f98817a57f884e9c5a3cef4ceeaebe74eb
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 8321a9dd779406b2d1de44bd4c9313e4d855548d
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68498443"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68740896"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrera din app med en Azure-Virtual Network
 Det här dokumentet beskriver den Azure App Service funktionen för integrering av virtuella nätverk och hur du konfigurerar den med appar i [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). [Virtuella Azure-nätverk][VNETOverview] (Virtuella nätverk) låter dig placera många av dina Azure-resurser i ett dirigerbart nätverk som inte är Internet.  
@@ -136,11 +136,10 @@ Gateway krävs VNet-integrerings funktion:
 * Gör det möjligt att integrera upp till fem virtuella nätverk med i ett App Service plan 
 * Tillåter att samma VNet används av flera appar i en App Service plan utan att det totala antalet som kan användas av en App Service plan påverkas.  Om du har 6 appar som använder samma VNet i samma App Service plan räknas det som 1 VNet som används. 
 * Kräver en Virtual Network gateway som är konfigurerad med punkt-till-plats-VPN
-* Stöds inte för användning med Linux-appar
 * Har stöd för 99,9% SLA på grund av SLA på gatewayen
 
 Den här funktionen stöder inte:
-
+* Använd med Linux-appar
 * Åtkomst till resurser via ExpressRoute 
 * Åtkomst till resurser via tjänstslutpunkter 
 

@@ -1,6 +1,6 @@
 ---
-title: Kryptering i vila med Kundhanterade nycklar i Azure Key Vault (förhandsversion) – Azure Search
-description: Tillägg server side encryption över index och synonymmappningar i Azure Search via nycklar som du skapar och hanterar i Azure Key Vault.
+title: Kryptering – rest med Kundhanterade nycklar i Azure Key Vault (för hands version) – Azure Search
+description: Kompletterande kryptering på Server sidan över index och synonymer mappar i Azure Search via nycklar som du skapar och hanterar i Azure Key Vault.
 author: NatiNimni
 manager: jlembicz
 ms.author: natinimn
@@ -9,43 +9,43 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: ''
-ms.openlocfilehash: 949628fa52b4b020d70b75f4a0e7895f1e0f8bba
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 9d4494cb46bece7402b1284ee6324ca9ff86e0f3
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485320"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779093"
 ---
-# <a name="azure-search-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Azure Search-kryptering med Kundhanterade nycklar i Azure Key Vault
+# <a name="azure-search-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Azure Search kryptering med Kundhanterade nycklar i Azure Key Vault
 
 > [!Note]
-> Kryptering med Kundhanterade nycklar finns i förhandsversion som inte är avsett för användning i produktion. Den [REST API-version 2019-05-06-Preview](search-api-preview.md) ger den här funktionen. Du kan också använda .NET SDK version 8.0-förhandsversion.
+> Kryptering med Kundhanterade nycklar är i för hands version och är inte avsedd för produktions användning. Den [REST API version 2019-05-06 – för hands version](search-api-preview.md) innehåller den här funktionen. Du kan också använda .NET SDK version 8,0-Preview.
 >
-> Den här funktionen är inte tillgänglig för kostnadsfria tjänster. Du måste använda en fakturerbar söktjänst som skapats på eller efter 2019-01-01. Det finns inget portal stöd just nu.
+> Den här funktionen är inte tillgänglig för kostnads fria tjänster. Du måste använda en fakturerbar Sök tjänst som skapats på eller efter 2019-01-01. Det finns för närvarande inget stöd för portalen.
 
-Som standard krypterar Azure Search användarinnehåll i vila med [service-hanterade nycklar](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest#data-encryption-models). Du kan komplettera standard kryptering med ett lager för ytterligare kryptering med nycklar som du skapar och hanterar i Azure Key Vault. Den här artikeln vägleder dig genom stegen.
+Som standard krypterar Azure Search användar innehåll i vila med [tjänst hanterade nycklar](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest#data-encryption-models). Du kan komplettera standard kryptering med ytterligare ett krypterings lager med hjälp av nycklar som du skapar och hanterar i Azure Key Vault. Den här artikeln vägleder dig genom stegen.
 
-Kryptering för serversidan stöds genom integrering med [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview). Du kan skapa egna krypteringsnycklar och lagra dem i ett nyckelvalv, eller du kan använda Azure Key Vault-API: er för att generera krypteringsnycklar. Du kan också granska nyckelanvändningen med Azure Key Vault. 
+Kryptering på Server sidan stöds genom integrering med [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview). Du kan skapa egna krypterings nycklar och lagra dem i ett nyckel valv, eller så kan du använda Azure Key Vault s API: er för att generera krypterings nycklar. Med Azure Key Vault kan du också granska nyckel användningen. 
 
-Kryptering med Kundhanterade nycklar har konfigurerats på index eller synonymen kartan när objekten skapas och inte på servicenivå sökning. Du kan inte kryptera innehåll som redan finns. 
+Kryptering med Kundhanterade nycklar konfigureras på mappnings nivån index eller synonym när objekten skapas och inte på Sök tjänst nivå. Det går inte att kryptera innehåll som redan finns. 
 
-Du kan använda olika nycklar från olika nyckelvalv. Det innebär att en enda söktjänst kan vara värd för flera krypterade indexes\synonym kartor, var och en krypterad potentiellt med hjälp av en annan kundhanterad nyckel, tillsammans med indexes\synonym maps som inte är krypterade med Kundhanterade nycklar. 
+Du kan använda olika nycklar från olika nyckel valv. Det innebär att en enskild Sök tjänst kan vara värd för flera krypterade indexes\synonym-kartor, varje krypterad potentiellt en annan kundhanterad nyckel, tillsammans med indexes\synonym Maps som inte är krypterade med Kundhanterade nycklar. 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 Följande tjänster används i det här exemplet. 
 
-+ [Skapa en Azure Search-tjänst](search-create-service-portal.md) eller [hitta en befintlig tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under din aktuella prenumeration. Du kan använda en kostnadsfri tjänst för den här självstudiekursen.
++ [Skapa en Azure Search tjänst](search-create-service-portal.md) eller [hitta en befintlig tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under din aktuella prenumeration. Du kan använda en kostnads fri tjänst för den här självstudien.
 
-+ [Skapa en Azure Key Vault-resurs](https://docs.microsoft.com/azure/key-vault/quick-create-portal#create-a-vault) eller hitta ett befintligt valv i din prenumeration.
++ [Skapa en Azure Key Vault resurs](https://docs.microsoft.com/azure/key-vault/quick-create-portal#create-a-vault) eller hitta ett befintligt valv under din prenumeration.
 
-+ [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) eller [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) används för konfigurationsåtgärder.
++ [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) eller [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) används för konfigurations uppgifter.
 
-+ [Postman](search-get-started-postman.md), [Azure PowerShell](search-create-index-rest-api.md) och [Azure Search SDK](https://aka.ms/search-sdk-preview) kan användas för att anropa förhandsversionen av REST API. Det finns ingen portal eller .NET SDK-stöd för Kundhanterade kryptering just nu.
++ [Postman](search-get-started-postman.md), [Azure POWERSHELL](search-create-index-rest-api.md) och [Azure Search SDK](https://aka.ms/search-sdk-preview) kan användas för att anropa förhands gransknings REST API. Det finns för närvarande ingen portal eller .NET SDK-stöd för kundhanterad kryptering.
 
-## <a name="1---enable-key-recovery"></a>1 – Aktivera återställning av nyckel
+## <a name="1---enable-key-recovery"></a>1 – aktivera nyckel återställning
 
-Det här steget är valfritt men rekommenderas. När du har skapat Azure Key Vault-resursen, aktivera **mjuk borttagning** och **Rensa skydd** i det valda nyckelvalvet genom att köra följande PowerShell eller Azure CLI-kommandon:   
+Det här steget är valfritt men rekommenderas. När du har skapat Azure Key Vault-resursen aktiverar du det **mjuka borttagnings** -och **rensnings skyddet** i det valda nyckel valvet genom att köra följande POWERSHELL-eller Azure CLI-kommandon:   
 
 ```powershell
 $resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName "<vault_name>").ResourceId
@@ -62,80 +62,80 @@ az keyvault update -n <vault_name> -g <resource_group> --enable-soft-delete --en
 ```
 
 >[!Note]
-> På grund av beskaffenhet kryptering med Kundhanterade nycklar funktionen, kommer Azure Search inte att hämta dina data om din Azure Key vault-nyckeln tas bort. Vi rekommenderar att du aktiverar mjuk borttagning och rensa skydd på det valda key vault för att förhindra dataförlust på grund av oavsiktliga borttagningar för Key Vault-nyckeln. Mer information finns i [Azure Key Vault mjuk borttagning](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete).   
+> På grund av den stora typen av kryptering med funktionen för Kundhanterade nycklar kommer Azure Search inte att kunna hämta dina data om din Azure Key Vault-nyckel tas bort. För att förhindra data förlust som orsakas av oavsiktliga Key Vault nyckel borttagningar, rekommenderar vi starkt att du aktiverar mjuk borttagning och rensning av skydd på det valda nyckel valvet. Mer information finns i [Azure Key Vault mjuk borttagning](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete).   
 
 ## <a name="2---create-a-new-key"></a>2 – Skapa en ny nyckel
 
-Hoppa över det här steget om du använder en befintlig nyckel för att kryptera Azure Search-innehåll.
+Om du använder en befintlig nyckel för att kryptera Azure Search innehåll hoppar du över det här steget.
 
-1. [Logga in på Azure-portalen](https://portal.azure.com) och gå till instrumentpanelen för nyckelvalvet.
+1. [Logga in på Azure Portal](https://portal.azure.com) och gå till instrument panelen för Key Vault.
 
-1. Välj den **nycklar** från det vänstra navigeringsfönstret och klicka på **+ generera/importera**.
+1. Välj inställningen **nycklar** i det vänstra navigerings fönstret och klicka på **+ generera/importera**.
 
-1. I den **skapar du en nyckel** rutan i listan över **alternativ**, välja den metod som du vill använda för att skapa en nyckel. Du kan **generera** en ny nyckel **överför** en befintlig nyckel eller använda **återställa säkerhetskopierade** att välja en säkerhetskopia av en nyckel.
+1. I fönstret **skapa en nyckel** , i listan med **alternativ**, väljer du den metod som du vill använda för att skapa en nyckel. Du kan **generera** en ny nyckel, **överföra** en befintlig nyckel eller använda **Återställ säkerhets kopia** för att välja en säkerhets kopia av en nyckel.
 
-1. Ange en **namn** för din nyckel och du kan också välja andra nyckelegenskaper.
+1. Ange ett **namn** för nyckeln och välj även andra nyckel egenskaper.
 
-1. Klicka på den **skapa** för att starta distributionen.
+1. Klicka på knappen **skapa** för att starta distributionen.
 
-Anteckna nyckel-ID – detta är sammansatt från den **Uri-värdet**, **nyckelnamn**, och **nyckelversionen**. Du behöver dessa för att ange ett krypterat index i Azure Search.
+Anteckna nyckel identifieraren – detta består av **nyckel värdets URI**, **nyckel namnet**och **nyckel versionen**. Du behöver dessa för att definiera ett krypterat index i Azure Search.
  
-![Skapa en ny nyckel för nyckelvalvet](./media/search-manage-encryption-keys/create-new-key-vault-key.png "skapa en ny nyckel för nyckelvalvet")
+![Skapa en ny nyckel valvs nyckel](./media/search-manage-encryption-keys/create-new-key-vault-key.png "Skapa en ny nyckel valvs nyckel")
 
-## <a name="3---create-a-service-identity"></a>3 – skapa en tjänstidentitet
+## <a name="3---create-a-service-identity"></a>3 – skapa en tjänst identitet
 
-Tilldela en identitet till search-tjänsten kan du bevilja behörigheter för Key Vault-åtkomst till din söktjänst. Söktjänsten använder sin identitet för att autentisera med Azure Key vault.
+Genom att tilldela en identitet till din Sök tjänst kan du ge Key Vault åtkomst behörighet till din Sök tjänst. Sök tjänsten använder sin identitet för att autentisera med Azure Key Vault.
 
-Azure Search har stöd för två sätt för att tilldela identitet: en hanterad identitet eller ett externt hanterad Azure Active Directory-program. 
+Azure Search har stöd för två sätt att tilldela identitet: en hanterad identitet eller ett externt hanterat Azure Active Directory-program. 
 
-Använd om möjligt en hanterad identitet. Det är det enklaste sättet för att tilldela en identitet till din söktjänst och bör fungera i de flesta fall. Om du använder flera nycklar för index och synonymmappningar, eller om din lösning finns i en distribuerad arkitektur som diskvalificerar identity-baserad autentisering, med de avancerade [externt hanterad Azure Active Directory metoden](#aad-app)som beskrivs i slutet av den här artikeln.
+Använd om möjligt en hanterad identitet. Det är det enklaste sättet att tilldela en identitet till din Sök tjänst och bör fungera i de flesta fall. Om du använder flera nycklar för index och synonymer Maps, eller om din lösning finns i en distribuerad arkitektur som dekvalificerar identitetsbaserade autentisering, använder du den avancerade [externa hanterings Azure Active Directory metoden](#aad-app) som beskrivs i slutet i den här artikeln.
 
- I allmänhet är kan en hanterad identitet din söktjänst att autentisera till Azure Key Vault utan att behöva lagra autentiseringsuppgifter i kod. Livscykeln för den här typen av hanterad identitet är kopplad till livscykeln för din search-tjänst som kan bara ha en hanterad identitet. [Mer information om hanterade identiteter](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+ I allmänhet gör en hanterad identitet att Sök tjänsten kan autentisera till Azure Key Vault utan att lagra autentiseringsuppgifter i kod. Livs cykeln för den här typen av hanterad identitet är kopplad till livs cykeln för din Sök tjänst, som bara kan ha en hanterad identitet. [Läs mer om hanterade identiteter](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
 
-1. Skapa en hanterad identitet [logga in toAzure portal](https://portal.azure.com) och öppna instrumentpanelen sökning. 
+1. Om du vill skapa en hanterad identitet [loggar du in på toAzure-portalen](https://portal.azure.com) och öppnar din instrument panel för Sök tjänsten. 
 
-1. Klicka på **identitet** i det vänstra navigeringsfönstret, ändrar du statusen är **på**, och klicka på **spara**.
+1. Klicka på **identitet** i det vänstra navigerings fönstret, ändra status till **på**och klicka sedan på **Spara**.
 
-![Aktivera en hanterad identitet](./media/search-enable-msi/enable-identity-portal.png "aktivera en hanterade identitet")
+![Aktivera en hanterad identitet](./media/search-enable-msi/enable-identity-portal.png "Aktivera en hanterade-identitet")
 
-## <a name="4---grant-key-access-permissions"></a>4 – bevilja nyckelåtkomst
+## <a name="4---grant-key-access-permissions"></a>4 – bevilja nyckel åtkomst behörigheter
 
-Om du vill aktivera din söktjänst att använda Key Vault-nyckeln, måste du ge din sökning tjänsten vissa behörigheter för åtkomst.
+Om du vill att Sök tjänsten ska använda din Key Vault nyckel måste du ge Sök tjänsten vissa åtkomst behörigheter.
 
-Behörigheter för åtkomst kan återkallas vid en given tidpunkt. När återkallats, blir alla search index eller synonymen tjänstkarta som använder nyckelvalvet oanvändbara. Återställa behörigheter för Key vault åtkomst vid ett senare tillfälle återställs index\synonym kartan åtkomst. Mer information finns i [säker åtkomst till ett nyckelvalv](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault).
+Åtkomst behörigheterna kan återkallas vid en angiven tidpunkt. När den har återkallats blir alla Sök tjänst index eller synonym mappningar som använder det nyckel valvet oanvändbara. Att återställa åtkomst behörigheter för Key Vault vid ett senare tillfälle kommer att återställa index\synonym Map-åtkomst. Mer information finns i [säker åtkomst till ett nyckel valv](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault).
 
-1. [Logga in på Azure-portalen](https://portal.azure.com) och öppna ditt nyckelvalv översiktssidan. 
+1. [Logga in på Azure Portal](https://portal.azure.com) och öppna översikts sidan för Key Vault. 
 
-1. Välj den **åtkomstprinciper** från det vänstra navigeringsfönstret och klicka på **+ Lägg till ny**.
+1. Välj inställningen **åtkomst principer** i det vänstra navigerings fönstret och klicka på **+ Lägg till ny**.
 
-   ![Lägg till ny åtkomstprincip för nyckelvalvet](./media/search-manage-encryption-keys/add-new-key-vault-access-policy.png "Lägg till ny åtkomstprincip för nyckelvalvet")
+   ![Lägg till ny åtkomst princip för nyckel valv](./media/search-manage-encryption-keys/add-new-key-vault-access-policy.png "Lägg till ny åtkomst princip för nyckel valv")
 
-1. Klicka på **väljer huvudnamn** och välj din Azure Search-tjänst. Du kan söka efter den efter namn eller objekt-ID som visades när du har aktiverat hanterad identitet.
+1. Klicka på **Välj huvud konto** och välj din Azure Search-tjänst. Du kan söka efter den efter namn eller med det objekt-ID som visades när den hanterade identiteten aktiverades.
 
-   ![Välj nyckelvalv åtkomst princip huvudnamn](./media/search-manage-encryption-keys/select-key-vault-access-policy-principal.png "väljer nyckelvalv åtkomst princip huvudnamn")
+   ![Välj nyckel valv åtkomst principens huvud namn](./media/search-manage-encryption-keys/select-key-vault-access-policy-principal.png "Välj nyckel valv åtkomst principens huvud namn")
 
-1. Klicka på **Nyckelbehörigheter** och välj *hämta*, *Unwrap Key* och *Wrap Key*. Du kan använda den *Azure Data Lake Storage eller Azure Storage* mall för att snabbt välja behörigheterna som krävs.
+1. Klicka på **nyckel behörigheter** och välj *Hämta*, *packa upp nyckel* och *Radbryt nyckel*. Du kan använda mallen *Azure Data Lake Storage eller Azure Storage* för att snabbt välja de behörigheter som krävs.
 
-   Azure search måste beviljas med följande [åtkomstbehörigheter](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-operations):
+   Azure Search måste beviljas med följande [åtkomst behörigheter](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-operations):
 
-   * *Hämta* – gör att din söktjänst att hämta de offentliga delarna av din nyckel i Key Vault
-   * *Omsluta nyckel* – gör att din söktjänst till Använd din nyckel för att skydda den interna krypteringsnyckeln
-   * *Packa upp nyckeln* – gör att din search-tjänst du använder din nyckel för att packa upp den interna krypteringsnyckeln
+   * *Get* -tillåter att Sök tjänsten hämtar offentliga delar av nyckeln i en Key Vault
+   * *Wrap-tangenten* – tillåter att din Sök tjänst använder din nyckel för att skydda den interna krypterings nyckeln
+   * *Unwrap-nyckel* – tillåter att Sök tjänsten använder din nyckel för att packa upp den interna krypterings nyckeln
 
-   ![Välj nyckelvalv åtkomst princip nyckelns behörigheter](./media/search-manage-encryption-keys/select-key-vault-access-policy-key-permissions.png "Välj nyckelvalv åtkomst princip nyckelns behörigheter")
+   ![Välj nyckel valv åtkomst princip nyckel behörigheter](./media/search-manage-encryption-keys/select-key-vault-access-policy-key-permissions.png "Välj nyckel valv åtkomst princip nyckel behörigheter")
 
-1. Klicka på **OK** och **spara** principändringar åtkomst.
+1. Klicka på **OK** och **Spara** ändringarna i åtkomst principen.
 
 > [!Important]
-> Krypterat innehåll i Azure search är konfigurerad för att använda en specifik Azure Key Vault med ett visst **version**. Om du ändrar nyckeln eller version index eller synonymen kartan måste uppdateras för att använda den nya key\version **innan** tar bort tidigare key\version. När du kommer inte att kunna dekryptera innehållet när nyckelåtkomst går förlorad när du inte kan göra det renderas indexet eller synonymen mappa oanvändbara.   
+> Krypterat innehåll i Azure Search konfigureras för att använda en speciell Azure Key Vault nyckel med en angiven **version**. Om du ändrar nyckeln eller versionen måste mappningen index eller synonymer uppdateras för att använda den nya key\version **innan** du tar bort föregående key\version. Om du inte gör det kommer index eller synonym mappning inte att kunna användas, men du kan inte dekryptera innehållet när nyckel åtkomsten har gått förlorad.   
 
 ## <a name="5---encrypt-content"></a>5 – Kryptera innehåll
 
-Skapa ett index eller synonymen karta som krypterats med kundhanterad nyckel ännu inte möjlig med hjälp av Azure-portalen. Använda Azure Search REST API för att skapa sådana index eller synonymen mappningar.
+Det går inte att skapa ett index eller en synonym mappning som är krypterad med kundhanterad nyckel än att använda Azure Portal. Använd Azure Search REST API för att skapa en sådan index-eller synonym mappning.
 
-Index- och synonymen mappa stöd för en ny översta **encryptionKey** egenskapen som används för att ange nyckeln. 
+Både index och synonym karta stöder en ny **encryptionKey** -egenskap på översta nivån som används för att ange nyckeln. 
 
-Med hjälp av den **nyckelvalv Uri**, **nyckelnamn** och **nyckelversionen** av Key vault-nyckeln kan vi skapa en **encryptionKey** definition:
+Med **Key Vault-URI: n**, **nyckel namnet** och **nyckel versionen** av nyckel valvet, kan vi skapa en **encryptionKey** -definition:
 
 ```json
 {
@@ -147,9 +147,9 @@ Med hjälp av den **nyckelvalv Uri**, **nyckelnamn** och **nyckelversionen** av 
 }
 ```
 > [!Note] 
-> Ingen av dessa nyckelvalvsinformationen betraktas hemlighet och enkelt kan hämtas genom att bläddra till den relevanta Azure Key Vault sidan i Azure-portalen.
+> Ingen av dessa nyckel valvs uppgifter betraktas som hemliga och kan enkelt hämtas genom att bläddra till den relevanta Azure Key Vault nyckel sidan i Azure Portal.
 
-Om du använder ett AAD-program för Key Vault-autentisering istället för att använda en hanterad identitet, lägger du till AAD-programmet **autentiseringsuppgifter för åtkomst** till krypteringsnyckeln: 
+Om du använder ett AAD-program för Key Vault autentisering i stället för att använda en hanterad identitet, lägger du till AAD-appens **åtkomst uppgifter** till din krypterings nyckel: 
 ```json
 {
   "encryptionKey": {
@@ -164,8 +164,8 @@ Om du använder ett AAD-program för Key Vault-autentisering istället för att 
 }
 ```
 
-## <a name="example-index-encryption"></a>Exempel: Index-kryptering
-Information om att skapa ett nytt index via REST API hittades på [Create Index (Azure Search Service REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index), där den enda skillnaden är att ange viktiga Krypteringsinformation som en del av indexdefinitionen: 
+## <a name="example-index-encryption"></a>Exempel: Index kryptering
+Information om hur du skapar ett nytt index via REST API finns i [create index (Azure Search Service REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index), där den enda skillnaden här anger krypterings nyckel informationen som en del av index definitionen: 
 
 ```json
 {
@@ -189,11 +189,11 @@ Information om att skapa ett nytt index via REST API hittades på [Create Index 
  }
 }
 ```
-Du kan nu skicka förfrågan om att skapa indexet och sedan börja använda indexet normalt.
+Nu kan du skicka begäran om att skapa index och sedan börja använda indexet som vanligt.
 
-## <a name="example-synonym-map-encryption"></a>Exempel: Synonymen kartan kryptering
+## <a name="example-synonym-map-encryption"></a>Exempel: Kryptering av synonym mappning
 
-Information om hur du skapar en ny synonymmappning via REST API finns på [skapa Synonymmappning (Azure Search Service REST API)](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map), där den enda skillnaden är att ange viktiga Krypteringsinformation som en del av avbildningsdefinition synonymen: 
+Information om hur du skapar en ny synonym mappning via REST API finns i [create synonym karta (Azure Search Service REST API)](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map), där den enda skillnaden här anger krypterings nyckel informationen som en del av synonym mappnings definitionen: 
 
 ```json
 {   
@@ -208,35 +208,35 @@ Information om hur du skapar en ny synonymmappning via REST API finns på [skapa
   }
 }
 ```
-Du kan nu skicka synonymen kartan skapa begäran och sedan börja använda det normalt.
+Nu kan du skicka en förfrågan om att skapa synonym mappning och sedan börja använda den som vanligt.
 
 >[!Important] 
-> Medan **encryptionKey** kan inte läggas till befintliga Azure Search-index eller synonymen mappar, kan det uppdateras genom att ange olika värden för någon av tre nyckelvalvsinformationen (till exempel uppdaterar nyckelns version). När du byter till en ny Key Vault-nyckel eller en ny version, eventuella Azure Search-index eller synonymen karta som använder nyckeln först måste uppdateras för att använda den nya key\version **innan** tar bort tidigare key\version. Om du inte gör det renderas indexet eller synonymmappning bli oanvändbart, eftersom det inte att kunna dekryptera innehåll när viktiga åtkomst går förlorad.   
-> Återställa behörigheter för Key vault åtkomst vid ett senare tillfälle att återställa åtkomst till innehåll.
+> Det går inte att lägga till **encryptionKey** i befintliga Azure Search-index eller synonym mappningar, men det kan uppdateras genom att ange olika värden för någon av de tre nyckel valvs detaljerna (till exempel uppdatering av nyckel versionen). När du ändrar till en ny Key Vault nyckel eller en ny nyckel version måste alla Azure Search-index eller synonym mappning som använder nyckeln först uppdateras för att använda den nya key\version **innan** du tar bort föregående key\version. Om du inte gör det kommer indexet eller synonym mappningen att bli oanvändbar, eftersom den inte kan dekryptera innehållet när nyckel åtkomsten förlorats.   
+> Att återställa åtkomst behörigheter för Key Vault vid ett senare tillfälle kommer att återställa innehålls åtkomsten.
 
-## <a name="aad-app"></a> Avancerat: Använda ett externt hanterad Azure Active Directory-program
+## <a name="aad-app"></a>Erfar Använd ett externt hanterat Azure Active Directory program
 
-När en hanterad identitet inte är möjligt, du kan skapa ett Azure Active Directory-program med en säkerhet huvudnamn för Azure Search-tjänsten. En hanterad identitet är inte användbara under dessa förhållanden:
+När en hanterad identitet inte är möjlig kan du skapa ett Azure Active Directory-program med ett säkerhets objekt för din Azure Search-tjänst. Mer specifikt är en hanterad identitet inte livskraftig under följande omständigheter:
 
-* Du kan inte direkt bevilja sökningen service åtkomstbehörigheter till Key vault (till exempel om söktjänsten är i en annan Active Directory-klient än Azure Key Vault).
+* Du kan inte direkt bevilja dina åtkomst behörigheter för Sök tjänsten till nyckel valvet (till exempel om Sök tjänsten är i en annan Active Directory klient än Azure Key Vault).
 
-* En enda söktjänst krävs för att vara värd för flera krypterade indexes\synonym kartor, var och en med hjälp av en annan nyckel från en annan Key vault, där varje nyckelvalv måste använda **en annan identitet** för autentisering. Om du använder en annan identitet för att hantera olika nyckelvalv är inte ett krav, bör du använda alternativet hanterad identitet.  
+* En enskild Sök tjänst krävs för att vara värd för flera krypterade indexes\synonym-mappningar, var och en använder en annan nyckel från ett annat nyckel valv, där varje nyckel valv måste använda **en annan identitet** för autentisering. Om du inte behöver använda en annan identitet för att hantera olika nyckel valv, bör du överväga att använda alternativet hanterad identitet ovan.  
 
-För att hantera dessa topologier, Sök Azure stöder användning av Azure Active Directory (AAD)-program för autentisering mellan din söktjänst och Key Vault.    
-Skapa ett AAD-program i portalen:
+För att kunna hantera sådana topologier stöder Azure Search användning av Azure Active Directory-program (AAD) för autentisering mellan Sök tjänsten och Key Vault.    
+Så här skapar du ett AAD-program i portalen:
 
 1. [Skapa ett program i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application).
 
-1. [Hämta program-ID och autentiseringsnyckel nyckel](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) som de som måste utföras för att skapa ett index som är krypterade. Du måste ange värden är **program-ID** och **autentiseringsnyckeln**.
+1. [Hämta program-ID och autentiseringsnyckel](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) som krävs för att skapa ett krypterat index. Värden du måste ange innehåller **program-ID** och **autentiseringsnyckel**.
 
 >[!Important]
-> När du beslutar att använda ett AAD-program för autentisering i stället för en hanterad identitet ska du tänka på som Azure Search inte har behörighet att hantera AAD-programmet för din räkning och det är upp till dig att hantera din AAD-programmet, till exempel periodiska rotation av autentiseringsnyckeln program.
-> När du ändrar en AAD-programmet eller dess autentiseringsnyckeln, eventuella Azure Search-index eller synonymen karta som använder programmet först måste uppdateras för att använda det nya programmet ID\key **innan** tar bort det tidigare programmet eller dess auktorisering nyckel, och innan du återkallar ditt Key Vault-åtkomst till den.
-> Om du inte gör det renderas indexet eller synonymmappning bli oanvändbart, eftersom det inte att kunna dekryptera innehåll när viktiga åtkomst går förlorad.   
+> När du bestämmer dig för att använda en AAD-tillämpning av autentisering i stället för en hanterad identitet, bör du tänka på att Azure Search inte har behörighet att hantera ditt AAD-program för din räkning, och det är upp till dig att hantera ditt AAD-program, till exempel regelbunden rotation av programmets autentiseringsnyckel.
+> När du ändrar ett AAD-program eller dess autentiseringsnyckel måste du först uppdatera alla Azure Search index eller synonymer som använder programmet för att använda det nya programmet ID\key **innan** du tar bort det tidigare programmet eller dess auktoriseringskod, och Innan du återkallar din Key Vault åtkomst till den.
+> Om du inte gör det kommer indexet eller synonym mappningen att bli oanvändbar, eftersom den inte kan dekryptera innehållet när nyckel åtkomsten förlorats.   
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du inte känner till Azure security-arkitektur, granskar du den [dokumentation om Azure Security](https://docs.microsoft.com/azure/security/), särskilt i den här artikeln:
+Om du inte är bekant med Azures säkerhets arkitektur kan du läsa [dokumentationen för Azure-säkerhet](https://docs.microsoft.com/azure/security/)och i synnerhet den här artikeln:
 
 > [!div class="nextstepaction"]
-> [Vilande datakryptering](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest)
+> [Vilande datakryptering](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)

@@ -7,12 +7,12 @@ ms.date: 07/17/2019
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: b90986e449df7e81f97f9ef86ce3cf69621c76d6
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 17fa443c3b0113d80a020f2a43c7099cf5a832d2
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335746"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68772890"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-functions-trigger-for-cosmos-db"></a>Diagnostisera och Felsök problem när du använder Azure Functions utlösare för Cosmos DB
 
@@ -88,6 +88,15 @@ Om du upptäcker att vissa ändringar inte tagits emot alls av utlösaren, är d
 Scenariot kan också verifieras om du vet hur många Azure Funktionsapp-instanser som du kör. Om du inspekterar din lån behållare och räknar antalet låne objekt i, ska de distinkta värdena för `Owner` egenskapen i dem vara lika med antalet instanser av Funktionsapp. Om det finns fler ägare än de kända Azure Funktionsapp-instanserna, innebär det att dessa extra ägare är den som "stjäl" ändringarna.
 
 Ett enkelt sätt att lösa den här situationen är att använda en `LeaseCollectionPrefix/leaseCollectionPrefix` i din funktion med ett nytt/annat värde eller, även testa med en ny container container.
+
+### <a name="need-to-restart-and-re-process-all-the-items-in-my-container-from-the-beginning"></a>Måste starta om och bearbeta alla objekt i min behållare från början 
+För att bearbeta alla objekt i en behållare på nytt från början:
+1. Stoppa din Azure-funktion om den körs. 
+1. Ta bort dokumenten i låne samlingen (eller ta bort och återskapa låne samlingen så att den är tom)
+1. Ange attributet [StartFromBeginning](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration) CosmosDBTrigger i din funktion till true. 
+1. Starta om Azure-funktionen. Nu kommer den att läsa och bearbeta alla ändringar från början. 
+
+Om du anger [StartFromBeginning](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration) till True kommer Azure-funktionen att börja läsa ändringar från början av samlingens historik i stället för den aktuella tiden. Detta fungerar bara när det inte redan skapas lån (d.v.s. dokument i insamlingen lån). Om du anger den här egenskapen till sant, har redan skapade lån ingen påverkan. När en funktion stoppas och startas om i det här scenariot börjar den att läsa från den senaste kontroll punkten, enligt definitionen i samlingen lån. Följ stegen ovan 1-4 om du vill göra en ny process från början.  
 
 ### <a name="binding-can-only-be-done-with-ireadonlylistdocument-or-jarray"></a>Bindning kan bara göras med IReadOnlyList\<-dokument > eller JArray
 

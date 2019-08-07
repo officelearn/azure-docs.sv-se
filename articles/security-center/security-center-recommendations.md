@@ -1,6 +1,6 @@
 ---
-title: Säkerhetsrekommendationer i Azure Security Center | Microsoft Docs
-description: Det här dokumentet vägleder dig genom hur rekommendationerna i Azure Security Center hjälpa dig att skydda dina Azure-resurser och uppfyller säkerhetsprinciper.
+title: Säkerhets rekommendationer i Azure Security Center | Microsoft Docs
+description: Det här dokumentet vägleder dig genom hur rekommendationer i Azure Security Center hjälper dig att skydda dina Azure-resurser och hålla dem kompatibla med säkerhets principer.
 services: security-center
 documentationcenter: na
 author: monhaber
@@ -12,75 +12,66 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/13/2019
+ms.date: 07/29/2019
 ms.author: v-mohabe
-ms.openlocfilehash: fe1d4bf27f3c4bb1f70c1c1fa9767c27f8767998
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 229b8949facae34a809c0789154a3b56264ee2c5
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67064250"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779007"
 ---
 # <a name="security-recommendations-in-azure-security-center"></a>Säkerhetsrekommendationer i Azure Security Center 
-Det här avsnittet förklarar hur du visar och förstå rekommendationerna i Azure Security Center för att hjälpa dig att skydda dina Azure-resurser.
+I det här avsnittet beskrivs hur du visar och förstår rekommendationerna i Azure Security Center som hjälper dig att skydda dina Azure-resurser.
 
 > [!NOTE]
-> I det här dokumentet beskrivs tjänsten genom en exempeldistribution.  Det här dokumentet är inte en stegvis guide.
+> I det här dokumentet beskrivs tjänsten genom en exempeldistribution.  Det här dokumentet är inte en steg-för-steg-guide.
 >
 
-## <a name="what-are-security-recommendations"></a>Vad är säkerhetsrekommendationer?
-Security Center analyserar regelbundet säkerhetstillståndet hos dina Azure-resurser. När Security Center identifierar potentiella säkerhetsproblem skapas rekommendationer. Via rekommendationerna får du hjälp att ställa in de kontrollfunktioner som behövs.
+## <a name="what-are-security-recommendations"></a>Vad är säkerhets rekommendationer?
 
-## <a name="implementing-security-recommendations"></a>Implementera säkerhetsrekommendationer
-### <a name="set-recommendations"></a>Set-rekommendationer
-I [ange säkerhetsprinciper i Azure Security Center](tutorial-security-policy.md), lär du dig att:
+Rekommendationer är åtgärder som du kan vidta för att skydda dina resurser.
 
-* Konfigurera säkerhetsprinciper.
-* Aktivera insamling av data.
-* Välj vilka rekommendationer för att se som en del av din säkerhetsprincip.
+Security Center regelbundet analysera säkerhets läget för dina Azure-resurser för att identifiera potentiella säkerhets risker. Därefter får du rekommendationer om hur du tar bort dem.
 
-Aktuella rekommendationer principcentret runt systemuppdateringar, baslinjeregler, program, [nätverkssäkerhetsgrupper](../virtual-network/security-overview.md) på undernät och nätverksgränssnitt, SQL database-granskning, SQL database transparent datakryptering, och brandväggar för webbaserade program.  [Ange säkerhetsprinciper](tutorial-security-policy.md) innehåller en beskrivning av varje rekommendation alternativ.
+Varje rekommendation ger dig följande:
 
-### <a name="monitor-recommendations"></a>Övervakare för rekommendationer
-När du har angett en säkerhetsprincip analyseras säkerhetstillståndet för resurserna i Azure i Security Center för upptäckt av eventuella säkerhetsrisker. Den **rekommendationer** panelen **översikt** visar det totala antalet rekommendationer identifierades av Security Center.
+- En kort beskrivning av vad som rekommenderas.
+- De åtgärder som vidtas för att genomföra rekommendationen. <!-- In some cases, one-click remediation is available. -->
+- Vilka resurser behöver du för att utföra den rekommenderade åtgärden på dem.
+- Den **säkra poängen**, vilket är det belopp som dina säkra poäng kommer att gå upp om du implementerar den här rekommendationen.
 
-![Översikten över Security center](./media/security-center-recommendations/asc-overview.png)
+## Övervaka rekommendationer<a name="monitor-recommendations"></a>
 
-1. Välj den **rekommendationer panelen** under **översikt**. Den **rekommendationer** öppnas.
-    
+Security Center analyserar dina resursers säkerhets tillstånd för att identifiera potentiella sårbarheter. Panelen **rekommendationer** under **Översikt** visar det totala antalet rekommendationer som identifieras av Security Center.
+
+![Översikt över Security Center](./media/security-center-recommendations/asc-overview.png)
+
+1. Välj **panelen rekommendationer** under **Översikt**. Listan **rekommendationer** öppnas.
+
       ![Visa rekommendationer](./media/security-center-recommendations/view-recommendations.png)
 
-    Du kan filtrera rekommendationer. Om du vill filtrera rekommendationer, Välj **Filter** på den **rekommendationer** bladet. Den **Filter** bladet öppnas och du kan välja allvarlighetsgrad och status du vill se.
+    Du kan filtrera rekommendationer. Om du vill filtrera rekommendationerna väljer du **filter** på bladet **rekommendationer** . **Filter** bladet öppnas och du väljer de allvarlighets grad och tillstånds värden som du vill se.
 
    * **REKOMMENDATIONER**: Rekommendationen.
-   * **SKYDDAR SCORE INVERKAN**: Ett resultat som genereras av Security Center med hjälp av din säkerhetsrekommendationer och tillämpa avancerade algoritmer för att avgöra hur viktigt är varje rekommendation. Mer information finns i [skydda poängberäkningen](security-center-secure-score.md#secure-score-calculation).
-   * **RESOURCE**: Visar en lista över de resurser som den här rekommendationen gäller.
-   * **STATUSFÄLT**:  Visas hur viktig rekommendationen:
-       * **Hög (röd)** : En sårbarhet i finns en viktig resurs (till exempel ett program, en virtuell dator eller en nätverkssäkerhetsgrupp) som måste åtgärdas.
-       * **Medel (Orange)** : Det finns ett säkerhetsproblem och icke-kritiska eller ytterligare åtgärder krävs att eliminera den eller för att slutföra en process.
-       * **Låg (blå)** : Det finns en säkerhetsrisk som bör åtgärdas, men inte kräver omedelbar åtgärd. (Låg rekommendationer är inte visas som standard, men du kan filtrera fram om du vill se dem.) 
+   * **SÄKER POÄNG PÅVERKAN**: En poäng som skapats av Security Center med hjälp av dina säkerhets rekommendationer och tillämpar avancerade algoritmer för att fastställa hur viktiga varje rekommendation är. Mer information finns i [säker Poäng beräkning](security-center-secure-score.md#secure-score-calculation).
+   * **RESURS**: Visar en lista över de resurser som denna rekommendation gäller.
+   * **STATUSFÄLT**:  Beskriver allvarlighets graden för den specifika rekommendationen:
+       * **Hög (röd)** : Det finns ett säkerhets problem med en meningsfull resurs (till exempel ett program, en virtuell dator eller en nätverks säkerhets grupp) och kräver en åtgärd.
+       * **Medel (orange)** : Det finns ett säkerhets problem och icke-kritiska åtgärder eller ytterligare åtgärder krävs för att eliminera det eller slutföra en process.
+       * **Låg (blå)** : Det finns ett säkerhets problem som bör åtgärdas, men som inte kräver omedelbara åtgärder. (Som standard visas inte låga rekommendationer, men du kan filtrera efter låg rekommendation om du vill se dem.) 
        * **Felfritt (grönt)** :
-       * **Inte tillgänglig (grå)** :
+       * **Inte tillgängligt (grått)** :
 
-1. Du kan visa information om varje rekommendation genom att klicka på rekommendationen.
+1. Klicka på rekommendationen om du vill visa information om varje rekommendation.
 
     ![Information om rekommendation](./media/security-center-recommendations/recommendation-details.png)
 
 >[!NOTE] 
-> Se [klassiska och Resource Manager-distributionsmodeller](../azure-classic-rm.md) för Azure-resurser.
-  
- ### <a name="apply-recommendations"></a>Tillämpa rekommendationer
-> Bestäm vilken jag ska använda först när du har granskat alla rekommendationer. Vi rekommenderar att du använder den säkra bedöma effekten att utvärdera vilka rekommendationer ska tillämpas först.
-
-1. Klicka på rekommendationen i listan.
-1. Följ instruktionerna i den *åtgärdssteg* avsnittet.
-
+> Se [klassiska distributions modeller för och Resource Manager](../azure-classic-rm.md) för Azure-resurser.
+ 
 ## <a name="next-steps"></a>Nästa steg
-I det här dokumentet berättade säkerhetsrekommendationer i Security Center. Om du vill veta mer om Security Center finns i följande avsnitt:
 
-* [Ange säkerhetsprinciper i Azure Security Center](tutorial-security-policy.md) – Lär dig hur du ställer in säkerhetsprinciper för dina Azure-prenumerationer och resursgrupper.
-* [Övervakning av säkerhetshälsa i Azure Security Center](security-center-monitoring.md) – Lär dig hur du övervakar Azure-resursernas hälsa.
-* [Hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md) – Lär dig hur du hanterar och åtgärdar säkerhetsaviseringar.
-* [Övervaka partnerlösningar med Azure Security Center](security-center-partner-solutions.md) – Lär dig hur du övervakar dina partnerlösningars hälsostatus.
-* [Vanliga frågor och svar om Azure Security Center](security-center-faq.md) – Här hittar du vanliga frågor och svar om tjänsten.
-* [Azures säkerhetsblogg](https://blogs.msdn.com/b/azuresecurity/) – Här hittar du blogginlägg om säkerhet och regelefterlevnad i Azure.
+I det här dokumentet har du lanserat säkerhets rekommendationer i Security Center. Lär dig hur du åtgärdar rekommendationerna:
+
+* [Åtgärda rekommendationer](security-center-remediate-recommendations.md) – lär dig hur du konfigurerar säkerhets principer för dina Azure-prenumerationer och resurs grupper.

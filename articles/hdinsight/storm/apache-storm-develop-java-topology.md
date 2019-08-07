@@ -1,40 +1,40 @@
 ---
-title: Apache Storm-exempel Java-topologi - Azure HDInsight
-description: Lär dig mer om att skapa Apache Storm-topologier i Java genom att skapa en exempel-ordräkningstopologi.
+title: Apache Storm exempel på Java-topologi – Azure HDInsight
+description: Lär dig hur du skapar Apache Storm-topologier i Java genom att skapa ett exempel på ord räknings topologi.
 author: hrasheed-msft
 ms.reviewer: jasonh
-keywords: Apache storm, apache storm-exempel, storm java, storm-topologi-exempel
+keywords: Apache Storm, Apache Storm-exempel, Storm Java, Storm Topology-exempel
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 89cee70c9d7c5dffdb3078756cf4fa94d7cd1a9a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3cdf2255208069e20f5a230cc2acd82a628fdcfd
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67078230"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840214"
 ---
-# <a name="create-an-apache-storm-topology-in-java"></a>Skapa ett Apache Storm-topologi i Java
+# <a name="create-an-apache-storm-topology-in-java"></a>Skapa en Apache Storm-topologi i Java
 
-Lär dig hur du skapar en Java-baserad topologi för [Apache Storm](https://storm.apache.org/). Här kan skapa du en Storm-topologi som implementerar ett word-count-program. Du använder [Apache Maven](https://maven.apache.org/) att bygga och paketera projektet. Sedan kan du lära dig hur du definierar en topologi med hjälp av den [Apache Storm som](https://storm.apache.org/releases/2.0.0/flux.html) framework.
+Lär dig hur du skapar en Java-baserad topologi för [Apache Storm](https://storm.apache.org/). Här skapar du en Storm-topologi som implementerar ett ord räknings program. Du använder [Apache maven](https://maven.apache.org/) för att bygga och paketera projektet. Sedan kan du lära dig hur du definierar topologin med hjälp av [Apache Storm flödes](https://storm.apache.org/releases/2.0.0/flux.html) ramverket.
 
-När du har slutfört stegen i det här dokumentet, kan du distribuera topologin till Apache Storm på HDInsight.
+När du har slutfört stegen i det här dokumentet kan du distribuera topologin till Apache Storm i HDInsight.
 
 > [!NOTE]  
-> En fullständig version av Storm-topologi exemplen som skapas i det här dokumentet finns på [ https://github.com/Azure-Samples/hdinsight-java-storm-wordcount ](https://github.com/Azure-Samples/hdinsight-java-storm-wordcount).
+> En slutförd version av storm Topology-exemplen som skapats i det här [https://github.com/Azure-Samples/hdinsight-java-storm-wordcount](https://github.com/Azure-Samples/hdinsight-java-storm-wordcount)dokumentet finns på.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Java Developer Kit (JDK) version 8](https://aka.ms/azure-jdks)
 
-* [Apache Maven](https://maven.apache.org/download.cgi) korrekt [installerat](https://maven.apache.org/install.html) enligt Apache.  Maven är ett projekt buildsystemet för Java-projekt.
+* [Apache maven](https://maven.apache.org/download.cgi) korrekt [installerat](https://maven.apache.org/install.html) enligt Apache.  Maven är ett projekt versions system för Java-projekt.
 
-## <a name="test-environment"></a>Testmiljö
-Den miljö som ska användas för den här artikeln har en dator som kör Windows 10.  Kommandona utfördes i en kommandotolk och de olika filerna har redigerats med anteckningar.
+## <a name="test-environment"></a>Test miljö
+Miljön som används för den här artikeln var en dator som kör Windows 10.  Kommandona kördes i en kommando tolk och de olika filerna redigerades med anteckningar.
 
-Ange kommandona nedan för att skapa en arbetsmiljö från en kommandotolk:
+I en kommando tolk anger du följande kommandon för att skapa en fungerande miljö:
 
 ```cmd
 mkdir C:\HDI
@@ -43,7 +43,7 @@ cd C:\HDI
 
 ## <a name="create-a-maven-project"></a>Skapa ett Maven-projekt
 
-Ange följande kommando för att skapa ett Maven-projekt med namnet **WordCount**:
+Ange följande kommando för att skapa ett Maven-projekt med namnet **WORDCOUNT**:
 
 ```cmd
 mvn archetype:generate -DarchetypeArtifactId=maven-archetype-quickstart -DgroupId=com.microsoft.example -DartifactId=WordCount -DinteractiveMode=false
@@ -52,24 +52,24 @@ cd WordCount
 mkdir resources
 ```
 
-Det här kommandot skapar en katalog med namnet `WordCount` på den aktuella platsen som innehåller ett grundläggande Maven-projekt. Det andra kommandot ändrar den aktuella arbetskatalogen till `WordCount`. Tredje kommandot skapar en ny katalog `resources`, som kommer att användas senare.  Den `WordCount` katalogen innehåller följande objekt:
+Det här kommandot skapar en katalog `WordCount` med namnet på den aktuella platsen, som innehåller ett Basic Maven-projekt. Det andra kommandot ändrar den aktuella arbets katalogen till `WordCount`. Det tredje kommandot skapar en ny katalog, `resources`som kommer att användas senare.  `WordCount` Katalogen innehåller följande objekt:
 
-* `pom.xml`: Innehåller inställningar för Maven-projekt.
-* `src\main\java\com\microsoft\example`: Innehåller din programkod.
+* `pom.xml`: Innehåller inställningar för maven-projektet.
+* `src\main\java\com\microsoft\example`: Innehåller din program kod.
 * `src\test\java\com\microsoft\example`: Innehåller tester för ditt program.  
 
-### <a name="remove-the-generated-example-code"></a>Ta bort den genererade exempelkoden
+### <a name="remove-the-generated-example-code"></a>Ta bort den genererade exempel koden
 
-Ta bort genererad test- och programfiler `AppTest.java`, och `App.java` genom att ange nedanstående kommandon:
+Ta bort de genererade test- `AppTest.java`och programfilerna och `App.java` genom att ange följande kommandon:
 
 ```cmd
 DEL src\main\java\com\microsoft\example\App.java
 DEL src\test\java\com\microsoft\example\AppTest.java
 ```
 
-## <a name="add-maven-repositories"></a>Lägg till Maven-databaser
+## <a name="add-maven-repositories"></a>Lägg till maven-databaser
 
-HDInsight bygger på Hortonworks Data Platform (HDP) och vi rekommenderar att du använder Hortonworks-databasen för att hämta beroenden för Apache Storm-projekt.  
+HDInsight baseras på Hortonworks Data Platform (HDP), så vi rekommenderar att du använder Hortonworks-lagringsplatsen för att hämta beroenden för dina Apache Storm-projekt.  
 
 Öppna `pom.xml` genom att ange kommandot nedan:
 
@@ -77,7 +77,7 @@ HDInsight bygger på Hortonworks Data Platform (HDP) och vi rekommenderar att du
 notepad pom.xml
 ```
 
-Lägg sedan till följande XML-filen när den `<url> https://maven.apache.org</url>` rad:
+Lägg sedan till följande XML efter `<url> https://maven.apache.org</url>` raden:
 
 ```xml
 <repositories>
@@ -118,7 +118,7 @@ Lägg sedan till följande XML-filen när den `<url> https://maven.apache.org</u
 
 ## <a name="add-properties"></a>Lägg till egenskaper
 
-Maven kan du definiera projekt-värdena kallas egenskaper. I `pom.xml`, Lägg till följande text efter den `</repositories>` rad:
+Med maven kan du definiera värden på projekt nivå som kallas egenskaper. I `pom.xml`lägger du till följande text `</repositories>` efter raden:
 
 ```xml
 <properties>
@@ -130,11 +130,11 @@ Maven kan du definiera projekt-värdena kallas egenskaper. I `pom.xml`, Lägg ti
 </properties>
 ```
 
-Du kan nu använda det här värdet i andra avsnitt i den `pom.xml`. Till exempel när du anger versionen av Storm-komponenter, du kan använda `${storm.version}` i stället för att hårdkoda ett värde.
+Du kan nu använda det här värdet i andra avsnitt i `pom.xml`. När du till exempel anger versionen av storm-komponenter kan du använda `${storm.version}` i stället för hårdkoda ett värde.
 
-## <a name="add-dependencies"></a>Lägga till beroenden
+## <a name="add-dependencies"></a>Lägg till beroenden
 
-Lägg till ett beroende för Storm-komponenter. I `pom.xml`, Lägg till följande text i den `<dependencies>` avsnittet:
+Lägg till ett beroende för Storm-komponenter. I `pom.xml`lägger du till följande text `<dependencies>` i avsnittet:
 
 ```xml
 <dependency>
@@ -146,14 +146,14 @@ Lägg till ett beroende för Storm-komponenter. I `pom.xml`, Lägg till följand
 </dependency>
 ```
 
-Vid kompilering, Maven använder denna information för att leta upp `storm-core` i Maven-centrallagret. Det verkar först i databasen på den lokala datorn. Om filerna inte är det Maven hämtar dem från den offentliga Maven-databasen och lagrar dem i den lokala lagringsplatsen.
+Vid kompileringen använder maven den här informationen för att leta `storm-core` upp i maven-lagringsplatsen. Den söker först i databasen på den lokala datorn. Om filerna inte finns där, hämtar maven dem från den offentliga maven-lagringsplatsen och lagrar dem i den lokala lagrings platsen.
 
 > [!NOTE]  
-> Observera den `<scope>provided</scope>` raden i det här avsnittet. Den här inställningen instruerar Maven att undanta **storm kärnor** från valfri JAR-fil som skapas, eftersom den tillhandahålls av systemet.
+> Lägg märke `<scope>provided</scope>` till raden i det här avsnittet. Den här inställningen anger att maven ska utesluta **Storm-Core** från alla jar-filer som skapas, eftersom det tillhandahålls av systemet.
 
-## <a name="build-configuration"></a>Skapa konfiguration
+## <a name="build-configuration"></a>Bygg konfiguration
 
-Maven-plugin-program kan du anpassa build-faser av projektet. Till exempel hur kompileras projektet eller hur du paketera den i en JAR-fil. I `pom.xml`, Lägg till följande ovanför den `</project>` rad.
+Med maven-plugin-program kan du anpassa projektets Bygg steg. Till exempel hur projektet kompileras eller hur det paketeras i en JAR-fil. I `pom.xml`lägger du till följande text direkt `</project>` ovanför raden.
 
 ```xml
 <build>
@@ -164,13 +164,13 @@ Maven-plugin-program kan du anpassa build-faser av projektet. Till exempel hur k
 </build>
 ```
 
-Det här avsnittet används för att lägga till plugin-program, resurser och andra build-konfigurationsalternativ. Fullständiga referenser av den `pom.xml` fil, se [ https://maven.apache.org/pom.html ](https://maven.apache.org/pom.html).
+Det här avsnittet används för att lägga till plugin-program, resurser och andra Bygg konfigurations alternativ. En fullständig referens till `pom.xml` filen finns i. [https://maven.apache.org/pom.html](https://maven.apache.org/pom.html)
 
-### <a name="add-plug-ins"></a>Lägga till plugin-program
+### <a name="add-plug-ins"></a>Lägg till plugin-program
 
-* **Exec Maven-pluginprogrammet**
+* **Exec maven-plugin**
 
-    För Apache Storm-topologier som implementerats i Java, den [Exec Maven-pluginprogrammet](https://www.mojohaus.org/exec-maven-plugin/) är användbart eftersom det kan du enkelt köra topologin lokalt i din utvecklingsmiljö. Lägg till följande till den `<plugins>` delen av den `pom.xml` filen för att inkludera Exec Maven-pluginprogrammet:
+    För Apache Storm topologier som implementeras i Java är [exec maven-pluginprogrammet](https://www.mojohaus.org/exec-maven-plugin/) användbart eftersom det gör att du enkelt kan köra topologin lokalt i utvecklings miljön. Lägg till följande i `<plugins>` avsnittet `pom.xml` i filen för att ta med plugin-programmet exec maven:
     
     ```xml
     <plugin>
@@ -195,15 +195,15 @@ Det här avsnittet används för att lägga till plugin-program, resurser och an
     </plugin>
     ```
 
-* **Apache Maven-kompilatorn plugin-programmet**
+* **Apache maven compiler-plugin**
 
-    En annan användbar plugin-programmet är den [plugin-programmet för Apache Maven-kompilatorn](https://maven.apache.org/plugins/maven-compiler-plugin/), som används för att ändra alternativ för kompilering. Ändra Java-versionen som Maven använder för källa och mål för ditt program.
+    Ett annat användbart plugin-program är [Apache maven compiler-plugin-programmet](https://maven.apache.org/plugins/maven-compiler-plugin/)som används för att ändra Compilation-alternativ. Ändra den Java-version som maven använder för källan och målet för ditt program.
     
-  * För HDInsight __3.4 eller tidigare__, ange källa och mål Java-versionen till __1.7__.
+  * För HDInsight __3,4 eller tidigare__anger du käll-och mål-Java-versionen till __1,7__.
     
-  * För HDInsight __3.5__, ange källa och mål Java-versionen till __1.8__.
+  * För HDInsight __3,5__anger du käll-och mål-Java-versionen till __1,8__.
     
-    Lägg till följande text i den `<plugins>` delen av den `pom.xml` filen för att inkludera Apache Maven-kompilatorn plugin-programmet. Det här exemplet anger 1.8, så att HDInsight målversionen är 3.5.
+    Lägg till följande text i `<plugins>` avsnittet `pom.xml` i filen för att inkludera Apache maven compiler-plugin-programmet. Det här exemplet anger 1,8, så målets HDInsight-version är 3,5.
     
     ```xml
     <plugin>
@@ -219,7 +219,7 @@ Det här avsnittet används för att lägga till plugin-program, resurser och an
 
 ### <a name="configure-resources"></a>Konfigurera resurser
 
-Resursavsnittet kan du inkludera icke kodbaserat resurser, till exempel configuration-filer som krävs av komponenterna i topologin. I det här exemplet lägger du till följande text i den `<resources>` delen av den `pom.xml` filen.
+I avsnittet resurser kan du inkludera icke-kod resurser, till exempel konfigurationsfiler som krävs av komponenter i topologin. I det här exemplet lägger du till följande text i `<resources>` avsnittet `pom.xml` i filen.
 
 ```xml
 <resource>
@@ -231,21 +231,21 @@ Resursavsnittet kan du inkludera icke kodbaserat resurser, till exempel configur
 </resource>
 ```
 
-Det här exemplet lägger till resurser som katalogen i roten av projektet (`${basedir}`) som en plats som innehåller resurser, och som innehåller filen `log4j2.xml`. Den här filen används för att konfigurera vilken information som loggas av topologin.
+Det här exemplet lägger till resurs katalogen i projekt roten (`${basedir}`) som en plats som innehåller resurser och innehåller filen med namnet. `log4j2.xml` Den här filen används för att konfigurera vilken information som loggas av topologin.
 
 ## <a name="create-the-topology"></a>Skapa topologin
 
-En Java-baserade Apache Storm-topologi som består av tre komponenter som du måste skapa (eller referens) som ett beroende.
+En Java-baserad Apache Storm-topologi består av tre komponenter som du måste redigera (eller referens) som ett beroende.
 
-* **Spouts**: Läser data från externa källor och genererar dataströmmar till topologin.
+* **Kanaler**: Läser data från externa källor och utvärderar data strömmar i topologin.
 
-* **Bolts**: Utför bearbetning på strömmar som av kanaler eller andra bultar och genererar en eller flera strömmar.
+* **Bultar**: Utför bearbetning på strömmar som har avsänts av kanaler eller andra bultar och avger en eller flera strömmar.
 
-* **Topologi**: Definierar hur kanaler och bultar ordnas och ger en startpunkt för topologin.
+* **Topologi**: Definierar hur kanaler och bultarna ordnas och ger topologins start punkt.
 
-### <a name="create-the-spout"></a>Skapa kanal
+### <a name="create-the-spout"></a>Skapa kanalen
 
-För att minska kraven för att konfigurera externa datakällor, genererar följande spout bara meningar slumpmässigt. Det är en modifierad version av en kanal som medföljer den [Storm-starterexempel](https://github.com/apache/storm/blob/0.10.x-branch/examples/storm-starter/src/jvm/storm/starter).  Även om den här topologin använder bara en kanal kan kan andra ha flera som mata in data från olika källor i topologin.
+För att minska kraven för att konfigurera externa data källor, avger följande kanalen bara slumpmässiga meningar. Det är en modifierad version av en kanalen som finns i [exemplen Storm-starter](https://github.com/apache/storm/blob/0.10.x-branch/examples/storm-starter/src/jvm/storm/starter).  Även om den här topologin bara använder en kanalen kan andra ha flera som matar in data från olika källor i topologin.
 
 Ange kommandot nedan för att skapa och öppna en ny fil `RandomSentenceSpout.java`:
 
@@ -253,7 +253,7 @@ Ange kommandot nedan för att skapa och öppna en ny fil `RandomSentenceSpout.ja
 notepad src\main\java\com\microsoft\example\RandomSentenceSpout.java
 ```
 
-Kopiera och klistra in java-koden nedan i den nya filen.  Stäng filen.
+Kopiera och klistra sedan in Java-koden nedan i den nya filen.  Stäng sedan filen.
 
 ```java
 package com.microsoft.example;
@@ -318,19 +318,19 @@ public class RandomSentenceSpout extends BaseRichSpout {
 ```
 
 > [!NOTE]  
-> Ett exempel på en kanal som läser från en extern datakälla finns i följande exempel:
+> Ett exempel på en kanalen som läser från en extern data källa finns i något av följande exempel:
 >
-> * [TwitterSampleSPout](https://github.com/apache/storm/blob/0.10.x-branch/examples/storm-starter/src/jvm/storm/starter/spout/TwitterSampleSpout.java): En exempel-kanal som läser från Twitter.
-> * [Storm-Kafka](https://github.com/apache/storm/tree/0.10.x-branch/external/storm-kafka): En kanal som läser från Kafka.
+> * [TwitterSampleSPout](https://github.com/apache/storm/blob/0.10.x-branch/examples/storm-starter/src/jvm/storm/starter/spout/TwitterSampleSpout.java): Ett exempel på en kanalen som läser från Twitter.
+> * [Storm-Kafka](https://github.com/apache/storm/tree/0.10.x-branch/external/storm-kafka): En kanalen som läser från Kafka.
 
 
 ### <a name="create-the-bolts"></a>Skapa bultarna
 
-Bultar hantera databearbetningen. Bultar kan göra något, till exempel beräkning, persistence eller prata externa komponenter. Den här topologin använder två bultar:
+Bultar hanterar data bearbetningen. Bultar kan göra vad som helst, t. ex. beräkning, persistence eller pratar med externa komponenter. Den här topologin använder två bultar:
 
-* **SplitSentence**: Delar upp meningar som orsakats av **RandomSentenceSpout** till enskilda ord.
+* **SplitSentence**: Delar upp de meningar som avsänts av **RandomSentenceSpout** i enskilda ord.
 
-* **WordCount**: Räknar hur många gånger varje ord har inträffat.
+* **WORDCOUNT**: Räknar hur många gånger varje ord har inträffat.
 
 
 #### <a name="splitsentence"></a>SplitSentence
@@ -341,7 +341,7 @@ Ange kommandot nedan för att skapa och öppna en ny fil `SplitSentence.java`:
 notepad src\main\java\com\microsoft\example\SplitSentence.java
 ```
 
-Kopiera och klistra in java-koden nedan i den nya filen.  Stäng filen.
+Kopiera och klistra sedan in Java-koden nedan i den nya filen.  Stäng sedan filen.
 
 ```java
 package com.microsoft.example;
@@ -398,7 +398,7 @@ Ange kommandot nedan för att skapa och öppna en ny fil `WordCount.java`:
 notepad src\main\java\com\microsoft\example\WordCount.java
 ```
 
-Kopiera och klistra in java-koden nedan i den nya filen.  Stäng filen.
+Kopiera och klistra sedan in Java-koden nedan i den nya filen.  Stäng sedan filen.
 
 ```java
 package com.microsoft.example;
@@ -483,19 +483,19 @@ public class WordCount extends BaseBasicBolt {
 
 ### <a name="define-the-topology"></a>Definiera topologin
 
-Topologin binda spouts och bolts tillsammans i ett diagram som definierar hur data flödar mellan komponenterna. Det ger också parallellitet tips som Storm använder när du skapar instanser av komponenter i klustret.
+Topologin kopplar ihop kanaler och bultarna i ett diagram, vilket definierar hur data flödar mellan komponenterna. Den innehåller också parallella tips som Storm använder när de skapar instanser av komponenterna i klustret.
 
-Följande bild är ett grundläggande diagram i diagrammet med komponenter för den här topologin.
+Följande bild är ett grundläggande diagram över komponenterna i den här topologin.
 
-![diagram som visar hur kanaler och bultar](./media/apache-storm-develop-java-topology/wordcount-topology.png)
+![diagram över arrangemanget kanaler och bultar](./media/apache-storm-develop-java-topology/wordcount-topology.png)
 
-Om du vill implementera topologin, anger du kommandot nedan för att skapa och öppna en ny fil `WordCountTopology.java`:
+Implementera topologin genom att ange kommandot nedan för att skapa och öppna en ny fil `WordCountTopology.java`:
 
 ```cmd
 notepad src\main\java\com\microsoft\example\WordCountTopology.java
 ```
 
-Kopiera och klistra in java-koden nedan i den nya filen.  Stäng filen.
+Kopiera och klistra sedan in Java-koden nedan i den nya filen.  Stäng sedan filen.
 
 ```java
 package com.microsoft.example;
@@ -561,13 +561,13 @@ public class WordCountTopology {
 
 ### <a name="configure-logging"></a>Konfigurera loggning
 
-Storm använder [Apache Log4j 2](https://logging.apache.org/log4j/2.x/) att logga information. Om du inte konfigurerar loggning genererar topologin diagnostisk information. Skapa en fil med namnet för att styra vad loggas `log4j2.xml` i den `resources` katalogen genom att ange kommandot nedan:
+Storm använder [Apache log4j 2](https://logging.apache.org/log4j/2.x/) för att logga information. Om du inte konfigurerar loggning, avger topologin diagnostikinformation. Du styr vad som loggas genom att skapa en `log4j2.xml` fil med `resources` namnet i katalogen genom att ange följande kommando:
 
 ```cmd
 notepad resources\log4j2.xml
 ```
 
-Kopiera och klistra in XML-texten nedan i den nya filen.  Stäng filen.
+Kopiera och klistra sedan in XML-texten nedan i den nya filen.  Stäng sedan filen.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -588,24 +588,24 @@ Kopiera och klistra in XML-texten nedan i den nya filen.  Stäng filen.
 </Configuration>
 ```
 
-Den här XML konfigurerar en ny loggare för den `com.microsoft.example` klass som innehåller komponenter i den här exempel-topologin. Nivån har angetts att spåra för den här loggaren som samlar in alla loggningsinformation som orsakats av komponenter i den här topologin.
+Den här XML-koden konfigurerar en ny loggare för `com.microsoft.example` klassen, som innehåller komponenterna i den här exempel sto pol Ogin. Nivån är inställd på spårning för den här loggaren, som samlar in all loggnings information som har avsänts av komponenter i den här topologin.
 
-Den `<Root level="error">` avsnittet konfigurerar loggning rotnivå (allt inte i `com.microsoft.example`) att endast logga information om felet.
+I `<Root level="error">` avsnittet konfigureras rot nivån för loggning (allting Not in `com.microsoft.example`) för att endast Logga fel information.
 
-Läs mer om hur du konfigurerar loggning för Log4j 2 [ https://logging.apache.org/log4j/2.x/manual/configuration.html ](https://logging.apache.org/log4j/2.x/manual/configuration.html).
+Mer information om hur du konfigurerar loggning för log4j 2 finns [https://logging.apache.org/log4j/2.x/manual/configuration.html](https://logging.apache.org/log4j/2.x/manual/configuration.html)i.
 
 > [!NOTE]  
-> Storm-version 0.10.0 och högre användning Log4j 2.x. Används för äldre versioner av storm Log4j 1.x, som används av ett annat format för konfigurationen av loggen. Information om konfigurationen av äldre finns [ https://wiki.apache.org/logging-log4j/Log4jXmlFormat ](https://wiki.apache.org/logging-log4j/Log4jXmlFormat).
+> Storm version 0.10.0 och högre använder Log4J 2. x. Äldre versioner av storm använde log4j 1. x, som använde ett annat format för logg konfiguration. Information om den äldre konfigurationen finns i [https://wiki.apache.org/logging-log4j/Log4jXmlFormat](https://wiki.apache.org/logging-log4j/Log4jXmlFormat).
 
 ## <a name="test-the-topology-locally"></a>Testa topologin lokalt
 
-När du har sparat filer kan du använda kommandona nedan för att testa topologin lokalt.
+När du har sparat filerna använder du följande kommando för att testa topologin lokalt.
 
 ```cmd
 mvn compile exec:java -Dstorm.topology=com.microsoft.example.WordCountTopology
 ```
 
-När den körs, visar topologin startinformation. Följande text är ett exempel på utdata som antal ord:
+När den körs visar topologin start information. Följande text är ett exempel på resultatet av ordet Count:
 
     17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 56 for word snow
     17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 56 for word white
@@ -615,22 +615,22 @@ När den körs, visar topologin startinformation. Följande text är ett exempel
     17:33:27 [Thread-30-count] INFO  com.microsoft.example.WordCount - Emitting a count of 57 for word dwarfs
     17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 57 for word snow
 
-Den här exempel-loggen indikerar att ordet ”och” släpptes 113 gånger. Antalet fortsätter att öka så länge topologin körs eftersom spout kontinuerligt genererar samma meningarna.
+I den här exempel loggen visas att ordet och har genererats 113 gånger. Antalet fortsätter att gå så länge topologin körs eftersom kanalen kontinuerligt genererar samma meningar.
 
-Det finns ett 5-sekundersintervall intervall mellan utsläpp av ord och antal. Den **WordCount** -komponenten har konfigurerats för att generera information endast när en tidstuppel tas emot. Begär att skalstreck tupplar levereras endast var femte sekund.
+Det finns ett intervall på 5 sekunder mellan utsläpp av ord och antal. **WORDCOUNT** -komponenten har kon figurer ATS för att endast generera information när en Ticket tas emot. Den begär att Ticket-tupler bara levereras var femte sekund.
 
-## <a name="convert-the-topology-to-flux"></a>Konvertera topologin till som
+## <a name="convert-the-topology-to-flux"></a>Konvertera topologin till flöde
 
-[Som](https://storm.apache.org/releases/2.0.0/flux.html) är ett nytt ramverk tillgänglig med Storm 0.10.0 och högre, där du kan avgränsa konfigurationen från implementering. Dina komponenter definieras fortfarande i Java, men topologin definieras med hjälp av en YAML-fil. Du kan paketera en topologi standarddefinition med ditt projekt eller använda en fristående fil när du skickar in topologin. När du skickar in topologin till Storm, kan du använda miljövariabler eller konfigurationsfiler för att fylla i värden i topologidefinitionen YAML.
+[Flöde](https://storm.apache.org/releases/2.0.0/flux.html) är ett nytt ramverk som är tillgängligt med storm 0.10.0 och högre, vilket gör att du kan skilja konfigurationen från implementeringen. Dina komponenter definieras fortfarande i Java, men topologin definieras med hjälp av en YAML-fil. Du kan paketera en standard definition av topologin med ditt projekt eller använda en fristående fil när du skickar topologin. När du skickar topologin till storm kan du använda miljövariabler eller konfigurationsfiler för att fylla i värdena i YAML-topologin.
 
-YAML-fil som definierar vilka komponenter som ska användas för topologin och data kan flöda mellan dem. Du kan inkludera en YAML-fil som en del av jar-filen eller du kan använda en extern YAML-fil.
+YAML-filen definierar de komponenter som ska användas för topologin och data flödet mellan dem. Du kan inkludera en YAML-fil som en del av jar-filen eller så kan du använda en extern YAML-fil.
 
-Mer information om som finns i [som framework (https://storm.apache.org/releases/1.0.6/flux.html)](https://storm.apache.org/releases/1.0.6/flux.html).
+Mer information om flöde finns i [flödes ramverket https://storm.apache.org/releases/current/flux.html) (](https://storm.apache.org/releases/current/flux.html).
 
 > [!WARNING]  
-> På grund av en [bugg (https://issues.apache.org/jira/browse/STORM-2055) ](https://issues.apache.org/jira/browse/STORM-2055) med Storm 1.0.1, kan du behöva installera en [Storm utvecklingsmiljö](https://storm.apache.org/releases/current/Setting-up-development-environment.html) att köra som topologier lokalt.
+> På grund av ett [fel https://issues.apache.org/jira/browse/STORM-2055) (](https://issues.apache.org/jira/browse/STORM-2055) med storm 1.0.1 kan du behöva installera en [Storm utvecklings miljö](https://storm.apache.org/releases/current/Setting-up-development-environment.html) för att köra flödes topologier lokalt.
 
-1. Tidigare `WordCountTopology.java` definierats topologin, men behövs inte med som. Ta bort filen med följande kommando:
+1. `WordCountTopology.java` Tidigare definierade topologi, men det behövs inte med flöde. Ta bort filen med följande kommando:
 
     ```cmd
     DEL src\main\java\com\microsoft\example\WordCountTopology.java
@@ -642,7 +642,7 @@ Mer information om som finns i [som framework (https://storm.apache.org/releases
     notepad resources\topology.yaml
     ```
 
-    Kopiera och klistra in texten nedan i den nya filen.  Stäng filen.
+    Kopiera och klistra sedan in texten nedan i den nya filen.  Stäng sedan filen.
 
     ```yaml
     name: "wordcount"       # friendly name for the topology
@@ -681,13 +681,13 @@ Mer information om som finns i [som framework (https://storm.apache.org/releases
         args: ["word"]           # field(s) to group on
     ```
 
-3. Ange kommandot nedan för att öppna `pom.xml` att göra nedan beskrivs ändringarna:
+3. Ange kommandot nedan för att öppna `pom.xml` för att göra de beskrivna revisionerna nedan:
 
     ```cmd
     notepad pom.xml
     ```
 
-   * Lägg till följande nya beroende på den `<dependencies>` avsnittet:
+   * Lägg till följande nya beroende i `<dependencies>` avsnittet:
 
         ```xml
         <!-- Add a dependency on the Flux framework -->
@@ -698,7 +698,7 @@ Mer information om som finns i [som framework (https://storm.apache.org/releases
         </dependency>
         ```
 
-   * Lägg till följande plugin-programmet till den `<plugins>` avsnittet. Det här plugin-programmet hanterar skapandet av ett paket (jar-fil) för projektet och gäller vissa transformationer som är specifika för som när du skapar paketet.
+   * Lägg till följande plugin-program `<plugins>` i avsnittet. Det här plugin-programmet hanterar skapandet av ett paket (jar-fil) för projektet och tillämpar vissa transformeringar som är speciella för flöden när du skapar paketet.
 
         ```xml
         <!-- build an uber jar -->
@@ -739,35 +739,35 @@ Mer information om som finns i [som framework (https://storm.apache.org/releases
         </plugin>
         ```
 
-   * I den **exec-maven-plugin-programmet** `<configuration>` ändrar värdet för `<mainClass>` från `${storm.topology}` till `org.apache.storm.flux.Flux`. Den här inställningen som ska hanteras kör topologin lokalt under utveckling.
+   * Ändra värdet för `<configuration>` `<mainClass>` från`${storm.topology}` till iavsnittetexec-maven-`org.apache.storm.flux.Flux`plugin. Med den här inställningen kan flöden hantera körning av topologin lokalt under utveckling.
 
-   * I den `<resources>` lägger du till följande för att `<includes>`. Den här XML-filen innehåller YAML-fil som definierar topologin som en del av projektet.
+   * I avsnittet lägger du till följande i `<includes>`. `<resources>` Den här XML-filen innehåller YAML-filen som definierar topologin som en del av projektet.
 
         ```xml
         <include>topology.yaml</include>
         ```
 
-## <a name="test-the-flux-topology-locally"></a>Testa topologin som lokalt
+## <a name="test-the-flux-topology-locally"></a>Testa flödes miljön lokalt
 
-1. Ange följande kommando för att kompilera och kör som-topologi med Maven:
+1. Ange följande kommando för att kompilera och köra flödes miljön med maven:
 
     ```cmd
     mvn compile exec:java -Dexec.args="--local -R /topology.yaml"
     ```
 
     > [!WARNING]  
-    > Om topologin använder Storm 1.0.1 bits, misslyckas kommandot. Det här felet beror på [ https://issues.apache.org/jira/browse/STORM-2055 ](https://issues.apache.org/jira/browse/STORM-2055). I stället [installera Storm i utvecklingsmiljön](https://storm.apache.org/releases/current/Setting-up-development-environment.html) och Använd följande steg:
+    > Om din topologi använder Storm 1.0.1-bitar, Miss lyckas det här kommandot. Det här felet orsakas av [https://issues.apache.org/jira/browse/STORM-2055](https://issues.apache.org/jira/browse/STORM-2055). Installera i stället [storm i utvecklings miljön](https://storm.apache.org/releases/current/Setting-up-development-environment.html) och Använd följande steg:
     >
-    > Om du har [installerat Storm i utvecklingsmiljön](https://storm.apache.org/releases/current/Setting-up-development-environment.html), du kan använda följande kommandon i stället:
+    > Om du har [installerat storm i utvecklings miljön](https://storm.apache.org/releases/current/Setting-up-development-environment.html)kan du använda följande kommandon i stället:
     >
     > ```cmd
     > mvn compile package
     > storm jar target/WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --local -R /topology.yaml
     > ```
 
-    Den `--local` parametern körs topologin i lokalt läge på din utvecklingsmiljö. Den `-R /topology.yaml` parametern använder den `topology.yaml` filen resursen från jar-filen för att definiera topologin.
+    `--local` Parametern kör topologin i lokalt läge i utvecklings miljön. `-R /topology.yaml` Parametern`topology.yaml` använder fil resursen från jar-filen för att definiera topologin.
 
-    När den körs, visar topologin startinformation. Följande text är ett exempel på utdata:
+    När den körs visar topologin start information. Följande text är ett exempel på utdata:
 
         17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 56 for word snow
         17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 56 for word white
@@ -776,7 +776,7 @@ Mer information om som finns i [som framework (https://storm.apache.org/releases
         17:33:27 [Thread-30-count] INFO  com.microsoft.example.WordCount - Emitting a count of 113 for word and
         17:33:27 [Thread-30-count] INFO  com.microsoft.example.WordCount - Emitting a count of 57 for word dwarfs
 
-    Det finns en fördröjning på 10 sekunder mellan batchar av information som loggas.
+    Det finns en fördröjning på 10 sekunder mellan batchar med loggad information.
 
 2. Skapa en ny topologi yaml från projektet.
  
@@ -786,7 +786,7 @@ Mer information om som finns i [som framework (https://storm.apache.org/releases
     notepad resources\topology.yaml
     ```
 
-    b. Hitta följande och ändra värdet för `10` till `5`. Den här ändringen ändrar intervallet mellan sändande batchar av word antalen från 10 sekunder till 5.  
+    b. Sök efter följande avsnitt och ändra värdet för `10` till. `5` Den här ändringen ändrar intervallet mellan sändning av ord antal från 10 sekunder till 5.  
 
     ```yaml
     - id: "counter-bolt"
@@ -798,38 +798,38 @@ Mer information om som finns i [som framework (https://storm.apache.org/releases
 
     c. Spara filen som `newtopology.yaml`.
 
-3. Om du vill köra topologin, anger du följande kommando:
+3. Kör topologin genom att ange följande kommando:
 
     ```cmd
     mvn exec:java -Dexec.args="--local resources/newtopology.yaml"
     ```
 
-    Eller, om du har Storm i utvecklingsmiljön:
+    Eller, om du har storm i utvecklings miljön:
 
     ```cmd
     storm jar target/WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --local resources/newtopology.yaml
     ```
 
-     Detta kommando använder de `newtopology.yaml` som definitionen för nätverkstopologin. Eftersom vi skickat den `compile` parametern Maven använder en version av att projektet har skapats i föregående steg.
+     Det här kommandot använder `newtopology.yaml` som topologin definition. Eftersom vi inte inkluderade `compile` parametern, använder maven den version av projektet som skapades i föregående steg.
 
-    När topologin startar, bör du märka att tiden mellan utgivna batchar har ändrats för att återspegla värdet i `newtopology.yaml`. Så att du kan se att du kan ändra din konfiguration via en YAML-fil utan att kompilera om topologin.
+    När topologin startar bör du märka att tiden mellan genererade batchar har ändrats för att återspegla värdet i `newtopology.yaml`. Så du kan se att du kan ändra konfigurationen genom en YAML-fil utan att behöva kompilera om topologin.
 
-Mer information om dessa och andra funktioner i ramen som finns i [som (https://storm.apache.org/releases/current/flux.html)](https://storm.apache.org/releases/current/flux.html).
+Mer information om dessa och andra funktioner i flödes ramverket finns i [flöde (https://storm.apache.org/releases/current/flux.html)](https://storm.apache.org/releases/current/flux.html).
 
 ## <a name="trident"></a>Trident
 
-[Trident](https://storm.apache.org/releases/current/Trident-API-Overview.html) är en abstraktion på hög nivå som tillhandahålls av Storm. Det stöder tillståndskänsliga bearbetning. Viktig fördel med Trident är att det garanterar att varje meddelande som anger topologin bearbetas bara en gång. Utan att använda Trident garanterar topologin endast att meddelanden bearbetas minst en gång. Det finns även andra skillnader, till exempel inbyggda komponenter som kan användas istället för att skapa bultar. I själva verket ersätts bultar med mindre-generisk komponenter, till exempel filter, projektioner och funktioner.
+[Trident](https://storm.apache.org/releases/current/Trident-API-Overview.html) är en abstraktion på hög nivå som tillhandahålls av storm. Den stöder tillstånds känslig bearbetning. Den främsta fördelen med Trident är att det kan garantera att alla meddelanden som anges i topologin bara bearbetas en gång. Utan att använda Trident kan topologin bara garantera att meddelanden bearbetas minst en gång. Det finns även andra skillnader, till exempel inbyggda komponenter som kan användas i stället för att skapa bultar. I själva verket ersätts bultar av mindre generiska komponenter, till exempel filter, projektioner och funktioner.
 
-Trident program kan skapas med hjälp av Maven-projekt. Du använder samma grundläggande steg som visas tidigare i den här artikeln – endast koden är olika. Heller Trident kan inte (för närvarande) användas som Framework.
+Det går att skapa Trident-program med Maven-projekt. Du använder samma grundläggande steg som beskrivs tidigare i den här artikeln – endast koden är annorlunda. Det går inte heller att använda Trident (för närvarande) med flödes ramverket.
 
-Mer information om Trident finns i den [Trident API-översikt](https://storm.apache.org/releases/current/Trident-API-Overview.html).
+Mer information om Trident finns i [Översikt över Trident API](https://storm.apache.org/releases/current/Trident-API-Overview.html).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du har lärt dig hur du skapar ett Apache Storm-topologi med hjälp av Java. Nu lära dig hur du:
+Du har lärt dig hur du skapar en Apache Storm topologi med Java. Lär dig nu att:
 
 * [Distribuera och hantera Apache Storm-topologier i HDInsight](apache-storm-deploy-monitor-topology-linux.md)
 
-* [Utveckla C#-topologier för Apache Storm på HDInsight med Visual Studio](apache-storm-develop-csharp-visual-studio-topology.md)
+* [Utveckla C# topologier för Apache storm på HDInsight med Visual Studio](apache-storm-develop-csharp-visual-studio-topology.md)
 
-Du hittar flera exempel Apache Storm-topologier genom att besöka [exempeltopologier för Apache Storm på HDInsight](apache-storm-example-topology.md).
+Du kan hitta fler exempel Apache Storm topologier genom [att besöka exempel topologier för Apache storm i HDInsight](apache-storm-example-topology.md).

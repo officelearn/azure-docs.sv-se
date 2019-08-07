@@ -1,6 +1,6 @@
 ---
-title: Omvandla data med hjälp av aktiviteten lagringsprocedur i Azure Data Factory | Microsoft Docs
-description: Beskriver hur du använder lagrade Proceduraktiviteten i SQL Server för att anropa en lagrad procedur i en Azure SQL Database/Data Warehouse från Data Factory-pipeline.
+title: Transformera data med hjälp av aktiviteten lagrad procedur i Azure Data Factory | Microsoft Docs
+description: Förklarar hur du använder SQL Server lagrade procedur aktiviteter för att anropa en lagrad procedur i ett Azure SQL Database/informations lager från en Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -10,38 +10,38 @@ ms.date: 11/27/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 806654b7586895b62b014a49b8b3a00fb18f008f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e063875e4c619b65290511d61923fd7c715aba49
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60764415"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742165"
 ---
-# <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>Omvandla data med hjälp av SQL Server-lagrad procedur i Azure Data Factory
-> [!div class="op_single_selector" title1="Välj versionen av Data Factory-tjänsten som du använder:"]
+# <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>Transformera data med hjälp av aktiviteten SQL Server lagrad procedur i Azure Data Factory
+> [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
 > * [Version 1](v1/data-factory-stored-proc-activity.md)
 > * [Aktuell version](transform-data-using-stored-procedure.md)
 
-Du använder datatransformeringsaktiviteter i en Data Factory [pipeline](concepts-pipelines-activities.md) att transformera och bearbeta rådata till förutsägelser och insikter. Den lagrade Proceduraktiviteten är en av transformeringsaktiviteter som har stöd för Data Factory. Den här artikeln bygger vidare på den [Transformera data](transform-data.md) artikel som anger en allmän översikt över Dataomvandling och stöds transformeringsaktiviteter i Data Factory.
+Du använder data omvandlings aktiviteter i en Data Factory [pipeline](concepts-pipelines-activities.md) för att transformera och bearbeta rå data i förutsägelser och insikter. Den lagrade procedur aktiviteten är en av de omvandlings aktiviteter som Data Factory stöder. Den här artikeln bygger på artikeln [transformera data](transform-data.md) som visar en översikt över Datatransformeringen och de omvandlings aktiviteter som stöds i Data Factory.
 
 > [!NOTE]
-> Om du är nybörjare på Azure Data Factory, Läs igenom [introduktion till Azure Data Factory](introduction.md) och igenom självstudien: [Självstudie: Transformera data](tutorial-transform-data-spark-powershell.md) innan du läser den här artikeln. 
+> Om du inte har använt Azure Data Factory läser du igenom [Introduktion till Azure Data Factory](introduction.md) och gör självstudien: [Självstudie: transformera data](tutorial-transform-data-spark-powershell.md) innan du läser den här artikeln. 
 
-Du kan använda den lagrade Proceduraktiviteten för att anropa en lagrad procedur i någon av följande datalager i ditt företag eller på en Azure-dator (VM): 
+Du kan använda den lagrade procedur aktiviteten för att anropa en lagrad procedur i något av följande data lager i företaget eller på en virtuell Azure-dator (VM): 
 
 - Azure SQL Database
 - Azure SQL Data Warehouse
-- SQL Server-databas.  Om du använder SQL Server kan du installera lokal integration runtime på samma dator som är värd för databasen eller på en separat dator som har åtkomst till databasen. Lokal integration runtime är en komponent som ansluter data datakällor på plats/på virtuella Azure-datorer med molntjänster i ett säkert och hanterat sätt. Se [integration runtime med egen värd](create-self-hosted-integration-runtime.md) nedan för information.
+- SQL Server databas.  Om du använder SQL Server ska du installera integration runtime med egen värd på samma dator som är värd för databasen eller på en annan dator som har åtkomst till databasen. Integration runtime med egen värd är en komponent som ansluter data källor lokalt/på virtuella Azure-datorer med moln tjänster på ett säkert och hanterat sätt. Mer information finns i artikeln om [integration runtime med egen värd](create-self-hosted-integration-runtime.md) .
 
 > [!IMPORTANT]
-> När du kopierar data till Azure SQL Database eller SQL Server, kan du konfigurera den **SqlSink** i kopieringsaktiviteten att anropa en lagrad procedur med hjälp av den **sqlWriterStoredProcedureName** egenskapen. Information om egenskapen hittar du i följande artiklar för anslutningen: [Azure SQL Database](connector-azure-sql-database.md), [SQLServer](connector-sql-server.md). Anropa en lagrad procedur när du kopierar data till en Azure SQL Data Warehouse med hjälp av en Kopieringsaktivitet stöds inte. Men du kan använda aktiviteten lagrad procedur för att anropa en lagrad procedur i ett SQL Data Warehouse. 
+> När du kopierar data till Azure SQL Database eller SQL Server kan du konfigurera **SqlSink** i kopierings aktiviteten så att en lagrad procedur anropas med hjälp av egenskapen **sqlWriterStoredProcedureName** . Mer information om egenskapen finns i följande artiklar om koppling: [Azure SQL Database](connector-azure-sql-database.md) [SQL Server](connector-sql-server.md). Det går inte att anropa en lagrad procedur medan data kopieras till en Azure SQL Data Warehouse med hjälp av en kopierings aktivitet. Men du kan använda den lagrade procedur aktiviteten för att anropa en lagrad procedur i en SQL Data Warehouse. 
 >
-> När du kopierar data från Azure SQL Database eller SQL Server eller Azure SQL Data Warehouse, kan du konfigurera **SqlSource** i kopieringsaktiviteten att anropa en lagrad procedur för att läsa data från källdatabasen med hjälp av den  **sqlReaderStoredProcedureName** egenskapen. Mer information finns i följande artiklar för anslutningen: [Azure SQL Database](connector-azure-sql-database.md), [SQLServer](connector-sql-server.md), [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md)          
+> När du kopierar data från Azure SQL Database eller SQL Server eller Azure SQL Data Warehouse kan du konfigurera **SqlSource** i kopierings aktivitet för att anropa en lagrad procedur för att läsa data från käll databasen med hjälp av **sqlReaderStoredProcedureName** immaterialrätt. Mer information finns i följande artiklar om koppling: [Azure SQL Database](connector-azure-sql-database.md) [SQL Server](connector-sql-server.md) [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md)          
 
  
 
 ## <a name="syntax-details"></a>Information om syntax
-Här är JSON-format för att definiera en lagrade Proceduraktiviteten:
+Här är JSON-formatet för att definiera en lagrad procedur aktivitet:
 
 ```json
 {
@@ -63,30 +63,41 @@ Här är JSON-format för att definiera en lagrade Proceduraktiviteten:
 }
 ```
 
-I följande tabell beskrivs de här JSON-egenskaper:
+Följande tabell beskriver de här JSON-egenskaperna:
 
-| Egenskap                  | Beskrivning                              | Krävs |
+| Egenskap                  | Beskrivning                              | Obligatorisk |
 | ------------------------- | ---------------------------------------- | -------- |
 | name                      | Namn på aktiviteten                     | Ja      |
-| description               | Text som beskriver vad aktiviteten används till | Nej       |
-| type                      | För lagrade Proceduraktiviteten aktivitetstyp är **SqlServerStoredProcedure** | Ja      |
-| linkedServiceName         | Referensen till den **Azure SQL Database** eller **Azure SQL Data Warehouse** eller **SQL Server** registrerad som en länkad tjänst i Datafabriken. Mer information om den här länkade tjänsten, se [länkade tjänster för Compute](compute-linked-services.md) artikeln. | Ja      |
-| storedProcedureName       | Ange namnet på den lagrade proceduren att anropa. | Ja      |
-| storedProcedureParameters | Ange värden för parametrarna för lagrad procedur. Använd `"param1": { "value": "param1Value","type":"param1Type" }` skickar parametervärden och deras typ som stöds av datakällan. Om du vill skicka null för en parameter kan du använda `"param1": { "value": null }` (gemener). | Nej       |
+| description               | Text som beskriver vad aktiviteten används för | Nej       |
+| type                      | För lagrad procedur aktivitet är aktivitets typen **SqlServerStoredProcedure** | Ja      |
+| linkedServiceName         | Referens till **Azure SQL Database** eller **Azure SQL Data Warehouse** eller **SQL Server** registreras som en länkad tjänst i Data Factory. Mer information om den här länkade tjänsten finns i artikeln [Compute-länkade tjänster](compute-linked-services.md) . | Ja      |
+| storedProcedureName       | Ange namnet på den lagrade proceduren som ska anropas. | Ja      |
+| storedProcedureParameters | Ange värdena för parametrar för lagrad procedur. Används `"param1": { "value": "param1Value","type":"param1Type" }` för att skicka parameter värden och deras typ som stöds av data källan. Om du behöver skicka null för en parameter använder `"param1": { "value": null }` du (alla gemener). | Nej       |
 
-## <a name="error-info"></a>Felinformation
+## <a name="parameter-data-type-mapping"></a>Parameter data typs mappning
+Den datatyp som du anger för parametern är den Azure Data Factorys typ som mappar till data typen i data källan som du använder. Du kan hitta data typs mappningar för data källan i kopplings avsnittet. Några exempel är
 
-När en lagrad procedur misslyckas och returnerar information om fel, kan inte du hämta felinformation direkt i aktivitetsutdata. Data Factory pumps alla dess aktivitetskörning händelser till Azure Monitor. Bland händelser att Data Factory-pumpar till Azure Monitor, skickar den information om det inte. Du kan till exempel konfigurera e-postaviseringar från dessa händelser. Mer information finns i [Avisera och övervaka datafabriker med hjälp av Azure Monitor](monitor-using-azure-monitor.md).
+| Datakälla          | Data typs mappning |
+| ---------------------|-------------------|
+| Azure SQL Data Warehouse | https://docs.microsoft.com/en-us/azure/data-factory/connector-azure-sql-data-warehouse#data-type-mapping-for-azure-sql-data-warehouse |
+| Azure SQL Database   | https://docs.microsoft.com/en-us/azure/data-factory/connector-azure-sql-database#data-type-mapping-for-azure-sql-database | 
+| Oracle               | https://docs.microsoft.com/en-us/azure/data-factory/connector-oracle#data-type-mapping-for-oracle |
+| SQL Server           | https://docs.microsoft.com/en-us/azure/data-factory/connector-sql-server#data-type-mapping-for-sql-server |
+
+
+## <a name="error-info"></a>Fel information
+
+När en lagrad procedur Miss lyckas och returnerar fel information kan du inte samla in fel informationen direkt i aktivitetens utdata. Dock Data Factory pumpar alla dess aktivitet körnings händelser till Azure Monitor. Bland de händelser som Data Factory pumpar för att Azure Monitor, push-överför den fel information där. Du kan till exempel ställa in e-postaviseringar från dessa händelser. Mer information finns i [avisering och övervaka data fabriker med hjälp av Azure Monitor](monitor-using-azure-monitor.md).
 
 ## <a name="next-steps"></a>Nästa steg
-Se följande artiklar som beskriver hur du omvandlar data på andra sätt: 
+Se följande artiklar som förklarar hur du omformar data på andra sätt: 
 
 * [U-SQL-aktivitet](transform-data-using-data-lake-analytics.md)
 * [Hive-aktivitet](transform-data-using-hadoop-hive.md)
-* [Piggningsåtgärd](transform-data-using-hadoop-pig.md)
+* [Aktivitet i gris](transform-data-using-hadoop-pig.md)
 * [MapReduce-aktivitet](transform-data-using-hadoop-map-reduce.md)
-* [Hadoop Streaming Activity](transform-data-using-hadoop-streaming.md)
+* [Hadoop streaming-aktivitet](transform-data-using-hadoop-streaming.md)
 * [Spark-aktivitet](transform-data-using-spark.md)
 * [.NET-anpassad aktivitet](transform-data-using-dotnet-custom-activity.md)
-* [Machine Learning Bach Körningsaktivitet](transform-data-using-machine-learning.md)
-* [Lagrad proceduraktivitet](transform-data-using-stored-procedure.md)
+* [Machine Learning körnings aktivitet för Bach](transform-data-using-machine-learning.md)
+* [Lagrad procedur aktivitet](transform-data-using-stored-procedure.md)

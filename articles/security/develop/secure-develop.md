@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: cc0540f74b755e083855721ad62754c70edb88b6
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 1b2e6e0aa74c06afea09a67dbdf65ca47727b72e
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68728679"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780567"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Utveckla säkra program på Azure
 I den här artikeln presenterar vi säkerhets aktiviteter och kontroller för att tänka på när du utvecklar program för molnet. Säkerhets frågor och koncept som du bör tänka på under implementerings-och verifierings faserna i Microsoft [Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) omfattas. Målet är att hjälpa dig att definiera aktiviteter och Azure-tjänster som du kan använda för att utveckla ett säkrare program.
@@ -99,9 +99,9 @@ Om programmet måste generera lösen ord automatiskt måste du se till att de ge
 
 Om ditt program tillåter [fil överföringar](https://www.owasp.org/index.php/Unrestricted_File_Upload)bör du överväga de försiktighets åtgärder som du kan vidta för den här riskfyllda aktiviteten. Det första steget i många attacker är att hämta skadlig kod i ett system som är utsatt för angrepp. Genom att använda en fil uppladdning kan angriparen utföra detta. OWASP erbjuder lösningar för att verifiera en fil för att säkerställa att filen som du laddar upp är säker.
 
-Skydd mot skadlig kod hjälper till att identifiera och ta bort virus, spionprogram och annan skadlig program vara. Du kan installera [Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) eller en Microsoft-partners slut punkts skydds lösning ([Trend Micro](https://www.trendmicro.com/azure/), [Symantec](https://www.symantec.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10)och [System Center Endpoint Protection](https://docs.microsoft.com/sccm/protect/deploy-use/endpoint-protection)).
+Skydd mot skadlig kod hjälper till att identifiera och ta bort virus, spionprogram och annan skadlig program vara. Du kan installera [Microsoft Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware) eller en Microsoft-partners slut punkts skydds lösning ([Trend Micro](https://www.trendmicro.com/azure/), [Symantec](https://www.symantec.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10)och [System Center Endpoint Protection](https://docs.microsoft.com/sccm/protect/deploy-use/endpoint-protection)).
 
-[Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) innehåller funktioner som real tids skydd, schemalagd genomsökning, reparation av skadlig kod, signaturkrav, uppdatering av motor, exempel rapportering och insamling av undantags händelser. Du kan integrera Microsofts lösningar för program mot skadlig kod och partner med [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-partner-integration) för enkel distribution och inbyggd identifiering (aviseringar och incidenter).
+[Microsoft Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware) innehåller funktioner som real tids skydd, schemalagd genomsökning, reparation av skadlig kod, signaturkrav, uppdatering av motor, exempel rapportering och insamling av undantags händelser. Du kan integrera Microsofts lösningar för program mot skadlig kod och partner med [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-partner-integration) för enkel distribution och inbyggd identifiering (aviseringar och incidenter).
 
 ### <a name="dont-cache-sensitive-content"></a>Cachelagra inte känsligt innehåll
 
@@ -128,7 +128,7 @@ Dynamic App Security Testing (DAST) är en process för att testa ett program i 
 
 DAST skiljer sig från SAST (static App Security testing). SAST-verktyg analyserar käll kod eller kompilerade versioner av kod när koden inte körs för att hitta säkerhets fel.
 
-Utför DAST, helst med hjälp av en säkerhets tekniker (en utträngande [testare](https://docs.microsoft.com/azure/security/azure-security-pen-testing) eller sårbarhets bedömare). Om en säker person inte är tillgänglig kan du utföra DAST med en webbproxy-skanner och lite utbildning. Anslut en DAST-skanner tidigt för att se till att du inte introducerar tydliga säkerhets problem i din kod. Se [OWASP](https://www.owasp.org/index.php/Category:Vulnerability_Scanning_Tools) -webbplatsen för en lista över säkerhets skannrar för webb program.
+Utför DAST, helst med hjälp av en säkerhets tekniker (en utträngande [testare](https://docs.microsoft.com/azure/security/fundamentals/pen-testing) eller sårbarhets bedömare). Om en säker person inte är tillgänglig kan du utföra DAST med en webbproxy-skanner och lite utbildning. Anslut en DAST-skanner tidigt för att se till att du inte introducerar tydliga säkerhets problem i din kod. Se [OWASP](https://www.owasp.org/index.php/Category:Vulnerability_Scanning_Tools) -webbplatsen för en lista över säkerhets skannrar för webb program.
 
 ### <a name="perform-fuzz-testing"></a>Utför fuzz-testning
 
@@ -144,7 +144,7 @@ Du kan bygga en bild av attack ytan genom att genomsöka programmet. Microsoft e
 
 ### <a name="perform-security-penetration-testing"></a>Utför testning av säkerhets inträngning
 
-Att se till att ditt program är säkert är lika viktigt som att testa andra funktioner. Gör inträngande och [testa](https://docs.microsoft.com/azure/security/azure-security-pen-testing) en standard del av bygg-och distributions processen. Schemalägga vanliga säkerhetstester och sårbarhets sökning på distribuerade program och övervaka för öppna portar, slut punkter och attacker.
+Att se till att ditt program är säkert är lika viktigt som att testa andra funktioner. Gör inträngande och [testa](https://docs.microsoft.com/azure/security/fundamentals/pen-testing) en standard del av bygg-och distributions processen. Schemalägga vanliga säkerhetstester och sårbarhets sökning på distribuerade program och övervaka för öppna portar, slut punkter och attacker.
 
 ### <a name="run-security-verification-tests"></a>Köra tester för säkerhets verifiering
 

@@ -1,26 +1,27 @@
 ---
-title: Skapa Azure VMware-lösning genom CloudSimple - tjänsten
-description: Beskriver hur du skapar tjänsten CloudSimple i Azure portal
+title: Skapa en Azure VMware-lösning av CloudSimple-service
+description: Beskriver hur du skapar CloudSimple-tjänsten i Azure Portal
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 06/04/2019
 ms.topic: article
-ms.service: vmware
+ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: a0ccce6f298270b2751307868fdf85697cb7e8ee
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 6986e0a7e6eee6dbbd43c72a415b01df7da7da51
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67154962"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68812439"
 ---
-# <a name="create-azure-vmware-solution-by-cloudsimple---service"></a>Skapa Azure VMware-lösning av CloudSimple - tjänsten
+# <a name="create-azure-vmware-solution-by-cloudsimple---service"></a>Skapa en Azure VMware-lösning av CloudSimple-service
 
-Skapa Azure VMware-lösningen för att komma igång med Azure VMware-lösningen med CloudSimple av CloudSimple-tjänsten i Azure-portalen.
+För att komma igång med Azure VMware-lösningen från CloudSimple skapar du Azure VMware-lösningen från CloudSimple-tjänsten i Azure Portal.
 
-> [!NOTE]
-> Innan du skapar tjänsten CloudSimple måste du registrera resursprovidern Microsoft.VMwareCloudSimple på din Azure-prenumeration. Följ stegen i [aktivera Microsoft.VMwareCloudSimple resursprovidern på Azure-prenumerationen](enable-cloudsimple-service.md).
+## <a name="before-you-begin"></a>Innan du börjar
+
+Allokera ett/28 CIDR-block för gateway-undernät.  Ett Gateway-undernät krävs per CloudSimple-tjänst och är unikt för den region där det skapats. Gateway-undernätet används för gräns nätverks tjänster och kräver ett/28 CIDR-block. Adress utrymmet för Gateway-under nätet måste vara unikt. Det får inte överlappa något nätverk som kommunicerar med CloudSimple-miljön.  De nätverk som kommunicerar med CloudSimple omfattar lokala nätverk och virtuella Azure-nätverk.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -30,25 +31,25 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 
 1. Välj **Alla tjänster**.
 
-2. Sök efter **CloudSimple Services**.
+2. Sök efter **CloudSimple-tjänster**.
 
-    ![Search CloudSimple Service](media/create-cloudsimple-service-search.png)
+    ![Sök CloudSimple-tjänst](media/create-cloudsimple-service-search.png)
 
-3. Välj **CloudSimple Services**.
+3. Välj **CloudSimple-tjänster**.
 
-4. Klicka på **Lägg till** att skapa en ny tjänst.
+4. Klicka på **Lägg till** för att skapa en ny tjänst.
 
     ![Add CloudSimple Service](media/create-cloudsimple-service-add.png)
 
-5. Välj den prenumeration där du vill skapa den CloudSimple-tjänsten.
+5. Välj den prenumeration där du vill skapa CloudSimple-tjänsten.
 
-6. Välj resursgrupp för tjänsten. Lägg till en ny resursgrupp genom att klicka på **Skapa ny**.
+6. Välj resurs grupp för tjänsten. Om du vill lägga till en ny resurs grupp klickar du på **Skapa ny**.
 
-7. Ange namn för att identifiera tjänsten.
+7. Ange namnet för att identifiera tjänsten.
 
-8. Ange CIDR för service-gateway. Ange en/28 undernät som inte överlappar med något av dina befintliga undernät.  Dessa omfattar den lokala undernät, Azure undernät, eller någon planerat CloudSimple undernät. Du kan inte ändra CIDR när tjänsten har skapats.
+8. Ange CIDR för service Gateway. Ange ett/28-undernät som inte överlappar med något av dina befintliga undernät.  Detta omfattar lokala undernät, Azure-undernät eller planerade CloudSimple-undernät. Du kan inte ändra CIDR när tjänsten har skapats.
 
-    ![Skapa CloudSimple-tjänst](media/create-cloudsimple-service.png)
+    ![Skapa CloudSimple-tjänsten](media/create-cloudsimple-service.png)
 
 9. Klicka på **OK**.
 
@@ -56,5 +57,5 @@ Tjänsten skapas och läggs till i listan över tjänster.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig hur du [skapa ett privat moln](https://docs.azure.cloudsimple.com/create-private-cloud/)
-* Lär dig hur du [konfigurera en privat molnmiljö](quickstart-create-private-cloud.md)
+* Lär dig hur du [skapar ett privat moln](https://docs.azure.cloudsimple.com/create-private-cloud/)
+* Lär dig hur du [konfigurerar en privat moln miljö](quickstart-create-private-cloud.md)

@@ -6,14 +6,14 @@ author: yashesvi
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 07/16/2019
+ms.date: 08/02/2019
 ms.author: banders
-ms.openlocfilehash: 40ccee7a993ce39a9b4c7a86309b0554daa56026
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: f122ec2474c09cdd6c9ada4ddc59b1adb44f619f
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68298274"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780005"
 ---
 # <a name="prepay-for-azure-app-service-isolated-stamp-fee-with-reserved-capacity"></a>Förskotts betalning för Azure App Service isolerad stämpel med reserverad kapacitet
 
@@ -62,13 +62,9 @@ Du kan köpa isolerad reserverad kapacitet i [Azure Portal](https://portal.azure
 
 Efter köpet går du till [reservationer](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) för att visa inköps status och övervakar det när som helst.
 
-## <a name="cancellations-and-exchanges"></a>Avbokningar och byten
+## <a name="cancel-exchange-or-refund-reservations"></a>Avbryta, byta ut eller återbetala reservationer
 
-Om du behöver avbryta den reserverade kapaciteten för en isolerad stämpel kan det finnas 12% tidig uppsägnings avgift. Återbetalningar baseras på det lägsta priset – antingen ditt inköpspris eller det aktuella priset för reservationen. Bidragen är begränsade till $50 000,00 per år. Den åter betalning du får är det återstående proportionella saldot minus 12% tidigt uppsägnings avgifter. Om du vill avbryta går du till reservationen i Azure Portal och väljer **åter betalning**.
-
-Om du behöver flytta din isolerade stämpel reserverad kapacitet till en annan region kan du byta ut den för en annan reservation som är lika med eller högre. Startdatumet för den nya reservationens överförs inte från den utbytte reservationen. En tre års period startar när du skapar den nya reservationen. Till Exchange går du till Azure Portal, väljer den reservation som du vill byta och väljer **Exchange**.
-
-Mer information om hur du utbyter eller återbetalar reservationer finns i [reservations utbyte och åter betalningar](billing-azure-reservations-self-service-exchange-and-refund.md).
+Du kan avbryta, byta ut eller återbetala reservationer med vissa begränsningar. Mer information finns i självbetjänings [utbyten och åter betalningar för Azure reservations](billing-azure-reservations-self-service-exchange-and-refund.md).
 
 ## <a name="discount-application-shown-in-usage-data"></a>Rabatt program som visas i användnings data
 

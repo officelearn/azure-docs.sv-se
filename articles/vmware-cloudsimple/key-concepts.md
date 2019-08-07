@@ -1,64 +1,64 @@
 ---
-title: Viktiga begrepp för att administrera Azure VMware-lösning genom CloudSimple
-description: Beskriver viktiga begrepp för att administrera Azure VMware-lösning genom CloudSimple
+title: Viktiga begrepp för att administrera en Azure VMware-lösning av CloudSimple
+description: Beskriver viktiga begrepp för att administrera en Azure VMware-lösning av CloudSimple
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 04/24/2019
 ms.topic: article
-ms.service: vmware
+ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 6d87871fe8faaaab2e56d4a0426cd5e5f0899c8f
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: e434065feb218b0a46220b95cc6bfd9a7033de30
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595626"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816105"
 ---
-# <a name="key-concepts-for-administration-of-azure-vmware-solution-by-cloudsimple"></a>Viktiga begrepp för administration av Azure VMware-lösning genom CloudSimple
+# <a name="key-concepts-for-administration-of-azure-vmware-solution-by-cloudsimple"></a>Viktiga begrepp för administration av Azure VMware-lösningar från CloudSimple
 
-Administrera Azure VMware-lösningen av CloudSimple kräver kunskap om följande begrepp:
+Att administrera en Azure VMware-lösning av CloudSimple kräver att du förstår följande begrepp:
 
-* CloudSimple-tjänsten, som visas som Azure VMware-lösningen av CloudSimple - tjänsten
-* CloudSimple nod som visas som Azure VMware-lösningen av CloudSimple - nod
+* CloudSimple-tjänsten, som visas som Azure VMware-lösning av CloudSimple-service
+* CloudSimple-nod, som visas som Azure VMware-lösning av CloudSimple-Node
 * CloudSimple privat moln
-* Tjänsten nätverk
-* CloudSimple virtuell dator, som visas som Azure VMware-lösningen som CloudSimple - VM
+* Tjänst nätverk
+* CloudSimple virtuell dator, som visas som Azure VMware-lösning av CloudSimple-virtuell dator
 
-## <a name="cloudsimple-service"></a>CloudSimple service
+## <a name="cloudsimple-service"></a>CloudSimple-tjänst
 
-Med tjänsten CloudSimple, kan du skapa och hantera alla resurser som är associerad med VMware-lösningar genom CloudSimple från Azure-portalen. Skapa en tjänstresurs i varje region där du planerar att använda tjänsten.
+Med CloudSimple-tjänsten kan du skapa och hantera alla resurser som är associerade med VMware-lösningar från CloudSimple från Azure Portal. Skapa en tjänst resurs i varje region där du tänker använda tjänsten.
 
-Läs mer om den [CloudSimple service](cloudsimple-service.md).
+Läs mer om [CloudSimple-tjänsten](cloudsimple-service.md).
 
-## <a name="cloudsimple-node"></a>CloudSimple nod
+## <a name="cloudsimple-node"></a>CloudSimple-nod
 
-En CloudSimple nod är en dedikerad, utan operativsystem, hyperkonvergerat beräknings- och värden som dit VMware ESXi-hypervisor-programmet har distribuerats. Den här noden ingår sedan i VMware vSphere, vCenter, virtuellt SAN-nätverk och NSX plattformar. CloudSimple nätverkstjänster och edge nätverkstjänster aktiveras också. Varje nod som fungerar som en enhet med kapacitet för beräkning och lagring som du kan utnyttja för att skapa [CloudSimple privata moln](cloudsimple-private-cloud.md). Etablerar eller reservera noder i en region där CloudSimple-tjänsten är tillgänglig.
+En CloudSimple-nod är en dedikerad, Bare Metal, konvergerad beräknings-och lagrings värd där VMware ESXi hypervisor-modulen distribueras. Den här noden ingår sedan i VMware vSphere-, vCenter-, virtuellt San-och NSX-plattformarna. CloudSimple Networking Services och Edge Networking Services är också aktiverade. Varje nod fungerar som en enhet med beräknings-och lagrings kapacitet som du kan etablera för att skapa [CloudSimple privata moln](cloudsimple-private-cloud.md). Du etablerar eller reserverar noder i en region där CloudSimple-tjänsten är tillgänglig.
 
 
-Läs mer om [CloudSimple noder](cloudsimple-node.md).
+Läs mer om [CloudSimple-noder](cloudsimple-node.md).
 
 ## <a name="cloudsimple-private-cloud"></a>CloudSimple privat moln
 
-Ett privat moln CloudSimple är en isolerad VMware stack miljö som hanteras av en vCenter-server i sin egen hanteringsdomänen. VMware-stacken innehåller ESXi-värdar, vSphere, vCenter, virtuellt SAN-nätverk och NSX. Stack körs på dedikerade noder (dedikerad och isolerad bare metal-maskinvara) och används av användare med hjälp av inbyggda VMware-verktyg som innehåller vCenter och NSX Manager. Dedikerade noder distribueras i Azure-platser och hanteras av Azure. Varje privata moln kan segmenterade och skyddas med hjälp av nätverkstjänster, till exempel VLAN och undernät och brandväggen tabeller. Anslutningar till din lokala miljö och Azure-nätverk skapas genom att använda säkra, privata VPN och Azure ExpressRoute anslutningar.
+Ett privat CloudSimple-moln är en isolerad VMware stack-miljö som hanteras av en vCenter-Server i en egen hanterings domän. VMware-stacken innehåller ESXi-värdar, vSphere, vCenter, virtuellt San och NSX. Stacken körs på dedikerade noder (dedikerad och isolerad Bare Metal-maskinvara) och används av användare via inbyggda VMware-verktyg som innehåller vCenter och NSX Manager. Dedikerade noder distribueras på Azure-platser och hanteras av Azure. Varje privat moln kan segmenteras och skyddas med hjälp av nätverks tjänster som VLAN och undernät och brand Väggs tabeller. Anslutningar till din lokala miljö och Azure-nätverket skapas med hjälp av säkra, privata VPN-och Azure ExpressRoute-anslutningar.
 
-Läs mer om [CloudSimple optimeras](cloudsimple-private-cloud.md).
+Lär dig mer om [CloudSimple privat moln](cloudsimple-private-cloud.md).
 
-## <a name="service-networking"></a>Tjänsten nätverk
+## <a name="service-networking"></a>Tjänst nätverk
 
-Tjänsten CloudSimple ger en nätverket för varje region där din CloudSimple-tjänsten har distribuerats. Nätverket är ett enda TCP Layer 3-adressutrymme med routning aktiverad som standard. Alla privata moln och undernät som skapats i den här regionen kan du kommunicera med varandra utan någon ytterligare konfiguration. Du kan skapa distribuerade portgrupper på vCenter med hjälp av de virtuella lokala nätverken. Du kan använda följande nätverksfunktioner för att konfigurera och skydda arbetsbelastning resurser i ditt privata moln:
+CloudSimple-tjänsten tillhandahåller ett nätverk per region där din CloudSimple-tjänst har distribuerats. Nätverket är ett enskilt adress utrymme för TCP-skikt 3 med Routning aktiverat som standard. Alla privata moln och undernät som skapats i den här regionen kommunicerar med varandra utan ytterligare konfiguration. Du skapar distribuerade Port grupper på vCenter med hjälp av VLAN. Du kan använda följande nätverks funktioner för att konfigurera och skydda dina arbets belastnings resurser i ditt privata moln:
 
 * [VLAN och undernät](cloudsimple-vlans-subnets.md)
-* [Brandväggen tabeller](cloudsimple-firewall-tables.md)
+* [Brand Väggs tabeller](cloudsimple-firewall-tables.md)
 * [VPN-gatewayer](cloudsimple-vpn-gateways.md)
 * [Offentlig IP-adress](cloudsimple-public-ip-address.md)
-* [Azure nätverksanslutning](cloudsimple-azure-network-connection.md)
+* [Azure-nätverksanslutning](cloudsimple-azure-network-connection.md)
 
 ## <a name="cloudsimple-virtual-machine"></a>CloudSimple virtuell dator
 
-Du kan hantera virtuella VMware-datorer med CloudSimple-tjänsten från Azure-portalen. En eller flera kluster eller resurspooler från miljön vSphere kan mappas till den prenumeration där tjänsten skapas.
+Med CloudSimple-tjänsten kan du hantera virtuella VMware-datorer från Azure Portal. Ett eller flera kluster eller resurspooler från din vSphere-miljö kan mappas till den prenumeration där tjänsten skapas.
 
 Läs mer om:
 
-* [CloudSimple virtuella datorer](cloudsimple-virtual-machines.md)
+* [Virtuella CloudSimple-datorer](cloudsimple-virtual-machines.md)
 * [Mappning av Azure-prenumeration](https://docs.azure.cloudsimple.com/azure-subscription-mapping/)

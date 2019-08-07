@@ -1,6 +1,6 @@
 ---
-title: Azure CredentialsCombo UI-element | Microsoft Docs
-description: Beskriver Microsoft.Compute.CredentialsCombo UI-element för Azure-portalen.
+title: Användar gränssnitts element för Azure CredentialsCombo | Microsoft Docs
+description: Beskriver användar gränssnitts elementet Microsoft. Compute. CredentialsCombo för Azure Portal.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -13,32 +13,32 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/29/2018
 ms.author: tomfitz
-ms.openlocfilehash: 0412d55fe60524cde404e6a640723d3259e020e1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3036e5882e236dbbb9cf4f9aae17617822422a82
+ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60251399"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68742113"
 ---
-# <a name="microsoftcomputecredentialscombo-ui-element"></a>Microsoft.Compute.CredentialsCombo UI element
-En grupp med kontroller med inbyggda validering av lösenord för Windows och Linux- och offentliga SSH-nycklar.
+# <a name="microsoftcomputecredentialscombo-ui-element"></a>GRÄNSSNITTs element för Microsoft. Compute. CredentialsCombo
+En grupp med kontroller med inbyggd verifiering för Windows-och Linux-lösenord och offentliga SSH-nycklar.
 
 ## <a name="ui-sample"></a>UI-exempel
 
-För Windows Se följande användare:
+För Windows ser användarna:
 
 ![Microsoft.Compute.CredentialsCombo Windows](./media/managed-application-elements/microsoft.compute.credentialscombo-windows.png)
 
-Användarna ser för Linux med lösenord som valts:
+För Linux med lösen ord valt ser användarna:
 
-![Microsoft.Compute.CredentialsCombo Linux-lösenord](./media/managed-application-elements/microsoft.compute.credentialscombo-linux-password.png)
+![Microsoft. Compute. CredentialsCombo Linux-lösenord](./media/managed-application-elements/microsoft.compute.credentialscombo-linux-password.png)
 
-Användarna ser för Linux med SSH offentlig nyckel som valts:
+För Linux med offentlig SSH-nyckel vald ser användarna:
 
-![Microsoft.Compute.CredentialsCombo Linux-nyckel](./media/managed-application-elements/microsoft.compute.credentialscombo-linux-key.png)
+![Microsoft. Compute. CredentialsCombo Linux-nyckel](./media/managed-application-elements/microsoft.compute.credentialscombo-linux-key.png)
 
 ## <a name="schema"></a>Schema
-För Windows, använder du följande schema:
+För Windows använder du följande schema:
 
 ```json
 {
@@ -54,7 +54,7 @@ För Windows, använder du följande schema:
   "constraints": {
     "required": true,
     "customPasswordRegex": "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{12,}$",
-    "customValidationMessage": "The password must contain at least 12 characters, with at least 1 letter and 1 number."
+    "customValidationMessage": "The password must be alphanumeric, contain at least 12 characters, and have at least 1 letter and 1 number."
   },
   "options": {
     "hideConfirmation": false
@@ -64,7 +64,7 @@ För Windows, använder du följande schema:
 }
 ```
 
-För **Linux**, Använd följande schema:
+För **Linux**använder du följande schema:
 
 ```json
 {
@@ -84,7 +84,7 @@ För **Linux**, Använd följande schema:
   "constraints": {
     "required": true,
     "customPasswordRegex": "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{12,}$",
-    "customValidationMessage": "The password must contain at least 12 characters, with at least 1 letter and 1 number."
+    "customValidationMessage": "The password must be alphanumeric, contain at least 12 characters, and have at least 1 letter and 1 number."
   },
   "options": {
     "hideConfirmation": false,
@@ -96,14 +96,14 @@ För **Linux**, Använd följande schema:
 ```
 
 ## <a name="remarks"></a>Kommentarer
-- `osPlatform` måste anges och kan vara antingen **Windows** eller **Linux**.
-- Om `constraints.required` är inställd på **SANT**, och sedan lösenordet eller SSH textrutorna för offentlig nyckel måste bestå av värden kan valideras. Standardvärdet är **SANT**.
-- Om `options.hideConfirmation` är inställd på **SANT**, och sedan den andra textrutan för att bekräfta användarens lösenord är dold. Standardvärdet är **FALSKT**.
-- Om `options.hidePassword` är inställd på **SANT**, och sedan alternativet för att använda lösenordsautentisering är dold. Det kan användas endast när `osPlatform` är **Linux**. Standardvärdet är **FALSKT**.
-- Ytterligare begränsningar på de tillåtna lösenord kan implementeras med hjälp av den `customPasswordRegex` egenskapen. Strängen i `customValidationMessage` visas när ett lösenord inte anpassad validering. Standardvärdet för båda egenskaperna är **null**.
+- `osPlatform`måste anges och kan vara antingen **Windows** eller **Linux**.
+- Om `constraints.required` är inställt på **Sant**måste text rutorna lösen ord eller SSH-offentlig nyckel ha värden för att kunna verifiera. Standardvärdet är **True**.
+- Om `options.hideConfirmation` är inställt på **Sant**döljs den andra text rutan för att bekräfta användarens lösen ord. Standardvärdet är **FALSKT**.
+- Om `options.hidePassword` är inställt på **Sant**är alternativet för att använda lösenordsautentisering dolt. Den kan endast användas när `osPlatform` är **Linux**. Standardvärdet är **FALSKT**.
+- Ytterligare begränsningar för tillåtna lösen ord kan implementeras med hjälp `customPasswordRegex` av egenskapen. Strängen i `customValidationMessage` visas när ett lösen ord Miss lyckas med anpassad verifiering. Standardvärdet för båda egenskaperna är **Null**.
 
 ## <a name="sample-output"></a>Exempel på utdata
-Om `osPlatform` är **Windows**, eller `osPlatform` är **Linux** och användaren har angett ett lösenord i stället för en offentlig SSH-nyckel, kontrollen returnerar följande utdata:
+Om `osPlatform` är **Windows**, eller `osPlatform` är **Linux** och användaren har angett ett lösen ord i stället för en offentlig SSH-nyckel, returnerar kontrollen följande utdata:
 
 ```json
 {
@@ -112,7 +112,7 @@ Om `osPlatform` är **Windows**, eller `osPlatform` är **Linux** och användare
 }
 ```
 
-Om `osPlatform` är **Linux** och användaren har angett en offentlig SSH-nyckel, kontrollen returnerar följande utdata:
+Om `osPlatform` är **Linux** och användaren tillhandahöll en offentlig SSH-nyckel, returnerar kontrollen följande utdata:
 
 ```json
 {
@@ -122,5 +122,5 @@ Om `osPlatform` är **Linux** och användaren har angett en offentlig SSH-nyckel
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-* En introduktion till att skapa UI-definitioner finns i [komma igång med CreateUiDefinition](create-uidefinition-overview.md).
-* En beskrivning av gemensamma egenskaper i UI-element som finns i [CreateUiDefinition element](create-uidefinition-elements.md).
+* En introduktion till att skapa GRÄNSSNITTs definitioner finns i [komma igång med CreateUiDefinition](create-uidefinition-overview.md).
+* En beskrivning av gemensamma egenskaper i UI-element finns i [CreateUiDefinition-element](create-uidefinition-elements.md).

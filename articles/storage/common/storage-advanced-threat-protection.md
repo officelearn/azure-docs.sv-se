@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: tamram
 ms.reviewer: cbrooks
-ms.openlocfilehash: bb2d5733704b0b31dc010cec2a90e99e1be07b56
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 7d4f36be51591d6be2b4c42eb8a8950ab52a0258
+ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68592025"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68782568"
 ---
 # <a name="advanced-threat-protection-for-azure-storage"></a>Advanced Threat Protection för Azure Storage
 
@@ -37,7 +37,7 @@ Avancerat skydd för Azure Storage matar in diagnostikloggar för Läs-, skriv-o
 2. Gå till konfigurations sidan för det Azure Storage konto som du vill skydda. På sidan **Inställningar** väljer du **Avancerat skydd**.
 
 3. I bladet **Avancerat skydds** konfiguration
-    * Aktivera **Avancerat** *skydd*
+    * Aktivera Avancerat *skydd*
     * Klicka på **Spara** för att spara den nya eller uppdaterade Advanced Threat Protection-principen. (Priserna i bilden är till exempel endast avsedda.)
 
 ![Aktivera Azure Storage Avancerat skydd](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-turn-on.png)
@@ -117,62 +117,7 @@ Du kan granska och hantera dina aktuella säkerhets aviseringar från Azure Secu
 
 ## <a name="protection-alerts"></a>Skydds aviseringar
 
-Aviseringar genereras av ovanliga och potentiellt skadliga försök att komma åt eller utnyttja lagrings konton. Dessa händelser kan utlösa följande aviseringar:
-
-### <a name="anomalous-access-pattern-alerts"></a>Aviseringar om avvikande åtkomst mönster
-
-* **Åtkomst från ovanlig plats**: Den här aviseringen utlöses när någon har fått åtkomst till ett lagrings konto från en ovanlig geografisk plats.
-Möjliga orsaker:
-   * En angripare har åtkomst till ditt lagrings konto
-   * En legitim användare har åtkomst till ditt lagrings konto från en ny plats
- 
-* **Program avvikelse**: Den här varningen anger att ett ovanligt program har åtkomst till det här lagrings kontot. Möjliga orsaker:
-   * En angripare har åtkomst till ditt lagrings konto med hjälp av ett nytt program.
-   * En legitim användare har använt ett nytt program/en ny webbläsare för att komma åt ditt lagrings konto.
-
-* **Anonym åtkomst**: Den här varningen anger att det här kontot har öppnats anonymt (dvs. utan någon autentisering), vilket är oväntat jämfört med det senaste åtkomst mönstret för det här kontot.
-Möjliga orsaker:
-   * En angripare har utnyttjat offentlig Läs behörighet till en behållare.
-   * En legitim användare eller ett program har använt offentlig Läs behörighet till en behållare.
-
-* **Tor-avvikelse**: Den här varningen anger att det här kontot har kunnat nås från en IP-adress som kallas för en aktiv nod i Tor (en maskera proxy). Allvarlighets graden för den här aviseringen tar hänsyn till den autentiseringstyp som används (om det finns någon) och om detta är första fallet för sådan åtkomst.
-Möjliga orsaker:
-   * En angripare har åtkomst till ditt lagrings konto med Tor.
-   * En legitim användare har åtkomst till ditt lagrings konto med Tor.
-
-
-### <a name="anomalous-extractupload-alerts"></a>Avvikande utdrag/uppladdning-aviseringar
-
-* **Data exfiltrering**: Den här varningen anger att en ovanligt stor mängd data har extraherats jämfört med senaste aktivitet på den här lagrings behållaren. Möjliga orsaker:
-   * En angripare har extraherat en stor mängd data från en behållare. (Till exempel: data exfiltrering/intrång, obehörig överföring av data)
-   * En legitim användare eller ett program har extraherat en ovanlig mängd data från en behållare. (Till exempel: underhålls aktivitet)
-
-* **Oväntad borttagning**: Den här varningen anger att en eller flera oväntade borttagnings åtgärder har inträffat i ett lagrings konto, jämfört med senaste aktivitet på det här kontot. Möjliga orsaker:
-   * En angripare har tagit bort data från ditt lagrings konto.
-   * En legitim användare har utfört en ovanlig borttagning.
-
-* **Ladda upp Azure Cloud Service-paket**: Den här varningen anger att ett Azure Cloud Service-paket (. cspkg-fil) har överförts till ett lagrings konto på ett ovanligt sätt jämfört med senaste aktivitet på det här kontot. Möjliga orsaker: 
-   * En angripare har förberett sig för att distribuera skadlig kod från ditt lagrings konto till en moln tjänst i Azure.
-   * En legitim användare har för berett en legitim tjänst distribution.
-
-### <a name="suspicious-storage-activities-alerts"></a>Aviseringar om misstänkta lagrings aktiviteter
-
-* **Ändring av åtkomst behörighet**: Den här varningen anger att åtkomst behörigheterna för den här lagrings behållaren har ändrats på ett onormalt sätt. Möjliga orsaker: 
-   * En angripare har ändrat behållar behörigheten för att begränsa säkerheten.
-   * En legitim användare har ändrat behållar behörigheter.
-
-* **Åtkomst kontroll**: Den här varningen anger att åtkomst behörigheterna för ett lagrings konto har inspekterats på ett onormalt sätt, jämfört med senaste aktivitet på det här kontot. Möjliga orsaker: 
-   * En angripare har utfört rekognosering för framtida angrepp.
-   * En legitim användare har utfört underhåll av lagrings kontot.
-
-* **Data utforskning**: Den här varningen anger att blobbar eller behållare i ett lagrings konto har räknats upp på ett onormalt sätt, jämfört med senaste aktivitet på det här kontot. Möjliga orsaker: 
-   * En angripare har utfört rekognosering för framtida angrepp.
-   * En legitim användare eller program logik har utforskat data i lagrings kontot.
-
-
-
-
-
+Aviseringar genereras av ovanliga och potentiellt skadliga försök att komma åt eller utnyttja lagrings konton. En lista över dessa aviseringar finns i [Azure Storage](../../security-center/security-center-alerts-data-services.md#azure-storage) aviseringar
 
 ## <a name="next-steps"></a>Nästa steg
 

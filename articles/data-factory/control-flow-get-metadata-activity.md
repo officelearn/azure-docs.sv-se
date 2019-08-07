@@ -1,6 +1,6 @@
 ---
-title: Hämta metadataaktivitet i Azure Data Factory | Microsoft Docs
-description: Lär dig hur du kan använda GetMetadata-aktiviteten i Data Factory-pipeline.
+title: Hämta metadata-aktivitet i Azure Data Factory | Microsoft Docs
+description: Lär dig hur du kan använda GetMetadata-aktiviteten i en Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -11,85 +11,88 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/11/2019
+ms.date: 08/06/2019
 ms.author: jingwang
-ms.openlocfilehash: 78f63b4f46fe5479d4d0fd5849ad80536d8a137c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b819a990b9f607aaf70bf2e16a5857de3f7306cc
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61346924"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827495"
 ---
-# <a name="get-metadata-activity-in-azure-data-factory"></a>Hämta metadataaktivitet i Azure Data Factory
+# <a name="get-metadata-activity-in-azure-data-factory"></a>Hämta metadata-aktivitet i Azure Data Factory
 
-GetMetadata-aktiviteten kan användas för att hämta **metadata** för alla data i Azure Data Factory. Den här aktiviteten kan användas i följande scenarier:
+GetMetadata-aktivitet kan användas för att hämta **metadata** för alla data i Azure Data Factory. Den här aktiviteten kan användas i följande scenarier:
 
-- Verifiera metadata-information för alla data
-- Utlösa en pipeline när data är klar / tillgängliga
+- Verifiera metadatainformation för alla data
+- Utlös en pipeline när data är klara/tillgängliga
 
-Följande funktioner är tillgängliga i kontrollflödet:
+Följande funktioner är tillgängliga i kontroll flödet:
 
-- Utdata från GetMetadata-aktiviteten kan användas i villkorsuttryck för att utföra verifiering.
-- En pipeline kan utlösas när villkoret är uppfyllt via gör-tills slingor
+- Resultatet från GetMetadata-aktiviteten kan användas i villkors uttryck för att utföra verifieringen.
+- En pipeline kan utlösas när villkoret är uppfyllt genom att göra-tills-loop
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
-GetMetadata-aktiviteten tar en datauppsättning som en obligatorisk indata och utdata metadatainformation som är tillgängliga som utdata. För närvarande stöds följande kopplingar med motsvarande hämtningsbar metadata och högsta stöds metadata är upp till **1MB**.
+GetMetadata-aktiviteten tar en data uppsättning som krävs och matar ut metadatainformation som är tillgänglig som aktivitets utdata. För närvarande stöds följande kopplingar med motsvarande hämtnings bara metadata och den maximala metadata-storlek som stöds är upp till **1 MB**.
 
 >[!NOTE]
->Om du kör GetMetadata-aktiviteten på en lokal Integration Runtime stöds den senaste kapaciteten på version 3.6 eller senare. 
+>Om du kör GetMetadata-aktivitet på en egen värd Integration Runtime, stöds den senaste funktionen på version 3,6 eller senare. 
 
-### <a name="supported-connectors"></a>Kopplingar som stöds
+### <a name="supported-connectors"></a>Anslutningar som stöds
 
-**Fillagring:**
+**Fil lagring:**
 
-| Anslutning/Metadata | itemName<br>(fil/mapp) | ItemType<br>(fil/mapp) | size<br>(fil) | Skapat<br>(fil/mapp) | lastModified<br>(fil/mapp) |childItems<br>(mapp) |contentMD5<br>(fil) | structure<br/>(fil) | Antal kolumner<br>(fil) | Det finns<br>(fil/mapp) |
+| Koppling/metadata | itemName<br>(fil/mapp) | itemType<br>(fil/mapp) | size<br>Arkiv | skapad<br>(fil/mapp) | lastModified<br>(fil/mapp) |childItems<br>projektbevakningsmappen |contentMD5<br>Arkiv | structure<br/>Arkiv | Antal<br>Arkiv | finns<br>(fil/mapp) |
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
-| Amazon S3 | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
-| Google Cloud Storage | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
-| Azure-blobb | √/√ | √/√ | √ | x/x | √/√* | √ | √ | √ | √ | √/√ |
-| Azure Data Lake Storage Gen1 | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
-| Azure Data Lake Storage Gen2 | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
-| Azure File Storage | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
-| Filsystem | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
-| SFTP | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
-| FTP | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+| [Amazon S3](connector-amazon-simple-storage-service.md) | √/√ | √/√ | √ | x/x | √/√ * | √ | x | √ | √ | √/√ * |
+| [Google Cloud Storage](connector-google-cloud-storage.md) | √/√ | √/√ | √ | x/x | √/√ * | √ | x | √ | √ | √/√ * |
+| [Azure Blob](connector-azure-blob-storage.md) | √/√ | √/√ | √ | x/x | √/√ * | √ | √ | √ | √ | √/√ |
+| [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+| [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+| [Azure File Storage](connector-azure-file-storage.md) | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
+| [Filsystem](connector-file-system.md) | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
+| [SFTP](connector-sftp.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+| [FTP](connector-ftp.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 
-- För Amazon S3 och Google Sloud Storage den `lastModified` gäller bucket och nyckel, men inte virtuell mapp; och `exists` gäller bucket och nyckeln men inte prefix eller virtuell mapp.
-- För Azure Blob den `lastModified` gäller för behållare och blob men inte virtuell mapp.
+- För Amazon S3 och Google Cloud Storage `lastModified` gäller Bucket och Key, men inte Virtual folder;, `exists` och tillämpas på Bucket och Key, men inte prefixet eller den virtuella mappen.
+- För Azure Blob `lastModified` gäller för behållare och blob, men inte virtuell mapp.
 
-**Relationsdatabas:**
+**Relations databas:**
 
-| Anslutning/Metadata | structure | Antal kolumner | Det finns |
+| Koppling/metadata | structure | Antal | finns |
 |:--- |:--- |:--- |:--- |
-| Azure SQL Database | √ | √ | √ |
-| Hanterad Azure SQL Database-instans | √ | √ | √ |
-| Azure SQL Data Warehouse | √ | √ | √ |
-| SQL Server | √ | √ | √ |
+| [Azure SQL Database](connector-azure-sql-database.md) | √ | √ | √ |
+| [Azure SQL Database Managed Instance](connector-azure-sql-database-managed-instance.md) | √ | √ | √ |
+| [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md) | √ | √ | √ |
+| [SQL Server](connector-sql-server.md) | √ | √ | √ |
 
-### <a name="metadata-options"></a>Alternativ för metadata
+### <a name="metadata-options"></a>Metadata-alternativ
 
-Följande typer av metadata kan anges i fältlistan GetMetadata-aktivitet att hämta:
+Följande typer av metadata kan anges i GetMetadata aktivitets fält lista för att hämta:
 
-| Metadatatyp | Beskrivning |
+| Typ av metadata | Beskrivning |
 |:--- |:--- |
-| itemName | Namnet på filen eller mappen. |
-| ItemType | Typ av filen eller mappen. Utdatavärdet `File` eller `Folder`. |
-| size | Storleken på filen i byte. Gäller för bara fil. |
-| Skapat | Skapad datum/tid för filen eller mappen. |
-| lastModified | Senast ändrad datum/tid för filen eller mappen. |
-| childItems | Lista över undermappar och filer i den angivna mappen. Gäller endast på mappen. Utdatavärdet är en lista med namn och typ för varje underordnade objekt. |
-| contentMD5 | MD5 för filen. Gäller för bara fil. |
-| structure | Datastruktur i filen eller relationsdatabas tabell. Utdatavärdet är en lista med kolumnnamn och Kolumntyp. |
-| Antal kolumner | Antalet kolumner i filen eller relationstabell. |
-| Det finns| Om en fil/mapp/table finns eller inte. Tänk om ”finns” anges i fältlistan GetaMetadata aktiviteten inte misslyckas trots att det inte finns objektet (fil/mapp/table); i stället returnerar `exists: false` i utdata. |
+| itemName | Filens eller mappens namn. |
+| itemType | Typ av fil eller mapp. Värdet för utdata `File` är `Folder`eller. |
+| size | Storleken på filen i byte. Gäller endast för fil. |
+| skapad | Datum/tid för filen eller mappen har skapats. |
+| lastModified | Datum och tid då filen eller mappen senast ändrades. |
+| childItems | Lista över undermappar och filer inuti den aktuella mappen. Gäller endast för mapp. Utgående värde är en lista över namn och typ för varje underordnat objekt. |
+| contentMD5 | MD5 av filen. Gäller endast för fil. |
+| structure | Data strukturen i fil-eller Relations databas tabellen. Utgående värde är en lista över kolumn namn och kolumn typ. |
+| Antal | Antalet kolumner i filen eller Relations tabellen. |
+| finns| Om en fil/mapp/tabell finns eller inte. OBS! om "finns" anges i fält listan GetaMetadata, kommer aktiviteten inte att fungera även om objektet (filen/mappen/tabellen) inte finns. i stället returneras `exists: false` i utdata. |
 
 >[!TIP]
->När du vill kontrollera om det finns en fil/mapp/tabell eller inte kan ange `exists` i fältlistan för GetMetadata-aktiviteten kan du kontrollera den `exists: true/false` resultera i utdata för aktiviteten. Om `exists` har inte konfigurerats i fältlistan i GetMetadata-aktiviteten att misslyckas när objektet inte hittas.
+>När du vill validera om en fil/mapp/tabell finns eller inte anger `exists` du i getMetaData aktivitets fält listan kan du `exists: true/false` kontrol lera resultatet från aktivitetens utdata. Om `exists` inte har kon figurer ATS i fält listan kommer getMetaData-aktiviteten inte att fungera om objektet inte hittas.
+
+>[!NOTE]
+>När du hämtar metadata från fil Arkiv och konfigurerar `modifiedDatetimeStart` och/eller `modifiedDatetimeEnd`, `childItems` returnerar utdata bara filer under den angivna sökvägen med senast ändrad tid mellan intervallet, men inga undermappar.
 
 ## <a name="syntax"></a>Syntax
 
-**GetMetadata-aktiviteten:**
+**GetMetadata-aktivitet:**
 
 ```json
 {
@@ -105,7 +108,7 @@ Följande typer av metadata kan anges i fältlistan GetMetadata-aktivitet att h�
 }
 ```
 
-**Datauppsättning:**
+**Data uppsättning**
 
 ```json
 {
@@ -127,18 +130,20 @@ Följande typer av metadata kan anges i fältlistan GetMetadata-aktivitet att h�
 }
 ```
 
-## <a name="type-properties"></a>Egenskaperna för anslutningstypen
+## <a name="type-properties"></a>Typ egenskaper
 
-GetMetadata-aktiviteten kan för närvarande hämta följande typer av metadatainformation.
+För närvarande kan GetMetadata-aktivitet hämta följande typer av metadatainformation.
 
-Egenskap | Beskrivning | Obligatoriskt
+Egenskap | Beskrivning | Obligatorisk
 -------- | ----------- | --------
-fieldList | Visar typerna av metadatainformation som krävs. Mer information finns i [Metadata alternativ](#metadata-options) avsnittet om metadata som stöds. | Ja 
-dataset | Referens-datauppsättning vars GetMetaData-aktivitet är kan hämtas av GetMetadata-aktiviteten. Se [funktioner som stöds](#supported-capabilities) avsnittet på kopplingar som stöds och referera till avsnitt om anslutningsprogram på datauppsättningen syntax information. | Ja
+Fält lista | Listar de typer av metadatainformation som krävs. Se information i avsnittet [metadata-alternativ](#metadata-options) om metadata som stöds. | Ja 
+data uppsättning | Referens data uppsättningen vars metadata-aktivitet ska hämtas av GetMetadata-aktiviteten. Mer information om vilka [funktioner](#supported-capabilities) som stöds finns i avsnittet om anslutningar som stöds och finns i avsnittet om information om data uppsättning. | Ja
+formatSettings | Använd när du använder format typs data uppsättning (Parquet, DelimitedText). | Nej
+storeSettings | Använd när du använder format typs data uppsättning (Parquet, DelimitedText). | Nej
 
 ## <a name="sample-output"></a>Exempel på utdata
 
-GetMetadata-resultatet visas i utdata. Nedan visas två exempel med fullständig metadata-alternativ som valts i fältlistan som referens. Om du vill använda resultatet i efterföljande aktivitet använder du mönstret för `@{activity('MyGetMetadataActivity').output.itemName}`.
+GetMetadata-resultatet visas i aktivitets utdata. Nedan visas två exempel med uttömmade metadata-alternativ som är markerade i fält listan som referens. Använd mönstret i om `@{activity('MyGetMetadataActivity').output.itemName}`du vill använda resultatet i efterföljande aktivitet.
 
 ### <a name="get-a-files-metadata"></a>Hämta metadata för en fil
 
@@ -188,9 +193,9 @@ GetMetadata-resultatet visas i utdata. Nedan visas två exempel med fullständig
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Se andra kontrollflödesaktiviteter som stöds av Data Factory: 
+Se andra kontroll flödes aktiviteter som stöds av Data Factory: 
 
 - [Execute Pipeline-aktivitet](control-flow-execute-pipeline-activity.md)
 - [För varje aktivitet](control-flow-for-each-activity.md)
 - [Lookup-aktivitet](control-flow-lookup-activity.md)
-- [Webbaktivitet](control-flow-web-activity.md)
+- [Webb aktivitet](control-flow-web-activity.md)

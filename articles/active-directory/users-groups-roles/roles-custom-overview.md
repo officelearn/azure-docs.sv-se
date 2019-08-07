@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 546abdae5d7c03bb0d4b49f9485fe06b521fdc1d
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 82638e3e102f7b8e39cd797960a11f3193132bc1
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68722231"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779394"
 ---
 # <a name="custom-administrator-roles-in-azure-active-directory-preview"></a>Anpassade administratörs roller i Azure Active Directory (för hands version)
 
@@ -72,7 +72,11 @@ En roll definition eller roll är en samling behörigheter. En roll definition v
 
 ### <a name="scope"></a>Omfång
 
-Ett omfång är begränsningen av tillåtna åtgärder på en viss Azure AD-resurs. När du tilldelar en roll kan du anpassa rollen för att begränsa administratörens tillåtna åtgärder genom att definiera ett åtgärds område. Om dina utvecklare till exempel inte behöver hantera alla program fullständigt kan du använda anpassade Azure AD-roller för att tillåta att de bara hanterar app-registreringar.
+Ett omfång är begränsningen av tillåtna åtgärder till en viss Azure AD-resurs. När du tilldelar en roll kan du ange ett omfång som begränsar administratörens tillåtna åtgärder till en speciell resurs. Om du till exempel vill ge en utvecklare en anpassad roll, men bara för att hantera en specifik program registrering, kan du inkludera den specifika program registreringen som ett omfång i roll tilldelningen.
+
+  > [!Note]
+  > Anpassade roller kan tilldelas i katalog omfattning och resurs omfång. De kan ännu inte tilldelas i det administrativa enhets omfånget.
+  > Inbyggda roller kan tilldelas i katalog omfattning och i vissa fall administrativa enhets omfång. De kan ännu inte tilldelas till objekt omfånget.
 
 ## <a name="required-license-plan"></a>Obligatorisk licens plan
 

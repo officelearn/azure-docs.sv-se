@@ -1,104 +1,104 @@
 ---
-title: FSLogix profil behållare och Azure Files i Windows virtuellt skrivbord – Azure
-description: Den här artikeln beskriver FSLogix profil behållare i virtuella Windows-skrivbordet och Azure-filer.
+title: FSLogix profil behållare och Azure Files i Windows Virtual Desktop – Azure
+description: I den här artikeln beskrivs FSLogix profil behållare i Windows Virtual Desktop och Azure Files.
 services: virtual-desktop
-author: ChJenk
+author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/16/2019
-ms.author: v-chjenk
-ms.openlocfilehash: b3032aa796b3c79572bbf8b2beb85efc252ff73b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: helohr
+ms.openlocfilehash: c01e138c8afcdd59fcb0c87f189d98bec10e16d7
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66497524"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828137"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>FSLogix-profilcontainrar och Azure-filer
 
-Tjänsten Windows Virtual Desktop förhandsversion rekommenderar FSLogix profil behållare som en lösning för användarens profil. FSLogix har utformats för att flytta profiler i remote datormiljöer, till exempel virtuella Windows-skrivbordet. En fullständig profil lagras i en enskild behållare. Vid inloggning bifogas den här behållaren dynamiskt datormiljön med inbyggt stöd virtuella hårddisk (VHD) och Hyper-V Virtual Hard disk (VHDX). Användarprofilen är omedelbart tillgängligt och visas i systemet precis som en intern användarprofil.
+I förhands gransknings tjänsten för Windows Virtual Desktop rekommenderas FSLogix profil behållare som en användar profil lösning. FSLogix är utformad för centrala profiler i fjärrdatorer, till exempel Windows Virtual Desktop. Den lagrar en fullständig användar profil i en enda behållare. Vid inloggningen är den här behållaren dynamiskt kopplad till dator miljön med inbyggd virtuell hård disk (VHD) och virtuell Hyper-V-hårddisk (VHDX) som stöds. Användar profilen är omedelbart tillgänglig och visas i systemet precis som en inbyggd användar profil.
 
-I den här artikeln beskriver vi FSLogix profil behållare som används med Azure Files. Informationen är i samband med virtuella Windows-skrivbordet, som var [visats på 3/21](https://www.microsoft.com/microsoft-365/blog/2019/03/21/windows-virtual-desktop-public-preview/).
+I den här artikeln beskriver vi FSLogix profil behållare som används med Azure Files. Informationen finns i kontexten för det virtuella Windows-skrivbordet, som har [annonser ATS den 3/21](https://www.microsoft.com/microsoft-365/blog/2019/03/21/windows-virtual-desktop-public-preview/).
 
 ## <a name="user-profiles"></a>Användarprofiler
 
-En användarprofil innehåller dataelement om en individ, inklusive konfigurationsinformation som inställningarna för skrivbordet, beständiga nätverksanslutningar och programinställningar. Som standard skapar en lokal användarprofil som är nära integrerad med operativsystemet i Windows.
+En användar profil innehåller data element om en individ, inklusive konfigurations information som Skriv bords inställningar, beständiga nätverks anslutningar och program inställningar. Som standard skapar Windows en lokal användar profil som är nära integrerad med operativ systemet.
 
-En fjärranvändarprofil innehåller en partition mellan användardata och operativsystemet. Det gör att ersättas eller ändrats utan att påverka användarens data. I Remote värd för fjärrskrivbordssession (RDSH) och infrastrukturer VDI (Virtual Desktop) ersättas operativsystemet av följande skäl:
+En fjärran sluten användar profil innehåller en partition mellan användar data och operativ systemet. Det gör att operativ systemet kan ersättas eller ändras utan att påverka användar data. I RDSH (Remote Desktop Session Host) och VDI (Virtual Desktop Infrastructure) kan operativ systemet ersättas av följande orsaker:
 
-- En uppgradering av operativsystemet
-- En ersättning för en befintlig virtuell dator (VM)
-- En användare som är en del av en pool (icke-beständiga) RDSH eller VDI-miljö
+- En uppgradering av operativ systemet
+- Ersätta en befintlig virtuell dator (VM)
+- En användare som ingår i en mellanliggande RDSH-eller VDI-miljö (icke-beständig)
 
-Microsoft-produkter fungerar med flera tekniker för fjärranvändare profiler, inklusive dessa tekniker:
-- Centrala användarprofiler (RUP)
-- Användarprofil-diskar (UPD)
-- Företagsroaming (BS)
+Microsoft-produkter samarbetar med flera tekniker för fjärran vändare, inklusive dessa tekniker:
+- Centrala användar profiler (RUP)
+- Användar profil diskar (UPD)
+- Enterprise State roaming (ESR)
 
-UPD och centrala användarprofiler är de mest använda teknikerna för användarprofiler i Remote värd för fjärrskrivbordssession (RDSH)- och virtuella hårddisk (VHD).
+UPD och RUP är de mest använda teknikerna för användar profiler i RDSH-och VHD-miljöer (Virtual Hard Disk).
 
-### <a name="challenges-with-previous-user-profile-technologies"></a>Utmaningar med föregående användarens profil tekniker
+### <a name="challenges-with-previous-user-profile-technologies"></a>Utmaningar med tidigare användar profil tekniker
 
-Befintliga och äldre Microsoft-lösningar för användarprofiler medföljde olika utmaningar. Ingen tidigare lösningen hanteras alla användarens profil behov som ingår i en VDI- eller RDSH-miljö. Till exempel UPD kan inte hantera stora OST-filer och centrala användarprofiler sparas inte moderna inställningar.
+Befintliga och äldre Microsoft-lösningar för användar profiler följde med olika utmaningar. Ingen tidigare lösning hanterade alla användar profil behov som medföljer en RDSH-eller VDI-miljö. UPD kan till exempel inte hantera stora OST-filer och RUP har inte kvar moderna inställningar.
 
 #### <a name="functionality"></a>Funktioner
 
-I följande tabell visas fördelar och begränsningar av föregående användare profil tekniker.
+I följande tabell visas fördelarna och begränsningarna för tidigare användar profil tekniker.
 
-| Teknologi | Moderna inställningar | Win32-inställningar | OS-inställningar | Användardata | Stöds på server SKU | Backend-lagringen i Azure | Backend-lagring på plats | Versionsstöd | Efterföljande inloggningar tid |Anteckningar|
+| Teknik | Moderna inställningar | Win32-inställningar | OS-inställningar | Användardata | Stöds på Server-SKU: n | Server dels lagring på Azure | Server dels lagring lokalt | Versions stöd | Efterföljande inloggnings tid |Anteckningar|
 | ---------- | :-------------: | :------------: | :---------: | --------: | :---------------------: | :-----------------------: | :--------------------------: | :-------------: | :---------------------: |-----|
-| **Användarprofil-diskar (UPD)** | Ja | Ja | Ja | Ja | Ja | Nej | Ja | Win 7 + | Ja | |
-| **Centrala användare profil (RUP), underhållsläge** | Nej | Ja | Ja | Ja | Ja| Nej | Ja | Win 7 + | Nej | |
-| **Enterprise State Roaming (ESR)** | Ja | Nej | Ja | Nej | Se information | Ja | Nej | Win 10 | Nej | Funktioner på servern SKU men inget stödjande användargränssnitt |
-| **Användarens upplevelse virtualisering (UE-V)** | Ja | Ja | Ja | Nej | Ja | Nej | Ja | Win 7 + | Nej |  |
-| **OneDrive-filer för molnet** | Nej | Nej | Nej | Ja | Se information | Se information  | Se information | Win 10 RS3 | Nej | Inte testat på SKU-servern. Backend-lagringen i Azure är beroende av Synkroniseringsklienten. Backend-lagring på lokal måste en Synkroniseringsklienten. |
+| **Användar profil diskar (UPD)** | Ja | Ja | Ja | Ja | Ja | Nej | Ja | Win 7 + | Ja | |
+| **Central användar profil (RUP), underhålls läge** | Nej | Ja | Ja | Ja | Ja| Nej | Ja | Win 7 + | Nej | |
+| **Enterprise State Roaming (ESR)** | Ja | Nej | Ja | Nej | Se kommentarer | Ja | Nej | Win 10 | Nej | Funktioner på Server-SKU men saknar stöd för användar gränssnitt |
+| **User Experience Virtualization (UE-V)** | Ja | Ja | Ja | Nej | Ja | Nej | Ja | Win 7 + | Nej |  |
+| **OneDrive-molnappar** | Nej | Nej | Nej | Ja | Se kommentarer | Se kommentarer  | Se kommentarer | Win 10-RS3 | Nej | Inte testat på Server-SKU. Backend-lagring på Azure är beroende av Sync-klienten. Backend-lokal kräver en sync-klient. |
 
 #### <a name="performance"></a>Prestanda
 
-UPD kräver [Lagringsdirigering (S2D)](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment) att möta krav på prestanda. UPD använder Server Message Block (SMB) protokollet. Profilen kopieras till den virtuella datorn där användaren loggas. UPD med S2D var lösningen RDS-teamet rekommenderas för virtuella Windows-skrivbordet under förhandsversionen av tjänsten.  
+UPD kräver [Lagringsdirigering (S2D)](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment) för att uppfylla prestanda kraven. UPD använder SMB-protokoll (Server Message Block). Profilen kopieras till den virtuella dator där användaren loggas. UPD med S2D var lösningen för RDS-teamet som rekommenderas för Windows Virtual Desktop under för hands versionen av tjänsten.  
 
 #### <a name="cost"></a>Kostnad
 
-När S2D-kluster uppnå nödvändiga prestanda, är kostnaden dyra för företagskunder, men särskilt dyra för små och medelstora företag (SMB). Företag betalar för premium-lagringsdiskar, tillsammans med kostnaden för de virtuella datorerna som använder diskarna för en resurs för den här lösningen.
+Även om S2D-kluster uppnår nödvändiga prestanda, är kostnaden dyra för företags kunder, men särskilt dyra för små och medel stora företags (SMB)-kunder. För den här lösningen betalar företag för lagrings diskar, tillsammans med kostnaden för de virtuella datorer som använder diskarna för en resurs.
 
 #### <a name="administrative-overhead"></a>Administrativa kostnader
 
-S2D-kluster kräver ett operativsystem som är uppdaterad, uppdateras och hanteras i ett säkert tillstånd. Dessa processer och komplexitet och hur du konfigurerar S2D haveriberedskap gör du S2D är möjligt endast för företag med en dedikerad IT-avdelning.
+S2D-kluster kräver ett operativ system som korrigeras, uppdateras och bevaras i säkert tillstånd. De här processerna och komplexiteten vid installation av S2D-haveri beredskap gör S2D endast möjligt för företag med en dedikerad IT-personal.
 
 ## <a name="fslogix-profile-containers"></a>FSLogix profil behållare
 
-19 November 2018 [Microsoft har förvärvat FSLogix](https://blogs.microsoft.com/blog/2018/11/19/microsoft-acquires-fslogix-to-enhance-the-office-365-virtualization-experience/). FSLogix löser många profil behållare utmaningar. Nyckel mellan dem är:
+Den 19 november 2018 har [Microsoft förvärvat FSLogix](https://blogs.microsoft.com/blog/2018/11/19/microsoft-acquires-fslogix-to-enhance-the-office-365-virtualization-experience/). FSLogix hanterar flera utmaningar för profil behållare. Nyckel mellan dem är:
 
-- **Prestanda:** Den [FSLogix profil behållare](https://fslogix.com/products/profile-containers) är med höga prestanda och Lös prestandaproblem som tidigare har blockerat cachelagrat exchange-läge.
-- **OneDrive:** Utan FSLogix profil behållare stöds OneDrive för företag inte i icke-beständiga RDSH eller VDI-miljöer. [OneDrive för företag och FSLogix metodtips](https://fslogix.com/products/technical-faqs/284-onedrive-for-business-and-fslogix-best-practices) beskriver hur de samverkar. Mer information finns i [använda Synkroniseringsklienten på virtuella skrivbord](https://docs.microsoft.com/deployoffice/rds-onedrive-business-vdi).
-- **Ytterligare mappar:** FSLogix ger möjlighet att utöka användarprofiler för att inkludera ytterligare mappar.
+- **Historik** [FSLogix profil behållare](https://fslogix.com/products/profile-containers) är höga prestanda och löser prestanda problem som har historiskt blockerat cachelagrat Exchange-läge.
+- **OneDrive:** Utan FSLogix profil behållare stöds inte OneDrive för företag i icke-permanent RDSH-eller VDI-miljöer. [Bästa praxis för OneDrive för företag och FSLogix](https://fslogix.com/products/technical-faqs/284-onedrive-for-business-and-fslogix-best-practices) beskriver hur de interagerar. Mer information finns i [använda Sync-klienten på virtuella skriv bord](https://docs.microsoft.com/deployoffice/rds-onedrive-business-vdi).
+- **Ytterligare mappar:** FSLogix ger möjlighet att utöka användar profiler för att inkludera ytterligare mappar.
 
-Sedan förvärv startade Microsoft ersätta befintliga användare profil lösningar, som UPD, med FSLogix profil behållare.
+Eftersom förvärvs tjänsten ersatte befintliga användar profil lösningar, t. ex. UPD, med FSLogix profil behållare.
 
-## <a name="azure-files-integration-with-azure-active-directory"></a>Integrering med Azure filer med Azure Active Directory
+## <a name="azure-files-integration-with-azure-active-directory"></a>Azure Files integration med Azure Active Directory
 
-FSLogix profil behållare prestanda- och dra nytta av molnet. Microsoft Azure Files 24 september 2018 meddelade en offentlig förhandsversion av [Azure Files stöder Azure Active Directory-autentisering](https://azure.microsoft.com/blog/azure-active-directory-integration-for-smb-access-now-in-public-preview/). Genom att hantera både kostnad och administrativa kostnader, är Azure Files med Azure Active Directory-autentisering en premium-lösning för användarprofiler i den nya virtuella skrivbordet i Windows-tjänsten.
+FSLogix profil behållare prestanda och funktioner utnyttjar molnet. På sept. 24, 2018 Microsoft Azure filer presentera en offentlig för hands version av [Azure Files stöd för Azure Active Directory autentisering](https://azure.microsoft.com/blog/azure-active-directory-integration-for-smb-access-now-in-public-preview/). Genom att hantera både kostnad och administrativt arbete är Azure Files med Azure Active Directory autentisering en Premium-lösning för användar profiler i den nya Windows Virtual Desktop-tjänsten.
 
-## <a name="best-practices-for-windows-virtual-desktop"></a>Metodtips för virtuella Windows-skrivbordet
+## <a name="best-practices-for-windows-virtual-desktop"></a>Metod tips för virtuella Windows-datorer
 
-Virtuella Windows-skrivbordet erbjuder fullständig kontroll över storlek, typ och antal virtuella datorer som används av kunder. Mer information finns i [vad är förhandsversionen av Windows virtuella skrivbord?](https://docs.microsoft.com/azure/virtual-desktop/overview).
+Virtuella Windows-datorer ger fullständig kontroll över storlek, typ och antal virtuella datorer som används av kunderna. Mer information finns i [Vad är för hands versionen av Windows Virtual Desktop?](https://docs.microsoft.com/azure/virtual-desktop/overview).
 
-För att säkerställa att din virtuella Windows-skrivbordet följer miljö de bästa metoderna:
+För att se till att din Windows Virtual Desktop-miljö följer bästa praxis:
 
-- Azure Files storage-konto måste vara i samma region som värd för fjärrskrivbordssession virtuella datorer.
-- Azure filer-behörigheter måste matcha behörigheterna som beskrivs i [krav - profil behållare](https://docs.fslogix.com/display/20170529/Requirements+-+Profile+Containers).
-- Varje värd pool måste byggas av samma typ och storlek på virtuell dator baserat på samma huvudavbildningen.
-- Varje värd pool VM måste finnas i samma resursgrupp för enklare hantering, skalning och uppdaterar.
-- För optimala prestanda lagringslösningen och FSLogix profil behållaren ska vara i samma data platsen för datacenter.
-- Lagringskontot som innehåller huvudavbildningen måste vara i samma region och prenumeration där de virtuella datorerna etableras.
+- Azure Files lagrings kontot måste finnas i samma region som de virtuella datorerna i sessionen.
+- Azure Files behörigheter ska matcha behörigheter som beskrivs i [behållare för krav – profiler](https://docs.fslogix.com/display/20170529/Requirements+-+Profile+Containers).
+- Varje adresspool måste vara inbyggd av samma typ och storlek som den virtuella datorn baserat på samma huvud avbildning.
+- Varje virtuell dator i poolen för värdar måste finnas i samma resurs grupp för att hantera, skala och uppdatera.
+- För optimala prestanda bör lagrings lösningen och behållaren för FSLogix-profilen finnas på samma plats i data centret.
+- Lagrings kontot som innehåller huvud avbildningen måste finnas i samma region och i den prenumeration där de virtuella datorerna har allokerats.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Använd följande instruktioner för att konfigurera en miljö för virtuella Windows-skrivbordet.
+Använd följande instruktioner för att konfigurera en Windows-miljö för virtuella skriv bord.
 
-- Om du vill börja skapa din lösning för fjärrskrivbord, se [skapa en klient i virtuella Windows-skrivbordet](https://docs.microsoft.com/azure/virtual-desktop/tenant-setup-azure-active-directory).
-- Om du vill skapa en pool för värden i din klient för virtuella Windows-skrivbordet, [skapa en värd-pool med Azure Marketplace](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-azure-marketplace).
-- Du ställer in fullständigt hanterade filresurser i molnet, se [ställa in Azure Files-resurs](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-enable).
-- För att konfigurera FSLogix profil behållare, se [ställa in en användare profil resurs för en värd-pool](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-user-profile).
-- Om du vill tilldela användare till en värd-pool, se [hantera app-grupper för virtuella Windows-skrivbordet](https://docs.microsoft.com/azure/virtual-desktop/manage-app-groups).
-- Du hittar dina virtuella Windows-skrivbordet resurser från en webbläsare i [Anslut till virtuella Windows-skrivbordet](https://docs.microsoft.com/azure/virtual-desktop/connect-web).
+- Om du vill börja skapa en lösning för Skriv bords virtualisering läser du [skapa en klient i Windows Virtual Desktop](https://docs.microsoft.com/azure/virtual-desktop/tenant-setup-azure-active-directory).
+- Information om hur du skapar en adresspool i din Windows-klient för virtuella datorer finns i [skapa en adresspool med Azure Marketplace](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-azure-marketplace).
+- Information om hur du konfigurerar fullständigt hanterade fil resurser i molnet finns i [konfigurera Azure Files-resurs](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-enable).
+- Information om hur du konfigurerar FSLogix profil behållare finns i [Konfigurera en användar profil resurs för en värd-pool](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-user-profile).
+- Information om hur du tilldelar användare till en adresspool finns i [Hantera app-grupper för Windows Virtual Desktop](https://docs.microsoft.com/azure/virtual-desktop/manage-app-groups).
+- För att få åtkomst till dina Windows-resurser för virtuella skriv bord från en webbläsare, se [Anslut till Windows Virtual Desktop](https://docs.microsoft.com/azure/virtual-desktop/connect-web).

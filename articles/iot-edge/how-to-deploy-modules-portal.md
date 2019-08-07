@@ -10,12 +10,12 @@ ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 8337c8672eb886d79b38b2a38a74037f88604497
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: f27484fd1d47a2e29aa5083a7d440e5c7dba11c1
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448552"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839645"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>Distribuera Azure IoT Edge-moduler från Azure portal
 
@@ -39,25 +39,25 @@ Den här artikeln visar hur Azure-portalen visar hur du skapar ett manifest för
 
 Ett manifest för distribution är ett JSON-dokument som beskriver vilka moduler för att distribuera, hur data flödar mellan moduler och önskade egenskaper för modultvillingar. Mer information om hur distribution manifest fungerar och hur du skapar dem finns i [förstå hur IoT Edge-moduler kan användas, konfigurerats och återanvändas](module-composition.md).
 
-Azure-portalen har en guide som visar hur du skapar distributionen manifestet, i stället för att skapa JSON-dokumentet manuellt. Den har tre steg: **Lägg till moduler**, **ange vägar**, och **granska distribution**.
+Azure-portalen har en guide som visar hur du skapar distributionen manifestet, i stället för att skapa JSON-dokumentet manuellt. Det finns tre steg: **Lägg till moduler**, **Ange vägar**och **Granska distribution**.
 
 ### <a name="add-modules"></a>Lägg till moduler
 
-1. I den **inställningar för Behållarregister** avsnitt på sidan Ange autentiseringsuppgifter för att komma åt alla privata behållarregister som innehåller dina avbildningar för modulen.
+1. I avsnittet **container Registry inställningar** på sidan anger du autentiseringsuppgifterna för åtkomst till alla privata behållar register som innehåller dina modulblad.
 
-1. I den **distribution moduler** på sidan, väljer **Lägg till**.
+1. I avsnittet **distributions moduler** på sidan väljer du **Lägg till**.
 
 1. Titta på typerna av moduler från den nedrullningsbara listan:
 
    * **IoT Edge-modul** -alternativet.
    * **Azure Stream Analytics-modulen** -endast moduler som har genererats från en Azure Stream Analytics-arbetsbelastning.
-   * **Azure Machine Learning-modulen** -endast modellera bilder som skapas från en Azure Machine Learning-arbetsyta.
+   * **Azure Machine Learning modul** – endast modell avbildningar som genereras från en Azure Machine Learning arbets yta.
 
 1. Välj den **IoT Edge-modul**.
 
 1. Ange ett namn för modulen och sedan ange behållaravbildningen. Exempel:
 
-   * **Namn på** -tempSensor
+   * **Namn** – SimulatedTemperatureSensor
    * **Bild-URI: N** -mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0
 
 1. Fyll i valfritt fält om det behövs. För mer information om behållare alternativ, omstartsprincip, för att skapa och önskad status finns i [EdgeAgent önskade egenskaper](module-edgeagent-edgehub.md#edgeagent-desired-properties). Läs mer om modultvillingen [definiera eller uppdatera önskade egenskaper](module-composition.md#define-or-update-desired-properties).
@@ -86,26 +86,26 @@ När du har distribuerat modulerna till din enhet kan du visa dem i alla de **en
 
 ## <a name="deploy-modules-from-azure-marketplace"></a>Distribuera moduler från Azure Marketplace
 
-Azure Marketplace är en online-program och tjänster där du kan bläddra igenom ett brett utbud av företagsprogram och lösningar som är certifierade och optimerade för körning på Azure, inklusive [IoT Edge-moduler](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules). Azure Marketplace kan även nås via Azure-portalen under **skapa en resurs**.
+Azure Marketplace är ett online-program och tjänster för tjänster där du kan bläddra igenom en rad olika företags program och-lösningar som är certifierade och optimerade för att köras på Azure, inklusive [IoT Edge moduler](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules). Azure Marketplace kan också nås via Azure Portal under **skapa en resurs**.
 
-Du kan installera en IoT Edge-modul från Azure Marketplace eller Azure-portalen:
+Du kan installera en IoT Edge modul från antingen Azure Marketplace eller Azure Portal:
 
-1. Hitta en modul och påbörjar distributionen.
+1. Hitta en modul och påbörja distributions processen.
 
    * Azure-portalen: Hitta en modul och välj **skapa**.
 
    * Azure Marketplace:
 
-     1. Hitta en modul och välj **Hämta nu**.
-     1. Bekräfta leverantörens användningsvillkoren och sekretesspolicyn princip genom att välja **Fortsätt**.
+     1. Hitta en modul och välj **Hämta den nu**.
+     1. Bekräfta providerns användnings villkor och sekretess policy genom att välja **Fortsätt**.
 
-1. Välj din prenumeration och IoT-hubben som målenheten är ansluten.
+1. Välj din prenumeration och den IoT Hub som mål enheten är ansluten till.
 
 1. Välj **distribuera till en enhet**.
 
-1. Ange namnet på den enhet eller välj **hitta enhet** att bläddra bland de enheter som registrerats på hubben.
+1. Ange namnet på enheten eller Välj **hitta enhet** för att bläddra bland de enheter som är registrerade i hubben.
 
-1. Välj **skapa** fortsätta standard processen med att konfigurera ett manifest för distribution, inklusive att lägga till andra moduler om du vill. Information om den nya modulen, till exempel bild URI, användningsområden och önskade egenskaper är fördefinierade men kan ändras.
+1. Välj **skapa** för att fortsätta med standard processen att konfigurera ett distributions manifest, inklusive att lägga till andra moduler om du vill. Information om den nya modulen, till exempel bild-URI, skapa alternativ och önskade egenskaper är fördefinierade, men kan ändras.
 
 ## <a name="next-steps"></a>Nästa steg
 

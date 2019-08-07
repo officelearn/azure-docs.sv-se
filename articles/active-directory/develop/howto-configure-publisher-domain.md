@@ -1,6 +1,6 @@
 ---
-title: Konfigurera ett programs publisher-domän | Azure
-description: Lär dig hur du konfigurerar ett programs publisher-domän för att informera användarna om där deras information skickas.
+title: Konfigurera ett programs utgivares domän | Azure
+description: Lär dig hur du konfigurerar ett programs utgivares domän så att användare vet var deras information skickas.
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
@@ -9,7 +9,7 @@ editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/05/2019
@@ -17,65 +17,65 @@ ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, zachowd
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d47075f9e18b299341a98983ffb8a47389fd7063
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 291de1fa9bbb43ff9393a3163d1cd21dd7cd1b01
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540223"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68835151"
 ---
-# <a name="how-to-configure-an-applications-publisher-domain-preview"></a>Anvisningar: Konfigurera ett programs publisher-domän (förhandsversion)
+# <a name="how-to-configure-an-applications-publisher-domain-preview"></a>Anvisningar: Konfigurera ett programs utgivares domän (för hands version)
 
-Ett programs publisher-domän visas för användarna på den [medgivandetext för programmets](application-consent-experience.md) att informera användarna om där deras information skickas. Program med flera klienter som är registrerade efter 21 maj 2019 som inte har en utgivardomän visas som **overifierade**. Program för flera innehavare är program som stöder konton utanför en enda organisationens katalog. till exempel stöd för alla Azure AD-konton eller stöd för alla Azure AD-konton och personliga Microsoft-konton.
+Ett programs utgivares domän visas för användare i [appens godkännande fråga](application-consent-experience.md) för att meddela användarna om var informationen skickas. Program med flera klienter som registreras efter den 21 maj 2019 och som inte har någon utgivar domän som inteär verifierad. Program med flera klienter är program som stöder konton utanför en enda organisations katalog. till exempel stöd för alla Azure AD-konton eller stöd för alla Azure AD-konton och personliga Microsoft-konton.
 
 ## <a name="new-applications"></a>Nya program
 
-När du registrerar en ny app kan publisher-domän för din app anges till ett standardvärde. Värdet beror på där appen har registrerats, särskilt om appen har registrerats i en klient och om klienten har klient kontrollerade domäner.
+När du registrerar en ny app kan utgivarens domän i appen ställas in på ett standardvärde. Värdet beror på var appen är registrerad, särskilt om appen är registrerad i en klient organisation och om klient organisationen har verifierade domäner.
 
-Om det finns klient kontrollerade domäner, appens publisher-domän som standard till primära verifierade domän i klienten. Om det finns ingen klient verifierat domäner (vilket är fallet när programmet inte har registrerats i en klient), appens utgivardomän anges till null.
+Om det finns domänkontrollanter som har autentiserats av klienten, kommer appens utgivares domän som standard till den primära verifierade domänen för klient organisationen. Om det inte finns några domäner som verifieras av klienten (vilket är fallet när programmet inte är registrerat i en klient), anges appens utgivare domän till null.
 
-I följande tabell sammanfattas standardbeteendet för domänvärdet utgivare.  
+I följande tabell sammanfattas standard beteendet för utgivar domänens värde.  
 
-| Klient-kontrollerade domäner | Standardvärdet för publisher-domän |
+| Domäner som verifieras av klienter | Standardvärdet för Publisher-domän |
 |-------------------------|----------------------------|
 | null | null |
 | *.onmicrosoft.com | *.onmicrosoft.com |
-| -*. onmicrosoft.com<br/>-domain1.com<br/>-domain2.com (primär) | domain2.com |
+| -*. onmicrosoft.com<br/>– domain1.com<br/>-domain2.com (primär) | domain2.com |
 
-Om ett program med flera innehavare publisher-domän inte anges, eller om den är inställd på en domän som slutar med. onmicrosoft.com, appens medgivande visas **overifierade** i stället för publisher-domän.
+Om ett program från en annan klient organisation inte är inställt, eller om det är inställt på en domän som slutar på. onmicrosoft.com, visas appens medgivande-fråga i stället för utgivarens domän.
 
-## <a name="grandfathered-applications"></a>Grandfathered program
+## <a name="grandfathered-applications"></a>Grandfathered-program
 
-Om din app har registrerats innan den 21 maj 2019 medgivandetext för ditt program visas inte **overifierade** om du inte har en publisher-domän. Vi rekommenderar att du anger utgivaren domänvärdet så att användare kan se den här informationen i din app medgivande.
+Om din app registrerades före den 21 maj 2019 visas inte appens medgivande om du inte har angett en Publisher-domän. Vi rekommenderar att du anger utgivarens domän värde så att användarna kan se den här informationen i appens medgivande fråga.
 
-## <a name="configure-publisher-domain-using-the-azure-portal"></a>Konfigurera publiceringsdomän med hjälp av Azure portal
+## <a name="configure-publisher-domain-using-the-azure-portal"></a>Konfigurera Publisher-domän med hjälp av Azure Portal
 
-Följ dessa steg för att ställa in appens publisher-domän.
+Följ de här stegen om du vill ställa in din apps publicerings domän.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
 
-1. Om ditt konto finns i mer än en Azure AD-klient:
-   1. Välj din profil på menyn i det övre högra hörnet på sidan och sedan **växla katalog**.
-   1. Ändra din session till Azure AD-klient där du vill skapa ditt program.
+1. Om ditt konto finns i fler än en Azure AD-klient:
+   1. Välj din profil på menyn i det övre högra hörnet på sidan och **Växla sedan katalog**.
+   1. Ändra sessionen till Azure AD-klienten där du vill skapa ditt program.
 
-1. Gå till [Azure Active Directory > App-registreringar](https://go.microsoft.com/fwlink/?linkid=2083908) att söka efter och välj den app som du vill konfigurera.
+1. Navigera till [Azure Active Directory > Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) för att söka efter och välja den app som du vill konfigurera.
 
-   När du har valt appen visas appens **översikt** sidan.
+   När du har valt appen ser du appens översikts sida.
 
-1. Från appens **översikt** väljer den **varumärkesriktlinjer** avsnittet.
+1. Välj avsnittet **anpassning** på appens översikts sida.
 
-1. Hitta den **utgivardomän** fältet och väljer något av följande alternativ:
+1. Hitta fältet för **utgivarens domän** och välj ett av följande alternativ:
 
-   - Välj **konfigurera en domän** om du inte redan konfigurerat en domän.
-   - Välj **uppdateringsdomän** om en domän har redan konfigurerats.
+   - Välj **Konfigurera en domän** om du inte redan har konfigurerat en domän.
+   - Välj **Uppdatera domän** om en domän redan har kon figurer ATS.
 
-Om din app har registrerats i en klient, visas två flikar för att välja från: **Välj en verifierad domän** och **verifiera en ny domän**.
+Om din app är registrerad i en klient, ser du två flikar att välja mellan: **Välj en verifierad domän** och **Verifiera en ny domän**.
 
-Om din app inte har registrerats i en klient, visas bara alternativet att verifiera en ny domän för ditt program.
+Om din app inte är registrerad i en klient, ser du bara alternativet för att verifiera en ny domän för programmet.
 
-### <a name="to-verify-a-new-domain-for-your-app"></a>Verifiera en ny domän för din app
+### <a name="to-verify-a-new-domain-for-your-app"></a>Så här verifierar du en ny domän för din app
 
-1. Skapa en fil med namnet `microsoft-identity-association.json` och klistra in följande JSON-kodfragmentet.
+1. Skapa en fil med `microsoft-identity-association.json` namnet och klistra in följande JSON-kodfragment.
 
    ```json
    {
@@ -87,51 +87,51 @@ Om din app inte har registrerats i en klient, visas bara alternativet att verifi
     }
    ```
 
-1. Ersätt platshållaren *{YOUR-APP-ID-HERE}* med program (klient)-ID som motsvarar din app.
+1. Ersätt plats hållaren *{Your-app-ID-här}* med det program-ID (klient) som motsvarar din app.
 
-1. Vara värd för filen: `https://{YOUR-DOMAIN-HERE}.com/.well-known/microsoft-identity-association.json`. Ersätt platshållaren *{YOUR-DOMAIN-HERE}* så att de matchar en verifierad domän.
+1. Var värd för filen på `https://{YOUR-DOMAIN-HERE}.com/.well-known/microsoft-identity-association.json`:. Ersätt plats hållaren *{your-domain-här}* så att den matchar den verifierade domänen.
 
-1. Klicka på den **verifiera och spara domän** knappen.
+1. Klicka på knappen **Verifiera och spara domän** .
 
-### <a name="to-select-a-verified-domain"></a>Att välja en verifierad domän
+### <a name="to-select-a-verified-domain"></a>Så här väljer du en verifierad domän
 
-- Om din klient har verifierat domäner, väljer du något av domänerna från den **väljer en verifierad domän** listrutan.
+- Om klienten har verifierat domäner väljer du en av domänerna i list rutan **Välj en verifierad domän** .
 
-## <a name="implications-on-the-app-consent-prompt"></a>Konsekvenser för appen medgivandetext
+## <a name="implications-on-the-app-consent-prompt"></a>Följder för appens medgivande
 
-Konfigurera publisher-domän har en inverkan på vad användarna ser på medgivandetext för appen. För att helt förstå komponenterna i medgivandetext, se [förstå programtillåtelser inträffar](application-consent-experience.md).
+Att konfigurera utgivar domänen påverkar vad användarna ser i frågan om appens medgivande. För att fullständigt förstå komponenterna i medgivande frågan, se [förstå programmets medgivande upplevelser](application-consent-experience.md).
 
 I följande tabell beskrivs beteendet för program som skapats före den 21 maj 2019.
 
-![Medgivandetext för appar som skapats före den 21 maj 2019](./media/howto-configure-publisher-domain/old-app-behavior-table.png)
+![Medgivande-prompt för appar som skapats före den 21 maj 2019](./media/howto-configure-publisher-domain/old-app-behavior-table.png)
 
-Beteendet för nya program som skapats efter den 21 maj 2019 beror på publisher-domän och vilken typ av program. I följande tabell beskrivs de ändringar som du bör visas med de olika kombinationerna av konfigurationer.
+Beteendet för nya program som skapats efter den 21 maj 2019 är beroende av utgivarens domän och typen av program. I följande tabell beskrivs de ändringar som du bör förvänta dig att se med de olika kombinationerna av konfigurationer.
 
-![Medgivandetext för appar som skapats efter den 21 maj 2019](./media/howto-configure-publisher-domain/new-app-behavior-table.png)
+![Medgivande-prompt för appar som skapats efter den 21 maj 2019](./media/howto-configure-publisher-domain/new-app-behavior-table.png)
 
-## <a name="implications-on-redirect-uris"></a>Konsekvenser för omdirigerings-URI: er
+## <a name="implications-on-redirect-uris"></a>Effekter på omdirigerings-URI: er
 
-Program som loggar in användare med eventuella arbets- eller skolkonto, eller personliga Microsoft-konton ([flera innehavare](single-and-multi-tenant-apps.md)) är föremål för några begränsningar när du anger omdirigerings-URI: er.
+Program som loggar in användare med ett arbets-eller skol konto eller personliga Microsoft-konton ([flera innehavare](single-and-multi-tenant-apps.md)) omfattas av några begränsningar vid specificering av omdirigerings-URI: er.
 
-### <a name="single-root-domain-restriction"></a>Begränsning för enskild rot-domän
+### <a name="single-root-domain-restriction"></a>Begränsning av enskild rotdomän
 
-När värdet för publisher-domän för appar för flera klienter anges till null, appar är begränsade till att dela en enda rotdomän för omdirigerings-URI: er. Till exempel följande kombinationer av värden är inte tillåten eftersom rotdomänen, contoso.com, matchar inte fabrikam.com.
+När utgivarens domän värde för appar för flera klienter är inställt på null, är appar begränsade för att dela en enda rot domän för omdirigerings-URI: er. Till exempel tillåts inte följande kombination av värden eftersom rot domänen contoso.com inte matchar fabrikam.com.
 
 ```
 "https://contoso.com",
 "https://fabrikam.com",
 ```
 
-### <a name="subdomain-restrictions"></a>Underdomän begränsningar
+### <a name="subdomain-restrictions"></a>Begränsningar för under domän
 
-Underdomäner tillåts, men du måste uttryckligen registrera rotdomänen. Till exempel när följande URI: er delar en enda rotdomän, tillåts kombinationen inte.
+Under domäner tillåts, men du måste explicit registrera rot domänen. Till exempel, medan följande URI: er delar en enda rot domän, är kombinationen inte tillåten.
 
 ```
 "https://app1.contoso.com",
 "https://app2.contoso.com",
 ```
 
-Om utvecklaren lägger uttryckligen rotdomänen, tillåts kombinationen.
+Men om utvecklaren explicit lägger till rot domänen tillåts kombinationen.
 
 ```
 "https://contoso.com",
@@ -141,12 +141,12 @@ Om utvecklaren lägger uttryckligen rotdomänen, tillåts kombinationen.
 
 ### <a name="exceptions"></a>Undantag
 
-Följande fall inte omfattas av begränsning för enskild rot-domän:
+Följande fall omfattas inte av begränsningen för en rot domän:
 
-- Enskild klient appar eller appar som är riktade till konton i en enskild katalog
+- Appar för en enda klient eller appar som riktar sig mot konton i en enda katalog
 - Användning av localhost som omdirigerings-URI: er
-- Omdirigerings-URI: er med anpassade scheman (icke-HTTP eller HTTPS)
+- Omdirigera URI: er med anpassade scheman (icke-HTTP eller HTTPS)
 
-## <a name="configure-publisher-domain-programmatically"></a>Konfigurera publiceringsdomän programmässigt
+## <a name="configure-publisher-domain-programmatically"></a>Konfigurera Publisher-domän program mässigt
 
-Det finns för närvarande inga REST API eller PowerShell-stöd för att konfigurera utgivardomän programmässigt.
+För närvarande finns det inget REST API-eller PowerShell-stöd för att konfigurera Publisher-domänen program mässigt.

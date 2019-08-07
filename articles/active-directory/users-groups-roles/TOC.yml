@@ -138,8 +138,6 @@
               href: roles-view-assignments.md
             - name: Tilldela roller i administrationscenter för Azure AD
               href: /azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
-            - name: Tilldela anpassade roller i Graph API
-              href: roles-assign-graph.md
             - name: Tilldela anpassade roller i PowerShell
               href: roles-assign-powershell.md
             - name: Förhandsgranskningsbehörigheter för anpassade roller

@@ -98,9 +98,9 @@ På fliken **konfiguration** ansluter du klient dels-och backend-poolen som du s
 
 2. I fönstret **Lägg till regel för routning** som öppnas anger du *myRoutingRule* som **regel namn**.
 
-3. En regel för routning kräver en lyssnare. Ange följande  värden för lyssnaren på fliken lyssnare i fönstret **Lägg till regel** för vidarebefordran:
+3. En regel för routning kräver en lyssnare. Ange följande värden för lyssnaren på fliken lyssnare i fönstret **Lägg till regel** för vidarebefordran:
 
-    - **Namn på lyssnare**: Ange  en lyssnare för namnet på lyssnaren.
+    - **Namn på lyssnare**: Ange en lyssnare för namnet på lyssnaren.
     - **Frontend-IP**: Välj **offentlig** för att välja den offentliga IP-adress som du skapade för klient delen.
   
       Acceptera standardvärdena för de andra inställningarna på fliken **lyssnare** och välj sedan fliken **backend-mål** för att konfigurera resten av regeln.
@@ -196,7 +196,7 @@ I det här exemplet installerar du bara IIS på de virtuella datorerna för att 
 
 IIS krävs inte för skapande av programgatewayen, men du installerade det i den här snabbstarten för att kontrollera om Azure lyckades skapa programgatewayen. Använd IIS för att testa programgatewayen:
 
-1. Hitta den offentliga IP-adressen för Application Gateway på sidan **Översikt** . Registrera den offentliga IP-adressen](./media/application-gateway-create-gateway-portal/application-gateway-record-ag-address.png) för Application Gateway eller Välj **alla resurser**, ange *myAGPublicIPAddress* i sökrutan och välj sedan den i Sök resultaten. ![ Azure visar den offentliga IP-adressen på sidan **Översikt**.
+1. Hitta den offentliga IP-adressen för Application Gateway på sidan **Översikt** Registrera.![den offentliga IP-adressen](./media/application-gateway-create-gateway-portal/application-gateway-record-ag-address.png) för Application Gateway eller Välj **alla resurser**, ange *myAGPublicIPAddress* i sökrutan och välj sedan den i Sök resultaten. Azure visar den offentliga IP-adressen på sidan **Översikt**.
 2. Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält.
 3. Kontrol lera svaret. Ett giltigt svar verifierar att Application Gateway har skapats och kan ansluta till Server delen.![Testa programgatewayen](./media/application-gateway-create-gateway-portal/application-gateway-iistest.png)
 

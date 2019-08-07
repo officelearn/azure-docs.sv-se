@@ -1,6 +1,6 @@
 ---
-title: Lär dig mer om auktoriseringsprotokoll som stöds av Microsoft identity-plattformen | Azure
-description: En guide till OAuth 2.0 och OpenID Connect-protokoll som stöds av Microsoft identity-plattformen slutpunkten.
+title: Läs mer om de Authorization-protokoll som stöds av Microsoft Identity Platform | Azure
+description: En guide till OAuth 2,0-och OpenID Connect-protokoll som stöds av Microsoft Identity Platform-slutpunkten.
 services: active-directory
 documentationcenter: ''
 author: rwike77
@@ -12,82 +12,82 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7ffef5c3a7c8dd21654b6364013b1718bea1292
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 446d7178973c1d43d55ff89c429b05c2a10118ba
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482992"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68835287"
 ---
-# <a name="microsoft-identity-platform-protocols"></a>Microsoft identity-plattformen protokoll
+# <a name="microsoft-identity-platform-protocols"></a>Protokoll för Microsoft Identity Platform
 
-Microsoft identity-plattformen slutpunkten för identity-as-a-service med branschens standardprotokoll, OpenID Connect och OAuth 2.0. Tjänsten är standardkompatibla, kan det finnas skillnader mellan två implementeringar av dessa protokoll. Information om här är praktiskt om du väljer att skriva din kod genom att skicka och hantering av HTTP-begäranden direkt eller använda en open source-bibliotek från tredje part i stället för att använda någon av våra [bibliotek med öppen källkod](reference-v2-libraries.md).
+Microsoft Identity Platform-slutpunkten för Identity-as-a-service med bransch standard protokoll, OpenID Connect och OAuth 2,0. Tjänsten är standard-kompatibel, men det kan finnas små skillnader mellan de två implementeringarna av de här protokollen. Informationen här är användbar om du väljer att skriva koden genom att direkt skicka och hantera HTTP-förfrågningar eller använda ett bibliotek med öppen källkod från tredje part, i stället för att använda ett av våra [bibliotek med öppen källkod](reference-v2-libraries.md).
 
 > [!NOTE]
-> Inte alla Azure AD-scenarier och funktioner stöds av Microsoft identity-plattformen slutpunkten. Läs mer om för att avgöra om du ska använda Microsoft identity-plattformen endpoint, [plattformsbegränsningar för Microsoft identity](active-directory-v2-limitations.md).
+> Inte alla Azure AD-scenarier och-funktioner stöds av Microsoft Identity Platform-slutpunkten. För att avgöra om du ska använda Microsoft Identity Platform-slutpunkten läser du om [begränsningar för Microsoft Identity Platform](active-directory-v2-limitations.md).
 
 ## <a name="the-basics"></a>Grunderna
 
-I nästan alla flöden som OAuth 2.0 och OpenID Connect finns det fyra parter som ingår i exchange:
+I nästan alla OAuth 2,0-och OpenID Connect-flöden finns det fyra parter som ingår i Exchange:
 
-![Diagram över OAuth 2.0-roller](./media/active-directory-v2-flows/protocols-roles.svg)
+![Diagram över OAuth 2,0-roller](./media/active-directory-v2-flows/protocols-roles.svg)
 
-* Den **Auktoriseringsservern** är Microsoft identity-plattformen slutpunkt och ansvarar för att användarens identitet, bevilja och återkalla åtkomst till resurser och utfärda token. Auktoriseringsservern även känt som identitetsprovider - den på ett säkert sätt hanterar något att göra med information om användaren, deras åtkomst och förtroenderelationer mellan parterna i ett flöde.
-* Den **Resursägaren** är vanligtvis användaren. Det är den part som äger data och har rätt att tillåta tredje part att få åtkomst till den data- eller resursen.
-* Den **OAuth klienten** använder din app som identifieras av dess program-ID. OAuth-klienten är vanligtvis den part som användaren interagerar med och begär token från auktoriseringsservern. Klienten måste beviljas behörighet att komma åt resursen som ägare till resursen.
-* Den **resursservern** är där resursen eller data finns. Den litar på Auktoriseringsservern för att på ett säkert sätt autentisera och auktorisera OAuth-klienten och använder ägar åtkomst-token så att du kan få åtkomst till en resurs.
+* **Auktoriseringsservern** är Microsoft Identity Platform-slutpunkten och ansvarig för att säkerställa användarens identitet, beviljande och återkallande av åtkomst till resurser och utfärdande av tokens. Auktoriseringsservern kallas även för identitets leverantören – den hanterar säkert något att göra med användarens information, deras åtkomst och förtroende relationer mellan parter i ett flöde.
+* **Resurs ägaren** är vanligt vis slutanvändaren. Det är den part som äger data och har möjlighet att låta tredje part komma åt dessa data eller resurser.
+* **OAuth-klienten** är din app som identifieras av dess program-ID. OAuth-klienten är vanligt vis den part som slutanvändaren interagerar med och den begär token från auktoriseringsservern. Klienten måste beviljas behörighet att få åtkomst till resursen av resurs ägaren.
+* **Resurs servern** är den plats där resursen eller data finns. Den litar på Auktoriseringsservern för att på ett säkert sätt autentisera och auktorisera OAuth-klienten, och använder sig av Bearer-åtkomsttoken för att säkerställa att åtkomst till en resurs kan beviljas.
 
-## <a name="app-registration"></a>Appregistrering
+## <a name="app-registration"></a>Registrera appar
 
-Varje app som vill acceptera både personliga- och arbets-eller skolkonto måste registreras via den **appregistreringar** användarupplevelsen i den [Azure-portalen](https://aka.ms/appregistrations) innan den kan logga dessa användare i med hjälp av OAuth 2.0 eller OpenID Connect. Registreringsprocessen att samla in och tilldelar några värden till din app:
+Varje app som vill acceptera både personliga konton och arbets-eller skol konton måste registreras via **Appregistreringar** -upplevelsen i [Azure Portal](https://aka.ms/appregistrations) innan de kan signera dessa användare i med hjälp av OAuth 2,0 eller OpenID Connect. Registrerings processen för appen samlar in och tilldelar några värden till appen:
 
-* En **program-ID** som unikt identifierar din app
-* En **omdirigerings-URI** (valfritt) som kan användas för att dirigera svar tillbaka till din app
-* Några andra scenariespecifika-värden.
+* Ett **program-ID** som unikt identifierar din app
+* En omdirigerings- **URI** (valfritt) som kan användas för att dirigera svar tillbaka till din app
+* Några andra scenario-/regionsspecifika värden.
 
 Om du vill ha mer information lär du dig hur du [registrerar en app](quickstart-register-app.md).
 
 ## <a name="endpoints"></a>Slutpunkter
 
-När registrerats är kommunicerar appen med Microsoft identity-plattformen genom att skicka förfrågningar till slutpunkten:
+När appen har registrerats kommunicerar den med Microsoft Identity Platform genom att skicka begär anden till slut punkten:
 
 ```
 https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize
 https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token
 ```
 
-Där den `{tenant}` kan ha något av fyra olika värden:
+`{tenant}` Där kan ett av fyra olika värden göras:
 
 | Värde | Beskrivning |
 | --- | --- |
-| `common` | Gör att användare med både personliga Microsoft-konton och arbets-/ skolkonton från Azure AD för att logga in i programmet. |
-| `organizations` | Tillåter endast användare med arbets-/ skolkonton från Azure AD för att logga in i programmet. |
-| `consumers` | Kan endast användare med personliga Microsoft-konton (MSA) för att logga in i programmet. |
-| `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` eller `contoso.onmicrosoft.com` | Kan endast användare med arbets-/ skolkonton från en viss Azure AD-klient för att logga in i programmet. Du kan använda antingen det egna domännamnet i Azure AD-klient eller klientens GUID-identifierare. |
+| `common` | Gör att användare med både personliga Microsoft-konton och arbets-/skol konton från Azure AD kan logga in på programmet. |
+| `organizations` | Tillåter endast användare med arbets-/skol konton från Azure AD att logga in på programmet. |
+| `consumers` | Tillåter endast användare med personliga Microsoft-konton (MSA) att logga in i programmet. |
+| `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` eller `contoso.onmicrosoft.com` | Tillåter endast användare med arbets-/skol konton från en viss Azure AD-klient för att logga in på programmet. Antingen det egna domän namnet för Azure AD-klienten eller klient organisationens GUID-identifierare kan användas. |
 
-Om du vill veta hur du interagerar med de här slutpunkterna, väljer du en viss app-typ i den [protokoll](#protocols) avsnittet och följ länkarna för mer information.
+Om du vill lära dig hur du interagerar med dessa slut punkter väljer du en viss typ av app i avsnittet [protokoll](#protocols) och följer länkarna för mer information.
 
 > [!TIP]
-> Alla appar som är registrerade i Azure AD kan använda Microsoft identity-plattformen slutpunkten, även om de inte loggar in personliga konton.  På så sätt kan du migrera befintliga program till Microsoft identity-plattformen och [MSAL](reference-v2-libraries.md) utan att återskapa ditt program.  
+> Alla appar som är registrerade i Azure AD kan använda Microsoft Identity Platform-slutpunkten, även om de inte loggar in personliga konton.  På så sätt kan du migrera befintliga program till Microsoft Identity Platform och [MSAL](reference-v2-libraries.md) utan att skapa programmet på nytt.  
 
 ## <a name="tokens"></a>Token
 
-Microsoft identity-plattformen implementeringen av OAuth 2.0 och OpenID Connect gör omfattande användning av ägar-token, inklusive ägar-token som JWTs. En ägartoken är en förenklad säkerhetstoken som ger ”ägar” åtkomst till en skyddad resurs. I detta avseende är ”ägar” en part som kan utgöra en token. Även om en part måste först autentisera med Microsoft identity-plattformen för att ta emot ägartoken, om steg som krävs inte vidtas för att skydda token i överföring och lagring, kan den fångas upp och används av en oavsiktlig part. Även om vissa säkerhetstoken har en inbyggd mekanism för att förhindra obehöriga personer från att använda dem, ägar-token har inte den här mekanismen och måste transporteras i en säker kanal, till exempel transport layer security (HTTPS). Om en ägartoken skickas i klartext, kan en obehörig part använda en man-in-the-middle-attack att hämta token och använda den för obehörig åtkomst till en skyddad resurs. Samma säkerhetsprinciper gäller när du lagrar eller cachelagring ägar-token för senare användning. Se alltid till att appen överför och lagrar ägar-token på ett säkert sätt. Mer säkerheten på ägartoken, finns [RFC 6750 avsnitt 5](https://tools.ietf.org/html/rfc6750).
+Microsoft Identity Platform-implementeringen av OAuth 2,0 och OpenID Connect gör en omfattande användning av Bearer-token, inklusive Bearer-token som representeras som JWTs. En Bearer-token är en förenklad säkerhetstoken som ger "Bearer"-åtkomst till en skyddad resurs. I detta mening är "innehavare" en part som kan presentera token. Även om en part först måste autentisera med Microsoft Identity Platform för att ta emot Bearer-token, om de nödvändiga stegen inte vidtas för att skydda token i överföring och lagring, kan den fångas upp och användas av en ej avsedd part. Även om vissa säkerhetstoken har en inbyggd mekanism för att förhindra att obehöriga parter använder dem, har inte Bearer-token denna mekanism och måste transporteras i en säker kanal, till exempel Transport Layer Security (HTTPS). Om en Bearer-token överförs i klartext kan en angripare använda en person-i-ett-mellan-angrepp för att hämta token och använda den för obehörig åtkomst till en skyddad resurs. Samma säkerhets principer gäller när du lagrar eller cachelagrar Bearer-token för senare användning. Se alltid till att appen skickar och lagrar Bearer-token på ett säkert sätt. Mer information om säkerhets aspekter på Bearer-token finns i [RFC 6750 avsnitt 5](https://tools.ietf.org/html/rfc6750).
 
-Mer information om olika typer av token som används i Microsoft identity-plattformen slutpunkten är tillgänglig i [Microsoft identity-plattformen endpoint token reference](v2-id-and-access-tokens.md).
+Mer information om olika typer av token som används i Microsoft Identity Platform-slutpunkten finns i [referens för Microsoft Identity Platform](v2-id-and-access-tokens.md)-slutpunktens token.
 
 ## <a name="protocols"></a>Protokoll
 
-Om du är redo att se vissa exempel begäranden, Kom igång med någon av de nedan självstudier. Var och en motsvarar ett visst autentiseringsscenario. Om du behöver hjälp med att fastställa som är rätt för dig kan du kolla [typer av appar som du kan skapa med Microsofts identitetsplattform](v2-app-types.md).
+Kom igång med någon av de här självstudierna om du är redo att se några exempel förfrågningar. Var och en motsvarar ett visst scenario för autentisering. Om du behöver hjälp med att avgöra vilket som är rätt flöde åt dig, kan du titta närmare [på de typer av appar som du kan bygga med Microsoft Identity Platform](v2-app-types.md).
 
-* [Skapa mobila och interna program med OAuth 2.0](v2-oauth2-auth-code-flow.md)
-* [Skapa webbappar med OpenID Connect](v2-protocols-oidc.md)
-* [Skapa enkelsidiga appar med den OAuth 2.0 Implicit flöde](v2-oauth2-implicit-grant-flow.md)
-* [Skapa Daemon- eller serversidan processer med OAuth 2.0 flödet](v2-oauth2-client-creds-grant-flow.md)
-* [Hämta token i en webb-API med OAuth 2.0 on-behalf-of-flöde](v2-oauth2-on-behalf-of-flow.md)
+* [Bygg ett mobilt och inbyggt program med OAuth 2,0](v2-oauth2-auth-code-flow.md)
+* [Bygg webb program med OpenID Connect](v2-protocols-oidc.md)
+* [Bygg appar med en sida med det implicita flödet i OAuth 2,0](v2-oauth2-implicit-grant-flow.md)
+* [Bygg daemons eller Server sidans processer med OAuth 2,0-klientens autentiseringsuppgifter Flow](v2-oauth2-client-creds-grant-flow.md)
+* [Hämta token i ett webb-API med OAuth 2,0 på uppdrag av Flow](v2-oauth2-on-behalf-of-flow.md)

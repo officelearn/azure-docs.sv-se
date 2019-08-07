@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 07/12/2018
+ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: 7f6ec1ee65727fb8c3c7d98f696c288e95ec880a
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 4b50b4acf6ea655c40821e7c49824af11aeeb9ab
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876196"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68816298"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Vanliga frågor och svar om SQL Server som körs på virtuella Windows-datorer i Azure
 
@@ -73,7 +73,7 @@ Den här artikeln innehåller svar på några av de vanligaste frågorna om att 
 
    Skapa först en virtuell Azure-dator med en SQL Server instans. Migrera sedan dina lokala databaser till den instansen. Information om strategier för datamigrering finns i [Migrera en SQL Server databas till SQL Server i en virtuell Azure-dator](virtual-machines-windows-migrate-sql.md).
 
-## <a name="licensing"></a>Licensiering
+## <a name="licensing"></a>Licenser
 
 1. **Hur kan jag installera min licensierade version av SQL Server på en virtuell Azure-dator?**
 
@@ -122,6 +122,11 @@ Den här artikeln innehåller svar på några av de vanligaste frågorna om att 
 
     Ja. Om du har distribuerat SQL Server från ditt eget medium och installerat SQL IaaS-tillägget kan du registrera dina SQL Server VM med resurs leverantören för att få de hanterings förmåner som ges av tillägget för SQL-IaaS. Du kan dock inte konvertera en egendistribuerad virtuell SQL-dator till betala per användning.
 
+1. **Är det möjligt att växla licensierings modell på en SQL Server VM distribuerad med hjälp av den klassiska modellen?**
+
+   Nej. Det finns inte stöd för att ändra licensierings modell på en klassisk virtuell dator. Du kan migrera den virtuella datorn till Resource Manager-modellen (ARM) och registrera dig hos resurs leverantören för SQL-VM. När den virtuella datorn har registrerats med resurs leverantören för SQL-VM kommer licensierings modell ändringar att vara tillgängliga på den virtuella datorn. 
+   
+
 ## <a name="administration"></a>Administration
 
 1. **Kan jag installera en andra instans av SQL Server på samma virtuella dator? Kan jag ändra installerade funktioner på standardinstansen?**
@@ -148,7 +153,7 @@ Den här artikeln innehåller svar på några av de vanligaste frågorna om att 
 
 1. **Hur gör jag för att ändra till en annan version/utgåva av SQL Server på en virtuell Azure-dator?**
 
-   Kunder kan ändra sin version/utgåva av SQL Server med hjälp av installations mediet som innehåller den önskade versionen eller versionen av SQL Server. När utgåvan har ändrats använder du Azure Portal för att ändra egenskapen version för den virtuella datorn så att den korrekt speglar faktureringen för den virtuella datorn. Mer information finns i avsnittet [om ändrings versioner av en SQL Server VM](virtual-machines-windows-sql-change-edition.md). 
+   Kunder kan ändra sin version/utgåva av SQL Server med hjälp av installationsmediet som innehåller den önskade versionen eller utgåvan av SQL Server. När utgåvan har ändrats använder du Azure-portalen för att ändra versionsegenskapen för den virtuella datorn så att faktureringen för den virtuella datorn återspeglas korrekt. Mer information finns i avsnittet [om ändrings versioner av en SQL Server VM](virtual-machines-windows-sql-change-edition.md). 
 
 
 1. **Hur tillämpas uppdateringar och service packs på en SQL Server VM?**

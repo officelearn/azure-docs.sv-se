@@ -1,6 +1,6 @@
 ---
 title: Lär dig mer om Microsoft Authentication Library (MSAL) | Azure
-description: 'Microsoft Authentication Library (MSAL) gör det möjligt för apputvecklare att hämta token för att kunna anropa säkra webb-API: er. Dessa webb-API: er kan vara Microsoft Graph, andra Microsoft-APIS, från tredje part webb-API: er eller Web API. MSAL har stöd för flera arkitekturer för program och plattformar.'
+description: 'Microsoft Authentication Library (MSAL) gör det möjligt för programutvecklare att förvärva tokens för att anropa säkra webb-API: er. Dessa webb-API: er kan vara Microsoft Graph, andra Microsoft API: er, webb-API: er från tredje part eller ditt eget webb-API. MSAL stöder flera program arkitekturer och plattformar.'
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
@@ -9,7 +9,7 @@ editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: overview
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/25/2019
@@ -17,51 +17,51 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4bd3e7d47b6e3083af6f388a5cd750da240a76b6
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: be24ad78ae8f8977284deac0f3d978b35c621bcd
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66392888"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68834956"
 ---
 # <a name="overview-of-microsoft-authentication-library-msal"></a>Översikt över Microsoft Authentication Library (MSAL)
-Microsoft Authentication Library (MSAL) gör det möjligt för utvecklare att hämta [token](developer-glossary.md#security-token) från Microsoft identity-plattformen slutpunkt för att komma åt skyddade webb-API: er. Dessa webb-API: er kan vara Microsoft Graph, andra Microsoft-APIS, från tredje part webb-API: er eller Web API. MSAL är tillgänglig för .NET, JavaScript, Android och iOS, som stöder många olika arkitekturer och plattformar.
+Med Microsoft Authentication Library (MSAL) kan utvecklare Hämta [tokens](developer-glossary.md#security-token) från slut punkten för Microsoft Identity Platform för att få åtkomst till säkra webb-API: er. Dessa webb-API: er kan vara Microsoft Graph, andra Microsoft API: er, webb-API: er från tredje part eller ditt eget webb-API. MSAL är tillgängligt för .NET, Java Script, Android och iOS, som har stöd för många olika program arkitekturer och plattformar.
 
-MSAL ger dig många sätt att hämta token med en konsekvent API för flera plattformar. Med MSAL ger följande fördelar:
+MSAL ger dig många sätt att hämta tokens med ett konsekvent API för ett antal plattformar. Användning av MSAL ger följande fördelar:
 
-* Du behöver inte använda OAuth-bibliotek eller koda mot protokollet direkt i ditt program.
-* Hämtar token för en användares räkning eller åt ett program (när det gäller för plattformen).
-* Underhåller ett token-cache och uppdaterar token för dig när de är nära upphör att gälla. Du behöver inte hantera giltighetstid för token på egen hand.
-* Kan du ange vilken målgrupp du vill att programmet ska logga in (org, flera organisationer, arbete och skola och personliga Microsoft-konton, sociala identiteter med Azure AD B2C, användare i suveräna och nationella moln).
-* Kan du ställa in ditt program från configuration-filer.
-* Hjälper dig att felsöka din app genom att exponera användbara undantag, loggning och telemetri.
+* Du behöver inte direkt använda OAuth-bibliotek eller kod mot protokollet i ditt program.
+* Hämtar token för en användares räkning eller på uppdrag av ett program (om det är tillämpligt på plattformen).
+* Underhåller en token-cache och uppdaterar tokens åt dig när de är nära att gå ut. Du behöver inte hantera förfallo datum för token.
+* Hjälper dig att ange vilken mål grupp du vill att ditt program ska logga in på (din organisation, flera organisationer, arbets-och skol-och Microsoft personal-konton, sociala identiteter med Azure AD B2C, användare i suveräna och nationella moln).
+* Hjälper dig att konfigurera ditt program från konfigurationsfiler.
+* Hjälper dig att felsöka din app genom att exponera åtgärds bara undantag, loggning och telemetri.
 
-## <a name="application-types-and-scenarios"></a>Programtyper och scenarier
-Med MSAL en token kan fås från flera typer av program: webbappar, webb-API: er, enkelsidiga appar (JavaScript), mobila och interna program, och Daemon och serverbaserade program. 
+## <a name="application-types-and-scenarios"></a>Program typer och scenarier
+Med hjälp av MSAL kan du hämta en token från ett antal program typer: webb program, webb-API: er, appar med enkel sida (Java Script), mobila program och inbyggda program, samt daemon och program på Server sidan. 
 
-MSAL kan användas i många Programscenarier, bland annat följande:
+MSAL kan användas i många program scenarier, inklusive följande:
 
-* [En sida-program (JavaScript)](scenario-spa-overview.md) 
-* [Webbapp som loggar in användare](scenario-web-app-sign-user-overview.md)
-* [Webbprogram logga in en användare och anropa ett webb-API åt användaren](scenario-web-app-call-api-overview.md)
-* [Skydda ett webb-API så att endast autentiserade användare har åtkomst till den](scenario-protected-web-api-overview.md)
-* [Webb-API som anropar ett annat underordnat webb-API åt den inloggade användaren](scenario-web-api-call-api-overview.md)
-* [Skrivbordsprogram som anropar ett webb-API åt den inloggade användaren](scenario-desktop-overview.md)
-* [Mobila program som anropar ett webb-API för den användare som är inloggade interaktivt](scenario-mobile-overview.md).
-* [Tjänsten/daemonprogram anropa webb-API för själva](scenario-daemon-overview.md)
+* [Program med en sida (Java Script)](scenario-spa-overview.md) 
+* [Webb program som loggar in användare](scenario-web-app-sign-user-overview.md)
+* [Webb program som loggar in en användare och anropar ett webb-API för användarens räkning](scenario-web-app-call-api-overview.md)
+* [Skydda ett webb-API så att endast autentiserade användare kan komma åt det](scenario-protected-web-api-overview.md)
+* [Webb-API som anropar ett annat underordnat webb-API å den inloggade användarens vägnar](scenario-web-api-call-api-overview.md)
+* [Skriv bords program som anropar ett webb-API å den inloggade användarens vägnar](scenario-desktop-overview.md)
+* [Mobil program som anropar ett webb-API åt användaren som är](scenario-mobile-overview.md)inloggad interaktivt.
+* [Desktop/Service daemon-program som anropar webb-API: et åt sig själv](scenario-daemon-overview.md)
 
 ## <a name="languages-and-frameworks"></a>Språk och ramverk
 
-| Bibliotek | Plattformar som stöds och ramverk|
+| Bibliotek | Plattformar och ramverk som stöds|
 | --- | --- | 
-| ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/>[MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet)| .NET framework, .NET Core, Xamarin Android, Xamarin iOS, Universal Windows Platform|
-| ![MSAL.js](media/sample-v2-code/logo_js.png) <br/>[MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)| JavaScript/TypeScript ramverk som AngularJS, Ember.js eller Durandal.js|
-| ![MSAL för Android](media/sample-v2-code/logo_Android.png) <br/>[MSAL för Android (förhandsversion)](https://github.com/AzureAD/microsoft-authentication-library-for-android)|Android|
-| ![MSAL för iOS](media/sample-v2-code/logo_iOS.png) <br/>[MSAL.Objective-C (preview)](https://github.com/AzureAD/microsoft-authentication-library-for-objc)|iOS|
+| ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/>[MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet)| .NET Framework, .NET Core, Xamarin Android, Xamarin iOS, Universell Windows-plattform|
+| ![MSAL.js](media/sample-v2-code/logo_js.png) <br/>[MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)| Java Script/TypeScript-ramverk som AngularJS, maskininlärning. js eller Durandal. js|
+| ![MSAL för Android](media/sample-v2-code/logo_Android.png) <br/>[MSAL för Android (för hands version)](https://github.com/AzureAD/microsoft-authentication-library-for-android)|Android|
+| ![MSAL för iOS](media/sample-v2-code/logo_iOS.png) <br/>[MSAL. Mål-C (för hands version)](https://github.com/AzureAD/microsoft-authentication-library-for-objc)|iOS|
 
 ## <a name="differences-between-adal-and-msal"></a>Skillnader mellan ADAL och MSAL
-Active Directory Authentication Library (ADAL) integreras med Azure AD för utvecklare (v1.0) slutpunkt, där MSAL kan integreras med Microsoft identity-plattformen (v2.0) slutpunkt. V1.0 slutpunkten stöder arbetskonton, men inte personliga konton. V2.0-slutpunkten är med personliga Microsoft-konton och arbetskonton möjliggör i ett enda autentiseringssystem. Dessutom med MSAL kan du också få autentiseringar för Azure AD B2C.
+Active Directory-autentiseringsbibliotek (ADAL) integreras med slut punkten för Azure AD för utvecklare (v 1.0), där MSAL integreras med slut punkten för Microsoft Identity Platform (v 2.0). V 1.0-slutpunkten stöder arbets konton, men inte personliga konton. V 2.0-slutpunkten är arbetskonton av Microsofts personliga konton och arbets konton i ett enda autentiseringspaket. Med MSAL kan du dessutom även hämta autentiseringar för Azure AD B2C.
 
-Mer detaljerad information, Läs om [migrerar till MSAL.NET från ADAL.NET](msal-net-migration.md) och [migrerar till MSAL.js från ADAL.js](msal-compare-msal-js-and-adal-js.md).
+Mer detaljerad information finns i [migrera till MSAL.net från ADAL.net](msal-net-migration.md) och [migrera till MSAL. js från ADAL. js](msal-compare-msal-js-and-adal-js.md).
 
             

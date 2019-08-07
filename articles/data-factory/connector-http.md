@@ -1,6 +1,6 @@
 ---
-title: Kopiera data från en HTTP-källa med hjälp av Azure Data Factory | Microsoft Docs
-description: Lär dig hur du kopierar data från en källa för molnet eller lokalt HTTP till mottagarens datalager genom att använda en Kopieringsaktivitet i en Azure Data Factory-pipeline.
+title: Kopiera data från en HTTP-källa med Azure Data Factory | Microsoft Docs
+description: Lär dig hur du kopierar data från en moln-eller lokal HTTP-källa till mottagar data lager som stöds med hjälp av en kopierings aktivitet i en Azure Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -10,68 +10,68 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 08/06/2019
 ms.author: jingwang
-ms.openlocfilehash: a668bb2e0e3381abefaac93a0fb63f0d33bac5a1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8d6cc131c0c2baf7cc0a6600946870615d99e030
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65234061"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839799"
 ---
 # <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory"></a>Kopiera data från en HTTP-slutpunkt med hjälp av Azure Data Factory
 
-> [!div class="op_single_selector" title1="Välj versionen av Data Factory-tjänsten som du använder:"]
+> [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
 > * [Version 1](v1/data-factory-http-connector.md)
 > * [Aktuell version](connector-http.md)
 
-Den här artikeln beskrivs hur du använder Kopieringsaktivitet i Azure Data Factory för att kopiera data från en HTTP-slutpunkt. Artikeln bygger vidare på [Kopieringsaktivitet i Azure Data Factory](copy-activity-overview.md), som anger en allmän översikt över Kopieringsaktivitet.
+Den här artikeln beskriver hur du använder kopierings aktivitet i Azure Data Factory för att kopiera data från en HTTP-slutpunkt. Artikeln bygger vidare på [Kopieringsaktivitet i Azure Data Factory](copy-activity-overview.md), som anger en allmän översikt över Kopieringsaktivitet.
 
-Skillnaden mellan den här HTTP-anslutningen i [REST-anslutningsapp](connector-rest.md) och [tabell Webbanslutning](connector-web-table.md) är:
+Skillnaden mellan den här HTTP-kopplingen, [rest-kopplingen](connector-rest.md) och [webb tabell anslutningen](connector-web-table.md) är:
 
-- **REST-anslutningsapp** mer specifikt stöd som kopierar data från RESTful API: er; 
-- **HTTP-anslutningsappen** är generisk att hämta data från alla HTTP-slutpunkt, t.ex. att hämta filen. Innan REST-anslutningsapp blir tillgänglig, kan du råkar använda HTTP-anslutningen för att kopiera data från RESTful-API, vilket är stöds men mindre funktionella jämföra för REST-anslutningsapp.
-- **Tabellen Webbanslutning** extraherar tabellen innehåll från en HTML-webbsidan.
+- **Rest Connector** har stöd för att kopiera data från RESTful-API: er; 
+- **Http-anslutningen** är generisk för att hämta data från alla http-slutpunkter, t. ex. för att hämta filen. Innan REST Connector blir tillgängligt kan det hända att du använder HTTP-anslutningen för att kopiera data från RESTful-API, som stöds men mindre funktions jämförelse med REST Connector.
+- **Webb tabells koppling** extraherar tabell innehåll från en HTML-webbsida.
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
-Du kan kopiera data från en HTTP-källa till alla datalager för mottagare som stöds. En lista över data lagrar att det stöder Kopieringsaktiviteten som källor och mottagare, finns i [datalager och format som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
+Du kan kopiera data från en HTTP-källa till alla mottagar data lager som stöds. En lista över data lagrar att det stöder Kopieringsaktiviteten som källor och mottagare, finns i [datalager och format som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
 
-Du kan använda den här HTTP-anslutningen till:
+Du kan använda den här HTTP-anslutningen för att:
 
-- Hämta data från en HTTP/S-slutpunkt med hjälp av HTTP **hämta** eller **POST** metoder.
-- Hämta data med någon av följande autentiseringar: **Anonym**, **grundläggande**, **sammanfattad**, **Windows**, eller **ClientCertificate**.
-- Kopiera HTTP-svar som – är eller parsa den med hjälp av [stöds filformat och komprimering codec](supported-file-formats-and-compression-codecs.md).
+- Hämta data från en HTTP/S-slutpunkt med hjälp av metoderna HTTP **Get** eller **post** .
+- Hämta data genom att använda någon av följande autentiseringar: **Anonym**, **grundläggande**, **Sammanfattad**, **Windows**eller **ClientCertificate**.
+- Kopiera HTTP-svaret i befintligt skick eller parsa det genom att använda [fil format och komprimerings-codec som stöds](supported-file-formats-and-compression-codecs.md).
 
 > [!TIP]
-> Läs mer om API-specifikationen för rubriken och brödtexten krav för att testa en HTTP-begäran för datahämtning innan du konfigurerar HTTP-anslutningen i Data Factory. Du kan använda verktyg som Postman eller en webbläsare för att verifiera.
+> Om du vill testa en HTTP-begäran för data hämtning innan du konfigurerar HTTP-anslutningen i Data Factory kan du läsa om API-specifikationen för sidhuvuds-och text krav. Du kan använda verktyg som Postman eller webbläsare för att validera.
 
 ## <a name="get-started"></a>Kom igång
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-Följande avsnitt innehåller information om egenskaper som du kan använda för att definiera Data Factory-entiteter som är specifika för HTTP-anslutningsappen.
+Följande avsnitt innehåller information om egenskaper som du kan använda för att definiera Data Factory entiteter som är speciella för HTTP-anslutningen.
 
 ## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
 
-Följande egenskaper har stöd för HTTP-länkade tjänsten:
+Följande egenskaper stöds för den länkade HTTP-tjänsten:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Den **typ** egenskapen måste anges till **HTTP-servern**. | Ja |
-| url | Den grundläggande Webbadressen till webbservern. | Ja |
-| enableServerCertificateValidation | Ange om du vill aktivera serververifiering SSL-certifikat när du ansluter till en HTTP-slutpunkt. Om din HTTPS-servern använder ett självsignerat certifikat, ange egenskapen till **FALSKT**. | Nej<br /> (standardvärdet är **SANT**) |
-| authenticationType | Anger autentiseringstypen. Tillåtna värden är **anonym**, **grundläggande**, **sammanfattad**, **Windows**, och **ClientCertificate**. <br><br> Se avsnitten som följer den här tabellen för mer egenskaper och JSON-exempel för dessa typer av autentisering. | Ja |
-| connectVia | Den [Integreringskörningen](concepts-integration-runtime.md) för att ansluta till datalagret. Du kan använda Azure Integration Runtime eller en lokal Integration Runtime (om ditt datalager finns i ett privat nätverk). Om den inte anges används den här egenskapen standard Azure Integration Runtime. |Nej |
+| type | Egenskapen **Type** måste anges till **HttpServer**. | Ja |
+| url | Bas-URL: en till webb servern. | Ja |
+| enableServerCertificateValidation | Ange om du vill aktivera verifiering av Server-SSL-certifikat när du ansluter till en HTTP-slutpunkt. Om HTTPS-servern använder ett självsignerat certifikat ställer du in den här egenskapen på **falskt**. | Nej<br /> (Standardvärdet är **Sant**) |
+| authenticationType | Anger autentiseringstypen. Tillåtna värden är **Anonym**, **Basic**, **Digest**, **Windows**och **ClientCertificate**. <br><br> Se de avsnitt som följer den här tabellen för fler egenskaper och JSON-exempel för de här typerna av autentisering. | Ja |
+| connectVia | Den [Integreringskörningen](concepts-integration-runtime.md) för att ansluta till datalagret. Du kan använda Azure Integration Runtime eller en egen värd Integration Runtime (om ditt data lager finns i ett privat nätverk). Om detta inte anges använder den här egenskapen standard Azure Integration Runtime. |Nej |
 
-### <a name="using-basic-digest-or-windows-authentication"></a>Med hjälp av grundläggande, sammanfattad eller Windows-autentisering
+### <a name="using-basic-digest-or-windows-authentication"></a>Använda Basic-, Digest-eller Windows-autentisering
 
-Ange den **authenticationType** egenskap **grundläggande**, **sammanfattad**, eller **Windows**. Förutom de allmänna egenskaper som beskrivs i föregående avsnitt, anger du följande egenskaper:
+Ange egenskapen **authenticationType** som **Basic**, **Digest**eller **Windows**. Förutom de allmänna egenskaper som beskrivs i föregående avsnitt anger du följande egenskaper:
 
-| Egenskap | Beskrivning | Obligatoriskt |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
-| userName | Användarnamnet du använder för att få åtkomst till HTTP-slutpunkt. | Ja |
-| password | Lösenordet för användaren (den **användarnamn** värde). Markera det här fältet som en **SecureString** Skriv för att lagra den på ett säkert sätt i Data Factory. Du kan också [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| userName | Användar namnet som används för att få åtkomst till HTTP-slutpunkten. | Ja |
+| password | Användarens lösen ord (värdet **username** ). Markera det här fältet som en **SecureString** Skriv för att lagra den på ett säkert sätt i Data Factory. Du kan också [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 
 **Exempel**
 
@@ -97,24 +97,24 @@ Ange den **authenticationType** egenskap **grundläggande**, **sammanfattad**, e
 }
 ```
 
-### <a name="using-clientcertificate-authentication"></a>Med hjälp av ClientCertificate autentisering
+### <a name="using-clientcertificate-authentication"></a>Använda ClientCertificate-autentisering
 
-Om du vill använda ClientCertificate autentisering, ange den **authenticationType** egenskap **ClientCertificate**. Förutom de allmänna egenskaper som beskrivs i föregående avsnitt, anger du följande egenskaper:
+Om du vill använda ClientCertificate-autentisering ställer du in egenskapen **authenticationType** på **ClientCertificate**. Förutom de allmänna egenskaper som beskrivs i föregående avsnitt anger du följande egenskaper:
 
-| Egenskap | Beskrivning | Obligatoriskt |
+| Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
-| embeddedCertData | Base64-kodat certifikatdata. | Ange antingen **embeddedCertData** eller **certThumbprint**. |
-| certThumbprint | Tumavtrycket för certifikatet som är installerad på din egen värd Integration Runtime-datorns certifikatarkiv. Gäller endast när typen lokal installation av Integration Runtime har angetts i den **connectVia** egenskapen. | Ange antingen **embeddedCertData** eller **certThumbprint**. |
-| password | Lösenordet som är associerat med certifikatet. Markera det här fältet som en **SecureString** Skriv för att lagra den på ett säkert sätt i Data Factory. Du kan också [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Nej |
+| embeddedCertData | Base64-kodade certifikat data. | Ange antingen **embeddedCertData** eller **certThumbprint**. |
+| certThumbprint | Tumavtrycket för det certifikat som är installerat på din egen värd Integration Runtime datorns certifikat arkiv. Gäller endast när den egen värdbaserade typen av Integration Runtime anges i egenskapen **connectVia** . | Ange antingen **embeddedCertData** eller **certThumbprint**. |
+| password | Lösen ordet som är associerat med certifikatet. Markera det här fältet som en **SecureString** Skriv för att lagra den på ett säkert sätt i Data Factory. Du kan också [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Nej |
 
-Om du använder **certThumbprint** för autentisering och certifikatet är installerat i det personliga arkivet i den lokala datorn kan bevilja läsbehörighet till den lokal Integration Runtime:
+Om du använder **certThumbprint** för autentisering och certifikatet är installerat i det personliga arkivet på den lokala datorn ger du Läs behörighet till den lokala datorn integration Runtime:
 
-1. Öppna Microsoft Management Console (MMC). Lägg till den **certifikat** snapin-modul som riktar sig mot **lokala**.
-2. Expandera **certifikat** > **personliga**, och välj sedan **certifikat**.
-3. Högerklicka på certifikatet från det personliga arkivet och välj sedan **alla uppgifter** > **hantera privata nycklar**.
-3. På den **Security** fliken, lägga till användarkontot som värdtjänsten för Integration Runtime (DIAHostService) körs under, med läsbehörighet till certifikatet.
+1. Öppna Microsoft Management Console (MMC). Lägg till snapin-modulen **certifikat** som är riktad mot den **lokala datorn**.
+2. Expandera **certifikat** > **personliga**och välj sedan **certifikat**.
+3. Högerklicka på certifikatet i det personliga arkivet och välj sedan **alla aktiviteter** > **hantera privata nycklar**.
+3. På fliken **säkerhet** lägger du till det användar konto som integration runtime värd tjänsten (dia Host service) körs under, med Läs behörighet till certifikatet.
 
-**Exempel 1: Med hjälp av certThumbprint**
+**Exempel 1: Använda certThumbprint**
 
 ```json
 {
@@ -134,7 +134,7 @@ Om du använder **certThumbprint** för autentisering och certifikatet är insta
 }
 ```
 
-**Exempel 2: Med hjälp av embeddedCertData**
+**Exempel 2: Använda embeddedCertData**
 
 ```json
 {
@@ -162,23 +162,23 @@ Om du använder **certThumbprint** för autentisering och certifikatet är insta
 
 En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i den [datauppsättningar](concepts-datasets-linked-services.md) artikeln. 
 
-- För **Parquet och avgränsat textformat**, referera till [Parquet och avgränsad text formatera datauppsättning](#parquet-and-delimited-text-format-dataset) avsnittet.
-- För andra format som **ORC/Avro/JSON/binära formatet**, referera till [andra format datauppsättning](#other-format-dataset) avsnittet.
+- För **Parquet, avgränsad text och binärt format**, se avsnittet [Parquet, avgränsad text och binära format](#format-based-dataset) .
+- Andra format som **Orc/Avro/JSON-format**finns i avsnittet [annan format data uppsättning](#other-format-dataset) .
 
-### <a name="parquet-and-delimited-text-format-dataset"></a>Parquet och avgränsad text format datauppsättning
+### <a name="format-based-dataset"></a>Parquet, avgränsad text och binärt format data uppsättning
 
-Att kopiera data från HTTP i **Parquet eller avgränsat textformat**, referera till [Parquet-format](format-parquet.md) och [avgränsat textformat](format-delimited-text.md) artikel om format-baserade datauppsättning och som stöds inställningar. Följande egenskaper har stöd för HTTP under `location` inställningar i formatet-baserade datauppsättning:
+Om du vill kopiera data till och från **Parquet, avgränsade text-eller binärformat**, kan du läsa mer i [Parquet format](format-parquet.md), avgränsat [text format](format-delimited-text.md) och binära [format](format-binary.md) i artikeln format-baserad data uppsättning och inställningar som stöds. Följande egenskaper stöds för http under `location` inställningar i format-baserad data mängd:
 
 | Egenskap    | Beskrivning                                                  | Krävs |
 | ----------- | ------------------------------------------------------------ | -------- |
-| type        | Egenskapen type under `location` i datauppsättningen måste anges till **HttpServerLocation**. | Ja      |
+| type        | Typ egenskapen under `location` i data mängden måste anges till **HttpServerLocation**. | Ja      |
 | relativeUrl | En relativ URL till den resurs som innehåller data.       | Nej       |
 
 > [!NOTE]
-> Maxstorleken för HTTP-begäran nyttolasten är cirka 500 KB. Om den nyttolast som du vill skicka till din webbslutpunkt är större än 500 KB, Överväg batchbearbetning nyttolast i mindre segment.
+> Den begärda nytto Last storleken för HTTP-begäran är cirka 500 KB. Om den nytto Last storlek som du vill skicka till webb slut punkten är större än 500 KB bör du överväga att lägga till nytto lasten i mindre segment.
 
 > [!NOTE]
-> **HttpFile** typ datauppsättning med Parquet-/ textformat som nämns i nästa avsnitt stöds fortfarande som – för kopiera/Lookup-aktiviteten för bakåtkompatibilitet. Du rekommenderas för att använda den nya modellen framöver och ADF redigering Användargränssnittet har ändrats till att generera dessa nya typer.
+> **HttpFile** Type-datauppsättning med Parquet/text format som nämns i nästa avsnitt stöds fortfarande som-är för kopiering/sökning-aktivitet för bakåtkompatibilitet. Du rekommenderas att använda den här nya modellen för att vidarebefordra och användar gränssnittet för ADF-redigering har växlat till att generera dessa nya typer.
 
 **Exempel:**
 
@@ -206,24 +206,24 @@ Att kopiera data från HTTP i **Parquet eller avgränsat textformat**, referera 
 }
 ```
 
-### <a name="other-format-dataset"></a>Andra format-datauppsättning
+### <a name="other-format-dataset"></a>Data uppsättning för andra format
 
-Att kopiera data från HTTP i **ORC/Avro/JSON/binära formatet**, stöds följande egenskaper:
+Följande egenskaper stöds för att kopiera data från HTTP i **Orc/Avro/JSON-format**:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Den **typ** egenskap måste anges till **HttpFile**. | Ja |
-| relativeUrl | En relativ URL till den resurs som innehåller data. När den här egenskapen har inte angetts används bara den URL som anges i länkade tjänstedefinition. | Nej |
-| requestMethod | HTTP-metoden. Tillåtna värden är **hämta** (standard) och **Post**. | Nej |
+| type | Data uppsättningens **typ** -egenskap måste anges till **HttpFile**. | Ja |
+| relativeUrl | En relativ URL till den resurs som innehåller data. När den här egenskapen inte anges används endast den URL som anges i den länkade tjänst definitionen. | Nej |
+| requestMethod | HTTP-metoden. Tillåtna värden är **Get** (standard) och **post**. | Nej |
 | additionalHeaders | Ytterligare rubriker för HTTP-begäran. | Nej |
-| requestBody | Brödtexten för HTTP-begäran. | Nej |
-| format | Om du vill hämta data från HTTP-slutpunkt som – är utan parsning och kopiera sedan data till ett filbaserade lager, hoppa över den **format** avsnittet i både inkommande och utgående datamängd definitionerna.<br/><br/>Om du vill parsa HTTP-svarsinnehåll vid kopiering stöds format för följande filtyper: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, och **ParquetFormat**. Under **format**, ange den **typ** egenskap enligt en av dessa värden. Mer information finns i [JSON-format](supported-file-formats-and-compression-codecs.md#json-format), [textformat](supported-file-formats-and-compression-codecs.md#text-format), [Avro-formatet](supported-file-formats-and-compression-codecs.md#avro-format), [Orc-format](supported-file-formats-and-compression-codecs.md#orc-format), och [Parquet-format](supported-file-formats-and-compression-codecs.md#parquet-format). |Nej |
-| compression | Ange typ och komprimeringsnivå för data. Mer information finns i [stöds filformat och komprimering codec](supported-file-formats-and-compression-codecs.md#compression-support).<br/><br/>Typer som stöds: **GZip**, **Deflate**, **BZip2**, och **ZipDeflate**.<br/>Stöds nivåer:  **Optimal** och **snabbaste**. |Nej |
+| requestBody | Bröd texten för HTTP-begäran. | Nej |
+| format | Om du vill hämta data från HTTP-slutpunkten i befintligt skick utan att parsa den, och sedan kopiera data till en filbaserad lagring, hoppar du över avsnittet **format** i både indata och utdata-datauppsättnings definitioner.<br/><br/>Om du vill parsa innehållet i HTTP-svar under kopieringen, stöds följande fil format typer:Text Forms, **JsonFormat**, **AvroFormat**, **OrcFormat**och **ParquetFormat**. Under **format**anger du egenskapen **Type** till något av dessa värden. Mer information finns i [JSON-format](supported-file-formats-and-compression-codecs.md#json-format), [text format](supported-file-formats-and-compression-codecs.md#text-format), [Avro](supported-file-formats-and-compression-codecs.md#avro-format)-format, Orc- [format](supported-file-formats-and-compression-codecs.md#orc-format)och [Parquet-format](supported-file-formats-and-compression-codecs.md#parquet-format). |Nej |
+| compression | Ange typ och komprimeringsnivå för data. Mer information finns i [stöds filformat och komprimering codec](supported-file-formats-and-compression-codecs.md#compression-support).<br/><br/>Typer som stöds: **Gzip**,DEFLATE, **BZip2**och **ZipDeflate**.<br/>Nivåer som stöds:  **Optimal** och **snabbast**. |Nej |
 
 > [!NOTE]
-> Maxstorleken för HTTP-begäran nyttolasten är cirka 500 KB. Om den nyttolast som du vill skicka till din webbslutpunkt är större än 500 KB, Överväg batchbearbetning nyttolast i mindre segment.
+> Den begärda nytto Last storleken för HTTP-begäran är cirka 500 KB. Om den nytto Last storlek som du vill skicka till webb slut punkten är större än 500 KB bör du överväga att lägga till nytto lasten i mindre segment.
 
-**Exempel 1: Med Get-metoden (standard)**
+**Exempel 1: Använda Get-metoden (standard)**
 
 ```json
 {
@@ -242,7 +242,7 @@ Att kopiera data från HTTP i **ORC/Avro/JSON/binära formatet**, stöds följan
 }
 ```
 
-**Exempel 2: Med hjälp av metoden Post**
+**Exempel 2: Använda post-metoden**
 
 ```json
 {
@@ -264,30 +264,30 @@ Att kopiera data från HTTP i **ORC/Avro/JSON/binära formatet**, stöds följan
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
-Det här avsnittet innehåller en lista över egenskaper som har stöd för HTTP-källa.
+Det här avsnittet innehåller en lista över egenskaper som HTTP-källan stöder.
 
 En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i [Pipelines](concepts-pipelines-activities.md). 
 
 ### <a name="http-as-source"></a>HTTP som källa
 
-- För kopia från **Parquet och avgränsat textformat**, referera till [Parquet och avgränsad text format källa](#parquet-and-delimited-text-format-source) avsnittet.
-- För kopia från andra format som **ORC/Avro/JSON/binära formatet**, referera till [annan format källa](#other-format-source) avsnittet.
+- Om du vill kopiera från **Parquet, avgränsad text och binärt format**, se avsnittet [Parquet, avgränsad text och binärt format](#format-based-source) .
+- Om du vill kopiera från andra format som **Orc/Avro/JSON-format**, se avsnittet [annan format källa](#other-format-source) .
 
-#### <a name="parquet-and-delimited-text-format-source"></a>Parquet och avgränsad text format källa
+#### <a name="format-based-source"></a>Parquet, avgränsad text-och binär format källa
 
-Att kopiera data från HTTP i **Parquet eller avgränsat textformat**, referera till [Parquet-format](format-parquet.md) och [avgränsat textformat](format-delimited-text.md) artikel om format-baserade aktiviteten kopieringskälla och inställningar som stöds. Följande egenskaper har stöd för HTTP under `storeSettings` inställningar i formatet-baserade kopieringskälla:
+Om du vill kopiera data från **Parquet, avgränsad text eller binärt format**, referera till [Parquet-format](format-parquet.md), avgränsat [text format](format-delimited-text.md) och binära [format](format-binary.md) -artikel med formatbaserade kopierings aktivitets källor och inställningar som stöds. Följande egenskaper stöds för http under `storeSettings` inställningar i format-baserad kopierings Källa:
 
 | Egenskap                 | Beskrivning                                                  | Krävs |
 | ------------------------ | ------------------------------------------------------------ | -------- |
-| type                     | Egenskapen type under `storeSettings` måste anges till **HttpReadSetting**. | Ja      |
-| requestMethod            | HTTP-metoden. <br>Tillåtna värden är **hämta** (standard) och **Post**. | Nej       |
+| type                     | Typ egenskapen under `storeSettings` måste anges till **HttpReadSetting**. | Ja      |
+| requestMethod            | HTTP-metoden. <br>Tillåtna värden är **Get** (standard) och **post**. | Nej       |
 | addtionalHeaders         | Ytterligare rubriker för HTTP-begäran.                             | Nej       |
-| requestBody              | Brödtexten för HTTP-begäran.                               | Nej       |
-| requestTimeout           | Timeout (i **TimeSpan** värde) för HTTP-begäran att få svar. Det här värdet är tidsgränsen för att få svar timeout inte att läsa svarsdata. Standardvärdet är **00:01:40**. | Nej       |
-| maxConcurrentConnections | Antal anslutningar för att ansluta till storage store samtidigt. Ange bara när du vill begränsa samtidiga anslutningen till datalagret. | Nej       |
+| requestBody              | Bröd texten för HTTP-begäran.                               | Nej       |
+| requestTimeout           | Timeout ( **TimeSpan** -värdet) för http-begäran för att få ett svar. Det här värdet är tids gränsen för att få ett svar, inte tids gränsen för att läsa svars data. Standardvärdet är **00:01:40**. | Nej       |
+| maxConcurrentConnections | Antalet anslutningar för att ansluta till lagrings lagret samtidigt. Ange bara när du vill begränsa den samtidiga anslutningen till data lagret. | Nej       |
 
 > [!NOTE]
-> För Parquet/avgränsat textformat **HttpSource** typen kopiera aktivitetskälla som nämns i nästa avsnitt stöds fortfarande som – är för bakåtkompatibilitet. Du rekommenderas för att använda den nya modellen framöver och ADF redigering Användargränssnittet har ändrats till att generera dessa nya typer.
+> För Parquet/avgränsat text format stöds **HttpSource** typ kopierings aktivitet som anges i nästa avsnitt fortfarande som-är för bakåtkompatibilitet. Du rekommenderas att använda den här nya modellen för att vidarebefordra och användar gränssnittet för ADF-redigering har växlat till att generera dessa nya typer.
 
 **Exempel:**
 
@@ -330,14 +330,14 @@ Att kopiera data från HTTP i **Parquet eller avgränsat textformat**, referera 
 ]
 ```
 
-#### <a name="other-format-source"></a>Andra format-källa
+#### <a name="other-format-source"></a>Annan format källa
 
-Att kopiera data från HTTP i **ORC/Avro/JSON/binära formatet**, följande egenskaper stöds i kopieringsaktiviteten **källa** avsnittet:
+Om du vill kopiera data från HTTP i **Orc/Avro/JSON-format**, stöds följande egenskaper i avsnittet Kopiera aktivitets **källa** :
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Den **typ** egenskapen för aktiviteten kopieringskälla måste anges till **HttpSource**. | Ja |
-| httpRequestTimeout | Timeout (i **TimeSpan** värde) för HTTP-begäran att få svar. Det här värdet är tidsgränsen för att få svar timeout inte att läsa svarsdata. Standardvärdet är **00:01:40**.  | Nej |
+| type | **Typ** egenskapen för kopierings aktivitets källan måste anges till **HttpSource**. | Ja |
+| httpRequestTimeout | Timeout ( **TimeSpan** -värdet) för http-begäran för att få ett svar. Det här värdet är tids gränsen för att få ett svar, inte tids gränsen för att läsa svars data. Standardvärdet är **00:01:40**.  | Nej |
 
 **Exempel**
 

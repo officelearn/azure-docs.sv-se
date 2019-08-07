@@ -1,6 +1,6 @@
 ---
-title: Gränssnittsdefinitionen för anpassade kognitiv sökning – Azure Search-kunskaper
-description: Anpassade data extrahering gränssnitt för webb-api anpassade färdighet i kognitiv sökning pipeline i Azure Search.
+title: Gränssnitts definition för anpassade kunskaper i kognitiv sökning – Azure Search
+description: Anpassat data extraherings gränssnitt för anpassad kunskap om webb-API i kognitiva Sök pipeliner i Azure Search.
 manager: pablocas
 author: luiscabrer
 services: search
@@ -9,48 +9,48 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seodec2018
-ms.openlocfilehash: e181aab3d92d8111a0a7d1d41bbddac20687a547
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.subservice: cognitive-search
+ms.openlocfilehash: c708cd282e38b5da73915e427485bb8990afd6c2
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67668866"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68841198"
 ---
-# <a name="how-to-add-a-custom-skill-to-a-cognitive-search-pipeline"></a>Lägga till en anpassad kunskap till en pipeline för kognitiv sökning
+# <a name="how-to-add-a-custom-skill-to-a-cognitive-search-pipeline"></a>Lägga till en anpassad färdighet i en kognitiv sökning-pipeline
 
-En [kognitiv sökning indexering av pipeline](cognitive-search-concept-intro.md) i Azure Search kan monteras från [fördefinierade kunskaper](cognitive-search-predefined-skills.md) samt [anpassade funktioner](cognitive-search-custom-skill-web-api.md) som du skapar personligt och lägga till den pipeline. I den här artikeln lär du dig hur du skapar en anpassad kunskap som exponerar ett gränssnitt som gör det möjligt att ingå i en pipeline för kognitiv sökning. 
+En [kognitiv Sök indexerings pipeline](cognitive-search-concept-intro.md) i Azure Search kan samlas in från [fördefinierade kunskaper](cognitive-search-predefined-skills.md) och [anpassade kunskaper](cognitive-search-custom-skill-web-api.md) som du själv skapar och lägger till i pipelinen. I den här artikeln lär du dig hur du skapar en anpassad färdighet som visar ett gränssnitt som gör att det kan tas med i en kognitiv Sök pipeline. 
 
-Att skapa en anpassad färdighet ger dig ett sätt att infoga transformationer som är unika för ditt innehåll. En anpassad färdighet körs oberoende av varandra, oavsett berikande steg som du behöver. Du kan till exempel definiera fält-specifik anpassade entiteter, skapa modeller för anpassad klassificering för att skilja företag och finansiella kontrakt och dokument eller Lägg till ett tal för kompetens att nå djupare i ljudfiler för relevant innehåll. Steg för steg-exempel finns i [exempel: Skapa en anpassad kunskap för kognitiv sökning](cognitive-search-create-custom-skill-example.md).
+Genom att skapa en anpassad färdighet får du ett sätt att infoga omvandlingar som är unika för ditt innehåll. En anpassad färdighet körs oberoende av varandra och använder det steg du behöver. Du kan till exempel definiera specifika anpassade entiteter, skapa anpassade klassificerings modeller för att särskilja affärs-och finansiella kontrakt och dokument, eller lägga till en kunskap om tal igenkänning för att komma djupare till ljudfilerna för relevant innehåll. Ett steg-för-steg-exempel finns i [exempel: Skapa en anpassad färdighet för kognitiv sökning](cognitive-search-create-custom-skill-example.md).
 
- Den anpassade funktionen som du behöver, finns det en enkel och tydlig användargränssnitt för att ansluta en anpassad kunskap till resten av berikande pipelinen. Det enda kravet ska ingå i en [kompetens](cognitive-search-defining-skillset.md) är möjligheten att acceptera indata och genererar utdata på ett sätt som är färdiga att konsumeras inom kompetens som helhet. Fokus i den här artikeln finns på de format som in- och utdata som kräver att berikande pipelinen.
+ Vilken anpassad funktion du behöver finns det ett enkelt och tydligt gränssnitt för att ansluta en anpassad färdighet till resten av pipelinen för anrikning. Det enda kravet för att inkludera i en [färdigheter](cognitive-search-defining-skillset.md) är möjligheten att acceptera indata och generera utdata på ett sätt som kan användas i färdigheter som helhet. Fokus för den här artikeln är i indata-och utdataformat som krävs för anriknings pipelinen.
 
-## <a name="web-api-custom-skill-interface"></a>Anpassade färdighet webbgränssnitt API
+## <a name="web-api-custom-skill-interface"></a>Anpassat kunskaps gränssnitt för webb-API
 
-Anpassade slutpunkter på grund av WebAPI-kunskaper med standardvärdet för timeout om de inte returnerar något svar inom en 30-sekundersfönster. För indexering av pipeline synkront, indexering skapas ett timeout-fel om inte svar i fönstret.  Det är möjligt att konfigurera timeout-värde för att vara upp till 90 sekunder, genom att ange timeout-parameter:
+Anpassad slut punkt för WebAPI-kunskaper som standard tids gräns om de inte returnerar ett svar inom 30 sekunders fönster. Indexerings pipelinen är synkron och indexeringen skapar ett tids gräns fel om inget svar tas emot i det fönstret.  Det går att konfigurera tids gränsen till upp till 230 sekunder genom att ange parametern timeout:
 
 ```json
         "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
-        "description": "This skill has a 90 second timeout",
+        "description": "This skill has a 230 second timeout",
         "uri": "https://[your custom skill uri goes here]",
-        "timeout": "PT90S",
+        "timeout": "PT230S",
 ```
 
-För närvarande är den enda mekanismen för att interagera med en anpassad kunskap genom ett webb-API-gränssnitt. Webb-API måste behöver uppfylla kraven som beskrivs i det här avsnittet.
+För närvarande är den enda mekanismen för att interagera med en anpassad färdighet via ett webb-API-gränssnitt. Webb-API-behoven måste uppfylla kraven som beskrivs i det här avsnittet.
 
-### <a name="1--web-api-input-format"></a>1.  Format för webb-API-indata
+### <a name="1--web-api-input-format"></a>1.  Utdataformat för webb-API
 
-Webb-API måste godkänna en matris med poster som ska bearbetas. Varje post måste innehålla en ”egenskapsuppsättning” som indata till ditt webb-API. 
+Webb-API: et måste acceptera en matris med poster som ska bearbetas. Varje post måste innehålla en "egenskaps uppsättning" som är den indata som ges till ditt webb-API. 
 
-Anta att du vill skapa en enkel enricher som identifierar det första datumet som nämns i texten i ett kontrakt. I det här exemplet kompetensen godkänner en enda indata *contractText* som kontrakt-text. Kompetensen har också ett enda utflöde, vilket är datumet då avtalet. Om du vill göra enricher mer intressant återgå det *contractDate* i form av en flerdelad komplex typ.
+Anta att du vill skapa en enkel berikare som identifierar det första datumet som anges i texten i ett kontrakt. I det här exemplet accepterar kunskapen en enskild *contractText* som kontrakts text. Kompetensen har också en enda utmatning, vilket är datumet för kontraktet. Om du vill bli mer intressant kan du returnera den här *contractDate* i form av en komplex typ av flera delar.
 
-Ditt webb-API ska vara redo att ta emot en batch med indata-poster. Varje medlem i den *värden* matrisen representerar indata för en viss post. Varje post måste ha följande element:
+Ditt webb-API bör vara redo att ta emot en batch med inmatade poster. Varje medlem i matrisen *Values* representerar indata för en viss post. Varje post måste ha följande element:
 
-+ En *recordId* medlem som är den unika identifieraren för en viss post. När din enricher returnerar resultat, den måste ange detta *recordId* avsätts anroparen vill matcha posten resultatet till sin syn.
++ En *recordId* -medlem som är den unika identifieraren för en viss post. När din berikare returnerar resultaten måste den ge den här *recordId* -funktionen för att tillåta anroparen att matcha postens resultat med indata.
 
-+ En *data* medlem, vilket är i grunden en egenskapsuppsättning av inmatningsfält för varje post.
++ En *data* medlem, som i princip är en uppsättning inmatnings fält för varje post.
 
-För att vara mer konkret per i exemplet ovan, ditt webb-API kan förvänta dig begäranden som ser ut så här:
+För att vara mer konkret, enligt exemplet ovan, bör ditt webb-API förvänta sig förfrågningar som ser ut så här:
 
 ```json
 {
@@ -81,11 +81,11 @@ För att vara mer konkret per i exemplet ovan, ditt webb-API kan förvänta dig 
     ]
 }
 ```
-I verkligheten kan hämta din tjänst volat med hundratals eller tusentals poster i stället för de tre som visas här.
+I verkligheten kan din tjänst anropas med hundratals eller tusentals poster i stället för bara de tre som visas här.
 
 ### <a name="2-web-api-output-format"></a>2. Utdataformat för webb-API
 
-Formatet för utdata är en uppsättning poster som innehåller en *recordId*, och en egenskapsuppsättning 
+Formatet på utdata är en uppsättning poster som innehåller ett *recordId*och en egenskaps uppsättning 
 
 ```json
 {
@@ -116,15 +116,15 @@ Formatet för utdata är en uppsättning poster som innehåller en *recordId*, o
 }
 ```
 
-Det här exemplet har endast en utdata, men du kunde resulterande utdata bli mer än en egenskap. 
+Det här specifika exemplet har bara ett utdata, men du kan skriva ut mer än en egenskap. 
 
-### <a name="errors-and-warning"></a>Fel och varningar
+### <a name="errors-and-warning"></a>Fel och varning
 
-I exemplet ovan visas kan du returnera fel- och varningsmeddelanden för varje post.
+Som du ser i föregående exempel kan du returnera fel-och varnings meddelanden för varje post.
 
-## <a name="consuming-custom-skills-from-skillset"></a>Använda anpassade funktioner från kompetens
+## <a name="consuming-custom-skills-from-skillset"></a>Konsumera anpassade kunskaper från färdigheter
 
-När du skapar en webb-API-enricher kan beskriva du HTTP-huvuden och parametrar som en del av begäran. Fragmentet nedan visar hur parametrarna och HTTP-huvuden kan beskrivas som en del av definitionen kompetens.
+När du skapar en webb-API-berikare kan du beskriva HTTP-huvuden och-parametrar som en del av begäran. I kodfragmentet nedan visas hur parametrarna för begäran och HTTP-huvuden kan beskrivas som en del av färdigheter-definitionen.
 
 ```json
 {
@@ -156,7 +156,7 @@ När du skapar en webb-API-enricher kan beskriva du HTTP-huvuden och parametrar 
 
 ## <a name="next-steps"></a>Nästa steg
 
-+ [Exempel: Skapa en anpassad kunskap för kognitiv sökning](cognitive-search-create-custom-skill-example.md)
-+ [Hur du definierar en kompetens](cognitive-search-defining-skillset.md)
-+ [Skapa kompetens (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
-+ [Avancerad och mappning](cognitive-search-output-field-mapping.md)
++ [Exempel: Skapa en anpassad färdighet för kognitiv sökning](cognitive-search-create-custom-skill-example.md)
++ [Så här definierar du en färdigheter](cognitive-search-defining-skillset.md)
++ [Skapa färdigheter (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
++ [Så här mappar du omfattande fält](cognitive-search-output-field-mapping.md)

@@ -1,22 +1,22 @@
 ---
-title: Översikt över Azure Active Directory autentisering över SMB för Azure Files (för hands version) – Azure Storage
-description: Azure Files stöder identitets-baserad autentisering över SMB (Server Message Block) (för hands version) via Azure Active Directory (Azure AD) Domain Services. Dina domänanslutna virtuella Windows-datorer (VM) kan sedan komma åt Azure-filresurser med hjälp av Azure AD-autentiseringsuppgifter.
+title: Översikt över Azure Active Directory autentisering över SMB för Azure Files-Azure Storage
+description: Azure Files stöder identitets-baserad autentisering över SMB (Server Message Block) via Azure Active Directory (Azure AD) Domain Services. Dina domänanslutna virtuella Windows-datorer (VM) kan sedan komma åt Azure-filresurser med hjälp av Azure AD-autentiseringsuppgifter.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
-ms.date: 06/18/2019
+ms.topic: article
+ms.date: 07/30/2019
 ms.author: rogarana
-ms.openlocfilehash: b1bc7385751fbd1829b4aee2713621448f8aa505
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 604cf2bbe0cf8ab036c76ee9223d1ee34fd4bd3d
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699722"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854551"
 ---
-# <a name="overview-of-azure-files-azure-active-directory-domain-service-aad-ds-authentication-support-for-smb-access-preview"></a>Översikt över stöd för autentisering med Azure Files Azure Active Directory Domain Service (AAD DS) för SMB-åtkomst (för hands version)
+# <a name="overview-of-azure-files-azure-active-directory-domain-service-azure-ad-ds-authentication-support-for-smb-access"></a>Översikt över stöd för Azure AD DS-autentisering (Azure Files Azure Active Directory Domain Service) för SMB-åtkomst
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
 
-Information om hur du aktiverar AAD DS-autentisering för Azure Files finns i [aktivera Azure Active Directory Domain Service Authentication över SMB för Azure Files (för hands version)](storage-files-active-directory-enable.md).
+Information om hur du aktiverar Azure AD DS-autentisering för Azure Files finns i [aktivera autentisering med Azure Active Directory Domain Service över SMB för Azure Files](storage-files-active-directory-enable.md).
 
 ## <a name="glossary"></a>Ordlista 
 Det är bra att förstå vissa viktiga villkor som rör Azure AD Domain Service-autentisering över SMB för Azure Files:
@@ -41,7 +41,7 @@ Det är bra att förstå vissa viktiga villkor som rör Azure AD Domain Service-
 Azure AD Domain Service-autentisering för Azure Files ger flera fördelar jämfört med autentisering med delade nycklar:
 
 -   **Utöka den traditionella identitetsbaserade fil resurs åtkomst upplevelsen till molnet med Azure AD och Azure AD Domain Service**  
-    Om du planerar att "lyfta och byta" ditt program till molnet, ersätta traditionella fil servrar med Azure Files, kanske du vill att ditt program ska autentiseras med Azure AD-autentiseringsuppgifter för att få åtkomst till fildata. Azure Files stöder användning av Azure AD-autentiseringsuppgifter för att komma åt Azure Files över SMB från AAD DS domänanslutna Windows-datorer. Du kan också välja att synkronisera alla lokala Active Directory objekt till Azure AD för att bevara användar namn, lösen ord och andra grupp tilldelningar.
+    Om du planerar att "lyfta och byta" ditt program till molnet, ersätta traditionella fil servrar med Azure Files, kanske du vill att ditt program ska autentiseras med Azure AD-autentiseringsuppgifter för att få åtkomst till fildata. Azure Files stöder användning av Azure AD-autentiseringsuppgifter för att få åtkomst till Azure Files över SMB från Azure AD DS-domänanslutna virtuella Windows-datorer. Du kan också välja att synkronisera alla lokala Active Directory objekt till Azure AD för att bevara användar namn, lösen ord och andra grupp tilldelningar.
 
 -   **Använd detaljerad åtkomst kontroll på Azure-filresurser**  
     Du kan bevilja behörigheter till en speciell identitet på resurs-, katalog-eller filnivå. Anta till exempel att du har flera team som använder en enda Azure-filresurs för projekt samarbete. Du kan ge alla team åtkomst till icke-känsliga kataloger, samtidigt som du begränsar åtkomsten till kataloger som innehåller känslig finansiell information till ditt finans team. 
@@ -61,18 +61,15 @@ Du kan aktivera Azure AD Domain Service-autentisering för Azure Files på dina 
 
 Innan du aktiverar den här funktionen kontrollerar du att Azure AD Domain Services har distribuerats för den primära Azure AD-klient som ditt lagrings konto är associerat med. Om du ännu inte har konfigurerat Azure AD Domain Services följer du de stegvisa anvisningarna i [aktivera Azure Active Directory Domain Services med hjälp av Azure Portal](../../active-directory-domain-services/create-instance.md).
 
-Azure AD Domain Services distributionen tar vanligt vis 10 till 15 minuter. När Azure AD Domain Services har distribuerats kan du aktivera Azure AD-autentisering över SMB för Azure Files. Mer information finns i [aktivera Azure Active Directory Domain Service-autentisering över SMB för Azure Files (för hands version)](storage-files-active-directory-enable.md). 
+Azure AD Domain Services distributionen tar vanligt vis 10 till 15 minuter. När Azure AD Domain Services har distribuerats kan du aktivera Azure AD-autentisering över SMB för Azure Files. Mer information finns i [aktivera Azure Active Directory Domain Service-autentisering över SMB för Azure Files](storage-files-active-directory-enable.md). 
 
 ### <a name="configure-share-level-permissions-for-azure-files"></a>Konfigurera behörigheter på resurs nivå för Azure Files
 När Azure AD Domain Service-autentisering har Aktiver ATS kan du konfigurera anpassade RBAC-roller för Azure AD-identiteter och tilldela åtkomst behörigheter till alla fil resurser i lagrings kontot.
 
-När ett program som körs på en domänansluten virtuell dator försöker montera en Azure-filresurs eller åtkomst till en katalog eller fil, verifieras programmets autentiseringsuppgifter för Azure AD för att säkerställa rätt behörigheter på resurs nivå och NTFS-behörighet. Information om hur du konfigurerar behörigheter på resurs nivå finns i [aktivera Azure Active Directory Domain Service Authentication över SMB (för hands version)](storage-files-active-directory-enable.md).
+När ett program som körs på en domänansluten virtuell dator försöker montera en Azure-filresurs eller åtkomst till en katalog eller fil, verifieras programmets autentiseringsuppgifter för Azure AD för att säkerställa rätt behörigheter på resurs nivå och NTFS-behörighet. Information om hur du konfigurerar behörigheter på resurs nivå finns i [aktivera Azure Active Directory Domain Service Authentication över SMB](storage-files-active-directory-enable.md).
 
 ### <a name="configure-directory--or-file-level-permissions-for-azure-files"></a>Konfigurera behörigheter för katalog-eller filnivå för Azure Files 
-Azure Files tillämpar standard behörigheter för NTFS-filer på katalog-och filnivå, inklusive i rot katalogen. Konfiguration av behörigheter på katalog-eller filnivå stöds endast över SMB. Montera mål fil resursen från den virtuella datorn och konfigurera behörigheter med kommandot Windows [icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) eller [set-ACL](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-acl) . 
-
-> [!NOTE]
-> Det går inte att konfigurera NTFS-behörigheter via Windows Utforskaren i förhands granskningen.
+Azure Files tillämpar standard behörigheter för NTFS-filer på katalog-och filnivå, inklusive i rot katalogen. Konfiguration av behörigheter på katalog-eller filnivå stöds endast över SMB. Montera mål fil resursen från den virtuella datorn och konfigurera behörigheter med Windows Utforskaren, Windows [icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) eller [set-ACL](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-acl) kommando. 
 
 ### <a name="use-the-storage-account-key-for-superuser-permissions"></a>Använd lagrings konto nyckeln för behörigheter för superanvändare 
 En användare som har lagrings konto nyckeln kan komma åt Azure Files med behörigheten Superanvändare. Behörigheter för superanvändare överskrider alla åtkomst kontroll begränsningar som kon figurer ATS på delnings nivå med RBAC och framtvingas av Azure AD. Behörigheter för superanvändare krävs för att montera en Azure-filresurs. 
@@ -90,5 +87,5 @@ Det finns ingen extra service avgift för att aktivera Azure AD-autentisering ö
 Mer information om Azure Files och Azure AD-autentisering över SMB finns i följande resurser:
 
 - [Introduktion till Azure Files](storage-files-introduction.md)
-- [Aktivera Azure Active Directory autentisering över SMB för Azure Files (för hands version)](storage-files-active-directory-enable.md)
+- [Aktivera Azure Active Directory autentisering över SMB för Azure Files](storage-files-active-directory-enable.md)
 - [Vanliga frågor och svar](storage-files-faq.md)

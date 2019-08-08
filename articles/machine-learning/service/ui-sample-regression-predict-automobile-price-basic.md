@@ -1,36 +1,36 @@
 ---
-title: 'Regression: Förutsäga pris'
+title: Regression Förutsäga pris
 titleSuffix: Azure Machine Learning service
-description: Lär dig mer om att skapa en machine learning-modell för att förutsäga priset på en bil utan att behöva skriva en enda rad kod.
+description: Lär dig hur du skapar en maskin inlärnings modell för att förutsäga ett bils pris utan att behöva skriva en enda rad kod.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: article
+ms.topic: conceptual
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: ddc7ae10581075127f72dd020c59cf28bbfc9ae2
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 95373bdd58332f49307004067cdd04b9c313b935
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606122"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68845940"
 ---
-# <a name="sample-1---regression-predict-price"></a>Exempel 1 – Regression: Förutsäga pris
+# <a name="sample-1---regression-predict-price"></a>Exempel 1 – regression: Förutsäga pris
 
-Lär dig mer om att skapa en machine learning regressionsmodell utan att behöva skriva en enda rad kod med hjälp av det visuella gränssnittet.
+Lär dig hur du skapar en Regressions modell för Machine Learning utan att skriva en enda rad kod med hjälp av det visuella gränssnittet.
 
-Detta experimentera tåg en **beslut skog regressor** för att förutsäga en bil är priset baserat på tekniska funktioner, till exempel märke, modell, hästkrafter och storlek. Eftersom vi försöker besvara frågan ”hur mycket”? Detta kallas ett regressionsproblem. Du kan dock använda samma grundläggande steg i det här experimentet för att hantera alla typer av problem med machine learning, oavsett om det är regression, klassificering, klustring och så vidare.
+Det här experimentet tränar en **besluts skog modellerings regressor** att förutsäga en bils pris baserat på tekniska funktioner som märke, modell, häst krafter och storlek. Eftersom vi försöker besvara frågan "hur mycket?" Detta kallas för ett Regressions problem. Du kan dock använda samma grundläggande steg i det här experimentet för att ta itu med alla typer av maskin inlärnings problem, oavsett om det är regression, klassificering, klustring och så vidare.
 
-De grundläggande stegen för en maskininlärningsmodell för utbildning är:
+De grundläggande stegen för en utbildnings maskin inlärnings modell är:
 
 1. Hämta data
-1. Förbearbeta data
+1. För behandling av data
 1. Träna modellen
 1. Utvärdera modellen
 
-Här är det sista, slutförda diagrammet över experimentet som vi kommer att arbeta med. Vi ger anledningen för alla moduler så att du kan göra liknande beslut på egen hand.
+Här är det sista, färdiga grafen i experimentet som du kommer att arbeta med. Vi ger dig en motivering för alla moduler så att du kan fatta liknande beslut på egen hand.
 
 ![Diagram över experimentet](media/ui-sample-regression-predict-automobile-price-basic/overall-graph.png)
 
@@ -38,43 +38,43 @@ Här är det sista, slutförda diagrammet över experimentet som vi kommer att a
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
-4. Välj den **öppna** knappen för experimentet exempel 1:
+4. Välj knappen **Öppna** för exempel 1-experimentet:
 
     ![Öppna experimentet](media/ui-sample-regression-predict-automobile-price-basic/open-sample1.png)
 
 ## <a name="get-the-data"></a>Hämta data
 
-I det här experimentet använder vi den **Automobile price data (Raw)** datauppsättningen, vilket är från UCI Machine Learning-databasen. Datauppsättningen innehåller 26 kolumner som innehåller information om bilar, inklusive märke, modell, pris, vehicle funktioner (t.ex. antalet cylindrar), MPG och en försäkring riskpoäng. Målet med det här experimentet är att förutsäga priset för bilen.
+I det här experimentet använder vi **data uppsättningen för Automobil pris data (RAW)** , som kommer från den Machine Learning lagrings platsen. Data uppsättningen innehåller 26 kolumner som innehåller information om bilenheter, inklusive märke, modell, pris, fordons funktioner (t. ex. antalet cylindrar), MPG och en försäkrings risk poäng. Målet med det här experimentet är att förutsäga priset på bilen.
 
-## <a name="pre-process-the-data"></a>Förbearbeta data
+## <a name="pre-process-the-data"></a>För behandling av data
 
-Förberedelseuppgifter viktigaste data inkluderar datarensning, integration, transformation, minskning, och discretization eller kvantifieringsfel. I det visuella gränssnittet hittar du moduler för att utföra dessa åtgärder och andra data förbearbetning uppgifter i den **Dataomvandling** i den vänstra panelen.
+Uppgifterna för förberedelse av data omfattar data rengöring, integrering, omvandling, reduktion och diskretiseringsmetoden stämmer eller kvantifieringsfel. I det visuella gränssnittet kan du hitta moduler för att utföra dessa åtgärder och andra uppgifter för för bearbetning i **data omvandlings** gruppen i den vänstra panelen.
 
-Vi använder den **Välj kolumner i datauppsättning** modul för att exkludera normalized-losses som har många värden som saknas. Sedan använder vi **Rensa Data som saknas** att ta bort de rader som innehåller värden som saknas. Detta hjälper dig för att skapa en ren uppsättning träningsdata.
+Vi använder modulen **Välj kolumner i data uppsättning** för att undanta normaliserade förluster som har många värden som saknas. Vi använder sedan **rensa saknade data** för att ta bort rader som saknar värden. På så sätt kan du skapa en ren uppsättning tränings data.
 
-![Förbearbetning av data](./media/ui-sample-regression-predict-automobile-price-basic/data-processing.png)
+![För bearbetning av data](./media/ui-sample-regression-predict-automobile-price-basic/data-processing.png)
 
 ## <a name="train-the-model"></a>Träna modellen
 
-Machine learning problem variera. Vanliga inkluderar klassificering och klustring, regression och rekommenderare system, som kan kräva en annan algoritm. Ditt val av algoritmen beror ofta på kraven för användningsfallet. När du väljer en algoritm, måste du justera dess parametrar för att träna en modell för exaktare. Sedan måste du utvärdera alla modeller som är baserat på mått som noggrannhet, uppfattbarheten avsevärt och effektivitet.
+Problem med maskin inlärning varierar. Vanliga Machine Learning-uppgifter är klassificerings-, kluster-, Regressions-och rekommenderade system, vilket kan kräva en annan algoritm. Valet av algoritm beror ofta på kraven i användnings fallet. När du har valt en algoritm måste du justera dess parametrar för att träna en mer exakt modell. Du måste sedan utvärdera alla modeller utifrån mått som precision, intelligibility och effektivitet.
 
-Eftersom målet med det här experimentet är att förutsäga bilpriser och eftersom etikettkolumnen (pris) innehåller reella tal, en regressionsmodell är ett bra val. Överväger att antalet funktioner som är relativt liten (mindre än 100) och dessa funktioner inte är null-optimerade troligen beslut gränsen kommer att vara icke-linjära. Så vi använder **beslut skog Regression** för det här experimentet.
+Eftersom syftet med det här experimentet är att förutsäga bil priser, och eftersom etikett kolumnen (priset) innehåller reella tal, är en Regressions modell ett bra val. Med tanke på att antalet funktioner är relativt litet (mindre än 100) och dessa funktioner inte är glesa, är besluts gränser troligt vis inte linjärt. Vi använder därför **besluts skogs regression** för det här experimentet.
 
-Vi använder den **dela Data** modul för att dela upp indata slumpmässigt så att innehåller 70% av den ursprungliga informationen för datauppsättning för träning och testning datauppsättningen innehåller 30% av den ursprungliga informationen.
+Vi använder modulen **dela data** för att slumpmässigt dela in indata så att inlärnings data uppsättningen innehåller 70% av original data och test data uppsättningen innehåller 30% av de ursprungliga data.
 
-## <a name="test-evaluate-and-compare"></a>Testa, utvärdera och jämföra
+## <a name="test-evaluate-and-compare"></a>Testa, utvärdera och jämför
 
- Vi dela upp datauppsättningen och använda olika datauppsättningar för att träna och testa modellen för att göra flera mål för utvärderingen av modellen.
+ Vi delar data uppsättningen och använder olika data uppsättningar för att träna och testa modellen för att göra utvärderingen av modellen mer mål.
 
-När modellen tränas, använder vi den **Poängmodell** och **utvärdera modell** moduler för att generera förutsagt resultat och utvärdera modellerna.
+När modellen har tränats använder vi **Poäng modellen** och utvärderar **modell** moduler för att generera förutsägande resultat och utvärdera modellerna.
 
-**Bedömningsmodell** genererar förutsägelser för test-datauppsättning med hjälp av den tränade modellen. Om du vill kontrollera resultatet, väljer du utdataporten för **Poängmodell** och välj sedan **visualisera**.
+**Poäng modellen** genererar förutsägelser för test data uppsättningen med hjälp av den tränade modellen. Kontrol lera resultatet genom att välja utdataporten för **Poäng modellen** och sedan välja **visualisera**.
 
-![Poäng resultat](./media/ui-sample-regression-predict-automobile-price-basic/score-result.png)
+![Resultat resultat](./media/ui-sample-regression-predict-automobile-price-basic/score-result.png)
 
-Vi skickar sedan poängen till den **utvärdera modell** modul för att generera utvärderingsmått. Om du vill kontrollera resultatet, väljer du utdataporten för den **utvärdera modell** och välj sedan **visualisera**.
+Vi skickar sedan poängen till modulen **utvärdera modell** för att generera utvärderings mått. Kontrol lera resultatet genom att välja utdataporten för **utvärdera modellen** och sedan välja **visualisera**.
 
-![Utvärdera resultatet](./media/ui-sample-regression-predict-automobile-price-basic/evaluate-result.png)
+![Utvärdera resultat](./media/ui-sample-regression-predict-automobile-price-basic/evaluate-result.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -84,8 +84,8 @@ Vi skickar sedan poängen till den **utvärdera modell** modul för att generera
 
 Utforska de andra exempel som är tillgängliga för det visuella gränssnittet:
 
-- [Exempel 2 – Regression: Jämför algoritmer för bil pris förutsägelse](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
-- [Exempel 3 – klassificering: Förutsäga kreditrisk](ui-sample-classification-predict-credit-risk-basic.md)
-- [Exempel 4 - klassificering: Förutsäga kreditrisken (kostnad känsliga)](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
-- [Exempel 5 - klassificering: Förutsäga kundomsättning](ui-sample-classification-predict-churn.md)
-- [Exempel 6 - klassificering: Förutsäga flygförseningar](ui-sample-classification-predict-flight-delay.md)
+- [Exempel 2 – regression: Jämför algoritmer för bilpris förutsägelser för bilar](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
+- [Exempel 3 – klassificering: Förutsägelse kredit risk](ui-sample-classification-predict-credit-risk-basic.md)
+- [Exempel 4 – klassificering: Förutsägelse kredit risk (kostnads känsligt)](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
+- [Exempel 5 – klassificering: Förutsäg omsättning](ui-sample-classification-predict-churn.md)
+- [Exempel 6 – klassificering: Förutsäg fördröjningar i flygning](ui-sample-classification-predict-flight-delay.md)

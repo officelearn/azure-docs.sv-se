@@ -1,73 +1,72 @@
 ---
 title: Så här schemalägger du indexerare – Azure Search
-description: Schemalägga Azure Search-indexerare att indexera innehåll med jämna mellanrum eller vid specifika tidpunkter.
+description: Schemalägg Azure Search indexerare för att indexera innehåll regelbundet eller vid vissa tidpunkter.
 ms.date: 05/31/2019
-author: RobDixon22
+author: HeidiSteen
 manager: HeidiSteen
-ms.author: v-rodixo
+ms.author: heidist
 services: search
 ms.service: search
-ms.devlang: rest-api
+ms.devlang: ''
 ms.topic: conceptual
-ms.custom: seodec2018
-ms.openlocfilehash: 4bf931b19b7490a94f30afde49038cdc7573fab3
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 245a2139aae0910ea1415811234667f2c06500ec
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67302249"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68855802"
 ---
 # <a name="how-to-schedule-indexers-for-azure-search"></a>Så här schemalägger du indexerare för Azure Search
-En indexerare körs vanligtvis en gång, omedelbart när den har skapats. Du kan köra den igen på begäran med hjälp av portalen, REST API eller .NET SDK. Du kan också konfigurera en indexerare för att köras med jämna mellanrum enligt ett schema.
+En indexerare körs vanligt vis en gång, omedelbart efter att den har skapats. Du kan köra den igen på begäran med hjälp av portalen, REST API eller .NET SDK. Du kan också konfigurera en indexerare så att den körs regelbundet enligt ett schema.
 
-Vissa situationer där indexeraren schemaläggning är användbart:
+Några situationer där indexerare schemaläggning är användbart:
 
-* Källdata ändras med tiden och du vill att Azure Search-indexerare att bearbeta ändrade data automatiskt.
-* Indexet fylls i från flera datakällor och du vill kontrollera att indexerarna som körs vid olika tidpunkter för att minska konflikter.
-* Källdata är mycket stort och du vill att sprida indexeraren behandling över tid. Läs mer om indexering stora mängder data, [indexera stora datauppsättningar i Azure Search](search-howto-large-index.md).
+* Källdata ändras med tiden och du vill att de Azure Search indexerarna automatiskt ska bearbeta de ändrade data.
+* Indexet fylls från flera data källor och du vill se till att indexerarna körs vid olika tidpunkter för att minska konflikter.
+* Käll informationen är mycket stor och du vill sprida bearbetningen av indexeraren över tid. Mer information om indexering av stora data volymer finns [i så här indexerar du stora data mängder i Azure Search](search-howto-large-index.md).
 
-Scheduler är en inbyggd funktion i Azure Search. Du kan inte använda en extern schemaläggare för att styra search-indexerare.
+Scheduler är en inbyggd funktion i Azure Search. Du kan inte använda en extern Scheduler för att kontrol lera Sök indexerarna.
 
-## <a name="define-schedule-properties"></a>Definiera schemaegenskaper
+## <a name="define-schedule-properties"></a>Definiera schema egenskaper
 
-En indexerschemat har två egenskaper:
-* **Intervall**, som definierar hur lång tid mellan schemalagda indexeraren körningar. Den minsta tillåtna är 5 minuter och den största är 24 timmar.
-* **Starta Time (UTC)** , vilket anger första gången som indexeraren ska köras.
+Ett Indexer schema har två egenskaper:
+* **Intervall**, som definierar hur lång tid det tar mellan körningar av schemalagd indexerare. Det minsta tillåtna intervallet är 5 minuter och det största är 24 timmar.
+* **Start tid (UTC)** , som anger första gången då indexeraren ska köras.
 
-Du kan ange ett schema när du först skapar indexeraren eller genom att uppdatera den indexeraren egenskaper senare. Indexeraren scheman kan anges med hjälp av den [portal](#portal), [REST API](#restApi), eller [.NET SDK](#dotNetSdk).
+Du kan ange ett schema när du först skapar indexeraren eller genom att uppdatera indexeraren egenskaper senare. Indexerings scheman kan ställas in med hjälp av [portalen](#portal), [REST API](#restApi)eller [.NET SDK](#dotNetSdk).
 
-Endast en körning av en indexerare kan köras i taget. Om en indexerare körs när dess nästa körning har schemalagts, är den körningen skjutas upp tills nästa schemalagda tid.
+Endast en körning av en indexerare kan köras i taget. Om en indexerare redan körs när nästa körning har schemalagts, senareläggs körningen tills nästa schemalagda tid.
 
-Vi tar ett exempel för att göra detta mer konkret. Anta att vi konfigurera en indexerare schema med en **intervall** för varje timme och en **starttid** av 1 juni 2019 8:00:00: 00 UTC. Här är vad som kan inträffa när en indexerare som kör tar längre tid än en timme:
+Låt oss ta en titt på ett exempel för att göra detta mer konkret. Anta att vi konfigurerar ett indexare schema med ett **intervall** på varje timme och **Start tiden** den 1 juni 2019 kl. 8:00:00 am UTC. Det här kan inträffa när en indexerare-körning tar längre tid än en timme:
 
-* Den första körningen av indexeraren startar vid eller runt 1 juni 2019 8:00:00 UTC. Anta att den här körningen tar 20 minuter (eller när som helst mindre än 1 timme).
-* Den andra körningen startar vid eller runt den 1 juni 2019 9:00:00 UTC. Anta att den här körningen tar 70: e minut – mer än en timme – och det går inte att slutföra fram till kl. 10:10 UTC.
-* Tredje körningen är schemalagd att starta 10:00:00 UTC, men då föregående körning fortfarande körs. Det schemalagda körning sedan hoppas över. Nästa körning av indexeraren startar inte förrän 11:00:00 UTC.
+* Den första indexerare-körningen börjar vid eller med den 1 juni 2019 kl. 8:00 AM UTC. Anta att den här körningen tar 20 minuter (eller när som helst mindre än en timme).
+* Den andra körningen börjar vid eller runt den 1 juni 2019 9:00 AM UTC. Anta att den här körningen tar 70 minuter – mer än en timme – och att den inte slutförs förrän 10:10 är UTC.
+* Den tredje körningen är schemalagd att starta kl. 10:00 AM UTC, men vid den tidpunkten körs fortfarande föregående körning. Den här schemalagda körningen hoppas över. Nästa körning av indexeraren kommer inte att starta förrän 11:00 AM UTC.
 
 > [!NOTE]
-> Om en indexerare anges till ett visst schema men upprepade gånger misslyckas på samma dokument om och om igen varje gång den körs, indexeraren börjar gör som körs på ett längre intervall (upp till högst minst en gång var 24: e timme) tills den har förloppet aga i.  Om du tror att du har åtgärdat problemet som orsakade indexerare för att ha fastnat vid en viss punkt till vad du kan utföra en på begäran-körning av indexerare, och om det har blir pågår indexeraren återgår till dess uppsättning schemaintervallet igen.
+> Om en indexerare har angetts till ett visst schema men upprepade gånger Miss lyckas i samma dokument över och över igen varje gång den körs, kommer indexeraren att köras på ett mindre frekvent intervall (upp till max minst en gång var 24: e timme) tills det har gjort en förloppet AGA för.  Om du tror att du har åtgärdat problemet som gjorde att indexeraren har fastnat vid en viss tidpunkt, kan du utföra en körning av indexeraren på begäran, och om detta sker fortsätter indexeraren med angivet schema intervall igen.
 
 <a name="portal"></a>
 
 ## <a name="define-a-schedule-in-the-portal"></a>Definiera ett schema i portalen
 
-Guiden Importera Data i portalen kan du definiera schemat för en indexerare vid tidpunkten för skapandet. Standardinställningen för schema är **per timme**, vilket innebär att indexeraren körs en gång när den har skapats och körs igen varje timme efteråt.
+Med guiden Importera data i portalen kan du definiera schemat för en indexerare när den skapas. Standard schema inställningen är **varje timme**, vilket innebär att indexeraren körs en gång efter att den har skapats och körs igen varje timme efteråt.
 
-Du kan ändra inställningen för schema att **när** om du inte vill att indexeraren ska köras igen automatiskt, eller till **dagliga** ska köras en gång per dag. Ange den till **anpassad** om du vill ange ett annat intervall eller en specifik framtida starttid.
+Du kan ändra schema inställningen till **en gång** om du inte vill att indexeraren ska köras igen automatiskt, eller till **varje** dag för att köras en gång per dag. Ange den som **anpassad** om du vill ange ett annat intervall eller en särskild framtida start tid.
 
-När du anger schemat till **anpassade**, fält visas så att du kan ange den **intervall** och **starta Time (UTC)** . Den kortaste tid som tillåts är 5 minuter och den längsta är 1440 minuter (24 timmar).
+När du ställer in schemat på **anpassad**visas fält där du kan ange **intervall** och **Start tid (UTC)** . Det kortaste tidsintervallet som tillåts är 5 minuter och det längsta är 1440 minuter (24 timmar).
 
-   ![Inställningen indexerschemat i guiden Importera Data](media/search-howto-schedule-indexers/schedule-import-data.png "inställningen indexerschemat i guiden Importera Data")
+   ![Konfigurera indexerings schema i guiden Importera data](media/search-howto-schedule-indexers/schedule-import-data.png "Konfigurera indexerings schema i guiden Importera data")
 
-Du kan ändra schemat på indexeraren redigera panelen när du har skapat en indexerare. Schema-fält är samma som guiden Importera Data.
+När du har skapat en indexerare kan du ändra schema inställningarna med hjälp av index panelens redigerings panel. Schema fälten är desamma som i guiden Importera data.
 
-   ![Ange schemat i indexeraren redigera panelen](media/search-howto-schedule-indexers/schedule-edit.png "ange schemat i indexeraren redigera panel")
+   ![Ange schemat i redigerings panelen för indexerare](media/search-howto-schedule-indexers/schedule-edit.png "Ange schemat i redigerings panelen för indexerare")
 
 <a name="restApi"></a>
 
-## <a name="define-a-schedule-using-the-rest-api"></a>Definiera ett schema med hjälp av REST-API
+## <a name="define-a-schedule-using-the-rest-api"></a>Definiera ett schema med hjälp av REST API
 
-Du kan definiera schemat för en indexerare med REST API. Gör detta genom att inkludera den **schema** egenskapen när du skapar eller uppdaterar indexeraren. Exemplet nedan visar en PUT-begäran för att uppdatera en befintlig indexerare:
+Du kan definiera schemat för en indexerare med hjälp av REST API. Det gör du genom att lägga till egenskapen **schema** när du skapar eller uppdaterar indexeraren. Exemplet nedan visar en skicka-begäran om att uppdatera en befintlig indexerare:
 
     PUT https://myservice.search.windows.net/indexers/myindexer?api-version=2019-05-06
     Content-Type: application/json
@@ -79,19 +78,19 @@ Du kan definiera schemat för en indexerare med REST API. Gör detta genom att i
         "schedule" : { "interval" : "PT10M", "startTime" : "2015-01-01T00:00:00Z" }
     }
 
-Den **intervall** parametern är obligatorisk. Intervallet avser tiden mellan början av två på varandra följande indexeraren körningar. Minsta tillåtna intervall är 5 minuter. den längsta är en dag. Den måste vara formaterad som en XSD-värde för ”dayTimeDuration” (en begränsad delmängd av en [varaktighet i ISO 8601](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) värde). Mönstret för det här är: `P(nD)(T(nH)(nM))`. Exempel: `PT15M` för varje kvart `PT2H` för varannan timme.
+Parametern **Interval** måste anges. Intervallet avser tiden från starten av två efterföljande körningar av indexerare. Det minsta tillåtna intervallet är 5 minuter; det längsta är en dag. Det måste formateras som ett XSD "dayTimeDuration"-värde (en begränsad delmängd av ett varaktighets värde på [ISO 8601](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) ). Mönstret för detta är: `P(nD)(T(nH)(nM))`. Exempel: `PT15M` för var 15: e `PT2H` timme, för var 2: e timme.
 
-Den valfria **startTime** när schemalagda körningar ska börja. Om det utelämnas används den aktuella UTC-tiden. Nu kan vara tidigare fall den första körningen har schemalagts som om indexeraren har körts sedan ursprungligt oavbrutet **startTime**.
+Valfri **StartTime** anger när schemalagda körningar ska börja. Om den utelämnas används den aktuella UTC-tiden. Den här tiden kan vara förr, i vilket fall den första körningen schemaläggs som om indexeraren har körts kontinuerligt sedan den ursprungliga starttimen.
 
-Du kan också köra en indexerare på begäran när som helst med hjälp av kör Indexer-anrop. Läs mer om hur du kör indexerare och ställa in indexeraren scheman [köra indexeraren](https://docs.microsoft.com/rest/api/searchservice/run-indexer), [hämta indexeraren](https://docs.microsoft.com/rest/api/searchservice/get-indexer), och [uppdatering indexeraren](https://docs.microsoft.com/rest/api/searchservice/update-indexer) i REST API-referens.
+Du kan också köra en indexerare på begäran när som helst med hjälp av anropet kör Indexer. Mer information om att köra indexerare och ange scheman för indexeraren finns i [köra indexerare](https://docs.microsoft.com/rest/api/searchservice/run-indexer), [Hämta indexerare](https://docs.microsoft.com/rest/api/searchservice/get-indexer)och [Uppdatera indexerare](https://docs.microsoft.com/rest/api/searchservice/update-indexer) i REST API referensen.
 
 <a name="dotNetSdk"></a>
 
-## <a name="define-a-schedule-using-the-net-sdk"></a>Definiera ett schema med .NET SDK
+## <a name="define-a-schedule-using-the-net-sdk"></a>Definiera ett schema med hjälp av .NET SDK
 
-Du kan definiera schemat för en indexerare med hjälp av Azure Search .NET SDK. Gör detta genom att inkludera den **schema** egenskapen när du skapar eller uppdaterar en indexerare.
+Du kan definiera schemat för en indexerare med hjälp av Azure Search .NET SDK. Det gör du genom att lägga till egenskapen **schema** när du skapar eller uppdaterar en indexerare.
 
-Följande C# exempel skapar en indexerare med hjälp av en fördefinierad datakälla och index, och anger dess schema som ska köras en gång varje dag från nu och med 30 minuter:
+I följande C# exempel skapas en indexerare med hjälp av en fördefinierad data källa och ett index, och det ställs in så att det körs en gång om dagen börjar 30 minuter från nu:
 
 ```
     Indexer indexer = new Indexer(
@@ -105,14 +104,14 @@ Följande C# exempel skapar en indexerare med hjälp av en fördefinierad datak�
         );
     await searchService.Indexers.CreateOrUpdateAsync(indexer);
 ```
-Om den **schema** parametern utelämnas, indexeraren körs bara en gång direkt när den har skapats.
+Om **schema** parametern utelämnas körs indexeraren bara en gång omedelbart efter det att den har skapats.
 
-Den **startTime** parameter kan anges till en gång tidigare. I så fall kan den första körningen schemaläggs som om indexeraren har körts kontinuerligt eftersom den angivna **startTime**.
+Parametern **StartTime** kan ställas in på en tid i det förflutna. I så fall schemaläggs den första körningen som om indexeraren har körts kontinuerligt sedan den angivna StartTime.
 
-Schemat har definierats med hjälp av den [IndexingSchedule](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexingschedule?view=azure-dotnet) klass. Den **IndexingSchedule** konstruktor kräver en **intervall** parameter har angetts med hjälp av en **TimeSpan** objekt. Det minsta tillåtna intervallvärdet är 5 minuter och den största är 24 timmar. Andra **startTime** parametern som angetts som en **DateTimeOffset** objekt, är valfritt.
+Schemat definieras med [IndexingSchedule](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexingschedule?view=azure-dotnet) -klassen. **IndexingSchedule** -konstruktorn kräver en **intervall** parameter som anges med ett **TimeSpan** -objekt. Det minsta intervallet tillåts är 5 minuter och det största värdet är 24 timmar. Den andra **StartTime** -parametern, som anges som ett **DateTimeOffset** -objekt, är valfri.
 
-Med .NET SDK kan du kontrollen indexeraren åtgärder med hjälp av den [SearchServiceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient) klassen och dess [indexerare](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient.indexers) egenskapen, som implementerar metoderna från den **IIndexersOperations**gränssnitt. 
+Med .NET SDK kan du styra indexerings åtgärder med hjälp av klassen [SearchServiceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient) och dess egenskaps [index](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient.indexers) , som implementerar metoder från **IIndexersOperations** -gränssnittet. 
 
-Du kan köra en indexerare på begäran när som helst med någon av de [kör](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.indexersoperationsextensions.run), [RunAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.indexersoperationsextensions.runasync), eller [RunWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.iindexersoperations.runwithhttpmessagesasync) metoder.
+Du kan köra en indexerare på begäran när som helst med hjälp av någon av metoderna [Run](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.indexersoperationsextensions.run), [RunAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.indexersoperationsextensions.runasync)eller [RunWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.iindexersoperations.runwithhttpmessagesasync) .
 
-Mer information om hur du skapar, uppdaterar och köra indexerare, finns i [IIindexersOperations](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.iindexersoperations?view=azure-dotnet).
+Mer information om att skapa, uppdatera och köra indexerare finns i [IIindexersOperations](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.iindexersoperations?view=azure-dotnet).

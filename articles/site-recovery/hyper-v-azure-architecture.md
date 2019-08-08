@@ -1,58 +1,58 @@
 ---
-title: Hyper-V till Azure disaster recovery-arkitekturen i Azure Site Recovery | Microsoft Docs
-description: Den här artikeln innehåller en översikt över komponenter och arkitektur som används när du distribuerar haveriberedskap för lokala Hyper-V-datorer (utan VMM) till Azure med Azure Site Recovery-tjänsten.
+title: Katastrof återställnings arkitektur för Hyper-V till Azure i Azure Site Recovery | Microsoft Docs
+description: Den här artikeln innehåller en översikt över komponenter och arkitektur som används för att distribuera haveri beredskap för lokala virtuella Hyper-V-datorer (utan VMM) till Azure med tjänsten Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 08/07/2019
 ms.author: raynew
-ms.openlocfilehash: 7a1685622c44666eed6dac328772f6dba1418371
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3af96fd03ed8e9878c3418e66cfcf24c7f30088c
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66398236"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68845777"
 ---
-# <a name="hyper-v-to-azure-disaster-recovery-architecture"></a>Hyper-V till Azure disaster recovery-arkitekturen
+# <a name="hyper-v-to-azure-disaster-recovery-architecture"></a>Katastrof återställnings arkitektur för Hyper-V till Azure
 
 
-Den här artikeln beskrivs arkitekturen och processer som används när du replikera, redundansväxla och återställa Hyper-V-datorer (VM) mellan lokala Hyper-V-värdar och Azure, med hjälp av den [Azure Site Recovery](site-recovery-overview.md) service.
+Den här artikeln beskriver arkitekturen och processerna som används när du replikerar, växlar över och återställer virtuella Hyper-V-datorer mellan lokala Hyper-V-värdar och Azure med hjälp av tjänsten [Azure Site Recovery](site-recovery-overview.md) .
 
-Hyper-V-värdar kan du kan också hanteras i privata moln i System Center Virtual Machine Manager (VMM).
+Hyper-V-värdar kan också hanteras i System Center Virtual Machine Manager (VMM) privata moln.
 
 
 
-## <a name="architectural-components---hyper-v-without-vmm"></a>Arkitekturkomponenter - Hyper-V utan VMM
+## <a name="architectural-components---hyper-v-without-vmm"></a>Arkitektur komponenter – Hyper-V utan VMM
 
-Följande tabell och bild ger en översikt över de komponenter som används för Hyper-V-replikering till Azure, när Hyper-V-värdar inte hanteras av VMM.
+Följande tabell och grafik ger en övergripande bild av de komponenter som används för Hyper-V-replikering till Azure, när Hyper-V-värdar inte hanteras av VMM.
 
 **Komponent** | **Krav** | **Detaljer**
 --- | --- | ---
-**Azure** | En Azure-prenumeration, Azure storage-konto och Azure-nätverk. | Replikerade data från en lokal VM-arbetsbelastningar lagras i lagringskontot. Virtuella Azure-datorer skapas med replikerade arbetsbelastningsdata när det uppstår redundans från din lokala plats.<br/><br/> Virtuella Azure-datorer ansluter till det virtuella Azure-nätverket när de skapas.
-**Hyper-V** | Under distributionen av Site Recovery måste du samla in Hyper-V-värdar och kluster i Hyper-V-platser. Du installerar Azure Site Recovery-providern och Recovery Services-agenten på varje fristående Hyper-V-värd eller på varje Hyper-V-klusternod. | Providern samordnar replikeringen med Site Recovery-tjänsten via Internet. Recovery Services-agenten hanterar datareplikeringen.<br/><br/> Kommunikation från både providern och agenten är säker och krypterad. Replikerade data i Azure-lagring krypteras också.
-**Virtuella Hyper-V-datorer** | En eller flera virtuella datorer som körs på Hyper-V. | Inget behöver uttryckligen installeras på virtuella datorer.
+**Azure** | En Azure-prenumeration, Azure Storage-konto och Azure-nätverk. | Replikerade data från lokala VM-arbetsbelastningar lagras i lagrings kontot. Virtuella Azure-datorer skapas med replikerade arbets belastnings data när redundans från den lokala platsen inträffar.<br/><br/> Virtuella Azure-datorer ansluter till det virtuella Azure-nätverket när de skapas.
+**Hyper-V** | Under Site Recovery distributionen samlar du in Hyper-V-värdar och-kluster på Hyper-V-platser. Du installerar Azure Site Recovery Provider och Recovery Services agent på varje fristående Hyper-V-värd eller på varje Hyper-V-klusternod. | Providern samordnar replikeringen med Site Recovery-tjänsten via Internet. Recovery Services-agenten hanterar datareplikeringen.<br/><br/> Kommunikation från både providern och agenten är säker och krypterad. Replikerade data i Azure-lagring krypteras också.
+**Virtuella Hyper-V-datorer** | En eller flera virtuella datorer som körs på Hyper-V. | Inget måste uttryckligen installeras på virtuella datorer.
 
 
-**Hyper-V till Azure-arkitektur (utan VMM)**
+**Arkitektur för Hyper-V till Azure (utan VMM)**
 
 ![Arkitektur](./media/hyper-v-azure-architecture/arch-onprem-azure-hypervsite.png)
 
 
 
-## <a name="architectural-components---hyper-v-with-vmm"></a>Arkitekturkomponenter - Hyper-V med VMM
+## <a name="architectural-components---hyper-v-with-vmm"></a>Arkitektur komponenter – Hyper-V med VMM
 
-Följande tabell och bild ger en översikt över de komponenter som används för Hyper-V-replikering till Azure, när Hyper-V-värdar hanteras i VMM-moln.
+Följande tabell och grafik ger en övergripande bild av de komponenter som används för Hyper-V-replikering till Azure, när Hyper-V-värdar hanteras i VMM-moln.
 
 **Komponent** | **Krav** | **Detaljer**
 --- | --- | ---
-**Azure** | En Azure-prenumeration, Azure storage-konto och Azure-nätverk. | Replikerade data från en lokal VM-arbetsbelastningar lagras i lagringskontot. Virtuella Azure-datorer skapas med replikerad data när uppstår redundans från din lokala plats.<br/><br/> Virtuella Azure-datorer ansluter till det virtuella Azure-nätverket när de skapas.
-**VMM-server** | VMM-servern har ett eller flera moln som innehåller Hyper-V-värdar. | Du installerar Site Recovery-providern på VMM-servern att samordna replikeringen med Site Recovery och registrera servern i Recovery Services-valvet.
-**Hyper-V-värd** | En eller flera Hyper-V-värdar eller Hyper-V-kluster som hanteras av VMM. |  Du kan installera Recovery Services-agenten på varje Hyper-V-värd eller kluster-nod.
+**Azure** | En Azure-prenumeration, Azure Storage-konto och Azure-nätverk. | Replikerade data från lokala VM-arbetsbelastningar lagras i lagrings kontot. Virtuella Azure-datorer skapas med replikerade data när redundansväxlingen från din lokala plats sker.<br/><br/> Virtuella Azure-datorer ansluter till det virtuella Azure-nätverket när de skapas.
+**VMM-server** | VMM-servern har ett eller flera moln som innehåller Hyper-V-värdar. | Du installerar Site Recovery-providern på VMM-servern, för att samordna replikering med Site Recovery och registrera servern i Recovery Services-valvet.
+**Hyper-V-värd** | En eller flera Hyper-V-värdar eller Hyper-V-kluster som hanteras av VMM. |  Du installerar Recovery Services-agenten på varje Hyper-V-värd eller klusternod.
 **Virtuella Hyper-V-datorer** | En eller flera virtuella datorer som körs på en Hyper-V-värdserver. | Du behöver inte installera något på de virtuella datorerna.
-**Nätverk** | Logiska och virtuella datornätverk som konfigurerats på VMM-servern. Det Virtuella datornätverket bör vara kopplat till ett logiskt nätverk som är associerat med molnet. | Virtuella datornätverk som mappas till virtuella Azure-nätverk. När virtuella Azure-datorerna skapats efter redundansen, läggs de till Azure-nätverket som är mappad till det Virtuella datornätverket.
+**Nätverk** | Logiska och virtuella datornätverk som konfigurerats på VMM-servern. Det virtuella dator nätverket bör vara kopplat till ett logiskt nätverk som är associerat med molnet. | Virtuella dator nätverk mappas till virtuella Azure-nätverk. När virtuella Azure-datorer skapas efter en redundansväxling läggs de till i det Azure-nätverk som är mappat till det virtuella dator nätverket.
 
-**Hyper-V till Azure-arkitektur (med VMM)**
+**Arkitektur för Hyper-V till Azure (med VMM)**
 
 ![Komponenter](./media/hyper-v-azure-architecture/arch-onprem-onprem-azure-vmm.png)
 
@@ -60,9 +60,9 @@ Följande tabell och bild ger en översikt över de komponenter som används fö
 
 ## <a name="replication-process"></a>Replikeringsprocessen
 
-![Hyper-V till Azure replikering](./media/hyper-v-azure-architecture/arch-hyperv-azure-workflow.png)
+![Hyper-V till Azure-replikering](./media/hyper-v-azure-architecture/arch-hyperv-azure-workflow.png)
 
-**Replikering och återställningsprocess**
+**Process för replikering och återställning**
 
 
 ### <a name="enable-protection"></a>Aktivera skydd
@@ -73,77 +73,77 @@ Följande tabell och bild ger en översikt över de komponenter som används fö
 4. Du kan övervaka jobbet på fliken **Jobs** (Jobb).      ![Lista över jobb](media/hyper-v-azure-architecture/image1.png) ![Detaljnivå för Aktivera skydd](media/hyper-v-azure-architecture/image2.png)
 
 
-### <a name="initial-data-replication"></a>Inledande replikering
+### <a name="initial-data-replication"></a>Inledande datareplikering
 
-1. När den inledande replikeringen utlöses en [Hyper-V VM-ögonblicksbild](https://technet.microsoft.com/library/dd560637.aspx) ögonblicksbilden tas.
-2. Virtuella hårddiskar på den virtuella datorn är replikeras en i taget, tills alla har kopierats till Azure. Detta kan ta en stund, beroende på VM-storlek och nätverkets bandbredd. [Lär dig hur](https://support.microsoft.com/kb/3056159) att öka bandbredd i nätverket.
-3. Om diskändringar inträffar under den inledande replikeringen pågår, spårar ändringarna i den spårningsverktyget för Hyper-V-replikering som Hyper-V-replikeringsloggar (.hrl). Dessa loggfiler finns i samma mapp som diskarna. Varje disk har en associerad hrl-fil som skickas till sekundär lagring. Ögonblicksbilden och loggfilerna använder diskresurser när den inledande replikeringen pågår.
+1. När den inledande replikeringen utlöses tas en ögonblicks bild av en [ögonblicks bild av virtuell dator i Hyper-V](https://technet.microsoft.com/library/dd560637.aspx) .
+2. Virtuella hård diskar på den virtuella datorn replikeras en i taget tills alla har kopierats till Azure. Detta kan ta en stund, beroende på storleken på den virtuella datorn och nätverks bandbredden. [Lär dig hur](https://support.microsoft.com/kb/3056159) du ökar nätverks bandbredden.
+3. Om disk ändringar sker medan den inledande replikeringen pågår, spårar spårningen för Hyper-V-replikering ändringarna som Hyper-V-replikeringsinställningar (. HRL). Dessa loggfiler finns i samma mapp som diskarna. Varje disk har en associerad. HRL-fil som skickas till sekundär lagring. Ögonblicksbilden och loggfilerna använder diskresurser när den inledande replikeringen pågår.
 4. När den initiala replikeringen är klar tas VM-ögonblicksbilden bort.
 5. Diskförändringarna (delta) i loggen synkroniseras och sammanfogas till den överordnade disken.
 
 
-### <a name="finalize-protection-process"></a>Slutför processen för skydd
+### <a name="finalize-protection-process"></a>Slutför skydds process
 
-1. När den inledande replikeringen är klar i **Slutför skydd på den virtuella datorn** jobbet körs. Den konfigurerar nätverksinställningar och andra inställningar som krävs efter replikeringen så att den virtuella datorn är skyddad.
-2. I det här skedet kan du kontrollera inställningarna för virtuella datorer och kontrollera att den är redo för redundans. Du kan köra ett programåterställningstest (testa redundans) för den virtuella datorn att kontrollera att den inte över som förväntat. 
+1. När den inledande replikeringen har slutförts körs jobbet **Slutför skydd på den virtuella datorn** . Den konfigurerar nätverks-och andra inställningar efter replikering, så att den virtuella datorn skyddas.
+2. I det här skedet kan du kontrol lera inställningarna för virtuella datorer för att kontrol lera att de är redo för redundans. Du kan köra en granskning av haveri beredskap (redundanstest) för den virtuella datorn för att kontrol lera att den växlar över som förväntat. 
 
 
 ## <a name="delta-replication"></a>Deltareplikering
 
-1. Efter den första replikeringen börjar deltareplikering enligt replikeringsprincipen.
-2. Den spårningsverktyget för Hyper-V-replikering spårar ändringar i en virtuell hårddisk som .hrl-filer. Varje disk som är konfigurerad för replikering har en associerad .hrl-fil.
-3. Loggen skickas till kundens lagringskonto. När en logg är på väg till Azure, spåras ändringar i den primära disken i en loggfil i samma mapp.
-4. Under initial och deltareplikering replikering, kan du övervaka den virtuella datorn i Azure-portalen.
+1. Efter den inledande replikeringen börjar delta-replikering, i enlighet med replikeringsprincipen.
+2. Spåraren för Hyper-V-replikering spårar ändringar till en virtuell hård disk som. HRL-filer. Varje disk som är konfigurerad för replikering har en associerad .hrl-fil.
+3. Loggen skickas till kundens lagrings konto. När en logg överförs till Azure spåras ändringarna på den primära disken i en annan loggfil i samma mapp.
+4. Under inledande och delta-replikering kan du övervaka den virtuella datorn i Azure Portal.
 
-### <a name="resynchronization-process"></a>Omsynkroniseringen process
+### <a name="resynchronization-process"></a>Process för omsynkronisering
 
 1. Om deltareplikeringen misslyckas och om en fullständig replikering skulle bli för tids- och bandbreddskrävande så markeras en virtuell dator för omsynkronisering.
     - Om HRL-filerna till exempel når 50 % av diskstorleken markeras den virtuella datorn för omsynkronisering.
-    -  Omsynkroniseringen schemaläggs som standard automatisk körning utanför kontorstid.
-1.  Omsynkroniseringen skickar delta-data.
-    - Den minimerar mängden data som skickas av kontrollsummor beräknas för de virtuella datorerna för källa och mål.
-    - Den använder en delningsalgoritm med fasta block där käll-och målfiler delas in i fasta segment.
-    - Kontrollsummor skapas för varje segment skapas. Dessa jämförs för att avgöra vilka block från källan som ska tillämpas till målet.
+    -  Omsynkronisering av standard är schemalagd att köras automatiskt utanför kontors tid.
+1.  Omsynkronisering skickar endast delta data.
+    - Den minimerar mängden data som skickas genom att beräkna kontroll summor för käll-och mål-VM.
+    - Den använder en algoritm för fast block-block där käll-och målattribut är indelade i fasta segment.
+    - Kontroll summor för varje segment genereras. Dessa jämförs för att avgöra vilka block från källan som måste tillämpas på målet.
 2. När omsynkroniseringen är klar ska den normala deltareplikeringen återupptas.
-3. Om du inte vill vänta tills omsynkroniseringen är standard utanför timmar, kan du synkronisera om en virtuell dator manuellt. Exempel: om ett avbrott uppstår. Om du vill göra detta, i Azure-portalen, väljer du den virtuella datorn > **omsynkronisera**.
+3. Om du inte vill vänta på omsynkroniseringen av standardvärdet utanför timmar kan du synkronisera om en virtuell dator manuellt. Till exempel om ett avbrott inträffar. Det gör du genom att välja den virtuella datorn > omsynkroniseringi Azure Portal.
 
     ![Manuell omsynkronisering](./media/hyper-v-azure-architecture/image4-site.png)
 
 
-### <a name="retry-process"></a>Försök process
+### <a name="retry-process"></a>Försök att bearbeta igen
 
 Om det uppstår ett replikeringsfel finns det en inbyggd funktion som gör ett nytt försök. Återförsök klassificeras enligt beskrivningen i tabellen.
 
 **Kategori** | **Detaljer**
 --- | ---
-**Oåterkalleliga fel** | Inga nya försök görs. Status för den virtuella datorn är **kritisk**, och administratören måste ingripa.<br/><br/> Exempel på dessa fel är en bruten VHD-kedja, ogiltigt tillstånd för replikerade virtuella datorn, nätverksfel för autentisering, auktoriseringsfel och virtuell dator hittades inte-fel (för fristående Hyper-V-servrar.
-**Återkalleliga fel** | Återförsök sker varje replikeringsintervall, med ett exponentiellt undantagsläge som ökar återförsöksintervallet från det första försökets start med 1, 2, 4, 8 och 10 minuter. Om felet kvarstår försöker du var 30: e minut. Exempel på detta är nätverksfel, lite diskutrymme och lite minne.
+**Oåterkalleliga fel** | Inga nya försök görs. Status för den virtuella datorn är **kritisk**, och administratören måste ingripa.<br/><br/> Exempel på dessa fel är en bruten virtuell hård disk kedja, ett ogiltigt tillstånd för den virtuella replik datorn, autentiseringsfel, auktoriseringsfel och den virtuella datorn kunde inte hitta fel (för fristående Hyper-V-servrar).
+**Återkalleliga fel** | Återförsök sker varje replikeringsintervall, med ett exponentiellt undantagsläge som ökar återförsöksintervallet från det första försökets start med 1, 2, 4, 8 och 10 minuter. Om felet kvarstår försöker du var 30: e minut. Exempel på sådana problem är nätverks fel, låga diskfel och låga minnes förhållanden.
 
 
 
 ## <a name="failover-and-failback-process"></a>Processen för redundans och återställning efter fel
 
-1. Du kan köra en planerad eller oplanerad redundansväxling från den lokala Hyper-V-datorer till Azure. Om du kör en planerad redundansväxling stängs de virtuella källdatorerna av för att säkerställa att inga data går förlorade. Kör en oplanerad redundansväxling om den primära platsen är inte tillgänglig.
-2. Du kan redundansväxla en enskild dator eller skapa återställningsplaner för att samordna redundans för flera datorer.
-3. Du kör en redundansväxling. När den första fasen av redundans är klar bör du kunna se skapade virtuella datorer i Azure. Du kan tilldela en offentlig IP-adress till datorn om det behövs.
-4. Du etablerar därefter redundansen för att få åtkomst till arbetsbelastningen från den Virtuella Azure-replikdatorn.
+1. Du kan köra en planerad eller oplanerad redundansväxling från lokala virtuella Hyper-V-datorer till Azure. Om du kör en planerad redundansväxling stängs de virtuella källdatorerna av för att säkerställa att inga data går förlorade. Kör en oplanerad redundansväxling om den primära platsen inte är tillgänglig.
+2. Du kan redundansväxla en enskild dator eller skapa återställnings planer för att dirigera redundans för flera datorer.
+3. Du kör en redundansväxling. När det första steget i redundansväxlingen har slutförts bör du kunna se de skapade virtuella replik datorerna i Azure. Du kan tilldela en offentlig IP-adress till datorn om det behövs.
+4. Sedan genomför du redundansväxlingen och startar åtkomst till arbets belastningen från den virtuella repliken Azure-datorn.
 
-När din lokala infrastruktur är igång igen kan du inte återställa. Återställning efter fel sker i tre steg:
+När din lokala infrastruktur är igång igen kan du växla tillbaka. Återställning efter fel sker i tre steg:
 
-1. Starta en planerad redundansväxling från Azure till lokal plats:
-    - **Minimera stilleståndstiden**: Om du använder det här alternativet synkroniserar data före redundans i Site Recovery. Den söker efter ändrade datablock och hämtar dem till den lokala platsen, när behåller virtuell Azure-dator som kör, minimerar avbrottstid. När du anger manuellt när redundansen ska utföra, Azure-Virtuella datorn stängs av och alla slutliga deltaändringar kopieras redundansen börjar.
-    - **Fullständig nedladdning**: Med det här alternativet synkroniseras data under en redundansväxling. Det här alternativet laddar ned hela disken. Det går snabbare eftersom ingen kontrollsummor beräknas, men det finns fler driftstopp. Använd det här alternativet om du har kört repliken virtuella Azure-datorer under en viss tid, eller om den lokala virtuella datorn har tagits bort.
-    - **Skapa en virtuell dator**: Du kan välja för att växla tillbaka till samma virtuella dator eller till en annan virtuell dator. Du kan ange att Site Recovery ska skapa den virtuella datorn om den inte redan finns.
+1. Starta en planerad redundansväxling från Azure till den lokala platsen:
+    - **Minimera nedtid**: Om du använder det här alternativet Site Recovery synkroniserar data före redundansväxlingen. Den söker efter ändrade data block och laddar ned dem till den lokala platsen, medan den virtuella Azure-datorn fortsätter att köras, vilket minimerar stillestånds tiden. När du anger att redundansväxlingen ska slutföras manuellt stängs den virtuella Azure-datorn, eventuella ändringar i ändringarna kopieras och redundansväxlingen startar.
+    - **Fullständig nedladdning**: Med det här alternativet synkroniseras data under redundansväxlingen. Med det här alternativet hämtas hela disken. Det är snabbare eftersom inga kontroll summor beräknas, men det finns mer stillestånds tid. Använd det här alternativet om du har kört replikeringen av virtuella Azure-datorer under en tid, eller om den lokala virtuella datorn har tagits bort.
+    - **Skapa virtuell dator**: Du kan välja att växla tillbaka till samma virtuella dator eller till en annan virtuell dator. Du kan ange att Site Recovery ska skapa den virtuella datorn om den inte redan finns.
 
-2. När den första synkroniseringen är klar kan välja du för att slutföra redundansen. När den är klar kan du logga in på den lokala virtuella datorn för att kontrollera att allt fungerar som förväntat. Du kan se att den virtuella Azure-datorer har stoppats i Azure-portalen.
-3.  Sedan kan etablera du redundansen för att avsluta och få åtkomst till arbetsbelastningen från den lokala virtuella datorn igen.
-4. När arbetsbelastningar har återställts, aktiverar du omvänd replikering så att replikera lokala virtuella datorer till Azure igen.
+2. När den första synkroniseringen är klar väljer du att slutföra redundansväxlingen. När den är klar kan du logga in på den lokala virtuella datorn för att kontrol lera att allt fungerar som förväntat. I Azure Portal kan du se att de virtuella Azure-datorerna har stoppats.
+3.  Sedan genomför du redundansväxlingen för att slutföra och startar åtkomst till arbets belastningen från den lokala virtuella datorn igen.
+4. När arbets belastningarna har återställts aktiverar du omvänd replikering så att de lokala virtuella datorerna replikeras till Azure igen.
 
 
 
 ## <a name="next-steps"></a>Nästa steg
 
 
-Följ [den här självstudien](tutorial-prepare-azure.md) att komma igång med Hyper-V till Azure-replikering.
+Följ [den här](tutorial-prepare-azure.md) självstudien för att komma igång med Hyper-V till Azure-replikering.
 
 

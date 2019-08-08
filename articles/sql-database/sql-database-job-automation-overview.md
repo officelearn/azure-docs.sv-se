@@ -10,24 +10,24 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 ms.date: 01/25/2019
-ms.openlocfilehash: 677d9b5a8ca837288755ab098fbccd8a5b7ddacd
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1b8d4965edb446235e28f47a0226c82b89c73e0b
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567862"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68845052"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>Automatisera hanteringsuppgifter med hjälp av databasjobb
 
 Med Azure SQL Database kan du skapa och schemalägga jobb som kan köras periodiskt mot en eller flera databaser för att köra T-SQL-frågor och utföra underhållsuppgifter. Alla jobb loggar status för körning och försöker automatiskt utföra åtgärderna på nytt om det uppstår fel.
 Du kan definiera måldatabas eller grupper med Azure SQL-databaser där jobbet ska köras och även definiera scheman för att köra ett jobb.
-Ett jobb hanterar uppgiften att logga in på måldatabasen. Du definierar, underhåller och bevarar även Transact-SQL-skript som ska köras över en grupp Azure SQL-databaser.
+Ett jobb hanterar uppgiften att logga in till mål databasen. Du definierar, underhåller och bevarar även Transact-SQL-skript som ska köras över en grupp Azure SQL-databaser.
 
 ## <a name="when-to-use-automated-jobs"></a>När du ska använda automatiska jobb
 
 Det finns flera scenarier när du kan använda jobbautomatisering:
 
-- Automatisera hanteringsuppgifter och schemalägga dem sedan att köras varje veckodag, efter kontorstid osv.
+- Automatisera hanterings uppgifter och Schemalägg dem att köras varje vardag, efter timmar osv.
   - Distribuera schemaändringar, hantering av autentiseringsuppgifter, insamling av prestandadata eller insamling av telemetri för klientorganisation (kund).
   - Uppdatera referensdata (information som är gemensam över alla databaser), läsa in data från Azure Blob-lagring.
   - Bygg om index för att förbättra frågeprestandan. Konfigurera jobb att köras över en samling databaser regelbundet, till exempel vid tidpunkter för låg belastning.
@@ -36,7 +36,7 @@ Det finns flera scenarier när du kan använda jobbautomatisering:
   - Sammanställ data från en samling Azure SQL-databaser till en enkel måltabell.
   - Kör databearbetningsfrågor med längre körningstid över en stor uppsättning databaser, till exempel insamling av kundtelemetri. Resultaten samlas till en enskild måltabell för ytterligare analys.
 - Dataflyttar
-  - Skapa jobb som replikerar ändringar som görs i dina databaser till andra databaser eller samla in uppdateringar som görs i fjärrdatabaser och tillämpa ändringar i databasen.
+  - Skapa jobb som replikerar ändringar som gjorts i dina databaser till andra databaser eller samla in uppdateringar som gjorts i fjärrdatabaser och tillämpa ändringar i databasen.
   - Skapa jobb som läser in data från eller till databaser med hjälp av SQL Server Integration Services (SSIS).
 
 ## <a name="overview"></a>Översikt
@@ -44,7 +44,7 @@ Det finns flera scenarier när du kan använda jobbautomatisering:
 Följande tekniker för jobbschemaläggning är tillgängliga i Azure SQL Database:
 
 - **SQL Agent-jobb** är en klassisk och beprövad komponent för SQL Server-jobbschemaläggning som är tillgänglig i hanterad instans. SQL Agent-jobb är inte tillgängliga i enkla databaser.
-- **Elastic Database-jobb** är en tjänst för jobbschemaläggning som kör anpassade jobb på en eller flera Azure SQL-databaser.
+- **Elastic Database-jobb** är jobb schemaläggnings tjänster som kör anpassade jobb på en eller flera Azure SQL-databaser.
 
 Det finns vissa skillnader mellan SQL Agent (tillgängligt lokalt och som en del av SQL Database Managed Instance) och Database Elastic-jobbagenten (tillgänglig för enkla databaser i Azure SQL-databaser och databaser i SQL Data Warehouse).
 
@@ -55,18 +55,18 @@ Det finns vissa skillnader mellan SQL Agent (tillgängligt lokalt och som en del
 
 ## <a name="sql-agent-jobs"></a>SQL Agent-jobb
 
-SQL Agent-jobb är angivna serier med T-SQL-skript mot din databas. Använd jobb för att definiera en administrativ uppgift som kan köras en eller flera gånger och övervakas lyckad eller misslyckad status.
-Ett jobb kan köras på en lokal server eller på flera fjärrservrar. SQL Agent-jobb är en intern databasmotorkomponent som körs i tjänsten för hanterad instans.
+SQL Agent-jobb är en angiven serie med T-SQL-skript mot databasen. Använd jobb för att definiera en administrativ uppgift som kan köras en eller flera gånger och övervakas lyckad eller misslyckad status.
+Ett jobb kan köras på en lokal server eller på flera fjärrservrar. SQL Agent-jobb är en intern databas motor komponent som körs i den hanterade instans tjänsten.
 Det finns flera viktiga begrepp vad gäller SQL Agent-jobb:
 
 - **Jobbsteg** är en uppsättning med ett eller flera steg som ska köras i jobbet. För varje jobbsteg kan du definiera strategi för återförsök och vilken åtgärd som ska vidtas om jobbsteget lyckas eller misslyckas.
 - **Scheman** definierar när jobbet ska köras.
-- **Meddelanden** gör att du kan definiera regler som används för att meddela operatörer via e-post när jobbet är klart.
+- Med aviseringar kan du definiera regler som ska användas för att meddela operatörer via e-post när jobbet har slutförts.
 
 ### <a name="job-steps"></a>Jobbsteg
 
 SQL Agent-jobbsteg är sekvenser med åtgärder som SQL Agent ska köra. Varje steg har följande steg som ska köras om steget lyckas eller misslyckas, antalet återförsök i fall av fel.
-Med SQL Agent kan du skapa olika typer av jobbsteg, till exempel Transact-SQL-jobbsteg som kör en enda Transact-SQL-batch mot databasen, eller OS-kommando-/PowerShell-steg som kan köra anpassade OS-skript, SSIS-jobbsteg som du kan använda till att läsas in data med hjälp av SSIS-körningen eller [replikeringssteg](sql-database-managed-instance-transactional-replication.md) som kan publicera ändringar från din databas till andra databaser.
+Med SQL-agenten kan du skapa olika typer av jobb, t. ex. Transact-SQL-jobb som kör en enskild Transact-SQL-batch mot databasen, eller OS-kommando/PowerShell-steg som kan köra det anpassade OS-skriptet, genom att SSIS jobb steg kan läsa in data med hjälp av SSIS-körning eller [replikeringsalternativ](sql-database-managed-instance-transactional-replication.md) som kan publicera ändringar från databasen till andra databaser.
 
 [Transaktionsreplikering](sql-database-managed-instance-transactional-replication.md) är en databasmotorfunktion som gör att du kan publicera ändringar som görs i en eller flera tabeller i en databas och publicera/distribuera dem till en uppsättning prenumerantdatabaser. Publicering av ändringarna implementeras med hjälp av följande typer av SQL Agent-jobbsteg:
 
@@ -90,11 +90,11 @@ Ett schema kan definiera följande villkor för den tid då ett jobb körs:
 - Enligt ett återkommande schema.
 
 > [!Note]
-> Hanterad instans kan för närvarande inte användas till att starta ett jobb när instansen är ”inaktiv”.
+> Den hanterade instansen gör för närvarande inte att du kan starta ett jobb när instansen är inaktiv.
 
 ### <a name="job-notifications"></a>Jobbmeddelanden
 
-Med SQL Agent-jobb kan du få meddelanden när jobbet är klart eller misslyckas. Du kan få meddelanden via e-post.
+Med SQL Agent-jobb kan du få meddelanden när jobbet har slutförts eller misslyckats. Du kan ta emot aviseringar via e-post.
 
 Först behöver du konfigurera det e-postkonto som ska användas för att skicka e-postmeddelanden och tilldela kontot till den e-postprofil som kallas `AzureManagedInstance_dbmail_profile`, enligt följande exempel:
 
@@ -134,10 +134,10 @@ GO
 RECONFIGURE 
 ```
 
-Du kan meddela operatören att något har hänt med dina SQL Agent-jobb. En operatör definierar kontaktinformation för en enskild ansvarig för underhåll av en eller flera hanterade instanser. Ibland tilldelas en enskild person operatörsansvar.
+Du kan meddela operatören att något har hänt med dina SQL Agent-jobb. En operatör definierar kontakt information för en person som ansvarar för underhåll av en eller flera hanterade instanser. Ibland tilldelas operatörs ansvar en individ.
 I system med flera hanterade instanser eller SQL-servrar kan många personer dela operatörsansvar. En operatör innehåller ingen säkerhetsinformation och definierar inte ett säkerhetsobjekt.
 
-Du kan skapa operatörer med hjälp av SSMS eller Transact-SQL-skript såsom det visas i följande exempel:
+Du kan skapa operatörer med SSMS eller Transact-SQL-skriptet som visas i följande exempel:
 
 ```sql
 EXEC msdb.dbo.sp_add_operator 
@@ -146,7 +146,7 @@ EXEC msdb.dbo.sp_add_operator
         @email_address=N'mihajlo.pupin@contoso.com'
 ```
 
-Du kan ändra jobb och tilldela en operatör som meddelas via e-post om jobbet är klart, misslyckas eller lyckas med hjälp av SSMS eller följande Transact-SQL-skript:
+Du kan ändra alla jobb och tilldela operatörer som ska meddelas via e-post om jobbet slutförs, Miss lyckas eller lyckas med SSMS eller följande Transact-SQL-skript:
 
 ```sql
 EXEC msdb.dbo.sp_update_job @job_name=N'Load data using SSIS', 
@@ -158,11 +158,11 @@ EXEC msdb.dbo.sp_update_job @job_name=N'Load data using SSIS',
 
 Vissa av de SQL Agent-funktioner som är tillgängliga i SQL Server stöds inte i hanterad instans:
 - Inställningar för SQL Agent är skrivskyddade. Proceduren `sp_set_agent_properties` stöds inte i hanterad instans.
-- Aktivering/inaktivering av Agent stöds för närvarande inte i hanterad instans. SQL Agent körs alltid.
+- Aktivering/inaktive ring av SQL Agent stöds för närvarande inte i hanterade instanser. SQL Agent körs alltid.
 - Meddelanden stöds delvis
   - Personsökare stöds inte.
   - NetSend stöds inte.
-  - Aviseringar stöds ännu inte.
+  - Aviseringar stöds inte.
 - Proxyservrar stöds inte.
 - EventLog stöds inte.
 
@@ -194,11 +194,11 @@ En agent för elastiska jobb är Azure-resursen för att skapa, köra och hanter
 
 För att skapa en **elastisk jobbagent** krävs en befintlig SQL-databas. Agenten konfigurerar den här befintliga databasen som [*jobbdatabasen*](#job-database).
 
-Det är kostnadsfritt att skapa en elastisk jobbagent. Jobbdatabasen debiteras samma kostnad som övriga SQL-databaser.
+Det är kostnadsfritt att skapa en elastisk jobbagent. Jobb databasen debiteras med samma taxa som vilken SQL-databas som helst.
 
 #### <a name="job-database"></a>Jobbdatabas
 
-*Jobbdatabasen* används för att definiera jobb och spåra status och historik för jobbkörningar. *Jobbdatabasen* används också för att lagra agentmetadata, loggar, resultat och jobbdefinitioner och innehåller även många användbara lagrade procedurer och andra databasobjekt för att skapa, köra och hantera jobb med hjälp av T-SQL.
+*Jobbdatabasen* används för att definiera jobb och spåra status och historik för jobbkörningar. *Jobb databasen* används också för att lagra Gent-metadata, loggar, resultat, jobb definitioner och innehåller också många användbara lagrade procedurer och andra databas objekt för att skapa, köra och hantera jobb med T-SQL.
 
 För den aktuella förhandsversionen krävs en befintlig Azure SQL-databas (S0 eller senare) för att skapa en elastisk jobbagent.
 
@@ -248,7 +248,7 @@ Följande exempel visar hur olika målgruppsdefinitioner räknas upp dynamiskt n
 
 ![Exempel med målgrupper](media/elastic-jobs-overview/targetgroup-examples2.png)
 
-**Exempel 5** och **exempel 6** illustrerar avancerade scenarier där Azure SQL-servrar, elastiska pooler och databaser kan kombineras med hjälp av inkluderings- och exkluderingsregler.<br>
+**Exempel 5** och **exempel 6** visar avancerade scenarier där Azure SQL-servrar, elastiska pooler och databaser kan kombineras med hjälp av regler för att inkludera och exkludera.<br>
 **Exempel 7** illustrerar hur shards (fragment) i en shard-karta även kan utvärderas när ett jobb körs.
 
 #### <a name="job"></a>Jobb

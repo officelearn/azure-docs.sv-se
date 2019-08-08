@@ -6,12 +6,12 @@ ms.service: azure-australia
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: grgale
-ms.openlocfilehash: b68bdb6d1c349df67943889b511eac87c940b531
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f7f78dbde9810c8786e2344555444efabcc989b0
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68571892"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779313"
 ---
 # <a name="system-monitoring-for-security-in-azure-australia"></a>System övervakning för säkerhet i Azure Australien
 
@@ -108,7 +108,7 @@ Loggarna som samlas in i Azure faller under någon av följande tre kategorier:
 
 Övervakningen av virtuella Azure-datorer förbättras genom distributionen av den virtuella dator agenten för både Windows och Linux. Detta gör att den här markeringen ökar bredden på den insamlade loggnings informationen. Distributionen av den här agenten kan konfigureras att ske automatiskt via Azure Security Center.
 
-Microsoft tillhandahåller detaljerad information om Azures resurs-särskilda loggar och deras [scheman](https://docs.microsoft.com/azure/security/azure-log-audit).
+Microsoft tillhandahåller detaljerad information om Azures resurs-särskilda loggar och deras [scheman](https://docs.microsoft.com/azure/security/fundamentals/log-audit).
 
 ### <a name="log-retention-and-protection"></a>Logg kvarhållning och skydd
 
@@ -136,7 +136,7 @@ Säkra poäng i Azure Security Center ger dig en lista över rekommendationer so
 
 Azure Policy spelar också en viktig del i den pågående sårbarhets utvärderingen. De typer av principer som är tillgängliga i Azure Policy intervall från att tvinga fram resurs etiketter och-värden, för att begränsa de Azure-regioner där resurser kan skapas, för att blockera skapandet av specifika resurs typer helt. En uppsättning Azure-principer kan grupperas i initiativ. Initiativ används för att tillämpa relaterade Azure-principer som, när de tillämpas tillsammans som en grupp, utgör grunden för ett bestämt mål för säkerhet eller efterlevnad.
 
-Azure Policy har ett bibliotek med inbyggda princip definitioner som ständigt växer. Azure Portal ger dig också möjlighet att redigera dina egna anpassade Azure Policys definitioner. När du har hittat en princip i det befintliga biblioteket eller skapat en ny kan du tilldela principen till Azure-resurser. De här tilldelningarna kan begränsas [på olika](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage) nivåer i resurs hanterings hierarkin. Princip tilldelningen ärvs, vilket innebär att alla underordnade resurser inom ett område får samma princip tilldelning. Resurser kan också uteslutas från princip tilldelningen vid behov.
+Azure Policy har ett bibliotek med inbyggda princip definitioner som ständigt växer. Azure Portal ger dig också möjlighet att redigera dina egna anpassade Azure Policys definitioner. När du har hittat en princip i det befintliga biblioteket eller skapat en ny kan du tilldela principen till Azure-resurser. De här tilldelningarna [](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage) kan begränsas på olika nivåer i resurs hanterings hierarkin. Princip tilldelningen ärvs, vilket innebär att alla underordnade resurser inom ett område får samma princip tilldelning. Resurser kan också uteslutas från princip tilldelningen vid behov.
 
 Alla distribuerade Azure-principer bidrar till en organisations säkra poäng. I en miljö med hög ekrar kan anpassade Azure Policys definitioner skapas och distribueras för att tillhandahålla gransknings information som är anpassad till vissa arbets belastningar.
 

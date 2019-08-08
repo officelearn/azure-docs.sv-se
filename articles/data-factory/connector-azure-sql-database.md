@@ -1,6 +1,6 @@
 ---
-title: Kopiera data till och från Azure SQL Database med hjälp av Data Factory | Microsoft Docs
-description: Lär dig hur du kopierar data från datalager som stöds till Azure SQL Database eller SQL-databas till mottagarens datalager med Data Factory.
+title: Kopiera data till eller från Azure SQL Database med Data Factory | Microsoft Docs
+description: Lär dig hur du kopierar data från käll data lager som stöds till Azure SQL Database eller från SQL Database till mottagar data lager som stöds med hjälp av Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -10,71 +10,71 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/14/2019
+ms.date: 08/06/2019
 ms.author: jingwang
-ms.openlocfilehash: 5dbd739070b1f66fe5ff04f319a3818269d0bdaa
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 905d208dccf54ac34e3f832d4d0c5b98a6121757
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449612"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827505"
 ---
-# <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Kopiera data till och från Azure SQL Database med hjälp av Azure Data Factory
-> [!div class="op_single_selector" title1="Välj versionen av Azure Data Factory som du använder:"]
+# <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Kopiera data till eller från Azure SQL Database med Azure Data Factory
+> [!div class="op_single_selector" title1="Välj den version av Azure Data Factory som du använder:"]
 > * [Version 1](v1/data-factory-azure-sql-connector.md)
 > * [Aktuell version](connector-azure-sql-database.md)
 
-Den här artikeln beskrivs hur du kopierar data till och från Azure SQL Database. Läs om Azure Data Factory den [introduktionsartikeln](introduction.md).
+Den här artikeln beskriver hur du kopierar data till och från Azure SQL Database. Läs om Azure Data Factory den [introduktionsartikeln](introduction.md).
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
-Den här anslutningen för Azure SQL Database stöds för följande aktiviteter:
+Den här Azure SQL Database anslutningen stöds för följande aktiviteter:
 
-- [Kopiera aktivitet](copy-activity-overview.md) med [stöd matrix för källa/mottagare](copy-activity-overview.md) tabell
-- [Mappning av dataflöde](concepts-data-flow-overview.md)
+- [Kopiera aktivitet](copy-activity-overview.md) med [mat ris tabell med stöd för källa/mottagare](copy-activity-overview.md)
+- [Mappa data flöde](concepts-data-flow-overview.md)
 - [Sökningsaktivitet](control-flow-lookup-activity.md)
-- [GetMetadata-aktiviteten](control-flow-get-metadata-activity.md)
+- [GetMetadata-aktivitet](control-flow-get-metadata-activity.md)
 
-Mer specifikt stöder den här anslutningen för Azure SQL Database dessa funktioner:
+Mer specifikt har den här Azure SQL Database-anslutningen stöd för dessa funktioner:
 
-- Kopiera data med hjälp av SQL-autentisering och autentisering med Azure Active Directory (Azure AD) Application-token med ett tjänstens huvudnamn eller hanterade identiteter för Azure-resurser.
-- Hämta data med hjälp av en SQL-fråga eller en lagrad procedur som en källa.
-- Som en mottagare, lägga till data till en måltabell eller anropa en lagrad procedur med anpassad logik under kopieringen.
+- Kopiera data med hjälp av SQL-autentisering och Azure Active Directory (Azure AD) Application token-autentisering med tjänstens huvud namn eller hanterade identiteter för Azure-resurser.
+- Som källa hämtar data med hjälp av en SQL-fråga eller en lagrad procedur.
+- Som mottagare lägger du till data i en mål tabell eller anropar en lagrad procedur med anpassad logik under kopieringen.
 
 >[!NOTE]
->Azure SQL Database [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=azuresqldb-current) stöds inte av denna koppling nu. Du kan använda för att arbeta runt en [allmän ODBC-anslutningsprogram](connector-odbc.md) och en ODBC-drivrutinen via en lokal integration runtime. Följ [den här vägledningen](https://docs.microsoft.com/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver?view=azuresqldb-current) med ODBC-drivrutinen nedladdning och anslutningen sträng konfigurationer.
+>Azure SQL Database [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=azuresqldb-current) stöds inte av den här anslutningen nu. För att lösa problemet kan du använda en [allmän ODBC-anslutning](connector-odbc.md) och en SQL Server ODBC-drivrutin via en lokal integration Runtime. Följ [den här vägledningen](https://docs.microsoft.com/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver?view=azuresqldb-current) för hämtning av ODBC-drivrutiner och konfiguration av anslutnings strängar.
 
 > [!IMPORTANT]
-> Om du kopierar data med hjälp av Azure Data Factory integration runtime kan du konfigurera en [Azure SQL Server-brandväggen](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) så att Azure-tjänster har åtkomst till servern.
-> Om du kopierar data med hjälp av en lokal integration runtime kan du konfigurera Azure SQL Server-brandväggen så att rätt IP-adressintervall. Det här intervallet inkluderar den datorns IP-adress som används för att ansluta till Azure SQL Database.
+> Om du kopierar data med hjälp av Azure Data Factory integration runtime konfigurerar du en [azure SQL Server-brandvägg](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) så att Azure-tjänsterna kan komma åt servern.
+> Om du kopierar data med hjälp av en lokal integration runtime konfigurerar du Azure SQL Server-brandväggen så att rätt IP-intervall tillåts. Detta intervall inkluderar datorns IP-adress som används för att ansluta till Azure SQL Database.
 
 ## <a name="get-started"></a>Kom igång
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-Följande avsnitt innehåller information om egenskaper som används för att definiera Azure Data Factory-entiteter som är specifika för en Azure SQL Database-anslutning.
+I följande avsnitt finns information om egenskaper som används för att definiera Azure Data Factory entiteter som är speciella för en Azure SQL Database anslutning.
 
 ## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
 
-De här egenskaperna har stöd för en länkad Azure SQL Database-tjänst:
+Dessa egenskaper stöds för en Azure SQL Database länkad tjänst:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Den **typ** egenskapen måste anges till **AzureSqlDatabase**. | Ja |
-| connectionString | Ange information som behövs för att ansluta till Azure SQL Database-instansen för den **connectionString** egenskapen. <br/>Markera det här fältet som **SecureString** ska lagras på ett säkert sätt i Azure Data Factory. Du kan också ange ett lösenord eller service principal nyckel i Azure Key Vault. Om den är SQL-autentisering kan du hämta den `password` konfiguration av anslutningssträngen. Mer information finns i JSON-exemplet som följer tabellen och [Store autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
-| servicePrincipalId | Ange programmets klient-ID. | Ja, när du använder Azure AD-autentisering med ett huvudnamn för tjänsten |
-| servicePrincipalKey | Ange programmets nyckel. Markera det här fältet som **SecureString** ska lagras på ett säkert sätt i Azure Data Factory eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja, när du använder Azure AD-autentisering med ett huvudnamn för tjänsten |
-| tenant | Ange klientinformation som domännamnet eller klient-ID, där programmet finns. Hämta det håller musen i det övre högra hörnet i Azure Portal. | Ja, när du använder Azure AD-autentisering med ett huvudnamn för tjänsten |
-| connectVia | Detta [integreringskörningen](concepts-integration-runtime.md) används för att ansluta till datalagret. Du kan använda Azure integration runtime eller en lokal integration runtime om ditt datalager finns i ett privat nätverk. Om den inte anges används standard Azure integration runtime. | Nej |
+| type | Egenskapen **Type** måste anges till **AzureSqlDatabase**. | Ja |
+| connectionString | Ange information som krävs för att ansluta till Azure SQL Database-instansen för egenskapen **ConnectionString** . <br/>Markera det här fältet som **SecureString** för att lagra det på ett säkert sätt i Azure Data Factory. Du kan också ange ett lösen ord eller en tjänst huvud nyckel i Azure Key Vault. Om det är SQL-autentisering, hämtar `password` du konfigurationen från anslutnings strängen. Mer information finns i JSON-exemplet som följer tabellen och [lagrar autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| servicePrincipalId | Ange programmets klient-ID. | Ja, när du använder Azure AD-autentisering med ett huvud namn för tjänsten |
+| servicePrincipalKey | Ange programmets nyckel. Markera det här fältet som **SecureString** för att lagra det på ett säkert sätt i Azure Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja, när du använder Azure AD-autentisering med ett huvud namn för tjänsten |
+| tenant | Ange klient information, t. ex. domän namnet eller klient-ID: t, som ditt program finns under. Hämta det genom att hovra musen i det övre högra hörnet av Azure Portal. | Ja, när du använder Azure AD-autentisering med ett huvud namn för tjänsten |
+| connectVia | [Integrerings körningen](concepts-integration-runtime.md) används för att ansluta till data lagret. Du kan använda Azure integration runtime eller en lokal integration Runtime om ditt data lager finns i ett privat nätverk. Om inget värde anges används standard Azure integration Runtime. | Nej |
 
 För olika typer av autentisering, se följande avsnitt om krav och JSON-exempel, respektive:
 
 - [SQL-autentisering](#sql-authentication)
-- [Azure AD-token-autentisering: Tjänstens huvudnamn](#service-principal-authentication)
-- [Azure AD-token-autentisering: hanterade identiteter för Azure-resurser](#managed-identity)
+- [Azure AD Application token-autentisering: Tjänstens huvud namn](#service-principal-authentication)
+- [Azure AD Application token-autentisering: Hanterade identiteter för Azure-resurser](#managed-identity)
 
 >[!TIP]
->Om du stöter på ett fel med felkod ”UserErrorFailedToConnectToSqlServer” och ett meddelande som ”sessionens tidsgräns för databasen är XXX och har nåtts”, lägger du till `Pooling=false` till din anslutningssträng och försök igen.
+>Om du träffar ett fel med felkoden "UserErrorFailedToConnectToSqlServer" och ett meddelande som "databasens sessionsgräns är XXX och har nåtts," Lägg `Pooling=false` till i anslutnings strängen och försök igen.
 
 ### <a name="sql-authentication"></a>SQL-autentisering
 
@@ -99,7 +99,7 @@ För olika typer av autentisering, se följande avsnitt om krav och JSON-exempel
 }
 ```
 
-**Lösenord i Azure Key Vault** 
+**Lösen ord i Azure Key Vault** 
 
 ```json
 {
@@ -130,29 +130,29 @@ För olika typer av autentisering, se följande avsnitt om krav och JSON-exempel
 
 ### <a name="service-principal-authentication"></a>Autentisering av tjänstens huvudnamn
 
-Följ dessa steg om du vill använda autentisering med enhetstoken en service principal-baserade Azure AD-program:
+Följ dessa steg om du vill använda en tjänst objekts Azure AD-baserad autentisering av Azure AD-programtoken:
 
-1. [Skapa ett Azure Active Directory-program](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) från Azure-portalen. Anteckna namnet på programmet och följande värden som definierar den länkade tjänsten:
+1. [Skapa ett Azure Active Directory-program](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) från Azure Portal. Anteckna namnet på programmet och följande värden som definierar den länkade tjänsten:
 
     - Program-ID:t
     - Programnyckel
     - Klient-ID:t
 
-2. [Etablera en Azure Active Directory-administratör](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server) för Azure SQL-servern på Azure portal om du inte redan gjort det. Azure AD-administratör måste vara en Azure AD-användare eller Azure AD-grupp, men den kan inte vara ett huvudnamn för tjänsten. Det här steget gör du så att det i nästa steg ska du använda en Azure AD-identitet för att skapa en oberoende databasanvändare för tjänsten huvudnamn.
+2. [Etablera en Azure Active Directory administratör](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server) för din Azure-SQL Server på Azure Portal om du inte redan har gjort det. Azure AD-administratören måste vara en Azure AD-användare eller Azure AD-grupp, men den kan inte vara ett huvud namn för tjänsten. Det här steget görs så att du i nästa steg kan använda en Azure AD-identitet för att skapa en innesluten databas användare för tjänstens huvud namn.
 
-3. [Skapa oberoende databasanvändare](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities) för tjänstens huvudnamn. Ansluta till databasen från eller som du vill kopiera data med hjälp av verktyg som SQL Server Management Studio med en Azure AD-identitet som har minst behörigheten ALTER ANY användare. Kör följande T-SQL: 
+3. [Skapa inneslutna databas användare](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities) för tjänstens huvud namn. Anslut till databasen från eller till den databas som du vill kopiera data med hjälp av verktyg som SQL Server Management Studio, med en Azure AD-identitet som har minst ändra användar behörighet. Kör följande T-SQL: 
   
     ```sql
     CREATE USER [your application name] FROM EXTERNAL PROVIDER;
     ```
 
-4. Bevilja behörigheter krävs för tjänstens huvudnamn som du brukar för SQL-användare eller andra. Kör följande kod. Fler alternativ finns i [det här dokumentet](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017).
+4. Ge tjänstens huvud namn nödvändiga behörigheter som du vanligt vis använder för SQL-användare eller andra. Kör följande kod. Fler alternativ finns i [det här dokumentet](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017).
 
     ```sql
     EXEC sp_addrolemember [role name], [your application name];
     ```
 
-5. Konfigurera en länkad Azure SQL Database-tjänsten i Azure Data Factory.
+5. Konfigurera en Azure SQL Database länkad tjänst i Azure Data Factory.
 
 
 #### <a name="linked-service-example-that-uses-service-principal-authentication"></a>Länkad tjänst-exempel som använder autentisering av tjänstens huvudnamn
@@ -184,25 +184,25 @@ Följ dessa steg om du vill använda autentisering med enhetstoken en service pr
 
 ### <a name="managed-identity"></a> Hanterade identiteter för autentisering av Azure-resurser
 
-En data factory kan associeras med en [hanterad identitet för Azure-resurser](data-factory-service-identity.md) som representerar specifika data factory. Du kan använda den här hanterad identitet för Azure SQL Database-autentisering. Den angivna datafabriken kan komma åt och kopiera data från eller till din databas med hjälp av den här identiteten.
+En data fabrik kan associeras med en [hanterad identitet för Azure-resurser](data-factory-service-identity.md) som representerar den aktuella data fabriken. Du kan använda den här hanterade identiteten för Azure SQL Database autentisering. Den angivna fabriken kan komma åt och kopiera data från eller till databasen med hjälp av den här identiteten.
 
-Följ dessa steg om du vill använda autentisering för hanterad identitet.
+Följ dessa steg om du vill använda hanterad identitets autentisering.
 
-1. [Etablera en Azure Active Directory-administratör](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server) för Azure SQL-servern på Azure portal om du inte redan gjort det. Azure AD-administratör kan vara en Azure AD-användare eller en Azure AD-grupp. Om du ger gruppen med hanterad identitet en administratörsroll kan du hoppa över steg 3 och 4. Administratörer har fullständig åtkomst till databasen.
+1. [Etablera en Azure Active Directory administratör](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server) för din Azure-SQL Server på Azure Portal om du inte redan har gjort det. Azure AD-administratören kan vara en Azure AD-användare eller en Azure AD-grupp. Hoppa över steg 3 och 4 om du beviljar gruppen med hanterad identitet en administratörs roll. Administratören har fullständig åtkomst till databasen.
 
-2. [Skapa oberoende databasanvändare](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities) för Azure Data Factory-hanterad identitet. Ansluta till databasen från eller som du vill kopiera data med hjälp av verktyg som SQL Server Management Studio med en Azure AD-identitet som har minst behörigheten ALTER ANY användare. Kör följande T-SQL: 
+2. [Skapa inneslutna databas användare](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities) för den Azure Data Factory hanterade identiteten. Anslut till databasen från eller till den databas som du vill kopiera data med hjälp av verktyg som SQL Server Management Studio, med en Azure AD-identitet som har minst ändra användar behörighet. Kör följande T-SQL: 
   
     ```sql
     CREATE USER [your Data Factory name] FROM EXTERNAL PROVIDER;
     ```
 
-3. Ge Data Factory-hanterad identitet krävs behörigheter som du brukar för SQL-användare och andra. Kör följande kod. Fler alternativ finns i [det här dokumentet](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017).
+3. Ge den Data Factory hanterade identiteten nödvändiga behörigheter som du vanligt vis använder för SQL-användare och andra. Kör följande kod. Fler alternativ finns i [det här dokumentet](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017).
 
     ```sql
     EXEC sp_addrolemember [role name], [your Data Factory name];
     ```
 
-4. Konfigurera en länkad Azure SQL Database-tjänsten i Azure Data Factory.
+4. Konfigurera en Azure SQL Database länkad tjänst i Azure Data Factory.
 
 **Exempel**
 
@@ -227,14 +227,14 @@ Följ dessa steg om du vill använda autentisering för hanterad identitet.
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar, se [datauppsättningar](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services). Det här avsnittet innehåller en lista över egenskaper som stöds av Azure SQL Database-datauppsättning.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera data uppsättningar finns i [data uppsättningar](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services). Det här avsnittet innehåller en lista över egenskaper som stöds av Azure SQL Database data uppsättningen.
 
-För att kopiera data från eller till Azure SQL Database, stöds följande egenskaper:
+Följande egenskaper stöds för att kopiera data från eller till Azure SQL Database:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Den **typ** egenskap måste anges till **AzureSqlTable**. | Ja |
-| tableName | Namnet på tabellen eller vyn i Azure SQL Database-instans som den länkade tjänsten refererar till. | Nej för källa, Ja för mottagare |
+| type | Data uppsättningens **typ** -egenskap måste anges till **AzureSqlTable**. | Ja |
+| tableName | Namnet på tabellen eller vyn i Azure SQL Database-instansen som den länkade tjänsten refererar till. | Nej för källa, Ja för mottagare |
 
 #### <a name="dataset-properties-example"></a>Exempel med datauppsättningen egenskaper
 
@@ -258,23 +258,23 @@ För att kopiera data från eller till Azure SQL Database, stöds följande egen
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i [Pipelines](concepts-pipelines-activities.md). Det här avsnittet innehåller en lista över egenskaper som stöds av Azure SQL Database-källa och mottagare.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter [](concepts-pipelines-activities.md)finns i pipelines. Det här avsnittet innehåller en lista över egenskaper som stöds av Azure SQL Database källa och mottagare.
 
-### <a name="azure-sql-database-as-the-source"></a>Azure SQL-databas som källa
+### <a name="azure-sql-database-as-the-source"></a>Azure SQL Database som källa
 
-För att kopiera data från Azure SQL Database, ange den **typ** -egenskapen i kopieringskälla för aktiviteten till **SqlSource**. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnittet:
+Om du vill kopiera data från Azure SQL Database anger du egenskapen **Type** i kopierings aktivitets källan till **SqlSource**. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnittet:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Den **typ** egenskapen för aktiviteten kopieringskälla måste anges till **SqlSource**. | Ja |
-| sqlReaderQuery | Den här egenskapen använder anpassade SQL-fråga för att läsa data. Ett exempel är `select * from MyTable`. | Nej |
+| type | **Typ** egenskapen för kopierings aktivitets källan måste anges till **SqlSource**. | Ja |
+| sqlReaderQuery | Den här egenskapen använder den anpassade SQL-frågan för att läsa data. Ett exempel är `select * from MyTable`. | Nej |
 | sqlReaderStoredProcedureName | Namnet på den lagrade proceduren som läser data från källtabellen. Den senaste SQL-instruktionen måste vara en SELECT-instruktion i den lagrade proceduren. | Nej |
-| storedProcedureParameters | Parametrar för den lagrade proceduren.<br/>Tillåtna värden är namn eller värde-par. Namn och versaler och gemener i parametrar måste matcha namn och versaler och gemener i parametrarna för lagrade procedurer. | Nej |
+| storedProcedureParameters | Parametrar för den lagrade proceduren.<br/>Tillåtna värden är namn eller värde-par. Namn och Skift läge för parametrar måste matcha namn och Skift läge för parametrarna för den lagrade proceduren. | Nej |
 
-**Saker att Observera:**
+**Poäng till Anmärkning:**
 
-- Om **sqlReaderQuery** har angetts för **SqlSource**, Kopieringsaktivitet körs den här frågan mot Azure SQL Database-källan för att hämta data. Du kan också ange en lagrad procedur genom att ange **sqlReaderStoredProcedureName** och **storedProcedureParameters** tar parametrar för den lagrade proceduren.
-- Om du inte anger något **sqlReaderQuery** eller **sqlReaderStoredProcedureName**, de kolumner som definierats i avsnittet ”struktur” i datauppsättningen JSON som används för att skapa en fråga. Frågan `select column1, column2 from mytable` körs mot Azure SQL Database. Om definitionen för datauppsättningen inte har ”struktur”, markeras alla kolumner från tabellen.
+- Om **sqlReaderQuery** har angetts för **SqlSource**kör kopierings aktiviteten den här frågan mot Azure SQL Database källan för att hämta data. Du kan också ange en lagrad procedur genom att ange **sqlReaderStoredProcedureName** och **storedProcedureParameters** om den lagrade proceduren tar parametrar.
+- Om du inte anger någon av **sqlReaderQuery** eller **sqlReaderStoredProcedureName**används kolumnerna som definierats i avsnittet "struktur" i JSON-datauppsättnings-JSON för att skapa en fråga. Frågan `select column1, column2 from mytable` körs mot Azure SQL Database. Om definitionen för data uppsättningen inte har "struktur" är alla kolumner markerade från tabellen.
 
 #### <a name="sql-query-example"></a>Exempel för SQL-fråga
 
@@ -363,24 +363,25 @@ END
 GO
 ```
 
-### <a name="azure-sql-database-as-the-sink"></a>Azure SQL-databas som mottagare
+### <a name="azure-sql-database-as-the-sink"></a>Azure SQL Database som mottagare
 
 > [!TIP]
-> Mer information om den stöds skrivning beteenden, konfigurationer och bästa praxis från [bästa praxis för inläsning av data till Azure SQL Database](#best-practice-for-loading-data-into-azure-sql-database).
+> Lär dig mer om Skriv beteenden, konfigurationer och bästa metoder som stöds av [bästa praxis för att läsa in data i Azure SQL Database](#best-practice-for-loading-data-into-azure-sql-database).
 
-För att kopiera data till Azure SQL Database, ange den **typ** -egenskapen i kopieringsaktiviteten mottagare till **SqlSink**. Följande egenskaper stöds i kopieringsaktiviteten **mottagare** avsnittet:
+Om du vill kopiera data till Azure SQL Database anger du egenskapen **Type** i kopierings aktivitetens Sink till **SqlSink**. Följande egenskaper stöds i kopieringsaktiviteten **mottagare** avsnittet:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Den **typ** egenskapen kopiera aktivitet komprimeringstyp måste anges till **SqlSink**. | Ja |
-| writeBatchSize | Antalet rader att infoga i SQL-tabell *per batch*.<br/> Det tillåtna värdet är **heltal** (antal rader). Som standard anger Azure Data Factory dynamiskt lämplig batchstorlek baserat på radstorleken. | Nej |
-| writeBatchTimeout | Väntetid för batch Infoga åtgärden slutförs innan tidsgränsen uppnås.<br/> Det tillåtna värdet är **timespan**. Ett exempel är ”00: 30:00” (30 minuter). | Nej |
-| preCopyScript | Ange en SQL-fråga för kopieringsaktiviteten ska köras innan du skriver data till Azure SQL Database. Den anropas bara en gång per kopia som kör. Använd den här egenskapen för att rensa förinstallerade data. | Nej |
-| sqlWriterStoredProcedureName | Namnet på den lagrade proceduren som definierar hur du använder källdata till en måltabell. <br/>Den här lagrade proceduren är *anropas per batch*. Åtgärder som bara körs en gång och har inget att göra med källdata, till exempel ta bort eller trunkera, använda den `preCopyScript` egenskapen. | Nej |
-| storedProcedureParameters |Parametrar för den lagrade proceduren.<br/>Tillåtna värden är namn och värdepar. Namn och versaler och gemener i parametrar måste matcha namn och versaler och gemener i parametrarna för lagrade procedurer. | Nej |
-| sqlWriterTableType | Ange ett tabellnamn typ som ska användas i den lagrade proceduren. Kopieringsaktiviteten tillhandahåller data som flyttas i en tillfällig tabell med den här tabellen. Lagrad procedur kod kan sedan sammanfoga de data som ska kopieras med befintliga data. | Nej |
+| type | Egenskapen **Type** för kopierings aktivitetens Sink måste anges till **SqlSink**. | Ja |
+| writeBatchSize | Antal rader som ska infogas i SQL-tabellen *per batch*.<br/> Det tillåtna värdet är **heltal** (antal rader). Som standard bestämmer Azure Data Factory dynamiskt rätt batchstorlek baserat på rad storleken. | Nej |
+| writeBatchTimeout | Vänte tiden för att infoga batch-operationen ska avslutas innan den nådde tids gränsen.<br/> Det tillåtna värdet är **timespan**. Ett exempel är "00:30:00" (30 minuter). | Nej |
+| preCopyScript | Ange en SQL-fråga för kopierings aktiviteten som ska köras innan data skrivs till Azure SQL Database. Den anropas bara en gång per kopierings körning. Använd den här egenskapen för att rensa förinstallerade data. | Nej |
+| sqlWriterStoredProcedureName | Namnet på den lagrade proceduren som definierar hur källdata ska användas i en mål tabell. <br/>Den här lagrade proceduren *anropas per batch*. För åtgärder som bara körs en gång och som inte har något att göra med källdata, till exempel ta bort eller trunkera, använder `preCopyScript` du egenskapen. | Nej |
+| storedProcedureTableTypeParameterName |Parameter namnet för den tabell typ som anges i den lagrade proceduren.  |Nej |
+| sqlWriterTableType |Det tabell typs namn som ska användas i den lagrade proceduren. Kopierings aktiviteten gör data som flyttas tillgängliga i en temporär tabell med den här tabell typen. Den lagrade procedur koden kan sedan sammanfoga de data som kopieras med befintliga data. |Nej |
+| storedProcedureParameters |Parametrar för den lagrade proceduren.<br/>Tillåtna värden är namn-och värdepar. Namn och versaler och gemener i parametrar måste matcha namn och versaler och gemener i parametrarna för lagrade procedurer. | Nej |
 
-**Exempel 1: Lägga till data**
+**Exempel 1: Lägg till data**
 
 ```json
 "activities":[
@@ -412,9 +413,9 @@ För att kopiera data till Azure SQL Database, ange den **typ** -egenskapen i ko
 ]
 ```
 
-**Exempel 2: Anropa en lagrad procedur vid kopiering**
+**Exempel 2: Anropa en lagrad procedur under kopieringen**
 
-Lär dig mer från [anropa en lagrad procedur från en SQL-mottagare](#invoke-a-stored-procedure-from-a-sql-sink).
+Läs mer om att [anropa en lagrad procedur från en SQL-mottagare](#invoke-a-stored-procedure-from-a-sql-sink).
 
 ```json
 "activities":[
@@ -440,7 +441,8 @@ Lär dig mer från [anropa en lagrad procedur från en SQL-mottagare](#invoke-a-
             "sink": {
                 "type": "SqlSink",
                 "sqlWriterStoredProcedureName": "CopyTestStoredProcedureWithParameters",
-                "sqlWriterTableType": "CopyTestTableType",
+                "storedProcedureTableTypeParameterName": "MyTable",
+                "sqlWriterTableType": "MyTableType",
                 "storedProcedureParameters": {
                     "identifier": { "value": "1", "type": "Int" },
                     "stringData": { "value": "str1" }
@@ -451,33 +453,33 @@ Lär dig mer från [anropa en lagrad procedur från en SQL-mottagare](#invoke-a-
 ]
 ```
 
-## <a name="best-practice-for-loading-data-into-azure-sql-database"></a>Bästa praxis för inläsning av data till Azure SQL Database
+## <a name="best-practice-for-loading-data-into-azure-sql-database"></a>Bästa praxis för att läsa in data i Azure SQL Database
 
-När du kopierar data till Azure SQL Database kan du kräva olika skrivning beteende:
+När du kopierar data till Azure SQL Database kan du behöva olika Skriv beteenden:
 
-- [Lägg till](#append-data): Mina källdata har endast nya poster.
+- [Lägg till](#append-data): Mina källdata innehåller bara nya poster.
 - [Upsert](#upsert-data): Mina källdata har både infogningar och uppdateringar.
-- [Skriv över](#overwrite-the-entire-table): Jag vill fylla på en hel dimensionstabellen varje gång.
-- [Skriva med anpassad logik](#write-data-with-custom-logic): Jag behöver ytterligare bearbetning innan den slutliga infogningen i måltabellen.
+- [Skriv över](#overwrite-the-entire-table): Jag vill läsa in en hel dimensions tabell på nytt varje tillfälle.
+- [Skriv med anpassad logik](#write-data-with-custom-logic): Jag behöver extra bearbetning före den slutliga infogningen i mål tabellen.
 
-Finns i respektive avsnitt om hur du konfigurerar i Azure Data Factory och bästa praxis.
+Se respektive avsnitt om hur du konfigurerar i Azure Data Factory och metod tips.
 
-### <a name="append-data"></a>Lägga till data
+### <a name="append-data"></a>Lägg till data
 
-Data läggs till är standardbeteendet för den här anslutningen för Azure SQL Database-mottagare. Azure Data Factory har en massinfogning att skriva till din tabell effektivt. Du kan konfigurera källa och mottagare i enlighet med detta i kopieringsaktiviteten.
+Att lägga till data är standard beteendet för den här Azure SQL Database Sink-anslutningen. Azure Data Factory skapar en Mass infogning för att skriva till tabellen effektivt. Du kan konfigurera källan och mottagaren efter detta i kopierings aktiviteten.
 
 ### <a name="upsert-data"></a>Upserta data
 
-**Alternativ 1:** När du har en stor mängd data för att kopiera, Använd följande metod för att göra en upsert: 
+**Alternativ 1:** När du har en stor mängd data som ska kopieras använder du följande metod för att göra en upsert: 
 
-- Använd först en [databasbegränsade tillfälliga tabellen](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql?view=azuresqldb-current#database-scoped-global-temporary-tables-azure-sql-database) till massinläsning alla poster med hjälp av kopieringsaktiviteten. Eftersom åtgärder mot databasbegränsade tillfälliga tabeller inte är inloggad, kan du läsa in miljontals poster i sekunder.
-- Kör en lagrad procedur-aktivitet i Azure Data Factory för att tillämpa en [sammanfoga](https://docs.microsoft.com/sql/t-sql/statements/merge-transact-sql?view=azuresqldb-current) eller INSERT/UPDATE-instruktion. Använda den temporära tabellen som källa för att utföra alla uppdaterar eller infogar som en enda transaktion. På så vis minskar antalet sändningar och log operations. Den temporära tabellen kan trunkeras om du vill vara redo för nästa cykel för upsert i slutet av aktivitet för lagrad procedur.
+- Använd först en [tillfällig tabell](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql?view=azuresqldb-current#database-scoped-global-temporary-tables-azure-sql-database) med en databas som Mass inläsning av alla poster med hjälp av kopierings aktiviteten. Eftersom åtgärder mot databasen begränsade temporära tabeller inte loggas kan du läsa in miljon tals poster på några sekunder.
+- Kör en lagrad procedur aktivitet i Azure Data Factory om du vill tillämpa en [merge](https://docs.microsoft.com/sql/t-sql/statements/merge-transact-sql?view=azuresqldb-current) -eller INSERT-/Update-instruktion. Använd Temp-tabellen som källa för att utföra alla uppdateringar eller infogningar som en enskild transaktion. På det här sättet minskar antalet tur och utloggning-åtgärder. I slutet av den lagrade procedur aktiviteten kan den temporära tabellen trunkeras så att den är redo för nästa upsert-cykel.
 
-I Azure Data Factory, till exempel skapa en pipeline med en **Kopieringsaktivitet** sammankedjade med en **lagringsprocedur-aktivitet**. Tidigare kopierar data från din källagringen till en tillfällig tabell i Azure SQL Database till exempel **##UpsertTempTable**, som tabellnamn i datauppsättningen. Det senare sedan anropar en lagrad procedur för att sammanfoga information från den temporära tabellen i måltabellen och rensa den temporära tabellen.
+I Azure Data Factory kan du till exempel skapa en pipeline med en **kopierings aktivitet** som är länkad till en **lagrad procedur aktivitet**. Den tidigare kopierar data från käll arkivet till en Azure SQL Database temporär tabell, till exempel **# #UpsertTempTable**, som tabell namn i data uppsättningen. Sedan anropar den senare en lagrad procedur för att koppla källdata från Temp-tabellen till mål tabellen och rensa Temp-tabellen.
 
 ![Upsert](./media/connector-azure-sql-database/azure-sql-database-upsert.png)
 
-Definiera en lagrad procedur med MERGE logik som i följande exempel, som refereras till från den föregående aktiviteten lagrad procedur i din databas. Anta att målet är den **marknadsföring** tabell med tre kolumner: **Profil-ID**, **tillstånd**, och **kategori**. Gör upsert baserat på den **profil-ID** kolumn.
+I databasen definierar du en lagrad procedur med SAMMANSLAGNINGs logik, som i följande exempel, som pekas från föregående lagrade procedur aktivitet. Anta att målet är marknadsförings tabellen med tre kolumner: **Profil**, **State**och **Category**. Gör upsert baserat på kolumnen **profil** .
 
 ```sql
 CREATE PROCEDURE [dbo].[spMergeData]
@@ -496,102 +498,82 @@ BEGIN
 END
 ```
 
-**Alternativ 2:** Du kan också välja att [anropa en lagrad procedur i kopieringsaktiviteten](#invoke-a-stored-procedure-from-a-sql-sink). Den här metoden körs varje rad i källtabellen istället för att använda massinfogning som standard-metod i kopieringsaktiviteten, vilket inte är lämplig för storskalig upsert.
+**Alternativ 2:** Du kan också välja att [anropa en lagrad procedur i kopierings aktiviteten](#invoke-a-stored-procedure-from-a-sql-sink). Den här metoden kör varje rad i käll tabellen i stället för att använda Mass infogning som standard metod i kopierings aktiviteten, vilket inte är lämpligt för storskaliga upsert.
 
 ### <a name="overwrite-the-entire-table"></a>Skriv över hela tabellen
 
-Du kan konfigurera den **preCopyScript** -egenskapen i Kopiera aktivitet mottagare. I det här fallet för varje kopieringsaktiviteten som kör kör Azure Data Factory skriptet först. Sedan körs kopia om du vill infoga data. Exempel: Om du vill skriva över hela tabellen med den senaste informationen, anger du ett skript för att först ta bort alla poster innan du massimportera läsa in nya data från källan.
+Du kan konfigurera **preCopyScript** -egenskapen i kopierings aktiviteten Sink. I det här fallet kör Azure Data Factory skriptet först för varje kopierings aktivitet som körs. Sedan kör den kopian för att infoga data. Om du till exempel vill skriva över hela tabellen med den senaste informationen anger du ett skript för att först ta bort alla poster innan du läser in nya data från källan.
 
 ### <a name="write-data-with-custom-logic"></a>Skriva data med anpassad logik
 
-Stegen för att skriva data med anpassad logik liknar de som beskrivs i den [Upsert data](#upsert-data) avsnittet. När du ska använda extra bearbetning innan sista inmatningen av källdata i måltabellen för storskalig, du kan göra något av följande:
+Stegen för att skriva data med anpassad logik liknar de som beskrivs i avsnittet [upsert data](#upsert-data) . När du behöver använda extra bearbetning före den slutliga infogningen av käll data i mål tabellen, för stor skala, kan du göra något av följande:
 
-- Läsa in till en databas begränsade tillfällig tabell och sedan anropa en lagrad procedur. 
-- Anropa en lagrad procedur vid kopiering.
+- Läs in till en temporär tabell med databas omfattning och anropa sedan en lagrad procedur. 
+- Anropa en lagrad procedur under kopieringen.
 
-## <a name="invoke-a-stored-procedure-from-a-sql-sink"></a> Anropa en lagrad procedur från en SQL-mottagare
+## <a name="invoke-a-stored-procedure-from-a-sql-sink"></a>Anropa en lagrad procedur från en SQL-mottagare
 
-När du kopierar data till Azure SQL Database kan du också konfigurera och anropa en användardefinierad lagrad procedur med ytterligare parametrar.
+När du kopierar data till Azure SQL Database kan du också konfigurera och anropa en användardefinierad lagrad procedur med ytterligare parametrar. Funktionen för lagrade procedurer utnyttjar [tabell värdes parametrar](https://msdn.microsoft.com/library/bb675163.aspx).
 
 > [!TIP]
-> Anropa en lagrad procedur bearbetar data rad för rad i stället för med hjälp av en bulkåtgärd som vi inte rekommenderar för storskaliga kopia. Läs mer i [bästa praxis för inläsning av data till Azure SQL Database](#best-practice-for-loading-data-into-azure-sql-database).
+> När en lagrad procedur anropas bearbetas data raden efter rad i stället för med en Mass åtgärd som vi inte rekommenderar för storskalig kopiering. Lär dig mer från [bästa praxis för att läsa in data i Azure SQL Database](#best-practice-for-loading-data-into-azure-sql-database).
 
-Du kan använda en lagrad procedur när inbyggd kopiera mekanismer inte fungerar. Ett exempel är när du vill tillämpa ytterligare bearbetning innan sista inmatningen av källdata i måltabellen. Några extra bearbetningen exempel är när du vill slå ihop kolumner, leta upp ytterligare värden och infoga i mer än en tabell.
+Du kan använda en lagrad procedur när inbyggda kopierings metoder inte fungerar. Ett exempel är när du vill använda extra bearbetning före den slutliga infogningen av käll data i mål tabellen. Några extra bearbetnings exempel är när du vill slå samman kolumner, leta upp ytterligare värden och infoga i mer än en tabell.
 
-I följande exempel visas hur du använder en lagrad procedur för att göra en upsert i en tabell i Azure SQL Database. Anta att indata och mottagaren **marknadsföring** varje tabell har tre kolumner: **Profil-ID**, **tillstånd**, och **kategori**. Gör upsert baserat på den **profil-ID** kolumn, och gäller endast för en specifik kategori.
+Följande exempel visar hur du använder en lagrad procedur för att göra en upsert till en tabell i Azure SQL Database. Anta att indata och marknadsförings tabellen för mottagare har tre kolumner: **Profil**, **State**och **Category**. Gör upsert baserat på kolumnen **profil** och Använd den bara för en viss kategori som kallas "ProduktA".
 
-**Datauppsättningen för utdata:** ”TableName” är samma typ parametern tabellnamnet i den lagrade proceduren som visas i följande lagrade proceduren skript:
+1. I databasen definierar du tabell typen med samma namn som **sqlWriterTableType**. Schemat för tabell typen är detsamma som det schema som returnerades av indata.
 
-```json
-{
-    "name": "AzureSQLDbDataset",
-    "properties":
-    {
-        "type": "AzureSqlTable",
-        "linkedServiceName": {
-            "referenceName": "<Azure SQL Database linked service name>",
-            "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "tableName": "Marketing"
+    ```sql
+    CREATE TYPE [dbo].[MarketingType] AS TABLE(
+        [ProfileID] [varchar](256) NOT NULL,
+        [State] [varchar](256) NOT NULL，
+        [Category] [varchar](256) NOT NULL
+    )
+    ```
+
+2. I databasen definierar du den lagrade proceduren med samma namn som **SqlWriterStoredProcedureName**. Den hanterar indata från din angivna källa och sammanfogar dem i utdatatabellen. Parameter namnet för tabell typen i den lagrade proceduren är samma som **TableName** som definierats i data uppsättningen.
+
+    ```sql
+    CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @category varchar(256)
+    AS
+    BEGIN
+    MERGE [dbo].[Marketing] AS target
+    USING @Marketing AS source
+    ON (target.ProfileID = source.ProfileID and target.Category = @category)
+    WHEN MATCHED THEN
+        UPDATE SET State = source.State
+    WHEN NOT MATCHED THEN
+        INSERT (ProfileID, State, Category)
+        VALUES (source.ProfileID, source.State, source.Category);
+    END
+    ```
+
+3. I Azure Data Factory definierar du avsnittet **SQL-mottagare** i kopierings aktiviteten enligt följande:
+
+    ```json
+    "sink": {
+        "type": "SqlSink",
+        "SqlWriterStoredProcedureName": "spOverwriteMarketing",
+        "storedProcedureTableTypeParameterName": "Marketing",
+        "SqlWriterTableType": "MarketingType",
+        "storedProcedureParameters": {
+            "category": {
+                "value": "ProductA"
+            }
         }
     }
-}
-```
+    ```
 
-Definiera den **SQL mottagare** avsnittet i kopieringsaktiviteten på följande sätt:
+## <a name="mapping-data-flow-properties"></a>Mappa data flödes egenskaper
 
-```json
-"sink": {
-    "type": "SqlSink",
-    "SqlWriterTableType": "MarketingType",
-    "SqlWriterStoredProcedureName": "spOverwriteMarketing",
-    "storedProcedureParameters": {
-        "category": {
-            "value": "ProductA"
-        }
-    }
-}
-```
+Lär dig mer om omvandling av [käll omvandling](data-flow-source.md) och [mottagare](data-flow-sink.md) i mappnings data flödet.
 
-I databasen, definierar du den lagrade proceduren med samma namn som **SqlWriterStoredProcedureName**. Den hanterar indata från angivna källan och sammanfogar i utdatatabellen. Parameternamnet av tabelltypen i den lagrade proceduren är samma som **tableName** definierats i datauppsättningen.
+## <a name="data-type-mapping-for-azure-sql-database"></a>Data typs mappning för Azure SQL Database
 
-```sql
-CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @category varchar(256)
-AS
-BEGIN
-  MERGE [dbo].[Marketing] AS target
-  USING @Marketing AS source
-  ON (target.ProfileID = source.ProfileID and target.Category = @category)
-  WHEN MATCHED THEN
-      UPDATE SET State = source.State
-  WHEN NOT MATCHED THEN
-      INSERT (ProfileID, State, Category)
-      VALUES (source.ProfileID, source.State, source.Category);
-END
-```
+När data kopieras från eller till Azure SQL Database, används följande mappningar från Azure SQL Database data typer för att Azure Data Factory interimistiska data typer. Information om hur kopierings aktiviteten mappar käll schema och data typ till mottagaren finns i schema- [och data typs mappningar](copy-activity-schema-and-type-mapping.md).
 
-I databasen, definierar du tabelltyp med samma namn som **sqlWriterTableType**. Schemat för tabelltypen är samma som det schema som returnerades av dina indata.
-
-```sql
-CREATE TYPE [dbo].[MarketingType] AS TABLE(
-    [ProfileID] [varchar](256) NOT NULL,
-    [State] [varchar](256) NOT NULL,
-    [Category] [varchar](256) NOT NULL
-)
-```
-
-Den lagrade proceduren funktionen utnyttjar [tabellvärdeparametrar](https://msdn.microsoft.com/library/bb675163.aspx).
-
-## <a name="mapping-data-flow-properties"></a>Mappning av egenskaper för flödet av data
-
-Få mer detaljerad information från [source omvandling](data-flow-source.md) och [mottagare omvandling](data-flow-sink.md) vid matchning av dataflödet.
-
-## <a name="data-type-mapping-for-azure-sql-database"></a>Datatypsmappningen för Azure SQL Database
-
-När data kopieras från eller till Azure SQL Database, används följande mappningar från Azure SQL Database-datatyper till Azure Data Factory tillfälliga-datatyper. Läs hur kopieringsaktiviteten mappar källtypen schema och data till mottagaren i [Schema och data skriver mappningar](copy-activity-schema-and-type-mapping.md).
-
-| Azure SQL-databas-datatyp | Azure Data Factory tillfälliga datatyp |
+| Azure SQL Database data typ | Azure Data Factory data typen Interim |
 |:--- |:--- |
 | bigint |Int64 |
 | binary |Byte[] |
@@ -627,7 +609,7 @@ När data kopieras från eller till Azure SQL Database, används följande mappn
 | xml |Xml |
 
 >[!NOTE]
-> För information om vilka datatyper som mappar till decimaltyp tillfällig stöder för närvarande Azure Data Factory precision upp till 28. Överväg att konvertera till en sträng i SQL-frågan om du har data med precision som är större än 28.
+> För data typer som mappas till en decimal-interimistisk-typ, stöds för närvarande Azure Data Factory precision upp till 28. Om du har data med en precision som är större än 28 bör du överväga att konvertera till en sträng i SQL-frågan.
 
 ## <a name="next-steps"></a>Nästa steg
-En lista över datalager som stöds som källor och mottagare av kopieringsaktiviteten i Azure Data Factory finns i [datalager och format som stöds](copy-activity-overview.md##supported-data-stores-and-formats).
+En lista över data lager som stöds som källor och mottagare av kopierings aktiviteten i Azure Data Factory finns i [data lager och format som stöds](copy-activity-overview.md##supported-data-stores-and-formats).

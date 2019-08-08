@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 07/18/2019
 ms.author: bwren
 ms.openlocfilehash: b9a4a0a18e120a2843e23d44b03c0fe53b0d84fc
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
+ms.lasthandoff: 08/08/2019
 ms.locfileid: "68370671"
 ---
 # <a name="standard-properties-in-azure-monitor-logs"></a>Standard egenskaper i Azure Monitor loggar
@@ -51,7 +51,7 @@ exceptions
 | sort by timestamp asc 
 ```
 
-## <a name="timereceived"></a>\_TimeReceived
+## <a name="_timereceived"></a>\_TimeReceived
 Egenskapen TimeReceived innehåller datum och tid då posten togs emot av Azure Monitor inmatnings punkt i Azure-molnet.  **\_** Detta kan vara användbart för att identifiera svars tids problem mellan data källan och molnet. Ett exempel skulle vara ett nätverks problem som orsakar en fördröjning med data som skickas från en agent. Mer information finns i inmatnings [tiden för logg data i Azure Monitor](data-ingestion-time.md) .
 
 Följande fråga ger den genomsnittliga svars tiden per timme för händelse poster från en agent. Detta inkluderar tiden från agenten till molnet och den totala tiden för posten som ska vara tillgänglig för logg frågor.
@@ -77,11 +77,11 @@ search *
 | summarize count() by Type
 
 ```
-## <a name="itemid"></a>\_ItemId
+## <a name="_itemid"></a>\_ItemId
 Egenskapen Itemid innehåller en unik identifierare för posten.  **\_**
 
 
-## <a name="resourceid"></a>\_ResourceId
+## <a name="_resourceid"></a>\_ResourceId
 Egenskapen ResourceID innehåller en unik identifierare för resursen som posten är associerad med.  **\_** Detta ger dig en standard egenskap som används för att begränsa din fråga till endast poster från en viss resurs eller för att koppla samman data över flera tabeller.
 
 Värdet för **_ResourceId** är [URL: en för Azure-resurs-ID](../../azure-resource-manager/resource-group-template-functions-resource.md)för Azure-resurser. Egenskapen är för närvarande begränsad till Azure-resurser, men den kommer att utökas till resurser utanför Azure, till exempel lokala datorer.
@@ -127,7 +127,7 @@ union withsource = tt *
 
 Använd dessa `union withsource = tt *` frågor sparsamt eftersom det är dyrt att köra genomsökningar över data typer.
 
-## <a name="isbillable"></a>\_Fakturerbar
+## <a name="_isbillable"></a>\_Fakturerbar
 Egenskapen fakturerbar anger om inmatade data är fakturerbara.  **\_** Data med  **\_fakturerbar** som är lika med _falskt_ samlas in kostnads fritt och debiteras inte ditt Azure-konto.
 
 ### <a name="examples"></a>Exempel
@@ -154,7 +154,7 @@ union withsource = tt *
 | summarize dcount(computerName) by bin(TimeGenerated, 1h) | sort by TimeGenerated asc
 ```
 
-## <a name="billedsize"></a>\_BilledSize
+## <a name="_billedsize"></a>\_BilledSize
 Egenskapen BilledSize anger storleken i byte på data som ska faktureras till ditt Azure-konto om  **\_fakturerbar** är sant.  **\_**
 
 

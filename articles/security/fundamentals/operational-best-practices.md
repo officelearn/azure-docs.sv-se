@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: e815c038cce2e792fe7ea39f1ee43342be0b679f
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 97f061d94209d84b70626f8735d08f89870e7319
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726904"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828723"
 ---
 # <a name="azure-operational-security-best-practices"></a>Metod tips för Azure drift säkerhet
 Den här artikeln innehåller en uppsättning metod tips för att skydda dina data, program och andra till gångar i Azure.
@@ -118,7 +118,7 @@ De säkra poängen, som baseras på CIS-kontroller (Center for Internet Security
 **Information**: De flesta organisationer med en SIEM använder den som en central Clearinghouse för säkerhets aviseringar som kräver en analytiker som svar. Bearbetade händelser som genereras av Security Center publiceras i Azure aktivitets loggen, en av loggarna som är tillgängliga via Azure Monitor. Azure Monitor erbjuder en konsol IDE rad pipeline för att vidarebefordra dina övervaknings data till ett SIEM-verktyg. Instruktioner finns i [integrera säkerhetslösningar i Security Center](../../security-center/security-center-partner-integration.md#exporting-data-to-a-siem) . Om du använder Azure Sentinel, se [anslut Azure Security Center](../../sentinel/connect-azure-security-center.md).
 
 **Bästa praxis**: Integrera Azure-loggar med din SIEM.   
-**Information**: Använd [Azure Monitor för att samla in och exportera data](/azure/azure-monitor/overview.md#integrate-and-export-data). Den här metoden är viktig för att aktivera undersökningen av säkerhets incidenter och logg kvarhållning online är begränsad. Om du använder Azure Sentinel, se [Anslut data källor](../../sentinel/connect-data-sources.md).
+**Information**: Använd [Azure Monitor för att samla in och exportera data](/azure/azure-monitor/overview#integrate-and-export-data). Den här metoden är viktig för att aktivera undersökningen av säkerhets incidenter och logg kvarhållning online är begränsad. Om du använder Azure Sentinel, se [Anslut data källor](../../sentinel/connect-data-sources.md).
 
 **Bästa praxis**: Påskynda dina undersökningar och jakt processer och minska antalet falska positiva identifieringar genom att integrera funktionerna för slut punkts identifiering och-svar (EDR) i angrepps undersökningen.   
 **Information**: [Aktivera Windows Defender ATP-integrering](../../security-center/security-center-wdatp.md#enable-windows-defender-atp-integration) via din Security Center säkerhets princip. Överväg att använda Azure Sentinel för hotets jakt och incident svar.
@@ -206,7 +206,7 @@ Aktivera Azure Policy för att övervaka och upprätthålla din organisations sk
 
 Här följer några rekommenderade säkerhets metoder när du har infört Azure Policy:
 
-**Bästa praxis**: Principen stöder flera olika typer av effekter. Du kan läsa om dem i [Azure policy definitions struktur](../../governance/policy/concepts/definition-structure.md#policy-rule). Affärs åtgärder kan påverkas negativt av återställnings **effekten och** den **åtgärd** som tillämpas, så börja med gransknings effekten för att begränsa risken för negativ påverkan från principen.   
+**Bästa praxis**: Principen stöder flera olika typer av effekter. Du kan läsa om dem i [Azure policy definitions struktur](../../governance/policy/concepts/definition-structure.md#policy-rule). Affärs åtgärder kan påverkas negativt av återställnings effekten och den **åtgärd** som tillämpas, så börja med gransknings effekten för att begränsa risken för negativ påverkan från principen.   
 **Information**: [Starta princip distributioner i gransknings läge](../../governance/policy/concepts/definition-structure.md#policy-rule) och fortsätt sedan med att **neka** eller **åtgärda**det senare. Testa och granska resultatet av gransknings effekterna innan du går vidare till **neka** eller **åtgärda**.
 
 Mer information finns i [skapa och hantera principer för att genomdriva efterlevnad](../../governance/policy/tutorials/create-and-manage.md).

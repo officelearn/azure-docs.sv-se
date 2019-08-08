@@ -12,18 +12,26 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 2/13/2019
-ms.openlocfilehash: e7dea69b507117ba8a3765b5e9bc1fad46be4c53
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
-ms.translationtype: MT
+ms.date: 08/01/2019
+ms.openlocfilehash: e656cd4d901ad9f3180963047a85cd980e56df8b
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68444194"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774205"
 ---
 # <a name="sql-server-on-azure-virtual-machine-release-notes"></a>Viktig information om SQL Server på Azure Virtual Machine
 
 Med Azure kan du distribuera en virtuell dator med en avbildning av SQL Server inbyggd. Den här artikeln sammanfattar de nya funktionerna och förbättringarna i de senaste versionerna av [SQL Server på Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/). Artikeln innehåller också viktiga innehålls uppdateringar som inte är direkt relaterade till versionen men som publiceras i samma tidsram. Förbättringar av andra Azure-tjänster finns i [tjänste uppdateringar](https://azure.microsoft.com/updates)
 
+## <a name="july-2019"></a>Juli 2019
+
+### <a name="documentation-improvements"></a>Dokumentations förbättringar
+
+| Dokumentation | Information |
+| --- | --- |
+| **Flytta SQL VM till en annan region** | Använd Azure Site Recovery för att [migrera SQL Server VM från en region till en annan](virtual-machines-windows-sql-move-different-region.md). |
+| &nbsp; | &nbsp; |
 
 ## <a name="june-2019"></a>2019 juni
 

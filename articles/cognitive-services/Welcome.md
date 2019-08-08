@@ -7,15 +7,15 @@ author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ''
-ms.topic: article
+ms.topic: overview
 ms.date: 04/19/2019
 ms.author: nitinme
-ms.openlocfilehash: dd93cd938539ae322e6344e0ce24cee6e34db27b
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 5337f2d3df395650c65ae4a12cbdf4f8ba90ca3d
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68594746"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840404"
 ---
 # <a name="what-are-azure-cognitive-services"></a>Vad är Azure Cognitive Services?
 
@@ -80,7 +80,7 @@ Azure Cognitive Services är API: er, SDK: er och tjänster som hjälper utveckl
 
 ## <a name="subscription-management"></a>Prenumerationshantering
 
-När du har loggat in med ditt Microsoft-konto kan du [komma åt mina]prenumerationer(https://www.microsoft.com/cognitive-services/subscriptions "Mina prenumerationer") för att visa de produkter du använder, återstående kvot och möjlighet att lägga till ytterligare produkter till din prenumeration.
+När du har loggat in med ditt Microsoft-konto kan du []komma åt mina prenumerationer(https://www.microsoft.com/cognitive-services/subscriptions "Mina prenumerationer") för att visa de produkter du använder, återstående kvot och möjlighet att lägga till ytterligare produkter till din prenumeration.
 
 ## <a name="upgrade-to-unlock-limits"></a>Uppgradera för att låsa upp gränser
 

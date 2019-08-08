@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/24/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 514905bf2db1c0c58faa131eeb916af033b2c830
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 991fbe97582279fdeb996ddebe8e982c4adf3036
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640837"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68827279"
 ---
 # <a name="prepare-for-assessment-and-migration-of-hyper-v-vms-to-azure"></a>Förbered för utvärdering och migrering av virtuella Hyper-V-datorer till Azure
 
@@ -140,10 +140,10 @@ Kör skriptet på följande sätt:
     ```
     
     Hash-värden är:
-    Hash | Värde
+    Hash | Value
     --- | ---
     **MD5-hash** | 0ef418f31915d01f896ac42a80dc414e
-    **SHA256-hash** | 0ef418f31915d01f896ac42a80dc414e0ad60e7299925eff4d1ae9f1c7db485dc9316ef45b0964148a3c07c80761ade2
+    **SHA256-hash** | 0ad60e7299925eff4d1ae9f1c7db485dc9316ef45b0964148a3c07c80761ade2
 
 
 4.  När du har verifierat skript integriteten kör du skriptet på varje Hyper-V-värd med följande PowerShell-kommando:

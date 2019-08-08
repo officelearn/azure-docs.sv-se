@@ -11,12 +11,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: dapine
-ms.openlocfilehash: f658e8d0f820ccec513b5665fc1ce94c083c3b3e
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: ddbe586c03d9f722d844d06968aa25e4b4a5aac0
+ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68703529"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68815289"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Installera och kör Textanalys behållare
 
@@ -52,8 +52,7 @@ I följande tabell beskrivs de minsta och rekommenderade CPU-kärnorna minst 2,6
 |-----------|---------|-------------|--|
 |Extrahering av nyckelfraser | 1 kärna, 2 GB minne | 1 kärna, 4 GB minne |15, 30|
 |Språkidentifiering | 1 kärna, 2 GB minne | 1 kärna, 4 GB minne |15, 30|
-|Attitydanalys 2. x | 1 kärna, 2 GB minne | 1 kärna, 4 GB minne |15, 30|
-|Attitydanalys 3. x | 1 kärna, 2 GB minne | 4 kärnor, 4 GB minne |15, 30|
+|Attitydanalys | 1 kärna, 2 GB minne | 1 kärna, 4 GB minne |15, 30|
 
 * Varje kärna måste vara minst 2,6 gigahertz (GHz) eller snabbare.
 * TPS-transaktioner per sekund
@@ -68,8 +67,7 @@ Behållaravbildningar för textanalys är tillgängliga från Microsoft Containe
 |-----------|------------|
 |Extrahering av nyckelfraser | `mcr.microsoft.com/azure-cognitive-services/keyphrase` |
 |Språkidentifiering | `mcr.microsoft.com/azure-cognitive-services/language` |
-|Attitydanalys 2. x| `mcr.microsoft.com/azure-cognitive-services/sentiment` |
-|Attitydanalys 3. x| `containerpreview.azurecr.io/microsoft/cognitive-services-sentiment-v3.0` |
+|Attitydanalys| `mcr.microsoft.com/azure-cognitive-services/sentiment` |
 
 [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) Använd kommandot för att hämta en behållar avbildning från Microsoft container Registry.
 
@@ -93,16 +91,10 @@ docker pull mcr.microsoft.com/azure-cognitive-services/keyphrase:latest
 docker pull mcr.microsoft.com/azure-cognitive-services/language:latest
 ```
 
-### <a name="docker-pull-for-the-sentiment-2x-container"></a>Docker-hämtning för sentiment 2. x-behållaren
+### <a name="docker-pull-for-the-sentiment-container"></a>Docker pull för sentiment-behållaren
 
 ```
 docker pull mcr.microsoft.com/azure-cognitive-services/sentiment:latest
-```
-
-### <a name="docker-pull-for-the-sentiment-3x-container"></a>Docker-hämtning för sentiment 3. x-behållaren
-
-```
-docker pull containerpreview.azurecr.io/microsoft/cognitive-services-sentiment-v3.0:latest
 ```
 
 [!INCLUDE [Tip for using docker list](../../../../includes/cognitive-services-containers-docker-list-tip.md)]
@@ -112,7 +104,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-sentiment-v
 När behållaren är på värddatorn [](#the-host-computer)använder du följande process för att arbeta med behållaren.
 
 1. [Kör behållaren](#run-the-container-with-docker-run)med de fakturerings inställningar som krävs. Fler [exempel](../text-analytics-resource-container-config.md#example-docker-run-commands) på `docker run` kommandot är tillgängliga.
-1. Fråga behållarens förutsägelse slut punkt för [v2](#query-the-containers-v2-prediction-endpoint) eller [v3](#query-the-containers-v3-prediction-endpoint).
+1. [Fråga behållarens förutsägelse slut punkt](#query-the-containers-prediction-endpoint).
 
 ## <a name="run-the-container-with-docker-run"></a>Kör behållaren med`docker run`
 
@@ -120,7 +112,7 @@ Använd kommandot [Docker Run](https://docs.docker.com/engine/reference/commandl
 
 [Exempel](../text-analytics-resource-container-config.md#example-docker-run-commands) på `docker run` kommandot är tillgängliga.
 
-### <a name="run-v2-container-example-of-docker-run-command"></a>Kör v2-behållarobjektet exempel på kommandot Docker Run
+### <a name="run-container-example-of-docker-run-command"></a>Kör container-exempel för kommandot Docker Run
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
@@ -137,134 +129,17 @@ Det här kommandot:
 * Visar TCP-port 5000 och allokerar en pseudo-TTY för behållaren
 * Tar automatiskt bort behållaren när den har avslut ATS. Behållar avbildningen är fortfarande tillgänglig på värddatorn.
 
-### <a name="run-v3-container-example-of-docker-run-command"></a>Köra v3 container exempel på kommandot Docker Run
-
-```bash
-docker run --rm -it -p 5000:5000 --memory 4g --cpus 4 \
-containerpreview.azurecr.io/microsoft/cognitive-services-sentiment-v3.0 \
-Eula=accept \
-Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY}
-```
-
-Det här kommandot:
-
-* Kör en nyckel fras behållare från behållar avbildningen
-* Allokerar 4 processor kärnor och 4 gigabyte (GB) minne
-* Visar TCP-port 5000 och allokerar en pseudo-TTY för behållaren
-* Tar automatiskt bort behållaren när den har avslut ATS. Behållar avbildningen är fortfarande tillgänglig på värddatorn.
 
 > [!IMPORTANT]
 > Den `Eula`, `Billing`, och `ApiKey` alternativ måste anges för att köra behållaren, i annat fall startar inte behållaren.  Mer information finns i [fakturering](#billing).
 
 [!INCLUDE [Running multiple containers on the same host](../../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
 
-## <a name="query-the-containers-v2-prediction-endpoint"></a>Fråga behållarens version v2 förutsägelse slut punkt
+## <a name="query-the-containers-prediction-endpoint"></a>Fråga behållarens förutsägelse slut punkt
 
 Behållaren innehåller REST-baserade slut punkts-API: er för frågor förutsägelse.
 
 Använd värden, `https://localhost:5000`för behållar-API: er.
-
-## <a name="query-the-containers-v3-prediction-endpoint"></a>Fråga behållarens v3 förutsägelse slut punkt
-
-Behållaren innehåller REST-baserade slut punkts-API: er för frågor förutsägelse.
-
-Använd värden, `https://localhost:5000`för behållar-API: er.
-
-### <a name="v3-api-request-post-body"></a>V3 API-begäran skicka brödtext
-
-Följande JSON är ett exempel på en v3-API-begärans INLÄGGs text:
-
-```json
-{
-  "documents": [
-    {
-      "language": "en",
-      "id": "1",
-      "text": "Hello world. This is some input text that I love."
-    },
-    {
-      "language": "en",
-      "id": "2",
-      "text": "It's incredibly sunny outside! I'm so happy."
-    }
-  ]
-}
-```
-
-### <a name="v3-api-response-body"></a>V3 API-svars text
-
-Följande JSON är ett exempel på en v3-API-begärans INLÄGGs text:
-
-```json
-{
-    "documents": [
-        {
-            "id": "1",
-            "sentiment": "positive",
-            "documentScores": {
-                "positive": 0.98570585250854492,
-                "neutral": 0.0001625834556762,
-                "negative": 0.0141316400840878
-            },
-            "sentences": [
-                {
-                    "sentiment": "neutral",
-                    "sentenceScores": {
-                        "positive": 0.0785155147314072,
-                        "neutral": 0.89702343940734863,
-                        "negative": 0.0244610067456961
-                    },
-                    "offset": 0,
-                    "length": 12
-                },
-                {
-                    "sentiment": "positive",
-                    "sentenceScores": {
-                        "positive": 0.98570585250854492,
-                        "neutral": 0.0001625834556762,
-                        "negative": 0.0141316400840878
-                    },
-                    "offset": 13,
-                    "length": 36
-                }
-            ]
-        },
-        {
-            "id": "2",
-            "sentiment": "positive",
-            "documentScores": {
-                "positive": 0.89198976755142212,
-                "neutral": 0.103382371366024,
-                "negative": 0.0046278294175863
-            },
-            "sentences": [
-                {
-                    "sentiment": "positive",
-                    "sentenceScores": {
-                        "positive": 0.78401315212249756,
-                        "neutral": 0.2067587077617645,
-                        "negative": 0.0092281140387058
-                    },
-                    "offset": 0,
-                    "length": 30
-                },
-                {
-                    "sentiment": "positive",
-                    "sentenceScores": {
-                        "positive": 0.99996638298034668,
-                        "neutral": 0.0000060341349126,
-                        "negative": 0.0000275444017461
-                    },
-                    "offset": 31,
-                    "length": 13
-                }
-            ]
-        }
-    ],
-    "errors": []
-}
-```
 
 <!--  ## Validate container is running -->
 

@@ -1,7 +1,7 @@
 ---
-title: Vad är en arbetsyta
+title: Vad är en arbets yta?
 titleSuffix: Azure Machine Learning service
-description: Arbetsytan är den översta resursen för Azure Machine Learning-tjänsten. Det sparar en historik över alla träningskörningar, inklusive loggar, mått, utdata och en ögonblicksbild av dina skript. Du använder den här informationen för att avgöra vilka kör utbildning ger den bästa modellen
+description: Arbets ytan är den översta resursen för Azure Machine Learning tjänst. Den innehåller en historik över alla utbildningar som körs, inklusive loggar, statistik, utdata och en ögonblicks bild av dina skript. Du kan använda den här informationen för att avgöra vilken utbildning som ska användas för att skapa den bästa modellen
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,92 +9,92 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 05/21/2019
-ms.openlocfilehash: 912c064fb5ca4e7ca311f60ed04a0122809cb0ff
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
-ms.translationtype: MT
+ms.openlocfilehash: fc3f88e627e0ce19195f6df947d4f11f5f8a73ae
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442359"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68772760"
 ---
-# <a name="what-is-an-azure-machine-learning-service-workspace"></a>Vad är en arbetsyta för Azure Machine Learning-tjänsten?
+# <a name="what-is-an-azure-machine-learning-service-workspace"></a>Vad är en Azure Machine Learning service-arbetsyta?
 
-Arbetsytan är den översta resursen för Azure Machine Learning-tjänsten, som tillhandahåller en centraliserad plats för att arbeta med alla artefakter som du skapar när du använder Azure Machine Learning-tjänsten.  Arbetsytan sparar en historik över alla träningskörningar, inklusive loggar, mått, utdata och en ögonblicksbild av dina skript. Du kan använda den här informationen för att avgöra vilka kör utbildning ger den bästa modellen.  
+Arbets ytan är den översta resursen för Azure Machine Learning tjänst, vilket ger en central plats för att arbeta med alla artefakter som du skapar när du använder Azure Machine Learning-tjänsten.  Arbets ytan har en historik över alla utbildningar som körs, inklusive loggar, mått, utdata och en ögonblicks bild av dina skript. Du kan använda den här informationen för att avgöra vilken utbildning som ska användas för att skapa den bästa modellen.  
 
-När du har en modell som du vill kan registrera du den med arbetsytan. Du sedan använda den registrerade modellen och bedömnings-skript för distribution till Azure Container Instances, Azure Kubernetes Service eller till en fält-programmable gate (FPGA) som en REST-baserade HTTP-slutpunkt. Du kan också distribuera modellen till en Azure IoT Edge-enhet som en modul.
+När du har en modell som du gillar kan du registrera den med arbets ytan. Sedan använder du de registrerade modell-och bedömnings skripten för att distribuera till Azure Container Instances, Azure Kubernetes-tjänsten eller till en FPGA (Field-programmerbar grind array) som en REST-baserad HTTP-slutpunkt. Du kan också distribuera modellen till en Azure IoT Edge enhet som en modul.
 
 ## <a name="taxonomy"></a>Taxonomi 
 
-En taxonomi för arbetsytan illustreras i följande diagram:
+En taxonomi i arbets ytan illustreras i följande diagram:
 
 [![Arbetsytan taxonomi](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
 
-Diagrammet visar följande komponenter i en arbetsyta:
+Diagrammet visar följande komponenter för en arbets yta:
 
-+ En arbetsyta kan innehålla [Notebook VMs](quickstart-run-cloud-notebook.md), molnresurser som konfigurerats med Python-miljön krävs för att köra Azure Machine Learning.
-+ [Användarroller](how-to-assign-roles.md) kan du dela din arbetsyta med andra användare, grupper eller projekt.
-+ [Beräkningsmål](concept-azure-machine-learning-architecture.md#compute-targets) används för att köra dina experiment.
-+ När du skapar arbetsytan [associerade resurser](#resources) skapas också.
-+ [Experiment](concept-azure-machine-learning-architecture.md#experiments) är träningskörningar som du använder för att skapa dina modeller.  Du kan skapa och köra experiment med
-    + Den [Azure Machine Learning-SDK för Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
-    + Den [automatiserad machine learning-experiment (förhandsversion)](how-to-create-portal-experiments.md) avsnitt i Azure-portalen.
-    + Den [visuella gränssnittet (förhandsversion)](ui-concept-visual-interface.md).
-+ [Pipelines](concept-azure-machine-learning-architecture.md#ml-pipelines) är återanvändbara arbetsflöden för träning och träna din modell.
-+ [Datauppsättningar](concept-azure-machine-learning-architecture.md#datasets-and-datastores) stöd i hantering av data som används för att skapa en modell utbildnings- och pipeline.
-+ När du har en modell som du vill distribuera kan skapa du en registrerade modellen.
-+ Använd den registrerade modellen och ett bedömningsskript för att skapa en [distribution](concept-azure-machine-learning-architecture.md#deployment).
++ En arbets yta kan innehålla [virtuella notebook-datorer](tutorial-1st-experiment-sdk-setup.md), moln resurser som kon figurer ATS med python-miljön som krävs för att köra Azure Machine Learning.
++ Med [användar roller](how-to-assign-roles.md) kan du dela din arbets yta med andra användare, team eller projekt.
++ [Beräknings mål](concept-azure-machine-learning-architecture.md#compute-targets) används för att köra experimenten.
++ När du skapar arbets ytan skapas även [tillhör ande resurser](#resources) .
++ [Experiment](concept-azure-machine-learning-architecture.md#experiments) är utbildningar som körs och som du kan använda för att bygga modeller.  Du kan skapa och köra experiment med
+    + [Azure Machine Learning SDK för python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
+    + Avsnittet [automatiserade Machine Learning-experiment (för hands version)](how-to-create-portal-experiments.md) i Azure Portal.
+    + [Visual Interface (för hands version)](ui-concept-visual-interface.md).
++ [Pipelines](concept-azure-machine-learning-architecture.md#ml-pipelines) är återanvändbara arbets flöden för utbildning och omträning av din modell.
++ [](concept-azure-machine-learning-architecture.md#datasets-and-datastores) Data uppsättnings stöd vid hantering av de data du använder för modell utbildning och skapande av pipelines.
++ När du har en modell som du vill distribuera skapar du en registrerad modell.
++ Använd den registrerade modellen och ett bedömnings skript för att skapa en [distribution](concept-azure-machine-learning-architecture.md#deployment).
 
-## <a name="tools-for-workspace-interaction"></a>Verktyg för arbetsytan interaktion
+## <a name="tools-for-workspace-interaction"></a>Verktyg för arbets ytans interaktion
 
-Du kan interagera med din arbetsyta på följande sätt:
+Du kan interagera med din arbets yta på följande sätt:
 
 + På webben:
     + [Azure Portal](https://portal.azure.com)
-    + Den [visuella gränssnittet (förhandsversion)](ui-concept-visual-interface.md)
-+ Med hjälp av Azure Machine Learning i Python [SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
-+ Från kommandoraden med hjälp av Azure Machine Learning [CLI-tillägg](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli)
+    + [Visual Interface (för hands version)](ui-concept-visual-interface.md)
++ I python med hjälp av Azure Machine Learning [SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
++ På kommando raden med hjälp av Azure Machine Learning [CLI-tillägget](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli)
 
-## <a name="machine-learning-with-a-workspace"></a>Machine learning med en arbetsyta
+## <a name="machine-learning-with-a-workspace"></a>Machine Learning med en arbets yta
 
-Maskininlärning läsa och/eller skriva artefakter till din arbetsyta. 
+Machine Learning-uppgifter läser och/eller skriver artefakter till din arbets yta. 
 
-+ Kör ett experiment för att träna en modell – experimentera skrivningar Körningsresultat till arbetsytan.
-+ Använda automatisk ML för att träna en modell – utbildning resultatet skrivs till arbetsytan.
-+ Registrera en modell i arbetsytan.
++ Kör ett experiment för att träna en modell – skriver experiment körnings resultat till arbets ytan.
++ Använd automatisk ML för att träna en modell – skriver utbildnings resultat till arbets ytan.
++ Registrera en modell i arbets ytan.
 + Distribuera en modell – använder den registrerade modellen för att skapa en distribution.
-+ Skapa och köra återanvändbara arbetsflöden.
-+ Visa machine learning-artefakter som experiment, pipelines, modeller, distributioner.
++ Skapa och kör återanvändbara arbets flöden.
++ Visa maskin inlärnings artefakter som experiment, pipelines, modeller, distributioner.
 + Spåra och övervaka modeller.
 
-## <a name="workspace-management"></a>Arbetsytehantering
+## <a name="workspace-management"></a>Hantering av arbets yta
 
-Du kan också utföra följande hanteringsaktiviteter för arbetsyta:
+Du kan också utföra följande hanterings uppgifter för arbets ytan:
 
-| Hanteringsaktivitet för arbetsyta   | Portalen              | SDK        | CLI        |
+| Arbets ytans hanterings aktivitet   | Portalen              | SDK        | CLI        |
 |---------------------------|------------------|------------|------------|
 | Skapa en arbetsyta        | **&check;**     | **&check;** | **&check;** |
-| Skapa och hantera beräkningsresurser    | **&check;**   | **&check;** |  **&check;**   |
-| Hantera åtkomst till arbetsytan    | **&check;**   | |  **&check;**    |
-| Skapa en VM-anteckningsbok | **&check;**   | |     |
+| Skapa och hantera beräknings resurser    | **&check;**   | **&check;** |  **&check;**   |
+| Hantera åtkomst till arbets ytan    | **&check;**   | |  **&check;**    |
+| Skapa en virtuell dator för Notebook | **&check;**   | |     |
 
-Kom igång med tjänsten genom att [skapar en arbetsyta](setup-create-workspace.md).
+Kom igång med tjänsten genom att [skapa en arbets yta](setup-create-workspace.md).
 
-## <a name="resources"></a> Associerade resurser
+## <a name="resources"></a>Associerade resurser
 
 När du skapar en ny arbetsyta skapas automatiskt flera Azure-resurser som används av arbetsytan:
 
-+ [Azure Container Registry](https://azure.microsoft.com/services/container-registry/): Registrerar docker-behållare som du använder vid träning och när du distribuerar en modell. För att minimera kostnader, ACR är **lazy-loaded** tills distributionsavbildningar har skapats.
-+ [Azure Storage-konto](https://azure.microsoft.com/services/storage/): Används som standard-datalager för arbetsytan.  Jupyter-anteckningsböcker som används med dina notebook virtuella datorer lagras här också.
-+ [Azure Application Insights](https://azure.microsoft.com/services/application-insights/): Butiker övervakningsinformation om dina modeller.
-+ [Azure Key Vault](https://azure.microsoft.com/services/key-vault/): Butiker hemligheter som används av compute mål och annan känslig information som behövs av arbetsytan.
++ [Azure Container Registry](https://azure.microsoft.com/services/container-registry/): Registrerar Docker-behållare som du använder under utbildningen och när du distribuerar en modell. För att minimera kostnaderna är ACR en **Lazy-inläst** tills distributions avbildningar skapas.
++ [Azure Storage konto](https://azure.microsoft.com/services/storage/): Används som standard data lager för arbets ytan.  Jupyter-anteckningsböcker som används med dina virtuella dator datorer lagras också här.
++ [Azure Application](https://azure.microsoft.com/services/application-insights/)insikter: Lagrar övervaknings information om dina modeller.
++ [Azure Key Vault](https://azure.microsoft.com/services/key-vault/): Lagrar hemligheter som används av beräknings mål och annan känslig information som behövs för arbets ytan.
 
 > [!NOTE]
-> Förutom att skapa nya versioner, kan du också använda befintliga Azure-tjänster.
+> Förutom att skapa nya versioner kan du också använda befintliga Azure-tjänster.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Kom igång med Azure Machine Learning-tjänsten, se:
+Information om hur du kommer igång med Azure Machine Learning-tjänsten finns i:
 
-+ [Azure Machine Learning-tjänstöversikt](overview-what-is-azure-ml.md)
++ [Översikt över Azure Machine Learning tjänsten](overview-what-is-azure-ml.md)
 + [Skapa en arbetsyta](setup-create-workspace.md)
 + [Hantera en arbetsyta](how-to-manage-workspace.md)
-+ [Självstudie: Träna en modell](tutorial-train-models-with-aml.md)
++ [Självstudier: Träna en modell](tutorial-train-models-with-aml.md)

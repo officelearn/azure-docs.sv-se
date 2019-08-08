@@ -1,6 +1,6 @@
 ---
-title: Fyra steg till en stark identitet foundation med Azure Active Directory
-description: Det här avsnittet beskrivs fyra steg hybrid identity kunder kan vidta för att bygga en stark identitet grund.
+title: Fyra steg till en stark identitets grund med Azure Active Directory
+description: I det här avsnittet beskrivs fyra steg som hybrid identitet kunder kan ta för att skapa en stark identitets grund.
 services: active-directory
 author: martincoetzer
 manager: daveba
@@ -13,260 +13,260 @@ ms.date: 06/20/2019
 ms.subservice: hybrid
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a20a1a1009949aa2e6de8586040e918ae15c8d39
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 0630e62a08314612cb08b5cb26b5a1563de4f40b
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67655947"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68779689"
 ---
-# <a name="four-steps-to-a-strong-identity-foundation-with-azure-active-directory"></a>Fyra steg till en stark identitet foundation med Azure Active Directory
+# <a name="four-steps-to-a-strong-identity-foundation-with-azure-active-directory"></a>Fyra steg till en stark identitets grund med Azure Active Directory
 
-Hantera åtkomst till appar och data kan inte längre förlita dig på traditionella gräns säkerhetsstrategier som perimeternätverk och brandväggar på grund av att snabbt flytta appar till molnet. Organisationer måste nu lita på deras ID-lösning för att styra vem och vad har åtkomst till organisationens appar och data. Fler och fler organisationer tillåter att anställda med sina egna enheter att fungera och använda sina enheter från valfri plats som de kan ansluta till Internet. Försäkra dig om enheterna är kompatibla och säker har blivit ett viktigt övervägande i ID-lösning som en organisation väljer att implementera. I dagens digitala arbetsplats [identiteten är primär kontrollplanet](https://www.microsoft.com/security/technology/identity-access-management?rtc=1) i alla organisationer flytt till molnet.
+Hantering av åtkomst till appar och data kan inte längre förlita sig på traditionella nätverks säkerhets gränser, t. ex. perimeternätverk och brand väggar på grund av snabb flyttning av appar till molnet. Nu måste organisationer ha förtroende för sin identitets lösning för att kontrol lera vem och vad som har åtkomst till organisationens appar och data. Fler organisationer gör det möjligt för anställda att använda sina egna enheter för att arbeta och använda sina enheter från valfri plats de kan ansluta till Internet. Att se till att enheterna är kompatibla och att säkra har blivit viktiga överväganden i den identitets lösning som en organisation väljer att implementera. I dagens digitala arbets plats [är identitet det primära kontroll planet](https://www.microsoft.com/security/technology/identity-access-management?rtc=1) för alla organisationer som flyttar till molnet.
 
-I använda en hybrididentitetslösning i Azure Active Directory (AD Azure), tillgång organisationer till premium-funktioner som låser upp produktiviteten med automation, delegering, självbetjäning och enkel inloggning för funktioner. Det gör att dina medarbetare att få åtkomst till företagsresurser från oavsett var de behöver för att utföra sitt arbete samtidigt som IT-teamet att styra den åtkomsten genom att se till att rätt personer har rätt åtkomst till rätt resurser för att upprätta säker produktivitet.
+Vid införandet av en Azure Active Directory (Azure AD) hybrid identitets lösning får organisationer till gång till Premium-funktioner som låser upp produktiviteten genom automatisering, delegering, självbetjäning och funktioner för enkel inloggning. Det gör det möjligt för dina anställda att få åtkomst till företagets resurser från var de än behöver göra sitt arbete samtidigt som IT-teamet kan styra den åtkomsten genom att se till att rätt personer har rätt åtkomst till rätt resurser för att upprätta säker produktivitet.
 
-Baserat på våra erfarenheter, den här checklistan för bästa praxis hjälper dig att snabbt distribuera rekommenderade åtgärder för att skapa en *stark* identity foundation i din organisation:
+Den här check listan med bästa praxis hjälper dig att snabbt distribuera rekommenderade åtgärder för att bygga en *stark* identitets bas i din organisation:
 
-* Anslut enkelt till appar
+* Anslut till appar enkelt
 * Upprätta en identitet för varje användare automatiskt
-* Underlätta för dina användare på ett säkert sätt
+* Ge dina användare säker säkerhet
 * Operationalisera dina insikter
 
 ## <a name="step-1---connect-to-apps-easily"></a>Steg 1 – Anslut till appar enkelt
 
-Genom att ansluta dina appar med Azure AD kan du förbättra slutanvändarnas produktivitet och säkerhet genom att aktivera enkel inloggning (SSO) och gör etableringen av användare. Du kan minska administrativa kostnader och uppnå en enda åtkomstpunkt för åtkomstkontroll för dina principer för säkerhet och efterlevnad genom att hantera dina appar i en och samma plats, Azure AD.
+Genom att ansluta dina appar med Azure AD kan du förbättra produktiviteten och säkerheten för slutanvändare genom att aktivera enkel inloggning (SSO) och användar etablering. Genom att hantera dina appar på en enda plats, Azure AD, kan du minimera den administrativa belastningen och få en enda kontroll punkt för dina säkerhets-och efterlevnadsprinciper.
 
-Det här avsnittet beskriver dina alternativ för att hantera användarnas åtkomst till appar, att aktivera säker fjärråtkomst till interna appar och fördelarna med att migrera dina appar till Azure AD.
+I det här avsnittet beskrivs alternativen för att hantera användar åtkomst till appar, Aktivera säker fjärråtkomst till interna appar och fördelarna med att migrera dina appar till Azure AD.
 
-### <a name="make-apps-available-to-your-users-seamlessly"></a>Göra appar tillgängliga för användarna sömlöst
+### <a name="make-apps-available-to-your-users-seamlessly"></a>Gör appar tillgängliga för dina användare sömlöst
 
-Azure AD låter administratörer [lägga till program](https://docs.microsoft.com/azure/active-directory/manage-apps/add-application-portal) till galleriet för Enterprise-program i den [Azure-portalen](https://portal.azure.com/). Att lägga till program i galleriet för Enterprise-program gör det enklare för dig att konfigurera program för att använda Azure AD som identitetsprovider. Du kan även hantera användarnas åtkomst till programmet med principer för villkorlig åtkomst och konfigurera enkel inloggning (SSO) till program så att användarna inte behöver ange sina lösenord flera gånger och automatiskt loggas in både lokalt och molnbaserade program.
+Med Azure AD kan administratörer [lägga till program](https://docs.microsoft.com/azure/active-directory/manage-apps/add-application-portal) i galleriet för företags program i [Azure Portal](https://portal.azure.com/). Genom att lägga till program i galleriet för företags program blir det enklare för dig att konfigurera program att använda Azure AD som identitets leverantör. Du kan också hantera användar åtkomst till programmet med principer för villkorlig åtkomst och konfigurera enkel inloggning (SSO) till program så att användarna inte behöver ange sina lösen ord flera gånger och automatiskt signeras till både lokalt och molnbaserade program.
 
-När program har lagts till i Azure AD-galleriet kan se användare appar som har tilldelats till dem och söka efter och begära andra appar efter behov. Azure AD tillhandahåller [flera metoder](https://docs.microsoft.com/azure/active-directory/manage-apps/end-user-experiences) för användare att komma åt sina appar:
+När program har lagts till i Azure AD-galleriet kan användarna se appar som har tilldelats dem och söka efter och begära andra appar efter behov. Azure AD tillhandahåller [flera metoder](https://docs.microsoft.com/azure/active-directory/manage-apps/end-user-experiences) för användare att komma åt sina appar:
 
-* Åtkomstpanelen / Mina appar
-* Startprogram för Office 365-app
+* Åtkomst panel/Mina appar
+* Office 365-program start
 * Direkt inloggning till federerade appar
-* Inloggnings-länkar
+* Direkta inloggnings länkar
 
-Läs mer om användaråtkomst till appar i **steg3 – ge användarna** i den här artikeln.
+Mer information om användar åtkomst till appar finns i **steg 3 – ge användarna** i den här artikeln.
 
-### <a name="migrate-apps-from-active-directory-federation-services-to-azure-ad"></a>Migrera appar från Active Directory Federation Services till Azure AD
+### <a name="migrate-apps-from-active-directory-federation-services-to-azure-ad"></a>Migrera appar från Active Directory Federation Services (AD FS) till Azure AD
 
-Migrera enkel inloggningkonfigurationen från Active Directory Federation Services (ADFS) till Azure AD kan ytterligare funktioner på säkerhet, en mer konsekvent hanterbarhet och samarbete. För bästa resultat rekommenderar vi att du migrerar dina appar från AD FS till Azure AD. Få ut dina program autentisering och auktorisering till Azure AD ger dig följande fördelar:
+Migrering av enkel inloggnings konfiguration från Active Directory Federation Services (AD FS) (ADFS) till Azure AD ger ytterligare funktioner för säkerhet, en mer konsekvent hantering och samarbete. För bästa resultat rekommenderar vi att du migrerar dina appar från AD FS till Azure AD. Att samla in din programautentisering och auktorisering till Azure AD ger dig följande fördelar:
 
 * Hantera kostnader
-* Riskhantering
-* Öka produktiviteten
-* Efterlevnad och styrning
+* Hanterings risk
+* Ökad produktivitet
+* Hantera efterlevnad och styrning
 
-Mer information finns i den [migrera din program till Azure Active Directory](https://aka.ms/migrateapps/whitepaper) White Paper.
+Mer information finns i [migrera dina program till Azure Active Directory](https://aka.ms/migrateapps/whitepaper) whitepaper.
 
 ### <a name="enable-secure-remote-access-to-apps"></a>Aktivera säker fjärråtkomst till appar
 
-[Azure AD Application Proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-application-proxy) tillhandahåller en enkel lösning för organisationer att publicera lokala appar till molnet för fjärranslutna användare som behöver åtkomst till interna appar på ett säkert sätt. När du har en enkel inloggning till Azure AD, kan användare komma åt både i molnet och lokala program via externa URL: er eller en intern App-portal.
+[Azure AD-programproxy](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-application-proxy) ger en enkel lösning för organisationer för att publicera lokala appar till molnet för fjärran vändare som behöver åtkomst till interna appar på ett säkert sätt. Efter en enkel inloggning till Azure AD kan användare komma åt både molnet och lokala program via externa URL: er eller en intern applikations Portal.
 
-Azure AD Application Proxy ger följande fördelar:
+Azure AD-programproxy erbjuder följande fördelar:
 
 * Utöka Azure AD till lokala resurser
-  * Skalbar säkerhet och skydd
-  * Funktioner som villkorlig åtkomst och autentisering med flera faktorer som är lätta att aktivera
-* Inga komponenter i perimeternätverket, till exempel VPN och traditionella omvänd proxy-lösningar
-* Inga inkommande anslutningar som krävs
-* Enkel inloggning (SSO) mellan enheter, resurser och appar i molnet och lokalt
-* Slutanvändarna att vara produktiva när som helst och var som helst
+  * Säkerhet och skydd i moln skala
+  * Funktioner som villkorlig åtkomst och Multi-Factor Authentication som är lätta att aktivera
+* Inga komponenter i perimeternätverket, till exempel VPN-och traditionella omvända proxy-lösningar
+* Inga inkommande anslutningar krävs
+* Enkel inloggning (SSO) över enheter, resurser och appar i molnet och lokalt
+* Gör det möjligt för slutanvändarna att vara produktiva när och var som helst
 
-### <a name="discover-shadow-it-with-microsoft-cloud-app-security"></a>Upptäcka skugg-IT med Microsoft Cloud App Security
+### <a name="discover-shadow-it-with-microsoft-cloud-app-security"></a>Upptäck skugg-IT med Microsoft Cloud App Security
 
-IT-avdelningar är ofta inte medvetna om alla molnprogram som används av användarna som utför arbetet i moderna företag. När IT-administratörer är och hur många molnbaserade använda appar som de tänker sina anställda, i genomsnitt de anta 30 eller 40. I själva verket är medelvärdet över 1 000 separata appar som används av anställda i din organisation. 80% av anställda använda icke-sanktionerade appar att ingen har granskat och kanske inte är kompatibla med principerna säkerhet och efterlevnad.
+I moderna företag är IT-avdelningar ofta inte medvetna om alla moln program som används av användarna för att utföra sitt arbete. När IT-administratörer tillfrågas om hur många molnappar som de tror att deras anställda använder, i genomsnitt blir det 30 eller 40. I verkligheten är genomsnittet över 1 000 separata appar som används av anställda i din organisation. 80% av anställda använder icke-sanktionerade appar som ingen har granskat och kanske inte är kompatibla med dina principer för säkerhet och efterlevnad.
 
-[Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security) (MCAS) kan hjälpa dig att identifiera användbara appar som är populära bland användarna att den kan sanktionera och lägga till i galleriet för Enterprise-program så att användarna dra nytta av funktioner som enkel inloggning och villkorlig åtkomst.
+[Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security) (MCAS) kan hjälpa dig att identifiera användbara appar som är populära med användare som det kan sanktionera och lägga till i galleriet för företags program, så att användarna får nytta av funktioner som SSO och villkorlig åtkomst.
 
-*”** Cloud App Security** hjälper oss att kontrollera att vår personer korrekt använder vårt moln- och SaaS-program, på ett sätt som stöd för de grundläggande säkerhetsprinciper som skyddar Accenture”. *--- [John Blasi, hantera Director, informationssäkerhet, Accenture](https://customers.microsoft.com/story/accenture-professional-services-cloud-app-security)
+*"* * Cloud App Security** hjälper oss att se till att våra personer på rätt sätt använder våra moln-och SaaS-program, på ett sätt som har stöd för de grundläggande säkerhets principerna som skyddar Accenture." *--- [John Blasi, hanterings chef, informations säkerhet, Accenture](https://customers.microsoft.com/story/accenture-professional-services-cloud-app-security)
 
-Förutom att upptäcka skugg-IT vet också MCAS risknivån för appar, kan du förhindra obehörig åtkomst till företagsdata, möjliga dataläckage och andra säkerhetsrisker i programmen.
+Förutom att upptäcka skugg-IT kan MCAS också fastställa risk nivån för appar, förhindra obehörig åtkomst till företags data, möjliga data läckage och andra säkerhets risker i programmen.
 
 ## <a name="step-2---establish-one-identity-for-every-user-automatically"></a>Steg 2 – upprätta en identitet för varje användare automatiskt
 
-Sammanför lokala och molnbaserade kataloger i en hybrididentitetslösning i Azure AD kan du återanvända din befintliga lokala Active Directory-investering genom att etablera dina befintliga identiteter i molnet. Lösningen synkroniserar lokala identiteter med Azure AD, samtidigt som IT är fortfarande en lokal Active Directory som körs med alla befintliga lösningar för styrning som den primära källan för sanningen för identiteter. Microsofts Azure AD-hybrididentitetslösning omfattar både lokala och molnbaserade funktioner, skapa en vanlig användaridentitet för autentisering och auktorisering för alla resurser, oavsett deras plats.
+Genom att använda lokala och molnbaserade kataloger tillsammans i en Azure AD hybrid identitets lösning kan du återanvända din befintliga lokala Active Directory investering genom att tillhandahålla dina befintliga identiteter i molnet. Lösningen synkroniserar lokala identiteter med Azure AD, medan den lokala Active Directory körs med befintliga styrnings lösningar som den primära källan till sanningen för identiteter. Microsofts Azure AD hybrid Identity-lösning omfattar lokala och molnbaserade funktioner, vilket skapar en gemensam användar identitet för autentisering och auktorisering till alla resurser, oavsett var de befinner sig.
 
-Integrera dina lokala kataloger med Azure AD gör användarna mer produktiva och förhindrar att användare kan använda flera konton i alla appar och tjänster genom att tillhandahålla en gemensam identitet för åtkomst till både moln och lokala resurser. Använda flera konton är ett omfattande problem för slutanvändare och IT både. Har flera konton innebär att behöva komma ihåg flera lösenord från en slutanvändare perspektiv. Undvik detta genom återanvända många användare samma lösenord för varje konto, vilket är dåligt ur säkerhetssynpunkt. Ur ett IT-perspektiv leder återanvändning ofta till fler lösenordsåterställning och supportkostnaderna tillsammans med slutanvändarens klagomål.
+Att integrera dina lokala kataloger med Azure AD gör användarna mer produktiva och förhindrar att användare använder flera konton i appar och tjänster genom att tillhandahålla en gemensam identitet för åtkomst till både moln resurser och lokala resurser. Att använda flera konton är en smärta för slutanvändare och det är lika. Från ett slut användar perspektiv, med flera konton, innebär det att du måste komma ihåg flera lösen ord. För att undvika detta kan många användare återanvända samma lösen ord för varje konto, vilket är felaktigt i ett säkerhets perspektiv. Från ett IT-perspektiv leder åter användning ofta till fler lösen ords återställningar och support kostnader tillsammans med slutanvändarens klagomål.
 
-Azure AD Connect är det verktyg som används för att synkronisera dina lokala identiteter till Azure AD, som sedan kan användas för åtkomst till molnprogram. När identiteterna som är i Azure AD, kan de etablera till SaaS-program som Salesforce och Concur.
+Azure AD Connect är det verktyg som används för att synkronisera dina lokala identiteter till Azure AD, som sedan kan användas för att få åtkomst till moln program. När identiteterna är i Azure AD kan de etablera till SaaS-program som Salesforce eller Concur.
 
-I det här avsnittet vi en lista med rekommendationer för att tillhandahålla hög tillgänglighet, modern autentisering för molnet, och minskar storleken på plats.
+I det här avsnittet listas rekommendationer för att tillhandahålla hög tillgänglighet, modern autentisering för molnet och för att minska ditt lokala utrymme.
 
 > [!NOTE]
-> Om du vill veta mer om Azure AD Connect finns i [vad är Azure AD Connect Sync?](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-whatis)
+> Om du vill veta mer om Azure AD Connect, se [Vad är Azure AD Connect Sync?](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-whatis)
 
-### <a name="set-up-a-staging-server-for-azure-ad-connect-and-keep-it-up-to-date"></a>Konfigurera en fristående server för Azure AD Connect och hålla den uppdaterad
+### <a name="set-up-a-staging-server-for-azure-ad-connect-and-keep-it-up-to-date"></a>Konfigurera en uppsamlings Server för Azure AD Connect och håll den uppdaterad
 
-Azure AD Connect spelar en viktig roll i etableringsprocessen. Om synkroniseringsservern försätts offline av någon anledning, ändringar i lokala uppdateras inte i molnet och orsaka problem med åtkomst till användare. Det är viktigt att definiera en strategi för växling vid fel som gör att administratörer kan snabbt återuppta synkroniseringen när sync-servern går offline.
+Azure AD Connect spelar upp en nyckel roll i etablerings processen. Om synkroniseringstjänsten försätts offline av någon anledning, uppdateras inte ändringar i lokalt i molnet och orsakar åtkomst problem till användarna. Det är viktigt att definiera en strategi för växling vid fel som gör det möjligt för administratörer att snabbt återuppta synkronisering när Sync-servern är offline.
 
-För att tillhandahålla hög tillgänglighet i händelsen din primära Azure AD Connect-servern går offline, rekommenderar vi att du distribuerar en separat [mellanlagring server](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-staging-server) för Azure AD Connect. Distribuera en server kan administratören till ”” mellanlagringsserver till produktion genom en enkel konfiguration-växel. Att ha en reservserver som konfigurerats i mellanlagringsläge kan du också att testa och distribuera nya konfigurationsändringar och introducera en ny server om inaktivering av den gamla servern.
+För att tillhandahålla hög tillgänglighet i händelse av att den primära Azure AD Connect servern är offline rekommenderar vi att du distribuerar en separat [mellanlagrings Server](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-staging-server) för Azure AD Connect. Genom att distribuera en server kan administratören "befordra" mellanlagrings servern till produktion med en enkel konfigurations växel. Med en standby-server som kon figurer ATS i mellanlagrings läge kan du också testa och distribuera nya konfigurations ändringar och införa en ny server om du inaktiverar den gamla.
 
 > [!TIP]
-> Azure AD Connect uppdateras regelbundet. Vi rekommenderar därför starkt att du behåller testservern aktuella för att kunna dra nytta av den prestandaförbättringar, felkorrigeringar och nya funktioner som ger varje ny version.
+> Azure AD Connect uppdateras regelbundet. Därför rekommenderar vi starkt att du bevarar den här mellanlagrings servern för att kunna dra nytta av prestanda förbättringar, fel korrigeringar och nya funktioner som varje ny version ger.
 
-### <a name="enable-cloud-authentication"></a>Aktivera autentisering i molnet
+### <a name="enable-cloud-authentication"></a>Aktivera molnbaserad autentisering
 
-Organisationer med lokal Active Directory ska utöka sin katalog till Azure AD med Azure AD Connect och konfigurera en passande autentiseringsmetod. [Välja rätt autentiseringsmetod](https://docs.microsoft.com/azure/security/azure-ad-choose-authn) för din organisation är det första steget i din resa med att flytta appar till molnet. Det är en kritisk komponent eftersom den styr åtkomst till alla data i molnet och resurser.
+Organisationer med lokala Active Directory bör utöka sin katalog till Azure AD med Azure AD Connect och konfigurera lämplig autentiseringsmetod. Att [välja rätt autentiseringsmetod](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn) för din organisation är det första steget i resan att flytta appar till molnet. Det är en viktig komponent eftersom den styr åtkomst till alla moln data och resurser.
 
-Den enklaste och rekommenderade metoden för att aktivera autentisering i molnet för den lokala katalogobjekt i Azure AD är att aktivera [Lösenordshashsynkronisering](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization) (PHS). Vissa organisationer kan också överväga att aktivera [direktautentisering](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-quick-start) (PTA).
+Den enklaste och rekommenderade metoden för att aktivera molnbaserad autentisering för lokala katalog objekt i Azure AD är att aktivera [hash-synkronisering av lösen ord](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization) (PHS). Vissa organisationer kan också överväga att aktivera [direktautentisering](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-quick-start) (PTA).
 
-Om du väljer PHS eller PTA, Glöm inte att aktivera [sömlös enkel inloggning](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso) att ge användare åtkomst till appar i molnet utan ständigt att ange sitt användarnamn och lösenord i appen när du använder Windows 7 och 8-enheter på ditt företags nätverk. Utan enkel inloggning, användare måste komma ihåg programspecifika lösenord och logga in varje program. På samma sätt måste IT-personal att skapa och uppdatera användarkonton för varje program som Office 365, Box och Salesforce. Användare måste komma ihåg sina lösenord, samt lägga tid att logga in på varje program. Att tillhandahålla en standardiserad enkel inloggning mekanism för att hela företaget är avgörande för bästa användarupplevelsen, minskning av risk, möjlighet att rapportera och styrning.
+Oavsett om du väljer PHS eller PTA kan du inte glömma att aktivera [sömlös enkel inloggning](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso) så att användarna kan komma åt molnappar utan att ständigt ange sitt användar namn och lösen ord i appen när de använder Windows 7-och 8-enheter i företags nätverket. Utan enkel inloggning måste användare komma ihåg programspecifika lösen ord och logga in på varje program. På samma sätt måste IT-personal skapa och uppdatera användar konton för varje program, till exempel Office 365, Box och Salesforce. Användarna måste komma ihåg sina lösen ord, samt ägna tid åt att logga in på varje program. Att tillhandahålla en standardiserad mekanism för enkel inloggning till hela företaget är avgörande för bästa användar upplevelse, minskning av risk, rapportering och styrning.
 
-För organisationer som redan använder AD FS eller en annan lokal autentiseringsprovider flyttar till Azure AD som identitetsprovider kan minska komplexiteten och förbättra tillgängligheten. Om du inte har specifika användningsfall för att använda federation, rekommenderar vi att du migrerar från federerad autentisering till antingen PHS och sömlös enkel inloggning eller PTA och sömlös SSO att dra nytta av fördelarna med ett lägre lokala fotavtryck och flexibilitet som molnet erbjuder med Förbättrad användarupplevelser. Mer information finns i [migrera från federation till synkronisering av lösenordshash för Azure Active Directory](https://docs.microsoft.com/azure/active-directory/hybrid/plan-migrate-adfs-password-hash-sync).
+För organisationer som redan använder AD FS eller en annan lokal autentiseringsprovider kan du flytta till Azure AD som identitets leverantör kan minska komplexiteten och förbättra tillgängligheten. Om du inte har speciella användnings fall för att använda Federation rekommenderar vi att du migrerar från federerad autentisering till antingen PHS och sömlös SSO eller PTA och sömlös SSO för att dra nytta av fördelarna med ett reducerat lokalt utrymme och den flexibilitet som molnet erbjuder med förbättrade användar upplevelser. Mer information finns i [Migrera från Federation till hash-synkronisering av lösen ord för Azure Active Directory](https://docs.microsoft.com/azure/active-directory/hybrid/plan-migrate-adfs-password-hash-sync).
 
-### <a name="enable-automatic-deprovisioning-of-accounts"></a>Aktivera automatisk borttagning av konton
+### <a name="enable-automatic-deprovisioning-of-accounts"></a>Aktivera automatisk avetablering av konton
 
-Att aktivera automatisk etablering och avetablering för dina program är den bästa strategin för reglerar livscykeln för identiteter över flera system. Azure AD stöder [automatiserad, grupprincipbaserad etablering och borttagning](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-automatic-user-provisioning-portal) av användarkonton till en mängd olika populära SaaS-program som ServiceNow och Salesforce som implementerar den [SCIM 2.0 protokollet](https://docs.microsoft.com/azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups). Till skillnad från traditionella etablering lösningar som kräver anpassad kod eller manuell överföring av CSV-filer, etableringstjänsten finns i molnet och funktioner förintegrerade anslutningar som kan konfigureras och hanteras med hjälp av Azure-portalen. En viktig fördel med automatisk avetablering är att den kan du skydda din organisation genom att direkt ta bort användarnas identiteter från viktiga SaaS-appar när de lämnar organisationen.
+Att aktivera automatisk etablering och avetablering för dina program är den bästa strategin för att reglera identiteternas livs längd i flera system. Azure AD stöder [automatiserad, principbaserad etablering och avetablering](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-automatic-user-provisioning-portal) av användar konton till en rad populära SaaS-program, till exempel ServiceNow och Salesforce, och andra som implementerar [scim 2,0-protokollet](https://docs.microsoft.com/azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups). Till skillnad från traditionella etablerings lösningar, som kräver anpassad kod eller manuell överföring av CSV-filer, finns etablerings tjänsten i molnet och innehåller för hands integrerade anslutningar som kan konfigureras och hanteras med hjälp av Azure Portal. En viktig fördel med automatisk avetablering är att den hjälper till att skydda din organisation genom att genast ta bort användarens identiteter från viktiga SaaS-appar när de lämnar organisationen.
 
-Läs mer om automatisk användarkontoetablering och hur det fungerar i [automatisera Användaretablering och avetablering för SaaS-program med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
+Mer information om automatisk etablering av användar konton och hur det fungerar finns i [Automatisera användar etablering och avetablering för SaaS-program med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
 
-## <a name="step-3---empower-your-users-securely"></a>Steg 3 – stärka dina användare på ett säkert sätt
+## <a name="step-3---empower-your-users-securely"></a>Steg 3 – ge dina användare säker säkerhet
 
-I dagens digitala arbetsplats är det viktigt att belastningsutjämna säkerhet med produktivitet. Men skicka slutanvändare ofta tillbaka på säkerhetsåtgärder som försämrar deras produktivitet och åtkomst till molnappar. För att lösa det, Azure AD innehåller självbetjäning som kan användas att förbli produktiva och minimerar administrativa kostnader.
+I dagens digitala arbets plats är det viktigt att balansera säkerheten med produktivitet. Slutanvändare skickar dock ofta tillbaka säkerhets åtgärder som saktar produktiviteten och kommer åt molnappar. För att hjälpa dig att åtgärda detta tillhandahåller Azure AD självbetjänings funktioner som gör det möjligt för användarna att vara produktiva och minimera administrativa kostnader.
 
-Det här avsnittet innehåller rekommendationer för att ta bort friktionen från din organisation genom att förse dina användare samtidigt som de behåller vaksam.
+I det här avsnittet listas rekommendationer för att ta bort friktion från din organisation genom att ge användarna möjlighet att använda återstående vigilant.
 
-### <a name="enable-self-service-password-reset-for-all-users"></a>Aktivera självbetjäningsportalen för lösenordsåterställning för alla användare
+### <a name="enable-self-service-password-reset-for-all-users"></a>Aktivera självbetjäning för återställning av lösen ord för alla användare
 
-Azures [lösenordsåterställning via självbetjäning](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr) (SSPR) erbjuder ett enkelt sätt för IT-administratörer att tillåta användare att återställa och låsa upp sina lösenord eller sina konton utan inblandning av administratören. Systemet innehåller detaljerade rapporter för att spåra när användare använder systemet tillsammans med aviseringar som informerar om missbruk.
+Azures självbetjäning för [återställning av lösen ord](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr) (SSPR) erbjuder ett enkelt sätt för IT-administratörer att tillåta att användare återställer och låser upp sina lösen ord eller konton utan Administratörs åtgärder. Systemet innehåller detaljerade rapporter för att spåra när användare använder systemet tillsammans med aviseringar som informerar om missbruk.
 
-Som standard låser Azure AD upp konton när den utför en återställning av lösenord. Men när du aktiverar Azure AD Connect [integrering på lokala](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-howitworks#on-premises-integration), du har också möjlighet att dela dessa två åtgärder som användarna kan låsa upp sitt konto utan att behöva återställa lösenordet.
+Som standard låser Azure AD upp konton när en lösen ords återställning utförs. Men när du aktiverar Azure AD Connect [-integrering lokalt](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-howitworks#on-premises-integration)kan du också välja att separera de två åtgärderna, vilket gör att användarna kan låsa upp kontot utan att behöva återställa lösen ordet.
 
-### <a name="ensure-all-users-are-registered-for-mfa-and-sspr"></a>Se till att alla användare har registrerats för MFA och SSPR
+### <a name="ensure-all-users-are-registered-for-mfa-and-sspr"></a>Se till att alla användare är registrerade för MFA och SSPR
 
-Azure tillhandahåller rapporter som kan användas av dig och din organisation att se till att användarna har registrerats för MFA och SSPR. Användare som inte har registrerat kan måste utbildas om processen.
+Azure ger rapporter som du och din organisation kan använda för att se till att användare registreras för MFA-och SSPR. Användare som inte har registrerat kan behöva bli sammanutbildade i processen.
 
-MFA [rapporten inloggningar](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-reporting) innehåller information om MFA-användningen och ger dig insikter om hur MFA fungerar i din organisation. Att ha åtkomst till inloggning aktivitet (och granskningar och riskhändelser) för Azure AD är avgörande för felsökning, användningsanalys och stöda utredningar.
+Rapporten MFA [-inloggningar](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-reporting) innehåller information om MFA-användning och ger dig insikter om hur MFA arbetar i din organisation. Att ha åtkomst till inloggnings aktivitet (och granskningar och risk händelser) för Azure AD är avgörande för fel sökning, användnings analys och data utredning undersökningar.
 
-På samma sätt kan den [Self-service lösenordshantering rapporten](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-reporting) kan användas för att fastställa vem som har (eller inte) som har registrerats för SSPR.
+På samma sätt kan du använda [rapporten för lösen ords hantering](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-reporting) med självbetjäning för att fastställa vem som har (eller inte har) registrerat för SSPR.
 
-### <a name="self-service-app-management"></a>Självbetjäning apphantering
+### <a name="self-service-app-management"></a>Hantering av självbetjänings program
 
-Innan användarna kan själva upptäcka program från sina åtkomstpaneler, måste du aktivera [självbetjäningsåtkomsten](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-manage-self-service-access) för program som du vill tillåta användare att identifiera själv och begära åtkomst till. Självbetjäning för programåtkomst är ett bra sätt att låta användare själva utforska program och om du vill tillåta affärsgrupp att godkänna åtkomst till dessa program. Du kan tillåta affärsgrupp att hantera de autentiseringsuppgifter som är tilldelade till de användarna för [lösenord för enkel inloggning på program](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-problem-password-sso-gallery#configure-password-sso-for-an-azure-ad-gallery-app) direkt från sina åtkomstpaneler.
+Innan användarna kan identifiera program från sina åtkomst paneler måste du aktivera självbetjänings [program åtkomst](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-manage-self-service-access) till alla program som du vill ge användare möjlighet att själv identifiera och begära åtkomst till. Åtkomst till självbetjänings program är ett bra sätt att ge användare möjlighet att identifiera program och eventuellt tillåta affärs gruppen att godkänna åtkomst till dessa program. Du kan tillåta att affärs gruppen hanterar de autentiseringsuppgifter som tilldelats dessa användare för [lösen ords program med enkel inloggning](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-problem-password-sso-gallery#configure-password-sso-for-an-azure-ad-gallery-app) direkt från sina åtkomst paneler.
 
 ### <a name="self-service-group-management"></a>Självbetjäning, grupphantering
 
-Tilldela användare till program mappas bäst när du använder grupper, eftersom de låter stor flexibilitet och möjlighet att hantera i stor skala:
+Att tilldela användare till program mappas bäst när du använder grupper, eftersom de ger stor flexibilitet och möjlighet att hantera i skala:
 
-* Attributbaserad med dynamiska gruppmedlemskap
-* Delegering till app-ägare
+* Attribut-baserad med dynamiskt grupp medlemskap
+* Delegera till app-ägare
 
-Azure AD tillhandahåller möjligheten att hantera åtkomst till resurser med hjälp av säkerhetsgrupper och Office 365-grupper. Dessa grupper kan hanteras av en gruppägare som kan godkänna eller neka förfrågningar om medlemskap och delegera kontrollen av gruppmedlemskap. Kallas även [självbetjäningsgrupphantering](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-self-service-management), den här funktionen sparar tid genom att låta gruppägare som inte har tilldelats en administrativ roll för att skapa och hantera grupper utan att behöva förlita dig på administratörer att hantera sina begäranden.
+Azure AD ger möjlighet att hantera åtkomst till resurser med hjälp av säkerhets grupper och Office 365-grupper. Dessa grupper kan hanteras av en grupp ägare som kan godkänna eller avvisa medlemskaps begär Anden och delegera kontrollen av grupp medlemskap. Den här funktionen är känd som självbetjänings [grupp hantering](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-self-service-management)och sparar tid genom att tillåta grupp ägare som inte har tilldelats en administrativ roll för att skapa och hantera grupper utan att behöva förlita sig på att administratörer hanterar sina begär Anden.
 
-## <a name="step-4---operationalize-your-insights"></a>Steg 4 – Operationalisera dina insikter
+## <a name="step-4---operationalize-your-insights"></a>Steg 4 – operationalisera dina insikter
 
-Granskning och loggning av säkerhetsrelaterade händelser och relaterade aviseringar är viktiga komponenter i en effektiv strategi för att säkerställa att de vara fortsatt produktiva och din organisation är säker. Säkerhetsloggar och rapporter kan hjälpa att besvara fråga som:
+Granskning och loggning av säkerhetsrelaterade händelser och relaterade aviseringar är viktiga komponenter i en effektiv strategi för att se till att användarna är produktiva och att organisationen är säker. Säkerhets loggar och-rapporter kan hjälpa till att besvara frågor som:
 
-* Använder du vad du betalar för?
-* Finns det något misstänkt eller skadliga sker i min klient?
-* Vem som har påverkats under en säkerhetsincident?
+* Använder du det du betalar för?
+* Finns det några misstänkta eller skadliga händer i min klient organisation?
+* Vem har påverkat under en säkerhets incident?
 
-Säkerhetsloggar och rapporter ger dig en elektronisk post av misstänkta aktiviteter och hjälper dig att du upptäcka mönster som kan indikera ett försök har gjorts eller lyckad externa penetrationstester av nätverket och interna attacker. Du kan använda granskning för att övervaka användaraktivitet, dokumentet regelefterlevnad, göra kriminalteknisk analys med mera. Aviseringar tillhandahåller meddelanden av säkerhetshändelser.
+Säkerhets loggar och-rapporter ger dig en elektronisk post med misstänkta aktiviteter och hjälper dig att identifiera mönster som kan indikera försök till eller lyckad extern inträngande av nätverket och interna attacker. Du kan använda granskning för att övervaka användar aktivitet, dokumentera regelefterlevnad, utföra kriminal tekniska analys med mera. Aviseringar ger meddelanden om säkerhets händelser.
 
-### <a name="assign-least-privileged-admin-roles-for-operations"></a>Tilldela minst Privilegierade administrativa roller för åtgärder
+### <a name="assign-least-privileged-admin-roles-for-operations"></a>Tilldela minst privilegierade administratörs roller för åtgärder
 
-När du funderar din metod för att operations finns det ett par nivåer av administration att tänka på. Den första nivån placerar arbetet med administration på dina globala administratörer. Alltid använder rollen global administratör, kan vara lämpligt för mindre företag. Men större organisationer med supportpersonal och administratörer som är ansvarig för specifika uppgifter kan tilldela rollen global administratör kan utgöra en säkerhetsrisk eftersom den ger möjlighet att hantera uppgifter som ligger ovanför och utanför de personer vad de ska kunna göra.
+När du funderar på hur du använder åtgärder finns det ett par olika administrations nivåer att tänka på. På den första nivån placeras administrations belastningen på dina globala administratörer. Använd alltid rollen global administratör, kan vara lämplig för mindre företag. Men för större organisationer med support personal och administratörer som ansvarar för vissa uppgifter, kan det vara en säkerhets risk att tilldela rollen global administratör eftersom den ger användarna möjlighet att hantera uppgifter som är över och efter vad de ska kunna utföra.
 
-I det här fallet bör du överväga nästa nivå i administration. Du kan använda Azure AD för att ange slutanvändare som ”begränsade administratörer” som kan hantera uppgifter i mindre privilegierade roller. Exempel: du kan tilldela din hjälp för supportavdelningens personal i [säkerhetsläsare](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#security-reader) roll att ge dem möjlighet att hantera säkerhetsrelaterade funktioner med skrivskyddad åtkomst. Eller kanske det vara bra att tilldela den [administratören authentication](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#authentication-administrator) rollen för enskilda användare att ge dem möjlighet att återställa autentiseringsuppgifter för icke-password eller läsa och konfigurera Azure Service Health.
+I detta fall bör du överväga nästa nivå av administration. Med hjälp av Azure AD kan du ange slutanvändare som "begränsade administratörer" som kan hantera uppgifter i roller med lägre privilegier. Du kan till exempel tilldela supportavdelningen rollen som [säkerhets läsare](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#security-reader) för att ge dem möjlighet att hantera säkerhetsrelaterade funktioner med skrivskyddad åtkomst. Eller så kanske det är klokt att tilldela [](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#authentication-administrator) rollen som administratörs roll till enskilda användare för att ge dem möjlighet att återställa autentiseringsuppgifter som inte är lösen ord eller läsa och konfigurera Azure Service Health.
 
-Mer information finns i [behörigheter för administratör i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles).
+Mer information finns i [Administratörs roll behörigheter i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles).
 
-### <a name="monitor-hybrid-components-azure-ad-connect-sync-ad-fs-using-azure-ad-connect-health"></a>Övervaka hybrid komponenter (Azure AD Connect sync AD FS) med Azure AD Connect Health
+### <a name="monitor-hybrid-components-azure-ad-connect-sync-ad-fs-using-azure-ad-connect-health"></a>Övervaka hybrid komponenter (Azure AD Connect Sync, AD FS) med Azure AD Connect Health
 
-Azure AD Connect och AD FS är viktiga komponenter som kan bryta potentiellt livscykelhantering och autentisering och slutligen leder till avbrott. Därför bör du distribuera Azure AD Connect Health för övervakning och rapportering av dessa komponenter.
+Azure AD Connect och AD FS är kritiska komponenter som potentiellt kan bryta livs cykel hantering och autentisering och leda till avbrott. Därför bör du Distribuera Azure AD Connect Health för övervakning och rapportering av dessa komponenter.
 
-Om du vill veta mer går du Läs [övervaka AD FS med hjälp av Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-adfs).
+Om du vill veta mer går du till läsa [övervakare AD FS använder Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-adfs).
 
-### <a name="use-azure-monitor-to-collect-data-logs-for-analytics"></a>Använda Azure Monitor för att samla in loggar för analys
+### <a name="use-azure-monitor-to-collect-data-logs-for-analytics"></a>Använd Azure Monitor för att samla in data loggar för analys
 
-[Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) är en enhetlig övervakning portal för alla Azure AD-loggar som ger fördjupad kunskap, avancerad analys och smart maskininlärning. Med Azure Monitor kan använda du mått och loggar i portalen och API: er för att få mer detaljerad information om tillstånd och prestanda för dina resurser. Det gör att ett fönster för glas upplevelse i portalen vid aktivering av en mängd olika produktintegreringar via API: er och data exportalternativ som har stöd för traditionella SIEM-system från tredje part. Azure Monitor får du också möjligheten att konfigurera Varningsregler att få ett meddelande eller för att vidta automatiska åtgärder på problem som påverkar dina resurser.
+[Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) är en enhetlig övervaknings Portal för alla Azure AD-loggar, som ger djupgående insikter, avancerad analys och smart Machine Learning. Med Azure Monitor kan du använda mått och loggar i portalen och via API: er för att få bättre insyn i dina resursers tillstånd och prestanda. Det möjliggör ett enda fönster med glas upplevelse i portalen samtidigt som du kan aktivera en mängd produkt integreringar via API: er och data export alternativ som stöder traditionella SIEM-system från tredje part. Azure Monitor ger dig också möjlighet att konfigurera aviserings regler för att bli meddelad eller vidta automatiska åtgärder på problem som påverkar dina resurser.
 
 ![Azure Monitor](./media/four-steps/image1.png)
 
-### <a name="create-custom-dashboards-for-your-leadership-and-your-day-to-day"></a>Skapa anpassade instrumentpaneler för din ledarskap och din dag till dag
+### <a name="create-custom-dashboards-for-your-leadership-and-your-day-to-day"></a>Skapa anpassade instrument paneler för ledarskap och dag till dag
 
-Organisationer som inte har en SIEM-lösning kan ladda ned den [Power BI-Innehållspaketet](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-power-bi-content-pack) för Azure AD. Power BI content pack innehåller fördefinierade rapporter som hjälper dig att förstå hur dina användare införa och använda Azure AD-funktioner, där du kan få insikter om alla aktiviteter i din katalog. Du kan också skapa egna [anpassad instrumentpanel](https://docs.microsoft.com/power-bi/service-dashboards) och dela med dina ledning för att rapportera om dagliga aktiviteter. Instrumentpaneler är ett bra sätt att övervaka din verksamhet och se alla dina viktigaste mätdata på ett ögonblick. Visualiseringarna på en instrumentpanel kan komma från en underliggande datauppsättning eller flera och från en underliggande rapport eller flera. En instrumentpanel kombinerar lokala och molnbaserade data, vilket ger en samlad vy oavsett var data finns.
+Organisationer som inte har någon SIEM-lösning kan hämta [Power BIs innehålls paketet](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-power-bi-content-pack) för Azure AD. Power BI innehålls paketet innehåller färdiga rapporter som hjälper dig att förstå hur dina användare använder och använder Azure AD-funktioner, vilket gör att du kan få insikter om alla aktiviteter i din katalog. Du kan också skapa en egen [anpassad instrument panel](https://docs.microsoft.com/power-bi/service-dashboards) och dela med ditt ledarskaps team för att rapportera om dagliga aktiviteter. Instrument paneler är ett bra sätt att övervaka din verksamhet och se alla dina viktigaste mått på ett ögonblick. Visualiseringarna på en instrument panel kan komma från en underliggande data uppsättning eller många, och från en underliggande rapport eller många. En instrument panel kombinerar lokala och molnbaserade data, vilket ger en konsol IDE rad vy oavsett var data finns.
 
-![Anpassad instrumentpanel i Power BI](./media/four-steps/image2.png)
+![Power BI anpassad instrument panel](./media/four-steps/image2.png)
 
-### <a name="understand-your-support-call-drivers"></a>Förstå din drivrutiner för anrop
+### <a name="understand-your-support-call-drivers"></a>Förstå dina support samtals driv rutiner
 
-När du implementerar en hybrididentitetslösning som beskrivs i den här artikeln bör du slutligen märka en minskning i din supportsamtal. Vanliga problem som glömda lösenord och kontoutelåsningar begränsas genom att implementera Azures lösenordsåterställning via självbetjäning, samtidigt som självbetjäningsåtkomsten tillåter användare att identifiera själv och begära åtkomst till program utan att behöva på din IT-personal.
+När du implementerar en hybrid identitets lösning som beskrivs i den här artikeln bör du i slut ändan minska dina support samtal. Vanliga problem, t. ex. glömt lösen ord och konto utelåsningar, begränsas genom implementering av återställning av lösen ord för självbetjäning i Azure, samtidigt som du aktiverar självbetjäning för program åtkomst gör det möjligt för användare att själv identifiera och begära åtkomst till program utan att behöva lita på på IT-personalen.
 
-Om du inte ser en minskning av supportsamtal kan rekommenderar vi att du analysera dina anrop drivrutiner i ett försök att bekräfta om SSPR eller självbetjäningsåtkomsten har konfigurerats korrekt eller om det finns några nya problem som kan vara systematiskt åtgärdas.
+Om du inte ser en minskning av support samtalen rekommenderar vi att du analyserar dina support samtals driv rutiner i ett försök att bekräfta om SSPR eller självbetjänings program åtkomst har kon figurer ATS korrekt eller om det finns andra nya problem som kan ske systematiskt domen.
 
-*”I vår digitala omställning vi behövde en pålitlig identitets- och access management provider som underlättar sömlös ännu säker integrering mellan USA, partners och leverantörer av molntjänster, för en effektiv ekosystemet. Azure AD var det bästa alternativet erbjuder oss nödvändiga funktioner och synlighet som vi kunnat identifiera och svara på risker ”.* --- [Yazan Almasri, Global Information Security Director, Aramex](https://customers.microsoft.com/story/aramex-azure-active-directory-travel-transportation-united-arab-emirates-en)
+*"I vår process för digital omvandling krävde vi en tillförlitlig identitets-och åtkomst hanterings leverantör för att under lätta sömlöst säkrare integrering mellan USA, partners och moln tjänst leverantörer, för ett effektivt eko system. Azure AD var det bästa alternativet som erbjuder oss de funktioner och den synlighet som vi behövde för att upptäcka och reagera på risker. "* --- [Yazan Almasri, global information Security Director, Aramex](https://customers.microsoft.com/story/aramex-azure-active-directory-travel-transportation-united-arab-emirates-en)
 
-### <a name="monitor-your-usage-of-apps-to-drive-insights"></a>Övervaka din användning av appar för att få bättre insikt
+### <a name="monitor-your-usage-of-apps-to-drive-insights"></a>Övervaka användningen av appar för att driva insikter
 
-Förutom att upptäcka skugg-IT, övervakning av användning i din organisation med hjälp av [Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security) kan hjälpa din organisation när du migrerar till dra full nytta av molnapparnas potential. Det kan hålla dig kontroll över dina tillgångar med ökad insyn i aktiviteten och öka skyddet av viktiga data i molnappar. Övervaka användning i din organisation med MCAS kan hjälpa dig att besvara följande frågor:
+Förutom att upptäcka skugg-IT kan du övervaka användningen av appar i din organisation med hjälp av [Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security) kan hjälpa din organisation när du flyttar för att dra full nytta av löftet med moln program. Det kan hjälpa dig att hålla kontrollen över dina till gångar genom förbättrad insyn i aktivitet och öka skyddet av kritiska data i moln program. Att övervaka användningen av appar i din organisation med hjälp av MCAS kan hjälpa dig att besvara följande frågor:
 
-* Vilka osanktionerade appar anställda använder för att lagra data i?
-* Var och när känsliga data som lagras i molnet?
-* Vem har åtkomst till känsliga data i molnet?
+* Vilka ej sanktionerade appar är anställda som använder för att lagra data i?
+* Var och när är känsliga data lagrade i molnet?
+* Vem kommer åt känsliga data i molnet?
 
-*”Med Cloud App Security, vi kan snabbt upptäcka avvikelser och vidta åtgärder”.* --- [Eric LePenske, Senior Manager, informationssäkerhet, Accenture](https://customers.microsoft.com/story/accenture-professional-services-cloud-app-security)
+*"Med Cloud App Security kan vi snabbt upptäcka avvikelser och vidta åtgärder."* --- [Eric LePenske, Senior Manager, informations säkerhet, Accenture](https://customers.microsoft.com/story/accenture-professional-services-cloud-app-security)
 
 ## <a name="summary"></a>Sammanfattning
 
-Det finns många sätt att implementera en hybrid Identity-lösning, men den här checklistan i fyra steg hjälper dig att snabbt utföra en identitetsinfrastruktur som gör att användare kan bli mer produktiv och säker.
+Det finns många aspekter som krävs för att implementera en hybrid identitets lösning, men den här check listan i fyra steg hjälper dig att snabbt uppnå en identitets infrastruktur som gör det möjligt för användare att bli mer produktiva och säkra.
 
-* Anslut enkelt till appar
+* Anslut till appar enkelt
 * Upprätta en identitet för varje användare automatiskt
-* Underlätta för dina användare på ett säkert sätt
+* Ge dina användare säker säkerhet
 * Operationalisera dina insikter
 
-Vi hoppas att det här dokumentet är en bra översikt över att upprätta en stark identitet grund för din organisation.
+Vi hoppas att det här dokumentet är en bra översikt över att upprätta en stark identitets grund för din organisation.
 
-## <a name="identity-checklist"></a>Checklista för identitet
+## <a name="identity-checklist"></a>Identitets check lista
 
-Vi rekommenderar att du skriver ut följande checklista som referens när du börjar din resa till en mer stabil grund identitet i din organisation.
+Vi rekommenderar att du skriver ut följande check lista som referens när du påbörjar resan till en mer solid Identity Foundation i din organisation.
 
-### <a name="today"></a>I dag
+### <a name="today"></a>Idag
 
 |Klart?|Objekt|
 |:-|:-|
-||Pilot - Self Service lösenord återställa (SSPR) för en grupp|
-||Övervaka hybrid komponenter med hjälp av Azure AD Connect Health|
-||Tilldela minst Privilegierade administrativa roller för åtgärden|
-||Upptäcka skugg-IT med Microsoft Cloud App Security|
-||Använda Azure Monitor för att samla in loggar för analys|
+||Lösen ords återställning via självbetjäning (SSPR) för en grupp|
+||Övervaka hybrid komponenter med Azure AD Connect Health|
+||Tilldela minst privilegierade administratörs roller för åtgärden|
+||Upptäck skugg-IT med Microsoft Cloud App Security|
+||Använd Azure Monitor för att samla in data loggar för analys|
 
 ### <a name="next-two-weeks"></a>Kommande två veckorna
 
 |Klart?|Objekt|
 |:-|:-|
-||Skapa en app som är tillgängliga för dina användare|
-||Azure AD-etablering för en SaaS-app för val av pilotprojekt|
-||Konfigurera en fristående server för Azure AD Connect och hålla den uppdaterad|
-||Börja migrera appar från AD FS till Azure AD|
-||Skapa anpassade instrumentpaneler för din ledarskap och din dag till dag|
+||Gör en app tillgänglig för dina användare|
+||Pilot Azure AD-etablering för en SaaS app som du väljer|
+||Konfigurera en mellanlagrings Server för Azure AD Connect och håll den uppdaterad|
+||Starta migrering av appar från ADFS till Azure AD|
+||Skapa anpassade instrument paneler för ledarskap och dag till dag|
 
 ### <a name="next-month"></a>Nästa månad
 
 |Klart?|Objekt|
 |:-|:-|
-||Övervaka din användning av appar för att få bättre insikt|
+||Övervaka användningen av appar för att driva insikter|
 ||Pilot säker fjärråtkomst till appar|
-||Se till att alla användare har registrerats för MFA och SSPR|
-||Aktivera autentisering i molnet|
+||Se till att alla användare är registrerade för MFA och SSPR|
+||Aktivera molnbaserad autentisering|
 
 ### <a name="next-three-months"></a>Kommande tre månaderna
 
 |Klart?|Objekt|
 |:-|:-|
-||Aktivera självbetjäning apphantering|
-||Aktivera grupphantering|
-||Övervaka din användning av appar för att få bättre insikt|
-||Förstå din drivrutiner för anrop|
+||Aktivera hantering av självbetjänings program|
+||Aktivera grupp hantering via självbetjäning|
+||Övervaka användningen av appar för att driva insikter|
+||Förstå dina support samtals driv rutiner|
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du kan öka din säkerhetsställning med hjälp av funktionerna i Azure Active Directory och checklistan fem steg - [fem steg för att skydda din infrastruktur för Identitetshantering](https://aka.ms/securitysteps).
+Lär dig hur du kan öka din säkra position med funktionerna i Azure Active Directory och i den här check listan i fem steg – [fem steg för att skydda din identitets infrastruktur](https://aka.ms/securitysteps).
 
-Lär dig hur identitetsfunktioner i Azure AD kan hjälpa dig snabbare övergång till molnet styrda management genom att tillhandahålla lösningar och funktioner som gör att organisationer snabbt anta och flytta flera av deras Identitetshantering från traditionella lokala system till Azure AD - [hur Azure AD tillhandahåller regleras Molnhantering för lokala arbetsbelastningar](https://aka.ms/cloudgoverned).
+Lär dig hur identitets funktionerna i Azure AD kan hjälpa dig att påskynda över gången till moln styrnings hantering genom att tillhandahålla lösningar och funktioner som gör att organisationer snabbt kan använda och flytta mer av sin identitets hantering från traditionell lokala system till Azure AD – [hur Azure AD levererar hantering av moln styrning för lokala arbets belastningar](https://aka.ms/cloudgoverned).

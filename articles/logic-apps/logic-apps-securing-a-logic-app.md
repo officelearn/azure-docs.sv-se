@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 06/28/2019
-ms.openlocfilehash: f27dfd1f907d106ddb3b1b9dd7534d56380149c2
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
-ms.translationtype: HT
+ms.openlocfilehash: 15ec46511f1269606e0b0416c7c4a25f93012bec
+ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385492"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68736907"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Säker åtkomst och data i Azure Logic Apps
 
@@ -183,7 +183,7 @@ Om du vill hindra andra från att ändra eller ta bort din Logi Kap par kan du a
 
 ## <a name="access-to-run-history-data"></a>Åtkomst till körning av historik data
 
-När en Logic App körs krypteras alla data under överföring och i vila. När din Logic-app är klar kan du Visa historiken för den körningen, inklusive de steg som kördes tillsammans med status, varaktighet, indata och utdata för varje åtgärd. Den här utförliga informationen ger inblick i hur din Logi Kap par kördes och var du kan börja felsöka eventuella problem som uppstår.
+Under en Logic app-körning krypteras alla data under överföringen med hjälp av [TLS (Transport Layer Security)](https://azure.microsoft.com/updates/app-service-and-functions-hosted-apps-can-now-update-tls-versions/) och [rest](../security/fundamentals/encryption-atrest.md). När din Logic-app är klar kan du Visa historiken för den körningen, inklusive de steg som kördes tillsammans med status, varaktighet, indata och utdata för varje åtgärd. Den här utförliga informationen ger inblick i hur din Logi Kap par kördes och var du kan börja felsöka eventuella problem som uppstår.
 
 När du kommer åt din Logic Apps körnings historik autentiserar Logic Apps åtkomsten och tillhandahåller länkar till indata och utdata från förfrågningarna och svaren i din Logic app-körning. För åtgärder som hanterar lösen ord, hemligheter, nycklar eller annan känslig information vill du dock hindra andra från att visa och komma åt dessa data. Om din Logic app till exempel får en hemlighet från [Azure Key Vault](../key-vault/key-vault-whatis.md) att använda vid autentisering av en HTTP-åtgärd, vill du dölja hemligheten från vyn.
 

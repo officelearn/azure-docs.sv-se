@@ -1,6 +1,6 @@
 ---
-title: 'Självstudier: Indexering halvstrukturerade strutured data i JSON-blobar – Azure Search'
-description: 'Lär dig mer om att indexera och söka efter halvstrukturerade Azure JSON-blobar med hjälp av Azure Search REST API: er och Postman.'
+title: 'REST-självstudie: Indexera strutured data i JSON-blobar – Azure Search'
+description: 'Lär dig att indexera och söka i halv strukturerade Azure JSON-blobbar med Azure Search REST API: er och Postman.'
 author: HeidiSteen
 manager: cgronlun
 services: search
@@ -9,90 +9,90 @@ ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 3184b839087944d8d4335927810ec31d8876866e
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 6362e3cccd3c306a210f0241214206204b5ee96e
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485339"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840701"
 ---
-# <a name="rest-tutorial-index-and-search-semi-structured-data-json-blobs-in-azure-search"></a>REST-självstudiekurs: Indexera och söka efter halvstrukturerade data (JSON-blobar) i Azure Search
+# <a name="rest-tutorial-index-and-search-semi-structured-data-json-blobs-in-azure-search"></a>REST-självstudie: Indexera och Sök i semikolonavgränsade data (JSON-blobbar) i Azure Search
 
-Azure Search kan indexera JSON-dokument och matriser i Azure blob storage med en [indexeraren](search-indexer-overview.md) som vet hur du läser halvstrukturerade data. Halvstrukturerade data innehåller taggar eller märkord som separerar innehållet i data. Skillnaden mellan Ostrukturerade data, som måste indexeras fullständigt och formellt strukturerade data som följer en datamodell, till exempel en relationsdatabas-schema, som kan indexeras på basis av per fält delas.
+Azure Search kan indexera JSON-dokument och matriser i Azure Blob Storage med [](search-indexer-overview.md) hjälp av en indexerare som vet hur man kan läsa semi-strukturerade data. Halvstrukturerade data innehåller taggar eller märkord som separerar innehållet i data. Den delar skillnaden mellan ostrukturerade data som måste vara fullständigt indexerad och formellt strukturerade data som följer en data modell, till exempel ett Relations databas schema, som kan indexeras per fält.
 
-I den här självstudien använder den [Azure Search REST API: er](https://docs.microsoft.com/rest/api/searchservice/) och en REST-klient för att utföra följande uppgifter:
+I den här självstudien använder du [Azure Search REST-API: er](https://docs.microsoft.com/rest/api/searchservice/) och en rest-klient för att utföra följande uppgifter:
 
 > [!div class="checklist"]
 > * Konfigurera en Azure Search-datakälla för en Azure-blobcontainer
-> * Skapa ett Azure Search-index ska innehålla sökbart innehåll
-> * Konfigurera och köra en indexerare för att läsa behållaren och extrahera sökbart innehåll från Azure blob storage
+> * Skapa ett Azure Search-index som innehåller sökbart innehåll
+> * Konfigurera och kör en indexerare för att läsa behållaren och extrahera sökbart innehåll från Azure Blob Storage
 > * Söka i indexet som du precis skapade
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Följande tjänster, verktyg och data som används i den här snabbstarten. 
+Följande tjänster, verktyg och data används i den här snabb starten. 
 
-[Skapa en Azure Search-tjänst](search-create-service-portal.md) eller [hitta en befintlig tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under din aktuella prenumeration. Du kan använda en kostnadsfri tjänst för den här självstudiekursen. 
+[Skapa en Azure Search tjänst](search-create-service-portal.md) eller [hitta en befintlig tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under din aktuella prenumeration. Du kan använda en kostnads fri tjänst för den här självstudien. 
 
-[Skapa ett Azure storage-konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) för att lagra exempeldata.
+[Skapa ett Azure Storage-konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) för att lagra exempel data.
 
-[Skrivbordsappen postman](https://www.getpostman.com/) för att skicka begäranden till Azure Search.
+[Postman Desktop-appen](https://www.getpostman.com/) för att skicka begär anden till Azure Search.
 
-[Clinical-trials-json.zip](https://github.com/Azure-Samples/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials-json.zip) innehåller de data som används i den här självstudien. Hämta och packa upp filen till sin egen mapp. Data samlas in från [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results), konvertera till JSON för den här självstudiekursen.
+[Clinical-Trials-JSON. zip](https://github.com/Azure-Samples/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials-json.zip) innehåller de data som används i den här självstudien. Ladda ned och zippa upp den här filen till en egen mapp. Data härstammar från [ClinicalTrials.gov](https://clinicaltrials.gov/ct2/results), konverteras till JSON för den här självstudien.
 
-## <a name="get-a-key-and-url"></a>Hämta en nyckel och URL: en
+## <a name="get-a-key-and-url"></a>Hämta en nyckel och URL
 
 För att kunna göra REST-anrop behöver du tjänstens webbadress och en åtkomstnyckel för varje begäran. En söktjänst har vanligen båda dessa komponenter, så om du har valt att lägga till Azure Search i din prenumeration följer du bara stegen nedan för att hitta fram till rätt information:
 
-1. [Logga in på Azure-portalen](https://portal.azure.com/), och i din söktjänst **översikt** sidan, hämta URL: en. Här följer ett exempel på hur en slutpunkt kan se ut: `https://mydemo.search.windows.net`.
+1. [Logga](https://portal.azure.com/)in på Azure Portal och hämta URL: en på sidan **Översikt över** Sök tjänsten. Här följer ett exempel på hur en slutpunkt kan se ut: `https://mydemo.search.windows.net`.
 
-1. I **inställningar** > **nycklar**, hämta en administratörsnyckel för fullständiga rättigheter på tjänsten. Det finns två utbytbara administratörsnycklar, som angetts för kontinuitet för företag om du behöver förnya ett. Du kan använda antingen den primära eller sekundära nyckeln för förfrågningar för att lägga till, ändra och ta bort objekt.
+1. I **Inställningar** > **nycklar**, hämtar du en administratörs nyckel för fullständiga rättigheter till tjänsten. Det finns två utbytbara administratörs nycklar, som tillhandahålls för affärs kontinuitet om du behöver rulla en över. Du kan använda antingen den primära eller sekundära nyckeln på begär Anden för att lägga till, ändra och ta bort objekt.
 
-![Hämta en HTTP-slutpunkt och åtkomstnyckel](media/search-get-started-postman/get-url-key.png "får en HTTP-slutpunkt och åtkomstnyckel")
+![Hämta en HTTP-slutpunkt och åtkomst nyckel](media/search-get-started-postman/get-url-key.png "Hämta en HTTP-slutpunkt och åtkomst nyckel")
 
-Alla begäranden som kräver en api-nyckel för varje begäran som skickas till din tjänst. En giltig nyckel upprättar förtroende, i varje begäran, mellan programmet som skickar begäran och tjänsten som hanterar den.
+Alla begär Anden kräver en API-nyckel på varje begäran som skickas till din tjänst. En giltig nyckel upprättar förtroende, i varje begäran, mellan programmet som skickar begäran och tjänsten som hanterar den.
 
-## <a name="prepare-sample-data"></a>Förbereda exempeldata
+## <a name="prepare-sample-data"></a>Förbereda exempel data
 
-1. [Logga in på Azure-portalen](https://portal.azure.com)navigerar du till ditt Azure storage-konto, klickar du på **Blobar**, och klicka sedan på **+ behållare**.
+1. [Logga](https://portal.azure.com)in på Azure Portal, navigera till ditt Azure Storage-konto, klicka på **blobbar**och klicka sedan på **+ container**.
 
-1. [Skapa en blobbehållare](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) som innehåller exempeldata. Du kan ange offentlig åtkomstnivå till någon av dess giltiga värden.
+1. [Skapa en BLOB-behållare](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) som innehåller exempel data. Du kan ställa in den offentliga åtkomst nivån på alla giltiga värden.
 
-1. När behållaren har skapats kan du öppna den och välj **överför** i kommandofältet.
+1. När behållaren har skapats öppnar du den och väljer **Ladda upp** i kommando fältet.
 
-   ![Ladda upp i kommandofältet](media/search-semi-structured-data/upload-command-bar.png "överför i kommandofältet")
+   ![Ladda upp i kommando fältet](media/search-semi-structured-data/upload-command-bar.png "Ladda upp i kommando fältet")
 
-1. Navigera till mappen som innehåller exempelfilerna. Markera alla av dem och klicka sedan på **överför**.
+1. Navigera till mappen som innehåller exempelfilerna. Markera alla och klicka sedan på **överför**.
 
-   ![Ladda upp filer](media/search-semi-structured-data/clinicalupload.png "ladda upp filer")
+   ![Ladda upp filer](media/search-semi-structured-data/clinicalupload.png "Ladda upp filer")
 
 När överföringen är klar ska filerna visas i en egen undermapp i datacontainern.
 
 ## <a name="set-up-postman"></a>Konfigurera Postman
 
-Starta Postman och konfigurera en HTTP-begäran. Om du inte känner till det här verktyget, se [utforska Azure Search REST API: er med Postman](search-get-started-postman.md).
+Starta Postman och konfigurera en HTTP-begäran. Om du inte känner till det här verktyget läser du [utforska Azure Search REST API: er med Postman](search-get-started-postman.md).
 
-Metoden för begäran för varje anrop i den här självstudien är **POST**. Huvudnycklarna är ”Content-type” och ”api-key”. Värdena för huvudnycklarna är "application/json" och din "admin key" (administratörsnyckeln är platshållare för din sökprimärnyckel). Meddelandetexten är där du placerar det faktiska innehållet i anropet. Hur du konstruerar frågan kan variera beroende på vilken klient du använder, men det här är grunderna.
+Metoden för begäran för varje anrop i den här självstudien är **post**. Huvudnycklarna är ”Content-type” och ”api-key”. Värdena för huvudnycklarna är "application/json" och din "admin key" (administratörsnyckeln är platshållare för din sökprimärnyckel). Meddelandetexten är där du placerar det faktiska innehållet i anropet. Hur du konstruerar frågan kan variera beroende på vilken klient du använder, men det här är grunderna.
 
   ![Halvstrukturerad sökning](media/search-semi-structured-data/postmanoverview.png)
 
 Vi använder Postman för att göra tre API-anrop till din söktjänst för att skapa en datakälla, ett index och en indexerare. Datakällan innehåller en pekare till ditt lagringskonto och dina JSON-data. Din söktjänst gör anslutningen vid inläsning av data.
 
-Fråga strängar måste ange en api-versionen och varje anrop ska returnera en **201 Skapad**. Den allmänt tillgängliga api-versionen för att använda JSON-matriser är `2019-05-06`.
+Frågesträngar måste ange en API-version och varje anrop ska returnera en **201 som skapats**. Den allmänt tillgängliga API-versionen för att använda JSON-matriser är `2019-05-06`.
 
 Kör följande tre API-anrop från REST-klienten.
 
 ## <a name="create-a-data-source"></a>Skapa en datakälla
 
-Den [skapa API för Data källan](https://docs.microsoft.com/rest/api/searchservice/create-data-source)skapar ett Azure Search-objekt som anger vilka data som ska indexeras.
+Med [skapa data källans API](https://docs.microsoft.com/rest/api/searchservice/create-data-source)skapas ett Azure Search-objekt som anger vilka data som ska indexeras.
 
 Slutpunkten för anropet är `https://[service name].search.windows.net/datasources?api-version=2019-05-06`. Ersätt `[service name]` med namnet på söktjänsten. 
 
-Begärandetexten måste innehålla namnet på ditt lagringskonto, din lagringskontonyckel och blob-behållarnamn för det här anropet. Lagringskontonyckeln hittar du i **Åtkomstnycklar** i ditt lagringskonto i Azure Portal. Platsen visas på följande bild:
+För det här anropet måste begär ande texten innehålla namnet på ditt lagrings konto, lagrings konto nyckel och namn på BLOB container. Lagringskontonyckeln hittar du i **Åtkomstnycklar** i ditt lagringskonto i Azure Portal. Platsen visas på följande bild:
 
   ![Halvstrukturerad sökning](media/search-semi-structured-data/storagekeys.png)
 
-Ersätt `[storage account name]`, `[storage account key]`, och `[blob container name]` i meddelandetexten för anropet innan du utför anropet.
+Se till att ersätta `[storage account name]`, `[storage account key]`och `[blob container name]` i meddelande texten i ditt anrop innan du kör anropet.
 
 ```json
 {
@@ -127,7 +127,7 @@ Svaret ska se ut så här:
 
 ## <a name="create-an-index"></a>Skapa ett index
     
-Det andra anropet är [Create Index-API](https://docs.microsoft.com/rest/api/searchservice/create-indexer), skapa ett Azure Search-index som lagrar alla sökbara data. Ett index anger alla parametrar och deras attribut.
+Det andra anropet är [skapa index-API](https://docs.microsoft.com/rest/api/searchservice/create-indexer), vilket skapar ett Azure Search-index som lagrar alla sökbara data. Ett index anger alla parametrar och deras attribut.
 
 URL:en för det här anropet är `https://[service name].search.windows.net/indexes?api-version=2019-05-06`. Ersätt `[service name]` med namnet på söktjänsten.
 
@@ -217,11 +217,11 @@ Svaret ska se ut så här:
 
 ## <a name="create-and-run-an-indexer"></a>Skapa och köra en indexerare
 
-En indexerare ansluter datakällan, importerar data till målsökindex och tillhandahåller eventuellt ett schema för att automatisera datauppdateringen. REST-API: et är [skapa et indexerare](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
+En indexerare ansluter data källan, importerar data till mål Sök indexet och tillhandahåller eventuellt ett schema för att automatisera data uppdateringen. REST API är [skapa indexerare](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
 URL:en för det här anropet är `https://[service name].search.windows.net/indexers?api-version=2019-05-06`. Ersätt `[service name]` med namnet på söktjänsten.
 
-Ersätt först URL:en. Kopiera och klistra in följande kod i meddelandetexten och skicka begäran. Begäran bearbetas omedelbart. När svaret kommer tillbaka, har du ett index som är fulltext sökbara.
+Ersätt först URL:en. Kopiera och klistra sedan in följande kod i bröd texten och skicka begäran. Begäran bearbetas omedelbart. När svaret kommer tillbaka har du ett index som är full text sökbar.
 
 ```json
 {
@@ -260,11 +260,11 @@ Svaret ska se ut så här:
 
 ## <a name="search-your-json-files"></a>Söka i JSON-filer
 
-Du kan börja söka så fort det första dokumentet har lästs in. Den här uppgiften ska använda [ **Sökutforskaren** ](search-explorer.md) i portalen.
+Du kan börja söka så snart det första dokumentet har lästs in. För den här uppgiften använder du [**Sök Utforskaren**](search-explorer.md) i portalen.
 
-I Azure-portalen öppnar du söktjänsten **översikt** sidan, hitta det index som du skapade i den **index** lista.
+I Azure Portal öppnar du sidan Sök tjänst **Översikt** och letar reda på det index som du skapade i listan **index** .
 
-Var noga med att välja det index som du nyss skapade. 
+Se till att välja det index som du nyss skapade. 
 
   ![Ostrukturerad sökning](media/search-semi-structured-data/indexespane.png)
 
@@ -290,7 +290,7 @@ Det snabbaste sättet att rensa upp efter en självstudie är att ta bort resurs
 
 ## <a name="next-steps"></a>Nästa steg
 
-Det finns flera metoder och flera olika sätt att indexera JSON-blobar. I nästa steg, granska och testa de olika alternativen för att se vad som fungerar bäst för ditt scenario.
+Det finns flera metoder och flera alternativ för att indexera JSON-blobbar. I nästa steg ska du granska och testa de olika alternativen för att se vad som passar bäst för ditt scenario.
 
 > [!div class="nextstepaction"]
-> [Indexera JSON-blobar med Azure Search Blob-indexeraren](search-howto-index-json-blobs.md)
+> [Så här indexerar du JSON-blobbar med Azure Search BLOB-indexeraren](search-howto-index-json-blobs.md)

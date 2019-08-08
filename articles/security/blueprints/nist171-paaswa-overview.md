@@ -1,6 +1,6 @@
 ---
-title: Azure-säkerhet och efterlevnad skissen - PaaS webbprogram för SP NIST 800-171
-description: Azure-säkerhet och efterlevnad skissen - SP för PaaS Web Application NIST 800-171
+title: Handlingsplan för säkerhet och efterlevnad i Azure-PaaS-webbprogram för NIST SP 800-171
+description: Handlingsplan för säkerhet och efterlevnad i Azure-PaaS Web Application NIST SP 800-171
 services: security
 author: jomolesk
 ms.assetid: eea21a0a-5930-43e8-937f-5419c20744c9
@@ -8,54 +8,54 @@ ms.service: security
 ms.topic: article
 ms.date: 07/31/2018
 ms.author: jomolesk
-ms.openlocfilehash: f9773c3b372ab22cbcd99828e147d23c185c4eb6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 101d7b621287972571fb5d3ba9ea02ace2ef1421
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62127335"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780703"
 ---
-# <a name="azure-security-and-compliance-blueprint---paas-web-application-for-nist-special-publication-800-171"></a>Azure-säkerhet och efterlevnad skissen - PaaS webbprogram för NIST Specialpublicering 800-171
+# <a name="azure-security-and-compliance-blueprint---paas-web-application-for-nist-special-publication-800-171"></a>Handlingsplan för säkerhet och efterlevnad i Azure-PaaS webb program för NIST särskild publikation 800-171
 
 ## <a name="overview"></a>Översikt
-[NIST Specialpublicering 800-171](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-171.pdf) innehåller riktlinjer för att skydda den kontrollerad Oklassificerad information (CUI) som finns i nonfederal informationssystem och organisationer. SP NIST 800-171 upprättar 14 familjer av säkerhetskrav för att skydda konfidentialiteten för CUI.
+[NIST Special Publication 800-171](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-171.pdf) innehåller rikt linjer för att skydda sekretessbelagda oklassificerade uppgifter (Cui) som finns i icke-federala informations system och organisationer. NIST SP 800-171 fastställer 14 familjer av säkerhets krav för att skydda konfidentialiteten hos CUI.
 
-Den här Azure Blueprint för säkerhet och efterlevnad ger vägledning för att hjälpa kunder att distribuera en plattform som en tjänst (PaaS)-webbprogram i Azure som implementerar en deluppsättning av SP NIST 800-171-kontroller. Den här lösningen visas hur kunder kan uppfylla specifika säkerhets- och efterlevnadskrav. Det fungerar också som en grund för kunder att skapa och konfigurera sina egna webbprogram i Azure.
+Den här Handlingsplan för säkerhet och efterlevnad i Azure ger vägledning för att hjälpa kunder att distribuera en plattform som tjänst (PaaS)-webbapp i Azure som implementerar en delmängd av NIST SP 800-171-kontroller. Den här lösningen visar hur kunder kan uppfylla särskilda krav på säkerhet och efterlevnad. Den fungerar också som grund för kunderna att bygga och konfigurera egna webb program i Azure.
 
-Den här referensarkitekturen och associerade Implementeringsguide hotmodell är avsedda att fungera som en grund för kunder att anpassa sig till sina specifika krav. De bör inte användas som-är i en produktionsmiljö. Distribuera den här arkitekturen utan ändringar är tillräckligt för att uppfylla kraven för SP NIST 800-171 helt. Kunderna ansvarar för att utföra lämpliga säkerhet och efterlevnad utvärderingar av alla lösningar som skapats med den här arkitekturen. Kraven kan variera beroende på specifika för varje kund-implementering.
+Den här referens arkitekturen, tillhör ande implementerings guide och hot modell är avsedda att fungera som grund för kunderna att anpassa sig efter deras särskilda krav. De bör inte användas som de är i en produktions miljö. Att distribuera den här arkitekturen utan modifiering är inte tillräckligt för att uppfylla kraven i NIST SP 800-171. Kunderna ansvarar för att utföra lämpliga utvärderingar av säkerhet och efterlevnad av alla lösningar som skapats med den här arkitekturen. Kraven kan variera beroende på vad som gäller för varje kunds implementering.
 
-## <a name="architecture-diagram-and-components"></a>Diagram över arkitektur och komponenter
+## <a name="architecture-diagram-and-components"></a>Arkitektur diagram och-komponenter
 
-Den här Azure Blueprint för säkerhet och efterlevnad tillhandahåller en Referensarkitektur för ett PaaS-webbprogram med en Azure SQL Database-serverdel. Webbprogrammet finns i en isolerad App Service-miljö, vilket är en privat, dedikerad miljö i ett Azure-datacenter. Den miljö belastningsutjämning trafik för webbprogrammet över virtuella datorer (VM) som hanteras av Azure. Den här arkitekturen omfattar också nätverkssäkerhetsgrupper (NSG), en Programgateway i Azure, Azure DNS och Azure Load Balancer.
+Den här Handlingsplan för säkerhet och efterlevnad i Azure tillhandahåller en referens arkitektur för ett PaaS-webbprogram med en Azure SQL Database Server del. Webb programmet finns i en isolerad App Service miljö, som är en privat, dedikerad miljö i ett Azure-datacenter. Miljö belastningen balanserar trafiken för webb programmet på virtuella datorer som hanteras av Azure. Den här arkitekturen omfattar även nätverks säkerhets grupper (NSG: er), en Azure Application Gateway, Azure DNS och Azure Load Balancer.
 
-Azure SQL-databaser kan konfigureras med columnstore-index för förbättrad analys och rapportering. Azure SQL-databaser kan skalas upp eller ned eller stänga av helt som svar på kundens användning. Alla SQL-trafik är krypterad med SSL genom Inkluderingen av självsignerade certifikat. Som bästa praxis rekommenderar Azure användning av en betrodd certifikatutfärdare för ökad säkerhet.
+För förbättrad analys och rapportering kan Azure SQL-databaser konfigureras med columnstore-index. Azure SQL-databaser kan skalas upp eller ned eller stängas av helt som svar på kund användning. All SQL-trafik krypteras med SSL genom att du kan inkludera självsignerade certifikat. Som bästa praxis rekommenderar Azure användningen av en betrodd certifikat utfärdare för förbättrad säkerhet.
 
-Lösningen använder Azure Storage-konton som kunder kan konfigurera för att använda kryptering av lagringstjänst för att upprätthålla sekretessen för data i vila. Azure lagrar tre kopior av data inom en kunds valda datacentret för återhämtning. GEO-redundant lagring garanterar att data replikeras till ett sekundärt Datacenter hundratals mil bort och lagras igen som tre kopior inom datacentret. Det här förhindrar att en incident på kundens primära datacenter vilket resulterar i förlust av data.
+I lösningen används Azure Storage-konton som kunder kan konfigurera för att använda Kryptering för lagringstjänst för att upprätthålla konfidentialiteten för data i vila. Azure lagrar tre kopior av data inom en kunds valda data Center för återhämtning. Geo-redundant lagring garanterar att data replikeras till ett sekundärt Data Center hundratals mil och lagras igen som tre kopior i data centret. Den här överenskommelsen förhindrar en negativ händelse på kundens primära Data Center från att resultera i förlust av data.
 
-Alla resurser i den här lösningen som hanteras som en resursgrupp i Azure Resource Manager för ökad säkerhet. Azure Active Directory (Azure AD) rollbaserad åtkomstkontroll (RBAC) används för att styra åtkomst till distribuerade resurser. Dessa resurser inkluderar Kundnycklar i Azure Key Vault. Systemhälsa övervakas via Azure Monitor. Kunder konfigurera den här övervakningstjänsten för att samla in loggar. Platssystemets hälsostatus visas i en enda instrumentpanel som är lätt att använda.
+För ökad säkerhet hanteras alla resurser i lösningen som en resurs grupp via Azure Resource Manager. Azure Active Directory (RBAC-baserad åtkomst kontroll i Azure AD) används för att styra åtkomsten till distribuerade resurser. Dessa resurser innehåller kund nycklar i Azure Key Vault. System hälsan övervakas via Azure Monitor. Kunder konfigurerar övervaknings tjänsten att avbilda loggar. System hälsan visas på en enda instrument panel som är lätt att använda.
 
-SQL-databas är ofta hanteras via SQL Server Management Studio. Den körs från en lokal dator som är konfigurerad för att komma åt SQL-databas via en säker VPN eller Azure ExpressRoute-anslutning.
+SQL Database hanteras ofta via SQL Server Management Studio. Den körs från en lokal dator som är konfigurerad för att få åtkomst till SQL-databasen via en säker VPN-eller Azure ExpressRoute-anslutning.
 
-Application Insights ger hantering av programprestanda i realtid och analytics via Azure Monitor-loggar *Microsoft rekommenderar att du konfigurerar en VPN eller ExpressRoute-anslutning för hantering och import till referensen arkitektur för undernätet.*
+Application Insights ger hantering av program prestanda i real tid och genom Azure Monitor loggar *Microsoft rekommenderar vi att du konfigurerar en VPN-eller ExpressRoute-anslutning för hantering och data import i referens arkitekturen undernät.*
 
-![PaaS-webbprogram för SP NIST 800-171 referens för Arkitekturdiagram](images/nist171-paaswa-architecture.png "PaaS webbprogram för Arkitekturdiagram för SP NIST 800-171-referens")
+![PaaS webb program för NIST SP 800-171-referens arkitektur diagram](images/nist171-paaswa-architecture.png "PaaS webb program för NIST SP 800-171-referens arkitektur diagram")
 
-Den här lösningen använder följande Azure-tjänster. Mer information finns i den [distributionsarkitektur](#deployment-architecture) avsnittet.
+Den här lösningen använder följande Azure-tjänster. Mer information finns i avsnittet [distributions arkitektur](#deployment-architecture) .
 
-- Azure Virtual Machines
-    - (1) management/skyddsmiljö (Windows Server 2016 Datacenter)
+- Azure virtuella maskiner
+    - (1) hantering/skydds (Windows Server 2016 Data Center)
 - Azure Virtual Network
-    - ((1) /16 nätverk
-    - (4) /24 nätverk
-    - (4) nätverkssäkerhetsgrupper
+    - (1)/16 nätverk
+    - (4)/24 nätverk
+    - (4) nätverks säkerhets grupper
 - Azure Application Gateway
-    - Brandvägg för webbaserade program
-        - Brandväggsläge: dataförlustskydd
-        - Regeluppsättning: OWASP
-        - Lyssningsport: 443
+    - Brandvägg för webbappar
+        - Brand Väggs läge: skydd
+        - Regel uppsättning: OWASP
+        - Lyssnar port: 443
 - Application Insights
 - Azure Active Directory
-- App Service Environment v2
+- App Service-miljön v2
 - Azure Automation
 - Azure DNS
 - Azure Key Vault
@@ -68,157 +68,157 @@ Den här lösningen använder följande Azure-tjänster. Mer information finns i
 - Azure Automation
 - Azure Web Apps
 
-## <a name="deployment-architecture"></a>Distributionsarkitektur för
-Följande avsnitt beskriver elementen distribution och implementering.
+## <a name="deployment-architecture"></a>Distributions arkitektur
+I följande avsnitt beskrivs distributions-och implementerings elementen.
 
-**Azure Resource Manager**: [Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) kan användas av kunder för att arbeta med resurser i lösningen som en grupp. Kunder kan distribuera, uppdatera eller ta bort alla resurser för lösningen i en enda, samordnad åtgärd. Kunder som använder en mall för distributionen. Mallen kan användas i olika miljöer, till exempel testning, mellanlagring och produktion. Resource Manager tillhandahåller säkerhets-, gransknings- och taggningsfunktioner som hjälper kunder att hantera sina resurser efter distributionen.
+**Azure Resource Manager**: [Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) kan användas av kunder för att arbeta med resurserna i lösningen som en grupp. Kunder kan distribuera, uppdatera eller ta bort alla resurser för lösningen i en enda, koordinerad åtgärd. Kunder använder en mall för distribution. Mallen kan användas i olika miljöer, till exempel testning, mellanlagring och produktion. Resource Manager tillhandahåller säkerhets-, gransknings-och taggnings funktioner som hjälper kunder att hantera sina resurser efter distributionen.
 
-**Skyddsmiljö-värd**: Skyddsmiljö-värd är den enda posten som användarna kan använda för att få åtkomst till distribuerade resurser i den här miljön. Skyddsmiljö-värd är en säker anslutning till distribuerade resurser eftersom endast fjärrtrafik från offentliga IP-adresser på en säker lista. Källan för trafiken måste definieras i NSG: N för att tillåta trafik för fjärrskrivbordet.
+**Skydds-värd**: Skydds-värden är den enda post adressen som användarna kan använda för att få åtkomst till de distribuerade resurserna i den här miljön. Skydds-värden ger en säker anslutning till distribuerade resurser genom att endast tillåta fjärrtrafik från offentliga IP-adresser på en säker lista. För att tillåta fjärr skrivbords trafik måste källa för trafiken definieras i NSG.
 
-Den här lösningen skapar en virtuell dator som en domänansluten skyddsmiljö-värd med följande konfigurationer:
--   [Tillägg för Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware).
--   [Azure Diagnostics-tillägg](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template).
--   [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) med Key Vault.
--   En [princip för automatisk avstängning](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/) du minskar användningen av Virtuella datorresurser som.
--   [Windows Defender Credential Guard](https://docs.microsoft.com/windows/access-protection/credential-guard/credential-guard) aktiveras så att autentiseringsuppgifter och andra hemligheter som körs i en skyddad miljö som är isolerad från vilket operativsystem som körs.
+Den här lösningen skapar en virtuell dator som en domänansluten skydds-värd med följande konfigurationer:
+-   [Tillägg för program mot skadlig kod](https://docs.microsoft.com/azure/security/fundamentals/antimalware).
+-   [Azure-diagnostik-tillägg](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template).
+-   [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) att använda Key Vault.
+-   En [princip för automatisk avstängning](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/) som minskar användningen av VM-resurser när de inte används.
+-   [Windows Defender Credential Guard](https://docs.microsoft.com/windows/access-protection/credential-guard/credential-guard) är aktiverat så att autentiseringsuppgifter och andra hemligheter körs i en skyddad miljö som är isolerad från det operativ system som körs.
 
-**Web Apps**: [Web Apps](https://docs.microsoft.com/azure/app-service/) är en funktion i Azure App Service. Kunder kan använda den för att bygga och hantera webbprogram i programmeringsspråket helst utan att behöva hantera infrastrukturen. Den erbjuder automatisk skalning och hög tillgänglighet. Den har stöd för Windows och Linux och möjliggör automatiska distributioner från GitHub, Azure DevOps eller valfri Git-lagringsplats.
+**Web Apps**: [Web Apps](https://docs.microsoft.com/azure/app-service/) är en Azure App Service-funktion. Kunder kan använda den för att bygga och vara värd för webb program i valfritt programmeringsspråk utan att behöva hantera infrastrukturen. Den erbjuder automatisk skalning och hög tillgänglighet. Det stöder Windows och Linux och möjliggör automatiserade distributioner från GitHub, Azure DevOps eller git lagrings platsen.
 
-**App Service Environment**: [App Service Environment](https://docs.microsoft.com/azure/app-service/environment/intro) är en funktion i App Service. Det ger en helt isolerad och dedikerad miljö för säker körning av App Service-program i hög skala.
+**App Service Environment**: [App Service-miljön](https://docs.microsoft.com/azure/app-service/environment/intro) är en app service-funktion. Det ger en helt isolerad och dedikerad miljö för säker körning av App Service program i stor skala.
 
-App Service-miljö är isolerad till Kör bara ett enda program. Det distribueras alltid till ett virtuellt nätverk. På grund av funktionen användarisolering referensarkitekturen har slutförts klientisolering och tas den bort från Azures flerklientsmiljö. Kunderna har detaljerad kontroll över både inkommande och utgående programnätverkstrafik. Programmen kan upprätta säkra höghastighetsanslutningar över virtuella nätverk till lokala företagsresurser. Kunderna kan ”Autoskala” med App Service Environment baserat på inläsningsmåtten, tillgängliga budget eller ett definierat schema.
+App Services miljön är isolerad för att endast köra ett enda program. Den distribueras alltid till ett virtuellt nätverk. På grund av isolerings funktionen har referens arkitekturen fullständig klient isolering och tas bort från Azures miljö för flera innehavare. Kunderna har detaljerad kontroll över både inkommande och utgående program nätverks trafik. Program kan upprätta snabba säkra anslutningar över virtuella nätverk till lokala företags resurser. Kunder kan skala automatiskt med App Service-miljön baserat på inläsnings mått, tillgänglig budget eller ett definierat schema.
 
-Användning av App Service Environment för den här arkitekturen ger följande kontroller och konfigurationer:
+Användning av App Service-miljön för den här arkitekturen ger följande kontroller och konfigurationer:
 
-- Värd i ett skyddat Azure virtuellt nätverk och Nätverkssäkerhetsregler.
-- Självsignerat intern Azure load balancer certifikat för HTTPS-kommunikation. Som bästa praxis rekommenderar Microsoft användningen av en betrodd certifikatutfärdare för förbättrad säkerhet.
-- [Läge för intern belastningsutjämning](https://docs.microsoft.com/azure/app-service-web/app-service-environment-with-internal-load-balancer) (läge 3).
-- Inaktivera [TLS 1.0](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-custom-settings).
+- Värd i ett säkert säkerhets regler för virtuella Azure-nätverk och nätverks säkerhet.
+- Självsignerat internt belastnings Utjämnings certifikat för HTTPS-kommunikation. Som bästa praxis rekommenderar Microsoft att du använder en betrodd certifikat utfärdare för förbättrad säkerhet.
+- [Läge för intern belastnings utjämning](https://docs.microsoft.com/azure/app-service-web/app-service-environment-with-internal-load-balancer) (läge 3).
+- Inaktivera [TLS 1,0](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-custom-settings).
 - Ändra [TLS-chiffer](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-custom-settings).
-- Kontrollen [inkommande trafik N/W portar](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-control-inbound-traffic).
-- [Brandvägg för webbaserade program – begränsa data](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-web-application-firewall).
+- Kontrol lera [inkommande trafiks N/W-portar](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-control-inbound-traffic).
+- [Brand vägg för webbaserade program – begränsa data](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-web-application-firewall).
 - Tillåt [Azure SQL Database trafik](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-network-architecture-overview).
 
 ### <a name="virtual-network"></a>Virtuellt nätverk
-Arkitekturen definierar ett privat virtuellt nätverk med ett adressutrymme för 10.200.0.0/16.
+Arkitekturen definierar ett privat virtuellt nätverk med ett adress utrymme på 10.200.0.0/16.
 
-**Nätverkssäkerhetsgrupper**: [NSG: er](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) innehåller listor för åtkomstkontroll som tillåter eller nekar trafik inom ett virtuellt nätverk. NSG: er kan användas för att skydda trafik på ett undernät eller individuella VM-nivå. Följande Nätverkssäkerhetsgrupper finns:
+**Nätverks säkerhets grupper**: [NSG: er](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) innehåller åtkomst kontrol listor som tillåter eller nekar trafik i ett virtuellt nätverk. NSG: er kan användas för att skydda trafik i ett undernät eller på en individuell VM-nivå. Följande NSG: er finns:
 - En NSG för Application Gateway
-- En NSG för App Service-miljö
-- En NSG för SQL-databas
-- En NSG för skyddsmiljö-värd
+- En NSG för App Service-miljön
+- En NSG för SQL Database
+- En NSG för skydds-värden
 
-Varje NSG: erna har specifika portar och protokoll öppna så att lösningen fungerar på ett säkert sätt och korrekt. Dessutom kan är följande konfigurationer aktiverade för varje NSG:
-  - [Diagnostiska loggar och händelser](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log) är aktiverade och lagras i ett lagringskonto.
-  - Azure Monitor-loggar är ansluten till den [NSG-diagnostik](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json).
+Varje NSG: er har vissa portar och protokoll öppna så att lösningen kan fungera säkert och korrekt. Dessutom är följande konfigurationer aktiverade för varje NSG:
+  - [Diagnostikloggar och händelser](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log) är aktiverade och lagras i ett lagrings konto.
+  - Azure Monitor loggar är anslutna till [NSG](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)-diagnostiken.
 
-**Undernät**: Varje undernät är associerad med dess motsvarande NSG.
+**Undernät**: Varje undernät är associerat med motsvarande NSG.
 
-**Azure DNS**: Domain Name System (DNS) ansvarar för att översätta (eller lösa) namnet på en webbplats eller tjänst till dess IP-adress. [Azure DNS](https://docs.microsoft.com/azure/dns/dns-overview) är en värdtjänst för DNS-domäner som ger namnmatchning med hjälp av Azure-infrastrukturen. Som värd för domäner i Azure, kan användare hantera DNS-poster genom att använda samma autentiseringsuppgifter, API: er, verktyg och fakturering som för andra Azure-tjänster. Azure DNS stöder också privata DNS-domäner.
+**Azure DNS**: Domain Name System (DNS) ansvarar för översättning (eller matchning av) en webbplats eller ett tjänst namn till dess IP-adress. [Azure DNS](https://docs.microsoft.com/azure/dns/dns-overview) är en värd tjänst för DNS-domäner som tillhandahåller namn matchning med hjälp av Azure-infrastrukturen. Genom att vara värd för domäner i Azure kan användare hantera DNS-poster genom att använda samma autentiseringsuppgifter, API: er, verktyg och fakturering som andra Azure-tjänster. Azure DNS stöder också privata DNS-domäner.
 
-**Azure Load Balancer**: [Belastningsutjämnare](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) kan användas av kunder för att skala programmen och skapa hög tillgänglighet för tjänster. Belastningsutjämnare har stöd för inkommande och utgående scenarier. Det ger mindre fördröjning och högt dataflöde och kan skalas upp till miljontals flöden för alla TCP och UDP-tillämpningar.
+**Azure Load Balancer**: [Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) kan användas av kunder för att skala sina program och skapa hög tillgänglighet för tjänster. Load Balancer stöder inkommande och utgående scenarier. Den ger låg latens och högt data flöde och skalar upp till miljon tals flöden för alla TCP-och UDP-program.
 
 ### <a name="data-in-transit"></a>Data under överföring
-Azure krypterar all kommunikation till och från Azure-datacenter som standard. Alla transaktioner till Azure Storage via Azure portal sker via HTTPS.
+Azure krypterar all kommunikation till och från Azures Data Center som standard. Alla transaktioner som Azure Storage via Azure Portal sker via HTTPS.
 
 ### <a name="data-at-rest"></a>Vilande data
 
-Arkitekturen skyddar data i vila med kryptering, database-granskning och andra åtgärder.
+Arkitekturen skyddar data i vila genom kryptering, databas granskning och andra åtgärder.
 
-**Azure Storage**: Att uppfylla krav för krypterade data i vila, alla [Storage](https://azure.microsoft.com/services/storage/) använder [Lagringstjänstkryptering](https://docs.microsoft.com/azure/storage/storage-service-encryption). Den här funktionen kan du skydda och skydda data som stöd för företagssäkerhet åtaganden och efterlevnadskrav som definieras av SP NIST 800-171.
+**Azure Storage**: För att uppfylla kraven för krypterade data i vila använder [](https://azure.microsoft.com/services/storage/) all lagring [kryptering för lagringstjänst](https://docs.microsoft.com/azure/storage/storage-service-encryption). Den här funktionen hjälper till att skydda och skydda data som stöd för organisationens säkerhets åtaganden och krav på efterlevnad som definieras av NIST SP 800-171.
 
-**Azure Disk Encryption**: [Diskkryptering](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) använder BitLocker-funktion i Windows för att kryptera volymer för datadiskar. Lösningen kan integreras med Key Vault för att styra och hantera diskkrypteringsnycklar.
+**Azure Disk Encryption**: [Disk kryptering](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) använder BitLocker-funktionen i Windows för att tillhandahålla volym kryptering för data diskar. Lösningen integreras med Key Vault för att hjälpa dig att styra och hantera disk krypterings nycklarna.
 
-**Azure SQL Database**: SQL Database-instansen använder följande säkerhetsåtgärder för databasen:
--   [Active Directory-autentisering och auktorisering](https://docs.microsoft.com/azure/sql-database/sql-database-AAD-authentication) gör det möjligt för Identitetshantering för databasanvändare och andra Microsoft-tjänster på en central plats.
--   [SQL-databasgranskning](https://docs.microsoft.com/azure/sql-database/sql-database-auditing-get-started) spårar databasen händelser och skriver dem till en granskningslogg i ett Azure storage-konto.
--   SQL-databas är konfigurerad för att använda [transparent datakryptering](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql). Det fungerar i realtid kryptering och dekryptering av databasen, tillhörande säkerhetskopior och transaktionsloggfiler för att skydda information i vila. Transparent datakryptering ger assurance som lagrade data inte har varit föremål för obehörig åtkomst.
--   [Brandväggsregler](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) förhindrar all åtkomst till databasservrar tills rätt behörigheter beviljas. Brandväggen ger åtkomst till databaser baserat på vilken IP-adress som varje begäran kommer från.
--   [SQL Threat Detection](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-get-started) gör det möjligt att identifiera och bemöta potentiella hot allteftersom de sker. Det ger säkerhetsaviseringar för misstänkta databasaktiviteter, potentiella svagheter, SQL-filinmatningsattacker och avvikande mönster i databasåtkomst.
--   [Krypterade kolumner](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault) se till att känsliga data aldrig visas som oformaterad text i databassystemet. När datakryptering är aktiverat, endast klientprogram eller programservrar med åtkomst till nycklarna kan komma åt oformaterad text data.
-- [Dynamisk datamaskning](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started) begränsar exponering av känsliga data genom att maskera data till replikdata användare eller program. Det kan automatiskt identifiera potentiellt känsliga data och rekommenderar lämplig masker som ska användas. Dynamisk datamaskning hjälper till att minska åtkomst så att känsliga data inte lämna databasen via obehörig åtkomst. *Kunderna ansvarar för att ändra inställningarna för att uppfylla sina databasschemat.*
+**Azure SQL Database**: SQL Database-instansen använder följande säkerhets åtgärder för databasen:
+-   [Active Directory autentisering och auktorisering](https://docs.microsoft.com/azure/sql-database/sql-database-AAD-authentication) möjliggör identitets hantering av databas användare och andra Microsoft-tjänster på en central plats.
+-   [SQL Database Auditing](https://docs.microsoft.com/azure/sql-database/sql-database-auditing-get-started) spårar databas händelser och skriver dem till en Gransknings logg i ett Azure Storage-konto.
+-   SQL Database har kon figurer ATS för att använda [transparent data kryptering](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql). Den utför kryptering och dekryptering i real tid av databasen, tillhör ande säkerhets kopior och transaktionsloggfiler för att skydda information i vila. Transparent data kryptering garanterar att lagrade data inte har varit föremål för obehörig åtkomst.
+-   [Brand Väggs regler](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) förhindrar all åtkomst till databas servrar förrän rätt behörigheter har beviljats. Brandväggen ger åtkomst till databaser baserat på vilken IP-adress som varje begäran kommer från.
+-   Med [SQL hot identifiering](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-get-started) kan du identifiera och svara på potentiella hot när de inträffar. Den innehåller säkerhets aviseringar för misstänkta databas aktiviteter, potentiella sårbarheter, SQL-injektering och avvikande databas åtkomst mönster.
+-   [Krypterade kolumner](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault) ser till att känsliga data aldrig visas som oformaterad text i databas systemet. När data kryptering har Aktiver ATS kan endast klient program eller program servrar med åtkomst till nycklarna komma åt oformaterad text data.
+- [Dynamisk data maskning](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started) begränsar känslig data exponering genom att maskera data till användare eller program utan privilegier. Den kan automatiskt identifiera potentiellt känsliga data och föreslå lämpliga masker som ska användas. Dynamisk data maskning hjälper till att minska åtkomsten så att känsliga data inte avslutar databasen via obehörig åtkomst. *Kunderna ansvarar för att justera inställningarna för att följa deras databas schema.*
 
 ### <a name="identity-management"></a>Identitetshantering
-Följande tekniker ger funktioner för att hantera åtkomst till data i Azure-miljön:
--   [Azure AD](https://azure.microsoft.com/services/active-directory/) är Microsofts multitenant molnbaserade katalog- och identity management-tjänsten. Alla användare för den här lösningen skapas i Azure AD och inkludera användare som har åtkomst till SQL-databasen.
--   Autentisering till programmet utförs med hjälp av Azure AD. Läs mer om hur du [integrera program med Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications). Kolumnen databaskryptering använder också Azure AD för att autentisera program till SQL-databas. Läs mer om hur du [skydda känsliga data i SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault).
--   [Azure RBAC](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) kan användas av administratörer för att definiera detaljerade behörigheter. Med den, kan de bevilja endast mängden åtkomst som användare behöver att utföra sitt arbete. Istället för att ge varje obegränsad åtkomst för Azure-resurser, kan administratörer tillåta enbart vissa åtgärder för att komma åt resurser och data. Prenumerationsåtkomst är begränsad till prenumerationsadministratören.
-- [Azure Active Directory Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-getting-started) kan användas av kunder för att minimera antalet användare som har åtkomst till viss information. Administratörer kan använda Azure AD Privileged Identity Management för att upptäcka, begränsa och övervaka Privilegierade identiteter och deras åtkomst till resurser. Den här funktionen kan också användas för att framtvinga på begäran just-in-time administrativ åtkomst vid behov.
-- [Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) identifierar potentiella sårbarheter som påverkar organisationens identiteter. Konfigurerar den automatiska svar till identifierade misstänkta åtgärder relaterade till en organisations identiteter. Det kan också undersöker misstänkta incidenter för att vidta lämpliga åtgärder du kan åtgärda detta.
+Följande tekniker tillhandahåller funktioner för att hantera åtkomst till data i Azure-miljön:
+-   [Azure AD](https://azure.microsoft.com/services/active-directory/) är Microsofts molnbaserade katalog-och identitets hanterings tjänst för flera innehavare. Alla användare för den här lösningen skapas i Azure AD och innehåller användare som har åtkomst till SQL-databasen.
+-   Autentisering till programmet utförs med hjälp av Azure AD. Mer information finns i så här integrerar du [program med Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications). Databasens kolumn kryptering använder också Azure AD för att autentisera programmet för att SQL Database. Mer information finns i så här [skyddar du känsliga data i SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault).
+-   [Azure RBAC](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) kan användas av administratörer för att definiera detaljerade åtkomst behörigheter. Med den kan de endast bevilja den åtkomst mängd som användarna behöver för att utföra sina jobb. I stället för att ge varje användare obegränsad åtkomst till Azure-resurser kan administratörer bara tillåta vissa åtgärder för åtkomst till resurser och data. Åtkomst till prenumerationen är begränsad till prenumerations administratören.
+- [Azure Active Directory Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-getting-started) kan användas av kunder för att minimera antalet användare som har åtkomst till viss information. Administratörer kan använda Azure AD Privileged Identity Management för att identifiera, begränsa och övervaka privilegierade identiteter och deras åtkomst till resurser. Den här funktionen kan också användas för att framtvinga administrativ åtkomst just-in-Time vid behov.
+- [Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) identifierar potentiella sårbarheter som påverkar en organisations identiteter. Den konfigurerar automatiserade svar på identifierade misstänkta åtgärder som rör en organisations identiteter. Den undersöker också misstänkta incidenter för att vidta lämpliga åtgärder för att lösa dem.
 
 ### <a name="security"></a>Säkerhet
-**Hantering av hemligheter**: Lösningen använder [Key Vault](https://azure.microsoft.com/services/key-vault/) för hantering av nycklar och hemligheter. Key Vault kan du skydda kryptografiska nycklar och hemligheter som används av molnprogram och molntjänster. Följande funktioner i Key Vault hjälper kunder att skydda data:
-- Avancerade åtkomstprinciper konfigureras på basis av behov.
-- Åtkomstprinciper för Nyckelvalv har definierats med minsta obligatoriska behörigheter till nycklar och hemligheter.
-- Alla nycklar och hemligheter i Key Vault ha ett förfallodatum.
-- Alla nycklar i Key Vault är skyddade med specialiserade maskinvarubaserade säkerhetsmoduler. Nyckeltypen är en maskinvara security-modul-skyddade 2048-bitars RSA-nyckel.
-- Alla användare och identiteter beviljas lägsta behörigheten som krävs med hjälp av RBAC.
-- Diagnostikloggar för Key Vault har aktiverats med en period av minst 365 dagar.
-- Tillåtna kryptografiska åtgärder för nycklar är begränsade till de som krävs.
+**Hemligheter, hantering**: Lösningen använder [Key Vault](https://azure.microsoft.com/services/key-vault/) för hantering av nycklar och hemligheter. Key Vault hjälper till att skydda kryptografiska nycklar och hemligheter som används av moln program och-tjänster. Följande Key Vault funktioner hjälper kunder att skydda data:
+- Avancerade åtkomst principer konfigureras på grund av behov.
+- Key Vault åtkomst principer definieras med lägsta behörighet som krävs för nycklar och hemligheter.
+- Alla nycklar och hemligheter i Key Vault har förfallo datum.
+- Alla nycklar i Key Vault skyddas av specialiserade säkerhetsmoduler för maskin vara. Nyckel typen är en maskin varu säkerhetsmodul – skyddad 2048-bitars RSA-nyckel.
+- Alla användare och identiteter beviljas minst de behörigheter som krävs med RBAC.
+- Diagnostikloggar för Key Vault aktive ras med en kvarhållningsperiod på minst 365 dagar.
+- Tillåtna kryptografiska åtgärder för nycklar är begränsade till dem som krävs.
 
-**Azure Security Center**: Med [Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro), kunder kan centralt tillämpa och hantera säkerhetsprinciper i arbetsbelastningarna, begränsa exponeringen för hot, och identifiera och svara på attacker. Security Center har även åtkomst till befintliga konfigurationer av Azure-tjänster att tillhandahålla konfiguration och rekommendationer för tjänster för att förbättra säkerhet och skydda data.
+**Azure Security Center**: Med [Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)kan kunder centralt tillämpa och hantera säkerhets principer över arbets belastningar, begränsa exponeringen för hot och identifiera och reagera på attacker. Security Center också åtkomst till befintliga konfigurationer av Azure-tjänster för att tillhandahålla konfigurations-och tjänst rekommendationer för att förbättra säkerheten position och skydda data.
 
-Security Center använder en mängd funktioner och meddela kunder om eventuella attacker som är inriktade på sina miljöer. Dessa aviseringar innehåller värdefull information om vad som utlöste aviseringen, vilka resurser som berörs och attackens källa. Security Center har en uppsättning [fördefinierade säkerhetsaviseringar](https://docs.microsoft.com/azure/security-center/security-center-alerts-type) som utlöses när ett hot eller misstänkt aktivitet inträffar. Kunder kan använda [anpassade aviseringsregler](https://docs.microsoft.com/azure/security-center/security-center-custom-alert) att definiera nya säkerhetsaviseringar baserat på data som redan har samlats in från deras miljö.
+Security Center använder flera olika identifierings funktioner för att meddela kunder om potentiella attacker som riktar sig mot sina miljöer. Dessa aviseringar innehåller värdefull information om vad som utlöste aviseringen, vilka resurser som berörs och attackens källa. Security Center har en uppsättning [fördefinierade säkerhets aviseringar](https://docs.microsoft.com/azure/security-center/security-center-alerts-type) som utlöses när ett hot eller en misstänkt aktivitet äger rum. Kunder kan använda [anpassade aviserings regler](https://docs.microsoft.com/azure/security-center/security-center-custom-alert) för att definiera nya säkerhets aviseringar baserat på data som redan har samlats in från deras miljö.
 
-Security Center tillhandahåller rangordnade säkerhetsaviseringar och incidenter. Security Center gör det enklare för kunder att upptäcka och åtgärda potentiella säkerhetsproblem. En [hot intelligence-rapporten](https://docs.microsoft.com/azure/security-center/security-center-threat-report) genereras för varje identifierad hot. Incidenter team kan använda rapporterna när de undersöka och åtgärda hot.
+Security Center innehåller prioriterade säkerhets aviseringar och incidenter. Security Center gör det enklare för kunderna att upptäcka och åtgärda potentiella säkerhets problem. En [hot informations rapport](https://docs.microsoft.com/azure/security-center/security-center-threat-report) genereras för varje identifierat hot. Incident hanterings team kan använda rapporterna när de undersöker och reparerar hot.
 
-**Azure Application Gateway**: Arkitekturen minskar risken för säkerhetsproblem med hjälp av en Programgateway med en brandvägg för webbaserade program som konfigurerats och OWASP regeluppsättningen aktiverat. Ytterligare funktioner är följande:
+**Azure Application Gateway**: Arkitekturen minskar risken för säkerhets risker genom att använda en Programgateway med en brand vägg för webbaserade program konfigurerad och OWASP-regel uppsättningen aktive rad. Fler funktioner är:
 
-- [Slutpunkt till slutpunkt SSL](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
-- Aktivera [SSL-avlastning](https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-portal).
-- Inaktivera [TLS v1.0 och v1.1](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
-- [Brandvägg för webbaserade program](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview) (förhindringsläge).
-- [Förhindringsläge](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-portal) med OWASP 3.0 regeluppsättning.
-- Aktivera [diagnostikloggning](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics).
-- [Anpassade hälsotillståndsavsökningar](https://docs.microsoft.com/azure/application-gateway/application-gateway-create-gateway-portal).
-- [Security Center](https://azure.microsoft.com/services/security-center) och [Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-security-recommendations) tillhandahålla ytterligare skydd och meddelanden. Security Center innehåller också ett rykte system.
+- [Slut punkt till slut punkt – SSL](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
+- Aktivera [SSL](https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-portal)-avlastning.
+- Inaktivera [TLS v 1.0 och v 1.1](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
+- [Brand vägg för webbaserade program](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview) (skydds läge).
+- [Skydds läge](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-portal) med OWASP 3,0-regel uppsättning.
+- Aktivera [](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics)diagnostikloggning.
+- [Anpassade hälso](https://docs.microsoft.com/azure/application-gateway/application-gateway-create-gateway-portal)avsökningar.
+- [Security Center](https://azure.microsoft.com/services/security-center) och [Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-security-recommendations) ger ytterligare skydd och aviseringar. Security Center ger också ett ryktes system.
 
 ### <a name="logging-and-auditing"></a>Loggning och granskning
 
-Azure-tjänster logga stor utsträckning system- och användaraktivitet samt systemhälsa:
-- **Aktivitetsloggar**: [Aktivitetsloggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) ger information om åtgärder som utförts på resurser i en prenumeration. Aktivitetsloggar kan hjälpa dig att fastställa en åtgärd initierare för förekomst och status.
-- **Diagnostikloggar**: [Diagnostikloggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) omfattar alla loggar som genereras av varje resurs. Dessa loggar är Windows-händelsesystemloggar, Storage-loggar, granskningsloggar för Key Vault och åtkomst och brandväggen loggar i Application Gateway. Alla diagnostikloggar skriva till en central och krypterade Azure storage-konto för arkivering. Användare kan konfigurera kvarhållningsperioden, upp till 730 dagar att uppfylla deras specifika krav.
+Azure-tjänster loggar system-och användar aktiviteter i stor utsträckning, samt systemets hälso tillstånd:
+- **Aktivitets loggar**: [Aktivitets loggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) ger inblick i åtgärder som utförs på resurser i en prenumeration. Aktivitets loggar kan hjälpa till att bestämma en åtgärds initierare, tidpunkt för förekomst och status.
+- **Diagnostikloggar**: [Diagnostikloggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) innehåller alla loggar som har avsänts av varje resurs. Dessa loggar innehåller loggar för Windows Event system, lagrings loggar, Key Vault gransknings loggar och Application Gateway åtkomst-och brand Väggs loggar. Alla diagnostiska loggar skriver till ett centraliserat och krypterat Azure Storage-konto för arkivering. Användare kan konfigurera kvarhållningsperioden, upp till 730 dagar, för att uppfylla de särskilda kraven.
 
-**Azure Monitor-loggar**: Loggar konsolideras i [Azure Monitor loggar](https://azure.microsoft.com/services/log-analytics/) för bearbetning, lagring och -instrumentpanelsrapportering. När data har samlats in ordnas de i separata tabeller för varje datatyp i Log Analytics-arbetsytor. På så sätt kan analyseras alla data tillsammans oavsett originalkälla. Security Center integrerar med Azure Monitor-loggar. Kunder kan använda Kusto-frågor för att komma åt deras säkerhet händelsedata och kombinera dem med data från andra tjänster.
+**Azure Monitor loggar**: Loggar konsol IDE ras i [Azure Monitor loggar](https://azure.microsoft.com/services/log-analytics/) för bearbetning, lagring och instrument panels rapportering. När data har samlats in organiseras de i separata tabeller för varje datatyp inom Log Analytics arbets ytor. På så sätt kan alla data analyseras tillsammans, oavsett den ursprungliga källan. Security Center integreras med Azure Monitor-loggar. Kunder kan använda Kusto-frågor för att komma åt sina säkerhets händelse data och kombinera dem med data från andra tjänster.
 
-Följande Azure [övervakningslösningar](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) ingår som en del av den här arkitekturen:
--   [Active Directory-utvärderingen](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): Kontroll av Active Directory hälsotillstånd lösningen utvärderar risker och hälsotillstånd i server-miljöer med regelbundna intervall. Det ger en prioriterad lista över rekommendationer som är specifika för den distribuerade serverinfrastrukturen.
-- [SQL-bedömning](https://docs.microsoft.com/azure/log-analytics/log-analytics-sql-assessment): Lösningen SQL-hälsokontroll bedömer risken och hälsotillståndet i server-miljöer med regelbundna intervall. Tjänsten ger kunderna med en prioriterad lista över rekommendationer som är specifika för den distribuerade serverinfrastrukturen.
-- [Agenthälsa](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth): Lösningen Agenthälsa rapporterar hur många agenter distribueras och deras geografisk fördelning. Här rapporteras även hur många agenter är inte svarar och antalet agenter som skickar driftdata.
--   [Aktivitetslogganalys](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): Activity Log Analytics-lösningen hjälper till med analys av Azure-aktivitetsloggar för alla Azure-prenumerationer för en kund.
+Följande lösningar för Azure- [övervakning](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) ingår som en del av den här arkitekturen:
+-   [Active Directory utvärdering](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): Active Directory hälso kontrolls lösningen utvärderar hälso-och hälso tillståndet för Server miljöer med jämna mellanrum. Den innehåller en prioriterad lista med rekommendationer som är speciella för den distribuerade Server infrastrukturen.
+- [SQL-utvärdering](https://docs.microsoft.com/azure/log-analytics/log-analytics-sql-assessment): I SQL Health Check-lösningen bedöms risken och hälsan i Server miljöer med jämna mellanrum. Den ger kunder en prioriterad lista med rekommendationer som är speciella för den distribuerade Server infrastrukturen.
+- [Agenthälsa](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth): Agenthälsa lösning rapporterar hur många agenter som distribueras och deras geografiska distribution. Den rapporterar även hur många agenter som inte svarar och antalet agenter som skickar drift data.
+-   [Aktivitetslogganalys](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): Aktivitetslogganalys lösning hjälper till med analys av Azures aktivitets loggar i alla Azure-prenumerationer för en kund.
 
-**Azure Automation**: [Automation](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker) lagrar, kör och hanterar runbooks. I den här lösningen hjälper runbooks att samla in loggar från SQL-databas. Kunder kan använda Automation [ändringsspårning](https://docs.microsoft.com/azure/automation/automation-change-tracking) lösning lätt kan identifiera ändringar i miljön.
+**Azure Automation**: [Automation](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker) lagrar, kör och hanterar Runbooks. I den här lösningen kan Runbooks samla in loggar från SQL Database. Kunder kan använda Automation [ändringsspårning](https://docs.microsoft.com/azure/automation/automation-change-tracking) -lösningen för att enkelt identifiera ändringar i miljön.
 
-**Azure Monitor**: [Övervaka](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) hjälper användare att spåra prestanda, upprätthålla säkerhet och identifiera trender. Organisationer kan använda den för att granska, skapa aviseringar och arkivera data. De kan också spåra API-anrop i sina Azure-resurser.
+**Azure Monitor**: [Övervakaren](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) hjälper användare att spåra prestanda, upprätthålla säkerhet och identifiera trender. Organisationer kan använda den för att granska, skapa aviseringar och arkivera data. De kan också spåra API-anrop i sina Azure-resurser.
 
-**Application Insights**: [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) är en utökningsbar prestanda management-tjänsten för webbutvecklare på flera plattformar. Application Insights identifierar prestandaavvikelser. Kunder kan använda den för att övervaka det aktiva webbprogrammet. Application Insights innehåller kraftfulla analysverktyg som hjälper kunder att diagnostisera problem och förstå vad användarna gör med appen. Den&#39;s som utformats för att hjälpa kunder att kontinuerligt förbättra prestanda och användbarhet.
+**Application Insights**: [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) är en utöknings bar hanterings tjänst för program prestanda för webbutvecklare på flera plattformar. Application Insights identifierar prestanda avvikelser. Kunder kan använda den för att övervaka Live-webbprogrammet. Application Insights innehåller kraftfulla analys verktyg som hjälper kunder att diagnostisera problem och förstå vad användarna gör med sina appar. IT&#39;är utformat för att hjälpa kunder att kontinuerligt förbättra prestanda och användbarhet.
 
-## <a name="threat-model"></a>Hotmodell
+## <a name="threat-model"></a>Hot modell
 
-Dataflödesdiagram för denna Referensarkitektur är tillgängligt för [hämta](https://aka.ms/nist171-paaswa-tm) eller hittar du här. Den här modellen kan hjälpa kunderna att förstå punkterna i risken i infrastrukturen för system när de gör ändringar.
+Data flödes diagrammet för den här referens arkitekturen är tillgängligt för [hämtning](https://aka.ms/nist171-paaswa-tm) eller finns här. Den här modellen kan hjälpa kunderna att förstå punkter av potentiell risk i system infrastrukturen när de gör ändringar.
 
-![PaaS-webbprogram för SP NIST 800-171 hotmodell](images/nist171-paaswa-threat-model.png "PaaS webbprogram för SP NIST 800-171 hotmodell")
+![PaaS-webbprogram för NIST SP 800-171 hot modell](images/nist171-paaswa-threat-model.png "PaaS-webbprogram för NIST SP 800-171 hot modell")
 
 ## <a name="compliance-documentation"></a>Dokumentation om efterlevnad
-Den [Azure säkerhet och efterlevnad skissen - SP NIST 800-171 kundens ansvar matrisen](https://aka.ms/nist171-crm) visar en lista över alla säkerhetskontroller som krävs av SP NIST 800-171. Den här matrisen information om implementeringen av varje kontroll ansvarar för Microsoft, kunden, eller delas mellan två.
+I [matrisen handlingsplan för säkerhet och efterlevnad i Azure-NIST SP 800-171-kund ansvar](https://aka.ms/nist171-crm) visas alla säkerhets kontroller som krävs av NIST SP 800-171. Den här matrisen anger om implementeringen av varje kontroll är ansvar för Microsoft, kunden eller delas mellan de två.
 
-Den [Azure säkerhet och efterlevnad skissen - SP NIST 800-171 PaaS Web Application Control implementering Matrix](https://aka.ms/nist171-paaswa-cim) innehåller information som på vilka SP NIST 800-171-kontroller med hjälp av PaaS-webbprogramarkitektur. Den innehåller detaljerade beskrivningar av hur implementeringen uppfyller kraven för varje skyddad kontroll.
+[Implementerings matrisen handlingsplan för säkerhet och efterlevnad i Azure-NIST sp 800-171 PaaS för webb program kontroll](https://aka.ms/nist171-paaswa-cim) innehåller information om vilka NIST SP 800-171-kontroller som hanteras av arkitekturen för PaaS-webbprogram. Den innehåller detaljerade beskrivningar av hur implementeringen uppfyller kraven för varje kontroll som omfattas.
 
 ## <a name="guidance-and-recommendations"></a>Vägledning och rekommendationer
-### <a name="vpn-and-expressroute"></a>VPN och ExpressRoute
-En säker VPN-tunnel eller [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) måste konfigureras för att upprätta en anslutning till resurser som har distribuerats som en del av denna Referensarkitektur för PaaS web application. Genom på lämpligt sätt att konfigurera en VPN eller ExpressRoute, kan kunderna lägga till ett lager säkerhet för data under överföring.
+### <a name="vpn-and-expressroute"></a>VPN-och ExpressRoute
+En säker VPN-tunnel eller [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) måste konfigureras för att på ett säkert sätt upprätta en anslutning till resurserna som distribuerats som en del av den här PaaS referens arkitektur för webb program. Genom att konfigurera en VPN-eller ExpressRoute på lämpligt sätt kan kunder lägga till ett skydds lager för data under överföring.
 
-Genom att implementera en säker VPN-tunnel med Azure kan du skapa en virtuell privat anslutning mellan ett lokalt nätverk och ett Azure-nätverk. Den här anslutningen sker via Internet och kan kunderna på ett säkert sätt ”tunnel” informationen i en krypterad anslutning mellan kundens nätverk och Azure. Plats-till-plats-VPN är en säker, mogen teknik som har distribuerats av företag av alla storlekar för flera decennier. Den [IPSec-tunnelläge](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc786385(v=ws.10)) används i det här alternativet som en krypteringsmekanism.
+Genom att implementera en säker VPN-tunnel med Azure kan du skapa en virtuell privat anslutning mellan ett lokalt nätverk och ett virtuellt Azure-nätverk. Den här anslutningen sker via Internet och gör det möjligt för kunder att på ett säkert sätt placera "tunnel"-information i en krypterad länk mellan kundens nätverk och Azure. VPN för plats-till-plats är en säker, vuxen teknik som har distribuerats av företag i alla storlekar i årtionden. [IPSec-tunnelläge](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc786385(v=ws.10)) används i det här alternativet som en krypterings metod.
 
-Eftersom VPN-tunneln trafik passerar via Internet med en plats-till-plats-VPN, erbjuder Microsoft ett annat anslutningsalternativ för ännu mer säker. ExpressRoute är en dedikerad WAN länk mellan Azure och en lokal plats eller en värdbaserade Exchange-provider. ExpressRoute-anslutningar ansluta direkt till en kunds telekommunikation providern. Därför kan överföras inte via Internet data och visas inte. De här anslutningarna erbjuder mer tillförlitlighet, snabbare hastigheter, kortare svarstider och högre säkerhet än vanliga anslutningar.
+Eftersom trafiken i VPN-tunneln passerar Internet med en plats-till-plats-VPN, erbjuder Microsoft ännu fler säkra anslutnings alternativ. ExpressRoute är en särskild WAN-länk mellan Azure och en lokal plats eller en Exchange-värd leverantör. ExpressRoute-anslutningar ansluter direkt till kundens telekommunikations leverantör. Det innebär att data inte färdas över Internet och inte exponeras för den. Dessa anslutningar ger högre tillförlitlighet, snabbare hastighet, lägre fördröjning och högre säkerhet än vanliga anslutningar.
 
-Bästa praxis för att implementera ett säkert hybridnätverk som utökar ett lokalt nätverk till Azure [tillgängliga](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid).
+Metod tips för att implementera ett säkert hybrid nätverk som utökar ett lokalt nätverk till Azure är [tillgängligt](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid).
 
 ## <a name="disclaimer"></a>Ansvarsfriskrivning
 
- - Det här dokumentet är endast i informationssyfte. MICROSOFT LÄMNAR INGA GARANTIER, UTTRYCKLIGA, UNDERFÖRSTÅDDA ELLER LAGSTADGADE, VAD GÄLLER INFORMATIONEN I DET HÄR DOKUMENTET. Detta dokument tillhandahålls ”som – är”. Information och åsikter som uttrycks i detta dokument, inklusive Webbadresser och andra webbplatsreferenser, kan ändras utan föregående meddelande. Kunder i det här dokumentet bär risken för användningen av den.
- - Det här dokumentet ger inte kunder med inga juridiska rättigheter till någon immateriell egendom i någon Microsoft-produkt eller lösningar.
- - Kunderna får kopiera och använda det här dokumentet som intern referens.
- - Vissa rekommendationerna i det här dokumentet kan leda till ökad data, nätverk och beräkning Resursanvändning i Azure och öka kostnaderna för en kunds Azure-licens eller prenumeration.
- - Den här arkitekturen är avsedd att fungera som en grund för kunder att anpassa sig till sina specifika krav och ska inte användas som-är i en produktionsmiljö.
- - Det här dokumentet har utvecklats som en referens och ska inte användas för att definiera alla innebär som en kund kan uppfylla specifika efterlevnadskrav och föreskrifter. Kunder bör söka juridiskt stöd från organisationen på godkända kundimplementeringar.
+ - Det här dokumentet är endast avsett för information. MICROSOFT LÄMNAR INGA GARANTIER, UTTRYCKLIGA, UNDERFÖRSTÅDDA ELLER LAGSTADGADE, ENLIGT INFORMATIONEN I DET HÄR DOKUMENTET. Detta dokument tillhandahålls "i befintligt skick". Information och vyer som uttrycks i detta dokument, inklusive URL: er och andra webbplats referenser, kan ändras utan föregående meddelande. Kunder som läser det här dokumentet bär risken för att använda det.
+ - Detta dokument ger inte kunderna några juridiska rättigheter till någon immateriell egendom i någon Microsoft-produkt eller-lösning.
+ - Kunder får kopiera och använda det här dokumentet för intern referens.
+ - Vissa rekommendationer i det här dokumentet kan leda till ökad data-, nätverks-eller beräknings resursanvändning i Azure och kan öka en kunds Azure-licens eller prenumerations kostnader.
+ - Den här arkitekturen är avsedd att fungera som grund för kunderna att anpassa sig efter sina särskilda krav och bör inte användas i en produktions miljö.
+ - Det här dokumentet utvecklas som en referens och bör inte användas för att definiera alla medel som en kund kan uppfylla särskilda krav och föreskrifter för efterlevnad. Kunderna bör söka juridisk support från organisationen om godkända kund implementeringar.

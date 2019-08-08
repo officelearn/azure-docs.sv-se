@@ -1,5 +1,5 @@
 ---
-title: Snabbstart – skapa en blob i Azure Storage med hjälp av JavaScript och HTML i webbläsaren
+title: Snabb start – skapa en BLOB i Azure Storage med hjälp av Java Script och HTML i webbläsaren
 description: Lär dig använda en instans av BlobService och överföra, lista och ta bort blobar med hjälp av JavaScript på en HTML-sida.
 services: storage
 keywords: storage, javascript, html
@@ -11,32 +11,32 @@ ms.reviewer: seguler
 ms.date: 05/20/2019
 ms.topic: quickstart
 ms.subservice: blobs
-ms.openlocfilehash: a971f2b4b63b3fd35777d1d890da8451b84bb086
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: 742e270ae84604e8d5389c0b2982642f56105fcc
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67544034"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68828209"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
-# <a name="quickstart-upload-list-and-delete-blobs-using-azure-storage-v10-sdk-for-javascripthtml-in-the-browser"></a>Snabbstart: Ladda upp, lista och ta bort blobar med Azure Storage v10 SDK för JavaScript/HTML i webbläsaren
+# <a name="quickstart-upload-list-and-delete-blobs-using-azure-storage-v10-sdk-for-javascripthtml-in-the-browser"></a>Snabbstart: Ladda upp, lista och ta bort blobar med Azure Storage v10 SDK för Java Script/HTML i webbläsaren
 
-I den här snabbstarten lär du dig att använda den [Azure Storage SDK V10 för JavaScript - Blob](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob#readme) biblioteket du hanterar blobar från JavaScript-kod som körs helt i webbläsaren. Den metod som används här visar hur du tillämpar de säkerhetsåtgärder som krävs för att garantera säker åtkomst till bloblagringskontot.
+I den här snabb starten lär du dig att [Azure Storage använda v10 SDK-för Java Script-BLOB-](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob#readme) bibliotek för att hantera blobbar från JavaScript-kod som körs helt i webbläsaren. Den metod som används här visar hur du tillämpar de säkerhetsåtgärder som krävs för att garantera säker åtkomst till bloblagringskontot.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
-Azure Storage JavaScript-klientbibliotek fungerar inte direkt från filsystemet och måste hanteras från en webbserver. Det här avsnittet använder [Node.js](https://nodejs.org) att starta en grundläggande server. Om du inte föredrar att installera om noden kan du använda något annat sätt för att köra en lokal webbserver.
+Klient biblioteken för Azure Storage Java Script fungerar inte direkt från fil systemet och måste hanteras från en webb server. I det här avsnittet används [Node. js](https://nodejs.org) för att starta en grundläggande Server. Om du föredrar att inte installera noden kan du använda andra sätt att köra en lokal webb server.
 
-Om du vill följa stegen i felsökning, behöver du [Visual Studio Code](https://code.visualstudio.com) och antingen den [felsökare för Chrome](vscode:extension/msjsdiag.debugger-for-chrome) eller [felsökare för Microsoft Edge](vscode:extension/msjsdiag.debugger-for-edge) tillägget.
+Om du vill följa stegen för fel sökning behöver du [Visual Studio Code](https://code.visualstudio.com) och antingen [fel söknings programmet för Chrome](vscode:extension/msjsdiag.debugger-for-chrome) eller [fel sökning för Microsoft Edge](vscode:extension/msjsdiag.debugger-for-edge) -tillägg.
 
 ## <a name="setting-up-storage-account-cors-rules"></a>Ställa in CORS-regler för lagringskonto
 
-Innan webbprogrammet kan komma åt en bloblagring från klienten, måste du konfigurera ditt konto för att aktivera [resursdelning mellan ursprung delning](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services), eller CORS.
+Innan ditt webb program kan komma åt en blob-lagring från klienten måste du konfigurera ditt konto för att aktivera [resurs delning mellan ursprung](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services)eller CORS.
 
-Återgå till Azure Portal och välj ditt lagringskonto. För att definiera en ny CORS-regel, navigera till den **inställningar** och klicka på den **CORS** länk. Klicka sedan på knappen **Lägg till** för att öppna fönstret **Lägg till CORS-regel**. För den här snabbstarten skapar du en öppen CORS-regel:
+Återgå till Azure Portal och välj ditt lagringskonto. Om du vill definiera en ny CORS-regel går du till avsnittet **Inställningar** och klickar på **CORS** -länken. Klicka sedan på knappen **Lägg till** för att öppna fönstret **Lägg till CORS-regel**. För den här snabbstarten skapar du en öppen CORS-regel:
 
 ![CORS-inställningar för Azure Blob Storage-konto](media/storage-quickstart-blobs-javascript-client-libraries/azure-blob-storage-cors-settings.png)
 
@@ -51,7 +51,7 @@ I följande tabell beskrivs varje CORS-inställning och de värden som används 
 | Maximal ålder (sekunder) | 86400 | Den maximala tidsperiod som webbläsaren cachelagrar den preliminära OPTIONS-begäran. Ett värde på *86400* innebär cachelagring under ett helt dygn. |
 
 > [!IMPORTANT]
-> Se till att alla inställningar som du använder i produktionen exponera den minsta mängden åtkomst till ditt storage-konto att ha säker åtkomst. De CORS-inställningar som beskrivs här är lämpliga för en snabbstart eftersom de innebär en flexibel säkerhetsprincip. Inställningarna rekommenderas dock inte i verkliga sammanhang.
+> Se till att alla inställningar som du använder i produktionen visar den lägsta mängd åtkomst som krävs för ditt lagrings konto för att upprätthålla säker åtkomst. De CORS-inställningar som beskrivs här är lämpliga för en snabbstart eftersom de innebär en flexibel säkerhetsprincip. Inställningarna rekommenderas dock inte i verkliga sammanhang.
 
 Härnäst använder du Azure-molnskalet och skapar en säkerhetstoken.
 
@@ -61,7 +61,7 @@ Härnäst använder du Azure-molnskalet och skapar en säkerhetstoken.
 
 SAS, eller signatur för delad åtkomst, används av den kod som körs i webbläsaren för att auktorisera begäranden till bloblagring. Med hjälp av SAS kan klienten auktorisera åtkomst till lagringsresurser utan att ha åtkomstnyckel eller anslutningssträng för kontot. Mer information om SAS finns i [Använda signaturer för delad åtkomst (SAS)](../common/storage-dotnet-shared-access-signature-part-1.md).
 
-Du kan skapa en SAS med hjälp av Azure CLI via Azure-molnskalet eller med Azure portal eller Azure Storage Explorer. I följande tabell beskrivs de parametrar du behöver ange värden för att generera en SAS med CLI.
+Du kan skapa en SAS med hjälp av Azure CLI via Azure Cloud Shell eller med Azure Portal eller Azure Storage Explorer. I följande tabell beskrivs de parametrar du behöver ange värden för för att skapa en SAS med CLI.
 
 | Parameter      |Beskrivning  | Platshållare |
 |----------------|-------------|-------------|
@@ -69,7 +69,7 @@ Du kan skapa en SAS med hjälp av Azure CLI via Azure-molnskalet eller med Azure
 | *account-name* | Namnet på lagringskontot. Använd det namn som noterades i ett tidigare steg. | *YOUR_STORAGE_ACCOUNT_NAME* |
 | *account-key*  | Nyckeln till lagringskontot. Använd den nyckel som noterades i ett tidigare steg. | *YOUR_STORAGE_ACCOUNT_KEY* |
 
-Använd följande CLI-kommando med faktiska värden för varje platshållare för att generera en SAS som du kan använda i JavaScript-koden.
+Använd följande CLI-kommando med faktiska värden för varje plats hållare för att skapa en SAS som du kan använda i JavaScript-koden.
 
 ```azurecli-interactive
 az storage account generate-sas \
@@ -83,24 +83,24 @@ az storage account generate-sas \
 
 Du kan kanske uppleva serien med värden efter varje parameter som lite kryptisk. Dessa parametervärden hämtas från den första bokstaven i respektive behörighet. I följande tabell förklaras var värdena kommer från:
 
-| Parameter        | Värde   | Beskrivning  |
+| Parameter        | Value   | Beskrivning  |
 |------------------|---------|---------|
 | *behörigheter*    | racwdl  | Den här signaturen för delad åtkomst (SAS) kan *läsa*, *bifoga*, *skapa*, *skriva*, *ta bort* och *lista*  funktioner. |
 | *resource-types* | sco     | De resurser som påverkas av signaturen för delad åtkomst (SAS) är *tjänst*, *container* och *objekt*. |
 | *tjänster*       | b       | Den tjänst som påverkas av signaturen för delad åtkomst är *blob*-tjänsten. |
 
-Nu när signaturen för delad åtkomst genereras kopierar det returnera värdet och spara den någonstans för användning i ett kommande steg. Om du genererade din SAS med en annan metod än Azure CLI, måste du ta bort första `?` om den finns. Det här tecknet är URL: en avgränsare som redan har angetts i URL: en mall i detta kapitel där SAS används.
+Nu när SAS har skapats kopierar du returvärdet och sparar det någonstans för användning i ett kommande steg. Om du har genererat SAS med en annan metod än Azure CLI måste du ta bort den ursprungliga `?` om den finns. Det här tecknet är en URL-avgränsare som redan finns i URL-mallen senare i det här avsnittet där SAS används.
 
 > [!IMPORTANT]
 > Under produktionen ska du alltid skicka SAS-token med SSL. SAS-token bör dessutom genereras på servern och skickas till HTML-sidan för att återgå till Azure Blob Storage. En metod du kan överväga är att använda en serverlös funktion när du genererar SAS-tokens. I Azure-portalen finns funktionsmallar som ger möjligheten att generera en SAS med en JavaScript-funktion.
 
 ## <a name="implement-the-html-page"></a>Implementera HTML-sidan
 
-I det här avsnittet ska du skapa en grundläggande webbsida och konfigurera VS Code för att starta och felsöka sidan. Innan du kan starta, men behöver du använda Node.js för att starta en lokal webbserver och fungerar på sidan när webbläsaren begär den. Därefter lägger du till JavaScript-kod för att anropa API: er av olika blob storage och visa resultatet på sidan. Du kan också se resultatet av dessa anrop i den [Azure-portalen](https://portal.azure.com), [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer), och [Azure Storage-tillägget](vscode:extension/ms-azuretools.vscode-azurestorage) för VS Code.
+I det här avsnittet ska du skapa en grundläggande webb sida och konfigurera VS Code för att starta och felsöka sidan. Innan du kan starta måste du dock använda Node. js för att starta en lokal webb server och betjäna sidan när webbläsaren begär det. Härnäst ska du lägga till JavaScript-kod för att anropa olika Blob Storage-API: er och visa resultaten på sidan. Du kan också se resultatet av dessa anrop i [Azure Portal](https://portal.azure.com), [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer)och [Azure Storage tillägget](vscode:extension/ms-azuretools.vscode-azurestorage) för vs Code.
 
 ### <a name="set-up-the-web-application"></a>Konfigurera webbprogrammet
 
-Börja med att skapa en ny mapp med namnet *azure-blobs-javascript* och öppna den i VS Code. Sedan skapar en ny fil i VS Code, Lägg till följande HTML och spara den som *index.html* i den *azure-blobs-javascript* mapp.
+Börja med att skapa en ny mapp med namnet *Azure-blobs-Java Script* och öppna den i vs Code. Skapa sedan en ny fil i VS Code, Lägg till följande HTML och spara den som *index. html* i mappen *Azure-blobs-Java Script* .
 
 ```html
 <!DOCTYPE html>
@@ -124,11 +124,11 @@ Börja med att skapa en ny mapp med namnet *azure-blobs-javascript* och öppna d
 </html>
 ```
 
-### <a name="configure-the-debugger"></a>Konfigurera felsökningsprogrammet
+### <a name="configure-the-debugger"></a>Konfigurera fel söknings programmet
 
-Om du vill konfigurera felsökare tillägg i VS Code, Välj **Felsök > Lägg till konfiguration...** och välj sedan **Chrome** eller **Edge**, beroende på vilka tillägg som du tidigare installerats i avsnittet krav. Den här åtgärden skapar en *launch.json* filen och öppnar den i redigeraren.
+Om du vill ställa in tillägget för fel sökning i VS Code väljer du **felsök > Lägg till konfiguration...** och väljer sedan **Chrome** eller **Edge**, beroende på vilket tillägg du installerade i avsnittet krav ovan. Den här åtgärden skapar en *Launch. JSON* -fil och öppnar den i redigeraren.
 
-Sedan ändrar den *launch.json* filen så att den `url` värdet innefattar `/index.html` enligt:
+Sedan ändrar du filen *Launch. JSON* så att `url` värdet inkluderar `/index.html` :
 
 ```json
 {
@@ -148,31 +148,31 @@ Sedan ändrar den *launch.json* filen så att den `url` värdet innefattar `/ind
 }
 ```
 
-Den här konfigurationen anger VS Code vilken webbläsare för att starta och vilka URL: en för att läsa in.
+Den här konfigurationen talar om för VS Code vilken webbläsare som ska startas och vilken URL som ska läsas in.
 
-### <a name="launch-the-web-server"></a>Starta webbservern
+### <a name="launch-the-web-server"></a>Starta webb servern
 
-Om du vill starta den lokala Node.js-webbservern, Välj **Visa > Terminal** för att öppna ett konsolfönster i VS Code, ange sedan följande kommando.
+Starta den lokala Node. js-webbservern genom att välja **visa > Terminal** för att öppna ett konsol fönster i vs Code, och ange sedan följande kommando.
 
 ```console
 npx http-server
 ```
 
-Det här kommandot installerar den *http-server* paketera och starta servern, vilket gör den aktuella mappen tillgänglig via standard-URL: er, inklusive vad som anges i föregående steg.
+Med det här kommandot installeras *http-server* -paketet och servern startas, och den aktuella mappen blir tillgänglig via standard-URL: er, inklusive den som anges i föregående steg.
 
-### <a name="start-debugging"></a>Starta felsökning
+### <a name="start-debugging"></a>Starta fel sökning
 
-Att starta *index.html* i webbläsaren med VS Code-felsökare anslutna, Välj **Felsök > Starta felsökning** eller tryck på F5 i VS Code.
+Om du vill starta *index. html* i webbläsaren med vs Code-felsökaren ansluten, väljer du **Felsök > Starta fel sökning** eller trycker på F5 i vs Code.
 
-Användargränssnittet visas gör fortfarande inget, men ska du lägga till JavaScript-kod i följande avsnitt för att implementera varje funktion visas. Du kan ange brytpunkter och interagera med felsökningsprogrammet när den har pausats på din kod.
+Det användar gränssnitt som visas gör inte något än, men du kommer att lägga till JavaScript-kod i följande avsnitt för att implementera varje funktion som visas. Du kan sedan ange Bryt punkter och interagera med fel söknings programmet när det har pausats på din kod.
 
-När du gör ändringar i *index.html*, se till att uppdatera sidan om du vill se ändringarna i webbläsaren. I VS Code kan du också välja **Felsök > Starta om felsökning** eller tryck på CTRL + SKIFT + F5.
+När du gör ändringar i *index. html*måste du läsa in sidan igen för att se ändringarna i webbläsaren. I VS Code kan du också välja **felsök > starta om fel sökning** eller trycka på Ctrl + Shift + F5.
 
-### <a name="add-the-blob-storage-client-library"></a>Lägg till blob storage-klientbibliotek
+### <a name="add-the-blob-storage-client-library"></a>Lägg till klient biblioteket för Blob Storage
 
-Aktivera anrop till blob storage-API, först [ladda ned Azure Storage SDK för JavaScript - klientbibliotek för Blob](https://aka.ms/downloadazurestoragejsblob), extrahera innehållet i ZIP-filen och placera den *azure storage.blob.js* fil i *azure-blobs-javascript* mapp.
+Om du vill aktivera anrop till Blob Storage-API: et måste [du först hämta klient biblioteket Azure Storage SDK för Java Script-BLOB](https://aka.ms/downloadazurestoragejsblob), extrahera innehållet i zip-filen och placera filen *Azure-Storage. blob. js* i mappen *Azure-blobs-Java Script* .
 
-Klistra sedan in följande HTML till *index.html* när den `</body>` sluttagg, byta ut platshållaren kommentaren.
+Klistra sedan in följande HTML i *index. html* efter den `</body>` avslutande taggen och ersätt plats hållaren.
 
 ```html
 <script src="azure-storage.blob.js" charset="utf-8"></script>
@@ -182,15 +182,15 @@ Klistra sedan in följande HTML till *index.html* när den `</body>` sluttagg, b
 </script>
 ```
 
-Den här koden lägger till en referens till skriptfilen och ett utrymme för din egen JavaScript-kod. För den här snabbstarten använder vi den *azure storage.blob.js* skriptfilen så att du kan öppna den i VS Code, läsa innehållet och ange brytpunkter. I produktion, bör du använda flera CD *azure storage.blob.min.js* -fil som ges också i zip-filen.
+Den här koden lägger till en referens till skript filen och ger en plats för din egen JavaScript-kod. I den här snabb starten använder vi skript filen *Azure-Storage. blob. js* så att du kan öppna den i vs Code, läsa dess innehåll och ange Bryt punkter. I produktion bör du använda den mer komprimerade *Azure-Storage. blob. min. js* -filen som också finns i zip-filen.
 
-Du hittar mer information om varje funktion som blob storage i den [referensdokumentation](https://docs.microsoft.com/javascript/api/%40azure/storage-blob/index). Observera att några av funktionerna i SDK: N är endast tillgängligt i Node.js eller endast tillgängligt i webbläsaren.
+Du kan läsa mer om varje Blob Storage-funktion i [referens dokumentationen](https://docs.microsoft.com/javascript/api/%40azure/storage-blob/index). Observera att vissa funktioner i SDK: n endast är tillgängliga i Node. js eller bara är tillgängliga i webbläsaren.
 
-Koden i *azure storage.blob.js* exporterar en global variabel som kallas `azblob`, som du använder i JavaScript-koden för att få åtkomst till API: er för blob storage.
+Koden i *Azure-Storage. blob. js* exporterar en global variabel som kallas `azblob`, som du kommer att använda i JavaScript-koden för att få åtkomst till API: erna för Blob Storage.
 
-### <a name="add-the-initial-javascript-code"></a>Lägg till första JavaScript-kod
+### <a name="add-the-initial-javascript-code"></a>Lägg till den inledande JavaScript-koden
 
-Klistra sedan in följande kod till den `<script>` element som visas i föregående kodblock, ersätta platshållaren kommentaren.
+Klistra sedan in följande kod i det `<script>` element som visas i det föregående kod blocket och ersätt plats hållaren.
 
 ```javascript
 const createContainerButton = document.getElementById("create-container-button");
@@ -208,13 +208,13 @@ const reportStatus = message => {
 }
 ```
 
-Den här koden skapar fält för varje HTML-element som använder följande kod och implementerar en `reportStatus` funktionen för att visa utdata.
+Den här koden skapar fält för varje HTML-element som följande kod kommer att använda och implementerar `reportStatus` en funktion för att visa utdata.
 
-Lägg till varje ny block med JavaScript-kod efter föregående block i avsnitten nedan.
+I följande avsnitt lägger du till varje nytt block med JavaScript-kod efter föregående block.
 
-### <a name="add-your-storage-account-info"></a>Lägg till din kontoinformation för lagring
+### <a name="add-your-storage-account-info"></a>Lägg till information om lagrings kontot
 
-Lägg sedan till kod för att få åtkomst till ditt lagringskonto, ersätter platshållarna med namnet på ditt konto och den SAS som du genererade i föregående steg.
+Lägg sedan till kod för att komma åt ditt lagrings konto och ersätt plats hållarna med ditt konto namn och de SAS som du skapade i föregående steg.
 
 ```javascript
 const accountName = "<Add your storage account name>";
@@ -225,11 +225,11 @@ const containerURL = new azblob.ContainerURL(
     azblob.StorageURL.newPipeline(new azblob.AnonymousCredential));
 ```
 
-Den här koden använder din kontoinformation och SAS för att skapa en [ContainerURL](https://docs.microsoft.com/javascript/api/@azure/storage-blob/ContainerURL) instansen, som är användbar för att skapa och ändra en lagringsbehållare.
+I den här koden används konto information och SAS för att skapa en [ContainerURL](https://docs.microsoft.com/javascript/api/@azure/storage-blob/ContainerURL) -instans, vilket är användbart för att skapa och ändra en lagrings behållare.
 
-### <a name="create-and-delete-a-storage-container"></a>Skapa och ta bort en lagringsbehållare
+### <a name="create-and-delete-a-storage-container"></a>Skapa och ta bort en lagrings behållare
 
-Lägg sedan till kod för att skapa och ta bort lagringsbehållaren när du trycker på knappen motsvarande.
+Lägg sedan till kod för att skapa och ta bort lagrings behållaren när du trycker på motsvarande knapp.
 
 ```javascript
 const createContainer = async () => {
@@ -256,11 +256,11 @@ createContainerButton.addEventListener("click", createContainer);
 deleteContainerButton.addEventListener("click", deleteContainer);
 ```
 
-Den här koden anropar ContainerURL [skapa](https://docs.microsoft.com/javascript/api/@azure/storage-blob/ContainerURL#create-aborter--icontainercreateoptions-) och [ta bort](https://docs.microsoft.com/javascript/api/@azure/storage-blob/ContainerURL#delete-aborter--icontainerdeletemethodoptions-) funktioner utan att använda en [Aborter](https://docs.microsoft.com/javascript/api/@azure/storage-blob/aborter) instans. Den här koden förutsätter att ditt lagringskonto har skapats och är aktiverad om du vill att göra det enkelt för den här snabbstarten. I produktionskoden använder du en Aborter instans att lägga till funktioner för timeout.
+Den här koden anropar funktionen ContainerURL [create](https://docs.microsoft.com/javascript/api/@azure/storage-blob/ContainerURL#create-aborter--icontainercreateoptions-) och [Delete](https://docs.microsoft.com/javascript/api/@azure/storage-blob/ContainerURL#delete-aborter--icontainerdeletemethodoptions-) utan att använda en avbrotts instans. [](https://docs.microsoft.com/javascript/api/@azure/storage-blob/aborter) För att det ska vara enkelt för den här snabb starten förutsätter den här koden att ditt lagrings konto har skapats och är aktiverat. I produktions kod använder du en avbrotts instans för att lägga till timeout-funktioner.
 
 ### <a name="list-blobs"></a>Lista blobar
 
-Lägg sedan till kod för att visa innehållet i lagringsbehållaren när du trycker på den **lista filer** knappen.
+Lägg sedan till kod för att visa innehållet i lagrings behållaren när du trycker på knappen **lista filer** .
 
 ```javascript
 const listFiles = async () => {
@@ -292,11 +292,11 @@ const listFiles = async () => {
 listButton.addEventListener("click", listFiles);
 ```
 
-Den här koden anropar den [ContainerURL.listBlobFlatSegment](https://docs.microsoft.com/javascript/api/@azure/storage-blob/ContainerURL#listblobflatsegment-aborter--string--icontainerlistblobssegmentoptions-) funktion i en loop för att säkerställa att alla segment har hämtats. För varje segment kan den slinga över listan med blob-objekt den innehåller och uppdaterar den **filer** lista.
+Den här koden anropar funktionen [ContainerURL. listBlobFlatSegment](https://docs.microsoft.com/javascript/api/@azure/storage-blob/ContainerURL?view=azure-node-preview#listblobflatsegment-aborter--undefined---string--icontainerlistblobssegmentoptions-) i en slinga för att säkerställa att alla segment hämtas. För varje segment loopar det över listan över BLOB-objekt som den innehåller och uppdaterar listan **filer** .
 
-### <a name="upload-blobs"></a>Ladda upp blobar
+### <a name="upload-blobs"></a>Ladda upp blobbar
 
-Lägg sedan till kod för att ladda upp filer till behållaren när du trycker på den **välja och ladda upp filer** knappen.
+Lägg sedan till kod för att ladda upp filer till lagrings behållaren när du trycker på knappen **Välj och överför filer** .
 
 ```javascript
 const uploadFiles = async () => {
@@ -320,11 +320,11 @@ selectButton.addEventListener("click", () => fileInput.click());
 fileInput.addEventListener("change", uploadFiles);
 ```
 
-Den här koden ansluter den **välja och ladda upp filer** knappen för att den dolda `file-input` element. På så sätt kan knappen `click` händelse utlöser den fil som indata `click` händelse och visar filväljaren. När du väljer filer och Stäng dialogrutan för den `input` händelse inträffar och `uploadFiles` funktionen anropas. Den här funktionen anropar den webbläsaren endast [uploadBrowserDataToBlockBlob](https://docs.microsoft.com/javascript/api/@azure/storage-blob/#uploadbrowserdatatoblockblob-aborter--blob---arraybuffer---arraybufferview--blockbloburl--iuploadtoblockbloboptions-) funktionen för varje fil som du har valt. Varje anrop returnerar ett löfte som läggs till i en lista, så att de kan alla vara slutförts samtidigt, orsakar filer att ladda upp parallellt.
+Den här koden ansluter knappen **Välj och ladda upp filer** till det `file-input` dolda elementet. På så sätt utlöser knapp `click` händelsen fil indata `click` och visar fil väljaren. När du har `input` valt filer och stängt dialog rutan inträffar händelsen `uploadFiles` och funktionen anropas. Den här funktionen anropar den webbläsarbaserade [uploadBrowserDataToBlockBlob](https://docs.microsoft.com/javascript/api/@azure/storage-blob/#uploadbrowserdatatoblockblob-aborter--blob---arraybuffer---arraybufferview--blockbloburl--iuploadtoblockbloboptions-) -funktionen för varje fil som du har valt. Varje anrop returnerar ett löfte, som läggs till i en lista så att alla kan vänta samtidigt, vilket gör att filerna överförs parallellt.
 
 ### <a name="delete-blobs"></a>Ta bort blobbar
 
-Lägg sedan till kod för att ta bort filer från lagringsbehållaren när du trycker på den **ta bort valda filer** knappen.
+Lägg sedan till kod för att ta bort filer från lagrings behållaren när du trycker på knappen **ta bort markerade filer** .
 
 ```javascript
 const deleteFiles = async () => {
@@ -348,19 +348,19 @@ const deleteFiles = async () => {
 deleteButton.addEventListener("click", deleteFiles);
 ```
 
-Den här koden anropar den [BlobURL.delete](https://docs.microsoft.com/javascript/api/@azure/storage-blob/BlobURL#delete-aborter--iblobdeleteoptions-) att ta bort varje fil som valts i listan. Sedan anropas den `listFiles` funktionen som visas tidigare för att uppdatera innehållet i den **filer** lista.
+Den här koden anropar funktionen [BlobURL. Delete](https://docs.microsoft.com/javascript/api/@azure/storage-blob/BlobURL#delete-aborter--iblobdeleteoptions-) för att ta bort varje fil som marker ATS i listan. Sedan anropas `listFiles` funktionen som visas tidigare för att uppdatera innehållet i listan **filer** .
 
-### <a name="run-and-test-the-web-application"></a>Kör och testa webbprogrammet
+### <a name="run-and-test-the-web-application"></a>Kör och testa webb programmet
 
-Nu kan du starta sidan och experimentera med en känsla för hur blob storage fungerar. Om något fel uppstår (till exempel när du försöker att lista filer innan du har skapat behållaren) den **Status** visas ett felmeddelande visas i fönstret. Du kan också ange brytpunkter i JavaScript-kod för att granska värdena som returneras av API: er för storage.
+Nu kan du starta sidan och experimentera för att få en känsla för hur Blob Storage fungerar. Om några fel inträffar (till exempel när du försöker att lista filer innan du har skapat behållaren) visas fel meddelandet i fönstret **status** . Du kan också ange Bryt punkter i JavaScript-koden för att undersöka de värden som returneras av lagrings-API: erna.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du vill rensa de resurser som skapades under den här snabbstarten kan du gå till den [Azure-portalen](https://portal.azure.com) och ta bort resursgruppen som du skapade i avsnittet krav.
+Om du vill rensa de resurser som skapades under den här snabb starten går du till [Azure Portal](https://portal.azure.com) och tar bort resurs gruppen som du skapade i avsnittet krav.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har du skapat en enkel webbplats som använder blob-lagring från webbläsarbaserade JavaScript. Om du vill veta hur du kan ha en webbplats själva på blob-lagring, Fortsätt till följande självstudie:
+I den här snabb starten har du skapat en enkel webbplats som har åtkomst till Blob Storage från webbläsarbaserat Java Script. Om du vill lära dig hur du kan vara värd för en webbplats på Blob Storage fortsätter du till följande självstudie:
 
 > [!div class="nextstepaction"]
-> [Vara värd för en statisk webbplats i Blob-lagring](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website-host)
+> [Var värd för en statisk webbplats på Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website-host)

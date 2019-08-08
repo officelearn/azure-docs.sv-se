@@ -1,7 +1,7 @@
 ---
-title: Träna och registrera kedje modeller
+title: Träna djup inlärning neurala nätverk med kedjer
 titleSuffix: Azure Machine Learning service
-description: Den här artikeln visar hur du tränar och registrerar en kedje modell med Azure Machine Learning-tjänsten.
+description: Lär dig hur du kör dina PyTorch-utbildnings skript i företags skala med hjälp av Azure Machine Learnings uppskattare-klass.  I exempel skriptet classifis skrivna siffror för att bygga ett djup inlärnings neurala nätverk med hjälp av kedje-och python-biblioteket som körs ovanpå numpy.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,21 +9,21 @@ ms.topic: conceptual
 ms.author: maxluk
 author: maxluk
 ms.reviewer: sdgilley
-ms.date: 06/15/2019
-ms.openlocfilehash: 7cf5650708cd951e872e3df6ea533a62bde0389d
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
-ms.translationtype: MT
+ms.date: 08/02/2019
+ms.openlocfilehash: f95a7efd8b9303db0a9ba98c1be32e13d0c5e984
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68618335"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780891"
 ---
 # <a name="train-and-register-chainer-models-at-scale-with-azure-machine-learning-service"></a>Träna och registrera kedje modeller i stor skala med Azure Machine Learning-tjänsten
 
-Den här artikeln visar hur du tränar och registrerar en kedje modell med Azure Machine Learning-tjänsten. Den använder den populära [MNIST](http://yann.lecun.com/exdb/mnist/) -datauppsättningen för att klassificera handskrivna siffror med ett djup neurala-nätverk (DNN) som skapats med [kedje-python-biblioteket](https://Chainer.org) som körs ovanpå [numpy](https://www.numpy.org/).
+I den här artikeln får du lära dig hur du kör dina [kedje](https://chainer.org/) praktik skript i företags skala med [](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) hjälp av Azure Machine learnings uppskattare-klass. Exempel övnings skriptet i den här artikeln använder den populära [MNIST](http://yann.lecun.com/exdb/mnist/) -datauppsättningen för att klassificera handskrivna siffror med ett djup neurala-nätverk (DNN) som skapats med hjälp av kedje-python-biblioteket som körs ovanpå [numpy](https://www.numpy.org/).
 
-Kedjor är en högnivås neurala nätverks-API som kan köras ovanpå andra populära DNN-ramverk för att förenkla utvecklingen. Med Azure Machine Learning tjänsten kan du snabbt skala ut utbildnings jobb med elastiska moln beräknings resurser. Du kan också spåra dina utbildnings körningar, versions modeller, distribuera modeller och mycket mer.
+Oavsett om du tränar en djup inlärnings kedja från grunden eller om du använder en befintlig modell i molnet kan du använda Azure Machine Learning för att skala ut utbildnings jobb med elastiska moln med hjälp av elastiska moln beräknings resurser. Du kan bygga, distribuera, hantera och övervaka modeller av produktions klass med Azure Machine Learning. 
 
-Oavsett om du utvecklar en kedjar-modell från grunden eller om du använder en befintlig modell i molnet kan Azure Machine Learning tjänsten hjälpa dig att skapa produktions klara modeller.
+Lär dig mer om [djup inlärning vs Machine Learning](concept-deep-learning-vs-machine-learning.md).
 
 Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfria versionen eller betalversionen av Azure Machine Learning-tjänsten](https://aka.ms/AMLFree) i dag.
 
@@ -33,8 +33,8 @@ Kör den här koden i någon av följande miljöer:
 
 - Azure Machine Learning Notebook VM – inga hämtningar eller installationer behövs
 
-    - Slutför snabb starten för den [molnbaserade bärbara datorn](quickstart-run-cloud-notebook.md) för att skapa en dedikerad Notebook-server som är förinstallerad med SDK och exempel lagrings plats.
-    - I mappen Samples på Notebook-servern hittar du en slutförd antecknings bok och filer i mappen **How-to-use-azureml/Training-with-djupgående-Learning/Train-Out-with-Chainer** .  Antecknings boken innehåller utökade avsnitt som täcker intelligenta parametrar, modell distribution och Notebook-widgetar.
+    - Slutför [Självstudie: Konfigurera miljö och arbets](tutorial-1st-experiment-sdk-setup.md) yta för att skapa en dedikerad Notebook-server som är förinstallerad med SDK och exempel lagrings plats.
+    - I mappen Samples djup inlärning på Notebook-servern hittar du en slutförd antecknings bok och filer i **azureml/Training-with-djupgående-Learning/Train-Out-with-Chainer** -mappen.  Antecknings boken innehåller utökade avsnitt som täcker intelligenta parametrar, modell distribution och Notebook-widgetar.
 
 - Din egen Jupyter Notebook Server
 
@@ -94,7 +94,7 @@ import shutil
 shutil.copy('chainer_mnist.py', project_folder)
 ```
 
-### <a name="create-an-experiment"></a>Skapa ett experiment
+### <a name="create-a-deep-learning-experiment"></a>Skapa ett djup inlärnings experiment
 
 Skapa ett experiment. I det här exemplet skapar du ett experiment med namnet "kedjeer-mnist".
 
@@ -209,9 +209,7 @@ for f in run.get_file_names():
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du tränat en kedje modell i Azure Machine Learning-tjänsten. 
-
-* Om du vill lära dig hur du distribuerar en modell fortsätter du till vår [modell distributions](how-to-deploy-and-where.md) artikel.
+I den här artikeln har du tränat och registrerat en djup inlärning, neurala Network med hjälp av kedjor på Azure Machine Learning-tjänsten. Om du vill lära dig hur du distribuerar en modell fortsätter du till vår [modell distributions](how-to-deploy-and-where.md) artikel.
 
 * [Justering av hyperparametrar](how-to-tune-hyperparameters.md)
 

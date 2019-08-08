@@ -1,6 +1,6 @@
 ---
-title: Förstå OAuth 2.0-auktoriseringskodflödet i Azure AD
-description: 'Den här artikeln beskriver hur du använder HTTP-meddelanden för att bevilja åtkomst till webbprogram och webb-API: er i din klient med Azure Active Directory och OAuth 2.0.'
+title: Förstå OAuth 2,0 Authorization Code Flow i Azure AD
+description: 'Den här artikeln beskriver hur du använder HTTP-meddelanden för att ge åtkomst till webb program och webb-API: er i din klient med hjälp av Azure Active Directory och OAuth 2,0.'
 services: active-directory
 documentationcenter: .net
 author: rwike77
@@ -11,36 +11,36 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/05/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e05d79773cfd2ebae8047e75d41684de9101787a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 719939b393b01938a4d4faa41a5dca163b2a8949
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65962174"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68834710"
 ---
 # <a name="authorize-access-to-azure-active-directory-web-applications-using-the-oauth-20-code-grant-flow"></a>Auktorisera åtkomst till Azure Active Directory-webbprogram med beviljandeflödet för OAuth 2.0-kod
 
-Azure Active Directory (Azure AD) används OAuth 2.0 att bevilja åtkomst till webbprogram och webb-API: er i Azure AD-klienten. Den här handboken är språkoberoende och beskriver hur du skickar och tar emot HTTP-meddelanden utan att använda någon av våra [bibliotek med öppen källkod](active-directory-authentication-libraries.md).
+Azure Active Directory (Azure AD) använder OAuth 2,0 för att ge åtkomst till webb program och webb-API: er i Azure AD-klienten. Den här guiden är språk oberoende och beskriver hur du skickar och tar emot HTTP-meddelanden utan att använda några av våra [bibliotek med öppen källkod](active-directory-authentication-libraries.md).
 
-OAuth 2.0-auktoriseringskodflödet beskrivs i [avsnitt 4.1 i OAuth 2.0-specifikationen](https://tools.ietf.org/html/rfc6749#section-4.1). Den används för att utföra autentisering och auktorisering i de flesta programtyper, bland annat web apps och internt installerade appar.
+OAuth 2,0 Authorization Code Flow beskrivs i [avsnittet 4,1 i oauth 2,0](https://tools.ietf.org/html/rfc6749#section-4.1)-specifikationen. Den används för att utföra autentisering och auktorisering i de flesta program typer, inklusive Web Apps och internt installerade appar.
 
 [!INCLUDE [active-directory-protocols-getting-started](../../../includes/active-directory-protocols-getting-started.md)]
 
-## <a name="oauth-20-authorization-flow"></a>Flöde för OAuth 2.0-auktorisering
+## <a name="oauth-20-authorization-flow"></a>OAuth 2,0-auktoriseringsarkiv
 
-På en hög nivå ut hela auktorisering flödet för ett program lite så här:
+På hög nivå ser hela auktoriseringsarkivet för ett program ut ungefär så här:
 
-![Kodflöde för OAuth-autentisering](./media/v1-protocols-oauth-code/active-directory-oauth-code-flow-native-app.png)
+![Kod flöde för OAuth-auth](./media/v1-protocols-oauth-code/active-directory-oauth-code-flow-native-app.png)
 
 ## <a name="request-an-authorization-code"></a>Begär en auktoriseringskod
 
-Auktoriseringskodsflödet börjar med klienten dirigera användare till den `/authorize` slutpunkt. I den här begäran anger klienten de behörigheter som krävs för att läsa från användaren. Du kan hämta slutpunkten för OAuth 2.0-auktorisering för din klient genom att välja **appregistreringar > slutpunkter** i Azure-portalen.
+Kod flödet för auktorisering börjar med klienten som dirigerar användaren till `/authorize` slut punkten. I den här förfrågan anger klienten de behörigheter som krävs för att hämta från användaren. Du kan få behörighets slut punkten för OAuth 2,0 för din klient genom att välja **Appregistreringar > slut punkter** i Azure Portal.
 
 ```
 // Line breaks for legibility only
@@ -56,26 +56,26 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | Parameter |  | Beskrivning |
 | --- | --- | --- |
-| tenant |Krävs |Den `{tenant}` värdet i sökvägen för begäran som kan användas för att styra vem som kan logga in i programmet. Tillåtna värden är klient-ID: n, till exempel `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` eller `contoso.onmicrosoft.com` eller `common` för klient-oberoende token |
-| client_id |Krävs |Program-ID som tilldelats din app när du registrerade med Azure AD. Du hittar du i Azure Portal. Klicka på **Azure Active Directory** i sidopanelen tjänster klickar du på **appregistreringar**, och välj programmet. |
-| response_type |Krävs |Måste innehålla `code` för auktoriseringskodsflödet. |
-| redirect_uri |Rekommenderas |Redirect_uri för din app, där autentiseringssvar kan skickas och tas emot av din app. Det måste exakt matcha en av redirect_uris som du registrerade i portalen, men det måste vara url-kodas. För interna & mobila appar, bör du använda standardvärdet för `urn:ietf:wg:oauth:2.0:oob`. |
-| response_mode |Valfritt |Anger den metod som ska användas för att skicka den resulterande token tillbaka till din app. Kan vara `query`, `fragment`, eller `form_post`. `query` innehåller koden som en frågesträngsparameter på din omdirigerings-URI. Om du ska få en ID-token med hjälp av det implicita flödet, du kan inte använda `query` som angetts på den [OpenID-specifikationen](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations). Om du ska få enbart koden, kan du använda `query`, `fragment`, eller `form_post`. `form_post` Kör ett INLÄGG som innehåller koden omdirigerings-URI. Standardvärdet är `query` för ett kodflöde.  |
-| state |Rekommenderas |Ett värde i begäran som returneras också i token-svaret. Ett slumpmässigt genererat unikt värde som normalt används för [att förhindra attacker med förfalskning av begäran](https://tools.ietf.org/html/rfc6749#section-10.12). Tillstånd används också för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffat, till exempel sidan eller vyn som de befann sig i. |
-| resource | Rekommenderas |App-ID URI för mål-webb-API (säker resurs). För att hitta URI: N för App-ID i Azure Portal, klickar du på **Azure Active Directory**, klickar du på **programregistreringar**, Öppna programmets **inställningar** sidan och klicka sedan på  **Egenskaper för**. Det kan också vara en extern resurs som `https://graph.microsoft.com`. Detta är nödvändigt i en av auktorisering eller tokenbegäranden. Om du vill kontrollera att färre authentication placeras anvisningarna den begäran om godkännande för att kontrollera medgivande tas emot från användaren. |
-| scope | **ignoreras** | För v1 Azure AD-appar, scope statiskt konfigureras i Azure Portal under programmen **inställningar**, **nödvändiga behörigheter**. |
-| fråga |Valfritt |Ange vilken typ av interaktion från användaren som krävs.<p> Giltiga värden är: <p> *login*: Användaren ska uppmanas att autentiseras på nytt. <p> *select_account*: Användaren uppmanas att välja ett konto att avbryta enkel inloggning på. Användaren kan välja ett befintligt inloggade konto, ange sina autentiseringsuppgifter för ett konto som är sparade eller välja att använda ett annat konto helt och hållet. <p> *godkänna*: Användargodkännande har beviljats, men behöver uppdateras. Användaren ska uppmanas att godkänna. <p> *admin_consent*: En administratör ska uppmanas att ge samtycke åt alla användare i organisationen |
-| login_hint |Valfritt |Kan användas för att fylla förväg adressfältet användarnamn/e-post i inloggningssidan för användaren, om du känner till sina användarnamn i tid. Appar som ofta använda den här parametern under omautentisering som redan har extraherats användarnamnet från en tidigare logga in med den `preferred_username` anspråk. |
-| domain_hint |Valfritt |Anger ett tips om klient eller domän som användaren ska använda för att logga in. Värdet för domain_hint är en registrerad domän för klienten. Om klienten är federerat till en lokal katalog, omdirigerar AAD till den angivna innehavare federationsservern. |
-| code_challenge_method | Rekommenderas    | Den metod som används för att koda den `code_verifier` för den `code_challenge` parametern. Kan vara något av `plain` eller `S256`. Om undantas identifieras `code_challenge` antas vara klartext om `code_challenge` ingår. Azure AAD v1.0 stöder både `plain` och `S256`. Mer information finns i den [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
-| code_challenge        | Rekommenderas    | Används för att skydda auktoriseringsbeviljanden kod via Proof-nyckel för kod Exchange (PKCE) från en intern eller offentlig klient. Krävs om `code_challenge_method` ingår. Mer information finns i den [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
+| tenant |obligatorisk |`{tenant}` Värdet i sökvägen till begäran kan användas för att styra vem som kan logga in på programmet. De tillåtna värdena är klient identifierare, till exempel `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` eller `contoso.onmicrosoft.com` eller `common` för klient oberoende token |
+| client_id |obligatorisk |Det program-ID som tilldelats din app när du registrerade den med Azure AD. Du hittar det här i Azure Portal. Klicka på **Azure Active Directory** på sid panelen tjänster, klicka på **Appregistreringar**och välj programmet. |
+| response_type |obligatorisk |Måste innehålla `code` för flödet av auktoriseringskod. |
+| redirect_uri |rekommenderas |Din app i redirect_uri där autentiserings svar kan skickas och tas emot av din app. Det måste exakt matcha ett av de redirect_uris som du registrerade i portalen, förutom att det måste vara URL-kodat. Använd standardvärdet `urn:ietf:wg:oauth:2.0:oob`för interna & mobila appar. |
+| response_mode |valfri |Anger den metod som ska användas för att skicka den resulterande token tillbaka till din app. Kan vara `query`, `fragment`eller. `form_post` `query`innehåller koden som en frågesträngparametern i omdirigerings-URI: n. Om du begär en ID-token med det implicita flödet kan du `query` inte använda enligt vad som anges i [OpenID](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations)-specifikationen. Om du bara begär koden kan du använda `query`, `fragment`, eller `form_post`. `form_post`kör ett inlägg som innehåller koden för omdirigerings-URI: n. Standardvärdet `query` är för ett kod flöde.  |
+| state |rekommenderas |Ett värde som ingår i begäran som också returneras i svaret från token. Ett slumpmässigt genererat unikt värde används vanligt vis för [att förhindra förfalsknings attacker på begäran](https://tools.ietf.org/html/rfc6749#section-10.12)från en annan plats. Statusen används också för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffade, t. ex. sidan eller vyn de var på. |
+| resource | rekommenderas |App-ID-URI för mål webb-API (säker resurs). Du hittar app-ID-URI: n i Azure-portalen genom att klicka på **Azure Active Directory**, klicka på **program registreringar**, öppna programmets **inställnings** sida och sedan klicka på **Egenskaper**. Det kan också vara en extern resurs som `https://graph.microsoft.com`. Detta krävs i någon av antingen auktoriserings-eller Tokenbegäran. För att se till att färre autentiseringar begärs, kan du placera det i auktoriseringsbegäran för att se till att medgivande tas emot från användaren. |
+| scope | **ignoreras** | För v1 Azure AD-appar måste omfattningar konfigureras statiskt i Azure-portalen under program **inställningarna**, vilka **behörigheter som krävs**. |
+| visas |valfri |Ange vilken typ av användar interaktion som krävs.<p> Giltiga värden är: <p> *login*: Användaren måste uppmanas att autentisera igen. <p> *select_account*: Användaren uppmanas att välja ett konto och avbryta enkel inloggning. Användaren kan välja ett befintligt inloggat konto, ange sina autentiseringsuppgifter för ett Sparad konto eller välja att använda ett annat konto helt och hållet. <p> *medgivande*: Användar medgivande har beviljats, men måste uppdateras. Användaren bör tillfrågas om samtycke. <p> *admin_consent*: En administratör bör tillfrågas om godkännande för alla användares räkning i organisationen |
+| login_hint |valfri |Kan användas för att fylla i fältet användar namn/e-postadress på inloggnings sidan för användaren, om du känner till användar namnet i förväg. Appar använder ofta den här parametern under omautentiseringen och har redan extraherat användar namnet från en tidigare inloggning med `preferred_username` hjälp av anspråket. |
+| domain_hint |valfri |Innehåller ett tips om den klient eller domän som användaren ska använda för att logga in. Värdet för domain_hint är en registrerad domän för klient organisationen. Om klienten är federerad till en lokal katalog dirigeras AAD om till den angivna klient Federations servern. |
+| code_challenge_method | rekommenderas    | Den metod som används för att koda `code_verifier` `code_challenge` för parametern. Kan vara en av `plain` eller `S256`. Om det utesluts, `code_challenge` antas vara oformaterad text om `code_challenge` ingår. Azure AAD v 1.0 stöder både `plain` och `S256`. Mer information finns i [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
+| code_challenge        | rekommenderas    | Används för att skydda auktoriseringskod-bidrag via bevis nyckel för Code Exchange (PKCE) från en intern eller offentlig klient. Krävs om `code_challenge_method` ingår. Mer information finns i [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
 
 > [!NOTE]
-> Om användaren är en del av en organisation, kan en administratör för organisationen godkänna eller neka för användarens räkning eller Tillåt användaren att godkänna. Användaren har möjlighet att godkänna endast när administratören tillåter den.
+> Om användaren är en del av en organisation kan en administratör av organisationen godkänna eller avböja användarens räkning eller tillåta att användaren godkänner det. Användaren får bara tillåtelse om administratören tillåter det.
 >
 >
 
-Nu uppmanas användaren att ange sina autentiseringsuppgifter och godkänna de behörigheter som begärdes av appen i Azure Portal. När användaren autentiserar och ger ditt medgivande, Azure AD skickar ett svar till din app på den `redirect_uri` adressen i din begäran med kod.
+Vid det här tillfället uppmanas användaren att ange sina autentiseringsuppgifter och samtycker till de behörigheter som begärs av appen i Azure-portalen. När användaren autentiserar och ger tillåtelse skickar Azure AD ett svar till din app på `redirect_uri` adressen i din begäran med koden.
 
 ### <a name="successful-response"></a>Lyckat svar
 Ett lyckat svar kan se ut så här:
@@ -87,13 +87,13 @@ Location: http://localhost:12345/?code= AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLE
 
 | Parameter | Beskrivning |
 | --- | --- |
-| admin_consent |Värdet är SANT om en administratör har godkänt att medgivandetext för begäran. |
-| code |Auktoriseringskod som programmet har begärt. Programmet kan använda Auktoriseringskoden för att begära en åtkomsttoken för målresursen. |
-| session_state |Ett unikt värde som identifierar den aktuella användarsessionen. Det här värdet är ett GUID, men ska behandlas som ett täckande värde som har skickats utan undersökning. |
-| state |Om en parametern state ingår i begäran, samma värde som ska visas i svaret. Det är bra för programmet för att kontrollera att värdena i begäran och svar är identiska innan du använder svaret. Detta hjälper dig för att identifiera [skriptkörning begär förfalskning (CSRF)-attacker](https://tools.ietf.org/html/rfc6749#section-10.12) mot klienten. |
+| admin_consent |Värdet är true om en administratör godkänner en begäran om medgivande. |
+| code |Auktoriseringskod som programmet begärde. Programmet kan använda auktoriseringskod för att begära en åtkomsttoken för mål resursen. |
+| session_state |Ett unikt värde som identifierar den aktuella användarsessionen. Det här värdet är ett GUID, men bör behandlas som ett ogenomskinligt värde som skickas utan undersökning. |
+| state |Om en tillstånds parameter ingår i begäran ska samma värde visas i svaret. Det är en bra idé för programmet att kontrol lera att tillstånds värden i begäran och svaret är identiska innan du använder svaret. Detta hjälper till att identifiera [CSRF-attacker (Cross-Site request förfalskning)](https://tools.ietf.org/html/rfc6749#section-10.12) mot klienten. |
 
-### <a name="error-response"></a>Felsvar
-Felsvar kan också skickas till den `redirect_uri` så att programmet kan hantera dem på lämpligt sätt.
+### <a name="error-response"></a>Fel svar
+Fel svar kan också skickas till `redirect_uri` så att programmet kan hantera dem på rätt sätt.
 
 ```
 GET http://localhost:12345/?
@@ -103,25 +103,25 @@ error=access_denied
 
 | Parameter | Beskrivning |
 | --- | --- |
-| error |Ett felvärde kod som definierats i avsnittet 5.2 av den [OAuth 2.0 auktorisering Framework](https://tools.ietf.org/html/rfc6749). I nästa tabell beskrivs felkoder som returnerar Azure AD. |
-| error_description |En mer detaljerad beskrivning av felet. Det här meddelandet är inte avsedd att vara slutanvändarens eget. |
-| state |Statusvärdet är ett slumpmässigt genererat, icke återanvändas värde som skickas i begäran och returnerades i svaret att förhindra attacker med förfalskning (CSRF) av begäran. |
+| error |Ett fel kods värde som definieras i avsnitt 5,2 i [Authorization Framework för OAuth 2,0](https://tools.ietf.org/html/rfc6749). I nästa tabell beskrivs de fel koder som returneras av Azure AD. |
+| error_description |En mer detaljerad beskrivning av felet. Det här meddelandet är inte avsett att vara användarvänligt. |
+| state |State-värdet är ett slumpmässigt genererat värde som inte kan återanvändas och som skickas i begäran och som returneras i svaret för att förhindra förfalskning av CSRF-attacker (Cross-Site Request). |
 
-#### <a name="error-codes-for-authorization-endpoint-errors"></a>Felkoder för slutpunkt-auktoriseringsfel
-I följande tabell beskrivs olika felkoder som kan returneras i de `error` -parametern för felsvaret.
+#### <a name="error-codes-for-authorization-endpoint-errors"></a>Felkoder för slut punkts fel i tillstånd
+I följande tabell beskrivs de olika fel koderna som kan returneras i `error` parametern för fel svaret.
 
-| Felkod | Beskrivning | Klientåtgärd |
+| Felkod | Beskrivning | Klient åtgärd |
 | --- | --- | --- |
-| invalid_request |Protokollfel, till exempel en obligatorisk parameter saknas. |Åtgärda och skicka begäran igen. Detta är ett utvecklingsfel och vanligtvis påträffades under första testningen. |
-| unauthorized_client |Klientprogrammet har inte behörighet att begära en auktoriseringskod. |Detta inträffar vanligtvis när klientprogrammet inte har registrerats i Azure AD eller har inte lagts till användarens Azure AD-klient. Programmet kan uppmana användaren med instruktion för att installera programmet och lägga till den till Azure AD. |
-| access_denied |Resursägaren nekas godkännande |Klientprogrammet kan meddela användaren om att det går inte att fortsätta om inte användaren godkänner. |
-| unsupported_response_type |Auktoriseringsservern stöder inte svarstypen i begäran. |Åtgärda och skicka begäran igen. Detta är ett utvecklingsfel och vanligtvis påträffades under första testningen. |
-| server_error |Ett oväntat fel inträffade på servern. |Gör om begäran. Dessa fel kan bero på tillfälliga förhållanden. Klientprogrammet kan förklara för användaren att svaret är försenad på grund av ett tillfälligt fel. |
-| temporarily_unavailable |Servern är tillfälligt för upptagen för att hantera begäran. |Gör om begäran. Klientprogrammet kan förklara för användaren att svaret är försenad på grund av ett tillfälligt tillstånd. |
-| invalid_resource |Målresursen är ogiltig eftersom den inte finns, Azure AD kan inte hitta den eller det inte är korrekt konfigurerad. |Detta anger resursen om den finns, inte har konfigurerats på klienten. Programmet kan uppmana användaren med instruktion för att installera programmet och lägga till den till Azure AD. |
+| invalid_request |Protokoll fel, till exempel en obligatorisk parameter som saknas. |Åtgärda och skicka begäran på nytt. Detta är ett utvecklings fel som vanligt vis fångas under den första testningen. |
+| unauthorized_client |Klient programmet har inte behörighet att begära en auktoriseringskod. |Detta inträffar vanligt vis när klient programmet inte är registrerat i Azure AD eller inte har lagts till i användarens Azure AD-klient. Programmet kan uppmana användaren att ange instruktioner för att installera programmet och lägga till det i Azure AD. |
+| access_denied |Resurs ägare nekade medgivande |Klient programmet kan meddela användaren att den inte kan fortsätta om inte användaren samtycks. |
+| unsupported_response_type |Auktoriseringsservern stöder inte svars typen i begäran. |Åtgärda och skicka begäran på nytt. Detta är ett utvecklings fel som vanligt vis fångas under den första testningen. |
+| server_error |Ett oväntat fel uppstod i servern. |Gör om begäran. Dessa fel kan orsakas av tillfälliga förhållanden. Klient programmet kan förklara för användaren att dess svar har fördröjts på grund av ett tillfälligt fel. |
+| temporarily_unavailable |Servern är tillfälligt upptagen och kan inte hantera begäran. |Gör om begäran. Klient programmet kan förklara för användaren att dess svar har fördröjts på grund av ett tillfälligt tillstånd. |
+| invalid_resource |Mål resursen är ogiltig eftersom den inte finns, det går inte att hitta den i Azure AD, eller så har den inte kon figurer ATS korrekt. |Detta anger att resursen, om den finns, inte har kon figurer ATS i klient organisationen. Programmet kan uppmana användaren att ange instruktioner för att installera programmet och lägga till det i Azure AD. |
 
-## <a name="use-the-authorization-code-to-request-an-access-token"></a>Använda Auktoriseringskoden för att begära en åtkomsttoken
-Nu när du har skaffat en auktoriseringskod och ha beviljats behörighet av användaren, kan du lösa in koden för en åtkomsttoken till önskad resurs genom att skicka en POST-begäran till den `/token` slutpunkt:
+## <a name="use-the-authorization-code-to-request-an-access-token"></a>Använd auktoriseringskod för att begära en åtkomsttoken
+Nu när du har skaffat en auktoriseringskod och har beviljats behörighet av användaren kan du lösa in koden för en åtkomsttoken till önskad resurs genom att skicka en post-begäran till `/token` slut punkten:
 
 ```
 // Line breaks for legibility only
@@ -141,21 +141,21 @@ grant_type=authorization_code
 
 | Parameter |  | Beskrivning |
 | --- | --- | --- |
-| tenant |Krävs |Den `{tenant}` värdet i sökvägen för begäran som kan användas för att styra vem som kan logga in i programmet. Tillåtna värden är klient-ID: n, till exempel `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` eller `contoso.onmicrosoft.com` eller `common` för klient-oberoende token |
-| client_id |Krävs |Program-Id som tilldelats din app när du registrerade med Azure AD. Du hittar du i Azure-portalen. Program-Id visas i inställningarna för registreringen. |
-| grant_type |Krävs |Måste vara `authorization_code` för auktoriseringskodsflödet. |
-| code |Krävs |Den `authorization_code` som du hämtade i föregående avsnitt |
-| redirect_uri |Krävs | En `redirect_uri`registrerad i klientprogrammet. |
-| client_secret |krävs för webbappar är inte tillåtet för offentliga klienter |Programhemlighet som du skapade i Azure Portal för din app under **nycklar**. Det kan inte användas i en inbyggd app (offentlig klient), eftersom client_secrets inte lagras på ett tillförlitligt sätt på enheter. Det krävs för webbappar och webb-API: er (alla konfidentiella klienter) som har möjlighet att lagra den `client_secret` på ett säkert sätt på serversidan. Client_secret ska URL-kodat innan de skickas. |
-| resource | Rekommenderas |App-ID URI för mål-webb-API (säker resurs). För att hitta URI: N för App-ID i Azure Portal, klickar du på **Azure Active Directory**, klickar du på **programregistreringar**, Öppna programmets **inställningar** sidan och klicka sedan på  **Egenskaper för**. Det kan också vara en extern resurs som `https://graph.microsoft.com`. Detta är nödvändigt i en av auktorisering eller tokenbegäranden. Om du vill kontrollera att färre authentication placeras anvisningarna den begäran om godkännande för att kontrollera medgivande tas emot från användaren. Om de finns i både auktoriseringsbegäran och tokenbegäran resursen ' parametrar måste matcha. | 
-| code_verifier | Valfritt | Den samma code_verifier som användes för att hämta authorization_code. Krävs om PKCE har använts i auktoriseringsbegäran kod bevilja. Mer information finns i den [PKCE RFC](https://tools.ietf.org/html/rfc7636)   |
+| tenant |obligatorisk |`{tenant}` Värdet i sökvägen till begäran kan användas för att styra vem som kan logga in på programmet. De tillåtna värdena är klient identifierare, till exempel `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` eller `contoso.onmicrosoft.com` eller `common` för klient oberoende token |
+| client_id |obligatorisk |Det program-ID som tilldelats din app när du registrerade den med Azure AD. Du hittar det här i Azure Portal. Program-ID visas i inställningarna för appens registrering. |
+| grant_type |obligatorisk |Måste vara `authorization_code` för flöde för auktoriseringskod. |
+| code |obligatorisk |Det `authorization_code` som du köpte i föregående avsnitt |
+| redirect_uri |obligatorisk | En `redirect_uri`registrerad i klient programmet. |
+| client_secret |krävs för webb program, tillåts inte för offentliga klienter |Program hemligheten som du skapade i Azure Portal för din app under **nycklar**. Det kan inte användas i en intern app (offentlig klient) eftersom client_secrets inte kan lagras på ett tillförlitligt sätt på enheter. Det krävs för webbappar och webb-API: er (alla konfidentiella klienter) som kan lagra `client_secret` säkert på Server sidan. Client_secret ska vara URL-kodad innan den skickas. |
+| resource | rekommenderas |App-ID-URI för mål webb-API (säker resurs). Du hittar app-ID-URI: n i Azure-portalen genom att klicka på **Azure Active Directory**, klicka på **program registreringar**, öppna programmets **inställnings** sida och sedan klicka på **Egenskaper**. Det kan också vara en extern resurs som `https://graph.microsoft.com`. Detta krävs i någon av antingen auktoriserings-eller Tokenbegäran. För att se till att färre autentiseringar begärs, kan du placera det i auktoriseringsbegäran för att se till att medgivande tas emot från användaren. Om både begäran om auktorisering och Tokenbegäran, måste resurs parametrarna överensstämma. | 
+| code_verifier | valfri | Samma code_verifier som användes för att hämta authorization_code. Krävs om PKCE användes i begäran om beviljande av auktoriseringskod. Mer information finns i [PKCE RFC](https://tools.ietf.org/html/rfc7636)   |
 
-För att hitta URI: N för App-ID i Azure Portal, klickar du på **Azure Active Directory**, klickar du på **programregistreringar**, Öppna programmets **inställningar** sidan och klicka sedan på  **Egenskaper för**.
+Du hittar app-ID-URI: n i Azure-portalen genom att klicka på **Azure Active Directory**, klicka på **program registreringar**, öppna programmets **inställnings** sida och sedan klicka på **Egenskaper**.
 
 ### <a name="successful-response"></a>Lyckat svar
-Azure AD-returnerar en [åtkomsttoken](access-tokens.md) vid ett lyckat svar. Om du vill minimera nätverksanrop från klientprogrammet och deras associerade svarstiden bör klientprogrammet cacheåtkomsttokens för livslängd för token som anges i OAuth 2.0-svar. För att fastställa livslängd för token, kan du använda antingen den `expires_in` eller `expires_on` parametervärden.
+Azure AD returnerar en [åtkomsttoken](access-tokens.md) efter ett lyckat svar. För att minimera nätverks anrop från klient programmet och deras associerade latens, ska klient programmet cachelagra åtkomsttoken för token som anges i OAuth 2,0-svaret. Du fastställer livs längden för token genom att `expires_in` använda `expires_on` antingen parameter värden eller.
 
-Om ett webb-API-resursen returnerar en `invalid_token` felkoden detta kan tyda på att resursen har fastställt att token har upphört att gälla. Om klienten och resurs klockan tiderna är olika (kallas en ”tidssnedställning”), resursen kan överväga att token har upphört att gälla innan token har raderats från klientens cacheminne. Om detta inträffar kan du avmarkera token från cacheminnet, även om det är fortfarande inom livslängden beräknade.
+Om en webb-API-resurs `invalid_token` returnerar en felkod, kan det betyda att resursen har fastställt att token har upphört att gälla. Om klient-och resurs klock tiderna skiljer sig (kallas "tids skevning") kan det hända att den token som upphör att gälla innan token rensas från klientens cacheminne. Om detta inträffar rensar du token från cachen, även om den fortfarande ligger inom dess beräknade livs längd.
 
 Ett lyckat svar kan se ut så här:
 
@@ -175,21 +175,21 @@ Ett lyckat svar kan se ut så här:
 
 | Parameter | Beskrivning |
 | --- | --- |
-| access_token |Den begärda [åtkomsttoken](access-tokens.md) som en signerad JSON Web Token (JWT). Appen kan använda den här token för att autentisera till den säkra resursen, till exempel ett webb-API. |
-| token_type |Anger typ tokenu värdet. Den enda typen som har stöd för Azure AD är ägar. Läs mer om ägar-token, [OAuth2.0 auktorisering Framework: Ägar-Token användning (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt) |
-| expires_in |Hur länge den åtkomst-token är giltig (i sekunder). |
-| expires_on |Den tid då den åtkomst-token upphör att gälla. Datumet visas som hur många sekunder en från 1970-01-01T0:0:0Z UTC tills de upphör att gälla. Det här värdet används för att fastställa livslängd för cachelagrade token. |
-| resource |App-ID URI för webb-API (säker resurs). |
-| scope |Personifiering behörigheter till klientprogrammet. Standardbehörigheten är `user_impersonation`. Ägaren till den skyddade resursen kan registrera ytterligare värden i Azure AD. |
-| refresh_token |OAuth 2.0-uppdateringstoken. Appen kan använda den här token för att hämta ytterligare åtkomst-token när den aktuella åtkomst-token upphör att gälla. Uppdatera token är långlivade och kan användas för att behålla åtkomst till resurser i längre tid. |
-| id_token |En osignerad JSON Web Token (JWT) som representerar en [ID-token](id-tokens.md). Appen kan base64Url avkoda segmenten i den här token för att begäraninformation om den användare som loggat in. Appen kan cachelagra värdena och visa dem, men det bör inte förlita dig på dem för auktorisering eller säkerhetsgränser. |
+| access_token |Den begärda åtkomsttoken som signerad JSON Web Token (JWT). [](access-tokens.md) Appen kan använda denna token för att autentisera till den skyddade resursen, till exempel ett webb-API. |
+| token_type |Anger värdet för token-typ. Den enda typ som Azure AD stöder är Bearer. Mer information om Bearer-token finns i [OAuth 2.0 Authorization Framework: Användning av Bearer-token (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt) |
+| expires_in |Hur länge åtkomsttoken är giltig (i sekunder). |
+| expires_on |Tiden då åtkomsttoken upphör att gälla. Datumet visas som antalet sekunder från 1970-01-01T0:0: 0Z UTC fram till förfallo tiden. Det här värdet används för att fastställa livs längden för cachelagrade token. |
+| resource |URI för app-ID för webb-API (säker resurs). |
+| scope |Personifierings behörigheter som beviljats till klient programmet. Standard behörigheten är `user_impersonation`. Ägaren till den skyddade resursen kan registrera ytterligare värden i Azure AD. |
+| refresh_token |En OAuth 2,0-uppdateringstoken. Appen kan använda denna token för att hämta ytterligare åtkomsttoken när den aktuella åtkomsttoken upphör att gälla. Uppdaterade token är långvariga och kan användas för att bevara åtkomsten till resurser under längre tids perioder. |
+| id_token |En osignerad JSON Web Token (JWT) som representerar en [ID-token](id-tokens.md). Appen kan base64Url avkoda segmenten i denna token för att begära information om den användare som har loggat in. Appen kan cachelagra värdena och visa dem, men det bör inte förlita sig på dem för några tillstånds-eller säkerhets gränser. |
 
-Mer information om JSON web token finns i den [JWT IETF utkast till en specifikation](https://go.microsoft.com/fwlink/?LinkId=392344).   Mer information om `id_tokens`, finns i den [v1.0 OpenID Connect-flöde](v1-protocols-openid-connect-code.md).
+Mer information om JSON-webbtoken finns i [utkast specifikationen för JWT IETF](https://go.microsoft.com/fwlink/?LinkId=392344).   Mer information finns i [v 1.0 OpenID Connect-flödet.](v1-protocols-openid-connect-code.md) `id_tokens`
 
-### <a name="error-response"></a>Felsvar
-Utfärdande endpoint felen är HTTP-felkoder, eftersom klienten anropar utfärdande slutpunkten direkt. Utöver HTTP-statuskod returnerar Azure AD-slutpunkten för utfärdande också ett JSON-dokument med objekt som beskriver felet.
+### <a name="error-response"></a>Fel svar
+Fel vid slut punkt för utfärdande av token är HTTP-felkoder eftersom klienten anropar slut punkten för utfärdande av token direkt. Förutom HTTP-statuskoden returnerar slut punkten för utfärdande av Azure AD-token även ett JSON-dokument med objekt som beskriver felet.
 
-En exempel-felsvar kan se ut så här:
+Ett exempel fel svar kan se ut så här:
 
 ```
 {
@@ -206,37 +206,37 @@ En exempel-felsvar kan se ut så här:
 ```
 | Parameter | Beskrivning |
 | --- | --- |
-| error |En felkodsträngen som kan användas för att klassificera typer av fel som inträffar och kan användas för att ta hänsyn till fel. |
-| error_description |Ett felmeddelande som kan hjälpa utvecklare identifiera grundorsaken till ett autentiseringsfel. |
-| error_codes |En lista över STS-specifika felkoder som kan hjälpa i diagnostik. |
-| timestamp |Den tid då felet inträffade. |
+| error |En fel kods sträng som kan användas för att klassificera typer av fel som inträffar och som kan användas för att reagera på fel. |
+| error_description |Ett fel meddelande som kan hjälpa en utvecklare att identifiera rotor saken vid ett autentiseringsfel. |
+| error_codes |En lista med STS-specificerade felkoder som kan hjälpa dig i diagnostik. |
+| timestamp |Tiden då felet inträffade. |
 | trace_id |En unik identifierare för begäran som kan hjälpa i diagnostik. |
-| correlation_id |En unik identifierare för begäran som kan hjälpa i diagnostik för komponenter. |
+| correlation_id |En unik identifierare för begäran som kan hjälpa dig i diagnostiken mellan komponenter. |
 
 #### <a name="http-status-codes"></a>HTTP-statuskoder
-I följande tabell visas de HTTP-statuskoder som utfärdande-slutpunkten returnerar. Felkoden är tillräckliga för att beskriva svaret i vissa fall, men om det finns fel kan du behöva parsa tillhörande JSON-dokumentet och undersök dess felkoden.
+I följande tabell visas de HTTP-statuskod som slut punkten för utfärdande av token returnerar. I vissa fall räcker det med fel koden för att beskriva svaret, men om det finns fel måste du parsa det tillhör ande JSON-dokumentet och undersöka dess felkod.
 
 | HTTP-kod | Beskrivning |
 | --- | --- |
-| 400 |Standard HTTP-kod. Används i de flesta fall och är vanligtvis på grund av en felaktig begäran. Åtgärda och skicka begäran igen. |
-| 401 |Autentiseringen misslyckades. Begäran saknar till exempel client_secret-parametern. |
-| 403 |Auktoriseringen misslyckades. Exempelvis kan saknar användaren behörighet att komma åt resursen. |
-| 500 |Ett internt fel har uppstått på tjänsten. Gör om begäran. |
+| 400 |Standard-HTTP-kod. Används i de flesta fall och är vanligt vis på grund av en felformaterad begäran. Åtgärda och skicka begäran på nytt. |
+| 401 |Autentiseringen misslyckades. Förfrågan saknar till exempel parametern client_secret. |
+| 403 |Auktoriseringen misslyckades. Användaren har till exempel inte behörighet att komma åt resursen. |
+| 500 |Ett internt fel har inträffat på tjänsten. Gör om begäran. |
 
-#### <a name="error-codes-for-token-endpoint-errors"></a>Felkoder för tokenslutpunkt fel
-| Felkod | Beskrivning | Klientåtgärd |
+#### <a name="error-codes-for-token-endpoint-errors"></a>Felkoder för token slut punkts fel
+| Felkod | Beskrivning | Klient åtgärd |
 | --- | --- | --- |
-| invalid_request |Protokollfel, till exempel en obligatorisk parameter saknas. |Åtgärda och skicka begäran igen |
-| invalid_grant |Auktoriseringskoden är ogiltigt eller har upphört att gälla. |Testa en ny begäran till den `/authorize` slutpunkt |
-| unauthorized_client |Den autentiserade klienten har inte behörighet att använda den här beviljandetypen för auktorisering. |Detta inträffar vanligtvis när klientprogrammet inte har registrerats i Azure AD eller har inte lagts till användarens Azure AD-klient. Programmet kan uppmana användaren med instruktion för att installera programmet och lägga till den till Azure AD. |
-| invalid_client |Klientautentiseringen misslyckades. |Med klientens autentiseringsuppgifter är inte giltiga. Du kan åtgärda genom uppdaterar programadministratören autentiseringsuppgifterna. |
-| unsupported_grant_type |Auktoriseringsservern stöder inte beviljandetypen för auktorisering. |Ändra beviljandetyp i begäran. Den här typen av fel ska ske under utveckling och identifieras under första testningen. |
-| invalid_resource |Målresursen är ogiltig eftersom den inte finns, Azure AD kan inte hitta den eller det inte är korrekt konfigurerad. |Detta anger resursen om den finns, inte har konfigurerats på klienten. Programmet kan uppmana användaren med instruktion för att installera programmet och lägga till den till Azure AD. |
-| interaction_required |Begäran kräver interaktion från användaren. Till exempel krävs ett steg för ytterligare autentisering. | Försök igen med en interaktiv auktoriseringsbegäran för samma resurs i stället för en icke-interaktiv begäran. |
-| temporarily_unavailable |Servern är tillfälligt för upptagen för att hantera begäran. |Gör om begäran. Klientprogrammet kan förklara för användaren att svaret är försenad på grund av ett tillfälligt tillstånd. |
+| invalid_request |Protokoll fel, till exempel en obligatorisk parameter som saknas. |Åtgärda och skicka begäran på nytt |
+| invalid_grant |Auktoriseringskod är ogiltig eller har upphört att gälla. |Testa en ny begäran till `/authorize` slut punkten |
+| unauthorized_client |Den autentiserade klienten har inte behörighet att använda den här typen av Authorization-beviljande. |Detta inträffar vanligt vis när klient programmet inte är registrerat i Azure AD eller inte har lagts till i användarens Azure AD-klient. Programmet kan uppmana användaren att ange instruktioner för att installera programmet och lägga till det i Azure AD. |
+| invalid_client |Klientautentisering misslyckades. |Klientautentiseringsuppgifterna är inte giltiga. För att åtgärda detta uppdaterar program administratören autentiseringsuppgifterna. |
+| unsupported_grant_type |Auktoriseringsservern stöder inte typen för auktoriserings beviljande. |Ändra beviljad typ i begäran. Den här typen av fel bör bara inträffa under utvecklingen och identifieras under den första testningen. |
+| invalid_resource |Mål resursen är ogiltig eftersom den inte finns, det går inte att hitta den i Azure AD, eller så har den inte kon figurer ATS korrekt. |Detta anger att resursen, om den finns, inte har kon figurer ATS i klient organisationen. Programmet kan uppmana användaren att ange instruktioner för att installera programmet och lägga till det i Azure AD. |
+| interaction_required |Begäran kräver användar interaktion. Till exempel krävs ytterligare ett autentiserings steg. | I stället för en icke-interaktiv begäran försöker du igen med en interaktiv auktoriseringsbegäran för samma resurs. |
+| temporarily_unavailable |Servern är tillfälligt upptagen och kan inte hantera begäran. |Gör om begäran. Klient programmet kan förklara för användaren att dess svar har fördröjts på grund av ett tillfälligt tillstånd. |
 
-## <a name="use-the-access-token-to-access-the-resource"></a>Använd åtkomsttoken för åtkomst till resursen
-Nu när du har skaffat har en `access_token`, du kan använda token i begäranden till webb-API: er, genom att inkludera den i den `Authorization` rubrik. Den [RFC 6750](https://www.rfc-editor.org/rfc/rfc6750.txt) specifikationen förklarar hur du använder ägar-token i HTTP-begäranden att komma åt skyddade resurser.
+## <a name="use-the-access-token-to-access-the-resource"></a>Använd åtkomsttoken för att få åtkomst till resursen
+Nu när du har skaffat en `access_token`kan du använda token i begär anden till webb-API: er, genom att `Authorization` inkludera den i rubriken. I [RFC 6750](https://www.rfc-editor.org/rfc/rfc6750.txt) -specifikationen beskrivs hur du använder Bearer-token i HTTP-begäranden för att komma åt skyddade resurser.
 
 ### <a name="sample-request"></a>Exempelbegäran
 ```
@@ -245,10 +245,10 @@ Host: service.contoso.com
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1THdqcHdBSk9NOW4tQSJ9.eyJhdWQiOiJodHRwczovL3NlcnZpY2UuY29udG9zby5jb20vIiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvN2ZlODE0NDctZGE1Ny00Mzg1LWJlY2ItNmRlNTdmMjE0NzdlLyIsImlhdCI6MTM4ODQ0MDg2MywibmJmIjoxMzg4NDQwODYzLCJleHAiOjEzODg0NDQ3NjMsInZlciI6IjEuMCIsInRpZCI6IjdmZTgxNDQ3LWRhNTctNDM4NS1iZWNiLTZkZTU3ZjIxNDc3ZSIsIm9pZCI6IjY4Mzg5YWUyLTYyZmEtNGIxOC05MWZlLTUzZGQxMDlkNzRmNSIsInVwbiI6ImZyYW5rbUBjb250b3NvLmNvbSIsInVuaXF1ZV9uYW1lIjoiZnJhbmttQGNvbnRvc28uY29tIiwic3ViIjoiZGVOcUlqOUlPRTlQV0pXYkhzZnRYdDJFYWJQVmwwQ2o4UUFtZWZSTFY5OCIsImZhbWlseV9uYW1lIjoiTWlsbGVyIiwiZ2l2ZW5fbmFtZSI6IkZyYW5rIiwiYXBwaWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0yNzRhNzJhNzMwOWUiLCJhcHBpZGFjciI6IjAiLCJzY3AiOiJ1c2VyX2ltcGVyc29uYXRpb24iLCJhY3IiOiIxIn0.JZw8jC0gptZxVC-7l5sFkdnJgP3_tRjeQEPgUn28XctVe3QqmheLZw7QVZDPCyGycDWBaqy7FLpSekET_BftDkewRhyHk9FW_KeEz0ch2c3i08NGNDbr6XYGVayNuSesYk5Aw_p3ICRlUV1bqEwk-Jkzs9EEkQg4hbefqJS6yS1HoV_2EsEhpd_wCQpxK89WPs3hLYZETRJtG5kvCCEOvSHXmDE6eTHGTnEgsIk--UlPe275Dvou4gEAwLofhLDQbMSjnlV5VLsjimNBVcSRFShoxmQwBJR_b2011Y5IuD6St5zPnzruBbZYkGNurQK63TJPWmRd3mbJsGM0mf3CUQ
 ```
 
-### <a name="error-response"></a>Felsvar
-Skyddade resurser som implementerar RFC 6750 problemet HTTP-statuskoder. Om begäran innehåller inte autentiseringsuppgifter eller saknar token, svaret innehåller en `WWW-Authenticate` rubrik. När en begäran inte svarar resursservern med HTTP-statuskoden och en felkod.
+### <a name="error-response"></a>Fel svar
+Skyddade resurser som implementerar RFC 6750 utfärdar HTTP-statuskod. Om begäran inte innehåller autentiseringsuppgifter för autentisering eller saknar token, innehåller svaret en `WWW-Authenticate` rubrik. När en begäran Miss lyckas svarar resurs servern med HTTP-statuskod och en felkod.
 
-Följande är ett exempel på ett misslyckat svar när klientbegäran inte omfattar ägartoken:
+Följande är ett exempel på ett misslyckat svar när klientbegäran inte inkluderar Bearer-token:
 
 ```
 HTTP/1.1 401 Unauthorized
@@ -258,30 +258,30 @@ WWW-Authenticate: Bearer authorization_uri="https://login.microsoftonline.com/co
 #### <a name="error-parameters"></a>Fel parametrar
 | Parameter | Beskrivning |
 | --- | --- |
-| authorization_uri |URI: N (fysiska slutpunkt) av auktoriseringsservern. Det här värdet används också som en lookup-nyckel för att få mer information om servern från en slutpunkt för identifiering. <p><p> Klienten måste verifiera att auktoriseringsservern är betrodd. När resursen skyddas av Azure AD, det är tillräckligt för att verifiera att URL: en börjar med https://login.microsoftonline.com eller ett annat värdnamn som har stöd för Azure AD. En klientspecifik resurs ska alltid returnera en klientspecifik auktorisering URI. |
-| error |Ett felvärde kod som definierats i avsnittet 5.2 av den [OAuth 2.0 auktorisering Framework](https://tools.ietf.org/html/rfc6749). |
-| error_description |En mer detaljerad beskrivning av felet. Det här meddelandet är inte avsedd att vara slutanvändarens eget. |
-| resource_id |Returnerar den unika identifieraren för resursen. Klientprogrammet kan använda den här identifieraren som värde för den `resource` parametern när det begär en token för resursen. <p><p> Det är viktigt för klientprogram att verifiera det här värdet, annars en skadlig tjänsten kanske kan orsaka en **höjning av privilegier** attack <p><p> Den rekommenderade strategin för att förhindra ett angrepp är att kontrollera att den `resource_id` matchar basen för web API-URL som används. Till exempel om https://service.contoso.com/data används, den `resource_id` kan vara htttps://service.contoso.com/. Klientprogrammet måste avvisa en `resource_id` som börjar inte med den grundläggande Webbadressen om det inte finns en tillförlitligt alternativa sätt att kontrollera id. |
+| authorization_uri |Den URI (fysiska slut punkten) för auktoriseringsservern. Det här värdet används också som en uppslags nyckel för att få mer information om servern från en identifierings slut punkt. <p><p> Klienten måste verifiera att auktoriseringsservern är betrodd. När resursen skyddas av Azure AD räcker det med att verifiera att URL: en börjar med https://login.microsoftonline.com eller ett annat värdnamn som stöds av Azure AD. En klient organisations resurs måste alltid returnera en klient-Specific Authorization URI. |
+| error |Ett fel kods värde som definieras i avsnitt 5,2 i [Authorization Framework för OAuth 2,0](https://tools.ietf.org/html/rfc6749). |
+| error_description |En mer detaljerad beskrivning av felet. Det här meddelandet är inte avsett att vara användarvänligt. |
+| resource_id |Returnerar resursens unika identifierare. Klient programmet kan använda den här identifieraren som `resource` parameter värde när den begär en token för resursen. <p><p> Det är viktigt att klient programmet kan verifiera det här värdet, annars kan en skadlig tjänst medföra en utöknings bar behörighets attack <p><p> Den rekommenderade strategin för att förhindra ett angrepp är att kontrol lera `resource_id` att matchar basen i webb-API-URL: en som används. Om https://service.contoso.com/data till exempel används `resource_id` , kan vara htttps://service.contoso.com/. Klient programmet måste avvisa en `resource_id` som inte börjar med bas-URL, såvida det inte finns ett tillförlitligt alternativ för att verifiera id: t. |
 
-#### <a name="bearer-scheme-error-codes"></a>Felkoder för ägar-schema
-Specifikationen RFC 6750 definierar följande fel för resurser som använder WWW-autentisera rubrik och ägar-schema i svaret.
+#### <a name="bearer-scheme-error-codes"></a>Fel koder för Bearer-schema
+RFC 6750-specifikationen definierar följande fel för resurser som använder sig av WWW-autentisera-huvudet och Bearer-schemat i svaret.
 
-| HTTP-statuskod | Felkod | Beskrivning | Klientåtgärd |
+| HTTP-statuskod | Felkod | Beskrivning | Klient åtgärd |
 | --- | --- | --- | --- |
-| 400 |invalid_request |Begäran är inte giltig. Det kan exempelvis en parameter saknas eller använda samma parameter två gånger. |Åtgärda felet och försök begäran. Den här typen av fel ska ske under utveckling och upptäcks i första testningen. |
-| 401 |invalid_token |Åtkomsttoken är saknas, är ogiltig eller har återkallats. Värdet för parametern error_description innehåller ytterligare information. |Begär en ny token från auktoriseringsservern. Om den nya token misslyckas, har ett oväntat fel uppstått. Skicka ett felmeddelande till användaren och försök igen efter slumpmässiga fördröjningar. |
-| 403 |insufficient_scope |Åtkomsttoken innehåller inte de personifiering behörigheter som krävs för åtkomst till resursen. |Skicka en ny begäran om godkännande till slutpunkten för auktorisering. Om svaret innehåller omfångets parameter kan du använda scope-värde i begäran till resursen. |
-| 403 |insufficient_access |Ämnet för token har inte de behörigheter som krävs för att få åtkomst till resursen. |Uppmana användaren att använda ett annat konto eller begär behörighet till den angivna resursen. |
+| 400 |invalid_request |Begäran är inte korrekt formaterad. Den kan till exempel sakna en parameter eller använda samma parameter två gånger. |Åtgärda felet och försök att utföra begäran igen. Den här typen av fel bör bara inträffa under utvecklingen och identifieras vid inledande testning. |
+| 401 |invalid_token |Åtkomsttoken saknas, är ogiltig eller har återkallats. Värdet för parametern error_description ger ytterligare information. |Begär en ny token från auktoriseringsservern. Ett oväntat fel har uppstått om den nya token Miss lyckas. Skicka ett fel meddelande till användaren och försök igen efter slumpmässiga fördröjningar. |
+| 403 |insufficient_scope |Åtkomsttoken innehåller inte de personifierings behörigheter som krävs för att komma åt resursen. |Skicka en ny auktoriseringsbegäran till behörighets slut punkten. Om svaret innehåller omfattnings parametern använder du värdet scope i begäran till resursen. |
+| 403 |insufficient_access |Ämnet för token har inte de behörigheter som krävs för att få åtkomst till resursen. |Be användaren att använda ett annat konto eller begära behörighet till den angivna resursen. |
 
 ## <a name="refreshing-the-access-tokens"></a>Uppdatera åtkomsttoken
 
-Åtkomsttoken är tillfällig och måste uppdateras när de går ut om du vill fortsätta få åtkomst till resurser. Du kan uppdatera den `access_token` genom att skicka in en annan `POST` begäran till den `/token` slutpunkt, men den här tiden att tillhandahålla den `refresh_token` i stället för den `code`.  Uppdateringstoken är giltig för alla resurser som klienten redan har fått samtycka till att komma åt - därför en uppdateringstoken som skickats vid en begäran om `resource=https://graph.microsoft.com` kan användas för att begära en ny åtkomsttoken för `resource=https://contoso.com/api`. 
+Åtkomsttoken är korta och måste uppdateras när de har gått ut för att fortsätta att få åtkomst till resurser. Du kan `access_token` uppdatera genom att skicka en annan `POST` begäran till `/token` slut punkten, `code`men den här gången ger `refresh_token` i stället för.  Uppdateringstoken är giltiga för alla resurser som din klient redan har gett tillåtelse att komma åt, och en uppdateringstoken som utfärdats på en begäran för `resource=https://graph.microsoft.com` kan användas för att begära en ny åtkomsttoken för. `resource=https://contoso.com/api` 
 
-Uppdatera token har inte angiven livslängd. Livslängd för uppdateringstoken är oftast relativt lång. Men i vissa fall kan uppdaterings-tokens upphör att gälla, har återkallats eller saknar tillräcklig behörighet för den önskade åtgärden. Programmet behöver för att förvänta sig och hantera fel som returneras av utfärdande-slutpunkten på rätt sätt.
+Uppdaterade token har inte angivna livs längder. Normalt är livs längden för uppdateringstoken relativt lång. Men i vissa fall går det inte att uppdatera token, återkallas eller saknar tillräcklig behörighet för önskad åtgärd. Ditt program måste vänta och hantera fel som returneras av slut punkten för utfärdande av token korrekt.
 
-När du får ett svar med en uppdatering fel kan ta bort den aktuella uppdateringstoken och begär en ny auktoriseringskod eller åtkomsttoken. I synnerhet när med hjälp av en uppdatering av token i flödet Auktoriseringskodsbeviljande om du får ett svar med den `interaction_required` eller `invalid_grant` felkoder, ta bort uppdateringstoken och begär en ny auktoriseringskod.
+När du får ett svar med ett uppdaterings-token tar du bort den aktuella uppdateringstoken och begär en ny auktoriseringskod eller åtkomsttoken. I synnerhet när du använder en uppdateringstoken i flödet bevilja flöde, om du får ett svar med `interaction_required` -eller `invalid_grant` -felkoderna, tar du bort uppdateringstoken och begär en ny auktoriseringskod.
 
-Ett exempel på begäran till den **klientspecifik** slutpunkt (du kan också använda den **vanliga** slutpunkt) för att hämta en ny token med hjälp av en uppdateringstoken som ser ut så här:
+En exempel förfrågan till den **klient-/regionsspecifika** slut punkten (du kan också använda den **vanliga** slut punkten) för att få en ny åtkomsttoken med hjälp av en uppdateringstoken ser ut så här:
 
 ```
 // Line breaks for legibility only
@@ -298,7 +298,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 ```
 
 ### <a name="successful-response"></a>Lyckat svar
-Ett lyckat svar för token kommer att se ut:
+Ett lyckat svar på token kommer att se ut så här:
 
 ```
 {
@@ -312,16 +312,16 @@ Ett lyckat svar för token kommer att se ut:
 ```
 | Parameter | Beskrivning |
 | --- | --- |
-| token_type |Tokentypen. Det enda värdet som stöds är **ägar**. |
-| expires_in |Den återstående livslängden för token på några sekunder. Ett vanligt värde är 3 600 (en timme). |
-| expires_on |Datum och tid då token upphör att gälla. Datumet visas som hur många sekunder en från 1970-01-01T0:0:0Z UTC tills de upphör att gälla. |
-| resource |Identifierar den skyddade resursen som åtkomsttoken kan vara används för att åtkomst. |
-| scope |Personifiering behörigheter till native client-program. Standardbehörigheten är **user_impersonation**. Ägaren av målresursen kan registrera alternativa värden i Azure AD. |
-| access_token |Den nya åtkomst-token som begärdes. |
-| refresh_token |En ny OAuth 2.0-refresh_token som kan användas för att begära en ny åtkomsttoken när det i det här svaret upphör att gälla. |
+| token_type |Tokentyp. Det enda värde som stödsär Bearer. |
+| expires_in |Den återstående livstiden för token i sekunder. Ett typiskt värde är 3600 (en timme). |
+| expires_on |Datum och tid då token upphör att gälla. Datumet visas som antalet sekunder från 1970-01-01T0:0: 0Z UTC fram till förfallo tiden. |
+| resource |Identifierar den skyddade resurs som åtkomst-token kan användas för åtkomst till. |
+| scope |Personifierings behörigheter som beviljats till det interna klient programmet. Standard behörigheten är **user_impersonation**. Ägaren till mål resursen kan registrera alternativa värden i Azure AD. |
+| access_token |Den nya åtkomsttoken som begärdes. |
+| refresh_token |En ny OAuth 2,0 refresh_token som kan användas för att begära nya åtkomsttoken när den som används i det här svaret upphör att gälla. |
 
-### <a name="error-response"></a>Felsvar
-En exempel-felsvar kan se ut så här:
+### <a name="error-response"></a>Fel svar
+Ett exempel fel svar kan se ut så här:
 
 ```
 {
@@ -338,11 +338,11 @@ En exempel-felsvar kan se ut så här:
 
 | Parameter | Beskrivning |
 | --- | --- |
-| error |En felkodsträngen som kan användas för att klassificera typer av fel som inträffar och kan användas för att ta hänsyn till fel. |
-| error_description |Ett felmeddelande som kan hjälpa utvecklare identifiera grundorsaken till ett autentiseringsfel. |
-| error_codes |En lista över STS-specifika felkoder som kan hjälpa i diagnostik. |
-| timestamp |Den tid då felet inträffade. |
+| error |En fel kods sträng som kan användas för att klassificera typer av fel som inträffar och som kan användas för att reagera på fel. |
+| error_description |Ett fel meddelande som kan hjälpa en utvecklare att identifiera rotor saken vid ett autentiseringsfel. |
+| error_codes |En lista med STS-specificerade felkoder som kan hjälpa dig i diagnostik. |
+| timestamp |Tiden då felet inträffade. |
 | trace_id |En unik identifierare för begäran som kan hjälpa i diagnostik. |
-| correlation_id |En unik identifierare för begäran som kan hjälpa i diagnostik för komponenter. |
+| correlation_id |En unik identifierare för begäran som kan hjälpa dig i diagnostiken mellan komponenter. |
 
-En beskrivning av felkoder och rekommenderade klientåtgärd i [felkoder för tokenslutpunkt fel](#error-codes-for-token-endpoint-errors).
+En beskrivning av felkoderna och den rekommenderade klient åtgärden finns i felkoder för fel i [token slut punkt](#error-codes-for-token-endpoint-errors).

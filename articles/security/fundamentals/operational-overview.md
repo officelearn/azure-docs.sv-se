@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: tomsh
-ms.openlocfilehash: 7504fe890f9a7c0b282e2c2442307aeab27d6ff4
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: d863edba17b3dc688624e7095ee09744ca07192d
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726848"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780520"
 ---
 # <a name="azure-operational-security-overview"></a>Översikt över Azures drift säkerhet
 
-[Azures drift säkerhet](/azure/security/azure-operational-security) syftar på tjänster, kontroller och funktioner som är tillgängliga för användare för att skydda data, program och andra till gångar i Microsoft Azure. Det är ett ramverk som införlivar den kunskap som du har fått via en rad olika funktioner som är unika för Microsoft. Dessa funktioner omfattar Microsoft Security Development Lifecycle (SDL), Microsoft Security Response Center-programmet och djupgående medvetenhet om cybersäkerhet Threat landskap.
+[Drift säkerhet för Azure] (/Azure/Security/Fundamentals/Operational-Security syftar på tjänster, kontroller och funktioner som är tillgängliga för användare för att skydda data, program och andra till gångar i Microsoft Azure. Det är ett ramverk som införlivar den kunskap som du har fått via en rad olika funktioner som är unika för Microsoft. Dessa funktioner omfattar Microsoft Security Development Lifecycle (SDL), Microsoft Security Response Center-programmet och djupgående medvetenhet om cybersäkerhet Threat landskap.
 
 ## <a name="azure-management-services"></a>Hanterings tjänster för Azure
 

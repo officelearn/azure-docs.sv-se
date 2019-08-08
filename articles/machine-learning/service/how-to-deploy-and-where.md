@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 07/08/2019
+ms.date: 08/06/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: c7c2ba104b4d528cd3f8443e6f5615aa6ab3e672
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 7e88b99cf0ecede64d75b36eafdcc88798e2e4a4
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68720375"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840459"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Distribuera modeller med Azure Machine Learning-tjänsten
 
@@ -130,7 +130,7 @@ Skriptet innehåller två funktioner som läser in och kör modellen:
 
 * `run(input_data)`: Den här funktionen använder modellen för att förutsäga ett värde baserat på indata. Indata och utdata till körningen använder vanligt vis JSON för serialisering och avserialisering. Du kan också arbeta med rå data för rå data. Du kan transformera data innan du skickar dem till modellen eller innan du återgår till-klienten.
 
-#### <a name="what-is-getmodelpath"></a>Vad är get_model_path?
+#### <a name="what-is-get_model_path"></a>Vad är get_model_path?
 
 När du registrerar en modell anger du ett modell namn som används för att hantera modellen i registret. Du kan använda det här namnet med [modellen. get _model_path ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-) för att hämta sökvägen till modell filen (erna) i det lokala fil systemet. Om du registrerar en mapp eller en samling filer, returnerar detta API sökvägen till katalogen som innehåller filerna.
 
@@ -142,7 +142,7 @@ I exemplet nedan returneras en sökväg till en enskild fil som heter `sklearn_m
 model_path = Model.get_model_path('sklearn_mnist')
 ```
 
-#### <a name="optional-automatic-swagger-schema-generation"></a>Valfritt Automatisk generering av Swagger-schema
+#### <a name="optional-automatic-schema-generation"></a>Valfritt Automatisk schema generering
 
 För att automatiskt generera ett schema för webb tjänsten, ange ett exempel på indata och/eller utdata i konstruktorn för en av de definierade typ objekten och typen och exemplet används för att automatiskt skapa schemat. Azure Machine Learning-tjänsten skapar sedan en [openapi](https://swagger.io/docs/specification/about/) -specifikation (Swagger) för webb tjänsten under distributionen.
 
@@ -153,9 +153,10 @@ Följande typer stöds för närvarande:
 * `pyspark`
 * standard python-objekt
 
-Om du vill använda schema generering inkluderar `inference-schema` du paketet i din Conda-miljö fil. Följande exempel används `[numpy-support]` eftersom Entry-skriptet använder en numpy-parameter typ: 
+Om du vill använda schema generering inkluderar `inference-schema` du paketet i din Conda-miljö fil.
 
-#### <a name="example-dependencies-file"></a>Exempel beroende fil
+##### <a name="example-dependencies-file"></a>Exempel beroende fil
+
 Följande YAML är ett exempel på en fil för Conda-beroenden.
 
 ```YAML
@@ -168,14 +169,11 @@ dependencies:
     - inference-schema[numpy-support]
 ```
 
-Om du vill använda automatisk schema generering **måste** ditt Entry-skript importera `inference-schema` paketen. 
+Om du vill använda automatisk schema generering **måste** ditt Entry-skript importera `inference-schema` paketen.
 
 Definiera exempel formaten indata och utdata i `input_sample` variablerna och `output_sample` som representerar formatet för begäran och svar för webb tjänsten. Använd de här exemplen i funktionen indata och utdata dekoratörer `run()` i funktionen. I scikit – läras exemplet nedan används schema generering.
 
-> [!TIP]
-> När du har distribuerat tjänsten använder `swagger_uri` du egenskapen för att hämta schema-JSON-dokumentet.
-
-#### <a name="example-entry-script"></a>Exempel på post skript
+##### <a name="example-entry-script"></a>Exempel på post skript
 
 Följande exempel visar hur du accepterar och returnerar JSON-data:
 
@@ -216,9 +214,7 @@ def run(data):
         return error
 ```
 
-#### <a name="example-script-with-dictionary-input-support-consumption-from-power-bi"></a>Exempel skript med indatamängds ineffekt (support förbrukning från Power BI)
-
-Följande exempel visar hur du definierar indata som < nyckel: värde > ord lista med Dataframe. Den här metoden stöds för att konsumera den distribuerade webb tjänsten från Power BI ([Läs mer om hur du använder webb tjänsten från Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-integration)):
+Följande exempel visar hur du definierar indata som en `<key: value>` ord lista med hjälp av en Dataframe. Den här metoden stöds för att konsumera den distribuerade webb tjänsten från Power BI ([Läs mer om hur du använder webb tjänsten från Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-integration)):
 
 ```python
 import json
@@ -266,6 +262,7 @@ def run(data):
         error = str(e)
         return error
 ```
+
 Fler exempel skript finns i följande exempel:
 
 * Pytorch[https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-pytorch](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-pytorch)
@@ -369,6 +366,9 @@ Se [distribuera till Azure Kubernetes-tjänsten](how-to-deploy-azure-kubernetes-
 Varje distribuerad webb tjänst tillhandahåller en REST API, så att du kan skapa klient program på flera olika programmeringsspråk. Om du har aktiverat Key Authentication för tjänsten måste du ange en tjänst nyckel som en token i ditt begär ande huvud.
 Om du har aktiverat token-autentisering för tjänsten måste du ange en Azure Machine Learning JWT-token som Bearer-token i ditt begär ande huvud.
 
+> [!TIP]
+> Du kan hämta schema-JSON-dokumentet när du har distribuerat tjänsten. Använd [egenskapen swagger_uri](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py#swagger-uri) från den distribuerade webb tjänsten, till exempel `service.swagger_uri`, för att hämta URI: n till den lokala webb tjänstens Swagger-fil.
+
 ### <a name="request-response-consumption"></a>Användning av begäran-svar
 
 Här är ett exempel på hur du anropar din tjänst i python:
@@ -399,6 +399,147 @@ print(response.json())
 
 Mer information finns i [skapa klient program för att använda](how-to-consume-web-service.md)WebServices.
 
+### <a name="web-service-schema-openapi-specification"></a>Webb tjänst schema (OpenAPI-specifikation)
+
+Om du använde den automatiska schema genereringen med distributionen kan du hämta adressen till OpenAPI-specifikationen för tjänsten med hjälp av [egenskapen swagger_uri](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py#swagger-uri). Till exempel `print(service.swagger_uri)`. Använd en GET-begäran (eller öppna URI i en webbläsare) för att hämta specifikationen.
+
+Följande JSON-dokument är ett exempel på ett schema (OpenAPI-specifikation) som genereras för en distribution:
+
+```json
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "myservice",
+        "description": "API specification for the Azure Machine Learning service myservice",
+        "version": "1.0"
+    },
+    "schemes": [
+        "https"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "securityDefinitions": {
+        "Bearer": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header",
+            "description": "For example: Bearer abc123"
+        }
+    },
+    "paths": {
+        "/": {
+            "get": {
+                "operationId": "ServiceHealthCheck",
+                "description": "Simple health check endpoint to ensure the service is up at any given point.",
+                "responses": {
+                    "200": {
+                        "description": "If service is up and running, this response will be returned with the content 'Healthy'",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "examples": {
+                            "application/json": "Healthy"
+                        }
+                    },
+                    "default": {
+                        "description": "The service failed to execute due to an error.",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/score": {
+            "post": {
+                "operationId": "RunMLService",
+                "description": "Run web service's model and get the prediction output",
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "serviceInputPayload",
+                        "in": "body",
+                        "description": "The input payload for executing the real-time machine learning service.",
+                        "schema": {
+                            "$ref": "#/definitions/ServiceInput"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The service processed the input correctly and provided a result prediction, if applicable.",
+                        "schema": {
+                            "$ref": "#/definitions/ServiceOutput"
+                        }
+                    },
+                    "default": {
+                        "description": "The service failed to execute due to an error.",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "ServiceInput": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                }
+            },
+            "example": {
+                "data": [
+                    [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ]
+                ]
+            }
+        },
+        "ServiceOutput": {
+            "type": "array",
+            "items": {
+                "type": "number",
+                "format": "double"
+            },
+            "example": [
+                3726.995
+            ]
+        },
+        "ErrorResponse": {
+            "type": "object",
+            "properties": {
+                "status_code": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
+```
+
+Mer information om specifikationen finns i den [öppna API](https://swagger.io/specification/)-specifikationen.
+
+Ett verktyg som kan skapa klient bibliotek från specifikationen finns i [Swagger-CODEGEN](https://github.com/swagger-api/swagger-codegen).
 
 ### <a id="azuremlcompute"></a>Batch-härledning
 Azure Machine Learning beräknings mål skapas och hanteras av Azure Machine Learnings tjänsten. De kan användas för batch förutsägelse från Azure Machine Learning pipeliner.

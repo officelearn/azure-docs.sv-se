@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 7/26/2019
+ms.date: 8/2/2019
 ms.author: raiye
-ms.openlocfilehash: dd0adbe7cc27389e3b1d6533b038042824daea22
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 534a77ad29338ca1cdba22a3adeb8113521a6246
+ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68592443"
+ms.lasthandoff: 08/05/2019
+ms.locfileid: "68780080"
 ---
 # <a name="azure-guest-os"></a>Azure gäst operativ system
 Följande tabeller visar de uppdateringar av Microsoft Security Response Center (MSRC) som tillämpas på Azures gäst operativ system. Sök i den här artikeln för att avgöra om en viss uppdatering gäller det gäst operativ system som du använder. Uppdateringar överför alltid den specifika [familj][family-explain] som de introducerades i.
@@ -28,7 +28,6 @@ Följande tabeller visar de uppdateringar av Microsoft Security Response Center 
 | Produktkategori | Överordnad KB-artikel | Beskrivning av sårbarhet | Gästoperativsystem | Datum för första gången |
 | --- | --- | --- | --- | --- |
 |  Rel 19-07   |  [4507434]  |  Internet Explorer   |  2,88, 3,75, 4,68  |  9 juli 2019  |
-|  Rel 19-07   |  [4506621]  |  Windows-säkerhet   |  2,88, 3,75, 4,68  |  9 juli 2019  |
 |  Rel 19-07   |  [4506966]  |  .NET 4.5.2-säkerhet   |  2,88  |  9 juli 2019  |
 |  Rel 19-07   |  [4506976]  |  .NET 3.5.1-säkerhet   |  2,88  |  9 juli 2019  |
 |  Rel 19-07   |  [4507456]  |  Windows-säkerhet   |  2,88  |  9 juli 2019  |

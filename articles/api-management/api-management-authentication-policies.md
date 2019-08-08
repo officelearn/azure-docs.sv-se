@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 5ca9bd4964cf190eaa2be6d66d57c7ada971d675
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: bd31d711c58a63b5c15712c1774d48433c62f18d
+ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68442408"
+ms.lasthandoff: 08/03/2019
+ms.locfileid: "68774977"
 ---
 # <a name="api-management-authentication-policies"></a>Principer för API Management-autentisering
 Det här avsnittet innehåller en referens för följande API Managements principer. Information om hur du lägger till och konfigurerar principer finns [i principer i API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -83,64 +83,73 @@ I det här exemplet identifieras klient certifikatet med dess tumavtryck.
 <authentication-certificate thumbprint="CA06F56B258B7A0D4F2B05470939478651151984" />
 ```
 I det här exemplet identifieras klient certifikatet med resurs namnet.
-```xml
-<authentication-certificate certificate-id="544fe9ddf3b8f30fb490d90f" />
+```xml  
+<authentication-certificate certificate-id="544fe9ddf3b8f30fb490d90f" />  
+```  
+
+### <a name="elements"></a>Element  
+  
+|Namn|Beskrivning|Obligatorisk|  
+|----------|-----------------|--------------|  
+|autentisering-certifikat|Rot element.|Ja|  
+  
+### <a name="attributes"></a>Attribut  
+  
+|Namn|Beskrivning|Obligatorisk|Standard|  
+|----------|-----------------|--------------|-------------|  
+|begäran|Tumavtryck för klient certifikatet.|Antingen `thumbprint` eller`certificate-id` måste finnas.|Gäller inte|  
+|certifikat-ID|Certifikat resursens namn.|Antingen `thumbprint` eller`certificate-id` måste finnas.|Gäller inte|  
+  
+### <a name="usage"></a>Användning  
+ Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [områden](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+  
+-   **Princip avsnitt:** inkommande  
+  
+-   **Princip omfattningar:** alla omfattningar  
+
+##  <a name="ManagedIdentity"></a>Autentisera med hanterad identitet  
+ `authentication-managed-identity` Använd principen för att autentisera med en backend-tjänst med hjälp av den hanterade identiteten för den API Management tjänsten. Den här principen använder i princip den hanterade identiteten för att hämta en åtkomsttoken från Azure Active Directory för åtkomst till den angivna resursen. När token har hämtats ställer principen in värdet för token i `Authorization` rubriken `Bearer` med schemat.
+  
+### <a name="policy-statement"></a>Princip kommentar  
+  
+```xml  
+<authentication-managed-identity resource="resource" output-token-variable-name="token-variable" ignore-error="true|false"/>  
+```  
+  
+### <a name="example"></a>Exempel  
+#### <a name="use-managed-identity-to-authenticate-with-a-backend-service"></a>Använd hanterad identitet för att autentisera med en server dels tjänst
+```xml  
+<authentication-managed-identity resource="https://graph.windows.net"/> 
+```
+  
+#### <a name="use-managed-identity-in-send-request-policy"></a>Använd hanterad identitet i skicka begär ande princip
+```xml  
+<send-request mode="new" timeout="20" ignore-error="false">
+    <set-url>https://example.com/</set-url>
+    <set-method>GET</set-method>
+    <authentication-managed-identity resource="ResourceID"/>
+</send-request>
 ```
 
-### <a name="elements"></a>Element
-
-|Namn|Beskrivning|Obligatorisk|
-|----------|-----------------|--------------|
-|autentisering-certifikat|Rot element.|Ja|
-
-### <a name="attributes"></a>Attribut
-
-|Namn|Beskrivning|Obligatorisk|Standard|
-|----------|-----------------|--------------|-------------|
-|begäran|Tumavtryck för klient certifikatet.|Antingen `thumbprint` eller`certificate-id` måste finnas.|Gäller inte|
-|certifikat-ID|Certifikat resursens namn.|Antingen `thumbprint` eller`certificate-id` måste finnas.|Gäller inte|
-
-### <a name="usage"></a>Användning
- Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [områden](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
-
--   **Princip avsnitt:** inkommande
-
--   **Princip omfattningar:** alla omfattningar
-
-##  <a name="ManagedIdentity"></a>Autentisera med hanterad identitet
- `authentication-managed-identity` Använd principen för att autentisera med en backend-tjänst med hjälp av den hanterade identiteten för den API Management tjänsten. Den här principen använder den hanterade identiteten för att hämta en åtkomsttoken från Azure Active Directory för åtkomst till den angivna resursen.
-
-### <a name="policy-statement"></a>Princip kommentar
-
-```xml
-<authentication-managed-identity resource="resource" output-token-variable-name="token-variable" ignore-error="true|false"/>
-```
-
-### <a name="example"></a>Exempel
-
-```xml
-<authentication-managed-identity resource="https://graph.windows.net" output-token-variable-name="test-access-token" ignore-error="true" />
-```
-
-### <a name="elements"></a>Element
-
-|Namn|Beskrivning|Obligatorisk|
-|----------|-----------------|--------------|
-|autentisering-hanterad-identitet |Rot element.|Ja|
-
-### <a name="attributes"></a>Attribut
-
-|Namn|Beskrivning|Obligatorisk|Standard|
-|----------|-----------------|--------------|-------------|
-|resource|Nollängd. App-ID-URI för mål webb-API (säker resurs) i Azure Active Directory.|Ja|Gäller inte|
-|output-token-variable-name|Nollängd. Namnet på den Sammanhangs variabel som kommer att ta emot token- `string`värde som en objekt typ.|Nej|Gäller inte|
-|Ignorera-fel|Booleskt. Om detta är `true`inställt på, fortsätter princip pipelinen att köras även om en åtkomsttoken inte har hämtats.|Nej|false|
-
-### <a name="usage"></a>Användning
- Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [områden](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
-
--   **Princip avsnitt:** inkommande
-
+### <a name="elements"></a>Element  
+  
+|Namn|Beskrivning|Obligatorisk|  
+|----------|-----------------|--------------|  
+|autentisering-hanterad-identitet |Rot element.|Ja|  
+  
+### <a name="attributes"></a>Attribut  
+  
+|Namn|Beskrivning|Obligatorisk|Standard|  
+|----------|-----------------|--------------|-------------|  
+|resource|Nollängd. App-ID-URI för mål webb-API (säker resurs) i Azure Active Directory.|Ja|Gäller inte|  
+|output-token-variable-name|Nollängd. Namnet på den Sammanhangs variabel som kommer att ta emot token- `string`värde som en objekt typ. |Nej|Gäller inte|  
+|Ignorera-fel|Booleskt. Om detta är `true`inställt på, fortsätter princip pipelinen att köras även om en åtkomsttoken inte har hämtats.|Nej|false|  
+  
+### <a name="usage"></a>Användning  
+ Den här principen kan användas i följande princip [avsnitt](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) och [områden](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+  
+-   **Princip avsnitt:** inkommande  
+  
 -   **Princip omfattningar:** alla omfattningar
 
 ## <a name="next-steps"></a>Nästa steg

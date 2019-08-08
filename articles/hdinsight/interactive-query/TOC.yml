@@ -24,10 +24,10 @@
       maintainContext: true
     - name: Felsöka
       items:
-        - name: OutOfMemoryError-undantag
-          items:
-            - name: GC-utgiftsgränsen har överskridits
-              href: ./interactive-query-troubleshoot-outofmemory-overhead-exceeded.md
+        - name: GC-utgiftsgränsen har överskridits
+          href: ./interactive-query-troubleshoot-outofmemory-overhead-exceeded.md
+        - name: Apache Ambari Tez-vyn läses in långsamt
+          href: ./interactive-query-troubleshoot-tez-view-slow.md
         - name: Felmeddelande visas inte i Apache Hive-vyn
           href: ./interactive-query-troubleshoot-error-message-hive-view.md
         - name: Otillgänglig Apache Hive-vy

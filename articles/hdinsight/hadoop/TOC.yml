@@ -56,6 +56,8 @@
       maintainContext: true
     - name: Felsöka
       items:
+        - name: Slut på diskutrymme
+          href: ./hdinsight-troubleshoot-out-disk-space.md
         - name: Mjuk låsning – CPU
           href: ./hdinsight-troubleshoot-soft-lockup-cpu.md
         - name: InvalidNetworkConfigurationErrorCode – det går inte att skapa kluster
@@ -72,6 +74,8 @@
           href: ./hdinsight-hdfs-troubleshoot-safe-mode.md
         - name: Problem med pulsslag från Apache Ambari
           href: ./apache-ambari-troubleshoot-heartbeat-issues.md
+        - name: Apache Ambari visar värdar och tjänster ur funktion
+          href: ./apache-ambari-troubleshoot-down-hosts-services.md
 - name: Gör så här för att
   items:
     - name: Använda sandbox-miljön för Apache Hadoop

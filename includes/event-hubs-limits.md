@@ -8,43 +8,48 @@ ms.topic: include
 ms.date: 05/22/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: b105fb14608d53c5c2ef469ab44e211ccdf4d3c8
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 928b0bcfb32d1a319c811d00fc84a37f85702895
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67812477"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68857505"
 ---
-I följande tabell visas kvoter och gränser specifika för [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/). Information om priser för Event Hubs finns i [priser för Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/).
+I följande tabell visas kvoter och begränsningar som är begränsade till [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/). Information om Event Hubs priser finns i [Event Hubs prissättning](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 | Gräns | Omfång | Anteckningar | Value |
 | --- | --- | --- | --- |
-| Antal Event Hubs-namnområden per prenumeration |Subscription |- |100 |
-| Antal event-hubbar per namnområde |Namnrymd |Efterföljande förfrågningar för att skapa en ny händelsehubb avvisas. |10 |
-| Antalet partitioner per händelsehubb |Entitet |- |32 |
-| Antal konsumentgrupper per händelsehubb |Entitet |- |20 |
-| Antal AMQP-anslutningar per namnområde |Namnrymd |Efterföljande begäranden om ytterligare anslutningar avvisas och ett undantag tas emot av den anropande koden. |5,000 |
-| Maximal storlek för Event Hubs-händelse|Entitet |- |1 MB |
-| Maximal storlek på en event hub-namn |Entitet |- |50 tecken |
-| Antal icke-epoch mottagare per konsumentgrupp |Entitet |- |5 |
-| Högsta bevarandeperioden av händelsedata |Entitet |- |1-7 dagar |
-| Högsta antal Throughput Units |Namnrymd |Throughput unit överskrids gör att dina data till att begränsas och genererar en [upptagen server-undantag](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception). Om du vill begära ett större antal throughput units för en Standard-nivå, filen en [supportförfrågan](/azure/azure-supportability/how-to-create-azure-support-request). [Ytterligare throughput units](../articles/event-hubs/event-hubs-auto-inflate.md) är tillgängliga i block om 20 på åtagandeköpsbasis. |20 |
-| Antalet regler per namnområde |Namnrymd|Efterföljande begäranden om skapande av auktorisering avvisas.|12 |
-| Antal anrop till metoden GetRuntimeInformation | Entitet | - | 50 per sekund | 
-| Antalet virtuella nätverk (VNet) och IP-Config-regler | Entitet | - | 128 | 
+| Antal Event Hubs namn rymder per prenumeration |Subscription |- |100 |
+| Antal Event Hub per namnrymd |Namnrymd |Efterföljande begär Anden om att skapa en ny händelsehubben avvisas. |10 |
+| Antal partitioner per Event-hubb |Entitet |- |32 |
+| Maximal storlek för Event Hubs händelse|Entitet |- |1 MB |
+| Maximal storlek för ett Event Hub-namn |Entitet |- |50 tecken |
+| Antal icke-epok mottagare per konsument grupp |Entitet |- |5 |
+| Högsta antal Throughput Units |Namnrymd |Om gränsen överskrids kan data begränsas och ett undantag skapas för [servern](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception). Om du vill begära ett större antal data flödes enheter för en standard-nivå kan du skicka en [support förfrågan](/azure/azure-supportability/how-to-create-azure-support-request). [Ytterligare data flödes enheter](../articles/event-hubs/event-hubs-auto-inflate.md) är tillgängliga i block om 20 på ett dedikerat köp. |20 |
+| Antal auktoriseringsregler per namnrymd |Namnrymd|Efterföljande begär Anden om att skapa auktoriseringsregler avvisas.|12 |
+| Antal anrop till GetRuntimeInformation-metoden | Entitet | - | 50 per sekund | 
+| Antal virtuella nätverk (VNet) och IP config-regler | Entitet | - | 128 | 
 
-### <a name="event-hubs-dedicated---quotas-and-limits"></a>Event Hubs dedikerad - kvoter och begränsningar
-Event Hubs Dedicated erbjudandet debiteras enligt ett fast pris per månad, med minst 4 timmars användning. Nivån Dedicated innehåller alla funktioner i standardprenumerationen, men med enterprise skala kapacitet och begränsningar för kunder med krävande arbetsbelastningar. 
+### <a name="event-hubs-basic-and-standard---quotas-and-limits"></a>Event Hubs Basic-och standard-kvoter och-gränser
+| Gräns | Omfång | Anteckningar | Basic | Standard |
+| --- | --- | --- | -- | --- |
+| Antal konsument grupper per Event-hubb |Entitet | - |1 |20 |
+| Antal AMQP-anslutningar per namnrymd |Namnrymd |Efterföljande begär Anden om ytterligare anslutningar avvisas och ett undantag tas emot av den anropande koden. |100 |5,000|
+| Högsta kvarhållningsperiod för händelse data |Entitet | - |1 dag |1-7 dagar |
+
+
+### <a name="event-hubs-dedicated---quotas-and-limits"></a>Event Hubs Dedicated-kvoter och begränsningar
+Event Hubs Dedicated erbjudandet debiteras till ett fast månads pris, med minst fyra timmars användning. Den dedikerade nivån innehåller alla funktioner i standard planen, men med kapacitet för företags skala och gränser för kunder med krävande arbets belastningar. 
 
 | Funktion | Begränsningar |
 | --- | ---|
-| Bandbredd |  20 Cu: er |
-| Namnområden | 50 per Kapacitetsenhet |
-| Event Hubs |  1 000 per namnområde |
+| Bandbredd |  20 CUs |
+| Namnområden | 50 per CU |
+| Event Hubs |  1000 per namnrymd |
 | Ingångshändelser | Ingår |
-| Meddelandestorlek | 1 miljon byte |
-| Partitioner | 2000 per Kapacitetsenhet |
-| Konsumentgrupper | Ingen gräns per Kapacitetsenhet, 1 000 per händelsehubb |
+| Meddelandestorlek | 1 000 000 byte |
+| Partitioner | 2000 per CU |
+| Konsumentgrupper | Ingen gräns per CU, 1000 per Event-hubb |
 | Brokered Connections | 100 K ingår |
-| Meddelandelagring | Upp till 7 dagar (90-dagars kvarhållning kommer snart), ingår 10 TB per Kapacitetsenhet |
+| Meddelandelagring | Upp till 7 dagar (90 dag kvarhållning kommer snart), 10 TB inkluderat per CU |
 | Capture | Ingår |

@@ -1,24 +1,23 @@
 ---
-title: Azure Data Lake Storage Gen2 Introduction
-description: Översikt över Azure Data Lake Storage Gen2
-services: storage
+title: Azure Data Lake Storage Gen2 introduktion
+description: Ger en översikt över Azure Data Lake Storage Gen2
 author: normesta
 ms.service: storage
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: daa5efcf1be075e81e402edff56239a7cf21db18
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3dea4dfc58bf087b8f6bc0a3f45646da5cb597ad
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64939234"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847227"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2"></a>Introduktion till Azure Data Lake Storage Gen2
 
-Azure Data Lake Storage Gen2 är en uppsättning funktioner för analys av stordata, bygger på [Azure Blob storage](storage-blobs-introduction.md). Data Lake Storage Gen2 är resultatet av konvergerar funktionerna i våra två befintliga lagringstjänster, Azure Blob storage och Azure Data Lake Storage Gen1. Funktioner från [Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/index), t.ex. i filsystemen, katalog, och filen säkerhet och skalning kombineras med låg kostnad, nivåindelad lagring, hög tillgänglighet/haveriberedskap från [Azure Blob storage](storage-blobs-introduction.md).
+Azure Data Lake Storage Gen2 är en uppsättning funktioner som är avsedda för stor data analys och bygger på [Azure Blob Storage](storage-blobs-introduction.md). Data Lake Storage Gen2 är resultatet av konvergerar funktionerna i våra två befintliga lagringstjänster, Azure Blob storage och Azure Data Lake Storage Gen1. Funktioner från [Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/index), t.ex. i filsystemen, katalog, och filen säkerhet och skalning kombineras med låg kostnad, nivåindelad lagring, hög tillgänglighet/haveriberedskap från [Azure Blob storage](storage-blobs-introduction.md).
 
 ## <a name="designed-for-enterprise-big-data-analytics"></a>Utformad för enterprise stordataanalyser
 
@@ -38,13 +37,13 @@ Tidigare hade molnbaserad analys att angripa i delar av prestanda, hantering och
 
 ## <a name="key-features-of-data-lake-storage-gen2"></a>Viktiga funktioner i Data Lake Storage Gen2
 
--   **Hadoop-kompatibel åtkomst**: Data Lake Storage Gen2 kan du hantera och komma åt data precis som med en [Hadoop Distributed File System (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Den nya [ABFS drivrutinen](data-lake-storage-abfs-driver.md) är tillgängliga i alla Apache Hadoop-miljöer, inklusive [Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/index) *,* [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/index), och [SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/) att komma åt data som lagras i Data Lake Storage Gen2.
+-   **Hadoop-kompatibel åtkomst**: Med Data Lake Storage Gen2 kan du hantera och komma åt data precis som med en [Hadoop Distributed File System (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Den nya [ABFS drivrutinen](data-lake-storage-abfs-driver.md) är tillgängliga i alla Apache Hadoop-miljöer, inklusive [Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/index) *,* [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/index), och [SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/) att komma åt data som lagras i Data Lake Storage Gen2.
 
--   **En överordnad uppsättning av behörigheter av POSIX**: Säkerhetsmodellen för Data Lake Gen2 stöder ACL och POSIX behörigheter tillsammans med vissa extra kornighet som är specifika för Data Lake Storage Gen2. Inställningarna kan konfigureras via Storage Explorer eller ramverk som Hive och Spark.
+-   **En supermängd av POSIX-behörigheter**: Säkerhets modellen för Data Lake Gen2 stöder ACL-och POSIX-behörigheter tillsammans med viss extra detaljerad information för att Data Lake Storage Gen2. Inställningarna kan konfigureras via Storage Explorer eller ramverk som Hive och Spark.
 
--   **Kostnadseffektiv**: Data Lake Storage Gen2 erbjuder låg kostnad lagringskapacitet och transaktioner. Som data övergångar genom livscykeln klar, faktureringstaxor ändra kostnader för att se till att latensbidrag via de inbyggda funktionerna för till exempel [Azure Blob storage livscykel](storage-lifecycle-management-concepts.md).
+-   **Kostnads effektiv**: Data Lake Storage Gen2 erbjuder lagrings kapacitet och transaktioner med låg kostnad. Som data övergångar genom livscykeln klar, faktureringstaxor ändra kostnader för att se till att latensbidrag via de inbyggda funktionerna för till exempel [Azure Blob storage livscykel](storage-lifecycle-management-concepts.md).
 
--   **Optimerad drivrutinen**: ABFS-drivrutinen är [optimerats specifikt](data-lake-storage-abfs-driver.md) för analys av stordata. De motsvarande REST-API: erna exponeras via slutpunkten `dfs.core.windows.net`.
+-   **Optimerad driv rutin**: ABFS-drivrutinen [optimeras specifikt](data-lake-storage-abfs-driver.md) för stor data analys. Motsvarande REST-API: er visas genom slut punkten `dfs.core.windows.net`.
 
 ### <a name="scalability"></a>Skalbarhet
 
@@ -77,10 +76,10 @@ Data Lake Storage Gen2 har stöd för flera plattformar för öppen källkod. De
 | Plattform |  Versioner som stöds | Mer information |
 | --- | --- | --- |
 | [HDInsight](https://azure.microsoft.com/services/hdinsight/) | 3.6 + | [Vad är Apache Hadoop-komponenter och versioner som är tillgängliga med HDInsight?](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning?toc=%2Fen-us%2Fazure%2Fhdinsight%2Fstorm%2FTOC.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json)
-| [Hadoop](https://hadoop.apache.org/) | 3.2+ | [Apache Hadoop släpper Arkiv](https://hadoop.apache.org/release.html) |
+| [Hadoop](https://hadoop.apache.org/) | 3,2 + | [Apache Hadoop släpper Arkiv](https://hadoop.apache.org/release.html) |
 | [Cloudera](https://www.cloudera.com/) | 6.1 + | [Cloudera Enterprise 6.x viktig information](https://www.cloudera.com/documentation/enterprise/6/release-notes/topics/rg_cdh_6_release_notes.html) |
-| [Azure Databricks](https://azure.microsoft.com/services/databricks/) | 5.1+ | [Databricks Runtime-versioner](https://docs.databricks.com/release-notes/runtime/databricks-runtime-ver.html) |
-|[Hortonworks](https://hortonworks.com/)| 3.1.x++ | [Konfigurera åtkomst till data i molnet](https://docs.hortonworks.com/HDPDocuments/Cloudbreak/Cloudbreak-2.9.0/cloud-data-access/content/cb_configuring-access-to-adls2.html) |
+| [Azure Databricks](https://azure.microsoft.com/services/databricks/) | 5.1 + | [Databricks Runtime-versioner](https://docs.databricks.com/release-notes/runtime/databricks-runtime-ver.html) |
+|[Hortonworks](https://hortonworks.com/)| 3.1. x + + | [Konfigurera åtkomst till moln data](https://docs.hortonworks.com/HDPDocuments/Cloudbreak/Cloudbreak-2.9.0/cloud-data-access/content/cb_configuring-access-to-adls2.html) |
 
 ## <a name="next-steps"></a>Nästa steg
 

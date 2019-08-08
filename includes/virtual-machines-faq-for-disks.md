@@ -8,161 +8,161 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: b993b34f81298b40c8849084380b2d1770708351
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 21fe92bf4a33dc44545f1bd54c718db6c0a38532
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66482249"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68843339"
 ---
-# <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Vanliga frågor och svar om virtuella Azure IaaS-datorer och hanterade och ohanterade premiumdiskar
+# <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Vanliga frågor och svar om Azure IaaS VM-diskar och hanterade och ohanterade Premium-diskar
 
-Den här artikeln får du svar på några vanliga frågor om Azure Managed Disks och Azure Premium SSD-diskar.
+Den här artikeln ger svar på några vanliga frågor om Azure Managed Disks och Azure Premium SSD-diskar.
 
 ## <a name="managed-disks"></a>Managed Disks
 
 **Vad är Azure Managed Disks?**
 
-Hanterade diskar är en funktion som förenklar Diskhanteringen för virtuella Azure IaaS-datorer genom att hantera lagringskontohantering åt dig. Mer information finns i den [översikt över Managed Disks](../articles/virtual-machines/windows/managed-disks-overview.md).
+Managed Disks är en funktion som fören klar disk hanteringen för virtuella Azure IaaS-datorer genom att hantera lagrings konto hantering åt dig. Mer information finns i [Översikt över Managed disks](../articles/virtual-machines/windows/managed-disks-overview.md).
 
-**Om jag skapar en standard hanterad disk från en befintlig virtuell Hårddisk som är 80 GB, hur mycket som kostar mig?**
+**Hur mycket kostar mig om jag skapar en standard-hanterad disk från en befintlig virtuell hård disk som är 80 GB?**
 
-En standard hanterad disk som skapats från en virtuell Hårddisk på 80 GB behandlas som nästa tillgängliga standard diskens storlek, vilket är en S10-disk. Du debiteras enligt prissättningen för S10 disk. Mer information finns på sidan med [priser](https://azure.microsoft.com/pricing/details/storage).
+En standard-hanterad disk som skapas från en 80 GB-hårddisk behandlas som nästa tillgängliga standard disk storlek, som är en S10 disk. Du debiteras enligt priserna för S10-disken. Mer information finns på sidan med [priser](https://azure.microsoft.com/pricing/details/storage).
 
-**Finns det några transaktionskostnader för hanterade standarddiskar?**
+**Kostar några transaktioner för standard Managed disks?**
 
 Ja. Du debiteras för varje transaktion. Mer information finns på sidan med [priser](https://azure.microsoft.com/pricing/details/storage).
 
-**För en standard managed disk kommer jag att debiteras för den verkliga storleken hos data på disken eller etablerad kapacitet av disken?**
+**Kommer jag att debiteras för den faktiska storleken på data på disken eller för den allokerade kapaciteten på disken för en standard hanterad disk?**
 
-Du kommer att debiteras baserat på etablerad kapacitet på disken. Mer information finns på sidan med [priser](https://azure.microsoft.com/pricing/details/storage).
+Du debiteras baserat på den allokerade kapaciteten för disken. Mer information finns på sidan med [priser](https://azure.microsoft.com/pricing/details/storage).
 
-**Hur är priser för premium managed disks skiljer sig från ohanterade diskar?**
+**Hur skiljer sig priserna från Premium Managed disks från ohanterade diskar?**
 
-Priser för premium-hanterade diskar är samma som ohanterade premium-diskar.
+Priserna för Premium Managed disks är samma som för ohanterade Premium diskar.
 
-**Kan jag ändra lagringskontotypen (Standard eller Premium) av min hanterade diskar?**
+**Kan jag ändra lagrings konto typen (standard eller Premium) för mina hanterade diskar?**
 
-Ja. Du kan ändra typ av lagringskonto av dina hanterade diskar med hjälp av Azure portal, PowerShell eller Azure CLI.
+Ja. Du kan ändra lagrings konto typen för dina hanterade diskar med hjälp av Azure Portal, PowerShell eller Azure CLI.
 
-**Kan jag använda en VHD-fil i ett Azure storage-konto för att skapa en hanterad disk med en annan prenumeration?**
+**Kan jag använda en VHD-fil i ett Azure Storage-konto för att skapa en hanterad disk med en annan prenumeration?**
 
 Ja.
 
-**Kan jag använda en VHD-fil i ett Azure storage-konto för att skapa en hanterad disk i en annan region?**
+**Kan jag använda en VHD-fil i ett Azure Storage-konto för att skapa en hanterad disk i en annan region?**
 
 Nej.
 
-**Finns det några begränsningar för skalning för kunder som använder hanterade diskar?**
+**Finns det några skalnings begränsningar för kunder som använder Managed disks?**
 
-Hanterade diskar eliminerar begränsningar med storage-konton. Den maximala gränsen är dock 50 000 hanterade diskar per region och per typ av disk för en prenumeration.
+Managed Disks eliminerar de gränser som är kopplade till lagrings konton. Den maximala gränsen är dock 50 000 Managed disks per region och per disk typ för en prenumeration.
 
-**Kan jag göra en inkrementell ögonblicksbild av en hanterad disk?**
+**Kan jag ta en stegvis ögonblicks bild av en hanterad disk?**
 
-Nej. Den aktuella kapaciteten för ögonblicksbild gör en fullständig kopia av en hanterad disk.
+Nej. Den aktuella ögonblicks bild funktionen gör en fullständig kopia av en hanterad disk.
 
-**Kan virtuella datorer i en tillgänglighetsuppsättning består av en kombination av hanterade och ohanterade diskar?**
+**Kan virtuella datorer i en tillgänglighets uppsättning bestå av en kombination av hanterade och ohanterade diskar?**
 
-Nej. De virtuella datorerna i en tillgänglighetsuppsättning måste använda alla hanterade diskar eller alla ohanterade diskar. När du skapar en tillgänglighetsuppsättning, kan du välja vilken typ av diskar som du vill använda.
+Nej. De virtuella datorerna i en tillgänglighets uppsättning måste använda antingen alla hanterade diskar eller alla ohanterade diskar. När du skapar en tillgänglighets uppsättning kan du välja vilken typ av diskar du vill använda.
 
-**Är Managed Disks standardalternativet i Azure-portalen?**
+**Är Managed Disks standard alternativet i Azure Portal?**
 
 Ja.
 
-**Kan jag skapa en tom hanterade disk?**
+**Kan jag skapa en tom hanterad disk?**
 
-Ja. Du kan skapa en tom disk. En hanterad disk kan skapas oberoende av en virtuell dator, till exempel utan kopplar den till en virtuell dator.
+Ja. Du kan skapa en tom disk. En hanterad disk kan skapas oberoende av en virtuell dator, till exempel utan att koppla den till en virtuell dator.
 
-**Vad stöds feldomänsantal för en tillgänglighet anges som använder Managed Disks?**
+**Vad är antalet fel domäner som stöds för en tillgänglighets uppsättning som använder Managed Disks?**
 
-Beroende på den region där tillgänglighetsuppsättningen som använder Managed Disks finns, är antalet feldomäner som stöds 2 eller 3.
+Beroende på i vilken region den tillgänglighets uppsättning som använder Managed Disks finns, är antalet fel domäner som stöds 2 eller 3.
 
-**Vad är standard storage-konto om du ställer in diagnostik?**
+**Hur konfigureras standard lagrings kontot för diagnostik?**
 
-Du kan skapa ett privat lagringskonto för diagnostik för virtuella datorer.
+Du konfigurerar ett privat lagrings konto för VM-diagnostik.
 
-**Vilken typ av stöd för rollbaserad åtkomstkontroll är tillgängligt för Managed Disks?**
+**Vilken typ av rollbaserad Access Control support är tillgänglig för Managed Disks?**
 
-Hanterade diskar stöder tre viktiga standardroller:
+Managed Disks stöder tre nyckel standard roller:
 
-* Ägare: Kan hantera allt, inklusive åtkomst
-* Deltagare: Kan hantera allt förutom åtkomst
-* Läsare: Kan visa allt, men det går inte att göra ändringar
+* Innehavare Kan hantera allt, inklusive åtkomst
+* Arbeta Kan hantera allt utom åtkomst
+* Acrobat Kan visa allt, men det går inte att göra ändringar
 
-**Finns det ett sätt att jag kan kopiera eller exportera en hanterad disk till en privat storage-konto?**
+**Finns det något sätt som jag kan kopiera eller exportera en hanterad disk till ett privat lagrings konto?**
 
-Du kan generera en skrivskyddad delad åtkomstsignatur (SAS) URI för den hantera disken och använda den för att kopiera innehållet till ett privat konto eller en lokal lagring. Du kan använda SAS-URI med Azure portal, Azure PowerShell, Azure CLI, eller [AzCopy](../articles/storage/common/storage-use-azcopy.md)
+Du kan generera en skrivskyddad URL för signatur för delad åtkomst (SAS) för den hanterade disken och använda den för att kopiera innehållet till ett privat lagrings konto eller lokalt lagrings utrymme. Du kan använda SAS-URI: n med hjälp av Azure Portal, Azure PowerShell, Azure CLI eller [AzCopy](../articles/storage/common/storage-use-azcopy.md)
 
-**Kan jag skapa en kopia av min hanterad disk?**
+**Kan jag skapa en kopia av min hanterade disk?**
 
-Kunder kan ta en ögonblicksbild av deras hanterade diskar och sedan använda ögonblicksbilden för att skapa en annan hanterad disk.
+Kunder kan ta en ögonblicks bild av sina hanterade diskar och sedan använda ögonblicks bilden för att skapa en annan hanterad disk.
 
-**Ohanterade diskar stöds fortfarande?**
+**Stöds fortfarande ohanterade diskar?**
 
-Ja, både ohanterade och hanterade diskar stöds. Vi rekommenderar att du använder hanterade diskar för nya arbetsbelastningar och migrera dina aktuella arbetsbelastningar till hanterade diskar.
+Ja, både ohanterade och hanterade diskar stöds. Vi rekommenderar att du använder Managed disks för nya arbets belastningar och migrerar dina aktuella arbets belastningar till hanterade diskar.
 
-**Kan jag placera ohanterade och hanterade diskar på samma virtuella dator?**
+**Kan jag samplacera ohanterade och hanterade diskar på samma virtuella dator?**
 
 Nej.
 
-**Om jag skapar en 128 GB-disk och sedan öka storleken till 130 gibibyte (GiB), kommer jag att debiteras för nästa diskstorleken (256 GB)?**
+**Kommer jag att debiteras för nästa disk storlek (256 GiB) om jag skapar en 128 GB-disk och sedan ökar storleken till 130 gibibyte (GiB)?**
 
 Ja.
 
-**Kan jag skapa lokalt redundant lagring, geo-redundant lagring och zonredundant lagring hanterade diskar?**
+**Kan jag skapa lokalt redundant lagring, Geo-redundant lagring och zoner som är redundanta lagrings enheter?**
 
-Azure Managed Disks stöder för närvarande endast lokalt redundant lagring hanterade diskar.
+Azure Managed Disks stöder för närvarande endast lokalt redundanta lagrings diskar.
 
-**Kan jag minska eller lågsäsong min hanterade diskar?**
+**Kan jag krympa eller downsize mina Managed disks?**
 
 Nej. Den här funktionen stöds inte för närvarande.
 
-**Kan jag dela ett lån på disken?**
+**Kan jag avbryta ett lån på disken?**
 
-Nej. Detta stöds inte för närvarande eftersom ett lån är att förhindra oavsiktlig borttagning när disken används.
+Nej. Detta stöds inte för närvarande eftersom det finns ett lån för att förhindra oavsiktlig borttagning när disken används.
 
-**Kan jag ändra namnegenskapen datorn när en specialiserad (inte skapats med hjälp av verktyget eller generaliserad) operativsystemdisken används för att etablera en virtuell dator?**
+**Kan jag ändra egenskapen för dator namn när en specialiserad (inte skapad med system förberedelse verktyget eller den generaliserade) operativ system disken används för att etablera en virtuell dator?**
 
-Nej. Du kan inte uppdatera egenskapen name för datorn. Den nya virtuella datorn ärver den från överordnat virtuella datorn som används för att skapa operativsystemdisken. 
+Nej. Du kan inte uppdatera egenskapen dator namn. Den nya virtuella datorn ärver den från den överordnade virtuella datorn som användes för att skapa operativ system disken. 
 
-**Var hittar jag exempel Azure Resource Manager-mallar för att skapa virtuella datorer med hanterade diskar?**
-* [Lista över mallar med Managed Disks](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
+**Var kan jag hitta exempel Azure Resource Manager mallar för att skapa virtuella datorer med Managed disks?**
+* [Lista med mallar som använder Managed Disks](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
 * https://github.com/chagarw/MDPP
 
-**När du skapar en disk från en blob finns det någon kontinuerligt befintlig relation med den källbloben?**
+**Finns det någon kontinuerlig befintlig relation med den käll-bloben när du skapar en disk från en BLOB?**
 
-Nej, när den nya disken skapas det är en fullständig fristående kopia av blobben vid den tidpunkten och det finns ingen anslutning mellan de två. Om du vill, när du har skapat disken kan källbloben tas bort utan att påverka den nyligen skapade disken på något sätt.
+Nej, när den nya disken skapas, är en fullständig kopia av denna BLOB vid den tidpunkten och det finns ingen anslutning mellan de två. Om du vill kan du ta bort käll-bloben utan att påverka den nyligen skapade disken på något sätt när du har skapat disken.
 
 **Kan jag byta namn på en hanterad eller ohanterad disk när den har skapats?**
 
-För hanterade diskar du kan inte byta namn på dem. Du kan dock byta namn på en ohanterad disk så länge den inte är för närvarande ansluten till en virtuell Hårddisk eller virtuell dator.
+Du kan inte byta namn på hanterade diskar. Men du kan byta namn på en ohanterad disk så länge den inte är ansluten till en virtuell hård disk eller virtuell dator.
 
-**Kan jag använda GPT partitionering på en Disk i Azure?**
+**Kan jag använda GPT-partitionering på en Azure-disk?**
 
-GPT partitionering kan användas på datadiskar, inte OS-diskar. OS-diskar måste använda partitionstypen MBR.
+GPT-partitionering kan bara användas på data diskar, inte på OS-diskar. OS-diskar måste ha partitionstypen MBR-partition.
 
-**Vilka disktyper stöd för ögonblicksbilder?**
+**Vilka disk typer stöder ögonblicks bilder?**
 
-Premium SSD, standard SSD och HDD-standard stöd för ögonblicksbilder. För dessa tre disktyper stöds ögonblicksbilder för alla diskstorlekar (inklusive diskar upp till 32 TiB i storlek). Ultra SSD: er stöder inte ögonblicksbilder.
+Ögonblicks bilder av Premium SSD, standard SSD och standard-HDD stöder. För dessa tre disk typer stöds ögonblicks bilder för alla disk storlekar (inklusive diskar upp till 32 TiB i storlek). Ultra SSD stöder inte ögonblicks bilder.
 
-## <a name="standard-ssd-disks"></a>Standard SSD-diskar
+## <a name="standard-ssd-disks"></a>Standard SSD diskar
 
 **Vad är Azure Standard SSD-diskar?**
-Standard SSD-diskar är standarddiskar som backas upp av solid-state media, optimerad som kostnadseffektiv lagring för arbetsbelastningar som behöver konsekvent prestanda på lägre nivåer av IOPS.
+Standard SSD diskar är standard diskar som backas upp av Solid State-medier, optimerade som kostnads effektiv lagring för arbets belastningar som kräver konsekvent prestanda på lägre IOPS-nivåer.
 
-<a id="standard-ssds-azure-regions"></a>**Vilka är de regioner som stöds för närvarande för Standard SSD-diskar?**
-Alla Azure-regioner har nu stöd för Standard SSD-diskar.
+<a id="standard-ssds-azure-regions"></a>**Vilka regioner stöds för närvarande Standard SSD diskar?**
+Alla Azure-regioner stöder nu Standard SSD diskar.
 
-**Är Azure Backup tillgängligt när du använder Standard SSD-enheter?**
+**Är Azure Backup tillgängligt när du använder standard-SSD?**
 Ja, Azure Backup är nu tillgängligt.
 
-**Hur gör jag för att skapa Standard SSD-diskar?**
-Du kan skapa Standard SSD-diskar med hjälp av Azure Resource Manager-mallar, SDK, PowerShell eller CLI. Nedan visas de parametrar som behövs i Resource Manager-mallen för att skapa Standard SSD-diskar:
+**Hur gör jag för att skapa Standard SSD diskar?**
+Du kan skapa Standard SSD diskar med Azure Resource Manager mallar, SDK, PowerShell eller CLI. Nedan visas de parametrar som behövs i Resource Manager-mallen för att skapa Standard SSD diskar:
 
-* *apiVersion* för Microsoft.Compute måste anges som `2018-04-01` (eller senare)
-* Ange *managedDisk.storageAccountType* som `StandardSSD_LRS`
+* *API version* för Microsoft. Compute måste anges som `2018-04-01` (eller senare)
+* Ange *managedDisk. storageAccountType* som`StandardSSD_LRS`
 
-I följande exempel visas den *properties.storageProfile.osDisk* avsnittet för en virtuell dator som använder Standard SSD-diskar:
+I följande exempel visas avsnittet *Properties. storageProfile. osDisk* för en virtuell dator som använder standard SSD diskar:
 
 ```json
 "osDisk": {
@@ -176,193 +176,193 @@ I följande exempel visas den *properties.storageProfile.osDisk* avsnittet för 
 }
 ```
 
-En fullständig mall exempel på hur du skapar en Standard SSD-disk med en mall finns i [skapa en virtuell dator från en Windows-avbildning med Standard SSD-Datadiskar](https://github.com/azure/azure-quickstart-templates/tree/master/101-vm-with-standardssd-disk/).
+Ett komplett mall exempel på hur du skapar en Standard SSD disk med en mall finns i [skapa en virtuell dator från en Windows-avbildning med standard SSD data diskar](https://github.com/azure/azure-quickstart-templates/tree/master/101-vm-with-standardssd-disk/).
 
-**Kan jag omvandla mitt befintliga diskar till Standard SSD?**
-Ja, det kan du. Referera till [konvertera Azure managed disks-lagring från standard till premium, och vice versa](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage) för allmänna riktlinjer för att konvertera Managed Disks. Och Använd följande värde för att uppdatera disktypen till SSD som Standard.
--AccountType StandardSSD_LRS
+**Kan jag konvertera mina befintliga diskar till Standard SSD?**
+Ja, det kan du. Se [konvertera Azure Managed disks Storage från standard till Premium och vice versa](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage) för de allmänna rikt linjerna för att konvertera Managed disks. Och Använd följande värde för att uppdatera disk typen till Standard SSD.
+-StandardSSD_LRS
 
-**Vad är fördelen med att använda Standard SSD-diskar i stället för HDD?**
-Standard SSD-diskar leverera bättre svarstid, konsekvens, tillgänglighet och tillförlitlighet jämfört med HDD-diskar. Arbetsbelastningar för program körs mycket smidigare på Standard SSD på grund av detta. Observera att Premium SSD-diskar är den rekommenderade lösningen för de flesta i/o-intensiva produktionsarbetsbelastningar.
+**Vad är fördelen med att använda Standard SSD diskar i stället för hård diskar?**
+Standard SSD diskar ger bättre svars tid, konsekvens, tillgänglighet och tillförlitlighet jämfört med hård diskar. Program arbets belastningar kör mycket mer smidigt på Standard SSD på grund av det. Obs! Premium SSD diskar är den rekommenderade lösningen för de flesta i/o-intensiva produktions arbets belastningar.
 
-**Kan jag använda Standard SSD-enheter som ohanterade diskar?**
-Standard SSD-diskar är Nej, endast tillgängliga som Managed Disks.
+**Kan jag använda standard SSD som ohanterade diskar?**
+Nej, standard SSD-diskar är bara tillgängliga som Managed Disks.
 
-**Standard SSD-diskar som har stöd för ”instans VM SLA”?**
-Standard SSD-enheter har Nej, inte instans VM SLA. Använd Premium SSD-diskar för enskild instans VM SLA.
+**Stöder Standard SSD diskar "service nivå avtal för virtuell instans"?**
+Nej, standard-SSD har inte något service avtal för VM med en instans. Använd Premium SSD diskar för VM service avtal för enskild instans.
 
 ## <a name="migrate-to-managed-disks"></a>Migrera till Managed Disks
 
-**Finns det någon effekt av migrering på Managed Disks prestanda?**
+**Påverkar migreringen Managed Disks prestanda?**
 
-Migrering innebär att flödet av Disk från en lagringsplats till en annan. Detta är orkestreras via bakgrund kopia av data, vilket kan ta flera timmar att slutföra, vanligtvis mindre än 24 timmar beroende på mängden data på diskarna. Under den tiden kan ditt program högre än vanligt lässvarstid uppleva eftersom vissa läsning kan hämta omdirigeras till den ursprungliga platsen och kan ta längre tid att slutföra. Det finns ingen inverkan på skrivfördröjningen under denna period.  
+Migrering innebär att disken flyttas från en lagrings plats till en annan. Detta dirigeras via bakgrunds kopia av data, vilket kan ta flera timmar att slutföra, vanligt vis mindre än 24 timmar beroende på mängden data i diskarna. Under den tiden kan ditt program uppleva högre än vanliga Läs fördröjningar eftersom vissa läsningar kan omdirigeras till den ursprungliga platsen, och det kan ta längre tid att slutföra. Skriv fördröjningen påverkas inte under den här perioden.  
 
-**Vilka ändringar krävs i en befintlig Azure Backup service configuration före och efter migrering till Managed Disks?**
-
-Inga ändringar krävs.
-
-**Kommer min VM-säkerhetskopior som har skapats via Azure Backup-tjänsten före migreringen fortsätta att fungera?**
-
-Ja, säkerhetskopieringen fungerar smidigt.
-
-**Vilka ändringar krävs i en befintlig Azure diskar Encryption configuration före och efter migrering till Managed Disks?**
+**Vilka ändringar krävs i en befintlig Azure Backup tjänst konfiguration före/efter migreringen till Managed Disks?**
 
 Inga ändringar krävs.
 
-**Automatisk migrering av en befintlig VM-skalningsuppsättning anges från ohanterade diskar till Managed Disks stöds?**
+**Kommer mina VM-säkerhetskopieringar som skapats via Azure Backup tjänst innan migreringen fortsätta att fungera?**
 
-Nej. Du kan skapa en ny skalningsuppsättning med hanterade diskar med hjälp av avbildningen från din gamla skalningsuppsättning med ohanterade diskar.
+Ja, säkerhets kopieringarna fungerar sömlöst.
 
-**Kan jag skapa en hanterad Disk från en sida blob-ögonblicksbild vidtas innan du migrerar till Managed Disks?**
+**Vilka ändringar krävs i den befintliga krypterings konfigurationen för Azure disks före/efter migreringen till Managed Disks?**
 
-Nej. Du kan exportera en sida blob-ögonblicksbild som en sidblobb och sedan skapa en hanterad Disk från den exporterade sidblob.
+Inga ändringar krävs.
 
-**Kan jag växla över min lokala datorer som skyddas av Azure Site Recovery till en virtuell dator med Managed Disks?**
+**Är automatisk migrering av en befintlig virtuell dators skalnings uppsättning från ohanterade diskar till Managed Disks som stöds?**
+
+Nej. Du kan skapa en ny skalnings uppsättning med Managed Disks att använda avbildningen från din gamla skalnings uppsättning med ohanterade diskar.
+
+**Kan jag skapa en hanterad disk från en sid ögonblicks bild som tagits innan migrering till Managed Disks?**
+
+Nej. Du kan exportera en sid-BLOB-ögonblicksbild som en Page blob och sedan skapa en hanterad disk från den exporterade sid-blobben.
+
+**Kan jag redundansväxla mina lokala datorer som skyddas av Azure Site Recovery till en virtuell dator med Managed Disks?**
 
 Ja, du kan välja att redundansväxla till en virtuell dator med Managed Disks.
 
-**Finns det några konsekvenserna av migrering på Azure-datorer som skyddas av Azure Site Recovery via replikering från Azure till Azure?**
+**Påverkar migreringen på virtuella Azure-datorer som skyddas av Azure Site Recovery via Azure till Azure-replikering?**
 
-Ja. Azure Site Recovery Azure till Azure-skydd för virtuella datorer med Managed Disks finns för närvarande som allmänt tillgänglig.
+Nej. Azure Site Recovery Azure till Azure-skydd för virtuella datorer med Managed Disks tillgängligt.
 
-**Kan jag migrera virtuella datorer med ohanterade diskar som finns på storage-konton som eller krypterats till managed disks?**
+**Kan jag migrera virtuella datorer med ohanterade diskar som finns på lagrings konton som eller tidigare har krypterats till Managed disks?**
 
 Ja
 
-## <a name="managed-disks-and-storage-service-encryption"></a>Hanterade diskar och kryptering av lagringstjänst
+## <a name="managed-disks-and-storage-service-encryption"></a>Managed Disks och Kryptering för lagringstjänst
 
-**Är Azure Storage Service Encryption aktiverat som standard när jag skapar en hanterad disk**
+**Är Azure Storage tjänst kryptering aktive rad som standard när jag skapar en hanterad disk?**
 
 Ja.
 
-**Vem som hanterar krypteringsnycklarna?**
+**Vem hanterar krypterings nycklarna?**
 
-Microsoft hanterar krypteringsnycklarna.
+Microsoft hanterar krypterings nycklarna.
 
-**Kan jag inaktivera kryptering av lagringstjänst för min hanterade diskar?**
+**Kan jag inaktivera Kryptering för lagringstjänst för mina hanterade diskar?**
 
 Nej.
 
-**Kryptering av lagringstjänst endast är tillgänglig i vissa regioner?**
+**Är Kryptering för lagringstjänst endast tillgängligt i vissa regioner?**
 
-Nej. Den är tillgänglig i alla regioner där hanterade diskar är tillgängliga. Hanterade diskar är tillgängligt i alla offentliga regioner och Tyskland. Det är också tillgängligt i Kina, men endast för Microsoft-inte hanterade nycklar, Kundhanterade nycklar.
+Nej. Den är tillgänglig i alla regioner där Managed Disks är tillgängliga. Managed Disks är tillgängligt i alla offentliga regioner och Tyskland. Den är också tillgänglig i Kina, men endast för Microsoft-hanterade nycklar, inte kund hanterade nycklar.
 
-**Hur kan jag ta reda om min hanterad disk krypteras?**
+**Hur kan jag ta reda på om min hanterade disk är krypterad?**
 
-Du hittar den tidpunkt då en hanterad disk skapades från Azure-portalen, Azure CLI och PowerShell. Om tiden efter den 9 juni 2017 krypteras disken.
+Du kan ta reda på hur lång tid det tar innan en hanterad disk skapades från Azure Portal, Azure CLI och PowerShell. Om tiden är senare än den 9 juni 2017 krypteras din disk.
 
-**Hur kan jag kryptera min befintliga diskar som har skapats före 10 juni 2017?**
+**Hur kan jag kryptera mina befintliga diskar som skapats före den 10 juni 2017?**
 
-Från och med den 10 juni 2017 krypteras automatiskt nya data som skrivs till befintliga hanterade diskar. Planerar vi också att kryptera befintliga data och kryptering ska ske asynkront i bakgrunden. Om du måste kryptera befintliga data nu kan du skapa en kopia av disken. Nya diskar krypteras.
+Från och med den 10 juni 2017 krypteras nya data som skrivs till befintliga hanterade diskar automatiskt. Vi planerar också att kryptera befintliga data och krypteringen sker asynkront i bakgrunden. Om du måste kryptera befintliga data nu skapar du en kopia av disken. Nya diskar kommer att krypteras.
 
 * [Kopiera hanterade diskar med hjälp av Azure CLI](../articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fcli%2fmodule%2ftoc.json)
 * [Kopiera hanterade diskar med hjälp av PowerShell](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fcli%2fmodule%2ftoc.json)
 
-**Är hanterade ögonblicksbilder och avbildningar krypteras?**
+**Är hanterade ögonblicks bilder och bilder krypterade?**
 
-Ja. Alla hanterade ögonblicksbilder och avbildningar som skapats efter den 9 juni 2017 krypteras automatiskt. 
+Ja. Alla hanterade ögonblicks bilder och avbildningar som skapats efter den 9 juni 2017 krypteras automatiskt. 
 
-**Kan jag omvandla virtuella datorer med ohanterade diskar som finns på storage-konton som eller krypterats till managed disks?**
+**Kan jag konvertera virtuella datorer med ohanterade diskar som finns på lagrings konton som eller tidigare har krypterats till Managed disks?**
 
 Ja
 
-**En exporterad virtuell Hårddisk från en hanterad disk eller en ögonblicksbild även krypteras?**
+**Kommer en exporterad virtuell hård disk från en hanterad disk eller en ögonblicks bild också att krypteras?**
 
-Nej. Men om du exporterar en virtuell Hårddisk till ett krypterat lagringskonto från ett krypterat managed disk eller ögonblicksbild och det är krypterat. 
+Nej. Men om du exporterar en virtuell hård disk till ett krypterat lagrings konto från en krypterad hanterad disk eller ögonblicks bild är den krypterad. 
 
-## <a name="premium-disks-managed-and-unmanaged"></a>Premium-diskar: Hanterade och ohanterade
+## <a name="premium-disks-managed-and-unmanaged"></a>Premium diskar: Hanterade och ohanterade
 
-**Om en virtuell dator använder en serie med storlek som har stöd för Premium SSD-diskar, till exempel en DSv2 kan jag koppla premium och standard datadiskar?** 
+**Om en virtuell dator använder en storleks serie som stöder Premium SSD diskar, t. ex. en DSv2, kan jag koppla både Premium-och standard data diskar?** 
 
 Ja.
 
-**Kan jag koppla premium och standard datadiskar till en serie med storlek som inte stöder Premium SSD-diskar, till exempel D, Dv2, G eller F-serien?**
+**Kan jag koppla både Premium-och standard data diskar till en storleks serie som inte stöder Premium SSD diskar, till exempel D, Dv2, G eller F-serien?**
 
-Nej. Du kan koppla endast standard datadiskar till virtuella datorer som inte använder en serie med storlek som har stöd för Premium SSD-diskar.
+Nej. Du kan bara koppla standard data diskar till virtuella datorer som inte använder en storleks serie som stöder Premium SSD diskar.
 
-**Om jag skapar en premiumdisk data från en befintlig virtuell Hårddisk som var 80 GB, hur mycket som kostar?**
+**Hur mycket kostar det om jag skapar en Premium-datadisk från en befintlig virtuell hård disk som var 80 GB?**
 
-En premiumdisk för data som skapats från en virtuell Hårddisk på 80 GB behandlas som nästa tillgängliga premium-diskstorleken, vilket är en P10-disk. Du debiteras enligt P10-disk prissättningen.
+En Premium-datadisk som skapas från en virtuell 80 GB-hårddisk behandlas som nästa tillgängliga Premium disk storlek, som är en P10 disk. Du debiteras enligt priserna för P10-disken.
 
-**Finns det transaktionskostnader kan använda Premium SSD-diskar?**
+**Använder transaktions kostnader för Premium SSD diskar?**
 
-Det finns en fast kostnad för varje diskstorlek som är etablerade med specifika gränser på IOPS och dataflöden. Övriga kostnader är utgående bandbredd och kapacitet för ögonblicksbilder, om tillämpligt. Mer information finns på sidan med [priser](https://azure.microsoft.com/pricing/details/storage).
+Det finns en fast kostnad för varje disk storlek, som tillhandahålls med bestämda gränser för IOPS och data flöde. Övriga kostnader är utgående bandbredd och ögonblicks bild kapacitet, om tillämpligt. Mer information finns på sidan med [priser](https://azure.microsoft.com/pricing/details/storage).
 
-**Vilka är begränsningarna för IOPS och dataflöde som jag kan få från diskcache?**
+**Vilka är gränserna för IOPS och data flöde som jag kan hämta från disk-cachen?**
 
-Den kombinerade gränserna för cache och lokal SSD för DS-serien är 4 000 IOPS per kärna och 33 MiB per sekund per kärna. GS-serien erbjuder 5 000 IOPS per kärna och 50 MiB per sekund per kärna.
+De kombinerade gränserna för cache och lokal SSD för en DS-serie är 4 000 IOPS per kärna och 33 MiB per sekund per kärna. GS-serien erbjuder 5 000 IOPS per kärna och 50 MiB per sekund per kärna.
 
-**Lokal SSD som stöds för en hanterad diskar i virtuell dator?**
+**Stöds lokal SSD för en Managed Disks virtuell dator?**
 
-Lokal SSD är tillfälligt lagringsutrymme som ingår i en hanterad diskar i virtuell dator. Det är utan extra kostnad för den här tillfälliga lagringen. Vi rekommenderar att du inte använder den här lokal SSD-lagring för att lagra programdata eftersom det inte är beständiga i Azure Blob storage.
+Den lokala SSD-enheten är tillfällig lagring som ingår i en Managed Disks VM. Det finns ingen extra kostnad för den här tillfälliga lagringen. Vi rekommenderar att du inte använder den här lokala SSD för att lagra dina program data eftersom de inte är sparade i Azure Blob Storage.
 
-**Finns det några konsekvenser för användning av TRIMNING på premium-diskar?**
+**Finns det några konsekvenser för användningen av TRIM på Premium-diskar?**
 
-Det finns inga Nackdelen med att användningen av TRIMNING på Azure-diskar på antingen premium eller standard-diskar.
+Det finns ingen nack delar med att trimma på Azure-diskar på antingen Premium-eller standard diskar.
 
-## <a name="new-disk-sizes-managed-and-unmanaged"></a>Nya diskstorlekar: Hanterade och ohanterade
+## <a name="new-disk-sizes-managed-and-unmanaged"></a>Nya disk storlekar: Hanterade och ohanterade
 
-**Vad är den största Managed diskstorlek som stöds för operativsystem och datadiskar?**
+**Vilken är den största hanterade disk storleken som stöds för operativ system och data diskar?**
 
-Partitionstypen som stöds av Azure för en operativsystemdisk är master boot record (MBR). MBR-formatet stöder en diskstorlek upp till 2 TiB. Den största storlek som stöds av Azure för en operativsystemdisk är 2 TiB. Azure stöder upp till 32 TiB för hanterade diskar i globala Azure, 4 TiB i Azure suveräna moln.
+Partitionstypen som Azure stöder för en operativ system disk är Master Boot Record (MBR). MBR-formatet stöder en disk storlek upp till 2 TiB. Den största storleken som Azure stöder för en operativ system disk är 2 TiB. Azure har stöd för upp till 32 TiB för hanterade data diskar i globala Azure, 4 TiB i Azures suveräna moln.
 
-**Vad är den största ohanterad Disk-storlek som stöds för operativsystem och datadiskar?**
+**Vilken är den största ohanterade disk storleken som stöds för operativ system och data diskar?**
 
-Partitionstypen som stöds av Azure för en operativsystemdisk är master boot record (MBR). MBR-formatet stöder en diskstorlek upp till 2 TiB. Den största storlek som stöds av Azure för en ohanterad disk operativsystemet är 2 TiB. Azure har stöd för upp till 4 TiB för ohanterade datadiskar.
+Partitionstypen som Azure stöder för en operativ system disk är Master Boot Record (MBR). MBR-formatet stöder en disk storlek upp till 2 TiB. Den största storleken som Azure stöder för en ohanterad disk för operativ system är 2 TiB. Azure har stöd för upp till 4 TiB för ohanterade diskar.
 
-**Vad är den största sidblobens storlek som stöds?**
+**Vilken är den största sid-BLOB-storlek som stöds?**
 
-Största sidblobens storlek som stöds av Azure är 8 TiB (8191 GiB). Maximal sidblobens storlek när ansluten till en virtuell dator som data eller operativsystemdiskar är 4 TiB (4095 GiB).
+Den största sid-BLOB-storlek som stöds av Azure är 8 TiB (8 191 GiB). Den maximala sid-BLOB-storlek som är kopplad till en virtuell dator som data eller operativ system diskar är 4 TiB (4 095 GiB).
 
-**Måste jag använda en ny version av Azure-verktyg för att skapa, ansluta, ändra storlek på och ladda upp diskar som är större än 1 TiB?**
+**Behöver jag använda en ny version av Azure-verktyg för att skapa, ansluta, ändra storlek på och ladda upp diskar som är större än 1 TiB?**
 
-Du behöver inte uppgradera din befintliga Azure-verktyg för att skapa, koppla eller ändra storlek på diskar som är större än 1 TiB. Du måste använda de senaste verktygsuppsättningar som anges nedan för att ladda upp VHD-fil från en lokal plats direkt till Azure som en sidblobb eller ohanterad disk. Vi har endast stöd för VHD-uppladdningar av upp till 8 TiB.
+Du behöver inte uppgradera dina befintliga Azure-verktyg för att skapa, bifoga eller ändra storlek på diskar som är större än 1 TiB. Om du vill ladda upp VHD-filen från lokala platser direkt till Azure som en sid-BLOB eller ohanterad disk, måste du använda de senaste verktygen i listan nedan. Vi stöder bara VHD-uppladdningar av upp till 8 TiB.
 
 |Azure-verktyg      | Versioner som stöds                                |
 |-----------------|---------------------------------------------------|
-|Azure PowerShell | Versionsnummer 4.1.0: Juni 2017-versionen eller senare|
-|Azure CLI v1     | Versionsnummer 0.10.13: Maj 2017-versionen eller senare|
-|Azure CLI v2     | Versionsnummer 2.0.12: Versionen för juli 2017 eller senare|
-|AzCopy           | Versionsnummer 6.1.0: Juni 2017-versionen eller senare|
+|Azure PowerShell | 4\.1.0 för versions nummer: Utgåva från juni 2017 eller senare|
+|Azure CLI v1     | 0\.10.13 för versions nummer: Maj 2017-utgåva eller senare|
+|Azure CLI v2     | 2\.0.12 för versions nummer: Version juli 2017 eller senare|
+|AzCopy           | 6\.1.0 för versions nummer: Utgåva från juni 2017 eller senare|
 
-**Stöds P4 och P6 diskstorlekar för ohanterade diskar och sidblobar?**
+**Stöds P4-och P6-disk storlekar för ohanterade diskar eller sid-blobar?**
 
-P4 (32 GiB) och P6 (64 GiB) diskstorlekar stöds inte som standard disk nivåer för ohanterade diskar och sidblobar. Du måste uttryckligen [ange Blob-nivå](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) P4 och P6 ha disken mappas till dessa nivåer. Om du distribuerar en ohanterad disk- eller blob med diskens storlek eller innehållslängd mindre än 32 GiB eller mellan 32 GiB till 64 GiB utan att ange Blob-nivå, fortsätter du hamnar på P10 med 500 IOPS och 100 MiB/s och den mappade prisnivån.
+Disk storlekarna P4 (32 GiB) och P6 (64 GiB) stöds inte som standard disk nivåer för ohanterade diskar och sid-blobar. Du måste uttryckligen [Ange BLOB-nivån](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) till P4 och P6 för att disken ska mappas till dessa nivåer. Om du distribuerar en ohanterad disk eller sid-BLOB med disk storlek eller innehålls längd som är mindre än 32 GiB eller mellan 32 GiB och 64 GiB utan att ange BLOB-nivån, kommer du att fortsätta att använda P10 med 500 IOPS och 100 MiB/s och den mappade pris nivån.
 
-**Om min befintliga premium managed disk mindre än 64 GiB skapades innan liten disk aktiverades (cirka 15 juni 2017), hur faktureras den?**
+**Om min befintliga Premium-hanterade disk som är mindre än 64 GiB skapades innan den lilla disken var aktive rad (cirka 15 juni 2017), hur faktureras den?**
 
-Befintliga små premium-diskar mindre än 64 GiB fortsättningsvis att debiteras enligt P10 prisnivån.
+Befintliga små Premium diskar som är mindre än 64-GiB fortsätter att faktureras enligt pris nivån för P10.
 
-**Hur kan jag byta disk-nivå för små premium disks högst 64 GiB från P10 P4 eller P6?**
+**Hur kan jag byta disk nivå för små Premium diskar som är mindre än 64 GiB från P10 till P4 eller P6?**
 
-Du kan ta en ögonblicksbild av dina små diskar och sedan skapa en disk för att automatiskt växla prisnivån till P4 eller P6 baserat på den valda storleken.
+Du kan ta en ögonblicks bild av dina små diskar och sedan skapa en disk för att automatiskt växla pris nivån till P4 eller P6 baserat på den etablerade storleken.
 
-**Kan du ändra storlek på befintliga hanterade diskar från storlekar färre än 4 tebibyte (TiB) till nya Nyintroducerade diskstorlekar upp till 32 TiB?**
+**Kan du ändra storlek på befintliga Managed Disks från storlekar färre än 4 tebibyte (TiB) till nya nyligen introducerade disk storlekar upp till 32 TiB?**
 
 Ja.
 
-**Vad är den största diskstorleken som stöds av Azure Backup och Azure Site Recovery-tjänsten?**
+**Vilka är de största disk storlekarna som stöds av Azure Backup-och Azure Site Recovery-tjänsten?**
 
-Den största diskstorleken som stöds av Azure Backup och Azure Site Recovery-tjänsten är 4 TiB. Stöd för större diskar upp till 32 TiB är inte tillgänglig ännu.
+Den största disk storleken som stöds av Azure Backup-och Azure Site Recovery-tjänsten är 4 TiB. Stöd för de större diskarna på upp till 32 TiB är ännu inte tillgängligt.
 
-**Vad är den rekommenderade VM-storlekar för större diskstorlekar (> 4 TiB) för Standard SSD och HDD-Standard-diskar för att uppnå optimerade disk-IOPS och bandbredd?**
+**Vilka är de rekommenderade VM-storlekarna för större disk storlekar (> 4 TiB) för Standard SSD och Standard HDD diskar för att åstadkomma optimerad disk-IOPS och bandbredd?**
 
-Att uppnå diskgenomflöde i Standard SSD och HDD-Standard storlekar för stora diskar (> 4 TiB) utöver 500 IOPS och 60 MiB/s, rekommenderar vi du distribuerar en ny virtuell dator från en av de följande storlekarna för att optimera dina prestanda: B-serien, DSv2-serien, Dsv3-serien, ESv3-serien, Fs-serien, Fsv2-serien, M-serien GS-serien, NCv2-serien, NCv3-serien och virtuella datorer i Ls-serien. Koppla stora diskar till befintliga virtuella datorer eller virtuella datorer som inte använder storlekarna som rekommenderas ovan kan det uppstå lägre prestanda.
+För att uppnå disk data flödet för Standard SSD och Standard HDD stora disk storlekar (> 4 TiB) utöver 500 IOPS och 60 MiB/s, rekommenderar vi att du distribuerar en ny virtuell dator från någon av följande VM-storlekar för att optimera prestandan: B-serien, DSv2-serien, Dsv3-serien, ESv3-serien, FS-serien, Fsv2-serien, M-serien, GS-serien, NCv2-serien, NCv3-serien eller LS-seriens virtuella datorer. Om du bifogar stora diskar till befintliga virtuella datorer eller virtuella datorer som inte använder de rekommenderade storlekarna ovan kan det uppstå lägre prestanda.
 
-**Hur kan jag uppgradera min diskar (> 4 TiB) som har distribuerats i förhandsversionen större disk storlekar för att få högre IOPS och bandbredd vid GA?**
+**Hur uppgraderar jag mina diskar (> 4 TiB) som distribuerades under för hands versionen av större disk storlekar för att få högre IOPS & bandbredd i GA?**
 
-Du kan antingen stoppa och starta den virtuella datorn som disken är ansluten till eller koppla från och ansluta disken igen. Prestandamålen för större diskstorlekar har utökats för både premium SSD- och standard SSD-enheter när produkten lanseras.
+Du kan antingen stoppa och starta den virtuella datorn som disken är ansluten till eller, koppla från och ansluta disken igen. Prestanda målen för större disk storlekar har ökat för både Premium-SSD och standard-SSD på GA.
 
-**Vilka regioner är hanterade diskstorlekar 8 TiB, 16 TiB och 32 TiB som stöds i?**
+**Vilka regioner är de hanterade disk storlekarna på 8 TiB, 16 TiB och 32 TiB stöds i?**
 
-8 TiB och 16 TiB 32 TiB disk SKU: er stöds i alla regioner under global Azure, Microsoft Azure Government och Azure Kina 21Vianet.
+8-TiB, 16 TiB och 32 TiB disk SKU: er stöds i alla regioner under Global Azure, Microsoft Azure Government och Azure Kina 21Vianet.
 
-**Vi har stöd för att aktivera cachelagring av värden på alla diskstorlekar?**
+**Stöder vi aktivering av cachelagring av värdar på alla disk storlekar?**
 
-Vi stöder värd cachelagring av ReadOnly och Läs/Skriv diskar som är mindre än 4 TiB. För diskstorlekar fler än 4 TiB vi stöder inte att ange alternativet än None för cachelagring. Vi rekommenderar att utnyttja cachelagring för mindre diskstorlekar där du kan förvänta dig att Observera bättre prestandaökning med data cachelagras till den virtuella datorn.
+Vi stöder cachelagring av värdar för ReadOnly och läsning/skrivning på disk storlekar som är mindre än 4 TiB. För disk storlekar på mer än 4 TiB har vi inte stöd för alternativ för cachelagring förutom ingen. Vi rekommenderar att du använder cachelagring för mindre disk storlekar där du kan vänta på att få bättre prestanda ökning med cachelagrade data i den virtuella datorn.
 
 ## <a name="what-if-my-question-isnt-answered-here"></a>Vad händer om min fråga inte besvaras här?
 
-Om din fråga inte visas kan för oss berätta och vi hjälper dig att hitta något svar. Du kan ställa en fråga i slutet av den här artikeln i kommentarerna. Använd MSDN för att interagera med Azure Storage-teamet och andra community-medlemmar om den här artikeln, [Azure Storage-forumet](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
+Om din fråga inte visas här kan vi hjälpa oss och vi hjälper dig att hitta ett svar. Du kan skicka en fråga i slutet av den här artikeln i kommentarerna. Om du vill delta i Azure Storage teamet och andra community-medlemmar om den här artikeln använder du MSDN [Azure Storage-forumet](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
 
-Skicka dina förfrågningar och idéer om du vill begära funktioner i [Azure Storage-Feedbackforum](https://feedback.azure.com/forums/217298-storage).
+Om du vill begära funktioner skickar du dina förfrågningar och idéer till [Azure Storage feedback-forumet](https://feedback.azure.com/forums/217298-storage).

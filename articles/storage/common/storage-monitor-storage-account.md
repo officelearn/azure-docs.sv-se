@@ -1,146 +1,145 @@
 ---
-title: Övervaka ett Azure Storage-konto | Microsoft Docs
-description: Lär dig hur du övervakar ett storage-konto i Azure med hjälp av Azure portal.
-services: storage
+title: Så här övervakar du ett Azure Storage konto | Microsoft Docs
+description: Lär dig hur du övervakar ett lagrings konto i Azure med hjälp av Azure Portal.
 author: normesta
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/31/2018
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 5a28d69ae5ba9f3b7eeb28b6824ad9a458832bb3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 912c1c3403191f40dac054f99f29ac60ba84ce8f
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65153638"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68844912"
 ---
-# <a name="monitor-a-storage-account-in-the-azure-portal"></a>Övervaka ett lagringskonto i Azure portal
+# <a name="monitor-a-storage-account-in-the-azure-portal"></a>Övervaka ett lagrings konto i Azure Portal
 
-[Azure Storage Analytics](storage-analytics.md) tillhandahåller mått för alla lagringstjänster och loggar för blobbar, köer och tabeller. Du kan använda den [Azure-portalen](https://portal.azure.com) konfigurera vilka mått och loggar sparas för ditt konto och konfigurera diagram som ger visuella representationer av dina måttdata.
+[Azure-lagringsanalys](storage-analytics.md) tillhandahåller mått för alla lagrings tjänster och loggar för blobbar, köer och tabeller. Du kan använda [Azure Portal](https://portal.azure.com) för att konfigurera vilka mått och loggar som registreras för ditt konto och konfigurera diagram som ger visuella representationer av dina mått data.
 
 > [!NOTE]
-> Det finns kostnader i samband med att undersöka övervakningsdata i Azure-portalen. Mer information finns i [Lagringsanalys](storage-analytics.md).
+> Det finns kostnader för att undersöka övervaknings data i Azure Portal. Mer information finns i [Lagringsanalys](storage-analytics.md).
 >
-> Azure Files kan du för närvarande stöder Storage Analytics mätvärden, men har stöd inte för loggning.
+> Azure Files stöder för närvarande Lagringsanalyss mått, men har ännu inte stöd för loggning.
 >
-> Utförliga instruktioner om hur du använder Storage Analytics och andra verktyg för att identifiera, diagnostisera och felsöka Azure Storage-relaterade problem, se [övervaka, diagnostisera och Felsök Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md).
+> En djupgående guide om hur du använder Lagringsanalys och andra verktyg för att identifiera, diagnostisera och felsöka Azure Storage-relaterade problem finns i [övervaka, diagnostisera och felsöka Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md).
 >
 
-## <a name="configure-monitoring-for-a-storage-account"></a>Konfigurera övervakning för ett lagringskonto
+## <a name="configure-monitoring-for-a-storage-account"></a>Konfigurera övervakning för ett lagrings konto
 
-1. I den [Azure-portalen](https://portal.azure.com)väljer **lagringskonton**, sedan namnet på lagringskontot att öppna instrumentpanelen för kontot.
-1. Välj **diagnostik** i den **övervakning** på menyn-bladet.
+1. I [Azure Portal](https://portal.azure.com)väljer du **lagrings konton**och sedan namnet på lagrings kontot för att öppna instrument panelen för kontot.
+1. Välj **diagnostik** i avsnittet **övervakning** på Meny bladet.
 
     ![MonitoringOptions](./media/storage-monitor-storage-account/storage-enable-metrics-00.png)
 
-1. Välj den **typ** av mätvärden för var och en **service** du vill övervaka, och **bevarandeprincip** för data. Du kan också inaktivera övervakning genom att ange **Status** till **av**.
+1. Välj **typ** av mått data för varje **tjänst** som du vill övervaka och **bevarande principen** för data. Du kan också inaktivera övervakning genom att ange **status** till **av**.
 
     ![MonitoringOptions](./media/storage-monitor-storage-account/storage-enable-metrics-01.png)
 
-   Om du vill ange databevarandeprincip, flytta den **Kvarhållning (dagar)** skjutreglaget eller ange antalet dagar för att behålla kan mellan 1 och 365. Standard för nya lagringskonton som är sju dagar. Om du inte vill ange en kvarhållningsprincip ange noll. Om det finns ingen bevarandeprincip, är det upp till dig att ta bort övervakningsdata.
+   Om du vill ange data bevarande principen flyttar du skjutreglaget för **kvarhållning (dagar)** eller anger hur många dagars data som ska behållas, från 1 till 365. Standardvärdet för nya lagrings konton är sju dagar. Om du inte vill ange en bevarande princip anger du noll. Om det inte finns någon bevarande princip är det upp till dig att ta bort övervaknings data.
 
    > [!WARNING]
-   > Du debiteras när du manuellt ta bort mätvärden. Inaktuella analytics-data (data äldre än bevarandeprincipen) tas bort av systemet utan kostnad. Vi rekommenderar att en bevarandeprincip som baseras på hur länge du vill behålla storage analytics-data för ditt konto. Se [faktureringen för lagringsmått](storage-analytics-metrics.md#billing-on-storage-metrics) för mer information.
+   > Du debiteras när du tar bort mått data manuellt. Inaktuella analys data (data som är äldre än din bevarande princip) tas bort av systemet utan kostnad. Vi rekommenderar att du anger en bevarande princip baserat på hur länge du vill behålla lagrings analys data för ditt konto. Mer information finns i [fakturering av lagrings mått](storage-analytics-metrics.md#billing-on-storage-metrics) .
    >
 
-1. När du är klar med konfigurationen av övervakningen väljer **spara**.
+1. När du är klar med övervaknings konfigurationen väljer du **Spara**.
 
-En standarduppsättning av mått visas i diagrammen på bladet för storage-konto, samt enskilda tjänstens blad (blob, kö, tabell och fil). När du har aktiverat mått för en tjänst, kan det ta upp till en timme innan data visas i dess diagram. Du kan välja **redigera** på mått diagrammet om du vill konfigurera vilka mått visas i diagrammet.
+En standard uppsättning mått visas i diagram på bladet lagrings konto, samt enskilda tjänst blad (BLOB, kö, tabell och fil). När du har aktiverat mått för en tjänst kan det ta upp till en timme innan data visas i diagrammen. Du kan välja **Redigera** i ett mått diagram om du vill konfigurera vilka mått som visas i diagrammet.
 
-Du kan inaktivera insamling av mätvärden och loggning genom att ange **Status** till **av**.
+Du kan inaktivera insamling av mått och loggning genom att ange **status** till **av**.
 
 > [!NOTE]
-> Azure Storage använder [tabellagring](storage-introduction.md#table-storage) att lagra mått för ditt lagringskonto och lagrar mått i tabeller i ditt konto. Mer information finns i. [Hur mått lagras](storage-analytics-metrics.md#how-metrics-are-stored).
+> Azure Storage använder [Table Storage](storage-introduction.md#table-storage) för att lagra måtten för ditt lagrings konto och lagrar måtten i tabeller i ditt konto. Mer information finns i. [Hur mått lagras](storage-analytics-metrics.md#how-metrics-are-stored).
 >
 
-## <a name="customize-metrics-charts"></a>Anpassa måttdiagram
+## <a name="customize-metrics-charts"></a>Anpassa mått diagram
 
-Använd följande procedur för att välja vilka storage-mått att visa i ett diagram med prestandamått.
+Använd följande procedur för att välja vilka lagrings mått som ska visas i ett mått diagram.
 
-1. Starta genom att visa ett måttdiagram för lagring i Azure-portalen. Du kan hitta diagram på den **bladet lagringskonto** och i den **mått** bladet för en enskild tjänst (blob, kö, tabell, fil).
+1. Börja med att visa ett mått för lagrings mått i Azure Portal. Du kan hitta diagram på **bladet lagrings konto** och på **mått** bladet för en enskild tjänst (BLOB, kö, tabell, fil).
 
-   I det här exemplet använder du följande diagram visas på den **bladet lagringskonto**:
+   I det här exemplet använder följande diagram som visas på bladet **lagrings konto**:
 
-   ![Val av diagram i Azure-portalen](./media/storage-monitor-storage-account/stg-customize-chart-00.png)
+   ![Diagram val i Azure Portal](./media/storage-monitor-storage-account/stg-customize-chart-00.png)
 
 1. Klicka någonstans i diagrammet för att redigera diagrammet.
 
-1. Välj sedan den **tidsintervall** mått att visa i diagrammet, och **service** (blob, kö, tabell, fil) vars mått som du vill visa. Här, markeras den senaste veckan mått att visa för blob-tjänsten:
+1. Välj sedan tidsintervallet för de mått som ska visas i diagrammet och **tjänsten** (BLOB, kö, tabell, fil) vars mått du vill visa. Här väljer du de senaste vecko måtten som ska visas för Blob-tjänsten:
 
-   ![Intervall och tjänsten val av tid på bladet redigera diagram](./media/storage-monitor-storage-account/storage-edit-metric-time-range.png)
+   ![Tidsintervall och tjänst val på bladet redigera diagram](./media/storage-monitor-storage-account/storage-edit-metric-time-range.png)
 
-1. Välj enskilda **mått** du hade som visas i diagrammet och klicka sedan på **OK**.
+1. Välj de enskilda **mått** som du vill ska visas i diagrammet och klicka sedan på **OK**.
 
-   ![Enskilda måttval redigera diagram bladet](./media/storage-monitor-storage-account/storage-edit-metric-selections.png)
+   ![Enskilda mått val i bladet redigera diagram](./media/storage-monitor-storage-account/storage-edit-metric-selections.png)
 
-Inställningar för din påverkar inte den samling, aggregering eller lagring av övervakningsdata i lagringskontot.
+Dina diagram inställningar påverkar inte insamling, sammanställning eller lagring av övervaknings data i lagrings kontot.
 
 ### <a name="metrics-availability-in-charts"></a>Mått tillgänglighet i diagram
 
-Lista över tillgängliga mått ändras baserat på vilken tjänst som du har valt i listrutan och enhetstypen för diagrammet som du redigerar. Du kan till exempel välja procent mått som *PercentNetworkError* och *PercentThrottlingError* endast om du redigerar ett diagram som visar enheter i procent:
+Listan över tillgängliga mått ändras baserat på vilken tjänst du har valt i list rutan och enhets typen för det diagram som du redigerar. Du kan till exempel välja procent värden som *PercentNetworkError* och *PercentThrottlingError* endast om du redigerar ett diagram som visar enheter i procent:
 
-![Begäran fel procent diagram i Azure portal](./media/storage-monitor-storage-account/stg-customize-chart-04.png)
+![Diagram över begär ande fel i procent i Azure Portal](./media/storage-monitor-storage-account/stg-customize-chart-04.png)
 
-### <a name="metrics-resolution"></a>Mått-lösning
+### <a name="metrics-resolution"></a>Mått matchning
 
-De mått som du valde i **diagnostik** upplösning mätvärden som är tillgängliga för ditt konto:
+Måtten som du har valt i **diagnostik** bestämmer upplösningen för de mått som är tillgängliga för ditt konto:
 
-* **Sammanställd** övervakning ger mått, till exempel ingående/utgående trafik, tillgänglighet, svarstid och framgångsprocent. De här måtten sammanställs från blob-, tabell-, fil- och kötjänster.
-* **Per API** ger bättre matchning med mått som är tillgängliga för enskilda lagringsåtgärder utöver tjänstnivå aggregeringar.
+* **Aggregerad** övervakning innehåller mått som ingångs-/utgångs-, tillgänglighets-, fördröjnings-och procent andels procent. Dessa mått sammanställs från BLOB-, tabell-, fil-och Queue-tjänsterna.
+* **Per API** ger bättre upplösning, med mått som är tillgängliga för enskilda lagrings åtgärder, förutom agg regeringar på tjänst nivå.
 
-## <a name="configure-metrics-alerts"></a>Konfigurera aviseringar för mått
+## <a name="configure-metrics-alerts"></a>Konfigurera mått aviseringar
 
-Du kan skapa varningar som meddelar dig när tröskelvärdet har uppnåtts för mätvärden i storage resurs.
+Du kan skapa aviseringar som meddelar dig när tröskelvärden har nåtts för lagrings resurs mått.
 
-1. Öppna den **Varningsregler bladet**, rulla ned till den **övervakning** delen av den **Appmenyns blad** och välj **aviseringar (klassisk)** .
-2. Välj **Lägg till måttavisering (klassisk)** att öppna den **Lägg till en varningsregel** bladet
-3. Ange en **namn** och **beskrivning** för din nya aviseringsregeln.
-4. Välj den **mått** för vilket du vill lägga till en avisering en avisering **villkor**, och en **tröskelvärdet**. Tröskelvärde för enheten skriver ändras beroende på mått som du har valt. Till exempel ”antal” är enhetstypen av för *ContainerCount*, medan enheten för den *PercentNetworkError* mått är en procentandel.
-5. Välj den **Period**. Mått som når eller överskrider tröskelvärdet inom utlösa en avisering.
-6. (Valfritt) Konfigurera **e-post** och **Webhook** meddelanden. Läs mer på webhooks [konfigurera en webhook i en Azure metrisk varning](../../azure-monitor/platform/alerts-webhooks.md). Om du inte konfigurerar e-post eller webhook-meddelande visas aviseringar endast i Azure-portalen.
+1. Öppna bladet **aviserings regler**genom att rulla ned till **avsnittet övervakning** i **meny bladet** och välja **aviseringar (klassisk)** .
+2. Välj **Lägg till mått varning (klassisk)** för att öppna bladet **Lägg till en varnings regel**
+3. Ange ett **namn** och en **Beskrivning** för den nya varnings regeln.
+4. Välj det **mått** som du vill lägga till en avisering för, ett varnings **villkor**och ett **tröskelvärde**. Tröskeln för enhets typ ändras beroende på mått som du har valt. Exempel: "count" är enhets typen för *ContainerCount*, medan enheten för *PercentNetworkError* -måttet är en procent andel.
+5. Välj en **period**. Mått som når eller överskrider tröskelvärdet inom perioden utlöser en avisering.
+6. Valfritt Konfigurera **e-post** och **webhook** -meddelanden. Mer information om Webhooks finns i [Konfigurera en webhook på en Azure Metric-avisering](../../azure-monitor/platform/alerts-webhooks.md). Om du inte konfigurerar e-post eller webhook-meddelanden visas endast aviseringar i Azure Portal.
 
-![”Lägg till en varningsregel” bladet i Azure portal](./media/storage-monitor-storage-account/add-alert-rule.png)
+![Bladet Lägg till en varnings regel i Azure Portal](./media/storage-monitor-storage-account/add-alert-rule.png)
 
-## <a name="add-metrics-charts-to-the-portal-dashboard"></a>Lägg till måttdiagram i instrumentpanelen i portalen
+## <a name="add-metrics-charts-to-the-portal-dashboard"></a>Lägg till mått diagram på portalens instrument panel
 
-Du kan lägga till Azure Storage-måttdiagram för någon av dina lagringskonton på portalens instrumentpanel.
+Du kan lägga till Azure Storage Mät diagram för alla dina lagrings konton till portalens instrument panel.
 
-1. Välj Klicka **redigera instrumentpanel** medan du visar instrumentpanelen i den [Azure-portalen](https://portal.azure.com).
-1. I den **Panelgalleriet**väljer **Sök paneler av** > **typ**.
-1. Välj **typ** > **lagringskonton**.
-1. I **resurser**, Välj lagringskonto vars mått som du vill lägga till på instrumentpanelen.
-1. Välj **kategorier** > **övervakning**.
-1. Dra och släpp diagrammet panelen på instrumentpanelen för måttet som visas. Upprepa för alla mått som visas på instrumentpanelen. I följande bild, ”Blobbar - Totalt antal begäranden” diagrammet är markerat som ett exempel, men alla diagram är tillgängliga för placering på instrumentpanelen.
+1. Välj Klicka på **Redigera instrument panel** när du visar instrument panelen i [Azure Portal](https://portal.azure.com).
+1. I **panel galleriet**väljer du **hitta paneler efter** > **typ**.
+1. Välj **Skriv** > **lagrings konton**.
+1. I **resurser**väljer du det lagrings konto vars mått du vill lägga till på instrument panelen.
+1. Välj **Kategorier** > **övervakning**.
+1. Dra och släpp diagram panelen på instrument panelen för måttet som du vill visa. Upprepa för alla mått som du vill ska visas på instrument panelen. I följande bild markeras diagrammet "blobbar-totalt antal förfrågningar" som ett exempel, men alla diagram är tillgängliga för placering på instrument panelen.
 
-   ![Panelgalleriet i Azure-portalen](./media/storage-monitor-storage-account/storage-customize-dashboard.png)
-1. Välj **anpassningen är klar** överst på instrumentpanelen när du är klar att lägga till diagram.
+   ![Panel galleri i Azure Portal](./media/storage-monitor-storage-account/storage-customize-dashboard.png)
+1. Välj **anpassning som gjorts** nära överkanten på instrument panelen när du är klar med att lägga till diagram.
 
-När du har lagt till diagram på instrumentpanelen, kan du anpassa dem ytterligare enligt beskrivningen i Anpassa måttdiagram.
+När du har lagt till diagram på instrument panelen kan du ytterligare anpassa dem enligt beskrivningen i anpassa mått diagram.
 
 ## <a name="configure-logging"></a>Konfigurera loggning
 
-Du kan instruera Azure Storage för att spara diagnostikloggar för läsa, skriva och ta bort begäranden för blob-, tabell- och kötjänster. Policyn för datalagring i du ställer in gäller även för de här loggarna.
+Du kan instruera Azure Storage att spara diagnostikloggar för läsnings-, skriv-och borttagnings begär Anden för BLOB-, tabell-och Queue-tjänsterna. Den data bevarande princip som du anger gäller även för dessa loggar.
 
 > [!NOTE]
-> Azure Files kan du för närvarande stöder Storage Analytics mätvärden, men har stöd inte för loggning.
+> Azure Files stöder för närvarande Lagringsanalyss mått, men har ännu inte stöd för loggning.
 >
 
-1. I den [Azure-portalen](https://portal.azure.com)väljer **lagringskonton**, sedan namnet på lagringskontot för att öppna bladet för lagringskontot.
-1. Välj **diagnostik** i den **övervakning** på menyn-bladet.
+1. I [Azure Portal](https://portal.azure.com)väljer du **lagrings konton**och sedan namnet på lagrings kontot för att öppna bladet lagrings konto.
+1. Välj **diagnostik** i avsnittet **övervakning** på Meny bladet.
 
-    ![Diagnostik menyalternativet under övervakning i Azure-portalen.](./media/storage-monitor-storage-account/storage-enable-metrics-00.png)
+    ![Meny alternativet diagnostik under övervakning i Azure Portal.](./media/storage-monitor-storage-account/storage-enable-metrics-00.png)
 
-1. Se till att **Status** är inställd på **på**, och välj den **services** för vilket du vill aktivera loggning.
+1. Se till att **status** är inställt **på på**och välj de **tjänster** som du vill aktivera loggning för.
 
-    ![Konfigurera loggning i Azure-portalen.](./media/storage-monitor-storage-account/enable-diagnostics.png)
+    ![Konfigurera loggning i Azure Portal.](./media/storage-monitor-storage-account/enable-diagnostics.png)
 1. Klicka på **Spara**.
 
-Diagnostik-loggarna sparas i en blobbehållare med namnet *$logs* i ditt lagringskonto. Du kan visa loggdata med en lagringsutforskare som den [Microsoft Lagringsutforskaren](https://storageexplorer.com), eller via programmering med storage-klientbibliotek eller PowerShell.
+Diagnostikloggar sparas i en BLOB-behållare med namnet *$logs* i ditt lagrings konto. Du kan visa loggdata med hjälp av en lagrings Utforskare som [Microsoft Storage Explorer](https://storageexplorer.com)eller program mässigt med hjälp av lagrings klient biblioteket eller PowerShell.
 
-Läs om hur åtkomst till behållaren $logs [loggningen i Storage analytics](storage-analytics-logging.md).
+Information om hur du kommer åt $logs-behållaren finns i [Storage Analytics-loggning](storage-analytics-logging.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Hitta mer information om [mätvärden, loggning och fakturering](storage-analytics.md) för Storage Analytics.
+* Hitta mer information om [mått, loggning och fakturering](storage-analytics.md) för Lagringsanalys.

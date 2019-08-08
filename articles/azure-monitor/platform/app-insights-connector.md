@@ -13,23 +13,23 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: magoedte
-ms.openlocfilehash: c7c0d2e3fb818f74a65502674188c523d23729e8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 05f2f52da90f499f7ac16de179d9967b97579997
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65606739"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68849177"
 ---
-# <a name="application-insights-connector-management-solution-deprecated"></a>Lösning för Application Insights-Anslutningsapp (inaktuell)
+# <a name="application-insights-connector-management-solution-deprecated"></a>Application Insights-anslutningsprogram hanterings lösning (inaktuell)
 
 ![Application Insights symbol](./media/app-insights-connector/app-insights-connector-symbol.png)
 
 >[!NOTE]
-> Med hjälp av [mellan resurser frågor](../../azure-monitor/log-query/cross-workspace-query.md), Application Insights-anslutningsprogram hanteringslösningen inte längre behövs. Det har inaktuella och tas bort från Azure Marketplace, tillsammans med OMS-portalen som officiellt upphörde den 15 januari 2019 för kommersiella Azure-molnet. Den tas ur bruk den 30 mars 2019 för Azure US Government-molnet.
+> Med stöd för [frågor över olika resurser](../../azure-monitor/log-query/cross-workspace-query.md)krävs inte längre den Application Insights-anslutningsprogram hanterings lösningen. Den har ersatts och tagits bort från Azure Marketplace, tillsammans med OMS-portalen som officiellt förbrukades den 15 januari 2019 för Azures kommersiella moln. Den kommer att dras tillbaka den 30 mars 2019 för Azures moln för amerikanska myndigheter.
 >
->Befintliga anslutningar fortsätter att fungera förrän den 30 juni 2019.  Med OMS-portalen utfasning går det inte att konfigurera och ta bort befintliga anslutningar från portalen. Se [tar bort anslutningen med PowerShell](#removing-the-connector-with-powershell) nedan för ett skript på använder PowerShell för att ta bort befintliga anslutningar.
+>Befintliga anslutningar fortsätter att fungera fram till den 30 juni 2019.  Med OMS-portalen är det inte möjligt att konfigurera och ta bort befintliga anslutningar från portalen. Se [ta bort anslutningen med PowerShell](#removing-the-connector-with-powershell) nedan för ett skript på att använda PowerShell för att ta bort befintliga anslutningar.
 >
->Vägledning för frågor till Application Insights loggdata för flera program, se [förena flera Azure Monitor Application Insights-resurser](../log-query/unify-app-resource-data.md). Mer information om OMS portal utfasningen finns [OMS-portalen som flyttar till Azure](../../azure-monitor/platform/oms-portal-transition.md).
+>Anvisningar om hur du frågar Application Insights loggdata för flera program finns i [förena flera Azure Monitor Application Insights resurser](../log-query/unify-app-resource-data.md). Mer information om utfasningen av OMS-portalen finns i [OMS-portalen flytta till Azure](../../azure-monitor/platform/oms-portal-transition.md).
 >
 > 
 
@@ -192,10 +192,10 @@ En post med en *typ* av *ApplicationInsights* skapas för varje typ av indata. A
 | Enhetstyp | Klientenheten |
 | ScreenResolution |   |
 | Kontinent | Kontinent som begäran kom från |
-| Land | Land/region som begäran kom från |
+| Country | Land/region där begäran har sitt ursprung |
 | Län | Provins, tillstånd eller nationella inställningar som begäran kom från |
 | Ort | Stad som begäran kom från |
-| isSynthetic | Anger om begäran har skapats av en användare eller med automatiserad metod. = Användargenererat TRUE eller false = automatiserad metod |
+| isSynthetic | Anger om begäran har skapats av en användare eller med automatiserad metod. Sant = automatisk metod eller falskt = genererad användare |
 | SamplingRate | Den procentandel av telemetri som genereras av SDK som skickas till portalen. Intervallet 0,0 100,0. |
 | SampledCount | 100/(SamplingRate). Exempel: 4 =&gt; 25% |
 | IsAuthenticated | Sant eller falskt |
@@ -273,7 +273,7 @@ En post med en *typ* av *ApplicationInsights* skapas för varje typ av indata. A
 Den här lösningen har inte en uppsättning exempel på loggsökningar visas på instrumentpanelen. Men exempel loggsökningsfrågor med beskrivningar visas i den [visa Application Insights-anslutningsprogram information](#view-application-insights-connector-information) avsnittet.
 
 ## <a name="removing-the-connector-with-powershell"></a>Ta bort anslutningen med PowerShell
-Med OMS-portalen utfasning går det inte att konfigurera och ta bort befintliga anslutningar från portalen. Du kan ta bort befintliga anslutningar med följande PowerShell-skript. Du måste vara ägare eller deltagare i arbetsytan och läsaren i Application Insights-resurs för att utföra åtgärden.
+Med OMS-portalen är det inte möjligt att konfigurera och ta bort befintliga anslutningar från portalen. Du kan ta bort befintliga anslutningar med följande PowerShell-skript. Du måste vara ägare eller deltagare i arbets ytan och läsaren för Application Insights resurs för att utföra den här åtgärden.
 
 ```powershell
 $Subscription_app = "App Subscription Name"
@@ -311,13 +311,13 @@ $Headers = @{
 $Connections = Invoke-RestMethod -Method "GET" -Uri "https://management.azure.com$($LAWorkspace.ResourceId)/dataSources/?%24filter=kind%20eq%20'ApplicationInsights'&api-version=2015-11-01-preview" -Headers $Headers
 $ConnectionsJson = $Connections | ConvertTo-Json
 ```
-Det här skriptet kräver en ägar-token för autentisering för autentisering mot Azure Active Directory. Ett sätt att hämta denna token med hjälp av en artikel i den [REST API-dokumentationswebbplats](https://docs.microsoft.com/rest/api/loganalytics/datasources/createorupdate). Klicka på **prova** och logga in på din Azure-prenumeration. Du kan kopiera ägartoken från den **begär förhandsgranskning** enligt följande bild.
+Det här skriptet kräver en Bearer-autentiseringstoken för autentisering mot Azure Active Directory. Ett sätt att hämta denna token använder en artikel i [REST API dokumentations webbplats](https://docs.microsoft.com/rest/api/loganalytics/datasources/createorupdate). Klicka på **testa** och logga in på din Azure-prenumeration. Du kan kopiera Bearer-token från **förfrågnings** förhands granskningen enligt följande bild.
 
 
-![Ägartoken](media/app-insights-connector/bearer-token.png)
+![Bearer-token](media/app-insights-connector/bearer-token.png)
 
 
-Du kan också hämta en lista över program används en loggfråga:
+Du kan också hämta en lista över program som använder en logg fråga:
 
 ```Kusto
 ApplicationInsights | summarize by ApplicationName

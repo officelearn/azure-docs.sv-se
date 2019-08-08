@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2018
 ms.author: apimpm
-ms.openlocfilehash: 0e7c6fe10467bb68417172dc95fef874d37fc97b
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: f0f89275006498c0ff4883f259d7e76f723b922b
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68696248"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68851325"
 ---
 # <a name="advanced-request-throttling-with-azure-api-management"></a>Avancerad begränsning av förfrågningar med Azure API Management
 Att kunna begränsa inkommande begär Anden är en viktig roll i Azure API Management. Antingen genom att kontrol lera antalet begär Anden eller de totala begär Anden/data som överförs, tillåter API Management att API-providers skyddar sina API: er från missbruk och skapar värden för olika API-produktsortiment.
@@ -29,7 +29,7 @@ Hittills har frekvens begränsnings funktionerna begränsats till en viss produk
 
 ## <a name="custom-key-based-throttling"></a>Anpassad nyckelbaserad begränsning
 
-> OBS! `rate-limit-by-key` Principen är inte tillgänglig i användnings nivån av Azure-API Management. 
+> OBS! - `rate-limit-by-key` Och`quota-by-key` -principerna är inte tillgängliga när du arbetar på användnings nivån i Azure API Management. 
 
 De nya principerna för [hastighets begränsning](/azure/api-management/api-management-access-restriction-policies#LimitCallRateByKey) och [kvot-till-nyckel](/azure/api-management/api-management-access-restriction-policies#SetUsageQuotaByKey) ger en mer flexibel lösning för trafik kontroll. Med de här nya principerna kan du definiera uttryck för att identifiera de nycklar som används för att spåra användning av trafiken. Sättet det här fungerar är enkelt att illustrera med ett exempel. 
 

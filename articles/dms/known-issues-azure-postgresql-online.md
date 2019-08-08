@@ -1,6 +1,6 @@
 ---
-title: Artikel om begränsningar för kända problem/migrering med online migrering till Azure Database for MySQL | Microsoft Docs
-description: Läs mer om begränsningar för kända problem/migrering med online migrering till Azure Database för MySQL.
+title: Artikel om kända problem/Överflyttnings begränsningar med online-migreringar till Azure Database for MySQL | Microsoft Docs
+description: Läs om kända problem/begränsningar för migrering med online-migreringar till Azure Database for MySQL.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -10,38 +10,39 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 04/23/2019
-ms.openlocfilehash: 2c8a3f36e04fbedfdd127939d55fab376e3e6b30
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/06/2019
+ms.openlocfilehash: 0b1632ab943026578eb753014575ab53d151c33f
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "64691938"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68855023"
 ---
-# <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-postgresql"></a>Begränsningar för kända problem/migrering med online migreringar till Azure DB för PostgreSQL
+# <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-postgresql"></a>Kända problem/migrerings begränsningar med online-migreringar till Azure DB för PostgreSQL
 
-I följande avsnitt beskrivs kända problem och begränsningar som är associerade med online migreringar från PostgreSQL till Azure Database för PostgreSQL. 
+Kända problem och begränsningar som är kopplade till online-migreringar från PostgreSQL till Azure Database for PostgreSQL beskrivs i följande avsnitt.
 
-## <a name="online-migration-configuration"></a>Onlinemigrering konfiguration
-- Källan PostgreSQL-servern måste köra version 9.5.11, 9.6.7 eller 10.3 eller senare. Mer information finns i artikeln [Versioner av PostgreSQL Database som stöds](../postgresql/concepts-supported-versions.md).
-- Endast samma version migreringar stöds. Till exempel stöds migrera PostgreSQL 9.5.11 till Azure Database för PostgreSQL 9.6.7 inte.
+## <a name="online-migration-configuration"></a>Konfiguration av online-migrering
+
+- PostgreSQL-servern måste köra version 9.5.11, 9.6.7 eller 10,3 eller senare. Mer information finns i artikeln [Versioner av PostgreSQL Database som stöds](../postgresql/concepts-supported-versions.md).
+- Det finns bara stöd för migrering av samma version. Exempelvis stöds inte migrering av PostgreSQL-9.5.11 till Azure Database for PostgreSQL 9.6.7.
 
     > [!NOTE]
-    > För PostgreSQL version 10 stöder för närvarande DMS endast migrering av version 10.3 till Azure Database för PostgreSQL. Vi planerar att stödja nyare versioner av PostgreSQL snart.
+    > För PostgreSQL version 10 stöder för närvarande DMS endast migrering av version 10,3 till Azure Database for PostgreSQL. Vi planerar att stödja nyare versioner av PostgreSQL snart.
 
-- Att aktivera logiska replikering i den **source PostgreSQL postgresql.conf** fil, ange följande parametrar:
-    - **wal_level** = logical
-    - **max_replication_slots** = [max antal databaser för migrering]; om du vill migrera 4 databaser, ange värdet till 4
-    - **max_wal_senders** = [antalet databaser som körs samtidigt]; det rekommenderade värdet är 10
-- Lägg till DMS agenten IP i källan PostgresSQL pg_hba.conf
-    1. Anteckna DMS IP-adressen när du har slutfört etablering av en instans av DMS.
-    2. Lägg till IP-adressen i filen pg_hba.conf som visas:
+- Om du vill aktivera logisk replikering i filen **Source postgresql postgresql. conf** anger du följande parametrar:
+  - **wal_level** = logisk
+  - **max_replication_slots** = [Max antal databaser för migrering]; Om du vill migrera 4 databaser ställer du in värdet på 4
+  - **max_wal_senders** = [antal databaser som körs samtidigt]; det rekommenderade värdet är 10
+- Lägg till DMS-agentens IP-adress till källan PostgreSQL pg_hba. conf
+  1. Anteckna DMS-IP-adressen när du har slutfört etableringen av en instans av DMS.
+  2. Lägg till IP-adressen i filen pg_hba. conf som visas:
 
-        vara värd för alla 172.16.136.18/10 md5 värd replikering postgres 172.16.136.18/10 md5
+        värd för alla 172.16.136.18/10 MD5 Host Replication postgres 172.16.136.18/10 MD5
 
-- Användaren måste ha superuser-behörighet på den server som är värd för källdatabasen
-- Förutom att ha ENUM i källan databasschemat måste databasscheman källan och målet överensstämma.
-- Schemat i målets Azure Database for PostgreSQL får inte ha sekundärnycklar. Använd följande fråga om du vill släppa främmande nycklar:
+- Användaren måste ha behörigheten Super på den server som är värd för käll databasen
+- Förutom att ha ENUM i käll databasens schema måste käll-och mål databasens scheman överensstämma.
+- Schemat i mål Azure Database for PostgreSQL får inte ha sekundär nycklar. Använd följande fråga om du vill ta bort sekundär nycklar:
 
     ```
                                 SELECT Queries.tablename
@@ -72,43 +73,45 @@ I följande avsnitt beskrivs kända problem och begränsningar som är associera
 
     Kör släpp sekundärnyckeln (som är den andra kolumnen) i frågeresultatet.
 
-- Schemat i målets Azure Database for PostgreSQL får inte ha utlösare. Använd följande för att inaktivera utlösare i måldatabasen:
+- Schemat i mål Azure Database for PostgreSQL får inte ha några utlösare. Använd följande för att inaktivera utlösare i mål databasen:
 
      ```
     SELECT Concat('DROP TRIGGER ', Trigger_Name, ';') FROM  information_schema.TRIGGERS WHERE TRIGGER_SCHEMA = 'your_schema';
      ```
 
-## <a name="datatype-limitations"></a>DataType-begränsningar
+## <a name="datatype-limitations"></a>Begränsningar för data typer
 
-- **Begränsningen**: Om det finns en ENUM-datatyp i källdatabasen för PostgreSQL, misslyckas migreringen under kontinuerlig synkronisering.
+- **Begränsning**: Om det finns en uppräknings data typ i käll PostgreSQL-databasen, kommer migreringen att Miss under kontinuerlig synkronisering.
 
-    **Lösning**: Ändra ENUM datatype till tecknet varierande i Azure Database för PostgreSQL.
+    **Lösning**: Ändra ENUM-datatype till Character varierande i Azure Database for PostgreSQL.
 
-- **Begränsningen**: Om det finns ingen primärnyckel i tabeller, misslyckas kontinuerlig synkronisering.
+- **Begränsning**: Om det inte finns någon primär nyckel för tabeller kommer den kontinuerliga synkroniseringen att Miss växlar.
 
-    **Lösning**: Ange tillfälligt primärnyckel för tabellen för migrering att gå vidare. Du kan ta bort den primära nyckeln när migreringen är klar.
+    **Lösning**: Ange tillfälligt en primär nyckel för tabellen för migrering för att fortsätta. Du kan ta bort den primära nyckeln när migreringen är klar.
 
 ## <a name="lob-limitations"></a>LOB-begränsningar
-Stora objekt (LOB)-kolumner är kolumner som kan växa. För PostgreSQL är exempel på LOB-datatyper XML, JSON, bild, TEXT osv.
 
-- **Begränsningen**: Om LOB-datatyper används som primärnyckel för, misslyckas migreringen.
+LOB-kolumner (Large Object) är kolumner som kan växa stora. För PostgreSQL är exempel på LOB-datatyper XML, JSON, IMAGE, TEXT osv.
 
-    **Lösning**: Ersätt primärnyckel med andra datatyper eller kolumner som inte är LOB.
+- **Begränsning**: Om LOB-datatyper används som primär nycklar kommer migreringen att Miss förflyttningen.
 
-- **Begränsningen**: Om längden på kolumnen för stora objekt (LOB) är större än 32 KB, kan data trunkeras på angivna. Du kan kontrollera längden på LOB-kolumn med hjälp av den här frågan:
+    **Lösning**: Ersätt primär nyckel med andra data typer eller kolumner som inte är LOB.
+
+- **Begränsning**: Om längden på den stora objekt kolumnen (LOB) är större än 32 KB kan data trunkeras vid målet. Du kan kontrol lera längden på LOB-kolumnen med den här frågan:
 
     ```
     SELECT max(length(cast(body as text))) as body FROM customer_mail
     ```
 
-    **Lösning**: Om du har LOB-objekt som är större än 32 KB, kontakta teknikteamet på [be Azure Databasmigreringar](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
+    **Lösning**: Om du har LOB-objekt som är större än 32 KB kan du kontakta teknik teamet på [fråga Azure Database](mailto:AskAzureDatabaseMigrations@service.microsoft.com)-migreringar.
 
-- **Begränsningen**: Om det finns LOB-kolumner i tabellen och det finns inga primära nyckeluppsättning för tabellen, kan det inte att migrera data för den här tabellen.
+- **Begränsning**: Om det finns LOB-kolumner i tabellen och det inte finns någon primär nyckel uppsättning för tabellen, kanske inte data migreras för den här tabellen.
 
-    **Lösning**: Ange tillfälligt primärnyckel för tabellen för migrering att gå vidare. Du kan ta bort den primära nyckeln när migreringen är klar.
+    **Lösning**: Ange tillfälligt en primär nyckel för tabellen för migrering för att gå vidare. Du kan ta bort den primära nyckeln när migreringen är klar.
 
-## <a name="postgresql10-workaround"></a>PostgreSQL10 lösning
-PostgreSQL 10.x ändrar olika pg_xlog mappnamn och kan därför orsaka migrering inte körs som förväntat. Om du migrerar från PostgreSQL 10.x till Azure Database för PostgreSQL 10.3, kör följande skript på PostgreSQL källdatabasen för att skapa funktionen omslutning runt pg_xlog funktioner.
+## <a name="postgresql10-workaround"></a>PostgreSQL10-lösning
+
+PostgreSQL 10. x gör olika ändringar i pg_xlog, och därför kan migreringen inte köras som förväntat. Om du migrerar från PostgreSQL 10. x till Azure Database for PostgreSQL 10,3 kör du följande skript i käll PostgreSQL-databasen för att skapa en wrapper-funktion kring pg_xlog-funktioner.
 
 ```
 BEGIN;
@@ -148,13 +151,38 @@ ALTER USER PG_User SET search_path = fnRenames, pg_catalog, "$user", public;
 COMMIT;
 ```
 
+## <a name="limitations-when-migrating-online-from-aws-rds-postgresql"></a>Begränsningar vid migrering online från AWS RDS PostgreSQL
+
+När du försöker utföra en online-migrering från AWS RDS PostgreSQL till Azure Database for PostgreSQL kan du stöta på följande fel.
+
+- **Fel**: Standardvärdet för kolumnen ”{column}” i tabellen ”{table}” i databasen ”{database}” är olika på käll- och målservrarna. Det har ”{value on source}” i källan och ”{value on target}” i målet.
+
+  **Begränsning**: Felet uppstår när standardvärdet i ett kolumn schema skiljer sig mellan käll-och mål databaserna.
+  **Lösning**: Se till att schemat på målet matchar schemat på källan. Information om hur du migrerar schemat finns i [dokumentationen för Azure postgresql online-migrering](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema).
+
+- **Fel**: Måldatabasen ”{database}” har ”{number of tables}” tabeller, medan källdatabasen ”{database}” har ”{number of tables}” tabeller. Antalet tabeller i käll- och måldatabaserna måste vara lika många.
+
+  **Begränsning**: Felet uppstår när antalet tabeller skiljer sig mellan käll-och mål databaserna.
+  **Lösning**: Se till att schemat på målet matchar schemat på källan. Information om hur du migrerar schemat finns i [dokumentationen för Azure postgresql online-migrering](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema).
+
+- **Fel:** Käll databasen {Database} är tom.
+
+  **Begränsning**: Felet uppstår när käll databasen är tom. Det beror sannolikt på att du har valt fel databas som källa.
+  **Lösning**: Dubbelklicka på den käll databas som du har valt för migrering och försök sedan igen.
+
+- **Fel:** Mål databasen {Database} är tom. Migrera schemat.
+
+  **Begränsning**: Felet uppstår när det inte finns något schema i mål databasen. Kontrol lera att schemat på målet matchar schemat på källan.
+  **Lösning**: Se till att schemat på målet matchar schemat på källan. Information om hur du migrerar schemat finns i [dokumentationen för Azure postgresql online-migrering](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema).
+
 ## <a name="other-limitations"></a>Andra begränsningar
-- Databasnamnet får inte innehålla ett semikolon (;).
-- Lösenordssträngen med inledande och avslutande klammerparentes {} stöds inte. Den här begränsningen gäller för både ansluta till PostgreSQL för källa och mål Azure Database för PostgreSQL.
-- En avbildade tabell måste ha en primärnyckel. Om en tabell inte har en primär nyckel, blir resultatet av att ta bort och uppdatera poster operations oförutsägbart.
-- Uppdaterar en primärnyckel segment ignoreras. I sådana fall kan identifieras tillämpa sådan uppdatering av målet som en uppdatering som uppdaterades inte några rader och leder till en post som skrivs till tabellen undantag.
-- Migreringen av flera tabeller med samma namn men olika fall (t.ex. tabell1, tabell1 och tabell1) kan orsaka oväntade funktionssätt och stöds därför inte.
-- Ändra bearbetning av [skapa | ALTER | Släpp] tabell DDLs stöds om inte de lagras i ett inre function-procedur brödtext block eller i andra kapslade konstruktioner. Till exempel samlas följande ändring inte in:
+
+- Databas namnet får inte innehålla semikolon (;).
+- Lösen ords strängen som har inledande och avslutande klammer {} stöds inte. Den här begränsningen gäller både för att ansluta till käll PostgreSQL och mål Azure Database for PostgreSQL.
+- En uppfångad tabell måste ha en primär nyckel. Om en tabell inte har en primär nyckel, blir resultatet av åtgärderna ta bort och uppdatera post oförutsägbart.
+- Uppdatering av ett primär nyckel segment ignoreras. I sådana fall identifieras en sådan uppdatering av målet som en uppdatering som inte uppdaterade några rader och resulterar i att en post skrivs till tabellen undantag.
+- Migrering av flera tabeller med samma namn, men ett annat fall (t. ex. TABLE1, TABLE1 och Table1) kan orsaka oförutsägbart beteende och stöds därför inte.
+- Ändrings bearbetning av [CREATE | ÄNDRA | DROP] Table DDLs stöds om de inte lagras i ett inre Function/Procedure Body-block eller i andra kapslade konstruktioner. Till exempel kommer följande ändring inte att fångas in:
 
     ```
     CREATE OR REPLACE FUNCTION pg.create_distributors1() RETURNS void
@@ -167,8 +195,10 @@ COMMIT;
     $$;
     ```
 
-- Ändra bearbetning (kontinuerlig synkronisering) TRUNKERING åtgärder stöds inte. Migrering av partitionerade tabeller stöds inte. När en partitionerad tabell har identifierats, inträffar följande:
-    - Databasen rapporterar en lista över överordnade och underordnade tabellerna.
-    - Tabellen kommer att skapas på målet som en vanlig tabell med samma egenskaper som de markerade tabellerna.
-    - Om den överordnade tabellen i källdatabasen har samma primärnyckel-värdet som dess underordnade tabeller, genereras ett ”dubblettnyckel”-fel.
-- DMS är gränsen på databaser som ska migreras i en enda migreringsaktivitet fyra.
+- Ändrings bearbetning (kontinuerlig synkronisering) av TRUNKiska åtgärder stöds inte. Migrering av partitionerade tabeller stöds inte. När en partitionerad tabell identifieras inträffar följande saker:
+
+  - Databasen kommer att rapportera en lista över över-och underordnade tabeller.
+  - Tabellen kommer att skapas på målet som en vanlig tabell med samma egenskaper som de valda tabellerna.
+  - Om den överordnade tabellen i käll databasen har samma primär nyckel värde som dess underordnade tabeller, kommer en "dubblettnyckel"-fel genereras.
+
+- I DMS är gränsen för hur många databaser som ska migreras i en enda migrering fyra.

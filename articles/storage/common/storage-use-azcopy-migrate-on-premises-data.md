@@ -1,7 +1,6 @@
 ---
 title: 'Självstudier: Migrera lokala data till Azure Storage med AzCopy | Microsoft Docs'
 description: I den här självstudien använder du AzCopy för att migrera data eller kopiera data till och från blob-, tabell- och filinnehåll. Migrera enkelt data från din lokala lagring till Azure Storage.
-services: storage
 author: normesta
 ms.service: storage
 ms.topic: tutorial
@@ -9,12 +8,12 @@ ms.date: 05/14/2019
 ms.author: normesta
 ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: 193c00354b6222152e26476d0b06cfb1555c207e
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 5f09ae7dc625ad579e31fd49d70331f30e6a708a
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66754872"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68844900"
 ---
 #  <a name="tutorial-migrate-on-premises-data-to-cloud-storage-by-using-azcopy"></a>Självstudier: Migrera lokala data till molnlagring med AzCopy
 
@@ -30,9 +29,9 @@ I den här guiden får du lära dig att:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-Ladda ned den senaste versionen av AzCopy för att slutföra den här självstudien. Se [Kom igång med AzCopy](storage-use-azcopy-v10.md).
+Hämta den senaste versionen av AzCopy för att slutföra den här självstudien. Se [Kom igång med AZCopy](storage-use-azcopy-v10.md).
 
 Om du kör Windows behöver du [Schtasks](https://msdn.microsoft.com/library/windows/desktop/bb736357(v=vs.85).aspx) eftersom den här självstudien använder det för att schemalägga en uppgift. Linux-användare använder i stället crontab-kommandot.
 
@@ -53,29 +52,29 @@ Containernamn måste börja med en bokstav eller siffra. De får bara innehålla
 
 ## <a name="download-azcopy"></a>Ladda ned AzCopy
 
-Ladda ned den körbara filen med AzCopy V10.
+Hämta den körbara filen AzCopy v10.
 
-- [Windows](https://aka.ms/downloadazcopy-v10-windows) (zip)
-- [Linux](https://aka.ms/downloadazcopy-v10-linux) (tar)
-- [MacOS](https://aka.ms/downloadazcopy-v10-mac) (zip)
+- [Windows](https://aka.ms/downloadazcopy-v10-windows) Komprimera
+- [Linux](https://aka.ms/downloadazcopy-v10-linux) Pit
+- [MacOS](https://aka.ms/downloadazcopy-v10-mac) Komprimera
 
-Placera filen AzCopy var som helst på datorn. Lägga till filens plats path-systemvariabeln så att du kan referera till den här körbara filen från en mapp på datorn.
+Placera AzCopy-filen var som helst på din dator. Lägg till platsen för filen i din system Sök vägs variabel så att du kan referera till den här körbara filen från valfri mapp på datorn.
 
 ## <a name="authenticate-with-azure-ad"></a>Autentisera med Azure AD
 
-Först, tilldela den [Storage Blob Data-deltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor) rollen till din identitet. Se [bevilja åtkomst till Azure blob och kö data med RBAC i Azure-portalen](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal).
+Tilldela först rollen [Storage BLOB data Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor) till din identitet. Se [bevilja åtkomst till Azure blob och Queue data med RBAC i Azure Portal](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal).
 
-Öppna en kommandotolk, Skriv följande kommando och trycker på RETUR-tangenten.
+Öppna sedan en kommando tolk, Skriv följande kommando och tryck på RETUR-tangenten.
 
 ```azcopy
 azcopy login
 ```
 
-Det här kommandot returnerar en Autentiseringskod och Webbadressen till en webbplats. Öppna webbplatsen, ange koden och välj sedan den **nästa** knappen.
+Det här kommandot returnerar en autentiseringsnyckel och URL: en för en webbplats. Öppna webbplatsen, ange koden och välj sedan knappen **Nästa** .
 
 ![Skapa en container](media/storage-use-azcopy-v10/azcopy-login.png)
 
-Ett fönster för inloggning visas. Logga in på ditt Azure-konto med hjälp av dina Azure-autentiseringsuppgifter i det aktuella fönstret. När du har loggat in, kan du stänga webbläsaren och börja använda AzCopy.
+Ett inloggnings fönster visas. I det fönstret loggar du in på ditt Azure-konto med hjälp av dina autentiseringsuppgifter för Azure-kontot. När du har loggat in kan du stänga webbläsarfönstret och börja använda AzCopy.
 
 ## <a name="upload-contents-of-a-folder-to-blob-storage"></a>Ladda upp innehåll i en mapp till Blob Storage
 
@@ -85,31 +84,31 @@ Du kan överföra alla filer i en mapp till Blob Storage i [Windows](https://doc
 azcopy copy "<local-folder-path>" "https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>" --recursive=true
 ```
 
-* Ersätt den `<local-folder-path>` med sökvägen till en mapp som innehåller filer (till exempel: `C:\myFolder` eller `/mnt/myFolder`).
+* Ersätt plats hållaren med sökvägen till en mapp som innehåller filer (till exempel: `C:\myFolder` eller `/mnt/myFolder`). `<local-folder-path>`
 
 * Ersätt platshållaren `<storage-account-name>` med namnet på ditt lagringskonto.
 
-* Ersätt den `<container-name>` platshållare med namnet på behållaren som du skapade.
+* `<container-name>` Ersätt plats hållaren med namnet på den behållare som du skapade.
 
-Om du vill överföra innehållet i den angivna katalogen till Blob storage rekursivt, ange den `--recursive` alternativet. När du kör AzCopy med det här alternativet, laddas alla undermappar och filer samt.
+Om du vill överföra innehållet i den angivna katalogen till Blob Storage rekursivt, anger `--recursive` du alternativet. När du kör AzCopy med det här alternativet överförs även alla undermappar och deras filer.
 
 ## <a name="upload-modified-files-to-blob-storage"></a>Modifierade filer har överförts till Blob Storage
 
-Du kan använda AzCopy för att ladda upp filer baserat på deras tid för senaste ändring. 
+Du kan använda AzCopy för att ladda upp filer baserat på deras senaste ändrings tid. 
 
-Om du vill testa detta, så ändra eller skapa nya filer i källkatalogen i testsyfte. Använd sedan AzCopy `sync` kommando.
+Om du vill testa detta, så ändra eller skapa nya filer i källkatalogen i testsyfte. Använd sedan kommandot AzCopy `sync` .
 
 ```AzCopy
 azcopy sync "<local-folder-path>" "https://<storage-account-name>.blob.core.windows.net/<container-name>" --recursive=true
 ```
 
-* Ersätt den `<local-folder-path>` med sökvägen till en mapp som innehåller filer (till exempel: `C:\myFolder` eller `/mnt/myFolder`.
+* Ersätt plats hållaren med sökvägen till en mapp som innehåller filer (till exempel: `C:\myFolder` eller `/mnt/myFolder`. `<local-folder-path>`
 
 * Ersätt platshållaren `<storage-account-name>` med namnet på ditt lagringskonto.
 
-* Ersätt den `<container-name>` platshållare med namnet på behållaren som du skapade.
+* `<container-name>` Ersätt plats hållaren med namnet på den behållare som du skapade.
 
-Mer information om den `sync` kommandot, se [synkronisera filer](storage-use-azcopy-blobs.md#synchronize-files).
+Mer information om `sync` kommandot finns i [Synkronisera filer](storage-use-azcopy-blobs.md#synchronize-files).
 
 ## <a name="create-a-scheduled-task"></a>Skapa en schemalagd uppgift
 
@@ -117,10 +116,10 @@ Du kan skapa en schemalagd uppgift eller ett Cron-jobb som kör ett AzCopy-komma
 
 Kopiera AzCopy-kommandot till en textredigerare. Uppdatera AzCopy-kommandots parametervärden till korrekta värden. Spara filen som `script.sh` (Linux) eller `script.bat` (Windows) för AzCopy. 
 
-Dessa exempel förutsätter att mappen har namnet `myFolder`, namnet på ditt lagringskonto är `mystorageaccount` och behållarens namn är `mycontainer`.
+I de här exemplen förutsätter vi `myFolder`att din mapp heter, ditt `mystorageaccount` lagrings konto namn är `mycontainer`och behållar namnet.
 
 > [!NOTE]
-> Linux-exempel lägger till en SAS-token. Du måste ange en i kommandot. Den aktuella versionen av AzCopy V10 stöder inte Azure AD-auktorisering i cron-jobb.
+> Linux-exemplet lägger till en SAS-token. Du måste ange en i kommandot. Den aktuella versionen av AzCopy v10 har inte stöd för Azure AD-auktorisering i cron-jobb.
 
 # <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
@@ -151,7 +150,7 @@ Om du anger Cron-uttrycket `*/5 * * * *` i kommandot indikerar detta att kommand
 
 Skapa en schemalagd uppgift i Windows genom att ange följande kommando i kommandotolken eller PowerShell:
 
-Det här exemplet förutsätter att skriptet finns i datorns rotenhet datorn, men ditt skript kan finnas var som helst som du vill.
+I det här exemplet förutsätts att ditt skript finns på datorns rot enhet, men skriptet kan finnas var du vill.
 
 ```cmd
 schtasks /CREATE /SC minute /MO 5 /TN "AzCopy Script" /TR C:\script.bat
@@ -175,14 +174,14 @@ Mer information om hur du flyttar lokala data till Azure Storage och vice versa 
 
 * [Flytta data till och från Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-moving-data?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).  
 
-Mer information om AzCopy finns i någon av följande artiklar:
+Mer information om AzCopy finns i följande artiklar:
 
 * [Kom igång med AzCopy](storage-use-azcopy-v10.md)
 
-* [Överföra data med AzCopy och blob storage](storage-use-azcopy-blobs.md)
+* [Överföra data med AzCopy och Blob Storage](storage-use-azcopy-blobs.md)
 
-* [Överföra data med AzCopy och fillagring](storage-use-azcopy-files.md)
+* [Överföra data med AzCopy och fil lagring](storage-use-azcopy-files.md)
 
-* [Överföra data med AzCopy och Amazon S3 buckets](storage-use-azcopy-s3.md)
+* [Överföra data med AzCopy och Amazon S3-buckets](storage-use-azcopy-s3.md)
  
 * [Konfigurera, optimera och felsöka AzCopy](storage-use-azcopy-configure.md)

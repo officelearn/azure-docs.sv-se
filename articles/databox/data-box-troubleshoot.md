@@ -1,6 +1,6 @@
 ---
-title: Felsöka problem med din Azure Data Box genom Azure Data Box tung | Microsoft Docs
-description: Beskriver hur du felsöker problem som kan uppstå i Azure Data Box och Azure Data Box tunga när du kopierar data till dessa enheter.
+title: Felsök problem på Azure Data Box, Azure Data Box Heavy | Microsoft Docs
+description: Beskriver hur du felsöker problem som visas i Azure Data Box och Azure Data Box Heavy när du kopierar data till dessa enheter.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,241 +8,241 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: bc0681a8ea15f736a7b253d6bd7ba2f7928d2a32
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 83f6f7c7f8cd5155669f12fd6e426f86ef1c7baa
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67439400"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68848498"
 ---
-# <a name="troubleshoot-issues-related-to-azure-data-box-and-azure-data-box-heavy"></a>Felsöka problem med Azure Data Box och Azure Data Box tunga
+# <a name="troubleshoot-issues-related-to-azure-data-box-and-azure-data-box-heavy"></a>Felsöka problem som rör Azure Data Box och Azure Data Box Heavy
 
-Den här artikeln innehåller information om hur du felsöker problem uppstå när du använder Azure Data Box eller Azure Data Box tung. Artikeln innehåller listan över möjliga fel som visas när data kopieras till Data Box eller när data har överförts från Data Box.
+Den här artikeln innehåller information om hur du felsöker problem som kan uppstå när du använder Azure Data Box eller Azure Data Box Heavy. Artikeln innehåller en lista över möjliga fel som visas när data kopieras till Data Box-enhet eller när data laddas upp från Data Box-enhet.
 
-## <a name="error-classes"></a>Felklasser
+## <a name="error-classes"></a>Fel klasser
 
-Fel i Data Box och Data Box tunga kan sammanfattas på följande sätt:
+Felen i Data Box-enhet och Data Box Heavy sammanfattas på följande sätt:
 
 | Fel kategori *        | Beskrivning        | Rekommenderad åtgärd    |
 |----------------------------------------------|---------|--------------------------------------|
-| Namn på behållare eller filresurs | Behållare eller resurs som följer inte Azure namnregler.  |Hämta fel-listor. <br> Byt namn på behållare och filresurser. [Läs mer](#container-or-share-name-errors).  |
-| Storleksgräns för behållare eller filresurs | Den totala mängden data i behållare eller resurser överskrider gränsen för Azure.   |Hämta fel-listor. <br> Minska den övergripande data i behållare eller filresurs. [Läs mer](#container-or-share-size-limit-errors).|
-| Storleksgräns för objekt eller en fil | Objektet eller filer i behållare eller resurser överskrider gränsen för Azure.|Hämta fel-listor. <br> Minska filstorleken i behållare eller filresurs. [Läs mer](#object-or-file-size-limit-errors). |    
-| Data eller filtyp | Filtypen eller dataformatet stöds inte. |Hämta fel-listor. <br> Kontrollera att data är 512 byte justerad och kopieras till mapparna skapats i förväg för sidblobar eller hanterade diskar. [Läs mer](#data-or-file-type-errors). |
-| Icke-kritiska fel för blob eller fillagring  | Blob eller fillagring namnen följer inte Azure namnregler eller att filtypen stöds inte. | Dessa blob eller filer får inte kopieras eller namnen kan ändras. [Lär dig hur du åtgärdar de här felen](#non-critical-blob-or-file-errors). |
+| Behållare eller resurs namn | Behållarna eller resurs namnen följer inte namngivnings reglerna för Azure.  |Hämta fel listorna. <br> Byt namn på behållarna eller resurserna. [Läs mer](#container-or-share-name-errors).  |
+| Gräns för container eller resurs storlek | Den totala mängden data i behållare eller resurser överskrider Azure-gränsen.   |Hämta fel listorna. <br> Minska de övergripande data i behållaren eller resursen. [Läs mer](#container-or-share-size-limit-errors).|
+| Storleks gräns för objekt eller fil | Objektet eller filerna i behållare eller resurser överskrider Azure-gränsen.|Hämta fel listorna. <br> Minska fil storleken i behållaren eller resursen. [Läs mer](#object-or-file-size-limit-errors). |    
+| Data-eller filtyper | Data formatet eller filtypen stöds inte. |Hämta fel listorna. <br> För sid-blobbar eller hanterade diskar ser du till att data är 512-byte justerade och kopieras till de i förväg skapade mapparna. [Läs mer](#data-or-file-type-errors). |
+| Icke-kritiska BLOB-eller filfel  | BLOB-eller fil namnen följer inte reglerna för namngivning i Azure eller också stöds inte filtypen. | Dessa BLOB-eller filer får inte kopieras eller så kan namnen ändras. [Lär dig hur du åtgärdar felen](#non-critical-blob-or-file-errors). |
 
-\* De första fyra felkategorier är kritiska fel och måste åtgärdas innan du går till Förbered för att skicka.
+\*De första fyra fel kategorierna är kritiska fel och måste åtgärdas innan du kan fortsätta med att förbereda för leverans.
 
 
-## <a name="container-or-share-name-errors"></a>Behållare eller filresurs namngivningsfel
+## <a name="container-or-share-name-errors"></a>Fel i behållare eller resurs namn
 
-Det här är fel som rör behållare och dela namn.
+Detta är fel som rör behållare och resurs namn.
 
-### <a name="errorcontainerorsharenamelength"></a>ERROR_CONTAINER_OR_SHARE_NAME_LENGTH     
+### <a name="error_container_or_share_name_length"></a>ERROR_CONTAINER_OR_SHARE_NAME_LENGTH     
 
-**Felbeskrivning:** Namnet på containern eller resursen måste innehålla mellan 3 och 63 tecken. 
+**Fel Beskrivning:** Namnet på containern eller resursen måste innehålla mellan 3 och 63 tecken. 
 
-**Föreslagen lösning:** Mappen under rutan Data eller Data Box tung share(SMB/NFS) som du har kopierat data som blir en Azure-behållare i ditt lagringskonto. 
+**Rekommenderad lösning:** Mappen under Data Box-enhet eller Data Box Heavy resurs (SMB/NFS) som du har kopierat data till blir en Azure-behållare i ditt lagrings konto. 
 
-- På den **Anslut och kopiera** i enhetens lokala webbgränssnitt, ladda ned och granska felfiler att identifiera mappen namn med problem.
-- Ändra namnet på mappen under rutan Data eller Data Box tunga resursen att se till att:
+- På sidan **Anslut och kopiera** i det lokala webb gränssnittet för enheten laddar du ned och granskar felfilerna för att identifiera mappnamnen med problem.
+- Ändra mappnamnet under Data Box-enhet-eller Data Box Heavy-resursen för att se till att:
 
-    - Namnet har mellan 3 och 63 tecken.
-    - Namnen kan bara ha bokstäver, siffror och bindestreck.
-    - Namnen kan inte börja eller sluta med bindestreck.
-    - Namn får inte innehålla flera bindestreck i rad.
-    - Exempel på giltiga namn: `my-folder-1`, `my-really-extra-long-folder-111`
-    - Exempel på namn som inte är giltiga: `my-folder_1`, `my`, `--myfolder`, `myfolder--`, `myfolder!`
+    - Namnet består av mellan 3 och 63 tecken.
+    - Namnen får bara innehålla bokstäver, siffror och bindestreck.
+    - Namnen får inte börja eller sluta med bindestreck.
+    - Namnen får inte innehålla flera bindestreck.
+    - Exempel på giltiga namn: `my-folder-1`,`my-really-extra-long-folder-111`
+    - Exempel på namn som inte är giltiga `my-folder_1`: `my`, `--myfolder`, `myfolder--`,,`myfolder!`
 
-    Mer information finns i Azure namnkonventionerna för [behållarnamn](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) och [resursnamn](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names).
+    Mer information finns i namngivnings konventionerna i Azure för behållar [namn](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) och [resurs namn](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names).
 
 
-### <a name="errorcontainerorsharenamealphanumericdash"></a>ERROR_CONTAINER_OR_SHARE_NAME_ALPHA_NUMERIC_DASH
+### <a name="error_container_or_share_name_alpha_numeric_dash"></a>ERROR_CONTAINER_OR_SHARE_NAME_ALPHA_NUMERIC_DASH
 
-**Felbeskrivning:** Namnet på containern eller resursen måste bestå av endast bokstäver, siffror eller bindestreck.
+**Fel Beskrivning:** Namnet på containern eller resursen måste bestå av endast bokstäver, siffror eller bindestreck.
 
-**Föreslagen lösning:** Mappen under rutan Data eller Data Box tung share(SMB/NFS) som du har kopierat data som blir en Azure-behållare i ditt lagringskonto. 
+**Rekommenderad lösning:** Mappen under Data Box-enhet eller Data Box Heavy resurs (SMB/NFS) som du har kopierat data till blir en Azure-behållare i ditt lagrings konto. 
 
-- På den **Anslut och kopiera** i enhetens lokala webbgränssnitt, ladda ned och granska felfiler att identifiera mappen namn med problem.
-- Ändra namnet på mappen under rutan Data eller Data Box tunga resursen att se till att:
+- På sidan **Anslut och kopiera** i det lokala webb gränssnittet för enheten laddar du ned och granskar felfilerna för att identifiera mappnamnen med problem.
+- Ändra mappnamnet under Data Box-enhet-eller Data Box Heavy-resursen för att se till att:
 
-    - Namnet har mellan 3 och 63 tecken.
-    - Namnen kan bara ha bokstäver, siffror och bindestreck.
-    - Namnen kan inte börja eller sluta med bindestreck.
-    - Namn får inte innehålla flera bindestreck i rad.
-    - Exempel på giltiga namn: `my-folder-1`, `my-really-extra-long-folder-111`
-    - Exempel på namn som inte är giltiga: `my-folder_1`, `my`, `--myfolder`, `myfolder--`, `myfolder!`
+    - Namnet består av mellan 3 och 63 tecken.
+    - Namnen får bara innehålla bokstäver, siffror och bindestreck.
+    - Namnen får inte börja eller sluta med bindestreck.
+    - Namnen får inte innehålla flera bindestreck.
+    - Exempel på giltiga namn: `my-folder-1`,`my-really-extra-long-folder-111`
+    - Exempel på namn som inte är giltiga `my-folder_1`: `my`, `--myfolder`, `myfolder--`,,`myfolder!`
 
-    Mer information finns i Azure namnkonventionerna för [behållarnamn](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) och [resursnamn](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names).
+    Mer information finns i namngivnings konventionerna i Azure för behållar [namn](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) och [resurs namn](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names).
 
-### <a name="errorcontainerorsharenameimproperdash"></a>ERROR_CONTAINER_OR_SHARE_NAME_IMPROPER_DASH
+### <a name="error_container_or_share_name_improper_dash"></a>ERROR_CONTAINER_OR_SHARE_NAME_IMPROPER_DASH
 
-**Felbeskrivning:** Namn på behållare och resursnamn får inte börja eller sluta med bindestreck och får inte innehålla flera bindestreck i rad.
+**Fel Beskrivning:** Behållar namn och resurs namn får inte börja eller sluta med bindestreck och får inte innehålla flera bindestreck.
 
-**Föreslagen lösning:** Mappen under rutan Data eller Data Box tung share(SMB/NFS) som du har kopierat data som blir en Azure-behållare i ditt lagringskonto. 
+**Rekommenderad lösning:** Mappen under Data Box-enhet eller Data Box Heavy resurs (SMB/NFS) som du har kopierat data till blir en Azure-behållare i ditt lagrings konto. 
 
-- På den **Anslut och kopiera** i enhetens lokala webbgränssnitt, ladda ned och granska felfiler att identifiera mappen namn med problem.
-- Ändra namnet på mappen under rutan Data eller Data Box tunga resursen att se till att:
+- På sidan **Anslut och kopiera** i det lokala webb gränssnittet för enheten laddar du ned och granskar felfilerna för att identifiera mappnamnen med problem.
+- Ändra mappnamnet under Data Box-enhet-eller Data Box Heavy-resursen för att se till att:
 
-    - Namnet har mellan 3 och 63 tecken.
-    - Namnen kan bara ha bokstäver, siffror och bindestreck.
-    - Namnen kan inte börja eller sluta med bindestreck.
-    - Namn får inte innehålla flera bindestreck i rad.
-    - Exempel på giltiga namn: `my-folder-1`, `my-really-extra-long-folder-111`
-    - Exempel på namn som inte är giltiga: `my-folder_1`, `my`, `--myfolder`, `myfolder--`, `myfolder!`
+    - Namnet består av mellan 3 och 63 tecken.
+    - Namnen får bara innehålla bokstäver, siffror och bindestreck.
+    - Namnen får inte börja eller sluta med bindestreck.
+    - Namnen får inte innehålla flera bindestreck.
+    - Exempel på giltiga namn: `my-folder-1`,`my-really-extra-long-folder-111`
+    - Exempel på namn som inte är giltiga `my-folder_1`: `my`, `--myfolder`, `myfolder--`,,`myfolder!`
 
-    Mer information finns i Azure namnkonventionerna för [behållarnamn](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) och [resursnamn](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names).
+    Mer information finns i namngivnings konventionerna i Azure för behållar [namn](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) och [resurs namn](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names).
 
-## <a name="container-or-share-size-limit-errors"></a>Behållare eller filresurs storlek gränsen fel
+## <a name="container-or-share-size-limit-errors"></a>Gräns fel för behållare eller resurs storlek
 
-Det här är fel som rör data som överskrider storleken på data som tillåts i en behållare eller en resurs.
+Detta är fel som är relaterade till data som överskrider storleken på de data som tillåts i en behållare eller resurs.
 
-### <a name="errorcontainerorsharecapacityexceeded"></a>ERROR_CONTAINER_OR_SHARE_CAPACITY_EXCEEDED
+### <a name="error_container_or_share_capacity_exceeded"></a>ERROR_CONTAINER_OR_SHARE_CAPACITY_EXCEEDED
 
-**Felbeskrivning:** Azure-filresurs begränsar en resurs till 5 TB data. Den här gränsen har överskridits för vissa resurser.
+**Fel Beskrivning:** Azure-filresurs begränsar en resurs till 5 TB data. Den här gränsen har överskridits för vissa resurser.
 
-**Föreslagen lösning:** På den **Anslut och kopiera** sida av det lokala webbgränssnittet ladda ned och granska fel.
+**Rekommenderad lösning:** På sidan **Anslut och kopiera** i det lokala webb gränssnittet laddar du ned och granskar fel filerna.
 
-Identifiera de mappar som har det här problemet från felloggarna och kontrollera att filerna i mappen är under 5 TB.
+Identifiera de mappar som har det här problemet från fel loggarna och kontrol lera att filerna i mappen är under 5 TB.
 
 
-## <a name="object-or-file-size-limit-errors"></a>Fel i gränsen storlek objekt eller en fil
+## <a name="object-or-file-size-limit-errors"></a>Gräns fel för objekt-eller fil storlek
 
-Det här är fel som rör data som överskrider den maximala storleken för objektet eller den fil som är tillåtet i Azure. 
+Detta är fel relaterade till data som överskrider den maximala storleken på objektet eller filen som tillåts i Azure. 
 
-### <a name="errorbloborfilesizelimit"></a>ERROR_BLOB_OR_FILE_SIZE_LIMIT
+### <a name="error_blob_or_file_size_limit"></a>ERROR_BLOB_OR_FILE_SIZE_LIMIT
 
-**Felbeskrivning:** Filstorleken överskrider den maximala filstorleken för uppladdning.
+**Fel Beskrivning:** Filstorleken överskrider den maximala filstorleken för uppladdning.
 
-**Föreslagen lösning:** Blob eller filstorleken överskrider maxgränsen som tillåts för överföring.
+**Rekommenderad lösning:** Blobben eller fil storlekarna överskrider den högsta tillåtna gränsen för uppladdning.
 
-- På den **Anslut och kopiera** sida av det lokala webbgränssnittet ladda ned och granska fel.
-- Se till att blob- och storlekar inte överskrider storleksgränserna Azure-objekt.
+- På sidan **Anslut och kopiera** i det lokala webb gränssnittet laddar du ned och granskar fel filerna.
+- Kontrol lera att blob-och fil storlekarna inte överskrider storleks gränserna för Azure-objekt.
 
-## <a name="data-or-file-type-errors"></a>Felaktiga data eller en fil
+## <a name="data-or-file-type-errors"></a>Data-eller fil typs fel
 
-Det här är fel som rör filtypen eller datatyp hittades i behållare eller filresurs. 
+Detta är fel som rör filtypen eller data typen som inte stöds i behållaren eller resursen. 
 
-### <a name="errorbloborfilesizealignment"></a>ERROR_BLOB_OR_FILE_SIZE_ALIGNMENT
+### <a name="error_blob_or_file_size_alignment"></a>ERROR_BLOB_OR_FILE_SIZE_ALIGNMENT
 
-**Felbeskrivning:** Blobben eller filen är felaktigt justerad.
+**Fel Beskrivning:** Blobben eller filen är felaktigt justerad.
 
-**Föreslagen lösning:** Sidan blob-resurs på Data Box eller Data Box tung endast har stöd för filer som är 512 byte justerade (till exempel VHD-/ VHDX). Alla data som kopierats till sidan blob resursen har överförts till Azure som sidblobar.
+**Rekommenderad lösning:** Sidans BLOB-resurs på Data Box-enhet eller Data Box Heavy stöder endast filer som är 512 byte-justerade (till exempel VHD/VHDX). Alla data som kopieras till sidans BLOB-resurs laddas upp till Azure som Page blobbar.
 
-Ta bort alla icke-VHD/VHDX-data från sidan blob-resursen. Du kan använda resurser för blockblob eller Azure files för allmänna data.
+Ta bort eventuella icke-VHD/VHDX-data från sidans BLOB-resurs. Du kan använda resurser för Block-Blob eller Azure Files för allmänna data.
 
-Mer information finns i [översikt av sidblobbar](../storage/blobs/storage-blob-pageblob-overview.md).
+Mer information finns i [Översikt över Page blobbar](../storage/blobs/storage-blob-pageblob-overview.md).
 
-### <a name="errorbloborfiletypeunsupported"></a>ERROR_BLOB_OR_FILE_TYPE_UNSUPPORTED
+### <a name="error_blob_or_file_type_unsupported"></a>ERROR_BLOB_OR_FILE_TYPE_UNSUPPORTED
 
-**Felbeskrivning:** En filtyp finns i en hanterad disk-resurs. Endast fasta virtuella hårddiskar är tillåtna.
+**Fel Beskrivning:** En filtyp som inte stöds finns i en hanterad disk resurs. Endast fasta virtuella hård diskar är tillåtna.
 
-**Föreslagen lösning:**
+**Rekommenderad lösning:**
 
-- Kontrollera att du bara ladda upp de fasta virtuella hårddiskarna för att skapa hanterade diskar.
-- VHDX-filer eller **dynamisk** och **differentierande** VHD: er stöds inte.
+- Se till att du bara laddar upp fasta virtuella hård diskar för att skapa hanterade diskar.
+- VHDX-filer eller **dynamiska** och **differentierande** virtuella hård diskar stöds inte.
 
-### <a name="errordirectorydisallowedfortype"></a>ERROR_DIRECTORY_DISALLOWED_FOR_TYPE
+### <a name="error_directory_disallowed_for_type"></a>ERROR_DIRECTORY_DISALLOWED_FOR_TYPE
 
-**Felbeskrivning:** En katalog är inte tillåtet i någon av de befintliga mapparna för hanterade diskar. Endast fasta virtuella hårddiskar är tillåtna i dessa mappar.
+**Fel Beskrivning:** En katalog tillåts inte i någon av de befintliga mapparna för de hanterade diskarna. Endast fasta virtuella hård diskar tillåts i dessa mappar.
 
-**Föreslagen lösning:** För hanterade diskar i varje resurs skapas följande tre mappar som motsvarar en behållare i ditt storage-konto: Premium SSD, Standard HDD och SSD som Standard. Dessa mappar motsvarar prestandanivå för den hantera disken.
+**Rekommenderad lösning:** För Managed disks i varje resurs skapas följande tre mappar som motsvarar behållare i ditt lagrings konto: Premium SSD, Standard HDD och Standard SSD. Dessa mappar motsvarar prestanda nivån för den hanterade disken.
 
-- Kontrollera att du kopierar dina sidan blob-data (VHD) i någon av dessa befintliga mappar.
-- En mapp eller katalog tillåts inte i dessa befintliga mappar. Ta bort de mappar som du har skapat i de befintliga mapparna.
+- Se till att du kopierar dina Page BLOB-data (VHD) till någon av dessa befintliga mappar.
+- En mapp eller katalog tillåts inte i dessa befintliga mappar. Ta bort alla mappar som du har skapat i befintliga mappar.
 
-Mer information finns i [kopia till managed disks](data-box-deploy-copy-data-from-vhds.md#connect-to-data-box).
+Mer information finns i [Kopiera till Managed disks](data-box-deploy-copy-data-from-vhds.md#connect-to-data-box).
 
-### <a name="reparsepointerror"></a>REPARSE_POINT_ERROR
+### <a name="reparse_point_error"></a>REPARSE_POINT_ERROR
 
-**Felbeskrivning:** Symboliska länkar är inte tillåtna i Linux. 
+**Fel Beskrivning:** Symboliska länkar är inte tillåtna i Linux. 
 
-**Föreslagen lösning:** Symboliska länkar är vanligtvis länkar, pipes och andra sådana filer. Ta bort länkar, eller matcha länken och kopiera data.
+**Rekommenderad lösning:** Symboliska länkar är vanligt vis länkar, pipes och andra sådana filer. Ta antingen bort länkarna eller lös länkarna och kopiera data.
 
 
-## <a name="non-critical-blob-or-file-errors"></a>Icke-kritiska fel för blob eller fillagring
+## <a name="non-critical-blob-or-file-errors"></a>Icke-kritiska BLOB-eller filfel
 
-Alla fel som visas vid kopiering av data sammanfattas i följande avsnitt.
+Alla icke-kritiska fel som är relaterade till namn på blobbar, filer eller behållare som visas under data kopieringen sammanfattas i följande avsnitt. Om de här felen finns, ändras namnen så att de överensstämmer med namngivnings konventionerna för Azure. Motsvarande order status för data uppladdning **slutförs med varningar**.  
 
-### <a name="errorbloborfilenamecharactercontrol"></a>ERROR_BLOB_OR_FILE_NAME_CHARACTER_CONTROL
+### <a name="error_blob_or_file_name_character_control"></a>ERROR_BLOB_OR_FILE_NAME_CHARACTER_CONTROL
 
-**Felbeskrivning:** Blob eller fillagring får innehålla kontrolltecken stöds inte.
+**Fel Beskrivning:** BLOB-eller fil namnen innehåller kontroll tecken som inte stöds.
 
-**Föreslagen lösning:** Blobarna eller de filer som du har kopierat innehåller namn med tecken som inte stöds.
+**Rekommenderad lösning:** Blobarna eller filerna som du har kopierat innehåller namn med tecken som inte stöds.
 
-På den **Anslut och kopiera** sida av det lokala webbgränssnittet ladda ned och granska fel.
-Ta bort eller byta namn på filerna för att ta bort tecken som inte stöds.
+På sidan **Anslut och kopiera** i det lokala webb gränssnittet laddar du ned och granskar fel filerna.
+Ta bort eller Byt namn på filerna om du vill ta bort tecken som inte stöds.
 
-Mer information finns i Azure namnkonventionerna för [blob namn](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata#blob-names) och [filnamn](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names).
+Mer information finns i namngivnings konventionerna för Azure för [BLOB-namn](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata#blob-names) och [fil namn](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names).
 
-### <a name="errorbloborfilenamecharacterillegal"></a>ERROR_BLOB_OR_FILE_NAME_CHARACTER_ILLEGAL
+### <a name="error_blob_or_file_name_character_illegal"></a>ERROR_BLOB_OR_FILE_NAME_CHARACTER_ILLEGAL
 
-**Felbeskrivning:** Blob eller fillagring namnen innehåller ogiltiga tecken.
+**Fel Beskrivning:** BLOB-eller fil namnen innehåller otillåtna tecken.
 
-**Föreslagen lösning:** Blobarna eller de filer som du har kopierat innehåller namn med tecken som inte stöds.
+**Rekommenderad lösning:** Blobarna eller filerna som du har kopierat innehåller namn med tecken som inte stöds.
 
-På den **Anslut och kopiera** sida av det lokala webbgränssnittet ladda ned och granska fel.
-Ta bort eller byta namn på filerna för att ta bort tecken som inte stöds.
+På sidan **Anslut och kopiera** i det lokala webb gränssnittet laddar du ned och granskar fel filerna.
+Ta bort eller Byt namn på filerna om du vill ta bort tecken som inte stöds.
 
-Mer information finns i Azure namnkonventionerna för [blob namn](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata#blob-names) och [filnamn](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names).
+Mer information finns i namngivnings konventionerna för Azure för [BLOB-namn](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata#blob-names) och [fil namn](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names).
 
 
-### <a name="errorbloborfilenameending"></a>ERROR_BLOB_OR_FILE_NAME_ENDING
+### <a name="error_blob_or_file_name_ending"></a>ERROR_BLOB_OR_FILE_NAME_ENDING
 
-**Felbeskrivning:** De blob eller fillagring som slutar med felaktiga tecken.
+**Fel Beskrivning:** BLOB-eller fil namnen slutar med felaktiga tecken.
 
-**Föreslagen lösning:** Blobarna eller de filer som du har kopierat innehåller namn med tecken som inte stöds.
+**Rekommenderad lösning:** Blobarna eller filerna som du har kopierat innehåller namn med tecken som inte stöds.
 
-På den **Anslut och kopiera** sida av det lokala webbgränssnittet ladda ned och granska fel.
-Ta bort eller byta namn på filerna för att ta bort tecken som inte stöds.
+På sidan **Anslut och kopiera** i det lokala webb gränssnittet laddar du ned och granskar fel filerna.
+Ta bort eller Byt namn på filerna om du vill ta bort tecken som inte stöds.
 
-Mer information finns i Azure namnkonventionerna för [blob namn](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata#blob-names) och [filnamn](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names).
+Mer information finns i namngivnings konventionerna för Azure för [BLOB-namn](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata#blob-names) och [fil namn](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names).
 
 
-### <a name="errorbloborfilenamesegmentcount"></a>ERROR_BLOB_OR_FILE_NAME_SEGMENT_COUNT
+### <a name="error_blob_or_file_name_segment_count"></a>ERROR_BLOB_OR_FILE_NAME_SEGMENT_COUNT
 
-**Felbeskrivning:** Blob eller filnamnet innehåller för många sökvägssegment.
+**Fel Beskrivning:** Blobben eller fil namnet innehåller för många Sök vägs segment.
 
-**Föreslagen lösning:** Blobarna eller de filer som du har kopierat överskrider det maximala antalet segment för resurssökväg. Ett segment är en sträng mellan på varandra följande avgränsartecken, till exempel snedstreck /.
+**Rekommenderad lösning:** Blobbar eller filer som du har kopierat överskrider det maximala antalet Sök vägs segment. Ett Sök vägs segment är strängen mellan efterföljande avgränsnings tecken, till exempel snedstreck/.
 
-- På den **Anslut och kopiera** sida av det lokala webbgränssnittet ladda ned och granska fel.
-- Se till att den [blob namn](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata#blob-names) och [filnamn](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) följer namngivningskonventionerna Azure.
+- På sidan **Anslut och kopiera** i det lokala webb gränssnittet laddar du ned och granskar fel filerna.
+- Kontrol lera att [BLOB-namnen](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata#blob-names) och [fil namnen](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) följer namngivnings konventionerna i Azure.
 
-### <a name="errorbloborfilenameaggregatelength"></a>ERROR_BLOB_OR_FILE_NAME_AGGREGATE_LENGTH
+### <a name="error_blob_or_file_name_aggregate_length"></a>ERROR_BLOB_OR_FILE_NAME_AGGREGATE_LENGTH
 
-**Felbeskrivning:** Namnet på blobben eller filen är för långt.
+**Fel Beskrivning:** Namnet på blobben eller filen är för långt.
 
-**Föreslagen lösning:** Blob eller filnamnen överskrider den maximala längden.
+**Rekommenderad lösning:** Blobben eller fil namnen överskrider den maximala längden.
 
-- På den **Anslut och kopiera** sida av det lokala webbgränssnittet ladda ned och granska fel.
-- Blob-namnet får innehålla högst 1 024 tecken.
-- Ta bort eller byta namn på blob eller filer så att namnen inte vara längre än 1024 tecken.
+- På sidan **Anslut och kopiera** i det lokala webb gränssnittet laddar du ned och granskar fel filerna.
+- BLOB-namnet får inte överskrida 1 024 tecken.
+- Ta bort eller Byt namn på blobben eller filer så att namnen inte överstiger 1024 tecken.
 
-Mer information finns i Azure namnkonventionerna för blob och filnamn.
+Mer information finns i namngivnings konventionerna för Azure för BLOB-namn och fil namn.
 
-### <a name="errorbloborfilenamecomponentlength"></a>ERROR_BLOB_OR_FILE_NAME_COMPONENT_LENGTH
+### <a name="error_blob_or_file_name_component_length"></a>ERROR_BLOB_OR_FILE_NAME_COMPONENT_LENGTH
 
-**Felbeskrivning:** Ett av segmenten i blobb- eller filnamnet är för långt.
+**Fel Beskrivning:** Ett av segmenten i blobb- eller filnamnet är för långt.
 
-**Föreslagen lösning:** En av segment för resurssökväg i blob- eller överskrider det högsta antalet tecken. Ett segment är en sträng mellan på varandra följande avgränsartecken, till exempel snedstreck /.
+**Rekommenderad lösning:** Ett av Sök vägs segmenten i blobben eller fil namnet överskrider det högsta antalet tecken. Ett Sök vägs segment är strängen mellan efterföljande avgränsnings tecken, till exempel snedstreck/.
 
-- På den **Anslut och kopiera** sida av det lokala webbgränssnittet ladda ned och granska fel.
-- Se till att den [blob namn](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata#blob-names) och [filnamn](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) följer namngivningskonventionerna Azure.
+- På sidan **Anslut och kopiera** i det lokala webb gränssnittet laddar du ned och granskar fel filerna.
+- Kontrol lera att [BLOB-namnen](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata#blob-names) och [fil namnen](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) följer namngivnings konventionerna i Azure.
 
 
-### <a name="errorcontainerorsharenamedisallowedfortype"></a>ERROR_CONTAINER_OR_SHARE_NAME_DISALLOWED_FOR_TYPE
+### <a name="error_container_or_share_name_disallowed_for_type"></a>ERROR_CONTAINER_OR_SHARE_NAME_DISALLOWED_FOR_TYPE
 
-**Felbeskrivning:** Felaktig behållarnamn har angetts för hanterad diskresurser.
+**Fel Beskrivning:** Felaktiga behållar namn har angetts för hanterade disk resurser.
 
-**Föreslagen lösning:** För hanterade diskar i varje resurs skapas följande mappar som motsvarar en behållare i ditt storage-konto: Premium SSD, Standard HDD och SSD som Standard. Dessa mappar motsvarar prestandanivå för den hantera disken.
+**Rekommenderad lösning:** För Managed disks i varje resurs skapas följande mappar som motsvarar behållare i ditt lagrings konto: Premium SSD, Standard HDD och Standard SSD. Dessa mappar motsvarar prestanda nivån för den hanterade disken.
 
-- Kontrollera att du kopierar dina sidan blob-data (VHD) i någon av dessa befintliga mappar. Endast data från dessa behållare överförs till Azure.
-- En annan mapp som skapas på samma nivå som Premium SSD och HDD-Standard Standard SSD motsvarar inte en giltig prestandanivån och kan inte användas.
-- Ta bort filer eller mappar som skapas utanför prestandanivåer.
+- Se till att du kopierar dina Page BLOB-data (VHD) till någon av dessa befintliga mappar. Endast data från dessa befintliga behållare laddas upp till Azure.
+- Alla andra mappar som skapas på samma nivå som Premium SSD, Standard HDD och Standard SSD motsvarar inte en giltig prestanda nivå och kan inte användas.
+- Ta bort filer eller mappar som skapats utanför prestanda nivåerna.
 
-Mer information finns i [kopia till managed disks](data-box-deploy-copy-data-from-vhds.md#connect-to-data-box).
+Mer information finns i [Kopiera till Managed disks](data-box-deploy-copy-data-from-vhds.md#connect-to-data-box).
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig mer om den [Data Box Blob storage-systemkrav](data-box-system-requirements-rest.md).
+- Läs mer om [system kraven för data Box-enhet Blob Storage](data-box-system-requirements-rest.md).

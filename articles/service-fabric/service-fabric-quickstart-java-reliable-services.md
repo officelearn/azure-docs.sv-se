@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/29/2019
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: ddd56b8479678b288424dd896baadea6a41a2aef
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 656ebed78aab1ad078eb7e9410cb01876159cf13
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60726559"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68845798"
 ---
 # <a name="quickstart-deploy-a-java-reliable-services-application-to-service-fabric"></a>Snabbstart: Distribuera ett Java-program för tillförlitliga tjänster till Service Fabric
 
@@ -36,7 +36,7 @@ I den här snabbstarten lär du dig att:
 * Distribuera programmet till ditt lokala kluster
 * Skala ut programmet över flera noder
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här snabbstarten behöver du:
 
@@ -60,22 +60,22 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
     ```bash
     sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
     ```
-    Det kan ta lite tid att starta det lokala klustret. För att bekräfta att klustret är helt aktiverat öppnar du Service Fabric Explorer på **http://localhost:19080**. När du ser fem felfria noder vet du att det lokala klustret är igång och redo.
+    Det kan ta lite tid att starta det lokala klustret. För att bekräfta att klustret är helt aktiverat öppnar du Service Fabric Explorer på **http://localhost:19080** . När du ser fem felfria noder vet du att det lokala klustret är igång och redo.
 
     ![Felfritt lokalt kluster](./media/service-fabric-quickstart-java/localclusterup.png)
 
 2. Öppna Eclipse.
-3. Klicka på File (Arkiv) -> Import (Importera) -> Gradle -> Existing Gradle Project (Befintligt Gradle-projekt) och följ anvisningarna i guiden.
-4. Klicka på Directory (Katalog) och välj katalogen `Voting` från mappen `service-fabric-java-quickstart` som du klonade från GitHub. Klicka på Slutför.
+3. Välj **fil** > **import** **Gradle befintliga Gradle-projekt** och följ guiden. >  > 
+4. Välj **katalog** och välj `Voting` katalogen från den `service-fabric-java-quickstart` mapp som du har klonat från GitHub. Välj **Slutför**.
 
     ![Dialogrutan för import till Eclipse](./media/service-fabric-quickstart-java/eclipseimport.png)
 
 5. Nu finns projektet `Voting` i Package Explorer (Paketutforskaren) för Eclipse.
-6. Högerklicka på projektet och välj **Publish Application...** (Publicera program) under listrutan **Service Fabric**. Välj **PublishProfiles/Local.json** som Target Profile (Målprofil) och klicka på Publish (Publicera).
+6. Högerklicka på projektet och välj **Publicera program** i list rutan **Service Fabric** . Välj **PublishProfiles/Local. JSON** som mål profil och välj **publicera**.
 
     ![Dialogrutan för lokal publicering](./media/service-fabric-quickstart-java/localjson.png)
 
-7. Öppna valfri webbläsare och hitta programmet genom att öppna `http://localhost:8080`.
+7. Öppna din favorit webbläsare och få åtkomst till programmet genom att gå `http://localhost:8080`till.
 
     ![Programmets lokala klientdel](./media/service-fabric-quickstart-java/runninglocally.png)
 
@@ -90,14 +90,14 @@ Service Fabric Explorer körs i alla Service Fabric-kluster och kan nås från e
 Så här skalar du webbklienttjänsten:
 
 1. Öppna Service Fabric Explorer i ditt kluster, till exempel `https://localhost:19080`.
-2. Klicka på ellipsknappen (tre punkter) bredvid noden **fabric:/Voting/VotingWeb** i trädvyn och välj **Scale Service** (Skala tjänst).
+2. Välj ellipsen ( **...** ) bredvid noden **Fabric:/röstning/VotingWeb** i trädvyn och välj **Scale service (skala tjänst**).
 
     ![Skalningstjänst i Service Fabric Explorer](./media/service-fabric-quickstart-java/scaleservicejavaquickstart.png)
 
     Du kan nu välja att skala antalet instanser av frontwebbtjänsten.
 
-3. Ändra antalet till **2** och klicka på **Scale Service** (Skala tjänst).
-4. Klicka på noden **fabric:/Voting/VotingWeb** i trädvyn och utöka partitionsnoden (som representeras av en globalt unik identifierare).
+3. Ändra antalet till **2** och välj **Scale service (skala tjänst)** .
+4. Välj noden **infrastruktur:/röstning/VotingWeb** i trädvyn och expandera noden partition (representeras av ett GUID).
 
     ![Skalningstjänsten i Service Fabric Explorer har slutförts](./media/service-fabric-quickstart-java/servicescaled.png)
 

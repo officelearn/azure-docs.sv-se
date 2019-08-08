@@ -9,11 +9,6 @@
     - name: Så här fungerar tjänsten
       displayName: 'architecture, concepts, definitions, glossary'
       href: concept-azure-machine-learning-architecture.md
-- name: Konfiguration
-  items:
-    - name: Skapa en arbetsyta
-      displayName: install sdk workspace
-      href: setup-create-workspace.md
 - name: Självstudier
   items:
     - name: Python SDK

@@ -15,12 +15,12 @@ ms.workload: tbd
 ms.date: 05/23/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 01fb6f66ce71599a70a127a2b73eba6f848bf365
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: d1a90df07d1973272193f9d01b5d26aaf329166e
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68324129"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68849907"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-java"></a>Snabbstart: Använda Azure cache för Redis med Java
 
@@ -147,13 +147,13 @@ Om du är klar med exempelappen för snabbstart kan du ta bort Azure-resurserna 
 > Det går inte att ångra borttagningen av en resursgrupp och resursgruppen och alla resurser i den tas bort permanent. Kontrollera att du inte av misstag tar bort fel resursgrupp eller resurser. Om du har skapat resurserna som värd för det här exemplet i en befintlig resursgrupp som innehåller resurser som du vill behålla, kan du ta bort varje resurs separat från deras respektive blad istället för att ta bort resursgruppen.
 >
 
-Logga in på [Azure Portal](https://portal.azure.com) och klicka på **Resursgrupper**.
+1. Logga in på [Azure-portalen](https://portal.azure.com) och välj **Resursgrupper**.
 
-Skriv namnet på din resursgrupp i textrutan **Filtrera efter namn...** . Anvisningarna för den här artikeln använde en resursgrupp med namnet *TestResources*. På din resursgrupp i resultatlistan klickar du på **...** och därefter **Ta bort resursgrupp**.
+1. Skriv namnet på din resurs grupp i text rutan **Filtrera efter namn** . Anvisningarna för den här artikeln använde en resursgrupp med namnet *TestResources*. I resurs gruppen i resultat listan väljer du **...** och sedan **ta bort resurs grupp**.
 
-![Ta bort](./media/cache-java-get-started/cache-delete-resource-group.png)
+   ![Ta bort](./media/cache-java-get-started/cache-delete-resource-group.png)
 
-Du blir ombedd att bekräfta borttagningen av resursgruppen. Skriv namnet på din resursgrupp för att bekräfta och klicka på **Ta bort**.
+1. Du blir ombedd att bekräfta borttagningen av resursgruppen. Skriv namnet på resurs gruppen som ska bekräftas och välj **ta bort**.
 
 Efter en liten stund tas resursgruppen och resurser som finns i den bort.
 

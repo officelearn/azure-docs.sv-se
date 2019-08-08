@@ -1,6 +1,6 @@
 ---
-title: Prestandadiagnostik för Azure virtual machines | Microsoft Docs
-description: Introducerar Azure Prestandadiagnostik för Windows.
+title: Prestandadiagnostik för Azure Virtual Machines | Microsoft Docs
+description: Introducerar Azure Performance Diagnostics för Windows.
 services: virtual-machines-windows'
 documentationcenter: ''
 author: anandhms
@@ -14,160 +14,192 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 9/20/2018
 ms.author: anandh
-ms.openlocfilehash: c2089f9f6267f318dafe641a6a5b22e7e87427ca
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c0e0b5db9958fae6c9f49f636a97bf16697e74e0
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60308201"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854413"
 ---
 # <a name="performance-diagnostics-for-azure-virtual-machines"></a>Prestandadiagnostik för virtuella Azure-datorer
 
-Diagnostikverktyget prestanda hjälper dig att felsöka prestandaproblem som kan påverka en Windows virtuell dator (VM). Felsökning scenarier som stöds med snabb kontroll av kända problem och bästa praxis och komplexa problem som rör långsam virtuell dator eller hög användning av CPU, ledigt diskutrymme eller minne. 
+Verktyget prestanda diagnostik hjälper dig att felsöka prestanda problem som kan påverka en virtuell Windows-eller Linux-dator (VM). De fel söknings scenarier som stöds är snabba kontroller av kända problem och bästa praxis, och komplexa problem som innefattar långsamma prestanda för virtuella datorer eller hög användning av CPU, disk utrymme eller minne.
 
-Du kan köra Prestandadiagnostik direkt från Azure-portalen där du kan också granska insikter och en rapport på olika loggar, omfattande konfiguration och diagnostikdata. Vi rekommenderar att du kör Prestandadiagnostik och granska de insikter och diagnostik data innan du kontaktar Microsoft Support.
+Du kan köra prestandadiagnostik direkt från Azure Portal, där du också kan granska insikter och en rapport om olika loggar, omfattande konfigurations data och diagnostikdata. Vi rekommenderar att du kör prestandadiagnostik och granskar insikter och diagnostikdata innan du kontaktar Microsoft Support.
 
 > [!NOTE]
-> Prestandadiagnostik stöds för närvarande på Windows virtuella datorer som har .NET SDK version 4.5 eller senare installerad. Anvisningar om hur köra Prestandadiagnostik på klassiska virtuella datorer finns i [Azure prestanda diagnostik VM-tillägg](performance-diagnostics-vm-extension.md).
+> För Windows stöds för närvarande prestanda diagnostik på virtuella datorer som har .NET SDK version 4,5 eller en senare version installerad. Stegen för att köra prestandadiagnostik på klassiska virtuella datorer finns i [Azure Performance Diagnostics VM-tillägget](performance-diagnostics-vm-extension.md).
 
-### <a name="supported-operating-systems"></a>Operativsystem som stöds
-Windows 10, Windows 8, Windows 8 Enterprise, Windows 8 Pro, Windows 8.1, Windows Server 2016, Windows Server 2012, Windows Server 2012 Datacenter, Windows Server 2012 R2, Windows Server 2012 R2 Datacenter, Windows Server 2012 R2 Standard, Windows Server 2012 Standard, Windows Server 2008 R2, Windows Server 2008 R2 Datacenter, Windows Server 2008 R2 Enterprise, Windows Server 2008 R2 Foundation, Windows Server 2008 R2 SP1, Windows Server 2008 R2 Standard.
+## <a name="supported-operating-systems"></a>Operativsystem som stöds
 
-## <a name="install-and-run-performance-diagnostics-on-your-vm"></a>Installera och köra Prestandadiagnostik på den virtuella datorn
-Prestandadiagnostik installerar ett VM-tillägg som kör en diagnostikverktyget som heter [PerfInsights](https://aka.ms/perfinsights). Följ dessa steg för att installera och köra Prestandadiagnostik:
-1.  I den vänstra kolumnen kommandon väljer **virtuella datorer**.
-1.  Välj den virtuella dator som du vill köra diagnostik i listan med namn på virtuella datorer.
-1.  I den högra kolumnen kommandon väljer **Prestandadiagnostik**.
+### <a name="windows"></a>Windows
 
-    ![Skärmbild av Azure portal utan att installera prestanda diagnostik knappen markerad](media/performance-diagnostics/performance-diagnostics-install.png)
+Windows 10, Windows 8, Windows 8 Enterprise, Windows 8 Pro, Windows 8,1, Windows Server 2016, Windows Server 2012, Windows Server 2012 Data Center, Windows Server 2012 R2, Windows Server 2012 R2 Data Center, Windows Server 2012 R2 Standard, Windows Server 2012 Standard, Windows Server 2008 R2, Windows Server 2008 R2 Data Center, Windows Server 2008 R2 Enterprise, Windows Server 2008 R2 Foundation, Windows Server 2008 R2 SP1, Windows Server 2008 R2 Standard.
+
+### <a name="linux"></a>Linux
+
+Oracle Linux Server 6,10 [`*`], 7,3, 7,6, 7,5 (Oracle-Database-ee 13,8 Marketplace-avbildning), CentOS 6,5`*`[], 7,6, RHEL 7,2, 7,5, 8,0`*`[], Ubuntu 14,04, 16,04, 18,04, Debian 8, 9, 10`*`[], SLES 12 SP4 [`*`]
+
+>[!Note]
+>[`*`] Se [kända problem](how-to-use-perfinsights-linux.md#known-issues)
+
+## <a name="install-and-run-performance-diagnostics-on-your-vm"></a>Installera och köra prestandadiagnostik på den virtuella datorn
+
+Prestandadiagnostik installerar ett VM-tillägg som kör ett diagnostiskt verktyg med namnet PerfInsights. PerfInsights är tillgängligt för både [Windows](https://aka.ms/perfinsights) och [Linux](https://aka.ms/perfinsightslinux). Följ dessa steg om du vill installera och köra prestandadiagnostik:
+
+1. I den vänstra kolumnen med kommandon väljer du **virtuella datorer**.
+1. I listan med namn på virtuella datorer väljer du den virtuella dator som du vill köra diagnostik på.
+1. I den högra kolumnen med kommandon väljer du **prestanda diagnos**.
+
+    ![Skärm bild av Azure Portal med knappen Installera prestandadiagnostik markerad](media/performance-diagnostics/performance-diagnostics-install.png)
 
     > [!NOTE]
-    > I den här skärmbilden döljs bladet i namn på virtuella datorer.
-1. Välj ett lagringskonto (valfritt)
+    > I den här skärm bilden är bladet med namn på virtuella datorer dolda.
+1. Välj ett lagrings konto (valfritt)
 
-    Om du vill använda ett enda lagringskonto för att lagra Diagnostikresultat prestanda för flera virtuella datorer kan du välja ett lagringskonto genom att klicka på den **inställningar** i verktygsfältet. Klicka på den **OK** knappen när du har valt lagringskontot.
+    Om du vill använda ett enda lagrings konto för att lagra prestanda diagnostiska resultat för flera virtuella datorer kan du välja ett lagrings konto genom att klicka på knappen **Inställningar** i verktygsfältet. Klicka på **OK** -knappen när du har valt lagrings kontot.
 
-    Om du inte anger ett storage-konto skapas ett nytt lagringskonto som standard.
+    Om du inte anger ett lagrings konto skapas ett nytt lagrings konto som standard.
 
-    ![Skärmbild av prestanda diagnostik bladet med inställningar verktygsfältsknappen markerat](media/performance-diagnostics/settings-button.png)
+    ![Skärm bild av bladet prestanda diagnostik med verktygsfälts knappen Inställningar markerad](media/performance-diagnostics/settings-button.png)
 
-    ![Skärmbild av val av mållagring kontot från bladet med inställningar för diagnostik prestanda](media/performance-diagnostics/select-storage-account.png)
+    ![Skärm bild av val av lagrings konto från bladet inställningar för prestanda diagnostik](media/performance-diagnostics/select-storage-account.png)
 
-1. Välj den **installera Prestandadiagnostik** knappen.
-1. Välj den **kör diagnostik** markerar du kryssrutan om du vill köra en diagnostik när installationen har slutförts. Om du gör det här alternativet, kommer du att kunna välja dataanalysscenario för prestanda och relaterade alternativ.
+1. Välj knappen **Installera prestanda Diagnostics** .
+1. Markera kryss rutan **Kör diagnostik** om du vill köra en diagnostik när installationen är klar. Om du väljer det här alternativet kommer du att kunna välja scenariot för prestanda analys och relaterade alternativ.
 
-    ![Skärmbild av Prestandadiagnostik installera knappen](media/performance-diagnostics/install-diagnostics-button.png)
+    ![Skärm bild av installations knappen för prestandadiagnostik](media/performance-diagnostics/install-diagnostics-button.png)
 
-## <a name="select-an-analysis-scenario-to-run"></a>Välj en dataanalysscenario ska köras
+## <a name="select-an-analysis-scenario-to-run"></a>Välj ett analys scenario som ska köras
 
-De följande scenarierna för prestandaanalys är tillgängliga från Azure-portalen. Välj en analys, beroende på prestandaproblem som du har problem. Välj alternativen varaktighet och spårning vid behov för analys.
+Följande analys scenarier är tillgängliga från Azure Portal. Välj en analys, beroende på det prestanda problem som du har. Välj varaktighet och spårnings alternativ vid behov för analysen.
 
-* **Snabb prestandaanalys**  
-    Söker efter kända problem, analyserar metodtips och samlar in diagnostikdata. Den här analysen tar flera minuter att köra. [Läs mer](https://aka.ms/perfinsights/quick)
+* **Snabb prestanda analys**  
+    Söker efter kända problem, analyserar bästa praxis och samlar in diagnostikdata. Det tar flera minuter att köra den här analysen. Läs mer om [Windows](https://aka.ms/perfinsights/quick) eller [Linux](https://aka.ms/perfinsightslinux/quick)
 
-* **Prestandaanalys**  
-    Innehåller alla kontroller i snabb prestandaanalys och övervakar hög resursförbrukning. Använd den här versionen för att felsöka allmänna prestandaproblem som hög CPU, minne och diskanvändning. Den här analysen tar 30 sekunder till 15 minuter, beroende på den valda perioden. [Läs mer](https://aka.ms/perfinsights/vmslow) 
-    
-* **Avancerade prestandaanalys**  
-    Innehåller alla kontroller i prestandaanalys och samlar in en eller flera av spårning, som anges i följande avsnitt. Använd det här scenariot för att felsöka komplexa problem som kräver ytterligare spårningar. Kör det här scenariot under längre perioder ökar den sammanlagda storleken för diagnostik-utdata, beroende på storleken på den virtuella datorn och spårningsalternativ som har valts. Den här analysen tar 30 sekunder till 15 minuter att köra, beroende på den valda perioden. [Läs mer](https://aka.ms/perfinsights/advanced) 
-    
-* **Azure filer analys**  
-    Innehåller alla kontroller i prestandaanalys och samlar in en nätverksspårning och SMB-räknare. Använd det här scenariot för att felsöka prestanda för Azure files. Den här analysen tar 30 sekunder till 15 minuter att köra, beroende på den valda perioden. [Läs mer](https://aka.ms/perfinsights/azurefiles)
+* **Prestanda analys**  
+    Innehåller alla kontroller i snabb prestanda analys och övervakar hög resursförbrukning. Använd den här versionen för att felsöka allmänna prestanda problem, till exempel hög CPU, minne och disk användning. Den här analysen tar 30 sekunder till 15 minuter, beroende på vald varaktighet. Läs mer om [Windows](https://aka.ms/perfinsights/vmslow) eller [Linux](https://aka.ms/perfinsightslinux/vmslow)
 
+* **Avancerad prestanda analys**`*`  
+    Innehåller alla kontroller i prestanda analysen och samlar in en eller flera av de spår som anges i följande avsnitt. Använd det här scenariot för att felsöka komplexa problem som kräver ytterligare spår. Om du kör det här scenariot under längre perioder ökar den totala storleken på diagnostiska utdata, beroende på storleken på den virtuella datorn och de spårnings alternativ som valts. Den här analysen tar 30 sekunder till 15 minuter att köra, beroende på vald varaktighet. [Läs mer](https://aka.ms/perfinsights/advanced)
 
-![Skärmbild av kör diagnostik-fönstret i prestandabladet för diagnostik](media/performance-diagnostics/run-diagnostics-pane.png)
+* **Azure Files analys**`*`  
+    Innehåller alla kontroller i prestanda analysen och fångar in en nätverks spårning och SMB-räknare. Använd det här scenariot för att felsöka prestanda i Azure Files. Den här analysen tar 30 sekunder till 15 minuter att köra, beroende på vald varaktighet. [Läs mer](https://aka.ms/perfinsights/azurefiles)
+
+>[!Note]
+>[`*`] Dessa analys scenarier stöds bara i Windows.
+
+![Skärm bild av fönstret Kör diagnostik i bladet prestanda diagnostik](media/performance-diagnostics/run-diagnostics-pane.png)
 
 ### <a name="provide-symptoms-optional"></a>Ange symptom (valfritt)
-Välj symtom förvalda i listan eller Lägg till nya problem. Detta hjälper oss att förbättra analysen i framtiden. 
 
-### <a name="provide-support-request-number-if-available-optional"></a>Ange numret för stöd för begäran om de är tillgängliga (valfritt)
-Om du arbetar med en Microsoft-supporttekniker på en befintlig supportärende, anger du numret för supportbegäran. 
+Välj eventuella förvalda symtom i listan eller Lägg till nya symptom. Detta hjälper oss att förbättra analysen i framtiden.
 
-### <a name="review-the-privacy-policy-and-legal-terms-and-select-the-check-box-to-acknowledge-required"></a>Granska den sekretesspolicy och juridiska villkoren och markera kryssrutan för att bekräfta (krävs)
-För att köra diagnostiken, måste du godkänner de juridiska villkoren och acceptera sekretesspolicy.
+### <a name="provide-support-request-number-if-available-optional"></a>Ange numret för support förfrågan, om det är tillgängligt (valfritt)
 
-### <a name="select-ok-to-run-the-diagnostics"></a>Välj OK om du vill köra diagnostiken 
-Ett meddelande visas som Prestandadiagnostik börjar installera. När installationen är klar visas ett meddelande som anger att installationen har slutförts. Den markerade analysen körs sedan för den angivna tidsperioden. Detta är ett bra tillfälle att återskapa prestandaproblemet så att diagnostics-data samlas in vid rätt tid. 
+Om du arbetar med en Microsoft support-tekniker på ett befintligt support ärende, ange support ärende numret.
 
-När analysen är klar, överförs följande objekt till Azure-tabeller och en behållare för stora binära objekt (BLOB) i det angivna lagringskontot:
+### <a name="review-the-privacy-policy-and-legal-terms-and-select-the-check-box-to-acknowledge-required"></a>Granska sekretess policyn och juridiska villkor och markera kryss rutan för att bekräfta (krävs)
 
-*   Alla insikter och relaterad information om körningen
-*   En utdata komprimerade ZIP-fil (med namnet **PerformanceDiagnostics_yyyy-MM-dd_hh-mm-ss-fff.zip**) som innehåller loggfiler
-*   En HTML-rapport
+Om du vill köra diagnostiken måste du godkänna de juridiska villkoren och godkänna sekretess policyn.
 
-Efter överföringen visas en ny rapport för diagnostik i Azure-portalen.
+### <a name="select-ok-to-run-the-diagnostics"></a>Välj OK för att köra diagnostiken
 
-![Skärmbild av en lista över diagnostik rapporten i prestandabladet för diagnostik](media/performance-diagnostics/diagnostics-report-list.png)
+Ett meddelande visas som att prestandadiagnostik börjar installeras. När installationen är klar visas ett meddelande som anger att installationen har lyckats. Den valda analysen körs sedan för angiven varaktighet. Detta kan vara en tid att återskapa prestanda problemet så att diagnostikdata kan fångas vid rätt tidpunkt.
 
-## <a name="how-to-change-performance-diagnostics-settings"></a>Så här ändrar du inställningarna för startdiagnostik för prestanda
-Använd den **inställningar** knapp i verktygsfältet för att ändra storage-konto där diagnostik insikter och utdata kan lagras. Du kan använda samma lagringskonto för flera virtuella datorer som använder Prestandadiagnostik. När du ändrar lagringskontot, raderas inte den gamla rapporter och insikter. Men visas de inte längre i listan över rapporter för diagnostik. 
+När analysen är klar överförs följande objekt till Azure-tabeller och en binary large object-behållare (BLOB) i det angivna lagrings kontot:
 
-## <a name="review-insights-and-performance-diagnostics-report"></a>Granska insikter och diagnostik prestandarapport
-Varje kör diagnostik innehåller en lista över insikter och rekommendationer, berörda resurser, loggfiler och andra omfattande diagnostikinformation som samlas in, plus en rapport för visning offline. En fullständig lista över alla diagnostikdata som samlas in finns [vilken typ av information som samlas in av PerfInsights?](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-use-perfinsights#what-kind-of-information-is-collected-by-perfinsights) 
+* Alla insikter och relaterad information om körningen
+* En komprimerad utdatafil (zip) (med namnet **PerformanceDiagnostics_yyyy-mm-dd_hh-mm-SS-FFF. zip** ) i Windows och en bolls fil (med namnet **PerformanceDiagnostics_yyyy-mm-dd_hh-mm-SS-FFF. tar. gz** ) på Linux som innehåller loggfiler
+* En HTML-rapport
 
-### <a name="select-a-performance-diagnostics-report"></a>Välj en diagnostik prestandarapport
-Du kan använda rapportlistan diagnostik för att hitta alla diagnostik-rapporter som kördes. Listan innehåller information om analysen som användes, insikter som hittades och deras effektnivåer. Välj en rad för att visa mer information.
+Efter överföringen visas en ny diagnostisk rapport i Azure Portal.
 
-![Skärmbild över att välja en diagnostik-rapport från prestandabladet för diagnostik](media/performance-diagnostics/select-report.png)
+![Skärm bild av en lista med diagnostikrapport i bladet prestanda diagnostik](media/performance-diagnostics/diagnostics-report-list.png)
 
-### <a name="review-a-performance-diagnostics-report"></a>Granska en diagnostik prestandarapport
-Varje prestandarapport för diagnostik kan innehålla flera insikter och ange en inverkan hög, medel eller låg. Varje insight innehåller även rekommendationer för att minska problemet. Insights grupperas för enkel filtrering. 
+## <a name="how-to-change-performance-diagnostics-settings"></a>Ändra inställningar för prestanda diagnostik
 
-Impact Level representerar möjliga prestandaproblem, baserat på faktorer som felkonfiguration, kända problem, eller problem som rapporteras av andra användare. Du kan inte ännu råka en eller flera av de listade problem. Du kanske till exempel SQL-loggfilerna och databasfiler på samma datadisk. Det här villkoret har hög risk för flaskhalsar och andra prestandaproblem om databasanvändningen är hög, medan du inte märker ett problem om användningen är låg.
+Använd verktygs knappen **Inställningar** för att ändra lagrings kontot där du kan lagra diagnostiska insikter och utdata. Du kan använda samma lagrings konto för flera virtuella datorer som använder prestandadiagnostik. När du ändrar lagrings kontot tas inte gamla rapporter och insikter bort. De kommer dock inte längre att visas i listan med diagnostiska rapporter.
 
-![Skärmbild av Prestandadiagnostik rapportera översiktsbladet](media/performance-diagnostics/performance-diagnostics-report-overview.png)
+## <a name="review-insights-and-performance-diagnostics-report"></a>Granska insikter och prestanda diagnostikrapport
 
-### <a name="reviewing-performance-diagnostics-insights-and-recommendations"></a>Granska prestandainsikter för diagnostik och rekommendationer
-Du kan välja en insikt om du vill visa mer information om de berörda resurser och föreslagna åtgärder referenslänkar. 
+Varje diagnostisk körning innehåller en lista över insikter och rekommendationer, berörda resurser, loggfiler och annan avancerad diagnostikinformation som samlas in, samt en rapport för offlinevisning. En fullständig lista över alla insamlade diagnostikdata finns i **vilken typ av information som samlas in av PerfInsights?** på [Windows](how-to-use-perfinsights.md#what-kind-of-information-is-collected-by-perfinsights) eller [Linux](how-to-use-perfinsights-linux.md#what-kind-of-information-is-collected-by-perfinsights).
 
-![Skärmbild av en prestandainformation diagnostik insight](media/performance-diagnostics/insight-detail.png)
+### <a name="select-a-performance-diagnostics-report"></a>Välj en prestanda diagnos rapport
 
-### <a name="download-and-review-the-full-performance-diagnostics-report"></a>Ladda ned och granska den fullständiga prestandarapporten för diagnostik
-Du kan använda den **ladda ned rapporten** för att ladda ned en HTML-rapport som innehåller ytterligare omfattande diagnostikinformation, t.ex lagring och nätverkskonfiguration, prestandaräknare, spårningar, lista över processer, och loggar. Innehållet är beroende av den markerade analysen. Rapporten kan innehålla ytterligare information och interaktiva diagram som är relaterade till hög CPU-användning, hög diskanvändning och processer som förbrukar mycket minne för avancerad felsökning. Läs mer om diagnostik prestandarapporten [granskningsrapport diagnostik](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-use-perfinsights#review-the-diagnostics-report).
+Du kan använda listan med diagnostiska rapporter för att hitta alla diagnostiska rapporter som kördes. Listan innehåller information om analysen som användes, insikter som hittades och deras effekt nivåer. Markera en rad om du vill visa mer information.
 
-## <a name="manage-performance-diagnostics-reports"></a>Hantera prestanda diagnostik rapporter
-Du kan ta bort en eller flera prestanda diagnostik rapporter med hjälp av den **ta bort rapporten** knappen.
+![Skärm bild av att välja en diagnostikrapport från bladet prestanda diagnostik](media/performance-diagnostics/select-report.png)
 
-## <a name="how-to-uninstall-performance-diagnostics"></a>Så här avinstallerar du Prestandadiagnostik
-Du kan avinstallera Prestandadiagnostik från en virtuell dator. Den här åtgärden tar bort VM-tillägget, men påverkar inte alla diagnostikdata som finns i lagringskontot. 
+### <a name="review-a-performance-diagnostics-report"></a>Granska en prestanda diagnostisk rapport
 
-![Skärmbild av verktygsfältet prestanda diagnostik bladet med knappen Avinstallera markerat](media/performance-diagnostics/uninstal-button.png)
+Varje prestanda diagnos rapport kan innehålla flera insikter och indikerar en effekt nivå av hög, medel eller låg. Alla insikter innehåller också rekommendationer för att minimera problemet. Insikter grupperas för enkel filtrering.
+
+Effekt nivåer representerar risken för prestanda problem, baserat på faktorer som felaktig konfiguration, kända problem eller problem som rapporteras av andra användare. Du kanske inte har någon eller flera av de angivna problemen ännu. Du kan till exempel ha SQL-loggfiler och databasfiler på samma data disk. Det här villkoret har hög potential för Flask halsar och andra prestanda problem om databas användningen är hög, men du kanske inte märker något problem om användningen är låg.
+
+![Skärm bild av bladet prestanda diagnostikrapport – översikt](media/performance-diagnostics/performance-diagnostics-report-overview.png)
+
+### <a name="reviewing-performance-diagnostics-insights-and-recommendations"></a>Granska prestanda diagnostiska insikter och rekommendationer
+
+Du kan välja en insikt för att visa mer information om de berörda resurserna, föreslagna åtgärder och referens länkar.
+
+![Skärm bild av information om prestanda-diagnostik Insight](media/performance-diagnostics/insight-detail.png)
+
+### <a name="download-and-review-the-full-performance-diagnostics-report"></a>Hämta och granska rapporten med fullständig prestanda diagnostik
+
+Du kan använda knappen **Hämta rapport** för att ladda ned en HTML-rapport som innehåller ytterligare utförlig diagnostikinformation, till exempel lagrings-och nätverks konfiguration, prestanda räknare, spårning, lista över processer och loggar. Innehållet är beroende av den valda analysen. För avancerad fel sökning kan rapporten innehålla ytterligare information och interaktiva diagram som är relaterade till hög CPU-användning, hög disk användning och processer som använder mycket minne. Mer information om rapporten prestanda diagnostik finns i [Windows](how-to-use-perfinsights.md#review-the-diagnostics-report) eller [Linux](how-to-use-perfinsights-linux.md#review-the-diagnostics-report).
+
+## <a name="manage-performance-diagnostics-reports"></a>Hantera prestanda diagnostiska rapporter
+
+Du kan ta bort en eller flera prestanda diagnostiska rapporter med knappen **ta bort rapport** .
+
+## <a name="how-to-uninstall-performance-diagnostics"></a>Så här avinstallerar du prestandadiagnostik
+
+Du kan avinstallera prestandadiagnostik från en virtuell dator. Den här åtgärden tar bort VM-tillägget men påverkar inte några diagnostikdata som finns i lagrings kontot.
+
+![Skärm bild av bladet prestanda diagnostik med Avinstallera knapp markerat](media/performance-diagnostics/uninstal-button.png)
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
-### <a name="where-is-the-diagnostics-data-from-my-vm-stored"></a>Var finns diagnostics-data från den virtuella datorn lagras? 
-Alla prestandainsikter för diagnostik och rapporter lagras i ditt eget lagringskonto. Insikter är lagrade i Azure-tabeller. Den komprimerade filen i rapporter lagras i ett binärt stort objekt (BLOB)-behållare med namnet azdiagextnresults.
+### <a name="where-is-the-diagnostics-data-from-my-vm-stored"></a>Var finns diagnostikdata från den virtuella datorn?
 
-Du kan visa informationen om lagringsutrymme med hjälp av knappen Inställningar i verktygsfältet. 
+Alla insikter och rapporter för prestanda diagnostik lagras i ditt eget lagrings konto. Insikter lagras i Azure-tabeller. Den komprimerade filen rapporter lagras i en binary large object-behållare (BLOB) med namnet azdiagextnresults.
 
-### <a name="how-do-i-share-this-data-with-microsoft-customer-support"></a>Hur gör jag för att dela dessa data med Microsofts kundsupport? 
-Det finns flera sätt att dela diagnostik-rapport med Microsoft.
+Du kan visa informationen om lagrings kontot med hjälp av knappen Inställningar i verktygsfältet.
 
-**Alternativ 1:** Automatiskt dela den senaste rapporten  
-När du öppnar ett supportärende med Microsoft, är det viktigt att dela diagnostik prestandarapporten. Om du har valt för att dela den här informationen med Microsoft medan du kör diagnostiken (genom att välja den ”**jag samtycker till att dela diagnostikinformation med Microsoft**” kryssrutan), Microsoft kommer att kunna komma åt rapporten från din lagring konto med hjälp av en SAS-länk till zip-filen för utdata i upp till 30 dagar från datumet som kör. Endast den senaste rapporten är tillgänglig för supportteknikern. 
+### <a name="how-do-i-share-this-data-with-microsoft-customer-support"></a>Hur gör jag för att dela dessa data med Microsofts kund support
 
-**Alternativ 2:** Generera en signatur för delad åtkomst för den komprimerade filen för diagnostik-rapport  
-Du kan dela en länk till den komprimerade filen i rapporter med hjälp av signaturer för delad åtkomst. Det gör du genom att följa dessa steg: 
-1.  Bläddra till det lagringskonto där diagnostics-data lagras i Azure-portalen.
-1.  Välj **Blobar** under den **Blobtjänst** avsnittet. 
-1.  Välj den **azdiagextnresults** behållare.
-1.  Välj prestanda diagnostik komprimerade utdatafilen som du vill dela.
-1.  På den **generera SAS** , Välj kriterier för att dela. 
-1.  Klicka på **generera blob SAS-token och URL: en**.
-1.  Kopiera den **Blob SAS-Webbadressen**, och dela dem med supportteknikern. 
+Det finns flera sätt att dela den diagnostiska rapporten med Microsoft.
 
-**Alternativ 3:** Ladda ned rapporten från storage-kontot
+**Alternativ 1:** Dela den senaste rapporten automatiskt  
+När du öppnar ett support ärende med Microsoft är det viktigt att du delar rapporten prestanda diagnostik. Om du har valt att dela den här informationen med Microsoft samtidigt som du kör diagnostiken (genom att markera kryss rutan**Jag accepterar att information om att dela diagnostikinformation med Microsoft**) kommer Microsoft att kunna komma åt rapporten från ditt lagrings konto med en SAS-länk till utgående zip-fil i upp till 30 dagar från körnings datumet. Endast den senaste rapporten är tillgänglig för support teknikern.
 
-Du kan även hitta den komprimerade filen för prestanda diagnostik rapporten med hjälp av steg 1 – 4 i alternativ 2. Välj det här alternativet om du vill ladda ned filen, och sedan dela den via e-post eller be supportteknikern anvisningar att ladda upp filen.  
+**Alternativ 2:** Generera en signatur för delad åtkomst för den komprimerade filen för den diagnostiska rapporten  
+Du kan dela en länk till den komprimerade filen rapporter med hjälp av signaturer för delad åtkomst. Det gör du genom att följa dessa steg:
 
-### <a name="how-do-i-capture-the-diagnostics-data-at-the-correct-time"></a>Hur jag för att samla in diagnostikdata vid rätt tid?
-Varje Prestandadiagnostik kör har två steg: 
-1.  Installera eller uppdatera Prestandadiagnostik VM-tillägget.
-1.  Kör diagnostik för den angivna tidsperioden.
+1. I Azure Portal bläddrar du till det lagrings konto där diagnostikdata lagras.
+1. Välj **blobbar** under **BLOB service** avsnittet.
+1. Välj behållaren **azdiagextnresults** .
+1. Välj den komprimerade fil för prestanda diagnostik som du vill dela.
+1. På fliken **skapa SAS** väljer du villkoren för delning.
+1. Klicka på **generera BLOB SAS-token och URL**.
+1. Kopiera **URL: en för blobb-SAS**och dela den med support teknikern.
 
-Det finns för närvarande inget enkelt sätt att veta exakt när installationen av VM-tillägget är klar. Det tar vanligtvis ungefär 45 sekunder till 1 minut att installera VM-tillägg. När VM-tillägget har installerats kan köra du dina reproduktionssteg för Prestandadiagnostik avbilda rätt uppsättning data för felsökning. 
+**Alternativ 3:** Ladda ned rapporten från lagrings kontot
+
+Du kan också leta reda på den komprimerade filen med prestandadiagnostik i steg 1 – 4 i alternativ 2. Välj att ladda ned filen och dela den via e-post eller be support teknikern om instruktioner för att ladda upp filen.  
+
+### <a name="how-do-i-capture-the-diagnostics-data-at-the-correct-time"></a>Hur gör jag för att samla in diagnostikdata vid rätt tidpunkt
+
+Varje prestanda Diagnostics-körning har två steg:
+
+1. Installera eller uppdatera VM-tillägget för prestanda diagnostik.
+1. Kör diagnostiken för angiven varaktighet.
+
+För närvarande finns det inget enkelt sätt att veta exakt när installationen av VM-tillägget är slutförd. I allmänhet tar det cirka 45 sekunder till 1 minut att installera VM-tillägget. När du har installerat VM-tillägget kan du köra dina återskapnings-steg för att låta prestandadiagnostik samla in rätt data för fel sökning.
 
 ## <a name="next-steps"></a>Nästa steg
-När du granskar prestandainsikter för diagnostik och rapporten om du fortfarande inte kan ta reda på orsaken till problemet och behöver mer hjälp kan öppna du ett supportärende med Microsofts kundsupport. 
 
-Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azure-experter på den [Azure för MSDN och Stack Overflow-forum](https://azure.microsoft.com/support/forums/). Alternativt kan du arkivera en Azure-support-incident. Gå till den [Azure supportwebbplats](https://azure.microsoft.com/support/options/), och välj **få support**. Information om hur du använder Azure-support finns på [vanliga frågor om Microsoft Azure-support](https://azure.microsoft.com/support/faq/).
+Om du fortfarande inte kan ta reda på orsaken till problemet och behöver mer hjälp kan du öppna ett support ärende med Microsofts kund support när du har granskat prestanda diagnostiska insikter och rapporter.
+
+Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azure-experter på den [Azure för MSDN och Stack Overflow-forum](https://azure.microsoft.com/support/forums/). Alternativt kan du arkivera en Azure-support-incident. Gå till [Support webbplatsen för Azure](https://azure.microsoft.com/support/options/)och välj **få support**. Information om hur du använder Azure-support finns i [vanliga frågor och svar om Microsoft Azure support](https://azure.microsoft.com/support/faq/).

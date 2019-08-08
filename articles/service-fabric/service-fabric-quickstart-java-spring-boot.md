@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/29/2019
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: f7cf3f4cc0ceba89c031f5c36e90bbd6ef3dd20a
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 8bb25fc373ff0816154795d2ef25a44066c1acc1
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327154"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847749"
 ---
 # <a name="quickstart-deploy-a-java-spring-boot-application-to-service-fabric"></a>Snabbstart: Distribuera ett Java Spring Boot-program till Service Fabric
 
@@ -149,7 +149,7 @@ I det här skedet har du skapat ett Service Fabric-program för exemplet Spring 
     
     ![Felfritt lokalt kluster](./media/service-fabric-quickstart-java-spring-boot/sfxlocalhost.png)
 
-1. Gå till mappen `gs-spring-boot/SpringServiceFabric`.
+1. Öppna mappen `gs-spring-boot/SpringServiceFabric`.
 1. Kör följande kommando för att ansluta till det lokala klustret.
 
     ```bash
@@ -176,13 +176,13 @@ Service Fabric Explorer körs i alla Service Fabric-kluster och kan nås från e
 Så här skalar du webbklienttjänsten:
 
 1. Öppna Service Fabric Explorer i ditt kluster, till exempel `http://localhost:19080`.
-1. Klicka på ellipsknappen (tre punkter) bredvid noden **fabric:/SpringServiceFabric/SpringGettingStarted** i trädvyn och välj **Scale Service** (Skala tjänst).
+1. Välj ellipsen ( **...** ) bredvid noden **Fabric:/SpringServiceFabric/SpringGettingStarted** i trädvyn och välj **Scale service (skala tjänst**).
 
     ![Skalningstjänst i Service Fabric Explorer](./media/service-fabric-quickstart-java-spring-boot/sfxscaleservicehowto.png)
 
     Du kan nu välja att skala antalet instanser av tjänsten.
 
-1. Ändra antalet till **3** och klicka på **Scale Service** (Skala tjänst).
+1. Ändra talet till **3** och välj **Scale service (skala tjänst)** .
 
     Ett annat sätt att skala tjänsten med hjälp av kommandoraden är som följer.
 
@@ -194,7 +194,7 @@ Så här skalar du webbklienttjänsten:
     sfctl service update --service-id 'SpringServiceFabric~SpringGettingStarted' --instance-count 3 --stateless 
     ``` 
 
-1. Klicka på noden **fabric:/SpringServiceFabric/SpringGettingStarted** i trädvyn och utöka partitionsnoden (som representeras av en globalt unik identifierare).
+1. Välj noden **Fabric:/SpringServiceFabric/SpringGettingStarted** i trädvyn och expandera noden partition (representeras av ett GUID).
 
     ![Skalningstjänsten i Service Fabric Explorer har slutförts](./media/service-fabric-quickstart-java-spring-boot/sfxscaledservice.png)
 
@@ -207,7 +207,7 @@ Med den här enkla hanteringsåtgärden har du dubblerat tillgängliga resurser 
 För att demonstrera tjänstredundans simuleras en nodomstart med Service Fabric Explorer. Se till att endast en instans av din tjänst körs.
 
 1. Öppna Service Fabric Explorer i ditt kluster, till exempel `http://localhost:19080`.
-1. Klicka på ellipsknappen (tre punkter) bredvid noden som kör instansen av din tjänst och starta om noden.
+1. Välj ellipsen ( **...** ) bredvid noden som kör instansen av tjänsten och starta om noden.
 
     ![Omstartsnod för Service Fabric Explorer](./media/service-fabric-quickstart-java-spring-boot/sfxhowtofailover.png)
 1. Instansen av tjänsten flyttas till en annan nod och ditt program får inget avbrott.

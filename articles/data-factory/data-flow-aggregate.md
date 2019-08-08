@@ -30,7 +30,7 @@ Välj en befintlig kolumn eller skapa en ny beräknad kolumn som ska användas s
 ## <a name="aggregate-column"></a>Sammanställd kolumn 
 Välj fliken aggregator för att bygga agg regerings uttryck. Du kan antingen välja en befintlig kolumn och skriva över värdet med agg regeringen, eller skapa ett nytt fält med ett nytt namn. Agg regerings uttrycket anges i den högra rutan bredvid kolumn namns väljaren. Redigera uttrycket genom att klicka på text rutan för att öppna uttrycks verktyget. Om du vill lägga till ytterligare en agg regering hovrar du över ett befintligt uttryck och klickar på + för att skapa ett nytt agg regerings kolumn-eller [kolumn mönster](concepts-data-flow-column-pattern.md).
 
-![Mängd inställningar] för sammanställd transformering (media/data-flow/agg2.png "Mängd inställningar") för sammanställd transformering
+![Mängd inställningar för sammanställd transformering](media/data-flow/agg2.png "Mängd inställningar för sammanställd transformering")
 
 > [!NOTE]
 > Varje agg regerings uttryck måste innehålla minst en mängd funktion.

@@ -1,34 +1,32 @@
 ---
 title: Överföra avbildningsdata i molnet med Azure Storage | Microsoft Docs
 description: Använda Azure Blob Storage med ett webbprogram för att lagra appdata
-services: storage
 author: normesta
 ms.service: storage
-ms.devlang: dotnet
+ms.subservice: blobs
 ms.topic: tutorial
 ms.date: 11/26/2018
 ms.author: normesta
-ms.reviewer: seguler
-ms.custom: mvc
-ms.openlocfilehash: 612c0b48faac365623fe36d6d2435c1c79566d9b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.reviewer: dineshm
+ms.openlocfilehash: 7185d118c9f4419713ebe1291dd55c44635f0c56
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071316"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68844950"
 ---
 # <a name="tutorial-upload-image-data-in-the-cloud-with-azure-storage"></a>Självstudie: Överföra avbildningsdata i molnet med Azure Storage
 
 Den här självstudien ingår i en serie. I den här självstudien lär du dig att distribuera en webbapp som använder Azure Storage-klientbiblioteket för att ladda upp bilder till ett lagringskonto. När du är klar har du en webbapp som lagrar och visar bilder från Azure Storage.
 
 # <a name="nettabdotnet"></a>[\..NET](#tab/dotnet)
-![Storlek på avbildningar App i .NET](media/storage-upload-process-images/figure2.png)
+![Bild storleks program i .NET](media/storage-upload-process-images/figure2.png)
 
 # <a name="nodejs-v2-sdktabnodejs"></a>[Node.js V2 SDK](#tab/nodejs)
-![Bild storlekspekaren app i Node.js V2](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
+![Bild storleks program i Node. js v2](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
 
 # <a name="nodejs-v10-sdktabnodejsv10"></a>[Node.js V10 SDK](#tab/nodejsv10)
-![Bild storlekspekaren app i Node.js V10](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
+![Bild storleks program i Node. js-v10](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
 
 ---
 
@@ -131,7 +129,7 @@ az webapp create --name $webapp --resource-group myResourceGroup --plan myAppSer
 
 App Service har stöd för flera olika sätt att distribuera innehåll till en webbapp. I de här självstudierna distribuerar du webbappen från en [offentlig GitHub exempellagringsplats](https://github.com/Azure-Samples/storage-blob-upload-from-webapp). Konfigurera lokal Git-distribution till webbappen med kommandot [az webapp deployment source config-local-git](/cli/azure/webapp/deployment/source).
 
-Exempelprojektet innehåller en [ASP.NET MVC](https://www.asp.net/mvc)-app. Appen accepterar en bild, sparar den till ett lagringskonto och visar bilder från en container med miniatyrer. Webbappen använder den [Microsoft.Azure.Storage](/dotnet/api/overview/azure/storage), [Microsoft.Azure.Storage.Blob](/dotnet/api/microsoft.azure.storage.blob), och Microsoft.Azure.Storage.Auth-namnområden från Azure Storage-klientbiblioteket för att interagera med Azure lagring.
+Exempelprojektet innehåller en [ASP.NET MVC](https://www.asp.net/mvc)-app. Appen accepterar en bild, sparar den till ett lagringskonto och visar bilder från en container med miniatyrer. Webbappen använder [Microsoft. Azure. Storage](/dotnet/api/overview/azure/storage), [Microsoft. Azure. Storage. blob](/dotnet/api/microsoft.azure.storage.blob)och Microsoft. Azure. Storage. auth-namnrymderna från Azure Storage klient biblioteket för att interagera med Azure Storage.
 
 ```azurecli-interactive
 az webapp deployment source config --name $webapp \
@@ -211,7 +209,7 @@ Om du vill testa webbappen bläddrar du till URL-adressen till din publicerade a
 
 Välj regionen för **Ladda upp foton** och välj och ladda upp en fil eller dra en fil till regionen. Bilden försvinner om överföringen lyckas. Avsnittet **Genererade miniatyrer** förblir tomt tills vi testar det senare i det här ämnet.
 
-![Överför foton i .NET](media/storage-upload-process-images/figure1.png)
+![Ladda upp foton i .NET](media/storage-upload-process-images/figure1.png)
 
 I exempelkoden används uppgiften `UploadFiletoStorage` i filen *Storagehelper.cs* för att ladda upp bilderna till containern *bilder* på lagringskontot med hjälp av metoden [UploadFromStreamAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.uploadfromstreamasync). Följande kodexempel innehåller aktiviteten `UploadFiletoStorage`.
 
@@ -254,7 +252,7 @@ Följande klasser och metoder som används i den föregående aktiviteten:
 
 Välj **Välj fil** för att välja en fil, och klicka sedan på **Ladda upp bild**. Avsnittet **Genererade miniatyrer** förblir tomt tills vi testar det senare i det här ämnet. 
 
-![Överför foton i Node.js V2](media/storage-upload-process-images/upload-app-nodejs.png)
+![Överför foton i Node. js v2](media/storage-upload-process-images/upload-app-nodejs.png)
 
 I exempelkoden ansvarar vägen `post` för att ladda upp bilden till en blob-container. Flödet använder moduler för att bearbeta uppladdningen:
 
@@ -318,7 +316,7 @@ router.post('/', uploadStrategy, (req, res) => {
 
 Välj **Välj fil** för att välja en fil, och klicka sedan på **Ladda upp bild**. Avsnittet **Genererade miniatyrer** förblir tomt tills vi testar det senare i det här ämnet. 
 
-![Överför foton i Node.js V10](media/storage-upload-process-images/upload-app-nodejs.png)
+![Ladda upp foton i Node. js-v10](media/storage-upload-process-images/upload-app-nodejs.png)
 
 I exempelkoden ansvarar vägen `post` för att ladda upp bilden till en blob-container. Flödet använder moduler för att bearbeta uppladdningen:
 
@@ -400,7 +398,7 @@ Logga in på [Azure-portalen](https://portal.azure.com). I den vänstra menyn v�
 
 Kontrollera att avbildningen visas i containern.
 
-![Azure Portal-lista över avbildningsbehållaren](media/storage-upload-process-images/figure13.png)
+![Lista över bild behållare för Azure Portal](media/storage-upload-process-images/figure13.png)
 
 ## <a name="test-thumbnail-viewing"></a>Testa miniatyrvisning
 
@@ -413,13 +411,13 @@ Välj en fil med filväljaren och välj **Ladda upp**.
 Gå tillbaka till din app för att kontrollera att avbildningen som har överförts till containern **Miniatyrer** syns.
 
 # <a name="nettabdotnet"></a>[\..NET](#tab/dotnet)
-![.NET-avbildning storlekspekaren-app med nya avbildningen visas](media/storage-upload-process-images/figure2.png)
+![.NET Image höjder-appen med ny bild visas](media/storage-upload-process-images/figure2.png)
 
 # <a name="nodejs-v2-sdktabnodejs"></a>[Node.js V2 SDK](#tab/nodejs)
-![Node.js V2 bild storlekspekaren app med nya avbildningen visas](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
+![Node. js v2, bild storleks program med ny bild som visas](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
 
 # <a name="nodejs-v10-sdktabnodejsv10"></a>[Node.js V10 SDK](#tab/nodejsv10)
-![Node.js V10 bild storlekspekaren app med nya avbildningen visas](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
+![Node. js-v10 bild storleks program med ny bild som visas](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
 
 ---
 

@@ -5,16 +5,16 @@ description: Starta TensorBoard för att visualisera experiment körnings histor
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: article
+ms.topic: conceptual
 author: maxluk
 ms.author: maxluk
 ms.date: 06/28/2019
-ms.openlocfilehash: f65882cb851f8e35bb1d6c319d52fcfadb36ae91
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 2e4527ba167076935505b668a7879e5f1446b25e
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68772717"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68856073"
 ---
 # <a name="visualize-experiment-runs-and-metrics-with-tensorboard-and-azure-machine-learning"></a>Visualisera experiment körningar och mät värden med TensorBoard och Azure Machine Learning
 
@@ -42,9 +42,9 @@ Hur du startar TensorBoard med Azure Machine Learning experiment beror på typen
         * tensorboard. ipynb
 
     * Din egen Juptyer Notebook-Server
-      * Använd [artikeln Skapa en arbets yta](setup-create-workspace.md) för att
           * [Installera Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) med `tensorboard` extra
-          * Skapa en arbets yta och dess konfigurations fil (config. JSON)
+          * [Skapa en Azure Machine Learning service-arbetsyta](how-to-manage-workspace.md).  
+          * [Skapa en konfigurations fil för arbets ytor](how-to-configure-environment.md#workspace).
   
 <a name="direct"></a>
 ## <a name="option-1-directly-view-run-history-in-tensorboard"></a>Alternativ 1: Visa körnings historik direkt i TensorBoard

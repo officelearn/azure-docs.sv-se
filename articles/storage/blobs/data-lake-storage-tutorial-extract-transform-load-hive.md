@@ -1,7 +1,6 @@
 ---
 title: 'Självstudier: Utföra ETL-åtgärder (extrahera, transformera, läs in) med hjälp av Apache Hive i Azure HDInsight'
 description: I den här självstudien lär du dig hur du extraherar data från en CSV-datauppsättning med rådata, transformerar den med hjälp av Apache Hive i Azure HDInsight och sedan läser in dessa transformerade data till Azure SQL Database med hjälp av Sqoop.
-services: storage
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
@@ -9,12 +8,12 @@ ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: f28cae7ed56b694f4194adf78c288ffa87eb71d8
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 344dddb4e16f23ae40028c090c499d210adb8837
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447733"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68855455"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-apache-hive-on-azure-hdinsight"></a>Självstudier: Extrahera, transformera och läsa in data med hjälp av Apache Hive i Azure HDInsight
 

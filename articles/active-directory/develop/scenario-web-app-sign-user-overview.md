@@ -1,6 +1,6 @@
 ---
-title: Webbapp som loggar in användare (översikt) - Microsoft identity-plattformen
-description: Lär dig att skapa en webbapp som loggar in användare (översikt)
+title: Webbapp som loggar in användare (översikt) – Microsoft Identity Platform
+description: Lär dig hur du skapar en webbapp som loggar in användare (översikt)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -13,51 +13,51 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ce534c6eeecba220fd829be829caa679df52055
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 95aeeacfd85dd79453bff4e365e5b050039f77b9
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65833088"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68852473"
 ---
 # <a name="scenario-web-app-that-signs-in-users"></a>Scenario: Webbapp som loggar in användare
 
-Lär dig allt du behöver skapa en webbapp som loggar in användare med Microsoft identity-plattformen.
+Lär dig allt du behöver för att bygga en webbapp som loggar in användare med Microsoft Identity Platform.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
 ## <a name="getting-started"></a>Komma igång
 
-Om du vill skapa din första bärbar (ASP.NET Core)-webbappar som kan logga in användare Följ den här snabbstarten:
+Följ den här snabb starten om du vill skapa dina första bärbara (ASP.NET Core)-webbappar som loggar in användare:
 
 > [!div class="nextstepaction"]
-> [Snabbstart: ASP.NET Core webbapp som loggar in användare](quickstart-v2-aspnet-core-webapp.md)
+> [Snabbstart: ASP.NET Core-webbapp som loggar in användare](quickstart-v2-aspnet-core-webapp.md)
 
-Om du vill att hålla dig med ASP.NET kan prova att använda följande självstudie:
+Om du vill fortsätta med ASP.NET kan du prova följande självstudie:
 
 > [!div class="nextstepaction"]
-> [Snabbstart: ASP.NET web app som loggar in användare](quickstart-v2-aspnet-webapp.md)
+> [Snabbstart: ASP.NET-webbapp som loggar in användare](quickstart-v2-aspnet-webapp.md)
 
 ## <a name="overview"></a>Översikt
 
-Du lägger till autentisering till din webbapp så att den kan logga in användare. Att lägga till autentisering gör det möjligt för din webbapp att komma åt profilinformation och exempelvis anpassa upplevelsen du erbjuda användarna. Webbappar autentisera en användare i en webbläsare. I det här scenariot uppmanar webbprogrammet användarens webbläsare att logga in dem till Azure AD. Azure AD returnerar ett svar via användarens webbläsare, som innehåller anspråk om användaren i en säkerhetstoken. Logga in användare utnyttjar den [öppna ID Connect](./v2-protocols-oidc.md) standardprotokollet själva förenklad med hjälp av mellanprogram [bibliotek](scenario-web-app-sign-user-app-configuration.md#libraries-used-to-protect-web-apps).
+Du lägger till autentisering i din webbapp så att den kan logga in användare. Genom att lägga till autentisering kan din webbapp få åtkomst till begränsad profil information, och till exempel anpassa den upplevelse som du erbjuder till sina användare. Web Apps autentiserar en användare i en webbläsare. I det här scenariot dirigerar webb programmet användarens webbläsare för att logga in på Azure AD. Azure AD returnerar ett inloggnings svar via användarens webbläsare, som innehåller anspråk om användaren i en säkerhetstoken. Inloggnings användare använder sig av det [Öppna ID: t Connect-](./v2-protocols-oidc.md) standardprotokollet som är förenklat genom användning av mellanprogram [bibliotek](scenario-web-app-sign-user-app-configuration.md#libraries-used-to-protect-web-apps).
 
-![Web app loggar in användare](./media/scenario-webapp/scenario-webapp-signs-in-users.svg)
+![Webb program loggar – användare](./media/scenario-webapp/scenario-webapp-signs-in-users.svg)
 
-Du kan också aktivera programmet att anropa webb-API: er åt den inloggade användaren som en andra fasen. Den här nästa fas är ett annat scenario där du hittar i [Web App anropar webb-API: er](scenario-web-app-call-api-overview.md)
+Som en andra fas kan du också aktivera ditt program så att det anropar webb-API: er åt den inloggade användaren. Nästa fas är ett annat scenario, som du hittar i webb- [API: er för webb program](scenario-web-app-call-api-overview.md)
 
 > [!NOTE]
-> Lägga till inloggning till ett webb-app är om hur du skyddar webbappen och validerar en användartoken, vilket är vad **mellanprogram** bibliotek gör. Det här scenariot kräver inte ännu Microsoft Authentication Libraries (MSAL) som håller på att skaffa en token som kan anropa skyddade API: er. Authentication Library kommer endast att presenteras i Uppföljnings scenariot när webbappen behöver anropa webb-API: er.
+> Att lägga till inloggning i en webbapp är att skydda webbappen och verifiera en användartoken, vilket är vad **mellan** program varu bibliotek gör. Det här scenariot kräver inte Microsoft Authentication libraries (MSAL), som håller på att förvärva en token för att anropa skyddade API: er. Autentiseringsinställningarna kommer bara att införas i uppföljnings scenariot när webbappen behöver anropa webb-API: er.
 
-## <a name="specifics"></a>Närmare information
+## <a name="specifics"></a>Information
 
-- Under registreringen programmet måste du ange en eller flera (om du distribuerar din app till flera platser) svars-URI: er. I vissa fall (ASP.NET/ASP.NET kärnor) måste du aktivera IDToken. Slutligen bör du ställa in en utloggning URI så att ditt program som reagerar på användare loggar ut.
-- I koden för ditt program måste du ange utfärdaren som web app delegerar logga in. Du kanske vill anpassa tokenvalidering (särskilt i ISV-scenarier).
-- Webbprogram stöd för alla kontotyper. Mer information finns i [stöds kontotyper](v2-supported-account-types.md).
+- Under program registreringen måste du ange en eller flera (om du distribuerar appen till flera platser) svars-URI: er. I vissa fall (ASP.NET/ASP.NET Core) måste du aktivera IDToken. Slutligen vill du skapa en utloggnings-URI så att ditt program reagerar på användare som loggar ut.
+- I koden för ditt program måste du ange den myndighet som du vill att webbappen delegerar inloggning för. Du kanske vill anpassa verifiering av token (särskilt i ISV-scenarier).
+- Webb program stöder alla typer av konton. Mer information finns i [konto typer som stöds](v2-supported-account-types.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

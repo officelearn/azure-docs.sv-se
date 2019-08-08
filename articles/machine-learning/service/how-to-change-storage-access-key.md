@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 05/17/2019
-ms.openlocfilehash: 0721542811709e9b938fea3f31bc2a0a28ecdc74
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: b23d54cb74bea7eaaea5f55bd491bed40381ee2b
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68358769"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68848175"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>Återskapa åtkomst nycklar för lagrings kontot
 
@@ -25,7 +25,7 @@ Av säkerhets synpunkt kan du behöva ändra åtkomst nycklarna för ett Azure S
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* En arbetsyta för Azure Machine Learning-tjänsten. Mer information finns i artikeln [skapa en arbets yta](setup-create-workspace.md) .
+* En arbetsyta för Azure Machine Learning-tjänsten. Mer information finns i artikeln [skapa en arbets yta](how-to-manage-workspace.md) .
 
 * [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
 

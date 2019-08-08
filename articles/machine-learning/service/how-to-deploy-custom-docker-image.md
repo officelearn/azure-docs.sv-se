@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/11/2019
-ms.openlocfilehash: f51c6bdc6cb2e381d5d5b855bf2f87b07d7fc180
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 0025f488f6a9b0af4e05a8bdf3ddf36c089d4d9f
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638425"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68856124"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-image"></a>Distribuera en modell med hjälp av en anpassad Docker-avbildning
 
@@ -40,8 +40,8 @@ Det här dokumentet är uppdelat i två delar:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* En Azure Machine Learning tjänst arbets grupp. Mer information finns i artikeln [skapa en arbets yta](setup-create-workspace.md) .
-* Azure Machine Learning SDK. Mer information finns i avsnittet python SDK i artikeln [skapa en arbets yta](setup-create-workspace.md#sdk) .
+* En Azure Machine Learning tjänst arbets grupp. Mer information finns i artikeln [skapa en arbets yta](how-to-manage-workspace.md) .
+* [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py). 
 * Den [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 * [CLI-tillägget för Azure Machine Learning](reference-azure-machine-learning-cli.md).
 * En [Azure Container Registry](/azure/container-registry) eller ett annat Docker-register som är tillgängligt på Internet.

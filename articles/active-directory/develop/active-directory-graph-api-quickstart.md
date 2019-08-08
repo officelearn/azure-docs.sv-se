@@ -1,6 +1,6 @@
 ---
-title: Hur du använder Azure AD Graph API
-description: Azure Active Directory (Azure AD) Graph API ger Programmeringsåtkomst till Azure AD via REST-API för OData-slutpunkter. Program kan använda Azure AD Graph API för att utföra skapa, läsa, uppdatera och ta bort (CRUD)-åtgärder på katalogdata och objekt.
+title: Så här använder du Azure AD-Graph API
+description: Azure Active Directory (Azure AD) Graph API ger program mässig åtkomst till Azure AD via OData REST API-slutpunkter. Program kan använda Azure AD Graph API för att utföra åtgärder för att skapa, läsa, uppdatera och ta bort (CRUD) på katalog data och objekt.
 services: active-directory
 documentationcenter: n/a
 author: rwike77
@@ -17,88 +17,88 @@ ms.workload: identity
 ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: sureshja
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a2ae83b655bfe607b1061168649ec74f02ab4064
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 85c3a1953ce34ab6bf60111715d9d8972a4682ba
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67483180"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68853386"
 ---
 # <a name="how-to-use-the-azure-ad-graph-api"></a>Anvisningar: Använd Azure AD Graph API:n
 
-Azure Active Directory (Azure AD) Graph API ger Programmeringsåtkomst till Azure AD via REST-API för OData-slutpunkter. Program kan använda Azure AD Graph API för att utföra skapa, läsa, uppdatera och ta bort (CRUD)-åtgärder på katalogdata och objekt. Du kan till exempel använda Azure AD Graph API för att skapa en ny användare, visa eller uppdatera användarens egenskaper, ändra användarens lösenord, kontrollera medlemskapet för rollbaserad åtkomst, inaktivera eller ta bort användaren. Läs mer om Azure AD Graph API-funktionerna och Programscenarier [Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) och [krav för Azure AD Graph API](https://msdn.microsoft.com/library/hh974476.aspx).
+Azure Active Directory (Azure AD) Graph API ger program mässig åtkomst till Azure AD via OData REST API-slutpunkter. Program kan använda Azure AD Graph API för att utföra åtgärder för att skapa, läsa, uppdatera och ta bort (CRUD) på katalog data och objekt. Du kan till exempel använda Azure AD Graph API för att skapa en ny användare, Visa eller uppdatera användarens egenskaper, ändra användarens lösen ord, kontrol lera grupp medlemskap för rollbaserad åtkomst, inaktivera eller ta bort användaren. Mer information om Azure AD Graph API funktioner och program scenarier finns i [Azure ad Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) och [Azure AD Graph API-krav](https://msdn.microsoft.com/library/hh974476.aspx).
 
-Den här artikeln gäller för Azure AD Graph API. Liknande information relaterad till Microsoft Graph API finns i [använder Microsoft Graph API](https://developer.microsoft.com/graph/docs/concepts/use_the_api).
+Den här artikeln gäller Azure AD Graph API. Liknande information som rör Microsoft Graph-API finns i [använda Microsoft Graph API](https://developer.microsoft.com/graph/docs/concepts/use_the_api).
 
 > [!IMPORTANT]
 > Vi rekommenderar starkt att du använder [Microsoft Graph](https://developer.microsoft.com/graph) i stället för Azure AD Graph API för att komma åt resurser i Azure Active Directory. Vårt utvecklingsarbete koncentreras nu till Microsoft Graph och inga fler förbättringar planeras för Azure AD Graph API. Det finns ett begränsat antal scenarier där Azure AD Graph API fortfarande kan vara lämpligt. Mer information finns i blogginlägget [Microsoft Graph or the Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph) (Microsoft Graph eller Azure AD Graph) i Office Dev Center.
 
-## <a name="how-to-construct-a-graph-api-url"></a>Hur du skapar en Graph API-URL
+## <a name="how-to-construct-a-graph-api-url"></a>Så här skapar du en Graph API-URL
 
-Om du vill få åtkomst till katalogdata och objekt (d.v.s. resurser eller entiteter) som du vill utföra CRUD-åtgärder i Graph API använder webbadresserna baserat på det öppna Data (OData)-protokollet. URL: er som används i Graph API består av fyra huvudsakliga delar: tjänsten rot, klient-ID, resurssökväg och alternativ med frågesträngar: `https://graph.windows.net/{tenant-identifier}/{resource-path}?[query-parameters]`. Ta exempel på följande URL: `https://graph.windows.net/contoso.com/groups?api-version=1.6`.
+För att få åtkomst till katalog data och objekt (med andra ord, resurser eller entiteter) i Graph API som du vill utföra CRUD-åtgärder på, kan du använda webb adresser som baseras på protokollet Open data (OData). URL: erna som används i Graph API består av fyra huvud delar: tjänstens rot, klient-ID, resurs Sök väg och `https://graph.windows.net/{tenant-identifier}/{resource-path}?[query-parameters]`alternativ för frågesträng:. Ta exemplet på följande URL: `https://graph.windows.net/contoso.com/groups?api-version=1.6`.
 
-* **Service Root**: I Azure AD Graph API service-rot är alltid https://graph.windows.net.
-* **Klient-ID: t**: Det här avsnittet kan vara ett verifierat (registrerad) domännamn, i föregående exempel contoso.com. Det kan också vara ett klient-ID för objektet eller ”ut” eller ”me” alias. Mer information finns i [adressering entiteter och åtgärder i Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-operations-overview).
-* **Resurssökväg**: Det här avsnittet av en URL som identifierar resursen om du vill att interagera med (användare, grupper, en viss användare eller en viss grupp osv.) I exemplet ovan är den högsta nivån ”grupper” till adressen som angetts för resursen. Du kan även lösa en specifik enhet, till exempel ”användare / {objekt-ID}” eller ”användare/userPrincipalName”.
-* **Frågeparametrar**: Ett frågetecken (?) separerar avsnittet sökvägen från avsnittet fråga parametrar. Frågeparametern ”api-version” krävs för alla förfrågningar i Azure AD Graph API. Azure AD Graph API har också stöd för följande OData-frågealternativ: **$filter**, **$orderby**, **$expand**, **$top**, och **$format**. Följande fråga alternativ stöds inte för närvarande: **$count**, **$inlinecount**, och **$skip**. Mer information finns i [stöds frågor, filter och sidindelning alternativen i Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-supported-queries-filters-and-paging-options).
+* **Tjänst rot**: I Azure AD Graph API är tjänst roten alltid https://graph.windows.net.
+* **Klient-ID**: Det här avsnittet kan vara ett verifierat (registrerat) domän namn i föregående exempel, contoso.com. Det kan också vara ett klient objekt-ID eller "min organisation" eller "Me"-alias. Mer information finns i [adressera entiteter och åtgärder i Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-operations-overview).
+* **Resurs Sök väg**: Det här avsnittet av en URL identifierar den resurs som ska interageras med (användare, grupper, en viss användare eller en viss grupp osv.) I exemplet ovan är det den översta nivån "grupper" för att adressera den resurs uppsättningen. Du kan också adressera en speciell entitet, till exempel "Users/{objectId}" eller "Users/userPrincipalName".
+* **Frågeparametrar**: Ett frågetecken (?) avgränsar avsnittet resurs Sök väg från avsnittet frågeparametrar. Frågeparametern "API-version" krävs för alla förfrågningar i Azure AD Graph API. Azure AD Graph API stöder även följande alternativ för OData-frågor: **$filter**, **$OrderBy**, **$Expand**, **$Top**och **$format**. Följande frågealternativ stöds inte för närvarande: **$Count**, **$inlinecount**och **$Skip**. Mer information finns i [frågor, filter och växlings alternativ som stöds i Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-supported-queries-filters-and-paging-options).
 
-## <a name="graph-api-versions"></a>Graph API-versioner
+## <a name="graph-api-versions"></a>Graph API versioner
 
-Du anger versionen för en Graph API-begäran i Frågeparametern ”api-version”. För version 1.5 och senare kan använda du ett numeriskt versionsvärde. API-version = 1.6. För tidigare versioner måste använda du en datumsträng som följer formatet ÅÅÅÅ-MM-DD; till exempel api-version = 2013-11-08. Funktioner i förhandsversion använda strängen ”beta”; till exempel api-version = beta. Mer information om skillnaderna mellan versionerna för Graph API finns i [Azure AD Graph API-versionshantering](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-versioning).
+Du anger versionen för en Graph API förfrågan i frågeparametern "API-version". I version 1,5 och senare använder du ett numeriskt versions värde. API-version = 1.6. För tidigare versioner använder du en datum sträng som följer formatet ÅÅÅÅ-MM-DD; till exempel API-version = 2013-11-08. Använd strängen "beta" för för hands versions funktioner. till exempel API-version = beta. Mer information om skillnader mellan Graph API versioner finns i [versions hantering för Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-versioning).
 
-## <a name="graph-api-metadata"></a>Graph API-metadata
+## <a name="graph-api-metadata"></a>Graph API metadata
 
-Om du vill returnera metadatafilen Azure AD Graph API lägger du till ”$metadata”-segment efter klient-ID i URL: en för exempel, följande URL returnerar metadata för ett företag som demo: `https://graph.windows.net/GraphDir1.OnMicrosoft.com/$metadata?api-version=1.6`. Du kan ange denna URL i adressfältet i en webbläsare för att se metadata. CSDL metadatadokument returnerade beskriver entiteterna och komplexa typer, deras egenskaper och funktioner och åtgärder som exponeras av versionen av Graph API som du har begärt. Om du utesluter parametern api-versionen returnerar metadata för den senaste versionen.
+Om du vill returnera Azure AD Graph API-metadatafilen lägger du till "$metadata"-segmentet efter klient-ID i URL: en, till exempel följande URL Returnerar metadata för ett demo företag `https://graph.windows.net/GraphDir1.OnMicrosoft.com/$metadata?api-version=1.6`:. Du kan ange den här webb adressen i adress fältet i en webbläsare för att se metadata. CSDL-Metadatadokumentet som returneras beskriver entiteter och komplexa typer, deras egenskaper och de funktioner och åtgärder som exponeras av den version av Graph API du begärde. Om du utelämnar parametern API-version returneras metadata för den senaste versionen.
 
 ## <a name="common-queries"></a>Vanliga frågor
 
-[Azure AD Graph API vanliga frågor om](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-supported-queries-filters-and-paging-options#CommonQueries) visar en lista över vanliga frågor som kan användas med Azure AD Graph, inklusive frågor som kan användas för att komma åt översta resurser i din katalog och frågor för att utföra åtgärder i din katalog.
+[Azure ad Graph API vanliga frågor](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-supported-queries-filters-and-paging-options#CommonQueries) som visar vanliga frågor som kan användas med Azure AD graf, inklusive frågor som kan användas för att få åtkomst till toppnivå resurser i din katalog och frågor för att utföra åtgärder i din katalog.
 
-Till exempel `https://graph.windows.net/contoso.com/tenantDetails?api-version=1.6` returnerar företagsinformation för directory contoso.com.
+`https://graph.windows.net/contoso.com/tenantDetails?api-version=1.6` Returnerar till exempel företags information för katalogen contoso.com.
 
-Eller `https://graph.windows.net/contoso.com/users?api-version=1.6` visar en lista över alla användarobjekt i katalogen contoso.com.
+Eller `https://graph.windows.net/contoso.com/users?api-version=1.6` visar en lista över alla användar objekt i katalogen contoso.com.
 
-## <a name="using-the-azure-ad-graph-explorer"></a>Med hjälp av Azure AD Graph Explorer
-Du kan använda Azure AD Graph-testaren för Azure AD Graph API för att fråga directory-data när du skapar ditt program.
+## <a name="using-the-azure-ad-graph-explorer"></a>Använda Azure AD Graph Explorer
+Du kan använda Azure AD Graph Explorer för Azure AD-Graph API för att fråga katalog data när du skapar programmet.
 
-Skärmbilden nedan är utdata visas om du skulle gå till Azure AD Graph Explorer, logga in och ange `https://graph.windows.net/GraphDir1.OnMicrosoft.com/users?api-version=1.6` att visa alla användare i den inloggade användarens katalog:
+Följande skärm bild är de utdata du ser om du skulle gå till Azure AD Graph Explorer, logga in och ange `https://graph.windows.net/GraphDir1.OnMicrosoft.com/users?api-version=1.6` för att visa alla användare i den inloggade användarens katalog:
 
-![Exempel på utdata i Azure AD Graph API-Utforskaren](./media/active-directory-graph-api-quickstart/graph_explorer.png)
+![Exempel på utdata i Azure AD Graph API Explorer](./media/active-directory-graph-api-quickstart/graph_explorer.png)
 
-**Läsa in Azure AD Graph-testaren**: För att läsa in verktyget går du till [ https://graphexplorer.azurewebsites.net/ ](https://graphexplorer.azurewebsites.net/). Klicka på **inloggning** och logga in med din Azure AD-autentiseringsuppgifter för att köra Azure AD Graph-testaren mot din klient. Om du kör Azure AD Graph-testaren mot din egen klientorganisation måste du eller din administratör att godkänna under inloggning. Om du har en Office 365-prenumeration kan har du automatiskt en Azure AD-klient. Autentiseringsuppgifterna som du använde för att logga in på Office 365 i själva verket är Azure AD-konton, och du kan använda dessa autentiseringsuppgifter med Azure AD Graph Explorer.
+**Läs in Azure AD Graph Explorer**: Starta verktyget genom att gå till [https://graphexplorer.azurewebsites.net/](https://graphexplorer.azurewebsites.net/). Klicka på **Logga in** och logga in med dina autentiseringsuppgifter för Azure AD-kontot för att köra Azure AD Graph Explorer mot din klient. Om du kör Azure AD Graph Explorer mot din egen klient måste du eller din administratör godkänna under inloggningen. Om du har en Office 365-prenumeration har du automatiskt en Azure AD-klient. De autentiseringsuppgifter du använder för att logga in på Office 365 är i själva verket Azure AD-konton och du kan använda dessa autentiseringsuppgifter med Azure AD Graph Explorer.
 
-**Köra en fråga**: Skriv din fråga i textrutan begäran för att köra en fråga, och klicka på **hämta** eller klicka på den **ange** nyckel. Resultaten visas i rutan svar. Till exempel `https://graph.windows.net/myorganization/groups?api-version=1.6` visar en lista över alla gruppobjekt i den inloggade användarens katalog.
+**Kör en fråga**: Om du vill köra en fråga skriver du din fråga i text rutan begäran och klickar på **Hämta** eller klickar på **RETUR** -tangenten. Resultaten visas i svars rutan. `https://graph.windows.net/myorganization/groups?api-version=1.6` Visar till exempel alla grupp objekt i den inloggade användarens katalog.
 
-Observera följande funktioner och begränsningar i Azure AD Graph-Utforskaren:
+Observera följande funktioner och begränsningar i Azure AD Graph Explorer:
 
-* Funktionen för automatisk komplettering på resursen anger. Klicka på textrutan begäran (där företagets URL visas) om du vill se den här funktionen. Du kan välja en resurs som angetts i listrutan.
-* Förfrågningshistorik.
-* Har stöd för ”me” och ”ut” adressering alias. Du kan till exempel använda `https://graph.windows.net/me?api-version=1.6` att returnera för user-objektet för den inloggade användaren eller `https://graph.windows.net/myorganization/users?api-version=1.6` att returnera alla användare i den inloggade användarens katalog.
-* Har stöd för fullständig CRUD-åtgärder mot dina egna katalog med hjälp av `POST`, `GET`, `PATCH` och `DELETE`.
-* Ett avsnitt för sidhuvuden av svar. Det här avsnittet kan användas för att felsöka problem som uppstår när du kör frågor.
-* Ett JSON-visningsprogram för svaret med visa och Dölj funktioner.
-* Inget stöd för att visa eller ladda upp en miniatyrbild.
+* Funktionen Komplettera automatiskt på resurs uppsättningar. Om du vill se den här funktionen klickar du på text rutan för begäran (där företagets URL visas). Du kan välja en resurs uppsättning i list rutan.
+* Begär ande historik.
+* Stöder adresserings Ali Aset "mig" och "min organisation". Du kan till exempel använda `https://graph.windows.net/me?api-version=1.6` för att returnera användar objektet för den inloggade användaren eller `https://graph.windows.net/myorganization/users?api-version=1.6` för att returnera alla användare i den inloggade användarens katalog.
+* Stöder fullständiga CRUD-åtgärder mot din egen katalog `POST`med `GET`hjälp `PATCH` av `DELETE`, och.
+* Avsnittet svarshuvuden. Det här avsnittet kan användas för att felsöka problem som inträffar när du kör frågor.
+* Ett JSON-visningsprogram för svaret med utökade och dolda funktioner.
+* Inget stöd för att visa eller ladda upp ett miniatyr foto.
 
-## <a name="using-fiddler-to-write-to-the-directory"></a>Med hjälp av Fiddler för att skriva till katalogen
+## <a name="using-fiddler-to-write-to-the-directory"></a>Använda Fiddler för att skriva till katalogen
 
-Du kan använda Web-felsökare Fiddler för att prova skriva-åtgärder mot Azure AD-katalogen för den här snabbstartsguiden. Du kan till exempel hämta och överföra en användares profilfoto (som inte är möjligt med Azure AD Graph Explorer). Mer information och för att installera Fiddler Se [ https://www.telerik.com/fiddler ](https://www.telerik.com/fiddler).
+I den här snabb starts guiden kan du använda Fiddler webb fel sökning för att öva på att utföra "Skriv"-åtgärder mot din Azure AD-katalog. Du kan till exempel hämta och ladda upp en användares profil bild (vilket inte är möjligt med Azure AD Graph Explorer). Mer information om hur du installerar Fiddler finns i [https://www.telerik.com/fiddler](https://www.telerik.com/fiddler).
 
-I exemplet nedan använder du Fiddler Web felsökare för att skapa en ny säkerhetsgrupp 'MyTestGroup ”i Azure AD-katalogen.
+I exemplet nedan använder du Fiddler webb fel sökning för att skapa en ny säkerhets grupp "MyTestGroup" i Azure AD-katalogen.
 
-**Hämta en åtkomsttoken**: För att komma åt Azure AD Graph måste klienter kunna autentisera till Azure AD först. Mer information finns i [Autentiseringsscenarier för Azure AD](authentication-scenarios.md).
+**Hämta en**åtkomsttoken: För att få åtkomst till Azure AD Graph krävs det att klienterna autentiseras för att kunna autentisera till Azure AD först. Mer information finns i [autentiserings scenarier för Azure AD](authentication-scenarios.md).
 
-**Skapa och köra en fråga**: Utför följande steg:
+**Skriv och kör en fråga**: Utför följande steg:
 
-1. Öppna Fiddler Web felsökare och växla till den **Composer** fliken.
-2. Eftersom du vill skapa en ny säkerhetsgrupp markerar **Post** som HTTP-metoden från den nedrullningsbara menyn. Mer information om åtgärder och behörigheter på ett gruppobjekt finns [grupp](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#group-entity) inom den [Azure AD Graph REST API-referens](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
-3. I fältet bredvid **Post**, typ i följande URL för begäran: `https://graph.windows.net/{mytenantdomain}/groups?api-version=1.6`.
+1. Öppna Fiddler-Webbfelsökning och växla till fliken **Composer** .
+2. Eftersom du vill skapa en ny säkerhets grupp väljer du **post** som http-metod i den nedrullningsbara menyn. Mer information om åtgärder och behörigheter för ett grupp objekt finns i [gruppen](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#group-entity) i [Azure AD Graph REST API referens](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
+3. I fältet bredvid **post**anger du följande URL för begäran: `https://graph.windows.net/{mytenantdomain}/groups?api-version=1.6`.
    
    > [!NOTE]
-   > Med domännamnet för din egen Azure AD-katalog måste du ersätta {mytenantdomain}.
+   > Du måste ersätta {mytenantdomain} med domän namnet för din egen Azure AD-katalog.
 
-4. I fältet direkt under inlägget nedrullningsbara, skriver du följande HTTP-huvud:
+4. Skriv följande HTTP-huvud i fältet direkt under post-pull:
    
     ```
    Host: graph.windows.net
@@ -107,9 +107,9 @@ I exemplet nedan använder du Fiddler Web felsökare för att skapa en ny säker
    ```
    
    > [!NOTE]
-   > Ersätt din &lt;din åtkomsttoken&gt; med åtkomsttoken för Azure AD-katalogen.
+   > Ersätt din åtkomsttoken med åtkomsttoken för Azure AD-katalogen.&gt; &lt;
 
-5. I den **Begärandetext** anger du följande JSON:
+5. I fältet **begär ande text** skriver du följande JSON:
    
     ```
         {
@@ -122,9 +122,9 @@ I exemplet nedan använder du Fiddler Web felsökare för att skapa en ny säker
    
     Mer information om hur du skapar grupper finns i [Skapa grupp](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/groups-operations#CreateGroup).
 
-Mer information om Azure AD-entiteter och typer som visas av diagram och information om de åtgärder som kan utföras på dem med Graph finns i [Azure AD Graph REST API-referens](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
+Mer information om Azure AD-entiteter och typer som exponeras av Graph och information om de åtgärder som kan utföras på dem med Graph finns i [referens för Azure AD-diagram REST API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs mer om den [Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)
-* Läs mer om [Azure AD Graph API-Behörighetsomfattningar](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes)
+* Läs mer om [Azure AD-Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)
+* Läs mer om [behörighets omfattningar för Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes)

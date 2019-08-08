@@ -4,17 +4,17 @@ ms.author: crdun
 ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
-ms.openlocfilehash: 83a0adf98298225b52d3b4fdfa2ca861ebb70bb9
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 346f63109e673692d425ede6bdbcb6f633af80bb
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67188029"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68857510"
 ---
-**.NET-serverdel (C#)** :
+**.NET-ServerC#del ()** :
   
-1. I Visual Studio högerklickar du på serverprojektet och klicka på **hantera NuGet-paket**, Sök efter `Microsoft.Azure.NotificationHubs`, klicka sedan på **installera**. Detta installerar Notification Hubs-biblioteket för att skicka meddelanden från serverdelen.
-2. Öppna i Visual Studio-projekt för serverdelens **domänkontrollanter** > **TodoItemController.cs**. Lägg till följande överst i filen `using` instruktionen:
+1. Högerklicka på Server projektet i Visual Studio och klicka på **Hantera NuGet-paket**, Sök efter `Microsoft.Azure.NotificationHubs`och klicka sedan på **Installera**. Detta installerar Notification Hubs bibliotek för att skicka meddelanden från Server delen.
+2. Öppna **kontrollanter** > **TodoItemController.cs**i Server delen Visual Studio-projektet. Lägg till följande `using` -instruktion högst upp i filen:
 
     ```csharp
     using Microsoft.Azure.Mobile.Server.Config;
@@ -63,13 +63,13 @@ ms.locfileid: "67188029"
     }
     ```
 
-4. Publicera om serverprojektet.
+4. Publicera om Server projektet.
 
 **Node.js-serverdel**:
 
-1. Om du inte redan gjort det, [hämta quickstart-projektet](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) eller annan användning den [onlineredigeraren i Azure-portalen](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).    
+1. Konfigurera ditt Server dels projekt.    
 
-2. Ersätt todoitem.js tabell skriptet med följande kod:
+2. Ersätt Table-skriptet todoitem. js med följande kod:
 
     ```javascript
     var azureMobileApps = require('azure-mobile-apps'),
@@ -110,4 +110,4 @@ ms.locfileid: "67188029"
     module.exports = table;
     ```
 
-3. När du redigerar filen på din lokala dator, publicera om serverprojektet.
+3. Publicera om Server projektet när du redigerar filen på den lokala datorn.

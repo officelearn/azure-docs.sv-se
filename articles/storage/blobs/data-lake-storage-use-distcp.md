@@ -1,105 +1,104 @@
 ---
-title: Kopiera data till Azure Data Lake Storage Gen2 använda DistCp | Microsoft Docs
-description: Använd DistCp för att kopiera data till och från Data Lake Storage Gen2
-services: storage
+title: Kopiera data till Azure Data Lake Storage Gen2 med DistCp | Microsoft Docs
+description: Använd DistCp-verktyget för att kopiera data till och från Data Lake Storage Gen2
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: normesta
-ms.reviewer: seguler
-ms.openlocfilehash: 0e85d2b2c7e9a3022e7fea2063ffa0aa915abb53
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.reviewer: stewu
+ms.openlocfilehash: d33518c7dc82f8af61fef02ecabb7ac7f42e28fb
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64939061"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847091"
 ---
-# <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen2"></a>Använd DistCp för att kopiera data mellan Azure Storage-Blobbar och Azure Data Lake Storage Gen2
+# <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen2"></a>Använd DistCp för att kopiera data mellan Azure Storage blobbar och Azure Data Lake Storage Gen2
 
-Du kan använda [DistCp](https://hadoop.apache.org/docs/stable/hadoop-distcp/DistCp.html) att kopiera data mellan ett lagringskonto för generell användning V2 och ett lagringskonto för generell användning V2 med hierarkiskt namnområde aktiverat. Den här artikeln innehåller anvisningar om hur du använder verktyget DistCp.
+Du kan använda [DistCp](https://hadoop.apache.org/docs/stable/hadoop-distcp/DistCp.html) för att kopiera data mellan ett General Purpose v2-lagrings konto och ett generell användning v2-lagrings konto med hierarkiskt namn område aktiverat. Den här artikeln innehåller anvisningar om hur du använder DistCp-verktyget.
 
-DistCp erbjuder en mängd olika kommandoradsparametrar och rekommenderar vi att starkt du kan läsa den här artikeln för att optimera din användning av den. Den här artikeln visar grundläggande funktioner samtidigt som fokuserar på dess användning för att kopiera data till ett hierarkiskt namnområde aktiverat konto.
+DistCp innehåller en rad kommando rads parametrar och vi rekommenderar att du läser den här artikeln för att optimera användningen av den. Den här artikeln visar grundläggande funktioner när du fokuserar på att kopiera data till ett hierarkiskt namn områdes konto som är aktiverat.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Ett befintligt Azure Storage-konto utan att Data Lake Storage Gen2 möjliggörs (hierarkiskt namnområde)** .
-* **Ett Azure Storage-konto med Data Lake Storage Gen2 funktionen aktiverad**. Anvisningar för hur du skapar ett finns i [skapa ett lagringskonto i Azure Data Lake Storage Gen2](data-lake-storage-quickstart-create-account.md)
-* **Ett filsystem** som har skapats i lagringskontot med hierarkiskt namnområde aktiverat.
-* **Azure HDInsight-kluster** med åtkomst till ett lagringskonto med Data Lake Storage Gen2 aktiverat. Se [Använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). Kontrollera att du aktivera Fjärrskrivbord för klustret.
+* **Ett befintligt Azure Storage-konto utan data Lake Storage Gen2 funktioner (hierarkiskt namn område) aktiverat**.
+* **Ett Azure Storage konto med data Lake Storage Gen2 funktionen aktive rad**. Anvisningar om hur du skapar ett finns i [skapa ett Azure Data Lake Storage Gen2 lagrings konto](data-lake-storage-quickstart-create-account.md)
+* **Ett fil system** som har skapats i lagrings kontot med hierarkiskt namn område aktiverat.
+* **Azure HDInsight-kluster** med åtkomst till ett lagrings konto med data Lake Storage Gen2 aktiverat. Se [Använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). Se till att aktivera fjärr skrivbord för klustret.
 
-## <a name="use-distcp-from-an-hdinsight-linux-cluster"></a>Använd DistCp från ett kluster i HDInsight Linux
+## <a name="use-distcp-from-an-hdinsight-linux-cluster"></a>Använda DistCp från ett HDInsight Linux-kluster
 
-Ett HDInsight-kluster levereras med verktyget DistCp som kan användas för att kopiera data från olika källor till ett HDInsight-kluster. Om du har konfigurerat HDInsight-klustret för att använda Azure Blob Storage och Azure Data Lake Storage, kan verktyget DistCp vara används out-of the box kopiera data mellan samt. I det här avsnittet ska titta vi på hur du använder verktyget DistCp.
+An-HDInsight kluster levereras med verktyget DistCp som kan användas för att kopiera data från olika källor till ett HDInsight-kluster. Om du har konfigurerat HDInsight-klustret så att det använder Azure Blob Storage och Azure Data Lake Storage tillsammans, kan verktyget DistCp användas direkt för att kopiera data mellan också. I det här avsnittet tittar vi på hur du använder DistCp-verktyget.
 
-1. Skapa en SSH-session i HDI-klustret. Se [ansluta till ett Linux-baserade HDInsight-kluster](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
+1. Skapa en SSH-session med ditt HDI-kluster. Se [ansluta till ett Linux-baserat HDInsight-kluster](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
 
-2. Kontrollera om du har åtkomst till din befintliga generell användning V2-konto (utan hierarkiskt namnområde aktiverat).
+2. Kontrol lera om du kan komma åt ditt befintliga General Purpose v2-konto (utan hierarkiskt namn område aktiverat).
 
         hdfs dfs –ls wasbs://<CONTAINER_NAME>@<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/
 
-    Utdata bör ge en lista över innehållet i behållaren.
+    Utdata ska innehålla en lista över innehåll i behållaren.
 
-3. På samma sätt kan kontrollera om du kan komma åt lagringskontot med hierarkiskt namnområde aktiverat från klustret. Kör följande kommando:
+3. På samma sätt kan du kontrol lera om du kan komma åt lagrings kontot med hierarkiskt namn område som är aktiverat från klustret. Kör följande kommando:
 
         hdfs dfs -ls abfss://<FILE_SYSTEM_NAME>@<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net/
 
-    Utdata bör ge en lista över filer/mappar i Data Lake Storage-kontot.
+    Utdata ska innehålla en lista över filer/mappar i Data Lake Storage-kontot.
 
 4. Använd DistCp för att kopiera data från WASB till ett Data Lake Storage-konto.
 
         hadoop distcp wasbs://<CONTAINER_NAME>@<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/example/data/gutenberg abfss://<FILE_SYSTEM_NAME>@<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net/myfolder
 
-    Kommandot kopierar innehållet i den **/exempel/data/gutenberg/** i Blob storage till **/myfolder** i Data Lake Storage-kontot.
+    Kommandot kopierar innehållet i mappen **/example/data/Gutenberg/** i Blob Storage till **/MyFolder** i data Lake Storage-kontot.
 
-5. På samma sätt, Använd DistCp för att kopiera data från Data Lake Storage-konto till Blob Storage (WASB).
+5. På samma sätt kan du använda DistCp för att kopiera data från Data Lake Storage-konto till Blob Storage (WASB).
 
         hadoop distcp abfss://<FILE_SYSTEM_NAME>@<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net/myfolder wasbs://<CONTAINER_NAME>@<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/example/data/gutenberg
 
-    Kommandot kopierar innehållet i **/myfolder** i Data Lake Store-konto till **/exempel/data/gutenberg/** mapp i WASB.
+    Kommandot kopierar innehållet i **/MyFolder** i data Lake Store-kontot till **/example/data/Gutenberg/** -mappen i WASB.
 
-## <a name="performance-considerations-while-using-distcp"></a>Prestandaöverväganden när du använder DistCp
+## <a name="performance-considerations-while-using-distcp"></a>Prestanda överväganden vid användning av DistCp
 
-Eftersom Distcps lägsta Granulariteten är en enskild fil, är ange det maximala antalet samtidiga kopior parametern är viktigast för att optimera den mot Data Lake Storage. Antal samtidiga kopior är lika med antalet Mappningskomponenter (**m**) parametern på kommandoraden. Den här parametern anger det maximala antalet Mappningskomponenter som används för att kopiera data. Standardvärdet är 20.
+Eftersom DistCpens lägsta granularitet är en enda fil, är det största antalet samtidiga kopior som är den viktigaste parametern för att optimera den mot Data Lake Storage. Antalet samtidiga kopior är lika med antalet mappnings parametrar (**m**) på kommando raden. Den här parametern anger det maximala antalet mappningar som används för att kopiera data. Standardvärdet är 20.
 
 **Exempel**
 
     hadoop distcp wasbs://<CONTAINER_NAME>@<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/example/data/gutenberg abfss://<FILE_SYSTEM_NAME>@<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net/myfolder -m 100
 
-### <a name="how-do-i-determine-the-number-of-mappers-to-use"></a>Hur vet jag hur många Mappningskomponenter att använda?
+### <a name="how-do-i-determine-the-number-of-mappers-to-use"></a>Hur gör jag för att avgöra hur många mappningar som ska användas?
 
 Här är några riktlinjer som du kan använda.
 
-* **Steg 1: Fastställa totalt minne som är tillgängliga för ”standard” YARN app kön** – det första steget är att fastställa det tillgängliga minnet för ”standard” YARN app kön. Den här informationen är tillgänglig i Ambari-portalen som är associerade med klustret. Gå till YARN och visa fliken konfigurationer om du vill visa YARN-minne till ”standard” app kön. Det här är det totala mängden tillgängligt minnet för DistCp jobbet (vilket är egentligen ett MapReduce-jobb).
+* **Steg 1: Fastställa det totala tillgängliga minnet för den sammanställda app-** kön för garn – det första steget är att avgöra vilket minne som är tillgängligt för den "standard" garn app Queue. Den här informationen finns i Ambari-portalen som är kopplad till klustret. Navigera till garn och Visa fliken configs om du vill se vilket garn minne som är tillgängligt för app-kön ' default '. Detta är den totala mängden tillgängligt minne för ditt DistCp-jobb (som faktiskt är ett MapReduce-jobb).
 
-* **Steg 2: Beräkna antalet Mappningskomponenter** -värdet för **m** motsvarar kvoten av den totala YARN minnet dividerat med YARN-behållarens storlek. YARN-behållare Storleksinformation finns i Ambari-portalen. Gå till YARN och visa fliken konfigurationer. Behållarstorlek YARN visas i det här fönstret. Formeln ska tas emot på hur många Mappningskomponenter (**m**) är
+* **Steg 2: Beräkna antalet mappningar** – värdet för **m** är lika med kvoten av det totala garn minnet delat med garn behållarens storlek. Information om garn behållarens storlek finns även tillgänglig i Ambari-portalen. Navigera till garn och Visa fliken configs. GARN behållarens storlek visas i det här fönstret. Ekvationen för att nå antalet Mapper (**m**) är
 
         m = (number of nodes * YARN memory for each node) / YARN container size
 
 **Exempel**
 
-Anta att du har ett 4 x D14v2s-kluster och du försöker överföra 10 TB data från 10 olika mappar. Var och en av mapparna innehåller olika mängder data och filstorlekar i varje App är olika.
+Vi antar att du har ett 4x D14v2s-kluster och du försöker överföra 10 TB data från 10 olika mappar. Var och en av mapparna innehåller olika mängder data och fil storlekarna i varje mapp skiljer sig åt.
 
-* **Totalt minne YARN**: Från portalen Ambari bestämma du att YARN-minne är 96 GB för en D14-nod. Det är totala YARN-minnet i kluster med fyra noder: 
+* **Totalt garn minne**: Från Ambari-portalen fastställer du att garn minnet är 96 GB för en D14-nod. Därför är det totala garn minnet för fyra noder i klustret: 
 
         YARN memory = 4 * 96GB = 384GB
 
-* **Antal Mappningskomponenter**: Från portalen Ambari bestämma du att YARN behållarens storlek är 3 072 MB för en D14-klusternod. Därför är antalet Mappningskomponenter:
+* **Antal mappningar**: Från Ambari-portalen fastställer du att storleken på garn behållare är 3 072 MB för en D14-klusternod. Så, antalet mappningar är:
 
         m = (4 nodes * 96GB) / 3072MB = 128 mappers
 
-Om andra program använder minne, kan du välja att bara använda en del av ditt kluster YARN minne för DistCp.
+Om andra program använder minnet kan du välja att bara använda en del av klustrets garn minne för DistCp.
 
-### <a name="copying-large-datasets"></a>Kopiering av stora datauppsättningar
+### <a name="copying-large-datasets"></a>Kopiera stora data uppsättningar
 
-När storleken på datauppsättningen som ska flyttas är stor (till exempel > 1 TB) eller om du har många olika mappar, bör du använda flera DistCp jobb. Det är förmodligen inga prestandaökning, men det sprids ut jobb så att om något jobb misslyckas, behöver du bara att starta om specifika jobbet i stället för hela projektet.
+När storleken på data uppsättningen som ska flyttas är stor (till exempel > 1 TB) eller om du har många olika mappar, bör du överväga att använda flera DistCp-jobb. Det finns troligt vis ingen prestanda ökning, men den sprider ut jobben så att om ett jobb Miss lyckas behöver du bara starta om det aktuella jobbet i stället för hela jobbet.
 
 ### <a name="limitations"></a>Begränsningar
 
-* DistCp försöker skapa Mappningskomponenter med liknande storlekar för att optimera prestanda. Öka antalet Mappningskomponenter kanske inte alltid ökar prestanda.
+* DistCp försöker skapa mappningar som liknar varandra i storlek för att optimera prestanda. Att öka antalet Mapper kan inte alltid öka prestandan.
 
-* DistCp är begränsad till endast en mappning per fil. Du bör därför inte ha fler Mappningskomponenter än vad du har filer. Eftersom DistCp kan endast tilldela en mappning till en fil, begränsar detta mängden samtidighet som kan användas för att kopiera stora filer.
+* DistCp är begränsad till endast en Mapper per fil. Därför bör du inte ha fler mappningar än du har filer. Eftersom DistCp bara kan tilldela en mapp till en fil, begränsar detta den mängd samtidighet som kan användas för att kopiera stora filer.
 
-* Om du har ett litet antal stora filer, bör du dela dem till 256 MB filsegment att ge dig större potentiella samtidighet.
+* Om du har ett litet antal stora filer bör du dela upp dem i fil segment på 256 MB för att ge dig mer potentiell samtidighet.

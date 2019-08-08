@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/10/2018
 ms.author: sngun
 Customer intent: As a developer, I want to build a Node.js web application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
-ms.openlocfilehash: efe24f5203c0479c71b565b8cf2c272dc107a96b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f21890cd5a39b0e617accd8663e4b400df0db8d6
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60627567"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68855059"
 ---
 # <a name="tutorial-build-a-nodejs-web-app-using-the-javascript-sdk-to-manage-a-sql-api-account-in-azure-cosmos-db"></a>Självstudie: Skapa en Node.js-webbapp med JavaScript SDK för att hantera ett SQL API-konto i Azure Cosmos DB 
 
@@ -28,7 +28,7 @@ ms.locfileid: "60627567"
 
 Som utvecklare kan du ha program som använder NoSQL-dokumentdata. Du kan använda ett SQL API-konto i Azure Cosmos DB till att lagra och komma åt dessa dokumentdata. I självstudien om Node.js beskrivs hur du lagrar och kommer åt data från ett SQL API-konto i Azure Cosmos DB genom att använda ett Node.js Express-program som finns i Web Apps-funktionen i Microsoft Azure App Service. I självstudien skapar du ett webbaserat program (en att göra-app) där du kan skapa, hämta och slutföra uppgifter. Uppgifterna lagras som JSON-dokument i Azure Cosmos DB. 
 
-Självstudien visar hur du skapar ett SQL API-konto i Azure Cosmos DB med hjälp av Azure Portal. Du skapar och kör sedan en webbapp som bygger på Node.js SDK för att skapa en databas och en container, samt lägga till objekt i containern. Den här självstudien använder JavaScript SDK version 2.0.
+Självstudien visar hur du skapar ett SQL API-konto i Azure Cosmos DB med hjälp av Azure Portal. Du skapar och kör sedan en webbapp som bygger på Node.js SDK för att skapa en databas och en container, samt lägga till objekt i containern. I den här självstudien används Java Script SDK version 3,0.
 
 Den här självstudien omfattar följande uppgifter:
 
@@ -46,9 +46,9 @@ Innan du följer anvisningarna i den här artikeln bör du se till att du har f�
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-* [Node.js][Node.js] version 6.10 eller senare.
+* [Node. js][Node.js] version 6,10 eller senare.
 * [Express generator](https://www.expressjs.com/starter/generator.html) (du kan installera Express via `npm install express-generator -g`)
-* Installera [Git][Git] på den lokala arbetsstationen.
+* Installera [git][Git] på din lokala arbets Station.
 
 ## <a name="_Toc395637761"></a>Skapa ett Azure Cosmos DB-konto
 Vi ska börja med att skapa ett Azure Cosmos DB-konto. Om du redan har ett konto eller om du använder Azure Cosmos DB-emulatorn för självstudien, kan du gå vidare till [Steg 2: Skapa ett nytt Node.js-program](#_Toc395783178).
@@ -93,13 +93,7 @@ Nu ska vi skapa ett grundläggande Hello World Node.js-projekt med Express-ramve
 
 Filen **package.json** är en av filerna som skapas i projektets rot. Den här filen innehåller en lista över ytterligare moduler som krävs för Node.js-programmet. När du distribuerar det här programmet till Azure används den här filen för att avgöra vilka moduler som ska installeras på Azure för att stödja ditt program. Installera ytterligare två paket för den här självstudien.
 
-1. Öppna terminalen och installera modulen **async** via npm.
-
-   ```bash
-   npm install async --save
-   ```
-
-2. Installera den  **\@azure/cosmos** modulen via npm. 
+1. Installera Azure  **/Cosmos-modulenviaNPM.\@** 
 
    ```bash
    npm install @azure/cosmos
@@ -116,76 +110,79 @@ Nu när du har slutfört den första installationen och konfigurationen kommer d
 3. Kopiera följande kod till filen **taskDao.js**:
 
    ```javascript
-   // @ts-check
-   const CosmosClient = require("@azure/cosmos").CosmosClient;
-   const debug = require("debug")("todo:taskDao");
-   class TaskDao {
-     /**
-      * Manages reading, adding, and updating Tasks in Cosmos DB
-      * @param {CosmosClient} cosmosClient
-      * @param {string} databaseId
-      * @param {string} containerId
-      */
-     constructor(cosmosClient, databaseId, containerId) {
-       this.client = cosmosClient;
-       this.databaseId = databaseId;
-       this.collectionId = containerId;
+    // @ts-check
+    const CosmosClient = require('@azure/cosmos').CosmosClient
+    const debug = require('debug')('todo:taskDao')
 
-       this.database = null;
-       this.container = null;
-     }
+    // For simplicity we'll set a constant partition key
+    const partitionKey = '0'
+    class TaskDao {
+      /**
+       * Manages reading, adding, and updating Tasks in Cosmos DB
+       * @param {CosmosClient} cosmosClient
+       * @param {string} databaseId
+       * @param {string} containerId
+       */
+      constructor(cosmosClient, databaseId, containerId) {
+        this.client = cosmosClient
+        this.databaseId = databaseId
+        this.collectionId = containerId
 
-     async init() {
-       debug("Setting up the database...");
-       const dbResponse = await this.client.databases.createIfNotExists({
-         id: this.databaseId
-       });
-       this.database = dbResponse.database;
-       debug("Setting up the database...done!");
-       debug("Setting up the container...");
-       const coResponse = await this.database.containers.createIfNotExists({
-         id: this.collectionId
-       });
-       this.container = coResponse.container;
-       debug("Setting up the container...done!");
-     }
+        this.database = null
+        this.container = null
+      }
 
-     async find(querySpec) {
-       debug("Querying for items from the database");
-       if (!this.container) {
-         throw new Error("Collection is not initialized.");
-       }
-       const { result: results } = await this.container.items
-        .query(querySpec)
-        .toArray();
-      return results;
+      async init() {
+        debug('Setting up the database...')
+        const dbResponse = await this.client.databases.createIfNotExists({
+          id: this.databaseId
+        })
+        this.database = dbResponse.database
+        debug('Setting up the database...done!')
+        debug('Setting up the container...')
+        const coResponse = await this.database.containers.createIfNotExists({
+          id: this.collectionId
+        })
+        this.container = coResponse.container
+        debug('Setting up the container...done!')
+      }
+
+      async find(querySpec) {
+        debug('Querying for items from the database')
+        if (!this.container) {
+          throw new Error('Collection is not initialized.')
+        }
+        const { resources } = await this.container.items.query(querySpec).fetchAll()
+        return resources
+      }
+
+      async addItem(item) {
+        debug('Adding an item to the database')
+        item.date = Date.now()
+        item.completed = false
+        const { resource: doc } = await this.container.items.create(item)
+        return doc
+      }
+
+      async updateItem(itemId) {
+        debug('Update an item in the database')
+        const doc = await this.getItem(itemId)
+        doc.completed = true
+
+        const { resource: replaced } = await this.container
+          .item(itemId, partitionKey)
+          .replace(doc)
+        return replaced
+      }
+
+      async getItem(itemId) {
+        debug('Getting an item from the database')
+        const { resource } = await this.container.item(itemId, partitionKey).read()
+        return resource
+      }
     }
 
-    async addItem(item) {
-      debug("Adding an item to the database");
-      item.date = Date.now();
-      item.completed = false;
-      const { body: doc } = await this.container.items.create(item);
-      return doc;
-    }
-
-    async updateItem(itemId) {
-      debug("Update an item in the database");
-      const doc = await this.getItem(itemId);
-      doc.completed = true;
-
-      const { body: replaced } = await this.container.item(itemId).replace(doc);
-      return replaced;
-    }
-
-    async getItem(itemId) {
-      debug("Getting an item from the database");
-      const { body } = await this.container.item(itemId).read();
-      return body;
-    }
-   }
-
-   module.exports = TaskDao;
+    module.exports = TaskDao
    ```
 4. Spara och stäng filen **taskDao.js**.  
 
@@ -196,56 +193,56 @@ Nu när du har slutfört den första installationen och konfigurationen kommer d
 2. Lägg till följande kod i **tasklist.js**. Den här koden läser in modulerna CosmosClient och async, som används av **tasklist.js**. Koden definierar även klassen **TaskList**, som skickas som en instans av det **TaskDao**-objekt som vi definierade tidigare:
    
    ```javascript
-   const TaskDao = require("../models/TaskDao");
+    const TaskDao = require("../models/TaskDao");
+    
+    class TaskList {
+      /**
+       * Handles the various APIs for displaying and managing tasks
+       * @param {TaskDao} taskDao
+       */
+      constructor(taskDao) {
+        this.taskDao = taskDao;
+      }
+      async showTasks(req, res) {
+        const querySpec = {
+          query: "SELECT * FROM root r WHERE r.completed=@completed",
+          parameters: [
+            {
+              name: "@completed",
+              value: false
+            }
+          ]
+        };
 
-   class TaskList {
-     /**
-      * Handles the various APIs for displaying and managing tasks
-      * @param {TaskDao} taskDao
-     */
-    constructor(taskDao) {
-    this.taskDao = taskDao;
+        const items = await this.taskDao.find(querySpec);
+        res.render("index", {
+          title: "My ToDo List ",
+          tasks: items
+        });
+      }
+
+      async addTask(req, res) {
+        const item = req.body;
+
+        await this.taskDao.addItem(item);
+        res.redirect("/");
+      }
+
+      async completeTask(req, res) {
+        const completedTasks = Object.keys(req.body);
+        const tasks = [];
+
+        completedTasks.forEach(task => {
+          tasks.push(this.taskDao.updateItem(task));
+        });
+
+        await Promise.all(tasks);
+
+        res.redirect("/");
+      }
     }
-    async showTasks(req, res) {
-      const querySpec = {
-        query: "SELECT * FROM root r WHERE r.completed=@completed",
-        parameters: [
-          {
-            name: "@completed",
-            value: false
-          }
-        ]
-      };
 
-      const items = await this.taskDao.find(querySpec);
-      res.render("index", {
-        title: "My ToDo List ",
-        tasks: items
-      });
-    }
-
-    async addTask(req, res) {
-      const item = req.body;
-
-      await this.taskDao.addItem(item);
-      res.redirect("/");
-    }
-
-    async completeTask(req, res) {
-      const completedTasks = Object.keys(req.body);
-      const tasks = [];
-
-      completedTasks.forEach(task => {
-        tasks.push(this.taskDao.updateItem(task));
-      });
-
-      await Promise.all(tasks);
-
-      res.redirect("/");
-    }
-   }
-
-   module.exports = TaskList;
+    module.exports = TaskList;
    ```
 
 3. Spara och stäng filen **tasklist.js**.
@@ -286,74 +283,76 @@ Nu när du har slutfört den första installationen och konfigurationen kommer d
 2. Lägg till följande kod i filen **app.js**. Den här koden definierar den konfigurationsfil som ska användas och läser in värdena till några variabler som du använder i kommande avsnitt. 
    
    ```javascript
-   const CosmosClient = require("@azure/cosmos").CosmosClient;
-   const config = require("./config");
-   const TaskList = require("./routes/tasklist");
-   const TaskDao = require("./models/taskDao");
+    const CosmosClient = require('@azure/cosmos').CosmosClient
+    const config = require('./config')
+    const TaskList = require('./routes/tasklist')
+    const TaskDao = require('./models/taskDao')
 
-   const express = require("express");
-   const path = require("path");
-   const logger = require("morgan");
-   const cookieParser = require("cookie-parser");
-   const bodyParser = require("body-parser");
+    const express = require('express')
+    const path = require('path')
+    const logger = require('morgan')
+    const cookieParser = require('cookie-parser')
+    const bodyParser = require('body-parser')
 
-   const app = express();
+    const app = express()
 
-   // view engine setup
-   app.set("views", path.join(__dirname, "views"));
-   app.set("view engine", "jade");
+    // view engine setup
+    app.set('views', path.join(__dirname, 'views'))
+    app.set('view engine', 'jade')
 
-   // uncomment after placing your favicon in /public
-   //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-   app.use(logger("dev"));
-   app.use(bodyParser.json());
-   app.use(bodyParser.urlencoded({ extended: false }));
-   app.use(cookieParser());
-   app.use(express.static(path.join(__dirname, "public")));
+    // uncomment after placing your favicon in /public
+    //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+    app.use(logger('dev'))
+    app.use(bodyParser.json())
+    app.use(bodyParser.urlencoded({ extended: false }))
+    app.use(cookieParser())
+    app.use(express.static(path.join(__dirname, 'public')))
 
-   //Todo App:
-   const cosmosClient = new CosmosClient({
-     endpoint: config.host,
-     auth: {
-       masterKey: config.authKey
-     }
-   });
-   const taskDao = new TaskDao(cosmosClient, config.databaseId, config.containerId);
-   const taskList = new TaskList(taskDao);
-   taskDao
-     .init(err => {
-       console.error(err);
-     })
-     .catch(err => {
-       console.error(err);
-       console.error("Shutting down because there was an error setting up the database.");
-       process.exit(1);
-     });
+    //Todo App:
+    const cosmosClient = new CosmosClient({
+      endpoint: config.host,
+      key: config.authKey
+    })
+    const taskDao = new TaskDao(cosmosClient, config.databaseId, config.containerId)
+    const taskList = new TaskList(taskDao)
+    taskDao
+      .init(err => {
+        console.error(err)
+      })
+      .catch(err => {
+        console.error(err)
+        console.error(
+          'Shutting down because there was an error settinig up the database.'
+        )
+        process.exit(1)
+      })
 
-   app.get("/", (req, res, next) => taskList.showTasks(req, res).catch(next));
-   app.post("/addtask", (req, res, next) => taskList.addTask(req, res).catch(next));
-   app.post("/completetask", (req, res, next) => taskList.completeTask(req, res).catch(next));
-   app.set("view engine", "jade");
+    app.get('/', (req, res, next) => taskList.showTasks(req, res).catch(next))
+    app.post('/addtask', (req, res, next) => taskList.addTask(req, res).catch(next))
+    app.post('/completetask', (req, res, next) =>
+      taskList.completeTask(req, res).catch(next)
+    )
+    app.set('view engine', 'jade')
 
-   // catch 404 and forward to error handler
-   app.use(function(req, res, next) {
-     const err = new Error("Not Found");
-     err.status = 404;
-     next(err);
-   });
+    // catch 404 and forward to error handler
+    app.use(function(req, res, next) {
+      const err = new Error('Not Found')
+      err.status = 404
+      next(err)
+    })
 
-   // error handler
-   app.use(function(err, req, res, next) {
-     // set locals, only providing error in development
-     res.locals.message = err.message;
-     res.locals.error = req.app.get("env") === "development" ? err : {};
+    // error handler
+    app.use(function(err, req, res, next) {
+      // set locals, only providing error in development
+      res.locals.message = err.message
+      res.locals.error = req.app.get('env') === 'development' ? err : {}
 
-     // render the error page
-     res.status(err.status || 500);
-     res.render("error");
-   });
+      // render the error page
+      res.status(err.status || 500)
+      res.render('error')
+    })
 
-   module.exports = app;
+    module.exports = app
    ```
 
 3. Avsluta med att spara och stänga filen **app.js**.

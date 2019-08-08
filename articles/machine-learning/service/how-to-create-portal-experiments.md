@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: cgronlun
+ms.author: nibaccam
 author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 08/02/2019
-ms.openlocfilehash: eb6ae11bb4ffb39d9e9bcc692f17559fa2cde674
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: a5db2c1c40c9c6f5c05205b9b2c652d2e23cf229
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68720242"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68848250"
 ---
 # <a name="create-explore-and-deploy-automated-machine-learning-experiments-in-the-azure-portal-preview"></a>Skapa, utforska och distribuera automatiserade maskin inlärnings experiment i Azure Portal (för hands version)
 
@@ -28,7 +28,7 @@ ms.locfileid: "68720242"
 
 * En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfria versionen eller betalversionen av Azure Machine Learning-tjänsten](https://aka.ms/AMLFree) i dag.
 
-* En arbetsyta för Azure Machine Learning-tjänsten. Se [skapa en Azure Machine Learning service-arbetsyta](https://docs.microsoft.com/azure/machine-learning/service/setup-create-workspace).
+* En arbetsyta för Azure Machine Learning-tjänsten. Se [skapa en Azure Machine Learning service-arbetsyta](how-to-manage-workspace.md).
 
 ## <a name="get-started"></a>Kom igång
 
@@ -173,7 +173,7 @@ Med automatisk ML får du hjälp med att distribuera modellen utan att skriva ko
     + Alternativ 2: Om du vill distribuera en speciell modell iteration från det här experimentet kan du gå nedåt i modellen för att öppna sidan körnings information och välja distribuera modell.
 1. Fyll i fönstret **distribuera modell**
 
-    Fält| Value
+    Fält| Värde
     ----|----
     Distributionsnamn| Ange ett unikt namn för din distribution.
     Distributions Beskrivning| Ange en beskrivning för att bättre identifiera vad den här distributionen är för.

@@ -14,44 +14,44 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/06/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 86d48360e37f26d19d15c62a8109c030d421c661
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.openlocfilehash: e87ea5f6d8a92f18fc1b289ebf9ffd1cc0326812
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67551890"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68845909"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Insamling av data i Azure Security Center
-Security Center samlar in data från dina virtuella Azure-datorer (VM), VM-skalningsuppsättningar, IaaS-behållare och icke-Azure (inklusive lokalt) datorer för att övervaka säkerhetsproblem och hot. Data samlas in med Microsoft Monitoring Agent, som läser olika säkerhetsrelaterade konfigurationer och händelseloggar från datorn och kopierar data till din arbetsyta för analys. Exempel på sådana data är: driva systemtyp och version, operativsystemloggar (Windows-händelseloggar), kör processer, datornamn, IP-adresser och inloggad användare. Agenten Microsoft Monitoring Agent kopierar också kraschdumpfiler till din arbetsyta.
+Security Center samlar in data från dina virtuella Azure-datorer, skalnings uppsättningar för virtuella datorer, IaaS behållare och icke-Azure (inklusive lokala) datorer för att övervaka säkerhets problem och hot. Data samlas in med hjälp av Log Analytics agent, som läser olika säkerhetsrelaterade konfigurationer och händelse loggar från datorn och kopierar data till din arbets yta för analys. Exempel på sådana data är: driva systemtyp och version, operativsystemloggar (Windows-händelseloggar), kör processer, datornamn, IP-adresser och inloggad användare. Log Analytics agenten kopierar även krasch dum par till din arbets yta.
 
 Insamling av data krävs för att ge dig information om saknade uppdateringar, felkonfigurerad OS-säkerhetsinställningar, aktivering av endpoint protection och hälsa och threat identifieringar. 
 
-Den här artikeln innehåller råd om hur du installerar Microsoft Monitoring Agent och ange en Log Analytics-arbetsyta där du vill lagra insamlade data. Både krävs för att aktivera insamling av data. 
+Den här artikeln innehåller anvisningar om hur du installerar en Log Analytics agent och anger en Log Analytics arbets yta där insamlade data ska lagras. Både krävs för att aktivera insamling av data. 
 
 > [!NOTE]
-> - Datainsamling krävs endast för beräkningsresurser (virtuella datorer, skalningsuppsättningar för virtuella datorer, IaaS-behållare och Azure-datorer). Du kan dra nytta av Azure Security Center även om du inte etablera agenter; men du har begränsad säkerhet och de funktioner som anges ovan stöds inte.  
+> - Data insamling behövs bara för beräknings resurser (virtuella datorer, skalnings uppsättningar för virtuella datorer, IaaS behållare och datorer som inte är Azure-datorer). Du kan dra nytta av Azure Security Center även om du inte etablera agenter; men du har begränsad säkerhet och de funktioner som anges ovan stöds inte.  
 > - Lista över plattformar som stöds finns i [plattformar som stöds i Azure Security Center](security-center-os-coverage.md).
-> - Lagra data i Log Analytics, oavsett om du använder en ny eller befintlig arbetsyta kan innebära ytterligare kostnader för lagring av data. Mer information finns i den [prissättningssidan](https://azure.microsoft.com/pricing/details/security-center/).
+> - Om du lagrar data i Log Analytics, oavsett om du använder en ny eller befintlig arbets yta, kan ytterligare kostnader för data lagring uppstå. Mer information finns på sidan med [priser](https://azure.microsoft.com/pricing/details/security-center/).
 
-## Aktivera automatisk etablering av Microsoft Monitoring Agent <a name="auto-provision-mma"></a>
+## Aktivera automatisk etablering av Log Analytics agent<a name="auto-provision-mma"></a>
 
-Om du vill samla in data från datorerna, bör du ha Microsoft Monitoring Agent installerad.  Installationen av agenten kan göras automatiskt (rekommenderas) eller så kan du installera agenten manuellt.  
+Om du vill samla in data från datorerna bör du ha Log Analytics-agenten installerad.  Installationen av agenten kan göras automatiskt (rekommenderas) eller så kan du installera agenten manuellt.  
 
 >[!NOTE]
 > Automatisk etablering är inaktiverat som standard. Om du vill ange Security Center för att installera Automatisk etablering som standard, ange den till **på**.
 >
 
-När automatisk etablering är aktiverat etablerar Security Center Microsoft Monitoring agent på alla virtuella Azure-datorer och alla nya som skapas. Automatisk försörjning rekommenderas starkt men manuell agentinstallation är också tillgängliga. [Lär dig hur du installerar tillägget Microsoft Monitoring Agent](#manualagent).
+När automatisk etablering är aktiverat etablerar Security Center Log Analytics agent på alla virtuella Azure-datorer som stöds och eventuella nya som skapas. Automatisk försörjning rekommenderas starkt men manuell agentinstallation är också tillgängliga. [Lär dig hur du installerar Log Analytics agent-tillägget](#manualagent).
 
 
 
-Så här aktiverar du automatisk försörjning för Microsoft Monitoring Agent:
-1. Huvudmenyn i Security Center, Välj **priser och inställningar**.
-2. Klicka på den tillämpliga prenumerationen
+Så här aktiverar du automatisk etablering av Log Analytics agent:
+1. Under Security Center huvud menyn väljer du **pris & inställningar**.
+2. Klicka på lämplig prenumeration
 
    ![Välj en prenumeration][7]
 
-3. Välj **datainsamling**.
+3. Välj **data insamling**.
 4. Under **Automatisk etablering**väljer **på** att aktivera automatisk etablering.
 5. Välj **Spara**.
 
@@ -59,7 +59,7 @@ Så här aktiverar du automatisk försörjning för Microsoft Monitoring Agent:
 
 >[!NOTE]
 > - Anvisningar för hur du etablerar en befintlig installation finns i [Automatisk etablering i händelse av en befintlig agentinstallation](#preexisting).
-> - Information om manuell etablering finns [installerar tillägget Microsoft Monitoring Agent manuellt](#manualagent).
+> - Anvisningar om manuell etablering finns i [installera Log Analytics agent-tillägget manuellt](#manualagent).
 > - Anvisningar för att stänga av Automatisk etablering, se [inaktivera automatisk etablering](#offprovisioning).
 > - Mer information om hur du integrera Security Center med hjälp av PowerShell, se [automatisera onboarding av Azure Security Center med hjälp av PowerShell](security-center-powershell-onboarding.md).
 >
@@ -80,16 +80,16 @@ Välja den arbetsyta som skapats av Security Center:
 
 1. Klicka på **Spara**.<br>
     Security Center skapar en ny resurs och standardenhet arbetsyta i den geoplats och ansluter agenten till arbetsytan. Namngivningskonventionen för gruppen arbetsyta och resursen är:<br>
-   **Arbetsyta: DefaultWorkspace-[subscription-ID]-[geo]<br> Resource Group: DefaultResourceGroup-[geo]**
+   **Platsen DefaultWorkspace-[prenumerations-ID]-[geo<br> ] resurs grupp: DefaultResourceGroup-[geo]**
 
    Om en prenumeration innehåller virtuella datorer från flera geolocations, skapar flera arbetsytor med Security Center. Flera arbetsytor skapas för att upprätthålla strängare data.
 1. Security Center aktiverar automatiskt en Security Center-lösning på arbetsytan per prisnivån för prenumerationen. 
 
 > [!NOTE]
 > Log Analytics prisnivån för arbetsytor som skapats av Security Center påverkar inte Security Center fakturering. Security Center fakturering baseras alltid på din säkerhetsprincip i Security Center och de lösningar som är installerad på en arbetsyta. Den kostnadsfria nivån med Security Center kan de *SecurityCenterFree* lösning på standardarbetsytan. Standard-nivån med Security Center kan de *Security* lösning på standardarbetsytan.
-> Lagra data i Log Analytics kan innebära ytterligare kostnader för lagring av data. Mer information finns i den [prissättningssidan](https://azure.microsoft.com/pricing/details/security-center/).
+> Att lagra data i Log Analytics kan debiteras ytterligare avgifter för data lagring. Mer information finns på sidan med [priser](https://azure.microsoft.com/pricing/details/security-center/).
 
-Mer information om befintliga log analytics-konton finns i [befintliga log analytics-kunder](security-center-faq.md#existingloganalyticscust).
+Mer information om befintliga Log Analytics-konton finns i [befintliga Log Analytics-kunder](security-center-faq.md#existingloganalyticscust).
 
 ### <a name="using-an-existing-workspace"></a>Med hjälp av en befintlig arbetsyta
 
@@ -99,7 +99,7 @@ Om du vill använda din befintliga Log Analytics-arbetsyta som du måste ha läs
 
 > [!NOTE]
 > Lösningar som aktiverats på den befintliga arbetsytan tillämpas på Azure virtuella datorer som är anslutna till den. Detta kan resultera i ytterligare avgifter för betalda lösningar. För data överväganden av datasekretess, kontrollera att din valda arbetsyta är i rätt geografisk region.
-> Lagra data i log analytics kan innebära ytterligare kostnader för lagring av data. Mer information finns i den [prissättningssidan](https://azure.microsoft.com/pricing/details/security-center/).
+> Att lagra data i Log Analytics kan debiteras ytterligare avgifter för data lagring. Mer information finns på sidan med [priser](https://azure.microsoft.com/pricing/details/security-center/).
 
 Att välja en befintlig Log Analytics-arbetsyta:
 
@@ -117,7 +117,7 @@ Att välja en befintlig Log Analytics-arbetsyta:
 3. Välj **Spara**.
 4. När du har valt **spara**, tillfrågas du om du vill konfigurera om övervakade virtuella datorer som anslöts till en standardarbetsyta.
 
-   - Välj **nr** om du vill att de nya arbetsyteinställningarna tillämpas på nya datorer. De nya arbetsyteinställningarna gäller endast för nya agentinstallationer; Nyligen identifierade virtuella datorer som inte har Microsoft Monitoring Agent installerad.
+   - Välj **nr** om du vill att de nya arbetsyteinställningarna tillämpas på nya datorer. De nya inställningarna för arbets ytan gäller endast nya agent installationer. nyligen identifierade virtuella datorer som inte har Log Analytics-agenten installerad.
    - Välj **Ja** om du vill att de nya arbetsyteinställningarna tillämpas på alla virtuella datorer. Dessutom kan återansluta varje virtuell dator som är anslutna till en Security Center som skapat arbetsyta till den nya målarbetsytan.
 
    > [!NOTE]
@@ -129,11 +129,11 @@ Att välja en befintlig Log Analytics-arbetsyta:
 
      ![Välj en befintlig arbetsyta][3]
 
-5. Välj prisnivå för den önskade arbetsytan som du vill ange Microsoft Monitoring agent. <br>Ställer in prisnivån för arbetsytan om du vill använda en befintlig arbetsyta. Detta installerar security Center-lösning på arbetsytan om något inte redan finns.
+5. Välj pris nivå för den önskade arbets ytan som du vill ange Log Analytics agenten. <br>Ställer in prisnivån för arbetsytan om du vill använda en befintlig arbetsyta. Detta installerar security Center-lösning på arbetsytan om något inte redan finns.
 
-    a.  I huvudmenyn i Security Center väljer **priser och inställningar**.
+    a.  På Security Center huvud menyn väljer du **pris & inställningar**.
      
-    b.  Välj önskad arbetsyta där du tänker ansluta agenten.
+    b.  Välj önskad arbets yta där du vill ansluta agenten.
         ![Välj arbetsyta][7] c. Ställer in prisnivån.
         ![Välj prisnivå][9]
    
@@ -145,9 +145,9 @@ När du väljer en arbetsyta där du vill lagra dina data finns alla arbetsytor 
 
 
 ## <a name="data-collection-tier"></a>Samling datanivå
-Att välja en nivå för insamling av data i Azure Security Center påverkar endast lagring av säkerhetshändelser i Log Analytics-arbetsytan. Log Analytics-agenten kommer fortfarande att samla in och analysera säkerhetshändelser som krävs för Azure Security Center threat identifieringar, oavsett vilken nivå av säkerhetshändelser som du väljer att lagra i Log Analytics-arbetsytan (om sådan finns). Välja att lagra säkerhetshändelser i din arbetsyta aktiverar undersökning, sökning och granskning av dessa händelser i din arbetsyta. 
+Att välja en nivå för insamling av data i Azure Security Center påverkar endast lagring av säkerhetshändelser i Log Analytics-arbetsytan. Log Analytics agenten samlar fortfarande in och analyserar de säkerhets händelser som krävs för Azure Security Center s hot identifieringar, oavsett vilken nivå av säkerhets händelser som du väljer att lagra i din Log Analytics arbets yta (om det finns några). Välja att lagra säkerhetshändelser i din arbetsyta aktiverar undersökning, sökning och granskning av dessa händelser i din arbetsyta. 
 > [!NOTE]
-> Lagra data i log analytics kan innebära ytterligare kostnader för lagring av data. Mer information finns i den [prissättningssidan](https://azure.microsoft.com/pricing/details/security-center/).
+> Att lagra data i Log Analytics kan debiteras ytterligare avgifter för data lagring. Mer information finns på sidan med [priser](https://azure.microsoft.com/pricing/details/security-center/).
 > 
 > Du kan välja rätt filtrera principer för dina prenumerationer och arbetsytor från fyra uppsättningar av händelser som ska lagras i din arbetsyta: 
 
@@ -165,8 +165,8 @@ Dessa uppsättningar har utformats för att hantera vanliga scenarier. Se till a
 
 Att fastställa de händelser som hör till den **vanliga** och **Minimal** händelse mängder, vi har samarbetat med kunder och branschstandarder för att lära dig om ofiltrerade frekvensen för varje händelse och deras användning. Vi använde följande riktlinjer i den här processen:
 
-- **Minimal** – se till att den här uppsättningen omfattar endast de händelser som kan indikera en lyckad intrång och viktiga händelser som har en mycket låg volym. Den här uppsättningen innehåller lyckade och misslyckade användarinloggning (händelse-ID 4624 4625), men den inte innehåller logga ut som är viktiga för granskning, men inte beskrivande för identifiering och har relativt stor volym. De flesta av datavolymen för den här uppsättningen är inloggningshändelser och skapa processhändelse (händelse-ID 4688).
-- **Vanliga** -ange en fullständig användarspårning i den här uppsättningen. Den här uppsättningen innehåller till exempel både användarinloggningar och användare logga detaljer (händelse-ID 4634). Vi tar granskning åtgärder som att ändringarna, viktiga domain controller Kerberos åtgärder och andra händelser som rekommenderas av organisationer inom.
+- **Minimal** – se till att den här uppsättningen omfattar endast de händelser som kan indikera en lyckad intrång och viktiga händelser som har en mycket låg volym. Den här uppsättningen innehåller till exempel användaren lyckade och misslyckade inloggningar (händelse-ID 4624, 4625), men det innehåller inte någon utloggning som är viktigt för granskning men inte meningsfullt för identifiering och har en relativt hög volym. De flesta av datavolymen för den här uppsättningen är inloggningshändelser och skapa processhändelse (händelse-ID 4688).
+- **Vanliga** -ange en fullständig användarspårning i den här uppsättningen. Den här uppsättningen innehåller till exempel både användar inloggningar och användar inloggningar (händelse-ID 4634). Vi tar granskning åtgärder som att ändringarna, viktiga domain controller Kerberos åtgärder och andra händelser som rekommenderas av organisationer inom.
 
 Händelser som har mycket små volymer ingick i den gemensamma som huvudsakliga skälet att välja det över alla händelser är att minska mängden och inte för att filtrera bort specifika händelser.
 
@@ -176,7 +176,7 @@ Här är en fullständig uppdelning av säkerhets- och AppLocker händelse-ID f�
 | --- | --- |
 | Minimalt | 1102,4624,4625,4657,4663,4688,4700,4702,4719,4720,4722,4723,4724,4727,4728,4732,4735,4737,4739,4740,4754,4755, |
 | | 4756,4767,4799,4825,4946,4948,4956,5024,5033,8001,8002,8003,8004,8005,8006,8007,8222 |
-| Common | 1,299,300,324,340,403,404,410,411,412,413,431,500,501,1100,1102,1107,1108,4608,4610,4611,4614,4622, |
+| Common | 1, 299, 300, 324, 340, 403, 404, 410, 411, 412, 413, 431, 500, 501, 1100, 1102, 1107, 1108, 4608, 4610, 4611, 4614, 4622, |
 | |  4624,4625,4634,4647,4648,4649,4657,4661,4662,4663,4665,4666,4667,4688,4670,4672,4673,4674,4675,4689,4697, |
 | | 4700,4702,4704,4705,4716,4717,4718,4719,4720,4722,4723,4724,4725,4726,4727,4728,4729,4733,4732,4735,4737, |
 | | 4738,4739,4740,4742,4744,4745,4746,4750,4751,4752,4754,4755,4756,4757,4760,4761,4762,4764,4767,4768,4771, |
@@ -191,7 +191,7 @@ Här är en fullständig uppdelning av säkerhets- och AppLocker händelse-ID f�
 >
 
 Att välja din filtreringsprincip:
-1. På den **datainsamling** väljer du din filtreringsprincip under **säkerhetshändelser**.
+1. På sidan **data insamling** väljer du din filtrerings princip under **säkerhets händelser**.
 2. Välj **Spara**.
 
    ![Välj filtrera principer][5]
@@ -200,31 +200,31 @@ Att välja din filtreringsprincip:
 
 Följande användningsfall ange hur automatisk etablering i fall när det finns redan en agent eller tillägget har installerats. 
 
-- Microsoft Monitoring Agent är installerad på datorn, men inte som ett tillägg (Direct agent)<br>
-Om Microsoft Monitoring Agent är installerad direkt på den virtuella datorn (inte som en utökning av Azure), Security Center installeras Microsoft Monitoring Agent-tillägget och uppgradera Microsoft Monitoring agent till den senaste versionen.
-Agenten installerad fortsätter att rapportera till sin redan konfigurerade arbetsytor och dessutom rapporterar till arbetsytan som konfigurerats i Security Center (flera värdar stöds på Windows-datorer).
-Om den konfigurerade arbetsytan är en användararbetsytan (inte Security Center standard-arbetsytan) så du måste installera den ”säkerhet /” securityFree ”-lösning på det för Security Center för att börja bearbeta händelser från virtuella datorer och datorer som rapporterar till arbetsytan.<br>
+- Log Analytics agent är installerad på datorn, men inte som ett tillägg (direkt agent)<br>
+Om Log Analytics-agenten installeras direkt på den virtuella datorn (inte som ett Azure-tillägg), kommer Security Center att installera Log Analytics agent tillägget, och kan uppgradera Log Analytics agent till den senaste versionen.
+Den installerade agenten fortsätter att rapportera till sina redan konfigurerade arbets ytor och rapporterar även till arbets ytan som kon figurer ATS i Security Center (Multi-värdar stöds på Windows-datorer).
+Om den konfigurerade arbets ytan är en användar arbets yta (inte Security Center standard arbets ytan) måste du installera lösningen "Security/" securityFree på den för Security Center för att börja bearbeta händelser från virtuella datorer och datorer som rapporterar till arbets ytan.<br>
 <br>
-För Linux-datorer, multihoming för agenten ännu är inte stöd för – därför om en befintlig agentinstallation av identifieras Automatisk etablering inte inträffar och konfigurationen ändras inte.
+För Linux-datorer stöds inte agent multi-värdar ännu, vilket innebär att om en befintlig agent installation identifieras sker ingen automatisk etablering och datorns konfiguration ändras inte.
 <br>
-För befintliga datorer på prenumerationer har integrerats i Security Center innan 2019-03-17, när en befintlig agent identifieras, kommer inte att installera Microsoft Monitoring Agent-tillägget och datorn påverkas inte. För dessa datorer finns i ”Lös övervaka problem med hälsotillstånd på dina datorer” rekommendationen för att lösa installationsproblem för agenten på dessa datorer.
+För befintliga datorer på prenumerationer som har registrerats på Security Center före 2019-03-17, kommer Log Analytics agent tillägget inte att installeras, och datorn påverkas inte om en befintlig agent identifieras. De här datorerna finns i rekommendationen "lösa övervaknings agent hälso problem på dina datorer" för att lösa problem med Agent installationen på de här datorerna.
 
   
-- System Center Operations Manager-agenten är installerad på datorn<br>
-Security center installeras i Microsoft Monitoring Agent-tillägget sida-vid-sida till befintliga Operations Manager. Den befintliga Operations Manager-agenten fortsätter att rapportera till Operations Manager-servern normalt. Observera att Operations Manager-agenten och Microsoft Monitoring Agent delar vanliga körning bibliotek, som kommer att uppdateras till den senaste versionen under den här processen.
-Observera – om Operations Manager agent-version 2012 installeras **inte** aktivera automatisk etablering på.<br>
+- System Center Operations Manager agenten är installerad på datorn<br>
+Security Center kommer att installera Log Analytics agent-tillägget sida vid sida till den befintliga Operations Manager. Den befintliga Operations Manager-agenten fortsätter att rapportera till Operations Manager servern på normalt sätt. Observera att Operations Manager agent och Log Analytics agent delar gemensamma kör tids bibliotek, som kommer att uppdateras till den senaste versionen under den här processen.
+OBS! om Operations Manager agent version 2012 är installerad aktiverar **du inte** automatisk etablering.<br>
 
 - Det finns en befintlig VM-tillägg<br>
-    - När Monitoring Agent installeras som ett tillägg, kan tilläggskonfigurationen rapporterar till endast en enda arbetsyta. Security Center åsidosätts inte befintliga anslutningar till arbetsytor som användaren. Security Center lagrar säkerhetsdata från den virtuella datorn i arbetsytan redan anslutit, förutsatt att ”säkerhet” eller ”securityFree” lösningen har installerats på den. Security Center kan uppgradera versionen av tillägget till den senaste versionen i den här processen.  
-    - Se på vilka arbetsyta befintliga tillägget skickar data för att köra testet till [Kontrollera anslutning med Azure Security Center](https://blogs.technet.microsoft.com/yuridiogenes/2017/10/13/validating-connectivity-with-azure-security-center/). Du kan också öppna Log Analytics-arbetsytor, Välj en arbetsyta, väljer den virtuella datorn och titta på Log Analytics-agenten anslutningen. 
-    - Om du har en miljö där Log Analytics-agenten är installerad på klientdatorer och rapporterar till en befintlig Log Analytics-arbetsyta, granska listan över [operativsystem som stöds av Azure Security Center](security-center-os-coverage.md) Kontrollera operativsystemet stöds och se [befintliga log analytics-kunder](security-center-faq.md#existingloganalyticscust) för mer information.
+    - När övervaknings agenten installeras som ett tillägg tillåter tilläggs konfigurationen rapportering till endast en enda arbets yta. Security Center åsidosätts inte befintliga anslutningar till arbetsytor som användaren. Security Center kommer att lagra säkerhets data från den virtuella datorn i arbets ytan som redan är ansluten, förutsatt att lösningen "säkerhet" eller "securityFree" har installerats på den. Security Center kan uppgradera tilläggs versionen till den senaste versionen i den här processen.  
+    - Se på vilka arbetsyta befintliga tillägget skickar data för att köra testet till [Kontrollera anslutning med Azure Security Center](https://blogs.technet.microsoft.com/yuridiogenes/2017/10/13/validating-connectivity-with-azure-security-center/). Du kan också öppna Log Analytics arbets ytor, välja en arbets yta, välja den virtuella datorn och titta på Log Analytics agent-anslutningen. 
+    - Om du har en miljö där Log Analytics-agenten är installerad på klient arbets stationer och rapporterar till en befintlig Log Analytics arbets yta, granskar du listan över [operativ system som stöds av Azure Security Center](security-center-os-coverage.md) för att kontrol lera att operativ systemet är stöds och se [befintliga Log Analytics-kunder](security-center-faq.md#existingloganalyticscust) för mer information.
  
 ### Inaktivera automatisk etablering <a name="offprovisioning"></a>
 Du kan inaktivera automatisk etablering från resurser när som helst genom att stänga av den här inställningen i säkerhetsprincipen. 
 
 
 1. Återgå till huvudmenyn i Security Center och välj säkerhetsprincipen.
-2. Klicka på **redigera inställningar för** i raden i den prenumeration som du vill inaktivera automatisk etablering.
+2. Klicka på **Redigera inställningar** på den rad i prenumerationen som du vill inaktivera automatisk etablering för.
 3. På den **säkerhetsprincip – datainsamling** bladet under **Automatisk etablering** Välj **av**.
 4. Välj **Spara**.
 
@@ -237,18 +237,18 @@ Om du byter ut automatiskt etablera efter tidigare på:
 -   Security Center slutar att samla in data från standardarbetsytan.
  
 > [!NOTE]
->  Inaktivering av Automatisk etablering tar inte bort Microsoft Monitoring Agent från virtuella Azure-datorer där agenten har etablerats. Mer information om hur du tar bort OMS-tillägget finns i [hur tar jag bort OMS-tillägg installeras av Security Center](security-center-faq.md#remove-oms).
+>  Om du inaktiverar automatisk etablering tas inte Log Analytics agenten bort från virtuella Azure-datorer där agenten etablerades. Mer information om hur du tar bort OMS-tillägget finns i [hur tar jag bort OMS-tillägg installeras av Security Center](security-center-faq.md#remove-oms).
 >
     
 ## Manuell agentetablering <a name="manualagent"></a>
  
-Det finns flera sätt att installera Microsoft Monitoring Agent manuellt. När du installerar manuellt, kontrollera att du inaktiverar automatisk etablering.
+Det finns flera sätt att installera Log Analytics-agenten manuellt. När du installerar manuellt, kontrollera att du inaktiverar automatisk etablering.
 
 ### <a name="operations-management-suite-vm-extension-deployment"></a>Distribution av Operations Management Suite-VM 
 
-Du kan installera Microsoft Monitoring Agent manuellt så att Security Center kan samla in säkerhetsdata från dina virtuella datorer och tillhandahålla rekommendationer och aviseringar.
+Du kan installera Log Analytics-agenten manuellt, så Security Center kan samla in säkerhets data från dina virtuella datorer och tillhandahålla rekommendationer och aviseringar.
 1. Välj Automatisk etablering – ut.
-2. Skapa en arbetsyta och ställer in prisnivån för arbetsytan som du vill ange Microsoft Monitoring agent:
+2. Skapa en arbets yta och ange pris nivån för arbets ytan som du vill ställa in Log Analytics agent:
 
    a.  I huvudmenyn i Security Center väljer **säkerhetsprincip**.
      

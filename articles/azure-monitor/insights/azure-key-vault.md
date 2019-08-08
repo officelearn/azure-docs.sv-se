@@ -1,6 +1,6 @@
 ---
-title: Azure Key Vault-lösningen i Azure Monitor | Microsoft Docs
-description: Du kan använda Azure Key Vault-lösningen i Azure Monitor för att granska Azure Key Vault-loggar.
+title: Azure Key Vault lösning i Azure Monitor | Microsoft Docs
+description: Du kan använda Azure Key Vault lösning i Azure Monitor för att granska Azure Key Vault loggar.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,51 +13,51 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: bwren
-ms.openlocfilehash: 481b643f2f7201a2a1745c7aef9ddd81883da020
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b7d9ff760bac06602d8d770a358c8a2e22a72c81
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60498533"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68849202"
 ---
 # <a name="azure-key-vault-analytics-solution-in-azure-monitor"></a>Azure Key Vault Analytics-lösning i Azure Monitor
 
-![Key Vault-symbol](media/azure-key-vault/key-vault-analytics-symbol.png)
+![Key Vault symbol](media/azure-key-vault/key-vault-analytics-symbol.png)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Du kan använda Azure Key Vault-lösningen i Azure Monitor för att granska Azure Key Vault AuditEvent-loggarna.
+Du kan använda Azure Key Vault-lösningen i Azure Monitor för att granska Azure Key Vault AuditEvent-loggar.
 
-Om du vill använda lösningen måste du aktivera loggning av Azure Key Vault-diagnostik och dirigera diagnostik till en Log Analytics-arbetsyta. Du behöver inte skriva loggarna till Azure Blob storage.
+Om du vill använda lösningen måste du aktivera loggning av Azure Key Vault diagnostik och dirigera diagnostiken till en Log Analytics-arbetsyta. Du behöver inte skriva loggarna till Azure Blob Storage.
 
 > [!NOTE]
-> I januari 2017 ändras sättet som stöds för att skicka loggar från Key Vault till Log Analytics. Om Key Vault-lösningen som du använder visar *(inaktuell)* rubriken, referera till [migrera från den gamla Key Vault-lösningen](#migrating-from-the-old-key-vault-solution) anvisningar om hur du ska följa.
+> I januari 2017 har det stödda sättet att skicka loggar från Key Vault till Log Analytics ändrats. Om Key Vault lösning som du använder visas *(inaktuell)* i rubriken, se [Migrera från den gamla Key Vault-lösningen](#migrating-from-the-old-key-vault-solution) för steg som du måste följa.
 >
 >
 
 ## <a name="install-and-configure-the-solution"></a>Installera och konfigurera lösningen
 Använd följande instruktioner för att installera och konfigurera Azure Key Vault-lösningen:
 
-1. Använda processen som beskrivs i [lägga till Azure Monitor-lösningar från lösningsgalleriet](../../azure-monitor/insights/solutions.md) att lägga till Azure Key Vault-lösningen i Log Analytics-arbetsytan.
-2. Aktivera diagnostikloggning för Key Vault-resurser för att övervaka, med hjälp av antingen den [portal](#enable-key-vault-diagnostics-in-the-portal) eller [PowerShell](#enable-key-vault-diagnostics-using-powershell)
+1. Använd processen som beskrivs i [Lägg till Azure Monitor lösningar från Lösningsgalleriet](../../azure-monitor/insights/solutions.md) för att lägga till Azure Key Vault-lösningen i Log Analytics-arbetsytan.
+2. Aktivera diagnostikloggning för Key Vault resurser som ska övervakas med hjälp av antingen [portalen](#enable-key-vault-diagnostics-in-the-portal) eller [PowerShell](#enable-key-vault-diagnostics-using-powershell)
 
-### <a name="enable-key-vault-diagnostics-in-the-portal"></a>Aktivera Key Vault-diagnostik i portalen
+### <a name="enable-key-vault-diagnostics-in-the-portal"></a>Aktivera Key Vault diagnostik i portalen
 
-1. I Azure-portalen går du till Key Vault-resursen för att övervaka
-2. Välj *diagnostikinställningar* att öppna sidan
+1. I Azure Portal navigerar du till den Key Vault resurs som ska övervakas
+2. Välj *diagnostikinställningar* för att öppna följande sida
 
-   ![Bild av Azure Key Vault-panel](media/azure-key-vault/log-analytics-keyvault-enable-diagnostics01.png)
-3. Klicka på *slå på diagnostik* att öppna sidan
+   ![bild av Azure Key Vault panel](media/azure-key-vault/log-analytics-keyvault-enable-diagnostics01.png)
+3. Klicka på *Aktivera diagnostik* för att öppna följande sida
 
-   ![Bild av Azure Key Vault-panel](media/azure-key-vault/log-analytics-keyvault-enable-diagnostics02.png)
-4. Namnge den diagnostiska inställningen.
-5. Klicka på kryssrutan för *skicka till Log Analytics*
-6. Välj en befintlig Log Analytics-arbetsyta eller skapa en arbetsyta
-7. Aktivera *AuditEvent* loggar, klickar du på kryssrutan under Log
-8. Klicka på *spara* att aktivera loggning av diagnostik till Log Analytics-arbetsytan.
+   ![bild av Azure Key Vault panel](media/azure-key-vault/log-analytics-keyvault-enable-diagnostics02.png)
+4. Ange ett namn på den diagnostiska inställningen.
+5. Klicka i kryss rutan för *att skicka till Log Analytics*
+6. Välj en befintlig Log Analytics arbets yta eller skapa en arbets yta
+7. Om du vill aktivera *AuditEvent* loggar klickar du på kryss rutan under loggen
+8. Klicka på *Spara* för att aktivera loggning av diagnostik till Log Analytics arbets ytan.
 
-### <a name="enable-key-vault-diagnostics-using-powershell"></a>Aktivera diagnostik för Key Vault med hjälp av PowerShell
-Följande PowerShell-skript innehåller ett exempel på hur du använder `Set-AzDiagnosticSetting` att aktivera Diagnostisk loggning för Key Vault:
+### <a name="enable-key-vault-diagnostics-using-powershell"></a>Aktivera Key Vault diagnostik med PowerShell
+Följande PowerShell-skript innehåller ett exempel på hur du kan `Set-AzDiagnosticSetting` använda för att aktivera diagnostisk loggning för Key Vault:
 ```
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
 
@@ -68,89 +68,89 @@ Set-AzDiagnosticSetting -ResourceId $kv.ResourceId  -WorkspaceId $workspaceId -E
 
 
 
-## <a name="review-azure-key-vault-data-collection-details"></a>Läs mer om Azure Key Vault data-samling
-Azure Key Vault-lösningen samlar in diagnostikloggar direkt från Key Vault.
-Det är inte nödvändigt att skriva loggar till Azure Blob storage och ingen agent krävs för insamling av data.
+## <a name="review-azure-key-vault-data-collection-details"></a>Granska Azure Key Vault information om data insamling
+Azure Key Vault lösning samlar in diagnostikloggar direkt från Key Vault.
+Du behöver inte skriva loggarna till Azure Blob Storage och ingen agent krävs för data insamling.
 
-I följande tabell visas data samlingsmetoder och annan information om hur data samlas in för Azure Key Vault.
+I följande tabell visas metoder för data insamling och annan information om hur data samlas in för Azure Key Vault.
 
-| Plattform | Direktagent | System Center Operations Manager-agenten | Azure | Operations Manager som krävs? | Operations Manager agent-data skickas via hanteringsgruppen | Insamlingsfrekvens |
+| Plattform | Direkt agent | System Center Operations Manager agent | Azure | Operations Manager krävs. | Operations Manager agent data som skickas via hanterings gruppen | Insamlingsfrekvens |
 | --- | --- | --- | --- | --- | --- | --- |
-| Azure |  |  |&#8226; |  |  | anländer |
+| Azure |  |  |&#8226; |  |  | vid ankomsten |
 
 ## <a name="use-azure-key-vault"></a>Använda Azure Key Vault
-När du [installera lösningen för](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?tab=Overview), visa Key Vault-data genom att klicka på den **Key Vault-analys** panelen från Azure Monitor **översikt** sidan. Öppna den här sidan från den **Azure Monitor** menyn genom att klicka på **mer** under den **Insights** avsnittet. 
+När du har [installerat lösningen](https://azuremarketplace.microsoft.com/en-usrketplace/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?tab=Overview)kan du Visa Key Vault data genom att klicka på panelen **Key Vault-analys** på sidan Azure Monitor **Översikt** . Öppna den här sidan från **Azure Monitor** -menyn genom att klicka på **mer** under avsnittet om insikter. 
 
-![Bild av Azure Key Vault-panel](media/azure-key-vault/log-analytics-keyvault-tile.png)
+![bild av Azure Key Vault panel](media/azure-key-vault/log-analytics-keyvault-tile.png)
 
-När du klickar på den **Key Vault-analys** panelen, du kan visa sammanfattningar av dina loggar och sedan kan du läsa informationen i följande kategorier:
+När du klickar på panelen **Key Vault-analys** kan du Visa sammanfattningar av loggarna och sedan gå vidare till information för följande kategorier:
 
-* Mängden alla nyckelvalvsåtgärder över tid
-* Det gick inte åtgärdsvolymer över tid
-* Genomsnittlig svarstid för åtgärden
-* Tjänstkvalitet för åtgärder med antalet åtgärder som tar mer än 1 000 ms och en lista över åtgärder som tar mer än 1 000 ms
+* Volym för alla Key Vault-åtgärder över tid
+* Misslyckade åtgärds volymer över tid
+* Genomsnittlig drift svars tid per åtgärd
+* Tjänst kvalitet för åtgärder med antalet åtgärder som tar mer än 1000 MS och en lista över åtgärder som tar mer än 1000 MS
 
-![Bild av instrumentpanelen för Azure Key Vault](media/azure-key-vault/log-analytics-keyvault01.png)
+![bild av Azure Key Vault instrument panel](media/azure-key-vault/log-analytics-keyvault01.png)
 
-![Bild av instrumentpanelen för Azure Key Vault](media/azure-key-vault/log-analytics-keyvault02.png)
+![bild av Azure Key Vault instrument panel](media/azure-key-vault/log-analytics-keyvault02.png)
 
-### <a name="to-view-details-for-any-operation"></a>Att visa information om alla åtgärder
-1. På den **översikt** klickar du på den **Key Vault-analys** panelen.
-2. På den **Azure Key Vault** instrumentpanelen läser du sammanfattningsinformationen på något av bladen och klicka sedan på en om du vill visa detaljerad information om den på sidan log search.
+### <a name="to-view-details-for-any-operation"></a>Så här visar du information om alla åtgärder
+1. På sidan **Översikt** klickar du på panelen **Key Vault-analys** .
+2. På instrument panelen **Azure Key Vault** granskar du sammanfattnings informationen på ett av bladet och klickar sedan på en för att visa detaljerad information om den på sidan för loggs ökning.
 
-    På någon av sidorna log search, kan du visa resultat genom tid, detaljerade resultat och sökhistoriken log. Du kan också filtrera efter fasetter att begränsa resultaten.
+    På någon av logg Sök sidorna kan du Visa resultat efter tid, detaljerade resultat och logg Sök historik. Du kan också filtrera efter FACET för att begränsa resultaten.
 
-## <a name="azure-monitor-log-records"></a>Azure Monitor-loggposter
-Azure Key Vault-lösningen analyserar poster som har en typ av **KeyVaults** som samlas in från [AuditEvent-loggarna](../../key-vault/key-vault-logging.md) i Azure-diagnostik.  Egenskaper för dessa poster finns i följande tabell:  
+## <a name="azure-monitor-log-records"></a>Azure Monitor logg poster
+Azure Key Vault-lösningen analyserar poster som har en typ av nyckel **valv** som samlas in från [AuditEvent-loggar](../../key-vault/key-vault-logging.md) i Azure-diagnostik.  Egenskaperna för dessa poster finns i följande tabell:  
 
 | Egenskap | Description |
 |:--- |:--- |
-| Typ |*AzureDiagnostics* |
+| type |*AzureDiagnostics* |
 | SourceSystem |*Azure* |
-| CallerIpAddress |IP-adressen för klienten som gjorde begäran |
+| CallerIpAddress |IP-adressen för den klient som gjorde begäran |
 | Category | *AuditEvent* |
 | CorrelationId |Ett valfritt GUID som klienten kan skicka för att korrelera loggar på klientsidan med loggar på tjänstsidan (Key Vault). |
-| . durationMs |Hur lång tid i millisekunder som det tog att utföra REST-API-begäran. Nu omfattar inte Nätverksfördröjningen, så den tid du mäter på klientsidan inte kanske stämmer med den här gången. |
+| . Durationms |Hur lång tid i millisekunder som det tog att utföra REST-API-begäran. Den här tiden omfattar inte nätverks svars tiden, så den tid som du mäter på klient sidan kanske inte matchar den här tiden. |
 | httpStatusCode_d |HTTP-statuskod som returnerades av begäran (till exempel *200*) |
 | id_s |Unikt ID för begäran |
 | identity_claim_appid_g | GUID för program-ID |
-| OperationName |Namnet på åtgärden, som beskrivs i [Azure Key Vault-loggning](../../key-vault/key-vault-logging.md) |
-| OperationVersion |REST API-version som begärs av klienten (till exempel *2015-06-01*) |
+| OperationName |Åtgärdens namn, enligt beskrivningen i [Azure Key Vault loggning](../../key-vault/key-vault-logging.md) |
+| OperationVersion |REST API version som begärs av klienten (till exempel *2015-06-01*) |
 | requestUri_s |URI för begäran |
-| Resource |Namnet på nyckelvalvet |
-| ResourceGroup |Resursgrupp för nyckelvalvet |
-| ResourceId |Azure Resource Manager Resource-ID. För Key Vault-loggar är detta Key Vault-resurs-ID. |
-| ResourceProvider |*MICROSOFT.KEYVAULT* |
-| ResourceType | *VAULTS* |
+| Resource |Nyckel valvets namn |
+| ResourceGroup |Nyckel valvets resurs grupp |
+| ResourceId |Azure Resource Manager Resource-ID. För Key Vault loggar är detta Key Vault resurs-ID. |
+| ResourceProvider |*UTFORSKAREN. KEYVAULT* |
+| Resurstyp | *VAULTS* |
 | ResultSignature |HTTP-status (till exempel *OK*) |
-| ResultType |Resultatet av REST API-begäran (till exempel *lyckades*) |
-| SubscriptionId |Azure-prenumerations-ID för prenumerationen som innehåller Nyckelvalvet |
+| ResultType |Resultat av REST API begäran (till exempel *lyckad*) |
+| SubscriptionId |Prenumerations-ID för Azure som innehåller Key Vault |
 
-## <a name="migrating-from-the-old-key-vault-solution"></a>Migrera från den gamla Key Vault-lösningen
-I januari 2017 ändras sättet som stöds för att skicka loggar från Key Vault till Log Analytics. Dessa ändringar ger följande fördelar:
-+ Loggarna skrivs direkt till Log Analytics-arbetsytan utan att behöva använda ett lagringskonto
-+ Mindre fördröjning från den tidpunkt när loggarna genereras till dem som det är tillgängligt i Log Analytics
-+ Färre konfigurationssteg
-+ Ett vanligt format för alla typer av Azure-diagnostik
+## <a name="migrating-from-the-old-key-vault-solution"></a>Migrera från den gamla Key Vaults lösningen
+I januari 2017 har det stödda sättet att skicka loggar från Key Vault till Log Analytics ändrats. Dessa ändringar ger följande fördelar:
++ Loggarna skrivs direkt till en Log Analytics arbets yta utan att behöva använda ett lagrings konto
++ Mindre latens från den tid då loggar genereras till dem som är tillgängliga i Log Analytics
++ Färre konfigurations steg
++ Ett vanligt format för alla typer av Azure Diagnostics
 
-Använda den uppdaterade lösningen:
+Så här använder du den uppdaterade lösningen:
 
-1. [Konfigurera diagnostik skickas direkt till en Log Analytics-arbetsyta från Key Vault](#enable-key-vault-diagnostics-in-the-portal)  
-2. Aktivera Azure Key Vault-lösningen med hjälp av metoden som beskrivs i [lägga till Azure Monitor-lösningar från lösningsgalleriet](../../azure-monitor/insights/solutions.md)
-3. Uppdatera alla sparade frågor, instrumentpaneler eller aviseringar att använda den nya datatypen
-   + Ändring från är: KeyVaults till AzureDiagnostics. Du kan använda resurstypens för att filtrera till Key Vault-loggar.
-   + I stället för: `KeyVaults`, använda `AzureDiagnostics | where ResourceType'=="VAULTS"`
-   + Fält: (Fältnamn är skiftlägeskänsliga)
-   + För alla fält som har suffixet \_s, \_d, eller \_g i namnet, ändra det första tecknet till gemener
-   + För alla fält som har suffixet \_o i namn data delas upp i enskilda fält baserat på de kapslade fältnamn. Till exempel är UPN-namnet för anroparen lagrad i ett fält `identity_claim_http_schemas_xmlsoap_org_ws_2005_05_identity_claims_upn_s`
-   + Fältet CallerIpAddress ändras till CallerIPAddress
+1. [Konfigurera diagnostik så att den skickas direkt till en Log Analytics arbets yta från Key Vault](#enable-key-vault-diagnostics-in-the-portal)  
+2. Aktivera Azure Key Vault-lösningen genom att använda processen som beskrivs i [Lägg till Azure Monitor lösningar från Lösningsgalleriet](../../azure-monitor/insights/solutions.md)
+3. Uppdatera eventuella sparade frågor, instrument paneler eller aviseringar för att använda den nya data typen
+   + Typen ändras från: Nyckel valv till AzureDiagnostics. Du kan använda ResourceType för att filtrera till Key Vault loggar.
+   + I stället för `KeyVaults`: använder du`AzureDiagnostics | where ResourceType'=="VAULTS"`
+   + Fält (Fält namn är Skift läges känsliga)
+   + För alla fält med suffixet \_s, \_d eller \_g i namnet ändrar du det första symbolen till gemener
+   + För fält som har suffixet \_o i namn delas data upp i enskilda fält baserat på de kapslade fält namnen. Till exempel lagras UPN för anroparen i ett fält`identity_claim_http_schemas_xmlsoap_org_ws_2005_05_identity_claims_upn_s`
+   + Fältet CallerIpAddress ändrades till CallerIPAddress
    + Fältet RemoteIPCountry finns inte längre
-4. Ta bort den *Key Vault Analytics (inaktuell)* lösning. Om du använder PowerShell använder du `Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "KeyVault" -Enabled $false`
+4. Ta bort den *Key Vault-analys (föråldrade)* lösningen. Om du använder PowerShell använder du`Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "KeyVault" -Enabled $false`
 
-Data som samlas in innan ändringen inte visas i den nya lösningen. Du kan fortsätta att fråga efter dessa data med hjälp av äldre typ och fältnamn.
+Data som samlas in innan ändringen visas inte i den nya lösningen. Du kan fortsätta att fråga efter dessa data med hjälp av de gamla typ-och fält namnen.
 
 ## <a name="troubleshooting"></a>Felsökning
 [!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
 
 ## <a name="next-steps"></a>Nästa steg
-* Använd [logga frågor i Azure Monitor](../../azure-monitor/log-query/log-query-overview.md) att visa detaljerade data i Azure Key Vault.
+* Använd [logg frågor i Azure Monitor](../../azure-monitor/log-query/log-query-overview.md) om du vill visa detaljerade Azure Key Vault data.

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 65777a87cd042a4d8b3b14255dbf99241cd42e18
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: f8777a3d0eb9b97fff6f492f181a432d98d9341c
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638743"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68849297"
 ---
 # <a name="add-html-markers-to-the-map"></a>Lägg till HTML-markörer i kartan
 
@@ -47,6 +47,9 @@ Standardvärdet `htmlContent` för en HTML-markör är en SVG-mall `{color}` med
 
 <iframe height='500' scrolling='no' title='HTML-markör med anpassad SVG-mall' src='//codepen.io/azuremaps/embed/LXqMWx/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan <a href='https://codepen.io/azuremaps/pen/LXqMWx/'>-HTML-markören med anpassad SVG-mall</a> genom<a href='https://codepen.io/azuremaps'>@azuremaps</a>Azure Maps () i <a href='https://codepen.io'>CodePen</a>.
 </iframe>
+
+> [!TIP]
+> Azure Maps Web SDK innehåller flera SVG-bildmallar som kan användas med HTML-markörer. Mer information finns i dokumentet om [att använda bilder för mallar](how-to-use-image-templates-web-sdk.md) .
 
 ## <a name="add-a-css-styled-html-marker"></a>Lägg till en CSS-formaterad HTML-markör
 
@@ -89,6 +92,9 @@ Läs mer om de klasser och metoder som används i den här artikeln:
 > [HtmlMarkerManager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarkermanager?view=azure-iot-typescript-latest)
 
 Fler kod exempel som kan läggas till i dina kartor finns i följande artiklar:
+
+> [!div class="nextstepaction"]
+> [Använda bildmallar](how-to-use-image-templates-web-sdk.md)
 
 > [!div class="nextstepaction"]
 > [Lägg till ett symbol lager](./map-add-pin.md)

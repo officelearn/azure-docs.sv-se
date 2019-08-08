@@ -56,7 +56,8 @@
     - name: Konfigurera en anpassad upplevelse för automatiska förslag
       href: define-custom-suggestions.md
     - name: Hantera träffmarkering
-      href: hit-highlighting.md
+      href: ../Bing-Web-Search/hit-highlighting.md
+      maintainContext: true
     - name: Bläddra bland webbsidor
       href: page-webpages.md
 - name: Referens

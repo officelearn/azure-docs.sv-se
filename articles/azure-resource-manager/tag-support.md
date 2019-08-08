@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 08/05/2019
 ms.author: tomfitz
-ms.openlocfilehash: 0e8df116a82f73af2348651a91aee3c34a595c45
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 452230a263e623f53346fcdb8cf310e73f171aee
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68814094"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68848613"
 ---
 # <a name="tag-support-for-azure-resources"></a>Tagga stöd för Azure-resurser
 I den här artikeln beskrivs om en resurs typ stöder [taggar](resource-group-using-tags.md). Den kolumn som har etiketten **stöder Taggar** anger om resurs typen har en egenskap för taggen. Kolumnen med etiketten **tagg i Cost** visar om den resurs typen skickar taggen till kostnads rapporten.
@@ -857,9 +857,8 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
-> | services | Ja |Ja |
-> | tjänster/projekt | Ja |Ja |
-> | lots | Ja |Ja |
+> | services | Nej |Nej |
+> | tjänster/projekt | Nej |Nej |
 
 ## <a name="microsoftdatashare"></a>Microsoft. DataShare
 

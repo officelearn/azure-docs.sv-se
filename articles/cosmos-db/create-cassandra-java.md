@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-cassandra
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 968c43ed78c59e5c1f147aaaa5bb33484d95c7a9
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 05a82c536300c7f3a293dd3e831e781339a417bb
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325467"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68845231"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-java-sdk-and-azure-cosmos-db"></a>Snabbstart: Skapa en Cassandra-app med SDK Java och Azure Cosmos DB
 
@@ -153,7 +153,7 @@ Gå nu tillbaka till Azure-portalen för att hämta information om din anslutnin
 
     ![Visa och kopiera ett användarnamn från Azure-portalen, sidan Anslutningssträng](./media/create-cassandra-java/keys.png)
 
-2. Använd ![Knappen Kopiera](./media/create-cassandra-java/copy.png) knappen på höger sida av skärmen för att kopiera värdet KONTAKTPUNKT.
+2. Använd ![Kopieringsknapp](./media/create-cassandra-java/copy.png) knappen på höger sida av skärmen för att kopiera värdet KONTAKTPUNKT.
 
 3. Öppna filen `config.properties` i mappen `C:\git-samples\azure-cosmosdb-cassandra-java-getting-started\java-examples\src\main\resources`. 
 
@@ -203,7 +203,7 @@ Gå nu tillbaka till Azure-portalen för att hämta information om din anslutnin
 
     Terminalfönstret visar aviseringar om att keyspace och tabell har skapats. Det markerar och returnerar sedan alla användare i tabellen och visar utdata, och väljer sedan ett rad-ID och visar värdet.  
 
-    Tryck på CTRL + C om du vill stoppa körning av programmet och stänga konsolfönstret.
+    Välj **CTRL + C** om du vill stoppa körningen av programmet och stänga konsol fönstret.
 
 4. I **Datautforskaren** på Azure-portalen kan du fråga, ändra och arbeta med dessa nya data. 
 

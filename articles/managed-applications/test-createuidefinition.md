@@ -1,67 +1,68 @@
 ---
-title: Testa Användargränssnittet definitionen för Azure Managed Applications | Microsoft Docs
-description: Beskriver hur du testar användarupplevelsen för att skapa din Azure-hanterade programmet via portalen.
+title: Testa användar gränssnitts definitionen för Azure Managed Applications | Microsoft Docs
+description: Beskriver hur du testar användar upplevelsen för att skapa ditt Azure-hanterade program via portalen.
 author: tfitzmac
 ms.service: managed-applications
 ms.topic: conceptual
-ms.date: 05/26/2019
+ms.date: 08/06/2019
 ms.author: tomfitz
-ms.openlocfilehash: 99ca319910be2cb20214172826eb40361abe72f0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 91dd661cf4900512390079751f400f6a9888c452
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66257615"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68845923"
 ---
-# <a name="test-your-portal-interface-for-azure-managed-applications"></a>Testa din portalgränssnitt för Azure Managed Applications
+# <a name="test-your-portal-interface-for-azure-managed-applications"></a>Testa Portal gränssnittet för Azure Managed Applications
 
-Efter [skapar filen createUiDefinition.json](create-uidefinition-overview.md) för det hanterade programmet behöver du testa användarupplevelsen. Använd en testmiljö som läser in filen i portalen för att förenkla testning. Du behöver inte distribuera det hanterade programmet. Sandbox-miljön anger användargränssnittet i den aktuella, helskärmsläge portalmiljön. Eller du kan använda ett PowerShell-skript för testning gränssnittet, men den använder en äldre vy i portalen. Båda metoderna som visas i den här artikeln. Sandbox-miljön är det rekommenderade sättet att förhandsgranska gränssnittet.
+När du har [skapat createUiDefinition. JSON-filen](create-uidefinition-overview.md) för ditt hanterade program måste du testa användar upplevelsen. För att förenkla testningen använder du en sandbox-miljö som läser in din fil i portalen. Du behöver inte distribuera ditt hanterade program. Sand boxen visar ditt användar gränssnitt i den aktuella, kompletta Portal upplevelsen. Eller så kan du använda ett skript för att testa gränssnittet. Båda metoderna visas i den här artikeln. Sand boxen är det rekommenderade sättet att förhandsgranska gränssnittet.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-* En **createUiDefinition.json** fil. Om du inte har den här filen kan kopiera den [exempelfilen](https://github.com/Azure/azure-quickstart-templates/blob/master/100-marketplace-sample/createUiDefinition.json).
+* En **createUiDefinition. JSON** -fil. Om du inte har den här filen kopierar du [exempel filen](https://github.com/Azure/azure-quickstart-templates/blob/master/100-marketplace-sample/createUiDefinition.json).
 
 * En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="use-sandbox"></a>Använd begränsat läge
+## <a name="use-sandbox"></a>Använd sandbox
 
-1. Öppna den [skapa Användargränssnittet Definition Sandbox](https://portal.azure.com/?feature.customPortal=false&#blade/Microsoft_Azure_CreateUIDef/SandboxBlade).
+1. Öppna [begränsat läge för att skapa gränssnitts definitioner](https://portal.azure.com/?feature.customPortal=false&#blade/Microsoft_Azure_CreateUIDef/SandboxBlade).
 
-   ![Visa sandbox-miljön](./media/test-createuidefinition/show-sandbox.png)
+   ![Visa sandbox](./media/test-createuidefinition/show-sandbox.png)
 
-1. Ersätt definitionen för tom med innehållet i filen createUiDefinition.json. Välj **förhandsversion**.
+1. Ersätt den tomma definitionen med innehållet i din createUiDefinition. JSON-fil. Välj för **hands version**.
 
-   ![Välj förhandsgranskning](./media/test-createuidefinition/select-preview.png)
+   ![Välj för hands version](./media/test-createuidefinition/select-preview.png)
 
-1. Formuläret som du har skapat visas. Du kan gå igenom användarupplevelsen och Fyll i värden.
+1. Formuläret som du har skapat visas. Du kan gå igenom användar upplevelsen och fylla i värdena.
 
    ![Visa formulär](./media/test-createuidefinition/show-ui-form.png)
 
 ### <a name="troubleshooting"></a>Felsökning
 
-Om ditt formulär inte visas när du har valt **förhandsversion**, du kan ha ett syntaxfel. Leta efter den röda indikatorn på den högra rullningslisten och navigera till den.
+Om formuläret inte visas när du har valt för **hands version**kan du ha ett syntaxfel. Leta upp den röda indikatorn i den högra rullnings listen och navigera till den.
 
 ![Visa syntaxfel](./media/test-createuidefinition/show-syntax-error.png)
 
-Om formuläret visar inte och i stället visas en ikon för ett moln med tear släpp, innehåller formuläret ett fel, till exempel en egenskap som saknas. Öppna Web Developer Tools i webbläsaren. Den **konsolen** visar viktiga meddelanden om gränssnittet.
+Om ditt formulär inte visas och du ser en ikon i ett moln med Riva Drop, har formuläret ett fel, till exempel en saknad egenskap. Öppna webb Utvecklarverktyg i webbläsaren. \- **Konsolen** visar viktiga meddelanden om ditt gränssnitt.
 
 ![Visa fel](./media/test-createuidefinition/show-error.png)
 
-## <a name="use-test-script"></a>Använd skript för testning
+## <a name="use-test-script"></a>Använd test skript
 
-Testa ditt gränssnitt i portalen genom att kopiera en av följande skript till den lokala datorn:
+Om du vill testa ditt gränssnitt i portalen kopierar du något av följande skript till den lokala datorn:
 
-* [PowerShell-skript för separat inläsning](https://github.com/Azure/azure-quickstart-templates/blob/master/SideLoad-CreateUIDefinition.ps1)
-* [Skriptexempel för Azure CLI-separat inläsning](https://github.com/Azure/azure-quickstart-templates/blob/master/sideload-createuidef.sh)
+* [PowerShell-skript för sid inläsning – AZ-modul](https://github.com/Azure/azure-quickstart-templates/blob/master/SideLoad-AzCreateUIDefinition.ps1)
+* [PowerShell-skript för inläsning – Azure-modul](https://github.com/Azure/azure-quickstart-templates/blob/master/SideLoad-CreateUIDefinition.ps1)
+* [Skript för Azure CLI-sidans inläsning](https://github.com/Azure/azure-quickstart-templates/blob/master/sideload-createuidef.sh)
 
-Om du vill se filen gränssnitt i portalen, kör du det nedladdade skriptet. Skriptet skapar ett lagringskonto i Azure-prenumerationen och överför din createUiDefinition.json-fil till lagringskontot. Storage-konto skapas första gången du kör skriptet eller om lagringskontot har tagits bort. Om lagringskontot finns redan i din Azure-prenumeration, återanvänds det av skriptet. Skriptet öppnas portalen och läser in filen från lagringskontot.
+Om du vill se gränssnitts filen i portalen kör du det nedladdade skriptet. Skriptet skapar ett lagrings konto i din Azure-prenumeration och laddar upp din createUiDefinition. JSON-fil till lagrings kontot. Lagrings kontot skapas första gången du kör skriptet eller om lagrings kontot har tagits bort. Om lagrings kontot redan finns i din Azure-prenumeration återanvänder skriptet det. Skriptet öppnar portalen och läser in filen från lagrings kontot.
 
-Ange en plats för storage-kontot och ange den mapp som innehåller createUiDefinition.json-fil.
+Ange en plats för lagrings kontot och ange den mapp som innehåller filen createUiDefinition. JSON.
 
 Om du använder PowerShell använder du:
 
 ```powershell
-.\SideLoad-CreateUIDefinition.ps1 `
+.\SideLoad-AzCreateUIDefinition.ps1 `
   -StorageResourceGroupLocation southcentralus `
   -ArtifactsStagingDirectory .\100-Marketplace-Sample
 ```
@@ -74,12 +75,12 @@ Om du använder Azure CLI använder du:
   -a .\100-Marketplace-Sample
 ```
 
-Om du redan har skapat lagringskontot createUiDefinition.json filen är i samma mapp som skriptet, behöver du inte ange dessa parametrar.
+Om din createUiDefinition. JSON-fil finns i samma mapp som skriptet och du redan har skapat lagrings kontot, behöver du inte ange dessa parametrar.
 
 Om du använder PowerShell använder du:
 
 ```powershell
-.\SideLoad-CreateUIDefinition.ps1
+.\SideLoad-AzCreateUIDefinition.ps1
 ```
 
 Om du använder Azure CLI använder du:
@@ -88,22 +89,20 @@ Om du använder Azure CLI använder du:
 ./sideload-createuidef.sh
 ```
 
-Skriptet öppnas en ny flik i webbläsaren. Visas på portalen med dina gränssnittet för att skapa det hanterade programmet.
+Skriptet öppnar en ny flik i webbläsaren. Den visar portalen med ditt gränssnitt för att skapa det hanterade programmet.
 
-![Visa portal](./media/test-createuidefinition/view-portal.png)
-
-Ange värden för fälten. När du är klar kan du se de värden som skickas till mallen.
+Ange värden för fälten. När du är klar visas de värden som skickas till mallen.
 
 ![Visa värden](./media/test-createuidefinition/show-json.png)
 
-Du kan använda dessa värden som parameterfilen för att testa din Distributionsmall.
+Du kan använda dessa värden som parameter fil för att testa distributions mal len.
 
-Om portalen låser sig i fönstret Sammanfattning, kan det finnas en bugg i utdata. Du kan exempelvis ha refererade en kontroll som inte finns. Om en parameter i utdata är tom parametern vara refererar till en egenskap som inte finns. Till exempel referensen till kontrollen är giltig, men Egenskapsreferensen är inte giltig.
+Om portalen låser sig på sidan Sammanfattning kan det finnas en bugg i avsnittet utdata. Du kan till exempel ha refererat till en kontroll som inte finns. Om en parameter i utdata är tom kan parametern referera till en egenskap som inte finns. Till exempel är referensen till kontrollen giltig, men ogiltig egenskaps referens.
 
-## <a name="test-your-solution-files"></a>Testa din lösningsfiler
+## <a name="test-your-solution-files"></a>Testa dina lösningsfiler
 
-Nu när du har verifierat din portalgränssnitt fungerar som förväntat, är det dags att verifiera att filen createUiDefinition korrekt är integrerat med mainTemplate.json-fil. Du kan köra ett skript för verifiering test till test innehållet i din lösningsfiler, inklusive filen createUiDefinition. Skriptet validerar JSON-syntaxen, söker efter regex-uttryck på textfält och ser till utdata-värdena i portalgränssnittet matcha parametrarna i mallen. Information om hur du kör det här skriptet finns i [kör statiska verifieringskontroller för mallar](https://github.com/Azure/azure-quickstart-templates/tree/master/test/template-validation-tests).
+Nu när du har kontrollerat att ditt Portal gränssnitt fungerar som förväntat, är det dags att verifiera att din createUiDefinition-fil är korrekt integrerad med din mainTemplate. JSON-fil. Du kan köra ett verifierings skript test för att testa innehållet i dina lösningsfiler, inklusive createUiDefinition-filen. Skriptet verifierar JSON-syntaxen, söker efter regex-uttryck i textfält och kontrollerar att utmatnings värden för Portal gränssnittet matchar parametrarna i mallen. Information om hur du kör skriptet finns i [köra statiska verifierings kontroller för mallar](https://github.com/Azure/azure-quickstart-templates/tree/master/test/template-validation-tests).
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har validerat din portalgränssnitt lär du dig om att din [Azure hanterade App som är tillgänglig i Marketplace](publish-marketplace-app.md).
+När du har verifierat ditt Portal gränssnitt kan du läsa om hur du gör ditt [Azure-hanterade program tillgängligt på Marketplace](publish-marketplace-app.md).

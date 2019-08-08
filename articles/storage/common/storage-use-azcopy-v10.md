@@ -1,19 +1,18 @@
 ---
 title: Kopiera eller flytta data till Azure Storage med AzCopy v10 | Microsoft Docs
 description: AzCopy är ett kommando rads verktyg som du kan använda för att kopiera data till, från eller mellan lagrings konton. Den här artikeln hjälper dig att ladda ned AzCopy, ansluta till ditt lagrings konto och sedan överföra filer.
-services: storage
 author: normesta
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 7ad5be0c7774beacaa15fcca0646c78e2d328ba4
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 9dc53867cb780b2c40e76cc6f24f7e6cf882b407
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699849"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68844858"
 ---
 # <a name="get-started-with-azcopy"></a>Kom igång med AzCopy
 

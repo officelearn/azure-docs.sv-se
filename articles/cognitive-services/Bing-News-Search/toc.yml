@@ -47,7 +47,8 @@
 - name: Instruktionsguider
   items:
     - name: Hantera träffmarkering
-      href: hit-highlighting.md
+      href: ../Bing-Web-Search/hit-highlighting.md
+      maintainContext: true
     - name: Bläddra bland nyheter
       href: paging-news.md
     - name: Ändra storlek på och beskär miniatyrer

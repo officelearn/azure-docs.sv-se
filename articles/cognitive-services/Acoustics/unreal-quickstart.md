@@ -3,20 +3,20 @@ title: Snabb start för projekt med Unreal
 titlesuffix: Azure Cognitive Services
 description: Med hjälp av exempel innehåll kan du experimentera med projekts akustiska design kontroller i Unreal och Wwise och distribuera till Windows-skrivbordet.
 services: cognitive-services
-author: kegodin
+author: NoelCross
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: quickstart
 ms.date: 03/20/2019
-ms.author: kegodin
+ms.author: noelc
 ROBOTS: NOINDEX
-ms.openlocfilehash: 06023b2758d09fe8ebe7c1301ef1a03d9c54aa41
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 8809c80f2ecba4ea2b3e3d280be0c4ad81d78d37
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68704774"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854839"
 ---
 # <a name="project-acoustics-unrealwwise-quickstart"></a>Snabb start för projekt Akustisker Unreal/Wwise
 I den här snabb starten kommer du att experimentera med projekt akustiska design kontroller som använder tillhandahållet exempel innehåll för Unreal-motorn och Wwise.

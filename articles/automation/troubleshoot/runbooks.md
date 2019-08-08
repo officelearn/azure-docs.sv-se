@@ -8,14 +8,30 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: f732ab6ceb17dcd013c6d032ef3943f6ad9bef71
-ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
+ms.openlocfilehash: 759422ea8c327ae67278354217dac4c60b32f7a9
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68782349"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68850324"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Felsöka fel med Runbooks
+
+I den här artikeln beskrivs vanliga problem med Runbooks och hur du löser dem.
+
+## <a name="steps-to-troubleshoot-runbooks"></a>Steg för att felsöka Runbooks
+
+När du har problem med att köra Runbooks i Azure Automation kan du använda följande steg för att diagnostisera problemet.
+
+1. **Se till att Runbook-skriptet körs på den lokala datorn:**  Se PowerShell- [dokumenten](/powershell/scripting/overview) eller [python](https://docs.python.org/3/) -dokumenten för språk referens-och inlärnings moduler.
+
+   Att köra skriptet lokalt kan identifiera och lösa vanliga fel, till exempel:
+
+   - **Moduler som saknas**
+   - **Syntaxfel**
+   - **Logic-fel**
+
+2. **Se till att noderna och automation-arbetsytan har de moduler som krävs:** Om din Runbook importerar några moduler, se till att de är tillgängliga i ditt Automation-konto med hjälp av stegen som anges i [importera moduler](../shared-resources/modules.md#import-modules). Mer information finns i [Felsöka moduler](shared-resources.md#modules).
 
 ## <a name="authentication-errors-when-working-with-azure-automation-runbooks"></a>Autentiseringsfel vid arbete med Azure Automation runbooks
 

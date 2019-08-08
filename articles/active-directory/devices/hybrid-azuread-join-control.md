@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d5d8cd7799dd23dabc2cbb423e82b8c7203b7bed
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: c897d52c10efdb8824f676d7640dcc7275915a9e
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68834644"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68851778"
 ---
 # <a name="controlled-validation-of-hybrid-azure-ad-join"></a>Kontrollerad verifiering av Azure AD-anslutningshybrid
 
@@ -72,7 +72,7 @@ Använd följande exempel för att skapa ett grupprincip objekt (GPO) för att d
       1. Nyckel Sök väg: **SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ\AAD**
       1. Värde namn: **TenantName**
       1. Värdetyp: **REG_SZ**
-      1. Värde data: Ditt verifierade **domän namn** om du använder federerade miljöer som AD FS. Ditt verifierade * * domän namn "" eller ditt onmicrosoft.com domän namn, till `contoso.onmicrosoft.com` exempel, om du använder en hanterad miljö
+      1. Värde data: Ditt verifierade **domän namn** om du använder federerade miljöer som AD FS. Ditt verifierade **domän namn** eller ditt onmicrosoft.com domän namn till exempel `contoso.onmicrosoft.com` om du använder en hanterad miljö
    1. Klicka på **OK**
 1. Stäng Redigeraren för det nyligen skapade GRUPPRINCIPOBJEKTet
 1. Länka det nyligen skapade GRUPPRINCIPOBJEKTet till den önskade ORGANISATIONSENHETen som innehåller domänanslutna datorer som tillhör din kontrollerade installations population

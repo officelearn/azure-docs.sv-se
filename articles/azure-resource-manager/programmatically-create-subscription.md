@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 04/10/2019
 ms.author: jureid
-ms.openlocfilehash: 701b35d99cb98009ec0116c23eaeab94ff967f51
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: d6ae863aed629f5f5b1497d5a6e0f8108f4703c8
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68678940"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68848703"
 ---
 # <a name="programmatically-create-azure-enterprise-subscriptions-preview"></a>Skapa Azure Enterprise-prenumerationer program mässigt (för hands version)
 
@@ -69,7 +69,7 @@ Azure svarar med en lista över alla registrerings konton som du har åtkomst ti
 }
 ```
 
-`principalName` Använd egenskapen för att identifiera det konto som du vill debitera prenumerationer på. Kopiera kontot `name` för det kontot. Om du till exempel vill skapa prenumerationer under SignUpEngineering@contoso.com registrerings kontot kopierar ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```du. Detta är objekt-ID: t för registrerings kontot. Klistra in det här värdet någonstans så att du kan använda det i nästa steg `enrollmentAccountObjectId`som.
+`principalName` Använd egenskapen för att identifiera det konto som du vill debitera prenumerationer på. Kopiera kontot `name` för det kontot. Om du till exempel vill skapa prenumerationer under SignUpEngineering@contoso.com registrerings kontot kopierar ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```du. Den här identifieraren är objekt-ID: t för registrerings kontot. Klistra in det här värdet någonstans så att du kan använda det i nästa steg `enrollmentAccountObjectId`som.
 
 ## <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -117,7 +117,7 @@ Azure svarar med en lista med registrerings konton som du har åtkomst till:
 ]
 ```
 
-`principalName` Använd egenskapen för att identifiera det konto som du vill debitera prenumerationer på. Kopiera kontot `name` för det kontot. Om du till exempel vill skapa prenumerationer under SignUpEngineering@contoso.com registrerings kontot kopierar ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```du. Detta är objekt-ID: t för registrerings kontot. Klistra in det här värdet någonstans så att du kan använda det i nästa steg `enrollmentAccountObjectId`som.
+`principalName` Använd egenskapen för att identifiera det konto som du vill debitera prenumerationer på. Kopiera kontot `name` för det kontot. Om du till exempel vill skapa prenumerationer under SignUpEngineering@contoso.com registrerings kontot kopierar ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```du. Den här identifieraren är objekt-ID: t för registrerings kontot. Klistra in det här värdet någonstans så att du kan använda det i nästa steg `enrollmentAccountObjectId`som.
 
 ---
 
@@ -201,7 +201,7 @@ Om du vill se en fullständig lista över alla parametrar, se [AZ Account Create
 ## <a name="limitations-of-azure-enterprise-subscription-creation-api"></a>Begränsningar för Azures API för att skapa prenumerationer
 
 - Det går bara att skapa Azure Enterprise-prenumerationer med det här API: et.
-- Det finns en gräns på 200 prenumerationer per registrerings konto. Efter det kan prenumerationer bara skapas via konto Center. Skapa ett annat registrerings konto om du vill skapa fler prenumerationer via API: et.
+- Det finns en gräns på 200 prenumerationer per registrerings konto. Därefter kan du bara skapa fler prenumerationer för kontot via konto Center. Skapa ett annat registrerings konto om du vill skapa fler prenumerationer via API: et.
 - Användare som inte är konto ägare, men som har lagts till i ett registrerings konto via RBAC, kan inte skapa prenumerationer med hjälp av konto centret.
 - Du kan inte välja klienten för den prenumeration som ska skapas i. Prenumerationen skapas alltid i konto ägarens hem klient. Information om hur du flyttar prenumerationen till en annan klient finns i [ändra prenumerations klient](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 

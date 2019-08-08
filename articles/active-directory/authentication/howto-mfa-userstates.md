@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54146927bf344eed63e24a3df073aa13f7fa0676
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 98a339f3fe9d5318b71ef60ac916bc4dcc6112fb
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68319914"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68853743"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>Så här kräver du tvåstegsverifiering för en användare
 
@@ -45,11 +45,11 @@ Användar konton i Azure Multi-Factor Authentication har följande tre distinkta
 |:---:|:---:|:---:|:--:|:--:|
 | Inaktiverad |Standard läget för en ny användare som inte har registrerats i Azure MFA. |Nej |Nej |Nej |
 | Aktiverad |Användaren har registrerats i Azure MFA, men har inte registrerats. De får ett meddelande om att registrera sig nästa gången de loggar in. |Nej.  De fortsätter att fungera tills registrerings processen har slutförts. | Ja. När sessionen har gått ut krävs Azure MFA-registrering.| Ja. När åtkomsttoken upphör att gälla krävs Azure MFA-registrering. |
-| Enforced |Användaren har registrerats och slutfört registrerings processen för Azure MFA. |Ja. Appar kräver applösenord. |Ja. Azure MFA krävs vid inloggning. | Ja. Azure MFA krävs vid inloggning. |
+| Framtvingat |Användaren har registrerats och slutfört registrerings processen för Azure MFA. |Ja. Appar kräver applösenord. |Ja. Azure MFA krävs vid inloggning. | Ja. Azure MFA krävs vid inloggning. |
 
 En användares tillstånd visar om en administratör har registrerat dem i Azure MFA och om de har slutfört registrerings processen.
 
-Alla användare börjar vara inaktiverade. När du registrerar användare i Azure MFA ändras deras status till *aktive rad*. När aktiverade användare loggar in och slutför registrerings processen ändras deras status till tvingande .  
+Alla användare börjar varainaktiverade. När du registrerar användare i Azure MFA ändras deras status till *aktive rad*. När aktiverade användare loggar in och slutför registrerings processen ändras deras status till tvingande.  
 
 ### <a name="view-the-status-for-a-user"></a>Visa status för en användare
 
@@ -72,7 +72,7 @@ Använd följande steg för att komma åt sidan där du kan visa och hantera anv
    ![Aktivera den valda användaren genom att klicka på Aktivera på snabb stegs menyn](./media/howto-mfa-userstates/user1.png)
 
    > [!TIP]
-   > *Aktiverade* användare växlas automatiskt till att *tillämpas* när de registrerar sig för Azure MFA. Ändra inte användar tillstånd manuellt till tvingande .
+   > *Aktiverade* användare växlas automatiskt till att *tillämpas* när de registrerar sig för Azure MFA. Ändra inte användar tillstånd manuellt till tvingande.
 
 5. Bekräfta ditt val i popup-fönstret som öppnas.
 
@@ -142,11 +142,7 @@ Följande PowerShell kan hjälpa dig att göra konverteringen till villkorlig å
 # Disable MFA for all users, keeping their MFA methods intact
 Get-MsolUser -All | Disable-MFA -KeepMethods
 
-# Enforce MFA for all users
-Get-MsolUser -All | Set-MfaState -State Enforced
-
-# Wrapper to disable MFA with the option to keep the MFA
-# methods (to avoid having to proof-up again later)
+# Wrapper to disable MFA with the option to keep the MFA methods (to avoid having to proof-up again later)
 function Disable-Mfa {
 
     [CmdletBinding()]

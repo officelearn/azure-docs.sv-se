@@ -1,29 +1,28 @@
 ---
-title: Överföra data till eller från Azure Files med hjälp av AzCopy v10 | Microsoft Docs
-description: Överföra data med AzCopy och fillagring.
-services: storage
+title: Överföra data till eller från Azure Files med AzCopy v10 | Microsoft Docs
+description: Överföra data med AzCopy och fil lagring.
 author: normesta
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 69d7136396c3d989e63b8956d3e703cc7f9666c8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: eeac35cb96f5001e9ad318d8fe03927d0cd9394e
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66687928"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68844805"
 ---
-# <a name="transfer-data-with-azcopy-and-file-storage"></a>Överföra data med AzCopy och fillagring 
+# <a name="transfer-data-with-azcopy-and-file-storage"></a>Överföra data med AzCopy och fil lagring 
 
-AzCopy är ett kommandoradsverktyg som du kan använda för att kopiera blobar och filer till eller från ett lagringskonto. Den här artikeln innehåller exempel på kommandon som fungerar med Azure Files.
+AzCopy är ett kommando rads verktyg som du kan använda för att kopiera blobbar eller filer till eller från ett lagrings konto. Den här artikeln innehåller exempel kommandon som fungerar med Azure Files.
 
-Innan du kan se den [Kom igång med AzCopy](storage-use-azcopy-v10.md) artikeln om du vill hämta AzCopy och bekanta dig med verktyget.
+Innan du börjar kan du läsa artikeln [Kom igång med AZCopy](storage-use-azcopy-v10.md) för att hämta AzCopy och bekanta dig med verktyget.
 
-## <a name="create-file-shares"></a>Skapa filresurser
+## <a name="create-file-shares"></a>Skapa fil resurser
 
-Du kan använda AzCopy `make` kommando för att skapa en filresurs. I exemplet i det här avsnittet skapar en filresurs med namnet `myfileshare`.
+Du kan använda kommandot AzCopy `make` för att skapa en fil resurs. Exemplet i det här avsnittet skapar en fil resurs med `myfileshare`namnet.
 
 |    |     |
 |--------|-----------|
@@ -32,19 +31,19 @@ Du kan använda AzCopy `make` kommando för att skapa en filresurs. I exemplet i
 
 ## <a name="upload-files"></a>Överföra filer
 
-Du kan använda AzCopy `copy` kommando för att ladda upp filer och kataloger från din lokala dator.
+Du kan använda kommandot AzCopy `copy` för att ladda upp filer och kataloger från den lokala datorn.
 
 Det här avsnittet innehåller följande exempel:
 
 > [!div class="checklist"]
-> * Överför en fil
+> * Ladda upp en fil
 > * Ladda upp en katalog
-> * Ladda upp filer med jokertecken
+> * Ladda upp filer med hjälp av jokertecken
 
 > [!NOTE]
-> AzCopy inte automatiskt beräkna och lagra filens md5-hash-kod. Om du vill AzCopy för att göra det, lägger till den `--put-md5` flagga för att varje kopia-kommando. På så sätt kan när filen har hämtats, AzCopy beräknar en MD5-hash för nedladdade data och verifierar att MD5-hash som lagras i filens `Content-md5` -egenskap stämmer med den beräknade hashen.
+> AzCopy beräknar och lagrar inte filens MD5-hash-kod automatiskt. Om du vill att AzCopy ska göra det lägger `--put-md5` du till flaggan i varje Copy-kommando. När filen har hämtats beräknar AzCopy en MD5-hash för hämtade data och verifierar att MD5-hashen som lagras i filens `Content-md5` egenskap matchar det beräknade hash-värdet.
 
-### <a name="upload-a-file"></a>Överför en fil
+### <a name="upload-a-file"></a>Ladda upp en fil
 
 |    |     |
 |--------|-----------|
@@ -53,24 +52,24 @@ Det här avsnittet innehåller följande exempel:
 
 ### <a name="upload-a-directory"></a>Ladda upp en katalog
 
-Det här exemplet kopierar en katalog (och alla filer i den katalogen) till en filresurs. Resultatet är en katalog i filresursen med samma namn.
+I det här exemplet kopieras en katalog (och alla filer i katalogen) till en fil resurs. Resultatet är en katalog i fil resursen med samma namn.
 
 |    |     |
 |--------|-----------|
 | **Syntax** | `azcopy copy "<local-directory-path>" "https://<storage-account-name>.file.core.windows.net/<file-share-name>?<SAS-token>" --recursive` |
 | **Exempel** | `azcopy copy "C:\myDirectory" "https://mystorageaccount.file.core.windows.net/myfileshare?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D" --recursive` |
 
-Kopiera till en katalog i filresursen genom att ange namnet på katalogen bara i kommandosträng.
+Om du vill kopiera till en katalog i fil resursen anger du bara namnet på den katalogen i kommando strängen.
 
 |    |     |
 |--------|-----------|
 | **Exempel** | `azcopy copy "C:\myDirectory" "https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D" --recursive` |
 
-Om du anger namnet på en katalog som inte finns i filresursen, skapar en ny katalog med det namnet i AzCopy.
+Om du anger namnet på en katalog som inte finns i fil resursen, skapar AzCopy en ny katalog med det namnet.
 
 ### <a name="upload-the-contents-of-a-directory"></a>Ladda upp innehållet i en katalog
 
-Du kan ladda upp innehållet i en katalog utan att kopiera katalogen som innehåller själva med hjälp av jokertecknet (*).
+Du kan ladda upp innehållet i en katalog utan att kopiera den innehåller själva katalogen med jokertecknet (*).
 
 |    |     |
 |--------|-----------|
@@ -78,23 +77,23 @@ Du kan ladda upp innehållet i en katalog utan att kopiera katalogen som innehå
 | **Exempel** | `azcopy copy "C:\myDirectory\*" "https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D"` |
 
 > [!NOTE]
-> Lägg till den `--recursive` flagga för att ladda upp filer i alla underkataloger.
+> Lägg till `--recursive` flaggan för att ladda upp filer i alla under kataloger.
 
 ## <a name="download-files"></a>Hämta filer
 
-Du kan använda AzCopy `copy` kommando för att hämta filer, kataloger och filen delar till din lokala dator.
+Du kan använda kommandot AzCopy `copy` för att ladda ned filer, kataloger och fil resurser till den lokala datorn.
 
 Det här avsnittet innehåller följande exempel:
 
 > [!div class="checklist"]
-> * Hämta en fil
+> * Ladda ned en fil
 > * Ladda ned en katalog
-> * Ladda ned filer med jokertecken
+> * Ladda ned filer med hjälp av jokertecken
 
 > [!NOTE]
-> Om den `Content-md5` egenskapsvärdet för en fil som innehåller ett hash-värde, AzCopy beräknar en MD5-hash för hämtade data och verifierar att MD5-hash som lagras i filens `Content-md5` -egenskap stämmer med den beräknade hashen. Om värdena inte matchar nedladdningen inte såvida du inte åsidosätter det här beteendet genom att lägga till `--check-md5=NoCheck` eller `--check-md5=LogOnly` till kopieringskommandot.
+> Om egenskap svärdet för en fil innehåller en hash, beräknar AzCopy en MD5-hash för hämtade data och kontrollerar att MD5-hashen som lagras i `Content-md5` filens egenskap matchar det beräknade hashvärdet. `Content-md5` Om dessa värden inte matchar, Miss lyckas nedladdningen om du inte åsidosätter det här `--check-md5=NoCheck` beteendet genom att lägga till eller `--check-md5=LogOnly` till kommandot Kopiera.
 
-### <a name="download-a-file"></a>Hämta en fil
+### <a name="download-a-file"></a>Ladda ned en fil
 
 |    |     |
 |--------|-----------|
@@ -108,11 +107,11 @@ Det här avsnittet innehåller följande exempel:
 | **Syntax** | `azcopy copy "https://<storage-account-name>.file.core.windows.net/<file-share-name>/<directory-path>?<SAS-token>" "<local-directory-path>" --recursive` |
 | **Exempel** | `azcopy copy "https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D" "C:\myDirectory"  --recursive` |
 
-Det här exemplet resulterar i en katalog med namnet `C:\myDirectory\myFileShareDirectory` som innehåller alla hämtade filer.
+Det här exemplet resulterar i en katalog `C:\myDirectory\myFileShareDirectory` med namnet som innehåller alla hämtade filer.
 
-### <a name="download-the-contents-of-a-directory"></a>Ladda ned innehållet i en katalog
+### <a name="download-the-contents-of-a-directory"></a>Hämta innehållet i en katalog
 
-Du kan hämta innehållet i en katalog utan att kopiera katalogen som innehåller själva med hjälp av jokertecknet (*).
+Du kan ladda ned innehållet i en katalog utan att kopiera den innehåller själva katalogen genom att använda jokertecknet (*).
 
 |    |     |
 |--------|-----------|
@@ -120,16 +119,16 @@ Du kan hämta innehållet i en katalog utan att kopiera katalogen som innehålle
 | **Exempel** | `azcopy copy "https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareDirectory/*?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D" "C:\myDirectory"` |
 
 > [!NOTE]
-> Lägg till den `--recursive` flagga för att ladda ned filer i alla underkataloger.
+> Lägg till `--recursive` flaggan för att ladda ned filer i alla under kataloger.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Hitta fler exempel på någon av följande artiklar:
+Hitta fler exempel i någon av följande artiklar:
 
 - [Kom igång med AzCopy](storage-use-azcopy-v10.md)
 
-- [Överföra data med AzCopy och blob storage](storage-use-azcopy-blobs.md)
+- [Överföra data med AzCopy och Blob Storage](storage-use-azcopy-blobs.md)
 
-- [Överföra data med AzCopy och Amazon S3 buckets](storage-use-azcopy-s3.md)
+- [Överföra data med AzCopy och Amazon S3-buckets](storage-use-azcopy-s3.md)
 
 - [Konfigurera, optimera och felsöka AzCopy](storage-use-azcopy-configure.md)

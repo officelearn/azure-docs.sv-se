@@ -1,7 +1,7 @@
 ---
-title: 'Hur du använder API: T för Avvikelseidentifiering detektor på time series-data'
+title: 'Använda API: t för avvikelse detektor i dina tids serie data'
 titleSuffix: Azure Cognitive Services
-description: Lär dig att identifiera avvikelser i dina data som en batch eller på strömmande data.
+description: Lär dig hur du identifierar avvikelser i dina data antingen som en batch eller strömmande data.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,65 +10,65 @@ ms.subservice: anomaly-detector
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: aahi
-ms.openlocfilehash: 551196815004cb047680e2ae2f8dbe32186c1a0c
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 4b97c52ec0ed076e1ab8aeada90f430b8ed87514
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67721789"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854794"
 ---
-# <a name="how-to-use-the-anomaly-detector-api-on-your-time-series-data"></a>Anvisningar: Använda API: T för Avvikelseidentifiering detektor på time series-data  
+# <a name="how-to-use-the-anomaly-detector-api-on-your-time-series-data"></a>Anvisningar: Använd API: t för avvikelse detektor i dina Time Series-data  
 
-Den [Avvikelseidentifiering detektor API](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector/operations/post-timeseries-entire-detect) erbjuder två metoder för avvikelseidentifiering. Du kan antingen identifiera avvikelser som en batch i hela din gånger serien, eller som dina data som genereras av identifiering av avvikelser status för den senaste datapunkten. Identifiering av modellen returnerar avvikelseidentifiering resultat tillsammans med varje datapunkt förväntat värde och avvikelseidentifiering för övre och nedre gränserna för identifiering. Du kan använda dessa värden för att visualisera intervallet för normal värden och inkonsekvenser i data.
+[API: t för avvikelse detektor](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector/operations/post-timeseries-entire-detect) ger två metoder för avvikelse identifiering. Du kan antingen identifiera avvikelser som en batch i hela tids serien eller när dina data genereras genom att identifiera avvikelse status för den senaste data punkten. Identifierings modellen returnerar avvikelse resultat tillsammans med varje data punkts förväntade värde och de övre och lägre avvikelse identifierings gränserna. Du kan använda dessa värden för att visualisera intervallet av normala värden och avvikelser i data.
 
-## <a name="anomaly-detection-modes"></a>Lägen för identifiering av avvikelser 
+## <a name="anomaly-detection-modes"></a>Avvikelse identifierings lägen 
 
-API: T för Avvikelseidentifiering detektor får identifiering lägen: batch- och strömning.
+API: t för avvikelse detektor tillhandahåller identifierings lägen: batch och strömning.
 
 > [!NOTE]
-> Följande begäran URL: er måste kombineras med lämplig slutpunkt för din prenumeration. Exempel: `https://westus2.api.cognitive.microsoft.com/anomalydetector/v1.0/timeseries/entire/detect`
+> Följande URL-adresser för begäran måste kombineras med lämplig slut punkt för din prenumeration. Exempel: `https://westus2.api.cognitive.microsoft.com/anomalydetector/v1.0/timeseries/entire/detect`
 
 
 ### <a name="batch-detection"></a>Batch-identifiering
 
-Använd följande begärande-URI för att identifiera avvikelser i en batch med datapunkter över en viss tidsperiod med time series-data: 
+Om du vill identifiera avvikelser i en batch med data punkter under ett angivet tidsintervall använder du följande URI för begäran med dina tids serie data: 
 
 `/timeseries/entire/detect`. 
 
-Genom att skicka din time series-data på samma gång, ska API: et Generera en modell med hela serien och analysera varje datapunkt med den.  
+Genom att skicka dina Time Series-data samtidigt genererar API: t en modell med hela serien och analyserar varje data punkt med den.  
 
 ### <a name="streaming-detection"></a>Strömmande identifiering
 
-Använd följande begärande-URI för att identifiera avvikelser på strömmande data kontinuerligt, med dina senaste datapunkt: 
+För att kontinuerligt identifiera avvikelser vid strömmande data använder du följande URI för begäran med din senaste data punkt: 
 
 `/timeseries/last/detect'`. 
 
-Genom att skicka nya datapunkter som du skapa dem, kan du övervaka dina data i realtid. En modell kommer att genereras med datapunkter som du skickar och API: et avgör om den senaste tidpunkten i tidsserien är en avvikelse.
+Genom att skicka nya data punkter när du genererar dem kan du övervaka dina data i real tid. En modell skapas med de data punkter som du skickar och API: et avgör om den senaste punkten i tids serien är en avvikelse.
 
-## <a name="adjusting-lower-and-upper-anomaly-detection-boundaries"></a>Justera lägre och övre avvikelseidentifiering identifiering av gränser
+## <a name="adjusting-lower-and-upper-anomaly-detection-boundaries"></a>Justera nedre och övre avvikelse identifierings gränser
 
-Som standard övre och nedre gränserna för avvikelseidentifiering beräknas med hjälp av `expectedValue`, `upperMargin`, och `lowerMargin`. Om du behöver olika gränser, rekommenderar vi att tillämpa en `marginScale` till `upperMargin` eller `lowerMargin`. Gränserna kan beräknas enligt följande:
+Som standard beräknas de övre och nedre gränserna för avvikelse identifiering med `expectedValue`, `upperMargin`och `lowerMargin`. Om du behöver olika gränser rekommenderar vi att du använder `marginScale` en `upperMargin` till `lowerMargin`eller. Gränserna beräknas enligt följande:
 
 |Gräns  |Beräkning  |
 |---------|---------|
 |`upperBoundary` | `expectedValue + (100 - marginScale) * upperMargin`        |
 |`lowerBoundary` | `expectedValue - (100 - marginScale) * lowerMargin`        |
 
-I följande exempel visas ett Avvikelseidentifiering detektor API-resultat på olika sensitivities.
+I följande exempel visas ett API-resultat för avvikelse detektor vid olika sensitivities.
 
 ### <a name="example-with-sensitivity-at-99"></a>Exempel med känslighet vid 99
 
 ![Standard känslighet](../media/sensitivity_99.png)
 
-### <a name="example-with-sensitivity-at-95"></a>Exempel med känslighet på 95
+### <a name="example-with-sensitivity-at-95"></a>Exempel med känslighet vid 95
 
-![99 känslighet](../media/sensitivity_95.png)
+![99-känslighet](../media/sensitivity_95.png)
 
-### <a name="example-with-sensitivity-at-85"></a>Exempel med känslighet på 85
+### <a name="example-with-sensitivity-at-85"></a>Exempel med känslighet vid 85
 
-![85 känslighet](../media/sensitivity_85.png)
+![85-känslighet](../media/sensitivity_85.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Vad är API: T för Avvikelseidentifiering detektor?](../overview.md)
-* [Snabbstart: Identifiera avvikelser i dina time series-data med hjälp av Avvikelseidentifiering detektor REST API](../quickstarts/detect-data-anomalies-csharp.md)
+* [Vad är API: t för avvikelse detektor?](../overview.md)
+* [Snabbstart: Identifiera avvikelser i dina tids serie data med hjälp av avvikelse detektor REST API](../quickstarts/detect-data-anomalies-csharp.md)

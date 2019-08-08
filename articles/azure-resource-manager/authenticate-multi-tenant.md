@@ -1,41 +1,41 @@
 ---
-title: Autentisera över klienter – Azure Resource Manager
-description: Beskriver hur Azure Resource Manager hanterar begäranden om autentisering över klienter.
+title: Autentisera mellan klienter – Azure Resource Manager
+description: Beskriver hur Azure Resource Manager hanterar autentiseringsbegäranden över klienter.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: tomfitz
-ms.openlocfilehash: 5370b9b6d6a8bee82f8feca6dbcbcd78a4c12193
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 625a17156eaf199af0d51151c6fd37769b8f7b4a
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205617"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68848758"
 ---
-# <a name="authenticate-requests-across-tenants"></a>Autentisera begäranden över klienter
+# <a name="authenticate-requests-across-tenants"></a>Autentisera begär anden över klienter
 
-När du skapar ett program med flera innehavare, kan du behöva hantera autentiseringsbegäranden för resurser som finns i olika klienter. Ett vanligt scenario är när en virtuell dator i en klient måste ansluta ett virtuellt nätverk i en annan klient. Azure Resource Manager tillhandahåller ett huvudvärde för att lagra extra token för att autentisera begäranden till olika klienter.
+När du skapar ett program med flera klienter kan du behöva hantera autentiseringsbegäranden för resurser som finns i olika klienter. Ett vanligt scenario är när en virtuell dator i en klient måste anslutas till ett virtuellt nätverk i en annan klient. Azure Resource Manager innehåller ett huvud värde för lagring av hjälp-token för att autentisera begär anden till olika klienter.
 
-## <a name="header-values-for-authentication"></a>Huvudvärden för autentisering
+## <a name="header-values-for-authentication"></a>Huvud värden för autentisering
 
-Begäran har följande värden i huvudet autentisering:
+Begäran har följande värden för Authentication-huvud:
 
 | Huvudnamn | Beskrivning | Exempelvärde |
 | ----------- | ----------- | ------------ |
-| Auktorisering | Primära token | Ägar &lt;primära-token&gt; |
-| x-ms-authorization-auxiliary | Extra token | Ägar &lt;assistent token1&gt;; Detta EncryptedBearer &lt;assistent token2&gt;; Ägar &lt;assistent token3&gt; |
+| Authorization | Primär token | &lt;Primär token för Bearer&gt; |
+| x-ms-authorization-auxiliary | Extra token | &gt; &lt;&gt;Bearer-token1, EncryptedBearer-tillägg – token2, Bearer &lt;-token3 &lt;&gt; |
 
-Extra huvudet kan innehålla upp till tre extra token. 
+Tilläggs huvudet kan innehålla upp till tre hjälp-token. 
 
-Hämta autentiseringen åtkomsttoken för andra klienter i koden för din app för flera klienter, och lagra dem i de extra rubrikerna. Alla token måste komma från samma användare eller program. Användarens eller programmets måste har bjudits in som en gäst till att andra klienter.
+I koden för din app för flera klienter hämtar du autentiseringstoken för andra klienter och lagrar dem i hjälp rubrikerna. Alla tokens måste vara från samma användare eller program. Användaren eller programmet måste ha bjudits in som gäst till andra klienter.
 
-## <a name="processing-the-request"></a>Bearbetning av begäran
+## <a name="processing-the-request"></a>Bearbetar begäran
 
-När din app skickar en begäran till Resource Manager, kör begäran under identiteten från det primära token. Det primära token måste vara giltig och läggs. Den här token måste vara från en klient som kan hantera prenumerationen.
+När din app skickar en begäran till Resource Manager, körs begäran under identiteten från den primära-token. Den primära token måste vara giltig och ha upphört att gälla. Denna token måste vara från en klient som kan hantera prenumerationen.
 
-När begäran refererar till en resurs från en annan klient, kontrollerar Resource Manager de extra token för att avgöra om begäran kan bearbetas. Alla extra token i rubriken måste vara giltig och läggs. Om alla token har upphört att gälla, returnerar Resource Manager 401 svarskod. Svaret innehåller klient-ID och klient-ID från den token som är inte giltig. Om det extra huvudet innehåller en giltig token för klienten, bearbetas mellan klientbegäran.
+När begäran refererar till en resurs från en annan klient kontrollerar Resource Manager de extra token för att avgöra om begäran kan bearbetas. Alla extra token i huvudet måste vara giltiga och har inte gått ut. Om någon token har upphört att gälla returnerar Resource Manager en 401-svarskod. Svaret innehåller klient-ID och klient-ID från den token som inte är giltig. Om tilläggs huvudet innehåller en giltig token för klienten, bearbetas begäran om flera innehavare.
 
 ## <a name="next-steps"></a>Nästa steg
-* Läs om hur du skickar begäranden om autentisering med Azure Resource Manager API: er i [autentisering använda Resource Manager API att få åtkomst till prenumerationer](resource-manager-api-authentication.md).
-* Mer information om token finns i [åtkomsttoken för Azure Active Directory](/azure/active-directory/develop/access-tokens).
+* Information om hur du skickar autentiseringsbegäranden med Azure Resource Manager-API: er finns i [använda Resource Manager Authentication API för att få åtkomst till prenumerationer](resource-manager-api-authentication.md).
+* Mer information om tokens finns [Azure Active Directory åtkomsttoken](/azure/active-directory/develop/access-tokens).

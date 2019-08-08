@@ -1,6 +1,6 @@
 ---
-title: Tilldela en användare eller grupp till en enterprise-app i Azure Active Directory | Microsoft Docs
-description: Så här väljer du en företagsapp att tilldela en användare eller grupp till den i Azure Active Directory
+title: Tilldela en användare eller grupp till en Enterprise-App i Azure Active Directory | Microsoft Docs
+description: Så här väljer du en företags app för att tilldela en användare eller grupp till den i Azure Active Directory
 services: active-directory
 author: msmimart
 manager: CelesteDG
@@ -12,60 +12,62 @@ ms.date: 04/11/2019
 ms.author: mimart
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 249dfeeb231c61b05af2e89f0dc02822cc18e627
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 15f7e830079c224e9e15dd45d14c1741376f8762
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67702176"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68851700"
 ---
-# <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>Tilldela en användare eller grupp till en enterprise-app i Azure Active Directory
+# <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>Tilldela en användare eller grupp till en företags app i Azure Active Directory
 
-Om du vill tilldela en användare eller grupp till en företagsapp, du måste ha behörighet att hantera appen enterprise och du måste vara global administratör för katalogen. For Microsoft Applications (till exempel Office 365-appar), använder du PowerShell för att tilldela användare till en företagsapp.
+Om du vill tilldela en användare eller grupp till en företags app måste du ha rätt behörighet för att hantera företags appen och du måste vara global administratör för katalogen. För Microsoft-program (till exempel Office 365-appar) använder du PowerShell för att tilldela användare till en företags app.
 
 > [!NOTE]
-> Licensieringskrav för de funktioner som beskrivs i den här artikeln, finns i den [sidan med priser för Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory).
+> För licensierings krav för de funktioner som beskrivs i den här artikeln, se [sidan Azure Active Directory prissättning](https://azure.microsoft.com/pricing/details/active-directory).
 
-## <a name="assign-a-user-to-an-app---portal"></a>Tilldela en användare till en app – portal
+## <a name="assign-a-user-to-an-app---portal"></a>Tilldela en användare till en app – Portal
 
 1. Logga in på [Azure Portal](https://portal.azure.com) med ett konto som är en global administratör för katalogen.
-1. Välj **alla tjänster**, ange Azure Active Directory i textrutan och välj sedan **RETUR**.
-1. Välj **företagsprogram**.
-1. På den **företagsprogram – alla program** fönstret visas en lista över appar som du kan hantera. Välj en app.
-1. På den ***appname*** (det vill säga i rutan med namnet på den valda appen i rubriken) väljer **användare och grupper**.
-1. På den ***appname*** **-användare och grupper** väljer **Lägg till användare**.
-1. På den **Lägg till tilldelning** väljer **användare och grupper**.
+1. Välj **alla tjänster**, ange Azure Active Directory i text rutan och välj sedan **RETUR**.
+1. Välj **företags program**.
+1. I fönstret **företags program – alla program** visas en lista över de appar som du kan hantera. Välj en app.
+1. I fönstret ***APPNAME*** (det vill säga fönstret med namnet på den valda appen i rubriken) väljer **du användare & grupper**.
+1. I fönstret ***APPNAME*** **-User och Groups** väljer du **Lägg till användare**.
+1. I fönstret **Lägg till tilldelning** väljer **du användare och grupper**.
 
    ![Tilldela en användare eller grupp till appen](./media/assign-user-or-group-access-portal/assign-users.png)
 
-1. På den **användare och grupper** fönstret, Välj en eller flera användare eller grupper i listan och välj sedan den **Välj** knappen längst ned i fönstret.
-1. På den **Lägg till tilldelning** väljer **rollen**. Klicka på den **Välj roll** fönstret, Välj en roll ska tillämpas på de valda användare eller grupper, välj sedan **OK** längst ned i fönstret.
-1. På den **Lägg till tilldelning** väljer den **tilldela** knappen längst ned i fönstret. Tilldelade användare eller grupper som har de behörigheter som definieras av den valda rollen för den här enterprise-appen.
+1. I fönstret **användare och grupper** väljer du en eller flera användare eller grupper i listan och väljer sedan knappen **Välj** längst ned i fönstret.
+1. I fönstret **Lägg till tilldelning** väljer du **roll**. Välj sedan en roll som ska gälla för de valda användarna eller grupperna i fönstret **Välj roll** och välj sedan **OK** längst ned i fönstret.
+1. I fönstret **Lägg till tilldelning** väljer du knappen **tilldela** längst ned i fönstret. Tilldelade användare eller grupper har de behörigheter som definieras av den valda rollen för den här företags appen.
 
-## <a name="allow-all-users-to-access-an-app---portal"></a>Tillåt alla användare åtkomst till en app – portal
+## <a name="allow-all-users-to-access-an-app---portal"></a>Ge alla användare åtkomst till en app – Portal
 
 1. Logga in på [Azure Portal](https://portal.azure.com) med ett konto som är en global administratör för katalogen.
-1. Välj **alla tjänster**, ange Azure Active Directory i textrutan och välj sedan **RETUR**.
-1. Välj **företagsprogram**.
-1. På den **företagsprogram** väljer **alla program**. Här visas de appar som du kan hantera.
-1. På den **företagsprogram – alla program** fönstret väljer du en app.
-1. På den ***appname*** väljer **egenskaper**.
-1. På den  ***appname* -egenskaper** fönstret, ange den **Användartilldelning krävs?** att ställa in **nr**.
+1. Välj **alla tjänster**, ange Azure Active Directory i text rutan och välj sedan **RETUR**.
+1. Välj **företags program**.
+1. I fönstret **företags program** väljer du **alla program**. Här visas de appar som du kan hantera.
+1. Välj en app i fönstret **företags program – alla program** .
+1. I fönstret ***APPNAME*** väljer du **Egenskaper**.
+1. I fönstret  ***APPNAME* -Properties** ställer du in **användar tilldelning krävs?** inställningen till **Nej**.
 
-Den **Användartilldelning krävs?** alternativet:
+**Användar tilldelning krävs?** alternativ:
 
-- Påverkar inte om huruvida ett program visas på programåtkomstpanelen. Om du vill visa programmet på åtkomstpanelen, måste du tilldela en lämplig användare eller grupp till programmet.
-- Endast fungerar med molnprogram som är konfigurerade för SAML enkel inloggning och lokala program som har konfigurerats med programproxy. Se [enkel inloggning för program](what-is-single-sign-on.md).
-- Kräver att användarna samtycker till ett program. En administratör kan ge samtycke för alla användare.  Se [konfigurera sätt slutanvändarna samtycka till ett program](configure-user-consent.md).
+- Om det här alternativet är inställt på Ja måste användarna först tilldelas till det här programmet innan de kan komma åt det.
+- Om det här alternativet är inställt på Nej kommer alla användare som navigerar till programmets URL för djup länk eller program-URL direkt beviljas åtkomst
+- Påverkar inte om ett program visas på program åtkomst panelen. Om du vill visa programmet på åtkomst panelen måste du tilldela en lämplig användare eller grupp till programmet.
+- Fungerar endast med moln program som är konfigurerade för SAML enkel inloggning, programproxy-program som använder Azure Active Directory förautentisering eller program som skapats direkt på Azure AD-programplattformen som använder OAuth 2,0/ OpenID Connect-autentisering när en användare eller administratör har samtyckt till det programmet. Se [enkel inloggning för program](what-is-single-sign-on.md). Mer information finns i [Konfigurera hur slutanvändare godkänner ett program](configure-user-consent.md).
+- Det här alternativet har ingen påverkan när ett program har kon figurer ATS för något annat läge för enkel inloggning.
 
 ## <a name="assign-a-user-to-an-app---powershell"></a>Tilldela en användare till en app – PowerShell
 
-1. Öppna en upphöjd Windows PowerShell-kommandotolk.
+1. Öppna en upphöjd kommando tolk i Windows PowerShell.
 
    > [!NOTE]
-   > Du måste installera AzureAD-modulen (Använd kommandot `Install-Module -Name AzureAD`). Om du uppmanas att installera en NuGet-modul eller den nya Azure Active Directory PowerShell V2-modulen, Y och tryck på RETUR.
+   > Du måste installera AzureAD-modulen (Använd kommandot `Install-Module -Name AzureAD`). Om du uppmanas att installera en NuGet-modul eller den nya Azure Active Directory v2 PowerShell-modulen skriver du Y och trycker på RETUR.
 
-1. Kör `Connect-AzureAD` och logga in med ett användarkonto för Global administratör.
+1. Kör `Connect-AzureAD` och logga in med ett globalt administratörs användar konto.
 1. Använd följande skript för att tilldela en användare och roll till ett program:
 
     ```powershell
@@ -83,15 +85,15 @@ Den **Användartilldelning krävs?** alternativet:
     New-AzureADUserAppRoleAssignment -ObjectId $user.ObjectId -PrincipalId $user.ObjectId -ResourceId $sp.ObjectId -Id $appRole.Id
     ```
 
-Mer information om hur du tilldelar en användare till en programroll finns i dokumentationen för [New-AzureADUserAppRoleAssignment](https://docs.microsoft.com/powershell/module/azuread/new-azureaduserapproleassignment?view=azureadps-2.0)
+Mer information om hur du tilldelar en användare till en program roll finns i dokumentationen för [New-AzureADUserAppRoleAssignment](https://docs.microsoft.com/powershell/module/azuread/new-azureaduserapproleassignment?view=azureadps-2.0)
 
-Om du vill tilldela en grupp till en företagsapp, du måste ersätta `Get-AzureADUser` med `Get-AzureADGroup`.
+Om du vill tilldela en grupp till en företags-app måste du `Get-AzureADUser` ersätta `Get-AzureADGroup`med.
 
 ### <a name="example"></a>Exempel
 
-Det här exemplet tilldelar användare Britta Simon till den [Microsoft Workplace Analytics](https://products.office.com/business/workplace-analytics) program med hjälp av PowerShell.
+I det här exemplet tilldelas användaren Britta Simon till Microsoft-programmet för [företags analys](https://products.office.com/business/workplace-analytics) med hjälp av PowerShell.
 
-1. Tilldela motsvarande värden för variabler $username, $app_name och $app_role_name i PowerShell.
+1. I PowerShell tilldelar du motsvarande värden till variablerna $username, $app _name och $app _role_name.
 
     ```powershell
     # Assign the values to the variables
@@ -99,7 +101,7 @@ Det här exemplet tilldelar användare Britta Simon till den [Microsoft Workplac
     $app_name = "Workplace Analytics"
     ```
 
-1. I det här exemplet vet vi inte vad är det exakta namnet på programmet rollen som vi vill tilldela till Britta Simon. Kör följande kommandon för att hämta användare ($user) och visningsnamn för tjänstens huvudnamn ($sp) med hjälp av användar-UPN och tjänstens huvudnamn.
+1. I det här exemplet vet vi inte vad som är det exakta namnet på den program roll som vi vill tilldela till Britta Simon. Kör följande kommandon för att hämta användaren ($user) och tjänstens huvud namn ($sp) med hjälp av användarens UPN och visnings namnen för tjänstens huvud namn.
 
     ```powershell
     # Get the user to assign, and the service principal for the app to assign to
@@ -107,11 +109,11 @@ Det här exemplet tilldelar användare Britta Simon till den [Microsoft Workplac
     $sp = Get-AzureADServicePrincipal -Filter "displayName eq '$app_name'"
     ```
 
-1. Kör kommandot `$sp.AppRoles` att visa rollerna som är tillgängliga för Workplace Analytics-programmet. I det här exemplet vill vi tilldela Britta Simon rollen analytiker (begränsad åtkomst).
+1. Kör kommandot `$sp.AppRoles` för att visa de roller som är tillgängliga för programmet för arbets styrnings analys. I det här exemplet vill vi tilldela Britta Simon rollen analytiker (begränsad åtkomst).
 
-   ![Visar rollerna som är tillgängliga för en användare med rollen som Workplace Analytics](./media/assign-user-or-group-access-portal/workplace-analytics-role.png)
+   ![Visar de roller som är tillgängliga för en användare med rollen arbets plats analys](./media/assign-user-or-group-access-portal/workplace-analytics-role.png)
 
-1. Tilldela rollnamnet den `$app_role_name` variabeln.
+1. Tilldela roll namnet till `$app_role_name` variabeln.
 
     ```powershell
     # Assign the values to the variables
@@ -119,7 +121,7 @@ Det här exemplet tilldelar användare Britta Simon till den [Microsoft Workplac
     $appRole = $sp.AppRoles | Where-Object { $_.DisplayName -eq $app_role_name }
     ```
 
-1. Kör följande kommando för att tilldela användaren till rollen app:
+1. Kör följande kommando för att tilldela användaren till app-rollen:
 
     ```powershell
     # Assign the user to the app role
@@ -128,7 +130,7 @@ Det här exemplet tilldelar användare Britta Simon till den [Microsoft Workplac
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Se alla mina grupper](../fundamentals/active-directory-groups-view-azure-portal.md)
-- [Ta bort en användare eller grupp från en företagsapp](remove-user-or-group-access-portal.md)
-- [Inaktivera användarinloggningar för en företagsapp](disable-user-sign-in-portal.md)
-- [Ändra namnet eller logotyp i en företagsapp](change-name-or-logo-portal.md)
+- [Visa alla mina grupper](../fundamentals/active-directory-groups-view-azure-portal.md)
+- [Ta bort en användare eller grupp tilldelning från en företags app](remove-user-or-group-access-portal.md)
+- [Inaktivera användar inloggningar för en företags app](disable-user-sign-in-portal.md)
+- [Ändra namn eller logo typ för en företags app](change-name-or-logo-portal.md)

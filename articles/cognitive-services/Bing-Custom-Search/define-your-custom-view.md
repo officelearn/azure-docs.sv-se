@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: e4ed781544d3cd11e8494e40589676adf57a9c75
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 1827bfdbebaf1ffa17c7c631a94aa8fc6471d13b
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68405129"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854101"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>Konfigurera din Anpassad sökning i Bing upplevelse
 
@@ -40,7 +40,7 @@ När du skapar en anpassad Sök instans kan du ange webb sektorerna: domäner, u
 
 Om du känner till de segment som du vill ska ingå i din anpassade Sök instans, lägger du till dem i din instanss **aktiva** lista. 
 
-Om du inte är säker på vilka sektorer du ska inkludera kan du skicka Sök frågor till Bing i  förhands gransknings fönstret och välja de segment som du vill använda. Gör så här: 
+Om du inte är säker på vilka sektorer du ska inkludera kan du skicka Sök frågor till Bing i förhands gransknings fönstret och välja de segment som du vill använda. Gör så här: 
 
 1. Välj "Bing" i list rutan i förhands gransknings fönstret och ange en Sök fråga
 
@@ -64,8 +64,8 @@ När du lägger till URL: er i den **aktiva** listan kan du lägga till enskilda
 Om du vill överföra en fil skapar du en textfil och anger en enda domän, undersida eller webb sida per rad. Filen kommer att avvisas om den inte är korrekt formaterad.
 
 > [!NOTE]
-> * Du kan bara ladda upp en fil till den **aktiva** listan. Du kan inte använda den för att lägga till  segment i blockeringslistan.  
-> * Om den **blockerade** listan innehåller en domän, under sida eller webb sida som du har angett i uppladdnings filen, tas den  bort från blockeringslistan och läggs till i den **aktiva** listan.
+> * Du kan bara ladda upp en fil till den **aktiva** listan. Du kan inte använda den för att lägga till segment i blockeringslistan.  
+> * Om den **blockerade** listan innehåller en domän, under sida eller webb sida som du har angett i uppladdnings filen, tas den bort från blockeringslistan och läggs till i den **aktiva** listan.
 > * Dubbla poster i uppladdnings filen ignoreras av Anpassad sökning i Bing. 
 
 ### <a name="get-website-suggestions-for-your-search-experience"></a>Hämta webbplats förslag för din Sök upplevelse
@@ -159,5 +159,5 @@ Om du prenumererar på Anpassad sökning på lämplig nivå (se sidan med [prise
 
 - [Anropa din anpassade sökning](./search-your-custom-view.md)
 - [Konfigurera värdbaserad UI-upplevelse](./hosted-ui.md)
-- [Använda dekorationsmarkörer för att markera text](./hit-highlighting.md)
+- [Använda dekorationsmarkörer för att markera text](../bing-web-search/hit-highlighting.md)
 - [Webbsidor för sida](./page-webpages.md)

@@ -11,12 +11,12 @@ ms.author: nilesha
 ms.reviewer: trbye
 ms.date: 04/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: bbb9653173925e1443504aa3f2e9c5e6edbfc486
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: 70a95cdba2a8b41c7b2fc3ee4b2664f049a84e95
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68371030"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68846004"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Självstudier: Använda automatiserad maskininlärning för att skapa en regressionsmodell
 
@@ -54,7 +54,7 @@ Gå vidare till [Ställ in din utvecklingsmiljö](#start) och läs igenom stegen
 
 Hämta alla dessa förutsättningar från något av avsnitten nedan.
 
-* Använd en [molnbaserad Notebook-server i din arbets yta](#azure) 
+* Använd en [molnbaserad Notebook-server i din arbets yta](#azure)
 * Använd [din egen Notebook-server](#server)
 
 ### <a name="azure"></a>Använd en molnbaserad Notebook-server i din arbets yta
@@ -688,6 +688,9 @@ automated_ml_config = AutoMLConfig(task='regression',
                                    **automl_settings)
 ```
 
+> [!NOTE]
+> Automatiserad bearbetning av Machine Learning för bearbetning (funktions normalisering, hantering av saknade data, konvertering av text till tal osv.) blir en del av den underliggande modellen. När du använder modellen för förutsägelser tillämpas samma för bearbetnings steg som tillämpas på dina indata-data automatiskt.
+
 ### <a name="train-the-automatic-regression-model"></a>Träna den automatiska regressionsmodellen
 
 Starta experimentet för körning lokalt. Skicka det definierade `automated_ml_config`-objektet till experimentet. Ställ in utdatan till `True` för att visa förloppet under experimentet:
@@ -764,7 +767,7 @@ Samma resultat lagras i din arbets yta.  Du kan hämta en länk till resultaten 
 ```
 local_run.get_portal_url()
 ```
-  
+
 
 ### <a name="option-2-get-and-examine-all-run-iterations-in-python"></a>Alternativ 2: Hämta och granska alla körningsiterationer i Python
 

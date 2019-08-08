@@ -1,19 +1,19 @@
 ---
 title: Data scenarier som involverar Azure Data Lake Storage Gen2 | Microsoft Docs
 description: Förstå de olika scenarier och verktyg som använder vilka data som kan matas in, bearbetas, hämtas och visualiseras i Data Lake Storage Gen2 (tidigare kallat Azure Data Lake Store)
-services: storage
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: normesta
-ms.openlocfilehash: 010b7bc38caf83c12dd0d8b8e731fdbad6e45256
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.reviewer: stewu
+ms.openlocfilehash: cafe761d2b566a7bddce503765c11bf9f8e00f2a
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68422876"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847444"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>Använda Azure Data Lake Storage Gen2 för Big data-krav
 
@@ -73,7 +73,7 @@ Den här tabellen visar hur du beviljar åtkomst för varje Azure-tjänst eller-
 |Apache DistCp | Tilldela en roll till en användare som tilldelats en hanterad identitet | [Skapa ett HDInsight-kluster med Data Lake Storage Gen2](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2) |
 |Azure Data Factory| Tilldela en roll till en användardefinierad hanterad identitet<br>**eller**<br> Tilldela en roll till ett huvud namn för tjänsten<br>**eller**<br> Använd en lagrings konto nyckel | [Egenskaper för länkad tjänst](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#linked-service-properties) |
 |Azure HDInsight| Tilldela en roll till en användare som tilldelats en hanterad identitet | [Skapa ett HDInsight-kluster med Data Lake Storage Gen2](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2)|
-|Azure Databricks| Tilldela en roll till ett huvud namn för tjänsten | [Anvisningar: Använd portalen för att skapa ett Azure AD-program och tjänstens huvud namn som kan komma åt resurser](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)|
+|Azure Databricks| Tilldela en roll till ett huvud namn för tjänsten | [Anvisningar: Använd portalen för att skapa ett Azure AD-program och huvudnamn för tjänsten som kan komma åt resurser](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)|
 
 Information om hur du beviljar åtkomst till vissa filer och mappar finns i de här artiklarna.
 

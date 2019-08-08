@@ -9,12 +9,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 05/02/2019
-ms.openlocfilehash: 963e4f7e9db638450a89dd4ae0091019fc58e2a4
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 6f72daa4a601df0e3592910645c2f9b35ab64431
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359430"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68845810"
 ---
 # <a name="tutorial-build-a-regression-model-with-automated-machine-learning-and-open-datasets"></a>Självstudier: Skapa en Regressions modell med automatisk maskin inlärning och öppna data uppsättningar
 
@@ -37,7 +37,7 @@ I den här självstudien krävs följande krav.
 
 ### <a name="create-a-workspace"></a>Skapa en arbetsyta
 
-Följ [anvisningarna](https://docs.microsoft.com/azure/machine-learning/service/setup-create-workspace#portal) för att skapa en arbets yta via Azure Portal, om du inte redan har en. När du har skapat antecknar du namnet på din arbets yta, resurs gruppens namn och prenumerations-ID.
+Följ [anvisningarna](https://docs.microsoft.com/azure/machine-learning/service/how-to-manage-workspace) för att skapa en arbets yta via Azure Portal, om du inte redan har en. När du har skapat antecknar du namnet på din arbets yta, resurs gruppens namn och prenumerations-ID.
 
 ### <a name="create-a-python-environment"></a>Skapa en python-miljö
 
@@ -147,8 +147,8 @@ green_taxi_df.head(10)
       <td>2016-01-20 17:46:33</td>
       <td>1</td>
       <td>0,98</td>
-      <td>Ingen</td>
       <td>Inga</td>
+      <td>Ingen</td>
       <td>– 73,921715</td>
       <td>40,766682</td>
       <td>– 73,916908</td>
@@ -171,7 +171,7 @@ green_taxi_df.head(10)
       <td>2016-01-02 00:00:00</td>
       <td>1</td>
       <td>3,08</td>
-      <td>Ingen</td>
+      <td>Inga</td>
       <td>Inga</td>
       <td>– 73,979973</td>
       <td>40,677071</td>
@@ -195,8 +195,8 @@ green_taxi_df.head(10)
       <td>2016-01-01 01:05:37</td>
       <td>1</td>
       <td>2.44</td>
-      <td>Inga</td>
-      <td>Inga</td>
+      <td>Ingen</td>
+      <td>Ingen</td>
       <td>– 73,863045</td>
       <td>40,882923</td>
       <td>-73.839836</td>
@@ -219,7 +219,7 @@ green_taxi_df.head(10)
       <td>2016-01-04 18:03:43</td>
       <td>1</td>
       <td>2,87</td>
-      <td>Inga</td>
+      <td>Ingen</td>
       <td>Inga</td>
       <td>– 73,977730</td>
       <td>40,684647</td>
@@ -244,7 +244,7 @@ green_taxi_df.head(10)
       <td>1</td>
       <td>0,50</td>
       <td>Ingen</td>
-      <td>Inga</td>
+      <td>Ingen</td>
       <td>– 73,942589</td>
       <td>40,841423</td>
       <td>– 73,943672</td>
@@ -267,7 +267,7 @@ green_taxi_df.head(10)
       <td>2016-01-29 17:27:52</td>
       <td>1</td>
       <td>2.25</td>
-      <td>Ingen</td>
+      <td>Inga</td>
       <td>Inga</td>
       <td>-73.830894</td>
       <td>40,759434</td>
@@ -292,7 +292,7 @@ green_taxi_df.head(10)
       <td>1</td>
       <td>1,93</td>
       <td>Inga</td>
-      <td>Ingen</td>
+      <td>Inga</td>
       <td>– 73,927109</td>
       <td>40,762848</td>
       <td>-73.909302</td>
@@ -315,8 +315,8 @@ green_taxi_df.head(10)
       <td>2016-01-09 14:32:48</td>
       <td>2</td>
       <td>0,80</td>
-      <td>Ingen</td>
       <td>Inga</td>
+      <td>Ingen</td>
       <td>– 73,881195</td>
       <td>40,741779</td>
       <td>-73.872086</td>
@@ -339,7 +339,7 @@ green_taxi_df.head(10)
       <td>2016-01-25 18:23:50</td>
       <td>1</td>
       <td>1,04</td>
-      <td>Ingen</td>
+      <td>Inga</td>
       <td>Inga</td>
       <td>-73.954376</td>
       <td>40,805729</td>
@@ -453,7 +453,7 @@ green_taxi_df.head(10)
       <td>2016-01-20 17:46:33</td>
       <td>1</td>
       <td>0,98</td>
-      <td>Inga</td>
+      <td>Ingen</td>
       <td>Ingen</td>
       <td>– 73,921715</td>
       <td>40,766682</td>
@@ -478,7 +478,7 @@ green_taxi_df.head(10)
       <td>1</td>
       <td>3,08</td>
       <td>Inga</td>
-      <td>Ingen</td>
+      <td>Inga</td>
       <td>– 73,979973</td>
       <td>40,677071</td>
       <td>– 73,934349</td>
@@ -501,8 +501,8 @@ green_taxi_df.head(10)
       <td>2016-01-01 01:05:37</td>
       <td>1</td>
       <td>2.44</td>
-      <td>Ingen</td>
       <td>Inga</td>
+      <td>Ingen</td>
       <td>– 73,863045</td>
       <td>40,882923</td>
       <td>-73.839836</td>
@@ -526,7 +526,7 @@ green_taxi_df.head(10)
       <td>1</td>
       <td>2,87</td>
       <td>Inga</td>
-      <td>Inga</td>
+      <td>Ingen</td>
       <td>– 73,977730</td>
       <td>40,684647</td>
       <td>-73.931259</td>
@@ -550,7 +550,7 @@ green_taxi_df.head(10)
       <td>1</td>
       <td>0,50</td>
       <td>Inga</td>
-      <td>Ingen</td>
+      <td>Inga</td>
       <td>– 73,942589</td>
       <td>40,841423</td>
       <td>– 73,943672</td>
@@ -573,8 +573,8 @@ green_taxi_df.head(10)
       <td>2016-01-29 17:27:52</td>
       <td>1</td>
       <td>2.25</td>
-      <td>Ingen</td>
-      <td>Ingen</td>
+      <td>Inga</td>
+      <td>Inga</td>
       <td>-73.830894</td>
       <td>40,759434</td>
       <td>-73.842422</td>
@@ -622,7 +622,7 @@ green_taxi_df.head(10)
       <td>2</td>
       <td>0,80</td>
       <td>Inga</td>
-      <td>Inga</td>
+      <td>Ingen</td>
       <td>– 73,881195</td>
       <td>40,741779</td>
       <td>-73.872086</td>
@@ -645,7 +645,7 @@ green_taxi_df.head(10)
       <td>2016-01-25 18:23:50</td>
       <td>1</td>
       <td>1,04</td>
-      <td>Ingen</td>
+      <td>Inga</td>
       <td>Inga</td>
       <td>-73.954376</td>
       <td>40,805729</td>
@@ -669,8 +669,8 @@ green_taxi_df.head(10)
       <td>2016-01-24 21:04:03</td>
       <td>6</td>
       <td>2,82</td>
-      <td>Ingen</td>
       <td>Inga</td>
+      <td>Ingen</td>
       <td>– 73,845200</td>
       <td>40,722134</td>
       <td>– 73,810638</td>
@@ -874,7 +874,7 @@ holidays_df.head(5)
       <th>40688</th>
       <td>Albanien</td>
       <td>Nyårs dagen</td>
-      <td>Ingen</td>
+      <td>Inga</td>
       <td>AL</td>
       <td>Nyårs dagen</td>
       <td>2008-01-01</td>
@@ -883,7 +883,7 @@ holidays_df.head(5)
       <th>40689</th>
       <td>Algeriet</td>
       <td>Nyårs dagen</td>
-      <td>Inga</td>
+      <td>Ingen</td>
       <td>DZ</td>
       <td>Nyårs dagen</td>
       <td>2008-01-01</td>

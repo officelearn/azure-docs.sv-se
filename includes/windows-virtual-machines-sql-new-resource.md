@@ -4,12 +4,12 @@ ms.service: virtual-machines-sql
 ms.topic: include
 ms.date: 05/13/2019
 ms.author: mathoma
-ms.openlocfilehash: 90c85b97f0d2de359f9debda3703e9a2f2d41112
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5a9feb559a73fa16ae3e711151102f2d02dba5b4
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67075710"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68846087"
 ---
   > [!NOTE]
-  > Följande skärmbilder är från den **virtuella datorer med SQL** resurs i Azure-portalen. För [-support upphör (EOS)](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-server-2008-eos-extend-support.md) SQL server-datorer och SQL Server-datorer som inte har registrerats med den [SQL VM-resursprovidern](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-ahb.md), använda den [fliken för SQL Server-konfiguration](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-manage-portal.md#access-sql-server-configuration-tab) till Hantera din SQL Server-VM i stället. 
+  > Följande skärm bilder är från resursen **SQL Virtual Machines** i Azure Portal. För [EOS](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-server-2008-eos-extend-support.md) -virtuella SQL Server-datorer, och SQL Server virtuella datorer som inte har registrerats med den [virtuella SQL](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-ahb.md)-providern, använder du [fliken SQL Server konfiguration](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-manage-portal.md#access-the-sql-server-configuration-tab) för att hantera SQL Server VM i stället. 

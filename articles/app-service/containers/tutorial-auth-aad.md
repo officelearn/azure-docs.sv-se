@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 04/26/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 2c173da9bfb60f74b90a17f4f3c5ea6f930ca528
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 5ea16b1f92080f74afa05dcf8137c9b7e0ef4e3d
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67705840"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68851203"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service-on-linux"></a>Självstudie: Autentisera och auktorisera användare från slutpunkt till slutpunkt i Azure App Service i Linux
 
@@ -101,7 +101,7 @@ az webapp create --resource-group myAuthResourceGroup --plan myAuthAppServicePla
 
 ### <a name="configure-cors"></a>Konfigurera CORS
 
-Det här steget är inte kopplat till autentisering och auktorisering. Du behöver den emellertid senare för att [anropa serverdels-API från klientsidans webbläsarkod](#call-api-securely-from-browser-code), så att din webbläsare tillåter API-anrop mellan domäner från din Angular.js-app. App Service på Linux har nu stöd för CORS-funktioner som [motparten Windows har](../app-service-web-tutorial-rest-api.md#add-cors-functionality).
+Det här steget är inte kopplat till autentisering och auktorisering. Du behöver den emellertid senare för att [anropa serverdels-API från klientsidans webbläsarkod](#call-api-securely-from-browser-code), så att din webbläsare tillåter API-anrop mellan domäner från din Angular.js-app. App Service på Linux stöder nu CORS-funktioner som [dess Windows-motsvarighet](../app-service-web-tutorial-rest-api.md#add-cors-functionality).
 
 Öppna filen _Startup.cs_ på den lokala lagringsplatsen. Lägg till följande kodrad till `ConfigureServices(IServiceCollection services)`-metoden:
 
@@ -303,7 +303,7 @@ Logga in på [Azure Resource Explorer](https://resources.azure.com). Överst på
 
 ![ASP.NET Core-API som körs i Azure App Service](./media/tutorial-auth-aad/resources-enable-write.png)
 
-Till vänster i webbläsaren klickar du på **subscriptions** > ** _&lt;your\_subscription>_**  > **resourceGroups** > **myAuthResourceGroup** > **providers** > **Microsoft.Web** > **sites** >  ** _\<front\_end\_app\_name>_**  > **config** > **authsettings** (prenumerationer, <din_prenumeration>, resursgrupper > min autentiseringsresursgrupp > leverantörer > microsoft web > webbplatser >, <namnet på klientdelsappen>, konfiguration, autentiseringsinställningar).
+Till vänster i webbläsaren klickar du på **subscriptions** >  **_&lt;your\_subscription>_**  > **resourceGroups** > **myAuthResourceGroup** > **providers** > **Microsoft.Web** > **sites** >  **_\<front\_end\_app\_name>_**  > **config** > **authsettings** (prenumerationer, <din_prenumeration>, resursgrupper > min autentiseringsresursgrupp > leverantörer > microsoft web > webbplatser >, <namnet på klientdelsappen>, konfiguration, autentiseringsinställningar).
 
 I vyn **authsettings** (autentiseringsinställningar) klickar du på **Edit** (Redigera). Ställ in `additionalLoginParams` till följande JSON-sträng med det program-ID som du kopierade. 
 
@@ -337,7 +337,7 @@ public override void OnActionExecuting(ActionExecutingContext context)
 
     _client.DefaultRequestHeaders.Accept.Clear();
     _client.DefaultRequestHeaders.Authorization =
-        new AuthenticationHeaderValue("Bearer", Request.Headers["x-ms-token-aad-access_token"]);
+        new AuthenticationHeaderValue("Bearer", Request.Headers["x-ms-token-aad-access-token"]);
 }
 ```
 

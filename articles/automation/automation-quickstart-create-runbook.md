@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: automation
 ms.subservice: process-automation
 ms.custom: mvc
-ms.openlocfilehash: 2f6dcbba8da314798b2e8de12a9fc5bf55f67a4a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3dece2d2bffc7bd2b9e0a3c2931b2038ebc3c77e
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60738662"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68850649"
 ---
 # <a name="create-an-azure-automation-runbook"></a>Skapa en Azure Automation-runbook
 
@@ -45,7 +45,7 @@ Skapa en runbook först. Exempelrunbooken som skapas i den här snabbstarten mat
     ![Skapa PowerShell-skript i runbook-redigeringsprogrammet](./media/automation-quickstart-create-runbook/automation-edit-runbook-empty.png)
 
 1. Skriv in eller kopiera och klistra in följande kod i redigeringsrutan. Detta skapar en valfri indataparameter som heter ”Name” med standardvärdet ”World”, och matar ut en sträng som använder det här indatavärdet:
-   
+
    ```powershell-interactive
    param
    (
@@ -102,4 +102,3 @@ I den här snabbstarten har du skapat, redigerat, testat och publicerat en runbo
 
 > [!div class="nextstepaction"]
 > [Automation-anvisningar – Runbooktyper](./automation-runbook-types.md)
-

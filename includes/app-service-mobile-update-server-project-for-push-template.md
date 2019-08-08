@@ -4,21 +4,21 @@ ms.author: crdun
 ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
-ms.openlocfilehash: c664b089f316255fabc4c8dc36b291d7d63e6280
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 675ad278cb8bdc0ced4eff3bd77572f44c9808fc
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187844"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68857509"
 ---
-I det här avsnittet ska uppdatera du koden i projektet backend-befintliga Mobile Apps för att skicka ett push-meddelande varje gång ett nytt objekt läggs. Den här processen baseras på den [mall](../articles/notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) funktion i Azure Notification Hubs, vilket gör det möjligt för plattformsoberoende push-meddelanden. Olika klienter registreras för push-meddelanden med hjälp av mallar och en enda universal push får alla klientplattformar.
+I det här avsnittet uppdaterar du kod i ditt befintliga Mobile Apps Server dels projekt för att skicka ett push-meddelande varje gång ett nytt objekt läggs till. Den här processen drivs av [mal](../articles/notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) funktionen i Azure Notification Hubs, vilket möjliggör push-meddelanden mellan plattformar. De olika klienterna är registrerade för push-meddelanden med hjälp av mallar och en enda Universal push kan komma till alla klient plattformar.
 
-Välj något av följande procedurer som matchar din backend-projekttyp&mdash;antingen [.NET-serverdel](#dotnet) eller [Node.js-serverdel](#nodejs).
+Välj en av följande procedurer som matchar backend-projektets typ&mdash;, antingen [.NET Server](#dotnet) del eller [Node. js-Server delen](#nodejs).
 
-### <a name="dotnet"></a>Projekt för .NET-serverdel
+### <a name="dotnet"></a>.NET-Server dels projekt
 
-1. Högerklicka på serverprojektet i Visual Studio. Välj sedan **hantera NuGet-paket**. Sök efter `Microsoft.Azure.NotificationHubs`, och välj sedan **installera**. Den här processen installerar Notification Hubs-biblioteket för att skicka meddelanden från backend-servern.
-2. Öppna i project server **domänkontrollanter** > **TodoItemController.cs**. Lägg till följande using-satser:
+1. I Visual Studio högerklickar du på Server projektet. Välj sedan **Hantera NuGet-paket**. Sök efter `Microsoft.Azure.NotificationHubs`och välj sedan **Installera**. Den här processen installerar Notification Hubs bibliotek för att skicka meddelanden från Server delen.
+2. Öppna **kontrollanter** > **TodoItemController.cs**i Server projektet. Lägg sedan till följande using-satser:
 
     ```csharp
     using System.Collections.Generic;
@@ -26,7 +26,7 @@ Välj något av följande procedurer som matchar din backend-projekttyp&mdash;an
     using Microsoft.Azure.Mobile.Server.Config;
     ```
 
-3. I den **PostTodoItem** metoden Lägg till följande kod efter anropet till **InsertAsync**:  
+3. I **PostTodoItem** -metoden lägger du till följande kod efter anropet till **InsertAsync**:  
 
     ```csharp
     // Get the settings for the server project.
@@ -64,14 +64,14 @@ Välj något av följande procedurer som matchar din backend-projekttyp&mdash;an
     }
     ```
 
-    Den här processen skickar ett meddelande i mallen som innehåller objektet. Text när ett nytt objekt har infogats.
+    Den här processen skickar ett meddelande från en mall som innehåller objektet. Text när ett nytt objekt infogas.
 
-4. Publicera om serverprojektet.
+4. Publicera om Server projektet.
 
-### <a name="nodejs"></a>Node.js-backend-projekt
+### <a name="nodejs"></a>Node. js-backend-projekt
 
-1. Om du inte redan gjort det, [hämta backend-snabbstartsprojektet](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart), eller annan användning den [onlineredigeraren i Azure-portalen](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
-2. Ersätt den befintliga koden i todoitem.js med följande kod:
+1. Konfigurera ditt Server dels projekt.
+2. Ersätt den befintliga koden i todoitem. js med följande kod:
 
     ```javascript
     var azureMobileApps = require('azure-mobile-apps'),
@@ -114,6 +114,6 @@ Välj något av följande procedurer som matchar din backend-projekttyp&mdash;an
     module.exports = table;  
     ```
 
-    Den här processen skickar ett meddelande i mallen som innehåller item.text när ett nytt objekt har infogats.
+    Den här processen skickar ett meddelande i en mall som innehåller objektet. text när ett nytt objekt infogas.
 
-3. När du redigerar filen på den lokala datorn kan du publicera om serverprojektet.
+3. Publicera om Server projektet när du redigerar filen på den lokala datorn.

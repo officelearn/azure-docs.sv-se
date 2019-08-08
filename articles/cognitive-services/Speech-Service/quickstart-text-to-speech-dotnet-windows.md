@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: yinhew
-ms.openlocfilehash: 3c925e0160a4c57f7e43c3463fc1db7098a6e606
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 65db847c5df1a05671e3b1c0ac4541f00506c8fd
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68553596"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854685"
 ---
 # <a name="quickstart-synthesize-speech-with-the-speech-sdk-for-net-framework-windows"></a>Snabbstart: Syntetisera tal med talet SDK för .NET Framework (Windows)
 
@@ -31,7 +31,7 @@ Hämta de senaste [Cognitive Services tal SDK](https://github.com/Azure-Samples/
 
 För att slutföra det här projektet behöver du:
 
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
+* [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
 * En prenumerationsnyckel för Speech Service. [Skaffa en kostnadsfritt](get-started.md).
 * En talare (eller ett headset) är tillgängligt.
 

@@ -10,12 +10,12 @@ ms.author: maxluk
 author: maxluk
 ms.date: 06/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1f6aaa4f1b8f58f7cd6c1f02f424614d33863fc5
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: a5d281598bc905914b71f40d556cfa0b16a46485
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815867"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847660"
 ---
 # <a name="train-and-register-tensorflow-models-at-scale-with-azure-machine-learning-service"></a>Träna och registrera TensorFlow-modeller i stor skala med Azure Machine Learning-tjänsten
 
@@ -36,8 +36,8 @@ Kör den här koden i någon av följande miljöer:
  
  - Din egen Jupyter Notebook Server
 
-     - [Installera Azure Machine Learning SDK för python](setup-create-workspace.md#sdk)
-    - [Skapa en konfigurations fil för arbets ytor](setup-create-workspace.md#write-a-configuration-file)
+    - [Installera Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
+    - [Skapa en konfigurations fil för arbets ytor](how-to-configure-environment.md#workspace).
     - [Hämta exempel skript filen](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow) `mnist-tf.py` och`utils.py`
      
     Du kan också hitta en slutförd [Jupyter Notebook version](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb) av den här guiden på sidan med GitHub-exempel. Antecknings boken innehåller utökade avsnitt som täcker intelligenta parametrar, modell distribution och Notebook-widgetar.

@@ -1,20 +1,20 @@
 ---
 title: Översikt över Azure Blueprint
-description: Förstå hur tjänsten Azure skisser kan du skapa, definiera och distribuera artefakter i Azure-miljön.
+description: Förstå hur tjänsten Azure-ritningar ger dig möjlighet att skapa, definiera och distribuera artefakter i din Azure-miljö.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 02/08/2019
 ms.topic: overview
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 5f403ee7d2bf4a0730ceaa9b5a95b3e7b11f3695
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: be7e3043172f988a429bbf02dec08bfbbc1a70b7
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67428778"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68848444"
 ---
-# <a name="overview-of-the-azure-blueprints-service"></a>Översikt över tjänsten Azure skisser
+# <a name="overview-of-the-azure-blueprints-service"></a>Översikt över tjänsten Azure-ritningar
 
 Precis som en skiss tillåter en tekniker eller arkitekt att skissa designparametrarna för ett projekt kan Azure Blueprint göra det möjligt för molnarkitekter och centrala IT-grupper att definiera en upprepningsbar uppsättning med Azure-resurser som implementerar och tillämpar en organisations standarder, mönster och krav. Med Azure Blueprint kan utvecklingsteam snabbt skapa nya miljöer med vetskapen om att de är skapade med organisatorisk efterlevnad och innehåller en uppsättning inbyggda komponenter – som nätverk – för att påskynda utveckling och leverans.
 
@@ -54,7 +54,7 @@ En skiss består av _artefakter_. Skisser stöder för närvarande följande res
 
 |Resource  | Hierarkialternativ| Beskrivning  |
 |---------|---------|---------|
-|Resursgrupper | Prenumeration | Skapa en ny resursgrupp för användning av andra artefakter i skissen.  Med de här platshållarresursgrupperna kan du organisera resurser precis som du vill att de struktureras, och de ger en omfångsbegränsning för inkluderade princip- och rolltilldelningsartefakter samt Azure Resource Manager-mallar. |
+|Resursgrupper | Subscription | Skapa en ny resursgrupp för användning av andra artefakter i skissen.  Med de här platshållarresursgrupperna kan du organisera resurser precis som du vill att de struktureras, och de ger en omfångsbegränsning för inkluderade princip- och rolltilldelningsartefakter samt Azure Resource Manager-mallar. |
 |Azure Resource Manager-mall | Prenumeration, resursgrupp | Mallar används till att skapa komplexa miljöer. Exempelmiljöer: en SharePoint-servergrupp, Azure Automation State Configuration eller en Log Analytics-arbetsyta. |
 |Principtilldelning | Prenumeration, resursgrupp | Tillåter tilldelning av en princip eller ett initiativ till den prenumeration som skissen är tilldelad till. Principen eller initiativet måste vara inom omfånget för skissdefinitionens plats. Om principen eller initiativet har parametrar kan de parametrarna tilldelas vid skapandet av skissen eller under skisstilldelningen. |
 |Rolltilldelning | Prenumeration, resursgrupp | Lägg till en befintlig användare eller grupp till en inbyggd roll för att se till att rätt personer alltid har rätt åtkomst till dina resurser. Rolltilldelningar kan definieras för hela prenumerationen eller kapslade till en specifik resursgrupp som ingår i skissen. |
@@ -79,7 +79,7 @@ När en skiss först skapas betraktas den som att den är i **utkastläge**. Nä
 
 ## <a name="blueprint-assignment"></a>Skisstilldelning
 
-Varje **publicerad** **version** av en skiss kan tilldelas till en befintlig prenumeration. I portalen får skissen som standard den **version** som **publicerades** senast. Om det finns artefaktparametrar (eller skissparametrar) definieras sedan parametrarna under tilldelningen.
+Varje **publicerad** **version** av en skiss kan tilldelas (med en maximal namn längd på 90 tecken) till en befintlig prenumeration. I portalen får skissen som standard den **version** som **publicerades** senast. Om det finns artefaktparametrar (eller skissparametrar) definieras sedan parametrarna under tilldelningen.
 
 ## <a name="permissions-in-azure-blueprints"></a>Behörigheter i Azure Blueprint
 
@@ -109,7 +109,18 @@ Om du vill tilldela eller ta bort tilldelningar av skisser måste ditt konto ha 
 Alla behörigheter ovan ingår i rollen **Ägare**. Rollen **Deltagare** har behörighet att skapa skisser och ta bort skisser men har inte behörighet att tilldela skisser. Om dessa inbyggda roller inte motsvarar dina behov kan du skapa en [anpassad roll](../../role-based-access-control/custom-roles.md).
 
 > [!NOTE]
-> Om med en automatiskt genererad hanterade identitet, tjänstens huvudnamn för Azure skisser kräver den **ägare** -rollen på den tilldelade prenumerationen för att aktivera distribution. Om du använder portalen är den här rollen automatiskt beviljad och återkallad för distributionen. Om du använder REST API måste den här rollen måste beviljas manuellt, men återkallas fortfarande automatiskt när distributionen är klar. Om du använder en Användartilldelad hanterad identitet, bara den användare som skapar skisstilldelningen måste **ägare** behörigheter.
+> Om du använder en systemtilldelad hanterad identitet, kräver tjänstens huvud namn för Azure-ritningar **ägar** rollen för den tilldelade prenumerationen för att distributionen ska kunna aktive ras. Om du använder portalen är den här rollen automatiskt beviljad och återkallad för distributionen. Om du använder REST API måste den här rollen måste beviljas manuellt, men återkallas fortfarande automatiskt när distributionen är klar. Om du använder en användardefinierad hanterad identitet behöver endast användaren som skapar skiss tilldelningen **ägar** behörigheter.
+
+## <a name="naming-limits"></a>Namngivnings gränser
+
+Följande är en lista över begränsningar som finns för vissa fält:
+
+|Object|Fält|Tillåtna tecken|Max. Längd|
+|-|-|-|-|
+|Skiss|Namn|bokstäver, siffror, bindestreck och punkter|48|
+|Skiss|Version|bokstäver, siffror, bindestreck och punkter|20|
+|Skisstilldelning|Namn|bokstäver, siffror, bindestreck och punkter|90|
+|Skiss artefakt|Namn|bokstäver, siffror, bindestreck och punkter|48|
 
 ## <a name="video-overview"></a>Videoöversikt
 

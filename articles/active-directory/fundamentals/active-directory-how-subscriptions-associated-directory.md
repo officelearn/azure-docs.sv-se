@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a64bad11f5b83ddd7f6d7236ffed4ff4a6e39c2c
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: fb4fa92d8b3c174cdf9b3695f8564cc11c1ad291
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561858"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68851751"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Koppla eller lägga till en Azure-prenumeration till din Azure Active Directory-klient
 
@@ -66,7 +66,7 @@ Innan du kan koppla eller lägga till din prenumeration, måste du utföra följ
     Katalogen ändras för prenumerationen och du får ett meddelande.
 
     ![Meddelande om katalog ändring har slutförts](media/active-directory-how-subscriptions-associated-directory/edit-directory-success.png)
-4. Använd **katalogen växlaren** för att gå till din nya katalog. Det kan ta flera timmar innan allting visas korrekt. Om det verkar ta för lång tid, se till att du kontrollerar det **globala prenumerations filtret** för den flyttade prenumerationen för att se till att det inte är helt dolt.
+4. Använd **katalogen växlaren** för att gå till din nya katalog. Det kan ta flera timmar innan allting visas korrekt. Om det verkar ta för lång tid, kontrollerar du det **globala prenumerations filtret** för den flyttade prenumerationen för att kontrol lera att den inte är dold. Du kan behöva logga ut från Azure Portal och logga in igen för att kunna se den nya katalogen. 
 
     ![Sidan katalog växlaren med exempel information](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
 

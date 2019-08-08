@@ -1,7 +1,6 @@
 ---
 title: Översikt över åtkomst kontroll i Azure Data Lake Storage Gen2 | Microsoft Docs
 description: Förstå hur åtkomst kontroll fungerar i Azure Data Lake Storage Gen2
-services: storage
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
@@ -9,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 112d3b18df8205aac173eafb8f8e30ed6c32e048
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: aa2cfbee6feeacf46003fdc244f0aeea5df0f41a
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249083"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847349"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Åtkomst kontroll i Azure Data Lake Storage Gen2
 
@@ -37,7 +36,7 @@ När du använder RBAC-roll tilldelningar är en kraftfull mekanism för att kon
 När ett säkerhets objekt beviljas RBAC-databehörighet via en [inbyggd roll](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#built-in-rbac-roles-for-blobs-and-queues)eller via en anpassad roll, utvärderas dessa behörigheter först när en begäran auktoriseras. Om den begärda åtgärden auktoriseras av säkerhets objektets RBAC-tilldelningar, löses auktoriseringen omedelbart och inga ytterligare ACL-kontroller utförs. Alternativt, om säkerhetsobjektet inte har en RBAC-tilldelning eller om begärans åtgärd inte matchar den tilldelade behörigheten, utförs ACL-kontroller för att avgöra om säkerhets objekt har behörighet att utföra den begärda åtgärden.
 
 > [!NOTE]
-> Om säkerhets objekt har tilldelats den inbyggda roll tilldelningen lagrings-BLOB-dataägare, betraktas säkerhetsobjektet som en superanvändare och beviljas fullständig åtkomst till alla relevanta åtgärder, inklusive att ange ägare till en katalog eller  både filer och ACL: er för kataloger och filer som de inte är ägare till. Super-User Access är det enda godkända sättet att ändra ägaren till en resurs.
+> Om säkerhets objekt har tilldelats den inbyggda roll tilldelningen lagrings-BLOB-dataägare, betraktas säkerhetsobjektet som en superanvändare och beviljas fullständig åtkomst till alla relevanta åtgärder, inklusive att ange ägare till en katalog eller både filer och ACL: er för kataloger och filer som de inte är ägare till. Super-User Access är det enda godkända sättet att ändra ägaren till en resurs.
 
 ## <a name="shared-key-and-shared-access-signature-sas-authentication"></a>Autentisering med delad nyckel och signatur för delad åtkomst (SAS)
 
@@ -91,7 +90,7 @@ Behörigheterna för ett fil system objekt är **läsa**, **skriva**och **köra*
 | **Köra (X)** | Betyder inte något i samband med Data Lake Storage Gen2 | Krävs för att bläddra bland de underordnade objekten i en katalog |
 
 > [!NOTE]
-> Om du beviljar behörigheter genom att endast använda ACL: er (ingen RBAC), så måste du ge tjänstens huvud namn Läs-eller **Skriv behörighet till** fil systemet, och för varje mapp i hierarkin för mappar som leda till filen.
+> Om du beviljar behörigheter genom att endast använda ACL: er (ingen RBAC), så måste du ge tjänstens huvud namn Läs-eller Skriv behörighet till fil systemet, och för varje mapp i hierarkin för mappar som leda till filen.
 
 #### <a name="short-forms-for-permissions"></a>Kortformat för behörigheter
 

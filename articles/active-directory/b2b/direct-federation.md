@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 07/15/2019
+ms.date: 08/07/2019
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 113e178d39ec776b63a0b38c55035f3493586ea2
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: f3aea108ed87debac56b18b5959d492f2bcb291d
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68233859"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68853602"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Direkt Federation med AD FS och tredje parts leverantörer för gäst användare (för hands version)
 |     |
@@ -46,7 +46,7 @@ Med direkt Federation loggar gäst användare in på din Azure AD-klient med hj�
 ## <a name="limitations"></a>Begränsningar
 
 ### <a name="dns-verified-domains-in-azure-ad"></a>DNS-verifierade domäner i Azure AD
-Direkt Federation tillåts bara för domäner som ***inte*** är DNS-verifierade i Azure AD. Direkt Federation tillåts för ohanterad (e-postverifierad eller "viral") Azure AD-klienter eftersom de inte är DNS-verifierade.
+Den domän som du vill federera med får ***inte*** vara DNS-verifierad i Azure AD. Du kan konfigurera direkt Federation med ohanterad (e-postverifierad eller "viral") Azure AD-klienter eftersom de inte är DNS-verifierade.
 ### <a name="authentication-url"></a>URL för autentisering
 Direkt Federation tillåts bara för principer där autentiserings-URL: en domän matchar mål domänen, eller där autentiserings-URL: en är en av dessa tillåtna identitets leverantörer (den här listan kan ändras):
 -   accounts.google.com
@@ -66,7 +66,7 @@ Om du anger URL: en för metadata i inställningarna för identitetsprovider fö
 För närvarande stöds högst 1 000 Federations relationer. Den här gränsen omfattar både [interna federationar](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) och direkta federationer.
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 ### <a name="can-i-set-up-direct-federation-with-a-domain-for-which-an-unmanaged-email-verified-tenant-exists"></a>Kan jag konfigurera direkt Federation med en domän för vilken en ohanterad (e-autentiserad) klient organisation finns? 
-Ja. Om domänen inte har verifierats och klienten inte har genomgått någon [Administratörs övertag](../users-groups-roles/domains-admin-takeover.md)Ande kan du konfigurera direkt Federation. Ohanterad eller e-postverifierad skapas klienter när en användare löser in en B2B-inbjudan eller utför en självbetjänings registrering för Azure AD med en domän som inte finns för närvarande. Du kan konfigurera direkt Federation med dessa domäner. Om du försöker konfigurera direkt Federation med en DNS-verifierad domän, antingen i Azure Portal eller via PowerShell, visas ett fel meddelande.
+Ja. Om domänen inte har verifierats och klienten inte har genomgått någon [Administratörs övertag](../users-groups-roles/domains-admin-takeover.md)Ande kan du konfigurera direkt Federation med domänen. Ohanterad eller e-postverifierad skapas klienter när en användare löser in en B2B-inbjudan eller utför en självbetjänings registrering för Azure AD med en domän som inte finns för närvarande. Du kan konfigurera direkt Federation med dessa domäner. Om du försöker konfigurera direkt Federation med en DNS-verifierad domän, antingen i Azure Portal eller via PowerShell, visas ett fel meddelande.
 ### <a name="if-direct-federation-and-email-one-time-passcode-authentication-are-both-enabled-which-method-takes-precedence"></a>Om direkt Federation och e-postautentisering med eng ång slö sen ord är båda aktiverade, vilken metod har företräde?
 När direkt Federation upprättas med en partner organisation har den företräde framför e-postautentisering med eng ång slö sen ord för nya gäst användare från organisationen. Om en gäst användare har löst en inbjudan med autentisering med eng ång slö sen ord innan du konfigurerar direkt Federation, fortsätter de att använda autentisering med eng ång slö sen ord. 
 ### <a name="does-direct-federation-address-sign-in-issues-due-to-a-partially-synced-tenancy"></a>Är direkta Federations adress inloggnings problem på grund av ett delvis synkroniserat innehav?
@@ -90,7 +90,7 @@ Följande tabeller visar krav för särskilda attribut och anspråk som måste k
 
 Attribut som krävs för SAML 2,0-svaret från IdP:
 
-|Attribut  |Value  |
+|Attribut  |Värde  |
 |---------|---------|
 |AssertionConsumerService     |`https://login.microsoftonline.com/login.srf`         |
 |Målgrupp     |`urn:federation:MicrosoftOnline`         |
@@ -99,7 +99,7 @@ Attribut som krävs för SAML 2,0-svaret från IdP:
 
 Obligatoriska anspråk för SAML 2,0-token som utfärdats av IdP:
 
-|Attribut  |Value  |
+|Attribut  |Värde  |
 |---------|---------|
 |NameID-format     |`urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`         |
 |emailaddress     |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`         |
@@ -124,14 +124,14 @@ Obligatoriska attribut i det WS-utfodras meddelandet från IdP:
 
 Obligatoriska anspråk för WS-utfodras token som utfärdats av IdP:
 
-|Attribut  |Value  |
+|Attribut  |Värde  |
 |---------|---------|
 |ImmutableID     |`http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID`         |
 |emailaddress     |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`         |
 
 ## <a name="step-2-configure-direct-federation-in-azure-ad"></a>Steg 2: Konfigurera direkt Federation i Azure AD 
 Sedan konfigurerar du federationen med den identitetsprovider som du konfigurerade i steg 1 i Azure AD. Du kan använda antingen Azure AD-portalen eller PowerShell. Det kan ta 5-10 minuter innan den direkta Federations principen börjar gälla. Under den här tiden försöker du inte lösa in en inbjudan för direkt Federations domänen. Följande attribut krävs:
-- Utfärdar-URI för partner IdP
+- Utfärdare-URI för partner-IdP
 - Slut punkt för passiv autentisering av partner IdP (endast https stöds)
 - Certifikat
 
@@ -149,9 +149,9 @@ Sedan konfigurerar du federationen med den identitetsprovider som du konfigurera
 
 5. Ange din partner organisations domän namn, som är mål domän namnet för direkt Federation
 6. Du kan ladda upp en metadatafil om du vill fylla i metadatainformation. Ange följande information om du väljer att ange metadata manuellt:
-   - Domän namnet för partner IdP
-   - Enhets-ID för partner IdP
-   - Passive begär ande slut punkt för partner IdP
+   - Domännamn för partner-IdP
+   - Entitets-ID för partner-IdP
+   - Passiv begärare-slutpunkt för partner-IdP
    - Certifikat
    > [!NOTE]
    > URL för metadata är valfritt, men vi rekommenderar starkt det. Om du anger URL: en för metadata kan Azure AD automatiskt förnya signerings certifikatet när det upphör att gälla. Om certifikatet roteras av någon anledning innan förfallo tiden eller om du inte anger en URL för metadata, kan inte Azure AD förnya det. I så fall måste du uppdatera signerings certifikatet manuellt.

@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 07/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 59ce6719c117db53b02ed6594de219010ee08ee6
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: e6f6c41e5de4f4a053748dfb08dc57e8acac32e5
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828226"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68848225"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Så här fungerar Azure Machine Learning service: Arkitektur och koncept
 
@@ -236,5 +236,5 @@ När du utvecklar din lösning använder du Azure Machine Learning python SDK i 
 Information om hur du kommer igång med Azure Machine Learning-tjänsten finns i:
 
 * [Vad är Azure Machine Learning Service?](overview-what-is-azure-ml.md)
-* [Skapa en Azure Machine Learning service-arbetsyta](setup-create-workspace.md)
+* [Skapa en Azure Machine Learning service-arbetsyta](how-to-manage-workspace.md)
 * [Självstudie (del 1): Träna en modell](tutorial-train-models-with-aml.md)

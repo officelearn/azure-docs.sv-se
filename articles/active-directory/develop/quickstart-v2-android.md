@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/17/2019
 ms.author: ryanwi
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1c22d93d39f086aaa6e2f103d3becbe9376b49b0
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 88a0f16a01a7e421558b5cea99daee6944adae11
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68324551"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68853051"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Snabbstart: Logga in användare och anropa Microsoft Graph API från en Android-app
 
@@ -87,7 +87,7 @@ Den här snabbstarten innehåller ett kodexempel som visar hur ett Android-progr
 
 > [!div renderon="portal" class="sxs-lookup"]
 > 1. Extrahera och öppna projektet i Android Studio.
-> 1. I **app** > **src** main res RAW, öppna auth_config. JSON. >  >  > 
+> 1. I **app** > **src**main res RAW, öppna auth_config. JSON. >  >  > 
 > 1. Redigera **auth_config. JSON** och Ersätt det med json från Azure Portal. Om du i stället vill göra ändringarna manuellt:
 >    ```javascript
 >    {
@@ -130,7 +130,7 @@ Den här snabbstarten innehåller ett kodexempel som visar hur ett Android-progr
 
 > [!div renderon="docs"]
 > 1. Extrahera och öppna projektet i Android Studio.
-> 1. Öppna  >  **auth_config. JSON**i appens**res** > **RAW**.
+> 1. Öppna >  **auth_config. JSON**i appens**res** > **RAW**.
 > 1. Redigera **auth_config. JSON** och Ersätt det med json från Azure Portal. Om du i stället vill göra följande ändringar manuellt:
 >    ```javascript
 >    "client_id" : "ENTER_YOUR_APPLICATION_ID",

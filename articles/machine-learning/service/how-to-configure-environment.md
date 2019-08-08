@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: efe5829ffbe4db304f9ffab0a259ab9d10279b27
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: d2f60b496594946e9175ecf5c1948b08c9065b1b
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68772695"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68848204"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Konfigurera en utvecklingsmiljö för Azure Machine Learning
 
@@ -40,7 +40,7 @@ Den här artikeln innehåller också ytterligare användnings tips för följand
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-En arbetsyta för Azure Machine Learning-tjänsten. Information om hur du skapar arbets ytan finns i [skapa en Azure Machine Learning service-arbetsyta](setup-create-workspace.md). En arbets yta är allt du behöver för att komma igång med din egen [molnbaserade Notebook-Server](#notebookvm), en [DSVM](#dsvm), [Azure Databricks](#aml-databricks)eller [Azure Notebooks](#aznotebooks).
+En arbetsyta för Azure Machine Learning-tjänsten. Information om hur du skapar arbets ytan finns i [skapa en Azure Machine Learning service-arbetsyta](how-to-manage-workspace.md). En arbets yta är allt du behöver för att komma igång med din egen [molnbaserade Notebook-Server](#notebookvm), en [DSVM](#dsvm), [Azure Databricks](#aml-databricks)eller [Azure Notebooks](#aznotebooks).
 
 Om du vill installera SDK-miljön för den [lokala datorn](#local), [Jupyter Notebook Server](#jupyter) eller [Visual Studio-kod](#vscode) som du också behöver:
 
@@ -294,7 +294,7 @@ Skapa ett [Databricks-kluster](https://docs.microsoft.com/azure/azure-databricks
 
 Använd de här inställningarna:
 
-| Inställning |Gäller| Värde |
+| Inställning |Gäller| Value |
 |----|---|---|
 | Klusternamn |alltid| yourclustername |
 | Databricks Runtime |alltid| En icke ML-körning (icke-ML 4. x, 5. x) |
@@ -377,7 +377,7 @@ Om du vill använda den här filen från din kod använder `ws=Workspace.from_co
 
 Du kan skapa konfigurations filen på tre sätt:
 
-* **Följ stegen i [skapa en Azure Machine Learning service-arbetsyta](setup-create-workspace.md#sdk)** : En *config. JSON* -fil skapas i Azure Notebooks-biblioteket. Filen innehåller konfigurations informationen för din arbets yta. Du kan ladda ned eller kopiera *config. JSON* till andra utvecklings miljöer.
+* **Använd [ws. write_config](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)** : för att skriva en *config. JSON* -fil. Filen innehåller konfigurations informationen för din arbets yta. Du kan ladda ned eller kopiera *config. JSON* till andra utvecklings miljöer.
 
 * **Hämta filen**: I [Azure Portal](https://ms.portal.azure.com)väljer du **Hämta config. JSON** från översikts avsnittet på arbets ytan.
 

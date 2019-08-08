@@ -4,23 +4,22 @@ description: Använd Visual Studio Code för att utveckla, bygga och felsöka en
 services: iot-edge
 keywords: ''
 author: shizn
-manager: philmea
 ms.author: xshi
-ms.date: 07/23/2019
+ms.date: 08/07/2019
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 39b8485ac3f98cb7ca6739fe31378726bea3452b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 2efda0e506cf0525b1a8ea868acca48a929f8f41
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565356"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68848290"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Använd Visual Studio Code för att utveckla och felsöka moduler för Azure IoT Edge
 
 Du kan aktivera din affärslogik-moduler för Azure IoT Edge. Den här artikeln visar hur du använder Visual Studio Code som huvud verktyg för att utveckla och felsöka moduler.
 
-För moduler som skrivits C#i Node. js eller Java finns det två sätt att felsöka modulen i Visual Studio Code: Du kan antingen koppla en process i en modul-behållare eller starta modulens kod i fel söknings läge. För moduler som skrivits i python eller C kan de bara felsökas genom att koppla till en process i Linux amd64-behållare.
+Det finns två sätt att felsöka moduler skrivna i C#Node. js eller java i Visual Studio Code: Du kan antingen koppla en process i en modul-behållare eller starta modulens kod i fel söknings läge. Om du vill felsöka moduler skrivna i python eller C kan du bara ansluta till en process i Linux amd64-behållare.
 
 Om du inte är bekant med fel söknings funktionerna i Visual Studio Code läser du om [fel sökning](https://code.visualstudio.com/Docs/editor/debugging).
 
@@ -43,7 +42,7 @@ Installera [Visual Studio Code](https://code.visualstudio.com/) först och Lägg
   - Java: [Java Extension Pack för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)
   - C: [C/C++ tillägg](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
 
-Du måste också installera ytterligare språk specifika verktyg för att utveckla modulen:
+Du måste också installera ytterligare språkbaserade verktyg för att utveckla modulen:
 
 - C#, inklusive Azure Functions: [.net Core 2,1 SDK](https://www.microsoft.com/net/download)
 
@@ -53,7 +52,7 @@ Du måste också installera ytterligare språk specifika verktyg för att utveck
 
 - Java: [Java se Development Kit 10](https://aka.ms/azure-jdks) och [maven](https://maven.apache.org/). Du måste [ `JAVA_HOME` ställa in](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) miljövariabeln så att den pekar på din JDK-installation.
 
-För att kunna bygga och distribuera din modul-avbildning måste Docker du bygga upp modulens avbildning och ett behållar register för att lagra modulens avbildning:
+Om du vill bygga och distribuera din modul-avbildning behöver Docker du för att bygga modul avbildningen och ett behållar register för att lagra modulens avbildning:
 
 - [Docker Community Edition](https://docs.docker.com/install/) på din utvecklings dator.
 
@@ -107,7 +106,7 @@ Det finns fyra objekt i lösningen:
   > [!NOTE]
   > Miljö filen skapas bara om du anger en avbildnings lagrings plats för modulen. Om du har accepterat standardvärdet för localhost för att testa och felsöka lokalt, behöver du inte deklarera miljövariabler.
 
-- En **Deployment. template. JSON** -fil listar den nya modulen tillsammans med en exempel- **tempSensor** -modul som simulerar data som du kan använda för testning. Mer information om hur distributions manifest fungerar finns i [Lär dig hur du använder distributions manifest för att distribuera moduler och upprätta vägar](module-composition.md).
+- En **Deployment. template. JSON** -fil listar den nya modulen tillsammans med en exempel- **SimulatedTemperatureSensor** -modul som simulerar data som du kan använda för testning. Mer information om hur distributions manifest fungerar finns i [Lär dig hur du använder distributions manifest för att distribuera moduler och upprätta vägar](module-composition.md).
 
 ## <a name="add-additional-modules"></a>Lägg till ytterligare moduler
 
@@ -124,7 +123,7 @@ Standard koden för modulen som medföljer lösningen finns på följande plats:
 - Java: **moduler > *&lt;modulens namn&gt;* > src > main > Java > com > edgemodulemodules > app. java**
 - C: **moduler > *&lt;ditt Modulnamn&gt;* > main. c**
 
-Modulen och filen deployment.template.json ställs in så att du kan skapa lösningen, push-överföra den till behållarregistret och distribuera den till en enhet för att börja testa utan att röra kod. Modulen är utformat för att helt enkelt ta indata från en källa (i det här fallet modulen tempSensor som simulerar data) och skicka det till IoT Hub.
+Modulen och filen deployment.template.json ställs in så att du kan skapa lösningen, push-överföra den till behållarregistret och distribuera den till en enhet för att börja testa utan att röra kod. Modulen är konstruerad för att helt enkelt ta med indata från en källa (i det här fallet SimulatedTemperatureSensor-modulen som simulerar data) och rör den till IoT Hub.
 
 När du är redo att anpassa mallen med din egen kod kan du använda [Azure IoT Hub SDK](../iot-hub/iot-hub-devguide-sdks.md) : er för att bygga moduler som uppfyller nyckel behoven för IoT-lösningar som säkerhet, enhets hantering och pålitlighet.
 
@@ -227,7 +226,7 @@ I utvecklings datorn kan du starta en IoT Edge Simulator i stället för att ins
 
 1. I vyn Visual Studio Code Explorer högerklickar du `deployment.debug.template.json` på filen för din lösning och väljer sedan **skapa och kör IoT Edge lösning i simulatorn**. Du kan se alla behållar loggar i samma fönster. Du kan också navigera till Docker-vyn för att se container status.
 
-   ![Bevaka variabler](media/how-to-develop-csharp-module/view-log.png)
+   ![Bevaka variabler](media/how-to-vs-code-develop-module/view-log.png)
 
 1. Navigera till vyn Visual Studio Code debug och välj fel söknings konfigurations filen för modulen. Namnet på fel söknings alternativet bör likna   ***&lt;ditt Modulnamn-&gt; namn* för fjärrfelsökning**
 

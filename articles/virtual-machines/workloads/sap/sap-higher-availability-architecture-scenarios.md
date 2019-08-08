@@ -1,6 +1,6 @@
 ---
-title: Använda Azure-infrastrukturen omstart av virtuella datorer för att uppnå ”högre tillgänglighet” för ett SAP-system | Microsoft Docs
-description: Använda Azure-infrastrukturen omstart av virtuella datorer för att uppnå ”högre tillgänglighet” för SAP-program
+title: Använd Azure Infrastructure VM restart för att uppnå högre tillgänglighet för ett SAP-system | Microsoft Docs
+description: Använd en omstart av Azure Infrastructure VM för att uppnå högre tillgänglighet för SAP-program
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
@@ -17,14 +17,14 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d99f704d05dea88f7fa29afea99cbbdb00d09c24
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 4668d5e7872c677f20c2395b5927d83c69775926
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67709875"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68855201"
 ---
-# <a name="utilize-azure-infrastructure-vm-restart-to-achieve-higher-availability-of-an-sap-system"></a>Använda Azure-infrastrukturen omstart av virtuella datorer för att uppnå ”högre tillgänglighet” för ett SAP-system
+# <a name="utilize-azure-infrastructure-vm-restart-to-achieve-higher-availability-of-an-sap-system"></a>Använd en omstart av Azure Infrastructure VM för att uppnå högre tillgänglighet för ett SAP-system
 
 [1909114]: https://launchpad.support.sap.com/#/notes/1909114
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
@@ -126,7 +126,7 @@ ms.locfileid: "67709875"
 [sap-ha-guide-9.1]:#31c6bd4f-51df-4057-9fdf-3fcbc619c170
 [sap-ha-guide-9.1.1]:#a97ad604-9094-44fe-a364-f89cb39bf097
 
-[sap-ha-multi-sid-guide]:sap-high-availability-multi-sid.md (SAP – flera SÄKERHETSIDENTIFIERARE konfiguration med hög tillgänglighet)
+[sap-ha-multi-sid-guide]:sap-high-availability-multi-sid.md (SAP multi-SID-konfiguration med hög tillgänglighet)
 
 [Logo_Linux]:media/virtual-machines-shared-sap-shared/Linux.png
 [Logo_Windows]:media/virtual-machines-shared-sap-shared/Windows.png
@@ -214,74 +214,73 @@ ms.locfileid: "67709875"
 > ![Windows][Logo_Windows] Windows och ![Linux][Logo_Linux] Linux
 >
 
-Om du inte väljer att använda funktioner, till exempel Windows Server Failover Clustering (WSFC) eller Pacemaker på Linux (för närvarande stöds endast för SUSE Linux Enterprise Server [SLES] 12 och senare), används omstart av Azure virtuella datorer. Det skyddar SAP-system mot planerade och oplanerade driftavbrott Azure fysisk infrastruktur och övergripande underliggande Azure-plattformen.
+Om du väljer att inte använda funktioner som Windows Server Failover Clustering (WSFC) eller pacemaker på Linux (stöds för närvarande endast för SUSE Linux Enterprise Server [SLES] 12 och senare), används den virtuella Azure-datorn. Det skyddar SAP-system mot planerad och oplanerad stillestånds tid för Azures fysiska server infrastruktur och den övergripande, underliggande Azure-plattformen.
 
 > [!NOTE]
-> Omstart av Azure virtuella datorer i första hand skyddar virtuella datorer och *inte* program. Även om omstart av virtuella datorer inte erbjuder hög tillgänglighet för SAP-program, erbjuder den en viss nivå av infrastrukturens tillgänglighet. Den erbjuder också indirekt ”högre tillgänglighet” för SAP-system. Det finns också inget serviceavtal för den tid det tar att starta om en virtuell dator efter en planerad eller oplanerad värd-avbrott, vilket gör den här metoden för hög tillgänglighet olämplig för kritisk komponent i ett SAP-system. Exempel på viktiga komponenter kan vara en ASCS/SCS-instans eller en databashanteringssystem (DBMS).
+> Azure VM-omstart skyddar främst virtuella datorer och *inte* program. Även om VM-omstart inte erbjuder hög tillgänglighet för SAP-program, erbjuder den en viss nivå av infrastruktur tillgänglighet. Den ger också indirekt "högre tillgänglighet" av SAP-system. Det finns inte heller något service avtal för den tid det tar att starta om en virtuell dator efter ett planerat eller oplanerat värd avbrott, vilket gör den här metoden för hög tillgänglighet olämplig för de kritiska komponenterna i ett SAP-system. Exempel på kritiska komponenter kan vara en ASCS/SCS-instans eller ett databas hanterings system (DBMS).
 >
 >
 
-Ett annat viktigt infrastruktur-element för hög tillgänglighet är ett lagringsutrymme. SERVICEAVTAL för Azure Storage är till exempel 99,9% tillgänglighet. Om du distribuerar alla virtuella datorer och deras diskar i en enda Azure storage-konto, medför potentiella Azure Storage-otillgänglighet otillgänglighet för alla virtuella datorer som är placerade i det lagringskontot och alla SAP-komponenter som körs i de virtuella datorerna.  
+Ett annat viktigt infrastruktur element för hög tillgänglighet är lagring. Azure Storage SLA är till exempel 99,9% tillgänglighet. Om du distribuerar alla virtuella datorer och deras diskar på ett enda Azure Storage-konto, kommer potentiella Azure Storage otillgängligheten att leda till att alla virtuella datorer som placerats i lagrings kontot och alla SAP-komponenter som körs i de virtuella datorerna inte är tillgängliga.  
 
-Du kan använda dedikerade lagringskonton för varje virtuell dator i stället för att placera alla virtuella datorer i en enda Azure storage-konto. Genom att använda flera oberoende Azure storage-konton kan öka du övergripande tillgänglighet för virtuell dator och SAP-program.
+I stället för att lägga till alla virtuella datorer i ett enda Azure Storage-konto kan du använda dedikerade lagrings konton för varje virtuell dator. Genom att använda flera oberoende Azure Storage-konton ökar du den övergripande virtuella datorn och SAP-programmets tillgänglighet.
 
-Azure managed disks placeras automatiskt i feldomän av den virtuella datorn som de är kopplade till. Om du placerar två virtuella datorer i en tillgänglighetsuppsättning och använder hanterade diskar, hand plattformen tar om distribuerar de hanterade diskarna till samt olika feldomäner. Om du planerar att använda ett premium storage-konto, rekommenderar vi använder hanterade diskar.
+Azure Managed disks placeras automatiskt i fel domänen för den virtuella dator som de är kopplade till. Om du placerar två virtuella datorer i en tillgänglighets uppsättning och använder hanterade diskar, tar plattformen hand om att distribuera de hanterade diskarna till olika fel domäner. Om du planerar att använda ett Premium Storage-konto rekommenderar vi starkt att du använder hanterade diskar.
 
-En exempel-arkitekturen för en SAP NetWeaver-system som använder Azure-infrastrukturen hög tillgänglighet och storage-konton kan se ut så här:
+En exempel arkitektur för ett SAP NetWeaver-system som använder hög tillgänglighets-och lagrings konton i Azure-infrastrukturen kan se ut så här:
 
-![Använda Azure-infrastrukturen hög tillgänglighet för att uppnå SAP-program ”högre tillgänglighet”][planning-guide-figure-2900]
+![Använd Azure-infrastruktur med hög tillgänglighet för att uppnå SAP-programmet "högre tillgänglighet"][planning-guide-figure-2900]
 
-En exempel-arkitekturen för en SAP NetWeaver-system som använder Azure-infrastruktur med hög tillgänglighet och hanterade diskar kan se ut så här:
+En exempel arkitektur för ett SAP NetWeaver-system som använder hög tillgänglighet och hanterade diskar i Azure-infrastrukturen kan se ut så här:
 
-![Använda Azure-infrastrukturen hög tillgänglighet för att uppnå SAP-program ”högre tillgänglighet”][planning-guide-figure-2901]
+![Använd Azure-infrastruktur med hög tillgänglighet för att uppnå SAP-programmet "högre tillgänglighet"][planning-guide-figure-2901]
 
-För viktiga SAP-komponenter har du uppnått följande hittills:
+För kritiska SAP-komponenter har du uppnått följande hittills:
 
-* Hög tillgänglighet för SAP-programservrar
+* Hög tillgänglighet för SAP-program servrar
 
-    SAP-programserverinstanser är redundanta komponenter. Varje SAP application server-instans distribueras på en egen virtuell dator som körs i en annan Azure fel- och uppgraderingsdomän. Mer information finns i den [Feldomäner][planning-guide-3.2.1] and [Upgrade domains][planning-guide-3.2.2] avsnitt. 
+    SAP Application Server-instanser är redundanta komponenter. Varje SAP Application Server-instans distribueras på en egen virtuell dator, som körs i en annan Azure-fel-och uppgraderings domän. Mer information finns i avsnitten [fel domäner][planning-guide-3.2.1] och [uppgraderings domäner][planning-guide-3.2.2] . 
 
-    Du kan kontrollera den här konfigurationen med hjälp av Azures tillgänglighetsuppsättningar. Mer information finns i den [Azures tillgänglighetsuppsättningar][planning-guide-3.2.3] avsnittet. 
+    Du kan kontrol lera den här konfigurationen med hjälp av Azures tillgänglighets uppsättningar. Mer information finns i avsnittet om [Azures tillgänglighets uppsättningar][planning-guide-3.2.3] . 
 
-    Potentiella planerad eller oplanerad otillgänglig en Azure-fel eller uppgraderingsdomän medför att ett begränsat antal virtuella datorer med sina SAP-programserverinstanser.
+    Möjlig planerad eller oplanerad otillgänglig tillgänglighet för ett Azure-fel eller en uppgraderings domän ger till gång till ett begränsat antal virtuella datorer med deras SAP Application Server-instanser.
 
-    Varje server för SAP programinstans placeras i en egen Azure storage-konto. Potentiella otillgängliga för en Azure storage-kontot genereras otillgänglighet för endast en virtuell dator med sin SAP application server-instans. Men tänk på att det finns en gräns för hur många Azure storage-konton inom en Azure-prenumeration. För att säkerställa automatisk start av en ASCS/SCS-instans efter omstart av virtuell dator, ställa in Autostart-parametern i ASCS/SCS-instans start profilen som beskrivs i den [med Autostart för SAP instanser][planning-guide-11.5] avsnittet.
+    Varje SAP Application Server-instans placeras i ett eget Azure Storage-konto. Det går inte att få till gång till ett Azure Storage-konto eftersom det bara finns en virtuell dator med sin SAP Application Server-instans. Tänk dock på att det finns en gräns för antalet Azure Storage-konton i en Azure-prenumeration. För att säkerställa automatisk start av en ASCS/SCS-instans efter den virtuella datorn, ställer du in Autostart-parametern i instansen av ASCS/SCS-instansen som beskrivs i avsnittet [använda Autostart för SAP-instanser][planning-guide-11.5] .
   
-    Mer information finns i [hög tillgänglighet för SAP-programservrar][planning-guide-11.4.1].
+    Mer information finns i [hög tillgänglighet för SAP][planning-guide-11.4.1]-programservrar.
 
-    Även om du använder hanterade diskar diskarna lagras i ett Azure storage-konto och är inte tillgängliga vid driftstörningar.
+    Även om du använder hanterade diskar lagras diskarna i ett Azure Storage-konto och kan vara otillgängliga vid ett lagrings avbrott.
 
-* *Högre tillgänglighet* SAP ASCS/SCS-instanser
+* *Högre tillgänglighet* för SAP ASCS/SCS-instanser
 
-    I det här scenariot använder du virtuella Azure-datorn startas om för att skydda den virtuella datorn med den installerade SAP ASCS/SCS-instansen. När det gäller planerade eller oplanerade driftstopp för Azure-servrar, virtuella datorer startas om på en annan server. Såsom nämnts tidigare omstart av Azure virtuella datorer i första hand skyddar virtuella datorer och *inte* program, i det här fallet ASCS/SCS-instans. Via VM-omstart nå du indirekt ”högre tillgänglighet” för SAP ASCS/SCS-instans. 
+    I det här scenariot använder du starta Azure VM för att skydda den virtuella datorn med den installerade SAP ASCS/SCS-instansen. När det gäller planerad eller oplanerad stillestånds tid för Azure-servrar startas virtuella datorer på nytt på en annan tillgänglig server. Som tidigare nämnts kan Azure VM-omstart främst skydda virtuella datorer och *inte* program, i det här fallet ASCS/SCS-instansen. Genom VM-omstarten når du indirekt "högre tillgänglighet" för SAP ASCS/SCS-instansen. 
 
-    För att säkerställa en automatisk start av ASCS/SCS-instans efter omstart av virtuell dator måste du ange parametern Autostart i start-profilen ASCS/SCS-instans som beskrivs i den [med Autostart för SAP instanser][planning-guide-11.5] avsnittet. Den här inställningen innebär att ASCS/SCS-instans som en enskild felpunkt (SPOF) som körs i en enda virtuell dator bestämmer tillgängligheten för hela SAP-landskap.
+    För att säkerställa en automatisk start av ASCS/SCS-instansen efter den virtuella datorn startar du om den Autostart-parametern i instansen av ASCS/SCS-instansen, enligt beskrivningen i avsnittet [använda Autostart för SAP-instanser][planning-guide-11.5] . Den här inställningen innebär att ASCS/SCS-instansen som en enskild felpunkt (SPOF) som körs i en enskild virtuell dator kommer att fastställa tillgängligheten för hela SAP-landskapet.
 
-* *Högre tillgänglighet* DBMS-Server
+* *Högre tillgänglighet* för DBMS-servern
 
-    Som i föregående SAP ASCS/SCS-instans användningsfall och du använder virtuella Azure-datorn startas om för att skydda den virtuella datorn med installerad programvara för DBMS du få en ”högre tillgänglighet” av DBMS programvara via omstart av virtuella datorer.
+    Som i föregående instans av SAP ASCS/SCS använder du Azure VM-omstart för att skydda den virtuella datorn med installerat DBMS-programvara och du får "högre tillgänglighet" av DBMS-programvaran genom att starta om datorn.
   
-    En DBMS som körs i en enda virtuell dator är också en SPOF och det är den bestämmande faktorn för tillgängligheten för hela SAP-landskap.
+    Ett DBMS som körs i en enda virtuell dator är också ett SPOF och det är den avvecklings faktor som är tillgänglig för hela SAP-landskapet.
 
-## <a name="using-autostart-for-sap-instances"></a>Med hjälp av Autostart för SAP-instanser
-SAP erbjuder en inställning som kan du starta SAP instanser omedelbart efter början av Operativsystemet i den virtuella datorn. Anvisningarna finns dokumenterade i SAP Knowledge Base-artikeln [1909114]. Men SAP rekommenderar längre användning av inställningen, eftersom det inte tillåter kontroll av ordern från instansen startas om om mer än en virtuell dator påverkas eller om flera instanser körs per virtuell dator. 
+## <a name="using-autostart-for-sap-instances"></a>Använda Autostart för SAP-instanser
+SAP erbjuder en inställning som gör att du kan starta SAP-instanser direkt efter att operativ systemet har startats på den virtuella datorn. Anvisningarna finns dokumenterade i Knowledge Base-artikeln [1909114]i SAP. SAP rekommenderar dock inte längre användningen av inställningen, eftersom den inte tillåter kontroll av instansen av inaktivitet om fler än en virtuell dator påverkas eller om flera instanser körs per virtuell dator. 
 
-Under förutsättning att ett typiskt Azure scenario där en SAP application server-instans i en virtuell dator och en enda virtuell dator så småningom få startas, är Autostart inte viktigt. Men du kan aktivera det genom att lägga till följande parameter i start-profilen för SAP Advanced Business Application Programming (ABAP) eller Java-instans:
+Om du antar ett typiskt Azure-scenario för en SAP Application Server-instans i en virtuell dator och en enskild virtuell dator kommer att komma att startas om, är Autostart inte kritiskt. Men du kan aktivera det genom att lägga till följande parameter i Start profilen för SAP Advanced Business Application Programming (ABAP) eller Java-instansen:
 
       Autostart = 1
 
 
   > [!NOTE]
-  > Autostart-parametern har vissa brister samt. Parametern utlöser särskilt i början av en SAP ABAP eller Java-instans när tjänsterna för Windows eller Linux på-instansen har startats. Det inträffar när operativsystemet startas. Dock omstarter av SAP-tjänster är också vanligt förekommande för livscykelhantering för SAP Software funktioner, till exempel Software Update Manager (SUM) eller andra uppdateringar eller uppgraderar. Dessa funktioner inte förväntar sig en instans startas automatiskt. Autostart-parametern bör därför inaktiveras innan du kör sådana uppgifter. Autostart-parameter bör också inte användas för SAP-instanser som är klustrade visas till exempel ASCS/SCS/CI.
+  > Autostart-parametern har också vissa brister. Mer specifikt utlöser parametern början av en SAP-ABAP eller Java-instans när den relaterade Windows-eller Linux-tjänsten för instansen startas. Den sekvensen inträffar när operativ systemet startas. Omstarter av SAP-tjänster är dock också vanliga för SAP-program livs cykel hanterings funktioner som program uppdaterings hanteraren (SUM) eller andra uppdateringar eller uppgraderingar. Dessa funktioner förväntas inte att en instans ska startas om automatiskt. Därför bör den Autostart-parametern inaktive ras innan du kör sådana uppgifter. Autostart-parametern bör också inte användas för SAP-instanser som är klustrade, till exempel ASCS/SCS/CI.
   >
   >
 
   Mer information om Autostart för SAP-instanser finns i följande artiklar:
 
-  * [Starta eller stoppa SAP tillsammans med din Unix Server Starta/Stoppa](https://scn.sap.com/community/unix/blog/2012/08/07/startstop-sap-along-with-your-unix-server-startstop)
-  * [Starta och stoppa hanteringsagenter för SAP NetWeaver](https://help.sap.com/saphelp_nwpi711/helpdata/en/49/9a15525b20423ee10000000a421938/content.htm)
-  * [Så här aktiverar du autostart av HANA-databas](http://www.freehanatutorials.com/2012/10/how-to-enable-auto-start-of-hana.html)
+  * [Starta eller stoppa SAP tillsammans med din UNIX-server starta/stoppa](https://scn.sap.com/community/unix/blog/2012/08/07/startstop-sap-along-with-your-unix-server-startstop)
+  * [Starta och stoppa SAP NetWeaver-hanterings agenter](https://help.sap.com/saphelp_nwpi711/helpdata/en/49/9a15525b20423ee10000000a421938/content.htm)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Information om fullständig SAP NetWeaver Programmedveten hög tillgänglighet finns i [SAP hög tillgänglighet för program på Azure IaaS][sap-high-availability-architecture-scenarios-sap-app-ha].
+Information om fullständig SAP NetWeaver-program med hög tillgänglighet finns i [SAP-program hög tillgänglighet på Azure IaaS][sap-high-availability-architecture-scenarios-sap-app-ha].

@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.topic: conceptual
 ms.date: 07/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 55722c35dddcbf8a20f4f51958170938225e87e5
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 2b59797e60585876764e8c9e1276e4fd36571b18
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668394"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68856025"
 ---
 # <a name="track-metrics-and-deploy-models-with-mlflow-and-azure-machine-learning-service-preview"></a>Spåra mått och distribuera modeller med MLflow och Azure Machine Learning tjänsten (för hands version)
 
@@ -52,7 +52,9 @@ Den här artikeln visar hur du aktiverar MLflow för spårnings-och loggnings-AP
 ## <a name="prerequisites"></a>Förutsättningar
 
 * [Installera MLflow.](https://mlflow.org/docs/latest/quickstart.html)
-* [Installera Azure Machine Learning python SDK på den lokala datorn och skapa ett Azure Machine Learning-arbetsyta](setup-create-workspace.md#sdk). SDK ger anslutningen till MLflow för att komma åt din arbets yta.
+* [Installera Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) på den lokala datorn SDK: n ger anslutningen till MLflow för att få åtkomst till din arbets yta.
+* [Skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).
+
 
 ## <a name="track-experiment-runs"></a>Spåra experiment körningar
 
@@ -154,7 +156,7 @@ I fältet **paket** skriver du azureml-mlflow och klickar sedan på installera. 
 
 När klustret har kon figurer ATS importerar du din experiment-anteckningsbok, öppnar den och kopplar klustret till den.
 
-Följande kod ska finnas i din experiment antecknings bok. Detta hämtar information om din Azure-prenumeration för att skapa en instans av din arbets yta. Detta förutsätter att du har en befintlig resurs grupp och Azure Machine Learning arbets ytan, annars kan du [skapa dem](setup-create-workspace.md#portal). 
+Följande kod ska finnas i din experiment antecknings bok. Detta hämtar information om din Azure-prenumeration för att skapa en instans av din arbets yta. Detta förutsätter att du har en befintlig resurs grupp och Azure Machine Learning arbets ytan, annars kan du [skapa dem](how-to-manage-workspace.md). 
 
 ```python
 import mlflow

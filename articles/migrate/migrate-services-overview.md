@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 07/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 5409ed799454a6bb64077ee884065fc518556142
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 03918976935f9071ba2a7951e29195118943a8ef
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227815"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68845829"
 ---
 # <a name="about-azure-migrate"></a>Om Azure Migrate
 
@@ -50,7 +50,7 @@ Förutom interna Azure-verktyg kan Azure Migrate integreras med ett antal ISV-er
 
 ### <a name="selecting-an-isv-tool"></a>Välja ett ISV-verktyg
 
-När du har lagt till ett ISV-verktyg till ett Azure Migrate-projekt, kom igång med verktyget genom att skaffa en licens eller registrera dig för en kostnads fri utvärderings version, i enlighet med ISV-principen. I varje verktyg finns det ett alternativ för att ansluta till Azure Migrate. Följ anvisningarna och dokumentationen för verktyget för att ansluta verktyget med Azure Migrate.
+När du har lagt till ett ISV-verktyg till ett Azure Migrate-projekt, kom igång med verktyget genom att skaffa en licens eller registrera dig för en kostnads fri utvärderings version, i enlighet med ISV-principen. I varje verktyg finns det ett alternativ för att ansluta till Azure Migrate. Följ anvisningarna och dokumentationen för verktyget för att ansluta verktyget med Azure Migrate. Licensiering för ISV-verktyg är i enlighet med ISV-licensierings modellen.
 
 ## <a name="azure-migrate-server-assessment"></a>Utvärdering av Azure Migrate Server
 
@@ -90,7 +90,7 @@ Från Azure Migrate Hub kan du utvärdera och migrera lokala webbappar till Azur
 
 [Läs mer.](https://appmigration.microsoft.com/)
 
-## <a name="offline-data-migration"></a>Datamigrering offline
+## <a name="offline-data-migration"></a>Offline-datamigrering
 
 Du kan använda Data Box-enhet offline-serien med produkter för att flytta stora mängder data till Azure. [Läs mer](https://docs.microsoft.com/azure/databox/)
 

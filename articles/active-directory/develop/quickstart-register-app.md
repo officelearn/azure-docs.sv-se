@@ -1,5 +1,5 @@
 ---
-title: Registrera en app med Microsoft identity-plattformen – Microsoft identity-plattformen
+title: Registrera en app med Microsoft Identity Platform – Microsoft Identity Platform
 description: Lär dig hur du lägger till och registrerar ett program med Microsoft Identity Platform.
 services: active-directory
 documentationcenter: ''
@@ -14,27 +14,27 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/09/2019
 ms.author: ryanwi
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 541253cf3a8f2628ea0e76f1115ddc4a290daf62
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 80040aab0ea9d1444e1afd77d45d990f3d05f0de
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67655484"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68853025"
 ---
-# <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Snabbstart: Registrera ett program med Microsoft identity-plattformen
+# <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Snabbstart: Registrera ett program med Microsoft Identity Platform
 
 Företagsutvecklare och SaaS-leverantörer (software-as-a-service) kan utveckla kommersiella molntjänster och affärsprogram som kan integreras med Microsoft Identity Platform och då ger säker inloggning och behörighet till tjänsterna.
 
-Den här snabbstarten visar hur du lägger till och registrera ett program med hjälp av den **appregistreringar** upplevelse i Azure portal så att din app kan integreras med Microsoft identity-plattformen. Mer information om nya funktioner och förbättringar i den nya upplevelsen för appregistreringar finns [det här blogginlägget](https://developer.microsoft.com/graph/blogs/new-app-registration/).
+Den här snabb starten visar hur du lägger till och registrerar ett program med hjälp av Appregistreringars upplevelsen i Azure Portal så att din app kan integreras med Microsoft Identity Platform. Mer information om nya funktioner och förbättringar i den nya upplevelsen för appregistreringar finns [det här blogginlägget](https://developer.microsoft.com/graph/blogs/new-app-registration/).
 
 ## <a name="register-a-new-application-using-the-azure-portal"></a>Registrera ett nytt program med hjälp av Azure-portalen
 
 1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
 1. Om ditt konto ger dig tillgång till fler än en klientorganisation väljer du ditt konto i det övre högra hörnet och ställer in din portalsession på önskad Azure AD-klientorganisation.
-1. I det vänstra navigeringsfönstret väljer du den **Azure Active Directory** tjänsten och välj sedan **appregistreringar > Ny registrering**.
+1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** och väljer sedan **Appregistreringar > ny registrering**.
 1. När sidan **Registrera ett program** visas anger du programmets registreringsinformation:
 
    - **Namn** – ange ett beskrivande programnamn som ska visas för appens användare.
@@ -54,11 +54,11 @@ Den här snabbstarten visar hur du lägger till och registrera ett program med h
 
 1. När det är klart väljer du **Registrera**.
 
-    [![Visar skärmen för att registrera ett nytt program i Azure portal](./media/quickstart-add-azure-ad-app-preview/new-app-registration-expanded.png)](./media/quickstart-add-azure-ad-app-preview/new-app-registration-expanded.png#lightbox)
+    [![Visar skärmen för att registrera ett nytt program i Azure Portal](./media/quickstart-add-azure-ad-app-preview/new-app-registration-expanded.png)](./media/quickstart-add-azure-ad-app-preview/new-app-registration-expanded.png#lightbox)
 
 Azure AD tilldelar ett unikt program-ID (klient) till din app, och du kommer till programmets **översiktssida**. Om du vill lägga till ytterligare funktioner i programmet kan du välja andra konfigurationsalternativ inklusive varumärkesanpassning, certifikat och hemligheter, API-behörigheter och mer.
 
-[![Exempel på översiktssidan för en nyligen registrerad app](./media/quickstart-add-azure-ad-app-preview/new-app-overview-page-expanded.png)](./media/quickstart-add-azure-ad-app-preview/new-app-overview-page-expanded.png#lightbox)
+[![Exempel på en nyligen registrerad Apps översikts sida](./media/quickstart-add-azure-ad-app-preview/new-app-overview-page-expanded.png)](./media/quickstart-add-azure-ad-app-preview/new-app-overview-page-expanded.png#lightbox)
 
 ## <a name="next-steps"></a>Nästa steg
 

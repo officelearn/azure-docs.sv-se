@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 6fe08c15de7ea388a5194054791eb394dc2f6e01
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: de0eb685e212b59705d8d659cbe9627338697e9d
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840597"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854529"
 ---
 # <a name="deploy-azure-file-sync"></a>Distribuera Azure File Sync
 Använd Azure File Sync för att centralisera organisationens fil resurser i Azure Files, samtidigt som du behåller flexibilitet, prestanda och kompatibilitet för en lokal fil server. Azure File Sync transformerar Windows Server till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -94,7 +94,7 @@ if ($installType -ne "Server Core") {
 Distributionen av Azure File Sync börjar med att placera en resurs för **lagrings-synkroniseringstjänsten** i en resurs grupp för den valda prenumerationen. Vi rekommenderar etablering så att det är så viktigt som det behövs. Du kommer att skapa en förtroende relation mellan dina servrar och den här resursen och en server kan bara registreras till en lagrings tjänst för synkronisering. Därför rekommenderar vi att du distribuerar så många tjänster för synkronisering av lagring som du behöver för att skilja grupper av servrar. Tänk på att servrar från olika lagrings Sync-tjänster inte kan synkroniseras med varandra.
 
 > [!Note]
-> Tjänsten Storage Sync har ärvt åtkomst behörigheter från prenumerationen och resurs gruppen som den har distribuerats till. Vi rekommenderar att du noga kontrollerar vem som har åtkomst till den. Entiteter med skriv åtkomst kan börja synkronisera nya uppsättningar av filer från servrar som är registrerade i den här tjänsten för synkronisering av lagring och leda till att data flödar till Azure Storage som är tillgängligt för dem.
+> Tjänsten Storage Sync ärver åtkomst behörigheter från prenumerationen och resurs gruppen som den har distribuerats till. Vi rekommenderar att du noga kontrollerar vem som har åtkomst till den. Entiteter med skriv åtkomst kan börja synkronisera nya uppsättningar av filer från servrar som är registrerade i den här tjänsten för synkronisering av lagring och leda till att data flödar till Azure Storage som är tillgängligt för dem.
 
 # <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 Om du vill distribuera en tjänst för synkronisering av lagring går du till [Azure Portal](https://portal.azure.com/), klickar på *skapa en resurs* och söker sedan efter Azure File Sync. I Sök resultaten väljer du **Azure File Sync**och väljer sedan **skapa** för att öppna fliken **distribuera synkronisering av lagring** .
@@ -164,7 +164,7 @@ Azure File Sync-agenten är ett nedladdningsbart paket som möjliggör att Windo
 Du kan ladda ned agenten från [Microsoft Download Center](https://go.microsoft.com/fwlink/?linkid=858257). När hämtningen är slutförd, dubbelklickar du på MSI-paketet för att starta installationen av Azure File Sync-agenten.
 
 > [!Important]  
-> Om du tänker använda Azure File Sync med ett redundanskluster måste Azure File Syncs agenten installeras på varje nod i klustret. Varje nod i klustret måste ha registrerats för att fungera med Azure File Sync.
+> Om du tänker använda Azure File Sync med ett redundanskluster måste Azure File Syncs agenten installeras på varje nod i klustret. Varje nod i klustret måste vara registrerad för att fungera med Azure File Sync.
 
 Vi rekommenderar att du gör följande:
 - Lämna standard installations Sök vägen (C:\Program Files\Azure\StorageSyncAgent) för att förenkla fel sökning och Server underhåll.

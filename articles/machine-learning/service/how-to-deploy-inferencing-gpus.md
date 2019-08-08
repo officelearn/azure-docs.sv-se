@@ -10,12 +10,12 @@ ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
 ms.date: 07/24/2019
-ms.openlocfilehash: 06194537a0c0cce3a52510e6f426a9c2904387b2
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 9cf39230d6a2c615925222b6545a091a4be941ac
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68694348"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847969"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>Distribuera en djup inlärnings modell för en härledning med GPU
 
@@ -31,9 +31,9 @@ Härlednings-eller modell poängsättning är den fas där den distribuerade mod
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* En arbetsyta för Azure Machine Learning-tjänsten. Mer information finns i [skapa en Azure Machine Learning service-arbetsyta](setup-create-workspace.md).
+* En arbetsyta för Azure Machine Learning-tjänsten. Mer information finns i [skapa en Azure Machine Learning service-arbetsyta](how-to-manage-workspace.md).
 
-* En python-utvecklings miljö med Azure Machine Learning SDK installerat. Mer information finns i avsnittet [python SDK](setup-create-workspace.md#sdk) i artikeln Skapa en arbets yta.
+* En python-utvecklings miljö med Azure Machine Learning SDK installerat. Mer information finns i [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).  
 
 * En registrerad modell som använder en GPU.
 
@@ -48,7 +48,7 @@ Härlednings-eller modell poängsättning är den fas där den distribuerade mod
 Använd följande kod för att ansluta till en befintlig arbets yta:
 
 > [!IMPORTANT]
-> Det här kodfragmentet förväntar sig att arbets ytans konfiguration sparas i den aktuella katalogen eller dess överordnade. Mer information om hur du skapar en arbets yta och sparar konfigurationen till filen finns i [skapa en Azure Machine Learning service-arbetsyta](setup-create-workspace.md).
+> Det här kodfragmentet förväntar sig att arbets ytans konfiguration sparas i den aktuella katalogen eller dess överordnade. Mer information om hur du skapar en arbets yta finns i [skapa och hantera Azure Machine Learning service-arbetsytor](how-to-manage-workspace.md).   Mer information om hur du sparar konfigurationen till filen finns i [skapa en konfigurations fil för arbets ytor](how-to-configure-environment.md#workspace).
 
 ```python
 from azureml.core import Workspace

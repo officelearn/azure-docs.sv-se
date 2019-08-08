@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/28/2018
 ms.author: wesmc
 ms.custom: include file
-ms.openlocfilehash: 50264dfba401f623c4ad14a6310303f2787fc85f
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 8d0973b8d4de280842930a8a70618600daab849b
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187148"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68849911"
 ---
 ### <a name="retrieve-host-name-ports-and-access-keys-by-using-the-azure-portal"></a>Hämta värdnamn, portar och åtkomstnycklar med hjälp av Azure Portal
 
@@ -21,7 +21,7 @@ När du ansluter till en Azure Cache för Redis-instans behöver cacheklienter v
 
 #### <a name="to-retrieve-the-access-keys-and-host-name"></a>Hämta åtkomstnycklarna och värdnamnet
 
-1. Om du vill hämta åtkomstnycklarna via [Azure Portal](https://portal.azure.com) bläddrar du till ditt cacheminne och väljer **Åtkomstnycklar**. 
+1. Om du vill hämta åtkomst nycklar med hjälp av [Azure Portal](https://portal.azure.com)går du till cacheminnet och väljer **åtkomst nycklar**. 
 
     ![Nycklar för Azure Cache for Redis](media/redis-cache-access-keys/redis-cache-keys.png)
 

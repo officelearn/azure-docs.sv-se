@@ -1,6 +1,6 @@
 ---
-title: RDP i Azure Kubernetes Service (AKS) noder i Windows Server
-description: Lär dig hur du skapar en RDP-anslutning med klustret i Azure Kubernetes Service (AKS) Windows Server-noder för felsökning och underhållsåtgärder.
+title: RDP till Azure Kubernetes service (AKS) Cluster Windows Server-noder
+description: Lär dig hur du skapar en RDP-anslutning med Windows Server-noder i Azure Kubernetes service (AKS) för fel söknings-och underhålls aktiviteter.
 services: container-service
 author: mlearned
 ms.service: container-service
@@ -8,33 +8,33 @@ ms.topic: article
 ms.date: 06/04/2019
 ms.author: mlearned
 ms.openlocfilehash: 0238278b81255d735f8a950ca307d0e05100cfec
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
+ms.lasthandoff: 08/08/2019
 ms.locfileid: "67614568"
 ---
-# <a name="connect-with-rdp-to-azure-kubernetes-service-aks-cluster-windows-server-nodes-for-maintenance-or-troubleshooting"></a>Anslut med RDP till Azure Kubernetes Service (AKS) klusternoder i Windows Server för underhåll och felsökning
+# <a name="connect-with-rdp-to-azure-kubernetes-service-aks-cluster-windows-server-nodes-for-maintenance-or-troubleshooting"></a>Ansluta med RDP till Azure Kubernetes service (AKS) Cluster Windows Server-noder för underhåll eller fel sökning
 
-Under livscykeln för ditt kluster i Azure Kubernetes Service (AKS), kan du behöva komma åt en AKS Windows Server-nod. Den här åtkomsten kan vara för underhåll, Logginsamling eller andra felsökning åtgärder. Du kan komma åt AKS Windows Server-noder med RDP. Om du vill använda SSH för att komma åt AKS Windows Server-noder och du har åtkomst till samma nyckelpar som användes när klustret skapas kan du också följa stegen i [SSH till noder i Azure Kubernetes Service (AKS)][ssh-steps]. Av säkerhetsskäl exponeras inte AKS-noder till internet.
+Under hela livs cykeln för ditt Azure Kubernetes service-kluster (AKS) kan du behöva komma åt en AKS Windows Server-nod. Den här åtkomsten kan vara för underhåll, logg insamling eller andra fel söknings åtgärder. Du kan komma åt AKS Windows Server-noder med RDP. Om du vill använda SSH för att få åtkomst till AKS-noderna i Windows och du har åtkomst till samma nyckel par som användes när klustret skapades, kan du följa stegen i [SSH till Azure Kubernetes service (AKS) klusternoder][ssh-steps]. Av säkerhets synpunkt exponeras inte AKS-noderna för Internet.
 
-Stöd för Windows Server-noden är för närvarande i förhandsversion i AKS.
+Stöd för Windows Server-nod är för närvarande en för hands version i AKS.
 
-Den här artikeln visar hur du skapar en RDP-anslutning med ett AKS-noden med sina privata IP-adresser.
+Den här artikeln visar hur du skapar en RDP-anslutning med en AKS-nod med hjälp av sina privata IP-adresser.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Den här artikeln förutsätter att du har ett befintligt AKS-kluster med en Windows Server-nod. Om du behöver ett AKS-kluster finns i artikeln på [skapar ett AKS-kluster med en Windows-behållare med Azure CLI][aks-windows-cli]. You need the Windows administrator username and password for the Windows Server node you want to troubleshoot. You also need an RDP client such as [Microsoft Remote Desktop][rdp-mac].
+Den här artikeln förutsätter att du har ett befintligt AKS-kluster med en Windows Server-nod. Om du behöver ett AKS-kluster kan du läsa artikeln om att [skapa ett AKS-kluster med en Windows-behållare med hjälp av Azure CLI][aks-windows-cli]. Du behöver Windows-administratörens användar namn och lösen ord för den Windows Server-nod som du vill felsöka. Du behöver också en RDP-klient som [Microsoft fjärrskrivbord][rdp-mac].
 
-Du också ha Azure CLI version 2.0.61 eller senare installerat och konfigurerat. Kör  `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [installera Azure CLI][install-azure-cli].
+Du måste också ha Azure CLI-versionen 2.0.61 eller senare installerad och konfigurerad. Kör  `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][install-azure-cli].
 
-## <a name="deploy-a-virtual-machine-to-the-same-subnet-as-your-cluster"></a>Distribuera en virtuell dator i samma undernät som klustret
+## <a name="deploy-a-virtual-machine-to-the-same-subnet-as-your-cluster"></a>Distribuera en virtuell dator till samma undernät som klustret
 
-Windows Server-noderna i AKS-klustret har inte den externa IP-adresser. Om du vill göra en RDP-anslutning, kan du distribuera en virtuell dator med en offentligt tillgänglig IP-adress i samma undernät som Windows Server-noder.
+Windows Server-noderna för ditt AKS-kluster har inte externt tillgängliga IP-adresser. Om du vill upprätta en RDP-anslutning kan du distribuera en virtuell dator med en offentligt tillgänglig IP-adress till samma undernät som dina Windows Server-noder.
 
-I följande exempel skapas en virtuell dator med namnet *myVM* i den *myResourceGroup* resursgrupp.
+I följande exempel skapas en virtuell dator med namnet *myVM* i resurs gruppen *myResourceGroup* .
 
-Hämta först det undernät som används av din pool för Windows Server-nod. För att hämta undernät-id, behöver du namnet på undernätet. För att hämta namnet på undernätet, behöver du namnet på det virtuella nätverket. Hämta virtuella nätverkets namn genom att fråga ditt kluster för sin lista över nätverk. Om du vill fråga klustret, behöver du dess namn. Du kan få alla dessa genom att köra följande i Azure Cloud Shell:
+Börja med att hämta det undernät som används av din pool för Windows Server-noder. Om du vill hämta Undernäts-ID: t behöver du namnet på under nätet. Du behöver namnet på det virtuella nätverket för att hämta namnet på under nätet. Hämta VNet-namnet genom att fråga klustret efter listan över nätverk. Du behöver ett namn för att kunna fråga klustret. Du kan hämta alla dessa genom att köra följande i Azure Cloud Shell:
 
 ```azurecli-interactive
 CLUSTER_RG=$(az aks show -g myResourceGroup -n myAKSCluster --query nodeResourceGroup -o tsv)
@@ -43,7 +43,7 @@ SUBNET_NAME=$(az network vnet subnet list -g $CLUSTER_RG --vnet-name $VNET_NAME 
 SUBNET_ID=$(az network vnet subnet show -g $CLUSTER_RG --vnet-name $VNET_NAME --name $SUBNET_NAME --query id -o tsv)
 ```
 
-Nu när du har SUBNET_ID, kör du följande kommando i samma Azure Cloud Shell-fönstret för att skapa den virtuella datorn:
+Nu när du har SUBNET_ID kör du följande kommando i samma Azure Cloud Shell-fönster för att skapa den virtuella datorn:
 
 ```azurecli-interactive
 az vm create \
@@ -56,17 +56,17 @@ az vm create \
     --query publicIpAddress -o tsv
 ```
 
-Följande Exempelutdata visar den virtuella datorn har skapats och visar den offentliga IP-adressen för den virtuella datorn.
+Följande exempel på utdata visar att den virtuella datorn har skapats och visar den offentliga IP-adressen för den virtuella datorn.
 
 ```console
 13.62.204.18
 ```
 
-Anteckna den offentliga IP-adressen för den virtuella datorn. Du använder den här adressen i ett senare steg.
+Registrera den virtuella datorns offentliga IP-adress. Du kommer att använda den här adressen i ett senare steg.
 
-## <a name="get-the-node-address"></a>Hämta nodadressen
+## <a name="get-the-node-address"></a>Hämta Node-adressen
 
-Om du vill hantera ett Kubernetes-kluster måste du använda [kubectl][kubectl], Kubernetes kommandoradsklient. Om du använder Azure Cloud Shell är `kubectl` redan installerat. Installera `kubectl` lokalt, använda den [az aks install-cli][az-aks-install-cli] kommando:
+Om du vill hantera ett Kubernetes-kluster använder du [kubectl][kubectl], Kubernetes kommando rads klient. Om du använder Azure Cloud Shell är `kubectl` redan installerat. Installera `kubectl` lokalt genom att använda kommandot [AZ AKS install-CLI][az-aks-install-cli] :
     
 ```azurecli-interactive
 az aks install-cli
@@ -78,13 +78,13 @@ För att konfigurera `kubectl` till att ansluta till ditt Kubernetes-kluster anv
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Lista över den interna IP-adressen med Windows Server-noder med den [kubectl hämta][kubectl-get] kommando:
+Visa en lista med den interna IP-adressen för Windows Server-noderna med kommandot [kubectl get][kubectl-get] :
 
 ```console
 kubectl get nodes -o wide
 ```
 
-Följande Exempelutdata visar interna IP-adresserna för alla noder i klustret, inklusive Windows Server-noder.
+I följande exempel utdata visas de interna IP-adresserna för alla noder i klustret, inklusive Windows Server-noder.
 
 ```console
 $ kubectl get nodes -o wide
@@ -93,27 +93,27 @@ aks-nodepool1-42485177-vmss000000   Ready    agent   18h   v1.12.7   10.240.0.4 
 aksnpwin000000                      Ready    agent   13h   v1.12.7   10.240.0.67   <none>        Windows Server Datacenter   10.0.17763.437
 ```
 
-Anteckna den interna IP-adressen för den Windows Server-noden som du vill felsöka. Du använder den här adressen i ett senare steg.
+Registrera den interna IP-adressen för den Windows Server-nod som du vill felsöka. Du kommer att använda den här adressen i ett senare steg.
 
-## <a name="connect-to-the-virtual-machine-and-node"></a>Ansluta till den virtuella datorn och en nod
+## <a name="connect-to-the-virtual-machine-and-node"></a>Anslut till den virtuella datorn och noden
 
-Ansluta till den offentliga IP-adressen för den virtuella datorn som du skapat tidigare med en RDP-klient som [Microsoft Remote Desktop][rdp-mac].
+Anslut till den offentliga IP-adressen för den virtuella dator som du skapade tidigare med hjälp av en RDP-klient, till exempel [Microsoft fjärrskrivbord][rdp-mac].
 
-![Bild för att ansluta till den virtuella datorn med en RDP-klient](media/rdp/vm-rdp.png)
+![Avbildning av anslutning till den virtuella datorn via en RDP-klient](media/rdp/vm-rdp.png)
 
-När du har anslutit till den virtuella datorn kan ansluta till den *interna IP-adressen* för Windows Server-nod som du vill felsöka med hjälp av en RDP-klient från den virtuella datorn.
+När du har anslutit till den virtuella datorn ansluter du till den *interna IP-adressen* för den Windows Server-nod som du vill felsöka med hjälp av en RDP-klient från den virtuella datorn.
 
-![Bild av att ansluta till Windows Server-noden med hjälp av en RDP-klient](media/rdp/node-rdp.png)
+![Bild av anslutning till Windows Server-noden med en RDP-klient](media/rdp/node-rdp.png)
 
 Du är nu ansluten till din Windows Server-nod.
 
-![Bild av kommandofönstret i Windows Server-nod](media/rdp/node-session.png)
+![Bild av cmd-fönster i noden Windows Server](media/rdp/node-session.png)
 
-Du kan nu köra kommandon som felsökning i den *cmd* fönster. Eftersom Windows Server-noder använder Windows Server Core, är det inte ett fullständigt grafiskt användargränssnitt eller andra GUI-verktyg när du ansluter till en Windows Server-nod via RDP.
+Nu kan du köra eventuella fel söknings kommandon i *kommando* fönstret. Eftersom Windows Server-noder använder Windows Server Core finns det inte ett fullständigt grafiskt användar gränssnitt eller andra GUI-verktyg när du ansluter till en Windows Server-nod via RDP.
 
 ## <a name="remove-rdp-access"></a>Ta bort RDP-åtkomst
 
-När du är klar avsluta RDP-anslutning till Windows Server-noden och sedan avslutar du RDP-sessionen till den virtuella datorn. När du har avslutat båda RDP-sessioner, tar du bort den virtuella datorn med den [az vm ta bort][az-vm-delete] kommando:
+När du är färdig avslutar du RDP-anslutningen till Windows Server-noden och stänger sedan RDP-sessionen till den virtuella datorn. När du har avslutat båda RDP-sessionerna tar du bort den virtuella datorn med kommandot [AZ VM Delete][az-vm-delete] :
 
 ```azurecli-interactive
 az vm delete --resource-group myResourceGroup --name myVM
@@ -121,7 +121,7 @@ az vm delete --resource-group myResourceGroup --name myVM
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du behöver ytterligare felsökning data, kan du [visa Kubernetes-huvudnod loggar][view-master-logs] or [Azure Monitor][azure-monitor-containers].
+Om du behöver ytterligare fel söknings data kan du [Visa loggarna Kubernetes Master Node][view-master-logs] eller [Azure Monitor][azure-monitor-containers].
 
 <!-- EXTERNAL LINKS -->
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/

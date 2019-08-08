@@ -12,12 +12,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 07/22/2019
 ms.author: juliako
-ms.openlocfilehash: fd67e867b5eac58838551ac29e1fca5e860b15ff
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: b627a78edef1c0b0fe6b3ed011678145aea397ae
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68414224"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68845879"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Viktig information om Azure Media Services Video Indexer
 
@@ -27,6 +27,16 @@ Om du vill hålla dig uppdaterad med den senaste utvecklingen, innehåller den h
 * Kända problem
 * Felkorrigeringar
 * Inaktuell funktion
+
+## <a name="july-2019"></a>Juli 2019
+
+### <a name="editor-as-a-widget"></a>Redigeraren som en widget
+
+Video Indexer AI-redigeraren är nu tillgänglig som en widget som är inbäddad i kund program.
+
+### <a name="update-custom-language-model-from-closed-caption-file-from-the-portal"></a>Uppdatera anpassad språk modell från fil med dold textning från portalen
+
+Kunder kan tillhandahålla VTT-, SRT-och TTML-filformat som indata för språk modeller på sidan anpassning i portalen.
 
 ## <a name="june-2019"></a>2019 juni
 

@@ -11,12 +11,12 @@ ms.date: 04/16/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: c5626e2ddfc24eeaeed562f3eaf73d16626eb458
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 6b5157a71ce15d4dfd199b6826be22235e61df97
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68278036"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68848530"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>Webb inloggning med OpenID Connect i Azure Active Directory B2C
 
@@ -32,7 +32,7 @@ Azure AD B2C utökar standard OpenID Connect-protokollet för att göra mer än 
 
 När ditt webb program behöver autentisera användaren och köra ett användar flöde, kan användaren dirigera användaren till `/authorize` slut punkten. Användaren vidtar åtgärder beroende på användar flödet.
 
-I den här förfrågan anger klienten de behörigheter som krävs för att hämta från användaren i `scope` parametern och användar flödet som ska köras `p` i parametern. Tre exempel finns i följande avsnitt (med rad brytningar för läsbarhet). var och en använder ett annat användar flöde. För att få en känsla för hur varje begäran fungerar kan du försöka att klistra in begäran i en webbläsare och köra den. Du kan ersätta `fabrikamb2c` med namnet på din klient om du har ett och har skapat ett användar flöde.
+I den här förfrågan anger klienten de behörigheter som krävs för att hämta från användaren i `scope` parametern och användar flödet som ska köras `p` i parametern. Tre exempel finns i följande avsnitt (med rad brytningar för läsbarhet). var och en använder ett annat användar flöde. För att få en känsla för hur varje begäran fungerar kan du försöka att klistra in begäran i en webbläsare och köra den. Du kan ersätta `fabrikamb2c` med namnet på din klient om du har ett och har skapat ett användar flöde. Du måste också ersätta `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6`. Ersätt detta klient-ID med app-ID: t för den program registrering som du har skapat. Ändra också princip namnet `b2c_1_sign_in` till det princip namn som du har i din klient organisation. 
 
 #### <a name="use-a-sign-in-user-flow"></a>Använd ett användar flöde för inloggning
 ```
@@ -73,7 +73,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &p=b2c_1_edit_profile
 ```
 
-| Parameter | Krävs | Beskrivning |
+| Parameter | Obligatorisk | Beskrivning |
 | --------- | -------- | ----------- |
 | client_id | Ja | Det program-ID som [Azure Portal](https://portal.azure.com/) tilldelats till ditt program. |
 | response_type | Ja | Måste innehålla en ID-token för OpenID Connect. Om ditt webb program också behöver tokens för att anropa ett webb-API kan du använda `code+id_token`. |
@@ -167,7 +167,7 @@ Content-Type: application/x-www-form-urlencoded
 grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access&code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob&client_secret=<your-application-secret>
 ```
 
-| Parameter | Krävs | Beskrivning |
+| Parameter | Obligatorisk | Beskrivning |
 | --------- | -------- | ----------- |
 | p | Ja | Det användar flöde som användes för att hämta auktoriseringskod. Du kan inte använda ett annat användar flöde i denna begäran. Lägg till den här parametern i frågesträngen, inte POST texten. |
 | client_id | Ja | Det program-ID som [Azure Portal](https://portal.azure.com/) tilldelats till ditt program. |
@@ -234,7 +234,7 @@ Content-Type: application/x-www-form-urlencoded
 grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=openid offline_access&refresh_token=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob&client_secret=<your-application-secret>
 ```
 
-| Parameter | Krävs | Beskrivning |
+| Parameter | Obligatorisk | Beskrivning |
 | --------- | -------- | ----------- |
 | p | Ja | Det användar flöde som användes för att hämta den ursprungliga uppdateringstoken. Du kan inte använda ett annat användar flöde i denna begäran. Lägg till den här parametern i frågesträngen, inte POST texten. |
 | client_id | Ja | Det program-ID som [Azure Portal](https://portal.azure.com/) tilldelats till ditt program. |
@@ -291,7 +291,7 @@ p=b2c_1_sign_in
 &post_logout_redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
 ```
 
-| Parameter | Krävs | Beskrivning |
+| Parameter | Obligatorisk | Beskrivning |
 | --------- | -------- | ----------- |
 | p | Ja | Det användar flöde som du vill använda för att signera användaren från ditt program. |
 | post_logout_redirect_uri | Nej | URL: en som användaren ska omdirigeras till efter en lyckad utloggning. Om den inte är inkluderad visar Azure AD B2C användaren ett allmänt meddelande. |

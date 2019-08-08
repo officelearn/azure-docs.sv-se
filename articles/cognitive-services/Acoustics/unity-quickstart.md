@@ -3,20 +3,20 @@ title: Snabb start för Project-ljud med enhets enhet
 titlesuffix: Azure Cognitive Services
 description: Med hjälp av exempel innehåll kan du experimentera med projektets design kontroller i Unity och distribuera dem till Windows-skrivbordet.
 services: cognitive-services
-author: kegodin
+author: NoelCross
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: quickstart
 ms.date: 03/20/2019
-ms.author: kegodin
+ms.author: noelc
 ROBOTS: NOINDEX
-ms.openlocfilehash: 93eb44bf91bc2c8346660a4d770ee6d83501c3ae
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: a36a16b6cb64c300647d16695edfbb73f4884104
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68706607"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854866"
 ---
 # <a name="project-acoustics-unity-quickstart"></a>Snabb start för projekt akustiskt
 Använd projekt akustiska exempel innehåll för att kunna experimentera med simulerings design kontroller.

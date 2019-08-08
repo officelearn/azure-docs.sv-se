@@ -3,20 +3,20 @@ title: Översikt över Project-Akustiskhet
 titlesuffix: Azure Cognitive Services
 description: Project-Akustisker är en akustisk motor för interaktiva 3D-upplevelser, som integrerar bakade Wave fysik-simulering med interaktiva design kontroller.
 services: cognitive-services
-author: kegodin
+author: NoelCross
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: overview
 ms.date: 03/20/2019
-ms.author: kegodin
+ms.author: noelc
 ROBOTS: NOINDEX
-ms.openlocfilehash: a654dd966c40b5b079f92b910ade52f4eda10344
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 382d4febed98b53a469ac2788e6e8c8cbf064c23
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68704759"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854816"
 ---
 # <a name="what-is-project-acoustics"></a>Vad är Project Acoustics?
 Project-Akustisker är en våg akustisk motor för interaktiva 3D-upplevelser. Den modellerar våg effekter som Diffraction, portaling och reverb-effekter i komplexa scener utan att det krävs någon manuell zon markering. Den omfattar också integrering av spel motor och ljud mellan mellanprogram. Projektets akustiska filosofi liknar statisk belysning: bagerien detaljerad fysik offline för att tillhandahålla en fysisk bas linje och Använd en förenklad körning med lättfattliga programspecifika design kontroller för att möta dina konstnärliga mål.

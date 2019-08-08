@@ -8,20 +8,20 @@ ms.topic: include
 ms.date: 04/13/2018
 ms.author: sngun
 ms.custom: include file
-ms.openlocfilehash: 4341d06f09c60933bfc0512f54e024b35a19d8dd
-ms.sourcegitcommit: 0ebc62257be0ab52f524235f8d8ef3353fdaf89e
+ms.openlocfilehash: 1ebd645b740ab0f454d006d003518fbb8cb5e9e7
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67187885"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854639"
 ---
 Du kan nu lägga till data till den nya tabellen med datautforskaren.
 
-1. Öppna Datautforskaren, expandera **sample-table**, klicka på **Entiteter** och klicka sedan på **Lägg till entitet**.
+1. I Datautforskaren expanderar du **exempel tabell**, väljer **entiteter**och väljer sedan **Lägg till entitet**.
 
    ![Skapa nya entiteter i datautforskaren i Azure Portal](./media/cosmos-db-create-table-add-sample-data/azure-cosmosdb-data-explorer-new-document.png)
 
-2. Lägg till data i värderutorna för egenskaperna PartitionKey (Partitionsnyckel) och RowKey (Radnyckel) och klicka på **Lägg till entitet**.
+2. Lägg nu till data i rutan värde för PartitionKey och RowKey-värde och välj **Lägg till entitet**.
 
    ![Ange partitionsnyckel och radnyckel för en ny entitet](./media/cosmos-db-create-table-add-sample-data/azure-cosmosdb-data-explorer-new-entity.png)
   

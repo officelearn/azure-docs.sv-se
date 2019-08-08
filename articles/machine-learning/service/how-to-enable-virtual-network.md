@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 08/05/2019
-ms.openlocfilehash: 7c4c4ff611b35cac9aa8be1a9697a0d11bc4dc8b
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 9bd56984f088ab16fc5d80c588afce2cdc31240b
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815960"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68848106"
 ---
 # <a name="securely-run-experiments-and-inference-inside-an-azure-virtual-network"></a>Köra experiment och härledning på ett säkert sätt i ett virtuellt Azure-nätverk
 
@@ -27,7 +27,7 @@ Den här artikeln innehåller detaljerad information om **avancerade säkerhets 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Skapa en Azure Machine Learning service- [arbetsyta](setup-create-workspace.md) om du inte redan har en. Det här dokumentet förutsätter att du är bekant med virtuella Azure-nätverk och IP-nätverk i allmänhet. Det här dokumentet förutsätter också att du har skapat ett virtuellt nätverk och ett undernät som ska användas med dina beräknings resurser. Om du inte är bekant med virtuella Azure-nätverk kan du läsa följande artiklar för att lära dig om tjänsten:
+Skapa en Azure Machine Learning service- [arbetsyta](how-to-manage-workspace.md) om du inte redan har en. Det här dokumentet förutsätter att du är bekant med virtuella Azure-nätverk och IP-nätverk i allmänhet. Det här dokumentet förutsätter också att du har skapat ett virtuellt nätverk och ett undernät som ska användas med dina beräknings resurser. Om du inte är bekant med virtuella Azure-nätverk kan du läsa följande artiklar för att lära dig om tjänsten:
 
 * [IP-adress](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm)
 * [Säkerhets grupper](https://docs.microsoft.com/azure/virtual-network/security-overview)
@@ -36,7 +36,7 @@ Skapa en Azure Machine Learning service- [arbetsyta](setup-create-workspace.md) 
 
 ## <a name="storage-account-for-your-workspace"></a>Lagrings konto för din arbets yta
 
-Använd följande steg för att använda standard Azure Storage kontot för arbets ytan i ett virtuellt nätverk:
+Använd följande steg om du vill använda ett Azure Storage konto för arbets ytan i ett virtuellt nätverk:
 
 1. Skapa en beräkning av experimentet. Machine Learning-beräkning bakom ett virtuellt nätverk eller koppla ett experiment till arbets ytan till exempel. HDInsight-kluster eller virtuell dator. Mer information finns i [använda Machine Learning-beräkning](#use-machine-learning-compute) och [använda ett kluster avsnitt för virtuella datorer eller HDInsight](#use-a-virtual-machine-or-hdinsight-cluster) i det här dokumentet
 2. Gå till det lagrings utrymme som är kopplat till arbets ytan. ![Bild av Azure Portal som visar Azure Storage som är kopplad till Azure Machine Learning service-arbetsytan](./media/how-to-enable-virtual-network/workspace-storage.png)
@@ -55,7 +55,9 @@ Använd följande steg för att använda standard Azure Storage kontot för arbe
 > [!IMPORTANT]
 > __Standard lagrings kontot__ för Azure Machine Learning-tjänsten kan bara placeras i ett virtuellt nätverk __vid experimentering__.
 >
-> För __lagrings konton som inte är standard för experimentering__, eller om du använder ett lagrings konto för att få en __härledning__, måste du ha __obegränsad åtkomst till lagrings kontot__.
+> __Lagrings konton som inte är standard__ kan också placeras i ett virtuellt nätverk, men __endast för experimentering__.
+>
+> Standard-eller icke-standardlagrings konton som används för __härledning__ måste ha __obegränsad åtkomst till lagrings kontot__.
 >
 > Om du inte är säker på om du har ändrat de här inställningarna eller inte, se __ändra standard regeln för nätverks åtkomst__ i [Konfigurera Azure Storage brand väggar och virtuella nätverk](https://docs.microsoft.com/azure/storage/common/storage-network-security). Använd stegen för att tillåta åtkomst från alla nätverk under härledningen eller modell poängen.
 

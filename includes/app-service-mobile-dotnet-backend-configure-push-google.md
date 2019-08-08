@@ -4,19 +4,19 @@ ms.author: crdun
 ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
-ms.openlocfilehash: d1dcd7895025ea608e5f6c4db5e0967817934f2a
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 3c6147cc24f285fc32dce145e594f743c9633c20
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187856"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68857511"
 ---
-Stegen nedan som matchar din backend-projekttyp&mdash;antingen [.NET-serverdel](#dotnet) eller [Node.js-serverdel](#nodejs).
+Använd den procedur som matchar ditt backend-projekts typ&mdash;, antingen [.NET-Server](#dotnet) del eller [Node. js-Server delen](#nodejs).
 
-### <a name="dotnet"></a>Projekt för .NET-serverdel
+### <a name="dotnet"></a>.NET-Server dels projekt
 
-1. Högerklicka på serverprojektet i Visual Studio och klicka på **hantera NuGet-paket**. Sök efter `Microsoft.Azure.NotificationHubs`, och klicka sedan på **installera**. Detta installerar klientbiblioteket för Meddelandehubbar.
-2. Öppna TodoItemController.cs i mappen domänkontrollanter och Lägg till följande `using` instruktioner:
+1. I Visual Studio högerklickar du på Server projektet och klickar på **Hantera NuGet-paket**. Sök efter `Microsoft.Azure.NotificationHubs`och klicka sedan på **Installera**. Detta installerar klient biblioteket för Notification Hubs.
+2. Öppna TodoItemController.cs i mappen kontrollanter och Lägg till följande `using` -uttryck:
 
     ```csharp
     using Microsoft.Azure.Mobile.Server.Config;
@@ -65,12 +65,12 @@ Stegen nedan som matchar din backend-projekttyp&mdash;antingen [.NET-serverdel](
     }
     ```
 
-4. Publicera om serverprojektet.
+4. Publicera om Server projektet.
 
-### <a name="nodejs"></a>Node.js-backend-projekt
+### <a name="nodejs"></a>Node. js-backend-projekt
 
-1. Om du inte redan gjort det, [hämta quickstart-projektet](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart), eller annan användning den [onlineredigeraren i Azure-portalen](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
-2. Ersätt den befintliga koden i filen todoitem.js med följande:
+1. Konfigurera ditt Server dels projekt.
+2. Ersätt den befintliga koden i filen todoitem. js med följande:
 
     ```javascript
     var azureMobileApps = require('azure-mobile-apps'),
@@ -117,6 +117,6 @@ Stegen nedan som matchar din backend-projekttyp&mdash;antingen [.NET-serverdel](
     module.exports = table;
     ```
 
-    Detta skickar ett GCM-meddelande som innehåller item.text när en ny att göra-objekt har infogats.
+    Detta skickar ett GCM-meddelande som innehåller objektet. text när ett nytt att göra-objekt infogas.
 
-3. När du redigerar filen i din lokala dator, publicera om serverprojektet.
+3. Publicera om Server projektet när du redigerar filen på den lokala datorn.

@@ -1,6 +1,6 @@
 ---
-title: Prestanda för Azure Diagnostics VM-tillägg för Windows | Microsoft Docs
-description: Introducerar Azure prestanda diagnostik VM-tillägg för Windows.
+title: VM-tillägg för Azure Performance Diagnostics för Windows | Microsoft Docs
+description: Introducerar VM-tillägget för Azure Performance Diagnostics för Windows.
 services: virtual-machines-windows'
 documentationcenter: ''
 author: genlin
@@ -14,26 +14,26 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 769305cc3d838832f8f445ac9623a1724603f968
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f9a50b0e5dd4e96c9235348bbfaae1d8a6e54d53
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60307938"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68846620"
 ---
-# <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Prestanda för Azure Diagnostics VM-tillägg för Windows
+# <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>VM-tillägg för Azure Performance Diagnostics för Windows
 
-Azure prestanda diagnostik VM-tillägget kan samla in diagnostikdata för prestanda från Windows-datorer. Tillägget gör analys och tillhandahåller en rapport över resultat och rekommendationer för att identifiera och lösa prestandaproblem på den virtuella datorn. Det här tillägget installeras ett felsökningsverktyg som kallas [PerfInsights](https://aka.ms/perfinsights).
+Med VM-tillägget för Azure Performance Diagnostics kan du samla in prestanda diagnostikdata från virtuella Windows-datorer. Tillägget utför analyser och innehåller en rapport över resultat och rekommendationer för att identifiera och lösa prestanda problem på den virtuella datorn. Det här tillägget installerar ett fel söknings verktyg som kallas [PerfInsights](https://aka.ms/perfinsights).
 
 > [!NOTE]
-> Om du vill köra diagnostik på din virtuella dator från Azure-portalen för icke-klassiska virtuella datorer rekommenderas att använda den nya upplevelsen. Mer information finns i [Prestandadiagnostik för Azure-datorer](performance-diagnostics.md) 
+> Om du vill köra diagnostik på den virtuella datorn från Azure Portal för icke-klassiska virtuella datorer, rekommenderar vi att du använder den nya upplevelsen. Mer information finns i [prestandadiagnostik för Azure Virtual Machines](performance-diagnostics.md) 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-Det här tillägget kan installeras på Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 och Windows Server 2016. Det kan också installeras på Windows 8.1 och Windows 10.
+Tillägget kan installeras på Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 och Windows Server 2016. Den kan också installeras på Windows 8,1 och Windows 10.
 
 ## <a name="extension-schema"></a>Tilläggsschema
-Följande JSON visar schemat för Azure VM Diagnostics-tillägget prestanda. Det här tillägget kräver namnet och nyckeln för ett lagringskonto att lagra utdata för diagnostik och rapporten. Dessa värden är känslig. Nyckeln för lagringskontot ska lagras i en skyddad Konfigurationsinställningen. Azure VM-tillägg som skyddade inställningsdata krypteras och dekrypteras bara på den virtuella måldatorn. Observera att **storageAccountName** och **storageAccountKey** är skiftlägeskänsliga. Andra nödvändiga parametrar visas i följande avsnitt.
+Följande JSON visar schemat för Azure Performance Diagnostics VM-tillägget. Det här tillägget kräver namnet och nyckeln för ett lagrings konto för att lagra utdata och rapporter för diagnostik. Dessa värden är känsliga. Lagrings konto nyckeln ska lagras i en konfiguration för en skyddad inställning. Skyddade inställnings data för Azure VM-tillägg krypteras och dekrypteras bara på den virtuella mål datorn. Observera att **storageAccountName** och **storageAccountKey** är Skift läges känsliga. Andra nödvändiga parametrar visas i följande avsnitt.
 
 ```JSON
     {
@@ -67,61 +67,61 @@ Följande JSON visar schemat för Azure VM Diagnostics-tillägget prestanda. Det
 
 ### <a name="property-values"></a>Egenskapsvärden
 
-|   **Namn**   |**Värdet / exempel**|       **Beskrivning**      |
+|   **Namn**   |**Värde/exempel**|       **Beskrivning**      |
 |--------------|-------------------|----------------------------|
-|apiVersion|2015-06-15|Versionen av API: et.
-|publisher|Microsoft.Azure.Performance.Diagnostics|Publisher-namnområde för tillägget.
-|type|AzurePerformanceDiagnostics|Typ av VM-tillägget.
-|typeHandlerVersion|1.0|Versionen av tillägget hanteraren.
-|performanceScenario|Grundläggande|Prestanda-scenario som du vill samla in data. Giltiga värden är: **grundläggande**, **vmslow**, **azurefiles**, och **anpassade**.
-|traceDurationInSeconds|300|Varaktigheten för spårningar, om något av spårningsalternativ för har valts.
-|perfCounterTrace|p|Alternativet för att aktivera prestandaräknaren spårningen. Giltiga värden är **p** eller tomt värde. Om du inte vill samla in den här spårningen lämna värdet som tom.
-|networkTrace|n|Alternativet för att aktivera nätverksspårning. Giltiga värden är **n** eller tomt värde. Om du inte vill samla in den här spårningen lämna värdet som tom.
-|xperfTrace|x|Alternativet för att aktivera XPerf spårningen. Giltiga värden är **x** eller tomt värde. Om du inte vill samla in den här spårningen lämna värdet som tom.
-|storPortTrace|S|Alternativet för att aktivera StorPort spårningen. Giltiga värden är **s** eller tomt värde. Om du inte vill samla in den här spårningen lämna värdet som tom.
-|srNumber|123452016365929|Biljett supportnumret, om det är tillgängligt. Lämna värdet som tom om du inte har den.
-|requestTimeUtc|2017-09-28T22:08:53.736Z|Aktuellt datum tid i Utc. Om du använder portalen för att installera tillägg, behöver du inte ange det här värdet.
+|apiVersion|2015-06-15|API-versionen.
+|publisher|Microsoft.Azure.Performance.Diagnostics|Utgivarens namn område för tillägget.
+|type|AzurePerformanceDiagnostics|Typ av VM-tillägg.
+|typeHandlerVersion|1.0|Tilläggs hanterarens version.
+|performanceScenario|grundläggande|Det prestanda scenario som data ska samlas in för. Giltiga värden är: **Basic**, **vmslow**, **migreringsåtgärden**och **Custom**.
+|traceDurationInSeconds|300|Spårens varaktighet, om något av spårnings alternativen är markerat.
+|perfCounterTrace|p|Alternativ för att aktivera spårning av prestanda räknare. Giltiga värden är **p** eller ett tomt värde. Lämna värdet tomt om du inte vill avbilda den här spårningen.
+|networkTrace|n|Alternativ för att aktivera nätverks spårning. Giltiga värden är **n** eller tomma värden. Lämna värdet tomt om du inte vill avbilda den här spårningen.
+|xperfTrace|x|Alternativ för att aktivera XPerf trace. Giltiga värden är **x** eller tomma värden. Lämna värdet tomt om du inte vill avbilda den här spårningen.
+|storPortTrace|S|Alternativ för att aktivera StorPort trace. Giltiga värden är **s** eller tomma. Lämna värdet tomt om du inte vill avbilda den här spårningen.
+|srNumber|123452016365929|Support ärende numret, om det är tillgängligt. Lämna värdet tomt om du inte har det.
+|requestTimeUtc|2017-09-28T22:08:53.736Z|Aktuell datum tid i UTC. Om du använder portalen för att installera det här tillägget behöver du inte ange det här värdet.
 |resourceId|/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}|Den unika identifieraren för en virtuell dator.
-|storageAccountName|mystorageaccount|Namnet på lagringskontot för att lagra diagnostikloggar och resultat.
-|storageAccountKey|lDuVvxuZB28NNP…hAiRF3voADxLBTcc==|Nyckel för lagringskontot.
+|storageAccountName|mystorageaccount|Namnet på det lagrings konto där du vill lagra diagnostikloggar och resultat.
+|storageAccountKey|lDuVvxuZB28NNP…hAiRF3voADxLBTcc==|Nyckeln för lagrings kontot.
 
 ## <a name="install-the-extension"></a>Installera tillägget
 
-Följ dessa instruktioner för att installera tillägget på Windows-datorer:
+Följ de här anvisningarna för att installera tillägget på virtuella Windows-datorer:
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Välj den virtuella datorn där du vill installera det här tillägget.
+2. Välj den virtuella dator där du vill installera tillägget.
 
-    ![Skärmbild av Azure portal med virtuella datorer som är markerat](media/performance-diagnostics-vm-extension/select-the-virtual-machine.png)
-3. Välj den **tillägg** bladet och välj **Lägg till**.
+    ![Skärm bild av Azure Portal med virtuella datorer markerade](media/performance-diagnostics-vm-extension/select-the-virtual-machine.png)
+3. Välj bladet **tillägg** och välj **Lägg till**.
 
-    ![Skärmbild av tillägg bladet med Lägg till markerad](media/performance-diagnostics-vm-extension/select-extensions.png)
-4. Välj **Azure Prestandadiagnostik**granska villkoren och markera **skapa**.
+    ![Skärm bild av bladet tillägg med Lägg till markerat](media/performance-diagnostics-vm-extension/select-extensions.png)
+4. Välj **Azure-prestandadiagnostik**, granska de allmänna villkoren och välj **skapa**.
 
-    ![Skärmbild av nya resurs-fönster, där Azure Prestandadiagnostik markerat](media/performance-diagnostics-vm-extension/create-azure-performance-diagnostics-extension.png)
-5. Ange parametervärden för installationen och välj **OK** att installera tillägget. Mer information om vilka scenarier som finns i [hur du använder PerfInsights](how-to-use-perfInsights.md#supported-troubleshooting-scenarios). 
+    ![Skärm bild av den nya resurs skärmen med Azures prestandadiagnostik markerat](media/performance-diagnostics-vm-extension/create-azure-performance-diagnostics-extension.png)
+5. Ange parameter värden för installationen och välj **OK** för att installera tillägget. Mer information om vilka scenarier som stöds finns i [så här använder du PerfInsights](how-to-use-perfinsights.md#supported-troubleshooting-scenarios). 
 
-    ![Skärmbild av installera tillägget för dialogrutan](media/performance-diagnostics-vm-extension/install-the-extension.png)
-6. När installationen har slutförts visas ett meddelande om denna status.
+    ![Skärm bild av dialog rutan installera tillägg](media/performance-diagnostics-vm-extension/install-the-extension.png)
+6. När installationen är klar visas ett meddelande som anger den här statusen.
 
-    ![Skärmbild av etablering lyckades meddelande](media/performance-diagnostics-vm-extension/provisioning-succeeded-message.png)
+    ![Skärm bild av meddelande om slutförd etablering](media/performance-diagnostics-vm-extension/provisioning-succeeded-message.png)
 
     > [!NOTE]
-    > Tillägget körs när etableringen har slutförts. Det tar två minuter eller mindre för att slutföra den grundläggande scenario. För andra scenarier körs den via den tid som anges under installationen.
+    > Tillägget körs när etableringen har slutförts. Det tar två minuter eller mindre att slutföra för det grundläggande scenariot. För andra scenarier körs den med den varaktighet som anges under installationen.
 
 ## <a name="remove-the-extension"></a>Ta bort tillägget
 Följ dessa steg om du vill ta bort tillägget från en virtuell dator:
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com), Välj den virtuella datorn från vilken du vill ta bort tillägget och välj sedan den **tillägg** bladet. 
-2. Välj den ( **...** ) för prestanda Diagnostics-tillägg-posten i listan och välj **avinstallera**.
+1. Logga in på [Azure Portal](https://portal.azure.com), Välj den virtuella dator som du vill ta bort tillägget från och välj sedan bladet **tillägg** . 
+2. Välj ( **...** ) för tillägget för prestandadiagnostik i listan och välj **Avinstallera**.
 
-    ![Skärmbild av tillägg bladet avinstalleras markerat](media/performance-diagnostics-vm-extension/uninstall-the-extension.png)
+    ![Skärm bild av bladet tillägg, med avinstallation markerat](media/performance-diagnostics-vm-extension/uninstall-the-extension.png)
 
     > [!NOTE]
-    > Du kan också välja tilläggsposten och välja den **avinstallera** alternativet.
+    > Du kan också välja tilläggs posten och välja alternativet **Avinstallera** .
 
 ## <a name="template-deployment"></a>Malldistribution
-Azure virtual machine-tillägg kan distribueras med Azure Resource Manager-mallar. JSON-schemat som beskrivs i föregående avsnitt kan användas i en Azure Resource Manager-mall. Den här lösningen körs tillägget Azure prestanda diagnostik VM under en malldistribution för Azure Resource Manager. Här är en exempelmall:
+Tillägg för virtuella Azure-datorer kan distribueras med Azure Resource Manager mallar. Det JSON-schema som beskrivs i föregående avsnitt kan användas i en Azure Resource Manager-mall. Detta kör VM-tillägget för Azure Performance Diagnostics under en Azure Resource Manager mall-distribution. Här är en exempel mal len:
 
 ```
 {
@@ -210,7 +210,7 @@ Azure virtual machine-tillägg kan distribueras med Azure Resource Manager-malla
 ```
 
 ## <a name="powershell-deployment"></a>PowerShell-distribution
-Den `Set-AzVMExtension` kommando kan användas för att distribuera Azure Diagnostics-tillägget prestanda VM till en befintlig virtuell dator.
+`Set-AzVMExtension` Kommandot kan användas för att distribuera Azure Performance Diagnostics VM-tillägg till en befintlig virtuell dator.
 
 PowerShell
 
@@ -229,31 +229,31 @@ Set-AzVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
     -Location WestUS
 ```
 
-## <a name="information-on-the-data-captured"></a>Information om de data som hämtats
-Verktyget PerfInsights samlar in olika loggar, konfiguration och diagnostiska data, beroende på det valda scenariot. Mer information finns i den [PerfInsights dokumentation](https://aka.ms/perfinsights).
+## <a name="information-on-the-data-captured"></a>Information om de data som samlas in
+PerfInsights-verktyget samlar in olika loggar, konfigurations-och diagnostikdata, beroende på det valda scenariot. Mer information finns i PerfInsights- [dokumentationen](https://aka.ms/perfinsights).
 
-## <a name="view-and-share-the-results"></a>Visa och dela resultatet
+## <a name="view-and-share-the-results"></a>Visa och dela resultaten
 
-Utdata från tillägget finns i en zip-fil som laddats upp till det lagringskonto som angetts under installationen och delas i 30 dagar med hjälp av [signaturer för delad åtkomst (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md). Den här zipfilen innehåller diagnostikloggar och en rapport med resultat och rekommendationer. En SAS-länk till utdata zip-filen finns i en textfil med namnet *zipfilename*_saslink.txt under mappen **C:\Packages\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics \\ \<version >** . Alla som har den här länken kan ladda ned zip-filen.
+Utdata från tillägget finns i en zip-fil som överförts till det lagrings konto som angavs under installationen och delas i 30 dagar med hjälp av [signaturer för delad åtkomst (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md). Den här zip-filen innehåller diagnostikloggar och en rapport med undersöknings resultat och rekommendationer. En SAS-länk till zip-filen för utdata finns i en textfil med namnet *zipfilename*_saslink. txt under mappen **C:\Packages\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics\\ \< version >** . Alla som har den här länken kan hämta zip-filen.
 
-För att hjälpa supporttekniker som arbetar på ditt supportärende kan Microsoft använda SAS-länk för nedladdning av diagnostikdata.
+För att hjälpa Support teknikern att arbeta med ditt support ärende kan Microsoft använda SAS-länken för att hämta diagnostikdata.
 
-Du kan visa rapporten genom att extrahera zip-filen och öppna den **PerfInsights Report.html** fil.
+Om du vill visa rapporten extraherar du zip-filen och öppnar filen **PerfInsights Report. html** .
 
-Du bör också att kunna hämta zip-filen direkt från portalen genom att välja tillägget.
+Du bör också kunna hämta zip-filen direkt från portalen genom att välja tillägget.
 
-![Skärmbild av Prestandadiagnostik detaljerad status](media/performance-diagnostics-vm-extension/view-detailed-status.png)
+![Skärm bild av detaljerad status för prestanda diagnostik](media/performance-diagnostics-vm-extension/view-detailed-status.png)
 
 > [!NOTE]
-> SAS-länk som visas i portalen kanske inte fungerar ibland. Detta kan orsakas av en felaktig URL under de kodning och avkodning. Du kan hämta en länk i stället direkt från filen *_saslink.txt från den virtuella datorn.
+> SAS-länken som visas i portalen kanske inte fungerar ibland. Detta kan bero på en felaktig URL vid kodning och avkodning av åtgärder. I stället kan du Hämta länken direkt från * _saslink. txt-filen från den virtuella datorn.
 
 ## <a name="troubleshoot-and-support"></a>Felsökning och support
 
-- Distributionsstatus för tillägget (i meddelandeområdet) kan visa ”distribution pågår” trots att tillägget har etablerats.
+- Distributions status för tillägg (i meddelande fältet) kan Visa "distribution pågår", även om tillägget har kon figurer ATS.
 
-    Det här problemet kan ignoreras, förutsatt att tilläggets status anger att tillägget har etablerats.
-- Du kan lösa vissa problem under installationen genom att använda tillägget loggarna. Tillägget utförande-utdatan loggas till filer som finns i följande katalog:
+    Det här problemet kan ignoreras så länge tilläggets status visar att tillägget har allokerats.
+- Du kan åtgärda problem under installationen med hjälp av tilläggs loggarna. Utökning av utdata loggas till filer som finns i följande katalog:
 
         C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Performance.Diagnostics.AzurePerformanceDiagnostics\<version>
 
-Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azure-experter på den [Azure för MSDN och Stack Overflow-forum](https://azure.microsoft.com/support/forums/). Alternativt kan du arkivera en Azure-support-incident. Gå till den [Azure supportwebbplats](https://azure.microsoft.com/support/options/), och välj **få support**. Information om hur du använder Azure-support finns på [vanliga frågor om Microsoft Azure-support](https://azure.microsoft.com/support/faq/).
+Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azure-experter på den [Azure för MSDN och Stack Overflow-forum](https://azure.microsoft.com/support/forums/). Alternativt kan du arkivera en Azure-support-incident. Gå till [Support webbplatsen för Azure](https://azure.microsoft.com/support/options/)och välj **få support**. Information om hur du använder Azure-support finns i [vanliga frågor och svar om Microsoft Azure support](https://azure.microsoft.com/support/faq/).

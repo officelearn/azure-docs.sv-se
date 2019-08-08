@@ -1,20 +1,19 @@
 ---
 title: Ange behörigheter för Data Lake Storage Gen2 med Azure Storage Explorer
 description: I dessa anvisningar lär du dig hur du anger behörigheter med Azure Storage Explorer för filer och kataloger på ditt lagringskonto med funktioner för Azure Data Lake Storage Gen2.
-services: storage
 author: normesta
-ms.custom: mvc
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
 ms.date: 12/11/2018
 ms.author: normesta
-ms.openlocfilehash: 5f0211765c96cad668abaad7d42da87ec88298c3
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.reviewer: stewu
+ms.openlocfilehash: 530e37400881ace2de603aed6875ed236e45f2c7
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939315"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847418"
 ---
 # <a name="set-file-and-directory-level-permissions-using-azure-storage-explorer-with-azure-data-lake-storage-gen2"></a>Ange behörigheter på fil- och katalognivå med hjälp av Azure Storage Explorer med Azure Data Lake Storage Gen2
 
@@ -27,13 +26,13 @@ I den här artikeln lär du dig hur du använder Azure Storage Explorer till att
 > * ange behörigheter på katalognivå
 > * lägga till användare eller grupper i en åtkomstkontrollista
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-För att du ska få den bästa beskrivningen av processen behöver du slutföra [snabbstarten för Azure Storage Explorer](data-lake-storage-Explorer.md). Detta garanterar att ditt storage-konto är i det lämpligaste tillståndet (filsystem som har skapats och data som överförs till den).
+För att du ska få den bästa beskrivningen av processen behöver du slutföra [snabbstarten för Azure Storage Explorer](data-lake-storage-Explorer.md). Detta säkerställer att ditt lagrings konto är i det lämpligaste läget (fil systemet har skapats och överfört data till det).
 
 ## <a name="managing-access"></a>Hantera åtkomst
 
-Du kan ange behörigheter i roten för filsystemet. Om du vill göra det måste du vara inloggad i Azure Storage Explorer med ditt individuella konto med behörighet att göra detta (i motsats till med en anslutningssträng). Högerklicka på ditt filsystem och välj **hantera behörigheter**, att både upp den **hantera behörighet** dialogrutan.
+Du kan ange behörigheter i roten för ditt fil system. För att göra det måste du vara inloggad på Azure Storage Explorer med ditt enskilda konto med behörighet att göra detta (till skillnad från med en anslutnings sträng). Högerklicka på fil systemet och välj **Hantera behörigheter**, så visas dialog rutan **Hantera behörighet** .
 
 ![Microsoft Azure Storage Explorer – Hantera katalogåtkomst](media/storage-quickstart-blobs-storage-Explorer/manageperms.png)
 
@@ -43,7 +42,7 @@ Du kan lägga till en ny användare eller grupp i åtkomstkontrollistan genom at
 
 Ange motsvarande Azure Active Directory-post (AAD) du vill lägga till i listan och välj sedan **Lägg till**.
 
-Användaren eller gruppen visas nu i fältet **Användare och grupper:**, där du kan börja hantera deras behörigheter.
+Användaren eller gruppen visas nu i fältet **Användare och grupper:** , där du kan börja hantera deras behörigheter.
 
 > [!NOTE]
 > Vi rekommenderar bästa praxis att skapa en säkerhetsgrupp i AAD och hantera behörigheter för gruppen istället för enskilda användare. Information om den här rekommendationen, samt andra metodtips, finns i [metodtipsen för Data Lake Storage Gen2](data-lake-storage-best-practices.md).

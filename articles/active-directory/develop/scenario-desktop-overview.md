@@ -1,6 +1,6 @@
 ---
-title: 'Skrivbordsappen att anrop webb-API: er (översikt) - Microsoft identity-plattformen'
-description: 'Lär dig att skapa en skrivbordsapp att anrop webb-API: er (översikt)'
+title: 'Skriv bords app som anropar webb-API: er (översikt) – Microsoft Identity Platform'
+description: 'Lär dig hur du skapar en stationär app som anropar webb-API: er (översikt)'
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 476703b52813e6b3081dcfb3ab5a2fb4f3a7bfc5
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: 5288fe57b2f83522b140f65fa62e08f9c63a7af5
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67785639"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68852688"
 ---
 # <a name="scenario-desktop-app-that-calls-web-apis"></a>Scenario: Datorprogram som anropar webb-API:er
 
-Lär dig allt du behöver skapa en skrivbordsapp som anropar webb-API: er
+Lär dig allt du behöver för att bygga en stationär app som anropar webb-API: er
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -32,10 +32,10 @@ Lär dig allt du behöver skapa en skrivbordsapp som anropar webb-API: er
 
 ## <a name="getting-started"></a>Komma igång
 
-Om du inte redan gjort kan du skapa ditt första program genom att följa Snabbstart för .NET-skrivbord eller UWP-snabbstarten:
+Om du inte redan har gjort det kan du skapa ditt första program genom att följa snabb starten för .NET Desktop eller UWP snabb start:
 
 > [!div class="nextstepaction"]
-> [Snabbstart: Hämta en token och anropa Microsoft Graph API från en Windows-skrivbordsapp](./quickstart-v2-windows-desktop.md)
+> [Snabbstart: Hämta en token och anropa Microsoft Graph API från en Windows Desktop-app](./quickstart-v2-windows-desktop.md)
 
 
 > [!div class="nextstepaction"]
@@ -43,29 +43,29 @@ Om du inte redan gjort kan du skapa ditt första program genom att följa Snabbs
 
 ## <a name="overview"></a>Översikt
 
-Du skriver ett skrivbordsprogram och du vill logga in användare i ditt program och anropa webb-API: er som Microsoft Graph, andra Microsoft-APIs eller dina egna webb-API. Du har flera möjligheter:
+Du skriver ett Skriv bords program och vill logga in användare i ditt program och anropa webb-API: er, till exempel Microsoft Graph, andra Microsoft API: er eller ditt eget webb-API. Det finns flera möjligheter:
 
-- Du kan använda den interaktiva tokenförvärv:
+- Du kan använda den interaktiva hämtningen av token:
 
-  - Om din skrivbordsprogram stöder grafiska kontroller, till exempel om det är en Windows.Form eller en WPF-program.
-  - Av om det är ett .NET Core-program och du samtycker till att ha autentisering interaktion med Azure AD sker i webbläsaren system
+  - Om ditt Skriv bords program stöder grafiska kontroller, till exempel om det är ett Windows. Forms-program eller ett WPF-program.
+  - Om det är ett .NET Core-program och du samtycker till att interagera med Azure AD sker i system läsaren
 
-- Det är också möjligt för program som körs på datorer som är anslutna till en Windows-domän för värd för Windows-program, eller AAD ansluten för att hämta en token tyst genom att använda integrerad Windows-autentisering.
-- Slutligen, och även om det inte rekommenderas kan du använda användarnamn/lösenord i offentliga klientprogram. Det krävs fortfarande i vissa fall (till exempel DevOps), men tänk på att använda det medför begränsningar i ditt program. Exempelvis kan logga den inte in användare som behöver utföra multifaktorautentisering (villkorlig åtkomst). Ditt program dra inte också nytta av enkel inloggning (SSO).
+- För Windows-värdbaserade program är det också möjligt för program som körs på datorer som är anslutna till en Windows-domän eller AAD-ansluten för att hämta en token i tysthet med hjälp av integrerad Windows-autentisering.
+- Slutligen, och även om det inte rekommenderas, kan du använda användar namn/lösen ord i offentliga klient program. Det behövs fortfarande i vissa scenarier (t. ex. DevOps), men tänk på att använda den för att införa begränsningar i ditt program. Den kan till exempel inte logga in användare som behöver utföra Multi-Factor Authentication (villkorlig åtkomst). Även om ditt program inte drar nytta av enkel inloggning (SSO).
 
-  Det är också mot principerna för modern autentisering och finns bara för äldre orsaker.
+  Det är också mot principerna för modern autentisering och tillhandahålls endast av tidigare skäl.
 
-  ![Skrivbordsprogram](media/scenarios/desktop-app.svg)
+  ![Skriv bords program](media/scenarios/desktop-app.svg)
 
-- Om du skriver en bärbar kommandoradsverktyget - förmodligen ett .NET Core-program som körs på Linux eller Mac - och om du godkänner att autentiseringen delegeras till system-webbläsaren, kommer du att kunna använda interaktiv autentisering. (.NET core ger inte ännu [webbläsare](https://aka.ms/msal-net-uses-web-browser) och därför autentiseringen sker i webbläsaren system), i annat fall det bästa alternativet i så fall är att använda kodflöde för enheten. Det här flödet används också för program utan en webbläsare, till exempel IoT-program
+- Om du skriver ett bärbart kommando rads verktyg – förmodligen ett .NET Core-program som körs på Linux eller Mac – och om du godkänner att autentiseringen ska delegeras till system läsaren, kommer du att kunna använda interaktiv autentisering. (.NET Core tillhandahåller inte ännu en [webbläsare](https://aka.ms/msal-net-uses-web-browser) och därför sker autentiseringen i systemets webbläsare), annars är det bästa alternativet i det fallet att använda enhets kod flödet. Det här flödet används också för program utan webbläsare, till exempel IoT-program
 
-  ![Browserless program](media/scenarios/device-code-flow-app.svg)
+  ![Webbläsarbaserat program](media/scenarios/device-code-flow-app.svg)
 
-## <a name="specifics"></a>Närmare information
+## <a name="specifics"></a>Information
 
-Program har ett antal särdrag, vilket beror huvudsakligen på om ditt program använder interaktiv autentisering eller inte.
+Skriv bords program har ett antal specifika funktioner, vilket beror huvudsakligen på om programmet använder den interaktiva autentiseringen eller inte.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Skrivbordsappen - appregistrering](scenario-desktop-app-registration.md)
+> [Desktop app-app-registrering](scenario-desktop-app-registration.md)

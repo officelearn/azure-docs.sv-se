@@ -1,6 +1,6 @@
 ---
-title: Integrera med Microsoft identity-plattformen | Azure
-description: Läs mer om bästa praxis och vanliga förbiseende när du integrerar med Microsoft identity-plattformen (v2.0).
+title: Integrera med Microsoft Identity Platform | Azure
+description: Lär dig mer om metod tips och vanliga överblickar vid integrering med Microsoft Identity Platform (v 2.0).
 services: active-directory
 documentationcenter: ''
 author: rwike77
@@ -15,95 +15,95 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
-ms.custom: aaddev
-ms.openlocfilehash: 0acef783b4877b5b1787f142aec6cc3588293f83
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: aaddev, identityplatformtop40
+ms.openlocfilehash: 33128cbece3b217778182b3831b02e2f3f654f3b
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67111457"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68853220"
 ---
-# <a name="microsoft-identity-platform-integration-checklist"></a>Checklista för Microsoft identity-plattformen integration
+# <a name="microsoft-identity-platform-integration-checklist"></a>Check lista för Microsoft Identity Platform-integrering
 
-Microsoft identity-plattformen integration checklista är avsedd att hjälpa dig att en hög kvalitet och säker integrering. Den går igenom metodtips och vanliga förbiseende när du integrerar med Microsoft identity-plattformen så gå igenom listan med jämna mellanrum att kontrollera att du underhåller kvaliteten och säkerheten för din app-integrering med identity-plattformen. Checklistan är inte avsett att granska hela programmet. Innehållet i checklistan kan ändras efter hand som vi förbättrar för plattformen.
+Check lista för integrering med Microsoft Identity Platform är avsedd att vägleda dig till en högkvalitativ och säker integrering. Den fokuserar på bästa praxis och vanliga översikter när du integrerar med Microsofts identitets plattform så granska listan regelbundet för att se till att du upprätthåller kvaliteten och säkerheten i appens integrering med identitets plattformen. Check listan är inte avsedd att granska hela programmet. Innehållet i check listan kan ändras när vi gör förbättringar av plattformen.
 
-Om du precis har kommit igång, ta en titt på [dokumentation](index.yml) vill veta mer om grundläggande om autentisering och Programscenarier i Microsoft identity-plattformen.
+Om du precis har kommit igång kan du läsa [dokumentationen](index.yml) för att lära dig grunderna om autentisering, program scenarier i Microsoft Identity Platform och mycket annat.
 
 ## <a name="testing-your-integration"></a>Testa din integrering
 
-Använd följande checklista för att säkerställa att ditt program effektivt är integrerat med den [Microsoft identity-plattformen](https://docs.microsoft.com/azure/active-directory/develop/).
+Använd följande check lista för att se till att programmet är effektivt integrerat med [Microsoft Identity Platform](https://docs.microsoft.com/azure/active-directory/develop/).
 
-### <a name="basics"></a>Grundläggande inställningar
-
-|   |   |
-|---|---|
-| ![Kryssrutan](./media/active-directory-integration-checklist/checkbox-two.svg) | Läsa och förstå den [principer för Microsoft-plattformen](https://go.microsoft.com/fwlink/?linkid=2090497&clcid=0x409). Se till att ditt program följer villkoren som de har skapats för att skydda användarna och plattformen. |
-
-### <a name="ownership"></a>Ägarskap
+### <a name="basics"></a>Grundinställningar
 
 |   |   |
 |---|---|
-| ![Kryssrutan](./media/active-directory-integration-checklist/checkbox-two.svg) | Kontrollera att informationen som är kopplade till kontot som du använde för att registrera och hantera appar är uppdaterad. |
+| ![Rute](./media/active-directory-integration-checklist/checkbox-two.svg) | Läs och förstå [Microsofts plattforms principer](https://go.microsoft.com/fwlink/?linkid=2090497&clcid=0x409). Se till att ditt program följer de villkor som har utformats för att skydda användare och plattform. |
+
+### <a name="ownership"></a>Kap
+
+|   |   |
+|---|---|
+| ![Rute](./media/active-directory-integration-checklist/checkbox-two.svg) | Se till att informationen som är kopplad till det konto som du använde för att registrera och hantera appar är uppdaterad. |
 
 ### <a name="branding"></a>Anpassning
 
 |   |   |
 |---|---|
-| ![Kryssrutan](./media/active-directory-integration-checklist/checkbox-two.svg) | Följa den [varumärkesriktlinjer för program](howto-add-branding-in-azure-ad-apps.md). |
-| ![Kryssrutan](./media/active-directory-integration-checklist/checkbox-two.svg) | Ange ett beskrivande namn och logotyp för ditt program. Den här informationen visas på ditt programs medgivande. Kontrollera att ditt namn och logotyp är representativ för din företagets/produkt så att användare kan fatta välgrundade beslut. Se till att inte alla varumärken brott mot. |
+| ![Rute](./media/active-directory-integration-checklist/checkbox-two.svg) | Följ [rikt linjerna för anpassning av program](howto-add-branding-in-azure-ad-apps.md). |
+| ![Rute](./media/active-directory-integration-checklist/checkbox-two.svg) | Ange ett beskrivande namn och en logo typ för ditt program. Den här informationen visas i appens godkännande fråga. Kontrol lera att namnet och logo typen är representativa för företaget/produkten så att användarna kan fatta välgrundade beslut. Se till att du inte bryter mot varumärken. |
 
 ### <a name="privacy"></a>Sekretess
 
 |   |   |
 |---|---|
-| ![Kryssrutan](./media/active-directory-integration-checklist/checkbox-two.svg) | Innehåller länkar till appens användningsvillkor och sekretesspolicy. |
+| ![Rute](./media/active-directory-integration-checklist/checkbox-two.svg) | Ange länkar till appens användnings villkor och sekretess policy. |
 
 ### <a name="security"></a>Säkerhet
 
 |   |   |
 |---|---|
-| ![Kryssrutan](./media/active-directory-integration-checklist/checkbox-two.svg) | Underhålla ägarskapet för alla din omdirigerings-URI: er och hålla DNS-posterna för dem uppdaterade. Använd inte jokertecken (*) i din URI: er. Kontrollera att alla URI: er är säker och krypterad (till exempel med hjälp av https-scheman) för web apps. För offentliga klienter använder du plattformsspecifika omdirigerade URI: er om det är tillämpligt (huvudsakligen för iOS och Android). I annat fall omdirigera Använd URI: er med ett högt antal slumpmässighet för att förhindra kollisioner vid anrop tillbaka till din app. Om din app används från en isolerad webbagent, kan du använda https://login.microsoftonline.com/nativeclient. Granska och Trimma alla oanvända eller onödiga omdirigerade URI: er med jämna mellanrum. |
-| ![Kryssrutan](./media/active-directory-integration-checklist/checkbox-two.svg) | Om appen registreras i en katalog, minimera och manuellt övervaka listan med ägare för registrering av appen. |
-| ![Kryssrutan](./media/active-directory-integration-checklist/checkbox-two.svg) | Aktivera inte stöd för den [flöde beviljat med OAuth2-implicit](v2-oauth2-implicit-grant-flow.md) såvida inte uttryckligen krävs. Lär dig mer om giltiga scenariot [här](v1-oauth2-implicit-grant-flow.md#suitable-scenarios-for-the-oauth2-implicit-grant). |
-| ![Kryssrutan](./media/active-directory-integration-checklist/checkbox-two.svg) | Använd inte [resursägarens lösenord credential flöde (ROPC)](v2-oauth-ropc.md), vilket direkt hanterar användarnas lösenord. Det här flödet kräver en hög grad av förtroende och användaren exponering och bör endast användas när andra och säkrare, flöden inte kan användas. |
-| ![Kryssrutan](./media/active-directory-integration-checklist/checkbox-two.svg) | Skydda och hantera dina app-autentiseringsuppgifter. Använd [certifikat autentiseringsuppgifter](active-directory-certificate-credentials.md), inte lösenordsautentiseringsuppgifter (klient hemligheter). Om du måste använda autentiseringsuppgifter för lösenord, inte ställa in den manuellt. Inte lagra autentiseringsuppgifter i kod eller konfigurationsversion och aldrig att de kan hanteras av människor. Använd om möjligt [hanterade identiteter för Azure-resurser](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) eller [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis) att lagra och rotera regelbundet dina autentiseringsuppgifter. |
-| ![Kryssrutan](./media/active-directory-integration-checklist/checkbox-two.svg) | Kontrollera att ditt program begär minsta möjliga behörighet behörighet. Fråga för behörigheter som programmet behöver absolut och endast när det behövs. Förstå de olika [typer av behörigheter](v1-permissions-and-consent.md#types-of-permissions). Endast använda behörigheter för programmet om det behövs; Använd delegerade behörigheter om möjligt. En fullständig lista över Microsoft Graph-behörigheter finns i den här [behörighetsreferens](https://docs.microsoft.com/graph/permissions-reference). |
-| ![Kryssrutan](./media/active-directory-integration-checklist/checkbox-two.svg) | Om du skyddar ett API med Microsoft identity-plattformen, tänka noga igenom de behörigheter som informationen bör visas. Fundera över vad som är rätt Granulariteten för din lösning och vilka behörigheter kräver administratörens godkännande. Sök efter förväntade behörigheter i de inkommande token innan du fattar några beslut om auktorisering. |
+| ![Rute](./media/active-directory-integration-checklist/checkbox-two.svg) | Behåll ägarskapet för alla dina omdirigerings-URI: er och se till att DNS-posterna är aktuella. Använd inte jokertecken (*) i dina URI: er. För Web Apps ser du till att alla URI: er är säkra och krypterade (till exempel med hjälp av https-scheman). För offentliga klienter använder du plattformsspecifika omdirigerings-URI: er om tillämpligt (huvudsakligen för iOS och Android). Annars använder du omdirigerings-URI: er med hög slumpmässighet för att förhindra kollisioner när du ringer tillbaka till din app. Om din app används från en isolerad webb agent kan du använda https://login.microsoftonline.com/nativeclient. Granska och rensa alla oanvända eller onödiga omdirigerings-URI: er regelbundet. |
+| ![Rute](./media/active-directory-integration-checklist/checkbox-two.svg) | Om din app är registrerad i en katalog minimerar du och övervakar sedan listan över program registrerings ägare manuellt. |
+| ![Rute](./media/active-directory-integration-checklist/checkbox-two.svg) | Aktivera inte stöd för det [OAuth2 implicita beviljade flödet](v2-oauth2-implicit-grant-flow.md) om det inte uttryckligen krävs. Lär dig mer om det giltiga scenariot [här](v1-oauth2-implicit-grant-flow.md#suitable-scenarios-for-the-oauth2-implicit-grant). |
+| ![Rute](./media/active-directory-integration-checklist/checkbox-two.svg) | Använd inte [ROPC (Resource Owner Password Credential Flow)](v2-oauth-ropc.md)som direkt hanterar användarnas lösen ord. Det här flödet kräver en hög grad av förtroende och användar exponering och bör endast användas när andra, säkrare flöden inte kan användas. |
+| ![Rute](./media/active-directory-integration-checklist/checkbox-two.svg) | Skydda och hantera dina autentiseringsuppgifter för appen. Använd [autentiseringsuppgifter för certifikat](active-directory-certificate-credentials.md), inte autentiseringsuppgifter för lösen ord (klient hemligheter). Om du måste använda autentiseringsuppgifter för lösen ord ska du inte ange det manuellt. Lagra inte autentiseringsuppgifter i koden eller config och Tillåt aldrig att de hanteras av människa. Använd om möjligt [hanterade identiteter för Azure-resurser](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) eller [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis) för att lagra och regelbundet Rotera dina autentiseringsuppgifter. |
+| ![Rute](./media/active-directory-integration-checklist/checkbox-two.svg) | Kontrol lera att ditt program begär minsta behörighet för behörighet. Fråga bara efter behörigheter som programmet absolut behöver, och endast när du behöver dem. Förstå de olika [typerna av behörigheter](v1-permissions-and-consent.md#types-of-permissions). Använd endast program behörigheter om det behövs. Använd delegerade behörigheter där det är möjligt. En fullständig lista över Microsoft Graph behörigheter finns i referensen för [behörighet](https://docs.microsoft.com/graph/permissions-reference). |
+| ![Rute](./media/active-directory-integration-checklist/checkbox-two.svg) | Om du skyddar ett API med hjälp av Microsoft Identity Platform kan du noga tänka igenom de behörigheter som den ska visa. Överväg vad som är rätt kornig het för din lösning och vilka behörigheter som kräver administratörs medgivande. Sök efter förväntade behörigheter i inkommande token innan du fattar auktoriseringsbeslut. |
 
 ### <a name="implementation"></a>Implementering
 
 |   |   |
 |---|---|
-| ![Kryssrutan](./media/active-directory-integration-checklist/checkbox-two.svg) | Använd lösningar för modern autentisering (OAuth 2.0 [OpenID Connect](v2-protocols-oidc.md)) på ett säkert sätt logga in användare. |
-| ![Kryssrutan](./media/active-directory-integration-checklist/checkbox-two.svg) | Inte implementerar protokollen själv – Använd [stöds av Microsoft authentication Library](reference-v2-libraries.md) (MSAL server mellanprogram). Kontrollera att du använder den senaste versionen av autentiseringsbibliotek som du har integrerat med. |
-| ![Kryssrutan](./media/active-directory-integration-checklist/checkbox-two.svg) | Om din app kräver data är tillgängliga via [Microsoft Graph](https://developer.microsoft.com/graph), begär behörighet för dessa data med Microsoft Graph-slutpunkt i stället för enskilda API: et. |
+| ![Rute](./media/active-directory-integration-checklist/checkbox-two.svg) | Använd moderna autentiserings lösningar (OAuth 2,0, [OpenID Connect](v2-protocols-oidc.md)) för att på ett säkert sätt logga in användare. |
+| ![Rute](./media/active-directory-integration-checklist/checkbox-two.svg) | Implementera inte protokollen själv – Använd [Microsoft-kompatibla autentiseringspaket](reference-v2-libraries.md) (MSAL, Server mellanprogram). Kontrol lera att du använder den senaste versionen av det autentiseringspaket som du har integrerat med. |
+| ![Rute](./media/active-directory-integration-checklist/checkbox-two.svg) | Om de data som krävs för din app är tillgängliga via [Microsoft Graph](https://developer.microsoft.com/graph)kan du begära behörigheter för dessa data med hjälp av Microsoft Graph-slutpunkten i stället för enskilda API. |
 
 ### <a name="end-user-experience"></a>Slutanvändarens upplevelse
 
 |   |   |
 |---|---|
-| ![Kryssrutan](./media/active-directory-integration-checklist/checkbox-two.svg) | [Förstå samtycke upplevelsen](application-consent-experience.md) och konfigurera de olika delarna i medgivandetext för din app så att slutanvändare och administratörer har tillräckligt med information för att avgöra om de litar på din app. |
-| ![Kryssrutan](./media/active-directory-integration-checklist/checkbox-two.svg) | Minimera antalet gånger som en användare måste ange autentiseringsuppgifter för inloggning när du använder din app genom att försöka tyst autentisering (tyst tokenförvärv) innan interaktiva flöden. |
-| ![Kryssrutan](./media/active-directory-integration-checklist/checkbox-two.svg) | Använd inte ”kommandoprompt = medgivande” för varje inloggning. Endast använda Kommandotolken = medgivande om du har fastställt att du behöver fråga efter medgivande för ytterligare behörighet (t.ex, om du har ändrat behörigheter som krävs för din app). |
-| ![Kryssrutan](./media/active-directory-integration-checklist/checkbox-two.svg) | Om tillämpligt, kan du utöka ditt program med användardata. Använd den [Microsoft Graph API](https://developer.microsoft.com/graph) är ett enkelt sätt att göra detta. Den [Graph-testaren](https://developer.microsoft.com/graph/graph-explorer) verktyg som kan hjälpa dig att komma igång. |
-| ![Kryssrutan](./media/active-directory-integration-checklist/checkbox-two.svg) | Registrera den fullständiga uppsättningen behörigheter som din app kräver så att administratörer kan bevilja medgivande enkelt till deras klient. Använd [inkrementella medgivande](azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent) vid körning för att hjälpa användarna att förstå varför appen begär behörigheter som kan avse eller förvirrande för användare när efterfrågas vid den första starten. |
-| ![Kryssrutan](./media/active-directory-integration-checklist/checkbox-two.svg) | Implementera en [Rensa enkel utloggning upplevelse](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-6-SignOut). Det är en sekretess- och en säkerhetskrav och ger en bra användarupplevelse. |
+| ![Rute](./media/active-directory-integration-checklist/checkbox-two.svg) | [Förstå medgivande upplevelsen](application-consent-experience.md) och konfigurera delarna i appens godkännande fråga så att slutanvändare och administratörer har tillräckligt med information för att avgöra om de litar på din app. |
+| ![Rute](./media/active-directory-integration-checklist/checkbox-two.svg) | Minimera antalet gånger som en användare måste ange inloggnings uppgifter när de använder din app genom att försöka utföra tyst autentisering (tyst token-hämtning) innan interaktiva flöden. |
+| ![Rute](./media/active-directory-integration-checklist/checkbox-two.svg) | Använd inte "prompt = medgivande" för varje inloggning. Använd inte prompt = medgivande om du har fastställt att du behöver be om ytterligare behörigheter (till exempel om du har ändrat appens nödvändiga behörigheter). |
+| ![Rute](./media/active-directory-integration-checklist/checkbox-two.svg) | I förekommande fall kan du utöka ditt program med användar data. Använd [Microsoft Graph API](https://developer.microsoft.com/graph) är ett enkelt sätt att göra detta. [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) -verktyget som kan hjälpa dig att komma igång. |
+| ![Rute](./media/active-directory-integration-checklist/checkbox-two.svg) | Registrera den fullständiga uppsättningen behörigheter som din app kräver så att administratörerna enkelt kan ge sitt medgivande till sina klienter. Använd ett [stegvist godkännande](azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent) vid körning för att hjälpa användarna att förstå varför appen begär behörigheter som kan innebära eller förväxla användare när de begär det första starten. |
+| ![Rute](./media/active-directory-integration-checklist/checkbox-two.svg) | Implementera en [ren enkel inloggnings upplevelse](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-6-SignOut). Det är en sekretess och ett säkerhets krav och ger en bättre användar upplevelse. |
 
 ### <a name="testing"></a>Testning
 
 |   |   |
 |---|---|
-| ![Kryssrutan](./media/active-directory-integration-checklist/checkbox-two.svg) | Testa [principer för villkorlig åtkomst](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-6-SignOut) som kan påverka användarnas möjlighet att använda programmet. |
-| ![Kryssrutan](./media/active-directory-integration-checklist/checkbox-two.svg) | Testa ditt program med alla konton som du planerar att stödja (till exempel, arbete eller skola konton, personliga Microsoft-konton, barnkonton och nationella konton). |
+| ![Rute](./media/active-directory-integration-checklist/checkbox-two.svg) | Testa för [principer för villkorlig åtkomst](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-6-SignOut) som kan påverka användarnas möjlighet att använda programmet. |
+| ![Rute](./media/active-directory-integration-checklist/checkbox-two.svg) | Testa ditt program med alla möjliga konton som du planerar att stödja (till exempel arbets-eller skol konton, personliga Microsoft-konton, underordnade konton och suveräna konton). |
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 Utforska detaljerad information om v2.0:
 
-* [Microsoft identity-plattformen (v2.0 översikt)](v2-overview.md)
-* [Referens för Microsoft identity-plattformen protokoll](active-directory-v2-protocols.md)
+* [Översikt över Microsoft Identity Platform (v 2.0)](v2-overview.md)
+* [Referens för Microsoft Identity Platform-protokoll](active-directory-v2-protocols.md)
 * [Referens för åtkomsttoken](access-tokens.md)
 * [Referens för ID-token](id-tokens.md)
-* [Referera till autentiseringsbibliotek](reference-v2-libraries.md)
-* [Behörigheter och godkännande i Microsoft identity-plattformen](v2-permissions-and-consent.md)
+* [Referens för autentiserings bibliotek](reference-v2-libraries.md)
+* [Behörigheter och medgivande i Microsoft Identity Platform](v2-permissions-and-consent.md)
 * [Microsoft Graph-API](https://developer.microsoft.com/graph)

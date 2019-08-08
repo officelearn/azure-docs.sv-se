@@ -1,6 +1,6 @@
 ---
-title: Lägga till en IoT hub-händelsekälla till Azure Time Series Insights | Microsoft Docs
-description: Den här artikeln beskriver hur du lägger till en händelsekälla som är ansluten till en IoT-hubb i miljön för Time Series Insights.
+title: Så här lägger du till en händelse källa för IoT Hub i Azure Time Series Insights | Microsoft Docs
+description: I den här artikeln beskrivs hur du lägger till en händelse källa som är ansluten till en IoT-hubb till din Time Series Insightss miljö.
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
@@ -9,42 +9,42 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 05/01/2019
+ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 47e14ff87a6197ccc97231835da545207545a328
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 234fe28cb8bd9dcb97e307836961e2f587e15181
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67460834"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68846630"
 ---
-# <a name="add-an-iot-hub-event-source-to-your-time-series-insights-environment"></a>Lägg till en IoT hub-händelsekälla till Time Series Insights-miljön
+# <a name="add-an-iot-hub-event-source-to-your-time-series-insights-environment"></a>Lägga till en händelse källa för IoT Hub i Time Series Insightss miljön
 
-Den här artikeln beskriver hur du använder Azure-portalen för att lägga till en händelsekälla som läser data från Azure IoT Hub till Azure Time Series Insights-miljön.
+Den här artikeln beskriver hur du använder Azure Portal för att lägga till en händelse källa som läser data från Azure IoT Hub till din Azure Time Series Insights miljö.
 
 > [!NOTE]
-> Anvisningarna i den här artikeln gäller både Azure Time Series Insights Allmänt och för förhandsversionen av Time Series Insights-miljöer.
+> Anvisningarna i den här artikeln gäller både för Azure Time Series Insights GA och för att Time Series Insights för hands versions miljöer.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Skapa en [Azure Time Series Insights-miljö](time-series-insights-update-create-environment.md).
-* Skapa en [IoT-hubben med hjälp av Azure portal](../iot-hub/iot-hub-create-through-portal.md).
-* IoT-hubben måste ha aktiva meddelandehändelser som skickas.
-* Skapa en dedikerad konsumentgrupp i Time Series Insights-miljö för att använda IoT-hubben. Varje Time Series Insights-händelsekälla måste ha sin egen dedikerad konsumentgrupp som inte delas med andra konsumenter. Om flera läsare konsumera händelser från samma konsumentgruppen, förmodligen alla läsare ser fel. Mer information finns i [utvecklarhandboken för Azure IoT Hub](../iot-hub/iot-hub-devguide.md).
+* Skapa en [Azure Time Series Insightss miljö](time-series-insights-update-create-environment.md).
+* Skapa en [IoT-hubb med hjälp av Azure Portal](../iot-hub/iot-hub-create-through-portal.md).
+* IoT-hubben måste ha aktiva meddelande händelser som skickas i.
+* Skapa en dedikerad konsument grupp i IoT-hubben för Time Series Insightss miljön att använda. Varje Time Series Insights-händelsekälla måste ha sin egen dedikerad konsumentgrupp som inte delas med andra konsumenter. Om flera läsare konsumera händelser från samma konsumentgruppen, förmodligen alla läsare ser fel. Mer information finns i [Azure IoT Hub Developer Guide](../iot-hub/iot-hub-devguide.md).
 
-### <a name="add-a-consumer-group-to-your-iot-hub"></a>Lägg till en konsumentgrupp till din IoT hub
+### <a name="add-a-consumer-group-to-your-iot-hub"></a>Lägga till en konsument grupp i IoT Hub
 
-Program använda konsumentgrupper att hämta data från Azure IoT Hub. För att på ett tillförlitligt sätt läsa data från IoT hub, ger en dedikerad konsumentgrupp som bara används av den här Time Series Insights-miljön.
+Program använder konsument grupper för att hämta data från Azure IoT Hub. Om du vill läsa data på ett tillförlitligt sätt från din IoT Hub kan du ange en dedikerad konsument grupp som endast används av den här Time Series Insightss miljön.
 
-Lägga till en ny konsumentgrupp till din IoT hub:
+Så här lägger du till en ny konsument grupp i IoT Hub:
 
-1. Hitta och öppna din IoT-hubb i Azure-portalen.
+1. Leta upp och öppna din IoT Hub i Azure Portal.
 
-1. Under **inställningar**väljer **inbyggda slutpunkter**, och välj sedan den **händelser** slutpunkt.
+1. Under **Inställningar**väljer du **inbyggda slut punkter**och väljer sedan **händelse** slut punkten.
 
-   [![På sidan inbyggda slutpunkter väljer du knappen händelser](media/time-series-insights-how-to-add-an-event-source-iothub/iothub-one.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub-one.png#lightbox)
+   [![På sidan build-in-slutpunkter väljer du knappen händelser](media/time-series-insights-how-to-add-an-event-source-iothub/iothub-one.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub-one.png#lightbox)
 
-1. Under **konsumentgrupper**, ange ett unikt namn för konsumentgruppen. Använd det här samma namn i din Time Series Insights-miljö när du skapar en ny händelsekälla.
+1. Under **konsument grupper**anger du ett unikt namn på konsument gruppen. Använd samma namn i Time Series Insightss miljön när du skapar en ny händelse källa.
 
 1. Välj **Spara**.
 
@@ -56,54 +56,54 @@ Lägga till en ny konsumentgrupp till din IoT hub:
 
 1. Under **miljöns topologi**väljer **händelsekällor**, och välj sedan **Lägg till**.
 
-   [![Välj händelsekällor och välj sedan knappen Lägg till](media/time-series-insights-how-to-add-an-event-source-iothub/iothub-two.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub-two.png#lightbox)
+   [![Välj händelse källor och välj sedan knappen Lägg till](media/time-series-insights-how-to-add-an-event-source-iothub/iothub-two.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub-two.png#lightbox)
 
-1. I den **ny händelsekälla** fönstret för **Händelsekällans namn för**, ange ett namn som är unik för den här Time Series Insights-miljön. Ange till exempel **händelseströmmen**.
+1. I fönstret **ny händelse källa** , för **händelse källans namn**, anger du ett namn som är unikt för den här Time Series Insightss miljön. Ange till exempel **händelse-Stream**.
 
-1. För **källa**väljer **IoT Hub**.
+1. För **källa**väljer du **IoT Hub**.
 
-1. Välj ett värde för **importalternativ**:
+1. Välj ett värde för **alternativet importera**:
 
-   * Om du redan har en IoT-hubb i någon av dina prenumerationer, väljer **Använd IoT Hub från tillgängliga prenumerationer**. Det här alternativet är den enklaste metoden.
+   * Om du redan har en IoT-hubb i en av dina prenumerationer väljer du **använd IoT Hub från tillgängliga prenumerationer**. Det här alternativet är den enklaste metoden.
    
-     [![Välj alternativ i den nya event källa](media/time-series-insights-how-to-add-an-event-source-iothub/iothub-three.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub-three.png#lightbox)
+     [![Välj alternativ i fönstret ny händelse källa](media/time-series-insights-how-to-add-an-event-source-iothub/iothub-three.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub-three.png#lightbox)
 
-    * I följande tabell beskrivs de egenskaper som krävs för den **Använd IoT Hub från tillgängliga prenumerationer** alternativet:
+    * I följande tabell beskrivs de egenskaper som krävs för alternativet **använd IoT Hub från tillgängliga prenumerationer** :
 
-       [![Ny händelse källa fönstret - Egenskaper för att ställa in i Använd IoT Hub från tillgängliga prenumerationer alternativet](media/time-series-insights-how-to-add-an-event-source-iothub/iothub-four.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub-four.png#lightbox)
-
-       | Egenskap | Beskrivning |
-       | --- | --- |
-       | Prenumerations-ID:t | Välj den prenumeration där IoT-hubben har skapats.
-       | Namnet på IoT hub | Välj namnet på IoT-hubben.
-       | Principnamn för IoT hub | Välj princip för delad åtkomst. Du hittar principen för delad åtkomst på inställningsfliken för IoT hub. Varje princip för delad åtkomst har ett namn, behörigheter som du ställa in och åtkomstnycklar. Princip för delad åtkomst för din händelsekälla *måste* har **tjänsten ansluta** behörigheter.
-       | Principnyckel för IoT hub | Nyckeln innehåller redan.
-       | IoT hub-konsumentgrupp | Konsumentgruppen som läser händelser från IoT hub. Vi rekommenderar starkt att du använder en dedikerad konsumentgrupp för din händelsekälla.
-       | Händelseserialiseringsformat | JSON är för närvarande endast tillgängligt serialiseringsformatet. Händelsemeddelanden måste vara i formatet eller inga data kan läsas. |
-       | Egenskapsnamnet för tidsstämpeln | För att fastställa det här värdet, måste du förstå meddelandeformat för meddelandedata som skickas till IoT hub. Det här värdet är den **namn** för egenskapen specifik händelse i meddelandedata som du vill använda som tidsstämpel för händelsen. Värdet är skiftlägeskänsligt. Om det lämnas tomt används det **sätta händelsetid** i källan används som tidsstämpel för händelsen. |
-
-    * Om IoT-hubben är extern till dina prenumerationer, eller om du vill välja avancerade alternativ väljer **ger IoT Hub-inställningar manuellt**.
-
-      I följande tabell beskrivs de nödvändiga egenskaperna för den **ger IoT Hub-inställningar manuellt**:
+       [![Fönstret ny händelse källa – egenskaper som anges i alternativet Använd IoT Hub från tillgängliga prenumerationer](media/time-series-insights-how-to-add-an-event-source-iothub/iothub-four.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub-four.png#lightbox)
 
        | Egenskap | Beskrivning |
        | --- | --- |
-       | Prenumerations-ID:t | Den prenumeration där IoT-hubben har skapats.
-       | Resursgrupp | Resursgruppens namn som IoT-hubben har skapats.
-       | Namnet på IoT hub | namnet på din IoT-hubb. När du har skapat din IoT-hubb kan du har angett ett namn för IoT-hubben.
-       | Principnamn för IoT hub | Princip för delad åtkomst. Du kan skapa princip för delad åtkomst på inställningsfliken för IoT hub. Varje princip för delad åtkomst har ett namn, behörigheter som du ställa in och åtkomstnycklar. Princip för delad åtkomst för din händelsekälla *måste* har **tjänsten ansluta** behörigheter.
-       | Principnyckel för IoT hub | Den delade åtkomstnyckeln som används för att tillåta åtkomst till Azure Service Bus-namnområdet. Ange den primära eller sekundära nyckeln här.
-       | IoT hub-konsumentgrupp | Konsumentgruppen som läser händelser från IoT hub. Vi rekommenderar starkt att du använder en dedikerad konsumentgrupp för din händelsekälla.
-       | Händelseserialiseringsformat | JSON är för närvarande endast tillgängligt serialiseringsformatet. Händelsemeddelanden måste vara i formatet eller inga data kan läsas. |
-       | Egenskapsnamnet för tidsstämpeln | För att fastställa det här värdet, måste du förstå meddelandeformat för meddelandedata som skickas till IoT hub. Det här värdet är den **namn** för egenskapen specifik händelse i meddelandedata som du vill använda som tidsstämpel för händelsen. Värdet är skiftlägeskänsligt. Om det lämnas tomt används det **sätta händelsetid** i källan används som tidsstämpel för händelsen. |
+       | Prenumerations-ID:t | Välj den prenumeration där IoT Hub skapades.
+       | Namn på IoT Hub | Välj namnet på IoT-hubben.
+       | Princip namn för IoT Hub | Välj princip för delad åtkomst. Du kan hitta principen för delad åtkomst på fliken Inställningar i IoT Hub. Varje princip för delad åtkomst har ett namn, behörigheter som du ställa in och åtkomstnycklar. Den delade åtkomst principen för din händelse källa *måste* ha behörighet för **tjänst anslutning** .
+       | Princip nyckel för IoT Hub | Nyckeln är förifylld.
+       | Konsument grupp för IoT Hub | Konsument gruppen som läser händelser från IoT Hub. Vi rekommenderar starkt att du använder en dedikerad konsumentgrupp för din händelsekälla.
+       | Händelseserialiseringsformat | JSON är för närvarande endast tillgängligt serialiseringsformatet. Händelse meddelandena måste vara i detta format eller så kan inga data läsas. |
+       | Egenskapsnamnet för tidsstämpeln | För att fastställa det här värdet måste du förstå meddelande formatet för de meddelande data som skickas till IoT Hub. Det här värdet är den **namn** för egenskapen specifik händelse i meddelandedata som du vill använda som tidsstämpel för händelsen. Värdet är skiftlägeskänsligt. Om det lämnas tomt används det **sätta händelsetid** i källan används som tidsstämpel för händelsen. |
 
-1. Lägg till dedikerade Time Series Insights konsument gruppnamnet som du lade till din IoT-hubb.
+    * Om IoT Hub är externt för dina prenumerationer, eller om du vill välja avancerade alternativ, väljer du **ange IoT Hub inställningar manuellt**.
+
+      I följande tabell beskrivs de egenskaper som krävs för att **ange IoT Hub inställningar manuellt**:
+
+       | Egenskap | Beskrivning |
+       | --- | --- |
+       | Prenumerations-ID:t | Prenumerationen där IoT Hub skapades.
+       | Resource group | Resurs grupps namnet där IoT Hub skapades.
+       | Namn på IoT Hub | Namnet på din IoT Hub. När du har skapat din IoT-hubb angav du ett namn för IoT Hub.
+       | Princip namn för IoT Hub | Princip för delad åtkomst. Du kan skapa principen för delad åtkomst på fliken Inställningar i IoT Hub. Varje princip för delad åtkomst har ett namn, behörigheter som du ställa in och åtkomstnycklar. Den delade åtkomst principen för din händelse källa *måste* ha behörighet för **tjänst anslutning** .
+       | Princip nyckel för IoT Hub | Den delade åtkomst nyckeln som används för att autentisera åtkomsten till Azure Service Bus-namnrymden. Ange den primära eller sekundära nyckeln här.
+       | Konsument grupp för IoT Hub | Konsument gruppen som läser händelser från IoT Hub. Vi rekommenderar starkt att du använder en dedikerad konsumentgrupp för din händelsekälla.
+       | Händelseserialiseringsformat | JSON är för närvarande endast tillgängligt serialiseringsformatet. Händelse meddelandena måste vara i detta format eller så kan inga data läsas. |
+       | Egenskapsnamnet för tidsstämpeln | För att fastställa det här värdet måste du förstå meddelande formatet för de meddelande data som skickas till IoT Hub. Det här värdet är den **namn** för egenskapen specifik händelse i meddelandedata som du vill använda som tidsstämpel för händelsen. Värdet är skiftlägeskänsligt. Om det lämnas tomt används det **sätta händelsetid** i källan används som tidsstämpel för händelsen. |
+
+1. Lägg till det dedikerade Time Series Insights konsument grupp namn som du har lagt till i IoT-hubben.
 
 1. Välj **Skapa**.
 
    [![Knappen Skapa](media/time-series-insights-how-to-add-an-event-source-iothub/iothub-five.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub-five.png#lightbox)
 
-1. När du har skapat händelsekällan börjar Time Series Insights automatiskt strömmande data i din miljö.
+1. När du har skapat händelse källan börjar Time Series Insights automatiskt att strömma data till din miljö.
 
 ## <a name="next-steps"></a>Nästa steg
 

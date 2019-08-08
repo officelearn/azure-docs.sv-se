@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 1c12007e04ff8cd08ddb7afdf9a3c2add9638de3
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: d8e80594e0c56f57527d1703b0cf1323571cf351
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277438"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68855716"
 ---
 # <a name="monitor-performance-and-storage-metrics-in-azure-cosmos-db"></a>Övervaka prestanda- och mått i Azure Cosmos DB
 
@@ -50,7 +50,7 @@ Mått kan granskas på sidan för den nya mått-sidan, eller i Azure Monitor.
 ## <a name="set-up-alerts-in-the-portal"></a>Konfigurera aviseringar i portalen
 
 > [!NOTE]
-> De klassiska aviseringarna i Azure Monitor kommer att dras tillbaka den 31 augusti 2019. Azure Portal erbjuder ett [Migreringsverktyg](../azure-monitor/platform/alerts-using-migration-tool.md) för att migrera klassiska varnings regler. Men det går inte att migrera alla klassiska varningar om Azure Cosmos DB mått, men det finns vissa undantag i artikeln om [Azure Monitor](../azure-monitor/platform/alerts-understand-migration.md#cosmos-db-metrics) finns en lista över klassiska aviseringar som inte kan migreras. 
+> De klassiska aviseringarna i Azure Monitor kommer snart att dras tillbaka. Azure Portal erbjuder ett [Migreringsverktyg](../azure-monitor/platform/alerts-using-migration-tool.md) för att migrera klassiska varnings regler. Men det går inte att migrera alla klassiska aviseringar för Azure Cosmos DB mått, det finns vissa undantag i artikeln om [Azure Monitor](../azure-monitor/platform/alerts-understand-migration.md#cosmos-db-metrics) finns en lista över klassiska aviseringar som inte kan migreras. 
 
 1. I den [Azure-portalen](https://portal.azure.com/), klickar du på **alla tjänster**, klickar du på **Azure Cosmos DB**, och klicka sedan på namnet på det Azure Cosmos DB-konto som du vill konfigurera prestanda måttaviseringar.
 2. I resurs-menyn klickar du på **Varningsregler** att öppna sidan Varningsregler.  

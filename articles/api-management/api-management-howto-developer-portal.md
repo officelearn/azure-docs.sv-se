@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2019
 ms.author: apimpm
-ms.openlocfilehash: 2756444db010e23f7114e99f474de9ce6614aaee
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 27d5dcc99db040036ba296911aa33d8a312bb23f
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68837922"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68851511"
 ---
 # <a name="access-and-customize-the-new-developer-portal-in-azure-api-management"></a>Få åtkomst till och anpassa den nya Developer-portalen i Azure API Management
 
@@ -95,10 +95,6 @@ En *layout* tillämpas på en sida genom att matcha dess URL-mall till *sidans* 
 ### <a name="why-doesnt-the-interactive-developer-console-work"></a>Varför fungerar inte den interaktiva Developer-konsolen?
 
 Den är förmodligen relaterad till CORS. Den interaktiva konsolen gör en API-begäran på klient sidan från webbläsaren. Du kan lösa CORS-problemet genom att lägga till [en CORS-princip](https://docs.microsoft.com/azure/api-management/api-management-cross-domain-policies#CORS) på dina API: er. Du kan antingen ange alla parametrar manuellt (till exempel ursprung som https://contoso.com) eller använda ett jokertecken. `*`
-
-### <a name="where-can-i-file-bugs"></a>Var kan jag filen buggar?
-
-[I GitHub](http://aka.ms/apimdevportal)-lagringsplatsen.
 
 ## <a name="next-steps"></a>Nästa steg
 

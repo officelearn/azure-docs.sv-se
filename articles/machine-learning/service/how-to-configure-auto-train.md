@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5dee966f8664bc14d81004e625ad9632066ffcb2
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: adca67152c33f4c6a3ec272b63c4c8157a777f36
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742310"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68856194"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Konfigurera automatiserade ML-experiment i python
 
@@ -215,6 +215,9 @@ Primärt mått. som du ser i exemplen ovan bestäms måttet som ska användas vi
 I varje automatiserad maskin inlärnings experiment skalas dina data [automatiskt och normaliseras](concept-automated-ml.md#preprocess) för att hjälpa algoritmerna att fungera bra.  Du kan dock också aktivera ytterligare för bearbetning/funktionalisering, till exempel saknade värden Imputation, encoding och transformationer. [Läs mer om vad funktionalisering ingår](how-to-create-portal-experiments.md#preprocess).
 
 Om du vill aktivera den här `"preprocess": True` funktionalisering anger du [ `AutoMLConfig` för klassen](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
+
+> [!NOTE]
+> Automatiserad bearbetning av Machine Learning för bearbetning (funktions normalisering, hantering av saknade data, konvertering av text till tal osv.) blir en del av den underliggande modellen. När du använder modellen för förutsägelser tillämpas samma för bearbetnings steg som tillämpas på dina indata-data automatiskt.
 
 ### <a name="time-series-forecasting"></a>Prognosticering för tids serier
 För aktivitets typen tids serie prognos anger du ytterligare parametrar för att definiera.

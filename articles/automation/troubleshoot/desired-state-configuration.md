@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6de348a19081eba685deafebd8a7c9b9d6556444
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 67e5364996be2945d67aa1a95cbc3ab8137e077e
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688119"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68850261"
 ---
 # <a name="troubleshoot-desired-state-configuration-dsc"></a>Felsök önskad tillstånds konfiguration (DSC)
 
@@ -24,23 +24,24 @@ Den här artikeln innehåller information om fel sökning av problem med önskad
 
 När du har problem med att kompilera eller distribuera konfigurationer i Azure-tillstånds konfiguration så är det några steg som hjälper dig att diagnostisera problemet.
 
-1. **Se till att konfigurationen kompileras korrekt på den lokala datorn:**  Azure State Configuration bygger på PowerShell DSC. Du hittar dokumentationen för DSC-språket och syntaxen i [POWERSHELL DSC](/powershell/dsc/overview/overview)-dokumenten.
+1. **Se till att konfigurationen kompileras korrekt på den lokala datorn:**  Azure State Configuration bygger på PowerShell DSC. Du hittar dokumentationen för DSC-språket och syntaxen i [POWERSHELL DSC](https://docs.microsoft.com/en-us/powershell/scripting/overview)-dokumenten.
 
    Genom att kompilera DSC-konfigurationen på den lokala datorn kan du identifiera och lösa vanliga fel, till exempel:
 
    - **Moduler som saknas**
    - **Syntaxfel**
    - **Logic-fel**
+
 2. **Visa DSC-loggar på din nod:** Om konfigurationen kompileras korrekt, men Miss lyckas när den tillämpas på en nod, kan du hitta detaljerad information i loggarna. Information om var du hittar DSC-loggar finns i [var är DSC-händelseloggen](/powershell/dsc/troubleshooting/troubleshooting#where-are-dsc-event-logs).
 
-   Futhermore kan [xDscDiagnostics](https://github.com/PowerShell/xDscDiagnostics) hjälpa dig att parsa detaljerad information från DSC-loggarna. Om du kontaktar supporten kräver de dessa loggar för att dianose ditt problem.
+   Dessutom kan [xDscDiagnostics](https://github.com/PowerShell/xDscDiagnostics) hjälpa dig att parsa detaljerad information från DSC-loggarna. Om du kontaktar supporten kräver de dessa loggar för att diagnostisera problemet.
 
    Du kan installera **xDscDiagnostics** på din lokala dator med hjälp av anvisningarna som finns under [installera den säkra versionen av modulen](https://github.com/PowerShell/xDscDiagnostics#install-the-stable-version-module).
 
    Om du vill installera **xDscDiagnostics** på din Azure-dator kan du använda [AZ VM Run-Command](/cli/azure/vm/run-command) eller [Invoke-AzVMRunCommand](/powershell/module/azurerm.compute/invoke-azurermvmruncommand). Du kan också använda **kommando alternativet Kör** från portalen genom att följa stegen i [köra PowerShell-skript i din virtuella Windows-dator med kommandot kör](../../virtual-machines/windows/run-command.md).
 
    Information om hur du använder **xDscDiagnostics**finns i [använda xDscDiagnostics för att analysera DSC-loggar](/powershell/dsc/troubleshooting/troubleshooting#using-xdscdiagnostics-to-analyze-dsc-logs), samt xDscDiagnostics- [cmdletar](https://github.com/PowerShell/xDscDiagnostics#cmdlets).
-3. **Se till att noderna och automation-arbetsytan har de moduler som krävs:** Önskad tillstånds konfiguration är beroende av moduler som är installerade på noden.  När du använder Azure Automation tillstånds konfiguration importerar du alla obligatoriska moduler till ditt Automation-konto med hjälp av stegen i [importera moduler](../shared-resources/modules.md#import-modules). Konfigurationer kan också vara beroende av vissa versioner av moduler.  Mer information finns i [fel sökning av moduler](shared-resources.md#modules).
+3. **Se till att noderna och automation-arbetsytan har de moduler som krävs:** Önskad tillstånds konfiguration är beroende av moduler som är installerade på noden.  När du använder Azure Automation tillstånds konfiguration importerar du alla obligatoriska moduler till ditt Automation-konto med hjälp av stegen i [importera moduler](../shared-resources/modules.md#import-modules). Konfigurationer kan också vara beroende av vissa versioner av moduler.  Mer information finns i, [Felsöka moduler](shared-resources.md#modules).
 
 ## <a name="common-errors-when-working-with-desired-state-configuration-dsc"></a>Vanliga fel när du arbetar med önskad tillstånds konfiguration (DSC)
 
@@ -130,7 +131,7 @@ När uttrycket efter nodens nyckelord i DSC-konfigurationen utvärderas till `$n
 Någon av följande lösningar löser problemet:
 
 * Se till att uttrycket bredvid nyckelordet **Node** i konfigurations definitionen inte utvärderas till $null.
-* Om du skickar ConfigurationData när du kompilerar konfigurationen kontrollerar du att du skickar de förväntade värdena som krävs av konfigurationen från [ConfigurationData](../automation-dsc-compile.md#configurationdata).
+* Om du skickar ConfigurationData när du kompilerar konfigurationen kontrollerar du att du skickar de förväntade värdena som krävs av konfigurationen från [ConfigurationData](../automation-dsc-compile.md).
 
 ### <a name="dsc-in-progress"></a>Situationen DSC-nodens rapport har fastnat i status
 
@@ -166,7 +167,7 @@ Du har använt en autentiseringsuppgift i en konfiguration men angav inte rätt 
 
 #### <a name="resolution"></a>Lösning
 
-* Se till att skicka in rätt **ConfigurationData** för att ange **PSDscAllowPlainTextPassword** till true för varje nods konfiguration som nämns i konfigurationen. Mer information finns i [till gångar i Azure Automation DSC](../automation-dsc-compile.md#assets).
+* Se till att skicka in rätt **ConfigurationData** för att ange **PSDscAllowPlainTextPassword** till true för varje nods konfiguration som nämns i konfigurationen. Mer information finns i [till gångar i Azure Automation DSC](../automation-dsc-compile.md#working-with-assets-in-azure-automation-during-compilation).
 
 ### <a name="failure-processing-extension"></a>Situationen Onboarding från DSC-tillägg, fel vid bearbetning av fel bearbetning
 
@@ -199,11 +200,27 @@ This event indicates that failure happens when LCM is processing the configurati
 
 #### <a name="cause"></a>Orsak
 
-Kunder har identifierat att om katalogen/tmp-platsen är inställd på noexec, kommer den aktuella versionen av DSC inte att tillämpa konfigurationer.
+Kunder har identifierat att om `/tmp` platsen är inställd på `noexec`kommer den aktuella versionen av DSC inte att tillämpa konfigurationer.
 
 #### <a name="resolution"></a>Lösning
 
-* Ta bort noexec-alternativet från katalogen/tmp-platsen.
+* Ta bort `/tmp` alternativet från platsen. `noexec`
+
+### <a name="compilation-node-name-overlap"></a>Situationen Konfigurations namn för noder som överlappar kan resultera i dåliga versioner
+
+#### <a name="issue"></a>Problem
+
+Om ett enda konfigurations skript används för att generera flera nodkonfigurationer och några av nodkonfigurationer har ett namn som är en delmängd av andra, kan ett problem i Compilation-tjänsten leda till att du tilldelar fel konfiguration.  Detta inträffar bara när du använder ett enda skript för att generera konfigurationer med konfigurations data per nod, och endast när namnet överlappar inträffar i början av strängen.
+
+Exempel: om ett enda konfigurations skript används för att generera konfigurationer som baseras på Node-data som skickas som en hash-fil med hjälp av cmdletar, och nodens data innehåller en server med namnet "Server" och "1server".
+
+#### <a name="cause"></a>Orsak
+
+Känt problem med Compilation service.
+
+#### <a name="resolution"></a>Lösning
+
+Den bästa lösningen är att kompilera lokalt eller i en CI/CD-pipeline och ladda upp MOF-filerna direkt till tjänsten.  Om kompileringen i tjänsten är ett krav, är nästa bästa lösning att dela upp Compilation-jobben så att det inte finns några överlappande i namn.
 
 ## <a name="next-steps"></a>Nästa steg
 

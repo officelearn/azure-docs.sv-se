@@ -1,7 +1,6 @@
 ---
-title: Azure Data Lake Storage Gen2 Hive prestandajustering riktlinjer | Microsoft Docs
-description: Azure Data Lake Storage Gen2 Hive prestandajustering riktlinjer
-services: storage
+title: Azure Data Lake Storage Gen2 Hive-riktlinjer för prestanda justering | Microsoft Docs
+description: Rikt linjer för prestanda justering av Azure Data Lake Storage Gen2 Hive
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
@@ -9,70 +8,70 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: b44c615396fbd526efb687977d303facd5d5d607
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1290174fb87306b34be81ed7fa4fb5de3bfba43c
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64939437"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847121"
 ---
-# <a name="performance-tuning-guidance-for-hive-on-hdinsight-and-azure-data-lake-storage-gen2"></a>Prestandajusteringsvägledning för Hive på HDInsight och Azure Data Lake Storage Gen2
+# <a name="performance-tuning-guidance-for-hive-on-hdinsight-and-azure-data-lake-storage-gen2"></a>Vägledning för prestanda justering för Hive i HDInsight och Azure Data Lake Storage Gen2
 
-Standardinställningarna har ställts in för att tillhandahålla bra prestanda i många olika användningsfall.  För i/o-intensiva frågor, kan du ställa in Hive för att få bättre prestanda med Azure Data Lake Storage Gen2.  
+Standardinställningarna har ställts in för att ge bästa prestanda i många olika användnings fall.  För I/O-intensiva frågor kan Hive justeras för att få bättre prestanda med Azure Data Lake Storage Gen2.  
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Ett konto för Data Lake Storage Gen2**. Anvisningar för hur du skapar ett finns i [snabbstarten: Skapa ett Azure Data Lake Storage Gen2-lagringskonto](data-lake-storage-quickstart-create-account.md)
-* **Azure HDInsight-kluster** med åtkomst till ett Data Lake Storage Gen2-konto. Se [Använd Azure Data Lake Storage Gen2 med Azure HDInsight-kluster](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2)
-* **Köra Hive på HDInsight**.  Läs om hur du kör Hive-jobb på HDInsight i [använda Hive i HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-hive)
-* **Riktlinjer för Data Lake Storage Gen2 för prestandajustering**.  Allmänna prestanda begrepp, se [Data Lake Storage Gen2 justering Prestandavägledning](data-lake-storage-performance-tuning-guidance.md)
+* **Ett data Lake Storage Gen2 konto**. Anvisningar om hur du skapar ett finns i [snabb start: Skapa ett Azure Data Lake Storage Gen2-lagringskonto](data-lake-storage-quickstart-create-account.md)
+* **Azure HDInsight-kluster** med åtkomst till ett data Lake Storage Gen2-konto. Se [använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2)
+* **Kör Hive i HDInsight**.  Information om hur du kör Hive-jobb i HDInsight finns i [använda Hive i HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-hive)
+* **Rikt linjer för prestanda justering på data Lake Storage Gen2**.  Allmänna prestanda koncept finns i [vägledning för data Lake Storage Gen2 prestanda justering](data-lake-storage-performance-tuning-guidance.md)
 
 ## <a name="parameters"></a>Parametrar
 
-Här är de viktigaste inställningarna att justera för bättre prestanda för Data Lake Storage Gen2:
+Här är de viktigaste inställningarna för att justera för förbättrade Data Lake Storage Gen2 prestanda:
 
-* **hive.tez.container.size** – mängden minne som används av varje uppgifter
+* **Hive. Tez. container. size** – mängden minne som används av varje aktivitet
 
-* **tez.Grouping.min storlek** – minsta storleken på varje mapper
+* **Tez. Grouping. min-size** – minsta storlek för varje mapper
 
-* **tez.Grouping.Max storlek** – det maximala storleken på varje mapper
+* **Tez. Grouping. Max-size** – maximal storlek för varje mappning
 
-* **hive.Exec.Reducer.bytes.per.Reducer** – storleken på varje reducer
+* **Hive. exec. dereducerar. byte. per. minsknings** fil – storlek för varje minskning
 
-**hive.tez.container.size** -behållarens storlek avgör hur mycket minne som är tillgänglig för varje aktivitet.  Det här är den viktigaste indata för att styra samtidighet i Hive.  
+**Hive. Tez. container. size** -container-storlek anger hur mycket minne som är tillgängligt för varje aktivitet.  Detta är den viktigaste indatan för styrning av samtidigheten i Hive.  
 
-**tez.Grouping.min storlek** – den här parametern kan du ange den minsta storleken på varje mappning.  Om antalet Mappningskomponenter som Tez väljer är mindre än värdet för den här parametern kan använda Tez värdet som anges här.
+**Tez. Grouping. min-size** – med den här parametern kan du ange den minsta storleken för varje mapp.  Om antalet mappningar som Tez väljer är mindre än värdet för den här parametern kommer Tez att använda värdet som anges här.
 
-**tez.Grouping.Max storlek** – parametern kan du ange den maximala storleken för varje mappning.  Om antalet Mappningskomponenter som Tez väljer är större än värdet för den här parametern kan använda Tez värdet som anges här.
+**Tez. Grouping. Max-size** – parametern låter dig ange max storleken för varje mapp.  Om antalet mappningar som Tez väljer är större än värdet för den här parametern kommer Tez att använda värdet som anges här.
 
-**hive.Exec.Reducer.bytes.per.Reducer** – den här parametern anger storleken på varje reducer.  Som standard är varje reducer 256MB.  
+**Hive. exec. dereducerare. bytes. per. reduce** – den här parametern anger storleken på varje minskning.  Som standard är varje minskning 256 MB.  
 
 ## <a name="guidance"></a>Riktlinjer
 
-**Ange hive.exec.reducer.bytes.per.reducer** – standardvärdet fungerar bra när data är okomprimerade.  För data som är komprimerade, ska du minska storleken på reducer.  
+**Ange Hive. exec. dereducerar. bytes. per. reduce** – standardvärdet fungerar bra när data är okomprimerade.  För data som är komprimerade bör du minska storleken på minskningen.  
 
-**Ange hive.tez.container.size** – i varje nod minne anges av yarn.nodemanager.resource.memory mb och korrekt ska ställas in på HDI-kluster som standard.  Mer information om hur minnet som är lämplig i YARN finns i den här [publicera](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-hive-out-of-memory-error-oom).
+**Ange Hive. Tez. container. size** – i varje nod anges minnet av garn. nodemanager. Resource. Memory-MB och bör anges korrekt i HDI-kluster som standard.  Mer information om hur du ställer in rätt minne i garn finns i det här [inlägget](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-hive-out-of-memory-error-oom).
 
-I/o-intensiva arbetsbelastningar kan dra nytta av flera parallellitet genom att minska Tez behållarens storlek. Detta ger användaren fler behållare, vilket ökar samtidighet.  Vissa Hive-frågor kräver dock en betydande mängd minne (t.ex. MapJoin).  Om aktiviteten inte har tillräckligt med minne, får du en out of undantag med otillräckligt minne under körning.  Om du får slut minne-undantag, bör du öka minnet.   
+I/O-intensiva arbets belastningar kan dra nytta av mer parallellitet genom att minska storleken på Tez-behållare. Detta ger användaren fler behållare vilket ökar samtidigheten.  Vissa Hive-frågor kräver dock en stor mängd minne (t. ex. MapJoin).  Om det inte finns tillräckligt med minne på den här aktiviteten får du ett slut på minnes undantag under körningen.  Om du får slut på minnes undantag bör du öka minnet.   
 
-Samtidiga antalet aktiviteter som körs eller parallellitet ska begränsas av den totala mängden YARN-minnet.  Antalet YARN-behållare som bestämmer hur många samtidiga uppgifter kan köras.  För att hitta YARN-minne per nod går du till Ambari.  Gå till YARN och visa fliken konfigurationer.  YARN-minne visas i det här fönstret.  
+Antalet samtidiga aktiviteter som körs eller parallellitet kommer att begränsas av det totala garn minnet.  Antalet garn behållare kommer att diktera hur många samtidiga aktiviteter som kan köras.  För att hitta garn minnet per nod kan du gå till Ambari.  Navigera till garn och Visa fliken configs.  GARN minnet visas i det här fönstret.  
 
         Total YARN memory = nodes * YARN memory per node
         # of YARN containers = Total YARN memory / Tez container size
-Nyckeln till att förbättra prestanda med hjälp av Data Lake Storage Gen2 är att öka parallellkörningen så mycket som möjligt.  Tez beräknar automatiskt antalet uppgifter som ska skapas, så du inte behöver konfigurera den.   
+Nyckeln för att förbättra prestanda med hjälp av Data Lake Storage Gen2 är att öka samtidigheten så mycket som möjligt.  Tez beräknar automatiskt antalet uppgifter som ska skapas så att du inte behöver ange den.   
 
-## <a name="example-calculation"></a>Exempel-beräkning
+## <a name="example-calculation"></a>Exempel beräkning
 
-Vi antar att du har ett 8 noder D14-kluster.  
+Anta att du har ett D14-kluster med 8 noder.  
 
     Total YARN memory = nodes * YARN memory per node
     Total YARN memory = 8 nodes * 96GB = 768GB
     # of YARN containers = 768GB / 3072MB = 256
 
-## <a name="further-information-on-hive-tuning"></a>Mer information om finjustering av Hive
+## <a name="further-information-on-hive-tuning"></a>Mer information om Hive-justering
 
-Här följer några bloggar som hjälper dig att justera dina Hive-frågor:
+Här följer några Bloggar som kan hjälpa dig att justera dina Hive-frågor:
 * [Optimera Hive-frågor för Hadoop i HDInsight](https://azure.microsoft.com/documentation/articles/hdinsight-hadoop-optimize-hive-query/)
-* [Felsökning av prestanda för Hive-frågor](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/)
-* [Ignite talk på optimera Hive på HDInsight](https://channel9.msdn.com/events/Machine-Learning-and-Data-Sciences-Conference/Data-Science-Summit-2016/MSDSS25)
+* [Felsöka prestanda för Hive-frågor](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/)
+* [Tala om optimering av Hive i HDInsight](https://channel9.msdn.com/events/Machine-Learning-and-Data-Sciences-Conference/Data-Science-Summit-2016/MSDSS25)

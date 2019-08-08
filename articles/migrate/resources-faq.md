@@ -4,14 +4,14 @@ description: Korrigerar vanliga frågor om Azure Migrate
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/17/2019
+ms.date: 08/07/2019
 ms.author: snehaa
-ms.openlocfilehash: 0708502087ae6880d9559cf17f0ba9982b2ba040
-ms.sourcegitcommit: 57a7d4f67635212f5bf0c56e58fd87c8ec366f2c
+ms.openlocfilehash: bf591306220b2c8c1e6c8166686836d96432fc7d
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68372482"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68856266"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Vanliga frågor och svar om Azure Migrate
 
@@ -71,7 +71,8 @@ Enheten ansluter till vCenter Server (port 443) med hjälp av de autentiseringsu
 
 ### <a name="can-i-connect-the-same-appliance-to-multiple-vcenter-servers"></a>Kan jag ansluta samma installation till flera vCenter-servrar?
 
-Ja, en enda Azure Migrate-apparat kan användas för att identifiera flera vCenter-servrar, men inte samtidigt. Du måste köra identifieringar en efter en annan.
+Nej. Det finns en en-till-en-mappning mellan en installation och vCenter Server. Om du måste identifiera virtuella datorer på flera vCenter-servrar måste du distribuera flera enheter. 
+
 
 ### <a name="i-changed-my-machine-size-can-i-rerun-an-assessment"></a>Jag har ändrat min dator storlek. Kan jag köra en utvärdering igen?
 

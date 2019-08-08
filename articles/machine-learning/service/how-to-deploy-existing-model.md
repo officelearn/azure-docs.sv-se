@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/19/2019
-ms.openlocfilehash: 4534f7e5bba2e34316be3376e2627c15c20ba81f
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: cbbfd5f7beb7270bf55e952c818b4802d9d9ecab
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68694368"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847995"
 ---
 # <a name="use-an-existing-model-with-azure-machine-learning-service"></a>Använd en befintlig modell med Azure Machine Learning tjänsten
 
@@ -32,14 +32,14 @@ Om du har en maskin inlärnings modell som har tränats utanför Azure Machine L
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* En arbetsyta för Azure Machine Learning-tjänsten. Mer information finns i [skapa en arbets yta](setup-create-workspace.md).
+* En arbetsyta för Azure Machine Learning-tjänsten. Mer information finns i [skapa en arbets yta](how-to-manage-workspace.md).
 
     > [!TIP]
     > Python-exemplen i den här artikeln förutsätter att `ws` variabeln är inställd på din Azure Machine Learning service-arbetsyta.
     >
     > CLI-exemplen använder en plats `myworkspace` hållare `myresourcegroup`för och. Ersätt dessa med namnet på din arbets yta och resurs gruppen som innehåller den.
 
-* Azure Machine Learning SDK. Mer information finns i avsnittet python SDK i [skapa en arbets yta](setup-create-workspace.md#sdk).
+* [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).  
 
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) -och [Machine Learning CLI-tillägget](reference-azure-machine-learning-cli.md).
 

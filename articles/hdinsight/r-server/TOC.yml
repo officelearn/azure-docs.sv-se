@@ -18,13 +18,13 @@
 - name: Begrepp
   items:
     - name: Installera HDInsight-appar
-      href: ../hdinsight-apps-install-applications.md
+      href: ../hdinsight-apps-install-applications.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
     - name: Kapacitetsplanering för kluster
-      href: ../hdinsight-capacity-planning.md
+      href: ../hdinsight-capacity-planning.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
     - name: Apache Hadoop-komponenter på HDInsight
-      href: ../hdinsight-component-versioning.md
+      href: ../hdinsight-component-versioning.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
     - name: HDInsight 4.0
-      href: ../hdinsight-version-release.md
+      href: ../hdinsight-version-release.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
 - name: Gör så här för att
   items:
     - name: Använda ML Services
@@ -38,71 +38,71 @@
         - name: Beräkningskontext
           href: r-server-compute-contexts.md
         - name: ScaleR och SparkR
-          href: ../hdinsight-hadoop-r-scaler-sparkr.md
+          href: ../hdinsight-hadoop-r-scaler-sparkr.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
     - name: Använda klusterlagring
       items:
         - name: Använda Azure Storage
-          href: ../hdinsight-hadoop-use-blob-storage.md
+          href: ../hdinsight-hadoop-use-blob-storage.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
         - name: Använda Azure Data Lake Storage Gen2
-          href: ../hdinsight-hadoop-use-data-lake-storage-gen2.md
+          href: ../hdinsight-hadoop-use-data-lake-storage-gen2.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
         - name: Använda Azure Data Lake Storage Gen1
-          href: ../hdinsight-hadoop-use-data-lake-store.md
+          href: ../hdinsight-hadoop-use-data-lake-store.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
     - name: Använda HDInsight-verktyg
       items:
         - name: Verktyg för Visual Studio
-          href: ../hadoop/apache-hadoop-visual-studio-tools-get-started.md
+          href: ../hadoop/apache-hadoop-visual-studio-tools-get-started.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
         - name: Verktyg för VSCode
-          href: ../hdinsight-for-vscode.md
+          href: ../hdinsight-for-vscode.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
         - name: Skicka jobb från R Tools för Visual Studio
           href: r-server-submit-jobs-r-tools-vs.md
     - name: Utöka kluster
       items:
         - name: Anpassa kluster med Bootstrap
-          href: ../hdinsight-hadoop-customize-cluster-bootstrap.md
+          href: ../hdinsight-hadoop-customize-cluster-bootstrap.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
         - name: Anpassa kluster med skriptåtgärd
-          href: ../hdinsight-hadoop-customize-cluster-linux.md
+          href: ../hdinsight-hadoop-customize-cluster-linux.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
         - name: Utveckla skriptåtgärder
-          href: ../hdinsight-hadoop-script-actions-linux.md
+          href: ../hdinsight-hadoop-script-actions-linux.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
         - name: Lägga till Apache Hive-bibliotek
-          href: ../hdinsight-hadoop-add-hive-libraries.md
+          href: ../hdinsight-hadoop-add-hive-libraries.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
         - name: Använda Apache Giraph
-          href: ../hdinsight-hadoop-giraph-install-linux.md
+          href: ../hdinsight-hadoop-giraph-install-linux.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
         - name: Använd Hue
-          href: ../hdinsight-hadoop-hue-linux.md
+          href: ../hdinsight-hadoop-hue-linux.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
         - name: Använd R
-          href: ../hdinsight-hadoop-r-scripts-linux.md
+          href: ../hdinsight-hadoop-r-scripts-linux.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
         - name: Använda Apache Zeppelin
-          href: ../hdinsight-apache-spark-zeppelin-notebook.md
+          href: ../hdinsight-apache-spark-zeppelin-notebook.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
         - name: Använda tomma kantnoder
-          href: ../hdinsight-apps-use-edge-node.md
+          href: ../hdinsight-apps-use-edge-node.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
         - name: Skapa HDInsight-program
           items:
             - name: Installera anpassade appar
-              href: ../hdinsight-apps-install-custom-applications.md
+              href: ../hdinsight-apps-install-custom-applications.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
             - name: Installera appar med hjälp av REST
               href: 'https://msdn.microsoft.com/library/mt706515.aspx'
             - name: Publicera HDInsight-appar till Azure Marketplace
-              href: ../hdinsight-apps-publish-applications.md
+              href: ../hdinsight-apps-publish-applications.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
     - name: Skydda
       items:
         - name: Använda SSH med HDInsight
-          href: ../hdinsight-hadoop-linux-use-ssh-unix.md
+          href: ../hdinsight-hadoop-linux-use-ssh-unix.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
         - name: Använd SSH-tunnel
-          href: ../hdinsight-linux-ambari-ssh-tunnel.md
+          href: ../hdinsight-linux-ambari-ssh-tunnel.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
         - name: Begränsa åtkomst till data
-          href: ../hdinsight-storage-sharedaccesssignature-permissions.md
+          href: ../hdinsight-storage-sharedaccesssignature-permissions.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
         - name: Auktorisera användare för Apache Ambari Views
-          href: ../hdinsight-authorize-users-to-ambari.md
+          href: ../hdinsight-authorize-users-to-ambari.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
     - name: Hantera
       items:
         - name: Skapa HDInsight-kluster
-          href: ../hdinsight-hadoop-provision-linux-clusters.md
+          href: ../hdinsight-hadoop-provision-linux-clusters.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
           items:
             - name: Använda Azure-portalen
-              href: ../hdinsight-hadoop-create-linux-clusters-portal.md
+              href: ../hdinsight-hadoop-create-linux-clusters-portal.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
             - name: Använda Azure Resource Manager-mallar
               displayName: 'resource manager template, arm template, resource manager group'
-              href: ../hdinsight-hadoop-create-linux-clusters-arm-templates.md
+              href: ../hdinsight-hadoop-create-linux-clusters-arm-templates.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
             - name: Använda SDK för .NET
               href: 'https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet#create-a-cluster'
             - name: Använda SDK för Python
@@ -110,17 +110,17 @@
             - name: Använda SDK för Java
               href: 'https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable#create-a-cluster'
             - name: Använda Azure PowerShell
-              href: ../hdinsight-hadoop-create-linux-clusters-azure-powershell.md
+              href: ../hdinsight-hadoop-create-linux-clusters-azure-powershell.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
             - name: Använda cURL och Azure REST API
-              href: ../hdinsight-hadoop-create-linux-clusters-curl-rest.md
+              href: ../hdinsight-hadoop-create-linux-clusters-curl-rest.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
             - name: Använda Azure CLI
-              href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
+              href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
             - name: Skapa kluster på begäran
-              href: ../hdinsight-hadoop-create-linux-clusters-adf.md
+              href: ../hdinsight-hadoop-create-linux-clusters-adf.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
         - name: Skapa kluster på begäran
-          href: ../hdinsight-hadoop-create-linux-clusters-adf.md
+          href: ../hdinsight-hadoop-create-linux-clusters-adf.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
         - name: Hantera HDInsight-kluster
-          href: ../hdinsight-administer-use-portal-linux.md
+          href: ../hdinsight-administer-use-portal-linux.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
           items:
             - name: Använda SDK för .NET
               href: 'https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet#management'
@@ -131,76 +131,76 @@
             - name: Använda SDK för Go (förhandsversion)
               href: 'https://docs.microsoft.com/azure/hdinsight/hdinsight-go-sdk-overview'
             - name: Använda Azure PowerShell
-              href: ../hdinsight-administer-use-powershell.md
+              href: ../hdinsight-administer-use-powershell.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
             - name: Använda Azure CLI
-              href: ../hdinsight-administer-use-command-line.md
+              href: ../hdinsight-administer-use-command-line.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
         - name: Hantera kluster med Apache Ambari-webbgränssnittet
-          href: ../hdinsight-hadoop-manage-ambari.md
+          href: ../hdinsight-hadoop-manage-ambari.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
           items:
             - name: Optimera kluster med Apache Ambari-webbgränssnittet
-              href: ../hdinsight-changing-configs-via-ambari.md
+              href: ../hdinsight-changing-configs-via-ambari.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
             - name: Använda Apache Ambari REST API
-              href: ../hdinsight-hadoop-manage-ambari-rest-api.md
+              href: ../hdinsight-hadoop-manage-ambari-rest-api.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
         - name: Hantera loggar för ett HDInsight-kluster
-          href: ../hdinsight-log-management.md
+          href: ../hdinsight-log-management.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
         - name: Lägga till lagringskonton
-          href: ../hdinsight-hadoop-add-storage.md
+          href: ../hdinsight-hadoop-add-storage.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
         - name: Ladda upp data för Apache Hadoop-jobb
-          href: ../hdinsight-upload-data.md
+          href: ../hdinsight-upload-data.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
         - name: Flera HDInsight-kluster med Data Lake Storage
-          href: ../hdinsight-multiple-clusters-data-lake-store.md
+          href: ../hdinsight-multiple-clusters-data-lake-store.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
         - name: Importera och exportera data med Apache Sqoop
-          href: ../hadoop/hdinsight-use-sqoop.md
+          href: ../hadoop/hdinsight-use-sqoop.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
           items:
             - name: Anslut med SSH
-              href: ../hadoop/apache-hadoop-use-sqoop-mac-linux.md
+              href: ../hadoop/apache-hadoop-use-sqoop-mac-linux.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
             - name: Kör med cURL
-              href: ../hadoop/apache-hadoop-use-sqoop-curl.md
+              href: ../hadoop/apache-hadoop-use-sqoop-curl.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
             - name: Köra med hjälp av SDK för .NET
-              href: ../hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md
+              href: ../hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
             - name: Köra med Azure PowerShell
-              href: ../hadoop/apache-hadoop-use-sqoop-powershell.md
+              href: ../hadoop/apache-hadoop-use-sqoop-powershell.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
         - name: Använda Apache Oozie för arbetsflöden
-          href: ../hdinsight-use-oozie-linux-mac.md
+          href: ../hdinsight-use-oozie-linux-mac.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
         - name: 'Kluster- och tjänstportar samt URI:er'
-          href: ../hdinsight-hadoop-port-settings-for-services.md
+          href: ../hdinsight-hadoop-port-settings-for-services.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
         - name: Migrera till Resource Managers utvecklingsverktyg
-          href: ../hdinsight-hadoop-development-using-azure-resource-manager.md
+          href: ../hdinsight-hadoop-development-using-azure-resource-manager.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
         - name: Tillgänglighet och tillförlitlighet
-          href: ../hdinsight-high-availability-linux.md
+          href: ../hdinsight-high-availability-linux.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
         - name: Uppgradera HDInsight-kluster till nyare version
-          href: ../hdinsight-upgrade-cluster.md
+          href: ../hdinsight-upgrade-cluster.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
         - name: OS-korrigering för HDInsight-kluster
-          href: ../hdinsight-os-patching.md
+          href: ../hdinsight-os-patching.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
     - name: Felsöka
-      href: ../hdinsight-troubleshoot-guide.md
+      href: ../hdinsight-troubleshoot-guide.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
       items:
         - name: Felsöka ett långsamt eller felaktigt HDInsight-kluster
-          href: ../hdinsight-troubleshoot-failed-cluster.md
+          href: ../hdinsight-troubleshoot-failed-cluster.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
         - name: Felsökning för Hadoop Distributed File System i Apache Hadoop
-          href: ../hdinsight-troubleshoot-hdfs.md
+          href: ../hdinsight-troubleshoot-hdfs.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
         - name: Felsökning för Apache HIVE
-          href: ../hdinsight-troubleshoot-hive.md
+          href: ../hdinsight-troubleshoot-hive.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
         - name: Felsökning för Apache Hadoop YARN
-          href: ../hdinsight-troubleshoot-yarn.md
+          href: ../hdinsight-troubleshoot-yarn.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
         - name: Resurser
           items:
             - name: Information om hur du använder HDInsight på Linux
-              href: ../hdinsight-hadoop-linux-information.md
+              href: ../hdinsight-hadoop-linux-information.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
             - name: Minne och prestanda för Apache Hadoop
-              href: ../hdinsight-hadoop-stack-trace-error-messages.md
+              href: ../hdinsight-hadoop-stack-trace-error-messages.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
             - name: Få åtkomst till Apache Hadoop YARN-programloggar på Linux
-              href: ../hdinsight-hadoop-access-yarn-app-logs-linux.md
+              href: ../hdinsight-hadoop-access-yarn-app-logs-linux.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
             - name: Aktivera heap dumps för Apache Hadoop-tjänster
-              href: ../hdinsight-hadoop-collect-debug-heap-dump-linux.md
+              href: ../hdinsight-hadoop-collect-debug-heap-dump-linux.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
             - name: Förstå och lösa fel med WebHCat
-              href: ../hdinsight-hadoop-templeton-webhcat-debug-errors.md
+              href: ../hdinsight-hadoop-templeton-webhcat-debug-errors.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
             - name: Apache Hive-inställningar för att lösa fel där minnet är slut
-              href: ../hdinsight-hadoop-hive-out-of-memory-error-oom.md
+              href: ../hdinsight-hadoop-hive-out-of-memory-error-oom.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
             - name: Optimera Apache Hive-frågor
-              href: ../hdinsight-hadoop-optimize-hive-query.md
+              href: ../hdinsight-hadoop-optimize-hive-query.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
             - name: Migrera till detaljerad rollbaserad åtkomst för klusterkonfigurationer
-              href: ../hdinsight-migrate-granular-access-cluster-configurations.md
+              href: ../hdinsight-migrate-granular-access-cluster-configurations.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
 - name: Referens
   items:
     - name: Kodexempel
@@ -214,7 +214,7 @@
     - name: SDK för Java
       href: 'https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable'
     - name: SDK för Go
-      href: ../hdinsight-go-sdk-overview.md
+      href: ../hdinsight-go-sdk-overview.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
     - name: .NET (Apache HBase)
       href: 'https://www.nuget.org/packages/Microsoft.HBase.Client/'
     - name: REST
@@ -231,9 +231,9 @@
     - name: Viktig information
       items:
         - name: Aktuell viktig information
-          href: ../hdinsight-release-notes.md
+          href: ../hdinsight-release-notes.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
         - name: Arkiverad viktig information
-          href: ../hdinsight-release-notes-archive.md
+          href: ../hdinsight-release-notes-archive.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
     - name: Azure-översikt
       href: 'https://azure.microsoft.com/roadmap/?category=intelligence-analytics'
     - name: Få hjälp i forumet
@@ -245,30 +245,30 @@
     - name: Priskalkylator
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Windows-verktyg för HDInsight
-      href: ../hdinsight-hadoop-windows-tools.md
+      href: ../hdinsight-hadoop-windows-tools.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
 - name: Företagsberedskap
   items:
     - name: Skydda data
-      href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
+      href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
     - name: Nätverksåtkomst
       items:
         - name: Arkitektur för virtuellt HDInsight-nätverk
-          href: ../hdinsight-virtual-network-architecture.md
+          href: ../hdinsight-virtual-network-architecture.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
         - name: Planera virtuella nätverk för HDInsight
-          href: ../hdinsight-plan-virtual-network-deployment.md
+          href: ../hdinsight-plan-virtual-network-deployment.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
         - name: Skapa virtuella nätverk för HDInsight
-          href: ../hdinsight-create-virtual-network.md
+          href: ../hdinsight-create-virtual-network.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
         - name: IP-adresser som krävs för nätverkssäkerhetsgrupper och användardefinierade vägar
-          href: ../hdinsight-management-ip-addresses.md
+          href: ../hdinsight-management-ip-addresses.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
         - name: Använda brandväggen för att begränsa utgående trafik
-          href: ../hdinsight-restrict-outbound-traffic.md
+          href: ../hdinsight-restrict-outbound-traffic.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
         - name: Ansluta HDInsight till det lokala nätverket
-          href: ../connect-on-premises-network.md
+          href: ../connect-on-premises-network.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
     - name: Övervaka med hjälp av Azure Monitor-loggar
       items:
         - name: Använda Azure Monitor-loggar
-          href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
+          href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
         - name: Använda frågor med Azure Monitor-loggar
-          href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
+          href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json
         - name: Övervaka klusterprestanda
-          href: ../hdinsight-key-scenarios-to-monitor.md
+          href: ../hdinsight-key-scenarios-to-monitor.md?toc=/azure/hdinsight/r-server/toc.json&bc=/azure/hdinsight/r-server/breadcrumb/toc.json

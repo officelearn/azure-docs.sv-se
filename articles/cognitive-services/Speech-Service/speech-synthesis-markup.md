@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 1bd1882218630aca0707a792d120045c06dea127
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 89b8b5f8c574de033fabf6861e24fc7d2b31e171
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68552687"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68855108"
 ---
 # <a name="speech-synthesis-markup-language-ssml"></a>Speech Synthesis Markup Language (SSML)
 
@@ -413,8 +413,8 @@ Endast en bakgrunds ljud fil tillåts per SSML-dokument. Du kan dock blanda `aud
 |-----------|-------------|---------------------|
 | src | Anger plats/URL för bakgrunds ljud filen. | Krävs om du använder bakgrunds ljud i ditt SSML-dokument. |
 | volym | Anger bakgrunds ljud filens volym. **Godkända värden**: `0` till `100` inklusiv. Standardvärdet är `1`. | Valfritt |
-| tona in | Anger varaktigheten för bakgrunds ljudet tonar in. **Godkända värden**: `0` till `10000` inklusiv.  | Valfritt |
-| tona bort | Anger hur länge bakgrunds ljudet tonas ut. **Godkända värden**: `0` till `10000` inklusiv.  | Valfritt |
+| tona in | Anger varaktigheten för bakgrunds ljudet tonar in i millisekunder. Standardvärdet är `0`, vilket motsvarar ingen toning i. **Godkända värden**: `0` till `10000` inklusiv.  | Valfritt |
+| tona bort | Anger bakgrunds ljudets varaktighet tonar ut i millisekunder. Standardvärdet är `0`, vilket motsvarar ingen toning. **Godkända värden**: `0` till `10000` inklusiv.  | Valfritt |
 
 **Exempel**
 

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: edc0da77fc1c2813c2485fca18d50952e3060db8
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: f7cd0125de886eed4b3e5c31503fdd4b7cbb76dd
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68370467"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847822"
 ---
 # <a name="log-metrics-during-training-runs-in-azure-machine-learning"></a>Logga mått under inlärnings körningar i Azure Machine Learning
 
@@ -49,7 +49,7 @@ Om du vill spåra och övervaka ditt experiment, måste du lägga till kod för 
 ## <a name="set-up-the-workspace"></a>Ställ in arbetsytan
 Innan du lägger till loggning och skicka ett experiment, måste du ställa in arbetsytan.
 
-1. Läs in arbetsytan. Om du vill veta mer om hur du anger konfigurationen för arbets ytan följer du stegen i [skapa en Azure Machine Learning service-arbetsyta](setup-create-workspace.md#sdk).
+1. Läs in arbetsytan. Mer information om hur du anger arbets ytans konfiguration finns i [konfigurations filen för arbets ytan](how-to-configure-environment.md#workspace).
 
    ```python
    from azureml.core import Experiment, Run, Workspace
@@ -58,7 +58,7 @@ Innan du lägger till loggning och skicka ett experiment, måste du ställa in a
    ws = Workspace.from_config()
    ```
   
-## <a name="option-1-use-startlogging"></a>Alternativ 1: Använd start_logging
+## <a name="option-1-use-start_logging"></a>Alternativ 1: Använd start_logging
 
 **start_logging** skapar en interaktiv körning för användning i scenarier, till exempel bärbara datorer. Alla mått som är inloggad under sessionen har lagts till den kör posten i experimentet.
 

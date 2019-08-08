@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 596020952fd02a414c050ac7fe7ab37d7137c391
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 4a745648f1b7abac7267d51cac9e1fe642ae13d8
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779668"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68853688"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Distribuera Azure AD-lösenordsskydd
 
@@ -290,7 +290,9 @@ Installationen slutförs när DC-agentens program vara har installerats på en d
 
 ## <a name="upgrading-the-proxy-agent"></a>Uppgradera proxyagenten
 
-Om det finns en nyare version av proxy-programvaran för lösen ords skydd i Azure AD utförs uppgraderingen genom att den senaste versionen av `AzureADPasswordProtectionProxySetup.exe` program varan körs. Du behöver inte avinstallera den aktuella versionen av proxy-programvaran. installations programmet kommer att utföra en uppgradering på plats. Ingen omstart krävs vid uppgradering av proxy-programvaran. Program uppgraderingen kan automatiseras med hjälp av standard-MSI-procedurer, `AzureADPasswordProtectionProxySetup.exe /quiet`till exempel:.
+Om det finns en nyare version av proxy-programvaran för lösen ords skydd i Azure AD utförs uppgraderingen genom att den senaste versionen av `AzureADPasswordProtectionProxySetup.exe` program varan körs. Den senaste versionen av program varan finns på [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=57071).
+
+Du behöver inte avinstallera den aktuella versionen av proxy-programvaran. installations programmet kommer att utföra en uppgradering på plats. Ingen omstart krävs vid uppgradering av proxy-programvaran. Program uppgraderingen kan automatiseras med hjälp av standard-MSI-procedurer, `AzureADPasswordProtectionProxySetup.exe /quiet`till exempel:.
 
 Proxyagenten stöder automatisk uppgradering. Vid automatisk uppgradering används tjänsten Microsoft Azure AD Connect agent Updateer som installeras sida vid sida med proxy-tjänsten. Automatisk uppgradering är aktiverat som standard och kan aktive ras eller inaktive ras med cmdleten Set-AzureADPasswordProtectionProxyConfiguration. Den aktuella inställningen kan frågas med hjälp av cmdleten Get-AzureADPasswordProtectionProxyConfiguration. Microsoft rekommenderar att den automatiska uppgraderingen lämnas aktive rad.
 
@@ -298,7 +300,9 @@ Proxyagenten stöder automatisk uppgradering. Vid automatisk uppgradering använ
 
 ## <a name="upgrading-the-dc-agent"></a>Uppgradera DC-agenten
 
-När en nyare version av Azure AD Password Protection DC Agent-programvaran är tillgänglig utförs uppgraderingen genom att den senaste versionen av `AzureADPasswordProtectionDCAgentSetup.msi` program varu paketet körs. Du behöver inte avinstallera den aktuella versionen av program varan för DC-agenten. installations programmet kommer att utföra en uppgradering på plats. En omstart krävs alltid vid uppgradering av DC Agent-programvaran – Detta orsakas av kärnan i Windows. 
+När en nyare version av Azure AD Password Protection DC Agent-programvaran är tillgänglig utförs uppgraderingen genom att den senaste versionen av `AzureADPasswordProtectionDCAgentSetup.msi` program varu paketet körs. Den senaste versionen av program varan finns på [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=57071).
+
+Du behöver inte avinstallera den aktuella versionen av program varan för DC-agenten. installations programmet kommer att utföra en uppgradering på plats. En omstart krävs alltid vid uppgradering av DC Agent-programvaran – Detta orsakas av kärnan i Windows. 
 
 Program uppgraderingen kan automatiseras med hjälp av standard-MSI-procedurer, `msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn /norestart`till exempel:.
 

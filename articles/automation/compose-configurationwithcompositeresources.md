@@ -1,7 +1,7 @@
 ---
-title: Skapa DSC-konfigurationer i Azure Automation tillstånd Configuration (DSC) med hjälp av sammansatta resurser
-description: Lär dig att skapa konfigurationer med sammansatta resurser i Azure Automation tillstånd Configuration (DSC)
-keywords: PowerShell dsc, önskad tillståndskonfiguration, powershell dsc azure, sammansatta resurser
+title: Skriver DSC-konfigurationer i Azure Automation State Configuration (DSC) med sammansatta resurser
+description: Lär dig hur du skapar konfigurationer med sammansatta resurser i Azure Automation State Configuration (DSC)
+keywords: PowerShell DSC, önskad tillstånds konfiguration, PowerShell DSC Azure, sammansatta resurser
 services: automation
 ms.service: automation
 ms.subservice: dsc
@@ -10,43 +10,44 @@ ms.author: robreed
 ms.date: 08/21/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 64588829cec964e52dcb44465869e0090f36f9f1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e153186a3917be3aa94cb663dec58bc3db46aae9
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61303986"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68850401"
 ---
-# <a name="composing-dsc-configurations-in-azure-automation-state-configuration-dsc-using-composite-resources"></a>Skapa DSC-konfigurationer i Azure Automation tillstånd Configuration (DSC) med hjälp av sammansatta resurser
+# <a name="composing-dsc-configurations-in-azure-automation-state-configuration-dsc-using-composite-resources"></a>Skriver DSC-konfigurationer i Azure Automation State Configuration (DSC) med sammansatta resurser
 
-När en resurs måste hanteras med mer än en enda önskat tillstånd configuration (DSC) konfiguration, den bästa vägen är att använda [sammansatta resurser](/powershell/dsc/authoringresourcecomposite). En sammansatt resurs är en kapslad och parametriserade konfiguration som används som en DSC-resurs i en annan konfiguration. På så sätt kan skapandet av komplexa konfigurationer samtidigt som de underliggande sammansatta resurserna (parametriserade konfigurationer) kan hanteras individuellt och skapats.
+När en resurs behöver hanteras med mer än en enda DSC-konfiguration (Desired State Configuration) är den bästa sökvägen att använda sammansatta [resurser](/powershell/dsc/authoringresourcecomposite). En sammansatt resurs är en kapslad och parameterstyrda konfiguration som används som en DSC-resurs i en annan konfiguration. På så sätt kan du skapa komplexa konfigurationer samtidigt som de underliggande sammansatta resurserna (parametriserade konfigurationer) kan hanteras individuellt och skapas.
 
-Azure Automation gör det [import och sammanställning av sammansatta resurser](automation-dsc-compile.md#composite-resources). När sammansatta resurser har importerats till ditt Automation-konto, du kan använda den **Skriv configuration** användarupplevelsen i den **tillstånd Configuration (DSC)** sidan.
+Azure Automation aktiverar [import och kompilering av sammansatta resurser](automation-dsc-compile.md#compiling-configurations-in-azure-automation-that-contain-composite-resources).
+När sammansatta resurser har importer ATS till ditt Automation-konto kan du använda funktionen **Skriv konfiguration** på sidan för **tillstånds konfiguration (DSC)** .
 
 ## <a name="composing-a-configuration-from-composite-resources"></a>Skapa en konfiguration från sammansatta resurser
 
-Innan du kan tilldela en konfiguration som görs från sammansatta resurser i Azure-portalen, måste du skapa den. Detta kan göras med hjälp av **Skriv configuration** på den **tillstånd Configuration (DSC)** sidan på antingen den **konfigurationer** eller **Compiled konfigurationer** flikar.
+Innan du kan tilldela en konfiguration som görs från sammansatta resurser i Azure Portal måste du skriva den. Detta kan göras med hjälp av **Skriv konfiguration** på sidan för **tillstånds konfiguration (DSC)** på fliken **konfigurationer** eller **kompilerade konfigurationer** .
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-1. Till vänster, klicka på **alla resurser** och sedan namnet på ditt Automation-konto.
-1. På den **automatiseringskontot** väljer **tillståndskonfiguration (DSC)** under **konfigurationshantering**.
-1. På den **tillståndskonfiguration (DSC)** klickar du på den **konfigurationer** eller **kompileras konfigurationer** och klicka sedan på **Compose-konfiguration**  på menyn överst på sidan.
-1. På den **grunderna** steg, ge den nya namn (krävs) och klicka på var som helst på raden i varje sammansatta resurs som du vill inkludera i den nya konfigurationen och klicka sedan på **nästa** eller klicka på den **Källkod** steg. För följande steg ska vi valt **PSExecutionPolicy** och **RenameAndDomainJoin** sammansatta resurser.
-   ![Skärmbild av grunderna steg på sidan för compose-konfiguration](./media/compose-configurationwithcompositeresources/compose-configuration-basics.png)
-1. Den **källkod** steg visar hur består konfigurationen av de valda sammansatta resurserna som ser ut. Du kan se sammanslagning av alla parametrar och hur de skickas till den sammansatta resursen. När du är klar granskar nya källkoden, klickar du på **nästa** eller klicka på den **parametrar** steg.
-   ![Skärmbild av källa kod steg i konfigurationssidan compose](./media/compose-configurationwithcompositeresources/compose-configuration-sourcecode.png)
-1. På den **parametrar** steget parametern med varje sammansatta resurs visas så att de kan anges. Om en parameter har en beskrivning, visas bredvid parameterfältet. Om ett fält är en **PSCredential** typparametern, i listrutan som du konfigurerar innehåller en lista över **Credential** objekt i det aktuella Automation-kontot. En **+ Lägg till autentiseringsuppgift för** alternativet är också vara tillgängliga. När alla nödvändiga parametrar har angetts, klickar du på **spara och kompilera**.
-   ![Skärmbild av parametrar steg på sidan för compose-konfiguration](./media/compose-configurationwithcompositeresources/compose-configuration-parameters.png)
+1. Klicka på **alla resurser** till vänster och sedan på namnet på ditt Automation-konto.
+1. På sidan **Automation-konto** väljer du **tillstånds konfiguration (DSC)** under **konfigurations hantering**.
+1. På sidan **tillstånds konfiguration (DSC)** klickar du på fliken **konfigurationer** eller **kompilerade konfigurationer** och sedan på **skapa konfiguration** på menyn längst upp på sidan.
+1. I **grundläggande** steg anger du det nya konfigurations namnet (obligatoriskt) och klickar på var som helst på raden i varje sammansatt resurs som du vill inkludera i den nya konfigurationen. Klicka sedan på **Nästa** eller klicka på **käll kods** steget. För följande steg valde vi **PSExecutionPolicy** -och **RenameAndDomainJoin** -sammansatta resurser.
+   ![Skärm bild av grundläggande steg på sidan Skriv konfiguration](./media/compose-configurationwithcompositeresources/compose-configuration-basics.png)
+1. I **käll kods** steget visas hur den sammanställda konfigurationen av de valda sammansatta resurserna ser ut. Du kan se sammanslagningen av alla parametrar och hur de skickas till den sammansatta resursen. När du är färdig med att granska den nya käll koden klickar du på **Nästa** eller klickar på **parameter** steget.
+   ![Skärm bild av käll kods steget på sidan Skriv konfiguration](./media/compose-configurationwithcompositeresources/compose-configuration-sourcecode.png)
+1. I steget **Parameters** visas den parameter som varje sammansatt resurs har visats så att de kan tillhandahållas. Om en parameter har en beskrivning visas den bredvid parameter fältet. Om ett fält är en **PSCredential** typ parameter innehåller List rutan för att konfigurera en lista över **Credential** -objekt i det aktuella Automation-kontot. Det finns även ett alternativ för att **lägga till en autentiseringsuppgift** . När alla obligatoriska parametrar har angetts klickar du på **Spara och kompilera**.
+   ![Skärm bild av steget Parameters på sidan Skriv konfiguration](./media/compose-configurationwithcompositeresources/compose-configuration-parameters.png)
 
-När den nya konfigurationen har sparats, skickas den för kompilering. Status för kompileringsjobbet kan ses som en importerad konfiguration. Mer information finns i [visar en kompileringsjobbet](automation-dsc-getting-started.md#viewing-a-compilation-job).
+När den nya konfigurationen har sparats skickas den för kompilering. Status för Compilation-jobbet kan visas som alla importerade konfigurationer. Mer information finns i [Visa ett Compilation-jobb](automation-dsc-getting-started.md#viewing-a-compilation-job).
 
-När kompilering har slutförts, den nya konfigurationen visas i den **kompileras konfigurationer** fliken. När den är synlig i den här fliken, den kan tilldelas till en hanterad nod med hjälp av stegen i [omtilldela en nod till en annan nodkonfiguration](automation-dsc-getting-started.md#reassigning-a-node-to-a-different-node-configuration).
+När kompileringen har slutförts visas den nya konfigurationen på fliken **kompilerade konfigurationer** . När den är synlig på den här fliken kan den tilldelas till en hanterad nod med hjälp av stegen i [omtilldela en nod till en annan nod-konfiguration](automation-dsc-getting-started.md#reassigning-a-node-to-a-different-node-configuration).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Kom igång genom att se [komma igång med Azure Automation State Configuration](automation-dsc-getting-started.md)
-- Läs hur för att publicera noder i [konfigurera datorer för hantering av Azure Automation State Configuration](automation-dsc-onboarding.md)
-- Läs om hur du kompilera DSC-konfigurationer så att du kan tilldela dem till målnoder i [kompilera konfigurationer i Azure Automation State Configuration](automation-dsc-compile.md)
-- PowerShell-cmdlet-referens, se [tillståndskonfigurationen för Azure Automation-cmdletar](/powershell/module/azurerm.automation/#automation)
-- Information om priser finns i [priser för Azure Automation State Configuration](https://azure.microsoft.com/pricing/details/automation/)
-- Om du vill se ett exempel på hur du använder Azure Automation-Tillståndskonfiguration i en pipeline för kontinuerlig distribution, se [kontinuerlig distribution med hjälp av Azure Automation Tillståndskonfiguration och Chocolatey](automation-dsc-cd-chocolatey.md)
+- För att komma igång, se [komma igång med konfiguration av Azure Automation tillstånd](automation-dsc-getting-started.md)
+- Information om hur du kan publicera noder finns i [onboarding Machines for Management by Azure Automation State Configuration](automation-dsc-onboarding.md)
+- Mer information om hur du kompilerar DSC-konfigurationer så att du kan tilldela dem till mål noder finns i [kompilera konfigurationer i Azure Automation tillstånds konfiguration](automation-dsc-compile.md)
+- Referens för PowerShell-cmdlet finns i [Azure Automation cmdlets för tillstånds konfiguration](/powershell/module/azurerm.automation/#automation)
+- För pris information, se [priser för Azure Automation tillstånds konfiguration](https://azure.microsoft.com/pricing/details/automation/)
+- Om du vill se ett exempel på hur du använder Azure Automation tillstånds konfiguration i en pipeline för kontinuerlig distribution, se [kontinuerlig distribution med Azure Automation tillstånds konfiguration och choklad](automation-dsc-cd-chocolatey.md)

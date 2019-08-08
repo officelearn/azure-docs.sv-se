@@ -11,12 +11,12 @@ ms.author: tedway
 author: tedway
 ms.date: 07/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: cec1a74938690a4f781ea7850fdd6d649550b3eb
-ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
+ms.openlocfilehash: 5e780c1a1d18954d0b3e9413e26f478e4ea3a8b1
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68494919"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68856097"
 ---
 # <a name="deploy-a-model-as-a-web-service-on-an-fpga-with-azure-machine-learning-service"></a>Distribuera en modell som en webb tjänst på en FPGA med Azure Machine Learning-tjänsten
 
@@ -63,7 +63,7 @@ FPGAs är tillgängliga i dessa Azure-regioner:
 
     Om du inte har någon kvot skickar du en förfrågan till [https://aka.ms/accelerateAI](https://aka.ms/accelerateAI).
 
-- En arbetsyta för Azure Machine Learning-tjänsten och Azure Machine Learning-SDK för Python installerat. Mer information finns i [skapa en arbets yta](setup-create-workspace.md).
+- En arbetsyta för Azure Machine Learning-tjänsten och Azure Machine Learning-SDK för Python installerat. Mer information finns i [skapa en arbets yta](how-to-manage-workspace.md).
  
 - Python SDK för maskin accelererade modeller:
 

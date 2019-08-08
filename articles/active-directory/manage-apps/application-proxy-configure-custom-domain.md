@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d721e750ddb77ba293643ad978cecf4bd2dbac0
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 82b8dcfa02d21183a06fa510adb774338e72cb4e
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68618821"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68851710"
 ---
 # <a name="working-with-custom-domains-in-azure-ad-application-proxy"></a>Arbeta med anpassade domäner i Azure AD Application Proxy
 
@@ -87,7 +87,7 @@ Alla certifikathantering är för närvarande via enskilda programsidor så du b
 
 ## <a name="next-steps"></a>Nästa steg
 * [Aktivera enkel inloggning](application-proxy-configure-single-sign-on-with-kcd.md) till dina publicerade appar med Azure AD-autentisering.
-* [Aktivera villkorlig åtkomst](application-proxy-integrate-with-sharepoint-server.md) till dina publicerade appar.
+* [Aktivera villkorlig åtkomst](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/technical-reference#cloud-apps-assignments) till dina publicerade appar.
 * [Lägga till ett anpassat domännamn i Azure AD](../fundamentals/add-custom-domain.md)
 
 

@@ -3,20 +3,20 @@ title: Själv studie kurs om projekt akustiska enhet
 titlesuffix: Azure Cognitive Services
 description: I den här självstudien beskrivs akustiska ljud med projekt akustiska i Unity.
 services: cognitive-services
-author: kegodin
+author: NoelCross
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: tutorial
 ms.date: 03/20/2019
-ms.author: kegodin
+ms.author: noelc
 ROBOTS: NOINDEX
-ms.openlocfilehash: 2362b3916d1b1f430350d975dc0b61914a777be2
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: e26df58de08d0941b5e3165852ed0b26f8890f66
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68706694"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854936"
 ---
 # <a name="project-acoustics-unity-bake-tutorial"></a>Själv studie kurs om projekt akustiska enhet
 I den här självstudien beskrivs akustiska ljud med projekt akustiska i Unity.

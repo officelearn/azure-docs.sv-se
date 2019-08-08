@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 06/18/2019
-ms.openlocfilehash: e33f195ea821b34147c748e9c0aa64cb63b58fdc
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: a35e0496c7e36d42e28a64fef438fe56713d3c78
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249983"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68855006"
 ---
 # <a name="troubleshoot-common-azure-database-migration-service-issues-and-errors"></a>Felsök vanliga Azure Database Migration Service problem och fel
 
@@ -54,11 +54,11 @@ När du migrerar från MySQL till Azure Database for MySQL med Azure Database Mi
 
 Du får följande fel meddelande när du stoppar Azure Database Migration Service-instansen:
 
-* **Fel**: Det gick inte att stoppa tjänsten. Fel: {' error ': {' kod ': ' InvalidRequest ', ' Message ': ' en eller flera aktiviteter körs för närvarande. Stoppa tjänsten genom att vänta tills aktiviteterna har slutförts eller stoppa aktiviteterna manuellt och försök igen.}}
+* **Fel**: Det gick inte att stoppa tjänsten. Fel: {'error':{'code':'InvalidRequest','message':'En eller flera aktiviteter körs för närvarande. Stoppa tjänsten genom att vänta tills aktiviteterna har slutförts eller stoppa aktiviteterna manuellt och försök igen.}}
 
 | Orsak         | Lösning |
 | ------------- | ------------- |
-| Det här felet visas när tjänst instansen som du försöker stoppa innehåller aktiviteter som fortfarande körs eller finns i migreringsjobb. <br><br><br><br><br><br> | Se till att det inte finns några aktiviteter som körs i instansen av Azure Database Migration Service som du försöker stoppa. Du kan också ta bort aktiviteterna eller projekten innan du försöker stoppa tjänsten. Följande steg illustrerar hur du tar bort projekt för att rensa migreringsprocessen genom att ta bort alla aktiviteter som körs:<br>1. Installera-Modulnamn-Name AzureRM. data migration <br>2. Login-AzureRmAccount <br>3. Select-AzureRmSubscription-SubscriptionName "\<undernamn >" <br> 4. Remove-AzureRmDataMigrationProject-name \<projectName >-ResourceGroupName \<rgName >-ServiceName \<ServiceName >-DeleteRunningTask |
+| Det här felet visas när tjänst instansen som du försöker stoppa innehåller aktiviteter som fortfarande körs eller finns i migreringsjobb. <br><br><br><br><br><br> | Se till att det inte finns några aktiviteter som körs i instansen av Azure Database Migration Service som du försöker stoppa. Du kan också ta bort aktiviteterna eller projekten innan du försöker stoppa tjänsten. Följande steg illustrerar hur du tar bort projekt för att rensa migreringsprocessen genom att ta bort alla aktiviteter som körs:<br>1. Install-Module -Name AzureRM.DataMigration <br>2. Login-AzureRmAccount <br>3. Select-AzureRmSubscription-SubscriptionName "\<undernamn >" <br> 4. Remove-AzureRmDataMigrationProject-name \<projectName >-ResourceGroupName \<rgName >-ServiceName \<ServiceName >-DeleteRunningTask |
 
 ## <a name="error-when-attempting-to-start-azure-database-migration-service"></a>Fel vid försök att starta Azure Database Migration Service
 
@@ -98,7 +98,7 @@ När du försöker ansluta till källan i guiden Azure Database Migration Servic
 | ------------- | ------------- |
 | När du använder [ExpressRoute](https://azure.microsoft.com/services/expressroute/) [kräver](https://docs.microsoft.com/azure/dms/tutorial-sql-server-azure-sql-online) Azure Database migration service etablering av tre tjänst slut punkter i det Virtual Network undernät som är associerat med tjänsten:<br> --Service Bus slut punkt<br> --Lagrings slut punkt<br> --Slut punkt för mål databas (t. ex. SQL-slutpunkt, Cosmos DB slut punkt)<br><br><br><br><br> | [Aktivera](https://docs.microsoft.com/azure/dms/tutorial-sql-server-azure-sql-online) de tjänst slut punkter som krävs för ExpressRoute-anslutning mellan källa och Azure Database migration service. <br><br><br><br><br><br><br><br> |
 
-## <a name="timeout-error-when-migrating-a-mysql-database-to-azure-mysql"></a>Tids gräns fel vid migrering av en MySQL-databas till Azure MySQL
+## <a name="timeout-error-when-migrating-a-mysql-database-to-azure-db-for-mysql"></a>Tids gräns fel vid migrering av en MySQL-databas till Azure DB för MySQL
 
 När du migrerar en MySQL-databas till en Azure Database for MySQL instans via Azure Database Migration Service, Miss lyckas migreringen med följande tids gräns fel:
 

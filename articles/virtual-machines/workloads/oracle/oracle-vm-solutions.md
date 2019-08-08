@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 05/23/2019
 ms.author: rogirdh
 ms.custom: seodec18
-ms.openlocfilehash: f13c7e6db2bf13c0547ee8689e22c9f04fe6d511
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 44fb955c4539a3330386c38a7798c9f3c3fed2d9
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68826760"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68846050"
 ---
 # <a name="oracle-vm-images-and-their-deployment-on-microsoft-azure"></a>VIRTUELLA Oracle-avbildningar och deras distribution på Microsoft Azure
 
@@ -91,7 +91,7 @@ Hög tillgänglighet och haveri beredskap för Oracle Database Enterprise Editio
 
 I självstudien [implementera Oracle data Guard i Azure](configure-oracle-dataguard.md) får du stegvisa anvisningar genom den grundläggande installations proceduren i Azure.  
 
-Med Oracle data Guard kan hög tillgänglighet uppnås med en primär databas på en virtuell dator, en sekundär databas (vänte läge) i en annan virtuell dator och enkelriktad replikering som kon figurer ATS mellan dem. Resultatet är Läs behörighet till kopian av databasen. Med Oracle GoldenGate kan du konfigurera dubbelriktad replikering mellan de två databaserna. Information om hur du konfigurerar en lösning med hög tillgänglighet för dina databaser med hjälp av dessa verktyg finns i dokumentationen om [Active data Guard](https://www.oracle.com/technetwork/database/features/availability/data-guard-documentation-152848.html) och [GoldenGate](https://docs.oracle.com/goldengate/1212/gg-winux/index.html) på Oracle-webbplatsen. Om du behöver Läs-och Skriv behörighet till kopian av databasen kan du använda [Oracle Active data Guard](https://www.oracle.com/uk/products/database/options/active-data-guard/overview/index.html).
+Med Oracle data Guard kan hög tillgänglighet uppnås med en primär databas på en virtuell dator, en sekundär databas (vänte läge) i en annan virtuell dator och enkelriktad replikering som kon figurer ATS mellan dem. Resultatet är Läs behörighet till kopian av databasen. Med Oracle GoldenGate kan du konfigurera dubbelriktad replikering mellan de två databaserna. Information om hur du konfigurerar en lösning med hög tillgänglighet för dina databaser med hjälp av dessa verktyg finns i dokumentationen om [Active data Guard](https://www.oracle.com/database/technologies/high-availability/dataguard.html) och [GoldenGate](https://docs.oracle.com/goldengate/1212/gg-winux/index.html) på Oracle-webbplatsen. Om du behöver Läs-och Skriv behörighet till kopian av databasen kan du använda [Oracle Active data Guard](https://www.oracle.com/uk/products/database/options/active-data-guard/overview/index.html).
 
 I själv studie kursen [implementeras Oracle GoldenGate i Azure](configure-oracle-golden-gate.md) med hjälp av den grundläggande installations proceduren i Azure.
 

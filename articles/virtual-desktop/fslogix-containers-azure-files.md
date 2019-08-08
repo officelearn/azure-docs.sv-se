@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 05/16/2019
+ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: c01e138c8afcdd59fcb0c87f189d98bec10e16d7
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 13f80b42ef6dfd0c70067a3ecf5f3e172527a63f
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828137"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68846528"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>FSLogix-profilcontainrar och Azure-filer
 
@@ -75,13 +75,13 @@ Den 19 november 2018 har [Microsoft förvärvat FSLogix](https://blogs.microsoft
 
 Eftersom förvärvs tjänsten ersatte befintliga användar profil lösningar, t. ex. UPD, med FSLogix profil behållare.
 
-## <a name="azure-files-integration-with-azure-active-directory"></a>Azure Files integration med Azure Active Directory
+## <a name="azure-files-integration-with-azure-active-directory-domain-service"></a>Azure Files integrering med Azure Active Directory Domain Service
 
-FSLogix profil behållare prestanda och funktioner utnyttjar molnet. På sept. 24, 2018 Microsoft Azure filer presentera en offentlig för hands version av [Azure Files stöd för Azure Active Directory autentisering](https://azure.microsoft.com/blog/azure-active-directory-integration-for-smb-access-now-in-public-preview/). Genom att hantera både kostnad och administrativt arbete är Azure Files med Azure Active Directory autentisering en Premium-lösning för användar profiler i den nya Windows Virtual Desktop-tjänsten.
+FSLogix profil behållares prestanda och funktioner utnyttjar molnet. Den 7 augusti 2019 Microsoft Azure filer som är allmänt tillgängliga för [Azure Files autentisering med Azure Active Directory Domain Service (AD DS)](/articles/storage/files/storage-files-active-directory-overview.md). Genom att adressera både kostnads-och administrations kostnader är Azure Files med Azure AD DS-autentisering en Premium-lösning för användar profiler i Windows Virtual Desktop-tjänsten.
 
 ## <a name="best-practices-for-windows-virtual-desktop"></a>Metod tips för virtuella Windows-datorer
 
-Virtuella Windows-datorer ger fullständig kontroll över storlek, typ och antal virtuella datorer som används av kunderna. Mer information finns i [Vad är för hands versionen av Windows Virtual Desktop?](https://docs.microsoft.com/azure/virtual-desktop/overview).
+Virtuella Windows-datorer ger fullständig kontroll över storlek, typ och antal virtuella datorer som används av kunderna. Mer information finns i [Vad är för hands versionen av Windows Virtual Desktop?](overview.md).
 
 För att se till att din Windows Virtual Desktop-miljö följer bästa praxis:
 
@@ -94,11 +94,11 @@ För att se till att din Windows Virtual Desktop-miljö följer bästa praxis:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Använd följande instruktioner för att konfigurera en Windows-miljö för virtuella skriv bord.
+Använd följande guider för att skapa en Windows-miljö för virtuella skriv bord.
 
-- Om du vill börja skapa en lösning för Skriv bords virtualisering läser du [skapa en klient i Windows Virtual Desktop](https://docs.microsoft.com/azure/virtual-desktop/tenant-setup-azure-active-directory).
-- Information om hur du skapar en adresspool i din Windows-klient för virtuella datorer finns i [skapa en adresspool med Azure Marketplace](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-azure-marketplace).
-- Information om hur du konfigurerar fullständigt hanterade fil resurser i molnet finns i [konfigurera Azure Files-resurs](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-enable).
-- Information om hur du konfigurerar FSLogix profil behållare finns i [Konfigurera en användar profil resurs för en värd-pool](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-user-profile).
-- Information om hur du tilldelar användare till en adresspool finns i [Hantera app-grupper för Windows Virtual Desktop](https://docs.microsoft.com/azure/virtual-desktop/manage-app-groups).
-- För att få åtkomst till dina Windows-resurser för virtuella skriv bord från en webbläsare, se [Anslut till Windows Virtual Desktop](https://docs.microsoft.com/azure/virtual-desktop/connect-web).
+- Om du vill börja skapa en lösning för Skriv bords virtualisering läser du [skapa en klient i Windows Virtual Desktop](tenant-setup-azure-active-directory.md).
+- Information om hur du skapar en adresspool i din Windows-klient för virtuella datorer finns i [skapa en adresspool med Azure Marketplace](create-host-pools-azure-marketplace.md).
+- Information om hur du konfigurerar fullständigt hanterade fil resurser i molnet finns i [konfigurera Azure Files-resurs](/articles/storage/files/storage-files-active-directory-enable.md).
+- Information om hur du konfigurerar FSLogix profil behållare finns i [Konfigurera en användar profil resurs för en värd-pool](create-host-pools-user-profile.md).
+- Information om hur du tilldelar användare till en adresspool finns i [Hantera app-grupper för Windows Virtual Desktop](manage-app-groups.md).
+- För att få åtkomst till dina Windows-resurser för virtuella skriv bord från en webbläsare, se [Anslut till Windows Virtual Desktop](connect-web.md).

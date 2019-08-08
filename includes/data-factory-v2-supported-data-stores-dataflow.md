@@ -2,29 +2,29 @@
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 05/24/2019
+ms.date: 08/06/2019
 ms.author: jingwang
-ms.openlocfilehash: 70ffc91477d4a77619ba7df3b2ab121fea5f8bac
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: a2815961f6afb0032aa6011cce5d59ab37f81303
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509927"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68843343"
 ---
-| Category | Datalager | Stöds som en [Kopieringsaktivitet](../articles/data-factory/copy-activity-overview.md) källa | Stöds som en [Kopieringsaktivitet](../articles/data-factory/copy-activity-overview.md) mottagare | Stöds av [Azure IR](../articles/data-factory/concepts-integration-runtime.md#azure-integration-runtime) | Stöds av [lokal IR](../articles/data-factory/concepts-integration-runtime.md#self-hosted-integration-runtime) | Stöds av [dataflöde](../articles/data-factory/concepts-data-flow-overview.md)
+| Category | Datalager | Stöds som en [kopierings aktivitets](../articles/data-factory/copy-activity-overview.md) källa | Stöds som en [kopierings aktivitets](../articles/data-factory/copy-activity-overview.md) mottagare | Stöds av [Azure IR](../articles/data-factory/concepts-integration-runtime.md#azure-integration-runtime) | Stöds av [lokal IR](../articles/data-factory/concepts-integration-runtime.md#self-hosted-integration-runtime) | Stöds av [data flöde](../articles/data-factory/concepts-data-flow-overview.md)
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| **Azure** |[Azure Blob Storage](../articles/data-factory/connector-azure-blob-storage.md) |✓ |✓ |✓ |✓  | ✓ <br> <small>Format som stöds: Avgränsad Text, Parquet</small> |
+| **Azure** |[Azure Blob Storage](../articles/data-factory/connector-azure-blob-storage.md) |✓ |✓ |✓ |✓  | ✓ <br> <small>Format som stöds: Avgränsad text, Parquet</small> |
 | &nbsp; |[Azure Cosmos DB (SQL API)](../articles/data-factory/connector-azure-cosmos-db.md) |✓ |✓ |✓ |✓  ||
-| &nbsp; |[Azure Cosmos DB: s API för MongoDB](../articles/data-factory/connector-azure-cosmos-db-mongodb-api.md) |✓ |✓ |✓ |✓  ||
-| &nbsp; |[Azure Data Explorer](../articles/data-factory/connector-azure-data-explorer.md) |✓ |✓ |✓ |✓ ||
-| &nbsp; |[Azure Data Lake Storage Gen1](../articles/data-factory/connector-azure-data-lake-store.md) |✓ |✓ |✓ |✓  |✓ <br> <small>Format som stöds: Avgränsad Text, Parquet</small> |
-| &nbsp; |[Azure Data Lake Storage Gen2](../articles/data-factory/connector-azure-data-lake-storage.md) |✓ |✓ |✓ |✓  |✓ <br> <small>Format som stöds: Avgränsad Text, Parquet</small> |
+| &nbsp; |[Azure Cosmos DB s API för MongoDB](../articles/data-factory/connector-azure-cosmos-db-mongodb-api.md) |✓ |✓ |✓ |✓  ||
+| &nbsp; |[Azure-Datautforskaren](../articles/data-factory/connector-azure-data-explorer.md) |✓ |✓ |✓ |✓ ||
+| &nbsp; |[Azure Data Lake Storage Gen1](../articles/data-factory/connector-azure-data-lake-store.md) |✓ |✓ |✓ |✓  |✓ <br> <small>Format som stöds: Avgränsad text, Parquet</small> |
+| &nbsp; |[Azure Data Lake Storage Gen2](../articles/data-factory/connector-azure-data-lake-storage.md) |✓ |✓ |✓ |✓  |✓ <br> <small>Format som stöds: Avgränsad text, Parquet</small> |
 | &nbsp; |[Azure Database för MariaDB](../articles/data-factory/connector-azure-database-for-mariadb.md) |✓ | |✓ |✓  ||
 | &nbsp; |[Azure Database for MySQL](../articles/data-factory/connector-azure-database-for-mysql.md) |✓ | |✓ |✓  ||
 | &nbsp; |[Azure Database for PostgreSQL](../articles/data-factory/connector-azure-database-for-postgresql.md) |✓ | |✓ |✓  ||
 | &nbsp; |[Azure File Storage](../articles/data-factory/connector-azure-file-storage.md) |✓ |✓ |✓ |✓  ||
 | &nbsp; |[Azure SQL Database](../articles/data-factory/connector-azure-sql-database.md) |✓ |✓ |✓ |✓  |✓  |
-| &nbsp; |[Azure SQL Database Managed Instance](../articles/data-factory/connector-azure-sql-database-managed-insance.md) |✓ |✓ |✓ |✓  ||
+| &nbsp; |[Azure SQL Database Managed Instance](../articles/data-factory/connector-azure-sql-database-managed-instance.md) |✓ |✓ |✓ |✓  ||
 | &nbsp; |[Azure SQL Data Warehouse](../articles/data-factory/connector-azure-sql-data-warehouse.md) |✓ |✓ |✓ |✓  |✓  |
 | &nbsp; |[Azure Search-index](../articles/data-factory/connector-azure-search.md) | |✓ |✓ |✓  ||
 | &nbsp; |[Azure Table Storage](../articles/data-factory/connector-azure-table-storage.md) |✓ |✓ |✓ |✓  ||
@@ -36,16 +36,16 @@ ms.locfileid: "67509927"
 | &nbsp; |[HBase](../articles/data-factory/connector-hbase.md) |✓ | |✓ |✓  ||
 | &nbsp; |[Hive](../articles/data-factory/connector-hive.md) |✓ | |✓ |✓  ||
 | &nbsp; |[Apache Impala (förhandsversion)](../articles/data-factory/connector-impala.md) |✓ | |✓ |✓  ||
-| &nbsp; |[Informix](../articles/data-factory/connector-odbc.md#ibm-informix-source) |✓ | | |✓  ||
+| &nbsp; |[Informix](../articles/data-factory/connector-informix.md) |✓ | | |✓  ||
 | &nbsp; |[MariaDB](../articles/data-factory/connector-mariadb.md) |✓ | |✓ |✓  ||
-| &nbsp; |[Microsoft Access](../articles/data-factory/connector-odbc.md#microsoft-access-source) |✓ | | |✓  ||
+| &nbsp; |[Microsoft Access](../articles/data-factory/connector-microsoft-access.md) |✓ | | |✓  ||
 | &nbsp; |[MySQL](../articles/data-factory/connector-mysql.md) |✓ | |✓ |✓  ||
 | &nbsp; |[Netezza](../articles/data-factory/connector-netezza.md) |✓ | |✓ |✓  ||
 | &nbsp; |[Oracle](../articles/data-factory/connector-oracle.md) |✓ |✓ |✓ |✓  ||
 | &nbsp; |[Phoenix](../articles/data-factory/connector-phoenix.md) |✓ | |✓ |✓  ||
 | &nbsp; |[PostgreSQL](../articles/data-factory/connector-postgresql.md) |✓ | |✓ |✓  ||
 | &nbsp; |[Presto (förhandsversion)](../articles/data-factory/connector-presto.md) |✓ | |✓ |✓  ||
-| &nbsp; |[SAP Business Warehouse öppna Hub](../articles/data-factory/connector-sap-business-warehouse-open-hub.md) |✓ | | |✓  ||
+| &nbsp; |[Öppet nav för SAP Business Warehouse](../articles/data-factory/connector-sap-business-warehouse-open-hub.md) |✓ | | |✓  ||
 | &nbsp; |[SAP Business Warehouse via MDX](../articles/data-factory/connector-sap-business-warehouse.md) |✓ | | |✓  ||
 | &nbsp; |[SAP HANA](../articles/data-factory/connector-sap-hana.md) |✓ |✓ | |✓  ||
 | &nbsp; |[SAP-tabell](../articles/data-factory/connector-sap-table.md) |✓ | | |✓  ||
@@ -66,7 +66,7 @@ ms.locfileid: "67509927"
 | **Generiskt protokoll** |[Generisk HTTP](../articles/data-factory/connector-http.md) |✓ | |✓ |✓  ||
 | &nbsp; |[OData (allmän)](../articles/data-factory/connector-odata.md) |✓ | |✓ |✓  ||
 | &nbsp; |[ODBC (allmän)](../articles/data-factory/connector-odbc.md) |✓ |✓ | |✓  ||
-| &nbsp; |[Generic REST](../articles/data-factory/connector-rest.md) |✓ | |✓ |✓  ||
+| &nbsp; |[Allmän REST](../articles/data-factory/connector-rest.md) |✓ | |✓ |✓  ||
 | **Tjänster och appar** |[Amazon Marketplace Web Service (förhandsversion)](../articles/data-factory/connector-amazon-marketplace-web-service.md) |✓ | |✓ |✓  ||
 | &nbsp; |[Common Data Service för appar](../articles/data-factory/connector-dynamics-crm-office-365.md) |✓ |✓ |✓ |✓  ||
 | &nbsp; |[Concur (förhandsversion)](../articles/data-factory/connector-concur.md) |✓ | |✓ |✓  ||
@@ -85,7 +85,7 @@ ms.locfileid: "67509927"
 | &nbsp; |[Paypal (förhandsversion)](../articles/data-factory/connector-paypal.md) |✓ | |✓ |✓  ||
 | &nbsp; |[QuickBooks (förhandsversion)](../articles/data-factory/connector-quickbooks.md) |✓ | |✓ |✓  ||
 | &nbsp; |[Salesforce](../articles/data-factory/connector-salesforce.md) |✓ |✓ |✓ |✓  ||
-| &nbsp; |[Salesforce Service Cloud](../articles/data-factory/connector-salesforce.md) |✓ |✓ |✓ |✓  ||
+| &nbsp; |[Salesforce Service Cloud](../articles/data-factory/connector-salesforce-service-cloud.md) |✓ |✓ |✓ |✓  ||
 | &nbsp; |[Salesforce Marketing Cloud (förhandsversion)](../articles/data-factory/connector-salesforce-marketing-cloud.md) |✓ | |✓ |✓  ||
 | &nbsp; |[SAP Cloud for Customer (C4C)](../articles/data-factory/connector-sap-cloud-for-customer.md) |✓ |✓ |✓ |✓  ||
 | &nbsp; |[SAP ECC](../articles/data-factory/connector-sap-ecc.md) |✓ | |✓ |✓ ||

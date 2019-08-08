@@ -1,7 +1,6 @@
 ---
 title: Skicka Azure Blob storage-händelser till webb-endpoint - Powershell | Microsoft Docs
 description: Använd Azure Event Grid för att prenumerera på Blob Storage-händelser.
-services: storage,event-grid
 author: normesta
 ms.author: normesta
 ms.reviewer: dastanfo
@@ -9,15 +8,14 @@ ms.date: 08/23/2018
 ms.topic: article
 ms.service: storage
 ms.subservice: blobs
-ms.custom: seodec18
-ms.openlocfilehash: cf1b0ba5d70ed0934418a147c09791725b5465bb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f0dae5ae79234ea29e6b17627fc07abcb3b5dfcb
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65143371"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847169"
 ---
-# <a name="quickstart-route-storage-events-to-web-endpoint-with-powershell"></a>Snabbstart: Dirigera storage-händelser till webbslutpunkt med PowerShell
+# <a name="quickstart-route-storage-events-to-web-endpoint-with-powershell"></a>Snabbstart: Dirigera lagrings händelser till webb slut punkt med PowerShell
 
 Azure Event Grid är en händelsetjänst för molnet. I den här artikeln använder Azure PowerShell för att prenumerera på Blob storage-händelser, utlösa en händelse och visa resultatet. 
 
@@ -64,7 +62,7 @@ New-AzResourceGroup -Name $resourceGroup -Location $location
 
 Blob storage-händelser är tillgängliga i storage-konton för generell användning v2 och Blob storage-konton. **General Purpose v2**-lagringskonton stöder alla funktionerna för alla lagringstjänster, som blobbar, filer, köer och tabeller. Ett **Blob Storage-konto** är ett specialiserat lagringskonto för lagring av ostrukturerade data som blobbar (objekt) i Azure Storage. Blob Storage-konton liknar allmänna lagringskonton och har samma höga hållbarhet, tillgänglighet, skalbarhet och prestanda som du använder idag, inklusive 100 % API-konsekvens för blockblobbar och tilläggsblobbar. Mer information finns i [kontoöversikten för Azure Storage](../common/storage-account-overview.md).
 
-Skapa ett Blob storage-konto med LRS replikering med hjälp av [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount), hämta lagringskontokontexten som definierar lagringskontot som ska användas. När du arbetar med lagringskonton refererar du till kontexten i stället för att ange autentiseringsuppgifterna flera gånger. Det här exemplet skapar ett lagringskonto med namnet **gridstorage** med lokalt redundant lagring (LRS). 
+Skapa ett Blob Storage-konto med LRS-replikering med [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount)och hämta sedan lagrings konto kontexten som definierar det lagrings konto som ska användas. När du arbetar med lagringskonton refererar du till kontexten i stället för att ange autentiseringsuppgifterna flera gånger. Det här exemplet skapar ett lagringskonto med namnet **gridstorage** med lokalt redundant lagring (LRS). 
 
 > [!NOTE]
 > Lagringskontonamn är i en global namnrymd så du måste lägga till vissa slumpmässiga tecken till det namn som i det här skriptet.

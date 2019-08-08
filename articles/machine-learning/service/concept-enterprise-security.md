@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 07/10/2019
-ms.openlocfilehash: f0fb6f0d2b2579679ee8a6ec43b3241377701d48
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.date: 08/07/2019
+ms.openlocfilehash: d1ad89943f6acfec6e42199ef399643be12e2b8b
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68780906"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68856218"
 ---
 # <a name="enterprise-security-for-azure-machine-learning-service"></a>Företags säkerhet för Azure Machine Learning-tjänsten
 
@@ -176,12 +176,24 @@ Key Vault instans som är associerad med arbets ytan används av Azure Machine L
 * Lösen ord till Azure Container databas instanser
 * Anslutnings strängar till data lager.
 
-SSH-lösenord och nycklar för beräknings mål som HDI HDInsight och VM lagras i en separat Key Vault som är associerad med Microsoft-prenumerationen. Azure Machine Learning tjänsten lagrar lösen ord eller nycklar som tillhandahålls av användaren i stället skapas, auktoriseras och lagras egna SSH-nycklar för att ansluta till VM/HDInsight för att köra experimenten.
+SSH-lösenord och nycklar för beräknings mål som HDI HDInsight och VM lagras i en separat Key Vault som är associerad med Microsoft-prenumerationen. Azure Machine Learning tjänsten lagrar inte lösen ord eller nycklar som tillhandahålls av användaren i stället skapas, auktoriseras och lagras egna SSH-nycklar för att ansluta till VM/HDInsight för att köra experimenten.
 Varje arbets yta har en associerad systemtilldelad hanterad identitet (med samma namn som arbets ytan) som har åtkomst till alla nycklar, hemligheter och certifikat i Key Vault.
 
 ## <a name="monitoring"></a>Övervakning
 
-Användarna kan se aktivitets loggen under arbets ytan för att se olika åtgärder som utförts på arbets ytan och hämta grundläggande information, till exempel åtgärds namn, händelse som initieras av, tidsstämpel osv.
+### <a name="metrics"></a>Mått
+
+Azure Monitor Mät värden kan användas för att visa och övervaka mått för arbets ytan för Azure Machine Learnings tjänsten. Från [Azure Portal](https://portal.azure.com)väljer du din arbets yta och använder sedan länken __mått__ .
+
+![Skärm bild som visar exempel mått för en arbets yta](./media/enterprise-readiness/workspace-metrics.png)
+
+Mått innehåller information om körningar, distributioner och registreringar.
+
+Mer information finns i [mått i Azure Monitor](/azure/azure-monitor/platform/data-platform-metrics).
+
+### <a name="activity-log"></a>Aktivitetslogg
+
+Du kan se aktivitets loggen under arbets ytan för att se olika åtgärder som utförts på arbets ytan och hämta grundläggande information, till exempel åtgärds namn, händelse som initieras av, tidsstämpel osv.
 
 Följande skärm bild visar aktivitets loggen för en arbets yta:
 

@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/11/2019
 ms.author: jmprieur
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4723b224d61b2ccc2b563150befa5ea2d33453ad
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 7779d01fd59446cf10aabf9fd6fdcce05e76899b
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335611"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68852990"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Snabbstart: Lägga till inloggning med Microsoft i en ASP.NET Core-webbapp
 
@@ -55,7 +55,7 @@ I den här snabbstarten lär du dig hur en ASP.NET Core-webbapp kan logga in per
 > 1. Välj **ny registrering**.
 > 1. När sidan **Registrera ett program** visas anger du programmets registreringsinformation:
 >    - I avsnittet **Namn** anger du ett beskrivande programnamn som ska visas för appens användare, till exempel `AspNetCore-Quickstart`.
->    - I omdirigerings- `https://localhost:44321/`URI, Lägg till och välj **Registrera**.
+>    - Iomdirigerings- `https://localhost:44321/`URI, Lägg till och välj **Registrera**.
 > 1. Välj menyn **Autentisering** och lägg sedan till följande information:
 >    - I omdirigerings- `https://localhost:44321/signin-oidc`URI: **er**lägger du till och väljer **Spara**.
 >    - I avsnittet **Avancerade inställningar** ställer du in **Utloggnings-URL** på `https://localhost:44321/signout-oidc`.

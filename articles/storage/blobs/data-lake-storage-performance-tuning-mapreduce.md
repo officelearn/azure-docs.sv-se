@@ -1,7 +1,6 @@
 ---
-title: Azure Data Lake Storage Gen2 MapReduce prestandajustering riktlinjer | Microsoft Docs
-description: Azure Data Lake Storage Gen2 MapReduce prestandajustering riktlinjer
-services: storage
+title: Azure Data Lake Storage Gen2 MapReduce för prestanda justering | Microsoft Docs
+description: Azure Data Lake Storage Gen2 MapReduces rikt linjer för prestanda justering
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
@@ -9,104 +8,104 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 7d20f1b398c50a3b98ee862332338dbf3aaece59
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3bd73b62b8859ffc5a71f610ebbdb55705284a76
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64939387"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68855511"
 ---
-# <a name="performance-tuning-guidance-for-mapreduce-on-hdinsight-and-azure-data-lake-storage-gen2"></a>Prestandajusteringsvägledning för MapReduce på HDInsight och Azure Data Lake Storage Gen2
+# <a name="performance-tuning-guidance-for-mapreduce-on-hdinsight-and-azure-data-lake-storage-gen2"></a>Vägledning för prestanda justering för MapReduce på HDInsight och Azure Data Lake Storage Gen2
 
-Förstå de faktorer som du bör tänka på när du finjustera prestanda för Map Reduce-jobb. Den här artikeln innehåller en uppsättning riktlinjer för prestandajustering.
+Förstå de faktorer som du bör tänka på när du finjusterar prestandan för att mappa färre jobb. Den här artikeln beskriver ett antal rikt linjer för prestanda justering.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Ett konto med Azure Data Lake Storage Gen2**. Anvisningar för hur du skapar ett finns i [snabbstarten: Skapa ett lagringskonto i Azure Data Lake Storage Gen2](data-lake-storage-quickstart-create-account.md).
-* **Azure HDInsight-kluster** med åtkomst till ett Data Lake Storage Gen2-konto. Se [Använd Azure Data Lake Storage Gen2 med Azure HDInsight-kluster](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2)
+* **Ett Azure Data Lake Storage Gen2 konto**. Anvisningar om hur du skapar ett finns i [snabb start: Skapa ett Azure Data Lake Storage Gen2 lagrings](data-lake-storage-quickstart-create-account.md)konto.
+* **Azure HDInsight-kluster** med åtkomst till ett data Lake Storage Gen2-konto. Se [använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2)
 * **Använda MapReduce på HDInsight**.  Mer information finns i [använda MapReduce i Hadoop på HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-mapreduce)
-* **Riktlinjer för Data Lake Storage Gen2 för prestandajustering**.  Allmänna prestanda begrepp, se [Data Lake Storage Gen2 justering Prestandavägledning](data-lake-storage-performance-tuning-guidance.md)
+* **Rikt linjer för prestanda justering på data Lake Storage Gen2**.  Allmänna prestanda koncept finns i [vägledning för data Lake Storage Gen2 prestanda justering](data-lake-storage-performance-tuning-guidance.md)
 
 ## <a name="parameters"></a>Parametrar
 
-När du kör MapReduce-jobb, följer du de parametrar som du kan konfigurera för att öka prestanda på Data Lake Storage Gen2:
+När du kör MapReduce-jobb visas följande parametrar som du kan konfigurera för att öka prestandan för Data Lake Storage Gen2:
 
-* **Mapreduce.Map.Memory.MB** – mängden minne som ska allokeras till varje mapper
-* **Mapreduce.Job.Maps** – antalet kartan uppgifter per jobb
-* **Mapreduce.Reduce.Memory.MB** – mängden minne som ska allokeras till varje reducer
-* **Mapreduce.Job.reduces** – antalet minska uppgifter per jobb
+* **MapReduce. map. Memory. MB** – mängden minne som ska allokeras till varje mapp
+* **MapReduce. job. Maps** – antalet kart aktiviteter per jobb
+* **MapReduce. reduce. Memory. MB** – mängden minne som ska allokeras till varje minskning
+* **MapReduce. job. minskar** – antalet minska uppgifter per jobb
 
-**Mapreduce.Map.Memory / Mapreduce.reduce.memory** numret som ska justeras beroende på hur mycket minne som krävs för kartan och/eller minska uppgift.  Standardvärdena för mapreduce.map.memory och mapreduce.reduce.memory kan ses i Ambari via Yarn-konfiguration.  Ambari, navigera till YARN och visa fliken konfigurationer.  YARN-minne visas.  
+**MapReduce. map. Memory/MapReduce. reduce. Memory** Antalet ska justeras baserat på hur mycket minne som krävs för kartan och/eller minska uppgiften.  Standardvärdena för MapReduce. map. Memory och MapReduce. reduce. Memory kan visas i Ambari via garn konfigurationen.  I Ambari navigerar du till garn och visar fliken configs.  GARN minnet visas.  
 
-**Mapreduce.Job.Maps / Mapreduce.job.reduces** valet bestämmer det maximala antalet Mappningskomponenter och reducerare som ska skapas.  Antalet delningar avgör hur många Mappningskomponenter skapas för MapReduce-jobb.  Därför kan du få mindre Mappningskomponenter du begärt om det finns mindre delningar än antalet Mappningskomponenter som begärts.       
+**MapReduce. job. Maps/MapReduce. job. minskar** Detta fastställer det maximala antalet mappade mappningar eller reducerare som ska skapas.  Antalet delningar avgör hur många mappningar som ska skapas för MapReduce-jobbet.  Därför kan du få färre mappningar än du begärt om det finns mindre delningar än antalet efterfrågade mappningar.       
 
 ## <a name="guidance"></a>Riktlinjer
 
 > [!NOTE]
-> Riktlinjerna i det här dokumentet förutsätter att ditt program är det enda program som körs i klustret.
+> Vägledningen i det här dokumentet förutsätter att ditt program är det enda program som körs i klustret.
 
-**Steg 1: Bestämma antalet jobb som körs**
+**Steg 1: Fastställa antalet jobb som körs**
 
-Som standard använder MapReduce hela klustret för jobbet.  Du kan använda mindre i klustret med hjälp av mindre Mappningskomponenter än det finns tillgängliga behållare.        
+Som standard kommer MapReduce att använda hela klustret för jobbet.  Du kan använda mindre av klustret med hjälp av färre mappningar än det finns tillgängliga behållare.        
 
-**Steg 2: Ange mapreduce.map.memory/mapreduce.reduce.memory**
+**Steg 2: Ange MapReduce. map. Memory/MapReduce. reduce. Memory**
 
-Storleken på minnet för kartan och minska uppgifter är beroende av specifika jobbet.  Du kan minska minnesstorleken om du vill öka parallellkörningen.  Antal aktiviteter som körs samtidigt beror på antalet behållare.  Genom att minska mängden minne per mapper eller reducer kan fler behållare skapas, som aktiverar fler Mappningskomponenter och reducerare som körs samtidigt.  Minska mängden minne för mycket kan det orsaka vissa processer för att få slut på minne.  Om du får en heap-fel när du kör jobbet, bör du öka minne per mapper eller reducer.  Du bör överväga att lägga till fler behållare kommer att lägga till extra administration för varje ytterligare behållare som potentiellt kan försämra prestanda.  Ett annat alternativ är att få mer minne med hjälp av ett kluster som har större mängder minne eller öka antalet noder i klustret.  Mer minne kan fler behållare som ska användas, vilket innebär att större samtidighet.  
+Storleken på minnet för mappning och minskning av aktiviteter kommer att vara beroende av ditt speciella jobb.  Du kan minska minnes storleken om du vill öka samtidigheten.  Antalet aktiviteter som körs samtidigt beror på antalet behållare.  Genom att minska mängden minne per mapp eller minskning, kan fler behållare skapas, vilket gör det möjligt att köra fler mappningar eller minimerare för körning samtidigt.  Att minska mängden minne för mycket kan leda till att det inte tar slut på minne.  Om du får ett heap-fel när du kör jobbet bör du öka mängden minne per Mapper eller minskning.  Du bör överväga att lägga till fler behållare för att lägga till extra kostnader för varje ytterligare behållare, vilket kan försämra prestanda.  Ett annat alternativ är att få mer minne genom att använda ett kluster som har större mängder minne eller ökar antalet noder i klustret.  Mer minne gör det möjligt att använda fler behållare, vilket innebär mer samtidighet.  
 
-**Steg 3: Fastställa totala YARN-minne**
+**Steg 3: Fastställa totalt garn minne**
 
-För att justera mapreduce.job.maps/mapreduce.job.reduces, bör du överväga hur mycket av det totala YARN minnet som är tillgängliga för användning.  Den här informationen är tillgänglig i Ambari.  Gå till YARN och visa fliken konfigurationer.  YARN-minne visas i det här fönstret.  Du bör multiplicera YARN-minne med antalet noder i klustret för att hämta den totala mängden YARN-minnet.
+Om du vill finjustera MapReduce. job. Maps/MapReduce. job. dereducerar bör du ta hänsyn till den totala mängden garn minne som är tillgängligt för användning.  Den här informationen finns i Ambari.  Navigera till garn och Visa fliken configs.  GARN minnet visas i det här fönstret.  Du bör multiplicera garn minnet med antalet noder i klustret för att hämta det totala garn minnet.
 
     Total YARN memory = nodes * YARN memory per node
 
-Om du använder ett tomt kluster kan minne vara den totala mängden minnet YARN för klustret.  Om andra program använder minne, kan du välja att bara använda en del av minnet för ditt kluster genom att minska antalet Mappningskomponenter och reducerare för hur många behållare som du vill använda.  
+Om du använder ett tomt kluster kan minnet vara det totala garn minnet för klustret.  Om andra program använder minnet kan du välja att bara använda en del av klustrets minne genom att minska antalet mappningar eller minska antalet till de behållare som du vill använda.  
 
-**Steg 4: Beräkna antalet YARN-behållare**
+**Steg 4: Beräkna antalet garn behållare**
 
-YARN-behållare bestämmer mängden samtidighet som är tillgängliga för projektet.  Ta totalt YARN-minne och dela som med mapreduce.map.memory.  
+GARN behållare bestämmer mängden samtidighet som är tillgänglig för jobbet.  Ta totalt garn minne och dividera det med MapReduce. map. Memory.  
 
     # of YARN containers = total YARN memory / mapreduce.map.memory
 
-**Steg 5: Ange mapreduce.job.maps/mapreduce.job.reduces**
+**Steg 5: Ange MapReduce. job. Maps/MapReduce. job. dereducerar**
 
-Ange mapreduce.job.maps/mapreduce.job.reduces du minst ett antal tillgängliga behållare.  Du kan experimentera ytterligare genom att öka antalet Mappningskomponenter och reducerare för att se om du får bättre prestanda.  Tänk på att fler Mappningskomponenter har ytterligare prestanda så att ha för många Mappningskomponenter kan försämra prestanda.  
+Ange MapReduce. job. Maps/MapReduce. job. minskar till minst antalet tillgängliga behållare.  Du kan experimentera ytterligare genom att öka antalet mappningar och reducerare för att se om du får bättre prestanda.  Kom ihåg att fler mappningar kommer att ha ytterligare kostnader så att för många mappningar kan försämra prestanda.  
 
-Schemaläggning av CPU- och CPU-isolering är inaktiverade som standard så att antalet YARN-behållare är begränsad av minne.
+CPU-schemaläggning och CPU-isolering är inaktiverade som standard så att antalet garn behållare begränsas av minnet.
 
-## <a name="example-calculation"></a>Exempel-beräkning
+## <a name="example-calculation"></a>Exempel beräkning
 
-Anta att vi har ett kluster som består av 8 D14 noder och vi vill köra ett i/o-intensiva jobb.  Här är beräkningar som du bör göra:
+Vi antar att vi har ett kluster bestående av 8 D14-noder och vi vill köra ett I/O-intensivt jobb.  Följande är de beräkningar som du bör utföra:
 
-**Steg 1: Bestämma antalet jobb som körs**
+**Steg 1: Fastställa antalet jobb som körs**
 
-I det här exemplet antar vi att vår jobbet är det enda jobb som körs.  
+I det här exemplet antar vi att vårt jobb är det enda jobb som körs.  
 
-**Steg 2: Ange mapreduce.map.memory/mapreduce.reduce.memory**
+**Steg 2: Ange MapReduce. map. Memory/MapReduce. reduce. Memory**
 
-I det här exemplet vi använder ett i/o-intensiva jobb och bestämma att 3GB minne för kartan uppgifter är tillräckliga.
+I det här exemplet kör vi ett I/O-intensivt jobb och bestämmer att GB minne för kart aktiviteter är tillräckligt.
 
     mapreduce.map.memory = 3GB
 
-**Steg 3: Fastställa totala YARN-minne**
+**Steg 3: Fastställa totalt garn minne**
 
     Total memory from the cluster is 8 nodes * 96GB of YARN memory for a D14 = 768GB
-**Steg 4: Beräkna antal YARN-behållare**
+**Steg 4: Beräkna antalet garn behållare**
 
     # of YARN containers = 768GB of available memory / 3 GB of memory =   256
 
-**Steg 5: Ange mapreduce.job.maps/mapreduce.job.reduces**
+**Steg 5: Ange MapReduce. job. Maps/MapReduce. job. dereducerar**
 
     mapreduce.map.jobs = 256
 
 ## <a name="examples-to-run"></a>Exempel för att köra
 
-För att demonstrera hur MapReduce körs på Data Lake Storage Gen2, visas nedan viss exempelkod som kördes på ett kluster med följande inställningar:
+För att demonstrera hur MapReduce körs på Data Lake Storage Gen2 nedan finns en exempel kod som kördes på ett kluster med följande inställningar:
 
-* 16 noden D14v2
-* Hadoop-kluster som kör HDI 3.6
+* 16-nods D14v2
+* Hadoop-kluster som kör HDI 3,6
 
-Här följer några exempelkommandon för att köra MapReduce Teragen, Terasort och Teravalidate för en startpunkt.  Du kan justera de här kommandona baserat på dina resurser.
+Här är några exempel kommandon för att köra MapReduce Teragen, Terasort och Teravalidate för en start punkt.  Du kan justera de här kommandona baserat på dina resurser.
 
 **Teragen**
 

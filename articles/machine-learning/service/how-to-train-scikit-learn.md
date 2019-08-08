@@ -10,12 +10,12 @@ ms.author: maxluk
 author: maxluk
 ms.date: 08/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 98c04c50bc4a52e9b2e4e267895fdd94888885f5
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: e76a747f7e1d7ca7056edf5b69df0677aeff96a1
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68775154"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68855999"
 ---
 # <a name="build-scikit-learn-models-at-scale-with-azure-machine-learning-service"></a>Bygg scikit – lär dig modeller i stor skala med Azure Machine Learning-tjänsten
 
@@ -35,8 +35,8 @@ Kör den här koden i någon av följande miljöer:
 
  - Din egen Jupyter Notebook Server
 
-    - [Installera Azure Machine Learning SDK för python](setup-create-workspace.md#sdk)
-    - [Skapa en konfigurations fil för arbets ytor](setup-create-workspace.md#write-a-configuration-file)
+    - [Installera Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
+    - [Skapa en konfigurations fil för arbets ytor](how-to-configure-environment.md#workspace).
     - Hämta data uppsättningen och exempel skript filen 
         - [Iris-datauppsättning](https://archive.ics.uci.edu/ml/datasets/iris)
         - [`train_iris.py`](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training/train-hyperparameter-tune-deploy-with-sklearn)
@@ -133,7 +133,7 @@ Mer information om beräknings mål finns i artikeln [Vad är en Compute Target]
 
 ## <a name="create-a-scikit-learn-estimator"></a>Skapa en scikit – lär dig uppskattning
 
-[Scikit-lär dig uppskattnings](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.sklearn?view=azure-ml-py) tjänsten ger ett enkelt sätt att starta ett scikit utbildnings jobb på ett beräknings mål. Den implementeras via [`SKLearn`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) klassen, som kan användas för att stödja CPU-utbildning med en nod.
+[Scikit-lär dig uppskattnings](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn?view=azure-ml-py) tjänsten ger ett enkelt sätt att starta ett scikit utbildnings jobb på ett beräknings mål. Den implementeras via [`SKLearn`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) klassen, som kan användas för att stödja CPU-utbildning med en nod.
 
 Om ditt utbildnings skript behöver ytterligare pip-eller Conda-paket för att kunna köras, kan du ha paketen installerade på den resulterande Docker-avbildningen `conda_packages` genom att `pip_packages` skicka namnen via argumenten och.
 

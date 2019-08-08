@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/22/2017
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 35f29e425fc471e4df4a037ef312af0fd041dcd7
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: da8e82652b5406cb4e5fe6438f721e3394a4cd96
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699787"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854592"
 ---
 # <a name="develop-for-azure-files-with-net"></a>Utveckla för Azure Files med .NET
 
@@ -55,10 +55,11 @@ Alla kodexempel i den här självstudiekursen kan läggas till i `Main()`-metode
 Du kan använda Azure Storage klient bibliotek i vilken typ av .NET-program som helst, inklusive en Azure-moln tjänst eller webbapp, samt Skriv bords-och mobil program. I den här guiden använder vi oss av en konsolapp för enkelhetens skull.
 
 ## <a name="use-nuget-to-install-the-required-packages"></a>Använd NuGet för att installera de paket som behövs
-Det finns två paket som du måste referera till i ditt projekt för att slutföra den här kursen:
+Dessa är paket som du behöver referera till i projektet för att slutföra den här kursen:
 
 * [Microsoft Azure Storage gemensamt bibliotek för .net](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/): Det här paketet ger programmatisk åtkomst till vanliga resurser i ditt lagrings konto.
 * [Microsoft Azure Storage BLOB-bibliotek för .net](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/): Det här paketet ger programmatisk åtkomst till BLOB-resurser i ditt lagrings konto.
+* [Microsoft Azure Storage fil bibliotek för .net](https://www.nuget.org/packages/Microsoft.Azure.Storage.File/): Det här paketet ger programmatisk åtkomst till fil resurser i ditt lagrings konto.
 * [Microsoft Azure Configuration Manager-biblioteket för .NET](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/): Det här paketet tillhandahåller en klass för parsning av en anslutningssträng i en konfigurationsfil, oavsett var ditt program körs.
 
 Du kan använda NuGet för att hämta båda paketen. Följ de här stegen:

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/06/2019
-ms.openlocfilehash: 70ba6c5507cf31732d679a61c3e185a520b4c5f3
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 94894126be98f0d3d4d404d97d0a4a39fff2e665
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566670"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847400"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Vanliga frågor och svar om Azure SQL-storskaliga databaser
 
@@ -44,7 +44,7 @@ VCore-baserade tjänst nivåer skiljer sig i huvudsak baserat på tillgänglighe
 - Affärskritisk tjänst nivån är lämplig för företags arbets belastningar där IO-fördröjningen är en prioritet.
 
 | | Resurstyp | Generellt syfte |  Storskalig | Verksamhetskritisk |
-|:---|:---:|:---:|:---:|:---:|:---:|
+|:---:|:---:|:---:|:---:|:---:|
 | **Bäst för** |Alla|  De flesta företags arbets belastningar. Erbjuder budget orienterade balanserade beräknings-och lagrings alternativ. | Data program med krav på stor data kapacitet och möjlighet att skala lagrings utrymme och skala automatiskt. | OLTP-program med hög transaktions hastighet och lägsta latens i/o. Ger högsta möjliga återhämtning till problem med flera isolerade repliker.|
 |  **Resurstyp** ||Enkel databas/elastisk pool/hanterad instans | Enskild databas | Enkel databas/elastisk pool/hanterad instans |
 | **Beräknings storlek**|Enkel databas/elastisk pool * | 1 till 80 virtuella kärnor | 1 till 80 virtuella kärnor * | 1 till 80 virtuella kärnor |
@@ -55,7 +55,7 @@ VCore-baserade tjänst nivåer skiljer sig i huvudsak baserat på tillgänglighe
 | **IO-dataflöde** | Enkel databas * * | 500 IOPS per vCore med 7000 maximal IOPS | Hög skalning är en arkitektur med flera nivåer med cachelagring på flera nivåer. Effektiv IOPs är beroende av arbets belastningen. | 5000 IOPS med 200 000 högsta IOPS|
 | | Hanterad instans | Beror på fil storleken | Gäller inte | Hanterad instans: Beror på fil storleken|
 |**Tillgänglighet**|Alla|1 replik, ingen Read-Scale, ingen lokal cache | Flera repliker, upp till 15 Read-Scale, delvis lokalt cacheminne | 3 repliker, 1 Read-Scale, Zone-redundant HA, fullständig lokal cache |
-|**Regelbundet**|Alla|RA-GRS, 7-35 dagar (7 dagar som standard)| RA-GRS, 7-35 dagar (7 dagar som standard), konstant tidpunkts återställning (PITR) | RA-GRS, 7-35 dagar (7 dagar som standard) |
+|**Regelbundet**|Alla|RA-GRS, 7-35 dagar (7 dagar som standard)| RA-GRS, 7 dagar, konstant tidpunkts återställning (PITR) | RA-GRS, 7-35 dagar (7 dagar som standard) |
 
 \*Elastiska pooler stöds inte i den storskaliga tjänst nivån
 

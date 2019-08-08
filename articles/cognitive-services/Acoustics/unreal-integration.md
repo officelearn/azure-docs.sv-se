@@ -3,20 +3,20 @@ title: Project-akustiskt Unreal och Wwise-integrering
 titlesuffix: Azure Cognitive Services
 description: Den här instruktionen beskriver integrering av projektet akustiskt Unreal och Wwise-plugin-program i ditt projekt.
 services: cognitive-services
-author: kegodin
+author: NoelCross
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.author: kegodin
+ms.author: noelc
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5511dd6b9a7d77c0988a94fef747a30d25bb4fc3
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 3fe9a28a99ea8becbfc40e1e64d1f5b109caace3
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68706630"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854374"
 ---
 # <a name="project-acoustics-unreal-and-wwise-integration"></a>Project-akustiskt Unreal och Wwise-integrering
 Den här instruktionen innehåller detaljerade integrerings steg för plugin-paketet för Project Akustiske-plugin-program i ditt befintliga Unreal-och Wwise Game-projekt. 
@@ -103,7 +103,7 @@ Distribuera Wwise på nytt till spelet även om du redan har integrerat Wwise. D
 Ett exempel på ett Wwise-projekt ingår i hämtningen av exempel. Vi rekommenderar att du tittar på den tillsammans med de här anvisningarna. Skärm bilderna nedan hämtas från det här projektet.
 
 ### <a name="bus-setup"></a>Buss konfiguration
-* Unreal-plugin-programmet för Project akustiskt kommer att leta efter tillhör ande mixer-plugin ****** -program på `Project Acoustics Bus`en buss med det här exakta namnet:. Skapa en ny ljud buss med det här namnet. Mixer-plugin-programmet kan fungera i olika konfigurationer, men för närvarande förutsätter vi att det endast används för att bearbeta reverb. Den här bussen bär den blandade reverb-signalen för alla källor som använder akustiska signaler. Det kan blanda uppladdning i en struktur blandnings struktur, ett exempel visas nedan, som tas från vårt Wwise-exempel projekt som ingår i hämtnings exemplet.
+* Unreal-plugin-programmet för Project akustiskt kommer att leta efter tillhör ande mixer-plugin -program på `Project Acoustics Bus`en buss med det här exakta namnet:. Skapa en ny ljud buss med det här namnet. Mixer-plugin-programmet kan fungera i olika konfigurationer, men för närvarande förutsätter vi att det endast används för att bearbeta reverb. Den här bussen bär den blandade reverb-signalen för alla källor som använder akustiska signaler. Det kan blanda uppladdning i en struktur blandnings struktur, ett exempel visas nedan, som tas från vårt Wwise-exempel projekt som ingår i hämtnings exemplet.
 
     ![Skärm bild av Wwise Busses som visar projekt Akustisker Bus](media/acoustics-bus.png)
 

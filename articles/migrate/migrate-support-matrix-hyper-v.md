@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: raynew
-ms.openlocfilehash: da68c0ae1dc92f5b854c30c90b93856248c43281
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 105cbf173a9abe1adf0999f63740d47b3da51a29
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828346"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68856288"
 ---
 # <a name="support-matrix-for-hyper-v-assessment-and-migration"></a>Stödmatris för utvärdering och migrering av Hyper-V
 
@@ -27,9 +27,9 @@ Tabellen sammanfattar scenarier som stöds för virtuella Hyper-V-datorer.
 **Distribution** | **Information***
 --- | ---
 **Utvärdera lokala virtuella Hyper-V-datorer** | [Konfigurera](tutorial-prepare-hyper-v.md) din första utvärdering.<br/><br/> [Kör](scale-hyper-v-assessment.md) en storskalig bedömning.
-**Migrera virtuella Hyper-V-datorer till Azure** | [Prova](tutorial-migrate-hyper-v.md) migrering till Azure.
+**Migrera virtuella Hyper-V-datorer till Azure** | [Prova](tutorial-migrate-hyper-v.md) migrering till Azure. 
 
-
+Migrering av Hyper-V-servrar som hanteras med System Center Virtual Machine Manager (VMM) stöds inte av Azure Migrate Server-migrering. 
 
 ## <a name="azure-migrate-projects"></a>Azure Migrate projekt
 

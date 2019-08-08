@@ -4,18 +4,18 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: f289da08c63f655006801d89f82640c6e3c6b7be
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 5c90d7b5eefdf8357c0f6f8efb619bd69af12b06
+ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68623188"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68843337"
 ---
 Det är viktigt att du håller den virtuella datorn säker för de program som du kör. Att skydda dina virtuella datorer kan omfatta en eller flera Azure-tjänster och-funktioner som omfattar säker åtkomst till dina virtuella datorer och säker lagring av dina data. Den här artikeln innehåller information som gör att du kan skydda dina virtuella datorer och program.
 
 ## <a name="antimalware"></a>Program mot skadlig kod
 
-Modern Threat landskap för moln miljöer är dynamisk, vilket ökar trycket för att upprätthålla det effektiva skyddet för att uppfylla efterlevnads-och säkerhets kraven. [Microsoft Antimalware för Azure](../articles/security/fundamentals/antimalware.md) är en kostnads fri real tids skydds funktion som hjälper dig att identifiera och ta bort virus, spionprogram och annan skadlig program vara. Aviseringar kan konfigureras för att meddela dig när kända skadlig eller oönskad program vara försöker installera sig själv eller köra på den virtuella datorn.
+Modern Threat landskap för moln miljöer är dynamisk, vilket ökar trycket för att upprätthålla det effektiva skyddet för att uppfylla efterlevnads-och säkerhets kraven. [Microsoft Antimalware för Azure](../articles/security/fundamentals/antimalware.md) är en kostnads fri real tids skydds funktion som hjälper dig att identifiera och ta bort virus, spionprogram och annan skadlig program vara. Aviseringar kan konfigureras för att meddela dig när kända skadlig eller oönskad program vara försöker installera sig själv eller köra på den virtuella datorn. Det finns inte stöd för virtuella datorer som kör Linux eller Windows Server 2008.
 
 ## <a name="azure-security-center"></a>Azure Security Center
 

@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/16/2019
 ms.author: jmprieur
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dae3f9f2f4a9f6966d3453123773887c244cf4e2
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 519a86bed6a3a09b476bce6435ae666d655dbe03
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68334067"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68852269"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Anropa Microsoft Graph-API från ett Universell Windows-plattform program (XAML)
 
@@ -368,7 +368,7 @@ När du är redo att testa väljer du **anropa Microsoft Graph API**. Använd se
 
 ![Inloggnings sida](./media/tutorial-v2-windows-uwp/sign-in-page.png)
 
-### <a name="consent"></a>Givit
+### <a name="consent"></a>Samtycke
 
 Första gången du loggar in på ditt program visas en godkännande skärm som liknar följande. Välj **Ja** om du uttryckligen vill ge åtkomst:
 

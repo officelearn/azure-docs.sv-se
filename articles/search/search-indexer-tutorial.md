@@ -1,6 +1,6 @@
 ---
-title: 'Självstudier: Indexera data från Azure SQL-databaser i en C# exempelkod – Azure Search'
-description: En C# kodexempel visar hur du ansluter till Azure SQL database, extrahera sökbara data och läsa in den i ett Azure Search-index.
+title: C#Gång Indexera data från Azure SQL-databaser – Azure Search
+description: Ett C# kod exempel som visar hur du ansluter till Azure SQL Database, extraherar sökbara data och läser in den i ett Azure Search index.
 author: HeidiSteen
 manager: cgronlun
 services: search
@@ -10,20 +10,20 @@ ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: bb082fb83f8c2521b0deabced6f851e62b785e8f
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: c88ff0d7e408e03216707ff9282d640fb7d28500
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485393"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840688"
 ---
-# <a name="c-tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>C#Självstudie: Crawla en Azure SQL-databas med hjälp av Azure Search-indexerare
+# <a name="c-tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>C#Gång Crawla en Azure SQL-databas med hjälp av Azure Search-indexerare
 
-Lär dig hur du konfigurerar en indexerare för att extrahera sökbara data från en Azure SQL-exempeldatabas. [Indexerare](search-indexer-overview.md) är en komponent i Azure Search som crawlar externa datakällor och fyller ett [sökindex](search-what-is-an-index.md) med innehåll. Indexerare för Azure SQL Database är de mest använda indexerare. 
+Lär dig hur du konfigurerar en indexerare för att extrahera sökbara data från ett Azure SQL Database-exempel. [Indexerare](search-indexer-overview.md) är en komponent i Azure Search som crawlar externa datakällor och fyller ett [sökindex](search-what-is-an-index.md) med innehåll. För alla indexerare används indexeraren för Azure SQL Database. 
 
 Kunskaper i indexerarkonfiguration är användbara eftersom det gör att du inte behöver skriva och underhålla lika mycket kod. I stället för att förbereda och push-överföra en schemakompatibel JSON-datauppsättning kan du bifoga en indexerare till en datakälla, låta indexeraren extrahera data och infoga dem i ett index och, om du vill, köra indexeraren enligt ett återkommande schema för att hämta ändringar i den underliggande källan.
 
-I den här självstudien använder den [Azure Search .NET-klientbibliotek](https://aka.ms/search-sdk) och en .NET Core-konsolprogram för att utföra följande uppgifter:
+I den här självstudien använder du [Azure Search .net-klient bibliotek](https://aka.ms/search-sdk) och ett .net Core-konsolprogram för att utföra följande uppgifter:
 
 > [!div class="checklist"]
 > * Lägga till söktjänstinformation i programinställningar
@@ -37,39 +37,39 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Följande tjänster, verktyg och data som används i den här snabbstarten. 
+Följande tjänster, verktyg och data används i den här snabb starten. 
 
-[Skapa en Azure Search-tjänst](search-create-service-portal.md) eller [hitta en befintlig tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under din aktuella prenumeration. Du kan använda en kostnadsfri tjänst för den här självstudiekursen.
+[Skapa en Azure Search tjänst](search-create-service-portal.md) eller [hitta en befintlig tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under din aktuella prenumeration. Du kan använda en kostnads fri tjänst för den här självstudien.
 
-[Azure SQL Database](https://azure.microsoft.com/services/sql-database/) lagrar den externa datakällan som används av en indexerare. I exempellösningen finns en SQL-datafil för att skapa tabellen. Steg för att skapa tjänsten och databasen finns i den här självstudien.
+[Azure SQL Database](https://azure.microsoft.com/services/sql-database/) lagrar den externa data källa som används av en indexerare. I exempellösningen finns en SQL-datafil för att skapa tabellen. Steg för att skapa tjänsten och databasen finns i den här självstudien.
 
-[Visual Studio 2017](https://visualstudio.microsoft.com/downloads/), alla versioner kan användas för att köra exempellösningen. Exempelkod och instruktioner har testats på den kostnadsfria Community-versionen.
+[Visual Studio 2017](https://visualstudio.microsoft.com/downloads/), vilken utgåva som helst, kan användas för att köra exempel lösningen. Exempel kod och instruktioner har testats i den kostnads fria community-versionen.
 
-[Azure-Samples/search-dotnet-getting-started](https://github.com/Azure-Samples/search-dotnet-getting-started) ger exempellösningen finns i GitHub-lagringsplatsen Azure-exempel. Hämta och extrahera lösningen. Som standard är lösningar skrivskyddad. Högerklicka på lösningen och ta bort attributet skrivskyddad så att du kan ändra filer.
+[Azure-samples/search-dotNet-kom igång](https://github.com/Azure-Samples/search-dotnet-getting-started) tillhandahåller exempel lösningen som finns i Azure samples GitHub-lagringsplatsen. Hämta och extrahera lösningen. Som standard är lösningarna skrivskyddade. Högerklicka på lösningen och ta bort det skrivskyddade attributet så att du kan ändra filerna.
 
 > [!Note]
 > Om du använder den kostnadsfria Azure Search-tjänsten är du begränsad till tre index, tre indexerare och tre datakällor. I den här kursen skapar du en av varje. Se till att det finns utrymme på din tjänst för de nya resurserna.
 
-## <a name="get-a-key-and-url"></a>Hämta en nyckel och URL: en
+## <a name="get-a-key-and-url"></a>Hämta en nyckel och URL
 
 För att kunna göra REST-anrop behöver du tjänstens webbadress och en åtkomstnyckel för varje begäran. En söktjänst har vanligen båda dessa komponenter, så om du har valt att lägga till Azure Search i din prenumeration följer du bara stegen nedan för att hitta fram till rätt information:
 
-1. [Logga in på Azure-portalen](https://portal.azure.com/), och i din söktjänst **översikt** sidan, hämta URL: en. Här följer ett exempel på hur en slutpunkt kan se ut: `https://mydemo.search.windows.net`.
+1. [Logga](https://portal.azure.com/)in på Azure Portal och hämta URL: en på sidan **Översikt över** Sök tjänsten. Här följer ett exempel på hur en slutpunkt kan se ut: `https://mydemo.search.windows.net`.
 
-1. I **inställningar** > **nycklar**, hämta en administratörsnyckel för fullständiga rättigheter på tjänsten. Det finns två utbytbara administratörsnycklar, som angetts för kontinuitet för företag om du behöver förnya ett. Du kan använda antingen den primära eller sekundära nyckeln för förfrågningar för att lägga till, ändra och ta bort objekt.
+1. I **Inställningar** > **nycklar**, hämtar du en administratörs nyckel för fullständiga rättigheter till tjänsten. Det finns två utbytbara administratörs nycklar, som tillhandahålls för affärs kontinuitet om du behöver rulla en över. Du kan använda antingen den primära eller sekundära nyckeln på begär Anden för att lägga till, ändra och ta bort objekt.
 
-![Hämta en HTTP-slutpunkt och åtkomstnyckel](media/search-get-started-postman/get-url-key.png "får en HTTP-slutpunkt och åtkomstnyckel")
+![Hämta en HTTP-slutpunkt och åtkomst nyckel](media/search-get-started-postman/get-url-key.png "Hämta en HTTP-slutpunkt och åtkomst nyckel")
 
-Alla begäranden som kräver en api-nyckel för varje begäran som skickas till din tjänst. En giltig nyckel upprättar förtroende, i varje begäran, mellan programmet som skickar begäran och tjänsten som hanterar den.
+Alla begär Anden kräver en API-nyckel på varje begäran som skickas till din tjänst. En giltig nyckel upprättar förtroende, i varje begäran, mellan programmet som skickar begäran och tjänsten som hanterar den.
 
 ## <a name="set-up-connections"></a>Konfigurera anslutningar
 Anslutningsinformationen för nödvändiga tjänster anges i filen **appsettings.json** i lösningen. 
 
-1. Visual Studio, öppna den **DotNetHowToIndexers.sln** fil.
+1. Öppna filen **DotNetHowToIndexers. SLN** i Visual Studio.
 
-1. I Solution Explorer öppnar du **appsettings.json** så att du kan fylla i varje inställning.  
+1. I Solution Explorer öppnar du **appSettings. JSON** så att du kan fylla i varje inställning.  
 
-De två första posterna kan du fylla i just nu använder URL: en och admin-nycklar för Azure Search-tjänsten. Får en slutpunkt av `https://mydemo.search.windows.net`, namnet på tjänsten för att tillhandahålla är `mydemo`.
+De första två posterna du kan fylla i just nu, med URL-adress och administratörs nycklar för din Azure Search-tjänst. Med en slut punkt `https://mydemo.search.windows.net`av, är `mydemo`tjänst namnet som ska tillhandahållas.
 
 ```json
 {
@@ -79,17 +79,17 @@ De två första posterna kan du fylla i just nu använder URL: en och admin-nyck
 }
 ```
 
-Den sista posten kräver en befintlig databas. Du ska skapa i nästa steg.
+Den sista posten kräver en befintlig databas. Du skapar den i nästa steg.
 
-## <a name="prepare-sample-data"></a>Förbereda exempeldata
+## <a name="prepare-sample-data"></a>Förbereda exempel data
 
 I det här steget skapar du en extern datakälla som indexeraren kan crawla. Du kan använda Azure-portalen och filen *hotels.sql* från exemplet för att skapa datauppsättningen i Azure SQL Database. Azure Search använder utjämnade raduppsättningar, till exempel en som genereras från en vy eller en fråga. SQL-filen i exempellösningen skapar och fyller i en enskild tabell.
 
 Följande övning utgår ifrån att det inte finns någon server eller databas, och du instrueras att skapa dessa i steg 2. Om du har en befintlig resurs kan du lägga till hotels-tabellen i den, med början i steg 4.
 
-1. [Logga in på Azure-portalen](https://portal.azure.com/). 
+1. [Logga](https://portal.azure.com/)in på Azure Portal. 
 
-2. Hitta eller skapa en **Azure SQL Database** att skapa en databas, server och resursgrupp. Du kan använda standardinställningarna och den lägsta prisnivån. En fördel jämfört med att skapa en server är att du kan ange namn och lösenord för administratörsanvändaren, vilket krävs för att skapa och läsa in tabeller i ett senare steg.
+2. Hitta eller skapa en **Azure SQL Database** för att skapa en databas, server och resurs grupp. Du kan använda standardinställningarna och den lägsta prisnivån. En fördel jämfört med att skapa en server är att du kan ange namn och lösenord för administratörsanvändaren, vilket krävs för att skapa och läsa in tabeller i ett senare steg.
 
    ![Ny databassida](./media/search-indexer-tutorial/indexer-new-sqldb.png)
 
@@ -99,7 +99,7 @@ Följande övning utgår ifrån att det inte finns någon server eller databas, 
 
    ![SQL-databassida](./media/search-indexer-tutorial/hotels-db.png)
 
-4. I navigeringsfönstret klickar du på **frågeredigeraren (förhandsversion)** .
+4. Klicka på **Frågeredigeraren (för hands version)** i navigerings fönstret.
 
 5. Klicka på **Logga in** och ange användarnamnet och lösenordet för serveradministratören.
 
@@ -137,7 +137,7 @@ Följande övning utgår ifrån att det inte finns någon server eller databas, 
 
 ## <a name="understand-the-code"></a>Förstå koden
 
-När inställningar och konfiguration är på plats kan exemplet programmet i **DotNetHowToIndexers.sln** är redo att skapa och köra. Innan du gör det kan du ägna en stund åt att studera index- och indexerardefinitionerna för det här exemplet. Den relevanta koden finns i två filer:
+När data-och konfigurations inställningarna är på plats är exempel programmet i **DotNetHowToIndexers. SLN** redo att bygga och köra. Innan du gör det kan du ägna en stund åt att studera index- och indexerardefinitionerna för det här exemplet. Den relevanta koden finns i två filer:
 
   + **hotel.cs**, som innehåller det schema som definierar indexet
   + **Program.cs**, som innehåller funktioner för att skapa och hantera strukturer i din tjänst
@@ -155,13 +155,13 @@ public string HotelName { get; set; }
 
 Ett schema kan även innehålla andra element, till exempel poängprofiler för att ge högre sökpoäng, anpassade analysverktyg och andra konstruktioner. Men för vårt ändamål har schemat en enkel definition med endast de fält som finns i exempeldatauppsättningarna.
 
-I den här kursen hämtar indexeraren data från en datakälla. I praktiken, kan du koppla flera indexerare till samma index, skapa ett konsoliderat sökbart index från flera datakällor. Du kan använda samma index/indexerar-par, bara byta ut datakällorna, eller ett index med olika indexerare och kombinationer av datakällor, beroende på var du behöver flexibiliteten.
+I den här kursen hämtar indexeraren data från en datakälla. I praktiken kan du koppla flera indexerare till samma index och skapa ett konsoliderat sökbart index från flera data källor. Du kan använda samma index/indexerar-par, bara byta ut datakällorna, eller ett index med olika indexerare och kombinationer av datakällor, beroende på var du behöver flexibiliteten.
 
 ### <a name="in-programcs"></a>I Program.cs
 
-Huvudprogrammet innehåller logik för att skapa en klient, ett index, en datakälla och en indexerare. Koden söker efter och tar bort befintliga resurser med samma namn, under förutsättning att du kan köra det här programmet flera gånger.
+Huvud programmet innehåller logik för att skapa en klient, ett index, en data källa och en indexerare. Koden söker efter och tar bort befintliga resurser med samma namn, under förutsättning att du kan köra det här programmet flera gånger.
 
-Datakällobjektet konfigureras med inställningar som är specifika för Azure SQL database-resurser, inklusive [inkrementella indexering](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows) för att använda inbyggt [ändra funktionerna](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) i Azure SQL. Hotels demodatabasen i Azure SQL har en ”mjuk borttagning”-kolumn med namnet **IsDeleted**. När den här kolumnen anges som true i databasen, indexeraren tar bort motsvarande dokumentera från Azure Search-index.
+Datakällobjektet konfigureras med inställningar som är speciella för Azure SQL Database-resurser, inklusive [stegvis indexering](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows) för användning av inbyggda [funktioner för ändrings identifiering](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) i Azure SQL. Demon hotell-databasen i Azure SQL har en "mjuk borttagning"-kolumn med namnet **IsDeleted**. När den här kolumnen har angetts till sant i databasen, tar indexeraren bort motsvarande dokument från Azure Search-indexet.
 
   ```csharp
   Console.WriteLine("Creating data source...");
@@ -178,7 +178,7 @@ Datakällobjektet konfigureras med inställningar som är specifika för Azure S
   searchService.DataSources.CreateOrUpdateAsync(dataSource).Wait();
   ```
 
-Ett indexer-objekt är plattformsagnostiska, där konfiguration, schemaläggning och anrop är detsamma oavsett källan. Det här exemplet indexeraren innehåller ett schema, ett återställningsalternativ som rensar indexeraren historik och anropar en metod för att skapa och köra indexeraren direkt.
+Ett indexerare-objekt är plattforms-oberoende, där konfiguration, schemaläggning och anrop är desamma oavsett källa. Den här exempel indexeraren innehåller ett schema, ett återställnings alternativ som rensar indexerings historiken och anropar en metod för att skapa och köra indexeraren direkt.
 
   ```csharp
   Console.WriteLine("Creating Azure SQL indexer...");
@@ -256,8 +256,8 @@ På översiktssidan för söktjänsten i Azure Portal klickar du på **Sökutfor
 
 Alla indexerare, inklusive den som du just har skapat programmässigt, visas i portalen. Du kan öppna en indexerardefinition och visa dess datakälla, eller konfigurera ett uppdateringsschema för att hämta nya och ändrade rader.
 
-1. [Logga in på Azure-portalen](https://portal.azure.com/), och i din söktjänst **översikt** klickar du på länkarna för **index**, **indexerare**, och **Data Källor**.
-3. Välj enskilda objekt att visa eller ändra konfigurationsinställningarna.
+1. [Logga](https://portal.azure.com/)in på Azure Portal och klicka på länkarna för **index**, indexerare och **data källor**på sidan **Översikt** för Söktjänsten.
+3. Välj enskilda objekt om du vill visa eller ändra konfigurations inställningar.
 
    ![Paneler för indexerare och datakällor](./media/search-indexer-tutorial/tiles-portal.png)
 
@@ -267,7 +267,7 @@ Det snabbaste sättet att rensa upp efter en självstudie är att ta bort resurs
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du kan koppla berikande AI-algoritmer till en indexerare-pipeline. I nästa steg fortsätter du med följande självstudie:
+Du kan koppla AI-algoritmer för anrikning till en indexerare-pipeline. I nästa steg fortsätter du med följande självstudie:
 
 > [!div class="nextstepaction"]
 > [Indexera dokument i Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)

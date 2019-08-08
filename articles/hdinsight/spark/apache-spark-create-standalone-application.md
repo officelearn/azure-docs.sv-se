@@ -1,6 +1,6 @@
 ---
 title: 'Självstudier: Skapa ett Scala Maven-program för Spark i Azure HDInsight med hjälp av IntelliJ'
-description: Självstudie – skapa ett Spark-program som skrivits i Scala med Apache Maven som build-system och en befintlig Maven-arketyp för Scala som tillhandahålls av IntelliJ IDEA.
+description: Självstudie – Skapa ett Spark-program skrivet i Scala med Apache maven som build-system och en befintlig maven archetype för Scala som tillhandahålls av IntelliJ-idén.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 06/26/2019
-ms.openlocfilehash: d057aa162c5554ed6c568fb765ddb2b84ac92fd6
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 263eea88182a947eccc8a57450432fce8d2fcfc9
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448910"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68839710"
 ---
 # <a name="tutorial-create-a-scala-maven-application-for-apache-spark-in-hdinsight-using-intellij"></a>Självstudier: Skapa ett Scala Maven-program för Apache Spark i HDInsight med hjälp av IntelliJ
 
@@ -39,7 +39,7 @@ I den här guiden får du lära dig att:
 
 * En Java IDE. Den här artikeln använder [IntelliJ IDEA communityversion  2018.3.4](https://www.jetbrains.com/idea/download/).
 
-* Azure Toolkit for IntelliJ.  Se [Installera Azure Toolkit för IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-installation?view=azure-java-stable).
+* Azure Toolkit for IntelliJ.  Se [Installera Azure Toolkit för IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app#installation-and-sign-in).
 
 ## <a name="install-scala-plugin-for-intellij-idea"></a>Installera plugin-programmet Scala för IntelliJ IDEA
 
@@ -209,7 +209,7 @@ Om du vill köra programmet på klustret, kan du använda följande metoder:
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du inte planerar att fortsätta använda det här programmet, tar du bort klustret som du skapade med följande steg:
+Om du inte kommer att fortsätta att använda det här programmet, tar du bort det kluster som du skapade med följande steg:
 
 1. Logga in på [Azure Portal](https://portal.azure.com/).
 
@@ -217,7 +217,7 @@ Om du inte planerar att fortsätta använda det här programmet, tar du bort klu
 
 1. Välj **HDInsight-kluster** under **Tjänster**.
 
-1. I listan över HDInsight-kluster som visas, väljer du den **...**  bredvid det kluster som du skapade för den här kursen.
+1. I listan med HDInsight-kluster som visas väljer du **...** bredvid det kluster som du skapade för den här självstudien.
 
 1. Välj **Ta bort**. Välj **Ja**.
 

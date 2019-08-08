@@ -1,6 +1,6 @@
 ---
-title: Skapa och distribuera anpassade moduler - Machine Learning på Azure IoT Edge | Microsoft Docs
-description: Skapa och distribuera IoT Edge-moduler som bearbetar data från lövenheter via en maskininlärningsmodell och skicka sedan insikterna till IoT Hub.
+title: Skapa och distribuera anpassade moduler – Machine Learning på Azure IoT Edge | Microsoft Docs
+description: Skapa och distribuera IoT Edge moduler som bearbetar data från löv enheter via en maskin inlärnings modell och sedan skickar insikter till IoT Hub.
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,79 +8,79 @@ ms.date: 06/13/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 16c32fc14805ac8ae1412671b2bb400456b4ab7d
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 4d03e5ee5faf39425e1bf927a3c0557b0ad01b82
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603651"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68840102"
 ---
 # <a name="tutorial-create-and-deploy-custom-iot-edge-modules"></a>Självstudier: Skapa och distribuera anpassade IoT Edge-moduler
 
 > [!NOTE]
-> Den här artikeln ingår i en serie med en självstudiekurs om hur du använder Azure Machine Learning på IoT Edge. Om du har hamnat på den här artikeln direkt, rekommenderar vi att du börja med den [först artikel](tutorial-machine-learning-edge-01-intro.md) i serien för bästa resultat.
+> Den här artikeln ingår i en serie för självstudier om hur du använder Azure Machine Learning på IoT Edge. Om du har kommit till den här artikeln direkt rekommenderar vi att du börjar med den [första artikeln](tutorial-machine-learning-edge-01-intro.md) i serien för bästa möjliga resultat.
 
-I den här artikeln ska skapa vi tre IoT Edge-moduler som tar emot meddelanden från lövenheter, köra data via din machine learning-modell och sedan vidarebefordra insikter till IoT Hub.
+I den här artikeln skapar vi tre IoT Edge moduler som tar emot meddelanden från löv enheter, kör data via din Machine Learning-modell och vidarebefordrar insikter till IoT Hub.
 
-IoT Edge hub underlättar modulen till modulen kommunikationen. Med hjälp av IoT Edge behåller hub som en asynkron meddelandekö moduler oberoende av varandra. Moduler behöver bara ange indata som de godkänner meddelanden och utdata som de skriva meddelanden.
+IoT Edge hubb underlättar modulen kommunikation. Om du använder IoT Edge hubben som en meddelande utjämning lagras moduler oberoende av varandra. Moduler behöver bara ange indata som de godkänner meddelanden och utdata som de skriva meddelanden.
 
-Vi vill IoT Edge-enhet för att utföra fyra saker vi:
+Vi vill att IoT Edge-enheten ska utföra fyra saker för oss:
 
-* Ta emot data från lövenheter
-* Förutsäga RUL för den enhet som skickade data
-* Skicka ett meddelande med endast motors återstående Livslängd för enheten till IoT Hub (den här funktionen kan ändras för att skicka data endast om RUL sjunker under vissa nivå)
-* Spara löv enhetens data till en lokal fil på IoT Edge-enhet. Den här datafilen regelbundet laddas upp till IoT Hub via filöverföringen att förfina utbildning av machine learning-modell. Om du använder filuppladdningen i stället för konstant meddelande direktuppspelning är mer kostnadseffektivt.
+* Ta emot data från löv enheter
+* Förutse RUL för enheten som skickade data
+* Skicka ett meddelande med endast RUL för enheten till IoT Hub (den här funktionen kan ändras för att endast skicka data om RUL sjunker under en viss nivå)
+* Spara löv enhets data till en lokal fil på den IoT Edge enheten. Den här data filen laddas regelbundet upp till IoT Hub via fil uppladdning för att förfina träningen av Machine Learning-modellen. Att använda fil uppladdning i stället för konstant strömning av meddelanden är mer kostnads effektivt.
 
 Vi använder tre anpassade moduler för att utföra dessa uppgifter:
 
-* **RUL-klassificeraren:** Modulen turboFanRulClassifier som vi skapade i [träna och distribuera en Azure Machine Learning-modell](tutorial-machine-learning-edge-04-train-model.md) är en standard machine learning-modul, som visar indata som heter ”amlInput” och utdata som kallas ”amlOutput”. ”AmlInput” förväntar att dess indata ska se ut exakt som de indata som vi har skickat till ACI-baserad webbtjänst. På samma sätt returnerar ”amlOutput” samma data som webbtjänsten.
+* **RUL-klassificerare:** TurboFanRulClassifier-modulen som vi skapade i [träna och distribuera en Azure Machine Learning modell](tutorial-machine-learning-edge-04-train-model.md) är en standardmodul för maskin inlärning som visar indata som kallas "amlInput" och utdata som kallas "amlOutput". "AmlInput" förväntar sig att indatamängden ska se exakt likadant ut som de inmatade som vi skickade till den ACI-baserade webb tjänsten. På samma sätt returnerar "amlOutput" samma data som webb tjänsten.
 
-* **Avro-skrivaren:** Den här modulen tar emot meddelanden på ”avroModuleInput”-indata och kvarstår meddelandet i Avro-format till disk för senare överföring till IoT Hub.
+* **Avro-skrivare:** Den här modulen tar emot meddelanden på avroModuleInput-indatamängden och sparar meddelandet i Avro-format till disk för senare uppladdning till IoT Hub.
 
-* **Router-modul:** Modulen router tar emot meddelanden från nedströms lövenheter och sedan formaterar och skickar meddelanden till klassificeraren. Modulen tar emot meddelanden från klassificeraren sedan och vidarebefordrar meddelandet till Avro-skrivarmodul. Slutligen skickar modulen bara RUL-förutsägelse till IoT Hub.
+* **Router-modul:** Modulen router tar emot meddelanden från underordnade löv enheter och formaterar och skickar sedan meddelandena till klassificeraren. Modulen tar sedan emot meddelanden från klassificeraren och vidarebefordrar meddelandet till Avro Writer-modulen. Slutligen skickar modulen bara RUL förutsägelse till IoT Hub.
 
-  * Indata:
-    * **deviceInput**: tar emot meddelanden från lövenheter
-    * **rulInput:** tar emot meddelanden från ”amlOutput”
+  * Tillför
+    * **deviceInput**: tar emot meddelanden från löv enheter
+    * **rulInput:** tar emot meddelanden från "amlOutput"
 
-  * Utdata:
-    * **klassificera:** skickar meddelanden till ”amlInput”
-    * **writeAvro:** skickar meddelanden ”avroModuleInput”
-    * **toIotHub:** skickar meddelanden till $uppströms, som skickar meddelanden till anslutna IoT-hubben
+  * Utdata
+    * **klassificera:** skickar meddelanden till "amlInput"
+    * **writeAvro:** skickar meddelanden "avroModuleInput"
+    * **toIotHub:** skickar meddelanden till $upstream som skickar meddelandena till den anslutna IoT Hub
 
-Diagrammet nedan visar moduler, indata, utdata och IoT Edge Hub-vägarna för hela lösningen:
+Diagrammet nedan visar moduler, indata, utdata och IoT Edge hubb vägar för den fullständiga lösningen:
 
-![Arkitekturdiagram för IoT Edge tre moduler](media/tutorial-machine-learning-edge-06-custom-modules/modules-diagram.png)
+![Arkitektur diagram för IoT Edge tre moduler](media/tutorial-machine-learning-edge-06-custom-modules/modules-diagram.png)
 
-Stegen i den här artikeln är vanligtvis utförs av en utvecklare i molnet.
+Stegen i den här artikeln utförs vanligt vis av en molnbaserad utvecklare.
 
 ## <a name="create-a-new-iot-edge-solution"></a>Skapa en ny IoT Edge-lösning
 
-Vid körningen av andra av våra två anteckningsböcker i Azure, vi skapat och publicerat en behållaravbildning som innehåller vårt RUL-modellen. Azure Machine Learning, som en del av skapa avbildningen, inbyggda delar att skapa avbildningen distribueras som en Azure IoT Edge-modul. I det här steget ska vi ska skapa en Azure IoT Edge-lösning med hjälp av modulen ”Azure Machine Learning” och peka modulen på den bild som vi publicerade med hjälp av Azure-anteckningsböcker.
+Under körningen av den andra av våra två Azure Notebooks har vi skapat och publicerat en behållar avbildning som innehåller vår RUL-modell. Azure Machine Learning som en del av processen för att skapa avbildningar, skapade i bitarna för att göra avbildningen att distribueras som en Azure IoT Edge modul. I det här steget ska vi skapa en Azure IoT Edge-lösning med hjälp av modulen "Azure Machine Learning" och peka modulen till den avbildning som vi publicerade med Azure Notebooks.
 
-1. Öppna en fjärrskrivbordssession till din utvecklingsdator.
+1. Öppna en fjärrskrivbordssession till utvecklings datorn.
 
-2. Öppna mapp **C:\\källa\\IoTEdgeAndMlSample** i Visual Studio Code.
+2. Öppna mapp **C:\\käll\\IoTEdgeAndMlSample** i Visual Studio Code.
 
-3. Högerklicka på panelen explorer (i det tomma utrymmet) och välj **nya IoT Edge-lösning**.
+3. Högerklicka på Explorer-panelen (i det tomma utrymmet) och välj **ny IoT Edge lösning**.
 
-    ![Skapa ny lösning för IoT Edge](media/tutorial-machine-learning-edge-06-custom-modules/new-edge-solution-command.png)
+    ![Skapa ny IoT Edge-lösning](media/tutorial-machine-learning-edge-06-custom-modules/new-edge-solution-command.png)
 
-4. Godkänn standardnamnet för lösningen **EdgeSolution**.
+4. Godkänn standard lösnings namnet **EdgeSolution**.
 
-5. Välj **Azure Machine Learning** som mall för modulen.
+5. Välj **Azure Machine Learning** som mall.
 
 6. Namnge modulen **turbofanRulClassifier**.
 
-7. Välj din machine learning-arbetsyta.
+7. Välj din Machine Learning-arbetsyta.
 
-8. Välj den avbildning som du skapade när du kör Azure-anteckningsboken.
+8. Välj den avbildning som du skapade när du körde Azure-anteckningsboken.
 
 9. Titta på lösningen och Lägg märke till de filer som har skapats:
 
-   * **deployment.template.json:** Den här filen innehåller definitionen av varje modul i lösningen. Det finns tre områden för att ta hänsyn till i den här filen:
+   * **deployment.template.json:** Den här filen innehåller definitionen av varje modul i lösningen. Det finns tre avsnitt som ska åtgärdas i den här filen:
 
-     * **Autentiseringsuppgifter för registret:** Definierar uppsättningen med anpassad behållarregister som du använder i din lösning. Höger nu den bör innehålla registret från machine learning-arbetsyta som är där din Azure Machine Learning avbildning lagrades. Du kan ha valfritt antal behållarregister, men för enkelhetens skull vi använder en registrets för alla moduler
+     * **Autentiseringsuppgifter för registret:** Definierar en uppsättning anpassade behållar register som du använder i din lösning. Just nu bör den innehålla registret från din Machine Learning-arbetsyta, som är den Azure Machine Learning avbildningen lagrad. Du kan använda ett valfritt antal behållar register, men för enkelhetens skull ska vi använda det här registret för alla moduler
 
        ```json
        "registryCredentials": {
@@ -92,11 +92,11 @@ Vid körningen av andra av våra två anteckningsböcker i Azure, vi skapat och 
        }
        ```
 
-     * **Moduler:** Det här avsnittet innehåller en uppsättning användardefinierade moduler som ingår i den här lösningen. Du kommer att märka att det här avsnittet innehåller två moduler: tempSensor och turbofanRulClassifier. TempSensor har installerats av Visual Studio Code-mallen, men behövs inte för den här lösningen. Du kan ta bort definitionen för tempSensor modulen från modulavsnittet. Observera att turbofanRulClassifier modulen definitionen pekar på avbildningen i ditt behållarregister. När vi lägger till flera moduler i lösningen, visas de i det här avsnittet.
+     * **Moduler** Det här avsnittet innehåller en uppsättning användardefinierade moduler som ingår i den här lösningen. Du ser att det här avsnittet för närvarande innehåller två moduler: SimulatedTemperatureSensor och turbofanRulClassifier. SimulatedTemperatureSensor installerades av Visual Studio Code-mallen, men vi behöver den inte för den här lösningen. Du kan ta bort SimulatedTemperatureSensor-modulen definition från avsnittet moduler. Observera att turbofanRulClassifier-modulens definition pekar på avbildningen i behållar registret. När vi lägger till fler moduler i lösningen visas de i det här avsnittet.
 
        ```json
        "modules": {
-         "tempSensor": {
+         "SimulatedTemperatureSensor": {
            "version": "1.0",
            "type": "docker",
            "status": "running",
@@ -119,7 +119,7 @@ Vid körningen av andra av våra två anteckningsböcker i Azure, vi skapat och 
        }
        ```
 
-     * **Vägar:** kommer vi att arbeta med vägar ökar en hel del i den här självstudien. Vägar definierar hur moduler kommunicerar med varandra. De två vägarna som definieras i mallen stämmer inte överens med Routning som vi behöver. Den första vägen skickar alla data från alla utdata för klassificerarna till IoT Hub (uppströms$). Den andra vägen avser tempSensor som vi precis har tagits bort. Ta bort de två standardvägar.
+     * **Vägar:** vi kommer att arbeta med vägar i den här självstudien. Vägar definierar hur moduler kommunicerar med varandra. De två vägarna som definieras av mallen stämmer inte överens med den routning vi behöver. Den första vägen skickar alla data från alla utdata från klassificeraren till IoT Hub ($upstream). Den andra vägen är för SimulatedTemperatureSensor, som vi nyss tog bort. Ta bort de två standard vägarna.
 
        ```json
        "$edgeHub": {
@@ -127,7 +127,7 @@ Vid körningen av andra av våra två anteckningsböcker i Azure, vi skapat och 
            "schemaVersion": "1.0",
            "routes": {
              "turbofanRulClassifierToIoTHub": "FROM /messages/modules/turbofanRulClassifier/outputs/\* INTO $upstream",
-             "sensorToturbofanRulClassifier": "FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\\"/modules/turbofanRulClassifier/inputs/input1\\")"
+             "sensorToturbofanRulClassifier": "FROM /messages/modules/SimulatedTemperatureSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\\"/modules/turbofanRulClassifier/inputs/input1\\")"
            },
            "storeAndForwardConfiguration": {
              "timeToLiveSecs": 7200
@@ -136,61 +136,61 @@ Vid körningen av andra av våra två anteckningsböcker i Azure, vi skapat och 
        }
        ```
 
-   * **Deployment.Debug.template.JSON:** den här filen är felsökningsversionen av deployment.template.json. Vi ska spegla alla ändringar från deployment.template.json i den här filen.
+   * **Deployment. debug. template. JSON:** den här filen är fel söknings versionen av Deployment. template. JSON. Vi bör spegla alla ändringar från distributionen. template. JSON till den här filen.
 
-   * **.ENV:** den här filen är där du ska ange användarnamn och lösenord för åtkomst till ditt register.
+   * **. kuvert:** den här filen är den plats där du anger användar namn och lösen ord för att komma åt ditt register.
 
       ```env
       CONTAINER_REGISTRY_USERNAME_<your registry name>=<ACR username>
       CONTAINER_REGISTRY_PASSWORD_<your registry name>=<ACR password>
       ```
 
-10. Högerklicka på filen deployment.template.json i Visual Studio Code-Utforskaren och välj **skapa lösning för IoT Edge**.
+10. Högerklicka på filen Deployment. template. json i Visual Studio Code Explorer och välj **Build IoT Edge-lösning**.
 
-11. Observera att det här kommandot skapar en config-mapp med en deployment.amd64.json-fil. Den här filen är konkreta Distributionsmall för lösningen.
+11. Observera att det här kommandot skapar en config-mapp med en Deployment. amd64. JSON-fil. Den här filen är mallen för konkret distribution för lösningen.
 
-## <a name="add-router-module"></a>Lägg till Router-modul
+## <a name="add-router-module"></a>Lägg till router-modul
 
-Nu ska vi lägga till Router-modulen till vår lösning. Router-modulen hanterar flera ansvar för vår lösning:
+Sedan lägger vi till modulen router i vår lösning. Modulen router hanterar flera ansvars områden för vår lösning:
 
-* **Ta emot meddelanden från lövenheter:** när meddelandet kommer till IoT Edge-enhet från underordnade enheter modulen Router tar emot meddelandet och börjar samordna routning av meddelandet.
-* **Skicka meddelanden till modulen RUL-klassificeraren:** när ett nytt meddelande tas emot från en underordnad enhet, Router-modulen omvandlar meddelandet till det format som förväntar sig att RUL-klassificerare. Routern skickar meddelandet till RUL-klassificerare för en RUL-förutsägelse. När klassificeraren har gjort en förutsägelse, skickar meddelandet till Router-modulen.
-* **Skicka RUL-meddelanden till IoT Hub:** när routern som tar emot meddelanden från klassificeraren, den omvandlar meddelandet som ska innehålla endast grundläggande information, enhets-ID och RUL, och skickar meddelandet förkortat till IoT hub. En ytterligare förfining, som vi inte har gjort här, skulle skicka meddelanden till IoT Hub endast när RUL-förutsägelse faller under ett tröskelvärde (till exempel när RUL är mindre än 100 cykler). Filtrering på så sätt skulle minska volym av meddelanden och minska kostnaderna för IoT hub.
-* **Skicka meddelande till Avro-skrivarmodul:** för att bevara alla data som skickas av underordnade enheten, Router-modulen skickar hela meddelandet togs emot från klassificeraren för Avro-skrivaren-modul som kvarstår och överföra data med hjälp av IoT Hub-fil ladda upp.
+* **Ta emot meddelanden från löv enheter:** när meddelanden kommer till den IoT Edge enheten från efterföljande enheter tar modulen router emot meddelandet och börjar dirigera meddelandets dirigering.
+* **Skicka meddelanden till RUL-klassificerings modulen:** när ett nytt meddelande tas emot från en underordnad enhet omvandlar modulen router meddelandet till det format som RUL-klassificeraren förväntar sig. Routern skickar meddelandet till RUL-klassificeraren för en RUL förutsägelse. När klassificeraren har gjort en förutsägelse skickas meddelandet tillbaka till modulen router.
+* **Skicka RUL-meddelanden till IoT Hub:** när routern tar emot meddelanden från klassificeraren omvandlas meddelandet så att det endast innehåller nödvändig information, enhets-ID och RUL och skickar det förkortade meddelandet till IoT Hub. En ytterligare förfining, som vi inte har gjort här, skickar bara meddelanden till IoT Hub när den RUL förutsägelsen sjunker under ett tröskelvärde (till exempel när RUL är mindre än 100 cykler). Genom att filtrera på det här sättet kan du minska mängden meddelanden och minska kostnaderna för IoT Hub.
+* **Skicka meddelande till Avro Writer-modulen:** om du vill bevara alla data som skickas av den underordnade enheten skickar modulen router hela meddelandet som tas emot från klassificeraren till Avro Writer-modulen, som behåller och laddar upp data med hjälp av IoT Hub fil uppladdning.
 
 > [!NOTE]
-> Beskrivning av modulen ansvarsområden kan göra bearbetningen verka sekventiella men flödet är meddelande/händelsebaserade. Det är därför vi behöver en orchestration-modul som våra Router-modulen.
+> Beskrivningen av modulens ansvar kan göra att bearbetningen visas sekventiellt, men flödet är meddelande/händelse baserad. Därför behöver vi en Orchestration-modul som vår router-modul.
 
-### <a name="create-module-and-copy-files"></a>Skapa modulen och kopiera filer
+### <a name="create-module-and-copy-files"></a>Skapa modul och kopiera filer
 
-1. Högerklicka på modulmappen i Visual Studio Code och välj **Lägg till IoT Edge-modul**.
+1. Högerklicka på mappen moduler i Visual Studio Code och välj **Lägg till IoT Edge modul**.
 
-2. Välj  **C# modulen**.
+2. Välj  **C# modul**.
 
 3. Namnge modulen **turbofanRouter**.
 
-4. När du tillfrågas om din lagringsplats för Docker-avbildning, använder du registret från machine learning-arbetsytan (du hittar registret i noden registryCredentials din *deployment.template.json* fil). Det här värdet är den fullständiga adressen i registret som  **\<registret\>.azurecr.io/turbofanrouter**.
+4. När du uppmanas att ange lagrings platsen för Docker-avbildningen använder du registret från Machine Learning-arbetsytan (du hittar registret i noden registryCredentials i din *Deployment. template. JSON* -fil). Det här värdet är den fullständigt kvalificerade adressen till registret, som  **\<\>registret. azurecr.io/turbofanrouter**.
 
     > [!NOTE]
-    > I den här artikeln använder vi Azure Container Registry som skapats av Azure Machine Learning-tjänsten arbetsyta som vi använde för att träna och distribuera vår klassificerare. Detta är enbart i informationssyfte. Vi kan ha skapat ett nytt behållarregister och publicerat vår moduler det.
+    > I den här artikeln använder vi Azure Container Registry som skapats av arbets ytan Azure Machine Learning tjänst, som vi använde för att träna och distribuera vår klassificerare. Detta är rent för enkelhetens skull. Vi kan ha skapat ett nytt behållar register och publicerat våra moduler där.
 
-5. Öppna ett nytt terminalfönster i Visual Studio Code (**visa** > **Terminal**) och kopiera filer från katalogen moduler.
+5. Öppna ett nytt terminalfönster i Visual Studio Code (**Visa** > **Terminal**) och kopiera filer från katalogen moduler.
 
     ```cmd
     copy c:\source\IoTEdgeAndMlSample\EdgeModules\modules\turbofanRouter\*.cs c:\source\IoTEdgeAndMlSample\EdgeSolution\modules\turbofanRouter\
     ```
 
-6. När du uppmanas att skriva över program.cs, trycker du på `y` och tryck sedan på `Enter`.
+6. När du uppmanas att skriva över program.cs `y` trycker du på `Enter`och sedan på.
 
-### <a name="build-router-module"></a>Skapa router-modul
+### <a name="build-router-module"></a>Bygga router-modul
 
-1. I Visual Studio Code, Välj **Terminal** > **konfigurera standard skapa uppgift**.
+1. I Visual Studio Code väljer du **Terminal** > **Konfigurera standard build-uppgift**.
 
-2. Klicka på **skapa tasks.json fil från mall**.
+2. Klicka på **skapa aktiviteter. JSON-fil från mall**.
 
-3. Klicka på **.NET Core**.
+3. Klicka på **.net Core**.
 
-4. Ersätt innehållet med när tasks.json öppnas:
+4. När Tasks. JSON öppnas ersätts innehållet med:
 
     ```json
     {
@@ -219,30 +219,30 @@ Nu ska vi lägga till Router-modulen till vår lösning. Router-modulen hanterar
     }
     ```
 
-5. Spara och Stäng tasks.json.
+5. Spara och Stäng uppgifter. JSON.
 
-6. Köra build med `Ctrl + Shift + B` eller **Terminal** > **kör Skapa uppgift**.
+6. Kör skapa med `Ctrl + Shift + B` eller kör**build-aktivitet**för **Terminal** > .
 
-### <a name="set-up-module-routes"></a>Konfigurera modulen vägar
+### <a name="set-up-module-routes"></a>Konfigurera modul vägar
 
-Som nämnts ovan är IoT Edge-körningen använder vägar som konfigurerats i den *deployment.template.json* filen för att hantera kommunikationen mellan löst kopplade moduler. I det här avsnittet ska se vi hur du konfigurerar vägar i modulen turbofanRouter. Vi täcker inkommande vägar först och sedan flytta på utdata.
+Som nämnts ovan använder IoT Edge runtime de vägar som kon figurer ATS i filen *Deployment. template. JSON* för att hantera kommunikationen mellan löst kopplade moduler. I det här avsnittet visar vi hur du ställer in vägarna för turbofanRouter-modulen. Vi tar upp inmatnings vägarna först och flyttar sedan på utdata.
 
 #### <a name="inputs"></a>Indata
 
-1. I metoden Init() i Program.cs registrerar vi två återanrop för modulen:
+1. I metoden init () i Program.cs registrerar vi två återanrop för modulen:
 
    ```csharp
    await ioTHubModuleClient.SetInputMessageHandlerAsync(EndpointNames.FromLeafDevice, LeafDeviceInputMessageHandler, ioTHubModuleClient);
    await ioTHubModuleClient.SetInputMessageHandlerAsync(EndpointNames.FromClassifier, ClassifierCallbackMessageHandler, ioTHubModuleClient);
    ```
 
-2. Det första återanropet lyssnar efter meddelanden som skickas till den **deviceInput** mottagare. Från diagrammet ovan ser vi att vi vill skicka meddelanden från valfri enhet för löv att denna indata. I den *deployment.template.json* Lägg till en väg som talar om för edge hub att dirigera alla meddelanden som tas emot av IoT Edge-enhet som inte har skickats av en IoT Edge-modul till indata som kallas ”deviceInput” i modulen turbofanRouter:
+2. Det första återanropet lyssnar efter meddelanden som skickas till **deviceInput** -mottagaren. I diagrammet ovan ser vi att vi vill dirigera meddelanden från valfri löv enhet till den här ingången. I filen *Deployment. template. JSON* lägger du till en väg som anger att Edge Hub ska dirigera eventuella meddelanden som tas emot av IoT Edge enhet som inte har skickats av en IoT Edge modul till indata med namnet "deviceInput" i turbofanRouter-modulen:
 
    ```json
    "leafMessagesToRouter": "FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO BrokeredEndpoint(\"/modules/turbofanRouter/inputs/deviceInput\")"
    ```
 
-3. Därefter lägger till en väg för meddelanden från modulen rulClassifier till modulen turbofanRouter:
+3. Lägg sedan till en väg för meddelanden från rulClassifier-modulen till turbofanRouter-modulen:
 
    ```json
    "classifierToRouter": "FROM /messages/modules/turbofanRulClassifier/outputs/amloutput INTO BrokeredEndpoint(\"/modules/turbofanRouter/inputs/rulInput\")"
@@ -250,33 +250,33 @@ Som nämnts ovan är IoT Edge-körningen använder vägar som konfigurerats i de
 
 #### <a name="outputs"></a>outputs
 
-Lägg till fyra ytterligare vägar till parametern $edgeHub väg att hantera utdata från modulen Router.
+Lägg till ytterligare fyra vägar i $edgeHub Route-parametern för att hantera utdata från modulen router.
 
-1. Program.CS definierar metoden SendMessageToClassifier() som använder klient-modulen för att skicka ett meddelande till RUL-klassificerare med vägen:
+1. Program.cs definierar metoden SendMessageToClassifier (), som använder module-klienten för att skicka ett meddelande till RUL-klassificeraren med hjälp av vägen:
 
    ```json
    "routerToClassifier": "FROM /messages/modules/turbofanRouter/outputs/classOutput INTO BrokeredEndpoint(\"/modules/turbofanRulClassifier/inputs/amlInput\")"
    ```
 
-2. SendRulMessageToIotHub() använder klient-modulen för att skicka bara RUL-data för enheten till IoT Hub via vägen:
+2. SendRulMessageToIotHub () använder module-klienten för att skicka bara RUL-data för enheten till IoT Hub via vägen:
 
    ```json
    "routerToIoTHub": "FROM /messages/modules/turboFanRouter/outputs/hubOutput INTO $upstream"
    ```
 
-3. SendMessageToAvroWriter() använder klient-modulen för att skicka meddelandet med RUL-data som lagts till avroFileWriter-modulen.
+3. SendMessageToAvroWriter () använder modulen klient för att skicka meddelandet med RUL-data som har lagts till i avroFileWriter-modulen.
 
    ```json
    "routerToAvro": "FROM /messages/modules/turbofanRouter/outputs/avroOutput INTO BrokeredEndpoint(\"/modules/avroFileWriter/inputs/avroModuleInput\")"
    ```
 
-4. HandleBadMessage() skickar misslyckade meddelanden uppströms IoT Hub där de kan vidarebefordras till senare.
+4. HandleBadMessage () skickar misslyckade meddelanden överströmmar IoT Hub där de kan vidarebefordras till senare.
 
    ```json
    "deadLetter": "FROM /messages/modules/turboFanRouter/outputs/deadMessages INTO $upstream"
    ```
 
-Med de vägar som tillsammans ”$edgeHub” nod bör se ut som följande JSON:
+När alla vägar som tagits samman är "$edgeHub"-noden bör se ut som följande JSON:
 
 ```json
 "$edgeHub": {
@@ -298,92 +298,92 @@ Med de vägar som tillsammans ”$edgeHub” nod bör se ut som följande JSON:
 ```
 
 > [!NOTE]
-> Att lägga till modulen turbofanRouter skapas följande ytterligare väg: `turbofanRouterToIoTHub": "FROM /messages/modules/turbofanRouter/outputs/* INTO $upstream`. Ta bort den här vägen, lämnar bara vägar som visas i din deployment.template.json-fil.
+> Att lägga till turbofanRouter-modulen skapade följande ytterligare väg `turbofanRouterToIoTHub": "FROM /messages/modules/turbofanRouter/outputs/* INTO $upstream`:. Ta bort den här vägen och lämna bara de vägar som anges ovan i din Deployment. template. JSON-fil.
 
-#### <a name="copy-routes-to-deploymentdebugtemplatejson"></a>Kopiera vägar till deployment.debug.template.json
+#### <a name="copy-routes-to-deploymentdebugtemplatejson"></a>Kopiera vägar till Deployment. debug. template. JSON
 
-Spegla de ändringar du gjort i deployment.template.json i deployment.debug.template.json om du vill synkronisera våra filer, som ett sista steg.
+Som ett sista steg, för att hålla våra filer synkroniserade, speglar du de ändringar du gjorde i distributionen. template. json i Deployment. debug. template. JSON.
 
-## <a name="add-avro-writer-module"></a>Lägg till Avro-skrivarmodul
+## <a name="add-avro-writer-module"></a>Lägg till Avro Writer-modul
 
-Avro-skrivarmodul har två ansvarsområden i vår lösning för att lagra meddelanden och ladda upp filer.
+Avro Writer-modulen har två ansvars områden i vår lösning för att lagra meddelanden och ladda upp filer.
 
-* **Store meddelanden**: när Avro-skrivarmodul får ett meddelande visas den skriver meddelandet till det lokala filsystemet i Avro-format. Vi använder en bindning montering montera en katalog (i det här fallet /data/avrofiles) till en sökväg i modulens behållare. Den här montera gör att modulen att skriva till en lokal sökväg (/ avrofiles) och har de filerna som är tillgängliga direkt från IoT Edge-enhet.
+* **Lagra meddelanden**: när modulen Avro Writer tar emot ett meddelande, skrivs meddelandet till det lokala fil systemet i Avro-format. Vi använder en bind-montering, som monterar en katalog (i det här fallet/data/avrofiles) i en sökväg i modulens behållare. Den här monteringen gör att modulen kan skriva till en lokal sökväg (/avrofiles) och de filer som är tillgängliga direkt från den IoT Edge enheten.
 
-* **Ladda upp filer**: Avro-skrivarmodul använder Azure IoT Hub filuppladdningsfunktionen ladda upp filer till ett Azure storage-konto. När en fil har laddats upp modulen tar bort filen från disken
+* **Ladda upp filer**: modulen Avro Writer använder Azure IoT Hub File Upload-funktionen för att ladda upp filer till ett Azure Storage-konto. När en fil har laddats upp tar modulen bort filen från disken
 
-### <a name="create-module-and-copy-files"></a>Skapa modulen och kopiera filer
+### <a name="create-module-and-copy-files"></a>Skapa modul och kopiera filer
 
-1. I kommandopaletten, söker du efter och välj sedan **Python: Välj tolk**.
+1. I paletten kommando söker du efter och väljer **python: Välj tolk**.
 
-1. Välj vilken tolk som finns i C:\\Python37.
+1. Välj tolkningen som påträffades i\\C: Python37.
 
-1. Öppna kommandopaletten igen och Sök efter och välj sedan **Terminal: Välj standardgränssnitt**.
+1. Öppna paletten kommando igen och Sök efter och välj **sedan Terminal: Välj standard gränssnitt**.
 
-1. Välj **kommandotolk**.
+1. När du uppmanas väljer du **kommando tolk**.
 
-1. Öppna ett nytt terminal gränssnitt **Terminal** > **ny Terminal**.
+1. Öppna ett nytt Terminal Shell, **Terminal** > -**ny terminal**.
 
-1. Högerklicka på modulmappen i Visual Studio Code och välj **Lägg till IoT Edge-modul**.
+1. Högerklicka på mappen moduler i Visual Studio Code och välj **Lägg till IoT Edge modul**.
 
 1. Välj **Python-modul**.
 
-1. Namnge modulen ”avroFileWriter”.
+1. Ge modulen namnet "avroFileWriter".
 
-1. När du uppmanas din lagringsplats för Docker-avbildning, använder du samma registret som du använde när du lägger till Router-modulen.
+1. När du uppmanas att ange lagrings platsen för Docker-avbildningen använder du samma register som du använde när du lade till modulen router.
 
-1. Kopiera filer från exempelmodulen i lösningen.
+1. Kopiera filer från exempel modulen till lösningen.
 
    ```cmd
    copy C:\source\IoTEdgeAndMlSample\EdgeModules\modules\avroFileWriter\*.py C:\source\IoTEdgeAndMlSample\EdgeSolution\modules\avroFileWriter\
    ```
 
-1. Om du uppmanas att skriva över main.py, skriver `y` och tryck sedan på `Enter`.
+1. Om du uppmanas att skriva över Main.py `y` skriver du och `Enter`trycker sedan på.
 
-1. Observera att filemanager.py och schema.py har lagts till lösningen och main.py har uppdaterats.
+1. Observera att filemanager.py och schema.py har lagts till i lösningen och att main.py har uppdaterats.
 
 > [!NOTE]
-> När du öppnar en Python-fil kan du uppmanas att installera pylint. Du behöver inte installera linter för att slutföra den här självstudien.
+> När du öppnar en python-fil kan du uppmanas att installera pylint. Du behöver inte installera en luddfrie för att slutföra den här självstudien.
 
-### <a name="bind-mount-for-data-files"></a>Binda montering för datafiler
+### <a name="bind-mount-for-data-files"></a>Bind montering för datafiler
 
-Som vi nämnde i introduktionen, modulen skrivaren förlitar sig på förekomsten av bindning montera att skriva Avro-filernas till enhetens filsystem.
+Som vi nämnt i introduktionen är det beroende av att bind-modulen är bunden till att skriva Avro-filer till enhetens fil system.
 
-#### <a name="add-directory-to-device"></a>Lägg till katalog till enheten
+#### <a name="add-directory-to-device"></a>Lägg till katalog till enhet
 
-1. Ansluta till din IoT Edge-enhet VM med hjälp av SSH.
+1. Anslut till din IoT Edge enhets virtuella dator med SSH.
 
    ```bash
    ssh -l <user>@IoTEdge-<extension>.<region>.cloudapp.azure.com
    ```
 
-2. Skapa katalogen som ska innehålla de sparade löv meddelanden från enheten.
+2. Skapa den katalog som ska innehålla de sparade löv enhets meddelandena.
 
    ```bash
    sudo mkdir -p /data/avrofiles
    ```
 
-3. Uppdatera directory behörighet att ta bort skrivskyddet från behållaren.
+3. Uppdatera katalog behörigheter för att göra den skrivbar av containern.
 
    ```bash
    sudo chmod ugo+rw /data/avrofiles
    ```
 
-4. Verifiera katalogen har nu behörighet att skriva (w) för användare, grupp och ägare.
+4. Verifiera att katalogen nu har Skriv behörighet (w) för användare, grupp och ägare.
 
    ```bash
    ls -la /data
    ```
 
-   ![Directory-behörigheter för avrofiles](media/tutorial-machine-learning-edge-06-custom-modules/avrofiles-directory-permissions.png)
+   ![Katalog behörigheter för avrofiles](media/tutorial-machine-learning-edge-06-custom-modules/avrofiles-directory-permissions.png)
 
-#### <a name="add-directory-to-the-module"></a>Lägg till katalog i modulen
+#### <a name="add-directory-to-the-module"></a>Lägg till katalogen i modulen
 
-Om du vill lägga till katalogen modulens behållaren, ska vi ändra Dockerfiles som är associerade med modulen avroFileWriter. Det finns tre Dockerfiles som är associerade med modulen: Dockerfile.amd64 Dockerfile.amd64.debug och Dockerfile.arm32v7. Dessa filer bör hållas synkroniserade om vi vill felsöka eller distribuera till en arm32-enhet. Fokus ligger endast på Dockerfile.amd64 i den här artikeln.
+För att lägga till katalogen i modulens behållare ändrar vi Dockerfiles som är associerad med avroFileWriter-modulen. Det finns tre Dockerfiles kopplade till modulen: Dockerfile. amd64, Dockerfile. amd64. debug och Dockerfile. arm32v7. De här filerna ska sparas i Sync om vi vill felsöka eller distribuera till en ARM32-enhet. I den här artikeln kan du endast fokusera på Dockerfile. amd64.
 
-1. På en utvecklingsdator måste du öppna den **Dockerfile.amd64** fil.
+1. Öppna filen **Dockerfile. amd64** på din utvecklings dator.
 
-2. Ändra filen så att den ser ut som i följande exempel:
+2. Ändra filen så att ser ut som i följande exempel:
 
    ```dockerfile
    FROM ubuntu:xenial
@@ -406,17 +406,17 @@ Om du vill lägga till katalogen modulens behållaren, ska vi ändra Dockerfiles
    CMD [ "python3", "-u", "./main.py" ]
    ```
 
-   Den `mkdir` och `chown` kommandon instruerar Docker build processen att skapa en översta katalog med namnet /avrofiles i bild och för att göra moduleuser till ägare av den katalogen. Det är viktigt att dessa kommandon infogas när modulen användaren har lagts till avbildningen med den `useradd` kommandot och innan växlarna kontext till moduleuser (användaren moduleuser).
+   Kommandona `chown` och instruerar Docker-build-processen att skapa en katalog på den översta nivån som heter/avrofiles i avbildningen och sedan göra moduleuser till ägare av katalogen. `mkdir` Det är viktigt att dessa kommandon infogas efter att modulens användare har lagts till i avbildningen `useradd` med kommandot och innan kontexten växlar till moduleuser (User moduleuser).
 
-3. Ändra de motsvarande Dockerfile.amd64.debug och Dockerfile.arm32v7.
+3. Gör motsvarande ändringar i Dockerfile. amd64. debug och Dockerfile. arm32v7.
 
-#### <a name="update-the-module-configuration"></a>Uppdatera modulkonfigurationen av
+#### <a name="update-the-module-configuration"></a>Uppdatera konfiguration av modul
 
-Det sista steget för att skapa bindningen är att uppdatera deployment.template.json (och deployment.debug.template.json) filer med informationen som bindning.
+Det sista steget i att skapa bindningen är att uppdatera filen Deployment. template. JSON (och Deployment. debug. template. JSON) med bindnings informationen.
 
-1. Öppna deployment.template.json.
+1. Öppna Deployment. template. JSON.
 
-2. Ändra definitionen för avroFileWriter modulen genom att lägga till den `Binds` parameter som pekar behållare directory /avrofiles på den lokala katalogen på edge-enhet. Definition av modulen ska matcha det här exemplet:
+2. Ändra modultypen för avroFileWriter genom att lägga till `Binds` parametern som pekar på behållar katalogen/avrofiles till den lokala katalogen på gräns enheten. Din modul definition ska matcha det här exemplet:
 
    ```json
    "avroFileWriter": {
@@ -437,39 +437,39 @@ Det sista steget för att skapa bindningen är att uppdatera deployment.template
    }
    ```
 
-3. Ändra de motsvarande deployment.debug.template.json.
+3. Gör motsvarande ändringar i Deployment. debug. template. JSON.
 
-### <a name="bind-mount-for-access-to-configyaml"></a>Binda montering för åtkomst till config.yaml
+### <a name="bind-mount-for-access-to-configyaml"></a>Bind montering för åtkomst till config. yaml
 
-Vi måste lägga till en mer bindning för modulen skrivaren. Den här bind får modulen att läsa anslutningssträngen från filen /etc/iotedge/config.yaml på IoT Edge-enhet. Vi behöver anslutningssträngen för att skapa en IoTHubClient så att vi kan anropa överföringen\_blob\_async-metod för att ladda upp filer till IoT hub. Stegen för att lägga till den här bindning är liknande dem i föregående avsnitt.
+Vi måste lägga till ytterligare en bindning för modulen skrivare. Den här bindningen ger modulen åtkomst till att läsa anslutnings strängen från/etc/iotedge/config.yaml-filen på den IoT Edge enheten. Vi behöver anslutnings strängen för att skapa en IoTHubClient så att vi kan anropa metoden upload\_BLOB\_async för att ladda upp filer till IoT Hub. Stegen för att lägga till denna bindning liknar dem i föregående avsnitt.
 
-#### <a name="update-directory-permission"></a>Uppdatera Katalogbehörighet
+#### <a name="update-directory-permission"></a>Uppdatera katalog behörighet
 
-1. Anslut till din IoT Edge-enhet med hjälp av SSH.
+1. Anslut till din IoT Edge-enhet med SSH.
 
    ```bash
    ssh -l <user>@IoTEdge-<extension>.<region>.cloudapp.azure.com
    ```
 
-2. Lägg till läsbehörighet config.yaml-filen.
+2. Lägg till Läs behörighet i filen config. yaml.
 
    ```bash
    sudo chmod +r /etc/iotedge/config.yaml
    ```
 
-3. Validera behörigheterna är korrekta.
+3. Kontrol lera att behörigheterna är rätt inställda.
 
    ```bash
    ls -la /etc/iotedge/
    ```
 
-4. Kontrollera att behörigheterna för config.yaml är **- r--r--r--** .
+4. Kontrol lera att behörigheterna för config. yaml är **-r--r--r**--.
 
 #### <a name="add-directory-to-module"></a>Lägg till katalog i modulen
 
-1. På en utvecklingsdator måste du öppna den **Dockerfile.amd64** fil.
+1. Öppna filen **Dockerfile. amd64** på din utvecklings dator.
 
-2. Lägg till ytterligare en uppsättning `mkdir` och `chown` kommandon till filen så som ser ut som:
+2. Lägg till ytterligare en uppsättning `mkdir` och `chown` kommandon i filen så att ser ut så här:
 
    ```dockerfile
    FROM ubuntu:xenial
@@ -494,13 +494,13 @@ Vi måste lägga till en mer bindning för modulen skrivaren. Den här bind får
    CMD "python3", "-u", "./main.py"]
    ```
 
-3. Ändra de motsvarande Dockerfile.amd64.debug och Dockerfile.arm32v7.
+3. Gör motsvarande ändringar i Dockerfile. amd64. debug och Dockerfile. arm32v7.
 
-#### <a name="update-the-module-configuration"></a>Uppdatera modulkonfigurationen av
+#### <a name="update-the-module-configuration"></a>Uppdatera konfiguration av modul
 
-1. Öppna den **deployment.template.json** fil.
+1. Öppna filen **Deployment. template. JSON** .
 
-2. Ändra definitionen för avroFileWriter modulen genom att lägga till en andra rad till den `Binds` parameter som pekar behållarkatalogen (/ app/iotconfig) på den lokala katalogen på enheten (/ etc/iotedge).
+2. Ändra avroFileWriter genom att lägga till en andra rad i den `Binds` parameter som pekar på behållar katalogen (/app/iotconfig) till den lokala katalogen på enheten (/etc/iotedge).
 
    ```json
    "avroFileWriter": {
@@ -522,22 +522,22 @@ Vi måste lägga till en mer bindning för modulen skrivaren. Den här bind får
    }
    ```
 
-3. Ändra de motsvarande deployment.debug.template.json.
+3. Gör motsvarande ändringar i Deployment. debug. template. JSON.
 
 ## <a name="install-dependencies"></a>Installera beroenden
 
-Modulen skrivaren tar ett beroende på två Python-biblioteken, fastavro och PyYAML. Vi behöver installera beroenden på vår utvecklingsdator och instruera Docker skapandeprocessen att installera dem i våra moduls avbildning.
+Modulen skrivare tar ett beroende på två python-bibliotek, fastavro och PyYAML. Vi måste installera beroenden på vår utvecklings dator och instruera Docker-build-processen att installera dem i vår moduls avbildning.
 
 ### <a name="pyyaml"></a>PyYAML
 
-1. På en utvecklingsdator måste du öppna den **requirements.txt** filen och Lägg till pyyaml.
+1. Öppna filen **requirementss. txt** på din utvecklings dator och Lägg till pyyaml.
 
    ```txt
    azure-iothub-device-client~=1.4.3
    pyyaml
    ```
 
-2. Öppna den **Dockerfile.amd64** filen och Lägg till en `pip install` kommando för att uppgradera installationsverktyg.
+2. Öppna filen **Dockerfile. amd64** och Lägg till ett `pip install` kommando för att uppgradera installations verktyg.
 
    ```dockerfile
    FROM ubuntu:xenial
@@ -563,9 +563,9 @@ Modulen skrivaren tar ett beroende på två Python-biblioteken, fastavro och PyY
    CMD [ "python3", "-u", "./main.py" ]
    ```
 
-3. Ändra de motsvarande Dockerfile.amd64.debug. <!--may not be necessary. Add 'if needed'?-->
+3. Gör motsvarande ändringar i Dockerfile. amd64. debug. <!--may not be necessary. Add 'if needed'?-->
 
-4. Installera pyyaml lokalt genom att öppna en terminal i Visual Studio Code och skriva
+4. Installera pyyaml lokalt genom att öppna en Terminal i Visual Studio Code och skriva
 
    ```cmd
    pip install pyyaml
@@ -573,7 +573,7 @@ Modulen skrivaren tar ett beroende på två Python-biblioteken, fastavro och PyY
 
 ### <a name="fastavro"></a>Fastavro
 
-1. Lägg till fastavro efter pyyaml i requirements.txt.
+1. I Requirements. txt lägger du till fastavro efter pyyaml.
 
    ```txt
    azure-iothub-device-client~=1.4.3
@@ -581,52 +581,52 @@ Modulen skrivaren tar ett beroende på två Python-biblioteken, fastavro och PyY
    fastavro
    ```
 
-2. Installera fastavro till din utvecklingsdator med hjälp av Visual Studio Code terminal.
+2. Installera fastavro på utvecklings datorn med hjälp av Visual Studio Code Terminal.
 
    ```cmd
    pip install fastavro
    ```
 
-## <a name="reconfigure-iot-hub"></a>Reconfigure IoT Hub
+## <a name="reconfigure-iot-hub"></a>Konfigurera om IoT Hub
 
-Genom att introducera IoT Edge-enhet och moduler i systemet, har vi ändrat våra förväntningar om vilka data som skickas till hubben och i vilket syfte. Vi måste konfigurera om routning i hubben behöver bry dig om våra nya verkligheten.
+Genom att introducera IoT Edge enhet och moduler i systemet har vi ändrat våra förväntningar om vilka data som ska skickas till hubben och för vilket ändamål. Vi behöver konfigurera om routningen i hubben för att hantera vår nya verklighet.
 
 > [!NOTE]
-> Vi konfigurerar om hubben innan du distribuerar moduler eftersom några av de hub-inställningarna, särskilt filen överför måste vara korrekt konfigurerat avroFileWriter modulen ska kunna köras korrekt
+> Vi konfigurerar om navet innan du distribuerar moduler på grund av vissa Hubbs inställningar, måste vara korrekt konfigurerade för att avroFileWriter-modulen ska fungera korrekt
 
-### <a name="set-up-route-for-rul-messages-in-iot-hub"></a>Ställ in flöde för RUL-meddelanden i IoT Hub
+### <a name="set-up-route-for-rul-messages-in-iot-hub"></a>Konfigurera routning för RUL-meddelanden i IoT Hub
 
-Med router och klassificerare på plats kan räknar vi med att ta emot vanliga meddelanden som innehåller endast enhets-ID och RUL-förutsägelser för enheten. Vi vill dirigera RUL-data till en egen lagringsplats där vi kan övervaka status för enheter, skapa rapporter och utlöses aviseringar efter behov. På samma gång vill vi att alla enhetsdata som fortfarande som skickas direkt via en löv-enhet som ännu inte har kopplats till vår IoT Edge-enhet för att fortsätta att dirigera till den aktuella lagringsplatsen.
+Med routern och klassificeraren på plats förväntar vi dig att ta emot vanliga meddelanden som bara innehåller enhets-ID och RUL förutsägelse för enheten. Vi vill dirigera RUL-data till en egen lagrings plats där vi kan övervaka status för enheterna, bygga rapporter och utlösa aviseringar efter behov. Samtidigt vill vi använda alla enhets data som fortfarande skickas direkt av en löv enhet som ännu inte har anslutits till vår IoT Edge-enhet för att fortsätta att dirigera till den aktuella lagrings platsen.
 
-#### <a name="create-a-rul-message-route"></a>Skapa en väg för RUL-meddelande
+#### <a name="create-a-rul-message-route"></a>Skapa en RUL meddelande väg
 
-1. Gå till din IoT-hubb i Azure-portalen.
+1. I Azure Portal navigerar du till IoT Hub.
 
-2. I det vänstra navigeringsfönstret väljer **meddelanderoutning**.
+2. Välj meddelanderoutning i det vänstra navigeringsfältet.
 
 3. Välj **Lägg till**.
 
-4. Namnge flödet **RulMessageRoute**.
+4. Namnge Route- **RulMessageRoute**.
 
-5. Välj **Lägg till** bredvid den **Endpoint** väljare och välj **Blob-lagring**.
+5. Välj **Lägg till** bredvid **slut punkts** väljaren och välj **Blob Storage**.
 
-6. I den **lägga till en slutpunkt för lagring** formuläret, namnge slutpunkten **ruldata**.
+6. I formuläret för att **lägga till en lagrings slut punkt** namnger du slut punkten **ruldata**.
 
 7. Välj **Välj en behållare**.
 
-8. Välj lagringskonto som används i den här självstudien, som heter som **iotedgeandml\<unikt suffix\>** .
+8. Välj det lagrings konto som används i den här självstudien, som heter som **\<iotedgeandml-unikt suffix\>** .
 
-9. Välj den **ruldata** behållare och klickar på **Välj**.
+9. Välj behållaren **ruldata** och klicka på **Välj**.
 
-10. Klicka på **skapa** skapa storage-slutpunkt.
+10. Skapa lagrings slut punkten genom att klicka på **skapa** .
 
-11. För den **routning fråga**, anger du följande fråga:
+11. För **cirkulations frågan**anger du följande fråga:
 
     ```sql
     IS_DEFINED($body.PredictedRul) AND NOT IS_DEFINED($body.OperationalSetting1)
     ```
 
-12. Expandera den **Test** avsnittet och sedan den **meddelandetext** avsnittet. Ersätt meddelandet med det här exemplet på vår förväntade meddelanden:
+12. Expandera avsnittet **test** och sedan avsnittet **meddelande text** . Ersätt meddelandet med det här exemplet på förväntade meddelanden:
 
     ```json
     {
@@ -637,25 +637,25 @@ Med router och klassificerare på plats kan räknar vi med att ta emot vanliga m
     }
     ```
 
-13. Välj **testa flödet**. Om testet lyckas ser du ”meddelandet matchar frågan”.
+13. Välj **test väg**. Om testet lyckas visas meddelandet "meddelandet matchade frågan".
 
 14. Klicka på **Spara**.
 
-#### <a name="update-turbofandevicetostorage-route"></a>Uppdatera turbofanDeviceToStorage vägen
+#### <a name="update-turbofandevicetostorage-route"></a>Uppdatera turbofanDeviceToStorage-flöde
 
-Vi vill inte skicka nya förutsägelsedata till vår gamla lagringsplatsen, så uppdatera vägen för att förhindra att den.
+Vi vill inte dirigera de nya förutsägelse data till vår gamla lagrings plats, så uppdatera vägen för att förhindra det.
 
-1. I IoT Hub **meddelanderoutning** väljer den **vägar** fliken.
+1. På sidan IoT Hub meddelanderoutning väljer du fliken **vägar** .
 
-2. Välj **turbofanDeviceDataToStorage**, eller det namn du gav till färdvägen starttillstånd data.
+2. Välj **turbofanDeviceDataToStorage**, eller det namn du gav till din första enhets data väg.
 
-3. Uppdatera routning frågan till
+3. Uppdatera cirkulations frågan till
 
    ```sql
    IS_DEFINED($body.OperationalSetting1)
    ```
 
-4. Expandera den **Test** avsnittet och sedan den **meddelandetext** avsnittet. Ersätt meddelandet med det här exemplet på vår förväntade meddelanden:
+4. Expandera avsnittet **test** och sedan avsnittet **meddelande text** . Ersätt meddelandet med det här exemplet på förväntade meddelanden:
 
    ```json
    {
@@ -689,34 +689,34 @@ Vi vill inte skicka nya förutsägelsedata till vår gamla lagringsplatsen, så 
    }
    ```
 
-5. Välj **testa flödet**. Om testet lyckas ser du ”meddelandet matchar frågan”.
+5. Välj **test väg**. Om testet lyckas visas meddelandet "meddelandet matchade frågan".
 
 6. Välj **Spara**.
 
 ### <a name="configure-file-upload"></a>Konfigurera filuppladdning
 
-Konfigurera IoT Hub filuppladdningsfunktionen om du vill aktivera skrivarmodul fil att ladda upp filer till lagring.
+Konfigurera den IoT Hub fil överförings funktionen så att modulen File Writer kan överföra filer till lagrings utrymme.
 
-1. Vänstra Navigatören i din IoT-hubb, Välj **filuppladdning**.
+1. I den vänstra navigerings rutan i IoT Hub väljer du **fil uppladdning**.
 
-2. Välj **Azure-lagringsbehållare**.
+2. Välj **Azure Storage behållare**.
 
-3. Välj ditt lagringskonto i listan.
+3. Välj ditt lagrings konto i listan.
 
-4. Välj den **uploadturbofanfiles** behållare och klickar på **Välj**.
+4. Välj behållaren **uploadturbofanfiles** och klicka på **Välj**.
 
-5. Välj **Spara**. Portalen meddelar dig när filen är sparad.
+5. Välj **Spara**. Portalen meddelar dig när Spara är klar.
 
 > [!Note]
-> Vi inte att aktivera uppladdning meddelande för den här självstudien, men se [ta emot ett filuppladdningsmeddelande](../iot-hub/iot-hub-java-java-file-upload.md#receive-a-file-upload-notification) för information om hur du hanterar filen ladda upp meddelandet.
+> Vi aktiverar inte överförings aviseringar för den här självstudien, men se [ta emot ett meddelande om fil uppladdning](../iot-hub/iot-hub-java-java-file-upload.md#receive-a-file-upload-notification) för information om hur du hanterar fil överförings aviseringar.
 
-## <a name="build-publish-and-deploy-modules"></a>Skapa, publicera och distribuera moduler
+## <a name="build-publish-and-deploy-modules"></a>Bygga, publicera och distribuera moduler
 
-Nu när vi har gjort ändringar i konfigurationen är vi redo att skapa avbildningar och publicera dem till vår Azure container registry. Skapandeprocessen använder deployment.template.json-filen för att avgöra vilka moduler som behöver skapas. Inställningarna för varje modul, inklusive version, finns i filen module.json i modulmappen. Skapandeprocessen körs för första gången en Docker-version på Dockerfiles matchar den aktuella konfigurationen i filen module.json för att skapa en avbildning. Sedan publicerar den avbildningen till registret från filen module.json med en tagg för version som matchar det i filen module.json. Slutligen genererar den ett manifest med configuration-specifika distribution (till exempel deployment.amd64.json), som vi ska distribuera till IoT Edge-enhet. IoT Edge-enheten läser information från distributionen manifest och baserat på instruktioner ska ladda ned moduler, konfigurera vägar och ange önskade egenskaper. Den här distributionsmetoden har två sidoeffekter som du bör känna till:
+Nu när vi har gjort konfigurations ändringarna är vi redo att bygga avbildningarna och publicera dem i vårt Azure Container Registry. I build-processen används filen Deployment. template. JSON för att avgöra vilka moduler som behöver skapas. Inställningarna för varje modul, inklusive version, finns i filen module. json i mappen module. Bygg processen kör först en Docker-version på Dockerfiles som matchar den aktuella konfigurationen som finns i filen module. JSON för att skapa en avbildning. Sedan publicerar den avbildningen i registret från module. JSON-filen med en versions tagg som matchar den i module. JSON-filen. Slutligen genererar den ett konfigurations bara distributions manifest (till exempel Deployment. amd64. JSON) som vi ska distribuera till den IoT Edge enheten. Den IoT Edge enheten läser informationen från distributions manifestet, och utifrån anvisningarna hämtas modulerna, konfigurerar vägarna och anger önskade egenskaper. Den här distributions metoden har två sido effekter som du bör vara medveten om:
 
-* **Distribution fördröjning:** eftersom IoT Edge-körningen måste identifiera ändringen till dess önskade egenskaper innan den börjar konfigurera om, det kan ta några lång tid när du har distribuerat dina moduler tills körningen hämtas de och börjar uppdatera IoT Edge enheten.
+* **Distributions fördröjning:** eftersom den IoT Edge körningen måste identifiera ändringen av de önskade egenskaperna innan den börjar omkonfigureras, kan det ta lite tid efter att du har distribuerat modulerna tills körningen har valt ut och börjar uppdatera IoT Edge anordningar.
 
-* **Modulen versioner bara:** om du publicerar en ny version av en modul behållare på ditt behållarregister med hjälp av samma version-taggar som den föregående modulen körningen inte ladda ned den nya versionen av modulen. Den gör en jämförelse av version taggen för den lokala avbildningen och önskad bild från distribution manifestet. Om dessa versioner matchar tar körningen ingen åtgärd. Det är därför viktigt att räkna upp modulens version varje gång som du vill distribuera nya ändringar. Öka versionen genom att ändra den **version** egenskapen under den **taggen** -egenskapen i module.json-filen för modulen som du ändrar. Sedan skapar och publicerar modulen.
+* **Versioner av moduler:** om du publicerar en ny version av en moduls behållare till behållar registret med hjälp av samma versions taggar som i föregående modul, laddas inte den nya versionen av modulen ned i körnings miljön. Den jämför med versions tag gen för den lokala avbildningen och den önskade avbildningen från distributions manifestet. Om dessa versioner stämmer vidtas ingen åtgärd i körnings miljön. Därför är det viktigt att öka versionen av modulen varje gången du vill distribuera nya ändringar. Öka versionen genom att ändra egenskapen **version** under egenskapen **tag** i filen module. JSON för modulen som du ändrar. Sedan skapar och publicerar du modulen.
 
     ```json
     {
@@ -738,78 +738,78 @@ Nu när vi har gjort ändringar i konfigurationen är vi redo att skapa avbildni
     }
     ```
 
-### <a name="build-and-publish"></a>Skapa och publicera
+### <a name="build-and-publish"></a>Bygg och publicera
 
-1. I Visual Studio Code på utvecklingen av din virtuella dator, öppna ett terminalfönster för Visual Studio Code och logga in på ditt behållarregister.
+1. I Visual Studio Code på din virtuella utvecklings dator öppnar du ett Visual Studio Code-terminalfönster och loggar in på behållar registret.
 
    ```cmd
    docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
 
-1. Högerklicka på deployment.template.json i Visual Studio Code och välj **Build and Push IoT Edge-lösning**.
+1. Högerklicka på Deployment. template. json i Visual Studio Code och välj **build och Push IoT Edge-lösning**.
 
 ### <a name="view-modules-in-the-registry"></a>Visa moduler i registret
 
-När bygget har slutförts kommer vi att kunna använda Azure portal för att granska våra publicerade moduler.
+När skapandet har slutförts kommer vi att kunna använda Azure Portal för att granska våra publicerade moduler.
 
-1. I Azure-portalen går du till din arbetsyta för Azure Machine Learning-tjänsten och klickar på hyperlänken för **registret**.
+1. I Azure Portal navigerar du till Azure Machine Learning service-arbetsytan och klickar på hyperlänken för **registret**.
 
-    ![Navigera till registernyckeln från machine learning-arbetsyta](media/tutorial-machine-learning-edge-06-custom-modules/follow-registry-link.png)
+    ![Navigera till registret från Machine Learning service-arbetsytan](media/tutorial-machine-learning-edge-06-custom-modules/follow-registry-link.png)
 
-2. Från registret på klientsidan Navigatören, väljer **databaser**.
+2. Från navigerings sidan i Utforskaren väljer du **databaser**.
 
-3. Observera att båda modulerna du skapat, **avrofilewriter** och **turbofanrouter**, visas som databaser.
+3. Observera att båda modulerna du skapade, **avrofilewriter** och **turbofanrouter**, visas som databaser.
 
-4. Välj **turbofanrouter** och Observera att du har publicerat en bild som taggats som 0.0.1-amd64.
+4. Välj **turbofanrouter** och Observera att du har publicerat en avbildning som taggats som 0.0.1-amd64.
 
-   ![Visa första taggade versionen av turbofanrouter](media/tutorial-machine-learning-edge-06-custom-modules/tagged-image-turbofanrouter-repo.png)
+   ![Visa den första taggade versionen av turbofanrouter](media/tutorial-machine-learning-edge-06-custom-modules/tagged-image-turbofanrouter-repo.png)
 
-### <a name="deploy-modules-to-iot-edge-device"></a>Distribuera moduler på IoT Edge-enhet
+### <a name="deploy-modules-to-iot-edge-device"></a>Distribuera moduler till IoT Edge enhet
 
-Vi har skapats och konfigurerats modulerna i vår lösning, nu ska vi Distribuera modulerna till IoT Edge-enhet.
+Vi har skapat och konfigurerat modulerna i vår lösning. nu ska vi distribuera modulerna till den IoT Edge enheten.
 
-1. I Visual Studio Code, högerklicka på den **deployment.amd64.json** fil i config-mappen.
+1. I Visual Studio Code högerklickar du på filen **Deployment. amd64. JSON** i mappen config.
 
-2. Välj **skapa distribution för enskild enhet**.
+2. Välj **skapa distribution för en enskild enhet**.
 
-3. Välj din IoT Edge-enhet **aaTurboFanEdgeDevice**.
+3. Välj din IoT Edge enhet, **aaTurboFanEdgeDevice**.
 
-4. Uppdatera panelen Azure IoT Hub-enheter i Visual Studio Code-Utforskaren. Du bör se att tre nya moduler distribueras men ännu inte körs.
+4. Uppdatera panelen Azure IoT Hub enheter i Visual Studio Code Explorer. Du bör se att de tre nya modulerna har distribuerats men ännu inte körs.
 
-5. Uppdatera igen efter några minuter och du kommer att se de moduler som körs.
+5. Uppdatera igen efter några minuter så visas modulerna som körs.
 
-   ![Visa pågående moduler i Visual Studio Code](media/tutorial-machine-learning-edge-06-custom-modules/view-running-modules-list.png)
+   ![Visa moduler som körs i Visual Studio Code](media/tutorial-machine-learning-edge-06-custom-modules/view-running-modules-list.png)
 
 > [!NOTE]
-> Det kan ta flera minuter för vilka moduler som ska starta och uppnå en stadig körtillstånd. Under den tiden kan du se moduler starta och stoppa när de försöker upprätta en anslutning med IoT Edge hub-modul.
+> Det kan ta flera minuter innan modulerna startar och kvittas i ett stabilt kör tillstånd. Under den tiden kan du se att moduler startar och slutar när de försöker upprätta en anslutning med modulen IoT Edge Hub.
 
 ## <a name="diagnosing-failures"></a>Diagnostisera fel
 
-I det här avsnittet ska dela vi några metoder för att förstå vad har gått fel med en modulen eller modulerna. Ett fel kan ofta först vara spotted från statusen i Visual Studio Code.
+I det här avsnittet delar vi några metoder för att förstå vad som har varit fel med en modul eller moduler. Ofta kan ett haveri Spotted först från status i Visual Studio Code.
 
-### <a name="identify-failed-modules"></a>Identifiera misslyckade moduler
+### <a name="identify-failed-modules"></a>Identifiera moduler som misslyckats
 
-* **Visual Studio Code:** Titta på panelen för Azure IoT Hub-enheter. Om de flesta moduler är körs men en stoppas, måste du undersöka stoppad modulen ytterligare. Om alla moduler som är i ett stoppat tillstånd för en längre tidsperiod kan bero det på fel samt.
+* **Visual Studio-kod:** Titta på panelen Azure IoT Hub enheter. Om de flesta moduler är i ett körnings tillstånd men en stoppas, måste du undersöka den stoppade modulen ytterligare. Om alla moduler är i ett stoppat tillstånd under en lång tids period, kan det indikera fel även.
 
-* **Azure-portalen:** Genom att gå till din IoT-hubb i portalen och att hitta sidan med enhetsinformation (öka detaljnivån i din enhet under IoT Edge) kanske du upptäcker att en modul har rapporterat ett fel eller aldrig har rapporterat något till IoT hub.
+* **Azure Portal:** Genom att navigera till din IoT-hubb i portalen och sedan hitta sidan med enhets information (under IoT Edge, gå in på din enhet) kan det hända att en modul har rapporterat ett fel eller aldrig rapporterat något till IoT Hub.
 
 ### <a name="diagnosing-from-the-device"></a>Diagnostisera från enheten
 
-Genom att logga in på IoT Edge-enhet får du åtkomst till en hel del information om status för dina moduler. Den huvudsakliga mekanism som vi använder är Docker-kommandon som låter oss undersöka behållare och bilder på enheten.
+Genom att logga in på IoT Edge enhet kan du få till gång till en mer information om status för dina moduler. Huvud mekanismen vi använder är Docker-kommandona som gör att vi kan granska behållare och avbildningar på enheten.
 
-1. Lista alla behållare som körs. Vi förväntar oss att se en behållare för varje modul med ett namn som motsvarar modulen. Det här kommandot visar också en exakt kopia för behållaren, inklusive version så att du kan matcha med dina förväntningar. Du kan också visa bilder genom att byta ut ”bild” för ”behållare” i kommandot.
+1. Lista alla behållare som körs. Vi förväntar dig att se en behållare för varje modul med ett namn som motsvarar modulen. Detta kommando visar också den exakta avbildningen för behållaren, inklusive version så att du kan matcha den förväntade. Du kan också lista avbildningar genom att ersätta "bild" för "container" i kommandot.
 
    ```bash
    sudo docker container ls
    ```
 
-2. Hämta loggarna för en behållare. Detta kommando visar vad som har skrivits till StdErr och StdOut i behållaren. Det här kommandot fungerar för behållare som har startat och sedan bröts av någon anledning. Det är också användbart för att förstå vad händer med edgeAgent eller edgeHub behållare.
+2. Hämta loggarna för en behållare. Det här kommandot matar ut vad som har skrivits till StdErr och StdOut i behållaren. Det här kommandot används för behållare som har startats och sedan dött av någon anledning. Det är också användbart för att förstå vad som händer med edgeAgent-eller edgeHub-behållare.
 
    ```bash
    sudo docker container logs <container name>
    ```
 
-3. Granska en behållare. Det här kommandot ger en mängd information om avbildningen. Data kan filtreras beroende på vad du letar efter. Till exempel om du vill se om binds på avroFileWriter är korrekta kan du använda kommandot:
+3. Inspektera en behållare. Det här kommandot ger en ton med information om avbildningen. Data kan filtreras beroende på vad du letar efter. Om du till exempel vill se om bindningarna i avroFileWriter är korrekta kan du använda kommandot:
 
    ```bash
    sudo docker container inspect -f "{{ json .Mounts }}" avroFileWriter | python -m json.tool
@@ -823,17 +823,17 @@ Genom att logga in på IoT Edge-enhet får du åtkomst till en hel del informati
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har skapat vi en IoT Edge-lösning i Visual Studio Code med tre moduler, en klassificerare, en router och en fil-skrivaren /-överförare. Vi konfigurerar vägarna så att vilka moduler som ska kommunicera med varandra på edge-enhet, ändrade konfigurationen för edge-enhet och uppdateras Dockerfiles för att installera beroenden och Lägg till bindning monterar till de moduler behållare. Nu ska vi har uppdaterat konfigurationen av IoT-hubben att dirigera våra meddelanden baserat på typen och för att hantera filöverföringar. Med allt på plats, vi distribuerade moduler på IoT Edge-enheten och sett till modulerna som kördes på rätt sätt.
+I den här artikeln har vi skapat en IoT Edge-lösning i Visual Studio Code med tre moduler, en klassificerare, en router och en fil skrivare/uppladdning. Vi ställer in vägarna för att tillåta att modulerna kommunicerar med varandra på gräns enheten, ändrade konfigurationen för gräns enheten och uppdaterade Dockerfiles för att installera beroenden och lägga till bind-monteringar till modulernas behållare. Därefter uppdaterade vi konfigurationen av IoT Hub för att dirigera våra meddelanden baserat på typ och för att hantera fil överföringar. Med allt på plats har vi distribuerat modulerna till den IoT Edge enheten och kontrollerat att modulerna kördes korrekt.
 
 Mer information finns på följande sidor:
 
-* [Lär dig hur du distribuerar moduler och upprätta vägar i IoT Edge](module-composition.md)
-* [IoT Hub meddelanderoutning frågesyntax](../iot-hub/iot-hub-devguide-routing-query-syntax.md)
-* [IoT Hub meddelanderoutning: nu med routning på meddelandetext](https://azure.microsoft.com/blog/iot-hub-message-routing-now-with-routing-on-message-body/)
+* [Lär dig hur du distribuerar moduler och etablerar vägar i IoT Edge](module-composition.md)
+* [IoT Hub frågesyntaxen för meddelanderoutning](../iot-hub/iot-hub-devguide-routing-query-syntax.md)
+* [IoT Hub meddelanderoutning: nu med routning i meddelande text](https://azure.microsoft.com/blog/iot-hub-message-routing-now-with-routing-on-message-body/)
 * [Ladda upp filer med IoT Hub](../iot-hub/iot-hub-devguide-file-upload.md)
-* [Ladda upp filer från din enhet till molnet med IoT Hub](../iot-hub/iot-hub-python-python-file-upload.md)
+* [Ladda upp filer från enheten till molnet med IoT Hub](../iot-hub/iot-hub-python-python-file-upload.md)
 
-Fortsätt till nästa artikel för att börja skicka data och se din lösning i praktiken.
+Fortsätt till nästa artikel för att börja skicka data och se hur lösningen fungerar.
 
 > [!div class="nextstepaction"]
-> [Skicka data via en transparent gateway](tutorial-machine-learning-edge-07-send-data-to-hub.md)
+> [Skicka data via transparent Gateway](tutorial-machine-learning-edge-07-send-data-to-hub.md)

@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell-snabb start: Skapa, läsa in och fråga index med Azure Search REST-API: er – Azure Search'
+title: 'PowerShell-snabb start: Skapa, läsa in och fråga index med REST API: er – Azure Search'
 description: 'Förklarar hur du skapar ett index, läser in data och kör frågor med PowerShell: s Invoke-RestMethod och Azure Search REST API.'
 ms.date: 07/11/2019
 author: heidisteen
@@ -9,12 +9,12 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: quickstart
-ms.openlocfilehash: abfe418e8feac1693aea279d44b4a41fca3d1875
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 3c47a9a809357d1ad09d8a2dd2ef5a7f1a31a02d
+ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828732"
+ms.locfileid: "68840717"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-powershell-using-rest-apis"></a>Snabbstart: Skapa ett Azure Search-index i PowerShell med hjälp av REST API: er
 > [!div class="op_single_selector"]

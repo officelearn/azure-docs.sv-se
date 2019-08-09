@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: effe48c859e711f0efc41c1a4d651e5d15d5ada9
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 8d7a039f25339d91d77d5b6924674ea36a16c15b
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68382604"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68880815"
 ---
 # <a name="add-your-non-microsoft-accounts"></a>Lägg till konton som inte kommer från Microsoft
 
@@ -168,6 +168,9 @@ Lägg till ditt Amazon-konto genom att aktivera tvåstegsverifiering och sedan l
     Sidan ändras och visar dig en QR-kod. Stäng inte den här sidan.
 
 5. Öppna appen Microsoft Authenticator, Välj **Lägg till konto** från ikonen **Anpassa och kontrol lera** längst upp till höger och välj sedan **annat konto (Google, Facebook osv.)** .
+
+    >[!Note]
+    >Om det här är första gången du konfigurerar Microsoft Authenticator-appen kan du få en fråga om du vill tillåta att appen får åtkomst till kameran (iOS) eller tillåter att appen tar bilder och spelar in video (Android). Du måste välja **Tillåt** så att Authenticator-appen kan komma åt kameran för att ta en bild av QR-koden i nästa steg. Om du inte tillåter kameran kan du fortfarande konfigurera Authenticator-appen, men du måste lägga till kod informationen manuellt. Information om hur du lägger till koden manuellt finns i se [lägga till ett konto manuellt i appen](user-help-auth-app-add-account-manual.md).
 
 6. Använd enhetens kamera för att skanna QR-koden från sidan **Välj hur du ska ta emot koder** på din dator.
 

@@ -1,228 +1,150 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med SafetyNet | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory integrering med SafetyNet | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och SafetyNet.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: caa96ea2-da21-4529-8fab-0e06367beb40
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 04/16/2018
+ms.topic: tutorial
+ms.date: 08/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4fadebc689f10b40131bb0feb12d846d3bdde704
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8b94592f78a3aba46406d25d95de3a8847831eeb
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62104706"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68880187"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-safetynet"></a>Självstudier: Azure Active Directory-integrering med SafetyNet
+# <a name="tutorial-integrate-safetynet-with-azure-active-directory"></a>Självstudier: Integrera SafetyNet med Azure Active Directory
 
-I den här självstudien får du lära dig hur du integrerar SafetyNet med Azure Active Directory (AD Azure).
+I den här självstudien får du lära dig hur du integrerar SafetyNet med Azure Active Directory (Azure AD). När du integrerar SafetyNet med Azure AD kan du:
 
-Integrera SafetyNet med Azure AD ger dig följande fördelar:
+* Kontroll i Azure AD som har åtkomst till SafetyNet.
+* Gör det möjligt för användarna att logga in automatiskt till SafetyNet med sina Azure AD-konton.
+* Hantera dina konton på en central plats – Azure Portal.
 
-- Du kan styra i Azure AD som har åtkomst till SafetyNet.
-- Du kan aktivera användarna att automatiskt få loggat in på SafetyNet (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure portal.
+Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+## <a name="prerequisites"></a>Förutsättningar
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+För att komma igång behöver du följande objekt:
 
-Om du vill konfigurera Azure AD-integrering med SafetyNet, behöver du följande objekt:
-
-- En Azure AD-prenumeration
-- En SafetyNet enkel inloggning aktiverad prenumeration
-
-> [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
-
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
-
-- Använd inte din produktionsmiljö, om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
+* SafetyNet för enkel inloggning (SSO) aktive rad.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-1. Att lägga till SafetyNet från galleriet
-1. Konfigurera och testa Azure AD enkel inloggning
+I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
 
-## <a name="adding-safetynet-from-the-gallery"></a>Att lägga till SafetyNet från galleriet
-För att konfigurera integrering av SafetyNet i Azure AD, som du behöver lägga till SafetyNet från galleriet i din lista över hanterade SaaS-appar.
+* SafetyNet stöder **SP-och IDP** -INITIERAd SSO
 
-**Utför följande steg för att lägga till SafetyNet från galleriet:**
+## <a name="adding-safetynet-from-the-gallery"></a>Lägga till SafetyNet från galleriet
 
-1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+Om du vill konfigurera integreringen av SafetyNet i Azure AD måste du lägga till SafetyNet från galleriet i listan över hanterade SaaS-appar.
 
-    ![Azure Active Directory-knappen][1]
-
-1. Gå till **företagsprogram**. Gå till **alla program**.
-
-    ![Bladet för Enterprise-program][2]
-    
-1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
-
-    ![Knappen Nytt program][3]
-
-1. I sökrutan skriver **SafetyNet**väljer **SafetyNet** resultatet panelen klickar **Lägg till** för att lägga till programmet.
-
-    ![SafetyNet i resultatlistan](./media/safetynet-tutorial/tutorial_safetynet_addfromgallery.png)
+1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
+1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** .
+1. Navigera till **företags program** och välj sedan **alla program**.
+1. Välj **nytt program**om du vill lägga till ett nytt program.
+1. I avsnittet **Lägg till från galleriet** , skriver du **SafetyNET** i sökrutan.
+1. Välj **SafetyNET** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med SafetyNet baserat på en testanvändare som kallas ”Britta Simon”.
+Konfigurera och testa Azure AD SSO med SafetyNet med hjälp av en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i SafetyNet.
 
-För enkel inloggning att fungera, behöver Azure AD du veta vad användaren motsvarighet i SafetyNet är till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i SafetyNet upprättas.
+Om du vill konfigurera och testa Azure AD SSO med SafetyNet, slutför du följande Bygg stenar:
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med SafetyNet, måste du utföra följande byggblock:
+1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera SafetyNET SSO](#configure-safetynet-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
+3. **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
+4. **[Tilldela Azure AD](#assign-the-azure-ad-test-user)** -testuser-för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
+5. **[Skapa SafetyNET test User](#create-safetynet-test-user)** -om du vill ha en motsvarighet till B. Simon i SafetyNET som är länkad till Azure AD-representation av användare.
+6. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-1. **[Skapa en testanvändare SafetyNet](#create-a-safetynet-test-user)**  – du har en motsvarighet för Britta Simon i SafetyNet som är länkad till en Azure AD-representation av användaren.
-1. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-1. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+### <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt SafetyNet-program.
+1. I [Azure Portal](https://portal.azure.com/)går du till sidan för program integrering i **SafetyNET** , letar upp avsnittet **Hantera** och väljer **enkel inloggning**.
+1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
+1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med SafetyNet:**
+   ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-1. I Azure-portalen på den **SafetyNet** program integration-sidan klickar du på **enkel inloggning**.
+1. I avsnittet **grundläggande SAML-konfiguration** , om du vill konfigurera programmet i **IDP** initierat läge, anger du värdena för följande fält:
 
-    ![Konfigurera enkel inloggning för länken][4]
+    a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://<subdomain>.predictivesolutions.com/sp`
 
-1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
- 
-    ![Enkel inloggning för dialogrutan](./media/safetynet-tutorial/tutorial_safetynet_samlbase.png)
+    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<subdomain>.predictivesolutions.com/CRMApp/saml/SSO`
 
-1. På den **SafetyNet-domän och URL: er** avsnittet, utför följande steg om du vill konfigurera programmet i **IDP** initierade läge:
+1. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    ![SafetyNet-domän och URL: er med enkel inloggning för information](./media/safetynet-tutorial/tutorial_safetynet_url.png)
+    I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://<subdomain>.predictivesolutions.com`
 
-    a. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: `https://<subdomain>.predictivesolutions.com/sp`
+    > [!NOTE]
+    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [SafetyNET client support team](mailto:dev@predictivesolutions.com) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-    b. I den **svars-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<subdomain>.predictivesolutions.com/CRMApp/saml/SSO`
+1. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på kopieringsknappen för att kopiera **App Federation Metadata-URL** och spara den på datorn.
 
-1. Kontrollera **visa avancerade URL-inställningar** och utföra följande steg om du vill konfigurera programmet i **SP** initierade läge:
+    ![Länk för hämtning av certifikat](common/copy-metadataurl.png)
 
-    ![SafetyNet-domän och URL: er med enkel inloggning för information](./media/safetynet-tutorial/tutorial_safetynet_url1.png)
+### <a name="configure-safetynet-sso"></a>Konfigurera SafetyNet SSO
 
-    I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<subdomain>.predictivesolutions.com`
-     
-    > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera de här värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [SafetyNet klienten supportteamet](mailto:dev@predictivesolutions.com) att hämta dessa värden.
-
-1. På den **SAML-signeringscertifikat** klickar du på kopieringsknappen för att kopiera **Appfederationsmetadata** och klistra in den i anteckningar.
-
-    ![Länk för hämtning av certifikat](./media/safetynet-tutorial/tutorial_safetynet_certificate.png)
-
-1. Klicka på **spara** knappen.
-
-    ![Konfigurera enkel inloggning spara-knapp](./media/safetynet-tutorial/tutorial_general_400.png)
-
-1. Att konfigurera enkel inloggning på **SafetyNet** sida, som du behöver skicka den **Appfederationsmetadata** till [SafetyNet-supportteamet](mailto:dev@predictivesolutions.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+Om du vill konfigurera enkel inloggning på **SafetyNET** sida måste du skicka **URL: en** för appens Federations-metadata till [support teamet för SafetyNET](mailto:dev@predictivesolutions.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
 
-   ![Skapa en Azure AD-testanvändare][100]
-
-**Utför följande steg för att skapa en testanvändare i Azure AD:**
-
-1. I Azure-portalen, i den vänstra rutan klickar du på den **Azure Active Directory** knappen.
-
-    ![Azure Active Directory-knappen](./media/safetynet-tutorial/create_aaduser_01.png)
-
-1. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
-
-    ![”Användare och grupper” och ”alla användare”-länkar](./media/safetynet-tutorial/create_aaduser_02.png)
-
-1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
-
-    ![Knappen Lägg till](./media/safetynet-tutorial/create_aaduser_03.png)
-
-1. I den **användaren** dialogrutan utför följande steg:
-
-    ![Dialogrutan användare](./media/safetynet-tutorial/create_aaduser_04.png)
-
-    a. I den **namn** skriver **BrittaSimon**.
-
-    b. I den **användarnamn** skriver användarens Britta Simon e-postadress.
-
-    c. Välj den **visa lösenord** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** box.
-
-    d. Klicka på **Skapa**.
- 
-### <a name="create-a-safetynet-test-user"></a>Skapa en SafetyNet-testanvändare
-
-I det här avsnittet skapar du en användare som kallas Britta Simon i SafetyNet. Arbeta med [SafetyNet-supportteamet](mailto:dev@predictivesolutions.com) att lägga till användare i SafetyNet-plattformen. Användarna måste skapas och aktiveras innan du använder enkel inloggning
+1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
+1. Välj **ny användare** överst på skärmen.
+1. I **användar** egenskaperna följer du de här stegen:
+   1. I **Namn**-fältet skriver du `B.Simon`.  
+   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+   1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
+   1. Klicka på **Skapa**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till SafetyNet.
+I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till SafetyNet.
 
-![Tilldela rollen][200] 
+1. I Azure Portal väljer du **företags program**och väljer sedan **alla program**.
+1. I listan program väljer du **SafetyNET**.
+1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
 
-**Om du vill tilldela Britta Simon SafetyNet, utför du följande steg:**
+   ![Länken ”användare och grupper”](common/users-groups-blade.png)
 
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
+1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
 
-    ![Tilldela användare][201] 
+    ![Länken Lägg till användare](common/add-assign-user.png)
 
-1. I listan med program väljer **SafetyNet**.
+1. I dialog rutan **användare och grupper** väljer du **B. Simon** från listan användare och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Om du förväntar dig ett roll värde i SAML Assertion, i dialog rutan **Välj roll** , väljer du lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-    ![SafetyNet-länk i listan med program](./media/safetynet-tutorial/tutorial_safetynet_app.png)  
+### <a name="create-safetynet-test-user"></a>Skapa SafetyNet test användare
 
-1. I menyn till vänster, klickar du på **användare och grupper**.
+I det här avsnittet skapar du en användare som heter Britta Simon i SafetyNet. Arbeta med [SafetyNET support team](mailto:dev@predictivesolutions.com) för att lägga till användare i SafetyNET-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
-    ![Länken ”användare och grupper”][202]
-
-1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
-
-    ![Fönstret Lägg till tilldelning][203]
-
-1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
-
-1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
-
-1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
-    
-### <a name="test-single-sign-on"></a>Testa enkel inloggning
+### <a name="test-sso"></a>Testa SSO
 
 I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
-När du klickar på panelen SafetyNet i åtkomstpanelen du bör få automatiskt loggat in på ditt SafetyNet-program.
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md). 
+När du klickar på panelen SafetyNet på åtkomst panelen, bör du loggas in automatiskt på den SafetyNet som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/safetynet-tutorial/tutorial_general_01.png
-[2]: ./media/safetynet-tutorial/tutorial_general_02.png
-[3]: ./media/safetynet-tutorial/tutorial_general_03.png
-[4]: ./media/safetynet-tutorial/tutorial_general_04.png
-
-[100]: ./media/safetynet-tutorial/tutorial_general_100.png
-
-[200]: ./media/safetynet-tutorial/tutorial_general_200.png
-[201]: ./media/safetynet-tutorial/tutorial_general_201.png
-[202]: ./media/safetynet-tutorial/tutorial_general_202.png
-[203]: ./media/safetynet-tutorial/tutorial_general_203.png
-
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

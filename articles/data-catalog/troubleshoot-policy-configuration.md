@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: troubleshooting
 ms.date: 08/01/2019
-ms.openlocfilehash: f37110138ae62272e56b155b7e8a9aac2f80cdf8
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 84bd14f8ae18527b4f6e9d8509a12555baec8771
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68734588"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879544"
 ---
 # <a name="troubleshooting-azure-data-catalog"></a>Felsöka Azure Data Catalog
 
@@ -21,7 +21,7 @@ I den här artikeln beskrivs vanliga fel söknings problem för Azure Data Catal
 
 När du använder Azure Data Catalog är följande funktioner begränsade:
 
-- Konton av typen **gäst roll** stöds inte. Du kan inte lägga till gäst konton som användare av Azure Data Catalog, och gäst användare kan inte använda portalen på www.azuredatacatalog.com.
+- Konton av typen **gäst roll** stöds inte. Du kan inte lägga till gäst konton som användare av Azure Data Catalog, och gäst användare kan inte använda [https://www.azuredatacatalog.com](https://www.azuredatacatalog.com)portalen på.
 
 - Det går inte att skapa Azure Data Catalog-resurser med hjälp av Azure Resource Manager mallar eller Azure PowerShell kommandon.
 

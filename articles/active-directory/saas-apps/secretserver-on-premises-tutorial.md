@@ -1,237 +1,166 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med hemlighet Server (lokalt) | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och hemlighet Server (lokalt).
+title: 'Självstudier: Azure Active Directory integrering med hemlig Server (lokal) | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och hemlig Server (lokalt).
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: be4ba84a-275d-4f71-afce-cb064edc713f
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 04/19/2018
+ms.topic: tutorial
+ms.date: 08/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9167a5ed72e6fec2ca03cc97d1d41dd6cd4aaba6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4926fc1833cc14b2ad81a01e230a5c3c37ba6ab3
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62104587"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68880138"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-secret-server-on-premises"></a>Självstudier: Azure Active Directory-integrering med hemlighet Server (lokalt)
+# <a name="tutorial-integrate-secret-server-on-premises-with-azure-active-directory"></a>Självstudier: Integrera hemlig Server (lokalt) med Azure Active Directory
 
-Lär dig hur du integrerar hemlighet Server (lokalt) med Azure Active Directory (AD Azure) i den här självstudien.
+I den här självstudien får du lära dig hur du integrerar en hemlig Server (lokalt) med Azure Active Directory (Azure AD). När du integrerar en hemlig Server (lokalt) med Azure AD kan du:
 
-Integrera hemlighet Server (lokalt) med Azure AD ger dig följande fördelar:
+* Kontroll i Azure AD som har åtkomst till den hemliga servern (lokalt).
+* Gör det möjligt för användarna att logga in automatiskt till hemlig Server (lokalt) med sina Azure AD-konton.
+* Hantera dina konton på en central plats – Azure Portal.
 
-- Du kan styra i Azure AD som har åtkomst till hemlighet Server (lokalt).
-- Du kan aktivera användarna att automatiskt få loggat in på hemlighet Server (lokalt) (enkel inloggning) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure portal.
+Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+## <a name="prerequisites"></a>Förutsättningar
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+För att komma igång behöver du följande objekt:
 
-Om du vill konfigurera Azure AD-integrering med hemlighet Server (lokalt), behöver du följande objekt:
-
-- En Azure AD-prenumeration
-- En hemlighet Server (lokalt) enkel inloggning aktiverat prenumeration
-
-> [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
-
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
-
-- Använd inte din produktionsmiljö, om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
+* Den hemliga inloggnings prenumerationen (SSO) med enkel inloggning (SSO) på servern (lokal).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-1. Att lägga till hemlighet Server (lokalt) från galleriet
-1. Konfigurera och testa Azure AD enkel inloggning
+I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
 
-## <a name="adding-secret-server-on-premises-from-the-gallery"></a>Att lägga till hemlighet Server (lokalt) från galleriet
-Om du vill konfigurera integreringen av hemlighet Server (lokalt) till Azure AD, som du behöver lägga till hemlighet Server (lokalt) från galleriet i din lista över hanterade SaaS-appar.
+* Hemlig Server (lokal) stöder SP- **och IDP** -INITIERAd SSO
 
-**Utför följande steg för att lägga till hemlighet Server (lokalt) från galleriet:**
+## <a name="adding-secret-server-on-premises-from-the-gallery"></a>Lägga till hemlig Server (lokalt) från galleriet
 
-1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+Du måste lägga till en hemlig Server (lokalt) från galleriet till din lista över hanterade SaaS-appar för att konfigurera integrering av hemlig Server (lokalt) i Azure AD.
 
-    ![Azure Active Directory-knappen][1]
+1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
+1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** .
+1. Navigera till **företags program** och välj sedan **alla program**.
+1. Välj **nytt program**om du vill lägga till ett nytt program.
+1. I avsnittet **Lägg till från galleriet** skriver du **hemlig Server (lokalt)** i sökrutan.
+1. Välj **hemlig Server (lokalt)** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
-1. Gå till **företagsprogram**. Gå till **alla program**.
-
-    ![Bladet för Enterprise-program][2]
-    
-1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
-
-    ![Knappen Nytt program][3]
-
-1. I sökrutan skriver **hemlighet Server (lokalt)** väljer **hemlighet Server (lokalt)** resultatet panelen klickar **Lägg till** för att lägga till programmet.
-
-    ![Hemlig Server (lokalt) i listan med resultat](./media/secretserver-on-premises-tutorial/tutorial_secretserver_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med hemlighet Server (lokalt) baserat på en testanvändare som kallas ”Britta Simon”.
+Konfigurera och testa Azure AD SSO med en hemlig Server (lokalt) med hjälp av en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i den hemliga servern (lokalt).
 
-För enkel inloggning att fungera, behöver Azure AD du känna till motsvarande användare i hemlighet Server (lokalt) till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i hemlighet Server (lokalt) upprättas.
+Om du vill konfigurera och testa Azure AD SSO med hemlig Server (lokalt) slutför du följande Bygg stenar:
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med hemlighet Server (lokalt), måste du utföra följande byggblock:
+1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera den hemliga servern (lokalt) SSO](#configure-secret-server-on-premises-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
+3. **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
+4. **[Tilldela Azure AD](#assign-the-azure-ad-test-user)** -testuser-för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
+5. **[Skapa en hemlig Server (lokal) test användare](#create-secret-server-on-premises-test-user)** – om du vill ha en motsvarighet till B. Simon i den hemliga servern (lokalt) som är länkad till Azure AD-representation av användare.
+6. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-1. **[Skapa en hemlighet Server (lokalt) testanvändare](#create-a-secret-server-on-premises-test-user)**  – du har en motsvarighet för Britta Simon i hemlighet Server (lokalt) som är länkad till en Azure AD-representation av användaren.
-1. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-1. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+### <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
-I det här avsnittet ska du aktiverar Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i serverprogrammet hemlighet (lokalt).
+1. I [Azure Portal](https://portal.azure.com/)på sidan för program integration på den **hemliga servern (lokalt)** , letar du upp avsnittet **Hantera** och väljer **enkel inloggning**.
+1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
+1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med hemlighet Server (lokalt):**
+   ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-1. I Azure-portalen på den **hemlighet Server (lokalt)** program integration-sidan klickar du på **enkel inloggning**.
+1. I avsnittet **grundläggande SAML-konfiguration** , om du vill konfigurera programmet i **IDP** initierat läge, anger du värdena för följande fält:
 
-    ![Konfigurera enkel inloggning för länken][4]
+    a. I text rutan **identifierare** anger du det valda värdet för användaren som exempel:`https://secretserveronpremises.azure`
 
-1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
-
-    ![Enkel inloggning för dialogrutan](./media/secretserver-on-premises-tutorial/tutorial_secretserver_samlbase.png)
-
-1. På den **hemlighet Server (lokalt)-domän och URL: er** avsnittet, utför följande steg om du vill konfigurera programmet i **IDP** initierade läge:
-
-    ![Hemlig Server (lokalt)-domän och URL: er med enkel inloggning för information](./media/secretserver-on-premises-tutorial/tutorial_secretserver_url.png)
-
-    a. I den **identifierare** textrutan Ange användaren valt värdet som ett exempel: `https://secretserveronpremises.azure`
-
-    b. I den **svars-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<SecretServerURL>/SAML/AssertionConsumerService.aspx`
+    b. I textrutan **Svars-URL** skriver du in en URL med följande mönster: `https://<SecretServerURL>/SAML/AssertionConsumerService.aspx`
 
     > [!NOTE]
-    > Entitets-ID som visas ovan är bara ett exempel och du kan välja ett unikt värde som identifierar din hemlighet Server-instans i Azure AD. Du behöver skicka den här entitets-ID till [hemlighet Server (lokalt) Client supportteamet](https://thycotic.force.com/support/s/) och de konfigureras på sidan. Mer information hittar du [i den här artikeln](https://thycotic.force.com/support/s/article/Configuring-SAML-in-Secret-Server).
+    > Det entitets-ID som visas ovan är bara ett exempel och du kan välja ett unikt värde som identifierar din hemliga Server instans i Azure AD. Du måste skicka det här entitets-ID: t till den [hemliga serverns (lokalt) klient support team](https://thycotic.force.com/support/s/) och de konfigurerar det på deras sida. Läs [den här artikeln](https://thycotic.force.com/support/s/article/Configuring-SAML-in-Secret-Server)om du vill ha mer information.
 
-1. Kontrollera **visa avancerade URL-inställningar** och utföra följande steg om du vill konfigurera programmet i **SP** initierade läge:
+1. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    ![Hemlig Server (lokalt)-domän och URL: er med enkel inloggning för information](./media/secretserver-on-premises-tutorial/tutorial_secretserver_url1.png)
+    I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://<SecretServerURL>/login.aspx`
 
-    I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<SecretServerURL>/login.aspx`
-     
-    > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera värdena med faktisk svars-URL och inloggnings-URL. Kontakta [hemlighet Server (lokalt) Client supportteamet](https://thycotic.force.com/support/s/) att hämta dessa värden.
+    > [!NOTE]
+    > Dessa värden är inte verkliga. Uppdatera värdena med faktisk svars-URL och inloggnings-URL. Kontakta [hemliga Server (lokalt) klient support team](https://thycotic.force.com/support/s/) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-1. På den **SAML-signeringscertifikat** klickar du på **Certificate(Base64)** och spara certifikatfilen på datorn.
+1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , Sök efter **certifikat (base64)** och välj **Ladda ned** för att ladda ned certifikatet och spara det på din dator.
 
-    ![Länk för hämtning av certifikat](./media/secretserver-on-premises-tutorial/tutorial_secretserver_certificate.png)
+    ![Länk för hämtning av certifikat](common/certificatebase64.png)
 
-1. Kontrollera **visa avancerade inställningar för signering av certifikat** och välj **signering alternativet** som **inloggning SAML-svar och försäkran**.
+1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **Redigera** -ikonen för att öppna dialog rutan för **SAML-signerings certifikat** .
 
-    ![Signeringsalternativ](./media/secretserver-on-premises-tutorial/signing.png)
+    ![Signerings alternativ](./media/secretserver-on-premises-tutorial/edit-saml-signon.png)
 
-1. Klicka på **spara** knappen.
+1. Välj **signerings alternativ** som **signerat SAML-svar och kontroll**.
 
-    ![Konfigurera enkel inloggning spara-knapp](./media/secretserver-on-premises-tutorial/tutorial_general_400.png)
-    
-1. På den **hemlighet serverkonfiguration (lokalt)** klickar du på **konfigurera hemlighet Server (lokalt)** att öppna **konfigurera inloggning** fönster. Kopiera den **URL för utloggning, SAML entitets-ID och SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
+    ![Signerings alternativ](./media/secretserver-on-premises-tutorial/signing-option.png)
 
-    ![Konfiguration av hemliga Server (lokalt)](./media/secretserver-on-premises-tutorial/tutorial_secretserver_configure.png)
+1. I avsnittet **Konfigurera hemlig Server (lokalt)** kopierar du lämpliga URL: er baserat på ditt krav.
 
-1. Att konfigurera enkel inloggning på **hemlighet Server (lokalt)** sida, som du behöver skicka de hämtade **Certificate(Base64) URL för utloggning, enkel inloggning Service URL för SAML**, och **SAML-entitet ID** till [hemlighet Server (lokalt) supportteamet](https://thycotic.force.com/support/s/). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
+
+### <a name="configure-secret-server-on-premises-sso"></a>Konfigurera hemlig Server (lokal) SSO
+
+Om du vill konfigurera enkel inloggning på den **hemliga servern (lokalt)** måste du skicka det hämtade **certifikatet (base64)** och lämpliga kopierade url: er från Azure Portal till support teamet för den [hemliga servern (lokalt)](https://thycotic.force.com/support/s/). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
 
-   ![Skapa en Azure AD-testanvändare][100]
-
-**Utför följande steg för att skapa en testanvändare i Azure AD:**
-
-1. I Azure-portalen, i den vänstra rutan klickar du på den **Azure Active Directory** knappen.
-
-    ![Azure Active Directory-knappen](./media/secretserver-on-premises-tutorial/create_aaduser_01.png)
-
-1. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
-
-    ![”Användare och grupper” och ”alla användare”-länkar](./media/secretserver-on-premises-tutorial/create_aaduser_02.png)
-
-1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
-
-    ![Knappen Lägg till](./media/secretserver-on-premises-tutorial/create_aaduser_03.png)
-
-1. I den **användaren** dialogrutan utför följande steg:
-
-    ![Dialogrutan användare](./media/secretserver-on-premises-tutorial/create_aaduser_04.png)
-
-    a. I den **namn** skriver **BrittaSimon**.
-
-    b. I den **användarnamn** skriver användarens Britta Simon e-postadress.
-
-    c. Välj den **visa lösenord** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** box.
-
-    d. Klicka på **Skapa**.
- 
-### <a name="create-a-secret-server-on-premises-test-user"></a>Skapa en testanvändare hemlighet Server (lokalt)
-
-I det här avsnittet skapar du en användare som kallas Britta Simon i hemlighet Server (lokalt). Arbeta med [hemlighet Server (lokalt) supportteamet](https://thycotic.force.com/support/s/) att lägga till användare i den hemlighet Server (lokalt)-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
+1. Välj **ny användare** överst på skärmen.
+1. I **användar** egenskaperna följer du de här stegen:
+   1. I **Namn**-fältet skriver du `B.Simon`.  
+   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+   1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
+   1. Klicka på **Skapa**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till hemlighet Server (lokalt).
+I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till hemlig Server (lokalt).
 
-![Tilldela rollen][200]
+1. I Azure Portal väljer du **företags program**och väljer sedan **alla program**.
+1. I listan program väljer du **hemlig Server (lokalt)** .
+1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
 
-**Om du vill tilldela Britta Simon hemlighet Server (lokalt), utför du följande steg:**
+   ![Länken ”användare och grupper”](common/users-groups-blade.png)
 
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
+1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
 
-    ![Tilldela användare][201]
+    ![Länken Lägg till användare](common/add-assign-user.png)
 
-1. I listan med program väljer **hemlighet Server (lokalt)** .
+1. I dialog rutan **användare och grupper** väljer du **B. Simon** från listan användare och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Om du förväntar dig ett roll värde i SAML Assertion, i dialog rutan **Välj roll** , väljer du lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-    ![Länken hemlighet Server (lokalt) i listan med program](./media/secretserver-on-premises-tutorial/tutorial_secretserver_app.png)
+### <a name="create-secret-server-on-premises-test-user"></a>Skapa en hemlig Server (lokal) test användare
 
-1. I menyn till vänster, klickar du på **användare och grupper**.
+I det här avsnittet skapar du en användare som heter Britta Simon i den hemliga servern (lokalt). Arbeta med [support teamet för hemliga servrar (lokalt)](https://thycotic.force.com/support/s/) för att lägga till användarna på den hemliga serverns (lokala) plattform. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
-    ![Länken ”användare och grupper”][202]
-
-1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
-
-    ![Fönstret Lägg till tilldelning][203]
-
-1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
-
-1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
-
-1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
-
-### <a name="test-single-sign-on"></a>Testa enkel inloggning
+### <a name="test-sso"></a>Testa SSO
 
 I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
-När du klickar på panelen hemlighet Server (lokalt) i åtkomstpanelen du bör få automatiskt loggat in på serverprogrammet hemlighet (lokalt).
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md).
+När du klickar på panelen hemlig Server (lokal) på åtkomst panelen, bör du loggas in automatiskt på den hemliga servern (lokalt) som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/secretserver-on-premises-tutorial/tutorial_general_01.png
-[2]: ./media/secretserver-on-premises-tutorial/tutorial_general_02.png
-[3]: ./media/secretserver-on-premises-tutorial/tutorial_general_03.png
-[4]: ./media/secretserver-on-premises-tutorial/tutorial_general_04.png
-
-[100]: ./media/secretserver-on-premises-tutorial/tutorial_general_100.png
-
-[200]: ./media/secretserver-on-premises-tutorial/tutorial_general_200.png
-[201]: ./media/secretserver-on-premises-tutorial/tutorial_general_201.png
-[202]: ./media/secretserver-on-premises-tutorial/tutorial_general_202.png
-[203]: ./media/secretserver-on-premises-tutorial/tutorial_general_203.png
-
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

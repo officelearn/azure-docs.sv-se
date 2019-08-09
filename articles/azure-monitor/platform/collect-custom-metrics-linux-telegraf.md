@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 306180d1a0789aff2fc88930178976c342aef9b9
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: e8164a111b9ad5ebcc67c248586e2576046334b0
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827410"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883246"
 ---
 # <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>Samla in anpassade mått för en virtuell Linux-dator med InfluxData-agenten för teleympkvistar
 
@@ -77,7 +77,7 @@ Om du vill installera Debian-paketet för teleympkvistar på den virtuella dator
 
 ```cmd
 # download the package to the VM 
-wget https://dl.influxdata.com/telegraf/releases/telegraf_1.8.0~rc1-1_amd64.deb 
+wget https://dl.influxdata.com/telegraf/releases/telegraf_1.8.0~rc1-1_amd64.deb 
 # install the package 
 sudo dpkg -i telegraf_1.8.0~rc1-1_amd64.deb
 ```

@@ -1,224 +1,155 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med SecureW2 JoinNow Connector | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och SecureW2 JoinNow Connector.
+title: 'Självstudier: Azure Active Directory integrering med SecureW2 JoinNow-anslutning | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och SecureW2 JoinNow-anslutning.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 2445b3af-f827-40de-9097-6f5c933d0f53
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: tutorial
+ms.date: 08/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b367befb90ec28ece963d67b479749e1c8ad363
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3dbb21bcea978f566082e5edb8831ac044c95fd6
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60340001"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68880121"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-securew2-joinnow-connector"></a>Självstudier: Azure Active Directory-integrering med SecureW2 JoinNow Connector
+# <a name="tutorial-integrate-securew2-joinnow-connector-with-azure-active-directory"></a>Självstudier: Integrera SecureW2 JoinNow-anslutning med Azure Active Directory
 
-I den här självstudien får du lära dig hur du integrerar SecureW2 JoinNow anslutningen med Azure Active Directory (AD Azure).
+I den här självstudien får du lära dig att integrera SecureW2 JoinNow-anslutningsprogram med Azure Active Directory (Azure AD). När du integrerar SecureW2 JoinNow Connector med Azure AD kan du:
 
-Integrera SecureW2 JoinNow anslutningen med Azure AD ger dig följande fördelar:
+* Kontroll i Azure AD som har åtkomst till SecureW2 JoinNow-anslutningsprogrammet.
+* Gör det möjligt för användarna att logga in automatiskt till SecureW2 JoinNow Connector med sina Azure AD-konton.
+* Hantera dina konton på en central plats – Azure Portal.
 
-- Du kan styra i Azure AD som har åtkomst till SecureW2 JoinNow Connector.
-- Du kan aktivera användarna att automatiskt få loggat in på SecureW2 JoinNow Connector (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure portal.
+Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+## <a name="prerequisites"></a>Förutsättningar
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+För att komma igång behöver du följande objekt:
 
-Om du vill konfigurera Azure AD-integrering med SecureW2 JoinNow Connector, behöver du följande objekt:
-
-- En Azure AD-prenumeration
-- En SecureW2 JoinNow enkel inloggning aktiverat för produktanslutning
-
-> [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
-
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
-
-- Använd inte din produktionsmiljö, om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
+* SecureW2 JoinNow Connector Single Sign-on (SSO) aktive rad prenumeration.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-1. Att lägga till SecureW2 JoinNow Connector från galleriet
-2. Konfigurera och testa Azure AD enkel inloggning
+I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
 
-## <a name="adding-securew2-joinnow-connector-from-the-gallery"></a>Att lägga till SecureW2 JoinNow Connector från galleriet
-Om du vill konfigurera integreringen av SecureW2 JoinNow anslutningen till Azure AD, som du behöver lägga till SecureW2 JoinNow Connector från galleriet i din lista över hanterade SaaS-appar.
+* SecureW2 JoinNow-anslutning stöder **SP** -INITIERAd SSO
 
-**Utför följande steg för att lägga till SecureW2 JoinNow Connector från galleriet:**
 
-1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
-    ![Azure Active Directory-knappen][1]
 
-2. Gå till **företagsprogram**. Gå till **alla program**.
 
-    ![Bladet för Enterprise-program][2]
-    
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+## <a name="adding-securew2-joinnow-connector-from-the-gallery"></a>Lägga till SecureW2 JoinNow Connector från galleriet
 
-    ![Knappen Nytt program][3]
+Om du vill konfigurera integreringen av SecureW2 JoinNow-anslutningen i Azure AD måste du lägga till SecureW2 JoinNow Connector från galleriet till listan över hanterade SaaS-appar.
 
-4. I sökrutan skriver **SecureW2 JoinNow Connector**väljer **SecureW2 JoinNow Connector** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
+1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** .
+1. Navigera till **företags program** och välj sedan **alla program**.
+1. Välj **nytt program**om du vill lägga till ett nytt program.
+1. I avsnittet **Lägg till från galleriet** skriver du **SecureW2 JoinNow Connector** i sökrutan.
+1. Välj **SecureW2 JoinNow Connector** från panelen resultat och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
-    ![SecureW2 JoinNow anslutningen i listan med resultat](./media/securejoinnow-tutorial/tutorial_securejoinnow_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med SecureW2 JoinNow Anslutningsapp baserat på en testanvändare som kallas ”Britta Simon”.
+Konfigurera och testa Azure AD SSO med SecureW2 JoinNow Connector med en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i SecureW2 JoinNow-anslutningen.
 
-För enkel inloggning att fungera, behöver Azure AD du känna till motsvarande användare i SecureW2 JoinNow anslutning till en användare i Azure AD. Med andra ord måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i SecureW2 JoinNow anslutningen ska upprättas.
+Om du vill konfigurera och testa Azure AD SSO med SecureW2 JoinNow Connector slutför du följande Bygg stenar:
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med SecureW2 JoinNow Connector, måste du utföra följande byggblock:
+1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera SecureW2 JoinNow Connector SSO](#configure-securew2-joinnow-connector-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
+3. **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
+4. **[Tilldela Azure AD](#assign-the-azure-ad-test-user)** -testuser-för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
+5. **[Skapa SecureW2 JoinNow Connector test User](#create-securew2-joinnow-connector-test-user)** – om du vill ha en motsvarighet till B. Simon i SecureW2 JoinNow-anslutning som är länkad till Azure AD-representation av användare.
+6. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-3. **[Skapa en testanvändare SecureW2 JoinNow Connector](#create-a-securew2-joinnow-connector-test-user)**  – du har en motsvarighet för Britta Simon i SecureW2 JoinNow koppling som är länkad till en Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+### <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
-I det här avsnittet ska du aktiverar Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i din SecureW2 JoinNow anslutningsprogram.
+1. I [Azure Portal](https://portal.azure.com/)på sidan **SecureW2 JoinNow Connector** Application Integration hittar du avsnittet **Hantera** och väljer **enkel inloggning**.
+1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
+1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med SecureW2 JoinNow Connector:**
+   ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-1. I Azure-portalen på den **SecureW2 JoinNow Connector** program integration-sidan klickar du på **enkel inloggning**.
+1. I avsnittet **grundläggande SAML-konfiguration** anger du värden för följande fält:
 
-    ![Konfigurera enkel inloggning för länken][4]
+    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<organization-identifier>-auth.securew2.com/auth/saml/SSO`
 
-2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
- 
-    ![Enkel inloggning för dialogrutan](./media/securejoinnow-tutorial/tutorial_securejoinnow_samlbase.png)
+    b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://<organization-identifier>-auth.securew2.com/auth/saml`
 
-3. På den **SecureW2 JoinNow Connector domän och URL: er** avsnittet, utför följande steg:
+    > [!NOTE]
+    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL och identifierare. Kontakta [SecureW2 JoinNow Connector client support team](mailto:support@securew2.com) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-    ![SecureW2 JoinNow Connector domän och URL: er med enkel inloggning för information](./media/securejoinnow-tutorial/tutorial_securejoinnow_url.png)
+1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , letar du reda på **metadata-XML** och väljer **Hämta** för att ladda ned certifikatet och spara det på din dator.
 
-    a. I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<organization-identifier>-auth.securew2.com/auth/saml/SSO`
+    ![Länk för hämtning av certifikat](common/metadataxml.png)
 
-    b. I textrutan **Identifierare** anger du en URL med följande mönster: `https://<organization-identifier>-auth.securew2.com/auth/saml`
+1. I avsnittet **Konfigurera SecureW2 JoinNow-anslutning** kopierar du lämpliga URL: er baserat på ditt krav.
 
-    > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta [SecureW2 JoinNow Connector-klient supportteamet](mailto:support@securew2.com) att hämta dessa värden. 
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-4. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
+### <a name="configure-securew2-joinnow-connector-sso"></a>Konfigurera SecureW2 JoinNow Connector SSO
 
-    ![Länk för hämtning av certifikat](./media/securejoinnow-tutorial/tutorial_securejoinnow_certificate.png) 
-
-5. Klicka på **spara** knappen.
-
-    ![Konfigurera enkel inloggning spara-knapp](./media/securejoinnow-tutorial/tutorial_general_400.png)
-
-6. Att konfigurera enkel inloggning på **SecureW2 JoinNow Connector** sida, som du behöver skicka de hämtade **XML-Metadata för** till [SecureW2 JoinNow Connector supportteamet](mailto:support@securew2.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
-
+Om du vill konfigurera enkel inloggning på **SecureW2 JoinNow Connector** -sidan måste du skicka den hämtade **metadata-XML-** filen och lämpliga kopierade url: er från Azure Portal till [SecureW2 JoinNow Connector support team](mailto:support@securew2.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
 
-   ![Skapa en Azure AD-testanvändare][100]
-
-**Utför följande steg för att skapa en testanvändare i Azure AD:**
-
-1. I Azure-portalen, i den vänstra rutan klickar du på den **Azure Active Directory** knappen.
-
-    ![Azure Active Directory-knappen](./media/securejoinnow-tutorial/create_aaduser_01.png)
-
-2. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
-
-    ![”Användare och grupper” och ”alla användare”-länkar](./media/securejoinnow-tutorial/create_aaduser_02.png)
-
-3. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
-
-    ![Knappen Lägg till](./media/securejoinnow-tutorial/create_aaduser_03.png)
-
-4. I den **användaren** dialogrutan utför följande steg:
-
-    ![Dialogrutan användare](./media/securejoinnow-tutorial/create_aaduser_04.png)
-
-    a. I den **namn** skriver **BrittaSimon**.
-
-    b. I den **användarnamn** skriver användarens Britta Simon e-postadress.
-
-    c. Välj den **visa lösenord** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** box.
-
-    d. Klicka på **Skapa**.
- 
-### <a name="create-a-securew2-joinnow-connector-test-user"></a>Skapa en testanvändare SecureW2 JoinNow Connector
-
-I det här avsnittet skapar du en användare som kallas Britta Simon i SecureW2 JoinNow Connector. Arbeta med [SecureW2 JoinNow Connector-klient supportteamet](mailto:support@securew2.com) att lägga till användare i SecureW2 JoinNow Connector-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
+1. Välj **ny användare** överst på skärmen.
+1. I **användar** egenskaperna följer du de här stegen:
+   1. I **Namn**-fältet skriver du `B.Simon`.  
+   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+   1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
+   1. Klicka på **Skapa**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning om du beviljar åtkomst till SecureW2 JoinNow anslutningstjänsten.
+I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till SecureW2 JoinNow Connector.
 
-![Tilldela rollen][200] 
+1. I Azure Portal väljer du **företags program**och väljer sedan **alla program**.
+1. I listan program väljer du **SecureW2 JoinNow Connector**.
+1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
 
-**Om du vill tilldela Britta Simon SecureW2 JoinNow Connector, utför du följande steg:**
+   ![Länken ”användare och grupper”](common/users-groups-blade.png)
 
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
+1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
 
-    ![Tilldela användare][201] 
+    ![Länken Lägg till användare](common/add-assign-user.png)
 
-2. I listan med program väljer **SecureW2 JoinNow Connector**.
+1. I dialog rutan **användare och grupper** väljer du **B. Simon** från listan användare och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Om du förväntar dig ett roll värde i SAML Assertion, i dialog rutan **Välj roll** , väljer du lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-    ![SecureW2 JoinNow Connector-länk i listan med program](./media/securejoinnow-tutorial/tutorial_securejoinnow_app.png)  
+### <a name="create-securew2-joinnow-connector-test-user"></a>Skapa SecureW2 JoinNow Connector test User
 
-3. I menyn till vänster, klickar du på **användare och grupper**.
+I det här avsnittet skapar du en användare med namnet Britta Simon i SecureW2 JoinNow Connector. Arbeta med [SecureW2 JoinNow Connector support team](mailto:support@securew2.com) för att lägga till användare i SecureW2 JoinNow Connector-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
-    ![Länken ”användare och grupper”][202]
+### <a name="test-sso"></a>Testa SSO
 
-4. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
-    ![Fönstret Lägg till tilldelning][203]
-
-5. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
-
-6. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
-
-7. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
-    
-### <a name="test-single-sign-on"></a>Testa enkel inloggning
-
-**Om du vill testa programmet utför du följande steg:** 
-
-a. Öppna SecureW2 JoinNow Connector-klient, Välj lämplig enheten i listan och klicka på **logga In** knappen.
-
-b. Standardwebbläsare får öppnas och du bör vara till Azure-portalen för autentisering.
-
-c. Det ska gå tillbaka till första landningssidan för SecureW2 JoinNow koppling på lyckad autentisering.
+När du klickar på SecureW2 JoinNow Connector-panelen på åtkomst panelen, bör du loggas in automatiskt till SecureW2 JoinNow-anslutaren som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/securejoinnow-tutorial/tutorial_general_01.png
-[2]: ./media/securejoinnow-tutorial/tutorial_general_02.png
-[3]: ./media/securejoinnow-tutorial/tutorial_general_03.png
-[4]: ./media/securejoinnow-tutorial/tutorial_general_04.png
-
-[100]: ./media/securejoinnow-tutorial/tutorial_general_100.png
-
-[200]: ./media/securejoinnow-tutorial/tutorial_general_200.png
-[201]: ./media/securejoinnow-tutorial/tutorial_general_201.png
-[202]: ./media/securejoinnow-tutorial/tutorial_general_202.png
-[203]: ./media/securejoinnow-tutorial/tutorial_general_203.png
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ccefec9e548b7981f696712bb4a983f4b577a9b
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 8ece7f93b5397db16e03c1eab1d2dc1e568113d9
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779636"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879266"
 ---
 # <a name="azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Azure AD Password Protection lokalt – vanliga frågor och svar
 
@@ -33,6 +33,8 @@ Microsofts aktuella vägledning om det här avsnittet finns på följande länk:
 **F: Stöds det lokala Azure AD Password Protection i icke-offentliga moln?**
 
 Inget lokalt Azure AD-lösenord för lösen ords skydd stöds bara i det offentliga molnet. Inget datum har angivits för tillgänglighet för icke-offentligt moln.
+
+Azure AD-portalen tillåter ändringar av konfigurationen lokalt "lösen ords skydd för Windows Server Active Directory" även i icke-offentliga moln. sådana ändringar kommer att bevaras, men annars börjar detta aldrig gälla. Registrering av lokala proxyservrar eller skogar stöds inte när autentiseringsuppgifter för icke-offentliga moln används, och alla sådana registrerings försök kommer alltid att Miss lyckas.
 
 **F: Hur kan jag använda fördelarna med lösen ords skydd i Azure AD på en delmängd av mina lokala användare?**
 
@@ -64,7 +66,7 @@ Stöds ej. Azure AD Password Protection är en Azure-funktion som stöder utöka
 
 **F: Hur kan jag ändra innehållet i principen på Active Directory nivå?**
 
-Stöds ej. Principen kan bara administreras med hjälp av hanterings portalen för Azure AD. Se även föregående fråga.
+Stöds ej. Principen kan bara administreras med Azure AD-portalen. Se även föregående fråga.
 
 **F: Varför krävs DFSR för SYSVOL-replikering?**
 
@@ -118,15 +120,15 @@ I sammanfattning krävs distributionen av tjänsten Azure AD Password Protection
 
 **F: Varför fungerar inte anpassad Smart utelåsning trots att agenterna har installerats i min lokala Active Directorys miljö?**
 
-Anpassad Smart utelåsning stöds bara i Azure. Ändringar av anpassade inställningar för smart utelåsning i hanterings portalen för Azure har ingen påverkan på den lokala Active Directorys miljön, även om agenterna är installerade.
+Anpassad Smart utelåsning stöds bara i Azure AD. Ändringar av anpassade inställningar för smart utelåsning i Azure AD-portalen har ingen påverkan på den lokala Active Directorys miljön, även om agenterna är installerade.
 
 **F: Är ett System Center Operations Manager hanterings paket tillgängligt för Azure AD Password Protection?**
 
 Nej.
 
-**F: Varför nekar Azure fortfarande svaga lösen ord trots att jag har konfigurerat principen som gransknings läge?**
+**F: Varför nekar Azure AD fortfarande svaga lösen ord trots att jag har konfigurerat principen som gransknings läge?**
 
-Gransknings läget stöds bara i den lokala Active Directorys miljön. Azure är implicit alltid i "framtvinga" läge när det utvärderar lösen ord.
+Gransknings läget stöds bara i den lokala Active Directorys miljön. Azure AD är implicit alltid i "framtvinga" läge när det utvärderar lösen ord.
 
 ## <a name="additional-content"></a>Ytterligare innehåll
 

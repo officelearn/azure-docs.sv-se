@@ -1,6 +1,6 @@
 ---
-title: Endpoint protection lösningar identifierings- och bedömning i Azure Security Center | Microsoft Docs
-description: Så identifieras och har identifierat som felfria endpoint protection-lösningar.
+title: Slut punkts skydds lösningar identifiering och hälso utvärdering i Azure Security Center | Microsoft Docs
+description: Hur lösningar för slut punkts skydd identifieras och identifieras som felfria.
 services: security-center
 documentationcenter: na
 author: monhaber
@@ -11,29 +11,29 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/23/2019
+ms.date: 08/08/2019
 ms.author: v-mohabe
-ms.openlocfilehash: b17e5f16b988bfa562b00bc6f5b9dfd34be4ca43
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4d3fc90a722b9f4043e891a14b542e6b90c94c55
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66247971"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881039"
 ---
-# <a name="endpoint-protection-assessment-and-recommendations-in-azure-security-center"></a>Endpoint protection-utvärdering och rekommendationer i Azure Security Center
+# <a name="endpoint-protection-assessment-and-recommendations-in-azure-security-center"></a>Endpoint Protection-utvärdering och rekommendationer i Azure Security Center
 
-Endpoint protection-utvärdering och rekommendationer i Azure Security Center identifierar och tillhandahåller hälsotillstånd bedömning av [stöds](https://docs.microsoft.com/azure/security-center/security-center-os-coverage#supported-platforms-for-windows-computers-and-vms) versioner av slutpunktsskyddslösningar. Det här avsnittet beskrivs de scenarier som genererar följande två rekommendationer för slutpunktsskyddslösningar av Azure Security Center.
+Endpoint Protection-utvärdering och rekommendationer i Azure Security Center identifierar och tillhandahåller hälso utvärdering av versioner av slut punkts skydds lösningar som [stöds](https://docs.microsoft.com/azure/security-center/security-center-os-coverage#supported-platforms-for-windows-computers-and-vms) . I det här avsnittet beskrivs scenarier som genererar följande två rekommendationer för Endpoint Protection-lösningar med Azure Security Center.
 
-* **Installera endpoint protection-lösningar på den virtuella datorn**
-* **Lösa hälsoproblem för endpoint protection på datorer**
+* **Installera Endpoint Protection-lösningar på den virtuella datorn**
+* **Lös problem med hälso tillstånd för slut punkts skydd på dina datorer**
 
 ## <a name="windows-defender"></a>Windows Defender
 
-* Den **”installera endpoint protection-lösningar på den virtuella datorn”** rekommendation skapas när [Get-MpComputerStatus](https://docs.microsoft.com/powershell/module/defender/get-mpcomputerstatus?view=win10-ps) körs och resultatet är **AMServiceEnabled: False**
+* Rekommendationen **"Installera Endpoint Protection-lösningar på virtuell dator"** genereras när [Get-MpComputerStatus](https://docs.microsoft.com/powershell/module/defender/get-mpcomputerstatus?view=win10-ps) körs och resultatet är **AMServiceEnabled: !**
 
-* Den **”Lös hälsoproblem för endpoint protection på dina datorer”** rekommendation skapas när [Get-MpComputerStatus](https://docs.microsoft.com/powershell/module/defender/get-mpcomputerstatus?view=win10-ps) körs och en eller båda av följande inträffar:
+* Rekommendationen **"Lös problem med Endpoint Protection-hälso problemen på dina datorer"** genereras när [Get-MpComputerStatus](https://docs.microsoft.com/powershell/module/defender/get-mpcomputerstatus?view=win10-ps) körs, eller båda av följande inträffar:
 
-  * Minst en av följande egenskaper är false:
+  * Minst en av följande egenskaper är falsk:
 
      **AMServiceEnabled**
 
@@ -47,19 +47,19 @@ Endpoint protection-utvärdering och rekommendationer i Azure Security Center id
 
      **OnAccessProtectionEnabled**
 
-  * Om en eller båda av följande egenskaper är större eller lika med 7.
+  * Om en eller båda av följande egenskaper är större än eller lika med 7.
 
      **AntispywareSignatureAge**
 
      **AntivirusSignatureAge**
 
-## <a name="microsoft-system-center-endpoint-protection"></a>Microsoft System Center endpoint protection
+## <a name="microsoft-system-center-endpoint-protection"></a>Microsoft System Center Endpoint Protection
 
-* Den **”installera endpoint protection-lösningar på den virtuella datorn”** rekommendation skapas när du importerar **SCEPMpModule (”$env: Program\microsoft Security Client\MpProvider\MpProvider.psd1”)** och köra **Get-MProtComputerStatus** resulterar med **AMServiceEnabled = false**
+* Rekommendationen **"Installera Endpoint Protection-lösningar på virtuell dator"** skapas när du importerar **SCEPMpModule ("$env:P rogramfiles\microsoft Security Client\MpProvider\MpProvider.psd1")** och kör  **Get-MProtComputerStatus-** resultat med **AMServiceEnabled = false**
 
-* Den **”Lös hälsoproblem för endpoint protection på dina datorer”** rekommendation skapas när **Get-MprotComputerStatus** körs och en eller båda av följande inträffar:
+* Rekommendationen **"Lös problem med Endpoint Protection-hälso problemen på dina datorer"** genereras när **Get-MprotComputerStatus** körs, eller båda av följande inträffar:
 
-    * Minst en av följande egenskaper är false:
+    * Minst en av följande egenskaper är falsk:
 
        **AMServiceEnabled**
     
@@ -73,7 +73,7 @@ Endpoint protection-utvärdering och rekommendationer i Azure Security Center id
     
        **OnAccessProtectionEnabled**
           
-    * Om en eller båda av följande Signaturuppdateringar är större eller lika med 7. 
+    * Om en eller båda av följande uppdateringar av signaturen är större än eller lika med 7. 
 
        **AntispywareSignatureAge**
     
@@ -81,69 +81,105 @@ Endpoint protection-utvärdering och rekommendationer i Azure Security Center id
 
 ## <a name="trend-micro"></a>Trend Micro
 
-* Den **”installera endpoint protection-lösningar på den virtuella datorn”** rekommendation genereras om en eller flera av följande kontroller inte uppfylls:
-    * **HKLM:\SOFTWARE\TrendMicro\Deep säkerhetsagenten** finns
-    * **HKLM:\SOFTWARE\TrendMicro\Deep Security Agent\InstallationFolder** finns
-    * Den **dsq_query.cmd** filen finns i installationsmappen
-    * Kör **dsa_query.cmd** resulterar med **Component.AM.mode: på - Trend Micro Deep Security Agent upptäckte**
+* Rekommendationen **"Installera Endpoint Protection-lösningar på virtuell dator"** skapas om en eller flera av följande kontroller inte är uppfyllda:
+    * **HKLM: \ SOFTWARE\TrendMicro\Deep säkerhets agent** finns
+    * **HKLM: \ SOFTWARE\TrendMicro\Deep Security Agent\InstallationFolder** finns
+    * Filen **dsq_query. cmd** finns i installationsmappen
+    * Kör **dsa_query. cmd** -resultat med **komponent. am. mode: analys av Micro-djup säkerhets agent** har identifierats
 
-## <a name="symantec-endpoint-protection"></a>Symantec endpoint protection
-Den **”installera endpoint protection-lösningar på den virtuella datorn”** rekommendation genereras om någon av följande kontroller inte uppfylls:
+## <a name="symantec-endpoint-protection"></a>Symantec Endpoint Protection
+Rekommendationen **"Installera Endpoint Protection-lösningar på virtuell dator"** skapas om någon av följande kontroller inte är uppfyllda:
 
-* **HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion\PRODUCTNAME = "Symantec Endpoint Protection"**
+* **HKLM: \ Software\Symantec\Symantec Endpoint Protection\CurrentVersion\PRODUCTNAME = "Symantec Endpoint Protection"**
 
 * **HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus = 1**
 
 Eller
 
-* **HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection\CurrentVersion\PRODUCTNAME = ”Symantec Endpoint Protection”**
+* **HKLM: \ Software\Wow6432Node\Symantec\Symantec Endpoint Protection\CurrentVersion\PRODUCTNAME = "Symantec Endpoint Protection"**
 
 * **HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus = 1**
 
-Den **”Lös hälsoproblem för endpoint protection på dina datorer”** rekommendation genereras om någon av följande kontroller inte uppfylls:  
+Rekommendationen **"Lös problem med slut punkts skydd på dator"** skapas om någon av följande kontroller inte är uppfyllda:  
 
-* Kontrollera Symantec Version > = 12:  Registernyckel: **HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion" -Value "PRODUCTVERSION"**
+* Kontrol lera Symantec-versionen > = 12:  Register plats: **HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion" -Value "PRODUCTVERSION"**
 
-* Kontrollera status för realtidsskydd: **HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection\AV\Storages\Filesystem\RealTimeScan\OnOff == 1**
+* Kontrol lera status för real tids skydd: **HKLM: \ Software\Wow6432Node\Symantec\Symantec-slutpunkt Protection\AV\Storages\Filesystem\RealTimeScan\OnOff = = 1**
 
-* Kontrollera status för signaturuppdatering: **HKLM\Software\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\LatestVirusDefsDate <= 7 days**
+* Kontrol lera status för uppdatering av signatur: **HKLM\Software\Symantec\Symantec-slutpunkt Protection\CurrentVersion\public-opstate\LatestVirusDefsDate < = 7 dagar**
 
-* Kontrollera status för fullständig sökning: **HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\LastSuccessfulScanDateTime <= 7 days**
+* Kontrol lera status för fullständig sökning: **HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\LastSuccessfulScanDateTime <= 7 days**
 
-* Hitta signaturen versionsnumret sökväg till signaturversion för Symantec-12: **Registry Paths+ "CurrentVersion\SharedDefs" -Value "SRTSP"** 
+* Sök efter signatur version nummer sökväg till signatur version för Symantec 12: **Registry Paths+ "CurrentVersion\SharedDefs" -Value "SRTSP"** 
 
-* Sökväg till signaturversion för Symantec 14: **Registry Paths+ "CurrentVersion\SharedDefs\SDSDefs" -Value "SRTSP"**
+* Sökväg till Signature version för Symantec 14: **Registry Paths+ "CurrentVersion\SharedDefs\SDSDefs" -Value "SRTSP"**
 
-Registry Paths:
+Register Sök vägar:
 
-**"HKLM:\Software\Symantec\Symantec Endpoint Protection" + $Path;** 
- **"HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection" + $Path**
+* **"HKLM: \ Software\Symantec\Symantec Endpoint Protection" + $Path;**
+* **"HKLM: \ Software\Wow6432Node\Symantec\Symantec Endpoint Protection" + $Path**
 
-## <a name="mcafee-endpoint-protection-for-windows"></a>McAfee endpoint protection för Windows
+## <a name="mcafee-endpoint-protection-for-windows"></a>McAfee Endpoint Protection för Windows
 
-Den **”installera endpoint protection-lösningar på den virtuella datorn”** rekommendation genereras om följande kontroller inte uppfylls:
+Rekommendationen **"Installera Endpoint Protection-lösningar på virtuell dator"** skapas om följande kontroller inte är uppfyllda:
 
-* **HKLM:\SOFTWARE\McAfee\Endpoint\AV\ProductVersion** finns
+* **HKLM: \ SOFTWARE\McAfee\Endpoint\AV\ProductVersion** finns
 
-* **HKLM:\SOFTWARE\McAfee\AVSolution\MCSHIELDGLOBAL\GLOBAL\enableoas = 1**
+* **HKLM: \ SOFTWARE\McAfee\AVSolution\MCSHIELDGLOBAL\GLOBAL\enableoas = 1**
 
-Den **”Lös hälsoproblem för endpoint protection på dina datorer”** rekommendation genereras om följande kontroller inte uppfylls:
+Rekommendationen **"Lös problem med slut punkts skydd på** datorerna" skapas om följande kontroller inte är uppfyllda:
 
-* McAfee Version: **HKLM:\SOFTWARE\McAfee\Endpoint\AV\ProductVersion > = 10**
+* McAfee-version: **HKLM: \ SOFTWARE\McAfee\Endpoint\AV\ProductVersion > = 10**
 
-* Hitta Signaturversion: **HKLM:\Software\McAfee\AVSolution\DS\DS -Value "dwContentMajorVersion"**
+* Sök efter signatur version: **HKLM:\Software\McAfee\AVSolution\DS\DS -Value "dwContentMajorVersion"**
 
-* Hitta signaturen datum: **HKLM:\Software\McAfee\AVSolution\DS\DS -Value "szContentCreationDate" >= 7 days**
+* Sök efter datum för signatur: **HKLM: \ Software\McAfee\AVSolution\DS\DS-Value "szContentCreationDate" > = 7 dagar**
 
-* Hitta datum för Maskinvarugenomsökning: **HKLM:\Software\McAfee\Endpoint\AV\ODS-värdet ”LastFullScanOdsRunTime” > = 7 dagar**
+* Sök efter genomsöknings datum: **HKLM: \ Software\McAfee\Endpoint\AV\ODS-Value "LastFullScanOdsRunTime" > = 7 dagar**
+
+## <a name="mcafee-endpoint-security-for-linux-threat-prevention"></a>Säkerhet för McAfee-slutpunkten för Linux hot förebyggande 
+
+**Installations slut punkts skydds lösningarna på den virtuella datorns** rekommendation skapas om en eller båda av följande kontroller inte är uppfyllda:  
+
+- Filen **/opt/ISEC/ens/threatprevention/bin/isecav** avslutas 
+
+- **"/opt/ISEC/ens/threatprevention/bin/isecav--version"-** utdata är: **McAfee-namn = McAfees slut punkts säkerhet för Linux Threat förebygga och McAfee-version > = 10**
+
+**Lösnings problemen för slut punkts skydd på din dators** rekommendation skapas om en eller flera av följande kontroller inte är uppfyllda:
+
+- **"/opt/ISEC/ens/threatprevention/bin/isecav--listtask"** returnerar **snabb sökning, fullständig genomsökning** och båda genomsökningarna < = 7 dagar
+
+- **"/opt/ISEC/ens/threatprevention/bin/isecav--listtask"** returnerar **dat-och motor uppdaterings tid** och båda < = 7 dagar
+
+- **"/opt/ISEC/ens/threatprevention/bin/isecav--getoasconfig--Summary"** returnerar status **för åtkomst skanning**
+
+## <a name="sophos-antivirus-for-linux"></a>Sophos Antivirus för Linux 
+
+**Installations slut punkts skydds lösningarna på den virtuella datorns** rekommendation skapas om en eller båda av följande kontroller inte är uppfyllda:
+
+- Filen **/opt/Sophos-av/bin/savdstatus** avslutas eller söker efter den anpassade platsen **"Readlink $ (som savscan)"**
+
+- **"/opt/Sophos-av/bin/savdstatus--version"** returnerar Sophos-namn = **Sophos Anti-virus och sophos-version > = 9**
+
+**Lösnings problemen för slut punkts skydd på din dators** rekommendation skapas om en eller flera av följande kontroller inte är uppfyllda:
+
+- **"/opt/Sophos-av/bin/savlog--MaxAge = 7 | grep-i "schemalagd sökning. \* slutfört "| svan-1"** , returnerar ett värde   
+
+- **"/opt/Sophos-av/bin/savlog--MaxAge = 7 | grep "skanningen är färdig"** | pilslut-1 ", returnerar ett värde   
+
+- **"/opt/Sophos-av/bin/savdstatus--lastupdate"** returnerar lastupdate som ska vara < = 7 dagar 
+
+- **"/opt/Sophos-av/bin/savdstatus-v"** är lika med **"Genomsökning vid åtkomst körs"** 
+
+- **"/opt/Sophos-av/bin/savconfig get LiveProtection"** returnerar aktiverat  
 
 ## <a name="troubleshoot-and-support"></a>Felsökning och support
 
 ### <a name="troubleshoot"></a>Felsöka
 
-Microsoft Antimalware loggar finns på:  
-**%Systemdrive%\WindowsAzure\Logs\Plugins\Microsoft.Azure.Security.IaaSAntimalware (eller PaaSAntimalware)\1.5.5.x (version #) \CommandExecution.log**
+Microsofts tilläggs loggar för program mot skadlig kod finns på:  
+**%Systemdrive%\WindowsAzure\Logs\Plugins\Microsoft.Azure.Security.IaaSAntimalware (eller PaaSAntimalware) \1.5.5.x (version #) \CommandExecution.log**
 
 ### <a name="support"></a>Support
 
-Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azure-experter på den [Azure för MSDN och Stack Overflow-forum](https://azure.microsoft.com/support/forums/). Eller du kan arkivera en Azure-support-incident. Gå till den [Azure supportwebbplats](https://azure.microsoft.com/support/options/) och väljer Get support. Information om hur du använder Azure-supporten finns i [vanliga frågor om Microsoft Azure-support](https://azure.microsoft.com/support/faq/).
+Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azure-experter på den [Azure för MSDN och Stack Overflow-forum](https://azure.microsoft.com/support/forums/). Du kan också skriva en support incident för Azure. Gå till den [Azure supportwebbplats](https://azure.microsoft.com/support/options/) och väljer Get support. Information om hur du använder Azure-supporten finns i [vanliga frågor om Microsoft Azure-support](https://azure.microsoft.com/support/faq/).

@@ -1,6 +1,6 @@
 ---
-title: Azure Linux VM-storlekar – Allmänt | Microsoft Docs
-description: Visar en lista över de olika generella storlekarna för Linux-datorer i Azure. Visar information om hur många virtuella processorer, diskar och nätverkskort samt lagring dataflöde och nätverket bandbredd för storlekar i den här serien.
+title: Storlekar för virtuella Azure Linux-datorer – allmänt syfte | Microsoft Docs
+description: Visar en lista över de olika generella syftes storlekar som är tillgängliga för virtuella Linux-datorer i Azure. Visar information om antalet virtuella processorer, data diskar och nätverkskort samt lagrings data flöde och nätverks bandbredd för storlekar i den här serien.
 services: virtual-machines-linux
 documentationcenter: ''
 author: jonbeck7
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 10/01/2018
+ms.date: 08/08/2019
 ms.author: jonbeck
-ms.openlocfilehash: 47b651d9fa3134a5fec7e42cc17c8612cd8f98c3
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 283786706747b1ceebdc1618861f8c8eaa4380b2
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67708862"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881641"
 ---
-# <a name="general-purpose-virtual-machine-sizes"></a>Storlekar för virtuella datorer för generell användning
+# <a name="general-purpose-virtual-machine-sizes"></a>Generella storlekar för virtuella datorer
 
 
 [!INCLUDE [virtual-machines-common-sizes-general](../../../includes/virtual-machines-common-sizes-general.md)]
@@ -36,8 +36,8 @@ ms.locfileid: "67708862"
 - [Lagringsoptimerad](sizes-storage.md)
 - [GPU](sizes-gpu.md)
 - [Databehandling med höga prestanda](sizes-hpc.md)
-- [Tidigare versioner](sizes-previous-gen.md)
+- [Tidigare generationer](sizes-previous-gen.md)
 
 ## <a name="next-steps"></a>Nästa steg
-Läs mer om hur [Azure-beräkningsenheter (ACU)](acu.md) kan hjälpa dig att jämföra prestanda för databearbetning mellan Azure SKU: er.
+Lär dig mer om hur [Azure Compute Units (ACU)](acu.md) kan hjälpa dig att jämföra beräknings prestanda i Azure SKU: er.
 

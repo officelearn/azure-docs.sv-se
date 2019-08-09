@@ -1,6 +1,6 @@
 ---
-title: Kopiera eller klona en datafabrik i Azure Data Factory | Microsoft Docs
-description: Lär dig hur du kopiera eller klona en datafabrik i Azure Data Factory
+title: Kopiera eller klona en data fabrik i Azure Data Factory | Microsoft Docs
+description: Lär dig hur du kopierar eller klonar en data fabrik i Azure Data Factory
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -11,41 +11,41 @@ ms.date: 01/09/2019
 author: sharonlo101
 ms.author: shlo
 manager: craigg
-ms.openlocfilehash: 96ea8142e2f7794d3c15c6efb436eafa585bc8fd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e4d204e9bcf601bf968f06b5d9df3f36414bd5a5
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60780940"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68884191"
 ---
-# <a name="copy-or-clone-a-data-factory-in-azure-data-factory"></a>Kopiera eller klona en datafabrik i Azure Data Factory
+# <a name="copy-or-clone-a-data-factory-in-azure-data-factory"></a>Kopiera eller klona en data fabrik i Azure Data Factory
 
-Den här artikeln beskriver hur du kopiera eller klona en datafabrik i Azure Data Factory.
+I den här artikeln beskrivs hur du kopierar eller klonar en data fabrik i Azure Data Factory.
 
-## <a name="use-cases-for-cloning-a-data-factory"></a>Användningsområden för kloning av en data factory
+## <a name="use-cases-for-cloning-a-data-factory"></a>Använda fall för kloning av en data fabrik
 
-Här följer några omständigheter där det kan vara bra att kopiera eller klona en data factory:
+Här följer några situationer där det kan vara användbart att kopiera eller klona en data fabrik:
 
--   **Byta namn på resurser**. Azure stöder inte byta namn på resurser. Om du vill byta namn på en data factory kan du klona datafabriken med ett annat namn och ta sedan bort den befintliga påverkas.
+-   **Byta namn på resurser**. Azure har inte stöd för att byta namn på resurser. Om du vill byta namn på en data fabrik kan du klona data fabriken med ett annat namn och sedan ta bort den befintliga.
 
--   **Felsöka ändringar** när debug-funktioner inte är tillräckligt. Ibland för att testa ändringarna, kan du testa dina ändringar i en annan fabrik innan du tillämpar dem till den huvudsakliga. I de flesta fall kan du använda Debug. Ändringar i utlösare, men som hur ändringarna beter sig när en utlösare anropas automatiskt, eller via ett tidsfönster kanske inte kan testas enkelt utan att checka in. I dessa fall kan gör kloning fabriken och tillämpa ändringarna och det du klokt. Eftersom Azure Data Factory kostnader främst genom antal körningar, leder den andra fabriken inte till ytterligare avgifter.
+-   **Fel sökning av ändringar** när fel söknings funktionerna inte räcker. Ibland kan det vara bra att testa dina ändringar i en annan fabrik innan du tillämpar dem på ditt huvud konto. I de flesta fall kan du använda fel sökning. Ändringar i utlösare, men till exempel hur dina ändringar beter sig när en utlösare anropas automatiskt, eller över ett tidsfönster, kanske inte är testable enkelt utan att checka in. I dessa fall är det mycket bra att klona fabriken och tillämpa dina ändringar. Eftersom Azure Data Factory avgifter främst för antalet körningar leder den andra fabriken inte till några ytterligare avgifter.
 
-## <a name="how-to-clone-a-data-factory"></a>Hur du klonar en data factory
+## <a name="how-to-clone-a-data-factory"></a>Så här klonar du en data fabrik
 
-1. Användargränssnittet för Data Factory i Azure-portalen kan du exportera hela nyttolasten för din datafabrik i Resource Manager-mall, tillsammans med en parameterfil som du kan ändra alla värden som du vill ändra när du klonar din datafabrik.
+1. Med Data Factory gränssnittet i Azure Portal kan du exportera hela nytto lasten för din data fabrik till en Resource Manager-mall, tillsammans med en parameter fil som du kan använda för att ändra de värden som du vill ändra när du klonar din fabrik.
 
-1. Som ett krav måste du skapa datafabriken mål från Azure-portalen.
+1. Som en förutsättning måste du skapa mål data fabriken från Azure Portal.
 
-1. Om du har en SelfHosted IntegrationRuntime i din källan factory måste du skapa det i förväg med samma namn i mål-factory. Om du vill dela SelfHosted IRs mellan olika fabriker kan du använda mönstret publicerade [här](author-visually.md#best-practices-for-git-integration).
+1. Om du har en SelfHosted-IntegrationRuntime i din käll fabrik måste du förskapa den med samma namn i mål fabriken. Om du vill dela SelfHosted-IRs mellan olika fabriker kan du använda det mönster som publicerats [här](source-control.md#best-practices-for-git-integration).
 
-1. Om du använder GIT-läge, varje gång du publicerar från portalen kan sparas den fabriken Resource Manager-mall till GIT i grenen adf_publish av databasen.
+1. Om du är i GIT-läge, varje gång du publicerar från portalen, sparas fabriks resurs hanterarens Resource Manager-mall i GIT i adf_publish-grenen för lagrings platsen.
 
-1. För andra scenarier, Resource Manager-mall kan hämtas genom att klicka på den **exportera Resource Manager-mall** -knappen i portalen.
+1. I andra scenarier kan du hämta Resource Manager-mallen genom att klicka på knappen **Exportera Resource Manager-mall** i portalen.
 
-1. När du har hämtat Resource Manager-mall kan du distribuera den via standard distributionsmetoder för Resource Manager-mall.
+1. När du har hämtat Resource Manager-mallen kan du distribuera den via standard metoder för distribution av Resource Manager-mallar.
 
-1. Av säkerhetsskäl innehåller genererade Resource Manager-mallen inte någon hemlig information, till exempel lösenord för länkade tjänster. Du måste därför ange lösenorden som parametrar för distribution. Du måste hämta anslutningssträngar och lösenorden för de länkade tjänsterna från Azure Key Vault om att ange parametrar inte är önskvärt.
+1. Av säkerhets skäl innehåller den genererade Resource Manager-mallen ingen hemlig information, till exempel lösen ord för länkade tjänster. Därför måste du ange dessa lösen ord som distributions parametrar. Om det inte är önskvärt att tillhandahålla parametrar måste du hämta anslutnings strängarna och lösen orden för de länkade tjänsterna från Azure Key Vault.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läser du igenom informationen för att skapa en datafabrik i Azure-portalen i [skapa en datafabrik med hjälp av Användargränssnittet för Azure Data Factory](quickstart-create-data-factory-portal.md).
+Granska vägledningen för att skapa en data fabrik i Azure Portal i [skapa en data fabrik med hjälp av Azure Data Factory gränssnittet](quickstart-create-data-factory-portal.md).

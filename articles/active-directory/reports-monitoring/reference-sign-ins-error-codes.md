@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 05/08/2019
+ms.date: 08/08/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6972c91a18f9deb240871d8c64a14647474d9d78
-ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
+ms.openlocfilehash: 4cbaa8f22335da083506a76ad1a791576b109a00
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68377269"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879770"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Felkoder för inloggnings aktivitet 
 
@@ -127,6 +127,7 @@ Du kan också program mässigt komma åt inloggnings data med hjälp av rapporte
 |50177|Extern utmaning stöds inte för passthrough-användare.|
 |50178|Session Control stöds inte för passthrough-användare.|
 |50180|Windows-integrerad autentisering behövs. Aktivera klientorganisationen för sömlös SSO.|
+|50201|Detta meddelande visas vid inloggning när ytterligare information ska ges till användaren.|
 |51001|Domän tipset finns inte med lokal säkerhets identifierare – lokalt UPN.|
 |51004|Användarkontot finns inte i katalogen.|
 |51006|Windows-integrerad autentisering behövs. Användaren loggade in med sessionstoken som saknas via anspråk. Begär att användaren loggar in igen.|
@@ -181,6 +182,9 @@ Du kan också program mässigt komma åt inloggnings data med hjälp av rapporte
 |500121| Autentiseringen misslyckades under begäran om stark autentisering.|
 |500133| Kontrollen ligger inte inom det giltiga tidsintervallet. Se till att åtkomsttoken inte har upphört att gälla innan du använder den för användar kontroll eller begär en ny token.|
 |530021|Programmet uppfyller inte kraven för godkända appar för villkorlig åtkomst.|
+|530032|Blockerad av säkerhets princip.| 
+|700016|Det gick inte att hitta programmet med identifieraren {appIdentifier} i katalogen {tenantName}. Detta kan inträffa om programmet inte har installerats av administratören för klienten eller om någon användare i klient organisationen har godkänt detta. Du kan ha skickat din autentiseringsbegäran till fel klient.|
+|900432|Konfidentiell klient stöds inte i en begäran mellan moln.|
 |7000218|Begär ande texten måste innehålla följande parameter: ' client_assertion ' eller ' client_secret '.|
 
 

@@ -1,121 +1,120 @@
 ---
-title: Analysverktyg för språklig och bearbetning av text - Azure Search
-description: Tilldela analysatorer till sökbara fält i ett index att ersätta standard standard Lucene med anpassade, fördefinierade eller språkspecifika varianter.
+title: Analys verktyg för språk-och text bearbetning – Azure Search
+description: Tilldela analyserare till sökbara textfält i ett index om du vill ersätta standard standard-Lucene med anpassade, fördefinierade eller språkspecifika alternativ.
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/27/2019
+ms.date: 08/08/2019
 ms.author: heidist
 manager: cgronlun
 author: HeidiSteen
-ms.custom: seodec2018
-ms.openlocfilehash: f76d944f614f07a4428d4e4100f6a08a375d96dc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: da1d39c23106b2218700e7a2707b824e240448d3
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65795802"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883044"
 ---
-# <a name="analyzers-for-text-processing-in-azure-search"></a>Analysverktyg för textbearbetning i Azure Search
+# <a name="analyzers-for-text-processing-in-azure-search"></a>Analys verktyg för text bearbetning i Azure Search
 
-En *analyzer* är en del av den [motorn för fulltextsökning](search-lucene-query-architecture.md) ansvarar för bearbetningen av text i frågesträngar och indexerade dokumenten. Olika analysverktyg ändra text på olika sätt beroende på scenario. Språkanalysverktyg bearbeta text med språkliga regler för att förbättra kvaliteten för sökning, medan andra analysverktyg utför grundläggande uppgifter, t.ex. Konvertera tecken till gemener, till exempel. 
+En *Analyzer* är en komponent i den [fullständiga texts öknings motorn](search-lucene-query-architecture.md) som ansvarar för bearbetning av text i frågesträngar och indexerade dokument. Olika analys verktyg ändrar text på olika sätt beroende på scenariot. Språk analys verktyg bearbetar text med språkliga regler för att förbättra Sök kvaliteten, medan andra analyserare utför mer grundläggande uppgifter som att konvertera tecken till gemener, till exempel. 
 
-Språkanalysverktyg är den vanligaste och det är standard språkanalysverktyg som tilldelats varje sökbart fält i ett Azure Search-index. Följande språk omvandlingarna är typiska under textanalys:
+Språk analys verktyg är de vanligaste och det finns standard språk analys som tilldelats alla sökbara fält i ett Azure Search index. Följande språk omvandlingar är typiska under text analys:
 
-+ Icke-essential ord (stoppord) och skiljetecken tas bort.
-+ Fraser och Avstavade ord är uppdelade i komponenter.
-+ Versaler ord är alltid i lägre.
-+ Ord minskas till roten formulär så att en matchning finns, oavsett Tempus.
++ Icke-grundläggande ord (stoppord) och interpunktion tas bort.
++ Fraser och avstavade ord delas upp i komponent delar.
++ Versaler är lägre – bokstäver.
++ Orden reduceras till rot formulär så att en matchning kan hittas oavsett om det finns flera på flera nivåer.
 
-Språk analysverktyg convert textinmatning i primitiv eller rot formulär som är effektivt för lagring av information och hämtning av filer. Konverteringen sker under indexering, när du har skapat indexet och sedan igen vid sökning när indexet läses. Det är mer sannolikt att hämta sökresultat som du förväntar dig om du använder samma analyzer för både.
+Språk analys verktyg konverterar text indata till primitiva eller rot formulär som är effektiva för informations lagring och-hämtning. Konvertering sker under indexeringen, när indexet har skapats och sedan igen vid sökningen när indexet läses. Det är mer troligt att du får de Sök resultat du förväntar dig om du använder samma analys för båda åtgärderna.
 
-## <a name="default-analyzer"></a>Standard analyzer  
+## <a name="default-analyzer"></a>Standard analys  
 
-Använder Azure Search i [Apache Lucene Standard analyzer (standard lucene)](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) som standard, vilket delar upp text i element som följer den [”Unicode Text segmentering”](https://unicode.org/reports/tr29/) regler. Dessutom konverterar standard analysatorn alla tecken till deras gemen form. Både indexerade dokumenten och sökvillkoren kan du gå igenom analysen under indexering och frågebearbetning.  
+Azure Search använder [Apache Lucene standard Analyzer (standard-Lucene)](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) som standard, vilket innebär att text i element följer reglerna för [Unicode-text segment](https://unicode.org/reports/tr29/) . Dessutom konverterar standard analys alla tecken till gemener. Både indexerade dokument och Sök termer går igenom analysen vid indexering och bearbetning av frågor.  
 
-Den används automatiskt på alla sökbara fält. Du kan åsidosätta standardinställningen på basis av fält i taget. Alternativa analysverktyg kan vara en [språkanalysverktyg](index-add-language-analyzers.md), [anpassat analysverktyg](index-add-custom-analyzers.md), eller en fördefinierad analysverktyget från den [lista över tillgängliga analysverktyg](index-add-custom-analyzers.md#AnalyzerTable).
+Den används automatiskt i alla sökbara fält. Du kan åsidosätta standardvärdet för fält-för-fält. Alternativa analys verktyg kan vara [språk analys](index-add-language-analyzers.md), [anpassad analys](index-add-custom-analyzers.md)eller en fördefinierad analys från [listan över tillgängliga analyser](index-add-custom-analyzers.md#AnalyzerTable).
 
 
-## <a name="types-of-analyzers"></a>Typer av analysverktyg
+## <a name="types-of-analyzers"></a>Typer av analys verktyg
 
-I följande lista beskrivs vilka analysverktyg är tillgängliga i Azure Search.
+I följande lista beskrivs vilka analys verktyg som är tillgängliga i Azure Search.
 
 | Category | Beskrivning |
 |----------|-------------|
-| [Analysverktyget från Lucene](https://lucene.apache.org/core/4_0_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) | Standard. Ingen specifikation eller konfiguration krävs. Den här allmänna analyzer utför även för de flesta språk och scenarier.|
-| Fördefinierade analysverktyg | Erbjuds en färdig produkt som är avsedd att användas som – är. <br/>Det finns två typer: specialiserade och språk. Vad gör dem ”fördefinierade” är att du referera till dem efter namn, utan konfiguration eller anpassning. <br/><br/>[Specialiserad (språkoberoende) analysverktyg](index-add-custom-analyzers.md#AnalyzerTable) används när Textinmatningar kräver särskild bearbetning eller minimal bearbetning. Icke-fördefinierade språkanalysverktyg inkluderar **Asciifolding**, **nyckelordet**, **mönstret**, **enkel**, **stoppa**, **Blanksteg**.<br/><br/>[Språkanalysverktyg](index-add-language-analyzers.md) används när du behöver omfattande språkliga stöd för enskilda språk. Azure Search har stöd för 35 Lucene-språkanalys och 50 analysverktyg för språkbearbetning av Microsoft. |
-|[Anpassade analysverktyg](https://docs.microsoft.com/rest/api/searchservice/Custom-analyzers-in-Azure-Search) | Refererar till en användardefinierad konfiguration av en kombination av befintliga element, som består av en tokenizer (krävs) och valfritt filter (char eller token).|
+| [Standard Lucene Analyzer](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) | Standard. Ingen specifikation eller konfiguration krävs. Den här generella analysen fungerar bra för de flesta språk och scenarier.|
+| Fördefinierade analys verktyg | Erbjuds som en färdig produkt som är avsedd att användas i befintligt skick. <br/>Det finns två typer: specialiserade och språk. Vad gör dem "fördefinierade" är att du refererar till dem efter namn, utan konfiguration eller anpassning. <br/><br/>[Specialiserade oberoende-analyser (Language-)](index-add-custom-analyzers.md#AnalyzerTable) används när text inmatningar kräver specialiserad bearbetning eller minimal bearbetning. Icke-språkdefinierade analys verktyg omfattar **Asciifolding**, **nyckelord**, **mönster**, **enkel**, **stopp**, **blank steg**.<br/><br/>[Språk analys](index-add-language-analyzers.md) verktyg används när du behöver omfattande språk stöd för enskilda språk. Azure Search stöder 35 Lucene-språkanalyser och 50 Microsoft Natural Language Processing-analyser. |
+|[Anpassade analysverktyg](https://docs.microsoft.com/rest/api/searchservice/Custom-analyzers-in-Azure-Search) | Refererar till en användardefinierad konfiguration av en kombination av befintliga element, som består av ett tokenizer (obligatoriskt) och valfria filter (Char eller token).|
 
-Några fördefinierade analysatorer, till exempel **mönstret** eller **stoppa**, stöd för en begränsad uppsättning konfigurationsalternativ. Om du vill ange de här alternativen du effektivt skapar ett anpassat analysverktyg som består av fördefinierade analysatorn och en av alternativ som beskrivs i [fördefinierade Analyzer referens](index-add-custom-analyzers.md#AnalyzerTable). Som med valfri anpassad konfiguration, ange den nya konfigurationen med ett namn, till exempel *myPatternAnalyzer* att skilja den från Lucene mönstret analysatorn.
+Några fördefinierade analyser, till exempel **mönster** eller **stopp**, stöder en begränsad uppsättning konfigurations alternativ. Om du vill ange de här alternativen skapar du en anpassad analys som består av den fördefinierade analysen och ett av de alternativa alternativen som dokumenteras i den [fördefinierade analys referensen](index-add-custom-analyzers.md#AnalyzerTable). Som med valfri anpassad konfiguration kan du ange en ny konfiguration med ett namn, till exempel *myPatternAnalyzer* , för att skilja den från Lucene Pattern Analyzer.
 
-## <a name="how-to-specify-analyzers"></a>Så här anger du analysverktyg
+## <a name="how-to-specify-analyzers"></a>Ange analys verktyg
 
-1. (för anpassade analysverktyg) Skapa en namngiven **analyzer** avsnittet i indexdefinitionen. Mer information finns i [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) och även [lägga till anpassade analysverktyg](index-add-custom-analyzers.md).
+1. (endast för anpassade analys verktyg) Skapa ett namngivet **Analyzer** -avsnitt i index definitionen. Mer information finns i [skapa index](https://docs.microsoft.com/rest/api/searchservice/create-index) och även [lägga till anpassade analys](index-add-custom-analyzers.md)verktyg.
 
-2. På en [fältet definition](https://docs.microsoft.com/rest/api/searchservice/create-index) i indexet, anger du fältets **analyzer** egenskapen till namnet på en mål-analyzer (till exempel `"analyzer" = "keyword"`. Giltiga värden är namnet på en fördefinierad analyzer, språkanalysverktyg eller anpassat analysverktyg definieras även i indexschemat. Planera hur du tilldelar analyzer i utvecklingsfasen index innan indexet har skapats i tjänsten.
+2. På en [fält definition](https://docs.microsoft.com/rest/api/searchservice/create-index) i indexet ställer du in fältets **analys** egenskap till namnet på en mål analys (till exempel `"analyzer" = "keyword"`. Giltiga värden är namn på en fördefinierad analys, språk analys eller anpassad analys som också definieras i index schemat. Planera för att tilldela Analyzer i index definitions fasen innan indexet skapas i tjänsten.
 
-3. Du kan också istället för en **analyzer** egenskapen, som du kan ange olika analysverktyg för indexering och fråga med hjälp av den **indexAnalyzer** och **searchAnalyzer** fält parametrar. Du använder olika analysverktyg för förberedelse av data och hämtning av filer om någon av dessa aktiviteter krävs en omvandling krävs inte för den andra.
+3. Istället för en **analys** egenskap kan du ange olika analys verktyg för indexering och fråga med fält parametrarna **indexAnalyzer** och **searchAnalyzer** . Du använder olika analys verktyg för förberedelse av data och hämtning om någon av dessa aktiviteter kräver en särskild omvandling som inte behövs av den andra.
 
-Tilldela **analyzer** eller **indexAnalyzer** till ett fält som redan har skapats fysiskt tillåts inte. Om det här är oklart, kontrollera i följande tabell för en analys på detaljnivå av vilka åtgärder måste indexet återskapas och varför.
+Det är inte tillåtet att tilldela **Analyzer** -eller **indexAnalyzer** till ett fält som redan har skapats fysiskt. Om något av detta är oklart kan du läsa följande tabell för en analys av vilka åtgärder som kräver återuppbyggnad och varför.
  
  | Scenario | Påverkan | Steg |
  |----------|--------|-------|
- | Lägg till ett nytt fält | minimal | Om fältet inte finns ännu i schemat, finns det inga fält revision eftersom fältet ännu inte har en fysisk närvaro i ditt index. Du kan använda [uppdatera Index](https://docs.microsoft.com/rest/api/searchservice/update-index) att lägga till ett nytt fält till ett befintligt index och [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) att fylla i den.|
- | Lägg till en **analyzer** eller **indexAnalyzer** till ett befintligt indexerade fält. | [rebuild](search-howto-reindex.md) | Vägar i inverterad indexet för det fältet måste återskapas från grunden och innehållet för dessa fält måste indexeras. <br/> <br/>För index utvecklas, [ta bort](https://docs.microsoft.com/rest/api/searchservice/delete-index) och [skapa](https://docs.microsoft.com/rest/api/searchservice/create-index) i index för att hämta den nya fältdefinitionen. <br/> <br/>Du kan fördröja återskapning av en genom att skapa ett nytt fält för att ge den omarbetade definitionen och börja använda det i stället för gamla för index i produktion. Använd [uppdatera Index](https://docs.microsoft.com/rest/api/searchservice/update-index) att lägga till det nya fältet och [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) att fylla i den. Senare, som en del av index för planerat underhåll, kan du rensa i index för att ta bort föråldrade fält. |
+ | Lägg till ett nytt fält | små | Om fältet inte finns än i schemat finns det ingen fält ändring att göra eftersom fältet inte redan har en fysisk närvaro i ditt index. Du kan använda [uppdaterings index](https://docs.microsoft.com/rest/api/searchservice/update-index) för att lägga till ett nytt fält i ett befintligt index och [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) för att fylla det.|
+ | Lägg till ett **analys** -eller **indexAnalyzer** i ett befintligt indexerat fält. | [återskapa](search-howto-reindex.md) | Det inverterade indexet för fältet måste återskapas från grunden och innehållet för dessa fält måste omindexeras. <br/> <br/>För index under aktiv utveckling tar du [bort](https://docs.microsoft.com/rest/api/searchservice/delete-index) och [skapar](https://docs.microsoft.com/rest/api/searchservice/create-index) indexet för att hämta den nya fält definitionen. <br/> <br/>För index i produktion kan du skjuta upp en ny version genom att skapa ett nytt fält för att tillhandahålla den ändrade definitionen och börja använda den i stället för den gamla. Använd [Uppdatera index](https://docs.microsoft.com/rest/api/searchservice/update-index) för att lägga till det nya fältet och [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) för att fylla det. Som en del av den planerade indexerings servicen kan du senare rensa indexet för att ta bort föråldrade fält. |
 
-## <a name="when-to-add-analyzers"></a>När du ska lägga till analysverktyg
+## <a name="when-to-add-analyzers"></a>När du ska lägga till analyser
 
-Det är bäst att lägga till och tilldela analysverktyg är under aktivt med utveckling, när släppa och återskapa index är rutin.
+Den bästa tiden för att lägga till och tilldela analyserare är under aktiv utveckling, när du släpper och återskapar index är rutinmässig.
 
-Som en Indexdefinition solidifies, du kan lägga till nya analysis-konstruktioner till ett index, men du kommer att behöva skicka den **allowIndexDowntime** flaggan till [uppdatera Index](https://docs.microsoft.com/rest/api/searchservice/update-index) om du vill undvika det här felet:
+Som en index definition solidifies kan du lägga till nya analys konstruktioner i ett index, men du måste skicka flaggan **allowIndexDowntime** för att [Uppdatera index](https://docs.microsoft.com/rest/api/searchservice/update-index) om du vill undvika det här felet:
 
-*”Index uppdatering tillåts inte eftersom det skulle orsaka driftstopp. Ange Frågeparametern 'allowIndexDowntime' till 'true' i begäran om uppdatering index för att lägga till nya analysverktyg, tokenizers, token filter eller tecknet filter till ett befintligt index. Observera att den här åtgärden placeras i ditt index offline för minst ett par sekunder, och din indexering och frågebegäranden misslyckas. Prestanda- och skrivbehörighet tillgängligheten för indexet kan vara försämrad i flera minuter efter att indexet har uppdaterats eller längre för mycket stora index ”.*
+*"Index uppdatering tillåts inte eftersom det skulle orsaka drift stopp. För att lägga till nya analys verktyg, tokenizers, token-filter eller Character-filter i ett befintligt index ställer du in frågeparametern "allowIndexDowntime" till "true" i begäran om index uppdatering. Observera att den här åtgärden kommer att spara indexet offline under minst några sekunder, vilket gör att dina indexerings-och fråge begär Anden Miss söker. Prestanda-och skrivnings tillgänglighet för indexet kan vara försämrade i flera minuter efter att indexet har uppdaterats, eller längre för mycket stora index. "*
 
-Detsamma gäller när du tilldelar en analyzer till ett fält. En analyzer är en del av fältdefinition, så du kan bara lägga till det när fältet har skapats. Om du vill lägga till analysverktyg i befintliga fält måste du [släpp och återskapa](search-howto-reindex.md) index, eller lägga till ett nytt fält med analyzer som du vill.
+Samma gäller när du tilldelar en analys till ett fält. En Analyzer är en integrerad del av fältets definition, så du kan bara lägga till det när fältet skapas. Om du vill lägga till analyser i befintliga fält måste du [släppa och återskapa](search-howto-reindex.md) indexet eller lägga till ett nytt fält med den analys du vill ha.
 
-Enligt vad som anges, ett undantag är den **searchAnalyzer** variant. Tre sätt att ange analysverktyg (**analyzer**, **indexAnalyzer**, **searchAnalyzer**), bara de **searchAnalyzer** attribut kan ändras på ett befintligt fält.
+Som nämnts är ett undantag den **searchAnalyzer** varianten. Det går bara att ändra attributet **searchAnalyzer** i ett befintligt fält av tre sätt att ange analyserare (**Analyzer**, **indexAnalyzer**, **searchAnalyzer**).
 
-## <a name="recommendations-for-working-with-analyzers"></a>Rekommendationer för att arbeta med analysverktyg
+## <a name="recommendations-for-working-with-analyzers"></a>Rekommendationer för att arbeta med analyser
 
-Det här avsnittet ger råd om hur du arbetar med analysverktyg.
+Det här avsnittet innehåller råd om hur du arbetar med analyser.
 
-### <a name="one-analyzer-for-read-write-unless-you-have-specific-requirements"></a>En analyzer för Läs-och om du inte har särskilda krav
+### <a name="one-analyzer-for-read-write-unless-you-have-specific-requirements"></a>En analys för Läs-och skriv åtgärder om du inte har särskilda krav
 
-Azure Search kan du ange olika analysverktyg för indexering och söka via ytterligare **indexAnalyzer** och **searchAnalyzer** fältet parametrar. Om inget anges analysatorn anges med den **analyzer** egenskapen används för både indexering och sökning. Om `analyzer` är inget anges används standard Standard Lucene analysatorn.
+Med Azure Search kan du ange olika analys verktyg för indexering och sökning via ytterligare **indexAnalyzer** -och **searchAnalyzer** fält-parametrar. Om inget anges används analys uppsättningen med **Analyzer** -egenskapen för både indexering och sökning. Om `analyzer` är ospecificerad används standard-Lucene Analyzer.
 
-En allmän regel är att använda samma analysatorn för indexering och frågar, såvida inte framgår av specifika krav. Var noga med att testa noggrant. När texten bearbetning skiljer sig på sökning och indexering tid, kör du risken för matchningsfel mellan sökord och indexerade villkor när sökning och indexering analyzer konfigurationer inte är justerade.
+En allmän regel är att använda samma analys för både indexering och frågor, om inte särskilda krav anger något annat. Se till att testa noggrant. När text bearbetning skiljer sig vid sökning och indexerings tiden, kan du köra risken för matchning mellan sökord och indexerade villkor när konfigurationerna för sökning och indexerings analys inte är justerade.
 
-### <a name="test-during-active-development"></a>Testa under aktivt med utveckling
+### <a name="test-during-active-development"></a>Testa under aktiv utveckling
 
-Åsidosätta standard analysatorn kräver en återskapning av ett index. Bestäm om möjligt på vilka analysverktyg som ska användas under aktivt med utveckling, innan du distribuerar ett index i produktionen.
+Att åsidosätta standard Analyzer kräver en index återuppbyggnad. Om möjligt bör du bestämma vilka analys verktyg som ska användas under en aktiv utveckling innan du rullar ett index i produktionen.
 
-### <a name="inspect-tokenized-terms"></a>Inspektera principfilerna villkor
+### <a name="inspect-tokenized-terms"></a>Inspektera token-villkor
 
-Om en sökning inte returnerar förväntade resultat, är det mest sannolika scenariot token avvikelser mellan termen indata på frågan och principfilerna termer i indexet. Om token som inte är samma, matchar inte Materialisera. Om du vill kontrollera tokenizer utdata, bör du använda den [analysera API](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) som ett verktyg. Svaret består av token, som genererats av en specifik analyzer.
+Om en sökning inte kan returnera förväntade resultat, är det mest sannolika scenariet token avvikelser mellan term inmatningar i frågan och token-termer i indexet. Om tokens inte är desamma matchar inte materialisera. Om du vill kontrol lera tokenizer-utdata rekommenderar vi att du använder [analysera API](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) som ett verktyg för undersökning. Svaret består av tokens, som genereras av en speciell analys.
 
 <a name="examples"></a>
 
 ## <a name="rest-examples"></a>REST-exempel
 
-Exemplen nedan visar analyzer definitioner för några viktiga scenarier.
+I exemplen nedan visas analys definitioner för några viktiga scenarier.
 
-+ [Anpassat analysverktyg exempel](#Custom-analyzer-example)
-+ [Tilldela ett fält till exempel analysverktyg](#Per-field-analyzer-assignment-example)
-+ [Blanda analysverktyg för indexering och sökning](#Mixing-analyzers-for-indexing-and-search-operations)
-+ [Språk analyzer-exempel](#Language-analyzer-example)
++ [Exempel på anpassade Analyzer](#Custom-analyzer-example)
++ [Tilldela analyserare till ett fält exempel](#Per-field-analyzer-assignment-example)
++ [Mixa analyser för indexering och sökning](#Mixing-analyzers-for-indexing-and-search-operations)
++ [Exempel på språk analys](#Language-analyzer-example)
 
 <a name="Custom-analyzer-example"></a>
 
-### <a name="custom-analyzer-example"></a>Anpassat analysverktyg exempel
+### <a name="custom-analyzer-example"></a>Exempel på anpassade Analyzer
 
-Det här exemplet illustrerar en analyzer-definition med anpassade alternativ. Anpassade alternativ för char-filter, tokenizers och token filter anges separat som namngivna konstruktioner och referenser till i analyzer-definitionen. Fördefinierade element används som – är och bara refereras till av namn.
+Det här exemplet illustrerar en analys definition med anpassade alternativ. Anpassade alternativ för char filter, tokenizers och token-filter anges separat som namngivna konstruktioner och refereras sedan till i analys definitionen. Fördefinierade element används som de är och refereras bara till efter namn.
 
-Gå igenom det här exemplet:
+Genom det här exemplet:
 
-* Analysverktyg är en egenskap i klassen fält för ett sökbart fält.
-* Ett anpassat analysverktyg är en del av en Indexdefinition. Det kan lätt anpassas (till exempel hur du anpassar ett alternativ i ett filter) eller anpassade på flera platser.
-* I det här fallet anpassade analysatorn är ”my_analyzer”, som i sin tur använder en anpassad standard tokenizer ”my_standard_tokenizer” och två token filter: gemener och anpassade asciifolding filtret ”my_asciifolding”.
-* It also defines 2 custom char filters "map_dash" and "remove_whitespace". Den första som ersätter alla bindestreck med understreck medan den andra mallen tar du bort alla blanksteg. Blanksteg måste vara UTF-8-kodat i regler för mappning. Char-filter tillämpas innan tokenisering och påverkar de resulterande token (de standard tokenizer radbrytningar på bindestreck och blanksteg men inte på understreck).
+* Analys verktyg är en egenskap för fält klassen för ett sökbart fält.
+* En anpassad analys är en del av en index definition. Det kan vara lätt att anpassa (till exempel anpassa ett enda alternativ i ett filter) eller anpassas på flera platser.
+* I det här fallet är den anpassade analysen "my_analyzer", som i sin tur använder en anpassad standard tokenizer "my_standard_tokenizer" och två token-filter: gemener och anpassad asciifolding filter "my_asciifolding".
+* Den definierar också två anpassade tecken filter "map_dash" och "remove_whitespace". Den första ersätter alla streck med under streck medan den andra tar bort alla blank steg. Blank stegen måste vara UTF-8-kodade i mappnings reglerna. Char-filtren tillämpas före tokenisering och kommer att påverka de resulterande token (standard tokenizer pauser på streck och blank steg, men inte på under streck).
 
 ~~~~
   {
@@ -180,11 +179,11 @@ Gå igenom det här exemplet:
 
 <a name="Per-field-analyzer-assignment-example"></a>
 
-### <a name="per-field-analyzer-assignment-example"></a>Exempel på analyzer tilldelningar per fält
+### <a name="per-field-analyzer-assignment-example"></a>Exempel på analys av analys per fält
 
-Standard analysatorn är standardinställningen. Anta att du vill ersätta standard med olika fördefinierade analyzer, till exempel mönstret analysatorn. Om du inte ange anpassade alternativ, behöver du bara ange efter namn i fältdefinitionen.
+Standard Analyzer är standard. Anta att du vill ersätta standardvärdet med en annan fördefinierad analys, till exempel Pattern Analyzer. Om du inte anger anpassade alternativ behöver du bara ange den efter namn i fält definitionen.
 
-Elementet ”analyzer” åsidosätter Standard analysatorn på basis av fält i taget. Det finns ingen global åsidosättning. I det här exemplet `text1` använder mönstret analysatorn och `text2`, som inte anger en analyzer använder.
+Elementet "Analyzer" åsidosätter standard analys baserat på fält-för-fält. Det finns ingen global åsidosättning. I det här exemplet `text1` använder Pattern Analyzer och `text2`, som inte anger någon analys, standardvärdet.
 
 ~~~~
   {
@@ -213,9 +212,9 @@ Elementet ”analyzer” åsidosätter Standard analysatorn på basis av fält i
 
 <a name="Mixing-analyzers-for-indexing-and-search-operations"></a>
 
-### <a name="mixing-analyzers-for-indexing-and-search-operations"></a>Blanda analysverktyg för indexering och sökning
+### <a name="mixing-analyzers-for-indexing-and-search-operations"></a>Mixa analyser för indexerings-och Sök åtgärder
 
-API: erna innehåller ytterligare indexattribut för att ange olika analysverktyg för indexering och sökning. Den **searchAnalyzer** och **indexAnalyzer** attribut måste anges som par, ersätter enda **analyzer** attribut.
+API: erna inkluderar ytterligare index-attribut för att ange olika analyser för indexering och sökning. Attributen **searchAnalyzer** och **indexAnalyzer** måste anges som ett par, vilket ersätter attributet Single **Analyzer** .
 
 
 ~~~~
@@ -241,9 +240,9 @@ API: erna innehåller ytterligare indexattribut för att ange olika analysverkty
 
 <a name="Language-analyzer-example"></a>
 
-### <a name="language-analyzer-example"></a>Språk analyzer-exempel
+### <a name="language-analyzer-example"></a>Exempel på språk analys
 
-Fält som innehåller strängar i olika språk kan använda ett språkanalysverktyg, medan andra fält behåller du standardvärdet (eller använda vissa andra fördefinierade eller anpassade analyzer). Om du använder ett språkanalysverktyg kan användas den för indexering och sökning. Fält som använder ett språkanalysverktyg kan inte ha olika analysverktyg för indexering och Sök.
+Fält som innehåller strängar på olika språk kan använda en språk analys, medan andra fält behåller standardvärdet (eller använder någon annan fördefinierad eller anpassad analys). Om du använder en språk analys måste det användas för både indexerings-och Sök åtgärder. Fält som använder en språk analys kan inte ha olika analys verktyg för indexering och sökning.
 
 ~~~~
   {
@@ -272,22 +271,22 @@ Fält som innehåller strängar i olika språk kan använda ett språkanalysverk
   }
 ~~~~
 
-## <a name="c-examples"></a>C#exempel
+## <a name="c-examples"></a>C#fler
 
-Om du använder .NET SDK-kodexempel, kan du lägga till de här exemplen för att använda eller konfigurera analysverktyg.
+Om du använder kod exempel för .NET SDK kan du lägga till dessa exempel för att använda eller konfigurera analyser.
 
-+ [Tilldela en inbyggd analyzer](#Assign-a-language-analyzer)
-+ [Konfigurera en analyzer](#Define-a-custom-analyzer)
++ [Tilldela en inbyggd analys](#Assign-a-language-analyzer)
++ [Konfigurera en analys](#Define-a-custom-analyzer)
 
 <a name="Assign-a-language-analyzer"></a>
 
-### <a name="assign-a-language-analyzer"></a>Tilldela ett språkanalysverktyg
+### <a name="assign-a-language-analyzer"></a>Tilldela en språk analys
 
-Alla analyzer som används som – är utan konfiguration, har angetts på en fältdefinition av. Det finns inga krav för att skapa en analyzer-konstruktion. 
+En analys som används i befintligt skick, utan konfiguration, anges i en fält definition. Det finns inget krav på att skapa en analys konstruktion. 
 
-Det här exemplet tilldelar Microsoft English och franska analysverktyg beskrivning. Det är ett kodfragment som kommer från en större definition av det hotellindex som skapas med hjälp av klassen hotell i filen hotels.cs för den [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) exemplet.
+I det här exemplet tilldelas Microsoft English-och franska-analyser för att beskriva fält. Det är ett kodfragment som tas från en större definition av hotell indexet, vilket skapar med hjälp av hotell klassen i hotels.cs-filen i [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) -exemplet.
 
-Anropa [Analyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-dotnet), att ange den [AnalyzerName](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername?view=azure-dotnet) typ att tillhandahålla en text analyzer som stöds i Azure Search.
+Anropa [Analyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-dotnet), ange den [AnalyzerName](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername?view=azure-dotnet) typ som ger stöd för text analys i Azure Search.
 
 ```csharp
     public partial class Hotel
@@ -309,11 +308,11 @@ Anropa [Analyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.m
 ```
 <a name="Define-a-custom-analyzer"></a>
 
-### <a name="define-a-custom-analyzer"></a>Definiera ett anpassat analysverktyg
+### <a name="define-a-custom-analyzer"></a>Definiera en anpassad analys
 
-När anpassning eller konfiguration krävs måste du lägga till en analyzer-konstruktion till ett index. När du har definierat du kan lägga till det fältdefinitionen som visas i exemplet ovan.
+När anpassning eller konfiguration krävs måste du lägga till en analys-konstruktion i ett index. När du har definierat det kan du lägga till den som fält definition som visas i föregående exempel.
 
-Skapa en [CustomAnalyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.customanalyzer?view=azure-dotnet) objekt. Fler exempel finns i [CustomAnalyzerTests.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/src/SDKs/Search/DataPlane/Search.Tests/Tests/CustomAnalyzerTests.cs).
+Skapa ett [CustomAnalyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.customanalyzer?view=azure-dotnet) -objekt. Fler exempel finns i [CustomAnalyzerTests.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/src/SDKs/Search/DataPlane/Search.Tests/Tests/CustomAnalyzerTests.cs).
 
 ```csharp
 {
@@ -337,17 +336,17 @@ Skapa en [CustomAnalyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.
 
 ## <a name="next-steps"></a>Nästa steg
 
-+ Granska våra utförlig förklaring av [hur Fullständig textsökning fungerar i Azure Search](search-lucene-query-architecture.md). Den här artikeln använder exemplen för att förklara beteenden som kan verka krånglig på ytan.
++ Läs vår omfattande förklaring av [hur full texts ökning fungerar i Azure Search](search-lucene-query-architecture.md). I den här artikeln används exempel för att förklara vilka beteenden som kan vara till hjälp för den aktuella ytan.
 
-+ Prova ytterligare frågesyntax från den [söka efter dokument](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples) exemplet eller från [enkla frågesyntaxen](query-simple-syntax.md) i Sökutforskaren i portalen.
++ Försök med ytterligare frågesyntax från avsnittet [Sök efter dokument](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples) exempel eller från [enkel frågesyntax](query-simple-syntax.md) i Sök Utforskaren i portalen.
 
-+ Lär dig hur du använder [språkspecifika Lexikalisk](index-add-language-analyzers.md).
++ Lär dig hur du använder [språkspecifika lexikala analyser](index-add-language-analyzers.md).
 
-+ [Konfigurera anpassade analysverktyg](index-add-custom-analyzers.md) för minimal bearbetning eller särskild bearbetning för enskilda fält.
++ [Konfigurera anpassade analys](index-add-custom-analyzers.md) verktyg för minimal bearbetning eller specialiserad bearbetning på enskilda fält.
 
 ## <a name="see-also"></a>Se också
 
- [Söka efter dokument REST-API](https://docs.microsoft.com/rest/api/searchservice/search-documents) 
+ [Sök dokument REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents) 
 
  [Enkel frågesyntax](query-simple-syntax.md) 
 

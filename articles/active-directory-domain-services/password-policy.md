@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2019
 ms.author: iainfou
-ms.openlocfilehash: 8829f16e580d0b926781ce0a3e9f8e6a63cf3110
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 30f4558339bbfddd2296cd1cb918c6ef8999b67e
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68853782"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879198"
 ---
 # <a name="password-and-account-lockout-policies-on-managed-domains"></a>Principer för lösen ords-och konto utelåsning på hanterade domäner
 I den här artikeln beskrivs standard lösen ords principerna på en hanterad domän. Det beskriver också hur du kan konfigurera dessa principer.
@@ -38,7 +38,8 @@ Du kan konfigurera följande lösen ords inställningar med FGPP:
     * Konto Utelåsningens varaktighet
     * Antal misslyckade inloggnings försök som tillåts
     * Återställ antal misslyckade inloggnings försök efter
-
+    
+FGPP påverkar endast användare som skapats direkt i Azure AD DS. Moln användare och domän användare som synkroniseras till den hanterade Azure AD DS-domänen från Azure AD påverkas inte av inställningarna för lösen ords komplexitet. FGPP distribueras via grupp associationen i den hanterade domänen i Azure AD DS och alla ändringar du gör tillämpas vid nästa användar inloggning. Att ändra principen låser inte upp ett användar konto som redan är låst.
 
 ## <a name="default-fine-grained-password-policy-settings-on-a-managed-domain"></a>Standardiserade detaljerade lösen ords princip inställningar på en hanterad domän
 Följande skärm bild visar standard principen för detaljerad lösen ords princip som kon figurer ATS på en Azure AD Domain Services hanterad domän.

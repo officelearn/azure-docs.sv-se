@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 92d44ef3d0db8e93d4babd7441238c7fa105dbd5
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: caf661faf00d1d32664b7958a14a8719a37ab36e
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639003"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882099"
 ---
 # <a name="add-a-popup-to-the-map"></a>Lägg till en popup till kartan
 
@@ -24,26 +24,40 @@ Den här artikeln visar hur du lägger till en popup-meny till en plats på en k
 
 <a id="addAPopup"></a>
 
+Följande kod lägger till en punkt funktion, som har `name` och `description` egenskaper, till kartan med ett symbol lager. En instans av [klassen pop](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest) skapas men visas inte. Mus händelser läggs till i symbol lagret för att utlösa öppning och stängning när musen hovrar över och ut från symbol markören. När `position` markör symbolen har hovrat uppdateras popup `name` -egenskapen med positionen för markören `content` och alternativet uppdateras med en del HTML som radbryts och `description` egenskaperna för punkt funktionen har hovras. Popup-fönstret visas sedan på kartan med dess `open` funktion.
+
+<br/>
+
 <iframe height='500' scrolling='no' title='Lägg till ett popup med Azure Maps' src='//codepen.io/azuremaps/embed/MPRPvz/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan <a href='https://codepen.io/azuremaps/pen/MPRPvz/'>Lägg till ett popup-fönster med Azure Maps</a> av Azure Maps<a href='https://codepen.io/azuremaps'>@azuremaps</a>() på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-I koden ovan skapar det första blocket kod ett kart objekt. Du kan se [skapa en karta](./map-create.md) för instruktioner. Det skapar också HTML-innehåll som ska visas i popup-fönstret.
-
-Det andra blocket kod skapar ett data käll objekt med hjälp av [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) -klassen. En punkt är en [funktion](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature?view=azure-iot-typescript-latest) i klassen [Point](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point?view=azure-iot-typescript-latest) . Ett Point-objekt med namn och beskrivnings egenskaper skapas sedan och läggs till i data källan.
-
-Ett [symbol lager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) använder text eller ikoner för att återge punktbaserade data i [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) som symboler på kartan.  Ett symbol lager skapas i det tredje blocket med kod. Data källan läggs till i symbol skiktet, som sedan läggs till i kartan.
-
-Den fjärde kod blocket skapar ett [popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest) -objekt `new atlas.Popup()`via. Egenskaper för popup-fönster som position och pixelOffset är en del av [PopupOptions](/javascript/api/azure-maps-control/atlas.popupoptions). PopupOptions kan definieras i popup-konstruktorn eller via funktionen [setOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#setoptions-popupoptions-) i popup-klassen. En `mouseover` händelse lyssnare för symbol lagret skapas.
-
-Det sista blocket kod skapar en funktion som utlöses av `mouseover` händelse lyssnaren. Den anger popup-innehåll och egenskaper för popup-fönstret och lägger till ett popup-objekt till kartan.
-
 ## <a name="reusing-a-popup-with-multiple-points"></a>Återanvända en popup med flera punkter
 
-När du har många punkter och bara vill visa en popup i taget, är det bästa sättet att skapa ett popup-fönster och återanvända det i stället för att skapa en popup för varje punkt funktion. Genom att göra detta minskar antalet DOM-element som skapats av programmet avsevärt vilket kan ge bättre prestanda. Det här exemplet skapar tre punkt funktioner. Om du klickar på någon av dem visas en popup med innehållet för den punkt funktionen.
+När du har ett stort antal punkter och bara vill visa en popup i taget, är det bästa sättet att skapa ett popup-fönster och återanvända det i stället för att skapa en popup för varje punkt funktion. Genom att återanvända popup-fönstret minskar antalet DOM-element som skapats av programmet avsevärt vilket kan ge bättre prestanda. I följande exempel skapas funktioner i tre punkter. Om du klickar på någon av dem visas en popup med innehållet för den punkt funktionen.
 
 <br/>
 
 <iframe height='500' scrolling='no' title='Återanvända popup med flera PIN-bara' src='//codepen.io/azuremaps/embed/rQbjvK/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se popup-fönstret för att <a href='https://codepen.io/azuremaps/pen/rQbjvK/'>använda pennan med flera stift</a> genom<a href='https://codepen.io/azuremaps'>@azuremaps</a>Azure Maps () på <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+## <a name="customizing-a-popup"></a>Anpassa en popup
+
+Som standard har popup-fönstret en vit bakgrund, en pekare längst ned och en stängnings knapp i det övre högra hörnet. Följande exempel ändrar bakgrunds färgen till svart med `fillColor` alternativet i popup-fönstret. Knappen Stäng tas bort genom att `shoCloseButton` ställa in alternativet på falskt. HTML-innehållet i popup-fönstret använder utfyllda 10 pixlar från kanten på popup-fönstret och texten blir vit så att den visas snyggt på den svarta bakgrunden.  
+
+<br/>
+
+<iframe height="500" style="width: 100%;" scrolling="no" title="Anpassad popup" src="//codepen.io/azuremaps/embed/ymKgdg/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+Se popup-fönstret för <a href='https://codepen.io/azuremaps/pen/ymKgdg/'>anpassad</a> penna efter<a href='https://codepen.io/azuremaps'>@azuremaps</a>Azure Maps () på <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+## <a name="popup-events"></a>Popup-händelser
+
+Popup-fönster kan öppnas, stängas och dras. Popup-klassen innehåller händelser för hjälp utvecklare som reagerar på dessa åtgärder. I följande exempel markeras vilka händelser som ska utlösas när du öppnar, stänger eller drar i popup-fönstret. 
+
+<br/>
+
+<iframe height="500" style="width: 100%;" scrolling="no" title="Popup-händelser" src="//codepen.io/azuremaps/embed/BXrpvB/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+Se popup- <a href='https://codepen.io/azuremaps/pen/BXrpvB/'>händelser</a> för penna genom att<a href='https://codepen.io/azuremaps'>@azuremaps</a>Azure Maps () på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="next-steps"></a>Nästa steg

@@ -4,15 +4,15 @@ description: AzCopy är ett kommando rads verktyg som du kan använda för att k
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/25/2019
+ms.date: 08/08/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 9dc53867cb780b2c40e76cc6f24f7e6cf882b407
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 0c30225e9b5412fe1515e8503d1134dcad44871f
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68844858"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879984"
 ---
 # <a name="get-started-with-azcopy"></a>Kom igång med AzCopy
 
@@ -259,7 +259,9 @@ Du hittar exempel kommandon i någon av de här artiklarna.
 
 ## <a name="use-azcopy-in-a-script"></a>Använda AzCopy i ett skript
 
-Med tiden kommer nedladdnings [länken](#download-and-install-azcopy) för AzCopy att peka på nya versioner av AzCopy. Om skriptet laddar ned AzCopy kan skriptet sluta fungera om en nyare version av AzCopy ändrar de funktioner som skriptet är beroende av. 
+### <a name="obtain-a-static-download-link"></a>Hämta en statisk nedladdnings länk
+
+Med tiden kommer nedladdnings [länken](#download-and-install-azcopy) för AzCopy att peka på nya versioner av AzCopy. Om skriptet laddar ned AzCopy kan skriptet sluta fungera om en nyare version av AzCopy ändrar de funktioner som skriptet är beroende av.
 
 Undvik dessa problem genom att hämta en statisk (ändra) länk till den aktuella versionen av AzCopy. På så sätt laddar skriptet ned samma exakta version av AzCopy varje gång den körs.
 
@@ -280,9 +282,13 @@ URL: en visas i kommandots utdata. Skriptet kan sedan hämta AzCopy med hjälp a
 | **Linux** | `wget -O azcopyv10.tar https://azcopyvnext.azureedge.net/release20190301/azcopy_linux_amd64_10.0.8.tar.gz tar -xf azcopyv10.tar --strip-components=1 ./azcopy` |
 | **Windows** | `Invoke-WebRequest https://azcopyvnext.azureedge.net/release20190517/azcopy_windows_amd64_10.1.2.zip -OutFile azcopyv10.zip <<Unzip here>>` |
 
+### <a name="escape-special-characters-in-sas-tokens"></a>Escape-specialtecken i SAS-token
+
+I kommandofiler med `.cmd` tillägget måste du undanta de `%` tecken som visas i SAS-token. Du kan göra det genom att lägga till `%` ett additions tecken `%` bredvid befintliga tecken i SAS-token.
+
 ## <a name="use-azcopy-in-storage-explorer"></a>Använd AzCopy i Storage Explorer
 
-Om du vill utnyttja prestanda fördelarna med AzCopy, men vill använda Storage Explorer i stället för kommando raden för att interagera med dina filer, aktiverar du AzCopy i Storage Explorer. 
+Om du vill utnyttja prestanda fördelarna med AzCopy, men vill använda Storage Explorer i stället för kommando raden för att interagera med dina filer, aktiverar du AzCopy i Storage Explorer.
 
 I Storage Explorer väljer du **Förhandsgranska**->**Använd AzCopy för att förbättra BLOB-uppladdning och hämta**.
 

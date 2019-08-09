@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: ebb1723a9a2b2d069a1766d4f78151f2b684c5b9
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 797caae3caaca14c10481cb58654c45b4bed55ae
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68464668"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68884306"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>Migrera till detaljerad rollbaserad åtkomst för klusterkonfigurationer
 
@@ -155,14 +155,14 @@ Uppdatera till [AZ PowerShell version 2.0.0](https://www.powershellgallery.com/p
 
 ## <a name="add-the-hdinsight-cluster-operator-role-assignment-to-a-user"></a>Lägg till roll tilldelningen HDInsight-kluster för en användare
 
-En användare med rollen [deltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) eller [ägare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) kan tilldela rollen [HDInsight-kluster operatör](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#hdinsight-cluster-operator) till användare som du vill ska ha läs-/skriv behörighet till känsliga kluster konfigurations värden för HDInsight (till exempel autentiseringsuppgifter för Cluster Gateway och lagrings konto nycklar).
+En användare med rollen [ägare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) kan tilldela rollen [HDInsight kluster operatör](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#hdinsight-cluster-operator) till användare som du vill ha läs-/skriv behörighet till känsliga kluster konfigurations värden för HDInsight (till exempel autentiseringsuppgifter för kluster-gateway och lagrings konto nycklar).
 
 ### <a name="using-the-azure-cli"></a>Använda Azure CLI
 
 Det enklaste sättet att lägga till den här roll tilldelningen är `az role assignment create` genom att använda kommandot i Azure CLI.
 
 > [!NOTE]
-> Det här kommandot måste köras av en användare med rollen deltagare eller ägare, eftersom bara de kan bevilja dessa behörigheter. `--assignee` Är e-postadressen till den användare som du vill tilldela rollen HDInsight-kluster operatör till.
+> Det här kommandot måste köras av en användare med ägar rollen, eftersom bara de kan bevilja dessa behörigheter. `--assignee` Är namnet på tjänstens huvud namn eller e-postadress till den användare till vilken du vill tilldela rollen HDInsight-kluster operatör. Läs vanliga frågor och svar nedan om du får ett fel meddelande om otillräcklig behörighet.
 
 #### <a name="grant-role-at-the-resource-cluster-level"></a>Bevilja roll på resurs nivån (kluster)
 
@@ -185,3 +185,23 @@ az role assignment create --role "HDInsight Cluster Operator" --assignee user@do
 ### <a name="using-the-azure-portal"></a>Använda Azure Portal
 
 Du kan också använda Azure Portal för att lägga till roll tilldelningen HDInsight-kluster för en användare. Se dokumentationen, [Hantera åtkomst till Azure-resurser med RBAC och Azure Portal – Lägg till en roll tilldelning](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#add-a-role-assignment).
+
+## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+
+### <a name="why-am-i-seeing-a-403-forbidden-response-after-updating-my-api-requests-andor-tool"></a>Varför ser jag ett 403-svar (förbjudet) efter att ha uppdaterat mina API-förfrågningar och/eller-verktyg?
+
+Klusterkonfigurationer är nu bakom detaljerad rollbaserad åtkomst kontroll och kräver `Microsoft.HDInsight/clusters/configurations/*` behörighet att komma åt dem. Du kan hämta den här behörigheten genom att tilldela HDInsight-klustrets operatör, deltagare eller ägar roll till användaren eller tjänstens huvud namn för att få åtkomst till konfigurationer.
+
+### <a name="why-do-i-see-insufficient-privileges-to-complete-the-operation-when-running-the-azure-cli-command-to-assign-the-hdinsight-cluster-operator-role-to-another-user-or-service-principal"></a>Varför visas "otillräcklig behörighet för att slutföra åtgärden" när du kör Azure CLI-kommandot för att tilldela rollen HDInsight-kluster operatör till en annan användare eller tjänstens huvud namn?
+
+Förutom att ha ägar rollen måste användaren eller tjänstens huvud namn som kör kommandot ha tillräckliga AAD-behörigheter för att leta upp objekt-ID: n för den tilldelade personen. Det här meddelandet anger otillräcklig behörighet för AAD. Försök att ersätta `-–assignee` argumentet med `–assignee-object-id` och ange objekt-ID: t för den tilldelade personen som parameter i stället för namnet (eller ägar-ID: t i händelse av en hanterad identitet). Se avsnittet valfria parametrar i [AZ roll tilldelning skapa dokumentation](https://docs.microsoft.com/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create) för mer information.
+
+Om det fortfarande inte fungerar kontaktar du AAD-administratören för att få rätt behörighet.
+
+### <a name="what-will-happen-if-i-take-no-action"></a>Vad händer om jag inte vidtar någon åtgärd?
+
+Och kommer inte längre att `GET /configurations/{configurationName}` returnera någon information och anropet kommer inte längre att returnera känsliga parametrar, till exempel lagrings konto nyckel eller kluster lösen ord. `POST /configurations/gateway` `GET /configurations` Samma sak gäller för motsvarande SDK-metoder och PowerShell-cmdletar.
+
+Om du använder en äldre version av ett av verktygen för Visual Studio, VSCode, IntelliJ eller Sol förmörkelse som nämns ovan, fungerar de inte längre förrän du uppdaterar.
+
+Mer detaljerad information finns i motsvarande avsnitt i det här dokumentet för ditt scenario.

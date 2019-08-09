@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 07/30/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 7b9a24161c76f9fbb0993ffb6719c1ea1b51dc55
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 846b4d95c7eb32af7c1c0ff42c2526612075a033
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68775713"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882415"
 ---
 # <a name="move-sql-server-vm-to-another-region-within-azure-with-azure-site-recovery-services"></a>Flytta SQL Server VM till en annan region inom Azure med Azure Site Recovery Services
 
@@ -54,7 +54,7 @@ Förbered både käll SQL Server VM och mål region för flytten.
 - För virtuella Linux-datorer följer du rikt linjerna från Linux-distributören för att få de senaste betrodda rot certifikaten och listan över återkallade certifikat på den virtuella datorn. 
 - Kontrol lera att du inte använder en autentiseringsprovider för att kontrol lera nätverks anslutningen för de virtuella datorer som du vill flytta. 
 - Om den virtuella datorn som du försöker flytta inte har åtkomst till Internet, eller om den använder en brand Väggs-proxy för att kontrol lera utgående åtkomst, kontrollerar du kraven. 
-- Identifiera käll nätverks layouten och alla resurser som your'e för närvarande använder. Detta omfattar men är inte begränsat till belastningsutjämnare, nätverks säkerhets grupper (NSG: er) och offentliga IP-adresser. 
+- Identifiera käll nätverks layouten och alla resurser som du använder just nu. Detta omfattar men är inte begränsat till belastningsutjämnare, nätverks säkerhets grupper (NSG: er) och offentliga IP-adresser. 
 
 ### <a name="prepare-the-target-region"></a>Förbereda målregionen
 

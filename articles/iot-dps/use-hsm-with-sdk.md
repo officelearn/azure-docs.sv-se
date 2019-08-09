@@ -1,26 +1,25 @@
 ---
 title: Så här gör du med Azure – Använda olika attesteringsmetoder för maskinvara med klient-SDK:t för enhetsetableringstjänsten i Azure
 description: Så här gör du med Azure – Använda olika attesteringsmetoder för maskinvara med klient-SDK för enhetsetableringstjänsten i Azure
-author: yzhong94
-ms.author: yizhon
+author: robinsh
+ms.author: robinsh
 ms.date: 03/30/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: arjmands
 ms.custom: mvc
-ms.openlocfilehash: af59ccc6d14dce49d06e178aac3ecafc29bd982c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7dd93298c96842e4e5417a0b2ba023bb71a4e7ba
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61248138"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68884426"
 ---
 # <a name="how-to-use-different-attestation-mechanisms-with-device-provisioning-service-client-sdk-for-c"></a>Använda olika attesteringsmetoder för maskinvara med klient-SDK för enhetsetableringstjänsten för C
 
-I den här artikeln beskrivs hur du använder olika [attesteringsmetoder](concepts-security.md#attestation-mechanism) med klient-SDK för enhetsetableringstjänsten för C. Du kan antingen använda en fysisk enhet eller en simulator. Etableringstjänsten stöder autentisering för två typer av attesteringsmetoder: X.509 och Trusted Platform Module (TPM).
+I den här artikeln beskrivs hur du använder olika [attesteringsmetoder](concepts-security.md#attestation-mechanism) med klient-SDK för enhetsetableringstjänsten för C. Du kan antingen använda en fysisk enhet eller en simulator. Etablerings tjänsten stöder autentisering för två typer av attesterings metoder: X. 509 och Trusted Platform Module (TPM).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Förbered din utvecklingsmiljö enligt avsnittet "Prepare the development environment" (förbereda utvecklingsmiljön) i guiden [Create and provision simulated device](./quick-create-simulated-device.md) (Skapa och etablera en simulerad enhet).
 
@@ -28,9 +27,9 @@ Förbered din utvecklingsmiljö enligt avsnittet "Prepare the development enviro
 
 Som enhetens tillverkare måste du först välja attesteringsmetod (eller HSM:er) som baseras på någon av typerna som stöds. För närvarande erbjuder [klient-SDK för enhetsetableringstjänsten för C](https://github.com/Azure/azure-iot-sdk-c/tree/master/provisioning_client) stöd för följande HSM:er: 
 
-- [Trusted Platform Module (TPM)](https://en.wikipedia.org/wiki/Trusted_Platform_Module): TPM är en etablerad standard för de flesta plattformar för Windows-baserade enheter, samt några Linux/Ubuntu-baserade enheter. Som enhetens tillverkare kan du välja denna attesteringsmetod om du kör något av dessa operativsystem på dina enheter och du vill ha en etablerad standard. Med TPM-kretsar kan du endast registrera varje enhet individuellt till enhetsetableringstjänsten. I utvecklingssyfte kan du använda TPM-simulatorn på din Windows- eller Linux-utvecklingsdator.
+- [Trusted Platform Module (TPM)](https://en.wikipedia.org/wiki/Trusted_Platform_Module): TPM är en etablerad standard för de flesta Windows-baserade enhets plattformar, samt några Linux/Ubuntu-baserade enheter. Som enhetens tillverkare kan du välja denna attesteringsmetod om du kör något av dessa operativsystem på dina enheter och du vill ha en etablerad standard. Med TPM-kretsar kan du endast registrera varje enhet individuellt till enhetsetableringstjänsten. I utvecklingssyfte kan du använda TPM-simulatorn på din Windows- eller Linux-utvecklingsdator.
 
-- [X.509](https://cryptography.io/en/latest/x509/): X.509-certifikat kan lagras i relativt nyare kretsar, så kallade [maskinvarusäkerhetsmodul moduler (HSM)](concepts-security.md#hardware-security-module). Arbetet fortlöper också inom Microsoft, på RIoT- eller DICE-kretsar, som implementerar X.509-certifikaten. Med X.509-kretsar kan du göra massregistrering av enheter i portalen. De stöder även vissa icke-Windows-operativsystem som embedOS. I utvecklingssyfte stöder klient-SDK:er för enhetsetableringstjänster en X.509-enhetssimulator. 
+- [X.509](https://cryptography.io/en/latest/x509/): X. 509-certifikat kan lagras i relativt nyare chip som kallas [HSM (Hardware Security modules)](concepts-security.md#hardware-security-module). Arbetet fortlöper också inom Microsoft, på RIoT- eller DICE-kretsar, som implementerar X.509-certifikaten. Med X.509-kretsar kan du göra massregistrering av enheter i portalen. De stöder även vissa icke-Windows-operativsystem som embedOS. I utvecklingssyfte stöder klient-SDK:er för enhetsetableringstjänster en X.509-enhetssimulator. 
 
 Läs mer i informationen om [säkerhetsbegrepp](concepts-security.md) för IoT Hub Device Provisioning-tjänsten och [automatisk etablering](/azure/iot-dps/concepts-auto-provisioning).
 
@@ -149,8 +148,8 @@ Om du använder TPM, följer du anvisningarna i ["Create and provision a simulat
       ./azure-iot-sdk-c/dps_client/tools/x509_device_provision/x509_device_provision.exe
       ```
 2. Logga in på Azure-portalen, klicka på knappen **Alla resurser** i den vänstra menyn och öppna Device Provisioning-tjänsten.
-   - X **.** 509 enskild registrering: På det etableringstjänstens sammanfattningsbladet, väljer **hantera registreringar**. Välj fliken **Individual Enrollments** (Enskilda registreringar) och klicka på knappen **Lägg till** längst upp. Välj **X**.**509** som *mekanism* för styrkande av identitet och överför det lövcertifikat som krävs av bladet. Klicka på knappen **Spara** när det är klart. 
-   - X **.** 509-gruppregistrering: På det etableringstjänstens sammanfattningsbladet, väljer **hantera registreringar**. Välj fliken **Group Enrollments** (gruppregistreringar) och klicka på knappen **Lägg till** längst upp. Välj **X**.**509** som *metod* för styrkande av identitet, ange ett gruppnamn och ett certifikatnamn, ladda upp det CA-/mellanliggande certifikat som krävs av bladet. Klicka på knappen **Spara** när det är klart. 
+   - X **.** 509 individuell registrering: På sammanfattnings bladet för etablerings tjänsten väljer du **Hantera registreringar**. Välj fliken **Individual Enrollments** (Enskilda registreringar) och klicka på knappen **Lägg till** längst upp. Välj **X**.**509** som *mekanism* för styrkande av identitet och överför det lövcertifikat som krävs av bladet. Klicka på knappen **Spara** när det är klart. 
+   - X **.** 509 grupp registrering: På sammanfattnings bladet för etablerings tjänsten väljer du **Hantera registreringar**. Välj fliken **Group Enrollments** (gruppregistreringar) och klicka på knappen **Lägg till** längst upp. Välj **X**.**509** som *metod* för styrkande av identitet, ange ett gruppnamn och ett certifikatnamn, ladda upp det CA-/mellanliggande certifikat som krävs av bladet. Klicka på knappen **Spara** när det är klart. 
 
 ## <a name="enable-authentication-for-devices-using-a-custom-attestation-mechanism-optional"></a>Aktivera autentisering för enheter med hjälp av en anpassad attesteringsmetod (valfri)
 

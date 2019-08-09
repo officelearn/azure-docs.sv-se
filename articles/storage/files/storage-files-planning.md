@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 287902c149fd3a8732ce9ce95b05b0d9fa36147b
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: eece1520a4b7e3bf37e1d209c58b5019921fdb98
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816605"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68884383"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planera för distribution av Azure Files
 
@@ -26,7 +26,7 @@ ms.locfileid: "68816605"
 
 * **Lagrings konto**: All åtkomst till Azure Storage görs via ett lagrings konto. Se [Skalbarhets- och prestandamål](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) för information om kapacitet för lagringskonton.
 
-* **Dela**: En File Storage resurs är en SMB-filresurs i Azure. Alla kataloger och filer måste skapas i en överordnad resurs. Ett konto kan innehålla ett obegränsat antal resurser och en resurs kan lagra ett obegränsat antal filer, upp till den 5 TiB totala kapaciteten för fil resursen.
+* **Dela**: En File Storage resurs är en SMB-filresurs i Azure. Alla kataloger och filer måste skapas i en överordnad resurs. Ett konto kan innehålla ett obegränsat antal resurser och en resurs kan lagra ett obegränsat antal filer, upp till fil resursens totala kapacitet. För standard fil resurser är den totala kapaciteten upp till 5 TiB (GA) eller 100 TiB (för hands version) för Premium-filresurser, den totala kapaciteten är upp till 100 TiB.
 
 * **Katalog**: En valfri hierarki med kataloger.
 

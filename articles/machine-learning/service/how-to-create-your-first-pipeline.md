@@ -11,16 +11,20 @@ ms.author: sanpil
 author: sanpil
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3f0b764b16c1b550c9afa4107449c1b02815e8d1
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 497c4d9708a7b67bf0b5433c455d90dd277297d7
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668489"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68873613"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Skapa och köra en pipeline för maskin inlärning med hjälp av Azure Machine Learning SDK
 
-I den här artikeln får du lära dig hur du skapar, publicerar, kör och spårar en [pipeline för maskin inlärning](concept-ml-pipelines.md) med hjälp av [Azure Machine Learning SDK](https://aka.ms/aml-sdk).  Dessa pipelines att skapa och hantera de arbetsflöden som ihop olika faser av machine learning. Varje fas i en pipeline som förberedelse av data och modellträning, kan innehålla ett eller flera steg.
+I den här artikeln får du lära dig hur du skapar, publicerar, kör och spårar en [pipeline för maskin inlärning](concept-ml-pipelines.md) med hjälp av [Azure Machine Learning SDK](https://aka.ms/aml-sdk).  Använd **ml** -pipelines för att skapa ett arbets flöde som häftar samman olika ml-faser och publicera sedan den pipelinen i Azure Machine Learning-arbetsytan för att komma åt senare eller dela med andra.  
+
+Även om du kan använda en [Azure-pipeline](https://docs.microsoft.com/en-us/azure/devops/pipelines/targets/azure-machine-learning?context=azure%2Fmachine-learning%2Fservice%2Fcontext%2Fml-context&view=azure-devops&tabs=yaml) för att automatisera (CI/CD) ml-aktiviteter, men den här typen av pipelines lagras inte i arbets ytan. [Jämför dessa typer av pipeliner](concept-ml-pipelines.md#which-azure-pipeline-technology-should-i-use).
+
+Varje fas i en pipeline som förberedelse av data och modellträning, kan innehålla ett eller flera steg.
 
 Pipelines som du skapar är synliga för medlemmar i din Azure Machine Learning-tjänsten [arbetsytan](how-to-manage-workspace.md). 
 

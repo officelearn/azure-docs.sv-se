@@ -1,240 +1,173 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med BenSelect | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory integrering med BenSelect | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och BenSelect.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: ffa17478-3ea1-4356-a289-545b5b9a4494
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/23/2017
+ms.topic: tutorial
+ms.date: 08/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 699afd4703efc5e8f63bb13fe1dd753a0c72594d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f5ca12f89615cd4b3110b0d67268c048b8e44561
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60282989"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879736"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-benselect"></a>Självstudier: Azure Active Directory-integrering med BenSelect
+# <a name="tutorial-integrate-benselect-with-azure-active-directory"></a>Självstudier: Integrera BenSelect med Azure Active Directory
 
-I den här självstudien får du lära dig hur du integrerar BenSelect med Azure Active Directory (AD Azure).
+I den här självstudien får du lära dig hur du integrerar BenSelect med Azure Active Directory (Azure AD). När du integrerar BenSelect med Azure AD kan du:
 
-Integrera BenSelect med Azure AD ger dig följande fördelar:
+* Kontroll i Azure AD som har åtkomst till BenSelect.
+* Gör det möjligt för användarna att logga in automatiskt till BenSelect med sina Azure AD-konton.
+* Hantera dina konton på en central plats – Azure Portal.
 
-- Du kan styra i Azure AD som har åtkomst till BenSelect
-- Du kan aktivera användarna att automatiskt få loggat in på BenSelect (Single Sign-On) med sina Azure AD-konton
-- Du kan hantera dina konton på en central plats – Azure portal
+Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+## <a name="prerequisites"></a>Förutsättningar
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+För att komma igång behöver du följande objekt:
 
-Om du vill konfigurera Azure AD-integrering med BenSelect, behöver du följande objekt:
-
-- En Azure AD-prenumeration
-- En BenSelect enkel inloggning aktiverat prenumeration
-
-> [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
-
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
-
-- Använd inte din produktionsmiljö om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö kan du skaffa en månads utvärderingsperiod [här](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
+* BenSelect för enkel inloggning (SSO) aktive rad.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-1. Att lägga till BenSelect från galleriet
-1. Konfigurera och testa Azure AD enkel inloggning
+I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
 
-## <a name="adding-benselect-from-the-gallery"></a>Att lägga till BenSelect från galleriet
-För att konfigurera integrering av BenSelect i Azure AD, som du behöver lägga till BenSelect från galleriet i din lista över hanterade SaaS-appar.
+* BenSelect stöder **IDP** INITIERAd SSO
 
-**Utför följande steg för att lägga till BenSelect från galleriet:**
+## <a name="adding-benselect-from-the-gallery"></a>Lägga till BenSelect från galleriet
 
-1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+Om du vill konfigurera integreringen av BenSelect i Azure AD måste du lägga till BenSelect från galleriet i listan över hanterade SaaS-appar.
 
-    ![Active Directory][1]
+1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
+1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** .
+1. Navigera till **företags program** och välj sedan **alla program**.
+1. Välj **nytt program**om du vill lägga till ett nytt program.
+1. I avsnittet **Lägg till från galleriet** , skriver du **BenSelect** i sökrutan.
+1. Välj **BenSelect** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
-1. Gå till **företagsprogram**. Gå till **alla program**.
 
-    ![Program][2]
-    
-1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
-    ![Program][3]
+Konfigurera och testa Azure AD SSO med BenSelect med hjälp av en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i BenSelect.
 
-1. I sökrutan skriver **BenSelect**.
+Om du vill konfigurera och testa Azure AD SSO med BenSelect, slutför du följande Bygg stenar:
 
-    ![Skapa en Azure AD-användare för testning](./media/benselect-tutorial/tutorial_benselect_search.png)
+1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera BENSELECT SSO](#configure-benselect-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
+3. **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
+4. **[Tilldela Azure AD](#assign-the-azure-ad-test-user)** -testuser-för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
+5. **[Skapa BenSelect test User](#create-benselect-test-user)** -om du vill ha en motsvarighet till B. Simon i BenSelect som är länkad till Azure AD-representation av användare.
+6. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
 
-1. I resultatpanelen väljer **BenSelect**, och klicka sedan på **Lägg till** för att lägga till programmet.
+### <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
-    ![Skapa en Azure AD-användare för testning](./media/benselect-tutorial/tutorial_benselect_addfromgallery.png)
+Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med BenSelect baserat på en testanvändare som kallas ”Britta Simon”.
+1. I [Azure Portal](https://portal.azure.com/)går du till sidan för program integrering i **BenSelect** , letar upp avsnittet **Hantera** och väljer **enkel inloggning**.
+1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
+1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
 
-För enkel inloggning att fungera, behöver Azure AD du veta vad användaren motsvarighet i BenSelect är till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i BenSelect upprättas.
+   ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-I BenSelect, tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** att upprätta länken-relation.
+1. I avsnittet **grundläggande SAML-konfiguration** anger du värden för följande fält:
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med BenSelect, måste du utföra följande byggblock:
+    I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://www.benselect.com/enroll/login.aspx?Path=<tenant name>`
 
-1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-1. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-1. **[Skapa en testanvändare BenSelect](#creating-a-benselect-test-user)**  – du har en motsvarighet för Britta Simon i BenSelect som är länkad till en Azure AD-representation av användaren.
-1. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-1. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+    > [!NOTE]
+    > Värdet är inte verkligt. Uppdatera värdet för med den faktiska svars-URL:en. Kontakta [BenSelect client support team](mailto:support@selerix.com) för att hämta värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+1. BenSelect-programmet förväntar sig SAML-intyg i ett särskilt format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut i avsnittet **Användarattribut** på sidan för programintegrering. På sidan **Konfigurera enkel inloggning med SAML** klickar du på knappen **Redigera** för att öppna dialogrutan **Användarattribut**.
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt BenSelect program.
+    ![image](common/edit-attribute.png)
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med BenSelect:**
+1. Klicka på **redigerings** ikonen för att redigera **namnet på namn identifieraren**.
 
-1. I Azure-portalen på den **BenSelect** program integration-sidan klickar du på **enkel inloggning**.
+    ![image](media/benselect-tutorial/mail-prefix1.png)
 
-    ![Konfigurera enkel inloggning][4]
+1. I avsnittet **hantera användar anspråk** utför du följande steg:
 
-1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
- 
-    ![Konfigurera enkel inloggning](./media/benselect-tutorial/tutorial_benselect_samlbase.png)
+    ![image](media/benselect-tutorial/mail-prefix2.png)
 
-1. På den **BenSelect domän och URL: er** avsnittet, utför följande steg:
+    a. Välj **omvandling** som **källa**.
 
-    ![Konfigurera enkel inloggning](./media/benselect-tutorial/tutorial_benselect_url.png)
+    b. I list rutan **omvandling** väljer du **ExtractMailPrefix ()** .
 
-    I den **svars-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://www.benselect.com/enroll/login.aspx?Path=<tenant name>`
+    c. I list rutan **parameter 1** väljer du **User. UserPrincipalName**.
 
-    > [!NOTE] 
-    > Det här värdet är inte verkligt. Uppdatera det här värdet med den faktiska svars-URL:en. Kontakta [BenSelect supportteamet](mailto:support@selerix.com) att hämta det här värdet.
- 
-1. På den **SAML-signeringscertifikat** klickar du på **Certificate(Raw)** och spara certifikatfilen på datorn.
+    d. Klicka på **Spara**.
 
-    ![Konfigurera enkel inloggning](./media/benselect-tutorial/tutorial_benselect_certificate.png) 
+1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , Sök efter **certifikat (RAW)** och välj **Ladda ned** för att ladda ned certifikatet och spara det på din dator.
 
-1. BenSelect program som förväntar SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut i avsnittet **Användarattribut** på sidan för programintegrering. Följande skärmbild visar ett exempel på detta.
+    ![Länk för hämtning av certifikat](common/certificateraw.png)
 
-    ![Konfigurera enkel inloggning](./media/benselect-tutorial/tutorial_benselect_06.png)
+1. I avsnittet **Konfigurera BenSelect** kopierar du lämpliga URL: er baserat på ditt krav.
 
-1. I den **användarattribut** avsnittet på den **enkel inloggning** dialogrutan:
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-    a. I den **användaridentifierare** listrutan, väljer **ExtractMailPrefix**.
+### <a name="configure-benselect-sso"></a>Konfigurera BenSelect SSO
 
-    b. I den **e** listrutan, väljer **user.userprincipalname**.
+Om du vill konfigurera enkel inloggning på **BenSelect** sida måste du skicka det hämtade **certifikatet (RAW)** och lämpliga kopierade url: er från Azure Portal till [support teamet för BenSelect](mailto:support@selerix.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
 
-1. Klicka på **spara** knappen.
+> [!NOTE]
+> Du måste ange att denna integrering kräver att SHA256-algoritmen (SHA1 inte stöds) för att ställa in SSO på lämplig server som app2101 osv.
 
-    ![Konfigurera enkel inloggning](./media/benselect-tutorial/tutorial_general_400.png)
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-1. På den **BenSelect Configuration** klickar du på **konfigurera BenSelect** att öppna **konfigurera inloggning** fönster. Kopiera den **URL för utloggning, SAML entitets-ID och SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
+I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
 
-    ![Konfigurera enkel inloggning](./media/benselect-tutorial/tutorial_benselect_configure.png) 
+1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
+1. Välj **ny användare** överst på skärmen.
+1. I **användar** egenskaperna följer du de här stegen:
+   1. I **Namn**-fältet skriver du `B.Simon`.  
+   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+   1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
+   1. Klicka på **Skapa**.
 
-1. Att konfigurera enkel inloggning på **BenSelect** sida, som du behöver skicka de hämtade **Certificate(Raw)** och **URL för utloggning, SAML entitets-ID och SAML enkel inloggning för tjänst-URL**till [BenSelect supportteamet](mailto:support@selerix.com).
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-   >[!NOTE]
-   >Du behöver att ange att den här integrationen kräver SHA256-algoritmen (SHA1 inte stöds) Ange SSO på rätt server som app2101 osv. 
-   
-> [!TIP]
-> Nu kan du läsa en kortare version av instruktionerna i [Azure Portal](https://portal.azure.com), samtidigt som du konfigurerar appen!  När du har lagt till appen från avsnittet **Active Directory > Företagsprogram**, behöver du bara klicka på fliken **Enkel inloggning**. Du kommer då till den inbäddade dokumentationen via avsnittet **Konfiguration** längst ned. Du kan läsa mer om funktionen för inbäddad dokumentation här: [Inbäddad Azure AD-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till BenSelect.
 
-### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+1. I Azure Portal väljer du **företags program**och väljer sedan **alla program**.
+1. I listan program väljer du **BenSelect**.
+1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
 
-![Skapa en Azure AD-användare][100]
+   ![Länken ”användare och grupper”](common/users-groups-blade.png)
 
-**Utför följande steg för att skapa en testanvändare i Azure AD:**
+1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
 
-1. I den **Azure-portalen**, i det vänstra navigeringsfönstret klickar du på **Azure Active Directory** ikon.
+    ![Länken Lägg till användare](common/add-assign-user.png)
 
-    ![Skapa en Azure AD-användare för testning](./media/benselect-tutorial/create_aaduser_01.png) 
+1. I dialog rutan **användare och grupper** väljer du **B. Simon** från listan användare och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Om du förväntar dig ett roll värde i SAML Assertion, i dialog rutan **Välj roll** , väljer du lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-1. Om du vill visa en lista över användare, gå till **användare och grupper** och klicka på **alla användare**.
-    
-    ![Skapa en Azure AD-användare för testning](./media/benselect-tutorial/create_aaduser_02.png) 
+### <a name="create-benselect-test-user"></a>Skapa BenSelect test användare
 
-1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
- 
-    ![Skapa en Azure AD-användare för testning](./media/benselect-tutorial/create_aaduser_03.png) 
+I det här avsnittet skapar du en användare som heter Britta Simon i BenSelect. Arbeta med [BenSelect support team](mailto:support@selerix.com) för att lägga till användare i BenSelect-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
-1. På den **användaren** dialogrutan utför följande steg:
- 
-    ![Skapa en Azure AD-användare för testning](./media/benselect-tutorial/create_aaduser_04.png) 
+### <a name="test-sso"></a>Testa SSO
 
-    a. I den **namn** textrutan typ **BrittaSimon**.
+I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
-    b. I den **användarnamn** textrutan skriver den **e-postadress** av BrittaSimon.
-
-    c. Välj **visa lösenord** och anteckna värdet för den **lösenord**.
-
-    d. Klicka på **Skapa**.
- 
-### <a name="creating-a-benselect-test-user"></a>Skapa en BenSelect testanvändare
-
-Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i BenSelect. Arbeta med [BenSelect supportteamet](mailto:support@selerix.com) att lägga till användare i BenSelect-konto.
-
-### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
-
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till BenSelect.
-
-![Tilldela användare][200] 
-
-**Om du vill tilldela Britta Simon BenSelect, utför du följande steg:**
-
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
-
-    ![Tilldela användare][201] 
-
-1. I listan med program väljer **BenSelect**.
-
-    ![Konfigurera enkel inloggning](./media/benselect-tutorial/tutorial_benselect_app.png) 
-
-1. I menyn till vänster, klickar du på **användare och grupper**.
-
-    ![Tilldela användare][202] 
-
-1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
-
-    ![Tilldela användare][203]
-
-1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
-
-1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
-
-1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
-    
-### <a name="testing-single-sign-on"></a>Testa enkel inloggning
-
-I det här avsnittet ska testa du din Azure AD SSO-konfiguration med hjälp av åtkomstpanelen.
-
-När du klickar på panelen BenSelect i åtkomstpanelen du bör få automatiskt loggat in på ditt BenSelect program.
+När du klickar på panelen BenSelect på åtkomst panelen, bör du loggas in automatiskt på den BenSelect som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/benselect-tutorial/tutorial_general_01.png
-[2]: ./media/benselect-tutorial/tutorial_general_02.png
-[3]: ./media/benselect-tutorial/tutorial_general_03.png
-[4]: ./media/benselect-tutorial/tutorial_general_04.png
-
-[100]: ./media/benselect-tutorial/tutorial_general_100.png
-
-[200]: ./media/benselect-tutorial/tutorial_general_200.png
-[201]: ./media/benselect-tutorial/tutorial_general_201.png
-[202]: ./media/benselect-tutorial/tutorial_general_202.png
-[203]: ./media/benselect-tutorial/tutorial_general_203.png
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

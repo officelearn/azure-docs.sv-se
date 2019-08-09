@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: glenga
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 16e12021a65a09376293f28efe9a6e9ef74ef5c2
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: f0f00745f2f7781bda0e636167b1cf1a4045f7cd
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839565"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881381"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Arbeta med Azure Functions Core Tools
 
@@ -446,11 +446,25 @@ Följande alternativ för distribution av anpassade behållare är tillgängliga
 
 ## <a name="monitoring-functions"></a>Övervaknings funktioner
 
-Det rekommenderade sättet att övervaka körningen av dina funktioner är genom att integrera med Azure Application insikter. När du skapar en Function-app i Azure Portal görs denna integrering som standard. Men när du skapar en Function-app med hjälp av Azure CLI, är integrationen i din Function-app i Azure inte färdig.
+Det rekommenderade sättet att övervaka körningen av dina funktioner är genom att integrera med Azure Application insikter. Du kan också strömma körnings loggar till den lokala datorn. Mer information finns i [övervaka Azure Functions](functions-monitoring.md).
+
+### <a name="enable-application-insights-integration"></a>Aktivera Application Insights-integrering
+
+När du skapar en Function-app i Azure Portal görs Application Insights-integration som standard. Men när du skapar en Function-app med hjälp av Azure CLI, är integrationen i din Function-app i Azure inte färdig.
 
 [!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
 
-Mer information finns i [övervaka Azure Functions](functions-monitoring.md).
+### <a name="enable-streaming-logs"></a>Aktivera strömnings loggar
+
+Du kan visa en ström med loggfiler som genereras av dina funktioner i en kommando rad session på den lokala datorn. 
+
+#### <a name="native-streaming-logs"></a>Interna strömmande loggar
+
+[!INCLUDE [functions-streaming-logs-core-tools](../../includes/functions-streaming-logs-core-tools.md)]
+
+Den här typen av strömnings loggar kräver att du [aktiverar Application Insights integrering](#enable-application-insights-integration) för din Function-app.   
+
+
 ## <a name="next-steps"></a>Nästa steg
 
 Azure Functions Core Tools är [öppen källkod och finns på GitHub](https://github.com/azure/azure-functions-cli).  

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd03e2b98b1fd1a2a45b5feecc963bcfc7bfe83c
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 489ff1824c4bc45ee7ed31e9c96377975a32baa4
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68499879"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879246"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Azure Active Directory Smart utelåsning
 
@@ -31,7 +31,7 @@ Smart utelåsning spårar de tre senaste Felaktiga hasharna för lösen ord för
 
 Federerade distributioner som använder AD FS 2016 och AF FS 2019 kan möjliggöra liknande förmåner med [AD FS extra näts utelåsning och extra näts Smart utelåsning](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection).
 
-Smart utelåsning är alltid aktiverat för alla Azure AD-kunder med dessa standardinställningar som ger rätt blandning av säkerhet och användbarhet. Anpassning av inställningarna för smart utelåsning, med värden som är speciella för din organisation, kräver Azure AD Basic eller högre licenser för dina användare.
+Smart utelåsning är alltid aktiverat för alla Azure AD-kunder med dessa standardinställningar som ger rätt blandning av säkerhet och användbarhet. Anpassning av inställningarna för smart utelåsning, med värden som är speciella för din organisation, kräver betalda Azure AD-licenser för dina användare.
 
 Att använda Smart utelåsning garanterar inte att en äkta användare aldrig blir utelåst. När Smart utelåsning låser ett användar konto, försöker vi med vårt bästa att inte låsa den äkta användaren. Utelåsnings tjänsten försöker se till att felaktiga aktörer inte får åtkomst till ett äkta användar konto.  
 
@@ -63,7 +63,7 @@ Använd följande instruktioner för att verifiera din lokala princip för Activ
 
 ## <a name="manage-azure-ad-smart-lockout-values"></a>Hantera Azure AD Smart utelåsnings värden
 
-Med hjälp av dina organisations krav kan smarta utelåsnings värden behöva anpassas. Anpassning av inställningarna för smart utelåsning, med värden som är speciella för din organisation, kräver Azure AD Basic eller högre licenser för dina användare.
+Med hjälp av dina organisations krav kan smarta utelåsnings värden behöva anpassas. Anpassning av inställningarna för smart utelåsning, med värden som är speciella för din organisation, kräver betalda Azure AD-licenser för dina användare.
 
 Använd följande steg för att kontrol lera eller ändra de smarta utelåsnings värdena för din organisation:
 

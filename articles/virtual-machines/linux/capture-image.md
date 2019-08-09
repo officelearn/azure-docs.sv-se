@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: cynthn
-ms.openlocfilehash: ed9eb990fff3a0901f3fa26526b30e8cb8a2fe66
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 328748b9dd81834b9c69f81bc0bda60c9ad12cb0
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779405"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879958"
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>Så här skapar du en avbildning av en virtuell dator eller virtuell hård disk
 
@@ -40,9 +40,9 @@ Du behöver följande objekt innan du skapar en avbildning:
 
 * Den senaste versionen av [Azure CLI](/cli/azure/install-az-cli2) är installerad och är inloggad på ett Azure-konto med [AZ-inloggning](/cli/azure/reference-index#az-login).
 
-## <a name="quick-commands"></a>Snabbkommandon
+## <a name="prefer-a-tutorial-instead"></a>Föredrar du en själv studie kurs i stället?
 
-För en förenklad version av den här artikeln och för testning, utvärdering eller inlärning av virtuella datorer i Azure, se [skapa en anpassad avbildning av en virtuell Azure-dator med hjälp av CLI](tutorial-custom-images.md).
+För en förenklad version av den här artikeln och för testning, utvärdering eller inlärning av virtuella datorer i Azure, se [skapa en anpassad avbildning av en virtuell Azure-dator med hjälp av CLI](tutorial-custom-images.md).  Annars fortsätter du att läsa hit för att hämta hela bilden.
 
 
 ## <a name="step-1-deprovision-the-vm"></a>Steg 1: Avetablera den virtuella datorn
@@ -58,7 +58,7 @@ Först avetablerar du den virtuella datorn med hjälp av Azure VM-agenten för a
    > Kör bara det här kommandot på en virtuell dator som du ska avbilda som en avbildning. Det här kommandot garanterar inte att avbildningen är klar med all känslig information eller är lämplig för omdistribution. `+user` Parametern tar också bort det senast etablerade användar kontot. Använd endast `-deprovision`om du vill behålla autentiseringsuppgifterna för användar kontot på den virtuella datorn.
  
 3. Fortsätt genom att ange **y** . Du kan lägga till `-force` parametern för att undvika det här bekräftelse steget.
-4. När kommandot har slutförts anger du **Avsluta** för att stänga SSH-klienten.
+4. När kommandot har slutförts anger du **Avsluta** för att stänga SSH-klienten.  Den virtuella datorn kommer fortfarande att köras nu.
 
 ## <a name="step-2-create-vm-image"></a>Steg 2: Skapa avbildning av virtuell dator
 Använd Azure CLI för att markera den virtuella datorn som generaliserad och avbilda avbildningen. Ersätt exempel parameter namn med dina egna värden i följande exempel. Exempel på parameter namn är *myResourceGroup*, *myVnet*och *myVM*.
@@ -71,7 +71,7 @@ Använd Azure CLI för att markera den virtuella datorn som generaliserad och av
       --name myVM
     ```
     
-    Vänta tills den virtuella datorn är helt avallokerad innan du går vidare. Det kan ta några minuter att slutföra.
+    Vänta tills den virtuella datorn är helt avallokerad innan du går vidare. Det kan ta några minuter att slutföra.  Den virtuella datorn stängs av under avallokeringen.
 
 2. Markera den virtuella datorn som generaliserad med [AZ VM generalize](/cli/azure/vm). I följande exempel märks den virtuella datorn med namnet *myVM* i resurs gruppen med namnet *myResourceGroup* som generaliserad.
    
@@ -80,6 +80,8 @@ Använd Azure CLI för att markera den virtuella datorn som generaliserad och av
       --resource-group myResourceGroup \
       --name myVM
     ```
+
+    En virtuell dator som har generaliserats kan inte längre startas om.
 
 3. Skapa en avbildning av den virtuella dator resursen med [AZ image Create](/cli/azure/image#az-image-create). I följande exempel skapas en avbildning med namnet *image* i resurs gruppen med namnet *myResourceGroup* med hjälp av den virtuella dator resursen med namnet *myVM*.
    
@@ -93,6 +95,8 @@ Använd Azure CLI för att markera den virtuella datorn som generaliserad och av
    > Avbildningen skapas i samma resurs grupp som den virtuella käll datorn. Du kan skapa virtuella datorer i alla resurs grupper i din prenumeration från den här avbildningen. Från ett hanterings perspektiv kanske du vill skapa en resurs grupp för dina VM-resurser och avbildningar.
    >
    > Om du vill lagra avbildningen i zoner – elastisk lagring måste du skapa den i en region som har stöd för tillgänglighets [zoner](../../availability-zones/az-overview.md) och inkludera `--zone-resilient true` parametern.
+   
+Det här kommandot returnerar JSON som beskriver avbildningen av den virtuella datorn. Spara utdata för senare referens.
 
 ## <a name="step-3-create-a-vm-from-the-captured-image"></a>Steg 3: Skapa en virtuell dator från avbildningen
 Skapa en virtuell dator med hjälp av avbildningen som du skapade med [AZ VM Create](/cli/azure/vm). I följande exempel skapas en virtuell dator med namnet *myVMDeployed* från avbildningen med namnet *image*.

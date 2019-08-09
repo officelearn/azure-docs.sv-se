@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 04/26/2019
-ms.openlocfilehash: d940cfa91890d26a48b682a6eb09410b3b7de045
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 5fccf1ffc76c824c81f8b8b826f90bf8314ff1e3
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568079"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883349"
 ---
 # <a name="azure-sql-database-glossary-of-terms"></a>Azure SQL Database ord lista med villkor
 
@@ -49,6 +49,6 @@ Databasobjekt|Azure SQL-databas|Alla databaser i Azure SQL Database|
 ||Lagrings belopp|Mängden lagrings utrymme som är tillgänglig för en enskild databas, elastisk pool eller hanterad instans|
 ||Beräknings generation|Generering av processor inom en tjänst nivå|
 |IP-brandväggsregler för databasserver|Regler för IP-brandvägg|[Regler för IP-brandvägg](sql-database-firewall-configure.md)|
-||IP-brandväggsregler på servernivå|[Regler för IP-brandvägg på server nivå](sql-database-firewall-configure.md#overview)|
-|| Regler för IP-brandvägg på databas nivå|[Regler för IP-brandvägg på databas nivå](sql-database-firewall-configure.md#overview)|
+||IP-brandväggsregler på servernivå|[Regler för IP-brandvägg på server nivå](sql-database-firewall-configure.md)|
+|| Regler för IP-brandvägg på databas nivå|[Regler för IP-brandvägg på databas nivå](sql-database-firewall-configure.md)|
 ||Slut punkter och regler för virtuella nätverk|[Slutpunkter och regler för virtuellt nätverk](sql-database-vnet-service-endpoint-rule-overview.md)|

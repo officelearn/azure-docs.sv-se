@@ -1,244 +1,163 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med mark Gorilla klienten | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory integrering med mark Gorilla | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och mark Gorilla.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 28acce3e-22a0-4a37-8b66-6e518d777350
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/13/2017
+ms.topic: tutorial
+ms.date: 08/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d12519a2bd0a5e3951d0ca9ae51a54bd728a782b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e7c2f9b076d831f4d851a964ababb64930a7c7f8
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65987901"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879998"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-land-gorilla-client"></a>Självstudier: Azure Active Directory-integrering med mark Gorilla klienten
+# <a name="tutorial-integrate-land-gorilla-with-azure-active-directory"></a>Självstudier: Integrera mark Gorilla med Azure Active Directory
 
-I den här självstudien får du lära dig hur du integrerar mark Gorilla klienten med Azure Active Directory (AD Azure).
+I den här självstudien får du lära dig hur du integrerar mark Gorilla med Azure Active Directory (Azure AD). När du integrerar mark-Gorilla med Azure AD kan du:
 
-Integrera mark Gorilla klienten med Azure AD ger dig följande fördelar:
+* Kontroll i Azure AD som har åtkomst till mark Gorilla.
+* Gör det möjligt för användarna att logga in automatiskt till mark Gorilla med sina Azure AD-konton.
+* Hantera dina konton på en central plats – Azure Portal.
 
-- Du kan styra i Azure AD som har åtkomst till mark Gorilla klienten
-- Du kan aktivera användarna att automatiskt få loggat in på mark Gorilla klienten (Single Sign-On) med sina Azure AD-konton
-- Du kan hantera dina konton på en central plats - Azure-hanteringsportalen
+Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+## <a name="prerequisites"></a>Förutsättningar
 
+För att komma igång behöver du följande objekt:
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
-
-Om du vill konfigurera Azure AD-integrering med mark Gorilla klienten behöver du följande objekt:
-
-- En Azure AD-prenumeration
-- En mark Gorilla klienten enkel inloggning aktiverad prenumeration
-
-
-> [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
-
-
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
-
-- Du bör inte använda din produktionsmiljö såvida inte detta är nödvändigt.
-- Om du inte har en Azure AD-utvärderingsmiljö kan du skaffa en månads utvärderingsperiod [här](https://azure.microsoft.com/pricing/free-trial/).
-
+* En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
+* Gorilla för enkel inloggning (SSO) som är aktive rad för den här prenumerationen.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-1. Att lägga till mark Gorilla klienten från galleriet
-1. Konfigurera och testa Azure AD enkel inloggning
+I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
 
+* Mark Gorilla stöder **IDP** INITIERAd SSO
 
-## <a name="adding-land-gorilla-client-from-the-gallery"></a>Att lägga till mark Gorilla klienten från galleriet
-Om du vill konfigurera integreringen av mark Gorilla klient till Azure AD, som du behöver lägga till mark Gorilla klienten från galleriet i din lista över hanterade SaaS-appar.
+## <a name="adding-land-gorilla-from-the-gallery"></a>Lägga till mark Gorilla från galleriet
 
-**Utför följande steg för att lägga till mark Gorilla klienten från galleriet:**
+Om du vill konfigurera integrering av mark Gorilla i Azure AD måste du lägga till Gorilla från galleriet i listan över hanterade SaaS-appar.
 
-1. I den  **[Azure-hanteringsportalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
+1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** .
+1. Navigera till **företags program** och välj sedan **alla program**.
+1. Välj **nytt program**om du vill lägga till ett nytt program.
+1. I avsnittet **Lägg till från galleriet** , Skriv **land Gorilla** i sökrutan.
+1. Välj **land Gorilla** från panelen resultat och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
-    ![Active Directory][1]
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
-1. Gå till **företagsprogram**. Gå till **alla program**.
+Konfigurera och testa Azure AD SSO med mark Gorilla med en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i land Gorilla.
 
-    ![Program][2]
-    
-1. Klicka på **Lägg till** knappen överst i dialogrutan.
+Om du vill konfigurera och testa Azure AD SSO med mark Gorilla slutför du följande Bygg stenar:
 
-    ![Program][3]
+1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera mark GORILLA SSO](#configure-land-gorilla-sso)** – för att konfigurera inställningar för enkel inloggning på program sidan.
+3. **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
+4. **[Tilldela Azure AD](#assign-the-azure-ad-test-user)** -testuser-för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
+5. **[Skapa test användare av mark Gorilla](#create-land-gorilla-test-user)** – om du vill ha en motsvarighet till B. Simon i mark Gorilla som är länkad till Azure AD-representation av användare.
+6. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
 
-1. I sökrutan skriver **mark Gorilla klienten**.
+### <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
-    ![Skapa en Azure AD-användare för testning](./media/landgorilla-tutorial/tutorial_landgorilla_search.png)
+Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
-1. I resultatpanelen väljer **mark Gorilla klienten**, och klicka sedan på **Lägg till** för att lägga till programmet.
+1. På sidan för **Gorilla** program integration i [Azure Portal](https://portal.azure.com/)går du till sidan **Hantera** och väljer **enkel inloggning**.
+1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
+1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
 
-    ![Skapa en Azure AD-användare för testning](./media/landgorilla-tutorial/tutorial_landgorilla_addfromgallery.png)
+   ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
+1. På sidan **Konfigurera enkel inloggning med SAML** anger du värdena för följande fält:
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med mark Gorilla klient med en testanvändare som kallas ”B. Simon ”.
+    a. I text rutan **identifierare** anger du en URL med något av följande mönster:
 
-För enkel inloggning att fungera, behöver Azure AD du veta vad användaren motsvarighet i mark Gorilla klienten är till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i mark Gorilla klienten upprättas.
+    | | |
+    |-|-|
+    | `https://<customer domain>.landgorilla.com/`|
+    | `https://www.<customer domain>.landgorilla.com`|
+    | | |
 
-Den här länken relationen upprättas genom att tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** i mark Gorilla-klienten.
+    b. I text rutan svars- **URL** skriver du en URL med något av följande mönster:
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med mark Gorilla klienten, måste du utföra följande byggblock:
+    | | |
+    |-|-|
+    | `https://<customer domain>.landgorilla.com/simplesaml/module.php/core/authenticate.php`|
+    | `https://www.<customer domain>.landgorilla.com/simplesaml/module.php/core/authenticate.php`|
+    | `https://<customer domain>.landgorilla.com/simplesaml/module.php/saml/sp/saml2-acs.php/default-sp`|
+    | `https://www.<customer domain>.landgorilla.com/simplesaml/module.php/saml/sp/saml2-acs.php/default-sp`|
 
-1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-1. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med begränsad grupp.
-1. **[Skapa en testanvändare mark Gorilla](#creating-a-land-gorilla-test-user)**  – om du vill testa Azure AD enkel inloggning med B. Simon.
-1. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera B. Simon att använda Azure AD enkel inloggning.
-1. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+    > [!NOTE]
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifieraren och svars-URL. Här föreslår vi att du använder det unika värdet för strängen i identifieraren. Kontakta [land Gorilla-klientens support team](https://www.landgorilla.com/support/) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , letar du upp **XML för federationsmetadata** och väljer **Hämta** för att ladda ned certifikatet och spara det på din dator.
 
-I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-hanteringsportalen och konfigurera enkel inloggning i ditt Land Gorilla klientprogram.
+    ![Länk för hämtning av certifikat](common/metadataxml.png)
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med mark Gorilla klienten:**
+1. I avsnittet **Konfigurera land Gorilla** kopierar du lämpliga URL: er baserat på ditt krav.
 
-1. I hanteringsportalen för Azure på den **mark Gorilla klienten** program integration-sidan klickar du på **enkel inloggning**.
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-    ![Konfigurera enkel inloggning][4]
+### <a name="configure-land-gorilla-sso"></a>Konfigurera mark Gorilla SSO
 
-1. På den **enkel inloggning** dialogrutan som **läge** Välj **SAML-baserad inloggning** att aktivera enkel inloggning.
- 
-    ![Konfigurera enkel inloggning](./media/landgorilla-tutorial/tutorial_landgorilla_samlbase.png)
+Om du vill konfigurera enkel inloggning på **land Gorilla** -sidan måste du skicka den hämtade **XML-metadata för federationsmetadata** och lämpliga kopierade url: er från Azure Portal till [support teamet för mark Gorilla](https://www.landgorilla.com/support/). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
 
-1. På den **mark Gorilla klienten domän och URL: er** avsnittet, utför följande steg:
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-    ![Konfigurera enkel inloggning](./media/landgorilla-tutorial/tutorial_landgorilla_url_02.png)
+I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
 
-    a. I den **identifierare** textrutan skriver värde med någon av följande mönster: 
-    
-    `https://<customer domain>.landgorilla.com/` 
-    
-    `https://www.<customer domain>.landgorilla.com`
+1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
+1. Välj **ny användare** överst på skärmen.
+1. I **användar** egenskaperna följer du de här stegen:
+   1. I **Namn**-fältet skriver du `B.Simon`.  
+   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+   1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
+   1. Klicka på **Skapa**.
 
-    b. I den **svars-URL** textrutan anger du ett URL-Adressen med något av följande mönster:
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-    `https://<customer domain>.landgorilla.com/simplesaml/module.php/core/authenticate.php`
+I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till land Gorilla.
 
-    `https://www.<customer domain>.landgorilla.com/simplesaml/module.php/core/authenticate.php`
+1. I Azure Portal väljer du **företags program**och väljer sedan **alla program**.
+1. I listan program väljer du **land Gorilla**.
+1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
 
-    `https://<customer domain>.landgorilla.com/simplesaml/module.php/saml/sp/saml2-acs.php/default-sp`
-    
-    `https://www.<customer domain>.landgorilla.com/simplesaml/module.php/saml/sp/saml2-acs.php/default-sp`
+   ![Länken ”användare och grupper”](common/users-groups-blade.png)
 
-    > [!NOTE] 
-    > Observera att detta inte är de verkliga värdena. Du måste uppdatera dessa värden med de faktiska identifierare och svars-URL. Här föreslår vi att du använder det unika värdet för strängen i identifieraren. Kontakta [mark Gorilla klienten team](https://www.landgorilla.com/support/) att hämta dessa värden. 
+1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
 
-1. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara XML-filen på datorn.
+    ![Länken Lägg till användare](common/add-assign-user.png)
 
-    ![Konfigurera enkel inloggning](./media/landgorilla-tutorial/tutorial_landgorilla_certificate.png) 
+1. I dialog rutan **användare och grupper** väljer du **B. Simon** från listan användare och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Om du förväntar dig ett roll värde i SAML Assertion, i dialog rutan **Välj roll** , väljer du lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-1. Klicka på **spara** knappen.
+### <a name="create-land-gorilla-test-user"></a>Skapa test användare för mark Gorilla
 
-    ![Konfigurera enkel inloggning](./media/landgorilla-tutorial/tutorial_general_400.png) 
+I det här avsnittet skapar du en användare som heter Britta Simon i land Gorilla. Arbeta med [mark Gorilla support team](https://www.landgorilla.com/support/) för att lägga till användare på land Gorilla-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
-1. Om du vill hämta SSO-konfiguration slutförd för ditt program mark Gorilla slutet, kontakta [mark Gorilla klienten supportteamet](https://www.landgorilla.com/support/) och ge dem med de hämtade **”XML-Metadata för** fil.
-
-
-### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
-Målet med det här avsnittet är att skapa en testanvändare i Azure Management portal kallas B. Simon.
-
-![Skapa en Azure AD-användare][100]
-
-**Utför följande steg för att skapa en testanvändare i Azure AD:**
-
-1. I den **Azure-hanteringsportalen**, i det vänstra navigeringsfönstret klickar du på **Azure Active Directory** ikon.
-
-    ![Skapa en Azure AD-användare för testning](./media/landgorilla-tutorial/create_aaduser_01.png) 
-
-1. Gå till **användare och grupper** och klicka på **alla användare** att visa en lista över användare.
-    
-    ![Skapa en Azure AD-användare för testning](./media/landgorilla-tutorial/create_aaduser_02.png) 
-
-1. Överst i dialogrutan klickar du på **Lägg till** att öppna den **användaren** dialogrutan.
- 
-    ![Skapa en Azure AD-användare för testning](./media/landgorilla-tutorial/create_aaduser_03.png) 
-
-1. På den **användaren** dialogrutan utför följande steg:
- 
-    ![Skapa en Azure AD-användare för testning](./media/landgorilla-tutorial/create_aaduser_04.png) 
-
-    a. I den **namn** textrutan typ **B. Simon**.
-
-    b. I den **användarnamn** textrutan skriver den **e-postadress** för B. Simon.
-
-    c. Välj **visa lösenord** och anteckna värdet för den **lösenord**.
-
-    d. Klicka på **Skapa**. 
-
-### <a name="creating-a-land-gorilla-test-user"></a>Skapa en testanvändare mark Gorilla
-
-Kontakta [mark Gorilla supportteamet](https://www.landgorilla.com/support/) att lägga till användare i mark Gorilla-plattformen.
-    
-### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
-
-I det här avsnittet ska aktivera du B. Simon att använda Azure enkel inloggning genom att ge dem åtkomst till mark Gorilla klient.
-
-![Tilldela användare][200] 
-
-**Om du vill tilldela mark Gorilla klient B. Simon utför du följande steg:**
-
-1. Öppna vyn program i Azure-hanteringsportalen och sedan gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
-
-    ![Tilldela användare][201] 
-
-1. I listan med program väljer **mark Gorilla klienten**.
-
-    ![Konfigurera enkel inloggning](./media/landgorilla-tutorial/tutorial_landgorilla_app.png) 
-
-1. I menyn till vänster, klickar du på **användare och grupper**.
-
-    ![Tilldela användare][202] 
-
-1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
-
-    ![Tilldela användare][203]
-
-1. På **användare och grupper** dialogrutan **B. Simon** på listan användare.
-
-1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
-
-1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
-    
-
-
-### <a name="testing-single-sign-on"></a>Testa enkel inloggning
+### <a name="test-sso"></a>Testa SSO
 
 I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
-När du klickar på panelen mark Gorilla klienten i åtkomstpanelen du bör få automatiskt loggat in på ditt Land Gorilla klientprogram.
-
+När du klickar på panelen land Gorilla på åtkomst panelen, bör du loggas in automatiskt på den land-Gorilla som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/landgorilla-tutorial/tutorial_general_01.png
-[2]: ./media/landgorilla-tutorial/tutorial_general_02.png
-[3]: ./media/landgorilla-tutorial/tutorial_general_03.png
-[4]: ./media/landgorilla-tutorial/tutorial_general_04.png
-
-[100]: ./media/landgorilla-tutorial/tutorial_general_100.png
-[200]: ./media/landgorilla-tutorial/tutorial_general_200.png
-[201]: ./media/landgorilla-tutorial/tutorial_general_201.png
-[202]: ./media/landgorilla-tutorial/tutorial_general_202.png
-[203]: ./media/landgorilla-tutorial/tutorial_general_203.png
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

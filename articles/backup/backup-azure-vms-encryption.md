@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 4/3/2019
 ms.author: dacurwin
-ms.openlocfilehash: 71a33b7263cd7a3b2f5e39ce9d24df11a7d6283c
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 5c6e3ef74ea2d77ba03526e05145fe6faa61c050
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688608"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882059"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>Säkerhetskopiera och återställa krypterade virtuella Azure-datorer
 
@@ -154,10 +154,11 @@ Du återställer krypterade virtuella datorer på följande sätt:
 2. Gör sedan något av följande:
     - Använd mallen som genereras under återställnings åtgärden för att anpassa VM-inställningar och utlösa VM-distribution. [Läs mer](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm).
     - Skapa en ny virtuell dator från de återställda diskarna med PowerShell. [Läs mer](backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
+    - För virtuella Linux-datorer återställer du ADE-tillägget så att data diskarna är öppna och monterade. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du stöter på problem granskar du
+Om du stöter på problem kan du läsa följande artiklar:
 
 - [Vanliga fel](backup-azure-vms-troubleshoot.md) vid säkerhets kopiering och återställning av krypterade virtuella Azure-datorer.
 - Problem med [Azure VM-agent/säkerhets kopierings tillägg](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md) .

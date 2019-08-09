@@ -1,6 +1,6 @@
 ---
-title: Prestandamått för Azure NetApp Files | Microsoft Docs
-description: Beskriver resultaten från benchmark-testerna för prestanda för Azure NetApp filer på volymnivå.
+title: Prestandatest resultat för Azure NetApp Files | Microsoft Docs
+description: Beskriver resultaten av prestandatest för Azure NetApp Files på volym nivå.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -12,84 +12,84 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/22/2019
+ms.date: 08/07/2019
 ms.author: b-juche
-ms.openlocfilehash: 14081daf1f45a84bc8ad19bf0239db1281d9e624
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 1d6b43110046f26d8c8070b19587366588eee7b6
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449510"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881742"
 ---
-# <a name="performance-benchmarks-for-azure-netapp-files"></a>Prestandamått för Azure NetApp Files
+# <a name="performance-benchmark-test-results-for-azure-netapp-files"></a>Prestandatest resultat för Azure NetApp Files
 
-Den här artikeln beskrivs resultaten från benchmark-testerna för prestanda för Azure NetApp filer på volymnivå. 
+I den här artikeln beskrivs resultaten av prestandatest för Azure NetApp Files på volym nivå. 
 
-## <a name="sample-application-used-for-the-tests"></a>Exempelprogrammet som används för testerna
+## <a name="sample-application-used-for-the-tests"></a>Exempel program som används för testerna
 
-Prestandatester kördes med ett exempelprogram som använder Azure NetApp-filer. Programmet har följande egenskaper: 
+Prestandatester kördes med ett exempel program som använder Azure NetApp Files. Programmet har följande egenskaper: 
 
-* Ett Linux-baserade program som skapats för molnet
-* Kan skalas linjärt med har lagts till virtuella datorer (VM) för att öka beräkningskraft efter behov
-* Kräver snabb tillgängligheten för data lake
-* Har i/o-mönster som ibland är slumpmässig och ibland sekventiella 
-    * Ett slumpmässigt mönster kräver låg fördröjning för stora mängder i/o. 
+* Ett Linux-baserat program som skapats för molnet
+* Kan skalas linjärt med tillagda virtuella datorer (VM) för att öka beräknings kraften vid behov
+* Kräver snabb åtkomst till data Lake
+* Innehåller I/O-mönster som ibland är slumpmässiga och ibland sekventiella 
+    * Ett slumpmässigt mönster kräver låg latens för stora mängder i/O. 
     * Ett sekventiellt mönster kräver stora mängder bandbredd. 
 
-## <a name="about-the-workload-generator"></a>Om arbetsbelastningen generator
+## <a name="about-the-workload-generator"></a>Om arbets belastnings generatorn
 
-Resultatet kommer från Vdbench sammanfattning av filer. [Vdbench](https://www.oracle.com/technetwork/server-storage/vdbench-downloads-1901681.html) är ett kommandoradsverktyg som genererar diskens i/o-arbetsbelastningar för att verifiera lagringsprestanda. Konfigurationen för klient-server som används är skalbar.  Den innehåller en enda blandat master/klient och klient-14 dedikerade VM.
+Resultaten kommer från Vdbench sammanfattnings filer. [Vdbench](https://www.oracle.com/technetwork/server-storage/vdbench-downloads-1901681.html) är ett kommando rads verktyg som skapar disk-I/O-arbetsbelastningar för att verifiera lagrings prestanda. Den klient-server konfiguration som används är skalbar.  Den innehåller en enda blandad huvud-/klient-och 14-dedikerad klient-VM.
 
 ## <a name="about-the-tests"></a>Om testerna
 
-Testerna har utformats för att identifiera de gränser som exempelprogrammet kan ha och svarstiden som kurvor upp till gränserna.  
+Testerna har utformats för att identifiera de gränser som exempel programmet kan ha och svars tiden som böjer sig till gränserna.  
 
 Följande tester kördes: 
 
-* 100% 8-KiB slumpmässiga Läs
-* 100% 8 KiB slumpmässiga skrivåtgärder
-* 100% 64-KiB sekventiella Läs
-* 100% 64 KiB sekventiella skrivåtgärder
-* 50% 64-KiB sekventiella Läs 50% 64 KiB sekventiella skrivåtgärder
-* 50% 8-KiB slumpmässiga Läs 50% 8 KiB slumpmässiga skrivåtgärder
+* 100% 8-KiB slumpmässig läsning
+* 100% 8-KiB slumpmässig skrivning
+* 100% 64 – KiB sekventiell läsning
+* 100% 64 – KiB sekventiell skrivning
+* 50% 64 – KiB sekventiell läsning, 50% 64-KiB sekventiell skrivning
+* 50% 8-KiB slumpmässig läsning, 50% 8-KiB slumpmässig skrivning
 
 ## <a name="bandwidth"></a>Bandbredd
 
-NetApp-filer som Azure erbjuder flera [servicenivåer](azure-netapp-files-service-levels.md). Varje servicenivå erbjuder en annan mängd bandbredd per TiB etablerad kapacitet (kvot för samtalsvolym). Bandbreddsgräns för en volym etableras baserat på en kombination av servicenivån och kvot för samtalsvolym. Bandbreddsbegränsningen är bara en faktor för att fastställa den faktiska mängden dataflöde som kommer realiseras.  
+Azure NetApp Files erbjuder flera [service nivåer](azure-netapp-files-service-levels.md). Varje tjänst nivå erbjuder en annan mängd bandbredd per TiB med etablerad kapacitet (volym kvot). Bandbredds gränsen för en volym har skapats baserat på kombinationen av service nivå och volym kvoten. Bandbredds gränsen är bara en faktor för att fastställa den faktiska mängden data flöde som ska realiseras.  
 
-4 500 MiB är för närvarande högsta dataflöde som har uppnåtts av en arbetsbelastning mot en enskild volym i testet.  En kvot för samtalsvolym av 70.31 TiB med önskad service Premium-nivå kommer att etablera tillräckligt med bandbredd för att använda den här dataflöde per beräkningen nedan: 
+För närvarande är 4 500 MiB det högsta data flöde som har uppnåtts av en arbets belastning mot en enda volym under testningen.  Med Premium service-nivån tillhandahåller en volym kvot på 70,31 TiB tillräckligt med bandbredd för att kunna utnyttja data flödet enligt beräkningen nedan: 
 
-![Bandbredd formel](../media/azure-netapp-files/azure-netapp-files-bandwidth-formula.png)
+![Bandbredds formel](../media/azure-netapp-files/azure-netapp-files-bandwidth-formula.png)
 
-![Kvot- och tjänstnivå](../media/azure-netapp-files/azure-netapp-files-quota-service-level.png)
+![Kvot-och tjänst nivå](../media/azure-netapp-files/azure-netapp-files-quota-service-level.png)
 
-## <a name="throughput-intensive-workloads"></a>Dataflöde-intensiva arbetsbelastningar
+## <a name="throughput-intensive-workloads"></a>Data flödes intensiva arbets belastningar
 
-Dataflöde testet används Vdbench och en kombination av 12xD32s V3 virtuella datorer. Exemplet volymen i testet uppnås följande dataflöde nummer:
+Data flödes testet använde Vdbench och en kombination av 12xD32s v3-lagring av virtuella datorer. Exempel volymen i testet nådde följande data flödes nummer:
 
-![Testning av dataflöde](../media/azure-netapp-files/azure-netapp-files-throughput-test.png)
+![Data flödes test](../media/azure-netapp-files/azure-netapp-files-throughput-test.png)
 
-## <a name="io-intensive-workloads"></a>I/O-intensiva arbetsbelastningar
+## <a name="io-intensive-workloads"></a>I/O-intensiva arbets belastningar
 
-I/o-testet används Vdbench och en kombination av 12xD32s V3 virtuella datorer. Exemplet volymen i testet uppnås följande i/o-nummer:
+I/O-testet använde Vdbench och en kombination av 12xD32s v3-lagring av virtuella datorer. Exempel volymen i testet nådde följande I/O-nummer:
 
-![I/o-test](../media/azure-netapp-files/azure-netapp-files-io-test.png)
+![I/O-test](../media/azure-netapp-files/azure-netapp-files-io-test.png)
 
 ## <a name="latency"></a>Svarstid
 
-Avståndet mellan testet virtuella datorer och Azure NetApp Files volymen påverkar ett i/o-prestanda.  I tabellen nedan jämförs IOPS jämfört med svarstid svar kurvor för två olika uppsättningar av virtuella datorer.  En uppsättning virtuella datorer som är nära Azure NetApp filer och den andra uppsättningen är mer direkt.  Ökad latens för ytterligare uppsättningen av virtuella datorer påverkar mängden IOPS uppnås på en viss nivå av parallellitet.  Oavsett kan läsning mot en volym överstiga 300 000 IOPS som på bilden nedan: 
+Avståndet mellan de virtuella test datorerna och Azure NetApp Files volymen påverkar i/O-prestandan.  I diagrammet nedan jämförs antalet IOPS och svars svars kurvor för två olika uppsättningar av virtuella datorer.  En uppsättning virtuella datorer är nära Azure NetApp Files och den andra uppsättningen är ytterligare bort.  Den ökade svars tiden för ytterligare en uppsättning virtuella datorer påverkar mängden IOPS som uppnås på en angiven parallell nivå.  Oavsett, kan läsningar mot en volym överstiga 300 000 IOPS enligt nedan: 
 
-![Svarstid-studien](../media/azure-netapp-files/azure-netapp-files-latency-study.png)
+![Svars tids undersökning](../media/azure-netapp-files/azure-netapp-files-latency-study.png)
 
 ## <a name="summary"></a>Sammanfattning
 
-Känslig arbetsbelastningar (databaser) kan ha en en-millisekunds svarstid. Transaktionell prestanda kan vara än 300 kB IOPS för en enskild volym.
+Svars känsliga arbets belastningar (databaser) kan ha en svars tid på en millisekund. Transaktions prestandan kan vara över över 300 000 IOPS för en enda volym.
 
-Dataflöde fördöjningskänsliga program (för direktuppspelning och avbildning) kan ha 4.5GiB / s genomströmning.
+Data flödes känsliga program (för strömning och avbildning) kan ha 4,5-GiB/s-genomflöde.
 
-## <a name="example-scripts"></a>Exempelskript
+## <a name="example-scripts"></a>Exempel skript
 
-Följande exempelskript är endast för demonstration.  De är inte ska användas för produktion.  
+Följande exempel skript är endast i demonstrations syfte.  De ska inte användas i produktions syfte.  
 
     #
     #This script makes the following assumptions about the environment

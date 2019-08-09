@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: magoedte
-ms.openlocfilehash: 05b022be3bd460809de77945710ed0bdcd275648
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: c6fa4df1fb2fc7559f706d81621ea198f5ca7cdc
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839308"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881433"
 ---
 # <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>Hantera loggdata och arbets ytor i Azure Monitor
 
@@ -32,7 +32,17 @@ Den här artikeln förklarar hur du hanterar åtkomst till loggar och administre
 
 * Hur du beviljar åtkomst till användare som behöver åtkomst till loggdata i en speciell tabell i arbets ytan med hjälp av Azure RBAC.
 
-## <a name="define-access-control-mode-in-azure-portal"></a>Definiera åtkomst kontrol läge i Azure Portal
+## <a name="define-access-control-mode"></a>Definiera åtkomst kontrol läge
+
+Du kan visa åtkomst kontrol läget som kon figurer ATS på en arbets yta från Azure Portal eller med Azure PowerShell.  Du kan ändra den här inställningen med någon av följande metoder som stöds:
+
+* Azure Portal
+
+* Azure PowerShell
+
+* Azure Resource Manager-mall
+
+### <a name="configure-from-the-azure-portal"></a>Konfigurera från Azure Portal
 
 Du kan visa den aktuella arbets ytans åtkomst kontrol läge på sidan **Översikt** för arbets ytan på menyn **Log Analytics arbets yta** . 
 
@@ -45,7 +55,7 @@ Du kan ändra den här inställningen från sidan **Egenskaper** i arbets ytan. 
 
 ![Ändra arbets ytans åtkomst läge](media/manage-access/change-access-control-mode.png)
 
-## <a name="define-access-control-mode-using-powershell"></a>Definiera åtkomst kontrol läge med PowerShell
+### <a name="configure-using-powershell"></a>Konfigurera med PowerShell
 
 Använd följande kommando för att kontrol lera åtkomst kontrol läget för alla arbets ytor i prenumerationen:
 
@@ -89,7 +99,7 @@ else
 Set-AzResource -ResourceId $_.ResourceId -Properties $_.Properties -Force
 ```
 
-## <a name="define-access-mode-using-resource-manager-template"></a>Definiera åtkomst läge med Resource Manager-mall
+### <a name="configure-using-a-resource-manager-template"></a>Konfigurera med en Resource Manager-mall
 
 Om du vill konfigurera åtkomst Läget i en Azure Resource Manager mall ställer du in funktions flaggan **enableLogAccessUsingOnlyResourcePermissions** på arbets ytan till något av följande värden.
 

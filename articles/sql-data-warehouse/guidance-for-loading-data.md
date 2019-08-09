@@ -7,16 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: load-data
-ms.date: 05/31/2019
+ms.date: 08/08/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seoapril2019
-ms.openlocfilehash: bb170b53946a014d4aa69ce628c2e4bef7459b93
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: a1433139695eb59fa3fd721852fae3181b8f892b
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595588"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882484"
 ---
 # <a name="best-practices-for-loading-data-into-azure-sql-data-warehouse"></a>Metodtips för inläsning av data i Azure SQL Data Warehouse
 
@@ -38,7 +38,7 @@ Dela upp stora komprimerade filer i små komprimerade filer.
 
 För högsta hastighet för inläsning, kör du bara ett inläsningsjobb i taget. Om detta inte är möjligt, kör du ett minimalt antal belastningar samtidigt. Överväg att skala upp ditt informationslager innan belastningen om du förväntar dig ett stort inläsningsjobb.
 
-För att köra inläsningar med lämpliga beräkningsresurser skapar du inläsningsanvändare som är avsedda att köra inläsningar. Tilldela varje inläsningsanvändare till en specifik resursklass. Om du vill köra en belastning, logga in som en av inläsningsanvändarna och kör sedan inläsningen. Inläsningen körs med användarens resursklass.  Den här metoden är enklare än att försöka ändra en användares resursklass så att den passar det aktuella behovet av resursklass.
+För att köra inläsningar med lämpliga beräkningsresurser skapar du inläsningsanvändare som är avsedda att köra inläsningar. Tilldela varje inläsningsanvändare till en specifik resursklass. Om du vill köra en inläsning loggar du in som en inläsnings användare och kör sedan belastningen. Inläsningen körs med användarens resursklass.  Den här metoden är enklare än att försöka ändra en användares resursklass så att den passar det aktuella behovet av resursklass.
 
 ### <a name="example-of-creating-a-loading-user"></a>Exempel på att skapa en inläsningsanvändare
 
@@ -58,19 +58,19 @@ Anslut till informationslagret och skapa en användare. Följande kod förutsät
    EXEC sp_addrolemember 'staticrc20', 'LoaderRC20';
 ```
 
-Om du vill köra en inläsning med resurser för staticRC20-resursklasserna loggar du in som LoaderRC20 och kör inläsningen.
+Om du vill köra en belastning med resurser för resurs klasserna staticRC20 loggar du in som LoaderRC20 och kör belastningen.
 
-Kör inläsningar under statiska i stället för dynamiska resursklasser. Använda statiska resursklasser ser samma resurser oavsett dina [data informationslagerenheter](what-is-a-data-warehouse-unit-dwu-cdwu.md). Om du använder en dynamisk resursklass varierar resurserna beroende på din servicenivå. För dynamiska klasser innebär en lägre servicenivå att du troligtvis behöver använda en större resursklass för din inläsningsanvändare.
+Kör inläsningar under statiska i stället för dynamiska resursklasser. Att använda statiska resurs klasser garanterar samma resurser oavsett dina [informations lager enheter](what-is-a-data-warehouse-unit-dwu-cdwu.md). Om du använder en dynamisk resursklass varierar resurserna beroende på din servicenivå. För dynamiska klasser innebär en lägre servicenivå att du troligtvis behöver använda en större resursklass för din inläsningsanvändare.
 
 ## <a name="allowing-multiple-users-to-load"></a>Tillåta många användare att läsa in
 
-Det finns ofta ett behov av att ha flera användare som kan läsa in data i informationslagret. Läser in med den [CREATE TABLE AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) kräver behörighet på databasen.  CONTROL-behörigheten ger kontrollbehörighet till alla scheman. Du kanske inte vill att alla användare som läser in ska ha behörighet för alla scheman. Om du vill begränsa behörigheten använder du DENY CONTROL-instruktionen.
+Det finns ofta ett behov av att ha flera användare som kan läsa in data i informationslagret. Inläsning med [CREATE TABLE as Select (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) kräver kontroll behörigheter för databasen.  CONTROL-behörigheten ger kontrollbehörighet till alla scheman. Du kanske inte vill att alla användare som läser in ska ha behörighet för alla scheman. Om du vill begränsa behörigheten använder du DENY CONTROL-instruktionen.
 
 Anta att du har följande databasscheman: schema_A för avdelning A och schema_B för avdelning B. Då låter du användare_A och användare_B vara användare för PolyBase-inläsning i avdelning A respektive avdelning B. Båda har beviljats kontrollbehörigheter till databasen. De som skapat schema_A och B låser nu deras scheman med DENY:
 
 ```sql
-   DENY CONTROL ON SCHEMA :: schema_A TO user_B;
-   DENY CONTROL ON SCHEMA :: schema_B TO user_A;
+   DENY CONTROL ON SCHEMA :: schema_A TO user_B;
+   DENY CONTROL ON SCHEMA :: schema_B TO user_A;
 ```
 
 User_A och user_B är nu utelåsta från den andra avdelningens schema.
@@ -88,6 +88,9 @@ Kolumnlagringsindex kräver en stor mängd minne för att komprimera data i hög
 - För att säkerställa att inläsningsanvändaren har tillräckligt med minne för att uppnå maximal komprimeringsgrad ska du använda inläsningsanvändare som är medlemmar i en mellanstor eller stor resursklass. 
 - Läs in tillräckligt med rader för att helt fylla de nya radgrupperna. Under en massinläsning komprimeras var 1 048 576:e rad direkt till columnstore som en fullständig radgrupp. Belastningar med färre än 102 400 rader skickar raderna till deltastore där raderna förvaras i ett b-trädindex. Om du läser in för få rader kan alla rader hamna i deltalagringen och inte bli komprimerade direkt i kolumnlagringsformatet.
 
+## <a name="increase-batch-size-when-using-sqlbulkcopy-api-or-bcp"></a>Öka batchstorleken när du använder SQLBulkCopy API eller BCP
+Som nämnts tidigare ger inläsning med PolyBase det högsta data flödet med SQL Data Warehouse. Om du inte kan använda PolyBase för att läsa in och måste använda SQLBulkCopy-API (eller BCP) bör du fundera på att öka batchstorleken för bättre data flöde. 
+
 ## <a name="handling-loading-failures"></a>Hantera inläsningsfel
 
 Vid en inläsning med en extern tabell kan ett felmeddelande som ser ut ungefär så här visas: *"Frågan avbröts. Det högsta tröskelvärdet för avslag nåddes vid inläsning från en extern källa"* . Detta meddelande anger att dina externa data innehåller ändrade poster. En datapost anses vara ändrade om datatyperna och antalet kolumner inte matchar kolumndefinitionen för den externa tabellen eller om data inte följer det angivna externa filformatet. 
@@ -102,9 +105,9 @@ Om du har tusentals eller fler enskilda infogningar under dagen bör du gruppera
 
 ## <a name="creating-statistics-after-the-load"></a>Skapa statistik efter inläsningen
 
-För att få bättre frågeprestanda är det viktigt att skapa statistik på alla kolumner i alla tabeller efter den första inläsningen eller efter betydande dataändringar.  Detta kan göras manuellt eller aktivera [skapa statistik automatiskt](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics#automatic-creation-of-statistic).
+För att få bättre frågeprestanda är det viktigt att skapa statistik på alla kolumner i alla tabeller efter den första inläsningen eller efter betydande dataändringar.  Detta kan göras manuellt eller så kan du aktivera [statistik för automatisk skapande](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics#automatic-creation-of-statistic).
 
-En detaljerad förklaring av statistik finns i [Statistik](sql-data-warehouse-tables-statistics.md). I följande exempel visar hur du manuellt skapa statistik på fem kolumner i tabellen customer_speed.
+En detaljerad förklaring av statistik finns i [Statistik](sql-data-warehouse-tables-statistics.md). I följande exempel visas hur du manuellt skapar statistik på fem kolumner i Customer_Speed-tabellen.
 
 ```sql
 create statistics [SensorKey] on [Customer_Speed] ([SensorKey]);
@@ -128,7 +131,7 @@ Den ursprungliga nyckeln skapas
 
 ```sql
 CREATE DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key1'
-``` 
+```
 
 Rotera nyckel från nyckel 1 till nyckel 2
 
@@ -143,6 +146,3 @@ Det behövs inga andra ändringar i underliggande externa datakällor.
 - Om du vill veta mer om PolyBase och hur du utformar en ELT-process (extrahering, inläsning och transformering) kan du läsa [Designa ELT för SQL Data Warehouse](design-elt-data-loading.md).
 - En kurs i inläsning av data hittar du i [Använda PolyBase för att läsa in data från Azure Blob Storage till Azure SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md).
 - Om du vill övervaka datainläsningen läser du [Övervaka arbetsbelastningen med datahanteringsvyer](sql-data-warehouse-manage-monitor.md).
-
-
-

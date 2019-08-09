@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: glenga
-ms.openlocfilehash: cfdc28486cf254c4dd808824ab167489818376ab
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 582e4d81851d570f99d25d626a1db8a9f5e98231
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619591"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881349"
 ---
 # <a name="monitor-azure-functions"></a>Övervaka Azure Functions
 
@@ -607,14 +607,21 @@ Du kan skriva anpassad kod för att Visa beroenden. Exempel finns i exempel kode
 
 ## <a name="streaming-logs"></a>Direktuppspelningsloggar
 
-När du utvecklar ett program är det ofta användbart att se loggnings information i nära real tid. Du kan visa en ström med loggfiler som genereras av funktionerna antingen i Azure Portal eller i en kommando rad session på den lokala datorn.
+När du utvecklar ett program vill du ofta använda vad som skrivs till loggarna i nära real tid när de körs i Azure.
 
-Detta motsvarar de utdata som visas när du felsöker dina funktioner under [lokal utveckling](functions-develop-local.md). Mer information finns i [så här strömmar du loggar](../app-service/troubleshoot-diagnostic-logs.md#streamlogs).
+Det finns två sätt att visa en ström med loggfiler som genereras av dina funktions körningar.
 
-> [!NOTE]
-> Strömmande loggar har bara stöd för en enda instans av Functions-värden. När funktionen skalas till flera instanser visas inte data från andra instanser i logg strömmen. [Live Metrics Stream](../azure-monitor/app/live-stream.md) i Application Insights stödde flera instanser. Även i nära real tid baseras strömmande analyser också på insamlade [data](#configure-sampling).
+* **Inbyggd logg strömning**: app Services plattformen gör att du kan visa en ström med dina program loggs-filer. Detta motsvarar de utdata som visas när du felsöker dina funktioner under [lokal utveckling](functions-develop-local.md) och när du använder fliken **test** i portalen. All logg-baserad information visas. Mer information finns i [så här strömmar du loggar](../app-service/troubleshoot-diagnostic-logs.md#streamlogs). Den här streaming-metoden har endast stöd för en enda instans och kan inte användas med en app som körs på Linux i en förbruknings plan.
+
+* **Live Metrics Stream**: när din Function-app är [ansluten till Application Insights](#enable-application-insights-integration)kan du Visa loggdata och andra mått i nära real tid i Azure Portal med hjälp av [Live Metrics Stream](../azure-monitor/app/live-stream.md). Använd den här metoden när du övervakar funktioner som körs på flera instanser eller i Linux i en förbruknings plan. Den här metoden använder [exempel data](#configure-sampling).
+
+Logg strömmar kan visas både i portalen och i de flesta lokala utvecklings miljöer. 
 
 ### <a name="portal"></a>Portalen
+
+Du kan visa båda typerna av logg strömmar i portalen.
+
+#### <a name="built-in-log-streaming"></a>Inbyggd logg strömning
 
 Om du vill visa strömmande loggar i portalen väljer du fliken **plattforms funktioner** i din Function-app. Välj sedan **logg strömning**under **övervakning**.
 
@@ -624,9 +631,21 @@ Detta ansluter din app till logg strömnings tjänsten och program loggar visas 
 
 ![Visa strömmande loggar i portalen](./media/functions-monitoring/streaming-logs-window.png)
 
+#### <a name="live-metrics-stream"></a>Live Metrics Stream
+
+Om du vill visa Live Metrics Stream för din app väljer du fliken **Översikt** i din Function-app. När du har Application Insights aktiverar kan du se en **Application Insights** länk under **konfigurerade funktioner**. Den här länken leder till Application Insights sidan för din app.
+
+I Application Insights väljer du **Live Metrics Stream**. [Exempel logg poster](#configure-sampling) visas under **exempel telemetri**.
+
+![Visa Live Metrics Stream i portalen](./media/functions-monitoring/live-metrics-stream.png) 
+
 ### <a name="visual-studio-code"></a>Visual Studio-koden
 
 [!INCLUDE [functions-enable-log-stream-vs-code](../../includes/functions-enable-log-stream-vs-code.md)]
+
+### <a name="core-tools"></a>Kärn verktyg
+
+[!INCLUDE [functions-streaming-logs-core-tools](../../includes/functions-streaming-logs-core-tools.md)]
 
 ### <a name="azure-cli"></a>Azure CLI
 

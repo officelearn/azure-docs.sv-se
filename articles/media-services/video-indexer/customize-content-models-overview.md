@@ -1,7 +1,7 @@
 ---
-title: Anpassa innehåll modeller i Azure Media Services Video Indexer
+title: Anpassa innehålls modeller i Azure Media Services Video Indexer
 titlesuffix: Azure Media Services
-description: Den här artikeln innehåller länkar till konceptuella artiklar som beskriver fördelarna med varje typ av anpassning. Den här artikeln innehåller också länkar till instruktionsguider som visar hur du kan implementera anpassning av varje modell.
+description: Den här artikeln innehåller länkar till de konceptuella artiklarna som förklarar fördelarna med varje typ av anpassning. Den här artikeln innehåller också länkar till instruktions guider som visar hur du kan implementera anpassningen av varje modell.
 services: media-services
 author: anikaz
 manager: johndeu
@@ -10,36 +10,36 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 06/26/2019
 ms.author: anzaman
-ms.openlocfilehash: 855004c23df933fc2ebc71455b7b946d667fe7dc
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 8499e816f60b9d6605bdbdc392f6d2b3e134b863
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67454053"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878820"
 ---
-# <a name="customizing-content-models-in-video-indexer"></a>Anpassa innehåll modeller i Video Indexer
+# <a name="customizing-content-models-in-video-indexer"></a>Anpassa innehålls modeller i Video Indexer
 
-Video Indexer kan du anpassa några av dess modeller för att anpassas till dina specifika användningsfall. Modellerna [varumärken](customize-brands-model-overview.md), [språk](customize-language-model-overview.md), och [person](customize-person-model-overview.md). Du kan enkelt anpassa dessa modeller med Video Indexer-webbplats eller API: et.
+Med Video Indexer kan du anpassa vissa modeller så att de anpassas efter ditt speciella användnings fall. Dessa modeller innehåller [varumärken](customize-brands-model-overview.md), [språk](customize-language-model-overview.md)och [person](customize-person-model-overview.md). Du kan enkelt anpassa dessa modeller med hjälp av Video Indexer webbplats eller API.
 
-Den här artikeln innehåller länkar till konceptuella artiklar som beskriver fördelarna med varje typ av anpassning. Den här artikeln innehåller också länkar till instruktionsguider som visar hur du kan implementera anpassning av varje modell.
+Den här artikeln innehåller länkar till de konceptuella artiklarna som förklarar fördelarna med varje typ av anpassning. Den här artikeln innehåller också länkar till instruktions guider som visar hur du kan implementera anpassningen av varje modell.
  
-## <a name="brands-model"></a>Varumärken modell
+## <a name="brands-model"></a>Märken modell
 
-* [Anpassa varumärken modell-översikt](customize-brands-model-overview.md)
-* [Anpassa varumärken modellen med Video Indexer-webbplats](customize-brands-model-with-website.md)
-* [Anpassa varumärken modellen med Video Indexer API](customize-brands-model-with-api.md)
+* [Anpassa modell översikten för märken](customize-brands-model-overview.md)
+* [Anpassa modellen märkena med hjälp av Video Indexer webbplats](customize-brands-model-with-website.md)
+* [Anpassa modellen med datamärken med hjälp av Video Indexer API](customize-brands-model-with-api.md)
  
-## <a name="language-model"></a>Språkmodell
+## <a name="language-model"></a>Språk modell
 
-* [Anpassa språk modeller översikt](customize-language-model-overview.md)
-* [Anpassa språkmodeller med Video Indexer-webbplats](customize-language-model-with-website.md)
-* [Anpassa språkmodeller med Video Indexer API](customize-language-model-with-api.md)
+* [Översikt över anpassning av språk modeller](customize-language-model-overview.md)
+* [Anpassa språk modeller med hjälp av Video Indexer webbplats](customize-language-model-with-website.md)
+* [Anpassa språk modeller med hjälp av Video Indexer API](customize-language-model-with-api.md)
  
-## <a name="person-model"></a>Person-modell
+## <a name="person-model"></a>Person modell
 
-* [Anpassa språk modeller översikt](customize-person-model-overview.md)
-* [Anpassa språkmodeller med Video Indexer-webbplats](customize-language-model-with-website.md)
-* [Anpassa språkmodeller med Video Indexer API](customize-person-model-with-api.md)
+* [Översikt över anpassning av person modeller](customize-person-model-overview.md)
+* [Anpassa person modeller med hjälp av Video Indexer webbplats](customize-person-model-with-website.md)
+* [Anpassa person modeller med hjälp av Video Indexer API](customize-person-model-with-api.md)
 
 ## <a name="next-steps"></a>Nästa steg
 

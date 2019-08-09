@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/25/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 150c41dce06c81f2e9e07605ab6d5afa9e424453
-ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
+ms.openlocfilehash: a836e4cf66bf1e957f7b3779e21ec6a0296f7abe
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68494492"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881446"
 ---
 # <a name="multi-step-web-tests"></a>Flerstegstest för webbplatser
 
@@ -136,7 +136,18 @@ I samtliga fall bör du skapa ett konto i ditt program som endast används för 
 
 **Enkelt användar namn och lösen ord** Spela in ett webbtest på vanligt sätt. Ta bort cookies först.
 
-**SAML-autentisering** Använd SAML-plugin-programmet som är tillgängligt för webbtester. Få åtkomst till plugin-programmet av...
+**SAML-autentisering**
+
+|Egenskapsnamn| Beskrivning|
+|----|-----|
+| Målgrupps-URI | Målgrupps-URI för SAML-token.  Detta är URI: n för Access Control Service (ACS) – inklusive ACS-namnrymd och värd namn. |
+| Certifikat lösen ord | Lösen ordet för klient certifikatet som ger åtkomst till den inbäddade privata nyckeln. |
+| Klientcertifikat  | Klient certifikatets värde med privat nyckel i Base64-kodat format. |
+| Namn identifierare | Namn identifieraren för token |
+| Inte efter | TimeSpan som token ska vara giltigt för.  Standardvärdet är 5 minuter. |
+| Inte före | TimeSpan för vilket en token som skapades tidigare är giltig (för att adressera tids skevar).  Standardvärdet är (negativt) 5 minuter. |
+| Mål kontext parameter namn | Kontext parametern som tar emot den genererade kontrollen. |
+
 
 **Klient hemlighet** Om din app har en inloggnings väg som omfattar en klient hemlighet använder du den vägen. Azure Active Directory (AAD) är ett exempel på en tjänst som erbjuder inloggning med klienthemligheter. I AAD är klienthemligheten appnyckeln.
 

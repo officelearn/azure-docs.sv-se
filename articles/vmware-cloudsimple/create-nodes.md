@@ -8,18 +8,23 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 9eb02f04b5873e5906782a27ce833a724ceecfe3
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 898b07d05abf3bfad644fb590d90c7a90c5a1c0d
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68812375"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883228"
 ---
 # <a name="provision-nodes-for-vmware-solution-by-cloudsimple---azure"></a>Etablera noder för VMware-lösning av CloudSimple – Azure
 
 Etablera noder i Azure Portal. Sedan kan du konfigurera kapaciteten betala per användning för din CloudSimple privata moln miljö.
 
-## <a name="add-a-provisioned-node-to-your-cloudsimple-private-cloud"></a>Lägg till en etablerad nod i ditt CloudSimple privata moln
+## <a name="sign-in-to-azure"></a>Logga in på Azure
+
+Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
+
+
+## <a name="add-a-node-to-your-cloudsimple-private-cloud"></a>Lägg till en nod i ditt CloudSimple privata moln
 
 1. Välj **Alla tjänster**.
 2. Sök efter **CloudSimple-noder**.
@@ -44,4 +49,4 @@ Etablera noder i Azure Portal. Sedan kan du konfigurera kapaciteten betala per a
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Skapa privat moln](https://docs.azure.cloudsimple.com/create-private-cloud/)
+* [Skapa privat moln](create-private-cloud.md)

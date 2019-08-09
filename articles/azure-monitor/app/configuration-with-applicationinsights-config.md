@@ -13,17 +13,17 @@ ms.topic: conceptual
 ms.date: 05/22/2019
 ms.reviewer: olegan
 ms.author: mbullwin
-ms.openlocfilehash: 382f43156ab450600ff0d2e5e2db763cd6bd94df
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: fe71f4e89fb7e1b6ff3e4f59894a933fbb011692
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875056"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881403"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>Konfigurera Application Insights SDK:n med ApplicationInsights.config eller .xml
 Application Insights .NET SDK består av ett antal NuGet-paket. [Kärn paketet](https://www.nuget.org/packages/Microsoft.ApplicationInsights) innehåller API: et för att skicka telemetri till Application Insights. [Ytterligare paket](https://www.nuget.org/packages?q=Microsoft.ApplicationInsights) tillhandahåller telemetri- *moduler* och *initierare* för automatisk spårning av telemetri från ditt program och dess kontext. Genom att justera konfigurations filen kan du aktivera eller inaktivera moduler för telemetri och initierare och ange parametrar för några av dem.
 
-Konfigurations filen heter `ApplicationInsights.config` eller `ApplicationInsights.xml`, beroende på typen av program. Den läggs automatiskt till i projektet när du [installerar de flesta versioner av SDK][start]. Den läggs också till i en webbapp genom att [statusövervakare på en IIS-server][redfield]. Konfigurations filen ignoreras om [tillägget för Azure-webbplatsen](azure-web-apps.md) eller [tillägget för Azure VM och skalnings uppsättningen för virtuella datorer](azure-vm-vmss-apps.md) används.
+Konfigurations filen heter `ApplicationInsights.config` eller `ApplicationInsights.xml`, beroende på typen av program. Den läggs automatiskt till i projektet när du [installerar de flesta versioner av SDK][start]. SDK skapar `ApplicationInsights.config` filen i projektets rotmapp och när det är uppfyllt kopieras till bin-mappen. Den läggs också till i en webbapp genom att [statusövervakare på en IIS-server][redfield]. Konfigurations filen ignoreras om [tillägget för Azure-webbplatsen](azure-web-apps.md) eller [tillägget för Azure VM och skalnings uppsättningen för virtuella datorer](azure-vm-vmss-apps.md) används.
 
 Det finns ingen motsvarande fil för att kontrol lera [SDK: n på en webb sida][client].
 
@@ -186,7 +186,7 @@ Antalet telemetri-objekt som kan lagras i SDK: s minnes lagring. När det här a
 
 * Minimum 1
 * Bekräftat 1000
-* Objekt 500
+* Standard: 500
 
 ```
 
@@ -204,7 +204,7 @@ Anger hur ofta de data som lagras i minnes lagringen ska tömmas (skickas till A
 
 * Minimum 1
 * Bekräftat 300
-* Objekt 5
+* Standard: 5
 
 ```
 
@@ -222,7 +222,7 @@ Fastställer den maximala storlek i MB som tilldelas den beständiga lagringen p
 
 * Minimum 1
 * Bekräftat 100
-* Objekt 10
+* Standard: 10
 
 ```
 

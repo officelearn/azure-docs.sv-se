@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 6/03/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 02d993d760338356fa29ee58a03215e14d6583f1
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 7cd1d451b49faf2f8e3ad38f4ff780256ef2dc5d
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68295610"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883606"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Plattformar och funktioner som stöds av Azure Security Center
 
@@ -108,15 +108,17 @@ Följande tabell innehåller en matris med:
 
 Information om när rekommendationer genereras för vart och ett av dessa skydd finns i [Endpoint Protection utvärdering och rekommendationer](security-center-endpoint-protection.md).
 
-| Slutpunktsskydd| Plattformar | Installation av Security Center | Security Center Discovery |
+| Endpoint Protection| Plattformar | Installation av Security Center | Security Center Discovery |
 |------|------|-----|-----|
 | Windows Defender (Microsoft-programvara mot skadlig kod)| Windows Server 2016| Nej, inbyggd i OS| Ja |
 | System Center Endpoint Protection (Microsoft-programvara mot skadlig kod) | Windows Server 2012 R2, 2012, 2008 R2 (se anmärkning nedan) | Via tillägg | Ja |
 | Trend Micro – Alla versioner | Windows Server-familjen  | Nej | Ja |
 | Symantec v12.1.1100+| Windows Server-familjen  | Nej | Ja |
 | McAfee v10 + | Windows Server-familjen  | Nej | Ja |
-| Kaspersky| Windows Server-familjen  | Nej | Nej  |
-| Sophos| Windows Server-familjen  | Nej | Nej  |
+| McAfee v10 + | Linux Server-serien  | Nej | Ja **\*** |
+| Sophos v9 +| Linux Server-serien  | Nej | Ja **\***  |
+
+ **\*** Täcknings tillstånd och kompletterande data är för närvarande endast tillgängligt i Log Analytics arbets ytan som är kopplad till dina skyddade prenumerationer och återspeglas inte i Azure Security Center Portal.
 
 > [!NOTE]
 > - Identifiering av System Center Endpoint Protection (SCEP) på en virtuell dator med Windows Server 2008 R2 kräver SCEP för att installeras efter PowerShell 3,0 (eller en övre version).
@@ -132,10 +134,10 @@ Information om när rekommendationer genereras för vart och ett av dessa skydd 
 |Azure Blob Storage-konton|✔| ✔|
 |App Services|✔| ✔|
 |Cloud Services|✔| X|
-|Virtuella nätverk|✔| Ej tillämpligt|
+|VNets|✔| Ej tillämpligt|
 |Undernät|✔| Ej tillämpligt|
 |Nätverkskort|✔| Ej tillämpligt|
-|NSG:er|✔| Ej tillämpligt|
+|Nätverkssäkerhetsgrupper (NSG)|✔| Ej tillämpligt|
 |Subscription|✔ * *| ✔|
 |Batch|✔| Ej tillämpligt|
 |Service fabric|✔| Ej tillämpligt|
@@ -143,8 +145,8 @@ Information om när rekommendationer genereras för vart och ett av dessa skydd 
 |Lastbalanserare|✔| Ej tillämpligt|
 |Search|✔| Ej tillämpligt|
 |Service Bus|✔| Ej tillämpligt|
-|Stream analytics|✔| Ej tillämpligt|
-|Händelsehubb|✔| Ej tillämpligt|
+|Stream Analytics|✔| Ej tillämpligt|
+|Händelsehub|✔| Ej tillämpligt|
 |Logikappar|✔| Ej tillämpligt|
 |Lagringskonto|✔| Ej tillämpligt|
 |Redis|✔| Ej tillämpligt|

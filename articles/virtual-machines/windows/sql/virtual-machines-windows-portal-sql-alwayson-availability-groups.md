@@ -1,6 +1,6 @@
 ---
-title: Konfigurera hög tillgänglighet för virtuella datorer i Azure Resource Manager | Microsoft Docs
-description: Den här självstudien visar hur du skapar en Always On-tillgänglighetsgrupp med Azure-datorer i Azure Resource Manager-läge.
+title: Konfigurera hög tillgänglighet för Azure Resource Manager virtuella datorer | Microsoft Docs
+description: I den här kursen får du lära dig hur du skapar en Always on-tillgänglighets grupp med virtuella Azure-datorer i Azure Resource Manager läge.
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
@@ -15,169 +15,169 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
-ms.openlocfilehash: bddc83d55c8909412f7f935a4324a6f316a82cd7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9751ae97f96d2041a4106a41bb782a80dd9c8ba9
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62129561"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68884401"
 ---
-# <a name="configure-always-on-availability-groups-in-azure-virtual-machines-automatically-resource-manager"></a>Konfigurera Always On-Tillgänglighetsgrupper i Azure Virtual Machines automatiskt: Resource Manager
+# <a name="configure-always-on-availability-groups-in-azure-virtual-machines-automatically-resource-manager"></a>Konfigurera alltid tillgänglighets grupper i Azure Virtual Machines automatiskt: Resource Manager
 
-Den här självstudien visar hur du skapar en SQL Server-tillgänglighetsgrupp som använder Azure Resource Manager-datorer. I självstudiekursen används bladen på Azure för att konfigurera en mall. Du kan granska standardinställningarna, ange inställningar som krävs och uppdatera blad i portalen när du går igenom den här självstudien.
+Den här självstudien visar hur du skapar en SQL Server tillgänglighets grupp som använder Azure Resource Manager virtuella datorer. I självstudien används Azure-blad för att konfigurera en mall. Du kan granska standardinställningarna, skriva nödvändiga inställningar och uppdatera bladet i portalen när du går igenom den här självstudien.
 
-Fullständig genomgång skapar en tillgänglighetsgrupp för SQL Server på Azure virtuella datorer som innehåller följande element:
+Den fullständiga självstudien skapar en SQL Server tillgänglighets grupp på Azure Virtual Machines som innehåller följande element:
 
-* Ett virtuellt nätverk som har flera undernät, inklusive en klientdel och en backend-undernät
+* Ett virtuellt nätverk som har flera undernät, inklusive en klient del och ett Server dels undernät
 * Två domänkontrollanter som har en Active Directory-domän
-* Två virtuella datorer som kör SQL Server och distribueras till backend-undernät och anslutna till Active Directory-domän
-* Ett redundanskluster med tre noder med kvorummodellen Nodmajoritet
-* En tillgänglighetsgrupp som har två repliker för synkront genomförande av en tillgänglighetsdatabas
+* Två virtuella datorer som kör SQL Server och distribueras till backend-undernätet och är anslutna till Active Directory-domänen
+* Ett failover-kluster med tre noder och Nodmajoritet för Nodmajoritet
+* En tillgänglighets grupp som har två repliker av synkront genomförande för en tillgänglighets databas
 
-Följande bild visar den fullständiga lösningen.
+Följande bild visar den kompletta lösningen.
 
-![Test lab-arkitektur för Tillgänglighetsgrupper i Azure](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/0-EndstateSample.png)
+![Testa Lab-arkitektur för tillgänglighets grupper i Azure](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/0-EndstateSample.png)
 
-Alla resurser i den här lösningen tillhör en enskild resursgrupp.
+Alla resurser i den här lösningen tillhör en enda resurs grupp.
 
-Innan du börjar den här självstudien måste du kontrollera följande:
+Innan du börjar den här självstudien kontrollerar du följande:
 
-* Du har redan ett Azure-konto. Om du inte har någon, [registrera dig för ett utvärderingskonto](https://azure.microsoft.com/pricing/free-trial/).
-* Vet du redan hur du använder det grafiska Användargränssnittet för att etablera en SQL Server-dator från galleriet för virtuella datorer. Mer information finns i [etablera en virtuell dator i SQL Server på Azure](virtual-machines-windows-portal-sql-server-provision.md).
-* Du har redan en djupare förståelse för Tillgänglighetsgrupper. Mer information finns i [Always On-Tillgänglighetsgrupper (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx).
+* Du har redan ett Azure-konto. Om du inte har någon kan du [Registrera dig för ett utvärderings konto](https://azure.microsoft.com/pricing/free-trial/).
+* Du vet redan hur du ska använda det grafiska användar gränssnittet för att etablera en SQL Server virtuell dator från galleriet för virtuella datorer. Mer information finns i [etablering av en SQL Server virtuell dator på Azure](virtual-machines-windows-portal-sql-server-provision.md).
+* Du har redan en solid förståelse för tillgänglighets grupper. Mer information finns i [Always on Availability groups (SQL Server)](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server).
 
 > [!NOTE]
-> Om du är intresserad av att använda Tillgänglighetsgrupper med SharePoint kan också se [Konfigurera SQL Server 2012 Always On-Tillgänglighetsgrupper för SharePoint 2013](https://technet.microsoft.com/library/jj715261.aspx).
+> Om du är intresse rad av att använda tillgänglighets grupper med SharePoint kan du också se [konfigurera SQL Server 2012 Always on-tillgänglighetsgrupper för SharePoint 2013](/SharePoint/administration/configure-an-alwayson-availability-group).
 >
 >
 
-I den här självstudien använder du Azure portal för att:
+I den här självstudien använder du Azure Portal för att:
 
-* Välj Always On-mallen från portalen.
-* Granska inställningarna för profilmallen och uppdatera några konfigurationsinställningar för din miljö.
-* Övervaka Azure som skapas av hela miljön.
-* Ansluta till en domänkontrollant och sedan till en server som kör SQL Server.
+* Välj mallen Always in from the The Portal.
+* Granska mal lin ställningar och uppdatera några konfigurations inställningar för din miljö.
+* Övervaka Azure eftersom det skapar hela miljön.
+* Anslut till en domänkontrollant och sedan till en server som kör SQL Server.
 
 [!INCLUDE [availability-group-template](../../../../includes/virtual-machines-windows-portal-sql-alwayson-ag-template.md)]
 
-## <a name="provision-the-cluster-from-the-gallery"></a>Etablera kluster från galleriet
-Azure tillhandahåller en bild i galleriet för hela lösningen. Att hitta mallen:
+## <a name="provision-the-cluster-from-the-gallery"></a>Etablera klustret från galleriet
+Azure tillhandahåller en galleri bild för hela lösningen. Så här hittar du mallen:
 
 1. Logga in på Azure Portal med ditt konto.
-2. I Azure-portalen klickar du på **skapa en resurs** att öppna den **New** fönstret.
-3. På den **New** fönstret och Sök efter **AlwaysOn**.
+2. Klicka på **skapa en resurs** i Azure Portal för att öppna det **nya** fönstret.
+3. I det **nya** fönstret söker du efter **AlwaysOn**.
    ![Hitta AlwaysOn-mall](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/16-findalwayson.png)
-4. Leta upp i sökresultaten **SQL Server AlwaysOn-kluster**.
+4. Leta upp **SQL Server AlwaysOn-kluster**i Sök resultaten.
    ![AlwaysOn-mall](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/17-alwaysontemplate.png)
-5. På **Välj en distributionsmodell**, Välj **Resource Manager**.
+5. Välj **Resource Manager**på **Välj en distributions modell**.
 
-### <a name="basics"></a>Grundläggande inställningar
-Klicka på **grunderna** och konfigurera följande inställningar:
+### <a name="basics"></a>Grundinställningar
+Klicka på **grundläggande** och konfigurera följande inställningar:
 
-* **Administratörsanvändarnamn** är ett användarkonto som har administratörsbehörighet för domänen och är medlem i den fasta serverrollen SQL Server skulle sysadmin på båda instanserna av SQL Server. Den här självstudien använder **DomainAdmin**.
-* **Lösenord** är lösenordet för administratörskontot för domänen. Använd ett komplext lösenord. Bekräfta lösenordet.
-* **Prenumeration** är prenumerationen som Azure-fakturor att köra alla distribuerade resurser för tillgänglighetsgruppen. Om ditt konto har flera prenumerationer, kan du ange en annan prenumeration.
-* **Resursgrupp** är namnet på gruppen som alla Azure-resurser som skapas av den här mallen tillhör. Den här självstudien använder **SQL-HA-RG**. Mer information finns i [Översikt över Azure Resource Manager](../../../azure-resource-manager/resource-group-overview.md#resource-groups).
-* **Plats** är Azure-regionen där kursen skapar resurserna. Välj en Azure-region.
+* **Administratörens användar namn** är ett användar konto som har domän administratörs behörighet och som är medlem i den fasta Server rollen SQL Server Sysadmin på båda instanserna av SQL Server. I den här självstudien använder du **DomainAdmin**.
+* **Password** är lösen ordet för domänens administratörs konto. Använd ett komplext lösen ord. Bekräfta lösenordet.
+* **Prenumeration** är den prenumeration som Azure-fakturor använder för att köra alla distribuerade resurser för tillgänglighets gruppen. Om ditt konto har flera prenumerationer kan du ange en annan prenumeration.
+* **Resurs grupp** är namnet på den grupp som alla Azure-resurser som skapas av den här mallen tillhör. I den här självstudien använder du **SQL-ha-RG**. Mer information finns i [Översikt över Azure Resource Manager](../../../azure-resource-manager/resource-group-overview.md#resource-groups).
+* **Plats** är den Azure-region där självstudien skapar resurserna. Välj en Azure-region.
 
-Skärmbilden nedan är en slutförd **grunderna** bladet:
+Följande skärm bild är ett blad med färdiga **grunder** :
 
-![Grundläggande inställningar](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/1-basics.png)
-
-Klicka på **OK**.
-
-### <a name="domain-and-network-settings"></a>Domän-och nätverksinställningarna
-Den här Azure-gallerimallen skapar en domän och domänkontrollanter. Det skapar också ett nätverk och två undernät. Mallen kan inte skapa servrar i en befintlig domän eller ett virtuellt nätverk. Nästa steg konfigurerar inställningarna för domänen och nätverk.
-
-På den **domän-och nätverksinställningarna** bladet granska de förinställda värdena för domänen och nätverksinställningar:
-
-* **Skogsrotsdomännamn** är domännamnet för den Active Directory-domän som är värd för klustret. För den här självstudien använder **contoso.com**.
-* **Namn på virtuellt nätverk** är nätverksnamnet för virtuella Azure-nätverket. För den här självstudien använder **autohaVNET**.
-* **Namn på undernät** är namnet på en del av det virtuella nätverket som är värd för domänkontrollanten. Använd **subnet-1**. Det här undernätet använder adressprefixet **10.0.0.0/24**.
-* **SQL Server-undernätsnamn** är namnet på en del av det virtuella nätverket som är värd för de servrar som kör SQL Server och filen delar vittne. Använd **undernät 2**. Det här undernätet använder adressprefixet **10.0.1.0/26**.
-
-Läs mer om virtuella nätverk i Azure i [översikt över virtuella nätverk](../../../virtual-network/virtual-networks-overview.md).  
-
-Den **domän-och nätverksinställningarna** bör se ut som följande skärmbild:
-
-![Domän-och nätverksinställningarna](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/2-domain.png)
-
-Du kan ändra dessa värden om det behövs. Använd de förinställda värdena i den här självstudien.
-
-Granska inställningarna och klicka sedan på **OK**.
-
-### <a name="availability-group-settings"></a>Tillgänglighet gruppinställningar
-På **tillgänglighet gruppinställningar**, granska de förinställda värdena för tillgänglighetsgruppen och lyssnaren.
-
-* **Tillgänglighetsgruppens namn** är klustrade resursnamnet för tillgänglighetsgruppen. Den här självstudien använder **Contoso ag**.
-* **Namnet tillgänglighetsgruppens lyssnare** används av klustret och den interna belastningsutjämnaren. Klienter som ansluter till SQL Server kan använda det här namnet för att ansluta till lämplig replik av databasen. Den här självstudien använder **Contoso-listener**.
-* **Porten för tillgänglighetsgruppens lyssnare** anger TCP-port för SQL Server-lyssnare. Den här självstudien använder standardporten, **1433**.
-
-Du kan ändra dessa värden om det behövs. Använd de förinställda värdena i den här självstudien.  
-
-![Tillgänglighet gruppinställningar](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/3-availabilitygroup.png)
+![Grundinställningar](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/1-basics.png)
 
 Klicka på **OK**.
 
-### <a name="virtual-machine-size-storage-settings"></a>VM-storlek Lagringsinställningar
-På **VM-storlek, Lagringsinställningar**, Välj en SQL Server VM-storlek och granska de andra inställningarna.
+### <a name="domain-and-network-settings"></a>Domän-och nätverks inställningar
+Den här Azure-Galleri mal len skapar en domän och domänkontrollanter. Det skapar också ett nätverk och två undernät. Mallen kan inte skapa servrar i en befintlig domän eller ett virtuellt nätverk. Nästa steg konfigurerar domän-och nätverks inställningarna.
 
-* **SQL Server VM-storlek** är storleken för både virtuella datorer som kör SQL Server. Välj en storlek på lämplig virtuell dator för din arbetsbelastning. Om du skapar den här miljön för den här självstudien kan du använda **DS2**. Välj en storlek för virtuell dator som har stöd för arbetsbelastningen för produktionsarbetsbelastningar. Många produktionsarbetsbelastningar kräver **DS4** eller större. Mallen skapar två virtuella datorer av den här storleken och installerar SQL Server på var och en. Mer information finns i [storlekar för virtuella datorer](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+På bladet **domän och nätverks inställningar** granskar du de förinställda värdena för domän-och nätverks inställningarna:
 
-> [!NOTE]
-> Azure installerar Enterprise-utgåvan av SQL Server. Kostnaderna beror på versionen av och storleken på virtuella datorn. Detaljerad information om aktuella kostnader finns i [priser för virtuella datorer](https://azure.microsoft.com/pricing/details/virtual-machines/#Sql).
->
->
+* **Skogs rots domänens namn** är domän namnet för den Active Directory domän som är värd för klustret. För självstudien använder du **contoso.com**.
+* **Virtual Network namn** är nätverks namnet för det virtuella Azure-nätverket. För självstudien använder du **autohaVNET**.
+* **Domänkontrollantens undernäts namn** är namnet på en del av det virtuella nätverk som är värd för domänkontrollanten. Använd **undernät-1**. Det här under nätet använder adressprefixet **10.0.0.0/24**.
+* **SQL Server** -undernätets namn är namnet på en del av det virtuella nätverk som är värd för de servrar som kör SQL Server och fil resurs vittnet. Använd **undernät-2**. Det här under nätet använder adressprefixet **10.0.1.0/26**.
 
-* **Domain controller VM-storlek** är storleken på virtuella datorn för domänkontrollanter. För den här självstudien används **D2**.
-* **Dela vittne VM filstorlek** är storleken på virtuella datorn för filresursvittnet. Den här självstudien använder **A1**.
-* **SQL Storage-konto** är namnet på lagringskontot som innehåller SQL Server-data och operativsystemdiskar. Den här självstudien använder **alwaysonsql01**.
-* **DC-lagringskonto** är namnet på lagringskontot för domänkontrollanter. Den här självstudien använder **alwaysondc01**.
-* **SQL Server-data diskstorlek** TB är storleken på disken för SQL Server-data i TB. Ange ett tal mellan 1 och 4. Den här självstudien använder **1**.
-* **Lagringsoptimering** anger specifika lagringsutrymmen konfigurationsinställningarna för de beroende på vilken arbetsbelastning i SQL Server-datorer. Alla SQL Server-datorer i det här scenariot kan du använda premium storage med Azure-värd diskcache inställd på skrivskyddat läge. Dessutom kan du optimera SQL Server-inställningar för arbetsbelastningen genom att välja ett av dessa tre inställningar:
+Mer information om virtuella nätverk i Azure finns i [Översikt över virtuella nätverk](../../../virtual-network/virtual-networks-overview.md).  
 
-  * **Allmän arbetsbelastning** anger inga specifika konfigurationsinställningar.
-  * **Transaktionsbearbetning** uppsättningar spåra flaggan 1117 och 1118.
-  * **Datalagerhantering** uppsättningar spåra flaggan 1117 och 610.
+**Domän-och nätverks inställningarna** bör se ut som på följande skärm bild:
 
-Den här självstudien använder **Allmänt arbetsbelastning**.
+![Domän-och nätverks inställningar](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/2-domain.png)
 
-![Lagringsinställningar för VM-storlek](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/4-vm.png)
+Om det behövs kan du ändra dessa värden. Använd de förinställda värdena för den här självstudien.
 
 Granska inställningarna och klicka sedan på **OK**.
 
-#### <a name="a-note-about-storage"></a>En anteckning om storage
-Ytterligare optimeringar beror på storleken på diskar för SQL Server-data. För varje terabyte datadisk, lägger Azure till en ytterligare 1 TB premium storage. När en server kräver 2 TB eller mer, skapar en lagringspool på varje SQL Server-dator med hjälp av mallen. En lagringspool är en form av lagringsvirtualisering där flera skivor är konfigurerad för att ge högre kapacitet, återhämtning och prestanda.  Mallen skapar ett lagringsutrymme på lagringspoolen sedan och anger en enda datadisk för operativsystemet. Mallen anger den här disken att datadisken för SQL Server. Mallen justerar lagringspoolen för SQL Server med hjälp av följande inställningar:
+### <a name="availability-group-settings"></a>Inställningar för tillgänglighets grupp
+I **Inställningar för tillgänglighets grupp**granskar du de förinställda värdena för tillgänglighets gruppen och lyssnaren.
 
-* Stripestorleken är interfoliering inställningen för den virtuella disken. Transaktionsbelastningar använda 64 KB. Arbetsbelastningar i informationslager använder 256 KB.
-* Elasticitet är enkel (ingen återhämtning).
+* **Tillgänglighets gruppens namn** är det klustrade resurs namnet för tillgänglighets gruppen. I den här självstudien använder du **contoso-AG**.
+* **Namnet** på tillgänglighets gruppens lyssnare används av klustret och den interna belastningsutjämnaren. Klienter som ansluter till SQL Server kan använda det här namnet för att ansluta till en lämplig replik av databasen. I den här självstudien använder du **contoso-Listener**.
+* **Port** för tillgänglighets gruppens lyssnare anger TCP-porten för den SQL Server lyssnaren. I den här självstudien använder du standard porten **1433**.
+
+Om det behövs kan du ändra dessa värden. Använd de förinställda värdena för den här självstudien.  
+
+![inställningar för tillgänglighets grupp](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/3-availabilitygroup.png)
+
+Klicka på **OK**.
+
+### <a name="virtual-machine-size-storage-settings"></a>Storlek på virtuell dator, lagrings inställningar
+På **VM-storlek, lagrings inställningar**, Välj en storlek för SQL Server virtuell dator och granska de andra inställningarna.
+
+* **Storlek på SQL Server virtuell dator** är storleken på de virtuella datorerna som kör SQL Server. Välj en lämplig storlek för virtuella datorer för din arbets belastning. Om du skapar den här miljön för självstudien använder du **DS2**. För produktions arbets belastningar väljer du en storlek på virtuell dator som har stöd för arbets belastningen. Många produktions arbets belastningar kräver **DS4** eller större. Mallen skapar två virtuella datorer av den här storleken och installerar SQL Server på var och en. Mer information finns i [storlekar för virtuella datorer](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 > [!NOTE]
-> Azure premium storage är lokalt redundant och behåller tre kopior av data inom en region, så inte krävs ytterligare återhämtning i lagringspoolen.
+> Azure installerar Enterprise-versionen av SQL Server. Kostnaden beror på versionen och storleken på den virtuella datorn. Detaljerad information om aktuella kostnader finns i [priser för virtuella datorer](https://azure.microsoft.com/pricing/details/virtual-machines/#Sql).
 >
 >
 
-* Kolumnantal är lika med antalet diskar i lagringspoolen.
+* **Storlek på virtuell dator** för domänkontrollant är den virtuella datorns storlek för domän kontrol Lanterna. I den här självstudien använder du **D2**.
+* **Fil resurs vittnets virtuella dator storlek** är storleken på den virtuella datorn för fil resurs vittnet. Använd **a1**för den här självstudien.
+* **SQL Storage-konto** är namnet på det lagrings konto som innehåller SQL Server data och operativ system diskar. I den här självstudien använder du **alwaysonsql01**.
+* **Lagrings konto för domänkontrollant** är namnet på lagrings kontot för domän kontrol Lanterna. I den här självstudien använder du **alwaysondc01**.
+* **SQL Server data disk storlek** i TB är storleken på den SQL Server data disken i TB. Ange en siffra mellan 1 och 4. I den här självstudien använder du **1**.
+* **Lagrings optimering** anger vissa inställningar för lagrings konfiguration för de SQL Server virtuella datorerna baserat på arbets belastnings typen. Alla SQL Server virtuella datorer i det här scenariot använder Premium Storage med Azure disk Host cache inställd på skrivskyddad. Dessutom kan du optimera SQL Server inställningar för arbets belastningen genom att välja någon av dessa tre inställningar:
 
-Mer information om lagringsutrymme och lagringspooler finns:
+  * **Allmän arbets belastning** anger inga speciella konfigurations inställningar.
+  * **Transaktions bearbetning** anger spårnings flaggan 1117 och 1118.
+  * **Data lager** hantering anger spårnings flaggan 1117 och 610.
 
-* [Översikt över lagringsutrymmen](https://technet.microsoft.com/library/hh831739.aspx)
-* [Windows Serverbackup och lagringspooler](https://technet.microsoft.com/library/dn390929.aspx)
+I den här självstudien använder du **allmän arbets belastning**.
 
-Mer information om metodtips för SQL Server-konfiguration finns i [prestandametodtips för SQL Server i Azure virtual machines](virtual-machines-windows-sql-performance.md).
+![Lagrings inställningar för VM-storlek](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/4-vm.png)
+
+Granska inställningarna och klicka sedan på **OK**.
+
+#### <a name="a-note-about-storage"></a>En kommentar om lagring
+Ytterligare optimeringar beror på storleken på SQL Server data diskar. För varje terabyte data disk lägger Azure till ytterligare 1 TB Premium-lagring. När en server kräver 2 TB eller mer, skapar mallen en lagringspool på varje SQL Server virtuell dator. En lagringspool är en typ av lagrings virtualisering där flera diskar har kon figurer ATS för att ge högre kapacitet, återhämtning och prestanda.  Mallen skapar sedan ett lagrings utrymme i lagringspoolen och visar en enskild datadisk till operativ systemet. Mallen anger den här disken som data disk för SQL Server. Mallen justerar lagringspoolen för SQL Server med hjälp av följande inställningar:
+
+* Rand storlek är inställningen för överlagring för den virtuella disken. Transaktions arbets belastningar använder 64 KB. Data lager arbets belastningar använder 256 KB.
+* Återhämtning är enkel (ingen återhämtning).
+
+> [!NOTE]
+> Azure Premium Storage är lokalt redundant och lagrar tre kopior av data inom en enda region, så att det inte krävs ytterligare återhämtning i lagringspoolen.
+>
+>
+
+* Antalet kolumner är lika med antalet diskar i lagringspoolen.
+
+Mer information om lagrings utrymme och lagringspooler finns i:
+
+* [Översikt över lagrings utrymmen](https://technet.microsoft.com/library/hh831739.aspx)
+* [Windows Server Backup och lagringspooler](https://technet.microsoft.com/library/dn390929.aspx)
+
+Mer information om metod tips för SQL Server konfiguration finns i [metod tips för prestanda för SQL Server i Azure Virtual Machines](virtual-machines-windows-sql-performance.md).
 
 ### <a name="sql-server-settings"></a>SQL Server-inställningar
-På **SQL Server-inställningar**, granska och ändra SQL Server virtual machine-namnprefixet, version av SQL Server, SQL Server-tjänstkontot och lösenord och automatiska korrigeringar underhållsschema för SQL.
+På **SQL Server inställningar**granskar och ändrar du SQL Server namn för virtuell dator, SQL Server version, SQL Server tjänst konto och lösen ord och underhålls schema för SQL Auto-patching.
 
-* **SQL Server-namnet Prefix** används för att skapa ett namn för varje SQL Server-dator. Den här självstudien använder **sqlserver**. Mallen namn SQL Server-datorer *sqlserver-0* och *sqlserver-1*.
-* **SQL Server-version** är versionen av SQL Server. För den här självstudien används **SQL Server 2014**. Du kan också välja **SQL Server 2012** eller **SQL Server 2016**.
-* **Användarnamn för SQL Server-tjänsten** är domänkontonamnet för SQL Server-tjänsten. Den här självstudien använder **sqlservice**.
-* **Lösenord** är lösenordet för SQL Server-tjänstkontot.  Använd ett komplext lösenord. Bekräfta lösenordet.
-* **Automatisk uppdatering för SQL underhållsschema** identifierar veckodagen att Azure automatiskt korrigeringar SQL-servrar. Den här självstudien anger **söndag**.
-* **Starttimme för underhåll för automatisk uppdatering för SQL** är tid på dagen för Azure-regionen när automatisk uppdatering börjar.
+* **Prefixet SQL Server namn** används för att skapa ett namn för varje SQL Server virtuell dator. I den här självstudien använder du **SQLServer**. Mallen namnger SQL Server virtuella datorer *SQLServer-0* och *SQLServer-1*.
+* **SQL Server version** är versionen av SQL Server. I den här självstudien använder **SQL Server 2014**. Du kan också välja **SQL Server 2012** eller **SQL Server 2016**.
+* **SQL Server tjänst kontots användar namn** är domän konto namnet för tjänsten SQL Server. I den här självstudien använder du **sqlservice**.
+* **Password** är lösen ordet för SQL Server tjänst kontot.  Använd ett komplext lösen ord. Bekräfta lösenordet.
+* **Underhålls schema för automatisk uppdatering i SQL** identifierar den veckodag som Azure automatiskt uppdaterar SQL-servrarna. Skriv **söndag**för den här självstudien.
+* **Start timme för automatisk uppdatering av SQL** är tiden på dagen för Azure-regionen när automatisk uppdatering börjar.
 
 > [!NOTE]
-> Uppdateringsperiod för varje virtuell dator ut med en timme. Enbart en virtuell dator är uppdaterad åt gången för att förhindra avbrott i tjänsterna.
+> Uppdaterings fönstret för varje virtuell dator delas med en timme. Endast en virtuell dator har uppdaterats i taget för att förhindra avbrott i tjänster.
 >
 >
 
@@ -186,29 +186,29 @@ På **SQL Server-inställningar**, granska och ändra SQL Server virtual machine
 Granska inställningarna och klicka sedan på **OK**.
 
 ### <a name="summary"></a>Sammanfattning
-På sidan Översikt verifierar inställningarna i Azure. Du kan också hämta mallen. Granska sammanfattningen. Klicka på **OK**.
+På sidan Sammanfattning verifierar Azure inställningarna. Du kan också hämta mallen. Granska sammanfattningen. Klicka på **OK**.
 
 ### <a name="buy"></a>Köp
-Det här sista bladet innehåller **användningsvillkoren**, och **sekretesspolicy**. Granska den här informationen. När du är redo för Azure att skapa de virtuella datorerna och alla andra nödvändiga resurser för tillgänglighetsgruppen, klickar du på **skapa**.
+Det sista bladet innehåller **användnings villkor**och **sekretess policy**. Granska den här informationen. När du är redo för Azure att börja skapa de virtuella datorerna och alla andra nödvändiga resurser för tillgänglighets gruppen klickar du på **skapa**.
 
-Azure-portalen skapar resursgruppen och alla resurser.
+Azure Portal skapar resurs gruppen och alla resurser.
 
-## <a name="monitor-deployment"></a>Övervaka distributionen
-Övervaka förloppet för distributionen från Azure-portalen. En ikon som representerar distributionen blir automatiskt Fäst till instrumentpanelen för Azure portal.
+## <a name="monitor-deployment"></a>Övervaka distribution
+Övervaka distributions förloppet från Azure Portal. En ikon som representerar distributionen fästs automatiskt på Azure Portal instrument panelen.
 
-![Azure-instrumentpanelen](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/11-deploydashboard.png)
+![Azure-instrumentpanel](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/11-deploydashboard.png)
 
 ## <a name="connect-to-sql-server"></a>Ansluta till SQL Server
-De nya instanserna av SQL Server körs på virtuella datorer som har Internetanslutning IP-adresser. Du kan fjärrskrivbord (RDP) direkt till varje SQL Server-dator.
+De nya instanserna av SQL Server körs på virtuella datorer som har Internet-anslutna IP-adresser. Du kan vara fjärr skrivbord (RDP) direkt till varje SQL Server virtuell dator.
 
-Följ dessa steg för RDP till en SQL Server:
+Följ de här stegen för RDP till en SQL Server:
 
-1. Från instrumentpanelen för Azure portal, kontrollerar du att distributionen har slutförts.
+1. Kontrol lera att distributionen har slutförts från Azure Portal-instrumentpanelen.
 2. Klicka på **resurser**.
-3. I den **resurser** bladet klickar du på **sqlserver-0**, vilket är namnet på en av de virtuella datorer som kör SQL Server.
-4. På bladet för **sqlserver-0**, klickar du på **Connect**. Webbläsaren ber om du vill öppna eller spara objektet för fjärranslutning. Klicka på **öppna**.
-5. **Anslutning till fjärrskrivbord** kan varna dig att utgivaren av den här fjärranslutningen inte kan identifieras. Klicka på **Anslut**.
-6. Windows security uppmanas du att ange dina autentiseringsuppgifter för att ansluta till IP-adressen för den primära domänkontrollanten. Klicka på **Använd ett annat konto**. För **användarnamn**, typ **contoso\DomainAdmin**. Du har konfigurerat det här kontot när du ställer in administratören användarnamn i mallen. Använd komplexa lösenord som du valde när du konfigurerade mallen.
-7. **Fjärrskrivbord** kan varna dig fjärrdatorn inte kunde autentiseras på grund av problem med dess säkerhetscertifikat. Den visar namnet på säkerhet. Om du har följt självstudierna namnet är **sqlserver-0.contoso.com**. Klicka på **Ja**.
+3. På bladet **resurser** klickar du på **SQLServer-0**, som är dator namnet på en av de virtuella datorer som kör SQL Server.
+4. På bladet för **SQLServer-0**klickar du på **Anslut**. Webbläsaren frågar om du vill öppna eller spara objektet fjärr anslutning. Klicka på **öppna**.
+5. **Anslutning till fjärr skrivbord** kan varna dig om att det inte går att identifiera utgivaren av den här fjärr anslutningen. Klicka på **Anslut**.
+6. Windows-säkerhet efterfrågar att du anger dina autentiseringsuppgifter för att ansluta till den primära domänkontrollantens IP-adress. Klicka på **Använd ett annat konto**. För **användar namn**skriver du **contoso\DomainAdmin**. Du konfigurerade det här kontot när du anger administratörs användar namnet i mallen. Använd det komplexa lösen ord som du valde när du konfigurerade mallen.
+7. **Fjärr skrivbord** kan varna dig om att fjärrdatorn inte kunde autentiseras på grund av problem med säkerhets certifikatet. Det visar namnet på säkerhetscertifikatet. Om du har följt självstudien är namnet **SQLServer-0.contoso.com**. Klicka på **Ja**.
 
-Du är nu ansluten med RDP till den SQL Server-datorn. Du kan öppna SQL Server Management Studio, Anslut till standardinstansen av SQL Server och kontrollera att tillgänglighetsgruppen har konfigurerats.
+Du är nu ansluten med RDP till den SQL Server virtuella datorn. Du kan öppna SQL Server Management Studio, ansluta till standard instansen av SQL Server och kontrol lera att tillgänglighets gruppen har kon figurer ATS.

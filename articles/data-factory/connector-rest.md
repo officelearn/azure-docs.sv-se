@@ -68,7 +68,7 @@ Ange den **authenticationType** egenskap **grundläggande**. Förutom de allmän
 | Egenskap | Beskrivning | Obligatoriskt |
 |:--- |:--- |:--- |
 | userName | Användarnamnet du använder för att få åtkomst till REST-slutpunkten. | Ja |
-| password | Lösenordet för användaren (den **användarnamn** värde). Markera det här fältet som en **SecureString** Skriv för att lagra den på ett säkert sätt i Data Factory. Du kan också [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| password | Lösenordet för användaren (den **userName** värde). Markera det här fältet som en **SecureString** Skriv för att lagra den på ett säkert sätt i Data Factory. Du kan också [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 
 **Exempel**
 

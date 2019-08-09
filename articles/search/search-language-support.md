@@ -6,15 +6,14 @@ manager: jlembicz
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 07/11/2019
+ms.date: 08/08/2019
 ms.author: jlembicz
-ms.custom: seodec2018
-ms.openlocfilehash: 403febfcb54194602051aaebe2952265c0675e9d
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: 5383ad44f665ce809772143e23817932c3e2b7e6
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67854402"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883893"
 ---
 # <a name="how-to-create-an-index-for-multiple-languages-in-azure-search"></a>Så här skapar du ett index för flera språk i Azure Search
 
@@ -35,7 +34,7 @@ En språk analys anges när ett fält skapas. Att lägga till en analys i en bef
 
 ![Tilldela språk analyser under fält definition](media/search-language-support/select-analyzer.png "Tilldela språk analyser under fält definition")
 
-Som standard använder alla sökbara fält [standard Lucene Analyzer](https://lucene.apache.org/core/4_10_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) , vilket är språk-oberoende. Om du vill visa en fullständig lista över analyser som stöds, se [lägga till språk analys verktyg i ett Azure Search index](index-add-language-analyzers.md).
+Som standard använder alla sökbara fält [standard Lucene Analyzer](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) , vilket är språk-oberoende. Om du vill visa en fullständig lista över analyser som stöds, se [lägga till språk analys verktyg i ett Azure Search index](index-add-language-analyzers.md).
 
 I portalen är analys verktyg avsedda att användas som de är. Om du behöver anpassning eller en speciell konfiguration av filter och tokenizers bör du [skapa en anpassad analys](index-add-custom-analyzers.md) i kod. Portalen stöder inte val eller konfiguration av anpassade analyser.
 

@@ -1,74 +1,74 @@
 ---
-title: Query Performance Insight i Azure Database för MySQL
-description: Den här artikeln beskriver Query Performance Insight-funktionen i Azure Database for MySQL
+title: Query Performance Insight i Azure Database for MySQL
+description: I den här artikeln beskrivs Query Performance Insight funktionen i Azure Database for MySQL
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: 8f142933ebf955cbe3aa119f42779109fb6ef7db
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 05d6de31dbc3ff5bbf9365098ceae4c840bf116b
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67589077"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882800"
 ---
-# <a name="query-performance-insight-in-azure-database-for-mysql"></a>Query Performance Insight i Azure Database för MySQL
+# <a name="query-performance-insight-in-azure-database-for-mysql"></a>Query Performance Insight i Azure Database for MySQL
 
-**Gäller för:**  Azure Database för MySQL 5.7
+**Gäller för:** Azure Database for MySQL 5,7
 
 > [!NOTE]
-> Query Performance Insight är i förhandsversion.
+> Query Performance Insight är en för hands version.
 
-Query Performance Insight hjälper dig att snabbt identifiera vilka körs längst frågorna är hur den ändras över tid och vilka väntar påverkar dem.
+Query Performance Insight hjälper dig att snabbt identifiera vad dina längsta kör frågor är, hur de ändras med tiden och vilka vänte tider som påverkar dem.
 
 ## <a name="common-scenarios"></a>Vanliga scenarier
 
 ### <a name="long-running-queries"></a>Långvariga frågor
 
-- Identifiera längsta frågor som körs i förflutna X timmar
-- Identifiera de x främsta Felgrupperna frågor som väntar på resurser
+- Identifiera de längsta körnings frågorna de senaste X timmarna
+- Identifiera de N främsta frågorna som väntar på resurser
  
-### <a name="wait-statistics"></a>Vänta statistik
+### <a name="wait-statistics"></a>Vänta med statistik
 
-- Förstå vänta karaktär för en fråga
-- Förstå trender för resursen väntar och där det inte finns resurskonkurrens
+- Förstå vänte natur för en fråga
+- Förstå trender för resurs väntar och där resurs innehåll finns
 
 ## <a name="permissions"></a>Behörigheter
 
-**Ägare** eller **deltagare** behörigheter som krävs för att visa texten för frågorna i Query Performance Insight. ** Läsare** kan visa diagram och tabeller, men inte frågetext.
+Behörighet för **ägare** eller **deltagare** krävs för att visa texten för frågorna i Query Performance Insight. **Läsaren** kan visa diagram och tabeller men inte frågetext.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-För Query Performance Insight ska fungera, data måste finnas i den [Query Store](concepts-query-store.md).
+För att Query Performance Insight ska fungera måste data finnas i [frågearkivet](concepts-query-store.md).
 
-## <a name="viewing-performance-insights"></a>Visa prestandainsikter
+## <a name="viewing-performance-insights"></a>Visa prestanda insikter
 
 På [Query Performance Insight](concepts-query-performance-insight.md)-vyn i Azure-portalen visas visualiseringar av nyckelinformation från Query Store.
 
-På sidan portal för din Azure Database for MySQL-server väljer **Query Performance Insight** under den **Intelligent prestanda** delen av menyraden.
+På Portal-sidan på Azure Database for MySQL-servern väljer du **query Performance Insight** under avsnittet **intelligent prestanda** i meny raden.
 
 ### <a name="long-running-queries"></a>Långvariga frågor
 
-Den **tidskrävande frågor** fliken visar de 5 främsta frågorna efter Genomsnittlig varaktighet per körning, aggregeras med 15 minuters intervall. Du kan visa fler frågor genom att välja den **antalet frågor** nedrullningsbar listruta. Diagrammets färger kan ändras för ett specifikt fråge-ID när du gör detta.
+På fliken **tids krävande frågor** visas de 5 främsta frågorna med genomsnittlig varaktighet per körning, sammanställt i 15-minuters intervall. Du kan visa fler frågor genom att välja från List rutan **antal frågor** . Diagrammets färger kan ändras för ett specifikt fråge-ID när du gör detta.
 
-Du kan klicka och dra i diagrammet för att begränsa till ett specifikt tidsfönster. Du kan också använda Zooma in och ut ikoner för att visa en mindre eller större tidsperiod respektive.
+Du kan klicka och dra i diagrammet för att begränsa till ett specifikt tidsfönster. Du kan också använda ikonerna zooma in och ut för att visa en kortare eller längre tids period.
 
-![Query Performance Insight tidskrävande frågor](./media/concepts-query-performance-insight/query-performance-insight-landing-page.png) 
+![Query Performance Insight tids krävande frågor](./media/concepts-query-performance-insight/query-performance-insight-landing-page.png) 
 
-### <a name="wait-statistics"></a>Vänta statistik
+### <a name="wait-statistics"></a>Vänta med statistik
 
 > [!NOTE]
-> Vänta statistik är avsedda för att felsöka prestandaproblem för frågan. Vi rekommenderar för att endast för felsökning.
+> Väntande statistik är avsedd för fel sökning av problem med frågans prestanda. Vi rekommenderar att du bara aktive ras i fel söknings syfte.
 
-Vänta statistik ger en överblick över wait-händelser som inträffar under körningen av en specifik fråga. Mer information om händelsetyper vänta i den [MySQL engine-dokumentationen](https://go.microsoft.com/fwlink/?linkid=2098206).
+Vänta med statistik är en vy över de väntande händelser som inträffar när en speciell fråga körs. Läs mer om händelse typerna wait i [MySQL Engine-dokumentationen](https://go.microsoft.com/fwlink/?linkid=2098206).
 
-Välj den **vänta statistik** fliken för att visa motsvarande visualiseringar på väntar på servern.
+Välj fliken **Väntestatistik** för att visa motsvarande visualiseringar av vänttillfällen på servern.
 
-Frågor som visas i vyn vänta är grupperade efter de frågor som uppvisar den största väntar under det angivna tidsintervallet.
+Frågor som visas i vyn vänta med statistik grupperas efter de frågor som uppvisar störst vänte tid under det angivna tidsintervallet.
 
-![Query Performance Insight väntar statistik](./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png)
+![Query Performance Insight väntar på statistik](./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om [övervakning och justering](concepts-monitoring.md) i Azure Database för MySQL.
+- Läs mer om [övervakning och justering](concepts-monitoring.md) i Azure Database for MySQL.

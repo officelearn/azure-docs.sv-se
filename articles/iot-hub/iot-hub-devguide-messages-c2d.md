@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.openlocfilehash: b0057815bee46d6708886302ff5b598c89b47e8f
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 4b8df538110f6c0b17a1ed37a2a6063a5b89a6e4
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335727"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68880983"
 ---
 # <a name="send-cloud-to-device-messages-from-an-iot-hub"></a>Skicka meddelanden från moln till enhet från en IoT-hubb
 
@@ -23,7 +23,7 @@ Skicka meddelanden från moln till enhet från din IoT Hub till din enhet om du 
 
 Du skickar meddelanden från molnet till enheten via en */Messages/devicebound*-slutpunkt. En enhet tar sedan emot meddelandena via en enhets bestämd slut punkt, */Devices/{deviceId}/Messages/devicebound*.
 
-För att rikta in varje moln-till-enhet-meddelande på en enskild enhet ställer IoT Hub in på **-egenskapen till** */Devices/{deviceId}/Messages/devicebound*.
+För att rikta in varje moln-till-enhet-meddelande på en enskild enhet ställer IoT Hub in på-egenskapen till */Devices/{deviceId}/Messages/devicebound*.
 
 Varje enhets kön innehåller högst 50 meddelanden från molnet till enheten. För att försöka skicka fler meddelanden till samma enhet resulterar det i ett fel.
 
@@ -35,7 +35,7 @@ Diagrammet livs cykel tillstånd visas i följande diagram:
 
 ![Livs cykel för meddelande från moln till enhet](./media/iot-hub-devguide-messages-c2d/lifecycle.png)
 
-När tjänsten IoT Hub skickar ett meddelande till en enhet, ställer tjänsten in meddelandets tillstånd i *kö*. När en enhet vill *ta emot* ett meddelande *låser* IoT-hubben meddelandet genom att ställa in läget på *osynligt*. Det här läget tillåter att andra trådar på enheten börjar ta emot andra meddelanden. När en enhets tråd slutför bearbetningen av ett meddelande, meddelas IoT-hubben genom att *slutföra* meddelandet. IoT Hub anger sedan statusen till slutförd .
+När tjänsten IoT Hub skickar ett meddelande till en enhet, ställer tjänsten in meddelandets tillstånd i *kö*. När en enhet vill *ta emot* ett meddelande *låser* IoT-hubben meddelandet genom att ställa in läget på *osynligt*. Det här läget tillåter att andra trådar på enheten börjar ta emot andra meddelanden. När en enhets tråd slutför bearbetningen av ett meddelande, meddelas IoT-hubben genom att *slutföra* meddelandet. IoT Hub anger sedan statusen till slutförd.
 
 En enhet kan också:
 
@@ -43,7 +43,7 @@ En enhet kan också:
 
 * *Överge* meddelandet, vilket gör att IoT-hubben kan placera meddelandet i kön igen, med tillstånds inställningen placerad i *kö*. Enheter som ansluter via MQTT-protokollet kan inte överge meddelanden från molnet till enheten.
 
-En tråd kunde inte bearbeta ett meddelande utan att meddela IoT-hubben. I det här fallet övergår meddelanden automatiskt från  det osynliga läget tillbaka till läget i *kö* efter en *Synlighets* -timeout (eller *låsnings* -timeout). Värdet för denna timeout är en minut och kan inte ändras.
+En tråd kunde inte bearbeta ett meddelande utan att meddela IoT-hubben. I det här fallet övergår meddelanden automatiskt från det osynliga läget tillbaka till läget i *kö* efter en *Synlighets* -timeout (eller *låsnings* -timeout). Värdet för denna timeout är en minut och kan inte ändras.
 
 Egenskapen **Max Delivery Count** i IoT Hub avgör det maximala antalet gånger som ett meddelande kan övergå mellan tillståndet i *kö* och osynligt. Efter det antalet över gångar anger IoT-hubben status för meddelandet till *död brev*. På samma sätt anger IoT Hub statusen för ett meddelande till *obeställbara meddelanden* efter förfallo tiden. Mer information finns i [Time to Live](#message-expiration-time-to-live).
 
@@ -81,6 +81,10 @@ När du skickar ett meddelande från molnet till enheten kan tjänsten begära l
 | fullständig     | IoT Hub genererar ett feedback-meddelande i båda fallen. |
 
 Om **ack** -värdet är *fullt*och du inte får något feedback-meddelande, innebär det att feedback-meddelandet har upphört att gälla. Tjänsten vet inte vad som hände med det ursprungliga meddelandet. I praktiken bör en tjänst se till att den kan bearbeta feedbacken innan den upphör att gälla. Den längsta förfallo tiden är två dagar, vilket lämnar tid för att få tjänsten att köras igen om ett fel uppstår.
+
+> [!NOTE]
+> När enheten tas bort raderas även eventuella väntande kommentarer.
+>
 
 Som förklaras i [slut punkter](iot-hub-devguide-endpoints.md)ger IoT Hub feedback via en tjänsteriktad slut punkt, */Messages/servicebound/feedback*, som meddelanden. Semantiken för att ta emot feedback är samma som för meddelanden från moln till enhet. När så är möjligt, är meddelandets feedback batch i ett enda meddelande med följande format:
 

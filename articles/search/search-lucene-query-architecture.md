@@ -1,57 +1,56 @@
 ---
-title: Fulltext-motor (Lucene) sökarkitekturen – Azure Search
-description: Förklaring av Lucene fråga uppgiftshantering och hämtning begrepp för fulltextsökning, som är relaterade till Azure Search.
+title: Arkitektur för full texts öknings motor (Lucene) – Azure Search
+description: Förklaring av process bearbetnings-och dokument hämtnings begrepp i Lucene för full texts ökning, som är relaterade till Azure Search.
 manager: jlembicz
 author: yahnoosh
 services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 08/08/2019
 ms.author: jlembicz
-ms.custom: seodec2018
-ms.openlocfilehash: bc183cb8ac2155b8dd31dc603d70506ad3d5e20a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6e54bc91ff60ce4f3c2340282410923225601df4
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65797489"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883898"
 ---
-# <a name="how-full-text-search-works-in-azure-search"></a>Hur Fullständig textsökning fungerar i Azure Search
+# <a name="how-full-text-search-works-in-azure-search"></a>Hur full texts ökning fungerar i Azure Search
 
-Den här artikeln är för utvecklare som behöver en djupare förståelse för hur Lucene fulltextsökning fungerar i Azure Search. Azure Search kommer leverera förväntat resultat i de flesta fall för textfrågor, men ibland kan du få ett resultat som ser ut ”off” på något sätt. I sådana fall är att ha en bakgrund i fyra faser i Lucene Frågekörningen (fråga parsning lexikal analys, dokumentera matchning, bedömning) hjälper dig att identifiera specifika ändringar till frågeparametrar eller index-konfiguration som ger önskad resultatet. 
+Den här artikeln är för utvecklare som behöver en djupare förståelse för hur Lucene full texts ökning fungerar i Azure Search. För text frågor levererar Azure Search sömlöst förväntat resultat i de flesta fall, men ibland kan du få ett resultat som verkar "av". I dessa fall kan du med en bakgrund i de fyra stegen i Lucene-frågekörningen (fråga parser, lexikalisk analys, dokument matchning, poängsättning) hjälpa dig att identifiera vissa ändringar av frågeparametrar eller index konfiguration som kommer att leverera önskade resultatet. 
 
 > [!Note] 
-> Azure Search använder Lucene för fulltextsökning, men Lucene-integrering är inte komplett. Vi selektivt exponera och utöka Lucene-funktioner för att aktivera scenarierna som är viktigt att Azure Search. 
+> Azure Search använder Lucene för full texts ökning, men Lucene-integrering är inte uttömmande. Vi selektivt exponerar och utökar funktionerna i Lucene för att göra det viktigt att Azure Search. 
 
-## <a name="architecture-overview-and-diagram"></a>Översikt över arkitekturen och diagram
+## <a name="architecture-overview-and-diagram"></a>Arkitektur översikt och diagram
 
-Bearbetning av en sökfråga för fulltext börjar med texten för frågan för att extrahera söktermer. Sökmotorn använder ett index för att hämta dokument med matchande termer. Enskilda sökord är ibland uppdelade och färdigställts till nya samarbetsformer att omvandla ett bredare net över vad övervägas som möjliga matchning. En resultatmängd sorteras sedan efter relevansgradering som tilldelats varje enskilt matchande dokument. De överst i rankad lista returneras till det anropande programmet.
+Bearbetning av en fullständig text Sök fråga börjar med att parsa frågetexten för att extrahera Sök villkor. Sökmotorn använder ett index för att hämta dokument med matchande villkor. Enskilda sökord är ibland brutna och rekonstituerade i nya formulär för att omvandla ett bredare netto över vad som kan anses vara en möjlig matchning. En resultat uppsättning sorteras sedan efter resultat som tilldelas varje enskilt matchnings dokument. De som visas överst i listan rangordnas returneras till det anropande programmet.
 
-Frågekörningen består räknas om, av fyra steg: 
+Frågekörningen har fyra steg: 
 
-1. Fråga parsning 
+1. Fråga parsing 
 2. Lexikal analys 
-3. Hämta dokument 
-4. Bedömning 
+3. Dokument hämtning 
+4. Poäng 
 
-Diagrammet nedan illustrerar de komponenter som används för att bearbeta en sökbegäran. 
+Diagrammet nedan visar de komponenter som används för att bearbeta en Sök förfrågan. 
 
- ![Arkitekturdiagram för Lucene-fråga i Azure Search][1]
+ ![Lucene Query Architecture diagram i Azure Search][1]
 
 
-| Nyckelkomponenter | Funktionsbeskrivning | 
+| Nyckelkomponenter | Funktions Beskrivning | 
 |----------------|------------------------|
-|**Fråga Parser** | Separera sökord från frågeoperatorer och skapa frågestrukturen (ett träd med frågan) som ska skickas till sökmotorn. |
-|**Analysverktyg** | Analysera lexikal sökord. Den här processen kan omfatta att omvandla, ta bort eller expandering av sökord. |
-|**Index** | En effektiv datastruktur som används för att lagra och organisera sökbara villkor som extraheras från indexerade dokumenten. |
-|**Sökmotor** | Hämtar och poängsätter matchande dokument baserat på innehållet i vägar i inverterad indexet. |
+|**Fråga parser** | Avgränsa sökorden från fråga operatörer och skapa frågans struktur (ett frågeuttryck) som ska skickas till sökmotorn. |
+|**Analys verktyg** | Genomför lexikal analys av sökord. Den här processen kan innebära omvandling, borttagning eller expandering av sökord. |
+|**Index** | En effektiv data struktur som används för att lagra och organisera sökbara termer som extraheras från indexerade dokument. |
+|**Sökmotor** | Hämtar och resultat av matchande dokument baserat på innehållet i det inverterade indexet. |
 
-## <a name="anatomy-of-a-search-request"></a>Uppbyggnad av en sökbegäran
+## <a name="anatomy-of-a-search-request"></a>Beskrivning av en Sök förfrågan
 
-En sökbegäran är en fullständig specifikation av vad som ska returneras i en resultatuppsättning. I enklaste form är det en tom fråga med några villkor av något slag. En mer realistisk exemplet innehåller parametrar, flera sökord kanske är begränsade till vissa fält med eventuellt ett filteruttryck och ordning regler.  
+En Sök förfrågan är en fullständig specifikation av vad som ska returneras i en resultat uppsättning. I enklaste form är det en tom fråga utan några kriterier av något slag. Ett mer realistiskt exempel inkluderar parametrar, flera sökord, som kan omfatta vissa fält, med eventuellt ett filter uttryck och ordnings regler.  
 
-I följande exempel är en sökbegäran som du kan skicka till Azure Search med hjälp av den [REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents).  
+Följande exempel är en Sök förfrågan som du kan skicka till Azure Search med hjälp av [REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents).  
 
 ~~~~
 POST /indexes/hotels/docs/search?api-version=2019-05-06
@@ -65,94 +64,94 @@ POST /indexes/hotels/docs/search?api-version=2019-05-06
 }
 ~~~~
 
-Denna begäran gör sökmotorn följande:
+I den här förfrågan gör sökmotorn följande:
 
-1. Filtrerar ut dokument där priset är minst $60 och mindre än 300 USD.
-2. Kör frågan. I det här exemplet sökfrågan består av fraser och villkor: `"Spacious, air-condition* +\"Ocean view\""` (användarna vanligtvis inte anger skiljetecken, men inkludera den i det här exemplet kan vi förklara hur analysverktyg hanterar det). Den här frågan är sökmotorn söker igenom beskrivningen och rubrikfält anges i `searchFields` för dokument som innehåller ”Ocean view”, och dessutom på termen ”stora” eller på villkor som börjar med prefixet ”air-condition”. Den `searchMode` används för att matcha i något villkor (standard) eller alla, i de fall där en term inte krävs uttryckligen (`+`).
-3. Beställningar den resulterande Hotellen som angetts av närhet till en viss geografisk plats och sedan tillbaka till det anropande programmet. 
+1. Filtrerar bort dokument där priset är minst $60 och mindre än $300.
+2. Kör frågan. I det här exemplet består Sök frågan av fraser och villkor: `"Spacious, air-condition* +\"Ocean view\""` (användarna brukar inte ange interpunktion, utan även i exemplet kan vi förklara hur analys verktyget hanterar det). I den här frågan genomsöker sökmotorn beskrivningen och rubrik fälten som anges `searchFields` i för dokument som innehåller "Oceanien", och dessutom på termen "Spacious" eller på villkor som börjar med prefixet "Air-condition". Parametern används för att matcha på valfri term (standard) eller alla, för fall där en term inte uttryckligen krävs (`+`). `searchMode`
+3. Beställer den resulterande uppsättningen hotell genom närhet till en angiven geografisk plats och sedan tillbaka till det anropande programmet. 
 
-Merparten av den här artikeln handlar om bearbetningen av den *sökfråga*: `"Spacious, air-condition* +\"Ocean view\""`. Filtrering och sortering ligger utanför omfånget. Mer information finns i den [Search API-referensdokumentation](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+Merparten av den här artikeln är om bearbetning av *Sök frågan*: `"Spacious, air-condition* +\"Ocean view\""`. Filtrering och sortering är utanför omfånget. Mer information finns i [referens dokumentationen för Sök-API](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 
 <a name="stage1"></a>
-## <a name="stage-1-query-parsing"></a>Steg 1: Fråga parsning 
+## <a name="stage-1-query-parsing"></a>Steg 1: Fråga parsing 
 
-Enligt vad som anges, är den första raden för begäran i frågesträngen: 
+Som anges är frågesträngen den första raden i begäran: 
 
 ~~~~
  "search": "Spacious, air-condition* +\"Ocean view\"", 
 ~~~~
 
-Frågeparsern skiljer operatörer (till exempel `*` och `+` i det här exemplet) från sökning villkor och deconstructs sökfrågan i *underfrågor* av en typ som stöds: 
+Frågans parser delar upp operatorer ( `*` till `+` exempel och i exemplet) från Sök villkor och dekonstruerar Sök frågan i under *frågor* av en typ som stöds: 
 
-+ *Termen fråga* för fristående villkor (t.ex. stora)
-+ *frasfråga* för citerade villkor (till exempel havet view)
-+ *prefixet fråga* för termer följt av ett prefix-operatorn `*` (t.ex. air-condition)
++ *term fråga* för fristående villkor (t. ex. Spacious)
++ *fras fråga* för citerade villkor (t. ex. havs Visa)
++ *prefix fråga* för villkor följt av en prefix operator `*` (t. ex. Air-villkor)
 
-En fullständig lista över stöds frågetyper finns i [Lucene-frågesyntax](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
+En fullständig lista över frågetyper som stöds finns i [Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) -frågesyntax
 
-Operatörer som är associerade med en underfråga avgöra om frågan ”måste vara” eller ”ska vara” uppfyllt för ett dokument för att anses vara en matchning. Till exempel `+"Ocean view"` är ”måste” på grund av den `+` operator. 
+Operatorer som är associerade med en under fråga avgör om frågan "måste vara" eller "ska vara" nöjd i ordningen för att ett dokument ska anses vara en matchning. Till exempel `+"Ocean view"` är "måste" på grund `+` av operatorn. 
 
-Frågeparsern omstrukturerar underfrågor i en *fråga trädet* (en interna strukturen som representerar frågan) överförs till sökmotorn. I det första steget för att fråga tolka trädet fråga ser ut så här.  
+Frågans parser omstrukturerar under frågorna till ett *frågeuttryck* (en intern struktur som representerar frågan) som den går vidare till i sökmotorn. I det första steget av frågans parsning ser hierarkiträdet ut så här.  
 
  ![Boolesk fråga searchmode alla][2]
 
-### <a name="supported-parsers-simple-and-full-lucene"></a>Stöds Parser: Enkel och fullständig Lucene 
+### <a name="supported-parsers-simple-and-full-lucene"></a>Parsar som stöds: Enkel och fullständig Lucene 
 
- Azure Search visar två olika frågespråk `simple` (standard) och `full`. Genom att ange den `queryType` parameter med din begäran du berätta frågeparsern vilka frågespråk du väljer så att den vet hur du tolkar operatorer och syntax. Den [enkel frågespråk](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) är intuitivt och robust, ofta lämpligt att tolka indata från användaren som – utan bearbetning på klientsidan. Det stöder frågeoperatorer som är välbekanta från sökmotorer. Den [frågespråk för fullständig Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), som du får genom att ange `queryType=full`, utökar standardspråk för enkel fråga genom att lägga till stöd för flera operatorer och frågetyper som jokertecken, fuzzy, regex och fältbegränsade frågor. Till exempel skulle ett reguljärt uttryck som skickas i enkla frågesyntaxen tolkas som en frågesträng och inte ett uttryck. Exempelbegärande i den här artikeln använder det fullständiga Lucene-frågespråket.
+ Azure Search exponerar två olika frågespråk, `simple` (standard) och. `full` Genom att ange `queryType` parametern med din sökbegäran, anger du det Query-tolkare som du väljer så att det vet hur du kan tolka operatorer och syntax. Det [enkla frågespråket](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) är intuitivt och robust, vilket ofta är lämpligt att tolka användarindata som-är utan bearbetning på klient sidan. Det stöder sökoperatörer som är bekanta med Webbs öknings motorer. Det [fullständiga Lucene-frågespråket](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), som du får genom att `queryType=full`ställa in, utökar standard språket för enkla frågor genom att lägga till stöd för fler operatorer och frågetyper som jokertecken, fuzzy, regex och fält omfattningar frågor. Ett reguljärt uttryck som skickas i en enkel frågesyntax tolkas exempelvis som en frågesträng och inte ett uttryck. I exempel förfrågan i den här artikeln används hela Lucene-frågespråket.
 
-### <a name="impact-of-searchmode-on-the-parser"></a>Effekten av searchMode i tolken 
+### <a name="impact-of-searchmode-on-the-parser"></a>Effekt av searchMode på parsern 
 
-En annan begäran sökparameter som påverkar parsning är den `searchMode` parametern. Den kontrollerar operatorn standard för booleska frågor: alla (standard) eller alla.  
+En annan Sök begär ande parameter som påverkar parsningen `searchMode` är parametern. Den styr standard operatorn för booleska frågor: any (standard) eller alla.  
 
-När `searchMode=any`, som är standard, utrymme avgränsare mellan stora och air-condition är eller (`||`), vilket gör att frågan exempeltext motsvarar: 
+När `searchMode=any`, som är standardvärdet, är avstånds avgränsaren mellan Spacious och Air-condition eller`||`(), vilket gör exempel frågan text som motsvarar: 
 
 ~~~~
 Spacious,||air-condition*+"Ocean view" 
 ~~~~
 
-Explicit operatörer som `+` i `+"Ocean view"`, är entydiga i booleskt frågekonstruktion (termen *måste* matchar). Mindre uppenbara är så här tolkar du återstående villkoren: stora och air-condition. Bör sökmotorn hitta matchningar för havet vyn *och* stora *och* air-condition? Eller bör hitta havet visa plus *antingen ett* av de återstående villkoren? 
+Explicita operatorer, `+` som `+"Ocean view"`i, är tvetydiga i boolesk fråge konstruktion (termen *måste* matcha). Mindre uppenbart är hur man tolkar återstående villkor: Spacious och Air-villkor. Ska sökmotorn hitta matchningar i vyn havs- *och* Spacious- *och* Air-villkor? Eller om den ska kunna hitta *en* till havs-vy plus någon av de återstående villkoren? 
 
-Som standard (`searchMode=any`), sökmotorn förutsätter bredare tolkning. Något av fälten *bör* matchas, vilket speglar ”eller”-semantik. Det första frågan trädet illustreras tidigare, med två ”bör” operations, visas standardinställningarna för.  
+Som standard (`searchMode=any`) förutsätter sökmotorn den bredare tolkningen. Något av fälten *måste* matchas, reflekterande "eller" semantik. Det första frågeuttrycket som illustrerades tidigare, med de två "borde"-åtgärderna, visar standardvärdet.  
 
-Anta att vi nu ställer `searchMode=all`. I det här fallet tolkas området som ett ”and”-åtgärd. Var och en av de återstående villkoren måste båda vara finns i dokumentet för att utgöra en matchning. Den resulterande exempelfråga skulle tolkas enligt följande: 
+Anta att vi nu har `searchMode=all`angett. I det här fallet tolkas området som en "och"-åtgärd. Var och en av de återstående villkoren måste båda finnas i dokumentet för att kvalificera sig som en matchning. Den resulterande exempel frågan tolkas enligt följande: 
 
 ~~~~
 +Spacious,+air-condition*+"Ocean view"
 ~~~~
 
-Ett ändrade frågan träd för den här frågan är enligt följande, där ett matchande dokument är skärningspunkten för alla tre underfrågor: 
+Ett ändrat frågeuttryck för den här frågan skulle vara följande, där ett matchande dokument är skärnings punkten för alla tre under frågor: 
 
  ![Boolesk fråga searchmode alla][3]
 
 > [!Note] 
-> Välja `searchMode=any` över `searchMode=all` sitt bästa erhålls genom att köra representativa frågor. Användare som är sannolikt att inkludera operatorer (delad när sökning dokumentet lagrar) kanske resultat mer intuitiv användning om `searchMode=all` informerar booleskt fråga konstruktioner. Mer information om samspelet mellan `searchMode` och operatörer, se [enkla frågesyntaxen](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search).
+> Att `searchMode=any` välja `searchMode=all` över är ett beslut som vi har kommit till genom att köra representativa frågor. Användare som troligen kommer att inkludera operatorer (vanligt vid sökning i dokument Arkiv) kan hitta resultat mer `searchMode=all` intuitivt om informerar booleska frågans konstruktioner. Mer information om mellanuppspelning mellan `searchMode` och-operatorer finns i [enkel frågesyntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search).
 
 <a name="stage2"></a>
 ## <a name="stage-2-lexical-analysis"></a>Steg 2: Lexikal analys 
 
-Lexikalisk processen *term frågor* och *fras frågor* när frågan trädet är strukturerad. En analyzer accepterar Textinmatningar tilldelas som parsern, bearbetar text och sedan skickar tillbaka tokeniserad villkoren i trädet fråga. 
+Lexikala analyserare bearbetar *term frågor* och *fras frågor* efter att taggträdet är strukturerat. En analys accepterar de text inmatningar som anges för den av parsern, bearbetar texten och skickar sedan tillbaka token-termer som ska införlivas i frågeuttrycket. 
 
-Den vanligaste formen av lexikal analys är *lingvistiska* som transformeringar skicka frågor till villkor baserat på regler som är specifika för ett visst språk: 
+Den vanligaste typen av lexikal analys är *språklig analys* som omvandlar sökord baserat på regler som är specifika för ett specifikt språk: 
 
-* Minska en frågeterm till roten form av ett ord 
-* Ta bort irrelevanta ord (stoppord, till exempel ”den” eller ”och” på engelska) 
-* Dela upp ett sammansatta ord i komponenter 
-* Lägre skiftläge ett ord med versal 
+* Minska en frågeterm till rot formen av ett ord 
+* Ta bort icke-nödvändiga ord (stoppord, t. ex. "The" eller "och" på engelska) 
+* Dela upp ett sammansatt ord i komponent delar 
+* Gement versal i ett versal ord 
 
-Alla dessa åtgärder tenderar att radera skillnaderna mellan textinmatning som anges av användaren och de villkor som lagras i indexet. Sådana åtgärder utöver text bearbetning och kräver djupare kunskap för språket som själva. Om du vill lägga till den här lager med språkliga medvetenhet, Azure Search har stöd för en lång lista med [språkanalysverktyg](https://docs.microsoft.com/rest/api/searchservice/language-support) från både Lucene och Microsoft.
+Alla dessa åtgärder tenderar att radera skillnader mellan text indata från användaren och de termer som lagras i indexet. Sådana åtgärder går utöver text bearbetningen och kräver djupgående kunskap om själva språket. För att lägga till det här lagret av språklig medvetenhet, Azure Search har stöd för en lång lista med [språk analys](https://docs.microsoft.com/rest/api/searchservice/language-support) verktyg från både Lucene och Microsoft.
 
 > [!Note]
-> Analys av kraven kan variera mellan minimal till avancerade beroende på ditt scenario. Du kan styra komplexitet lexikal analys genom att välja en av de fördefinierade analysverktyg eller genom att skapa din egen [anpassat analysverktyg](https://docs.microsoft.com/rest/api/searchservice/Custom-analyzers-in-Azure-Search). Analysverktyg är begränsade till sökbara fält och anges som en del av fältdefinitionen. På så sätt kan du variera lexikal analys på basis av per fält. Angivet används den *standard* analysverktyget från Lucene används.
+> Analys kraven kan vara från minimal till att utveckla beroende på ditt scenario. Du kan kontrol lera komplexiteten för en lexikal analys genom att välja en av de fördefinierade analyserna eller genom att skapa en egen [anpassad analys](https://docs.microsoft.com/rest/api/searchservice/Custom-analyzers-in-Azure-Search). Analyser är begränsade till sökbara fält och anges som en del av en fält definition. På så sätt kan du variera lexikal analys baserat på varje fält. Ospecificerad används *standard* Lucene Analyzer.
 
-I vårt exempel före analys, har det första frågan trädet termen ”Spacious” med en versal ”S” och kommatecken som frågeparsern tolkar som en del av frågetermen (kommatecken inte anses vara en operator för query language).  
+I vårt exempel har det första frågeuttrycket, "Spacious", med ett versaler och ett kommatecken att frågan tolkar som en del av frågeintervallet (ett kommatecken betraktas inte som en frågespråk).  
 
-När standard analysatorn bearbetar termen, kommer den gemener ”ocean view” och ”stora” och ta bort kommatecken. Trädet ändrade frågan ska se ut så här: 
+När standard analys processen bearbetar termen kommer den att vara i gemener och "Spacious" och ta bort kommatecknet. Det ändrade frågeuttrycket ser ut så här: 
 
- ![Booleska fråga med analyserade villkor][4]
+ ![Boolesk fråga med analyserade villkor][4]
 
-### <a name="testing-analyzer-behaviors"></a>Testa analyzer beteenden 
+### <a name="testing-analyzer-behaviors"></a>Testa Analyzer-beteenden 
 
-Beteendet för en analyzer kan testas med hjälp av den [analysera API](https://docs.microsoft.com/rest/api/searchservice/test-analyzer). Ange text som du vill analysera för att se villkor anges analyzer genererar. Om du vill se hur standard analysatorn skulle bearbeta den texten ”air-condition”, till exempel kan du utfärda följande begäran:
+Beteendet för en analys kan testas med hjälp av [analys-API: et](https://docs.microsoft.com/rest/api/searchservice/test-analyzer). Ange den text som du vill analysera för att se vilka termer som visas i Analyzer. Om du till exempel vill se hur standard analys processen bearbetar texten "Air-condition" kan du utfärda följande begäran:
 
 ~~~~
 {
@@ -161,7 +160,7 @@ Beteendet för en analyzer kan testas med hjälp av den [analysera API](https://
 }
 ~~~~
 
-Standard analysatorn delar upp indatatexten i följande två token genom att kommentera dem med attribut som start och end förskjutningarna (används för markering av träffar) samt deras placering (som används för matchning av frasen):
+Standard analysen delar in inmatad text i följande två tokens, och kommenterar dem med attribut som start-och slut förskjutningar (används för träff markering) och deras placering (används för fras matchning):
 
 ~~~~
 {
@@ -184,15 +183,15 @@ Standard analysatorn delar upp indatatexten i följande två token genom att kom
 
 <a name="exceptions"></a>
 
-### <a name="exceptions-to-lexical-analysis"></a>Undantag till lexikal analys 
+### <a name="exceptions-to-lexical-analysis"></a>Undantag till lexikalisk analys 
 
-Lexikal analys gäller enbart för frågetyper som kräver fullständiga villkor – en term fråga eller en frasfråga. Det gäller inte till frågetyper med ofullständiga villkor – prefix fråga, jokerteckenfråga, regex fråga – eller till en fuzzy fråga. De frågetyperna, inklusive prefix-fråga med termen `air-condition*` i vårt exempel läggs direkt till trädet frågan, vilket kringgår det analysis-steget. Endast transformeringen utförs på sökord dessa typer av platsargumentet.
+Lexikalisk analys gäller endast för frågetyper som kräver fullständiga villkor – antingen en term fråga eller en fras fråga. Den gäller inte för frågetyper med ofullständiga villkor – prefix fråga, jokertecken, regex fråga – eller till en Fuzzy-fråga. Dessa frågetyper, inklusive prefixs frågan med termen `air-condition*` i vårt exempel, läggs direkt till i frågans träd, vilket kringgår analys steget. Den enda omvandlingen som utförs på sökorden för dessa typer är lowercasing.
 
 <a name="stage3"></a>
 
-## <a name="stage-3-document-retrieval"></a>Steg 3: Hämta dokument 
+## <a name="stage-3-document-retrieval"></a>Steg 3: Dokument hämtning 
 
-Hämta dokument refererar till att söka efter dokument med matchande termer i indexet. Det här skedet har förstått bäst igenom ett exempel. Låt oss börja med ett hotell index som har följande enkla schema: 
+Dokument hämtning syftar på att hitta dokument med matchande villkor i indexet. Det här steget tolkas bäst genom ett exempel. Vi börjar med ett hotell index med följande enkla schema: 
 
 ~~~~
 {
@@ -205,7 +204,7 @@ Hämta dokument refererar till att söka efter dokument med matchande termer i i
 } 
 ~~~~
 
-Anta vidare att det här indexet innehåller följande fyra dokument: 
+Anta ytterligare att det här indexet innehåller följande fyra dokument: 
 
 ~~~~
 {
@@ -234,95 +233,95 @@ Anta vidare att det här indexet innehåller följande fyra dokument:
 }
 ~~~~
 
-**Hur villkoren indexeras**
+**Så här indexeras termer**
 
-För att förstå hämtning, hjälper det att du vet lite av grunderna om indexering. Lagringsenheten är ett vägar i inverterad index, en för varje sökbara fält. Är en sorterad lista över alla termer från alla dokument inom ett vägar i inverterad index. Varje term mappar i listan över dokument där sådan uppstår, som tydligt i exemplet nedan.
+För att förstå hämtningen är det bra att känna till några grundläggande information om indexering. Lagrings enheten är ett inverterat index, ett för varje sökbart fält. I ett inverterat index är en sorterad lista över alla termer från alla dokument. Varje term mappar till listan över dokument där det förekommer, som i exemplet nedan.
 
-För att skapa villkoren i ett vägar i inverterad index, utför sökmotorn lexikal analys över innehållet i dokumenten, liknar vad som händer under frågebearbetning:
+Om du vill skapa villkoren i ett inverterat index utför sökmotorn en lexikal analys över innehållet i dokumenten, på samma sätt som vid bearbetning av frågor:
 
-1. *Textinmatningar* skickas till en analyzer, lägre bokstäver, demontering av interpunktion och så vidare, beroende på hur analyzer. 
-2. *Token* är utdata för textanalys.
-3. *Allmänna* läggs till i indexet.
+1. *Text* inmatningar skickas till en analys, en lägre bokstäver, bort skiljetecken och så vidare, beroende på analys konfigurationen. 
+2. *Tokens* är utdata från text analys.
+3. *Villkoren* läggs till i indexet.
 
-Det är vanligt, men är inget krav att använda samma analysverktyg för sökning och indexering åtgärder så att sökord titta mer som villkor i indexet.
+Det är vanligt, men krävs inte, för att använda samma analyser för söknings-och indexerings åtgärder så att villkoren i frågan ser mer likadana ut som termer i indexet.
 
 > [!Note]
-> Azure Search kan du ange olika analysverktyg för indexering och söka via ytterligare `indexAnalyzer` och `searchAnalyzer` fältet parametrar. Om inget anges analysatorn anges med den `analyzer` egenskapen används för både indexering och sökning.  
+> Med Azure Search kan du ange olika analys verktyg för indexering och sökning via ytterligare `indexAnalyzer` parametrar `searchAnalyzer` och fält parametrar. Om inget anges används den analys uppsättning `analyzer` som har egenskapen för både indexering och sökning.  
 
-**Vägar i inverterad index för dokument**
+**Inverterat index för exempel dokument**
 
-Tillbaka till vårt exempel för den **rubrik** fält, vägar i inverterad indexet ser ut så här:
+I vårt exempel, för fältet **title** ser det inverterade indexet ut så här:
 
-| Term | Listan över standarddokument |
+| Term | Dokument lista |
 |------|---------------|
 | atman | 1 |
-| stranden | 2 |
-| hotell | 1, 3 |
+| bollar | 2 |
+| Personalen | 1, 3 |
 | havet | 4  |
 | playa | 3 |
 | utväg | 3 |
 | retreat | 4 |
 
-I rubrikfältet endast *hotell* dyker upp i två dokument: 1, 3.
+I fältet Rubrik visas bara *hotell* i två dokument: 1, 3.
 
-För den **beskrivning** fält, indexet är följande:
+I fältet **Beskrivning** ser indexet ut så här:
 
-| Term | Listan över standarddokument |
+| Term | Dokument lista |
 |------|---------------|
-| AIR | 3
+| löst | 3
 | och | 4
-| stranden | 1
+| bollar | 1
 | villkor | 3
 | nöjd | 3
 | distance | 1
 | island | 2
 | kauaʻi | 2
 | finns | 2
-| Nord | 2
+| rakt | 2
 | havet | 1, 2, 3
 | av | 2
 | på |2
 | tyst | 4
-| rum  | 1, 3
+| kylrum  | 1, 3
 | secluded | 4
-| land | 2
-| stora | 1
-| den | 1, 2
+| Shore | 2
+| spacious | 1
+| det | 1, 2
 | till | 1
-| vy | 1, 2, 3
-| walking | 1
+| visa | 1, 2, 3
+| vandra | 1
 | med | 3
 
 
-**Matchar frågetermen mot indexerade ord**
+**Matcha sökord mot indexerade villkor**
 
-Med de vägar i inverterad index som ovan kan vi gå tillbaka till exempel frågan och se hur matchande dokument hittades för vår exempelfråga. Kom ihåg att trädet slutlig ser ut så här: 
+Med de inverterade indexen ovan kan vi gå tillbaka till exempel frågan och se hur matchande dokument hittas för vår exempel fråga. Kom ihåg att det slutgiltiga trädet ser ut så här: 
 
- ![Booleska fråga med analyserade villkor][4]
+ ![Boolesk fråga med analyserade villkor][4]
 
-Vid körning av fråga körs enskilda frågor mot de sökbara fälten oberoende av varandra. 
+Under frågekörningen körs enskilda frågor mot sökbara fält oberoende av varandra. 
 
-+ ”Stora” matchningar TermQuery, dokumentera 1 (hotell Atman). 
++ TermQuery, "Spacious", matchar dokument 1 (hotell Atman). 
 
-+ PrefixQuery ”, air-condition *”, matchar inte några dokument. 
++ PrefixQuery, "Air-condition *", matchar inte några dokument. 
 
-  Det här är ett beteende som ibland confuses utvecklare. Även om termen luftkonditionerad finns i dokumentet, upp den i två termer av standard-analyzer. Kom ihåg att prefixet frågor som innehåller partiella villkor, inte har analyserats. Därför villkor med prefixet ”air-condition” letas upp i vägar i inverterad indexet och hittades inte.
+  Detta är ett beteende som ibland samär utvecklare. Även om termen Air-conditiont finns i dokumentet delas det upp i två termer av standard analys verktyget. Kom ihåg att prefixfrågor, som innehåller ofullständiga termer, inte analyseras. Därför visas villkor med prefix "Air-condition" i det inverterade indexet och inte hittas.
 
-+ PhraseQuery, ”ocean view”, letar upp villkoren ”ocean” och ”visa” och kontrollerar närhet av villkoren i det ursprungliga dokumentet. Dokument 1, 2 och 3 matchar den här frågan i beskrivningsfältet. Observera dokumentet 4 har termen havet i rubriken men inte anses vara en matchning som vi söker efter frasen ”ocean view” i stället för enskilda ord. 
++ PhraseQuery, "sjösikten", slår upp termerna "oceanen" och "View" och kontrollerar hur nära villkoren i det ursprungliga dokumentet är. Dokument 1, 2 och 3 matchar den här frågan i fältet Beskrivning. Meddelande om dokument 4 har termen oceanen i rubriken, men betraktas inte som en matchning, eftersom vi letar efter frasen "sjöliggande vy" i stället för enskilda ord. 
 
 > [!Note]
-> En sökfråga körs oberoende mot alla sökbara fält i Azure Search-index om du inte begränsar fälten med den `searchFields` parameter, såsom illustreras i exemplet sökbegäran. Dokument som matchar i någon av de markerade fälten returneras. 
+> En Sök fråga körs oberoende av alla sökbara fält i Azure Search index om du inte begränsar de fält som har angetts med `searchFields` parametern, enligt beskrivningen i exempel Sök förfrågan. Dokument som matchar i något av de valda fälten returneras. 
 
-På hela är dokument som matchar för frågan i fråga 1, 2, 3. 
+I hela frågan är dokumenten som matchar 1, 2, 3, för frågan i fråga. 
 
-## <a name="stage-4-scoring"></a>Steg 4: Bedömning  
+## <a name="stage-4-scoring"></a>Steg 4: Poäng  
 
-Alla dokument i ett sökresultat tilldelas relevansgradering. Funktionen för relevans poängen är att högre de dokument som bäst svar på en fråga för användaren som uttryckt genom sökfrågan. Poängen beräknas utifrån statistiska egenskaper för termer som matchas. Kärnan i bedömnings formeln är [TF/IDF (termen frekvens inverterade dokumentet frekvens)](https://en.wikipedia.org/wiki/Tf%E2%80%93idf). I frågor som innehåller sällsynta och vanliga termer, främjar TF/IDF resultat med sällsynta termen. Till exempel i ett hypotetiskt index med alla Wikipedia-artiklar från dokument som matchar frågan *ordförande*, dokument som matchar på *president* anses vara mer relevant än dokument matcha mot *den*.
+Varje dokument i en Sök Resultat uppsättning tilldelas en relevans poäng. Funktionen för relevans poängen är att rangordna högre dokument som bäst svarar på en användar fråga som uttrycks av Sök frågan. Poängen beräknas utifrån statistiska egenskaper för villkor som matchar. I en bedömnings formels kärna är [TF/IDF (term frekvens – invertering av dokument frekvens)](https://en.wikipedia.org/wiki/Tf%E2%80%93idf). I frågor som innehåller ovanliga och gemensamma villkor befordrar TF/IDF resultat som innehåller den sällsynta termen. Till exempel, i ett hypotetiskt index med alla Wikipedia-artiklar, från dokument som matchade frågan *till VD*, betraktas dokument som matchar på *VD* mer relevanta än dokumentsom matchar.
 
 
-### <a name="scoring-example"></a>Bedömning exempel
+### <a name="scoring-example"></a>Bedömnings exempel
 
-Återkalla de tre dokument som matchar vår exempelfråga:
+Återkalla de tre dokument som matchar vår exempel fråga:
 ~~~~
 search=Spacious, air-condition* +"Ocean view"  
 ~~~~
@@ -351,51 +350,51 @@ search=Spacious, air-condition* +"Ocean view"
 }
 ~~~~
 
-Dokumentet 1 matchar frågan bäst eftersom båda termen *stora* och nödvändiga frasen *hav visa* sker i beskrivningsfältet. Följande två dokument matchar endast frasen *hav visa*. Det kan vara så konstigt att relevansgradering för dokument 2 och 3 är olika, även om de matchande frågan på samma sätt. Det beror på att bedömnings-formeln har mer än bara TF/IDF-komponenter. I det här fallet har dokumentet 3 tilldelats en något högre poäng eftersom dess beskrivning är kortare. Lär dig mer om [Lucenes praktiska bedömning formeln](https://lucene.apache.org/core/4_0_0/core/org/apache/lucene/search/similarities/TFIDFSimilarity.html) att förstå hur fältlängden och andra faktorer kan påverka relevansgradering.
+Dokument 1 matchade frågan bäst eftersom både termen *Spacious* och den obligatoriska frasen i *vyn* i fältet Beskrivning visas. De två följande dokumenten matchar bara frasen i frasen i *vyn*. Det kan vara överraskande att relevans-poängen för dokument 2 och 3 är olika trots att de matchade frågan på samma sätt. Det beror på att bedömnings formeln har fler komponenter än bara TF/IDF. I det här fallet har dokument 3 tilldelats ett något högre poäng eftersom beskrivningen är kortare. Lär dig mer om [Lucene: s praktiska bedömnings formel](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/search/similarities/TFIDFSimilarity.html) för att förstå hur fält längd och andra faktorer kan påverka relevans poängen.
 
-Vissa frågetyperna (med jokertecken, prefix, regex) alltid bidra med ett konstant värde till den övergripande dokument poängen. På så sätt kan matchningar hittades via fråga expansion ska tas med i resultatet, men utan att påverka rangordning. 
+Vissa frågetyper (jokertecken, prefix, regex) bidrar alltid till en konstant poäng till det övergripande dokument resultatet. Detta gör att matchningar som upptäckts via frågans expansion tas med i resultatet, men utan att det påverkar rangordningen. 
 
-Ett exempel visar varför det är viktigt. Jokertecken, inklusive prefix sökningar är tvetydiga per definition eftersom indata är en partiell sträng med möjliga matchningar på ett mycket stort antal olika villkor (beakta indata av ”rundtur *”, med matchningar hittades på ”visningar”, ”tourettes”, och ” tourmaline ”). Naturen för de här resultaten returneras, går det inte att härleda rimligen vilket är mer värdefulla än andra. Därför ignorera vi termen frekvenser när bedömning resultat i frågor av typer med jokertecken, prefix och regex. Resultat från partiella indata ingår i en flerdelad search-begäran som innehåller begränsade och fullständiga villkor, med ett konstant värde att undvika att rikta mot potentiellt oväntat matchningar.
+Ett exempel illustrerar varför den här saken. Sökningar i jokertecken, inklusive prefix, är tvetydiga efter definition eftersom indatatypen är en delvis sträng med potentiella matchningar på ett mycket stort antal olika villkor (Tänk på att "guidad visning *" med matchningar som finns på "visningar", "Tourettes" och " tourmaline"). Med hänsyn till arten av dessa resultat går det inte att på ett rimligt sätt härleda vilka termer som är mer värdefulla än andra. Av den anledningen ignorerar vi term frekvenser när Poäng resultat visas i frågor av typen jokertecken, prefix och regex. I en sökbegäran med flera delar som innehåller delar av och fullständiga villkor, ingår resultat från den delvis indatan med en konstant Poäng för att undvika förskjutning mot potentiellt oväntade matchningar.
 
 ### <a name="score-tuning"></a>Poäng justering
 
-Det finns två sätt att finjustera relevans poäng i Azure Search:
+Det finns två sätt att justera relevans poängen i Azure Search:
 
-1. **Poängprofiler** marknadsföra dokument i rankad lista med resultat baserat på en uppsättning regler. I vårt exempel kan vi fundera på att dokument som matchade i rubrikfältet mer relevant än de dokument som matchas i beskrivningsfältet. Om indexet har haft ett fält för varje hotell, kan vi dessutom Flytta upp dokument med lägre pris. Lär dig mer [lägga till bedömning profiler till ett search-index.](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
-2. **Termförstärkning** (endast tillgänglig i den fullständiga Lucene-frågesyntaxen) tillhandahåller en felkällorna operator `^` som kan tillämpas på någon del av frågan trädet. I vårt exempel, i stället för att söka på prefixet *air-condition*\*, något gick Sök efter någon exakt termen *air-condition* eller prefix, men dokument som matchar på exakt termen är rangordnas högre genom att använda boost termen frågan: *air villkor ^ 2 || AIR-condition* *. Läs mer om [termförstärkning](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search#bkmk_termboost).
+1. **Bedömnings profiler** marknadsför dokument i den rangordnade listan över resultat baserat på en uppsättning regler. I vårt exempel kan vi överväga dokument som matchades i rubrik fältet mer relevanta än dokument som matchar i fältet Beskrivning. Om vårt index har ett pris fält för varje hotell skulle vi dessutom kunna befordra dokument med lägre pris. Läs mer om hur du [lägger till bedömnings profiler i ett sökindex.](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
+2. **Term förstärkning** (endast tillgängligt i fullständig Lucene-frågesyntax) tillhandahåller en förstärknings operator `^` som kan tillämpas på alla delar av frågans träd. I vårt exempel, i stället för att söka på prefixet *air-condition*\*, något gick Sök efter någon exakt termen *air-condition* eller prefix, men dokument som matchar på exakt termen är rangordnas högre genom att använda boost termen frågan: *air villkor ^ 2 || AIR-condition* *. Läs mer om [term ökning](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search#bkmk_termboost).
 
 
-### <a name="scoring-in-a-distributed-index"></a>Bedömning i ett distribuerat index
+### <a name="scoring-in-a-distributed-index"></a>Poängsättning i ett distribuerat index
 
-Alla index i Azure Search automatiskt är uppdelade i flera shards, vilket gör att vi kan snabbt distribuera indexet bland flera noder under skalning av tjänst upp eller ned. När en sökbegäran utfärdas mot varje shard oberoende av varandra. Resultaten från varje shard sedan samman och sorterade efter poäng (om ingen ordning har definierats). Det är viktigt att veta att bedömnings funktionen vikterna fråga termen frekvens mot frekvensen inverterade dokumentet i alla dokument inom fragmentet inte över alla shards!
+Alla index i Azure Search delas automatiskt upp i flera Shards, så att vi snabbt kan distribuera indexet mellan flera noder under tjänstens skala upp eller ned. När en Sök förfrågan utfärdas utfärdas den för varje Shard oberoende. Resultaten från varje Shard slås sedan samman och ordnas efter Poäng (om ingen annan sortering definieras). Det är viktigt att veta att bedömnings funktionen viktar frågeterm-frekvensen mot den inverterade dokument frekvensen i alla dokument i Shard, inte över alla Shards!
 
-Det innebär att relevansgradering *kan* vara olika för identiska dokument om de finns på olika shards. Som tur är kan tenderar sådana skillnader att försvinna när antalet dokument i indexet växer på grund av flera termen fördelas jämnt. Det går inte att anta på vilket fragment alla dokumentet kommer att placeras. Dock kommer under förutsättning att en dokumentnyckeln inte ändras, den alltid att tilldelas till samma fragment.
+Det innebär att en relevans Poäng *kan* vara olika för identiska dokument om de finns på olika Shards. Sådana skillnader tenderar att försvinna när antalet dokument i indexet växer på grund av ytterligare jämn fördelning. Det går inte att anta vilka Shard som ett givet dokument kommer att placeras. Förutsatt att en dokument nyckel inte ändras, kommer den dock alltid att tilldelas samma Shard.
 
-I allmänhet är dokumentet poäng inte det bästa attributet för ordning dokument om ordning stabilitet är viktigt. Till exempel finns med två dokument med en identisk poäng kan det ingen garanti vilken som visas först i efterföljande körningar av samma fråga. Dokumentet poäng bör endast ger en allmän uppfattning om dokumentet relevans i förhållande till andra dokument i resultatuppsättningen.
+I allmänhet är dokument poängen inte det bästa attributet för att beställa dokument om order stabiliteten är viktig. Om du till exempel har två dokument med identiska poäng, finns det ingen garanti för att det visas först i efterföljande körningar av samma fråga. Dokument poängen bör bara ge en allmän uppfattning om dokumentets relevans i förhållande till andra dokument i resultat uppsättningen.
 
 ## <a name="conclusion"></a>Sammanfattning
 
-Framgången för internet sökmotorer har signalerat förväntningar för fulltextsökning över privata data. För nästan alla typer av sökupplevelse planerar vi nu motor för att förstå vår avsikt, även om villkoren är felstavat eller är ofullständig. Vi tror även matchingar baserat på nära ekvivalenta termer eller synonymer som vi angav aldrig faktiskt.
+Det framgångs rik Internet sökmotorer har fått förväntningar för full texts ökning över privata data. För nästan alla typer av Sök upplevelser förväntar vi dig nu motorn för att förstå vår avsikt, även om termerna är felstavade eller ofullständiga. Vi kan till och med vänta på matchningar baserat på närmast likvärdiga villkor eller synonymer som vi aldrig har angett.
 
-Fulltextsökning är mycket komplexa kräver avancerade lingvistiska och systematiskt bearbetning på ett sätt som Omformulera, expandera och transformera sökord att leverera ett relevanta resultat från en teknisk synvinkel. Med de inbyggda komplexiteten kan finns det många olika faktorer som kan påverka resultatet av en fråga. Därför erbjuder lagt tid att förstå säkerhetsnivån fulltextsökning faktiska fördelar vid försök att gå igenom oväntade resultat.  
+Från en teknisk synpunkt är full texts ökning mycket komplex, vilket kräver avancerad språklig analys och en systematisk metod för bearbetning på sätt som destillerar, expanderar och transformerar sökord för att leverera ett relevant resultat. Med tanke på de kompliceradeste riskerna finns det många faktorer som kan påverka resultatet av en fråga. Av den anledningen kan man investera tiden för att förstå Mechanics i full texts ökning och få konkreta förmåner vid försök att arbeta genom oväntade resultat.  
 
-Den här artikeln utforskat fulltextsökning i samband med Azure Search. Vi hoppas att den ger tillräcklig förutsättningarna att kunna identifiera möjliga orsaker och lösningar för att hantera vanliga frågeproblem med. 
+I den här artikeln utforskas fullständig texts ökning i samband med Azure Search. Vi hoppas att det ger dig tillräckligt med bakgrund för att identifiera potentiella orsaker och lösningar för att lösa vanliga frågor. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-+ Skapa exempelindexet, prova olika frågor och granska resultatet. Anvisningar finns i [bygga och köra frågor mot ett index i portalen](search-get-started-portal.md#query-index).
++ Bygg exempel indexet, prova olika frågor och granska resultaten. Instruktioner finns i [bygga och fråga ett index i portalen](search-get-started-portal.md#query-index).
 
-+ Prova ytterligare frågesyntax från den [söka efter dokument](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples) exemplet eller från [enkla frågesyntaxen](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) i Sökutforskaren i portalen.
++ Försök med ytterligare frågesyntax från avsnittet [Sök efter dokument](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples) exempel eller från [enkel frågesyntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) i Sök Utforskaren i portalen.
 
-+ Granska [poängprofiler](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) om du vill justera rangordnas i ditt sökprogram.
++ Granska [bedömnings profiler](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) om du vill justera rangordningen i Sök programmet.
 
-+ Lär dig hur du använder [språkspecifika Lexikalisk](https://docs.microsoft.com/rest/api/searchservice/language-support).
++ Lär dig hur du använder [språkspecifika lexikala analyser](https://docs.microsoft.com/rest/api/searchservice/language-support).
 
-+ [Konfigurera anpassade analysverktyg](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) för minimal bearbetning eller specialiserade bearbetning på specifika fält.
++ [Konfigurera anpassade analys](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) verktyg för minimal bearbetning eller specialiserad bearbetning på specifika fält.
 
 ## <a name="see-also"></a>Se också
 
-[Söka efter dokument REST-API](https://docs.microsoft.com/rest/api/searchservice/search-documents) 
+[Sök dokument REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents) 
 
 [Enkel frågesyntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) 
 

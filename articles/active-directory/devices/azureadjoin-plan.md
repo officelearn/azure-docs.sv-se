@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5dc1c3fb7ae12c36a8c1fe383290435c03ee0c4
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: 906ab4da941c6a0e1bc98f2f724141c719d04b89
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68741373"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879422"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Anvisningar: Planera implementeringen av Azure AD-anslutningen
 
@@ -75,6 +75,10 @@ När du använder AD FS måste du aktivera följande WS-Trust-slutpunkter:`/adfs
  `/adfs/services/trust/13/certificatemixed`
 
 Om din identitetsprovider inte stöder dessa protokoll fungerar inte Azure AD Join. Från och med Windows 10 1809 kan användarna logga in på en Azure AD-ansluten enhet med en SAML-baserad identitets leverantör via [webb inloggning i Windows 10](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1809#web-sign-in-to-windows-10). För närvarande är webb inloggning en förhands gransknings funktion och rekommenderas inte för produktions distributioner.
+
+>[!NOTE]
+> Azure AD Join fungerar för närvarande inte med [AD FS 2019 som kon figurer ATS med externa autentiseringsproviders som primär autentiseringsmetod](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/additional-authentication-methods-ad-fs#enable-external-authentication-methods-as-primary). Azure AD Join-standardvärden för lösenordsautentisering som den primära metoden, vilket resulterar i autentiseringsfel i det här scenariot
+
 
 ### <a name="smartcards-and-certificate-based-authentication"></a>Smartkort och certifikatbaserad autentisering
 

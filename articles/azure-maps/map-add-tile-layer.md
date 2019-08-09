@@ -9,18 +9,18 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: e288e03b9e2c02ba963595f192dea7225c6d5762
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: d872cd78b3fd04512fcaee706e54bffa1cf9fcc1
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638984"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882086"
 ---
 # <a name="add-a-tile-layer-to-a-map"></a>Lägga till ett panel lager till en karta
 
 Den här artikeln visar hur du kan täcka ett panel lager på kartan. Med panel lager kan du placera bilder ovanpå Azure Maps bas kart paneler. Mer information om Azure Maps displacerings systemet finns i dokumentationen för [zoomnings nivåer och Brick rutnät](zoom-levels-and-tile-grid.md) .
 
-En panels lager belastning i paneler från en server. Dessa avbildningar kan antingen förrenderas och lagras på samma sätt som andra bilder på en server med hjälp av en namngivnings konvention som panel lagret förstår, eller en dynamisk tjänst som genererar bilderna i farten. Det finns tre olika namngivnings konventioner för panel tjänster som stöds av Azure Maps [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest) -klass; 
+Ett panel lager läses in i paneler från en server. Dessa avbildningar kan antingen förrenderas och lagras på samma sätt som andra bilder på en server med hjälp av en namngivnings konvention som panel lagret förstår, eller en dynamisk tjänst som genererar bilderna i farten. Det finns tre olika namngivnings konventioner för panel tjänster som stöds av Azure Maps [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest) -klassen: 
 
 * X-, Y-, zoomnings-och zoomnings nivå, x är kolumnen och Y är panelens rad position i panel rutnätet.
 * Quadkey notation – kombination x, y, zoomnings information till ett enda sträng värde som är en unik identifierare för en panel.
@@ -40,7 +40,7 @@ Panel-URL: en som skickas till ett panel lager måste vara en HTTP/HTTPS-URL til
 
 ## <a name="add-a-tile-layer"></a>Lägga till ett panelskikt
 
- Det här exemplet visar hur du skapar ett panel lager som pekar på en uppsättning paneler som använder systemet x, y, zoom-inpassning. Källan till det här panel lagret är ett väderleks överlägg av [Iowa-miljön för Mesonet i Iowa State University](https://mesonet.agron.iastate.edu/ogc/).
+ Det här exemplet visar hur du skapar ett panel lager som pekar på en uppsättning paneler som använder systemet x, y, zoom-inpassning. Källan till det här panel lagret är ett väderleks överlägg av [Iowa-miljön för Mesonet i Iowa State University](https://mesonet.agron.iastate.edu/ogc/). 
 
 <br/>
 
@@ -53,7 +53,7 @@ I det andra kod blocket skapas en [TileLayer](https://docs.microsoft.com/javascr
 
 ## <a name="customize-a-tile-layer"></a>Anpassa ett panel lager
 
-Panel lagret har bara många format alternativ. Här är ett verktyg för att testa dem.
+Panel skikts klassen har många format alternativ. Här är ett verktyg för att testa dem.
 
 <br/>
 

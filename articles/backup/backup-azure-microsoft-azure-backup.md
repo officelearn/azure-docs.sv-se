@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: dacurwin
-ms.openlocfilehash: f5367e1ca3e950126766e788323cb1d4749e9b0c
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: d815b471b0a1d7842118c7ac0b5e1665b8fb3c1e
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688406"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879947"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Installera och uppgradera Azure Backup Server
 > [!div class="op_single_selector"]
@@ -78,12 +78,14 @@ Med alternativet för lagringsreplikering kan du välja mellan geo-redundant lag
 
 Så här redigerar du inställningen för lagringsreplikering:
 
-1. Välj ditt valv för att öppna instrument panelen för valv och menyn Inställningar. Om menyn **Inställningar** inte öppnas, klickar du på **alla inställningar** på instrument panelen för valvet.
-2. På menyn **Inställningar** klickar du på **säkerhets** > kopierings infrastruktur**säkerhets kopierings konfiguration** för att öppna bladet **säkerhets kopierings konfiguration** . På menyn för **säkerhets kopierings konfiguration** väljer du alternativet Storage Replication för ditt valv.
+1. På bladet **Recovery Services-valv** klickar du på det nya valvet. Under avsnittet **Inställningar** klickar du på **Egenskaper**.
+2. I **Egenskaper**, under **säkerhets kopierings konfiguration**, klickar du på **Uppdatera**.
 
-    ![Lista över säkerhetskopieringsvalv](./media/backup-azure-vms-first-look-arm/choose-storage-configuration-rs-vault.png)
+3. Välj typ av lagrings replikering och klicka på **Spara**.
 
-    När du har valt lagringsalternativet för valvet är det dags att associera den virtuella datorn med valvet. För att börja kopplingen identifierar du och registrerar de virtuella Azure-datorerna.
+     ![Ange lagringskonfigurationen för det nya valvet](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
+
+ 
 
 ## <a name="software-package"></a>Program varu paket
 ### <a name="downloading-the-software-package"></a>Laddar ned programpaketet
@@ -135,7 +137,7 @@ Så här redigerar du inställningen för lagringsreplikering:
 
     ![Hämta Center 1](./media/backup-azure-microsoft-azure-backup/downloadcenter.png)
 
-    Eftersom nedladdnings storleken för alla filer tillsammans är > 3G, kan det ta upp till 60 minuter för nedladdning av en 10 Mbit/e minuter att slutföra nedladdningen.
+    Eftersom nedladdnings storleken för alla filer tillsammans är > 3G, kan det ta upp till 60 minuter för nedladdnings länken på 10 Mbit/s att slutföra nedladdningen.
 
 ### <a name="extracting-the-software-package"></a>Extrahera programpaketet
 När du har hämtat alla filer klickar du på **MicrosoftAzureBackupInstaller. exe**. Då startas **guiden Microsoft Azure Backup installations guiden** för att extrahera installationsfilerna till en plats som du har angett. Fortsätt genom guiden och klicka på extraherings knappen för att starta extraherings processen.
@@ -160,7 +162,7 @@ När extraherings processen har slutförts markerar du kryss rutan för att star
 
     ![Azure Backup Server-SQL-kontroll](./media/backup-azure-microsoft-azure-backup/sql/01.png)
 
-    Om ett fel inträffar med en rekommendation om att starta om datorn gör du det och klickar på **kontrol lera igen**. Om du har problem med SQL-konfigurationen kan du konfigurera om SQL enligt rikt linjerna i SQL och försöka installera/uppgradera MABS med hjälp av den befintliga SQL-instansen.
+    Om ett fel inträffar med en rekommendation om att starta om datorn gör du det och klickar på **kontrol lera igen**. Om det finns några problem med SQL-konfigurationen kan du konfigurera om SQL enligt SQL-rikt linjerna och försöka installera/uppgradera MABS med hjälp av den befintliga SQL-instansen.
 
    > [!NOTE]
    > Azure Backup Server fungerar inte med en fjärran sluten SQL Server instans. Den instans som används av Azure Backup Server måste vara lokal. Om du använder en befintlig SQL Server för MABS stöder MABS-installationen endast användningen av *namngivna instanser* av SQL Server.
@@ -201,7 +203,7 @@ När extraherings processen har slutförts markerar du kryss rutan för att star
 7. Granska *sammanfattningen av inställningarna* och klicka på **Installera**.
 
     ![Microsoft Azure Backup PreReq2](./media/backup-azure-microsoft-azure-backup/summary-screen.png)
-8. Installationen sker i faser. I den första fasen är Microsoft Azure Recovery Services-agenten installerad på servern. Guiden kontrollerar också om det är en Internet anslutning. Om Internet anslutningen är tillgänglig kan du fortsätta med installationen, om inte behöver du ange information om proxyn för att ansluta till Internet.
+8. Installationen sker i faser. I den första fasen installeras Microsoft Azure Recovery Services-agenten på-servern. Guiden kontrollerar också om det är en Internet anslutning. Om Internet anslutningen är tillgänglig kan du fortsätta med installationen, om inte behöver du ange information om proxyn för att ansluta till Internet.
 
     Nästa steg är att konfigurera Microsoft Azure Recovery Services agenten. Som en del av konfigurationen måste du ange dina autentiseringsuppgifter för valvet för att registrera datorn i Recovery Services-valvet. Du får också en lösen fras för att kryptera/dekryptera data som skickas mellan Azure och dina lokaler. Du kan generera en lösen fras automatiskt eller ange en egen lösen fras för lösen ord på 16. Fortsätt med guiden tills agenten har kon figurer ATS.
 
@@ -268,7 +270,7 @@ Här följer några steg om du behöver flytta MABS till en ny server, samtidigt
     Om du har lagt till nya diskar i DPM-lagringspoolen i stället för att flytta de gamla, kör du DPMSYNC-reallocateReplica
 
 ## <a name="network-connectivity"></a>Nätverks anslutning
-Azure Backup Server kräver anslutning till Azure Backups tjänsten för att produkten ska fungera korrekt. Du kan kontrol lera om datorn har anslutningen till Azure genom att använda ```Get-DPMCloudConnection``` cmdleten i Azure Backup Server PowerShell-konsolen. Om utdata från cmdleten är TRUE finns det ingen anslutning, annars finns det ingen anslutning.
+Azure Backup Server kräver anslutning till Azure Backups tjänsten för att produkten ska fungera korrekt. Du kan kontrol lera om datorn har anslutningen till Azure genom att använda ```Get-DPMCloudConnection``` cmdleten i Azure Backup Server PowerShell-konsolen. Om utdata från cmdleten är TRUE finns det en anslutning, annars finns det ingen anslutning.
 
 På samma gången måste Azure-prenumerationen vara i felfritt tillstånd. Logga in på [prenumerations portalen](https://account.windowsazure.com/Subscriptions)för att ta reda på status för din prenumeration och hantera den.
 

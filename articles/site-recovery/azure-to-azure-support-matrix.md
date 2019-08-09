@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 08/06/2019
 ms.author: raynew
-ms.openlocfilehash: d0e24d7621218ccac23842072a5f08be94c80d9d
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 92bd53fd0426f896eff8dc63b690167db3ee700b
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840586"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68884109"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Stödmatris för replikering av virtuella Azure-datorer från en region till en annan
 
@@ -197,7 +197,7 @@ Redundans | LRS och GRS stöds.<br/><br/> ZRS stöds inte.
 Kylning och frekvent lagring | Stöds inte | VM-diskar stöds inte på låg frekvent lagring
 Lagrings utrymmen | Stöds |
 Kryptering i rest (SSE) | Stöds | SSE är standardinställningen på lagrings konton.   
-Azure Disk Encryption (ADE) för Windows OS | Stöds |
+Azure Disk Encryption (ADE) för Windows OS | Stöds för virtuella datorer med hanterade diskar. Virtuella datorer med ohanterade diskar stöds inte |
 Azure Disk Encryption (ADE) för Linux OS | Stöds inte |
 Frekvent tillägg | Stöds | Att aktivera replikering för en datadisk som du lägger till i en replikerad virtuell Azure-dator stöds för virtuella datorer som använder hanterade diskar.
 Snabb borttagnings disk | Stöds inte | Om du tar bort datadisk på den virtuella datorn måste du inaktivera replikeringen och aktivera replikeringen igen för den virtuella datorn.

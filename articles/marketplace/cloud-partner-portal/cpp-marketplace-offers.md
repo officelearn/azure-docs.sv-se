@@ -1,65 +1,65 @@
 ---
-title: Azure och AppSource Marketplace-erbjudanden
-description: Skapa och hantera erbjudanden för Azure och AppSource marknadsplatser
+title: Azure-och AppSource Marketplace-erbjudanden
+description: Skapa och hantera erbjudanden för Azure-och AppSource-marknadsplatser
 services: Azure, AppSource, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: pabutler
-ms.openlocfilehash: 2d440adc5111db11486d1fc606abbda0ffae9595
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4bca52f19348569444ee09348c49756f64c986b7
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942544"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68884453"
 ---
-# <a name="azure-and-appsource-marketplace-offers"></a>Azure och AppSource Marketplace-erbjudanden
+# <a name="azure-and-appsource-marketplace-offers"></a>Azure-och AppSource Marketplace-erbjudanden
 
-Den här första delen av det här avsnittet introducerar allmän statusöversikt används för att skapa och hantera erbjudanden för Azure och AppSource marknadsplatser.  Den här innehåller bakgrunden som du behöver känna till för att hantera specifika erbjudandetyper, samt teknisk information som är gemensamma för alla erbjuder typer.  Merparten av det här avsnittet innehåller detaljerad information om hur du skapar och hanterar specifika erbjudandetyper.  
+Den första delen av det här avsnittet beskriver de allmänna åtgärder som används för att skapa och hantera erbjudanden för Azure-och AppSource-Marketplace.  Den här delen ger den bakgrund som du behöver förstå för att hantera vissa erbjudande typer, samt teknisk information som är gemensam för alla typer av erbjudanden.  Merparten av det här avsnittet innehåller detaljerade anvisningar om hur du skapar och hanterar särskilda erbjudande typer.  
 
-Följande videoklipp beskriver de olika funktionerna och olika erbjudanden tillgängliga typer i Azure Marketplace eller AppSource.  Den behandlar också viktiga tekniska och företag aspekter av att publicera en applikation eller tjänst i dessa marknadsplatser.
+Följande video innehåller de olika funktionerna och olika typer av erbjudanden som finns tillgängliga i Azure Marketplace eller AppSource.  Den omfattar också viktiga tekniska och affärs aspekter av publicering av ett program eller en tjänst på dessa marknads platser.
 
 > [!VIDEO https://channel9.msdn.com/Events/Build/2018/BRK2513/player]
 
-**Skapa appar och tjänster för Azure Marketplace och AppSource - skapa 2018**
+**Skapa appar och tjänster för Azure Marketplace och AppSource – build 2018**
 
-Läs mer om dessa marknadsplatser [publiceringsguide för Azure Marketplace och AppSource](../marketplace-publishers-guide.md).
-
-
-## <a name="common-offer-operations"></a>Vanliga åtgärder för erbjudandet
-
-Processen för att skapa ett nytt erbjudande skiljer sig avsevärt mellan olika typer av erbjudanden, till exempel mellan en [Azure-program erbjudandet](./azure-applications/cpp-azure-app-offer.md) och en [konsult tjänsterbjudande](./consulting-services/cloud-partner-portal-consulting-services-publishing-offer.md).  Däremot många av de andra åtgärderna du utföra på ett erbjudande i den [Cloud Partner Portal](https://cloudpartner.azure.com) är ganska standardiserade över typer av erbjudanden.  Dessa vanliga åtgärder, inklusive publicera, visa status, uppdatera och ta bort – beskrivs i avsnittet [hantera erbjudanden](./manage-offers/cpp-manage-offers.md)
+Mer information om dessa marknads platser finns i [publicerings guiden för Azure Marketplace och AppSource](../marketplace-publishers-guide.md).
 
 
-## <a name="test-drive"></a>Test Drive
+## <a name="common-offer-operations"></a>Vanliga erbjudande åtgärder
 
-*Testkör* är en marketplace-funktion som ger kunderna ett ”testa innan du köper” demonstration alternativ för varje erbjudande möjlighet.  Test Drive-funktionen är begränsad till följande delmängden av typer av erbjudanden: [Azure-program](./azure-applications/cpp-azure-app-offer.md), [Dynamics 365 Business Central](../cloud-partner-portal-orig/cpp-business-central-offer.md), [Dynamics 365 för kundengagemang](./dyn365ce/cpp-customer-engagement-offer.md), [Dynamics 365 för Finance and Operations](../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md), [ SaaS-program](./saas-app/cpp-saas-offer.md), och [virtuella datorer](./virtual-machine/cpp-virtual-machine-offer.md).  Den här funktionen kräver utgivaren för att skapa en Test Drive-mall som är anpassad efter dess erbjudandet.  Mer information finns i avsnittet [Test Drive](./test-drive/what-is-test-drive.md).
-
-Du kan bläddra i marketplace-erbjudanden som har Test Drive demonstrationer genom att använda den [test drive filter](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?filters=test-drive). 
+Processen för att skapa ett nytt erbjudande varierar kraftigt mellan erbjudande typer, till exempel mellan ett [erbjudande för Azure-program](./azure-applications/cpp-azure-app-offer.md) och ett [konsult tjänst erbjudande](./consulting-services/cloud-partner-portal-consulting-services-publishing-offer.md).  Dessutom är många av de andra åtgärderna som du utför i ett erbjudande i [Cloud Partner Portal](https://cloudpartner.azure.com) ganska standardiserade över erbjudande typer.  Dessa vanliga åtgärder – till exempel publicera, Visa status, uppdatera och ta bort – beskrivs i avsnittet [Hantera erbjudanden](./manage-offers/cpp-manage-offers.md)
 
 
-## <a name="azure-marketplace-and-appsource-offer-types"></a>Azure Marketplace och AppSource erbjuder typer
+## <a name="test-drive"></a>Provkörning
 
-I följande tabell visas de aktuella erbjudandetyper som stöds av den [Cloud Partner Portal](https://cloudpartner.azure.com).  För varje typ av erbjudande visar den marketplace(s) där erbjudandet kan anges som en allmän beskrivning av erbjudande lösning teknik.
+*Test Drive* är en Marketplace-funktion som ger kunderna "prova innan du köper" demonstrations alternativ för varje erbjudande som är aktiverat.  Test enhets kapaciteten är begränsad till följande delmängd av erbjudande typerna: [Azure-program](./azure-applications/cpp-azure-app-offer.md), [Dynamics 365 Business Central](../cloud-partner-portal-orig/cpp-business-central-offer.md), [Dynamics 365 för kund engagemang](./dyn365ce/cpp-customer-engagement-offer.md), [Dynamics 365 för ekonomi och drift](../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md), [SaaS-program](./saas-app/cpp-saas-offer.md)och [virtuella datorer](./virtual-machine/cpp-virtual-machine-offer.md).  Den här funktionen kräver att utgivaren skapar en mall för en testenhet som är anpassad för erbjudandet.  Mer information finns i avsnittet [Test Drive](./test-drive/what-is-test-drive.md).
+
+Du kan söka i befintliga Marketplace-erbjudanden som har test enhets demonstrationer genom att använda [filtret test enhet](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?filters=test-drive). 
+
+
+## <a name="azure-marketplace-and-appsource-offer-types"></a>Erbjudande typer för Azure Marketplace och AppSource
+
+I följande tabell visas de aktuella erbjudande typerna som stöds av [Cloud Partner Portal](https://cloudpartner.azure.com).  För varje erbjudande typ listar den de Marketplace-platser där erbjudandet kan visas, samt en allmän beskrivning av erbjudande lösnings tekniken.
 
 |                Erbjudandetyp                |  Marketplace  |   Beskrivning                                                           |
 |                ----------                |  -----------  |   -----------                                                           |
-| [Azure-program](./azure-applications/cpp-azure-app-offer.md) | Azure | Lösningen består av en eller flera virtuella datorer (VM), valfri anpassad Azure kod, distribueras via en Azure Resource Manager-mall.  Distributionen kan vara antingen av en lösningsmall kunden eller hanteras av utgivaren. Den här typen används för att ge mer flexibilitet än den angivna virtuella datorn erbjudandetypen.  |
-| [Konsulttjänst](./consulting-services/cloud-partner-portal-consulting-services-publishing-offer.md) | Båda | Microsoft kvalificerade konsulter kan visa sina domänspecifika tjänster på Azure Marketplace eller AppSource.  Sin expertis hjälper kunder bedöma deras problem eller skapa och distribuera lösningar för rätt att uppfylla sina affärsmål.  |
-| [Behållare](./containers/cpp-containers-offer.md)  | Azure | Lösningen är en Docker-behållaravbildning som tillhandahålls som en Kubernetes-baserad tjänst eller Azure Container instances. |
-| [Dynamics 365 Business Central](../cloud-partner-portal-orig/cpp-business-central-offer.md) | AppSource | Ett paket som utökar den här Sage (Företagsresursplanering) och företag hanteringssystemet. |
-| [Dynamics 365 för kundengagemang](./dyn365ce/cpp-customer-engagement-offer.md) | AppSource | Ett paket som utökar den här kunden resurs (CRM) hanteringssystemet via dess försäljning, service, projekt-tjänsten och fältet service-moduler  |
-| [Dynamics 365 for Finance and Operations](../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md) | AppSource | Ett paket som utökar den här Företagsresursplanering service (Företagsresursplanering) som har stöd för avancerade ekonomi, åtgärder, tillverkning och hantering av leverantörskedja |
-| [IoT Edge-modul](./iot-edge-module/cpp-offer-process-parts.md) | Azure | En Docker-kompatibla behållare som körs på en IoT Edge-enhet.  Den innehåller små databaserad moduler som använder en kombination av anpassad kod, andra Azure-tjänster och tjänster 3 part. |
-| [Power BI-appen](./power-bi/cpp-power-bi-offer.md) | AppSource | En Power BI-appen som paket anpassningsbara Power BI-innehåll, inklusive datauppsättningar, rapporter och instrumentpaneler |
-| [SaaS-app](./saas-app/cpp-saas-offer.md) | Azure | Lösningen är en programvara som tjänst-prenumeration som hanteras av utgivare, vilka användare logga in via ett anpassat gränssnitt som använder Azure Active Directory. |
-| [Virtuell dator](./virtual-machine/cpp-virtual-machine-offer.md)  | Azure  | Lösningen ingår i en virtuell dator distribueras till kundens prenumeration.  |
+| [Azure-program](./azure-applications/cpp-azure-app-offer.md) | Azure | Lösningen består av en eller flera virtuella datorer (VM), valfri anpassad Azure-kod som distribueras via en Azure Resource Manager-mall.  Distributionen kan antingen vara kunden via en lösnings mall eller hanteras av utgivaren. Den här typen används för att ge mer flexibilitet än den angivna typen av erbjudande för virtuella datorer.  |
+| [Konsult tjänst](./consulting-services/cloud-partner-portal-consulting-services-publishing-offer.md) | dubbelrikta | Microsoft-kvalificerade konsulter kan lista sina företagsspecifika tjänster på antingen Azure Marketplace eller AppSource.  Deras expertis hjälper kunder att bedöma sina problem och skapa och distribuera rätt lösningar för att uppfylla sina affärs mål.  |
+| [Behållare](./containers/cpp-containers-offer.md)  | Azure | Lösningen är en Docker-behållar avbildning etablerad som antingen en Kubernetes tjänst eller Azure Container instances. |
+| [Dynamics 365 Business Central](../cloud-partner-portal-orig/cpp-business-central-offer.md) | AppSource | Ett paket som utökar den här företags resurs planeringen (ERP) och företags hanterings systemet. |
+| [Dynamics 365 för kund engagemang](./dyn365ce/cpp-customer-engagement-offer.md) | AppSource | Ett paket som utökar detta CRM-system (Customer Resource Management) med hjälp av modulerna Sales, service, Project service och Field service  |
+| [Dynamics 365 för finanser och åtgärder](../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md) | AppSource | Ett paket som utökar den här ERP-tjänsten (Enterprise Resource Planning) som har stöd för avancerad finans-, drift-, tillverknings-och leverans kedjas hantering |
+| [IoT Edge modul](./iot-edge-module/cpp-offer-process-parts.md) | Azure | En Docker-kompatibel behållare som körs på en IoT Edge enhet.  Den består av små beräknings moduler som använder en kombination av anpassad kod, andra Azure-tjänster och tjänster från tredje part. |
+| [Power BI app](./power-bi/cpp-power-bi-offer.md) | AppSource | En Power BI app som paketerar anpassningsbar Power BI innehåll, inklusive data uppsättningar, rapporter och instrument paneler |
+| [SaaS-app](./saas-app/cpp-saas-offer.md) | Azure | Lösningen är en prenumeration på program vara som en tjänst, som hanteras av utgivaren, som användarna loggar in via ett anpassat gränssnitt som använder Azure Active Directory. |
+| [Virtuell dator](./virtual-machine/cpp-virtual-machine-offer.md)  | Azure  | Lösningen finns i en enda virtuell dator som distribuerats till kundens prenumeration.  |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |   |   |
 
-Mer information finns i [publicera guide av erbjudandetypen](../publisher-guide-by-offer-type.md).
+Mer information finns i [publicerings guide efter erbjudande typ](../publisher-guide-by-offer-type.md).
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du kommer lära dig om de allmänna åtgärder som du kan utföra på marketplace-erbjudanden och vanliga tekniska attribut och tillgångar i artikeln [hantera erbjudanden](./manage-offers/cpp-manage-offers.md).
+Du får lära dig om de allmänna åtgärder som du kan utföra på Marketplace-erbjudanden och deras gemensamma tekniska attribut och till gångar i artikeln [Hantera erbjudanden](./manage-offers/cpp-manage-offers.md).

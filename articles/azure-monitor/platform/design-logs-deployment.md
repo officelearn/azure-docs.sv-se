@@ -11,18 +11,18 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/05/2019
+ms.date: 08/07/2019
 ms.author: magoedte
-ms.openlocfilehash: d2fadf6d0bf9b7422b6dbf7597a024d22b5d733f
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 1c2416d9fb1d45116bb6594b29863c1fe8f524a3
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839320"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883209"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Designa distributioner av Azure Monitor loggar
 
-Azure Monitor lagrar [loggdata](data-platform-logs.md) i en Log Analytics arbets yta, som är en Azure-resurs och en behållare där data samlas in, aggregeras och fungerar som en administrativ gränser. Även om du kan distribuera en eller flera arbets ytor i din Azure-prenumeration finns det flera saker du bör känna till för att säkerställa att den första distributionen följer våra rikt linjer för att ge dig en kostnads effektiv, hanterbar och skalbar distribution som uppfyller organisationens behov.
+Azure Monitor lagrar [loggdata](data-platform-logs.md) i en Log Analytics arbets yta, som är en Azure-resurs och en behållare där data samlas in, aggregeras och fungerar som en administrativ gränser. Även om du kan distribuera en eller flera arbets ytor i din Azure-prenumeration finns det flera saker du bör känna till för att säkerställa att din första distribution följer våra rikt linjer för att ge dig en kostnads effektiv, hanterbar och skalbar distribution som uppfyller organisationens behov.
 
 Data i en arbets yta är indelade i tabeller, där var och en lagrar olika typer av data och har en egen unik uppsättning egenskaper baserade på den resurs som genererar data. De flesta data källor skrivs till sina egna tabeller i en Log Analytics-arbetsyta.
 
@@ -32,7 +32,7 @@ En Log Analytics arbets yta innehåller:
 
 * En geografisk plats för data lagring.
 * Data isolering genom att ge olika användare åtkomst rättigheter efter en av våra rekommenderade design strategier.
-* Omfattning för konfiguration av inställningar som [pris nivå](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#changing-pricing-tier), [kvarhållning](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period) och [data capping](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#daily-cap).
+* Omfattning för konfiguration av inställningar som [pris nivå](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#changing-pricing-tier), [kvarhållning](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)och [data capping](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#daily-cap).
 
 Den här artikeln innehåller en detaljerad översikt över design-och migrerings överväganden, åtkomst kontroll översikt och en förståelse för de design implementeringar vi rekommenderar för din IT-organisation.
 
@@ -63,7 +63,7 @@ Om du använder System Center Operations Manager 2012 R2 eller senare:
 
 ## <a name="access-control-overview"></a>Översikt över åtkomst kontroll
 
-Med rollbaserad åtkomst kontroll (RBAC) kan du endast bevilja användare och grupper den mängd åtkomst som de behöver för att arbeta med övervaknings data i en arbets yta. På så sätt kan du justera med din IT-organisations drifts modell med en enda arbets yta för att lagra insamlade data aktiverade på alla dina resurser. Till exempel ger du till gång till ditt team som ansvarar för infrastruktur tjänster som finns på Azure Virtual Machines (VM) och därför har de enbart åtkomst till de loggar som genereras av de virtuella datorerna. Det här följer vår nya resurs kontexts logg modell. Basen för den här modellen är att varje logg post som genereras av en Azure-resurs automatiskt associeras med den här resursen. Loggar vidarebefordras till en central arbets yta som uppfyller omfattning och RBAC baserat på resurserna.
+Med rollbaserad åtkomst kontroll (RBAC) kan du endast bevilja användare och grupper den mängd åtkomst som de behöver för att arbeta med övervaknings data i en arbets yta. På så sätt kan du justera med din IT-organisations drifts modell med en enda arbets yta för att lagra insamlade data aktiverade på alla dina resurser. Till exempel ger du till gång till ditt team som ansvarar för infrastruktur tjänster som finns på Azure Virtual Machines (VM) och därför har de enbart åtkomst till de loggar som genereras av de virtuella datorerna. Det här följer vår nya resurs kontexts logg modell. Basen för den här modellen är för varje logg post som skickas av en Azure-resurs, den kopplas automatiskt till den här resursen. Loggar vidarebefordras till en central arbets yta som uppfyller omfattning och RBAC baserat på resurserna.
 
 De data som en användare har åtkomst till bestäms av en kombination av faktorer som anges i följande tabell. Var och en beskrivs i avsnitten nedan.
 
@@ -80,11 +80,11 @@ De data som en användare har åtkomst till bestäms av en kombination av faktor
 
 Användare har två alternativ för att komma åt data:
 
-* **Arbets yta-kontext**: Du kan visa alla loggar i arbets ytan som du har behörighet till. Frågor i det här läget är begränsade till alla data i alla tabeller i arbets ytan. Detta är det åtkomst läge som används när loggar nås med arbets ytan som omfång, till exempel när du väljer **loggar** på **Azure Monitor** -menyn i Azure Portal.
+* **Arbets yta-kontext**: Du kan visa alla loggar i arbets ytan du har behörighet till. Frågor i det här läget är begränsade till alla data i alla tabeller i arbets ytan. Detta är det åtkomst läge som används när loggar nås med arbets ytan som omfång, till exempel när du väljer **loggar** på **Azure Monitor** -menyn i Azure Portal.
 
     ![Log Analytics kontext från arbets ytan](./media/design-logs-deployment/query-from-workspace.png)
 
-* **Resurs kontext**: När du öppnar arbets ytan för en viss resurs, resurs grupp eller prenumeration, till exempel när du väljer **loggar** från en resurs meny i Azure Portal, kan du bara visa loggar för den resursen i alla tabeller som du har åtkomst till. Frågor i det här läget är begränsade till data som är associerade med den resursen. Det här läget möjliggör även detaljerad RBAC.
+* **Resurs kontext**: När du öppnar arbets ytan för en viss resurs, resurs grupp eller prenumeration, t. ex. När du väljer **loggar** från en resurs meny i Azure Portal, kan du bara visa loggar för resurser i alla tabeller som du har åtkomst till. Frågor i det här läget är begränsade till data som är associerade med den resursen. Det här läget möjliggör även detaljerad RBAC.
 
     ![Log Analytics kontext från resurs](./media/design-logs-deployment/query-from-resource.png)
 
@@ -106,7 +106,7 @@ I följande tabell sammanfattas åtkomst lägena:
 |:---|:---|:---|
 | Vem är varje modell avsedd för? | Central administration. Administratörer som behöver konfigurera data insamling och användare som behöver åtkomst till en mängd olika resurser. Krävs också för användare som behöver åtkomst till loggar för resurser utanför Azure. | Program team. Administratörer av Azure-resurser som övervakas. |
 | Vad kräver en användare att visa loggar? | Behörigheter till arbets ytan. Se **behörigheter för arbets ytan** i [Hantera konton och användare](manage-access.md#manage-accounts-and-users). | Läs åtkomst till resursen. Se **resurs behörigheter** i [Hantera konton och användare](manage-access.md#manage-accounts-and-users). Behörigheter kan ärvas (till exempel från resurs gruppen innehåller) eller tilldelas direkt till resursen. Behörighet till loggarna för resursen tilldelas automatiskt. |
-| Vad är behörighets omfånget? | Platsen. Användare med åtkomst till arbets ytan kan fråga alla loggar på den arbets ytan från tabeller som de har behörighet till. Se [tabell åtkomst kontroll](manage-access.md#table-level-rbac) | Azure-resurs. Användaren kan söka i loggar efter vissa resurser, resurs grupper eller prenumerationer som de har åtkomst till från en arbets yta, men inte skicka frågor till loggar för andra resurser. |
+| Vad är behörighets omfånget? | Platsen. Användare med åtkomst till arbets ytan kan fråga alla loggar i arbets ytan från tabeller som de har behörighet till. Se [tabell åtkomst kontroll](manage-access.md#table-level-rbac) | Azure-resurs. Användaren kan söka i loggar efter vissa resurser, resurs grupper eller prenumerationer som de har åtkomst till från en arbets yta, men inte skicka frågor till loggar för andra resurser. |
 | Hur kan användare få åtkomst till loggar? | <ul><li>Starta **loggar** från **Azure Monitor** -menyn.</li></ul> <ul><li>Starta **loggar** från **Log Analytics arbets ytor**.</li></ul> <ul><li>Från Azure Monitor [arbets böcker](../visualizations.md#workbooks).</li></ul> | <ul><li>Starta **loggar** från menyn för Azure-resursen</li></ul> <ul><li>Starta **loggar** från **Azure Monitor** -menyn.</li></ul> <ul><li>Starta **loggar** från **Log Analytics arbets ytor**.</li></ul> <ul><li>Från Azure Monitor [arbets böcker](../visualizations.md#workbooks).</li></ul> |
 
 ## <a name="access-control-mode"></a>Åtkomstkontrolläge
@@ -115,7 +115,7 @@ I följande tabell sammanfattas åtkomst lägena:
 
 * **Kräv behörigheter för arbets yta**: Det här kontroll läget tillåter inte detaljerad RBAC. För att en användare ska kunna komma åt arbets ytan måste de beviljas behörigheter till arbets ytan eller till vissa tabeller.
 
-    Om en användare har åtkomst till arbets ytan efter arbets ytans kontext läge, har de åtkomst till alla data i alla tabeller som de har beviljats åtkomst till. Om en användare har åtkomst till arbets ytan efter resurs kontext läge, har de bara åtkomst till data för resursen i alla tabeller som de har beviljats åtkomst till.
+    Om en användare har åtkomst till arbets ytan efter arbets ytans kontext läge, har de åtkomst till alla data i alla tabeller som de har beviljats åtkomst till. Om en användare har åtkomst till arbets ytan efter resurs kontext läge, har de åtkomst till data för resursen i alla tabeller som de har beviljats åtkomst till.
 
     Detta är standardinställningen för alla arbets ytor som skapats före mars 2019.
 
@@ -127,6 +127,8 @@ I följande tabell sammanfattas åtkomst lägena:
 
     > [!NOTE]
     > Om en användare bara har resurs behörigheter till arbets ytan kan de bara komma åt arbets ytan med resurs kontext läge förutsatt att arbets ytans åtkomst läge är inställt på att **använda resurs-eller arbets ytans behörigheter**.
+
+Information om hur du ändrar åtkomst kontrol läget i portalen, med PowerShell eller med hjälp av en Resource Manager-mall, finns i [definiera åtkomst kontrol läge](manage-access.md#define-access-control-mode).
 
 ## <a name="recommendations"></a>Rekommendationer
 

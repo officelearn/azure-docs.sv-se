@@ -5,26 +5,27 @@ author: arduppal
 manager: mchad
 ms.author: arduppal
 ms.reviewer: arduppal
-ms.date: 06/19/2019
+ms.date: 08/07/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 5932d51ecaca3c827ae6de268711c7f4d1b28d0a
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: a40389ca378826aef1b6aa136f8f5d69783c638e
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640652"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881222"
 ---
-# <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge-preview"></a>Store data på gränsen med Azure Blob Storage på IoT Edge (förhandsversion)
+# <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge"></a>Lagra data på gränsen med Azure Blob Storage på IoT Edge
 
 Azure Blob Storage på IoT Edge innehåller en [blockblob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs) lagringslösning kant. En Blob Storage-modul på din IoT Edge-enhet fungerar som en Azure Block Blob-tjänst, förutom att block-blobbar lagras lokalt på IoT Edge enheten. Du kan få åtkomst till dina blobar på samma sätt i Azure storage SDK eller blockera blob API-anrop som du redan är van att. I den här artikeln beskrivs begreppen för Azure Blob Storage på IoT Edge behållare som kör en blob-tjänst på din IoT Edge enhet.
 
-Den här modulen är användbar i scenarier där data måste lagras lokalt tills den kan bearbetas eller överföras till molnet. Dessa data kan vara videor, bilder, ekonomi data, sjukhus data eller andra ostrukturerade data.
-
-> [!NOTE]
-> Azure Blob Storage på IoT Edge är i [förhandsversion](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Den här modulen är användbar i scenarier:
+* var data måste lagras lokalt tills den kan bearbetas eller överföras till molnet. Dessa data kan vara videor, bilder, ekonomi data, sjukhus data eller andra ostrukturerade data.
+* När enheterna finns på en plats med begränsad anslutning.
+* När du effektivt vill bearbeta data lokalt för att få låg latens åtkomst till data, så att du kan reagera på nödfall så snabbt som möjligt.
+* När du vill minska bandbredds kostnaderna och undvika att överföra terabyte data till molnet. Du kan bearbeta data lokalt och bara skicka bearbetade data till molnet.
 
 Titta på videon för snabb introduktion
 > [!VIDEO https://www.youtube.com/embed/QhCYCvu3tiM]
@@ -60,16 +61,11 @@ En Azure IoT Edge-enhet:
 
 - Du kan använda din utvecklings dator eller en virtuell dator som en IoT Edge enhet genom att följa stegen i snabb starten för [Linux](quickstart-linux.md) -eller [Windows-enheter](quickstart.md).
 
-- Azure Blob Storage på IoT Edge-modul har stöd för följande enhetskonfigurationer:
-
-  | Operativsystem | AMD64 | ARM32v7 | ARM64 |
-  | ---------------- | ----- | ----- | ---- |
-  | Raspbian stretch | Nej | Ja | Nej |  
-  | Ubuntu Server 16.04 | Ja | Nej | Ja |
-  | Ubuntu Server 18.04 | Ja | Nej | Ja |
-  | Windows 10 IoT Enterprise, build 17763 | Ja | Nej | Nej |
-  | Windows Server 2019, build 17763 | Ja | Nej | Nej |
-  
+- Se [Azure IoT Edge system som stöds](support.md#operating-systems) för en lista över operativ system och arkitekturer som stöds. Azure-Blob Storage i IoT Edge-modulen stöder följande arkitekturer:
+    - Windows AMD64
+    - Linux AMD64
+    - Linux ARM32
+    - Linux-ARM64 (för hands version)
 
 Molnresurser:
 
@@ -104,7 +100,10 @@ Namnet på den här inställningen är`deviceAutoDeleteProperties`
 
 ## <a name="using-smb-share-as-your-local-storage"></a>Använda SMB-resurs som lokal lagring
 Du kan ange SMB-resurs som din lokala lagrings Sök väg när du distribuerar Windows-behållare för den här modulen på Windows-värden.
-Du kan köra `New-SmbGlobalMapping` PowerShell-kommandot för att mappa SMB-resursen lokalt på IoT-enheten som kör Windows. Se till att IoT-enheten kan läsa och skriva till fjärr-SMB-resursen.
+
+Kontrol lera att SMB-resursen och IoT-enheten finns i ömsesidigt betrodda domäner.
+
+Du kan köra `New-SmbGlobalMapping` PowerShell-kommandot för att mappa SMB-resursen lokalt på IoT-enheten som kör Windows.
 
 Nedan visas konfigurations stegen:
 ```PowerShell
@@ -112,12 +111,44 @@ $creds = Get-Credential
 New-SmbGlobalMapping -RemotePath <remote SMB path> -Credential $creds -LocalPath <Any available drive letter>
 ```
 Exempel: <br>
-`$creds = Get-Credentials` <br>
+`$creds = Get-Credential` <br>
 `New-SmbGlobalMapping -RemotePath \\contosofileserver\share1 -Credential $creds -LocalPath G: `
 
 Det här kommandot använder autentiseringsuppgifterna för att autentisera med fjärr-SMB-servern. Mappa sedan sökvägen till fjär resursen till G: enhets beteckningen (kan vara en annan tillgänglig enhets beteckning). IoT-enheten har nu data volymen mappad till en sökväg på enheten G:. 
 
-För distributionen `<storage directory bind>` kan värdet vara **G:/ContainerData: C:/BlobRoot**.
+Se till att användaren i IoT-enheten kan läsa och skriva till fjärr-SMB-resursen.
+
+För distributionen `<storage mount>` kan värdet vara **G:/ContainerData: C:/BlobRoot**. 
+
+## <a name="granting-directory-access-to-container-user-on-linux"></a>Bevilja katalog åtkomst till behållar användare i Linux
+Om du har använt [volym montering](https://docs.docker.com/storage/volumes/) för lagring i dina alternativ för att skapa en Linux-behållare behöver du inte göra några ytterligare steg, men om du använde [BIND Mount](https://docs.docker.com/storage/bind-mounts/) krävs dessa steg för att köra tjänsten på rätt sätt.
+
+Enligt principen om minsta behörighet för att begränsa åtkomst rättigheterna för användare till minimalt minimal behörighet som de behöver för att utföra sitt arbete, innehåller den här modulen en användare (namn: absie, ID: 11000) och en användar grupp (namn: absie, ID: 11000). Om behållaren har startats som **rot** (standard användare är **rot**), startas tjänsten som **absie** användare med låg behörighet. 
+
+Det här beteendet gör att konfigurationen av behörigheterna för värdsökväg binder är avgörande för att tjänsten ska fungera korrekt, annars kraschar tjänsten med åtkomst nekade fel. Den sökväg som används i katalog bindningen måste vara tillgänglig för behållar användaren (exempel: absie 11000). Du kan bevilja behållar användaren åtkomst till katalogen genom att köra kommandona nedan på värden:
+
+```terminal
+sudo chown -R 11000:11000 <blob-dir> 
+sudo chmod -R 700 <blob-dir> 
+```
+
+Exempel:<br>
+`sudo chown -R 11000:11000 /srv/containerdata` <br>
+`sudo chmod -R 700 /srv/containerdata `
+
+
+Om du behöver köra tjänsten som en annan användare än **absie**kan du ange ditt anpassade användar-ID i createOptions under egenskapen User i distributions manifestet. I så fall måste du använda standard-eller rot grupps `0`-ID: t.
+
+```json
+“createOptions”: { 
+  “User”: “<custom user ID>:0” 
+} 
+```
+Bevilja nu behållar användaren åtkomst till katalogen
+```terminal
+sudo chown -R <user ID>:<group ID> <blob-dir> 
+sudo chmod -R 700 <blob-dir> 
+```
 
 ## <a name="configure-log-files"></a>Konfigurera loggfiler
 
@@ -142,9 +173,9 @@ Azure Blob Storage-dokumentationen innehåller exempel kod för snabb start på 
 Följande snabb starts exempel använder språk som också stöds av IoT Edge, så du kan distribuera dem som IoT Edge moduler tillsammans med Blob Storage-modulen:
 
 - [NET](../storage/blobs/storage-quickstart-blobs-dotnet.md)
-- [Java](../storage/blobs/storage-quickstart-blobs-java.md)
+- [Java](../storage/blobs/storage-quickstart-blobs-java-v10.md)
 - [Python](../storage/blobs/storage-quickstart-blobs-python.md)
-- [Node.js](../storage/blobs/storage-quickstart-blobs-nodejs.md)
+- [Node.js](../storage/blobs/storage-quickstart-blobs-nodejs-v10.md)
 
 ## <a name="connect-to-your-local-storage-with-azure-storage-explorer"></a>Ansluta till din lokala lagrings plats med Azure Storage Explorer
 
@@ -239,3 +270,5 @@ Du kan kontakta oss påabsiotfeedback@microsoft.com
 ## <a name="next-steps"></a>Nästa steg
 
 Lär dig hur du [distribuerar Azure Blob Storage på IoT Edge](how-to-deploy-blob.md)
+
+Håll dig uppdaterad med senaste uppdateringar och meddelande i [Azure Blob Storage på IoT Edge blogg](https://aka.ms/abs-iot-blogpost)

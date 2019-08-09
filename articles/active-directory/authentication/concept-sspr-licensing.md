@@ -1,6 +1,6 @@
 ---
-title: Licens lösenordsåterställning via självbetjäning – Azure Active Directory
-description: Licensieringskrav för återställning av lösenord för självbetjäning av Azure AD
+title: Återställning av lösen ord för självbetjäning – Azure Active Directory
+description: Licens krav för återställning av lösen ord för Azure AD Self-service
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,53 +11,53 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 56b74e6a9f1d83798b557c48eb78242d70e85dfc
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 7463b86ea20a712937b8ccba7997c2551aae5be6
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67612633"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879114"
 ---
-# <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Återställning av Licensieringskrav för lösenord för självbetjäning i Azure AD
+# <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Licensierings krav för återställning av lösen ord för självbetjäning i Azure AD
 
-Azure Active Directory (Azure AD) finns i fyra versioner: Kostnadsfri, Basic, Premium P1 och Premium P2. Det finns flera olika funktioner som gör dig lösenordsåterställning via självbetjäning, inklusive ändringen, återställa, låsa upp och tillbakaskrivning av som är tillgängliga i de olika versionerna av Azure AD. Den här artikeln försöker beskriver skillnaderna. Mer information om de funktioner som ingår i varje Azure AD-version kan hittas på den [sidan med priser för Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+Azure Active Directory (Azure AD) ingår i flera versioner: Kostnads fri, Premium P1 och Premium P2. Det finns flera olika funktioner som utgör självbetjäning för återställning av lösen ord, inklusive ändring, återställning, upplåsning och tillbakaskrivning, som är tillgängliga i de olika versionerna av Azure AD. Den här artikeln försöker förklara skillnaderna. Mer information om de funktioner som ingår i varje Azure AD-utgåva finns på [sidan Azure Active Directory priser](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## <a name="compare-editions-and-features"></a>Jämför versioner och funktioner
 
-Lösenord för självbetjäning av Azure AD lösenordsåterställning licensieras per användare, för att underhålla kompatibiliteten organisationer som krävs för att tilldela rätt licens till sina användare.
+Återställning av lösen ord för självbetjäning i Azure AD licensieras per användare för att underhålla efterlevnadar krävs för att tilldela sina användare rätt licens.
 
 * Självbetjäning för ändring av lösenord för molnanvändare
-   * Jag är en **endast molnbaserad** och vet mitt lösenord.
-      * Jag skulle vilja **ändra** mitt lösenord till något nytt.
+   * Jag är **endast molnbaserad användare** och känner till mitt lösen ord.
+      * Jag vill **ändra** mitt lösen ord till något nytt.
    * Den här funktionen ingår i alla utgåvor av Azure AD.
 
 * Självbetjäning för återställning av lösenord för molnanvändare
-   * Jag är en **endast molnbaserad** och har glömt mitt lösenord.
-      * Jag skulle vilja **återställa** mitt lösenord till något som jag vet.
-   * Den här funktionen ingår i Azure AD Basic, Premium P1 eller P2 eller Microsoft 365 Business.
+   * Jag är **endast en molnbaserad användare** och har glömt mitt lösen ord.
+      * Jag vill **återställa** mitt lösen ord till något som jag känner till.
+   * Den här funktionen ingår i Azure AD Premium P1 eller P2, eller Microsoft 365 Business.
 
-* Självbetjäning lösenord återställning/ändring/upplåsning **med lokal tillbakaskrivning**
-   * Jag är en **hybrid användaren** mitt lokala Active Directory-användarkonto är synkroniserad med min Azure AD-konto med Azure AD Connect. Jag skulle vilja ändra mitt lösenord, har glömt mitt lösenord eller låsts ute.
-      * Jag skulle vilja ändra mitt lösenord eller återställa den till något som jag vet eller låsa upp mitt konto, **och** har att ändra synkroniseras tillbaka till en lokal Active Directory.
-   * Den här funktionen ingår i Azure AD Premium P1 eller P2 eller Microsoft 365 Business.
+* Lösen ords återställning via självbetjäning/ändra/Lås upp **med lokal tillbakaskrivning**
+   * Jag är en **Hybrid användare** som mitt lokalt Active Directory användar kontot är synkroniserat med mitt Azure AD-konto med hjälp av Azure AD Connect. Jag vill ändra mitt lösen ord, ha glömt mitt lösen ord eller vara utelåst.
+      * Jag vill ändra mitt lösen ord eller återställa det till något som jag känner till, eller låsa upp mitt konto **och** låta ändringen synkroniseras tillbaka till lokala Active Directory.
+   * Den här funktionen ingår i Azure AD Premium P1 eller P2, eller Microsoft 365 Business.
 
 > [!WARNING]
-> Fristående Office 365 licensiering planer *stöder inte ”Self Service lösenord återställning/ändring/upplåsning med lokal tillbakaskrivning”* och kräver en plan som innehåller Azure AD Premium P1, Premium P2 eller Microsoft 365 Business för detta funktionen ska fungera.
+> Fristående Office 365-licens planer *stöder inte "självbetjäning för återställning av lösen ord/ändra/Lås upp med lokal tillbakaskrivning"* och kräver en plan som innehåller Azure AD Premium P1, Premium P2 eller Microsoft 365 Business för att den här funktionen ska fungera.
 >
 
-Ytterligare information om licenser går inklusive kostnader, kan hittas på följande sidor:
+Ytterligare licens information, inklusive kostnader, finns på följande sidor:
 
-* [Priser platsen för Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/)
-* [Azure Active Directory-funktioner och egenskaper](https://www.microsoft.com/cloud-platform/azure-active-directory-features)
+* [Azure Active Directory prissättnings webbplats](https://azure.microsoft.com/pricing/details/active-directory/)
+* [Azure Active Directory funktioner och funktioner](https://www.microsoft.com/cloud-platform/azure-active-directory-features)
 * [Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security)
 * [Microsoft 365 Enterprise](https://www.microsoft.com/microsoft-365/enterprise)
-* [Tjänstbeskrivning för Microsoft 365 Business](https://docs.microsoft.com/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description)
+* [Beskrivning av Microsoft 365 Businesss tjänst](https://docs.microsoft.com/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description)
 
-## <a name="enable-group-or-user-based-licensing"></a>Aktivera grupp eller användarbaserade licensiering
+## <a name="enable-group-or-user-based-licensing"></a>Aktivera grupp-eller användar baserad licensiering
 
-Azure AD nu stöder gruppbaserad licensiering. Administratörer kan tilldela licenser till en grupp med användare i stället för att tilldela dem en i taget. Mer information finns i [tilldela kontrollerar och lösa problem med licenser](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses).
+Azure AD stöder nu gruppbaserad licensiering. Administratörer kan tilldela licenser i bulk till en grupp användare i stället för att tilldela dem en i taget. Mer information finns i [tilldela, verifiera och lösa problem med licenser](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses).
 
-Vissa Microsoft-tjänster är inte tillgängliga på alla platser. Innan en användare kan tilldelas en licens, administratören måste ange den **användningsplats** egenskapen på användaren. Tilldelning av licenser kan göras den **användaren** > **profil** > **inställningar** avsnitt i Azure-portalen. *När du använder gruppen licenstilldelning ärver alla användare utan att användningsplats angetts platsen för katalogen.*
+Vissa Microsoft-tjänster är inte tillgängliga på alla platser. Innan en licens kan tilldelas en användare måste administratören ange egenskapen för **användnings plats** för användaren. Tilldelning av licenser kan göras i avsnittet **användar** > **profils** > **Inställningar** i Azure Portal. *När du använder grupp licens tilldelning ärver alla användare som saknar en användnings plats platsen för katalogen.*
 
 ## <a name="next-steps"></a>Nästa steg
 

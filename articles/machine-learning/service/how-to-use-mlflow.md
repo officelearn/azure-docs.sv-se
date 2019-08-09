@@ -1,7 +1,7 @@
 ---
-title: Använda MLflow med Azure Machine Learning-tjänsten
+title: Använda MLflow med
 titleSuffix: Azure Machine Learning service
-description: Logga mått och artefakter och distribuera modeller till produktion med hjälp av MLflow med Azure Machine Learning-tjänsten.
+description: Konfigurera MLflow med Azure Machine Learning för att logga mått & artefakter och distribuera modeller från Databricks, din lokala miljö eller VM-miljö.
 services: machine-learning
 author: rastala
 ms.author: roastala
@@ -9,14 +9,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: nibaccam
 ms.topic: conceptual
-ms.date: 07/15/2019
+ms.date: 08/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2b59797e60585876764e8c9e1276e4fd36571b18
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: dd451f4c7ada3c062862098d4cda5314152be0c0
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68856025"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881997"
 ---
 # <a name="track-metrics-and-deploy-models-with-mlflow-and-azure-machine-learning-service-preview"></a>Spåra mått och distribuera modeller med MLflow och Azure Machine Learning tjänsten (för hands version)
 
@@ -55,12 +55,9 @@ Den här artikeln visar hur du aktiverar MLflow för spårnings-och loggnings-AP
 * [Installera Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) på den lokala datorn SDK: n ger anslutningen till MLflow för att få åtkomst till din arbets yta.
 * [Skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).
 
+## <a name="track-local-runs"></a>Spåra lokala körningar
 
-## <a name="track-experiment-runs"></a>Spåra experiment körningar
-
-Genom MLflow-spårning med Azure Machine Learning-tjänsten kan du lagra de inloggade måtten och artefakterna från din lokala dator och fjärrkörningar i Azure Machine Learning arbets ytan.
-
-### <a name="local-runs"></a>Lokala körningar
+Genom MLflow-spårning med Azure Machine Learning-tjänsten kan du lagra de inloggade måtten och artefakterna från dina lokala körningar i Azure Machine Learning arbets ytan.
 
 `azureml-contrib-run` Installera paketet om du vill använda MLflow spårning med Azure Machine Learning på dina experiment lokalt i en Jupyter Notebook eller kod redigerare.
 
@@ -97,7 +94,9 @@ with mlflow.start_run():
     mlflow.log_metric('alpha', 0.03)
 ```
 
-### <a name="remote-runs"></a>Fjärrkörningar
+## <a name="track-remote-runs"></a>Spåra fjärrkörningar
+
+Genom MLflow-spårning med Azure Machine Learning-tjänsten kan du lagra de inloggade måtten och artefakterna från fjärrdatorn som körs i Azure Machine Learning arbets ytan.
 
 Med fjärrkörningar kan du träna dina modeller på mer kraftfulla beräkningar, till exempel GPU-aktiverade virtuella datorer eller Machine Learning-beräkning kluster. Se [Konfigurera beräknings mål för modell utbildning](how-to-set-up-training-targets.md) för att lära dig mer om olika beräknings alternativ.
 
@@ -138,11 +137,13 @@ Med den här beräknings-och övnings körnings `Experiment.submit('train.py')` 
 run = exp.submit(src)
 ```
 
-### <a name="mlflow-with-azure-databricks-runs"></a>MLflow med Azure Databricks körningar
+## <a name="track-azure-databricks-runs"></a>Spåra Azure Databricks körningar
+
+Genom MLflow-spårning med Azure Machine Learning tjänst kan du lagra de inloggade måtten och artefakterna från dina Databrick-körningar i Azure Machine Learning-arbetsytan.
 
 Om du vill köra dina Mlflow-experiment med Azure Databricks måste du först skapa en [Azure Databricks arbets yta och ett kluster](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal). I klustret, se till att installera biblioteket *azureml-mlflow* från PyPi, för att säkerställa att klustret har åtkomst till de nödvändiga funktionerna och klasserna.
 
-#### <a name="install-libraries"></a>Installera bibliotek
+### <a name="install-libraries"></a>Installera bibliotek
 
 Om du vill installera bibliotek i klustret går du till fliken **bibliotek** och klickar på **installera ny**
 
@@ -152,7 +153,7 @@ I fältet **paket** skriver du azureml-mlflow och klickar sedan på installera. 
 
  ![mlflow med Azure Machine Learning-diagram](media/how-to-use-mlflow/install-libraries.png)
 
-#### <a name="notebook-and-workspace-set-up"></a>Konfigurera bärbara och arbets ytor
+### <a name="set-up-your-notebook-and-workspace"></a>Konfigurera din bärbara dator och arbets yta
 
 När klustret har kon figurer ATS importerar du din experiment-anteckningsbok, öppnar den och kopplar klustret till den.
 
@@ -181,7 +182,7 @@ ws = Workspace.get(name=workspace_name,
                    resource_group=resource_group)
 
 ```
-#### <a name="set-mlflow-tracking-uri"></a>Ange MLflow tracking URI
+### <a name="link-mlflow-tracking-to-your-workspace"></a>Länka MLflow spårning till din arbets yta
 När du har instansierat din arbets yta ställer du in MLflow tracking URI. Genom att göra detta länkar du MLflow-spårningen till Azure Machine Learning-arbetsyta. Därefter hamnar alla experiment i den hanterade Azure Machine Learning spårnings tjänsten.
 
 ```python

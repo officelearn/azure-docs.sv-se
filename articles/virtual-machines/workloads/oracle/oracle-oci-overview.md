@@ -1,6 +1,6 @@
 ---
-title: Integrera Microsoft Azure med Oracle-Molninfrastruktur | Microsoft Docs
-description: Läs mer om lösningar som integrerar Oracle-program som körs på Microsoft Azure med databaser i molnet infrastruktur OCI (Oracle).
+title: Integrera Microsoft Azure med Oracle Cloud Infrastructure | Microsoft Docs
+description: Lär dig mer om lösningar som integrerar Oracle-appar som körs på Microsoft Azure med databaser i Oracle Cloud Infrastructure (OCI).
 services: virtual-machines-linux
 documentationcenter: ''
 author: romitgirdhar
@@ -15,66 +15,66 @@ ms.workload: infrastructure-services
 ms.date: 06/04/2019
 ms.author: rogirdh
 ms.custom: ''
-ms.openlocfilehash: fcdd46ea60ea53088ffacd7d13693b16a208d527
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 309c481c0ebf0e6061524a12356e67394e5db8d2
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67707456"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68880836"
 ---
-# <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure-preview"></a>Oracle-programlösningar integrera Microsoft Azure och Oracle Cloud Infrastructure (förhandsversion)
+# <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure-preview"></a>Oracle-programlösningar som integrerar Microsoft Azure och Oracle Cloud Infrastructure (för hands version)
 
-Microsoft och Oracle samarbetar för att ge låg latens, högt dataflöde molnöverskridande anslutningen, så att du kan dra nytta av bäst av båda molnen. 
+Microsoft och Oracle har samarbetat för att tillhandahålla låg latens, hög genom strömning mellan moln anslutningar, så att du kan dra nytta av det bästa av båda molnen. 
 
-Med den här anslutningen mellan moln kan partitionera du ett flerskiktat program att köra dina databasnivån på molnet infrastruktur OCI (Oracle), och programmet och andra nivåer på Microsoft Azure. Upplevelsen är liknande körs hela lösningen i ett enda moln. 
+Med den här anslutningen över molnet kan du partitionera ett program på flera nivåer för att köra databas nivån på en Oracle Cloud Infrastructure (OCI) och programmet och andra nivåer på Microsoft Azure. Upplevelsen liknar att köra hela lösnings stacken i ett enda moln. 
 
 > [!IMPORTANT]
-> Den här molnöverskridande-funktionen är för närvarande i förhandsversion och vissa [begränsningar gäller](#preview-limitations). Förhandsversioner görs tillgängliga för dig under förutsättning att du godkänner [kompletterande användningsvillkor](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Vissa aspekter av funktionen kan ändras innan den är allmänt tillgänglig (GA).
+> Den här funktionen för flera moln är för närvarande en för hands version och vissa [begränsningar gäller](#preview-limitations). Om du vill aktivera anslutning med låg latens mellan Azure och OCI måste Azure-prenumerationen först vara vit – anges för den här funktionen. Du måste registrera dig för för hands versionen genom att skicka oracleconnect@microsoft.com ett e-postmeddelande till med ditt prenumerations-ID. Du får ett e-postmeddelande tillbaka när din prenumeration har registrerats. Du kan inte använda funktionen förrän du får ett bekräftelse meddelande. Du kan också kontakta din Microsoft-representant för att vara aktive rad för den här för hands versionen. Den här för hands versionen tillhandahålls utan service nivå avtal och bör inte användas för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller har begränsad funktionalitet, eller så är de inte tillgängliga på alla Azure-platser. Se [kompletterande användnings villkor](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) för Microsoft Azure för hands versionerna av mer information. Vissa aspekter av funktionen kan ändras innan den är allmänt tillgänglig (GA).
 
-Om du är intresserad av att distribuera Oracle-lösningar som helt och hållet i Azure-infrastrukturen kan se [Oracle VM-avbildningar och deras distribution på Microsoft Azure](oracle-vm-solutions.md).
+Om du är intresse rad av att distribuera Oracle-lösningar helt och hållet i Azure-infrastrukturen, se [Oracle VM-avbildningar och deras distribution på Microsoft Azure](oracle-vm-solutions.md).
 
 ## <a name="scenario-overview"></a>Scenarioöversikt
 
-Anslutningen mellan moln är en lösning som du kan köra Oracles branschledande program och dina egna anpassade program på Azure virtuella datorer samtidigt som drar nytta av fördelarna av värdbaserade databastjänster i OCI. 
+Anslutning mellan moln är en lösning som gör att du kan köra Oracles branschledande program och dina egna anpassade program på Azure Virtual Machines samtidigt som du får fördelarna med värdbaserade databas tjänster i OCI. 
 
-Du kan köra i en konfiguration med molnöverskridande-programmen innehåller:
+Program som du kan köra i en konfiguration mellan moln är:
 
 * E-Business Suite
 * JD Edwards EnterpriseOne
 * PeopleSoft
-* Oracle Retail-program
-* Oracle Hyperion finansiell hantering
+* Oracle återförsäljarversion-program
+* Ekonomisk hantering för Oracle Hyperion
 
-Följande diagram är en översikt över ansluten lösningen. För enkelhetens skull visar diagrammet endast en programnivå och en datanivå. Beroende på programarkitektur, kan din lösning omfatta fler nivåer, till exempel en webbnivå i Azure. Mer information finns i följande avsnitt.
+Följande diagram är en övergripande översikt över den anslutna lösningen. För enkelhetens skull visar diagrammet bara en program nivå och en data nivå. Beroende på program arkitekturen kan din lösning innehålla ytterligare nivåer, till exempel en webb nivå i Azure. Mer information finns i följande avsnitt.
 
-![Översikt över lösning för Azure OCI](media/oracle-oci-overview/crosscloud.png)
+![Översikt över Azure OCI-lösning](media/oracle-oci-overview/crosscloud.png)
 
 ## <a name="preview-limitations"></a>Begränsningar för förhandsversion
 
-* Molnöverskridande anslutningen i en förhandsversion är begränsad till regionen Azure östra USA (eastus) och regionen OCI Ashburn (USA-ashburn-1).
+* Anslutningar mellan moln i för hands versionen är begränsade till regionen USA, östra USA (östra) och OCI-Ashburn (US-Ashburn-1).
 
 ## <a name="networking"></a>Nätverk
 
-Enterprise-kunder väljer ofta att distribuera och distribuera arbetsbelastningar över flera moln för olika företag och operativa orsaker. Om du vill distribuera, sammankoppling kunder molnnätverk via internet, IPSec VPN eller med hjälp av molnleverantörens direktanslutning lösning via ditt lokala nätverk. Interconnecting molnnätverk kan kräva betydande investeringar i tid, pengar, design, inköp, installation, testning och drift. 
+Företags kunder väljer ofta att diversifiera och distribuera arbets belastningar över flera moln för olika verksamhets-och drifts skäl. För att kunna diversifiera varandra kan kunder sammanställa moln nätverk med Internet, IPSec VPN eller med hjälp av moln leverantörens direkta anslutnings lösning via det lokala nätverket. Att koppla samman moln nätverk kan kräva betydande investeringar i tid, pengar, utformning, tillvaratagande, installation, testning och drift. 
 
-Om du vill hantera dessa kundutmaningar, har Oracle och Microsoft aktiverat en integrerad upplevelse i flera moln. Nätverk mellan moln upprättas genom att ansluta en [ExpressRoute](../../../expressroute/expressroute-introduction.md) -kretsen i Microsoft Azure med en [FastConnect](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/fastconnectoverview.htm) -kretsen i OCI. Den här anslutningen är möjligt där en peering Azure ExpressRoute-plats är i närhet eller i samma peering plats som OCI FastConnect. Den här konfigurationen möjliggör säker och snabb anslutning mellan de två moln utan att behöva en mellanliggande-leverantör.
+För att lösa dessa kund utmaningar har Oracle och Microsoft aktiverat en integrerad miljö med flera moln. Nätverk över molnet upprättas genom att ansluta en [ExpressRoute](../../../expressroute/expressroute-introduction.md) -krets i Microsoft Azure med en [FastConnect](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/fastconnectoverview.htm) -krets i OCI. Den här anslutningen är möjlig när en peering-plats i Azure ExpressRoute är i närheten av eller på samma peering-plats som OCI-FastConnect. Den här installationen möjliggör säker och snabb anslutning mellan de två molnen utan behov av en mellanliggande tjänst leverantör.
 
-Med ExpressRoute och FastConnect kan kunder kan peer-koppla ett virtuellt nätverk i Azure med ett virtuellt moln-nätverk i OCI, förutsatt att det privata IP-adressutrymmet inte överlappar. Peering i två nätverk kan en resurs i det virtuella nätverket kommunicera till en resurs i nätverket OCI virtuellt moln som om de är båda i samma nätverk.
+Med hjälp av ExpressRoute och FastConnect kan kunder peer-koppla ett virtuellt nätverk i Azure med ett virtuellt moln nätverk i OCI, förutsatt att det privata IP-adressutrymmet inte överlappar varandra. Genom att peer-koppla de två nätverken kan en resurs i det virtuella nätverket kommunicera med en resurs i det virtuella OCI-nätverket som om båda finns i samma nätverk.
 
 ## <a name="network-security"></a>Nätverkssäkerhet
 
-Nätverkssäkerhet är en fundamental komponent i alla företagsprogram och är centrala för den här lösningen med flera moln. All trafik som skickas via ExpressRoute och FastConnect skickar via ett privat nätverk. Den här konfigurationen möjliggör säker kommunikation mellan ett Azure-nätverk och ett nätverk för Oracle-virtuellt moln. Du behöver inte ange en offentlig IP-adress till alla virtuella datorer i Azure. Du behöver inte på samma sätt kan en Internetgateway i OCI. All kommunikation sker via privata IP-adress för datorer.
+Nätverks säkerhet är en viktig komponent i alla företags program och är central för den här lösningen med flera moln. All trafik som går över ExpressRoute och FastConnect passerar över ett privat nätverk. Den här konfigurationen möjliggör säker kommunikation mellan ett virtuellt Azure-nätverk och ett virtuellt nätverk i Oracle. Du behöver inte ange någon offentlig IP-adress för virtuella datorer i Azure. På samma sätt behöver du inte en Internet-gateway i OCI. All kommunikation sker via datorernas privata IP-adress.
 
-Dessutom kan du ställa in [säkerhetslistor](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/securitylists.htm) på dina OCI virtuellt moln nätverks- och säkerhetsfunktioner regler (ansluten till Azure [nätverkssäkerhetsgrupper](../../../virtual-network/security-overview.md)). Använd de här reglerna för att styra den trafik som passerar mellan datorer i virtuella nätverk. Nätverkssäkerhetsregler kan läggas till på en datornivå, på en undernätverksnivå, samt på nivån för virtuella nätverket.
+Dessutom kan du konfigurera [säkerhets listor](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/securitylists.htm) i ditt OCI-nätverk och säkerhets regler för din OCI (anslutna till Azures [nätverks säkerhets grupper](../../../virtual-network/security-overview.md)). Använd de här reglerna för att styra trafiken som flödar mellan datorer i de virtuella nätverken. Nätverks säkerhets regler kan läggas till på en dator nivå på en under näts nivå, samt på nivån för det virtuella nätverket.
  
 ## <a name="identity"></a>Identitet
 
-Identiteten är en av core grundpelare för partnerskap mellan Microsoft och Oracle. Betydande arbete har gjorts för att integrera [Oracle Cloud Identitetstjänst](https://docs.oracle.com/en/cloud/paas/identity-cloud/index.html) (IDCS) med [Azure Active Directory](../../../active-directory/index.yml) (Azure AD). Azure AD är Microsofts molnbaserade identitets- och management-tjänsten. Det hjälper dina användare logga in och komma åt olika resurser. Azure AD kan du hantera användare och deras behörigheter.
+Identiteten är en av kärn pelaren i partnerskapet mellan Microsoft och Oracle. Betydande arbete har gjorts för att integrera [Oracle Identity Cloud Service](https://docs.oracle.com/en/cloud/paas/identity-cloud/index.html) (IDCS) med [Azure Active Directory](../../../active-directory/index.yml) (Azure AD). Azure AD är Microsofts molnbaserade identitets-och åtkomst hanterings tjänst. Det hjälper användarna att logga in och komma åt olika resurser. Med Azure AD kan du också hantera dina användare och deras behörigheter.
 
-För närvarande kan den här integrationen du hantera en central plats, vilket är Azure Active Directory. Azure AD synkroniseras alla ändringar i katalogen med motsvarande Oracle-katalog och används för enkel inloggning till molnöverskridande Oracle-lösningar.
+Med den här integreringen kan du för närvarande hantera på en central plats, som är Azure Active Directory. Azure AD synkroniserar eventuella ändringar i katalogen med motsvarande Oracle-katalog och används för enkel inloggning till globala Oracle-lösningar i flera moln.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Kom igång med en [molnöverskridande nätverk](configure-azure-oci-networking.md) mellan Azure och OCI. 
+Kom igång med ett [nätverk över molnet](configure-azure-oci-networking.md) mellan Azure och OCI. 
 
-Mer information och White Paper-faktablad om OCI finns i den [Oracle Cloud](https://docs.cloud.oracle.com/iaas/Content/home.htm) dokumentation.
+Mer information och dokumentation om OCI finns i dokumentationen till [Oracle](https://docs.cloud.oracle.com/iaas/Content/home.htm) -molnet.

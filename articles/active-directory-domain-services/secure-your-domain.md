@@ -1,5 +1,5 @@
 ---
-title: Skydda din hanterade domän i Azure Active Directory Domain Services | Microsoft Docs
+title: Skydda din Azure Active Directory Domain Services hanterade domän | Microsoft Docs
 description: Skydda din hanterade domän
 services: active-directory-ds
 documentationcenter: ''
@@ -15,30 +15,33 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2019
 ms.author: iainfou
-ms.openlocfilehash: e94cd9ca049cfdfd2321ce046714506ed1f23390
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 923ecae9dc649b8f5cdcfd447b78fdec0805927a
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67483286"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879155"
 ---
-# <a name="secure-your-azure-ad-domain-services-managed-domain"></a>Skydda din Azure AD Domain Services-hanterad domän
-Den här artikeln hjälper dig skydda din hanterade domän. Du kan inaktivera användningen av svaga krypteringssviter och inaktivera synkronisering av lösenordshash för NTLM autentiseringsuppgifter.
+# <a name="secure-your-azure-ad-domain-services-managed-domain"></a>Skydda din Azure AD Domain Services hanterade domän
+Den här artikeln hjälper dig att skydda din hanterade domän. Du kan inaktivera användningen av svaga chiffersviter och inaktivera hash-synkronisering av NTLM-autentiseringsuppgifter.
 
-## <a name="install-the-required-powershell-modules"></a>Installera PowerShell-moduler som krävs
+## <a name="install-the-required-powershell-modules"></a>Installera de PowerShell-moduler som krävs
 
 ### <a name="install-and-configure-azure-ad-powershell"></a>Installera och konfigurera Azure AD PowerShell
-Följ instruktionerna i artikeln om du vill [installerar Azure AD PowerShell-modulen och ansluter till Azure AD](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?toc=%2fazure%2factive-directory-domain-services%2ftoc.json).
+Följ anvisningarna i artikeln för att [Installera Azure AD PowerShell-modulen och ansluta till Azure AD](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?toc=%2fazure%2factive-directory-domain-services%2ftoc.json).
 
 ### <a name="install-and-configure-azure-powershell"></a>Installera och konfigurera Azure PowerShell
-Följ instruktionerna i artikeln om du vill [installera Azure PowerShell-modulen och ansluta till din Azure-prenumeration](https://docs.microsoft.com/powershell/azure/install-az-ps?toc=%2fazure%2factive-directory-domain-services%2ftoc.json).
+Följ anvisningarna i artikeln för att [installera Azure PowerShell-modulen och ansluta till din Azure-prenumeration](https://docs.microsoft.com/powershell/azure/install-az-ps?toc=%2fazure%2factive-directory-domain-services%2ftoc.json).
 
 
-## <a name="disable-weak-cipher-suites-and-ntlm-credential-hash-synchronization"></a>Inaktivera svaga chiffersviter och synkronisering av lösenordshash för NTLM autentiseringsuppgifter
+## <a name="disable-weak-cipher-suites-and-ntlm-credential-hash-synchronization"></a>Inaktivera svaga chiffersviter och hash-synkronisering av NTLM-autentiseringsuppgifter
 Använd följande PowerShell-skript för att:
+
 1. Inaktivera NTLM v1-support på den hanterade domänen.
-2. Inaktiverar du synkroniseringen av NTLM-lösenordshashvärden från din lokala AD.
+2. Inaktivera synkroniseringen av NTLM-lösenords-hashvärden från din lokala AD.
 3. Inaktivera TLS v1 på den hanterade domänen.
+
+Om du får ett fel meddelande med `Get-AzResource` kommandot som *Microsoft. AAD/DomainServices-* resursen inte finns kan du [öka din åtkomst för att hantera alla Azure-prenumerationer och hanterings grupper](../role-based-access-control/elevate-access-global-admin.md).
 
 ```powershell
 // Login to your Azure AD tenant
@@ -58,7 +61,7 @@ Set-AzResource -Id $DomainServicesResource.ResourceId -Properties $securitySetti
 ```
 
 > [!IMPORTANT]
-> Användare (och tjänstkonton) kan inte utföra enkla LDAP-bindningar om du har inaktiverat NTLM synkronisering av lösenordshash på din Azure AD Domain Services-instans.  Mer information om hur du inaktiverar NTLM synkronisering av lösenordshash [skydda din hanterade domän i Azure AD DOmain Services](secure-your-domain.md).
+> Användare (och tjänst konton) kan inte utföra enkla LDAP-bindningar om du har inaktiverat NTLM Password hash-synkronisering på din Azure AD Domain Services-instans.  Mer information om hur du inaktiverar hash-synkronisering för NTLM-lösenord finns i [skydda din Azure AD DOmain Services-hanterade domän](secure-your-domain.md).
 >
 >
 

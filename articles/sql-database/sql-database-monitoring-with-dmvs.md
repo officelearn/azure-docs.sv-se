@@ -11,12 +11,12 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: 5bddcb89d26566bd2024cbde086b6e35ddaf94ef
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: a630ceb1748f38dc169a4ebabcbb4e021de4273c
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567185"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881566"
 ---
 # <a name="monitoring-performance-azure-sql-database-using-dynamic-management-views"></a>Övervaka prestanda Azure SQL Database med hjälp av vyer för dynamisk hantering
 
@@ -28,7 +28,7 @@ SQL Database delvis stöder tre kategorier med vyer för dynamisk hantering:
 - Vyer för dynamisk hantering i körnings läge.
 - Transaktionsskyddade vyer för dynamisk hantering.
 
-Detaljerad information om vyer för dynamisk hantering finns i [vyer och funktioner i dynamisk hantering (Transact-SQL)](https://msdn.microsoft.com/library/ms188754.aspx) i SQL Server Books Online.
+Detaljerad information om vyer för dynamisk hantering finns i [vyer och funktioner i dynamisk hantering (Transact-SQL)](https://msdn.microsoft.com/library/ms188754.aspx) i SQL Server Books Online. 
 
 ## <a name="permissions"></a>Behörigheter
 
@@ -334,7 +334,7 @@ ORDER BY start_time ASC;
 
 Om den övre vänte typen `RESOURCE_SEMAHPORE` är och du inte har ett problem med hög CPU-användning kan det uppstå ett väntande minnes tilldelnings problem.
 
-### <a name="determine-if-a-resourcesemahpore-wait-is-a-top-wait"></a>Ta reda på `RESOURCE_SEMAHPORE` om ett väntetillstånd väntar
+### <a name="determine-if-a-resource_semahpore-wait-is-a-top-wait"></a>Ta reda på `RESOURCE_SEMAHPORE` om ett väntetillstånd väntar
 
 Använd följande fråga för att avgöra om ett `RESOURCE_SEMAHPORE` väntetillstånd väntar
 
@@ -512,7 +512,7 @@ Du kan också övervaka användningen med följande två vyer:
 - [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx)
 - [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx)
 
-### <a name="sysdmdbresourcestats"></a>sys.dm_db_resource_stats
+### <a name="sysdm_db_resource_stats"></a>sys.dm_db_resource_stats
 
 Du kan använda [sys. DM _db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) -vyn i varje SQL-databas. I vyn **sys. DM _db_resource_stats** visas senaste resurs användnings data i förhållande till tjänst nivån. Genomsnitts procent andelen för CPU, data-IO, logg skrivningar och minne registreras var 15: e sekund och bevaras i 1 timme.
 
@@ -533,7 +533,7 @@ FROM sys.dm_db_resource_stats;
 
 För andra frågor, se exemplen i [sys. DM _db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx).
 
-### <a name="sysresourcestats"></a>sys. resource_stats
+### <a name="sysresource_stats"></a>sys. resource_stats
 
 [Sys. resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) -vyn i **huvud** databasen har ytterligare information som kan hjälpa dig att övervaka prestanda för din SQL-databas på dess respektive tjänst nivå och beräknings storlek. Data samlas in var 5: e minut och bevaras i cirka 14 dagar. Den här vyn är användbar för en längre historisk analys av hur din SQL-databas använder resurser.
 

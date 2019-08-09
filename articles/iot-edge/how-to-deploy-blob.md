@@ -3,25 +3,22 @@ title: Distribuera Azure Blob Storage-modulen till enheter-Azure IoT Edge | Micr
 description: Distribuera en Azure Blob Storage-modulen till IoT Edge-enhet för att lagra data på gränsen.
 author: arduppal
 ms.author: arduppal
-ms.date: 06/19/2019
+ms.date: 08/07/2019
 ms.topic: article
 ms.service: iot-edge
 ms.custom: seodec18
 ms.reviewer: arduppal
 manager: mchad
-ms.openlocfilehash: 86040020c8f9163a327b2029008e3648723b14ec
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 6cb50270eff779d7302a4676dab328046b1d50b4
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839680"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883196"
 ---
 # <a name="deploy-the-azure-blob-storage-on-iot-edge-module-to-your-device"></a>Distribuera Azure-Blob Storage i IoT Edge-modulen till din enhet
 
 Det finns flera sätt att distribuera moduler till en IoT Edge enhet och alla fungerar för Azure Blob Storage i IoT Edge-moduler. De två enklaste metoderna är att använda Azure-portalen eller Visual Studio Code-mallar.
-
-> [!NOTE]
-> Azure Blob Storage på IoT Edge är i [förhandsversion](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -58,7 +55,7 @@ Ett manifest för distribution är ett JSON-dokument som beskriver vilka moduler
    > [!IMPORTANT]
    > Azure IoT Edge är Skift läges känslig när du anropar moduler, och Storage SDK: n är också i gemener. Även om namnet på modulen på [Azure Marketplace](how-to-deploy-modules-portal.md#deploy-modules-from-azure-marketplace) är **AzureBlobStorageonIoTEdge**kan du med hjälp av att ändra namnet till gemener se till att dina anslutningar till Azure-Blob Storage i IoT Edge-modulen inte avbryts.
 
-1. Värdena för standard **containern Create Options** definierar de Port bindningar som containern behöver, men du måste också lägga till information om lagrings kontot och en bindning för lagrings katalogen på enheten. Ersätt standard-JSON i portalen med JSON nedan:
+1. Värdena för standard **containern Create Options** definierar de Port bindningar som din behållare behöver, men du måste också lägga till information om lagrings kontot och en montering för lagringen på enheten. Ersätt standard-JSON i portalen med JSON nedan:
 
    ```json
    {
@@ -68,10 +65,10 @@ Ett manifest för distribution är ett JSON-dokument som beskriver vilka moduler
      ],
      "HostConfig":{
        "Binds":[
-           "<storage directory bind>"
+           "<storage mount>"
        ],
-     "PortBindings":{
-       "11002/tcp":[{"HostPort":"11002"}]
+       "PortBindings":{
+         "11002/tcp":[{"HostPort":"11002"}]
        }
      }
    }
@@ -83,13 +80,18 @@ Ett manifest för distribution är ett JSON-dokument som beskriver vilka moduler
 
    - Ersätt `<your storage account key>` med en 64 byte-base64-nyckel. Du kan generera en nyckel med verktyg som [GeneratePlus](https://generate.plus/en/base64?gp_base64_base[length]=64). Du använder dessa autentiseringsuppgifter för att få åtkomst till blob-lagringen från andra moduler.
 
-   - Ersätt `<storage directory bind>` enligt behållar operativ systemet. Ange namnet på en [volym](https://docs.docker.com/storage/volumes/) eller den absoluta sökvägen till en katalog på din IoT Edge-enhet där du vill att blob-modulen för att lagra data. Storage Directory-bindningen mappar en plats på enheten som du anger till en angiven plats i modulen.
+   - Ersätt `<storage mount>` enligt behållar operativ systemet. Ange namnet på en [volym](https://docs.docker.com/storage/volumes/) eller den absoluta sökvägen till en katalog på din IoT Edge-enhet där du vill att blob-modulen för att lagra data. Lagrings monteringen mappar en plats på enheten som du anger till en angiven plats i modulen.
 
-     - För Linux-behållare är  *\<formatet lagrings Sök väg >:/blobroot*. Till exempel **/SRV/containerdata:/blobroot** eller **My-Volume:/blobroot**.
-     - För Windows-behållare är  *\<formatet lagrings Sök väg >: C:/BlobRoot*. Till exempel **c:/ContainerData: c:/BlobRoot** eller **min-volym: c:/BlobRoot**. I stället för att använda din lokala enhet kan du mappa din SMB-nätverks plats. mer information finns i [använda SMB-resurs som lokal lagring](how-to-store-data-blob.md#using-smb-share-as-your-local-storage)
+     - För Linux-behållare är  *\<formatet lagrings Sök väg eller volym >:/blobroot*. Exempel
+         - Använd [volym montering](https://docs.docker.com/storage/volumes/): **min-volym:/blobroot** 
+         - Använd [BIND Mount](https://docs.docker.com/storage/bind-mounts/): **/SRV/containerdata:/blobroot**. Se till att följa stegen för att [bevilja katalog åtkomst till behållar användaren](how-to-store-data-blob.md#granting-directory-access-to-container-user-on-linux)
+     - För Windows-behållare är  *\<formatet lagrings Sök väg eller volym >: C:/BlobRoot*. Exempel
+         - Använd [volym montering](https://docs.docker.com/storage/volumes/): **min-volym: C:/blobroot**. 
+         - Använd [BIND-montering](https://docs.docker.com/storage/bind-mounts/): **C:/ContainerData: C:/BlobRoot**.
+         - I stället för att använda din lokala enhet kan du mappa din SMB-nätverks plats. mer information finns i [använda SMB-resurs som lokal lagring](how-to-store-data-blob.md#using-smb-share-as-your-local-storage)
 
      > [!IMPORTANT]
-     > Ändra inte den andra halvan av bindning svärdet för Storage-katalogen, som pekar på en angiven plats i modulen. Bindnings katalog bindningen ska alltid avslutas med **:/blobroot** för Linux-behållare och **: C:/blobroot** för Windows-behållare.
+     > Ändra inte den andra halvan av lagrings montering svärdet, som pekar på en angiven plats i modulen. Lagrings monteringen ska alltid avslutas med **:/blobroot** för Linux-behållare och **: C:/blobroot** för Windows-behållare.
 
 1. Ange egenskaper för [deviceToCloudUploadProperties](how-to-store-data-blob.md#devicetoclouduploadproperties) och [deviceAutoDeleteProperties](how-to-store-data-blob.md#deviceautodeleteproperties) för modulen genom att kopiera följande JSON och klistra in den i rutan **Ange önskade egenskaper för modulen** . Konfigurera varje egenskap med ett lämpligt värde, spara den och fortsätt med distributionen.
 
@@ -178,7 +180,7 @@ Azure IoT Edge innehåller mallar i Visual Studio Code för att hjälpa dig att 
        "LOCAL_STORAGE_ACCOUNT_KEY=<your storage account key>"
       ],
       "HostConfig":{
-        "Binds": ["<storage directory bind>"],
+        "Binds": ["<storage mount>"],
         "PortBindings":{
           "11002/tcp": [{"HostPort":"11002"}]
         }
@@ -191,13 +193,19 @@ Azure IoT Edge innehåller mallar i Visual Studio Code för att hjälpa dig att 
 
 1. Ersätt `<your storage account key>` med en 64 byte-base64-nyckel. Du kan generera en nyckel med verktyg som [GeneratePlus](https://generate.plus/en/base64?gp_base64_base[length]=64). Du använder dessa autentiseringsuppgifter för att få åtkomst till blob-lagringen från andra moduler.
 
-1. Ersätt `<storage directory bind>` enligt behållar operativ systemet. Ange namnet på en [volym](https://docs.docker.com/storage/volumes/) eller den absoluta sökvägen till en katalog på din IoT Edge-enhet där du vill att blob-modulen för att lagra data. Storage Directory-bindningen mappar en plats på enheten som du anger till en angiven plats i modulen.  
+1. Ersätt `<storage mount>` enligt behållar operativ systemet. Ange namnet på en [volym](https://docs.docker.com/storage/volumes/) eller den absoluta sökvägen till en katalog på din IoT Edge-enhet där du vill att blob-modulen för att lagra data. Lagrings monteringen mappar en plats på enheten som du anger till en angiven plats i modulen.  
 
-      - För Linux-behållare är  *\<formatet lagrings Sök väg >:/blobroot*. Till exempel **/SRV/containerdata:/blobroot** eller **My-Volume:/blobroot**.
-      - För Windows-behållare är  *\<formatet lagrings Sök väg >: C:/BlobRoot*. Till exempel **c:/ContainerData: c:/BlobRoot** eller **min-volym: c:/BlobRoot**.  I stället för att använda din lokala enhet kan du mappa din SMB-nätverks plats. mer information finns i [använda SMB-resurs som lokal lagring](how-to-store-data-blob.md#using-smb-share-as-your-local-storage)
+      
+     - För Linux-behållare är  *\<formatet lagrings Sök väg eller volym >:/blobroot*. Exempel
+         - Använd [volym montering](https://docs.docker.com/storage/volumes/): **min-volym:/blobroot** 
+         - Använd [BIND Mount](https://docs.docker.com/storage/bind-mounts/): **/SRV/containerdata:/blobroot**. Se till att följa stegen för att [bevilja katalog åtkomst till behållar användaren](how-to-store-data-blob.md#granting-directory-access-to-container-user-on-linux)
+     - För Windows-behållare är  *\<formatet lagrings Sök väg eller volym >: C:/BlobRoot*. Exempel
+         - Använd [volym montering](https://docs.docker.com/storage/volumes/): **min-volym: C:/blobroot**. 
+         - Använd [BIND-montering](https://docs.docker.com/storage/bind-mounts/): **C:/ContainerData: C:/BlobRoot**.
+         - I stället för att använda din lokala enhet kan du mappa din SMB-nätverks plats. mer information finns i [använda SMB-resurs som lokal lagring](how-to-store-data-blob.md#using-smb-share-as-your-local-storage)
 
-      > [!IMPORTANT]
-      > Ändra inte den andra halvan av bindning svärdet för Storage-katalogen, som pekar på en angiven plats i modulen. Bindnings katalog bindningen ska alltid avslutas med **:/blobroot** för Linux-behållare och **: C:/blobroot** för Windows-behållare.
+     > [!IMPORTANT]
+     > Ändra inte den andra halvan av lagrings montering svärdet, som pekar på en angiven plats i modulen. Lagrings monteringen ska alltid avslutas med **:/blobroot** för Linux-behållare och **: C:/blobroot** för Windows-behållare.
 
 1. Konfigurera [deviceToCloudUploadProperties](how-to-store-data-blob.md#devicetoclouduploadproperties) och [deviceAutoDeleteProperties](how-to-store-data-blob.md#deviceautodeleteproperties) för modulen genom att lägga till följande JSON i filen *Deployment. template. JSON* . Konfigurera varje egenskap med ett lämpligt värde och spara filen.
 
@@ -250,7 +258,5 @@ Redigera **behållar skapande alternativ** (i Azure Portal) eller fältet **crea
 
 ## <a name="next-steps"></a>Nästa steg
 Läs mer om [Azure Blob Storage på IoT Edge](how-to-store-data-blob.md)
-
-Håll dig uppdaterad med senaste uppdateringar och meddelande i [Azure Blob Storage på IoT Edge blogg](https://aka.ms/abs-iot-blogpost)
 
 Mer information om hur distribution manifest fungerar och hur du skapar dem finns i [förstå hur IoT Edge-moduler kan användas, konfigurerats och återanvändas](module-composition.md).

@@ -1,6 +1,6 @@
 ---
-title: Program och tjänstobjekt i Azure Active Directory
-description: Läs mer om relationen mellan program och tjänstobjekt i Azure Active Directory.
+title: Program-och tjänst huvud objekt i Azure Active Directory
+description: Lär dig mer om relationen mellan program-och tjänst huvud objekt i Azure Active Directory.
 documentationcenter: dev-center-name
 author: rwike77
 manager: CelesteDG
@@ -15,89 +15,89 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/13/2019
 ms.author: ryanwi
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms.reviewer: sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 822990ebc2eb5edbdbc6611a4f3729bc5cfadc55
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 83083026b20573d93777e77f44bf8d5480bfdd97
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482904"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68853312"
 ---
-# <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Program och tjänstobjekt i Azure Active Directory
+# <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Program-och tjänst huvud objekt i Azure Active Directory
 
-Ibland innebörden av termen ”program” kan vara tror många när de används i samband med Azure Active Directory (AD Azure). Den här artikeln visar de termer och konkreta delarna av integrering av Azure AD, med en illustration av registrering och medgivande för en [program med flera innehavare](developer-glossary.md#multi-tenant-application).
+Ibland kan termen "program" bli feltolkad när den används i samband med Azure Active Directory (Azure AD). Den här artikeln förklarar de konceptuella och konkreta aspekterna av Azure AD Application Integration med en illustration av registrering och medgivande för ett [program med flera innehavare](developer-glossary.md#multi-tenant-application).
 
 ## <a name="overview"></a>Översikt
 
-Ett program som har integrerats med Azure AD har effekter som sträcker sig utöver aspekten av programvara. ”Program” används ofta som en konceptuell termen avser inte bara program, men även dess Azure AD-registrering och roll i autentisering/auktorisering ”konversationer” vid körning.
+Ett program som har integrerats med Azure AD har konsekvenser som går utöver program varu aspekten. "Program" används ofta som en konceptuell term, som refererar till inte bara program varan, utan även dess Azure AD-registrering och-roll i autentisering/auktorisering "konversationer" vid körning.
 
-Ett program kan fungera i dessa roller per definition:
+Efter definition kan ett program fungera i följande roller:
 
-- [Klienten](developer-glossary.md#client-application) roll (förbrukar en resurs)
-- [Resursservern](developer-glossary.md#resource-server) roll (visar API: er på klienter)
-- Både klienten roll och resurs-serverrollen
+- [Klient](developer-glossary.md#client-application) roll (konsumera en resurs)
+- [Resurs Server](developer-glossary.md#resource-server) roll (exponerar API: er för klienter)
+- Både klient roll och resurs server roll
 
-En [Auktoriseringsbeviljande för OAuth 2.0-flöde](developer-glossary.md#authorization-grant) definierar Konversations-protokollet, vilket gör att klienten/resursen åtkomst/skydda data för en resurs, respektive.
+Ett [OAuth 2,0-auktoriseringsarkiv](developer-glossary.md#authorization-grant) definierar konversations protokollet, vilket gör att klienten/resursen kan komma åt/skydda en resurs data.
 
-I följande avsnitt visas hur Azure AD-programmodell representerar ett program vid designtillfället och körning.
+I följande avsnitt får du se hur Azure AD-programmodellen representerar ett program vid design tillfället och kör tid.
 
 ## <a name="application-registration"></a>Programregistrering
 
-När du registrerar en Azure AD-program i den [Azure-portalen][AZURE-Portal], skapas två objekt i Azure AD-klienten:
+När du registrerar ett Azure AD-program i [Azure Portal][AZURE-Portal]skapas två objekt i Azure AD-klienten:
 
-- Ett programobjekt och
-- En tjänstens huvudnamnsobjekt
+- Ett program objekt och
+- Ett huvud objekt för tjänsten
 
-### <a name="application-object"></a>programobjekt
+### <a name="application-object"></a>Program objekt
 
-Ett Azure AD-program har definierats med dess ett och endast programobjektet, som finns i Azure AD-klient där programmet har registrerats, kallas programmets ”startklientorganisation”. Microsoft Graph [program entitet][MS-Graph-App-Entity] definierar schemat för ett programobjekt egenskaper.
+Ett Azure AD-program definieras av sitt enda program objekt, som finns i Azure AD-klienten där programmet registrerades, vilket kallas för programmets "hem"-klient. Entiteten Microsoft Graph [program][MS-Graph-App-Entity] definierar schemat för ett program objekts egenskaper.
 
-### <a name="service-principal-object"></a>tjänstens huvudnamnsobjekt
+### <a name="service-principal-object"></a>Tjänstens huvud namns objekt
 
-För att komma åt resurser som skyddas av en Azure AD-klient, måste den entitet som kräver åtkomst representeras av ett säkerhetsobjekt. Det här gäller för både användare (användarens huvudnamn) och program (tjänstens huvudnamn).
+För att få åtkomst till resurser som skyddas av en Azure AD-klient måste den entitet som kräver åtkomst representeras av ett säkerhets objekt. Detta gäller både för användare (användarens huvud namn) och program (tjänstens huvud namn).
 
-Säkerhetsobjektet definierar åtkomstprincip och behörigheter för användare/program i Azure AD-klient. På så sätt kan kärnfunktioner som autentisering av användare/programmet under inloggning och auktorisering vid åtkomst till resurser.
+Säkerhets principen definierar åtkomst principen och behörigheter för användaren/programmet i Azure AD-klienten. Detta möjliggör kärn funktioner som autentisering av användaren/programmet vid inloggning och auktorisering under resurs åtkomst.
 
-När ett program ges behörighet att komma åt resurser i en klient (vid registreringen eller [godkänna](developer-glossary.md#consent)), en tjänstens huvudnamnsobjekt har skapats. Microsoft Graph [ServicePrincipal entitet][MS-Graph-Sp-Entity] definierar schemat för en service principal objektets egenskaper.
+När ett program har behörighet att komma åt resurser i en klient organisation (vid registrering eller [medgivande](developer-glossary.md#consent)) skapas ett huvud objekt för tjänsten. Entiteten Microsoft Graph [ServicePrincipal][MS-Graph-Sp-Entity] definierar schemat för ett tjänst huvud objekts egenskaper.
 
-### <a name="application-and-service-principal-relationship"></a>Program och tjänstens huvudnamn relation
+### <a name="application-and-service-principal-relationship"></a>Relation mellan program och tjänst huvud konto
 
-Överväg att programobjektet som den *globala* representation av ditt program för användning på alla klienter och tjänstens huvudnamn som den *lokala* representation för användning i en specifik klient.
+Överväg programobjektet som den *globala* åter givningen av programmet för användning över alla klienter och tjänstens huvud namn som den *lokala* åter givningen för användning i en specifik klient.
 
-Programmet objektet fungerar som den mallen från vilka vanliga och standardegenskaperna är *härledda* som ska användas när motsvarande objekt för tjänstens huvudnamn. Ett programobjekt därför har en 1:1-relation med programmet och en 1:many relationer med dess motsvarande huvudnamn service-objekt.
+Programobjektet fungerar som den mall från vilken vanliga egenskaper och standard egenskaper *härleds* för användning i att skapa motsvarande tjänst huvud objekt. Ett program objekt har därför en 1:1-relation med program varu programmet och en 1: många relationer med motsvarande tjänst huvud objekt.
 
-Ett huvudnamn för tjänsten måste skapas på varje klient där programmet används, så att systemet kan upprätta en identitet för inloggning och/eller åtkomst till resurser som skyddas av klienten. En enda klient-programmet har bara ett huvudnamn för tjänsten (i dess startklientorganisation) skapas och godkänt villkoren för användning under programregistrering. En flera innehavare Webbapp/API har också ett huvudnamn för tjänsten som skapats i varje klienter där en användare från den klientorganisationen har samtyckt för dess användning.
+Ett huvud namn för tjänsten måste skapas i varje klient där programmet används, vilket gör det möjligt att upprätta en identitet för inloggning och/eller åtkomst till resurser som skyddas av klienten. Ett program med en enda klient organisation har bara ett huvud namn för tjänsten (i sin hem klient) och har skapats och godkänts för användning under program registreringen. Ett webb program/API för flera innehavare har också ett tjänst huvud namn som skapats i varje klient organisation där en användare från den klienten har samtyckt till användningen.
 
 > [!NOTE]
-> Alla ändringar du gör att din programobjektet också avspeglas i dess tjänstens huvudnamnsobjekt i programmets startklientorganisation endast (klient där det har registrerats). För program med flera klienter, programobjektet ändringar återspeglas inte i några konsument innehavare tjänsthuvudnamnsobjekt, förrän åtkomst tas bort via den [Programåtkomstpanelen](https://myapps.microsoft.com) och beviljat igen.
+> Alla ändringar du gör i ditt program objekt visas också i dess tjänst huvud objekt i programmets hem klient (den klient där det registrerades). För program med flera klient organisationer avspeglas inte ändringar i programobjektet i någon konsument innehavares tjänst huvud objekt, tills åtkomsten tas bort via [program åtkomst panelen](https://myapps.microsoft.com) och beviljats igen.
 >
-> Observera också att interna program är registrerade som flera innehavare som standard.
+> Observera också att interna program registreras som flera klienter som standard.
 
 ## <a name="example"></a>Exempel
 
-Följande diagram illustrerar förhållandet mellan ett programs programobjektet och motsvarande tjänst huvudnamn objekt i kontexten för ett exempelprogram för flera innehavare kallad **HR app**. Det finns tre Azure AD-klienter i det här exemplet:
+Följande diagram illustrerar förhållandet mellan ett programs program objekt och motsvarande tjänst huvud objekt, inom ramen för ett exempel på ett program för flera innehavare som kallas **HR-app**. Det finns tre Azure AD-klienter i det här exempel scenariot:
 
-- **Adatum** -klienten som används av det företag som har utvecklats i **HR-app**
-- **Contoso** -klienten som används av Contoso-organisationen som är konsumenter av den **HR-app**
-- **Fabrikam** -klienten som används av organisationen Fabrikam som använder också den **HR-app**
+- **Adatum** – innehavare som används av företaget som utvecklade HR- **appen**
+- **Contoso** – klienten som används av Contoso-organisationen, som är konsument för HR- **appen**
+- **Fabrikam** – klienten som används av Fabrikam-organisationen, som också förbrukar **HR-appen**
 
-![Relationen mellan app-objektet och tjänstens huvudnamnsobjekt](./media/app-objects-and-service-principals/application-objects-relationship.svg)
+![Förhållandet mellan app-objektet och tjänstens huvud namns objekt](./media/app-objects-and-service-principals/application-objects-relationship.svg)
 
-I det här exemplet:
+I det här exempel scenariot:
 
 | Steg | Beskrivning |
 |------|-------------|
-| 1    | Är processen för att skapa program och tjänstobjekt i programmets startklientorganisation. |
-| 2    | När Contoso och Fabrikam administratörer Slutför medgivande, en tjänstens huvudnamnsobjekt skapas i företagets Azure AD-klient och tilldelas de behörigheter som administratören. Observera också att HR-appen kan konfigureras/utformade för att möjliggöra godkännande av användare för personligt bruk. |
-| 3    | HR programmet (Contoso och Fabrikam) varje konsument-klienter har sina egna tjänstens huvudnamnsobjekt. Varje representerar deras användning av en instans av programmet vid körning, regleras av behörigheterna som godkänt av respektive administratören. |
+| 1    | Är processen för att skapa program-och tjänstens huvud namns objekt i programmets hem klient organisation. |
+| 2    | När contoso och Fabrikam-administratörer har slutfört sitt medgivande skapas ett huvud namn för tjänsten i företagets Azure AD-klient och tilldelas de behörigheter som administratören har beviljat. Observera också att HR-appen kan konfigureras/utformas för att tillåta medgivande från användare för enskild användning. |
+| 3    | Klient organisationerna för HR-programmet (contoso och Fabrikam) har sina egna tjänst huvud objekt. Varje representerar användningen av en instans av programmet vid körning, styrs av de behörigheter som har godkänts av respektive administratör. |
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Du kan använda den [Microsoft Graph-testaren](https://developer.microsoft.com/graph/graph-explorer) att fråga både programmet och objekt för tjänstens huvudnamn.
-- Du kan komma åt programobjektet för ett program med Microsoft Graph API i [Azure-portalens][AZURE-Portal] redigeringsprogrammet för applikationsmanifestet, eller [Azure AD PowerShell-cmdlets](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0), som representeras av dess OData [ Programmet entitet][MS-Graph-App-Entity].
-- Du kan komma åt ett program tjänstens huvudnamnsobjekt via Microsoft Graph API eller [Azure AD PowerShell-cmdlets](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0), som representeras av dess OData [ServicePrincipal entitet][MS-Graph-Sp-Entity].
+- Du kan använda [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) för att fråga både program-och tjänst huvud objekt.
+- Du kan komma åt ett programs program objekt med hjälp av Microsoft Graph API [][AZURE-Portal] , Azure Portals program manifest redigeraren eller [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0)-cmdletar, som representeras av dess OData-programentitet. [][MS-Graph-App-Entity]
+- Du kan komma åt ett programs huvud objekt för tjänsten via Microsoft Graph API eller [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0)-cmdletar, som representeras av dess OData [ServicePrincipal-entitet][MS-Graph-Sp-Entity].
 
 <!--Image references-->
 

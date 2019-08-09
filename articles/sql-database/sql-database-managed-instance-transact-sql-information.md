@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 07/07/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: fd029c1e7b67d308e3e1fdbedbdc90ea430b4f5b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 822b8bd1d0f5be854b6d345d68fcdb680b2ef1c4
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567256"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882568"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database hanterade instans T-SQL-skillnader från SQL Server
 
@@ -399,13 +399,44 @@ Externa tabeller som refererar till filerna i HDFS eller Azure Blob Storage stö
 
 ### <a name="replication"></a>Replikering
 
-[Transaktionell replikering](sql-database-managed-instance-transactional-replication.md) är tillgänglig för offentlig för hands version på en hanterad instans med vissa begränsningar:
-- Al typer av replikeringspartner (utgivare, distributör, pull-prenumerant och push-prenumerant) kan placeras på en hanterad instans, men utgivare och distributörer kan inte placeras på olika instanser.
-- Transaktionella, ögonblicks bilder och dubbelriktade replikeringsalternativ stöds. Sammanslagningsreplikering, peer-to-peer-replikering och uppdaterings bara prenumerationer stöds inte.
-- Den hanterade instansen kan kommunicera med de senaste versionerna av SQL Server. Se de versioner som stöds [här](sql-database-managed-instance-transactional-replication.md#supportability-matrix-for-instance-databases-and-on-premises-systems).
-- Transaktionsreplikering har vissa [ytterligare nätverks krav](sql-database-managed-instance-transactional-replication.md#requirements).
+- Ögonblicks bilder och dubbelriktade typer av replikering stöds. Sammanslagningsreplikering, peer-to-peer-replikering och uppdaterings bara prenumerationer stöds inte.
+- [Transaktionell replikering](sql-database-managed-instance-transactional-replication.md) är tillgänglig för offentlig för hands version på en hanterad instans med vissa begränsningar:
+    - Alla typer av replikeringspartner (utgivare, distributör, pull-prenumerant och push-prenumerant) kan placeras på hanterade instanser, men utgivare och distributörer kan inte placeras på olika instanser.
+    - Hanterade instanser kan kommunicera med de senaste versionerna av SQL Server. Se de versioner som stöds [här](sql-database-managed-instance-transactional-replication.md#supportability-matrix-for-instance-databases-and-on-premises-systems).
+    - Transaktionsreplikering har vissa [ytterligare nätverks krav](sql-database-managed-instance-transactional-replication.md#requirements).
 
-Information om hur du konfigurerar replikering finns i självstudier för [replikering](replication-with-sql-database-managed-instance.md).
+Information om hur du konfigurerar replikering finns i [själv studie kursen för replikering](replication-with-sql-database-managed-instance.md).
+
+
+Om replikering har Aktiver ATS för en databas i en [failover-grupp](sql-database-auto-failover-group.md)måste den hanterade instans administratören rensa alla publikationer på den gamla primära servern och konfigurera om dem på den nya primära servern efter en redundansväxling. Följande aktiviteter behövs i det här scenariot:
+
+1. Stoppa alla migreringsjobb som körs på databasen, om det finns några.
+2. Släpp metadata för prenumerationer från utgivare genom att köra följande skript på utgivar databasen:
+
+   ```sql
+   EXEC sp_dropsubscription @publication='<name of publication>', @article='all',@subscriber='<name of subscriber>'
+   ```             
+ 
+1. Ta bort metadata för prenumerationen från prenumeranten. Kör följande skript i prenumerations databasen på prenumerantens instans:
+
+   ```sql
+   EXEC sp_subscription_cleanup
+      @publisher = N'<full DNS of publisher, e.g. example.ac2d23028af5.database.windows.net>', 
+      @publisher_db = N'<publisher database>', 
+      @publication = N'<name of publication>'; 
+   ```                
+
+1. Tvinga bort alla replikeringsalternativ från utgivaren genom att köra följande skript i den publicerade databasen:
+
+   ```sql
+   EXEC sp_removedbreplication
+   ```
+
+1. Framtvinga släppa gamla distributörer från den ursprungliga primära instansen (om det växlar tillbaka till en gammal primär som används för en distributör). Kör följande skript på huvud databasen i den tidigare hanterade distributörs instansen:
+
+   ```sql
+   EXEC sp_dropdistributor 1,1
+   ```
 
 ### <a name="restore-statement"></a>Instruktionen Restore 
 
@@ -467,7 +498,7 @@ Service Broker för överinstans stöds inte:
 ## <a name="Environment"></a>Miljö begränsningar
 
 ### <a name="subnet"></a>Subnet
-- I under nätet som reserver ATS för din hanterade instans kan du inte placera några andra resurser (till exempel virtuella datorer). Placera dessa resurser i andra undernät.
+-  Du kan inte placera andra resurser (till exempel virtuella datorer) i under nätet där du har distribuerat din hanterade instans. Distribuera de här resurserna med ett annat undernät.
 - Under nätet måste ha tillräckligt många tillgängliga [IP-adresser](sql-database-managed-instance-connectivity-architecture.md#network-requirements). Minimivärdet är 16 och rekommendationen måste ha minst 32 IP-adresser i under nätet.
 - [Tjänstens slut punkter kan inte kopplas till under nätet för den hanterade](sql-database-managed-instance-connectivity-architecture.md#network-requirements)instansen. Kontrol lera att alternativet tjänst slut punkter är inaktiverat när du skapar det virtuella nätverket.
 - Antalet virtuella kärnor och typer av instanser som du kan distribuera i en region har vissa [begränsningar och begränsningar](sql-database-managed-instance-resource-limits.md#regional-resource-limitations).
@@ -494,11 +525,11 @@ Följande variabler, funktioner och vyer returnerar olika resultat:
 
 ### <a name="tempdb-size"></a>TEMPDB-storlek
 
-Den maximala fil storleken på `tempdb` får inte vara större än 24 GB per kärna på en generell användning nivå. Den maximala `tempdb` storleken på en affärskritisk nivå är begränsad med instans lagrings storleken. `tempdb`logg filens storlek är begränsad till 120 GB både på Generell användning och Affärskritisk nivåer. `tempdb` Databasen delas alltid upp i 12 datafiler. Den här maximala storleken per fil kan inte ändras och nya filer kan inte läggas till `tempdb`i. Vissa frågor kan returnera ett fel om de behöver mer än 24 GB per kärna i `tempdb` eller om de producerar mer än 120 GB logg. `tempdb`återskapas alltid som en tom databas när instansen startar eller kraschar och ändringar som görs i `tempdb` bevaras inte. 
+Den maximala fil storleken på `tempdb` får inte vara större än 24 GB per kärna på en generell användning nivå. Den maximala `tempdb` storleken på en affärskritisk nivå begränsas av instans lagrings storleken. `Tempdb`logg filens storlek är begränsad till 120 GB både på Generell användning och Affärskritisk nivåer. `tempdb` Databasen delas alltid upp i 12 datafiler. Den här maximala storleken per fil kan inte ändras och nya filer kan inte läggas till `tempdb`i. Vissa frågor kan returnera ett fel om de behöver mer än 24 GB per kärna i `tempdb` eller om de producerar mer än 120 GB loggdata. `Tempdb`återskapas alltid som en tom databas när instansen startar eller växlar över och eventuella ändringar som görs i `tempdb` bevaras inte. 
 
 ### <a name="cant-restore-contained-database"></a>Det går inte att återställa den inneslutna databasen
 
-Den hanterade instansen kan inte återställa [inneslutna databaser](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases). Tidpunkts återställning av befintliga inneslutna databaser fungerar inte på en hanterad instans. Det här problemet kommer snart att lösas. Under tiden rekommenderar vi att du tar bort inne slutnings alternativet från dina databaser som är placerade på en hanterad instans. Använd inte inne slutnings alternativet för produktions databaserna. 
+Den hanterade instansen kan inte återställa [inneslutna databaser](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases). Tidpunkts återställning av befintliga inneslutna databaser fungerar inte på en hanterad instans. Under tiden rekommenderar vi att du tar bort inne slutnings alternativet från dina databaser som är placerade på en hanterad instans. Använd inte inne slutnings alternativet för produktions databaserna. 
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>Överskrida lagrings utrymme med små databasfiler
 
@@ -506,7 +537,7 @@ Den hanterade instansen kan inte återställa [inneslutna databaser](https://doc
 
 Varje Generell användning hanterad instans har upp till 35 TB lagring reserverat för Azure Premium-disk utrymme. Varje databas fil placeras på en separat fysisk disk. Disk storlekar kan vara 128 GB, 256 GB, 512 GB, 1 TB eller 4 TB. Oanvänt utrymme på disken debiteras inte, men den totala summan av storleken på Azure Premium-diskar får inte överstiga 35 TB. I vissa fall kan en hanterad instans som inte behöver 8 TB totalt överskrida gränsen på 35 TB Azure på lagrings storleken på grund av intern fragmentering.
 
-En Generell användning hanterad instans kan till exempel ha en fil som är 1,2 TB i storleken på en 4 TB-disk. Det kan också finnas 248 filer som är varje 1 GB i storlek och som placeras på separata 128 GB-diskar. I det här exemplet:
+En Generell användning hanterad instans kan till exempel ha en stor fil som är 1,2 TB i storleken på en 4 TB-disk. Det kan också finnas 248 filer på 1 GB filer som var placerade på separata 128 GB-diskar. I det här exemplet:
 
 - Den totala allokerade disk lagrings storleken är 1 x 4 TB + 248 x 128 GB = 35 TB.
 - Det totala reserverade utrymmet för databaser på instansen är 1 x 1,2 TB + 248 x 1 GB = 1,4 TB.
@@ -547,7 +578,7 @@ Fel loggar som är tillgängliga i den hanterade instansen är inte bestående o
 
 ### <a name="error-logs-are-verbose"></a>Fel loggarna är utförliga
 
-En hanterad instans placerar utförlig information i fel loggarna och mycket som inte är relevant. Mängden information i fel loggarna kommer att minska i framtiden.
+En hanterad instans placerar utförlig information i fel loggarna och mycket som inte är relevant. 
 
 **Korrigera** Använd en anpassad procedur för att läsa fel loggar som filtrerar bort vissa irrelevanta poster. Mer information finns i [Managed instance – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/).
 

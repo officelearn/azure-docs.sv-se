@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
 ms.date: 07/08/2019
-ms.openlocfilehash: 9852ec450b6da3814a3bd2bfc6aae7d19acaf584
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: c5484c37d89cc9ae880bbe17987bb47f3114b8a4
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68370382"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847900"
 ---
 # <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>Identifiera data drift (för hands version) i modeller som distribuerats till Azure Kubernetes service (AKS)
 
@@ -46,12 +46,14 @@ Med hjälp av Azure Machine Learning tjänsten övervakas data drift genom data 
 
 - En Azure-prenumeration. Om du inte har ett konto kan du skapa ett kostnads fritt konto innan du börjar. Prova den [kostnadsfria versionen eller betalversionen av Azure Machine Learning-tjänsten](https://aka.ms/AMLFree) i dag.
 
-- En arbetsyta för Azure Machine Learning-tjänsten och Azure Machine Learning-SDK för Python installerat. Följ anvisningarna i [skapa en Azure Machine Learning service-arbetsyta](setup-create-workspace.md#sdk) för att göra följande:
+- Azure Machine Learning SDK för python har installerats. Följ anvisningarna på [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) för att göra följande:
 
     - Skapa en Miniconda-miljö
     - Installera Azure Machine Learning SDK för python
-    - Skapa en arbetsyta
-    - Skriv en konfigurations fil för arbets ytor (aml_config/config. JSON).
+
+- En [Azure Machine Learning service-arbetsyta](how-to-manage-workspace.md).
+
+- En [konfigurations fil](how-to-configure-environment.md#workspace)för arbets ytan.
 
 - Installera data drivgarn SDK med följande kommando:
 
@@ -195,6 +197,6 @@ Baserat på utdata från föregående kod kanske du vill träna om modellen. Det
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Ett komplett exempel på hur du använder data drift finns i den [bärbara datorn för Azure ml data drivgarn](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/data-drift/azure-ml-datadrift.ipynb). Den här Jupyter Notebook visar hur du använder en [Azure Open](https://docs.microsoft.com/azure/open-datasets/overview-what-are-open-datasets) -datauppsättning för att träna en modell för att förutsäga väder, distribuera den till AKS och övervaka data driften. 
+* Ett komplett exempel på hur du använder data drift finns i den [bärbara datorn för Azure ml data drivgarn](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/monitor-models/data-drift/azure-ml-datadrift.ipynb). Den här Jupyter Notebook visar hur du använder en [Azure Open](https://docs.microsoft.com/azure/open-datasets/overview-what-are-open-datasets) -datauppsättning för att träna en modell för att förutsäga väder, distribuera den till AKS och övervaka data driften. 
 
 * Vi skulle kraftigt uppskatta dina frågor, kommentarer eller förslag när data driften flyttas mot allmän tillgänglighet. Använd knappen produkt feedback nedan! 

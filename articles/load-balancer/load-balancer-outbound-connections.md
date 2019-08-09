@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/02/2019
+ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: 833d0d0b17f7cc22b2ab37b4e225c1a8cce9c592
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 9dcc5fa201c08ca4b1e65b8aae88118731eba427
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385542"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881075"
 ---
 # <a name="outbound-connections-in-azure"></a>Utgående anslutningar i Azure
 
@@ -66,7 +66,7 @@ När den belastningsutjämnade virtuella datorn skapar ett utgående flöde öve
 
 Tillfälliga portar för belastningsutjämnarens offentliga IP-adress-frontend används för att särskilja enskilda flöden från den virtuella datorn. SNAT använder dynamiskt [förallokerade portar](#preallocatedports) när utgående flöden skapas. I det här sammanhanget kallas de tillfälliga portarna som används för SNAT som SNAT-portar.
 
-SNAT-portar är fördelade enligt beskrivningen i avsnittet om [SNAT och Pat](#snat) . De är en begränsad resurs som kan vara förbrukad. Det är viktigt att förstå hur de används [.](#pat) För att förstå hur du utformar för den här förbrukningen och minimera vid behov, granska [hanteringen av SNAT](#snatexhaust)-belastningen.
+SNAT-portar är fördelade enligt beskrivningen i avsnittet om [SNAT och Pat](#snat) . De är en begränsad resurs som kan vara förbrukad. Det är viktigt att förstå hur de används [](#pat). För att förstå hur du utformar för den här förbrukningen och minimera vid behov, granska [hanteringen av SNAT](#snatexhaust)-belastningen.
 
 När [flera offentliga IP-adresser är associerade med Load Balancer Basic](load-balancer-multivip-overview.md), är alla dessa offentliga IP-adresser en kandidat för utgående flöden och en väljs slumpmässigt.  
 
@@ -81,7 +81,7 @@ I det här scenariot är den virtuella datorn inte en del av en offentlig Load B
 
 Azure använder SNAT med port maskerad ([Pat](#pat)) för att utföra den här funktionen. Det här scenariot liknar [Scenario 2](#lb), förutom att det inte finns någon kontroll över den IP-adress som används. Detta är ett återställnings scenario för när scenarierna 1 och 2 inte finns. Vi rekommenderar inte det här scenariot om du vill ha kontroll över den utgående adressen. Om utgående anslutningar är en viktig del av ditt program bör du välja ett annat scenario.
 
-SNAT-portar är fördelade enligt beskrivningen i avsnittet om [SNAT och Pat](#snat) .  Antalet virtuella datorer som delar en tillgänglighets uppsättning bestämmer vilken förallokerings nivå som gäller.  En fristående virtuell dator utan en tillgänglighets uppsättning är en pool av 1 i syfte att fastställa Förallokering (1024 SNAT-portar). SNAT-portar är en begränsad resurs som kan vara förbrukad. Det är viktigt att förstå hur de används [.](#pat) För att förstå hur du utformar för den här förbrukningen och minimera vid behov, granska [hanteringen av SNAT](#snatexhaust)-belastningen.
+SNAT-portar är fördelade enligt beskrivningen i avsnittet om [SNAT och Pat](#snat) .  Antalet virtuella datorer som delar en tillgänglighets uppsättning bestämmer vilken förallokerings nivå som gäller.  En fristående virtuell dator utan en tillgänglighets uppsättning är en pool av 1 i syfte att fastställa Förallokering (1024 SNAT-portar). SNAT-portar är en begränsad resurs som kan vara förbrukad. Det är viktigt att förstå hur de används [](#pat). För att förstå hur du utformar för den här förbrukningen och minimera vid behov, granska [hanteringen av SNAT](#snatexhaust)-belastningen.
 
 ### <a name="combinations"></a>Flera kombinerade scenarier
 
@@ -105,7 +105,7 @@ Du kan välja att förhindra att en IP-adress för klient delen används för ut
       ]
 ```
 
-Normalt är `disableOutboundSnat` alternativet _falskt_ och indikerar att den här regeln program utgående SNAT för de associerade virtuella datorerna i backend-poolen för belastnings Utjämnings regeln. Kan ändras till sant för att förhindra Load Balancer från att använda den tillhör ande IP-adressen för klient delen för utgående anslutningar för de virtuella datorerna i backend-poolen för den här belastnings Utjämnings regeln.  `disableOutboundSnat`  Och du kan även ange en speciell IP-adress för utgående flöden enligt beskrivningen i [flera kombinerade scenarier](#combinations) .
+Normalt är `disableOutboundSnat` alternativet _falskt_ och indikerar att den här regeln program utgående SNAT för de associerade virtuella datorerna i backend-poolen för belastnings Utjämnings regeln. Kan ändras till sant för att förhindra Load Balancer från att använda den tillhör ande IP-adressen för klient delen för utgående anslutningar för de virtuella datorerna i backend-poolen för den här belastnings Utjämnings regeln. `disableOutboundSnat`  Och du kan även ange en speciell IP-adress för utgående flöden enligt beskrivningen i [flera kombinerade scenarier](#combinations) .
 
 #### <a name="load-balancer-basic"></a>Load Balancer Basic
 
@@ -133,6 +133,10 @@ Flera flöden, var och en till en annan mål-IP-adress, port och protokoll, dela
 
 UDP SNAT-portar hanteras av en annan algoritm än TCP SNAT-portar.  Load Balancer använder en algoritm som kallas "Port-restricted kon NAT" för UDP.  En SNAT-port förbrukas för varje flöde, oavsett mål-IP-adress, port.
 
+#### <a name="snat-port-reuse"></a>Åter användning av SNAT-portar
+
+När en port har frigjorts är porten tillgänglig för åter användning vid behov.  Du kan tänka på SNAT-portar som en sekvens från lägsta till högsta tillgängliga för ett specifikt scenario och den första tillgängliga SNAT-porten används för nya anslutningar. 
+ 
 #### <a name="exhaustion"></a>Uttömning
 
 När SNAT-port resurserna är slut så att utgående flöden inte fungerar förrän befintliga flöden frigör SNAT-portar. Load Balancer frigör SNAT-portar när flödet stängs och använder en [tids gräns på 4 minuter](#idletimeout) för att frigöra SNAT-portar från inaktiva flöden.

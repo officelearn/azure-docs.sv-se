@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/24/2019
 ms.author: mlearned
-ms.openlocfilehash: 30f25ad9152bc722b54a834ef0ed037ac1666014
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 845ce631209f341612b65b8d6a97e45e6b025a1f
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67615292"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68880654"
 ---
 # <a name="create-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>Skapa en HTTPS ingress-styrenhet på Azure Kubernetes service (AKS)
 
@@ -98,7 +98,7 @@ Ingångs styrenheten är nu tillgänglig via FQDN.
 
 ## <a name="install-cert-manager"></a>Installera cert-Manager
 
-NGINX ingångs styrenheten stöder TLS-avslutning. Det finns flera sätt att hämta och konfigurera certifikat för HTTPS. Den här artikeln visar hur du använder [cert Manager][cert-manager], som [ger automatiska funktioner][lets-encrypt] för att skapa och hantera certifikat.
+NGINX ingångs styrenheten stöder TLS-avslutning. Det finns flera sätt att hämta och konfigurera certifikat för HTTPS. Den här artikeln visar hur du använder [cert Manager][cert-manager], som [][lets-encrypt] ger automatiska funktioner för att skapa och hantera certifikat.
 
 > [!NOTE]
 > I `staging` den här artikeln används miljön för att kryptera. I produktions distributioner använder `letsencrypt-prod` du och `https://acme-v02.api.letsencrypt.org/directory` i resurs definitionerna och när du installerar Helm-diagrammet.
@@ -310,6 +310,7 @@ Om du vill ta bort hela exempel namnområdet `kubectl delete` använder du komma
 
 ```console
 kubectl delete namespace ingress-basic
+kubectl delete namespace cert-manager
 ```
 
 Ta sedan bort Helm-lagrings platsen för appen AKS Hello World:

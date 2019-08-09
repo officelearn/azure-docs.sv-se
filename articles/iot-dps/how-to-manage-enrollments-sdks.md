@@ -1,90 +1,89 @@
 ---
-title: 'Hantera enhetsregistreringar med Azure Device Provisioning Service-SDK: er | Microsoft Docs'
-description: 'Hantera enhetsregistreringar i IoT Hub Device Provisioning-tjänsten med SDK: er för tjänsten'
-author: yzhong94
-ms.author: yizhon
+title: 'Hantera enhets registreringar med SDK: er för Azure Device Provisioning-tjänsten | Microsoft Docs'
+description: 'Hantera enhets registreringar i IoT Hub Device Provisioning Service med hjälp av tjänst-SDK: er'
+author: robinsh
+ms.author: robinsh
 ms.date: 04/04/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: arjmands
-ms.openlocfilehash: c73a40e46d86632732454ae16ea4f83e3ffa0281
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 438cb579180458fcdeb75516a7c98b3ab2886366
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60627277"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883386"
 ---
-# <a name="how-to-manage-device-enrollments-with-azure-device-provisioning-service-sdks"></a>Hantera enhetsregistreringar med Azure Device Provisioning Service-SDK: er
-En *enhetsregistrering* skapar en post för en enstaka enhet eller en grupp av enheter som kan någon gång registreras med Device Provisioning-tjänsten. Registreringsposten innehåller inledande önskad konfiguration för enheter som en del av att registreringen, inklusive önskad IoT hub. Den här artikeln visar hur du hanterar enhetsregistreringar för etableringstjänsten genom programmering med Azure IoT Provisioning Service SDK.  SDK: erna finns på GitHub i samma lagringsplats som Azure IoT SDK: er.
+# <a name="how-to-manage-device-enrollments-with-azure-device-provisioning-service-sdks"></a>Hantera enhets registreringar med SDK: er för Azure Device Provisioning-tjänsten
+En *enhets registrering* skapar en post för en enskild enhet eller en grupp av enheter som kan komma att registreras med enhets etablerings tjänsten. Registrerings posten innehåller den initiala önskade konfigurationen för enheten eller enheterna som en del av registreringen, inklusive önskad IoT-hubb. Den här artikeln visar hur du hanterar enhets registreringar för din etablerings tjänst program mässigt med hjälp av SDK: er för Azure IoT Provisioning-tjänsten.  SDK: er är tillgängliga på GitHub i samma databas som Azure IoT SDK: er.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
-* Hämta anslutningssträngen från din instans av Device Provisioning-tjänsten.
-* Hämta enheten säkerhetsartefakterna för den [attesteringsmetod](concepts-security.md#attestation-mechanism) används:
+## <a name="prerequisites"></a>Förutsättningar
+* Hämta anslutnings strängen från din enhets etablerings tjänst instans.
+* Hämta enhetens säkerhets artefakter för den [mekanism för attestering](concepts-security.md#attestation-mechanism) som används:
     * [**Trusted Platform Module (TPM)** ](/azure/iot-dps/concepts-security#trusted-platform-module):
-        * Enskild registrering: Registrerings-ID och TPM-bekräftelsenyckeln från en fysisk enhet eller från TPM-simulatorn.
-        * Grupp för registrering gäller inte för TPM-attestering.
+        * Individuell registrering: Registrerings-ID och TPM-bekräftelse nyckel från en fysisk enhet eller från TPM-simulatorn.
+        * Registrerings gruppen gäller inte för TPM-attestering.
     * [**X.509**](/azure/iot-dps/concepts-security):
-        * Enskild registrering: Den [lövcertifikat](/azure/iot-dps/concepts-security) från fysisk enhet eller från SDK [DICE](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) emulatorn.
-        * Grupp för registrering: Den [CA/rotcertifikat](/azure/iot-dps/concepts-security#root-certificate) eller [mellanliggande certifikat](/azure/iot-dps/concepts-security#intermediate-certificate)används för att skapa certifikat på en fysisk enhet.  Det kan också genereras från SDK DICE-emulator.
-* Exakta API-anrop kan skilja sig på grund av språkskillnader. Exemplen på GitHub mer i:
-   * [Java Provisioning Service Client-exempel](https://github.com/Azure/azure-iot-sdk-java/tree/master/provisioning/provisioning-samples)
-   * [Node.js Provisioning Service Client-exempel](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/service/samples)
-   * [.NET provisioning Service Client-exempel](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/provisioning/service/samples)
+        * Individuell registrering: [Löv certifikatet](/azure/iot-dps/concepts-security) från fysisk enhet eller från SDK [tärning](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) -emulatorn.
+        * Registrerings grupp: [Ca/rot certifikat](/azure/iot-dps/concepts-security#root-certificate) eller mellanliggande [certifikat](/azure/iot-dps/concepts-security#intermediate-certificate)som används för att skapa enhets certifikat på en fysisk enhet.  Det kan också genereras från SDK tärning-emulatorn.
+* Exakta API-anrop kan vara olika på grund av skillnader i språket. Mer information hittar du i exemplen som tillhandahålls på GitHub:
+   * [Klient exempel för Java-etablerings tjänst](https://github.com/Azure/azure-iot-sdk-java/tree/master/provisioning/provisioning-samples)
+   * [Klient exempel för Node. js-etablering](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/service/samples)
+   * [Klient exempel för .NET-etablerings tjänst](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/provisioning/service/samples)
 
-## <a name="create-a-device-enrollment"></a>Skapa en registrering av enheter
-Det finns två sätt som du kan registrera dina enheter med etableringstjänsten:
+## <a name="create-a-device-enrollment"></a>Skapa en enhets registrering
+Det finns två sätt att registrera enheter med etablerings tjänsten:
 
-* En **registreringsgruppen** finns en post för en grupp av enheter som delar en gemensam attesteringsmetod av X.509-certifikat som signerats av den [rotcertifikat](https://docs.microsoft.com/azure/iot-dps/concepts-security#root-certificate) eller [mellanliggande certifikat ](https://docs.microsoft.com/azure/iot-dps/concepts-security#intermediate-certificate). Vi rekommenderar en registreringsgrupp för ett stort antal enheter som delar en önskad inledande konfiguration eller för enheter ska till samma klient. Observera att du endast registrera enheter som använder X.509-attesteringsmetod som *registreringsgrupper*. 
+* En **registrerings grupp** är en post för en grupp av enheter som delar en gemensam mekanism för attestering av X. 509-certifikat, signerade av [rot certifikatet](https://docs.microsoft.com/azure/iot-dps/concepts-security#root-certificate) eller mellanliggande [certifikat](https://docs.microsoft.com/azure/iot-dps/concepts-security#intermediate-certificate). Vi rekommenderar att du använder en registrerings grupp för ett stort antal enheter som delar en önskad inledande konfiguration, eller för enheter som alla kommer till samma klient. Observera att du bara kan registrera enheter som använder mekanismen för 509-attestering för X. som *registrerings grupper*. 
 
-    Du kan skapa en grupp för registrering med SDK: erna följa det här arbetsflödet:
+    Du kan skapa en registrerings grupp med SDK: er med följande arbets flöde:
 
-    1. För registreringsgruppen som använder attesteringsmetod X.509-rotcertifikat.  Anropa API för tjänst-SDK ```X509Attestation.createFromRootCertificate``` med rotcertifikatet för att skapa attestering för registrering.  X.509-rotcertifikat finns i antingen en PEM-fil eller som en sträng.
-    1. Skapa en ny ```EnrollmentGroup``` variabeln med den ```attestation``` skapade och en unik ```enrollmentGroupId```.  Du kan ange parametrar som ```Device ID```, ```IoTHubHostName```, ```ProvisioningStatus```.
-    2. Anropa API för tjänst-SDK ```createOrUpdateEnrollmentGroup``` i backend-program med ```EnrollmentGroup``` att skapa en grupp för registrering.
+    1. För registrerings gruppen använder mekanismen X. 509 rot certifikat.  Anropa service SDK API ```X509Attestation.createFromRootCertificate``` med rot certifikat för att skapa attestering för registrering.  X. 509-rotcertifikat anges antingen i en PEM-fil eller som en sträng.
+    1. Skapa en ny ```EnrollmentGroup``` variabel med hjälp ```attestation``` av den skapade och ```enrollmentGroupId```en unik.  Du kan också ange parametrar som ```Device ID```, ```IoTHubHostName```, ```ProvisioningStatus```.
+    2. Anropa service SDK API ```createOrUpdateEnrollmentGroup``` i Server dels programmet med ```EnrollmentGroup``` för att skapa en registrerings grupp.
 
-* En **enskild registrering** finns en post för en enskild enhet som kan registreras. Enskilda registreringar kan använda X.509-certifikat eller SAS-token (från en fysisk eller virtuell TPM) som attesteringsmekanismer. Vi rekommenderar att du använder enskilda registreringar för enheter som kräver unika första konfigurationer eller för enheter som endast kan använda SAS-token via TPM eller virtuell TPM som attesteringsmetod. Enskilda registreringar kan ha angivet önskat enhets-ID för IoT Hub.
+* En **enskild registrering** är en post för en enskild enhet som kan registreras. Enskilda registreringar kan använda antingen X. 509-certifikat eller SAS-token (från en fysisk eller virtuell TPM) som attesterings metoder. Vi rekommenderar att du använder enskilda registreringar för enheter som kräver unika inledande konfigurationer eller för enheter som bara kan använda SAS-token via TPM eller virtuell TPM som mekanism för attestering. Enskilda registreringar kan ha angivet önskat enhets-ID för IoT Hub.
 
-    Du kan skapa en enskild registrering med SDK: erna följa det här arbetsflödet:
+    Du kan skapa en enskild registrering med SDK: er med följande arbets flöde:
     
-    1. Välj din ```attestation``` mekanism som kan vara TPM eller X.509.
-        1. **TPM**: Använda bekräftelsenyckeln från en fysisk enhet eller från TPM-simulatorn som indata, kan du anropa API för tjänst-SDK ```TpmAttestation``` skapa attestering för registrering. 
-        2. **X.509**: Använder klientcertifikat som indata, kan du anropa API för tjänst-SDK ```X509Attestation.createFromClientCertificate``` skapa attestering för registrering.
-    2. Skapa en ny ```IndividualEnrollment``` variabeln med hjälp av den ```attestation``` skapade och en unik ```registrationId``` som indata, som på din enhet eller genereras från TPM-simulatorn.  Du kan ange parametrar som ```Device ID```, ```IoTHubHostName```, ```ProvisioningStatus```.
-    3. Anropa API för tjänst-SDK ```createOrUpdateIndividualEnrollment``` i backend-program med ```IndividualEnrollment``` att skapa en enskild registrering.
+    1. Välj din ```attestation``` mekanism, som kan vara TPM eller X. 509.
+        1. **TPM**: Med hjälp av bekräftelse nyckeln från en fysisk enhet eller från TPM-simulatorn som inmatad kan du anropa ```TpmAttestation``` SDK-API: et för att skapa attestering för registrering. 
+        2. **X.509**: Med klient certifikatet som inmatat kan du anropa SDK-API: ```X509Attestation.createFromClientCertificate``` et för att skapa attestering för registrering.
+    2. Skapa en ny ```IndividualEnrollment``` variabel med hjälp av ```attestation``` den skapade och en ```registrationId``` unik som inmatad, som finns på enheten eller som genereras från TPM-simulatorn.  Du kan också ange parametrar som ```Device ID```, ```IoTHubHostName```, ```ProvisioningStatus```.
+    3. Anropa service SDK API ```createOrUpdateIndividualEnrollment``` i Server dels programmet med ```IndividualEnrollment``` för att skapa en enskild registrering.
 
-När du har skapat en registrering, returnerar ett resultat för registrering i Device Provisioning-tjänsten. Det här arbetsflödet visas i exemplen [tidigare nämnts](#prerequisites).
+När du har skapat en registrering returnerar enhets etablerings tjänsten ett registrerings resultat. Det här arbets flödet visas i exemplen ovan. [](#prerequisites)
 
-## <a name="update-an-enrollment-entry"></a>Uppdatera en registreringspost
+## <a name="update-an-enrollment-entry"></a>Uppdatera en registrerings post
 
-När du har skapat en registreringspost kan du uppdatera registreringen.  Möjliga scenarier är uppdaterar önskad egenskap, uppdatera metoden attestering eller återkalla Enhetsåtkomst.  Det finns olika API: er för enskild registrering och gruppregistrering, men ingen åtskillnad för attesteringsmetod.
+När du har skapat en registrerings post kanske du vill uppdatera registreringen.  Möjliga scenarier är att uppdatera önskad egenskap, uppdatera attesterings metoden eller återkalla åtkomst till enheten.  Det finns olika API: er för enskilda registreringar och grupp registrering, men ingen åtskillnad för mekanismen för attestering.
 
-Du kan uppdatera en registreringspost följa det här arbetsflödet:
+Du kan uppdatera en registrerings post genom att följa det här arbets flödet:
 * **Enskild registrering**:
-    1. Hämta den senaste registreringen från etableringstjänsten första med API för tjänst-SDK ```getIndividualEnrollment```.
-    2. Ändra parametern till den senaste registreringen vid behov. 
-    3. Med den senaste registreringen anropa API för tjänst-SDK ```createOrUpdateIndividualEnrollment``` att uppdatera din post för registrering.
-* **Gruppregistrering**:
-    1. Hämta den senaste registreringen från etableringstjänsten första med API för tjänst-SDK ```getEnrollmentGroup```.
-    2. Ändra parametern till den senaste registreringen vid behov.
-    3. Med den senaste registreringen anropa API för tjänst-SDK ```createOrUpdateEnrollmentGroup``` att uppdatera din post för registrering.
+    1. Hämta den senaste registreringen från etablerings tjänsten först med service SDK API ```getIndividualEnrollment```.
+    2. Ändra parametern för den senaste registreringen vid behov. 
+    3. Använd den senaste registreringen och anropa SDK-API: et ```createOrUpdateIndividualEnrollment``` för att uppdatera registreringen.
+* **Grupp registrering**:
+    1. Hämta den senaste registreringen från etablerings tjänsten först med service SDK API ```getEnrollmentGroup```.
+    2. Ändra parametern för den senaste registreringen vid behov.
+    3. Använd den senaste registreringen och anropa SDK-API: et ```createOrUpdateEnrollmentGroup``` för att uppdatera registreringen.
 
-Det här arbetsflödet visas i exemplen [tidigare nämnts](#prerequisites).
+Det här arbets flödet visas i exemplen ovan. [](#prerequisites)
 
-## <a name="remove-an-enrollment-entry"></a>Ta bort en registreringspost
+## <a name="remove-an-enrollment-entry"></a>Ta bort en registrerings post
 
-* **Enskild registrering** kan tas bort genom att anropa API för tjänst-SDK ```deleteIndividualEnrollment``` med ```registrationId```.
-* **Gruppregistrering** kan tas bort genom att anropa API för tjänst-SDK ```deleteEnrollmentGroup``` med ```enrollmentGroupId```.
+* **Enskilda registreringar** kan tas bort genom att anropa service SDK- ```deleteIndividualEnrollment``` API ```registrationId```: et med.
+* **Grupp registrering** kan tas bort genom att anropa service SDK-API ```deleteEnrollmentGroup``` : ```enrollmentGroupId```et med.
 
-Det här arbetsflödet visas i exemplen [tidigare nämnts](#prerequisites).
+Det här arbets flödet visas i exemplen ovan. [](#prerequisites)
 
-## <a name="bulk-operation-on-individual-enrollments"></a>Bulkåtgärd på enskilda registreringar
+## <a name="bulk-operation-on-individual-enrollments"></a>Mass åtgärd för enskilda registreringar
 
-Du kan utföra bulkåtgärd för att skapa, uppdatera eller ta bort flera enskilda registreringar följa det här arbetsflödet:
+Du kan utföra Mass åtgärder för att skapa, uppdatera eller ta bort flera enskilda registreringar efter det här arbets flödet:
 
-1. Skapa en variabel som innehåller flera ```IndividualEnrollment```.  Implementering av den här variabeln är olika för varje språk.  Granska bulk åtgärden exemplet på GitHub för information.
-2. Anropa API för tjänst-SDK ```runBulkOperation``` med en ```BulkOperationMode``` för önskad åtgärd och variabeln för enskilda registreringar. Finns stöd för tre lägen: skapa, uppdatera, updateIfMatchEtag, och ta bort.
+1. Skapa en variabel som innehåller flera ```IndividualEnrollment```.  Implementeringen av den här variabeln skiljer sig för alla språk.  Läs igenom Mass åtgärds exemplet på GitHub för mer information.
+2. Anropa service SDK- ```runBulkOperation``` API med ```BulkOperationMode``` en för önskad åtgärd och din variabel för enskilda registreringar. Fyra lägen stöds: skapa, uppdatera, updateIfMatchEtag och ta bort.
 
-När du har har utfört en åtgärd, returneras Device Provisioning-tjänsten ett resultat för bulk-åtgärden.
+När du har utfört en åtgärd returnerar enhets etablerings tjänsten resultatet av en Mass åtgärd.
 
-Det här arbetsflödet visas i exemplen [tidigare nämnts](#prerequisites).
+Det här arbets flödet visas i exemplen ovan. [](#prerequisites)

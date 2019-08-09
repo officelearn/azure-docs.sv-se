@@ -1,6 +1,6 @@
 ---
-title: Skapa extern App Service environment - Azure
-description: Beskriver hur du skapar en App Service-miljö när du skapar en app eller en fristående
+title: Skapa en extern App Service-miljö – Azure
+description: Förklarar hur du skapar en App Service-miljö medan du skapar en app eller fristående
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -15,168 +15,168 @@ ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: e04dfa4148213e88aa46e464a31cdd9b6125e0bf
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
+ms.lasthandoff: 08/08/2019
 ms.locfileid: "67705770"
 ---
-# <a name="create-an-external-app-service-environment"></a>Skapa extern App Service environment
+# <a name="create-an-external-app-service-environment"></a>Skapa en extern App Service-miljö
 
 Azure App Service Environment är en distribution av Azure App Service i ett undernät i ett virtuellt nätverk i Azure (VNet).
 
 > [!NOTE]
-> Varje App Service Environment har en virtuell IP (VIP), som kan användas för att kontakta App Service Environment.
+> Varje App Service-miljön har en virtuell IP-adress (VIP) som kan användas för att kontakta App Service-miljön.
 
 Det går att distribuera en App Service-miljö (ASE) på två sätt:
 
 - Med en VIP på en extern IP-adress som ofta kallas för en extern ASE.
-- Med VIP på en intern IP-adress, ofta kallad en ILB ASE eftersom den interna slutpunkten är en intern belastningsutjämnaren (ILB).
+- Med VIP på en intern IP-adress, som ofta kallas för en ILB-ASE, eftersom den interna slut punkten är en intern Load Balancer (ILB).
 
-Den här artikeln visar hur du skapar en extern ASE. En översikt över ASE finns i [en introduktion till App Service Environment][Intro]. For information on how to create an ILB ASE, see [Create and use an ILB ASE][MakeILBASE].
+Den här artikeln visar hur du skapar en extern ASE. En översikt över ASE finns i [en introduktion till App Service-miljön][Intro]. Information om hur du skapar en ILB-ASE finns i [skapa och använda en ILB-ASE][MakeILBASE].
 
 ## <a name="before-you-create-your-ase"></a>Innan du skapar din ASE
 
-När du har skapat din ASE kan ändra du inte följande:
+När du har skapat din ASE kan du inte ändra följande:
 
 - Location
 - Subscription
 - Resource group
-- Virtuella nätverket som används
+- VNet används
 - Undernät som används
-- Undernätets storlek
+- Under näts storlek
 
 > [!NOTE]
-> När du väljer ett virtuellt nätverk och ange ett undernät, se till att det är tillräckligt stor för att hantera framtida tillväxt och skalningsbehov. Vi rekommenderar en storlek på `/24` med 256-adresser.
+> När du väljer ett VNet och anger ett undernät måste du kontrol lera att det är tillräckligt stort för att kunna hantera framtida tillväxt-och skalnings behov. Vi rekommenderar en storlek på `/24` med 256 adresser.
 >
 
-## <a name="three-ways-to-create-an-ase"></a>Tre sätt att skapa en Apptjänstmiljö
+## <a name="three-ways-to-create-an-ase"></a>Tre sätt att skapa en ASE
 
-Det finns tre sätt att skapa en Apptjänstmiljö:
+Det finns tre sätt att skapa en ASE:
 
-- **När du skapar en App Service plan**. Den här metoden skapar ASE och App Service-planen i ett enda steg.
-- **Som en fristående åtgärd**. Den här metoden skapar en fristående ASE, vilket är en ASE med ingenting i den. Den här metoden är en mer avancerad process för att skapa en Apptjänstmiljö. Du kan använda den för att skapa en ASE med en ILB.
-- **Från en Azure Resource Manager-mall**. Den här metoden är för avancerade användare. Mer information finns i [skapa ASE från en mall][MakeASEfromTemplate].
+- **När du skapar en app service plan**. Den här metoden skapar ASE och App Service plan i ett enda steg.
+- **Som en fristående åtgärd**. Den här metoden skapar en fristående ASE, som är en ASE utan något. Den här metoden är en mer avancerad process för att skapa en ASE. Du använder den för att skapa en ASE med en ILB.
+- **Från en Azure Resource Manager-mall**. Den här metoden är för avancerade användare. Mer information finns i [skapa en ASE från en mall][MakeASEfromTemplate].
 
-En extern ASE har en offentlig VIP, vilket innebär att alla HTTP/HTTPS-trafik till appar i ASE når en internet-tillgänglig IP-adress. En ASE med en ILB har en IP-adress från det undernät som används av ASE. Appar i en ILB ASE visas inte direkt till internet.
+En extern ASE har en offentlig VIP, vilket innebär att all HTTP/HTTPS-trafik till apparna i ASE träffar en IP-adress som kan nås via Internet. En ASE med en ILB har en IP-adress från det undernät som används av ASE. Appar som är värdar för en ILB-ASE exponeras inte direkt för Internet.
 
-## <a name="create-an-ase-and-an-app-service-plan-together"></a>Skapa en ase-miljö och en App Service plan tillsammans
+## <a name="create-an-ase-and-an-app-service-plan-together"></a>Skapa en ASE och en App Service plan tillsammans
 
-App Service-planen är en behållare för appar. När du skapar en app i App Service kan du välja eller skapa en App Service-plan. App Service-miljöer Håll App Service-planer, App Service-planer och håll och appar.
+App Service plan är en behållare för appar. När du skapar en app i App Service kan du välja eller skapa en App Service plan. App Service miljöer innehåller App Service-planer och App Service planer.
 
-Skapa en ASE när du skapar en App Service plan:
+Så här skapar du en ASE när du skapar en App Service plan:
 
-1. I den [Azure-portalen](https://portal.azure.com/)väljer **skapa en resurs** > **webb + mobilt** > **Webbapp**.
+1. I [Azure Portal](https://portal.azure.com/)väljer du **skapa en resurs** > **webb och mobilt** >  **-webbapp**.
 
-    ![Skapa en webbapp][1]
+    ![Skapa webb program][1]
 
-2. Välj din prenumeration. Appen och ASE skapas i samma abonnemang.
+2. Välj din prenumeration. Appen och ASE skapas i samma prenumerationer.
 
-3. Välj eller skapa en Resursgrupp. Du kan hantera relaterade Azure-resurser med resursgrupper, som en enhet. Resursgrupper är också användbara när du etablerar regler för rollbaserad åtkomstkontroll för dina appar. Mer information finns i [översikten över Azure Resource Manager][ARMOverview].
+3. Välj eller skapa en Resursgrupp. Med resurs grupper kan du hantera relaterade Azure-resurser som en enhet. Resurs grupper är också användbara när du upprättar rollbaserade Access Control regler för dina appar. Mer information finns i [översikten över Azure Resource Manager][ARMOverview].
 
-4. Välj ditt operativsystem (Windows, Linux eller Docker). 
+4. Välj ditt operativ system (Windows, Linux eller Docker). 
 
-5. Välj App Service-planen och välj sedan **Skapa ny**. Webbappar i Linux och Windows web apps får inte finnas i samma App Service-planen, men kan finnas i samma App Service Environment. 
+5. Välj App Service plan och välj sedan **Skapa ny**. Linux-webbappar och Windows-webbappar kan inte vara i samma App Service plan, men kan vara i samma App Service-miljön. 
 
     ![Ny App Service-plan][2]
 
-6. I den **plats** listrutan, Välj den region där du vill skapa ASE. Om du väljer en befintlig ASE är inte en ny ASE skapas. App Service-planen har skapats i ASE som du har valt. 
+6. I list rutan **plats** väljer du den region där du vill skapa ASE. Om du väljer en befintlig ASE skapas inte en ny ASE. App Service plan skapas i den ASE som du har valt. 
 
-7. Välj **prisnivå**, och välj ett av de **isolerad** priser för SKU: er. Om du väljer en **isolerad** SKU-kort och en plats som inte är en ASE, en ny ASE har skapats på den platsen. För att starta processen för att skapa en Apptjänstmiljö markerar **Välj**. Den **isolerad** SKU är endast tillgängliga i tillsammans med en ase-miljö. Du också kan inte använda andra priser SKU i en ASE än **isolerad**. 
+7. Välj **pris nivå**och välj en av de **isolerade** pris-SKU: erna. Om du väljer ett **isolerat** SKU-kort och en plats som inte är en ASE, skapas en ny ASE på den platsen. Välj **Välj**för att starta processen för att skapa en ASE. Den **isolerade** SKU: n är bara tillgänglig tillsammans med en ASE. Du kan inte heller använda någon annan pris-SKU i en annanASE än isolerad. 
 
-    ![Val av prisnivå][3]
+    ![Val av pris nivå][3]
 
-8. Ange namn för din ASE. Det här namnet används i adresserbara namnet för dina appar. Om namnet på ASE är _appsvcenvdemo_, domännamnet är *. appsvcenvdemo.p.azurewebsites.net*. Om du skapar en app med namnet *mytestapp*, är det adresserbara på mytestapp.appsvcenvdemo.p.azurewebsites.net. Du kan inte använda blanksteg i namnet. Om du använder versaler är domännamnet den totala gemenversionen med det namnet.
+8. Ange namnet på din ASE. Det här namnet används i det adresser bara namnet för dina appar. Om namnet på ASE är _appsvcenvdemo_är domän namnet *. appsvcenvdemo.p.azurewebsites.net*. Om du skapar en app med namnet *mytestapp*kan den adresseras på mytestapp.appsvcenvdemo.p.azurewebsites.net. Du kan inte använda blank steg i namnet. Om du använder versaler är domän namnet den totala gemen versionen av det namnet.
 
-    ![Ny App Service-planens namn][4]
+    ![Nytt App Service plan namn][4]
 
-9. Ange din Azure information för virtuella nätverk. Välj antingen **skapa en ny** eller **Välj befintlig**. Möjlighet att välja ett befintligt VNet är endast tillgängligt om du har ett virtuellt nätverk i den valda regionen. Om du väljer **Skapa ny**, ange ett namn för det virtuella nätverket. Ett nytt Resource Manager-VNet med samma namn skapas. Den använder adressutrymmet `192.168.250.0/23` i den valda regionen. Om du väljer **Välj befintligt**, måste du:
+9. Ange information om det virtuella Azure-nätverket. Välj antingen **Skapa ny** eller **Välj befintlig**. Alternativet för att välja ett befintligt VNet är bara tillgängligt om du har ett VNet i den valda regionen. Om du väljer **Skapa ny**anger du ett namn för VNet. Ett nytt virtuellt Resource Manager VNet med det namnet skapas. Det använder adress utrymmet `192.168.250.0/23` i den valda regionen. Om du väljer **Välj befintlig**måste du:
 
-    a. Välj Adressblock för virtuellt nätverk om du har fler än en.
+    a. Välj VNet-adressblock om du har fler än ett.
 
-    b. Ange ett nytt undernätsnamn.
+    b. Ange ett nytt namn på under nätet.
 
-    c. Välj storleken på undernätet. *Kom ihåg att välja en storlek som är tillräckligt stor för att hantera tillväxt i din ASE.* Vi rekommenderar att `/24`, som har 128 adresser och kan hantera en ASE med maximal storlek. Vi rekommenderar inte `/28`, till exempel eftersom endast 16 adresserna är tillgängliga. Använder minst sju adresser för infrastrukturen och Azure-nätverk använder en annan 5. I en `/28` undernät, som du har lämnat med en maximal skalning av 4 App Service-planinstanser för en extern ASE och endast 3 App Service-plan-instanser för en ILB ASE.
+    c. Välj storlek på under nätet. *Kom ihåg att välja en storlek som är tillräckligt stor för att kunna hantera framtida tillväxt av din ASE.* Vi rekommenderar `/24`, som har 128 adresser och kan hantera en maximal storlek ASE. Vi rekommenderar `/28`till exempel inte att bara 16 adresser är tillgängliga. Infrastrukturen använder minst sju adresser och Azure-nätverk använder en till 5. I ett `/28` undernät har du lämnat en maximal skalning på 4 App Service plan instanser för en extern ASE och endast tre App Service plan-instanser för en ILB-ASE.
 
-    d. Välj IP-adressintervall för undernätet.
+    d. Välj IP-intervall för under nätet.
 
-10. Välj **skapa** att skapa ASE. Den här processen skapar även App Service-planen och appen. ASE, App Service-plan och app är allt under samma prenumeration och även i samma resursgrupp. Om din ASE behöver en separat resursgrupp, eller om du behöver en ILB ASE, följer du stegen för att skapa en Apptjänstmiljö ensamt.
+10. Välj **skapa** för att skapa ASE. Den här processen skapar även App Service plan och appen. ASE, App Service plan och app är alla under samma prenumeration och också i samma resurs grupp. Om din ASE behöver en separat resurs grupp eller om du behöver en ILB-ASE, följer du stegen för att skapa en ASE av sig själv.
 
-## <a name="create-an-ase-and-a-linux-web-app-using-a-custom-docker-image-together"></a>Skapa en ase-miljö och en Linux-webbapp med en anpassad dockeravbildning tillsammans
+## <a name="create-an-ase-and-a-linux-web-app-using-a-custom-docker-image-together"></a>Skapa en ASE och en Linux-webbapp med hjälp av en anpassad Docker-avbildning
 
-1. I den [Azure-portalen](https://portal.azure.com/), **skapa en resurs** > **webb + mobilt** > **Web App for Containers.** 
+1. **Skapa en resurs** >  **webb och mobilt** [](https://portal.azure.com/)WebAppforcontainers > i Azure Portal. 
 
-    ![Skapa en webbapp][7]
+    ![Skapa webb program][7]
 
-1. Välj din prenumeration. Appen och ASE skapas i samma abonnemang.
+1. Välj din prenumeration. Appen och ASE skapas i samma prenumerationer.
 
-1. Välj eller skapa en Resursgrupp. Du kan hantera relaterade Azure-resurser med resursgrupper, som en enhet. Resursgrupper är också användbara när du etablerar regler för rollbaserad åtkomstkontroll för dina appar. Mer information finns i [översikten över Azure Resource Manager][ARMOverview].
+1. Välj eller skapa en Resursgrupp. Med resurs grupper kan du hantera relaterade Azure-resurser som en enhet. Resurs grupper är också användbara när du upprättar rollbaserade Access Control regler för dina appar. Mer information finns i [översikten över Azure Resource Manager][ARMOverview].
 
-1. Välj App Service-planen och välj sedan **Skapa ny**. Webbappar i Linux och Windows web apps får inte finnas i samma App Service-planen, men kan finnas i samma App Service Environment. 
+1. Välj App Service plan och välj sedan **Skapa ny**. Linux-webbappar och Windows-webbappar kan inte vara i samma App Service plan, men kan vara i samma App Service-miljön. 
 
     ![Ny App Service-plan][8]
 
-1. I den **plats** listrutan, Välj den region där du vill skapa ASE. Om du väljer en befintlig ASE är inte en ny ASE skapas. App Service-planen har skapats i ASE som du har valt. 
+1. I list rutan **plats** väljer du den region där du vill skapa ASE. Om du väljer en befintlig ASE skapas inte en ny ASE. App Service plan skapas i den ASE som du har valt. 
 
-1. Välj **prisnivå**, och välj ett av de **isolerad** priser för SKU: er. Om du väljer en **isolerad** SKU-kort och en plats som inte är en ASE, en ny ASE har skapats på den platsen. För att starta processen för att skapa en Apptjänstmiljö markerar **Välj**. Den **isolerad** SKU är endast tillgängliga i tillsammans med en ase-miljö. Du också kan inte använda andra priser SKU i en ASE än **isolerad**. 
+1. Välj **pris nivå**och välj en av de **isolerade** pris-SKU: erna. Om du väljer ett **isolerat** SKU-kort och en plats som inte är en ASE, skapas en ny ASE på den platsen. Välj **Välj**för att starta processen för att skapa en ASE. Den **isolerade** SKU: n är bara tillgänglig tillsammans med en ASE. Du kan inte heller använda någon annan pris-SKU i en annanASE än isolerad. 
 
-    ![Val av prisnivå][3]
+    ![Val av pris nivå][3]
 
-1. Ange namn för din ASE. Det här namnet används i adresserbara namnet för dina appar. Om namnet på ASE är _appsvcenvdemo_, domännamnet är *. appsvcenvdemo.p.azurewebsites.net*. Om du skapar en app med namnet *mytestapp*, är det adresserbara på mytestapp.appsvcenvdemo.p.azurewebsites.net. Du kan inte använda blanksteg i namnet. Om du använder versaler är domännamnet den totala gemenversionen med det namnet.
+1. Ange namnet på din ASE. Det här namnet används i det adresser bara namnet för dina appar. Om namnet på ASE är _appsvcenvdemo_är domän namnet *. appsvcenvdemo.p.azurewebsites.net*. Om du skapar en app med namnet *mytestapp*kan den adresseras på mytestapp.appsvcenvdemo.p.azurewebsites.net. Du kan inte använda blank steg i namnet. Om du använder versaler är domän namnet den totala gemen versionen av det namnet.
 
-    ![Ny App Service-planens namn][4]
+    ![Nytt App Service plan namn][4]
 
-1. Ange din Azure information för virtuella nätverk. Välj antingen **skapa en ny** eller **Välj befintlig**. Möjlighet att välja ett befintligt VNet är endast tillgängligt om du har ett virtuellt nätverk i den valda regionen. Om du väljer **Skapa ny**, ange ett namn för det virtuella nätverket. Ett nytt Resource Manager-VNet med samma namn skapas. Den använder adressutrymmet `192.168.250.0/23` i den valda regionen. Om du väljer **Välj befintligt**, måste du:
+1. Ange information om det virtuella Azure-nätverket. Välj antingen **Skapa ny** eller **Välj befintlig**. Alternativet för att välja ett befintligt VNet är bara tillgängligt om du har ett VNet i den valda regionen. Om du väljer **Skapa ny**anger du ett namn för VNet. Ett nytt virtuellt Resource Manager VNet med det namnet skapas. Det använder adress utrymmet `192.168.250.0/23` i den valda regionen. Om du väljer **Välj befintlig**måste du:
 
-    a. Välj Adressblock för virtuellt nätverk om du har fler än en.
+    a. Välj VNet-adressblock om du har fler än ett.
 
-    b. Ange ett nytt undernätsnamn.
+    b. Ange ett nytt namn på under nätet.
 
-    c. Välj storleken på undernätet. *Kom ihåg att välja en storlek som är tillräckligt stor för att hantera tillväxt i din ASE.* Vi rekommenderar att `/24`, som har 128 adresser och kan hantera en ASE med maximal storlek. Vi rekommenderar inte `/28`, till exempel eftersom endast 16 adresserna är tillgängliga. Använder minst sju adresser för infrastrukturen och Azure-nätverk använder en annan 5. I en `/28` undernät, som du har lämnat med en maximal skalning av 4 App Service-planinstanser för en extern ASE och endast 3 App Service-plan-instanser för en ILB ASE.
+    c. Välj storlek på under nätet. *Kom ihåg att välja en storlek som är tillräckligt stor för att kunna hantera framtida tillväxt av din ASE.* Vi rekommenderar `/24`, som har 128 adresser och kan hantera en maximal storlek ASE. Vi rekommenderar `/28`till exempel inte att bara 16 adresser är tillgängliga. Infrastrukturen använder minst sju adresser och Azure-nätverk använder en till 5. I ett `/28` undernät har du lämnat en maximal skalning på 4 App Service plan instanser för en extern ASE och endast tre App Service plan-instanser för en ILB-ASE.
 
-    d. Välj IP-adressintervall för undernätet.
+    d. Välj IP-intervall för under nätet.
 
-1.  Välj ”Konfigurera behållaren”.
-    * Ange ditt namn på anpassad avbildning (du kan använda Azure Container Registry, Docker Hub och ditt eget privata register). Om du inte vill använda en egen anpassad behållare kan du bara ta med din kod och använda en inbyggd avbildning med App Service på Linux, med hjälp av anvisningarna ovan. 
+1.  Välj "Konfigurera behållare".
+    * Ange namnet på den anpassade avbildningen (du kan använda Azure Container Registry, Docker Hub och ditt eget privata register). Om du inte vill använda en egen anpassad behållare kan du bara ta med din kod och använda en inbyggd avbildning med App Service på Linux med hjälp av anvisningarna ovan. 
 
-    ![Konfigurera behållaren][9]
+    ![Konfigurera behållare][9]
 
-1. Välj **skapa** att skapa ASE. Den här processen skapar även App Service-planen och appen. ASE, App Service-plan och app är allt under samma prenumeration och även i samma resursgrupp. Om din ASE behöver en separat resursgrupp, eller om du behöver en ILB ASE, följer du stegen för att skapa en Apptjänstmiljö ensamt.
+1. Välj **skapa** för att skapa ASE. Den här processen skapar även App Service plan och appen. ASE, App Service plan och app är alla under samma prenumeration och också i samma resurs grupp. Om din ASE behöver en separat resurs grupp eller om du behöver en ILB-ASE, följer du stegen för att skapa en ASE av sig själv.
 
 
-## <a name="create-an-ase-by-itself"></a>Skapa en Apptjänstmiljö ensamt
+## <a name="create-an-ase-by-itself"></a>Skapa en ASE själva
 
-Om du skapar en ASE-fristående har ingenting i den. En tom ASE fortfarande medför en månatlig avgift för infrastrukturen. Följ dessa steg för att skapa en ASE med en ILB eller skapa en ase-miljö i en egen resursgrupp. När du har skapat din ASE kan skapa du appar i den med hjälp av den normala processen. Välj din nya ASE som plats.
+Om du skapar en fristående ASE, har den inget i sig. En tom ASE debiteras fortfarande för en månatlig avgift för infrastrukturen. Följ de här stegen för att skapa en ASE med en ILB eller för att skapa en ASE i en egen resurs grupp. När du har skapat din ASE kan du skapa appar i den med hjälp av normal processen. Välj den nya ASE som plats.
 
-1. Sök på Azure Marketplace för **App Service Environment**, eller välj **skapa en resurs** > **Web Mobile** > **App Tjänsten miljö**. 
+1. Sök på Azure Marketplace efter **App Service-miljön**eller Välj **skapa en resurs** > **webb mobil** > **App Service-miljön**. 
 
-1. Ange namnet på din ASE. Det här namnet används för appar som skapats i ASE. Om namnet är *mynewdemoase*, underdomän heter *. mynewdemoase.p.azurewebsites.net*. Om du skapar en app med namnet *mytestapp*, är det adresserbara på mytestapp.mynewdemoase.p.azurewebsites.net. Du kan inte använda blanksteg i namnet. Om du använder versaler är domännamnet den totala gemenversionen av namnet. Om du använder en ILB ASE-namn används inte i din underdomän men i stället anges under ASE-generering.
+1. Ange namnet på din ASE. Det här namnet används för de appar som skapas i ASE. Om namnet är *mynewdemoase*är under domän namnet *. mynewdemoase.p.azurewebsites.net*. Om du skapar en app med namnet *mytestapp*kan den adresseras på mytestapp.mynewdemoase.p.azurewebsites.net. Du kan inte använda blank steg i namnet. Om du använder versaler är domän namnet den totala gemen versionen av namnet. Om du använder en ILB används inte ditt ASE-namn i under domänen, men anges i stället uttryckligen när ASE skapas.
 
-    ![Namngivning av ASE][5]
+    ![ASE namngivning][5]
 
-1. Välj din prenumeration. Den här prenumerationen är också det som alla appar i ASE använder. Du kan inte lägga din ASE i ett virtuellt nätverk som tillhör en annan prenumeration.
+1. Välj din prenumeration. Den här prenumerationen är också en som alla appar i ASE använder. Du kan inte ange din ASE i ett VNet som finns i en annan prenumeration.
 
-1. Välj eller ange en ny resursgrupp. Resursgruppen som används för din ASE måste vara samma konto som används för ditt virtuella nätverk. Om du väljer ett befintligt VNet har på val av resursgrupp för din ASE uppdaterats för att avspegla för ditt VNet. *Du kan skapa en ASE med en resursgrupp som skiljer sig från resursgruppen virtuellt nätverk om du använder Resource Manager-mall.* För att skapa en ASE från en mall, se [skapa en App Service-miljö från en mall][MakeASEfromTemplate].
+1. Välj eller ange en ny resurs grupp. Resurs gruppen som används för din ASE måste vara samma som används för ditt VNet. Om du väljer ett befintligt virtuellt nätverk uppdateras resurs grupps valet för din ASE så att det återspeglar det virtuella nätverket. *Du kan skapa en ASE med en resurs grupp som skiljer sig från resurs gruppen VNet om du använder en Resource Manager-mall.* Information om hur du skapar en ASE från en mall finns i [skapa en app service-miljö från en mall][MakeASEfromTemplate].
 
     ![Val av resursgrupp][6]
 
-1. Välj virtuellt nätverk och plats. Du kan skapa ett nytt VNet eller välja ett befintligt VNet: 
+1. Välj ditt VNet och din plats. Du kan skapa ett nytt VNet eller välja ett befintligt VNet: 
 
     * Om du väljer ett nytt virtuellt nätverk, kan du ange ett namn och en plats. 
     
-    * Det nya VNet har adressintervallet 192.168.250.0/23 och ett undernät med namnet standard. Undernätet har definierats som 192.168.250.0/24. Du kan bara välja ett Resource Manager-VNet. Den **VIP-typ** val styr om din ASE kan nås direkt från internet (extern) eller om den använder en ILB. Mer information om alternativen finns [skapa och använda en intern belastningsutjämnare med en App Service environment][MakeILBASE]. 
+    * Det nya virtuella nätverket har adress intervallet 192.168.250.0/23 och ett undernät med namnet default. Under nätet definieras som 192.168.250.0/24. Du kan bara välja ett virtuellt Resource Manager-nätverk. Valet av **VIP-typ** avgör om din ASE kan nås direkt från Internet (extern) eller om den använder en ILB. Mer information om de här alternativen finns i [skapa och använda en intern belastningsutjämnare med en app Services miljö][MakeILBASE]. 
 
-      * Om du väljer **externa** för den **VIP-typ**, du kan välja hur många externa IP-adresser som systemet skapas med för IP-baserad SSL. 
+      * Om du väljer **extern** för **VIP-typen**kan du välja hur många externa IP-adresser som systemet ska skapas med för IP-baserade SSL-syfte. 
     
-      * Om du väljer **internt** för den **VIP-typ**, måste du ange den domän som används av din ASE. Du kan distribuera en ASE i ett virtuellt nätverk som använder offentlig eller privat adressintervall. Om du vill använda ett virtuellt nätverk med ett offentligt adressintervall, måste du skapa det virtuella nätverket i tid. 
+      * Om du väljer **intern** för **VIP-typen**måste du ange den domän som din ASE använder. Du kan distribuera en ASE till ett VNet som använder offentliga eller privata adress intervall. Om du vill använda ett VNet med ett offentligt adress intervall måste du skapa VNet i förväg. 
     
-    * Om du väljer ett befintligt virtuellt nätverk skapas ett nytt undernät när ASE har skapats. *Du kan inte använda ett undernät som skapats i förväg i portalen. Du kan skapa en ASE med ett befintligt undernät om du använder Resource Manager-mall.* För att skapa en ASE från en mall, se [skapa en App Service Environment från en mall][MakeASEfromTemplate].
+    * Om du väljer ett befintligt virtuellt nätverk skapas ett nytt undernät när ASE skapas. *Du kan inte använda ett i förväg skapade undernät i portalen. Du kan skapa en ASE med ett befintligt undernät om du använder en Resource Manager-mall.* Information om hur du skapar en ASE från en mall finns i [skapa en app service-miljön från en mall][MakeASEfromTemplate].
 
 ## <a name="app-service-environment-v1"></a>App Service Environment v1
 
-Du kan fortfarande skapa instanser av den första versionen av App Service Environment (ASEv1). Den här processen Sök på Marketplace efter **App Service Environment v1**. Du kan skapa ASE på samma sätt som du skapar fristående ASE. När det är klart, har din ASEv1 två klientdelar och två arbetsroller. Med ASEv1, måste du hantera klientdelar och arbetare. De läggs inte automatiskt när du skapar din App Service-planer. Frontend-datorer fungerar som HTTP/HTTPS-slutpunkter och skicka trafik till anställda. Arbetare är roller som värd för dina appar. Du kan justera antalet klientdelar och arbetare när du har skapat din ASE. 
+Du kan fortfarande skapa instanser av den första versionen av App Service-miljön (ASEv1). Starta processen genom att söka på Marketplace efter **App Service-miljön v1**. Du skapar ASE på samma sätt som du skapar den fristående ASE. När det är klart har din ASEv1 två klient delar och två arbetare. Med ASEv1 måste du hantera klient delar och arbetare. De läggs inte automatiskt till när du skapar dina App Service-planer. Klient delen fungerar som HTTP/HTTPS-slutpunkter och skickar trafik till arbets tagarna. Arbetarna är de roller som är värdar för dina appar. Du kan justera antalet klient delar och arbetare när du har skapat din ASE. 
 
-Mer information om ASEv1 finns [introduktion till App Service Environment v1][ASEv1Intro]. For more information on scaling, managing, and monitoring ASEv1, see [How to configure an App Service Environment][ConfigureASEv1].
+Mer information om ASEv1 finns i [Introduktion till App Service-miljön v1][ASEv1Intro]. Mer information om skalning, hantering och övervakning av ASEv1 finns i [så här konfigurerar du en app service-miljön][ConfigureASEv1].
 
 <!--Image references-->
 [1]: ./media/how_to_create_an_external_app_service_environment/createexternalase-create.png

@@ -11,16 +11,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/26/2019
+ms.date: 08/06/2019
 ms.author: tomfitz
-ms.openlocfilehash: 50bbaf740a67d3830df2d0447b9522153cb8c93c
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 292f2995e7ff1f56c306b8c9859bdb323f21762d
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619092"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847598"
 ---
 # <a name="createuidefitinionjson-for-azure-managed-applications-create-experience"></a>CreateUiDefitinion. JSON för Azure Managed Applications Create Experience
+
 I det här dokumentet beskrivs de grundläggande begreppen i filen **createUiDefinition. JSON** som Azure Portal använder för att definiera användar gränssnittet när du skapar ett hanterat program.
 
 Mallen är följande
@@ -33,7 +34,8 @@ Mallen är följande
    "parameters": {
       "basics": [ ],
       "steps": [ ],
-      "outputs": { }
+      "outputs": { },
+      "resourceTypes": [ ]
    }
 }
 ```
@@ -53,14 +55,17 @@ Inklusive `$schema` rekommenderas, men valfritt. Om det anges måste värdet fö
 Du kan använda en JSON-redigerare för att skapa användar gränssnitts definitionen och sedan testa den i [sand boxen för gränssnitts definition](https://portal.azure.com/?feature.customPortal=false&#blade/Microsoft_Azure_CreateUIDef/SandboxBlade) för att förhandsgranska den. Mer information om sandbox finns i [Testa ditt Portal gränssnitt för Azure Managed Applications](test-createuidefinition.md).
 
 ## <a name="basics"></a>Grundinställningar
+
 Grunderna är det första steget som skapas när Azure Portal tolkar filen. Förutom att visa de element som anges i `basics`, infogar portalen element för användare för att välja prenumeration, resurs grupp och plats för distributionen. När det är möjligt bör element som frågar om distributionens globala parametrar, t. ex. namnet på ett kluster eller administratörs behörighet, fortsätta i det här steget.
 
 Om ett Elements beteende beror på användarens prenumeration, resurs grupp eller plats, kan det elementet inte användas i grunderna. Till exempel är **Microsoft. Compute. SizeSelector** beroende av användarens prenumeration och plats för att fastställa listan över tillgängliga storlekar. Därför kan **Microsoft. Compute. SizeSelector** endast användas i steg. I allmänhet kan endast element i namn området **Microsoft. common** användas i grunderna. Även om vissa element i andra namn rymder (t **. ex. Microsoft. Compute. credentials**) som inte är beroende av användarens kontext fortfarande är tillåtna.
 
 ## <a name="steps"></a>Steg
+
 Egenskapen steg kan innehålla noll eller ytterligare ytterligare steg för att visa efter grunderna, som innehåller ett eller flera element. Överväg att lägga till steg per roll eller nivå för det program som distribueras. Du kan till exempel lägga till ett steg för indata för huvudnoder och ett steg för arbetsnoder i ett kluster.
 
 ## <a name="outputs"></a>outputs
+
 Azure Portal använder `outputs` egenskapen för att mappa element från `basics` och `steps` till parametrarna i mallen för Azure Resource Manager distribution. Nycklarna för den här ord listan är namnen på mallparametrar och värdena är egenskaper för de utgående objekten från de refererade elementen.
 
 Om du vill ange resurs namnet för den hanterade appen måste du inkludera `applicationResourceName` ett värde med namnet i egenskapen outputs. Om du inte anger det här värdet tilldelar programmet ett GUID för namnet. Du kan inkludera en text ruta i användar gränssnittet som begär ett namn från användaren.
@@ -75,10 +80,27 @@ Om du vill ange resurs namnet för den hanterade appen måste du inkludera `appl
 }
 ```
 
+## <a name="resource-types"></a>Resurstyper
+
+Om du vill filtrera tillgängliga platser till endast de platser som har stöd för de resurs typer som ska distribueras, anger du en matris av resurs typerna. Om du anger mer än en resurs typ returneras bara de platser som stöder alla resurs typer. Den här egenskapen är valfri.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json#",
+    "handler": "Microsoft.Azure.CreateUIDef",
+    "version": "0.1.2-preview",
+    "parameters": {
+      "resourceTypes": ["Microsoft.Compute/disks"],
+      "basics": [
+        ...
+```  
+
 ## <a name="functions"></a>Funktioner
+
 CreateUiDefinition innehåller [funktioner](create-uidefinition-functions.md) för att arbeta med element indata och utdata, samt funktioner som till exempel villkor. Dessa funktioner liknar funktionerna i både syntax och funktioner i Azure Resource Manager mallar.
 
 ## <a name="next-steps"></a>Nästa steg
+
 Filen createUiDefinition. JSON har ett enkelt schema. Det verkliga djupet i den kommer från alla element och funktioner som stöds. Dessa objekt beskrivs mer detaljerat på:
 
 - [Ämnen](create-uidefinition-elements.md)

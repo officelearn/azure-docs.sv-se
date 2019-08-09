@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 02/08/2019
-ms.openlocfilehash: db295f7644cae96eb00670cecf6e4eeba9bb6bed
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 86bd479eff48a7feb42557eb1d175345728f0a69
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567226"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879057"
 ---
 # <a name="transactional-replication-with-single-pooled-and-instance-databases-in-azure-sql-database"></a>Transaktionell replikering med enkel-, pool-och instans databaser i Azure SQL Database
 
@@ -96,8 +96,10 @@ Det finns olika [typer av replikering](https://docs.microsoft.com/sql/relational
 - Port 445 (TCP utgående) måste vara öppen i säkerhets reglerna för under nätet för hanterade instanser för att få åtkomst till Azure-filresursen. 
 - Port 1433 (TCP utgående) måste öppnas om utgivaren/distributören finns på en hanterad instans och prenumeranten är lokalt.
 
-  >[!NOTE]
-  > Du kan stöta på fel 53 när du ansluter till en Azure Storage-fil om den utgående nätverks säkerhets gruppen (NSG) port 445 är blockerad när distributören är en instans databas och prenumeranten är lokalt. [Uppdatera vNet-NSG](/azure/storage/files/storage-troubleshoot-windows-file-connection-problems) för att lösa problemet. 
+
+>[!NOTE]
+> - Du kan stöta på fel 53 när du ansluter till en Azure Storage-fil om den utgående nätverks säkerhets gruppen (NSG) port 445 är blockerad när distributören är en instans databas och prenumeranten är lokalt. [Uppdatera vNet-NSG](/azure/storage/files/storage-troubleshoot-windows-file-connection-problems) för att lösa problemet. 
+> - Om utgivar-och distributions databaserna på en hanterad instans använder [Auto redundans-grupper](sql-database-auto-failover-group.md), måste den hanterade instans administratören [ta bort alla publikationer på den gamla primära servern och konfigurera om dem på den nya primära efter en redundansväxling](sql-database-managed-instance-transact-sql-information.md#replication).
 
 ### <a name="compare-data-sync-with-transactional-replication"></a>Jämför datasynkronisering med transaktionell replikering
 
@@ -115,7 +117,7 @@ I allmänhet måste utgivaren och distributören vara antingen i molnet eller lo
 
 ![Enskild instans som utgivare och distributör](media/replication-with-sql-database-managed-instance/01-single-instance-asdbmi-pubdist.png)
 
-Utgivare och distributör konfigureras i en enda hanterad instans och distribuerar ändringar till andra hanterade instanser, enskilda databaser, databaser i pooler eller SQL Server lokalt. I den här konfigurationen kan utgivare/distributör-hanterad instans inte konfigureras med [geo-replikering och automatisk redundans-grupper](sql-database-auto-failover-group.md).
+Utgivare och distributör konfigureras i en enda hanterad instans och distribuerar ändringar till andra hanterade instanser, enskilda databaser, databaser i pooler eller SQL Server lokalt. 
 
 ### <a name="publisher-with-remote-distributor-on-a-managed-instance"></a>Utgivare med fjär distributör på en hanterad instans
 
@@ -123,11 +125,11 @@ I den här konfigurationen publicerar en hanterad instans ändringar i distribut
 
 ![Separata instanser för utgivare och distributör](media/replication-with-sql-database-managed-instance/02-separate-instances-asdbmi-pubdist.png)
 
-Utgivare och distributör konfigureras på två hanterade instanser. I den här konfigurationen
+Utgivare och distributör konfigureras på två hanterade instanser. Det finns vissa begränsningar med den här konfigurationen: 
 
 - Båda hanterade instanser finns på samma vNet.
 - Båda hanterade instanser finns på samma plats.
-- Hanterade instanser som är värdar för publicerade och distributions databaser kan inte vara [geo-replikerade med automatisk redundans-grupper](sql-database-auto-failover-group.md).
+
 
 ### <a name="publisher-and-distributor-on-premises-with-a-subscriber-on-a-single-pooled-and-instance-database"></a>Utgivare och distributör lokalt med en prenumerant på en enskild, pool och instans databas 
 
@@ -141,11 +143,13 @@ I den här konfigurationen är en Azure SQL Database (enkel, poolad och instans 
 1. [Konfigurera replikering mellan två hanterade instanser](replication-with-sql-database-managed-instance.md). 
 1. [Skapa en publikation](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication).
 1. [Skapa en push-prenumeration](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription) med hjälp av Azure SQL Database Server namnet som prenumeranten (till exempel `N'azuresqldbdns.database.windows.net` och Azure SQL Database namn som mål databas (till exempel **AdventureWorks**. )
+1. Lär dig mer om [begränsningarna för Transaktionsreplikering för en hanterad instans](sql-database-managed-instance-transact-sql-information.md#replication)
 
 
 
 ## <a name="see-also"></a>Se även  
 
+- [Replikering med en MI-och failover-grupp](sql-database-managed-instance-transact-sql-information.md#replication)
 - [Replikering till SQL-databas](replication-to-sql-database.md)
 - [Replikering till hanterad instans](replication-with-sql-database-managed-instance.md)
 - [Skapa en publikation](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)

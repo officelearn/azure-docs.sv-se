@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 06/07/2019
 ms.author: juliako
-ms.openlocfilehash: c730f41d1dbc48c6622d0a2ba43c32dd1a96c24c
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: f4a859f1e63866a50167031569dca05de3e9af27
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68311813"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68856313"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Viktig information om Azure Media Services v3
 
@@ -33,6 +33,14 @@ Om du vill hålla dig uppdaterad med den senaste utvecklingen, innehåller den h
 > För närvarande kan du inte hantera v3-resurser med Azure-portalen. Använd [REST API](https://aka.ms/ams-v3-rest-sdk), CLI eller någon av de SDK: er som stöds.
 
 Mer information finns i [vägledning för migrering för att flytta från Media Services v2 till v3](migrate-from-v2-to-v3.md#known-issues).
+
+## <a name="august-2019"></a>2019 augusti
+
+### <a name="south-africa-regional-pair-is-open-for-media-services"></a>Södra Afrika, regionala par är öppet för Media Services 
+
+Media Services är nu tillgängligt i södra Afrika, norra och södra Afrika, västra regioner.
+
+Mer information finns i [moln och regioner där Media Services v3 finns](azure-clouds-regions.md).
 
 ## <a name="july-2019"></a>Juli 2019
 

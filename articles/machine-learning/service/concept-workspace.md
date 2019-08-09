@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 05/21/2019
-ms.openlocfilehash: fc3f88e627e0ce19195f6df947d4f11f5f8a73ae
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
-ms.translationtype: HT
+ms.date: 08/06/2019
+ms.openlocfilehash: cb1fd8e98a5eba350774ff6ccb8f86dcd3e4d734
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68772760"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68856201"
 ---
 # <a name="what-is-an-azure-machine-learning-service-workspace"></a>Vad är en Azure Machine Learning service-arbetsyta?
 
@@ -65,6 +65,9 @@ Machine Learning-uppgifter läser och/eller skriver artefakter till din arbets y
 + Visa maskin inlärnings artefakter som experiment, pipelines, modeller, distributioner.
 + Spåra och övervaka modeller.
 
+
+
+
 ## <a name="workspace-management"></a>Hantering av arbets yta
 
 Du kan också utföra följande hanterings uppgifter för arbets ytan:
@@ -76,7 +79,14 @@ Du kan också utföra följande hanterings uppgifter för arbets ytan:
 | Hantera åtkomst till arbets ytan    | **&check;**   | |  **&check;**    |
 | Skapa en virtuell dator för Notebook | **&check;**   | |     |
 
-Kom igång med tjänsten genom att [skapa en arbets yta](setup-create-workspace.md).
+### <a name='create-workspace'></a>Skapa en arbets yta
+
+Det finns flera sätt att skapa en arbets yta.
+
+* Använd [Azure Portal](how-to-manage-workspace.md) för ett punkt-och-klick-gränssnitt för att vägleda dig genom varje steg.
+* Använd [Azure Machine Learning SDK för python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py#workspace) för att skapa en arbets yta i farten från Python-skript eller Jupiter-anteckningsböcker
+* Använd en [Azure Resource Manager mall](how-to-create-workspace-template.md) eller [Azure Machine Learning CLI](reference-azure-machine-learning-cli.md) när du behöver automatisera eller anpassa skapandet med företags säkerhets standarder.
+* Använd [vs Code-tillägget](how-to-vscode-tools.md#get-started-with-azure-machine-learning)om du arbetar i Visual Studio Code.
 
 ## <a name="resources"></a>Associerade resurser
 
@@ -95,6 +105,6 @@ När du skapar en ny arbetsyta skapas automatiskt flera Azure-resurser som anvä
 Information om hur du kommer igång med Azure Machine Learning-tjänsten finns i:
 
 + [Översikt över Azure Machine Learning tjänsten](overview-what-is-azure-ml.md)
-+ [Skapa en arbetsyta](setup-create-workspace.md)
++ [Skapa en arbetsyta](how-to-manage-workspace.md)
 + [Hantera en arbetsyta](how-to-manage-workspace.md)
 + [Självstudier: Träna en modell](tutorial-train-models-with-aml.md)

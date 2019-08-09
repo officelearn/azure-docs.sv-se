@@ -1,87 +1,87 @@
 ---
-title: Spåra och logga in Azure Data Box genom Azure Data Box tung händelser | Microsoft Docs
-description: Beskriver hur du spårar och loggar händelser i de olika stegen i din beställning av Azure Data Box och Azure Data Box tunga.
+title: Spåra och logga Azure Data Box Azure Data Box Heavy händelser | Microsoft Docs
+description: Beskriver hur du spårar och loggar händelser i de olika stegen i din Azure Data Box och Azure Data Box Heavys ordning.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 06/03/2019
+ms.date: 08/07/2019
 ms.author: alkohli
-ms.openlocfilehash: ba08cd7fdecda99c04d5bb1007b3e5f61cd1bd5c
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 309dc8e1fd15ae4088ed6ee87bdbb8aa4d636951
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446775"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68848577"
 ---
-# <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy"></a>Spårning och händelseloggning för din Azure Data Box och Azure Data Box tunga
+# <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy"></a>Spårning och händelse loggning för din Azure Data Box och Azure Data Box Heavy
 
-En Data Box eller Data Box tung ordning går igenom följande steg: ordning ställer in, data kopiera, returnera, överför till Azure och verifiera, och dataradering. Motsvarar varje steg i ordningen som kan du utföra flera åtgärder för att styra åtkomsten till ordningen, granska händelserna, spåra ordningen och tolka flera loggar som genereras.
+En Data Box-enhet-eller Data Box Heavys ordning går igenom följande steg: order, installation, data kopiering, retur, uppladdning till Azure och bekräfta och data radering. Som motsvarar varje steg i ordningen kan du utföra flera åtgärder för att kontrol lera åtkomsten till ordern, granska händelserna, spåra beställningen och tolka de olika loggar som genereras.
 
-I följande tabell visas en sammanfattning av hur Data Box eller Data Box tung ordning och verktyg som finns tillgängliga att spåra och granska ordningen under varje steg.
+I följande tabell visas en sammanfattning av Data Box-enhet eller Data Box Heavy ordnings steg och de verktyg som är tillgängliga för att spåra och granska beställningen under varje steg.
 
-| Data Box ordning steg       | Verktyg för att spåra och granska                                                                        |
+| Data Box-enhet order fas       | Verktyg för att spåra och granska                                                                        |
 |----------------------------|------------------------------------------------------------------------------------------------|
-| Skapa order               | [Konfigurera åtkomstkontroll på för via RBAC](#set-up-access-control-on-the-order)                                                    |
-| Ordern bearbetas            | [Spåra ordningen](#track-the-order) via <ul><li> Azure Portal </li><li> Levererade operatör webbplats </li><li>E-postmeddelanden</ul> |
-| Konfigurera enhet              | Enhetens autentiseringsuppgifter för åtkomst som loggat in [aktivitetsloggar](#query-activity-logs-during-setup)                                              |
-| Kopiera data till enheten        | [Visa *error.xml* filer](#view-error-log-during-data-copy) för kopiering av data                                                             |
-| Förbereda för att skicka            | [Granska BOM filer](#inspect-bom-during-prepare-to-ship) eller manifestfiler på enheten                                      |
-| Ladda upp data till Azure       | [Granska *copylogs* ](#review-copy-log-during-upload-to-azure) för fel under data laddar du upp på Azure-datacenter                         |
-| Raderingen av data från enhet   | [Visa kedjan av spårbarhet loggar](#get-chain-of-custody-logs-after-data-erasure) inklusive granskningsloggar och ordning historik                |
+| Skapa order               | [Konfigurera åtkomst kontroll på ordern via RBAC](#set-up-access-control-on-the-order)                                                    |
+| Bearbetad beställning            | [Spåra](#track-the-order) beställningen genom <ul><li> Azure Portal </li><li> Frakt bär Vågs webbplats </li><li>E-postmeddelanden</ul> |
+| Konfigurera enhet              | Autentiseringsuppgifter för åtkomst till inloggnings uppgifter för enhet [](#query-activity-logs-during-setup)                                              |
+| Data kopiering till enhet        | [Visa *fel. XML-* filer](#view-error-log-during-data-copy) för data kopiering                                                             |
+| Förbered för att skicka            | [Kontrol lera BOM-filerna](#inspect-bom-during-prepare-to-ship) eller manifest filerna på enheten                                      |
+| Data uppladdning till Azure       | [Granska kopierings loggar](#review-copy-log-during-upload-to-azure) för fel under data uppladdning i Azure Data Center                         |
+| Data radering från enhet   | [Visa kedja av vårdnads loggar](#get-chain-of-custody-logs-after-data-erasure) inklusive gransknings loggar och order historik                |
 
-Den här artikeln beskrivs i detalj olika mekanismer eller verktyg som är tillgängliga för att spåra och granska Data Box eller Data Box tung ordning. Informationen i den här artikeln gäller både Data Box och Data Box tung. I följande avsnitt gäller även alla referenser till Data Box för Data Box tung.
+Den här artikeln beskriver i detalj de olika mekanismer och verktyg som är tillgängliga för att spåra och granska Data Box-enhet-eller Data Box Heavys ordning. Informationen i den här artikeln gäller både för Data Box-enhet och Data Box Heavy. I följande avsnitt gäller alla referenser till Data Box-enhet även för Data Box Heavy.
 
-## <a name="set-up-access-control-on-the-order"></a>Konfigurera åtkomstkontroll på ordning
+## <a name="set-up-access-control-on-the-order"></a>Konfigurera åtkomst kontroll på ordern
 
-Du kan styra vem som kan komma åt din beställning när ordningen som skapas. Ställa in roller för rollbaserad åtkomstkontroll (RBAC) på olika områden att styra åtkomsten till Data Box-beställning. RBAC-roll avgör vilken typ av åtkomst – skrivskyddad, skrivskyddad, Läs-och till en delmängd av åtgärder.
+Du kan styra vem som kan komma åt din beställning när ordern först skapas. Konfigurera rollbaserade Access Control-roller (RBAC) i olika omfång för att kontrol lera åtkomsten till Data Box-enhets ordningen. En RBAC-roll bestämmer typ av åtkomst – Läs-och Skriv behörighet, skrivskyddad, Läs-och skriv åtgärder för en del av åtgärderna.
 
-De två rollerna som kan definieras för tjänsten Azure Data Box är:
+De två roller som kan definieras för den Azure Data Box tjänsten är:
 
-- **Data Box-läsare** -har skrivskyddad åtkomst till en eller flera enligt definitionen i omfånget. De kan bara visa information om en order. De kan inte komma åt andra data som är relaterade till storage-konton eller redigera beställningsinformation som adress och så vidare.
-- **Data Box-deltagare** -kan bara skapa en order för att överföra data till ett visst lagringskonto *om de redan har skrivåtkomst till ett lagringskonto*. Om de inte har åtkomst till ett lagringskonto kan inte de även skapa en Data Box-beställning att kopiera data till kontot. Den här rollen definierar inte alla lagringskonton relaterade behörigheter eller beviljar åtkomst till storage-konton.  
+- **Data Box-enhet läsare** – du får skrivskyddad åtkomst till en order som definieras av omfånget. De kan bara visa information om en order. De kan inte komma åt annan information som rör lagrings konton eller redigera beställnings informationen, till exempel adress och så vidare.
+- **Data Box-enhet deltagare** – kan bara skapa en order för att överföra data till ett angivet lagrings konto *om de redan har Skriv behörighet till ett lagrings konto*. Om de inte har åtkomst till ett lagrings konto kan de inte ens skapa en Data Box-enhet ordning för att kopiera data till kontot. Den här rollen definierar inte några behörigheter för lagrings konton eller beviljar åtkomst till lagrings konton.  
 
-Om du vill begränsa åtkomsten till en beställning, kan du:
+Om du vill begränsa åtkomsten till en order kan du:
 
-- Tilldela en roll på en nivå i ordning. Användaren har bara de behörigheterna som definieras av rollerna som kan interagera med den specifika Data Box-beställningen endast och inget annat.
-- Tilldela en roll på resursgruppsnivå, användaren har åtkomst till alla Data Box-order i en resursgrupp.
+- Tilldela en roll på en order nivå. Användaren har bara de behörigheter som definieras av rollerna för att interagera med just den aktuella Data Box-enhet ordningen och inget annat.
+- Tilldela en roll på resurs grupps nivå, användaren har åtkomst till alla Data Box-enhet beställningar inom en resurs grupp.
 
-Mer information om den föreslagna RBAC använder Se [bästa praxis för RBAC](../role-based-access-control/overview.md#best-practice-for-using-rbac).
+Mer information om föreslagen RBAC-användning finns i [metod tips för RBAC](../role-based-access-control/overview.md#best-practice-for-using-rbac).
 
 ## <a name="track-the-order"></a>Spåra beställningen
 
-Du kan spåra din beställning via Azure-portalen och via webbplatsen endash operatör. Följande metoder är på plats för att spåra Data Box-beställning när som helst:
+Du kan spåra din beställning genom Azure Portal och via frakt bär Vågs webbplatsen. Följande mekanismer är på plats för att spåra Data Box-enhets ordningen när som helst:
 
-- Om du vill följa ordningen när enheten är i Azure-datacenter eller ditt lokala nätverk, går du till din **Data Box-beställning > Översikt** i Azure-portalen.
+- Om du vill spåra beställningen när enheten är i Azure-datacenter eller lokalt går du till **data Box-enhet beställ > översikt** i Azure Portal.
 
-    ![Visa beställningsstatus och spåra Nej](media/data-box-logs/overview-view-status-1.png)
+    ![Visa order status och spårning nej](media/data-box-logs/overview-view-status-1.png)
 
-- Om du vill följa ordningen vid överföring, går du till webbplatsen regionala operatör, till exempel UPS webbplats i USA. Ange Spårningsnumret som är associerade med din beställning.
-- Data Box skickar också e-postaviseringar när som helst order status ändras, baserat på e-postmeddelanden när ordern har skapats. En lista över alla statusar för Data Box-beställning finns i [Visa beställningsstatus](data-box-portal-admin.md#view-order-status). Om du vill ändra inställningar för meddelanden som är associerade med ordningen som [redigera meddelandeinformation](data-box-portal-admin.md#edit-notification-details).
+- Om du vill spåra beställningen medan enheten överförs går du till webbplatsen för regional bärvåg, till exempel UPS-webbplats i USA. Ange det spårnings nummer som är associerat med din beställning.
+- Data Box-enhet skickar också e-postaviseringar varje beställnings status ändras baserat på de e-postmeddelanden som angavs när ordern skapades. En lista över alla Data Box-enhet order status finns i [Visa order status](data-box-portal-admin.md#view-order-status). Information om hur du ändrar meddelande inställningarna som är associerade med ordern finns i [Redigera meddelande information](data-box-portal-admin.md#edit-notification-details).
 
-## <a name="query-activity-logs-during-setup"></a>Fråga aktivitetsloggar under installationen
+## <a name="query-activity-logs-during-setup"></a>Fråga aktivitets loggar under installationen
 
-- Din Data box-enhet kommer lokalt i ett låst tillstånd. Du kan använda enhetens autentiseringsuppgifter tillgängliga i Azure-portalen för din beställning.  
+- Dina Data Box-enhet kommer in i låst tillstånd. Du kan använda autentiseringsuppgifter för enheten som är tillgängliga i Azure Portal för din beställning.  
 
-    När en Data Box har konfigurerats, kan du behöva veta vem som alla åtkomst till enhetens autentiseringsuppgifter. Att ta reda på vem som åtkomst till den **enhetsautentiseringsuppgifterna** bladet kan du fråga aktivitetsloggar.  Alla åtgärder som involverar åtkomst **enhetsinformation > autentiseringsuppgifter** bladet är inloggad i aktivitetsloggarna som `ListCredentials` åtgärd.
+    När en Data Box-enhet har kon figurer ATS kan du behöva veta vem som har åtkomst till enhetens autentiseringsuppgifter. Om du vill ta reda på vem som har åtkomst till bladet **autentiseringsuppgifter för enhet** kan du fråga aktivitets loggarna.  Alla åtgärder som inbegriper åtkomst till **enhets information > inloggnings** bladet loggas i aktivitets `ListCredentials` loggarna som åtgärd.
 
     ![Frågeaktivitetsloggar](media/data-box-logs/query-activity-log-1.png)
 
-- Varje logga in på Data Box är loggade realtid. Den här informationen är dock endast tillgängliga i den [granskningsloggar](#audit-logs) när ordningen som har slutförts.
+- Varje inloggning i Data Box-enhet loggas i real tid. Den här informationen är dock bara tillgänglig i [gransknings loggarna](#audit-logs) när beställningen har slutförts.
 
-## <a name="view-error-log-during-data-copy"></a>Visa felloggen vid kopiering av data
+## <a name="view-error-log-during-data-copy"></a>Visa fel logg vid data kopiering
 
-Under Datakopieringen till Data Box eller Data Box tung skapas en felfilen om det finns några problem med de data som kopieras.
+Under data kopieringen till Data Box-enhet eller Data Box Heavy genereras en felfil om det finns problem med data som kopieras.
 
-### <a name="errorxml-file"></a>Error.XML fil
+### <a name="errorxml-file"></a>Error. XML-fil
 
-Se till att kopiera jobben har slutförts utan fel. Om det uppstår fel under kopieringen kan hämta loggar från den **Anslut och kopiera** sidan.
+Kontrol lera att kopierings jobben har avslut ATS utan fel. Om det uppstår fel under kopierings processen kan du hämta loggarna från sidan **Anslut och kopiera** .
 
-- Om du har kopierat en fil som är inte 512 byte justeras till en hanterad disk-mapp på din Data Box är inte överföra filen som sidblobb till mellanlagring storage-kontot. Ett fel i loggarna visas. Ta bort filen och kopiera en fil som är 512 byte justerad.
-- Om du har kopierat en VHDX eller en dynamisk virtuell Hårddisk eller en differentierande virtuell Hårddisk (dessa filer inte stöds), visas ett fel i loggarna.
+- Om du kopierade en fil som inte är 512 byte-justerad till en mapp för hanterad disk på din Data Box-enhet laddas inte filen upp som en sid-blob till ditt lagrings konto för lagring. Du kommer att se ett fel i loggarna. Ta bort filen och kopiera en fil som är 512 byte-justerad.
+- Om du har kopierat en VHDX, eller en dynamisk virtuell hård disk eller en differentierande virtuell hård disk (dessa filer stöds inte), visas ett fel i loggarna.
 
-Här följer ett exempel på den *error.xml* för olika fel vid kopiering till hanterade diskar.
+Här är ett exempel på *fel. XML* för olika fel vid kopiering till hanterade diskar.
 
 ```xml
 <file error="ERROR_BLOB_OR_FILE_TYPE_UNSUPPORTED">\StandardHDD\testvhds\differencing-vhd-022019.vhd</file>
@@ -90,7 +90,7 @@ Här följer ett exempel på den *error.xml* för olika fel vid kopiering till h
 <file error="ERROR_BLOB_OR_FILE_TYPE_UNSUPPORTED">\StandardHDD\testvhds\insidediffvhd-022019.vhd</file>
 ```
 
-Här följer ett exempel på den *error.xml* för olika fel när du kopierar till sidblobar.
+Här är ett exempel på *fel. XML* för olika fel vid kopiering till sid-blobar.
 
 ```xml
 <file error="ERROR_BLOB_OR_FILE_SIZE_ALIGNMENT">\PageBlob512NotAligned\File100Bytes</file>
@@ -101,7 +101,7 @@ Här följer ett exempel på den *error.xml* för olika fel när du kopierar til
 ```
 
 
-Här följer ett exempel på den *error.xml* för olika fel när du kopierar till blockblobar.
+Här är ett exempel på *fel. XML* för olika fel vid kopiering till block-blobar.
 
 ```xml
 <file error="ERROR_CONTAINER_OR_SHARE_NAME_LENGTH">\ab</file>
@@ -129,7 +129,7 @@ Här följer ett exempel på den *error.xml* för olika fel när du kopierar til
 <file error="ERROR_BLOB_OR_FILE_NAME_CHARACTER_ILLEGAL" name_encoding="Base64">XEludmFsaWRVbmljb2RlRmlsZXNcU3BjQ2hhci01NTI5Ny3vv70=</file>
 ```
 
-Här följer ett exempel på den *error.xml* för olika fel när du kopierar till Azure Files.
+Här är ett exempel på *fel. XML* för olika fel vid kopiering till Azure Files.
 
 ```xml
 <file error="ERROR_BLOB_OR_FILE_SIZE_LIMIT">\AzFileMorethan1TB\AzFile1.2TB</file>
@@ -147,31 +147,31 @@ Här följer ett exempel på den *error.xml* för olika fel när du kopierar til
 <file error="ERROR_CONTAINER_OR_SHARE_NAME_ALPHA_NUMERIC_DASH">\Starting with Capital</file>
 ```
 
-Åtgärda felen innan du fortsätter till nästa steg i var och en av de ovanstående fall. Mer information om de fel som togs emot under Datakopieringen till Data Box via SMB- eller NFS-protokoll, går du till [felsöka Data Box och Data Box tunga problem](data-box-troubleshoot.md). Information om fel togs emot under Datakopieringen till Data Box via REST, går du till [felsöka Blob till Data lagringsproblem](data-box-troubleshoot-rest.md).
+I vart och ett av ovanstående fall löser du felen innan du fortsätter till nästa steg. Mer information om de fel som tas emot under data kopieringen till Data Box-enhet via SMB-eller NFS-protokoll finns i [felsöka data Box-enhet och data Box Heavy problem](data-box-troubleshoot.md). Information om fel som tas emot under data kopieringen till Data Box-enhet via REST finns i [felsöka data Box-enhet Blob Storage-problem](data-box-troubleshoot-rest.md).
 
-## <a name="inspect-bom-during-prepare-to-ship"></a>Inspektera BOM under Förbered för att skicka
+## <a name="inspect-bom-during-prepare-to-ship"></a>Inspektera struktur listan under förbereda för leverans
 
-Under Förbered för att skicka en lista över filer som är känd som faktura material (BOM) eller manifestfilen har skapats.
+Under förbereda för att leverera skapas en lista över filer som kallas struktur lista (BOM) eller manifest fil.
 
-- Använd den här filen för att verifiera mot de faktiska namnen och antalet filer som har kopierats till Data Box.
-- Använd den här filen för att verifiera mot de faktiska storleken på filerna.
-- Kontrollera att den *crc64* motsvarar en sträng som inte är noll. <!--A null value for crc64 indicates that there was a reparse point error)-->
+- Använd den här filen för att kontrol lera mot de faktiska namnen och antalet filer som kopierats till Data Box-enhet.
+- Använd den här filen för att kontrol lera mot de faktiska storlekarna för filerna.
+- Kontrol lera att *crc64* motsvarar en sträng som inte är noll. <!--A null value for crc64 indicates that there was a reparse point error)-->
 
-Mer information om de fel som togs emot under förbereda för att leverera, gå till [felsöka Data Box och Data Box tunga problem](data-box-troubleshoot.md).
+Om du vill ha mer information om de fel som har tagits emot vid förberedelse av, går du till [felsöka data Box-enhet och data Box Heavy problem](data-box-troubleshoot.md).
 
-### <a name="bom-or-manifest-file"></a>BOM eller manifest-fil
+### <a name="bom-or-manifest-file"></a>Struktur lista eller manifest fil
 
-BOM eller Manifestfilen innehåller en lista över alla filer som kopieras till Data Box-enhet. Filen BOM har filnamn och motsvarande storlekar samt kontrollsumman. En separat BOM-fil skapas för blockblobbarna, sidblobar, Azure Files, för kopiering via REST-API: er och för att kopiera till hanterade diskar, på Data Box. Du kan hämta BOM-filer från det lokala webbgränssnittet på enheten under Förbered för att skicka.
+STRUKTUR listan eller manifest filen innehåller en lista över alla filer som har kopierats till den Data Box-enhet enheten. STRUKTUR filen innehåller fil namn och motsvarande storlekar samt kontroll summan. En separat STRUKTURLISTEVERSION skapas för block-blobar, Page blobbar Azure Files, för kopiering via REST-API: er, och för kopieringen till hanterade diskar på Data Box-enhet. Du kan hämta BOM-filerna från det lokala webb gränssnittet på enheten när du förbereder att leverera.
 
-Dessa filer kan du också finnas på Data Box-enhet och laddas upp till det associerade lagringskontot i Azure-datacentret.
+Filerna finns också på Data Box-enhet-enheten och överförs till det associerade lagrings kontot i Azure-datacentret.
 
-### <a name="bom-file-format"></a>BOM filformat
+### <a name="bom-file-format"></a>STRUKTURLISTE-filformat
 
-BOM eller manifest-fil har följande allmänna format:
+STRUKTURLISTE-eller manifest filen har följande allmänna format:
 
 `<file size = "file-size-in-bytes" crc64="cyclic-redundancy-check-string">\folder-path-on-data-box\name-of-file-copied.md</file>`
 
-Här är ett exempel på ett manifest som genereras när data har kopierats till block blob-resurs på Data Box.
+Här är ett exempel på ett manifest som genereras när data kopierades till Block Blob-resursen på Data Box-enhet.
 
 ```
 <file size="10923" crc64="0x51c78833c90e4e3f">\databox\media\data-box-deploy-copy-data\connect-shares-file-explorer1.png</file>
@@ -191,27 +191,29 @@ Här är ett exempel på ett manifest som genereras när data har kopierats till
 <file size="3220" crc64="0x7257a263c434839a">\databox\data-box-system-requirements.md</file>
 ```
 
-BOM eller manifestfiler kopieras även till Azure storage-kontot. Du kan använda Strukturen eller verifiera att filer som överförts till Azure matchar de data som har kopierats till Data Box-manifest.
+STRUKTUR-eller manifest filerna kopieras också till Azure Storage-kontot. Du kan använda STRUKTURLISTE-eller manifest filen för att kontrol lera att filer som laddats upp till Azure matchar de data som kopierades till Data Box-enhet.
 
-## <a name="review-copy-log-during-upload-to-azure"></a>Granska kopiera loggen vid överföring till Azure
+## <a name="review-copy-log-during-upload-to-azure"></a>Granska kopierings loggen under uppladdning till Azure
 
-När data överfördes till Azure, en *copylog* har skapats.
+Under data överföringen till Azure skapas en kopierings logg.
 
 ### <a name="copylog"></a>Copylog
 
-För varje order bearbetas Data Box-tjänsten skapar *copylog* i det associerade lagringskontot. Den *copylog* har det totala antalet filer som laddades upp och antalet filer som felaktiga ut under data kopieras Data Box till Azure storage-kontot.
+För varje order som bearbetas skapar Data Box-enhet tjänsten kopierings loggen i det associerade lagrings kontot. Kopierings loggen innehåller det totala antalet filer som har överförts och antalet filer som fel uppstod under data kopieringen från Data Box-enhet till ditt Azure Storage-konto.
 
-En cyklisk redundans Kontrollera (CRC) beräkning görs under överföringen till Azure. CRC från Datakopieringen och ladda upp data jämförs. Ett CRC-matchningsfel anger att motsvarande filer inte kunde överföra.
+En CRC-beräkning (cyklisk redundans) görs under uppladdningen till Azure. CRCs från data kopian och efter data överföringen jämförs. Ett CRC-fel indikerar att motsvarande filer inte kunde laddas upp.
 
-Som standard, loggarna skrivs till en behållare med namnet `copylog`. Loggfilerna lagras med följande namngivningskonvention:
+Som standard skrivs loggar till en behållare med namnet `copylog`. Loggarna lagras med följande namngivnings konvention:
 
 `storage-account-name/databoxcopylog/ordername_device-serial-number_CopyLog_guid.xml`.
 
-Sökvägen copylog visas även på den **översikt** bladet på portalen.
+Kopierings logg Sök vägen visas också på bladet **Översikt** för portalen.
 
-![Sökvägen till copylog i översiktsbladet när du är klar](media/data-box-logs/copy-log-path-1.png)
+![Sökväg till bladet kopiera logg översikt vid slutförd](media/data-box-logs/copy-log-path-1.png)
 
-I följande exempel beskrivs det allmänna formatet för en copylog-fil för en Data Box överför som har slutförts:
+### <a name="upload-completed-successfully"></a>Överföringen har slutförts 
+
+I följande exempel beskrivs det allmänna formatet för en kopierings logg för en Data Box-enhet uppladdning som har slutförts:
 
 ```
 <?xml version="1.0"?>
@@ -222,11 +224,13 @@ I följande exempel beskrivs det allmänna formatet för en copylog-fil för en 
 </CopyLog>
 ```
 
-Ladda upp till Azure kan även utföra med fel.
+### <a name="upload-completed-with-errors"></a>Uppladdningen slutfördes med fel 
 
-![Sökvägen till copylog i översiktsbladet när slutfördes med fel](media/data-box-logs/copy-log-path-2.png)
+Överföring till Azure kan också slutföras med fel.
 
-Här är ett exempel på en copylog där överföringen slutfördes med fel:
+![Sökväg till bladet för att kopiera loggen i översikten när det slutfördes med fel](media/data-box-logs/copy-log-path-2.png)
+
+Här är ett exempel på en kopierings logg där uppladdningen slutfördes med fel:
 
 ```xml
 <ErroredEntity Path="iso\samsungssd.iso">
@@ -245,9 +249,13 @@ Här är ett exempel på en copylog där överföringen slutfördes med fel:
   <FilesErrored>2</FilesErrored>
 </CopyLog>
 ```
-Här är ett exempel på en `copylog` där de behållare som inte uppfyllde namngivningskonventionerna Azure ändrades när data överfördes till Azure.
+### <a name="upload-completed-with-warnings"></a>Uppladdningen slutfördes med varningar
 
-De nya unika namn för behållare är i formatet `DataBox-GUID` och data för behållaren övergår till den nya bytt namn till behållaren. Den `copylog` anger gammalt och nya behållarens namn för behållaren.
+Överföring till Azure slutförs med varningar om dina data hade behållare/BLOB/fil namn som inte stämmer överens med namngivnings konventionerna i Azure och namnen ändrades för att överföra data till Azure.
+
+Här är ett exempel på en kopierings logg där behållarna som inte överensstämmer med namngivnings konventionerna för Azure bytte namn under data överföringen till Azure.
+
+De nya unika namnen för behållare är i formatet `DataBox-GUID` och data för behållaren placeras i den nya omdöpta behållaren. Kopierings loggen anger det gamla och det nya behållar namnet för container.
 
 ```xml
 <ErroredEntity Path="New Folder">
@@ -258,9 +266,9 @@ De nya unika namn för behållare är i formatet `DataBox-GUID` och data för be
 </ErroredEntity>
 ```
 
-Här är ett exempel på en `copylog` där blobar eller filer som inte uppfyllde namngivningskonventionerna för Azure, ändrades när data överfördes till Azure. Ny blob- eller filnamn konverteras till SHA256 sammandrag av relativ sökväg till behållare och överförs till sökväg baserat på typ av mål. Målet kan vara blockblobar, sidblobar och Azure Files.
+Här är ett exempel på en kopierings logg där blobbar eller filer som inte överensstämmer med namngivnings konventionerna för Azure har bytt namn under data överföringen till Azure. De nya BLOB-eller fil namnen konverteras till SHA256-sammandrag av den relativa sökvägen till behållaren och överförs till sökvägen baserat på typ av mål. Målet kan vara block blobbar, Page blobbar eller Azure Files.
 
-Den `copylog` anger gammalt och det nya namnet för blob eller fillagring och sökvägen i Azure.
+`copylog` Anger den gamla och den nya blobben eller fil namnet och sökvägen i Azure.
 
 ```xml
 <ErroredEntity Path="TesDir028b4ba9-2426-4e50-9ed1-8e89bf30d285\Ã">
@@ -281,15 +289,15 @@ Den `copylog` anger gammalt och det nya namnet för blob eller fillagring och s�
 </ErroredEntity>
 ```
 
-## <a name="get-chain-of-custody-logs-after-data-erasure"></a>Hämta certifikatkedja spårbarhet loggar efter dataradering
+## <a name="get-chain-of-custody-logs-after-data-erasure"></a>Hämta kedja av vårdnads loggar efter radering av data
 
-När data raderas från Data Box-diskar enligt SP NIST 800-88 Revision 1 riktlinjer, kedjan av spårbarhet loggar är tillgängliga. Dessa loggar är granskningsloggarna och orderhistorik. BOM eller manifestfiler kopieras även med granskningsloggar.
+När data har raderats från Data Box-enhet diskar enligt rikt linjerna för NIST SP 800-88 Revision 1 är kedjan med vårdnads loggar tillgänglig. Loggarna innehåller gransknings loggarna och order historiken. STRUKTURLISTE-eller manifest filerna kopieras också med gransknings loggarna.
 
 ### <a name="audit-logs"></a>Granskningsloggar
 
-Granskningsloggar innehåller information om ström på och dela åtkomst på Data Box eller Data Box tung när det är utanför Azure-datacenter. Dessa loggar finns på: `storage-account/azuredatabox-chainofcustodylogs`
+Gransknings loggar innehåller information om hur du kan sätta igång och få åtkomst till resurser på Data Box-enhet eller Data Box Heavy när de är utanför Azure-datacenter. Loggarna finns på:`storage-account/azuredatabox-chainofcustodylogs`
 
-Här är ett exempel på granskningsloggen från en Data Box:
+Här är ett exempel på gransknings loggen från en Data Box-enhet:
 
 ```
 9/10/2018 8:23:01 PM : The operating system started at system time ‎2018‎-‎09‎-‎10T20:23:01.497758400Z.
@@ -344,15 +352,15 @@ The authentication information fields provide detailed information about this sp
 
 ## <a name="download-order-history"></a>Ladda ned beställningshistorik
 
-Orderhistorik är tillgänglig i Azure portal. Om den är färdig och enheten rensningen (dataradering från diskarna) är klar, går du till din beställning av enhet och gå till **Order information**. ** Ladda ned orderhistorik** alternativet är tillgängligt. Mer information finns i [hämta orderhistorik](data-box-portal-admin.md#download-order-history).
+Order historik är tillgänglig i Azure Portal. Om ordern är klar och enhets rensningen (data radering från diskarna) är klar går du till din enhets ordning och navigerar till **order information**.  **Hämta beställnings historik**  alternativet är tillgängligt. Mer information finns i [Hämta order historik](data-box-portal-admin.md#download-order-history).
 
-Om du rullar orderhistorik visas:
+Om du bläddrar igenom order historiken visas:
 
-- Operatör spårningsinformation för din enhet.
-- Händelser med *SecureErase* aktivitet. De här händelserna motsvarar raderingen av alla data på disken.
-- Data Box log länkar. Sökvägar för den *granskningsloggar*, *copylogs*, och *BOM* filer visas.
+- Information om operatörs spårning för enheten.
+- Händelser med *SecureErase* -aktivitet. Dessa händelser motsvarar radering av data på disken.
+- Data Box-enhet logg länkar. Sök vägarna till *gransknings loggarna*, kopierings *loggar*och *BOM* -filer visas.
 
-Här är ett exempel på händelseloggen ordning från Azure-portalen:
+Här är ett exempel på loggen för order historik från Azure Portal:
 
 ```
 -------------------------------
@@ -403,4 +411,4 @@ BOM Files Path       : azuredatabox-chainofcustodylogs\<GUID>\<Device-serial-no>
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig hur du [felsökning av problem på din Data Box och Data Box tunga](data-box-troubleshoot.md).
+- Lär dig hur du [felsöker problem på data Box-enhet och data Box Heavy](data-box-troubleshoot.md).

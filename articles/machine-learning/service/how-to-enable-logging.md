@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: trbye
 ms.date: 07/12/2019
-ms.openlocfilehash: 384cd2df9c629a73095cc55f4f6d65aa6a727225
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 9deb369dc812616cd7256bbab4101531ca08f127
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360960"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68847933"
 ---
 # <a name="enable-logging-in-azure-machine-learning-service"></a>Aktivera loggning i Azure Machine Learnings tjänsten
 
@@ -27,7 +27,7 @@ Med Azure Machine Learning python SDK kan du aktivera loggning med hjälp av bå
 > * Distribuerade modeller
 > * Python `logging` -inställningar
 
-[Skapa en Azure Machine Learning service-arbetsyta](setup-create-workspace.md). Använd [guiden](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) för mer information SDK.
+[Skapa en Azure Machine Learning service-arbetsyta](how-to-manage-workspace.md). Använd [guiden](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) för mer information SDK.
 
 ## <a name="training-models-and-compute-target-logging"></a>Tränings modeller och loggning av beräknings mål
 

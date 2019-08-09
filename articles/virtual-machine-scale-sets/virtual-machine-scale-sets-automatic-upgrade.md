@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/16/2019
 ms.author: manayar
-ms.openlocfilehash: eeb689f90197830dad98c213849b2e82ba43bbf1
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: ac754acd61700dc39ebc633da4274c74d8463824
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68296358"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68884169"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Automatisk uppgradering av operativ system avbildningar för virtuella Azure-datorer
 
@@ -56,7 +56,7 @@ Det finns för närvarande inte stöd för vissa avbildningar av operativ system
 
 Följande SKU: er stöds för närvarande (och fler läggs till regelbundet):
 
-| Utgivare               | OS-erbjudande      |  Sku               |
+| Utgivare               | OS-erbjudande      |  SKU               |
 |-------------------------|---------------|--------------------|
 | Canonical               | UbuntuServer  | 16.04-LTS          |
 | Canonical               | UbuntuServer  | 18.04-LTS          |
@@ -77,7 +77,7 @@ Följande SKU: er stöds för närvarande (och fler läggs till regelbundet):
 - Använd program hälso avsökningar eller [program hälso tillägg](virtual-machine-scale-sets-health-extension.md) för icke-Service Fabric skalnings uppsättningar.
 - Använd Compute API version 2018-10-01 eller högre.
 - Se till att externa resurser som anges i skalnings uppsättnings modellen är tillgängliga och uppdaterade. Exempel på detta är SAS URI för start nytto Last i egenskaper för VM-tillägg, nytto Last i lagrings konto, referens till hemligheter i modellen med mera.
-- För skalnings uppsättningar som använder virtuella Windows-datorer, från och med Compute API version 2019-03-01, måste egenskapen *virtualMachineProfile. osProfile. windowsConfiguration. enableAutomaticUpdates* anges ** till false i skalnings uppsättnings modellen definition. Egenskapen ovan aktiverar uppgraderingar i VM där "Windows Update" tillämpar operativ Systems korrigeringar utan att ersätta operativ system disken. Med automatiska uppgraderingar av OS-avbildningar aktiverade på din skalnings uppsättning, krävs ingen ytterligare uppdatering via "Windows Update".
+- För skalnings uppsättningar som använder virtuella Windows-datorer, från och med Compute API version 2019-03-01, måste egenskapen *virtualMachineProfile. osProfile. windowsConfiguration. enableAutomaticUpdates* anges till false i skalnings uppsättnings modellen definition. Egenskapen ovan aktiverar uppgraderingar i VM där "Windows Update" tillämpar operativ Systems korrigeringar utan att ersätta operativ system disken. Med automatiska uppgraderingar av OS-avbildningar aktiverade på din skalnings uppsättning, krävs ingen ytterligare uppdatering via "Windows Update".
 
 ### <a name="service-fabric-requirements"></a>Service Fabric krav
 
@@ -128,7 +128,7 @@ az vmss update --name myScaleSet --resource-group myResourceGroup --set UpgradeP
 
 Under en uppgradering av operativ systemet uppgraderas en batch i taget av virtuella dator instanser i en skalnings uppsättning. Uppgraderingen bör endast fortsätta om kund programmet är felfritt på de uppgraderade VM-instanserna. Vi rekommenderar att programmet ger hälso signaler till uppgraderings motorn för skalnings uppsättningens operativ system. Under operativ systemets uppgraderingar förväntas som standard VM-energi tillstånd och tillägg etablerings status för att avgöra om en VM-instans är felfri efter en uppgradering. Under operativ Systems uppgraderingen av en VM-instans ersätts OS-disken på en virtuell dator instans med en ny disk baserat på den senaste avbildnings versionen. När uppgraderingen av operativ systemet har slutförts körs de konfigurerade tilläggen på de virtuella datorerna. Programmet betraktas som felfritt när alla tillägg på instansen har kon figurer ATS.
 
-En skalnings uppsättning kan alternativt konfigureras med program hälso avsökningar för att tillhandahålla en plattform med korrekt information om det pågående tillståndet för programmet. Program hälso avsökningar är anpassade Load Balancer avsökningar som används som en hälso signal. Programmet som körs på en virtuell dator instans för skalnings uppsättning kan svara på externa HTTP-eller TCP-begäranden som anger om det är felfritt. Mer information om hur anpassade Load Balancer avsökningar fungerar finns i så [](../load-balancer/load-balancer-custom-probe-overview.md)här fungerar belastnings Utjämnings avsökningar. Ingen program hälso avsökning krävs för Service Fabric skalnings uppsättningar, men det rekommenderas. Icke-Service Fabric skalnings uppsättningar kräver antingen Load Balancer program hälso avsökningar eller [program hälso tillägg](virtual-machine-scale-sets-health-extension.md).
+En skalnings uppsättning kan alternativt konfigureras med program hälso avsökningar för att tillhandahålla en plattform med korrekt information om det pågående tillståndet för programmet. Program hälso avsökningar är anpassade Load Balancer avsökningar som används som en hälso signal. Programmet som körs på en virtuell dator instans för skalnings uppsättning kan svara på externa HTTP-eller TCP-begäranden som anger om det är felfritt. Mer information om hur anpassade Load Balancer avsökningar fungerar finns i så [](../load-balancer/load-balancer-custom-probe-overview.md)här fungerar belastnings Utjämnings avsökningar. Program hälso avsökningar stöds inte för Service Fabric skalnings uppsättningar. Icke-Service Fabric skalnings uppsättningar kräver antingen Load Balancer program hälso avsökningar eller [program hälso tillägg](virtual-machine-scale-sets-health-extension.md).
 
 Om skalnings uppsättningen har kon figurer ATS för att använda flera placerings grupper, måste avsökningar som använder en [standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview) användas.
 

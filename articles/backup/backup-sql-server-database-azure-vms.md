@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: b7bf9943afa2a79f98fd28d15e5ea46fa63af732
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 6a929359c0e4e0a5c64eadbf41f565dfeb56a233
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688633"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68854120"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Säkerhetskopiera SQL Server-databaser i virtuella Azure-datorer
 
@@ -177,7 +177,7 @@ Identifiera databaser som körs på en virtuell dator:
 
     ![Aktivera automatiskt skydd för tillgänglighets gruppen Always on](./media/backup-azure-sql-database/enable-auto-protection.png)
 
-5. I **säkerhets kopierings princip**väljer du en princip och väljer sedan **OK**.
+5. I **säkerhets kopierings princip**väljer du en princip och väljer sedan **OK**.
 
    - Välj standard principen som HourlyLogBackup.
    - Välj en befintlig säkerhetskopieringspolicy som har skapats för SQL.
@@ -185,11 +185,11 @@ Identifiera databaser som körs på en virtuell dator:
 
      ![Välja säkerhetskopieringspolicy](./media/backup-azure-sql-database/select-backup-policy.png)
 
-6. I **säkerhets kopiering**väljer du **Aktivera säkerhets kopiering**.
+6. I **säkerhets kopiering**väljer du **Aktivera säkerhets kopiering**.
 
     ![Aktivera den valda säkerhetskopieringspolicyn](./media/backup-azure-sql-database/enable-backup-button.png)
 
-7. Spåra konfigurations förloppet i **meddelande** området i portalen.
+7. Spåra konfigurationsförloppet i **meddelandefältet** på portalen.
 
     ![Meddelandefältet](./media/backup-azure-sql-database/notifications-area.png)
 
@@ -273,7 +273,7 @@ Du kan aktivera automatiskt skydd för att automatiskt säkerhetskopiera alla be
 
 - Det finns ingen gräns för hur många databaser du kan välja för automatiskt skydd på en och samma tidpunkt.
 - Du kan inte selektivt skydda eller utesluta databaser från skydd i en instans vid den tidpunkt då du aktiverar automatiskt skydd.
-- Om din instans redan innehåller vissa skyddade databaser förblir de skyddade under respektive principer även efter att du har aktiverat automatiskt skydd. Alla oskyddade databaser som lagts till senare kommer bara att ha en enda princip som du definierar vid tidpunkten för att aktivera automatiskt skydd, som visas under **Konfigurera säkerhets kopiering**. Du kan dock ändra principen som är kopplad till en automatiskt skyddad databas senare.  
+- Om din instans redan innehåller vissa skyddade databaser förblir de skyddade under respektive principer även efter att du har aktiverat automatiskt skydd. Alla oskyddade databaser som lagts till senare kommer bara att ha en enda princip som du definierar vid tidpunkten för att aktivera automatiskt skydd, som visas under **Konfigurera säkerhets kopiering**. Du kan dock ändra principen som är kopplad till en automatiskt skyddad databas senare.  
 
 Så här aktiverar du automatiskt skydd:
 
@@ -288,7 +288,7 @@ Om du behöver inaktivera automatiskt skydd väljer du instans namnet under **Ko
 
 ![Inaktivera automatiskt skydd på den instansen](./media/backup-azure-sql-database/disable-auto-protection.png)
 
- 
+ 
 ## <a name="next-steps"></a>Nästa steg
 
 Lär dig att:

@@ -6,19 +6,19 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 07/09/2019
+ms.date: 08/09/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: d0d1dbb81f00f500f3eb95c605ed0c15c634f624
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 9de7a6fdddf732f13c8dc7ab50fd151d9f90dc20
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706788"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68855888"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Skapa en Azure Search-tjänst i portalen
 
-Azure Search är en fristående-resurs som används för att koppla in en sökfunktion i anpassade appar. Även om Azure Search kan enkelt integreras med andra Azure-tjänster, kan du också använda den som en fristående komponent eller integrera det med appar i nätverket eller med programvara som körs på andra molnplattformar.
+Azure Search är en fristående-resurs som används för att koppla in en sökfunktion i anpassade appar. Även om Azure Search integreras enkelt med andra Azure-tjänster, kan du också använda den som en fristående komponent eller integrera den med appar på nätverks servrar eller med program vara som körs på andra moln plattformar.
 
 I den här artikeln lär du dig hur du skapar en Azure Search-resurs i [Azure Portal](https://portal.azure.com/).
 
@@ -40,11 +40,26 @@ Du kan också [aktivera MSDN-prenumerantförmåner](https://azure.microsoft.com/
 
 ![Navigera till en Azure Search-resurs](./media/search-create-service-portal/find-search3.png "Navigeringssökväg till Azure Search")
 
+## <a name="select-a-subscription"></a>Välj en prenumeration
+
+Om du har mer än en prenumeration väljer du en som även har data- eller fillagringstjänster. Azure Search kan automatiskt identifiera Azure Table och Blob Storage, SQL Database och Azure Cosmos DB för indexering via indexerare [](search-indexer-overview.md), men endast för tjänster under samma prenumeration.
+
+## <a name="select-a-resource-group"></a>Välj en resursgrupp
+
+En resurs grupp krävs och är användbar för att hantera alla resurser, inklusive kostnads hantering. En resurs grupp kan bestå av en tjänst eller flera tjänster som används tillsammans. Om du till exempel använder Azure Search för att indexera en Azure Cosmos DB-databas kan du göra båda tjänsterna i samma resurs grupp i hanterings syfte. 
+
+Om du inte kombinerar resurser i en grupp eller om befintliga resursgrupper är fyllda med resurser som används i orelaterade lösningar, ska du skapa en ny resursgrupp enbart för din Azure Search-resurs. 
+
+När du använder tjänsten kan du spåra aktuella och projekterade kostnader alla (se skärm bilden) eller rulla nedåt för att Visa avgifter för enskilda resurser.
+
+![Hantera kostnader på resurs grupps nivå](./media/search-create-service-portal/resource-group-cost-management.png "Hantera kostnader på resurs grupps nivå")
+
+> [!TIP]
+> Om du tar bort en resursgrupp tar du också bort tjänsterna i gruppen. Om du har ett prototypprojekt som använder flera tjänster kan du placera dem i samma resursgrupp. Då är det lättare att rensa upp när projektet är slutfört.
+
 ## <a name="name-the-service-and-url-endpoint"></a>Namnge tjänsten och URL-slutpunkten
 
-Ett tjänstnamn är en del av URL-slutpunkten mot vilken API-anrop utfärdas: `https://your-service-name.search.windows.net`. Ange tjänstnamnet i fältet **URL**.
-
-Till exempel, om du vill att slutpunkten ska vara `https://my-app-name-01.search.windows.net`, anger du `my-app-name-01`.
+I instans information anger du ett tjänst namn i **URL** -fältet. Namnet är en del av URL-slutpunkten mot vilken API-anrop `https://your-service-name.search.windows.net`utfärdas:. Till exempel, om du vill att slutpunkten ska vara `https://myservice.search.windows.net`, anger du `myservice`.
 
 Kraven för tjänstnamn:
 
@@ -54,51 +69,41 @@ Kraven för tjänstnamn:
 * Undvik streck (”-”) i de första 2 tecknen eller som sista enskilt tecken
 * Inga streck i följd (”--”) någonstans
 
-## <a name="select-a-subscription"></a>Välj en prenumeration
-
-Om du har mer än en prenumeration väljer du en som även har data- eller fillagringstjänster. Azure Search kan automatiskt identifiera Azure Table- och Blob-lagring, SQL Database och Azure Cosmos DB för indexering via [*indexerare*](search-indexer-overview.md), men endast för tjänster i samma prenumeration.
-
-## <a name="select-a-resource-group"></a>Välj en resursgrupp
-
-En resursgrupp är en samling Azure-tjänster och Azure-resurser som används tillsammans. Om du till exempel använder Azure Search för att indexera en SQL-databas måste båda tjänsterna tillhöra samma resursgrupp.
-
-Om du inte kombinerar resurser i en grupp eller om befintliga resursgrupper är fyllda med resurser som används i orelaterade lösningar, ska du skapa en ny resursgrupp enbart för din Azure Search-resurs.
-
 > [!TIP]
-> Om du tar bort en resursgrupp tar du också bort tjänsterna i gruppen. Om du har ett prototypprojekt som använder flera tjänster kan du placera dem i samma resursgrupp. Då är det lättare att rensa upp när projektet är slutfört.
+> Om du tror att du kommer att använda flera tjänster rekommenderar vi att du inkluderar regionen (eller platsen) i tjänst namnet som en namngivnings konvention. Tjänster inom samma region kan utbyta data utan kostnad, så om Azure Search är i västra USA och du har andra tjänster även i västra USA `mysearchservice-westus` kan du spara en resa på sidan Egenskaper när du bestämmer hur du ska kombinera eller bifoga resurser.
 
 ## <a name="select-a-location"></a>Välj en plats
 
-Azure Search är en Azure-tjänst som kan finnas i datacenter över hela världen. Lista över regioner som stöds finns i den [prissättningssidan](https://azure.microsoft.com/pricing/details/search/). 
+Azure Search är en Azure-tjänst som kan finnas i datacenter över hela världen. Du hittar en lista över regioner som stöds på [sidan med priser](https://azure.microsoft.com/pricing/details/search/). 
 
-Om du indexerar data från en annan Azure service (Azure storage, Azure Cosmos DB, Azure SQL Database), som vi rekommenderar att du skapar Azure Search-tjänsten i samma region för att undvika kostnader för bandbredd. Det finns inga avgifter för utgående data när tjänster som är i samma region.
+Du kan minimera eller undvika bandbredds avgifter genom att välja samma plats för flera tjänster. Om du till exempel indexerar data som tillhandahålls av en annan Azure-tjänst (Azure Storage, Azure Cosmos DB Azure SQL Database) skapar du din Azure Search-tjänst i samma region för att undvika bandbredds avgifter (det kostar inga avgifter för utgående data när tjänsterna är i samma region).
 
-Om du använder kognitiv sökning AI enrichments kan du skapa din tjänst i samma region som din resurs för Cognitive Services. *Samplacering av Azure Search och Cognitive Services i samma region är ett krav för AI-berikande*.
+Om du använder kognitiva Sökai-berikare kan du dessutom skapa din tjänst i samma region som din Cognitive Services-resurs. *Samplacering av Azure Search och Cognitive Services i samma region är ett krav för AI-berikning*.
 
 > [!Note]
-> Centrala Indien är för närvarande inte tillgänglig för nya tjänster. Du kan skala upp utan begränsningar för tjänster som redan finns i centrala Indien, och din tjänst stöds fullt ut i den regionen. Begränsningen på den här regionen är tillfälliga och begränsade till nya tjänster. Vi tar bort det här meddelandet när begränsningen gäller inte längre.
+> Centrala Indien är för närvarande inte tillgängligt för nya tjänster. För tjänster som redan finns i Central Indien kan du skala upp utan begränsningar och tjänsten stöds fullt ut i den regionen. Begränsningen i den här regionen är temporär och begränsad till endast nya tjänster. Vi tar bort den här anteckningen när begränsningen inte längre gäller.
 
 ## <a name="select-a-pricing-tier-sku"></a>Välj en prisnivå (SKU)
 
 [Azure Search finns för närvarande med flera olika prisnivåer](https://azure.microsoft.com/pricing/details/search/): Kostnadsfri, Basic eller Standard. Nivåerna har olika [kapacitet och begränsningar](search-limits-quotas-capacity.md). Mer information finns i [Välj en prisnivå nivå eller SKU](search-sku-tier.md).
 
-Standard väljs normalt för produktionsarbetsbelastningar men de flesta kunderna börjar med den kostnadsfria tjänsten.
+Basic och standard är de vanligaste alternativen för produktions arbets belastningar, men de flesta kunder börjar med den kostnads fria tjänsten.
 
-När tjänsten väl har skapats går det inte att ändra prisnivå. Om du senare behöver en högre eller lägre nivå måste du skapa tjänsten på nytt.
+Kom ihåg att det inte går att ändra pris nivån när tjänsten har skapats. Om du senare behöver en högre eller lägre nivå måste du skapa tjänsten på nytt.
 
 ## <a name="create-your-service"></a>Skapa din tjänst
 
-Ange de nödvändiga indata för att skapa tjänsten. 
+När du har angett nödvändiga indata kan du gå vidare och skapa tjänsten. 
 
-![Granska och skapa tjänsten](./media/search-create-service-portal/new-service3.png "granska och skapa tjänsten")
+![Granska och skapa tjänsten](./media/search-create-service-portal/new-service3.png "Granska och skapa tjänsten")
 
-Din tjänst har distribuerats inom några minuter, som du kan övervaka via Azure-aviseringar. Överväg att fästa tjänsten på instrumentpanelen för enkel åtkomst i framtiden.
+Tjänsten distribueras inom några minuter, som du kan övervaka via Azure-meddelanden. Överväg att fästa tjänsten på instrument panelen för enkel åtkomst i framtiden.
 
-![Övervaka och fästa tjänsten](./media/search-create-service-portal/monitor-notifications.png "Övervakare och PIN-kod tjänsten")
+![Övervaka och fäst tjänsten](./media/search-create-service-portal/monitor-notifications.png "Övervaka och fäst tjänsten")
 
 ## <a name="get-a-key-and-url-endpoint"></a>Hämta en nyckel och URL-slutpunkt
 
-Om du inte använder portalen kräver åtkomst till din nya tjänst att du anger URL-slutpunkten och en autentisering api-nyckel.
+Om du inte använder portalen kräver program mässig åtkomst till din nya tjänst att du anger URL-slutpunkten och en API-nyckel för autentisering.
 
 1. På översiktssidan för tjänsten letar du upp och kopierar URL-slutpunkten till höger på sidan.
 
@@ -106,11 +111,11 @@ Om du inte använder portalen kräver åtkomst till din nya tjänst att du anger
 
    ![Översiktssidan för tjänst med URL-slutpunkt](./media/search-create-service-portal/get-url-key.png "URL-slutpunkt och annan tjänstinformation")
 
-Det behövs ingen slutpunkt eller nyckel för portalbaserade uppgifter. Portalen är redan länkad till din Azure Search-resurs med administratörsrättigheter. För en genomgång av portalen, börja med [snabbstarten: Skapa ett Azure Search-index i portalen](search-get-started-portal.md).
+Det behövs ingen slutpunkt eller nyckel för portalbaserade uppgifter. Portalen är redan länkad till din Azure Search-resurs med administratörsrättigheter. Börja med [snabb start för en portal genom gång: Skapa ett Azure Search-index i portalen](search-get-started-portal.md).
 
 ## <a name="scale-your-service"></a>Skala din tjänst
 
-När tjänsten har etablerats kan du skala den så att den passar dina behov. Om du har valt standardnivån för Azure Search-tjänsten kan du skala din tjänst i två dimensioner: repliker och partitioner. Om du hade valt Basic-nivån hade du bara kunnat lägga till repliker. Skalning är inte tillgängligt om du etablerar tjänsten utan kostnad.
+När tjänsten har etablerats kan du skala den så att den passar dina behov. Om du väljer standard nivån för din Azure Search-tjänst kan du skala din tjänst i två dimensioner: repliker och partitioner. Om du hade valt Basic-nivån hade du bara kunnat lägga till repliker. Skalning är inte tillgängligt om du etablerar tjänsten utan kostnad.
 
 Med ***Partitioner*** kan tjänsten lagra och söka igenom fler dokument.
 
@@ -128,7 +133,7 @@ Om du lägger till resurser blir din månatliga faktura större. [Priskalkylator
 ![Lägga till kapacitet](./media/search-create-service-portal/settings-scale.png "Lägga till kapacitet via repliker och partitioner")
 
 > [!Note]
-> Varje partition lagring och hastighet ökar på högre nivåer. Mer information finns i [kapacitet och begränsningar](search-limits-quotas-capacity.md).
+> Lagring och hastighet per partition ökar med högre nivåer. Mer information finns i [kapacitet och begränsningar](search-limits-quotas-capacity.md).
 
 ## <a name="when-to-add-a-second-service"></a>När ska du lägga till en andra tjänst?
 
@@ -141,7 +146,7 @@ De flesta kunder använder bara en tjänst som etablerats på en nivå som har [
 * Om du har globalt distribuerade program kan du behöva en instans av Azure Search i flera olika områden för att minimera svarstiden för programmets internationella trafik.
 
 > [!NOTE]
-> I Azure Search går det inte att separera indexering och frågearbetsbelastningar. Därför skapar du aldrig flera tjänster för separerade arbetsbelastningar. Index tillfrågas alltid om vilken tjänst den skapades i (du kan inte skapa ett index i en tjänst och kopiera den till en annan).
+> I Azure Search kan du inte särskilja indexering och frågor om åtgärder. Därför skulle du aldrig skapa flera tjänster för åtskiljda arbets belastningar. Index tillfrågas alltid om vilken tjänst den skapades i (du kan inte skapa ett index i en tjänst och kopiera den till en annan).
 
 Det behövs ingen andra tjänst för hög tillgänglighet. Hög tillgänglighet för frågor uppnås när du använder minst 2 repliker i samma tjänst. Replikuppdateringar är sekventiella, vilket innebär att minst en fungerar när en ny tjänstuppdatering görs. Mer information om drifttid finns i [Serviceavtal](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 

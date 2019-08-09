@@ -7,12 +7,12 @@ ms.date: 07/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 5e707fb004af7bbce915baf4b059514fcae8e52b
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 7dd053e3a9824ac0817db528b8b053666e1ded04
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68725931"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881823"
 ---
 # <a name="how-to-create-guest-configuration-policies"></a>Så här skapar du principer för gäst konfiguration
 
@@ -321,6 +321,14 @@ När du har publicerat en anpassad Azure Policy med det anpassade innehålls pak
 
 Det enklaste sättet att frigöra ett uppdaterat paket är att upprepa processen som beskrivs i den här artikeln och ange ett uppdaterat versions nummer.
 Det garanterar att alla egenskaper har uppdaterats korrekt.
+
+## <a name="converting-windows-group-policy-content-to-azure-policy-guest-configuration"></a>Konvertera Windows grupprincip-innehåll till Azure Policy gäst konfiguration
+
+Gäst konfiguration, vid granskning av Windows-datorer, är en implementering av PowerShell-syntaxen för önskad tillstånds konfiguration.
+DSC-communityn har publicerat verktyg för att konvertera exporterade grupprincip mallar till DSC-format.
+Genom att använda det här verktyget tillsammans med de konfigurations-cmdletar för gäst som beskrivs ovan kan du konvertera Windows grupprincip-innehåll och paket/publicera det för att Azure Policy granska.
+Mer information om hur du använder verktyget finns i artikeln [snabb start: Konvertera grupprincip till DSC](/powershell/dsc/quickstarts/gpo-quickstart).
+När innehållet har konverterats är stegen ovan för att skapa en pakcage och publicera den som Azure Policy är samma som för alla DSC-innehåll.
 
 ## <a name="optional-signing-guest-configuration-packages"></a>VALFRITT Signerar gäst konfigurations paket
 

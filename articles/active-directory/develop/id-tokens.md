@@ -1,6 +1,6 @@
 ---
-title: Tokenreferens för Microsoft identity-plattformen ID | Microsoft Docs
-description: Lär dig hur du använder id_tokens som genereras av Azure AD-v1.0 och Microsoft identity-plattformen (v2.0) slutpunkter.
+title: Referens för Microsoft Identity Platform-ID-token | Microsoft Docs
+description: Lär dig hur du använder id_tokens som har spridits av Azure AD v 1.0 och Microsoft Identity Platform (v 2.0) slut punkter.
 services: active-directory
 documentationcenter: ''
 author: rwike77
@@ -14,27 +14,27 @@ ms.topic: conceptual
 ms.date: 04/13/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25408b2120a9ac9f38e7959ef8e9dbbb34df7c2b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 85145d4a81eb4d12910758e01dda675ea378a46b
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65962580"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68853178"
 ---
-# <a name="microsoft-identity-platform-id-tokens"></a>Microsoft identity-plattformen ID-token
+# <a name="microsoft-identity-platform-id-tokens"></a>Microsoft Identity Platform ID-token
 
-`id_tokens` skickas till klientprogrammet som en del av en [OpenID Connect](v1-protocols-openid-connect-code.md) flöde. De kan skickas längs sida eller i stället för en åtkomsttoken och används av klienten för att autentisera användaren.
+`id_tokens`skickas till klient programmet som en del av ett [OpenID Connect](v1-protocols-openid-connect-code.md) -flöde. De kan skickas på sidan eller i stället för en åtkomsttoken och används av klienten för att autentisera användaren.
 
-## <a name="using-the-idtoken"></a>Med hjälp av id_token
+## <a name="using-the-id_token"></a>Använda id_token
 
-ID-token som ska användas för att verifiera att en användare är den som de påstår sig vara och få ytterligare användbar information om dem – det bör inte användas för auktorisering i stället för en [åtkomsttoken](access-tokens.md). De anspråk som den innehåller kan användas för UX i ditt program, uppdatering av en databas och åtkomst till klientprogrammet.
+ID-token ska användas för att verifiera att en användare är den som han eller hon ansöker för att få ytterligare värdefull information om dem – den bör inte användas för auktorisering i stället för en [åtkomsttoken](access-tokens.md). Anspråken som det tillhandahåller kan användas för UX i ditt program, skicka en nyckel till en databas och ge åtkomst till klient programmet.
 
-## <a name="claims-in-an-idtoken"></a>Anspråk i en id_token
+## <a name="claims-in-an-id_token"></a>Anspråk i en id_token
 
-`id_tokens` för ett Microsoft-identitet är [JWTs](https://tools.ietf.org/html/rfc7519), vilket innebär att de består av en rubrik, nyttolast och signatur del. Du kan använda rubrik och signaturen för att kontrollera att token, medan nyttolasten innehåller information om användaren som begärs av klienten. Om inget annat anges visas alla anspråk som visas här i både v1.0 och v2.0-token.
+`id_tokens`för en Microsoft-identitet är [JWTs](https://tools.ietf.org/html/rfc7519), vilket innebär att de består av en rubrik, en nytto last och en signatur. Du kan använda rubriken och signaturen för att verifiera tokens äkthet, medan nytto lasten innehåller information om användaren som begärdes av din klient. Om inget annat anges visas alla anspråk som anges här i både v 1.0-och v 2.0-token.
 
 ### <a name="v10"></a>V1.0
 
@@ -42,7 +42,7 @@ ID-token som ska användas för att verifiera att en användare är den som de p
 eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IjdfWnVmMXR2a3dMeFlhSFMzcTZsVWpVWUlHdyIsImtpZCI6IjdfWnVmMXR2a3dMeFlhSFMzcTZsVWpVWUlHdyJ9.eyJhdWQiOiJiMTRhNzUwNS05NmU5LTQ5MjctOTFlOC0wNjAxZDBmYzljYWEiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC9mYTE1ZDY5Mi1lOWM3LTQ0NjAtYTc0My0yOWYyOTU2ZmQ0MjkvIiwiaWF0IjoxNTM2Mjc1MTI0LCJuYmYiOjE1MzYyNzUxMjQsImV4cCI6MTUzNjI3OTAyNCwiYWlvIjoiQVhRQWkvOElBQUFBcXhzdUIrUjREMnJGUXFPRVRPNFlkWGJMRDlrWjh4ZlhhZGVBTTBRMk5rTlQ1aXpmZzN1d2JXU1hodVNTajZVVDVoeTJENldxQXBCNWpLQTZaZ1o5ay9TVTI3dVY5Y2V0WGZMT3RwTnR0Z2s1RGNCdGsrTExzdHovSmcrZ1lSbXY5YlVVNFhscGhUYzZDODZKbWoxRkN3PT0iLCJhbXIiOlsicnNhIl0sImVtYWlsIjoiYWJlbGlAbWljcm9zb2Z0LmNvbSIsImZhbWlseV9uYW1lIjoiTGluY29sbiIsImdpdmVuX25hbWUiOiJBYmUiLCJpZHAiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83MmY5ODhiZi04NmYxLTQxYWYtOTFhYi0yZDdjZDAxMWRiNDcvIiwiaXBhZGRyIjoiMTMxLjEwNy4yMjIuMjIiLCJuYW1lIjoiYWJlbGkiLCJub25jZSI6IjEyMzUyMyIsIm9pZCI6IjA1ODMzYjZiLWFhMWQtNDJkNC05ZWMwLTFiMmJiOTE5NDQzOCIsInJoIjoiSSIsInN1YiI6IjVfSjlyU3NzOC1qdnRfSWN1NnVlUk5MOHhYYjhMRjRGc2dfS29vQzJSSlEiLCJ0aWQiOiJmYTE1ZDY5Mi1lOWM3LTQ0NjAtYTc0My0yOWYyOTU2ZmQ0MjkiLCJ1bmlxdWVfbmFtZSI6IkFiZUxpQG1pY3Jvc29mdC5jb20iLCJ1dGkiOiJMeGVfNDZHcVRrT3BHU2ZUbG40RUFBIiwidmVyIjoiMS4wIn0=.UJQrCA6qn2bXq57qzGX_-D3HcPHqBMOKDPx4su1yKRLNErVD8xkxJLNLVRdASHqEcpyDctbdHccu6DPpkq5f0ibcaQFhejQNcABidJCTz0Bb2AbdUCTqAzdt9pdgQvMBnVH1xk3SCM6d4BbT4BkLLj10ZLasX7vRknaSjE_C5DI7Fg4WrZPwOhII1dB0HEZ_qpNaYXEiy-o94UJ94zCr07GgrqMsfYQqFR7kn-mn68AjvLcgwSfZvyR_yIK75S_K37vC3QryQ7cNoafDe9upql_6pB2ybMVlgWPs_DmbJ8g0om-sPlwyn74Cc1tW3ze-Xptw_2uVdPgWyqfuWAfq6Q
 ```
 
-Visa den här v1.0 exempel token i [jwt.ms](https://jwt.ms/#id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IjdfWnVmMXR2a3dMeFlhSFMzcTZsVWpVWUlHdyIsImtpZCI6IjdfWnVmMXR2a3dMeFlhSFMzcTZsVWpVWUlHdyJ9.eyJhdWQiOiJiMTRhNzUwNS05NmU5LTQ5MjctOTFlOC0wNjAxZDBmYzljYWEiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC9mYTE1ZDY5Mi1lOWM3LTQ0NjAtYTc0My0yOWYyOTU2ZmQ0MjkvIiwiaWF0IjoxNTM2Mjc1MTI0LCJuYmYiOjE1MzYyNzUxMjQsImV4cCI6MTUzNjI3OTAyNCwiYWlvIjoiQVhRQWkvOElBQUFBcXhzdUIrUjREMnJGUXFPRVRPNFlkWGJMRDlrWjh4ZlhhZGVBTTBRMk5rTlQ1aXpmZzN1d2JXU1hodVNTajZVVDVoeTJENldxQXBCNWpLQTZaZ1o5ay9TVTI3dVY5Y2V0WGZMT3RwTnR0Z2s1RGNCdGsrTExzdHovSmcrZ1lSbXY5YlVVNFhscGhUYzZDODZKbWoxRkN3PT0iLCJhbXIiOlsicnNhIl0sImVtYWlsIjoiYWJlbGlAbWljcm9zb2Z0LmNvbSIsImZhbWlseV9uYW1lIjoiTGluY29sbiIsImdpdmVuX25hbWUiOiJBYmUiLCJpZHAiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83MmY5ODhiZi04NmYxLTQxYWYtOTFhYi0yZDdjZDAxMWRiNDcvIiwiaXBhZGRyIjoiMTMxLjEwNy4yMjIuMjIiLCJuYW1lIjoiYWJlbGkiLCJub25jZSI6IjEyMzUyMyIsIm9pZCI6IjA1ODMzYjZiLWFhMWQtNDJkNC05ZWMwLTFiMmJiOTE5NDQzOCIsInJoIjoiSSIsInN1YiI6IjVfSjlyU3NzOC1qdnRfSWN1NnVlUk5MOHhYYjhMRjRGc2dfS29vQzJSSlEiLCJ0aWQiOiJmYTE1ZDY5Mi1lOWM3LTQ0NjAtYTc0My0yOWYyOTU2ZmQ0MjkiLCJ1bmlxdWVfbmFtZSI6IkFiZUxpQG1pY3Jvc29mdC5jb20iLCJ1dGkiOiJMeGVfNDZHcVRrT3BHU2ZUbG40RUFBIiwidmVyIjoiMS4wIn0=.UJQrCA6qn2bXq57qzGX_-D3HcPHqBMOKDPx4su1yKRLNErVD8xkxJLNLVRdASHqEcpyDctbdHccu6DPpkq5f0ibcaQFhejQNcABidJCTz0Bb2AbdUCTqAzdt9pdgQvMBnVH1xk3SCM6d4BbT4BkLLj10ZLasX7vRknaSjE_C5DI7Fg4WrZPwOhII1dB0HEZ_qpNaYXEiy-o94UJ94zCr07GgrqMsfYQqFR7kn-mn68AjvLcgwSfZvyR_yIK75S_K37vC3QryQ7cNoafDe9upql_6pB2ybMVlgWPs_DmbJ8g0om-sPlwyn74Cc1tW3ze-Xptw_2uVdPgWyqfuWAfq6Q).
+Visa den här v 1.0-exempel-token i [JWT.MS](https://jwt.ms/#id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IjdfWnVmMXR2a3dMeFlhSFMzcTZsVWpVWUlHdyIsImtpZCI6IjdfWnVmMXR2a3dMeFlhSFMzcTZsVWpVWUlHdyJ9.eyJhdWQiOiJiMTRhNzUwNS05NmU5LTQ5MjctOTFlOC0wNjAxZDBmYzljYWEiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC9mYTE1ZDY5Mi1lOWM3LTQ0NjAtYTc0My0yOWYyOTU2ZmQ0MjkvIiwiaWF0IjoxNTM2Mjc1MTI0LCJuYmYiOjE1MzYyNzUxMjQsImV4cCI6MTUzNjI3OTAyNCwiYWlvIjoiQVhRQWkvOElBQUFBcXhzdUIrUjREMnJGUXFPRVRPNFlkWGJMRDlrWjh4ZlhhZGVBTTBRMk5rTlQ1aXpmZzN1d2JXU1hodVNTajZVVDVoeTJENldxQXBCNWpLQTZaZ1o5ay9TVTI3dVY5Y2V0WGZMT3RwTnR0Z2s1RGNCdGsrTExzdHovSmcrZ1lSbXY5YlVVNFhscGhUYzZDODZKbWoxRkN3PT0iLCJhbXIiOlsicnNhIl0sImVtYWlsIjoiYWJlbGlAbWljcm9zb2Z0LmNvbSIsImZhbWlseV9uYW1lIjoiTGluY29sbiIsImdpdmVuX25hbWUiOiJBYmUiLCJpZHAiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83MmY5ODhiZi04NmYxLTQxYWYtOTFhYi0yZDdjZDAxMWRiNDcvIiwiaXBhZGRyIjoiMTMxLjEwNy4yMjIuMjIiLCJuYW1lIjoiYWJlbGkiLCJub25jZSI6IjEyMzUyMyIsIm9pZCI6IjA1ODMzYjZiLWFhMWQtNDJkNC05ZWMwLTFiMmJiOTE5NDQzOCIsInJoIjoiSSIsInN1YiI6IjVfSjlyU3NzOC1qdnRfSWN1NnVlUk5MOHhYYjhMRjRGc2dfS29vQzJSSlEiLCJ0aWQiOiJmYTE1ZDY5Mi1lOWM3LTQ0NjAtYTc0My0yOWYyOTU2ZmQ0MjkiLCJ1bmlxdWVfbmFtZSI6IkFiZUxpQG1pY3Jvc29mdC5jb20iLCJ1dGkiOiJMeGVfNDZHcVRrT3BHU2ZUbG40RUFBIiwidmVyIjoiMS4wIn0=.UJQrCA6qn2bXq57qzGX_-D3HcPHqBMOKDPx4su1yKRLNErVD8xkxJLNLVRdASHqEcpyDctbdHccu6DPpkq5f0ibcaQFhejQNcABidJCTz0Bb2AbdUCTqAzdt9pdgQvMBnVH1xk3SCM6d4BbT4BkLLj10ZLasX7vRknaSjE_C5DI7Fg4WrZPwOhII1dB0HEZ_qpNaYXEiy-o94UJ94zCr07GgrqMsfYQqFR7kn-mn68AjvLcgwSfZvyR_yIK75S_K37vC3QryQ7cNoafDe9upql_6pB2ybMVlgWPs_DmbJ8g0om-sPlwyn74Cc1tW3ze-Xptw_2uVdPgWyqfuWAfq6Q).
 
 ### <a name="v20"></a>v2.0
 
@@ -50,56 +50,56 @@ Visa den här v1.0 exempel token i [jwt.ms](https://jwt.ms/#id_token=eyJ0eXAiOiJ
 eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjFMVE16YWtpaGlSbGFfOHoyQkVKVlhlV01xbyJ9.eyJ2ZXIiOiIyLjAiLCJpc3MiOiJodHRwczovL2xvZ2luLm1pY3Jvc29mdG9ubGluZS5jb20vOTE4ODA0MGQtNmM2Ny00YzViLWIxMTItMzZhMzA0YjY2ZGFkL3YyLjAiLCJzdWIiOiJBQUFBQUFBQUFBQUFBQUFBQUFBQUFJa3pxRlZyU2FTYUZIeTc4MmJidGFRIiwiYXVkIjoiNmNiMDQwMTgtYTNmNS00NmE3LWI5OTUtOTQwYzc4ZjVhZWYzIiwiZXhwIjoxNTM2MzYxNDExLCJpYXQiOjE1MzYyNzQ3MTEsIm5iZiI6MTUzNjI3NDcxMSwibmFtZSI6IkFiZSBMaW5jb2xuIiwicHJlZmVycmVkX3VzZXJuYW1lIjoiQWJlTGlAbWljcm9zb2Z0LmNvbSIsIm9pZCI6IjAwMDAwMDAwLTAwMDAtMDAwMC02NmYzLTMzMzJlY2E3ZWE4MSIsInRpZCI6IjMzMzgwNDBkLTZjNjctNGM1Yi1iMTEyLTM2YTMwNGI2NmRhZCIsIm5vbmNlIjoiMTIzNTIzIiwiYWlvIjoiRGYyVVZYTDFpeCFsTUNXTVNPSkJjRmF0emNHZnZGR2hqS3Y4cTVnMHg3MzJkUjVNQjVCaXN2R1FPN1lXQnlqZDhpUURMcSFlR2JJRGFreXA1bW5PcmNkcUhlWVNubHRlcFFtUnA2QUlaOGpZIn0=.1AFWW-Ck5nROwSlltm7GzZvDwUkqvhSQpm55TQsmVo9Y59cLhRXpvB8n-55HCr9Z6G_31_UbeUkoz612I2j_Sm9FFShSDDjoaLQr54CreGIJvjtmS3EkK9a7SJBbcpL1MpUtlfygow39tFjY7EVNW9plWUvRrTgVk7lYLprvfzw-CIqw3gHC-T7IK_m_xkr08INERBtaecwhTeN4chPC4W3jdmw_lIxzC48YoQ0dB1L9-ImX98Egypfrlbm0IBL5spFzL6JDZIRRJOu8vecJvj1mq-IUhGt0MacxX8jdxYLP-KUu2d9MbNKpCKJuZ7p8gwTL5B7NlUdh_dmSviPWrw
 ```
 
-Visa den här v2.0 exempel token i [jwt.ms](https://jwt.ms/#id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjFMVE16YWtpaGlSbGFfOHoyQkVKVlhlV01xbyJ9.eyJ2ZXIiOiIyLjAiLCJpc3MiOiJodHRwczovL2xvZ2luLm1pY3Jvc29mdG9ubGluZS5jb20vOTE4ODA0MGQtNmM2Ny00YzViLWIxMTItMzZhMzA0YjY2ZGFkL3YyLjAiLCJzdWIiOiJBQUFBQUFBQUFBQUFBQUFBQUFBQUFJa3pxRlZyU2FTYUZIeTc4MmJidGFRIiwiYXVkIjoiNmNiMDQwMTgtYTNmNS00NmE3LWI5OTUtOTQwYzc4ZjVhZWYzIiwiZXhwIjoxNTM2MzYxNDExLCJpYXQiOjE1MzYyNzQ3MTEsIm5iZiI6MTUzNjI3NDcxMSwibmFtZSI6IkFiZSBMaW5jb2xuIiwicHJlZmVycmVkX3VzZXJuYW1lIjoiQWJlTGlAbWljcm9zb2Z0LmNvbSIsIm9pZCI6IjAwMDAwMDAwLTAwMDAtMDAwMC02NmYzLTMzMzJlY2E3ZWE4MSIsInRpZCI6IjMzMzgwNDBkLTZjNjctNGM1Yi1iMTEyLTM2YTMwNGI2NmRhZCIsIm5vbmNlIjoiMTIzNTIzIiwiYWlvIjoiRGYyVVZYTDFpeCFsTUNXTVNPSkJjRmF0emNHZnZGR2hqS3Y4cTVnMHg3MzJkUjVNQjVCaXN2R1FPN1lXQnlqZDhpUURMcSFlR2JJRGFreXA1bW5PcmNkcUhlWVNubHRlcFFtUnA2QUlaOGpZIn0.1AFWW-Ck5nROwSlltm7GzZvDwUkqvhSQpm55TQsmVo9Y59cLhRXpvB8n-55HCr9Z6G_31_UbeUkoz612I2j_Sm9FFShSDDjoaLQr54CreGIJvjtmS3EkK9a7SJBbcpL1MpUtlfygow39tFjY7EVNW9plWUvRrTgVk7lYLprvfzw-CIqw3gHC-T7IK_m_xkr08INERBtaecwhTeN4chPC4W3jdmw_lIxzC48YoQ0dB1L9-ImX98Egypfrlbm0IBL5spFzL6JDZIRRJOu8vecJvj1mq-IUhGt0MacxX8jdxYLP-KUu2d9MbNKpCKJuZ7p8gwTL5B7NlUdh_dmSviPWrw).
+Visa denna v 2.0-exempel-token i [JWT.MS](https://jwt.ms/#id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjFMVE16YWtpaGlSbGFfOHoyQkVKVlhlV01xbyJ9.eyJ2ZXIiOiIyLjAiLCJpc3MiOiJodHRwczovL2xvZ2luLm1pY3Jvc29mdG9ubGluZS5jb20vOTE4ODA0MGQtNmM2Ny00YzViLWIxMTItMzZhMzA0YjY2ZGFkL3YyLjAiLCJzdWIiOiJBQUFBQUFBQUFBQUFBQUFBQUFBQUFJa3pxRlZyU2FTYUZIeTc4MmJidGFRIiwiYXVkIjoiNmNiMDQwMTgtYTNmNS00NmE3LWI5OTUtOTQwYzc4ZjVhZWYzIiwiZXhwIjoxNTM2MzYxNDExLCJpYXQiOjE1MzYyNzQ3MTEsIm5iZiI6MTUzNjI3NDcxMSwibmFtZSI6IkFiZSBMaW5jb2xuIiwicHJlZmVycmVkX3VzZXJuYW1lIjoiQWJlTGlAbWljcm9zb2Z0LmNvbSIsIm9pZCI6IjAwMDAwMDAwLTAwMDAtMDAwMC02NmYzLTMzMzJlY2E3ZWE4MSIsInRpZCI6IjMzMzgwNDBkLTZjNjctNGM1Yi1iMTEyLTM2YTMwNGI2NmRhZCIsIm5vbmNlIjoiMTIzNTIzIiwiYWlvIjoiRGYyVVZYTDFpeCFsTUNXTVNPSkJjRmF0emNHZnZGR2hqS3Y4cTVnMHg3MzJkUjVNQjVCaXN2R1FPN1lXQnlqZDhpUURMcSFlR2JJRGFreXA1bW5PcmNkcUhlWVNubHRlcFFtUnA2QUlaOGpZIn0.1AFWW-Ck5nROwSlltm7GzZvDwUkqvhSQpm55TQsmVo9Y59cLhRXpvB8n-55HCr9Z6G_31_UbeUkoz612I2j_Sm9FFShSDDjoaLQr54CreGIJvjtmS3EkK9a7SJBbcpL1MpUtlfygow39tFjY7EVNW9plWUvRrTgVk7lYLprvfzw-CIqw3gHC-T7IK_m_xkr08INERBtaecwhTeN4chPC4W3jdmw_lIxzC48YoQ0dB1L9-ImX98Egypfrlbm0IBL5spFzL6JDZIRRJOu8vecJvj1mq-IUhGt0MacxX8jdxYLP-KUu2d9MbNKpCKJuZ7p8gwTL5B7NlUdh_dmSviPWrw).
 
-### <a name="header-claims"></a>Huvud-anspråk
-
-|Begäran | Format | Beskrivning |
-|-----|--------|-------------|
-|`typ` | String - always "JWT" | Anger att token är en JWT.|
-|`alg` | String | Anger den algoritm som användes för att signera token. Exempel: "RS256" |
-|`kid` | String | Tumavtryck för den offentliga nyckeln som används för att signera den här token. Släpps i både v1.0 och v2.0 `id_tokens`. |
-|`x5t` | String | Samma (i användning och värde) som `kid`. Detta är ett äldre anspråk som släpps endast i v1.0 `id_tokens` för kompatibilitet. |
-
-### <a name="payload-claims"></a>Nyttolasten anspråk
-
-Den här listan visar de anspråk som är i de flesta id_tokens som standard (om inget annat anges).  Din app kan dock använda [valfria anspråk](active-directory-optional-claims.md) att begära ytterligare anspråk i id_token.  De kan variera från den `groups` anspråk till information om användarens namn.
+### <a name="header-claims"></a>Huvud anspråk
 
 |Begäran | Format | Beskrivning |
 |-----|--------|-------------|
-|`aud` |  Sträng, ett App-ID-URI | Identifierar den avsedda mottagaren av token. I `id_tokens`, målgruppen är appens program-ID som tilldelats din app i Azure-portalen. Din app ska verifiera det här värdet och avvisa token om värdet inte matchar. |
-|`iss` |  Sträng, en STS-URI | Identifierar den säkerhetstokentjänst (STS) som skapar och återställer token och Azure AD-klient där användaren autentiserades. Om token har utfärdats av v2.0-slutpunkten, URI: N ska avslutas i `/v2.0`.  Det GUID som anger att användaren är en konsument användare från ett Microsoft-konto är `9188040d-6c67-4c5b-b112-36a304b66dad`. Din app ska använda GUID-del av kravet för att minska antalet klienter som kan logga in på appen, om tillämpligt. |
-|`iat` |  int, en UNIX-tidsstämpel | ”Utfärdat till” anger när autentisering för den här token inträffade.  |
-|`idp`|String, usually an STS URI | Registrerar den identitetsprovider som har autentiserat subjektet för token. Det här värdet är identiskt med utfärdaren anspråkets värde såvida inte användarkontot inte i samma klient som utfärdaren - gäster, till exempel. Om anspråket saknas, innebär det att värdet för `iss` kan användas i stället.  För personliga konton som används i en organisations kontext (till exempel ett personligt konto bjudits in till en Azure AD-klient), den `idp` anspråk kan vara ”live.com” eller en STS-URI som innehåller Microsoft-kontots klientorganisation `9188040d-6c67-4c5b-b112-36a304b66dad`. |
-|`nbf` |  int, en UNIX-tidsstämpel | ”Nbf” (inte före)-anspråket identifierar den tid som JWT inte måste godkännas för bearbetning.|
-|`exp` |  int, en UNIX-tidsstämpel | ”Exp” (upphör att gälla)-anspråket identifierar den upphör att gälla på eller efter vilket den JWT måste inte accepteras för bearbetning.  Det är viktigt att Observera att en resurs kan avvisa token före denna tidpunkt samt - om till exempel en ändring i autentisering krävs eller en återkallningen av token har identifierats. |
-| `c_hash`| String |Kod hash ingår i ID-token endast när ID-token utfärdas med en OAuth 2.0-auktoriseringskod. Det kan användas för att bekräfta en auktoriseringskod är äkta. Mer information om hur du utför den här verifieringen, finns i den [OpenID Connect-specifikationen](https://openid.net/specs/openid-connect-core-1_0.html). |
-|`at_hash`| String |Åtkomst-token-hash som ingår i ID token endast när den ID-token som utfärdas med en OAuth 2.0-åtkomsttoken. Det kan användas för att bekräfta en åtkomst-token är äkta. Mer information om hur du utför den här verifieringen, finns i den [OpenID Connect-specifikationen](https://openid.net/specs/openid-connect-core-1_0.html). |
-|`aio` | Täckande sträng | Ett internt anspråk som används av Azure AD för att registrera data för token återanvändning. Ska ignoreras.|
-|`preferred_username` | String | Primära användarnamnet som representerar användaren. Det kan vara en e-postadress, telefonnummer eller ett allmänt användarnamn utan angivet format. Värdet är föränderliga och kan ändras över tid. Eftersom det är föränderliga, måste det här värdet inte användas vid auktoriseringsbeslut. Den `profile` omfattning krävs för att ta emot det här anspråket.|
-|`email` | String | Den `email` finns finns som standard gästkonton som har en e-postadress.  Din app kan begära e-anspråk för hanterade användare (de från samma klient som resursen) med hjälp av den `email` [valfria anspråk](active-directory-optional-claims.md).  På v2.0-slutpunkten din app kan också begära den `email` OpenID Connect scope - du behöver inte begära både valfria anspråk och omfånget för att få anspråket.  E-anspråket har endast stöd för adresserbara e-post från användarens profilinformation. |
-|`name` | String | Den `name` anspråk innehåller ett läsbart värde som identifierar föremål för token. Värdet är inte garanterad vara unikt, det är föränderliga och den har utformats för att användas endast för visning. Den `profile` omfattning krävs för att ta emot det här anspråket. |
-|`nonce`| String | Temporärt ID matchar den parameter som ingår i ursprungligt / godkänna begäran om att IDP: N. Om det inte matchar bör ditt program avvisa token. |
-|`oid` | Sträng, ett GUID | Oföränderligt ID för ett objekt i Microsoft identitetssystem, i det här fallet ett användarkonto. Detta ID identifierar användaren för program – två olika program som loggar in samma användare får samma värde i den `oid` anspråk. Microsoft Graph returnerar detta ID som den `id` -egenskapen för ett givet användarkonto. Eftersom den `oid` tillåter flera appar att korrelera användare, den `profile` omfattning krävs för att ta emot det här anspråket. Observera att om en enskild användare finns i flera klienter, användaren innehåller ett annat objekt-ID i varje klient – de betraktas som olika konton, även om användaren loggar in på varje konto med samma autentiseringsuppgifter. |
-|`roles`| Matris med strängar | Uppsättningen roller som har tilldelats till den användare som loggat in. |
-|`rh` | Täckande sträng |Ett internt anspråk som används av Azure för att verifiera token. Ska ignoreras. |
-|`sub` | Sträng, ett GUID | Huvudkontot som token kontrollerar information, t.ex användare av en app. Det här värdet kan inte ändras och det går inte att tilldela om eller återanvänds. Ämnet är en av pairwise identifierare – det är unikt för ett visst program-ID. Om en användare loggar in på två olika appar med hjälp av två olika klient-ID, får apparna två olika värden för ämne anspråket. Detta kan eller inte är önskvärt beroende på dina krav arkitektur och sekretess. |
-|`tid` | Sträng, ett GUID | Ett GUID som representerar den Azure AD-klient som användaren är från. För arbets- och skolkonton-konton är GUID oföränderligt klient-ID för den organisation som användaren tillhör. Värdet är för personliga konton `9188040d-6c67-4c5b-b112-36a304b66dad`. Den `profile` omfattning krävs för att ta emot det här anspråket. |
-|`unique_name` | String | Innehåller ett läsbart värde som identifierar subjektet för token. Det här värdet är inte garanterad vara unikt inom en klient och bör endast användas för visning. Endast utfärdats i v1.0 `id_tokens`. |
-|`uti` | Täckande sträng | Ett internt anspråk som används av Azure för att verifiera token. Ska ignoreras. |
-|`ver` | Sträng, 1.0 eller 2.0 | Anger versionen av id_token. |
+|`typ` | Sträng-Always-JWT | Anger att token är en JWT.|
+|`alg` | Sträng | Anger algoritmen som användes för att signera token. Exempel: "RS256" |
+|`kid` | Sträng | Tumavtryck för den offentliga nyckel som används för att signera denna token. Genereras i både v 1.0 och v 2.0 `id_tokens`. |
+|`x5t` | Sträng | Samma (används och värdet) som `kid`. Detta är dock ett äldre anspråk som endast har genererats i `id_tokens` v 1.0 för kompatibilitet. |
 
-## <a name="validating-an-idtoken"></a>Verifiera en id_token
+### <a name="payload-claims"></a>Nytto Last anspråk
 
-Verifiera en `id_token` liknar det första steget i [verifierar en åtkomsttoken](access-tokens.md#validating-tokens) – klienten bör kontrollera att rätt utfärdaren skickade tillbaka token och att den inte har ändrats. Eftersom `id_tokens` är alltid en JWT, många bibliotek finns för att verifiera dessa token – vi rekommenderar att du använder något av dessa i stället göra det själv.
+I den här listan visas de anspråk som är i de flesta id_tokens som standard (utom där antecknas).  Din app kan dock använda [valfria anspråk](active-directory-optional-claims.md) för att begära ytterligare anspråk i id_token.  Detta kan vara ett `groups` intervall från anspråk till information om användarens namn.
 
-För att manuellt verifiera token kan se vilka steg i [verifierar en åtkomsttoken](access-tokens.md#validating-tokens). När du har validerat signaturen på token, bör följande anspråken verifieras i id_token (de kan också göras av biblioteket tokenvalidering):
+|Begäran | Format | Beskrivning |
+|-----|--------|-------------|
+|`aud` |  Sträng, en app-ID-URI | Identifierar den avsedda mottagaren för token. I `id_tokens`är mål gruppen appens program-ID som har tilldelats din app i Azure Portal. Din app bör validera det här värdet och avvisa token om värdet inte matchar. |
+|`iss` |  Sträng, en STS-URI | Identifierar säkerhetstokentjänst som konstruerar och returnerar token och Azure AD-klienten där användaren autentiserades. Om token har utfärdats av v 2.0-slutpunkten avslutas `/v2.0`URI: n.  GUID som anger att användaren är en konsument användare från en Microsoft-konto `9188040d-6c67-4c5b-b112-36a304b66dad`. Din app ska använda en GUID-del av anspråket för att begränsa den uppsättning innehavare som kan logga in på appen, om tillämpligt. |
+|`iat` |  int, en UNIX-tidsstämpel | "Utfärdat vid" anger när autentiseringen för denna token ägde rum.  |
+|`idp`|Sträng, vanligt vis en STS-URI | Registrerar den identitetsprovider som har autentiserat subjektet för token. Värdet är identiskt med värdet för Issuer-anspråket om inte användar kontot inte finns i samma klient organisation som utfärdaren-gäster, till exempel. Om anspråket inte finns, innebär det att värdet för `iss` kan användas i stället.  För personliga konton som används i en organisations kontext (till exempel ett personligt konto som bjudits in till en Azure AD-klient `idp` ) kan anspråk vara "Live.com" eller en STS-URI som innehåller `9188040d-6c67-4c5b-b112-36a304b66dad`Microsoft-konto klient. |
+|`nbf` |  int, en UNIX-tidsstämpel | Anspråket "NBF" (inte före) anger hur lång tid som JWT inte får godkännas för bearbetning.|
+|`exp` |  int, en UNIX-tidsstämpel | Anspråket "EXP" (förfallo tid) anger förfallo tid för eller efter vilken JWT inte får godkännas för bearbetning.  Det är viktigt att Observera att en resurs kanske avvisar token före den här tiden, till exempel om en ändring i autentisering krävs eller om en åter kallelse av token har identifierats. |
+| `c_hash`| Sträng |Kod-hash ingår endast i ID-token när ID-token utfärdas med en OAuth 2,0-auktoriseringskod. Den kan användas för att verifiera äktheten för en auktoriseringskod. Mer information om hur du utför den här verifieringen finns i [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html)-specifikationen. |
+|`at_hash`| Sträng |Hashen för åtkomsttoken ingår bara i ID-tokens när ID-token utfärdas med en OAuth 2,0-åtkomsttoken. Den kan användas för att verifiera äktheten på en åtkomsttoken. Mer information om hur du utför den här verifieringen finns i [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html)-specifikationen. |
+|`aio` | Ogenomskinlig sträng | Ett internt anspråk som används av Azure AD för att registrera data för åter användning av token. Ignoreras.|
+|`preferred_username` | Sträng | Det primära användar namnet som representerar användaren. Det kan vara en e-postadress, ett telefonnummer eller ett generiskt användar namn utan angivet format. Värdet är föränderligt och kan ändras med tiden. Eftersom det är föränderligt får inte det här värdet användas för att fatta auktoriseringsbeslut. `profile` Omfånget krävs för att ta emot det här anspråket.|
+|`email` | Sträng | `email` Anspråket finns som standard för gäst konton som har en e-postadress.  Din app kan begära e-postanspråk för hanterade användare (från samma klient som resursen) med hjälp av `email` det [valfria](active-directory-optional-claims.md)anspråket.  På v 2.0-slutpunkten kan din app även begära `email` OpenID Connect-omfånget – du behöver inte begära både det valfria anspråket och omfattningen för att hämta anspråket.  E-postanspråket stöder bara adresser bara e-post från användarens profil information. |
+|`name` | Sträng | `name` Anspråket ger ett läsligt värde som identifierar ämnet för token. Värdet är inte garanterat unikt, det är föränderligt och har utformats för att endast användas i visnings syfte. `profile` Omfånget krävs för att ta emot det här anspråket. |
+|`nonce`| Sträng | Nonce matchar den parameter som ingår i den ursprungliga/Authorize-begäran till IDP. Om den inte matchar bör ditt program avvisa token. |
+|`oid` | Sträng, ett GUID | Det oföränderliga ID: t för ett objekt i Microsoft Identity system, i det här fallet ett användar konto. Det här ID: t identifierar unikt användaren för alla program – två olika program som loggar in på samma användare får samma värde i `oid` anspråket. Microsoft Graph returnerar detta ID som `id` egenskap för ett angivet användar konto. Eftersom tillåter flera appar att korrelera användare `profile` måste omfånget ta emot detta anspråk. `oid` Observera att om en enskild användare finns i flera klienter, kommer användaren att innehålla ett annat objekt-ID i varje klient – de betraktas som olika konton, även om användaren loggar in på varje konto med samma autentiseringsuppgifter. |
+|`roles`| matris med strängar | Den uppsättning roller som har tilldelats användaren som loggar in. |
+|`rh` | Ogenomskinlig sträng |Ett internt anspråk som används av Azure för att omverifiera token. Ignoreras. |
+|`sub` | Sträng, ett GUID | Den huvudprincip som token förutsätter information för, t. ex. användaren av en app. Värdet är oföränderligt och kan inte tilldelas om eller återanvändas. Ämnet är en identifierad identifierare – den är unik för ett visst program-ID. Om en enskild användare loggar in i två olika appar med två olika klient-ID: n, får dessa appar två olika värden för ämnes anspråket. Detta kan vara så eller kanske inte önskas beroende på dina krav på arkitektur och sekretess. |
+|`tid` | Sträng, ett GUID | Ett GUID som representerar den Azure AD-klient som användaren är från. För arbets-och skol konton är GUID det oåterkalleliga klient-ID: t för den organisation som användaren tillhör. För personliga konton är `9188040d-6c67-4c5b-b112-36a304b66dad`värdet. `profile` Omfånget krävs för att ta emot det här anspråket. |
+|`unique_name` | Sträng | Innehåller ett läsbart värde som identifierar subjektet för token. Det här värdet garanterar inte att vara unikt inom en klient organisation och bör endast användas för visning. Endast utfärdat i v 1.0 `id_tokens`. |
+|`uti` | Ogenomskinlig sträng | Ett internt anspråk som används av Azure för att omverifiera token. Ignoreras. |
+|`ver` | Sträng, antingen 1,0 eller 2,0 | Anger versionen för id_token. |
 
-* Tidsstämplar: den `iat`, `nbf`, och `exp` tidsstämplar bör alla ligga före eller efter den aktuella tiden efter behov. 
-* Målgrupp: den `aud` anspråk måste matcha det app-ID för ditt program.
-* Nonce: den `nonce` anspråk i nyttolasten måste matcha den tillfälligt parameter som överförs till den / tillåta slutpunkt för under den ursprungliga begäran.
+## <a name="validating-an-id_token"></a>Verifiera en id_token
+
+Verifiering av `id_token` en liknar det första steget i att [Verifiera en åtkomsttoken](access-tokens.md#validating-tokens) – klienten bör verifiera att rätt utfärdare har skickat tillbaka token och att den inte har manipulerats. Eftersom `id_tokens` är alltid en JWT finns det många bibliotek för att validera dessa tokens – vi rekommenderar att du använder någon av dessa i stället för att göra det själv.
+
+Information om hur du validerar token manuellt finns i avsnittet om hur du [verifierar en](access-tokens.md#validating-tokens)åtkomsttoken. När signaturen för token har verifierats ska följande anspråk val IDE ras i id_token (de kan också utföras av ditt token Validation Library):
+
+* Tidsstämplar: `iat`-, `nbf`-och `exp` -tidsstämplar bör alla falla före eller efter den aktuella tiden, efter behov. 
+* Mål grupp: `aud` anspråket ska matcha app-ID för ditt program.
+* Nonce: `nonce` anspråk i nytto lasten måste matcha nonce-parametern som överförts till/Authorize-slutpunkten under den första begäran.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig mer om [åtkomsttoken](access-tokens.md)
-* Anpassa anspråk i din id_token med hjälp av [valfria anspråk](active-directory-optional-claims.md).
+* Läs mer [](access-tokens.md) om åtkomsttoken
+* Anpassa anspråk i din id_token med [valfria anspråk](active-directory-optional-claims.md).

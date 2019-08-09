@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e139b274ab8a1f7d91d46ec56171b84db4f5025e
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
-ms.translationtype: HT
+ms.openlocfilehash: a4d692110a304cbfbbfda69bb2b10e3a065b2450
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68812829"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68851534"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Administratörs roll behörigheter i Azure Active Directory
 
@@ -200,9 +200,7 @@ Dessutom kan användaren komma åt rapporter som är relaterade till antagande &
   > [!NOTE]
   > I Microsoft Graph API, Azure AD Graph API och Azure AD PowerShell identifieras den här rollen som "Power BI tjänst administratör". Det är "Power BI administratör" i [Azure Portal](https://portal.azure.com).
 
-* **[Administratör för privilegie rad autentisering](#privileged-authentication-administrator)** : Användare med den här rollen kan ange eller återställa autentiseringsuppgifter som inte är lösen ord för alla användare, inklusive globala administratörer, och kan uppdatera lösen ord för alla användare. Administratörer med privilegie rad autentisering kan tvinga användare att omregistrera sig mot befintliga autentiseringsuppgifter som inte är lösen ord (t. ex. MFA, FIDO) och återkalla "MFA på enheten" och fråga efter MFA vid nästa inloggning för alla användare. Administratörer för privilegie rad autentisering kan:
-  * Tvinga användare att registrera igen mot befintliga autentiseringsuppgifter som inte är lösen ord (t. ex. MFA, FIDO)
-  * Återkalla "Spara MFA på enheten" och begär MFA vid nästa inloggning
+* **[Administratör för privilegie rad autentisering](#privileged-authentication-administrator)** : Användare med den här rollen kan ange eller återställa autentiseringsuppgifter som inte är lösen ord för alla användare, inklusive globala administratörer, och kan uppdatera lösen ord för alla användare. Administratörer med privilegie rad autentisering kan tvinga användare att omregistrera sig mot befintliga autentiseringsuppgifter som inte är lösen ord (t. ex. MFA, FIDO) och återkalla "MFA på enheten" och fråga efter MFA vid nästa inloggning för alla användare.
 
 * **[Privilegie rad roll administratör](#privileged-role-administrator)** : Användare med den här rollen kan hantera roll tilldelningar i Azure Active Directory, samt i Azure AD Privileged Identity Management. Dessutom tillåter den här rollen hantering av alla aspekter av Privileged Identity Management och administrativa enheter.
 

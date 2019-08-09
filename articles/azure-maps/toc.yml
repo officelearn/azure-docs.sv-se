@@ -105,6 +105,8 @@
               href: clustering-point-data-web-sdk.md
             - name: Använda datadrivna formatuttryck
               href: data-driven-style-expressions-web-sdk.md
+            - name: Så här använder du avbildningsmallar
+              href: how-to-use-image-templates-web-sdk.md
             - name: Lägga till en bild som överlägg
               href: map-add-image-layer.md
             - name: Lägga till panelskikt

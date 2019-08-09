@@ -234,7 +234,7 @@
         - name: Komma igång
           href: automation-dsc-getting-started.md
           displayName: DSC
-        - name: Skapa en DSC-konfiguration
+        - name: Hantera en Linux-konfiguration
           href: automation-quickstart-dsc-configuration.md
           displayName: 'DSC, state configuration, config, node configuration, node'
     - name: Publicering

@@ -65,13 +65,19 @@
       href: detailed-troubleshoot-ssh-connection.md
 - name: Vanliga felmeddelanden
   href: error-messages.md
-- name: Prestandaproblem med virtuella Windows-datorer
+- name: Prestandaproblem med virtuella datorer
   href: performance-diagnostics.md
   items:
-    - name: Så här använder du PerfInsights
-      href: how-to-use-perfInsights.md
-    - name: Tillägg för prestandadiagnostik
-      href: performance-diagnostics-vm-extension.md
+    - name: Windows
+      items:
+        - name: Så här använder du PerfInsights
+          href: how-to-use-perfinsights.md
+        - name: Tillägg för prestandadiagnostik
+          href: performance-diagnostics-vm-extension.md
+    - name: Linux
+      items:
+        - name: Så här använder du PerfInsights
+          href: how-to-use-perfinsights-linux.md
 - name: Installera agent för virtuell Windows-dator offline
   href: install-vm-agent-offline.md
 - name: Distribuera om en VM

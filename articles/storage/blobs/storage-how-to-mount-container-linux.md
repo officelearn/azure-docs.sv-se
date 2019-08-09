@@ -1,118 +1,117 @@
 ---
-title: Hur du monterar en Azure Blob storage som ett filsystem i Linux | Microsoft Docs
-description: Montera en Azure Blob storage-behållare med FUSE på Linux
-services: storage
+title: Så här monterar du Azure Blob Storage som ett fil system i Linux | Microsoft Docs
+description: Montera en Azure Blob Storage-behållare med säkring på Linux
 author: normesta
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 2/1/2019
 ms.author: normesta
-ms.reviewer: seguler
-ms.openlocfilehash: d5077b75ff9e760917e9d5d02bea49dc4967a08b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.reviewer: dineshm
+ms.openlocfilehash: 88002999baacf38b4afd40b574686457c48546e4
+ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66473445"
+ms.lasthandoff: 08/08/2019
+ms.locfileid: "68845017"
 ---
-# <a name="how-to-mount-blob-storage-as-a-file-system-with-blobfuse"></a>Hur du montera Blob storage som ett filsystem med blobfuse
+# <a name="how-to-mount-blob-storage-as-a-file-system-with-blobfuse"></a>Montera Blob Storage som ett fil system med blobfuse
 
 ## <a name="overview"></a>Översikt
-[Blobfuse](https://github.com/Azure/azure-storage-fuse) är en virtuell filsystemsdrivrutin för Azure-blobblagring. Blobfuse ger dig tillgång till dina befintliga block blob-data i ditt storage-konto via filsystemet Linux. Blobfuse använder schemat virtuell katalog med snedstrecket ”/” som avgränsare.  
+[Blobfuse](https://github.com/Azure/azure-storage-fuse) är en virtuell filsystemsdrivrutin för Azure-blobblagring. Med Blobfuse kan du komma åt dina befintliga block BLOB-data i ditt lagrings konto via Linux-filsystemet. Blobfuse använder det virtuella katalog schemat med Forward-snedstrecket "/" som avgränsare.  
 
-Den här guiden visar hur du använder blobfuse och montera Blob storage-behållare på Linux och komma åt data. Om du vill veta mer om blobfuse kan du läsa informationen i [blobfuse databasen](https://github.com/Azure/azure-storage-fuse).
+Den här guiden visar hur du använder blobfuse och monterar en Blob Storage-behållare på Linux och åtkomst till data. Läs mer om blobfuse i informationen i [blobfuse](https://github.com/Azure/azure-storage-fuse)-lagringsplatsen.
 
 > [!WARNING]
-> Blobfuse inte garantera 100% POSIX-efterlevnad som den helt enkelt översätter begäranden till [Blob REST API: er](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api). Exempel: Byt namn på är atomiska i POSIX, men inte i blobfuse.
-> En fullständig lista över skillnaderna mellan ett filsystem och blobfuse finns [lagringsplatsen för källkod blobfuse](https://github.com/azure/azure-storage-fuse).
+> Blobfuse garanterar inte 100% POSIX-kompatibilitet eftersom det bara översätter begär anden till [BLOB REST-API: er](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api). Till exempel är Rename-åtgärder atomiska i POSIX, men inte i blobfuse.
+> En fullständig lista över skillnaderna mellan ett ursprungligt fil system och blobfuse finns [i käll kods lagret för blobfuse](https://github.com/azure/azure-storage-fuse).
 > 
 
 ## <a name="install-blobfuse-on-linux"></a>Installera blobfuse på Linux
-Blobfuse binärfiler finns på [lagringsplatser för Microsoft-programvara för Linux](https://docs.microsoft.com/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software) för distributioner som Ubuntu och RHEL. Konfigurera en databaser i listan om du vill installera blobfuse på dessa distributioner. Du kan också skapa binärfiler från källan koden efter den [Azure Storage installationsstegen](https://github.com/Azure/azure-storage-fuse/wiki/1.-Installation#option-2---build-from-source) om det finns inga binärfiler för din distribution.
+Blobfuse-binärfiler finns tillgängliga i [Microsofts program varu databaser för Linux](https://docs.microsoft.com/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software) för Ubuntu-och RHEL-distributioner. Om du vill installera blobfuse på dessa distributioner konfigurerar du en av databaserna från listan. Du kan också bygga binärfilerna från käll koden efter [Azure Storage installations steg](https://github.com/Azure/azure-storage-fuse/wiki/1.-Installation#option-2---build-from-source) om det inte finns några binärfiler tillgängliga för din distribution.
 
-Blobfuse har stöd för installation på Ubuntu 14.04, 16.04 och 18.04. Kör följande kommando för att se till att du har något av dessa versioner distribueras:
+Blobfuse stöder installation på Ubuntu 14,04, 16,04 och 18,04. Kör det här kommandot för att kontrol lera att du har någon av dessa versioner distribuerade:
 ```
 lsb_release -a
 ```
 
-### <a name="configure-the-microsoft-package-repository"></a>Konfigurera Microsoft-paketdatabasen
-Konfigurera den [Linux Paketdatabasen för Microsoft-produkter](https://docs.microsoft.com/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software).
+### <a name="configure-the-microsoft-package-repository"></a>Konfigurera Microsoft Package-lagringsplatsen
+Konfigurera [Linux-paketets lagrings plats för Microsoft-produkter](https://docs.microsoft.com/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software).
 
-Exempel på en Enterprise Linux 6-distribution:
+Som exempel i en Enterprise Linux 6-distribution:
 ```bash
 sudo rpm -Uvh https://packages.microsoft.com/config/rhel/6/packages-microsoft-prod.rpm
 ```
 
-På samma sätt kan ändra Webbadressen till `.../rhel/7/...` så att den pekar till en Enterprise Linux 7-distribution.
+På samma sätt kan du ändra URL `.../rhel/7/...` : en så att den pekar på en Enterprise Linux 7-distribution.
 
-Ett annat exempel på en Ubuntu 14.04-distribution:
+Ett annat exempel på en Ubuntu 14,04-distribution:
 ```bash
 wget https://packages.microsoft.com/config/ubuntu/14.04/packages-microsoft-prod.deb
 sudo dpkg -i packages-microsoft-prod.deb
 sudo apt-get update
 ```
 
-På samma sätt kan ändra Webbadressen till `.../ubuntu/16.04/...` eller `.../ubuntu/18.04/...` att referera till en annan Ubuntu-version.
+På samma sätt kan du ändra URL `.../ubuntu/16.04/...` : `.../ubuntu/18.04/...` en till eller till referens till en annan Ubuntu-version.
 
 ### <a name="install-blobfuse"></a>Installera blobfuse
 
-På en Ubuntu/Debian-distribution:
+På en Ubuntu-/Debian-distribution:
 ```bash
 sudo apt-get install blobfuse
 ```
 
-På en Enterprise Linux-distribution:
+I en Enterprise Linux-distribution:
 ```bash    
 sudo yum install blobfuse
 ```
 
-## <a name="prepare-for-mounting"></a>Förbereda för montering
-Blobfuse ger inbyggd-liknande prestanda genom att kräva en tillfällig sökväg i filsystemet att buffra och cachelagra alla öppna filer. Välj de flesta högpresterande disken för den här tillfälliga sökvägen eller Använd en ramdisk för bästa prestanda. 
+## <a name="prepare-for-mounting"></a>Förbered för montering
+Blobfuse tillhandahåller inbyggd prestanda genom att kräva att en tillfällig sökväg i fil systemet buffrar och cachelagrar alla öppna filer. För den här tillfälliga sökvägen väljer du den mest presterande disken eller använder en RAMDISK för bästa prestanda. 
 
 > [!NOTE]
-> Blobfuse lagrar alla öppna filens innehåll i den tillfälliga sökvägen. Se till att ha tillräckligt utrymme för alla öppna filer. 
+> Blobfuse lagrar alla öppna fil innehåll i den tillfälliga sökvägen. Se till att det finns tillräckligt med utrymme för alla öppna filer. 
 > 
 
-### <a name="optional-use-a-ramdisk-for-the-temporary-path"></a>(Valfritt) Använda en ramdisk för den tillfälliga sökvägen
-I följande exempel skapas en ramdisk på 16 GB och en katalog för blobfuse. Välj storleken utifrån dina behov. Den här ramdisk tillåter blobfuse att öppna filer upp till 16 GB i storlek. 
+### <a name="optional-use-a-ramdisk-for-the-temporary-path"></a>Valfritt Använd en RAMDISK för den tillfälliga sökvägen
+I följande exempel skapas en RAMDISK med 16 GB och en katalog för blobfuse. Välj storlek utifrån dina behov. Med den här RAMDISK-filen kan blobfuse öppna filer upp till 16 GB i storlek. 
 ```bash
 sudo mount -t tmpfs -o size=16g tmpfs /mnt/ramdisk
 sudo mkdir /mnt/ramdisk/blobfusetmp
 sudo chown <youruser> /mnt/ramdisk/blobfusetmp
 ```
 
-### <a name="use-an-ssd-as-a-temporary-path"></a>Använda SSD-disk som en tillfällig sökväg
-I Azure, kan du använda de differentierande diskarna (SSD) som är tillgängliga på dina virtuella datorer för att tillhandahålla en buffert med låg latens för blobfuse. I Ubuntu-distributioner kan den här tillfälliga disken är monterad på ' / mnt ”. I distributioner av Red Hat och CentOS, disken är monterad på ' / mnt/resource / ”.
+### <a name="use-an-ssd-as-a-temporary-path"></a>Använd en SSD som tillfällig sökväg
+I Azure kan du använda de tillfälliga diskar (SSD) som finns tillgängliga på dina virtuella datorer för att tillhandahålla en buffert med låg latens för blobfuse. I Ubuntu-distributioner monteras den här tillfälliga disken på "/mnt". I Red Hat och CentOS-distributioner är disken monterad på "/mnt/Resource/".
 
-Kontrollera att dina användare har åtkomst till den tillfälliga sökvägen:
+Se till att användaren har åtkomst till den tillfälliga sökvägen:
 ```bash
 sudo mkdir /mnt/resource/blobfusetmp -p
 sudo chown <youruser> /mnt/resource/blobfusetmp
 ```
 
-### <a name="configure-your-storage-account-credentials"></a>Konfigurera autentiseringsuppgifterna för ditt lagringskonto
-Blobfuse kräver dina autentiseringsuppgifter som ska lagras i en textfil i följande format: 
+### <a name="configure-your-storage-account-credentials"></a>Konfigurera autentiseringsuppgifterna för ditt lagrings konto
+Blobfuse kräver att dina autentiseringsuppgifter lagras i en textfil i följande format: 
 
 ```
 accountName myaccount
 accountKey storageaccesskey
 containerName mycontainer
 ```
-Den `accountName` är prefixet för ditt lagringskonto – inte en fullständig URL.
+`accountName` Är prefixet för ditt lagrings konto – inte den fullständiga URL: en.
 
-Skapa den här filen med hjälp av:
+Skapa den här filen med:
 
 ```
 touch ~/fuse_connection.cfg
 ```
 
-När du har skapat och redigera den här filen kan du se till att begränsa åtkomst så att inga andra användare kan läsa den.
+När du har skapat och redigerat den här filen, se till att begränsa åtkomsten så att inga andra användare kan läsa den.
 ```bash
 chmod 600 fuse_connection.cfg
 ```
 
 > [!NOTE]
-> Om du har skapat konfigurationsfilen på Windows, se till att köra `dos2unix` att rensa och konvertera filen till Unix-format. 
+> Om du har skapat konfigurations filen i Windows, se till att köra `dos2unix` för att rensa filen till UNIX-format. 
 >
 
 ### <a name="create-an-empty-directory-for-mounting"></a>Skapa en tom katalog för montering
@@ -123,16 +122,16 @@ mkdir ~/mycontainer
 ## <a name="mount"></a>Montera
 
 > [!NOTE]
-> En fullständig lista över alternativ för montering, kontrollera [blobfuse databasen](https://github.com/Azure/azure-storage-fuse#mount-options).  
+> För en fullständig lista över monterings alternativ kontrollerar [du blobfuse](https://github.com/Azure/azure-storage-fuse#mount-options)-lagringsplatsen.  
 > 
 
-Kör följande kommando med dina användare att montera blobfuse. Det här kommandot monterar den behållare som angavs i ' / path/to/fuse_connection.cfg ”till platsen” / mycontainer ”.
+Om du vill montera blobfuse kör du följande kommando med användaren. Det här kommandot monterar den behållare som anges i '/path/to/fuse_connection.cfg ' på platsen '/mycontainer '.
 
 ```bash
 sudo blobfuse ~/mycontainer --tmp-path=/mnt/resource/blobfusetmp  --config-file=/path/to/fuse_connection.cfg -o attr_timeout=240 -o entry_timeout=240 -o negative_timeout=120
 ```
 
-Du bör nu ha åtkomst till dina blockblobar via vanlig filsystemet API: er. Den användare som monterar katalogen är den enda som har åtkomst till den, som standard, vilket skyddar åtkomsten. Om du vill tillåta åtkomst till alla användare som du kan montera via alternativet ```-o allow_other```. 
+Du bör nu ha åtkomst till dina block-blobar via de vanliga API: erna för fil system. Den användare som monterar katalogen är den enda person som har åtkomst till den, som standard, vilket skyddar åtkomsten. Om du vill tillåta åtkomst till alla användare kan du montera via alternativet ```-o allow_other```. 
 
 ```bash
 cd ~/mycontainer
@@ -142,6 +141,6 @@ echo "hello world" > test/blob.txt
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Startsida för Blobfuse](https://github.com/Azure/azure-storage-fuse#blobfuse)
-* [Rapportera blobfuse problem](https://github.com/Azure/azure-storage-fuse/issues) 
+* [Start sida för Blobfuse](https://github.com/Azure/azure-storage-fuse#blobfuse)
+* [Rapportera blobfuse-problem](https://github.com/Azure/azure-storage-fuse/issues) 
 

@@ -14,7 +14,6 @@
     - name: Skapa Apache Spark-kluster – Azure CLI
       href: apache-spark-create-cluster-cli.md
     - name: Skapa Apache Spark-kluster – mall
-      displayName: 'resource manager template, arm template, resource manager group'
       href: apache-spark-jupyter-spark-sql.md
 - name: Självstudier
   items:
@@ -50,30 +49,6 @@
       href: ../hdinsight-version-release.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
     - name: Övervaka klustertillgänglighet med Ambari- och Azure Monitor-loggar
       href: ../hdinsight-cluster-availability.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
-    - name: Felsöka
-      items:
-        - name: OutOfMemoryError-undantag
-          href: ./apache-spark-troubleshoot-outofmemory.md
-        - name: Apache Spark-jobbet misslyckades – NoClassDefFoundError
-          href: ./apache-spark-troubleshoot-job-fails-noclassdeffounderror.md
-        - name: Apache Spark-jobbet misslyckades – InvalidClassException
-          href: ./apache-spark-troubleshoot-job-fails-invalidclassexception.md
-        - name: Långsamma Apache Spark-jobb – listStatus
-          href: ./apache-spark-troubleshoot-job-slowness-liststatus.md
-        - name: Långsamma Apache Spark-jobb – lagringscontainer
-          href: ./apache-spark-troubleshoot-job-slowness-container.md
-        - name: IllegalArgumentException-undantag
-          href: ./apache-spark-troubleshoot-illegalargumentexception.md
-        - name: Apache Spark-direktuppspelningsprogramstopp
-          href: ./apache-spark-troubleshoot-application-stops.md
-        - name: RpcTimeoutException-undantag
-          href: ./apache-spark-troubleshoot-rpctimeoutexception.md
-        - name: Blockerande API för korsande ursprung
-          href: ./apache-spark-troubleshoot-blocking-cross-origin.md
-        - name: Kryo-serialiseringen misslyckades
-          href: ./apache-spark-troubleshoot-sparkexception-kryo-serialization-failed.md
-        - name: Händelselogg för Apache Spark – RequestBodyTooLarge
-          href: ./apache-spark-troubleshoot-event-log-requestbodytoolarge.md
 - name: Gör så här för att
   items:
     - name: Använda klusterlagring
@@ -226,7 +201,6 @@
                 - name: Använda Azure-portalen
                   href: ../hdinsight-hadoop-create-linux-clusters-portal.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
                 - name: Använda Azure Resource Manager-mallar
-                  displayName: 'resource manager template, arm template, resource manager group'
                   href: ../hdinsight-hadoop-create-linux-clusters-arm-templates.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
                 - name: Använda SDK för .NET
                   href: 'https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet#create-a-cluster'
@@ -329,6 +303,30 @@
                   href: ../hdinsight-hadoop-hive-out-of-memory-error-oom.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
                 - name: Optimera Apache Hive-frågor
                   href: ../hdinsight-hadoop-optimize-hive-query.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
+    - name: Felsöka
+      items:
+        - name: OutOfMemoryError-undantag
+          href: ./apache-spark-troubleshoot-outofmemory.md
+        - name: Apache Spark-jobbet misslyckades – NoClassDefFoundError
+          href: ./apache-spark-troubleshoot-job-fails-noclassdeffounderror.md
+        - name: Apache Spark-jobbet misslyckades – InvalidClassException
+          href: ./apache-spark-troubleshoot-job-fails-invalidclassexception.md
+        - name: Långsamma Apache Spark-jobb – listStatus
+          href: ./apache-spark-troubleshoot-job-slowness-liststatus.md
+        - name: Långsamma Apache Spark-jobb – lagringscontainer
+          href: ./apache-spark-troubleshoot-job-slowness-container.md
+        - name: IllegalArgumentException-undantag
+          href: ./apache-spark-troubleshoot-illegalargumentexception.md
+        - name: Apache Spark-direktuppspelningsprogramstopp
+          href: ./apache-spark-troubleshoot-application-stops.md
+        - name: RpcTimeoutException-undantag
+          href: ./apache-spark-troubleshoot-rpctimeoutexception.md
+        - name: Blockerande API för korsande ursprung
+          href: ./apache-spark-troubleshoot-blocking-cross-origin.md
+        - name: Kryo-serialiseringen misslyckades
+          href: ./apache-spark-troubleshoot-sparkexception-kryo-serialization-failed.md
+        - name: Händelselogg för Apache Spark – RequestBodyTooLarge
+          href: ./apache-spark-troubleshoot-event-log-requestbodytoolarge.md
 - name: Referens
   items:
     - name: Kodexempel
@@ -350,7 +348,6 @@
     - name: REST API (Apache Spark)
       href: /rest/api/hdinsightspark/
     - name: Resource Manager-mall
-      displayName: 'resource manager template, arm template, resource manager group'
       href: /azure/templates/microsoft.hdinsight/allversions
 - name: Resurser
   items:

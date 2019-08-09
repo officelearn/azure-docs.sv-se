@@ -70,7 +70,7 @@ azure-vote-front-3309479140-qphz8   1/1       Running   0          3m
 
 ## <a name="autoscale-pods"></a>Automatisk skalning av poddar
 
-Har stöd för Kubernetes [autoskalning av poddar vågrät][kubernetes-hpa] to adjust the number of pods in a deployment depending on CPU utilization or other select metrics. The [Metrics Server][metrics-server] används för att förse Kubernetes resursutnyttjande och distribueras automatiskt i AKS-kluster versioner 1.10 och högre. Om du vill se vilken version av AKS-klustret använder den [az aks show][az-aks-visa] kommandot, som visas i följande exempel:
+Har stöd för Kubernetes [autoskalning av poddar vågrät][kubernetes-hpa] to adjust the number of pods in a deployment depending on CPU utilization or other select metrics. The [Metrics Server][metrics-server] används för att förse Kubernetes resursutnyttjande och distribueras automatiskt i AKS-kluster versioner 1.10 och högre. Om du vill se vilken version av AKS-klustret använder den [az aks show] [az-aks-visa] kommandot, som visas i följande exempel:
 
 ```azurecli
 az aks show --resource-group myResourceGroup --name myAKSCluster --query kubernetesVersion

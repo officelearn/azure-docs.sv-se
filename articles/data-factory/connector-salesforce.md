@@ -316,25 +316,25 @@ När du kopierar data från Salesforce används följande mappningar från Sales
 
 | Salesforce-datatyp | Data Factory tillfälliga datatyp |
 |:--- |:--- |
-| Auto Number |Sträng |
-| Checkbox |Boolesk |
+| Auto Number |String |
+| Checkbox |Boolean |
 | Currency |Decimal |
 | Date |DateTime |
 | Date/Time |DateTime |
-| Email |Sträng |
-| ID |Sträng |
-| Lookup Relationship |Sträng |
-| Multi-Select Picklist |Sträng |
+| Email |String |
+| Id |String |
+| Lookup Relationship |String |
+| Multi-Select Picklist |String |
 | Number |Decimal |
 | Percent |Decimal |
-| Phone |Sträng |
-| Picklist |Sträng |
-| Text |Sträng |
-| Text Area |Sträng |
-| Text Area (Long) |Sträng |
-| Text Area (Rich) |Sträng |
-| Text (Encrypted) |Sträng |
-| URL |Sträng |
+| Phone |String |
+| Picklist |String |
+| Text |String |
+| Text Area |String |
+| Text Area (Long) |String |
+| Text Area (Rich) |String |
+| Text (Encrypted) |String |
+| URL |String |
 
 ## <a name="next-steps"></a>Nästa steg
 En lista över datalager som stöds som källor och mottagare av kopieringsaktiviteten i Data Factory finns i [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).

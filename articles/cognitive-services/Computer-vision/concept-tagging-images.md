@@ -1,7 +1,7 @@
 ---
-title: Tillämpa avbildningar - visuellt innehåll taggar
+title: Innehålls etiketter – Visuellt innehåll
 titleSuffix: Azure Cognitive Services
-description: Lär dig begrepp för avbildningarna taggningsfunktion för den API för visuellt innehåll.
+description: Lär dig begrepp som rör funktionen för att tagga bilder i API för visuellt innehåll.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,24 +11,24 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: aeb03566a650fe46286d77913e0d36dcbb19f436
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ad01751f7f7c573352c8fd15cc0f8cc2ebbbe700
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60759681"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945106"
 ---
 # <a name="applying-content-tags-to-images"></a>Applicera innehållstaggar på bilder
 
-Visuellt innehåll returnerar taggar som baseras på tusentals identifierbara objekt, levande varelser, landskap och åtgärder. I de fall där taggarna är tvetydiga eller dess betydelse inte är allmän kännedom ger API-svaren ”ledtrådar” för att tydliggöra taggarnas betydelse i en viss kontext. Taggar är inte ordnade som en taxonomi och det finns inga arvshierarkier. En samling innehållstaggar utgör grunden för en ”bildbeskrivning” som visas som språk som kan läsas av människor som är formaterade i fullständiga meningar. Observera att engelska för tillfället är det enda språket som stöds för bildbeskrivning.
+Visuellt innehåll returnerar Taggar baserat på tusentals identifierbara objekt, boende, landskap och åtgärder. I de fall där taggarna är tvetydiga eller dess betydelse inte är allmän kännedom ger API-svaren ”ledtrådar” för att tydliggöra taggarnas betydelse i en viss kontext. Taggar är inte ordnade som en taxonomi och det finns inga arvshierarkier. En samling innehållstaggar utgör grunden för en ”bildbeskrivning” som visas som språk som kan läsas av människor som är formaterade i fullständiga meningar. Observera att engelska för tillfället är det enda språket som stöds för bildbeskrivning.
 
-När du laddar upp en bild eller ange en bild-URL, utdata visuellt algoritmer taggar baserat på de objekt, levande varelser och åtgärder som identifierats i avbildningen. Taggar är inte begränsade till huvudföremålet på bilden, som till exempel en person i förgrunden, utan finns även för saker som bakgrund (inomhus eller utomhus), möbler, verktyg, växter, djur, accessoarer, saker och så vidare.
+När du har laddat upp en bild eller angett en bild-URL, Visuellt innehåll algoritmerna utdata-Taggar baserat på de objekt, levnadsn och åtgärder som identifierats i bilden. Taggar är inte begränsade till huvudföremålet på bilden, som till exempel en person i förgrunden, utan finns även för saker som bakgrund (inomhus eller utomhus), möbler, verktyg, växter, djur, accessoarer, saker och så vidare.
 
-## <a name="image-tagging-example"></a>Bild taggning exempel
+## <a name="image-tagging-example"></a>Exempel på bild taggning
 
-Följande JSON-svar visar vad för visuellt innehåll returnerar när taggning visuella funktioner som har identifierats i exempelbild.
+Följande JSON-svar illustrerar vad Visuellt innehåll returnerar när du taggar visuella funktioner som identifieras i exempel bilden.
 
-![En blå house och framsida](./Images/house_yard.png).
+![Ett blått hus och en främre meter](./Images/house_yard.png).
 
 ```json
 {
@@ -85,4 +85,4 @@ Följande JSON-svar visar vad för visuellt innehåll returnerar när taggning v
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig begrepp [kategorisera bilder](concept-categorizing-images.md) och [som beskriver avbildningar](concept-describing-images.md).
+Lär dig begrepp om att [kategorisera bilder](concept-categorizing-images.md) och [beskriva bilder](concept-describing-images.md).

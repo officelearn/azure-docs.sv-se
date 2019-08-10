@@ -1,7 +1,7 @@
 ---
-title: Generera miniatyrer - visuellt
+title: Smart-beskurna miniatyrer – Visuellt innehåll
 titleSuffix: Azure Cognitive Services
-description: Begrepp för att generera miniatyrer för bilder med hjälp av den API för visuellt innehåll.
+description: Begrepp som rör generering av miniatyr bilder för bilder med hjälp av API för visuellt innehåll.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,43 +11,43 @@ ms.topic: conceptual
 ms.date: 03/11/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 8bbc86f5c6fe0f30968a1ba5bd5fa28160ef6963
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4874910f37b49990a659b48af0cf27921c3fcd5e
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60372896"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945221"
 ---
-# <a name="generating-smart-cropped-thumbnails-with-computer-vision"></a>Generera beskärs av smarta miniatyrbilder med visuellt innehåll
+# <a name="generating-smart-cropped-thumbnails-with-computer-vision"></a>Skapa Smart-beskurna miniatyrer med Visuellt innehåll
 
-En miniatyr är en mindre representation av en avbildning. Miniatyrer används för att representera bilder och andra data på ett mer prisvärt och layout eget sätt. API för visuellt innehåll används smart beskärning, tillsammans med ändrar storlek på bilden, för att skapa intuitiva miniatyrer för en viss avbildning.
+En miniatyr bild är en mindre storleks representation av en bild. Miniatyrer används för att representera bilder och andra data på ett mer ekonomiskt, användarvänligt sätt. API för visuellt innehåll använder Smart beskärning, tillsammans med att ändra storlek på bilden, för att skapa intuitiva miniatyr bilder för en specifik bild.
 
-Algoritmen för visuellt skapa miniatyrbilder fungerar på följande sätt:
+Algoritmen Visuellt innehåll thumbnail generation fungerar på följande sätt:
 
-1. Ta bort störande element från avbildningen och identifiera de _intresseområde_&mdash;delar av bilden där de viktigaste objekten visas.
-1. Beskär bilden baserat på den identifierade _intresseområde_.
-1. Ändra höjd-/ breddförhållandet så att den passar target miniatyrbilder.
+1. Ta bort distraherande element från bilden och identifiera det&mdash;områden i bilden där huvudobjekten visas.
+1. Beskär avbildningen baserat på det identifierade _intresse fältet_ .
+1. Ändra bredd-breddförhållandet så att det passar mål miniatyrernas dimensioner.
 
-## <a name="area-of-interest"></a>Intresseområde
+## <a name="area-of-interest"></a>Intresse områden
 
-När du laddar upp en bild i API för visuellt innehåll analyserar den för att fastställa den *intresseområde*. Den här regionen kan sedan användas för att avgöra hur du Beskär bilden. Åtgärden beskärning dock matchar alltid de önskade proportionerna anges.
+När du laddar upp en bild analyserar API för visuellt innehåll den för att fastställa *intresse ytan*. Den kan sedan använda den här regionen för att bestämma hur avbildningen ska beskäras. Beskärnings åtgärden kommer dock alltid att matcha det önskade proportionerna om ett anges.
 
-Du kan också hämta rådata omgivande box koordinaterna för det här samma *intresseområde* genom att anropa den **areaOfInterest** API: et istället. Du kan sedan använda den här informationen för att ändra originalbilden men du vill.
+Du kan också få koordinaterna för den obehandlade avgränsnings rutan i samma *område av intresse* genom att anropa **areaOfInterest** -API: et i stället. Du kan sedan använda den här informationen för att ändra den ursprungliga avbildningen som du vill.
 
 ## <a name="examples"></a>Exempel
 
-Den genererade miniatyrbilden varierar beroende på vad du anger för höjd, bredd och smart beskärning enligt följande bild.
+Den genererade miniatyr bilden kan variera beroende på vad du anger för höjd, bredd och smart beskärning, som du ser i följande bild.
 
-![En avbildning av mountain bredvid olika beskärning konfigurationer](./Images/thumbnail-demo.png)
+![En mountainbike-bild bredvid olika beskärnings konfigurationer](./Images/thumbnail-demo.png)
 
-I följande tabell visas vanliga miniatyrer genereras av visuellt innehåll för exempel-avbildningar. Miniatyrbilderna genererades för ett angivet mål höjden och bredden på 50 bildpunkter med smart beskärning aktiverat.
+I följande tabell visas typiska miniatyr bilder som genereras av Visuellt innehåll för exempel bilderna. Miniatyrerna skapades för en angiven mål höjd och bredd på 50 bild punkter, med Smart beskärning aktiverat.
 
 | Image | Miniatyr |
 |-------|-----------|
-|![Anpassad för utomhusbruk Mountain på sunset med en persons silhuett](./Images/mountain_vista.png) | ![Miniatyr av anpassad för utomhusbruk Mountain på sunset med en persons silhuett](./Images/mountain_vista_thumbnail.png) |
-|![En vit blommor med en grön bakgrund](./Images/flower.png) | ![Visuellt innehåll analyserar blommor miniatyr](./Images/flower_thumbnail.png) |
-|![En kvinna under taket i en innesluten byggnad](./Images/woman_roof.png) | ![miniatyr av en kvinna under taket i en innesluten byggnad](./Images/woman_roof_thumbnail.png) |
+|![Utomhus mountainbike vid solnedgång, med en persons Silhouette](./Images/mountain_vista.png) | ![Miniatyr av utomhus mountainbike vid solnedgång, med en persons Silhouette](./Images/mountain_vista_thumbnail.png) |
+|![En vit blomma med grön bakgrund](./Images/flower.png) | ![Vision-analysera blomma-miniatyr](./Images/flower_thumbnail.png) |
+|![En kvinna på taket för en lägenhets byggnad](./Images/woman_roof.png) | ![miniatyr av en kvinna som är i taket för en lägenhets byggnad](./Images/woman_roof_thumbnail.png) |
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om [tagga bilder](concept-tagging-images.md) och [kategorisera bilder](concept-categorizing-images.md).
+Lär dig mer om att [Tagga bilder](concept-tagging-images.md) och [kategorisera bilder](concept-categorizing-images.md).

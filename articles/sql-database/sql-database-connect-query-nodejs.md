@@ -10,12 +10,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: v-masebo
 ms.date: 03/25/2019
-ms.openlocfilehash: 4a99acaaae0c0efee61d97605a81d74549e02509
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 72e509a9a7f820c26895bdfac9216b0373729f6c
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569199"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68947100"
 ---
 # <a name="quickstart-use-nodejs-to-query-an-azure-sql-database"></a>Snabbstart: Använd Node.js för att fråga en Azure SQL-databas
 
@@ -56,13 +56,13 @@ Skaffa den anslutningsinformation du behöver för att ansluta till Azure SQL-da
 
 1. Logga in på [Azure Portal](https://portal.azure.com/).
 
-2. Navigera till sidan **SQL-databaser** eller **SQL-hanterade instanser**.
+2. Gå till sidan **SQL-databaser** eller **SQL-hanterade instanser** .
 
 3. På **översiktssidan** granskar du det fullständigt kvalificerade servernamnet bredvid **Servernamn** för en enkel databas eller det fullständigt kvalificerade servernamnet bredvid **Värd** för en hanterad instans. Om du vill kopiera servernamnet eller värdnamnet hovrar du över det och markerar ikonen **Kopiera**. 
 
 ## <a name="create-the-project"></a>Skapa projektet
 
-Öppna en kommandotolk och skapa en mapp med namnet *sqltest*. Navigera till den mapp som du har skapat och kör följande kommando:
+Öppna en kommandotolk och skapa en mapp med namnet *sqltest*. Öppna mappen som du skapade och kör följande kommando:
 
   ```bash
   npm init -y

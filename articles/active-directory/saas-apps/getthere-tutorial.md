@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med GetThere | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory integrering med GetThere | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och GetThere.
 services: active-directory
 documentationCenter: na
@@ -14,41 +14,41 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 499b7f5761c97f6986ca0291af2242d694b609d2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a7c1a59e3b0650badd75a1170a4daaa6561bd23c
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67101742"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945050"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-getthere"></a>Självstudier: Azure Active Directory-integrering med GetThere
+# <a name="tutorial-azure-active-directory-integration-with-getthere"></a>Självstudier: Azure Active Directory integrering med GetThere
 
-I den här självstudien får du lära dig hur du integrerar GetThere med Azure Active Directory (AD Azure).
-Integrera GetThere med Azure AD ger dig följande fördelar:
+I den här självstudien får du lära dig hur du integrerar GetThere med Azure Active Directory (Azure AD).
+Genom att integrera GetThere med Azure AD får du följande fördelar:
 
 * Du kan styra i Azure AD som har åtkomst till GetThere.
-* Du kan aktivera användarna att vara automatiskt inloggad till GetThere (Single Sign-On) med sina Azure AD-konton.
+* Du kan göra det möjligt för användarna att logga in automatiskt till GetThere (enkel inloggning) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure portal.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill konfigurera Azure AD-integrering med GetThere, behöver du följande objekt:
+Om du vill konfigurera Azure AD-integrering med GetThere behöver du följande objekt:
 
 * En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
-* GetThere enkel inloggning aktiverat prenumeration
+* GetThere-aktiverad prenumeration med enkel inloggning
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* Har stöd för GetThere **IDP** -initierad SSO
+* GetThere stöder **IDP** INITIERAd SSO
 
-## <a name="adding-getthere-from-the-gallery"></a>Att lägga till GetThere från galleriet
+## <a name="adding-getthere-from-the-gallery"></a>Lägga till GetThere från galleriet
 
-För att konfigurera integrering av GetThere i Azure AD, som du behöver lägga till GetThere från galleriet i din lista över hanterade SaaS-appar.
+Om du vill konfigurera integreringen av GetThere i Azure AD måste du lägga till GetThere från galleriet i listan över hanterade SaaS-appar.
 
 **Utför följande steg för att lägga till GetThere från galleriet:**
 
@@ -64,31 +64,31 @@ För att konfigurera integrering av GetThere i Azure AD, som du behöver lägga 
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver **GetThere**väljer **GetThere** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+4. I rutan Sök skriver du **GetThere**, väljer **GetThere** från resultat panelen och klickar sedan på **Lägg till** för att lägga till programmet.
 
-     ![GetThere i resultatlistan](common/search-new-app.png)
+     ![GetThere i resultat listan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med GetThere baserat på en testanvändare kallas **Britta Simon**.
-För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i GetThere upprättas.
+I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med GetThere baserat på en test användare som kallas **Britta Simon**.
+För att enkel inloggning ska fungera måste en länk relation mellan en Azure AD-användare och den relaterade användaren i GetThere upprättas.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med GetThere, måste du utföra följande byggblock:
+Om du vill konfigurera och testa enkel inloggning med GetThere i Azure AD måste du slutföra följande Bygg stenar:
 
 1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Konfigurera GetThere Single Sign-On](#configure-getthere-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
+2. **[Konfigurera GetThere-enkel inloggning](#configure-getthere-single-sign-on)** för att konfigurera inställningarna för enkel inloggning på program sidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
 4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Skapa testanvändare GetThere](#create-getthere-test-user)**  – du har en motsvarighet för Britta Simon i GetThere som är länkad till en Azure AD-representation av användaren.
+5. **[Skapa GetThere test User](#create-getthere-test-user)** – om du vill ha en motsvarighet till Britta Simon i GetThere som är länkad till Azure AD-representation av användare.
 6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Utför följande steg för att konfigurera Azure AD enkel inloggning med GetThere:
+Utför följande steg för att konfigurera enkel inloggning med GetThere i Azure AD:
 
-1. I den [Azure-portalen](https://portal.azure.com/)på den **GetThere** application integration markerar **enkel inloggning**.
+1. Välj **enkel inloggning**på sidan **GetThere** Application Integration i [Azure Portal](https://portal.azure.com/).
 
     ![Konfigurera enkel inloggning för länken](common/select-sso.png)
 
@@ -102,7 +102,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med GetTher
 
 4. På sidan **Konfigurera enkel inloggning med SAML** utför du följande steg:
 
-    ![GetThere domän och URL: er med enkel inloggning för information](common/idp-intiated.png)
+    ![Information om enkel inloggning för GetThere-domän och URL: er](common/idp-intiated.png)
 
     a. I textrutan **Identifierare** skriver du en URL:
 
@@ -111,7 +111,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med GetTher
     | `getthere.com` |
     | `http://idp.getthere.com` |
 
-    b. I den **svars-URL** text skriver du någon av de nedan URL: er:
+    b. Skriv någon av följande URL: er i text rutan svars- **URL** :
     
     | |
     |--|
@@ -120,15 +120,15 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med GetTher
     | `https://gtx2-gcte2.getthere.net/login/saml/ssoaasvalidate.act` |
     | `https://wx1.getthere.net/login/saml/ssoaavalidate.act` |
 
-5. GetThere program som förväntar SAML-intyg i ett visst format, vilket kräver att du kan lägga till anpassade attributmappningar i SAML-tokenattribut konfigurationen. I följande skärmbild visas listan över standardattribut. Klicka på ikonen **Redigera** för att öppna dialogrutan Användarattribut.
+5. GetThere-programmet förväntar sig SAML-intyg i ett särskilt format, vilket innebär att du kan lägga till anpassade mappningar av attribut i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut. Klicka på ikonen**Redigera** för att öppna dialogrutan Användarattribut.
 
     ![image](common/edit-attribute.png)
 
-6. Förutom ovanstående GetThere program som förväntar få fler attribut som ska skickas tillbaka i SAML-svar. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** utför du följande steg för att lägga till SAML-tokenattributet enligt det som visas i tabellen nedan:
+6. Utöver ovan förväntar sig GetThere-programmet att fler attribut skickas tillbaka i SAML-svar. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** utför du följande steg för att lägga till SAML-tokenattributet enligt det som visas i tabellen nedan:
 
     | Namn |  Källattribut |  Namnrymd |
     | ---------------| --------------- | --------------- |
-    | Webbplatsnamn | ”Ge värde enligt din organisations” | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/sitename |
+    | Namn | "Ange värdet enligt organisationens" | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/sitename |
     | Användarnamn |  user.mail | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/username |
 
     a. Klicka på **Lägg till nytt anspråk** för att öppna dialogrutan **Hantera användaranspråk**.
@@ -139,7 +139,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med GetTher
 
     b. I textrutan **Namn** skriver du det attributnamn som visas för den raden.
 
-    c. I den **Namespace** textrutan skriver attributets namnområde visas för den raden.
+    c. I text rutan **namnrymd** anger du det attribut namn område som visas för raden.
 
     d. Välj Källa som **Attribut**.
 
@@ -153,7 +153,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med GetTher
 
     ![Länk för hämtning av certifikat](common/certificatebase64.png)
 
-8. På den **konfigurera GetThere** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
+8. I avsnittet **Konfigurera GetThere** kopierar du lämpliga URL: er enligt ditt krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
@@ -163,9 +163,9 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med GetTher
 
     c. Utloggnings-URL
 
-### <a name="configure-getthere-single-sign-on"></a>Konfigurera GetThere Single Sign-On
+### <a name="configure-getthere-single-sign-on"></a>Konfigurera GetThere enkel inloggning
 
-Att konfigurera enkel inloggning på **GetThere** sida, som du behöver skicka de hämtade **certifikat (Base64)** och lämpliga kopierade URL: er från Azure portal för att [GetThere supportteamet](mailto:dataintegration@sabre.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+Om du vill konfigurera enkel inloggning på **GetThere** sida måste du skicka det hämtade **certifikatet (base64)** och lämpliga kopierade url: er från Azure Portal till [support teamet för GetThere](mailto:dataintegration@sabre.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
@@ -185,7 +185,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I den **namn** anger **BrittaSimon**.
   
-    b. I den **användarnamn** skriver **brittasimon\@yourcompanydomain.extension**  
+    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
@@ -194,15 +194,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till GetThere.
+I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till GetThere.
 
-1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **GetThere**.
+1. I Azure Portal väljer du **företags program**, väljer **alla program**och väljer sedan **GetThere**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan med program väljer **GetThere**.
+2. I listan program väljer du **GetThere**.
 
-    ![Länken GetThere i listan med program](common/all-applications.png)
+    ![GetThere-länken i program listan](common/all-applications.png)
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 
@@ -218,15 +218,15 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-getthere-test-user"></a>Skapa GetThere testanvändare
+### <a name="create-getthere-test-user"></a>Skapa GetThere test användare
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i GetThere. Arbeta med [GetThere supportteamet](mailto:dataintegration@sabre.com) att lägga till användare i GetThere-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som heter Britta Simon i GetThere. Arbeta med [GetThere support team](mailto:dataintegration@sabre.com) för att lägga till användare i GetThere-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
 I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
-När du klickar på panelen GetThere i åtkomstpanelen, bör det vara loggas in automatiskt till GetThere som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen GetThere på åtkomst panelen, bör du loggas in automatiskt på den GetThere som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

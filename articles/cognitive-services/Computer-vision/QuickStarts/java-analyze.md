@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Analysera en fjärrbild – REST, Java'
+title: 'Snabbstart: Analysera en fjärravbildning med REST API och Java'
 titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten får du analysera en bild med hjälp av API för visuellt innehåll med Java.
 services: cognitive-services
@@ -10,13 +10,13 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.custom: seodec18
-ms.openlocfilehash: eadf3aca848f1b8ad24cd387e1988cdf8ea55580
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.custom: seodec18, seo-java-august2019
+ms.openlocfilehash: 69d14b3ce84ddd1fbd54ab8a0f6f0c9e24ebac1e
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604429"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946316"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-computer-vision-rest-api-and-java"></a>Snabbstart: Analysera en fjärrbild med hjälp av REST-API:et för Visuellt innehåll och Java
 
@@ -27,7 +27,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 ## <a name="prerequisites"></a>Förutsättningar
 
 - Du måste ha [Java&trade; Platform, Standard Edition Development Kit 7 eller 8](https://aka.ms/azure-jdks) (JDK 7 eller 8) installerat.
-- Du måste ha en prenumerationsnyckel för Visuellt innehåll. Du kan få en kostnadsfri utvärderingsversion nyckel från [prova Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Eller följ instruktionerna i [skapa ett Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) att prenumerera på visuellt innehåll och få din nyckel.
+- Du måste ha en prenumerationsnyckel för Visuellt innehåll. Du kan få en kostnads fri utvärderings nyckel från [Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Eller följ instruktionerna i [skapa ett Cognitive Services konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på visuellt innehåll och hämta din nyckel.
 
 ## <a name="create-and-run-the-sample-application"></a>Skapa och kör exempelappen
 
@@ -129,7 +129,7 @@ public class Main {
 1. Spara och kompilera sedan Java-projektet.
 1. Om du använder en IDE kör du `Main`.
 
-Alternativt kan du kör programmet från ett kommandoradsfönster, kör du följande kommandon. Kommandona förutsätter bibliotek finns i en mapp med namnet `libs` som finns i samma mapp som `Main.java`, om inte, du måste ersätta `libs` med sökvägen till biblioteket.
+Alternativt, om du kör programmet från ett kommando rads fönster, kör du följande kommandon. Dessa kommandon förutsätter att dina bibliotek finns i en mapp `libs` med namnet som finns i samma mapp `Main.java`som. om inte, måste du ersätta `libs` med sökvägen till dina bibliotek.
 
 1. Kompilera filen `Main.java`.
 
@@ -137,7 +137,7 @@ Alternativt kan du kör programmet från ett kommandoradsfönster, kör du följ
     javac -cp ".;libs/*" Main.java
     ```
 
-1. Kör programmet. Begäran skickas till API:et för QnA Maker för att skapa KB, och sedan söker den efter resultat var 30:e sekund. Varje svar ut till fönstret från kommandoraden.
+1. Kör programmet. Begäran skickas till API:et för QnA Maker för att skapa KB, och sedan söker den efter resultat var 30:e sekund. Varje svar skrivs ut till kommando rads fönstret.
 
     ```bash
     java -cp ".;libs/*" Main

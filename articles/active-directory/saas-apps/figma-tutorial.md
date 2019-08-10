@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 6b91ab53ba7b5ce30c1dfa4a2bd90390875b8615
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1bcf3964fb289be9b7410938f9e2eac843e795d4
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67102701"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945200"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-figma"></a>Självstudier: Azure Active Directory-integrering med Figma
 
@@ -33,15 +33,15 @@ Integreringen av Figma med Azure AD medför följande fördelar:
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 För att konfigurera Azure AD-integrering med Figma behöver du följande:
 
 * En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
-* En organisation Figma-Plan
+* En organisations plan för Figma
 
 >[!NOTE]
->Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö. Nya kunder och aktiva Figma Team för Professional-prenumeranter kan kontakta Figma om du vill uppgradera prenumerationen för den [Figma organisation planerar.](https://www.figma.com/pricing/)
+>Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö. Nya kunder och aktiva prenumeranter av Figma Professional-teamet kan kontakta Figma för att uppgradera sin prenumeration till [Figma organisations plan.](https://www.figma.com/pricing/)
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
@@ -120,9 +120,9 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för Fi
     I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://www.figma.com/saml/<TENANT ID>/start`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Du får den `TENANT ID` från steg 11 av Figmas artikeln [konfigurera Azure Active Directory SAML SSO-processen](https://help.figma.com/article/243-configure-azure-active-directory-saml-sso).
+    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Du får `TENANT ID` steget från steg 11 i Figma-artikeln [Konfigurera Azure Active Directory SAML SSO-processen](https://help.figma.com/article/243-configure-azure-active-directory-saml-sso).
 
-6. Figma-programmet förväntar sig SAML-försäkringar i ett specifikt format, vilket kräver att du lägger till anpassade attributmappningar i konfigurationen av SAML-tokenattribut. I följande skärmbild visas listan över standardattribut. Klicka på **redigera** ikonen för att öppna **användarattribut** dialogrutan.
+6. Figma-programmet förväntar sig SAML-försäkringar i ett specifikt format, vilket kräver att du lägger till anpassade attributmappningar i konfigurationen av SAML-tokenattribut. I följande skärmbild visas listan över standardattribut. Klicka på ikonen **Redigera** för att öppna dialog rutan **användarattribut** .
 
     ![image](common/edit-attribute.png)
 
@@ -162,7 +162,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för Fi
   
 ### <a name="configure-figma-single-sign-on"></a>Konfigurera enkel inloggning för Figma
 
-Om du vill konfigurera enkel inloggning på Figma sida, du måste följa den Figma artikeln [konfigurera Azure Active Directory SAML SSO-processen](https://help.figma.com/article/243-configure-azure-active-directory-saml-sso).
+Om du vill konfigurera enkel inloggning på Figma-sidan måste du följa Figma-artikeln [konfigurera Azure Active Directory SAML SSO-process](https://help.figma.com/article/243-configure-azure-active-directory-saml-sso).
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
@@ -182,7 +182,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I den **namn** anger **BrittaSimon**.
   
-    b. I den **användarnamn** skriver **brittasimon\@yourcompanydomain.extension**  
+    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.

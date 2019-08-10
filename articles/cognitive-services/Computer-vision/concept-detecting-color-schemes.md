@@ -1,7 +1,7 @@
 ---
-title: Identifiera färgscheman - visuellt innehåll
+title: Identifiering av färg schema – Visuellt innehåll
 titleSuffix: Azure Cognitive Services
-description: Begrepp för identifiering av färgschemat i bilder med den API för visuellt innehåll.
+description: Begrepp som rör att identifiera färg schema i bilder med hjälp av API för visuellt innehåll.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,26 +11,26 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: ff7af2204f9e05a1ba4ef800c63c3ad462242350
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e0fa85b8a90ea57d9b81bd2eeaa6d080b7582acd
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60368595"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945283"
 ---
-# <a name="detect-color-schemes-in-images"></a>Identifiera färgscheman i bilder
+# <a name="detect-color-schemes-in-images"></a>Identifiera färg scheman i bilder
 
-Visuellt innehåll analyserar färgerna i en bild som tillhandahåller tre olika attribut: dominerande förgrundsfärgen, dominerande bakgrundsfärgen och uppsättning dominanta färger för avbildningen som helhet. Returnerade färger som tillhör uppsättningen: svart, blå, brown, grå, grön, orange, rosa, lila, röd, mörkturkos, vit och gul. 
+Visuellt innehåll analyserar färgerna i en bild för att tillhandahålla tre olika attribut: den dominerande förgrunds färgen, den dominerande bakgrunds färgen och uppsättningen av dominerande färger för bilden som helhet. Returnerade färger tillhör uppsättningen: svart, blå, brun, grå, grön, orange, rosa, lila, röd, blågrön, vit och gul. 
 
-Visuellt innehåll extraherar också en accentfärg som representerar den mest levande färgen i bilden, baserat på en kombination av dominanta färger och mättnad. Accentfärg returneras som en hexadecimal färgkod i HTML. 
+Visuellt innehåll också extrahera en accentfärg, som representerar den mest livfulla färgen i bilden, baserat på en kombination av dominerande färger och mättnad. Dekor färgen returneras som en hexadecimal HTML-färgkod. 
 
-Visuellt innehåll returnerar också ett booleskt värde som anger om en bild är Svartvit.
+Visuellt innehåll returnerar också ett booleskt värde som anger om en bild är i svart vitt.
 
-## <a name="color-scheme-detection-examples"></a>Färgschema identifiering exempel
+## <a name="color-scheme-detection-examples"></a>Exempel på identifiering av färg scheman
 
-I följande exempel visas JSON-svaret som returnerades av visuellt innehåll när du söker efter färgschema på bilden. I det här fallet på bilden är inte en svart och bild, men dominerande förgrunds- och bakgrundsfärger är svarta och dominanta färger för avbildningen som helhet är svart och vit.
+I följande exempel visas ett JSON-svar som returneras av Visuellt innehåll när du identifierar exempel bildens färg schema. I det här fallet är exempel bilden inte en svartvit bild, men de dominerande förgrunds-och bakgrunds färgerna är svarta och de dominerande färgerna för bilden som helhet är svarta och vita.
 
-![Anpassad för utomhusbruk Mountain på sunset med en persons silhuett](./Images/mountain_vista.png)
+![Utomhus mountainbike vid solnedgång, med en persons Silhouette](./Images/mountain_vista.png)
 
 ```json
 {
@@ -50,34 +50,34 @@ I följande exempel visas JSON-svaret som returnerades av visuellt innehåll nä
 }
 ```
 
-### <a name="dominant-color-examples"></a>Dominant färg exempel
+### <a name="dominant-color-examples"></a>Dominerande färg exempel
 
-I följande tabell visas den returnerade förgrund, bakgrund och avbildning färger för varje exempelbild.
+I följande tabell visas de färger som returneras för förgrunds-, bakgrunds-och bildfiler för varje exempel bild.
 
 | Image | Dominanta färger |
 |-------|-----------------|
-|![En vit blommor med en grön bakgrund](./Images/flower.png)| Förgrund: Svart<br/>Bakgrund: Vit<br/>Färger: Black, White, Green|
-![Ett flygplan som körs via en station](./Images/train_station.png) | Förgrund: Svart<br/>Bakgrund: Svart<br/>Färger: Svart |
+|![En vit blomma med grön bakgrund](./Images/flower.png)| Överst Svart<br/>Lägg Vit<br/>Färg Svart, vit, grön|
+![Ett tåg som körs via en station](./Images/train_station.png) | Överst Svart<br/>Lägg Svart<br/>Färg Svart |
 
-### <a name="accent-color-examples"></a>Accent färg exempel
+### <a name="accent-color-examples"></a>Dekor färgs exempel
 
- I följande tabell visas de returnerade accentfärg som ett hexadecimalt HTML-färgvärde, för varje exempelbild.
+ I följande tabell visas den returnerade tilläggs färgen, som ett hexadecimalt HTML-färg värde, för varje exempel bild.
 
 | Image | Accentfärg |
 |-------|--------------|
-|![En person som står på en mountain rock på solnedgång](./Images/mountain_vista.png) | #BB6D10 |
-|![En vit blommor med en grön bakgrund](./Images/flower.png) | #C6A205 |
-|![Ett flygplan som körs via en station](./Images/train_station.png) | #474A84 |
+|![En person som står på en Mountain rock vid solnedgång](./Images/mountain_vista.png) | #BB6D10 |
+|![En vit blomma med grön bakgrund](./Images/flower.png) | #C6A205 |
+|![Ett tåg som körs via en station](./Images/train_station.png) | #474A84 |
 
-### <a name="black--white-detection-examples"></a>Svart och vit-exempel
+### <a name="black--white-detection-examples"></a>Exempel på svart & White Detection
 
-I följande tabell visas datorn Vision svart och utvärdering i exempelbilderna.
+I följande tabell visas Visuellt innehållens svarta och vita utvärdering i exempel bilderna.
 
-| Image | Svartvit? |
+| Image | Svart & vitt? |
 |-------|----------------|
-|![En svart och bild av byggnader i Manhattan](./Images/bw_buildings.png) | true |
-|![En blå house och framsida](./Images/house_yard.png) | false |
+|![En svart och vit bild av byggnader i Manhattan](./Images/bw_buildings.png) | true |
+|![Ett blått hus och en främre meter](./Images/house_yard.png) | false |
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig begrepp [identifiera bildtyper](concept-detecting-image-types.md).
+Lär dig begrepp om att [identifiera avbildnings typer](concept-detecting-image-types.md).

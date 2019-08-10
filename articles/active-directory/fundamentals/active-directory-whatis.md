@@ -10,16 +10,16 @@ ms.date: 07/31/2019
 ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eda457747a6a3e374e7fdea571f64446e15ded21
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: a52b9ee26aac20d95356db6a280c5feb40023fed
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774182"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68942790"
 ---
 # <a name="what-is-azure-active-directory"></a>Vad är Azure Active Directory?
 
-Azure Active Directory (Azure AD) är Microsofts molnbaserade identitets-och åtkomst hanterings tjänst som hjälper din anställdas inloggnings-och åtkomst resurser i:
+Azure Active Directory (Azure AD) är Microsofts molnbaserade identitets-och åtkomst hanterings tjänst, som hjälper dina anställda att logga in och få åtkomst till resurser i:
 
 - Externa resurser, som Microsoft Office 365, Azure-portalen och tusentals andra SaaS-program.
 
@@ -50,9 +50,9 @@ För att förbättra din Azure AD-implementering kan du också lägga till betal
 
 - **Azure Active Directory Free.** Tillhandahåller hantering av användare och grupper, lokal katalog synkronisering, grundläggande rapporter, lösen ords ändring via självbetjäning för moln användare och enkel inloggning i Azure, Office 365 och många populära SaaS-appar.
 
-- **Azure Active Directory Premium P1.** Utöver Free- och Basic-funktionerna får du med P1 även funktioner för hybridanvändare att få åtkomst till både lokala och molnbaserade resurser. Det finns även stöd för avancerad administration, tom dynamiska grupper, grupphantering via självbetjäning, Microsoft Identity Manager (en lokal programsvit för identitets- och åtkomsthantering) och funktioner för tillbakaskrivning i molnet, med lösenordsåterställning via självbetjäning för dina lokala användare.
+- **Azure Active Directory Premium P1.** Förutom de kostnads fria funktionerna ger P1 också dina Hybrid användare åtkomst till både lokala och molnbaserade resurser. Det finns även stöd för avancerad administration, tom dynamiska grupper, grupphantering via självbetjäning, Microsoft Identity Manager (en lokal programsvit för identitets- och åtkomsthantering) och funktioner för tillbakaskrivning i molnet, med lösenordsåterställning via självbetjäning för dina lokala användare.
 
-- **Azure Active Directory Premium P2.** Förutom funktionerna Free, Basic och P1 erbjuder P2 också [Azure Active Directory Identity Protection](../identity-protection/enable.md) för att ge en riskfylld villkorlig åtkomst till dina appar och viktiga företags data och [Privileged Identity Management](../privileged-identity-management/pim-getting-started.md) för att identifiera , begränsa och övervaka administratörer och deras åtkomst till resurser och för att ge just-in-Time-åtkomst vid behov.
+- **Azure Active Directory Premium P2.** Förutom de kostnads fria och P1-funktionerna erbjuder P2 också [Azure Active Directory Identity Protection](../identity-protection/enable.md) för att tillhandahålla riskfylld villkorlig åtkomst till dina appar och kritiska företags data och [Privileged Identity Management](../privileged-identity-management/pim-getting-started.md) för att identifiera, begränsa och övervaka administratörer och deras åtkomst till resurser och ge just-in-Time-åtkomst vid behov.
 
 - **Funktionslicenser med användningsbaserad betalning.** Du finns även extra funktionslicenser, till exempel Azure Active Directory Business-to-Customer (B2C). B2C kan hjälpa dig att ge identitets- och åtkomsthanteringslösningar för dina kundriktade appar. Mer information finns i [Azure Active Directory B2C-dokumentationen](../../active-directory-b2c/index.yml).
 

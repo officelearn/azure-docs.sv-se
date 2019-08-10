@@ -1,6 +1,6 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med Cisco Cloud | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Cisco-molnet.
+title: 'Självstudier: Azure Active Directory integrering med Cisco Cloud | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Cisco Cloud.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,43 +15,43 @@ ms.topic: tutorial
 ms.date: 02/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 251d3738cb5b18cfe98878b857b91a3689fb81a1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c9aa77b539d91d328736dca2b0f7d040f6b4b5f5
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67105624"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68944755"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-cisco-cloud"></a>Självstudier: Azure Active Directory-integrering med Cisco molnet
+# <a name="tutorial-azure-active-directory-integration-with-cisco-cloud"></a>Självstudier: Azure Active Directory integrering med Cisco Cloud
 
-Lär dig hur du integrerar Cisco molnet med Azure Active Directory (AD Azure) i de här självstudierna.
-Integrera Cisco molnet med Azure AD ger dig följande fördelar:
+I den här självstudien får du lära dig att integrera Cisco Cloud med Azure Active Directory (Azure AD).
+Genom att integrera Cisco Cloud med Azure AD får du följande fördelar:
 
-* Du kan styra i Azure AD som har åtkomst till Cisco moln.
-* Du kan aktivera användarna att vara automatiskt inloggad till Cisco moln (Single Sign-On) med sina Azure AD-konton.
+* Du kan styra i Azure AD som har åtkomst till Cisco Cloud.
+* Du kan göra det möjligt för användarna att logga in automatiskt till Cisco Cloud (enkel inloggning) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure portal.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill konfigurera Azure AD-integrering med Cisco molnet, behöver du följande objekt:
+Om du vill konfigurera Azure AD-integrering med Cisco Cloud behöver du följande objekt:
 
 * En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
-* Cisco molnet enkel inloggning aktiverat prenumeration
+* Aktive rad prenumeration för enkel inloggning med Cisco Cloud
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* Har stöd för Cisco molnet **SP och IDP** -initierad SSO
+* Cisco Cloud stöder **SP-och IDP** -INITIERAd SSO
 
-## <a name="adding-cisco-cloud-from-the-gallery"></a>Att lägga till Cisco molnet från galleriet
+## <a name="adding-cisco-cloud-from-the-gallery"></a>Lägga till Cisco Cloud från galleriet
 
-Om du vill konfigurera integreringen av Cisco-moln till Azure AD, som du behöver lägga till Cisco molnet från galleriet i din lista över hanterade SaaS-appar.
+Om du vill konfigurera en integrering av Cisco Cloud i Azure AD måste du lägga till Cisco Cloud från galleriet i listan över hanterade SaaS-appar.
 
-**Utför följande steg för att lägga till Cisco molnet från galleriet:**
+**Utför följande steg för att lägga till Cisco Cloud från galleriet:**
 
 1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
@@ -65,31 +65,31 @@ Om du vill konfigurera integreringen av Cisco-moln till Azure AD, som du behöve
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver **Cisco molnet**väljer **Cisco molnet** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+4. Skriv **Cisco Cloud**i rutan Sök, Välj **Cisco Cloud** från resultat panelen och klicka sedan på **Lägg till** för att lägga till programmet.
 
-     ![Cisco molnet i resultatlistan](common/search-new-app.png)
+     ![Cisco Cloud i resultat listan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Cisco molnet baserat på en testanvändare kallas **Britta Simon**.
-För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i Cisco molnet upprättas.
+I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med Cisco Cloud baserat på en test användare som kallas **Britta Simon**.
+För att enkel inloggning ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och en relaterad användare i Cisco Cloud.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med Cisco moln, måste du utföra följande byggblock:
+Om du vill konfigurera och testa enkel inloggning med Azure AD med Cisco Cloud måste du slutföra följande Bygg stenar:
 
 1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Konfigurera enkel inloggning för Cisco-molnet](#configure-cisco-cloud-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
+2. Konfigurera enkel inloggning för **[Cisco Cloud](#configure-cisco-cloud-single-sign-on)** – så här konfigurerar du inställningarna för enkel inloggning på program sidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
 4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Skapa Cisco molnet testanvändare](#create-cisco-cloud-test-user)**  – du har en motsvarighet för Britta Simon i Cisco-moln som är länkad till en Azure AD-representation av användaren.
+5. **[Skapa Cisco Cloud test User](#create-cisco-cloud-test-user)** – för att få en motsvarighet till Britta Simon i Cisco Cloud som är länkad till Azure AD-representation av användare.
 6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Utför följande steg för att konfigurera Azure AD enkel inloggning med Cisco molnet:
+Utför följande steg för att konfigurera enkel inloggning för Azure AD med Cisco Cloud:
 
-1. I den [Azure-portalen](https://portal.azure.com/)på den **Cisco molnet** application integration markerar **enkel inloggning**.
+1. I [Azure Portal](https://portal.azure.com/)på sidan **Cisco Cloud** Application Integration väljer du **enkel inloggning**.
 
     ![Konfigurera enkel inloggning för länken](common/select-sso.png)
 
@@ -103,7 +103,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Cisco m
 
 4. I avsnittet **Grundläggande SAML-konfiguration**, om du vill konfigurera appen i **IDP**-initierat läge, gör du följande:
 
-    ![Cisco molnet domän och URL: er med enkel inloggning för information](common/idp-intiated.png)
+    ![Information om enkel inloggning för Cisco Cloud-domäner och URL: er](common/idp-intiated.png)
 
     a. I textrutan **Identifierare** skriver du en URL med följande mönster: `<subdomain>.cisco.com`
 
@@ -111,22 +111,22 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Cisco m
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    ![Cisco molnet domän och URL: er med enkel inloggning för information](common/metadata-upload-additional-signon.png)
+    ![Information om enkel inloggning för Cisco Cloud-domäner och URL: er](common/metadata-upload-additional-signon.png)
 
     I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://<subdomain>.cloudapps.cisco.com`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [Cisco Cloud klienten supportteamet](mailto:cpr-ops@cisco.com) att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [Cisco Cloud client support team](mailto:cpr-ops@cisco.com) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-6. Ditt Cisco molnprogram förväntas SAML-intyg i ett visst format, vilket kräver att du kan lägga till anpassade attributmappningar i SAML-tokenattribut konfigurationen. I följande skärmbild visas listan över standardattribut. Klicka på ikonen **Redigera** för att öppna dialogrutan Användarattribut.
+6. Ditt Cisco Cloud-program förväntar sig SAML-intyg i ett särskilt format, vilket kräver att du lägger till anpassade mappningar av attribut i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut. Klicka på ikonen**Redigera** för att öppna dialogrutan Användarattribut.
 
     ![image](common/edit-attribute.png)
 
-7. Cisco molnprogram förväntas ovan dessutom några fler attribut som ska skickas tillbaka i SAML-svar. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** utför du följande steg för att lägga till SAML-tokenattributet enligt det som visas i tabellen nedan:
+7. Utöver ovan förväntar Cisco Cloud Application några fler attribut att skickas tillbaka i SAML-svar. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** utför du följande steg för att lägga till SAML-tokenattributet enligt det som visas i tabellen nedan:
 
     | Namn | Källattribut|
     | -----------| ------------|
-    | Land    | user.country |
+    | ursprungslandet    | användare. land |
     | Företagets    | user.companyname |
     | | |
 
@@ -152,9 +152,9 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Cisco m
 
     ![Länk för hämtning av certifikat](common/copy-metadataurl.png)
 
-### <a name="configure-cisco-cloud-single-sign-on"></a>Konfigurera enkel inloggning för Cisco-molnet
+### <a name="configure-cisco-cloud-single-sign-on"></a>Konfigurera enkel inloggning med Cisco Cloud
 
-Att konfigurera enkel inloggning på **Cisco molnet** sida, som du behöver skicka den **Appfederationsmetadata** till [Cisco molnet supportteamet](mailto:cpr-ops@cisco.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+Om du vill konfigurera enkel inloggning på **Cisco Cloud** -sidan måste du skicka **URL: en** för appens Federations-metadata till [Cisco Cloud Support Team](mailto:cpr-ops@cisco.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
@@ -174,7 +174,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I den **användarnamn** fälttyp **brittasimon\@yourcompanydomain.extension**  
+    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
@@ -183,15 +183,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning om du beviljar åtkomst till Cisco-molnet.
+I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till Cisco Cloud.
 
-1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **Cisco molnet**.
+1. I Azure Portal väljer du **företags program**, väljer **alla program**och väljer sedan **Cisco Cloud**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan med program väljer **Cisco molnet**.
+2. I listan program väljer du **Cisco Cloud**.
 
-    ![Cisco Cloud-länk i listan med program](common/all-applications.png)
+    ![Länken Cisco Cloud i listan program](common/all-applications.png)
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 
@@ -207,15 +207,15 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-cisco-cloud-test-user"></a>Skapa Cisco molnet testanvändare
+### <a name="create-cisco-cloud-test-user"></a>Skapa Cisco Cloud test User
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i Cisco-molnet. Arbeta med [Cisco molnet supportteamet](mailto:cpr-ops@cisco.com) att lägga till användare i Cisco molnplattform. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som heter Britta Simon i Cisco Cloud. Arbeta med [Cisco Cloud Support-teamet](mailto:cpr-ops@cisco.com) för att lägga till användare i Ciscos moln plattform. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
 I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Cisco molnet i åtkomstpanelen, bör det vara loggas in automatiskt till Cisco molnet som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen Cisco Cloud på åtkomst panelen, bör du loggas in automatiskt på det Cisco-moln som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

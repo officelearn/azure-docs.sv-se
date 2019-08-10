@@ -1,7 +1,7 @@
 ---
-title: Beskriv vuxet eller olämpligt innehåll - visuellt innehåll
+title: Innehåll för vuxna och vågat-Visuellt innehåll
 titleSuffix: Azure Cognitive Services
-description: Begrepp för identifiering av vuxet eller olämpligt innehåll i bilder med den APi för visuellt innehåll.
+description: Begrepp som rör identifiering av vuxen och vågat innehåll i avbildningar med hjälp av Visuellt innehåll APi.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,32 +11,32 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 69a4c136e9c210dd40e004b8d5e1c1a2a8fceaa7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ca5f35ab47822d74de556671c38886942d23d9ff
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60368362"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946287"
 ---
-# <a name="detect-adult-and-racy-content"></a>Identifiera vuxet eller olämpligt innehåll
+# <a name="detect-adult-and-racy-content"></a>Identifiera vuxna och vågat innehåll
 
-Visuellt innehåll kan identifiera material som är olämpligt för barn i bilder så att utvecklare kan begränsa visning av sådana bilder i sina program. Innehåll flaggor tillämpas med en poäng mellan noll och ett så att utvecklare kan tolka resultaten efter egna önskemål. 
+Visuellt innehåll kan identifiera vuxna material i bilder så att utvecklare kan begränsa visningen av sådana bilder i program varan. Innehålls flaggor används med ett resultat mellan noll och en så att utvecklarna kan tolka resultaten enligt sina egna inställningar. 
 
 > [!NOTE]
-> Den här funktionen är även erbjuds av den [Azure Content Moderator](https://docs.microsoft.com/azure/cognitive-services/content-moderator/overview) service. Se detta alternativ för lösningar i strängare innehållsmoderering scenarier, till exempel textmoderering och arbetsflöden för mänsklig granskning.
+> Den här funktionen erbjuds också av [Azure Content moderator](https://docs.microsoft.com/azure/cognitive-services/content-moderator/overview) -tjänsten. Se det här alternativet för lösningar till fler rigorösa innehålls redigerings scenarier, till exempel text moderator och mänsklig gransknings arbets flöden.
 
-## <a name="content-flag-definitions"></a>Innehåll flaggan definitioner
+## <a name="content-flag-definitions"></a>Definition av innehålls flagga
 
-**Vuxet** avbildningar definieras som sådana som är pornografiskt sin natur och ofta föreställer nakenhet och sexuellt åtgärder. 
+**Vuxna** bilder definieras som de som är pornografiskt och som ofta visar nakenhet och sexuella handlingar. 
 
-**Vågat** avbildningar är definierade som avbildningar som är sexuellt tyder sin natur och ofta innehåller mindre sexuellt explicit innehåll än avbildningar som **vuxet**. 
+**Vågat** -avbildningar definieras som bilder som är sexuellt och ofta innehåller mindre sexuellt innehåll än bilder som taggats som **vuxen**. 
 
-## <a name="identify-adult-and-racy-content"></a>Identifiera vuxet eller olämpligt innehåll
+## <a name="identify-adult-and-racy-content"></a>Identifiera vuxen och vågat innehåll
 
-Den [analysera](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API.
+[Analys](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) -API: et.
 
-Analysera bild-metoden returnerar två booleska egenskaper `isAdultContent` och `isRacyContent`, JSON-svar med metoden för att ange vuxet eller olämpligt innehåll respektive. Metoden returnerar också två egenskaper `adultScore` och `racyScore`, som representerar förtroende poängen för att identifiera vuxet eller olämpligt innehåll respektive.
+Metoden analysera avbildning returnerar två booleska egenskaper `isAdultContent` och `isRacyContent`, i JSON-svaret på metoden för att ange vuxen och vågat-innehåll. Metoden returnerar också två egenskaper `adultScore` och `racyScore`, som representerar förtroende poängen för att identifiera vuxna och vågat-innehåll.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig begrepp [identifierar domänspecifika innehåll](concept-detecting-domain-content.md) och [identifierar ansikten](concept-detecting-faces.md).
+Lär dig begrepp för att [identifiera domänanslutet innehåll](concept-detecting-domain-content.md) och [upptäcka ansikten](concept-detecting-faces.md).

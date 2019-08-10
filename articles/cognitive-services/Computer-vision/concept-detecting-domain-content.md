@@ -1,7 +1,7 @@
 ---
-title: Identifiera domänspecifika innehåll – visuellt innehåll
+title: Domänbaserad innehålls-Visuellt innehåll
 titleSuffix: Azure Cognitive Services
-description: Lär dig hur du anger en bild kategorisering domän för att returnera mer detaljerad information om en bild.
+description: Lär dig hur du anger en avbildnings kategoriserings domän för att returnera mer detaljerad information om en avbildning.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,26 +11,26 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: e4b64e00f71768a8821c83a73b019f77089e1b3a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8d6dc91ae7bb0f6d7a24064749d9295558a7d39c
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60368089"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946326"
 ---
-# <a name="detect-domain-specific-content"></a>Identifiera domänspecifika innehåll
+# <a name="detect-domain-specific-content"></a>Identifiera domänbaserat innehåll
 
-Dessutom stöder till taggning och övergripande kategorisering, visuellt också ytterligare domänspecifika analys med modeller som har tränats på särskilda data.
+Förutom taggning och övergripande kategorisering, stöder Visuellt innehåll också ytterligare domänbaserad analys med hjälp av modeller som har tränats på specialiserade data.
 
-Det finns två sätt att använda domänspecifika modeller: fristående (analys av begränsade) eller som en förbättring av funktionen för kategorisering.
+Det finns två sätt att använda domänbaserade modeller: själva (begränsad analys) eller som en förbättring av kategoriserings funktionen.
 
-### <a name="scoped-analysis"></a>Begränsade analys
+### <a name="scoped-analysis"></a>Omfattnings analys
 
-Du kan analysera en bild med endast valda domänspecifika-modellen genom att anropa den [modeller /\<modellen\>/analysera](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200) API.
+Du kan analysera en avbildning med hjälp av den valda domän bara modellen genom att anropa [/Analyze-\<API: et för modeller/modell\>](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200) .
 
-Följande är ett exempel på JSON-svaret som returnerades av den **modeller/kändisar/analysera** API för den angivna avbildningen:
+Följande är ett exempel på JSON-svar som returneras av **modellerna Models/kändisar/analysera** API för den aktuella avbildningen:
 
-![Satya Nadella Ständiga, Leende](./images/satya.jpeg)
+![Satya Nadella position, leende](./images/satya.jpeg)
 
 ```json
 {
@@ -55,13 +55,13 @@ Följande är ett exempel på JSON-svaret som returnerades av den **modeller/kä
 }
 ```
 
-### <a name="enhanced-categorization-analysis"></a>Förbättrad kategorisering analys
+### <a name="enhanced-categorization-analysis"></a>Förbättrad kategoriserings analys
 
-Du kan också använda domänspecifika modeller för att komplettera Allmänt bildanalys. Du gör detta som en del av [övergripande kategorisering](concept-categorizing-images.md) genom att ange domänspecifika modeller i den *information* -parametern för den [analysera](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API-anrop.
+Du kan också använda domänbaserade modeller för att komplettera allmänna bild analyser. Du gör detta som en del av en [övergripande kategorisering](concept-categorizing-images.md) genom att ange företagsspecifika modeller i *informations* parametern i API-anropet [analysera](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) .
 
-I det här fallet kallas 86 kategoritaxonomi klassificeraren först. Om någon av de identifierade kategorierna har en matchande domänspecifika modell leds avbildningen genom att modellen samt och resultatet läggs.
+I det här fallet anropas klassificeraren för 86-kategorin först. Om någon av de identifierade kategorierna har en matchande domänbaserad modell skickas avbildningen även genom den modellen och resultaten läggs till.
 
-Följande JSON-svar visar hur domänspecifika analys kan ingå som den `detail` nod i en bredare kategorisering analys.
+Följande JSON-svar visar hur domänbaserad analys kan tas med `detail` i noden i en bredare kategoriserings analys.
 
 ```json
 "categories":[
@@ -96,16 +96,16 @@ Följande JSON-svar visar hur domänspecifika analys kan ingå som den `detail` 
 ]
 ```
 
-## <a name="list-the-domain-specific-models"></a>Lista domänspecifika modeller
+## <a name="list-the-domain-specific-models"></a>Visa en lista över domänbaserade modeller
 
-Visuellt stöder för närvarande följande domänspecifika modeller:
+Visuellt innehåll stöder för närvarande följande företagsspecifika modeller:
 
 | Namn | Beskrivning |
 |------|-------------|
-| kändisar | Kändisigenkänning stöds för bilder klassificeras i den `people_` kategori |
-| Landmärken | Igenkänning av landmärken, stöds för bilder klassificeras i den `outdoor_` eller `building_` kategorier |
+| kändisar | Kändis-igenkänning, stöds för bilder som klassificeras i `people_` kategorin |
+| landmärken | Landmärkes igenkänning, stöds för bilder som klassificeras `building_` i `outdoor_` kategorierna eller |
 
-Anropa den [modeller](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fd) API: et returnerar den här informationen tillsammans med de kategorier som varje modell kan gälla:
+Anrop till [modell](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fd) -API: et returnerar den här informationen tillsammans med de kategorier som varje modell kan använda:
 
 ```json
 {
@@ -139,4 +139,4 @@ Anropa den [modeller](https://westus.dev.cognitive.microsoft.com/docs/services/5
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig begrepp [kategorisera bilder](concept-categorizing-images.md).
+Lär dig begrepp om att [kategorisera bilder](concept-categorizing-images.md).

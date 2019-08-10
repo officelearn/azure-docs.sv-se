@@ -1,6 +1,6 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med Vibe HCM | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Vibe HCM-system.
+title: 'Självstudier: Azure Active Directory integrering med Vibe HCM | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Vibe HCM.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,43 +15,43 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 8d1f974b7fea72bede2ead2e9d971419d5e83cb2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4267b75be72c1d162b4abaf7184afcdd02c38720
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67087528"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68943096"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-vibe-hcm"></a>Självstudier: Azure Active Directory-integrering med Vibe HCM-system
+# <a name="tutorial-azure-active-directory-integration-with-vibe-hcm"></a>Självstudier: Azure Active Directory integrering med Vibe HCM
 
-I den här självstudien får du lära dig hur du integrerar Vibe HCM-system med Azure Active Directory (AD Azure).
-Integrera Vibe HCM-system med Azure AD ger dig följande fördelar:
+I den här självstudien får du lära dig att integrera Vibe-HCM med Azure Active Directory (Azure AD).
+Genom att integrera Vibe-HCM med Azure AD får du följande fördelar:
 
-* Du kan styra i Azure AD som har åtkomst till Vibe HCM-system.
-* Du kan aktivera användarna att vara automatiskt inloggad till Vibe HCM-system (Single Sign-On) med sina Azure AD-konton.
+* Du kan styra i Azure AD som har åtkomst till Vibe-HCM.
+* Du kan göra det möjligt för användarna att logga in automatiskt till Vibe HCM (enkel inloggning) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure portal.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill konfigurera Azure AD-integrering med Vibe HCM, behöver du följande objekt:
+Om du vill konfigurera Azure AD-integrering med Vibe HCM behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en [kostnadsfritt konto](https://azure.microsoft.com/free/)
-* Vibe HCM enkel inloggning aktiverat prenumeration
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/)
+* Vibe HCM, enkel inloggning aktive rad prenumeration
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* Vibe HCM stöder **SP** och **IDP** -initierad SSO
+* Vibe HCM stöder **SP** -och **IDP** -initierad SSO
 
-## <a name="adding-vibe-hcm-from-the-gallery"></a>Att lägga till Vibe HCM-system från galleriet
+## <a name="adding-vibe-hcm-from-the-gallery"></a>Lägga till Vibe HCM från galleriet
 
-Om du vill konfigurera integreringen av Vibe HCM-system till Azure AD, som du behöver lägga till Vibe HCM-system från galleriet i din lista över hanterade SaaS-appar.
+Om du vill konfigurera integreringen av Vibe-HCM i Azure AD måste du lägga till Vibe HCM från galleriet till listan över hanterade SaaS-appar.
 
-**Utför följande steg för att lägga till Vibe HCM-system från galleriet:**
+**Utför följande steg för att lägga till Vibe-HCM från galleriet:**
 
 1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
@@ -65,31 +65,31 @@ Om du vill konfigurera integreringen av Vibe HCM-system till Azure AD, som du be
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver **Vibe HCM**väljer **Vibe HCM** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+4. I rutan Sök skriver du **Vibe HCM**, väljer **Vibe HCM** från resultat panelen och klickar sedan på **Lägg till** för att lägga till programmet.
 
-     ![Vibe HCM-system i resultatlistan](common/search-new-app.png)
+     ![Vibe HCM i resultat listan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Vibe HCM-system baserat på en testanvändare kallas **Britta Simon**.
-För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i Vibe HCM upprättas.
+I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med Vibe HCM baserat på en test användare som kallas **Britta Simon**.
+För att enkel inloggning ska fungera måste en länk relation mellan en Azure AD-användare och den relaterade användaren i Vibe HCM upprättas.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med Vibe HCM-system, måste du utföra följande byggblock:
+Om du vill konfigurera och testa enkel inloggning med Vibe HCM i Azure AD måste du slutföra följande Bygg stenar:
 
 1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Konfigurera enkel inloggning för Vibe-HCM](#configure-vibe-hcm-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
+2. **[Konfigurera Vibe HCM Single Sign-on](#configure-vibe-hcm-single-sign-on)** -för att konfigurera inställningarna för enkel inloggning på program sidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
 4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Skapa Vibe HCM testanvändare](#create-vibe-hcm-test-user)**  – du har en motsvarighet för Britta Simon i Vibe HCM-system som är länkad till en Azure AD-representation av användaren.
+5. **[Skapa Vibe HCM test User](#create-vibe-hcm-test-user)** – om du vill ha en motsvarighet till Britta Simon i Vibe HCM som är länkad till Azure AD-representation av användare.
 6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Utför följande steg för att konfigurera Azure AD enkel inloggning med Vibe HCM:
+Utför följande steg för att konfigurera enkel inloggning med Vibe-HCM i Azure AD:
 
-1. I den [Azure-portalen](https://portal.azure.com/)på den **Vibe HCM** application integration markerar **enkel inloggning**.
+1. I [Azure Portal](https://portal.azure.com/)på sidan **Vibe HCM** Application Integration väljer du **enkel inloggning**.
 
     ![Konfigurera enkel inloggning för länken](common/select-sso.png)
 
@@ -101,26 +101,26 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Vibe HC
 
     ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-4. På den **SAML grundkonfiguration** om du vill konfigurera programmet i **IDP** initierad läge som användaren inte behöver utföra några steg som appen är redan förintegrerade med Azure.
+4. I avsnittet **grundläggande SAML-konfiguration** , om du vill konfigurera programmet i **IDP** initierat läge, behöver användaren inte utföra några steg eftersom appen redan är Förintegrerad med Azure.
 
-    ![Vibe HCM-domän och URL: er med enkel inloggning för information](common/preintegrated.png)
+    ![Information om enkel inloggning för Vibe HCM-domän och URL-adresser](common/preintegrated.png)
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    ![Vibe HCM-domän och URL: er med enkel inloggning för information](common/metadata-upload-additional-signon.png)
+    ![Information om enkel inloggning för Vibe HCM-domän och URL-adresser](common/metadata-upload-additional-signon.png)
 
     I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://<companyName>.vibehcm.com/portal.jsp`
 
     > [!NOTE]
-    > Värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [Vibe HCM klienten supportteamet](mailto:support@vibehcm.com) att hämta värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [Vibe HCM client support team](mailto:support@vibehcm.com) för att hämta värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 6. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på kopieringsknappen för att kopiera **App Federation Metadata-URL** och spara den på datorn.
 
     ![Länk för hämtning av certifikat](common/copy-metadataurl.png)
 
-### <a name="configure-vibe-hcm-single-sign-on"></a>Konfigurera Vibe HCM enkel inloggning
+### <a name="configure-vibe-hcm-single-sign-on"></a>Konfigurera enkel inloggning för Vibe HCM
 
-Att konfigurera enkel inloggning på **Vibe HCM** sida, som du behöver skicka den **Appfederationsmetadata** till [Vibe HCM-supportteamet](mailto:support@vibehcm.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+Om du vill konfigurera enkel inloggning på **Vibe HCM** -sidan måste du skicka **URL: en för app Federation-Metadata** till [Vibe HCM support team](mailto:support@vibehcm.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
@@ -140,7 +140,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I den **användarnamn** fälttyp brittasimon@yourcompanydomain.extension. Till exempel, BrittaSimon@contoso.com
+    b. I brittasimon@yourcompanydomain.extensionfältet **användar namn** . Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
@@ -148,15 +148,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Vibe HCM-system.
+I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till Vibe HCM.
 
-1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **Vibe HCM**.
+1. I Azure Portal väljer du **företags program**, väljer **alla program**och väljer sedan **Vibe HCM**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan med program väljer **Vibe HCM**.
+2. I listan program väljer du **Vibe HCM**.
 
-    ![Vibe HCM-länk i listan med program](common/all-applications.png)
+    ![Vibe HCM-länken i program listan](common/all-applications.png)
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 
@@ -172,15 +172,15 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-vibe-hcm-test-user"></a>Skapa Vibe HCM testanvändare
+### <a name="create-vibe-hcm-test-user"></a>Skapa Vibe HCM-test användare
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i Vibe HCM-system. Arbeta med [Vibe HCM-supportteamet](mailto:support@vibehcm.com) att lägga till användare i Vibe HCM-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som heter Britta Simon i Vibe HCM. Arbeta med [Vibe HCM support team](mailto:support@vibehcm.com) för att lägga till användarna på Vibe HCM-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
 I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Vibe HCM i åtkomstpanelen, bör det vara loggas in automatiskt till Vibe HCM-system som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen Vibe HCM på åtkomst panelen, bör du loggas in automatiskt på Vibe-HCM som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

@@ -8,15 +8,15 @@ ms.custom: seodec18
 services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 5122a5a88f5a0d67799930999236f2993bc43f8f
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: b80c32fea0d62bb5800a677ff30cb0787e83afa2
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68609755"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945848"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Vanliga frågor och svar om Language Understanding
 
@@ -254,7 +254,7 @@ Om du använder Azure bot service och problemet är att **testet i Web Chat** re
 1. Öppna kod redigeraren online. 
 1. I det övre, blå navigerings fältet väljer du namnet på bot (det andra objektet till höger).
 1. I den resulterande List rutan väljer du **Öppna kudu-konsolen**.
-1. Välj **loggfiler**och välj sedan **program**. Granska alla loggfiler. Om du inte ser felet i programmappen granskar du alla loggfiler under loggfiler . 
+1. Välj **loggfiler**och välj sedan **program**. Granska alla loggfiler. Om du inte ser felet i programmappen granskar du alla loggfiler under loggfiler. 
 1. Kom ihåg att återskapa projektet om du använder ett kompilerat språk som C#.
 
 > [!Tip] 

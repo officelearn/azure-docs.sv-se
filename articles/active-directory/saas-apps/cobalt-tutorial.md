@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med kobolt | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory integrering med kobolt | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och kobolt.
 services: active-directory
 documentationCenter: na
@@ -16,41 +16,41 @@ ms.topic: tutorial
 ms.date: 05/08/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9fc2cb6e3aa23ffef03dc129f1f8cea520d1025
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: eda55cbdaf87d80d239ed284919394f83c7e69b4
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67105266"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68944775"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-cobalt"></a>Självstudier: Azure Active Directory-integrering med kobolt
+# <a name="tutorial-azure-active-directory-integration-with-cobalt"></a>Självstudier: Azure Active Directory integrering med kobolt
 
-I den här självstudien får du lära dig hur du integrerar kobolt med Azure Active Directory (AD Azure).
-Integrera kobolt med Azure AD ger dig följande fördelar:
+I den här självstudien får du lära dig hur du integrerar kobolt med Azure Active Directory (Azure AD).
+Att integrera kobolt med Azure AD ger följande fördelar:
 
-* Du kan styra i Azure AD som har åtkomst till kobolt.
-* Du kan aktivera användarna att vara automatiskt inloggad till kobolt (Single Sign-On) med sina Azure AD-konton.
+* Du kan styra i Azure AD som har till gång till kobolt.
+* Du kan göra det möjligt för användarna att logga in automatiskt till kobolt (enkel inloggning) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure portal.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill konfigurera Azure AD-integrering med kobolt, behöver du följande objekt:
+Om du vill konfigurera Azure AD-integrering med kobolt behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en [kostnadsfritt konto](https://azure.microsoft.com/free/)
-* Kobolt enkel inloggning aktiverat prenumeration
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/)
+* Aktive rad prenumeration för enkel inloggning med kobolt
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* Har stöd för kobolt **SP** -initierad SSO
+* Kobolt stöder **SP** -INITIERAd SSO
 
-## <a name="adding-cobalt-from-the-gallery"></a>Att lägga till kobolt från galleriet
+## <a name="adding-cobalt-from-the-gallery"></a>Lägga till kobolt från galleriet
 
-För att konfigurera integrering av kobolt i Azure AD, som du behöver lägga till kobolt från galleriet i din lista över hanterade SaaS-appar.
+Om du vill konfigurera en integrering av kobolt i Azure AD måste du lägga till kobolt från galleriet till din lista över hanterade SaaS-appar.
 
 **Utför följande steg för att lägga till kobolt från galleriet:**
 
@@ -66,31 +66,31 @@ För att konfigurera integrering av kobolt i Azure AD, som du behöver lägga ti
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver **kobolt**väljer **kobolt** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+4. I rutan Sök skriver du **kobolt**, väljer **kobolt** från resultat panelen och klickar sedan på **Lägg till** för att lägga till programmet.
 
-    ![Kobolt i resultatlistan](common/search-new-app.png)
+    ![Kobolt i resultat listan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med kobolt baserat på en testanvändare kallas **Britta Simon**.
-För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i kobolt upprättas.
+I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med kobolt baserat på en test användare som kallas **Britta Simon**.
+För att enkel inloggning ska fungera måste en länk relation mellan en Azure AD-användare och den relaterade användaren i kobolt upprättas.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med kobolt, måste du utföra följande byggblock:
+Om du vill konfigurera och testa enkel inloggning med kobolt i Azure AD måste du slutföra följande Bygg stenar:
 
 1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Konfigurera kobolt Single Sign-On](#configure-cobalt-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
+2. **[Konfigurera enkel inloggning för kobolt](#configure-cobalt-single-sign-on)** för att konfigurera inställningarna för enkel inloggning på program sidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
 4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Skapa kobolt testanvändare](#create-cobalt-test-user)**  – du har en motsvarighet för Britta Simon i kobolt som är länkad till en Azure AD-representation av användaren.
+5. **[Skapa kobolt-test](#create-cobalt-test-user)** för att få en motsvarighet till Britta Simon i kobolt som är länkad till Azure AD-representation av användare.
 6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Utför följande steg för att konfigurera Azure AD enkel inloggning med kobolt:
+Utför följande steg för att konfigurera enkel inloggning med kobolt i Azure AD:
 
-1. I den [Azure-portalen](https://portal.azure.com/)på den **kobolt** application integration markerar **enkel inloggning**.
+1. På sidan [Azure Portal](https://portal.azure.com/)på sidan för program integrering på **kobolt** väljer du **enkel inloggning**.
 
     ![Konfigurera enkel inloggning för länken](common/select-sso.png)
 
@@ -104,23 +104,23 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med kobolt:
 
 4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    ![Kobolt domän och URL: er med enkel inloggning för information](common/sp-signonurl.png)
+    ![Information om enkel inloggning med kobolt och webb adresser](common/sp-signonurl.png)
 
     I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://brightside-prod-<INSTANCENAME>.cobaltdl.com`
 
     > [!NOTE]
-    > Värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [kobolt klienten supportteamet](https://www.cobalt.net/support/) att hämta värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Hämta värdet genom att kontakta [klient support teamet för kobolt](https://www.cobalt.net/support/) . Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-5. Kobolt program som förväntar SAML-intyg i ett visst format, vilket kräver att du kan lägga till anpassade attributmappningar i SAML-tokenattribut konfigurationen. I följande skärmbild visas listan över standardattribut. Klicka på ikonen **Redigera** för att öppna dialogrutan Användarattribut.
+5. Kobolt-programmet förväntar sig SAML-intyg i ett särskilt format, vilket kräver att du lägger till anpassade attribut mappningar i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut. Klicka på ikonen**Redigera** för att öppna dialogrutan Användarattribut.
 
     ![image](common/edit-attribute.png)
 
-6. Förutom ovanstående kobolt program som förväntar få fler attribut som ska skickas tillbaka i SAML-svar. I avsnittet användaranspråk i dialogrutan användarattribut utför du följande steg för att lägga till SAML-token attributet som visas i den tabellen nedan:
+6. Utöver vad som anges förväntar sig kobolt-programmet att fler attribut skickas tillbaka i SAML-svar. I avsnittet användar anspråk i dialog rutan användarattribut, utför följande steg för att lägga till SAML-token-attributet som visas i tabellen nedan:
 
     | Namn | Källattribut|
     | ---------------| --------- |
-    | Mail | user.mail |
-    | othermail | user.othermail |
+    | E-post | user.mail |
+    | Othermail | user.othermail |
 
     a. Klicka på **Lägg till nytt anspråk** för att öppna dialogrutan **Hantera användaranspråk**.
 
@@ -144,7 +144,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med kobolt:
 
     ![Länk för hämtning av certifikat](common/certificatebase64.png)
 
-8. På den **konfigurera kobolt** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
+8. I avsnittet **Konfigurera kobolt** kopierar du lämpliga URL: er enligt ditt krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
@@ -154,9 +154,9 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med kobolt:
 
     c. Utloggnings-URL
 
-### <a name="configure-cobalt-single-sign-on"></a>Konfigurera kobolt enkel inloggning
+### <a name="configure-cobalt-single-sign-on"></a>Konfigurera enkel inloggning för kobolt
 
-Att konfigurera enkel inloggning på **kobolt** sida, som du behöver skicka de hämtade **certifikat (Base64)** och lämpliga kopierade URL: er från Azure portal för att [kobolt supportteamet](https://www.cobalt.net/support/). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+Om du vill konfigurera enkel inloggning på **kobolt** sidan måste du skicka det hämtade **certifikatet (base64)** och lämpliga kopierade url: er från Azure Portal till [support teamet för kobolt](https://www.cobalt.net/support/). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
@@ -176,7 +176,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I den **namn** anger **BrittaSimon**.
   
-    b. I den **användarnamn** skriver `brittasimon@yourcompanydomain.extension`. Till exempel, BrittaSimon@contoso.com
+    b. I fältet **användar namn** skriver `brittasimon@yourcompanydomain.extension`du. Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
@@ -184,15 +184,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till kobolt.
+I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till kobolt.
 
-1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **kobolt**.
+1. I Azure Portal väljer du **företags program**, väljer **alla program**och väljer sedan **kobolt**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan med program väljer **kobolt**.
+2. I listan program väljer du **kobolt**.
 
-    ![Länken kobolt i listan med program](common/all-applications.png)
+    ![Länken kobolt i program listan](common/all-applications.png)
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 
@@ -208,15 +208,15 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-cobalt-test-user"></a>Skapa kobolt testanvändare
+### <a name="create-cobalt-test-user"></a>Skapa en test användare av kobolt
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i kobolt. Arbeta med [kobolt supportteamet](https://www.cobalt.net/support/) att lägga till användare i kobolt-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare med namnet Britta Simon i kobolt. Arbeta med [support teamet för kobolt](https://www.cobalt.net/support/) för att lägga till användare i kobolt-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
 I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
-När du klickar på panelen kobolt i åtkomstpanelen, bör det vara loggas in automatiskt till kobolt som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen för kobolt på åtkomst panelen, bör du loggas in automatiskt på den kobolt som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

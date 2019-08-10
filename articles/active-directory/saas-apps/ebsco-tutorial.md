@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med EBSCO | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory integrering med EBSCO | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och EBSCO.
 services: active-directory
 documentationCenter: na
@@ -15,20 +15,20 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: b6f1198334d8bd4ba58b4fbba02942fc8c54c578
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 35cb408473da8c6397c5034ae20ac0a50b0953ea
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442864"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68944712"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-ebsco"></a>Självstudier: Azure Active Directory-integrering med EBSCO
+# <a name="tutorial-azure-active-directory-integration-with-ebsco"></a>Självstudier: Azure Active Directory integrering med EBSCO
 
-I den här självstudien får du lära dig hur du integrerar EBSCO med Azure Active Directory (AD Azure).
-Integrera EBSCO med Azure AD ger dig följande fördelar:
+I den här självstudien får du lära dig hur du integrerar EBSCO med Azure Active Directory (Azure AD).
+Genom att integrera EBSCO med Azure AD får du följande fördelar:
 
 * Du kan styra i Azure AD som har åtkomst till EBSCO.
-* Du kan aktivera användarna att vara automatiskt inloggad till EBSCO (Single Sign-On) med sina Azure AD-konton.
+* Du kan göra det möjligt för användarna att logga in automatiskt till EBSCO (enkel inloggning) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure portal.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -36,22 +36,22 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill konfigurera Azure AD-integrering med EBSCO, behöver du följande objekt:
+Om du vill konfigurera Azure AD-integrering med EBSCO behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en [kostnadsfritt konto](https://azure.microsoft.com/free/)
-* EBSCO enkel inloggning aktiverat prenumeration
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/)
+* EBSCO-aktiverad prenumeration med enkel inloggning
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* Har stöd för EBSCO **SP** och **IDP** -initierad SSO
+* EBSCO stöder **SP** -och **IDP** -initierad SSO
 
-* Har stöd för EBSCO **Just In Time** etableringen av användare
+* EBSCO stöder **just-in-Time** User-etablering
 
-## <a name="adding-ebsco-from-the-gallery"></a>Att lägga till EBSCO från galleriet
+## <a name="adding-ebsco-from-the-gallery"></a>Lägga till EBSCO från galleriet
 
-För att konfigurera integrering av EBSCO i Azure AD, som du behöver lägga till EBSCO från galleriet i din lista över hanterade SaaS-appar.
+Om du vill konfigurera integreringen av EBSCO i Azure AD måste du lägga till EBSCO från galleriet i listan över hanterade SaaS-appar.
 
 **Utför följande steg för att lägga till EBSCO från galleriet:**
 
@@ -63,35 +63,35 @@ För att konfigurera integrering av EBSCO i Azure AD, som du behöver lägga til
 
     ![Bladet för Enterprise-program](common/enterprise-applications.png)
 
-3. Lägg till ett nytt program, klicka på den **nytt program** längst upp i dialogrutan.
+3. Om du vill lägga till ett nytt program klickar du på knappen **nytt program** överst i dialog rutan.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver **EBSCO**väljer **EBSCO** från panelen resultatet klickar på **Lägg till** för att lägga till programmet.
+4. I rutan Sök skriver du **Ebsco**, väljer **Ebsco** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
 
-     ![EBSCO i resultatlistan](common/search-new-app.png)
+     ![EBSCO i resultat listan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med EBSCO baserat på en testanvändare kallas **Britta Simon**.
-För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i EBSCO upprättas.
+I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med EBSCO baserat på en test användare som kallas **Britta Simon**.
+För att enkel inloggning ska fungera måste en länk relation mellan en Azure AD-användare och den relaterade användaren i EBSCO upprättas.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med EBSCO, måste du utföra följande byggblock:
+Om du vill konfigurera och testa enkel inloggning med EBSCO i Azure AD måste du slutföra följande Bygg stenar:
 
 1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Konfigurera EBSCO Single Sign-On](#configure-ebsco-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
+2. **[Konfigurera Ebsco-enkel inloggning](#configure-ebsco-single-sign-on)** för att konfigurera inställningarna för enkel inloggning på program sidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
 4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Skapa testanvändare EBSCO](#create-ebsco-test-user)**  – du har en motsvarighet för Britta Simon i EBSCO som är länkad till en Azure AD-representation av användaren.
+5. **[Skapa Ebsco test User](#create-ebsco-test-user)** – om du vill ha en motsvarighet till Britta Simon i Ebsco som är länkad till Azure AD-representation av användare.
 6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Utför följande steg för att konfigurera Azure AD enkel inloggning med EBSCO:
+Utför följande steg för att konfigurera enkel inloggning med EBSCO i Azure AD:
 
-1. I den [Azure-portalen](https://portal.azure.com/)på den **EBSCO** application integration markerar **enkel inloggning**.
+1. Välj **enkel inloggning**på sidan **Ebsco** Application Integration i [Azure Portal](https://portal.azure.com/).
 
     ![Konfigurera enkel inloggning för länken](common/select-sso.png)
 
@@ -103,9 +103,9 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med EBSCO:
 
     ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-4. På den **SAML grundkonfiguration** om du vill konfigurera programmet i **IDP** initierade läge, utföra följande steg:
+4. I avsnittet **grundläggande SAML-konfiguration** , om du vill konfigurera programmet i **IDP** initierat läge, utför följande steg:
 
-    ![EBSCO domän och URL: er med enkel inloggning för information](common/idp-identifier.png)
+    ![Information om enkel inloggning för EBSCO-domän och URL: er](common/idp-identifier.png)
 
     I textrutan **Identifierare** skriver du en URL: `pingsso.ebscohost.com`
 
@@ -116,28 +116,28 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med EBSCO:
     I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://search.ebscohost.com/login.aspx?authtype=sso&custid=<unique EBSCO customer ID>&profile=<profile ID>`
 
     > [!NOTE]
-    > Inloggnings-URL-värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [EBSCO klienten supportteamet](mailto:sso@ebsco.com) att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Inloggnings-URL-värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [Ebsco client support team](mailto:sso@ebsco.com) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
     o **unika element:**  
 
-    o **Custid** = RETUR unika EBSCO kund-ID 
+    o **Custid** = ange unikt Ebsco kund-ID 
 
-    o **profil** = klienter kan anpassa på länken för att dirigera användare till en specifik profil (beroende på vad de köper från EBSCO). De kan ange en specifik profil-ID. De huvudsakliga ID: N är eds (EBSCO identifieringstjänst) och ehost (EBSOCOhost databaser). Instruktioner för samma ges [här](https://help.ebsco.com/interfaces/EBSCOhost/EBSCOhost_FAQs/How_do_I_set_up_direct_links_to_EBSCOhost_profiles_and_or_databases#profile).
+    o **Profile** = klienter kan skräddarsy länken för att dirigera användare till en speciell profil (beroende på vad de köper från Ebsco). De kan ange ett angivet profil-ID. Huvud-ID: t är EDS (EBSCO Discovery service) och eHost (EBSOCOhost-databaser). Instruktioner för samma anges [här](https://help.ebsco.com/interfaces/EBSCOhost/EBSCOhost_FAQs/How_do_I_set_up_direct_links_to_EBSCOhost_profiles_and_or_databases#profile).
 
-6. EBSCO program som förväntar SAML-intyg i ett visst format, vilket kräver att du kan lägga till anpassade attributmappningar i SAML-tokenattribut konfigurationen. I följande skärmbild visas listan över standardattribut. Klicka på ikonen  **Redigera** för att öppna dialogrutan **Användarattribut** .
+6. EBSCO-programmet förväntar sig SAML-intyg i ett särskilt format, vilket innebär att du kan lägga till anpassade mappningar av attribut i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut. Klicka på **Redigera** ikon för att öppna dialog rutan **användarattribut** .
 
     ![image](common/edit-attribute.png)
 
      > [!Note]
-    > Den **namn** attributet är obligatoriskt och det är kopplat med **namnidentifierare värdet** i EBSCO program. Detta läggs som standard så du inte behöver lägga till detta manuellt.
+    > Namnattributet är obligatoriskt och det mappas med namn- **ID-värdet** i Ebsco-programmet. Detta läggs till som standard, så du behöver inte lägga till det manuellt.
 
-7. Förutom ovanstående EBSCO program som förväntar få fler attribut som ska skickas tillbaka i SAML-svar. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** utför du följande steg för att lägga till SAML-tokenattributet enligt det som visas i tabellen nedan: 
+7. Utöver ovan förväntar sig EBSCO-programmet att fler attribut skickas tillbaka i SAML-svar. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** utför du följande steg för att lägga till SAML-tokenattributet enligt det som visas i tabellen nedan: 
 
     | Namn | Källattribut|
     | ---------------| --------------- |    
     | FirstName   | user.givenname |
     | LastName   | user.surname |
-    | E-post   | user.mail |
+    | Email   | user.mail |
 
     a. Klicka på **Lägg till nytt anspråk** för att öppna dialogrutan **Hantera användaranspråk**.
 
@@ -159,7 +159,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med EBSCO:
 
     ![Länk för hämtning av certifikat](common/metadataxml.png)
 
-9. På den **konfigurera EBSCO** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
+9. I avsnittet **Konfigurera Ebsco** kopierar du lämpliga URL: er enligt ditt krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
@@ -171,7 +171,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med EBSCO:
 
 ### <a name="configure-ebsco-single-sign-on"></a>Konfigurera EBSCO enkel inloggning
 
-Att konfigurera enkel inloggning på **EBSCO** sida, som du behöver skicka de hämtade **XML-Metadata för** och lämpliga kopierade URL: er från Azure portal för att [EBSCO supportteam](mailto:sso@ebsco.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+Om du vill konfigurera enkel inloggning på **Ebsco** sida måste du skicka den hämtade **metadata-XML** och lämpliga kopierade url: er från Azure Portal till [support teamet för Ebsco](mailto:sso@ebsco.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
@@ -191,7 +191,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I den **användarnamn** fälttyp brittasimon@yourcompanydomain.extension. Till exempel, BrittaSimon@contoso.com
+    b. I brittasimon@yourcompanydomain.extensionfältet **användar namn** . Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
@@ -199,15 +199,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till EBSCO.
+I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till EBSCO.
 
-1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **EBSCO**.
+1. I Azure Portal väljer du **företags program**, väljer **alla program**och väljer sedan **Ebsco**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan med program väljer **EBSCO**.
+2. I listan program väljer du **Ebsco**.
 
-    ![Länken EBSCO i listan med program](common/all-applications.png)
+    ![EBSCO-länken i program listan](common/all-applications.png)
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 
@@ -223,33 +223,33 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-ebsco-test-user"></a>Skapa EBSCO testanvändare
+### <a name="create-ebsco-test-user"></a>Skapa EBSCO test användare
 
-När det gäller EBSCO är etableringen av användare automatisk.
+När det gäller EBSCO är användar etableringen automatisk.
 
 **Utför följande steg för att etablera ett användarkonto:**
 
-Azure AD skickar nödvändiga data till EBSCO program. Etableringen av EBSCOS användare kan vara automatisk eller kräver ett enstaka formulär. Det beror på om klienten har en massa befintlig EBSCOhost konton med personliga inställningar sparas. Samma kan diskuteras med den [EBSCO supportteam](mailto:sso@ebsco.com) under genomförandet. I båda fallen klienten behöver inte skapa EBSCOhost konton innan du testar.
+Azure AD överför nödvändiga data till EBSCO-program. Användar etableringen för EBSCO kan vara automatisk eller kräver ett formulär med en tids period. Det beror på om klienten har massor av redan befintliga EBSCOhost-konton med personliga inställningar sparade. Samma sak kan diskuteras med [Ebsco support team](mailto:sso@ebsco.com) under implementeringen. Oavsett hur behöver klienten inte skapa några EBSCOhost-konton innan testningen.
 
    >[!Note]
-   >Du kan automatisera EBSCOhost etablering/Användaranpassning. Kontakta [EBSCO supportteam](mailto:sso@ebsco.com) om Just-In-Time etableringen av användare. 
+   >Du kan automatisera EBSCOhost användar etablering/anpassning. Kontakta [Ebsco support team](mailto:sso@ebsco.com) om just-in-Time-etablering av användare. 
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
 I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
-1. När du klickar på panelen EBSCO i åtkomstpanelen du bör få automatiskt loggat in på ditt EBSCO program.
+1. När du klickar på panelen EBSCO på åtkomst panelen, bör du få automatiskt inloggad till ditt EBSCO-program.
 Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md).
 
-2. När du loggar in till programmet, klickar du på den **logga in** knappen i övre högra hörnet.
+2. När du har loggat in på programmet klickar du på knappen **Logga in** i det övre högra hörnet.
 
-    ![EBSCO inloggningen i listan med program](./media/ebsco-tutorial/tutorial_ebsco_signin.png)
+    ![EBSCO-inloggningen i program listan](./media/ebsco-tutorial/tutorial_ebsco_signin.png)
  
-3. Du får ett enstaka meddelande att para ihop institutionella SAML/logga in med ett **länka ditt befintliga MyEBSCOhost-konto till din institution konto nu** eller **skapa ett nytt konto MyEBSCOhost och länka det till din institution konto**. Kontot används för användaranpassning på EBSCOhost-programmet. Välj alternativet **skapar ett nytt konto** och ser du att formuläret för anpassning före slutfördes med värden från saml-svar som visas i skärmbilden nedan. Klicka på **”Fortsätt”** att spara det här alternativet.
+3. Du får en eng ång slö period för att para ihop institutionella/SAML-inloggningen med en **länk ditt befintliga MyEBSCOhost-konto till ditt institutions konto nu** eller **skapa ett nytt MyEBSCOhost-konto och länka det till ditt institutions konto**. Kontot används för anpassning av EBSCOhost-programmet. Välj alternativet **skapa ett nytt konto** så ser du att formuläret för anpassningen har slutförts med värdena från SAML-svaret som visas på skärm bilden nedan. Klicka på **Fortsätt** för att spara det här alternativet.
     
-     ![EBSCO användaren i listan med program](./media/ebsco-tutorial/tutorial_ebsco_user.png)
+     ![EBSCO-användaren i program listan](./media/ebsco-tutorial/tutorial_ebsco_user.png)
 
-1. När du har slutfört inställningarna ovan kan du rensa cookies/cacheminnet och logga in igen. Du behöver inte manuellt logga in igen och anpassningsinställningar ska sparas
+1. När du har slutfört ovanstående konfiguration rensar du cookies/cache och loggar in igen. Du behöver inte logga in manuellt igen och anpassnings inställningarna sparas
 
 ## <a name="additional-sesources"></a>Ytterligare sesources
 

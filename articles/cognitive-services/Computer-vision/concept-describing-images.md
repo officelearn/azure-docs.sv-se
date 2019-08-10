@@ -1,7 +1,7 @@
 ---
-title: Som beskriver bilder - visuellt innehåll
+title: Bild beskrivningar – Visuellt innehåll
 titleSuffix: Azure Cognitive Services
-description: Begrepp för funktionen bild beskrivning av den API för visuellt innehåll.
+description: Begrepp relaterade till bild beskrivnings funktionen i API för visuellt innehåll.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -11,22 +11,22 @@ ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 91618b211fdd869daf74491b175d6359ffa3f30c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: dcf61c642a9f8ad7aa68d72736ce8fdb0e9a6e3c
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60368395"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945268"
 ---
-# <a name="describe-images-with-human-readable-language"></a>Beskriv bilder med läsbara språk
+# <a name="describe-images-with-human-readable-language"></a>Beskriv bilder med läsligt språk
 
-Visuellt innehåll kan analysera en bild och generera en läsbara mening som beskriver dess innehåll. Den algoritm som faktiskt retruns flera beskrivningar baserat på olika visuella funktioner och varje beskrivning får ett förtroenderesultat. Det slutgiltiga resultatet är en lista över beskrivningar som beställdes från högsta till lägsta förtroende.
+Visuellt innehåll kan analysera en bild och generera en läslig mening som beskriver dess innehåll. Algoritmen returnerar flera beskrivningar baserat på olika visuella funktioner, och varje beskrivning får en säkerhets poäng. Slutgiltiga utdata är en lista över beskrivningar som har beställts från högst till lägsta förtroende.
 
-## <a name="image-description-example"></a>Exempel på Programbeskrivning bild
+## <a name="image-description-example"></a>Bild beskrivnings exempel
 
-Följande JSON-svar visar vad för visuellt innehåll returnerar att beskriva exempelbild baserat på dess visuella funktioner.
+Följande JSON-svar illustrerar vad Visuellt innehåll returnerar när du beskriver exempel bilden baserat på dess visuella funktioner.
 
-![En svart och bild av byggnader i Manhattan](./Images/bw_buildings.png)
+![En svart och vit bild av byggnader i Manhattan](./Images/bw_buildings.png)
 
 ```json
 {
@@ -58,4 +58,4 @@ Följande JSON-svar visar vad för visuellt innehåll returnerar att beskriva ex
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig begrepp [tagga bilder](concept-tagging-images.md) och [kategorisera bilder](concept-categorizing-images.md).
+Lär dig begrepp om att [Tagga bilder](concept-tagging-images.md) och [kategorisera bilder](concept-categorizing-images.md).

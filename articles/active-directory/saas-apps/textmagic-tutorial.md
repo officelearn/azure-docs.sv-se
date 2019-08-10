@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med TextMagic | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory integrering med TextMagic | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och TextMagic.
 services: active-directory
 documentationCenter: na
@@ -15,42 +15,42 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 1184e282c8dc52cb616bcc47068d96fe61651da9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 53711a80f35177c911b754a0ce3f189ac106adb2
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67088865"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68943308"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-textmagic"></a>Självstudier: Azure Active Directory-integrering med TextMagic
+# <a name="tutorial-azure-active-directory-integration-with-textmagic"></a>Självstudier: Azure Active Directory integrering med TextMagic
 
-I den här självstudien får du lära dig hur du integrerar TextMagic med Azure Active Directory (AD Azure).
-Integrera TextMagic med Azure AD ger dig följande fördelar:
+I den här självstudien får du lära dig hur du integrerar TextMagic med Azure Active Directory (Azure AD).
+Genom att integrera TextMagic med Azure AD får du följande fördelar:
 
 * Du kan styra i Azure AD som har åtkomst till TextMagic.
-* Du kan aktivera användarna att vara automatiskt inloggad till TextMagic (Single Sign-On) med sina Azure AD-konton.
+* Du kan göra det möjligt för användarna att logga in automatiskt till TextMagic (enkel inloggning) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure portal.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill konfigurera Azure AD-integrering med TextMagic, behöver du följande objekt:
+Om du vill konfigurera Azure AD-integrering med TextMagic behöver du följande objekt:
 
 * En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
-* TextMagic enkel inloggning aktiverat prenumeration
+* TextMagic-aktiverad prenumeration med enkel inloggning
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* Har stöd för TextMagic **IDP** -initierad SSO
-* Har stöd för TextMagic **Just In Time** etableringen av användare
+* TextMagic stöder **IDP** INITIERAd SSO
+* TextMagic stöder **just-in-Time** User-etablering
 
-## <a name="adding-textmagic-from-the-gallery"></a>Att lägga till TextMagic från galleriet
+## <a name="adding-textmagic-from-the-gallery"></a>Lägga till TextMagic från galleriet
 
-För att konfigurera integrering av TextMagic i Azure AD, som du behöver lägga till TextMagic från galleriet i din lista över hanterade SaaS-appar.
+Om du vill konfigurera integreringen av TextMagic i Azure AD måste du lägga till TextMagic från galleriet i listan över hanterade SaaS-appar.
 
 **Utför följande steg för att lägga till TextMagic från galleriet:**
 
@@ -66,31 +66,31 @@ För att konfigurera integrering av TextMagic i Azure AD, som du behöver lägga
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver **TextMagic**väljer **TextMagic** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+4. I rutan Sök skriver du **TextMagic**, väljer **TextMagic** från resultat panelen och klickar sedan på **Lägg till** för att lägga till programmet.
 
-     ![TextMagic i resultatlistan](common/search-new-app.png)
+     ![TextMagic i resultat listan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med TextMagic baserat på en testanvändare kallas **Britta Simon**.
-För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i TextMagic upprättas.
+I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med TextMagic baserat på en test användare som kallas **Britta Simon**.
+För att enkel inloggning ska fungera måste en länk relation mellan en Azure AD-användare och den relaterade användaren i TextMagic upprättas.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med TextMagic, måste du utföra följande byggblock:
+Om du vill konfigurera och testa enkel inloggning med TextMagic i Azure AD måste du slutföra följande Bygg stenar:
 
 1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Konfigurera TextMagic Single Sign-On](#configure-textmagic-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
+2. **[Konfigurera TextMagic-enkel inloggning](#configure-textmagic-single-sign-on)** för att konfigurera inställningarna för enkel inloggning på program sidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
 4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Skapa testanvändare TextMagic](#create-textmagic-test-user)**  – du har en motsvarighet för Britta Simon i TextMagic som är länkad till en Azure AD-representation av användaren.
+5. **[Skapa TextMagic test User](#create-textmagic-test-user)** – om du vill ha en motsvarighet till Britta Simon i TextMagic som är länkad till Azure AD-representation av användare.
 6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Utför följande steg för att konfigurera Azure AD enkel inloggning med TextMagic:
+Utför följande steg för att konfigurera enkel inloggning med TextMagic i Azure AD:
 
-1. I den [Azure-portalen](https://portal.azure.com/)på den **TextMagic** application integration markerar **enkel inloggning**.
+1. Välj **enkel inloggning**på sidan **TextMagic** Application Integration i [Azure Portal](https://portal.azure.com/).
 
     ![Konfigurera enkel inloggning för länken](common/select-sso.png)
 
@@ -104,22 +104,22 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med TextMag
 
 4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    ![TextMagic domän och URL: er med enkel inloggning för information](common/idp-identifier.png)
+    ![Information om enkel inloggning för TextMagic-domän och URL: er](common/idp-identifier.png)
 
     I textrutan **Identifierare** skriver du en URL: `https://my.textmagic.com/saml/metadata`
 
-5. Programmets TextMagic förväntar sig SAML-intyg i ett visst format, vilket kräver att du kan lägga till anpassade attributmappningar i SAML-tokenattribut konfigurationen. Följande skärmbild visar en lista över standardattribut, där **nameidentifier** mappas med **user.userprincipalname**. TextMagic program som förväntar **nameidentifier** mappas med **user.mail**, så måste du redigera attribut mappar genom att klicka på **redigera** ikon och ändra den attributmappning.
+5. Ditt TextMagic-program förväntar sig SAML-intyg i ett särskilt format, vilket kräver att du lägger till anpassade mappningar av attribut i konfigurationen för SAML-token. Följande skärmbild visar en lista över standardattribut, där **nameidentifier** mappas med **user.userprincipalname**. TextMagic-programmet förväntar sig att **NameIdentifier** mappas med **User. mail**, så du måste redigera mappningen av attribut genom att klicka på ikonen **Redigera** och ändra attributet mappning.
 
     ![image](common/edit-attribute.png)
 
-6. Förutom ovanstående TextMagic program som förväntar få fler attribut som ska skickas tillbaka i SAML-svar. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** utför du följande steg för att lägga till SAML-tokenattributet enligt det som visas i tabellen nedan:
+6. Utöver ovan förväntar sig TextMagic-programmet att fler attribut skickas tillbaka i SAML-svar. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** utför du följande steg för att lägga till SAML-tokenattributet enligt det som visas i tabellen nedan:
 
     | Namn |   Källattribut| Namnrymd  |
     | --------------- | --------------- | --------------- |
     | Företagets | user.companyname | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
     | firstName               | user.givenname |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
     | lastName            | user.surname |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-    | phone               | user.telephonenumber |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | telefon               | user.telephonenumber |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
     | | |
 
     a. Klicka på **Lägg till nytt anspråk** för att öppna dialogrutan **Hantera användaranspråk**.
@@ -144,7 +144,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med TextMag
 
     ![Länk för hämtning av certifikat](common/certificatebase64.png)
 
-8. På den **konfigurera TextMagic** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
+8. I avsnittet **Konfigurera TextMagic** kopierar du lämpliga URL: er enligt ditt krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
@@ -154,25 +154,25 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med TextMag
 
     c. Utloggnings-URL
 
-### <a name="configure-textmagic-single-sign-on"></a>Konfigurera TextMagic Single Sign-On
+### <a name="configure-textmagic-single-sign-on"></a>Konfigurera TextMagic enkel inloggning
 
-1. I ett annat webbläsarfönster logga du in på webbplatsen TextMagic företag som administratör.
+1. Logga in på din TextMagic-företags webbplats som administratör i ett annat webbläsarfönster.
 
-2. Välj **kontoinställningar** under användarnamnet.
+2. Välj **konto inställningar** under användar namnet.
 
-    ![TextMagic konfiguration](./media/textmagic-tutorial/config1.png)
+    ![TextMagic-konfiguration](./media/textmagic-tutorial/config1.png)
 
-3. Klicka på den **enkel inloggning (SSO)** fliken och Fyll i följande fält:  
+3. Klicka på fliken **enkel inloggning (SSO)** och fyll i följande fält:  
 
-    ![TextMagic konfiguration](./media/textmagic-tutorial/config2.png)
+    ![TextMagic-konfiguration](./media/textmagic-tutorial/config2.png)
 
-    a. I **identitetsprovider entitets-ID:**  textrutan klistra in värdet för **Azure AD-identifierare**, som du har kopierat från Azure-portalen.
+    a. I text rutan **entitets-ID för identitetsprovider:** klistrar du in värdet för **Azure AD**-identifieraren, som du har kopierat från Azure Portal.
 
-    b. I **SSO-URL för identitetsprovider:**  textrutan klistra in värdet för **inloggnings-URL**, som du har kopierat från Azure-portalen.
+    b. Klistra in värdet för inloggnings- **URL**: en som du har kopierat från Azure Portal i **URL: en för URL för identitetsprovider** .
 
-    c. I **SLO-URL för identitetsprovider:**  textrutan klistra in värdet för **URL för utloggning**, som du har kopierat från Azure-portalen.
+    c. I **URL: en för URL för identitets leverantör** , klistra in värdet för **Logga ut URL**, som du har kopierat från Azure Portal.
 
-    d. Öppna din **Base64-kodade certifikat** i anteckningar som hämtats från Azure-portalen, kopierar du innehållet i den till Urklipp och klistra in den till den **offentliga x509 certifikat:**  textrutan.
+    d. Öppna ditt **bas-64-kodade certifikat** i anteckningar som hämtats från Azure Portal, kopiera innehållet i det till Urklipp och klistra in det i text rutan för det **offentliga x509-certifikatet:** .
 
     e. Klicka på **Spara**.
 
@@ -194,7 +194,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I den **användarnamn** fälttyp **brittasimon@yourcompanydomain.extension** . Till exempel, BrittaSimon@contoso.com
+    b. I **brittasimon@yourcompanydomain.extension** fältet **användar namn** . Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
@@ -202,15 +202,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till TextMagic.
+I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till TextMagic.
 
-1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **TextMagic**.
+1. I Azure Portal väljer du **företags program**, väljer **alla program**och väljer sedan **TextMagic**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan med program väljer **TextMagic**.
+2. I listan program väljer du **TextMagic**.
 
-    ![Länken TextMagic i listan med program](common/all-applications.png)
+    ![TextMagic-länken i program listan](common/all-applications.png)
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 
@@ -226,16 +226,16 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-textmagic-test-user"></a>Skapa TextMagic testanvändare
+### <a name="create-textmagic-test-user"></a>Skapa TextMagic test användare
 
-Program stöder **Just-in-time användaretablering** och när autentiserade användare kommer att skapas i programmet automatiskt. Du måste fylla i informationen om en gång vid första inloggningen till aktivera underordnade konto i systemet.
+Programmet stöder **just-in-Time-etablering** och efter att användare av autentisering skapas i programmet automatiskt. Du måste fylla i informationen en gång vid den första inloggningen för att aktivera under kontot i systemet.
 Det finns inget åtgärdsobjekt för dig i det här avsnittet.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
 I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
-När du klickar på panelen TextMagic i åtkomstpanelen, bör det vara loggas in automatiskt till TextMagic som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen TextMagic på åtkomst panelen, bör du loggas in automatiskt på den TextMagic som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

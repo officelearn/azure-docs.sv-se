@@ -1,98 +1,80 @@
 ---
-title: Varumärke identifiering – visuellt innehåll
+title: Varumärkes identifiering – Visuellt innehåll
 titleSuffix: Azure Cognitive Services
-description: Begrepp för varumärke/logotypen identifiering med hjälp av den API för visuellt innehåll.
+description: Begrepp som rör identifiering av märkes-/logo typer med hjälp av API för visuellt innehåll.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 04/17/2019
+ms.date: 08/08/2019
 ms.author: pafarley
-ms.openlocfilehash: d32beaa51471ccab19804122bfbcb33a6b1a5e3d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b4bcd07cf7549029d09f5acd58fdf8f92fffed74
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60203048"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945289"
 ---
 # <a name="detect-popular-brands-in-images"></a>Identifiera populära varumärken i bilder
 
-Varumärke identifiering är ett specialläge av [objekt identifiering](concept-object-detection.md) som använder en databas med tusentals olika globala logotyper för att identifiera varumärken i en video. Du kan använda den här funktionen för att till exempel identifiera vilka varumärken som är mest populära på sociala medier eller förekommer oftast i medieproduktplacering.
+Varumärkes identifiering är ett specialiserat läge för [objekt identifiering](concept-object-detection.md) som använder en databas med tusentals globala logo typer för att identifiera kommersiella varumärken i bilder eller video. Du kan använda den här funktionen för att till exempel identifiera vilka varumärken som är mest populära på sociala medier eller förekommer oftast i medieproduktplacering.
 
-Visuellt tjänsten identifierar om det finns varumärke logotyper i en viss avbildning; i så fall returnerar den namnet och ett förtroenderesultat koordinaterna för en avgränsningsruta runt logotypen.
+Tjänsten Visuellt innehåll identifierar om det finns varumärkes logo typer i en specifik bild. i så fall returneras märkes namnet, en förtroende poäng och koordinaterna för en avgränsnings ruta runt logo typen.
 
-Inbyggda logotyp databas täcker populära varumärken i consumer electronics och kläder. Om du upptäcker att varumärket du letar efter inte har identifierats av tjänsten för visuellt innehåll, du kan betjänas bättre skapa och träna din egen logotyp detektor med hjälp av den [Custom Vision](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/) service.
+Den inbyggda logo typ databasen omfattar populära varumärken i konsument elektronik, kläder med mera. Om du upptäcker att det varumärke som du söker efter inte upptäcks av Visuellt innehålls tjänsten, kan du vara bättre på att skapa och träna din egen logo typ detektor med hjälp av tjänsten [Custom vision](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/) .
 
-## <a name="brand-detection-example"></a>Varumärke identifiering exempel
+## <a name="brand-detection-example"></a>Exempel på varumärkes identifiering
 
-Följande JSON-svar visar vad för visuellt innehåll returnerar när du söker efter varumärken i avbildningarna som exempel.
+Följande JSON-svar illustrerar vad Visuellt innehåll returnerar när du identifierar varumärken i exempel bilderna.
 
-![En grå sweatshirt med ett Microsoft-etiketten och en logotyp på den](./Images/gray-shirt-logo.jpg)
+![En röd skjorta med Microsofts etikett och logo typ](./Images/red-shirt-logo.jpg)
 
 ```json
-{
-   "brands":[
-      {
-         "name":"Microsoft",
-         "confidence":0.706,
-         "rectangle":{
-            "x":470,
-            "y":862,
-            "w":338,
-            "h":327
-         }
+"brands":[  
+   {  
+      "name":"Microsoft",
+      "rectangle":{  
+         "x":20,
+         "y":97,
+         "w":62,
+         "h":52
       }
-   ],
-   "requestId":"5fda6b40-3f60-4584-bf23-911a0042aa13",
-   "metadata":{
-      "width":2286,
-      "height":1715,
-      "format":"Jpeg"
    }
-}
+]
 ```
-I vissa fall tar varumärke detektor över både fyrkantig logotyp och snygg namnet som två separata logotyper.
 
-![En red shirt med ett Microsoft-etiketten och en logotyp på den](./Images/red-shirt-logo.jpg)
+I vissa fall hämtar varumärkes detektorn både logo typ bilden och det namnlösa varumärkes namnet som två separata logo typer.
+
+![En grå sweatshirt med en Microsoft-etikett och logo typ på den](./Images/gray-shirt-logo.jpg)
 
 ```json
-{
-   "brands":[
-      {
-         "name":"Microsoft",
-         "confidence":0.657,
-         "rectangle":{
-            "x":436,
-            "y":473,
-            "w":568,
-            "h":267
-         }
-      },
-      {
-         "name":"Microsoft",
-         "confidence":0.85,
-         "rectangle":{
-            "x":101,
-            "y":561,
-            "w":273,
-            "h":263
-         }
+"brands":[  
+   {  
+      "name":"Microsoft",
+      "rectangle":{  
+         "x":58,
+         "y":106,
+         "w":55,
+         "h":46
       }
-   ],
-   "requestId":"10dcd2d6-0cf6-4a5e-9733-dc2e4b08ac8d",
-   "metadata":{
-      "width":1286,
-      "height":1715,
-      "format":"Jpeg"
+   },
+   {  
+      "name":"Microsoft",
+      "rectangle":{  
+         "x":58,
+         "y":86,
+         "w":202,
+         "h":63
+      }
    }
-}
+]
 ```
 
 ## <a name="use-the-api"></a>Använda API:et
 
-Funktionen för identifiering av varumärke är en del av den [analysera bild](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API. Du kan anropa detta API via en intern SDK eller REST-anrop. Inkludera `Brands` i den **visualFeatures** frågeparameter. Sedan, när du får det fullständiga JSON-svaret helt enkelt parsa strängen för innehållet i den `"brands"` avsnittet.
+Varumärkes identifierings funktionen är en del av API: et [analys av avbildning](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) . Du kan anropa API: et via en inbyggd SDK eller via REST-anrop. Inkludera `Brands` i **visualFeatures** -Frågeparametern. När du sedan får det fullständiga JSON-svaret ska du bara parsa strängen för innehållet i `"brands"` avsnittet.
 
-* [Snabbstart: Analysera en bild (.NET SDK)](./quickstarts-sdk/csharp-analyze-sdk.md)
+* [Snabbstart: Analysera en avbildning (.NET SDK)](./quickstarts-sdk/csharp-analyze-sdk.md)
 * [Snabbstart: Analysera en bild (REST API)](./quickstarts/csharp-analyze.md)

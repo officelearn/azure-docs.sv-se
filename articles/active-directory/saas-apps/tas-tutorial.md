@@ -1,6 +1,6 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med ÅTGÄR | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och TAS.
+title: 'Självstudier: Azure Active Directory integration med aktivitet | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och aktivitet.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,43 +15,43 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 279f6970c34acbfea645366f7e965c830873fdbf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: efd64830c0d9afa83838adef96cf1c103b4485e8
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67089175"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68943281"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-tas"></a>Självstudier: Azure Active Directory-integrering med Aktivitetsse
+# <a name="tutorial-azure-active-directory-integration-with-tas"></a>Självstudier: Azure Active Directory integration med aktivitet
 
-Lär dig hur du integrerar ÅTGÄR med Azure Active Directory (AD Azure) i den här självstudien.
-Integrera Aktivitetsse med Azure AD ger dig följande fördelar:
+I den här självstudien får du lära dig att integrera aktivitet med Azure Active Directory (Azure AD).
+Att integrera aktivitet med Azure AD ger följande fördelar:
 
-* Du kan styra i Azure AD som har åtkomst till TAS.
-* Du kan aktivera användarna att vara automatiskt inloggad till ÅTGÄR (Single Sign-On) med sina Azure AD-konton.
+* Du kan styra i Azure AD som har till gång till uppgifter.
+* Du kan göra det möjligt för användarna att vara inloggade automatiskt för att bli inloggad (enkel inloggning) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure portal.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill konfigurera Azure AD-integrering med Aktivitetsse, behöver du följande objekt:
+Om du vill konfigurera Azure AD-integration med aktivitet behöver du följande objekt:
 
 * En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
-* ÅTGÄR enkel inloggning aktiverat prenumeration
+* Aktive rad prenumeration för enkel inloggning med aktivitet
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* ÅTGÄR stöder **SP och IDP** -initierad SSO
+* AKTIVITET stöder **SP-och IDP** -INITIERAd SSO
 
-## <a name="adding-tas-from-the-gallery"></a>Att lägga till Aktivitetsse från galleriet
+## <a name="adding-tas-from-the-gallery"></a>Lägga till en aktivitet från galleriet
 
-För att konfigurera integrering av ÅTGÄR i Azure AD, som du behöver lägga till ÅTGÄR från galleriet i din lista över hanterade SaaS-appar.
+Om du vill konfigurera en integrering av en aktivitet i Azure AD måste du lägga till en uppgift från galleriet i listan över hanterade SaaS-appar.
 
-**Utför följande steg för att lägga till Aktivitetsse från galleriet:**
+**Utför följande steg för att lägga till uppgifter från galleriet:**
 
 1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
@@ -65,31 +65,31 @@ För att konfigurera integrering av ÅTGÄR i Azure AD, som du behöver lägga t
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver **Aktivitetsse**väljer **Aktivitetsse** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+4. I rutan Sök skriver du uppgift, väljer uppgift från resultat panelen och klickar sedan på **Lägg till** för att lägga till programmet.
 
-     ![ÅTGÄR i resultatlistan](common/search-new-app.png)
+     ![AKTIVITET i resultat listan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med ÅTGÄR baserat på en testanvändare kallas **Britta Simon**.
-För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i ÅTGÄR upprättas.
+I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med aktivitet baserat på en test användare som kallas **Britta Simon**.
+För att enkel inloggning ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med Aktivitetsse, måste du utföra följande byggblock:
+Om du vill konfigurera och testa enkel inloggning med Azure AD med aktivitet måste du slutföra följande Bygg stenar:
 
 1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Konfigurera ÅTGÄR Single Sign-On](#configure-tas-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
+2. **[Konfigurera enkel inloggning för aktivitet](#configure-tas-single-sign-on)** för att konfigurera inställningarna för enkel inloggning på program sidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
 4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Skapa ÅTGÄR testanvändare](#create-tas-test-user)**  – du har en motsvarighet för Britta Simon i ÅTGÄR som är länkad till en Azure AD-representation av användaren.
+5. **[Skapa uppgift-testa användare](#create-tas-test-user)** – för att få en motsvarighet till Britta Simon i uppgift som är länkad till Azure AD-representation av användare.
 6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Utför följande steg för att konfigurera Azure AD enkel inloggning med Aktivitetsse:
+Utför följande steg för att konfigurera enkel inloggning med Azure AD med aktivitet:
 
-1. I den [Azure-portalen](https://portal.azure.com/)på den **Aktivitetsse** application integration markerar **enkel inloggning**.
+1. På sidan för program integration i [Azure Portal](https://portal.azure.com/)väljer du **enkel inloggning**.
 
     ![Konfigurera enkel inloggning för länken](common/select-sso.png)
 
@@ -103,7 +103,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Aktivit
 
 4. I avsnittet **Grundläggande SAML-konfiguration**, om du vill konfigurera appen i **IDP**-initierat läge, gör du följande:
 
-    ![ÅTGÄR domän och URL: er med enkel inloggning för information](common/idp-intiated.png)
+    ![Information om enkel inloggning för domän och URL-adresser](common/idp-intiated.png)
 
     a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://taseu.combtas.com/<DOMAIN>`
 
@@ -111,18 +111,18 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Aktivit
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    ![ÅTGÄR domän och URL: er med enkel inloggning för information](common/metadata-upload-additional-signon.png)
+    ![Information om enkel inloggning för domän och URL-adresser](common/metadata-upload-additional-signon.png)
 
     I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://taseu.combtas.com/<DOMAIN>`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Du uppdaterar dem med faktiska identifierare, svars-URL och inloggnings-URL: en som beskrivs senare i självstudien. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Du kommer att uppdatera dessa med den faktiska identifieraren, svars-URL: en och inloggnings-URL: en som beskrivs senare i självstudien. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 6. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
     ![Länk för hämtning av certifikat](common/certificatebase64.png)
 
-7. På den **konfigurera ÅTGÄR** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
+7. I avsnittet **Konfigurera aktivitet** kopierar du lämpliga URL: er enligt ditt krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
@@ -132,36 +132,36 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Aktivit
 
     c. Utloggnings-URL
 
-### <a name="configure-tas-single-sign-on"></a>Konfigurera ÅTGÄR Single Sign-On
+### <a name="configure-tas-single-sign-on"></a>Konfigurera enkel inloggning för aktivitet
 
-1. I ett annat webbläsarfönster, logga in på ÅTGÄR som administratör.
+1. Logga in som administratör i ett annat webbläsarfönster.
 
-2. På vänster sida av menyn, klickar du på **inställningar** och gå till **administratör** och klicka sedan på **hantera enkel inloggning**.
+2. På vänster sida av menyn klickar du på **Inställningar** och navigerar till **administratör** och klickar sedan på **hantera enkel inloggning**.
 
-    ![ÅTGÄR konfiguration](./media/tas-tutorial/configure01.png)
+    ![Konfiguration av aktivitet](./media/tas-tutorial/configure01.png)
 
-3. På den **hantera enkel inloggning** utför följande steg:
+3. Utför följande steg på sidan **hantera enkel inloggning** :
 
-    ![ÅTGÄR konfiguration](./media/tas-tutorial/configure02.png)
+    ![Konfiguration av aktivitet](./media/tas-tutorial/configure02.png)
 
-    a. I den **namn** textrutan skriver du miljönamnet på din.
+    a. Skriv ditt miljö namn i text rutan **namn** .
     
-    b. Välj **SAML2** som **autentiseringstyp**.
+    b. Välj **SAML2** som **Autentiseringstyp**.
 
-    c. I den **ange URL: en** textrutan klistra in värdet för **inloggnings-URL** som du har kopierat från Azure-portalen.
+    c. I text rutan **Ange URL** klistrar du in värdet för inloggnings- **URL: en** som du har kopierat från Azure Portal.
 
-    d. I anteckningar, öppna Base64-kodade certifikatet som du laddade ned från Azure-portalen, kopiera innehållet och klistra in den i den **ange certifiering** box.
+    d. I anteckningar öppnar du det bas-64-kodade certifikatet som du laddade ned från Azure Portal, kopierar innehållet och klistrar in det i rutan **Ange certifiering** .
 
-    e. I den **ange ny IP-adress** textrutan Ange IP-adress.
+    e. I text rutan **Ange ny IP** -adress skriver du in IP-adressen.
 
     >[!NOTE]
-    > Kontakta [Aktivitetsse supportteamet](mailto:support@combtas.com) att hämta IP-adressen.
+    > Kontakta [support teamet](mailto:support@combtas.com) för att hämta IP-adressen.
 
-    f. Kopiera den **Single Sign On** url och klistra in den i den **identifierare (entitets-ID)** och **inloggnings-URL** textrutan för **SAML grundkonfiguration** i Azure-portalen. Observera att URL: en är skiftlägeskänsligt och måste sluta med ett snedstreck (/).
+    f. Kopiera URL: en för **enkel inloggning** och klistra in den i ID-rutan **(entitets-ID)** och **Logga in URL** för **grundläggande SAML-konfiguration** i Azure Portal. Observera att URL: en är Skift läges känslig och måste sluta med ett snedstreck (/).
 
-    g. Kopiera den **Assertion Service** URL: en i installationen sidan och klistra in den i den **svars-URL** textrutan för **SAML grundkonfiguration** i Azure-portalen.
+    g. Kopiera **bekräftelse tjänstens** URL på installations sidan och klistra in den i text rutan **SVARs-URL** i den **grundläggande SAML-konfigurationen** i Azure Portal.
 
-    h. Klicka på **Infoga SSO rad**.
+    h. Klicka på **Infoga SSO-rad**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
@@ -190,15 +190,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till TAS.
+I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till uppgifter.
 
-1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **Aktivitetsse**.
+1. I Azure Portal väljer du **företags program**, väljer **alla program**och väljer sedan **aktivitet**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan med program väljer **Aktivitetsse**.
+2. I listan program väljer du **aktivitet**.
 
-    ![ÅTGÄR länken i listan med program](common/all-applications.png)
+    ![Länken aktivitet i listan program](common/all-applications.png)
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 
@@ -214,15 +214,15 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-tas-test-user"></a>Skapa ÅTGÄR testanvändare
+### <a name="create-tas-test-user"></a>Skapa uppgift test användare
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i TAS. Arbeta med [Aktivitetsse supportteamet](mailto:support@combtas.com) att lägga till användare i Aktivitetsse-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som kallas Britta Simon i aktivitet. Samar beta med [support teamet](mailto:support@combtas.com) för att lägga till användarna på den andra plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
 I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
-När du klickar på panelen ÅTGÄR i åtkomstpanelen bör det vara loggas in automatiskt till ÅTGÄR som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen uppgifter i åtkomst panelen, bör du loggas in automatiskt till den aktivitet som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med BetterWorks | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory integrering med BetterWorks | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och BetterWorks.
 services: active-directory
 documentationCenter: na
@@ -16,41 +16,41 @@ ms.topic: tutorial
 ms.date: 04/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 561c4458f942dc524f7de8df5b4385a1eaa1f6a8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 80eb3d60eb4c40e726d53d5fb876a6a118d119cb
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67106273"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68944934"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-betterworks"></a>Självstudier: Azure Active Directory-integrering med BetterWorks
+# <a name="tutorial-azure-active-directory-integration-with-betterworks"></a>Självstudier: Azure Active Directory integrering med BetterWorks
 
-I den här självstudien får du lära dig hur du integrerar BetterWorks med Azure Active Directory (AD Azure).
-Integrera BetterWorks med Azure AD ger dig följande fördelar:
+I den här självstudien får du lära dig hur du integrerar BetterWorks med Azure Active Directory (Azure AD).
+Genom att integrera BetterWorks med Azure AD får du följande fördelar:
 
 * Du kan styra i Azure AD som har åtkomst till BetterWorks.
-* Du kan aktivera användarna att vara automatiskt inloggad till BetterWorks (Single Sign-On) med sina Azure AD-konton.
+* Du kan göra det möjligt för användarna att logga in automatiskt till BetterWorks (enkel inloggning) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure portal.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill konfigurera Azure AD-integrering med BetterWorks, behöver du följande objekt:
+Om du vill konfigurera Azure AD-integrering med BetterWorks behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en [kostnadsfritt konto](https://azure.microsoft.com/free/)
-* BetterWorks enkel inloggning aktiverad prenumeration
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/)
+* BetterWorks-aktiverad prenumeration med enkel inloggning
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* Har stöd för BetterWorks **SP och IDP** -initierad SSO
+* BetterWorks stöder **SP-och IDP** -INITIERAd SSO
 
-## <a name="adding-betterworks-from-the-gallery"></a>Att lägga till BetterWorks från galleriet
+## <a name="adding-betterworks-from-the-gallery"></a>Lägga till BetterWorks från galleriet
 
-För att konfigurera integrering av BetterWorks i Azure AD, som du behöver lägga till BetterWorks från galleriet i din lista över hanterade SaaS-appar.
+Om du vill konfigurera integreringen av BetterWorks i Azure AD måste du lägga till BetterWorks från galleriet i listan över hanterade SaaS-appar.
 
 **Utför följande steg för att lägga till BetterWorks från galleriet:**
 
@@ -62,35 +62,35 @@ För att konfigurera integrering av BetterWorks i Azure AD, som du behöver läg
 
     ![Bladet för Enterprise-program](common/enterprise-applications.png)
 
-3. Lägg till ett nytt program, klicka på den **nytt program** längst upp i dialogrutan.
+3. Om du vill lägga till ett nytt program klickar du på knappen **nytt program** överst i dialog rutan.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver **BetterWorks**väljer **BetterWorks** från panelen resultatet klickar på **Lägg till** för att lägga till programmet.
+4. I rutan Sök skriver du **BetterWorks**, väljer **BetterWorks** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
 
-    ![BetterWorks i resultatlistan](common/search-new-app.png)
+    ![BetterWorks i resultat listan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med BetterWorks baserat på en testanvändare kallas **Britta Simon**.
-För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i BetterWorks upprättas.
+I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med BetterWorks baserat på en test användare som kallas **Britta Simon**.
+För att enkel inloggning ska fungera måste en länk relation mellan en Azure AD-användare och den relaterade användaren i BetterWorks upprättas.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med BetterWorks, måste du utföra följande byggblock:
+Om du vill konfigurera och testa enkel inloggning med BetterWorks i Azure AD måste du slutföra följande Bygg stenar:
 
 1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Konfigurera BetterWorks Single Sign-On](#configure-betterworks-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
+2. **[Konfigurera BetterWorks-enkel inloggning](#configure-betterworks-single-sign-on)** för att konfigurera inställningarna för enkel inloggning på program sidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
 4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Skapa testanvändare BetterWorks](#create-betterworks-test-user)**  – du har en motsvarighet för Britta Simon i BetterWorks som är länkad till en Azure AD-representation av användaren.
+5. **[Skapa BetterWorks test User](#create-betterworks-test-user)** – om du vill ha en motsvarighet till Britta Simon i BetterWorks som är länkad till Azure AD-representation av användare.
 6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Utför följande steg för att konfigurera Azure AD enkel inloggning med BetterWorks:
+Utför följande steg för att konfigurera enkel inloggning med BetterWorks i Azure AD:
 
-1. I den [Azure-portalen](https://portal.azure.com/)på den **BetterWorks** application integration markerar **enkel inloggning**.
+1. Välj **enkel inloggning**på sidan **BetterWorks** Application Integration i [Azure Portal](https://portal.azure.com/).
 
     ![Konfigurera enkel inloggning för länken](common/select-sso.png)
 
@@ -104,7 +104,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med BetterW
 
 4. Om du vill konfigurera programmet i **IDP**-initierat läge gör du följande i avsnittet **Grundläggande SAML-konfiguration**:
 
-    ![BetterWorks domän och URL: er med enkel inloggning för information](common/idp-intiated.png)
+    ![Information om enkel inloggning för BetterWorks-domän och URL: er](common/idp-intiated.png)
 
     a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://app.betterworks.com/saml2/metadata/`
 
@@ -112,14 +112,14 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med BetterW
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    ![BetterWorks domän och URL: er med enkel inloggning för information](common/metadata-upload-additional-signon.png)
+    ![Information om enkel inloggning för BetterWorks-domän och URL: er](common/metadata-upload-additional-signon.png)
 
     I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://app.betterworks.com`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [BetterWorks klienten supportteamet](mailto:support@betterworks.com) att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [BetterWorks client support team](mailto:support@betterworks.com) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-6. Programmets BetterWorks förväntar sig SAML-intyg i ett visst format, vilket kräver att du kan lägga till anpassade attributmappningar i SAML-tokenattribut konfigurationen. I följande skärmbild visas listan över standardattribut. Klicka på ikonen  **Redigera** för att öppna dialogrutan **Användarattribut** .
+6. Ditt BetterWorks-program förväntar sig SAML-intyg i ett särskilt format, vilket kräver att du lägger till anpassade mappningar av attribut i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut. Klicka på **Redigera** ikon för att öppna dialog rutan **användarattribut** .
 
     ![image](common/edit-attribute.png)
 
@@ -151,7 +151,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med BetterW
 
     ![Länk för hämtning av certifikat](common/metadataxml.png)
 
-9. På den **konfigurera BetterWorks** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
+9. I avsnittet **Konfigurera BetterWorks** kopierar du lämpliga URL: er enligt ditt krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
@@ -161,9 +161,9 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med BetterW
 
     c. Utloggnings-URL
 
-### <a name="configure-betterworks-single-sign-on"></a>Konfigurera BetterWorks Single Sign-On
+### <a name="configure-betterworks-single-sign-on"></a>Konfigurera BetterWorks enkel inloggning
 
-Att konfigurera enkel inloggning på **BetterWorks** sida, som du behöver skicka de hämtade **XML-Metadata för Federation** och lämpliga kopierade URL: er från Azure portal för att [BetterWorks supportteam ](mailto:support@betterworks.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+Om du vill konfigurera enkel inloggning på **BetterWorks** sida måste du skicka den hämtade **XML-metadata för federationsmetadata** och lämpliga kopierade url: er från Azure Portal till [support teamet för BetterWorks](mailto:support@betterworks.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -183,7 +183,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I den **användarnamn** fälttyp `brittasimon@yourcompanydomain.extension`. Till exempel BrittaSimon@contoso.com.
+    b. I `brittasimon@yourcompanydomain.extension`fältet **användar namn** . Till exempel BrittaSimon@contoso.com.
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
@@ -191,15 +191,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till BetterWorks.
+I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till BetterWorks.
 
-1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **BetterWorks**.
+1. I Azure Portal väljer du **företags program**, väljer **alla program**och väljer sedan **BetterWorks**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan med program väljer **BetterWorks**.
+2. I listan program väljer du **BetterWorks**.
 
-    ![Länken BetterWorks i listan med program](common/all-applications.png)
+    ![BetterWorks-länken i program listan](common/all-applications.png)
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 
@@ -215,15 +215,15 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-betterworks-test-user"></a>Skapa BetterWorks testanvändare
+### <a name="create-betterworks-test-user"></a>Skapa BetterWorks test användare
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i BetterWorks. Arbeta med [BetterWorks supportteam](mailto:support@betterworks.com) att lägga till användare i BetterWorks-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som heter Britta Simon i BetterWorks. Arbeta med [BetterWorks support team](mailto:support@betterworks.com) för att lägga till användare i BetterWorks-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
 I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
-När du klickar på panelen BetterWorks i åtkomstpanelen, bör det vara loggas in automatiskt till BetterWorks som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen BetterWorks på åtkomst panelen, bör du loggas in automatiskt på den BetterWorks som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

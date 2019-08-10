@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd3719e63b19066d61647b90ccae03ed841f3c6c
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9b4f2f6e86ce076e7c0464609252b027499a8307
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561895"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68942890"
 ---
 <!--As a brand-new Azure AD administrator, I need to view my organization’s groups along with the assigned members, so I can manage permissions to apps and services for people in my organization-->
 
@@ -38,7 +38,7 @@ Innan du börjar måste du:
 Du måste logga in på [Azure-portalen](https://portal.azure.com/) med ett konto för global administratör för katalogen.
 
 ## <a name="create-a-new-group"></a>Skapa en ny grupp 
-Skapa en ny grupp med namnet _MDM policy – West_. Mer information om hur du skapar en grupp finns i [Skapa en enkel grupp och lägga till medlemmar](active-directory-groups-create-azure-portal.md).
+Skapa en ny grupp med namnet _MDM policy – West_ . Mer information om hur du skapar en grupp finns i [Skapa en enkel grupp och lägga till medlemmar](active-directory-groups-create-azure-portal.md).
 
 1. Välj **Azure Active Directory**, **Grupper** och välj sedan **Ny grupp**.
 
@@ -53,20 +53,20 @@ Skapa en ny grupp med namnet _MDM policy – West_. Mer information om hur du sk
 3. Välj **Skapa**.
 
 ## <a name="create-a-new-user"></a>Skapa en ny användare
-Skapa en ny användare med namnet _Alain Charon_. En användare måste finnas innan den läggs till som gruppmedlem. Mer information om hur du skapar en användare finns i [Lägga till eller ta bort användare](add-users-azure-active-directory.md).
+Skapa en ny användare med namnet _Alain Charon_ . En användare måste finnas innan den läggs till som gruppmedlem. Kontrol lera fliken "anpassade domän namn" först för att hämta det verifierade domän namnet som användarna ska skapas i. Mer information om hur du skapar en användare finns i [Lägga till eller ta bort användare](add-users-azure-active-directory.md).
 
 1. Välj **Azure Active Directory**, **Användare** och välj sedan **Ny användare**.
 
 2. Fyll i sidan **Användare**:
 
-    - **Namn:** Skriv _Alain Charon_.
+    - **Namn:** Skriv _Alain Charon_ .
 
     - **Användarnamn:** Skriv *Alain\@contoso.com*.
 
 3. Kopiera det automatiskt genererade lösenordet som anges i rutan **Lösenord** och välj sedan **Skapa**.
 
 ## <a name="add-a-group-member"></a>Lägga till en gruppmedlem
-Nu när du har en grupp och en användare kan du lägga till _Alain Charon_ som medlem i gruppen _MDM policy – West_. Mer information om hur du lägger till gruppmedlemmar finns i [Lägga till eller ta bort gruppmedlemmar](active-directory-groups-members-azure-portal.md).
+Nu när du har en grupp och en användare kan du lägga till _Alain Charon_ som medlem i gruppen _MDM policy – West_ . Mer information om hur du lägger till gruppmedlemmar finns i [Lägga till eller ta bort gruppmedlemmar](active-directory-groups-members-azure-portal.md).
 
 1. Välj **Azure Active Directory** > **Grupper**.
 
@@ -92,7 +92,7 @@ Sök på sidan **Grupper – Alla grupper** efter gruppen **MDM policy – West*
 
 1. På sidan **Grupper – Alla grupper** skriver du _MDM_ i rutan **Sök**.
 
-    Sökresultatet visas under rutan **Sök**, inklusive gruppen _MDM policy – West_.
+    Sökresultatet visas under rutan **Sök**, inklusive gruppen _MDM policy – West_ .
 
     ![Sidan Grupper – Alla grupper med sökrutan ifylld](media/active-directory-groups-view-azure-portal/search-for-specific-group.png)
 
@@ -105,7 +105,7 @@ Sök på sidan **Grupper – Alla grupper** efter gruppen **MDM policy – West*
 ## <a name="view-group-members"></a>Visa gruppmedlemmar
 Nu när du har hittat gruppen kan du visa alla tilldelade medlemmar.
 
-- Välj **Medlemmar** i området **Hantera** och granska sedan den fullständiga listan med medlemsnamn tilldelade till den specifika gruppen, till exempel _Alain Charon_.
+- Välj **Medlemmar** i området **Hantera** och granska sedan den fullständiga listan med medlemsnamn tilldelade till den specifika gruppen, till exempel _Alain Charon_ .
 
     ![Lista över medlemmar tilldelade till gruppen MDM policy – West](media/active-directory-groups-view-azure-portal/groups-all-members.png)
 

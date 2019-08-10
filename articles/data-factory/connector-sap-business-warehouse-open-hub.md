@@ -142,7 +142,7 @@ För att kopiera data från och till SAP BW Open Hub, ange typegenskapen på dat
 |:--- |:--- |:--- |
 | type | Type-egenskapen måste anges till **SapOpenHubTable**.  | Ja |
 | openHubDestinationName | Namnet på Öppna Hub målet att kopiera data från. | Ja |
-| excludeLastRequest | Om du vill exkludera poster i den senaste begäran. | Nej (standard är **SANT**) |
+| excludeLastRequest | Om du vill exkludera poster i den senaste begäran. | Nej (standard är **true**) |
 | baseRequestId | ID för begäran om deltainläsningen. När den har angetts, endast data med requestId **större än** värdet för den här egenskapen ska hämtas.  | Nej |
 
 >[!TIP]
@@ -211,14 +211,14 @@ När du kopierar data från SAP BW Open Hub, används följande mappningar från
 
 | SAP ABAP-typ | Data factory tillfälliga datatyp |
 |:--- |:--- |
-| C (sträng) | String |
-| Jag (heltal) | Int32 |
+| C (String) | String |
+| I (integer) | Int32 |
 | F (Float) | Double |
-| D (datum) | String |
-| T (tid) | String |
-| P (BCD späckad, valuta, Decimal, kvantitet) | Decimal |
+| D (Date) | String |
+| T (Time) | String |
+| P (BCD Packed, Currency, Decimal, Qty) | Decimal |
 | N (Numc) | String |
-| X (binär och Raw) | String |
+| X (Binary and Raw) | String |
 
 ## <a name="next-steps"></a>Nästa steg
 En lista över datalager som stöds som källor och mottagare av kopieringsaktiviteten i Azure Data Factory finns i [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).

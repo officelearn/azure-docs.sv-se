@@ -11,12 +11,12 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: vanto, carlrab
 ms.date: 02/11/2019
-ms.openlocfilehash: 7adced4088b1e155d6776f71e8f23a9eceae2297
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: d13ee8c46df9433530df1d26a86978daab709a52
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566791"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883057"
 ---
 # <a name="quickstart-create-a-server-level-firewall-rule-for-single-and-pooled-databases-using-the-azure-portal"></a>Snabbstart: Skapa en brandväggsregel på servernivå för enkla databaser eller pooldatabaser med hjälp av Azure-portalen
 
@@ -37,7 +37,7 @@ SQL Database-tjänsten skapar en brandvägg på databasservernivå för enkla da
 > [!NOTE]
 > SQL Database kommunicerar via port 1433. Om du försöker ansluta inifrån ett företagsnätverk kan det hända att utgående trafik via port 1433 inte tillåts av nätverkets brandvägg. I så fall kan du inte ansluta till din Azure SQL Database-server såvida inte IT-avdelningen öppnar port 1433.
 > [!IMPORTANT]
-> En brandväggsregel på 0.0.0.0 gör det möjligt för alla Azure-tjänster att passera brandväggsregeln på servernivå och försöka ansluta till en enkel databas eller en pooldatabas via servern. Läs om hur du använder regler för virtuellt nätverk i [Virtual network rules as alternatives to IP rules](sql-database-firewall-configure.md#virtual-network-rules-as-alternatives-to-ip-rules) (Regler för virtuellt nätverk som alternativ till IP-regler).
+> En brandväggsregel på 0.0.0.0 gör det möjligt för alla Azure-tjänster att passera brandväggsregeln på servernivå och försöka ansluta till en enkel databas eller en pooldatabas via servern. 
 
 Följ de här stegen om du vill skapa en IP-brandväggsregel på servernivå för din klients IP-adress och aktivera extern anslutning genom SQL Database-brandväggen endast för din IP-adress.
 

@@ -13,12 +13,12 @@ ms.date: 08/10/2018
 ms.author: routlaw
 ms.reviewer: glenga
 ms.custom: mvc, devcenter, seo-java-july2019
-ms.openlocfilehash: 9ed954eaf96196fdaa944778db8ea47dd5e6da9f
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1bb370009ce76b1962204907689d85b4f89c26c2
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564800"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932163"
 ---
 # <a name="create-your-first-function-with-java-and-maven"></a>Skapa din första funktion med Java och Maven
 
@@ -67,7 +67,7 @@ mvn archetype:generate ^
     "-DarchetypeArtifactId=azure-functions-archetype"
 ```
 
-Maven uppmanar dig att ange de värden som behövs för att projektet ska genereras. Mer information om värdena _groupId_, _artifactId_ och _version_ finns i referensmaterialet om [namngivningskonventioner i Maven](https://maven.apache.org/guides/mini/guide-naming-conventions.html). Värdet _appName_ måste vara unikt i Azure, så Maven genererar som standard ett appnamn baserat på ett tidigare angivet _artifactId_. Värdet _packageName_ anger vilket Java-paket som ska användas till den genererade funktionskoden.
+Maven uppmanar dig att ange de värden som behövs för att projektet ska genereras. Mer information om värdena _groupId_ , _artifactId_ och _version_ finns i referensmaterialet om [namngivningskonventioner i Maven](https://maven.apache.org/guides/mini/guide-naming-conventions.html). Värdet _appName_ måste vara unikt i Azure, så Maven genererar som standard ett appnamn baserat på ett tidigare angivet _artifactId_ . Värdet _packageName_ anger vilket Java-paket som ska användas till den genererade funktionskoden.
 
 Identifierarna `com.fabrikam.functions` och `fabrikam-functions` nedan används som exempel och för att göra senare steg i den här snabbstarten lättare att läsa. Du bör ange dina egna värden för Maven i det här steget.
 
@@ -82,7 +82,7 @@ Define value for property 'resourceGroup' java-functions-group: :
 Confirm properties configuration: Y
 ```
 
-Maven skapar projektfilerna i en ny mapp med namnet _artifactId_, `fabrikam-functions` i det här exemplet. Den färdiga koden för att köra genererad kod i projektet är en [http-utlöst](/azure/azure-functions/functions-bindings-http-webhook) funktion som skickar ut bröd texten i begäran. Ersätt *src/main/Java/com/Fabrikam/functions. java* med följande kod: 
+Maven skapar projektfilerna i en ny mapp med namnet _artifactId_ , `fabrikam-functions` i det här exemplet. Den färdiga koden för att köra genererad kod i projektet är en [http-utlöst](/azure/azure-functions/functions-bindings-http-webhook) funktion som skickar ut bröd texten i begäran. Ersätt *src/main/Java/com/Fabrikam/functions. java* med följande kod: 
 
 ```java
 package com.fabrikam.functions;
@@ -93,13 +93,13 @@ import com.microsoft.azure.functions.*;
 
 public class Function {
     /**
-     * This function listens at endpoint "/api/hello". Two ways to invoke it using "curl" command in bash:
-     * 1. curl -d "HTTP Body" {your host}/api/hello
-     * 2. curl {your host}/api/hello?name=HTTP%20Query
+     * This function listens at endpoint "/api/HttpTrigger-Java". Two ways to invoke it using "curl" command in bash:
+     * 1. curl -d "HTTP Body" {your host}/api/HttpTrigger-Java
+     * 2. curl {your host}/api/HttpTrigger-Java?name=HTTP%20Query
      */
-    @FunctionName("hello")
+    @FunctionName("HttpTrigger-Java")
     public HttpResponseMessage run(
-            @HttpTrigger(name = "req", methods = { HttpMethod.GET, HttpMethod.POST }, authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<String>> request,
+            @HttpTrigger(name = "req", methods = { HttpMethod.GET, HttpMethod.POST }, authLevel = AuthorizationLevel.FUNCTION) HttpRequestMessage<Optional<String>> request,
             final ExecutionContext context) {
         context.getLogger().info("Java HTTP trigger processed a request.");
 
@@ -123,7 +123,7 @@ public class Function {
 
 ## <a name="run-the-function-locally"></a>Kör funktionen lokalt
 
-Byt katalog till den nyskapade projektmappen. Skapa och kör sedan funktionen med Maven:
+Ändra katalogen till den nyligen skapade projektmappen (den som innehåller din värd. JSON-och POM. XML-fil) och skapa och kör funktionen med maven:
 
 ```CMD
 cd fabrikam-function
@@ -142,13 +142,13 @@ Hit CTRL-C to exit...
 
 Http Functions:
 
-   hello: http://localhost:7071/api/hello
+   hello: http://localhost:7071/api/HttpTrigger-Java
 ```
 
 Utlös funktionen från kommandoraden med curl i ett nytt terminalfönster:
 
 ```CMD
-curl -w "\n" http://localhost:7071/api/hello -d LocalFunction
+curl -w "\n" http://localhost:7071/api/HttpTrigger-Java -d LocalFunction
 ```
 
 ```Output
@@ -190,7 +190,7 @@ Testa funktionsappen som körs på Azure med hjälp av `cURL`. Du måste ändra 
 > Se till att du ställer in **åtkomst behörighet** till `Anonymous`. När du väljer standard nivån för `Function`, måste du presentera [funktions nyckeln](../azure-functions/functions-bindings-http-webhook.md#authorization-keys) i begär Anden för att få åtkomst till funktions slut punkten.
 
 ```azurecli
-curl -w "\n" https://fabrikam-function-20170920120101928.azurewebsites.net/api/hello -d AzureFunctions
+curl -w "\n" https://fabrikam-function-20170920120101928.azurewebsites.net/api/HttpTrigger-Java -d AzureFunctions
 ```
 
 ```Output
@@ -214,7 +214,7 @@ return request.createResponse(200, "Hi, " + name);
 Spara ändringarna. Kör mvn Clean Package och distribuera om genom att `azure-functions:deploy` köra från terminalen som tidigare. Funktionsappen uppdateras och den här begäran:
 
 ```bash
-curl -w '\n' -d AzureFunctionsTest https://fabrikam-functions-20170920120101928.azurewebsites.net/api/hello
+curl -w '\n' -d AzureFunctionsTest https://fabrikam-functions-20170920120101928.azurewebsites.net/api/HttpTrigger-Java
 ```
 
 Får uppdaterade utdata:

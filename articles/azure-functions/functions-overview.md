@@ -1,7 +1,6 @@
 ---
 title: Översikt över Azure Functions| Microsoft Docs
 description: Förstå hur du använder Azure Functions för att optimera asynkrona arbetsbelastningar på några få minuter.
-services: functions
 documentationcenter: na
 author: mattchenderson
 manager: jeconnoc
@@ -13,15 +12,15 @@ ms.topic: overview
 ms.date: 10/03/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 4fbe3a5d308559a4ac9e1a781f3a4f385c767f90
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: 36dbfca577f69c3a7c49d03ef31bc18c71222f95
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68348189"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881294"
 ---
 # <a name="an-introduction-to-azure-functions"></a>En introduktion till Azure Functions  
-Azure Functions är en lösning för att enkelt köra små delar av kod eller "funktioner," i molnet. Du kan skriva enbart koden som du behöver för det aktuella problemet, utan att bekymra dig över hela programmet eller infrastrukturen för att köra den. Functions kan göra utvecklingen ännu mer produktiv och du kan använda ditt utvecklings språk, till exempel C#Java, Java Script, python eller php. Betala endast för tiden koden körs och lita på att Azure skalar enligt behov. Azure Functions gör det möjligt att utveckla program [utan server](https://azure.microsoft.com/solutions/serverless/) på Microsoft Azure.
+Azure Functions är en lösning för att enkelt köra små delar av kod eller "funktioner," i molnet. Du kan skriva enbart koden som du behöver för det aktuella problemet, utan att bekymra dig över hela programmet eller infrastrukturen för att köra den. Functions kan göra utvecklingen ännu mer produktiv och du kan använda det utvecklings språk som du väljer, till C#exempel Java, Java Script, PowerShell och python. Betala endast för tiden koden körs och lita på att Azure skalar enligt behov. Azure Functions gör det möjligt att utveckla program [utan server](https://azure.microsoft.com/solutions/serverless/) på Microsoft Azure.
 
 Det här ämnet innehåller en översikt över Azure Functions. Om du vill komma igång snabbt med Functions börjar du med att [Skapa din första Azure-funktion](functions-create-first-azure-function.md). Mer teknisk information om Azure Functions finns i [Info för utvecklare](functions-reference.md).
 

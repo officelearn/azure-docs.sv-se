@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 08/05/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4ca21ecf7ad0707ad33220a8e8c2700638f8e25
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 86c9368785bb28f27df599c8b9cbe09c1fa5dee2
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68824808"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68880782"
 ---
 # <a name="set-up-your-security-info-preview-from-the-sign-in-page-prompt"></a>Konfigurera din säkerhetsinformation (förhandsversion) från uppmaningen på inloggningssidan
 
@@ -56,6 +56,9 @@ Följ de här stegen för att konfigurera säkerhetsinformation för ditt arbets
 3. Ha sidan **Konfigurera ditt konto** öppen medan du konfigurerar Microsoft Authenticator-appen på din mobila enhet.
 
 4. Öppna Microsoft Authenticator-appen, välj att tillåta meddelanden (om du uppmanas), välj **Lägg till konto** från ikonen **Customize and control** (Anpassa och styr) uppe till höger och välj sedan **Arbets- eller skolkonto**.
+
+    >[!Note]
+    >Om det här är första gången du konfigurerar Microsoft Authenticator-appen kan du få en fråga om du vill tillåta att appen får åtkomst till kameran (iOS) eller tillåter att appen tar bilder och spelar in video (Android). Du måste välja **Tillåt** så att Authenticator-appen kan komma åt kameran för att ta en bild av QR-koden i nästa steg. Om du inte tillåter kameran kan du fortfarande konfigurera Authenticator-appen, men du måste lägga till kod informationen manuellt. Information om hur du lägger till koden manuellt finns i se [lägga till ett konto manuellt i appen](user-help-auth-app-add-account-manual.md).
 
 5. Gå tillbaka till sidan **Konfigurera ditt konto** på datorn och välj sedan **Nästa**.
 

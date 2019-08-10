@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 435ad986a9f0b96d42c88d450f40e5900ad33b7c
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 06936a196813dacfc1fc9d02945bee4119b7eea8
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67653256"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68927496"
 ---
 # <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Vanliga frågor om Azure Spatial Anchors
 
@@ -120,12 +120,8 @@ Kom igång med [utveckling här](index.yml).
 
 **F: Fungerar det med Unreal?**
 
-**S:** Stöd för Unreal betraktas i framtiden.
+**S:** Stöd för Unreal kommer att beaktas i framtiden.
 
-**F: Fungerar det med Xamarin?**
+**F: Vilka portar och protokoll använder sig av Azure spatiala ankare?**
 
-**S:** Stöd för Xamarin betraktas i framtiden.
-
-**F: Vilka portar och protokoll använder Spatial fästpunkter för Azure?**
-
-**S:** Azure Spatial ankare kommunicerar via TCP-port 443 med en krypterad-protokollet. För autentisering, använder [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/), som kommunicerar med hjälp av HTTPS via port 443.
+**S:** De spatiala Ankarena i Azure kommunicerar via TCP-port 443 med hjälp av ett krypterat protokoll. För autentisering används [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/), som kommunicerar med https via port 443.

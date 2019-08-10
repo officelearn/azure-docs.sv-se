@@ -1,5 +1,5 @@
 ---
-title: Azure SignalR Service utan Server Snabbstart – JavaScript
+title: Azure SignalR service Server lös snabb start – Java Script
 description: En snabbstart för att använda Azure SignalR Service och Azure Functions för att skapa ett chattrum.
 author: sffamily
 ms.service: signalr
@@ -7,24 +7,26 @@ ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: zhshang
-ms.openlocfilehash: b096a6c7bb5b1fedaa5d2963dddae03df9fe6954
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: c234324bf76f9d944037a411ed8bb3b7e4841cbe
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66494042"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882549"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-javascript"></a>Snabbstart: Skapa ett chattrum med Azure Functions och SignalR Service med hjälp av JavaScript
 
 Med Azure SignalR Service kan du enkelt lägga till realtidsfunktioner i ditt program. Azure Functions är en serverlös plattform som gör att du kan köra din kod utan att behöva hantera någon infrastruktur. I den här snabbstarten lär du dig hur du använder SignalR Service och Functions för att skapa ett serverlöst realtidschattprogram.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här snabbstarten kan köras på macOS, Windows eller Linux.
 
 Se till att du har en kodredigerare såsom [Visual Studio Code](https://code.visualstudio.com/) installerad.
 
 Installera [Azure Functions Core Tools (v2)](https://github.com/Azure/azure-functions-core-tools#installing) för att köra Azure Functions-appar lokalt.
+
+Azure Functions kräver [Node. js](https://nodejs.org/en/download/) version 8 eller 10.
 
 För att kunna installera tillägg kräver Azure Functions Core Tools för närvarande att [.NET Core SDK](https://www.microsoft.com/net/download) är installerad. Dock krävs ingen kunskap om .NET för att skapa Azure Functions-appar med JavaScript.
 
@@ -50,7 +52,7 @@ Logga in på Azure-portalen på <https://portal.azure.com/> med ditt Azure-konto
 
     ![Skapa SignalR Service](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-keys.png)
 
-1. Öppna i ditt kodredigeringsprogram den *src/chatt/javascript* mapp i den klonade lagringsplatsen.
+1. I kod redigeraren öppnar du mappen *src/Chat/JavaScript* i den klonade lagrings platsen.
 
 1. Byt namn på *local.settings.sample.json* till *local.settings.json*.
 
@@ -61,7 +63,7 @@ Logga in på Azure-portalen på <https://portal.azure.com/> med ditt Azure-konto
     - **negotiate** (förhandla) – använder indatabindningen *SignalRConnectionInfo* för att skapa och returnera giltig anslutningsinformation.
     - **messages** (meddelanden) – tar emot ett chattmeddelande i begärandetexten och använder utdatabindningen *SignalR* för att skicka meddelandet till alla anslutna klientprogram.
 
-1. I terminalen kontrollerar du att du är i den *src/chatt/javascript* mapp. Använd Azure Functions Core Tools för att installera tillägg som krävs för att köra appen.
+1. I terminalen ser du till att du är i mappen *src/Chat/Java Script* . Använd Azure Functions Core Tools för att installera tillägg som krävs för att köra appen.
 
     ```bash
     func extensions install
@@ -81,7 +83,7 @@ Logga in på Azure-portalen på <https://portal.azure.com/> med ditt Azure-konto
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har du skapat och kört ett serverlöst program i realtid i VS Code. Som nästa steg ska du lära dig mer om hur du distribuerar Azure Functions via VS Code.
+I den här snabb starten har du skapat och kört ett program utan server i real tid i VS Code. Som nästa steg ska du lära dig mer om hur du distribuerar Azure Functions via VS Code.
 
 > [!div class="nextstepaction"]
-> [Distribuera Azure Functions med VS Code](https://docs.microsoft.com/azure/azure-functions/tutorial-javascript-vscode-get-started)
+> [Distribuera Azure Functions med VS Code](https://code.visualstudio.com/tutorials/functions-extension/getting-started)

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 08/09/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 9de7a6fdddf732f13c8dc7ab50fd151d9f90dc20
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 0649fea0b598ffaaaf2611c9d1324174105ee5d4
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855888"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68931542"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Skapa en Azure Search-tjänst i portalen
 
@@ -44,7 +44,7 @@ Du kan också [aktivera MSDN-prenumerantförmåner](https://azure.microsoft.com/
 
 Om du har mer än en prenumeration väljer du en som även har data- eller fillagringstjänster. Azure Search kan automatiskt identifiera Azure Table och Blob Storage, SQL Database och Azure Cosmos DB för indexering via indexerare [](search-indexer-overview.md), men endast för tjänster under samma prenumeration.
 
-## <a name="select-a-resource-group"></a>Välj en resursgrupp
+## <a name="set-a-resource-group"></a>Ange en resurs grupp
 
 En resurs grupp krävs och är användbar för att hantera alla resurser, inklusive kostnads hantering. En resurs grupp kan bestå av en tjänst eller flera tjänster som används tillsammans. Om du till exempel använder Azure Search för att indexera en Azure Cosmos DB-databas kan du göra båda tjänsterna i samma resurs grupp i hanterings syfte. 
 
@@ -57,7 +57,7 @@ När du använder tjänsten kan du spåra aktuella och projekterade kostnader al
 > [!TIP]
 > Om du tar bort en resursgrupp tar du också bort tjänsterna i gruppen. Om du har ett prototypprojekt som använder flera tjänster kan du placera dem i samma resursgrupp. Då är det lättare att rensa upp när projektet är slutfört.
 
-## <a name="name-the-service-and-url-endpoint"></a>Namnge tjänsten och URL-slutpunkten
+## <a name="name-the-service"></a>Namnge tjänsten
 
 I instans information anger du ett tjänst namn i **URL** -fältet. Namnet är en del av URL-slutpunkten mot vilken API-anrop `https://your-service-name.search.windows.net`utfärdas:. Till exempel, om du vill att slutpunkten ska vara `https://myservice.search.windows.net`, anger du `myservice`.
 
@@ -72,7 +72,7 @@ Kraven för tjänstnamn:
 > [!TIP]
 > Om du tror att du kommer att använda flera tjänster rekommenderar vi att du inkluderar regionen (eller platsen) i tjänst namnet som en namngivnings konvention. Tjänster inom samma region kan utbyta data utan kostnad, så om Azure Search är i västra USA och du har andra tjänster även i västra USA `mysearchservice-westus` kan du spara en resa på sidan Egenskaper när du bestämmer hur du ska kombinera eller bifoga resurser.
 
-## <a name="select-a-location"></a>Välj en plats
+## <a name="choose-a-location"></a>Välj plats
 
 Azure Search är en Azure-tjänst som kan finnas i datacenter över hela världen. Du hittar en lista över regioner som stöds på [sidan med priser](https://azure.microsoft.com/pricing/details/search/). 
 
@@ -83,11 +83,11 @@ Om du använder kognitiva Sökai-berikare kan du dessutom skapa din tjänst i sa
 > [!Note]
 > Centrala Indien är för närvarande inte tillgängligt för nya tjänster. För tjänster som redan finns i Central Indien kan du skala upp utan begränsningar och tjänsten stöds fullt ut i den regionen. Begränsningen i den här regionen är temporär och begränsad till endast nya tjänster. Vi tar bort den här anteckningen när begränsningen inte längre gäller.
 
-## <a name="select-a-pricing-tier-sku"></a>Välj en prisnivå (SKU)
+## <a name="choose-a-pricing-tier-sku"></a>Välj en pris nivå (SKU)
 
 [Azure Search finns för närvarande med flera olika prisnivåer](https://azure.microsoft.com/pricing/details/search/): Kostnadsfri, Basic eller Standard. Nivåerna har olika [kapacitet och begränsningar](search-limits-quotas-capacity.md). Mer information finns i [Välj en prisnivå nivå eller SKU](search-sku-tier.md).
 
-Basic och standard är de vanligaste alternativen för produktions arbets belastningar, men de flesta kunder börjar med den kostnads fria tjänsten.
+Basic och standard är de vanligaste alternativen för produktions arbets belastningar, men de flesta kunder börjar med den kostnads fria tjänsten. Viktiga skillnader mellan nivåer är partitionens storlek och hastighet och begränsningar för antalet objekt som du kan skapa.
 
 Kom ihåg att det inte går att ändra pris nivån när tjänsten har skapats. Om du senare behöver en högre eller lägre nivå måste du skapa tjänsten på nytt.
 

@@ -7,15 +7,15 @@ author: anrothMSFT
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/02/2019
 ms.author: anroth
-ms.openlocfilehash: 8564095cc84a3f124ca41efd2e19787cd16902ab
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 22955ba4b885b264210dc8788f2a410b785b28b4
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564124"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883965"
 ---
 # <a name="use-your-model-with-the-prediction-api"></a>Använd din modell med förutsägelse-API: et
 
@@ -26,7 +26,7 @@ När du har tränat din modell kan du testa bilderna program mässigt genom att 
 
 ## <a name="publish-your-trained-iteration"></a>Publicera din utbildade iteration
 
-Från [Custom Vision-webbsidan](https://customvision.ai), markera projektet och välj sedan fliken __prestanda__.
+Från [Custom Vision-webbsidan](https://customvision.ai), markera projektet och välj sedan fliken __prestanda__ .
 
 Om du vill skicka avbildningar till förutsägelse-API: t måste du först publicera din iteration för förutsägelse, som du kan göra genom att välja __publicera__ och ange ett namn för den publicerade iterationen. Detta gör din modell tillgänglig för förutsägelse-API: t för din Custom Vision Azure-resurs.
 
@@ -38,7 +38,7 @@ När din modell har publicerats visas en "Publicerad" etikett bredvid iteratione
 
 ## <a name="get-the-url-and-prediction-key"></a>Hämta URL och förutsägelsenyckel
 
-När din modell har publicerats kan du hämta den information som krävs genom att välja __förutsägelse-URL__. Då öppnas en dialog ruta med information om hur du använder förutsägelse-API, inklusive __förutsägelse-URL__ och __förutsägelse nyckel__.
+När din modell har publicerats kan du hämta den information som krävs genom att välja __förutsägelse-URL__ . Då öppnas en dialog ruta med information om hur du använder förutsägelse-API, inklusive __förutsägelse-URL__ och __förutsägelse nyckel__ .
 
 ![Fliken prestanda visas med en röd rektangel som omger URL-knappen för förutsägelse.](./media/use-prediction-api/published-iteration-prediction-url.png)
 
@@ -53,7 +53,7 @@ I den här guiden ska du använda en lokal avbildning, så kopiera URL: en under
 
 1. Skapa ett nytt C# konsol program i Visual Studio.
 
-1. Använd följande kod som brödtext i filen __Program.cs__.
+1. Använd följande kod som brödtext i filen __Program.cs__ .
 
     ```csharp
     using System;

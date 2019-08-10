@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 09/14/2018
 ms.author: antchu
 ms.custom: include file
-ms.openlocfilehash: 4e8bdc63daa7450a88c2fcf4b7e878e18cea260d
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: ac77f0b6a1d90fd78db64618c1e03ade198a67c0
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187711"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882228"
 ---
 ## <a name="create-an-azure-signalr-service-instance"></a>Skapa en Azure SignalR Service-instans
 
@@ -34,9 +34,10 @@ Din app ansluter till en SignalR Service-instans i Azure.
     | **Location** | Västra USA | Välj en [region](https://azure.microsoft.com/regions/) nära dig. |
     | **prisnivå** | Lediga | Prova Azure SignalR Service kostnadsfritt. |
     | **Antal enheter** |  Inte tillämpligt | Antal enheter anger hur många anslutningar som SignalR Service-instansen kan acceptera. Det kan bara konfigureras på Standard-nivån. |
+    | **Tjänst läge** |  Serverlös | För användning med Azure Functions eller REST API. |
 
     ![Skapa SignalR Service](../media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-create.png)
 
 1. Välj **Skapa** för att börja distribuera SignalR Service-instansen.
 
-1. När instansen har distribuerats kan du öppna den i portalen och leta upp dess inställningssidan. Ändra inställningen Service till *serverlösa* endast om du använder Azure SignalR Service via Azure Functions-bindning eller REST API. Lämna den i *klassiska* eller *standard* annars.
+1. När instansen har distribuerats öppnar du den i portalen och letar upp dess inställnings sida. Ändra inställningen för tjänst läge till endast *Server* om du använder Azure SignalR-tjänsten via Azure Functions bindning eller REST API. Lämna det i *klassiskt* eller i annat fall.

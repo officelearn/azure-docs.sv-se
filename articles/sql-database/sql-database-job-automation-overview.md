@@ -10,12 +10,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 ms.date: 01/25/2019
-ms.openlocfilehash: 1b8d4965edb446235e28f47a0226c82b89c73e0b
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: f4d2afd65ec06c331498ce974e933fe08c8e67dd
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68845052"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935194"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>Automatisera hanteringsuppgifter med hjälp av databasjobb
 
@@ -44,7 +44,7 @@ Det finns flera scenarier när du kan använda jobbautomatisering:
 Följande tekniker för jobbschemaläggning är tillgängliga i Azure SQL Database:
 
 - **SQL Agent-jobb** är en klassisk och beprövad komponent för SQL Server-jobbschemaläggning som är tillgänglig i hanterad instans. SQL Agent-jobb är inte tillgängliga i enkla databaser.
-- **Elastic Database-jobb** är jobb schemaläggnings tjänster som kör anpassade jobb på en eller flera Azure SQL-databaser.
+- **Elastic Database-jobb (för hands version)** är jobb schemaläggnings tjänster som kör anpassade jobb på en eller flera Azure SQL-databaser.
 
 Det finns vissa skillnader mellan SQL Agent (tillgängligt lokalt och som en del av SQL Database Managed Instance) och Database Elastic-jobbagenten (tillgänglig för enkla databaser i Azure SQL-databaser och databaser i SQL Data Warehouse).
 
@@ -168,7 +168,7 @@ Vissa av de SQL Agent-funktioner som är tillgängliga i SQL Server stöds inte 
 
 Information om SQL Server Agent finns i [SQL Server Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent).
 
-## <a name="elastic-database-jobs"></a>Elastic Database-jobb
+## <a name="elastic-database-jobs-preview"></a>Elastic Database-jobb (förhandsversion)
 
 **Elastic Database-jobb** ger möjligheten att köra ett eller flera T-SQL-skript parallellt, över ett stort antal databaser enligt ett schema eller på begäran.
 

@@ -1,6 +1,5 @@
 ---
-title: Vad är
-titleSuffix: Azure Machine Learning service
+title: Vad är Azure Machine Learning tjänst
 description: Översikt över Azure Machine Learning-tjänsten – en integrerad lösning från slutpunkt till slutpunkt som gör att dataforskare kan utveckla, experimentera och distribuera avancerade analysprogram i molnskala.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +9,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 08/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7a9c0f24c7b6175b2289af39f2267d695894857d
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 80a04333260b7aa710c1598b64a414ce53a1037a
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855949"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68883318"
 ---
 # <a name="what-is-azure-machine-learning-service"></a>Vad är tjänsten Azure Machine Learning?
 

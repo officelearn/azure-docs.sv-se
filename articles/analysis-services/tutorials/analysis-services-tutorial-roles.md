@@ -8,16 +8,16 @@ ms.topic: tutorial
 ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: owend
-ms.openlocfilehash: 4c1a3f52c37dcaad4bc2f84d6d2fa04b61376cf1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b36541cde457b7faf8b3a020cdde01f049ceb652
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60788030"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932220"
 ---
 # <a name="tutorial-configure-server-administrator-and-user-roles"></a>Självstudie: Konfigurera roller för serveradministratör och användare
 
- I den här självstudien använder du SQL Server Management Studio (SSMS) för att ansluta till din server i Azure och konfigurera serveradministratörs- och modelldatabasroller. Du får också en introduktion till [TMSL (Tabular Model Scripting Language)](https://docs.microsoft.com/sql/analysis-services/tabular-model-programming-compatibility-level-1200/tabular-model-programming-for-compatibility-level-1200). TMSL är ett JSON-baserat skriptspråk för tabellmodeller på kompatibilitetsnivå 1 200 och högre. Det kan användas för att automatisera många tabellmodelleringsuppgifter. TMSL används ofta med PowerShell, men i den här kursen använder du XMLA-frågeredigeraren i SSMS. I den här självstudien får du utföra följande uppgifter: 
+ I den här självstudien använder du SQL Server Management Studio (SSMS) för att ansluta till din server i Azure och konfigurera serveradministratörs- och modelldatabasroller. Du får också en introduktion till [TMSL (Tabular Model Scripting Language)](https://docs.microsoft.com/analysis-services/tabular-model-programming-compatibility-level-1200/tabular-model-programming-for-compatibility-level-1200). TMSL är ett JSON-baserat skriptspråk för tabellmodeller på kompatibilitetsnivå 1 200 och högre. Det kan användas för att automatisera många tabellmodelleringsuppgifter. TMSL används ofta med PowerShell, men i den här kursen använder du XMLA-frågeredigeraren i SSMS. I den här självstudien får du utföra följande uppgifter: 
   
 > [!div class="checklist"]
 > * Hämta servernamnet från Portal
@@ -28,7 +28,7 @@ ms.locfileid: "60788030"
 
 Mer information om användarsäkerhet i Azure Analysis Services finns i [Autentisering och användarbehörigheter](../analysis-services-manage-users.md). 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - En Azure Active Directory i din prenumeration.
 - Du måste ha skapat en [Azure Analysis Services-server](../analysis-services-create-server.md) i din prenumeration.
@@ -71,7 +71,7 @@ För de återstående uppgifterna använder du SSMS för att ansluta till och ha
 I den här uppgiften lägger du till ett användarkonto eller gruppkonto från Azure AD till serveradministratörsrollen. Om du vill lägga till en säkerhetsgrupp måste den ha egenskapen `MailEnabled` inställd på `True`.
 
 1. Högerklicka på servernamnet i **Object Explorer** och klicka sedan på **Properties** (Egenskaper). 
-2. I fönstret **Analysis Server Properties** (Egenskaper för Analysis Server) klickar du på **Security (Säkerhet)** > **Add (Lägg till)**.
+2. I fönstret **Analysis Server Properties** (Egenskaper för Analysis Server) klickar du på **Security (Säkerhet)**  > **Add (Lägg till)** .
 3. I fönstret **Select a User or Group** (Välj en användare eller grupp) anger du ett användarkonto eller ett gruppkonto i Azure AD och klickar på **Add** (Lägg till). 
    
      ![Lägga till serveradministratör](./media/analysis-services-tutorial-roles/aas-add-server-admin.png)
@@ -83,10 +83,10 @@ I den här uppgiften lägger du till ett användarkonto eller gruppkonto från A
 
 ## <a name="add-a-user-to-the-model-database-administrator-role"></a>Lägga till en användare i modelldatabasadministratörsrollen
 
-I den här uppgiften lägger du till ett användarkonto eller gruppkonto i rollen ”Internet Sales Administrator” (Administratör för Internetförsäljning) som redan finns i modellen. Den här rollen har fullständig behörighet (administratör) för exempelmodelldatabasen adventureworks. I uppgiften används TMSL-kommandot [CreateOrReplace](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/createorreplace-command-tmsl) i ett skript som skapats åt dig.
+I den här uppgiften lägger du till ett användarkonto eller gruppkonto i rollen ”Internet Sales Administrator” (Administratör för Internetförsäljning) som redan finns i modellen. Den här rollen har fullständig behörighet (administratör) för exempelmodelldatabasen adventureworks. I uppgiften används TMSL-kommandot [CreateOrReplace](https://docs.microsoft.com/bi-reference/tmsl/createorreplace-command-tmsl) i ett skript som skapats åt dig.
 
-1. Expandera **Databases (Databaser)** > **adventureworks** > **Roles (Roller)** i **Object Explorer**. 
-2. Högerklicka på **Internet Sales Administrator** (Administratör för Internetförsäljning) och klicka sedan på **Script Role as (Skriptroll som)** > **CREATE OR REPLACE To (SKAPA ELLER ERSÄTT till)** > **New Query Editor Window (Nytt frågeredigerarfönster)**.
+1. Expandera **Databases (Databaser)**  > **adventureworks** > **Roles (Roller)** i **Object Explorer**. 
+2. Högerklicka på **Internet Sales Administrator** (Administratör för Internetförsäljning) och klicka sedan på **Script Role as (Skriptroll som)**  > **CREATE OR REPLACE To (SKAPA ELLER ERSÄTT till)**  > **New Query Editor Window (Nytt frågeredigerarfönster)** .
 
     ![Nytt frågeredigerarfönster](./media/analysis-services-tutorial-roles/aas-add-db-admin.png)
 
@@ -99,9 +99,9 @@ I den här uppgiften lägger du till ett användarkonto eller gruppkonto i rolle
 
 ## <a name="add-a-new-model-database-role-and-add-a-user-or-group"></a>Lägga till en ny modelldatabasroll och lägga till en användare eller grupp
 
-I den här uppgiften använder du kommandot [Create](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/create-command-tmsl?view=sql-analysis-services-2017) i ett TMSL-skript för att skapa en ny Internet Sales Global-roll (Global Internetförsäljning), anger *läsbehörighet* för rollen och lägger till ett användarkonto eller gruppkonto från Azure AD.
+I den här uppgiften använder du kommandot [Create](https://docs.microsoft.com/bi-reference/tmsl/create-command-tmsl) i ett TMSL-skript för att skapa en ny Internet Sales Global-roll (Global Internetförsäljning), anger *läsbehörighet* för rollen och lägger till ett användarkonto eller gruppkonto från Azure AD.
 
-1. I **Object Explorer** högerklickar du på **adventureworks** och klickar sedan på **New Query (Ny fråga)** > **XMLA**. 
+1. I **Object Explorer** högerklickar du på **adventureworks** och klickar sedan på **New Query (Ny fråga)**  > **XMLA**. 
 2. Kopiera och klistra in följande TMSL-skript i frågeredigeraren:
 
     ```JSON
@@ -131,13 +131,13 @@ I den här uppgiften använder du kommandot [Create](https://docs.microsoft.com/
 ## <a name="verify-your-changes"></a>Kontrollera dina ändringar
 
 1. I **Object Explorer** klickar du på servernamnet och sedan på **Refresh** (Uppdatera) eller trycker på **F5**.
-2. Expandera **Databases (Databaser)** > **adventureworks** > **Roles (Roller)**. Kontrollera att de ändringar som du lade till i föregående uppgift för användarkonto och den nya rollen visas.   
+2. Expandera **Databases (Databaser)**  > **adventureworks** > **Roles (Roller)** . Kontrollera att de ändringar som du lade till i föregående uppgift för användarkonto och den nya rollen visas.   
 
     ![Kontrollera i Object Explorer](./media/analysis-services-tutorial-roles/aas-connect-ssms-verify.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Ta bort användarkonton, gruppkonton och roller när du inte lägre behöver dem. Det gör du  genom att välja **Role Properties (Rollegenskaper)** > **Membership (Medlemskap)** och ta bort användarkonton, eller genom att högerklicka på en roll och sedan klicka på **Delete (Ta bort)**.
+Ta bort användarkonton, gruppkonton och roller när du inte lägre behöver dem. Det gör du  genom att välja **Role Properties (Rollegenskaper)**  > **Membership (Medlemskap)** och ta bort användarkonton, eller genom att högerklicka på en roll och sedan klicka på **Delete (Ta bort)** .
 
 
 ## <a name="next-steps"></a>Nästa steg

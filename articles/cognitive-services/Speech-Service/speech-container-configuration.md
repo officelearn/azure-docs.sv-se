@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/11/2019
 ms.author: dapine
-ms.openlocfilehash: 8a8b0e18c1db7a2e2fc08819aa2f2d64d650ded6
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: c4598e5e99012694a798e44c0d37e9578486751b
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68321359"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932110"
 ---
 # <a name="configure-speech-service-containers"></a>Konfigurera tal tjänst behållare
 
@@ -23,7 +23,7 @@ Tal behållare gör det möjligt för kunder att bygga en tal program arkitektur
 
 **Tal** behållarens körnings miljö konfigureras med `docker run` hjälp av kommando argumenten. Den här behållaren har flera inställningar som krävs, tillsammans med några valfria inställningar. Flera [exempel](#example-docker-run-commands) kommandots är tillgängliga. De behållar-/regionsspecifika inställningarna är fakturerings inställningarna. 
 
-# <a name="configuration-settings"></a>Konfigurationsinställningar
+## <a name="configuration-settings"></a>Konfigurationsinställningar
 
 [!INCLUDE [Container shared configuration settings table](../../../includes/cognitive-services-containers-configuration-shared-settings-table.md)]
 
@@ -44,13 +44,13 @@ Du hittar den här inställningen på följande plats:
 
 ## <a name="billing-configuration-setting"></a>Fakturering konfigurationsinställning
 
-Inställningen anger slut punkts-URI för tal resursen i Azure som används för att mäta fakturerings information för behållaren.  `Billing` Du måste ange ett värde för den här konfigurations inställningen och värdet måste vara en giltig slut punkts-URI för en _tal_ resurs på Azure. Behållar rapporteringen visar var 10 till 15: e minut.
+Inställningen anger slut punkts-URI för tal resursen i Azure som används för att mäta fakturerings information för behållaren. `Billing` Du måste ange ett värde för den här konfigurations inställningen och värdet måste vara en giltig slut punkts-URI för en _tal_ resurs på Azure. Behållar rapporteringen visar var 10 till 15: e minut.
 
 Du hittar den här inställningen på följande plats:
 
 * Azure-portalen: **Tal ' s** Översikt, märkt`Endpoint`
 
-|Krävs| Namn | Datatyp | Beskrivning |
+|Obligatorisk| Namn | Datatyp | Beskrivning |
 |--|------|-----------|-------------|
 |Ja| `Billing` | Sträng | Fakturering endpoint URI<br><br>Exempel:<br>`Billing=https://westus.api.cognitive.microsoft.com/sts/v1.0` |
 
@@ -78,10 +78,10 @@ Tal behållarna använder inte indata eller utdata monteras för att lagra utbil
 
 Den exakta syntaxen hos montera värdplats varierar beroende på värdens operativsystem. Dessutom kan den [värddatorn](speech-container-howto.md#the-host-computer)'s montera platsen är kanske inte tillgänglig på grund av en konflikt mellan behörigheter som används av docker-tjänstkontot och värden montera plats behörigheter. 
 
-|Valfri| Namn | Datatyp | Beskrivning |
+|Valfritt| Namn | Datatyp | Beskrivning |
 |-------|------|-----------|-------------|
-|Tillåts inte| `Input` | Sträng | Tal behållare använder inte detta.|
-|Valfri| `Output` | Sträng | Utdata mount-mål. Standardvärdet är `/output`. Det här är platsen för loggarna. Detta inkluderar behållar loggar. <br><br>Exempel:<br>`--mount type=bind,src=c:\output,target=/output`|
+|Inte tillåtet| `Input` | Sträng | Tal behållare använder inte detta.|
+|Valfritt| `Output` | Sträng | Utdata mount-mål. Standardvärdet är `/output`. Det här är platsen för loggarna. Detta inkluderar behållar loggar. <br><br>Exempel:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Exempel docker-kommandon 
 
@@ -90,7 +90,7 @@ I följande exempel används konfigurationsinställningarna som illustrerar hur 
 * **Rad fortsättnings avstånd**: Docker- `\`kommandona i följande avsnitt använder omvänt snedstreck, som ett fortsättnings streck. Ersätta eller ta bort detta baserat på din värdoperativsystemet. 
 * **Argument ordning**: Ändra inte ordningen på argumenten om du inte är bekant med Docker-behållare.
 
-Ersätt {_argument_name_} med dina egna värden:
+Ersätt { _} med dina egna värden:
 
 | Platshållare | Värde | Format eller exempel |
 |-------------|-------|---|

@@ -8,17 +8,17 @@ ms.custom: mvc
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 11/21/2018
-ms.openlocfilehash: 9806855aff54e72da6ac8336338c63f82ffda736
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ad022f6ac9cebbe92cdca3a4b368524d828a9cbb
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61091860"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68931565"
 ---
 # <a name="azure-database-for-mysql-use-nodejs-to-connect-and-query-data"></a>Azure Database for MySQL: Använd Node.js för att ansluta och skicka frågor till data
 Den här snabbstarten visar hur du ansluter till en Azure Database för MySQL med hjälp av ett [Node.js](https://nodejs.org/)-program från plattformar med Windows, Ubuntu Linux och Mac. Den visar hur du använder SQL-instruktioner för att fråga, infoga, uppdatera och ta bort data i databasen. Det här avsnittet förutsätter att du är van att utveckla i Node.js och att du saknar erfarenhet av Azure Database for MySQL.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 I den här snabbstarten används de resurser som skapades i någon av följande guider som utgångspunkt:
 - [Skapa en Azure Database för MySQL med Azure Portal](./quickstart-create-mysql-server-database-using-azure-portal.md)
 - [Skapa en Azure Database för MySQL-server med Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md)
@@ -33,7 +33,7 @@ Följ instruktionerna för att installera Node.js beroende på din plattform. An
 ### <a name="windows"></a>**Windows**
 1. Besök [hämtningssidan för Node.js](https://nodejs.org/en/download/) och välj sedan önskat alternativ för Windows installeringsverktyg.
 2. Skapa en lokal projektmapp som till exempel `nodejsmysql`. 
-3. Starta Kommandotolken och ändra sedan katalog till projektmappen, till exempel `cd c:\nodejsmysql\`
+3. Öppna kommando tolken och ändra katalogen till projektmappen, till exempel`cd c:\nodejsmysql\`
 4. Kör NPM-verktyget för att installera mysql-biblioteket i projektmappen.
 
    ```cmd
@@ -83,15 +83,15 @@ Följ instruktionerna för att installera Node.js beroende på din plattform. An
 Skaffa den information som du behöver för att ansluta till Azure Database för MySQL. Du behöver det fullständiga servernamnet och inloggningsuppgifter.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
-2. På den vänstra menyn i Azure Portal klickar du på **Alla resurser**. Sök sedan efter den server som du skapade (till exempel **mydemoserver**).
-3. Klicka på servernamnet.
+2. På den vänstra menyn i Azure Portal väljer du **alla resurser**och söker sedan efter den server som du har skapat (till exempel **mydemoserver**).
+3. Välj servernamnet.
 4. På serverpanelen **Översikt** antecknar du **Servernamn** och **Inloggningsnamn för serveradministratören**. Om du glömmer lösenordet kan du även återställa det på den här panelen.
  ![Azure Database för MySQL-servernamn](./media/connect-nodejs/1_server-overview-name-login.png)
 
 ## <a name="running-the-javascript-code-in-nodejs"></a>Kör JavaScript-kod i Node.js
 1. Klistra in JavaScript-koden i en textfil och spara sedan filen till en projektmapp med filnamnstillägget .js (till exempel C:\nodejsmysql\createtable.js eller /home/username/nodejsmysql/createtable.js).
-2. Starta kommandotolken eller Bash-gränssnittet och byt katalog till din projektmapp (`cd nodejsmysql`).
-3. Skriv node-kommandot följt av filnamnet, till exempel `node createtable.js`, för att köra programmet.
+2. Öppna kommando tolken eller bash-gränssnittet och ändra sedan katalogen i projektmappen `cd nodejsmysql`.
+3. Kör programmet genom att ange Node-kommandot följt av fil namnet, till exempel `node createtable.js`.
 4. I Windows, om node-programmet inte finns på sökvägen för miljövariabeln, kan du behöva använda den fullständiga sökvägen för att starta nodprogrammet, till exempel `"C:\Program Files\nodejs\node.exe" createtable.js`
 
 ## <a name="connect-create-table-and-insert-data"></a>Ansluta, skapa tabell och infoga data

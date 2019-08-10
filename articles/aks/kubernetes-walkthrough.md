@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 05/20/2019
 ms.author: mlearned
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: 2079144cf6cb36870645d3182aabdecccfcbadd0
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 8a5fb9313fca2a8d787d0fbde47401f6d3e1d229
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67615080"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68880683"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Snabbstart: Distribuera ett kluster med Azure Kubernetes Service (AKS) med hjälp av Azure CLI
 
@@ -242,16 +242,16 @@ Slutför följande steg för att se aktuell status, drift tid och resursanvändn
 
 1. Öppna en webbläsare för Azure Portal [https://portal.azure.com][azure-portal].
 1. Välj din resursgrupp, till exempel *myResourceGroup*, och välj sedan ditt AKS-kluster, till exempel *myAKSCluster*.
-1. Under **Övervakning** väljer du **Insights**  på vänster sida
-1. Överst väljer du **+ Lägg till filter**
-1. Välj *Namnrymd* som egenskapen, och välj sedan *\<Alla förutom kube-system\>*
-1. Välja att visa **containrarna**.
+1. Under **övervakning** till vänster väljer du insikter.
+1. Klicka på **+ Lägg till filter**överst.
+1. Välj *namnrymd* som egenskap och välj  *\<sedan alla utom\>Kube-system*.
+1. Välj **behållare**.
 
 Containrarna *bak-azure-vote* och *azure-vote-front* visas enligt följande exempel:
 
 ![Visa hälsan för containrar som körs i AKS](media/kubernetes-walkthrough/monitor-containers.png)
 
-Om du vill se loggar `azure-vote-back` för Pod väljer du det alternativ som du vill **Visa i Analytics**och klickar sedan på länken **Visa container loggar** på höger sida av listan behållare. Loggarna inkluderar strömmarna *stdout* och *stderr* från containern.
+Om du vill se loggar `azure-vote-back` för Pod väljer du alternativet att **Visa i Analytics**och väljer sedan länken **Visa container loggar** till höger i listan behållare. Loggarna inkluderar strömmarna *stdout* och *stderr* från containern.
 
 ![Visa containerloggarna i AKS](media/kubernetes-walkthrough/monitor-container-logs.png)
 

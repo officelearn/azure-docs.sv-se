@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.topic: quickstart
 ms.date: 07/11/2019
 ms.author: heidist
-ms.openlocfilehash: 5ad1708475200475669c5de8f4fbd316f04ebd04
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: e3912e90762977bc801279fde481fc26516e51a6
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840786"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882647"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-postman-using-rest-apis"></a>Snabbstart: Skapa ett Azure Search-index i Postman med hjälp av REST API: er
 > [!div class="op_single_selector"]
@@ -80,7 +80,7 @@ Så här gör du i Postman:
 
 1. Ändra verbet som ska **läggas**till.
 
-2. Kopiera i denna URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels?api-version=2019-05-06`.
+2. Kopiera i denna URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart?api-version=2019-05-06`.
 
 3. Ange index definitionen (kopierings klar kod anges nedan) i bröd texten i begäran.
 
@@ -298,6 +298,7 @@ Kom ihåg att du är begränsad till tre index, indexerare och data källor om d
 
 ## <a name="next-steps"></a>Nästa steg
 
-REST-klienterna är ovärderliga vid improviserade undersökningar, men nu när du vet hur REST-API:er fungerar kan du fortsätta med kod. För nästa steg, se följande länk:
+Nu när du vet hur du utför grundläggande uppgifter kan du gå vidare med ytterligare REST API samtal för mer avancerade funktioner, till exempel indexerare eller konfigurera [en kognitiv Sök pipeline](cognitive-search-tutorial-blob.md). I nästa steg rekommenderar vi följande länk:
 
-+ [Snabbstart: Skapa ett index med .NET SDK](search-get-started-dotnet.md)
+> [!div class="nextstepaction"]
+> [REST-självstudie: Indexera och Sök i semikolonavgränsade data (JSON-blobbar) i Azure Search](search-semi-structured-data.md)

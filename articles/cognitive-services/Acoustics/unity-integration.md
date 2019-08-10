@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: noelc
 ROBOTS: NOINDEX
-ms.openlocfilehash: dffef5062e89ef725abcfda187f5e6159c676b9c
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 54bc98e0ddba0292c6a5dbb07f2bbdfce6a1cb45
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854311"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933147"
 ---
 # <a name="project-acoustics-unity-integration"></a>Integrering av projekt akustiskt union
 Den här instruktionen förklarar hur du integrerar plugin-programmet för Project Akustiske Unit i ditt Unity-projekt.
@@ -32,6 +32,10 @@ Importera de akustiska UnityPackage till projektet.
     ![Skärm bild av menyn Unity import Package](media/import-package.png)  
 
 * Välj **ProjectAcoustics. unitypackage**
+
+* Klicka på knappen **Importera** för att integrera Unity-paketet i projektet  
+
+    ![Skärm bild av dialog rutan Unity import Package](media/import-dialog.png)  
 
 Om du importerar plugin-programmet till ett befintligt projekt kanske projektet redan har en **MCS. rsp** -fil i projekt roten, som anger alternativ för C# kompilatorn. Du måste slå samman innehållet i filen med MCS. rsp-filen som medföljer plugin-programmet för Project akustiskt.
 

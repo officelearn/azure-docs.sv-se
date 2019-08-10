@@ -7,15 +7,15 @@ author: sanjeev3
 manager: mikemcca
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: sajagtap
-ms.openlocfilehash: 5b73436153427019a7d0d2c641f50592a385f19c
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 065d3cd80f93753eb91571d4ada4fe7151258ec0
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564551"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882663"
 ---
 # <a name="create-human-reviews"></a>Skapa mänsklig granskning
 
@@ -34,7 +34,7 @@ I den här guiden får du lära dig hur du konfigurerar [granskningar](../review
 
     Bilderna visas med etiketter som har tilldelats av den automatiska moderator processen. De avbildningar som du har skickat via gransknings verktyget är inte synliga för andra granskare.
 
-1. Du kan också flytta **granskningarna för att Visa** skjutreglaget (1) för att justera antalet bilder som visas på skärmen. Klicka på de **märkta** eller  omärkta knapparna (2) för att sortera avbildningarna efter behov. Klicka på en etikett panel (3) om du vill aktivera eller inaktivera den.
+1. Du kan också flytta **granskningarna för att Visa** skjutreglaget (1) för att justera antalet bilder som visas på skärmen. Klicka på de **märkta** eller omärkta knapparna (2) för att sortera avbildningarna efter behov. Klicka på en etikett panel (3) om du vill aktivera eller inaktivera den.
 
     ![Chrome-webbläsare som visar gransknings verktyget med taggade bilder för granskning](images/review-images-2.png)
 
@@ -46,7 +46,7 @@ I den här guiden får du lära dig hur du konfigurerar [granskningar](../review
 
     ![En bild med moderator information som visas i ett separat fönster](images/review-images-4.png)
 
-1. När du har granskat och uppdaterat tag gen tilldelningarna efter behov klickar du på **Nästa** för att skicka in dina granskningar. När du har skickat har du ungefär fem sekunder på dig att  Klicka på föregående för att gå tillbaka till föregående skärm och granska bilderna igen. Därefter är avbildningarna inte längre i sändnings kön och knappen **föregående** är inte längre tillgänglig.
+1. När du har granskat och uppdaterat tag gen tilldelningarna efter behov klickar du på **Nästa** för att skicka in dina granskningar. När du har skickat har du ungefär fem sekunder på dig att Klicka på föregående för att gå tillbaka till föregående skärm och granska bilderna igen. Därefter är avbildningarna inte längre i sändnings kön och knappen **föregående** är inte längre tillgänglig.
 
 ## <a name="text-reviews"></a>Textomdömen
 

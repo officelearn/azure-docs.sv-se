@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 6/06/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 7bd18ab0cedf94f0ecc08c3523a608a8d554e6b2
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 2ef207a14582e6ba0d9f8a25c0314c5ec639c7cb
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827920"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882852"
 ---
 # <a name="what-is-azure-security-center"></a>Vad är Azure Security Center?
 
@@ -32,9 +32,9 @@ Azure Security Center adresserar de tre mest brådskande säkerhetsutmaningarna:
 
 -   **Snabbt förändrade arbetsbelastningar** – Det är både en styrka och en utmaning i molnet. Å ena sidan uppmuntras slutanvändarna att göra mer. Å andra sidan, hur försäkrar du dig om att de ständigt föränderliga tjänster som människorna använder och skapar uppfyller dina säkerhetsstandarder och följer rekommenderade säkerhetsmetoder?
 
--   **Allt mer sofistikerade attacker** – Oavsett var du kör dina arbetsbelastningar blir attackerna ständigt alltmer avancerade. Du måste skydda dina arbetsbelastningar i det offentliga molnet, vilka i praktiken är en Internet-inriktad arbetsbelastning som kan gör dig ännu mer sårbar om du inte följer rekommenderade säkerhetsmetoder.
+-   **Allt fler sofistikerade attacker** – var du än befinner dig, kommer de att fortsätta att få mer avancerade attacker. Du måste skydda dina arbetsbelastningar i det offentliga molnet, vilka i praktiken är en Internet-inriktad arbetsbelastning som kan gör dig ännu mer sårbar om du inte följer rekommenderade säkerhetsmetoder.
 
--   **Säkerhets kunskaper har kort till gång** – antalet säkerhets aviseringar och aviserings system i stort antal administratörer med nödvändig bakgrund och erfarenhet för att se till att dina miljöer är skyddade. Att hålla sig informerad om de senaste attackerna är en konstant utmaning, vilket gör det omöjligt att alltid vara på rätt plats eftersom kampen mot säkerhetshoten sker vid en ständigt föränderlig stridslinje.
+-   **Säkerhets kunskaper har kort till gång** – antalet säkerhets aviseringar och aviserings system i stort antal administratörer med nödvändig bakgrund och erfarenhet för att se till att dina miljöer är skyddade. Att hålla sig informerad om de senaste attackerna är en konstant utmaning, vilket gör det omöjligt att alltid vara på rätt plats eftersom kampen mot säkerhetshoten sker vid en ständigt föränderlig stridslinje.
 
 Som en hjälp i skyddet mot dessa utmaningar erbjuder Security Center dig verktyg för att:
 
@@ -60,15 +60,15 @@ Med Azure Security Center kan du förbättra din säkerhet. Du får hjälp med a
 
 ### <a name="manage-organization-security-policy-and-compliance"></a>Hantera principer för organisationssäkerhet och efterlevnad
 
-Det tillhör grunderna i säkerhetsarbetet att känna till och skydda sina arbetsbelastningar, och utgångspunkten är att ha skräddarsydda säkerhetsprinciper på plats. Eftersom alla principer i Security Center är byggda på Azure-principkontroller får du tillgång till hela omfattningen och flexibiliteten hos en  **principlösning av världsklass**. Du kan konfigurera dina principer i Security Center så att de körs för hanteringsgrupper, för prenumerationer och även för en hel klientorganisation.
+Det tillhör grunderna i säkerhetsarbetet att känna till och skydda sina arbetsbelastningar, och utgångspunkten är att ha skräddarsydda säkerhetsprinciper på plats. Eftersom alla principer i Security Center bygger på Azures princip kontroller får du full räckvidd och flexibilitet i en **princip lösning i världs klass**. Du kan konfigurera dina principer i Security Center så att de körs för hanteringsgrupper, för prenumerationer och även för en hel klientorganisation.
 
 ![Instrumentpanelen i Security Center](media/security-center-intro/sc-dashboard.png)
 
-Security Center hjälper dig att **identifiera skugg-IT prenumerationer**. Genom att titta på prenumerationer märkta **omfattas inte** på instrumentpanelen kan du se direkt när det har skapats nya prenumerationer och se till att de omfattas av dina principer och skyddas av Azure Security Center.
+Security Center hjälper dig att **identifiera SKUGG IT**-prenumerationer. Genom att titta på prenumerationer märkta **omfattas inte** på instrumentpanelen kan du se direkt när det har skapats nya prenumerationer och se till att de omfattas av dina principer och skyddas av Azure Security Center.
 
 ![Principinstrumentpanelen i Security Center](media/security-center-intro/sc-policy-dashboard.png)
 
-Med de avancerade övervakningsfunktionerna i Security Center kan du även **spåra och hantera efterlevnad och styrning över tid**. Den **övergripande kompatibiliteten** ger dig ett mått på i hur hög grad dina prenumerationer är kompatibla med de principer som är associerade med din arbetsbelastning. 
+Med de avancerade övervakningsfunktionerna i Security Center kan du också **spåra och hantera efterlevnad och styrning över tid**. Den **övergripande kompatibiliteten** ger dig ett mått på hur mycket dina prenumerationer är kompatibla med principer som är kopplade till din arbets belastning. 
 
 ![Principer över tid i Security Center](media/security-center-intro/sc-policy-time.png)
 
@@ -76,11 +76,11 @@ Med de avancerade övervakningsfunktionerna i Security Center kan du även **sp
 
 Security Center identifierar nya resurser som distribueras till dina arbetsbelastningar och utvärderar om de har konfigurerats enligt rekommenderade säkerhetsmetoder. Om så inte är fallet flaggas de och du får en prioriterad lista med rekommendationer om vad du måste åtgärda för att skydda dina datorer.
 
-En av de viktigaste verktygen som Security Center tillhandahåller för kontinuerlig övervakning av ditt nätverks säkerhetsstatus är  **nätverkskartan**. Med hjälp av kartan kan du se dina arbetsbelastningars topologi, och därmed även se om varje enskild nod har konfigurerats korrekt. Du kan se hur dina noder är anslutna, vilket hjälper dig att blockera oönskade anslutningar som potentiellt kan göra det enklare för en angripare att ta sig in i ditt nätverk.
+Ett av de mest kraftfulla verktygen Security Center ger en kontinuerlig övervakning av nätverkets säkerhets status som **nätverks kartan**. Med hjälp av kartan kan du se dina arbetsbelastningars topologi, och därmed även se om varje enskild nod har konfigurerats korrekt. Du kan se hur dina noder är anslutna, vilket hjälper dig att blockera oönskade anslutningar som potentiellt kan göra det enklare för en angripare att ta sig in i ditt nätverk.
 
 ![Security Center-nätverkskarta](media/security-center-intro/sc-net-map.png)
 
-Security Center underlättar hanteringen av säkerhetsaviseringarna med hjälp av  **säkerhetspoäng**. Säkerhetspoängen är nu kopplade till varje enskild rekommendation som du tar emot, så att du enklare ska förstå hur viktigt den enskilda rekommendationen är för den övergripande säkerheten. Detta är av avgörande betydelse för dina möjligheter att  **prioritera ditt säkerhetsarbete**.
+Security Center minimerar dina säkerhets varningar ett steg enklare genom att lägga till en **säker Poäng**. Säkerhetspoängen är nu kopplade till varje enskild rekommendation som du tar emot, så att du enklare ska förstå hur viktigt den enskilda rekommendationen är för den övergripande säkerheten. Detta är viktigt för att du ska kunna **prioritera ditt säkerhets arbete**.
 
 ![Security Center-säkerhetspoäng](media/security-center-intro/sc-secure-score.png)
 

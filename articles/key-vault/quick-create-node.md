@@ -1,6 +1,6 @@
 ---
-title: Snabbstart – ange och hämta en hemlighet från Azure Key Vault med hjälp av en nod-webbapp | Microsoft Docs
-description: I den här snabbstarten får du ange och hämta en hemlighet från Azure Key Vault med hjälp av en nod-webbapp
+title: Snabb start – ange och hämta en hemlighet från Azure Key Vault med hjälp av en Node-webbapp | Microsoft Docs
+description: I den här snabb starten ställer du in och hämtar en hemlighet från Azure Key Vault med hjälp av en Node-webbapp
 services: key-vault
 author: msmbaldwin
 manager: sumedhb
@@ -9,36 +9,36 @@ ms.topic: quickstart
 ms.date: 09/05/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 5e8c29e033d895e24047754e686420fb4db86142
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 5ca6289b1af02a54d8c66d5a9835e24f61c58559
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236640"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934462"
 ---
-# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-node-web-app"></a>Snabbstart: Ange och hämta en hemlighet från Azure Key Vault med hjälp av en nod-webbapp 
+# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-node-web-app"></a>Snabbstart: Ange och hämta en hemlighet från Azure Key Vault med hjälp av en Node-webbapp 
 
-Den här snabbstarten visar hur du lagrar en hemlighet i Azure Key Vault och hur du hämtar med hjälp av en webbapp. Key Vault hjälper till att skydda informationen. Om du vill visa hemligt värde, behöver du köra den här snabbstarten i Azure. I snabbstarten används Node.js och hanterade identiteter för Azure-resurser. Lär dig att:
+Den här snabb starten visar hur du lagrar en hemlighet i Azure Key Vault och hur du hämtar den med hjälp av en webbapp. Key Vault hjälper till att skydda informationen. Om du vill se det hemliga värdet måste du köra den här snabb starten på Azure. I snabbstarten används Node.js och hanterade identiteter för Azure-resurser. Lär dig att:
 
 * Skapa ett nyckelvalv.
 * Lagra en hemlighet i nyckelvalvet.
 * Hämta en hemlighet från nyckelvalvet.
 * Skapa ett Azure-webbprogram.
-* Aktivera en [hanterad identitet](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) för webbappen.
+* Aktivera en [hanterad identitet](../active-directory/managed-service-identity/overview.md) för webbappen.
 * Bevilja de behörigheter som krävs för att webbprogrammet ska kunna läsa data från nyckelvalvet.
 
-Innan du fortsätter, kontrollera att du är bekant med den [grundläggande begrepp för Key Vault](key-vault-whatis.md#basic-concepts).
+Innan du fortsätter bör du kontrol lera att du är bekant med de [grundläggande begreppen för Key Vault](key-vault-whatis.md#basic-concepts).
 
 > [!NOTE]
 > Key Vault är en central lagringsplats för programmeringsbaserad lagring av hemligheter. Det här kräver att program och användare först autentiseras mot Key Vault, dvs. presenterar en hemlighet. Den här första hemligheten måste roteras med jämna mellanrum för att uppfylla de rekommenderade säkerhetsmetoderna. 
 >
 > Med [hanterade tjänstidentiteter för Azure-resurser](../active-directory/managed-identities-azure-resources/overview.md) får program som körs i Azure en identitet som hanteras automatiskt av Azure. Det här löser *problemet med den första hemligheten* så att användare och program kan följa bästa praxis utan att behöva bekymra sig om roteringen av den första hemligheten.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Node.js](https://nodejs.org/en/)
 * [Git](https://www.git-scm.com/)
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 2.0.4 eller senare. Den här snabbstarten krävs att du kör Azure CLI lokalt. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera CLI kan du läsa [Installera Azure CLI 2.0](https://review.docs.microsoft.com/en-us/cli/azure/install-azure-cli?branch=master&view=azure-cli-latest).
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) -2.0.4 eller senare. Den här snabb starten kräver att du kör Azure CLI lokalt. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera CLI kan du läsa [Installera Azure CLI 2.0](https://review.docs.microsoft.com/en-us/cli/azure/install-azure-cli?branch=master&view=azure-cli-latest).
 * En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
@@ -54,7 +54,7 @@ az login
 Skapa en resursgrupp med kommandot [az group create](/cli/azure/group#az-group-create). En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras.
 
 Välj ett resursgruppnamn och fyll i platshållaren.
-I följande exempel skapas en resursgrupp på platsen East USA.
+I följande exempel skapas en resurs grupp på platsen USA, östra.
 
 ```azurecli
 # To list locations: az account list-locations --output table
@@ -65,9 +65,9 @@ Den resursgrupp du nyss skapade används i hela den här artikeln.
 
 ## <a name="create-a-key-vault"></a>Skapa ett nyckelvalv
 
-Nu kan du skapa ett nyckelvalv med hjälp av den resursgrupp som du skapade i föregående steg. Även om den här artikeln använder ”ContosoKeyVault” som namn kan behöva du använda ett unikt namn. Ange följande information:
+Därefter skapar du ett nyckel valv med hjälp av resurs gruppen som du skapade i föregående steg. Även om den här artikeln använder "ContosoKeyVault" som namn måste du använda ett unikt namn. Ange följande information:
 
-* Namn på Key vault.
+* Nyckel valvs namn.
 * Namn på resursgrupp. Namnet måste vara en sträng på 3 till 24 tecken och får endast innehålla 0–9, a–z, A–Z och ett bindestreck (-).
 * Plats: **USA, östra**.
 
@@ -112,16 +112,16 @@ cd key-vault-node-quickstart
 npm install
 ```
 
-Det här projektet använder två nodmodulerna: [ms-rest azure](https://www.npmjs.com/package/ms-rest-azure) och [azure keyvault](https://www.npmjs.com/package/azure-keyvault).
+I det här projektet används två Node [-moduler: MS-rest – Azure](https://www.npmjs.com/package/ms-rest-azure) och [Azure-nyckel valv](https://www.npmjs.com/package/azure-keyvault).
 
 ## <a name="publish-the-web-app-to-azure"></a>Publicera webbappen i Azure
 
-Skapa en [Azure App Service](https://azure.microsoft.com/services/app-service/) plan. Du kan lagra flera webbappar i den här planen.
+Skapa en [Azure App Service](https://azure.microsoft.com/services/app-service/) -plan. Du kan lagra flera webbappar i den här planen.
 
     ```
     az appservice plan create --name myAppServicePlan --resource-group myResourceGroup
     ```
-Därefter skapa en webbapp. I följande exempel ersätter `<app_name>` med ett globalt unikt appnamn (giltiga tecken är a – z, 0-9, och -). Körningen är inställd på NODE|6.9. Om du vill se alla körningar som stöds kör `az webapp list-runtimes`.
+Skapa sedan en webbapp. I följande exempel ersätter `<app_name>` du med ett globalt unikt app-namn (giltiga tecken är a-z, 0-9 och-). Körningen är inställd på NODE|6.9. Om du vill se alla körningar som `az webapp list-runtimes`stöds kör du.
 
     ```
     # Bash
@@ -143,14 +143,14 @@ När webbappen har skapats visar Azure CLI utdata liknande den i följande exemp
       < JSON data removed for brevity. >
     }
     ```
-Bläddra till den nya webbappen och bör du se att den fungerar. Ersätt `<app_name>` med ett unikt appnamn.
+Bläddra till din nyligen skapade webbapp och se att den fungerar. Ersätt `<app_name>` med ett unikt appnamn.
 
     ```
     http://<app name>.azurewebsites.net
     ```
-Det föregående kommandot skapar även en Git-aktiverad app som hjälper dig att distribuera till Azure från din lokala Git-lagringsplats. Den lokala Git-lagringsplatsen är konfigurerad med denna URL: `https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git`.
+Föregående kommando skapar också en git-aktiverad app som gör att du kan distribuera till Azure från din lokala git-lagringsplats. Den lokala git-lagrings platsen har kon figurer ATS med `https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git`den här URL: en:.
 
-När du har slutfört föregående kommando kan du lägga till en Azure-fjärrdatabas till din lokala Git-lagringsplats. Ersätt `<url>` med URL: en för Git-lagringsplats.
+När du har slutfört föregående kommando kan du lägga till en Azure-fjärrdatabas till din lokala git-lagringsplats. Ersätt `<url>` med URL: en för git-lagrings platsen.
 
     ```
     git remote add azure <url>
@@ -178,13 +178,13 @@ Anteckna utdata från föregående kommando. De bör ha formatet:
           "type": "SystemAssigned"
         }
         
-Kör sedan följande kommando med hjälp av namnet på ditt nyckelvalv och värdet för **principalId**:
+Kör sedan följande kommando med namnet på ditt nyckel valv och värdet för **principalId**:
 
 ```azurecli
 az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --secret-permissions get set
 ```
 
-## <a name="deploy-the-node-app-to-azure-and-retrieve-the-secret-value"></a>Distribuera Node-app till Azure och hämta hemligt värde
+## <a name="deploy-the-node-app-to-azure-and-retrieve-the-secret-value"></a>Distribuera Node-appen till Azure och hämta det hemliga värdet
 
 Kör följande kommando för att distribuera appen till Azure:
 
@@ -192,7 +192,7 @@ Kör följande kommando för att distribuera appen till Azure:
 git push azure master
 ```
 
-Senare, när du bläddrar till `https://<app_name>.azurewebsites.net`, du kan se det hemliga värdet. Se till att du ersatte namnet `<YourKeyVaultName>` med vault-namn.
+När du bläddrar till `https://<app_name>.azurewebsites.net`kan du se det hemliga värdet. Se till att du ersatte namnet `<YourKeyVaultName>` med ditt valv namn.
 
 ## <a name="next-steps"></a>Nästa steg
 

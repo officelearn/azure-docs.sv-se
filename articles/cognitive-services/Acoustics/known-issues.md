@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: noelc
 ROBOTS: NOINDEX
-ms.openlocfilehash: a70d9ea1090f1c518f804dd28f3461918af965cd
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 37084480423de90f50beced187eda202b39f8bf1
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854289"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933066"
 ---
 # <a name="project-acoustics-known-issues"></a>Kända problem med Project-Akustiskhet
 Du kan stöta på följande kända problem när du använder för hands versionen av designer för projekt akustiskt.
@@ -24,10 +24,6 @@ Du kan stöta på följande kända problem när du använder för hands versione
 ## <a name="acoustic-parameters-are-lost-when-you-rename-a-scene"></a>Akustiska parametrar försvinner när du byter namn på en scen
 
 Om du byter namn på en scen överförs inte alla akustiska parametrar som tillhör den scenen automatiskt till den nya scenen. De finns dock kvar i den gamla till gångs filen. Leta efter filen **SceneName_AcousticParameters. Asse** i **redigerings** katalogen bredvid din scen fil. Byt namn på filen så att den återspeglar det nya scen namnet.
-
-## <a name="unity-crashes-when-closing-project"></a>Unit kraschar vid stängning av projekt
-
-I de senaste versionerna av Uniting (2018.2 +) finns ett känt fel där Unity kraschar när du stänger projektet. Detta spåras av [detta Unity-problem](https://issuetracker.unity3d.com/issues/crash-on-assetdatabase-getassetimporterversions-when-closing-a-specific-unity-project).
 
 ## <a name="deploying-to-android-from-some-unity-versions"></a>Distribuera till Android från vissa Unit-versioner
 

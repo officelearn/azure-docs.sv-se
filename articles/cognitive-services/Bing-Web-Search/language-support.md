@@ -1,29 +1,29 @@
 ---
-title: Stöd för språk - API för webbsökning i Bing
+title: Språk stöd – API för webbsökning i Bing
 titleSuffix: Azure Cognitive Services
-description: En lista över naturligt språk, länder och regioner som stöds av den nyhetssökning i Bing.
+description: En lista över naturliga språk, länder och regioner som stöds av API för nyhetssökning i Bing.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: aahi
-ms.openlocfilehash: 18b124ca7f6f270488fa8e010d2b1c0404f8e9e2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9425de6e75a9a46d71ff85ce49b0650c8e7a9a16
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66384780"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882677"
 ---
-# <a name="language-and-region-support-for-the-bing-web-search-api"></a>Stöd för språk och din region för Bing Web Search API
+# <a name="language-and-region-support-for-the-bing-web-search-api"></a>Språk-och region stöd för API för webbsökning i Bing
 
-Bing Web Search API har stöd för över tre dussin länder eller regioner många med flera olika språk. Ange ett land eller region med en fråga kan du förfina sökresultaten baserat på de land eller regioner intressen. Resultaten kan innehålla länkar till Bing och dessa länkar kan lokalisera Bing användarupplevelsen enligt den angivna land/region eller språk.
+API för webbsökning i Bing har stöd för över tre dussin länder eller regioner, många med fler än ett språk. Genom att ange ett land eller en region med en fråga kan du förfina Sök resultat baserat på dessa länder eller regioner. Resultaten kan innehålla länkar till Bing, och dessa länkar kan lokalisera Bing-användargränssnittet enligt angivet land/region eller språk.
 
-Du kan ange ett land eller region med hjälp av den `cc` frågeparameter. När du anger ett land eller region måste du ange en eller flera språkkoder med den [ `Accept-Language` rubrik](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#headers). Använd den [marknader tabell](#markets) en lista över språk som stöds i varje marknad.
+Du kan ange ett land eller en region med `cc` hjälp av Frågeparametern. När ett land eller en region har angetts måste du ange en eller flera språk koder med [ `Accept-Language` rubriken](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#headers). Använd [tabellen marknader](#markets) för att visa en lista över språk som stöds på varje marknad.
 
-Du kan också ange på marknaden med den `mkt` Frågeparametern och en kod från den **marknader** tabell. Ange en marknad samtidigt anger ett land / region och önskat språk. Du kan uttryckligen ange språk med den `setLang` frågeparameter.
+Alternativt kan du ange marknaden med `mkt` Frågeparametern och en kod från tabellen **marknader** . Att ange en marknad samtidigt anger ett land eller en region och ett önskat språk. Du kan uttryckligen ange språket med `setLang` Frågeparametern.
 
 ## <a name="countriesregions"></a>Länder/regioner
 
@@ -42,12 +42,12 @@ Du kan också ange på marknaden med den `mkt` Frågeparametern och en kod från
 |Tyskland|DE|
 |Hongkong SAR|HK|
 |Indien|IN|
-|Indonesien|ID|
-|Italien|IT|
+|Indonesien|id|
+|Italien|it|
 |Japan|JP|
 |Korea|KR|
 |Malaysia|MY|
-|Mexiko|MX|
+|Mexico|MX|
 |Nederländerna|NL|
 |Nya Zeeland|NZ|
 |Norge|NO|
@@ -63,12 +63,12 @@ Du kan också ange på marknaden med den `mkt` Frågeparametern och en kod från
 |Schweiz|CH|
 |Taiwan|TW|
 |Turkiet|TR|
-|Storbritannien|GB|
+|Storbritannien och Nordirland|GB|
 |USA|USA|
 
-## <a name="markets"></a>Marknader
+## <a name="markets"></a>Marknaden
 
-|Land/region|Språk|Marknaden kod|
+|Land/region|Språk|Marknads kod|
 |-------|--------|-----------|
 |Argentina|Spanska|es-AR|
 |Australien|Svenska|SV-Australien|
@@ -90,24 +90,24 @@ Du kan också ange på marknaden med den `mkt` Frågeparametern och en kod från
 |Japan|Japanska|ja-JP|
 |Korea|Koreanska|ko-KR|
 |Malaysia|Svenska|en-MY|
-|Mexiko|Spanska|es-MX|
+|Mexico|Spanska|es-MX|
 |Nederländerna|Nederländska|NL-NL|
 |Nya Zeeland|Svenska|en NZ|
-|Norge|Norska|no-NO|
+|Norge|Norska|ingen – nej|
 |Kina|Kinesiska|zh-CN|
 |Polen|Polska|pl-PL|
 |Portugal|Portugisiska|PT-PT|
 |Filippinerna|Svenska|en-PH|
 |Ryssland|Ryska|ru-RU|
 |Saudiarabien|Arabiska|ar-SA|
-|Sydafrika|Svenska|en ZA|
+|Sydafrika|Svenska|en-ZA|
 |Spanien|Spanska|es-ES|
 |Sverige|Svenska|SV-SE|
 |Schweiz|Franska|fr CH|
 |Schweiz|Tyska|Tyskland – CH|
 |Taiwan|Traditionell kinesiska|zh-TW|
 |Turkiet|Turkiska|TR-TR|
-|Storbritannien|Svenska|en-GB|
+|Storbritannien och Nordirland|Svenska|en-GB|
 |USA|Svenska|en-US|
 |USA|Spanska|es-US|
 

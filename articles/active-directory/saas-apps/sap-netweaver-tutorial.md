@@ -4,97 +4,86 @@ description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active D
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: barbkess
+manager: mtillman
+ms.reviewer: celested
 ms.assetid: 1b9e59e3-e7ae-4e74-b16c-8c1a7ccfdef3
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/11/2019
+ms.date: 08/08/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01a70bfbb169090fbdf4b5f8e00af6895f69c964
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c6cce23194025a68eec055fe45b806c3d28434a1
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67091920"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68880514"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-sap-netweaver"></a>Självstudier: Azure Active Directory-integration med SAP NetWeaver
+# <a name="tutorial-integrate-sap-netweaver-with-azure-active-directory"></a>Självstudier: Integrera SAP-NetWeaver med Azure Active Directory
 
-I den här självstudien får du lära dig hur du integrerar SAP NetWeaver med Azure Active Directory (Azure AD).
-När du integrerar SAP NetWeaver med Azure Active Directory innebär det följande fördelar:
+I den här självstudien får du lära dig hur du integrerar SAP NetWeaver med Azure Active Directory (Azure AD). När du integrerar SAP NetWeaver med Azure AD kan du:
 
-* Du kan styra vem som har åtkomst till SAP NetWeaver i Azure Active Directory.
-* Du kan göra så att dina användare automatiskt loggas in på SAP NetWeaver (enkel inloggning) med sina Azure Active Directory-konton.
-* Du kan hantera dina konton på en central plats – Azure portal.
+* Kontroll i Azure AD som har åtkomst till SAP NetWeaver.
+* Gör det möjligt för användarna att logga in automatiskt till SAP NetWeaver med sina Azure AD-konton.
+* Hantera dina konton på en central plats – Azure Portal.
 
-Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
+Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill konfigurera Azure Active Directory-integrering med SAP NetWeaver behöver du följande objekt:
+För att komma igång behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
-* SAP NetWeaver-prenumeration med enkel inloggning aktiverat
+* En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
+* SAP NetWeaver-prenumeration med enkel inloggning (SSO) aktive rad.
 * SAP NetWeaver V7.20 krävs minst
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
+SAP NetWeaver stöder både **SAML** (**SP initierad SSO**) och **OAuth**. I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö. 
 
-* SAP NetWeaver stöder **SP**-initierad enkel inloggning
+> [!NOTE]
+> Konfigurera programmet antingen i SAML eller i OAuth enligt organisationens behov. 
 
 ## <a name="adding-sap-netweaver-from-the-gallery"></a>Lägga till SAP NetWeaver från galleriet
 
 Om du vill konfigurera integreringen av SAP NetWeaver i Azure Active Directory måste du lägga till SAP NetWeaver från galleriet till din lista över hanterade SaaS-appar.
 
-**Lägg till SAP NetWeaver från galleriet genom att göra följande:**
+1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
+1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** .
+1. Navigera till **företags program** och välj sedan **alla program**.
+1. Välj **nytt program**om du vill lägga till ett nytt program.
+1. I avsnittet **Lägg till från galleriet** , Skriv **SAP NetWeaver** i sökrutan.
+1. Välj **SAP-NetWeaver** från panelen resultat och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
-1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+## <a name="configure-and-test-azure-ad-single-sign-on-for-sap-netweaver"></a>Konfigurera och testa enkel inloggning med Azure AD för SAP NetWeaver
 
-    ![Azure Active Directory-knappen](common/select-azuread.png)
+Konfigurera och testa Azure AD SSO med SAP NetWeaver med en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i SAP NetWeaver.
 
-2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
+Om du vill konfigurera och testa Azure AD SSO med SAP NetWeaver slutför du följande Bygg stenar:
 
-    ![Bladet Företagsprogram](common/enterprise-applications.png)
+1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** så att användarna kan använda den här funktionen.
+    1. **[Skapa en Azure AD](#create-an-azure-ad-test-user)** -testanvändare för att testa enkel inloggning i Azure AD med B. Simon.
+    1. **[Tilldela Azure AD](#assign-the-azure-ad-test-user)** -testanvändaren att aktivera B. Simon för att använda enkel inloggning i Azure AD.
+1. **[Konfigurera SAP-NetWeaver med SAML](#configure-sap-netweaver-using-saml)** för att konfigurera SSO-inställningar på program sidan.
+    1. **[Skapa SAP NetWeaver-test](#create-sap-netweaver-test-user)** för att få en motsvarighet till B. Simon i SAP NetWeaver som är länkat till Azure AD-representation av användare.
+1. **[Testa SSO](#test-sso)** för att kontrol lera om konfigurationen fungerar.
+1. **[Konfigurera SAP-NetWeaver för OAuth](#configure-sap-netweaver-for-oauth)** för att konfigurera OAuth-inställningar på program sidan.
 
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
-
-    ![Knappen Nytt program](common/add-new-app.png)
-
-4. Skriv **SAP NetWeaver** i sökrutan, välj **SAP NetWeaver** på resultatpanelen och lägg sedan till programmet genom att klicka på knappen **Lägg till**.
-
-     ![SAP NetWeaver i resultatlistan](common/search-new-app.png)
-
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
-
-I det här avsnittet får du konfigurera och testa enkel inloggning i Azure Active Directory med SAP NetWeaver baserat på testanvändaren **Britta Simon**.
-För att enkel inloggning ska fungera måste en länkrelation mellan en Azure Active Directory-användare och den relaterade användaren i SAP NetWeaver upprättas.
-
-Om du vill konfigurera och testa enkel inloggning i Azure Active Directory med SAP NetWeaver måste du slutföra följande byggblock:
-
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Konfigurera enkel inloggning för SAP NetWeaver](#configure-sap-netweaver-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Skapa en testanvändare för SAP NetWeaver](#create-sap-netweaver-test-user)** – så att du får en motsvarighet till Britta Simon i SAP NetWeaver som är länkad till användarens Azure Active Directory-representation.
-6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
-
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
+## <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
 Konfigurera enkel inloggning i Azure Active Directory med SAP NetWeaver genom att göra följande:
 
-1. Öppna ett nytt webbläsarfönster och logga in på SAP NetWeaver-företagssidan som administratör
+1. Öppna ett nytt webbläsarfönster och logga in på din SAP NetWeaver-företags webbplats som administratör
 
 2. Se till att tjänsterna **http** och **https** är aktiva och att lämpliga portar tilldelas i transaktionskoden **SMICM**.
 
-3. Logga in på SAP-systemets företagsklient (T01), där enkel inloggning krävs och aktivera hantering av HTTP-säkerhetssession.
+3. Logga in på Business-klienten för SAP system (T01), där SSO krävs och aktivera hantering av HTTP-säkerhetssessioner.
 
     a. Gå till transaktionskod **SICF_SESSIONS**. Den visar alla relevanta profilparametrar med aktuella värden. De ser ut så här:-
     ```
@@ -111,7 +100,7 @@ Konfigurera enkel inloggning i Azure Active Directory med SAP NetWeaver genom at
     >[!NOTE]
     > Justera parametrarna ovan enligt organisationens krav. Parametrarna ovan anges här endast som indikation.
 
-    b. Om det behövs justerar du parametrarna i instansen/standardprofilen för SAP-systemet och startar om SAP-systemet.
+    b. Om det behövs justerar du parametrarna i instans/standard profil för SAP-systemet och startar om SAP-systemet.
 
     c. Dubbelklicka på relevant klient för att aktivera HTTP-säkerhetssessionen.
 
@@ -135,7 +124,7 @@ Konfigurera enkel inloggning i Azure Active Directory med SAP NetWeaver genom at
 6. Ersätt **providernamn** från T01122 till `http://T01122` och klicka på **Spara**.
 
     > [!NOTE]
-    > Som standard providernamn medföljer som `<sid><client>` formatet, men Azure AD förväntar sig namnet i formatet `<protocol>://<name>`rekommendationer att underhålla providernamn som `https://<sid><client>` så att flera SAP NetWeaver ABAP-motorer att konfigurera i Azure AD.
+    > Som standard visas namnet för `<sid><client>` `<protocol>://<name>`providern, men Azure AD förväntar sig namn i formatet, och rekommenderar `https://<sid><client>` att du behåller namnet på providern så att flera SAP NetWeaver ABAP-motorer kan konfigureras i Azure AD.
 
     ![Länk för hämtning av certifikat](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_providername.png)
 
@@ -147,33 +136,23 @@ Konfigurera enkel inloggning i Azure Active Directory med SAP NetWeaver genom at
 
     b. Klicka på **Metadata**.
 
-    c. Spara den genererade **Metadata-XML-filen** på datorn och ladda upp den i **SAML grundkonfiguration** avsnitt för att automatiskt fylla i den **identifierare** och  **Svars-URL** värdena i Azure-portalen.
+    c. Spara den genererade **XML-filen för metadata** på datorn och ladda upp den i **grundläggande SAML-konfiguration** för att automatiskt fylla i **ID** -och svars- **URL** -värden i Azure Portal.
 
-8. Välj [Enkel inloggning](https://portal.azure.com/) på programintegreringssidan för **SAP NetWeaver** i **Azure-portalen**.
+Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
-    ![Konfigurera enkel inloggning för länken](common/select-sso.png)
+1. I [Azure Portal](https://portal.azure.com/)går du till sidan för program integration i **SAP NetWeaver** och letar upp avsnittet **Hantera** och väljer **enkel inloggning**.
+1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
+1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
 
-9. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
+   ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-    ![Välja läge för enkel inloggning](common/select-saml-option.png)
+4. I avsnittet **grundläggande SAML-konfiguration** , om du vill konfigurera programmet i **IDP** initierat läge, utför följande steg:
 
-10. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
+    a. Klicka på **Ladda upp metadatafil** för att ladda upp **metadata-filen för tjänst leverantören**som du har hämtat tidigare.
 
-    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
-
-11. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
-
-    a. Klicka på **Ladda upp metadatafil** för att ladda upp **tjänstleverantörens metadatafil** som du fått tidigare.
-
-    ![Ladda upp metadatafil](common/upload-metadata.png)
-
-    b. Klicka på **mappikonen** för att välja metadatafilen och klicka på **Ladda upp**.
-
-    ![välj metadatafil](common/browse-upload-metadata.png)
+    b. Klicka på **mappen logotyp** att välja metadatafilen och klicka på **överför**.
 
     c. När metadatafilen har laddats upp fylls värdena för **Identifierare** och **Svars-URL** i automatiskt i textrutan i avsnittet **Grundläggande SAML-konfiguration** enligt följande:
-
-    ![Information om SAP NetWeaver-domän och URL:er för enkel inloggning](common/sp-identifier-reply.png)
 
     d. I textrutan **Inloggnings-URL** skriver du en URL med följande mönster: `https://<your company instance of SAP NetWeaver>`
 
@@ -184,7 +163,7 @@ Konfigurera enkel inloggning i Azure Active Directory med SAP NetWeaver genom at
     > ``` 
     > ServicePrincipal Object ID ska anges av dig först, eller så kan du skicka det också här.
 
-12. SAP NetWeaver-programmet förväntar sig SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut i avsnittet **Användarattribut** på sidan för programintegrering. På sidan **Konfigurera enkel inloggning med SAML** klickar du på knappen **Redigera** för att öppna dialogrutan **Användarattribut**.
+1. SAP NetWeaver-programmet förväntar sig SAML-intyg i ett särskilt format, vilket kräver att du lägger till anpassade mappningar av attribut i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut. Klicka på ikonen **Redigera** för att öppna dialogrutan Användarattribut.
 
     ![image](common/edit-attribute.png)
 
@@ -202,23 +181,47 @@ Konfigurera enkel inloggning i Azure Active Directory med SAP NetWeaver genom at
 
     d. Klicka på **Spara**.
 
-14. Klicka på **Ladda ned** i avsnittet **SAML-signeringscertifikat** på sidan **Konfigurera enkel inloggning med SAML** när du ska ladda ned **Federation Metadata XML** från de angivna alternativen enligt dina behov och spara det på datorn.
+1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , letar du upp **XML för federationsmetadata** och väljer **Hämta** för att ladda ned certifikatet och spara det på din dator.
 
-    ![Länk för hämtning av certifikat](common/metadataxml.png)
+   ![Länk för hämtning av certifikat](common/metadataxml.png)
 
-15. I avsnittet **Konfigurera SAP NetWeaver** kopierar du lämpliga URL:er enligt dina behov.
+1. I avsnittet **Konfigurera SAP-NetWeaver** kopierar du lämpliga URL: er baserat på ditt krav.
 
-    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
+   ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-    a. Inloggningswebbadress
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-    b. Azure AD-identifierare
+I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
 
-    c. Utloggnings-URL
+1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
+1. Välj **ny användare** överst på skärmen.
+1. I **användar** egenskaperna följer du de här stegen:
+    1. I **Namn**-fältet skriver du `B.Simon`.  
+    1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
+    1. Klicka på **Skapa**.
 
-### <a name="configure-sap-netweaver-single-sign-on"></a>Konfigurera enkel inloggning för SAP NetWeaver
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-1. Logga in till SAP-system och gå till transaktionskod SAML2. Ett nytt webbläsarfönster öppnas med en skärm för konfiguration av SAML.
+I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till SAP NetWeaver.
+
+1. I Azure Portal väljer du **företags program**och väljer sedan **alla program**.
+1. I listan över program väljer du **SAP NetWeaver**.
+1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
+
+    ![Länken ”användare och grupper”](common/users-groups-blade.png)
+
+1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
+
+    ![Länken Lägg till användare](common/add-assign-user.png)
+
+1. I dialog rutan **användare och grupper** väljer du **B. Simon** från listan användare och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Om du förväntar dig ett roll värde i SAML Assertion, i dialog rutan **Välj roll** , väljer du lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
+
+## <a name="configure-sap-netweaver-using-saml"></a>Konfigurera SAP-NetWeaver med SAML
+
+1. Logga in på SAP-systemet och gå till transaktions koden SAML2. Ett nytt webbläsarfönster öppnas med en skärm för konfiguration av SAML.
 
 2. För att konfigurera slutpunkter för betrodda identitetsproviders (Azure AD) går du till fliken **Trusted Providers** (Betrodda providers).
 
@@ -232,7 +235,7 @@ Konfigurera enkel inloggning i Azure Active Directory med SAP NetWeaver genom at
 
     ![Konfigurera enkel inloggning](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_metadatafile.png)
 
-5. Ange aliasnamnet på nästa skärm, till exempel aadsts, och tryck på **Nästa** för att fortsätta.
+5. Ange aliasnamnet på nästa skärm, Till exempel aadsts och Fortsätt genom att klicka på **Nästa** .
 
     ![Konfigurera enkel inloggning](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_aliasname.png)
 
@@ -264,7 +267,7 @@ Konfigurera enkel inloggning i Azure Active Directory med SAP NetWeaver genom at
 
     ![Konfigurera enkel inloggning](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_addidentityprovider.png)
 
-13. I popup-fönstret väljer du **Ospecificerad** från **Supported NameID formats** (NameID-format som stöds) och klickar på OK.
+13. I popup-fönstret väljer du ospecificerad från de NameID- **format som stöds** och klickar på OK.
 
     ![Konfigurera enkel inloggning](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_nameid.png)
 
@@ -298,62 +301,11 @@ Konfigurera enkel inloggning i Azure Active Directory med SAP NetWeaver genom at
 
     ![Konfigurera enkel inloggning](./media/sapnetweaver-tutorial/configuration2.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
+    ### <a name="create-sap-netweaver-test-user"></a>Skapa SAP NetWeaver-testanvändare
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
+    I det här avsnittet skapar du en användare som heter B. Simon i SAP NetWeaver. Arbeta med ditt interna SAP-expertteam eller med din organisations SAP-partner för att lägga till användare i SAP NetWeaver-plattformen.
 
-1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
-
-    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
-
-2. Välj **Ny användare** överst på skärmen.
-
-    ![Knappen Ny användare](common/new-user.png)
-
-3. Genomför följande steg i Användaregenskaper.
-
-    ![Dialogrutan Användare](common/user-properties.png)
-
-    a. I fältet **Namn** anger du **BrittaSimon**.
-  
-    b. I den **användarnamn** fälttyp **brittasimon\@yourcompanydomain.extension**  
-    Till exempel, BrittaSimon@contoso.com
-
-    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
-
-    d. Klicka på **Skapa**.
-
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
-
-I det här avsnittet får du aktivera Britta Simon till att använda enkel inloggning i Azure genom att bevilja henne åtkomst till SAP NetWeaver.
-
-1. I Azure-portalen väljer du **Företagsprogram**, **Alla program** och sedan **SAP NetWeaver**.
-
-    ![Bladet Företagsprogram](common/enterprise-applications.png)
-
-2. I listan över program väljer du **SAP NetWeaver**.
-
-    ![SAP NetWeaver-länken i listan med program](common/all-applications.png)
-
-3. På menyn till vänster väljer du **Användare och grupper**.
-
-    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
-
-4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
-
-    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
-
-5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
-
-6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
-
-7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
-
-### <a name="create-sap-netweaver-test-user"></a>Skapa SAP NetWeaver-testanvändare
-
-I det här avsnittet får du skapa en användare som kallas Britta Simon i SAP NetWeaver. Arbeta med ditt interna SAP-expertteam eller med din organisations SAP-partner för att lägga till användare i SAP NetWeaver-plattformen.
-
-### <a name="test-single-sign-on"></a>Testa enkel inloggning 
+## <a name="test-sso"></a>Testa SSO
 
 1. När identitetsprovidern Azure AD aktiverades försöker du öppna nedanstående URL för att kontrollera SSO (det kommer ingen uppmaning för användarnamn och lösenord)
 
@@ -374,10 +326,68 @@ I det här avsnittet får du skapa en användare som kallas Britta Simon i SAP N
 
     `https://<sapurl>/sap/bc/webdynpro/sap/sec_diag_tool?sap-client=122&sap-language=EN#`
 
+## <a name="configure-sap-netweaver-for-oauth"></a>Konfigurera SAP-NetWeaver för OAuth
+
+1. SAP-dokumenterad process finns på platsen: [NetWeaver Gateway-tjänst som aktiverar och OAuth 2,0-omfång skapas](https://wiki.scn.sap.com/wiki/display/Security/NetWeaver+Gateway+Service+Enabling+and+OAuth+2.0+Scope+Creation)
+
+2. Gå till SPRO och hitta **Aktivera och underhålla tjänster**.
+
+    ![Konfigurera enkel inloggning](./media/sapnetweaver-tutorial/oauth01.png)
+
+3. I det här exemplet vill vi ansluta OData-tjänsten: `DAAG_MNGGRP` med OAuth till Azure AD SSO. Använd den tekniska tjänstens namns sökning för `DAAG_MNGGRP` tjänsten och aktivera om den inte är aktiv, redan ( `green` Sök efter status under fliken ICF-noder). Se till att system Ali Aset (det anslutna Server dels systemet, där den tjänst som faktiskt körs) är korrekt.
+
+    ![Konfigurera enkel inloggning](./media/sapnetweaver-tutorial/oauth02.png)
+
+    * Klicka sedan på knapp tryckning **OAuth** i det övre knapp fältet `scope` och tilldela (behåll standard namnet som erbjuds).
+
+4. I vårt exempel är `DAAG_MNGGRP_001`-området genererat från tjänst namnet genom att automatiskt lägga till ett nummer. Rapporten `/IWFND/R_OAUTH_SCOPES` kan användas för att ändra namnet på omfånget eller skapa manuellt.
+
+    ![Konfigurera enkel inloggning](./media/sapnetweaver-tutorial/oauth03.png)
+
+    > [!NOTE]
+    > Meddelande `soft state status is not supported` – kan ignoreras utan problem. Mer information finns [här](https://help.sap.com/doc/saphelp_nw74/7.4.16/1e/c60c33be784846aad62716b4a1df39/content.htm?no_cache=true)
+
+### <a name="create-a-service-user-for-the-oauth-20-client"></a>Skapa en tjänst användare för OAuth 2,0-klienten
+
+1. OAuth2 använder en `service ID` för att hämta åtkomsttoken för slutanvändaren för dess räkning. Viktig begränsning av OAuth-design: `OAuth 2.0 Client ID` måste vara identisk `username` med OAuth 2,0-klienten använder för inloggning när en åtkomsttoken begärs. För vårt exempel ska vi registrera en OAuth 2,0-klient med namnet KLIENT1 och som en förutsättning att en användare med samma namn (KLIENT1) måste finnas i SAP-systemet och att den användaren ska konfigureras för användning av det hänvisade programmet. 
+
+2. När du registrerar en OAuth-klient använder `SAML Bearer Grant type`vi.
+
+    >[!NOTE]
+    >Mer information finns i OAuth 2,0-klient registrering för SAML Bearer-beviljande typ [här](https://wiki.scn.sap.com/wiki/display/Security/OAuth+2.0+Client+Registration+for+the+SAML+Bearer+Grant+Type)
+
+3. tcod: SU01/skapa användare KLIENT1 som `System type` och tilldela lösen ord, spara den som behov av att tillhandahålla autentiseringsuppgiften till API-programmerare, som bör bränna den med användar namnet till den anropande koden. Ingen profil eller roll ska tilldelas.
+
+### <a name="register-the-new-oauth-20-client-id-with-the-creation-wizard"></a>Registrera det nya OAuth 2,0-klient-ID: t med guiden skapa
+
+1. Registrera en ny **OAuth 2,0** -klients start transaktion **SOAUTH2**. Transaktionen visar en översikt över de OAuth 2,0-klienter som redan har registrerats. Välj **skapa** för att starta guiden för den nya OAuth-klienten med namnet KLIENT1 i det här exemplet.
+
+2. Gå till T-kod: **SOAUTH2** och ange beskrivningen och klicka sedan på **Nästa**.
+
+    ![Konfigurera enkel inloggning](./media/sapnetweaver-tutorial/oauth04.png)
+
+    ![Konfigurera enkel inloggning](./media/sapnetweaver-tutorial/oauth05.png)
+
+3. Välj den redan tillagda **SAML2-IDP – Azure AD** i list rutan och spara.
+
+    ![Konfigurera enkel inloggning](./media/sapnetweaver-tutorial/oauth06.png)
+
+    ![Konfigurera enkel inloggning](./media/sapnetweaver-tutorial/oauth07.png)
+
+    ![Konfigurera enkel inloggning](./media/sapnetweaver-tutorial/oauth08.png)
+
+4. Lägg till det tidigare skapade omfånget genom att klicka på **Lägg till** under tilldelning av scope:`DAAG_MNGGRP_001`
+
+    ![Konfigurera enkel inloggning](./media/sapnetweaver-tutorial/oauth09.png)
+
+    ![Konfigurera enkel inloggning](./media/sapnetweaver-tutorial/oauth10.png)
+
+5. Klicka på **Slutför**.
+
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

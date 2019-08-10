@@ -6,15 +6,15 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: rosh
-ms.openlocfilehash: 36d87ee9db68c47ee96519cb6b04ff24478427d6
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 9030d85ff5bc83bb54f4a67a9f319a1670a6c2ad
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68423402"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881853"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>V7-referens för Bing Local Business Search API
 
@@ -70,7 +70,7 @@ Följande är huvuden som en begäran och ett svar kan innehålla.
 Begäran kan innehålla följande frågeparametrar. Se kolumnen obligatorisk för obligatoriska parametrar. Du måste URL-koda parametrarna för frågan.  
   
   
-|Namn|Värde|type|Obligatorisk|  
+|Namn|Value|type|Obligatorisk|  
 |----------|-----------|----------|--------------|
 |<a name="count" />reparationer|Antalet resultat som ska returneras, med början på det index som anges av `offset` parametern.|Sträng|Nej|   
 |<a name="localCategories" />localCategories|Lista med alternativ som definierar Sök efter affärs kategori.  Se [Sök efter lokala affärs kategorier](local-categories.md)|Sträng|Nej|  
@@ -126,7 +126,7 @@ Definierar under vilken licens texten eller fotot kan användas.
 ### <a name="link"></a>Länka  
 Definierar komponenterna i en hyperlänk.  
   
-|Namn|Värde|type|  
+|Namn|Value|type|  
 |----------|-----------|----------|  
 |_type|Typ tips.|Sträng|  
 |text|Visnings texten.|Sträng|  
@@ -150,7 +150,7 @@ Observera att en utgivare kan ange sitt namn eller deras webbplats eller både o
 ### <a name="place"></a>Plats  
 Definierar information om en lokal verksamhet, till exempel en restaurang eller hotell.  
   
-|Namn|Värde|type|  
+|Namn|Value|type|  
 |----------|-----------|----------|  
 |_type|Typ tips, som kan ställas in på något av följande:<br /><br /><ul><li>Hotell</li><li>LocalBusiness<br /></li><li>Restaurang</ul><li>|Sträng|  
 |adress|Post adressen till den plats där entiteten finns.|PostalAddress|  
@@ -212,7 +212,7 @@ Observera att om tjänsten misstänker en denial of service-attack kommer begär
 |Namn|Value|type|  
 |----------|-----------|----------|  
 |_type|Typ tips, som är inställt på SearchResponse.|Sträng|  
-|Platser|En lista med entiteter som är relevanta för Sök frågan.|JSON-objekt|  
+|platser|En lista med entiteter som är relevanta för Sök frågan.|JSON-objekt|  
 |queryContext|Ett objekt som innehåller frågesträngen som Bing använde för begäran.<br /><br /> Det här objektet innehåller frågesträngen som anges av användaren. Det kan också innehålla en ändrad frågesträng som Bing används för frågan om frågesträngen innehöll en stavnings fel.|[QueryContext](#querycontext)|  
 
 

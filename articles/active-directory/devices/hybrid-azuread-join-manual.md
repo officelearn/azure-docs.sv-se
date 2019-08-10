@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c9de4a9b72e446a7d2b6687af380ee910b58980
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: a56fcc45d4efb21c4904380d731d9e95584c39fd
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68741297"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879414"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Självstudier: Konfigurera Azure Active Directory-hybridanslutna enheter manuellt
 
@@ -71,6 +71,8 @@ Om din organisation använder hanterad (icke-federerad) konfiguration med lokal 
 För Windows 10-enheter med version 1703 eller tidigare måste du implementera Web Proxy Auto-Discovery (WPAD) för att göra det möjligt för Windows 10-datorer att registreras till Azure AD om din organisation kräver åtkomst till Internet via en utgående proxy.
 
 Från och med Windows 10 1803 försöker enheten att slutföra Azure AD-hybridanslutningen med hjälp av den synkroniserade datorn/enheten även om ett försök till en Azure AD-hybridanslutning från en enhet i en federerad domän via AD FS misslyckas, och om Azure AD Connect är konfigurerat för att synkronisera dator-/enhetsobjekten till Azure AD.
+
+För att kontrol lera om enheten har åtkomst till ovanstående Microsoft-resurser under system kontot kan du använda anslutnings skriptet för [test av enhets registrering](https://gallery.technet.microsoft.com/Test-Device-Registration-3dc944c0) .
 
 ## <a name="verify-configuration-steps"></a>Verifiera konfigurationssteg
 

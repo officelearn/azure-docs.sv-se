@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 9b9a691cb2bce2357d184420912ab340aee534e8
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 8840c85e35a371b8c7a0a76dbee6353a20b212be
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205305"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881119"
 ---
 # <a name="mock-api-responses"></a>Simulera API-svar
 
@@ -38,7 +38,7 @@ I den här guiden får du lära dig att:
 
 ![Svar från simulerade åtgärder](./media/mock-api-responses/mock-api-responses01.png)
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 + Lär dig [Azure API Management-terminologin](api-management-terminology.md).
 + Förstå [begreppet principer i Azure API Management](api-management-howto-policies.md).
@@ -79,7 +79,7 @@ Stegen i det här avsnittet visar hur du skapar ett tomt API utan serverdel. Det
 5. Välj **200 OK** från listan.
 6. Under rubriken **Återangivelser** till höger väljer du **+ Lägg till återgivning**.
 7. Ange ”*application/json*” i sökrutan och välj sedan innehållstypen **application/json**.
-8. I textrutan **Exempel** anger du `{ 'sampleField' : 'test' }`.
+8. I textrutan **Exempel** anger du `{ "sampleField" : "test" }`.
 9. Välj **Skapa**.
 
 ## <a name="enable-response-mocking"></a>Aktivera simulerade svar

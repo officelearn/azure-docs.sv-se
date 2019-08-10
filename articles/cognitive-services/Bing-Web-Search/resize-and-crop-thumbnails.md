@@ -1,130 +1,130 @@
 ---
-title: Ändra storlek på och Beskär miniatyrbilder - API för webbsökning i Bing
+title: Ändra storlek och Beskär bild miniatyrer – API för webbsökning i Bing
 titleSuffix: Azure Cognitive Services
-description: 'Lär dig hur du ändrar storlek på och Beskär miniatyrer som tillhandahålls av API: er för Bing-sökresultat.'
+description: Lär dig hur du ändrar storlek och beskär miniatyrer som tillhandahålls av API:er för Bing-sökresultat.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.assetid: 05A08B01-89FF-4781-AFE7-08DA92F25047
 ms.service: cognitive-services
 ms.subservice: bing-web-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: aahi
-ms.openlocfilehash: 6a5b2dada254a0bfc7fa60172f56221ba67ad279
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: ecc6eb86e7115143fa63b44f9191b1fe8d3703b8
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67867896"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881804"
 ---
-# <a name="resize-and-crop-thumbnail-images"></a>Ändra storlek på och Beskär miniatyrbilder
+# <a name="resize-and-crop-thumbnail-images"></a>Ändra storlek och beskär miniatyr bilder
 
-Några svar från Bing Search API: er inkluderar URL: er till miniatyrbilder som hanteras av Bing, där du kan ändra storlek och Beskär och kan innehålla Frågeparametrar. Exempel:
+Vissa svar från API:er för Bing-sökresultat innehåller URL: er till miniatyr bilder som hanteras av Bing, som du kan ändra storlek på och beskära och kan innehålla frågeparametrar. Exempel:
 
 `https://<host>/th?id=AMMS_92772df988...&w=110&h=73&rs=1&qlt=80&cdv=1&pid=16.1`
 
-Om du visar en delmängd av dessa miniatyrer, anger du ett alternativ för att visa återstående bilder.
+Om du visar en delmängd av dessa miniatyr bilder, anger du ett alternativ för att visa återstående bilder.
 
 > [!NOTE]
-> Se till att beskära och ändra storlek på miniatyrbilder ger ett Sök-scenario som respekterar tredje parts rättigheter som krävs av API: et för Bing Search [använder och visa kraven](use-display-requirements.md).
+> Se till att beskära och ändra storlek på miniatyr bilder ger ett Sök scenario som respekterar tredje parts rättigheter, enligt kraven i Bing-sökning API- [användning och visnings krav](use-display-requirements.md).
 
-## <a name="resize-a-thumbnail"></a>Ändra storlek på en miniatyrbild 
+## <a name="resize-a-thumbnail"></a>Ändra storlek på en miniatyr bild 
 
-Om du vill ändra storlek på en miniatyrbild, Bing rekommenderar att du bara ange en den `w` (bredd) eller `h` (höjd) Frågeparametrar i URL: en för den miniatyrbilden. Ange endast höjd eller bredd kan Bing underhålla en bilds ursprungliga höjd. Ange bredd och höjd i bildpunkter. 
+Om du vill ändra storlek på en miniatyr, rekommenderar Bing att du bara `w` anger en frågeparametrar ( `h` width) eller (höjd) i miniatyrens URL. Om du bara anger höjd eller bredd kan Bing behålla bildens ursprungliga aspekt. Ange bredd och höjd i bild punkter. 
 
-Till exempel, om den ursprungliga miniatyrbilden är 480 x 620:
+Om den ursprungliga miniatyr bilden till exempel är 480x620:
 
 `https://<host>/th?id=JN.5l3yzwy%2f%2fHj59U6XhssIQ&pid=Api&w=480&h=620`
 
-Och du vill minska dess storlek genom att ange den `w` parametern till ett nytt värde (till exempel `336`), och ta bort den `h` parameter:
+Och du vill minska dess storlek, anger `w` du parametern till ett nytt värde (till exempel `336` `h` ) och tar bort parametern:
 
 `https://<host>/th?id=JN.5l3yzwy%2f%2fHj59U6XhssIQ&pid=Api&w=336`
 
-Om du anger bara höjd eller bredd i en miniatyr för bevaras en bilds ursprungliga proportionerna. Om du ange båda parametrarna och proportionerna inte bibehålls, Bing lägger till vit utfyllnad kantlinjen för avbildningen.
+Om du bara anger höjden eller bredden på en miniatyr kommer bildens ursprungliga höjd-förhållande att behållas. Om du anger båda parametrarna och proportionerna inte upprätthålls, kommer Bing att lägga till vit utfyllnad i bildens kant.
 
-Om du ändrar storlek på en 480 x 359 avbildning till 200 x 200 utan beskärning full bredd innehåller avbildningen men höjden innehåller 25 bildpunkter vit utfyllnad högst upp och längst ned på bilden. Om avbildningen har 359 x 480, skulle de vänstra och högra kantlinjen innehåller vit utfyllnad. Om du Beskär bilden läggs inte vit utfyllnad.  
+Om du till exempel ändrar storlek på en 480x359-bild till 200x200 utan beskärning, kommer den fulla bredden att innehålla bilden, men höjden kommer att innehålla 25 pixlar med vit utfyllnad överst och längst ned i bilden. Om bilden var 359x480 innehåller vänster och höger kant linjer vit utfyllnad. Om du beskär bilden läggs inte vit utfyllnad.  
 
-Följande bild visar den ursprungliga storleken på en miniatyrbild (480 x 300).  
+Följande bild visar den ursprungliga storleken på en miniatyr bild (480x300).  
   
-![Liggande originalbilden](./media/resize-crop/bing-resize-crop-landscape.png)  
+![Ursprunglig liggande bild](./media/resize-crop/bing-resize-crop-landscape.png)  
   
-Följande bild visar bildens storlek ska ändras till 200 x 200. Förhållandet underhålls och de övre och nedre gränser är utfyllnad med vitt (kantlinje här ingår att visa utfyllnaden).  
+Följande bild visar bild storleken ändrat till 200x200. Höjd-breddförhållandet upprätthålls och de övre och nedre kant linjerna fylls med vitt (den svarta kant linjen här ingår för att Visa utfyllnaden).  
   
-![Ändrade liggande bild](./media/resize-crop/bing-resize-crop-landscape-resized.png)  
+![Ändra storlek på liggande bild](./media/resize-crop/bing-resize-crop-landscape-resized.png)  
 
-Om du anger dimensioner som är större än en bilds ursprungliga Breddoch höjd, Bing till vit utfyllnad till vänster och övre gränser.  
+Om du anger mått som är större än bildens ursprungliga bredd och höjd, så lägger Bing till vit utfyllnad till vänster och övre kant linje.  
 
-## <a name="request-different-thumbnail-sizes"></a>Begär olika storlekar för miniatyr
+## <a name="request-different-thumbnail-sizes"></a>Begär olika miniatyr storlekar
 
-Om du vill begära en annan miniatyrbilden storlek, ta bort alla frågeparametrar från den miniatyr-URL: en, förutom den `id` och `pid` parametrar. Lägg sedan till antingen den `&w` (bredd) eller `&h` (höjd) Frågeparametern med önskad avbildningens storlek i bildpunkter, men inte båda. Bing upprätthåller en bilds ursprungliga proportionerna. 
+Om du vill begära en annan miniatyr bild storlek tar du bort alla frågeparametrar från miniatyrens URL, förutom `id` parametrarna `pid` och. Lägg sedan till antingen `&w` Frågeparametern (width) `&h` eller (height) med önskad bild storlek i bild punkter, men inte båda. Bing kommer att underhålla bildens ursprungliga höjd förhållande. 
 
-Om du vill öka bredden på den avbildning som angetts av ovanstående URL-Adressen till 165 bildpunkter, använder du följande URL:
+Om du vill öka bredden på den bild som anges av ovanstående URL till 165 bild punkter använder du följande URL:
 
 `https://<host>/th?id=AMMS_92772df988...&w=165&pid=16.1`
 
-Om du begär en avbildning som är större än en bilds ursprungliga storlek, lägger Bing till vit utfyllnad runt bilden efter behov. Till exempel om avbildningen ursprunglig storlek är 474 x 316 och du anger `&w` till 500, Bing returnerar en 500 x 333-avbildning. Den här avbildningen har 8,5 bildpunkter av vit utfyllnad längs övre och nedre kanten och 13 bildpunkter utfyllnad på vänster och höger kant.
+Om du begär en bild som är större än bildens ursprungliga storlek, lägger Bing till en vit utfyllnad runt bilden efter behov. Om bildens ursprungliga storlek till exempel är 474x316 och du har angett `&w` till 500 så returnerar Bing en 500x333-bild. Den här bilden kommer att ha 8,5 bild punkter med vit utfyllnad längs de övre och nedre kanterna, och 13 bild punkter i utfyllnaden på vänster och höger sida.
 
-Om du vill förhindra att Bing att lägga till vit utfyllnad om den begärda storleken är större än en bilds ursprungliga storlek, ange den `&p` frågeparameter till 0. Exempel: Om du inkluderar den `&p=0` ovan URL, Bing-parameter returnerar en 474 x 316 avbildning i stället för en 500 x 333 avbildning:
+Om du vill förhindra att Bing lägger till vit utfyllnad om den begärda storleken är större än bildens ursprungliga storlek `&p` , anger du Frågeparametern till 0. Om du till exempel inkluderar `&p=0` parametern i ovanstående URL, returnerar Bing en 474x316-bild i stället för en 500x333-bild:
 
 `https://<host>/th?id=AMMS_92772df988...&w=500&p=0&pid=16.1`
 
-Om du anger både `&w` och `&h` frågeparametrar, Bing, skyddar bildens höjd-/ breddförhållandet och lägger till vit utfyllnad efter behov. Till exempel om avbildningen ursprungliga storlek är 474 x 316 och du anger parametrarna bredd och höjd till 200 x 200 (`&w=200&h=200`), Bing returnerar en avbildning som innehåller 33 bildpunkter vit utfyllnad på överkant och nederkant. Om du inkluderar den `&p` Frågeparametern Bing returnerar en 200 x 134 bild.
+Om du anger båda `&w` parametrarna `&h` och frågeparametrar bevarar Bing bildens höjd-förhållande och lägger till vit utfyllnad vid behov. Om bildens ursprungliga storlek till exempel är 474x316 och du anger parametrarna width och height till 200x200 (`&w=200&h=200`), returnerar Bing en bild som innehåller 33 pixlar med vit utfyllnad högst upp och längst ned. Om du inkluderar `&p` Frågeparametern returnerar Bing en 200x134-bild.
 
-## <a name="crop-a-thumbnail"></a>Beskär en miniatyrbild 
+## <a name="crop-a-thumbnail"></a>Beskär en miniatyr bild 
 
-Beskär en avbildning genom att inkludera den `c` (Beskär) frågeparameter. Du kan använda följande värden:
+Om du vill beskära en `c` avbildning tar du med Frågeparametern (beskärning). Du kan använda följande värden:
   
-- `4` &mdash; Hemlig förhållande  
-- `7` &mdash; Smart-förhållande  
+- `4`&mdash; Blind kvot  
+- `7`&mdash; Smart kvot  
 
-### <a name="smart-ratio-cropping"></a>Smart beskärning förhållande
+### <a name="smart-ratio-cropping"></a>Beskärning av Smart grad
 
-Om du begär förhållande Smart beskärning (genom att ange den `c` parameter `7`), Bing kommer beskära en bild från mitten av dess intresseregionen utåt, samtidigt som bildens höjd-/ breddförhållandet. Det intressanta området är del av avbildningen som Bing avgör innehåller de flesta import delar. Nedan visas ett exempel intresseregionen.  
+Om du begär en smart kvot beskärning (genom att `c` ange parametern `7`till) beskär Bing en bild från mitten av dess intresse rad, samtidigt som bildens proportioner bibehålls. Intresse området är det område i bilden som Bing avgör innehåller de flesta import delar. Nedan visas ett exempel på ett intresse område.  
   
-![Intresseregionen](./media/resize-crop/bing-resize-crop-regionofinterest.png)
+![Intresse region](./media/resize-crop/bing-resize-crop-regionofinterest.png)
 
-Om du ändrar storlek på en bild och begära förhållande Smart beskärning, minskar Bing avbildningen till den begärda storleken samtidigt som proportionerna. Bing sedan Beskär bilden baserat på de ändrade dimensionerna. Till exempel om den ändrade bredden är mindre än eller lika med höjden, Beskär bilden till vänster och höger i mitten av det intressanta området i Bing. I annat fall kommer Bing beskära den längst upp och längst ned i mitten av det intressanta området.  
+Om du ändrar storlek på en bild och begär Smart kvot beskärning, minskar Bingen bilden till den begärda storleken samtidigt som proportionerna bibehålls. Bing Beskär sedan bilden baserat på dimensioner för storleks ändring. Om till exempel den ändrade bredden är mindre än eller lika med höjden beskärs bilden till vänster och höger om intresse området. Annars beskärs den till toppen och längst ned i mitten av intresse regionen.  
   
  
-Nedan visas den avbildning som minskat till 200 x 200 med förhållandet Smart beskärning. Eftersom Bing mäter avbildningen från det övre vänstra hörnet, beskärs längst ned i bilden. 
+Nedan visas bilden som är reducerad till 200x200 med hjälp av Smart grad-beskärning. Eftersom Bing mäter bilden från det övre vänstra hörnet beskärs den nedre delen av bilden. 
   
-![Liggande bilden beskärs 200 x 200](./media/resize-crop/bing-resize-crop-landscape200x200c7.png) 
+![Liggande bild beskuren till 200x200](./media/resize-crop/bing-resize-crop-landscape200x200c7.png) 
   
-Nedan visas den avbildning som minskat till 200 x 100 med förhållandet Smart beskärning. Eftersom Bing mäter avbildningen från det övre vänstra hörnet, beskärs längst ned i bilden. 
+Nedan visas bilden som är reducerad till 200x100 med hjälp av Smart grad-beskärning. Eftersom Bing mäter bilden från det övre vänstra hörnet beskärs den nedre delen av bilden. 
    
-![Liggande bilden beskärs 200 × 100](./media/resize-crop/bing-resize-crop-landscape200x100c7.png)
+![Liggande bild beskuren till 200x100](./media/resize-crop/bing-resize-crop-landscape200x100c7.png)
   
-Nedan visas den avbildning som minskat till 100 x 200 med förhållandet Smart beskärning. Eftersom Bing mäter avbildningen från mitten, beskärs vänster och höger delar av bilden.
+Nedan visas bilden som är reducerad till 100x200 med hjälp av Smart grad-beskärning. Eftersom Bing mäter bilden från mitten beskärs den vänstra och högra delen av bilden.
   
-![Liggande bilden beskärs 100 x 200](./media/resize-crop/bing-resize-crop-landscape100x200c7.png) 
+![Liggande bild beskuren till 100x200](./media/resize-crop/bing-resize-crop-landscape100x200c7.png) 
 
-Om Bing inte kan avgöra avbildningens intresseregionen, ska användas av tjänsten hemlig förhållande beskärning.  
+Om Bing inte kan avgöra bildens intresse område, använder tjänsten blinda kvots beskärning.  
 
-### <a name="blind-ratio-cropping"></a>Hemlig förhållande beskärning
+### <a name="blind-ratio-cropping"></a>Beskärning av blind förhållandet
 
-Om du begär hemlig förhållande beskärning (genom att ange den `c` parameter `4`), Bing använder följande regler för att Beskär bilden.  
+Om du begär överanvändning av hemliga kvot ( `c` genom att `4`ange parametern till) använder Bing följande regler för att beskära bilden.  
   
-- Om `(Original Image Width / Original Image Height) < (Requested Image Width / Requested Image Height)`, bilden, mätt från längst upp till vänster och beskärs längst ned på sidan.  
-- Om `(Original Image Width / Original Image Height) > (Requested Image Width / Requested Image Height)`, bilden, mätt från mitten och beskärs till vänster och höger.  
+- Om `(Original Image Width / Original Image Height) < (Requested Image Width / Requested Image Height)`bilden mäts från det övre vänstra hörnet och beskäras längst ned.  
+- Om `(Original Image Width / Original Image Height) > (Requested Image Width / Requested Image Height)`bilden mäts från mitten och beskäras till vänster och höger.  
 
-Nedan visas en stående-avbildning som är 225 x 300.  
+Nedan visas en stående bild som är 225x300.  
   
-![Direkt konsumtion originalbilden](./media/resize-crop/bing-resize-crop-sunflower.png)
+![Ursprunglig sol ros bild](./media/resize-crop/bing-resize-crop-sunflower.png)
   
-Nedan visas den avbildning som minskat till 200 x 200 med hemlig förhållande beskärning. Avbildningen mäts från det övre vänstra hörnet lett till längst ned i bilden beskärs.  
+Nedan visas bilden som är reducerad till 200x200 med beskärning av blinda tal. Bilden mäts från det övre vänstra hörnet som visas i den nedre delen av bilden som beskärs.  
   
-![Direkt konsumtion bilden beskärs 200 x 200](./media/resize-crop/bing-resize-crop-sunflower200x200c4.png)
+![Sol ros bild beskuren till 200x200](./media/resize-crop/bing-resize-crop-sunflower200x200c4.png)
   
-Nedan visas den avbildning som minskat till 200 x 100 med hemlig förhållande beskärning. Avbildningen mäts från det övre vänstra hörnet lett till längst ned i bilden beskärs.  
+Nedan visas bilden som är reducerad till 200x100 med beskärning av blinda tal. Bilden mäts från det övre vänstra hörnet som visas i den nedre delen av bilden som beskärs.  
   
-![Direkt konsumtion bilden beskärs 200 × 100](./media/resize-crop/bing-resize-crop-sunflower200x100c4.png)
+![Sol ros bild beskuren till 200x100](./media/resize-crop/bing-resize-crop-sunflower200x100c4.png)
   
-Nedan visas den avbildning som minskat till 100 x 200 med hemlig förhållande beskärning. Avbildningen mäts från center vilket resulterar i de vänstra och högra delarna av bilden beskärs.  
+Nedan visas bilden som är reducerad till 100x200 med beskärning av blinda tal. Bilden mäts från mitten som skapas i den vänstra och högra delen av bilden som beskärs.  
   
-![Direkt konsumtion bilden beskärs 100 x 200](./media/resize-crop/bing-resize-crop-sunflower100x200c4.png)
+![Sol ros bild beskuren till 100x200](./media/resize-crop/bing-resize-crop-sunflower100x200c4.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Vad är API: er för Bing Search?](bing-api-comparison.md)
-* [Bing Search API använder och visa krav](use-display-requirements.md)
+* [Vad är API:er för Bing-sökresultat?](bing-api-comparison.md)
+* [Bing-sökning API-användning och visnings krav](use-display-requirements.md)

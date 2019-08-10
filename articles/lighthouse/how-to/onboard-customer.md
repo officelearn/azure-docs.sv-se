@@ -1,48 +1,48 @@
 ---
-title: Publicera delegerad en kund till Azure resource Manager – Azure fyr
-description: Lär dig hur att publicera en kund till Azure delegerad resurshantering, så att deras resurser att nås och hanteras via din egen klientorganisation.
+title: Publicera en kund till Azure-delegerad resurs hantering – Azure Lighthouse
+description: Lär dig att publicera en kund till Azure-delegerad resurs hantering, så att deras resurser kan nås och hanteras via din egen klient.
 author: JnHs
 ms.author: jenhayes
 ms.service: lighthouse
 ms.date: 07/11/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: 1885a6220f14de234710b6980b5d3b6a6172bb7e
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: d1876977d819b50569b6f07242af91fb1d6832ee
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67809864"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934317"
 ---
-# <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>Publicera en kund till Azure delegerad resurshantering
+# <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>Registrera en kund för Azure-delegerad resurshantering
 
-Den här artikeln förklarar hur du, som en tjänsteleverantör kan registrera en kund att Azure delegerade resource Manager, så att deras delegerade resurser (prenumerationer eller resursgrupper) för att nås och hanteras via din egen Azure Active Directory ( Azure AD)-klient. Vi ska referera till leverantörer och kunder här, kan företag hantera flera klienter använda samma process för att konsolidera sina hanteringsmiljö.
+Den här artikeln förklarar hur du, som en tjänst leverantör, kan publicera en kund till Azure-delegerad resurs hantering, så att deras delegerade resurser (prenumerationer och/eller resurs grupper) kan nås och hanteras via din egen Azure Active Directory ( Azure AD-klient. Vi kommer att hänvisa till tjänst leverantörer och kunder här, men företag som hanterar flera klienter kan använda samma process för att konsolidera sin hanterings upplevelse.
 
-Du kan upprepa den här processen om du hanterar resurser för flera kunder. Sedan, när en behörig användare loggar in på din klient, som användaren kan auktoriseras i kundens innehavare omfattningar att utföra hanteringsåtgärder utan att behöva logga in på varje kunds klient.
+Du kan upprepa den här processen om du hanterar resurser för flera kunder. Sedan, när en behörig användare loggar in till din klient, kan den användaren auktoriseras mellan kundens hyres omfång för att utföra hanterings åtgärder utan att behöva logga in på varje enskild kund klient.
 
-Du kan koppla ditt Microsoft Partner Network (MPN)-ID med dina integrerats prenumerationer och spåra din inverkan i arbetet med kunder. Mer information finns i [länka ett partner-ID till dina Azure-konton](https://docs.microsoft.com/azure/billing/billing-partner-admin-link-started).
+Du kan associera ditt Microsoft Partner Network (MPN) ID med dina inbyggda prenumerationer för att spåra din påverkan på kund engagemang. Mer information finns i [Länka ett partner-ID till dina Azure-konton](https://docs.microsoft.com/azure/billing/billing-partner-admin-link-started).
 
 > [!NOTE]
-> Kunder kan ska publiceras automatiskt när de köper ett hanterade tjänster-erbjudande (offentliga eller privata) som du har publicerat på Azure Marketplace. Mer information finns i [publicera hanterade tjänster som erbjuder Azure Marketplace](publish-managed-services-offers.md). Du kan också använda onboarding-processen som beskrivs här med ett erbjudande som publicerats på Azure Marketplace.
+> Kunder kan registreras automatiskt när de köper ett erbjudande för hanterade tjänster (offentligt eller privat) som du har publicerat på Azure Marketplace. Mer information finns i [publicera Managed Services-erbjudanden på Azure Marketplace](publish-managed-services-offers.md). Du kan också använda onboarding-processen som beskrivs här med ett erbjudande som publicerats på Azure Marketplace.
 
-Onboarding-processen kräver åtgärder vidtas från båda tjänstleverantörens klient och från kundens klient. Alla dessa steg beskrivs i den här artikeln.
+Onboarding-processen kräver att åtgärder tas från både tjänst leverantörens klient organisation och kundens klient organisation. Alla dessa steg beskrivs i den här artikeln.
 
 > [!IMPORTANT]
-> För närvarande kan du inte publicera en prenumeration eller resursgrupp i en prenumeration för Azure delegerad resurshantering om prenumerationen använder Azure Databricks. På samma sätt, om en prenumeration har registrerats för integrering med den **Microsoft.ManagedServices** resursprovider, du kan inte skapa en Databricks-arbetsyta för den aktuella prenumerationen just nu.
+> För närvarande kan du inte publicera en prenumeration (eller resurs grupp i en prenumeration) för Azure-delegerad resurs hantering om prenumerationen använder Azure Databricks. Om en prenumeration har registrerats för onboarding med **Microsoft. ManagedServices** Resource Provider kan du inte heller skapa en Databricks-arbetsyta för den prenumerationen just nu.
 
-## <a name="gather-tenant-and-subscription-details"></a>Samla in information om klient och prenumeration
+## <a name="gather-tenant-and-subscription-details"></a>Samla in klient-och prenumerations information
 
-Att publicera en kunds klient måste ha en aktiv Azure-prenumeration. Du behöver känna till följande:
+För att kunna publicera en kunds klient måste den ha en aktiv Azure-prenumeration. Du måste känna till följande:
 
-- Klient-ID för tjänstleverantörens klient (där du ska hantera kundens resurser)
-- Klient-ID för kundens klient (som har resurser som hanteras av leverantören)
-- Prenumerations-ID för varje specifik prenumeration i kundens klient som ska hanteras av tjänstleverantören (eller som innehåller resursgrupperna som ska hanteras av leverantören)
+- Klient-ID för tjänst leverantörens klient organisation (där du kommer att hantera kundens resurser)
+- Klient-ID för kundens klient organisation (som kommer att ha resurser som hanteras av tjänst leverantören)
+- Prenumerations-ID för varje specifik prenumeration i kundens klient organisation som ska hanteras av tjänst leverantören (eller som innehåller de resurs grupper som ska hanteras av tjänst leverantören)
 
-Om du inte redan har den här informationen kan hämta du den på något av följande sätt.
+Om du inte redan har den här informationen kan du hämta den på något av följande sätt.
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Ditt klient-ID kan ses genom att hovra över namnet på ditt konto längst upp till höger i Azure portal eller genom att välja **växla katalog**. Markera och kopiera ditt klient-ID, söker du efter ”Azure Active Directory” från i portalen och välj **egenskaper** och kopiera värdet som visas i den **katalog-ID** fält. För att hitta ID för en prenumeration, Sök efter ”prenumerationer” och väljer sedan rätt prenumerations-ID.
+Du kan se ditt klient-ID genom att hovra över ditt konto namn längst upp till höger i Azure Portal, eller genom att välja **Växla katalog**. Om du vill välja och kopiera ditt klient-ID söker du efter "Azure Active Directory" i portalen och väljer sedan **Egenskaper** och kopierar värdet som visas i fältet **katalog-ID** . Om du vill hitta ID: t för en prenumeration söker du efter "prenumerationer" och väljer sedan lämpligt prenumerations-ID.
 
 ### <a name="powershell"></a>PowerShell
 
@@ -62,17 +62,17 @@ az account show
 ```
 
 
-## <a name="ensure-the-customers-subscription-is-registered-for-onboarding"></a>Se till att kundens prenumeration har registrerats för registrering
+## <a name="ensure-the-customers-subscription-is-registered-for-onboarding"></a>Se till att kundens prenumeration registreras för onboarding
 
-Varje prenumeration måste auktoriseras för onboarding genom att manuellt registrera den **Microsoft.ManagedServices** resursprovidern. Kunden kan registrera en prenumeration genom att följa anvisningarna i [Azure resursproviders och resurstyper](../../azure-resource-manager/resource-manager-supported-services.md).
+Varje prenumeration måste vara auktoriserad för onboarding genom att manuellt registrera **Microsoft. ManagedServices** -resurs leverantören. Kunden kan registrera en prenumeration genom att följa stegen som beskrivs i Azures [resurs leverantörer och typer](../../azure-resource-manager/resource-manager-supported-services.md).
 
-Kunden kan bekräfta att prenumerationen är redo för integrering på något av följande sätt.
+Kunden kan bekräfta att prenumerationen är redo för onboarding på något av följande sätt.
 
 ### <a name="azure-portal"></a>Azure Portal
 
-1. Välj prenumerationen i Azure-portalen.
-1. Välj **resursprovidrar**.
-1. Bekräfta att **Microsoft.ManagedServices** som **registrerad**.
+1. I Azure Portal väljer du prenumerationen.
+1. Välj **resurs leverantörer**.
+1. Bekräfta att **Microsoft. ManagedServices** visas som **registrerade**.
 
 ### <a name="powershell"></a>PowerShell
 
@@ -83,7 +83,7 @@ Set-AzContext -Subscription <subscriptionId>
 Get-AzResourceProvider -ProviderNameSpace 'Microsoft.ManagedServices'
 ```
 
-Detta bör returnera resultat liknar följande:
+Detta bör returnera resultat som liknar följande:
 
 ```output
 ProviderNamespace : Microsoft.ManagedServices
@@ -108,10 +108,10 @@ Locations         : {}
 # Log in first with az login if you're not using Cloud Shell
 
 az account set –subscription <subscriptionId>
-az provider show –namespace "Microsoft.ManagedServices" –-output table
+az provider show --namespace "Microsoft.ManagedServices" --output table
 ```
 
-Detta bör returnera resultat liknar följande:
+Detta bör returnera resultat som liknar följande:
 
 ```output
 Namespace                  RegistrationState
@@ -121,14 +121,14 @@ Microsoft.ManagedServices  Registered
 
 ## <a name="define-roles-and-permissions"></a>Definiera roller och behörigheter
 
-En tjänstleverantör, kan du använda flera erbjudanden med en enda kund, kräver olika åtkomst för olika omfång.
+Som tjänst leverantör kanske du vill använda flera erbjudanden med en enda kund, vilket kräver olika åtkomst för olika omfång.
 
-För att underlätta hantering, bör du använda Azure AD-användargrupper för varje roll, så att du kan lägga till eller ta bort enskilda användare i gruppen i stället för att tilldela behörigheter direkt till den användaren. Du kanske också vill tilldela roller till ett huvudnamn för tjänsten. Var noga med att följa principen om lägsta behörighet så att användarna bara har de behörigheter som krävs för att slutföra arbetet, vilket minskar risken för oavsiktliga fel. Mer information finns i [rekommenderade säkerhetsmetoder för](../concepts/recommended-security-practices.md).
+För att förenkla hanteringen rekommenderar vi att du använder Azure AD-användargrupper för varje roll, så att du kan lägga till eller ta bort enskilda användare i gruppen i stället för att tilldela behörigheter direkt till den användaren. Du kanske också vill tilldela roller till ett huvud namn för tjänsten. Se till att du följer principen om minsta behörighet så att användarna bara har de behörigheter som krävs för att utföra sitt jobb, vilket bidrar till att minska risken för oavsiktliga fel. Mer information finns i [rekommenderade säkerhets metoder](../concepts/recommended-security-practices.md).
 
 > [!NOTE]
-> Rolltilldelningar måste använda rollbaserad åtkomstkontroll (RBAC) [inbyggda roller](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles). Alla inbyggda roller stöds för närvarande med Azure delegerade resource Manager förutom ägare och alla inbyggda roller med [DataActions](https://docs.microsoft.com/azure/role-based-access-control/role-definitions#dataactions) behörighet. Den inbyggda rollen Administratör för användaråtkomst har stöd för begränsad användning enligt beskrivningen nedan. Anpassade roller och [administratörsroller för klassiska prenumerationer](https://docs.microsoft.com/azure/role-based-access-control/classic-administrators) stöds också inte.
+> Roll tilldelningar måste använda [Inbyggda RBAC-roller](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)(rollbaserad åtkomst kontroll). Alla inbyggda roller stöds för närvarande med Azure-delegerad resurs hantering förutom för ägare och inbyggda roller med [DataActions](https://docs.microsoft.com/azure/role-based-access-control/role-definitions#dataactions) -behörighet. Den inbyggda rollen administratör för användar åtkomst stöds för begränsad användning enligt beskrivningen nedan. Rollerna anpassade roller och [klassisk prenumerations administratör](https://docs.microsoft.com/azure/role-based-access-control/classic-administrators) stöds inte heller.
 
-För att definiera auktoriseringar måste veta ID-värden för varje användare, grupp eller tjänstens huvudnamn som du vill bevilja åtkomst. Du måste också rolldefinitions-ID för varje inbyggd roll som du vill tilldela. Om du inte redan har dem, kan du hämta dem på något av följande sätt.
+För att kunna definiera auktoriseringar måste du känna till ID-värdena för varje användare, användar grupp eller tjänstens huvud namn som du vill bevilja åtkomst. Du behöver också roll Definitions-ID: t för varje inbyggd roll som du vill tilldela. Om du inte redan har gjort det kan du hämta dem på något av följande sätt.
 
 
 
@@ -156,44 +156,44 @@ För att definiera auktoriseringar måste veta ID-värden för varje användare,
 # Log in first with az login if you're not using Cloud Shell
 
 # To retrieve the objectId for an Azure AD group
-az ad group list –-query "[?displayName == '<yourGroupName>'].objectId" –-output tsv
+az ad group list --query "[?displayName == '<yourGroupName>'].objectId" --output tsv
 
 # To retrieve the objectId for an Azure AD user
-az ad user show –-upn-or-object-id "<yourUPN>" –-query "objectId" –-output tsv
+az ad user show --upn-or-object-id "<yourUPN>" –-query "objectId" --output tsv
 
 # To retrieve the objectId for an SPN
-az ad sp list –-query "[?displayName == '<spDisplayName>'].objectId" –-output tsv
+az ad sp list --query "[?displayName == '<spDisplayName>'].objectId" --output tsv
 
 # To retrieve role definition IDs
-az role definition list –-name "<roleName>" | grep name
+az role definition list --name "<roleName>" | grep name
 ```
 
 ## <a name="create-an-azure-resource-manager-template"></a>Skapa en Azure Resource Manager-mall
 
-Att publicera din kund måste du skapa en [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/) mall som innehåller följande:
+För att publicera kunden måste du skapa en [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/) -mall som innehåller följande:
 
 |Fält  |Definition  |
 |---------|---------|
-|**mspName**     |Providernamn för tjänsten         |
-|**mspOfferDescription**     |En kort beskrivning av ditt erbjudande (till exempel ”Contoso VM management erbjudandet”)      |
+|**mspName**     |Namn på tjänst leverantör         |
+|**mspOfferDescription**     |En kort beskrivning av ditt erbjudande (till exempel "contoso VM Management-erbjudande")      |
 |**managedByTenantId**     |Ditt klient-ID         |
-|**Auktoriseringar**     |Den **principalId** värden för användare/grupper/SPN från din klient, var och en med en **principalIdDisplayName** att hjälpa kunderna att förstå syftet med auktoriseringen och mappas till en inbyggd **roleDefinitionId** värde som anger vilken åtkomstnivå         |
+|**auktoriseringar**     |**PrincipalId** -värdena för användare/grupper/SPN från din klient, var och en med en **principalIdDisplayName** för att hjälpa kunden att förstå syftet med auktoriseringen och mappas till ett inbyggt **roleDefinitionId** -värde för att ange åtkomst nivå         |
 
-Att publicera en kunds prenumeration använder du lämplig Azure Resource Manager-mall som vi tillhandahåller i vår [exempel lagringsplatsen](https://github.com/Azure/Azure-Lighthouse-samples/), tillsammans med en motsvarande parameterfil som du kan ändra för att matcha din konfiguration och definiera din auktoriseringar. Separata mallar tillhandahålls beroende på om du är en hela prenumerationen, en resursgrupp eller flera resursgrupper inom en prenumeration. Vi ger även en mall som kan användas för kunder som köpte ett erbjudande med hanterad tjänst som du har publicerat på Azure Marketplace om du föredrar att publicera sina prenumerationer på så sätt.
+Om du vill publicera en kunds prenumeration använder du lämplig Azure Resource Manager mall som vi tillhandahåller i våra [exempel lagrings platsen](https://github.com/Azure/Azure-Lighthouse-samples/), tillsammans med en motsvarande parameter fil som du ändrar för att matcha konfigurationen och definiera dina auktoriseringar. Separata mallar tillhandahålls beroende på om du registrerar en hel prenumeration, en resurs grupp eller flera resurs grupper i en prenumeration. Vi tillhandahåller också en mall som kan användas för kunder som har köpt ett hanterat tjänst erbjudande som du har publicerat på Azure Marketplace, om du föredrar att publicera deras prenumerationer på det här sättet.
 
-|**Att publicera det här**  |**Använd den här Azure Resource Manager-mallen**  |**Och ändra den här parameterfilen** |
+|**För att publicera detta**  |**Använd den här Azure Resource Manager mallen**  |**Och ändra den här parameter filen** |
 |---------|---------|---------|
 |Subscription   |[delegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/delegated-resource-management/delegatedResourceManagement.json)  |[delegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/delegated-resource-management/delegatedResourceManagement.parameters.json)    |
 |Resource group   |[rgDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.json)  |[rgDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.parameters.json)    |
-|Flera resursgrupper inom en prenumeration   |[multipleRgDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management/multipleRgDelegatedResourceManagement.json)  |[multipleRgDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management/multipleRgDelegatedResourceManagement.parameters.json)    |
-|Prenumeration (om med ett erbjudande som publicerats till Azure Marketplace)   |[marketplaceDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.json)  |[marketplaceDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.parameters.json)    |
+|Flera resurs grupper i en prenumeration   |[multipleRgDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management/multipleRgDelegatedResourceManagement.json)  |[multipleRgDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management/multipleRgDelegatedResourceManagement.parameters.json)    |
+|Prenumeration (när du använder ett erbjudande som publicerats på Azure Marketplace)   |[marketplaceDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.json)  |[marketplaceDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.parameters.json)    |
 
 > [!IMPORTANT]
-> Processen som beskrivs här kräver en separat distribution för varje prenumeration som det gäller.
+> Processen som beskrivs här kräver en separat distribution för varje prenumeration som registreras.
 > 
-> Separata distributioner krävs också om du är flera resursgrupperna i olika prenumerationer. Dock onboarding flera resursgrupper i en enskild prenumeration kan göras i en distribution.
+> Separata distributioner krävs också om du registrerar flera resurs grupper inom olika prenumerationer. Att registrera flera resurs grupper i en enda prenumeration kan dock göras i en distribution.
 
-I följande exempel visar en ändrad **resourceProjection.parameters.json** fil som ska användas för att publicera en prenumeration. Resursfiler för grupp-parametern (finns i den [rg-delegerad--resurshantering](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management) mapp) liknar varandra, men också innehålla en **rgName** parametern för att identifiera den specifika resursgrupper som värdar för att vara har integrerats.
+I följande exempel visas en modifierad **resourceProjection. Parameters. JSON** -fil som ska användas för att publicera en prenumeration. Resurs gruppens parameter-filer (som finns i mappen [RG-delegerad-resurs hantering](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management) ) liknar varandra, men innehåller även en **rgName** -parameter för att identifiera de enskilda resurs grupper som ska publiceras.
 
 ```json
 {
@@ -245,14 +245,14 @@ I följande exempel visar en ändrad **resourceProjection.parameters.json** fil 
     }
 }
 ```
-Senaste auktorisering i exemplet ovan lägger till en **principalId** med rollen Administratör för användaråtkomst (18d7d88d-d35e-4fb5-a5c3-7773c20a72d9). När du tilldelar den här rollen måste du inkludera den **delegatedRoleDefinitionIds** egenskap och en eller flera inbyggda roller. Användaren som skapades i detta tillstånd kommer att kunna tilldela dessa inbyggda roller till hanterade identiteter. Observera att inga andra behörigheter som normalt förknippas med rollen Administratör för användaråtkomst gäller för den här användaren.
+Den senaste auktoriseringen i exemplet ovan lägger till en **principalId** med rollen administratör för användar åtkomst (18d7d88d-d35e-4fb5-a5c3-7773c20a72d9). När du tilldelar den här rollen måste du inkludera egenskapen **delegatedRoleDefinitionIds** och en eller flera inbyggda roller. Användaren som skapas i detta tillstånd kommer att kunna tilldela de här inbyggda rollerna till hanterade identiteter. Observera att inga andra behörigheter som normalt är kopplade till rollen administratör för användar åtkomst gäller för den här användaren.
 
-## <a name="deploy-the-azure-resource-manager-templates"></a>Distribuera Azure Resource Manager-mallar
+## <a name="deploy-the-azure-resource-manager-templates"></a>Distribuera Azure Resource Manager mallar
 
-När du har uppdaterat parameterfilen, måste kunden distribuera Resource Manager-mall i kundens klient som en prenumerationsnivå-distribution. En separat distribution krävs för varje prenumeration som du vill publicera till Azure delegerade resource Manager (eller för varje prenumeration som innehåller resursgrupper som du vill komma igång).
+När du har uppdaterat parameter filen måste kunden distribuera resurs hanterings mal len i kundens klient organisation som en distribution på prenumerations nivå. En separat distribution krävs för varje prenumeration som du vill publicera till Azure delegerad resurs hantering (eller för varje prenumeration som innehåller resurs grupper som du vill publicera).
 
 > [!IMPORTANT]
-> Distributionen måste utföras av en icke-gästkonto i kundens klient som har den [inbyggda ägarrollen](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) för den prenumeration som det gäller (eller som innehåller resursgrupper som det gäller).
+> Distributionen måste göras av ett konto som inte är gäst i kundens klient organisation som har den [inbyggda rollen ägare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) för den prenumeration som registreras (eller som innehåller de resurs grupper som registreras).
 
 ```azurepowershell-interactive
 # Log in first with Connect-AzAccount if you're not using Cloud Shell
@@ -294,24 +294,24 @@ az deployment create –-name <deploymentName \
 
 ## <a name="confirm-successful-onboarding"></a>Bekräfta lyckad onboarding
 
-När en kundprenumeration har integrerats på Azure delegerade resurshantering, kommer användare i tjänsteleverantörens klient att kunna se prenumerationen och dess resurser (om de har beviljats åtkomst till den via processen ovan, antingen individuellt eller som en medlem i en Azure AD-grupp med rätt behörighet). För att bekräfta detta, kontrollera att prenumerationen som visas i något av följande sätt.  
+När en kund prenumeration har publicerats till Azure-delegerad resurs hantering kommer användare i tjänste leverantörens klient organisation att kunna se prenumerationen och dess resurser (om de har beviljats åtkomst till den genom processen ovan, antingen individuellt eller som medlem i en Azure AD-grupp med rätt behörigheter). Bekräfta detta genom att kontrol lera att prenumerationen visas på något av följande sätt.  
 
 ### <a name="azure-portal"></a>Azure Portal
 
-I tjänsteleverantörens klient:
+I tjänst leverantörens klient organisation:
 
-1. Navigera till den [sidan Mina kunder](view-manage-customers.md).
+1. Gå till [sidan mina kunder](view-manage-customers.md).
 2. Välj **kunder**.
-3. Bekräfta att du kan se prenumerationerna med erbjudandet namnet du angav i Resource Manager-mallen.
+3. Bekräfta att du kan se prenumerationerna med det erbjudande namn som du angav i Resource Manager-mallen.
 
-I kundens klient:
+I kundens klient organisation:
 
-1. Navigera till den [providers Tjänstesida](view-manage-service-providers.md).
-2. Välj **tjänsten tjänstleverantören erbjuder**.
-3. Bekräfta att du kan se prenumerationerna med erbjudandet namnet du angav i Resource Manager-mallen.
+1. Gå till [sidan tjänst leverantörer](view-manage-service-providers.md).
+2. Välj **Service Provider-erbjudanden**.
+3. Bekräfta att du kan se prenumerationerna med det erbjudande namn som du angav i Resource Manager-mallen.
 
 > [!NOTE]
-> Det kan ta några minuter när distributionen är klar innan uppdateringarna syns i Azure-portalen.
+> Det kan ta några minuter efter att distributionen är klar innan uppdateringarna återspeglas i Azure Portal.
 
 ### <a name="powershell"></a>PowerShell
 
@@ -331,5 +331,5 @@ az account list
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig mer om [mellan klientorganisationer hanteringsupplevelser](../concepts/cross-tenant-management-experience.md).
-- [Visa och hantera kunder](view-manage-customers.md) genom att gå till **mina kunder** i Azure-portalen.
+- Lär dig mer om [hanterings upplevelser mellan flera innehavare](../concepts/cross-tenant-management-experience.md).
+- [Visa och hantera kunder](view-manage-customers.md) genom att gå till **mina kunder** i Azure Portal.

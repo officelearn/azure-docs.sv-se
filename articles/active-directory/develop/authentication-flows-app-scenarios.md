@@ -17,12 +17,12 @@ ms.date: 07/25/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 946eb0343c2858e275e40b7a581fd48e1713accd
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 507758831885bff7f61677ebae0224cc828dcb2e
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68853520"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879276"
 ---
 # <a name="authentication-flows-and-application-scenarios"></a>Autentiserings flöden och program scenarier
 
@@ -143,7 +143,7 @@ Mer information hittar du i [mobilapp som anropar webb-API: er](scenario-mobile-
 
 ### <a name="protected-web-api"></a>Skyddat webb-API
 
-Du kan använda Microsoft Identity Platform-slutpunkten för att skydda webb tjänster, till exempel appens RESTful-webb-API. Ett skyddat webb-API anropas med en åtkomsttoken för att skydda dess data och för att autentisera inkommande begär Anden. Anroparen för ett webb-API lägger till en åtkomsttoken i Authorization-huvudet för en HTTP-begäran. Om du vill skydda dig ASP.NET eller ASP.NET Core webb-API måste du verifiera åtkomsttoken. För det här använder du ASP.NET JWT mellanprogram. Verifieringen görs under huven av IdentityModel-tilläggen [för .net](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) -biblioteket, inte MSAL.net
+Du kan använda Microsoft Identity Platform-slutpunkten för att skydda webb tjänster, till exempel appens RESTful-webb-API. Ett skyddat webb-API anropas med en åtkomsttoken för att skydda dess data och för att autentisera inkommande begär Anden. Anroparen för ett webb-API lägger till en åtkomsttoken i Authorization-huvudet för en HTTP-begäran. Om du vill skydda ditt ASP.NET-eller ASP.NET Core-webb-API måste du verifiera åtkomst-token. För det här använder du ASP.NET JWT mellanprogram. Verifieringen görs under huven av IdentityModel-tilläggen [för .net](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) -biblioteket, inte MSAL.net
 
 Mer information finns i avsnittet om [skyddad webb-API](scenario-protected-web-api-overview.md).
 

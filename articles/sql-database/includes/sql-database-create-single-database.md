@@ -5,12 +5,12 @@ ms.subservice: single-database
 ms.topic: include
 ms.date: 06/19/2019
 ms.author: mathoma
-ms.openlocfilehash: dd511375c6b007222185f25610aecbd9931a742b
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: ffa48d55703347883edf96a0a27ee52d19189976
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640046"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935013"
 ---
 I det här steget ska du skapa en resurs grupp och en Azure SQL Database enskild databas.
 
@@ -19,7 +19,7 @@ I det här steget ska du skapa en resurs grupp och en Azure SQL Database enskild
 >
 > Mer information finns i skapa en brand [Väggs regel på databas nivå](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) eller för att fastställa vilken IP-adress som används för brand Väggs regeln på server nivå för datorn se [skapa en brand vägg på server nivå](../sql-database-server-level-firewall-rule.md).  
 
-# <a name="azure-portaltabazure-portal"></a>[Azure Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
 Skapa en resurs grupp och en enkel databas med hjälp av Azure Portal.
 
@@ -75,7 +75,7 @@ Skapa en resurs grupp och en enkel databas med hjälp av Azure Portal.
 
 9. I formuläret **SQL Database** väljer du **Skapa** för att distribuera och etablera resursgruppen, servern och databasen.
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -141,7 +141,7 @@ Skapa en resurs grupp och en enkel databas med PowerShell.
    $database
    ```
 
-# <a name="az-clitabbash"></a>[AZ CLI](#tab/bash)
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Skapa en resurs grupp och en enkel databas med AZ CLI.
 

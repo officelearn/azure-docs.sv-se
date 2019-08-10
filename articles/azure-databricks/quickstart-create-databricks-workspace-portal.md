@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.date: 05/08/2019
 ms.custom: mvc
-ms.openlocfilehash: 3da0e5bb9ecb8557ac8b51b3aa6faf60a52dddf9
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 3570325880b4c8d8eb311f00477262126a2b18ad
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68312118"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932568"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Snabbstart: Köra ett Spark-jobb på Azure Databricks med Azure Portal
 
@@ -27,7 +27,11 @@ I den här snabb starten använder du Azure Portal för att skapa en Azure Datab
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com). Det går inte att utföra den här självstudien med Azures kostnads fria utvärderings prenumeration. Om du vill använda ett kostnadsfritt konto för att skapa Azure Databricks-klustret ska du innan du skapar klustret gå till din profil och ändra prenumerationen till **betala per användning**. Mer information finns i [Kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
+Logga in på [Azure Portal](https://portal.azure.com).
+
+> [!Note]
+> Den här självstudien kan inte utföras med **Azures kostnads fri utvärderings prenumeration**.
+> Om du har ett kostnads fritt konto går du till din profil och ändrar din prenumeration till **betala per**användning. Mer information finns i [Kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). Ta sedan [bort utgifts gränsen](https://docs.microsoft.com/azure/billing/billing-spending-limit#remove-the-spending-limit-in-account-center)och [begär en kvot ökning](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) för virtuella processorer i din region. När du skapar din Azure Databricks arbets yta kan du välja pris nivån **utvärdering (Premium-14-dagar gratis DBU)** för att ge arbets ytan åtkomst till kostnads fria Premium Azure Databricks DBU i 14 dagar.
 
 ## <a name="create-an-azure-databricks-workspace"></a>Skapa en Azure Databricks-arbetsyta
 
@@ -134,7 +138,7 @@ Utför följande uppgifter för att skapa en antecknings bok i Databricks, konfi
 
     ![Exempel data](./media/quickstart-create-databricks-workspace-portal/databricks-sample-csv-data.png "Exempel på JSON-data")
 
-6. Nu skapar du en visuell representation av dessa data för att visa hur många säkerhets händelser som rapporteras med hjälp av medborgarna Anslut app-och stads Worker-appen i stället för andra källor. Längst ned i tabellens utdata **väljer du stapeldiagram** och klickar sedan på **rit alternativ**.
+6. Nu skapar du en visuell representation av dessa data för att visa hur många säkerhets händelser som rapporteras med hjälp av medborgarna Anslut app-och stads Worker-appen i stället för andra källor. Längst ned i tabellens utdata väljer du stapeldiagram och klickar sedan på **rit alternativ**.
 
     ![Skapa stapeldiagram](./media/quickstart-create-databricks-workspace-portal/create-plots-databricks-notebook.png "Skapa stapeldiagram")
 

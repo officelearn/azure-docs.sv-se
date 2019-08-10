@@ -1,28 +1,27 @@
 ---
-title: 'Konfigurera ett program att ha åtkomst till webb-API: er – Microsoft identity-plattformen'
+title: 'Konfigurera ett program för åtkomst till webb-API: er – Microsoft Identity Platform'
 description: Lär dig hur du konfigurerar en app som har registrerats på Microsoft Identity Platform att inkludera omdirigerings-URI, autentiseringsuppgifter eller behörigheter för åtkomst till webb-API:er.
 services: active-directory
 documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/08/2019
+ms.date: 08/07/2019
 ms.author: ryanwi
 ms.custom: aaddev
-ms.reviewer: aragra, lenalepa, sureshja
+ms.reviewer: lenalepa, aragra, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e8b0e17248dff3c53b96fd240a7566f09b22fae
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 937fca5698378a8c877b4a981557f87d06170e9a
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482682"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879351"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-web-apis"></a>Snabbstart: Konfigurera ett klientprogram för att komma åt webb-API:er
 
@@ -39,7 +38,9 @@ Dessutom, innan en klient kan komma åt ett webb-API som görs tillgängligt av 
 I den här snabbstarten visas hur du konfigurerar din app för att:
 
 * [Lägga till omdirigerings-URI:er för appen](#add-redirect-uris-to-your-application)
-* [Lägg till autentiseringsuppgifter i ditt webbprogram](#add-credentials-to-your-web-application)
+* [Konfigurera avancerade inställningar för ditt program](#configure-advanced-settings-for-your-application)
+* [Ändra konto typer som stöds](#modify-supported-account-types)
+* [Lägg till autentiseringsuppgifter i ditt webb program](#add-credentials-to-your-web-application)
 * [Lägga till behörigheter för att få åtkomst till webb-API:er](#add-permissions-to-access-web-apis)
 
 ## <a name="prerequisites"></a>Förutsättningar
@@ -54,39 +55,94 @@ Innan du börjar kontrollerar du att följande krav är uppfyllda:
 
 Innan du kan konfigurera appen gör du följande:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller en personligt Microsoft-konto.
-1. Om ditt konto ger dig tillgång till fler än en klientorganisation väljer du ditt konto i det övre högra hörnet och ställer in din portalsession på önskad Azure AD-klientorganisation.
-1. I det vänstra navigeringsfönstret väljer du den **Azure Active Directory** tjänsten och väljer sedan **appregistreringar**.
+1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
+1. Om ditt konto ger dig åtkomst till fler än en klient väljer du ditt konto i det övre högra hörnet och ställer in din portal-session till önskad Azure AD-klient.
+1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** och väljer sedan **Appregistreringar**.
 1. Leta reda på och välj den app du vill konfigurera. När du har valt appen ser du dess **översikt** eller huvudregistreringssida.
-1. Följ stegen för att konfigurera appen för åtkomst till webb-API:er: 
+1. Följ stegen för att konfigurera appen för åtkomst till webb-API:er:
     * [Lägga till omdirigerings-URI:er för appen](#add-redirect-uris-to-your-application)
-    * [Lägg till autentiseringsuppgifter i ditt webbprogram](#add-credentials-to-your-web-application)
+    * [Konfigurera avancerade inställningar för ditt program](#configure-advanced-settings-for-your-application)
+    * [Ändra konto typer som stöds](#modify-supported-account-types)
+    * [Lägg till autentiseringsuppgifter i ditt webb program](#add-credentials-to-your-web-application)
     * [Lägga till behörigheter för att få åtkomst till webb-API:er](#add-permissions-to-access-web-apis)
 
 ## <a name="add-redirect-uris-to-your-application"></a>Lägga till omdirigerings-URI:er för appen
 
-[![Lägga till anpassade omdirigerings-URI:er för webbappar och offentliga klientappar](./media/quickstart-update-azure-ad-app-preview/authentication-redirect-uris-expanded.png)](./media/quickstart-update-azure-ad-app-preview/authentication-redirect-uris-expanded.png#lightbox)
-
 Lägga till en omdirigerings-URI för appen:
 
 1. På appens **översiktssida** väljer du avsnittet **Autentisering**.
-
 1. Gör följande för att lägga till en anpassad omdirigerings-URI för webbappar och offentliga klientprogram:
-
    1. Leta reda på avsnittet **Omdirigerings-URI**.
    1. Välj den typ av app du skapar **webb** eller **offentlig klient (mobil och dator)** .
    1. Ange omdirigerings-URI för appen.
       * För webbappar anger du grundläggande URL för appen. Till exempel kan `http://localhost:31544` vara URL för en webbapp som körs på din lokala dator. Användare skulle då använda den här URL:en för att logga in till ett webbklientprogram.
-      * För offentliga appar anger du den URI som används av Azure AD för att returnera tokensvar. Ange ett värde som är specifikt för ditt program, till exempel https://MyFirstApp.
+      * För offentliga appar anger du den URI som används av Azure AD för att returnera tokensvar. Ange ett värde som är specifik för ditt program, till `https://MyFirstApp`exempel:.
 
 1. Gör följande för att välja mellan föreslagna omdirigerings-URI:er för offentliga klienter (mobil, dator):
-
     1. Leta reda på avsnittet för **föreslagna omdirigerings-URI:er för offentliga klienter (mobil, dator)** .
     1. Välj en eller flera lämpliga omdirigerings-URI:er med hjälp av kryssrutorna.
 
-## <a name="add-credentials-to-your-web-application"></a>Lägga till autentiseringsuppgifter i webbappen
+> [!NOTE]
+> Testa de nya inställningarna för **autentisering** där du kan konfigurera inställningar för ditt program baserat på den plattform eller enhet som du vill använda som mål.
+>
+> Om du vill se den här vyn väljer du **testa den nya upplevelsen** från vyn standardautentiserings-sida.
+>
+> ![Klicka på "prova den nya upplevelsen" för att se vyn plattforms konfiguration](./media/quickstart-update-azure-ad-app-preview/authentication-try-new-experience-cropped.png)
+>
+> Då går du till [sidan nya **plattforms konfiguration** ](#configure-platform-settings-for-your-application).
 
-[![Lägga till certifikat och klienthemligheter](./media/quickstart-update-azure-ad-app-preview/credentials-certificates-secrets-expanded.png)](./media/quickstart-update-azure-ad-app-preview/credentials-certificates-secrets-expanded.png#lightbox)
+### <a name="configure-advanced-settings-for-your-application"></a>Konfigurera avancerade inställningar för ditt program
+
+Beroende på vilket program du registrerar finns det några ytterligare inställningar som du kan behöva konfigurera, till exempel:
+
+* **Utloggnings-URL**
+* För appar med en sida kan du aktivera **implicit beviljande** och välja de token som du vill att behörighets slut punkten ska utfärda.
+* För skrivbordsappar som hämtar token med integrerad Windows-autentisering, enhets kod flöde eller användar namn/lösen ord i avsnittet **standard klient typ** konfigurerar du inställningen **behandla program som offentlig klient** till **Ja**.
+* För äldre appar som använde Live SDK för att integrera med Microsoft-konto-tjänsten konfigurerar du **Live SDK-stöd**. Nya appar behöver inte den här inställningen.
+* **Standard klient typ**
+
+### <a name="modify-supported-account-types"></a>Ändra konto typer som stöds
+
+De **konto typer som stöds** anger vem som kan använda programmet eller åtkomst till API: et.
+
+När du har [konfigurerat de konto typer som stöds](quickstart-register-app.md) när du ursprungligen registrerade programmet kan du bara ändra den här inställningen med hjälp av program manifest redigeraren om:
+
+* Du ändrar konto typer från **AzureADMyOrg** eller **AzureADMultipleOrgs** till **AzureADandPersonalMicrosoftAccount**eller vice versa.
+* Du ändrar konto typer från **AzureADMyOrg** till **AzureADMultipleOrgs**eller vice versa.
+
+Ändra de konto typer som stöds för en befintlig registrerad app:
+
+* Se [Konfigurera program manifestet](reference-app-manifest.md) och uppdatera `signInAudience` nyckeln.
+
+## <a name="configure-platform-settings-for-your-application"></a>Konfigurera plattforms inställningar för ditt program
+
+[![Konfigurera inställningar för din app baserat på plattformen eller enheten](./media/quickstart-update-azure-ad-app-preview/authentication-new-platform-configurations-expanded.png)](./media/quickstart-update-azure-ad-app-preview/authentication-new-platform-configurations-small.png#lightbox)
+
+Om du vill konfigurera program inställningar baserat på plattformen eller enheten är du mål:
+
+1. På sidan **plattforms konfiguration** väljer du **Lägg till en plattform** och väljer bland de tillgängliga alternativen.
+
+   ![Visar sidan Konfigurera plattformar](./media/quickstart-update-azure-ad-app-preview/authentication-platform-configurations-configure-platforms.png)
+
+1. Ange inställnings informationen baserat på den plattform som du har valt.
+
+   | Plattform                | Alternativ              | Konfigurationsinställningar            |
+   |-------------------------|----------------------|-----------------------------------|
+   | **Webbprogram**    | **Webb**              | Ange omdirigerings- **URI** för programmet. |
+   | **Mobil program** | **iOS**              | Ange appens **paket-ID**, som du hittar i Xcode i info. plist eller skapa inställningar. Genom att lägga till paket-ID: t skapas automatiskt en omdirigerings-URI för programmet. |
+   |                         | **Android**          | * Ange appens **paket namn**, som du hittar i filen AndroidManifest. xml.<br/>* Generera och ange **signaturens hash-värde**. När du lägger till signaturens hash skapas automatiskt en omdirigerings-URI för programmet.  |
+   | **Desktop + enheter**   | **Desktop + enheter** | Valfritt. Välj en av de rekommenderade omdirigerings- **URI: erna** om du skapar appar för Station ära datorer och enheter.<br/>Valfritt. Ange en **anpassad**omdirigerings-URI, som används som den plats där Azure AD omdirigerar användare som svar på autentiseringsbegäranden. Till exempel för .NET Core-program där du vill använda interaktionen `https://localhost`använder du. |
+
+   > [!IMPORTANT]
+   > För mobila program som inte använder det senaste MSAL-biblioteket eller som inte använder en Service Broker måste du konfigurera omdirigerings-URI: erna för dessa program i **Desktop +-enheter**.
+
+1. Beroende på vilken plattform du väljer kan det finnas ytterligare inställningar som du kan konfigurera. För **Web** Apps kan du:
+    * Lägg till fler omdirigerings-URI
+    * Konfigurera **implicit beviljande** för att välja de token som du vill ska utfärdas av behörighets slut punkten:
+        * För appar med en sida väljer du båda **åtkomst-tokens** och **ID-token**
+        * För Web Apps väljer du **ID-token**
+
+## <a name="add-credentials-to-your-web-application"></a>Lägga till autentiseringsuppgifter i webbappen
 
 Så här lägger du till en autentiseringsuppgift för webbappen:
 
@@ -109,8 +165,6 @@ Så här lägger du till en autentiseringsuppgift för webbappen:
 > Kolumnen längst till höger innehåller nyckelvärdet när du har sparat konfigurationsändringarna. **Se till att kopiera värdet** för användning i din klientprogramkod eftersom den inte är tillgänglig när du har lämnat den här sidan.
 
 ## <a name="add-permissions-to-access-web-apis"></a>Lägga till behörigheter för att få åtkomst till webb-API:er
-
-[![Visar skärmen där du kan lägga till API-behörigheter](./media/quickstart-update-azure-ad-app-preview/api-permissions-expanded.png)](./media/quickstart-update-azure-ad-app-preview/api-permissions-expanded.png#lightbox)
 
 Så lägger du till behörigheter för att komma åt resurs-API:er från klienten:
 

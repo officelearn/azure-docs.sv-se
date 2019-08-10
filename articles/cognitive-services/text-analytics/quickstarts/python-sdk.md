@@ -1,71 +1,112 @@
 ---
-title: 'Snabbstart: Anropa tjänsten Textanalys med python SDK'
+title: 'Snabbstart: Textanalys klient bibliotek för python | Microsoft Docs'
 titleSuffix: Azure Cognitive Services
-description: Få information och kod exempel som hjälper dig att snabbt komma igång med API för textanalys i Azure Cognitive Services.
+description: Använd den här snabb starten för att börja använda API för textanalys från Azure Cognitive Services.
 services: cognitive-services
 author: ctufts
 manager: assafi
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 07/30/2019
+ms.date: 08/05/2019
 ms.author: aahi
-ms.openlocfilehash: 82f0313a237358fcaa1ae52e92821abef2b52af7
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 1d7ad19a58327ba508ccb4e47d12d3d0f50465f4
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68697304"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68884007"
 ---
-# <a name="quickstart-call-the-text-analytics-service-using-the-python-sdk"></a>Snabbstart: Anropa tjänsten Textanalys med python SDK 
+# <a name="quickstart-text-analytics-client-library-for-python"></a>Snabbstart: Klient bibliotek för text analys för python
 <a name="HOLTop"></a>
 
-Använd den här snabb starten för att börja analysera språk med Textanalys SDK för python. Även om Textanalys REST API är kompatibel med de flesta programmeringsspråk, ger SDK ett enkelt sätt att integrera tjänsten i dina program utan att serialisera och deserialisera JSON. Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/language/text_analytics_samples.py).
+Kom igång med Textanalys klient biblioteket för python. Följ de här stegen för att installera paketet och prova exempel koden för grundläggande uppgifter. 
+
+Använd Textanalys klient bibliotek för python för att utföra:
+
+* Sentimentanalys
+* Språkidentifiering
+* Enhets igenkänning
+* Extrahering av nyckelfraser
+
+
+[Referens dokumentation](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/textanalytics?view=azure-python) | [bibliotek käll kods](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-language-textanalytics) | [paket (PiPy)](https://pypi.org/project/azure-cognitiveservices-language-textanalytics/) | [exempel](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/)
+
 
 ## <a name="prerequisites"></a>Förutsättningar
 
+* Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 * [Python 3.x](https://www.python.org/)
 
-* Textanalys [SDK för python](https://pypi.org/project/azure-cognitiveservices-language-textanalytics/) du kan installera paketet med:
+## <a name="setting-up"></a>Konfigurera
 
-    `pip install --upgrade azure-cognitiveservices-language-textanalytics`
+### <a name="create-a-text-analytics-azure-resource"></a>Skapa en Textanalys Azure-resurs
 
-[!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
+Azure-Cognitive Services representeras av Azure-resurser som du prenumererar på. Skapa en resurs för Textanalys med hjälp av [Azure Portal](../../cognitive-services-apis-create-account.md) eller [Azure CLI](../../cognitive-services-apis-create-account-cli.md) på den lokala datorn. Du kan också:
 
-## <a name="create-a-new-python-application"></a>Skapa ett nytt Python-program
+* Få en [utvärderings nyckel](https://azure.microsoft.com/try/cognitive-services/#decision) som är giltig i 7 dagar utan kostnad. När du har registrerat dig kommer den att vara tillgänglig på [Azure-webbplatsen](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
+* Visa din resurs på [Azure Portal](https://portal.azure.com/)
 
-Skapa ett nytt python-program i din favorit redigerare eller IDE. Lägg sedan till följande import uttryck i filen.
+När du har fått en nyckel från din utvärderings prenumeration eller resurs [skapar du en miljö variabel](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckeln, `TEXT_ANALYTICS_SUBSCRIPTION_KEY`med namnet.
+
+### <a name="install-the-client-library"></a>Installera klient biblioteket
+
+När du har installerat python kan du installera klient biblioteket med:
+
+```console
+pip install --upgrade azure-cognitiveservices-language-textanalytics
+```
+
+### <a name="create-a-new-python-application"></a>Skapa ett nytt python-program
+
+Skapa ett nytt python-program i önskat redigerings program eller IDE. Importera sedan följande bibliotek.
 
 ```python
 from azure.cognitiveservices.language.textanalytics import TextAnalyticsClient
 from msrest.authentication import CognitiveServicesCredentials
 ```
 
-## <a name="authenticate-your-credentials"></a>Autentisera dina autentiseringsuppgifter
+Skapa variabler för resursens Azure-slutpunkt och nyckel. Om du har skapat miljövariabeln efter att du har startat programmet måste du stänga och öppna redigerings programmet, IDE eller gränssnittet som kör det för att få åtkomst till variabeln.
 
-> [!Tip]
-> Vi rekommenderar att du använder [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/quick-create-net)för säker distribution av hemligheter i produktions system.
->
-
-När du har gjort en variabel för din textanalys prenumerations nyckel `CognitiveServicesCredentials` instansierar du ett objekt med det.
+[!INCLUDE [text-analytics-find-resource-information](../includes/find-azure-resource-info.md)]
 
 ```python
-subscription_key = "enter-your-key-here"
-credentials = CognitiveServicesCredentials(subscription_key)
-```
-
-## <a name="create-a-text-analytics-client"></a>Skapa en Textanalys-klient
-
-Skapa ett nytt `TextAnalyticsClient` objekt med `credentials` och `text_analytics_url` som en parameter. Använd rätt Azure-region för din Textanalys-prenumeration (till `westcentralus`exempel).
-
-```
+# replace this endpoint with the correct one for your Azure resource. 
 text_analytics_url = "https://westcentralus.api.cognitive.microsoft.com/"
+# This sample assumes you have created an environment variable for your key
+key = os.environ["TEXT_ANALYTICS_SUBSCRIPTION_KEY"]
+credentials = CognitiveServicesCredentials(key)
+```
+
+## <a name="object-model"></a>Objekt modell
+
+Textanalys-klienten är ett [TextAnalyticsClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python) -objekt som autentiserar till Azure med hjälp av din nyckel. Klienten tillhandahåller flera metoder för att analysera text, som en enskild sträng eller en batch. 
+
+Text skickas till API: et som en lista över `documents`, som är `dictionary` objekt som innehåller en kombination `id`av `text`,, `language` och attribut beroende på vilken metod som används. Attributet lagrar texten som ska analyseras i ursprunget `language`och `id` kan vara vilket värde som helst. `text` 
+
+Objektet Response är en lista som innehåller analys informationen för varje dokument. 
+
+## <a name="code-examples"></a>Kod exempel
+
+De här kodfragmenten visar hur du gör följande med Textanalys klient biblioteket för python:
+
+* [Autentisera klienten](#authenticate-the-client)
+* [Attitydanalys](#sentiment-analysis)
+* [Språk identifiering](#language-detection)
+* [Enhets igenkänning](#entity-recognition)
+* [Extrahering av nyckel fraser](#key-phrase-extraction)
+
+## <a name="authenticate-the-client"></a>Autentisera klienten
+
+Skapa ett nytt [TextAnalyticsClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python) -objekt `credentials` med `text_analytics_url` och som en parameter. Använd rätt Azure-region för din Textanalys-prenumeration (till `westcentralus`exempel).
+
+```python
 text_analytics = TextAnalyticsClient(endpoint=text_analytics_url, credentials=credentials)
 ```
 
 ## <a name="sentiment-analysis"></a>Sentimentanalys
 
-Nytto lasten till API: et består av en `documents`lista över, som är ord `id` listor som `text` innehåller ett och ett-attribut. Attributet lagrar texten som ska analyseras `id` och kan vara vilket värde som helst. `text` 
+Anropa funktionen [sentiment ()](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python#sentiment-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-) och hämta resultatet. Iterera sedan igenom resultaten och skriv ut varje dokuments ID och sentiment poäng. En poäng närmare 0 anger ett negativt sentiment, medan ett resultat närmare 1 anger en positiv sentiment.
 
 ```python
 documents = [
@@ -73,28 +114,8 @@ documents = [
         "id": "1",
         "language": "en",
         "text": "I had the best day of my life."
-    },
-    {
-        "id": "2",
-        "language": "en",
-        "text": "This was a waste of my time. The speaker put me to sleep."
-    },
-    {
-        "id": "3",
-        "language": "es",
-        "text": "No tengo dinero ni nada que dar..."
-    },
-    {
-        "id": "4",
-        "language": "it",
-        "text": "L'hotel veneziano era meraviglioso. È un bellissimo pezzo di architettura."
     }
 ]
-```
-
-`sentiment()` Anropa funktionen och få resultatet. Iterera sedan igenom resultaten och skriv ut varje dokuments ID och sentiment poäng. En poäng närmare 0 anger ett negativt sentiment, medan ett resultat närmare 1 anger en positiv sentiment.
-
-```python
 response = text_analytics.sentiment(documents=documents)
 for document in response.documents:
     print("Document Id: ", document.id, ", Sentiment Score: ",
@@ -105,35 +126,19 @@ for document in response.documents:
 
 ```console
 Document Id:  1 , Sentiment Score:  0.87
-Document Id:  2 , Sentiment Score:  0.11
-Document Id:  3 , Sentiment Score:  0.44
-Document Id:  4 , Sentiment Score:  1.00
 ```
 
 ## <a name="language-detection"></a>Språkidentifiering
 
-Skapa en lista över ord listor som innehåller det dokument som du vill analysera. Attributet lagrar texten som ska analyseras `id` och kan vara vilket värde som helst. `text` 
+Med hjälp av klienten som skapades tidigare anropar du [detect_language ()](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python#detect-language-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-) och får resultatet. Iterera sedan igenom resultaten och skriv ut varje dokuments ID och det första returnerade språket.
 
 ```python
 documents = [
     {
         'id': '1',
         'text': 'This is a document written in English.'
-    },
-    {
-        'id': '2',
-        'text': 'Este es un document escrito en Español.'
-    },
-    {
-        'id': '3',
-        'text': '这是一个用中文写的文件'
     }
 ]
-```
-
-Anropa `detect_language()` och hämta resultatet med hjälp av klienten som skapades tidigare. Iterera sedan igenom resultaten och skriv ut varje dokuments ID och det första returnerade språket.
-
-```python
 response = text_analytics.detect_language(documents=documents)
 for document in response.documents:
     print("Document Id: ", document.id, ", Language: ",
@@ -144,14 +149,11 @@ for document in response.documents:
 
 ```console
 Document Id:  1 , Language:  English
-Document Id:  2 , Language:  Spanish
-Document Id:  3 , Language:  Chinese_Simplified
 ```
 
 ## <a name="entity-recognition"></a>Enhets igenkänning
 
-Skapa en lista över ord listor som innehåller dokumenten som du vill analysera. Attributet lagrar texten som ska analyseras `id` och kan vara vilket värde som helst. `text` 
-
+Med hjälp av klienten som skapades tidigare anropar du funktionen [entiteter ()](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python#entities-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-) och hämtar resultatet. Iterera sedan igenom resultaten och skriv ut varje dokuments ID och entiteterna i det.
 
 ```python
 documents = [
@@ -159,18 +161,8 @@ documents = [
         "id": "1",
         "language": "en",
         "text": "Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, to develop and sell BASIC interpreters for the Altair 8800."
-    },
-    {
-        "id": "2",
-        "language": "es",
-        "text": "La sede principal de Microsoft se encuentra en la ciudad de Redmond, a 21 kilómetros de Seattle."
     }
 ]
-```
-
-Genom att använda klienten som skapades tidigare `entities()` anropar du funktionen och hämtar resultatet. Iterera sedan igenom resultaten och skriv ut varje dokuments ID och entiteterna i det.
-
-```python
 response = text_analytics.entities(documents=documents)
 
 for document in response.documents:
@@ -183,7 +175,6 @@ for document in response.documents:
             print("\t\t\tOffset: ", match.offset, "\tLength: ", match.length, "\tScore: ",
                   "{:.2f}".format(match.entity_type_score))
 ```
-
 
 ### <a name="output"></a>Output
 
@@ -204,51 +195,20 @@ Document Id:  1
             Offset:  89     Length:  5  Score:  0.80
          NAME:  Altair 8800     Type:  Other    Sub-type:  None
             Offset:  116    Length:  11     Score:  0.80
-Document Id:  2
-    Key Entities:
-         NAME:  Microsoft   Type:  Organization     Sub-type:  None
-            Offset:  21     Length:  9  Score:  1.00
-         NAME:  Redmond (Washington)    Type:  Location     Sub-type:  None
-            Offset:  60     Length:  7  Score:  0.99
-         NAME:  21 kilómetros   Type:  Quantity     Sub-type:  Dimension
-            Offset:  71     Length:  13     Score:  0.80
-         NAME:  Seattle     Type:  Location     Sub-type:  None
-            Offset:  88     Length:  7  Score:  1.00
 ```
 
 ## <a name="key-phrase-extraction"></a>Extrahering av nyckelfraser
 
-Skapa en lista över ord listor som innehåller dokumenten som du vill analysera. Attributet lagrar texten som ska analyseras `id` och kan vara vilket värde som helst. `text` 
-
+Med hjälp av klienten som skapades tidigare anropar du funktionen [key_phrases ()](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python#key-phrases-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-) och hämtar resultatet. Iterera sedan igenom resultaten och skriv ut varje dokuments ID och de viktigaste fraserna i det.
 
 ```python
 documents = [
     {
         "id": "1",
-        "language": "ja",
-        "text": "猫は幸せ"
-    },
-    {
-        "id": "2",
-        "language": "de",
-        "text": "Fahrt nach Stuttgart und dann zum Hotel zu Fu."
-    },
-    {
-        "id": "3",
         "language": "en",
         "text": "My cat might need to see a veterinarian."
-    },
-    {
-        "id": "4",
-        "language": "es",
-        "text": "A mi me encanta el fútbol!"
     }
 ]
-```
-
-Genom att använda klienten som skapades tidigare `key_phrases()` anropar du funktionen och hämtar resultatet. Iterera sedan igenom resultaten och skriv ut varje dokuments ID och de viktigaste fraserna i det.
-
-```python
 response = text_analytics.key_phrases(documents=documents)
 
 for document in response.documents:
@@ -258,34 +218,32 @@ for document in response.documents:
         print("\t\t", phrase)
 ```
 
+
 ### <a name="output"></a>Output
 
 ```console
-Document Id:  1
-    Phrases:
-         幸せ
-Document Id:  2
-    Phrases:
-         Stuttgart
-         Hotel
-         Fahrt
-         Fu
 Document Id:  3
     Phrases:
          cat
          veterinarian
-Document Id:  4
-    Phrases:
-         fútbol
 ```
+
+## <a name="clean-up-resources"></a>Rensa resurser
+
+Om du vill rensa och ta bort en Cognitive Services prenumeration kan du ta bort resursen eller resurs gruppen. Om du tar bort resurs gruppen raderas även andra resurser som är associerade med resurs gruppen.
+
+* [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
 > [Textanalys med Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
 
-## <a name="see-also"></a>Se också
 
-* [Vad är API för textanalys?](../overview.md)
-* [Exempel på användar scenarier](../text-analytics-user-scenarios.md)
-* [Vanliga frågor och svar (FAQ)](../text-analytics-resource-faq.md)
+* [Översikt över Textanalys](../overview.md)
+* [Sentiment-analys](../how-tos/text-analytics-how-to-sentiment-analysis.md)
+* [Enhets igenkänning](../how-tos/text-analytics-how-to-entity-linking.md)
+* [Identifiera språk](../how-tos/text-analytics-how-to-keyword-extraction.md)
+* [Språk igenkänning](../how-tos/text-analytics-how-to-language-detection.md)
+* Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/language/text_analytics_samples.py).

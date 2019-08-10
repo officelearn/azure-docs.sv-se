@@ -1,37 +1,37 @@
 ---
-title: " Skapa en enda sida webbapp - Bing Visual Search"
+title: " Bygg en webb program med en enda sida – Visuell sökning i Bing"
 titleSuffix: Azure Cognitive Services
-description: Lär dig hur du integrerar Bing Visual Search API i ett enkelsidigt program.
+description: Lär dig hur du integrerar API för visuell sökning i Bing i ett webb program med en enda sida.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 04/05/2019
 ms.author: aahi
-ms.openlocfilehash: 084aad5540a2bd56d98e343639a45c16f786e599
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e0370be1c10bc0f5813bec833be78ad31a3d61a7
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60829607"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68880650"
 ---
-# <a name="create-a-visual-search-single-page-web-app"></a>Skapa en enda sida i Visual Search webbapp
+# <a name="create-a-visual-search-single-page-web-app"></a>Skapa en Visuell sökning webb program med en enda sida
 
-Bing Visual Search API returnerar insikter för en bild. Du kan ladda upp en bild, eller så kan du ange en URL till en. Insikterna är snarlika bilder, perioder källor, webbsidor som innehåller bilden och mycket mer. Insikter som returneras av Bing Visual Search API liknar de som visas på Bing.com/images.
+API för visuell sökning i Bing returnerar insikter för en bild. Du kan antingen ladda upp en avbildning eller ange en URL till en. Insikter är visuellt likartade bilder, shopping källor, webb sidor som innehåller avbildningen med mera. Insikter som returneras av API för visuell sökning i Bing liknar de som visas på Bing.com/images.
 
-Den här självstudien beskrivs hur du utökar en enda sida webbapp för sökning i Bing. Om du vill visa självstudien eller hämta källkoden används här, se [självstudien: Skapa en ensidesapp för Bings API för bildsökning](../Bing-Image-Search/tutorial-bing-image-search-single-page-app.md).
+I den här självstudien beskrivs hur du utökar en enskild sidas webbapp för API för bildsökning i Bing. Om du vill visa den själv studie kursen eller hämta käll koden som [används här, se Självstudier: Skapa en app med en sida för API för bildsökning i Bing](../Bing-Image-Search/tutorial-bing-image-search-single-page-app.md).
 
-Den fullständiga källkoden för det här programmet (när du utökar den för att använda Bing Visual Search API), är tillgänglig på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/Bing-Visual-Search/BingVisualSearchApp.html).
+Den fullständiga käll koden för det här programmet (när den har utökats för att använda API för visuell sökning i Bing) finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/Bing-Visual-Search/BingVisualSearchApp.html).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
-## <a name="call-the-bing-visual-search-api-and-handle-the-response"></a>Anropa API i Bing Visual Search och hantera svaret
+## <a name="call-the-bing-visual-search-api-and-handle-the-response"></a>Anropa API för visuell sökning i Bing och hantera svaret
 
-Redigera bildsökning i Bing-självstudiekursen och Lägg till följande kod i slutet av den `<script>` element (och före avslutande `</script>` tagg). Följande kod hanterar ett visual search-svar från API: et, upprepas resultatet och visar dem:
+Redigera bildsökning i Bing själv studie kursen och Lägg till följande kod i slutet av `<script>` -elementet (och före den avslutande `</script>` taggen). Följande kod hanterar ett visuellt Sök svar från API: et, itererar igenom resultaten och visar dem:
 
 ``` javascript
 function handleVisualSearchResponse(){
@@ -63,7 +63,7 @@ function handleVisualSearchResponse(){
 }
 ```
 
-Följande kod skickar en sökbegäran till API: et, med en händelselyssnare för att anropa `handleVisualSearchResponse()`:
+Följande kod skickar en Sök förfrågan till API: et med hjälp av en händelse lyssnare som `handleVisualSearchResponse()`anropar:
 
 ```javascript
 function bingVisualSearch(insightsToken){
@@ -101,7 +101,7 @@ function bingVisualSearch(insightsToken){
 
 ## <a name="capture-insights-token"></a>Samla in insikter token
 
-Lägg till följande kod till den `searchItemsRenderer` objekt. Den här koden lägger till en **find similar**-länk (sök efter liknande) som anropar `bingVisualSearch`-funktionen när du klickar på den. Funktionen tar emot den `imageInsightsToken` som ett argument.
+Lägg till följande kod i `searchItemsRenderer` objektet. Den här koden lägger till en **find similar**-länk (sök efter liknande) som anropar `bingVisualSearch`-funktionen när du klickar på den. Funktionen får `imageInsightsToken` som ett argument.
 
 ``` javascript
 html.push("<a href='javascript:bingVisualSearch(\"" + item.imageInsightsToken + "\");'>find similar</a><br>");
@@ -109,7 +109,7 @@ html.push("<a href='javascript:bingVisualSearch(\"" + item.imageInsightsToken + 
 
 ## <a name="display-similar-images"></a>Visa liknande bilder
 
-Lägg till följande HTML-kod på rad 601. Den här markup koden lägger till ett element för att visa resultatet av Bing Visual Search API-anropet:
+Lägg till följande HTML-kod på rad 601. Den här kod posten lägger till ett-element för att visa resultatet av API för visuell sökning i Bing anropet:
 
 ``` html
 <div id="insights">
@@ -123,4 +123,4 @@ Med all ny JavaScript-kod och HTML-element på plats visas sökresultatet med en
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudie: Beskär en bild med Bing Visual Search SDK förC#](tutorial-visual-search-crop-area-results.md)
+> [Självstudier: Beskär en avbildning med Visuell sökning i Bing SDK förC#](tutorial-visual-search-crop-area-results.md)

@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 03/20/2019
 ms.author: noelc
 ROBOTS: NOINDEX
-ms.openlocfilehash: 382d4febed98b53a469ac2788e6e8c8cbf064c23
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: f0685b65ce9204221e93a1ea4aa47a5e09eaac9f
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854816"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932983"
 ---
 # <a name="what-is-project-acoustics"></a>Vad är Project Acoustics?
 Project-Akustisker är en våg akustisk motor för interaktiva 3D-upplevelser. Den modellerar våg effekter som Diffraction, portaling och reverb-effekter i komplexa scener utan att det krävs någon manuell zon markering. Den omfattar också integrering av spel motor och ljud mellan mellanprogram. Projektets akustiska filosofi liknar statisk belysning: bagerien detaljerad fysik offline för att tillhandahålla en fysisk bas linje och Använd en förenklad körning med lättfattliga programspecifika design kontroller för att möta dina konstnärliga mål.
@@ -40,11 +40,17 @@ Project-akustiska nyckel innovationer är till och med en bra akustisk simulerin
 * **Skapa** Ett analys steg körs lokalt, som voxelization och annan geometrisk analys på scenen baserat på valen ovan. Resultaten visualiseras i redigerings programmet för att verifiera scen inställningarna. Vid insändningen skickas Voxel data till Azure och du får tillbaka en akustisk spel till gång.
 * **Flöde** Läs in till gången till din nivå och du är redo att lyssna på akustiska på din nivå. Utforma de akustiska ljuden i redigeraren med detaljerade kontroller per källa. Kontrollerna kan också köras från nivå skript.
 
-## <a name="platforms"></a>Plattformar
+## <a name="runtime-platforms"></a>Kör tids plattformar
 Plugin-program för Project Akustiske runtime kan för närvarande distribueras till följande plattformar:
 * Windows
+* MacOS
 * Android
 * Xbox One
+
+## <a name="editor-platforms"></a>Redaktörs plattformar
+Plugin-programmet för Project Akustiske Editor är tillgängligt för följande plattformar:
+* Windows
+* MacOS (endast Unity)
 
 ## <a name="download"></a>Ladda ned
 * [Plugin-program och exempel för Project Akustiske Uniting](https://www.microsoft.com/en-us/download/details.aspx?id=57346)

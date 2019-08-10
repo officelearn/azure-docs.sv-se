@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 06/26/2019
 ms.author: aahi
-ms.openlocfilehash: ab3d1e71515df80b5bdba1edf8cd16ba3ed6b0a9
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 786302b882fbd59932af17ccc6a390fa41b30ac9
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68500119"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932963"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-nodejs"></a>Snabbstart: Söka efter videor med hjälp av REST API för videosökning i Bing och Node.js
 
@@ -75,7 +75,7 @@ Använd den här snabbstarten för att skicka ditt första anrop till API:et fö
        });
        ```
 
-# <a name="create-and-send-the-search-request"></a>Skapa och skicka sökbegäran
+## <a name="create-and-send-the-search-request"></a>Skapa och skicka sökbegäran
 
 1. Skapa en funktion som heter `bing_video_search()`. Lägg till parametrarna för din begäran inklusive värdnamn och rubriker. Koda söktermen och lägg till den i sökvägsparametern med parametern `?q=`. Skicka sedan begäran med `req.end()`.
 

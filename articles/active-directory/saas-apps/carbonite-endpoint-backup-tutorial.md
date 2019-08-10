@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/30/2019
+ms.date: 08/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf5bf49538823ea50bca197a78ec54d4ddcae1ff
-ms.sourcegitcommit: 6ad03fa28a0f60cb6dce6144f728c2ceb56ff6e2
+ms.openlocfilehash: e078cb7daa787b9fe5e8bc996b36f0fef198f41c
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68708286"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68879681"
 ---
 # <a name="tutorial-integrate-carbonite-endpoint-backup-with-azure-active-directory"></a>Självstudier: Integrera Carbonite Endpoint backup med Azure Active Directory
 
@@ -125,27 +125,35 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 ### <a name="configure-carbonite-endpoint-backup-sso"></a>Konfigurera Carbonite Endpoint backup SSO
 
-1. Logga in på företags platsen för Carbonite-slutpunkten som administratör i ett annat webbläsarfönster.
+1. Om du vill automatisera konfigurationen inom Carbonite-slutpunktens säkerhets kopiering måste du installera **webb läsar tillägget Mina appar med säker inloggning** genom att klicka på **installera tillägget**.
 
-1. Klicka på **företaget** i det vänstra fönstret.
+    ![Mina Apps-tillägg](common/install-myappssecure-extension.png)
+
+2. När du har lagt till tillägg i webbläsaren, klickar du på **installations Carbonite slut punkt säkerhets kopiering** dirigerar du till Carbonite-slutpunktsmapparen för program vara. Därifrån anger du administratörsautentiseringsuppgifter för att logga in på Carbonite Endpoint backup. Webbläsartillägget konfigurerar automatiskt programmet åt dig och automatiserar steg 3–7.
+
+    ![Konfigurera konfiguration](common/setup-sso.png)
+
+3. Om du vill konfigurera Carbonite-slutpunkten för säkerhets kopiering manuellt öppnar du ett nytt webbläsarfönster och loggar in på din företags webbplats för Carbonite-slutpunkten som administratör och utför följande steg:
+
+4. Klicka på **företaget** i det vänstra fönstret.
 
     ![Konfiguration av Carbonite-slutpunkt ](media/carbonite-endpoint-backup-tutorial/configure1.png)
 
-1. Klicka på **enkel inloggning**.
+5. Klicka på **enkel inloggning**.
 
     ![Konfiguration av Carbonite-slutpunkt ](media/carbonite-endpoint-backup-tutorial/configure2.png)
 
-1. Klicka på **Aktivera** och klicka sedan på **Redigera inställningar** för att konfigurera.
+6. Klicka på **Aktivera** och klicka sedan på **Redigera inställningar** för att konfigurera.
 
     ![Konfiguration av Carbonite-slutpunkt ](media/carbonite-endpoint-backup-tutorial/configure3.png)
 
-1. Utför följande steg på sidan Inställningar för **enkel inloggning** :
+7. Utför följande steg på sidan Inställningar för **enkel inloggning** :
 
     ![Konfiguration av Carbonite-slutpunkt ](media/carbonite-endpoint-backup-tutorial/configure4.png)
 
-    1. I text rutan **namn på identitetsprovider** anger du namnet på identitets leverantören som **Microsoft Azure AD**.
+    1. I text rutan **namn på identitets leverantör** klistrar du in värdet för **Azure AD** -identifieraren, som du har kopierat från Azure Portal.
 
-    1. I text rutan **identitets leverantörens URL** klistrar du in värdet för **Azure AD** -identifieraren, som du har kopierat från Azure Portal.
+    1. I text rutan **URL för identitetsprovider** klistrar du in värdet för inloggnings- **URL** , som du har kopierat från Azure Portal.
 
     1. Klicka på **Välj fil** för att överföra den hämtade **certifikat filen (Base64)** från Azure Portal.
 

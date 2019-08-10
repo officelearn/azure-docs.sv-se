@@ -7,24 +7,24 @@ ms.service: mysql
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
-ms.date: 08/01/2019
-ms.openlocfilehash: 7a88686666d399d37229dd75897e0b926b655131
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.date: 08/07/2019
+ms.openlocfilehash: f54b3f6fa8bb37f57479d6a9e7bc05340e411a48
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68728865"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882930"
 ---
 # <a name="monitor-and-scale-an-azure-database-for-mysql-server-using-azure-cli"></a>Övervaka och skala en Azure Database for MySQL-server med Azure CLI
-Det här CLI-skriptet skalar beräkning och lagring för en enskild Azure Database for MySQL server efter att ha frågat måtten.
+Det här CLI-skriptet skalar beräkning och lagring för en enskild Azure Database for MySQL server efter att ha frågat måtten. Compute kan skala upp eller ned. Lagringen kan bara skalas upp.
 
 [!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
 Om du väljer att köra CLI lokalt måste du ha Azure CLI version 2.0 eller senare. Kontrollera versionen genom att köra `az --version`. [Installera Azure CLI]( /cli/azure/install-azure-cli) innehåller information om hur du installerar eller uppgraderar din version av Azure CLI. 
 
 ## <a name="sample-script"></a>Exempelskript
-I det här exempelskriptet ändrar du de markerade raderna om du vill uppdatera administratörens användarnamn och lösenord till dina egna. Ersätt det prenumerations-ID som `az monitor` används i kommandona med ditt eget prenumerations-ID.  
-[!code-azurecli-interactive[main](../../../cli_scripts/mysql/scale-mysql-server/scale-mysql-server.sh?highlight=15-16 "Create and scale Azure Database for MySQL.")]
+Uppdatera skriptet med ditt prenumerations-ID.
+[!code-azurecli-interactive[main](../../../cli_scripts/mysql/scale-mysql-server/scale-mysql-server.sh "Create and scale Azure Database for MySQL.")]
 
 ## <a name="clean-up-deployment"></a>Rensa distribution
 När skriptet har körts kan följande kommando användas för att ta bort resursgruppen och alla resurser som är kopplade till den. 

@@ -1,7 +1,7 @@
 ---
-title: Felsökning av Bing-taligenkänning | Microsoft Docs
+title: Felsöka Taligenkänning i Bing | Microsoft Docs
 titlesuffix: Azure Cognitive Services
-description: Så här att lösa problem när du använder Bing-taligenkänning.
+description: Lösa problem när du använder Taligenkänning i Bing.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
@@ -11,47 +11,47 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: e70e7b79be7dd4ea55c56898eaf8007d25732366
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f222d9d4cf6c56dea0832938dcb132cf711491bc
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60513961"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934064"
 ---
-# <a name="troubleshooting-bing-speech"></a>Felsökning för Bing-tal
+# <a name="troubleshooting-bing-speech"></a>Felsöka Taligenkänning i Bing
 
 [!INCLUDE [Deprecation note](../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
-## <a name="error-http-403-forbidden"></a>Fel `HTTP 403 Forbidden`
+## <a name="error-http-403-forbidden"></a>Fels`HTTP 403 Forbidden`
 
-När du använder API för taligenkänning, returneras ett `HTTP 403 Forbidden` fel.
+När du använder API: t för tal igenkänning `HTTP 403 Forbidden` returneras ett fel.
 
 ### <a name="cause"></a>Orsak
 
-Det här felet beror ofta på problem med autentisering. Anslutningsbegäranden utan giltig `Ocp-Apim-Subscription-Key` eller `Authorization` rubrik avvisas av tjänsten med ett `HTTP 403 Forbidden` svar.
+Det här felet orsakas ofta av autentiseringsproblem. Anslutnings begär Anden utan `Ocp-Apim-Subscription-Key` giltig `Authorization` eller rubrik avvisas av tjänsten med `HTTP 403 Forbidden` ett svar.
 
-Om du använder prenumerationsnyckel för autentisering, kan orsaken vara
+Om du använder en prenumerations nyckel för autentisering kan orsaken vara att
 
-- prenumerationsnyckeln är ogiltig eller saknas
-- kvot för användning av prenumerationsnyckeln har överskridits
-- den `Ocp-Apim-Subscription-Key` fältet har inte angetts i rubriken, när REST API anropas
+- prenumerations nyckeln saknas eller är ogiltig
+- användnings kvoten för prenumerations nyckeln har överskridits
+- `Ocp-Apim-Subscription-Key` fältet har inte angetts i begär ande huvudet när REST API anropas
 
-Om du använder Autentiseringstoken för autentisering, orsaka följande felet.
+Om du använder autentiseringstoken för autentisering kan följande orsaker orsaka felet.
 
-- den `Authorization` huvud saknas i begäran när du använder REST
-- den autentiseringstoken som anges i auktoriseringsrubriken är ogiltig
-- Autentiseringstoken har upphört att gälla. Åtkomsttoken innehåller ett förfallodatum på 10 minuter
+- `Authorization` rubriken saknas i begäran när rest används
+- den autentiseringstoken som anges i Authorization-huvudet är ogiltig
+- autentiseringstoken har upphört att gälla. Åtkomsttoken har ett förfallo datum på 10 minuter
 
-Mer information om autentisering finns i den [autentisering](How-to/how-to-authentication.md) sidan.
+Mer information om autentisering finns på sidan [autentisering](How-to/how-to-authentication.md) .
 
 ### <a name="troubleshooting-steps"></a>Felsökningsanvisningar
 
-#### <a name="verify-that-your-subscription-key-is-valid"></a>Kontrollera att din prenumerationsnyckel är giltig
+#### <a name="verify-that-your-subscription-key-is-valid"></a>Kontrol lera att prenumerations nyckeln är giltig
 
-Du kan köra följande kommando för att bekräfta. Observera att ersätta *YOUR_SUBSCRIPTION_KEY* med din egen prenumerationsnyckel. Om din prenumerationsnyckel är giltig, får du i svaret autentiseringstoken som en JSON Web Token (JWT). Annars kan du få ett felmeddelande som svar.
+Du kan köra följande kommando för att verifiera. Observera att ersätta *YOUR_SUBSCRIPTION_KEY* med din egen prenumerations nyckel. Om din prenumerations nyckel är giltig får du svar på den token som en JSON Web Token (JWT). Annars får du ett fel som svar.
 
 > [!NOTE]
-> Ersätt `YOUR_SUBSCRIPTION_KEY` med din egen prenumerationsnyckel.
+> Ersätt `YOUR_SUBSCRIPTION_KEY` med din egen prenumerations nyckel.
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -69,25 +69,25 @@ $OAuthToken
 
 ```
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
+# <a name="curltabcurl"></a>[klammerparentes](#tab/curl)
 
-Exemplet använder curl på Linux med bash. Om det inte är tillgänglig på din plattform, kan du behöva installera curl. Exemplet bör också fungera på Cygwin på Windows, Git Bash, zsh och andra gränssnitt.
+Exemplet använder sväng i Linux med bash. Om den inte är tillgänglig på din plattform kan du behöva installera en sväng. Exemplet bör även fungera på Cygwin i Windows, git bash, zsh och andra gränssnitt.
 
 ```
 curl -v -X POST "https://api.cognitive.microsoft.com/sts/v1.0/issueToken" -H "Content-type: application/x-www-form-urlencoded" -H "Content-Length: 0" -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
 ```
 ---
 
-Kontrollera att du använder samma prenumerationsnyckeln i ditt program eller i REST-begäran som används ovan.
+Se till att du använder samma prenumerations nyckel i programmet eller i REST-begäran som används ovan.
 
-#### <a name="verify-the-authorization-token"></a>Kontrollera autentiseringstoken
+#### <a name="verify-the-authorization-token"></a>Verifiera autentiseringstoken
 
-Det här steget behövs bara om du använder Autentiseringstoken för autentisering. Kör följande kommando för att verifiera att autentiseringstoken är fortfarande giltig. Kommandot gör en POST-begäran till tjänsten och förväntar sig ett svarsmeddelande från tjänsten. Om du fortfarande ta emot HTTP `403 Forbidden` fel, kontrollera åtkomst-token är korrekt och inte har gått ut.
+Det här steget behövs bara om du använder autentiseringstoken för autentisering. Kör följande kommando för att kontrol lera att autentiseringstoken fortfarande är giltig. Kommandot gör en POST-begäran till tjänsten och förväntar sig ett svarsmeddelande från tjänsten. Om du fortfarande får ett `403 Forbidden` HTTP-fel kan du kontrol lera att åtkomsttoken är korrekt inställd och inte upphör att gälla.
 
 > [!IMPORTANT]
-> Token har en giltighetstid på 10 minuter.
+> Token har ett förfallo datum på 10 minuter.
 > [!NOTE]
-> Ersätt `YOUR_AUDIO_FILE` med sökvägen till din inspelade ljudfil och `YOUR_ACCESS_TOKEN` med autentiseringstoken som returnerades i föregående steg.
+> Ersätt `YOUR_AUDIO_FILE` med sökvägen till den förregistrerade ljud filen och `YOUR_ACCESS_TOKEN` med den autentiseringstoken som returnerades i föregående steg.
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -113,7 +113,7 @@ $RecoResponse
 
 ```
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
+# <a name="curltabcurl"></a>[klammerparentes](#tab/curl)
 
 ```
 curl -v -X POST "https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=en-us&format=detailed" -H "Transfer-Encoding: chunked" -H "Authorization: Bearer YOUR_ACCESS_TOKEN" -H "Content-type: audio/wav; codec=audio/pcm; samplerate=16000" --data-binary @YOUR_AUDIO_FILE
@@ -121,17 +121,17 @@ curl -v -X POST "https://speech.platform.bing.com/speech/recognition/interactive
 
 ---
 
-## <a name="error-http-400-bad-request"></a>Fel `HTTP 400 Bad Request`
+## <a name="error-http-400-bad-request"></a>Fels`HTTP 400 Bad Request`
 
-Därför är vanligtvis att begärandetexten innehåller ogiltigt ljuddata. För närvarande stöder vi bara WAV-fil.
+Detta är vanligt vis att begär ande texten innehåller ogiltiga ljud data. För närvarande stöder vi bara WAV-filer.
 
-## <a name="error-http-408-request-timeout"></a>Fel `HTTP 408 Request Timeout`
+## <a name="error-http-408-request-timeout"></a>Fels`HTTP 408 Request Timeout`
 
-Felet beror troligen att inga ljud data skickas till tjänsten och tjänsten returnerar det här felet efter tidsgränsen. För REST-API bör ljuddata placeras i begärandetexten.
+Felet beror förmodligen på att inga ljuddata skickas till tjänsten och att tjänsten returnerar felet när tids gränsen har passerats. För REST API ska ljud data placeras i begär ande texten.
 
-## <a name="the-recognitionstatus-in-the-response-is-initialsilencetimeout"></a>Den `RecognitionStatus` i svaret är `InitialSilenceTimeout`
+## <a name="the-recognitionstatus-in-the-response-is-initialsilencetimeout"></a>`RecognitionStatus` I svaret är`InitialSilenceTimeout`
 
-Ljuddata är vanligtvis orsaken orsaken till problemet. Exempel:
+Ljuddata är vanligt vis orsaken till problemet. Exempel:
 
-- ljudet har en lång tystnad tid i början. Tjänsten stoppas erkännande efter vissa antal sekunder och returnerar `InitialSilenceTimeout`.
-- ljudet använder stöds inte codec-format, vilket gör ljuddata behandlas som åsidosatt inaktivitet.
+- ljudet har en lång tystnads tid i början. Tjänsten stoppar igenkänningen efter ett antal sekunder och returnerar `InitialSilenceTimeout`.
+- ljudet använder ett codec-format som inte stöds, vilket gör att ljuddata behandlas som tystnads vis.

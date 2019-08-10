@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 04/25/2019
 ms.author: owend
 ms.reviewer: owend
-ms.openlocfilehash: ea2a6612a568d4080a8df2c569f79aaaa283e9c4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: daebc3e720eec8d958697288922c788a44156778
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64702845"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932386"
 ---
 # <a name="tutorial-connect-with-power-bi-desktop"></a>Självstudie: Ansluta med Power BI Desktop
 
@@ -24,7 +24,7 @@ I den här självstudien använder du Power BI Desktop för att ansluta till exe
 > * Anslut med hjälp av Power BI Desktop
 > * Skapa en enkel rapport
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 - [Lägg till exempelmodelldatabasen adventureworks](../analysis-services-create-sample-model.md) på din server.
 - Se till att du har [*läsbehörighet*](../analysis-services-server-admins.md) för exempelmodelldatabasen adventureworks.
@@ -71,4 +71,4 @@ Välj **Azure Portal** > server > **Översikt** > **Servernamn** och kopiera ser
 Om du inte behöver rapporten längre behöver du inte spara den. Du kan också ta bort filen om du har sparat den.
 
 ## <a name="next-steps"></a>Nästa steg
-I den här självstudien har du lärt dig att använda Power BI Desktop för att ansluta till en datamodell på en server och skapa en enkel rapport. Om du inte är bekant med att skapa en datamodell, finns i den [Adventure Works Internet Sales tabelldata modellering självstudien](https://docs.microsoft.com/sql/analysis-services/tutorial-tabular-1400/as-adventure-works-tutorial) i SQL Server Analysis Services-dokumenten.
+I den här självstudien har du lärt dig att använda Power BI Desktop för att ansluta till en datamodell på en server och skapa en enkel rapport. Om du inte är bekant med hur du skapar en data modell kan du läsa [själv studie kursen om data modellering i Adventure Works Internet Sales](https://docs.microsoft.com/analysis-services/tutorial-tabular-1400/as-adventure-works-tutorial) i SQL Server Analysis Services-dokumenten.

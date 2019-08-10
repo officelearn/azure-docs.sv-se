@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 3bc06a8903fbc431d991e6ef2a4aad8fbaff2365
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: f254572f5c26a809f401e99f527ccd3d30451c3d
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736872"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68931587"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Självstudier: Logga nätverkstrafik till och från en virtuell dator med hjälp av Azure-portalen
 
@@ -108,6 +108,11 @@ Providern **Microsoft.Insights** krävs för NSG-flödesloggning. Registrera pro
    ![Välj flödes logg version](./media/network-watcher-nsg-flow-logging-portal/select-flow-log-version.png)
 
 9. Välj lagringskontot som du skapade i steg 3.
+   > [!NOTE]
+   > NSG flödes loggar fungerar inte med lagrings konton om:
+   > * Lagrings kontona har en brand vägg aktive rad.
+   > * [Hierarkiskt namn område](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace) har Aktiver ATS för lagrings kontona.
+1. Välj **Alla tjänster** längst upp till vänster på portalen. Skriv *Network Watcher* i **filterrutan**. När **Network Watcher** visas i sökresultatet väljer du posten.
 10. Ange **Bevarande (dagar)** till 5 och välj sedan **Spara**.
 
 ## <a name="download-flow-log"></a>Ladda ned flödeslogg
@@ -212,7 +217,7 @@ Värdet för **mac** i föregående utdata är nätverksgränssnittets MAC-adres
 | G            | Action                 | Anger om trafiken tilläts (A) eller nekades (D).  
 | C            | Flödestillstånd **endast version 2** | Registrerad flödets tillstånd. Möjliga tillstånd är **B**: Början när ett flöde skapas. Statistik tillhandahålls inte. **C**: Fortsätter för ett pågående flöde. Statistik tillhandahålls med 5 minuters mellanrum. **E**: Slutet (End), när ett flöde avslutas. Statistik tillhandahålls. |
 | 30 | Skickade paket – källa till mål **endast version 2** | Det totala antalet TCP- eller UDP-paket som skickats från källa till mål sedan den senaste uppdateringen. |
-| 16978 | Skickade byte – källa till mål **endast version 2** | Det totala antalet TCP- eller UDP-paketbyte som skickats från källa till mål sedan den senaste uppdateringen. Paketbyte omfattar paketets huvud och nyttolast. | 
+| 16978 | Skickade byte – källa till mål **endast version 2** | Det totala antalet TCP- eller UDP-paketbyte som skickats från källa till mål sedan den senaste uppdateringen. Paketbyte omfattar paketets huvud och nyttolast. |
 | 24 | Skickade paket – mål till källa **endast version 2** | Det totala antalet TCP- eller UDP-paket som skickats från mål till källa sedan den senaste uppdateringen. |
 | 14008| Skickade byte – mål till källa **endast version 2** | Det totala antalet TCP- och UDP-paketbyte som skickats från mål till källa sedan den senaste uppdateringen. Paketbyte omfattar paketets huvud och nyttolast.|
 

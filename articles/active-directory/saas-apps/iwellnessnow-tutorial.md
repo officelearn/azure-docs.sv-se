@@ -1,242 +1,176 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med iWellnessNow | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory integrering med iWellnessNow | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och iWellnessNow.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 24ffc841-7a77-481c-9cc4-6f8bda58fe66
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/16/2018
+ms.topic: tutorial
+ms.date: 08/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 02b831df98db5b9d63873a0da93e603cd7cbf308
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8ff8fd2eb14f1af5133669ad20f303d36ff5af80
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60269179"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68931827"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-iwellnessnow"></a>Självstudier: Azure Active Directory-integrering med iWellnessNow
+# <a name="tutorial-integrate-iwellnessnow-with-azure-active-directory"></a>Självstudier: Integrera iWellnessNow med Azure Active Directory
 
-I den här självstudien får du lära dig hur du integrerar iWellnessNow med Azure Active Directory (AD Azure).
+I den här självstudien får du lära dig hur du integrerar iWellnessNow med Azure Active Directory (Azure AD). När du integrerar iWellnessNow med Azure AD kan du:
 
-Integrera iWellnessNow med Azure AD ger dig följande fördelar:
+* Kontroll i Azure AD som har åtkomst till iWellnessNow.
+* Gör det möjligt för användarna att logga in automatiskt till iWellnessNow med sina Azure AD-konton.
+* Hantera dina konton på en central plats – Azure Portal.
 
-- Du kan styra i Azure AD som har åtkomst till iWellnessNow.
-- Du kan aktivera användarna att automatiskt få loggat in på iWellnessNow (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure portal.
+Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+## <a name="prerequisites"></a>Förutsättningar
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+För att komma igång behöver du följande objekt:
 
-Om du vill konfigurera Azure AD-integrering med iWellnessNow, behöver du följande objekt:
-
-- En Azure AD-prenumeration
-- En iWellnessNow enkel inloggning aktiverat prenumeration
-
-> [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
-
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
-
-- Använd inte din produktionsmiljö, om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
+* iWellnessNow för enkel inloggning (SSO) aktive rad.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-1. Att lägga till iWellnessNow från galleriet
-1. Konfigurera och testa Azure AD enkel inloggning
+I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
 
-## <a name="adding-iwellnessnow-from-the-gallery"></a>Att lägga till iWellnessNow från galleriet
-För att konfigurera integrering av iWellnessNow i Azure AD, som du behöver lägga till iWellnessNow från galleriet i din lista över hanterade SaaS-appar.
+* iWellnessNow stöder **SP-och IDP** -INITIERAd SSO
 
-**Utför följande steg för att lägga till iWellnessNow från galleriet:**
+## <a name="adding-iwellnessnow-from-the-gallery"></a>Lägga till iWellnessNow från galleriet
 
-1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+Om du vill konfigurera integreringen av iWellnessNow i Azure AD måste du lägga till iWellnessNow från galleriet i listan över hanterade SaaS-appar.
 
-    ![Azure Active Directory-knappen][1]
-
-1. Gå till **företagsprogram**. Gå till **alla program**.
-
-    ![Bladet för Enterprise-program][2]
-    
-1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
-
-    ![Knappen Nytt program][3]
-
-1. I sökrutan skriver **iWellnessNow**väljer **iWellnessNow** resultatet panelen klickar **Lägg till** för att lägga till programmet.
-
-    ![iWellnessNow i resultatlistan](./media/iwellnessnow-tutorial/tutorial_iwellnessnow_addfromgallery.png)
+1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
+1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** .
+1. Navigera till **företags program** och välj sedan **alla program**.
+1. Välj **nytt program**om du vill lägga till ett nytt program.
+1. I avsnittet **Lägg till från galleriet** , skriver du **iWellnessNow** i sökrutan.
+1. Välj **iWellnessNow** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med iWellnessNow baserat på en testanvändare som kallas ”Britta Simon”.
+Konfigurera och testa Azure AD SSO med iWellnessNow med hjälp av en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i iWellnessNow.
 
-För enkel inloggning att fungera, behöver Azure AD du veta vad användaren motsvarighet i iWellnessNow är till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i iWellnessNow upprättas.
+Om du vill konfigurera och testa Azure AD SSO med iWellnessNow, slutför du följande Bygg stenar:
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med iWellnessNow, måste du utföra följande byggblock:
+1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera IWELLNESSNOW SSO](#configure-iwellnessnow-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
+3. **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
+4. **[Tilldela Azure AD](#assign-the-azure-ad-test-user)** -testuser-för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
+5. **[Skapa iWellnessNow test User](#create-iwellnessnow-test-user)** -om du vill ha en motsvarighet till B. Simon i iWellnessNow som är länkad till Azure AD-representation av användare.
+6. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-1. **[Skapa en testanvändare iWellnessNow](#create-an-iwellnessnow-test-user)**  – du har en motsvarighet för Britta Simon i iWellnessNow som är länkad till en Azure AD-representation av användaren.
-1. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-1. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+### <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt iWellnessNow program.
+1. I [Azure Portal](https://portal.azure.com/)går du till sidan för program integrering i **iWellnessNow** , letar upp avsnittet **Hantera** och väljer **enkel inloggning**.
+1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
+1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
 
-**Utför följande steg för att konfigurera Azure AD enkel inloggning med iWellnessNow:**
+   ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-1. I Azure-portalen på den **iWellnessNow** program integration-sidan klickar du på **enkel inloggning**.
+1. I avsnittet **grundläggande SAML-konfiguration** , om du har en **metadata-fil för Service Provider** och vill konfigurera i **IDP** initierat läge, utför du följande steg:
 
-    ![Konfigurera enkel inloggning för länken][4]
+    a. Klicka på **Ladda upp metadatafil**.
 
-1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
- 
-    ![Enkel inloggning för dialogrutan](./media/iwellnessnow-tutorial/tutorial_iwellnessnow_samlbase.png)
+    ![Ladda upp metadatafil](common/upload-metadata.png)
 
-1. På den **iWellnessNow domän och URL: er** om du har **tjänstleverantör metadatafil** och vill konfigurera programmet i **IDP** initierade läge, utför den följande steg:
+    b. Klicka på **mappikonen** för att välja metadatafilen och klicka på **Ladda upp**.
 
-    ![ladda upp iWellnessNow domän och URL: er enkel inloggning](./media/iwellnessnow-tutorial/tutorial_iwellnessnow_upload.png)
+    ![välj metadatafil](common/browse-upload-metadata.png)
 
-    a. Klicka på **ladda upp metadatafilen**.
+    c. När metadatafilen har laddats upp, fylls **ID** och **svars-URL** -värden automatiskt i avsnittet grundläggande SAML-konfiguration.
 
-    ![uploadconfig iWellnessNow domän och URL: er enkel inloggning](./media/iwellnessnow-tutorial/tutorial_iwellnessnow_uploadconfig.png)
+    ![image](common/idp-intiated.png)
 
-    b. Klicka på **mappen logotyp** att välja metadatafilen och klicka på **överför**.
-    
-    c. När installationen har slutförts överför **tjänstleverantör metadatafil** den **identifierare** och **svars-URL** värden får automatiskt ifylld i  **iWellnessNow domän och URL: er** avsnittet textrutan som visas nedan:
+    > [!Note]
+    > Om värdena **Identifierare** och **Svars-URL** inte fylls i automatiskt fyller du i värdena manuellt enligt dina krav.
 
-    ![iWellnessNow domän och URL: er enkel inloggning för information](./media/iwellnessnow-tutorial/tutorial_iwellnessnow_url3.png)
+1. Om du inte har en **metadatafil för tjänst leverantör** och vill konfigurera programmet i **IDP** initierat läge utför du följande steg:
 
-1. Om du inte har **tjänstleverantör metadatafil** och vill konfigurera programmet i **IDP** initierade läge, utför följande steg:
-
-    ![iWellnessNow domän och URL: er enkel inloggning för information](./media/iwellnessnow-tutorial/tutorial_iwellnessnow_url.png)
+    ![information om enkel inloggning för iWellnessNow-domän och URL: er](common/idp-intiated.png)
 
     a. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: `http://<CustomerName>.iwellnessnow.com`
 
     b. I den **svars-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<CustomerName>.iwellnessnow.com/ssologin`
 
-1. Kontrollera **visa avancerade URL-inställningar** och utföra följande steg om du vill konfigurera programmet i **SP** initierade läge:
+1. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    ![iWellnessNow domän och URL: er enkel inloggning för information](./media/iwellnessnow-tutorial/tutorial_iwellnessnow_url1.png)
+    ![image](common/metadata-upload-additional-signon.png)
 
-    I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<CustomerName>.iwellnessnow.com/`
-     
-    > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera de här värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [iWellnessNow klienten supportteamet](mailto:info@iwellnessnow.com) att hämta dessa värden.
+    I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://<CustomerName>.iwellnessnow.com/`
 
-1. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
+    > [!NOTE]
+    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL, identifierare och svars-URL. Kontakta [IWellnessNow client support team](mailto:info@iwellnessnow.com) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-    ![Länk för hämtning av certifikat](./media/iwellnessnow-tutorial/tutorial_iwellnessnow_certificate.png) 
+1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , letar du reda på **metadata-XML** och väljer **Hämta** för att ladda ned certifikatet och spara det på din dator.
 
-1. Klicka på **spara** knappen.
+    ![Länk för hämtning av certifikat](common/metadataxml.png)
 
-    ![Konfigurera enkel inloggning spara-knapp](./media/iwellnessnow-tutorial/tutorial_general_400.png)
-    
-1. Att konfigurera enkel inloggning på **iWellnessNow** sida, som du behöver skicka de hämtade **XML-Metadata för** till [iWellnessNow supportteamet](mailto:info@iwellnessnow.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+1. I avsnittet **Konfigurera iWellnessNow** kopierar du lämpliga URL: er baserat på ditt krav.
+
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
+
+### <a name="configure-iwellnessnow-sso"></a>Konfigurera iWellnessNow SSO
+
+Om du vill konfigurera enkel inloggning på **iWellnessNow** sida måste du skicka den hämtade **XML-metadata för federationsmetadata** och lämpliga kopierade url: er från Azure Portal till [support teamet för iWellnessNow](mailto:info@iwellnessnow.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
 
-   ![Skapa en Azure AD-testanvändare][100]
-
-**Utför följande steg för att skapa en testanvändare i Azure AD:**
-
-1. I Azure-portalen, i den vänstra rutan klickar du på den **Azure Active Directory** knappen.
-
-    ![Azure Active Directory-knappen](./media/iwellnessnow-tutorial/create_aaduser_01.png)
-
-1. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
-
-    ![”Användare och grupper” och ”alla användare”-länkar](./media/iwellnessnow-tutorial/create_aaduser_02.png)
-
-1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
-
-    ![Knappen Lägg till](./media/iwellnessnow-tutorial/create_aaduser_03.png)
-
-1. I den **användaren** dialogrutan utför följande steg:
-
-    ![Dialogrutan användare](./media/iwellnessnow-tutorial/create_aaduser_04.png)
-
-    a. I den **namn** skriver **BrittaSimon**.
-
-    b. I den **användarnamn** skriver användarens Britta Simon e-postadress.
-
-    c. Välj den **visa lösenord** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** box.
-
-    d. Klicka på **Skapa**.
- 
-### <a name="create-an-iwellnessnow-test-user"></a>Skapa en iWellnessNow testanvändare
-
-I det här avsnittet skapar du en användare som kallas Britta Simon i iWellnessNow. Arbeta med [iWellnessNow supportteamet](mailto:info@iwellnessnow.com) att lägga till användare i iWellnessNow-plattformen. Användarna måste skapas och aktiveras innan du använder enkel inloggning
+1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
+1. Välj **ny användare** överst på skärmen.
+1. I **användar** egenskaperna följer du de här stegen:
+   1. I **Namn**-fältet skriver du `B.Simon`.  
+   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+   1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
+   1. Klicka på **Skapa**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till iWellnessNow.
+I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till iWellnessNow.
 
-![Tilldela rollen][200] 
+1. I Azure Portal väljer du **företags program**och väljer sedan **alla program**.
+1. I listan program väljer du **iWellnessNow**.
+1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
 
-**Om du vill tilldela Britta Simon iWellnessNow, utför du följande steg:**
+   ![Länken ”användare och grupper”](common/users-groups-blade.png)
 
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
+1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
 
-    ![Tilldela användare][201] 
+    ![Länken Lägg till användare](common/add-assign-user.png)
 
-1. I listan med program väljer **iWellnessNow**.
+1. I dialog rutan **användare och grupper** väljer du **B. Simon** från listan användare och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Om du förväntar dig ett roll värde i SAML Assertion, i dialog rutan **Välj roll** , väljer du lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-    ![Länken iWellnessNow i listan med program](./media/iwellnessnow-tutorial/tutorial_iwellnessnow_app.png)  
+### <a name="create-iwellnessnow-test-user"></a>Skapa iWellnessNow test användare
 
-1. I menyn till vänster, klickar du på **användare och grupper**.
+I det här avsnittet skapar du en användare som heter Britta Simon i iWellnessNow. Arbeta med [iWellnessNow support team](mailto:info@iwellnessnow.com) för att lägga till användare i iWellnessNow-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
-    ![Länken ”användare och grupper”][202]
-
-1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
-
-    ![Fönstret Lägg till tilldelning][203]
-
-1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
-
-1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
-
-1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
-    
-### <a name="test-single-sign-on"></a>Testa enkel inloggning
+### <a name="test-sso"></a>Testa SSO
 
 I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
-När du klickar på panelen iWellnessNow i åtkomstpanelen du bör få automatiskt loggat in på ditt iWellnessNow program.
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md). 
+När du klickar på panelen iWellnessNow på åtkomst panelen, bör du loggas in automatiskt på den iWellnessNow som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/iwellnessnow-tutorial/tutorial_general_01.png
-[2]: ./media/iwellnessnow-tutorial/tutorial_general_02.png
-[3]: ./media/iwellnessnow-tutorial/tutorial_general_03.png
-[4]: ./media/iwellnessnow-tutorial/tutorial_general_04.png
-
-[100]: ./media/iwellnessnow-tutorial/tutorial_general_100.png
-
-[200]: ./media/iwellnessnow-tutorial/tutorial_general_200.png
-[201]: ./media/iwellnessnow-tutorial/tutorial_general_201.png
-[202]: ./media/iwellnessnow-tutorial/tutorial_general_202.png
-[203]: ./media/iwellnessnow-tutorial/tutorial_general_203.png
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

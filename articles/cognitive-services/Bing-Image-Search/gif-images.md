@@ -1,63 +1,63 @@
 ---
-title: Sök efter GIF-bilder med hjälp av den bildsökning i Bing
+title: Sök efter GIF-bilder med hjälp av API för bildsökning i Bing
 titleSuffix: Azure Cognitive Services
-description: Använda sökning i Bing för att söka efter .gif bilder på webben.
+description: Använd API för bildsökning i Bing för att söka efter. gif-bilder på webben.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/24/2018
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 0a2040424aa70f30831e214ce0b05d21414ff45c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a8c9afa618df468e038c80f72713b12c7f6ee226
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66389397"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68882297"
 ---
 # <a name="search-for-gif-images"></a>Sök efter GIF-bilder 
 
-Sökning i Bing kan du också söka i hela webb för de mest relevanta .gif-avbildningarna.  Utvecklare kan integrera engagerande GIF-filer i olika scenarier för konversationen. 
+Med API för bildsökning i Bing kan du också söka på hela webben efter de mest relevanta. gif-bilderna.  Utvecklare kan integrera intressanta gif i olika konversations scenarier. 
 
-Följande URL är en fråga för animerad GIF-avbildningar.
+Följande URL är en fråga för animerade. gif-bilder.
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=interesting&imageType=AnimatedGif&mkt=en-us
 ```
-Den [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#query) parametern anger sökvillkor.  Den föregående frågan anger också `animatedGif` med hjälp av den [imageType](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imagetype) filter-parametern.
+Parametern [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#query) anger Sök villkoren.  Den föregående frågan anger `animatedGif` även med hjälp av filter parametern [imageType](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#imagetype) .
 
-Om du vill se exempel på resultat att använda följande URL för att söka bing.com.
+Om du vill se exempel på resultat använder du följande URL för att söka i bing.com.
 ```
 https://www.bing.com/images/search?q=interesting&qft=%20filterui%3Aphoto-animatedgif
 
 ```
 ## <a name="query-parameters"></a>Frågeparametrar
 
-Mer information om frågeparametrar och alternativ finns i den [bild Search API-referens](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#query-parameters). Ett exempel som visas nedan under rubriken [exempel Sök efter animerad gif med hjälp av Java](#gifExample).
+Mer information om frågeparametrar och alternativ finns i [bildsökning API-referens](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#query-parameters). Ett exempel visas under rubriken [exempel Sök efter animerad GIF med Java](#gifExample).
 
 ## <a name="tips-and-suggestions"></a>Användbara tips och råd
 
-- Du kan ange [maxFileSize](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#maxfilesize) och [minFileSize](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#minfilesize) parametrar. Vi rekommenderar att maxFileSize = 2000000 eftersom merparten av GIF-filer i vårt index är under 2MB.  Detta hjälper också till att kontrollera storleken på data när bandbredd är viktig, t.ex i mobila mobila scenarier.
-- Du kan förbättra upplevd prestanda genom att läsa in miniatyrbilden först före inläsning av käll-url.  
-- För första gången eller startsida annons där du inte har en användarfråga ännu, försök att använda våra populära gif-sökningar för att från den [populära bilder API](trending-images.md).
-- Det finns tre inställningar för den [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#safesearch) parametern.  Den `strict` alternativet blockerar vuxet innehåll.
-- Se [mkt](supported-countries-markets.md) fullständig lista över språk och platser som stöds.
-- *AnimatedGifHttps* endast returnerar animerade GIF-bilder från en https-adress. Många program kräver anslutning till externa länkar för säkerhet, över https. Till exempel kräver Apple App Store anslutning till webbtjänster via HTTPS, som krypterar användardata säker under överföringen.
+- Du kan ange parametrarna [maxFileSize](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#maxfilesize) och [minFileSize](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#minfilesize) . Vi rekommenderar att du ställer in maxFileSize = 2000000 som merparten av GIF i vårt index är under 2 MB.  Detta hjälper också till att kontrol lera data storleken om bandbredden är ett problem, till exempel i mobila mobil scenarier.
+- För att förbättra uppfattandet av prestanda måste du först läsa in miniatyren innan du läser in käll-URL: en.  
+- För första körnings-eller landnings sidan där du inte har en användar fråga än, kan du prova med hjälp av vår Trends GIF-bilds ökning för att få hjälp från [API: et](trending-images.md)för Trends ökning
+- Det finns tre inställningar för parametern [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#safesearch) .  `strict` Alternativet blockerar vuxen innehåll.
+- Se [mkt](supported-countries-markets.md) för en fullständig lista över språk och platser som stöds.
+- *AnimatedGifHttps* returnerar endast animerade GIF-bilder från en HTTPS-adress. För säkerhet kräver många program anslutning till externa webb länkar via https. Till exempel kräver Apple App Store anslutning till webb tjänster via HTTPS, som krypterar användar data under överföring.
 
 <a name="gifExample" />
 
-## <a name="example-search-for-animated-gif-using-java"></a>Exempel Sök efter animerad gif med hjälp av Java
+## <a name="example-search-for-animated-gif-using-java"></a>Exempel sökning efter animerad GIF med Java
 
-Följande URL söker efter animerade GIF-bilder: `q=interesting`
+Följande URL söker efter animerade. gif-bilder:`q=interesting`
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=interesting&imageType=AnimatedGif&mkt=en-us
 
 ```
-I följande exempel visas URL-frågan kräver [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#headers) rubrik.
+Som du ser i följande exempel kräver URL-frågan [OCP-APIM-Subscription-Key-](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#headers) huvud.
 
-Java-exemplet nedan skapar och skickar en begäran.
+Följande Java-exempel skapar och skickar begäran.
 
 ```
 package gifSearch;
@@ -171,7 +171,7 @@ class SearchResults{
 ```
 
 ## <a name="results"></a>Resultat
-Koden får följande resultat som JSON-objekt:
+Koden hämtar följande resultat som JSON-objekt:
 
 ```json
     {
@@ -209,4 +209,4 @@ Koden får följande resultat som JSON-objekt:
 
 ## <a name="next-steps"></a>Nästa steg
 - [Snabbstart för C#](quickstarts/csharp.md)
-- [Självstudie för bildsökning ensidesprogram](tutorial-bing-image-search-single-page-app.md)
+- [Självstudie Bildsökning ett program med en sida](tutorial-bing-image-search-single-page-app.md)

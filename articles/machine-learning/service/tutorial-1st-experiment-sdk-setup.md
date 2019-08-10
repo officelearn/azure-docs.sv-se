@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Installations miljö och arbets yta.'
+title: 'Självstudier: Konfigurera miljö och arbets yta.'
 titleSuffix: Azure Machine Learning service
 description: I den här själv studie serien slutför du stegen från slut punkt till slut punkt för att komma igång med Azure Machine Learning python SDK som körs i Jupyter Notebooks.  Del ett omfattar att skapa en bärbar Server miljö för molnet och att skapa en arbets yta för att hantera experiment-och maskin inlärnings modeller.
 services: machine-learning
@@ -10,14 +10,14 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 07/20/2019
-ms.openlocfilehash: b3fdcfbb9869c0199c91f5bbc6ca1f02fec996cf
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 70fee90fb82618a409d2566a3235ad8ca42e1760
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828655"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934417"
 ---
-# <a name="tutorial-setup-environment-and-workspace"></a>Självstudier: Installations miljö och arbets yta
+# <a name="tutorial-set-up-environment-and-workspace"></a>Självstudier: Konfigurera miljö och arbets yta
 
 I den här självstudien slutför du stegen från slut punkt till slut punkt för att komma igång med Azure Machine Learning python SDK som körs i Jupyter Notebooks. Den här självstudien är **del ett i en själv studie kurs i två delar**, och täcker konfiguration och konfiguration av python-miljön, samt skapa en arbets yta för att hantera experiment och maskin inlärnings modeller. [**Del två**](tutorial-1st-experiment-sdk-train.md) bygger på detta för att träna flera Machine Learning-modeller och introducera modell hanterings processen med hjälp av både Azure Portal och SDK.
 
@@ -25,7 +25,7 @@ I den här kursen för du göra följande:
 
 > [!div class="checklist"]
 > * Skapa en Machine Learning-arbetsyta som ska användas i nästa självstudie.
-> * Skapa en virtuell dator för Notebook, en molnbaserad Jupyter Notebook-server med Azure Machine Learning python SDK förinstallerat och förkonfigurerat.
+> * Skapa en molnbaserad Jupyter Notebook-baserad virtuell dator med Azure Machine Learning python SDK installerat och förkonfigurerat.
 
 ## <a name="prerequisites"></a>Förutsättningar
 

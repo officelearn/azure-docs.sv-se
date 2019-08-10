@@ -11,19 +11,19 @@ ms.topic: quickstart
 ms.date: 03/20/2019
 ms.author: noelc
 ROBOTS: NOINDEX
-ms.openlocfilehash: 8809c80f2ecba4ea2b3e3d280be0c4ad81d78d37
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 927ce403130460c302f546038ff3a0c3a16e0368
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854839"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933027"
 ---
 # <a name="project-acoustics-unrealwwise-quickstart"></a>Snabb start för projekt Akustisker Unreal/Wwise
 I den här snabb starten kommer du att experimentera med projekt akustiska design kontroller som använder tillhandahållet exempel innehåll för Unreal-motorn och Wwise.
 
-Program varu krav:
-* [Unreal-motor](https://www.unrealengine.com/) 4,21
-* [AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/) -2018.1.6
+Program varu krav för att använda exempel innehåll:
+* [Unreal-motor](https://www.unrealengine.com/) 4,22
+* [AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/) -2019.1.2
 
 ## <a name="download-the-sample-package"></a>Ladda ned exempel paketet
 Hämta [exempel paketet Project Akustiske Unreal + Wwise](https://www.microsoft.com/download/details.aspx?id=58090). Exempel paketet innehåller ett Unreal-motorprogram, Wwise-projektet för det Unreal-projektet och projektet akustiska Wwise-plugin-programmet.
@@ -55,12 +55,16 @@ Unreal-plugin-programmet för Project Akustiske kräver att ytterligare beteende
 
     ![Skärm bild av kod redigeraren som visar DXSDK kommenterad](media/directx-sdk-comment.png)
 
+* Om du kompilerar med Visual Studio 2019 för att undvika ett länknings fel med Wwise redigerar `VSVersion` du standardvärdet manuellt i `vc150` `AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs` till:
+
+    ![Skärm bild av kod redigeraren som visar VSVersion ändrat till vc150](media/vsversion-comment.png)
+
 ### <a name="open-the-unreal-project"></a>Öppna Unreal-projektet. 
 Du uppmanas att återskapa moduler. Klicka på Ja.
 
 >Om det inte går att öppna projektet vid build-fel, kontrollerar du att du har installerat plugin-programmet för Project Akustiske Wwise till samma version av Wwise som används i projektets akustiska exempel projekt.
 
->Om du inte använder [AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/) 2018.1.6 måste du återskapa ljud banker innan ljudet kan spelas upp i exempelprojektet.
+>Om du använder en version av [AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/) som är tidigare än 2019,1 kommer du inte att kunna generera ljud banker med projektets akustiska exempel projekt.  Det krävs för att integrera Wwise version 2019,1 i exempelprojektet för korrekt användning.
 
 ## <a name="experiment-with-project-acoustics-design-controls"></a>Experimentera med design kontroller för projekt akustiskt
 Lyssna på hur scenen låter genom att klicka på uppspelnings knappen i Unreal-redigeraren. Använd W, A, S, D och musen på Skriv bordet för att flytta runt. Om du vill se tangentbordsgenvägar för fler kontroller trycker du på **F1**. Här är några design aktiviteter att prova:

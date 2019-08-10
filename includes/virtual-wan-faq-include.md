@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 07/22/2019
+ms.date: 08/06/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: c46c11ead645b93d7710d1e11636037e4dcaf8e7
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 8a4bbe92cc1b34801abffa1e905d873d4382025a
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68444574"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912510"
 ---
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpngateway"></a>Vad är skillnaden mellan en virtuell nätverksgateway i Azure (VPN Gateway) och en Azure Virtual WAN-vpngateway?
 
@@ -103,7 +103,7 @@ En enkel konfiguration av ett virtuellt WAN med en hubb och en vpnsite kan skapa
 
 Ja, det finns stöd för gren-till-gren-anslutningar i Virtual WAN för VPN och VPN till ExpressRoute. Även om VPN plats-till-plats är GA, är ExpressRoute för närvarande en för hands version.
 
-### <a name="does-branch-to-branch-traffic-traverse-through-the-azure-virtual-wan"></a>Kan gren-till-gren-trafik användas i Azure Virtual WAN?
+### <a name="does-branch-to-branch-traffic-traverse-through-the-azure-virtual-wan"></a>Passerar gren-till-gren-trafik via det virtuella Azure-nätverket?
 
 Ja.
 
@@ -122,6 +122,10 @@ Nej, Virtual WAN kräver inte ExpressRoute från varje plats. Virtual WAN använ
 ### <a name="is-there-a-network-throughput-limit-when-using-azure-virtual-wan"></a>Finns det någon gräns för nätverksdataflöde vid användning av Azure Virtual WAN?
 
 Antalet grenar är begränsat till 1000 anslutningar per hubb/region och totalt 20 Gbit/s i hubben.
+
+### <a name="i-dont-see-the-20-gbps-setting-for-the-virtual-hub-in-the-portal-how-do-i-configure-that"></a>Jag ser inte inställningen 20 Gbit/s för den virtuella hubben i portalen. Hur gör jag för att konfigurera?
+
+För närvarande kan du konfigurera gateway-enheternas skalnings enheter för 20 Gbit/s med hjälp av cmdleten [Update-AzVpnGateway](https://docs.microsoft.com/powershell/module/az.network/update-azvpngateway) . Den här inställningen finns i översikten som är tillgänglig i portalen.
 
 ### <a name="how-many-vpn-connections-does-a-virtual-wan-hub-support"></a>Hur många VPN-anslutningar stöder en virtuell WAN-hubb?
 

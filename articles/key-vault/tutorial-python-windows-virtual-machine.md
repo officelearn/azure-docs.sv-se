@@ -1,6 +1,6 @@
 ---
-title: Självstudiekurs – använda Azure Key Vault med en Windows-dator i Python | Microsoft Docs
-description: I den här självstudien konfigurerar du ett ASP.NET core-program att läsa en hemlighet från ditt nyckelvalv.
+title: Självstudie – använda Azure Key Vault med en virtuell Windows-dator i python | Microsoft Docs
+description: I den här självstudien konfigurerar du ett ASP.NET Core-program för att läsa en hemlighet från ditt nyckel valv.
 services: key-vault
 author: msmbaldwin
 manager: rajvijan
@@ -9,18 +9,18 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: cdc540f2f6fa834a97c4c405276414f29672e5c7
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: ae9aaea91f62a7e79835e65a5a9f9c76017afdb1
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876676"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934390"
 ---
-# <a name="tutorial-use-azure-key-vault-with-a-windows-virtual-machine-in-python"></a>Självstudier: Använda Azure Key Vault med en Windows-dator i Python
+# <a name="tutorial-use-azure-key-vault-with-a-windows-virtual-machine-in-python"></a>Självstudier: Använda Azure Key Vault med en virtuell Windows-dator i python
 
-Azure Key Vault hjälper dig att skydda hemligheter, till exempel API-nycklar, databasanslutningssträngar som du behöver komma åt dina program, tjänster och IT-resurser.
+Azure Key Vault hjälper dig att skydda hemligheter, t. ex. API-nycklar, databas anslutnings strängarna som du behöver för att få åtkomst till dina program, tjänster och IT-resurser.
 
-I den här självstudien får du lära dig hur du hämtar ett konsolprogram för att läsa information från Azure Key Vault. Om du vill göra det använder du hanterade identiteter för Azure-resurser. 
+I den här självstudien får du lära dig hur du hämtar ett konsol program för att läsa information från Azure Key Vault. Om du vill göra det använder du hanterade identiteter för Azure-resurser. 
 
 Självstudien visar hur du:
 
@@ -30,27 +30,27 @@ Självstudien visar hur du:
 > * Hämta en hemlighet från nyckelvalvet.
 > * Skapa en virtuell dator i Azure.
 > * Aktivera en hanterad identitet.
-> * Tilldela behörigheter till identitet för virtuell dator.
+> * Tilldela behörigheter till den virtuella datorns identitet.
 
-Innan du börjar läsa [grundläggande begrepp för Key Vault](key-vault-whatis.md#basic-concepts). 
+Läs [Key Vault grundläggande koncept](key-vault-whatis.md#basic-concepts)innan du börjar. 
 
-Om du inte har en Azure-prenumeration kan du skapa en [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 För Windows, Mac och Linux:
   * [Git](https://git-scm.com/downloads)
-  * Den här självstudien kräver att du kör Azure CLI lokalt. Du måste ha Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera CLI kan du läsa [Installera Azure CLI 2.0](https://review.docs.microsoft.com/cli/azure/install-azure-cli).
+  * Den här självstudien kräver att du kör Azure CLI lokalt. Du måste ha Azure CLI-versionen 2.0.4 eller senare installerad. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera CLI kan du läsa [Installera Azure CLI 2.0](https://review.docs.microsoft.com/cli/azure/install-azure-cli).
 
 ## <a name="about-managed-service-identity"></a>Om Hanterad tjänstidentitet
 
-Azure Key Vault lagrar autentiseringsuppgifter på ett säkert sätt, så att de inte visas i din kod. Men måste du autentisera till Azure Key Vault för att hämta dina nycklar. För att autentisera till Key Vault behöver du autentiseringsuppgifter. Det är ett klassiskt bootstrap-problem. Hanterad tjänstidentitet (MSI) löser problemet genom att tillhandahålla en _bootstrapidentitet_ som förenklar processen.
+Azure Key Vault lagrar autentiseringsuppgifterna på ett säkert sätt så att de inte visas i din kod. Men måste du autentisera till Azure Key Vault för att hämta dina nycklar. För att autentisera till Key Vault behöver du autentiseringsuppgifter. Det är ett klassiskt bootstrap-problem. Hanterad tjänstidentitet (MSI) löser problemet genom att tillhandahålla en _bootstrapidentitet_ som förenklar processen.
 
-När du aktiverar MSI för en Azure-tjänst, till exempel Azure Virtual Machines, Azure App Service eller Azure Functions, Azure skapar en [tjänstens huvudnamn](key-vault-whatis.md#basic-concepts). MSI gör detta för instansen av tjänsten i Azure Active Directory (Azure AD) och lägger in autentiseringsuppgifter för tjänstens huvudnamn i den instansen. 
+När du aktiverar MSI för en Azure-tjänst, till exempel Azure Virtual Machines, Azure App Service eller Azure Functions, skapar Azure ett [huvud namn för tjänsten](key-vault-whatis.md#basic-concepts). MSI gör detta för instansen av tjänsten i Azure Active Directory (Azure AD) och infogar autentiseringsuppgifterna för tjänstens huvud namn i den instansen. 
 
 ![MSI](media/MSI.png)
 
-Om du vill få en åtkomsttoken, anropar sedan koden en lokala metadata-tjänst som är tillgängliga på Azure-resursen. Koden använder åtkomsttoken som får den från den lokala MSI-slutpunkten för att autentisera till en Azure Key Vault-tjänsten. 
+Sedan anropar din kod en lokal metadatatjänst som är tillgänglig på Azure-resursen för att få en åtkomsttoken. För att autentisera till en Azure Key Vault-tjänst använder din kod den åtkomsttoken som den hämtar från den lokala MSI-slutpunkten. 
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
 
@@ -73,26 +73,26 @@ Välj ett resursgruppnamn och fyll i platshållaren. I följande exempel skapas 
 az group create --name "<YourResourceGroupName>" --location "West US"
 ```
 
-Du kan använda din resursgrupp du skapade i den här självstudien.
+Du använder den nya resurs gruppen i den här självstudien.
 
 ## <a name="create-a-key-vault"></a>Skapa ett nyckelvalv
 
-Ange följande information för att skapa ett nyckelvalv i resursgruppen som du skapade i föregående steg:
+Ange följande information för att skapa ett nyckel valv i resurs gruppen som du skapade i föregående steg:
 
-* Namn på Key vault: en sträng på 3 till 24 tecken som får endast innehålla siffror (0-9), bokstäver (a – z, A-Z) och bindestreck (-)
-* Namn på resursgrupp
+* Nyckel valvets namn: en sträng på 3 till 24 tecken som bara får innehålla siffror (0-9), bokstäver (a-z, A-Z) och bindestreck (-)
+* Resursgruppsnamn
 * Plats: **USA, västra**
 
 ```azurecli
 az keyvault create --name "<YourKeyVaultName>" --resource-group "<YourResourceGroupName>" --location "West US"
 ```
-Ditt Azure-konto är nu den enda som har behörighet för att utföra åtgärder på den här nya key vault.
+I det här läget är ditt Azure-konto det enda som har behörighet att utföra åtgärder på det nya nyckel valvet.
 
 ## <a name="add-a-secret-to-the-key-vault"></a>Lägga till en hemlighet i nyckelvalvet
 
-Vi lägger till en hemlighet för att illustrera hur detta fungerar. Hemligheten kan vara en SQL-anslutningssträng eller annan information som du behöver både är skyddade och tillgängliga för ditt program.
+Vi lägger till en hemlighet för att illustrera hur detta fungerar. Hemligheten kan vara en SQL-anslutningssträng eller annan information som du behöver för att hålla både säkra och tillgängliga för ditt program.
 
-Om du vill skapa en hemlighet i nyckelvalvet med namnet **AppSecret**, anger du följande kommando:
+Om du vill skapa en hemlighet i nyckel valvet som heter **AppSecret**, anger du följande kommando:
 
 ```azurecli
 az keyvault secret set --vault-name "<YourKeyVaultName>" --name "AppSecret" --value "MySecret"
@@ -101,20 +101,20 @@ az keyvault secret set --vault-name "<YourKeyVaultName>" --name "AppSecret" --va
 Den här hemligheten lagrar värdet **MySecret**.
 
 ## <a name="create-a-virtual-machine"></a>Skapa en virtuell dator
-Du kan skapa en virtuell dator genom att använda någon av följande metoder:
+Du kan skapa en virtuell dator med någon av följande metoder:
 
-* [Azure CLI](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-cli)
-* [PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell)
-* [Azure Portal](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)
+* [Azure CLI](../virtual-machines/windows/quick-create-cli.md)
+* [PowerShell](../virtual-machines/windows/quick-create-powershell.md)
+* [Azure Portal](../virtual-machines/windows/quick-create-portal.md)
 
 ## <a name="assign-an-identity-to-the-vm"></a>Tilldela en identitet till den virtuella datorn
-I det här steget skapar du en automatiskt genererad identitet för den virtuella datorn genom att köra följande kommando i Azure CLI:
+I det här steget skapar du en systemtilldelad identitet för den virtuella datorn genom att köra följande kommando i Azure CLI:
 
 ```azurecli
 az vm identity assign --name <NameOfYourVirtualMachine> --resource-group <YourResourceGroupName>
 ```
 
-Observera systemtilldelade identiteten som visas i följande kod. Utdata från föregående kommando skulle vara: 
+Observera den systemtilldelade identiteten som visas i följande kod. Utdata från föregående kommando skulle vara: 
 
 ```azurecli
 {
@@ -123,8 +123,8 @@ Observera systemtilldelade identiteten som visas i följande kod. Utdata från f
 }
 ```
 
-## <a name="assign-permissions-to-the-vm-identity"></a>Tilldela behörigheter till identitet för virtuell dator
-Nu kan du tilldela behörigheterna som tidigare skapade identitet till nyckelvalvet genom att köra följande kommando:
+## <a name="assign-permissions-to-the-vm-identity"></a>Tilldela behörigheter till VM-identiteten
+Nu kan du tilldela de tidigare skapade identitets behörigheterna till ditt nyckel valv genom att köra följande kommando:
 
 ```azurecli
 az keyvault set-policy --name '<YourKeyVaultName>' --object-id <VMSystemAssignedIdentity> --secret-permissions get list
@@ -132,20 +132,20 @@ az keyvault set-policy --name '<YourKeyVaultName>' --object-id <VMSystemAssigned
 
 ## <a name="log-on-to-the-virtual-machine"></a>Logga in på den virtuella datorn
 
-Om du vill logga in på den virtuella datorn, följer du anvisningarna i [Connect och logga in på Azure-datorer som kör Windows](https://docs.microsoft.com/azure/virtual-machines/windows/connect-logon).
+Om du vill logga in på den virtuella datorn följer du anvisningarna i [Anslut och logga in på en virtuell Azure-dator som kör Windows](../virtual-machines/windows/connect-logon.md).
 
-## <a name="create-and-run-a-sample-python-app"></a>Skapa och köra en Python-exempelapp
+## <a name="create-and-run-a-sample-python-app"></a>Skapa och kör en exempel-python-app
 
-I nästa avsnitt är en exempelfil med namnet *Sample.py*. Den använder en [begäranden](http://docs.python-requests.org/en/master/) biblioteket för att göra HTTP GET-anrop.
+I nästa avsnitt finns en exempel fil med namnet *Sample.py*. Det använder ett [begär](http://docs.python-requests.org/en/master/) ande bibliotek för att göra HTTP GET-anrop.
 
 ## <a name="edit-samplepy"></a>Redigera Sample.py
 
-När du har skapat *Sample.py*, öppna filen och kopiera sedan koden i det här avsnittet. 
+När du har skapat *Sample.py*öppnar du filen och kopierar koden i det här avsnittet. 
 
-Koden visar två steg:
+Koden visar en två stegs process:
 1. Hämta en token från den lokala MSI-slutpunkten på den virtuella datorn.  
-  Gör det även hämtar en token från Azure AD.
-1. Skicka token till ditt nyckelvalv och hämta din hemlighet. 
+  Om du gör det hämtas även en token från Azure AD.
+1. Skicka token till nyckel valvet och hämta sedan din hemlighet. 
 
 ```
     # importing the requests library 
@@ -167,7 +167,7 @@ Koden visar två steg:
     print(kvSecret.json()["value"])
 ```
 
-Du kan visa hemligt värde genom att köra följande kod: 
+Du kan visa det hemliga värdet genom att köra följande kod: 
 
 ```
 python Sample.py
@@ -177,7 +177,7 @@ Följande kod visar hur du utför åtgärder med Azure Key Vault på en virtuell
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Ta bort den virtuella datorn och nyckelvalvet när de inte längre behövs.
+När de inte längre behövs tar du bort den virtuella datorn och nyckel valvet.
 
 ## <a name="next-steps"></a>Nästa steg
 

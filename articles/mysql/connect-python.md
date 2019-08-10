@@ -7,18 +7,18 @@ ms.service: mysql
 ms.custom: mvc
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 02/28/2018
-ms.openlocfilehash: f1059fac4d44138a4e9bc04c858501234974dc43
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 08/08/2019
+ms.openlocfilehash: 5d7414d13b3fb1390b12084f0480e0549a380264
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60526223"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68931613"
 ---
 # <a name="azure-database-for-mysql-use-python-to-connect-and-query-data"></a>Azure Database for MySQL: Använda Python för att ansluta och fråga data
 Den här snabbstarten visar hur du använder [Python](https://python.org) för att ansluta till en Azure Database för MySQL. SQL-instruktioner används för att fråga, infoga, uppdatera och ta bort data i databasen i Mac OS, Ubuntu Linux och Windows-plattformar. Det här avsnittet förutsätter att du är van att utveckla i Python och att du saknar erfarenhet av Azure Database for MySQL.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 I den här snabbstarten används de resurser som skapades i någon av följande guider som utgångspunkt:
 - [Skapa en Azure Database för MySQL med Azure Portal](./quickstart-create-mysql-server-database-using-azure-portal.md)
 - [Skapa en Azure Database för MySQL-server med Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md)
@@ -31,8 +31,8 @@ Installera [Python](https://www.python.org/downloads/) och [MySQL Connector för
 >
 
 ### <a name="windows"></a>Windows
-1. Hämta och installera Python 2.7 från [python.org](https://www.python.org/downloads/windows/). 
-2. Kontrollera Python-installationen genom att starta Kommandotolken. Kör kommandot `C:\python27\python.exe -V` med -V (versal) för att visa versionsnumret.
+1. Hämta och installera python 3,7 från [python.org](https://www.python.org/downloads/windows/). 
+2. Kontrollera Python-installationen genom att starta Kommandotolken. Kör kommandot `C:\python37\python.exe -V` med -V (versal) för att visa versionsnumret.
 3. Installera den Python Connector för MySQL som motsvarar din version av Python från [mysql.com](https://dev.mysql.com/downloads/connector/python/).
 
 ### <a name="linux-ubuntu"></a>Linux (Ubuntu)

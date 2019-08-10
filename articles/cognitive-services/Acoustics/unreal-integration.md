@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: noelc
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3fe9a28a99ea8becbfc40e1e64d1f5b109caace3
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 47f39e8dcd96ea3bdba564df348e9b89a6b036ba
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854374"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933166"
 ---
 # <a name="project-acoustics-unreal-and-wwise-integration"></a>Project-akustiskt Unreal och Wwise-integrering
 Den här instruktionen innehåller detaljerade integrerings steg för plugin-paketet för Project Akustiske-plugin-program i ditt befintliga Unreal-och Wwise Game-projekt. 
 
 Program varu krav:
-* [Unreal-motor](https://www.unrealengine.com/) 4,20 eller 4,21
+* [Unreal-motor](https://www.unrealengine.com/) 4.20 +
 * [AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/) 2018,1.\*
 * [Wwise-plugin-program för Unreal](https://www.audiokinetic.com/library/?source=UE4&id=index.html)
   * Om du använder en direkt integrering av Wwise SDK i stället för att använda Wwise Unreal-plugin-programmet, kan du läsa mer i Project Akustiske Unreal-plugin-programmet och justera Wwise API-anrop.
@@ -52,7 +52,7 @@ Det finns viktiga steg för att installera paketet och distribuera det i spelet.
 
 * Välj den `AcousticsWwisePlugin\ProjectAcoustics` katalog som ingår i paketet som du laddade ned. Den innehåller Wwise mixer plugin-paketet.
 
-* Wwise kommer att installera plugin-programmet. Project-Akustisker bör nu visas i listan installerade plugin-program i Wwise.
+* Wwise kommer att installera plugin-programmet. Project-Akustisker bör nu visas i listan installerade plugin-program i Wwise.  
 ![Skärm bild av Wwise installerade plugin-program efter projekt akustiskt installation](media/unreal-integration-post-mixer-plugin-install.png)
 
 ## <a name="2-redeploy-wwise-into-your-game"></a>2. (Re) distribuera Wwise till ditt spel
@@ -81,9 +81,13 @@ Distribuera Wwise på nytt till spelet även om du redan har integrerat Wwise. D
 
     ![Skärm bild av fönster i Utforskaren som har angett skriptet för korrigerings Wwise](media/patch-wwise-script.png)
 
-* Om du inte har installerat DirectX SDK måste du kommentera ut raden som innehåller DXSDK_DIR i`[UProject]\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs`
+* Om du inte har installerat DirectX SDK, beroende på vilken version av Wwise du använder, kan du behöva kommentera ut raden som innehåller `DXSDK_DIR` i: `AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs`
 
     ![Skärm bild av kod redigeraren som visar DXSDK kommenterad](media/directx-sdk-comment.png)
+
+* Om du kompilerar med Visual Studio 2019 för att undvika ett länknings fel med Wwise redigerar `VSVersion` du standardvärdet manuellt i `vc150` `AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs` till:
+
+    ![Skärm bild av kod redigeraren som visar VSVersion ändrat till vc150](media/vsversion-comment.png)
 
 ## <a name="5-build-game-and-check-python-is-enabled"></a>5. Utveckla spel och kontrol lera python är aktiverat
 
@@ -117,7 +121,7 @@ Ett exempel på ett Wwise-projekt ingår i hämtningen av exempel. Vi rekommende
 
 * Gå sedan till fliken mixer-plugin och Lägg till ett plugin-program för Project akustiskt mixer i bussen
 
-    ![Screenshow för Wwise-bussen som visar hur du lägger till projektet akustiska mixer-plugin](media/add-mixer-plugin.png)
+    ![Skärm bild av Wwise-buss som visar hur du lägger till projektet akustiska mixer-plugin](media/add-mixer-plugin.png)
 
 ### <a name="actor-mixer-hierarchy-setup"></a>Installation av aktör – mixer-hierarki
 * Av prestanda skäl tillämpar projekt akustiskt ljud-DSP för alla källor samtidigt. Detta kräver att plugin-programmet körs som ett mixer-pluginprogram. Wwise kräver att mixer-plugin-program finns på utdataporten, även om utmatnings bussen vanligt vis har den torra signalen av utdata. För att projicera akustiska signaler krävs att den torra signalen dirigeras via AUX Busses medan den våta signalen utförs `Project Acoustics Bus`på. Följande process stöder gradvis migrering till det här signal flödet.
@@ -159,7 +163,7 @@ Tyvärr kan andra objektbaserade Spatializer-plugin-program inte stödjas just n
 
 * Tilldela nu den bakade akustiska data till gången till den akustiska data platsen på den akustiska ytans aktör. Nu har din scen akustiska ljud!
 
-    ![Skärm bild av Unreal-redigeraren s howing-akustiska till gångs tilldelning](media/acoustics-asset-assign.png)
+    ![Skärm bild av Unreal-redigeraren som visar akustiska till gångs tilldelning](media/acoustics-asset-assign.png)
 
 * Lägg nu till en tom aktör och gör följande:
 
@@ -167,7 +171,7 @@ Tyvärr kan andra objektbaserade Spatializer-plugin-program inte stödjas just n
 
 1. Lägg till ljud komponenten akustiskt i aktören. Den här komponenten utökar komponenten Wwise-ljud med funktioner för projekt akustiska funktioner.
 2. Rutan spela upp på Start är markerad som standard, vilket utlöser tillhör ande Wwise-händelse på nivån start.
-3. Använd kryss rutan Visa akustiska parametrar för att skriva ut felsöknings information om källan på skärmen.
+3. Använd kryss rutan Visa akustiska parametrar för att skriva ut felsöknings information om källan på skärmen.  
     ![Skärm bild av Unreal Editor Akustisker panel på ljud källa med aktiverade fel söknings värden](media/debug-values.png)
 4. Tilldela en Wwise-händelse per vanligt Wwise-arbetsflöde
 5. Kontrol lera att Använd spatial ljud är inaktiverat. Om du använder ett projekt akustiskt objekt för en viss ljud komponent kan du för närvarande inte samtidigt använda Wwises avstånds ljud motor för akustiska enheter.

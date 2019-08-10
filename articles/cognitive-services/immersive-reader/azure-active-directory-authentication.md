@@ -1,21 +1,21 @@
 ---
 title: Azure Active Directory (Azure AD)-autentisering
 titleSuffix: Azure Cognitive Services
-description: Referens för SDK för avancerad läsare
+description: Den här artikeln visar hur du skapar en ny fördjupad läsar resurs med en anpassad under domän och sedan konfigurerar Azure AD i din Azure-klient.
 services: cognitive-services
 author: rwaller
 manager: guillasi
 ms.service: cognitive-services
 ms.subservice: immersive-reader
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: rwaller
-ms.openlocfilehash: de6a29e1c4c102aa7d4038185c1635544ba9dfe2
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 5a03c377a275fff489f1fb8371f9905411b67960
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688795"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68881552"
 ---
 # <a name="use-azure-active-directory-azure-ad-authentication-with-the-immersive-reader-service"></a>Använd Azure Active Directory (Azure AD)-autentisering med fördjupad läsar tjänsten
 

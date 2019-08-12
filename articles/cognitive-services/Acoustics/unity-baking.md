@@ -11,18 +11,18 @@ ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: noelc
 ROBOTS: NOINDEX
-ms.openlocfilehash: e26df58de08d0941b5e3165852ed0b26f8890f66
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: b7249c3048ba3af3adbaac01f43770482a0d38ad
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854936"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933213"
 ---
 # <a name="project-acoustics-unity-bake-tutorial"></a>Själv studie kurs om projekt akustiska enhet
 I den här självstudien beskrivs akustiska ljud med projekt akustiska i Unity.
 
 Program varu krav:
-* [Unity 2018.2 +](https://unity3d.com) för Windows
+* [Unity 2018.2 +](https://unity3d.com) för Windows eller MacOS
 * [Project Akustiske-plugin-program som är integrerad i ditt Unity-projekt](unity-integration.md) eller i avsnittet [Project akustisker union exempel innehåll](unity-quickstart.md)
 * Valfritt: Ett [Azure Batch konto](create-azure-account.md) för att påskynda bagerier med molnbaserad data behandling
 
@@ -179,6 +179,25 @@ När du har startat en bageri kan du stänga Unity. Det kan ta flera timmar, ber
 
 Azure-autentiseringsuppgifterna lagras på ett säkert sätt på din lokala dator och är kopplade till din Unity-redigerare. De används enbart för att upprätta en säker anslutning till Azure.
 
+## <a name="to-find-the-status-of-a-running-job-on-the-azure-portal"></a>Så här hittar du statusen för ett pågående jobb på Azure Portal
+
+1. Hitta jobb-ID: t i bak-fliken:
+
+![Skärm bild av jobb-ID för enhets bageri](media/unity-job-id.png)  
+
+2. Öppna [Azure Portal](https://portal.azure.com), navigera till det batch-konto som används för bagerien och välj **jobb**
+
+![Skärm bild av jobb länk](media/azure-batch-jobs.png)  
+
+3. Sök efter jobb-ID i listan över jobb
+
+![Skärm bild av status för jobbet](media/azure-bake-job-status.png)  
+
+4. Klicka på jobb-ID för att se status för relaterade aktiviteter och övergripande jobb status
+
+![Skärm bild av status för bak uppgift](media/azure-batch-task-state.png)  
+
+
 ### <a name="Estimating-bake-cost"></a>Uppskatta kostnad för Azure-bageri
 
 För att uppskatta vad en viss bageri kostar, tar du det värde som visas för uppskattad **beräknings kostnad**, vilket är en varaktighet och multiplicerar det med Tim kostnaden i din lokala valuta för den **VM-nodtyp** som du har valt. I resultatet ingår inte den Node-tid som krävs för att få noderna igång. Om du till exempel väljer **Standard_F8s_v2** för nodtypen, som har kostnaden $0.40/tim, och den uppskattade beräknings kostnaden är 3 timmar och 57 minuter, blir den uppskattade kostnaden för att köra jobbet $0,40 * ~ 4 timmar = ~ $1,60. Den faktiska kostnaden är förmodligen lite högre på grund av extra tiden för att hämta noderna. Du hittar kostnaden för varje timme på sidan [Azure Batch prissättning](https://azure.microsoft.com/pricing/details/virtual-machines/linux) (Välj "Compute-optimerad" eller "hög prestanda beräkning" för kategorin).
@@ -188,6 +207,7 @@ Du kan använda din scen på din egen dator. Detta kan vara användbart för att
 
 ### <a name="minimum-hardware-requirements"></a>Minimi krav för maskin vara
 * En x86-64-processor med minst 8 kärnor och 32 GB RAM
+* [Hyper-V aktiverat](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v) för att köra Docker
 
 Som exempel i vårt test på en dator med 8 kärnor med Intel Xeon E5-1660 @ 3 GHz och 32 GB RAM-
 * En liten scen med 100 avsökningar kan ta ungefär 2 timmar för en grov bageri eller 32 timmar för en fin bageri.
@@ -195,13 +215,15 @@ Som exempel i vårt test på en dator med 8 kärnor med Intel Xeon E5-1660 @ 3 G
 
 ### <a name="setup-docker"></a>Konfigurera Docker
 Installera och konfigurera Docker på den dator som ska bearbeta simuleringen –
-1. Installera Docker- [verktyg](https://www.docker.com/products/docker-desktop).
-2. Starta Docker-inställningar, navigera till alternativen Avancerat och konfigurera resurser så att de har minst 8 GB RAM-minne. Ju fler processorer du kan allokera till Docker, desto snabbare kommer bagerien att slutföras. ![Skärm bild av exempel på Docker-inställningar](media/docker-settings.png)
-3. Navigera till delade enheter och aktivera delning för den enhet som används för bearbetning.![Skärm bild av alternativ för delad enhet i Docker](media/docker-shared-drives.png)
+1. Installera Docker- [skrivbordet](https://www.docker.com/products/docker-desktop).
+2. Starta Docker-inställningar, navigera till alternativen Avancerat och konfigurera resurser så att de har minst 8 GB RAM-minne. Ju fler processorer du kan allokera till Docker, desto snabbare kommer bagerien att slutföras.  
+![Skärm bild av exempel på Docker-inställningar](media/docker-settings.png)
+1. Navigera till delade enheter och aktivera delning för den enhet som används för bearbetning.  
+![Skärm bild av alternativ för delad enhet i Docker](media/docker-shared-drives.png)
 
 ### <a name="run-local-bake"></a>Kör lokalt bak
 1. Klicka på knappen "Förbered lokal inbaka" på fliken **bageri** och välj en mapp där indatafilerna och körnings skripten ska sparas. Du kan sedan köra bagerien på valfri dator så länge den uppfyller minimi kraven på maskin vara och har Docker installerat genom att kopiera mappen till den datorn.
-2. Starta simuleringen med hjälp av skriptet "runlocalbake. bat". Det här skriptet hämtar Docker-avbildningen för projektet akustiskt med de verktyg som krävs för simulerings bearbetning och starta simuleringen. 
+2. Starta simuleringen med hjälp av skriptet "runlocalbake. bat" i Windows eller med hjälp av skriptet "runlocalbake.sh" på MacOS. Det här skriptet hämtar Docker-avbildningen för projektet akustiskt med de verktyg som krävs för simulerings bearbetning och starta simuleringen. 
 3. När simuleringen är klar kopierar du den resulterande. ACE-filen tillbaka till ditt Unity-projekt. För att se till att Unit känner igen detta som en binär fil lägger du till ". byte" i fil namns tillägget (till exempel "SCENE1. ACE. byte"). Detaljerade loggar för simuleringen lagras i "AcousticsLog. txt". Om du stöter på problem kan du dela den här filen för att hjälpa till med diagnostiseringen.
 
 ## <a name="Data-Files"></a>Datafiler som lagts till av processen vid bagerien

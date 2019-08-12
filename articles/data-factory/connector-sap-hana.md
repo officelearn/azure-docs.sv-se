@@ -240,8 +240,8 @@ När du kopierar data från SAP HANA används följande mappningar från SAP HAN
 | SMALLINT           | Int16                          |
 | STGEOMETRYTYPE     | Byte[]                         |
 | STPOINTTYPE        | Byte[]                         |
-| TEXT               | String                         |
-| TIME               | TimeSpan                       |
+| INFORMATION               | String                         |
+| TID               | TimeSpan                       |
 | TINYINT            | Byte                           |
 | VARCHAR            | String                         |
 | TIMESTAMP          | DateTime                       |

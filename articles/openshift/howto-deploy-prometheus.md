@@ -182,7 +182,7 @@ Om du vill att Prometheus att samla in mått från själva tillämpa behörighet
 
 ## <a name="optional-deploy-example-application"></a>Valfritt: Distribuera exempelprogram
 
-Allt fungerar, men det finns inga mått-källor. Gå till URL: en för Prometheus (https://prom-prometheus-project.apps. *slumpmässigt id*. *region*.azmosa.io/). Du hittar det genom att använda följande kommando:
+Allt fungerar, men det finns inga mått-källor. Gå till URL: en för Prometheus (https://prom-prometheus-project.apps.*slumpmässigt id*.*region*.azmosa.io/). Du hittar det genom att använda följande kommando:
 
 ```
 oc get route prom -n prometheus-project

@@ -6,7 +6,7 @@
     - name: Vad är tjänsten Azure Machine Learning?
       displayName: 'AML, services, overview, introduction'
       href: overview-what-is-azure-ml.md
-    - name: Så här fungerar tjänsten
+    - name: Arkitektur och villkor
       displayName: 'architecture, concepts, definitions, glossary'
       href: concept-azure-machine-learning-architecture.md
 - name: Självstudier
@@ -216,6 +216,8 @@
         - name: Var och hur du distribuerar
           displayName: 'publish, web, service, operationalize, aks, kubernetes, aci, container, cli, consume, docker'
           href: how-to-deploy-and-where.md
+        - name: Bärbara virtuella datorer
+          href: how-to-deploy-local-container-notebook-vm.md
         - name: Azure Container Instances
           href: how-to-deploy-azure-container-instance.md
         - name: Azure Kubernetes Service
@@ -256,9 +258,9 @@
     - name: Skapa återanvändbara arbetsflöden
       displayName: pipelines
       items:
-        - name: Skapa en ML-pipeline
+        - name: 'ML-pipelines: batch, beräkningar, återanvändning, dela'
           href: how-to-create-your-first-pipeline.md
-        - name: CI/CD för ML-arbetsflöden med Azure Pipelines
+        - name: Azure-pipelines för CI/CD
           displayName: 'continuous, integration, delivery'
           href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/service/context/ml-context
     - name: Hantera resurskvoter

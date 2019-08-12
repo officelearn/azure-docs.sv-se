@@ -156,6 +156,9 @@
     - name: 'Känna igen talavsikter med LUIS, C#'
       href: how-to-recognize-intents-from-speech-csharp.md
       displayName: 'recognize intent, intent recognition, language understanding service, luis'
+    - name: 'Röstaktivera din robot med Speech SDK, C#'
+      href: tutorial-voice-enable-your-bot-speech-sdk.md
+      displayName: 'voice assistant, voice enable a bot, bot speech SDK'
     - name: 'Skapa en Flask-app för att översätta och syntetisera text, REST'
       href: ../translator/tutorial-build-flask-app-translation-synthesis.md?toc=%2fazure%2fcognitive-services%2fspeech-service%2ftoc.json&bc=%2fazure%2fcognitive-services%2fspeech-service%2fbreadcrumb%2ftoc.json
 - name: Begrepp

@@ -41,30 +41,6 @@
       href: ../hdinsight-hadoop-compare-storage-options.md?toc=/azure/hdinsight/hadoop/toc.json&bc=/azure/hdinsight/hadoop/breadcrumb/toc.json
     - name: Förstå hanterade identiteter
       href: ../hdinsight-managed-identities.md?toc=/azure/hdinsight/hadoop/toc.json&bc=/azure/hdinsight/hadoop/breadcrumb/toc.json
-    - name: Felsöka
-      items:
-        - name: Det gick inte att skapa kluster
-          href: ./hdinsight-troubleshoot-cluster-creation-fails.md
-        - name: Slut på diskutrymme
-          href: ./hdinsight-troubleshoot-out-disk-space.md
-        - name: Mjuk låsning – CPU
-          href: ./hdinsight-troubleshoot-soft-lockup-cpu.md
-        - name: InvalidNetworkConfigurationErrorCode – det går inte att skapa kluster
-          href: ./troubleshoot-invalidnetworkconfigurationerrorcode-cluster-creation-fails.md
-        - name: InvalidNetworkSecurityGroupSecurityRules – det går inte att skapa kluster
-          href: ./hdinsight-troubleshoot-invalidnetworksecuritygroupsecurityrules-cluster-creation-fails.md
-        - name: Det går inte att logga in i HDInsight-kluster
-          href: ./hdinsight-troubleshoot-unable-log-in-cluster.md
-        - name: Det går inte att lägga till noder i HDInsight-kluster
-          href: ./hdinsight-troubleshoot-unable-add-nodes.md
-        - name: Konvertera certifikat för tjänstens huvudnamn
-          href: ./hdinsight-troubleshoot-converting-service-principal-certificate.md
-        - name: Lokal HDFS fast i felsäkert läge
-          href: ./hdinsight-hdfs-troubleshoot-safe-mode.md
-        - name: Problem med pulsslag från Apache Ambari
-          href: ./apache-ambari-troubleshoot-heartbeat-issues.md
-        - name: Apache Ambari visar värdar och tjänster ur funktion
-          href: ./apache-ambari-troubleshoot-down-hosts-services.md
 - name: Gör så här för att
   items:
     - name: Använda sandbox-miljön för Apache Hadoop
@@ -310,6 +286,30 @@
     - name: Felsöka
       href: ../hdinsight-troubleshoot-guide.md?toc=/azure/hdinsight/hadoop/toc.json&bc=/azure/hdinsight/hadoop/breadcrumb/toc.json
       items:
+        - name: Det gick inte att skapa kluster
+          href: ./hdinsight-troubleshoot-cluster-creation-fails.md
+        - name: Slut på diskutrymme
+          href: ./hdinsight-troubleshoot-out-disk-space.md
+        - name: Mjuk låsning – CPU
+          href: ./hdinsight-troubleshoot-soft-lockup-cpu.md
+        - name: InvalidNetworkConfigurationErrorCode – det går inte att skapa kluster
+          href: ./troubleshoot-invalidnetworkconfigurationerrorcode-cluster-creation-fails.md
+        - name: InvalidNetworkSecurityGroupSecurityRules – det går inte att skapa kluster
+          href: ./hdinsight-troubleshoot-invalidnetworksecuritygroupsecurityrules-cluster-creation-fails.md
+        - name: Det går inte att logga in i HDInsight-kluster
+          href: ./hdinsight-troubleshoot-unable-log-in-cluster.md
+        - name: Det går inte att lägga till noder i HDInsight-kluster
+          href: ./hdinsight-troubleshoot-unable-add-nodes.md
+        - name: Konvertera certifikat för tjänstens huvudnamn
+          href: ./hdinsight-troubleshoot-converting-service-principal-certificate.md
+        - name: Lokal HDFS fast i felsäkert läge
+          href: ./hdinsight-hdfs-troubleshoot-safe-mode.md
+        - name: Problem med pulsslag från Apache Ambari
+          href: ./apache-ambari-troubleshoot-heartbeat-issues.md
+        - name: Apache Ambari-användargränssnittet – 502-fel
+          href: ./apache-ambari-troubleshoot-fivezerotwo-error.md
+        - name: Apache Ambari visar värdar och tjänster ur funktion
+          href: ./apache-ambari-troubleshoot-down-hosts-services.md
         - name: Felsöka ett långsamt eller felaktigt HDInsight-kluster
           href: ../hdinsight-troubleshoot-failed-cluster.md?toc=/azure/hdinsight/hadoop/toc.json&bc=/azure/hdinsight/hadoop/breadcrumb/toc.json
         - name: Felsökning för Hadoop Distributed File System i Apache Hadoop

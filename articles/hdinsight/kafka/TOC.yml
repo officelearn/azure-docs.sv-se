@@ -159,6 +159,8 @@
     - name: Felsöka
       href: ../hdinsight-troubleshoot-guide.md?toc=/azure/hdinsight/kafka/toc.json&bc=/azure/hdinsight/kafka/breadcrumb/toc.json
       items:
+        - name: Otillräckliga feldomäner
+          href: ./kafka-troubleshoot-insufficient-domains.md
         - name: Felsöka ett långsamt eller felaktigt HDInsight-kluster
           href: ../hdinsight-troubleshoot-failed-cluster.md?toc=/azure/hdinsight/kafka/toc.json&bc=/azure/hdinsight/kafka/breadcrumb/toc.json
         - name: Felsökning för Hadoop Distributed File System i Apache Hadoop

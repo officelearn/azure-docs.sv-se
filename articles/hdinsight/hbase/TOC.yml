@@ -25,14 +25,6 @@
       href: ../hdinsight-component-versioning.md?toc=/azure/hdinsight/hbase/toc.json&bc=/azure/hdinsight/hbase/breadcrumb/toc.json
     - name: HDInsight 4.0
       href: ../hdinsight-version-release.md?toc=/azure/hdinsight/hbase/toc.json&bc=/azure/hdinsight/hbase/breadcrumb/toc.json
-    - name: Felsöka
-      items:
-        - name: Apache HBase-REST svarar inte
-          href: ./hbase-troubleshoot-rest-not-spending.md
-        - name: Peggad CPU på regionsserver
-          href: ./hbase-troubleshoot-pegged-cpu-region-server.md
-        - name: Timeouter med kommandot hbase hbck
-          href: ./hbase-troubleshoot-timeouts-hbase-hbck.md
 - name: Gör så här för att
   items:
     - name: Använda klusterlagring
@@ -167,8 +159,25 @@
         - name: OS-korrigering för HDInsight-kluster
           href: ../hdinsight-os-patching.md?toc=/azure/hdinsight/hbase/toc.json&bc=/azure/hdinsight/hbase/breadcrumb/toc.json
     - name: Felsöka
-      href: ../hdinsight-troubleshoot-guide.md?toc=/azure/hdinsight/hbase/toc.json&bc=/azure/hdinsight/hbase/breadcrumb/toc.json
       items:
+        - name: Felsöka resurser
+          href: ../hdinsight-troubleshoot-guide.md?toc=/azure/hdinsight/hbase/toc.json&bc=/azure/hdinsight/hbase/breadcrumb/toc.json
+        - name: Inga data i Apache Phoenix-vyer
+          href: ./hbase-troubleshoot-phoenix-no-data.md
+        - name: BindException – adressen används
+          href: ./hbase-troubleshoot-bindexception-address-use.md
+        - name: Apache HBase kunde inte startas
+          href: ./hbase-troubleshoot-start-fails.md
+        - name: Problem med regionservrar
+          href: ./hbase-troubleshoot-unassigned-regions.md
+        - name: Problem med Apache Phoenix-anslutningen
+          href: ./hbase-troubleshoot-phoenix-connectivity.md
+        - name: Apache HBase-REST svarar inte
+          href: ./hbase-troubleshoot-rest-not-spending.md
+        - name: Peggad CPU på regionsserver
+          href: ./hbase-troubleshoot-pegged-cpu-region-server.md
+        - name: Timeouter med kommandot hbase hbck
+          href: ./hbase-troubleshoot-timeouts-hbase-hbck.md
         - name: Felsöka ett långsamt eller felaktigt HDInsight-kluster
           href: ../hdinsight-troubleshoot-failed-cluster.md?toc=/azure/hdinsight/hbase/toc.json&bc=/azure/hdinsight/hbase/breadcrumb/toc.json
         - name: Felsökning för Hadoop Distributed File System i Apache Hadoop

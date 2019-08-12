@@ -155,6 +155,8 @@
           items:
             - name: Förbereda nätverk för haveriberedskap för virtuella Azure-datorer
               href: azure-to-azure-about-networking.md
+            - name: Anpassa nätverkskonfigurationer för den virtuella Azure-måldatorn
+              href: azure-to-azure-customize-networking.md
             - name: Konfigurera nätverksmappning och behålla IP-adresser efter redundans
               href: azure-to-azure-network-mapping.md
             - name: Exempel för att bevara IP-adresser efter redundans

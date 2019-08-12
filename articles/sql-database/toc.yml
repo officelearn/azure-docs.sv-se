@@ -2,9 +2,9 @@
   href: index.yml
 - name: SQL Database Service
   items:
-    - name: Vad är SQL Database
+    - name: Vad är SQL Database?
       href: sql-database-technical-overview.md
-    - name: Välj en version av Azure SQL
+    - name: Vilket SQL-alternativ ska jag välja?
       href: sql-database-paas-vs-sql-server-iaas.md
     - name: Viktig information
       href: sql-database-release-notes.md
@@ -280,14 +280,18 @@
               href: sql-vulnerability-assessment.md
             - name: Advanced Threat Protection
               href: sql-database-threat-detection-overview.md
-        - name: IP-brandväggsregler på servernivå
+        - name: Nätverkssäkerhet
           items:
-            - name: Skapa och hantera
+            - name: Översikt över nätverksåtkomstkontroller
+              href: sql-database-networkaccess-overview.md
+            - name: IP-baserad brandvägg
               href: sql-database-firewall-configure.md
-            - name: Slutpunkter för virtuellt nätverk
-              href: sql-database-vnet-service-endpoint-rule-overview.md
-            - name: Slutpunkter för virtuellt nätverk – PowerShell
-              href: sql-database-vnet-service-endpoint-rule-powershell.md
+            - name: Brandväggsregler för virtuella nätverk
+              items:
+                - name: Slutpunkter för virtuellt nätverk
+                  href: sql-database-vnet-service-endpoint-rule-overview.md
+                - name: Slutpunkter för virtuellt nätverk – PowerShell
+                  href: sql-database-vnet-service-endpoint-rule-powershell.md
         - name: Åtkomstkontroll
           items:
             - name: Åtkomstkontroll

@@ -62,6 +62,8 @@
           items:
             - name: Etablera noder
               href: create-nodes.md
+            - name: Ta bort noder
+              href: delete-nodes.md
         - name: Hantera resurser för privata moln
           items:
             - name: Skapa ett privat moln
@@ -76,6 +78,8 @@
               href: azure-subscription-mapping.md
             - name: Eskalera privilegier
               href: escalate-private-cloud-privileges.md
+            - name: Ta bort ett privat moln
+              href: delete-private-cloud.md
         - name: Övervaka CloudSimple-aktivitet
           href: 'https://docs.azure.cloudsimple.com/activity/'
         - name: Konfigurera nätverk för privata moln

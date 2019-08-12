@@ -25,6 +25,10 @@
           href: sdk-csharp-quickstart-authoring-app.md
         - name: Slutpunkt för frågeförutsägelse
           href: sdk-csharp-quickstart-query-prediction-endpoint.md
+    - name: Använda Python SDK
+      items:
+        - name: Skapa och hantera en app
+          href: sdk-python-quickstart-authoring-app.md
     - name: 'Använda REST-API:er'
       items:
         - name: Hämta avsikt

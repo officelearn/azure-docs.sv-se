@@ -247,11 +247,11 @@
               href: devtest-lab-mandatory-artifacts.md
         - name: Integrera med CI/CD
           items:
-            - name: Integrera labb i din Azure DevOps CI/CD-pipeline
-              href: devtest-lab-integrate-ci-cd-vsts.md
-            - name: Integrera miljöer i din Azure DevOps CI/CD-pipeline
+            - name: Integrera labb i CI/CD-pipelinen i Azure Pipelines
+              href: devtest-lab-integrate-ci-cd.md
+            - name: Integrera miljöer i CI/CD-pipelinen i Azure Pipelines
               href: integrate-environments-devops-pipeline.md
-            - name: Använda DevTest Labs i Azure DevOps-versionen och versionspipelines
+            - name: Använda DevTest Labs i Build and Release-pipelines i Azure Pipelines
               href: use-devtest-labs-build-release-pipelines.md
         - name: Rapportera användning av labb
           href: report-usage-across-multiple-labs-subscriptions.md

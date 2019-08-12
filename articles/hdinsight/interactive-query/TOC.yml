@@ -19,20 +19,6 @@
       href: ../hdinsight-apps-install-applications.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
     - name: Kapacitetsplanering
       href: ../hdinsight-capacity-planning.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
-    - name: Felsöka
-      items:
-        - name: GC-utgiftsgränsen har överskridits
-          href: ./interactive-query-troubleshoot-outofmemory-overhead-exceeded.md
-        - name: Apache Ambari Tez-vyn läses in långsamt
-          href: ./interactive-query-troubleshoot-tez-view-slow.md
-        - name: Felmeddelande visas inte i Apache Hive-vyn
-          href: ./interactive-query-troubleshoot-error-message-hive-view.md
-        - name: Otillgänglig Apache Hive-vy
-          href: ./interactive-query-troubleshoot-inaccessible-hive-view.md
-        - name: ZooKeeperHiveClientException – HiveServer2-konfigurationer
-          href: ./interactive-query-troubleshoot-zookeeperhiveclientexception-hiveserver-configs.md
-        - name: Apache Hive LLAP-frågeprestanda
-          href: ./interactive-query-troubleshoot-query-performance.md
 - name: Gör så här för att
   items:
     - name: Migrera Hive-arbetsbelastningar till HDInsight 4.0
@@ -204,10 +190,31 @@
           href: ../hdinsight-os-patching.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
     - name: Felsöka
       href: ../hdinsight-troubleshoot-guide.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
-      maintainContext: true
       items:
+        - name: Tidsgräns för Apache Hive-vyn
+          href: ./interactive-query-troubleshoot-view-time-out.md
+        - name: Behörighetsfel när en tabell skapas
+          href: ./interactive-query-troubleshoot-permission-error-create-table.md
+        - name: GC-utgiftsgränsen har överskridits
+          href: ./interactive-query-troubleshoot-outofmemory-overhead-exceeded.md
+        - name: Apache Ambari Tez-vyn läses in långsamt
+          href: ./interactive-query-troubleshoot-tez-view-slow.md
+        - name: Felmeddelande visas inte i Apache Hive-vyn
+          href: ./interactive-query-troubleshoot-error-message-hive-view.md
+        - name: Otillgänglig Apache Hive-vy
+          href: ./interactive-query-troubleshoot-inaccessible-hive-view.md
+        - name: ZooKeeperHiveClientException – HiveServer2-konfigurationer
+          href: ./interactive-query-troubleshoot-zookeeperhiveclientexception-hiveserver-configs.md
+        - name: Apache Hive LLAP-frågeprestanda
+          href: ./interactive-query-troubleshoot-query-performance.md
         - name: Felsöka ett långsamt eller felaktigt HDInsight-kluster
-          href: ../hdinsight-troubleshoot-failed-cluster.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
+          href: ../hdinsight-troubleshoot-failed-cluster.md
+        - name: Felsökning för Hadoop Distributed File System i Apache Hadoop
+          href: ../hdinsight-troubleshoot-hdfs.md
+        - name: Felsökning för Apache HIVE
+          href: ../hdinsight-troubleshoot-hive.md
+        - name: Felsökning för Apache Hadoop YARN
+          href: ../hdinsight-troubleshoot-yarn.md
         - name: Felsökning för Hadoop Distributed File System i Apache Hadoop
           href: ../hdinsight-troubleshoot-hdfs.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
         - name: Felsökning för Apache HIVE

@@ -107,29 +107,29 @@
       href: Tutorials/storage-lab-tutorial.md
 - name: Begrepp
   items:
-    - name: Tagga bilder
+    - name: Innehållstaggar
       href: concept-tagging-images.md
-    - name: Identifiera objekt
+    - name: Objektidentifiering
       href: concept-object-detection.md
-    - name: Identifiera varumärken
+    - name: Varumärkesidentifiering
       href: concept-brand-detection.md
-    - name: Kategorisera bilder
+    - name: Bildkategorisering
       href: concept-categorizing-images.md
-    - name: Beskriva bilder
+    - name: Bildbeskrivningar
       href: concept-describing-images.md
-    - name: Identifiera ansikten
+    - name: Ansiktsspårning
       href: concept-detecting-faces.md
-    - name: Identifiera bildtyper
+    - name: Identifiering av bildtyp
       href: concept-detecting-image-types.md
-    - name: Identifiera domänspecifikt innehåll
+    - name: Domänspecifikt innehåll
       href: concept-detecting-domain-content.md
-    - name: Identifiera färgscheman
+    - name: Identifiering av färgschema
       href: concept-detecting-color-schemes.md
-    - name: Generera miniatyrer
+    - name: Miniatyrbilder med smart beskärning
       href: concept-generating-thumbnails.md
-    - name: Känna igen tryckt och handskriven text
+    - name: Igenkänning av utskrifter och handskriven text
       href: concept-recognizing-text.md
-    - name: Identifiera vuxet eller olämpligt innehåll
+    - name: Identifiering av olämpligt innehåll
       href: concept-detecting-adult-content.md
 - name: Instruktionsguider
   items:

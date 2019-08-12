@@ -166,6 +166,8 @@
       items:
         - name: Skapa datafabriker visuellt
           href: author-visually.md
+        - name: Källkontroll
+          href: source-control.md
         - name: Kontinuerlig integrering och leverans
           href: continuous-integration-deployment.md
         - name: Iterativ utveckling och felsökning

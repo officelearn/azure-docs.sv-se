@@ -219,31 +219,31 @@ När du kopierar data från SAP HANA används följande mappningar från SAP HAN
 
 | SAP HANA data typ | Data factory tillfälliga datatyp |
 | ------------------ | ------------------------------ |
-| ALPHANUM           | Sträng                         |
+| ALPHANUM           | String                         |
 | BIGINT             | Int64                          |
-| BINÄR             | Byte[]                         |
-| BINTEXT            | Sträng                         |
+| BINARY             | Byte[]                         |
+| BINTEXT            | String                         |
 | BLOB               | Byte[]                         |
-| BOOLESKA               | Byte                           |
-| CLOB               | Sträng                         |
+| BOOL               | Byte                           |
+| CLOB               | String                         |
 | DATE               | DateTime                       |
 | DECIMAL            | Decimal                        |
 | DOUBLE             | Double                         |
 | FLOAT              | Double                         |
 | INTEGER            | Int32                          |
-| NCLOB              | Sträng                         |
-| NVARCHAR           | Sträng                         |
+| NCLOB              | String                         |
+| NVARCHAR           | String                         |
 | REAL               | Single                         |
 | SECONDDATE         | DateTime                       |
-| SHORTTEXT          | Sträng                         |
+| SHORTTEXT          | String                         |
 | SMALLDECIMAL       | Decimal                        |
 | SMALLINT           | Int16                          |
 | STGEOMETRYTYPE     | Byte[]                         |
 | STPOINTTYPE        | Byte[]                         |
-| INFORMATION               | Sträng                         |
-| TID               | TimeSpan                       |
+| TEXT               | String                         |
+| TIME               | TimeSpan                       |
 | TINYINT            | Byte                           |
-| VARCHAR            | Sträng                         |
+| VARCHAR            | String                         |
 | TIMESTAMP          | DateTime                       |
 | VARBINARY          | Byte[]                         |
 

@@ -157,7 +157,7 @@ Om du vill kopiera data till SAP-molnet för kunden ställer du in mottagar type
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Egenskapen Type måste anges till: **SapCloudForCustomerSink**  | Ja |
-| writeBehavior | Åtgärdens Skriv funktion. Kan vara "Infoga", "uppdatera". | Nej. Standard "Infoga". |
+| writeBehavior | Åtgärdens Skriv funktion. Kan vara "Insert", "Update". | Nej. Standard "Insert". |
 | writeBatchSize | Batch-storlek för Skriv åtgärd. Batchstorleken för att få bästa prestanda kan vara olika för olika tabeller och servrar. | Nej. Standard 10. |
 
 **Exempel:**

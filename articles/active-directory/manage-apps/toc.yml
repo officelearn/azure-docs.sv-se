@@ -1,28 +1,33 @@
 - name: Dokumentation om programhantering
   href: index.yml
-- name: Programhantering och enkel inloggning
+- name: Översikt
   expanded: true
   items:
-    - name: Översikt
-      expanded: true
-      items:
-        - name: Vad är programhantering?
-          href: what-is-application-management.md
-    - name: Snabbstarter
-      items:
-        - name: Lägga till ett galleriprogram – portalen
-          href: add-application-portal.md
-        - name: Visa klientorganisationsappar – portalen
-          href: view-applications-portal.md
-    - name: Självstudier
-      items:
-        - name: Självstudier för SaaS-program
-          href: /azure/active-directory/saas-apps/
-    - name: Begrepp
+    - name: Vad är molnprogramhantering och enkel inloggning?
+      href: what-is-application-management.md
+    - name: Vad är automatisk användaretablering?
+      href: user-provisioning.md
+    - name: Vad är programproxy för lokala appar?
+      href: what-is-application-proxy.md
+- name: Snabbstarter
+  items:
+    - name: Lägga till en molnbaserad app från galleriet
+      href: add-application-portal.md
+    - name: Visa dina företagsprogram
+      href: view-applications-portal.md
+- name: Självstudier
+  items:
+    - name: Självstudier för SaaS-appar
+      href: /azure/active-directory/saas-apps/
+    - name: Lägga till en lokal app med programproxy
+      href: application-proxy-add-on-premises-application.md
+- name: Begrepp
+  items:
+    - name: Molnappar och enkel inloggning
       items:
         - name: Planera integration av en molnapp
           items:
-            - name: Vad händer när du lägger till en app
+            - name: Komma igång med appintegrering
               href: plan-an-application-integration.md
             - name: Vägledning för utvecklare
               href: developer-guidance-for-integrating-applications.md
@@ -56,9 +61,34 @@
               href: tenant-restrictions.md
             - name: Konfigurera SAML-tokenkryptering (förhandsversion)
               href: howto-saml-token-encryption.md
-        - name: Slutanvändarportaler
-          href: end-user-experiences.md
-    - name: Instruktionsguider
+            - name: Slutanvändarportaler
+              href: end-user-experiences.md
+    - name: Automatisk användarförsörjning
+      items:
+        - name: Automatisk etablering för SCIM-aktiverade appar
+          href: use-scim-to-provision-users-and-groups.md
+    - name: Programproxy för lokala appar
+      items:
+        - name: Programproxy
+          href: application-proxy.md
+        - name: Planera en distribution av programproxy
+          href: application-proxy-deployment-plan.md
+        - name: Anslutningar
+          href: application-proxy-connectors.md
+        - name: Anslutningsgrupper
+          href: application-proxy-connector-groups.md
+        - name: Säkerhet
+          href: application-proxy-security.md
+        - name: Nätverkstopologi
+          href: application-proxy-network-topology.md
+        - name: Hög tillgänglighet och belastningsutjämning
+          href: application-proxy-high-availability-load-balancing.md
+        - name: Jämförelse mellan fjärråtkomstlösningar
+          href: application-proxy-migration.md
+- name: Instruktionsguider
+  expanded: true
+  items:
+    - name: Molnappar och enkel inloggning
       items:
         - name: Lägga till en molnapp
           items:
@@ -182,36 +212,7 @@
                   href: access-panel-extension-problem-installing.md
                 - name: Fel vid användning av appåtkomst via självbetjäning
                   href: access-panel-troubleshoot-self-service-access.md
-    - name: Resurser
-      items:
-        - name: Azures feedbackforum
-          href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
-        - name: MSDN-forum
-          href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD'
-        - name: Prissättning
-          href: 'https://azure.microsoft.com/pricing/details/active-directory'
-        - name: Tjänstuppdateringar
-          href: 'https://azure.microsoft.com/updates/?product=active-directory'
-        - name: Stack Overflow
-          href: 'https://stackoverflow.com/questions/tagged/azure-active-directory'
-        - name: Videoklipp
-          href: 'https://azure.microsoft.com/documentation/videos/index/?services=active-directory'
-- name: Automatisk användarförsörjning
-  items:
-    - name: Översikt
-      expanded: true
-      items:
-        - name: Vad är etablering?
-          href: user-provisioning.md
-    - name: Självstudier
-      items:
-        - name: Självstudier för SaaS-program
-          href: /azure/active-directory/saas-apps/
-    - name: Begrepp
-      items:
-        - name: Automatisk etablering för SCIM-aktiverade appar
-          href: use-scim-to-provision-users-and-groups.md
-    - name: Instruktionsguider
+    - name: Automatisk användarförsörjning
       items:
         - name: Konfigurera användarförsörjning
           items:
@@ -223,8 +224,6 @@
               href: configure-automatic-user-provisioning-portal.md
             - name: Anpassa programattribut
               href: Customize-application-attributes.md
-            - name: Skriva uttryck för attributmappningar
-              href: functions-for-customizing-application-data.md
             - name: Omfångsfilter
               href: define-conditional-rules-for-provisioning-user-accounts.md
             - name: Kontrollera etableringsstatus
@@ -245,50 +244,7 @@
               href: application-provisioning-config-problem-no-users-provisioned.md
             - name: Fel användare har etablerats – galleriapp
               href: application-provisioning-config-problem-wrong-users-provisioned.md
-    - name: Resurser
-      items:
-        - name: Azures feedbackforum
-          href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
-        - name: MSDN-forum
-          href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD'
-        - name: Prissättning
-          href: 'https://azure.microsoft.com/pricing/details/active-directory'
-        - name: Tjänstuppdateringar
-          href: 'https://azure.microsoft.com/updates/?product=active-directory'
-        - name: Stack Overflow
-          href: 'https://stackoverflow.com/questions/tagged/azure-active-directory'
-        - name: Videoklipp
-          href: 'https://azure.microsoft.com/documentation/videos/index/?services=active-directory'
-- name: Programproxy för lokala appar
-  items:
-    - name: Översikt
-      expanded: true
-      items:
-        - name: Vad är Application Proxy?
-          href: what-is-application-proxy.md
-    - name: Självstudier
-      items:
-        - name: Lägga till ett lokalt program – portalen
-          href: application-proxy-add-on-premises-application.md
-    - name: Begrepp
-      items:
-        - name: Programproxy
-          href: application-proxy.md
-        - name: Planera en distribution av programproxy
-          href: application-proxy-deployment-plan.md
-        - name: Anslutningar
-          href: application-proxy-connectors.md
-        - name: Anslutningsgrupper
-          href: application-proxy-connector-groups.md
-        - name: Säkerhet
-          href: application-proxy-security.md
-        - name: Nätverkstopologi
-          href: application-proxy-network-topology.md
-        - name: Hög tillgänglighet och belastningsutjämning
-          href: application-proxy-high-availability-load-balancing.md
-        - name: Jämförelse mellan fjärråtkomstlösningar
-          href: application-proxy-migration.md
-    - name: Instruktionsguider
+    - name: Programproxy för lokala appar
       items:
         - name: Konfigurera anslutningsappar
           items:
@@ -376,21 +332,27 @@
               href: application-sign-in-problem-on-premises-application-proxy.md
             - name: CORS-problem i programproxyn
               href: application-proxy-understand-cors-issues.md
-    - name: Referens
+- name: Referens
+  items:
+    - name: Automatisk användarförsörjning
+      items:
+        - name: Skriva uttryck för attributmappningar
+          href: functions-for-customizing-application-data.md
+    - name: Programproxy för lokala appar
       items:
         - name: Versionshistorik för programproxy
           href: application-proxy-release-version-history.md
-    - name: Resurser
-      items:
-        - name: Azures feedbackforum
-          href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
-        - name: MSDN-forum
-          href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD'
-        - name: Prissättning
-          href: 'https://azure.microsoft.com/pricing/details/active-directory'
-        - name: Tjänstuppdateringar
-          href: 'https://azure.microsoft.com/updates/?product=active-directory'
-        - name: Stack Overflow
-          href: 'https://stackoverflow.com/questions/tagged/azure-active-directory'
-        - name: Videoklipp
-          href: 'https://azure.microsoft.com/documentation/videos/index/?services=active-directory'
+- name: Resurser
+  items:
+    - name: Azures feedbackforum
+      href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
+    - name: MSDN-forum
+      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD'
+    - name: Prissättning
+      href: 'https://azure.microsoft.com/pricing/details/active-directory'
+    - name: Tjänstuppdateringar
+      href: 'https://azure.microsoft.com/updates/?product=active-directory'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-active-directory'
+    - name: Videoklipp
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=active-directory'

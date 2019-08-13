@@ -1,56 +1,69 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Azure AD Identity Governance-dokumentation
+### YamlMime:Landing
+title: Dokumentation om Azure Active Directory Identity Governance
+summary: Azure Active Directory (Azure AD) Identity Governance hjälper dig att skydda, övervaka och granska åtkomst till kritiska tillgångar samtidigt som du säkerställer medarbetarnas produktivitet.
 metadata:
-  document_id: null
-  title: Dokumentation om Azure Active Directory Identity Governance | Microsoft Docs
-  description: 'Läs mer om styrning av identitetslivscykler, styrning av åtkomstlivscykler och säker administration för både anställda och partner.'
-  services: active-directory
   author: msaburnley
+  description: Lär dig hur du skyddar, övervakar och granskar åtkomst till kritiska tillgångar samtidigt som du säkerställer medarbetarnas produktivitet.
   manager: daveba
-  ms.service: active-directory
-  ms.tgt_pltfrm: na
-  ms.devlang: na
-  ms.topic: landing-page
-  ms.date: 04/18/2019
   ms.author: ajburnle
-abstract:
-  description: Med Azure Active Directory (Azure AD) Identity Governance får organisationer möjlighet att styra identiteternas livscykel och åtkomstslivscykeln samt skydda administrationen mellan anställda och partner.
-  aside:
-    image:
-      alt: null
-      height: 112
-      src: media/index/video-thumb-identity-governance.png
-      width: 200
-    title: 'Styr åtkomsten till din resurser (1:17:24)'
-    href: 'https://www.youtube.com/embed/aY7A0Br8u5M'
-    width: 200
-sections:
-  - title: Identity Governance
-    items:
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/active-directory/governance/identity-governance-overview">Vad är Identity Governance?</a>
-  - title: Berättigandehantering (förhandsversion)
-    items:
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/active-directory/governance/entitlement-management-overview">Vad är berättigandehantering i Azure AD?</a>
-          - html: <a href="/azure/active-directory/governance/entitlement-management-access-package-first">Självstudier – skapa ditt första åtkomstpaket</a>
-          - html: <a href="/azure/active-directory/governance/entitlement-management-access-package-edit">Redigera och hantera ett befintligt åtkomstpaket</a>
-  - title: Åtkomstgranskningar
-    items:
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/active-directory/governance/access-reviews-overview">Vad är Azure AD-åtkomstgranskningar?</a>
-          - html: <a href="/azure/active-directory/governance/create-access-review">Skapa en åtkomstgranskning av grupper eller appar</a>
-          - html: <a href="/azure/active-directory/governance/perform-access-review">Granska åtkomst till gruppen eller appar</a>
-  - title: Användningsvillkor
-    items:
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/active-directory/conditional-access/terms-of-use">Vill du kräva användningsvillkor?</a>
+  ms.collection: na
+  ms.date: 08/08/2019
+  ms.service: active-directory
+  ms.subservice: na
+  ms.topic: landing-page
+  services: active-directory
+  ms.openlocfilehash: fa7577ea7ef212242a903b20d44db80c22c55842
+  ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 08/12/2019
+  ms.locfileid: "68949537"
+landingContent:
+- title: Lär dig mer om Identity Governance
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är Azure AD Identity Governance?
+      url: identity-governance-overview.md
+  - linkListType: learn
+    links:
+    - text: Styr åtkomsten till dina resurser
+      url: https://www.youtube.com/watch?v=bFfowdpApu4&list=PLQXpv_NQsPIBg3op2xONM9KgwlayFDue6
+- title: Styr livscykeln för åtkomst till grupper, appar och webbplatser
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är berättigandehantering i Azure AD? (Förhandsversion)
+      url: entitlement-management-overview.md
+  - linkListType: tutorial
+    links:
+    - text: Skapa ditt första åtkomstpaket som hjälper användarna att begära den åtkomst de behöver
+      url: entitlement-management-access-package-first.md
+  - linkListType: how-to-guide
+    links:
+    - text: Redigera och hantera ett befintligt åtkomstpaket
+      url: entitlement-management-access-package-edit.md
+- title: Återcertifiera åtkomst till grupper, appar och privilegierade roller
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är Azure AD-åtkomstgranskningar?
+      url: access-reviews-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: Skapa en åtkomstgranskning för att säkerställa att användarna inte behåller för hög åtkomst
+      url: create-access-review.md
+    - text: Granska åtkomst till gruppen eller appar
+      url: perform-access-review.md
+- title: Gör användare berättigade till privilegierade roller
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är Azure AD Privileged Identity Management?
+      url: ../privileged-identity-management/pim-configure.md
+- title: Se till att användarna ser ansvarsfriskrivningar
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Kräv att användarna accepterar användningsvillkor när de använder en app
+      url: ../conditional-access/terms-of-use.md

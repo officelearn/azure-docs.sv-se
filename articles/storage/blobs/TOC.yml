@@ -137,6 +137,8 @@
           items:
             - name: Åtkomstnivåer
               href: storage-blob-storage-tiers.md
+            - name: Extrahera data från Arkivlagring
+              href: storage-blob-rehydration.md
             - name: Hantera Azure Blob Storage-livscykeln
               href: storage-lifecycle-management-concepts.md
         - name: Prestanda och skalning

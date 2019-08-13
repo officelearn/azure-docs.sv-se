@@ -11,7 +11,7 @@
       href: search-create-service-portal.md
     - name: Portalen
       items:
-        - name: Läsa in och fråga ett index
+        - name: Skapa och använda ett index
           href: search-get-started-portal.md
         - name: Förbättra med AI (kognitiv sökning)
           href: cognitive-search-quickstart-blob.md

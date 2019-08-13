@@ -9,10 +9,14 @@
   items:
     - name: 'Använd C#'
       href: Quickstart.md
+    - name: Använda Swift (iOS)
+      href: ios-quickstart.md
 - name: Självstudier
   items:
     - name: Starta Avancerad läsare (Node.js)
       href: tutorial.md
+    - name: Bild till avancerad läsare (Swift)
+      href: ios-picture-immersive-reader-tutorial.md
 - name: Instruktioner
   items:
     - name: Azure Active Directory-autentisering
@@ -21,6 +25,8 @@
   items:
     - name: SDK-referens
       href: reference.md
+    - name: iOS SDK-referens
+      href: ios-reference.md
 - name: Resurser
   items:
     - name: Azure-översikt

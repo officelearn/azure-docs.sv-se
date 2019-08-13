@@ -66,7 +66,7 @@ Om du vill använda grundläggande autentisering ställer du in egenskapen "auth
 | Egenskap | Beskrivning | Obligatorisk |
 |:--- |:--- |:--- |
 | userName | Användare som har åtkomst till SFTP-servern. |Ja |
-| password | Användarens lösen ord (användar namn). Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| password | Användarens lösen ord (userName). Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 
 **Exempel:**
 

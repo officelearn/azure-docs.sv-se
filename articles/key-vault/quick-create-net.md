@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 01/02/2019
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 4f9fff41e4b9043c271d656583fb8b9a11ff3a7a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9ddb1db9b39ac942a3476f50aad39c98198b2a18
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67052780"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68958600"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-net-web-app"></a>Snabbstart: Konfigurera och hämta en hemlighet från Azure Key Vault med hjälp av en .NET-webbapp
 
@@ -36,10 +36,10 @@ Innan du fortsätter rekommenderar vi att du läser avsnittet om [grundbegreppen
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 * I Windows:
-  * [Visual Studio-2019](https://www.microsoft.com/net/download/windows) med följande arbetsbelastningar:
+  * [Visual Studio 2019](https://www.microsoft.com/net/download/windows) med följande arbets belastningar:
     * ASP.NET och webbutveckling
     * .NET Core plattformsoberoende utveckling
   * [.NET Core 2.1 SDK eller senare](https://www.microsoft.com/net/download/windows)
@@ -119,14 +119,14 @@ git clone https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart.git
 Redigera program.cs-filen för att köra exemplet med namnet på ditt specifika nyckelvalv:
 
 1. Bläddra till mappen key-vault-dotnet-core-quickstart.
-2. Öppna filen key-vault-dotnet-core-quickstart.sln i Visual Studio 2019.
+2. Öppna filen Key-Vault-dotNet-Core-QuickStart. SLN i Visual Studio 2019.
 3. Öppna Program.cs-filen och uppdatera platshållaren *YourKeyVaultName* (ditt nyckelvalvsnamn) med namnet på det nyckelvalv som du skapade tidigare.
 
 Den här lösningen använder NuGet-biblioteken [AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) och [KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault).
 
 ## <a name="run-the-app"></a>Kör appen
 
-På huvudmenyn för Visual Studio-2019 Välj **felsöka** > **starta utan felsökning**. När webbläsaren visas går du till sidan **Om**. Värdet för **AppSecret** visas.
+Från huvud menyn i Visual Studio 2019 väljer du **Felsök** > **Start utan fel sökning**. När webbläsaren visas går du till sidan **Om**. Värdet för **AppSecret** visas.
 
 ## <a name="publish-the-web-application-to-azure"></a>Publicera webbappen till Azure
 
@@ -171,10 +171,10 @@ az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --s
 
 ```
 
-Nu när du kör programmet bör ditt hemliga värde hämtas. I det föregående kommandot du håller identiteten för appen service behörighet att utföra **hämta** och **lista** åtgärder på nyckelvalvet.
+Nu när du kör programmet bör ditt hemliga värde hämtas. I föregående kommando ger du identiteten för App Service-behörighet att göra **Get** -och **list** -åtgärder i ditt nyckel valv.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
-Ta bort resursgruppen, den virtuella datorn och alla relaterade resurser när du inte längre behöver dem. Om du vill göra det väljer du resursgruppen för nyckelvalvet och välj **ta bort**.
+Ta bort resursgruppen, den virtuella datorn och alla relaterade resurser när du inte längre behöver dem. Det gör du genom att välja resurs gruppen för nyckel valvet och välja **ta bort**.
 
 Ta bort nyckelvalvet med hjälp av kommandot [az keyvault delete](https://docs.microsoft.com/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-delete):
 
@@ -187,4 +187,4 @@ az keyvault delete --name
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Läs mer om Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)
+> [Läs mer om Key Vault](key-vault-whatis.md)

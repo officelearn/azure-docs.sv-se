@@ -15,16 +15,16 @@ ms.date: 06/14/2019
 ms.author: magoedte
 ms.custom: mvc
 ms.openlocfilehash: 4484269194aa3d637101a6a0b83eacb268d4c16e
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/14/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "67147288"
 ---
 # <a name="configure-log-analytics-agent-for-linux-computers-in-a-hybrid-environment"></a>Konfigurera Log Analytics-agenten för Linux-datorer i en hybridmiljö
 [Azure Log Analytics](../platform/agent-windows.md) kan samla in data direkt från fysiska eller virtuella Linux-datorer i ditt datacenter eller en annan molnmiljö till en enda lagringsplats för detaljerad analys och korrelation. Den här snabbstarten visar hur du konfigurerar och samlar in data från Linux-datorer med några enkla steg.  För virtuella Linux-datorer, se avsnittet [Samla in data om virtuella datorer i Azure](quick-collect-azurevm.md).  
 
-Innan du fortsätter bör du läsa Log Analytics-agenten [översikt](../platform/log-analytics-agent.md) artikeln om du vill förstå vilka konfigurationer stöds, den [Linux-operativsystem som stöds](../platform/log-analytics-agent.md#supported-linux-operating-systems) och [ nätverkskonfiguration för brandväggen](../platform/log-analytics-agent.md#network-firewall-requirements). 
+Innan du fortsätter bör du läsa artikeln Log Analytics agent [Översikt](../platform/log-analytics-agent.md) för att förstå vilka konfigurationer som stöds, [Linux-operativsystem](../platform/log-analytics-agent.md#supported-linux-operating-systems) och [konfiguration av nätverks brand väggen](../platform/log-analytics-agent.md#network-firewall-requirements). 
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -44,7 +44,7 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
    * Välj den **plats** där dina virtuella datorer distribueras.  Mer information finns i avsnittet om [tillgängliga regioner för Log Analytics](https://azure.microsoft.com/regions/services/).  
    * Om du skapar en arbetsyta i en ny prenumeration som skapats efter 2 april 2018 används prisplanen *Per GB* automatiskt och alternativet för att välja en prisnivå är inte tillgängligt.  Om du skapar en arbetsyta för en befintlig prenumeration som skapats före 2 april eller en prenumeration som var bunden till en befintlig EA-registrering, väljer du önskad prisnivå.  Mer information om de olika nivåerna finns i [prisinformation om Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
 
-        ![Skapa Log Analytics-resursbladet](media/quick-collect-linux-computer/create-loganalytics-workspace-02.png)<br>  
+        ![Skapa Log Analytics resurs bladet](media/quick-collect-linux-computer/create-loganalytics-workspace-02.png)<br>  
 
 3. När du har angett den nödvändiga informationen i fönsterrutan **Log Analytics-arbetsyta** klickar du på **OK**.  
 

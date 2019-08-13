@@ -78,7 +78,7 @@ Om du vill kopiera data från Shopify, ange typegenskapen på datauppsättningen
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Data uppsättningens typ-egenskap måste anges till: **ShopifyObject** | Ja |
-| tableName | Namnet på tabellen. | Nej (om ”frågan” i aktivitetskälla har angetts) |
+| tableName | Namnet på tabellen. | Nej (om ”query” i aktivitetskälla har angetts) |
 
 **Exempel**
 

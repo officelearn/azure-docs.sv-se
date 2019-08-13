@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 7312821320084c766f5b3357fe64c061df83673b
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 647ab76760d0c5ce5315a60d0a671163b902be0f
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827641"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954544"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Om SQL Server-säkerhetskopiering i virtuella Azure-datorer
 
@@ -58,7 +58,7 @@ Azure Backup har nyligen lanserat stöd för [EOS SQL-servrar](https://docs.micr
 2. .NET Framework 4.5.2 och senare måste installeras på den virtuella datorn
 3. Säkerhets kopiering för FCI och speglade databaser stöds inte
 
-Användare debiteras inte för den här funktionen till den tidpunkt då den är allmänt tillgänglig. Alla andra [funktions överväganden och begränsningar](#feature-consideration-and-limitations) gäller även för dessa versioner. Se till att kraven är [uppfyllda](backup-sql-server-database-azure-vms.md#prerequisites) innan du konfigurerar skydd på SQL Server 2008 och 2008 R2, som innehåller inställningen för [register nyckeln](backup-sql-server-database-azure-vms.md#add-registry-key-to-enable-registration) (det här steget krävs inte när funktionen är allmänt tillgänglig).
+Användarna kommer inte att debiteras för den här funktionen förrän den är allmänt tillgänglig. Alla andra [funktions överväganden och begränsningar](#feature-consideration-and-limitations) gäller även för dessa versioner. Se till att kraven är [uppfyllda](backup-sql-server-database-azure-vms.md#prerequisites) innan du konfigurerar skydd på SQL Server 2008 och 2008 R2, vilket innefattar att ange [register nyckeln](backup-sql-server-database-azure-vms.md#add-registry-key-to-enable-registration) (det här steget krävs inte när funktionen är allmänt tillgänglig).
 
 
 ## <a name="feature-consideration-and-limitations"></a>Funktions överväganden och begränsningar
@@ -75,7 +75,7 @@ Användare debiteras inte för den här funktionen till den tidpunkt då den är
 - Du kan säkerhetskopiera till **~ 2000** SQL Server databaser i ett valv. Du kan skapa flera valv om du har ett större antal databaser.
 - Du kan konfigurera säkerhets kopiering för upp till **50** databaser i en go; den här begränsningen hjälper till att optimera säkerhets kopierings belastning.
 - Vi har stöd för databaser upp till **2 TB** i storlek. för större storlekar kan prestanda problem uppstå.
-- För att få en uppfattning om hur många databaser som kan skyddas per server måste vi överväga faktorer som bandbredd, VM-storlek, säkerhets kopierings frekvens, databas storlek osv. [Ladda ned](http://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx) resurs planeraren som ger det ungefärliga antalet databaser som du kan ha per server baserat på de virtuella dator resurserna och säkerhets kopierings principen.
+- För att få en uppfattning om hur många databaser som kan skyddas per server måste vi överväga faktorer som bandbredd, VM-storlek, säkerhets kopierings frekvens, databas storlek osv. [Ladda ned](https://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx) resurs planeraren som ger det ungefärliga antalet databaser som du kan ha per server baserat på de virtuella dator resurserna och säkerhets kopierings principen.
 - Om det gäller tillgänglighets grupper tas säkerhets kopiorna från de olika noderna utifrån några faktorer. Säkerhets kopierings beteendet för en tillgänglighets grupp sammanfattas nedan.
 
 ### <a name="back-up-behavior-in-case-of-always-on-availability-groups"></a>Säkerhetskopiera beteende om Always on-tillgänglighetsgrupper
@@ -190,7 +190,7 @@ Lägg till **NT instans\system** -och **NT Service\AzureWLBackupPluginSvc** -inl
 
 7. Klicka på OK.
 8. Upprepa samma steg (1-7 ovan) för att lägga till NT Service\AzureWLBackupPluginSvc-inloggning till SQL Server-instansen. Om inloggningen redan finns kontrollerar du att den har Server rollen sysadmin och under status har den behörighet att ansluta till databas motorn och logga in som aktive rad.
-9. När du har beviljat behörighet **identifierar du databaser på nytt** i portalen: Säkerhets **->** kopiering av **->** valv infrastruktur arbets belastning i virtuell Azure-dator:
+9. När du har beviljat behörighet ska du **identifiera databaser** i portalen: Säkerhets **->** kopiering av **->** valv infrastruktur arbets belastning i virtuell Azure-dator:
 
     ![Identifiera databaser i Azure Portal](media/backup-azure-sql-database/sql-rediscover-dbs.png)
 

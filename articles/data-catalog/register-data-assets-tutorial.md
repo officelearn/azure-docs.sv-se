@@ -1,17 +1,17 @@
 ---
 title: Registrera datatillgångar i Azure Data Catalog
-description: Så här registrerar du data till gångar i din Azure Data Catalog
+description: I den här självstudien beskrivs hur du registrerar data till gångar i din Azure Data Catalog.
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: tutorial
 ms.date: 08/01/2019
-ms.openlocfilehash: 6dcf29c1bb98d15daf652671f31ed1647d66a81b
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 4bd2b7093100ff24b21b67ea84613ac9b2ec8299
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68735205"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950238"
 ---
 # <a name="tutorial-register-data-assets-in-azure-data-catalog"></a>Självstudier: Registrera datatillgångar i Azure Data Catalog
 

@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 07/12/2019
 ms.author: hamusa
-ms.openlocfilehash: 7b27637ca63ec69d7f4c33f05e7c037d67676b2d
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 04162f074dba05ac6492c16acb446912296cd673
+ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828300"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68952105"
 ---
 # <a name="assess-vmware-vms-with-azure-migrate-server-assessment"></a>Utvärdera virtuella VMware-datorer med Azure Migrate: Server Assessment
 
@@ -180,8 +180,39 @@ Detta startar identifieringen. Det tar ungefär 15 minuter för metadata för id
 
 ### <a name="scoping-discovery"></a>Omfattnings identifiering
 
-Identifiering kan begränsas genom att begränsa åtkomsten till det vCenter-konto som används för identifiering. Du kan ange ett omfång för att vCenter Server Data Center, kluster, kluster kluster, värdar, värdbaserade värdar eller enskilda virtuella datorer. 
+Identifiering kan begränsas genom att begränsa åtkomsten till det vCenter-konto som används för identifiering. Du kan ange ett omfång för att vCenter Server Data Center, kluster, kluster kluster, värdar, värdbaserade värdar eller enskilda virtuella datorer.
 
+Om du vill ange omfånget måste du utföra följande steg:
+1.  Skapa ett vCenter-användarkonto.
+2.  Definiera en ny roll med nödvändiga privilegier. (<em>krävs för Server-migrering utan agent</em>)
+3.  Tilldela behörigheter till användar kontot för vCenter-objekt.
+
+**Skapa ett vCenter-användarkonto**
+1.  Logga in på vSphere-webbklient som vCenter Server administratör.
+2.  Klicka på fliken **Administration** > **SSO-användare och grupper** > **användare** .
+3.  Klicka på ikonen **ny användare** .
+4.  Fyll i den information som krävs för att skapa en ny användare och klicka på **OK**.
+
+**Definiera en ny roll med nödvändiga privilegier** (<em>krävs för Server-migrering utan agent</em>)
+1.  Logga in på vSphere-webbklienten som vCenter Server administratör.
+2.  Bläddra till **administrationens** > **roll hanterare**.
+3.  Välj vCenter Server på den nedrullningsbara menyn.
+4.  Klicka på **skapa roll** åtgärd.
+5.  Ange ett namn för den nya rollen. (till exempel <em>Azure_Migrate</em>).
+6.  Tilldela de [](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-migration-vcenter-server-permissions) här behörigheterna till den nyligen definierade rollen.
+7.  Klicka på **OK**.
+
+**Tilldela behörigheter för vCenter-objekt**
+
+Det finns två metoder för att tilldela behörigheter för inventerings objekt i vCenter till vCenter-användarkontot med en tilldelad roll.
+- För Server utvärdering måste en skrivskyddad roll tillämpas på vCenter **-** användarkontot för alla överordnade objekt där de virtuella datorer som ska identifieras finns. Alla överordnade objekt – värd, mapp med värdar, kluster, mapp med kluster i hierarkin upp till data centret ska inkluderas. Dessa behörigheter ska spridas till underordnade objekt i hierarkin. 
+
+    På samma sätt som för Server migreringen, är en användardefinierad roll (kan ha namnet <em>Azure-_Migrate</em>) med de här [privilegierna](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-migration-vcenter-server-permissions) som tilldelats måste tillämpas på vCenter-användarkontot för alla överordnade objekt där de virtuella datorer som ska migreras finns.
+
+![Tilldela behörigheter](./media/tutorial-assess-vmware/assign-perms.png)
+
+- Den alternativa metoden är att tilldela användar kontot och rollen rollen på data center nivå och sprida dem till de underordnade objekten. Ge sedan kontot **Ingen åtkomst** roll för varje objekt (t. ex. virtuella datorer) som du inte vill identifiera/migrera. Den här konfigurationen är besvärlig. Det visar oavsiktlig åtkomst kontroll, eftersom varje nytt underordnat objekt automatiskt beviljas åtkomst som ärvs från den överordnade. Därför rekommenderar vi att du använder den första metoden.
+ 
 > [!NOTE]
 > I dag kan Server utvärderingen inte identifiera virtuella datorer om vCenter-kontot har åtkomst som beviljats på nivån vCenter VM Folder. Om du vill begränsa identifieringen av VM-mappar kan du göra det genom att se till att vCenter-kontot har skrivskyddad åtkomst som tilldelats på en VM-nivå.  Följande är instruktioner om hur du kan göra detta:
 >

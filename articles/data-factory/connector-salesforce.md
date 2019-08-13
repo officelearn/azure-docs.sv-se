@@ -306,7 +306,7 @@ När du anger SOQL eller SQL-frågan bör du tänka på DateTime-formatets skill
 * **SOQL-exempel**:`SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= @{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-ddTHH:mm:ssZ')} AND LastModifiedDate < @{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-ddTHH:mm:ssZ')}`
 * **SQL-exempel**:`SELECT * FROM Account WHERE LastModifiedDate >= {ts'@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}'} AND LastModifiedDate < {ts'@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'}`
 
-### <a name="error-of-malformedquerytruncated"></a>Fel i MALFORMED_QUERY: trunkerad
+### <a name="error-of-malformed_querytruncated"></a>Fel i MALFORMED_QUERY: trunkerad
 
 Om du trycker på fel "MALFORMED_QUERY: Trunkerad ", vanligt vis på grund av att du har JunctionIdList typ kolumn i data och Salesforce har begränsningar för att stödja sådana data med ett stort antal rader. Du kan undvika detta genom att försöka undanta JunctionIdList-kolumnen eller begränsa antalet rader som ska kopieras (du kan partitionera till flera kopierings aktivitets körningar).
 
@@ -322,7 +322,7 @@ När du kopierar data från Salesforce används följande mappningar från Sales
 | Date |DateTime |
 | Date/Time |DateTime |
 | Email |String |
-| Id |String |
+| ID |String |
 | Lookup Relationship |String |
 | Multi-Select Picklist |String |
 | Number |Decimal |

@@ -8,9 +8,12 @@
       displayName: 'loop, context, feature, action, rank, reward, developer, use case'
 - name: Snabbstarter
   items:
-    - name: Skapa och använda feedback-loop
+    - name: 'Använd C#'
       href: csharp-quickstart-commandline-feedback-loop.md
       displayName: 'code, sample, quickstart, c#'
+    - name: Använda Python
+      href: python-quickstart-commandline-feedback-loop.md
+      displayName: 'code, sample, quickstart, python'
 - name: Begrepp
   items:
     - name: Så här fungerar Personanpassning

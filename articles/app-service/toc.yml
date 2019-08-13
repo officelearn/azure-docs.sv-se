@@ -63,8 +63,6 @@
       href: samples-resource-manager-templates.md
 - name: Begrepp
   items:
-    - name: Så här fungerar App Service
-      href: app-service-how-works-readme.md
     - name: App Service-planer
       href: overview-hosting-plans.md
     - name: OS-funktioner

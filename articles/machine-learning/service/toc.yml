@@ -258,7 +258,7 @@
     - name: Skapa återanvändbara arbetsflöden
       displayName: pipelines
       items:
-        - name: 'ML-pipelines: batch, beräkningar, återanvändning, dela'
+        - name: ML-pipelines
           href: how-to-create-your-first-pipeline.md
         - name: Azure-pipelines för CI/CD
           displayName: 'continuous, integration, delivery'

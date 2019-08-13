@@ -3,18 +3,17 @@ title: Introduktion till Azure IoT Hub | Microsoft Docs
 description: Läs mer om Azure IoT Hub. Den här IoT-tjänsten har utformats för skalbar datapåfyllning, enhetshantering och säkerhet.
 author: nberdy
 ms.author: nberdy
-ms.date: 07/04/2018
+ms.date: 08/08/2019
 ms.topic: overview
 ms.custom: mvc
 ms.service: iot-hub
 services: iot-hub
-manager: briz
-ms.openlocfilehash: 6dadd746bccd028a2b81a980d99ab47ec9e6e2a3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0dde7bd9bd3372f0f5eddbbd56727eca3ae4a9dd
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61320700"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950468"
 ---
 # <a name="what-is-azure-iot-hub"></a>Vad är Azure IoT Hub?
 
@@ -26,7 +25,7 @@ IoT Hubs funktioner hjälper dig att skapa skalbara kompletta IoT-lösningar, so
 
 ## <a name="scale-your-solution"></a>Skala din lösning
 
-IoT Hub kan skalas till flera miljoner samtidiga anslutna enheter och flera miljoner händelser per sekund och därigenom stödja dina IoT-arbetsbelastningar. IoT Hub erbjuder flera tjänstnivåer som underlättar dina skalbarhetsbehov. Lär dig mer genom att läsa [prissättningssidan](https://azure.microsoft.com/pricing/details/iot-hub/).
+IoT Hub kan skalas till flera miljoner samtidiga anslutna enheter och flera miljoner händelser per sekund och därigenom stödja dina IoT-arbetsbelastningar. Mer information om hur du skalar IoT Hub finns i [IoT Hub skalning](iot-hub-scaling.md?branch=release-iotbasic). Om du vill veta mer om flera nivåer av tjänster som erbjuds av IoT Hub och hur du bäst passar dina skalbarhets behov kan du titta på [sidan med priser](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 ## <a name="secure-your-communications"></a>Skydda din kommunikation
 
@@ -50,7 +49,7 @@ IoT Hub ger dig en säker kommunikationskanal genom vilken dina enheter kan skic
 
 Den inbyggda funktionen för meddelandedirigering ger dig flexibla möjligheter att konfigurera automatisk regelbaserad meddelandeförgrening:
 
-* Använd meddelanderoutning när du vill kontrollera vart din hubb skickar enhetstelemetri.
+* Använd [](iot-hub-devguide-messages-d2c.md) meddelanderoutning för att styra var hubben ska skicka enhets telemetri.
 
 * Det innebär inte någon extra kostnad att skicka meddelanden till flera slutpunkter.
 
@@ -110,7 +109,7 @@ Om din lösning inte kan använda något av de protokoll som stöds kan du utök
 
 ## <a name="quotas-and-limits"></a>Kvoter och begränsningar
 
-Varje Azure-prenumeration har standardkvotgränser för att förhindra missbruk av tjänsten, och dessa begränsningar kan påverka IoT-lösningens omfång. Den aktuella gränsen på basis av per prenumeration är 50 IoT-hubbar per prenumeration. Du kan begära att kvoten ska ökas genom att kontakta supporten. Mer information om kvotgränser:
+Varje Azure-prenumeration har standardkvotgränser för att förhindra missbruk av tjänsten, och dessa begränsningar kan påverka IoT-lösningens omfång. Den aktuella gränsen för en per prenumeration är 50 IoT Hub per prenumeration. Du kan begära att kvoten ska ökas genom att kontakta supporten. Mer information finns i [IoT Hub kvoter och begränsning](iot-hub-devguide-quotas-throttling.md). Mer information om kvot gränser finns i någon av följande artiklar:
 
 * [Tjänstbegränsningar för Azure-prenumeration](../azure-subscription-service-limits.md)
 

@@ -12,12 +12,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: 625fcda4b612fdeda940f9219238ac79354dd056
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 4e65abdb500d61aa72b142f598a17e4cb8fb05f8
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67444672"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68949934"
 ---
 # <a name="create-your-first-function-from-the-command-line"></a>Skapa din första funktion från kommandoraden
 
@@ -29,7 +29,7 @@ Du kan följa stegen nedan på en Mac-, Windows- eller Linux-dator.
 
 Innan du kör exemplet måste du ha följande:
 
-+ Installera [Azure Functions Core Tools](./functions-run-local.md#v2) version 2.6.666 eller senare.
++ Installera [Azure Functions Core tools](./functions-run-local.md#v2) version 2.6.666 eller senare.
 
 + Installera [Azure CLI]( /cli/azure/install-azure-cli). Den här artikeln kräver Azure CLI version 2.0 eller senare. Kör `az --version` för att se vilken version du har. Du kan också använda [Azure Cloud Shell](https://shell.azure.com/bash).
 
@@ -37,35 +37,9 @@ Innan du kör exemplet måste du ha följande:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-the-local-function-app-project"></a>Skapa det lokala funktionsapprojektet
+[!INCLUDE [functions-create-function-app-cli](../../includes/functions-create-function-app-cli.md)]
 
-Kör följande kommando från kommandoraden för att skapa ett funktionsapprojekt i mappen `MyFunctionProj` i den aktuella lokala katalogen. En GitHub-lagringsplats skapas också i `MyFunctionProj`.
-
-```bash
-func init MyFunctionProj
-```
-
-När du uppmanas väljer du en worker-körtid från följande språkval:
-
-+ `dotnet`: skapar ett .NET-klassbiblioteksprojekt (.csproj).
-+ `node`: skapar ett JavaScript-projekt.
-
-När kommandot körs visas något i stil med följande utdata:
-
-```output
-Writing .gitignore
-Writing host.json
-Writing local.settings.json
-Initialized empty Git repository in C:/functions/MyFunctionProj/.git/
-```
-
-Använd följande kommando för att navigera till den nya `MyFunctionProj`-projektmappen.
-
-```bash
-cd MyFunctionProj
-```
-
-## <a name="enable-extension-bundles"></a>Aktivera tillägget paket
+## <a name="enable-extension-bundles"></a>Aktivera tilläggs paket
 
 [!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 

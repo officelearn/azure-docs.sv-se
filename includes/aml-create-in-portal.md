@@ -9,12 +9,12 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 07/31/2019
-ms.openlocfilehash: 7be5b0dbe4bbfba30ea469eec662877c1ef56c7c
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 0a497ce506e1aa3b0f9afc47bf1ab8382c9c0405
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689610"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68951453"
 ---
 1. Logga in på [Azure Portal](https://portal.azure.com/) med hjälp av autentiseringsuppgifterna för den Azure-prenumeration du använder. 
 
@@ -30,7 +30,7 @@ ms.locfileid: "68689610"
 
     ![Skapa arbetsyta](./media/aml-create-in-portal/workspace-create-main-tab.png)
 
-   Fält|Beskrivning
+   Fält|Beskrivning 
    ---|---
    Namn på arbetsyta |Ange ett unikt namn som identifierar din arbets yta. I det här exemplet använder vi **dokument-WS**. Namn måste vara unika i resurs gruppen. Använd ett namn som är enkelt att återkalla och särskilja från arbets ytor som skapats av andra.  
    Subscription |Ange den prenumeration som du vill använda.
@@ -44,3 +44,11 @@ ms.locfileid: "68689610"
    När processen är klar visas ett meddelande om lyckad distribution. Den finns också i avsnittet meddelanden. Om du vill visa den nya arbets ytan väljer du **gå till resurs**.
 
    ![Status för skapande av arbets yta](./media/aml-create-in-portal/notifications.png)
+
+1. Om din kod refererar till den här arbets ytan från den lokala miljön väljer du **Hämta config. JSON** från **översikts** avsnittet i arbets ytan.  
+
+   ![Ladda ned config.json](./media/aml-create-in-portal/configure.png)
+
+    Placera denna JSON-fil i katalog strukturen som innehåller dina Python-skript eller Jupyter-anteckningsböcker. Det kan finnas i samma katalog, i en under katalog med namnet *. azureml*eller i en överordnad katalog.
+
+   Om du kommer att använda en [Notebook-VM](../articles/machine-learning/service/tutorial-1st-experiment-sdk-setup.md#azure) behöver du inte ladda ned den här filen, den läggs till i rätt katalog på den virtuella datorn åt dig.

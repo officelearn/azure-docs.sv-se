@@ -9,24 +9,37 @@ ms.topic: include
 ms.date: 10/20/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 74e14e36b1ac0979da31203a2d16e2396ed821d0
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: dcfa65c655d1508510282fe66e90e4076278b29b
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187117"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68949972"
 ---
 ## <a name="run-the-function-locally"></a>Kör funktionen lokalt
 
-Nedanstående kommando startar funktionsappen. Appen körs med samma Azure Functions-körtid som finns i Azure.
+Nedanstående kommando startar funktionsappen. Appen körs med samma Azure Functions-körtid som finns i Azure. Start kommandot varierar beroende på ditt projekt språk.
 
-```bash
-func host start --build
+### <a name="c"></a>C\#
+
+```command
+func start --build
 ```
 
-Alternativet `--build` krävs för att kompilera C#-projekt. Du behöver inte det här alternativet för ett JavaScript-projekt.
+### <a name="javascript"></a>JavaScript
 
-När funktionsvärden startar skriver den något i stil med följande utdata, som har trunkerats för läsbarhetens skull:
+```command
+func start
+```
+
+### <a name="typescript"></a>TypeScript
+
+```command
+npm install
+npm start     
+```
+
+När Functions-värden startar skriver den något som följande utdata, som har trunkerats för läsbarhet:
 
 ```output
 

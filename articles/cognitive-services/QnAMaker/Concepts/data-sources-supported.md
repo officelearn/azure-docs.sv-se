@@ -7,15 +7,15 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: diberry
-ms.openlocfilehash: 156b2cf7c8042699f70e4bc3ec0b8944ac59a364
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 78c75e69be5521660937e34da0d7261dba1de385
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68501166"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68955400"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Datakällor för QnA Maker-innehåll
 
@@ -189,7 +189,7 @@ När du är färdig med redigeringarna importerar du om TSV-filen från sidan **
 
 ## <a name="testing-your-markdown"></a>Testa din markdown
 
-Använd **[CommonMark](https://commonmark.org/help/tutorial/index.html)** -självstudien för att validera din markdown. I självstudien finns **en funktion för** att snabbt kopiera och klistra in. 
+Använd **[CommonMark](https://commonmark.org/help/tutorial/index.html)** -självstudien för att validera din markdown. I självstudien finns en funktion för att snabbt kopiera och klistra in. 
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,5 +1,5 @@
 ---
-title: Förtroendepoäng – QnA Maker
+title: Förtroende poäng – QnA Maker
 titleSuffix: Azure Cognitive Services
 description: Förtroendepoäng anger var säker på att svaret är rätt matchning för den angivna användarfrågan.
 services: cognitive-services
@@ -7,16 +7,16 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/17/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: c14c607e4c563bbeeaff02b2c2478cc4b4d96ee5
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: afc50a5adb591550f6e988a572d1ac9a8c4439cb
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165141"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68955186"
 ---
 # <a name="confidence-score-of-a-qna-maker-knowledge-base"></a>Förtroendepoäng för en kunskapsbas med QnA Maker
 När en användarfråga matchas mot en kunskapsbas, returnerar QnA Maker relevanta svar, tillsammans med ett förtroenderesultat. Det här resultatet indikerar var säker på att svaret är rätt matchning för den angivna användarfrågan. 
@@ -38,7 +38,7 @@ Följande tabell visar vanliga förtroende som är associerade för ett visst po
 
 |Poäng värde|Poäng betydelse|Exempelfråga|
 |--|--|--|
-|90 - 100|En nästan exakt matchning av användarfråga och en KB-fråga|”Mina ändringar inte har uppdaterats i KB efter publicering”|
+|90 - 100|En nästan exakt matchning av användarfråga och en KB-fråga|"Mina ändringar uppdateras inte i KB efter publicering"|
 |> 70|Hög exakthet - vanligtvis ett bra svar som helt besvarar användarens fråga|”Jag har publicerat min Kunskapsbas men uppdateras inte”.|
 |50 - 70|Medium förtroende - vanligtvis ett ganska bra svar som ska svara på det huvudsakliga syftet med användarfrågan|”Ska jag spara min uppdateringar innan jag publicera min Kunskapsbas”?|
 |30 - 50|Låg förtroende - vanligtvis ett relaterade svar, som delvis besvarar användarens avsikt|”Vad gör spara och träna”?|
@@ -46,25 +46,25 @@ Följande tabell visar vanliga förtroende som är associerade för ett visst po
 |0|Ingen matchning, så att svaret inte returneras.|”Hur mycket tjänsten kostar”|
 
 ## <a name="choose-a-score-threshold"></a>Välj ett poäng tröskelvärde
-Tabellen ovan visar resultat som förväntas på de flesta KB-artiklar. Men eftersom varje KB är annorlunda och har olika typer av ord, avsikter och mål-rekommenderar vi du testa och välj tröskelvärdet passar som bäst dig. Tröskelvärdet är som standard till 0, så att alla möjliga svar returneras. Den rekommenderade tröskeln som ska fungera för de flesta KB-artiklar, är **50**.
+Tabellen ovan visar resultat som förväntas på de flesta KB-artiklar. Men eftersom varje KB skiljer sig åt, och har olika typer av ord, avsikter och mål, rekommenderar vi att du testar och väljer det tröskelvärde som passar bäst för dig. Som standard är tröskelvärdet inställt på 0, så att alla möjliga svar returneras. Den rekommenderade tröskeln som ska fungera för de flesta KB är **50**.
 
 När du väljer tröskeln för ditt, Kom ihåg balans mellan precision och täckning och justera tröskeln för ditt baserat på dina krav.
 
 - Om **Precision** (eller precision) är viktigare för ditt scenario och öka din tröskelvärdet. På så sätt kan varje gång du kommer tillbaka ett svar är en mycket mer CONFIDENT användningsfall och mycket mer troligt svar användare söker efter. I det här fallet kan du få lämnar fler frågor obehandlade. *Till exempel:* om du gör tröskelvärdet **70**, du kan gå miste om vissa tvetydig exempel gilla ”vad är spara och träna”?.
 
-- Om **täckning** (eller återkallande) är fler viktigt – och du vill att besvara så många frågor som möjligt, även om det finns bara en partiell relation till användarens fråga - sedan SÄNKA tröskelvärdet. Det innebär att det kan vara mer fall där svaret svarar inte användarens faktiska frågan, men ger andra relaterade något svar. *Till exempel:* om du gör tröskelvärdet **30**, du kan ge svar för frågor som ”var kan jag ändra min Kunskapsbas”?
+- Om **täckning** (eller återkallande) är fler viktigt – och du vill att besvara så många frågor som möjligt, även om det finns bara en partiell relation till användarens fråga - sedan SÄNKA tröskelvärdet. Det innebär att det kan vara mer fall där svaret svarar inte användarens faktiska frågan, men ger andra relaterade något svar. *Exempel:* om du gör tröskelvärdet **30**kan du ge svar på frågor som "var kan jag redigera mitt KB?".
 
 > [!NOTE]
 > Nyare versioner av QnA Maker är förbättringar av bedömnings logik och kan påverka din tröskelvärdet. När du uppdaterar tjänsten, se till att testa och justera tröskelvärdet om det behövs. Du kan kontrollera QnA Service-version [här](https://www.qnamaker.ai/UserSettings), och se hur du kan få de senaste uppdateringarna [här](../How-To/troubleshooting-runtime.md).
 
-## <a name="set-threshold"></a>Angiven tröskel 
+## <a name="set-threshold"></a>Ange tröskel 
 
-Ange tröskelvärdet resultat som en egenskap för den [GenerateAnswer API JSON-texten](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration). Det innebär att du ställa in den för varje anrop till GenerateAnswer. 
+Ange tröskelvärdet som en egenskap för [GENERATEANSWER API-JSON-texten](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration). Det innebär att du ställer in den för varje anrop till GenerateAnswer. 
 
-I bot framework, ange att resultatet som en del av alternativ för objektet med [ C# ](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-c) eller [Node.js](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-nodejs).
+I bot-ramverket ställer du in poängen som en del av alternativ- [C#](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-c) objektet med eller [Node. js](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-nodejs).
 
 ## <a name="improve-confidence-scores"></a>Förbättra förtroende-poäng
-För att förbättra förtroendepoäng för ett visst svar till en användarfråga, du kan lägga till användarfrågan kunskapsbasen som en annan fråga på det svaret. Du kan också använda skiftlägeskänsliga [word förändras](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) att lägga till synonymer i nyckelord i din Kunskapsbas.
+För att förbättra förtroendepoäng för ett visst svar till en användarfråga, du kan lägga till användarfrågan kunskapsbasen som en annan fråga på det svaret. Du kan också använda Skift läges känsliga [ord ändringar](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) för att lägga till synonymer till nyckelord i din KB.
 
 
 ## <a name="similar-confidence-scores"></a>Liknande förtroende-poäng
@@ -72,13 +72,13 @@ När flera svar har en liknande förtroendepoäng, är det troligt att frågan v
 
 
 ## <a name="confidence-score-differences"></a>Förtroende poäng skillnader
-Förtroendepoäng av ett svar kan ändras negligibly mellan test och publicerade versionen av kunskapsbasen även om innehållet är samma. Det beror på att innehållet i testet och publicerade kunskapsbasen finns i olika Azure Search-index. När du publicerar en kunskapsbas flyttar frågor och svar innehållet i kunskapsbasen från test-index till ett index för produktion i Azure search. Se hur [publicera](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) åtgärden fungerar.
+Förtroendepoäng av ett svar kan ändras negligibly mellan test och publicerade versionen av kunskapsbasen även om innehållet är samma. Det beror på att innehållet i testet och publicerade kunskapsbasen finns i olika Azure Search-index. När du publicerar en kunskaps bas, flyttas frågan och svars innehållet i kunskaps basen från test indexet till ett produktions index i Azure Search. Se hur [publicerings](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) åtgärden fungerar.
 
-Om du har en kunskapsbas i olika regioner, använder en egen Azure Search-index i varje region. Eftersom olika index används kommer poängen inte att exakt samma. 
+Om du har en kunskaps bas i olika regioner använder varje region sitt eget Azure Search-index. Eftersom olika index används är poängen inte identiska. 
 
 
 ## <a name="no-match-found"></a>Ingen matchning hittades
-När ingen bra matchning hittas av rankningen, förtroendepoäng 0,0 eller ”None” returneras och Standardsvaret är ”bra att hitta någon matchning i KB”. Du kan åsidosätta detta [Standardsvar](#change-default-answer) i koden bot eller program som anropar slutpunkten. Alternativt kan du kan också ange åsidosättning svaret i Azure och detta ändrar standardvärdet för alla kunskapsbaser som distribueras i en viss QnA Maker-tjänsten.
+När ingen bra matchning hittas av rankningen, förtroendepoäng 0,0 eller ”None” returneras och Standardsvaret är ”bra att hitta någon matchning i KB”. Du kan åsidosätta [](#change-default-answer) standardsvaret i robot-eller program koden som anropar slut punkten. Alternativt kan du kan också ange åsidosättning svaret i Azure och detta ändrar standardvärdet för alla kunskapsbaser som distribueras i en viss QnA Maker-tjänsten.
 
 ## <a name="change-default-answer"></a>Ändra Standardsvar
 

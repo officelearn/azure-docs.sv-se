@@ -7,35 +7,35 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 60a17859fd74b1972e0905a830ba984838a94ffd
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: a8ebd0b36c6ee8bf6762a70af9f4a7c09f6b118d
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447499"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68955157"
 ---
 # <a name="add-chit-chat-to-a-knowledge-base"></a>Lägg till Chit-chatt i en kunskapsbas
 
 Att lägga till chit-chatt i din robot gör det mer konversationsanpassade och engagerande. Funktionen chit-chatt i QnA maker kan du enkelt lägga till en i förväg uppsättning övre chit-chatt i kunskapsbasen (KB). Detta kan vara en startpunkt för din robot personlighet och kan du spara tid och pengar på att skriva dem från grunden.  
 
-Den här datauppsättningen innehåller cirka 100 scenarier av chit chat i form av flera personer som Professional, vänlig och Witty. Välj den person som närmast liknar din robot röst. Får en användarfråga paras QnA Maker ihop med frågor och svar för närmaste kända chit-chatt.  
+Den här data uppsättningen har cirka 100 scenarier med CHI2TEST i en röst av flera personer, som professionella, användarvänliga och witty. Välj den person som närmast liknar din robot röst. Får en användarfråga paras QnA Maker ihop med frågor och svar för närmaste kända chit-chatt.  
 
-Några exempel på olika personligheter finns nedan. Du kan se alla personlighet [datauppsättningar](https://github.com/Microsoft/BotBuilder-PersonalityChat/tree/master/CSharp/Datasets) tillsammans med information om personligheter.
+Några exempel på olika personliga uppgifter finns nedan. Du kan se alla personliga [data uppsättningar](https://github.com/Microsoft/BotBuilder-PersonalityChat/tree/master/CSharp/Datasets) tillsammans med information om dina personliga uppgifter.
 
-För användarfråga av `When is your birthday?`, varje person har en formaterad svaret:
+För användar frågan för `When is your birthday?`, har varje personlighet ett formaterat svar:
 
 <!-- added quotes so acrolinx doesn't score these sentences -->
 |Personlighet|Exempel|
 |--|--|
-|Professionell|Ålder verkligen avser inte mig.|
-|Eget|Jag har verkligen inte en ålder.|
-|Spirituell|Jag är ålder är kostnadsfria.|
-|Sköta|Jag har inte en ålder.|
-|Entusiastisk|Jag är en robot, så att du inte har en ålder.|
+|Professionell|Åldern gäller egentligen inte för mig.|
+|Eget|Jag har verkligen ingen ålder.|
+|Witty|Jag är ålders fri.|
+|Caring|Jag har ingen ålder.|
+|Entusiastisk|Jag är en bot, så jag har ingen ålder.|
 ||
 
 > [!NOTE]
@@ -56,12 +56,12 @@ När du redigerar din Kunskapsbas visas en ny källa för chit-chatt, baserat p�
 
 ![Redigera chit-chatt kunskapsbaser](../media/qnamaker-how-to-chit-chat/edit-chit-chat.png)
 
-Om du vill visa metadata, Välj **Visningsalternativ** i verktygsfältet och välj sedan **visa metadata**.
+Om du vill visa metadata väljer du **visnings alternativ** i verktygsfältet och väljer sedan **Visa metadata**.
 
 ## <a name="add-additional-chit-chat-questions-and-answers"></a>Lägg till ytterligare chit-chatt frågor och svar
 Du kan lägga till nya chit-chatt frågor och svar som inte i den fördefinierade anges. Se till att du inte duplicerar ett QnA-par som redan omfattas av chit-chatt-uppsättningen. När du lägger till några nya chit-chatt frågor och svar om den läggs till din **språkliga** källa. Lägg till nyckel/värde-par metadata för att säkerställa rankningen förstår att detta är chit-chatt ”, språkliga: chit-chatt”, som visas i följande bild:
    
-![! [Add chit-chatt kunskapsbaser] (.. / media/qnamaker-how-to-chit-chat/add-new-chit-chat.png)](../media/qnamaker-how-to-chit-chat/add-new-chit-chat.png#lightbox)
+![! [Lägg till CHI2TEST kring] (.. /media/qnamaker-how-to-chit-chat/add-new-chit-chat.png)](../media/qnamaker-how-to-chit-chat/add-new-chit-chat.png#lightbox)
 
 ## <a name="delete-chit-chat-from-an-existing-kb"></a>Ta bort chit-chatt från en befintlig KB
 Välj din Kunskapsbas och navigera till den **inställningar** sidan. Specifika chit-chatt-källa har listats som en fil med namnet på valda personlighet. Du kan ta bort detta som en källfil.

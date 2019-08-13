@@ -7,16 +7,16 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 6ffc8931f23835f096c99480b286422fc6e20119
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 97a4673be2a611149806855e792c5bf1f7a0942a
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447623"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68955176"
 ---
 # <a name="knowledge-base-lifecycle-in-qna-maker"></a>Kunskapsbas livscykel i QnA Maker
 QnA Maker lär sig bäst i en iterativ livscykel datamodellen ändras, uttryck exempel, publicering och samla in data från slutpunkt-frågor. 
@@ -28,14 +28,14 @@ Slutpunkt för QnA Maker knowledge base (KB) innehåller en bästa matchning sva
 
 ## <a name="testing-and-updating-the-knowledge-base"></a>Testa och uppdatera kunskapsbasen
 
-Kunskapsbasen är klart för testning när det fylls i med innehåll, redigeringsmässigt eller via automatisk extrahering. Interaktiv testning kan göras i QnA Maker-portalen via den **Test** panelen genom att ange vanliga användarfrågor om och verifiera att svaren som returneras med rätt svar och tillräckligt med förtroendepoäng. 
+Kunskapsbasen är klart för testning när det fylls i med innehåll, redigeringsmässigt eller via automatisk extrahering. Du kan göra interaktiva tester i QnA Maker-portalen via **test** panelen genom att ange vanliga användar frågor och kontrol lera att svaren som returneras med rätt svar och tillräckligt förtroende poäng. 
 
-* **Åtgärda resultat för låga förtroende**: lägga till alternativa frågor. 
-* **När en fråga felaktigt returnerar den [Standardsvar](confidence-score.md#change-default-answer)** : lägga till nya svar på rätt frågan. 
+* **Så här åtgärdar du låga förtroende poäng**: Lägg till alternativa frågor. 
+* **När en fråga felaktigt returnerar [](confidence-score.md#change-default-answer)standardsvaret**: Lägg till nya svar på rätt fråga. 
 
 Den här tät loop av test-uppdatering fortsätter tills du är nöjd med resultaten. Lär dig hur du [testa kunskapsbasen](../How-To/test-knowledge-base.md).
 
-För stora KB-artiklar, Använd automatiska tester med den [generateAnswer API](../how-to/metadata-generateanswer-usage.md#get-answer-predictions-with-the-generateanswer-api) och `isTest` body egenskapen vilka frågor i `test` kunskapsbas i stället för publicerade kunskapsbasen. 
+För stora KB använder du automatiserad testning med [generateAnswer-API: et](../how-to/metadata-generateanswer-usage.md#get-answer-predictions-with-the-generateanswer-api) och `isTest` egenskapen Body som `test` skickar frågor till kunskaps basen i stället för den publicerade kunskaps basen. 
 
 ```json
 {
@@ -51,7 +51,7 @@ När du är klar testar kunskapsbasen kan du publicera den. Publicera push-medde
 
 På så sätt kan alla ändringar som görs till testversion av kunskapsbasen påverkar inte den publicerade versionen som kanske bor i ett produktionsprogram.
 
-Var och en av dessa kunskapsbaser kan vara mål för att testa separat. Med API: erna kan du rikta testversion av kunskapsbas med `isTest` body-egenskapen i generateAnswer-anropet.
+Var och en av dessa kunskapsbaser kan vara mål för att testa separat. Med hjälp av API: erna kan du rikta test versionen av kunskaps basen `isTest` med egenskapen Body i generateAnswer-anropet.
 
 Lär dig hur du [publicera din kunskapsbas](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base).
 

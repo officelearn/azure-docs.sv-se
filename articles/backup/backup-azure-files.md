@@ -7,12 +7,12 @@ ms.date: 07/29/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: c2e78f6925ae8ff72e7f603c886376b32e40cd94
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 03b65c71201ba125cb3924a52e8760a088374aa6
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68737265"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954724"
 ---
 # <a name="back-up-and-restore-azure-file-shares"></a>Säkerhetskopiera och återställa Azure-filresurser
 Den här artikeln förklarar hur du använder Azure Portal för att säkerhetskopiera och återställa [Azure-filresurser](../storage/files/storage-files-introduction.md).
@@ -188,7 +188,7 @@ Om du vill återuppta skyddet av filresursen, går du till Säkerhetskopieringso
 
 ### <a name="delete-backup-data"></a>Ta bort säkerhetskopieringsdata
 
-Du kan ta bort säkerhetskopian av en resurs under jobbet Stoppa säkerhetskopiering eller efter att du har stoppat skyddet. Det kan vara en fördel att vänta dagar eller veckor innan du tar bort återställningspunkterna. Till skillnad från återställning av återställningspunkter när du tar bort säkerhetskopierade data, kan du inte välja specifika återställningspunkter som ska tas bort. Om du väljer att ta bort säkerhetskopierade data, tar du bort alla återställningspunkter som är associerade med objektet.
+Du kan ta bort säkerhets kopian av en fil resurs under aktiviteten Avbryt säkerhets kopiering, eller när du har stoppat skyddet. Det kan vara en fördel att vänta dagar eller veckor innan du tar bort återställningspunkterna. Till skillnad från återställning av återställningspunkter när du tar bort säkerhetskopierade data, kan du inte välja specifika återställningspunkter som ska tas bort. Om du väljer att ta bort säkerhetskopierade data, tar du bort alla återställningspunkter som är associerade med objektet.
 
 Följande procedur förutsätter att säkerhetskopieringen av den virtuella datorn har stoppats. När säkerhetskopieringen har stoppats är alternativen Återuppta säkerhetskopiering och Ta bort säkerhetskopieringsdata tillgängliga i instrumentpanelen Säkerhetskopieringsobjekt. Klicka på Ta bort säkerhetskopieringsdata och skriv namnet på filresursen för att bekräfta borttagningen. Du kan också ange en orsak till borttagningen eller en kommentar.
 

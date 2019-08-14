@@ -1,7 +1,7 @@
 ---
-title: Vad är Speech Service?
+title: Vad är Speech Services?
 titleSuffix: Azure Cognitive Services
-description: 'Tal tjänsten är arbetskonton av tal-till-text, text till tal och tal översättning till en enda Azure-prenumeration. Det är enkelt att lägga till tal för program, verktyg och enheter med tal-SDK, tal enheter SDK eller REST API: er. Lägg till talfunktioner i en befintlig chatt-robot, konvertera text till tal i ett översättnings program eller Skriv över stora volymer av Call Center-data.'
+description: 'Tal tjänsterna är arbetskonton av tal-till-text, text till tal och tal översättning till en enda Azure-prenumeration. Det är enkelt att lägga till tal för program, verktyg och enheter med tal-SDK, tal enheter SDK eller REST API: er. Lägg till talfunktioner i en befintlig chatt-robot, konvertera text till tal i ett översättnings program eller Skriv över stora volymer av Call Center-data.'
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 1d722d7e2886008aa5aa3acff8095fcf35ac38d8
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 4ea6f04dbfd18a6e561a255988ba0465b9e017be
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68554174"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967615"
 ---
 # <a name="what-are-the-speech-services"></a>Vad är Speech Services?
 
-Azure Speech Services är en arbetskonton av tal-till-text, text till tal och tal översättning till en enda Azure-prenumeration. Det är enkelt att aktivera program, verktyg och enheter med [tal-SDK](speech-sdk-reference.md), [tal enheter SDK](https://aka.ms/sdsdk-quickstart)eller [REST API: er](rest-apis.md).
+Tal tjänsterna är arbetskonton av tal-till-text, text till tal och tal översättning till en enda Azure-prenumeration. Det är enkelt att aktivera program, verktyg och enheter med [tal-SDK](speech-sdk-reference.md), [tal enheter SDK](https://aka.ms/sdsdk-quickstart)eller [REST API: er](rest-apis.md).
 
 > [!IMPORTANT]
 > Tal tjänster har ersatt API för Bing-taligenkänning, Translator Speech och Custom Speech. Se *instruktions guider > migrering* för instruktioner om migrering.
@@ -41,14 +41,14 @@ Dessa funktioner utgör Azures tal tjänster. Använd länkarna i den här tabel
 
 Lär dig vad som är nytt med Azure Speech Services.
 
+* 2019 augusti
+  * **Ny självstudie**: [Röst möjliggör din robot med talet SDK,C#](tutorial-voice-enable-your-bot-speech-sdk.md)
 * 2019 juni
-    * Utgivna tal SDK-1.6.0. En fullständig lista över uppdateringar, förbättringar och kända problem finns i [viktig information](releasenotes.md).
+  * Utgivna tal SDK-1.6.0. En fullständig lista över uppdateringar, förbättringar och kända problem finns i [viktig information](releasenotes.md).
 * Maj 2019 – dokumentationen är nu tillgänglig för [konversations](conversation-transcription-service.md)avskrifter, avskriftering av [samtals Center](call-center-transcription.md)och [röst-och första virtuella assistenter](voice-first-virtual-assistants.md).
 * Maj 2019
-    * Utgivna tal SDK-1.5.1. En fullständig lista över uppdateringar, förbättringar och kända problem finns i [viktig information](releasenotes.md).
-    * Utgivna tal SDK-1.5.0. En fullständig lista över uppdateringar, förbättringar och kända problem finns i [viktig information](releasenotes.md).
-* 2019 – 1.4.0 av tal SDK med stöd för text till tal (beta) för C++, C#och Java på Windows och Linux. Dessutom stöder SDK nu MP3-och Opus/OGG-ljudformat för C++ och C# på Linux. En fullständig lista över uppdateringar, förbättringar och kända problem finns i [viktig information](releasenotes.md).
-* Mars 2019 – en ny slut punkt för text till tal (TTS) som returnerar en fullständig lista över röster som är tillgängliga i en speciell region är nu tillgänglig. Dessutom stöds nu nya regioner för TTS. Mer information finns i [referens för text till tal-API (rest)](rest-text-to-speech.md).
+  * Utgivna tal SDK-1.5.1. En fullständig lista över uppdateringar, förbättringar och kända problem finns i [viktig information](releasenotes.md).
+  * Utgivna tal SDK-1.5.0. En fullständig lista över uppdateringar, förbättringar och kända problem finns i [viktig information](releasenotes.md).
 
 ## <a name="try-speech-services"></a>Testa tal tjänster
 
@@ -67,6 +67,7 @@ Vi erbjuder snabb starter i de flesta populära programmeringsspråk, som var ut
 När du har haft möjlighet att använda tal tjänsterna kan du prova vår självstudie som lär dig hur du kan identifiera avsikter från tal med hjälp av talet SDK och LUIS.
 
 * [Självstudier: Identifiera avsikter från tal med talet SDK och LUIS.C#](how-to-recognize-intents-from-speech-csharp.md)
+* [Självstudier: Röst möjliggör din robot med talet SDK,C#](tutorial-voice-enable-your-bot-speech-sdk.md)
 * [Självstudier: Bygg en kolv-app för att översätta text, analysera sentiment och syntetisera översatt text till tal, REST](https://docs.microsoft.com/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis?toc=%2fazure%2fcognitive-services%2fspeech-service%2ftoc.json&bc=%2fazure%2fcognitive-services%2fspeech-service%2fbreadcrumb%2ftoc.json&toc=%2Fen-us%2Fazure%2Fcognitive-services%2Fspeech-service%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json)
 
 ## <a name="get-sample-code"></a>Hämta exempelkod
@@ -76,6 +77,7 @@ Exempel kod finns på GitHub för var och en av Azure Speech Services. De här e
 * [Exempel på tal-till-text-text till tal och tal översättning (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
 * [Batch-avskrifts exempel (REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch)
 * [Text till tal-exempel (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
+* [Röst-första exempel på virtuella assistenter (SDK)](https://aka.ms/csspeech/samples)
 
 ## <a name="customize-your-speech-experience"></a>Anpassa din tal upplevelse
 

@@ -3,7 +3,7 @@ title: Snabbstart Ladda ned en granskningsrapport med Azure-portalen | Microsoft
 description: Lär dig hur du laddar ned en granskningsrapport med Azure-portalen
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.assetid: 4de121ea-f4aa-4c8a-aae4-700c2c5e97a2
@@ -14,21 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a6cbea49fe39c92c8a2fc50e501cb4ef5cff74b1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2f3e5dd1c42537ce6ff419d7d81d69d824242ec4
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60286456"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989685"
 ---
 # <a name="quickstart-download-an-audit-report-using-the-azure-portal"></a>Snabbstart: Ladda ned en granskningsrapport med hjälp av Azure-portalen
 
-I den här snabbstarten har du lära dig hur du hämtar en CSV-fil med granskningsloggarna för din klient för de senaste 24 timmarna. Du kan hämta upp till 250 000 poster från Azure-portalen. Poster är sorterade efter de senaste så att som standard, du får de senaste 250 000 posterna. 
+I den här snabb starten får du lära dig hur du hämtar en CSV-fil med gransknings loggarna för din klient under de senaste 24 timmarna. Du kan hämta upp till 250 000 poster från Azure Portal. Posterna sorteras efter senaste så att du får de senaste 250 000 posterna som standard. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver:
 
@@ -41,7 +41,7 @@ Du behöver:
 2. Välj **Azure Active Directory** från det vänstra navigeringsfönstret och använd **Växla katalog** för att välja din active directory.
 3. Från instrumentpanelen väljer du **Azure Active Directory** och sedan **Granskningsloggar**. 
 4. Välj **senaste 24 timmarna** i filterlistrutan **datumintervall** och välj **Tillämpa** för att visa granskningsloggarna för de senaste 24 timmarna. 
-5. Välj den **hämta** knapp, väljer **CSV** som filen formatera och ange ett filnamn för att hämta en CSV-fil som innehåller de filtrerade posterna. 
+5. Välj knappen **Ladda ned** , Välj **CSV** som fil format och ange ett fil namn för att ladda ned en CSV-fil som innehåller de filtrerade posterna. 
 
 ![Rapportering](./media/quickstart-download-audit-report/download-audit-logs.png)
 

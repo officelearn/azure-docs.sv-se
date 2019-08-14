@@ -1,5 +1,5 @@
 ---
-title: 'Konfigurera ett program att exponera web API: er – Microsoft identity-plattformen'
+title: 'Konfigurera ett program för att exponera webb-API: er – Microsoft Identity Platform'
 description: Lär dig hur du konfigurerar en app att exponera en ny behörighet/ett nytt omfång och roller för att göra appen tillgänglig för klientprogram.
 services: active-directory
 documentationcenter: ''
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/08/2019
+ms.date: 08/14/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f770539e2f60a960a52a877dd4eaa79c60a1af4a
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: f9c8e4a2e5dadf64312481f33993911177c90bc7
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482679"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989274"
 ---
-# <a name="quickstart-configure-an-application-to-expose-web-apis"></a>Snabbstart: Konfigurera ett program att exponera webb API: er
+# <a name="quickstart-configure-an-application-to-expose-web-apis"></a>Snabbstart: Konfigurera ett program för att exponera webb-API: er
 
 Du kan utveckla ett webb-API och göra det tillgängligt för klientprogram genom att exponera [behörigheter/omfång](developer-glossary.md#scopes) och [roller](developer-glossary.md#roles). Ett korrekt konfigurerat webb-API tillhandahålls precis som de andra webb-API:erna från Microsoft, inklusive Graph API och Office 365-API:erna.
 
@@ -44,7 +44,7 @@ Innan du kan konfigurera appen gör du följande:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller en personligt Microsoft-konto.
 1. Om ditt konto ger dig tillgång till fler än en klientorganisation väljer du ditt konto i det övre högra hörnet och ställer in din portalsession på önskad Azure AD-klientorganisation.
-1. I det vänstra navigeringsfönstret väljer du den **Azure Active Directory** tjänsten och väljer sedan **appregistreringar**.
+1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** och väljer sedan **Appregistreringar**.
 1. Leta reda på och välj den app du vill konfigurera. När du har valt appen ser du dess **översikt** eller huvudregistreringssida.
 1. Välj vilken metod du vill använda, användargränssnitt eller applikationsmanifest, för att exponera ett nytt omfång:
     * [Exponera ett nytt omfång via användargränssnittet](#expose-a-new-scope-through-the-ui)
@@ -52,7 +52,7 @@ Innan du kan konfigurera appen gör du följande:
 
 ## <a name="expose-a-new-scope-through-the-ui"></a>Exponera ett nytt omfång via användargränssnittet
 
-[![Visar hur du kan exponera ett API med hjälp av Användargränssnittet](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png)](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png#lightbox)
+[![Visar hur du exponerar ett API med hjälp av användar gränssnittet](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png)](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png#lightbox)
 
 Så här exponerar du ett nytt omfång via användargränssnittet:
 
@@ -116,8 +116,9 @@ Så här exponerar du ett nytt omfång eller en ny roll via applikationsmanifest
 ## <a name="verify-the-web-api-is-exposed-to-other-applications"></a>Verifiera att webb-API:et görs tillgängligt för andra appar
 
 1. Gå tillbaka till din Azure AD-klientorganisation, välj **Appregistreringar**, leta upp och välj det klientprogram som du vill konfigurera.
-1. Upprepa stegen som beskrivs i Konfigurera ett klientprogram för åtkomst till webb-API:er.
-1. När du kommer till steget **Välja ett API** väljer du din resurs. Du bör se det nya omfånget, tillgängligt för begäranden om klientbehörighet.
+1. Upprepa stegen som beskrivs i [Konfigurera ett klientprogram för åtkomst till webb-API:er](quickstart-configure-app-access-web-apis.md).
+1. När du kommer till steget för att [välja ett API](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis
+)väljer du din resurs. Du bör se det nya omfånget, tillgängligt för begäranden om klientbehörighet.
 
 ## <a name="more-on-the-application-manifest"></a>Mer information om programmanifestet
 

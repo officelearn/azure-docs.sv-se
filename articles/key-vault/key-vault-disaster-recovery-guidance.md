@@ -1,49 +1,48 @@
 ---
-title: Vad du gör i händelse av en Azure-tjänsten avbrott som påverkar Azure Key Vault - Azure Key Vault | Microsoft Docs
-description: Lär dig vad du gör i händelse av ett avbrott i Azure-tjänsten som påverkar Azure Key Vault.
+title: Vad du gör om ett avbrott i Azure-tjänsten påverkar Azure Key Vault-Azure Key Vault | Microsoft Docs
+description: Lär dig hur du gör i händelse av ett avbrott i Azure-tjänsten som påverkar Azure Key Vault.
 services: key-vault
-author: barclayn
-manager: barbkess
-editor: ''
+author: msmbaldwin
+manager: rkarlin
 ms.service: key-vault
-ms.topic: conceptual
-ms.date: 05/24/2019
-ms.author: barclayn
-ms.openlocfilehash: dba1fe91a635f467f4a3aeeaa048897065822869
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.topic: tutorial
+ms.date: 08/12/2019
+ms.author: mbaldwin
+ms.openlocfilehash: c0fed80f4ba9815cee49bc9968d542f168570986
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66236644"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976374"
 ---
 # <a name="azure-key-vault-availability-and-redundancy"></a>Azure Key Vault tillgänglighet och redundans
 
-Azure Key Vault har flera lager för redundans för att se till att dina nycklar och hemligheter finnas tillgängliga för ditt program även om enskilda komponenter i tjänsten misslyckas.
+Azure Key Vault har flera lager av redundans för att se till att dina nycklar och hemligheter är tillgängliga för ditt program även om enskilda komponenter i tjänsten inte fungerar.
 
-Innehållet i ditt nyckelvalv replikeras inom regionen och till en sekundär region minst 150 mil bort men inom samma geografiska område. Detta upprätthåller hög hållbarhet för dina nycklar och hemligheter. Se den [parade Azure-regioner](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) dokumentet för information om specifika regionpar.
+Innehållet i ditt nyckel valv replikeras i regionen och till en sekundär region minst 150 km, men inom samma geografi. Detta behåller hög tålighet för dina nycklar och hemligheter. Mer information om vissa region par finns i dokumentet om [Azure-kopplade regioner](../best-practices-availability-paired-regions.md) .
 
-Om enskilda komponenter i key vault-tjänsten misslyckas, steg alternativa komponenter för regionen att hantera din förfrågan om att se till att det finns inga försämring av funktioner. Du behöver inte vidta några åtgärder som utlöser. Det sker automatiskt och blir transparent till dig.
+Om enskilda komponenter i Key Vault-tjänsten kraschar kan alternativa komponenter i regions steget i hantera din begäran för att se till att det inte finns någon försämring av funktionaliteten. Du behöver inte vidta några åtgärder för att utlösa detta. Det sker automatiskt och är transparent för dig.
 
-Om att en hel Azure-region inte är tillgänglig, som du gör för Azure Key Vault i den regionen begäranden dirigeras automatiskt (*redundansväxlats*) till en sekundär region. När den primära regionen är tillgänglig igen, begäranden dirigeras tillbaka (*växlas tillbaka*) till den primära regionen. Igen, behöver du inte vidta någon åtgärd eftersom detta sker automatiskt.
+I sällsynta fall där en hel Azure-region inte är tillgänglig dirigeras de begär Anden som du skapar Azure Key Vault i den regionen automatiskt till en sekundärregion. När den primära regionen är tillgänglig igen dirigeras begär Anden tillbaka (*växlas tillbaka*) till den primära regionen. Du behöver inte vidta några åtgärder eftersom detta sker automatiskt.
 
-Via den här designen för hög tillgänglighet kräver inget avbrott i Azure Key Vault för underhållsaktiviteter.
+Med den här designen för hög tillgänglighet behöver Azure Key Vault ingen stillestånds tid för underhålls aktiviteter.
 
-Det finns några varningar för att vara medveten om:
+Det finns några varningar som kan vara medvetna om:
 
-* Det kan ta några minuter för tjänsten att växla över i händelse av en region redundans. Begäranden som görs under den här tiden kan misslyckas tills redundansväxlingen är klar.
-* När en redundansväxling har slutförts, är ditt nyckelvalv i skrivskyddat läge. Begäranden som stöds i det här läget är:
-  * Lista nyckelvalv
-  * Hämta egenskaper för nyckelvalv
-  * En lista över hemligheterna
+* I händelse av en redundansväxling av en region kan det ta några minuter för tjänsten att redundansväxla. Begär Anden som görs under den här tiden kan Miss lyckas tills redundansväxlingen har slutförts.
+* När redundansväxlingen är klar är ditt nyckel valv i skrivskyddat läge. Begär Anden som stöds i det här läget är:
+  * Visa en lista över nyckel valv
+  * Hämta egenskaper för nyckel valv
+  * Lista hemligheter
   * Hämta hemligheter
-  * Lista över nycklar
-  * Hämta nycklar (Egenskaper)
+  * Lista nycklar
+  * Hämta (egenskaper för) nycklar
   * Kryptera
   * Avkryptera
-  * Omsluta
+  * Flytta
   * Packa upp
   * Verifiera
-  * Inloggning
-  * Backup
-* Efter en redundansväxling växlas tillbaka, alla typer av begäranden (inklusive Läs *och* skrivförfrågningar) är tillgängliga.
+  * Signera
+  * Säkerhetskopiera
+* När en redundansväxling har misslyckats igen är alla typer av förfrågningar (inklusive Läs- *och* Skriv förfrågningar) tillgängliga.
 

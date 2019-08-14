@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: tutorial
 ms.date: 07/19/2019
-ms.openlocfilehash: 4d80755cdf49246a8772cca82e2a71c6cccbf13a
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: 45c5be8b203daf21697f3cb6dad4ecadb6449339
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68371217"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976520"
 ---
 # <a name="tutorial-access-azure-blob-storage-from-azure-databricks-using-azure-key-vault"></a>Självstudier: Få åtkomst till Azure Blob Storage från Azure Databricks med Azure Key Vault
 
@@ -32,7 +32,11 @@ I den här guiden får du lära dig att:
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com/). Den här självstudien kan inte utföras med Azures kostnads fria utvärderings prenumeration. Innan du skapar klustret går du till din profil och ändrar din prenumeration till **betala per**användning. Mer information finns i [Kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
+Logga in på [Azure Portal](https://portal.azure.com/).
+
+> [!Note]
+> Den här självstudien kan inte utföras med **Azures kostnads fri utvärderings prenumeration**.
+> Om du har ett kostnads fritt konto går du till din profil och ändrar din prenumeration till **betala per**användning. Mer information finns i [Kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). Ta sedan [bort utgifts gränsen](https://docs.microsoft.com/azure/billing/billing-spending-limit#remove-the-spending-limit-in-account-center)och [begär en kvot ökning](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) för virtuella processorer i din region. När du skapar din Azure Databricks arbets yta kan du välja pris nivån **utvärdering (Premium-14-dagar gratis DBU)** för att ge arbets ytan åtkomst till kostnads fria Premium Azure Databricks DBU i 14 dagar.
 
 ## <a name="create-a-storage-account-and-blob-container"></a>Skapa ett lagrings konto och en BLOB-behållare
 
@@ -87,7 +91,7 @@ Logga in på [Azure Portal](https://portal.azure.com/). Den här självstudien k
 
 5. Ange följande information på sidan **skapa en hemlig** enhet och behåll standardvärdena för de återstående fälten:
 
-   |Egenskap|Värde|
+   |Egenskap|Value|
    |--------|-----------|
    |Uppladdningsalternativ|Manuell|
    |Namn|Eget namn för din lagrings konto nyckel.|

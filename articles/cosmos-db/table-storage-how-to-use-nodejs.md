@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 04/05/2018
 author: wmengmsft
 ms.author: wmeng
-ms.openlocfilehash: 977b59c3344eaf2c4877f51afea176455d22ecc9
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 45925b1c4252b0ff0080a2c287e7ed2fae444168
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62130525"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68986282"
 ---
 # <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>Använda Azure Table Storage eller Azure Cosmos DB Table-API:et från Node.js
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -365,7 +365,7 @@ dc.table.queryEntities(tableName,
 
 Om du granskar `continuationToken`-objektet hittar du egenskaper som `nextPartitionKey`, `nextRowKey` och `targetLocation`, som du kan använda för att gå igenom alla resultat.
 
-Du kan också använda `top` tillsammans med `continuationToken` att ställa in sidstorleken. 
+Du kan också använda `top` tillsammans med `continuationToken` för att ange sid storlek. 
 
 ## <a name="work-with-shared-access-signatures"></a>Arbeta med signaturer för delad åtkomst
 Signaturer för delad åtkomst (SAS) är ett säkert sätt att ge detaljerad åtkomst till tabeller utan att ange namnet på eller nycklarna för ditt lagringskontot. SAS används ofta för att ge begränsad åtkomst till data, till exempel om du vill tillåta att en mobilapp frågar efter poster.
@@ -394,7 +394,7 @@ var host = tableSvc.host;
 
 Observera att du också måste ange värdinformationen eftersom den krävs när SAS-innehavaren försöker få åtkomst till tabellen.
 
-Klientprogrammet använder sedan signaturen för delad åtkomst med **TableServiceWithSAS** för att köra åtgärder mot tabellen. Koden i följande exempel ansluter till tabellen och kör en fråga. Se artikeln [Använda signaturer för delad åtkomst](../storage/common/storage-dotnet-shared-access-signature-part-1.md#examples-of-sas-uris) för formatet i tableSAS. 
+Klientprogrammet använder sedan signaturen för delad åtkomst med **TableServiceWithSAS** för att köra åtgärder mot tabellen. Koden i följande exempel ansluter till tabellen och kör en fråga. Se [bevilja begränsad åtkomst till Azure Storage resurser med hjälp av SAS-artikel (signatur för delad åtkomst)](../storage/common/storage-sas-overview.md) för tabell formatet. 
 
 ```javascript
 // Note in the following command, host is in the format: `https://<your_storage_account_name>.table.core.windows.net` and the tableSAS is in the format: `sv=2018-03-28&si=saspolicy&tn=mytable&sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D`;

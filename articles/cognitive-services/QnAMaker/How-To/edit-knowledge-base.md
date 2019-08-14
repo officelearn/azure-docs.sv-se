@@ -7,16 +7,16 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 006170b2030b6511ba732a1b12aa5b5b811d8900
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 1342616a0d32d8ac68965bc04f1fd3ca60146369
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447482"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966772"
 ---
 # <a name="edit-a-knowledge-base-in-qna-maker"></a>Redigera en kunskapsbas i QnA Maker
 
@@ -54,7 +54,7 @@ QnA Maker kan du hantera innehållet i kunskapsbasen genom att tillhandahålla e
 
 ## <a name="add-a-qna-pair"></a>Lägga till par med fråga och svar
 
-På den **inställningar** väljer **Lägg till frågor och svar om par** att lägga till en ny rad i tabellen knowledge base.
+På sidan **Inställningar** väljer du **Lägg till QNA-par** för att lägga till en ny rad i kunskaps bas tabellen.
 
 ![Lägg till frågor och svar om par](../media/qnamaker-how-to-edit-kb/add-qnapair.png)
 
@@ -72,7 +72,7 @@ Lägg till alternativa frågor i ett befintligt nyckelpar med frågor och svar o
 
 ## <a name="add-metadata"></a>lägga till metadata
 
-Lägg till metadata par genom att först välja **Visningsalternativ**, sedan välja **visa metadata**. Då visas metadata-kolumn. Välj sedan den **+** logga för att lägga till ett metadata-par. Den här par består av en nyckel och ett värde.
+Lägg till metadata-par genom att först välja **visnings alternativ**och sedan välja **Visa metadata**. Kolumnen metadata visas. Sedan väljer du **+** tecknet för att lägga till ett metadata-par. Det här paret består av en nyckel och ett värde.
 
 ![Lägga till Metadata](../media/qnamaker-how-to-edit-kb/add-metadata.png)
 
@@ -81,17 +81,17 @@ Lägg till metadata par genom att först välja **Visningsalternativ**, sedan v�
 
 ## <a name="manage-large-knowledge-bases"></a>Hantera stora kunskapsbaser
 
-* **Datakällans grupper**: Kunskapsbaser grupperas av datakällan från vilken de extraherades. Du kan visa eller dölja datakällan.
+* **Data käll grupper**: Kring grupperas efter den data källa som de extraherades från. Du kan visa eller dölja datakällan.
 
-    ![Använd QnA Maker källa datastapel att komprimera och expandera data källan frågor och svar](../media/qnamaker-how-to-edit-kb/data-source-grouping.png)
+    ![Använd QnA Maker data källans fält för att komprimera och expandera frågor och svar för data källor](../media/qnamaker-how-to-edit-kb/data-source-grouping.png)
 
-* **Söka i kunskapsbasen**: Du kan söka i knowledge base genom att skriva i textrutan längst ned i Knowledge Base-tabell. Klicka på Ange om du vill söka i fråga, svar eller metadata för innehållet. Klicka på X-ikonen Ta bort sökrutan filtrera.
+* **Sök i kunskaps bas**: Du kan söka i kunskaps basen genom att skriva i text rutan längst upp i tabellen kunskaps bas. Klicka på Ange om du vill söka i fråga, svar eller metadata för innehållet. Klicka på X-ikonen Ta bort sökrutan filtrera.
 
-    ![Använd sökrutan QnA Maker ovan frågor och svar för att minska vyn till endast filter-matchande objekt](../media/qnamaker-how-to-edit-kb/search-paginate-group.png)
+    ![Använd sökrutan QnA Maker ovanför frågorna och Svaren för att minska vyn till enbart filter matchnings objekt](../media/qnamaker-how-to-edit-kb/search-paginate-group.png)
 
-* **Sidbrytning**: Snabbt navigera i datakällorna för att hantera stora kunskapsbaser
+* **Sid brytning**: Flytta snabbt genom data källor för att hantera stora kunskaps baser
 
-    ![Använd QnA Maker sidbrytning funktioner över frågor och svar för att flytta genom sidor med frågor och svar](../media/qnamaker-how-to-edit-kb/pagination.png)
+    ![Använd QnA Maker sid brytnings funktioner ovanför frågorna och Svaren för att flytta genom sidor med frågor och svar](../media/qnamaker-how-to-edit-kb/pagination.png)
 
 ## <a name="delete-knowledge-bases"></a>Ta bort kunskapsbaser
 

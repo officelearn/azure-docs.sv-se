@@ -1,241 +1,242 @@
 ---
-title: Azure Key Vault - hur du använder mjuk borttagning med CLI
-description: Använda fallet exempel för mjuk borttagning med CLI-kodstycken
+title: Azure Key Vault – använda mjuk borttagning med CLI
+description: Exempel på användnings fall av mjuk borttagning med CLI-kod klipp
+services: key-vault
 author: msmbaldwin
-manager: barbkess
+manager: rkarlin
 ms.service: key-vault
-ms.topic: conceptual
-ms.date: 02/01/2019
+ms.topic: tutorial
+ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: aa9b89b9afec069e97236b7652e0f1d37644f5cf
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: aef4061a8349e6602ac4394cb31bbe76b6cb63c0
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60640488"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976298"
 ---
-# <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Hur du använder Key Vault mjuk borttagning med CLI
+# <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Använda Key Vault mjuk borttagning med CLI
 
-Azure Key Vault mjuk borttagning med funktionen kan återställning av borttagna valv och valv objekt. Mer specifikt mjuk borttagning adresser följande scenarier:
+Azure Key Vault med funktionen för mjuk borttagning kan återställa borttagna valv och valv objekt. Mer specifikt tar borttagning av adresser i följande scenarier:
 
-- Stöd för återställa borttagningen av ett nyckelvalv
-- Stöd för återställa borttagningen av nyckelvalvobjekt. nycklar, hemligheter och certifikat
+- Stöd för rekonstruerbar borttagning av ett nyckel valv
+- Stöd för rekonstruerbar borttagning av Key Vault-objekt; nycklar, hemligheter och certifikat
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-- Azure CLI - om du inte har konfigurerats för din miljö, se [hantera Nyckelvalv med Azure CLI](key-vault-manage-with-cli2.md).
+- Azure CLI – om du inte har den här inställningen för din miljö kan du läsa [hantera Key Vault med Azure CLI](key-vault-manage-with-cli2.md).
 
-Key Vault specifik referensinformation för CLI, se [Nyckelvalv för Azure CLI-referens](https://docs.microsoft.com/cli/azure/keyvault).
+Information om Key Vault-detaljerad referensinformation för CLI finns i [referens för Azure CLI Key Vault](https://docs.microsoft.com/cli/azure/keyvault).
 
 ## <a name="required-permissions"></a>Nödvändiga behörigheter
 
-Åtgärder för Key Vault hanteras separat via rollbaserade behörigheter för åtkomstkontroll (RBAC) på följande sätt:
+Key Vault åtgärder hanteras separat via RBAC-behörigheter (rollbaserad åtkomst kontroll) enligt följande:
 
-| Åtgärd | Beskrivning | Användarbehörighet |
+| Åtgärd | Beskrivning | Användar behörighet |
 |:--|:--|:--|
-|Visa lista|Listor bort nyckelvalv.|Microsoft.KeyVault/deletedVaults/read|
-|Återställ|Återställer ett borttaget nyckelvalv.|Microsoft.KeyVault/vaults/write|
-|Rensa|Tar permanent bort ett borttaget nyckelvalv och allt dess innehåll.|Microsoft.KeyVault/locations/deletedVaults/purge/action|
+|List|Visar en lista över borttagna nyckel valv.|Microsoft.KeyVault/deletedVaults/read|
+|Återställ|Återställer ett borttaget nyckel valv.|Microsoft.KeyVault/vaults/write|
+|Rensa|Tar permanent bort ett borttaget nyckel valv och allt dess innehåll.|Microsoft.KeyVault/locations/deletedVaults/purge/action|
 
-Mer information om behörighet och åtkomstkontroll finns i [säkra ditt nyckelvalv](key-vault-secure-your-key-vault.md).
+Mer information om behörigheter och åtkomst kontroll finns i [skydda ditt nyckel valv](key-vault-secure-your-key-vault.md).
 
-## <a name="enabling-soft-delete"></a>Att aktivera mjuk borttagning
+## <a name="enabling-soft-delete"></a>Aktivera mjuk borttagning
 
-Du aktiverar ”mjuk borttagning” att tillåta återställning av borttagna key vault eller objekt som lagras i ett nyckelvalv.
+Du aktiverar "mjuk borttagning" för att tillåta återställning av ett borttaget nyckel valv, eller objekt som lagras i ett nyckel valv.
 
 > [!IMPORTANT]
-> Aktiverar ”mjuk borttagning' på key vault är irreversibel. När egenskapen mjuk borttagning har ställts in på ”true”, inte kan ändras eller tas bort.  
+> Att aktivera mjuk borttagning i ett nyckel valv är en åtgärd som inte kan ångras. När egenskapen Soft-Delete har angetts till "true" går det inte att ändra eller ta bort den.  
 
-### <a name="existing-key-vault"></a>Befintlig key vault
+### <a name="existing-key-vault"></a>Befintligt nyckel valv
 
-Aktivera mjuk borttagning för ett befintligt nyckelvalv med namnet ContosoVault på följande sätt. 
+För ett befintligt nyckel valv med namnet ContosoVault aktiverar du mjuk borttagning på följande sätt. 
 
 ```azurecli
 az resource update --id $(az keyvault show --name ContosoVault -o tsv | awk '{print $1}') --set properties.enableSoftDelete=true
 ```
 
-### <a name="new-key-vault"></a>Nytt nyckelvalv
+### <a name="new-key-vault"></a>Nytt nyckel valv
 
-Att aktivera mjuk borttagning för ett nytt nyckelvalv görs vid tidpunkten för skapandet genom att aktivera mjuk borttagning flagga för att lägga till din skapa-kommando.
+Att aktivera mjuk borttagning för ett nytt nyckel valv görs när du skapar den genom att lägga till flaggan för borttagning av mjuk borttagning till kommandot CREATE.
 
 ```azurecli
 az keyvault create --name ContosoVault --resource-group ContosoRG --enable-soft-delete true --location westus
 ```
 
-### <a name="verify-soft-delete-enablement"></a>Kontrollera aktivering för mjuk borttagning
+### <a name="verify-soft-delete-enablement"></a>Verifiera mjuk borttagnings aktivering
 
-Kontrollera att ett nyckelvalv har aktivera mjuk borttagning med den *visa* kommandot och leta efter den ”ej permanent ta bort aktiverad”? attribut:
+Kontrol lera att ett nyckel valv har mjuk borttagning aktiverat genom att köra kommandot *show* och leta efter funktionen "mjuk borttagning aktive rad"? basattributet
 
 ```azurecli
 az keyvault show --name ContosoVault
 ```
 
-## <a name="deleting-a-soft-delete-protected-key-vault"></a>Tar bort en mjuk borttagning skyddade nyckelvalv
+## <a name="deleting-a-soft-delete-protected-key-vault"></a>Ta bort ett skyddat nyckel valv med mjuk borttagning
 
-Kommandot för att ta bort ett nyckelvalv ändringar i beteende, beroende på om mjuk borttagning är aktiverat.
+Kommandot för att ta bort ett nyckel valvs ändringar i beteende, beroende på om mjuk borttagning är aktiverat.
 
 > [!IMPORTANT]
->Om du kör följande kommando för ett nyckelvalv som inte har aktiverat mjuk borttagning, ska du ta bort det här nyckelvalvet och allt dess innehåll med inga alternativ för återställning!
+>Om du kör följande kommando för ett nyckel valv som inte har mjuk borttagning aktiverat, kommer du att ta bort det här nyckel valvet och allt dess innehåll utan alternativ för återställning!
 
 ```azurecli
 az keyvault delete --name ContosoVault
 ```
 
-### <a name="how-soft-delete-protects-your-key-vaults"></a>Hur mjuk borttagning skyddar dina nyckelvalv
+### <a name="how-soft-delete-protects-your-key-vaults"></a>Hur mjuk borttagning skyddar dina nyckel valv
 
-Aktiverad med mjuk borttagning:
+Med mjuk borttagning aktiverat:
 
-- Ett borttaget nyckelvalv tas bort från en resursgrupp och placeras i ett reserverat namnområde, som är associerade med den plats där den skapades. 
-- Borttagna objekt som nycklar, hemligheter och certifikat, är tillgängliga så länge som deras som innehåller nyckelvalvet är i tillståndet deleted. 
-- DNS-namnet för ett borttaget nyckelvalv reserveras förhindrar att ett nytt nyckelvalv med samma namn som skapas.  
+- Ett borttaget nyckel valv tas bort från resurs gruppen och placeras i ett reserverat namn område som är kopplat till den plats där det skapades. 
+- Borttagna objekt som nycklar, hemligheter och certifikat är inte tillgängliga så länge de innehåller nyckel valvet är i Borttaget tillstånd. 
+- DNS-namnet för ett borttaget nyckel valv är reserverat så att det inte går att skapa ett nytt nyckel valv med samma namn.  
 
-Du kan visa tillståndet deleted nyckelvalv, som är associerade med din prenumeration med hjälp av följande kommando:
+Du kan Visa borttagna tillstånds nyckel valv som är kopplade till din prenumeration med hjälp av följande kommando:
 
 ```azurecli
 az keyvault list-deleted
 ```
-- *ID* kan användas för att identifiera resursen när återställa eller rensa. 
-- *Resurs-ID* är den ursprungliga resurs-ID för det här valvet. Eftersom det här nyckelvalvet är nu i ett borttaget tillstånd, det finns ingen resurs med resurs-ID. 
-- *Schemalagd Rensa datum* är när valvet tas bort permanent, om ingen åtgärd utförs. Standardkvarhållningsperioden som används för att beräkna den *schemalagda Rensa datum*, är 90 dagar.
+- *ID* kan användas för att identifiera resursen vid återställning eller rensning. 
+- *Resurs-ID* är det ursprungliga resurs-ID: t för det här valvet. Eftersom det här nyckel valvet nu är i ett borttaget tillstånd finns det ingen resurs med det resurs-ID: t. 
+- *Schemalagt rensnings datum* är när valvet tas bort permanent, om ingen åtgärd vidtas. Standard logg perioden, som används för att beräkna det *schemalagda rensnings datumet*, är 90 dagar.
 
-## <a name="recovering-a-key-vault"></a>Återställa ett nyckelvalv
+## <a name="recovering-a-key-vault"></a>Återställer ett nyckel valv
 
-Om du vill återställa ett nyckelvalv måste ange du nyckelvalvsnamn, resursgrupp och plats. Notera platsen och resursgruppen för det borttagna nyckelvalvet som du behöver dem för återställningen.
+Om du vill återställa ett nyckel valv anger du namnet, resurs gruppen och platsen för nyckel valvet. Observera platsen och resurs gruppen för det borttagna nyckel valvet, när du behöver dem för återställnings processen.
 
 ```azurecli
 az keyvault recover --location westus --resource-group ContosoRG --name ContosoVault
 ```
 
-När ett nyckelvalv återställs skapas en ny resurs med key vault ursprungliga resurs-ID. Om den ursprungliga resursgruppen tas bort, måste en skapas med samma namn innan du försöker återställning.
+När ett nyckel valv återställs skapas en ny resurs med nyckel valvets ursprungliga resurs-ID. Om den ursprungliga resurs gruppen tas bort måste du skapa en med samma namn innan du försöker återställa.
 
-## <a name="deleting-and-purging-key-vault-objects"></a>Ta bort och rensa nyckelvalvobjekt
+## <a name="deleting-and-purging-key-vault-objects"></a>Ta bort och rensa Key Vault-objekt
 
-Följande kommando tar bort nyckeln 'ContosoFirstKey' i key vault med namnet ”ContosoVault” som har aktiverat mjuk borttagning:
+Följande kommando tar bort nyckeln "ContosoFirstKey" i ett nyckel valv med namnet "ContosoVault", som har mjuk borttagning aktiverat:
 
 ```azurecli
 az keyvault key delete --name ContosoFirstKey --vault-name ContosoVault
 ```
 
-Med nyckelvalvet som aktiverats för mjuk borttagning, visas en borttagen nyckel fortfarande som tas den bort utom, när du uttryckligen lista eller hämta borttagna nycklar. De flesta åtgärder på en nyckel i tillståndet deleted misslyckas förutom lista en borttagen nyckel, återställs eller rensa den. 
+När ditt nyckel valv har Aktiver ATS för mjuk borttagning visas en borttagen nyckel som fortfarande tas bort, förutom när du uttryckligen listar eller hämtar borttagna nycklar. De flesta åtgärder på en nyckel i det borttagna läget Miss växlar, förutom att lista en borttagen nyckel, återställa den eller rensa den. 
 
-Till exempel om du vill begära att lista bort nycklar i key vault använder du följande kommando:
+Om du till exempel vill begära en lista över borttagna nycklar i ett nyckel valv, använder du följande kommando:
 
 ```azurecli
 az keyvault key list-deleted --vault-name ContosoVault
 ```
 
-### <a name="transition-state"></a>Övergångstillstånd 
+### <a name="transition-state"></a>Över gångs tillstånd 
 
-När du tar bort en nyckel i key vault med mjuk borttagning aktiverat kan det ta några sekunder för övergången att slutföra. Under den här ändringen kommer verka det att nyckeln inte är i aktivt läge eller Borttaget tillstånd. 
+När du tar bort en nyckel i ett nyckel valv med mjuk borttagning aktive rad kan det ta några sekunder innan över gången har slutförts. Under den här över gången kan det verka som om nyckeln inte är i aktivt tillstånd eller i Borttaget tillstånd. 
 
-### <a name="using-soft-delete-with-key-vault-objects"></a>Använda mjuk borttagning med key vault-objekt
+### <a name="using-soft-delete-with-key-vault-objects"></a>Använda mjuk borttagning med Key Vault-objekt
 
-Precis som nyckelvalv, en borttagna nyckeln eller hemligheten certifikat, finns kvar i Borttaget tillstånd i upp till 90 dagar, såvida du inte återställa den eller ta bort den.
+Precis som nyckel valv, har en borttagen nyckel, hemlighet eller certifikat kvar i Borttaget läge i upp till 90 dagar, om du inte återställer det eller rensar det.
 
 #### <a name="keys"></a>Nycklar
 
-För att återställa en ej permanent borttagna nyckel:
+Återställa en mjuk borttagnings nyckel:
 
 ```azurecli
 az keyvault key recover --name ContosoFirstKey --vault-name ContosoVault
 ```
 
-Att permanent ta bort (även kallat Rensa) en ej permanent borttagna nyckel:
+För att permanent ta bort (även kallat rensa) en mjuk borttagnings nyckel:
 
 > [!IMPORTANT]
-> Rensa en nyckel tar permanent bort den och kommer inte att återställa! 
+> Om du rensar en nyckel tas den bort permanent och den går inte att återställa! 
 
 ```azurecli
 az keyvault key purge --name ContosoFirstKey --vault-name ContosoVault
 ```
 
-Den **återställa** och **Rensa** åtgärder har sina egna behörigheter som är associerade i en åtkomstprincip för nyckelvalvet. För en användare eller tjänstens huvudnamn för att kunna köra en **återställa** eller **Rensa** åtgärd, de måste ha behörigheten respektive för den här nyckeln eller hemligheten. Som standard **Rensa** inte läggs till en nyckelvalvets åtkomstprincip, när genvägen till ”alla” används för att ge alla behörigheter. Du måste uttryckligen beviljar **Rensa** behörighet. 
+Åtgärder för att **återställa** och **Rensa** har sina egna behörigheter som är kopplade till en åtkomst princip för nyckel valv. För att en användare eller tjänstens huvud namn ska kunna utföra en åtgärd för att **återställa** eller **Rensa** måste de ha respektive behörighet för nyckeln eller hemligheten. Som standard läggs **Rensa** inte till i ett nyckel valvs åtkomst princip när genvägen "all" används för att bevilja alla behörigheter. Du måste särskilt bevilja behörigheten **Rensa** . 
 
-#### <a name="set-a-key-vault-access-policy"></a>Ange en åtkomstprincip för nyckelvalvet
+#### <a name="set-a-key-vault-access-policy"></a>Ange en åtkomst princip för nyckel valvet
 
-Följande kommando ger user@contoso.com behörighet att använda flera åtgärder med nycklar i *ContosoVault* inklusive **Rensa**:
+Följande kommando ger user@contoso.com behörighet att använda flera åtgärder på nycklar i *ContosoVault* , inklusive **Rensa**:
 
 ```azurecli
 az keyvault set-policy --name ContosoVault --key-permissions get create delete list update import backup restore recover purge
 ```
 
 >[!NOTE] 
-> Om du har ett befintligt nyckelvalv som har bara aktivera mjuk borttagning, kanske du inte har **återställa** och **Rensa** behörigheter.
+> Om du har ett befintligt nyckel valv som bara har haft mjuk borttagning aktiverat, kanske du inte har behörighet att **återställa** och **Rensa** .
 
 #### <a name="secrets"></a>Hemligheter
 
-T.ex. nycklar, som hemligheter hanteras med sina egna kommandon:
+Som nycklar hanteras hemligheter med sina egna kommandon:
 
 - Ta bort en hemlighet med namnet SQLPassword: 
   ```azurecli
   az keyvault secret delete --vault-name ContosoVault -name SQLPassword
   ```
 
-- Lista över alla borttagna hemligheter i key vault: 
+- Lista alla borttagna hemligheter i ett nyckel valv: 
   ```azurecli
   az keyvault secret list-deleted --vault-name ContosoVault
   ```
 
-- Återställa en hemlighet i tillståndet deleted: 
+- Återställa en hemlighet i Borttaget läge: 
   ```azurecli
   az keyvault secret recover --name SQLPassword --vault-name ContosoVault
   ```
 
-- Rensa en hemlighet i Borttaget tillstånd: 
+- Rensa en hemlighet i Borttaget läge: 
 
   > [!IMPORTANT]
-  > Rensa en hemlighet tar permanent bort den och kommer inte att återställa! 
+  > Om du rensar en hemlighet tas den bort permanent och den går inte att återställa! 
 
   ```azurecli
   az keyvault secret purge --name SQLPAssword --vault-name ContosoVault
   ```
 
-## <a name="purging-a-soft-delete-protected-key-vault"></a>Rensa en mjuk borttagning skyddade nyckelvalv
+## <a name="purging-a-soft-delete-protected-key-vault"></a>Rensar ett skyddat nyckel valv med mjuk borttagning
 
 > [!IMPORTANT]
-> Rensa key vault eller något av de ingående objekten tas bort permanent den, vilket innebär att den inte kan återställas!
+> Om du rensar ett nyckel valv eller ett av dess inneslutna objekt tas det bort permanent, vilket innebär att det inte går att återställa!
 
-Rensa-funktionen används för att permanent ta bort ett nyckelvalv-objekt eller en hel nyckelvalvet som har tidigare ej permanent borttagna. Som visas i föregående avsnitt, kan objekt som lagras i ett nyckelvalv med mjuk borttagning funktionen är aktiverad, gå igenom olika tillstånd:
+Funktionen rensa används för att permanent ta bort ett Key Vault-objekt eller ett helt nyckel valv, som tidigare varit borttaget. Som det visas i föregående avsnitt, kan objekt som lagras i ett nyckel valv med funktionen mjuk borttagning aktive ras i flera tillstånd:
 
-- **Aktiva**: före borttagningen.
-- **Ej permanent borttagna**: efter borttagningen kan visas och återställas till aktivt läge.
-- **Permanent bort**: efter att rensa, kunde inte återställas.
+- **Aktiv**: före borttagning.
+- **Soft-borttagen**: efter borttagning kan de listas och återställas tillbaka till aktivt tillstånd.
+- **Permanent borttagen**: efter rensning går det inte att återställa.
 
-Detsamma gäller för nyckelvalvet. För att permanent ta bort ej permanent borttagna nyckelvalvet och dess innehåll, måste du ta bort själva nyckelvalvet.
+Samma sak gäller för nyckel valvet. Om du vill ta bort ett mjukt borttaget nyckel valv och dess innehåll permanent måste du ta bort själva nyckel valvet.
 
-### <a name="purging-a-key-vault"></a>Rensa ett nyckelvalv
+### <a name="purging-a-key-vault"></a>Rensar ett nyckel valv
 
-När ett nyckelvalv tas bort tas hela dess innehåll bort permanent, inklusive nycklar, hemligheter och certifikat. Om du vill rensa ett ej permanent borttagna nyckelvalvet, använda den `az keyvault purge` kommando. Du kan hitta platsen din prenumeration har tagits bort nyckelvalv med hjälp av kommandot `az keyvault list-deleted`.
+När ett nyckel valv rensas tas hela innehållet bort permanent, inklusive nycklar, hemligheter och certifikat. Om du vill rensa ett mjukt borttaget nyckel valv använder `az keyvault purge` du kommandot. Du kan hitta platsen som prenumerationens borttagna nyckel valv med hjälp av kommandot `az keyvault list-deleted`.
 
 ```azurecli
 az keyvault purge --location westus --name ContosoVault
 ```
 
-### <a name="purge-permissions-required"></a>Rensa behörigheter som krävs
-- Om du vill rensa ett borttaget nyckelvalv användaren behöver RBAC-behörighet till den *Microsoft.KeyVault/locations/deletedVaults/purge/action* igen. 
-- Om du vill visa ett borttaget nyckelvalv användaren behöver RBAC-behörighet till den *Microsoft.KeyVault/deletedVaults/read* igen. 
-- Som standard har bara en administratör för prenumerationen dessa behörigheter. 
+### <a name="purge-permissions-required"></a>Rensnings behörighet krävs
+- För att rensa ett borttaget nyckel valv behöver användaren RBAC-behörighet till *Microsoft. nyckel valvet/locations/deletedVaults/rensning/åtgärd-* åtgärden. 
+- Om du vill visa ett borttaget nyckel valv behöver användaren RBAC-behörighet till *Microsoft. nyckel valvet/deletedVaults/Read-* åtgärden. 
+- Som standard har endast en prenumerations administratör dessa behörigheter. 
 
-### <a name="scheduled-purge"></a>Schemalagda Rensa
+### <a name="scheduled-purge"></a>Schemalagd rensning
 
-Visa en lista över objekt som borttaget nyckelvalv visar även när de är schemalagda tas bort av Key Vault. *Schemalagd Rensa datum* anger när ett nyckelvalv objekt tas bort permanent, om ingen åtgärd utförs. Som standard är kvarhållningsperioden för ett borttaget nyckelvalv objekt 90 dagar.
+Om du visar borttagna Key Vault-objekt visas även när de är schemalagda att rensas av Key Vault. *Schemalagt rensnings datum* visar när ett Key Vault-objekt tas bort permanent, om ingen åtgärd utförs. Kvarhållningsperioden för ett borttaget Key Vault-objekt är som standard 90 dagar.
 
 >[!IMPORTANT]
->En borttagen valvobjekt som utlöses av dess *schemalagda Rensa datum* fältet, bort permanent. Det kan inte återställas!
+>Ett rensat valv objekt, utlöst av det *schemalagda rensnings datum* fältet, tas bort permanent. Det går inte att återskapa.
 
-## <a name="enabling-purge-protection"></a>Aktivering av Rensa skydd
+## <a name="enabling-purge-protection"></a>Aktiverar rensnings skydd
 
-När rensningsskydd aktiveras, ett valv eller ett objekt i borttagna kan inte tillstånd rensas tills kvarhållningsperiod på 90 dagar har passerat. Sådana valv eller ett objekt kan fortfarande återställas. Den här funktionen ger extra trygghet som ett valv eller ett objekt kan aldrig vara permanent ta bort förrän kvarhållning tidsperiod har passerat.
+När rensnings skyddet har Aktiver ATS kan ett valv eller ett objekt i Borttaget tillstånd inte rensas förrän kvarhållningsperioden på 90 dagar har passerat. Detta valv eller objekt kan fortfarande återställas. Den här funktionen ger ytterligare garantier för att ett valv eller ett objekt aldrig kan tas bort permanent förrän kvarhållningsperioden har passerat.
 
-Du kan aktivera rensningsskydd endast om mjuk borttagning har aktiverats. 
+Du kan bara aktivera rensnings skydd om alternativet mjuk borttagning också är aktiverat. 
 
-Om du vill aktivera både mjuk borttagning och rensa skydd när du skapar ett valv genom att använda den [az keyvault skapa](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create) kommando:
+Om du vill aktivera både mjuk borttagnings-och rensnings skydd när du skapar ett valv använder du kommandot AZ-kommandot för att skapa en nyckel [valv](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create) :
 
 ```
 az keyvault create --name ContosoVault --resource-group ContosoRG --location westus --enable-soft-delete true --enable-purge-protection true
 ```
 
-Om du vill lägga till Rensa skydd i ett befintligt valv (som redan har aktivera mjuk borttagning) använder du den [az keyvault update](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-update) kommando:
+Om du vill lägga till rensnings skydd i ett befintligt valv (som redan har mjuk borttagning aktiverat) använder du kommandot [AZ](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-update) -uppdaterings kommando:
 
 ```
 az keyvault update --name ContosoVault --resource-group ContosoRG --enable-purge-protection true
@@ -243,6 +244,6 @@ az keyvault update --name ContosoVault --resource-group ContosoRG --enable-purge
 
 ## <a name="other-resources"></a>Andra resurser
 
-- En översikt över funktionen för mjuk borttagning för Key Vault finns i [Azure Key Vault mjuk borttagning översikt](key-vault-ovw-soft-delete.md).
-- En allmän översikt över Azure Key Vault fungerar, se [vad är Azure Key Vault?](key-vault-overview.md).
+- En översikt över Key Vault mjuk borttagnings funktionen finns i [Azure Key Vault översikt över mjuk borttagning](key-vault-ovw-soft-delete.md).
+- En allmän översikt över Azure Key Vault användning finns i [Vad är Azure Key Vault?](key-vault-overview.md).
 

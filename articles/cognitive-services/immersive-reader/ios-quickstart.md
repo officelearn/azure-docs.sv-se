@@ -9,18 +9,18 @@ ms.subservice: immersive-reader
 ms.topic: quickstart
 ms.date: 08/01/2019
 ms.author: t-meroa
-ms.openlocfilehash: 4b2bdc1a2babadbe5cb7f12135de0eaef8557a97
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: 64b3cab857a541d0bede88e7fdf21c00526b9a43
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950802"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68965150"
 ---
 # <a name="quickstart-create-an-ios-app-that-launches-the-immersive-reader-swift"></a>Snabbstart: Skapa en iOS-app som startar den fördjupade läsaren (SWIFT)
 
 Den [fördjupade läsaren](https://www.onenote.com/learningtools) är ett särskilt utformat verktyg som implementerar beprövade tekniker för att förbättra läsningen av förståelse.
 
-I den här snabb starten kommer du att bygga en iOS-app från grunden och integrera den fördjupade läsaren med hjälp av SDK för avancerad läsare. Ett fullständigt fungerande exempel på den här snabb starten finns [här](https://github.com/microsoft/immersive-reader-sdk/iOS/samples/quickstart-swift).
+I den här snabb starten kommer du att bygga en iOS-app från grunden och integrera den fördjupade läsaren med hjälp av SDK för avancerad läsare. Ett fullständigt fungerande exempel på den här snabb starten finns [här](https://github.com/microsoft/immersive-reader-sdk/tree/master/iOS/samples/quickstart-swift).
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -43,7 +43,7 @@ Välj **en app för enskild vy**.
 Det enklaste sättet att använda SDK: n för avancerad läsare är via CocoaPods. Installera via Cocoapods:
 1. [Installera Cocoapods](http://guides.cocoapods.org/using/getting-started.html) – Följ guiden komma igång för att installera Cocoapods.
 2. Skapa en Podfile genom att `pod init` köra i ditt Xcode-projekts rot Katalog.
-3.  Lägg till CocoaPod till din Podfile genom att `pod 'immersive-reader-sdk', :path => 'https://github.com/microsoft/immersive-reader-sdk/iOS/immersive-reader-sdk'`lägga till. Din Pofile bör se ut så här, med målets namn som ersätter snabb starten – Swift:
+3.  Lägg till CocoaPod till din Podfile genom att `pod 'immersive-reader-sdk', :path => 'https://github.com/microsoft/immersive-reader-sdk/tree/master/iOS/immersive-reader-sdk'`lägga till. Din Pofile bör se ut så här, med målets namn som ersätter snabb starten – Swift:
  ```ruby
   platform :ios, '9.0'
 
@@ -102,4 +102,4 @@ När du klickar på knappen "avancerad läsare" visas den fördjupade läsaren s
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Utforska [iOS SDK för avancerad läsare](https://github.com/microsoft/immersive-reader-sdk/iOS) och [Avancerad läsare för iOS SDK-referens](./ios-reference.md)
+* Utforska [iOS SDK för avancerad läsare](https://github.com/microsoft/immersive-reader-sdk/tree/master/iOS) och [Avancerad läsare för iOS SDK-referens](./ios-reference.md)

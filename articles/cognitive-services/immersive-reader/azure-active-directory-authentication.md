@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: rwaller
-ms.openlocfilehash: 5a03c377a275fff489f1fb8371f9905411b67960
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: e4b792a04b4926fdb56f37c089e73b90cde905d3
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881552"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990150"
 ---
 # <a name="use-azure-active-directory-azure-ad-authentication-with-the-immersive-reader-service"></a>Använd Azure Active Directory (Azure AD)-autentisering med fördjupad läsar tjänsten
 
@@ -134,5 +134,7 @@ Alternativt kan tjänstens huvud namn autentiseras med ett certifikat. Förutom 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Visa självstudierna för att se vad mer du kan göra med SDK: n för avancerad läsare [](./tutorial.md)
+* I självstudien om [Node. js](./tutorial-nodejs.md) kan du se vad mer du kan göra med avancerad läsar-SDK med hjälp av Node. js
+* Visa [python](./tutorial-python.md) -självstudien för att se vad mer du kan göra med avancerad läsar-SDK med hjälp av python
+* Se snabb [](./tutorial-ios-picture-immersive-reader.md) självstudien för att se vad mer du kan göra med avancerad läsar-SDK med Swift
 * Utforska SDK: [n för avancerad läsare](https://github.com/microsoft/immersive-reader-sdk) och [Avancerad läsare SDK-referens](./reference.md)

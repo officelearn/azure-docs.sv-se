@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med Shmoop för skolor | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory integrering med Shmoop for skolor | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Shmoop för skolor.
 services: active-directory
 documentationCenter: na
@@ -13,115 +13,92 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/25/2019
+ms.date: 08/12/2019
 ms.author: jeedes
-ms.openlocfilehash: 0cf318161bff8950280fc5a8b007e08ef683ad18
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: e5fa47e029434b70166403b8603c820d611690f2
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67090775"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68975991"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-shmoop-for-schools"></a>Självstudier: Azure Active Directory-integrering med Shmoop för skolor
+# <a name="tutorial-integrate-shmoop-for-schools-with-azure-active-directory"></a>Självstudier: Integrera Shmoop för skolor med Azure Active Directory
 
-I den här självstudien får du lära dig hur du integrerar Shmoop för skolor med Azure Active Directory (AD Azure).
-Integrera Shmoop för skolor med Azure AD ger dig följande fördelar:
+I den här självstudien får du lära dig hur du integrerar Shmoop för skolor med Azure Active Directory (Azure AD). När du integrerar Shmoop för skolor med Azure AD kan du:
 
-* Du kan styra i Azure AD som har åtkomst till Shmoop för skolor.
-* Du kan aktivera användarna att vara automatiskt inloggad till Shmoop för skolor (Single Sign-On) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure portal.
+* Kontroll i Azure AD som har till gång till Shmoop för skolor.
+* Gör det möjligt för användarna att logga in automatiskt till Shmoop för skolor med sina Azure AD-konton.
+* Hantera dina konton på en central plats – Azure Portal.
 
-Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
+Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill konfigurera Azure AD-integrering med Shmoop för skolor, behöver du följande objekt:
+För att komma igång behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en [kostnadsfritt konto](https://azure.microsoft.com/free/)
-* Shmoop för skolor enkel inloggning aktiverad prenumeration
-* Med hjälp av din produktionsmiljö endast om det behövs.
+* En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
+* Shmoop för skolor för enkel inloggning (SSO) med aktiverade prenumerationer.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
+I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
 
-* Har stöd för Shmoop för skolor **SP** -initierad SSO
-* Har stöd för Shmoop för skolor **Just In Time** etableringen av användare
+* Shmoop for skolor stöder **SP** -INITIERAd SSO
+* Shmoop för skolor stöder **just-in-Time** User-etablering
 
-## <a name="adding-shmoop-for-schools-from-the-gallery"></a>Att lägga till Shmoop för skolor från galleriet
+## <a name="adding-shmoop-for-schools-from-the-gallery"></a>Lägga till Shmoop för skolor från galleriet
 
-För att konfigurera integrering av Shmoop för skolor i Azure AD, som du behöver lägga till Shmoop för skolor från galleriet i din lista över hanterade SaaS-appar.
+Om du vill konfigurera integreringen av Shmoop för skolor i Azure AD måste du lägga till Shmoop för skolor från galleriet till din lista över hanterade SaaS-appar.
 
-**Utför följande steg för att lägga till Shmoop för skolor från galleriet:**
+1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
+1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** .
+1. Navigera till **företags program** och välj sedan **alla program**.
+1. Välj **nytt program**om du vill lägga till ett nytt program.
+1. I avsnittet **Lägg till från galleriet** , skriver du **Shmoop för skolor** i sökrutan.
+1. Välj **Shmoop för skolor** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
-1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
-    ![Azure Active Directory-knappen](common/select-azuread.png)
+## <a name="configure-and-test-azure-ad-single-sign-on-for-shmoop-for-schools"></a>Konfigurera och testa enkel inloggning med Azure AD för Shmoop för skolor
 
-2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
+Konfigurera och testa Azure AD SSO med Shmoop för skolor som använder en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och en relaterad användare i Shmoop för skolor.
 
-    ![Bladet Företagsprogram](common/enterprise-applications.png)
+Om du vill konfigurera och testa Azure AD SSO med Shmoop för skolor, fyller du i följande Bygg stenar:
 
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
+    1. **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
+    1. **[Tilldela Azure AD](#assign-the-azure-ad-test-user)** -testuser-för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
+2. **[Konfigurera Shmoop för skolor SSO](#configure-shmoop-for-schools-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
+    1. **[Skapa Shmoop för skolors test användare](#create-shmoop-for-schools-test-user)** – om du vill ha en motsvarighet till B. Simon i Shmoop för skolor som är kopplade till Azure AD-representation av användare.
+3. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
 
-    ![Knappen Nytt program](common/add-new-app.png)
+## <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
-4. I sökrutan skriver **Shmoop för skolor**väljer **Shmoop för skolor** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
-    ![Shmoop för skolor i resultatlistan](common/search-new-app.png)
+1. I [Azure Portal](https://portal.azure.com/)på sidan **Shmoop för skolor** -program integration, hittar du avsnittet **Hantera** och väljer **enkel inloggning**.
+1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
+1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+   ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Shmoop för skolor, baserat på en testanvändare kallas **Britta Simon**.
-För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i Shmoop för skolor upprättas.
-
-Om du vill konfigurera och testa Azure AD enkel inloggning med Shmoop för skolor, måste du utföra följande byggblock:
-
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Konfigurera Shmoop för skolor enkel inloggning](#configure-shmoop-for-schools-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Skapa Shmoop för skolor testanvändare](#create-shmoop-for-schools-test-user)**  – du har en motsvarighet för Britta Simon i Shmoop för skolor som är länkad till en Azure AD-representation av användaren.
-6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
-
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
-
-I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
-
-Om du vill konfigurera Azure AD enkel inloggning med Shmoop för skolor, utför du följande steg:
-
-1. I den [Azure-portalen](https://portal.azure.com/)på den **Shmoop för skolor** application integration markerar **enkel inloggning**.
-
-    ![Konfigurera enkel inloggning för länken](common/select-sso.png)
-
-2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
-
-    ![Välja läge för enkel inloggning](common/select-saml-option.png)
-
-3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
-
-    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
-
-4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
-
-    ![Shmoop för skolor domän och URL: er med enkel inloggning för information](common/sp-identifier.png)
+1. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
     a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://schools.shmoop.com/public-api/saml2/start/<uniqueid>`
 
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://schools.shmoop.com/<uniqueid>`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL och identifierare. Kontakta [Shmoop för skolor klienten supportteamet](mailto:support@shmoop.com) att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL och identifierare. Kontakta [Shmoop för skolor kund support](mailto:support@shmoop.com) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-5. Shmoop för skolor programmet förväntar sig SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut i avsnittet **Användarattribut** på sidan för programintegrering. Följande skärmbild visar hur du konfigurerar intyg:
+5. Shmoop for skolor-appen förväntar sig SAML-intyg i ett särskilt format, vilket kräver att du lägger till anpassade attribut mappningar i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut. Klicka på ikonen  **Redigera** för att öppna dialogrutan **Användarattribut** .
 
     ![image](common/edit-attribute.png)
 
     > [!NOTE]
-    > Shmoop för skolan stöder två roller för användare: **Lärare** och **Student**. Ställa in dessa roller i Azure AD så att användare kan tilldelas till rätt roller. Information om hur du konfigurerar roller i Azure AD finns i [hantera åtkomst med RBAC och Azure portal](../../role-based-access-control/role-assignments-portal.md).
+    > Shmoop for School stöder två roller för användare: **Lärare** och **student**. Konfigurera de här rollerna i Azure AD så att användarna kan tilldelas lämpliga roller. Information om hur du konfigurerar roller i Azure AD finns [här](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management).
 
-6. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** så redigerar du anspråken genom att använda **Redigera-ikonen** eller lägga till anspråken genom att använda **Lägg till nytt anspråk** för att konfigurera SAML-tokenattribut som det visas i bilden ovan och utföra följande steg: 
+6. Utöver ovan förväntar sig Shmoop för skolor-program att fler attribut skickas tillbaka i SAML-svar. I avsnittet **användar anspråk**  ****  i dialog rutan användarattribut, utför följande steg för att lägga till SAML-token-attributet som visas i tabellen nedan: 
 
     | Namn |  Källattribut|
     | --------- | --------------- |
@@ -145,82 +122,62 @@ Om du vill konfigurera Azure AD enkel inloggning med Shmoop för skolor, utför 
 
     g. Klicka på **Spara**.
 
-7. Klicka på kopieringsknappen i avsnittet **SAML-signeringscertifikat** på sidan **Konfigurera enkel inloggning med SAML** om du vill kopiera **URL:en för federationsmetadata** och spara den på datorn.
+4. Klicka på kopieringsknappen i avsnittet **SAML-signeringscertifikat** på sidan **Konfigurera enkel inloggning med SAML** om du vill kopiera **URL:en för federationsmetadata** och spara den på datorn.
 
     ![Länk för hämtning av certifikat](common/copy-metadataurl.png)
 
-### <a name="configure-shmoop-for-schools-single-sign-on"></a>Konfigurera Shmoop för skolor enkel inloggning
-
-Att konfigurera enkel inloggning på **Shmoop för skolor** sida, som du behöver skicka den **Appfederationsmetadata** till [Shmoop för skolor supportteam](mailto:support@shmoop.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
-
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
+I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
 
-1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
-
-    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
-
-2. Välj **Ny användare** överst på skärmen.
-
-    ![Knappen Ny användare](common/new-user.png)
-
-3. Genomför följande steg i Användaregenskaper.
-
-    ![Dialogrutan Användare](common/user-properties.png)
-
-    a. I fältet **Namn** anger du **BrittaSimon**.
-  
-    b. I den **användarnamn** fälttyp `brittasimon@yourcompanydomain.extension`  
-    Till exempel, BrittaSimon@contoso.com
-
-    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
-
-    d. Klicka på **Skapa**.
+1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
+1. Välj **ny användare** överst på skärmen.
+1. I **användar** egenskaperna följer du de här stegen:
+    1. I **Namn**-fältet skriver du `B.Simon`.  
+    1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
+    1. Klicka på **Skapa**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Shmoop för skolor.
+I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till Shmoop för skolor.
 
-1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **Shmoop för skolor**.
+1. I Azure Portal väljer du **företags program**och väljer sedan **alla program**.
+1. I listan program väljer du **Shmoop för skolor**.
+1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
 
-    ![Bladet Företagsprogram](common/enterprise-applications.png)
+    ![Länken ”användare och grupper”](common/users-groups-blade.png)
 
-2. I listan med program väljer **Shmoop för skolor**.
+1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
 
-    ![Länken Shmoop för skolor i listan med program](common/all-applications.png)
+    ![Länken Lägg till användare](common/add-assign-user.png)
 
-3. På menyn till vänster väljer du **Användare och grupper**.
+1. I dialog rutan **användare och grupper** väljer du **B. Simon** från listan användare och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Om du förväntar dig ett roll värde i SAML Assertion, i dialog rutan **Välj roll** , väljer du lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
+## <a name="configure-shmoop-for-schools-sso"></a>Konfigurera Shmoop för skolor SSO
 
-4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
+Om du vill konfigurera enkel inloggning på **Shmoop för skolor** -sidan måste du skicka **URL: en** för appens Federations-metadata till [Shmoop for skolor support team](mailto:support@shmoop.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
 
-    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
+### <a name="create-shmoop-for-schools-test-user"></a>Skapa Shmoop för skolor test användare
 
-5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
-
-6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
-
-7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
-
-### <a name="create-shmoop-for-schools-test-user"></a>Skapa Shmoop för skolor testanvändare
-
-I det här avsnittet skapas en användare som kallas Britta Simon i Shmoop för skolor. Shmoop för skolor stöder etableringen av just-in-time-användare som är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i Shmoop för skolor, skapas en ny efter autentisering.
+I det här avsnittet skapas en användare som heter B. Simon i Shmoop för skolor. Shmoop för skolor har stöd för just-in-Time User-etablering, som är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i Shmoop för skolor, skapas en ny efter autentisering.
 
 > [!NOTE]
-> Om du vill skapa en användare manuellt kan du kontakta den [Shmoop för skolor supportteam](mailto:support@shmoop.com).
+> Om du behöver skapa en användare manuellt kan du kontakta [support teamet för Shmoop for skolor](mailto:support@shmoop.com).
 
-### <a name="test-single-sign-on"></a>Testa enkel inloggning
+## <a name="test-sso"></a>Testa SSO 
 
 I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Shmoop för skolor i åtkomstpanelen, bör det vara loggas in automatiskt till den Shmoop för skolor som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen Shmoop för skolor på åtkomst panelen bör du loggas in automatiskt på Shmoop för skolor för vilka du ställer in SSO. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+

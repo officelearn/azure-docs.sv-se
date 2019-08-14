@@ -7,16 +7,16 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: b9be1db9be1d4dd57994e101c07ed430425a5912
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: b0b82f37b76a6bca6d84a05bc48b7ae9986fb76b
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447426"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967689"
 ---
 # <a name="how-to-manage-keys-in-qna-maker"></a>Så här hanterar du nycklar i QnA Maker
 
@@ -24,9 +24,9 @@ QnA Maker-tjänsten innehåller två typer av nycklar, **prenumerationsnycklar**
 
 ![Nyckelhantering](../media/qnamaker-how-to-key-management/key-management.png)
 
-1. **Prenumerationsnycklar**: De här nycklarna används för åtkomst till den [hanteringstjänsten för QnA Maker API: er](https://go.microsoft.com/fwlink/?linkid=2092179). Dessa API: er kan du genomföra redigera kunskapsbasen.  
+1. **Prenumerations nycklar**: Dessa nycklar används för att få åtkomst till [API: erna för QNA Maker Management-tjänsten](https://go.microsoft.com/fwlink/?linkid=2092179). Dessa API: er gör att du kan redigera kunskaps basen.  
 
-2. **Slutpunkten nycklar**: Dessa nycklar används för åtkomst till knowledge base-slutpunkten för att få ett svar för en användare-fråga. Normalt använder du den här slutpunkten i chattrobot eller klientkod för program som förbrukar QnA Maker-tjänsten.
+2. **Slut punkts nycklar**: Dessa nycklar används för att få åtkomst till kunskaps bas slut punkten för att få svar på en användar fråga. Du använder vanligt vis den här slut punkten i din chatt-robot eller klient program kod som använder tjänsten QnA Maker.
  
 ## <a name="subscription-keys"></a>Prenumerationsnycklar
 Du kan visa och återställa dina prenumerationsnycklar från Azure-portalen där du skapade QnA Maker-resursen. 
@@ -42,7 +42,7 @@ Du kan visa och återställa dina prenumerationsnycklar från Azure-portalen dä
 
 Slutpunkt-nycklar kan hanteras från den [QnA Maker portal](https://qnamaker.ai).
 
-1. Logga in på den [QnA Maker portal](https://qnamaker.ai), gå till din profil och klicka sedan på **tjänstinställningar**.
+1. Logga in på [QNA Maker Portal](https://qnamaker.ai), gå till din profil och klicka sedan på **tjänst inställningar**.
 
     ![Slutpunktsnyckel](../media/qnamaker-how-to-key-management/Endpoint-keys.png)
 
@@ -51,7 +51,7 @@ Slutpunkt-nycklar kan hanteras från den [QnA Maker portal](https://qnamaker.ai)
     ![viktiga endpoint-hanteraren](../media/qnamaker-how-to-key-management/Endpoint-keys1.png)
 
     >[!NOTE]
-    >Uppdatera dina nycklar om du tycker att de har komprometterats. Du kan behöva motsvarande ändringar i ditt klientprogram eller bot-kod.
+    >Uppdatera dina nycklar om du tycker att de har komprometterats. Detta kan kräva motsvarande ändringar i klient programmet eller bot koden.
 
 ## <a name="next-steps"></a>Nästa steg
 

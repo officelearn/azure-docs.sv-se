@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med SAP NetWeaver | Microsoft Docs'
+title: 'Självstudier: Självstudier: Azure Active Directory enkel inloggning (SSO) med SAP NetWeaver | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och SAP NetWeaver.
 services: active-directory
 documentationCenter: na
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/08/2019
+ms.date: 08/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6cce23194025a68eec055fe45b806c3d28434a1
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: b002a9d5385d6cee3f22da7a1ddcf1f0864311ec
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68880514"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989046"
 ---
-# <a name="tutorial-integrate-sap-netweaver-with-azure-active-directory"></a>Självstudier: Integrera SAP-NetWeaver med Azure Active Directory
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sap-netweaver"></a>Självstudier: Azure Active Directory enkel inloggning (SSO) med SAP NetWeaver
 
 I den här självstudien får du lära dig hur du integrerar SAP NetWeaver med Azure Active Directory (Azure AD). När du integrerar SAP NetWeaver med Azure AD kan du:
 
@@ -81,9 +81,9 @@ Konfigurera enkel inloggning i Azure Active Directory med SAP NetWeaver genom at
 
 1. Öppna ett nytt webbläsarfönster och logga in på din SAP NetWeaver-företags webbplats som administratör
 
-2. Se till att tjänsterna **http** och **https** är aktiva och att lämpliga portar tilldelas i transaktionskoden **SMICM**.
+1. Se till att tjänsterna **http** och **https** är aktiva och att lämpliga portar tilldelas i transaktionskoden **SMICM**.
 
-3. Logga in på Business-klienten för SAP system (T01), där SSO krävs och aktivera hantering av HTTP-säkerhetssessioner.
+1. Logga in på Business-klienten för SAP system (T01), där SSO krävs och aktivera hantering av HTTP-säkerhetssessioner.
 
     a. Gå till transaktionskod **SICF_SESSIONS**. Den visar alla relevanta profilparametrar med aktuella värden. De ser ut så här:-
     ```
@@ -113,22 +113,22 @@ Konfigurera enkel inloggning i Azure Active Directory med SAP NetWeaver genom at
     /sap/bc/webdynpro/sap/saml2
     /sap/bc/webdynpro/sap/sec_diag_tool (This is only to enable / disable trace)
     ```
-4. Gå till transaktionskod **SAML2** i SAP-systemets företagsklient [T01/122]. Ett användargränssnitt öppnas i en webbläsare. I det här exemplet antog vi att SAP-företagsklienten är 122.
+1. Gå till transaktionskod **SAML2** i SAP-systemets företagsklient [T01/122]. Ett användargränssnitt öppnas i en webbläsare. I det här exemplet antog vi att SAP-företagsklienten är 122.
 
     ![Länk för hämtning av certifikat](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_sapbusinessclient.png)
 
-5. Ange ditt användarnamn och lösenord som ska anges i användargränssnittet och klicka på **Redigera**.
+1. Ange ditt användarnamn och lösenord som ska anges i användargränssnittet och klicka på **Redigera**.
 
     ![Länk för hämtning av certifikat](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_userpwd.png)
 
-6. Ersätt **providernamn** från T01122 till `http://T01122` och klicka på **Spara**.
+1. Ersätt **providernamn** från T01122 till `http://T01122` och klicka på **Spara**.
 
     > [!NOTE]
     > Som standard visas namnet för `<sid><client>` `<protocol>://<name>`providern, men Azure AD förväntar sig namn i formatet, och rekommenderar `https://<sid><client>` att du behåller namnet på providern så att flera SAP NetWeaver ABAP-motorer kan konfigureras i Azure AD.
 
     ![Länk för hämtning av certifikat](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_providername.png)
 
-7. **Generera metadata för tjänstleverantör**: – När vi är klara med att konfigurera inställningarna för den **lokala leverantören** och **betrodda leverantörer** i användargränssnittet för SAML 2.0 är nästa steg att generera tjänstleverantörens metadatafil (som innehåller alla inställningar, när det gäller autentisering och andra konfigurationer i SAP). När den här filen har genererats måste vi ladda upp den i Azure AD.
+1. **Generera metadata för tjänstleverantör**: – När vi är klara med att konfigurera inställningarna för den **lokala leverantören** och **betrodda leverantörer** i användargränssnittet för SAML 2.0 är nästa steg att generera tjänstleverantörens metadatafil (som innehåller alla inställningar, när det gäller autentisering och andra konfigurationer i SAP). När den här filen har genererats måste vi ladda upp den i Azure AD.
 
     ![Länk för hämtning av certifikat](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_generatesp.png)
 
@@ -146,7 +146,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-4. I avsnittet **grundläggande SAML-konfiguration** , om du vill konfigurera programmet i **IDP** initierat läge, utför följande steg:
+1. I avsnittet **grundläggande SAML-konfiguration** , om du vill konfigurera programmet i **IDP** initierat läge, utför följande steg:
 
     a. Klicka på **Ladda upp metadatafil** för att ladda upp **metadata-filen för tjänst leverantören**som du har hämtat tidigare.
 
@@ -167,7 +167,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     ![image](common/edit-attribute.png)
 
-13. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** konfigurerar du SAML-tokenattributet på det sätt som visas i bilden ovan och utför följande steg:
+1. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** konfigurerar du SAML-tokenattributet på det sätt som visas i bilden ovan och utför följande steg:
 
     a. Öppna dialogrutan **Hantera användaranspråk** genom att klicka på **redigeringsikonen**.
 
@@ -271,7 +271,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
     ![Konfigurera enkel inloggning](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_nameid.png)
 
-14. Observera att värdena för **användar-ID-källa** och **användar-ID-mappningsläge** bestämmer länken mellan SAP-användare och Azure AD-anspråk.  
+14. Observera att värdena för **användar-ID-källa** och **användar-ID-mappning** anger länken mellan SAP-användare och Azure AD-anspråk.  
 
     #### <a name="scenario-sap-user-to-azure-ad-user-mapping"></a>Scenario: SAP-användare till Azure AD-mappning.
 
@@ -283,7 +283,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
     ![Konfigurera enkel inloggning](./media/sapnetweaver-tutorial/claimsaad1.png)
 
-    #### <a name="scenario-select-sap-user-id-based-on-configured-email-address-in-su01-in-this-case-email-id-should-be-configured-in-su01-for-each-user-who-requires-sso"></a>Scenario: Välj SAP-användar-id baserat på konfigurerad e-postadress i SU01. I det här fallet konfigureras e-post-id i su01 för varje användare som kräver enkel inloggning.
+    #### <a name="scenario-select-sap-user-id-based-on-configured-email-address-in-su01-in-this-case-email-id-should-be-configured-in-su01-for-each-user-who-requires-sso"></a>Scenario: Välj SAP-användar-ID baserat på konfigurerad e-postadress i SU01. I det här fallet ska e-post-ID konfigureras i su01 för varje användare som kräver SSO.
 
     a.  Skärmbild med NameID-information från SAP.
 
@@ -386,8 +386,10 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [Prova SAP NetWeaver med Azure AD](https://aad.portal.azure.com/)

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 07/17/2019
+ms.date: 08/12/2019
 ms.author: diberry
-ms.openlocfilehash: 19eeb396536925d9667c8dddb09bea779de79555
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 11f40d99a36493272cb6cd51e4a339c19cd0358b
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68707188"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966725"
 ---
 # <a name="quickstart-language-understanding-luis-authoring-client-library-for-net"></a>Snabbstart: Language Understanding (LUIS) redigerings klient bibliotek för .NET
 
@@ -75,7 +75,7 @@ Skapa ett nytt .NET Core-program i önskat redigerings program eller IDE.
 I program katalogen installerar du klient biblioteket Language Understanding (LUIS) för .NET med följande kommando:
 
 ```console
-dotnet add package Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring -Version 3.0.0
+dotnet add package Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring --version 3.0.0
 ```
 
 Om du använder Visual Studio IDE är klient biblioteket tillgängligt som ett nedladdnings Bart NuGet-paket.
@@ -140,7 +140,7 @@ Från projekt katalogen öppnar du **program.cs** -filen i önskat redigerings p
     [!code-csharp[Create a LUIS app](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/LUIS/LUIS.cs?name=AuthoringCreateApplication)]
 
 ## <a name="create-intent-for-the-app"></a>Skapa avsikt för appen
-Det primära objektet i en LUIS-Apps modell är avsikten. Avsikten med en gruppering av användarens _uttryck._ En användare kan ställa en fråga eller göra en instruktion som söker efter ett särskilt _avsett_ svar från en robot (eller något annat klient program). Exempel på avsikt är att boka en flygning och fråga om väder i en destinations ort och fråga om kontakt information för kund tjänst.   
+Det primära objektet i en LUIS-Apps modell är avsikten. Avsikten med en gruppering av användarens uttryck. En användare kan ställa en fråga eller göra en instruktion som söker efter ett särskilt _avsett_ svar från en robot (eller något annat klient program). Exempel på avsikt är att boka en flygning och fråga om väder i en destinations ort och fråga om kontakt information för kund tjänst.   
 
 Skapa en [ModelCreateObject](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.models.modelcreateobject?view=azure-dotnet) med namnet på den unika avsikten och skicka sedan app-ID, VERSIONS-ID och ModelCreateObject till metoden [Model. AddIntentAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.modelextensions.addintentasync?view=azure-dotnet) . Svaret är det ID för avsikten.
 

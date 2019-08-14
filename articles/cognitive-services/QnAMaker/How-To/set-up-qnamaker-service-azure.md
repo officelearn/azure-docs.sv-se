@@ -7,16 +7,16 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/13/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 4bc40c0d4d44ea4dd809f59965ec5d1107be8541
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: f30b55eda4a02cfb3e961c0019128e4fe686cf53
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67439773"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967671"
 ---
 # <a name="create-a-qna-maker-service"></a>Skapa en QnA Maker-tjänsten
 
@@ -26,9 +26,9 @@ Innan du kan skapa alla QnA Maker kunskapsbaser, måste du först ställa in QnA
 
 Den här proceduren distribuerar några Azure-resurser. Tillsammans resurserna hantera kunskapsbas-innehåll och tillhandahåller funktioner för besvara fråga om en slutpunkt.
 
-1. Logga in på Azure-portalen och [skapa en QnA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) resurs.
+1. Logga in på Azure Portal och [skapa en QNA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) resurs.
 
-1. Välj **skapa** när du har läst villkoren.
+1. Välj **skapa** när du har läst de allmänna villkoren.
 
     ![Skapa en ny QnA Maker-tjänst](../media/qnamaker-how-to-setup-service/create-new-resource-button.png)
 
@@ -38,9 +38,9 @@ Den här proceduren distribuerar några Azure-resurser. Tillsammans resurserna h
 
     * Fyll i **namn** med ett unikt namn som identifierar den här QnA Maker-tjänsten. Det här namnet identifierar även QnA Maker-slutpunkten som din kunskapsbaser kommer att associeras.
     * Välj den **prenumeration** i vilket QnA Maker-resursen ska distribueras.
-    * Välj den **prisnivå** för QnA Maker management services (portal och API: er hantering). Se [här](https://aka.ms/qnamaker-pricing) för information om priser för SKU: er.
-    * Skapa en ny **resursgrupp** (rekommenderas) eller Använd en befintlig där du kan distribuera den här QnA Maker-resursen. QnA Maker skapar flera Azure-resurser. När du skapar en resursgrupp för att lagra dessa resurser, kan du enkelt hitta, hantera och ta bort dessa resurser av resursgruppens namn.
-    * Välj en **resursgruppsplats**.
+    * Välj **pris nivå** för QNA Maker hanterings tjänster (portal-och hanterings-API: er). Se [här](https://aka.ms/qnamaker-pricing) för information om priser för SKU: er.
+    * Skapa en ny **resursgrupp** (rekommenderas) eller Använd en befintlig där du kan distribuera den här QnA Maker-resursen. QnA Maker skapar flera Azure-resurser. När du skapar en resurs grupp som innehåller dessa resurser kan du enkelt hitta, hantera och ta bort dessa resurser med resurs gruppens namn.
+    * Välj en **resurs grupps plats**.
     * Välj den **Search prisnivån** för Azure Search-tjänsten. Om du ser den kostnadsfria nivån nedtonat innebär det att du redan har en kostnadsfri Azure Search-nivå som distribuerats i prenumerationen. I så fall behöver du börjar med den grundläggande Azure Search-nivån. Se information om priser för Azure search [här](https://azure.microsoft.com/pricing/details/search/).
     * Välj den **sökplats** där du vill att Azure Search-data som ska distribueras. Begränsningar i där kunddata måste lagras informerar den plats som du väljer för Azure Search.
     * Namnge din App service i **appnamn**.
@@ -52,17 +52,17 @@ Den här proceduren distribuerar några Azure-resurser. Tillsammans resurserna h
 
     * Välj om du vill aktivera **Application Insights** eller inte. Om **Application Insights** är aktiverad, QnA Maker samlar in telemetri på trafik, chattloggarna och fel.
     * Välj den **App insights-plats** där Application Insights-resurs ska distribueras.
-    * För kostnaden besparingar mått, kan du [dela](upgrade-qnamaker-service.md?#share-existing-services-with-qna-maker) vissa men inte alla Azure-resurser skapas för QnA Maker. 
+    * För kostnads besparingar kan du [dela](upgrade-qnamaker-service.md?#share-existing-services-with-qna-maker) några men inte alla Azure-resurser som skapats för QNA Maker. 
 
-1. När alla fält bekräftas kan du välja **skapa** att starta distributionen av dessa tjänster i din prenumeration. Det tar några minuter att slutföra.
+1. När alla fält har verifierats kan du välja **skapa** för att starta distributionen av de här tjänsterna i din prenumeration. Det tar några minuter att slutföra.
 
 1. När distributionen är klar visas i följande resurser som skapats i din prenumeration.
 
     ![Skapa en ny QnA Maker-tjänsten för resursen](../media/qnamaker-how-to-setup-service/resources-created.png)
 
-## <a name="region-of-management-service"></a>Region för Hanteringstjänst
+## <a name="region-of-management-service"></a>Region för hanterings tjänst
 
-Management-tjänsten för QnA Maker kan bara användas för portalen & för inledande databearbetning är endast tillgänglig i USA, västra. Inga kunddata lagras i den här tjänsten i västra USA.
+Hanterings tjänsten för QnA Maker, som endast används för Portal & för inledande data bearbetning, är endast tillgänglig i västra USA. Ingen kund information lagras i den här västra USA-tjänsten.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: quickstart
 ms.date: 08/01/2019
-ms.openlocfilehash: a834c3c20f11ee4dbf070ae7c836f302c82c9def
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: 854760ea0158d356cc5449c9f1fdab6161588640
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950292"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976865"
 ---
 # <a name="quickstart-create-an-azure-data-catalog"></a>Snabbstart: Skapa Azure Data Catalog
 
@@ -36,7 +36,7 @@ Du kan bara etablera en datakatalog per organisation (Azure Active Directory-dom
 
 1. Gå till [Azure Portal](https://portal.azure.com) > **skapa en resurs** och välj **Data Catalog**.
 
-    ![Skapa Data Catalog](media/data-catalog-get-started/data-catalog-create.png)
+    ![Knappen Azure Data Catalog skapa](media/data-catalog-get-started/data-catalog-create.png)
 
 2. Ange ett **namn** för data katalogen, den **prenumeration** som du vill använda, **platsen** för katalogen och **pris nivån**. Välj sedan **Skapa**.
 

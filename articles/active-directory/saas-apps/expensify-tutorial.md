@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/29/2019
+ms.date: 08/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37eb989f49593570aa9fcc2ee6f2e5863b59fbc1
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: fe57c0655cf01f8dfa0f9cd0d75584fd4f130c0a
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68637759"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976107"
 ---
 # <a name="tutorial-integrate-expensify-with-azure-active-directory"></a>Självstudier: Integrera Expensify med Azure Active Directory
 
@@ -36,7 +36,7 @@ Mer information om SaaS app integration med Azure AD finns i [Vad är program å
 
 För att komma igång behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få en månads kostnads fri utvärderings version [här](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
 * Expensify för enkel inloggning (SSO) aktive rad.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -56,20 +56,20 @@ För att konfigurera integrering av Expensify i Azure AD behöver du lägga till
 1. I avsnittet **Lägg till från galleriet** , skriver du **Expensify** i sökrutan.
 1. Välj **Expensify** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on-for-expensify"></a>Konfigurera och testa enkel inloggning med Azure AD för Expensify
 
 Konfigurera och testa Azure AD SSO med Expensify med hjälp av en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i Expensify.
 
 Om du vill konfigurera och testa Azure AD SSO med Expensify, slutför du följande Bygg stenar:
 
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
+    1. **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
+    1. **[Tilldela Azure AD](#assign-the-azure-ad-test-user)** -testuser-för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
 2. **[Konfigurera EXPENSIFY SSO](#configure-expensify-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
-3. **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
-4. **[Tilldela Azure AD](#assign-the-azure-ad-test-user)** -testuser-för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
-5. **[Skapa Expensify test User](#create-expensify-test-user)** -om du vill ha en motsvarighet till B. Simon i Expensify som är länkad till Azure AD-representation av användare.
+    1. **[Skapa Expensify test User](#create-expensify-test-user)** -om du vill ha en motsvarighet till B. Simon i Expensify som är länkad till Azure AD-representation av användare.
 6. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
 
-### <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
+## <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
 Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
@@ -83,10 +83,12 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     a. I rutan **Inloggnings-URL** anger du en URL: `https://www.expensify.com/authentication/saml/login`
 
-    b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://www.<companyname>.expensify.com`
+    b. I textrutan **Identifierare (entitets-ID)** anger du en URL: `https://www.expensify.com`
+
+    c. b. I textrutan **Svars-URL** skriver du in en URL med följande mönster: `https://www.expensify.com/authentication/saml/loginCallback?domain=<yourdomain>`
 
     > [!NOTE]
-    > ID-värde är inte verkliga. Uppdatera det här värdet med den faktiska identifieraren. Kontakta [supportteamet för Expensify-klienten](mailto:help@expensify.com) för att få det här värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Värdet för svars-URL:en är inte verkligt. Uppdatera det här värdet med den faktiska svars-URL:en. Kontakta [supportteamet för Expensify-klienten](mailto:help@expensify.com) för att få det här värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , letar du reda på **metadata-XML** och väljer **Hämta** för att ladda ned certifikatet och spara det på din dator.
 
@@ -95,20 +97,6 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 1. I avsnittet **Konfigurera Expensify** kopierar du lämpliga URL: er baserat på ditt krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
-
-### <a name="configure-expensify-sso"></a>Konfigurera Expensify SSO
-
-Om du vill aktivera enkel inloggning i Expensify, måste du först aktivera **domänkontroll** i programmet. Du kan aktivera domänkontroll i programmet med hjälp av stegen som beskrivs [här](https://help.expensify.com/domain-control). Behöver du mer stöd kan du ta hjälp av [supportteamet för Expensify-klienten](mailto:help@expensify.com). När du har aktiverat domänkontroll följer du dessa steg:
-
-![Konfigurera enkel inloggning](./media/expensify-tutorial/tutorial_expensify_51.png)
-
-1. Logga in på ditt Expensify-program.
-
-2. Klicka på **Inställningar** i den vänstra rutan och gå till **SAML**.
-
-3. Växla alternativet **SAML-inloggning** så att du väljer **Aktiverad**.
-
-4. Öppna hämtade federationsmetadata från anteckningarna i Azure AD, kopiera innehållet och klistra in det i textrutan för **metadata för identitetsprovidern**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -140,11 +128,25 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 1. Om du förväntar dig ett roll värde i SAML Assertion, i dialog rutan **Välj roll** , väljer du lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 1. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
+## <a name="configure-expensify-sso"></a>Konfigurera Expensify SSO
+
+Om du vill aktivera enkel inloggning i Expensify, måste du först aktivera **domänkontroll** i programmet. Du kan aktivera domänkontroll i programmet med hjälp av stegen som beskrivs [här](https://help.expensify.com/domain-control). Behöver du mer stöd kan du ta hjälp av [supportteamet för Expensify-klienten](mailto:help@expensify.com). När du har aktiverat domänkontroll följer du dessa steg:
+
+![Konfigurera enkel inloggning](./media/expensify-tutorial/tutorial_expensify_51.png)
+
+1. Logga in på ditt Expensify-program.
+
+2. Klicka på **Inställningar** i den vänstra rutan och gå till **SAML**.
+
+3. Växla alternativet **SAML-inloggning** så att du väljer **Aktiverad**.
+
+4. Öppna hämtade federationsmetadata från anteckningarna i Azure AD, kopiera innehållet och klistra in det i textrutan för **metadata för identitetsprovidern**.
+
 ### <a name="create-expensify-test-user"></a>Skapa Expensify-testanvändare
 
 I det här avsnittet skapar du en användare som heter B. Simon i Expensify. Ta hjälp av [supportteamet för Expensify-klienten](mailto:help@expensify.com) för att lägga till användare på Expensify-plattformen.
 
-### <a name="test-sso"></a>Testa SSO
+## <a name="test-sso"></a>Testa SSO
 
 I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 

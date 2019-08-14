@@ -9,12 +9,12 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 07/31/2019
-ms.openlocfilehash: 0a497ce506e1aa3b0f9afc47bf1ab8382c9c0405
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: e571c65e64fad73c646aa05366cab685aa745caa
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68951453"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68968945"
 ---
 1. Logga in på [Azure Portal](https://portal.azure.com/) med hjälp av autentiseringsuppgifterna för den Azure-prenumeration du använder. 
 
@@ -45,10 +45,13 @@ ms.locfileid: "68951453"
 
    ![Status för skapande av arbets yta](./media/aml-create-in-portal/notifications.png)
 
-1. Om din kod refererar till den här arbets ytan från den lokala miljön väljer du **Hämta config. JSON** från **översikts** avsnittet i arbets ytan.  
+1. Om du kommer att använda ett kod fritt alternativ från portalen, t. ex. ett visuellt gränssnitt eller automatiskt ML experiment, gör du nu. Om du kommer att skapa en [Notebook VM](../articles/machine-learning/service/tutorial-1st-experiment-sdk-setup.md#azure) är du också klar. 
+
+1. Om du planerar att använda kod i din lokala miljö som hänvisar till den här arbets ytan väljer du **Hämta config. JSON** från **översikts** avsnittet i arbets ytan.  
 
    ![Ladda ned config.json](./media/aml-create-in-portal/configure.png)
+   
+   Placera filen i katalog strukturen med dina Python-skript eller Jupyter-anteckningsböcker. Det kan finnas i samma katalog, i en under katalog med namnet *. azureml*eller i en överordnad katalog. När du skapar en Notebook VM, läggs den här filen till rätt katalog på den virtuella datorn åt dig.
 
-    Placera denna JSON-fil i katalog strukturen som innehåller dina Python-skript eller Jupyter-anteckningsböcker. Det kan finnas i samma katalog, i en under katalog med namnet *. azureml*eller i en överordnad katalog.
+    
 
-   Om du kommer att använda en [Notebook-VM](../articles/machine-learning/service/tutorial-1st-experiment-sdk-setup.md#azure) behöver du inte ladda ned den här filen, den läggs till i rätt katalog på den virtuella datorn åt dig.

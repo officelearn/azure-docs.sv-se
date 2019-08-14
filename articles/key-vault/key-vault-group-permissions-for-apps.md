@@ -1,39 +1,39 @@
 ---
-title: Bevilja behörighet till många program för att få åtkomst till ett Azure key vault - Azure Key Vault | Microsoft Docs
-description: Lär dig att ge behörighet till många program för att komma åt ett nyckelvalv
+title: Bevilja behörighet till många program för att komma åt ett Azure Key Vault – Azure Key Vault | Microsoft Docs
+description: Lär dig hur du beviljar behörighet till många program för att komma åt ett nyckel valv
 services: key-vault
 author: amitbapat
-manager: barbkess
+manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
-ms.topic: conceptual
-ms.date: 01/07/2019
+ms.topic: tutorial
+ms.date: 08/12/2019
 ms.author: ambapat
-ms.openlocfilehash: b1d0b0948e089d41f460ac2a54150ee51333f87c
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 07ee544057ffeb0a5859cc771b124523ec79c9c0
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "64721989"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976405"
 ---
-# <a name="grant-several-applications-access-to-a-key-vault"></a>Bevilja flera program åtkomst till ett nyckelvalv
+# <a name="grant-several-applications-access-to-a-key-vault"></a>Bevilja flera program åtkomst till ett nyckel valv
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Principer för åtkomstkontroll kan användas för att bevilja flera program åtkomst till ett nyckelvalv. En principer för åtkomstkontroll kan stöda upp till 1024 program och konfigureras på följande sätt:
+Princip för åtkomst kontroll kan användas för att bevilja flera program åtkomst till ett nyckel valv. En princip för åtkomst kontroll har stöd för upp till 1024 program och konfigureras enligt följande:
 
-1. Skapa en Azure Active Directory-säkerhetsgrupp. 
-2. Lägg till alla program som är associerade tjänstens huvudnamn i gruppen.
-3. Bevilja den säkerhetsgrupp åtkomstbehörighet till ditt Nyckelvalv.
+1. Skapa en Azure Active Directory säkerhets grupp. 
+2. Lägg till alla program associerade tjänstens huvud namn i säkerhets gruppen.
+3. Bevilja säkerhets gruppen åtkomst till din Key Vault.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-Här följer kraven:
+Följande är förutsättningarna:
 * [Installera Azure PowerShell](/powershell/azure/overview).
-* [Installera Azure Active Directory PowerShell V2-modulen](https://www.powershellgallery.com/packages/AzureAD).
-* Behörigheter för att skapa/Redigera grupper i Azure Active Directory-klient. Om du inte har behörighet, kan du behöva kontakta Azure Active Directory-administratören. Se [om Azure Key Vault-nycklar, hemligheter och certifikat](about-keys-secrets-and-certificates.md) mer information om hur Key Vault åtkomstbehörigheter principen.
+* [Installera PowerShell-modulen för Azure Active Directory v2](https://www.powershellgallery.com/packages/AzureAD).
+* Behörigheter för att skapa/redigera grupper i Azure Active Directory klient organisationen. Om du inte har behörighet kan du behöva kontakta Azure Active Directory administratören. Se [om Azure Key Vault nycklar, hemligheter och certifikat om du](about-keys-secrets-and-certificates.md) vill ha mer information om behörighet för Key Vault åtkomst principer.
 
-## <a name="granting-key-vault-access-to-applications"></a>Bevilja Key Vault-åtkomst till program
+## <a name="granting-key-vault-access-to-applications"></a>Bevilja Key Vault åtkomst till program
 
 Kör följande kommandon i PowerShell:
 
@@ -60,8 +60,8 @@ Set-AzKeyVaultAccessPolicy –VaultName ContosoVault –ObjectId $aadGroup.Objec
 # Of course you can adjust the permissions as required 
 ```
 
-Om du vill ge en annan uppsättning behörigheter till en grupp av program kan du skapa en separat Azure Active Directory-säkerhetsgrupp för sådana program.
+Om du behöver bevilja en annan uppsättning behörigheter till en grupp med program skapar du en separat Azure Active Directory säkerhets grupp för dessa program.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du [säkra ditt nyckelvalv](key-vault-secure-your-key-vault.md).
+Lär dig mer om hur du [skyddar nyckel valvet](key-vault-secure-your-key-vault.md).

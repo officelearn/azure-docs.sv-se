@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 06/24/2019
+ms.date: 08/13/2019
 ms.author: diberry
-ms.openlocfilehash: 1960856ce2f15945d1b1bfa093f349771d481ffc
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: db54a71a6bd252c1ca60ae356cbf340bc660d142
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663848"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989093"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>Funktioner är information om åtgärder och kontext
 
@@ -25,7 +25,7 @@ I personanpassaren används **funktioner**, som innehåller information om den *
 
 Du kan till exempel ha en **funktion** om:
 
-* _Användaren_ , till exempel en `UserID`. 
+* _Användar personen_ , till exempel en `Sports_Shopper`. Detta bör inte vara ett enskilt användar-ID. 
 * _Innehållet_ , till exempel om en video är en `Documentary`, en `Movie`, eller en `TV Series`, eller om en butiks artikel är tillgänglig i butiken.
 * Den _aktuella_ tids perioden, till exempel vilken veckodag det är.
 
@@ -150,7 +150,7 @@ Du kan använda flera andra [Azure-Cognitive Services](https://www.microsoft.com
 
 Varje åtgärd:
 
-* Har ett ID.
+* Har ett _händelse_ -ID. Om du redan har ett händelse-ID bör du skicka in det. Om du inte har något händelse-ID ska du inte skicka en, Personanpassare skapar en åt dig och returnerar den i svaret på ranknings förfrågan. ID: t är associerat med rang-händelsen, inte användaren. Om du skapar ett ID fungerar ett GUID bäst. 
 * Innehåller en lista med funktioner.
 * Listan över funktioner kan vara stor (hundratals) men vi rekommenderar att du utvärderar funktions effektiviteten för att ta bort funktioner som inte bidrar till att få några fördelar. 
 * Funktionerna i **åtgärderna** kan eller kanske inte har någon korrelation med funktioner i kontexten som används av personanpassan.

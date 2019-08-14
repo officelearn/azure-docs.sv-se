@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: travisw
-ms.openlocfilehash: 8a12c9e5d569092440552958554681c0b1d79590
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f77a95af1edcd37043ea1e067560577140a81a04
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68552544"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967593"
 ---
 # <a name="about-custom-voice-first-virtual-assistants-preview"></a>Om anpassad röst för hands version för första och andra virtuella assistenter
 
@@ -36,14 +36,25 @@ Direkt linje tal och dess tillhör ande funktioner för anpassade röst-och för
 |[Text till tal](text-to-speech.md) | Text svar från roboten kommer att syntetiseras med [text till tal](text-to-speech.md) från Azure Speech Services. Denna syntes kommer sedan att göras tillgänglig för klient programmet som en ljud ström. Microsoft erbjuder möjlighet att bygga din egen anpassade, högkvalitativa neurala TTS-röst som ger en röst till ditt varumärke, för att lära dig mer om [kontakten oss](mailto:mstts@microsoft.com).
 |[Direkt linje tal](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech) | Som en kanal i bot-ramverket aktiverar direkt linje tal en smidig och sömlös anslutning mellan klient programmet, en kompatibel bot och funktionerna i Azure Speech Services. Mer information om hur du konfigurerar din robot för att använda den direkta rad igenkännings kanalen finns på [sidan i dokumentationen för bot Framework](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech).
 
+## <a name="get-started-with-virtual-assistants"></a>Kom igång med virtuella assistenter
+
+Vi erbjuder snabb starter som har utformats för att du ska kunna köra kod på mindre än 10 minuter. Den här tabellen innehåller en lista över de första snabb starterna för virtuella assistenter som organiseras efter språk.
+
+| Snabbstart | Plattform | API-referens |
+|------------|----------|---------------|
+| C#, UWP | Windows | [Mellan](https://aka.ms/csspeech/csharpref) |
+| Java | Windows, macOS, Linux | [Mellan](https://aka.ms/csspeech/javaref) |
+| Java | Android | [Mellan](https://aka.ms/csspeech/javaref) |
+
 ## <a name="sample-code"></a>Exempelkod
 
 Exempel kod för att skapa en röst-första virtuell assistent finns på GitHub. Dessa exempel avser klient programmet för att ansluta till din robot i flera populära programmeringsspråk.
 
 * [Röst-första exempel på virtuella assistenter (SDK)](https://aka.ms/csspeech/samples)
-* [Snabb start: röst-första virtuella assistenterC#()](quickstart-virtual-assistant-csharp-uwp.md)
-* [Snabb start: röst – första virtuella assistenter (Java)](quickstart-virtual-assistant-java-jre.md)
-* [Direkt linje tal klient (C#, WPF)](https://github.com/Azure-Samples/Cognitive-Services-Direct-Line-Speech-Client)
+* [Självstudier: Röst möjliggör din robot med talet SDK,C#](tutorial-voice-enable-your-bot-speech-sdk.md)
+
+## <a name="tutorial"></a>Självstudie
+En själv studie kurs om hur du [aktiverar rösten – aktivera din robot med hjälp av tal-SDK och kanal för direkt linje tal](tutorial-voice-enable-your-bot-speech-sdk.md).
 
 ## <a name="customization"></a>Anpassning
 

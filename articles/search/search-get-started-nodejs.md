@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 07/30/2019
 ms.author: laobri
-ms.openlocfilehash: 3a0b5706b41bdc51a4fe6e49b20296d3824b717c
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 41ad5aed975f30250d53d746e7590f88e375b6e9
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68947116"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68977229"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-nodejs"></a>Snabbstart: Skapa ett Azure Search-index i Node. js
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ ms.locfileid: "68947116"
 > * [Python](search-get-started-python.md)
 > * [Postman](search-get-started-postman.md)
 
-Skapa ett Node. js-program som skapar, läser in och skickar frågor till ett Azure Search-index. Den här artikeln visar hur du skapar programmet steg för steg. Alternativt kan du [Ladda ned käll koden och data](https://github.com/Azure-Samples/azure-search-javascript-samples/quickstart/) och köra programmet från kommando raden.
+Skapa ett Node. js-program som skapar, läser in och skickar frågor till ett Azure Search-index. Den här artikeln visar hur du skapar programmet steg för steg. Alternativt kan du [Ladda ned käll koden och data](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/quickstart/) och köra programmet från kommando raden.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -36,7 +36,7 @@ Följande tjänster, verktyg och data används i den här snabb starten.
 
 + [Node.js](https://nodejs.org).
 + [NPM](https://www.npmjs.com) bör installeras av Node. js.
-+ En exempel index struktur och matchande dokument finns i den här artikeln, eller från [lagrings platsen](https://github.com/Azure-Samples/azure-search-javascript-samples/quickstart/).
++ En exempel index struktur och matchande dokument finns i den här artikeln, eller från [ **snabb starts** katalogen i lagrings platsen](https://github.com/Azure-Samples/azure-search-javascript-samples/).
 + [Skapa en Azure Search tjänst](search-create-service-portal.md) eller [hitta en befintlig tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under din aktuella prenumeration. Du kan använda en kostnads fri tjänst för den här snabb starten.
 
 Rekommenderas
@@ -126,7 +126,7 @@ Skapa en fil **azure_search_config. JSON** för att lagra dina Sök tjänst data
 
 Skapa en fil **hotels_quickstart_index. JSON**.  Den här filen definierar hur Azure Search fungerar med dokumenten som du läser in i nästa steg. Varje fält identifieras av en `name` och har en angiven. `type` Varje fält har också en serie med indexfiler som anger om Azure Search kan söka, filtrera, sortera och fasett vid fältet. De flesta fält är enkla data typer, men vissa, som `AddressType` är komplexa typer, som gör att du kan skapa omfattande data strukturer i ditt index.  Du kan läsa mer om [vilka data typer](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) och [index-attribut](https://docs.microsoft.com/azure/search/search-what-is-an-index#index-attributes)som stöds. 
 
-Lägg till följande i **hotels_quickstart_index. JSON** eller [Ladda ned filen](https://github.com/Azure-Samples/azure-search-javascript-samples/quickstart/blob/master/hotels_quickstart_index.json). 
+Lägg till följande i **hotels_quickstart_index. JSON** eller [Ladda ned filen](https://github.com/Azure-Samples/azure-search-javascript-samples/blob/master/quickstart/hotels_quickstart_index.json). 
 
 ```json
 {
@@ -286,14 +286,14 @@ module.exports = AzureSearchClient;
 
 Det första ansvaret för klassen är att veta hur du skapar URL: er som de olika förfrågningarna ska skickas till. Bygg dessa URL: er med instans metoder som använder de konfigurations data som skickas till klassen konstruktor. Observera att den URL som de konstruerar är specifik för en API-version och måste ha ett argument som anger den versionen ( `2019-05-06`i det här programmet). 
 
-Lägg till följande metod i klass texten:
+Den första av dessa metoder kommer att returnera URL: en för själva indexet. Lägg till följande metod i klass texten:
 
 ```javascript
-    getIndexUrl() { return `https://${this.searchServiceName}.search.windows.net/indexes/${this.indexName}?api-version=${this.apiVersion}`; }
+getIndexUrl() { return `https://${this.searchServiceName}.search.windows.net/indexes/${this.indexName}?api-version=${this.apiVersion}`; }
 
 ```
 
-Nästa ansvar gör en asynkron begäran med hämtnings-API: et. Den asynkrona statiska `request` metoden tar en URL, en sträng som anger http-metoden ("Get", "placera", "post", "Delete"), nyckeln som ska användas i begäran och ett valfritt JSON-objekt. Variabeln`queryKey` mappar (om administratörs nyckeln eller den skrivskyddade fråge nyckeln) till http-begäran för http-begäran (API-nyckel). `headers` Alternativen för begäran innehåller alltid de `method` som ska användas `headers`och. Om `bodyJson` `bodyJson`inte `null`, anges bröd texten i http-begäran till sträng representationen av. `request` Returnerar hämtnings-API: TS löfte för att köra http-begäran.
+Nästa ansvar i `AzureSearchClient` gör en asynkron begäran med hämtnings-API: et. Den asynkrona statiska `request` metoden tar en URL, en sträng som anger http-metoden ("Get", "placera", "post", "Delete"), nyckeln som ska användas i begäran och ett valfritt JSON-objekt. Variabeln`queryKey` mappar (om administratörs nyckeln eller den skrivskyddade fråge nyckeln) till http-begäran för http-begäran (API-nyckel). `headers` Alternativen för begäran innehåller alltid de `method` som ska användas `headers`och. Om `bodyJson` `bodyJson`inte `null`, anges bröd texten i http-begäran till sträng representationen av. `request` Metoden returnerar det hämtnings-API: et löfte att köra http-begäran.
 
 ```javascript
 static async request(url, method, apiKey, bodyJson = null) {
@@ -325,51 +325,51 @@ static async request(url, method, apiKey, bodyJson = null) {
 }
 ```
 
-I demonstrations syfte kommer vi bara att utlösa ett undantag om HTTP-begäran inte lyckas. I ett verkligt program skulle du förmodligen göra vissa loggningar och diagnostiseringar av HTTP-statuskoden i `response` från search service-begäran. 
+I demonstrations syfte genererar du bara ett undantag om HTTP-begäran inte lyckas. I ett verkligt program skulle du förmodligen göra viss loggning och diagnostisering av HTTP-statuskoden i `response` från search service-begäran. 
     
 ```javascript
-    static throwOnHttpError(response) {
+static throwOnHttpError(response) {
     const statusCode = response.status;
     if (statusCode >= 300){
         console.log(`Request failed: ${JSON.stringify(response, null, 4)}`);
         throw new Error(`Failure in request. HTTP Status was ${statusCode}`);
     }
-    }
+}
 ```
 
-Slutligen lägger du till de metoder som används för att identifiera, ta bort och skapa Azure Search index. Dessa metoder har samma struktur:
+Slutligen lägger du till metoderna för att identifiera, ta bort och skapa Azure Search-indexet. Dessa metoder har samma struktur:
 
 * Hämta slut punkten som begäran görs till.
-* Generera begäran med lämplig slut punkt, HTTP-verb, API-nyckel och brödtext. `queryAsync()`använder fråge nyckeln, annars används administratörs nyckeln.
+* Generera begäran med lämplig slut punkt, HTTP-verb, API-nyckel och, om det behövs, en JSON-text. `indexExistsAsync()`och `deleteIndexAsync()` har ingen JSON-text, men `createIndexAsync(definition)` gör.
 * `await`svaret på begäran.  
 * Arbeta med svarets status kod.
 * Returnera ett löfte av ett lämpligt värde (ett booleskt `this`värde, eller frågeresultaten). 
 
 ```javascript
-    async indexExistsAsync() { 
-        console.log("\n Checking if index exists...");
-        const endpoint = this.getIndexUrl();
-        const response = await AzureSearchClient.request(endpoint, "GET", this.queryKey);
-        // Success has a few likely status codes: 200 or 204 (No Content), but accept all in 200 range...
-        const exists = response.status >= 200 && response.status < 300;
-        return exists;
-    }
-    
-    async deleteIndexAsync() {
-        console.log("\n Deleting existing index...");
-        const endpoint = this.getIndexUrl();
-        const response = await AzureSearchClient.request(endpoint, "DELETE", this.adminKey);
-        AzureSearchClient.throwOnHttpError(response);
-        return this;
-    }
-    
-    async createIndexAsync(definition) {
-        console.log("\n Creating index...");
-        const endpoint = this.getIndexUrl();
-        const response = await AzureSearchClient.request(endpoint, "PUT", this.adminKey, definition);
-        AzureSearchClient.throwOnHttpError(response);
-        return this;
-    }
+async indexExistsAsync() { 
+    console.log("\n Checking if index exists...");
+    const endpoint = this.getIndexUrl();
+    const response = await AzureSearchClient.request(endpoint, "GET", this.adminKey);
+    // Success has a few likely status codes: 200 or 204 (No Content), but accept all in 200 range...
+    const exists = response.status >= 200 && response.status < 300;
+    return exists;
+}
+
+async deleteIndexAsync() {
+    console.log("\n Deleting existing index...");
+    const endpoint = this.getIndexUrl();
+    const response = await AzureSearchClient.request(endpoint, "DELETE", this.adminKey);
+    AzureSearchClient.throwOnHttpError(response);
+    return this;
+}
+
+async createIndexAsync(definition) {
+    console.log("\n Creating index...");
+    const endpoint = this.getIndexUrl();
+    const response = await AzureSearchClient.request(endpoint, "PUT", this.adminKey, definition);
+    AzureSearchClient.throwOnHttpError(response);
+    return this;
+}
 ```
 
 Bekräfta att metoderna finns i-klassen och att du exporterar klassen. Det yttersta omfånget av **AzureSearchClient. js** ska vara:
@@ -384,7 +384,7 @@ class AzureSearchClient {
 module.exports = AzureSearchClient;
 ```
 
-En objektorienterad klass var ett bra val för den potentiellt återanvändbara **AzureSearchClient. js** -modulen, men är inte nödvändig för huvud programmet, som vi ska placera i en fil med namnet **index. js**. 
+En objektorienterad klass var ett bra val för den potentiellt återanvändbara **AzureSearchClient. js** -modulen, men är inte nödvändig för huvud programmet, som du bör placera i en fil med namnet **index. js**. 
 
 Skapa **index. js** och börja med att sätta igång:
 
@@ -399,13 +399,13 @@ const indexDefinition = require('./hotels_quickstart_index.json');
 const AzureSearchClient = require('./AzureSearchClient.js');
 ```
 
-Med [ **NConf** -paketet](https://github.com/indexzero/nconf) kan du ange konfigurations data i olika format, till exempel miljövariabler eller kommando raden. Vi ska använda **NConf** på ett grundläggande sätt för att läsa filen **azure_search_config. JSON** och returnera filens innehåll som en ord lista. Medhjälp av `get(key)` NConf-funktionen kan vi göra en snabb kontroll av att konfigurations informationen har anpassats korrekt. Slutligen returnerar vi konfigurationen:
+Med [ **NConf** -paketet](https://github.com/indexzero/nconf) kan du ange konfigurations data i olika format, till exempel miljövariabler eller kommando raden. I det här exemplet används **NConf** på ett grundläggande sätt för att läsa filen **azure_search_config. JSON** och returnera filens innehåll som en ord lista. Medhjälp av `get(key)` NConf-funktionen kan du göra en snabb kontroll av att konfigurations informationen har anpassats korrekt. Slutligen returnerar funktionen konfigurationen:
 
 ```javascript
 function getAzureConfiguration() {
     const config = nconf.file({ file: 'azure_search_config.json' });
     if (config.get('serviceName') === '[SEARCH_SERVICE_NAME' ) {
-    throw new Error("You have not set the values in your azure_search_config.json file. Change them to match your search service's values.");
+        throw new Error("You have not set the values in your azure_search_config.json file. Change them to match your search service's values.");
     }
     return config;
 }
@@ -414,11 +414,9 @@ function getAzureConfiguration() {
 Funktionen skapar en `Promise` som matchar efter en angiven tids period. `sleep` Med den här funktionen kan appen pausa i väntan på att asynkrona index åtgärder ska slutföras och bli tillgänglig. Att lägga till sådan fördröjning är vanligt vis bara nödvändigt i demonstrationer, tester och exempel program.
 
 ```javascript
-function sleep(ms)
-{
+function sleep(ms) {
     return(
-        new Promise(function(resolve, reject)
-        {
+        new Promise(function(resolve, reject) {
             setTimeout(function() { resolve(); }, ms);
         })
     );
@@ -431,8 +429,6 @@ Slutligen anger och anropar du den viktigaste `run` asynkrona funktionen. Den h�
 * Skapa en ny `AzureSearchClient` instans och skicka in värden från konfigurationen
 * Kontrol lera om indexet finns och ta bort det
 * Skapa ett index med hjälp `indexDefinition` av inläst från **hotels_quickstart_index. JSON**
-* Lägg till dokumenten om hotell som du har läst in från **Hotels. JSON**
-* Fråga Azure Search indexet med den `doQueriesAsync()` metod du skrev
 
 ```javascript
 const run = async () => {
@@ -444,7 +440,6 @@ const run = async () => {
         await exists ? client.deleteIndexAsync() : Promise.resolve();
         // Deleting index can take a few seconds
         await sleep(2000);
-        const indexDefinition = require('./hotels_quickstart_index.json');
         await client.createIndexAsync(indexDefinition);
     } catch (x) {
         console.log(x);
@@ -468,13 +463,13 @@ Använd ett terminalfönster för följande kommandon.
 1. Installera paketen för exemplet med `npm install`.  Det här kommandot hämtar de paket som koden är beroende av.
 1. Kör programmet med `node index.js`.
 
-Du bör se en serie meddelanden som beskriver de åtgärder som utförs av programmet. Om du vill se mer information om förfrågningarna kan du ta bort kommentaren till [raderna i början av `AzureSearchClient.request()` metoden](https://github.com/Azure-Samples/azure-search-javascript-samples/quickstart/blob/master/AzureSearchClient.js#LL20-LL26) i **AzureSearchClient. js**. 
+Du bör se en serie meddelanden som beskriver de åtgärder som utförs av programmet. Om du vill se mer information om förfrågningarna kan du ta bort kommentaren [raderna i början av `AzureSearchClient.request()` metoden]https://github.com/Azure-Samples/azure-search-javascript-samples/blob/master/quickstart/AzureSearchClient.js#L21-L27) i **AzureSearchClient. js**. 
 
 Öppna **översikten** över Sök tjänsten i Azure Portal. Välj fliken **index** . Det ser ut ungefär så här:
 
 ![Skärm bild av Azure Portal, Search Service översikt, fliken index](media/search-get-started-nodejs/create-index-no-data.png)
 
-I nästa steg ska vi lägga till data i indexet. 
+I nästa steg ska du lägga till data i indexet. 
 
 ## <a name="2---load-documents"></a>2 Läs in dokument 
 
@@ -496,7 +491,7 @@ async postDataAsync(hotelsData) {
 }
 ```
 
- Dokument indata kan vara rader i en databas, blobar i Blob Storage eller, som i det här exemplet, JSON-dokument på disk. Du kan antingen hämta [Hotels. JSON](https://github.com/Azure-Samples/azure-search-javascript-samples/quickstart/blob/master/hotels.json) eller skapa en egen **hotell-. JSON** -fil med följande innehåll:
+ Dokument indata kan vara rader i en databas, blobar i Blob Storage eller, som i det här exemplet, JSON-dokument på disk. Du kan antingen hämta [Hotels. JSON](https://github.com/Azure-Samples/azure-search-javascript-samples/blob/master/quickstart/hotels.json) eller skapa en egen **hotell-. JSON** -fil med följande innehåll:
 
 ```json
 {
@@ -605,7 +600,7 @@ const run = async () => {
 }
 ```
 
-Kör programmet igen med `node index.js`. Du bör se en något annorlunda uppsättning meddelanden från de som du såg i steg 1. Den här gången finns indexet och du bör se ett meddelande om att ta bort det borttaget innan appen skapar det nya indexet och skickar data till den. 
+Kör programmet igen med `node index.js`. Du bör se en något annorlunda uppsättning meddelanden från de som du såg i steg 1. Den här gången finns indexet och du bör se ett meddelande om att ta bort det innan appen skapar det nya indexet och publicerar data till den. 
 
 ## <a name="3---search-an-index"></a>3 – Söka i ett index
 
@@ -620,7 +615,7 @@ const queries = [
 ];
 ```
 
-Skriv den `doQueries()` funktion som visas nedan i samma **index. js** -fil. Den här funktionen tar `AzureSearchClient` ett objekt och `AzureSearchClient.queryAsync` tillämpar metoden på varje värde i `queries` matrisen. `Promise.all()` Funktionen används för att returnera en enskild `Promise` som bara matchar när alla frågor har åtgärd ATS. Anropet till `JSON.stringify(body, null, 4)` formaterar frågeresultatet så att det blir lättare att läsa.
+Skriv den `doQueriesAsync()` funktion som visas nedan i samma **index. js** -fil. Den här funktionen tar `AzureSearchClient` ett objekt och `AzureSearchClient.queryAsync` tillämpar metoden på varje värde i `queries` matrisen. `Promise.all()` Funktionen används för att returnera en enskild `Promise` som bara matchar när alla frågor har åtgärd ATS. Anropet till `JSON.stringify(body, null, 4)` formaterar frågeresultatet så att det blir lättare att läsa.
 
 ```javascript
 async function doQueriesAsync(client) {
@@ -660,7 +655,7 @@ const run = async () => {
 }
 ```
 
-Om du `AzureSearchClient.queryAsync(query)`vill implementera redigerar du filen **AzureSearchClient. js**. Sökningen kräver en annan slut punkt, så Lägg till `getSearchUrl(searchTerm)` funktionen tillsammans `getIndexUrl()` `getPostDataUrl()` med de metoder som du redan har skrivit.
+Om du `AzureSearchClient.queryAsync(query)`vill implementera redigerar du filen **AzureSearchClient. js**. Sökningen kräver en annan slut punkt och Sök termerna blir URL-argument, så Lägg till `getSearchUrl(searchTerm)` funktionen tillsammans `getIndexUrl()` `getPostDataUrl()` med de metoder som du redan har skrivit.
 
 ```javascript
 getSearchUrl(searchTerm) { return `https://${this.searchServiceName}.search.windows.net/indexes/${this.indexName}/docs?api-version=${this.apiVersion}&search=${searchTerm}&searchMode=all`; }
@@ -678,7 +673,7 @@ async queryAsync(searchTerm) {
 }
 ```
 
-Sökningen görs med verbet "GET" och ingen brödtext, eftersom Sök termen är en del av URL: en. Observera att till skillnad från andra funktioner som används `this.adminKey` `queryAsync(searchTerm)` använder `this.queryKey`. Frågeinställningar, som namnet antyder, kan bara användas för att skicka frågor till indexet och kan inte användas för att ändra indexet på något sätt. Det är därför säkrare att distribuera fråge nycklar till klient program.
+Sökningen görs med verbet "GET" och ingen brödtext, eftersom Sök termen är en del av URL: en. Observera att `queryAsync(searchTerm)` använder `this.queryKey`, till skillnad från andra funktioner som använde administratörs nyckeln. Frågeinställningar, som namnet antyder, kan bara användas för att skicka frågor till indexet och kan inte användas för att ändra indexet på något sätt. Det är därför säkrare att distribuera fråge nycklar till klient program.
 
 Kör programmet med `node index.js`. Förutom föregående steg skickas frågorna och resultaten som skrivs till-konsolen.
 

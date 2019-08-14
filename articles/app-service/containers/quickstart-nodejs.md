@@ -1,197 +1,203 @@
 ---
-title: Skapa en Node.js-app i Linux – Azure App Service | Microsoft Docs
-description: Distribuera din första Hello World-app av typen Node.js i Azure App Service i Linux på bara några minuter.
-services: app-service\web
-documentationcenter: ''
-author: msangapu
-manager: jeconnoc
-editor: ''
-ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
-ms.devlang: na
+title: Skapa en Node.js-webbapp
+description: Node. js-distribution till Azure App tjänster
+author: KarlErickson
+ms.author: karler
+ms.date: 07/18/2019
 ms.topic: quickstart
-ms.date: 03/27/2019
-ms.author: msangapu
-ms.custom: seodec18
-ms.openlocfilehash: 54602425ae6e1ff65a8445355af2eca09d495b05
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.service: app-service
+ms.devlang: javascript
+ms.openlocfilehash: ced2977509f16f8dab2abe5546e19b7e05fb2a3d
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60397078"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68975842"
 ---
-# <a name="create-a-nodejs-app-in-azure-app-service-on-linux"></a>Skapa en Node.js-app i Azure App Service på Linux
+# <a name="create-a-nodejs-app-in-azure"></a>Skapa en Node. js-app i Azure
 
-> [!NOTE]
-> I den här artikeln distribueras en app till App Service i Linux. Om du vill distribuera en app till App Service i _Windows_ kan du läsa [Skapa en Node.js-app i Azure](../app-service-web-get-started-nodejs.md).
->
+Med Azure App Service får du en automatiskt uppdaterad webbvärdtjänst med hög skalbarhet. Den här snabbstarten visar hur du distribuerar en Node.js-app till Azure App Service.
 
-Med [App Service i Linux](app-service-linux-intro.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst som utgår från operativsystemet Linux. Den här snabbstarten visar hur du distribuerar ett Node.js-program till App Service i Linux med hjälp av [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
+## <a name="prerequisites"></a>Förutsättningar
 
-Du måste slutföra denna snabbstart i Cloud Shell, men du kan också köra dessa kommandon lokalt med [Azure CLI](/cli/azure/install-azure-cli).
+Om du inte har ett Azure-konto kan du [Registrera dig](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-app-service-extension&mktingSource=vscode-tutorial-app-service-extension) för ett kostnads fritt konto med $200 i Azure-krediter för att testa en kombination av tjänster.
 
-![Exempelapp som körs i Azure](media/quickstart-nodejs/hello-world-in-browser.png)
+Du behöver [Visual Studio Code](https://code.visualstudio.com/) installerat tillsammans med [Node. js och NPM](https://nodejs.org/en/download), Package Manager för Node. js.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+Du måste också installera [Azure App Service tillägget](vscode:extension/ms-azuretools.vscode-azureappservice), som du kan använda för att skapa, hantera och distribuera Linux-Web Apps på Azure-plattformen som en tjänst (PaaS).
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+### <a name="sign-in"></a>Logga in
 
-## <a name="download-the-sample"></a>Hämta exemplet
+När tillägget har installerats loggar du in på ditt Azure-konto. I aktivitets fältet klickar du på Azure-logotypen för att visa **Azure App Service** Explorer. Klicka på **Logga in på Azure...** och följ instruktionerna.
 
-Skapa en snabbstartskatalog i Cloud Shell och ändra sedan till den.
+![Logga in på Azure](./media/quickstart-nodejs/sign-in.png)
+
+### <a name="troubleshooting"></a>Felsökning
+
+Om du ser felet **"det går inte att hitta prenumerationen med namnet [prenumerations-ID]"** kan det bero på att du är bakom en proxyserver och inte kan komma åt Azure-API: et. Konfigurera `HTTP_PROXY` `export`och `HTTPS_PROXY` miljövariabler med din proxyinformation i terminalen med hjälp av.
+
+```sh
+export HTTPS_PROXY=https://username:password@proxy:8080
+export HTTP_PROXY=http://username:password@proxy:8080
+```
+
+Om du ställer in miljövariablerna inte löser problemet kan du kontakta oss genom att klicka på knappen **jag körde i ett ärende** nedan.
+
+### <a name="prerequisite-check"></a>Krav kontroll
+
+Innan du fortsätter måste du kontrol lera att alla nödvändiga komponenter är installerade och konfigurerade.
+
+I VS Code bör du se din Azure-e-postadress i statusfältet och din prenumeration i **Azure App Service** Explorer.
+
+> [!div class="nextstepaction"]
+> [Jag stötte på ett problem](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azure-app-service&step=getting-started)
+
+## <a name="create-your-nodejs-application"></a>Skapa ett Node. js-program
+
+Skapa sedan ett Node. js-program som kan distribueras till molnet. Den här snabb starten använder en program generator för att snabbt Autogenerera ut programmet från en Terminal.
+
+> [!TIP]
+> Om du redan har slutfört självstudien om [Node. js](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial)kan du gå vidare till [distribuera webbplatsen](#deploy-the-website).
+
+### <a name="install-the-express-generator"></a>Installera Express Generator
+
+[Express](https://www.expressjs.com) är ett populärt ramverk för att skapa och köra Node. js-program. Du kan Autogenerera (skapa) ett nytt Express-program med hjälp av verktyget [Express Generator](https://expressjs.com/en/starter/generator.html) . Express generatorn levereras som en NPM-modul och installeras med hjälp av kommando rads verktyget `npm`NPM.
 
 ```bash
-mkdir quickstart
-
-cd quickstart
+npm install -g express-generator
 ```
 
-Kör sedan följande kommando för att klona lagringsplatsen för exempelprogrammet till din snabbstartskatalog.
+`-g` Växeln installerar Express generatorn globalt på din dator så att du kan köra den var som helst.
+
+### <a name="scaffold-a-new-application"></a>Autogenerera ett nytt program
+
+Sedan Autogenerera ett nytt Express-program som `myExpressApp` kallas genom att köra:
 
 ```bash
-git clone https://github.com/Azure-Samples/nodejs-docs-hello-world
+express myExpressApp --view pug --git
 ```
 
-Medan det körs visas information liknande den i följande exempel:
+Parametrarna anger att generatorn ska använda [pug](https://pugjs.org/api/getting-started.html) `jade`-mall (tidigare kallat) och för att skapa en `.gitignore` fil. `--view pug --git`
+
+Om du vill installera alla program beroenden går du till den nya mappen och kör `npm install`.
 
 ```bash
-Cloning into 'nodejs-docs-hello-world'...
-remote: Counting objects: 40, done.
-remote: Total 40 (delta 0), reused 0 (delta 0), pack-reused 40
-Unpacking objects: 100% (40/40), done.
-Checking connectivity... done.
+cd myExpressApp
+npm install
 ```
 
-> [!NOTE]
-> Exempel-index.js anger lyssningsporten till process.env.PORT. Den här miljövariabeln tilldelas av App Service.
->
+### <a name="run-the-application"></a>Köra programmet
 
-## <a name="create-a-web-app"></a>Skapa en webbapp
-
-Ändra till den katalog som innehåller exempelkoden och kör `az webapp up` kommandot.
-
-Ersätt <app_name> med ett unikt programnamn i följande exempel.
+Se sedan till att programmet körs. Starta-programmet från terminalen med hjälp `npm start` av kommandot för att starta servern.
 
 ```bash
-cd nodejs-docs-hello-world
-
-az webapp up -n <app_name>
+npm start
 ```
 
-Det kan ett par minuter att köra kommandot. Medan det körs visas information liknande den i följande exempel:
+Öppna din webbläsare och gå till [http://localhost:3000](http://localhost:3000), där du bör se något som liknar detta:
 
-```json
-Creating Resource group 'appsvc_rg_Linux_CentralUS' ...
-Resource group creation complete
-Creating App service plan 'appsvc_asp_Linux_CentralUS' ...
-App service plan creation complete
-Creating app '<app_name>' ....
-Webapp creation complete
-Updating app settings to enable build after deployment
-Creating zip with contents of dir /home/username/quickstart/nodejs-docs-hello-world ...
-Preparing to deploy and build contents to app.
-Fetching changes.
+![Kör Express-program](./media/quickstart-nodejs/express.png)
 
-Generating deployment script.
-Generating deployment script.
-Generating deployment script.
-Running deployment command...
-Running deployment command...
-Running deployment command...
-Deployment successful.
-All done.
-{
-  "app_url": "https://<app_name>.azurewebsites.net",
-  "location": "Central US",
-  "name": "<app_name>",
-  "os": "Linux",
-  "resourcegroup": "appsvc_rg_Linux_CentralUS ",
-  "serverfarm": "appsvc_asp_Linux_CentralUS",
-  "sku": "STANDARD",
-  "src_path": "/home/username/quickstart/nodejs-docs-hello-world ",
-  "version_detected": "6.9",
-  "version_to_create": "node|6.9"
-}
-```
+> [!div class="nextstepaction"]
+> [Jag stötte på ett problem](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azure-app-service&step=create-app)
 
-Kommandot `az webapp up` utför följande åtgärder:
+## <a name="deploy-the-website"></a>Distribuera webbplatsen
 
-- Skapa en standardresursgrupp.
+I det här avsnittet ska du distribuera Node. js-webbplatsen med VS Code och Azure App Service-tillägget. Den här snabb starten använder den mest grundläggande distributions modellen där appen är zippad och distribuerad till en Azure Web App on Linux.
 
-- Skapa en standard App Service-plan.
+### <a name="deploy-using-azure-app-service"></a>Distribuera med Azure App Service
 
-- Skapa ett program med det givna namnet.
-
-- [Zip-distribuera](https://docs.microsoft.com/azure/app-service/deploy-zip) filer från den aktuella arbetskatalogen till appen.
-
-## <a name="browse-to-the-app"></a>Bläddra till appen
-
-Bläddra till den distribuerade appen via webbläsaren. Ersätt <app_name> med namnet på din app.
+Öppna först mappen Application i VS Code.
 
 ```bash
-http://<app_name>.azurewebsites.net
+code .
 ```
 
-Node.js-exempelkoden körs i App Service på Linux med en inbyggd avbildning.
+I **Azure App Service** Explorer klickar du på ikonen blå UPPIL för att distribuera appen till Azure.
 
-![Exempelapp som körs i Azure](media/quickstart-nodejs/hello-world-in-browser.png)
+![Distribuera till webbapp](./media/quickstart-nodejs/deploy.png)
 
-**Grattis!** Nu har du distribuerat din första Node.js-app till App Service i Linux.
+> [!TIP]
+> Du kan också distribuera från **kommando paletten** (Ctrl + Shift + P) genom att skriva "Deploy to Web App" och köra **Azure App Service:**  Kommandot distribuera till webbapp.
 
-## <a name="update-and-redeploy-the-code"></a>Uppdatera och distribuera om koden
+1. Välj den katalog som för närvarande är öppen `myExpressApp`.
 
-I Cloud Shell skriver du `nano index.js` för att öppna nanotextredigerare.
+2. Välj **Skapa ny webbapp**.
 
-![Nano index.js](media/quickstart-nodejs/nano-indexjs.png)
+3. Ange ett globalt unikt namn för din webbapp och tryck på RETUR. Giltiga tecken för ett app-namn är "a-z", "0-9" och "-".
 
- Gör en mindre ändring i texten i anropet till `response.end`:
+4. Välj **Node. js-versionen**, LTS rekommenderas.
 
-```nodejs
-response.end("Hello Azure!");
-```
+    Meddelande kanalen visar de Azure-resurser som skapas för din app.
 
-Spara dina ändringar och avsluta nano. Använd kommandot `^O` för att spara och `^X` för att avsluta.
+Klicka på **Ja** när du uppmanas att uppdatera konfigurationen `npm install` så att den körs på mål servern. Din app distribueras sedan.
 
-Distribuera nu om programmet. Ersätt `<app_name>` med din app.
+![Konfigurerad distribution](./media/quickstart-nodejs/server-build.png)
+
+När distributionen startar uppmanas du att uppdatera arbets ytan så att senare distributioner automatiskt riktar sig till samma App Service-webbapp. Välj **Ja** för att se till att ändringarna distribueras till rätt app.
+
+![Konfigurerad distribution](./media/quickstart-nodejs/save-configuration.png)
+
+> [!TIP]
+> Se till att ditt program lyssnar på porten som tillhandahålls av PORT miljö variabeln: `process.env.PORT`.
+
+### <a name="browse-the-website"></a>Bläddra på webbplatsen
+
+När distributionen är klar klickar du på **Bläddra webbplats** i prompten för att visa din nyligen distribuerade webbplats.
+
+### <a name="troubleshooting"></a>Felsökning
+
+Om du ser felet **"du har inte behörighet att visa den här katalogen eller sidan."** , kunde programmet antagligen inte starta korrekt. Gå till nästa avsnitt och Visa loggens utdata för att hitta och åtgärda felet. Om du inte kan åtgärda det kan du kontakta oss genom att klicka på knappen **jag körde ett ärende** nedan. Vi är glada att hjälpa!
+
+> [!div class="nextstepaction"]
+> [Jag stötte på ett problem](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azure-app-service&step=deploy-app)
+
+### <a name="updating-the-website"></a>Webbplatsen uppdateras
+
+Du kan distribuera ändringar i den här appen genom att använda samma process och välja den befintliga appen i stället för att skapa en ny.
+
+## <a name="viewing-logs"></a>Visa loggar
+
+I det här avsnittet får du lära dig att visa (eller "pilslut") loggarna från den webbplats som körs. Alla anrop till `console.log` på platsen visas i fönstret utdata i Visual Studio Code.
+
+Hitta appen i **Azure App Service** Explorer, högerklicka på appen och välj **Visa strömmande loggar**.
+
+När du uppmanas väljer du att aktivera loggning och starta om programmet. När appen har startats om öppnas VS Code-utdatafönstret med en anslutning till logg strömmen.
+
+![Visa strömmande loggar](./media/quickstart-nodejs/view-logs.png)
+
+![Aktivera loggning och omstart](./media/quickstart-nodejs/enable-restart.png)
+
+Efter några sekunder visas ett meddelande som anger att du är ansluten till logg strömnings tjänsten.
 
 ```bash
-az webapp up -n <app_name>
+Connecting to log-streaming service...
+2017-12-21 17:33:51.428 INFO  - Container practical-mustache_2 for site practical-mustache initialized successfully.
+2017-12-21 17:33:56.500 INFO  - Container logs
 ```
 
-När distributionen är klar går du tillbaka till webbläsarfönstret som öppnades när du skulle **söka efter appen** och klickar på knappen för att uppdatera sidan.
+Uppdatera sidan några gånger i webbläsaren för att se logg resultatet.
 
-![Uppdaterad exempelapp som körs i Azure](media/quickstart-nodejs/hello-azure-in-browser.png)
-
-## <a name="manage-your-new-azure-app"></a>Hantera din nya Azure-app
-
-Gå till <a href="https://portal.azure.com" target="_blank">Azure Portal</a> för att hantera den app som du skapade.
-
-I den vänstra menyn, klickar du på **App Services** och därefter på namnet på din Azure-app.
-
-![Portalnavigering till Azure-app](./media/quickstart-nodejs/nodejs-docs-hello-world-app-service-list.png)
-
-Nu visas översiktssidan för din app. Här kan du slutföra grundläggande hanteringsåtgärder som att bläddra, stoppa, starta, starta om och ta bort.
-
-![App Service-sidan på Azure Portal](media/quickstart-nodejs/nodejs-docs-hello-world-app-service-detail.png)
-
-Menyn till vänster innehåller olika sidor för att konfigurera appen.
-
-## <a name="clean-up-resources"></a>Rensa resurser
-
-I de föregående stegen skapade du Azure-resurser i en resursgrupp. Om du inte tror att du behöver dessa resurser i framtiden tar du bort resursgruppen från Cloud Shell. Om du har ändrat regionen uppdaterar du resursgruppens namn `appsvc_rg_Linux_CentralUS` till resursgruppen som är specifik för ditt program.
-
-```azurecli-interactive
-az group delete --name appsvc_rg_Linux_CentralUS
+```bash
+2017-12-21 17:35:17.774 INFO  - Container logs
+2017-12-21T17:35:14.955412230Z GET / 304 141.798 ms - -
+2017-12-21T17:35:15.248930479Z GET /stylesheets/style.css 304 3.180 ms - -
+2017-12-21T17:35:15.378623115Z GET /favicon.ico 404 53.839 ms - 995
 ```
 
-Det kan några minuter att köra kommandot.
+> [!div class="nextstepaction"]
+> [Jag stötte på ett problem](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azure-app-service&step=tailing-logs)
 
 ## <a name="next-steps"></a>Nästa steg
 
-> [!div class="nextstepaction"]
-> [Självstudie: Node.js-app med MongoDB](tutorial-nodejs-mongodb-app.md)
+Grattis, du har slutfört den här snabb starten!
 
-> [!div class="nextstepaction"]
-> [Konfigurera Node.js-app](configure-language-nodejs.md)
+Kolla sedan in de andra Azure-tilläggen.
+
+* [Cosmos DB](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
+* [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
+* [Docker-verktyg](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)
+* [Azure CLI-verktyg](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli)
+* [Azure Resource Manager verktyg](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
+
+Eller hämta dem genom att installera [Node Pack för Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) Extension Pack.

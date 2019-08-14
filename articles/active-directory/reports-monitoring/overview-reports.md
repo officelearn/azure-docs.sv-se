@@ -3,7 +3,7 @@ title: Vad är rapporter i Azure Active Directory? | Microsoft Docs
 description: En allmän översikt över Azure Active Directory-rapportering.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.assetid: 6141a333-38db-478a-927e-526f1e7614f4
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66ccf8014938e813676e9338e9bfc4eaa18f63f9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8cf5770cf052a478ea56f906efc19698554a1cd0
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60286503"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989712"
 ---
 # <a name="what-are-azure-active-directory-reports"></a>Vad är rapporter i Azure Active Directory?
 

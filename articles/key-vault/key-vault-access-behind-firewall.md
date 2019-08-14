@@ -1,24 +1,24 @@
 ---
-title: Åtkomst till Nyckelvalv bakom en brandvägg – Azure Key Vault | Microsoft Docs
+title: Åtkomst Key Vault bakom en brand vägg – Azure Key Vault | Microsoft Docs
 description: Läs om hur man kommer åt Azure Key Vault från ett program bakom en brandvägg
 services: key-vault
 author: amitbapat
-manager: barbkess
+manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
-ms.topic: conceptual
-ms.date: 01/07/2019
+ms.topic: tutorial
+ms.date: 08/12/2019
 ms.author: ambapat
-ms.openlocfilehash: bc6315f5ab264108369410b73a667fa1e07e1e44
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 57c5e3f2741f81bce2eff2d5ef2b0f2d029096e3
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64689947"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976391"
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>Få åtkomst till Azure Key Vault bakom en brandvägg
 
-## <a name="what-ports-hosts-or-ip-addresses-should-i-open-to-enable-my-key-vault-client-application-behind-a-firewall-to-access-key-vault"></a>Vilka portar, värdar eller IP-adresser ska jag öppna om du vill aktivera mitt klientprogram bakom en brandvägg att få åtkomst till nyckelvalvet?
+## <a name="what-ports-hosts-or-ip-addresses-should-i-open-to-enable-my-key-vault-client-application-behind-a-firewall-to-access-key-vault"></a>Vilka portar, värdar eller IP-adresser ska jag öppna för att aktivera mitt Key Vault-klientcertifikat bakom en brand vägg för att få åtkomst till Key Vault?
 
 För att få åtkomst till ett nyckelvalv måste ditt klientprogram ha åtkomst till flera slutpunkter för olika funktioner:
 
@@ -32,7 +32,7 @@ Det finns vissa varianter beroende på din konfiguration och miljö.
 
 All trafik till nyckelvalvet för alla tre funktioner (autentisering, hantering och dataplanåtkomst) går över HTTPS: port 443. Det är dock ibland HTTP (port 80)-trafik för CRL. Klienter som har stöd för OCSP ska inte nå CRL, men kan ibland nå [http://cdp1.public-trust.com/CRL/Omniroot2025.crl](http://cdp1.public-trust.com/CRL/Omniroot2025.crl).  
 
-## <a name="authentication"></a>Autentisering
+## <a name="authentication"></a>Authentication
 
 Nyckelvalv-klientprogram behöver åtkomst till Azure Active Directory-slutpunkter för autentisering. Den slutpunkt som används beror på Azure AD-klientkonfiguration, typ av huvudkonto (användarens eller tjänstens huvudnamn) och typ av konto, t.ex. ett Microsoft-konto eller ett arbets- eller skolkonto.  
 

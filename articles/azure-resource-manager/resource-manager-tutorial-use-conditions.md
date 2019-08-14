@@ -13,20 +13,20 @@ ms.devlang: na
 ms.date: 05/21/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 0d27eef8ee2c70449bacaced0de89bdc5e6989ff
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.openlocfilehash: b997451a25f8a093491a322376db95ea53165893
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66357817"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989165"
 ---
 # <a name="tutorial-use-condition-in-azure-resource-manager-templates"></a>Självstudier: Använda villkor i Azure Resource Manager-mallar
 
 Lär dig hur du distribuerar Azure-resurser baserat på villkor.
 
-I självstudien [Ange resursdistributionsordning](./resource-manager-tutorial-create-templates-with-dependent-resources.md) skapar du en virtuell dator, ett virtuellt nätverk och några andra beroende resurser, däribland ett lagringskonto. I stället för att skapa ett nytt lagringskonto varje gång låter du användarna välja mellan att skapa ett nytt lagringskonto eller att använda ett befintligt. För att uppnå det här målet definierar du en extra parameter. Om värdet för parametern är ”new” (nytt) skapas ett nytt lagringskonto. I annat fall används ett befintligt lagringskonto med det angivna namnet.
+I självstudien [Ange resursdistributionsordning](./resource-manager-tutorial-create-templates-with-dependent-resources.md) skapar du en virtuell dator, ett virtuellt nätverk och några andra beroende resurser, däribland ett lagringskonto. I stället för att skapa ett nytt lagringskonto varje gång låter du användarna välja mellan att skapa ett nytt lagringskonto eller att använda ett befintligt. För att uppnå det här målet definierar du en extra parameter. Om värdet för parametern är ”new” (nytt) skapas ett nytt lagringskonto. Annars används ett befintligt lagrings konto med det angivna namnet.
 
-![Resource Manager mall används villkoret diagram](./media/resource-manager-tutorial-use-conditions/resource-manager-template-use-condition-diagram.png)
+![Användnings villkors diagram för Resource Manager-mall](./media/resource-manager-tutorial-use-conditions/resource-manager-template-use-condition-diagram.png)
 
 Den här självstudien omfattar följande uppgifter:
 
@@ -36,12 +36,12 @@ Den här självstudien omfattar följande uppgifter:
 > * Distribuera mallen
 > * Rensa resurser
 
-Den här kursen täcker endast ett enkelt scenario för att använda villkor. Mer information finns i:
+Den här kursen täcker bara ett grundläggande scenario med att använda villkor. Mer information finns i:
 
-* [Filstruktur för mallen: Villkoret](./resource-group-authoring-templates.md#condition).
-* [Villkorsstyrd distribution av en resurs i en Azure Resource Manager-mall](/azure/architecture/building-blocks/extending-templates/conditional-deploy).
-* [Mallfunktionen: Om](./resource-group-template-functions-logical.md#if).
-* [Jämförelse av funktioner för Azure Resource Manager-mallar](./resource-group-template-functions-comparison.md)
+* [Mallens fil struktur: Villkor](./resource-group-authoring-templates.md#condition).
+* [Distribuera en resurs villkorligt i en Azure Resource Manager-mall](/azure/architecture/building-blocks/extending-templates/conditional-deploy).
+* [Mall-funktion: IF](./resource-group-template-functions-logical.md#if).
+* [Jämförelse funktioner för Azure Resource Manager mallar](./resource-group-template-functions-comparison.md)
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
@@ -86,15 +86,15 @@ Azure-snabbstartsmallar är en lagringsplats för Resource Manager-mallar. I st�
 Gör två ändringar av den befintliga mallen:
 
 * Lägg till namnparameter för lagringskonto. Användare kan ange antingen ett nytt lagringskontonamn eller ett befintligt lagringskontonamn.
-* Lägg till en ny parameter med namnet **newOrExisting**. Distributionen använder den här parametern för att avgöra var ett nytt lagringskonto ska skapas eller om ett befintligt lagringskonto ska användas.
+* Lägg till en ny parameter med namnet **newOrExisting**. Distributionen använder den här parametern för att avgöra om du ska skapa ett nytt lagrings konto eller använda ett befintligt lagrings konto.
 
 Här följer proceduren för att göra ändringarna:
 
 1. Öppna **azuredeploy.json** i Visual Studio Code.
-2. Ersätt tre **variables('storageAccountName')** med **parameters('storageAccountName')** i hela mallen.
+2. Ersätt de tre **variablerna (' storageAccountName ')** med **parametrar (' storageAccountName ')** i hela mallen.
 3. Ta bort följande variabeldefinition:
 
-    ![Resource Manager mall används villkoret diagram](./media/resource-manager-tutorial-use-conditions/resource-manager-tutorial-use-condition-template-remove-storageaccountname.png)
+    ![Användnings villkors diagram för Resource Manager-mall](./media/resource-manager-tutorial-use-conditions/resource-manager-tutorial-use-condition-template-remove-storageaccountname.png)
 
 4. Lägg till följande två parametrar i mallen:
 
@@ -126,7 +126,7 @@ Här följer proceduren för att göra ändringarna:
     Den uppdaterade lagringskontodefinitionen ser ut så här:
 
     ![Resource Manager-användningsvillkor](./media/resource-manager-tutorial-use-conditions/resource-manager-tutorial-use-condition-template.png)
-6. Uppdatera den **storageUri** egenskapen i resursdefinitionen virtuell dator med följande värde:
+6. Uppdatera **storageUri** -egenskapen för den virtuella datorns resurs definition med följande värde:
 
     ```json
     "storageUri": "[concat('https://', parameters('storageAccountName'), '.blob.core.windows.net')]"
@@ -138,7 +138,7 @@ Här följer proceduren för att göra ändringarna:
 
 ## <a name="deploy-the-template"></a>Distribuera mallen
 
-Följ instruktionerna i [distribuera mallen](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template) att öppna cloudshell och ladda upp den ändrade mallen och kör sedan följande PowerShell-skript för att distribuera mallen.
+Följ anvisningarna i [distribuera mallen](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template) för att öppna Cloud Shell och ladda upp den ändrade mallen och kör sedan följande PowerShell-skript för att distribuera mallen.
 
 ```azurepowershell
 $resourceGroupName = Read-Host -Prompt "Enter the resource group name"
@@ -163,11 +163,11 @@ New-AzResourceGroupDeployment `
 > [!NOTE]
 > Distributionen misslyckas om **newOrExisting** är **new** (nytt) men lagringskontonamnet som anges redan finns.
 
-Försök göra en annan distribution med **newOrExisting** inställt på ”existing” (befintligt) och ange ett befintligt lagringskonto. Information om hur du skapar ett lagringskonto i förväg finns i [Skapa ett lagringskonto](../storage/common/storage-quickstart-create-account.md).
+Försök att göra en annan distribution med **newOrExisting** inställd på "befintlig" och ange ett befintligt lagrings konto. Information om hur du skapar ett lagringskonto i förväg finns i [Skapa ett lagringskonto](../storage/common/storage-quickstart-create-account.md).
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När Azure-resurserna inte längre behövs rensar du de resurser som du har distribuerat genom att ta bort resursgruppen. Om du vill ta bort resursgruppen, Välj **prova** att öppna cloudshell. Klistra in PowerShell-skriptet genom att högerklicka shell-fönstret och välj sedan **klistra in**.
+När Azure-resurserna inte längre behövs rensar du de resurser som du har distribuerat genom att ta bort resursgruppen. Om du vill ta bort resurs gruppen väljer du **prova** att öppna Cloud Shell. Om du vill klistra in PowerShell-skriptet högerklickar du på fönstret Shell och väljer **Klistra in**.
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the same resource group name you used in the last procedure"

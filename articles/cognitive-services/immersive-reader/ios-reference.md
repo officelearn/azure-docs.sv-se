@@ -9,12 +9,12 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 08/01/2019
 ms.author: t-meroa
-ms.openlocfilehash: 47c2d772a3428594c84d3fe5e18262b5e5ab86f4
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: acdaaf0bf08644053e86343ae4b002002fee6a84
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68951017"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966602"
 ---
 # <a name="immersive-reader-sdk-reference"></a>Avancerad läsare SDK-referens
 
@@ -102,5 +102,5 @@ Den fördjupade läsaren för iOS SDK stöds för iOS 9,0 eller högre, på iPad
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Utforska [iOS SDK för avancerad läsare på GitHub](https://github.com/microsoft/immersive-reader-sdk/iOS)
+* Utforska [iOS SDK för avancerad läsare på GitHub](https://github.com/microsoft/immersive-reader-sdk/tree/master/iOS)
 * [Snabbstart: Skapa en iOS-app som startar den fördjupade läsaren (SWIFT)](./ios-quickstart.md)

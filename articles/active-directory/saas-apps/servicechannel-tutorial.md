@@ -1,6 +1,6 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med ServiceChannel | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och ServiceChannel.
+title: 'Självstudier: Azure Active Directory integrering med asynkrona servicechannel | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och asynkrona servicechannel.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,121 +13,98 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/25/2019
+ms.date: 08/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cedf625beabfb12a459a7fd7c2120250e267772c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 120dbefb6885489155a4b86fae429223766a06bc
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67091045"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976094"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-servicechannel"></a>Självstudier: Azure Active Directory-integrering med ServiceChannel
+# <a name="tutorial-integrate-servicechannel-with-azure-active-directory"></a>Självstudier: Integrera asynkrona servicechannel med Azure Active Directory
 
-I den här självstudien får du lära dig hur du integrerar ServiceChannel med Azure Active Directory (AD Azure).
-Integrera ServiceChannel med Azure AD ger dig följande fördelar:
+I den här självstudien får du lära dig hur du integrerar asynkrona servicechannel med Azure Active Directory (Azure AD). När du integrerar asynkrona servicechannel med Azure AD kan du:
 
-* Du kan styra i Azure AD som har åtkomst till ServiceChannel.
-* Du kan aktivera användarna att vara automatiskt inloggad till ServiceChannel (Single Sign-On) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure portal.
+* Kontroll i Azure AD som har åtkomst till asynkrona servicechannel.
+* Gör det möjligt för användarna att logga in automatiskt till asynkrona servicechannel med sina Azure AD-konton.
+* Hantera dina konton på en central plats – Azure Portal.
 
-Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
+Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill konfigurera Azure AD-integrering med ServiceChannel, behöver du följande objekt:
+För att komma igång behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en [kostnadsfritt konto](https://azure.microsoft.com/free/)
-* ServiceChannel enkel inloggning aktiverat prenumeration
+* En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
+* Asynkrona servicechannel för enkel inloggning (SSO) aktive rad.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
+I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
 
-* Har stöd för ServiceChannel **IDP** -initierad SSO
-* Har stöd för ServiceChannel **Just In Time** etableringen av användare
+* Asynkrona servicechannel stöder **IDP** INITIERAd SSO
+* Asynkrona servicechannel stöder **just-in-Time** User-etablering
 
-## <a name="adding-servicechannel-from-the-gallery"></a>Att lägga till ServiceChannel från galleriet
+## <a name="adding-servicechannel-from-the-gallery"></a>Lägga till asynkrona servicechannel från galleriet
 
-För att konfigurera integrering av ServiceChannel i Azure AD, som du behöver lägga till ServiceChannel från galleriet i din lista över hanterade SaaS-appar.
+Om du vill konfigurera integreringen av asynkrona servicechannel i Azure AD måste du lägga till asynkrona servicechannel från galleriet i listan över hanterade SaaS-appar.
 
-**Utför följande steg för att lägga till ServiceChannel från galleriet:**
+1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
+1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** .
+1. Navigera till **företags program** och välj sedan **alla program**.
+1. Välj **nytt program**om du vill lägga till ett nytt program.
+1. I avsnittet **Lägg till från galleriet** , skriver du **asynkrona servicechannel** i sökrutan.
+1. Välj **asynkrona servicechannel** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
-1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
-    ![Azure Active Directory-knappen](common/select-azuread.png)
+## <a name="configure-and-test-azure-ad-single-sign-on-for-servicechannel"></a>Konfigurera och testa enkel inloggning med Azure AD för asynkrona servicechannel
 
-2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
+Konfigurera och testa Azure AD SSO med asynkrona servicechannel med hjälp av en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i asynkrona servicechannel.
 
-    ![Bladet Företagsprogram](common/enterprise-applications.png)
+Om du vill konfigurera och testa Azure AD SSO med asynkrona servicechannel, slutför du följande Bygg stenar:
 
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
+    1. **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
+    1. **[Tilldela Azure AD](#assign-the-azure-ad-test-user)** -testuser-för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
+2. **[Konfigurera ASYNKRONA SERVICECHANNEL SSO](#configure-servicechannel-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
+    1. **[Skapa asynkrona servicechannel test User](#create-servicechannel-test-user)** -om du vill ha en motsvarighet till B. Simon i asynkrona servicechannel som är länkad till Azure AD-representation av användare.
+3. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
 
-    ![Knappen Nytt program](common/add-new-app.png)
+## <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
-4. I sökrutan skriver **ServiceChannel**väljer **ServiceChannel** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
-    ![ServiceChannel i resultatlistan](common/search-new-app.png)
+1. I [Azure Portal](https://portal.azure.com/)går du till sidan för program integrering i **asynkrona servicechannel** , letar upp avsnittet **Hantera** och väljer **enkel inloggning**.
+1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
+1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+   ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med ServiceChannel baserat på en testanvändare kallas **Britta Simon**.
-För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i ServiceChannel upprättas.
+1. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med ServiceChannel, måste du utföra följande byggblock:
-
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Konfigurera ServiceChannel Single Sign-On](#configure-servicechannel-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Skapa testanvändare ServiceChannel](#create-servicechannel-test-user)**  – du har en motsvarighet för Britta Simon i ServiceChannel som är länkad till en Azure AD-representation av användaren.
-6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
-
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
-
-I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
-
-Utför följande steg för att konfigurera Azure AD enkel inloggning med ServiceChannel:
-
-1. I den [Azure-portalen](https://portal.azure.com/)på den **ServiceChannel** application integration markerar **enkel inloggning**.
-
-    ![Konfigurera enkel inloggning för länken](common/select-sso.png)
-
-2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
-
-    ![Välja läge för enkel inloggning](common/select-saml-option.png)
-
-3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
-
-    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
-
-4. På sidan **Konfigurera enkel inloggning med SAML** utför du följande steg:
-
-    ![ServiceChannel domän och URL: er med enkel inloggning för information](common/idp-intiated.png)
-
-    a. I den **identifierare** text skriver värdet som: `http://adfs.<domain>.com/adfs/service/trust`
+      a. I text rutan **identifierare** skriver du in värdet som:`http://adfs.<domain>.com/adfs/service/trust`
 
     b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<customer domain>.servicechannel.com/saml/acs`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifieraren och svars-URL. Här föreslår vi att du använder det unika värdet för strängen i identifieraren. Kontakta [ServiceChannel klienten supportteamet](https://servicechannel.zendesk.com/hc/en-us) att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifieraren och svars-URL. Här föreslår vi att du använder det unika värdet för strängen i identifieraren. Kontakta [asynkrona servicechannel client support team](https://servicechannel.zendesk.com/hc/en-us) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-5. Programmets ServiceChannel förväntar sig SAML-intyg i ett visst format, vilket kräver att du kan lägga till anpassade attributmappningar i SAML-tokenattribut konfigurationen. Följande skärmbild visar en lista över standardattribut, där **nameidentifier** mappas med **user.userprincipalname**. ServiceChannel program som förväntar **nameidentifier** mappas med **user.mail**, så måste du redigera attribut mappar genom att klicka på **redigera** ikon och ändra den attributmappning.
+5. Ditt asynkrona servicechannel-program förväntar sig SAML-intyg i ett särskilt format, vilket kräver att du lägger till anpassade mappningar av attribut i konfigurationen för SAML-token. Följande skärmbild visar en lista över standardattribut, där **nameidentifier** mappas med **user.userprincipalname**. Asynkrona servicechannel-programmet förväntar sig att **NameIdentifier** mappas med **User. mail**, så du måste redigera mappningen av attribut genom att klicka på ikonen **Redigera** och ändra attributet mappning.
 
-    Du kan läsa ServiceChannel guide [här](https://servicechannel.zendesk.com/hc/en-us/articles/217514326-Azure-AD-Configuration-Example) för mer information om anspråk.
+    Du kan se asynkrona servicechannel- [](https://servicechannel.zendesk.com/hc/articles/217514326-Azure-AD-Configuration-Example) guide för mer information om anspråk.
 
     ![image](common/edit-attribute.png)
 
     > [!NOTE]
-    > Se [hantera åtkomst med RBAC och Azure portal](../../role-based-access-control/role-assignments-portal.md) att lära dig hur du konfigurerar **rollen** i Azure AD.
+    > Se den här [länken](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management) för att lära dig hur du konfigurerar en **roll** i Azure AD.
 
-6. Dessutom till ovan om du planerar att aktivera Just-In-Time etableringen av användare, sedan du ska lägga till följande anspråk som visas nedan. **Rollen** anspråk måste mappas till **user.assignedroles** som innehåller rollen för användaren. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** utför du följande steg för att lägga till SAML-tokenattributet enligt det som visas i tabellen nedan:
+6. Förutom ovan, om du planerar att aktivera just vid tidpunkten för användar etablering, ska du lägga till följande anspråk enligt vad som visas nedan. **Roll** anspråk måste mappas till **User. assignedroles** som innehåller användarens roll. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** utför du följande steg för att lägga till SAML-tokenattributet enligt det som visas i tabellen nedan:
 
     | Namn   |  Källattribut |
     | ------ | --- |
-    | Roll   | user.assignedroles |
+    | Role   | user.assignedroles |
 
     a. Klicka på **Lägg till nytt anspråk** för att öppna dialogrutan **Hantera användaranspråk**.
 
@@ -147,89 +124,63 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Service
 
     g. Klicka på **Spara**.
 
-7. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
+4. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , Sök efter **certifikat (base64)** och välj **Ladda ned** för att ladda ned certifikatet och spara det på din dator.
 
     ![Länk för hämtning av certifikat](common/certificatebase64.png)
 
-8. På den **konfigurera ServiceChannel** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
+6. I avsnittet **Konfigurera asynkrona servicechannel** kopierar du lämpliga URL: er baserat på ditt krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-    a. Inloggningswebbadress
-
-    b. Microsoft Azure Active Directory-identifierare
-
-    c. Utloggnings-URL
-
-### <a name="configure-servicechannel-single-sign-on"></a>Konfigurera ServiceChannel Single Sign-On
-
-Att konfigurera enkel inloggning på **ServiceChannel** sida, som du behöver skicka de hämtade **certifikat (Base64)** och lämpliga kopierade URL: er från Azure portal för att [ServiceChannel support team](https://servicechannel.zendesk.com/hc/en-us). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
-
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
+I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
 
-1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
-
-    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
-
-2. Välj **Ny användare** överst på skärmen.
-
-    ![Knappen Ny användare](common/new-user.png)
-
-3. Genomför följande steg i Användaregenskaper.
-
-    ![Dialogrutan Användare](common/user-properties.png)
-
-    a. I fältet **Namn** anger du **BrittaSimon**.
-  
-    b. I den **användarnamn** fälttyp `brittasimon@yourcompanydomain.extension`  
-    Till exempel, BrittaSimon@contoso.com
-
-    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
-
-    d. Klicka på **Skapa**.
+1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
+1. Välj **ny användare** överst på skärmen.
+1. I **användar** egenskaperna följer du de här stegen:
+    1. I **Namn**-fältet skriver du `B.Simon`.  
+    1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
+    1. Klicka på **Skapa**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till ServiceChannel.
+I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till asynkrona servicechannel.
 
-1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **ServiceChannel**.
+1. I Azure Portal väljer du **företags program**och väljer sedan **alla program**.
+1. I listan program väljer du **asynkrona servicechannel**.
+1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
 
-    ![Bladet Företagsprogram](common/enterprise-applications.png)
+    ![Länken ”användare och grupper”](common/users-groups-blade.png)
 
-2. I listan med program väljer **ServiceChannel**.
+1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
 
-    ![Länken ServiceChannel i listan med program](common/all-applications.png)
+    ![Länken Lägg till användare](common/add-assign-user.png)
 
-3. På menyn till vänster väljer du **Användare och grupper**.
+1. I dialog rutan **användare och grupper** väljer du **B. Simon** från listan användare och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Om du förväntar dig ett roll värde i SAML Assertion, i dialog rutan **Välj roll** , väljer du lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
+## <a name="configure-servicechannel-sso"></a>Konfigurera asynkrona servicechannel SSO
 
-4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
+Om du vill konfigurera enkel inloggning på **asynkrona servicechannel** sida måste du skicka det hämtade **certifikatet (base64)** och lämpliga kopierade url: er från Azure Portal till [support teamet för asynkrona servicechannel](https://servicechannel.zendesk.com/hc/). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
 
-    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
+### <a name="create-servicechannel-test-user"></a>Skapa asynkrona servicechannel test användare
 
-5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
+Programmet stöder just-in-time-användaretablering, och efter autentiseringen skapas användare automatiskt i programmet. Kontakta [asynkrona servicechannel support-teamet](https://servicechannel.zendesk.com/hc/)om du vill ha fullständig användar etablering.
 
-6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
-
-7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
-
-### <a name="create-servicechannel-test-user"></a>Skapa ServiceChannel testanvändare
-
-Programmet stöder just-in-time-användaretablering, och efter autentiseringen skapas användare automatiskt i programmet. För fullständig användaretablering, kontakta [ServiceChannel support-teamet](https://servicechannel.zendesk.com/hc/en-us)
-
-### <a name="test-single-sign-on"></a>Testa enkel inloggning
+## <a name="test-sso"></a>Testa SSO 
 
 I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
-När du klickar på panelen ServiceChannel i åtkomstpanelen, bör det vara loggas in automatiskt till ServiceChannel som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen asynkrona servicechannel på åtkomst panelen, bör du loggas in automatiskt på den asynkrona servicechannel som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+

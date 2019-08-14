@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: quickstart
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 978b56f5c38a154c79544c7deb5d49396b1deff9
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 0d67385975db13539c28745eede4fb288a0daedd
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688868"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989147"
 ---
 # <a name="quickstart-create-a-web-app-that-launches-the-immersive-reader-c"></a>Snabbstart: Skapa en webbapp som startar den fördjupade läsarenC#()
 
@@ -223,5 +223,7 @@ När du klickar på knappen "avancerad läsare" visas den fördjupade läsaren s
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Visa självstudierna för att se vad mer du kan göra med SDK: n för avancerad läsare [](./tutorial.md)
+* I självstudien om [Node. js](./tutorial-nodejs.md) kan du se vad mer du kan göra med avancerad läsar-SDK med hjälp av Node. js
+* Visa [python](./tutorial-python.md) -självstudien för att se vad mer du kan göra med avancerad läsar-SDK med hjälp av python
+* Visa [iOS](./tutorial-ios-picture-immersive-reader.md) -självstudien för att se vad mer du kan göra med SDK: n för avancerad läsare med Swift
 * Utforska SDK: [n för avancerad läsare](https://github.com/microsoft/immersive-reader-sdk) och [Avancerad läsare SDK-referens](./reference.md)

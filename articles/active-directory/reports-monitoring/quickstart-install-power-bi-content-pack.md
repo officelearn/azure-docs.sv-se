@@ -3,7 +3,7 @@ title: Installera Azure AD Power BI-innehållspaketet | Microsoft Docs
 description: Lär dig hur du installerar zure AD Power BI-innehållspaketet
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 ms.assetid: fd5604eb-1334-4bd8-bfb5-41280883e2b5
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 11/13/2018
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69a69732d8cb42c248fa954ef9047e5876f40837
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f088c8b49fa6485a21b630738149078b7ff45b7d
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60285958"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68988107"
 ---
 # <a name="quickstart-install-azure-active-directory-power-bi-content-pack"></a>Snabbstart: Installera innehållspaketet för Azure Active Directory Power BI
 
@@ -34,7 +34,7 @@ Power BI-innehållspaketet för Azure Active Directory (Azure AD) ger dig möjli
 
 I den här snabbstarten lär du dig hur du installerar innehållspaketet.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Följande krävs för att slutföra den här snabbstarten:
 

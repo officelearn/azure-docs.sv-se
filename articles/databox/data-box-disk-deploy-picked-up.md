@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 07/23/2019
+ms.date: 08/12/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: ca42532fe6ba954180ce06ed0e3561e42f1fb447
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 9e3159a083d21e4a7a81df2fcf7a7d5db882b757
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68424229"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976916"
 ---
 ::: zone target="docs"
 
@@ -109,12 +109,9 @@ Azure-datacenter i Australien har ytterligare en säkerhets avisering. Alla inko
 1. Skriv företagets namn och adress information på frakt sedeln som avsändar information.
 2. Quantium-lösning för e-post med hjälp av följande e-postmall.
 
-    - Om Japan post Chakubarai frakt NOTE inte ingår eller saknas, Observera i det här e-postmeddelandet. Quantium-lösningar i Japan kommer att begära en japansk post för att ta frakt sedeln vid upphämtning.
-    - Om du har flera order, e-post för att se till att enskilda upphämtningar.
-
     ```
     To: Customerservice.JP@quantiumsolutions.com
-    Subject: Pickup request for Azure Data Box Disk｜Job Name： 
+    Subject: Pickup request for Microsoft Azure Data Box Disk｜Job Name： 
     Body: 
     - Japan Post Yu-Pack tracking number (reference number)：
     - Requested pickup date：mmdd (Select a requested time slot from below).
@@ -123,6 +120,9 @@ Azure-datacenter i Australien har ytterligare en säkerhets avisering. Alla inko
         c. 15：00-17：00 
         d. 17：00-19：00 
     ```
+    - **Om du**väljer att hämta i Osaka ändrar du ämnet i e-postmallen till: `Pickup request for Microsoft Azure OSA`.
+    - Om Japan post Chakubarai frakt NOTE inte ingår eller saknas, Observera i det här e-postmeddelandet. Quantium-lösningar i Japan kommer att begära en japansk post för att ta frakt sedeln vid upphämtning.
+    - Om du har flera order, e-post för att se till att enskilda upphämtningar.
 
 3. Få en bekräftelse via e-post från Quantium-lösningar när du har bokat en hämtning. Bekräftelse av e-post innehåller också information om Chakubarai frakt Note.
 

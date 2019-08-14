@@ -1,5 +1,5 @@
 ---
-title: Självstudie – Distribuera från GitHub till Azure App Service med Jenkins
+title: 'Självstudier: Distribuera från GitHub till Azure App Service med Jenkins'
 description: Konfigurera Jenkins för kontinuerlig integrering (CI) från GitHub och kontinuerlig distribution (CD) till Azure App Service för Java-webbappar
 services: jenkins
 ms.service: jenkins
@@ -8,12 +8,13 @@ ms.author: tarcher
 manager: jeconnoc
 ms.topic: tutorial
 ms.date: 11/15/2018
-ms.openlocfilehash: 51ca9602ff155bf61eb28a59a97faa7a06322c7a
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.custom: seo-java-august2019
+ms.openlocfilehash: 955ce9724d576e56766ab3d87a374a65e4ca5c0e
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855161"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967129"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-app-service-with-jenkins-continuous-integration-and-deployment"></a>Självstudie: Distribuera från GitHub till Azure App Service med kontinuerlig integrering och distribution i Jenkins
 
@@ -162,7 +163,7 @@ Följande utdata genereras av kommandot **`create-for-rbac`** :
 
    ![Lägga till autentiseringsuppgifter för tjänstens huvudnamn](media/tutorial-jenkins-deploy-web-app-azure-app-service/add-service-principal-credentials.png)
 
-   | Egenskap | Värde | Beskrivning | 
+   | Egenskap | Value | Beskrivning | 
    |----------|-------|-------------| 
    | **Prenumerations-ID** | <*yourAzureSubscription-ID*> | GUID-värde för din Azure-prenumeration <p>**Tips!** Om du inte kan ditt Azure-prenumerations-ID kan du köra följande Azure CLI-kommando från kommandoraden eller i Cloud Shell och sedan använda GUID-värdet `id`: <p>`az account list` | 
    | **Klient-ID** | <*yourAzureServicePrincipal-ID*> | `appId` GUID-värdet som tidigare har skapats för Azure-tjänstens huvudnamn | 

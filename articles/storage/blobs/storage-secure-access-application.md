@@ -9,12 +9,12 @@ ms.date: 05/30/2018
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.custom: mvc
-ms.openlocfilehash: 8e56b02b84c0324f723ead1bbf156c847edbbeb5
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 2cd7a83b597d656ddbb0210aacfe96f6c056248b
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65787994"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68986685"
 ---
 # <a name="secure-access-to-an-applications-data-in-the-cloud"></a>Skydda åtkomsten till ett programs data i molnet
 
@@ -27,11 +27,11 @@ I den tredje delen i serien får du lära dig hur du:
 > * Aktiverar kryptering på serversidan
 > * Aktiverar endast HTTPS-transport
 
-[Azure Blob Storage](../common/storage-introduction.md#blob-storage) tillhandahåller en robust tjänst för att lagra filer för program. Den här självstudiekursen kompletterar [det föregående avsnittet ][previous-tutorial] och visar hur du skyddar åtkomsten till ditt lagringskonto från ett webbprogram. När du är klar är bilderna krypterade och i webbappen används säkra SAS-token för att få åtkomst till miniatyrbilderna.
+[Azure Blob Storage](../common/storage-introduction.md#blob-storage) tillhandahåller en robust tjänst för att lagra filer för program. I den här självstudien går vi igenom [föregående avsnitt][previous-tutorial] och visar hur du skyddar åtkomsten till ditt lagrings konto från ett webb program. När du är klar är bilderna krypterade och i webbappen används säkra SAS-token för att få åtkomst till miniatyrbilderna.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-För att slutföra den här självstudien måste du ha slutfört den tidigare Storage-kursen: [Automatisera storleksändring av överförda bilder med Event Grid][previous-tutorial]. 
+För att slutföra den här självstudien måste du ha slutfört den tidigare Storage-kursen: [Automatisera storleks ändring av överförda bilder med hjälp av event Grid][previous-tutorial]. 
 
 ## <a name="set-container-public-access"></a>Ange offentlig åtkomst till containrar
 
@@ -49,7 +49,7 @@ az storage container set-permission \ --account-name $blobStorageAccount \ --acc
 
 ## <a name="configure-sas-tokens-for-thumbnails"></a>Konfigurera SAS-token för miniatyrbilder
 
-I den första delen i den här kursserien visade webbprogrammet bilder från en offentlig container. I den här delen använder du [SAS-token](../common/storage-dotnet-shared-access-signature-part-1.md#what-is-a-shared-access-signature) (signatur för delad åtkomst) för att hämta minatyrbilderna. SAS-token ger dig begränsad åtkomst till en container eller blob baserat på IP-protokoll, tidsintervall eller rättigheter.
+I den första delen i den här kursserien visade webbprogrammet bilder från en offentlig container. I den här delen av serien använder du SAS-token (Shared Access Signatures) för att hämta miniatyr bilderna. SAS-token ger dig begränsad åtkomst till en container eller blob baserat på IP-protokoll, tidsintervall eller rättigheter. Mer information om SAS finns i [bevilja begränsad åtkomst till Azure Storage resurser med hjälp av signaturer för delad åtkomst (SAS)](../common/storage-sas-overview.md).
 
 I det här exemplet använder lagringsplatsen för källkod `sasTokens`-grenen, som har ett uppdaterat kodexempel. Ta bort den befintliga GitHub-distributionen med [az webapp deployment source delete](/cli/azure/webapp/deployment/source). Konfigurera sedan GitHub-distributionen till webbappen med kommandot [az webapp deployment source config](/cli/azure/webapp/deployment/source).  
 
@@ -128,7 +128,7 @@ public static async Task<List<string>> GetThumbNailUrls(AzureStorageConfig _stor
 
 Följande klasser, egenskaper och metoder används i den föregående aktiviteten:
 
-|Klass  |Egenskaper| Metoder  |
+|Klass  |properties| Metoder  |
 |---------|---------|---------|
 |[StorageCredentials](/dotnet/api/microsoft.azure.cosmos.table.storagecredentials)    |         |
 |[CloudStorageAccount](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount)     | |[CreateCloudBlobClient](/dotnet/api/microsoft.azure.storage.blob.blobaccountextensions.createcloudblobclient)        |

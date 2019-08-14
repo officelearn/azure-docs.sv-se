@@ -3,7 +3,7 @@ title: Vad är Azure Active Directory-övervakning? | Microsoft Docs
 description: En allmän översikt över Azure Active Directory-övervakning.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.assetid: e2b3d8ce-708a-46e4-b474-123792f35526
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 04/18/2019
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d63f8440ca527a746f73574bc156037d85fc3599
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 21102a52c6aa7ae97f3b1c2d671a341f19615a8e
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60286603"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68988211"
 ---
 # <a name="what-is-azure-active-directory-monitoring"></a>Vad är Azure Active Directory-övervakning?
 

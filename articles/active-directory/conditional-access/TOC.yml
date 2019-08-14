@@ -19,10 +19,6 @@
 - name: Begrepp
   expanded: false
   items:
-    - name: Använda villkorsstyrd åtkomst
-      href: howto-conditional-access-adoption-kit.md
-    - name: Principer för baslinjeskydd
-      href: concept-baseline-protection.md
     - name: Villkor
       href: conditions.md
     - name: Platsvillkor
@@ -33,6 +29,8 @@
       href: service-dependencies.md
     - name: Konsekvensverktyg
       href: what-if-tool.md
+    - name: Principer för baslinjeskydd
+      href: concept-baseline-protection.md
 - name: Instruktionsguider
   expanded: true
   items:
@@ -40,16 +38,6 @@
       href: plan-conditional-access.md
     - name: Bästa praxis
       href: best-practices.md
-    - name: Baslinjeprinciper
-      items:
-        - name: Kräva MFA för administratörer
-          href: howto-baseline-protect-administrators.md
-        - name: Slutanvändarskydd
-          href: howto-baseline-protect-end-users.md
-        - name: Blockera äldre autentisering
-          href: howto-baseline-protect-legacy-auth.md
-        - name: Kräva MFA för tjänsthantering
-          href: howto-baseline-protect-azure.md
     - name: Blockera äldre autentisering
       href: block-legacy-authentication.md
     - name: Villkorlig åtkomst för MFA-registrering
@@ -68,6 +56,18 @@
       href: howto-conditional-access-session-lifetime.md
     - name: Migrera klassiska principer
       href: policy-migration.md
+    - name: Baslinjeprinciper
+      items:
+        - name: Kräva MFA för administratörer
+          href: howto-baseline-protect-administrators.md
+        - name: Slutanvändarskydd
+          href: howto-baseline-protect-end-users.md
+        - name: Blockera äldre autentisering
+          href: howto-baseline-protect-legacy-auth.md
+        - name: Kräva MFA för tjänsthantering
+          href: howto-baseline-protect-azure.md
+    - name: Använda villkorsstyrd åtkomst
+      href: howto-conditional-access-adoption-kit.md
     - name: Felsökning
       items:
         - name: Felsöka med hjälp av What If-verktyget

@@ -15,13 +15,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/16/2018
-ms.openlocfilehash: 8a19f414f31c307111edad876ed973ff4027d907
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.date: 08/13/2019
+ms.openlocfilehash: 6d79bfa8f390d145bfd963b40497030140a3d135
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68591932"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69013577"
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Etablera den virtuella datorn för datavetenskap för Linux (Ubuntu)
 
@@ -86,32 +86,35 @@ Innan du kan skapa en virtuell dator för datavetenskap för Linux, måste du ha
 Här följer stegen för att skapa en instans av den virtuella datorn för datavetenskap för Linux:
 
 1. Navigera till den virtuella datorn på den [Azure-portalen](https://portal.azure.com/#create/microsoft-dsvm.linux-data-science-vm-ubuntulinuxdsvmubuntu). Du kan uppmanas att logga in på ditt Azure-konto om du inte redan har loggat in. 
-1. Klicka på **skapa** (längst ned) visas i guiden.![ Konfigurera –--virtuell dator för datavetenskap](./media/dsvm-ubuntu-intro/configure-data-science-virtual-machine.png)
-1. Följande avsnitt innehåller indata för varje steg i guiden (räknas upp till höger i föregående bild) används för att skapa Microsoft Data Science Virtual Machine. Här följer de indata som behövs för att konfigurera var och en av de här stegen:
+1. Klicka på **skapa** för att öppna guiden.
+    ![Konfigurera-data-vetenskap-VM](./media/dsvm-ubuntu-intro/configure-data-science-virtual-machine.png)
+1. I följande avsnitt finns indata för varje steg i guiden som används för att skapa Microsoft Data Science Virtual Machine. Här följer de indata som behövs för att konfigurera var och en av de här stegen:
 
-   a. **Grunderna**:
-
-   * **Namn på**: Namnet på den data vetenskaps server som du skapar.
-   * **Typ av virtuell dator disk**: Välj **Premium SSD** om du föredrar en SSD-enhet (Solid-State Drive). Annars väljer du **Standard HDD**. 
-   * **Användarnamn**: Inloggnings-ID för första kontot.
-   * **Lösenord**: Lösen ord för första kontot (du kan använda offentlig SSH-nyckel i stället för lösen ord).
-   * **Prenumeration**: Om du har mer än en prenumeration väljer du det som datorn är skapas och faktureras. Du måste ha behörighet att skapa resurser för prenumerationen.
-   * **Resursgrupp**: Du kan skapa en ny eller Använd en befintlig grupp.
-   * **Plats**: Välj det data Center som passar bäst. Vanligtvis är det datacenter som har de flesta av dina data, eller så är närmast dina fysiska platsen för snabbaste nätverksåtkomst.
-
-   b. **Storlek**:
-
-   * Välj en av de servertyper som uppfyller dina funktionella krav och begränsningar för kostnad. Välj en NC-eller ND-klass VM för GPU-baserade VM-instanser. Den [produkttillgänglighet per region](https://azure.microsoft.com/global-infrastructure/services/) sidan visar en lista över regioner med GPU: er.
-
-   c. **Inställningar för**:
-
-   * I de flesta fall kan du bara använda standardvärdena. Att tänka på icke-standardvärden, hovrar du över informationsmeddelande länken Hjälp om specifika fält.
-
-   d. **Sammanfattning av**:
-
-   * Kontrollera att all information du angett är korrekt. Det finns en länk till användningsvillkoren. Den virtuella datorn har inte några ytterligare avgifter utöver beräkning för serverstorlek som du valde i den **storlek** steg. Starta etableringen, klicka på **skapa**. 
-
-Etableringen tar cirka 5 minuter. Status för etableringen visas på Azure portal.
+    a. **Grunderna**:
+    
+    * **Prenumeration**: Om du har mer än en prenumeration väljer du det som datorn är skapas och faktureras. Du måste ha behörighet att skapa resurser för prenumerationen.
+    * **Resursgrupp**: Du kan skapa en ny eller Använd en befintlig grupp.
+    * **Namn på virtuell dator**: Namnet på den data vetenskaps server som du skapar.
+    * **Region**: Välj det data Center som passar bäst. Vanligtvis är det datacenter som har de flesta av dina data, eller så är närmast dina fysiska platsen för snabbaste nätverksåtkomst.
+    * **Tillgänglighetsalternativ**: Ange detta om du vill använda den här virtuella datorn i tillgänglighets uppsättningar/zoner, annars lämnar du standardvärdet.
+    * **Bild**: Låt standardvärdet vara kvar
+    * **Storlek**: Välj en av de servertyper som uppfyller dina funktionella krav och begränsningar för kostnad. Välj en NC-eller ND-serien VM för GPU-baserade VM-instanser. 
+    * **Användarnamn**: Administratörens användar namn
+    * **Offentlig SSH-nyckel**: Offentlig RSA-nyckel i enkel linje format (du kan använda lösen ord i stället för SSH-nyckel).
+    
+    b. **Diskar**:
+    
+    * **Typ av operativ system disk**: Välj **Premium SSD** om du föredrar en SSD-enhet (Solid-State Drive). Annars väljer du **Standard HDD**.
+    
+    c. Du kan bara använda standardvärdena för resten av inställningarna. Att tänka på icke-standardvärden, hovrar du över informationsmeddelande länken Hjälp om specifika fält.
+    
+    Slutligen väljer du **Granska + skapa**
+    
+    d. **Granska + skapa**:
+    
+    * När verifieringen har godkänts kontrollerar du att all information som du har angett är korrekt. Det finns en länk till användningsvillkoren. Den virtuella datorn har inga ytterligare avgifter utöver beräkningen för Server storleken som du valde i den angivna storleken. Starta etableringen, klicka på **skapa**.
+    
+    Etableringen tar cirka 5 minuter. Status för etableringen visas på Azure portal.
 
 ## <a name="how-to-access-the-data-science-virtual-machine-for-linux"></a>Hur du kommer åt den virtuella datorn för datavetenskap för Linux
 

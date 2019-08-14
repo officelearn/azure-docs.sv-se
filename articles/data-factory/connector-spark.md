@@ -42,12 +42,12 @@ Följande egenskaper har stöd för länkad Spark-tjänst:
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen måste anges till: **Spark** | Ja |
-| värd | IP-adressen eller värdnamnet namnet på Spark-server  | Ja |
+| host | IP-adressen eller värdnamnet namnet på Spark-server  | Ja |
 | port | TCP-porten som Spark-servern använder för att lyssna efter klientanslutningar. Ange porten som 443 om du ansluter till Azure HDInsights. | Ja |
-| Servertyp | Typ av Spark-server. <br/>Tillåtna värden är: **SharkServer**, **SharkServer2**, **SparkThriftServer** | Nej |
+| serverType | Typ av Spark-server. <br/>Tillåtna värden är: **SharkServer**, **SharkServer2**, **SparkThriftServer** | Nej |
 | thriftTransportProtocol | Transportprotokollet ska användas i Thrift-lagret. <br/>Tillåtna värden är: **Binary**, **SASL**, **HTTP** | Nej |
 | authenticationType | Den autentiseringsmetod som används för att få åtkomst till Spark-servern. <br/>Tillåtna värden är: **Anonym**, **användarnamn**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Ja |
-| användarnamn | Användarnamnet som används för att få åtkomst till Spark-Server.  | Nej |
+| username | Användarnamnet som används för att få åtkomst till Spark-Server.  | Nej |
 | password | Lösenordet för användaren. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Nej |
 | httpPath | Partiell URL som motsvarar Spark-server.  | Nej |
 | enableSsl | Anger om anslutningar till servern krypteras med SSL. Standardvärdet är FALSKT.  | Nej |

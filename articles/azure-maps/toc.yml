@@ -91,23 +91,27 @@
               href: choose-map-style.md
             - name: Lägga till kontroller till kartan
               href: map-add-controls.md
+            - name: Skapa en datakälla
+              href: create-data-source-web-sdk.md
             - name: Lägga till ett symbolskikt
               href: map-add-pin.md
-            - name: Lägg till ett popup-fönster
-              href: map-add-popup.md
             - name: Lägga till ett bubbelskikt
               href: map-add-bubble-layer.md
-            - name: Lägga till former
+            - name: Lägg till ett linjeskikt
+              href: map-add-line-layer.md
+            - name: Lägg till ett polygonskikt
               href: map-add-shape.md
             - name: Lägga till ett heatmapskikt
               href: map-add-heat-map-layer.md
+            - name: Lägg till ett popup-fönster
+              href: map-add-popup.md
             - name: Klusterpunktdata
               href: clustering-point-data-web-sdk.md
             - name: Använda datadrivna formatuttryck
               href: data-driven-style-expressions-web-sdk.md
             - name: Så här använder du avbildningsmallar
               href: how-to-use-image-templates-web-sdk.md
-            - name: Lägga till en bild som överlägg
+            - name: Lägga till ett avbildningsskikt
               href: map-add-image-layer.md
             - name: Lägga till panelskikt
               href: map-add-tile-layer.md
@@ -139,6 +143,8 @@
           href: how-to-add-symbol-to-android-map.md
         - name: Lägga till former
           href: how-to-add-shapes-to-android-map.md
+        - name: Visa funktionsinformation
+          href: display-feature-information-android.md
         - name: Lägga till ett panelskikt
           href: how-to-add-tile-layer-android-map.md
 - name: Referens

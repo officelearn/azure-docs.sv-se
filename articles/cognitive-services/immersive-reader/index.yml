@@ -51,7 +51,9 @@ sections:
       - type: list
         style: unordered
         items:
-          - html: <a href="tutorial.md">Starta Avancerad läsare med Node.js</a>
+          - html: <a href="tutorial-nodejs.md">Starta Avancerad läsare med Node.js</a>
+          - html: <a href="tutorial-python.md">Starta Avancerad läsare med Node.js</a>
+          - html: <a href="tutorial-ios-picture-immersive-reader.md">Starta Avancerad läsare med Swift</a>
   - title: Referens
     items:
       - type: list

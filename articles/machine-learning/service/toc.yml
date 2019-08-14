@@ -98,9 +98,6 @@
     - name: Modelltolkning
       displayName: explainability
       href: machine-learning-interpretability-explainability.md
-    - name: FPGA jämfört med CPU GPU ASIC
-      displayName: 'field, programmable, arrays'
-      href: concept-accelerate-with-fpgas.md
     - name: ONNX
       href: concept-onnx.md
     - name: Säkerhet

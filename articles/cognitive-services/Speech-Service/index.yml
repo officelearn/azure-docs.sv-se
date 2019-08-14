@@ -45,7 +45,7 @@ sections:
     items:
       - type: paragraph
         text: |
-          Du kan använda vårt tal-SDK (<a href="releasenotes.md">viktig information</a>) för att lägga till följande funktioner (och fler) i dina appar&colon; 
+          Du kan använda vårt tal-SDK (<a href="releasenotes.md">viktig information</a>) för att lägga till följande funktioner (och fler) i dina appar&colon;
           <div class="row"><div class="column"><ul>
           <li><b><a href="speech-to-text.md">tal-till-text</a></b> (taligenkänning)</li>
           <li><b><a href="speech-devices-sdk-create-kws.md">anpassade väckningsord</a></b> (nyckelordsidentifiering)</li>
@@ -253,10 +253,9 @@ sections:
       - type: list
         style: unordered
         items:
-          - html: <a href="speech-to-text-sample.md">Tal till text (SR)</a><br/>
-          - html: <a href="intent.md">Avsiktsigenkänning</a><br/>
-          - html: <a href="translation.md">Översättning</a>
-          - html: <a href="quickstart-text-to-speech-dotnet-windows.md">Text till tal</a><br/>
+          - html: '<a href="how-to-recognize-intents-from-speech-csharp.md">Känna igen talavsikter med LUIS, C#</a><br/>'
+          - html: '<a href="tutorial-voice-enable-your-bot-speech-sdk.md">Röstaktivera din robot med Speech SDK, C#</a><br/>'
+          - html: '<a href="../translator/tutorial-build-flask-app-translation-synthesis.md?toc=%2fazure%2fcognitive-services%2fspeech-service%2ftoc.json&bc=%2fazure%2fcognitive-services%2fspeech-service%2fbreadcrumb%2ftoc.json">Skapa en Flask-app för att översätta och syntetisera tal, REST</a><br/>'
   - title: Exempel
     items:
       - type: paragraph

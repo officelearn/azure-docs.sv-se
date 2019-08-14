@@ -14,9 +14,11 @@
 - name: Självstudier
   items:
     - name: Starta Avancerad läsare (Node.js)
-      href: tutorial.md
+      href: tutorial-nodejs.md
+    - name: Starta Avancerad läsare (Python)
+      href: tutorial-python.md
     - name: Bild till avancerad läsare (Swift)
-      href: ios-picture-immersive-reader-tutorial.md
+      href: tutorial-ios-picture-immersive-reader.md
 - name: Instruktioner
   items:
     - name: Azure Active Directory-autentisering

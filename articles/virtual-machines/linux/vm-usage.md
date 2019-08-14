@@ -72,9 +72,9 @@ Regionsnamn fylls i fältet resursplats i användningsinformation varierar från
 
 |    **Resource Manager Regionsnamn**       |    **Resursplats i användningsinformation**    |
 |--------------------------|------------------------------------------|
-|    Australien         |    Australien, Öst                               |
+|    Australien         |    Australien, östra                               |
 |    sydöstra Australien    |    Australien, sydöstra                          |
-|    brasiliensödra           |    Brasilien, Syd                              |
+|    brasiliensödra           |    Brasilien, södra                              |
 |    CanadaCentral         |    Kanada, centrala                            |
 |    Kanadaöstra            |    Kanada, östra                               |
 |    Indiencentrala          |    Indien, centrala                            |

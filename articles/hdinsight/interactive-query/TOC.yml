@@ -191,6 +191,12 @@
     - name: Felsöka
       href: ../hdinsight-troubleshoot-guide.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
       items:
+        - name: Apache Tez-program låser sig
+          href: ./interactive-query-troubleshoot-tez-hangs.md
+        - name: Apache Hive LLAP-frågeprestanda
+          href: ./interactive-query-troubleshoot-query-performance.md
+        - name: Långsam reducerare
+          href: ./interactive-query-troubleshoot-slow-reducer.md
         - name: Tidsgräns för Apache Hive-vyn
           href: ./interactive-query-troubleshoot-view-time-out.md
         - name: Behörighetsfel när en tabell skapas

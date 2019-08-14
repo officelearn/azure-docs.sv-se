@@ -295,6 +295,8 @@
               href: v2-oauth2-device-code.md
             - name: Beviljande via resursägarens lösenordsautentiseringsuppgifter för OAuth 2.0
               href: v2-oauth-ropc.md
+            - name: OAuth 2.0 SAML ägartokenförsäkrat flöde
+              href: v2-saml-bearer-assertion.md
             - name: Förnyelse av signeringsnyckel
               href: active-directory-signing-key-rollover.md
             - name: ID-tokens

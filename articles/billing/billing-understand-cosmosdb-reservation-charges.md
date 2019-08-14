@@ -39,11 +39,11 @@ Reservationsrabatten tillämpas på Azure Cosmos DB dataflöde kostnader per tim
 
 |Mätaren beskrivning  |Region |Förhållandet mellan  |
 |---------|---------|---------|
-|Azure Cosmos DB - 100 RU/s/timme – Asien och Stillahavsområdet i Asien  |  Asien och stillahavsområdet, Sydost    |   1      |
-|Azure Cosmos DB - 100 RU/s/timme – Asien och Stillahavsområdet östra |   Asien och stillahavsområdet, Öst   |    1     |
-|Azure Cosmos DB - 100 RU/s/timme – Europa, Nord|  Europa, Nord       |    1     |
+|Azure Cosmos DB - 100 RU/s/timme – Asien och Stillahavsområdet i Asien  |  Asien och stillahavsområdet, sydöstra    |   1      |
+|Azure Cosmos DB - 100 RU/s/timme – Asien och Stillahavsområdet östra |   Asien och stillahavsområdet, östra   |    1     |
+|Azure Cosmos DB - 100 RU/s/timme – Europa, Nord|  Europa, norra       |    1     |
 |Azure Cosmos DB - 100 RU/s/timme – Korea, södra|    Sydkorea, södra     |     1    |
-|Azure Cosmos DB - 100 RU/s/timme – Europa, Väst|    Europa, Väst     |      1   |
+|Azure Cosmos DB - 100 RU/s/timme – Europa, Väst|    Europa, västra     |      1   |
 |Azure Cosmos DB - 100 RU/s/timme – Korea, centrala|   Sydkorea, centrala    |       1  |
 |Azure Cosmos DB - 100 RU/s/timme – Storbritannien, södra|   Storbritannien, södra      |     1    |
 |Azure Cosmos DB - 100 RU/s/timme – Storbritannien, västra|   Storbritannien, västra      |    1     |
@@ -64,10 +64,10 @@ Reservationsrabatten tillämpas på Azure Cosmos DB dataflöde kostnader per tim
 |Azure Cosmos DB - 100 RU/s/timme – Japan, Väst|     Japan, västra    |   1.125       |
 |Azure Cosmos DB - 100 RU/s/timme - i Indien, västra|     Indien, västra    |    1.1375     |
 |Azure Cosmos DB - 100 RU/s/timme - i Indien, centrala|    Indien, centrala     |  1.1375       |
-|Azure Cosmos DB - 100 RU/s/timme – Australien, Öst|     Australien, Öst    |   1.15       |
+|Azure Cosmos DB - 100 RU/s/timme – Australien, Öst|     Australien, östra    |   1.15       |
 |Azure Cosmos DB - 100 RU/s/timme – Kanada, centrala|  Kanada, centrala       |   1.2       |
 |Azure Cosmos DB - 100 RU/s/timme - Frankrike, centrala|   Frankrike, centrala      |    1.25      |
-|Azure Cosmos DB - 100 RU/s/timme – Brasilien, Syd|  Brasilien, Syd       |   1,5      |
+|Azure Cosmos DB - 100 RU/s/timme – Brasilien, Syd|  Brasilien, södra       |   1,5      |
 |Azure Cosmos DB - 100 RU/s/timme – Australien, centrala|   Australien, centrala      |   1,5      |
 |Azure Cosmos DB - 100 RU/s/timme – Australien, centrala 2| Australien, centrala 2        |    1,5     |
 |Azure Cosmos DB - 100 RU/s/timme - Frankrike, Syd|    Frankrike, södra     |    1.625     |

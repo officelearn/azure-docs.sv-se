@@ -162,6 +162,8 @@
       items:
         - name: Felsöka resurser
           href: ../hdinsight-troubleshoot-guide.md?toc=/azure/hdinsight/hbase/toc.json&bc=/azure/hdinsight/hbase/breadcrumb/toc.json
+        - name: hbase hbck returnerar inkonsekvenser
+          href: ./hbase-troubleshoot-hbase-hbck-inconsistencies.md
         - name: Lagringsundantag efter anslutningsåterställning
           href: ./hbase-troubleshoot-storage-exception-reset.md
         - name: Inga data i Apache Phoenix-vyer

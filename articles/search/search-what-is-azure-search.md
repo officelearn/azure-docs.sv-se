@@ -1,33 +1,44 @@
 ---
 title: Introduktion till Azure Search-Azure Search
-description: Azure Search är en fullständigt hanterad Sök tjänst i molnet som tillhandahålls av Microsoft. Läs funktionsbeskrivningar, gå igenom ett utvecklingsarbetsflöde, jämför Azure Search med andra sökprodukter från Microsoft och få hjälp med att komma igång.
-manager: cgronlun
+description: Azure Search är en fullständigt hanterad Sök tjänst i molnet som tillhandahålls av Microsoft. Granska funktions beskrivningar, utvecklings arbets flödet, jämförelser med andra Microsoft Search-produkter och hur du kommer igång.
+manager: nitinme
 author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: overview
-ms.date: 05/02/2019
+ms.date: 08/13/2019
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 7a12c9153332e9d6fc70512bc55fe0a53f7c78fc
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: a48e4026ee3d7108f3b8e77dcb482d9904891cd4
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827149"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69014461"
 ---
 # <a name="what-is-azure-search"></a>Vad är Azure Search?
-Azure Search är en molnlösning för sökning som en tjänst 0som ger utvecklare API:er och verktyg för att lägga till omfattande sökfunktioner för privat heterogent innehåll i webb-, mobil- och företagsprogram. Frågor körs över ett användardefinierat index.
 
-+ Bygg ett Sök index som bara innehåller dina data, från flera innehålls typer och plattformar. 
+Azure Search är en molnlösning för sökning som en tjänst 0som ger utvecklare API:er och verktyg för att lägga till omfattande sökfunktioner för privat heterogent innehåll i webb-, mobil- och företagsprogram. Din anpassade kod anropar data inmatningen (indexering), utfärdar fråge förfrågningar och hanterar svar. Sök funktionen definieras i klient koden med hjälp av funktionen från Azure Search, med frågekörningen över ett beständigt index som du skapar och äger. 
 
-+ Använd AI-anrikninger för att extrahera text och funktioner från bildfiler, eller entiteter och nyckel fraser från rå text.
+![Azure Search arkitektur](media/search-what-is-azure-search/azure-search-diagram.png "Azure Search arkitektur")
 
-+ Skapa intuitiva Sök upplevelser med aspekt navigering och filter, synonymer, komplettera automatiskt och text analys för "menade du" med Autokorrigering av sökord. Få relevans-justering genom funktioner och öka logiken.
-
-+ Skapa Sök appar för enskilda användnings fall. Geo-search stöder en "hitta nära mig"-upplevelse. Det finns stöd för flerspråkig sökning via språk analys verktyg för full texts ökning på andra språk än engelska.
+<!-- + Build a search index containing only your data, sourced from multiple content types and platforms. 
++ Leverage AI enrichments to extract text and features from image files, or entities and key phrases from raw text.
++ Create intuitive search experiences with facet navigation and filters, synonyms, autocomplete, and text analysis for "did you mean" autocorrected search terms. Get relevance tuning through functions and boosting logic.
++ Create search apps for specific use-cases. Geo-search supports a "find near me" experience. Multi-lingual search is supported through language analyzers for non-English full text search. -->
 
 Funktionerna exponeras via en enkel [REST API](/rest/api/searchservice/) eller [.NET-SDK](search-howto-dotnet-sdk.md) som maskerar den inbyggda komplexiteten i informationshämtning. Förutom API:er tillhandahåller Azure Portal stöd för administration och innehållshantering, med verktyg för indexprototyper och -frågor. Eftersom tjänsten körs i molnet hanteras infrastruktur och tillgänglighet av Microsoft.
+
+## <a name="when-to-use-azure-search"></a>När du ska använda Azure Search
+
+Azure Search passar bra för följande program scenarier:
+
++ Konsolidering av heterogena innehålls typer i ett privat, enskilt, sökbart index. Frågor är alltid över ett index som du skapar och läser in med dokument, och indexet finns alltid i molnet på din Azure Search-tjänst. Du kan fylla i ett index med strömmar av JSON-dokument från valfri källa eller plattform. Du kan också använda en indexerare för att hämta data till ett index för innehåll som har ursprung på Azure. Index definition och hantering/ägarskap är en viktig orsak till att använda Azure Search.
+
++ Enkel implementering av sökrelaterade funktioner. Azure Search-API: er fören klar frågornas konstruktion, fasett navigering, filter (inklusive geo-spatial sökning), synonym mappning, typeahead-frågor och relevans-justering. Med hjälp av inbyggda funktioner kan du tillgodose förväntningar på slutanvändare för en Sök upplevelse som liknar de kommersiella sökmotorer för Webbs ökning.
+
++ Indexera ostrukturerad text eller extrahera text och information från bildfiler. Funktionen kognitiv sökning i Azure Search lägger till AI-bearbetning till en indexerings pipeline. Några vanliga användnings fall är OCR över skannade dokument, enhets igenkänning och nyckel fras extrahering över stora dokument, språk identifiering och text översättning och sentiment analys.
+
++ Språkliga krav uppfylls med hjälp av anpassade och språk analys verktyg för Azure Search. Om du har ett annat innehåll än engelska, stöder Azure Search både Lucene-analyser och Microsofts naturliga språk processorer. Du kan också konfigurera analys verktyg för att uppnå specialiserad bearbetning av rå data, till exempel att filtrera ut dia kritiska tecken.
 
 <a name="feature-drilldown"></a>
 
@@ -101,6 +112,7 @@ Viktiga fördelar är:
 + Azure-dataintegrering (crawler) på indexeringslagret
 + Azure Portal för central hantering
 + Azure-skala, tillförlitlighet och tillgänglighet i världsklass
++ AI-bearbetning av rå data för att göra den mer sökbar, inklusive text från bilder eller hitta mönster i ostrukturerat innehåll.
 + Språklig och anpassad analys, med analysverktyg för fulltextsökning på 56 språk
 + [Centrala funktioner som är gemensamma för sökcentriska appar](#feature-drilldown): bedömning, aspektbasering, förslag, synonymer, geo-sökning och mycket mer.
 

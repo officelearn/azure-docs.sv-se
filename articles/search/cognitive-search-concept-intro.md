@@ -1,7 +1,7 @@
 ---
 title: Introduktion till kognitiv sökning och AI-anrikning – Azure Search
 description: Innehålls extrahering, naturlig språk bearbetning (NLP) och bild bearbetning för att skapa sökbart innehåll i Azure Search indexering med kognitiva kunskaper och AI-algoritmer.
-manager: cgronlun
+manager: nitinme
 author: HeidiSteen
 services: search
 ms.service: search
@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 05/28/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: d1cb0b687b97ce83d47aa0635f8999ced8594226
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 524ab33fc1d6a88620077a28ec70f09d55b06106
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68841321"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69015786"
 ---
 # <a name="what-is-cognitive-search-in-azure-search"></a>Vad är "kognitiv sökning" i Azure Search?
 

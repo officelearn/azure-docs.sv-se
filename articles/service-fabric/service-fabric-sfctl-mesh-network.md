@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric CLI - sfctl nät nätverk | Microsoft Docs
-description: Beskriver nätverkskommandon för Service Fabric CLI sfctl nät.
+title: Azure Service Fabric CLI – sfctl nät nätverk | Microsoft Docs
+description: Beskriver nätverks kommandona för det Service Fabric CLI-sfctl nät.
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
@@ -8,88 +8,87 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: feec5c4796c025c1707b4eb93bfe34b8d384ef3a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e92fbc3856bba69db11aba6ad5d85e814bf30a81
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60694529"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035048"
 ---
 # <a name="sfctl-mesh-network"></a>sfctl mesh network
-Hämta och ta bort nät nätverksresurser.
+Hämta och ta bort nätverks resurser för nätverk.
 
 ## <a name="commands"></a>Kommandon
 
 |Kommando|Beskrivning|
 | --- | --- |
-| delete | Tar bort nätverksresursen. |
-| list | Visar en lista över alla nätverksresurser. |
-| visa | Hämtar nätverksresursen med det angivna namnet. |
+| radera | Tar bort nätverks resursen. |
+| list | Visar en lista över alla nätverks resurser. |
+| visa | Hämtar nätverks resursen med det aktuella namnet. |
 
-## <a name="sfctl-mesh-network-delete"></a>sfctl nät nätverk delete
-Tar bort nätverksresursen.
+## <a name="sfctl-mesh-network-delete"></a>sfctl nät nätverks borttagning
+Tar bort nätverks resursen.
 
-Tar bort den nätverksresurs som identifieras av namnet.
+Tar bort nätverks resursen som identifieras med namnet.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --name -n [krävs] | Namnet på nätverket. |
+| --Name-n [required] | Nätverkets namn. |
 
-### <a name="global-arguments"></a>Global Arguments
-
-|Argument|Beskrivning|
-| --- | --- |
-| --debug | Öka detaljnivå loggning för att visa alla felsöka loggar. |
-| --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
-| --utdata -o | Utdataformat.  Tillåtna värden\: json, jsonc, tabell, TVs.  Standard\: json. |
-| – fråga | JMESPath-frågesträng. Se http\://jmespath.org/ för mer information och exempel. |
-| --utförlig | Öka detaljnivå för loggning. Använd--felsökning för fullständig felsökningsloggar. |
-
-## <a name="sfctl-mesh-network-list"></a>listan över sfctl nät nätverk
-Visar en lista över alla nätverksresurser.
-
-Hämtar information om alla nätverksresurser i en viss resursgrupp. Informationen omfattar beskrivningen och andra egenskaper för nätverket.
-
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --debug | Öka detaljnivå loggning för att visa alla felsöka loggar. |
-| --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
-| --utdata -o | Utdataformat.  Tillåtna värden\: json, jsonc, tabell, TVs.  Standard\: json. |
-| – fråga | JMESPath-frågesträng. Se http\://jmespath.org/ för mer information och exempel. |
-| --utförlig | Öka detaljnivå för loggning. Använd--felsökning för fullständig felsökningsloggar. |
+| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
+| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
+| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: -JSON. |
+| --fråga | Frågesträngen JMESPath. Se http\://jmespath.org/för mer information och exempel. |
+| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
+
+## <a name="sfctl-mesh-network-list"></a>sfctl nät nätverks lista
+Visar en lista över alla nätverks resurser.
+
+Hämtar information om alla nätverks resurser i en specifik resurs grupp. Informationen inkluderar beskrivningen och andra egenskaper för nätverket.
+
+### <a name="global-arguments"></a>Globala argument
+
+|Argument|Beskrivning|
+| --- | --- |
+| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
+| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
+| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: -JSON. |
+| --fråga | Frågesträngen JMESPath. Se http\://jmespath.org/för mer information och exempel. |
+| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
 
 ## <a name="sfctl-mesh-network-show"></a>sfctl nät nätverk show
-Hämtar nätverksresursen med det angivna namnet.
+Hämtar nätverks resursen med det aktuella namnet.
 
-Hämtar information om nätverksresursen med det angivna namnet. Informationen omfattar beskrivningen och andra egenskaper för nätverket.
+Hämtar information om nätverks resursen med det aktuella namnet. Informationen inkluderar beskrivningen och andra egenskaper för nätverket.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --name -n [krävs] | Namnet på nätverket. |
+| --Name-n [required] | Nätverkets namn. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --debug | Öka detaljnivå loggning för att visa alla felsöka loggar. |
-| --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
-| --utdata -o | Utdataformat.  Tillåtna värden\: json, jsonc, tabell, TVs.  Standard\: json. |
-| – fråga | JMESPath-frågesträng. Se http\://jmespath.org/ för mer information och exempel. |
-| --utförlig | Öka detaljnivå för loggning. Använd--felsökning för fullständig felsökningsloggar. |
+| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
+| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
+| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: -JSON. |
+| --fråga | Frågesträngen JMESPath. Se http\://jmespath.org/för mer information och exempel. |
+| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
 
 
 ## <a name="next-steps"></a>Nästa steg
-- [Konfigurera](service-fabric-cli.md) Service Fabric CLI.
-- Lär dig hur du använder Service Fabric CLI med hjälp av den [exempel på skript](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- [Konfigurera](service-fabric-cli.md) Service Fabric cli.
+- Lär dig hur du använder Service Fabric CLI med hjälp av [exempel skripten](/azure/service-fabric/scripts/sfctl-upgrade-application).

@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e5ff6755f1391ff19e65df669fb51967a904f4f
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 99f31c5928273973a9089ae9ef1fd184cdb78bbb
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68707570"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69033310"
 ---
 # <a name="application-registration-subtypes-and-permissions-in-azure-active-directory"></a>Under typer och behörigheter för program registrering i Azure Active Directory
 
@@ -46,12 +46,12 @@ Information om följande behörigheter för för hands versionen av anpassade ro
 
 ### <a name="create-and-delete"></a>Skapa och ta bort
 
-Det finns två tillgängliga behörigheter för att ge möjlighet att skapa registrerings program:
+Det finns två tillgängliga behörigheter för att ge möjlighet att skapa program registreringar, var och en med olika beteenden:
 
-- **Microsoft. Directory/Applications/createAsOwner**
-- **Microsoft. Directory/program/skapa**
+- **Microsoft. Directory/Applications/createAsOwner**: Genom att tilldela det här behörighets resultatet i skaparen som lagts till som första ägare till den skapade app-registreringen, så räknas den skapade program registreringen mot skapare objekt kvoten 250 skapade objekt.
+- **Microsoft. Directory/applicationPolicies/skapa**: Om du tilldelar det här behörighets resultatet i skaparen, läggs det inte till som första ägare till den skapade app-registreringen, och den skapade app-registreringen räknas inte mot skapare objekt kvoten 250 skapade objekt. Använd den här behörigheten noggrant, eftersom det inte finns något hinder för att skapa registrerings program förrän kvoten på katalog nivå har nåtts. Om båda behörigheterna tilldelas, prioriteras den här behörigheten.
 
-Om båda behörigheterna tilldelas prioriteras Create-behörigheten. Även om createAsOwner-behörigheten inte automatiskt lägger till skaparen som den första ägaren, kan ägarna anges under skapandet av appens registrering när de använder Graph API: er eller PowerShell-cmdletar.
+Om båda behörigheterna tilldelas har/Create-behörigheten företräde. Även om/createAsOwner-behörigheten inte automatiskt lägger till skaparen som den första ägaren, kan ägarna anges under skapandet av appens registrering när de använder Graph API: er eller PowerShell-cmdletar.
 
 Skapa behörigheter bevilja åtkomst till det **nya registrerings** kommandot.
 

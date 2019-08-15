@@ -16,12 +16,12 @@ ms.date: 04/19/2019
 ms.author: ajburnle
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d33b4751b421f5af1536af9a88d15e060ab59bdb
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 2420fc25795ec74939649fb8a17ead7c8cfdd1df
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489065"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69032443"
 ---
 # <a name="view-reports-and-logs-in-azure-ad-entitlement-management-preview"></a>Visa rapporter och loggar i Azure AD-hantering av rättigheter (för hands version)
 
@@ -29,6 +29,12 @@ ms.locfileid: "68489065"
 > Azure Active Directory (Azure AD) rättighets hantering är för närvarande en offentlig för hands version.
 > Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade.
 > Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Rapporten användar tilldelning och Azure Active Directory Gransknings logg innehåller ytterligare information om användarna i din katalog. Som administratör kan du Visa resurser som en användare har åtkomst till och Visa förfrågnings loggar för gransknings syfte eller för att fastställa status för en användares begäran. Den här artikeln beskriver hur du använder rapporten användar tilldelning och gransknings loggar för Azure AD.
+
+Titta på följande video och lär dig hur du använder rättighets hantering för att hantera åtkomst för användare i Azure Active Directory:
+
+>[!VIDEO https://www.youtube.com/embed/omtNJ7ySjS0]
 
 ## <a name="view-resources-a-user-has-access-to"></a>Visa resurser som en användare har åtkomst till
 

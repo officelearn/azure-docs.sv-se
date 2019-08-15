@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/10/2019
 ms.author: juergent
-ms.openlocfilehash: 232468d9b3466759d7af2b7be68a1f553ced6e6d
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: c649b93284a48df705d389f4de728d83f793af04
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68348653"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036650"
 ---
 [1928533]: https://launchpad.support.sap.com/#/notes/1928533
 [2015553]: https://launchpad.support.sap.com/#/notes/2015553
@@ -517,11 +517,11 @@ Om du utförde installationen innan du skapade DB2 HADR-konfigurationen gör du 
 Använd verktyget J2EE config för att kontrol lera eller uppdatera JDBC-URL: en. Eftersom verktyget J2EE config är ett grafiskt verktyg måste du ha installerat X-servern:
  
 1. Logga in på den primära program servern för J2EE-instansen och kör:
-     <pre><code>sudo /usr/sap/*SID*/*Instance*/j2ee/configtool/configtool.sh</code></pre>
+     <pre><code>sudo /usr/sap/*SID*/*Instance*/j2ee/configtool/configtool.sh</code></pre>  
 1.I den vänstra rutan väljer du **säkerhets lager**.
 1.I den högra rutan väljer du nyckeln JDBC/pool/\<SAPSID>/URL.
 1.Ändra värd namnet i JDBC-URL: en till det virtuella värd namnet.
-     <pre><code>jdbc:db2://db-virt-hostname:5912/TSP:deferPrepares=0</code></pre>
+     <pre><code>jdbc:db2://db-virt-hostname:5912/TSP:deferPrepares=0</code></pre>  
 1.Välj **Lägg till**.
 1.Om du vill spara ändringarna väljer du disk ikonen längst upp till vänster.
 1.Stäng konfigurations verktyget.

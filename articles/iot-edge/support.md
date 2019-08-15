@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: fdecc34b49b853c34624cabf4688e0387c303a16
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 81d19552b56de540f235960c498c64e7b276320c
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68985803"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69030968"
 ---
 # <a name="azure-iot-edge-supported-systems"></a>Azure IoT Edge stöds system
 
@@ -70,7 +70,7 @@ De system som anges i följande tabell stöds av Microsoft, antingen allmänt ti
 | Windows 10 IoT Core, build 17763 | ![Windows IoT Core + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
 
 
-De Windows-operativsystem som anges ovan är kraven för enheter som kör Windows-behållare i Windows. Den här konfigurationen är den enda konfiguration som stöds för produktion. Azure IoT Edge installations paket för Windows tillåter användning av Linux-behållare i Windows. den här konfigurationen är dock endast för utveckling och testning. Användning av Linux-behållare i Windows är inte en konfiguration som stöds för produktion. Alla versioner av Windows 10 version 14393 eller senare och Windows Server 2016 eller senare kan användas i det här utvecklings scenariot.
+De Windows-operativsystem som anges ovan är kraven för enheter som kör Windows-behållare i Windows, vilket är den enda konfiguration som stöds för produktion. Azure IoT Edge installations paket för Windows tillåter användning av Linux-behållare i Windows. den här konfigurationen är dock endast för utveckling och testning. Mer information finns i [använda IoT Edge i Windows för att köra Linux-behållare](how-to-install-iot-edge-windows-with-linux.md).
 
 ### <a name="tier-2"></a>Nivå 2
 

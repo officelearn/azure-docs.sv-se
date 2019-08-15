@@ -10,14 +10,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 04/23/2019
+ms.date: 08/13/2019
 ms.author: lahugh
-ms.openlocfilehash: 2b9d6832422b98c1064a4e9e99774c4788e801e5
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 4770c0bfd9c6fe6effa9cdf200d89ca7ff6eb768
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68323658"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036657"
 ---
 # <a name="azure-batch-runtime-environment-variables"></a>Variabler för Azure Batch körnings miljö
 
@@ -51,7 +51,7 @@ Kommando raderna som körs av aktiviteter på datornoderna körs inte under ett 
 | AZ_BATCH_ACCOUNT_URL            | URL: en för batch-kontot. | Alla aktiviteter. | `https://myaccount.westus.batch.azure.com` |
 | AZ_BATCH_APP_PACKAGE            | Ett prefix för alla miljövariabler för app-paket. Om till exempel program "foo" version "1" är installerad på en pool är miljövariabeln AZ_BATCH_APP_PACKAGE_FOO_1. AZ_BATCH_APP_PACKAGE_FOO_1 pekar på den plats där paketet hämtades (en mapp). | Alla aktiviteter med tillhör ande appaket. Även tillgängligt för alla aktiviteter om själva noden har programpaket. | AZ_BATCH_APP_PACKAGE_FOO_1 |
 | AZ_BATCH_AUTHENTICATION_TOKEN   | En autentiseringstoken som ger åtkomst till en begränsad uppsättning batch service-åtgärder. Den här miljövariabeln finns bara om [authenticationTokenSettings](/rest/api/batchservice/task/add#authenticationtokensettings) anges när [uppgiften läggs till](/rest/api/batchservice/task/add#request-body). Värdet för token används i batch-API: erna som autentiseringsuppgifter för att skapa en batch-klient, till exempel i [metoden batchclient. Open () .NET-API: et](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.batchclient.open#Microsoft_Azure_Batch_BatchClient_Open_Microsoft_Azure_Batch_Auth_BatchTokenCredentials_). | Alla aktiviteter. | OAuth2-åtkomsttoken |
-| AZ_BATCH_CERTIFICATES_DIR       | En katalog i [arbets katalogen för aktiviteter][files_dirs] där certifikat lagras för Linux Compute-noder. Observera att denna miljö variabel inte gäller för Windows Compute-noder.                                                  | Alla aktiviteter.   |  /mnt/batch/tasks/workitems/batchjob001/job-1/task001/certs |
+| AZ_BATCH_CERTIFICATES_DIR       | En katalog i [arbets katalogen för aktiviteter][files_dirs] där certifikat lagras för Linux Compute-noder. Denna miljö variabel gäller inte för Windows Compute-noder.                                                  | Alla aktiviteter.   |  /mnt/batch/tasks/workitems/batchjob001/job-1/task001/certs |
 | AZ_BATCH_HOST_LIST              | Listan över noder som har tilldelats en [aktivitet med flera instanser][multi_instance] i formatet `nodeIP,nodeIP`. | Primär-och under aktiviteter med flera instanser. | `10.0.0.4,10.0.0.5` |
 | AZ_BATCH_IS_CURRENT_NODE_MASTER | Anger om den aktuella noden är huvud-noden för en [aktivitet med flera instanser][multi_instance]. Möjliga värden är `true` och `false`.| Primär-och under aktiviteter med flera instanser. | `true` |
 | AZ_BATCH_JOB_ID                 | ID:t för jobbet som aktiviteten hör till. | Alla aktiviteter förutom start aktivitet. | batchjob001 |
@@ -61,6 +61,7 @@ Kommando raderna som körs av aktiviteter på datornoderna körs inte under ett 
 | AZ_BATCH_NODE_ID                | ID: t för noden som uppgiften är tilldelad till. | Alla aktiviteter. | tvm-1219235766_3-20160919t172711z |
 | AZ_BATCH_NODE_IS_DEDICATED      | Om `true`är den aktuella noden en dedikerad nod. Om `false`är det en [nod med låg prioritet](batch-low-pri-vms.md). | Alla aktiviteter. | `true` |
 | AZ_BATCH_NODE_LIST              | Listan över noder som har tilldelats en [aktivitet med flera instanser][multi_instance] i formatet `nodeIP;nodeIP`. | Primär-och under aktiviteter med flera instanser. | `10.0.0.4;10.0.0.5` |
+| AZ_BATCH_NODE_MOUNTS_DIR        | Den fullständiga sökvägen till [fil systemets monterings](virtual-file-mount.md) plats där alla monterings kataloger finns. Windows-filresurser använder en enhets beteckning, så för Windows är monterings enheten en del av enheterna och enheterna.  |  Alla aktiviteter, inklusive start aktiviteten har åtkomst till användaren, eftersom användaren är medveten om monterings behörigheterna för den monterade katalogen. | I Ubuntu är till exempel platsen:`/mnt/batch/tasks/fsmounts` |
 | AZ_BATCH_NODE_ROOT_DIR          | Den fullständiga sökvägen till roten för alla [batch-kataloger][files_dirs] på noden. | Alla aktiviteter. | C:\user\tasks |
 | AZ_BATCH_NODE_SHARED_DIR        | Den fullständiga sökvägen till den [delade katalogen][files_dirs] på noden. Alla aktiviteter som körs på en nod har Läs-/Skriv behörighet till den här katalogen. Aktiviteter som körs på andra noder har inte fjärråtkomst till den här katalogen (den är inte en delad nätverks katalog). | Alla aktiviteter. | C:\user\tasks\shared |
 | AZ_BATCH_NODE_STARTUP_DIR       | Den fullständiga sökvägen till [Start aktivitets katalogen][files_dirs] på noden. | Alla aktiviteter. | C:\user\tasks\startup |

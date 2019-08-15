@@ -1,21 +1,21 @@
 ---
 title: Ta bort avbildnings resurser i Azure Container Registry
-description: Information om hur du effektivt hanterar register storlek genom att ta bort behållar avbildnings data.
+description: Information om hur du effektivt hanterar register storlek genom att ta bort behållar avbildnings data med hjälp av Azure CLI-kommandon.
 services: container-registry
 author: dlepow
 manager: gwallace
 ms.service: container-registry
 ms.topic: article
-ms.date: 06/17/2019
+ms.date: 07/31/2019
 ms.author: danlep
-ms.openlocfilehash: eaf3b3e591ca2ddbd29fd5547d334ef90b24fc5e
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 12c1b5f9fa9620622b31f22c701d58ae237bcbf2
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68309647"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035151"
 ---
-# <a name="delete-container-images-in-azure-container-registry"></a>Ta bort behållar avbildningar i Azure Container Registry
+# <a name="delete-container-images-in-azure-container-registry-using-the-azure-cli"></a>Ta bort behållar avbildningar i Azure Container Registry med Azure CLI
 
 För att upprätthålla storleken på ditt Azure Container Registry bör du regelbundet ta bort inaktuella avbildnings data. Vissa behållar avbildningar som distribueras till produktion kan kräva lagring på längre sikt, men andra kan vanligt vis tas bort snabbare. I ett automatiserat build-och test scenario kan du till exempel snabbt fylla i registret med avbildningar som aldrig har distribuerats, och de kan tas bort strax efter att du har slutfört build-och test-passet.
 
@@ -113,7 +113,7 @@ az acr repository show-manifests --name <acrName> --repository <repositoryName> 
 När du har identifierat inaktuella manifest sammandrag kan du köra följande bash-skript för att ta bort manifest sammandrag som är äldre än en angiven tidsstämpel. Det kräver Azure CLI och **xargs**. Som standard utför skriptet ingen borttagning. Ändra värdet till `true` för att aktivera borttagning av bilder. `ENABLE_DELETE`
 
 > [!WARNING]
-> Använd följande exempel skript med varning-borttagna bilddata kan inte ÅTERSTÄLLAs. Om du har system som hämtar bilder av manifest sammandrag (i stället för avbildnings namn) bör du inte köra dessa skript. Om du tar bort manifest sammanfattningarna hindras dessa system från att hämta avbildningarna från registret. Överväg att använda ett unikt taggnings schema i stället för att hämta ett *unikt taggnings* schema, en [rekommenderad metod][tagging-best-practices]. 
+> Använd följande exempel skript med varning-borttagna bilddata kan inte ÅTERSTÄLLAs. Om du har system som hämtar bilder av manifest sammandrag (i stället för avbildnings namn) bör du inte köra dessa skript. Om du tar bort manifest sammanfattningarna hindras dessa system från att hämta avbildningarna från registret. Överväg att använda ett unikt taggnings schema i stället för att hämta ett *unikt taggnings* schema, en [rekommenderad metod](container-registry-image-tag-version.md). 
 
 ```bash
 #!/bin/bash
@@ -148,7 +148,7 @@ fi
 
 ## <a name="delete-untagged-images"></a>Ta bort otaggade bilder
 
-Som vi nämnt i avsnittet [manifest Sammanfattning](container-registry-concepts.md#manifest-digest) skickar du en ändrad avbildning med hjälp av en  befintlig tagg som avtaggar den tidigare publicerade avbildningen, vilket resulterar i en överbliven (eller "Dangling") bild. Den tidigare publicerade avbildningens manifest – och dess lager data – finns kvar i registret. Tänk på följande händelser:
+Som vi nämnt i avsnittet [manifest Sammanfattning](container-registry-concepts.md#manifest-digest) skickar du en ändrad avbildning med hjälp av en befintlig tagg som avtaggar den tidigare publicerade avbildningen, vilket resulterar i en överbliven (eller "Dangling") bild. Den tidigare publicerade avbildningens manifest – och dess lager data – finns kvar i registret. Tänk på följande händelser:
 
 1. Push *-avbildning ACR-HelloWorld* med tagga **senaste**:`docker push myregistry.azurecr.io/acr-helloworld:latest`
 1. Kontrol lera manifest för databasen *ACR-HelloWorld*:
@@ -201,7 +201,7 @@ az acr repository show-manifests --name <acrName> --repository <repositoryName> 
 Med det här kommandot i ett skript kan du ta bort alla otaggade bilder i en lagrings plats.
 
 > [!WARNING]
-> Använd följande exempel skript med varning – borttagna bilddata kan inte ÅTERSTÄLLAs. Om du har system som hämtar bilder av manifest sammandrag (i stället för avbildnings namn) bör du inte köra dessa skript. Om du tar bort otaggade bilder så förhindras dessa system från att hämta avbildningarna från registret. Överväg att använda ett unikt taggnings schema i stället för att hämta ett *unikt taggnings* schema, en [rekommenderad metod][tagging-best-practices].
+> Använd följande exempel skript med varning – borttagna bilddata kan inte ÅTERSTÄLLAs. Om du har system som hämtar bilder av manifest sammandrag (i stället för avbildnings namn) bör du inte köra dessa skript. Om du tar bort otaggade bilder så förhindras dessa system från att hämta avbildningarna från registret. Överväg att använda ett unikt taggnings schema i stället för att hämta ett *unikt taggnings* schema, en [rekommenderad metod](container-registry-image-tag-version.md).
 
 **Azure CLI i bash**
 
@@ -260,6 +260,10 @@ if ($enableDelete) {
 }
 ```
 
+## <a name="automatically-purge-tags-and-manifests-preview"></a>Rensa Taggar och manifest automatiskt (för hands version)
+
+Som ett alternativ till skript för Azure CLI-kommandon kör du en aktivitet på begäran eller en schemalagd ACR för att ta bort alla Taggar som är äldre än en viss varaktighet eller matchar ett angivet namn filter. Mer information finns i [Rensa avbildningar automatiskt från ett Azure Container Registry](container-registry-auto-purge.md).
+
 ## <a name="next-steps"></a>Nästa steg
 
 Mer information om avbildnings lagring i Azure Container Registry se [lagring för behållar avbildningar i Azure Container Registry](container-registry-storage.md).
@@ -270,7 +274,6 @@ Mer information om avbildnings lagring i Azure Container Registry se [lagring f�
 <!-- LINKS - External -->
 [docker-manifest-inspect]: https://docs.docker.com/edge/engine/reference/commandline/manifest/#manifest-inspect
 [portal]: https://portal.azure.com
-[tagging-best-practices]: https://stevelasker.blog/2018/03/01/docker-tagging-best-practices-for-tagging-and-versioning-docker-images/
 
 <!-- LINKS - Internal -->
 [az-acr-repository-delete]: /cli/azure/acr/repository#az-acr-repository-delete

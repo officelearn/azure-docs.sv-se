@@ -1,29 +1,29 @@
 ---
-title: LINQ till SQL-översättning i Azure Cosmos DB
-description: Mappa LINQ-frågor till Azure Cosmos DB SQL-frågor.
+title: LINQ to SQL översättning i Azure Cosmos DB
+description: Mappar LINQ-frågor till Azure Cosmos DB SQL-frågor.
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: tisande
-ms.openlocfilehash: 057614da8fd29e1208c2788049c5d6d1a985eed5
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: ce9d96a90a2463d1ab8e1a9774a019e38ca681f4
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342787"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036036"
 ---
 # <a name="linq-to-sql-translation"></a>LINQ to SQL-översättning
 
-Azure Cosmos DB-frågeprovider utför en bästa arbete-mappning från en LINQ-fråga till en Cosmos DB SQL-fråga. Följande beskrivning förutsätter en grundläggande kunskaper om LINQ.
+Azure Cosmos DB Query-providern utför en mappning från en LINQ-fråga till en Cosmos DB SQL-fråga. Följande beskrivning förutsätter en grundläggande kunskap om LINQ.
 
-Typsystemet fråga providern stöder endast JSON primitiva typer: numeriska och booleskt, sträng, och null.
+Typ systemet för fråged provider stöder endast JSON primitiva typer: numeric, Boolean, String och null.
 
-Fråga providern har stöd för följande skalära uttryck:
+Frågans provider stöder följande skalära uttryck:
 
-- Konstanta värden, inklusive konstanta värden för de primitiva datatyperna vid frågetiden för utvärdering.
+- Konstanta värden, inklusive konstanta värden för primitiva data typer vid frågans utvärderings tid.
   
-- Egenskapen/matris indexuttryck som refererar till egenskapen för ett objekt eller ett matriselement. Exempel:
+- Index uttryck för egenskap/mat ris som refererar till egenskapen för ett objekt eller ett mat ris element. Exempel:
   
   ```
     family.Id;
@@ -32,21 +32,21 @@ Fråga providern har stöd för följande skalära uttryck:
     family.children[n].grade; //n is an int variable
   ```
   
-- Aritmetiska uttryck, inklusive vanliga matematiska uttryck på numeriska och booleska värden. Fullständig lista finns i den [Azure Cosmos DB SQL-specifikationen](https://go.microsoft.com/fwlink/p/?LinkID=510612).
+- Aritmetiska uttryck, inklusive vanliga aritmetiska uttryck för numeriska och booleska värden. En fullständig lista finns i [Azure Cosmos DB SQL](https://go.microsoft.com/fwlink/p/?LinkID=510612)-specifikationen.
   
   ```
     2 * family.children[0].grade;
     x + y;
   ```
   
-- Sträng jämförelseuttryck bland annat jämför ett strängvärde till vissa konstant strängvärde.  
+- Sträng jämförelse uttryck, som inkluderar jämförelse av ett sträng värde till ett konstant sträng värde.  
   
   ```
     mother.familyName == "Wakefield";
     child.givenName == s; //s is a string variable
   ```
   
-- Objektmatris/skapande uttryck som returnerar ett objekt av typ sammansatt värde eller anonym typ eller en matris med sådana objekt. Du kan kapsla dessa värden.
+- Uttryck för att skapa objekt/matris, som returnerar ett objekt av sammansatt värde typ eller anonym typ, eller en matris med sådana objekt. Du kan kapsla dessa värden.
   
   ```
     new Parent { familyName = "Wakefield", givenName = "Robin" };
@@ -56,31 +56,31 @@ Fråga providern har stöd för följande skalära uttryck:
 
 ## <a id="SupportedLinqOperators"></a>LINQ-operatorer som stöds
 
-LINQ-provider som ingår i SQL .NET SDK stöder följande operatorer:
+LINQ-providern som ingår i SQL .NET SDK stöder följande operatorer:
 
-- **Select**: Projektioner översätts till SQL SELECT, inklusive objektkonstruktion.
-- **Where**: Filter översätter till SQL WHERE och stöd mellan `&&`, `||`, och `!` till SQL-operatorer
-- **SelectMany**: Tillåter uppspolning av matriser till SQL JOIN-satsen. Använd för att länka eller kapsla uttryck för att filtrera på matriselement.
-- **OrderBy** och **OrderByDescending**: Omvandla till ORDER BY-med ASC eller DESC.
+- **Select**: Projektioner översätts till SQL SELECT, inklusive objekt konstruktion.
+- **Where**: Filter översätts till SQL WHERE, och stöder `&&`översättning `||`mellan, `!` , och till SQL-operatörerna
+- **SelectMany**: Tillåter uppspolning av matriser till SQL JOIN-satsen. Används för att kedja eller kapsla uttryck för att filtrera på mat ris element.
+- **OrderBy** och **OrderByDescending**: Översätt till ORDER BY med ASC eller DESC.
 - Operatorerna **Count**, **Sum**, **Min**, **Max** och **Average** för sammansättning och deras async-motsvarigheter **CountAsync**, **SumAsync**, **MinAsync**, **MaxAsync** och **AverageAsync**.
-- **CompareTo**: Översätts till intervalljämförelser. Används vanligtvis för strängar, eftersom de inte är jämförbar i .NET.
-- **Take**: Översätts till SQL längst upp för att begränsa resultaten av en fråga.
-- **Matematikfunktioner**: Har stöd för översättning från .NET `Abs`, `Acos`, `Asin`, `Atan`, `Ceiling`, `Cos`, `Exp`, `Floor`, `Log`, `Log10`, `Pow`, `Round`, `Sign`, `Sin`, `Sqrt`, `Tan`, och `Truncate` till motsvarande SQL inbyggda funktioner.
-- **Sträng funktioner**: Har stöd för översättning från .NET `Concat`, `Contains`, `Count`, `EndsWith`,`IndexOf`, `Replace`, `Reverse`, `StartsWith`, `SubString`, `ToLower`, `ToUpper`, `TrimEnd`, och `TrimStart` till motsvarande SQL inbyggda funktioner.
-- **Matrisen funktioner**: Har stöd för översättning från .NET `Concat`, `Contains`, och `Count` till motsvarande SQL inbyggda funktioner.
-- **Tillägg för geospatiala funktioner**: Har stöd för översättning av stub-metoder `Distance`, `IsValid`, `IsValidDetailed`, och `Within` till motsvarande SQL inbyggda funktioner.
-- **En användardefinierad funktion tilläggsfunktion**: Har stöd för översättning från metoden stub- `UserDefinedFunctionProvider.Invoke` till motsvarande användardefinierade funktionen.
-- **Miscellaneous** (Övrigt): Har stöd för översättning av `Coalesce` och villkorlig operatörer. Kan översätta `Contains` strängen innehåller, ARRAY_CONTAINS eller IN-SQL, beroende på kontext.
+- **CompareTo**: Översätts till intervalljämförelser. Används ofta för strängar, eftersom de inte är jämförbara i .NET.
+- **Take**: Översätter till SQL TOP för att begränsa resultat från en fråga.
+- **Matematik funktioner**: Stöder översättning från .NET `Abs`, `Acos` `Atan` ,`Ceiling` ,,`Cos`, ,,`Log`,, ,,`Log10` `Exp` `Floor` `Pow` `Asin` `Round`, `Sign`, ,,`Sin`och tillmotsvarandeinbyggda`Truncate` SQL-funktioner. `Sqrt` `Tan`
+- **Sträng funktioner**: Stöder översättning från .NET `Concat`, `Contains` `EndsWith`,`IndexOf` ,,`Replace`, ,,`SubString`,, ,,`ToLower` `Reverse` `StartsWith` `ToUpper` `Count` `TrimEnd`, och `TrimStart` till motsvarande inbyggda SQL-funktioner.
+- **Mat ris funktioner**: Stöder översättning från .net `Concat`, `Contains`och `Count` till motsvarande inbyggda SQL-funktioner.
+- **Geospatiala utöknings funktioner**: Stöder översättning från stub- `Distance`metoder `IsValid` `IsValidDetailed`,,, `Within` och till motsvarande inbyggda SQL-funktioner.
+- **Användardefinierad funktions utöknings funktion**: Stöder översättning från stub-metoden `UserDefinedFunctionProvider.Invoke` till motsvarande användardefinierad funktion.
+- **Miscellaneous** (Övrigt): Stöder översättning av `Coalesce` och villkorliga operatorer. Kan översättas `Contains` till String innehåller, ARRAY_CONTAINS eller SQL i, beroende på kontext.
 
 ## <a name="examples"></a>Exempel
 
-I följande exempel visas hur några av standard LINQ-frågeoperatorer översätta på Cosmos DB-frågor.
+I följande exempel visas hur några av de standardiserade LINQ Query-operatörerna översätts till Cosmos DB frågor.
 
 ### <a name="select-operator"></a>Välj operator
 
 Syntaxen är `input.Select(x => f(x))`, där `f` är ett skalärt uttryck.
 
-**Välj operator, exempel 1:**
+**Välj operatör, exempel 1:**
 
 - **LINQ-lambdauttryck**
   
@@ -95,7 +95,7 @@ Syntaxen är `input.Select(x => f(x))`, där `f` är ett skalärt uttryck.
       FROM Families f
     ```
   
-**Välj operator, exempel 2:** 
+**Välj Operator, exempel 2:** 
 
 - **LINQ-lambdauttryck**
   
@@ -110,7 +110,7 @@ Syntaxen är `input.Select(x => f(x))`, där `f` är ett skalärt uttryck.
       FROM Families f
   ```
   
-**Välj operator, exempel 3:**
+**Välj Operator, exempel 3:**
 
 - **LINQ-lambdauttryck**
   
@@ -151,7 +151,7 @@ Syntaxen är `input.SelectMany(x => f(x))`, där `f` är ett skalärt uttryck so
 
 Syntaxen är `input.Where(x => f(x))`, där `f` är ett skalärt uttryck som returnerar ett booleskt värde.
 
-**Där operatör, exempel 1:**
+**Where-Operator, exempel 1:**
 
 - **LINQ-lambdauttryck**
   
@@ -167,7 +167,7 @@ Syntaxen är `input.Where(x => f(x))`, där `f` är ett skalärt uttryck som ret
       WHERE f.parents[0].familyName = "Wakefield"
   ```
   
-**Där operatör, exempel 2:**
+**Where-Operator, exempel 2:**
 
 - **LINQ-lambdauttryck**
   
@@ -188,19 +188,19 @@ Syntaxen är `input.Where(x => f(x))`, där `f` är ett skalärt uttryck som ret
 
 ## <a name="composite-sql-queries"></a>Sammansatta SQL-frågor
 
-Du kan skapa föregående operatorer för att skapa mer kraftfulla frågor. Eftersom Cosmos DB stöder kapslade behållare, kan du sammanfoga eller kapsla sammansättning.
+Du kan skapa föregående operatorer för att bilda mer kraftfulla frågor. Eftersom Cosmos DB stöder kapslade behållare kan du sammanfoga eller kapsla sammansättningen.
 
 ### <a name="concatenation"></a>Sammanfogning
 
-Syntaxen är `input(.|.SelectMany())(.Select()|.Where())*`. En sammansatt fråga kan börja med en valfri `SelectMany` fråga, följt av flera `Select` eller `Where` operatörer.
+Syntaxen är `input(.|.SelectMany())(.Select()|.Where())*`. En sammanfogad fråga kan börja med en valfri `SelectMany` fråga, följt av flera `Select` eller `Where` -operatorer.
 
-**Sammanfoga, exempel 1:**
+**Sammanfogning, exempel 1:**
 
 - **LINQ-lambdauttryck**
   
   ```csharp
-      input.Select(family=>family.parents[0])
-          .Where(familyName == "Wakefield");
+      input.Select(family => family.parents[0])
+          .Where(parent => parent.familyName == "Wakefield");
   ```
 
 - **SQL**
@@ -211,7 +211,7 @@ Syntaxen är `input(.|.SelectMany())(.Select()|.Where())*`. En sammansatt fråga
       WHERE f.parents[0].familyName = "Wakefield"
   ```
 
-**Sammanfoga exempel 2:**
+**Sammanfogning, exempel 2:**
 
 - **LINQ-lambdauttryck**
   
@@ -228,7 +228,7 @@ Syntaxen är `input(.|.SelectMany())(.Select()|.Where())*`. En sammansatt fråga
       WHERE f.children[0].grade > 3
   ```
 
-**Sammanfoga exempel 3:**
+**Sammanfogning, exempel 3:**
 
 - **LINQ-lambdauttryck**
   
@@ -245,7 +245,7 @@ Syntaxen är `input(.|.SelectMany())(.Select()|.Where())*`. En sammansatt fråga
       WHERE ({grade: f.children[0].grade}.grade > 3)
   ```
 
-**Sammanfoga exempel 4:**
+**Sammanfogning, exempel 4:**
 
 - **LINQ-lambdauttryck**
   
@@ -264,9 +264,9 @@ Syntaxen är `input(.|.SelectMany())(.Select()|.Where())*`. En sammansatt fråga
 
 ### <a name="nesting"></a>Kapsling
 
-Syntaxen är `input.SelectMany(x=>x.Q())` där `Q` är en `Select`, `SelectMany`, eller `Where` operator.
+Syntaxen är `input.SelectMany(x=>x.Q())` där `Q` är en `Select`, `SelectMany`-eller `Where` -operator.
 
-En kapslad fråga gäller den inre frågan för varje element i behållaren yttre. En viktig funktion är att den inre frågan kan referera till fält i element i behållaren yttre som en självkoppling.
+En kapslad fråga använder den inre frågan för varje element i den yttre behållaren. En viktig funktion är att den inre frågan kan referera till fälten för elementen i den yttre behållaren, t. ex. en själv koppling.
 
 **Kapsling, exempel 1:**
 
@@ -325,4 +325,4 @@ En kapslad fråga gäller den inre frågan för varje element i behållaren yttr
 ## <a name="next-steps"></a>Nästa steg
 
 - [Azure Cosmos DB .NET-exempel](https://github.com/Azure/azure-cosmosdb-dotnet)
-- [Modelldokumentdata](modeling-data.md)
+- [Modell dokument data](modeling-data.md)

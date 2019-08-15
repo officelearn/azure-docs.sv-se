@@ -10,16 +10,16 @@ ms.subservice: translator-text
 ms.topic: tutorial
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: b929d0c0da2a812a1c8595536f09931e4edd0fd9
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: f8488195ed9e115843c2dc551af52d5da010ffe7
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68594915"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036760"
 ---
 # <a name="tutorial-create-a-translation-app-with-wpf"></a>Självstudier: Skapa en översättningsapp med WPF
 
-I den här självstudien skapar du en [WPF-app (Windows Presentation Foundation)](https://docs.microsoft.com/visualstudio/designers/getting-started-with-wpf?view=vs-2017) som använder Azure Cognitive Service för textöversättning, språkidentifiering och stavningskontroll med en enda prenumerationsnyckel. Specifikt kommer appen att anropa API:er från Translator Text och [Stavningskontroll i Bing](https://azure.microsoft.com/services/cognitive-services/spell-check/).
+I den här självstudien skapar du en [WPF-app (Windows Presentation Foundation)](https://docs.microsoft.com/visualstudio/designers/getting-started-with-wpf?view=vs-2019) som använder Azure Cognitive Service för textöversättning, språkidentifiering och stavningskontroll med en enda prenumerationsnyckel. Specifikt kommer appen att anropa API:er från Translator Text och [Stavningskontroll i Bing](https://azure.microsoft.com/services/cognitive-services/spell-check/).
 
 Vad är WPF? Det är ett användargränssnittsramverk som skapar appar för skrivbordsklient. WPF-utvecklingsplattformen har stöd för många olika funktioner för apputveckling, däribland en appmodell, resurser, kontroller, grafik, layout, databindning, dokument och säkerhet. Det är en delmängd av .NET Framework, så om du tidigare har skapat appar med .NET Framework med hjälp av ASP.NET eller Windows Forms bör programmeringen kännas bekant. WPF använder XAML (Extensible Application Markup Language) för att tillhandahålla en deklarativ modell för programmering av appar, vilket vi går igenom i kommande avsnitt.
 
@@ -50,7 +50,7 @@ Innan vi fortsätter behöver du följande:
 
 * En Azure Cognitive Services-prenumeration. [Hämta en Cognitive Services-nyckel](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#multi-service-resource).
 * En Windows-dator
-* [Visual Studio 2017](https://www.visualstudio.com/downloads/) – Community eller Enterprise
+* [Visual Studio 2019](https://www.visualstudio.com/downloads/) – community eller företag
 
 > [!NOTE]
 > Vi rekommenderar att du skapar prenumerationen i regionen USA, västra för den här självstudien. I annat fall behöver du ändra slutpunkter och regioner i koden allt eftersom du går igenom den här övningen.  
@@ -59,14 +59,16 @@ Innan vi fortsätter behöver du följande:
 
 Det första vi behöver göra är att konfigurera projektet i Visual Studio.
 
-1. Öppna Visual Studio. Välj sedan **Arkiv > Nytt > Projekt**.
-2. I den vänstra panelen letar du upp och väljer **Visual C#** . Välj sedan **WPF-App (.NET Framework)** i mittenpanelen.
-   ![Skapa en WPF-app i Visual Studio](media/create-wpf-project-visual-studio.png)
-3. Namnge projektet `MSTranslatorTextDemo`, ange Ramverks versionen till **.NET Framework 4.5.2 eller senare**och klicka sedan på **OK**.
-4. Projektet har skapats. Lägg märke till att det finns två flikar öppna: `MainWindow.xaml` och `MainWindow.xaml.cs`. I den här självstudien lägger vi till kod i de här två filerna. Den första är till för appens användargränssnitt, och den andra är till för anropen till Translator Text och Stavningskontroll i Bing.
+1. Öppna Visual Studio. Välj **skapa ett nytt projekt**.
+1. I **skapa ett nytt projekt**letar du reda på och väljer **WPF-appen (.NET Framework)** . Du kan välja C# mellan **språk** för att begränsa alternativen.
+1. Välj **Nästa**och namnge ditt projekt `MSTranslatorTextDemo`.
+1. Ange Ramverks versionen till **.NET Framework 4.7.2** eller senare och välj **skapa**.
+   ![Ange namn och Ramverks version i Visual Studio](media/name-wpf-project-visual-studio.png)
+
+Projektet har skapats. Lägg märke till att det finns två flikar öppna: `MainWindow.xaml` och `MainWindow.xaml.cs`. I den här självstudien lägger vi till kod i de här två filerna. Vi kommer att `MainWindow.xaml` ändra för appens användar gränssnitt. Vi kommer att `MainWindow.xaml.cs` ändra för våra samtal till Translator text och stavningskontroll i Bing.
    ![Granska din miljö](media/blank-wpf-project.png)
 
-I nästa avsnitt lägger vi till sammansättningar och ett NuGet-paket i projektet för ytterligare funktioner såsom JSON-parsning.
+I nästa avsnitt ska vi lägga till sammansättningar och ett NuGet-paket till vårt projekt för ytterligare funktioner, som JSON-parsning.
 
 ## <a name="add-references-and-nuget-packages-to-your-project"></a>Lägga till referenser och NuGet-paket i projektet
 
@@ -76,28 +78,31 @@ Projektet kräver ett antal .NET Framework-sammansättningar och NewtonSoft.Json
 
 Vi lägger till sammansättningar i projektet för att serialisera och deserialisera objekt och för att hantera HTTP-begäranden och -svar.
 
-1. Leta upp projektet i Solution Explorer i Visual Studio (högra panelen). Högerklicka på projektet och välj sedan **Lägg till > Referens...** , vilket öppnar **Reference Manager**.
-   ![Lägga till sammansättningsreferenser](media/add-assemblies-sample.png)
-2. Fliken med sammansättningar visar alla .NET Framework-sammansättningar som är tillgängliga för referens. Använd sökfältet längst upp till höger på skärmen för att söka efter dessa referenser och lägg till dem i projektet:
+1. Leta upp projektet i Visual Studios Solution Explorer. Högerklicka på projektet och välj sedan **Lägg till > referens**som öppnar **referens hanteraren**.
+1. Fliken **sammansättningar** visar alla .NET Framework sammansättningar som är tillgängliga för referens. Använd Sök fältet i det övre högra hörnet för att söka efter referenser.
+   ![Lägga till sammansättningsreferenser](media/add-assemblies-2019.png)
+1. Välj följande referenser för ditt projekt:
    * [System.Runtime.Serialization](https://docs.microsoft.com/dotnet/api/system.runtime.serialization)
    * [System.Web](https://docs.microsoft.com/dotnet/api/system.web)
-   * [System.Web.Extensions](https://docs.microsoft.com/dotnet/api/system.web)
+   * System.Web.Extensions
    * [System.Windows](https://docs.microsoft.com/dotnet/api/system.windows)
-3. När du har lagt till dessa referenser i projektet kan du klicka på **OK** för att stänga **Reference Manager**.
+1. När du har lagt till dessa referenser i projektet kan du klicka på **OK** för att stänga **Reference Manager**.
 
 > [!NOTE]
-> Mer information om sammansättningsreferenser finns i [How to: Add or remove reference using the Reference Manager](https://docs.microsoft.com/visualstudio/ide/how-to-add-or-remove-references-by-using-the-reference-manager?view=vs-2017) (Anvisningar: Lägga till eller ta bort referens med hjälp av Reference Manager).
+> Mer information om sammansättningsreferenser finns i [How to: Add or remove reference using the Reference Manager](https://docs.microsoft.com/visualstudio/ide/how-to-add-or-remove-references-by-using-the-reference-manager?view=vs-2019) (Anvisningar: Lägga till eller ta bort referens med hjälp av Reference Manager).
 
 ### <a name="install-newtonsoftjson"></a>Installera NewtonSoft.Json
 
 Appen använder NewtonSoft.Json för att deserialisera JSON-objekt. Följ dessa instruktioner för att installera paketet.
 
-1. Leta upp projektet i Solution Explorer i Visual Studio och högerklicka på projektet. Välj **Hantera NuGet-paket...**
-2. Leta upp och välj fliken **Bläddra**.
-3. Skriv [NewtonSoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) i sökfältet.
-   ![Leta upp och installera Newtonsoft.Json](media/add-nuget-packages.png)
-4. Välj paketet och klicka på **Installera**.
-5. När installationen är klar stänger du fliken.
+1. Leta upp projektet i Visual Studios Solution Explorer och högerklicka på ditt projekt. Välj **Hantera NuGet-paket**.
+1. Leta upp och välj fliken **Bläddra**.
+1. Ange [NewtonSoft. JSON](https://www.nuget.org/packages/Newtonsoft.Json/) i Sök fältet.
+
+    ![Hitta och installera NewtonSoft. JSON](media/nuget-package-manager.png)
+
+1. Välj paketet och klicka på **Installera**.
+1. När installationen är klar stänger du fliken.
 
 ## <a name="create-a-wpf-form-using-xaml"></a>Skapa ett WPF-formulär med hjälp av XAML
 
@@ -107,9 +112,9 @@ Vi tar en titt på vad vi skapar.
 
 ![WPF XAML-användargränssnitt](media/translator-text-csharp-xaml.png)
 
-Användargränssnittet innehåller följande komponenter:
+Användar gränssnittet innehåller följande komponenter:
 
-| Namn | Typ | Beskrivning |
+| Name | Typ | Beskrivning |
 |------|------|-------------|
 | `FromLanguageComboBox` | ComboBox (Kombinationsruta) | Visar en lista över de språk som stöds av Microsoft Translator för textöversättning. Användaren väljer det språk som översättningen görs från. |
 | `ToLanguageComboBox` | ComboBox (Kombinationsruta) | Visar samma lista över språk som `FromComboBox` men används för att välja det språk som användaren översätter till. |
@@ -124,7 +129,7 @@ Användargränssnittet innehåller följande komponenter:
 Vi tar och lägger till koden i projektet.
 
 1. I Visual Studio väljer du fliken för `MainWindow.xaml`.
-2. Kopiera den här koden till projektet och spara.
+1. Kopiera den här koden till projektet och välj sedan **fil > Spara MainWindow. XAML** för att spara ändringarna.
    ```xaml
    <Window x:Class="MSTranslatorTextDemo.MainWindow"
            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -159,7 +164,7 @@ Vi tar och lägger till koden i projektet.
        </Grid>
    </Window>
    ```
-3. Du bör nu se en förhandsgranskning av appens användargränssnitt i Visual Studio. Det bör se ut ungefär som på bilden ovan.
+Du bör nu se en förhandsgranskning av appens användargränssnitt i Visual Studio. Det bör se ut ungefär som på bilden ovan.
 
 Det var allt – formuläret är klart. Nu ska vi skriva kod för att använda textöversättning och Stavningskontroll i Bing.
 
@@ -179,7 +184,7 @@ Det var allt – formuläret är klart. Nu ska vi skriva kod för att använda t
 Hela projektet är inkapslat i klassen `MainWindow : Window`. Vi börjar med att lägga till kod för att ange prenumerationsnyckeln, deklarera slutpunkter för Translator Text och stavningskontroll i Bing samt för att initiera appen.
 
 1. I Visual Studio väljer du fliken för `MainWindow.xaml.cs`.
-2. Ersätt de förifyllda `using`-instruktionerna med följande.  
+1. Ersätt de förifyllda `using`-instruktionerna med följande.  
    ```csharp
    using System;
    using System.Windows;
@@ -191,7 +196,7 @@ Hela projektet är inkapslat i klassen `MainWindow : Window`. Vi börjar med att
    using System.Text;
    using Newtonsoft.Json;
    ```
-3. Leta upp klassen `MainWindow : Window` och ersätt den med den här koden:
+1. Leta upp klassen `MainWindow : Window` och ersätt den med den här koden:
    ```csharp
    {
        // This sample uses the Cognitive Services subscription key for all services. To learn more about
@@ -241,16 +246,16 @@ Hela projektet är inkapslat i klassen `MainWindow : Window`. Vi börjar med att
    // In the following sections, we'll add code below this.
    }
    ```
-   1. Lägg till din Cognitive Services-prenumerationsnyckel och spara.
+1. Lägg till din Cognitive Services-prenumerationsnyckel och spara.
 
 I det här kodblocket har vi deklarerat två medlemsvariabler som innehåller information om tillgängliga språk för översättning:
 
 | Variabel | type | Beskrivning |
 |----------|------|-------------|
-|`languageCodes` | Matris med strängar |Cachelagrar språkkoderna. Translator-tjänsten använder korta koder som `en` för engelska, för att identifiera språk. |
+|`languageCodes` | matris med strängar |Cachelagrar språkkoderna. Translator-tjänsten använder korta koder som `en` för engelska, för att identifiera språk. |
 |`languageCodesAndTitles` | Sorterad ordlista | Mappar ”egna” namn i användargränssnittet tillbaka till de korta koderna som används i API:et. Sorteras alfabetiskt utan hänsyn till skiftläge. |
 
-I `MainWindow`-konstruktorn har vi sedan lagt till felhantering med `HandleExceptions`. Det här säkerställer att en avisering ges om ett undantag inte hanteras. Sedan körs en kontroll för att bekräfta att den prenumerationsnyckel som har angetts har en längt på 32 tecken. Ett fel utlöses om nyckeln är mindre/större än 32 tecken.
+I `MainWindow`-konstruktorn har vi sedan lagt till felhantering med `HandleExceptions`. Den här fel hanteringen säkerställer att en avisering anges om ett undantag inte hanteras. Sedan körs en kontroll för att bekräfta att den prenumerationsnyckel som har angetts har en längt på 32 tecken. Ett fel utlöses om nyckeln är mindre/större än 32 tecken.
 
 Om det finns nycklar som åtminstone har rätt längd sätter `InitializeComponent()`-anropet igång användargränssnittet genom att hitta, läsa in och instansiera XAML-beskrivningen av appens huvudfönster.
 
@@ -323,7 +328,7 @@ JSON-svaret parsas och konverteras till en ordlista. Sedan läggs språkkoderna 
 
 ## <a name="populate-language-drop-down-menus"></a>Fylla i de nedrullningsbara menyerna med språk
 
-Användargränssnittet definieras med hjälp av XAML, så du behöver inte göra mycket för att konfigurera det utöver att anropa `InitializeComponent()`. Det enda du behöver göra är att lägga till de egna namnen för språk i de nedrullningsbara menyerna **Translate from** (Översätt från) och **Translate to** (Översätt till). Det görs med metoden `PopulateLanguageMenus()`.
+Användargränssnittet definieras med hjälp av XAML, så du behöver inte göra mycket för att konfigurera det utöver att anropa `InitializeComponent()`. Det enda du behöver göra är att lägga till de egna språk namnen på de nedrullningsbara menyerna **Översätt från** och **Översätt till** . `PopulateLanguageMenus()` Metoden lägger till namnen.
 
 1. I Visual Studio öppnar du fliken för `MainWindow.xaml.cs`.
 2. Lägg till den här koden i projektet nedanför metoden `GetLanguagesForTranslate()`:
@@ -413,7 +418,7 @@ Dessutom utvärderar den här metoden förtroendepoäng i svaret. Om poängen ä
 
 ## <a name="spell-check-the-source-text"></a>Stavningskontrollera källtexten
 
-Nu skapar vi en metod för att stavningskontrollera källtexten med hjälp av API:et för stavningskontroll i Bing. Det här säkerställer att vi får tillbaka korrekta översättningar från Translator Text-API:et. Eventuella ändringar i källtexten skickas vidare i översättningsbegäran när knappen **Översätt** klickas.
+Nu skapar vi en metod för att stavningskontrollera källtexten med hjälp av API:et för stavningskontroll i Bing. Stavnings kontroll säkerställer att vi får tillbaka korrekta översättningar från Translator Text API. Eventuella ändringar i källtexten skickas vidare i översättningsbegäran när knappen **Translate** (Översätt) klickas.
 
 1. I Visual Studio öppnar du fliken för `MainWindow.xaml.cs`.
 2. Lägg till den här koden i projektet nedanför metoden `DetectLanguage()`:
@@ -480,7 +485,7 @@ private string CorrectSpelling(string text)
 Det sista vi behöver göra är att skapa en metod som anropas när knappen **Översätt** klickas i användargränssnittet.
 
 1. I Visual Studio öppnar du fliken för `MainWindow.xaml.cs`.
-2. Lägg till den här koden i projektet nedanför metoden `CorrectSpelling()` och spara:  
+1. Lägg till den här koden i projektet nedanför metoden `CorrectSpelling()` och spara:  
    ```csharp
    // ***** PERFORM TRANSLATION ON BUTTON CLICK
    private async void TranslateButton_Click(object sender, EventArgs e)
@@ -537,7 +542,7 @@ Det sista vi behöver göra är att skapa en metod som anropas när knappen **Ö
        {
            request.Method = HttpMethod.Post;
            request.RequestUri = new Uri(uri);
-           request.Content = new StringContent(requestBody, Encoding.UTF8, "app/json");
+           request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
            request.Headers.Add("Ocp-Apim-Subscription-Key", COGNITIVE_SERVICES_KEY);
            request.Headers.Add("Ocp-Apim-Subscription-Region", "westus");
            request.Headers.Add("X-ClientTraceId", Guid.NewGuid().ToString());

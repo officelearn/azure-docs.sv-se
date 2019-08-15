@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 05/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 97e3fcb732e85f8c190a0d6607d85a6ffc8d36a7
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: 6725bbc1978109d2b690a98e2cf98cc8c8c25141
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68370754"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69033002"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn-using-azure-machine-learning"></a>Självstudier: Träna bild klassificerings modeller med MNIST data och scikit – lär dig använda Azure Machine Learning
 
@@ -100,7 +100,7 @@ Skapa ett arbetsyteobjekt från den befintliga arbetsytan. `Workspace.from_confi
 ```python
 # load workspace configuration from the config.json file in the current folder.
 ws = Workspace.from_config()
-print(ws.name, ws.location, ws.resource_group, ws.location, sep='\t')
+print(ws.name, ws.location, ws.resource_group, sep='\t')
 ```
 
 ### <a name="create-an-experiment"></a>Skapa ett experiment
@@ -321,7 +321,7 @@ Observera hur skriptet hämtar data och sparar modeller:
 
 + Träningsskriptet läser ett argument för att hitta katalogen som innehåller data. När du skickar jobbet senare pekar du på datalagret för det här argumentet: ```parser.add_argument('--data-folder', type=str, dest='data_folder', help='data directory mounting point')```
 
-+ Övnings skriptet sparar din modell i en katalog med namnet outputs. Allt som skrivs i den här katalogen överförs automatiskt till din arbetsyta. Du kommer åt din modell från den här katalogen senare i självstudien. `joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')`
++ Övnings skriptet sparar din modell i en katalog mednamnet outputs. Allt som skrivs i den här katalogen överförs automatiskt till din arbetsyta. Du kommer åt din modell från den här katalogen senare i självstudien. `joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')`
 
 + Utbildnings skriptet kräver att filen `utils.py` läser in data mängden korrekt. Följande kod kopieras `utils.py` till `script_folder` så att filen kan nås tillsammans med övnings skriptet på fjär resursen.
 

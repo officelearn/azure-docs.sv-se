@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric CLI - sfctl egenskapen | Microsoft Docs
-description: Beskriver Service Fabric CLI sfctl egenskapen kommandon.
+title: Azure Service Fabric CLI-sfctl-egenskap | Microsoft Docs
+description: Beskriver egenskaps kommandona för Service Fabric CLI-sfctl.
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
@@ -8,127 +8,126 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 54cb9f604e9d1b817947990e657390387df6c881
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 34e6fc0d4e6e0817f9312a6565a2dd5dd99fdab9
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60556605"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035253"
 ---
 # <a name="sfctl-property"></a>sfctl property
-Egenskaper för Store och fråga under Service Fabric-namn.
+Lagra och fråga efter egenskaper under Service Fabric namn.
 
 ## <a name="commands"></a>Kommandon
 
 |Kommando|Beskrivning|
 | --- | --- |
-| delete | Tar bort den angivna egenskapen för Service Fabric. |
-| Hämta | Hämtar den angivna egenskapen för Service Fabric. |
-| list | Hämtar information om alla Service Fabric-egenskaper under ett givet namn. |
-| Placera | Skapar eller uppdaterar en egenskap för Service Fabric. |
+| radera | Tar bort den angivna Service Fabric egenskapen. |
+| Hämta | Hämtar den angivna Service Fabric egenskapen. |
+| list | Hämtar information om alla Service Fabric egenskaper under ett givet namn. |
+| föras | Skapar eller uppdaterar en Service Fabric-egenskap. |
 
-## <a name="sfctl-property-delete"></a>sfctl egenskapen delete
-Tar bort den angivna egenskapen för Service Fabric.
+## <a name="sfctl-property-delete"></a>ta bort sfctl-egenskap
+Tar bort den angivna Service Fabric egenskapen.
 
-Tar bort den angivna egenskapen för Service Fabric under ett givet namn. En egenskap måste skapas innan den kan tas bort.
-
-### <a name="arguments"></a>Argument
-
-|Argument|Beskrivning|
-| --- | --- |
-| – namn-id [krävs] | Service Fabric namnet, utan de ”fabric\:” URI-schema. |
-| --property-name [Required] | Anger namnet på egenskapen som ska hämtas. |
-| --timeout -t | Tidsgräns för Server på några sekunder.  Standard\: 60. |
-
-### <a name="global-arguments"></a>Global Arguments
-
-|Argument|Beskrivning|
-| --- | --- |
-| --debug | Öka detaljnivå loggning för att visa alla felsöka loggar. |
-| --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
-| --utdata -o | Utdataformat.  Tillåtna värden\: json, jsonc, tabell, TVs.  Standard\: json. |
-| – fråga | JMESPath-frågesträng. Se http\://jmespath.org/ för mer information och exempel. |
-| --utförlig | Öka detaljnivå för loggning. Använd--felsökning för fullständig felsökningsloggar. |
-
-## <a name="sfctl-property-get"></a>sfctl egenskapen get
-Hämtar den angivna egenskapen för Service Fabric.
-
-Hämtar den angivna egenskapen för Service Fabric under ett givet namn. Detta returnerar alltid både värde och metadata.
+Tar bort den angivna Service Fabric-egenskapen under ett visst namn. En egenskap måste skapas innan den kan tas bort.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| – namn-id [krävs] | Service Fabric namnet, utan de ”fabric\:” URI-schema. |
-| --property-name [Required] | Anger namnet på egenskapen som ska hämtas. |
-| --timeout -t | Tidsgräns för Server på några sekunder.  Standard\: 60. |
+| --namn-ID [obligatoriskt] | Service Fabric namn, utan URI-schemat '\:Fabric '. |
+| --egenskap-namn [obligatoriskt] | Anger namnet på egenskapen som ska hämtas. |
+| --timeout-t | Server-timeout på några sekunder.  Standard\: 60. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --debug | Öka detaljnivå loggning för att visa alla felsöka loggar. |
-| --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
-| --utdata -o | Utdataformat.  Tillåtna värden\: json, jsonc, tabell, TVs.  Standard\: json. |
-| – fråga | JMESPath-frågesträng. Se http\://jmespath.org/ för mer information och exempel. |
-| --utförlig | Öka detaljnivå för loggning. Använd--felsökning för fullständig felsökningsloggar. |
+| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
+| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
+| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: -JSON. |
+| --fråga | Frågesträngen JMESPath. Se http\://jmespath.org/för mer information och exempel. |
+| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
 
-## <a name="sfctl-property-list"></a>sfctl egenskapslistan
-Hämtar information om alla Service Fabric-egenskaper under ett givet namn.
+## <a name="sfctl-property-get"></a>Hämta sfctl-egenskap
+Hämtar den angivna Service Fabric egenskapen.
 
-Ett Service Fabric-namn kan ha en eller flera namngivna egenskaper som lagrar information om anpassade. Den här åtgärden hämtar information om de här egenskaperna i en växlade lista. Informationen omfattar namn, värde och metadata om var och en av egenskaperna.
+Hämtar den angivna Service Fabric-egenskapen under ett visst namn. Detta kommer alltid att returnera både värde och metadata.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| – namn-id [krävs] | Service Fabric namnet, utan de ”fabric\:” URI-schema. |
-| --continuation-token | Fortsättningstoken parameter-token som används för att hämta nästa uppsättning resultat. Ett fortsättningstoken med en icke-tomma värden inkluderas i svaret på API: et när resultaten från systemet inte ryms i ett enda svar. När det här värdet skickas till nästa API-anropet API: et Returnerar nästa uppsättning resultat. Om det finns inga ytterligare resultat, innehåller ett värde inte i fortsättningstoken. Värdet för den här parametern får inte vara URL-kodas. |
-| – innehåller värden | Kan du ange om du vill inkludera värdena för de egenskaper som returneras. SANT om värden ska returneras med metadata; False för att returnera endast egenskapen metadata. |
-| --timeout -t | Tidsgräns för Server på några sekunder.  Standard\: 60. |
+| --namn-ID [obligatoriskt] | Service Fabric namn, utan URI-schemat '\:Fabric '. |
+| --egenskap-namn [obligatoriskt] | Anger namnet på egenskapen som ska hämtas. |
+| --timeout-t | Server-timeout på några sekunder.  Standard\: 60. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --debug | Öka detaljnivå loggning för att visa alla felsöka loggar. |
-| --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
-| --utdata -o | Utdataformat.  Tillåtna värden\: json, jsonc, tabell, TVs.  Standard\: json. |
-| – fråga | JMESPath-frågesträng. Se http\://jmespath.org/ för mer information och exempel. |
-| --utförlig | Öka detaljnivå för loggning. Använd--felsökning för fullständig felsökningsloggar. |
+| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
+| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
+| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: -JSON. |
+| --fråga | Frågesträngen JMESPath. Se http\://jmespath.org/för mer information och exempel. |
+| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
 
-## <a name="sfctl-property-put"></a>sfctl egenskapen put
-Skapar eller uppdaterar en egenskap för Service Fabric.
+## <a name="sfctl-property-list"></a>egenskaps lista för sfctl
+Hämtar information om alla Service Fabric egenskaper under ett givet namn.
 
-Skapar eller uppdaterar den angivna egenskapen för Service Fabric under ett givet namn.
+Ett Service Fabric namn kan ha en eller flera namngivna egenskaper som lagrar anpassad information. Den här åtgärden hämtar information om dessa egenskaper i en lista med sidor. Informationen innehåller namn, värde och metadata om var och en av egenskaperna.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| – namn-id [krävs] | Service Fabric namnet, utan de ”fabric\:” URI-schema. |
-| --property-name [Required] | Namnet på egenskapen Service Fabric. |
-| --värdet [krävs] | Beskriver ett egenskapsvärde för Service Fabric. Det här är en JSON-sträng. <br><br> Json-sträng har två fält, typ av data och värdet av data. ”Motsvarande”-värdet måste vara det första objektet ska visas i JSON-sträng och kan vara värdena 'Binary', 'Int64', 'Double', 'String' eller 'Guid'. Värdet ska kunna serialisera-de angivna typerna. Både ”motsvarande” och ”Data” värden måste anges som strängar. |
-| --anpassad-id-typ | Egenskapens anpassad typ-id. Med den här egenskapen kan kan användaren tagga typ av värdet för egenskapen. |
-| --timeout -t | Tidsgräns för Server på några sekunder.  Standard\: 60. |
+| --namn-ID [obligatoriskt] | Service Fabric namn, utan URI-schemat '\:Fabric '. |
+| --fortsättnings-token | Parametern för fortsatt token används för att hämta nästa uppsättning resultat. En fortsättnings-token med ett värde som inte är tom inkluderas i svaret på API: et när resultatet från systemet inte passar i ett enda svar. När det här värdet skickas till nästa API-anrop returnerar API nästa uppsättning resultat. Om det inte finns några ytterligare resultat innehåller inte fortsättnings-token ett värde. Värdet för den här parametern får inte vara URL-kodat. |
+| --Inkludera-värden | Tillåter att du anger om värdena för de egenskaper som returneras ska inkluderas. Sant om värden ska returneras med metadata. False för att returnera endast egenskaps-metadata. |
+| --timeout-t | Server-timeout på några sekunder.  Standard\: 60. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --debug | Öka detaljnivå loggning för att visa alla felsöka loggar. |
-| --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
-| --utdata -o | Utdataformat.  Tillåtna värden\: json, jsonc, tabell, TVs.  Standard\: json. |
-| – fråga | JMESPath-frågesträng. Se http\://jmespath.org/ för mer information och exempel. |
-| --utförlig | Öka detaljnivå för loggning. Använd--felsökning för fullständig felsökningsloggar. |
+| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
+| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
+| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: -JSON. |
+| --fråga | Frågesträngen JMESPath. Se http\://jmespath.org/för mer information och exempel. |
+| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
+
+## <a name="sfctl-property-put"></a>sfctl egenskaps placering
+Skapar eller uppdaterar en Service Fabric-egenskap.
+
+Skapar eller uppdaterar den angivna Service Fabric-egenskapen under ett visst namn.
+
+### <a name="arguments"></a>Argument
+
+|Argument|Beskrivning|
+| --- | --- |
+| --namn-ID [obligatoriskt] | Service Fabric namn, utan URI-schemat '\:Fabric '. |
+| --egenskap-namn [obligatoriskt] | Namnet på egenskapen Service Fabric. |
+| --värde [obligatoriskt] | Beskriver ett egenskaps värde för Service Fabric. Detta är en JSON-sträng. <br><br> JSON-strängen har två fält, "typ" av data och "värde" för data. Värdet för "kind" måste vara det första objektet som ska visas i JSON-strängen och kan vara värdena Binary, Int64, Double, String eller GUID. Värdet ska vara seriellt-kan användas för de typer som anges. Värdena "kind" och "data" ska anges som strängar. |
+| --anpassad-ID-typ | Egenskapens anpassade typ-ID. Med den här egenskapen kan användaren tagga typen för egenskapens värde. |
+| --timeout-t | Server-timeout på några sekunder.  Standard\: 60. |
+
+### <a name="global-arguments"></a>Globala argument
+
+|Argument|Beskrivning|
+| --- | --- |
+| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
+| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
+| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: -JSON. |
+| --fråga | Frågesträngen JMESPath. Se http\://jmespath.org/för mer information och exempel. |
+| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
 
 
 ## <a name="next-steps"></a>Nästa steg
-- [Konfigurera](service-fabric-cli.md) Service Fabric CLI.
-- Lär dig hur du använder Service Fabric CLI med hjälp av den [exempel på skript](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- [Konfigurera](service-fabric-cli.md) Service Fabric cli.
+- Lär dig hur du använder Service Fabric CLI med hjälp av [exempel skripten](/azure/service-fabric/scripts/sfctl-upgrade-application).

@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 06/28/2019
+ms.date: 08/14/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 79d00d39903b6fb3891ee7c0ccc4743763043568
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: 1a5d80d6cd31621f8c3931b1845050f0a212ef08
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69015624"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036616"
 ---
 # <a name="designing-highly-available-applications-using-read-access-geo-redundant-storage"></a>Utforma hög tillgängliga program med hjälp av Geo-redundant lagring med Läs behörighet
 
@@ -150,7 +150,7 @@ Du har tre huvud alternativ för att övervaka frekvensen för återförsök i d
 
 * Lägg till en hanterare för händelsen [**försök igen**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.operationcontext.retrying) på [**OperationContext**](https://docs.microsoft.com/java/api/com.microsoft.applicationinsights.extensibility.context.operationcontext) -objektet som du skickar till dina lagrings begär anden – det här är metoden som visas i den här artikeln och används i det medföljande exemplet. De här händelserna utlöses när klienten gör en begäran så att du kan spåra hur ofta klienten påträffar nya fel på en primär slut punkt.
 
-    ```csharp 
+    ```csharp
     operationContext.Retrying += (sender, arguments) =>
     {
         // Retrying in the primary region
@@ -219,7 +219,13 @@ Du kan använda PowerShell eller Azure CLI för att hämta den senaste synkronis
 
 ### <a name="powershell"></a>PowerShell
 
-Om du vill hämta den senaste synkroniseringen för lagrings kontot med hjälp av PowerShell kontrollerar du lagrings kontots egenskap **GeoReplicationStats. LastSyncTime** . Kom ihåg att ersätta plats hållarnas värden med dina egna värden:
+Om du vill hämta den senaste synkroniseringstid-tiden för lagrings kontot med hjälp av PowerShell installerar du en Azure Storage Preview-modul som har stöd för att hämta geo-replikeringstrafiken statistik. Exempel:
+
+```powershell
+Install-Module Az.Storage –Repository PSGallery -RequiredVersion 1.1.1-preview –AllowPrerelease –AllowClobber –Force
+```
+
+Kontrol lera sedan lagrings kontots **GeoReplicationStats. LastSyncTime** -egenskap. Kom ihåg att ersätta plats hållarnas värden med dina egna värden:
 
 ```powershell
 $lastSyncTime = $(Get-AzStorageAccount -ResourceGroupName <resource-group> `

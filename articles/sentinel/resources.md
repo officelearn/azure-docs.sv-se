@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/20/2019
+ms.date: 8/14/2019
 ms.author: rkarlin
-ms.openlocfilehash: b5aae5f8e7195cfea7817b9e40e6f28d47fc3eff
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 138efd7cba80e288c4f8831b45272f4e46c8ee3f
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68780410"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036229"
 ---
 # <a name="useful-resources-for-working-with-azure-sentinel-preview"></a>Användbara resurser för att arbeta med Azure Sentinel Preview
 
@@ -41,8 +41,12 @@ Azure Logic Apps kopplingar:<https://docs.microsoft.com/connectors/>
 | PaloAlto| Konfigurera CEF| <https://www.paloaltonetworks.com/documentation/misc/cef.html>|
 | PluralSight | Språk kurs för Kusto-fråga| [https://www.pluralsight.com/courses/kusto-query-language-kql-from-scratch](https://www.pluralsight.com/courses/kusto-query-language-kql-from-scratch)|
 
+## <a name="blogs-and-forums"></a>Bloggar och forum
+
+Publicera dina frågor på [TechCommunity-utrymmet](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bd-p/AzureSentinel) för Azure Sentinel.
+
+Visa blogg inlägg från Azure Sentinel från [TechCommunity](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bg-p/AzureSentinelBlog) och [Microsoft Azure](https://azure.microsoft.com/blog/tag/azure-sentinel/).
+
 
 ## <a name="next-steps"></a>Nästa steg
-I det här dokumentet fick du en lista över resurser som är användbara när du arbetar med Azure Sentinel. Mer information om Azure Sentinel finns i följande avsnitt:
-
-* [Azures säkerhetsblogg](https://blogs.msdn.com/b/azuresecurity/). Här hittar du blogginlägg om säkerhet och regelefterlevnad i Azure.
+I det här dokumentet fick du en lista över resurser som är användbara när du arbetar med Azure Sentinel. Du hittar mer information om Azure-säkerhet och efterlevnad på [bloggen för Microsoft Azure säkerhet och efterlevnad](https://blogs.msdn.com/b/azuresecurity/).

@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/28/2019
+ms.date: 08/13/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 312f6746cb02aa66b0e7f8b47cb10e52558fa542
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 118a36587667c815489ddad03426b5cfcfee7382
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68323167"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036683"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Kvoter och begränsningar för Batch-tjänsten
 
@@ -54,8 +54,8 @@ Storleks gränser för pooler anges av batch-tjänsten. Till skillnad från [res
 | Allocation mode för batch service pool | 100 |
 | Pool för batch-Fakturapool | 80 |
 | **Compute-noder som [skapats med anpassad VM-avbildning](batch-custom-images.md)**  <sup>1</sup> ||
-| Dedikerade noder | 2000 |
-| Lågprioriterade virtuella noder | 1000 |
+| Reserverade noder | 2000 |
+| Lågprioritetsnoder | 1000 |
 
 <sup>1</sup> för pooler som inte är kommunikation mellan noder aktive rad.
 
@@ -70,6 +70,7 @@ Ytterligare begränsningar som anges av batch-tjänsten. Till skillnad från [re
 | Programpaket per program | 40 |
 | Programpaket per pool | 10 |
 | Maximal varaktighet för aktivitet | 180 dagar<sup>1</sup> |
+| [Monteringar](virtual-file-mount.md) per Compute-nod | 10 |
 
 <sup>1</sup> den maximala livs längden för en aktivitet, från när den läggs till i jobbet till när den är klar, är 180 dagar. Slutförda uppgifter sparas i sju dagar; data för uppgifter som inte har slutförts inom den maximala livs längden är inte tillgängliga.
 

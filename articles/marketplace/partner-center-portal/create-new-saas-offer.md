@@ -1,18 +1,18 @@
 ---
 title: Skapa ett nytt SaaS-erbjudande på den kommersiella Marketplace
 description: Så här skapar du ett nytt SaaS-erbjudande (Software as a Service) för att lista eller sälja på Azure Marketplace, AppSource eller via program varan för Cloud Solution Provider (CSP) med hjälp av den kommersiella Marketplace-portalen på Microsoft Partner Center.
-author: mattwojo
+author: qianw211
 manager: evansma
-ms.author: mattwoj
+ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 06/27/2019
-ms.openlocfilehash: 6bf22bce28972e1f3a43efea3b33446ab2a81761
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.date: 08/14/2019
+ms.openlocfilehash: 3d3fc1541fb99d8d1219392158c3b87cd6ff99aa
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019575"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69033535"
 ---
 # <a name="create-a-new-saas-offer"></a>Skapa ett nytt SaaS-erbjudande
 
@@ -22,7 +22,7 @@ För att börja skapa SaaS-erbjudanden (program vara som en tjänst) måste du f
 
 Välj det + **nya erbjudandet...** och välj sedan meny alternativet **program vara som en tjänst** . 
 
-Om du väljer någon av de andra erbjudande typerna omdirigeras du till den äldre [Cloud Partner Portal](https://cloudpartner.azure.com/).  Endast SaaS-erbjudanden är tillgängliga på den kommersiella Marketplace-portalen i Partner Center för tillfället. 
+Om du väljer en annan erbjudande typ kan du omdirigeras till den äldre [Cloud Partner Portal](https://cloudpartner.azure.com/). Endast SaaS-och Dynamics 365-erbjudanden är tillgängliga i den kommersiella Marketplace för partner Center för tillfället.
 
 ![Skapa erbjudande fönster i Partner Center](./media/new-offer-click.png)
 

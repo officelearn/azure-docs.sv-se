@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric reliable services application manifest exempel | Microsoft Docs
-description: Lär dig hur du konfigurerar programmet och tjänstinställningar manifestet för en Service Fabric reliable services-programmet.
+title: Exempel manifest för Azure Service Fabric Reliable Services-program | Microsoft Docs
+description: Lär dig hur du konfigurerar inställningar för program-och tjänst manifest för ett Reliable Services Service Fabric-program.
 services: service-fabric
 documentationcenter: na
 author: peterpogorski
@@ -8,31 +8,30 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: xml
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/11/2018
 ms.author: pepogors
-ms.openlocfilehash: 6c4c8f0ee6aa12c58e02f71b42312cd6872076aa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a5678b4c4c0f7a9d8d3f3cf6e838580de2059a8f
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60719172"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035645"
 ---
 # <a name="reliable-services-application-and-service-manifest-examples"></a>Exempel på Reliable Services-program och tjänstmanifest
-Här följer några exempel på program och tjänstens manifest för ett Service Fabric-program med en ASP.NET-kärnans webbklient och en tillståndskänslig backend-server. Syftet med de här exemplen är att visa vilka inställningar är tillgängliga och hur de används. Dessa program och tjänstens manifest baseras på den [Snabbstart för Service Fabric .NET](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) manifest.
+Följande är exempel på program-och tjänst manifest för ett Service Fabric program med en ASP.NET Core webb klient del och en tillstånds känslig backend-server. Syftet med dessa exempel är att visa vilka inställningar som är tillgängliga och hur de används. Dessa program-och tjänst manifest är baserade på [Service Fabric .net-snabb starts](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) manifest.
 
 Följande funktioner visas:
 
 |Manifest|Funktioner|
 |---|---|
-|[Programmanifest](#application-manifest)| [resursstyrning](service-fabric-resource-governance.md), [köra tjänster som ett lokalt administratörskonto](service-fabric-application-runas-security.md), [gäller en standardprincip för alla kodpaket för tjänsten](service-fabric-application-runas-security.md#apply-a-default-policy-to-all-service-code-packages), [skapa användar- och säkerhetsobjekt](service-fabric-application-runas-security.md), dela ett paket av data mellan instanser av tjänsten, [åsidosätta tjänstslutpunkter](service-fabric-service-manifest-resources.md#overriding-endpoints-in-servicemanifestxml)| 
-|FrontEndService tjänstmanifestet| [Köra ett skript när tjänsten startar](service-fabric-run-script-at-service-startup.md), [definiera en HTTPS-slutpunkt](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md#define-an-https-endpoint-in-the-service-manifest) | 
-|BackEndService tjänstmanifestet| [Deklarera ett konfigurationspaket](service-fabric-application-and-service-manifests.md), [deklarera ett paket för data](service-fabric-application-and-service-manifests.md), [konfigurerar en slutpunkt](service-fabric-service-manifest-resources.md)| 
+|[Programmanifest](#application-manifest)| [resurs styrning](service-fabric-resource-governance.md), [kör en tjänst som ett lokalt administratörs konto](service-fabric-application-runas-security.md), [använder en standard princip för alla service kod paket](service-fabric-application-runas-security.md#apply-a-default-policy-to-all-service-code-packages), [skapar användar-och grupp objekt](service-fabric-application-runas-security.md), delar ett data paket mellan tjänst instanser, [åsidosätter tjänsten slut punkter](service-fabric-service-manifest-resources.md#overriding-endpoints-in-servicemanifestxml)| 
+|FrontEndService-tjänst manifest| [Kör ett skript när tjänsten startas](service-fabric-run-script-at-service-startup.md), [definiera en HTTPS-slutpunkt](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md#define-an-https-endpoint-in-the-service-manifest) | 
+|BackEndService-tjänst manifest| [Deklarera ett konfigurations paket](service-fabric-application-and-service-manifests.md), [deklarera ett data paket](service-fabric-application-and-service-manifests.md), [Konfigurera en slut punkt](service-fabric-service-manifest-resources.md)| 
 
-Se [manifest programelement](#application-manifest-elements), [VotingWeb manifest delar](#votingweb-service-manifest-elements), och [VotingData manifest delar](#votingdata-service-manifest-elements) för mer information om specifika XML element.
+Se [program manifest](#application-manifest-elements)element, [VotingWeb tjänst manifest element](#votingweb-service-manifest-elements)och [VotingData tjänst manifest element](#votingdata-service-manifest-elements) för mer information om specifika XML-element.
 
 ## <a name="application-manifest"></a>Programmanifest
 
@@ -168,7 +167,7 @@ Se [manifest programelement](#application-manifest-elements), [VotingWeb manifes
 
 ```
 
-## <a name="votingweb-service-manifest"></a>VotingWeb tjänstmanifestet
+## <a name="votingweb-service-manifest"></a>VotingWeb-tjänst manifest
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -232,7 +231,7 @@ Se [manifest programelement](#application-manifest-elements), [VotingWeb manifes
 
 ```
 
-## <a name="votingdata-service-manifest"></a>VotingData tjänstmanifestet
+## <a name="votingdata-service-manifest"></a>VotingData-tjänst manifest
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -280,190 +279,190 @@ Se [manifest programelement](#application-manifest-elements), [VotingWeb manifes
 
 ```
 
-## <a name="application-manifest-elements"></a>Application manifest element
-### <a name="applicationmanifest-element"></a>ApplicationManifest Element
-Beskriver deklarativt programtypen och versionen. Refererar till en eller flera tjänstmanifest dessa tjänster om du ska skapa en typ av program. Konfigurationsinställningarna för dessa tjänster kan åsidosättas med hjälp av parametriserade programinställningar. Som standard tjänster, tjänstmallar, säkerhetsobjekt, principer, ställa in diagnostik och certifikat kan också deklarerats på programnivå. Mer information finns i [ApplicationManifest Element](service-fabric-service-model-schema-elements.md#ApplicationManifestElementApplicationManifestTypeComplexType)
+## <a name="application-manifest-elements"></a>Program manifest element
+### <a name="applicationmanifest-element"></a>ApplicationManifest-element
+I den här artikeln beskrivs program typen och versionen. En eller flera tjänst manifest för komponent tjänsterna refereras till för att skapa en program typ. Konfigurations inställningar för komponent tjänsterna kan åsidosättas med hjälp av parametriserade program inställningar. Standard tjänster, tjänstmallar, huvud konton, principer, konfiguration av diagnostik och certifikat kan också deklareras på program nivå. Mer information finns i [ApplicationManifest-element](service-fabric-service-model-schema-elements.md#ApplicationManifestElementApplicationManifestTypeComplexType)
 
-### <a name="parameters-element"></a>Parametrarna-Element
-Anger de parametrar som används i den här programmanifestet. Värdet för dessa parametrar kan anges när programmet instantieras och kan användas för att åsidosätta programmet eller tjänsten konfigurationsinställningar. Mer information finns i [parametrar Element](service-fabric-service-model-schema-elements.md#ParametersElementanonymouscomplexTypeComplexTypeDefinedInApplicationManifestTypecomplexType)
+### <a name="parameters-element"></a>Parameter element
+Deklarerar de parametrar som används i det här applikations manifestet. Värdet för dessa parametrar kan anges när programmet instansieras och kan användas för att åsidosätta program-eller tjänst konfigurations inställningar. Mer information finns i [elementet Parameters](service-fabric-service-model-schema-elements.md#ParametersElementanonymouscomplexTypeComplexTypeDefinedInApplicationManifestTypecomplexType)
 
-### <a name="parameter-element"></a>Parameterelement
-En program-parameter som ska användas i manifestet. Parametervärdet kan ändras under programmet instansiering eller, om inget värde anges används standardvärdet. Mer information finns i [parameterelement](service-fabric-service-model-schema-elements.md#ParameterElementanonymouscomplexTypeComplexTypeDefinedInParameterselement)
+### <a name="parameter-element"></a>Parameter element
+En program parameter som ska användas i det här manifestet. Parametervärdet kan ändras när programmet instansieras, eller om inget värde anges används standardvärdet. Mer information finns i [parameter element](service-fabric-service-model-schema-elements.md#ParameterElementanonymouscomplexTypeComplexTypeDefinedInParameterselement)
 
-### <a name="servicemanifestimport-element"></a>ServiceManifestImport Element
-Importerar ett tjänstmanifest som skapats av tjänsten-utvecklare. Ett tjänstmanifest måste importeras för varje konstituerande tjänst i programmet. Åsidosätter konfigurationen och principer kan deklareras för tjänstmanifestet. Mer information finns i [ServiceManifestImport Element](service-fabric-service-model-schema-elements.md#ServiceManifestImportElementanonymouscomplexTypeComplexTypeDefinedInApplicationManifestTypecomplexType)
+### <a name="servicemanifestimport-element"></a>Service manifest import-element
+Importerar ett tjänst manifest som skapats av tjänste utvecklaren. Ett tjänst manifest måste importeras för varje komponent tjänst i programmet. Konfigurations åsidosättningar och principer kan deklareras för tjänst manifestet. Mer information finns i [service manifest import-element](service-fabric-service-model-schema-elements.md#ServiceManifestImportElementanonymouscomplexTypeComplexTypeDefinedInApplicationManifestTypecomplexType)
 
 ### <a name="servicemanifestref-element"></a>ServiceManifestRef Element
-Importerar tjänstmanifestet med referens. För närvarande måste tjänstmanifestfilen (ServiceManifest.xml) finnas i build-paketet. Mer information finns i [ServiceManifestRef Element](service-fabric-service-model-schema-elements.md#ServiceManifestRefElementServiceManifestRefTypeComplexTypeDefinedInServiceManifestImportelement)
+Importerar tjänst manifestet efter referens. För närvarande måste tjänst manifest filen (ServiceManifest. xml) finnas i build-paketet. Mer information finns i [ServiceManifestRef-element](service-fabric-service-model-schema-elements.md#ServiceManifestRefElementServiceManifestRefTypeComplexTypeDefinedInServiceManifestImportelement)
 
-### <a name="resourceoverrides-element"></a>ResourceOverrides Element
-Anger resurs åsidosättningar för slutpunkter som deklarerats i tjänstmanifestresurser. Mer information finns i [ResourceOverrides Element](service-fabric-service-model-schema-elements.md#ResourceOverridesElementResourceOverridesTypeComplexTypeDefinedInServiceManifestImportelement)
+### <a name="resourceoverrides-element"></a>ResourceOverrides-element
+Anger åsidosättningar av resurser för slut punkter som har deklarerats i tjänst manifest resurser. Mer information finns i [ResourceOverrides-element](service-fabric-service-model-schema-elements.md#ResourceOverridesElementResourceOverridesTypeComplexTypeDefinedInServiceManifestImportelement)
 
-### <a name="endpoints-element"></a>Slutpunkter Element
-Slutpunkt(er) att åsidosätta. Mer information finns i [slutpunkter Element](service-fabric-service-model-schema-elements.md#EndpointsElementanonymouscomplexTypeComplexTypeDefinedInResourceOverridesTypecomplexType)
+### <a name="endpoints-element"></a>Slut punkts element
+Slut punkt (er) som ska åsidosättas. Mer information finns i avsnittet [slut punkts element](service-fabric-service-model-schema-elements.md#EndpointsElementanonymouscomplexTypeComplexTypeDefinedInResourceOverridesTypecomplexType)
 
-### <a name="endpoint-element"></a>Slutpunktselement
-Den slutpunkt som har deklarerats i tjänstmanifestet att åsidosätta. Mer information finns i [Endpoint Element](service-fabric-service-model-schema-elements.md#EndpointElementEndpointOverrideTypeComplexTypeDefinedInEndpointselement)
+### <a name="endpoint-element"></a>Slut punkts element
+Slut punkten, som deklarerats i tjänst manifestet, för att åsidosätta. Mer information finns i [slut punkts element](service-fabric-service-model-schema-elements.md#EndpointElementEndpointOverrideTypeComplexTypeDefinedInEndpointselement)
 
-### <a name="policies-element"></a>Policies Element
-Beskriver principer (slutpunkt för bindning, delning, kör som-paketet och säkerhet åtkomst) som ska tillämpas på importerade tjänstmanifestet. Mer information finns i [principer Element](service-fabric-service-model-schema-elements.md#PoliciesElementServiceManifestImportPoliciesTypeComplexTypeDefinedInServiceManifestImportelement)
+### <a name="policies-element"></a>Princip element
+Beskriver principer (slut punkts bindning, paket delning, kör som och säkerhets åtkomst) som ska tillämpas på det importerade tjänst manifestet. Mer information finns i [princip element](service-fabric-service-model-schema-elements.md#PoliciesElementServiceManifestImportPoliciesTypeComplexTypeDefinedInServiceManifestImportelement)
 
 ### <a name="servicepackageresourcegovernancepolicy-element"></a>ServicePackageResourceGovernancePolicy Element
-Definierar principen för resurs-styrning som tillämpas på nivån för hela tjänstpaketet. Mer information finns i [ServicePackageResourceGovernancePolicy Element](service-fabric-service-model-schema-elements.md#ServicePackageResourceGovernancePolicyElementServicePackageResourceGovernancePolicyTypeComplexTypeDefinedInServiceManifestImportPoliciesTypecomplexTypeDefinedInServicePackageTypecomplexType)
+Definierar den resurs styrnings princip som tillämpas på hela tjänst paketets nivå. Mer information finns i [ServicePackageResourceGovernancePolicy-element](service-fabric-service-model-schema-elements.md#ServicePackageResourceGovernancePolicyElementServicePackageResourceGovernancePolicyTypeComplexTypeDefinedInServiceManifestImportPoliciesTypecomplexTypeDefinedInServicePackageTypecomplexType)
 
 ### <a name="resourcegovernancepolicy-element"></a>ResourceGovernancePolicy Element
-Anger resursgränser för en codepackage. Mer information finns i [ResourceGovernancePolicy Element](service-fabric-service-model-schema-elements.md#ResourceGovernancePolicyElementResourceGovernancePolicyTypeComplexTypeDefinedInServiceManifestImportPoliciesTypecomplexTypeDefinedInDigestedCodePackageelementDefinedInDigestedEndpointelement)
+Anger resurs gränser för en codepackage. Mer information finns i [ResourceGovernancePolicy-element](service-fabric-service-model-schema-elements.md#ResourceGovernancePolicyElementResourceGovernancePolicyTypeComplexTypeDefinedInServiceManifestImportPoliciesTypecomplexTypeDefinedInDigestedCodePackageelementDefinedInDigestedEndpointelement)
 
 ### <a name="packagesharingpolicy-element"></a>PackageSharingPolicy Element
-Anger om ett paket med kod, konfig eller data bör delas mellan instanser av tjänsten av tjänsttypen samma. Mer information finns i [PackageSharingPolicy Element](service-fabric-service-model-schema-elements.md#PackageSharingPolicyElementPackageSharingPolicyTypeComplexTypeDefinedInServiceManifestImportPoliciesTypecomplexType)
+Anger om en kod, en konfiguration eller ett data paket ska delas mellan tjänst instanser av samma tjänst typ. Mer information finns i [PackageSharingPolicy-element](service-fabric-service-model-schema-elements.md#PackageSharingPolicyElementPackageSharingPolicyTypeComplexTypeDefinedInServiceManifestImportPoliciesTypecomplexType)
 
-### <a name="securityaccesspolicy-element"></a>SecurityAccessPolicy Element
-Beviljar åtkomst till behörigheter för ett huvudnamn för en resurs (till exempel en slutpunkt) har definierats i ett tjänstmanifest. Det är vanligtvis mycket användbart för att styra och begränsa åtkomst till tjänster till olika resurser för att minimera säkerhetsrisker. Detta är särskilt viktigt när du har skapat programmet från en samling från en marketplace-tjänster som utvecklats av olika utvecklare. Mer information finns i [SecurityAccessPolicy Element](service-fabric-service-model-schema-elements.md#SecurityAccessPolicyElementSecurityAccessPolicyTypeComplexTypeDefinedInServiceManifestImportPoliciesTypecomplexTypeDefinedInSecurityAccessPolicieselementDefinedInDigestedEndpointelement)
+### <a name="securityaccesspolicy-element"></a>SecurityAccessPolicy-element
+Ger åtkomst behörighet till ett huvud konto på en resurs (till exempel en slut punkt) som definierats i ett tjänst manifest. Normalt är det mycket användbart att kontrol lera och begränsa åtkomsten till tjänster till olika resurser för att minimera säkerhets riskerna. Detta är särskilt viktigt när programmet byggs från en samling tjänster från en Marketplace som har utvecklats av olika utvecklare. Mer information finns i [SecurityAccessPolicy-element](service-fabric-service-model-schema-elements.md#SecurityAccessPolicyElementSecurityAccessPolicyTypeComplexTypeDefinedInServiceManifestImportPoliciesTypecomplexTypeDefinedInSecurityAccessPolicieselementDefinedInDigestedEndpointelement)
 
 ### <a name="runaspolicy-element"></a>RunAsPolicy Element
-Anger lokal användare eller kontot Lokalt system som använder ett tjänstkodpaket. Domänkonton stöds på Windows Server-distributioner där Azure Active Directory är tillgängligt. Program körs under kontot som Fabric.exe processen körs under som standard. Program kan också köra som andra konton, som måste deklareras i avsnittet säkerhetsobjekt. Om du använder en RunAs-princip till en tjänst och tjänstmanifestet deklarerar endpoint-resurser med HTTP-protokollet, måste du även ange en SecurityAccessPolicy för att säkerställa att portarna som allokerats till är de här slutpunkterna korrekt för RunAs för åtkomstkontroll användarkonto som tjänsten körs under. För en HTTPS-slutpunkt måste du också definiera en EndpointBindingPolicy för att ange namnet på certifikatet som ska gå tillbaka till klienten. Mer information finns i [RunAsPolicy Element](service-fabric-service-model-schema-elements.md#RunAsPolicyElementRunAsPolicyTypeComplexTypeDefinedInServiceManifestImportPoliciesTypecomplexTypeDefinedInDigestedCodePackageelement)
+Anger det lokala användare eller lokala system konto som ett service kod paket ska köras som. Domän konton stöds på Windows Server-distributioner där Azure Active Directory är tillgängligt. Som standard körs program under det konto som Fabric. exe-processen körs under. Program kan också köras som andra konton, vilket måste deklareras i avsnittet säkerhets objekt. Om du använder en RunAs-princip för en tjänst och tjänst manifestet deklarerar slut punkts resurser med HTTP-protokollet måste du också ange en SecurityAccessPolicy för att säkerställa att portarna som tilldelas dessa slut punkter är korrekt åtkomst – kontroll som visas för RunAs användar kontot som tjänsten körs under. För en HTTPS-slutpunkt måste du också definiera en EndpointBindingPolicy för att ange namnet på det certifikat som ska returneras till klienten. Mer information finns i [runas policy-element](service-fabric-service-model-schema-elements.md#RunAsPolicyElementRunAsPolicyTypeComplexTypeDefinedInServiceManifestImportPoliciesTypecomplexTypeDefinedInDigestedCodePackageelement)
 
-### <a name="defaultservices-element"></a>DefaultServices Element
-Anger instanser av tjänsten som skapas automatiskt när ett program instantieras mot den här typen. Mer information finns i [DefaultServices Element](service-fabric-service-model-schema-elements.md#DefaultServicesElementDefaultServicesTypeComplexTypeDefinedInApplicationManifestTypecomplexTypeDefinedInApplicationInstanceTypecomplexType)
+### <a name="defaultservices-element"></a>DefaultServices-element
+Deklarerar tjänst instanser som skapas automatiskt när ett program instansieras mot den här program typen. Mer information finns i [DefaultServices-element](service-fabric-service-model-schema-elements.md#DefaultServicesElementDefaultServicesTypeComplexTypeDefinedInApplicationManifestTypecomplexTypeDefinedInApplicationInstanceTypecomplexType)
 
-### <a name="service-element"></a>Service Element
-Deklarerar en tjänst som ska skapas automatiskt när programmet instantieras. Mer information finns i [Service Element](service-fabric-service-model-schema-elements.md#ServiceElementanonymouscomplexTypeComplexTypeDefinedInDefaultServicesTypecomplexType)
+### <a name="service-element"></a>Tjänst element
+Deklarerar en tjänst som skapas automatiskt när programmet instansieras. Mer information finns i [tjänst element](service-fabric-service-model-schema-elements.md#ServiceElementanonymouscomplexTypeComplexTypeDefinedInDefaultServicesTypecomplexType)
 
 ### <a name="statefulservice-element"></a>StatefulService Element
-Definierar en tillståndskänslig tjänst. Mer information finns i [StatefulService Element](service-fabric-service-model-schema-elements.md#StatefulServiceElementStatefulServiceTypeComplexTypeDefinedInServiceTemplatesTypecomplexTypeDefinedInServiceelement)
+Definierar en tillstånds känslig tjänst. Mer information finns i [StatefulService-element](service-fabric-service-model-schema-elements.md#StatefulServiceElementStatefulServiceTypeComplexTypeDefinedInServiceTemplatesTypecomplexTypeDefinedInServiceelement)
 
-### <a name="statelessservice-element"></a>StatelessService Element
-Definierar en tillståndslös tjänst. Mer information finns i [StatelessService Element](service-fabric-service-model-schema-elements.md#StatelessServiceElementStatelessServiceTypeComplexTypeDefinedInServiceTemplatesTypecomplexTypeDefinedInServiceelement)
+### <a name="statelessservice-element"></a>StatelessService-element
+Definierar en tillstånds lös tjänst. Mer information finns i [StatelessService-element](service-fabric-service-model-schema-elements.md#StatelessServiceElementStatelessServiceTypeComplexTypeDefinedInServiceTemplatesTypecomplexTypeDefinedInServiceelement)
 
-### <a name="principals-element"></a>Principals Element
-Beskriver de säkerhetsobjekt (användare, grupper) som krävs för det här programmet körs tjänster och säkra resurser. Huvudnamn refereras i avsnitten principer. Mer information finns i [huvudkonton Element](service-fabric-service-model-schema-elements.md#PrincipalsElementSecurityPrincipalsTypeComplexTypeDefinedInApplicationManifestTypecomplexTypeDefinedInEnvironmentTypecomplexType)
+### <a name="principals-element"></a>Huvud objekts element
+Beskriver säkerhets objekt (användare, grupper) som krävs för att det här programmet ska kunna köra tjänster och säkra resurser. Säkerhets objekt refereras till i avsnittet principer. Mer information finns i avsnittet [huvud element](service-fabric-service-model-schema-elements.md#PrincipalsElementSecurityPrincipalsTypeComplexTypeDefinedInApplicationManifestTypecomplexTypeDefinedInEnvironmentTypecomplexType)
 
-### <a name="groups-element"></a>Grupper Element
-Anger en uppsättning grupper som säkerhet huvudnamn, vilket kan refereras i principer. Grupper är användbara om det finns flera användare för olika startpunkter och de måste ha vissa vanliga behörigheter som är tillgängliga på gruppnivå. Mer information finns i [grupper Element](service-fabric-service-model-schema-elements.md#GroupsElementanonymouscomplexTypeComplexTypeDefinedInSecurityPrincipalsTypecomplexType)
+### <a name="groups-element"></a>Grupp element
+Deklarerar en uppsättning grupper som säkerhets objekt, som kan refereras till i principer. Grupper är användbara om det finns flera användare för olika tjänst start punkter och de måste ha vissa gemensamma behörigheter som är tillgängliga på grupp nivå. Mer information finns i [elementet Groups](service-fabric-service-model-schema-elements.md#GroupsElementanonymouscomplexTypeComplexTypeDefinedInSecurityPrincipalsTypecomplexType)
 
-### <a name="group-element"></a>Gruppelementet
-Anger en grupp som ett säkerhetsobjekt som kan refereras i principer. Mer information finns i [gruppelementet](service-fabric-service-model-schema-elements.md#GroupElementanonymouscomplexTypeComplexTypeDefinedInGroupselement)
+### <a name="group-element"></a>Grupp element
+Deklarerar en grupp som säkerhets objekt, som kan refereras till i principer. Mer information finns i [grupp element](service-fabric-service-model-schema-elements.md#GroupElementanonymouscomplexTypeComplexTypeDefinedInGroupselement)
 
-### <a name="membership-element"></a>Medlemskap Element
- Mer information finns i [medlemskap Element](service-fabric-service-model-schema-elements.md#MembershipElementanonymouscomplexTypeComplexTypeDefinedInGroupelement)
-
-### <a name="systemgroup-element"></a>SystemGroup Element
- Mer information finns i [SystemGroup Element](service-fabric-service-model-schema-elements.md#SystemGroupElementanonymouscomplexTypeComplexTypeDefinedInMembershipelement)
-
-### <a name="users-element"></a>Användare-Element
-Anger en uppsättning användare som säkerhet huvudnamn, vilket kan refereras i principer. Mer information finns i [användare Element](service-fabric-service-model-schema-elements.md#UsersElementanonymouscomplexTypeComplexTypeDefinedInSecurityPrincipalsTypecomplexType)
-
-### <a name="user-element"></a>User-Element
-Anger en användare som ett säkerhetsobjekt som kan refereras i principer. Mer information finns i [User-Element](service-fabric-service-model-schema-elements.md#UserElementanonymouscomplexTypeComplexTypeDefinedInUserselement)
-
-### <a name="memberof-element"></a>MemberOf Element
-Användare kan läggas till alla befintliga medlemskap-gruppen, så att den kan ärvas alla egenskaper och säkerhetsinställningar för gruppen medlemskap. Gruppen Medlemskapsgruppen kan användas för att skydda externa resurser som ska användas av olika tjänster eller samma tjänst (på en annan dator). Mer information finns i [MemberOf Element](service-fabric-service-model-schema-elements.md#MemberOfElementanonymouscomplexTypeComplexTypeDefinedInUserelement)
+### <a name="membership-element"></a>Medlemskaps element
+ Mer information finns i [medlemskaps element](service-fabric-service-model-schema-elements.md#MembershipElementanonymouscomplexTypeComplexTypeDefinedInGroupelement)
 
 ### <a name="systemgroup-element"></a>SystemGroup Element
-System-grupp att lägga till användaren.  Systemgruppen måste definieras i avsnittet grupper. Mer information finns i [SystemGroup Element](service-fabric-service-model-schema-elements.md#SystemGroupElementanonymouscomplexTypeComplexTypeDefinedInMemberOfelement)
+ Mer information finns i [SystemGroup-element](service-fabric-service-model-schema-elements.md#SystemGroupElementanonymouscomplexTypeComplexTypeDefinedInMembershipelement)
 
-### <a name="group-element"></a>Gruppelementet
-Grupp att lägga till användaren.  Gruppen måste ha definierats i avsnittet grupper. Mer information finns i [gruppelementet](service-fabric-service-model-schema-elements.md#GroupElementanonymouscomplexTypeComplexTypeDefinedInMemberOfelement)
+### <a name="users-element"></a>Användar element
+Deklarerar en uppsättning användare som säkerhets objekt, som kan refereras till i principer. Mer information finns i [användar element](service-fabric-service-model-schema-elements.md#UsersElementanonymouscomplexTypeComplexTypeDefinedInSecurityPrincipalsTypecomplexType)
 
-### <a name="policies-element"></a>Policies Element
-Beskriver principerna (Logginsamling, standard kör som, hälsotillstånd och säkerhetsbehörighet) som ska tillämpas på programnivå. Mer information finns i [principer Element](service-fabric-service-model-schema-elements.md#PoliciesElementApplicationPoliciesTypeComplexTypeDefinedInApplicationManifestTypecomplexTypeDefinedInEnvironmentTypecomplexType)
+### <a name="user-element"></a>Användar element
+Deklarerar en användare som säkerhets objekt, som kan refereras till i principer. Mer information finns i [användar element](service-fabric-service-model-schema-elements.md#UserElementanonymouscomplexTypeComplexTypeDefinedInUserselement)
 
-### <a name="defaultrunaspolicy-element"></a>DefaultRunAsPolicy Element
-Ange ett användarkonto för standard för alla kodpaket för tjänsten som inte har en specifik RunAsPolicy som definierats i avsnittet ServiceManifestImport. Mer information finns i [DefaultRunAsPolicy Element](service-fabric-service-model-schema-elements.md#DefaultRunAsPolicyElementanonymouscomplexTypeComplexTypeDefinedInApplicationPoliciesTypecomplexType)
+### <a name="memberof-element"></a>MemberOf-element
+Användare kan läggas till i alla befintliga medlemskaps grupper, så att de kan ärva alla egenskaper och säkerhets inställningar för medlemskaps gruppen. Medlemskaps gruppen kan användas för att skydda externa resurser som behöver nås av olika tjänster eller samma tjänst (på en annan dator). Mer information finns i [elementet memberOf](service-fabric-service-model-schema-elements.md#MemberOfElementanonymouscomplexTypeComplexTypeDefinedInUserelement)
+
+### <a name="systemgroup-element"></a>SystemGroup Element
+System gruppen som användaren ska läggas till i.  System gruppen måste definieras i avsnittet grupper. Mer information finns i [SystemGroup-element](service-fabric-service-model-schema-elements.md#SystemGroupElementanonymouscomplexTypeComplexTypeDefinedInMemberOfelement)
+
+### <a name="group-element"></a>Grupp element
+Gruppen att lägga till användaren i.  Gruppen måste definieras i avsnittet grupper. Mer information finns i [grupp element](service-fabric-service-model-schema-elements.md#GroupElementanonymouscomplexTypeComplexTypeDefinedInMemberOfelement)
+
+### <a name="policies-element"></a>Princip element
+Beskriver principerna (logg insamling, standard körnings-som, hälso tillstånd och säkerhets åtkomst) som ska tillämpas på program nivå. Mer information finns i [princip element](service-fabric-service-model-schema-elements.md#PoliciesElementApplicationPoliciesTypeComplexTypeDefinedInApplicationManifestTypecomplexTypeDefinedInEnvironmentTypecomplexType)
+
+### <a name="defaultrunaspolicy-element"></a>DefaultRunAsPolicy-element
+Ange ett standard användar konto för alla service kods paket som inte har någon angiven runas policy definierad i avsnittet service manifest import. Mer information finns i [DefaultRunAsPolicy-element](service-fabric-service-model-schema-elements.md#DefaultRunAsPolicyElementanonymouscomplexTypeComplexTypeDefinedInApplicationPoliciesTypecomplexType)
 
 
 
 
-## <a name="votingweb-service-manifest-elements"></a>VotingWeb-tjänsten manifest element
-### <a name="servicemanifest-element"></a>ServiceManifest Element
-Beskriver deklarativt tjänsttyp och version. Den visar oberoende av varandra kan uppgraderas kod, konfiguration och data-paket som tillsammans utgör inget tjänstepaket för att stödja en eller flera typer av tjänster. Resurser, inställningarna för startdiagnostik och tjänstmetadata, till exempel typ av tjänst, health egenskaper och mätvärden för Utjämning av nätverksbelastning, också anges. Mer information finns i [ServiceManifest Element](service-fabric-service-model-schema-elements.md#ServiceManifestElementServiceManifestTypeComplexType)
+## <a name="votingweb-service-manifest-elements"></a>Manifest element för VotingWeb-tjänst
+### <a name="servicemanifest-element"></a>ServiceManifest-element
+I den här artikeln beskrivs tjänst typen och versionen. Den innehåller en lista över oberoende uppgraderings bara kod, konfiguration och data paket som tillsammans skapar ett tjänst paket för att stödja en eller flera tjänst typer. Resurser, diagnostikinställningar och tjänstens metadata, till exempel tjänst typ, hälso egenskaper och belastnings Utjämnings mått, anges också. Mer information finns i [ServiceManifest-element](service-fabric-service-model-schema-elements.md#ServiceManifestElementServiceManifestTypeComplexType)
 
-### <a name="servicetypes-element"></a>ServiceTypes Element
-Definierar vilka typer av tjänster som stöds av en CodePackage i manifestet. När en tjänst instantieras mot en av dessa typer av tjänster, aktiveras alla kodpaket som deklarerats i manifestet genom att köra sina startpunkter. Tjänsttyper deklareras i manifestet nivå och inte kodnivå för paketet. Mer information finns i [ServiceTypes Element](service-fabric-service-model-schema-elements.md#ServiceTypesElementServiceAndServiceGroupTypesTypeComplexTypeDefinedInServiceManifestTypecomplexType)
+### <a name="servicetypes-element"></a>ServiceTypes-element
+Definierar vilka tjänst typer som stöds av en CodePackage i det här manifestet. När en tjänst instansieras mot någon av dessa tjänst typer aktive ras alla kod paket som deklarerats i det här manifestet genom att de startas. Tjänst typer deklareras på manifest nivå och inte på kod paket nivå. Mer information finns i [ServiceTypes-element](service-fabric-service-model-schema-elements.md#ServiceTypesElementServiceAndServiceGroupTypesTypeComplexTypeDefinedInServiceManifestTypecomplexType)
 
-### <a name="statelessservicetype-element"></a>StatelessServiceType Element
-Beskriver en typ av tillståndslösa. Mer information finns i [StatelessServiceType Element](service-fabric-service-model-schema-elements.md#StatelessServiceTypeElementStatelessServiceTypeTypeComplexTypeDefinedInServiceAndServiceGroupTypesTypecomplexTypeDefinedInServiceTypesTypecomplexType)
+### <a name="statelessservicetype-element"></a>StatelessServiceType-element
+Beskriver en tillstånds lös tjänst typ. Mer information finns i [StatelessServiceType-element](service-fabric-service-model-schema-elements.md#StatelessServiceTypeElementStatelessServiceTypeTypeComplexTypeDefinedInServiceAndServiceGroupTypesTypecomplexTypeDefinedInServiceTypesTypecomplexType)
 
 ### <a name="codepackage-element"></a>CodePackage Element
-Beskriver ett kodpaket som har stöd för en definierad tjänsttyp. När en tjänst instantieras mot en av dessa typer av tjänster, aktiveras alla kodpaket som deklarerats i manifestet genom att köra sina startpunkter. De resulterande processerna förväntas registrera stöds tjänsttyper vid körning. När det finns flera kodpaket, aktiveras de alla varje gång systemet söker efter någon av de deklarerade tjänsttyper. Mer information finns i [CodePackage Element](service-fabric-service-model-schema-elements.md#CodePackageElementCodePackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedCodePackageelement)
+Beskriver ett kod paket som stöder en definierad tjänst typ. När en tjänst instansieras mot någon av dessa tjänst typer aktive ras alla kod paket som deklarerats i det här manifestet genom att de startas. De resulterande processerna förväntas registrera de tjänst typer som stöds vid körning. När det finns flera kod paket aktive ras alla när systemet söker efter en av de deklarerade tjänst typerna. Mer information finns i [CodePackage-element](service-fabric-service-model-schema-elements.md#CodePackageElementCodePackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedCodePackageelement)
 
-### <a name="setupentrypoint-element"></a>SetupEntryPoint Element
-En privilegierad startpunkt som standard körs med samma autentiseringsuppgifter som Service Fabric (vanligtvis kontot NETWORKSERVICE) innan andra startpunkt. Den körbara filen som anges av EntryPoint är vanligtvis tjänstevärden tidskrävande. Förekomsten av en separat konfigurationsstartpunkten innebär att du slipper att köra tjänstevärden med höga privilegier för längre tid. Mer information finns i [SetupEntryPoint Element](service-fabric-service-model-schema-elements.md#SetupEntryPointElementanonymouscomplexTypeComplexTypeDefinedInCodePackageTypecomplexType)
+### <a name="setupentrypoint-element"></a>SetupEntryPoint-element
+En privilegie rad start punkt som som standard körs med samma autentiseringsuppgifter som Service Fabric (vanligt vis kontot NETWORKSERVICE) före någon annan start punkt. Den körbara filen som anges av EntryPoint är vanligt vis den tids krävande tjänst värden. Om du har en separat installations start punkt kan du undvika att behöva köra tjänst värden med hög behörighet under längre tid. Mer information finns i [SetupEntryPoint-element](service-fabric-service-model-schema-elements.md#SetupEntryPointElementanonymouscomplexTypeComplexTypeDefinedInCodePackageTypecomplexType)
 
-### <a name="exehost-element"></a>ExeHost Element
- Mer information finns i [ExeHost Element](service-fabric-service-model-schema-elements.md#ExeHostElementExeHostEntryPointTypeComplexTypeDefinedInSetupEntryPointelement)
+### <a name="exehost-element"></a>ExeHost-element
+ Mer information finns i [ExeHost-element](service-fabric-service-model-schema-elements.md#ExeHostElementExeHostEntryPointTypeComplexTypeDefinedInSetupEntryPointelement)
 
-### <a name="program-element"></a>Programelement
-Filnamn.  Till exempel ”MySetup.bat” eller ”MyServiceHost.exe”. Mer information finns i [programelement](service-fabric-service-model-schema-elements.md#ProgramElementxs:stringComplexTypeDefinedInExeHostEntryPointTypecomplexType)
+### <a name="program-element"></a>Program element
+Namnet på den körbara filen.  Till exempel "min setup. bat" eller "ServiceHost. exe". Mer information finns i [program element](service-fabric-service-model-schema-elements.md#ProgramElementxs:stringComplexTypeDefinedInExeHostEntryPointTypecomplexType)
 
 ### <a name="arguments-element"></a>Arguments Element
- Mer information finns i [argument Element](service-fabric-service-model-schema-elements.md#ArgumentsElementxs:stringComplexTypeDefinedInExeHostEntryPointTypecomplexType)
+ Mer information finns i [argument element](service-fabric-service-model-schema-elements.md#ArgumentsElementxs:stringComplexTypeDefinedInExeHostEntryPointTypecomplexType)
 
 ### <a name="workingfolder-element"></a>WorkingFolder Element
-Arbetskatalogen för processen i kodpaketet på den noden i klustret där programmet har distribuerats. Du kan ange tre värden: Arbete (standard), CodePackage eller kodbas. Kodbas anger att arbetskatalogen har angetts till katalogen där den exe-filen definieras i kodpaketet. CodePackage anger arbetskatalogen är roten för kodpaketet oavsett var den exe-filen definieras i paketkatalogen kod. Arbete anger arbetskatalogen till en unik mapp som skapas på noden.  Den här mappen är samma för hela programmet-instansen. Arbetskatalog för alla processer i programmet är som standard till programmappen för arbetet. Det här är där processerna kan skriva data. Skrivning av data i kodpaketet eller kodbas rekommenderas inte eftersom dessa mappar kan delas mellan olika programinstanser och kan tas bort. Mer information finns i [WorkingFolder Element](service-fabric-service-model-schema-elements.md#WorkingFolderElementanonymouscomplexTypeComplexTypeDefinedInExeHostEntryPointTypecomplexType)
+Arbets katalogen för processen i kod paketet på den klusternod där programmet har distribuerats. Du kan ange tre värden: Arbeta (standard), CodePackage eller kodbas. CodeBase anger att arbets katalogen har angetts till den katalog där EXE definieras i kod paketet. CodePackage anger att arbets katalogen ska vara roten i kod paketet oavsett var EXE-filen definieras i katalogen med kod paketet. Arbets katalogen anges till en unik mapp som skapas på noden.  Den här mappen är samma för hela program instansen. Som standard anges arbets katalogen för alla processer i programmet till mappen program arbete. Det är här som processerna kan skriva data. Att skriva data i kod paketet eller kodbasen rekommenderas inte eftersom dessa mappar kan delas mellan olika program instanser och kan tas bort. Mer information finns i [WorkingFolder-element](service-fabric-service-model-schema-elements.md#WorkingFolderElementanonymouscomplexTypeComplexTypeDefinedInExeHostEntryPointTypecomplexType)
 
-### <a name="consoleredirection-element"></a>ConsoleRedirection Element
+### <a name="consoleredirection-element"></a>ConsoleRedirection-element
 
 > [!WARNING]
-> Använda omdirigering av konsol i ett produktionsprogram inte, endast använda den för lokal utveckling och felsökning. Omdirigerar konsolens utdata från startskriptet att en utdatafil i programmappen ”logg” med namnet på den noden i klustret där programmet har distribuerats och körs. Mer information finns i [ConsoleRedirection Element](service-fabric-service-model-schema-elements.md#ConsoleRedirectionElementanonymouscomplexTypeComplexTypeDefinedInExeHostEntryPointTypecomplexType)
+> Använd inte konsolomdirigering i ett produktions program, Använd den endast för lokal utveckling och fel sökning. Omdirigerar konsol utdata från start skriptet till en utdatafil i programmappen med namnet "log" på klusternoden där programmet distribueras och körs. Mer information finns i [ConsoleRedirection-element](service-fabric-service-model-schema-elements.md#ConsoleRedirectionElementanonymouscomplexTypeComplexTypeDefinedInExeHostEntryPointTypecomplexType)
 
-### <a name="entrypoint-element"></a>EntryPoint Element
-Den körbara filen som anges av EntryPoint är vanligtvis tjänstevärden tidskrävande. Förekomsten av en separat konfigurationsstartpunkten innebär att du slipper att köra tjänstevärden med höga privilegier för längre tid. Den körbara filen som anges av EntryPoint körs när SetupEntryPoint har avslutas. Resulterande processen övervakas och startas om (början igen med SetupEntryPoint) om det skulle avslutas eller kraschar. Mer information finns i [EntryPoint Element](service-fabric-service-model-schema-elements.md#EntryPointElementEntryPointDescriptionTypeComplexTypeDefinedInCodePackageTypecomplexType)
+### <a name="entrypoint-element"></a>EntryPoint-element
+Den körbara filen som anges av EntryPoint är vanligt vis den tids krävande tjänst värden. Om du har en separat installations start punkt kan du undvika att behöva köra tjänst värden med hög behörighet under längre tid. Den körbara filen som anges av EntryPoint körs när SetupEntryPoint har avslut ATS. Den resulterande processen övervakas och startas om (börjar med SetupEntryPoint) om den skulle stängas av eller kraschar. Mer information finns i [EntryPoint-element](service-fabric-service-model-schema-elements.md#EntryPointElementEntryPointDescriptionTypeComplexTypeDefinedInCodePackageTypecomplexType)
 
-### <a name="exehost-element"></a>ExeHost Element
- Mer information finns i [ExeHost Element](service-fabric-service-model-schema-elements.md#ExeHostElementanonymouscomplexTypeComplexTypeDefinedInEntryPointDescriptionTypecomplexType)
+### <a name="exehost-element"></a>ExeHost-element
+ Mer information finns i [ExeHost-element](service-fabric-service-model-schema-elements.md#ExeHostElementanonymouscomplexTypeComplexTypeDefinedInEntryPointDescriptionTypecomplexType)
 
 ### <a name="configpackage-element"></a>ConfigPackage Element
-Anger en mapp med namnet av attributet namn under PackageRoot som innehåller en Settings.xml-fil. Den här filen innehåller avsnitt av inställningar för användardefinierade, nyckel / värde-par som processen kan läsa tillbaka vid körning. Vid en uppgradering om det bara ConfigPackage version har ändrats startas sedan processen inte. I stället meddelar en motringning den process som konfigurationsinställningarna har ändrats så att de kan läsas dynamiskt. Mer information finns i [ConfigPackage Element](service-fabric-service-model-schema-elements.md#ConfigPackageElementConfigPackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedConfigPackageelement)
+Deklarerar en mapp som heter med namnattributet, under PackageRoot som innehåller en Settings. XML-fil. Den här filen innehåller avsnitt med användardefinierade, nyckel värdes par inställningar som processen kan läsa tillbaka vid körning. Om endast ConfigPackage-versionen har ändrats under en uppgradering startas inte processen som körs om. I stället meddelar ett återanrop processen att konfigurations inställningarna har ändrats så att de kan läsas in dynamiskt. Mer information finns i [ConfigPackage-element](service-fabric-service-model-schema-elements.md#ConfigPackageElementConfigPackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedConfigPackageelement)
 
-### <a name="resources-element"></a>Resurser-Element
-Beskriver de resurser som används av den här tjänsten, som kan vara deklarerats utan att ändra kompilerad kod och ändras när tjänsten har distribuerats. Åtkomst till dessa resurser styrs via huvudnamn och principer för avsnitt i programmanifestet. Mer information finns i [resurser Element](service-fabric-service-model-schema-elements.md#ResourcesElementResourcesTypeComplexTypeDefinedInServiceManifestTypecomplexType)
+### <a name="resources-element"></a>Resurs element
+Beskriver de resurser som används av den här tjänsten, som kan deklareras utan att ändra kompilerad kod och ändras när tjänsten distribueras. Åtkomst till dessa resurser styrs via avsnitten principer och principer i applikations manifestet. Mer information finns i avsnittet [](service-fabric-service-model-schema-elements.md#ResourcesElementResourcesTypeComplexTypeDefinedInServiceManifestTypecomplexType) Resources
 
-### <a name="endpoints-element"></a>Slutpunkter Element
-Definierar slutpunkter för tjänsten. Mer information finns i [slutpunkter Element](service-fabric-service-model-schema-elements.md#EndpointsElementanonymouscomplexTypeComplexTypeDefinedInResourcesTypecomplexType)
+### <a name="endpoints-element"></a>Slut punkts element
+Definierar slut punkter för tjänsten. Mer information finns i avsnittet [slut punkts element](service-fabric-service-model-schema-elements.md#EndpointsElementanonymouscomplexTypeComplexTypeDefinedInResourcesTypecomplexType)
 
-### <a name="endpoint-element"></a>Slutpunktselement
-Den slutpunkt som har deklarerats i tjänstmanifestet att åsidosätta. Mer information finns i [Endpoint Element](service-fabric-service-model-schema-elements.md#EndpointElementEndpointOverrideTypeComplexTypeDefinedInEndpointselement)
+### <a name="endpoint-element"></a>Slut punkts element
+Slut punkten, som deklarerats i tjänst manifestet, för att åsidosätta. Mer information finns i [slut punkts element](service-fabric-service-model-schema-elements.md#EndpointElementEndpointOverrideTypeComplexTypeDefinedInEndpointselement)
 
 
 
-## <a name="votingdata-service-manifest-elements"></a>VotingData service manifest element
-### <a name="servicemanifest-element"></a>ServiceManifest Element
-Beskriver deklarativt tjänsttyp och version. Den visar oberoende av varandra kan uppgraderas kod, konfiguration och data-paket som tillsammans utgör inget tjänstepaket för att stödja en eller flera typer av tjänster. Resurser, inställningarna för startdiagnostik och tjänstmetadata, till exempel typ av tjänst, health egenskaper och mätvärden för Utjämning av nätverksbelastning, också anges. Mer information finns i [ServiceManifest Element](service-fabric-service-model-schema-elements.md#ServiceManifestElementServiceManifestTypeComplexType)
+## <a name="votingdata-service-manifest-elements"></a>Manifest element för VotingData-tjänst
+### <a name="servicemanifest-element"></a>ServiceManifest-element
+I den här artikeln beskrivs tjänst typen och versionen. Den innehåller en lista över oberoende uppgraderings bara kod, konfiguration och data paket som tillsammans skapar ett tjänst paket för att stödja en eller flera tjänst typer. Resurser, diagnostikinställningar och tjänstens metadata, till exempel tjänst typ, hälso egenskaper och belastnings Utjämnings mått, anges också. Mer information finns i [ServiceManifest-element](service-fabric-service-model-schema-elements.md#ServiceManifestElementServiceManifestTypeComplexType)
 
-### <a name="servicetypes-element"></a>ServiceTypes Element
-Definierar vilka typer av tjänster som stöds av en CodePackage i manifestet. När en tjänst instantieras mot en av dessa typer av tjänster, aktiveras alla kodpaket som deklarerats i manifestet genom att köra sina startpunkter. Tjänsttyper deklareras i manifestet nivå och inte kodnivå för paketet. Mer information finns i [ServiceTypes Element](service-fabric-service-model-schema-elements.md#ServiceTypesElementServiceAndServiceGroupTypesTypeComplexTypeDefinedInServiceManifestTypecomplexType)
+### <a name="servicetypes-element"></a>ServiceTypes-element
+Definierar vilka tjänst typer som stöds av en CodePackage i det här manifestet. När en tjänst instansieras mot någon av dessa tjänst typer aktive ras alla kod paket som deklarerats i det här manifestet genom att de startas. Tjänst typer deklareras på manifest nivå och inte på kod paket nivå. Mer information finns i [ServiceTypes-element](service-fabric-service-model-schema-elements.md#ServiceTypesElementServiceAndServiceGroupTypesTypeComplexTypeDefinedInServiceManifestTypecomplexType)
 
 ### <a name="statefulservicetype-element"></a>StatefulServiceType Element
-Beskriver en tillståndskänslig tjänsttyp. Mer information finns i [StatefulServiceType Element](service-fabric-service-model-schema-elements.md#StatefulServiceTypeElementStatefulServiceTypeTypeComplexTypeDefinedInServiceAndServiceGroupTypesTypecomplexTypeDefinedInServiceTypesTypecomplexType)
+Beskriver en tillstånds känslig tjänst typ. Mer information finns i [StatefulServiceType-element](service-fabric-service-model-schema-elements.md#StatefulServiceTypeElementStatefulServiceTypeTypeComplexTypeDefinedInServiceAndServiceGroupTypesTypecomplexTypeDefinedInServiceTypesTypecomplexType)
 
 ### <a name="codepackage-element"></a>CodePackage Element
-Beskriver ett kodpaket som har stöd för en definierad tjänsttyp. När en tjänst instantieras mot en av dessa typer av tjänster, aktiveras alla kodpaket som deklarerats i manifestet genom att köra sina startpunkter. De resulterande processerna förväntas registrera stöds tjänsttyper vid körning. När det finns flera kodpaket, aktiveras de alla varje gång systemet söker efter någon av de deklarerade tjänsttyper. Mer information finns i [CodePackage Element](service-fabric-service-model-schema-elements.md#CodePackageElementCodePackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedCodePackageelement)
+Beskriver ett kod paket som stöder en definierad tjänst typ. När en tjänst instansieras mot någon av dessa tjänst typer aktive ras alla kod paket som deklarerats i det här manifestet genom att de startas. De resulterande processerna förväntas registrera de tjänst typer som stöds vid körning. När det finns flera kod paket aktive ras alla när systemet söker efter en av de deklarerade tjänst typerna. Mer information finns i [CodePackage-element](service-fabric-service-model-schema-elements.md#CodePackageElementCodePackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedCodePackageelement)
 
-### <a name="entrypoint-element"></a>EntryPoint Element
-Den körbara filen som anges av EntryPoint är vanligtvis tjänstevärden tidskrävande. Förekomsten av en separat konfigurationsstartpunkten innebär att du slipper att köra tjänstevärden med höga privilegier för längre tid. Den körbara filen som anges av EntryPoint körs när SetupEntryPoint har avslutas. Resulterande processen övervakas och startas om (början igen med SetupEntryPoint) om det skulle avslutas eller kraschar. Mer information finns i [EntryPoint Element](service-fabric-service-model-schema-elements.md#EntryPointElementEntryPointDescriptionTypeComplexTypeDefinedInCodePackageTypecomplexType)
+### <a name="entrypoint-element"></a>EntryPoint-element
+Den körbara filen som anges av EntryPoint är vanligt vis den tids krävande tjänst värden. Om du har en separat installations start punkt kan du undvika att behöva köra tjänst värden med hög behörighet under längre tid. Den körbara filen som anges av EntryPoint körs när SetupEntryPoint har avslut ATS. Den resulterande processen övervakas och startas om (börjar med SetupEntryPoint) om den skulle stängas av eller kraschar. Mer information finns i [EntryPoint-element](service-fabric-service-model-schema-elements.md#EntryPointElementEntryPointDescriptionTypeComplexTypeDefinedInCodePackageTypecomplexType)
 
-### <a name="exehost-element"></a>ExeHost Element
- Mer information finns i [ExeHost Element](service-fabric-service-model-schema-elements.md#ExeHostElementanonymouscomplexTypeComplexTypeDefinedInEntryPointDescriptionTypecomplexType)
+### <a name="exehost-element"></a>ExeHost-element
+ Mer information finns i [ExeHost-element](service-fabric-service-model-schema-elements.md#ExeHostElementanonymouscomplexTypeComplexTypeDefinedInEntryPointDescriptionTypecomplexType)
 
-### <a name="program-element"></a>Programelement
-Filnamn.  Till exempel ”MySetup.bat” eller ”MyServiceHost.exe”. Mer information finns i [programelement](service-fabric-service-model-schema-elements.md#ProgramElementxs:stringComplexTypeDefinedInExeHostEntryPointTypecomplexType)
+### <a name="program-element"></a>Program element
+Namnet på den körbara filen.  Till exempel "min setup. bat" eller "ServiceHost. exe". Mer information finns i [program element](service-fabric-service-model-schema-elements.md#ProgramElementxs:stringComplexTypeDefinedInExeHostEntryPointTypecomplexType)
 
 ### <a name="workingfolder-element"></a>WorkingFolder Element
-Arbetskatalogen för processen i kodpaketet på den noden i klustret där programmet har distribuerats. Du kan ange tre värden: Arbete (standard), CodePackage eller kodbas. Kodbas anger att arbetskatalogen har angetts till katalogen där den exe-filen definieras i kodpaketet. CodePackage anger arbetskatalogen är roten för kodpaketet oavsett var den exe-filen definieras i paketkatalogen kod. Arbete anger arbetskatalogen till en unik mapp som skapas på noden.  Den här mappen är samma för hela programmet-instansen. Arbetskatalog för alla processer i programmet är som standard till programmappen för arbetet. Det här är där processerna kan skriva data. Skrivning av data i kodpaketet eller kodbas rekommenderas inte eftersom dessa mappar kan delas mellan olika programinstanser och kan tas bort. Mer information finns i [WorkingFolder Element](service-fabric-service-model-schema-elements.md#WorkingFolderElementanonymouscomplexTypeComplexTypeDefinedInExeHostEntryPointTypecomplexType)
+Arbets katalogen för processen i kod paketet på den klusternod där programmet har distribuerats. Du kan ange tre värden: Arbeta (standard), CodePackage eller kodbas. CodeBase anger att arbets katalogen har angetts till den katalog där EXE definieras i kod paketet. CodePackage anger att arbets katalogen ska vara roten i kod paketet oavsett var EXE-filen definieras i katalogen med kod paketet. Arbets katalogen anges till en unik mapp som skapas på noden.  Den här mappen är samma för hela program instansen. Som standard anges arbets katalogen för alla processer i programmet till mappen program arbete. Det är här som processerna kan skriva data. Att skriva data i kod paketet eller kodbasen rekommenderas inte eftersom dessa mappar kan delas mellan olika program instanser och kan tas bort. Mer information finns i [WorkingFolder-element](service-fabric-service-model-schema-elements.md#WorkingFolderElementanonymouscomplexTypeComplexTypeDefinedInExeHostEntryPointTypecomplexType)
 
 ### <a name="configpackage-element"></a>ConfigPackage Element
-Anger en mapp med namnet av attributet namn under PackageRoot som innehåller en Settings.xml-fil. Den här filen innehåller avsnitt av inställningar för användardefinierade, nyckel / värde-par som processen kan läsa tillbaka vid körning. Vid en uppgradering om det bara ConfigPackage version har ändrats startas sedan processen inte. I stället meddelar en motringning den process som konfigurationsinställningarna har ändrats så att de kan läsas dynamiskt. Mer information finns i [ConfigPackage Element](service-fabric-service-model-schema-elements.md#ConfigPackageElementConfigPackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedConfigPackageelement)
+Deklarerar en mapp som heter med namnattributet, under PackageRoot som innehåller en Settings. XML-fil. Den här filen innehåller avsnitt med användardefinierade, nyckel värdes par inställningar som processen kan läsa tillbaka vid körning. Om endast ConfigPackage-versionen har ändrats under en uppgradering startas inte processen som körs om. I stället meddelar ett återanrop processen att konfigurations inställningarna har ändrats så att de kan läsas in dynamiskt. Mer information finns i [ConfigPackage-element](service-fabric-service-model-schema-elements.md#ConfigPackageElementConfigPackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedConfigPackageelement)
 
 ### <a name="datapackage-element"></a>DataPackage Element
-Anger en mapp med namnet av attributet namn under PackageRoot som innehåller filer som statiska data ska användas av processen vid körning. Service Fabric kommer Papperskorgen alla exe-filerna och DLLHOSTs som anges i paket som värd och support när data-paket som anges i tjänstmanifestet uppgraderas. Mer information finns i [DataPackage-Element](service-fabric-service-model-schema-elements.md#DataPackageElementDataPackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedDataPackageelement)
+Deklarerar en mapp som heter med namnattributet, under PackageRoot som innehåller statiska datafiler som ska användas av processen vid körning. Service Fabric kommer att återvinna alla EXEs och DLLHOSTs som anges i värd-och support paketen när något av de data paket som anges i tjänst manifestet uppgraderas. Mer information finns i [DataPackage-element](service-fabric-service-model-schema-elements.md#DataPackageElementDataPackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedDataPackageelement)
 
-### <a name="resources-element"></a>Resurser-Element
-Beskriver de resurser som används av den här tjänsten, som kan vara deklarerats utan att ändra kompilerad kod och ändras när tjänsten har distribuerats. Åtkomst till dessa resurser styrs via huvudnamn och principer för avsnitt i programmanifestet. Mer information finns i [resurser Element](service-fabric-service-model-schema-elements.md#ResourcesElementResourcesTypeComplexTypeDefinedInServiceManifestTypecomplexType)
+### <a name="resources-element"></a>Resurs element
+Beskriver de resurser som används av den här tjänsten, som kan deklareras utan att ändra kompilerad kod och ändras när tjänsten distribueras. Åtkomst till dessa resurser styrs via avsnitten principer och principer i applikations manifestet. Mer information finns i avsnittet [](service-fabric-service-model-schema-elements.md#ResourcesElementResourcesTypeComplexTypeDefinedInServiceManifestTypecomplexType) Resources
 
-### <a name="endpoints-element"></a>Slutpunkter Element
-Definierar slutpunkter för tjänsten. Mer information finns i [slutpunkter Element](service-fabric-service-model-schema-elements.md#EndpointsElementanonymouscomplexTypeComplexTypeDefinedInResourcesTypecomplexType)
+### <a name="endpoints-element"></a>Slut punkts element
+Definierar slut punkter för tjänsten. Mer information finns i avsnittet [slut punkts element](service-fabric-service-model-schema-elements.md#EndpointsElementanonymouscomplexTypeComplexTypeDefinedInResourcesTypecomplexType)
 
-### <a name="endpoint-element"></a>Slutpunktselement
-Den slutpunkt som har deklarerats i tjänstmanifestet att åsidosätta. Mer information finns i [Endpoint Element](service-fabric-service-model-schema-elements.md#EndpointElementEndpointOverrideTypeComplexTypeDefinedInEndpointselement)
+### <a name="endpoint-element"></a>Slut punkts element
+Slut punkten, som deklarerats i tjänst manifestet, för att åsidosätta. Mer information finns i [slut punkts element](service-fabric-service-model-schema-elements.md#EndpointElementEndpointOverrideTypeComplexTypeDefinedInEndpointselement)
 

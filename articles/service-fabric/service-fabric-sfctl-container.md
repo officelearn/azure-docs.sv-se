@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric CLI - sfctl container | Microsoft Docs
-description: Beskriver sfctl container-kommandon för Service Fabric CLI.
+title: Azure Service Fabric CLI – sfctl container | Microsoft Docs
+description: Beskriver kommandona för kommandot Service Fabric CLI sfctl container.
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
@@ -8,83 +8,82 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: a5037c535737946a50d8af6fa60d0815120276d9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0ce6cf7c627657cf757b0c1ef9aa22428c17a7e7
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60837336"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036471"
 ---
 # <a name="sfctl-container"></a>sfctl container
-Kör behållaren relaterade kommandon på en klusternod.
+Kör behållar relaterade kommandon på en klusternod.
 
 ## <a name="commands"></a>Kommandon
 
 |Kommando|Beskrivning|
 | --- | --- |
-| invoke-api | Anropa behållare API i en behållare som distribueras på en Service Fabric-nod för det givna code-paketet. |
-| logs | Hämtar behållarloggarna för behållare som har distribuerats på en Service Fabric-nod för det givna code-paketet. |
+| invoke-api | Anropa container-API på en behållare som distribuerats på en Service Fabric-nod för det aktuella kod paketet. |
+| logs | Hämtar behållar loggarna för container som distribuerats på en Service Fabric-nod för det aktuella kod paketet. |
 
-## <a name="sfctl-container-invoke-api"></a>sfctl behållaren anropa API: er
-Anropa behållare API i en behållare som distribueras på en Service Fabric-nod för det givna code-paketet.
-
-### <a name="arguments"></a>Argument
-
-|Argument|Beskrivning|
-| --- | --- |
-| – program-id [krävs] | Identiteten för programmet. <br><br> Detta är vanligtvis det fullständiga namnet på programmet utan att den ”fabric\:” URI-schema. Från och med version 6.0, hierarkiska namn avgränsas med den ”\~” tecken. Om programnamnet är till exempel ”fabric\:/myapp/app1”, programidentiteten skulle vara ”myapp\~app1” i 6.0 + och ”myapp/app1” i tidigare versioner. |
-| --code-package-instans-id [krävs] | ID som unikt identifierar en kod paket-instans som distribuerats på en service fabric-noden. <br><br> Kan hämtas efter ”service code-package-list”. |
-| --code-package-name [krävs] | Namnet på kodpaketet som anges i tjänstmanifestet registrerad som en del av en typ av program i ett Service Fabric-kluster. |
-| --container-api-uri-sökväg [krävs] | Behållaren REST API-URI-sökväg, Använd {id} i stället för behållar-namn/id. |
-| --Nodnamnet [krävs] | Namnet på noden. |
-| --manifest-tjänstnamnet [krävs] | Namnet på ett tjänstmanifest som registrerats som en del av en typ av program i ett Service Fabric-kluster. |
-| --container-api-body | HTTP-begärandetexten för REST API-behållare. |
-| --container-api-content-type | Innehållstyp för REST API-behållare som standard ”application/json”. |
-| --container-api-http-verb | HTTP-verb för REST API-behållare som standard GET. |
-| --timeout -t | Tidsgräns för Server på några sekunder.  Standard\: 60. |
-
-### <a name="global-arguments"></a>Global Arguments
-
-|Argument|Beskrivning|
-| --- | --- |
-| --debug | Öka detaljnivå loggning för att visa alla felsöka loggar. |
-| --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
-| --utdata -o | Utdataformat.  Tillåtna värden\: json, jsonc, tabell, TVs.  Standard\: json. |
-| – fråga | JMESPath-frågesträng. Se http\://jmespath.org/ för mer information och exempel. |
-| --utförlig | Öka detaljnivå för loggning. Använd--felsökning för fullständig felsökningsloggar. |
-
-## <a name="sfctl-container-logs"></a>sfctl behållarloggar
-Hämtar behållarloggarna för behållare som har distribuerats på en Service Fabric-nod för det givna code-paketet.
+## <a name="sfctl-container-invoke-api"></a>sfctl container Invoke-API
+Anropa container-API på en behållare som distribuerats på en Service Fabric-nod för det aktuella kod paketet.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| – program-id [krävs] | Identiteten för programmet. <br><br> Detta är vanligtvis det fullständiga namnet på programmet utan att den ”fabric\:” URI-schema. Från och med version 6.0, hierarkiska namn avgränsas med den ”\~” tecken. Om programnamnet är till exempel ”fabric\:/myapp/app1”, programidentiteten skulle vara ”myapp\~app1” i 6.0 + och ”myapp/app1” i tidigare versioner. |
-| --code-package-instans-id [krävs] | Koda paketet instans-ID, som kan hämtas efter ”service code-package-list”. |
-| --code-package-name [krävs] | Namnet på kodpaketet som anges i tjänstmanifestet registrerad som en del av en typ av program i ett Service Fabric-kluster. |
-| --Nodnamnet [krävs] | Namnet på noden. |
-| --manifest-tjänstnamnet [krävs] | Namnet på ett tjänstmanifest som registrerats som en del av en typ av program i ett Service Fabric-kluster. |
-| --pilslut | Antal rader som ska visas från slutet av loggarna. Standardvärdet är 100. ”alla” för att visa de fullständiga loggarna. |
-| --timeout -t | Tidsgräns för Server på några sekunder.  Standard\: 60. |
+| --program-ID [obligatoriskt] | Programmets identitet. <br><br> Detta är vanligt vis det fullständiga namnet på programmet utan URI-schemat\:"Fabric". Från och med version 6,0 avgränsas hierarkiska namn med "\~"-symbolen. Om program namnet till exempel är "Fabric\:/MyApp/APP1" skulle program identiteten vara "MyApp\~APP1" i 6.0 + och "MyApp/APP1" i tidigare versioner. |
+| --kod-paket instans-ID [obligatoriskt] | ID som unikt identifierar en kod paket instans som distribuerats på en Service Fabric-nod. <br><br> Kan hämtas av ' service code-Package-List '. |
+| --kod-paket namn [obligatoriskt] | Namnet på kod paketet som anges i tjänst manifestet som är registrerat som en del av en program typ i ett Service Fabric kluster. |
+| --container-API-URI-Path [required] | Container REST API URI-sökväg, Använd {ID} i stället för container Name/ID. |
+| --Node-Name [required] | Nodens namn. |
+| --tjänst-manifest-namn [obligatoriskt] | Namnet på ett tjänst manifest som är registrerat som en del av en program typ i ett Service Fabric kluster. |
+| --container-API-Body | HTTP-begärantext för container REST API. |
+| --container-API-Content-Type | Innehålls typ för container REST API, standardvärdet är Application/JSON. |
+| --container-api-http-verb | HTTP-verb för container REST API, hämtas som standard. |
+| --timeout-t | Server-timeout på några sekunder.  Standard\: 60. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --debug | Öka detaljnivå loggning för att visa alla felsöka loggar. |
-| --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
-| --utdata -o | Utdataformat.  Tillåtna värden\: json, jsonc, tabell, TVs.  Standard\: json. |
-| – fråga | JMESPath-frågesträng. Se http\://jmespath.org/ för mer information och exempel. |
-| --utförlig | Öka detaljnivå för loggning. Använd--felsökning för fullständig felsökningsloggar. |
+| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
+| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
+| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: -JSON. |
+| --fråga | Frågesträngen JMESPath. Se http\://jmespath.org/för mer information och exempel. |
+| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
+
+## <a name="sfctl-container-logs"></a>sfctl container-loggar
+Hämtar behållar loggarna för container som distribuerats på en Service Fabric-nod för det aktuella kod paketet.
+
+### <a name="arguments"></a>Argument
+
+|Argument|Beskrivning|
+| --- | --- |
+| --program-ID [obligatoriskt] | Programmets identitet. <br><br> Detta är vanligt vis det fullständiga namnet på programmet utan URI-schemat\:"Fabric". Från och med version 6,0 avgränsas hierarkiska namn med "\~"-symbolen. Om program namnet till exempel är "Fabric\:/MyApp/APP1" skulle program identiteten vara "MyApp\~APP1" i 6.0 + och "MyApp/APP1" i tidigare versioner. |
+| --kod-paket instans-ID [obligatoriskt] | Kod paketets instans-ID, som kan hämtas av ' service code-Package-List '. |
+| --kod-paket namn [obligatoriskt] | Namnet på kod paketet som anges i tjänst manifestet som är registrerat som en del av en program typ i ett Service Fabric kluster. |
+| --Node-Name [required] | Nodens namn. |
+| --tjänst-manifest-namn [obligatoriskt] | Namnet på ett tjänst manifest som är registrerat som en del av en program typ i ett Service Fabric kluster. |
+| --pilslut | Antal rader som ska visas från slutet av loggarna. Standardvärdet är 100. all för att visa fullständiga loggar. |
+| --timeout-t | Server-timeout på några sekunder.  Standard\: 60. |
+
+### <a name="global-arguments"></a>Globala argument
+
+|Argument|Beskrivning|
+| --- | --- |
+| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
+| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
+| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: -JSON. |
+| --fråga | Frågesträngen JMESPath. Se http\://jmespath.org/för mer information och exempel. |
+| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
 
 
 ## <a name="next-steps"></a>Nästa steg
-- [Konfigurera](service-fabric-cli.md) Service Fabric CLI.
-- Lär dig hur du använder Service Fabric CLI med hjälp av den [exempel på skript](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- [Konfigurera](service-fabric-cli.md) Service Fabric cli.
+- Lär dig hur du använder Service Fabric CLI med hjälp av [exempel skripten](/azure/service-fabric/scripts/sfctl-upgrade-application).

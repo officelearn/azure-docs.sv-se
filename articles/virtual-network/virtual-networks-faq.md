@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: b088b4d0e21819411c7329f3cb1e6ca9761665fd
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: ebb9028aab8626554d0f5fede15129c141d441cb
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68610199"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035329"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Vanliga frågor och svar om Azure Virtual Network
 
@@ -67,9 +67,11 @@ Ja. Mer information om offentliga IP-adressintervall finns i [skapa ett virtuell
 Ja. Mer information finns i [Azure-gränser](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) . Under näts adress utrymmen får inte överlappa varandra.
 
 ### <a name="are-there-any-restrictions-on-using-ip-addresses-within-these-subnets"></a>Finns det några begränsningar för att använda IP-adresser i dessa undernät?
-Ja. Azure reserverar 5 IP-adresser i varje undernät. Detta är x. x. x. 0-x. x. x. 3 och den sista adressen i under nätet.    
-- x. x. x. 0 och den sista adressen i under nätet är reserverat för protokoll överensstämmelse.
-- x. x. x. 1-x. x. x är reserverad i varje undernät för Azure-tjänster.
+Ja. Azure reserverar 5 IP-adresser i varje undernät. Detta är x. x. x. 0-x. x. x. 3 och den sista adressen i under nätet. x. x. x. 1-x. x. x är reserverad i varje undernät för Azure-tjänster.   
+- x. x. x. 0: Nätverks adress
+- x. x. x. 1: Reserverad av Azure för standard-gateway
+- x. x. x. 2, x. x. x. 3: Reserverad av Azure för att mappa Azure DNS IP-adresser till VNet-utrymmet
+- x. x. x. 255: Nätverks sändnings adress
 
 ### <a name="how-small-and-how-large-can-vnets-and-subnets-be"></a>Hur liten och hur stor kan virtuella nätverk och undernät vara?
 Det minsta under nätet som stöds är/29 och det största är/8 (med hjälp av CIDR-underdefinitioner).

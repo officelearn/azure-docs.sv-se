@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric CLI - sfctl-nod | Microsoft Docs
-description: Beskriver sfctl nod-kommandon för Service Fabric CLI.
+title: Azure Service Fabric CLI-sfctl Node | Microsoft Docs
+description: Beskriver kommandot för kommandot Service Fabric CLI sfctl Node.
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
@@ -8,302 +8,301 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 1e5b5876fa6277d1bad0989c543de667f75a066c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9d41f978dd6a87287d8743e321acf35ff4909544
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66258735"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69034986"
 ---
 # <a name="sfctl-node"></a>sfctl node
-Hantera de noder som formar ett kluster.
+Hantera noderna som utgör ett kluster.
 
 ## <a name="commands"></a>Kommandon
 
 |Kommando|Beskrivning|
 | --- | --- |
-| Inaktivera | Inaktivera en Service Fabric-klusternod med angivna inaktivering avsikt. |
-| Aktivera | Aktivera en Service Fabric-klusternod som för närvarande har inaktiverats. |
-| health | Hämtar hälsotillståndet för en Service Fabric-nod. |
-| info | Hämtar information om en viss nod i Service Fabric-klustret. |
-| list | Hämtar listan över noder i Service Fabric-klustret. |
-| load | Hämtar load-information för en Service Fabric-nod. |
-| remove-state | Meddelar Service Fabric att det beständiga tillståndet på en nod har permanent bort eller tappas bort. |
-| report-health | Skickar en hälsorapport på Service Fabric-noden. |
-| restart | Startar om en Service Fabric-klusternod. |
-| övergång | Startar eller stoppar en klusternod. |
-| transition-status | Hämtar förloppet för en åtgärd som är igång med StartNodeTransition. |
+| inaktivera | Inaktivera en Service Fabric klusternod med angivet inaktive rings syfte. |
+| aktivera | Aktivera en Service Fabric klusternod som för närvarande är inaktive rad. |
+| health | Hämtar hälsan för en Service Fabric-nod. |
+| info | Hämtar information om en angiven nod i Service Fabric klustret. |
+| list | Hämtar listan över noder i Service Fabric klustret. |
+| load | Hämtar inläsnings information för en Service Fabric-nod. |
+| ta bort tillstånd | Meddelar Service Fabric att det beständiga läget på en nod har tagits bort permanent eller förlorats. |
+| report-health | Skickar en hälso rapport på Service Fabric-noden. |
+| restart | Startar om en Service Fabric klusternod. |
+| period | Startar eller stoppar en klusternod. |
+| över gång-status | Hämtar förloppet för en åtgärd som startades med StartNodeTransition. |
 
-## <a name="sfctl-node-disable"></a>sfctl noden inaktivera
-Inaktivera en Service Fabric-klusternod med angivna inaktivering avsikt.
+## <a name="sfctl-node-disable"></a>Inaktivera sfctl-nod
+Inaktivera en Service Fabric klusternod med angivet inaktive rings syfte.
 
-Inaktivera en Service Fabric-klusternod med angivna inaktivering avsikt. När inaktiveringen pågår, inaktivering avsikten kan ökade men inte minskas (till exempel en nod som har inaktiverats med en paus avsikt kan inaktiveras ytterligare med omstart, men inte tvärtom. Noder kan återaktiveras med aktivera nodåtgärden efter att de inaktiveras. Om inaktiveringen inte har slutförts, avbryts inaktiveringen. En nod som stängs av och startas igen när inaktiveras måste återaktiveras innan tjänster kommer att placeras på noden.
-
-### <a name="arguments"></a>Argument
-
-|Argument|Beskrivning|
-| --- | --- |
-| --Nodnamnet [krävs] | Namnet på noden. |
-| --deactivation-intent | Beskriver syfte eller orsak till att inaktivera noden. Möjliga värden följande. |
-| --timeout -t | Tidsgräns för Server på några sekunder.  Standard\: 60. |
-
-### <a name="global-arguments"></a>Global Arguments
-
-|Argument|Beskrivning|
-| --- | --- |
-| --debug | Öka detaljnivå loggning för att visa alla felsöka loggar. |
-| --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
-| --utdata -o | Utdataformat.  Tillåtna värden\: json, jsonc, tabell, TVs.  Standard\: json. |
-| – fråga | JMESPath-frågesträng. Se http\://jmespath.org/ för mer information och exempel. |
-| --utförlig | Öka detaljnivå för loggning. Använd--felsökning för fullständig felsökningsloggar. |
-
-## <a name="sfctl-node-enable"></a>sfctl noden aktivera
-Aktivera en Service Fabric-klusternod som för närvarande har inaktiverats.
-
-Aktiverar en Service Fabric-klusternod som för närvarande har inaktiverats. När aktiverat kan noden igen blir ett genomförbart mål för att placera nya repliker och alla inaktiverade repliker som är kvar på noden ska återaktiveras.
+Inaktivera en Service Fabric klusternod med angivet inaktive rings syfte. När inaktive ringen har slutförts kan inaktive rings avsikten ökas, men inte minskas (till exempel kan en nod som inaktive ras med paus avsikten inaktive ras ytterligare med omstart, men inte på det andra sättet. Noder kan återaktiveras med hjälp av åtgärden aktivera en nod när som helst när de har inaktiverats. Om inaktive ringen inte är slutförd avbryts inaktive ringen. En nod som slutar fungera och som är inaktive rad och som är inaktive rad måste fortfarande aktive ras igen innan tjänsterna placeras på den noden.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Nodnamnet [krävs] | Namnet på noden. |
-| --timeout -t | Tidsgräns för Server på några sekunder.  Standard\: 60. |
+| --Node-Name [required] | Nodens namn. |
+| --deactivation-intent | Beskriver avsikten eller anledningen till att inaktivera noden. De möjliga värdena är följande. |
+| --timeout-t | Server-timeout på några sekunder.  Standard\: 60. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --debug | Öka detaljnivå loggning för att visa alla felsöka loggar. |
-| --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
-| --utdata -o | Utdataformat.  Tillåtna värden\: json, jsonc, tabell, TVs.  Standard\: json. |
-| – fråga | JMESPath-frågesträng. Se http\://jmespath.org/ för mer information och exempel. |
-| --utförlig | Öka detaljnivå för loggning. Använd--felsökning för fullständig felsökningsloggar. |
+| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
+| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
+| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: -JSON. |
+| --fråga | Frågesträngen JMESPath. Se http\://jmespath.org/för mer information och exempel. |
+| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
 
-## <a name="sfctl-node-health"></a>sfctl nodhälsan
-Hämtar hälsotillståndet för en Service Fabric-nod.
+## <a name="sfctl-node-enable"></a>Aktivera sfctl-noden
+Aktivera en Service Fabric klusternod som för närvarande är inaktive rad.
 
-Hämtar hälsotillståndet för en Service Fabric-nod. Använd EventsHealthStateFilter för att filtrera insamling av health-händelser som rapporteras på den nod som baseras på hälsotillståndet. Om noden som du anger med namnet inte finns i health store, returnerar det här ett fel.
+Aktiverar en Service Fabric klusternod som för närvarande är inaktive rad. När den är aktive rad blir noden återigen ett giltigt mål för att placera nya repliker, och eventuella inaktiverade repliker på noden återaktiveras.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Nodnamnet [krävs] | Namnet på noden. |
-| --events-health-state-filter | Tillåter filtrering objektsamlingen HealthEvent returnerade baseras på hälsotillståndet. De möjliga värdena för den här parametern innehåller heltalsvärdet för något av följande hälsotillstånd. Händelser som matchar filtret returneras. Alla händelser som används för att analysera sammanställda hälsotillståndet. Om inte anges returneras alla poster. Värdena är uppräkning med flaggan så värdet kan vara en kombination av dessa värden som hämtats med hjälp av en Bitvis ”OR”-operator. Till exempel om det angivna värdet är 6 returneras alla händelser med HealthState värdet OK (2) och varning (4).  <br> -Standard - standardvärde. Matchar alla HealthState. Värdet är noll.  <br> -Ingen - Filter som inte matchar något värde för HealthState. Använda så att inga resultat returneras på en viss samling av tillstånd. Värdet är 1.  <br> -Filtrera ok - att matchningar indata med HealthState värde Ok. Värdet är 2.  <br> -Varning - Filter som matchar med HealthState indatavärdet varning. Värdet är 4.  <br> -Fel Filter som matchar indata med HealthState värdet fel. Värdet är 8.  <br> -Alla - Filter som matchar indata med ett HealthState-värde. Värdet är 65535. |
-| --timeout -t | Tidsgräns för Server på några sekunder.  Standard\: 60. |
+| --Node-Name [required] | Nodens namn. |
+| --timeout-t | Server-timeout på några sekunder.  Standard\: 60. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --debug | Öka detaljnivå loggning för att visa alla felsöka loggar. |
-| --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
-| --utdata -o | Utdataformat.  Tillåtna värden\: json, jsonc, tabell, TVs.  Standard\: json. |
-| – fråga | JMESPath-frågesträng. Se http\://jmespath.org/ för mer information och exempel. |
-| --utförlig | Öka detaljnivå för loggning. Använd--felsökning för fullständig felsökningsloggar. |
+| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
+| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
+| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: -JSON. |
+| --fråga | Frågesträngen JMESPath. Se http\://jmespath.org/för mer information och exempel. |
+| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
 
-## <a name="sfctl-node-info"></a>sfctl noden info
-Hämtar information om en viss nod i Service Fabric-klustret.
+## <a name="sfctl-node-health"></a>sfctl-nods hälsa
+Hämtar hälsan för en Service Fabric-nod.
 
-Svaret innehåller namn, status, ID, hälsa, drifttid och annan information om noden.
+Hämtar hälsan för en Service Fabric-nod. Använd EventsHealthStateFilter för att filtrera den samling hälso händelser som rapporteras på noden baserat på hälso tillståndet. Om den nod som du anger efter namn inte finns i hälso lagret returneras ett fel.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Nodnamnet [krävs] | Namnet på noden. |
-| --timeout -t | Tidsgräns för Server på några sekunder.  Standard\: 60. |
+| --Node-Name [required] | Nodens namn. |
+| --events-health-state-filter | Tillåter filtrering av samlingen av HealthEvent-objekt som returneras baserat på hälso tillstånd. De möjliga värdena för den här parametern är heltals värde för något av följande hälso tillstånd. Endast händelser som matchar filtret returneras. Alla händelser används för att utvärdera det sammanlagda hälso tillståndet. Om inget anges returneras alla poster. Tillstånds värden är flaggning-baserad uppräkning, så värdet kan vara en kombination av dessa värden, erhållna med hjälp av den bitvisa operatorn eller. Om det angivna värdet till exempel är 6 returneras alla händelser med hälso tillstånd svärdet OK (2) och varning (4).  <br> -Standard-standardvärdet. Matchar alla hälso tillstånd. Värdet är noll.  <br> -Inget – filter som inte matchar något värde för hälso tillstånd. Används för att returnera inga resultat för en specifik samling av tillstånd. Värdet är 1.  <br> – OK-filter som matchar inmatade hälso tillstånds värden OK. Värdet är 2.  <br> -Varnings filter som matchar inmatade värde varningar för hälso tillstånd. Värdet är 4.  <br> -Fel-filter som matchar InInformationen med hälso tillstånds värde fel. Värdet är 8.  <br> – Alla – filter som matchar indatamängden med ett värde för hälso tillstånd. Värdet är 65535. |
+| --timeout-t | Server-timeout på några sekunder.  Standard\: 60. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --debug | Öka detaljnivå loggning för att visa alla felsöka loggar. |
-| --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
-| --utdata -o | Utdataformat.  Tillåtna värden\: json, jsonc, tabell, TVs.  Standard\: json. |
-| – fråga | JMESPath-frågesträng. Se http\://jmespath.org/ för mer information och exempel. |
-| --utförlig | Öka detaljnivå för loggning. Använd--felsökning för fullständig felsökningsloggar. |
+| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
+| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
+| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: -JSON. |
+| --fråga | Frågesträngen JMESPath. Se http\://jmespath.org/för mer information och exempel. |
+| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
 
-## <a name="sfctl-node-list"></a>sfctl nodlistan
-Hämtar listan över noder i Service Fabric-klustret.
+## <a name="sfctl-node-info"></a>information om sfctl-nod
+Hämtar information om en angiven nod i Service Fabric klustret.
 
-Svaret innehåller namn, status, ID, hälsa, drifttid och annan information om noderna.
+Svaret innehåller namn, status, ID, hälsa, drift tid och annan information om noden.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --continuation-token | Fortsättningstoken parameter-token som används för att hämta nästa uppsättning resultat. Ett fortsättningstoken med en icke-tomma värden inkluderas i svaret på API: et när resultaten från systemet inte ryms i ett enda svar. När det här värdet skickas till nästa API-anropet API: et Returnerar nästa uppsättning resultat. Om det finns inga ytterligare resultat, innehåller ett värde inte i fortsättningstoken. Värdet för den här parametern får inte vara URL-kodas. |
-| --max-results | Det maximala antalet resultat som ska returneras som en del av de växlade frågorna. Den här parametern definierar den övre gränsen för antalet resultat som returneras. Resultatet som returneras kan mindre än de angivna maximalt antal resultat om de inte passar i meddelandet enligt storleksbegränsningar max meddelande definieras i konfigurationen. Om den här parametern är noll eller inte har angetts, inkluderar växlade frågan så många resultat som möjligt som passar in i svarsmeddelandet. |
-| --node-status-filter | Tillåter filtrering baserat på NodeStatus noderna. Endast de noder som kommer att matcha det angivna filtervärdet returneras. Filtervärdet kan vara något av följande.  Standard\: standard. |
-| --timeout -t | Tidsgräns för Server på några sekunder.  Standard\: 60. |
+| --Node-Name [required] | Nodens namn. |
+| --timeout-t | Server-timeout på några sekunder.  Standard\: 60. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --debug | Öka detaljnivå loggning för att visa alla felsöka loggar. |
-| --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
-| --utdata -o | Utdataformat.  Tillåtna värden\: json, jsonc, tabell, TVs.  Standard\: json. |
-| – fråga | JMESPath-frågesträng. Se http\://jmespath.org/ för mer information och exempel. |
-| --utförlig | Öka detaljnivå för loggning. Använd--felsökning för fullständig felsökningsloggar. |
+| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
+| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
+| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: -JSON. |
+| --fråga | Frågesträngen JMESPath. Se http\://jmespath.org/för mer information och exempel. |
+| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
 
-## <a name="sfctl-node-load"></a>sfctl node load
-Hämtar load-information för en Service Fabric-nod.
+## <a name="sfctl-node-list"></a>lista över sfctl-noder
+Hämtar listan över noder i Service Fabric klustret.
 
-Hämtar information för belastning för en Service Fabric-nod för alla mått som har belastning eller nodkapaciteten som definierats.
+Svaret innehåller namn, status, ID, hälsa, drift tid och annan information om noderna.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Nodnamnet [krävs] | Namnet på noden. |
-| --timeout -t | Tidsgräns för Server på några sekunder.  Standard\: 60. |
+| --fortsättnings-token | Parametern för fortsatt token används för att hämta nästa uppsättning resultat. En fortsättnings-token med ett värde som inte är tom inkluderas i svaret på API: et när resultatet från systemet inte passar i ett enda svar. När det här värdet skickas till nästa API-anrop returnerar API nästa uppsättning resultat. Om det inte finns några ytterligare resultat innehåller inte fortsättnings-token ett värde. Värdet för den här parametern får inte vara URL-kodat. |
+| --max-results | Det maximala antalet resultat som ska returneras som en del av de växlade frågorna. Den här parametern definierar den övre kanten på antalet returnerade resultat. Resultaten som returneras kan vara mindre än de angivna maximala resultaten om de inte får plats i meddelandet enligt de Max begränsningar för meddelande storlek som definierats i konfigurationen. Om den här parametern är noll eller inte anges, innehåller den växlade frågan så många resultat som möjligt som passar i retur meddelandet. |
+| --node-status-filter | Tillåter filtrering av noderna baserat på NodeStatus. Det går bara att returnera de noder som matchar det angivna filtervärdet. Filtervärdet kan vara något av följande.  Standard\: . |
+| --timeout-t | Server-timeout på några sekunder.  Standard\: 60. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --debug | Öka detaljnivå loggning för att visa alla felsöka loggar. |
-| --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
-| --utdata -o | Utdataformat.  Tillåtna värden\: json, jsonc, tabell, TVs.  Standard\: json. |
-| – fråga | JMESPath-frågesträng. Se http\://jmespath.org/ för mer information och exempel. |
-| --utförlig | Öka detaljnivå för loggning. Använd--felsökning för fullständig felsökningsloggar. |
+| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
+| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
+| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: -JSON. |
+| --fråga | Frågesträngen JMESPath. Se http\://jmespath.org/för mer information och exempel. |
+| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
 
-## <a name="sfctl-node-remove-state"></a>sfctl noden ta bort tillstånd
-Meddelar Service Fabric att det beständiga tillståndet på en nod har permanent bort eller tappas bort.
+## <a name="sfctl-node-load"></a>sfctl Node load
+Hämtar inläsnings information för en Service Fabric-nod.
 
-Detta innebär att det inte går att återställa det sparade tillståndet för noden. Detta inträffar vanligtvis om en hårddisk har rensats ren, eller om en hårddisk kraschar. Noden har inte är tillgänglig för den här åtgärden ska lyckas. Den här åtgärden kan Service Fabric vet att replikerna på noden finns inte längre och som Service Fabric ska avbrytas väntar på dessa replikerna är igång. Kör inte denna cmdlet om tillståndet på noden inte har tagits bort och noden kan gå tillbaka med statusen intakta.
-
-Från och med Service Fabric 6.5, för att kunna använda denna cmdlet för startvärdesnoder,. Ändra seed-noder till vanliga (icke-) startvärdesnoder och sedan anropa denna cmdlet för att ta bort node-tillstånd. Om klustret körs på Azure, när noden seed kraschar, försöker Service Fabric ändra den automatiskt till en icke-seed-nod. Om du vill göra det gör att är antalet icke-startvärdesnoder i den primära nodtypen inte lägre än antalet ned startvärdesnoder. Om det behövs kan du lägga till fler noder till den primära nodtypen att uppnå detta. För fristående kluster om noden seed ned inte förväntas är igång med statusen intakta,. Ta bort noden från klustret, se [ta bort noder från fristående Service Fabric-kluster](/azure/service-fabric/service-fabric-cluster-windows-server-add-remove-nodes) 
+Hämtar inläsnings information för en Service Fabric nod för alla mått som har belastning eller kapacitet definierat.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Nodnamnet [krävs] | Namnet på noden. |
-| --timeout -t | Tidsgräns för Server på några sekunder.  Standard\: 60. |
+| --Node-Name [required] | Nodens namn. |
+| --timeout-t | Server-timeout på några sekunder.  Standard\: 60. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --debug | Öka detaljnivå loggning för att visa alla felsöka loggar. |
-| --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
-| --utdata -o | Utdataformat.  Tillåtna värden\: json, jsonc, tabell, TVs.  Standard\: json. |
-| – fråga | JMESPath-frågesträng. Se http\://jmespath.org/ för mer information och exempel. |
-| --utförlig | Öka detaljnivå för loggning. Använd--felsökning för fullständig felsökningsloggar. |
+| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
+| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
+| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: -JSON. |
+| --fråga | Frågesträngen JMESPath. Se http\://jmespath.org/för mer information och exempel. |
+| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
 
-## <a name="sfctl-node-report-health"></a>sfctl node report-health
-Skickar en hälsorapport på Service Fabric-noden.
+## <a name="sfctl-node-remove-state"></a>sfctl Node Remove-State
+Meddelar Service Fabric att det beständiga läget på en nod har tagits bort permanent eller förlorats.
 
-Rapporterar hälsotillståndet för den angivna Service Fabric-noden. Rapporten måste innehålla information om orsaken hälsorapport och egenskapen som har rapporterats. Rapporten skickas till ett Service Fabric gateway-noden, som vidarebefordrar till health store. Rapporten kan accepteras av gatewayen, men avvisats av health store efter extra valideringen. Health store kan till exempel avvisa rapporten på grund av en ogiltig parameter, t.ex. ett sekvensnummer som är inaktuella. Kontrollera att rapporten ska visas i avsnittet HealthEvents för att se om rapporten har tillämpats i health store.
+Detta innebär att det inte går att återställa det sparade läget för noden. Detta inträffar vanligt vis om en hård disk rensats rent eller om en hård disk kraschar. Noden måste vara avstängd för att åtgärden ska lyckas. Den här åtgärden låter Service Fabric veta att replikerna på noden inte längre finns och att Service Fabric ska sluta vänta på att de repliker ska komma att säkerhets kopie ras. Kör inte denna cmdlet om läget på noden inte har tagits bort och noden kan komma att säkerhets kopie ras med sitt tillstånd intakt.
+
+Från Service Fabric 6,5, för att kunna använda denna cmdlet för startnoder, ändra startnoderna till vanliga (icke-start) noder och anropa sedan denna cmdlet för att ta bort nodens tillstånd. Om klustret körs på Azure kommer Service Fabric att försöka ändra det automatiskt till en nod som inte är en STARTNOD, efter att noden är nere. Detta gör du genom att kontrol lera att antalet icke-startnoder i den primära nodtypen inte är mindre än antalet startnoder. Om det behövs kan du lägga till fler noder till den primära nodtypen för att uppnå detta. För fristående kluster, om noden inte förväntas komma att säkerhets kopie ras med sitt tillstånd intakt, tar du bort noden från klustret, se [ta bort noder från Service Fabric fristående kluster](/azure/service-fabric/service-fabric-cluster-windows-server-add-remove-nodes) 
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --health-egenskapen [krävs] | Egenskapen för hälsoinformation. <br><br> En entitet kan ha rapporter om hälsotillstånd för olika egenskaper. Egenskapen är en sträng och inte en fast uppräkningen för att tillåta rapport flexibiliteten att kategorisera tillstånd-villkor som utlöser rapporten. En rapport med SourceId ”LocalWatchdog” kan till exempel övervaka status för tillgängliga disken på en nod, så att den kan rapportera ”AvailableDisk”-egenskap på noden. Samma rapport kan övervaka nod-anslutningen så att den kan rapportera en egenskap ”anslutning” på samma nod. Dessa rapporter behandlas i health store, som separata health-händelser för den angivna noden. Tillsammans med målentiteten identifierar egenskapen hälsoinformation. |
-| --hälsotillståndet [krävs] | Möjliga värden omfattar\: ”ogiltig”, ”Ok”, ”varning”, ”fel”, ”okänd”. |
-| --Nodnamnet [krävs] | Namnet på noden. |
-| --käll-id [krävs] | Källnamn som identifierar/klientsystemet/watchdog-komponenten som genererade hälsoinformation. |
-| – Beskrivning | Beskrivning av hälsoinformation. <br><br> Den motsvarar fritext som används för att lägga till mänskliga läsbar information om rapporten. Den maximala stränglängden för beskrivningen är 4 096 tecken. Om strängen inte trunkeras den automatiskt. När trunkeras, de sista tecknen i beskrivningen innehåller en markör ”[trunkerat]” och totala storleken på målsträngen är 4 096 tecken. Förekomst av markören anger för användare att trunkering inträffade. Observera att när trunkeras, beskrivningen har mindre än 4 096 tecken från den ursprungliga strängen. |
-| --omedelbar | En flagga som anger om rapporten ska skickas omedelbart. <br><br> En hälsorapport skickas till en Service Fabric gateway programmet, som vidarebefordrar till health store. Om Immediate anges till SANT, skickas rapporten direkt från HTTP-Gateway till health store, oavsett inställningarna i fabric-klient som använder HTTP-Gateway-program. Detta är användbart för kritiska rapporter som ska skickas så snart som möjligt. Beroende på tidpunkten och andra villkor misslyckas skicka rapporten fortfarande, till exempel om HTTP-Gateway är stängd eller meddelandet når inte gatewayen. Om Immediate är inställd på false, skickas rapporten baserat på klientinställningarna hälsotillstånd från HTTP-Gateway. Det kan därför batchhanteras enligt HealthReportSendInterval-konfigurationen. Det här är den rekommenderade inställningen eftersom den tillåter hälsotillstånd klienten att optimera reporting meddelanden hälsoarkivet, samt för bearbetning av hälsotillstånd. Som standard skickas rapporter inte omedelbart. |
-| --remove-when-expired | Värde som anger om rapporten tas bort från health store när den upphör att gälla. <br><br> Om värdet är true, rapporten tas bort från health store när den upphör att gälla. Om värdet är FALSKT, rapporten behandlas som ett fel när den har upphört att gälla. Värdet för den här egenskapen är false som standard. När klienterna rapporterar regelbundet, ska de ange RemoveWhenExpired FALSKT (standard). På så sätt kan är personen har problem (t.ex. deadlock) och kan inte rapportera entiteten utvärderas vid fel när hälsorapporten upphör att gälla. Detta flaggar entiteten som ett felaktigt hälsotillstånd. |
-| ---sekvensnummer | Sekvensnumret för den här hälsorapport som en numerisk sträng. <br><br> Sekvensnumret rapporten används av health store för att identifiera inaktuella rapporter. Om inte anges genereras ett sekvensnummer automatiskt av hälsotillstånd klienten när du lägger till en rapport. |
-| --timeout -t | Tidsgräns för Server på några sekunder.  Standard\: 60. |
-| --ttl | Den tid som den här hälsorapport är giltig. Det här fältet använder ISO8601-format för att ange varaktigheten. <br><br> När klienterna rapporterar med jämna mellanrum, bör de skicka rapporter med frekvens som är högre än TTL-värde. Om klienterna rapporterar på övergång, kan de ange time to live till obegränsad. När TTL-värde upphör att gälla hälsohändelsen som innehåller hälsoinformation är antingen tas bort från health store om RemoveWhenExpired är true och utvärderas vid fel, om RemoveWhenExpired false. Om inte tidpunkten TTL-värde standardvärdet är oändligt värde. |
+| --Node-Name [required] | Nodens namn. |
+| --timeout-t | Server-timeout på några sekunder.  Standard\: 60. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --debug | Öka detaljnivå loggning för att visa alla felsöka loggar. |
-| --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
-| --utdata -o | Utdataformat.  Tillåtna värden\: json, jsonc, tabell, TVs.  Standard\: json. |
-| – fråga | JMESPath-frågesträng. Se http\://jmespath.org/ för mer information och exempel. |
-| --utförlig | Öka detaljnivå för loggning. Använd--felsökning för fullständig felsökningsloggar. |
+| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
+| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
+| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: -JSON. |
+| --fråga | Frågesträngen JMESPath. Se http\://jmespath.org/för mer information och exempel. |
+| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
 
-## <a name="sfctl-node-restart"></a>sfctl nodomstart
-Startar om en Service Fabric-klusternod.
+## <a name="sfctl-node-report-health"></a>sfctl-nodens rapport – hälsa
+Skickar en hälso rapport på Service Fabric-noden.
 
-Startar om en Service Fabric-klusternod som har redan startats.
+Rapporterar hälso tillståndet för den angivna Service Fabric-noden. Rapporten måste innehålla information om källan till hälso rapporten och egenskapen som den rapporteras om. Rapporten skickas till en Service Fabric Gateway-nod som vidarebefordrar till hälso lagret. Rapporten kan godkännas av gatewayen, men avvisas av hälso lagret efter extra verifiering. Hälso lagret kan till exempel avvisa rapporten på grund av en ogiltig parameter, t. ex. ett inaktuellt ordnings nummer. Om du vill se om rapporten har använts i hälso lagret kontrollerar du att rapporten visas i avsnittet HealthEvents.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Nodnamnet [krävs] | Namnet på noden. |
-| – Skapa-fabric-kraschdump | Välj True om du vill skapa en dump av processen för fabric-noden. Värdet är skiftlägeskänsligt.  Standard\: FALSKT. |
-| – nod-instans-id | Instans-ID för målnoden. Om instans-ID har angetts noden startas om du bara med den aktuella instansen av noden. Ett standardvärde på ”0” matchar valfri instans-ID. Instans-ID kan hämtas med hjälp av get-noden frågan.  Standard\: 0. |
-| --timeout -t | Tidsgräns för Server på några sekunder.  Standard\: 60. |
+| --Health-Property [required] | Hälso informationens egenskaper. <br><br> En entitet kan ha hälso rapporter för olika egenskaper. Egenskapen är en sträng och inte en fast uppräkning som tillåter rapportörens flexibilitet att kategorisera det tillstånds villkor som utlöser rapporten. Till exempel kan en rapportör med SourceId "LocalWatchdog" övervaka statusen för den tillgängliga disken på en nod, så att den kan rapportera egenskapen "AvailableDisk" på noden. Samma rapportör kan övervaka nodens anslutning, så att den kan rapportera en egenskap "anslutning" på samma nod. I hälso lagret behandlas dessa rapporter som separata hälso händelser för den angivna noden. Tillsammans med värdet för SourceId kan egenskapen unikt identifiera hälso informationen. |
+| --hälso tillstånd [krävs] | Möjliga värden är\: "ogiltig", "OK", "varning", "Error", "okänd". |
+| --Node-Name [required] | Nodens namn. |
+| --Käll-ID [obligatoriskt] | Det käll namn som identifierar klient/övervaknings-/system komponenten som genererade hälso informationen. |
+| --Beskrivning | Beskrivning av hälso informationen. <br><br> Den representerar fritext som används för att lägga till läsbar information om rapporten. Den maximala sträng längden för beskrivningen är 4096 tecken. Om den angivna strängen blir längre trunkeras den automatiskt. Vid trunkering innehåller de sista tecknen i beskrivningen en markör, "[trunkerad]" och den totala sträng storleken är 4096 tecken. Förekomsten av markören anger för användare som har trunkerats. Observera att beskrivningen innehåller färre än 4096 tecken från den ursprungliga strängen när den trunkeras. |
+| --omedelbar | En flagga som anger om rapporten ska skickas omedelbart. <br><br> En hälso rapport skickas till ett Service Fabric Gateway-program, som vidarebefordrar till hälso lagret. Om omedelbar är inställt på Sant skickas rapporten omedelbart från HTTP-gatewayen till hälso lagret, oavsett vilka klient inställningar för klient program varan som HTTP-gatewayen använder. Detta är användbart för kritiska rapporter som ska skickas så snart som möjligt. Beroende på tids inställningar och andra villkor kan det hända att det fortfarande inte går att skicka rapporten, till exempel om HTTP-gatewayen är stängd eller om meddelandet inte når gatewayen. Om omedelbar är inställt på false skickas rapporten baserat på hälso klient inställningarna från HTTP-gatewayen. Därför kommer den att grupperas enligt HealthReportSendInterval-konfigurationen. Detta är den rekommenderade inställningen eftersom den gör det möjligt för hälso klienten att optimera hälso rapporterings meddelanden till hälso Arkiv och bearbetning av hälso rapporter. Som standard skickas inte rapporter direkt. |
+| --remove-when-expired | Värde som anger om rapporten tas bort från hälso arkivet när den upphör att gälla. <br><br> Om värdet är True tas rapporten bort från hälso arkivet när den har gått ut. Om värdet är false behandlas rapporten som ett fel när den upphör att gälla. Värdet för den här egenskapen är falskt som standard. När klienter rapporterar regelbundet ska de ange RemoveWhenExpired false (standard). På så sätt har rapportören problem (t. ex. död läge) och kan inte rapportera. enheten utvärderas vid fel när hälso rapporten upphör att gälla. Den här flaggan anger att entiteten har fel hälso tillstånd. |
+| --sekvens-nummer | Serie numret för den här hälso rapporten som en numerisk sträng. <br><br> Rapportens sekvensnummer används av hälso lagret för att identifiera inaktuella rapporter. Om inget värde anges genereras ett sekvensnummer automatiskt av hälso klienten när en rapport läggs till. |
+| --timeout-t | Server-timeout på några sekunder.  Standard\: 60. |
+| --TTL | Varaktigheten för vilken den här hälso rapporten är giltig. I det här fältet används ISO8601-format för att ange varaktighet. <br><br> När klienter rapporterar regelbundet bör de skicka rapporter med högre frekvens än tid till Live. Om klienterna rapporterar över över gången kan de ställa in tiden till oändligt. När TTL-tiden förfaller, tas den hälso händelse som innehåller hälso informationen antingen bort från hälso lagret, om RemoveWhenExpired är sant eller om den utvärderas som fel, om RemoveWhenExpired false. Om inget värde anges, är Time to Live standardvärdet oändligt. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --debug | Öka detaljnivå loggning för att visa alla felsöka loggar. |
-| --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
-| --utdata -o | Utdataformat.  Tillåtna värden\: json, jsonc, tabell, TVs.  Standard\: json. |
-| – fråga | JMESPath-frågesträng. Se http\://jmespath.org/ för mer information och exempel. |
-| --utförlig | Öka detaljnivå för loggning. Använd--felsökning för fullständig felsökningsloggar. |
+| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
+| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
+| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: -JSON. |
+| --fråga | Frågesträngen JMESPath. Se http\://jmespath.org/för mer information och exempel. |
+| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
 
-## <a name="sfctl-node-transition"></a>sfctl för nodövergång
+## <a name="sfctl-node-restart"></a>sfctl-nod, omstart
+Startar om en Service Fabric klusternod.
+
+Startar om en Service Fabric klusternod som redan har startats.
+
+### <a name="arguments"></a>Argument
+
+|Argument|Beskrivning|
+| --- | --- |
+| --Node-Name [required] | Nodens namn. |
+| --Create-Fabric-dump | Ange sant om du vill skapa en dump för processen för Fabric-noden. Värdet är skiftlägeskänsligt.  Standard\: falskt. |
+| --Node-instance-ID | Instans-ID för målnoden. Om instans-ID anges startas noden bara om den matchar den aktuella instansen av noden. Standardvärdet "0" skulle matcha alla instans-ID. Instans-ID: t kan hämtas med hjälp av Get Node-frågan.  Standardvärdet\: är 0. |
+| --timeout-t | Server-timeout på några sekunder.  Standard\: 60. |
+
+### <a name="global-arguments"></a>Globala argument
+
+|Argument|Beskrivning|
+| --- | --- |
+| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
+| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
+| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: -JSON. |
+| --fråga | Frågesträngen JMESPath. Se http\://jmespath.org/för mer information och exempel. |
+| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
+
+## <a name="sfctl-node-transition"></a>sfctl Node-övergång
 Startar eller stoppar en klusternod.
 
-Startar eller stoppar en klusternod.  En nod är en process, inte själva instansen OS.  Om du vill starta en nod, skicka ”Start” för parametern NodeTransitionType. Om du vill stoppa en nod, skicka ”stoppa” för parametern NodeTransitionType. Detta API startar åtgärden - när API: et returnerar inte kanske har slutförts noden övergår ännu. Anropa GetNodeTransitionProgress med samma OperationId att hämta förloppet för åtgärden.
+Startar eller stoppar en klusternod.  En klusternod är en process, inte själva OS-instansen.  Starta en nod genom att skicka in "Start" för parametern NodeTransitionType. Om du vill stoppa en nod, måste du skicka "Stop" för parametern NodeTransitionType. Det här API: et startar åtgärden – när API: et returnerar noden kanske inte har slutfört över gången ännu. Anropa GetNodeTransitionProgress med samma OperationId för att hämta åtgärdens förlopp.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| – nod-instans-id [krävs] | Instans-ID för noden för målnoden. Du kan kontrollera detta via GetNodeInfo API. |
-| --Nodnamnet [krävs] | Namnet på noden. |
-| ---övergång-nodtyp [krävs] | Anger vilken typ av övergången till att utföra.  NodeTransitionType.Start startar en stoppad nod. NodeTransitionType.Stop slutar att en nod som är igång. |
-| --åtgärden-id [krävs] | Ett GUID som identifierar ett detta API-anrop.  Detta skickas vidare till motsvarande GetProgress API. |
-| --stop-duration-in-seconds [Required] | Varaktighet i sekunder, att hålla noden stoppats.  Det lägsta värdet är 600, Max är 14400.  När den här tiden har gått ut, kommer automatiskt noden tillbaka. |
-| --timeout -t | Tidsgräns för Server på några sekunder.  Standard\: 60. |
+| --Node-instance-ID [required] | Nodens instans-ID för målnoden. Detta kan fastställas via GetNodeInfo-API. |
+| --Node-Name [required] | Nodens namn. |
+| --Node-övergångs-Type [required] | Anger vilken typ av över gång som ska utföras.  NodeTransitionType. Start startar en stoppad nod. NodeTransitionType. stop stoppar en nod som är igång. |
+| --åtgärds-ID [obligatoriskt] | Ett GUID som identifierar ett anrop till detta API.  Detta skickas till motsvarande GetProgress-API. |
+| --stopp-duration-in-Seconds [required] | Tiden, i sekunder, för att behålla noden stoppad.  Minimivärdet är 600, det maximala värdet är 14400.  När den här tiden går ut kommer noden automatiskt att säkerhets kopie ras. |
+| --timeout-t | Server-timeout på några sekunder.  Standard\: 60. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --debug | Öka detaljnivå loggning för att visa alla felsöka loggar. |
-| --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
-| --utdata -o | Utdataformat.  Tillåtna värden\: json, jsonc, tabell, TVs.  Standard\: json. |
-| – fråga | JMESPath-frågesträng. Se http\://jmespath.org/ för mer information och exempel. |
-| --utförlig | Öka detaljnivå för loggning. Använd--felsökning för fullständig felsökningsloggar. |
+| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
+| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
+| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: -JSON. |
+| --fråga | Frågesträngen JMESPath. Se http\://jmespath.org/för mer information och exempel. |
+| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
 
-## <a name="sfctl-node-transition-status"></a>sfctl övergången-nodstatus
-Hämtar förloppet för en åtgärd som är igång med StartNodeTransition.
+## <a name="sfctl-node-transition-status"></a>sfctl Node-status
+Hämtar förloppet för en åtgärd som startades med StartNodeTransition.
 
-Hämtar förloppet för en åtgärd som utgick StartNodeTransition med hjälp av det tillhandahållna åtgärds-ID.
+Hämtar förloppet för en åtgärd som startades med StartNodeTransition med hjälp av den angivna OperationId.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Nodnamnet [krävs] | Namnet på noden. |
-| --åtgärden-id [krävs] | Ett GUID som identifierar ett detta API-anrop.  Detta skickas vidare till motsvarande GetProgress API. |
-| --timeout -t | Tidsgräns för Server på några sekunder.  Standard\: 60. |
+| --Node-Name [required] | Nodens namn. |
+| --åtgärds-ID [obligatoriskt] | Ett GUID som identifierar ett anrop till detta API.  Detta skickas till motsvarande GetProgress-API. |
+| --timeout-t | Server-timeout på några sekunder.  Standard\: 60. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --debug | Öka detaljnivå loggning för att visa alla felsöka loggar. |
-| --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
-| --utdata -o | Utdataformat.  Tillåtna värden\: json, jsonc, tabell, TVs.  Standard\: json. |
-| – fråga | JMESPath-frågesträng. Se http\://jmespath.org/ för mer information och exempel. |
-| --utförlig | Öka detaljnivå för loggning. Använd--felsökning för fullständig felsökningsloggar. |
+| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
+| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
+| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: -JSON. |
+| --fråga | Frågesträngen JMESPath. Se http\://jmespath.org/för mer information och exempel. |
+| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
 
 
 ## <a name="next-steps"></a>Nästa steg
-- [Installationsprogrammet](service-fabric-cli.md) Service Fabric CLI.
-- Lär dig hur du använder Service Fabric CLI med hjälp av den [exempel på skript](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- [Konfigurera](service-fabric-cli.md) Service Fabric cli.
+- Lär dig hur du använder Service Fabric CLI med hjälp av [exempel skripten](/azure/service-fabric/scripts/sfctl-upgrade-application).

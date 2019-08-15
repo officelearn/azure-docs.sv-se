@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/17/2019
 ms.author: mlearned
-ms.openlocfilehash: b96d933385c67600c9d553cc8755c4e734427a67
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 6c4d143bdaee0818d32b846a38a63eb48f69f717
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69018858"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69034028"
 ---
 # <a name="preview---create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>För hands version – skapa en Windows Server-behållare i ett Azure Kubernetes service-kluster (AKS) med hjälp av Azure CLI
 
@@ -35,7 +35,7 @@ Om du väljer att installera och använda CLI lokalt kräver den här artikeln a
 Du måste lägga till ytterligare en Node-pool när du har skapat klustret som kan köra Windows Server-behållare. Att lägga till ytterligare en Node-pool beskrivs i ett senare steg, men du måste först aktivera några få för hands versions funktioner.
 
 > [!IMPORTANT]
-> AKS för hands versions funktionerna är självbetjänings-och deltagande. De erbjuds att samla in feedback och buggar från vår community. I för hands versionen är dessa funktioner inte avsedda att användas för produktion. Funktioner i offentlig för hands version har stöd för bästa prestanda. Hjälp från AKS Technical Support Teams är endast tillgängligt under kontors tid Pacific-timezone (PST). Mer information finns i följande support artiklar:
+> AKS för hands versions funktioner är självbetjänings deltagande. För hands versioner tillhandahålls "i befintligt skick" och "som tillgängliga" och undantas från service nivå avtalen och den begränsade garantin. AKS för hands versionerna omfattas delvis av kund supporten på bästa möjliga sätt. Dessa funktioner är därför inte avsedda att användas för produktion. Om du vill ha ytterligare information kan du läsa följande artiklar om support:
 >
 > * [Support principer för AKS][aks-support-policies]
 > * [Vanliga frågor och svar om support för Azure][aks-faq]

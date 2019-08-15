@@ -1,5 +1,5 @@
 ---
-title: Vad är hantering av Azure AD-rättigheter? (För hands version) – Azure Active Directory
+title: Vad är berättigandehantering i Azure AD? (För hands version) – Azure Active Directory
 description: Få en översikt över Azure Active Directory hantering av rättigheter och hur du kan använda den för att hantera åtkomst till grupper, program och SharePoint Online-webbplatser för interna och externa användare.
 services: active-directory
 documentationCenter: ''
@@ -16,14 +16,14 @@ ms.date: 07/10/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12452b4e9cc6caa64d4c81a310fbccb5d1717817
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: d93a20494886bb7d563439e2699f60bedb646dcd
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68678158"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69032542"
 ---
-# <a name="what-is-azure-ad-entitlement-management-preview"></a>Vad är hantering av Azure AD-rättigheter? (Förhandsgranskning)
+# <a name="what-is-azure-ad-entitlement-management-preview"></a>Vad är berättigandehantering i Azure AD? (Förhandsgranskning)
 
 > [!IMPORTANT]
 > Azure Active Directory (Azure AD) rättighets hantering är för närvarande en offentlig för hands version.
@@ -33,6 +33,10 @@ ms.locfileid: "68678158"
 Anställda i organisationer behöver åtkomst till olika grupper, program och webbplatser för att utföra sitt arbete. Det är svårt att hantera den här åtkomsten. I de flesta fall finns det ingen ordnad lista över alla resurser som en användare behöver för ett projekt. Projektledaren har en god förståelse för de resurser som behövs, vilka individer som är inblandade och hur länge projektet kommer att vara sist. Men Project Manager har normalt inte behörighet att godkänna eller bevilja åtkomst till andra. Det här scenariot blir mer komplicerat när du försöker arbeta med externa användare eller företag.
 
 Azure Active Directory (Azure AD) hantering av rättigheter kan hjälpa dig att hantera åtkomst till grupper, program och SharePoint Online-webbplatser för interna användare och även användare utanför organisationen.
+
+Den här videon ger en översikt över hantering av rättigheter och dess affärs värde:
+
+>[!VIDEO https://www.youtube.com/embed/_Lss6bFrnQ8]
 
 ## <a name="why-use-entitlement-management"></a>Varför ska jag använda hantering av rättigheter?
 

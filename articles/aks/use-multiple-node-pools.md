@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/9/2019
 ms.author: mlearned
-ms.openlocfilehash: ffdb11420e239125ac3320964a7071c2ab2bdc7e
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: e6ba6aeaeadb2359c4b30efa35471ca62dcc6b41
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019127"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69033994"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>För hands version – skapa och hantera flera resurspooler för ett kluster i Azure Kubernetes service (AKS)
 
@@ -24,7 +24,7 @@ I Azure Kubernetes service (AKS) grupperas noderna i samma konfiguration tillsam
 Den här artikeln visar hur du skapar och hanterar flera resurspooler i ett AKS-kluster. Den här funktionen är för närvarande en förhandsversion.
 
 > [!IMPORTANT]
-> AKS för hands versions funktionerna är självbetjänings-och deltagande. De erbjuds att samla in feedback och buggar från vår community. I för hands versionen är dessa funktioner inte avsedda att användas för produktion. Funktioner i offentlig för hands version har stöd för bästa prestanda. Hjälp från AKS Technical Support Teams är endast tillgängligt under kontors tid Pacific-timezone (PST). Mer information finns i följande support artiklar:
+> AKS för hands versions funktioner är självbetjänings deltagande. För hands versioner tillhandahålls "i befintligt skick" och "som tillgängliga" och undantas från service nivå avtalen och den begränsade garantin. AKS för hands versionerna omfattas delvis av kund supporten på bästa möjliga sätt. Dessa funktioner är därför inte avsedda att användas för produktion. Om du vill ha ytterligare information kan du läsa följande artiklar om support:
 >
 > * [Support principer för AKS][aks-support-policies]
 > * [Vanliga frågor och svar om support för Azure][aks-faq]

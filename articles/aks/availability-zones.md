@@ -2,17 +2,17 @@
 title: Använda Tillgänglighetszoner i Azure Kubernetes service (AKS)
 description: Lär dig hur du skapar ett kluster som distribuerar noder över tillgänglighets zoner i Azure Kubernetes service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 06/24/2019
-ms.author: iainfou
-ms.openlocfilehash: 52df1438913983a80ece487b49d0d6bd7821b636
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.author: mlearned
+ms.openlocfilehash: 4c2058072df4fcb068257c3e265dfe365c6d7e65
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019441"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69033145"
 ---
 # <a name="preview---create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>För hands version – skapa ett Azure Kubernetes service-kluster (AKS) som använder Tillgänglighetszoner
 
@@ -23,7 +23,7 @@ AKS-kluster kan distribueras mellan tillgänglighets zoner för att ge en högre
 Den här artikeln visar hur du skapar ett AKS-kluster och distribuerar nodens komponenter över tillgänglighets zoner. Den här funktionen är för närvarande en förhandsversion.
 
 > [!IMPORTANT]
-> AKS för hands versions funktionerna är självbetjänings-och deltagande. De erbjuds att samla in feedback och buggar från vår community. I för hands versionen är dessa funktioner inte avsedda att användas för produktion. Funktioner i offentlig för hands version har stöd för bästa prestanda. Hjälp från AKS Technical Support Teams är endast tillgängligt under kontors tid Pacific-timezone (PST). Mer information finns i följande support artiklar:
+> AKS för hands versions funktioner är självbetjänings deltagande. För hands versioner tillhandahålls "i befintligt skick" och "som tillgängliga" och undantas från service nivå avtalen och den begränsade garantin. AKS för hands versionerna omfattas delvis av kund supporten på bästa möjliga sätt. Dessa funktioner är därför inte avsedda att användas för produktion. Om du vill ha ytterligare information kan du läsa följande artiklar om support:
 >
 > * [Support principer för AKS][aks-support-policies]
 > * [Vanliga frågor och svar om support för Azure][aks-faq]

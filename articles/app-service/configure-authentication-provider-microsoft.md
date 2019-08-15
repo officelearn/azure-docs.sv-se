@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/08/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 17410db91f55a053e5ec208492649157bb0b5034
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 729c235ee51a904714358221389703632fd8296c
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881095"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69033634"
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-microsoft-account-login"></a>Så här konfigurerar du ditt App Service program för att använda inloggning med Microsoft-konto
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
@@ -61,6 +61,9 @@ Det här avsnittet visar hur du konfigurerar Azure App Service att använda Micr
     Som standard tillhandahåller App Service autentisering men begränsar inte tillåten åtkomst till ditt webbplats innehåll och API: er. Du måste auktorisera användare i din app-kod.
 
 4. Valfritt Om du vill begränsa åtkomsten till Microsoft-konto användare anger du **åtgärd som ska vidtas när begäran inte autentiseras** att **Logga in med Microsoft-konto**. Detta kräver att alla begär Anden autentiseras och att alla oautentiserade begär Anden omdirigeras till Microsoft-konto för autentisering.
+
+> [!CAUTION]
+> Att begränsa åtkomsten på det här sättet gäller alla anrop till appen, vilket kanske inte är önskvärt för appar som vill ha en offentligt tillgänglig start sida, som i många program med en enda sida. För sådana program kan du **tillåta anonyma begär Anden (ingen åtgärd)** , med appen manuellt startar inloggningen, enligt beskrivningen [här](overview-authentication-authorization.md#authentication-flow).
 
 5. Klicka på **Spara**.
 

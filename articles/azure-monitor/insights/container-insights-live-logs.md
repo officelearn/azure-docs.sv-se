@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/12/2019
 ms.author: magoedte
-ms.openlocfilehash: 968ee4c8bb5d7e09ef3c345c46f6c7b839e0e25a
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: 2eab6fa75e4adbbde7bcf20f18301a1e516235c2
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67990043"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035345"
 ---
 # <a name="how-to-view-logs-and-events-in-real-time-preview"></a>Så här visar du loggar och händelser i real tid (för hands version)
 Azure Monitor for containers innehåller en funktion, som för närvarande finns i för hands version, som ger en live-vy till dina AKS (Azure Kubernetes service)-behållar loggar (STDOUT/STDERR) och händelser utan att behöva köra kubectl-kommandon. När du väljer något av alternativen visas ett nytt fönster under tabellen prestanda data i vyn **noder**, **kontrollanter**och **behållare** . Den visar live-loggning och händelser som genererats av behållar motorn för att ytterligare hjälpa till med fel sökning av problem i real tid.
@@ -72,8 +72,8 @@ Om du har aktiverat Kubernetes RBAC-auktorisering kan behöver du tillämpa klus
 
 AKS kan konfigureras för att använda Azure Active Directory (AD) för autentisering av användare. Om du konfigurerar det för första gången kan du läsa [integrera Azure Active Directory med Azure Kubernetes-tjänsten](../../aks/azure-ad-integration.md). Under stegen för att skapa [klient programmet](../../aks/azure-ad-integration.md#create-the-client-application)anger du följande:
 
-- **Omdirigerings-URI (valfritt)** : Detta är en **webb** program typ och bas-URL-värdet ska `https://afd.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`vara.
-- När du har registrerat programmet väljer du **autentisering** i rutan till vänster på sidan **Översikt** . På sidan **autentisering** under **Avancerade inställningar** kan du **implicit tilldela åtkomsttoken** och **ID-token** och sedan spara ändringarna.
+-  Omdirigerings- **URI**: Två **webb** program typer måste skapas. Det första grundläggande URL-värdet ska `https://afd.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` vara och det andra bas-URL- `https://monitoring.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`värdet ska vara.
+- När du har registrerat programmet väljer du **autentisering** i rutan till vänster på sidan **Översikt** . På sidan **autentisering** under **Avancerade inställningar** kan du implicit tilldela åtkomsttoken och **ID-token** och sedan spara ändringarna.
 
 >[!NOTE]
 >Att konfigurera autentisering med Azure Active Directory för enkel inloggning kan bara utföras under den första distributionen av ett nytt AKS-kluster. Du kan inte konfigurera enkel inloggning på för ett AKS-kluster som redan har distribuerats.
@@ -94,7 +94,7 @@ Logg-och händelse meddelanden är begränsade utifrån vilken resurs typ som va
 | Noder | Nod | Händelse | När en nod är markerad, filtreras och visas inte Kubernetes händelser för hela klustret. Rutans rubrik visar namnet på klustret. |
 | Noder | Pod | Händelse | När ett pod är markerat filtreras händelser till sitt namn område. Rutans rubrik visar namn området för pod. | 
 | Kontrollanter | Pod | Händelse | När ett pod är markerat filtreras händelser till sitt namn område. Rutans rubrik visar namn området för pod. |
-| Kontrollanter | Domänkontrollant | Händelse | När en styrenhet väljs filtreras de till sitt namn område. Rutans namn visar namn området för kontrollanten. |
+| Kontrollanter | Kontrollenhet | Händelse | När en styrenhet väljs filtreras de till sitt namn område. Rutans namn visar namn området för kontrollanten. |
 | Noder/styrenheter/behållare | Container | Logs | Rutans rubrik visar namnet på pod som behållaren är grupperad med. |
 
 Om AKS-klustret har konfigurerats med enkel inloggning med AAD, uppmanas du att autentisera vid första användning under den webbläsarsessionen. Välj ditt konto och slutföra autentisering med Azure.  
@@ -109,7 +109,7 @@ I Sök fältet kan du filtrera efter nyckel ord för att markera texten i loggen
 
 När du visar händelser kan du dessutom begränsa resultaten med hjälp av **filtret** Pill som finns till höger om Sök fältet. Beroende på vilken resurs du har valt visar Pill en pod, ett namn område eller ett kluster att välja från.  
 
-Om du vill pausa autorullningen och kontrol lera beteendet i fönstret och låta dig manuellt bläddra igenom de nya data, klickar du  på rullnings alternativet. Om du vill aktivera autorullning igen klickar du bara  på rullnings alternativet igen. Du kan också pausa hämtning av logg-eller händelse data genom att klicka på alternativet **pausa** och när du är redo att återuppta klickar du bara på **spela upp**.  
+Om du vill pausa autorullningen och kontrol lera beteendet i fönstret och låta dig manuellt bläddra igenom de nya data, klickar du på rullnings alternativet. Om du vill aktivera autorullning igen klickar du bara på rullnings alternativet igen. Du kan också pausa hämtning av logg-eller händelse data genom att klicka på alternativet **pausa** och när du är redo att återuppta klickar du bara på **spela upp**.  
 
 ![Live loggar fönstret pausa live-vyn](./media/container-insights-live-logs/live-logs-pane-pause-01.png)
 

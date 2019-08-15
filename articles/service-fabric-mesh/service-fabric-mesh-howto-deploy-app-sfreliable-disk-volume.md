@@ -1,6 +1,6 @@
 ---
-title: Använda med hög tillgänglighet Service Fabric tillförlitliga diskvolymen i nät för Azure Service Fabric-program | Microsoft Docs
-description: Lär dig hur du lagrar tillstånd i ett Azure Service Fabric nät program genom att montera Service Fabric tillförlitliga baserat diskvolymen i behållaren med hjälp av Azure CLI.
+title: Använd hög tillgänglig Service Fabric tillförlitlig disk volym i ett Azure Service Fabric-nätprogram | Microsoft Docs
+description: Lär dig hur du lagrar tillstånd i ett Azure Service Fabric nätprogram genom att montera Service Fabric tillförlitlig diskbaserad volym i behållaren med hjälp av Azure CLI.
 services: service-fabric-mesh
 documentationcenter: .net
 author: ashishnegi
@@ -8,33 +8,32 @@ manager: raunakpandya
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric-mesh
-ms.devlang: azure-cli
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/03/2018
 ms.author: asnegi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 9f760e7e693334475fb61ba9e5d44df019e78604
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 25bd298c412db38ec4d3b7859580d58ac9b151fb
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66147483"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036150"
 ---
-# <a name="mount-highly-available-service-fabric-reliable-disk-based-volume-in-a-service-fabric-mesh-application"></a>Montera med hög tillgänglighet Service Fabric tillförlitliga baserat diskvolymen i ett Service Fabric-nät program 
-Den vanliga metoden för att bevara tillstånd med behållarappar är att använda Fjärrlagring som Azure File Storage eller databas som Azure Cosmos DB. Detta medför betydande läsning och skrivning Nätverksfördröjningen till arkivet för fjärråtkomst.
+# <a name="mount-highly-available-service-fabric-reliable-disk-based-volume-in-a-service-fabric-mesh-application"></a>Montering med hög tillgänglighet Service Fabric tillförlitlig disk baserad volym i ett Service Fabric nätprogram 
+Den gemensamma metoden för att bevara tillstånd med behållar appar är att använda Fjärrlagring som Azure File Storage eller databas som Azure Cosmos DB. Detta medför betydande Läs-och skriv nätverks fördröjning i fjärrarkivet.
 
-Den här artikeln visar hur du lagrar tillstånd i högtillgänglig Service Fabric tillförlitliga Disk genom att montera en volym inuti behållaren i ett Service Fabric-nät program.
-Service Fabric tillförlitliga Disk ger volymer för lokala läsningar skrivningar replikeras inom Service Fabric-kluster för hög tillgänglighet. Detta tar bort nätverksanrop för läsningar och minskar Nätverksfördröjningen för skrivningar. Om behållaren startas om eller flyttas till en annan nod, visas ny behållarinstans på samma volym som äldre. Det är därför både effektivt och med hög tillgänglighet.
+Den här artikeln visar hur du lagrar tillstånd med hög tillgänglighet Service Fabric tillförlitlig disk genom att montera en volym inuti behållaren för ett Service Fabric nätprogram.
+Service Fabric Reliable disk tillhandahåller volymer för lokala läsningar med skrivningar som repliker ATS i Service Fabric klustret för hög tillgänglighet. Detta tar bort nätverks anrop för läsningar och minskar nätverks fördröjningen för skrivningar. Om behållaren startas om eller flyttas till en annan nod, kommer den nya behållar instansen att se samma volym som en äldre instans. Därför är den både effektiv och hög tillgänglig.
 
-I det här exemplet har räknaren programmet en ASP.NET Core-tjänst med en webbsida som visar räknarvärde i en webbläsare.
+I det här exemplet har Counter-programmet en ASP.NET Core-tjänst med en webb sida som visar räknar värde i en webbläsare.
 
-Den `counterService` regelbundet läser ett värde för prestandaräknaren från en fil, ökar den och skriva tillbaka till filen. Filen lagras i en mapp som är monterad på den volym som backas upp av Service Fabric tillförlitliga Disk.
+Med `counterService` jämna mellanrum läser du ett räknar värde från en fil, ökar den och skriver tillbaka den till filen. Filen lagras i en mapp som är monterad på volymen som backas upp av Service Fabric tillförlitlig disk.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-Du kan använda Azure Cloud Shell eller en lokal installation av Azure CLI för att slutföra den här uppgiften. Om du vill använda Azure CLI med den här artikeln, kontrollerar du att `az --version` returnerar minst `azure-cli (2.0.43)`.  Installera (eller uppdatera) Azure Service Fabric nät CLI-tillägg-modulen genom att följa dessa [instruktioner](service-fabric-mesh-howto-setup-cli.md).
+Du kan använda Azure Cloud Shell eller en lokal installation av Azure CLI för att slutföra uppgiften. Om du vill använda Azure CLI med den här artikeln kontrollerar `az --version` du att returnerar `azure-cli (2.0.43)`minst.  Installera (eller uppdatera) Azure Service Fabric mask CLI-modulen för tillägg genom att följa dessa [anvisningar](service-fabric-mesh-howto-setup-cli.md).
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -47,7 +46,7 @@ az account set --subscription "<subscriptionID>"
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Skapa en resursgrupp som programmet ska distribueras till. Följande kommando skapar en resursgrupp med namnet `myResourceGroup` på en plats i östra USA. Om du ändrar resursgruppens namn i kommandot nedan, Kom ihåg att ändra den i alla kommandon som följer.
+Skapa en resursgrupp som programmet ska distribueras till. Följande kommando skapar en resurs grupp med namnet `myResourceGroup` på en plats i östra USA. Om du ändrar resurs grupps namnet i nedanstående kommando, måste du komma ihåg att ändra det i alla kommandon som följer.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -55,36 +54,36 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="deploy-the-template"></a>Distribuera mallen
 
-Följande kommando distribuerar en Linux-program med den [counter.sfreliablevolume.linux.json mallen](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/counter/counter.sfreliablevolume.linux.json). För att distribuera ett Windows-program kan använda den [counter.sfreliablevolume.windows.json mallen](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/counter/counter.sfreliablevolume.windows.json). Tänk på att större behållaravbildningar kan ta längre tid att distribuera.
+Följande kommando distribuerar ett Linux-program med hjälp av [mallen Counter. sfreliablevolume. Linux. JSON](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/counter/counter.sfreliablevolume.linux.json). Du distribuerar ett Windows-program med hjälp av [mallen Counter. sfreliablevolume. Windows. JSON](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/counter/counter.sfreliablevolume.windows.json). Tänk på att det kan ta längre tid att distribuera större behållar avbildningar.
 
 ```azurecli-interactive
 az mesh deployment create --resource-group myResourceGroup --template-uri https://raw.githubusercontent.com/Azure-Samples/service-fabric-mesh/master/templates/counter/counter.sfreliablevolume.linux.json
 ```
 
-Du kan även visa statusen för distributionen med kommandot
+Du kan också se status för distributionen med kommandot
 
 ```azurecli-interactive
 az group deployment show --name counter.sfreliablevolume.linux --resource-group myResourceGroup
 ```
 
-Lägg märke till namnet på gatewayresursen som har resursen skriver som `Microsoft.ServiceFabricMesh/gateways`. Detta används hämta offentliga IP-adressen för appen.
+Lägg märke till namnet på den gateway-resurs som har `Microsoft.ServiceFabricMesh/gateways`resurs typen som. Detta används för att hämta appens offentliga IP-adress.
 
 ## <a name="open-the-application"></a>Öppna programmet
 
-När programmet har distribuerats kan du hämta IP-adress till gatewayresursen för appen. Använda såg du på gatewaynamnet ovanför avsnittet.
+Hämta IP-adressen för gateway-resursen för appen när programmet har distribuerats. Använd det Gateway-namn som du noterade i avsnittet ovan.
 ```azurecli-interactive
 az mesh gateway show --resource-group myResourceGroup --name counterGateway
 ```
 
-Utdata bör ha en egenskap `ipAddress` som är den offentliga IP-adressen för tjänsteslutpunkt. Öppna en webbläsare. En webbsida visas med räknarvärdet håller på att uppdateras varje sekund.
+Utdata ska ha en egenskap `ipAddress` som är den offentliga IP-adressen för tjänstens slut punkt. Öppna den från en webbläsare. En webb sida med det räknar värde som uppdateras varje sekund visas.
 
-## <a name="verify-that-the-application-is-able-to-use-the-volume"></a>Kontrollera att programmet ska kunna använda volym
+## <a name="verify-that-the-application-is-able-to-use-the-volume"></a>Kontrol lera att programmet kan använda volymen
 
-Programmet skapar en fil med namnet `counter.txt` i volym inuti `counter/counterService` mapp. Innehållet i den här filen är räknarvärdet som visas på sidan.
+Programmet skapar en fil med namnet `counter.txt` i mappen volym i `counter/counterService` . Innehållet i den här filen är det räknar värde som visas på webb sidan.
 
 ## <a name="delete-the-resources"></a>Ta bort resurser
 
-Ofta ta bort de resurser som du inte längre använder i Azure. Ta bort de resurser som rör det här exemplet genom att ta bort resursgruppen som de har distribuerats (som tar bort allt som är associerade med resursgruppen) med följande kommando:
+Ta ofta bort de resurser som du inte längre använder i Azure. Ta bort de resurser som är relaterade till det här exemplet genom att ta bort resurs gruppen där de distribuerades (vilket tar bort allt som är associerat med resurs gruppen) med följande kommando:
 
 ```azurecli-interactive
 az group delete --resource-group myResourceGroup
@@ -92,6 +91,6 @@ az group delete --resource-group myResourceGroup
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Visa exempelprogram för Service Fabric tillförlitliga volym Disk på [GitHub](https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/counter).
+- Visa Service Fabric Reliable Volume disk-exempelprogrammet på [GitHub](https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/counter).
 - Mer information om Service Fabric-resursmodellen finns i avsnittet om [Service Fabric Mesh-resursmodellen](service-fabric-mesh-service-fabric-resources.md).
 - Mer information om Service Fabric Mesh finns i [översikten över Service Fabric Mesh](service-fabric-mesh-overview.md).

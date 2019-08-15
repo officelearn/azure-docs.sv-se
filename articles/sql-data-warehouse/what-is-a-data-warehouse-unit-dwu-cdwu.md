@@ -1,6 +1,6 @@
 ---
-title: 'Informationslagerenheter (dwu: er, cDWUs) i Azure SQL Data Warehouse | Microsoft Docs'
-description: 'Rekommendationer om hur du väljer perfekt antalet informationslagerenheter (dwu: er, cDWUs) för att optimera pris och prestanda och hur du ändrar antalet enheter.'
+title: 'Informations lager enheter (DWU: er, cDWUs) i Azure SQL Data Warehouse | Microsoft Docs'
+description: 'Rekommendationer för att välja det idealiska antalet informations lager enheter (DWU: er, cDWUs) för att optimera pris och prestanda och hur du ändrar antalet enheter.'
 services: sql-data-warehouse
 author: mlee3gsd
 manager: craigg
@@ -11,42 +11,42 @@ ms.date: 05/30/2019
 ms.author: martinle
 ms.reviewer: igorstan
 mscustom: sqlfreshmay19
-ms.openlocfilehash: d20a600951a0fe586e981adf12127072df1b744c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 282fab70e3b6d1fcf81814b2dd599259e2396fb3
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66428007"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036051"
 ---
-# <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>Informationslagerenheter (dwu: er) och beräkning Informationslagerenheter (cDWUs)
+# <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>Informations lager enheter (DWU: er) och beräknings data lager enheter (cDWUs)
 
-Rekommendationer om hur du väljer perfekt antalet informationslagerenheter (dwu: er, cDWUs) för att optimera pris och prestanda och hur du ändrar antalet enheter.
+Rekommendationer för att välja det idealiska antalet informations lager enheter (DWU: er, cDWUs) för att optimera pris och prestanda och hur du ändrar antalet enheter.
 
-## <a name="what-are-data-warehouse-units"></a>Vad är Informationslagerenheter
+## <a name="what-are-data-warehouse-units"></a>Vad är informations lager enheter
 
-Azure SQL Data Warehouse processor, minne och IO paketeras i enheter för beräkning kallas Informationslagerenheter (dwu: er). En Informationslagerenhet representerar en abstrakt, normaliserade måttet beräkningsresurser och prestanda. En ändring i din servicenivå ändrar antalet dwu: er som är tillgängliga i systemet, vilket i sin tur justerar prestanda och kostnaden för ditt system.
+Azure SQL Data Warehouse CPU, minne och IO paketeras i enheter med beräknings skala som kallas informations lager enheter (DWU: er). En DWU representerar ett abstrakt, normaliserat mått för beräknings resurser och prestanda. En ändring av Service nivån ändrar antalet DWU: er som är tillgängliga för systemet, vilket i sin tur justerar prestandan och kostnaden för systemet.
 
-Du kan öka antalet informationslagerenheter för högre prestanda. Minska informationslagerenheter för lägre prestanda. Kostnader för lagring och beräkning faktureras separat, så ändra informationslagerenheter inte påverkar kostnader för lagring.
+För högre prestanda kan du öka antalet informations lager enheter. Minska data lagrets enheter för mindre prestanda. Lagrings-och beräknings kostnader faktureras separat, så att data lager enheter inte påverkar lagrings kostnaderna.
 
-Prestanda för informationslagerenheter baseras på dessa arbetsbelastningar måtten i informationslager:
+Prestanda för informations lager enheter baseras på dessa data lager arbets belastnings mått:
 
-- Hur snabbt en standard informationslagerfråga kan skanna ett stort antal rader och sedan utföra en komplex aggregering. Den här åtgärden är i/o- och CPU-intensiva.
-- Datalagret kan hur snabbt mata in data från Azure Storage-Blobbar eller Azure Data Lake. Den här åtgärden är nätverks- och processorintensiv.
-- Hur snabbt de [ `CREATE TABLE AS SELECT` ](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) T-SQL-kommandot kan kopiera en tabell. Den här åtgärden innebär att läsa data från lagring, distribuerar dessa till enhetens noder och skriva till lagring igen. Den här åtgärden är CPU, IO och belasta nätverket.
+- Hur snabbt en standard data lager fråga kan genomsöka ett stort antal rader och sedan utföra en komplex agg regering. Den här åtgärden är I/O och processor intensiv.
+- Hur snabbt data lagret kan mata in data från Azure Storage blobbar eller Azure Data Lake. Den här åtgärden är nätverks-och processor intensiv.
+- Hur snabbt [`CREATE TABLE AS SELECT`](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) T-SQL-kommandot kan kopiera en tabell. Den här åtgärden innebär att läsa data från lagring, distribuera dem mellan noderna i enheten och skriva till lagrings utrymme igen. Den här åtgärden är CPU, i/o och nätverks intensiv.
 
-Öka dwu: er:
+Ökande DWU: er:
 
-- Linjärt ändras prestanda för genomsökningar och aggregeringar CTAS-uttryck
-- Ökar antalet och skrivfunktioner för PolyBase belastningen åtgärder
-- Ökar det maximala antalet samtidiga frågor och samtidighetsfack.
+- Ändrar systemets prestanda linjärt för genomsökningar, agg regeringar och CTAS-uttryck
+- Ökar antalet läsare och skribenter för PolyBase-inläsnings åtgärder
+- Ökar det maximala antalet samtidiga frågor och samtidiga platser.
 
-## <a name="service-level-objective"></a>Servicenivåmål
+## <a name="service-level-objective"></a>Service nivå mål
 
-Den tjänst för servicenivåmål (SNM) är den skalbarhet-inställningen som styr både vilken kostnad och prestanda för ditt informationslager. Servicenivåer för Gen2 mäts i beräkning informationslagerenheter (cDWU), till exempel DW2000c. Gen1 servicenivåer mäts i dwu: er, till exempel DW2000.
+Service nivå målet (service nivå målet) är inställningen för skalbarhet som avgör data lagrets kostnad och prestanda nivå. Service nivåerna för Gen2 mäts i beräknings data lager enheter (cDWU), till exempel DW2000c. Gen1 service nivåer mäts i DWU: er, till exempel DW2000.
   > [!NOTE]
-  > Azure SQL Data Warehouse Gen2 nyligen lagt till ytterligare skalningsfunktioner för att stödja beräkningsnivåer så lågt som 100 cDWU. Befintliga informationslager för närvarande på Gen1 som kräver nedre compute nivåerna nu kan du uppgradera till Gen2 i de regioner som är tillgängliga för utan extra kostnad.  Om din region inte stöds ännu, kan du fortfarande uppgradera till en region som stöds. Mer information finns i [uppgradera till Gen2](upgrade-to-latest-generation.md).
+  > Azure SQL Data Warehouse Gen2 nyligen tillagda ytterligare skalnings funktioner som stöder beräknings nivåer som 100 cDWU. Befintliga data lager för närvarande på gen1 som kräver lägre beräknings nivåer kan nu uppgraderas till Gen2 i de regioner som för närvarande är tillgängliga utan extra kostnad.  Om din region inte stöds ännu kan du fortfarande uppgradera till en region som stöds. Mer information finns i [Uppgradera till Gen2](upgrade-to-latest-generation.md).
 
-I T-SQL anger inställningen SERVICE_OBJECTIVE servicenivå och prestandanivå för ditt informationslager.
+I T-SQL bestämmer SERVICE_OBJECTIVE-inställningen tjänst nivå och prestanda nivå för ditt informations lager.
 
 ```sql
 --Gen1
@@ -58,56 +58,56 @@ WITH
 
 --Gen2
 CREATE DATABASE myComputeSQLDW
-WITH
-(    SERVICE_OBJECTIVE = 'DW1000c'
+(Edition = 'Datawarehouse'
+ ,SERVICE_OBJECTIVE = 'DW1000c'
 )
 ;
 ```
 
-## <a name="performance-tiers-and-data-warehouse-units"></a>Prestandanivåer och Informationslagerenheter
+## <a name="performance-tiers-and-data-warehouse-units"></a>Prestanda nivåer och informations lager enheter
 
-Varje prestandanivå använder en något annorlunda måttenhet för sina informationslagerenheter. Den här skillnaden syns på fakturan som enheten skala direkt översätts till fakturering.
+Varje prestanda nivå använder en något annorlunda mått enhet för sina informations lager enheter. Den här skillnaden visas på fakturan eftersom enhets skalan direkt översätts till fakturering.
 
-- Gen1 informationslager mäts i Informationslagerenheter (dwu: er).
-- Gen2 data informationslager mäts i compute-Informationslagerenheter (cDWUs).
+- Gen1 informations lager mäts i informations lager enheter (DWU: er).
+- Gen2-datalager mäts i data lager enheter för beräkning (cDWUs).
 
-Både dwu: er och cDWUs stöder skalningsberäkning upp eller ned, och pausa när du inte behöver använda datalagret. Dessa åtgärder är alla på begäran. Gen2 använder en lokal diskbaserad cacheminne på beräkningsnoderna för att förbättra prestanda. När du skalar eller pausa systemet cachen betraktas som inaktuella och därför en viss cache värmer krävs innan optimala prestanda uppnås.  
+Både DWU: er och cDWUs har stöd för att skala upp eller ned och pausa beräkningen när du inte behöver använda data lagret. De här åtgärderna är alla på begäran. Gen2 använder en lokal diskbaserad cache på Compute-noderna för att förbättra prestandan. När du skalar eller pausar systemet blir cacheminnet inställt och så en period av cache-uppvärmning krävs innan optimala prestanda uppnås.  
 
-När du ökar informationslagerenheter ökar linjärt datorresurser. Gen2 ger bästa frågeprestanda och högsta skala. Gen2 system kan också göra de flesta användningen av cachen.
+När du ökar informations lager enheter är du linjärt ökande data bearbetnings resurser. Gen2 tillhandahåller bästa prestanda för frågor och högsta skalning. Gen2-system gör också den mest använda cachen.
 
 ### <a name="capacity-limits"></a>Kapacitetsbegränsningar
 
-Varje SQLServer (t.ex, myserver.database.windows.net) har en [Database Transaction Unit (DTU)](../sql-database/sql-database-what-is-a-dtu.md) kvot som gör att ett visst antal informationslagerenheter. Mer information finns i den [arbetsbelastning management kapacitetsbegränsningar](sql-data-warehouse-service-capacity-limits.md#workload-management).
+Varje SQL Server (till exempel myserver.database.windows.net) har en kvot för [databas transaktions enhet (DTU)](../sql-database/sql-database-what-is-a-dtu.md) som tillåter ett angivet antal informations lager enheter. Mer information finns i kapacitets [gränser för arbets belastnings hantering](sql-data-warehouse-service-capacity-limits.md#workload-management).
 
-## <a name="how-many-data-warehouse-units-do-i-need"></a>Hur många informationslagerenheter behöver jag
+## <a name="how-many-data-warehouse-units-do-i-need"></a>Hur många data lager enheter behöver jag
 
-Perfekt antalet informationslagerenheter beror mycket på din arbetsbelastning och mängden data som du har läst in i systemet.
+Det idealiska antalet data lager enheter är beroende av arbets belastningen och mängden data som du har läst in i systemet.
 
-Steg för att hitta den bästa DWU för din arbetsbelastning:
+Steg för att hitta den bästa DWU för din arbets belastning:
 
-1. Börja genom att välja en mindre DWU.
-2. Övervaka programprestanda när du testar Datainläsningen i systemet, bakgrund av antalet dwu: er som valts jämfört med den prestanda du se.
-3. Identifiera eventuella ytterligare krav för periodiska perioder med hög aktivitet. Arbetsbelastningar som visar betydande toppar och fördjupningar försedda i aktiviteten kan behöva skalas ofta.
+1. Börja med att välja en mindre DWU.
+2. Övervaka program prestanda när du testar data inläsningar i systemet och som beaktar antalet DWU: er som valts jämfört med den prestanda du har.
+3. Identifiera eventuella ytterligare krav för periodiska perioder med hög belastnings aktivitet. Arbets belastningar som visar betydande toppar och troughs i aktivitet kan behöva skalas ofta.
 
-SQL Data Warehouse är en skalbar system som kan utnyttja stora mängder beräknings- och fråga ansenliga mängder data. Om du vill visa dess SANT funktioner för skalning, särskilt i större dwu: er, rekommenderar vi skala datauppsättningen när du skalar om du vill kontrollera att du har tillräckligt med data för att mata in processorerna. För att skala testa bör du använda minst 1 TB.
+SQL Data Warehouse är ett skalbart system som kan etablera stora mängder data behandling och fråga betydande mängder data. Om du vill se de verkliga funktionerna för skalning, särskilt vid större DWU: er, rekommenderar vi att du skalar data uppsättningen när du skalar för att säkerställa att du har tillräckligt med data för att kunna mata in processorerna. För skalnings testning rekommenderar vi att du använder minst 1 TB.
 
 > [!NOTE]
 >
-> Prestanda för frågor endast ökar med mer parallellisering om arbetet kan delas upp mellan compute-noder. Om du upptäcker att skala inte ändrar dina prestanda, kan du behöva justera din tabelldesign och/eller dina frågor. Riktlinjer om frågejustering, se [hantera användarfrågor](sql-data-warehouse-overview-manage-user-queries.md).
+> Frågans prestanda ökar bara med fler parallellisering om arbetet kan delas mellan datornoder. Om du upptäcker att skalning inte ändrar prestandan kan du behöva justera tabell designen och/eller dina frågor. Anvisningar om hur du ställer frågor finns i [hantera användar frågor](sql-data-warehouse-overview-manage-user-queries.md).
 
 ## <a name="permissions"></a>Behörigheter
 
-Ändra informationslagerenheter kräver behörigheterna som beskrivs i [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql).
+Om du ändrar data lagrets enheter krävs de behörigheter som beskrivs i [Alter Database](/sql/t-sql/statements/alter-database-transact-sql).
 
-Inbyggda roller för Azure-resurser, till exempel SQL DB-deltagare och SQL Server-deltagare kan ändra DWU-inställningar.
+Inbyggda roller för Azure-resurser, till exempel SQL DB-deltagare och SQL Server deltagare kan ändra DWU-inställningar.
 
-## <a name="view-current-dwu-settings"></a>Visa aktuella DWU-inställningar
+## <a name="view-current-dwu-settings"></a>Visa aktuella inställningar för DWU
 
-Visa aktuella DWU-inställningen:
+Så här visar du den aktuella DWU-inställningen:
 
 1. Öppna SQL Server Object Explorer i Visual Studio.
-2. Ansluta till master-databasen som är associerade med den logiska SQL Database-servern.
-3. Välj den dynamiska hanteringsvyn sys.database_service_objectives. Här är ett exempel:
+2. Anslut till huvud databasen som är kopplad till den logiska SQL Database servern.
+3. Välj från vyn sys. database_service_objectives dynamisk hantering. Här är ett exempel:
 
 ```sql
 SELECT  db.name [Database]
@@ -118,15 +118,15 @@ JOIN    sys.databases                     AS db ON ds.database_id = db.database_
 ;
 ```
 
-## <a name="change-data-warehouse-units"></a>Ändra informationslagerenheter
+## <a name="change-data-warehouse-units"></a>Ändra informations lager enheter
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Ändra dwu: er eller cDWUs:
+Ändra DWU: er eller cDWUs:
 
-1. Öppna den [Azure-portalen](https://portal.azure.com), öppna din databas och på **skala**.
+1. Öppna [Azure Portal](https://portal.azure.com), öppna databasen och klicka på **skala**.
 
-2. Under **skala**, flytta skjutreglaget till vänster eller höger för att ändra DWU-inställningen.
+2. Under **skala**flyttar du skjutreglaget åt vänster eller höger för att ändra DWU-inställningen.
 
 3. Klicka på **Spara**. Ett bekräftelsemeddelande visas. Klicka på **Ja** för att bekräfta eller **Nej** för att avbryta.
 
@@ -134,7 +134,7 @@ JOIN    sys.databases                     AS db ON ds.database_id = db.database_
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Du kan ändra dwu: er eller cDWUs med den [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) PowerShell-cmdlet. I följande exempel anger servicenivåmålet till DW1000 för MySQLDW som finns på servern minserver-databasen.
+Om du vill ändra DWU: er eller cDWUs använder du PowerShell-cmdleten [set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) . I följande exempel anges service nivå målet till DW1000 för databasen MySQLDW som finns på Server-servern.
 
 ```Powershell
 Set-AzSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -RequestedServiceObjectiveName "DW1000"
@@ -144,12 +144,12 @@ Mer information finns i [PowerShell-cmdletar för SQL Data Warehouse](sql-data-w
 
 ### <a name="t-sql"></a>T-SQL
 
-Med T-SQL kan du visa aktuella DWU eller cDWU inställningarna, ändra inställningarna och kontrollera förloppet.
+Med T-SQL kan du Visa aktuella inställningar för DWU eller cDWU, ändra inställningarna och kontrol lera förloppet.
 
-Ändra dwu: er eller cDWUs:
+Ändra DWU: er-eller cDWUs:
 
-1. Ansluta till master-databasen som är associerade med din logiska SQL Database-server.
-2. Använd den [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql) TSQL-instruktion. I följande exempel anger servicenivåmålet till DW1000 för MySQLDW-databasen.
+1. Anslut till huvud databasen som är kopplad till den logiska SQL Database servern.
+2. Använd instruktionen [Alter Database](/sql/t-sql/statements/alter-database-transact-sql) tsql. I följande exempel anges service nivå målet till DW1000 för databasen MySQLDW.
 
 ```Sql
 ALTER DATABASE MySQLDW
@@ -159,7 +159,7 @@ MODIFY (SERVICE_OBJECTIVE = 'DW1000')
 
 ### <a name="rest-apis"></a>REST API:er
 
-Du kan ändra dwu-enheterna med den [skapa eller uppdatera databasen](/rest/api/sql/databases/createorupdate) REST API. I följande exempel anger servicenivåmålet till DW1000 för MySQLDW som finns på servern minserver-databasen. Servern är i ett Azure-resursgrupp med namnet ResourceGroup1.
+Om du vill ändra DWU: er använder du REST API [skapa eller uppdatera databas](/rest/api/sql/databases/createorupdate) . I följande exempel anges service nivå målet till DW1000 för databasen MySQLDW, som finns på Server-servern. Servern finns i en Azure-resurs grupp med namnet ResourceGroup1.
 
 ```
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}?api-version=2014-04-01-preview HTTP/1.1
@@ -172,20 +172,20 @@ Content-Type: application/json; charset=UTF-8
 }
 ```
 
-Fler REST API-exempel finns i [REST API: er för SQL Data Warehouse](sql-data-warehouse-manage-compute-rest-api.md).
+Fler REST APIs exempel finns i [REST-API: er för SQL Data Warehouse](sql-data-warehouse-manage-compute-rest-api.md).
 
-## <a name="check-status-of-dwu-changes"></a>Kontrollera status för DWU-ändringar
+## <a name="check-status-of-dwu-changes"></a>Kontrol lera status för DWU-ändringar
 
-DWU ändringar kan ta flera minuter att slutföra. Överväg att implementera logik för att se till att vissa åtgärder har slutförts innan du fortsätter med en annan åtgärd om du skalar automatiskt.
+DWU ändringar kan ta flera minuter att slutföra. Om du skalar automatiskt bör du överväga att implementera logik för att säkerställa att vissa åtgärder har slutförts innan du fortsätter med en annan åtgärd.
 
-Kontrollerar databasstatus för via olika slutpunkter kan du implementera korrekt automation. Portalen meddelar vid slutförandet av en åtgärd och det aktuella tillståndet för databaser, men tillåter inte för programmässig kontroll av tillstånd.
+Genom att kontrol lera databas statusen via olika slut punkter kan du implementera Automation korrekt. Portalen visar ett meddelande när en åtgärd har slutförts och databasens aktuella tillstånd, men tillåter inte program kontroll av status.
 
-Du kan inte kontrollera databasens status för skalbar åtgärder med Azure-portalen.
+Det går inte att kontrol lera databasens tillstånd för skalnings åtgärder med Azure Portal.
 
-Så här kontrollerar status för DWU-ändringar:
+Så här kontrollerar du status för DWU-ändringar:
 
-1. Ansluta till master-databasen som är associerade med din logiska SQL Database-server.
-2. Skicka följande fråga för att kontrollera databasens status.
+1. Anslut till huvud databasen som är kopplad till den logiska SQL Database servern.
+2. Skicka följande fråga för att kontrol lera databasens tillstånd.
 
 ```sql
 SELECT    *
@@ -193,7 +193,7 @@ FROM      sys.databases
 ;
 ```
 
-1. Skicka följande fråga för att kontrollera status för åtgärden
+1. Skicka följande fråga för att kontrol lera status för åtgärden
 
 ```sql
 SELECT    *
@@ -203,15 +203,15 @@ AND       major_resource_id = 'MySQLDW'
 ;
 ```
 
-Den här DMV returnerar information om olika hanteringsåtgärder i SQL Data Warehouse, till exempel igen och status för åtgärden, som är IN_PROGRESS eller COMPLETED.
+Denna DMV returnerar information om olika hanterings åtgärder på din SQL Data Warehouse, till exempel åtgärden och status för åtgärden, som antingen är IN_PROGRESS eller SLUTFÖRd.
 
-## <a name="the-scaling-workflow"></a>Skalning arbetsflödet
+## <a name="the-scaling-workflow"></a>Arbets flödet för skalning
 
-När du startar en skalningsåtgärd stoppar systemet först alla öppna sessioner, återställa alla öppna transaktioner för att säkerställa ett konsekvent tillstånd. För skalning inträffar skalning bara när den här transaktionella återställning har slutförts.  
+När du startar en skalnings åtgärd omsorg systemet först alla öppna sessioner, vilket återställer eventuella öppna transaktioner för att säkerställa ett konsekvent tillstånd. För skalnings åtgärder sker skalningen endast efter att den här transaktions återställningen har slutförts.  
 
-- För en upp-åtgärd systemet frånkopplas alla beräkningsnoder, tillhandahåller ytterligare compute-noder och sedan återansluts sedan till storage-skiktet.
-- För en skala ned systemet frånkopplas alla beräkningsnoder och sedan återansluts sedan endast de nödvändiga noderna till storage-skiktet.
+- För en skalnings åtgärd tar systemet bort alla datornoder, etablerar ytterligare datornoder och återansluter sedan till lagrings skiktet.
+- För en nedskalning åtgärd tar systemet bort alla datornoder och återansluter sedan bara de noder som behövs till lagrings lagret.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om att hantera prestanda i [resursklasser för hantering av arbetsbelastning](resource-classes-for-workload-management.md) och [minne och samtidighet gränser](memory-and-concurrency-limits.md).
+Mer information om hur du hanterar prestanda finns i [resurs klasser för hantering av arbets belastning](resource-classes-for-workload-management.md) och [minnes-och samtidiga gränser](memory-and-concurrency-limits.md).

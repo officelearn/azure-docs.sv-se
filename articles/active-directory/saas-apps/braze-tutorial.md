@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med Braze | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory integrering med Braze | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Braze.
 services: active-directory
 documentationCenter: na
@@ -16,41 +16,41 @@ ms.topic: tutorial
 ms.date: 05/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd8d4a4bd21e0f7a7f483e139beb1840b5c3cc7f
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 3a32548bdafa999fe72e8b2f8e3b80961ebe3c9a
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165093"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69032910"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-braze"></a>Självstudier: Azure Active Directory-integrering med Braze
+# <a name="tutorial-azure-active-directory-integration-with-braze"></a>Självstudier: Azure Active Directory integrering med Braze
 
-I den här självstudien får du lära dig hur du integrerar Braze med Azure Active Directory (AD Azure).
-Integrera Braze med Azure AD ger dig följande fördelar:
+I den här självstudien får du lära dig hur du integrerar Braze med Azure Active Directory (Azure AD).
+Genom att integrera Braze med Azure AD får du följande fördelar:
 
 * Du kan styra i Azure AD som har åtkomst till Braze.
-* Du kan aktivera användarna att vara automatiskt inloggad till Braze (Single Sign-On) med sina Azure AD-konton.
+* Du kan göra det möjligt för användarna att logga in automatiskt till Braze (enkel inloggning) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure portal.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill konfigurera Azure AD-integrering med Braze, behöver du följande objekt:
+Om du vill konfigurera Azure AD-integrering med Braze behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en [kostnadsfritt konto](https://azure.microsoft.com/free/)
-* Braze enkel inloggning aktiverad prenumeration
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/)
+* Braze-aktiverad prenumeration med enkel inloggning
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* Braze stöder **SP och IDP** -initierad SSO
+* Braze stöder **SP-och IDP** -INITIERAd SSO
 
-## <a name="adding-braze-from-the-gallery"></a>Att lägga till Braze från galleriet
+## <a name="adding-braze-from-the-gallery"></a>Lägga till Braze från galleriet
 
-För att konfigurera integrering av Braze i Azure AD, som du behöver lägga till Braze från galleriet i din lista över hanterade SaaS-appar.
+Om du vill konfigurera integreringen av Braze i Azure AD måste du lägga till Braze från galleriet i listan över hanterade SaaS-appar.
 
 **Utför följande steg för att lägga till Braze från galleriet:**
 
@@ -66,31 +66,31 @@ För att konfigurera integrering av Braze i Azure AD, som du behöver lägga til
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver **Braze**väljer **Braze** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+4. I rutan Sök skriver du **Braze**, väljer **Braze** från resultat panelen och klickar sedan på **Lägg till** för att lägga till programmet.
 
-    ![Braze i resultatlistan](common/search-new-app.png)
+    ![Braze i resultat listan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Braze baserat på en testanvändare kallas **Britta Simon**.
-För enkel inloggning ska fungera, måste en länk förhållandet mellan en Azure AD-användare och relaterade användaren i Braze upprättas.
+I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med Braze baserat på en test användare som kallas **Britta Simon**.
+För att enkel inloggning ska fungera måste en länk relation mellan en Azure AD-användare och den relaterade användaren i Braze upprättas.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med Braze, måste du utföra följande byggblock:
+Om du vill konfigurera och testa enkel inloggning med Braze i Azure AD måste du slutföra följande Bygg stenar:
 
 1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Konfigurera Braze enkel inloggning](#configure-braze-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
+2. **[Konfigurera Braze-enkel inloggning](#configure-braze-single-sign-on)** för att konfigurera inställningarna för enkel inloggning på program sidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
 4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Skapa testanvändare Braze](#create-braze-test-user)**  – du har en motsvarighet för Britta Simon i Braze som är länkad till en Azure AD-representation av användaren.
+5. **[Skapa Braze test User](#create-braze-test-user)** – om du vill ha en motsvarighet till Britta Simon i Braze som är länkad till Azure AD-representation av användare.
 6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Utför följande steg för att konfigurera Azure AD enkel inloggning med Braze:
+Utför följande steg för att konfigurera enkel inloggning med Braze i Azure AD:
 
-1. I den [Azure-portalen](https://portal.azure.com/)på den **Braze** application integration markerar **enkel inloggning**.
+1. Välj **enkel inloggning**på sidan **Braze** Application Integration i [Azure Portal](https://portal.azure.com/).
 
     ![Konfigurera enkel inloggning för länken](common/select-sso.png)
 
@@ -102,28 +102,28 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Braze:
 
     ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-4. På den **SAML grundkonfiguration** om du vill konfigurera programmet i **IDP** initierade läge, utföra följande steg:
+4. I avsnittet **grundläggande SAML-konfiguration** , om du vill konfigurera programmet i **IDP** initierat läge, utför följande steg:
 
-    ![Braze domän och URL: er enkel inloggning för information](common/both-replyurl.png)
+    ![Information om enkel inloggning för Braze-domän och URL: er](common/both-replyurl.png)
 
     I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<SUBDOMAIN>.braze.com/auth/saml/callback`
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    ![Braze domän och URL: er enkel inloggning för information](common/both-signonurl.png)
+    ![Information om enkel inloggning för Braze-domän och URL: er](common/both-signonurl.png)
 
     I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://<SUBDOMAIN>.braze.com/sign_in`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera värdena med faktisk svars-URL och inloggnings-URL. Kontakta [Braze klienten supportteamet](mailto:support@braze.com) att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > För under domänen använder du samordnings under domänen som anges i URL: en för din Braze-instans. Om din instans till exempel är US-01 är https://dashboard-01.braze.com URL: en. Det innebär att din under domän kommer att vara instrument panel-01.
 
-6. Braze program som förväntar SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut i avsnittet **Användarattribut** på sidan för programintegrering. På sidan **Konfigurera enkel inloggning med SAML** klickar du på knappen **Redigera** för att öppna dialogrutan **Användarattribut**.
+6. Braze-programmet förväntar sig SAML-intyg i ett särskilt format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut i avsnittet **Användarattribut** på sidan för programintegrering. På sidan **Konfigurera enkel inloggning med SAML** klickar du på knappen **Redigera** för att öppna dialogrutan **Användarattribut**.
 
     ![image](common/edit-attribute.png)
 
 7. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** så redigerar du anspråken genom att använda **Redigera-ikonen** eller lägga till anspråken genom att använda **Lägg till nytt anspråk** för att konfigurera SAML-tokenattribut som det visas i bilden ovan och utföra följande steg:
 
-    | Namn | Källattribut|
+    | Name | Källattribut|
     | -----| --------------- |
     | email | user.userprincipalname |
     | first_name| user.givenname|
@@ -152,7 +152,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Braze:
 
     ![Länk för hämtning av certifikat](common/certificatebase64.png)
 
-9. På den **konfigurera Braze** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
+9. I avsnittet **Konfigurera Braze** kopierar du lämpliga URL: er enligt ditt krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
@@ -164,7 +164,7 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med Braze:
 
 ### <a name="configure-braze-single-sign-on"></a>Konfigurera Braze enkel inloggning
 
-Att konfigurera enkel inloggning på **Braze** sida, som du behöver skicka de hämtade **certifikat (Base64)** och lämpliga kopierade URL: er från Azure portal för att [Braze supportteamet](mailto:support@braze.com) . De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+Om du vill konfigurera enkel inloggning på **Braze** -sidan måste du se till att en Braze-konto hanterare har aktiverat SAML SSO för ditt konto. När den är aktive rad kan du gå till företags inställningar > säkerhets inställningar och växla till avsnittet SAML SSO till ON. I det här avsnittet måste du kopiera och klistra in det hämtade **certifikatet (base64)** tillsammans med att lägga till ett SAML-namn. 
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -184,7 +184,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I den **användarnamn** fälttyp `brittasimon@yourcompanydomain.extension`. Till exempel, BrittaSimon@contoso.com
+    b. I `brittasimon@yourcompanydomain.extension`fältet **användar namn** . Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
@@ -192,15 +192,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Braze.
+I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till Braze.
 
-1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **Braze**.
+1. I Azure Portal väljer du **företags program**, väljer **alla program**och väljer sedan **Braze**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan med program väljer **Braze**.
+2. I listan program väljer du **Braze**.
 
-    ![Länken Braze i listan med program](common/all-applications.png)
+    ![Braze-länken i program listan](common/all-applications.png)
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 
@@ -216,15 +216,15 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-braze-test-user"></a>Skapa Braze testanvändare
+### <a name="create-braze-test-user"></a>Skapa Braze test användare
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i Braze. Arbeta med [Braze supportteamet](mailto:support@braze.com) att lägga till användare i Braze-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som heter Britta Simon i Braze. Du kan lägga till användare i Braze-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
 I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Braze i åtkomstpanelen, bör det vara loggas in automatiskt till Braze som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen Braze på åtkomst panelen, bör du loggas in automatiskt på den Braze som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

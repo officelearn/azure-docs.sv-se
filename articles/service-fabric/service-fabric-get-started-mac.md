@@ -8,18 +8,17 @@ manager: chackdan
 editor: ''
 ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
 ms.service: service-fabric
-ms.devlang: linux
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/17/2017
 ms.author: suhuruli
-ms.openlocfilehash: 84d1f52b5fb8f18d3578bad28930f74534b1409f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2ce8d944e7334b071a4a48f38f8c4fafaeff4c47
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60947603"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035285"
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Konfigurera din utvecklingsmiljö i Mac OS X
 > [!div class="op_single_selector"]
@@ -31,7 +30,7 @@ ms.locfileid: "60947603"
 
 Du kan skapa Azure Service Fabric-program som körs i Linux-kluster i Mac OS X. Det här dokumentet visar hur du konfigurerar din utvecklingsmiljö i Mac.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 Azure Service Fabric kan inte köras internt i Mac OS X. För att du ska kunna köra ett lokalt Service Fabric-kluster tillhandahåller vi en förkonfigurerad Docker-containeravbildning. Innan du börjar behöver du:
 
 * Minst 4 GB RAM-minne.
@@ -53,11 +52,11 @@ Utför följande steg för att konfigurera en lokal Docker-container och köra e
         "fixed-cidr-v6": "fd00::/64"
     }
     ```
-    Du kan uppdatera inställningarna direkt i filen daemon.json som finns på Docker-installationssökvägen. Du kan direkt ändra konfigurationsinställningarna för daemon i Docker. Välj **Docker-ikonen** och sedan **Inställningar** > **Daemon** > **Avancerat**.
+    Du kan uppdatera inställningarna direkt i filen daemon.json som finns på Docker-installationssökvägen. Du kan ändra konfigurations inställningarna för daemonen direkt i Docker. Välj **Docker-ikonen** och sedan **Inställningar** > **Daemon** > **Avancerat**.
     
     >[!NOTE]
     >
-    >Ändra daemon direkt i Docker är rekommenderat eftersom platsen för filen daemon.json kan variera från en dator till en dator. Den kan till exempel vara ~/Library/Containers/com.docker.docker/Data/database/com.docker.driver.amd64-linux/etc/docker/daemon.json.
+    >Att ändra daemonen direkt i Docker är rekommenderat eftersom platsen för daemon. JSON-filen kan skilja sig från datorn till datorn. Den kan till exempel vara ~/Library/Containers/com.docker.docker/Data/database/com.docker.driver.amd64-linux/etc/docker/daemon.json.
     >
 
     >[!TIP]
@@ -110,7 +109,7 @@ Utför följande steg för att konfigurera en lokal Docker-container och köra e
     >`docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox microsoft/service-fabric-onebox`
     >
 
-5. Det tar en stund att starta klustret. När den körs, kan du se loggar med följande kommando eller gå till instrumentpanelen och visa klusterhälsotillståndet [ http://localhost:19080 ](http://localhost:19080):
+5. Klustret kommer att ta en stund att starta. När den körs kan du Visa loggar med följande kommando eller gå till instrument panelen för att se kluster hälsan [http://localhost:19080](http://localhost:19080):
 
     ```bash 
     docker logs sftestcluster
@@ -118,7 +117,7 @@ Utför följande steg för att konfigurera en lokal Docker-container och köra e
 
 
 
-6. Stoppa och rensa behållaren, använder du följande kommando. Vi kommer dock att använda den här behållaren i nästa steg.
+6. Om du vill stoppa och rensa behållaren använder du följande kommando. Vi kommer dock att använda den här behållaren i nästa steg.
 
     ```bash 
     docker rm -f sftestcluster
@@ -174,8 +173,9 @@ Service Fabric har ramverktyg som hjälper dig att skapa ett Service Fabric-prog
     brew install gradle
     ```
 
-    >[!TIP]
-    > Glöm inte att verifiera att du har rätt version av JDK som är installerad. 
+    > [!IMPORTANT]
+    > Aktuella versioner av `brew cask install java` kan installera en senare version av JDK.
+    > Se till att installera JDK 8.
 
 ## <a name="deploy-your-application-on-your-mac-from-the-terminal"></a>Distribuera ditt program på Mac från terminalen
 

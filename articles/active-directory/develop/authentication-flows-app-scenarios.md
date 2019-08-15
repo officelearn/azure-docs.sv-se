@@ -17,12 +17,12 @@ ms.date: 07/25/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 507758831885bff7f61677ebae0224cc828dcb2e
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: fb2e3e45da0a072eadb0eac9f8a0266f9e14cda2
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879276"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69031964"
 ---
 # <a name="authentication-flows-and-application-scenarios"></a>Autentiserings flöden och program scenarier
 
@@ -195,7 +195,7 @@ Alla program typer är inte tillgängliga på alla plattformar. Du kan också an
 | [Datorprogram som anropar webb-API:er](scenario-desktop-overview.md) <br/> ![ [ Skrivbordsappsomanroparwebb-API:![er](media/scenarios/desktop-app.svg)](scenario-desktop-overview.md) enhets kod flöde](media/scenarios/device-code-flow-app.svg) | ![MSAL.NET](media/sample-v2-code/logo_NET.png)  MSAL.NET ![.NET Core](media/sample-v2-code/logo_NETcore.png) MSAL.NET ![MSAL Java](media/sample-v2-code/logo_java.png) msal4j ![MSAL python](media/sample-v2-code/logo_python.png) MSAL python| ![.NET Core](media/sample-v2-code/logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/logo_java.png) msal4j ![MSAL python](media/sample-v2-code/logo_python.png) MSAL python| ![.NET Core](media/sample-v2-code/logo_NETcore.png) MSAL.NET ![MSAL Java](media/sample-v2-code/logo_java.png) msal4j ![MSAL python](media/sample-v2-code/logo_python.png) MSAL python
 | [Mobilapp som anropar webb-API: er](scenario-mobile-overview.md) <br/> [![Mobilapp som anropar webb-API: er](media/scenarios/mobile-app.svg)](scenario-mobile-overview.md) | ![UWP](media/sample-v2-code/logo_windows.png) MSAL.NET ![Xamarin](media/sample-v2-code/logo_xamarin.png) MSAL.NET | | | ![iOS/mål C eller Swift](media/sample-v2-code/logo_iOS.png) MSAL. iOS | ![Android](media/sample-v2-code/logo_Android.png) MSAL. Android
 | [Daemon-app](scenario-daemon-overview.md) <br/> [![Daemon-app](media/scenarios/daemon-app.svg)](scenario-daemon-overview.md) | ![.NET](media/sample-v2-code/logo_NET.png) MSAL.NET ![.NET Core](media/sample-v2-code/logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/logo_java.png) msal4j ![MSAL python](media/sample-v2-code/logo_python.png) MSAL python| ![.NET Core](media/sample-v2-code/logo_NETcore.png) MSAL.NET ![MSAL Java](media/sample-v2-code/logo_java.png) msal4j ![MSAL python](media/sample-v2-code/logo_python.png) MSAL python| ![.NET Core](media/sample-v2-code/logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/logo_java.png) msal4j ![MSAL python](media/sample-v2-code/logo_python.png) MSAL python
-| [Webb-API som anropar webb-API: er](scenario-web-api-call-api-overview.md) <br/> [![Webb-API som anropar webb-API: er](media/scenarios/web-api.svg)](scenario-web-api-call-api-overview.md) | ![.NET](media/sample-v2-code/logo_NET.png) <br/> ASP.NET + MSAL.NET ![.NET Core](media/sample-v2-code/logo_NETcore.png) <br/> ASP.NET Core + MSAL.NET| ![.NET Core](media/sample-v2-code/logo_NETcore.png) <br/> ASP.NET Core + MSAL.NET| ![.NET Core](media/sample-v2-code/logo_NETcore.png)<br/> ASP.NET Core + MSAL.NET
+| [Webb-API som anropar webb-API: er](scenario-web-api-call-api-overview.md) <br/> [![Webb-API som anropar webb-API: er](media/scenarios/web-api.svg)](scenario-web-api-call-api-overview.md) | ![.NET](media/sample-v2-code/logo_NET.png) MSAL.NET ![.NET Core](media/sample-v2-code/logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/logo_java.png) msal4j ![MSAL python](media/sample-v2-code/logo_python.png) MSAL python| ![.NET Core](media/sample-v2-code/logo_NETcore.png) MSAL.NET ![MSAL Java](media/sample-v2-code/logo_java.png) msal4j ![MSAL python](media/sample-v2-code/logo_python.png) MSAL python| ![.NET Core](media/sample-v2-code/logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/logo_java.png) msal4j ![MSAL python](media/sample-v2-code/logo_python.png) MSAL python
 
 Se även [Microsoft-bibliotek som stöds av OS/språk](reference-v2-libraries.md#microsoft-supported-libraries-by-os--language)
 

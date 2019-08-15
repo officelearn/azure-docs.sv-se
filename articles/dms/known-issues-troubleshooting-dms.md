@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 06/18/2019
-ms.openlocfilehash: a35e0496c7e36d42e28a64fef438fe56713d3c78
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: a72a0e26c2af34942faaa6a7e62feef86082e196
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855006"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69034831"
 ---
 # <a name="troubleshoot-common-azure-database-migration-service-issues-and-errors"></a>Felsök vanliga Azure Database Migration Service problem och fel
 
@@ -98,9 +98,9 @@ När du försöker ansluta till källan i guiden Azure Database Migration Servic
 | ------------- | ------------- |
 | När du använder [ExpressRoute](https://azure.microsoft.com/services/expressroute/) [kräver](https://docs.microsoft.com/azure/dms/tutorial-sql-server-azure-sql-online) Azure Database migration service etablering av tre tjänst slut punkter i det Virtual Network undernät som är associerat med tjänsten:<br> --Service Bus slut punkt<br> --Lagrings slut punkt<br> --Slut punkt för mål databas (t. ex. SQL-slutpunkt, Cosmos DB slut punkt)<br><br><br><br><br> | [Aktivera](https://docs.microsoft.com/azure/dms/tutorial-sql-server-azure-sql-online) de tjänst slut punkter som krävs för ExpressRoute-anslutning mellan källa och Azure Database migration service. <br><br><br><br><br><br><br><br> |
 
-## <a name="timeout-error-when-migrating-a-mysql-database-to-azure-db-for-mysql"></a>Tids gräns fel vid migrering av en MySQL-databas till Azure DB för MySQL
+## <a name="lock-wait-timeout-error-when-migrating-a-mysql-database-to-azure-db-for-mysql"></a>Timeout-fel vid låsning vid migrering av en MySQL-databas till Azure DB för MySQL
 
-När du migrerar en MySQL-databas till en Azure Database for MySQL instans via Azure Database Migration Service, Miss lyckas migreringen med följande tids gräns fel:
+När du migrerar en MySQL-databas till en Azure Database for MySQL-instans via Azure Database Migration Service, Miss lyckas migreringen med följande timeout-värde för låsnings vänte tid:
 
 * **Fel**: Fel vid databas migrering – det gick inte att läsa in filen – det gick inte att starta inläsnings processen för filen ' n ' RetCode: SQL_ERROR SqlState: HY000 NativeError: 1205 meddelande: [MySQL] [ODBC-drivrutin] [mysqld] lås vänte tid har överskridits; försök att starta om transaktionen
 

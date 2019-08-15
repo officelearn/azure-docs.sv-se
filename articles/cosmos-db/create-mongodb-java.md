@@ -1,5 +1,5 @@
 ---
-title: Skapa en konsolapp med Azure Cosmos DB:s API för MongoDB och Java SDK
+title: 'Snabbstart: Bygg en webbapp med Azure API för mongo DB och Java SDK – Azure Cosmos DB'
 description: Presenterar ett Java-kodexempel som du kan använda för att ansluta till och ställa frågor men hjälp av Azure Cosmos DB:s API för MongoDB.
 author: rimman
 ms.service: cosmos-db
@@ -8,12 +8,13 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 12/26/2018
 ms.author: rimman
-ms.openlocfilehash: 1e1cfe7f0e3af72de819ed09dcd0a6d190f239ab
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
-ms.translationtype: MT
+ms.custom: seo-java-august2019
+ms.openlocfilehash: 701e6f0e93fe853a3703f9923af4dffd16090c80
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839818"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036790"
 ---
 # <a name="quickstart-build-a-web-app-using-azure-cosmos-dbs-api-for-mongodb-and-java-sdk"></a>Snabbstart: Skapa en webbapp med Azure Cosmos DB:s API för MongoDB och Java SDK
 
@@ -33,7 +34,7 @@ Den här snabbstarten visar hur du skapar ett Cosmos-konto med [Azure Cosmos DB-
 ## <a name="prerequisites"></a>Förutsättningar
 
 Innan du kan köra det här exemplet måste du uppfylla följande krav:
-* [Installera JDK-Paketet för Azure och Azure Stack JDK version 8](https://aka.ms/azure-jdks)
+* [Installera JDK för Azure och Azure Stack JDK version 8](https://aka.ms/azure-jdks)
 * Maven (Kör `apt-get install maven` om du inte har Maven)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]

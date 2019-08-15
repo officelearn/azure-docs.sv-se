@@ -1,6 +1,6 @@
 ---
-title: Ensidesapplikation (logga in) - Microsoft identity-plattformen
-description: Lär dig hur du skapar ett enkelsidigt program (logga in)
+title: En Enkels Ides applikation (logga in) – Microsoft Identity Platform
+description: Lär dig hur du skapar ett program med en enda sida (logga in)
 services: active-directory
 documentationcenter: dev-center-name
 author: navyasric
@@ -17,34 +17,34 @@ ms.date: 05/06/2019
 ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc9c46ae28960387e6f8efc1ade20afa1c77ef55
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7bf614a5523e78fc72918db973ef8d738a171fff
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65138792"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69031784"
 ---
-# <a name="single-page-application---sign-in"></a>Ensidesprogram - inloggning
+# <a name="single-page-application---sign-in"></a>Program med enkel sida – logga in
 
-Lär dig hur du lägger till inloggning till koden för din ensidesprogram.
+Lär dig hur du lägger till inloggning i koden för ditt program på en sida.
 
-Innan du kan hämta token för att få åtkomst till API: er i ditt program, måste en autentiserad användare-kontext. Du kan logga in användare i ditt program i MSAL.js på två sätt:
+Innan du kan hämta token för att få åtkomst till API: er i ditt program behöver du en autentiserad användar kontext. Du kan logga in användare i ditt program i MSAL. js på två sätt:
 
-* [Logga in med ett popup-fönster](#sign-in-with-a-pop-up-window) med `loginPopup` metod
-* [Logga in med omdirigering](#sign-in-with-redirect) med `loginRedirect` metod
+* [Logga in med ett popup-fönster](#sign-in-with-a-pop-up-window) med `loginPopup` metoden
+* [Logga in med](#sign-in-with-redirect) metoden omdirigera `loginRedirect` med
 
-Du kan också välja att skicka scope för API: erna som du behöver om användarens tillstånd vid tidpunkten för inloggningen.
+Du kan också välja att skicka omfattningarna för de API: er som du vill att användaren ska godkänna vid tidpunkten för inloggning.
 
 > [!NOTE]
-> Om programmet redan har åtkomst till en autentiserad användarkontext eller id token, kan du hoppa över steg för inloggning och direkt hämta token. Mer information finns i [sso utan msal.js inloggning](msal-js-sso.md#sso-without-msaljs-login).
+> Om programmet redan har åtkomst till en autentiserad användar kontext eller ID-token kan du hoppa över inloggnings steget och hämta token direkt. Mer information finns i [SSO utan msal. js-inloggning](msal-js-sso.md#sso-without-msaljs-login).
 
-## <a name="choosing-between-a-pop-up-or-redirect-experience"></a>Välja mellan en popup-fönstret eller omdirigerings-upplevelse
+## <a name="choosing-between-a-pop-up-or-redirect-experience"></a>Välja mellan en pop-up-eller Redirect-upplevelse
 
-Du kan inte använda en kombination av både popup-fönstret och omdirigerings-metoderna i ditt program. Valet mellan en popup-fönstret eller omdirigerings-upplevelse beror på ditt flöde för programmet.
+Du kan inte använda en kombination av både popup-och omdirigerings metoder i ditt program. Valet mellan en popup-eller omdirigerings upplevelse beror på ditt program flöde.
 
-* Om du inte vill att användaren att navigera bort från sidan huvudprogrammet under autentiseringen, rekommenderar vi att du använder popup-metoder. Eftersom autentisering omdirigering sker i ett popup-fönster, bevaras tillståndet för det huvudsakliga programmet.
+* Om du inte vill att användaren ska navigera bort från huvud program sidan under autentiseringen rekommenderar vi att du använder popup-metoderna. Eftersom autentiseringen av autentisering sker i ett popup-fönster bevaras huvud programmets tillstånd.
 
-* Det finns vissa fall där du kan behöva använda omdirigerings-metoder. Om användare av ditt program har begränsningar för webbläsare eller principer där popup-fönster har inaktiverats kan använda du metoderna omdirigering. Använda omdirigerings-metoder med webbläsaren Internet Explorer eftersom det finns vissa [kända problem med Internet Explorer](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser) vid hantering av popup-fönster.
+* Det finns vissa fall där du kan behöva använda omdirigerings metoderna. Om användare av ditt program har webb läsar begränsningar eller principer där popup-fönster har inaktiverats, kan du använda metoderna för omdirigering. Använd omdirigerings metoder med Internet Explorer-webbläsaren eftersom det finns vissa [kända problem med Internet Explorer](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser) vid hantering av popup-fönster.
 
 ## <a name="sign-in-with-a-pop-up-window"></a>Logga in med ett popup-fönster
 
@@ -52,7 +52,7 @@ Du kan inte använda en kombination av både popup-fönstret och omdirigerings-m
 
 ```javascript
 const loginRequest = {
-    scopes: ["user.read", "user.write"]
+    scopes: ["https://graph.microsoft.com/User.ReadWrite"]
 }
 
 userAgentApplication.loginPopup(loginRequest).then(function (loginResponse) {
@@ -66,7 +66,7 @@ userAgentApplication.loginPopup(loginRequest).then(function (loginResponse) {
 
 ### <a name="angular"></a>Angular
 
-MSAL Angular omslutningen kan du skydda specifika vägar i ditt program genom att bara lägga till den `MsalGuard` till route-definition. Den här guard anropar metoden för att logga in när den vägen används.
+Med MSAL vinkel omslutning kan du skydda specifika vägar i ditt program genom att bara `MsalGuard` lägga till i väg definitionen. Det här skydds metoden anropar metoden för att logga in när den vägen nås.
 
 ```javascript
 // In app.routes.ts
@@ -78,7 +78,7 @@ MSAL Angular omslutningen kan du skydda specifika vägar i ditt program genom at
   { path: 'myProfile' ,component: MsGraphComponent, canActivate : [MsalGuard] },
 ```
 
-En popup-fönstret upplevelse, aktivera den `popUp` config-alternativet. Du kan även skicka scope som kräver godkännande på följande sätt:
+Aktivera `popUp` alternativet config för en popup-fönster upplevelse. Du kan också skicka de omfattningar som kräver medgivande enligt följande:
 
 ```javascript
 //In app.module.ts
@@ -86,7 +86,7 @@ En popup-fönstret upplevelse, aktivera den `popUp` config-alternativet. Du kan 
   imports: [ MsalModule.forRoot({
                 clientID: 'your_app_id',
                 popUp: true,
-                consentScopes: ["user.read", "user.write"]
+                consentScopes: ["https://graph.microsoft.com/User.ReadWrite"]
             })]
          })
 ```
@@ -95,7 +95,7 @@ En popup-fönstret upplevelse, aktivera den `popUp` config-alternativet. Du kan 
 
 ### <a name="javascript"></a>JavaScript
 
-Omdirigerings-metoder returnerar inte ett löfte på grund av navigering bort från den huvudsakliga appen. För att bearbeta och få åtkomst till de returnerade token kommer du behöva registrera lyckas och fel återanrop innan du anropar omdirigerings-metoder.
+Omdirigerings metoderna returnerar inget löfte på grund av att det inte går att navigera bort från huvud programmet. Om du vill bearbeta och komma åt de returnerade tokens måste du registrera lyckade och felfria återanrop innan du anropar omdirigerings metoderna.
 
 ```javascript
 function authCallback(error, response) {
@@ -105,7 +105,7 @@ function authCallback(error, response) {
 userAgentApplication.handleRedirectCallback(authCallback);
 
 const loginRequest = {
-    scopes: ["user.read", "user.write"]
+    scopes: ["https://graph.microsoft.com/User.ReadWrite"]
 }
 
 userAgentApplication.loginRedirect(loginRequest);
@@ -113,16 +113,16 @@ userAgentApplication.loginRedirect(loginRequest);
 
 ### <a name="angular"></a>Angular
 
-Koden här är samma enligt beskrivningen ovan under logga in med ett avsnitt i popup-fönstret. Standard-flödet är omdirigering.
+Koden här är samma som beskrivs ovan under avsnittet Logga in med ett popup-fönster. Standard flödet är omdirigerat.
 
 > [!NOTE]
-> ID-token innehåller inte godkända scope och visar endast den autentiserade användaren. Godkända scope returneras i åtkomsttoken som du hämtar i nästa steg.
+> ID-token innehåller inte de vidarebefordrade omfattningarna och representerar bara den autentiserade användaren. De godkända omfattningarna returneras i åtkomsttoken som du kommer att hämta i nästa steg.
 
 ## <a name="sign-out"></a>Logga ut
 
-MSAL-biblioteket innehåller en `logout` metod som rensar cachen i webbläsaren lagringen och skickar en utloggning begäran till Azure AD. Efter utloggning omdirigerar den tillbaka till startsidan för programmet som standard.
+MSAL-biblioteket innehåller en `logout` metod som rensar cacheminnet i webbläsarens lagring och skickar en begäran om utloggning till Azure AD. Efter utloggning omdirigerar den tillbaka till program start sidan som standard.
 
-Du kan konfigurera den URI som ska den omdirigera efter logga ut genom att ange den `postLogoutRedirectUri`. URI: N bör också registreras som Logout URI i dina programregistrering.
+Du kan konfigurera den URI som den ska omdirigeras till efter utloggning genom att `postLogoutRedirectUri`ange. Denna URI bör också registreras som utloggnings-URI i program registreringen.
 
 ### <a name="javascript"></a>JavaScript
 
@@ -159,4 +159,4 @@ this.authService.logout();
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Skaffa en token som appen](scenario-spa-acquire-token.md)
+> [Hämtar en token för appen](scenario-spa-acquire-token.md)

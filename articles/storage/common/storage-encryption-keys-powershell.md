@@ -1,6 +1,6 @@
 ---
-title: Konfigurera Kundhanterade nycklar för kryptering av Azure Storage från PowerShell
-description: Lär dig hur du använder PowerShell för att konfigurera Kundhanterade nycklar för kryptering av Azure Storage. Kundhanterade nycklar kan du skapa, rotera, inaktivera och återkalla åtkomstkontroller.
+title: Konfigurera Kundhanterade nycklar för Azure Storage kryptering från PowerShell
+description: Lär dig hur du använder PowerShell för att konfigurera Kundhanterade nycklar för Azure Storage kryptering. Med Kundhanterade nycklar kan du skapa, rotera, inaktivera och återkalla åtkomst kontroller.
 services: storage
 author: tamram
 ms.service: storage
@@ -9,24 +9,28 @@ ms.date: 04/16/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: be876b370cd476bee2af7d90a9f0433fd80de3b4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6c9adf1c00503ec7f1cbf4a3405c303eea2d2292
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65233693"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69034873"
 ---
-# <a name="configure-customer-managed-keys-for-azure-storage-encryption-from-powershell"></a>Konfigurera Kundhanterade nycklar för kryptering av Azure Storage från PowerShell
+# <a name="configure-customer-managed-keys-for-azure-storage-encryption-from-powershell"></a>Konfigurera Kundhanterade nycklar för Azure Storage kryptering från PowerShell
 
 [!INCLUDE [storage-encryption-configure-keys-include](../../../includes/storage-encryption-configure-keys-include.md)]
 
-Den här artikeln visar hur du konfigurerar ett nyckelvalv med Kundhanterade nycklar med hjälp av PowerShell.
+Den här artikeln visar hur du konfigurerar ett nyckel valv med Kundhanterade nycklar med hjälp av PowerShell.
 
-## <a name="assign-an-identity-to-the-storage-account"></a>Tilldela en identitet till storage-kontot
+> [!IMPORTANT]
+> Om du använder Kundhanterade nycklar med Azure Storage kryptering måste nyckel valvet ha två obligatoriska egenskaper konfigurerade, **mjuk borttagning** och **Rensa inte**. De här egenskaperna är aktiverade som standard när du skapar ett nytt nyckel valv i Azure Portal. Men om du behöver aktivera dessa egenskaper i ett befintligt nyckel valv måste du använda antingen PowerShell eller Azure CLI.
+> Endast RSA-nycklar och nyckel storlek 2048 stöds.
 
-Om du vill använda Kundhanterade nycklar för ditt lagringskonto måste du först tilldela en automatiskt genererad hanterad identitet till storage-kontot. Du använder den här hanterade identiteten för att bevilja behörigheter för storage-konto för åtkomst till key vault.
+## <a name="assign-an-identity-to-the-storage-account"></a>Tilldela lagrings kontot en identitet
 
-Om du vill tilldela en hanterad identitet med hjälp av PowerShell anropar [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount). Kom ihåg att ersätter du platshållarens värden inom hakparentes med dina egna värden.
+Om du vill aktivera Kundhanterade nycklar för ditt lagrings konto tilldelar du först en systemtilldelad hanterad identitet till lagrings kontot. Du använder den här hanterade identiteten för att ge lagrings kontots behörigheter åtkomst till nyckel valvet.
+
+Om du vill tilldela en hanterad identitet med PowerShell, anropa [set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount). Kom ihåg att ersätta plats hållarnas värden inom hakparenteser med dina egna värden.
 
 ```powershell
 $storageAccount = Set-AzStorageAccount -ResourceGroupName <resource_group> `
@@ -34,13 +38,13 @@ $storageAccount = Set-AzStorageAccount -ResourceGroupName <resource_group> `
     -AssignIdentity
 ```
 
-Mer information om hur du konfigurerar systemtilldelade hanterade identiteter med PowerShell finns i [konfigurera hanterade identiteter för Azure-resurser på en Azure-dator med hjälp av PowerShell](../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md).
+Mer information om hur du konfigurerar systemtilldelade hanterade identiteter med PowerShell finns i [Konfigurera hanterade identiteter för Azure-resurser på en virtuell Azure-dator med hjälp av PowerShell](../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md).
 
-## <a name="create-a-new-key-vault"></a>Skapa ett nytt nyckelvalv
+## <a name="create-a-new-key-vault"></a>Skapa ett nytt nyckel valv
 
-Om du vill skapa ett nytt nyckelvalv med hjälp av PowerShell anropar [New AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault). Nyckelvalvet som du använder för att lagra Kundhanterade nycklar för Azure Storage kryptering måste ha två nyckelskydd inställningar aktiverade, **mjuk borttagning** och **gör inte rensa**. 
+Anropa [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault)om du vill skapa ett nytt nyckel valv med PowerShell. Nyckel valvet som du använder för att lagra Kundhanterade nycklar för Azure Storage kryptering måste ha två nyckel skydds inställningar aktiverade, **mjuk borttagning** och **Rensa inte**. 
 
-Kom ihåg att ersätter du platshållarens värden inom hakparentes med dina egna värden. 
+Kom ihåg att ersätta plats hållarnas värden inom hakparenteser med dina egna värden. 
 
 ```powershell
 $keyVault = New-AzKeyVault -Name <key-vault> `
@@ -50,11 +54,11 @@ $keyVault = New-AzKeyVault -Name <key-vault> `
     -EnablePurgeProtection
 ```
 
-## <a name="configure-the-key-vault-access-policy"></a>Konfigurera nyckelvalvets åtkomstprincip
+## <a name="configure-the-key-vault-access-policy"></a>Konfigurera åtkomst principen för nyckel valvet
 
-Konfigurera åtkomstprincip för nyckelvalvet så att lagringskontot har åtkomstbehörighet till den. I det här steget ska du använda den hanterade identitet som du tidigare tilldelat till lagringskontot.
+Konfigurera sedan åtkomst principen för nyckel valvet så att lagrings kontot har behörighet att komma åt det. I det här steget ska du använda den hanterade identitet som du tidigare tilldelade till lagrings kontot.
 
-För att ställa in åtkomstprincip för nyckelvalvet, anropa [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy). Kom ihåg att ersätta platshållarvärdena inom hakparentes med dina egna värden och om du vill använda de variabler som definierats i föregående exempel.
+Ange åtkomst principen för nyckel valvet genom att anropa [set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy). Kom ihåg att ersätta plats hållarnas värden inom hakparenteser med dina egna värden och använda variablerna som definierats i föregående exempel.
 
 ```powershell
 Set-AzKeyVaultAccessPolicy `
@@ -65,7 +69,7 @@ Set-AzKeyVaultAccessPolicy `
 
 ## <a name="create-a-new-key"></a>Skapa en ny nyckel
 
-Skapa sedan en ny nyckel i nyckelvalvet. Om du vill skapa en ny nyckel, anropa [Lägg till AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey). Kom ihåg att ersätta platshållarvärdena inom hakparentes med dina egna värden och om du vill använda de variabler som definierats i föregående exempel.
+Skapa sedan en ny nyckel i nyckel valvet. Om du vill skapa en ny nyckel anropar du [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey). Kom ihåg att ersätta plats hållarnas värden inom hakparenteser med dina egna värden och använda variablerna som definierats i föregående exempel.
 
 ```powershell
 $key = Add-AzKeyVaultKey -VaultName $keyVault.VaultName -Name <key> -Destination 'Software'
@@ -73,9 +77,9 @@ $key = Add-AzKeyVaultKey -VaultName $keyVault.VaultName -Name <key> -Destination
 
 ## <a name="configure-encryption-with-customer-managed-keys"></a>Konfigurera kryptering med Kundhanterade nycklar
 
-Som standard använder Azure Storage kryptering Microsoft-hanterade nycklar. I det här steget konfigurerar du ditt Azure Storage-konto om du vill använda Kundhanterade nycklar och ange nyckeln som ska associeras med lagringskontot.
+Som standard använder Azure Storage kryptering Microsoft-hanterade nycklar. I det här steget konfigurerar du ditt Azure Storage-konto så att det använder Kundhanterade nycklar och anger nyckeln som ska associeras med lagrings kontot.
 
-Anropa [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) att uppdatera krypteringsinställningar för storage-konto. Kom ihåg att ersätta platshållarvärdena inom hakparentes med dina egna värden och om du vill använda de variabler som definierats i föregående exempel.
+Anropa [set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) för att uppdatera lagrings kontots krypterings inställningar. Kom ihåg att ersätta plats hållarnas värden inom hakparenteser med dina egna värden och använda variablerna som definierats i föregående exempel.
 
 ```powershell
 Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
@@ -86,11 +90,11 @@ Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
     -KeyVaultUri $keyVault.VaultUri
 ```
 
-## <a name="update-the-key-version"></a>Uppdatera nyckelns version
+## <a name="update-the-key-version"></a>Uppdatera nyckel versionen
 
-När du skapar en ny version av en nyckel, måste du uppdatera lagringskontot för att använda den nya versionen. Först anropa [Get-AzKeyVaultKey](/powershell/module/az.keyvault/get-azkeyvaultkey) att hämta den senaste versionen av nyckeln. Anropa sedan [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) att uppdatera krypteringsinställningar för storage-konto om du vill använda den nya versionen av nyckeln, som visas i föregående avsnitt.
+När du skapar en ny version av en nyckel måste du uppdatera lagrings kontot för att använda den nya versionen. Börja med att anropa [Get-AzKeyVaultKey](/powershell/module/az.keyvault/get-azkeyvaultkey) för att hämta den senaste versionen av nyckeln. Anropa sedan [set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) för att uppdatera lagrings kontots krypterings inställningar för att använda den nya versionen av nyckeln, som du ser i föregående avsnitt.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Azure Storage-kryptering av vilande data](storage-service-encryption.md) 
+- [Azure Storage kryptering för vilande data](storage-service-encryption.md) 
 - [Vad är Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)?

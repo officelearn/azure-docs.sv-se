@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric CLI - sfctl nät gateway | Microsoft Docs
-description: Beskriver Service Fabric CLI sfctl nät gateway-kommandon.
+title: Azure Service Fabric CLI – sfctl, mask-Gateway | Microsoft Docs
+description: Beskriver kommandona för masken för Service Fabric CLI-sfctl.
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
@@ -8,18 +8,17 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 27cfe380e5988f17ca79c430cde7defc7f7bc440
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b8acb23b274e6062ae3c50ab80220ab93297037e
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60839087"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036429"
 ---
 # <a name="sfctl-mesh-gateway"></a>sfctl mesh gateway
 Hämta och ta bort nät gateway-resurser.
@@ -28,68 +27,68 @@ Hämta och ta bort nät gateway-resurser.
 
 |Kommando|Beskrivning|
 | --- | --- |
-| delete | Tar bort Gateway-resursen. |
+| radera | Tar bort Gateway-resursen. |
 | list | Visar en lista över alla gateway-resurser. |
-| visa | Hämtar Gateway-resursen med det angivna namnet. |
+| visa | Hämtar Gateway-resursen med det aktuella namnet. |
 
-## <a name="sfctl-mesh-gateway-delete"></a>sfctl nät gateway delete
+## <a name="sfctl-mesh-gateway-delete"></a>ta bort sfctls mask Gateway
 Tar bort Gateway-resursen.
 
-Tar bort Gateway-resursen som identifierades i namnet.
+Tar bort Gateway-resursen som identifieras med namnet.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --name -n [krävs] | Namnet på den gatewayresursen. |
+| --Name-n [required] | Namnet på Gateway-resursen. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --debug | Öka detaljnivå loggning för att visa alla felsöka loggar. |
-| --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
-| --utdata -o | Utdataformat.  Tillåtna värden\: json, jsonc, tabell, TVs.  Standard\: json. |
-| – fråga | JMESPath-frågesträng. Se http\://jmespath.org/ för mer information och exempel. |
-| --utförlig | Öka detaljnivå för loggning. Använd--felsökning för fullständig felsökningsloggar. |
+| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
+| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
+| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: -JSON. |
+| --fråga | Frågesträngen JMESPath. Se http\://jmespath.org/för mer information och exempel. |
+| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
 
-## <a name="sfctl-mesh-gateway-list"></a>sfctl nät gateway-listan
+## <a name="sfctl-mesh-gateway-list"></a>sfctl nät Gateway-lista
 Visar en lista över alla gateway-resurser.
 
-Hämtar information om alla gateway-resurser i en viss resursgrupp. Informationen omfattar beskrivningen och andra egenskaper för gatewayen.
+Hämtar information om alla gateway-resurser i en specifik resurs grupp. Informationen innehåller en beskrivning av och andra egenskaper för gatewayen.
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --debug | Öka detaljnivå loggning för att visa alla felsöka loggar. |
-| --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
-| --utdata -o | Utdataformat.  Tillåtna värden\: json, jsonc, tabell, TVs.  Standard\: json. |
-| – fråga | JMESPath-frågesträng. Se http\://jmespath.org/ för mer information och exempel. |
-| --utförlig | Öka detaljnivå för loggning. Använd--felsökning för fullständig felsökningsloggar. |
+| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
+| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
+| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: -JSON. |
+| --fråga | Frågesträngen JMESPath. Se http\://jmespath.org/för mer information och exempel. |
+| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
 
-## <a name="sfctl-mesh-gateway-show"></a>sfctl nät gateway show
-Hämtar Gateway-resursen med det angivna namnet.
+## <a name="sfctl-mesh-gateway-show"></a>sfctl nät Gateway show
+Hämtar Gateway-resursen med det aktuella namnet.
 
-Hämtar information om Gateway-resursen med det angivna namnet. Informationen omfattar beskrivningen och andra egenskaper för gatewayen.
+Hämtar information om Gateway-resursen med det aktuella namnet. Informationen innehåller en beskrivning av och andra egenskaper för gatewayen.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --name -n [krävs] | Namnet på den gatewayresursen. |
+| --Name-n [required] | Namnet på Gateway-resursen. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --debug | Öka detaljnivå loggning för att visa alla felsöka loggar. |
-| --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
-| --utdata -o | Utdataformat.  Tillåtna värden\: json, jsonc, tabell, TVs.  Standard\: json. |
-| – fråga | JMESPath-frågesträng. Se http\://jmespath.org/ för mer information och exempel. |
-| --utförlig | Öka detaljnivå för loggning. Använd--felsökning för fullständig felsökningsloggar. |
+| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
+| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
+| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: -JSON. |
+| --fråga | Frågesträngen JMESPath. Se http\://jmespath.org/för mer information och exempel. |
+| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
 
 
 ## <a name="next-steps"></a>Nästa steg
-- [Konfigurera](service-fabric-cli.md) Service Fabric CLI.
-- Lär dig hur du använder Service Fabric CLI med hjälp av den [exempel på skript](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- [Konfigurera](service-fabric-cli.md) Service Fabric cli.
+- Lär dig hur du använder Service Fabric CLI med hjälp av [exempel skripten](/azure/service-fabric/scripts/sfctl-upgrade-application).

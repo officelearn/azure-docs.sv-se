@@ -8,18 +8,17 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/13/2018
 ms.author: chackdan
-ms.openlocfilehash: df25c52e7a3f35355eb52bd95a39f55852adfcae
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 826e7e953bd713bb623ec469b45c56012601490b
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876582"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69030818"
 ---
 # <a name="set-up-and-configure-reverse-proxy-in-azure-service-fabric"></a>Konfigurera och konfigurera omvänd proxy i Azure Service Fabric
 Omvänd proxy är en valfri Azure Service Fabric-tjänst som hjälper mikrotjänster som körs i ett Service Fabric kluster att identifiera och kommunicera med andra tjänster som har http-slutpunkter. Mer information finns i [omvänd proxy i Azure Service Fabric](service-fabric-reverseproxy.md). Den här artikeln visar hur du konfigurerar och konfigurerar omvänd proxy i klustret. 
@@ -256,7 +255,7 @@ Om du vill exponera omvänd proxy offentligt för ett fristående kluster, beror
 2. Om du vill lägga till en hälso avsökning för porten för omvänd proxy klickar du på **hälso**avsökningar under **Inställningar**i den vänstra rutan i fönstret belastningsutjämnare. Klicka sedan på **Lägg till** överst i fönstret hälso avsökningar och ange information om porten för omvänd proxy. Klicka sedan på **OK**. Som standard är den omvända proxy-porten 19081, om du inte har ändrat den när du skapade klustret.
 
    ![Konfigurera hälso avsökning för omvänd proxy](./media/service-fabric-reverseproxy-setup/lb-rp-probe.png)
-3. Om du vill lägga till en Load Balancer regel för att exponera den omvända proxy-porten klickar du på belastnings Utjämnings  **regler**i den vänstra rutan i fönstret belastningsutjämnare. Klicka sedan på **Lägg till** överst i fönstret regler för belastnings utjämning och ange information om porten för omvänd proxy. Se till att du anger **Portvärdet** till den port som du vill att den omvända proxyn ska exponeras på, **Server dels port** svärdet för den port som du angav när du aktiverade omvänd proxy och **hälso avsökning** svärdet för den hälso avsökning som du konfigurerade i föregående steg. Ange andra fält som lämpliga och klicka på **OK**.
+3. Om du vill lägga till en Load Balancer regel för att exponera den omvända proxy-porten klickar du på belastnings Utjämnings **regler**i den vänstra rutan i fönstret belastningsutjämnare. Klicka sedan på **Lägg till** överst i fönstret regler för belastnings utjämning och ange information om porten för omvänd proxy. Se till att du anger **Portvärdet** till den port som du vill att den omvända proxyn ska exponeras på, **Server dels port** svärdet för den port som du angav när du aktiverade omvänd proxy och **hälso avsökning** svärdet för den hälso avsökning som du konfigurerade i föregående steg. Ange andra fält som lämpliga och klicka på **OK**.
 
    ![Konfigurera belastnings Utjämnings regel för omvänd proxy](./media/service-fabric-reverseproxy-setup/lb-rp-rule.png)
 

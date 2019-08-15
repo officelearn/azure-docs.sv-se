@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/08/2019
-ms.openlocfilehash: 4a0aab2ca2f0bbcee07f09124e68c3623d16004d
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 6949f46345a5520ec3e09508b6d81994f9a7deb5
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68848153"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036210"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Distribuera en modell till ett Azure Kubernetes service-kluster
 
@@ -212,12 +212,56 @@ az ml model deploy -ct myaks -m mymodel:1 -n myservice -ic inferenceconfig.json 
 
 Mer information finns i distributions referens för [AZ ml-modellen](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) . 
 
-## <a name="using-vs-code"></a>Använda VS Code
+### <a name="using-vs-code"></a>Använda VS Code
 
 Information om hur du använder VS Code finns i [distribuera till AKS via vs Code-tillägget](how-to-vscode-tools.md#deploy-and-manage-models).
 
 > [!IMPORTANT] 
 > Att distribuera via VS Code kräver att AKS-klustret skapas eller kopplas till din arbets yta i förväg.
+
+## <a name="web-service-authentication"></a>Webb tjänstens autentisering
+
+När du distribuerar till Azure Kubernetes-tjänsten aktive ras __nyckelbaserad__ autentisering som standard. Du kan också aktivera __token__ -autentisering. Token-autentisering kräver att klienter använder ett Azure Active Directory konto för att begära en autentiseringstoken, som används för att göra förfrågningar till den distribuerade tjänsten.
+
+Om du vill __inaktivera__ autentisering ställer `auth_enabled=False` du in parametern när du skapar distributions konfigurationen. I följande exempel inaktive ras autentisering med hjälp av SDK:
+
+```python
+deployment_config = AksWebservice.deploy_configuration(cpu_cores=1, memory_gb=1, auth_enabled=False)
+```
+
+Information om hur du autentiserar från ett klient program finns i [använda en Azure Machine Learning modell som distribueras som en webb tjänst](how-to-consume-web-service.md).
+
+### <a name="authentication-with-keys"></a>Autentisering med nycklar
+
+Om du har aktiverat autentisering av `get_keys` nycklar kan du använda-metoden för att hämta en primär nyckel och en sekundär autentiseringsnyckel:
+
+```python
+primary, secondary = service.get_keys()
+print(primary)
+```
+
+> [!IMPORTANT]
+> Om du behöver återskapa en nyckel använder du[`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py)
+
+### <a name="authentication-with-tokens"></a>Autentisering med token
+
+Om du vill aktivera token- `token_auth_enabled=True` autentisering anger du parametern när du skapar eller uppdaterar en distribution. I följande exempel aktive ras token-autentisering med SDK:
+
+```python
+deployment_config = AksWebservice.deploy_configuration(cpu_cores=1, memory_gb=1, token_auth_enabled=True)
+```
+
+Om token-autentisering har Aktiver ATS kan `get_token` du använda metoden för att hämta en JWT-token och dess förfallo tid för token:
+
+```python
+token, refresh_by = service.get_token()
+print(token)
+```
+
+> [!IMPORTANT]
+> Du måste begära en ny token efter det att token `refresh_by` har uppnåtts.
+>
+> Microsoft rekommenderar starkt att du skapar din Azure Machine Learning arbets yta i samma region som ditt Azure Kubernetes service-kluster. För att autentisera med en token kommer webb tjänsten att ringa till den region där din Azure Machine Learning arbets yta skapas. Om arbets ytans region inte är tillgänglig kan du inte hämta en token för din webb tjänst även om klustret finns i en annan region än din arbets yta. Detta leder till att Azure AD-autentisering inte är tillgängligt förrän arbets ytans region är tillgänglig igen. Dessutom ökar avståndet mellan klustrets region och arbets ytans region, desto längre tid tar det att hämta en token.
 
 ## <a name="update-the-web-service"></a>Uppdatera webbtjänsten
 

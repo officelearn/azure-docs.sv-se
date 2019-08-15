@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 06/19/2019
-ms.openlocfilehash: 0507b3cb64b4b12bac92cc6bc90120ab4ec56dee
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 5dd241fed757669cf8bccd96a1de948e8d73a021
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568750"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69033269"
 ---
 # <a name="tutorial-add-an-azure-sql-database-elastic-pool-to-a-failover-group"></a>Självstudier: Lägga till en Azure SQL Database elastisk pool i en failover-grupp
 
@@ -76,11 +76,11 @@ I det här steget ska du skapa en [redundans grupp](sql-database-auto-failover-g
 1. Välj **SQL-servrar** och välj den server som du skapade i avsnitt 1.
 1. Välj **grupper för växling vid fel** i fönstret **Inställningar** och välj sedan **Lägg till grupp** för att skapa en ny grupp för redundans. 
 
-    ![Lägg till ny redundans grupp](media/sql-database-elastic-pool-create-failover-group-tutorial/add-elastic-pool-to-failover-group.png)
+    ![Lägg till ny redundans grupp](media/sql-database-single-database-create-failover-group-tutorial/sqldb-add-new-failover-group.png)
 
 1. På sidan **redundans** anger eller väljer du följande värden och väljer sedan **skapa**:
     - **Namn på redundans grupp**: Ange ett unikt namn för redundans, till exempel `failovergrouptutorial`. 
-    - **Sekundär server**: Välj alternativet för att *Konfigurera nödvändiga inställningar* och välj sedan att **skapa en ny server**. Alternativt kan du välja en redan befintlig server som den sekundära servern. När du har angett följande värden väljer du **Välj**. 
+    - **Sekundär server**: Välj alternativet för att *Konfigurera nödvändiga inställningar* och välj sedan att **skapa en ny server**. Alternativt kan du välja en redan befintlig server som den sekundära servern. När du har angett följande värden för den nya sekundära servern väljer du **Välj**. 
         - **Servernamn**: Ange ett unikt namn på den sekundära servern, till exempel `mysqlsecondary`. 
         - **Inloggning för serveradministratör**: Bastyp`azureuser`
         - **Lösenord**: Ange ett komplext lösen ord som uppfyller lösen ords kraven.
@@ -91,9 +91,9 @@ I det här steget ska du skapa en [redundans grupp](sql-database-auto-failover-g
     
        ![Skapa en sekundär server för redundans gruppen](media/sql-database-single-database-create-failover-group-tutorial/create-secondary-failover-server.png)
 
-1. När du har valt en sekundär server blir **databaserna i grupp** alternativet olåsta. Markera den för att **välja databaser som ska läggas till** och välj sedan den elastiska pool som du skapade i avsnitt 2. En varning bör visas, så att du snabbt kan skapa en elastisk pool på den sekundära servern. Välj varningen och välj sedan **OK** för att skapa den elastiska poolen på den sekundära servern. 
+1. Välj **databaser i gruppen** och välj sedan den elastiska pool som du skapade i avsnitt 2. En varning bör visas, så att du snabbt kan skapa en elastisk pool på den sekundära servern. Välj varningen och välj sedan **OK** för att skapa den elastiska poolen på den sekundära servern. 
         
-    ![Lägg till SQL DB i redundans gruppen](media/sql-database-single-database-create-failover-group-tutorial/add-sqldb-to-failover-group.png)
+    ![Lägg till elastisk pool i redundans gruppen](media/sql-database-elastic-pool-create-failover-group-tutorial/add-elastic-pool-to-failover-group.png)
         
 1. Välj **Välj** om du vill tillämpa inställningarna för elastisk pool på gruppen växling vid fel och välj sedan **skapa** för att skapa din grupp för redundans. Om du lägger till den elastiska poolen i gruppen redundans startas geo-replikeringen automatiskt. 
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric CLI - sfctl-nät-distribution | Microsoft Docs
-description: Beskriver kommandona Service Fabric CLI för distribution av sfctl-nät.
+title: Azure Service Fabric CLI – sfctl nät distribution | Microsoft Docs
+description: Beskriver distributions kommandon Service Fabric för sfctl CLI-.
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
@@ -8,64 +8,63 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: e6b484dabd77a142961db2d97242896790fa3d8b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b3f506b46ef563f47fc7c67b759d3fcd08b7509d
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60836968"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035177"
 ---
 # <a name="sfctl-mesh-deployment"></a>sfctl mesh deployment
-Skapa Service Fabric blandar resurser.
+Skapa Service Fabric nät resurser.
 
 ## <a name="commands"></a>Kommandon
 
 |Kommando|Beskrivning|
 | --- | --- |
-| create | Skapar en distribution av Service Fabric-nät resurser. |
+| create | Skapar en distribution av Service Fabric nät resurser. |
 
-## <a name="sfctl-mesh-deployment-create"></a>Skapa sfctl nät distribution
-Skapar en distribution av Service Fabric-nät resurser.
+## <a name="sfctl-mesh-deployment-create"></a>sfctl nät distribution skapa
+Skapar en distribution av Service Fabric nät resurser.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --input-yaml-filer [krävs] | CSV-relativ/absolut sökvägar till alla yaml-filer eller relativ/absoluta sökvägen till katalogen (rekursiv) som innehåller yaml-filer. |
-| – parametrar | En relativ/absolut sökväg till yaml-fil eller ett json-objekt som innehåller parametrar som ska åsidosättas. |
+| --yaml-Files [required] | Kommaavgränsade relativa/absoluta fil Sök vägar för alla yaml-filer eller relativa/absoluta sökvägen till katalogen (rekursivt) som innehåller yaml-filer. |
+| --parametrar | En relativ/absolut sökväg till yaml-fil eller ett JSON-objekt som innehåller de parametrar som behöver åsidosättas. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --debug | Öka detaljnivå loggning för att visa alla felsöka loggar. |
-| --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
-| --utdata -o | Utdataformat.  Tillåtna värden\: json, jsonc, tabell, TVs.  Standard\: json. |
-| – fråga | JMESPath-frågesträng. Se http\://jmespath.org/ för mer information och exempel. |
-| --utförlig | Öka detaljnivå för loggning. Använd--felsökning för fullständig felsökningsloggar. |
+| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
+| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
+| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: -JSON. |
+| --fråga | Frågesträngen JMESPath. Se http\://jmespath.org/för mer information och exempel. |
+| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
 
 ### <a name="examples"></a>Exempel
 
-Konsoliderar och distribuerar alla resurser som ska ingå i klustret genom att åsidosätta de parametrar som anges i yaml-fil
+Konsoliderar och distribuerar alla resurser till klustret genom att åsidosätta de parametrar som anges i yaml-filen
 
 ```
 sfctl mesh deployment create --input-yaml-files ./app.yaml,./network.yaml --parameters
 ./param.yaml
 ```
 
-Konsoliderar och distribuerar alla resurser i en katalog till klustret genom att åsidosätta de parametrar som anges i yaml-fil
+Konsoliderar och distribuerar alla resurser i en katalog till kluster genom att åsidosätta de parametrar som anges i yaml-filen
 
 ```
 sfctl mesh deployment create --input-yaml-files ./resources --parameters ./param.yaml
 ```
 
-Konsoliderar och distribuerar alla resurser i en katalog till klustret genom att åsidosätta de parametrar som skickas direkt som json-objekt
+Konsoliderar och distribuerar alla resurser i en katalog till kluster genom att åsidosätta parametrarna, som skickas direkt som JSON-objekt
 
 ```
 sfctl mesh deployment create --input-yaml-files ./resources --parameters "{ 'my_param' :
@@ -74,5 +73,5 @@ sfctl mesh deployment create --input-yaml-files ./resources --parameters "{ 'my_
 
 
 ## <a name="next-steps"></a>Nästa steg
-- [Konfigurera](service-fabric-cli.md) Service Fabric CLI.
-- Lär dig hur du använder Service Fabric CLI med hjälp av den [exempel på skript](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- [Konfigurera](service-fabric-cli.md) Service Fabric cli.
+- Lär dig hur du använder Service Fabric CLI med hjälp av [exempel skripten](/azure/service-fabric/scripts/sfctl-upgrade-application).

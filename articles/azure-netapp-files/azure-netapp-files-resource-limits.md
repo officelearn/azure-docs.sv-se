@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: b-juche
-ms.openlocfilehash: 763b3961bfd621f05ab5cd021526b0d6d109c020
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
-ms.translationtype: MT
+ms.openlocfilehash: b9dd89e38f5cab6dceca36201695c068e0521943
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881710"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69034856"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Resursbegränsningar för Azure NetApp Files
 
@@ -40,11 +40,8 @@ I följande tabell beskrivs resurs gränser för Azure NetApp Files:
 |  Minsta storlek på en pool med enskild kapacitet   |  4 TiB     |    Nej  |
 |  Maximal storlek för en pool med enskild kapacitet    |  500 TiB   |   Nej   |
 |  Minsta storlek på en enskild volym    |    100 GiB    |    Nej    |
-|  Högsta tilldelade kvot för en enskild volym *   |   92 TiB   |    Nej   |
-|  Maximal storlek på en enskild volym *     |    100 TiB    |    Nej       |
+|  Maximal storlek på en enskild volym     |    100 TiB    |    Nej       |
 |  Maximalt antal filer (noder i procent) per volym     |    50 000 000    |    Nej    |    
-
-\* En volym kan skapas manuellt eller ändras till maximally 92 TiB. En volym kan dock växa upp till 100 TiB i ett överutnyttjande scenario. Mer information om kapacitet finns i [kostnads modell för Azure NetApp Files](azure-netapp-files-cost-model.md) . 
 
 ## <a name="request-limit-increase"></a>Begär gräns ökning 
 

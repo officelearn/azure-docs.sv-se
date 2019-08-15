@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric CLI - sfctl compose | Microsoft Docs
-description: Beskriver Service Fabric CLI sfctl compose kommandon.
+title: Azure Service Fabric CLI – sfctl – Skriv | Microsoft Docs
+description: Beskriver kommandot Service Fabric CLI-sfctl Skriv.
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
@@ -8,18 +8,17 @@ manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 4b5cbb4a24b61de7e64a52ef950deedab3eec263
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dab844246d99b0ab80e1e86219c2064c79e74e4f
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60837274"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035119"
 ---
 # <a name="sfctl-compose"></a>sfctl compose
 Skapa, ta bort och hantera Docker Compose-program.
@@ -28,190 +27,190 @@ Skapa, ta bort och hantera Docker Compose-program.
 
 |Kommando|Beskrivning|
 | --- | --- |
-| create | Skapar ett Service Fabric compose-distributionen. |
-| list | Hämtar listan över compose-distributioner som skapats i Service Fabric-klustret. |
-| ta bort | Tar bort ett befintligt Service Fabric compose-distributionen från klustret. |
-| status | Hämtar information om ett Service Fabric compose-distributionen. |
-| upgrade | Börjar uppgradera en Skriv-distribution i Service Fabric-klustret. |
-| upgrade-rollback | Återställa en compose-distributionen startar uppgraderingen i Service Fabric-klustret. |
-| upgrade-status | Hämtar information om den senaste uppgraderingen utförs på den här Service Fabric compose-distributionen. |
+| create | Skapar en Service Fabric Skriv distribution. |
+| list | Hämtar listan över Skriv distributioner som skapats i Service Fabric klustret. |
+| ta bort | Tar bort en befintlig Service Fabric skapar distribution från klustret. |
+| status | Hämtar information om en Service Fabric Skriv-distribution. |
+| upgrade | Börjar uppgradera en Skriv distribution i Service Fabric klustret. |
+| upgrade-rollback | Börjar återställa en uppgradering av Skriv distributionen i Service Fabric klustret. |
+| upgrade-status | Hämtar information om den senaste uppgraderingen som utförts på den här Service Fabric Skriv distributionen. |
 
-## <a name="sfctl-compose-create"></a>sfctl compose skapa
-Skapar ett Service Fabric compose-distributionen.
-
-### <a name="arguments"></a>Argument
-
-|Argument|Beskrivning|
-| --- | --- |
-| --distributionsnamn [krävs] | Namnet på distributionen. |
-| --filsökvägen [krävs] | Sökväg till målfilen Docker Compose. |
-| --krypterad pass | I stället för att fråga om ett lösenord för behållarregister, använda ett redan krypterade lösenordet. |
-| --has-pass | Efterfrågar lösenord till behållarregistret. |
-| --timeout -t | Tidsgräns för Server på några sekunder.  Standard\: 60. |
-| --användare | Användarnamn för anslutning till container registry. |
-
-### <a name="global-arguments"></a>Global Arguments
-
-|Argument|Beskrivning|
-| --- | --- |
-| --debug | Öka detaljnivå loggning för att visa alla felsöka loggar. |
-| --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
-| --utdata -o | Utdataformat.  Tillåtna värden\: json, jsonc, tabell, TVs.  Standard\: json. |
-| – fråga | JMESPath-frågesträng. Se http\://jmespath.org/ för mer information och exempel. |
-| --utförlig | Öka detaljnivå för loggning. Använd--felsökning för fullständig felsökningsloggar. |
-
-## <a name="sfctl-compose-list"></a>sfctl compose list
-Hämtar listan över compose-distributioner som skapats i Service Fabric-klustret.
-
-Hämtar status om compose-distributioner som har skapats eller håller på att skapas i Service Fabric-klustret. Svaret innehåller namn, status och annan information om Skriv-distributioner. Om listan över distributioner inte får plats på en sida, returneras en resultatsida samt ett fortsättningstoken som kan användas för att hämta nästa sida.
+## <a name="sfctl-compose-create"></a>sfctl skapa
+Skapar en Service Fabric Skriv distribution.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --continuation-token | Fortsättningstoken parameter-token som används för att hämta nästa uppsättning resultat. Ett fortsättningstoken med en icke-tomma värden inkluderas i svaret på API: et när resultaten från systemet inte ryms i ett enda svar. När det här värdet skickas till nästa API-anropet API: et Returnerar nästa uppsättning resultat. Om det finns inga ytterligare resultat, innehåller ett värde inte i fortsättningstoken. Värdet för den här parametern får inte vara URL-kodas. |
-| --max-results | Det maximala antalet resultat som ska returneras som en del av de växlade frågorna. Den här parametern definierar den övre gränsen för antalet resultat som returneras. Resultatet som returneras kan mindre än de angivna maximalt antal resultat om de inte passar i meddelandet enligt storleksbegränsningar max meddelande definieras i konfigurationen. Om den här parametern är noll eller inte har angetts, inkluderar växlade frågan så många resultat som möjligt som passar in i svarsmeddelandet. |
-| --timeout -t | Tidsgräns för Server på några sekunder.  Standard\: 60. |
+| --distributions namn [obligatoriskt] | Namnet på distributionen. |
+| --File-Path [required] | Sökväg till mål Docker-filen. |
+| --krypterad-pass | Använd redan krypterad pass fras i stället för att uppmanas att ange ett lösen ord för behållar registret. |
+| --har-pass | Kommer att uppmanas att ange ett lösen ord till behållar registret. |
+| --timeout-t | Server-timeout på några sekunder.  Standard\: 60. |
+| --användare | Användar namn för att ansluta till behållar registret. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --debug | Öka detaljnivå loggning för att visa alla felsöka loggar. |
-| --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
-| --utdata -o | Utdataformat.  Tillåtna värden\: json, jsonc, tabell, TVs.  Standard\: json. |
-| – fråga | JMESPath-frågesträng. Se http\://jmespath.org/ för mer information och exempel. |
-| --utförlig | Öka detaljnivå för loggning. Använd--felsökning för fullständig felsökningsloggar. |
+| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
+| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
+| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: -JSON. |
+| --fråga | Frågesträngen JMESPath. Se http\://jmespath.org/för mer information och exempel. |
+| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
 
-## <a name="sfctl-compose-remove"></a>sfctl compose remove
-Tar bort ett befintligt Service Fabric compose-distributionen från klustret.
+## <a name="sfctl-compose-list"></a>sfctl Skriv lista
+Hämtar listan över Skriv distributioner som skapats i Service Fabric klustret.
 
-Tar bort ett befintligt Service Fabric compose-distributionen.
+Hämtar status för de Skriv distributioner som skapades eller håller på att skapas i Service Fabric klustret. Svaret innehåller namn, status och annan information om Skriv distributionerna. Om listan över distributioner inte får plats på en sida returneras en resultat sida och en fortsättnings-token som kan användas för att hämta nästa sida.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --distributionsnamn [krävs] | Identiteten för distributionen. |
-| --timeout -t | Tidsgräns för Server på några sekunder.  Standard\: 60. |
+| --fortsättnings-token | Parametern för fortsatt token används för att hämta nästa uppsättning resultat. En fortsättnings-token med ett värde som inte är tom inkluderas i svaret på API: et när resultatet från systemet inte passar i ett enda svar. När det här värdet skickas till nästa API-anrop returnerar API nästa uppsättning resultat. Om det inte finns några ytterligare resultat innehåller inte fortsättnings-token ett värde. Värdet för den här parametern får inte vara URL-kodat. |
+| --max-results | Det maximala antalet resultat som ska returneras som en del av de växlade frågorna. Den här parametern definierar den övre kanten på antalet returnerade resultat. Resultaten som returneras kan vara mindre än de angivna maximala resultaten om de inte får plats i meddelandet enligt de Max begränsningar för meddelande storlek som definierats i konfigurationen. Om den här parametern är noll eller inte anges, innehåller den växlade frågan så många resultat som möjligt som passar i retur meddelandet. |
+| --timeout-t | Server-timeout på några sekunder.  Standard\: 60. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --debug | Öka detaljnivå loggning för att visa alla felsöka loggar. |
-| --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
-| --utdata -o | Utdataformat.  Tillåtna värden\: json, jsonc, tabell, TVs.  Standard\: json. |
-| – fråga | JMESPath-frågesträng. Se http\://jmespath.org/ för mer information och exempel. |
-| --utförlig | Öka detaljnivå för loggning. Använd--felsökning för fullständig felsökningsloggar. |
+| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
+| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
+| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: -JSON. |
+| --fråga | Frågesträngen JMESPath. Se http\://jmespath.org/för mer information och exempel. |
+| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
 
-## <a name="sfctl-compose-status"></a>sfctl compose status
-Hämtar information om ett Service Fabric compose-distributionen.
+## <a name="sfctl-compose-remove"></a>sfctl Skriv Remove
+Tar bort en befintlig Service Fabric skapar distribution från klustret.
 
-Returnerar status för compose-distributionen som skapades eller håller på att skapas i Service Fabric-klustret och vars namn matchar det som anges som parameter. Svaret innehåller namn, status och annan information om hur du distribuerar.
+Tar bort en befintlig Service Fabric Skriv distribution.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --distributionsnamn [krävs] | Identiteten för distributionen. |
-| --timeout -t | Tidsgräns för Server på några sekunder.  Standard\: 60. |
+| --distributions namn [obligatoriskt] | Distributionens identitet. |
+| --timeout-t | Server-timeout på några sekunder.  Standard\: 60. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --debug | Öka detaljnivå loggning för att visa alla felsöka loggar. |
-| --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
-| --utdata -o | Utdataformat.  Tillåtna värden\: json, jsonc, tabell, TVs.  Standard\: json. |
-| – fråga | JMESPath-frågesträng. Se http\://jmespath.org/ för mer information och exempel. |
-| --utförlig | Öka detaljnivå för loggning. Använd--felsökning för fullständig felsökningsloggar. |
+| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
+| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
+| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: -JSON. |
+| --fråga | Frågesträngen JMESPath. Se http\://jmespath.org/för mer information och exempel. |
+| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
 
-## <a name="sfctl-compose-upgrade"></a>sfctl compose uppgradering
-Börjar uppgradera en Skriv-distribution i Service Fabric-klustret.
+## <a name="sfctl-compose-status"></a>status för sfctl-sammanställning
+Hämtar information om en Service Fabric Skriv-distribution.
 
-Validerar angivna Uppgraderingsparametrar och börjar uppgradera distributionen om parametrarna är giltiga.
+Returnerar statusen för den Skriv distribution som skapades eller håller på att skapas i Service Fabric klustret och vars namn matchar det som angavs som parameter. Svaret innehåller namn, status och annan information om distributionen.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --distributionsnamn [krävs] | Namnet på distributionen. |
-| --filsökvägen [krävs] | Sökvägen till målet Docker compose-fil. |
-| --default-svc-type-health-map | JSON-kodad ordlista som beskriver hälsoprincip som används för att utvärdera hälsotillståndet för tjänster. |
-| --krypterad pass | I stället för att fråga om ett lösenord för behållarregister, använda ett redan krypterade lösenordet. |
-| --åtgärd vid uppgraderingsfel | Möjliga värden omfattar\: ”ogiltig”, ”återställa”, ”manuell”. |
-| --force-restart | Processer kernelpaketet startas om under uppgraderingen även när code-versionen inte har ändrats. <br><br> Uppgraderingen ändras bara konfiguration eller data. |
-| --has-pass | Efterfrågar lösenord till behållarregistret. |
-| --health-check-retry | Hur lång tid mellan försök att utföra hälsokontroller om programmet eller klustret inte är felfri. |
-| --health-check-stable | Hur lång tid att programmet eller klustret måste vara felfria innan uppgraderingen fortsätter du med nästa uppgraderingsdomän. <br><br> Först tolkas det som en sträng som representerar en ISO 8601-varaktighet. Om det misslyckas så tolkas det som ett tal som representerar det totala antalet millisekunder. |
-| --health-check-wait | Hur lång tid att vänta efter att du har slutfört en uppgraderingsdomän innan du startar hälsotillståndet kontrollerar processen. |
-| --replica-set-check | Längsta tid att blockera bearbetning av en uppgraderingsdomän och förhindra förlust av tillgänglighet när det finns ett oväntat problem. <br><br> När den här tidsgränsen upphör kommer att fortsätta bearbetningen av uppgraderingsdomänen oavsett förlust av tillgänglighetsproblem. Tidsgränsen återställs i början av varje uppgraderingsdomän. Giltiga värden är mellan 0 och 42949672925 inkluderande. |
-| --svc-type-health-map | JSON-kodad lista över objekt som beskriver hälsoprinciper som används för att utvärdera hälsan för olika tjänsttyper. |
-| --timeout -t | Tidsgräns för Server på några sekunder.  Standard\: 60. |
-| --unhealthy-app | Högsta tillåtna procentandel program som är felaktiga innan den rapporterar ett fel. <br><br> Om du vill tillåta 10% av program vara felaktig, blir det här värdet 10. Procentandelen representerar högsta tolererat procentandelen av program som kan vara felaktig innan klustret anses av misstag. Om procentandelen respekteras men det finns minst en felaktigt program, utvärderas hälsotillståndet som varning. Detta beräknas genom att dividera antalet felaktiga program över det totala antalet instanser av programmet i klustret. |
-| --upgrade-domain-timeout | Hur lång tid varje domän har slutförts innan FailureAction körs. <br><br> Först tolkas det som en sträng som representerar en ISO 8601-varaktighet. Om det misslyckas så tolkas det som ett tal som representerar det totala antalet millisekunder. |
-| – uppgradera typ | Standard\: löpande. |
-| --upgrade-mode | Möjliga värden omfattar\: ”ogiltig”, ”UnmonitoredAuto', 'UnmonitoredManual', 'Övervakade'.  Standard\: UnmonitoredAuto. |
-| --upgrade-timeout | Hur lång tid övergripande uppgraderingen har slutförts innan FailureAction körs. <br><br> Först tolkas det som en sträng som representerar en ISO 8601-varaktighet. Om det misslyckas så tolkas det som ett tal som representerar det totala antalet millisekunder. |
-| --användare | Användarnamn för anslutning till container registry. |
-| --warning-as-error | Anger om varningar behandlas med samma allvarlighetsgrad som fel. |
+| --distributions namn [obligatoriskt] | Distributionens identitet. |
+| --timeout-t | Server-timeout på några sekunder.  Standard\: 60. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --debug | Öka detaljnivå loggning för att visa alla felsöka loggar. |
-| --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
-| --utdata -o | Utdataformat.  Tillåtna värden\: json, jsonc, tabell, TVs.  Standard\: json. |
-| – fråga | JMESPath-frågesträng. Se http\://jmespath.org/ för mer information och exempel. |
-| --utförlig | Öka detaljnivå för loggning. Använd--felsökning för fullständig felsökningsloggar. |
+| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
+| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
+| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: -JSON. |
+| --fråga | Frågesträngen JMESPath. Se http\://jmespath.org/för mer information och exempel. |
+| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
 
-## <a name="sfctl-compose-upgrade-rollback"></a>sfctl compose uppgraderingen-återställning
-Återställa en compose-distributionen startar uppgraderingen i Service Fabric-klustret.
+## <a name="sfctl-compose-upgrade"></a>sfctl-Skriv uppgradering
+Börjar uppgradera en Skriv distribution i Service Fabric klustret.
 
-Återställa en service fabric compose distributionsuppgradering.
+Verifierar de angivna uppgraderings parametrarna och börjar uppgradera distributionen om parametrarna är giltiga.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --distributionsnamn [krävs] | Identiteten för distributionen. |
-| --timeout -t | Tidsgräns för Server på några sekunder.  Standard\: 60. |
+| --distributions namn [obligatoriskt] | Namnet på distributionen. |
+| --File-Path [required] | Sökväg till mål Docker-filen. |
+| --standard-SVC-typ-Health-Map | JSON-kodad ord lista som beskriver hälso principen som används för att utvärdera tjänsternas hälso tillstånd. |
+| --krypterad-pass | Använd redan krypterad pass fras i stället för att uppmanas att ange ett lösen ord för behållar registret. |
+| --Failure-åtgärd | Möjliga värden är\: "ogiltig", "rollback", "Manual". |
+| --force-restart | Processerna startas om under uppgraderingen även när kod versionen inte har ändrats. <br><br> Uppgraderingen ändrar bara konfiguration eller data. |
+| --har-pass | Kommer att uppmanas att ange ett lösen ord till behållar registret. |
+| --health-check-retry | Hur lång tid det tar mellan försök att utföra hälso kontroller om programmet eller klustret inte är felfritt. |
+| --hälso kontroll – stabil | Hur lång tid programmet eller klustret måste vara felfritt innan uppgraderingen fortsätter till nästa uppgraderings domän. <br><br> Den tolkas först som en sträng som representerar en varaktighet på ISO 8601. Om detta Miss lyckas tolkas det som ett tal som representerar det totala antalet millisekunder. |
+| --hälso kontroll-vänta | Vänte tiden när en uppgraderings domän har slutförts innan hälso kontrollerna påbörjas. |
+| --replica-set-check | Maximal tid det tar att blockera bearbetningen av en uppgraderings domän och förhindra tillgänglighet när det uppstår oväntade problem. <br><br> När tids gränsen går ut fortsätter bearbetningen av uppgraderings domänen oavsett problem med tillgänglighets förlust. Tids gränsen återställs i början av varje uppgraderings domän. Giltiga värden är mellan 0 och 42949672925. |
+| --SVC-typ-Health-Map | JSON-kodad lista över objekt som beskriver hälso principerna som används för att utvärdera hälso tillståndet för olika tjänst typer. |
+| --timeout-t | Server-timeout på några sekunder.  Standard\: 60. |
+| --ej felfri – app | Högsta tillåtna procent andel felaktiga program innan ett fel rapporteras. <br><br> Om du till exempel vill att 10% av programmen ska vara felaktiga, skulle värdet vara 10. Procent andelen visar den maximala procent andelen program som kan vara felfria innan klustret betraktas som ett fel. Om procent andelen respekteras men det finns minst ett ohälsosamt program, utvärderas hälsan som varning. Detta beräknas genom att antalet felaktiga program divideras över det totala antalet program instanser i klustret. |
+| --uppgradering-Domain-timeout | Hur lång tid varje uppgraderings domän måste vara slutförd innan FailureAction körs. <br><br> Den tolkas först som en sträng som representerar en varaktighet på ISO 8601. Om detta Miss lyckas tolkas det som ett tal som representerar det totala antalet millisekunder. |
+| --uppgraderings typ | Standard\: rullande. |
+| --uppgraderings läge | Möjliga värden är\: "ogiltig", "UnmonitoredAuto", "UnmonitoredManual", "övervakad".  Standard\: UnmonitoredAuto. |
+| --uppgraderings-timeout | Den tid som den övergripande uppgraderingen måste slutföras innan FailureAction körs. <br><br> Den tolkas först som en sträng som representerar en varaktighet på ISO 8601. Om detta Miss lyckas tolkas det som ett tal som representerar det totala antalet millisekunder. |
+| --användare | Användar namn för att ansluta till behållar registret. |
+| --warning-as-error | Anger om varningar behandlas med samma allvarlighets grad som fel. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --debug | Öka detaljnivå loggning för att visa alla felsöka loggar. |
-| --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
-| --utdata -o | Utdataformat.  Tillåtna värden\: json, jsonc, tabell, TVs.  Standard\: json. |
-| – fråga | JMESPath-frågesträng. Se http\://jmespath.org/ för mer information och exempel. |
-| --utförlig | Öka detaljnivå för loggning. Använd--felsökning för fullständig felsökningsloggar. |
+| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
+| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
+| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: -JSON. |
+| --fråga | Frågesträngen JMESPath. Se http\://jmespath.org/för mer information och exempel. |
+| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
 
-## <a name="sfctl-compose-upgrade-status"></a>sfctl compose uppgraderingen-status
-Hämtar information om den senaste uppgraderingen utförs på den här Service Fabric compose-distributionen.
+## <a name="sfctl-compose-upgrade-rollback"></a>sfctl-Skriv uppgradering – återställning
+Börjar återställa en uppgradering av Skriv distributionen i Service Fabric klustret.
 
-Returnerar information om tillståndet för Skriv distributionsuppgradering tillsammans med information för att underlätta felsökning hälsoproblem för programmet.
+Återställa en uppgradering av Service Fabric-distribution.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --distributionsnamn [krävs] | Identiteten för distributionen. |
-| --timeout -t | Tidsgräns för Server på några sekunder.  Standard\: 60. |
+| --distributions namn [obligatoriskt] | Distributionens identitet. |
+| --timeout-t | Server-timeout på några sekunder.  Standard\: 60. |
 
-### <a name="global-arguments"></a>Global Arguments
+### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --debug | Öka detaljnivå loggning för att visa alla felsöka loggar. |
-| --hjälpa -h | Visa den här hjälpmeddelande och avsluta. |
-| --utdata -o | Utdataformat.  Tillåtna värden\: json, jsonc, tabell, TVs.  Standard\: json. |
-| – fråga | JMESPath-frågesträng. Se http\://jmespath.org/ för mer information och exempel. |
-| --utförlig | Öka detaljnivå för loggning. Använd--felsökning för fullständig felsökningsloggar. |
+| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
+| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
+| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: -JSON. |
+| --fråga | Frågesträngen JMESPath. Se http\://jmespath.org/för mer information och exempel. |
+| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
+
+## <a name="sfctl-compose-upgrade-status"></a>sfctl Skriv Upgrade-status
+Hämtar information om den senaste uppgraderingen som utförts på den här Service Fabric Skriv distributionen.
+
+Returnerar information om tillståndet för uppgraderingen av Skriv distributionen tillsammans med information som hjälper till att felsöka program hälso problem.
+
+### <a name="arguments"></a>Argument
+
+|Argument|Beskrivning|
+| --- | --- |
+| --distributions namn [obligatoriskt] | Distributionens identitet. |
+| --timeout-t | Server-timeout på några sekunder.  Standard\: 60. |
+
+### <a name="global-arguments"></a>Globala argument
+
+|Argument|Beskrivning|
+| --- | --- |
+| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
+| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
+| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: -JSON. |
+| --fråga | Frågesträngen JMESPath. Se http\://jmespath.org/för mer information och exempel. |
+| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
 
 
 ## <a name="next-steps"></a>Nästa steg
-- [Konfigurera](service-fabric-cli.md) Service Fabric CLI.
-- Lär dig hur du använder Service Fabric CLI med hjälp av den [exempel på skript](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- [Konfigurera](service-fabric-cli.md) Service Fabric cli.
+- Lär dig hur du använder Service Fabric CLI med hjälp av [exempel skripten](/azure/service-fabric/scripts/sfctl-upgrade-application).

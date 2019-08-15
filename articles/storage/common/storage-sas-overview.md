@@ -9,12 +9,12 @@ ms.date: 08/12/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 7d94c3ba4eaf34a2229b7331599e7c59b5f1dee7
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 4cf4f87e42508c60cd9195cb8d1e4127134f64aa
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990980"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69034920"
 ---
 # <a name="grant-limited-access-to-azure-storage-resources-using-shared-access-signatures-sas"></a>Bevilja begränsad åtkomst till Azure Storage resurser med signaturer för delad åtkomst (SAS)
 
@@ -125,7 +125,7 @@ Information om hur du kommer igång med signaturer för delad åtkomst finns i f
 
 - [Skapa ett konto säkerhets associationer med .NET](storage-account-sas-create-dotnet.md)
 
-## <a name="see-also"></a>Se också
+## <a name="next-steps"></a>Nästa steg
 
 - [Delegera åtkomst med en signatur för delad åtkomst (REST API)](/rest/api/storageservices/delegate-access-with-shared-access-signature)
 - [Skapa en användar Delegerings-SAS (REST API)](/rest/api/storageservices/create-user-delegation-sas)

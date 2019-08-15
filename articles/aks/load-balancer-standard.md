@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: zarhoads
-ms.openlocfilehash: 4e234d3849e09bd8c57a8c33bb378ab801ce0f6d
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 1dcf08f4fefb53ed46038c82e0ce8f9d3dd94de2
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019453"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69032235"
 ---
 # <a name="preview---use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>För hands version – Använd en standard-SKU-belastningsutjämnare i Azure Kubernetes service (AKS)
 
@@ -39,7 +39,7 @@ AKS-kluster tjänstens huvud namn måste ha behörighet att hantera nätverks re
 Du måste skapa ett AKS-kluster som anger SKU: n för belastningsutjämnaren till *standard* i stället för standard *Basic*. Att skapa ett AKS-kluster beskrivs i ett senare steg, men du måste först aktivera några få för hands versions funktioner.
 
 > [!IMPORTANT]
-> AKS för hands versions funktionerna är självbetjänings-och deltagande. De erbjuds att samla in feedback och buggar från vår community. I för hands versionen är dessa funktioner inte avsedda att användas för produktion. Funktioner i offentlig för hands version har stöd för bästa prestanda. Hjälp från AKS Technical Support Teams är endast tillgängligt under kontors tid Pacific-timezone (PST). Mer information finns i följande support artiklar:
+> AKS för hands versions funktioner är självbetjänings deltagande. För hands versioner tillhandahålls "i befintligt skick" och "som tillgängliga" och undantas från service nivå avtalen och den begränsade garantin. AKS för hands versionerna omfattas delvis av kund supporten på bästa möjliga sätt. Dessa funktioner är därför inte avsedda att användas för produktion. Om du vill ha ytterligare information kan du läsa följande artiklar om support:
 >
 > * [Support principer för AKS][aks-support-policies]
 > * [Vanliga frågor och svar om support för Azure][aks-faq]

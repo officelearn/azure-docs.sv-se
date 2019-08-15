@@ -7,19 +7,19 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/17/2019
 ms.author: mlearned
-ms.openlocfilehash: c398567dd3383f4b0b4fd2eaa4b474d1e95b7575
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 374e86409be08f1f9859b3e325dda57080b89dbf
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67613881"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69033985"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>För hands version – skydda klustret med Pod säkerhets principer i Azure Kubernetes service (AKS)
 
 För att förbättra säkerheten för ditt AKS-kluster kan du begränsa vilka poddar som kan schemaläggas. Poddar som begär resurser som du inte tillåter kan inte köras i AKS-klustret. Du definierar den här åtkomsten med Pod säkerhets principer. Den här artikeln visar hur du använder Pod säkerhets principer för att begränsa distributionen av poddar i AKS.
 
 > [!IMPORTANT]
-> AKS för hands versions funktionerna är självbetjänings-och deltagande. De erbjuds att samla in feedback och buggar från vår community. I för hands versionen är dessa funktioner inte avsedda att användas för produktion. Funktioner i offentlig för hands version har stöd för bästa prestanda. Hjälp från AKS Technical Support Teams är endast tillgängligt under kontors tid Pacific-timezone (PST). Mer information finns i följande support artiklar:
+> AKS för hands versions funktioner är självbetjänings deltagande. För hands versioner tillhandahålls "i befintligt skick" och "som tillgängliga" och undantas från service nivå avtalen och den begränsade garantin. AKS för hands versionerna omfattas delvis av kund supporten på bästa möjliga sätt. Dessa funktioner är därför inte avsedda att användas för produktion. Om du vill ha ytterligare information kan du läsa följande artiklar om support:
 >
 > * [Support principer för AKS][aks-support-policies]
 > * [Vanliga frågor och svar om support för Azure][aks-faq]
@@ -380,7 +380,7 @@ Skapa principen med kommandot [kubectl Apply][kubectl-apply] och ange namnet på
 kubectl apply -f psp-deny-privileged.yaml
 ```
 
-Om du vill visa tillgängliga principer använder du kommandot [kubectl get PSP][kubectl-get] , som du ser i följande exempel. Jämför principen *PSP-Deny-Privileged* med den standard *begränsade* principen som tillämpades i föregående exempel för att skapa en pod. Endast användningen av den *tidigare eskaleringen* nekas av principen. Det finns inga begränsningar för användaren eller gruppen för principen *PSP-Deny-Privileged* .
+Om du vill visa tillgängliga principer använder du kommandot [kubectl get PSP][kubectl-get] , som du ser i följande exempel. Jämför principen *PSP-Deny-Privileged* med den standard *begränsade* principen som tillämpades i föregående exempel för att skapa en pod. Endast användningen av den tidigare eskaleringen nekas av principen. Det finns inga begränsningar för användaren eller gruppen för principen *PSP-Deny-Privileged* .
 
 ```console
 $ kubectl get psp

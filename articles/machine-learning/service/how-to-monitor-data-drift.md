@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
 ms.date: 07/08/2019
-ms.openlocfilehash: c5484c37d89cc9ae880bbe17987bb47f3114b8a4
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: b9593a5802300da8baa1e518f14885637db2068f
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847900"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036185"
 ---
 # <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>Identifiera data drift (för hands version) i modeller som distribuerats till Azure Kubernetes service (AKS)
 
@@ -162,9 +162,9 @@ Konfigurationen av data avvikelse detektorn visas på sidan modell information i
 
 ![Azure Portal konfiguration av data riktning](media/how-to-monitor-data-drift/drift_config.png)
 
-## <a name="view-results-in-azure-ml-workspace-ui"></a>Visa resultat i Azure ML-arbetsyta UI
+## <a name="view-results-in-azure-portal"></a>Visa resultat i Azure Portal
 
-Om du vill visa resultat i Azure ML-arbetsyta-ANVÄNDARGRÄNSSNITTET går du till sidan modell. På fliken information i modellen visas konfigurationen för data riktning. En "data drivgarn (förhands granskning)"-fliken är nu tillgänglig visualisering av data drifts måtten. 
+Om du vill visa resultat i din arbets yta i [Azure Portal](https://portal.azure.com)navigerar du till sidan modell. På fliken information i modellen visas konfigurationen för data riktning. En "data drivgarn (förhands granskning)"-fliken är nu tillgänglig visualisering av data drifts måtten. 
 
 ![Azure Portal data avvikelse](media/how-to-monitor-data-drift/drift_ui.png)
 

@@ -13,18 +13,18 @@ ms.devlang: na
 ms.date: 03/18/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: de2e848bd587f3b9bf2efe3fa8df3710e24243e4
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 11eae0e3bae501cdf39d7fe1d5d39524c1f83e6c
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66241387"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035994"
 ---
 # <a name="tutorial-create-linked-azure-resource-manager-templates"></a>Självstudie: Skapa länkade Azure Resource Manager-mallar
 
 Lär dig att skapa länkade Azure Resource Manager-mallar. Med hjälp av länkade mallar kan du få en mall att anropa en annan. Det är perfekt för modularisering av mallar. I den här självstudien använder du samma mall som används i [Självstudie: Skapa Azure Resource Manager-mallar med beroende resurser](./resource-manager-tutorial-create-templates-with-dependent-resources.md), vilket skapar en virtuell dator, ett virtuellt nätverk och andra beroende resurser, inklusive ett lagringskonto. Du separerar skapandet av lagringskontoresursen till en länkad mall.
 
-Anropa en länkad mall är som att göra ett funktionsanrop.  Du också lära dig att ange parametervärden för länkade mallen, och hur du hämtar ”returvärden” från länkad mall.
+Att anropa en länkad mall är som att göra ett funktions anrop.  Du lär dig också hur du skickar parameter värden till den länkade mallen och hur du hämtar "retur värden" från den länkade mallen.
 
 Den här självstudien omfattar följande uppgifter:
 
@@ -77,18 +77,18 @@ Azure-snabbstartsmallar är en lagringsplats för Resource Manager-mallar. I st�
    * [`Microsoft.Network/networkInterfaces`](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces)
    * [`Microsoft.Compute/virtualMachines`](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines)
 
-     Är det bra att hämta viss grundläggande förståelse för mallsschemat innan du börjar anpassa mallen.
+     Det är praktiskt att du får grundläggande förståelse för mallens schema innan du anpassar mallen.
 5. Välj **Arkiv**>**Spara som** för att spara en kopia av filen till den lokala datorn med namnet **azuredeploy.json**.
 6. Välj **Fil**>**Spara som** för att skapa en annan kopia av filen med namnet **linkedTemplate.json**.
 
 ## <a name="create-the-linked-template"></a>Skapa den länkade mallen
 
-Den länkade mallen skapar ett lagringskonto. Länkad mall kan användas som en fristående-mall för att skapa ett lagringskonto. I de här självstudierna länkad mall tar två parametrar och skickar ett värde till den huvudsakliga mallen. Den här ”return” värde har angetts i den `outputs` element.
+Den länkade mallen skapar ett lagringskonto. Den länkade mallen kan användas som en fristående mall för att skapa ett lagrings konto. I den här självstudien tar den länkade mallen två parametrar och skickar tillbaka ett värde till huvud mal len. Värdet "Return" är definierat i `outputs` elementet.
 
-1. Öppna **linkedTemplate.json** i Visual Studio Code om filen inte öppnas.
+1. Öppna **linkedTemplate. JSON** i Visual Studio Code om filen inte är öppen.
 2. Gör följande ändringar:
 
-    * Ta bort alla parametrar än **plats**.
+    * Ta bort alla parametrar förutom **platsen**.
     * Lägg till en parameter med namnet **storageAccountName**.
         ```json
         "storageAccountName":{
@@ -98,10 +98,10 @@ Den länkade mallen skapar ett lagringskonto. Länkad mall kan användas som en 
           }
         },
         ```
-        Lagringskontonamn och plats skickas från den huvudsakliga mallen till den länkade mallen som parametrar.
+        Lagrings kontots namn och plats skickas från huvud mal len till den länkade mallen som parametrar.
 
     * Ta bort elementet **variabler** och alla definitioner för variabeln.
-    * Ta bort alla resurser än lagringskontot. Du tar bort totalt fyra resurser.
+    * Ta bort alla andra resurser än lagrings kontot. Du tar bort totalt fyra resurser.
     * Uppdatera värdet för elementet **namn** för lagringskontoresursen till:
 
         ```json
@@ -227,13 +227,13 @@ echo "Linked template URI with SAS token: $templateURI"
 4. Anteckna de två värdena (resursgruppens namn och länkad mall-URI) längst ned i gränssnittsfönstret. Du behöver dem senare i självstudien.
 5. Välj **Avsluta fokusläge** för att stänga gränssnittsfönstret.
 
-I praktiken genererar du en SAS-token när du distribuerar huvudmallen och ger förfallodatumet för SAS-token ett mindre fönster så att de blir säkrare. Mer information finns i avsnittet om att [ange SAS-token under distribution](./resource-manager-powershell-sas-token.md#provide-sas-token-during-deployment).
+I praktiken genererar du en SAS-token när du distribuerar huvudmallen och ger förfallodatumet för SAS-token ett mindre fönster så att de blir säkrare. Mer information finns i avsnittet om att [ange SAS-token under distribution](./secure-template-with-sas-token.md#provide-sas-token-during-deployment).
 
 ## <a name="call-the-linked-template"></a>Anropa den länkade mallen
 
 Huvudmallen heter azuredeploy.json.
 
-1. Öppna **azuredeploy.json** i Visual Studio Code om den inte är öppen.
+1. Öppna **azuredeploy. JSON** i Visual Studio Code om den inte är öppen.
 2. Ta bort lagringskontots resursdefinition från mallen:
 
     ```json
@@ -327,7 +327,7 @@ När Azure-resurserna inte längre behövs rensar du de resurser som du har dist
 För att förbättra projektet gör du följande ytterligare ändringar i det färdiga projektet:
 
 1. Ändra huvudmallen (azuredeploy.json) så att det accepterar det länkade mall-URI-värdet via en parameter.
-2. Generera en token i stället för att generera en SAS-token när du laddar upp den länkade mallen när du distribuerar den huvudsakliga mallen. Mer information finns i avsnittet om att [ange SAS-token under distribution](./resource-manager-powershell-sas-token.md#provide-sas-token-during-deployment).
+2. Generera en token i stället för att generera en SAS-token när du laddar upp den länkade mallen när du distribuerar den huvudsakliga mallen. Mer information finns i avsnittet om att [ange SAS-token under distribution](./secure-template-with-sas-token.md#provide-sas-token-during-deployment).
 
 ## <a name="next-steps"></a>Nästa steg
 

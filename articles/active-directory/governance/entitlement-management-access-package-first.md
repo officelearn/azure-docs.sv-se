@@ -16,12 +16,12 @@ ms.date: 07/23/2019
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1688651466ba6748e1254c9d33bb24435602868b
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 76ba284ec1a30322a24c762a1829b399f2583c6c
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489172"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69032928"
 ---
 # <a name="tutorial-create-your-first-access-package-in-azure-ad-entitlement-management-preview"></a>Självstudier: Skapa ditt första Access-paket i Azure AD-hantering av rättigheter (för hands version)
 
@@ -44,7 +44,9 @@ I den här guiden får du lära dig att:
 > * Visa hur en intern användare kan begära åtkomst paketet
 > * Godkänn åtkomstbegäran
 
-Om du inte har en Azure AD Premium P2-eller Enterprise Mobility + Security E5-licens skapar du en kostnads fri [Enterprise Mobility + Security E5-utvärderings version](https://signup.microsoft.com/Signup?OfferId=87dd2714-d452-48a0-a809-d2f58c4f68b7&ali=1).
+En steg-för-steg-demonstration av processen att distribuera Azure Active Directory hantering av rättigheter, inklusive att skapa ditt första Access-paket, finns i följande videoklipp:
+
+>[!VIDEO https://www.youtube.com/embed/zaaKvaaYwI4]
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -52,6 +54,8 @@ Om du vill använda Azure AD-hantering (för hands version) måste du ha en av f
 
 - Azure AD Premium P2
 - Enterprise Mobility + Security (EMS) E5-licens
+
+Om du inte har en Azure AD Premium P2-eller Enterprise Mobility + Security E5-licens skapar du en kostnads fri [Enterprise Mobility + Security E5-utvärderings version](https://signup.microsoft.com/Signup?OfferId=87dd2714-d452-48a0-a809-d2f58c4f68b7&ali=1).
 
 ## <a name="step-1-set-up-users-and-group"></a>Steg 1: Konfigurera användare och grupp
 
@@ -67,7 +71,7 @@ En resurs katalog har en eller flera resurser att dela. I det här steget skapar
 
 1. Skapa eller konfigurera följande två användare. Du kan använda dessa namn eller olika namn. **Admin1** kan vara den användare som du för närvarande är inloggad som.
 
-    | Namn | Katalogroll | Beskrivning |
+    | Name | Katalogroll | Beskrivning |
     | --- | --- | --- |
     | **Admin1** | Global administratör<br/>ELLER<br/>Begränsad administratör (användar administratör) | Administratör och god kännare |
     | **Requestor1** | Användare | Intern begär Ande |
@@ -218,7 +222,7 @@ I det här steget utför du stegen som den **interna begär ande** och begär å
 
 1. Ställ in **begäran för en viss period** växla till **Ja**.
 
-1. Ange **Start datumet** till dagens datum och  slutdatumet till imorgon.
+1. Ange **Start datumet** till dagens datum och slutdatumet till imorgon.
 
     ![Min åtkomst Portal – begär åtkomst](./media/entitlement-management-shared/my-access-request-access.png)
 
@@ -236,7 +240,7 @@ I det här steget loggar du in som **god kännare** -användare och godkänner �
 
 1. Logga in på [portalen My Access](https://myaccess.microsoft.com) som **admin1**.
 
-1. Klicka på godkännanden på den vänstra menyn.
+1. Klicka på godkännanden på denvänstra menyn.
 
 1. På fliken **väntande** söker du efter **Requestor1**.
 
@@ -272,7 +276,7 @@ Nu när du har godkänt åtkomst förfrågan i det här steget bekräftar du att
 
 1. I den vänstra menyn klickar du på **begär Anden**.
 
-    Du bör se Requestor1 och den interna begär ande principen med statusen levererad .
+    Du bör se Requestor1 och den interna begär ande principen med statusen levererad.
 
 1. Klicka på begäran om du vill visa information om begäran.
 
@@ -298,7 +302,7 @@ I det här steget ska du ta bort de ändringar du har gjort och ta bort åtkomst
 
 1. Öppna **Access-paket för webb projekt**.
 
-1. Klicka på tilldelningar.
+1. Klickapå tilldelningar.
 
 1. För **Requestor1**klickar du på ellipsen ( **...** ) och klickar sedan på **ta bort åtkomst**.
 

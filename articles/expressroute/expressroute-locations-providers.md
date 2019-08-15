@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/09/2019
+ms.date: 08/14/2019
 ms.author: cherylmc
-ms.openlocfilehash: bd0ed971b84baae3b85badfcc669bbad657d1551
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: ae397c077ac87618b646883f9125c9da2df81bfd
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69018957"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69036576"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute-partners och peeringplatser
 
@@ -101,7 +101,7 @@ Följande tabell innehåller anslutningsplatser och tjänstleverantörerna för 
 | **Dublin** | Equinix | Norra Europa | Colt, eir, Equinix, Interxion, Megaport |
 | **Frankfurt** | Interxion | Saknas | DE-CIX, Interxion, orange |
 | **Hong Kong SAR** | Equinix | Östasien | Aryaka Networks, British Telecom, CenturyLink Cloud Connect, Chief Telecom, Kina Telecom global, Equinix, Megaport, NTT Communications, orange, PCCW global Limited, Tata Communications, Telia Carrier, Verizon |
-| **Johannesburg** | Teraco | Sydafrika, norra | British Telecom, Internet Solutions - Cloud Connect, Liquid Telecom, Teraco |
+| **Johannesburg** | Teraco | Sydafrika, norra | Brittiska telekom, Internet-lösningar – moln anslutning, flytande telekom, orange, Teraco |
 | **Kuala Lumpur** | TIME dotCom | Saknas | TIME dotCom |
 | **Las Vegas** | Växel | Saknas | CenturyLink Cloud Connect, Megaport |
 | **London** | Equinix | Storbritannien, södra | AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc, Level 3 Communications, Megaport, MTN, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Telehouse – KDDI, Telenor, Telia Carrier, Verizon, Vodafone, Zayo |

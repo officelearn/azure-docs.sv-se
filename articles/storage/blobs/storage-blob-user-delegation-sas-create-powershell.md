@@ -9,12 +9,12 @@ ms.date: 08/12/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: 5412b83d8dfe92c6a24e717fb371c8963b808566
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 86b5e4b6bcf65c2174fa3d3743551813ce2f8b1b
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990798"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69034746"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-powershell-preview"></a>Skapa en användar Delegerings-SAS för en behållare eller BLOB med PowerShell (för hands version)
 
@@ -32,11 +32,6 @@ Om du vill använda PowerShell för att skapa en användar Delegerings-SAS måst
 
     - Ta bort alla tidigare installationer av Azure PowerShell från Windows med hjälp av inställningen **appar & funktioner** under **Inställningar**.
     - Ta bort alla **Azure** - `%Program Files%\WindowsPowerShell\Modules`moduler från.
-    - Eftersom PowerShell läser in den senaste AZ. Storage-modulen som standard, kan du behöva läsa in modulen 1.3.1-Preview explicit när du startar-konsolen. Om du vill läsa in modulen för förhands granskning kör du kommandot [import-module](/powershell/module/microsoft.powershell.core/import-module) :
-
-        ```powershell
-        Import-Module Az.Storage -RequiredVersion 1.3.1
-        ```
 
 1. Kontrol lera att du har den senaste versionen av PowerShellGet installerad. Öppna ett Windows PowerShell-fönster och kör följande kommando för att installera den senaste versionen:
 
@@ -55,10 +50,21 @@ Om du vill använda PowerShell för att skapa en användar Delegerings-SAS måst
 1. Installera en Azure Storage Preview-modul som stöder användar Delegerings-SAS:
 
     ```powershell
-    Install-Module Az.Storage –Repository PSGallery -RequiredVersion 1.3.1-preview –AllowPrerelease –AllowClobber –Force
+    Install-Module Az.Storage `
+        –Repository PSGallery `
+        -RequiredVersion 1.3.1-preview `
+        –AllowPrerelease `
+        –AllowClobber `
+        –Force
     ```
 
 1. Stäng PowerShell-fönstret och öppna det igen.
+
+Eftersom PowerShell läser in den senaste AZ. Storage-modulen som standard, kan du behöva läsa in modulen 1.3.1-Preview explicit när du startar-konsolen. Om du vill läsa in modulen för förhands granskning kör du kommandot [import-module](/powershell/module/microsoft.powershell.core/import-module) :
+
+```powershell
+Import-Module Az.Storage -RequiredVersion 1.3.1
+```
 
 Mer information om hur du installerar Azure PowerShell finns i [installera Azure PowerShell med PowerShellGet](/powershell/azure/install-az-ps).
 
@@ -142,8 +148,7 @@ New-AzStorageBlobSASToken -Context $ctx `
 Den användardefinierade SAS-URI: n som returnerades ser ut ungefär så här:
 
 ```
-https://storagesamples.blob.core.windows.net/sample-container/blob1.txt?sv=2018-11-09&sr=b&sig=4f6QzTteEZmrEMXWn7iEeI27vHrX13zVmL6rk2MbiyA%3D&skoid=e5981635-dcf0-4279-ab7b-ca1cbdf4a5c7&sktid=72f988bf-86f1-41af-91ab
--2d7cd011db47&skt=2019-08-06T21%3A16%3A54Z&ske=2019-08-07T07%3A00%3A00Z&sks=b&skv=2018-11-09&se=2019-08-07T07%3A00%3A00Z&sp=racwd
+https://storagesamples.blob.core.windows.net/sample-container/blob1.txt?sv=2018-11-09&sr=b&sig=<sig>&skoid=<skoid>&sktid=<sktid>&skt=2019-08-06T21%3A16%3A54Z&ske=2019-08-07T07%3A00%3A00Z&sks=b&skv=2018-11-09&se=2019-08-07T07%3A00%3A00Z&sp=racwd
 ```
 
 > [!NOTE]
@@ -160,7 +165,7 @@ Revoke-AzStorageAccountUserDelegationKeys -ResourceGroupName <resource-group> `
     -StorageAccountName <storage-account>
 ```
 
-## <a name="see-also"></a>Se också
+## <a name="next-steps"></a>Nästa steg
 
 - [Skapa en användar Delegerings-SAS (REST API)](/rest/api/storageservices/create-a-user-delegation-sas)
 - [Hämta åtgärd för användar Delegerings nyckel](/rest/api/storageservices/get-user-delegation-key)

@@ -1,6 +1,6 @@
 ---
-title: Konfigurera Google - autentisering i Azure App Service
-description: Lär dig mer om att konfigurera Google-autentisering för App Services-appen.
+title: Konfigurera Google-autentisering – Azure App Service
+description: Lär dig hur du konfigurerar Google-autentisering för ditt App Services-program.
 services: app-service
 documentationcenter: ''
 author: mattchenderson
@@ -15,44 +15,48 @@ ms.topic: article
 ms.date: 04/19/2018
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 50905b86924e0f564eaf4867c2906ad8740ddbaf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7b56d4e8d179e4ff073e74b4bc5242f936dc983e
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60851190"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69033732"
 ---
-# <a name="how-to-configure-your-app-service-application-to-use-google-login"></a>Så här konfigurerar du App Service-programmet att använda Google-inloggning
+# <a name="how-to-configure-your-app-service-application-to-use-google-login"></a>Så här konfigurerar du ditt App Service program så att Google-inloggning används
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
-Det här avsnittet visar hur du konfigurerar Azure App Service för att använda Google som en autentiseringsprovider.
+I det här avsnittet visas hur du konfigurerar Azure App Service att använda Google som en autentiseringsprovider.
 
-Du måste ha ett Google-konto som har en verifierad e-postadress för att slutföra den här proceduren i det här avsnittet. Gå till [accounts.google.com](https://go.microsoft.com/fwlink/p/?LinkId=268302) om du vill skapa ett nytt Google-konto.
+För att slutföra proceduren i det här avsnittet måste du ha ett Google-konto som har en verifierad e-postadress. Gå till [accounts.google.com](https://go.microsoft.com/fwlink/p/?LinkId=268302) om du vill skapa ett nytt Google-konto.
 
 ## <a name="register"> </a>Registrera ditt program med Google
-1. Logga in på den [Azure Portal], och navigera till ditt program. Kopiera din **URL**, som du senare använda för att konfigurera din Google-app.
-2. Navigera till den [Google API: er](https://go.microsoft.com/fwlink/p/?LinkId=268303) webbplats, logga in med autentiseringsuppgifterna för ditt Google-konto, klickar du på **skapa projekt**, ange en **projektnamn**, klicka sedan på  **Skapa**.
-3. När projektet har skapats kan du välja den. Från instrumentpanelen för projektet klickar du på **går du till API: er översikt**.
-4. Välj **aktivera API: er och tjänster**. Sök efter **Google + API**, och markera den. Klicka sedan på **aktivera**.
-5. I det vänstra navigeringsfönstret **autentiseringsuppgifter** > **OAuth godkännandeskärmen**och välj sedan din **e-postadress**, ange en **produktnamn**, och klicka på **spara**.
-6. I den **autentiseringsuppgifter** fliken **skapa autentiseringsuppgifter** > **OAuth klient-ID**.
-7. På skärmen ”skapa klient-ID” Välj **webbprogram**.
-8. Klistra in App Service- **URL** du kopierade tidigare i **behörighet JavaScript ursprung**, klistra sedan in din omdirigerings-URI i **behörighet omdirigerings-URI**. Omdirigerings-URI: N är URL: en för ditt program läggas till med sökvägen */.auth/login/google/callback*. Till exempel `https://contoso.azurewebsites.net/.auth/login/google/callback`. Kontrollera att du använder HTTPS-schema. Klicka sedan på **Skapa**.
-9. Anteckna värdena för klient-ID och klienthemlighet på nästa skärm.
+1. Logga in på [Azure Portal]och navigera till ditt program. Kopiera din **URL**, som du senare använder för att konfigurera Google-appen.
+2. Gå till [Google API](https://go.microsoft.com/fwlink/p/?LinkId=268303) -webbplatsen, logga in med dina Google-kontoautentiseringsuppgifter, klicka **på skapa projekt**, ange ett **projekt namn**och klicka sedan på **skapa**.
+3. När projektet har skapats väljer du det. I instrument panelen för projektet klickar **du på gå till API: översikt**.
+4. Välj **Aktivera API: er och tjänster**. Sök efter **Google + API**och markera det. Klicka sedan på **Aktivera**.
+5. I det vänstra navigerings fönstret, anger **autentiseringsuppgifter** > **OAuth-medgivande**, välj din **e-postadress**, ange ett **produkt namn**och klicka på **Spara**.
+6. På fliken **autentiseringsuppgifter** klickar du på **skapa autentiseringsuppgifter** > **OAuth-klient-ID**.
+7. På skärmen "skapa klient-ID" väljer du **webb program**.
+8. Klistra in App Service- **URL** som du kopierade tidigare till **behöriga JavaScript-ursprung**och klistra sedan in OMdirigerings-URI: n i auktoriserad omdirigering Omdirigerings-URI: n är URL: en för programmet som lagts till med sökvägen */.auth/login/Google/callback*. Till exempel `https://contoso.azurewebsites.net/.auth/login/google/callback`. Kontrol lera att du använder HTTPS-schemat. Klicka sedan på **Skapa**.
+9. Anteckna värdena för klient-ID och klient hemlighet på nästa skärm.
 
     > [!IMPORTANT]
-    > Klienthemlighet är en viktig säkerhetsuppgift för autentisering. Inte dela den här hemligheten med vem som helst och distribuera det i ett klientprogram.
+    > Klient hemligheten är en viktig säkerhets autentiseringsuppgift. Dela inte den här hemligheten med någon eller distribuera den i ett klient program.
 
 
-## <a name="secrets"> </a>Lägga till Google-information i ditt program
-1. I den [Azure Portal], navigera till ditt program. Klicka på **inställningar**, och sedan **autentisering / auktorisering**.
-2. Om autentisering / auktorisering är inte aktiverad, aktivera växeln **på**.
-3. Klicka på **Google**. Klistra in i App-ID och en Apphemlighet värden som du hämtade tidigare och välja att eventuella scope som krävs för ditt program. Klicka sedan på **OK**.
+## <a name="secrets"> </a>Lägga till Google information till ditt program
+1. Gå tillbaka till ditt program i [Azure Portal]. Klicka på **Inställningar**och sedan **autentisering/auktorisering**.
+2. Om funktionen autentisering/auktorisering inte är aktive rad aktiverar du växeln till **på**.
+3. Klicka på **Google**. Klistra in i app-ID: t och de hemliga värdena för appen som du har fått tidigare och eventuellt aktivera alla omfattningar som programmet kräver. Klicka sedan på **OK**.
    
    ![][1]
    
-   Som standard, App Service ger autentisering, men begränsar inte auktoriserad åtkomst till webbplatsens innehåll och API: er. Du måste auktorisera användare i din kod.
-4. (Valfritt) Om du vill begränsa åtkomsten till din plats för att endast användare som autentiseras av Google, ange **åtgärd att vidta när begäran inte har autentiserats** till **Google**. Detta kräver att alla förfrågningar autentiseras och alla oautentiserade begäranden omdirigeras till Google för autentisering.
+   Som standard tillhandahåller App Service autentisering men begränsar inte tillåten åtkomst till ditt webbplats innehåll och API: er. Du måste auktorisera användare i din app-kod.
+4. Valfritt Om du vill begränsa åtkomsten till din webbplats till endast användare som autentiserats av Google, anger **du åtgärd som ska vidtas när begäran inte autentiseras** till **Google**. Detta kräver att alla begär Anden autentiseras och att alla oautentiserade begär Anden omdirigeras till Google för autentisering.
+
+> [!CAUTION]
+> Att begränsa åtkomsten på det här sättet gäller alla anrop till appen, vilket kanske inte är önskvärt för appar som vill ha en offentligt tillgänglig start sida, som i många program med en enda sida. För sådana program kan du **tillåta anonyma begär Anden (ingen åtgärd)** , med appen manuellt startar inloggningen, enligt beskrivningen [här](overview-authentication-authorization.md#authentication-flow).
+
 5. Klicka på **Spara**.
 
 Du är nu redo att använda Google för autentisering i din app.

@@ -1,6 +1,6 @@
 ---
-title: Konfigurera en Gateway för att dirigera begäranden | Microsoft Docs
-description: Lär dig mer om att konfigurera gatewayen som hanterar inkommande trafik för dina program som körs på Service Fabric-nät.
+title: Konfigurera en gateway för att dirigera begär Anden | Microsoft Docs
+description: Lär dig hur du konfigurerar den gateway som hanterar inkommande trafik för dina program som körs på Service Fabric nät.
 services: service-fabric-mesh
 documentationcenter: .net
 author: dkkapur
@@ -8,40 +8,39 @@ manager: chakdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric-mesh
-ms.devlang: azure-cli
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/28/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 2e2502e35b3720ddbfe5950b89e2388de378f2ba
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b4fc6f91ee2429205974b9cb7ceb05b7cff53f15
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60583649"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69034220"
 ---
-# <a name="configure-a-gateway-resource-to-route-requests"></a>Konfigurera en resurs för gatewayen för begäranden
+# <a name="configure-a-gateway-resource-to-route-requests"></a>Konfigurera en gateway-resurs för att dirigera begär Anden
 
-En resurs för gatewayen används för att dirigera inkommande trafik till det nätverket där ditt program. Konfigurera den att ange regler som begäranden dirigeras till specifika tjänster eller slutpunkter baserat på strukturen för begäran. Se [introduktion till nätverk i Service Fabric-nät](service-fabric-mesh-networks-and-gateways.md) mer information om nätverk och gateways i nät. 
+En gateway-resurs används för att dirigera inkommande trafik till nätverket som är hus ditt program. Konfigurera den för att ange regler via vilka begär Anden dirigeras till vissa tjänster eller slut punkter baserat på strukturen för begäran. Mer information om nätverk och gatewayer i nät finns i [Introduktion till nätverk i Service Fabric nät](service-fabric-mesh-networks-and-gateways.md) . 
 
-Gateway-resurser måste deklareras som en del av din Distributionsmall (JSON eller yaml) och är beroende av en nätverksresurs. Det här dokumentet beskriver de olika egenskaper som kan ställas in för din gateway och täcker en exempel-gateway-konfiguration.
+Gateway-resurser måste deklareras som en del av distributions mal len (JSON eller yaml) och är beroende av en nätverks resurs. Det här dokumentet beskriver de olika egenskaperna som kan ställas in för din gateway och omfattar en exempel på en gateway-konfiguration.
 
-## <a name="options-for-configuring-your-gateway-resource"></a>Alternativ för att konfigurera din Gateway-resurs
+## <a name="options-for-configuring-your-gateway-resource"></a>Alternativ för att konfigurera en gateway-resurs
 
-Eftersom gatewayresursen fungerar som en brygga mellan ditt program och den underliggande infrastrukturen (den `open` nätverk). Du behöver bara konfigurera en (förhandsverison nät, det finns en gräns på en gateway per app). Deklarationen för resursen består av två delar: resursmetadata och egenskaper. 
+Eftersom Gateway-resursen fungerar som en bro mellan ditt programs nätverk och den underliggande infrastrukturens nätverk ( `open` nätverket). Du behöver bara konfigurera en (i för hands versionen av nät, det finns en gräns på en gateway per app). Deklarationen för resursen består av två huvud delar: resursens metadata och egenskaperna. 
 
 ### <a name="gateway-resource-metadata"></a>Metadata för gateway-resurs
 
-En gateway har deklarerats med följande metadata:
-* `apiVersion` -måste anges till ”2018-09-01-preview” (eller senare, i framtiden)
-* `name` -ett namn för anslutningssträngen för den här gatewayen
-* `type` -”Microsoft.ServiceFabricMesh/gateways”
-* `location` -måste vara inställt på platsen för din app / nätverk; Vanligtvis är en referens till parametern plats i din distribution
-* `dependsOn` -nätverket som den här gatewayen kommer att fungera som en ingående tidpunkt för
+En gateway deklareras med följande metadata:
+* `apiVersion`– måste anges till "2018-09-01-Preview" (eller senare i framtiden)
+* `name`– ett sträng namn för denna gateway
+* `type`-"Microsoft. ServiceFabricMesh/gateways"
+* `location`– bör anges till platsen för appen/nätverket. är vanligt vis en referens till plats parametern i distributionen
+* `dependsOn`– nätverket som denna gateway fungerar som en ingångs punkt för
 
-Här är hur den ser ut i en Distributionsmall av Azure Resource Manager (JSON): 
+Så här ser det ut i en distributions mall för en Azure Resource Manager (JSON): 
 
 ```json
 {
@@ -60,11 +59,11 @@ Här är hur den ser ut i en Distributionsmall av Azure Resource Manager (JSON):
 
 ### <a name="gateway-properties"></a>Gateway-egenskaper
 
-Egenskapsavsnittet används för att definiera de nätverk som ligger gatewayen och regler för dirigering av begäranden. 
+Avsnittet Properties används för att definiera de nätverk mellan vilka gatewayen ligger och reglerna för att dirigera begär Anden. 
 
-#### <a name="source-and-destination-network"></a>Käll- och nätverk 
+#### <a name="source-and-destination-network"></a>Käll-och mål nätverk 
 
-Varje gateway kräver en `sourceNetwork` och `destinationNetwork`. Källnätverket definieras som det nätverk som din app får inkommande begäranden. Dess namnegenskapen ska alltid vara inställd på ”Öppna”. Målnätverket är nätverket som riktar in sig begäranden. Namn-värde för det här bör vara inställd resursnamnet för din app lokalt nätverk (bör inkludera fullständig referens till resursen). Nedan finns en exempel-konfiguration av hur detta ser ut för en distribution i ett nätverk med namnet ”myNetwork”.
+Varje gateway kräver en `sourceNetwork` och `destinationNetwork`. Käll nätverket definieras som det nätverk från vilket appen tar emot inkommande begär Anden. Egenskapen namn ska alltid vara inställd på "öppen". Mål nätverket är det nätverk som begär Anden riktar sig till. Name-värdet för detta ska anges till resurs namnet för appens lokala nätverk (bör innehålla fullständig referens till resursen). Nedan visas en exempel konfiguration av vad detta ser ut för en distribution i ett nätverk som kallas "" nätverket ".
 
 ```json 
 "properties": {
@@ -81,18 +80,18 @@ Varje gateway kräver en `sourceNetwork` och `destinationNetwork`. Källnätverk
 
 #### <a name="rules"></a>Regler 
 
-En gateway kan ha flera routning regler som anger hur inkommande trafik ska hanteras. En routningsregel definierar relationen mellan lyssningsporten och målslutpunkt för ett visst program. Det finns en 1:1-mappning mellan Port: slutpunkten för TCP routningsregler. Du kan ange mer komplexa regler för routning som Kontrollera sökvägen för begäran, och du kan också rubriker, att bestämma hur begäran kommer att dirigeras för regler för HTTP-routning. 
+En gateway kan ha flera regler för routning som anger hur inkommande trafik ska hanteras. En regel för routning definierar relationen mellan lyssnings porten och mål slut punkten för ett angivet program. För regler för TCP-routning finns en 1:1-mappning mellan Port: Endpoint. För regler för HTTP-routning kan du ange mer komplexa routningsregler som kontrollerar sökvägen till begäran och eventuellt rubriker, för att bestämma hur begäran ska vidarebefordras. 
 
-Routningsregler anges på basis av per port. Varje inkommande port har sin egen uppsättning regler i egenskapsavsnittet i gateway-konfiguration. 
+Routningsregler anges per port. Varje ingress-Port har sin egen sträng mat ris i avsnittet Egenskaper i Gateway-konfigurationen. 
 
-#### <a name="tcp-routing-rules"></a>Routningsregler för TCP 
+#### <a name="tcp-routing-rules"></a>Regler för TCP-routning 
 
-En regel för vidarebefordran av TCP består av följande egenskaper: 
-* `name` -Referens för den regel som kan vara valfri sträng med valfritt 
-* `port` -porten som ska lyssna på efter inkommande begäranden 
-* `destination` -endpoint-specifikationen som innehåller `applicationName`, `serviceName`, och `endpointName`, för där begäranden måste dirigeras till
+En regel för TCP-routning består av följande egenskaper: 
+* `name`– referera till regeln som kan vara valfri valfri valfri sträng 
+* `port`-Port att lyssna efter inkommande begär Anden 
+* `destination`– slut punkts specifikation `applicationName`som `serviceName`innehåller, `endpointName`och, för var begär Anden måste dirigeras till
 
-Här är en regel för vidarebefordran av exempel TCP:
+Här är ett exempel på en TCP-routningsprincip:
 
 ```json
 "properties": {
@@ -112,21 +111,21 @@ Här är en regel för vidarebefordran av exempel TCP:
 ```
 
 
-#### <a name="http-routing-rules"></a>Regler för routning av HTTP 
+#### <a name="http-routing-rules"></a>Regler för HTTP-routning 
 
-En regel för vidarebefordran av HTTP-består av följande egenskaper: 
-* `name` -Referens för den regel som kan vara valfri sträng med valfritt 
-* `port` -porten som ska lyssna på efter inkommande begäranden 
-* `hosts` -en matris med principer som gäller för begäranden som kommer till olika ”värdar” på den port som anges ovan. Värdar är en uppsättning program och tjänster som kan köras i nätverket och kan hantera inkommande begäranden, dvs. en webbapp. Principer för värden tolkas i ordning, så bör du skapa följande i fallande nivåer av dessutom
-    * `name` -DNS-namnet på den värd som följande regler för vidarebefordran har angetts. Med hjälp av ”*” här skulle skapa routningsregler för alla värdar.
-    * `routes` -en matris med principer för den här specifika värden
-        * `match` -specifikation av inkommande begäran strukturen för den här regeln tillämpas, baserat på en `path`
-            * `path` -innehåller en `value` (inkommande URI) `rewrite` (hur du vill att begäran om att vidarebefordras), och en `type` (för närvarande kan bara vara ”prefixet”)
-            * `header` -är en valfri matris av huvuden värdena för att matcha i begärans-huvudet att om begäran matchar sökvägsuttrycket (ovan).
-              * varje post innehåller `name` (sträng namnet på rubriken så att den matchar), `value` (string värdet för huvudet i begäran), och en `type` (för närvarande kan bara vara ”Exact”)
-        * `destination` -Om begäran matchar, kommer den att dirigeras till den här destinationen som anges med hjälp av en `applicationName`, `serviceName`, och `endpointName`
+En regel för HTTP-routning består av följande egenskaper: 
+* `name`– referera till regeln som kan vara valfri valfri valfri sträng 
+* `port`-Port att lyssna efter inkommande begär Anden 
+* `hosts`– en uppsättning principer som gäller för begär Anden som kommer till de olika "värdarna" på den port som anges ovan. Värdar är den uppsättning program och tjänster som kan köras i nätverket och som kan hantera inkommande begär Anden, d.v.s. en webbapp. Värd principer tolkas i ordning, så du bör skapa följande i fallande nivåer av specificitet
+    * `name`– DNS-namnet på värden som följande routningsregler anges för. Om du använder "*" här skapas regler för routning för alla värdar.
+    * `routes`– en uppsättning principer för den här värden
+        * `match`– specifikation av den inkommande begär ande strukturen för den här regeln som ska tillämpas, baserat på en`path`
+            * `path`-innehåller en `value` (inkommande URI `rewrite` ) (hur du vill att begäran ska vidarebefordras) och en `type` (kan för närvarande endast vara "prefix")
+            * `header`– är en valfri matris med rubrik värden som ska matcha i rubriken på begäran om begäran matchar Sök vägs specifikationen (ovan).
+              * varje post innehåller `name` (sträng namnet på rubriken som ska matchas) `value` , (sträng värde för rubriken i begäran) och en `type` (kan för närvarande bara vara "exakt")
+        * `destination`– om begäran matchar skickas den till den här destinationen, som anges med hjälp av ett `applicationName`, `serviceName`, och`endpointName`
 
-Här är ett exempel HTTP-routningsregel som gäller för begäranden som kommer på port 80, för alla värdar som hanteras av appar i det här nätverket. Om URL: en för begäran om en struktur som matchar sökvägsuttrycket, d.v.s. `<IPAddress>:80/pickme/<requestContent>`, och sedan dirigeras till den `myListener` slutpunkt.  
+Här är ett exempel på en regel för HTTP-routning som gäller för begär Anden som kommer från port 80 till alla värdar som hanteras av appar i det här nätverket. Om URL: en för begäran har en struktur som matchar Sök vägs specifikationen, `<IPAddress>:80/pickme/<requestContent>`dvs., kommer den att dirigeras `myListener` till slut punkten.  
 
 ```json
 "properties": {
@@ -161,9 +160,9 @@ Här är ett exempel HTTP-routningsregel som gäller för begäranden som kommer
 }
 ```
 
-## <a name="sample-config-for-a-gateway-resource"></a>Exempel-konfigurationen för en resurs för gatewayen 
+## <a name="sample-config-for-a-gateway-resource"></a>Exempel på konfiguration för en gateway-resurs 
 
-Här är en fullständig Gateway resurskonfiguration ser det ut (detta har anpassats från det ingående exemplet som är tillgängligt i den [nät exempel lagringsplatsen](https://github.com/Azure-Samples/service-fabric-mesh/blob/2018-09-01-preview/templates/ingress/meshingress.linux.json)):
+Så här ser en fullständig gateway-resurs config ut (detta är anpassat från ingångs exemplet som är tillgängligt [](https://github.com/Azure-Samples/service-fabric-mesh/blob/2018-09-01-preview/templates/ingress/meshingress.linux.json)i nätlagrings platsen):
 
 ```json
 {
@@ -227,9 +226,9 @@ Här är en fullständig Gateway resurskonfiguration ser det ut (detta har anpas
 }
 ```
 
-Den här gatewayen har konfigurerats för ett program för Linux, ”meshAppLinux”, som består av minst två tjänster, ”helloWorldService” och ”counterService” som lyssnar på port 80. Beroende på URL-struktur för inkommande begäran dirigerar den begäran till någon av dessa tjänster. 
-* ”\<IP-adress >: 80/helloWorld/\<begäran\>” skulle resultera i en begäran dirigeras till ”helloWorldListener” i helloWorldService. 
-* ”\<IP-adress >: 80/räknare/\<begäran\>” skulle resultera i en begäran dirigeras till ”counterListener” i counterService. 
+Denna gateway har kon figurer ATS för ett Linux-program, "meshAppLinux", som består av minst två tjänster, "helloWorldService" och "counterService", som lyssnar på port 80. Beroende på URL-strukturen för den inkommande begäran dirigerar den begäran till någon av dessa tjänster. 
+* "\<IPAddress >: 80/HelloWorld/\<Request\>" skulle resultera i att en begäran dirigeras till "helloWorldListener" i helloWorldService. 
+* "\<IPAddress >: 80/Counter/\<Request\>" skulle resultera i att en begäran dirigeras till "counterListener" i counterService. 
 
 ## <a name="next-steps"></a>Nästa steg
-* Distribuera den [ingående exempel](https://github.com/Azure-Samples/service-fabric-mesh/tree/2018-09-01-preview/templates/ingress) att se gateways fungerar i praktiken
+* Distribuera ingångs [exemplet](https://github.com/Azure-Samples/service-fabric-mesh/tree/2018-09-01-preview/templates/ingress) för att se gateways i praktiken

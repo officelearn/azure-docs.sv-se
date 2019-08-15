@@ -16,12 +16,12 @@ ms.date: 08/12/2019
 ms.author: cephalin
 ms.reviewer: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 12ad82b0dda628c3a8cef7712322500c7a33517c
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: d01994dc4d01baed71bb3de56e069fac5597dc77
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68953806"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69030840"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Autentisering och auktorisering i Azure App Service
 
@@ -136,6 +136,9 @@ Det här alternativet ger större flexibilitet vid hantering av anonyma begär A
 Alternativet är att **Logga in med \<providern >** . App Service dirigerar om alla anonyma begär `/.auth/login/<provider>` anden till för den leverantör du väljer. Om den anonyma begäran kommer från en ursprunglig mobilapp är det returnerade svaret en `HTTP 401 Unauthorized`.
 
 Med det här alternativet behöver du inte skriva någon autentiseringsmetod i din app. Bättre auktorisering, till exempel rollbaserad auktorisering, kan hanteras genom att inspektera användarens anspråk (se [användar anspråk för åtkomst](app-service-authentication-how-to.md#access-user-claims)).
+
+> [!CAUTION]
+> Att begränsa åtkomsten på det här sättet gäller alla anrop till appen, vilket kanske inte är önskvärt för appar som vill ha en offentligt tillgänglig start sida, som i många program med en enda sida.
 
 ## <a name="more-resources"></a>Flera resurser
 

@@ -1,6 +1,6 @@
 ---
-title: Konfigurera Kundhanterade nycklar för kryptering av Azure Storage från Azure portal
-description: Lär dig hur du använder Azure-portalen för att konfigurera Kundhanterade nycklar för kryptering av Azure Storage. Kundhanterade nycklar kan du skapa, rotera, inaktivera och återkalla åtkomstkontroller.
+title: Konfigurera Kundhanterade nycklar för Azure Storage kryptering från Azure Portal
+description: Lär dig hur du använder Azure Portal för att konfigurera Kundhanterade nycklar för Azure Storage kryptering. Med Kundhanterade nycklar kan du skapa, rotera, inaktivera och återkalla åtkomst kontroller.
 services: storage
 author: tamram
 ms.service: storage
@@ -9,67 +9,68 @@ ms.date: 04/16/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: baabc5a8e1d063cb51a3edea3a7218591e85aa1a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c8ec6b1e90eb6638c99ca43715c5e8bea6e48c22
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65154159"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69030952"
 ---
-# <a name="configure-customer-managed-keys-for-azure-storage-encryption-from-the-azure-portal"></a>Konfigurera Kundhanterade nycklar för kryptering av Azure Storage från Azure portal
+# <a name="configure-customer-managed-keys-for-azure-storage-encryption-from-the-azure-portal"></a>Konfigurera Kundhanterade nycklar för Azure Storage kryptering från Azure Portal
 
 [!INCLUDE [storage-encryption-configure-keys-include](../../../includes/storage-encryption-configure-keys-include.md)]
 
-Den här artikeln visar hur du konfigurerar ett nyckelvalv med Kundhanterade nycklar med hjälp av den [Azure-portalen](https://portal.azure.com/). Läs hur du skapar ett nyckelvalv med Azure portal i [snabbstarten: Ange och hämta en hemlighet från Azure Key Vault med Azure portal](../../key-vault/quick-create-portal.md). 
+Den här artikeln visar hur du konfigurerar ett nyckel valv med Kundhanterade nycklar med hjälp av [Azure Portal](https://portal.azure.com/). Information om hur du skapar ett nyckel valv med hjälp av Azure Portal finns [i snabb start: Ange och hämta en hemlighet från Azure Key Vault med hjälp av](../../key-vault/quick-create-portal.md)Azure Portal. 
 
 
 > [!IMPORTANT]
-> Använda Kundhanterade nycklar med Azure Storage kryptering kräver att nyckelvalvet har två nödvändiga egenskaper som har konfigurerats, **mjuk borttagning** och **gör inte rensa**. De här egenskaperna är aktiverade som standard när du skapar ett nytt nyckelvalv i Azure-portalen. Om du vill aktivera dessa egenskaper på ett befintligt nyckelvalv måste du använda PowerShell eller Azure CLI.
+> Om du använder Kundhanterade nycklar med Azure Storage kryptering måste nyckel valvet ha två obligatoriska egenskaper konfigurerade, **mjuk borttagning** och **Rensa inte**. De här egenskaperna är aktiverade som standard när du skapar ett nytt nyckel valv i Azure Portal. Men om du behöver aktivera dessa egenskaper i ett befintligt nyckel valv måste du använda antingen PowerShell eller Azure CLI.
+> Endast RSA-nycklar och nyckel storlek 2048 stöds.
 
 ## <a name="enable-customer-managed-keys"></a>Aktivera Kundhanterade nycklar
 
-Följ dessa steg om du vill aktivera Kundhanterade nycklar i Azure portal:
+Följ dessa steg om du vill aktivera Kundhanterade nycklar i Azure Portal:
 
 1. Navigera till ditt lagringskonto.
-1. På den **inställningar** bladet för storage-konto klickar du på **kryptering**. Välj den **använda din egen nyckel** alternativ, enligt följande bild.
+1. På bladet **Inställningar** för lagrings kontot klickar du på **kryptering**. Välj alternativet **Använd en egen nyckel** , som du ser i följande bild.
 
-    ![Portalen skärmbild som visar krypteringsalternativet](./media/storage-encryption-keys-portal/ssecmk1.png)
+    ![Portal skärm bild som visar krypterings alternativ](./media/storage-encryption-keys-portal/ssecmk1.png)
 
 ## <a name="specify-a-key"></a>Ange en nyckel
 
-När du har aktiverat Kundhanterade nycklar har möjlighet att ange en nyckel som ska associeras med lagringskontot.
+När du har aktiverat Kundhanterade nycklar har du möjlighet att ange en nyckel som ska associeras med lagrings kontot.
 
 ### <a name="specify-a-key-as-a-uri"></a>Ange en nyckel som en URI
 
 Följ dessa steg om du vill ange en nyckel som en URI:
 
-1. Om du vill leta upp nyckeln URI: N i Azure-portalen, navigera till ditt nyckelvalv och välj den **nycklar** inställningen. Välj önskad nyckel och sedan på nyckeln om du vill visa dess inställningar. Kopiera värdet för den **nyckelidentifierare** som anger URI: N.
+1. Om du vill hitta nyckel-URI: n i Azure Portal navigerar du till nyckel valvet och väljer inställningen **nycklar** . Välj önskad nyckel och klicka sedan på nyckeln för att visa dess inställningar. Kopiera värdet för fältet **nyckel identifierare** , som innehåller URI.
 
-    ![Skärmbild som visar key vault-nyckeln URI](media/storage-encryption-keys-portal/key-uri-portal.png)
+    ![Skärm bild som visar Key Vault Key-URI](media/storage-encryption-keys-portal/key-uri-portal.png)
 
-1. I den **kryptering** inställningar för ditt lagringskonto, Välj den **RETUR-tangenten URI** alternativet.
-1. I den **Key URI: N** fältet Ange URI: N.
+1. I **krypterings** inställningarna för ditt lagrings konto väljer du alternativet för att **Ange nyckel-URI** .
+1. I fältet **nyckel-URI** anger du URI.
 
-   ![Skärmbild som visar hur du ange URI för nyckel](./media/storage-encryption-keys-portal/ssecmk2.png)
+   ![Skärm bild som visar hur du anger nyckel-URI](./media/storage-encryption-keys-portal/ssecmk2.png)
 
-### <a name="specify-a-key-from-a-key-vault"></a>Ange en nyckel från key vault
+### <a name="specify-a-key-from-a-key-vault"></a>Ange en nyckel från ett nyckel valv
 
-Om du vill ange en nyckel från key vault, se till att du har ett nyckelvalv som innehåller en nyckel. Följ dessa steg om du vill ange en nyckel från key vault:
+Om du vill ange en nyckel från ett nyckel valv måste du först kontrol lera att du har ett nyckel valv som innehåller en nyckel. Följ dessa steg om du vill ange en nyckel från ett nyckel valv:
 
-1. Välj den **Välj från Key Vault** alternativet.
-2. Välj det nyckelvalv som innehåller den nyckel som du vill använda.
-3. Välj nyckeln från nyckelvalvet.
+1. Välj alternativet **Välj från Key Vault** .
+2. Välj det nyckel valv som innehåller den nyckel som du vill använda.
+3. Välj nyckeln från nyckel valvet.
 
-   ![Skärmbild som visar kundhanterad nyckel alternativet](./media/storage-encryption-keys-portal/ssecmk3.png)
+   ![Skärm bild som visar kundhanterad nyckel alternativ](./media/storage-encryption-keys-portal/ssecmk3.png)
 
-## <a name="update-the-key-version"></a>Uppdatera nyckelns version
+## <a name="update-the-key-version"></a>Uppdatera nyckel versionen
 
-När du skapar en ny version av en nyckel, måste du uppdatera lagringskontot för att använda den nya versionen. Följ de här stegen:
+När du skapar en ny version av en nyckel måste du uppdatera lagrings kontot för att använda den nya versionen. Följ de här stegen:
 
-1. Gå till ditt lagringskonto och visa den **kryptering** inställningar.
-1. Ange URI för den nya nyckelversionen. Alternativt kan välja du nyckelvalvet och nyckeln igen för att uppdatera versionen.
+1. Navigera till ditt lagrings konto och visa **krypterings** inställningarna.
+1. Ange URI för den nya nyckel versionen. Alternativt kan du välja nyckel valvet och nyckeln igen för att uppdatera versionen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Azure Storage-kryptering av vilande data](storage-service-encryption.md)
+- [Azure Storage kryptering för vilande data](storage-service-encryption.md)
 - [Vad är Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)?

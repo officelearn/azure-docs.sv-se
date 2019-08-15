@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: kgremban
-ms.openlocfilehash: 7d3586c571c2d70034f10cb3e1efd9242d6a1023
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 9e9028d0c9aeff19dc221b81defa5e2057927fa6
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68986966"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69034194"
 ---
 # <a name="use-iot-edge-on-windows-to-run-linux-containers"></a>Använda IoT Edge i Windows för att köra Linux-behållare
 
@@ -30,9 +30,7 @@ Använd det här avsnittet för att se om din Windows-enhet har stöd för IoT E
 
 ### <a name="supported-windows-versions"></a>Windows-versioner som stöds
 
-Azure IoT Edge med Linux-behållare kan köras i följande versioner av Windows: 
-* Uppdatering för Windows 10-årsdag (version 14393) eller senare
-* Windows Server 2016 eller senare
+Azure IoT Edge med Linux-behållare kan köras på alla versioner av Windows som uppfyller [kraven för Docker Desktop](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install)
 
 Mer information om vad som ingår i den senaste versionen av IoT Edge finns Azure IoT Edge- [versioner](https://github.com/Azure/azure-iotedge/releases).
 

@@ -14,18 +14,21 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/06/2018
 ms.author: rapatchi
-ms.openlocfilehash: c33ecce5610dbef0dce13aa95f04ae4f0620603b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c15ca6d68512bc79ce4e5a27f5ce4f7ea6bc3080
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60950371"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035443"
 ---
 # <a name="service-fabric-plug-in-for-eclipse-java-application-development"></a>Service Fabric-plugin-program för utveckling av Java-program i Eclipse
 Eclipse är en av de mest använda IDE:erna (Integrated Development Environment) för Java-utvecklare. I den här artikeln beskrivs hur du kan konfigurera din Eclipse-utvecklingsmiljö för att arbeta med Azure Service Fabric. Läs om hur du installerar Service Fabric-plugin-programmet, skapar ett Service Fabric-program och distribuerar Service Fabric-programmet till ett lokalt eller fjärranslutet Service Fabric-kluster i Eclipse. 
 
 > [!NOTE]
 > Eclipse-pluginprogrammet stöds för närvarande inte av Windows. 
+
+> [!IMPORTANT]
+> Se till att JDK 8 är installerat i systemet och att det valts i Sol förmörkelse.
 
 ## <a name="install-or-update-the-service-fabric-plug-in-in-eclipse"></a>Installera eller uppdatera Service Fabric-plugin-programmet i Eclipse
 Du kan installera ett Service Fabric-plugin-program i Eclipse. Plugin-programmet gör det enklare att skapa och distribuera Java-tjänster.
@@ -37,11 +40,11 @@ Du kan installera ett Service Fabric-plugin-program i Eclipse. Plugin-programmet
 
 Installera Eclipse Neon eller senare från [Eclipse-webbplatsen](https://www.eclipse.org).  Installera även version 2.2.1 eller senare av Buildship (Service Fabric-plugin-programmet är inte kompatibelt med äldre versioner av Buildship):
 -   Du kan kontrollera vilka versioner du har av installerade komponenter genom att välja **Hjälp** > **Om Eclipse** > **Installationsinformation** i Eclipse.
--   Om du vill uppdatera Buildship kan se [Eclipse Buildship: Eclipse plugin-program för Gradle][buildship-update].
+-   För att uppdatera bygge, [se Sol förmörkelse bygge: Plugin-program för Sol förmörkelse][buildship-update]för Gradle.
 -   Om du vill söka efter och installera uppdateringar för Eclipse kan du navigera till **Help** > **Check for Updates** (Hjälp > Sök efter uppdateringar).
 
 Om du vill installera Service Fabric-plugin-programmet öppnar du **Help** > **Install New Software** (Hjälp > Installera ny programvara) i Eclipse.
-1. I den **arbeta med** anger https:\//dl.microsoft.com/eclipse.
+1. I rutan **arbeta med** anger du https:\//dl.Microsoft.com/Eclipse.
 2. Klicka på **Lägg till**.
 
    ![Service Fabric-plugin-program för Eclipse][sf-eclipse-plugin-install]
@@ -54,7 +57,7 @@ Om du redan har Service Fabric-plugin-programmet installerat ska du installera d
 3. När du uppdaterar Service Fabrik-plugin-programmet ska du även uppdatera Gradle-projektet.  Högerklicka på **build.gradle** och välj **Uppdatera**.
 
 > [!NOTE]
-> Om installationen eller uppdateringen av Service Fabric-plugin-programmet är långsam kan det bero på en Eclipse-inställning. Eclipse samlar in metadata om alla ändringar på uppdateringsplatser som är registrerade med din Eclipse-instans. Om du vill påskynda sökningen efter och installationen av uppdateringen av Service Fabric-plugin-programmet kan du gå till **Available Software Sites** (Platser med tillgänglig programvara). Avmarkera kryssrutorna för alla platser utom den som pekar på platsen för Service Fabric-plugin-programmet (https:\//dl.microsoft.com/eclipse/azure/servicefabric).
+> Om installationen eller uppdateringen av Service Fabric-plugin-programmet är långsam kan det bero på en Eclipse-inställning. Eclipse samlar in metadata om alla ändringar på uppdateringsplatser som är registrerade med din Eclipse-instans. Om du vill påskynda sökningen efter och installationen av uppdateringen av Service Fabric-plugin-programmet kan du gå till **Available Software Sites** (Platser med tillgänglig programvara). Avmarkera kryss rutorna för alla platser utom den som pekar på Service Fabric-plugin-platsen (https:\//dl.Microsoft.com/Eclipse/Azure/servicefabric).
 
 > [!NOTE]
 >Om Eclipse inte fungerar som förväntat på din Mac eller om du måste köra som en superanvändare) går du till mappen **ECLIPSE_INSTALLATION_PATH** och går till undermappen **Eclipse.app/Contents/MacOS**. Starta Eclipse genom att köra `./eclipse`.
@@ -86,60 +89,60 @@ Om du redan har Service Fabric-plugin-programmet installerat ska du installera d
 
     ![Service Fabric, ny projektsida 6][create-application/p6]
 
-## <a name="build-a-service-fabric-application-in-eclipse"></a>Skapa ett Service Fabric-program i Eclipse
+## <a name="build-a-service-fabric-application-in-eclipse"></a>Bygg ett Service Fabric-program i Sol förmörkelse
 
 1.  Högerklicka på det nya Service Fabric-programmet och välj sedan **Service Fabric**.
 
     ![Service Fabric-snabbmeny][publish/RightClick]
 
-2. I snabbmenyn väljer du något av följande alternativ:
+2. Välj något av följande alternativ på snabb menyn:
     -   Klicka på **Build Application** (Bygg program) om du vill skapa programmet utan rensning.
     -   Klicka på **Rebuild Application** (Bygg om program) om du vill skapa en rensad version av programmet.
     -   Klicka på **Clean Application** (Rensa program) om du vill rensa bort byggda artefakter i programmet.
      
-## <a name="deploy-a-service-fabric-application-to-the-local-cluster-with-eclipse"></a>Distribuera ett Service Fabric-program till det lokala klustret med Eclipse
+## <a name="deploy-a-service-fabric-application-to-the-local-cluster-with-eclipse"></a>Distribuera ett Service Fabric-program till det lokala klustret med Sol förmörkelse
 
-När du har skapat ditt Service Fabric-program, följer du stegen nedan för att distribuera den till det lokala klustret.
+När du har skapat ditt Service Fabric-program följer du dessa steg för att distribuera det till det lokala klustret.
 
-1. Om du inte har startat det lokala klustret, följ instruktionerna i [konfigurera ett lokalt kluster](./service-fabric-get-started-linux.md#set-up-a-local-cluster) att starta ditt lokala kluster och se till att den körs.
-2. Högerklicka på Service Fabric-programmet och välj sedan **Service Fabric**.
+1. Om du inte har startat det lokala klustret följer du anvisningarna i [Konfigurera ett lokalt kluster](./service-fabric-get-started-linux.md#set-up-a-local-cluster) för att starta ditt lokala kluster och kontrollerar att det körs.
+2. Högerklicka på ditt Service Fabric program och välj sedan **Service Fabric**.
 
     ![Service Fabric-snabbmeny][publish/RightClick]
 
-3.  På snabbmenyn klickar du på **distribuera program**.
-4.  Du kan följa förloppet för åtgärden distribuera i konsolfönstret.
-5.  Kontrollera att programmet körs genom att öppna Service Fabric Explorer i ditt lokala kluster i ett webbläsarfönster [ http://localhost:19080/Explorer ](http://localhost:19080/Explorer). Expandera den **program** noden och kontrollera att ditt program körs. 
+3.  I snabb menyn klickar du på **distribuera program**.
+4.  Du kan följa förloppet för distributions åtgärden i konsol fönstret.
+5.  Verifiera att programmet körs genom att öppna Service Fabric Explorer på ditt lokala kluster i ett webbläsarfönster [http://localhost:19080/Explorer](http://localhost:19080/Explorer). Expandera noden **program** och kontrol lera att programmet körs. 
 
-Läs hur du felsöker programmet i Eclipse med hjälp av det lokala klustret i [Felsök en Java-tjänst i Eclipse](./service-fabric-debugging-your-application-java.md).
+Information om hur du felsöker programmet i Sol förmörkelse med det lokala klustret finns i [Felsöka en Java-tjänst i Sol förmörkelse](./service-fabric-debugging-your-application-java.md).
 
-Du kan också distribuera programmet till det lokala klustret med den **publicera program** kommando:
+Du kan också distribuera ditt program till det lokala klustret med kommandot **Publicera program** :
 
-1. Högerklicka på Service Fabric-programmet och välj sedan **Service Fabric**.
-2. På snabbmenyn klickar du på **publicera program...** .
-3. I den **publicera program** fönstret Välj **PublishProfiles/Local.json** som Target Profile och klicka på **publicera**.
+1. Högerklicka på ditt Service Fabric program och välj sedan **Service Fabric**.
+2. I snabb menyn klickar du på **Publicera program...** .
+3. I fönstret **Publicera program** väljer du **PublishProfiles/Local. JSON** som mål profil och klickar på **publicera**.
 
     ![Dialogrutan för lokal publicering](./media/service-fabric-get-started-eclipse/localjson.png)
 
-    Som standard konfigureras Local.json Publicera profil för att publicera till det lokala klustret. Mer information om anslutningen och slutpunkt-parametrar finns i publiceringsprofiler finns i nästa avsnitt.
+    Som standard är den lokala. JSON-publicerings profilen konfigurerad att publicera till det lokala klustret. Mer information om anslutnings-och slut punkts parametrar i publicerings profiler finns i nästa avsnitt.
 
-## <a name="publish-your-service-fabric-application-to-azure-with-eclipse"></a>Publicera Service Fabric-programmet till Azure med Eclipse
+## <a name="publish-your-service-fabric-application-to-azure-with-eclipse"></a>Publicera ditt Service Fabric program till Azure med Sol förmörkelse
 
-Följ dessa steg för att publicera ditt program till molnet:
+Följ dessa steg om du vill publicera ditt program i molnet:
 
-1. Om du vill publicera programmet till ett säkert kluster i molnet, behöver du ett X.509-certifikat som du använder för att kommunicera med ditt kluster. I miljöer för testning och utveckling är det certifikat som används ofta klustercertifikatet. Certifikatet ska vara ett klientcertifikat som skiljer sig från klustercertifikatet i produktionsmiljöer. Du behöver både certifikatet och den privata nyckeln. Certifikat (och nyckel) filen måste vara PEM-formaterade. Du kan skapa en PEM-fil som innehåller certifikatet och privata nyckel från en PFX-fil med följande openssl-kommando:
+1. Om du vill publicera ditt program i ett säkert kluster i molnet måste du ha ett X. 509-certifikat som används för att kommunicera med klustret. I test-och utvecklings miljöer är det certifikat som används ofta kluster certifikatet. I produktions miljöer bör certifikatet vara ett klient certifikat som är distinkt från kluster certifikatet. Du behöver både certifikatet och den privata nyckeln. Certifikat filen (och nyckeln) måste vara PEM-formaterad. Du kan skapa en PEM-fil som innehåller certifikatet och den privata nyckeln från en PFX-fil med följande openssl-kommando:
 
     ```bash
     openssl pkcs12 -in your-cert-file.pfx -out your-cert-file.pem -nodes -passin pass:your-pfx-password
     ```
 
-   Om PFX-filen inte är lösenordsskyddad använda `--passin pass:` för den sista parametern.
+   Om PFX-filen inte är lösenordsskyddad använder `--passin pass:` du för den sista parametern.
 
-2. Öppna den **Cloud.json** filen under den **PublishProfiles** directory. Du måste konfigurera autentiseringsuppgifter för kluster-slutpunkten och säkerhet för ditt kluster.
+2. Öppna filen **Cloud. JSON** i katalogen **PublishProfiles** . Du måste konfigurera klustrets slut punkt och säkerhets referenser på lämpligt sätt för klustret.
 
-   - Den `ConnectionIPOrURL` fältet innehåller IP-adressen eller URL för ditt kluster. Observera att värdet inte innehåller URL-schema (`https://`).
-   - Som standard den `ConnectionPort` fältet ska vara `19080`, om du inte uttryckligen har ändrat den här porten för klustret.
-   - Den `ClientKey` fält måste peka på en PEM-formaterade PEM- eller .key fil på din lokala dator som innehåller den privata nyckeln för certifikatet klienten eller ett kluster.
-   - Den `ClientCert` fält måste peka på en PEM-formaterad PEM- eller .crt fil på din lokala dator som innehåller certifikatdata för din klient eller ett kluster. certifikat. 
+   - `ConnectionIPOrURL` Fältet innehåller IP-adressen eller URL: en för klustret. Observera att värdet inte innehåller URL-schemat (`https://`).
+   - Som standard `ConnectionPort` bör fältet vara `19080`, såvida du inte uttryckligen har ändrat den här porten för klustret.
+   - `ClientKey` Fältet ska peka på en PEM-formaterad. pem-eller. key-fil på din lokala dator som innehåller den privata nyckeln för din klient eller ditt kluster certifikat.
+   - `ClientCert` Fältet ska peka på en PEM-formaterad. pem-eller. CRT-fil på din lokala dator som innehåller certifikat data för klienten eller klustret. certifikatmallens. 
 
      ```bash
      {
@@ -153,31 +156,31 @@ Följ dessa steg för att publicera ditt program till molnet:
      }
      ```
 
-2. Högerklicka på Service Fabric-programmet och välj sedan **Service Fabric**.
-3. På snabbmenyn klickar du på **publicera program...** .
-3. I den **publicera program** fönstret Välj **PublishProfiles/Cloud.json** som Target Profile och klicka på **publicera**.
+2. Högerklicka på ditt Service Fabric program och välj sedan **Service Fabric**.
+3. I snabb menyn klickar du på **Publicera program...** .
+3. I fönstret **Publicera program** väljer du **PublishProfiles/Cloud. JSON** som mål profil och klickar på **publicera**.
 
     ![Dialogrutan för molnpublicering](./media/service-fabric-get-started-eclipse/cloudjson.png)
 
-4. Du kan följa förloppet för publiceringsåtgärden i konsolfönstret.
-5. Kontrollera att programmet körs genom att öppna Service Fabric Explorer på din Azure-kluster i ett webbläsarfönster. För exemplet ovan, detta är: `https://lnxxug0tlqm5.westus.cloudapp.azure.com:19080/Explorer`. Expandera den **program** noden och kontrollera att ditt program körs. 
+4. Du kan följa förloppet för publicerings åtgärden i konsol fönstret.
+5. Verifiera att programmet körs genom att öppna Service Fabric Explorer på ditt Azure-kluster i ett webbläsarfönster. I exemplet ovan är detta: `https://lnxxug0tlqm5.westus.cloudapp.azure.com:19080/Explorer`. Expandera noden **program** och kontrol lera att programmet körs. 
 
 
-I säkert Linux-kluster, om programmet innehåller Reliable Services-tjänster, måste även konfigurera ett certifikat som dina tjänster kan använda för att anropa API: er för Service Fabric-körningen. Mer information finns i [konfigurera en Reliable Services-app som körs i Linux-kluster](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).
+Om ditt program innehåller Reliable Services tjänster i säkra Linux-kluster måste du också konfigurera ett certifikat som dina tjänster kan använda för att anropa Service Fabric runtime-API: er. Mer information finns i [Konfigurera en Reliable Services app för att köra Linux-kluster](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).
 
-En snabb genomgång av hur du distribuerar en Service Fabric Reliable Services-program som är skrivna i Java till ett säkert Linux-kluster, se [snabbstarten: Distribuera ett Java Reliable Services-program](./service-fabric-quickstart-java-reliable-services.md).
+En snabb genom gång av hur du distribuerar ett Service Fabric Reliable Services-program som skrivits i Java till ett säkert Linux-kluster [finns i snabb start: Distribuera ett Java-Reliable Services](./service-fabric-quickstart-java-reliable-services.md)program.
 
-## <a name="deploy-a-service-fabric-application-by-using-eclipse-run-configurations"></a>Distribuera ett Service Fabric-program med hjälp av Eclipse kör konfigurationer
+## <a name="deploy-a-service-fabric-application-by-using-eclipse-run-configurations"></a>Distribuera ett Service Fabric program med hjälp av konfigurationer för Sol förmörkelse
 
 Du kan också distribuera Service Fabric-programmet med Run Configurations (Kör konfigurationer) i Eclipse.
 
-1. I Eclipse, går du till **kör** > **Run Configurations**.
+1. I Sol förmörkelse går du till **Kör** > **Run Configurations**.
 2. Välj **ServiceFabricDeployer** under **Gradle Project** (Gradle-projekt).
-3. I den högra rutan på den **argument** kontrollerar du att den **ip**, **port**, **clientCert**, och **clientKey**parametrarna är inställda på rätt sätt för din distribution. Parametrarna är som standard att distribuera till det lokala klustret som i följande skärmbild. Om du vill publicera din app till Azure kan du ändra de så att den innehåller information om slutpunkt och säkerhetsreferenser för din Azure-kluster. Mer information finns i avsnittet ovan [publicera Service Fabric-programmet till Azure med Eclipse](#publish-your-service-fabric-application-to-azure-with-eclipse).
+3. I den högra rutan på fliken **argument** kontrollerar du att parametrarna för **IP**, **port**, **clientCert**och **clientKey** är korrekt inställda för din distribution. Som standard är parametrarna inställda på att distribueras till det lokala klustret som i följande skärm bild. Om du vill publicera din app i Azure kan du ändra parametrarna så att de innehåller slut punkts information och säkerhets referenser för ditt Azure-kluster. Mer information finns i föregående avsnitt, [publicera ditt Service Fabric-program till Azure med Sol förmörkelse](#publish-your-service-fabric-application-to-azure-with-eclipse).
 
-    ![Kör konfiguration dialogrutan för lokal](./media/service-fabric-get-started-eclipse/run-config-local.png)
+    ![Kör konfigurations dialog rutan lokalt](./media/service-fabric-get-started-eclipse/run-config-local.png)
 
-5. Se till att **Working Directory** pekar på programmet som du vill distribuera. Om du vill ändra program klickar du på knappen **Workspace** (Arbetsyta) och väljer önskat program.
+5. Se till att **arbets katalogen** pekar på det program som du vill distribuera. Om du vill ändra program klickar du på knappen **Workspace** (Arbetsyta) och väljer önskat program.
 6. Klicka på **Apply** (Verkställ) och sedan på **Run** (Kör).
 
 Ditt program skapas och distribueras efter en liten stund. Du kan övervaka distributionsstatus i Service Fabric Explorer.  
@@ -211,7 +214,7 @@ Om du markerar alternativet **Automatically update application and service versi
 
 ## <a name="upgrade-your-service-fabric-java-application"></a>Uppgradera ditt Service Fabric Java-program
 
-Anta att du har ett projekt som heter **App1** som du har skapat med Service Fabric-plugin-programmet i Eclipse. För att distribuera projektet skapade du ett program med namnet **fabric:/App1Application** med hjälp av plugin-programmet. Programtypen är **App1ApplicationType**, och programversionen är 1.0. Nu vill du uppgradera programmet utan att det påverkar tillgängligheten.
+Anta att du har ett projekt som heter **App1** som du har skapat med Service Fabric-plugin-programmet i Eclipse. För att distribuera projektet skapade du ett program med namnet **fabric:/App1Application** med hjälp av plugin-programmet. Program typen är **App1ApplicationType**och program versionen är 1,0. Nu vill du uppgradera programmet utan att det påverkar tillgängligheten.
 
 Gör ändringar i programmet och bygg sedan den ändrade tjänsten på nytt. Uppdatera manifestfilen (ServiceManifest.xml) för den ändrade tjänsten med de uppdaterade versionerna för tjänsten (samt kod, konfig eller data, om det behövs). Ändra också programmets manifest (ApplicationManifest.xml) med det uppdaterade versionsnumret för programmet och den ändrade tjänsten.  
 
@@ -230,9 +233,9 @@ Vi har nyligen flyttat Service Fabric Java-bibliotek från Service Fabric Java-S
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Snabbsteg på att bygga Java Reliable tjänstprogram och distribuera den lokalt och till Azure, se [snabbstarten: Distribuera ett Java Reliable Services-program](./service-fabric-quickstart-java-reliable-services.md).
-- Information om hur du felsöker ett Java-program i ditt lokala kluster, se [Felsök en Java-tjänst i Eclipse](./service-fabric-debugging-your-application-java.md).
-- Om du vill lära dig mer om att övervaka och diagnostisera Service Fabric-program, se [övervaka och diagnostisera tjänster i en inställning för utveckling av lokala dator](./service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md).
+- Snabb steg för att skapa Java Reliable service-program och distribuera det lokalt och till Azure finns [i snabb start: Distribuera ett Java-Reliable Services](./service-fabric-quickstart-java-reliable-services.md)program.
+- Information om hur du felsöker ett Java-program i ditt lokala kluster finns i [Felsöka en Java-tjänst i Sol förmörkelse](./service-fabric-debugging-your-application-java.md).
+- Information om hur du övervakar och diagnostiserar Service Fabric program finns i [övervaka och diagnostisera tjänster i en lokal dator utvecklings installation](./service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md).
 
 <!-- Images -->
 

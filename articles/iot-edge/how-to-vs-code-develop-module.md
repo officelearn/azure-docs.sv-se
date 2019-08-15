@@ -8,12 +8,12 @@ ms.author: xshi
 ms.date: 08/07/2019
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 2efda0e506cf0525b1a8ea868acca48a929f8f41
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: b63b68b7721dd848e6a72b3b7d9cfa38bf031b23
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68848290"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035089"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Använd Visual Studio Code för att utveckla och felsöka moduler för Azure IoT Edge
 
@@ -30,7 +30,7 @@ Den här artikeln innehåller instruktioner för att utveckla och felsöka modul
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Du kan använda en dator eller en virtuell dator som kör Windows, macOS eller Linux som utvecklings dator. En IoT Edge enhet kan vara en annan fysisk enhet.
+Du kan använda en dator eller en virtuell dator som kör Windows, macOS eller Linux som utvecklings dator. På Windows-datorer kan du utveckla antingen Windows-eller Linux-moduler. Om du vill utveckla Windows-moduler använder du en Windows-dator som kör version 1809/build 17763 eller senare. Om du vill utveckla Linux-moduler använder du en Windows-dator som uppfyller [kraven för Docker Desktop](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install). 
 
 Installera [Visual Studio Code](https://code.visualstudio.com/) först och Lägg sedan till följande tillägg:
 

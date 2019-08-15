@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/21/2019
+ms.date: 08/14/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c890288539a8abebe688ca4571ffa6c152e992ee
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: aefa6d21488b617b26ddefe5fa4fc61cdd203f96
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68694043"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69032535"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Självstudier: Lägga till ett lokalt program för fjärråtkomst via programproxy i Azure Active Directory
 
@@ -96,7 +96,7 @@ Tillåt åtkomst till följande webbadresser:
 | mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | Azure använder dessa URL: er för att verifiera certifikat. |
 | login.windows.net<br>login.microsoftonline.com<br>secure.aadcdn.microsoftonline-p.com  | Anslutningsprogrammet använder dessa webbadresser under registreringen. |
 
-Du kan tillåta anslutningar till \*. msappproxy.net och \*. ServiceBus.Windows.net om din brand vägg eller proxy låter dig konfigurera listan över tillåtna DNS-listor. Om inte måste du tillåta åtkomst till [Azure DataCenter IP-intervallen](https://www.microsoft.com/download/details.aspx?id=41653). IP-adressintervallen uppdateras varje vecka.
+Du kan tillåta anslutningar till \*. msappproxy.net och \*. ServiceBus.Windows.net om din brand vägg eller proxy låter dig konfigurera listan över tillåtna DNS-listor. Om inte, måste du tillåta åtkomst till [Azure IP-intervall och service märken – offentligt moln](https://www.microsoft.com/download/details.aspx?id=56519). IP-adressintervallen uppdateras varje vecka.
 
 ## <a name="install-and-register-a-connector"></a>Installera och registrera ett anslutningsprogram
 

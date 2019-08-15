@@ -44,9 +44,9 @@ sections:
         style: unordered
         items:
           - html: <a href="tutorial-1st-experiment-sdk-setup">Konfigurera din miljö och träna ditt första ML-experiment.</a>
-          - html: <a href="tutorial-train-models-with-aml">Träna och distribuera bildklassificeringsmodeller</a>.
-          - html: <a href="tutorial-data-prep">Förbered data och använda automatiserad ML för att förutsäga taxipriser</b>.</a>
-          - html: <a href="how-to-run-batch-predictions">Köra batchförutsägelser på stora datamängder med ML-pipelines</b>.</a>
+          - html: <a href="tutorial-train-models-with-aml">Träna och distribuera bildklassificeringsmodeller.</a>
+          - html: <a href="tutorial-data-prep">Förbered data och använda automatiserad ML för att förutsäga taxipriser.</b></a>
+          - html: <a href="how-to-run-batch-predictions">Köra batchförutsägelser på stora datamängder med ML-pipelines.</b></a>
   - title: Exempel
     items:
       - type: paragraph
@@ -56,10 +56,10 @@ sections:
       - type: list
         style: unordered
         items:
-          - html: '<a href="https://aka.ms/aml-sdk">Huvudsaklig SDK för Python</a>: huvudfunktioner, automatiserad maskininlärning, pipelines med mera'
-          - html: '<a href="https://aka.ms/aml-monitoring-sdk">Övervaka</a> SDK för Python: samla in data på distribuerade webbtjänster'
-          - html: <a href="../algorithm-module-reference/module-reference.md">Algoritm-och modulreferens</a> för det visuella gränssnittet
-          - html: '<a href="https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest">Azure ML CLI</a>: ett tillägg för kommandoradsgränssnittet för maskininlärning'
+          - html: '<a href="https://aka.ms/aml-sdk">Huvudsakliga dokument om SDK för Python</a>: huvudfunktioner, automatiserad ML, pipelines med mera.'
+          - html: '<a href="https://aka.ms/aml-monitoring-sdk">Övervaka</a> dokument om SDK för Python: lär dig att samla in data om distribuerade webbtjänster'
+          - html: Dokument om <a href="../algorithm-module-reference/module-reference.md">algoritm-och modulreferens</a> för det visuella gränssnittet.
+          - html: '<a href="https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest">Azure ML CLI</a>: lär dig om tillägget för kommandoradsgränssnittet för ML.'
   - title: Andra Azure Machine Learning-tekniker
     items:
       - type: list

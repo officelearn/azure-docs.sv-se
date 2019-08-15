@@ -25,6 +25,8 @@
       items:
         - name: Konfigurera geofence
           href: tutorial-geofence.md
+        - name: Rumslig analys
+          href: tutorial-iot-hub-maps.md
 - name: Begrepp
   items:
     - name: Autentisering med Azure Maps

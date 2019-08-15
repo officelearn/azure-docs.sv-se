@@ -20,10 +20,14 @@
       displayName: RBAC
     - name: Flytta ditt Automation-konto till en annan prenumeration
       href: how-to/move-account.md
+    - name: Automatisera registrering för Automation Services
+      href: /azure/architecture/cloud-adoption/operations/azure-server-management/onboarding-automation
 - name: Processautomatisering
   items:
     - name: Översikt över Hybrid Runbook Worker
       href: automation-hybrid-runbook-worker.md
+    - name: Runbook-galleri
+      href: automation-runbook-gallery.md
     - name: Begrepp
       items:
         - name: Runbook-typer
@@ -297,8 +301,6 @@
   items:
     - name: Skicka ett e-postmeddelande från en runbook med SendGrid
       href: automation-send-email.md
-    - name: Runbook-galleri
-      href: automation-runbook-gallery.md
     - name: Övervaka runbook-flöden med måttaviseringar
       href: automation-alert-metric.md
     - name: Starta ett runbook-flöde med Azure-aviseringar

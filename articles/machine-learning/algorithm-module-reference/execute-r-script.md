@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: peterlu
 ms.date: 06/01/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 710d64b445953ae3124830931c8cbb9315d32b83
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 3594d9670e8fb94b053479352fb88997caa16db6
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875716"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69016478"
 ---
 # <a name="execute-r-script"></a>Köra R-skript
 
@@ -76,8 +76,7 @@ Data uppsättningar lagrade i visuella gränssnitt konverteras automatiskt till 
 
 1.  Lägg till modulen **Kör R-skript** i experimentet.
 
-    > [!NOTE]
-    > Alla data som skickas till modulen **Kör R-skript** konverteras till R `data.frame` -formatet.
+  
 
 1. Anslut alla indata som behövs för skriptet. Indata är valfria och kan innehålla data och ytterligare R-kod.
 
@@ -90,10 +89,33 @@ Data uppsättningar lagrade i visuella gränssnitt konverteras automatiskt till 
 1. I text rutan **R-skript** skriver eller klistrar du in giltigt R-skript.
 
     För att hjälpa dig att komma igång fylls text rutan **R-skript** i förväg med exempel kod, som du kan redigera eller ersätta.
+    
+```R
+# R version: 3.5.1
+# The script MUST contain a function named azureml_main
+# which is the entry point for this module.
 
-    * Skriptet måste innehålla en funktion med namnet `azureml_main`, som är start punkten för den här modulen.
+# The entry point function can contain up to two input arguments:
+#   Param<dataframe1>: a R DataFrame
+#   Param<dataframe2>: a R DataFrame
+azureml_main <- function(dataframe1, dataframe2){
+  print("R script run.")
 
-    * Start punkts funktionen kan innehålla upp till två indataargument: `Param<dataframe1>` och`Param<dataframe2>`
+  # If a zip file is connected to the third input port, it is
+  # unzipped under "./Script Bundle". This directory is added
+  # to sys.path.
+
+  # Return datasets as a Named List
+  return(list(dataset1=dataframe1, dataset2=dataframe2))
+}
+```
+
+ * Skriptet måste innehålla en funktion med namnet `azureml_main`, som är start punkten för den här modulen.
+
+ * Start punkts funktionen kan innehålla upp till två indataargument: `Param<dataframe1>` och`Param<dataframe2>`
+ 
+   > [!NOTE]
+    > Data som skickas till modulen **Kör R-skript** refereras till som `dataframe1` och `dataframe2`, som skiljer sig från Azure Machine Learning Studio (Studio Reference as `dataset1`, `dataset2`). Kontrol lera att indata är korrekt referneced i skriptet.  
  
     > [!NOTE]
     >  Befintlig R-kod kan kräva mindre ändringar för att köras i ett visuellt gränssnitts experiment. Indata som du anger i CSV-format ska till exempel uttryckligen konverteras till en data uppsättning innan du kan använda den i din kod. Data-och kolumn typer som används i R-språket skiljer sig också på vissa sätt från data-och kolumn typerna som används i det visuella gränssnittet.
@@ -243,8 +265,8 @@ Den aktuella listan över förinstallerade R-paket som är tillgängliga för an
 | binder        | 0.1.1      | 
 | bindrcpp     | 0.2.2      | 
 | i överkant       | 1.0 – 6      | 
-| start         | 1.3 – 22     | 
-| Broom        | 0.5.2      | 
+| starta         | 1.3 – 22     | 
+| broom        | 0.5.2      | 
 | anropare        | 3.2.0      | 
 | tecken        | 6.0 – 84     | 
 | caTools      | 1.17.1.2   | 
@@ -252,7 +274,7 @@ Den aktuella listan över förinstallerade R-paket som är tillgängliga för an
 | Klass        | 7.3-15     | 
 | CLI          | 1.1.0      | 
 | klippare        | 0.6.0      | 
-| Flernodskluster      | 2.0.7-1    | 
+| kluster      | 2.0.7-1    | 
 | codetools    | 0,2 – 16     | 
 | colorspace   | 1.4-1      | 
 | kompilatorn     | 3.5.1      | 
@@ -280,7 +302,7 @@ Den aktuella listan över förinstallerade R-paket som är tillgängliga för an
 | gplots       | 3.0.1.1    | 
 | bild     | 3.5.1      | 
 | grDevices    | 3.5.1      | 
-| stödrastret         | 3.5.1      | 
+| rutnät         | 3.5.1      | 
 | gtable       | 0.3.0      | 
 | gtools       | 3.8.1      | 
 | Jag        | 2.1.0      | 

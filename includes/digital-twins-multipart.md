@@ -5,34 +5,34 @@ services: digital-twins
 author: kingdomofends
 ms.service: digital-twins
 ms.topic: include
-ms.date: 01/11/2019
-ms.author: adgera
+ms.date: 08/12/2019
+ms.author: v-adgera
 ms.custom: include file
-ms.openlocfilehash: ac6b008597b6d6e557a0cc412c00c2202231bc3d
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: f9b1b32775393196a77bef3aa2257f6fb66afdcb
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187983"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "69012294"
 ---
 > [!NOTE]
-> Flera delar begäranden kräver vanligtvis tre uppgifter:
-> * En **Content-Type** rubrik:
+> Multipart-begäranden kräver vanligt vis tre delar:
+> * Ett rubrik för **innehålls typ** :
 >   * `application/json; charset=utf-8`
 >   * `multipart/form-data; boundary="USER_DEFINED_BOUNDARY"`
-> * En **Content-Disposition**:
+> * En **innehålls-disposition**:
 >   * `form-data; name="metadata"`
-> * Filinnehållet att ladda upp
+> * Fil innehållet att ladda upp
 >
-> **Content-Type** och **Content-Disposition** varierar beroende på scenario för användning.
+> **Content-Type** och **Content-disposition** varierar beroende på användnings scenario.
 
-Flera delar begäranden kan göras via programmering (via C#), via ett REST-klient eller verktyg som [Postman](https://docs.microsoft.com/azure/digital-twins/how-to-configure-postman#multi). REST-klientverktyg kan ha olika supportnivåer för komplexa begäranden i flera delar. Konfigurationsinställningar kan också variera något från verktyget till verktyget. Kontrollera vilket verktyg som passar bäst för dina behov.
+Multipart-begäranden kan göras via programmering (via C#), via en rest-klient eller verktyg som [Postman](https://docs.microsoft.com/azure/digital-twins/how-to-configure-postman#multi). REST-klient verktyg kan ha olika stöd nivåer för komplexa multipart-begäranden. Konfigurations inställningarna kan också variera något från verktyg till verktyg. Kontrol lera vilket verktyg som passar bäst för dina behov.
 
 > [!IMPORTANT]
-> Flera delar begäranden som görs till Azure Digital Twins Management API: er vanligtvis består av två delar:
-> * Blobbmetadata (till exempel en tillhörande mimetyp) som har deklarerats av **Content-Type** och/eller **Content-Disposition**
-> * Blobbinnehåll bland annat Ostrukturerade innehållet i en fil som ska laddas upp
+> Multipart-begäranden som görs till Azure Digitals dubbla hanterings-API: er har vanligt vis två delar:
+> * BLOB-metadata (t. ex. en associerad MIME-typ) som är deklarerad av **innehålls typ** och/eller **innehålls-disposition**
+> * BLOB-innehåll som inkluderar ostrukturerat innehåll i en fil som ska överföras
 >
-> Ingen av de två delarna som krävs för **KORRIGERA** begäranden. Båda värdena krävs för **POST** eller skapa-åtgärder.
+> Ingen av de två delarna krävs för **korrigerings** begär Anden. Båda krävs för **post** -eller skapande åtgärder.
 
-Den [användandet Snabbstart källkoden](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/api/update.cs) innehåller fullständig C# exempel visas hur du begär multipart mot Azure Digital Twins Management API: erna.
+Käll koden för att använda [snabb starts guiden](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/api/update.cs) innehåller fullständiga C# exempel som demonstrerar hur du gör multipart-begäranden mot Azure Digitals hanterings-API: er.

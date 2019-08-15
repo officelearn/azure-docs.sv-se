@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08be09f7bee3aa17ff9d1baae4271e994fa235cb
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 3b7265f8d5ec4b7336253787e9cb881900a52b79
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68248872"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68963452"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Metod tips för villkorlig åtkomst i Azure Active Directory
 
@@ -35,7 +35,7 @@ När du skapar en ny princip finns det inga användare, grupper, appar eller åt
 
 För att principen ska fungera måste du konfigurera:
 
-| Vad           | vilken                                  | Varför |
+| Vad           | Vilken                                  | Varför |
 | :--            | :--                                  | :-- |
 | **Molnappar** |Välj en eller flera appar.  | Målet med en princip för villkorlig åtkomst är att du ska kunna styra hur auktoriserade användare kan komma åt molnappar.|
 | **Användare och grupper** | Välj minst en användare eller grupp som har behörighet att komma åt dina valda molnappar. | En princip för villkorlig åtkomst som inte har några tilldelade användare och grupper utlöses aldrig. |
@@ -50,7 +50,8 @@ Mer än en princip för villkorlig åtkomst kan gälla när du öppnar en molnba
 Alla principer tillämpas i två faser:
 
 - I den **första** fasen utvärderas alla principer och alla åtkomst kontroller som inte är uppfyllda samlas in. 
-- I den **andra** fasen uppmanas du att uppfylla de krav som du inte har uppfyllt. Om någon av principerna blockerar åtkomsten är du blockerad och uppmanas inte att uppfylla andra princip kontroller. Om principer blockerar dig uppmanas du att uppfylla andra princip kontroller i följande ordning:
+
+- I den **andra** fasen uppmanas du att uppfylla de krav som du inte har uppfyllt. Om någon av principerna blockerar åtkomsten är du blockerad och uppmanas inte att uppfylla andra princip kontroller. Om ingen av principerna blockerar dig uppmanas du att uppfylla andra princip kontroller i följande ordning:
 
    ![Beställa](./media/best-practices/06.png)
     

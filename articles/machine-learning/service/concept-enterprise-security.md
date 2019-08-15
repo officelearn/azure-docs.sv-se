@@ -10,18 +10,18 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/07/2019
-ms.openlocfilehash: d1ad89943f6acfec6e42199ef399643be12e2b8b
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: ebecb69e57c620b2eb84568757c8e3e6f1cb1663
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68856218"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946396"
 ---
 # <a name="enterprise-security-for-azure-machine-learning-service"></a>Företags säkerhet för Azure Machine Learning-tjänsten
 
 I den här artikeln får du lära dig om säkerhetsfunktioner som är tillgängliga i Azure Machine Learning-tjänsten.
 
-När du använder en moln tjänst är det bästa praxis att begränsa åtkomsten till de användare som behöver den. Detta börjar med att förstå autentiserings-och auktoriserings modellen som används av tjänsten. Du kanske också vill begränsa nätverks åtkomsten eller på ett säkert sätt ansluta resurser i det lokala nätverket med dem i molnet. Data kryptering är också viktigt, både i vila och medan data flyttas mellan tjänster. Slutligen måste du kunna övervaka tjänsten och skapa en Gransknings logg för all aktivitet.
+När du använder en moln tjänst är det bästa praxis att begränsa åtkomsten till de användare som behöver den. Detta börjar med att förstå autentiserings-och auktoriserings modellen som används av tjänsten. Du kanske också vill begränsa nätverks åtkomsten eller på ett säkert sätt ansluta resurser i ditt lokala nätverk till molnet. Data kryptering är också viktigt, både i vila och medan data flyttas mellan tjänster. Slutligen måste du kunna övervaka tjänsten och skapa en Gransknings logg för all aktivitet.
 
 ## <a name="authentication"></a>Authentication
 
@@ -29,7 +29,7 @@ Multi Factor Authentication stöds om Azure Active Directory (Azure AD) har kon 
 
 * Klient loggar in i Azure AD och hämtar Azure Resource Manager-token.  Användare och tjänstens huvud namn stöds fullt ut.
 * Klienten presenterar token för att Azure Resource Manager & alla Azure Machine Learning tjänster
-* Azure Machine Learning tjänsten tillhandahåller en Azure Machine Learning token för användar beräkningen. Till exempel Machine Learning-beräkning. Detta Azure Machine Learning token används av användar beräkning för att anropa tillbaka till Azure Machine Learning-tjänsten (gränser omfång till arbets yta) när körningen har slutförts.
+* Azure Machine Learning tjänsten tillhandahåller en Azure Machine Learning token för användar beräkningen. Till exempel Machine Learning-beräkning. Denna token används av användar beräkning för att anropa i Azure Machine Learning-tjänsten (gränser omfång till arbets yta) när körningen har slutförts.
 
 ![Skärm bild som visar hur autentisering fungerar i Azure Machine Learning-tjänsten](./media/enterprise-readiness/authentication.png)
 
@@ -159,8 +159,8 @@ Alla behållar avbildningar i registret (ACR) är krypterade i vila. Azure krypt
 
 #### <a name="machine-learning-compute"></a>Machine Learning-beräkning
 
-Operativ system disken för varje Compute-nod lagras i Azure Storage krypteras med hjälp av Microsoft-hanterade nycklar i Azure Machine Learning tjänst lagrings konton. Den här beräkningen är tillfällig och kluster skalas vanligt vis ned när det inte finns några sekvenser i kön. Den underliggande virtuella datorn har tagits bort och OS-disken har tagits bort. Det finns inte stöd för Azure Disk Encryption för OS-disken.
-Varje virtuell dator har också en lokal temporär disk för OS-åtgärder. Du kan också använda den här disken för att mellanlagra tränings data. Disken är inte krypterad.
+Operativ system disken för varje Compute-nod lagras i Azure Storage krypteras med hjälp av Microsoft-hanterade nycklar i Azure Machine Learning tjänst lagrings konton. Detta beräknings mål är tillfälligt och kluster skalas vanligt vis ned när det inte finns några sekvenser i kön. Den underliggande virtuella datorn har tagits bort och OS-disken har tagits bort. Det finns inte stöd för Azure Disk Encryption för OS-disken.
+Varje virtuell dator har också en lokal temporär disk för OS-åtgärder. Disken kan också användas för att mellanlagra tränings data. Disken är inte krypterad.
 Mer information om hur kryptering i vila fungerar i Azure finns i [Azure Data Encryption-at-rest](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest).
 
 ### <a name="encryption-in-transit"></a>Kryptering under överföring
@@ -199,7 +199,12 @@ Följande skärm bild visar aktivitets loggen för en arbets yta:
 
 ![Skärm bild som visar aktivitets loggen under en arbets yta](./media/enterprise-readiness/workspace-activity-log.png)
 
-Information om bedömnings förfrågningar lagras i AppInsights, som skapas i användarens prenumeration när arbets ytan skapas. Detta inkluderar fält som HTTPMethod, UserAgent, ComputeType, RequestUrl, StatusCode, RequestId, varaktighet osv.
+Information om bedömnings förfrågningar lagras i program insikter, som skapas i användarens prenumeration när arbets ytan skapas. Loggad information innehåller fält som HTTPMethod, UserAgent, ComputeType, RequestUrl, StatusCode, RequestId, varaktighet osv.
+
+> [!IMPORTANT]
+> Vissa åtgärder i Azure Machine Learning-arbetsytan loggar inte information i aktivitets loggen. Du kan till exempel starta en utbildning för att köra eller registrera en modell.
+>
+> Några av de här åtgärderna visas i området __aktiviteter__ i din arbets yta, men de visar inte vem som initierade aktiviteten.
 
 ## <a name="data-flow-diagram"></a>Data flödes diagram
 
@@ -220,7 +225,7 @@ Andra beräkningar som är kopplade till en arbets yta (Azure Kubernetes service
 ### <a name="save-source-code-training-scripts"></a>Spara käll kod (tränings skript)
 
 Följande diagram visar arbets flödet för kod ögonblicks bilder.
-Kopplade till en Azure Machine Learning service-arbetsyta är kataloger (experiment) som innehåller käll koden (utbildnings skript).  De lagras på kundens lokala dator och i molnet (i Azure-Blob Storage under kund prenumerationen). De här kod ögonblicks bilderna används för körning eller inspektion för historisk granskning.
+Kopplade till en Azure Machine Learning service-arbetsyta är kataloger (experiment) som innehåller käll koden (utbildnings skript).  Dessa skript lagras på kundens lokala dator och i molnet (i Azure-Blob Storage under kund prenumerationen). Kod ögonblicks bilderna används för körning eller inspektion för historisk granskning.
 
 ![Skärm bild som visar arbets ytan skapa arbets yta](./media/enterprise-readiness/code-snapshot.png)
 
@@ -233,12 +238,12 @@ I följande diagram visas arbets flödet för utbildning.
 * Du kan välja antingen en hanterad beräkning (t. ex. Machine Learning-beräkning) eller ohanterad beräkning (t. ex. VM) för att köra dina utbildnings jobb. Data flödet förklaras för båda scenarierna nedan:
 * (VM/HDInsight – nås med SSH-autentiseringsuppgifter i Key Vault i Microsoft-prenumerationen) Azure Machine Learnings tjänsten kör hanterings kod på Compute Target som:
 
-   1. Förbereder miljön. (Observera att Docker är ett alternativ för virtuell dator och även lokalt. Se följande steg för att Machine Learning-beräkning förstå hur du kan experimentera med Docker-behållaren.)
+   1. Förbereder miljön. (Docker är ett alternativ för virtuell dator och även lokalt. Se följande steg för att Machine Learning-beräkning förstå hur du kan experimentera med Docker-behållaren.)
    1. Laddar ned koden.
    1. Ställer in miljövariabler och konfigurationer.
    1. Kör användar skript (kod ögonblicks bild som nämns ovan).
 
-* (Machine Learning-beräkning – nås med hjälp av arbets ytans hanterade identitet) Observera att eftersom Machine Learning-beräkning är en hanterad beräkning som är den hanteras av Microsoft, vilket leder till att den körs under Microsoft-prenumerationen.
+* (Machine Learning-beräkning – nås med hjälp av arbets ytans hanterad identitet) Eftersom Machine Learning-beräkning är en hanterad beräkning som är, hanteras den av Microsoft, vilket leder till att den körs under Microsoft-prenumerationen.
 
    1. Fjärrdockans konstruktion har inaktiverats, om det behövs.
    1. Skriver hanterings kod till användar-Azure-FileShare.
@@ -259,7 +264,7 @@ Se information nedan:
 * Användaren skapar avbildning med hjälp av modell, resultat fil och andra modell beroenden
 * Docker-avbildningen skapas och lagras i ACR
 * Webservice distribueras till Compute Target (ACI/AKS) med avbildningen som skapats ovan
-* Information om bedömnings förfrågningar lagras i AppInsights, som finns i användarens prenumeration
+* Information om bedömnings förfrågningar lagras i program insikter, som finns i användarens prenumeration
 * Telemetri skickas vidare till Microsoft/Azure-prenumerationen
 
 ![Skärm bild som visar arbets ytan skapa arbets yta](./media/enterprise-readiness/inferencing.png)

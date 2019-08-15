@@ -2,26 +2,22 @@
 title: Köra bakgrunds aktiviteter med webbjobb – Azure App Service
 description: Lär dig hur du använder WebJobs för att köra bakgrunds aktiviteter i Azure App Service webbappar, API Apps eller mobilappar.
 services: app-service
-documentationcenter: ''
 author: ggailey777
 manager: jeconnoc
 editor: jimbe
 ms.assetid: af01771e-54eb-4aea-af5f-f883ff39572b
 ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: glenga
 ms.reviewer: msangapu;david.ebbo;suwatch;pbatum;naren.soni
 ms.custom: seodec18
-ms.openlocfilehash: 55d040e96b92f73a632fd415220f9cf135335736
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 66c1b62dc94fc071d3b04fc0d4e89220df74d1f8
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68850995"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945809"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Kör bakgrunds aktiviteter med WebJobs i Azure App Service
 
@@ -165,7 +161,7 @@ when making changes in one don't forget the other two.
    | **Fil uppladdning** | ConsoleApp. zip | En *zip* -fil som innehåller din körbara fil eller skript fil samt alla stödfiler som behövs för att köra programmet eller skriptet. Den körbara filen eller skript fil typerna som stöds finns i avsnittet filtyper som [stöds](#acceptablefiles) . |
    | **Bastyp** | Utlöst | [Webb jobbs typerna](#webjob-types) beskrivs tidigare i den här artikeln. |
    | **Utlösar** | Schemalagd | Aktivera funktionen Always on för att schemalägga arbetet på ett tillförlitligt sätt. Always On är bara tillgängligt på pris nivåerna Basic, standard och Premium.|
-   | **CRON-uttryck** | 0 0/20 * * * * | [Cron-uttryck](#cron-expressions) beskrivs i följande avsnitt. |
+   | **CRON-uttryck** | 0 0/20 * * * * | [Cron-uttryck](#ncrontab-expressions) beskrivs i följande avsnitt. |
 
 4. Klicka på **OK**.
 

@@ -1,41 +1,43 @@
 ---
-title: Alternativ för data Överför till Azure med hjälp av en installation | Microsoft Docs
-description: Lär dig hur du väljer rätt installationen att överföra data till Azure
+title: Alternativ för data överföring till Azure med hjälp av en apparat | Microsoft Docs
+description: Lär dig hur du väljer rätt apparat för att överföra data till Azure
 services: storsimple
 author: alkohli
 ms.service: storsimple
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: d727ed62f5a869f6eb67400281d2660607756abf
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9456d975ffb6d7726166f9badbcb8fe0ccbe5256
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60637509"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68965349"
 ---
-# <a name="compare-storsimple-with-azure-file-sync-and-data-box-edge-data-transfer-options"></a>Jämför StorSimple med Azure File Sync och Data Box Edge alternativ för överföring 
+# <a name="compare-storsimple-with-azure-file-sync-and-data-box-edge-data-transfer-options"></a>Jämför StorSimple med alternativ för Azure File Sync och Data Box Edge data överföring 
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
  
-Det här dokumentet innehåller en översikt över alternativ för att överföra data för lokala till Azure, jämföra: Data Box Edge vs. Jämfört med Azure File Sync StorSimple 8000-serien.
+Det här dokumentet innehåller en översikt över alternativ för lokal data överföring till Azure, som jämför: Data Box Edge vs. Azure File Sync vs. StorSimple 8000-serien.
 
-- **[Data Box Edge](/azure/databox-online/data-box-edge-overview)**  – Data Box Edge är en lokal nätverksenhet som flyttar data till och från Azure och har AI-aktiverade Edge-beräkning att Förbearbeta data under överföringen. Data Box-Gateway är en virtuell version av enheten med samma funktioner för överföring av data.
-- **[Azure File Sync](/azure/storage/files/storage-sync-files-deployment-guide)**  – Azure File Sync kan användas för att centralisera din organisations filresurser i Azure Files, samtidigt som den flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure File Sync omvandlar Windows Server till ett snabbt cacheminne för din Azure-filresurs. Allmän tillgänglighet för Azure File Sync lanserades tidigare i 2018.
-- **[StorSimple](/azure/storsimple/storsimple-overview)**  – StorSimple är en hybrid-enhet som hjälper företag att konsolidera sina lagringsinfrastrukturen för primär lagring, dataskydd, arkivering och katastrofåterställning på en enda lösning genom nära integrering med Azure storage. Produktens hela livscykel för StorSimple finns [här](https://support.microsoft.com/lifecycle/search?alpha=Azure%20StorSimple%208000%20Series).
+- **[Data Box Edge](/azure/databox-online/data-box-edge-overview)** – data Box Edge är en lokal nätverks enhet som flyttar data till och från Azure och har AI-aktiverad Edge-beräkning för att Förbearbeta data under uppladdningen. Data Box Gateway är en virtuell version av enheten med samma funktioner för data överföring.
+- **[Azure File Sync](/azure/storage/files/storage-sync-files-deployment-guide)** – Azure File Sync kan användas för att centralisera organisationens fil resurser i Azure Files, samtidigt som du behåller flexibilitet, prestanda och kompatibilitet för en lokal fil server. Azure File Sync transformerar Windows Server till ett snabbt cacheminne för Azure-filresursen. Allmän tillgänglighet för Azure File Sync annonserades tidigare i 2018.
+- **[StorSimple](/azure/storsimple/storsimple-overview)** – StorSimple är en hybrid enhet som hjälper företag att konsolidera sin lagrings infrastruktur för primär lagring, data skydd, arkivering och haveri beredskap på en enskild lösning genom att noggrant integrera med Azure Storage. Produktens livs cykel för StorSimple hittar du [här](https://support.microsoft.com/lifecycle/search?alpha=Azure%20StorSimple%208000%20Series).
 
-## <a name="comparison-summary"></a>Jämförelse av sammanfattning
+## <a name="comparison-summary"></a>Jämförelse Sammanfattning
 
 |                           |StorSimple 8000   |Azure File Sync   |Data Box Edge           |
 |---------------------------|----------------------------------------|-------------------------------|-----------------------------------------|
-|Översikt         |Nivåer hybridlagring och arkivering|Allmän lagring på filserver med lagringsnivåer och flera platser molnsynkronisering.  |Lagringslösning att Förbearbeta data och skicka den via nätverket till Azure.        |
-|Scenarier        |Filservern, arkivering, säkerhetskopiering mål |Filservern, arkivering (flera platser)   |Dataöverföring, data före bearbetnings inklusive ML inferensjobb, IoT, arkivering    |
-|Edge-beräkning     |Inte tillgängligt |Inte tillgängligt |Stöder behållare med hjälp av Azure IoT Edge    |
-|Formfaktor      |Fysisk enhet   |Agenten har installerats på Windows Server |Fysisk enhet   |
-|Maskinvara         |Fysisk enhet som tillhandahålls från Microsoft som en del av tjänsten | Tillhandahållna av kunden |Fysisk enhet som tillhandahålls från Microsoft som en del av tjänsten  |
-|Dataformat      |Anpassat format   |Filer         |BLOB-objekt eller filer    |
-|Protokollstöd |iSCSI          |SMB, NFS    | SMB- eller NFS      |
+|Översikt         |Nivå hybrid lagring och arkivering|Allmän fil Server lagring med moln nivåer och synkronisering på flera platser.  |Lagrings lösning för att Förbearbeta data och skicka den via nätverket till Azure.        |
+|Scenarier        |Fil server, arkivering, säkerhets kopierings mål |Fil server, arkivering (flera platser)   |Data överföring, för bearbetning av data, inklusive ML inferencing, IoT, arkivering    |
+|Databehandling på gränsenheter     |Saknas |Saknas |Stöder körning av behållare med hjälp av Azure IoT Edge    |
+|Form faktor      |Fysisk enhet   |Agent som är installerad på Windows Server |Fysisk enhet   |
+|Maskinvara         |Fysisk enhet som tillhandahålls från Microsoft som en del av tjänsten | Kunden tillhandahöll |Fysisk enhet som tillhandahålls från Microsoft som en del av tjänsten  |
+|Dataformat      |Anpassat format   |Filer         |Blobbar eller filer    |
+|Protokoll stöd |iSCSI          |SMB, NFS    | SMB eller NFS      |
 |Prissättning          |[StorSimple](https://azure.microsoft.com/pricing/details/storsimple/) |[Azure File Sync](https://azure.microsoft.com/pricing/details/storage/files/)  |[Data Box Edge](https://azure.microsoft.com/pricing/details/storage/databox/edge/)  |
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig mer om [Edge om Azure Data Box](/azure/databox-online/data-box-edge-overview) och [Gateway om Azure Data Box](/azure/databox-online/data-box-gateway-overview)
-- Lär dig mer om [Azure File Sync](/azure/storage/files/storage-sync-files-deployment-guide)
+- Lär dig mer om [Azure Data Box Edge](/azure/databox-online/data-box-edge-overview) och [Azure Data Box Gateway](/azure/databox-online/data-box-gateway-overview)
+- Läs mer om [Azure File Sync](/azure/storage/files/storage-sync-files-deployment-guide)

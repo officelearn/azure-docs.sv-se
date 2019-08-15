@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 07/09/2019
-ms.openlocfilehash: 4b1a551ea2dd62d428fee6a7be475472235a3994
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 131333f140518f6fb2f63f17d0aa72692dc7d49a
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569603"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935072"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>Skapa och använda aktiv geo-replikering
 
@@ -76,7 +76,7 @@ För att uppnå verklig affärs kontinuitet är det bara en del av lösningen at
 > [!NOTE]
 > Logg omuppspelningen fördröjs på den sekundära databasen om det finns schema uppdateringar på den primära. Den senare kräver ett schema lås på den sekundära databasen.
 > [!IMPORTANT]
-> Du kan använda geo-replikering för att skapa en sekundär databas i samma region som den primära. Du kan använda den här sekundära för att belastningsutjämna en skrivskyddad arbets belastning i samma region. En sekundär databas i samma region ger dock inte ytterligare fel återhämtning och är därför inte ett lämpligt failover-mål för haveri beredskap. Det garanterar inte heller att avaialability zon isolering. Använd tjänst nivån verksamhets kritisk eller Premium med [Zone-redundant konfiguration](sql-database-high-availability.md#zone-redundant-configuration) för att uppnå avaialability zon isolering.   
+> Du kan använda geo-replikering för att skapa en sekundär databas i samma region som den primära. Du kan använda den här sekundära för att belastningsutjämna en skrivskyddad arbets belastning i samma region. En sekundär databas i samma region ger dock inte ytterligare fel återhämtning och är därför inte ett lämpligt failover-mål för haveri beredskap. Det kommer inte heller att garantera isolering av tillgänglighets zoner. Använd tjänst nivån verksamhets kritisk eller Premium med [Zone-redundant konfiguration](sql-database-high-availability.md#zone-redundant-configuration) för att uppnå isolering av tillgänglighets zoner.   
 >
 
 - **Planerad redundans**

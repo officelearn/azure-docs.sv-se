@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/31/2019
 ms.author: rolyon
 ms.custom: include file
-ms.openlocfilehash: db16a2f122da1bf6c767e0a47c93c22f1882c406
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 154d71c9cbc109834a5854b46c3e6584dcefa7eb
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68817251"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68968946"
 ---
 ### <a name="policy-for-users-in-your-directory"></a>Princip: För användare i din katalog
 
@@ -35,7 +35,7 @@ Följ dessa steg om du vill att principen ska vara för användare i din katalog
 
 ### <a name="policy-for-users-not-in-your-directory"></a>Princip: För användare som inte är i din katalog
 
-Följ dessa steg om du vill att principen ska vara för användare som inte tillhör din katalog som kan begära det här åtkomst paketet. **Användare som inte finns i katalogen** avser användare som finns i en annan Azure AD-katalog och har kanske inte bjudits in till din katalog ännu.  Kataloger måste konfigureras för att tillåtas i inställningarna för **samarbets begränsningar för organisations relationer** .
+Följ dessa steg om du vill att principen ska vara för användare som inte tillhör din katalog som kan begära det här åtkomst paketet. **Användare som inte finns i katalogen** avser användare som finns i en annan Azure AD-katalog och har kanske inte bjudits in till din katalog ännu. För närvarande kan du bara lägga till användare från organisationer som har Azure AD. Kataloger måste konfigureras för att tillåtas i inställningarna för **samarbets begränsningar för organisations relationer** .
 
 > [!NOTE]
 > Ett externt gäst användar konto skapas för en användare som ännu inte finns i katalogen vars förfrågan godkänns eller godkänns automatiskt. Gästen kommer att bjudas in, men får ingen inbjudan via e-post. I stället får de ett e-postmeddelande när deras tilldelning av åtkomst paket levereras. Senare när gäst användaren inte längre har några åtkomst paket tilldelningar, eftersom deras senaste tilldelning har gått ut eller avbrutits, kommer gäst användar kontot att blockeras från att logga in och sedan tas bort. Om du vill att gäst användare ska finnas kvar i din katalog på obestämd tid, även om de inte har några åtkomst paket, kan du ändra inställningarna för konfiguration av rättighets hantering.

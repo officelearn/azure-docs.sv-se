@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91cc2707034eabf85afae70278f2448b77d3ee14
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 413df402d5acc878130a47821efd5fa3a512257d
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68608068"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68931939"
 ---
 # <a name="baseline-policy-block-legacy-authentication-preview"></a>Bas linje princip: Blockera äldre autentisering (för hands version)
 
@@ -37,7 +37,7 @@ Innan du kan blockera äldre autentisering i din katalog måste du först först
 
 1. Navigera till **Azure Portal** > **Azure Active Directory** > **inloggningar**.
 1. Lägg till kolumnen klient program om den inte visas genom att klicka på **kolumner** > **klient program**.
-1. Filtrera efter andra **klient program** > **klienter** och klicka på **Använd**.
+1. **Lägg till filter** > **klient program** > Välj alla alternativ för **andra klienter** och klicka på **Använd**.
 
 Vid filtrering visas bara inloggnings försök som gjorts av äldre autentiseringsprotokoll. Om du klickar på varje enskilt inloggnings försök visas ytterligare information. Fältet **klient app** på fliken **grundläggande information** visar vilket äldre autentiseringsprotokoll som användes.
 

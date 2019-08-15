@@ -5,48 +5,48 @@ services: functions
 documentationcenter: na
 author: craigshoemaker
 manager: gwallace
-keywords: Azure functions, funktioner, händelse bearbetning, webhooks, dynamisk beräkning, serverlös arkitektur, HTTP, API, REST
+keywords: Azure Functions, functions, Event Processing, Webhooks, Dynamic Compute, Server lös arkitektur, HTTP, API, REST
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 53626c1d8fe0b9301883280a9f0925eb38ad1d99
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 4aadac343e023e68432741c1f1231bc0ec9fe0ea
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67480456"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990190"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Azure Functions HTTP-utlösare och bindningar
 
-Den här artikeln förklarar hur du arbetar med HTTP-utlösare och utdatabindningar i Azure Functions.
+Den här artikeln förklarar hur du arbetar med HTTP-utlösare och utgående bindningar i Azure Functions.
 
-En HTTP-utlösare kan anpassas för att svara på [webhooks](https://en.wikipedia.org/wiki/Webhook).
+En HTTP-utlösare kan anpassas [](https://en.wikipedia.org/wiki/Webhook)för att svara på Webhooks.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 [!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
 
-Koden i den här artikeln som standard Functions 2.x syntax som använder .NET Core. Information om 1.x-syntax finns i den [1.x fungerar mallar](https://github.com/Azure/azure-functions-templates/tree/v1.x/Functions.Templates/Templates).
+Koden i den här artikeln används som standard för functions 2. x-syntax som använder .NET Core. Information om syntaxen för 1. x finns i mallarna för [1. x-funktioner](https://github.com/Azure/azure-functions-templates/tree/v1.x/Functions.Templates/Templates).
 
 ## <a name="packages---functions-1x"></a>Paket - instruktion i 1.x-funktioner
 
-HTTP-bindningar finns i den [Microsoft.Azure.WebJobs.Extensions.Http](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http) NuGet-paketet, version 1.x. Källkoden för paketet finns i den [azure-webjobs-sdk-tilläggen](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/v2.x/src/WebJobs.Extensions.Http) GitHub-lagringsplatsen.
+HTTP-bindningarna finns i [Microsoft. Azure. WebJobs. Extensions. http](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http) NuGet-paketet, version 1. x. Käll koden för paketet finns i [Azure-WebJobs-SDK-Extensions GitHub-](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/v2.x/src/WebJobs.Extensions.Http) lagringsplatsen.
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
 ## <a name="packages---functions-2x"></a>Paket - fungerar 2.x
 
-HTTP-bindningar finns i den [Microsoft.Azure.WebJobs.Extensions.Http](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http) NuGet-paketet, version 3.x. Källkoden för paketet finns i den [azure-webjobs-sdk-tilläggen](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Http/) GitHub-lagringsplatsen.
+HTTP-bindningarna finns i [Microsoft. Azure. WebJobs. Extensions. http NuGet-](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http) paketet, version 3. x. Käll koden för paketet finns i [Azure-WebJobs-SDK-Extensions GitHub-](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Http/) lagringsplatsen.
 
 [!INCLUDE [functions-package](../../includes/functions-package-auto.md)]
 
 ## <a name="trigger"></a>Utlösare
 
-HTTP-utlösare kan du anropa en funktion med en HTTP-begäran. Du kan använda en HTTP-utlösare för att skapa serverfria API: er och svara på webhookar.
+Med HTTP-utlösaren kan du anropa en funktion med en HTTP-begäran. Du kan använda en HTTP-utlösare för att bygga API: er utan server och svara på Webhooks.
 
-Som standard returnerar en HTTP-utlösare HTTP 200 OK utan en brödtext i Functions 1.x eller HTTP 204 inget innehåll utan en brödtext i Functions 2.x. Om du vill ändra svarstypen, konfigurera en [HTTP-utdatabindning](#output).
+Som standard returnerar en HTTP-utlösare HTTP 200 OK med en tom brödtext i funktioner 1. x eller HTTP 204 inget innehåll med en tom brödtext i funktionerna 2. x. Konfigurera en [http-utgående bindning](#output)om du vill ändra svaret.
 
 ## <a name="trigger---example"></a>Utlösare - exempel
 
@@ -61,7 +61,7 @@ Se exempel språkspecifika:
 
 ### <a name="trigger---c-example"></a>Utlösare – C#-exempel
 
-I följande exempel visas en [C#-funktion](functions-dotnet-class-library.md) som söker efter en `name` parameter i frågesträngen eller brödtexten i HTTP-begäran. Observera att det returnera värdet används för utdata-bindning, men krävs inte ett returvärde attribut.
+I följande exempel visas en [ C# funktion](functions-dotnet-class-library.md) som söker efter en `name` parameter antingen i frågesträngen eller i bröd texten i http-begäran. Observera att returvärdet används för utgående bindning, men ett attribut för retur värde är inte obligatoriskt.
 
 ```cs
 [FunctionName("HttpTriggerCSharp")]
@@ -85,7 +85,7 @@ public static async Task<IActionResult> Run(
 
 ### <a name="trigger---c-script-example"></a>Utlösare – exempel på C#-skript
 
-I följande exempel visas en utlösare-bindning i en *function.json* fil och en [C#-skriptfunktion](functions-reference-csharp.md) som använder bindningen. Funktionen söker efter en `name` parameter i frågesträngen eller brödtexten i HTTP-begäran.
+I följande exempel visas en trigger-bindning i en *Function. JSON* -fil och en [ C# skript funktion](functions-reference-csharp.md) som använder bindningen. Funktionen söker efter en `name` parameter i frågesträngen eller bröd texten i http-begäran.
 
 Här är den *function.json* fil:
 
@@ -114,7 +114,7 @@ Här är den *function.json* fil:
 
 Den [configuration](#trigger---configuration) förklaras de här egenskaperna.
 
-Här är C#-skriptkoden som binder till `HttpRequest`:
+Här är C# skript koden som binder till `HttpRequest`:
 
 ```cs
 #r "Newtonsoft.Json"
@@ -140,7 +140,7 @@ public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
 }
 ```
 
-Du kan bindas till ett anpassat objekt i stället för `HttpRequest`. Det här objektet skapas från brödtexten i begäran och parsade som JSON. På samma sätt kan kan en typ skickas till HTTP-svaret utdata bindning och returneras som svarstexten, tillsammans med statuskoden 200.
+Du kan binda till ett anpassat objekt i stället `HttpRequest`för. Det här objektet skapas från bröd texten i begäran och tolkas som JSON. På samma sätt kan en typ skickas till HTTP-svarets utgående bindning och returneras som svars text, tillsammans med en status kod för 200.
 
 ```csharp
 using System.Net;
@@ -161,7 +161,7 @@ public class Person {
 
 ### <a name="trigger---f-example"></a>Utlösare – F# exempel
 
-I följande exempel visas en utlösare-bindning i en *function.json* fil och en [ F# funktionen](functions-reference-fsharp.md) som använder bindningen. Funktionen söker efter en `name` parameter i frågesträngen eller brödtexten i HTTP-begäran.
+I följande exempel visas en trigger-bindning i en *Function. JSON* -fil och en [ F# funktion](functions-reference-fsharp.md) som använder bindningen. Funktionen söker efter en `name` parameter i frågesträngen eller bröd texten i http-begäran.
 
 Här är den *function.json* fil:
 
@@ -210,7 +210,7 @@ let Run(req: HttpRequestMessage) =
     } |> Async.StartAsTask
 ```
 
-Du behöver en `project.json` -fil som använder NuGet för att referera till den `FSharp.Interop.Dynamic` och `Dynamitey` sammansättningar, som visas i följande exempel:
+Du behöver en `project.json` fil som använder NuGet för att `FSharp.Interop.Dynamic` referera till `Dynamitey` -och-sammansättningarna, som du ser i följande exempel:
 
 ```json
 {
@@ -227,7 +227,7 @@ Du behöver en `project.json` -fil som använder NuGet för att referera till de
 
 ### <a name="trigger---javascript-example"></a>Utlösare – JavaScript-exempel
 
-I följande exempel visas en utlösare-bindning i en *function.json* fil och en [JavaScript-funktion](functions-reference-node.md) som använder bindningen. Funktionen söker efter en `name` parameter i frågesträngen eller brödtexten i HTTP-begäran.
+I följande exempel visas en trigger-bindning i en *Function. JSON* -fil och en [JavaScript-funktion](functions-reference-node.md) som använder bindningen. Funktionen söker efter en `name` parameter i frågesträngen eller bröd texten i http-begäran.
 
 Här är den *function.json* fil:
 
@@ -274,9 +274,9 @@ module.exports = function(context, req) {
 };
 ```
 
-### <a name="trigger---python-example"></a>Utlösare – Python-exempel
+### <a name="trigger---python-example"></a>Utlös – python-exempel
 
-I följande exempel visas en utlösare-bindning i en *function.json* fil och en [funkce Pythonu](functions-reference-python.md) som använder bindningen. Funktionen söker efter en `name` parameter i frågesträngen eller brödtexten i HTTP-begäran.
+I följande exempel visas en trigger-bindning i en *Function. JSON* -fil och en [python-funktion](functions-reference-python.md) som använder bindningen. Funktionen söker efter en `name` parameter i frågesträngen eller bröd texten i http-begäran.
 
 Här är den *function.json* fil:
 
@@ -302,7 +302,7 @@ Här är den *function.json* fil:
 
 Den [configuration](#trigger---configuration) förklaras de här egenskaperna.
 
-Här är Python-kod:
+Här är python-koden:
 
 ```python
 import logging
@@ -330,14 +330,14 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         )
 ```
 
-### <a name="trigger---java-examples"></a>Utlösare - Java-exempel
+### <a name="trigger---java-examples"></a>Utlös – Java-exempel
 
-* [Läsa parametern från frågesträngen](#read-parameter-from-the-query-string-java)
-* [Läsa innehållet från en POST-begäran](#read-body-from-a-post-request-java)
-* [Läsa parameter från en väg](#read-parameter-from-a-route-java)
-* [Läs POJO text från en POST-begäran](#read-pojo-body-from-a-post-request-java)
+* [Läs parameter från frågesträngen](#read-parameter-from-the-query-string-java)
+* [Läs brödtext från en POST-begäran](#read-body-from-a-post-request-java)
+* [Läs parameter från en väg](#read-parameter-from-a-route-java)
+* [Läs POJO-brödtext från en POST-begäran](#read-pojo-body-from-a-post-request-java)
 
-I följande exempel visas HTTP-utlösaren bindning i en *function.json* filen och motsvarande [Java-funktioner](functions-reference-java.md) som använder bindningen. 
+I följande exempel visas HTTP trigger-bindningen i en *Function. JSON* -fil och de respektive [Java-funktioner](functions-reference-java.md) som använder bindningen. 
 
 Här är den *function.json* fil:
 
@@ -360,9 +360,9 @@ Här är den *function.json* fil:
 }
 ```
 
-#### <a name="read-parameter-from-the-query-string-java"></a>Läsa parametern från frågesträngen (Java)  
+#### <a name="read-parameter-from-the-query-string-java"></a>Läs parameter från frågesträngen (Java)  
 
-Det här exemplet läser en parameter med namnet ```id```, från frågesträngen och använder den för att skapa en JSON-dokument som returneras till klienten, med innehåll av typen ```application/json```. 
+Det här exemplet läser en parameter, ```id```som heter, från frågesträngen och använder den för att bygga ett JSON-dokument som returneras till klienten, med ```application/json```innehålls typ. 
 
 ```java
     @FunctionName("TriggerStringGet")
@@ -399,9 +399,9 @@ Det här exemplet läser en parameter med namnet ```id```, från frågesträngen
     }
 ```
 
-#### <a name="read-body-from-a-post-request-java"></a>Läsa innehållet från en POST-begäran (Java)  
+#### <a name="read-body-from-a-post-request-java"></a>Läsa brödtext från en POST-begäran (Java)  
 
-Det här exemplet läser brödtexten i en POST-begäran som en ```String```, och används för att skapa en JSON-dokument som returneras till klienten med innehållstyp ```application/json```.
+Det här exemplet läser bröd texten i en post-begäran, ```String```som en, och använder den för att bygga ett JSON-dokument som returneras till klienten ```application/json```, med innehålls typ.
 
 ```java
     @FunctionName("TriggerStringPost")
@@ -435,9 +435,9 @@ Det här exemplet läser brödtexten i en POST-begäran som en ```String```, och
     }
 ```
 
-#### <a name="read-parameter-from-a-route-java"></a>Läsa parameter från en väg (Java)  
+#### <a name="read-parameter-from-a-route-java"></a>Läs parameter från en route (Java)  
 
-Det här exemplet läser en obligatorisk parameter som heter ```id```, och en valfri parameter ```name``` från väg sökväg och använder dem för att skapa en JSON-dokument returneras till klienten, med innehåll av typen ```application/json```. T
+Det här exemplet läser en obligatorisk parameter, ```id```med namnet och en valfri ```name``` parameter från väg Sök vägen, och använder dem för att bygga ett JSON-dokument som returneras till klienten, ```application/json```med innehålls typ. t
 
 ```java
     @FunctionName("TriggerStringRoute")
@@ -473,9 +473,9 @@ Det här exemplet läser en obligatorisk parameter som heter ```id```, och en va
     }
 ```
 
-#### <a name="read-pojo-body-from-a-post-request-java"></a>Läs POJO text från en POST-begäran (Java)  
+#### <a name="read-pojo-body-from-a-post-request-java"></a>Läs POJO-brödtext från en POST-begäran (Java)  
 
-Här är koden för den ```ToDoItem``` klass, som refereras till i det här exemplet:
+Här är koden för ```ToDoItem``` klassen som refereras till i det här exemplet:
 
 ```java
 
@@ -505,7 +505,7 @@ public class ToDoItem {
 
 ```
 
-Det här exemplet läser brödtexten i en POST-begäran. Begärandetexten hämtar automatiskt ta bort serialiserade i en ```ToDoItem``` objekt och returneras till klienten med innehållstyp ```application/json```. Den ```ToDoItem``` parametern serialiseras av funktionskörningen när den är tilldelad till den ```body``` egenskapen för den ```HttpMessageResponse.Builder``` klass.
+I det här exemplet läses bröd texten i en POST-begäran. Begär ande texten avserialiseras automatiskt till ett ```ToDoItem``` -objekt och returneras till klienten med innehålls typ. ```application/json``` Parametern serialiseras av Functions-körningen när den tilldelas ```body``` till egenskapen för ```HttpMessageResponse.Builder``` klassen. ```ToDoItem```
 
 ```java
     @FunctionName("TriggerPojoPost")
@@ -539,9 +539,9 @@ Det här exemplet läser brödtexten i en POST-begäran. Begärandetexten hämta
 
 ## <a name="trigger---attributes"></a>Utlösare - attribut
 
-I [C#-klassbibliotek](functions-dotnet-class-library.md), använda den [HttpTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs) attribut.
+Använd attributet [HttpTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs) i [ C# klass bibliotek](functions-dotnet-class-library.md).
 
-Du kan ange tillståndet och det tillåtna HTTP-metoder i attributet konstruktor parametrar och det finns webhook typ och dirigera mall. Mer information om dessa inställningar finns i [utlösare - konfigurationen](#trigger---configuration). Här är en `HttpTrigger` attribut i en metodsignatur för:
+Du kan ange en autentiseringsnivå och tillåtna HTTP-metoder i parametrar för attributhierarkier, och det finns egenskaper för webhook-typ och Route-mall. Mer information om dessa inställningar finns i avsnittet om [Utlösar-konfiguration](#trigger---configuration). Här är ett `HttpTrigger` attribut i en metodsignatur:
 
 ```csharp
 [FunctionName("HttpTriggerCSharp")]
@@ -560,27 +560,27 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 
 |Function.JSON egenskap | Attributegenskapen |Beskrivning|
 |---------|---------|----------------------|
-| **type** | Saknas| Krävs – måste vara inställd på `httpTrigger`. |
-| **direction** | Saknas| Krävs – måste vara inställd på `in`. |
-| **name** | Saknas| Krävs – variabelnamnet som används i Funktionskoden för begäran och begärandetexten. |
-| <a name="http-auth"></a>**authLevel** |  **authLevel** |Anger vad nycklar, om sådana finns, måste finnas på begäran för att anropa funktionen. Åtkomstnivån kan vara något av följande värden: <ul><li><code>anonymous</code>&mdash;Inga API-nyckeln är obligatorisk.</li><li><code>function</code>&mdash;Det krävs en funktionsspecifika API-nyckel. Detta är standardvärdet om ingen har angetts.</li><li><code>admin</code>&mdash;Huvudnyckeln krävs.</li></ul> Mer information finns i avsnittet [auktoriseringsregel nycklar](#authorization-keys). |
-| **methods** |**Methods** | En matris med HTTP-metoder som funktionen svarar. Om inte anges svarar funktionen på alla HTTP-metoder. Se [anpassa http-slutpunkt](#customize-the-http-endpoint). |
-| **route** | **Route** | Definierar flödesmallen, kontrollera som begär URL: er som din funktion svarar. Standardvärdet om inget är `<functionname>`. Mer information finns i [anpassa http-slutpunkt](#customize-the-http-endpoint). |
-| **webHookType** | **WebHookType** | _Stöds endast för version 1.x-körningen._<br/><br/>Konfigurerar HTTP-utlösare ska fungera som en [webhook](https://en.wikipedia.org/wiki/Webhook) mottagare för den angivna providern. Konfigurerar inte den `methods` egenskapen om du ställer in den här egenskapen. Webhook-typen kan vara något av följande värden:<ul><li><code>genericJson</code>&mdash;Ett allmänt webhook-slutpunkt utan logik för en viss leverantör. Den här inställningen begränsar begäranden till endast de som använder HTTP POST och med den `application/json` innehållstyp.</li><li><code>github</code>&mdash;Funktionen svarar på [GitHub webhooks](https://developer.github.com/webhooks/). Använd inte den _authLevel_ egenskap med GitHub webhooks. Mer information finns i avsnittet GitHub webhooks senare i den här artikeln.</li><li><code>slack</code>&mdash;Funktionen svarar på [Slack webhooks](https://api.slack.com/outgoing-webhooks). Använd inte den _authLevel_ egenskap med Slack webhooks. Mer information finns i avsnittet Slack webhooks senare i den här artikeln.</li></ul>|
+| **type** | Saknas| Required-måste anges till `httpTrigger`. |
+| **direction** | Saknas| Required-måste anges till `in`. |
+| **name** | Saknas| Obligatoriskt – variabel namnet som används i funktions koden för begäran eller begär ande texten. |
+| <a name="http-auth"></a>**authLevel** |  **AuthLevel** |Bestämmer vilka nycklar, om sådana, som måste finnas på begäran för att kunna anropa funktionen. Behörighets nivån kan vara något av följande värden: <ul><li><code>anonymous</code>&mdash;Ingen API-nyckel krävs.</li><li><code>function</code>&mdash;En Function-/regionsspecifika API-nyckel krävs. Detta är standardvärdet om inget anges.</li><li><code>admin</code>&mdash;Huvud nyckeln måste anges.</li></ul> Mer information finns i avsnittet om [auktoriseringsregler](#authorization-keys). |
+| **methods** |**Methods** | En matris med de HTTP-metoder som funktionen svarar på. Om inget anges svarar funktionen på alla HTTP-metoder. Se [Anpassa http-](#customize-the-http-endpoint)slutpunkten. |
+| **route** | **Route** | Definierar den vägfil som styr till vilka URL-adresser din funktion svarar. Standardvärdet om inget värde anges är `<functionname>`. Mer information finns i [Anpassa http-](#customize-the-http-endpoint)slutpunkten. |
+| **webHookType** | **WebHookType** | _Stöds endast för version 1. x-körningsmiljön._<br/><br/>Konfigurerar HTTP-utlösaren så att den [](https://en.wikipedia.org/wiki/Webhook) fungerar som en webhook-mottagare för den angivna providern. Ange `methods` inte egenskapen om du anger den här egenskapen. Webhook-typen kan vara något av följande värden:<ul><li><code>genericJson</code>&mdash;En allmän webhook-slutpunkt utan logik för en speciell Provider. Den här inställningen begränsar begär anden till endast de som använder http post och med `application/json` innehålls typen.</li><li><code>github</code>&mdash;Funktionen svarar på [GitHub](https://developer.github.com/webhooks/)-webhookar. Använd inte egenskapen _authLevel_ med GitHub-webhookar. Mer information finns i avsnittet GitHub Webhooks senare i den här artikeln.</li><li><code>slack</code>&mdash;Funktionen svarar på [slack](https://api.slack.com/outgoing-webhooks)-webhookar. Använd inte _authLevel_ -egenskapen med slack-webhookar. Mer information finns i avsnittet om slack-webhookar längre fram i den här artikeln.</li></ul>|
 
 ## <a name="trigger---usage"></a>Utlösare - användning
 
-För C# och F# funktion, kan du deklarera vilken typ av utlösaren indata ska vara antingen `HttpRequest` eller en anpassad typ. Om du väljer `HttpRequest`, får du fullständig åtkomst till Begäranobjektet. För en anpassad typ försöker körningen parsa JSON-begärandetexten för att ange objektets egenskaper.
+För C# - F# och-funktioner kan du ange vilken typ av utlösare indatamängden som ska vara antingen `HttpRequest` eller en anpassad typ. Om du väljer `HttpRequest`får du fullständig åtkomst till objektet Request. För en anpassad typ försöker körningen parsa JSON-begärantext för att ange objekt egenskaperna.
 
-Functions-körning ger begärandetexten i stället för Begäranobjektet för JavaScript-funktioner. Mer information finns i den [JavaScript utlösaren exempel](#trigger---javascript-example).
+För JavaScript-funktioner tillhandahåller Functions-körningen begär ande texten i stället för objektet Request. Mer information finns i exempel på [JavaScript](#trigger---javascript-example)-utlösare.
 
-### <a name="customize-the-http-endpoint"></a>Anpassa HTTP-slutpunkt
+### <a name="customize-the-http-endpoint"></a>Anpassa HTTP-slutpunkten
 
-Som standard när du skapar en funktion för en HTTP-utlösare är funktionen adresserbara med en väg i formatet:
+Som standard när du skapar en funktion för en HTTP-utlösare kan funktionen adresseras med en Route i formuläret:
 
     http://<yourapp>.azurewebsites.net/api/<funcname>
 
-Du kan anpassa den här vägen med det valfria `route` indatabindning för egenskapen för HTTP-utlösaren. Till exempel följande *function.json* fil definierar en `route` för en HTTP-utlösare:
+Du kan anpassa den här vägen med hjälp `route` av den valfria egenskapen i http-utlösaren inkommande bindning. Som exempel definierar följande *Function. JSON* -fil en `route` egenskap för en http-utlösare:
 
 ```json
 {
@@ -601,13 +601,13 @@ Du kan anpassa den här vägen med det valfria `route` indatabindning för egens
 }
 ```
 
-Med den här konfigurationen kan är funktionen nu adresserbara med följande väg i stället för det ursprungliga flödet.
+Med den här konfigurationen kan funktionen nu adresseras med följande väg i stället för den ursprungliga vägen.
 
 ```
 http://<yourapp>.azurewebsites.net/api/products/electronics/357
 ```
 
-På så sätt kan function-koden att stödja två parametrar i adressen _kategori_ och _id_. Du kan använda någon [webb-API: et Route begränsningen](https://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2#constraints) med parametrarna. Den följande C#-Funktionskoden använder båda parametrarna.
+Detta gör att funktions koden stöder två parametrar i adress, _kategori_ och _ID_. Du kan använda alla [begränsningar för webb-API-routning](https://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2#constraints) med parametrarna. Följande C# funktions kod använder båda parametrarna.
 
 ```csharp
 public static Task<IActionResult> Run(HttpRequest req, string category, int? id, ILogger log)
@@ -626,7 +626,7 @@ public static Task<IActionResult> Run(HttpRequest req, string category, int? id,
 }
 ```
 
-Här är Node.js-Funktionskoden som använder samma vägparametrar.
+Här är en Node. js-funktions kod som använder samma väg parametrar.
 
 ```javascript
 module.exports = function (context, req) {
@@ -651,7 +651,7 @@ module.exports = function (context, req) {
 }
 ```
 
-Som standard alla funktionen vägar har prefixet *api*. Du kan också anpassa eller ta bort prefix med hjälp av den `http.routePrefix` -egenskapen i din [host.json](functions-host-json.md) fil. I följande exempel tar bort den *api* väg prefix genom att använda en tom sträng för prefix i den *host.json* fil.
+Som standard har alla funktions vägar prefixet med *API*. Du kan också anpassa eller ta bort prefixet med `http.routePrefix` hjälp av egenskapen i [Host. JSON](functions-host-json.md) -filen. I följande exempel tas *API* -väg-prefixet bort med en tom sträng för prefixet i *Host. JSON* -filen.
 
 ```json
 {
@@ -661,13 +661,13 @@ Som standard alla funktionen vägar har prefixet *api*. Du kan också anpassa el
 }
 ```
 
-### <a name="working-with-client-identities"></a>Arbeta med klient-identiteter
+### <a name="working-with-client-identities"></a>Arbeta med klient identiteter
 
-Om din funktionsapp använder [App Service-autentisering / auktorisering](../app-service/overview-authentication-authorization.md), du kan visa information om autentiserade klienter från din kod. Den här informationen är tillgänglig som [begärandehuvuden matas in av plattformen](../app-service/app-service-authentication-how-to.md#access-user-claims). 
+Om din Function-app använder [App Service autentisering/auktorisering](../app-service/overview-authentication-authorization.md)kan du Visa information om autentiserade klienter från din kod. Den här informationen är tillgänglig som [begär ande huvuden som injiceras av plattformen](../app-service/app-service-authentication-how-to.md#access-user-claims). 
 
-Du kan också läsa den här informationen från binda data. Den här funktionen är endast tillgängligt för funktioner 2.x-körningen. Det är också för närvarande endast tillgängliga för .NET-språk.
+Du kan också läsa denna information från data bindnings data. Den här funktionen är endast tillgänglig för funktionerna 2. x Runtime. Det är också för närvarande endast tillgängligt för .NET-språk.
 
-I .NET-språk, den här informationen är tillgänglig som en [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal). ClaimsPrincipal är tillgänglig som en del av begärandets kontext som visas i följande exempel:
+I .NET-språk är den här informationen tillgänglig som en [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal). ClaimsPrincipal är tillgänglig som en del av kontexten för begäran som visas i följande exempel:
 
 ```csharp
 using System.Net;
@@ -682,7 +682,7 @@ public static IActionResult Run(HttpRequest req, ILogger log)
 }
 ```
 
-Du kan också kan ClaimsPrincipal bara ingå som en extra parameter i i funktionssignaturen:
+Alternativt kan ClaimsPrincipal bara inkluderas som en ytterligare parameter i funktions under skriften:
 
 ```csharp
 #r "Newtonsoft.Json"
@@ -700,118 +700,118 @@ public static void Run(JObject input, ClaimsPrincipal principal, ILogger log)
 
 ```
 
-### <a name="authorization-keys"></a>Auktoriseringsregel för nycklar
+### <a name="authorization-keys"></a>Auktoriseringsarkiv
 
-Functions kan du använda för att göra det svårare att komma åt din HTTP-slutpunkter för funktionen under utveckling.  En standard HTTP-utlösare kan kräva sådana en API-nyckel finnas i begäran. 
+Med funktioner kan du använda nycklar för att göra det svårare att komma åt HTTP-funktionerna under utvecklingen.  En standard-HTTP-utlösare kan kräva att en sådan API-nyckel finns i begäran. 
 
 > [!IMPORTANT]
-> När nycklar kan hjälpa Förvräng HTTP-slutpunkter under utvecklingen, är men inte avsedda som ett sätt att skydda en HTTP-utlösare i produktion. Mer information finns i [skydda en HTTP-slutpunkt i produktion](#secure-an-http-endpoint-in-production).
+> Även om nycklar kan hjälpa dig att obfuscate dina HTTP-slutpunkter under utvecklingen, är de inte avsedda som ett sätt att skydda en HTTP-utlösare i produktion. Mer information finns i [skydda en HTTP-slutpunkt i produktion](#secure-an-http-endpoint-in-production).
 
 > [!NOTE]
-> Webhook-leverantörer kan använda nycklar för att godkänna begäranden på flera olika sätt beroende på vad providern har stöd i Functions 1.x-körningen. Detta beskrivs i [Webhooks och nycklar](#webhooks-and-keys). Version 2.x-körningen innehåller inte inbyggt stöd för webhook-leverantörer.
+> I funktionerna 1. x runtime kan webhook-providers använda nycklar för att auktorisera begär Anden på olika sätt, beroende på vad providern stöder. Detta beskrivs i Webhooks [och Keys](#webhooks-and-keys). Version 2. x-körningsmiljön innehåller inget inbyggt stöd för webhook-providrar.
 
 Det finns två typer av nycklar:
 
-* **Värdnycklar**: De här nycklarna är gemensamma för alla funktioner i funktionsappen. När det används som en API-nyckel, de här alternativen kan åtkomst till en funktion i funktionsappen.
-* **Funktionstangenter**: De här nycklarna gäller endast för specifika funktioner som de definieras. När det används som en API-nyckel, Tillåt dessa endast åtkomst till funktionen.
+* **Värd nycklar**: Dessa nycklar delas av alla funktioner i Function-appen. När den används som en API-nyckel tillåter dessa åtkomst till alla funktioner i Function-appen.
+* **Funktions tangenter**: Dessa nycklar gäller enbart för de speciella funktioner som de definieras under. När den används som en API-nyckel tillåter dessa endast åtkomst till den funktionen.
 
-Varje nyckel heter referens och det är en standardnyckel (med namnet ”standard”) på funktionen och värden. Funktionstangenter företräde framför värdnycklar. När två nycklar har definierats med samma namn, används alltid funktionsnyckel.
+Varje nyckel namnges som referens och det finns en standard nyckel (med namnet "standard") på funktion-och värdnivå. Funktions tangenter prioriteras framför värd nycklar. När två nycklar definieras med samma namn används alltid funktions nyckeln.
 
-Varje funktionsapp har även en särskild **huvudnyckeln**. Den här nyckeln är en värdnyckel med namnet `_master`, som tillhandahåller administrativ åtkomst till körningsmiljön API: er. Den här nyckeln kan inte återkallas. När du ställer in en auktorisering för `admin`, begäranden måste använda huvudnyckeln; andra nyckeln resulterar i Auktoriseringen misslyckades.
+Varje Function-app har också en särskild **huvud nyckel**. Den här nyckeln är en värd nyckel `_master`med namnet, som ger administrativ åtkomst till körnings-API: erna. Den här nyckeln kan inte återkallas. När du ställer in en behörighets `admin`nivå för måste begär Anden använda huvud nyckeln, eventuella andra viktiga resultat vid auktoriseringsfel.
 
 > [!CAUTION]  
-> På grund av de utökade behörigheterna i din funktionsapp som beviljats av huvudnyckeln bör du inte dela den här nyckeln med tredje part eller distribuera den i interna klientprogram. Var försiktig när du väljer administratören åtkomstnivå.
+> På grund av de utökade behörigheterna i din Function-app som beviljats av huvud nyckeln bör du inte dela den här nyckeln med tredje part eller distribuera den i interna klient program. Var försiktig när du väljer administratörens autentiseringsnivå.
 
-### <a name="obtaining-keys"></a>Erhålla nycklar
+### <a name="obtaining-keys"></a>Hämta nycklar
 
-Nycklar lagras som en del av din funktionsapp i Azure och krypteras på plats. Om du vill visa dina nycklar, skapa nya, eller distribuera nycklarna till nya värden, navigerar du till något av dina HTTP-utlösta funktioner i den [Azure-portalen](https://portal.azure.com) och välj **hantera**.
+Nycklar lagras som en del av din Function-app i Azure och är krypterade i vila. Om du vill visa dina nycklar, skapa nya eller rulla nycklar till nya värden, navigerar du till någon av dina HTTP-utlösta funktioner i [Azure Portal](https://portal.azure.com) och väljer **Hantera**.
 
-![Hantera funktionstangenterna i portalen.](./media/functions-bindings-http-webhook/manage-function-keys.png)
+![Hantera funktions nycklar i portalen.](./media/functions-bindings-http-webhook/manage-function-keys.png)
 
-Det finns inga stöds API för att programmässigt erhålla funktionstangenter.
+Det finns inget stöd för API: er för att hämta funktions nycklar via programmering.
 
-### <a name="api-key-authorization"></a>API: et auktoriseringsprincipen
+### <a name="api-key-authorization"></a>Auktorisering av API-nyckel
 
-De flesta http-utlösaren mallar kräver en API-nyckel i begäran. HTTP-begäran ser så normalt ut som följande URL:
+De flesta mallar för HTTP-utlösare kräver en API-nyckel i begäran. Så din HTTP-begäran normalt ser ut som följande URL:
 
     https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?code=<API_KEY>
 
-Nyckeln kan ingå i en fråga variabel med namnet `code`, precis som ovan. Det kan också ingå i en `x-functions-key` HTTP-huvud. Värdet för nyckeln kan vara valfri funktionsnyckel som definierats för funktionen eller valfri tangent för värden.
+Nyckeln kan ingå i en frågesträng som heter `code`, som ovan. Det kan också ingå i ett `x-functions-key` http-huvud. Nyckelns värde kan vara vilken funktions nyckel som helst som har definierats för funktionen eller vilken värd nyckel som helst.
 
-Du kan tillåta anonyma begäranden som inte kräver nycklar. Du kan också kräva att huvudnyckeln kan användas. Du kan ändra standardnivån för auktorisering med hjälp av den `authLevel` -egenskapen i bindningen JSON. Mer information finns i [utlösare - konfigurationen](#trigger---configuration).
+Du kan tillåta anonyma begär Anden som inte kräver nycklar. Du kan också kräva att huvud nyckeln ska användas. Du ändrar standard nivån för autentisering med hjälp `authLevel` av egenskapen i bindnings-JSON. Mer information finns i avsnittet om [Utlösar-konfiguration](#trigger---configuration).
 
 > [!NOTE]
-> När du kör funktioner lokalt kan inaktiveras auktorisering, oavsett den angivna autentiseringstypen inställningen. Efter publicering till Azure, den `authLevel` inställningen i utlösaren tillämpas.
+> När du kör funktioner lokalt är auktorisering inaktiverat oavsett vilken inställning för autentiseringsnivå som anges. När du har publicerat till Azure `authLevel` tillämpas inställningen i utlösaren.
 
 
 
 ### <a name="secure-an-http-endpoint-in-production"></a>Skydda en HTTP-slutpunkt i produktion
 
-För att fullständigt skydda dina slutpunkter för funktionen i produktion, bör du implementering av en av följande alternativ för funktionen säkerhet på radnivå app:
+Om du vill skydda funktions slut punkter i produktion fullständigt bör du överväga att implementera någon av följande funktioner på App-nivå:
 
-* Aktivera App Service-autentisering / auktorisering för din funktionsapp. App Service-plattformen kan använda Azure Active Directory (AAD) och flera Identitetsproviders från tredje part för att autentisera klienter. Du kan använda detta för att implementera anpassade regler för dina funktioner och du kan arbeta med användarinformation från funktionskoden. Mer information finns i [autentisering och auktorisering i Azure App Service](../app-service/overview-authentication-authorization.md) och [arbeta med klient-identiteter](#working-with-client-identities).
+* Aktivera App Service autentisering/auktorisering för din Function-app. App Services plattformen gör det möjligt att använda Azure Active Directory (AAD) och flera identitets leverantörer från tredje part för att autentisera klienter. Du kan använda detta för att implementera anpassade auktoriseringsregler för dina funktioner och du kan arbeta med användar information från funktions koden. Mer information finns i [autentisering och auktorisering i Azure App Service](../app-service/overview-authentication-authorization.md) och [arbeta med klient identiteter](#working-with-client-identities).
 
-* Använd Azure API Management (APIM) för att autentisera begäranden. APIM erbjuder en mängd olika API säkerhetsalternativ för inkommande begäranden. Mer information finns i [API Management autentiseringsprinciper](../api-management/api-management-authentication-policies.md). Med APIM på plats kan du konfigurera funktionsappen för att godkänna begäranden endast från IP-adressen för din APIM-instansen. Mer information finns i [IP-adressbegränsningar](ip-addresses.md#ip-address-restrictions).
+* Använd Azure API Management (APIM) för att autentisera begär Anden. APIM tillhandahåller flera olika API-säkerhetsalternativ för inkommande begär Anden. Läs mer i [API Management autentiseringsprinciper](../api-management/api-management-authentication-policies.md). Med APIM på plats kan du konfigurera Function-appen så att den endast accepterar begär Anden från IP-adressen för din APIM-instans. Mer information finns i [begränsningar för IP-adresser](ip-addresses.md#ip-address-restrictions).
 
-* Distribuera appen till en Azure App Service Environment (ASE). ASE ger en dedikerad värdmiljö där du kan köra dina funktioner. ASE kan du konfigurera en enda klientdelsgateway som du kan använda för att autentisera alla inkommande begäranden. Mer information finns i [konfigurera Web Application Firewall (WAF) för App Service Environment](../app-service/environment/app-service-app-service-environment-web-application-firewall.md).
+* Distribuera din Function-app till en Azure App Service-miljön (ASE). ASE tillhandahåller en dedikerad värd miljö där funktionerna ska köras. Med ASE kan du konfigurera en enda klient dels-gateway som du kan använda för att autentisera alla inkommande begär Anden. Mer information finns i [Konfigurera en brand vägg för webbaserade program (WAF) för App Service-miljön](../app-service/environment/app-service-app-service-environment-web-application-firewall.md).
 
-När du använder någon av följande metoder för säkerhet på radnivå app av funktionen, bör du ange HTTP-utlöst funktion-autentisering till `anonymous`.
+När du använder någon av dessa säkerhets metoder på App-nivå bör du ställa in den HTTP-utlösta funktions verifierings nivån på `anonymous`.
 
-### <a name="webhooks"></a>Webhooks
+### <a name="webhooks"></a>Webhook-konfigurationer
 
 > [!NOTE]
-> Webhook-läge är endast tillgänglig för version 1.x av Functions-körning. Den här ändringen gjordes att förbättra prestanda för HTTP-utlösare i version 2.x.
+> Webhook-läge är bara tillgängligt för version 1. x av Functions-körningen. Den här ändringen gjordes för att förbättra prestanda för HTTP-utlösare i version 2. x.
 
-I version 1.x, webhook mallar tillhandahåller ytterligare verifiering för webhook-nyttolaster. I version 2.x, grundläggande HTTP-utlösaren fortfarande fungerar och är den rekommenderade metoden för webhooks. 
+I version 1. x tillhandahåller webhook-mallar ytterligare verifiering för webhook-nyttolaster. I version 2. x fungerar bas-HTTP-utlösaren fortfarande och är den rekommenderade metoden för Webhooks. 
 
-#### <a name="github-webhooks"></a>GitHub webhooks
+#### <a name="github-webhooks"></a>GitHub-webhookar
 
-För att svara på GitHub webhooks, först skapa din funktion med en HTTP-utlösare och ange den **webHookType** egenskap `github`. Kopiera sedan dess URL och API-nyckeln i den **Lägg till webhook** sidan i din GitHub-lagringsplats. 
+Om du vill svara på GitHub Webhooks måste du först skapa en funktion med en HTTP-utlösare och `github`ange egenskapen **webHookType** till. Kopiera sedan dess URL och API-nyckel till sidan **Lägg till webhook** i GitHub-lagringsplatsen. 
 
 ![](./media/functions-bindings-http-webhook/github-add-webhook.png)
 
-#### <a name="slack-webhooks"></a>Slack webhooks
+#### <a name="slack-webhooks"></a>Slack-webhookar
 
-Slack webhook genererar en token för dig i stället för där du kan ange den, så måste du konfigurera en funktionsspecifika nyckel med token från Slack. Se [auktoriseringsregel nycklar](#authorization-keys).
+Slack-webhooken genererar en token åt dig i stället för att låta dig ange den, så du måste konfigurera en funktions bestämd nyckel med token från slack. Se [auktoriseringsregler](#authorization-keys).
 
 ### <a name="webhooks-and-keys"></a>Webhooks och nycklar
 
-Webhook-auktorisering hanteras av webhook mottagare komponent, en del av HTTP-utlösare och mekanismen varierar beroende på typ av webhook. Varje metod förlitar sig på en nyckel. Som standard används funktionsnyckel med namnet ”standard”. Konfigurera webhook-providern för att skicka nyckelnamnet med förfrågan i något av följande sätt om du vill använda en annan nyckel:
+Webhook-auktoriseringen hanteras av komponenten webhook receiver, en del av HTTP-utlösaren och mekanismen varierar beroende på typen av webhook. Varje mekanism förlitar sig på en nyckel. Som standard används funktions nyckeln med namnet "default". Om du vill använda en annan nyckel konfigurerar du webhook-providern för att skicka nyckel namnet med begäran på något av följande sätt:
 
-* **Frågesträng**: Providern skickar nyckelnamnet i den `clientid` frågesträngparametern, till exempel `https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?clientid=<KEY_NAME>`.
-* **Begärandehuvud**: Providern skickar nyckelnamnet i den `x-functions-clientid` rubrik.
+* **Frågesträng**: Providern överför nyckel namnet i `clientid` frågesträngparametern, `https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?clientid=<KEY_NAME>`till exempel.
+* **Begär ande huvud**: Providern överför nyckel namnet i `x-functions-clientid` rubriken.
 
-## <a name="trigger---limits"></a>Utlösare - gränser
+## <a name="trigger---limits"></a>Utlösare – gränser
 
-HTTP-begäran längden är begränsad till 100 MB (104,857,600 byte) och URL-längd är begränsad till 4 KB (4 096 byte). Dessa gränser anges av den `httpRuntime` element i en runtime [Web.config-filen](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config).
+Längden på HTTP-begäran är begränsad till 100 MB (104 857 600 byte) och URL-längden är begränsad till 4 KB (4 096 byte). Dessa gränser anges av `httpRuntime` elementet i [filen Web. config](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config)för körning.
 
-Om en funktion som använder HTTP-utlösaren inte slutförs inom cirka 2,5 minuter, gateway att gälla och returnera ett HTTP 502-fel. Funktionen fortsätter att köras, men kommer inte att returnera ett HTTP-svar. För långvariga funktioner rekommenderar vi att du följer async mönster och returnera en plats där du kan pinga status för begäran. Information om hur lång tid en funktion kan köra finns i [skalning och värdtjänster - standardförbrukningsplanen](functions-scale.md#consumption-plan).
+Om en funktion som använder HTTP-utlösaren inte slutförs inom cirka 2,5 minuter, kommer gatewayen att gå ut och returnera ett HTTP 502-fel. Funktionen fortsätter att köras men kan inte returnera ett HTTP-svar. För långvariga funktioner rekommenderar vi att du följer asynkrona mönster och returnerar en plats där du kan pinga status för begäran. Information om hur länge en funktion kan köras finns i [plan för skalning och värd förbrukning](functions-scale.md#timeout).
 
 ## <a name="trigger---hostjson-properties"></a>Utlösare - host.json egenskaper
 
-Den [host.json](functions-host-json.md) filen innehåller inställningar som styr beteendet för HTTP-utlösare.
+[Host. JSON](functions-host-json.md) -filen innehåller inställningar som styr beteendet för http-utlösare.
 
 [!INCLUDE [functions-host-json-http](../../includes/functions-host-json-http.md)]
 
 ## <a name="output"></a>Output
 
-Använd HTTP-utdatabindning svarar på http-begäran avsändaren. Den här bindningen kräver en HTTP-utlösare och kan du anpassa svaret som är associerade med utlösarens begäran. Om en HTTP-utdatabindning har inte angetts en HTTP-utlösare returnerar HTTP 200 OK utan en brödtext i Functions 1.x eller HTTP 204 inget innehåll utan en brödtext i Functions 2.x.
+Använd bindningen för HTTP-utdata för att svara på avsändaren av HTTP-begäran. Den här bindningen kräver en HTTP-utlösare och gör att du kan anpassa svaret som är kopplat till utlösarens begäran. Om en HTTP-utgående bindning inte anges returnerar en HTTP-utlösare HTTP 200 OK med en tom brödtext i funktionerna 1. x eller HTTP 204 inget innehåll med en tom brödtext i funktionerna 2. x.
 
 ## <a name="output---configuration"></a>Utdata - konfiguration
 
-I följande tabell förklaras konfigurationsegenskaper för bindning som du anger i den *function.json* fil. Det finns inga attributegenskaper som motsvarar dessa för C#-klassbibliotek, *function.json* egenskaper.
+I följande tabell förklaras de egenskaper för bindnings konfigurationen som du anger i filen *Function. JSON* . För C# klass bibliotek finns det inga egenskaper för attribut som motsvarar dessa *funktioner. JSON* -egenskaper.
 
 |Egenskap  |Beskrivning  |
 |---------|---------|
 | **type** |Måste anges till `http`. |
 | **direction** | Måste anges till `out`. |
-|**name** | Variabelnamnet som används i Funktionskoden för svaret, eller `$return` att använda det returnera värdet. |
+|**name** | Variabel namnet som används i funktions koden för svaret, eller `$return` för att använda det returnerade värdet. |
 
 ## <a name="output---usage"></a>Utdata - användning
 
-Använda språk-standard svar mönster för att skicka en HTTP-svar. I C# eller C#-skript, se funktionen returtyp `IActionResult` eller `Task<IActionResult>`. I C#, krävs inte ett returvärde attribut.
+Om du vill skicka ett HTTP-svar använder du svars mönster för språk standard. I C# eller C# skript, ska du göra funktions retur `IActionResult` typen `Task<IActionResult>`eller. I C#, krävs inget attribut för retur värde.
 
-Till exempel svar, se den [utlösaren exempel](#trigger---example).
+Till exempel svar, se utlösaren [exempel](#trigger---example).
 
 ## <a name="next-steps"></a>Nästa steg
 

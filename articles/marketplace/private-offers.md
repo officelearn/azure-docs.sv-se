@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 11/1/2018
 ms.author: pabutler
-ms.openlocfilehash: dcba2b40bdcf4558f7a06f7e14d0ce654a9c1ec1
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 35134d828098af0cff3d585dee600ee1808b00c4
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876066"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69013623"
 ---
 # <a name="private-offers"></a>Privata erbjudanden
 
@@ -49,9 +49,6 @@ Privata erbjudanden kan bara upptäckas via [Azure Portal](https://azure.microso
 ![[Privata erbjudanden]](./media/marketplace-publishers-guide/private-offer.png)
 
 Privata erbjudanden visas också i Sök resultaten. Titta bara efter "privat"-märket.
-
-> [!Note]
-> Privata erbjudanden stöds inte med prenumerationer som upprättats via en åter försäljare av Cloud Solution Provider-programmet (CSP).
 
 ## <a name="next-steps"></a>Nästa steg
 

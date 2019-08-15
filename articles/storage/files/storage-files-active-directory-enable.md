@@ -4,14 +4,14 @@ description: Lär dig hur du aktiverar identitets baserad autentisering över SM
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 08/08/2019
 ms.author: rogarana
-ms.openlocfilehash: 060c47cc25d04bccc253bcebf6479d660621f6d2
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 2b5ebc9f35dd207e8e530b7d74acc5517125fbf4
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855327"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935001"
 ---
 # <a name="enable-azure-active-directory-domain-services-authentication-over-smb-for-azure-files"></a>Aktivera Azure Active Directory Domain Services autentisering över SMB för Azure Files
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -142,7 +142,16 @@ Vi har lanserat två inbyggda Azure-roller för att bevilja behörigheter på re
 > [!IMPORTANT]
 > Fullständig administrativ kontroll av en fil resurs, inklusive möjligheten att tilldela en roll till en identitet, kräver att du använder lagrings konto nyckeln. Administrativ kontroll stöds inte med autentiseringsuppgifter för Azure AD.
 
-Du kan använda Azure PowerShell eller Azure CLI för att tilldela de inbyggda rollerna till Azure AD-identiteten för en användare för att bevilja behörigheter på resurs nivå.
+Du kan använda Azure Portal, PowerShell eller Azure CLI för att tilldela de inbyggda rollerna till Azure AD-identiteten för en användare för att bevilja behörigheter på resurs nivå.
+
+#### <a name="azure-portal"></a>Azure Portal
+Följ dessa steg om du vill tilldela en RBAC-roll till en Azure AD-identitet med hjälp av [Azure Portal](https://portal.azure.com):
+
+1. I Azure Portal går du till fil resursen eller [skapar en fil resurs i Azure Files](storage-how-to-create-file-share.md).
+2. Välj **åtkomstkontroll (IAM)** .
+3. Välj **Lägg till en roll tilldelning**
+4. På bladet **Lägg till roll tilldelning** väljer du lämplig inbyggd roll (lagrings fil data SMB Share Reader, Storage File data SMB Share Contributor) från **roll** listan. Behåll alternativet **tilldela åtkomst till** med standardvärdet: **Azure AD-användare, grupp eller tjänstens huvud namn**. Välj målets Azure AD-identitet efter namn eller e-postadress.
+5. Klicka på **Spara** för att slutföra roll tilldelnings åtgärden.
 
 #### <a name="powershell"></a>PowerShell
 

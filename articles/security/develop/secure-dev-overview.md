@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 4df8ff8abfeb7a6ba96ec3344407e95e0a9a3b3d
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: c4314a0dcbbcb907ef4d6de0a2788cf04dfe1641
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68728723"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934870"
 ---
 # <a name="secure-development-best-practices-on-azure"></a>Säkra bästa metoder för utveckling i Azure
 I den här artikel serien presenteras säkerhets aktiviteter och kontroller som du bör tänka på när du utvecklar program för molnet. Faserna i Microsoft Security Development Lifecycle (SDL) och säkerhets frågor och koncept som du bör tänka på under varje fas i livs cykeln omfattas. Målet är att hjälpa dig att definiera aktiviteter och Azure-tjänster som du kan använda i varje fas i livs cykeln för att utforma, utveckla och distribuera ett säkrare program.
@@ -33,7 +33,7 @@ Säkerhet är en av de viktigaste aspekterna av alla program och det är inte en
 
 ## <a name="security-development-lifecycle"></a>Livs cykel för säkerhets utveckling
 
-Följande metod tips för säker program varu utveckling kräver integrering av säkerhet i varje fas av program utvecklings livs cykeln, från krav analys till underhåll, oavsett projekt[metodik (](https://en.wikipedia.org/wiki/Waterfall_model)vattenfall, [Agile ](https://en.wikipedia.org/wiki/Agile_software_development)eller [DevOps](https://en.wikipedia.org/wiki/DevOps)). Vid aktivering av data överträdelser med hög profil och användning av drifts säkerhets fel är fler utvecklare medveten om att säkerheten måste åtgärdas under hela utvecklings processen.
+Följande metod tips för säker program varu utveckling kräver integrering av säkerhet i varje fas av program utvecklings livs cykeln, från krav analys till underhåll, oavsett projekt metodik (vattenfall[](https://en.wikipedia.org/wiki/Waterfall_model), [Agile ](https://en.wikipedia.org/wiki/Agile_software_development)eller [DevOps](https://en.wikipedia.org/wiki/DevOps)). Vid aktivering av data överträdelser med hög profil och användning av drifts säkerhets fel är fler utvecklare medveten om att säkerheten måste åtgärdas under hela utvecklings processen.
 
 Senare kan du åtgärda ett problem i utvecklings livs cykeln, desto mer som korrigeringen kostar dig. Säkerhets frågor är inget undantag. Om du åsidosätter säkerhets problem i tidiga faser av program varu utvecklingen kan varje fas som följer ärva säkerhets riskerna i föregående fas. Den slutliga produkten kommer att ha samlat flera säkerhets problem och risken för intrång. Att skapa säkerhet i varje fas i utvecklings livs cykeln hjälper dig att fånga upp problem tidigt och det hjälper dig att minska dina utvecklings kostnader.
 
@@ -69,7 +69,7 @@ Använd följande resurser för att lära dig mer om att utveckla säkra program
 
 Genom att lägga till [vänster, t. ex. en chef](https://code.likeagirl.io/pushing-left-like-a-boss-part-1-80f1f007da95?WT.mc_id=docs-blog-tajanca) – en serie med online-artiklar som beskriver olika typer av program säkerhets aktiviteter som utvecklare bör utföra för att skapa säkrare kod.
 
-[Microsoft Identity Platform](https://docs.microsoft.com/azure/active-directory/develop/) – Microsoft Identity Platform är en utveckling av Azure AD Identity service och Developer Platform. Det är en komplett plattform som består av en autentiseringstjänst, bibliotek med öppen källkod, program registrering och konfiguration, fullständig dokumentation om utvecklare, kod exempel och annat innehåll i utvecklare. Microsoft Identity Platform stöder bransch standard protokoll som OAuth 2,0 och OpenID Connect.
+[Microsoft Identity Platform](../../active-directory/develop/index.yml) – Microsoft Identity Platform är en utveckling av Azure AD Identity service och Developer Platform. Det är en komplett plattform som består av en autentiseringstjänst, bibliotek med öppen källkod, program registrering och konfiguration, fullständig dokumentation om utvecklare, kod exempel och annat innehåll i utvecklare. Microsoft Identity Platform stöder bransch standard protokoll som OAuth 2,0 och OpenID Connect.
 
 [Rekommenderade säkerhets metoder för Azure-lösningar](https://azure.microsoft.com/resources/security-best-practices-for-azure-solutions/) – en samling säkerhets metoder som du kan använda när du utformar, distribuerar och hanterar moln lösningar med hjälp av Azure. Det här dokumentet är avsett att vara en resurs för IT-proffs. Detta kan vara designers, arkitekter, utvecklare och testare som skapar och distribuerar säkra Azure-lösningar.
 

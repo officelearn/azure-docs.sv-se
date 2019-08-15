@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: sachins
-ms.openlocfilehash: 630d8f64b39888533aff4847dec64fa50fc43d7e
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: a5bfc664c412c93bbf3e522b01528e8247be3291
+ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855592"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69016060"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>Metod tips för att använda Azure Data Lake Storage Gen2
 
@@ -49,7 +49,7 @@ När du skapar ett system med Data Lake Storage Gen2 eller en moln tjänst måst
 
 ### <a name="high-availability-and-disaster-recovery"></a>Hög tillgänglighet och haveriberedskap
 
-Hög tillgänglighet (HA) och haveri beredskap (DR) kan ibland kombineras tillsammans, även om var och en har en annorlunda strategi, särskilt när den kommer till data. Data Lake Storage Gen2 hanterar redan 3x-replikering under huven för att skydda mot lokaliserade maskin varu problem. Dessutom kan andra replikeringsalternativ, till exempel ZRS, förbättra HA medan GRS & RA-GRS förbättra DR. När du skapar en plan för HA, i händelse av en tjänst avbrott, behöver arbets belastningen till gång till den senaste informationen så snabbt som möjligt genom att växla över till en separat replikerad instans lokalt eller i en ny region.
+Hög tillgänglighet (HA) och haveri beredskap (DR) kan ibland kombineras tillsammans, även om var och en har en annorlunda strategi, särskilt när den kommer till data. Data Lake Storage Gen2 hanterar redan 3x-replikering under huven för att skydda mot lokaliserade maskin varu problem. Dessutom kan andra replikeringsalternativ, till exempel ZRS eller GZRS (för hands version), förbättra HA, medan GRS & RA-GRS förbättra DR. När du skapar en plan för HA, i händelse av en tjänst avbrott, behöver arbets belastningen till gång till den senaste informationen så snabbt som möjligt genom att växla över till en separat replikerad instans lokalt eller i en ny region.
 
 I en katastrof strategi är det också viktigt att ha data som replikeras till en annan region med hjälp av GRS eller RA-GRS replikering för att förbereda sig på ett oåterkalleligt problem i en region. Du måste också ta hänsyn till dina krav för gräns ärenden, till exempel skadade data, där du kanske vill skapa regelbundna ögonblicks bilder för att återgå till. Beroende på informationens betydelse och storlek bör du överväga rullande delta-ögonblicks bilder på 1 –, 6-och 24-timmarsperiod enligt risk tolerans.
 

@@ -9,18 +9,18 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: 30c2eb2964f11b729b0ffaf58c532d5189cdc2cd
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 38c850f167287fe5e1a444c8670e359c4d2b6b90
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727761"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934823"
 ---
 # <a name="a-world-without-passwords-with-azure-active-directory"></a>En värld utan lösen ord med Azure Active Directory
 
 Det är dags att dela upp relationen med lösen ord. Lösen ord har varit bra tidigare, men i dagens digitala arbets plats har de blivit en relativt enkel attack vektor för hackare. Hackare älskar lösen ord och det är inte svårt att se varför när du anser att de vanligaste lösen orden i Azure Active Directory (Azure AD) innehåller termer som år, månad, säsong eller ett lokalt idrotts lag. Dessutom [har forskningen visat](https://aka.ms/passwordguidance) att traditionella rekommendationer för lösen ords hantering, till exempel längd krav, komplexitets krav och ändrings frekvenser är counterproductive av olika orsaker som rör mänsklig natur.
 
-Tre typer av attacker som ofta används för att kompromettera användar konton är lösen ords sprutning, nätfiske och brotts omuppspelning. Azure AD-funktioner som [Smart utelåsning](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-smart-lockout), [förbjudna lösen ord](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad-on-premises)och [lösen ords skydd](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad-on-premises) kan skydda mot de här typerna av attacker. På samma sätt ger implementering av [Multi-Factor Authentication](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks) (MFA) eller tvåstegsverifiering en ytterligare säkerhet genom att kräva en andra form av autentisering. Men i lång körning är en snabbare lösning den bästa lösningen för att säkerställa den säkraste metoden för autentisering.
+Tre typer av attacker som ofta används för att kompromettera användar konton är lösen ords sprutning, nätfiske och brotts omuppspelning. Azure AD-funktioner som [Smart utelåsning](../../active-directory/authentication/howto-password-smart-lockout.md), [förbjudna lösen ord](../../active-directory/authentication/concept-password-ban-bad-on-premises.md)och [lösen ords skydd](../../active-directory/authentication/concept-password-ban-bad-on-premises.md) kan skydda mot de här typerna av attacker. På samma sätt ger implementering av [Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) (MFA) eller tvåstegsverifiering en ytterligare säkerhet genom att kräva en andra form av autentisering. Men i lång körning är en snabbare lösning den bästa lösningen för att säkerställa den säkraste metoden för autentisering.
 
 Den här artikeln är början av resan för att hjälpa dig att förstå och implementera Microsofts lösningar för lösen ords lösa och hjälpa dig att välja mellan ett eller flera av följande alternativ:
 
@@ -109,7 +109,7 @@ En djupare titt på autentiseringsprocessen i andra scenarier som omfattar Windo
 
 [Microsofts tjänster för PIN-återställning](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-features#pin-reset) är en funktion i Azure AD som gör det möjligt för användare att återställa sina PIN-koder vid behov. Med hjälp av en grup princip, Microsoft Intune eller en kompatibel MDM, kan en administratör konfigurera Windows 10-enheter för att säkert använda Microsofts tjänst för PIN-återställning som gör det möjligt för användare att återställa sina glömt PIN-koder via inställningar eller ovanför Lås skärmen utan att kräva omregistrering.
 
-Ibland måste användare använda lösen ord. [Lösen ords återställning](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-deployment) via självbetjäning (SSPR) är en annan Azure AD-funktion som gör det möjligt för användare att återställa sina lösen ord utan att behöva kontakta IT-personalen. Användare måste registreras för eller registreras för lösen ords återställning via självbetjäning innan tjänsten kan användas. Vid registreringen väljer användaren en eller flera autentiseringsmetoder som har Aktiver ATS av organisationen. SSPR gör det möjligt för användarna att snabbt få tag i blockering och fortsätta att arbeta oavsett var de befinner sig eller tiden på dagen. Genom att tillåta användare att avblockera sig själva kan din organisation minska den icke produktiva tiden och höga support kostnader för de flesta vanliga problem som rör lösen ord.
+Ibland måste användare använda lösen ord. [Lösen ords återställning](../../active-directory/authentication/howto-sspr-deployment.md) via självbetjäning (SSPR) är en annan Azure AD-funktion som gör det möjligt för användare att återställa sina lösen ord utan att behöva kontakta IT-personalen. Användare måste registreras för eller registreras för lösen ords återställning via självbetjäning innan tjänsten kan användas. Vid registreringen väljer användaren en eller flera autentiseringsmetoder som har Aktiver ATS av organisationen. SSPR gör det möjligt för användarna att snabbt få tag i blockering och fortsätta att arbeta oavsett var de befinner sig eller tiden på dagen. Genom att tillåta användare att avblockera sig själva kan din organisation minska den icke produktiva tiden och höga support kostnader för de flesta vanliga problem som rör lösen ord.
 
 ## <a name="passwordless-sign-in-with-microsoft-authenticator"></a>Inloggning med lösen ord med Microsoft Authenticator
 
@@ -125,9 +125,9 @@ Krav för att använda den Microsoft Authenticator appen för lösen ords lös i
 
 * Slutanvändare är aktiverade för Azure Multi-Factor Authentication
 
-* Möjligheten för användare att registrera sina enheter med hjälp av Microsoft Intune eller en lösning för hantering av mobila enheter från tredje part (MDM)
+* Vi rekommenderar att användarna registrerar sina enheter med hjälp av Microsoft Intune eller en MDM-lösning (Mobile Device Management) från tredje part för att under lätta distributionen av appen
 
-Förutsatt att dessa krav uppfylls, kan administratörer Aktivera inloggning med lösen ord i klienten med hjälp av [Windows PowerShell.](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-phone-sign-in#enable-my-users) När telefonin loggning har Aktiver ATS i klient organisationen kan slutanvändare välja att logga in med telefonen genom att välja sitt arbets-eller skol konto på skärmen **konton** i appen och sedan välja **Aktivera telefonin loggning**.
+Förutsatt att dessa krav uppfylls, kan administratörer Aktivera inloggning med lösen ord i klienten med hjälp av [Windows PowerShell.](../../active-directory/authentication/howto-authentication-passwordless-phone.md) När telefonin loggning har Aktiver ATS i klient organisationen kan slutanvändare välja att logga in med telefonen genom att välja sitt arbets-eller skol konto på skärmen **konton** i appen och sedan välja **Aktivera telefonin loggning**.
 
 Förutsatt att lösen ords lös inloggning har Aktiver ATS av en administratör måste slutanvändarna uppfylla följande krav:
 
@@ -137,9 +137,9 @@ Förutsatt att lösen ords lös inloggning har Aktiver ATS av en administratör 
 
 * Arbets-eller skol konto med push-meddelanden tillagda i appen
 
-För att undvika möjligheten att bli utelåst från ditt konto eller om du behöver återskapa konton på en ny enhet, rekommenderar vi att du använder Microsoft Authenticator för att [säkerhetskopiera dina konto uppgifter](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-backup-recovery) till molnet. När du har säkerhetskopierat kan du också använda appen för att återställa din information på en ny enhet, vilket kan undvika att bli utelåst eller behöver återskapa konton.
+För att undvika möjligheten att bli utelåst från ditt konto eller om du behöver återskapa konton på en ny enhet, rekommenderar vi att du använder Microsoft Authenticator för att [säkerhetskopiera dina konto uppgifter](../../active-directory/user-help/user-help-auth-app-backup-recovery.md) till molnet. När du har säkerhetskopierat kan du också använda appen för att återställa din information på en ny enhet, vilket kan undvika att bli utelåst eller behöver återskapa konton.
 
-Eftersom de flesta användare bara är vana vid att använda lösen ord för att autentisera, är det viktigt att organisationen utlovar användare om den här processen. Medvetenheten kan minska sannolikheten för att användarna kontaktar supportavdelningen för [problem](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-phone-sign-in#known-issues) som rör inloggning med hjälp av Microsoft Authenticator-appen.
+Eftersom de flesta användare bara är vana vid att använda lösen ord för att autentisera, är det viktigt att organisationen utlovar användare om den här processen. Medvetenheten kan minska sannolikheten för att användarna kontaktar supportavdelningen för [problem](../../active-directory/authentication/howto-authentication-passwordless-phone.md) som rör inloggning med hjälp av Microsoft Authenticator-appen.
 
 > [!NOTE]
 > En möjlig felpunkt för den här lösningen är när en nätverks växlings användare finns på en plats där det inte finns någon Internet anslutning. FIDO2 säkerhets nycklar och Windows Hello för företag omfattas inte av samma begränsning.
@@ -150,9 +150,9 @@ Eftersom de flesta användare bara är vana vid att använda lösen ord för att
 
 Innan Microsoft Authenticator-appen kan användas som en lösen ords lös lösning för att logga in på ett Azure AD-konto måste steg utföras av både administratörer och slutanvändarna.
 
-Först måste administratören [aktivera användningen av appen som autentiseringsuppgifter](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-phone-sign-in#enable-my-users) i klienten med hjälp av Windows PowerShell. Administratören måste också aktivera slutanvändare för Azure Multi-Factor Authentication (Azure MFA) och konfigurera Microsoft Authenticator-appen som en av verifierings [metoderna](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-mfasettings#verification-methods).
+Först måste administratören [aktivera användningen av appen som autentiseringsuppgifter](../../active-directory/authentication/howto-authentication-passwordless-phone.md) i klienten med hjälp av Windows PowerShell. Administratören måste också aktivera slutanvändare för Azure Multi-Factor Authentication (Azure MFA) och konfigurera Microsoft Authenticator-appen som en av verifierings [metoderna](../../active-directory/authentication/howto-mfa-mfasettings.md#verification-methods).
 
-Slutanvändare måste [Ladda ned och installera](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-download-install) Microsoft Authenticator-appen och [Konfigurera sitt konto](https://docs.microsoft.com/azure/active-directory/user-help/security-info-setup-auth-app) för att använda Microsoft Authenticator-appen som en av verifierings metoderna.
+Slutanvändare måste [Ladda ned och installera](../../active-directory/user-help/user-help-auth-app-download-install.md) Microsoft Authenticator-appen och [Konfigurera sitt konto](../../active-directory/user-help/security-info-setup-auth-app.md) för att använda Microsoft Authenticator-appen som en av verifierings metoderna.
 
 > [!VIDEO https://www.youtube.com/embed/uWbkLuI4g30]
 
@@ -184,7 +184,7 @@ Autentisering utan lösen ord med Microsoft Authenticator följer samma grundlä
 
 #### <a name="user-manages-their-passwordless-sign-in-with-microsoft-authenticator-credentials"></a>Användaren hanterar inloggning med lösen ord med Microsoft Authenticator autentiseringsuppgifter
 
-Med [kombinerad registrering](https://docs.microsoft.com/azure/active-directory/authentication/concept-registration-mfa-sspr-combined)kan användarna registrera sig och få fördelarna med både Azure Multi-Factor Authentication och lösen ords återställning via självbetjäning. Användarna registrerar och hanterar dessa inställningar genom att gå till [min profil sida](https://aka.ms/mysecurityinfo). Förutom att aktivera SSPR stöder kombinerad registrering flera autentiseringsmetoder och-åtgärder.
+Med [kombinerad registrering](../../active-directory/authentication/concept-registration-mfa-sspr-combined.md)kan användarna registrera sig och få fördelarna med både Azure Multi-Factor Authentication och lösen ords återställning via självbetjäning. Användarna registrerar och hanterar dessa inställningar genom att gå till [min profil sida](https://aka.ms/mysecurityinfo). Förutom att aktivera SSPR stöder kombinerad registrering flera autentiseringsmetoder och-åtgärder.
 
 ## <a name="fido2-security-keys"></a>FIDO2 säkerhets nycklar
 
@@ -228,7 +228,7 @@ Vi rekommenderar också att varje organisation skapar ett protokoll för använd
 
 Administratörer kan [manuellt etablera nycklar](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-enable) och distribuera dem till slutanvändare, och etablering och aktivering av FIDO2 på Windows 10-Lås-skärmen kommer att stödjas via [Intune](https://docs.microsoft.com/intune/windows-enrollment-methods). Administratörer måste också använda [Azure Portal](https://portal.azure.com/) för att aktivera maskinvaru-token-enheter som en metod för lösen ords lös autentisering.
 
-Att distribuera FIDO2 säkerhets nycklar kräver också att användarna registrerar sina nycklar med hjälp av [kombinerad registrering](https://docs.microsoft.com/azure/active-directory/authentication/concept-registration-mfa-sspr-combined). Med kombinerad registrering kan användarna registrera sig en gång och få fördelarna med både Azure Multi-Factor Authentication och återställning av lösen ord för enkel inloggning (SSPR).
+Att distribuera FIDO2 säkerhets nycklar kräver också att användarna registrerar sina nycklar med hjälp av [kombinerad registrering](../../active-directory/authentication/concept-registration-mfa-sspr-combined.md). Med kombinerad registrering kan användarna registrera sig en gång och få fördelarna med både Azure Multi-Factor Authentication och återställning av lösen ord för enkel inloggning (SSPR).
 
 Förutom att välja maskinvaru-token som standard metod för Multi-Factor Authentication, rekommenderar vi att du även väljer ett ytterligare verifierings alternativ.
 
@@ -342,5 +342,5 @@ Införandet av modern Multi-Factor Authentication-teknik, till exempel biometrik
 
 ## <a name="next-steps"></a>Nästa steg
 
-* En översikt över [vad som är lösen ord?](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-passwordless)
+* En översikt över [vad som är lösen ord?](../../active-directory/authentication/concept-authentication-passwordless.md)
 * [Så här aktiverar du ett lösen ord i Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-enable)

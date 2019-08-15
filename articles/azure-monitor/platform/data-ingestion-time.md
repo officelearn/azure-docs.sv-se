@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/18/2019
 ms.author: bwren
-ms.openlocfilehash: cdd1c8348acac37acbe8ad15199f3953bfe95a8e
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: e07a436ee18a216bab569d299e534e729996db19
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68370659"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990164"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Tid för att mata in logg data i Azure Monitor
 Azure Monitor är en hög skalbar data tjänst som tjänar tusentals kunder som skickar terabyte data varje månad i en växande takt. Det finns ofta frågor om hur lång tid det tar för loggdata att bli tillgängliga när de har samlats in. I den här artikeln beskrivs de olika faktorer som påverkar den här svars tiden.
@@ -90,7 +90,7 @@ Hämtnings tiden kan variera beroende på olika resurser under olika omständigh
 ### <a name="ingestion-latency-delays"></a>Fördröjningar vid inmatnings fördröjning
 Du kan mäta svars tiden för en speciell post genom att jämföra resultatet från funktionen [ingestion_time ()](/azure/kusto/query/ingestiontimefunction) i egenskapen _TimeGenerated_ . Dessa data kan användas med olika agg regeringar för att ta reda på hur inmatnings fördröjningen fungerar. Granska några percentiler av Inhämtnings tiden för att få insikter om stora mängder data. 
 
-Följande fråga visar t. ex. vilka datorer som hade den högsta hämtnings tiden under den aktuella dagen: 
+Följande fråga visar t. ex. vilka datorer som hade den högsta inmatnings tiden under de senaste 8 timmarna: 
 
 ``` Kusto
 Heartbeat
@@ -101,7 +101,7 @@ Heartbeat
 | top 20 by percentile_E2EIngestionLatency_95 desc
 ```
  
-Om du vill öka detalj nivån för inmatnings tiden för en viss dator under en viss tids period, använder du följande fråga som också visualiserar data i ett diagram: 
+Om du vill öka detalj nivån för inmatnings tiden för en viss dator under en viss tids period, använder du följande fråga som också visualiserar data från föregående dag i ett diagram: 
 
 ``` Kusto
 Heartbeat 

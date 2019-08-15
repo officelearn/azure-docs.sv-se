@@ -8,12 +8,12 @@ ms.date: 06/26/2018
 ms.author: normesta
 ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: 3ad599182191e41ea43d38260692a7ab46e1af6f
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: f3386d04cd3316b38a094524d0d5d4f3c5ab36bb
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68844994"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68986846"
 ---
 # <a name="use-azure-cdn-to-access-blobs-with-custom-domains-over-https"></a>Använda Azure CDN för att få åtkomst till blobbar med anpassade domäner över HTTPS
 
@@ -40,7 +40,7 @@ Gör så här om du vill aktivera HTTPS för den anpassade Blob Storage-slutpunk
 
 ## <a name="shared-access-signatures"></a>Signaturer för delad åtkomst
 
-Som standard tillåter Blob Storage-slutpunkter anonym Läs åtkomst. Om din Blob Storage-slutpunkt är konfigurerad för att inte tillåta anonym Läs åtkomst, anger du en [signatur för delad åtkomst](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) i varje begäran till din anpassade domän. Mer information finns i [Hantera anonym läsbehörighet till containrar och blobbar](storage-manage-access-to-resources.md).
+Som standard tillåter Blob Storage-slutpunkter anonym Läs åtkomst. Om din Blob Storage-slutpunkt är konfigurerad för att inte tillåta anonym Läs åtkomst, anger du en [signatur för delad åtkomst](../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) i varje begäran till din anpassade domän. Mer information finns i [Hantera anonym läsbehörighet till containrar och blobbar](storage-manage-access-to-resources.md).
 
 Azure CDN respekterar inte några begränsningar som läggs till i signaturen för signaturen för delad åtkomst. Till exempel går alla token för signaturer för delad åtkomst ut. Du kan fortfarande komma åt innehåll med en utgången signatur för delad åtkomst tills innehållet rensas från Azure CDN Edge-noderna. Du kan styra hur länge data cachelagras i Azure CDN genom att ställa in cache-svarshuvudet. Mer information finns [i hantera förfallo datum för Azure Storage blobbar i Azure CDN](../../cdn/cdn-manage-expiration-of-blob-content.md).
 

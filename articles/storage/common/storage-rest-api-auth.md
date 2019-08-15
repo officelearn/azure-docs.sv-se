@@ -1,6 +1,6 @@
 ---
-title: Anropa Azure Storage Services REST API-åtgärder, inklusive autentisering | Microsoft Docs
-description: Anropa Azure Storage Services REST API-åtgärder, inklusive autentisering
+title: Anropar Azure Storage tjänster REST API åtgärder inklusive autentisering | Microsoft Docs
+description: Anropar Azure Storage tjänster REST API åtgärder inklusive autentisering
 services: storage
 author: tamram
 ms.service: storage
@@ -9,33 +9,33 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 38a120747734cbe4af8804a3e7596fc11a2c2eb3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2149bfb68697129680c45f15c6cce359863fbc59
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66306665"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989947"
 ---
 # <a name="using-the-azure-storage-rest-api"></a>Använda Azure Storage REST API
 
-Den här artikeln visar hur du använder den Blob Storage Service REST API: er och hur du autentiserar anropet till tjänsten. Den skrivs utifrån perspektivet för utvecklare som vet ingenting om REST och aning hur du gör ett REST-anrop. Vi tittar på referensdokumentation för REST-anrop och se hur att översätta det till ett faktiska REST-anrop – vilka fält som gå var? När du lära dig hur du ställer in ett REST-anrop, kan du använda den här kunskapen om du vill använda någon av de andra Storage Service REST API: er.
+Den här artikeln visar hur du använder REST-API: er för tjänsten Blob Storage och hur du autentiserar anropet till tjänsten. Den är skriven från den tidpunkt då en utvecklare vet ingenting om REST och ingen idé att göra ett REST-samtal. Vi tittar på referens dokumentationen för ett REST-samtal och ser hur du översätter det till ett faktiskt REST-anrop – vilka fält går var? När du har lärt dig hur du konfigurerar ett REST-samtal kan du utnyttja den här kunskapen för att använda någon av de andra REST-API: erna för lagrings tjänsten.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter 
+## <a name="prerequisites"></a>Förutsättningar 
 
-Programmet visas behållare i blob-lagring för ett lagringskonto. Om du vill testa koden i den här artikeln behöver du följande objekt: 
+Programmet visar behållarna i Blob Storage för ett lagrings konto. Om du vill testa koden i den här artikeln behöver du följande objekt: 
 
-* Installera [Visual Studio 2019](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) med följande arbetsbelastning:
+* Installera [Visual Studio 2019](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) med följande arbets belastning:
     - Azure Development
 
 * En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-* Ett allmänt lagringskonto. Om du ännu inte har ett lagringskonto kan du läsa [skapa ett lagringskonto](storage-quickstart-create-account.md).
+* Ett allmänt lagrings konto. Om du inte har ett lagrings konto än kan du läsa [skapa ett lagrings konto](storage-quickstart-create-account.md).
 
-* I exemplet i den här artikeln visar hur du listar behållare i ett lagringskonto. Lägga till vissa behållare till blob storage i storage-konto innan du startar om du vill se utdata.
+* Exemplet i den här artikeln visar hur du listar behållarna i ett lagrings konto. Om du vill se utdata lägger du till några behållare i Blob Storage i lagrings kontot innan du börjar.
 
 ## <a name="download-the-sample-application"></a>Hämta exempelprogrammet
 
-Exempelprogrammet är ett konsolprogram som skrivits i C#.
+Exempel programmet är ett konsol program skrivet C#.
 
 Använd [git](https://git-scm.com/) för att ladda ned en kopia av programmet till utvecklingsmiljön. 
 
@@ -43,73 +43,73 @@ Använd [git](https://git-scm.com/) för att ladda ned en kopia av programmet ti
 git clone https://github.com/Azure-Samples/storage-dotnet-rest-api-with-auth.git
 ```
 
-Det här kommandot klonar lagret till den lokala git-mappen. Öppna Visual Studio-lösningen genom att leta efter mappen storage-dotnet-rest-api-with-auth, öppna den och dubbelklicka på StorageRestApiAuth.sln. 
+Det här kommandot klonar lagret till den lokala git-mappen. Öppna Visual Studio-lösningen genom att leta reda på mappen Storage-dotNet-REST-API-with-auth, öppna den och dubbelklicka på StorageRestApiAuth. SLN. 
 
 ## <a name="what-is-rest"></a>Vad är REST?
 
-REST-innebär *representational tillstånd överföring*. Kolla in för en viss definition [Wikipedia](https://en.wikipedia.org/wiki/Representational_state_transfer).
+REST innebär *ompresentations tillstånds överföring*. Om du vill ha en bestämd definition kan du kolla på [Wikipedia](https://en.wikipedia.org/wiki/Representational_state_transfer).
 
-I princip REST är en arkitektur som du kan använda när du anropar API: er eller genom att göra tillgängliga för att anropa API: er. Det är oberoende av vad som händer på endera sidan och vilka andra program som ska användas när du skickade eller tog emot RESTEN-anrop. Du kan skriva ett program som körs på en Mac, Windows, Linux, Android-telefon eller surfplatta, iPhone, iPod eller webbplatsen och använder samma REST API för alla dessa plattformar. Data kan skickas i och/eller ut när REST API anropas. REST API hand inte från vilken plattform som kallas – det viktiga är den information som angavs i begäran och de data som anges i svaret.
+REST är i princip en arkitektur som du kan använda när du anropar API: er eller gör API: er tillgängliga för att anropas. Det är oberoende av vad som händer på endera sidan, och vilka andra program som används när du skickar eller tar emot REST-anrop. Du kan skriva ett program som körs på en Mac, Windows, Linux, en Android-telefon eller surfplatta, iPhone, iPod eller webbplats och använda samma REST API för alla dessa plattformar. Data kan skickas in och/eller ut när REST API anropas. REST API bryr sig inte om vilken plattform den kallas för, vad är viktigt för den information som skickas i begäran och de data som anges i svaret.
 
-Att veta hur du använder REST är en användbar färdighet. Azure produktteamet släpper ofta nya funktioner. Många gånger är de nya funktionerna tillgängliga via REST-gränssnittet. Ibland kan dock funktionerna har inte visas via **alla** storage-klientbibliotek eller Användargränssnittet (till exempel Azure portal). Om du alltid vill använda det senaste och bästa learning REST är ett krav. Om du vill skriva egna bibliotek för att interagera med Azure Storage, eller om du vill komma åt Azure Storage med ett programmeringsspråk som inte har ett SDK eller storage-klientbiblioteket, kan du använda REST-API.
+Att veta hur du använder REST är en användbar färdighet. Azures produkt team släpper ofta nya funktioner. Många gånger är de nya funktionerna tillgängliga via REST-gränssnittet. Ibland har funktionerna inte uppvisats via **alla** lagrings klient bibliotek eller användar gränssnittet (till exempel Azure Portal). Om du alltid vill använda den senaste och bästa, är inlärnings REST ett krav. Om du vill skriva ditt eget bibliotek för att interagera med Azure Storage, eller om du vill komma åt Azure Storage med ett programmeringsspråk som inte har något SDK-eller lagrings klient bibliotek, kan du använda REST API.
 
-## <a name="about-the-sample-application"></a>Om exempelprogrammet
+## <a name="about-the-sample-application"></a>Om exempel programmet
 
-Exempelprogrammet visar behållarna i ett lagringskonto. När du förstår hur informationen i REST API-dokumentationen motsvarar dina faktiska kod kan är andra REST-anrop lättare att ta reda på. 
+Exempel programmet visar en lista över behållare i ett lagrings konto. När du förstår hur informationen i REST API-dokumentationen motsvarar din faktiska kod är andra REST-anrop enklare att räkna ut. 
 
-Om du tittar på den [REST-API för Blob Service](/rest/api/storageservices/Blob-Service-REST-API), visas alla de åtgärder som du kan utföra på blob-lagring. Lagringsklientbiblioteken är omslutningar runt REST-API: er – de gör det enkelt för dig att komma åt lagringsutrymme utan att använda REST-API: er direkt. Men ovanstående du vill ibland använda REST-API i stället för ett storage-klientbiblioteket.
+Om du tittar på [BLOB service-REST API](/rest/api/storageservices/Blob-Service-REST-API)visas alla åtgärder som du kan utföra på Blob Storage. Lagrings klient biblioteken är omslutningar i REST-API: erna – de gör det enkelt för dig att komma åt lagring utan att använda REST-API: er direkt. Men som nämnts ovan vill du ibland använda REST API i stället för ett lagrings klient bibliotek.
 
-## <a name="rest-api-reference-list-containers-api"></a>REST API-referens: Lista behållare API
+## <a name="rest-api-reference-list-containers-api"></a>REST API referens: Lista behållare-API
 
-Låt oss titta på sidan i REST API-referens för den [ListContainers](/rest/api/storageservices/List-Containers2) igen. Den här informationen hjälper dig att förstå några av fälten varifrån i begäran och svaret.
+Nu ska vi titta på sidan i REST API referens för åtgärden [ListContainers](/rest/api/storageservices/List-Containers2) . Den här informationen hjälper dig att förstå var några av fälten kommer från i förfrågan och svaret.
 
-**Begärandemetod**: HÄMTA. Den här verbet är HTTP-metod som du anger som en egenskap för Begäranobjektet. Andra värden för den här verb är HEAD, PUT och DELETE, beroende på du anropar API: et.
+**Metod för begäran**: TA. Det här verbet är den HTTP-metod som du anger som egenskap för objektet Request. Andra värden för det här verbet omfattar HEAD, placering och DELETE, beroende på vilket API som du anropar.
 
-**Begärande-URI**: https://myaccount.blob.core.windows.net/?comp=list   Det här skapas från blob storage-konto-slutpunkten `http://myaccount.blob.core.windows.net` och resurssträngen `/?comp=list`.
+**Begärande-URI**: https://myaccount.blob.core.windows.net/?comp=list Detta skapas från slut punkten `http://myaccount.blob.core.windows.net` för Blob Storage-kontot och resurs strängen. `/?comp=list`
 
-[URI-parametrar](/rest/api/storageservices/List-Containers2#uri-parameters): Det finns ytterligare frågeparametrar som du kan använda när du anropar ListContainers. Några av parametrarna är *timeout* för anrop (i sekunder) och *prefix*, som används för filtrering.
+[URI-parametrar](/rest/api/storageservices/List-Containers2#uri-parameters): Det finns ytterligare frågeparametrar som du kan använda när du anropar ListContainers. Ett par av dessa parametrar är *timeout* för anropet (i sekunder) och *prefix*, som används för filtrering.
 
-En annan bra parametern är *maxresults:* om fler behållare är tillgängliga än det här värdet, svarstexten innehåller en *NextMarker* element som anger nästa behållaren ska returneras vid nästa begäran. Om du vill använda denna funktion kan du ange den *NextMarker* värdet som den *markör* parameter i URI: N när du gör nästa begäran. Det är detsamma som sidindelning igenom resultat som när du använder den här funktionen. 
+En annan användbar parameter är *maxresults:* om fler behållare är tillgängliga än det här värdet kommer svars texten att innehålla ett *NextMarker* -element som anger nästa behållare som ska returneras för nästa begäran. Om du vill använda den här funktionen anger du *NextMarker* -värdet som *markörens* parameter i URI: n när du gör nästa förfrågan. När du använder den här funktionen är det detsamma som att växla genom resultaten. 
 
-Om du vill använda ytterligare parametrar, lägger du till dem till resurssträngen med värde, som i följande exempel:
+Om du vill använda ytterligare parametrar lägger du till dem i resurs strängen med värdet, t. ex. det här exemplet:
 
 ```
 /?comp=list&timeout=60&maxresults=100
 ```
 
-[Begärandehuvuden](/rest/api/storageservices/List-Containers2#request-headers) **:** Det här avsnittet innehåller obligatoriska och valfria begärandehuvuden. Tre av rubrikerna som krävs: en *auktorisering* rubrik, *x-ms-date* (innehåller UTC-tid för begäran), och *x-ms-version* (anger vilken version av RESTEN API för användning). Inklusive *x-ms-client-request-id* i sidhuvud är valfritt – du kan ange värdet för det här fältet till något; de skrivs till loggarna storage analytics när loggning är aktiverat.
+[](/rest/api/storageservices/List-Containers2#request-headers) Begärandehuvuden **:** I det här avsnittet visas de obligatoriska och valfria huvudena för begäran. Tre huvuden krävs: ett *Authorization* -huvud, *x-MS-date* (innehåller UTC-tiden för begäran) och *x-MS-version* (anger vilken version av REST API som ska användas). Inklusive *x-MS-client-Request-ID* i rubrikerna är valfritt – du kan ange värdet för det här fältet till något. den skrivs till Storage Analytics-loggarna när loggning är aktiverat.
 
-[Brödtext i begäran](/rest/api/storageservices/List-Containers2#request-body) **:** Det finns inga begärandetexten för ListContainers. Begärandetexten används på alla PUT-åtgärder när du överför blobbar, samt SetContainerAccessPolicy, vilket gör att du skickar in en XML-lista över åtkomstprinciper har lagrats tillämpas. Åtkomstprinciper har lagrats beskrivs i artikeln [med signaturer för delad åtkomst (SAS)](storage-dotnet-shared-access-signature-part-1.md).
+[Brödtext i begäran](/rest/api/storageservices/List-Containers2#request-body) **:** Det finns ingen begär ande text för ListContainers. Brödtext för begäran används på alla åtgärder för att ladda upp blobbar, samt SetContainerAccessPolicy, vilket gör att du kan skicka i en XML-lista över lagrade åtkomst principer som ska tillämpas. Lagrade åtkomst principer beskrivs i artikeln [med signaturer för delad åtkomst (SAS)](storage-sas-overview.md).
 
-[Svarets statuskod](/rest/api/storageservices/List-Containers2#status-code) **:** Talar om för alla statuskoder som du behöver veta. I det här exemplet är en HTTP-statuskod 200 ok. En fullständig lista över HTTP-statuskoder finns [statuskoddefinitioner](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html). Felkoder som är specifika för Storage REST API: er finns i [vanliga REST API-felkoder](/rest/api/storageservices/common-rest-api-error-codes)
+[Svars status kod](/rest/api/storageservices/List-Containers2#status-code) **:** Visar alla status koder som du behöver känna till. I det här exemplet är HTTP-statuskoden 200 OK. Om du vill ha en fullständig lista över HTTP-statuskod, kan du läsa mer i [status kod definitioner](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html). Om du vill se felkoder som är unika för Storage REST-API: erna, se [vanliga REST API felkoder](/rest/api/storageservices/common-rest-api-error-codes)
 
-[Svarshuvuden](/rest/api/storageservices/List-Containers2#response-headers) **:** Dessa inkluderar *innehållstyp*; *x-ms-request-id*, vilket är det id du angav i; *x-ms-version*, som anger versionen av Blob-tjänsten används; och *datum*, som är i UTC och talar om vilken tidpunkt begäran gjordes.
+[Svarshuvuden](/rest/api/storageservices/List-Containers2#response-headers) **:** Dessa inkluderar *innehålls typ*; *x-MS-Request-ID*, som är det ID för begäran som du godkände. *x-MS-version*, som anger vilken version av BLOB service som används. och *datumet*, som är i UTC och anger vilken tid begäran gjordes.
 
-[Svarstexten](/rest/api/storageservices/List-Containers2#response-body): Det här fältet är en XML-struktur som tillhandahåller data som begärs. I det här exemplet är svaret en lista över behållare och deras egenskaper.
+[Svars text](/rest/api/storageservices/List-Containers2#response-body): Det här fältet är en XML-struktur som tillhandahåller de data som begärs. I det här exemplet är svaret en lista över behållare och deras egenskaper.
 
-## <a name="creating-the-rest-request"></a>Skapar en REST-förfrågan
+## <a name="creating-the-rest-request"></a>Skapar REST-begäran
 
-Några anmärkningar innan du startar – för säkerhet vid körning i produktion kan alltid använda HTTPS snarare än HTTP. För den här övningen, bör du använda HTTP så att du kan visa data för begäran och svar. Om du vill visa informationen om begäran och svar i de faktiska REST-anrop, kan du ladda ned [Fiddler](https://www.telerik.com/fiddler) eller ett liknande program. Är hårdkodad i klassen i Visual Studio-lösning, lagringskontonamn och nyckel. Metoden ListContainersAsyncREST skickar lagringskontonamn och lagringskontonyckel till de metoder som används för att skapa de olika komponenterna i REST-begäran. I en verklig tillämpning lagringskontonamnet och nyckeln skulle finnas i en konfigurationsfil, miljövariabler, eller hämtas från ett Azure Key Vault.
+Ett par anteckningar innan du startar – för säkerhet vid körning i produktion ska du alltid använda HTTPS i stället för HTTP. I den här övningen ska du använda HTTP så att du kan visa begär ande-och svars data. Om du vill visa information om begäran och svar i de faktiska REST-anropen kan du ladda ned [Fiddler](https://www.telerik.com/fiddler) eller ett liknande program. I Visual Studio-lösningen är lagrings kontots namn och nyckel hårdkodad i klassen. Metoden ListContainersAsyncREST skickar lagrings kontots namn och lagrings konto nyckeln till de metoder som används för att skapa de olika komponenterna i REST-begäran. I ett verkligt världs program skulle lagrings kontots namn och nyckel finnas i en konfigurations fil, miljövariabler eller hämtas från en Azure Key Vault.
 
-I vår exempelprojektet är koden för att skapa auktoriseringsrubriken i en separat. Tanken är att kan du ta hela klassen och lägga till den i din egen lösning och använda den ”i befintligt skick”. Huvudet auktoriseringskod fungerar för de flesta REST API-anrop till Azure Storage.
+I vårt exempel projekt finns koden för att skapa ett Authorization-huvud i en separat klass. Idén är att du kan ta hela klassen och lägga till den i din egen lösning och använda den "i befintligt skick". Huvud koden för auktorisering fungerar för de flesta REST API anrop till Azure Storage.
 
-Om du vill skapa den begäran som är ett HttpRequestMessage-objekt, går du till ListContainersAsyncREST i Program.cs. Stegen för att skapa begäran är: 
+Om du vill bygga begäran, som är ett HttpRequestMessage-objekt, går du till ListContainersAsyncREST i Program.cs. Stegen för att skapa begäran är: 
 
-* Skapa URI som ska användas för att anropa tjänsten. 
-* Skapa HttpRequestMessage-objekt och ange nyttolasten. Nyttolasten är null för ListContainersAsyncREST eftersom vi inte skicka något i.
-* Lägg till begärandehuvuden för x-ms-date- och x-ms-version.
-* Få auktoriseringsrubriken och lägga till den.
+* Skapa den URI som ska användas för att anropa tjänsten. 
+* Skapa HttpRequestMessage-objektet och ange nytto lasten. Nytto lasten är null för ListContainersAsyncREST eftersom vi inte skickar något i.
+* Lägg till begärandehuvuden för x-MS-date och x-MS-version.
+* Hämta Authorization-huvudet och Lägg till det.
 
-Grundläggande information du behöver: 
+Grundläggande information som du behöver: 
 
-*  För ListContainers, den **metoden** är `GET`. Det här värdet anges när instanser skapades av begäran. 
-*  Den **resource** är frågan delen av den URI som anger vilken API anropas så är värdet `/?comp=list`. Som tidigare nämnts resursen finns på sidan referens dokumentation som visar information om den [ListContainers API](/rest/api/storageservices/List-Containers2).
-*  URI: N skapas genom att skapa Blob service-slutpunkt för det lagringskontot och sammanfoga resursen. Värdet för **begärande-URI** identisk som `http://contosorest.blob.core.windows.net/?comp=list`.
-*  För ListContainers, **requestBody** är null och det finns inga extra **rubriker**.
+*  För ListContainers är `GET` **metoden** . Det här värdet anges när en instans av begäran skapas. 
+*  **Resursen** är den fråge del av URI: n som anger vilket API som anropas, så värdet är `/?comp=list`. Som tidigare nämnts finns resursen på referens dokument sidan som visar information om ListContainers-API: [et](/rest/api/storageservices/List-Containers2).
+*  URI: n konstrueras genom att Blob Service slut punkten för det lagrings kontot skapas och resursen sammanfogas. Värdet för **begärande-URI: n** slutar `http://contosorest.blob.core.windows.net/?comp=list`.
+*  För ListContainers är **requestBody** null och det finns inga extra **huvuden**.
 
-Olika API: er kan ha andra parametrar för att skicka in som *ifMatch*. Ett exempel på där du kan använda ifMatch är när du anropar PutBlob. I så fall kan du ange ifMatch till en eTag och blob uppdateras endast om du anger eTag matchar aktuell eTag för blobben. Om någon annan har uppdaterats blob sedan hämtar eTag, åsidosättas sina ändringar inte. 
+Olika API: er kan ha andra parametrar för att skickas till som *ifMatch*. Ett exempel på var du kan använda ifMatch är när du anropar PutBlob. I så fall ställer du in ifMatch till en eTag och uppdaterar bara blobben om den eTag som du tillhandahåller matchar den aktuella eTag: en i blobben. Om någon annan har uppdaterat blobben sedan den hämtade eTag-filen, kommer deras ändring inte att åsidosättas. 
 
-Ställ först in den `uri` och `payload`. 
+Börja med att ange `uri` `payload`och. 
 
 ```csharp
 // Construct the URI. This will look like this:
@@ -121,7 +121,7 @@ String uri = string.Format("http://{0}.blob.core.windows.net?comp=list", storage
 Byte[] requestPayload = null;
 ```
 
-Därefter skapa en instans av begäran, ställa in metoden `GET` och ange URI: N.
+Sedan instansierar du begäran och ställer in metoden till `GET` och tillhandahåller URI: n.
 
 ```csharp 
 //Instantiate the request message with a null payload.
@@ -130,7 +130,7 @@ using (var httpRequestMessage = new HttpRequestMessage(HttpMethod.Get, uri)
 {
 ```
 
-Lägg till begärandehuvuden för x-ms-date- och x-ms-version. Denna plats i koden är också där du lägger till eventuella ytterligare begärandehuvuden som krävs för anropet. Det finns inga ytterligare rubriker i det här exemplet. Ett exempel på ett API som skickar extra meddelandehuvuden är SetContainerACL. Den lägger till en rubrik som heter ”x-ms-blob-public-åtkomst” och värdet för åtkomstnivå för Blob storage.
+Lägg till begärandehuvuden för x-MS-date och x-MS-version. Den här platsen i koden är också där du lägger till eventuella ytterligare begärandehuvuden som krävs för anropet. I det här exemplet finns det inga ytterligare huvuden. Ett exempel på ett API som skickar extra huvuden är SetContainerACL. För Blob Storage lägger den till ett sidhuvud med namnet "x-MS-BLOB-Public-Access" och värdet för åtkomst nivå.
 
 ```csharp
     // Add the request headers for x-ms-date and x-ms-version.
@@ -141,7 +141,7 @@ Lägg till begärandehuvuden för x-ms-date- och x-ms-version. Denna plats i kod
     //   the authorization header. 
 ```
 
-Anropa metoden som skapar auktoriseringsrubriken och lägga till den i de begärda rubrikerna. Du lär dig att skapa auktoriseringsrubriken senare i artikeln. Metodnamnet är GetAuthorizationHeader som du ser i det här kodfragmentet:
+Anropa metoden som skapar Authorization-huvudet och Lägg till den i begärandehuvuden. Du får se hur du skapar Authorization-huvudet senare i artikeln. Metod namnet är GetAuthorizationHeader, som du kan se i det här kodfragmentet:
 
 ```csharp
     // Get the authorization header and add it.
@@ -149,11 +149,11 @@ Anropa metoden som skapar auktoriseringsrubriken och lägga till den i de begär
         storageAccountName, storageAccountKey, now, httpRequestMessage);
 ```
 
-Nu `httpRequestMessage` innehåller REST-begäran med auktorisering rubriker. 
+I det här läget `httpRequestMessage` innehåller rest-begäran slutförd med begärandehuvuden. 
 
-## <a name="call-the-rest-api-with-the-request"></a>Anropa REST-API med begäran
+## <a name="call-the-rest-api-with-the-request"></a>Anropa REST API med begäran
 
-Nu när du har begäran kan du anropa SendAsync för att skicka REST-begäran. SendAsync anropar API: et och får svaret tillbaka. Granska svaret StatusCode (200 är OK), parsa svaret. I det här fallet kan du hämta ett XML-lista över behållare. Nu ska vi titta på koden för att anropa metoden GetRESTRequest för att skapa begäran, utföra begäran och sedan granska svaret för listan över behållare.
+Nu när du har en begäran kan du anropa SendAsync för att skicka REST-begäran. SendAsync anropar API: et och får svaret tillbaka. Granska svars-StatusCode (200 är OK) och parsa svaret. I det här fallet får du en XML-lista över behållare. Nu ska vi titta på koden för att anropa GetRESTRequest-metoden för att skapa begäran, köra begäran och sedan undersöka svaret på listan över behållare.
 
 ```csharp 
     // Send the request.
@@ -175,15 +175,15 @@ Nu när du har begäran kan du anropa SendAsync för att skicka REST-begäran. S
 }
 ```
 
-Om du kör en nätverksavsökare som [Fiddler](https://www.telerik.com/fiddler) vid anrop till SendAsync måste du se informationen om begäran och svar. Låt oss ta en titt. Namnet på lagringskontot är *contosorest*.
+Om du kör en nätverks avlyssning, till exempel [Fiddler](https://www.telerik.com/fiddler) när du ringer till SendAsync, kan du se information om begäran och svar. Låt oss ta en titt. Namnet på lagrings kontot är *contosorest*.
 
-**Begäran:**
+**Anmoda**
 
 ```
 GET /?comp=list HTTP/1.1
 ```
 
-**Rubriker i begäran:**
+**Begärandehuvuden:**
 
 ```
 x-ms-date: Thu, 16 Nov 2017 23:34:04 GMT
@@ -193,7 +193,7 @@ Host: contosorest.blob.core.windows.net
 Connection: Keep-Alive
 ```
 
-**Status och svarshuvuden returnerades efter körning:**
+**Status kod och svars rubriker returnerades efter körning:**
 
 ```
 HTTP/1.1 200 OK
@@ -205,7 +205,7 @@ Date: Fri, 17 Nov 2017 00:23:42 GMT
 Content-Length: 1511
 ```
 
-**Svarstext (XML):** Detta visar listan över behållare och deras egenskaper för ListContainers.
+**Svars text (XML):** För ListContainers visar detta listan över behållare och deras egenskaper.
 
 ```xml  
 <?xml version="1.0" encoding="utf-8"?>
@@ -262,25 +262,25 @@ Content-Length: 1511
 </EnumerationResults>
 ```
 
-Nu när du vet hur du skapar begäran, anropar tjänsten och tolka resultaten kan du nu ska vi se hur du skapar auktoriseringsrubriken. Det är komplicerat att skapa den rubriken, men den goda nyheten är att när du har du koden fungerar och den fungerar för alla Storage Service REST API: er.
+Nu när du förstår hur du skapar begäran, anropar tjänsten och tolkar resultaten, så kan vi se hur du skapar ett Authorization-huvud. Att skapa sidhuvudet är komplicerat, men den goda nyheten är att när du har koden igång fungerar den för alla REST-API: er för lagrings tjänsten.
 
-## <a name="creating-the-authorization-header"></a>Skapa auktoriseringsrubriken
+## <a name="creating-the-authorization-header"></a>Skapa ett Authorization-huvud
 
 > [!TIP]
-> Azure Storage stöder nu integrering med Azure Active Directory (Azure AD) för blobbar och köer. Azure AD erbjuder en mycket enklare upplevelse för att auktorisera en begäran till Azure Storage. Läs mer om hur du använder Azure AD för att auktorisera REST-åtgärder, [autentisera med Azure Active Directory](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory). En översikt över Azure AD-integrering med Azure Storage finns i [autentisera åtkomsten till Azure Storage med Azure Active Directory](storage-auth-aad.md).
+> Azure Storage stöder nu Azure Active Directory-integration (Azure AD) för blobbar och köer. Azure AD erbjuder en mycket enklare upplevelse för att auktorisera en begäran till Azure Storage. Mer information om hur du använder Azure AD för att auktorisera REST-åtgärder finns i [autentisera med Azure Active Directory](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory). En översikt över Azure AD-integrering med Azure Storage finns i [autentisera åtkomst till Azure Storage med hjälp av Azure Active Directory](storage-auth-aad.md).
 
-Det finns en artikel som förklarar begreppsmässigt (ingen kod) hur du utför [autentisering för Azure Storage-tjänster](/rest/api/storageservices/Authorization-for-the-Azure-Storage-Services).
-Nu ska vi hämta innehållsrik artikeln ned till exakt behövs och visa koden.
+Det finns en artikel som förklarar konceptuellt (ingen kod) om hur du utför [autentisering för Azure Storage-tjänsterna](/rest/api/storageservices/Authorization-for-the-Azure-Storage-Services).
+Nu ska vi ta bort den artikeln nedåt och Visa koden.
 
-Använd först en autentisering med delad nyckel. Auktorisering-huvudformat ser ut så här:
+Börja med att använda autentisering med delad nyckel. Formatet för auktoriserings huvud ser ut så här:
 
 ```  
 Authorization="SharedKey <storage account name>:<signature>"  
 ```
 
-Signaturfältet är en hashbaserad meddelandeautentiseringskod (HMAC) som skapats från begäran och beräknas med SHA256-algoritmen och sedan kodad med Base64-kodning. Har du som? (Lägg där, ännu inte har du hört ordet *kanoniseras* ännu.)
+Fältet signatur är en hash-baserad Message Authentication Code (HMAC) som skapats från begäran och beräknas med SHA256-algoritmen och sedan kodas med base64-kodning. Har du fått det? (Låser dig där, du har inte till och med hört att ordet är kanoniskt ännu.)
 
-Det här kodstycket visar formatet för strängen som signatur för delad nyckel:
+Det här kodfragmentet visar formatet för den delade nyckelns signatur sträng:
 
 ```csharp  
 StringToSign = VERB + "\n" +  
@@ -299,21 +299,21 @@ StringToSign = VERB + "\n" +
                CanonicalizedResource;  
 ```
 
-De flesta av de här fälten används sällan. För Blob-lagring anger du VERB, md5, innehållslängd, Kanoniseras rubriker och Kanoniseras resurs. Du kan lämna de andra tomt (men placera i den `\n` så att den vet att de är tom).
+De flesta av dessa fält används sällan. För Blob Storage anger du VERB, MD5, innehålls längd, kanoniska huvuden och kanoniskt resurs. Du kan lämna det andra tomt (men `\n` låta det vara tomt).
 
-Vad är CanonicalizedHeaders och CanonicalizedResource? Bra fråga. I själva verket vad gör kanoniseras medelvärdet? Inte ens att känna igen det som ett ord Microsoft Word. Här är vad [Wikipedia säger om auktorisering](https://en.wikipedia.org/wiki/Canonicalization): *I datavetenskap är auktorisering (ibland standardisering eller normalisering) en process för att konvertera data som har mer än en möjlig återgivning till en ”standard”, ”normal” eller kanoniska form.* I normal talar, det innebär att listan över objekt (till exempel rubriker när det gäller Kanoniseras huvuden) och standardisera dem i ett format som krävs. I praktiken, Microsoft valt ett format och du behöver för matchning.
+Vad är CanonicalizedHeaders och CanonicalizedResource? Lämplig fråga. Vad faktiskt är, vad är det kanoniska medelvärdet? Microsoft Word känner inte ens igen som ett ord. Det här är vad [Wikipedia säger om kanoniska](https://en.wikipedia.org/wiki/Canonicalization): *I dator vetenskap är kanoniska (ibland standardisering eller normalisering) en process för att konvertera data som har fler än en möjlig representation i "standard", "normal" eller kanoniskt format.* I normal-Speak innebär detta att ta med listan över objekt (till exempel rubriker när det gäller kanoniska rubriker) och standardisera dem i ett format som krävs. Microsoft beslutade i princip ett format och du måste matcha det.
 
-Låt oss börja med dessa två av kanoniserade fält, eftersom de behövs för att skapa auktoriseringsrubriken.
+Vi börjar med de två kanoniska fälten, eftersom de krävs för att skapa ett Authorization-huvud.
 
-**Av kanoniserade rubriker**
+**Kanoniska rubriker**
 
-Hämta sidhuvuden som börjar med ”x - ms-” och sortera dem för att skapa det här värdet, och sedan formatera dem till en sträng med `[key:value\n]` instanser, sammanfogas till en sträng. I det här exemplet av kanoniserade rubrikerna se ut så här: 
+Om du vill skapa det här värdet hämtar du de huvuden som börjar med "x-MS-" och sorterar dem och formaterar dem `[key:value\n]` sedan i en sträng med instanser, sammanfogade till en sträng. I det här exemplet ser de kanoniska rubrikerna ut så här: 
 
 ```
 x-ms-date:Fri, 17 Nov 2017 00:44:48 GMT\nx-ms-version:2017-07-29\n
 ```
 
-Här är koden som används för att skapa dessa utdata:
+Här är koden som används för att skapa utdata:
 
 ```csharp 
 private static string GetCanonicalizedHeaders(HttpRequestMessage httpRequestMessage)
@@ -350,15 +350,15 @@ private static string GetCanonicalizedHeaders(HttpRequestMessage httpRequestMess
 }
 ```
 
-**Av kanoniserade resurs**
+**Kanonisk resurs**
 
-Den här delen av signatur-strängen representerar det lagringskonto som mål för begäran. Kom ihåg att begäran-URI är `<http://contosorest.blob.core.windows.net/?comp=list>`, med faktiska kontonamn (`contosorest` i det här fallet). I det här exemplet returneras:
+Den här delen av Signature-strängen representerar det lagrings konto som är målet för begäran. Kom ihåg att begärd URI `<http://contosorest.blob.core.windows.net/?comp=list>`är, med det faktiska konto namnet`contosorest` (i det här fallet). I det här exemplet returneras detta:
 
 ```
 /contosorest/\ncomp:list
 ```
 
-Om du har frågeparametrar kan innehåller det här exemplet även dessa parametrar. Här är den kod som hanterar också ytterligare frågeparametrar och frågeparametrar med flera värden. Kom ihåg att du skapar den här koden ska fungera för alla REST-API: er. Du vill inkludera alla möjligheter, även om metoden ListContainers inte behöver alla.
+Om du har frågeparametrar innehåller det här exemplet även dessa parametrar. Här är koden, som även hanterar ytterligare frågeparametrar och frågeparametrar med flera värden. Kom ihåg att du skapar den här koden så att den fungerar för alla REST-API: er. Du vill inkludera alla möjligheter, även om ListContainers-metoden inte behöver alla.
 
 ```csharp 
 private static string GetCanonicalizedResource(Uri address, string storageAccountName)
@@ -380,7 +380,7 @@ private static string GetCanonicalizedResource(Uri address, string storageAccoun
 }
 ```
 
-Nu när av kanoniserade strängar är inställda vi titta på hur du skapar auktoriseringsrubriken själva. Börja med att skapa en sträng med meddelandesignaturen i formatet StringToSign tidigare visas i den här artikeln. Det här konceptet är enklare för att förklara med kommentarer i koden, så det är, den sista metoden som returnerar Auktoriseringsrubriken:
+Nu när de kanoniska strängarna har angetts ska vi titta på hur du skapar själva Authorization-huvudet. Du börjar med att skapa en sträng med meddelandet signatur i formatet StringToSign som tidigare visades i den här artikeln. Det här konceptet är enklare att förklara med kommentarer i koden, så här är den sista metoden som returnerar Authorization-huvudet:
 
 ```csharp
 internal static AuthenticationHeaderValue GetAuthorizationHeader(
@@ -414,33 +414,33 @@ internal static AuthenticationHeaderValue GetAuthorizationHeader(
 }
 ```
 
-När du kör den här koden resulterande MessageSignature ser ut som i följande exempel:
+När du kör den här koden ser den resulterande MessageSignature ut som i det här exemplet:
 
 ```
 GET\n\n\n\n\n\n\n\n\n\n\n\nx-ms-date:Fri, 17 Nov 2017 01:07:37 GMT\nx-ms-version:2017-07-29\n/contosorest/\ncomp:list
 ```
 
-Här är det slutliga värdet för AuthorizationHeader:
+Här är det sista värdet för AuthorizationHeader:
 
 ```
 SharedKey contosorest:Ms5sfwkA8nqTRw7Uury4MPHqM6Rj2nfgbYNvUKOa67w=
 ```
 
-AuthorizationHeader är rubriken senaste placeras i huvudena för begäran innan du publicerar svaret.
+AuthorizationHeader är det sista sidhuvudet som placerats i begärandehuvuden innan svaret har publicerats.
 
-Som täcker allt du behöver veta för att sätta ihop en klass som du kan skapa en begäran om att anropa Storage Services REST API: er.
+Som täcker allt du behöver veta för att kunna lägga ihop en klass med vilken du kan skapa en begäran om att anropa REST-API: er för lagrings tjänster.
 
-## <a name="how-about-another-example"></a>Vad sägs om ett annat exempel? 
+## <a name="how-about-another-example"></a>Hur vill du ha ett annat exempel? 
 
-Låt oss titta på hur du ändrar koden för att anropa ListBlobs för behållaren *container-1*. Den här koden är nästan identisk i koden för att lista behållare, endast skillnaderna är URI: N och hur du parsa svaret. 
+Nu ska vi titta på hur du ändrar koden för att anropa ListBlobs för container *container-1*. Den här koden är nästan identisk med koden för att lista behållare, den enda skillnaden är URI: n och hur du tolkar svaret. 
 
-Om du tittar på referensdokumentation för [ListBlobs](/rest/api/storageservices/List-Blobs), du tycker att metoden är *hämta* och RequestURI är:
+Om du tittar på referens dokumentationen för [ListBlobs](/rest/api/storageservices/List-Blobs), ser du att metoden är *Get* och att RequestURI är:
 
 ```
 https://myaccount.blob.core.windows.net/container-1?restype=container&comp=list
 ```
 
-I ListContainersAsyncREST, ändrar du koden som anger URI för API: t för ListBlobs. Behållarens namn är **container-1**.
+I ListContainersAsyncREST ändrar du koden som anger URI: n till API: t för ListBlobs. Container namnet är **container-1**.
 
 ```csharp
 String uri = 
@@ -449,7 +449,7 @@ String uri =
 
 ```
 
-Sedan där du kan hantera svaret, ändra koden för att leta efter blobar i stället för behållare.
+Sedan kan du hantera svaret genom att ändra koden så att den söker efter blobbar i stället för behållare.
 
 ```csharp
 foreach (XElement container in x.Element("Blobs").Elements("Blob"))
@@ -458,15 +458,15 @@ foreach (XElement container in x.Element("Blobs").Elements("Blob"))
 }
 ```
 
-När du kör det här exemplet ger resultat som liknar följande:
+När du kör det här exemplet får du resultat som följande:
 
-**Av kanoniserade rubriker:**
+**Kanoniska huvuden:**
 
 ```
 x-ms-date:Fri, 17 Nov 2017 05:16:48 GMT\nx-ms-version:2017-07-29\n
 ```
 
-**Av kanoniserade resursen:**
+**Kanonisk resurs:**
 
 ```
 /contosorest/container-1\ncomp:list\nrestype:container
@@ -487,13 +487,13 @@ SharedKey contosorest:uzvWZN1WUIv2LYC6e3En10/7EIQJ5X9KtFQqrZkxi6s=
 
 Följande värden är från [Fiddler](https://www.telerik.com/fiddler):
 
-**Begäran:**
+**Anmoda**
 
 ```
 GET http://contosorest.blob.core.windows.net/container-1?restype=container&comp=list HTTP/1.1
 ```
 
-**Rubriker i begäran:**
+**Begärandehuvuden:**
 
 ```
 x-ms-date: Fri, 17 Nov 2017 05:16:48 GMT
@@ -503,7 +503,7 @@ Host: contosorest.blob.core.windows.net
 Connection: Keep-Alive
 ```
 
-**Status och svarshuvuden returnerades efter körning:**
+**Status kod och svars rubriker returnerades efter körning:**
 
 ```
 HTTP/1.1 200 OK
@@ -515,7 +515,7 @@ Date: Fri, 17 Nov 2017 05:20:21 GMT
 Content-Length: 1135
 ```
 
-**Svarstext (XML):** Den här XML-svaret visar en lista över BLOB-objekt och deras egenskaper. 
+**Svars text (XML):** Detta XML-svar visar listan över blobbar och deras egenskaper. 
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -564,10 +564,10 @@ Content-Length: 1135
 
 ## <a name="summary"></a>Sammanfattning
 
-I den här artikeln lärde du dig att göra en begäran till blob storage REST API. Du kan hämta en lista över behållare eller en lista över blobarna i en behållare i förfrågan. Du har lärt dig hur du skapar auktorisering signaturen för REST API-anrop och hur du använder den i REST-begäran. Slutligen lärt du dig att undersöka svaret.
+I den här artikeln har du lärt dig hur du gör en begäran till Blob Storage REST API. Med begäran kan du hämta en lista över behållare eller en lista över blobbar i en behållare. Du har lärt dig hur du skapar signaturen för REST API anropet och hur du använder det i REST-begäran. Slutligen har du lärt dig hur du undersöker svaret.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [REST API för BLOB Service](/rest/api/storageservices/blob-service-rest-api)
-* [File Service REST API](/rest/api/storageservices/file-service-rest-api)
-* [REST API för kötjänst](/rest/api/storageservices/queue-service-rest-api)
+* [BLOB service-REST API](/rest/api/storageservices/blob-service-rest-api)
+* [Fil tjänst REST API](/rest/api/storageservices/file-service-rest-api)
+* [Queue Service-REST API](/rest/api/storageservices/queue-service-rest-api)

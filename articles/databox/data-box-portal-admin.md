@@ -1,30 +1,30 @@
 ---
-title: Hantera Azure Data Box som Azure Data Box tung via Azure-portalen | Microsoft Docs
-description: Beskriver hur du använder Azure-portalen för att administrera Azure Data Box och Azure Data Box tung.
+title: Hantera Azure Data Box Azure Data Box Heavy via Azure Portal | Microsoft Docs
+description: Beskriver hur du använder Azure Portal för att administrera Azure Data Box och Azure Data Box Heavy.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 05/30/2019
+ms.date: 08/07/2019
 ms.author: alkohli
-ms.openlocfilehash: 5ece12e117db7b334bce8edfd49a5a622e46e13c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 581f95bd813445d2cc9bd83d91917ea83f0bf04f
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66427718"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68987473"
 ---
-# <a name="use-the-azure-portal-to-administer-your-azure-data-box-and-azure-data-box-heavy"></a>Använda Azure-portalen för att administrera din Azure Data Box och Azure Data Box tunga
+# <a name="use-the-azure-portal-to-administer-your-azure-data-box-and-azure-data-box-heavy"></a>Använd Azure Portal för att administrera Azure Data Box och Azure Data Box Heavy
 
-Den här artikeln gäller för både Azure Data Box och Azure Data Box tunga. Den här artikeln beskriver några av de komplexa arbetsflöden och de administrativa uppgifter som kan utföras på Azure Data Box-enhet. Du kan hantera Data Box-enhet via Azure portal eller via lokalt webbgränssnitt.
+Den här artikeln gäller både Azure Data Box och Azure Data Box Heavy. I den här artikeln beskrivs några komplexa arbets flöden och hanterings uppgifter som kan utföras på den Azure Data Box enheten. Du kan hantera Data Box-enhet-enheten via Azure Portal eller via det lokala webb gränssnittet.
 
-Den här artikeln fokuserar på de uppgifter som du kan utföra med Azure-portalen. Använda Azure portal för att hantera order, hantera Data Box-enhet och spåra statusen för ordern när den fortsätter att slutföras.
+Den här artikeln fokuserar på de uppgifter som du kan utföra med Azure-portalen. Använd Azure Portal för att hantera order, hantera Data Box-enhets enhet och spåra status för beställningen när den fortsätter att slutföras.
 
 
 ## <a name="cancel-an-order"></a>Annullera en beställning
 
-Ibland kan du behöva annullera en beställning som du gjort. Du kan bara annullera en beställning innan beställningen behandlas. När ordningen som har bearbetats och Data Box-enhet förbereds, går det inte att avbryta ordern.
+Ibland kan du behöva annullera en beställning som du gjort. Du kan bara annullera en beställning innan beställningen behandlas. När beställningen har bearbetats och Data Box-enhet enheten har för beretts, går det inte att avbryta ordningen.
 
 Följ stegen nedan om du vill annullera en beställning.
 
@@ -40,7 +40,7 @@ Följ stegen nedan om du vill annullera en beställning.
 
 ## <a name="clone-an-order"></a>Klona en order
 
-Kloning är användbart i vissa situationer. Exempelvis har en användare kanske använt Data Box för att överföra vissa data. Eftersom mer data genereras, finns det ett behov av en annan Data Box-enhet att överföra data till Azure. I så fall behöver du bara klona samma order.
+Kloning är användbart i vissa situationer. Exempelvis har en användare kanske använt Data Box för att överföra vissa data. När mer data genereras måste en annan Data Box-enhet enhet överföra dessa data till Azure. I så fall behöver du bara klona samma order.
 
 Följ stegen nedan om du vill klona en order.
 
@@ -53,7 +53,7 @@ Följ stegen nedan om du vill klona en order.
 Klonen skapas på några minuter och portalen uppdateras och visar den nya ordern.
 
 
-## <a name="delete-order"></a>Ta bort en order
+## <a name="delete-order"></a>Ta bort beställning
 
 Du kanske vill ta bort en order när den har verkställts. Ordern innehåller din personliga information, till exempel namn, adress och kontaktuppgifter. Den här personliga informationen tas bort när ordern tas bort.
 
@@ -69,7 +69,7 @@ Du kan bara ta bort order som har slutförts eller avbrutits. Följ steg nedan o
 
 ## <a name="download-shipping-label"></a>Ladda ned adressetikett
 
-Du kan behöva ladda ned adressetiketten om E-ink-skärmen på din Data Box inte fungerar och inte visar returfraktsedeln. Det finns ingen E-ink visning på Data Box-tung och därför gäller inte det här arbetsflödet för Data Box tung.
+Du kan behöva ladda ned adressetiketten om E-ink-skärmen på din Data Box inte fungerar och inte visar returfraktsedeln. Det finns ingen E-Penn visning på Data Box Heavy och därför gäller inte det här arbets flödet för Data Box Heavy.
 
 Följ stegen nedan om du behöver ladda ned en fraktsedel.
 
@@ -97,7 +97,7 @@ Följ stegen nedan om du vill redigera ordern.
 
 ## <a name="edit-notification-details"></a>Redigera meddelandeinformation
 
-Du kan behöva ändra vilka användare som ska få e-postmeddelanden om orderstatusen. Exempelvis ska en användare kanske meddelas när enheten levereras eller hämtas. En annan användare behöva du informeras när Datakopieringen är klar så att de kan kontrollera dina data finns i Azure storage-kontot innan du tar bort den från källan. I dessa fall kan du redigera meddelandeinformationen.
+Du kan behöva ändra vilka användare som ska få e-postmeddelanden om orderstatusen. Exempelvis ska en användare kanske meddelas när enheten levereras eller hämtas. En annan användare kan behöva informeras när data kopieringen är klar så att de kan verifiera att data finns i Azure Storage-kontot innan de tas bort från källan. I dessa fall kan du redigera meddelandeinformationen.
 
 Följ stegen nedan om du vill redigera meddelandeinformationen.
 
@@ -120,10 +120,10 @@ Ladda ned beställningshistoriken med hjälp av följande steg.
 
     ![Ladda ned beställningshistorik](media/data-box-portal-admin/download-order-history-1.png)
 
-2. Klicka på **Ladda ned beställningshistorik**. I den nedladdade historiken visas en post för transportspårningsloggar. Det kommer att två uppsättningar log som motsvarar de två noderna på en Data Box tung. Om du rullar ned till slutet av loggen visas följande länkar:
+2. Klicka på **Ladda ned beställningshistorik**. I den nedladdade historiken visas en post för transportspårningsloggar. Det finns två uppsättningar med logg som motsvarar de två noderna i en Data Box Heavy. Om du rullar ned till slutet av loggen visas följande länkar:
     
    - **Kopieringsloggar** – innehåller listan över filer med fel vid datakopieringen från Data Box till ditt Azure-lagringskonto.
-   - **Granskningsloggar** – innehåller information att slå på och dela åtkomst på Data Box när den finns utanför Azure-datacentret.
+   - **Gransknings loggar** – innehåller information om hur du kan sätta igång och få åtkomst till resurser på den data Box-enhet när den ligger utanför Azure-datacentret.
    - **BOM-filer** – innehåller listan över filer (även kallat filmanifest) som du kan ladda ned under **Förbered för att skicka** och innehåller namn, storlekar och kontrollsummor för filer.
 
        ```
@@ -200,14 +200,15 @@ När enhetens status ändras i portalen meddelas du via e-post.
 |Orderstatus |Beskrivning |
 |---------|---------|
 |Beställt     | En beställning har gjorts. <br>Om enheten är tillgänglig identifierar Microsoft en enhet för leverans och förbereder enheten. <br> Om enheten inte är tillgänglig omedelbart bearbetas ordern när enheten blir tillgänglig. Ordern kan ta flera dagar till några månader att behandla. Om ordern inte kan uppfyllas inom 90 dagar annulleras den och du får ett meddelande.         |
-|Bearbetad     | Orderbearbetningen har slutförts. Enligt din order förbereds enheten för leverans i datacentret.         |
+|Bearbetat     | Orderbearbetningen har slutförts. Enligt din order förbereds enheten för leverans i datacentret.         |
 |Skickat     | Beställningen har skickats. Använd det spårnings-ID som visas i din order i portalen för att spåra leveransen.        |
 |Levererade     | Försändelsen har levererats till den adress som angetts i ordern.        |
 |Hämtat     |Din returleverans har hämtats och genomsökts av transportören.         |
-|Mottaget     | Enheten tas emot och genomsöks vid Azure-datacentret. <br> När leveransen kontrolleras startar enhetsöverföringen.      |
+|Mottagning     | Enheten tas emot och genomsöks vid Azure-datacentret. <br> När leveransen kontrolleras startar enhetsöverföringen.      |
 |Datakopiering     | Data kopieras. Spåra kopieringsprocessen för din order i Azure-portalen. <br> Vänta tills datakopieringen är klar. |
 |Slutfört       |Ordern har slutförts.<br> Kontrollera att dina data finns i Azure innan du tar bort lokala data från servrarna.         |
-|Slutfört med fel| Datakopieringen slutfördes men fel inträffade under kopieringen. <br> Granska kopieringsloggarna med hjälp av sökvägen som anges i Azure-portalen.   |
+|Slutfört med fel| Datakopieringen slutfördes men fel inträffade under kopieringen. <br> Granska kopieringsloggarna med hjälp av sökvägen som anges i Azure-portalen. Se [exempel på kopierings loggar när överföringen är klar med fel](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-errors).   |
+|Slutfört med varningar| Data kopieringen slutfördes men dina data ändrades. Data innehöll icke-kritiska BLOB-eller fil namns fel som korrigerades genom att ändra fil-eller BLOB-namn. <br> Granska kopieringsloggarna med hjälp av sökvägen som anges i Azure-portalen. Anteckna ändringarna i dina data. Se [exempel på kopierings loggar när överföringen är klar med varningar](https://docs.microsoft.com/azure/databox/data-box-logs#upload-completed-with-warnings).   |
 |Avbrutna            |Ordern har avbrutits. <br> Antingen annullerade du beställningen eller så påträffades ett fel som gjorde att tjänsten avbröt ordern. Om ordern inte kan uppfyllas inom 90 dagar annulleras den också och du får ett meddelande.     |
 |Rensa | Data på enhetsdiskarna raderas. Enhetsrensningen anses slutförd när beställningshistoriken är tillgänglig för nedladdning i Azure-portalen.|
 
@@ -215,4 +216,4 @@ När enhetens status ändras i portalen meddelas du via e-post.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig hur du [felsöka Data Box och Data Box tunga problem](data-box-troubleshoot.md).
+- Lär dig hur du [felsöker data Box-enhet och data Box Heavy problem](data-box-troubleshoot.md).

@@ -1,9 +1,9 @@
 ---
-title: Stream Azure Active Directory-loggar till Azure Monitor-loggar | Microsoft Docs
-description: Lär dig att integrera Azure Active Directory-loggar med Azure Monitor-loggar
+title: Strömma Azure Active Directory loggar till Azure Monitor loggar | Microsoft Docs
+description: Lär dig hur du integrerar Azure Active Directory loggar med Azure Monitor loggar
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.assetid: 2c3db9a8-50fa-475a-97d8-f31082af6593
@@ -14,73 +14,73 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 04/18/2019
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 213fb6e73ae2fc4314320d0e3e593632d8eb7f85
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bffe16d604ac6b86b489092f50fbdc0b856867b3
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60437327"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989773"
 ---
-# <a name="integrate-azure-ad-logs-with-azure-monitor-logs"></a>Integrera Azure AD-loggar med Azure Monitor-loggar
+# <a name="integrate-azure-ad-logs-with-azure-monitor-logs"></a>Integrera Azure AD-loggar med Azure Monitor loggar
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-Du kan köra frågor mot data att söka efter specifika händelser, analysera trender och utföra korrelationen mellan olika datakällor i Azure Monitor-loggar. Med integreringen av Azure AD-aktivitetsloggar i Azure Monitor-loggar, du kan utföra uppgifter, t.ex.:
+Med Azure Monitor loggar kan du fråga efter specifika händelser, analysera trender och utföra korrelationer mellan olika data källor. Med integreringen av Azure AD-aktivitets loggar i Azure Monitor loggar kan du nu utföra uppgifter som:
 
- * Jämför dina Azure AD-inloggningen loggar mot säkerhetsloggar som publicerats av Azure Security Center
+ * Jämför dina inloggnings loggar för Azure AD mot säkerhets loggar som publicerats av Azure Security Center
 
- * Felsöka flaskhalsar i prestanda på inloggningssidan för ditt program genom att korrelera programprestanda från Azure Application Insights.  
+ * Felsök prestanda Flask halsar på programmets inloggnings sida genom att korrelera program prestanda data från Azure Application insikter.  
 
-Följande videoklipp från en Ignite-sessionen visar fördelarna med att använda Azure Monitor-loggar för Azure AD-loggar i praktiska användarscenarier.
+Följande video från en antändning visar fördelarna med att använda Azure Monitor loggar för Azure AD-loggar i praktiska användar scenarier.
 
 > [!VIDEO https://www.youtube.com/embed/MP5IaCTwkQg?start=1894]
 
-I den här artikeln får du lära dig hur du integrerar Azure Active Directory (Azure AD) loggar med Azure Monitor.
+I den här artikeln får du lära dig hur du integrerar Azure Active Directory (Azure AD)-loggar med Azure Monitor.
 
 ## <a name="supported-reports"></a>Rapporter som stöds
 
-Du kan dirigera aktiviteten granskningsloggar och logga in aktivitetsloggar till Azure Monitor-loggar för vidare analys. 
+Du kan dirigera gransknings aktivitets loggar och inloggnings aktivitets loggar till Azure Monitor loggar för vidare analys. 
 
-* **Granskningsloggar**: Den [granskningsloggar](concept-audit-logs.md) ger dig tillgång till historiken för varje aktivitet som utförs i din klient.
-* **Logga in loggar**: Med den [inloggningsaktivitet rapporten](concept-sign-ins.md), du kan bestämma vem som utfört de uppgifter som rapporteras i granskningsloggarna.
+* **Gransknings loggar**: [Aktivitets rapporten gransknings loggar](concept-audit-logs.md) ger dig till gång till historiken för alla uppgifter som utförs i din klient organisation.
+* **Inloggnings loggar**: Med [rapporten inloggnings aktivitet](concept-sign-ins.md)kan du bestämma vem som utförde de uppgifter som rapporteras i gransknings loggarna.
 
 > [!NOTE]
 > B2C-relaterade spårnings- och inloggningsaktivitetsloggar stöds inte just nu.
 >
 
-## <a name="prerequisites"></a>Nödvändiga komponenter 
+## <a name="prerequisites"></a>Förutsättningar 
 
 Om du vill använda den här funktionen behöver du:
 
 * En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du [registrera dig för en kostnadsfri utvärdering](https://azure.microsoft.com/free/).
 * En Azure AD-klientorganisation.
 * En användare som är *global administratör* eller *säkerhetsadministratör* för Azure AD-klientorganisationen.
-* En Log Analytics-arbetsyta i Azure-prenumerationen. Lär dig hur du [skapa en Log Analytics-arbetsyta](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
+* En Log Analytics arbets yta i din Azure-prenumeration. Lär dig hur du [skapar en arbets yta för Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
 
 ## <a name="send-logs-to-azure-monitor"></a>Skicka loggar till Azure Monitor
 
 1. Logga in på [Azure Portal](https://portal.azure.com). 
 
-2. Välj **Azure Active Directory** > **diagnostikinställningar** -> **Lägg till diagnostikinställning**. Du kan också välja **exportinställningar** från den **granskningsloggar** eller **inloggningar** vill gå till konfigurationssidan för diagnostikinställningar.  
+2. Välj **Azure Active Directory** > **diagnostikinställningar inställningar** -> **Lägg till diagnostisk inställning**. Du kan också välja **export inställningar** på sidan **gransknings loggar** eller **inloggnings** sidor för att komma till konfigurations sidan för diagnostikinställningar.  
     
-3. I den **diagnostikinställningar** menyn och välj den **skicka till Log Analytics-arbetsyta** kryssrutan och välj sedan **konfigurera**.
+3. I menyn **diagnostikinställningar** väljer du kryss rutan **Skicka till Log Analytics arbets yta** och väljer sedan **Konfigurera**.
 
-4. Välj Log Analytics-arbetsytan som du vill skicka loggar till eller skapa en ny arbetsyta i dialogrutan angivna.  
+4. Välj den Log Analytics arbets yta som du vill skicka loggarna till, eller skapa en ny arbets yta i dialog rutan som visas.  
 
 5. Gör endera eller båda av följande:
-    * Om du vill skicka granskningsloggar till Log Analytics-arbetsytan, Välj den **AuditLogs** markerar du kryssrutan. 
-    * Om du vill skicka loggar med inloggning till Log Analytics-arbetsytan, Välj den **SignInLogs** markerar du kryssrutan.
+    * Om du vill skicka gransknings loggar till Log Analytics arbets ytan markerar du kryss rutan **AuditLogs** . 
+    * Om du vill skicka inloggnings loggar till Log Analytics arbets ytan markerar du kryss rutan **SignInLogs** .
 
 6. Spara inställningen genom att välja **Spara**.
 
     ![Diagnostikinställningar](./media/howto-integrate-activity-logs-with-log-analytics/Configure.png)
 
-7. Kontrollera att händelser som strömmas till Log Analytics-arbetsytan efter 15 minuter.
+7. Efter cirka 15 minuter, kontrol lera att händelserna strömmas till din Log Analytics-arbetsyta.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Analysera Azure AD-aktivitetsloggar med Azure Monitor-loggar](howto-analyze-activity-logs-log-analytics.md)
-* [Installera och använda log analytics-vyer för Azure Active Directory](howto-install-use-log-analytics-views.md)
+* [Analysera Azure AD-aktivitets loggar med Azure Monitor loggar](howto-analyze-activity-logs-log-analytics.md)
+* [Installera och Använd Log Analytics-vyerna för Azure Active Directory](howto-install-use-log-analytics-views.md)

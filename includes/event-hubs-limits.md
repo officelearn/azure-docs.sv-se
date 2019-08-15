@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/22/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 928b0bcfb32d1a319c811d00fc84a37f85702895
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: c163e3cce862640d43f8696dca4eeef29f2ae12a
+ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68857505"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912508"
 ---
 I följande tabell visas kvoter och begränsningar som är begränsade till [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/). Information om Event Hubs priser finns i [Event Hubs prissättning](https://azure.microsoft.com/pricing/details/event-hubs/).
 
@@ -36,6 +36,8 @@ I följande tabell visas kvoter och begränsningar som är begränsade till [Azu
 | Antal konsument grupper per Event-hubb |Entitet | - |1 |20 |
 | Antal AMQP-anslutningar per namnrymd |Namnrymd |Efterföljande begär Anden om ytterligare anslutningar avvisas och ett undantag tas emot av den anropande koden. |100 |5,000|
 | Högsta kvarhållningsperiod för händelse data |Entitet | - |1 dag |1-7 dagar |
+|Apache Kafka aktive rad namnrymd|Namnrymd |Event Hubs namespace strömmar program med Kafka-protokoll |Nej | Ja |
+|Capture |Entitet | När aktive rad är mikrobatchar i samma ström |Nej |Ja |
 
 
 ### <a name="event-hubs-dedicated---quotas-and-limits"></a>Event Hubs Dedicated-kvoter och begränsningar

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f64beb80d1a11930fee74e669675b39087cade0
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 03c9f0908d8b5290dc4585a330a7ea78a6577ab9
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562236"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68942957"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Hantera enhets identiteter med hjälp av Azure Portal
 
@@ -116,7 +116,7 @@ Det här avsnittet innehåller information om vanliga hanterings uppgifter för 
 
 ### <a name="manage-an-intune-device"></a>Hantera en Intune-enhet
 
-Om du är Intune-administratör kan du hantera enheter som marker ATS som **Microsoft Intune**.
+Om du är Intune-administratör kan du hantera enheter som marker ATS som **Microsoft Intune**. Om enheten inte har registrerats med Microsoft Intune alternativet "hantera" bli grå.
 
 ![Hantera en Intune-enhet](./media/device-management-azure-portal/31.png)
 

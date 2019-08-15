@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
-ms.author: juliako;cenkdin
-ms.openlocfilehash: 05b899658b5c58e15b2f30ab759eb49319979fee
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: juliako
+ms.reviewer: cenkdin
+ms.openlocfilehash: c60b223f91a151bf63cabc5e95816f2545022503
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61465566"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "69016596"
 ---
 # <a name="creating-filters-with-media-services-net-sdk"></a>Skapa filter med Media Services .NET SDK 
 > [!div class="op_single_selector"]
@@ -28,24 +29,24 @@ ms.locfileid: "61465566"
 > 
 > 
 
-Från och med 2.17, kan Media Services du definiera filter för dina tillgångar. Dessa filter är serversidan regler som gör att kunderna kan välja att till exempel: uppspelning endast en del av en video (i stället för hela videon), eller ange endast en delmängd av ljud och video återgivningar som din kunds enheten kan hantera (i stället för alla återgivningar som är associerade med tillgången). Den här filtrering av dina tillgångar uppnås via **dynamiska Manifest**s som skapas på din kunds begäran för direktuppspelning av video baserat på angivna filter.
+Från och med 2,17-versionen kan du med Media Services definiera filter för dina till gångar. De här filtren är regler på Server sidan som gör det möjligt för dina kunder att välja att göra saker som: endast uppspelning av en del av en video (i stället för att spela upp hela videon) eller bara ange en del av ljud-och video åter givningar som kundens enhet kan hantera (i stället för alla renderingar som är associerade med till gången). Den här filtreringen av dina till gångar uppnås genom **dynamiskt manifest**s som skapas på kundens begäran att strömma en video som baseras på angivna filter.
 
-Mer detaljerad information om filter och dynamiska Manifest, finns i [dynamiska manifest översikt](media-services-dynamic-manifest-overview.md).
+Mer detaljerad information om filter och dynamiskt manifest finns i [Översikt över dynamiska manifest](media-services-dynamic-manifest-overview.md).
 
 Den här artikeln visar hur du använder Media Services .NET SDK för att skapa, uppdatera och ta bort filter. 
 
-Observera att om du uppdaterar ett filter, det kan ta upp till två minuter innan strömningsslutpunkt om du vill uppdatera reglerna. Om innehållet har behandlats med hjälp av det här filtret och cachelagras i proxyservrar och CDN cacheminnen, kan uppdaterar det här filtret resultera i player-fel. Alltid Rensa cachen när du har uppdaterat filtret. Överväg att använda ett annat filter om det här alternativet inte är möjligt. 
+Obs! Om du uppdaterar ett filter kan det ta upp till två minuter för strömnings slut punkten att uppdatera reglerna. Om innehållet har betjänats med det här filtret (och cachelagrats i proxyservrar och CDN-cacheminnen), kan uppdatering av det här filtret leda till Player-problem. Rensa alltid cacheminnet efter uppdatering av filtret. Om det här alternativet inte är möjligt bör du överväga att använda ett annat filter. 
 
 ## <a name="types-used-to-create-filters"></a>Typer som används för att skapa filter
 Följande typer används när du skapar filter: 
 
-* **IStreamingFilter**.  Den här typen är baserad på följande REST API [Filter](https://docs.microsoft.com/rest/api/media/operations/filter)
-* **IStreamingAssetFilter**. Den här typen är baserad på följande REST API [AssetFilter](https://docs.microsoft.com/rest/api/media/operations/assetfilter)
-* **PresentationTimeRange**. Den här typen är baserad på följande REST API [PresentationTimeRange](https://docs.microsoft.com/rest/api/media/operations/presentationtimerange)
-* **FilterTrackSelectStatement** och **IFilterTrackPropertyCondition**. Dessa typer är baserade på följande REST API: er [FilterTrackSelect och FilterTrackPropertyCondition](https://docs.microsoft.com/rest/api/media/operations/filtertrackselect)
+* **IStreamingFilter**.  Den här typen baseras på följande REST API [filter](https://docs.microsoft.com/rest/api/media/operations/filter)
+* **IStreamingAssetFilter**. Den här typen baseras på följande REST API [AssetFilter](https://docs.microsoft.com/rest/api/media/operations/assetfilter)
+* **PresentationTimeRange**. Den här typen baseras på följande REST API [PresentationTimeRange](https://docs.microsoft.com/rest/api/media/operations/presentationtimerange)
+* **FilterTrackSelectStatement** och **IFilterTrackPropertyCondition**. De här typerna baseras på följande REST-API: er [FilterTrackSelect och FilterTrackPropertyCondition](https://docs.microsoft.com/rest/api/media/operations/filtertrackselect)
 
 ## <a name="createupdatereaddelete-global-filters"></a>Skapa/uppdatera/läsa/ta bort globala filter
-Följande kod visar hur du använder .NET för att skapa, uppdatera, läsa och ta bort tillgången filter.
+Följande kod visar hur du använder .NET för att skapa, uppdatera, läsa och ta bort till gångs filter.
 
 ```csharp
     string filterName = "GlobalFilter_" + Guid.NewGuid().ToString();
@@ -74,8 +75,8 @@ Följande kod visar hur du använder .NET för att skapa, uppdatera, läsa och t
     filter.Delete();
 ```
 
-## <a name="createupdatereaddelete-asset-filters"></a>Skapa/uppdatera/läsa/ta bort tillgången filter
-Följande kod visar hur du använder .NET för att skapa, uppdatera, läsa och ta bort tillgången filter.
+## <a name="createupdatereaddelete-asset-filters"></a>Skapa/uppdatera/läsa/ta bort till gångs filter
+Följande kod visar hur du använder .NET för att skapa, uppdatera, läsa och ta bort till gångs filter.
 
 ```csharp
     string assetName = "AssetFilter_" + Guid.NewGuid().ToString();
@@ -106,20 +107,20 @@ Följande kod visar hur du använder .NET för att skapa, uppdatera, läsa och t
 ```
 
 
-## <a name="build-streaming-urls-that-use-filters"></a>Skapa strömmande URL: er som använder filter
-Information om hur du publicerar och leverera dina tillgångar, finns i [leverera innehåll till kunder översikt](media-services-deliver-content-overview.md).
+## <a name="build-streaming-urls-that-use-filters"></a>Bygg direkt uppspelnings-URL: er som använder filter
+Information om hur du publicerar och levererar till gångar finns i [leverera innehåll till kund översikt](media-services-deliver-content-overview.md).
 
-I följande exempel visas hur du lägger till filter till din strömmande URL: er.
+I följande exempel visas hur du lägger till filter till dina strömmande URL: er.
 
 **MPEG DASH** 
 
     http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf, filter=MyFilter)
 
-**Apple HTTP Live Streaming (HLS) V4**
+**Apple HTTP Live Streaming (HLS) v4**
 
     http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl, filter=MyFilter)
 
-**Apple HTTP Live Streaming (HLS) V3**
+**Apple HTTP Live Streaming (HLS) v3**
 
     http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3, filter=MyFilter)
 

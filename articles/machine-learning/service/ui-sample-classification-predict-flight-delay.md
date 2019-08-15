@@ -1,5 +1,5 @@
 ---
-title: Klassning Förutse flygförseningar
+title: 'Exempel på visuella gränssnitt #6: Klassificering för att förutsäga flyg fördröjningar'
 titleSuffix: Azure Machine Learning service
 description: Den här artikeln visar hur du skapar en maskin inlärnings modell för att förutsäga fördröjningar med hjälp av Visual-och-Drop-gränssnittet och anpassad R-kod.
 services: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 07/02/2019
-ms.openlocfilehash: f2ef5fd17d6c6a91fa5f3c5d62700b68c5fbca24
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 4c0a990ae3f45fc7b08c157f180d8ecf805c24e6
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855969"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990028"
 ---
 # <a name="sample-6---classification-predict-flight-delays-using-r"></a>Exempel 6 – klassificering: Förutsäg fördröjningar i flygning med R
 

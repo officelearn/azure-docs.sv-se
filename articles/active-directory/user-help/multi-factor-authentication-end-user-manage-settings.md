@@ -1,8 +1,7 @@
 ---
-title: Hantera inställningar för tvåstegsverifiering - Azure Active Directory | Microsoft Docs
-description: Hantera hur du använder Azure Multi-Factor Authentication, inklusive ändrar kontaktinformation eller konfigurera dina enheter.
+title: Hantera inställningar för tvåstegsverifiering – Azure Active Directory | Microsoft Docs
+description: Lär dig hur du ändrar information om säkerhets verifierings metoden i relation till tvåstegsverifiering.
 services: active-directory
-keywords: Multi-Factor authentication-klienten, problem med autentisering, Korrelations-ID
 author: eross-msft
 manager: daveba
 ms.reviewer: richagi
@@ -11,72 +10,131 @@ ms.workload: identity
 ms.service: active-directory
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 05/23/2017
+ms.date: 08/06/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 433c2d712ca4867a5ec59f86c333511070b6d507
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7acfa31434534eb3618b8a279ea6cff543fae076
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60334496"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68949814"
 ---
-# <a name="manage-your-settings-for-two-step-verification"></a>Hantera dina inställningar för tvåstegsverifiering
-Den här artikeln ger svar på frågor om hur du uppdaterar inställningar för tvåstegsverifiering verifieringen eller Multi-Factor authentication. Om du har problem med loggar in på ditt konto, se [har du problem med tvåstegsverifiering](multi-factor-authentication-end-user-troubleshoot.md) för hjälp med felsökning.
+# <a name="manage-your-two-factor-verification-method-settings"></a>Hantera dina inställningar för verifierings metoden med två faktorer
 
-## <a name="where-to-find-the-settings-page"></a>Var du hittar inställningssidan
-Beroende på hur ditt företag har konfigurerat Azure Multi-Factor Authentication, finns det vissa ställen där du kan ändra dina inställningar som ditt telefonnummer.
+När du har konfigurerat dina säkerhets verifierings metoder för ditt arbets-eller skol konto kan du uppdatera alla relaterade uppgifter, inklusive:
 
-Om företagets support skickas ut en specifik URL eller steg för att hantera tvåstegsverifiering, följer du dessa instruktioner. I annat fall bör följande anvisningar fungera för alla andra. Om du gör så här men inte ser samma alternativ, betyder det att arbetsplatsen eller skolan anpassat sin egen portal. Be din administratör om länken till Azure Multi-Factor Authentication-portalen.
+- Välja din standard metod för säkerhets verifiering.
 
-**Gå till sidan ytterligare verifiering**
+- Lägga till eller uppdatera information om säkerhets verifierings metoden, t. ex. ditt telefonnummer.
 
-- Gå till https://aka.ms/MFASetup.
+- Konfigurera en ny Authenticator-app eller ta bort en enhet från Authenticator-appen.
 
-    ![Proofup](./media/multi-factor-authentication-end-user-manage-settings/proofup.png)
+## <a name="using-the-additional-security-verification-page"></a>Använda sidan ytterligare säkerhets verifiering
 
-Om du klickar på länken inte fungerar för dig, du kan också få till den **ytterligare säkerhetsverifiering** sidan genom att följa dessa steg:
+Om din organisation tillhandahöll ett särskilt steg om hur du aktiverar och hanterar en tvåstegsverifiering bör du följa dessa anvisningar. Annars kan du komma till inställningarna för säkerhets verifierings metoden från sidan [ytterligare säkerhets verifiering](https://aka.ms/mfasetup) .
 
-1. Logga in på [https://myapps.microsoft.com](https://myapps.microsoft.com)  
+>[!Note]
+>Om det du ser på skärmen inte stämmer överens med vad som beskrivs i den här artikeln, innebär det att antingen din administratör har aktiverat säkerhets information (för hands versionen) eller att din organisation har en egen anpassad Portal. Mer information om säkerhets information får du i [Översikt över säkerhets information (för hands version)](user-help-security-info-overview.md). Om du vill ha mer information om din organisations anpassade portal måste du kontakta supportavdelningen.
 
-2. Välj namnet på ditt konto längst upp till höger och välj sedan **profil**.
+### <a name="to-get-to-the-additional-security-verification-page"></a>Så här kommer du till sidan ytterligare säkerhets verifiering
 
-3. Välj **ytterligare säkerhetsverifiering**.  
+- Gå till https://aka.ms/mfasetup.
 
-    ![Myapps](./media/multi-factor-authentication-end-user-manage-settings/myapps1.png)
+    ![Sidan ytterligare säkerhets verifiering med den tillgängliga informationen om säkerhets verifierings metoden](./media/multi-factor-authentication-end-user-manage-settings/mfa-security-verification-page.png)
 
-4. Ytterligare verifiering sidan läses in med dina inställningar.
+    Om du klickar på länken fungerar inte, kan du också gå till sidan för **ytterligare säkerhets verifiering** genom att följa dessa steg:
 
-    ![Proofup](./media/multi-factor-authentication-end-user-manage-settings/proofup.png)
+    1. Logga in på [https://myapps.microsoft.com](https://myapps.microsoft.com).
 
-## <a name="i-want-to-change-my-phone-number-or-add-a-secondary-number"></a>Jag vill ändra mitt telefonnummer eller lägga till ett sekundärt tal
-Det är viktigt att du konfigurerar ett telefonnummer för sekundär autentisering.  Eftersom din primära telefonnummer och din mobilapp har förmodligen samma telefonen kan är det sekundära telefonnumret det snabbaste sättet som du kommer att kunna komma åt ditt konto om din telefon tappas bort eller blir stulen.
+    2. Välj ditt konto namn längst upp till höger och välj sedan **profil**.
 
-> [!NOTE]
-> Om du inte har åtkomst till ditt primära telefonnummer och behöver hjälp med att komma in på ditt konto, se den [har du problem med tvåstegsverifiering](multi-factor-authentication-end-user-troubleshoot.md) artikeln för mer hjälp.  
+    3. Välj **ytterligare säkerhets verifiering**.  
 
-**Ändra ditt primära telefonnummer:**  
+        ![Länken Mina appar till sidan ytterligare säkerhets verifiering](./media/multi-factor-authentication-end-user-manage-settings/mfa-myapps-link.png)
 
-1. På den **ytterligare säkerhetsverifiering** väljer du textrutan med ditt aktuella telefonnummer och redigera den med ditt nya telefonnummer.  
-2. Välj **Spara**.  
-3. Om det här telefonnumret är det tal som du använder för din önskade verifieringsalternativet, måste du kontrollera det nya numret innan du kan spara den.  
+>[!Note]
+>Information om hur du använder **app** -lösenords-avsnittet på sidan **ytterligare säkerhets verifiering** finns i [Hantera applösenord för tvåstegsverifiering](multi-factor-authentication-end-user-app-passwords.md). Applösenord bör endast användas för appar som ännu inte har stöd för tvåstegsverifiering.
 
-**Lägga till ett sekundärt telefonnummer:**  
+## <a name="change-your-default-security-verification-method"></a>Ändra din standard metod för säkerhets verifiering
 
-1. På sidan för verifiering av ytterligare säkerhet markerar du kryssrutan bredvid **Alternativ telefon för autentisering.**  
-2. Ange ditt sekundära telefonnummer i textrutan.  
-3. Välj **spara** och ändringarna är klar.  
+När du har loggat in på ditt arbets-eller skol konto med ditt användar namn och lösen ord visas automatiskt den säkerhets verifierings metod du valt. Beroende på organisationens krav kan detta vara ett meddelande eller en verifierings kod via en Authenticator-app, ett textmeddelande eller ett telefonsamtal.
 
-## <a name="require-two-step-verification-again-on-a-device-youve-marked-as-trusted"></a>Tvåstegsverifiering igen på en enhet som du har markerat som betrodda
+Om du bestämmer dig för att ändra standard säkerhets verifierings metoden som du använder, kan du göra det här.
 
-Beroende på inställningarna för din organisation kan du ha en kryssruta med texten ”fråga inte igen för **X** dagar” när du utför tvåstegsverifiering på din webbläsare. Om du markerar den här kryssrutan och sedan tappar bort din enhet eller tror att ditt konto komprometteras, bör du återställa tvåstegsverifiering till alla dina enheter.
+### <a name="to-change-your-default-security-verification-method"></a>Ändra din standard metod för säkerhets verifiering
 
-1. På sidan för verifiering av ytterligare säkerhet väljer **Återställ multifaktorautentisering på tidigare betrodda enheter**.
-2. Nästa gång du loggar in på valfri enhet, uppmanas du att utföra tvåstegsverifiering.
+1. På sidan **ytterligare säkerhets verifiering** väljer du den metod som ska användas från List rutan **Vad är önskad alternativ** . Du ser alla alternativ, men du kan bara välja de som är tillgängliga för din organisation.
 
-## <a name="how-do-i-clean-up-microsoft-authenticator-from-my-old-device-and-move-to-a-new-one"></a>Hur jag för att rensa Microsoft Authenticator från min gamla enhet och flytta till en ny?
-När du avinstallerar appen från enheten eller återställa enheten, tas inte bort aktivering på serverdelen. Mer information finns i [Microsoft Authenticator](user-help-auth-app-download-install.md).
+    - **Meddela mig via appen.** Du meddelas via din Authenticator-app att du har en väntande verifierings fråga.
+
+    - **Ring min telefon för autentisering.** Du får ett telefonsamtal på din mobila enhet och du uppmanas att verifiera din information.
+
+    - **Text kod till min telefon för autentisering.** Du får en verifierings kod som en del av ett textmeddelande på din mobila enhet. Du måste ange den här koden i verifierings frågan för ditt arbets-eller skol konto.
+
+    - **Ring min arbets telefon.** Du får ett telefonsamtal på din arbets telefon och du uppmanas att verifiera din information.
+
+    - **Använd verifierings koden från appen.** Du använder din Authenticator-app för att få en verifierings kod som du skriver in i prompten från ditt arbets-eller skol konto.
+
+2. Välj **Spara**.
+
+## <a name="add-or-change-your-phone-number"></a>Lägg till eller ändra ditt telefonnummer
+
+Du kan lägga till nya telefonnummer eller uppdatera befintliga nummer på sidan **ytterligare säkerhets verifiering** .
+
+>[!Important]
+>Vi rekommenderar starkt att du lägger till ett sekundärt telefonnummer som förhindrar att ditt konto blir utelåst om din primära telefon tappas bort eller blir stulen, eller om du får en ny telefon och inte längre har ditt ursprungliga, primära telefonnummer.
+
+### <a name="to-change-your-phone-numbers"></a>Ändra dina telefonnummer
+
+1. Från sidan **Hur vill du svara?** på sidan **ytterligare säkerhets verifiering** uppdaterar du telefonnumret för din **telefon för autentisering** (din primära mobila enhet) och din **arbets telefon**.
+
+2. Markera rutan bredvid telefon alternativet för **alternativ autentisering** och skriv sedan ett sekundärt telefonnummer där du kan ta emot SMS eller telefonsamtal om du inte kan komma åt din primära enhet.
+
+3. Välj **Spara**.
+
+## <a name="add-a-new-account-to-the-microsoft-authenticator-app"></a>Lägg till ett nytt konto i Microsoft Authenticator-appen
+
+Du kan ställa in ditt arbets-eller skol konto på Microsoft Authenticator-appen för [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) eller [iOS](https://apps.apple.com/app/microsoft-authenticator/id983156458).
+
+Om du tidigare har konfigurerat ditt arbets-eller skol konto i Microsoft Authenticator-appen behöver du inte göra det igen.
+
+1. I avsnittet **Hur vill du svara?** på sidan **ytterligare säkerhets verifiering** väljer du knappen Konfigurera autentiserare- **appen** .
+
+    ![Konfigurera ditt arbets-eller skol konto i Microsoft Authenticator-appen](./media/multi-factor-authentication-end-user-manage-settings/mfa-security-verification-page-auth-app.png)
+
+2. Följ anvisningarna på skärmen, inklusive att använda din mobila enhet för att skanna QR-koden och välj sedan **Nästa**.
+
+    Du uppmanas att godkänna ett meddelande via Microsoft Authenticator-appen för att verifiera din information.
+
+3. Välj **Spara**.
+
+## <a name="delete-your-account-or-device-from-the-microsoft-authenticator-app"></a>Ta bort ditt konto eller din enhet från Microsoft Authenticator-appen
+
+Du kan ta bort ditt konto från Microsoft Authenticator-appen, och du kan ta bort din enhet från ditt arbets-eller skol konto. Vanligt vis tar du bort enheten för att permanent ta bort en förlorad, stulen eller gammal enhet från ditt konto, och du tar bort ditt konto för att försöka åtgärda några anslutnings problem eller för att åtgärda en konto ändring, till exempel ett nytt användar namn.
+
+### <a name="to-delete-your-device-from-your-work-or-school-account"></a>Ta bort din enhet från ditt arbets-eller skol konto
+
+1. I avsnittet **Hur vill du svara?** på sidan **ytterligare säkerhets verifiering** väljer du knappen Konfigurera autentiserare- **appen** .
+
+2. Välj **Spara**.
+
+### <a name="to-delete-your-account-from-the-microsoft-authenticator-app"></a>Ta bort ditt konto från Microsoft Authenticator-appen
+
+- Från Microsoft Authenticator-appen väljer du knappen **ta bort** bredvid den enhet som du vill ta bort.
+
+## <a name="turn-on-two-factor-verification-prompts-on-a-trusted-device"></a>Aktivera två faktorers verifierings meddelanden på en betrodd enhet
+
+Beroende på dina organisations inställningar kan en kryss ruta visas som säger **inte igen om X dagar** när du utför en tvåstegsverifiering i webbläsaren. Om du har markerat den här rutan för att stoppa meddelande funktionen med två faktorer, och du tappar bort enheten eller om enheten är potentiellt komprometterad, bör du aktivera den dubbelriktade verifieringen igen för att skydda ditt konto. Tyvärr kan du inte aktivera prompterna igen för en enskild enhet. Du måste aktivera prompterna på för alla dina enheter på samma tid.
+
+### <a name="to-turn-two-factor-verification-prompts-back-on-for-your-devices"></a>Så här gör du om du vill aktivera tvåstegsverifiering på enheter
+
+- På sidan **ytterligare säkerhets verifiering** väljer du **Återställ Multi-Factor Authentication på tidigare betrodda enheter**.
+
+    Nästa gången du loggar in på en enhet uppmanas du att utföra tvåstegsverifiering.
 
 ## <a name="next-steps"></a>Nästa steg
-* Få felsökningstips och hjälp om [har du problem med tvåstegsverifiering](multi-factor-authentication-end-user-troubleshoot.md)
-* Konfigurera [applösenord](multi-factor-authentication-end-user-app-passwords.md) för alla appar som inte stöder tvåstegsverifiering.
+
+- Få fel söknings tips och hjälp [med att ha problem med tvåstegsverifiering](multi-factor-authentication-end-user-troubleshoot.md)
+
+- [Hantera applösenord för tvåstegsverifiering](multi-factor-authentication-end-user-app-passwords.md) för alla appar som inte stöder tvåstegsverifiering.

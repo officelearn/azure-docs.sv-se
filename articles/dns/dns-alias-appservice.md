@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 7/13/2019
+ms.date: 08/10/2019
 ms.author: victorh
-ms.openlocfilehash: 7d20ef750aa4556a73852982631423d3d08271f5
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: 4f9a42f3d054becfed0b0a6acbf92cdf1e421c16
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67854115"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946949"
 ---
 # <a name="host-load-balanced-azure-web-apps-at-the-zone-apex"></a>Värd belastnings utjämning av Azure-Webbappar i zon Apex
 
@@ -52,23 +52,23 @@ Skapa två Webb App Services planer i resurs gruppen med hjälp av följande tab
 
 Skapa två webb program, en i varje App Service plan.
 
-1. I det övre vänstra hörnet av Azure Portal sidan klickar du på **skapa en resurs**.
+1. I det övre vänstra hörnet på sidan Azure Portal väljer du **skapa en resurs**.
 2. Skriv in **webbapp** i Sök fältet och tryck på RETUR.
-3. Klicka på **webbapp**.
-4. Klicka på **Skapa**.
+3. Välj **webbapp**.
+4. Välj **Skapa**.
 5. Acceptera standardinställningarna och Använd följande tabell för att konfigurera de två webbapparna:
 
-   |Namn<br>(måste vara unikt inom. azurewebsites.net)|Resursgrupp |App Service plan/plats
-   |---------|---------|---------|
-   |App-01|Använd befintlig<br>Välj din resursgrupp|ASP – 01 (USA, östra)|
-   |App-02|Använd befintlig<br>Välj din resursgrupp|ASP-02 (Central USA)|
+   |Namn<br>(måste vara unikt inom. azurewebsites.net)|Resursgrupp |CLR-stack|Region|App Service plan/plats
+   |---------|---------|-|-|-------|
+   |App-01|Använd befintlig<br>Välj din resursgrupp|.NET Core 2.2|East US|ASP-01 (D1)|
+   |App-02|Använd befintlig<br>Välj din resursgrupp|.NET Core 2.2|Centrala USA|ASP-02 (D1)|
 
 ### <a name="gather-some-details"></a>Samla in viss information
 
-Nu måste du anteckna IP-adressen och värd namnet för apparna.
+Nu måste du anteckna IP-adressen och värd namnet för webbapparna.
 
-1. Öppna resurs gruppen och klicka på din första app (**app-01** i det här exemplet).
-2. Klicka på **Egenskaper**i den vänstra kolumnen.
+1. Öppna resurs gruppen och välj din första webbapp (**app-01** i det här exemplet).
+2. I den vänstra kolumnen väljer du **Egenskaper**.
 3. Anteckna adressen under **URL**och under **utgående IP-adresser** noterar du den första IP-adressen i listan. Du kommer att använda den här informationen senare när du konfigurerar Traffic Manager slut punkter.
 4. Upprepa för **app-02**.
 
@@ -82,45 +82,60 @@ Information om hur du skapar en Traffic Manager-profil [finns i snabb start: Ska
 
 Nu kan du skapa slut punkter för de två webbapparna.
 
-1. Öppna resurs gruppen och klicka på din Traffic Manager-profil.
-2. Klicka på **slut punkter**i den vänstra kolumnen.
-3. Klicka på **Lägg till**.
+1. Öppna resurs gruppen och välj din Traffic Manager profil.
+2. Välj **slut punkter**i den vänstra kolumnen.
+3. Välj **Lägg till**.
 4. Använd följande tabell för att konfigurera slut punkterna:
 
-   |type  |Namn  |Mål  |Location  |Anpassade huvud inställningar|
+   |type  |Namn  |Mål  |Location  |Inställningar för anpassat sidhuvud|
    |---------|---------|---------|---------|---------|
-   |Extern slut punkt     |Slut – 01|IP-adress som du har spelat in för app-01|East US|värd:\<den URL som du registrerade för app-01\><br>Exempel: **värd: app-01.azurewebsites.net**|
-   |Extern slut punkt     |End-02|IP-adress som du har spelat in för app-02|Centrala USA|värd:\<den URL som du registrerade för appen-02\><br>Exempel: **värd: app-02.azurewebsites.net**
+   |Extern slutpunkt     |Slut – 01|IP-adress som du har spelat in för app-01|East US|värd:\<den URL som du registrerade för app-01\><br>Exempel: **värd: app-01.azurewebsites.net**|
+   |Extern slutpunkt     |End-02|IP-adress som du har spelat in för app-02|Centrala USA|värd:\<den URL som du registrerade för appen-02\><br>Exempel: **värd: app-02.azurewebsites.net**
 
-## <a name="create-dns-zone"></a>Skapa DNS-zon
+## <a name="create-dns-zone"></a>Skapa en DNS-zon
 
 Du kan antingen använda en befintlig DNS-zon för testning, eller så kan du skapa en ny zon. Information om hur du skapar och delegerar en ny DNS- [zon i Azure finns i Självstudier: Använda Azure DNS som värd för din domän.](dns-delegate-domain-azure-dns.md)
 
-### <a name="add-the-alias-record-set"></a>Lägg till post uppsättningen alias
+## <a name="add-a-txt-record-for-custom-domain-validation"></a>Lägg till en TXT-post för anpassad domän verifiering
 
-När din DNS-zon är klar kan du lägga till en aliasresurspost för zonens Apex.
+När du lägger till ett anpassat värdnamn i dina webbappar söker det efter en angiven TXT-post för att verifiera din domän.
 
-1. Öppna resurs gruppen och klicka på DNS-zonen.
-2. Klicka på **Postuppsättning**.
+1. Öppna resurs gruppen och välj DNS-zonen.
+2. Välj **Uppsättning av poster**.
+3. Lägg till post uppsättningen i följande tabell. För värdet använder du den faktiska webb program-URL som du tidigare har registrerat:
+
+   |Namn  |Typ  |Value|
+   |---------|---------|-|
+   |@     |TXT|App-01.azurewebsites.net|
+
+
+## <a name="add-a-custom-domain"></a>Lägg till en anpassad domän
+
+Lägg till en anpassad domän för båda webbapparna.
+
+1. Öppna resurs gruppen och välj din första webbapp.
+2. Välj **anpassade domäner**i den vänstra kolumnen.
+3. Under **anpassade domäner**väljer du **Lägg till anpassad domän**.
+4. Under **anpassad domän**anger du ditt anpassade domän namn. Till exempel contoso.com.
+5. Välj **Verifiera**.
+
+   Din domän bör klara verifiering och Visa gröna kryss markeringar bredvid **värd namns tillgänglighet** och **domän ägarskap**.
+5. Välj **Lägg till en anpassad domän**.
+6. Uppdatera webbläsaren om du vill se det nya värd namnet under **värdnamn som har tilldelats till platsen**. Uppdateringen på sidan visar inte alltid ändringar direkt.
+7. Upprepa proceduren för den andra webb programmet.
+
+## <a name="add-the-alias-record-set"></a>Lägg till post uppsättningen alias
+
+Lägg nu till en aliasresurspost för zonens Apex.
+
+1. Öppna resurs gruppen och välj DNS-zonen.
+2. Välj **Uppsättning av poster**.
 3. Lägg till post uppsättningen i följande tabell:
 
    |Namn  |type  |Aliasuppsättning för post uppsättning  |Typ av alias  |Azure-resurs|
    |---------|---------|---------|---------|-----|
-   |@     |A|Ja|Azure-resurs|Traffic Manager – din profil|
+   |@     |G|Ja|Azure-resurs|Traffic Manager – din profil|
 
-## <a name="add-custom-hostnames"></a>Lägg till anpassade värdnamn
-
-Lägg till ett anpassat värdnamn i båda webbapparna.
-
-1. Öppna din resurs grupp och klicka på din första webbapp.
-2. Klicka på **anpassade domäner**i den vänstra kolumnen.
-3. Klicka på **Lägg till värdnamn**.
-4. Under värdnamn anger du ditt domän namn. Till exempel contoso.com.
-
-   Din domän bör klara verifiering och Visa gröna kryss markeringar bredvid **värd namns tillgänglighet** och **domän ägarskap**.
-5. Klicka på **Lägg till värdnamn**.
-6. Uppdatera webbläsaren om du vill se det nya värd namnet under **värdnamn som har tilldelats till platsen**. Uppdateringen på sidan visar inte alltid ändringar omedelbart.
-7. Upprepa proceduren för den andra webb programmet.
 
 ## <a name="test-your-web-apps"></a>Testa dina webb program
 

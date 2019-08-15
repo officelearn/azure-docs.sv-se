@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/20/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 51255bc4a93fbe3719eec96f00940a765644bbfe
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: 04c49b78d948884a9bcccfa949518d25a3dac9c1
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67312857"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68986574"
 ---
 # <a name="introduction-to-azure-storage"></a>Introduktion till Azure Storage
 
@@ -23,7 +23,7 @@ Azure Storage är Microsofts molntjänstlagringslösning för moderna datalagrin
 - **Skydda.** Alla data som skrivs till Azure Storage krypteras av tjänsten. Med Azure Storage får du detaljerad kontroll över vem som har tillgång till dina data.
 - **Skalbar.** Azure Storage är utformat för att vara mycket skalbart för att uppfylla krav på datalagring och prestanda för dagens program. 
 - **Hanterad.** Microsoft Azure hanterar maskinvaruunderhåll, uppdateringar och kritiska problem åt dig.
-- **Åtkomlig.** Data i Azure Storage är åtkomlig från hela världen via HTTP eller HTTPS varifrån som helst. Microsoft tillhandahåller klientbibliotek för Azure Storage på en mängd olika språk, inklusive .NET, Java, Node.js, Python, PHP, Ruby, Go, och andra, samt en mogen REST API. Azure Storage stöder skriptning i Azure PowerShell eller Azure CLI. Azure-portalen och Azure Storage Explorer erbjuder även enkla visuella lösningar för att arbeta med dina data.  
+- **Åtkomlig.** Data i Azure Storage är åtkomlig från hela världen via HTTP eller HTTPS varifrån som helst. Microsoft tillhandahåller klient bibliotek för Azure Storage på flera olika språk, inklusive .NET, Java, Node. js, python, PHP, ruby, go, och en vuxen REST API. Azure Storage stöder skriptning i Azure PowerShell eller Azure CLI. Azure-portalen och Azure Storage Explorer erbjuder även enkla visuella lösningar för att arbeta med dina data.  
 
 ## <a name="azure-storage-services"></a>Azure Storage-tjänster
 
@@ -74,11 +74,11 @@ Mer information om Azure Files finns i [Introduktion till Azure Files](../files/
 
 Azure-kötjänsten används för att lagra och hämta meddelanden. Kömeddelanden kan vara upp till 64 kB och en kö kan innehålla miljontals meddelanden. Köer används vanligtvis för att lagra listor med meddelanden som ska bearbetas asynkront.
 
-Anta exempelvis att du vill att kunderna ska kunna ladda upp bilder och du vill skapa miniatyrer för varje bild. Du kan låta kunden vänta på att du skapar miniatyrerna medan bilderna laddas upp. Ett alternativ är att använda en kö. När kunden är klar sina uppladdningen skrivs ett meddelande till kön. Sedan hämtar en Azure-funktion meddelandet från kön och skapar miniatyrerna. Alla delar av bearbetningen kan skalas separat, vilket ger dig större kontroll när du anpassar den för din användning.
+Anta exempelvis att du vill att kunderna ska kunna ladda upp bilder och du vill skapa miniatyrer för varje bild. Du kan låta kunden vänta på att du skapar miniatyrerna medan bilderna laddas upp. Ett alternativ är att använda en kö. När kunden är klar med överföringen skriver du ett meddelande till kön. Sedan hämtar en Azure-funktion meddelandet från kön och skapar miniatyrerna. Alla delar av bearbetningen kan skalas separat, vilket ger dig större kontroll när du anpassar den för din användning.
 
 Mer information om Azure Queues finns i [introduktionen till Queues](../queues/storage-queues-introduction.md).
 
-## <a name="table-storage"></a>Table Storage
+## <a name="table-storage"></a>Tabellagring
 
 Azure Table Storage är nu en del av Azure Cosmos DB. Du hittar dokumentationen till Azure Table Storage i [Översikt över Azure Table Storage](../tables/table-storage-overview.md). Utöver den befintliga Azure Table Storage-tjänsten finns ett nytt tabell-API för Azure Cosmos DB som tillhandahåller genomströmningsoptimerade tabeller, global distribution och automatiska sekundärindex. Om du vill veta mer om och prova den nya premiumtjänsten går du till avsnittet [Tabell-API för Azure Cosmos DB](https://aka.ms/premiumtables).
 
@@ -86,9 +86,9 @@ Mer information om Table Storage finns i [översikten över Azure Table Storage]
 
 ## <a name="disk-storage"></a>Disklagring
 
-En Azure-hanterad disk är en virtuell hårddisk (VHD). Du kan se det som en fysisk disk i en lokal server men virtualiserade. Azure-hanterade diskar lagras som sidblobar som är ett slumpmässigt i/o-lagringsobjekt i Azure. Vi kallar en hanterad disk som ”hanterad” eftersom det är en abstraktion över page blobs, blob-behållare och Azure storage-konton. Allt du behöver göra är att etablera disken med hanterade diskar och Azure tar hand om resten.
+En Azure-hanterad disk är en virtuell hård disk (VHD). Du kan tänka på det som en fysisk disk på en lokal server, men virtualiserad. Azure Managed disks lagras som Page BLOB-objekt, som är ett slumpmässigt IO-lagringssystem i Azure. Vi kallar en hanterad disk hanterad eftersom det är en abstraktion över Page blobbar, BLOB-behållare och Azure Storage-konton. Med hanterade diskar behöver du bara etablera disken och Azure tar hand om resten.
 
-Mer information om hanterade diskar finns i [introduktion till Azure hanterade diskar](../../virtual-machines/windows/managed-disks-overview.md).
+Mer information om hanterade diskar finns i [Introduktion till Azure Managed disks](../../virtual-machines/windows/managed-disks-overview.md).
 
 ## <a name="types-of-storage-accounts"></a>Typer av lagringskonton
 
@@ -96,15 +96,15 @@ Mer information om hanterade diskar finns i [introduktion till Azure hanterade d
 
 Mer information om typer av lagringskonton finns i [Översikt över Azure Storage-konton](storage-account-overview.md).
 
-## <a name="securing-access-to-storage-accounts"></a>Skydda åtkomsten till lagringskonton
+## <a name="securing-access-to-storage-accounts"></a>Skydda åtkomsten till lagrings konton
 
-Varje begäran till Azure Storage måste ha behörighet. Azure Storage stöder följande auktoriseringsmetoder:
+Varje begäran till Azure Storage måste vara auktoriserad. Azure Storage stöder följande autentiseringsmetoder:
 
-- **Azure Active Directory (Azure AD)-integrering för blob-och kö.** Azure Storage stöder autentisering och auktorisering med Azure AD för Blob och kö-tjänster via rollbaserad åtkomstkontroll (RBAC). Auktorisera begäranden med Azure AD rekommenderas för överlägsen säkerhet och användarvänlighet. Mer information finns i [auktorisera åtkomst till Azure-blobbar och köer med hjälp av Azure Active Directory](storage-auth-aad.md).
-- **Azure AD-auktorisering över SMB för Azure Files (förhandsversion).** Azure Files stöder identitetsbaserade auktorisering över SMB (Server Message Block) via Azure Active Directory Domain Services. Dina domänanslutna Windows-datorer (VM) kan komma åt Azure-filresurser med Azure AD-autentiseringsuppgifter. Mer information finns i [översikt av Azure Active Directory-auktorisering över SMB för Azure Files (förhandsversion)](../files/storage-files-active-directory-overview.md).
-- **Auktorisering med delad nyckel.** Azure Storage Blob, Queue och Table-tjänster och Azure Files stöd för auktorisering med delade Key.A klienten med hjälp av delad nyckel auktorisering skickar ett huvud med varje begäran som har signerats med åtkomstnyckeln för lagringskontot. Mer information finns i [auktorisera med delad nyckel](https://docs.microsoft.com/rest/api/storageservices/authorize-with-shared-key).
-- **Auktorisering med hjälp av signaturer för delad åtkomst (SAS).** En signatur för delad åtkomst (SAS) är en sträng som innehåller en säkerhetstoken som kan läggas till URI: N för en lagringsresurs. Säkerhetstoken kapslar in begränsningarna, t.ex behörigheter och intervallet för åtkomst. Mer information finns i [med signaturer för delad åtkomst (SAS)](storage-dotnet-shared-access-signature-part-1.md).
-- **Anonym åtkomst till behållare och blobbar.** En behållare och dess blobbar kan vara offentligt tillgängliga. När du anger att en behållare eller blobb är offentlig kan läsa alla den anonymt; Ingen autentisering krävs. Mer information finns i [Hantera anonym läsbehörighet till containrar och blobar](../blobs/storage-manage-access-to-resources.md).
+- **Azure Active Directory (Azure AD)-integration för blob-och Queue-data.** Azure Storage stöder autentisering och auktorisering med Azure AD för blob-och Queue Services via rollbaserad åtkomst kontroll (RBAC). Att auktorisera begär Anden med Azure AD rekommenderas för överlägsen säkerhet och enkel användning. Mer information finns i [bevilja åtkomst till Azure-blobbar och köer med hjälp av Azure Active Directory](storage-auth-aad.md).
+- **Azure AD-auktorisering över SMB för Azure Files (för hands version).** Azure Files stöder Identity-baserad auktorisering över SMB (Server Message Block) via Azure Active Directory Domain Services. Dina domänanslutna virtuella Windows-datorer (VM) kan komma åt Azure-filresurser med hjälp av Azure AD-autentiseringsuppgifter. Mer information finns i [Översikt över Azure Active Directory auktorisering över SMB för Azure Files (för hands version)](../files/storage-files-active-directory-overview.md).
+- **Auktorisering med delad nyckel.** Azure Storage Blob-, kö-och tabell tjänster och Azure Files stöd för auktorisering med delad nyckel. en klient som använder autentisering med delad nyckel skickar ett huvud till varje begäran som är signerad med åtkomst nyckeln för lagrings kontot. Mer information finns i [auktorisera med delad nyckel](https://docs.microsoft.com/rest/api/storageservices/authorize-with-shared-key).
+- **Auktorisering med signaturer för delad åtkomst (SAS).** En signatur för delad åtkomst (SAS) är en sträng som innehåller en säkerhetstoken som kan läggas till i URI: n för en lagrings resurs. Säkerhetstoken kapslar in begränsningar, till exempel behörigheter och åtkomst intervallet. Mer information finns i [använda signaturer för delad åtkomst (SAS)](storage-sas-overview.md).
+- **Anonym åtkomst till behållare och blobbar.** En behållare och dess blobbar kan vara offentligt tillgängliga. När du anger att en behållare eller BLOB är offentlig, kan vem som helst läsa den anonymt. Ingen autentisering krävs. Mer information finns i [Hantera anonym läsbehörighet till containrar och blobar](../blobs/storage-manage-access-to-resources.md).
 
 ## <a name="encryption"></a>Kryptering
 
@@ -112,11 +112,11 @@ Det finns några grundläggande typer av kryptering för Storage-tjänsterna. Me
 
 ### <a name="encryption-at-rest"></a>Vilande kryptering
 
-Azure Storage-kryptering skyddar och skyddar dina data så att du uppfyller organisationens säkerhet och efterlevnad. Azure Storage krypteras alla data före beständig lagring till storage-kontot automatiskt och dekrypterar dem före hämtning. Den kryptering, dekryptering och nyckelhantering processer är helt transparent för användarna. Kunder kan också välja att hantera sina egna nycklar med hjälp av Azure Key Vault. Mer information finns i [Azure Storage kryptering för vilande data](storage-service-encryption.md).
+Azure Storage kryptering skyddar och skyddar dina data så att de uppfyller organisationens säkerhets-och efterlevnads åtaganden. Azure Storage krypterar automatiskt alla data innan de bevaras kvar på lagrings kontot och dekrypterar det innan hämtning. Processerna för kryptering, dekryptering och nyckel hantering är helt transparenta för användarna. Kunder kan också välja att hantera sina egna nycklar med hjälp av Azure Key Vault. Mer information finns i [Azure Storage kryptering för vilande data](storage-service-encryption.md).
 
 ### <a name="client-side-encryption"></a>Kryptering av klientsidan
 
-Azure Storage-klientbibliotek ger metoder för att kryptera data från klientbiblioteket innan skickas via kabeln och dekryptering av svaret. Datakryptering via client side encryption är också krypterade i vila av Azure Storage. Läs mer om client side encryption [kryptering på klientsidan med .NET för Azure Storage](storage-client-side-encryption.md).
+De Azure Storage klient biblioteken innehåller metoder för att kryptera data från klient biblioteket innan de skickas över kabeln och Dekrypteringen av svaret. Data som krypteras via klient sidans kryptering krypteras också i vila genom att Azure Storage. Mer information om kryptering på klient sidan finns i [kryptering på klient sidan med .net för Azure Storage](storage-client-side-encryption.md).
 
 ## <a name="redundancy"></a>Redundans
 
@@ -141,13 +141,13 @@ Azure Storage-resurser kan nås med alla språk som kan skicka HTTP/HTTPS-förfr
 ### <a name="azure-storage-data-api-and-library-references"></a>Referenser till Azure Storage-data-API och -bibliotek
 
 - [Azure Storage REST API](https://docs.microsoft.com/rest/api/storageservices/)
-- [Azure Storage-klientbiblioteket för .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
-- [Azure Storage-klientbibliotek för Java/Android](https://docs.microsoft.com/java/api/overview/azure/storage)
-- [Azure Storage-klientbibliotek för Node.js](https://docs.microsoft.com/javascript/api/azure-storage)
-- [Azure Storage-klientbibliotek för Python](https://github.com/Azure/azure-storage-python)
-- [Azure Storage-klientbibliotek för PHP](https://github.com/Azure/azure-storage-php)
-- [Azure Storage-klientbibliotek för Ruby](https://github.com/Azure/azure-storage-ruby)
-- [Azure Storage-klientbibliotek förC++](https://github.com/Azure/azure-storage-cpp)
+- [Azure Storage klient bibliotek för .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
+- [Azure Storage klient bibliotek för Java/Android](https://docs.microsoft.com/java/api/overview/azure/storage)
+- [Azure Storage klient bibliotek för Node. js](https://docs.microsoft.com/javascript/api/azure-storage)
+- [Azure Storage klient bibliotek för python](https://github.com/Azure/azure-storage-python)
+- [Azure Storage klient bibliotek för PHP](https://github.com/Azure/azure-storage-php)
+- [Azure Storage klient bibliotek för ruby](https://github.com/Azure/azure-storage-ruby)
+- [Azure Storage klient bibliotek förC++](https://github.com/Azure/azure-storage-cpp)
 
 ### <a name="azure-storage-management-api-and-library-references"></a>Referenser till Azure Storage-hanterings-API och -bibliotek
 

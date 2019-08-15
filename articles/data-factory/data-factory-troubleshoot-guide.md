@@ -2,19 +2,18 @@
 title: Felsöka Azure Data Factory | Microsoft Docs
 description: Lär dig hur du felsöker externa kontroll aktiviteter i Azure Data Factory.
 services: data-factory
-author: abnarain
-manager: craigg
+author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 6/26/2019
 ms.author: abnarain
 ms.reviewer: craigg
-ms.openlocfilehash: c76242c176ba4f4c9ffc0d6934f6b645743d77f4
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 1995ce2a91bfbc115f80c99687cc84b52ef614ec
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234573"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950097"
 ---
 # <a name="troubleshoot-azure-data-factory"></a>Felsöka Azure Data Factory
 
@@ -87,7 +86,7 @@ Följande tabell gäller Spark, Hive, MapReduce, gris och Hadoop streaming.
 
 | Felkod | Felmeddelande                                                | Beskrivning                                                  | Rekommendation                           |
 | ------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| 2300, 2310 | Det gick inte att skicka Hadoop-jobbet. Fel: Det gick inte att matcha fjärrnamnet. <br/><br/>Det gick inte att hitta klustret. | Den angivna kluster-URI: n är ogiltig.                              | Kontrol lera att klustret inte har tagits bort och att angiven URI är korrekt. När du öppnar URI i en webbläsare bör du se Ambari-ANVÄNDARGRÄNSSNITTET. Om klustret finns i ett virtuellt nätverk ska URI: n vara den privata URI: n. Öppna den genom att använda en virtuell dator som är en del av samma virtuella nätverk. Mer information finns i [direkt ansluta till Apache Hadoop Services](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network#directly-connect-to-apache-hadoop-services). |
+| 2300, 2310 | Det gick inte att skicka Hadoop-jobbet. Fel: Fjärrnamnet kunde inte lösas. <br/><br/>Det gick inte att hitta klustret. | Den angivna kluster-URI: n är ogiltig.                              | Kontrol lera att klustret inte har tagits bort och att angiven URI är korrekt. När du öppnar URI i en webbläsare bör du se Ambari-ANVÄNDARGRÄNSSNITTET. Om klustret finns i ett virtuellt nätverk ska URI: n vara den privata URI: n. Öppna den genom att använda en virtuell dator som är en del av samma virtuella nätverk. Mer information finns i [direkt ansluta till Apache Hadoop Services](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network#directly-connect-to-apache-hadoop-services). |
 | 2 300         | Det gick inte att skicka Hadoop-jobbet. Jobb:..., kluster:.../. Fel: En uppgift avbröts. | Tids gränsen för jobb överföringen uppnåddes.                         | Problemet kan vara antingen allmän HDInsight-anslutning eller nätverks anslutning. Bekräfta först att HDInsight Ambari-ANVÄNDARGRÄNSSNITTET är tillgängligt från valfri webbläsare. Bekräfta att autentiseringsuppgifterna fortfarande är giltiga. Om du använder en lokal integrerad Runtime (IR), se till att göra detta från den virtuella datorn eller datorn där IR för egen värd är installerad. Försök sedan att skicka jobbet från Data Factory igen. Om det fortfarande inte går att kontakta Data Factory-teamet för support. |
 | 2 300         | Tillstånd   Ambari användar namn eller lösen ord är felaktigt  <br/><br/>Tillstånd   Användar administratören är utelåst i Ambari.   <br/><br/>403 – ej tillåtet: Åtkomst nekad. | Autentiseringsuppgifterna för HDInsight är felaktiga eller har upphört att gälla. | Korrigera autentiseringsuppgifterna och distribuera om den länkade tjänsten. Kontrol lera först att autentiseringsuppgifterna fungerar på HDInsight genom att öppna kluster-URI: n i valfri webbläsare och försök logga in. Om autentiseringsuppgifterna inte fungerar kan du återställa dem från Azure Portal. |
 | 2300, 2310 | 502 – Webbservern tog emot ett ogiltigt svar när den fungerade som gateway eller proxyserver.       <br/>Felaktig gateway. | Felet är från HDInsight.                               | Det här felet är från HDInsight-klustret. Mer information finns i [AMBARI UI 502-fel](https://hdinsight.github.io/ambari/ambari-ui-502-error.html), [502-fel vid anslutning till Spark Thrift-Server](https://hdinsight.github.io/spark/spark-thriftserver-errors.html), 502-fel vid [anslutning till Spark Thrift Server](https://hdinsight.github.io/spark/spark-thriftserver-errors.html)och [fel sökning av felaktiga Gateway-fel i Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-troubleshooting-502). |

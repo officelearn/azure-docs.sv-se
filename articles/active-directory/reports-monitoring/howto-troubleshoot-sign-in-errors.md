@@ -1,9 +1,9 @@
 ---
-title: Så här felsöker du inloggningsfel med hjälp av Azure Active Directory-rapporter | Microsoft Docs
-description: Lär dig att felsöka inloggning med Azure Active Directory-rapporter i Azure-portalen
+title: Så här felsöker du inloggnings fel med Azure Active Directory-rapporter | Microsoft Docs
+description: Lär dig hur du felsöker inloggnings fel med hjälp av Azure Active Directory rapporter i Azure Portal
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -11,57 +11,57 @@ ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db68ad2a29dcaa53d219b679b9e0f24a50a6f576
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5c901395436c8ed660c50b7342a804143d57db3c
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60286550"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68988171"
 ---
-# <a name="how-to-troubleshoot-sign-in-errors-using-azure-active-directory-reports"></a>Anvisningar: Felsöka inloggning med Azure Active Directory-rapporter
+# <a name="how-to-troubleshoot-sign-in-errors-using-azure-active-directory-reports"></a>Anvisningar: Felsöka inloggnings fel med hjälp av Azure Active Directory rapporter
 
-Den [rapporten inloggningar](concept-sign-ins.md) i Azure Active Directory (Azure AD) kan du få svar på frågor kring att hantera åtkomst till program i din organisation, inklusive:
+I [inloggnings rapporten](concept-sign-ins.md) i Azure Active Directory (Azure AD) kan du få svar på frågor om hur du hanterar åtkomst till program i din organisation, inklusive:
 
 - Vilket inloggningsmönster har en användare?
 - Hur många användare har en användare loggat in under en vecka?
 - Vad är status för dessa inloggningar?
 
 
-Dessutom rapporten inloggningar kan också hjälpa dig att felsöka inloggningar för användare i din organisation. Du lär dig hur du isolera ett fel i rapporten inloggningar och använda den för att förstå de grundläggande orsakerna till felet i den här guiden.
+Dessutom kan inloggnings rapporten också hjälpa dig att felsöka inloggnings fel för användare i din organisation. I den här guiden får du lära dig hur du isolerar ett inloggnings fel i inloggnings rapporten och använder den för att förstå rotor saken till felet.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver:
 
-* En Azure AD-klient med en premiumlicens (P1/P2). Se [Kom igång med Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) för att uppgradera din Azure Active Directory-version.
-* En användare som tillhör den **global administratör**, **säkerhetsadministratör**, **säkerhetsläsare**, eller **rapportera läsare** rollen för klienten. Dessutom kan alla användare komma åt sina egna inloggningar. 
+* En Azure AD-klient med en Premium-licens (P1/P2). Se [Kom igång med Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) för att uppgradera din Azure Active Directory-version.
+* En användare, som finns i rollen **Global administratör**, **säkerhets administratör**, **säkerhets läsare**eller **rapport läsare** för klienten. Dessutom kan alla användare komma åt sina egna inloggningar. 
 
-## <a name="troubleshoot-sign-in-errors-using-the-sign-ins-report"></a>Felsöka inloggning med hjälp av rapporten inloggningar
+## <a name="troubleshoot-sign-in-errors-using-the-sign-ins-report"></a>Felsöka inloggnings fel med hjälp av inloggnings rapporten
 
 1. Gå till [Azure-portalen](https://portal.azure.com) och välj din katalog.
 2. Välj **Azure Active Directory** och välj **Inloggningar** i avsnittet **Övervakning**. 
-3. Använd de angivna filtren för att begränsa fel, antingen efter användarnamn eller objekt-ID, namn eller datum. Dessutom väljer **fel** från den **Status** listrutan för att visa endast de misslyckade inloggningarna. 
+3. Använd de angivna filtren för att begränsa felen, antingen genom användar namn eller objekt identifierare, program namn eller datum. Dessutom väljer du **fel** från List rutan **status** för att visa endast misslyckade inloggningar. 
 
-    ![Filtrera resultat](./media/howto-troubleshoot-sign-in-errors/filters.png)
+    ![Filtrera resultaten](./media/howto-troubleshoot-sign-in-errors/filters.png)
         
-4. Identifiera misslyckade inloggningen du vill undersöka. Välj det för att öppna fönstret för ytterligare information öppnas med mer information om misslyckade inloggningen. Anteckna den **inloggning felkoden** och **felorsak**. 
+4. Identifiera den misslyckade inloggning som du vill undersöka. Välj den för att öppna fönstret Ytterligare information med mer information om den misslyckade inloggningen. Anteckna felkoden för inloggningen och **fel orsaken**. 
 
-    ![Välj posten](./media/howto-troubleshoot-sign-in-errors/sign-in-failures.png)
+    ![Välj post](./media/howto-troubleshoot-sign-in-errors/sign-in-failures.png)
         
-5. Du kan också hitta den här informationen i den **felsökning och support** flik i informationsfönstret.
+5. Du kan också hitta den här informationen på fliken **fel sökning och support** i fönstret information.
 
     ![Felsökning och support](./media/howto-troubleshoot-sign-in-errors/troubleshooting-and-support.png)
 
-6. Orsaken till felet beskriver felet. I scenariot ovan orsaken till felet är exempelvis **ogiltigt användarnamn eller lösenord eller ogiltigt lokalt användarnamn eller lösenord**. Korrigeringen är att bara logga in igen med rätt användarnamn och lösenord.
+6. Fel orsaken beskriver felet. I ovanstående scenario är fel orsaken till exempel ett **ogiltigt användar namn eller lösen ord eller ogiltigt lokalt användar namn eller lösen ord**. Korrigeringen är att bara logga in igen med rätt användar namn och lösen ord.
 
-7. Du kan få ytterligare information, inklusive idéer om justeringen genom att söka efter felkoden **50126** i det här exemplet i den [inloggningar referens för felkoder](reference-sign-ins-error-codes.md). 
+7. Du kan få ytterligare information, inklusive förslag på åtgärder, genom att söka efter felkoden **50126** i det här exemplet i referensen till [inloggnings fel](reference-sign-ins-error-codes.md). 
 
-8. Om allt annat misslyckas, eller om problemet kvarstår trots att utföra den rekommenderade erhåller [öppna ett supportärende](../fundamentals/active-directory-troubleshooting-support-howto.md) följa stegen i den **felsökning och support** fliken. 
+8. Om allt annat Miss lyckas, eller problemet kvarstår trots den rekommenderade åtgärden, [öppnar du ett support ärende](../fundamentals/active-directory-troubleshooting-support-howto.md) enligt stegen på fliken **fel sökning och support** . 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Referera till inloggningar felkoder](reference-sign-ins-error-codes.md)
-* [Översikt över inloggningar](concept-sign-ins.md)
+* [Referens för inloggnings fel koder](reference-sign-ins-error-codes.md)
+* [Översikt över inloggnings rapporter](concept-sign-ins.md)

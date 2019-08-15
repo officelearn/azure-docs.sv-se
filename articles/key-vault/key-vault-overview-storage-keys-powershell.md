@@ -1,58 +1,58 @@
 ---
-title: Azure Key Vault hanteras lagringskonto – PowerShell-version
-description: Funktionen hanterad lagring ger en seemless integration mellan Azure Key Vault och ett Azure storage-konto.
+title: Azure Key Vault hanterat lagrings konto – PowerShell-version
+description: Den hanterade lagrings konto funktionen ger en miljö som inte är integrerad mellan Azure Key Vault och ett Azure Storage-konto.
 ms.topic: conceptual
 ms.service: key-vault
 author: msmbaldwin
 ms.author: mbaldwin
 manager: barbkess
 ms.date: 03/01/2019
-ms.openlocfilehash: 9b6089aa828b5667f100c1a8cbff3e69345e4512
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 708c34347966eee7817ca04e0552dcba233765cb
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66150430"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934504"
 ---
-# <a name="azure-key-vault-managed-storage-account---powershell"></a>Azure Key Vault hanteras lagringskonto – PowerShell
+# <a name="azure-key-vault-managed-storage-account---powershell"></a>Azure Key Vault hanterat lagrings konto – PowerShell
 
 > [!NOTE]
-> [Azure storage-integrering med Azure Active Directory (Azure AD) finns nu i förhandsversion](https://docs.microsoft.com/azure/storage/common/storage-auth-aad). Vi rekommenderar att du använder Azure AD för autentisering och auktorisering, som ger OAuth2-tokenbaserad åtkomst till Azure storage, precis som Azure Key Vault. På så sätt kan du:
-> - Autentisera ditt klientprogram som använder en program- eller identitet, i stället för autentiseringsuppgifterna för lagringskontot. 
-> - Använd en [Azure AD-hanterad identitet](/azure/active-directory/managed-identities-azure-resources/) när körs på Azure. Hanterade identiteter ta bort behovet av klientautentisering som helhet och lagra autentiseringsuppgifter i eller med ditt program.
-> - Använd rollbaserad åtkomstkontroll (RBAC) för att hantera auktorisering, vilket även stöds av Key Vault.
+> [Azure Storage-integrering med Azure Active Directory (Azure AD) är nu i för hands version](../storage/common/storage-auth-aad.md). Vi rekommenderar att du använder Azure AD för autentisering och auktorisering, vilket ger OAuth2-tokenbaserad åtkomst till Azure Storage, precis som Azure Key Vault. På så sätt kan du:
+> - Autentisera klient programmet med hjälp av ett program eller en användar identitet, i stället för autentiseringsuppgifterna för lagrings kontot. 
+> - Använd en [hanterad Azure AD-identitet](/azure/active-directory/managed-identities-azure-resources/) när du kör på Azure. Hanterade identiteter tar bort behovet av klientautentisering tillsammans och lagrar autentiseringsuppgifter i eller med ditt program.
+> - Använd rollbaserad Access Control (RBAC) för att hantera auktorisering, som också stöds av Key Vault.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-En [Azure storage-konto](/azure/storage/storage-create-storage-account) använder en autentiseringsuppgift som består av ett kontonamn och en nyckel. Nyckeln är automatiskt genererade och fungerar mer som ”lösenord” till skillnad från en kryptografisk nyckel. Key Vault kan hantera dessa lagringskontonycklar genom att lagra dem som [Key Vault-hemligheter](/azure/key-vault/about-keys-secrets-and-certificates#key-vault-secrets). 
+Ett [Azure Storage-konto](/azure/storage/storage-create-storage-account) använder en autentiseringsuppgift som består av ett konto namn och en nyckel. Nyckeln genereras automatiskt och fungerar som "lösen ord" i stället för en kryptografisk nyckel. Key Vault kan hantera dessa lagrings konto nycklar genom att lagra dem som [Key Vault hemligheter](/azure/key-vault/about-keys-secrets-and-certificates#key-vault-secrets). 
 
 ## <a name="overview"></a>Översikt
 
-Key Vault hanteras storage-konto som funktionen utför flera hanteringsfunktioner åt dig:
+Den Key Vault hanterade lagrings konto funktionen utför flera hanterings funktioner för din räkning:
 
-- Listor (synkronisering) nycklar med ett Azure storage-konto.
-- Återskapar (roterar) nycklarna regelbundet.
-- Hanterar nycklar för både storage-konton och klassiska lagringskonton.
-- Nyckelvärden returneras aldrig i svaret till anroparen.
+- Visar en lista över nycklar med ett Azure Storage-konto.
+- Återskapar (roterar) nycklarna med jämna mellanrum.
+- Hanterar nycklar för både lagrings konton och klassiska lagrings konton.
+- Nyckel värden returneras aldrig som svar på anroparen.
 
-När du använder funktionen viktiga hanterad lagring:
+När du använder funktionen för hanterad lagrings konto nyckel:
 
-- **Tillåt endast Key Vault för att hantera dina lagringskontonycklar.** Försök inte hantera dem själv, som du ska påverka Key Vault-processer.
-- **Tillåt inte storage-kontonycklar som ska hanteras av fler än ett objekt i Key Vault**.
-- **Inte manuellt återskapa dina lagringskontonycklar**. Vi rekommenderar att du återskapar dem via Key Vault.
+- **Tillåt endast Key Vault att hantera dina lagrings konto nycklar.** Försök inte att hantera dem själv, eftersom du stör Key Vaults processer.
+- **Tillåt inte att lagrings konto nycklar hanteras av fler än ett Key Vault-objekt**.
+- **Återskapa inte dina lagrings konto nycklar manuellt**. Vi rekommenderar att du återskapar dem via Key Vault.
 
-I följande exempel visar hur du kan låta Key Vault för att hantera dina lagringskontonycklar.
+I följande exempel visas hur du tillåter Key Vault att hantera dina lagrings konto nycklar.
 
-## <a name="authorize-key-vault-to-access-to-your-storage-account"></a>Auktorisera Key Vault får tillgång till ditt storage-konto
+## <a name="authorize-key-vault-to-access-to-your-storage-account"></a>Auktorisera Key Vault åtkomst till ditt lagrings konto
 
 > [!IMPORTANT]
-> En Azure AD-klient ger varje registrerade program med en  **[tjänstens huvudnamn](/azure/active-directory/develop/developer-glossary#service-principal-object)** , som fungerar som programmets identitet. Program-ID för tjänstens huvudnamn används när ger den behörighet att komma åt andra Azure-resurser via rollbaserad åtkomstkontroll (RBAC). Eftersom Key Vault är ett Microsoft-program, är den redan registrerad i alla Azure AD-klienter under samma program-ID, i varje Azure-molnet:
-> - Azure AD-klienter i Azure government-molnet använder program-ID `7e7c393b-45d0-48b1-a35e-2905ddf8183c`.
-> - Azure AD-klienter i offentliga Azure-molnet och alla andra använda program-ID `cfa8b339-82a2-471a-a3c9-0fc0be7a4093`.
+> En Azure AD-klient tillhandahåller varje registrerat program med ett **[huvud namn för tjänsten](/azure/active-directory/develop/developer-glossary#service-principal-object)** som fungerar som programmets identitet. Tjänstens huvud program-ID används när den ger tillstånd att få åtkomst till andra Azure-resurser med hjälp av rollbaserad åtkomst kontroll (RBAC). Eftersom Key Vault är ett Microsoft-program är det förregistrerat i alla Azure AD-klienter under samma program-ID, inom varje Azure-moln:
+> - Azure AD-klienter i Azures offentliga moln använder program `7e7c393b-45d0-48b1-a35e-2905ddf8183c`-ID.
+> - Azure AD-klienter i offentliga Azure-moln och alla andra använder program `cfa8b339-82a2-471a-a3c9-0fc0be7a4093`-ID.
 
-Innan Key Vault kan komma åt och hantera dina lagringskontonycklar, måste du godkänna åtkomsten ditt storage-konto. Key Vault-programmet kräver behörighet att *lista* och *återskapa* nycklar för ditt lagringskonto. Dessa behörigheter aktiveras via den inbyggda RBAC-rollen [Tjänstroll som operatör Storage-konto nyckeln](/azure/role-based-access-control/built-in-roles#storage-account-key-operator-service-role). 
+Innan Key Vault kan komma åt och hantera dina lagrings konto nycklar måste du ge åtkomst till ditt lagrings konto. Key Vault programmet måste ha behörighet att *lista* och *Återskapa* nycklar för ditt lagrings konto. Dessa behörigheter aktive ras via den inbyggda RBAC-rollen [lagrings konto nyckel operatörs tjänst roll](/azure/role-based-access-control/built-in-roles#storage-account-key-operator-service-role). 
 
-Tilldela den här rollen till Key Vault-tjänstobjektet, begränsa omfånget till ditt lagringskonto med följande steg. Se till att uppdatera den `$resourceGroupName`, `$storageAccountName`, `$storageAccountKey`, och `$keyVaultName` variabler innan du kör skriptet:
+Tilldela den här rollen till Key Vault tjänstens huvud namn, begränsa omfattningen till ditt lagrings konto med hjälp av följande steg. Se till att uppdatera `$resourceGroupName`variablerna, `$storageAccountKey` `$storageAccountName`, och `$keyVaultName` innan du kör skriptet:
 
 ```azurepowershell-interactive
 # TODO: Update with the resource group where your storage account resides, your storage account name, the name of your active storage account key, and your Key Vault instance name
@@ -72,7 +72,7 @@ $storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroupName -St
 New-AzRoleAssignment -ApplicationId $keyVaultSpAppId -RoleDefinitionName 'Storage Account Key Operator Service Role' -Scope $storageAccount.Id
 ```
 
-Vid lyckad rolltilldelningen, bör du se utdata som liknar följande exempel:
+Vid lyckad roll tilldelning bör du se utdata som liknar följande exempel:
 
 ```console
 RoleAssignmentId   : /subscriptions/03f0blll-ce69-483a-a092-d06ea46dfb8z/resourceGroups/rgContoso/providers/Microsoft.Storage/storageAccounts/sacontoso/providers/Microsoft.Authorization/roleAssignments/189cblll-12fb-406e-8699-4eef8b2b9ecz
@@ -86,14 +86,14 @@ ObjectType         : ServicePrincipal
 CanDelegate        : False
 ```
 
-Om Key Vault har redan lagts till i rollen på ditt lagringskonto, får du en *”rolltilldelningen redan finns”.* Ett fel uppstod. Du kan också kontrollera rolltilldelningen, med hjälp av sidan ”åtkomstkontroll (IAM)” för lagringskontot i Azure-portalen.  
+Om Key Vault redan har lagts till i rollen på ditt lagrings konto får du en *"roll tilldelningen finns redan".* Fels. Du kan också kontrol lera roll tilldelningen med hjälp av sidan för lagrings kontots åtkomst kontroll (IAM) i Azure Portal.  
 
-## <a name="give-your-user-account-permission-to-managed-storage-accounts"></a>Ge dina användare konto behörighet hanterade storage-konton
+## <a name="give-your-user-account-permission-to-managed-storage-accounts"></a>Ge ditt användar konto behörighet till hanterade lagrings konton
 
 >[!TIP] 
-> Precis som Azure AD tillhandahåller en **tjänstens huvudnamn** för identiteten för ett program, en **UPN** tillhandahålls för en användares identitet. Användares huvudnamn kan sedan få åtkomstbehörighet till Key Vault via Key Vault åtkomstbehörigheter för principen.
+> Precis som Azure AD tillhandahåller ett **tjänst huvud namn** för ett programs identitet, anges ett **användar namn** för en användares identitet. Användarens huvud namn kan sedan tilldelas åtkomst behörighet till Key Vault, genom Key Vault åtkomst princip behörigheter.
 
-Med samma PowerShell-session kan uppdatera åtkomstprincip för Nyckelvalvet för hanterade storage-konton. Det här steget gäller lagring behörigheterna till ditt användarkonto, så att du har åtkomst till de hantera lagringsfunktionerna för konto: 
+Med samma PowerShell-session uppdaterar du Key Vault åtkomst princip för hanterade lagrings konton. Det här steget tillämpar lagrings kontots behörigheter för ditt användar konto, vilket garanterar att du kan komma åt de hanterade lagrings konto funktionerna: 
 
 ```azurepowershell-interactive
 # Give your user principal access to all storage account permissions, on your Key Vault instance
@@ -101,18 +101,18 @@ Med samma PowerShell-session kan uppdatera åtkomstprincip för Nyckelvalvet fö
 Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -UserPrincipalName $azureProfile.Context.Account.Id -PermissionsToStorage get, list, listsas, delete, set, update, regeneratekey, recover, backup, restore, purge
 ```
 
-Observera att behörigheter för storage-konton är inte tillgängliga på ”åtkomstprinciper” sidan för lagringskontot i Azure-portalen.
+Observera att behörigheter för lagrings konton inte är tillgängliga på sidan åtkomst principer för lagrings kontot i Azure Portal.
 
-## <a name="add-a-managed-storage-account-to-your-key-vault-instance"></a>Lägg till ett hanterat lagringskonto till din Key Vault-instans
+## <a name="add-a-managed-storage-account-to-your-key-vault-instance"></a>Lägg till ett hanterat lagrings konto till din Key Vault-instans
 
-Med hjälp av samma PowerShell-session, skapa ett hanterat lagringskonto i din Key Vault-instans. Den `-DisableAutoRegenerateKey` växeln anger att inte återskapa lagringskontonycklarna.
+Skapa ett hanterat lagrings konto i Key Vault-instansen med samma PowerShell-session. `-DisableAutoRegenerateKey` Växeln anger att lagrings konto nycklarna inte ska återskapas.
 
 ```azurepowershell-interactive
 # Add your storage account to your Key Vault's managed storage accounts
 Add-AzKeyVaultManagedStorageAccount -VaultName $keyVaultName -AccountName $storageAccountName -AccountResourceId $storageAccount.Id -ActiveKeyName $storageAccountKey -DisableAutoRegenerateKey
 ```
 
-Vid lyckad lägga till lagringskontot med inga åtkomstnyckeln återskapades bör du se utdata som liknar följande exempel:
+När du lägger till lagrings kontot utan att skapa nya nycklar bör du se utdata som liknar följande exempel:
 
 ```console
 Id                  : https://kvcontoso.vault.azure.net:443/storage/sacontoso
@@ -128,16 +128,16 @@ Updated             : 11/19/2018 11:54:47 PM
 Tags                : 
 ```
 
-### <a name="enable-key-regeneration"></a>Aktivera åtkomstnyckeln återskapades
+### <a name="enable-key-regeneration"></a>Aktivera nyckel återskapande
 
-Om du vill Key Vault för att återskapa dina lagringskontonycklar med jämna mellanrum, kan du ange en återskapandeperiod. I följande exempel anger vi en återskapandeperiod på tre dagar. Efter tre dagar, Key Vault återskapa ”key1” och växla den aktiva nyckeln från ”key2” till ”key1”.
+Om du vill Key Vault återskapa dina lagrings konto nycklar med jämna mellanrum kan du ange en återställnings period. I följande exempel ställer vi in en tids period på tre dagar. Efter tre dagar kommer Key Vault att återskapa ' KEY1 ' och byta den aktiva nyckeln från ' key2 ' till ' KEY1 '.
 
 ```azurepowershell-interactive
 $regenPeriod = [System.Timespan]::FromDays(3)
 Add-AzKeyVaultManagedStorageAccount -VaultName $keyVaultName -AccountName $storageAccountName -AccountResourceId $storageAccount.Id -ActiveKeyName $storageAccountKey -RegenerationPeriod $regenPeriod
 ```
 
-Vid lyckad lägga till lagringskontot med nycklar bör du se utdata som liknar följande exempel:
+När du har tillrättat tillägget av lagrings kontot när nyckeln har återskapats bör du se utdata som liknar följande exempel:
 
 ```console
 Id                  : https://kvcontoso.vault.azure.net:443/storage/sacontoso
@@ -155,6 +155,6 @@ Tags                :
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Hanterade key storage-konto-exempel](https://github.com/Azure-Samples?utf8=%E2%9C%93&q=key+vault+storage&type=&language=)
+- [Nyckel exempel för hanterade lagrings konton](https://github.com/Azure-Samples?utf8=%E2%9C%93&q=key+vault+storage&type=&language=)
 - [Om nycklar, hemligheter och certifikat](about-keys-secrets-and-certificates.md)
 - [Key Vault PowerShell-referens](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault)

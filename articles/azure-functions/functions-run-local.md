@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: glenga
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: f0f00745f2f7781bda0e636167b1cf1a4045f7cd
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 481e6c5f2271651627577af3d03f9dd4da725146
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881381"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68949911"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Arbeta med Azure Functions Core Tools
 
@@ -93,7 +93,7 @@ I följande steg används homebrew för att installera kärn verktygen på macOS
 
 I följande steg används [apt](https://wiki.debian.org/Apt) för att installera kärn verktyg på din Ubuntu/Debian Linux-distribution. Andra Linux-distributioner finns i [README-verktyg](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#linux).
 
-1. Registrera Microsofts produkt nyckel som betrodd:
+1. Installera GPG-nyckeln för Microsoft Package-lagringsplatsen för att verifiera paket integritet:
 
     ```bash
     curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
@@ -135,15 +135,19 @@ func init MyFunctionProj
 ```
 
 När du anger ett projekt namn skapas och initieras en ny mapp med det namnet. Annars initieras den aktuella mappen.  
-När du kör kommandot i version 2. x måste du välja en körning för projektet. Om du planerar att utveckla JavaScript-funktioner väljer du **nod**:
+När du kör kommandot i version 2. x måste du välja en körning för projektet. 
 
 ```output
 Select a worker runtime:
 dotnet
 node
+python (preview)
+powershell (preview)
 ```
 
-Använd piltangenterna för att välja ett språk och tryck sedan på RETUR. Utdata ser ut som i följande exempel för ett JavaScript-projekt:
+Använd piltangenterna för att välja ett språk och tryck sedan på RETUR. Om du planerar att utveckla Java Script-eller TypeScript-funktioner väljer du **Node**och väljer sedan språket. TypeScript har [vissa ytterligare krav](functions-reference-node.md#typescript). 
+
+Utdata ser ut som i följande exempel för ett JavaScript-projekt:
 
 ```output
 Select a worker runtime: node
@@ -269,15 +273,40 @@ func new --template "Queue Trigger" --name QueueTriggerJS
 
 ## <a name="start"></a>Köra funktioner lokalt
 
-Kör Functions-värden om du vill köra ett Functions-projekt. Värden aktiverar utlösare för alla funktioner i projektet:
+Kör Functions-värden om du vill köra ett Functions-projekt. Värden aktiverar utlösare för alla funktioner i projektet. 
 
-```bash
+### <a name="version-2x"></a>Version 2.x
+
+I version 2. x av körnings miljön varierar Start kommandot beroende på ditt projekt språk.
+
+#### <a name="c"></a>C\#
+
+```command
+func start --build
+```
+
+#### <a name="javascript"></a>JavaScript
+
+```command
+func start
+```
+
+#### <a name="typescript"></a>TypeScript
+
+```command
+npm install
+npm start     
+```
+
+### <a name="version-1x"></a>Version 1.x
+
+Version 1. x av Functions-körningen `host` kräver kommandot, som i följande exempel:
+
+```command
 func host start
 ```
 
-`host` Kommandot krävs endast i version 1. x.
-
-`func host start`stöder följande alternativ:
+`func start`stöder följande alternativ:
 
 | Alternativ     | Beskrivning                            |
 | ------------ | -------------------------------------- |
@@ -293,8 +322,6 @@ func host start
 | **`--script-root --prefix`** | Används för att ange sökvägen till roten för Function-appen som ska köras eller distribueras. Detta används för kompilerade projekt som genererar projektfiler i en undermapp. När du till exempel skapar ett C# klass biblioteks projekt skapas värden. JSON, Local. Settings. JSON och function. JSON-filerna i en *rotmapp* med en sökväg som. `MyProject/bin/Debug/netstandard2.0` I det här fallet ställer du in prefixet som `--script-root MyProject/bin/Debug/netstandard2.0`. Detta är roten i Function-appen när du kör i Azure. |
 | **`--timeout -t`** | Tids gränsen för funktionens värd att starta, i sekunder. Standard: 20 sekunder.|
 | **`--useHttps`** | Bind till `https://localhost:{port}` i stället för `http://localhost:{port}`till. Som standard skapar det här alternativet ett betrott certifikat på din dator.|
-
-För ett C# klass biblioteks projekt (. CSPROJ) måste du inkludera `--build` alternativet för att generera Library. dll.
 
 När Functions-värden startar matar den in URL: en för HTTP-utlösta funktioner:
 

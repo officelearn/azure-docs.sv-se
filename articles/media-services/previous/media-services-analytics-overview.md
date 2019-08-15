@@ -1,6 +1,6 @@
 ---
-title: Media Analytics på Media Services-plattformen | Microsoft Docs
-description: Översikt över offentliga förhandsversionen av Media Analytics, en samling tal- och visuellt innehåll-tjänster på företagsnivå, efterlevnad, säkerhet och global räckvidd
+title: Medieanalys på Media Services plattform | Microsoft Docs
+description: Översikt över den allmänt tillgängliga för hands versionen av Medieanalys, en samling tal-och syn tjänster i företags skala, efterlevnad, säkerhet och global räckvidd
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -13,57 +13,58 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/14/2019
-ms.author: milanga;juliako;johndeu
-ms.openlocfilehash: ceaf4d3db71d99c3e87157f9847312fdf4000026
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: juliako
+ms.reviewer: milanga; johndeu
+ms.openlocfilehash: d8470ad759d983f25f8f68b93d58f89f23eeb578
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65991794"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "69015397"
 ---
-# <a name="media-analytics-on-the-media-services-platform"></a>Media Analytics på Media Services-plattformen 
+# <a name="media-analytics-on-the-media-services-platform"></a>Medieanalys på Media Servicess plattformen 
 
 ## <a name="overview"></a>Översikt
-Fler och fler organisationer använder video som önskade medium att träna sina anställda, engagera kunderna och dokumentera företagsfunktioner. Molnbaserad databehandling är ett sätt att lagra, strömma och komma åt dessa stora mediafiler. Men eftersom ett bibliotek med videoinnehåll växer, måste en lika effektiva sättet att extrahera insikter från innehållet. 
+Fler organisationer använder video som det önskade mediet för att träna sina anställda, engagera sina kunder och dokumentera affärs funktioner. Molnbaserad data behandling är ett sätt att lagra, strömma och komma åt dessa stora mediafiler. Men i takt med att ett företags bibliotek med video innehåll växer, behöver det ett lika effektivt sätt att extrahera insikter från innehållet. 
 
-Azure Media Services erbjuder Azure Media Analytics för att tillgodose det växande behovet. Media Analytics är en samling tal- och visionskomponenter som gör det enklare för organisationer och företag att härleda insikter som det går att direkt agera utifrån från sina videofiler. Skapat med hjälp av kärnplattformskomponenter för Media Services kan kan Media Analytics hantera media i stor skala från dag ett.
+Azure Media Services erbjuder Azure-medieanalys för att lösa det växande behovet. Media Analytics är en samling tal- och visionskomponenter som gör det enklare för organisationer och företag att härleda insikter som det går att direkt agera utifrån från sina videofiler. Med hjälp av plattforms komponenterna för kärn Media Services kan Medieanalys hantera medie bearbetning i skala på dag ett.
 
-Med Media Analytics kan utvecklare snabbt ta med avancerade funktioner för video i program. Det ger företagsmiljöer fullskalig, efterlevnad, säkerhet och globala räckvidd som krävs av stora organisationer.
+Med Medieanalys kan utvecklare snabbt få avancerade video funktioner i program. Den ger företags miljöer med fullständig skalning, efterlevnad, säkerhet och global räckvidd som krävs av stora organisationer.
 
-Följande diagram visar Media Analytics och andra viktiga delar av Media Services-plattformen. 
+I följande diagram visas Medieanalys och andra större delar av Media Servicess plattformen. 
 
 ![VoD-arbetsflöde](./media/media-services-analytics-overview/media-services-analytics-overview01.png)
 
-Media Analytics-medieprocessorer producerar MP4-filer eller JSON-filer. Om en medieprocessor producerar en MP4-fil, kan du hämta filen progressivt. Om en medieprocessor producerar en JSON-fil, kan du hämta filen från Azure Blob storage. 
+Media Analytics-medieprocessorer producerar MP4-filer eller JSON-filer. Om en medie processor skapar en MP4-fil kan du hämta filen progressivt. Om en medie processor skapar en JSON-fil kan du ladda ned filen från Azure Blob Storage. 
 
-## <a name="media-analytics-services"></a>Medieanalys-tjänster
+## <a name="media-analytics-services"></a>Medieanalys tjänster
 
 ### <a name="indexer"></a>Indexerare
-Du kan göra innehåll sökbart och generera textning spårar med Azure Media Indexer. Förhandsversion av Azure Media Indexer 2 har jämfört med den tidigare versionen stöd för snabbare indexering och bredare språk. Språk som stöds är engelska, spanska, franska, tyska, italienska, kinesiska, portugisiska och arabiska. Mer information och exempel finns i [bearbeta videor med Azure Media Indexer 2](media-services-process-content-with-indexer2.md).
+Med Azure Media Indexer kan du göra innehåll sökbart och generera spår med dold textning. Jämfört med den tidigare versionen har Azure Media Indexer 2-förhands granskning snabbare indexering och bredare språk stöd. Språk som stöds är engelska, spanska, franska, tyska, italienska, kinesiska, portugisiska och arabiska. Detaljerad information och exempel finns i [bearbeta videor med Azure Media Indexer 2](media-services-process-content-with-indexer2.md).
 ### <a name="motion-detector"></a>Rörelsedetektor
-Du kan använda Rörelseidentifiering för att identifiera rörelse i en video med stillastående bakgrunder. Detta gör det möjligt att söka efter falska positiva identifieringar på rörelsehändelser som identifieras av övervakningskameror. Mer information och exempel finns i [Rörelseidentifiering för Azure Media Analytics](media-services-motion-detection.md).
+Du kan använda rörelse detektor för att identifiera rörelse i en video med Station ära bakgrunder. På så sätt kan du kontrol lera om det finns falska positiva identifieringar för rörelse händelser som identifieras av övervaknings kameror. Detaljerad information och exempel finns i [rörelse identifiering för Azure-medieanalys](media-services-motion-detection.md).
 ### <a name="face-detector"></a>Ansiktsigenkänning
-Med Ansiktsigenkänning kan identifiera du människors ansikten och deras känslor, inklusive lycka, ledsenhet och förvåning. Detta har flera användbara branschspecifika program, som beskrivs senare, inklusive aggregering och analys av reaktioner människor kommer du till en händelse. Mer information och exempel finns i [Ansikts- och känslo-identifiering för Azure Media Analytics](media-services-face-and-emotion-detection.md).
-### <a name="video-summarization"></a>Sammanfattning av video
-Videosammanfattning kan hjälpa dig att skapa sammanfattningar av långa videofilmer genom att automatiskt välja intressanta kodavsnitt från källvideo. Den här möjligheten är användbart när du vill ge en snabb överblick över vad som händer i en lång video. Mer information och exempel finns i [Använd Azure Media Video Thumbnails för att skapa videosammanfattning](media-services-video-summarization.md).
+Genom att använda ansikts detektor kan du identifiera folkets ansikten och deras känslor, inklusive glädje, ledsenhet och överraskningar. Detta har flera användbara bransch program, som beskrivs senare, inklusive agg regering och analys av reaktioner hos personer som deltar i en händelse. Detaljerad information och exempel finns i [identifiering av ansikts-och känslo för Azure-medieanalys](media-services-face-and-emotion-detection.md).
+### <a name="video-summarization"></a>Video Sammanfattning
+Video sammanfattningen kan hjälpa dig att skapa sammanfattningar av långa videor genom att automatiskt välja intressanta kodfragment från käll videon. Den här funktionen är användbar när du vill ge en snabb översikt över vad som förväntas i en lång video. Detaljerad information och exempel finns i [använda Azure Media Video thumbnails för att skapa video Sammanfattning](media-services-video-summarization.md).
 ### <a name="optical-character-recognition"></a>Optisk teckenigenkänning
-Du kan konvertera textinnehåll i videofiler till redigerbara och sökbara digitala text med Azure Media OCR (optisk teckenläsning). Sedan kan du automatisera extrahering av användbara metadata från video signalen medieinnehåll.
-### <a name="scalable-face-redaction"></a>Skalbar ansiktsredigering
-Azure Media Redactor är en Media Analytics-mediebearbetare som erbjuder skalbara ansiktsredigering i molnet. Med hjälp av ansiktsredigering kan ändra du videon om du vill minska ansikten för valda individer. Du kanske vill använda tjänsten ansiktsredigering i nyhetsmedier eller om allmän säkerhet är inblandad. Några minuter med material som innehåller flera ansikten kan ta timmar att redigera manuellt, men i den här tjänsten ansiktsredigering tar bara några få enkla steg. Mer information finns i den [redigera ansikten med Azure Media Analytics](media-services-face-redaction.md) artikeln.
+Med Azure Media OCR (optisk tecken läsning) kan du konvertera text innehåll i videofiler till redigerbar, sökbar digital text. Du kan sedan automatisera extraheringen av meningsfulla metadata från video signalen på mediet.
+### <a name="scalable-face-redaction"></a>Skalbara ansikts bortredigering
+Azure Media Redactor är en Medieanalys medie processor som erbjuder skalbara ansikts bortredigering i molnet. Genom att använda ansikts bortredigering kan du ändra videon så att den oskarpa ytan av valda individer blir oskarp. Du kanske vill använda ansikts bortredigering-tjänsten i nyhets medier eller när offentlig säkerhet är involverad. Några minuter av tagningar som innehåller flera ansikten kan ta timmar till bortredigering manuellt, men med den här tjänsten tar ansikts bortredigering bara några enkla steg. Mer information finns i avsnittet [bortredigering-ansikten med Azure-medieanalys](media-services-face-redaction.md) artikeln.
 ### <a name="content-moderation"></a>Innehållsmoderering
-Azure Content Moderator kan du använda datorstödd moderering för dina videor. Du vill kanske exempelvis identifiera möjligt innehåll som är olämpligt för barn eller olämpligt innehåll i videor och granska innehåll som flaggats av det mänskliga modereringsteamet. Manuellt kontrollera videor för oönskade innehåll är en tidskrävande och dyrt aktivitet. Med den här tjänsten och associerade med granskningsverktygen kan kombinera du datorstödd moderering med human-i-the-loop funktioner för bästa resultat på ett effektivt och kostnadseffektivt sätt. Mer information finns i den [bearbeta videor med Azure Content Moderator](media-services-content-moderation.md) artikeln.
+Med Azure Content Moderator kan du använda dator redigering för dina videor. Du vill kanske exempelvis identifiera möjligt innehåll som är olämpligt för barn eller olämpligt innehåll i videor och granska innehåll som flaggats av det mänskliga modereringsteamet. Att manuellt konfigurera videor för oönskat innehåll är en tids krävande och kostsam uppgift. Med den här tjänsten och tillhör ande gransknings verktyg kombinerar du datorbaserade moderatorer med funktioner för mänsklig ineffektivhet för bästa resultat och kostnads effektivt. Mer information finns i artikeln [bearbeta videor med Azure Content moderator](media-services-content-moderation.md) .
 
 ## <a name="common-scenarios"></a>Vanliga scenarier
-Media Analytics kan hjälpa organisationer och företag få djupare förståelse från nya insikter från video och mer hantera effektivt stora volymer av videoinnehåll. Här följer flera scenarier:
+Medieanalys kan hjälpa organisationer och företag att få nya insikter från video och hantera stora mängder video innehåll på ett mer effektivt sätt. Här följer flera scenarier:
 
-* **Anropa Datacenter**. Även med ankomsten av sociala medier underlätta kunden call Center fortfarande en stor del av kundservice transaktioner. Kodning i den här ljuddata är en stor mängd kundinformation som kan analyseras för att uppnå högre kundnöjdhet. Med hjälp av Media Indexer kan organisationer extrahera text och skapa sökindex och instrumentpaneler. De kan sedan extrahera intelligence runt vanligt klagomål, källor för klagomål och andra relevanta data.
-* **Användargenererade innehållsmoderering**. Många organisationer har från nyhetsmedier nyhetskanaler att polis avdelningar, offentliga portaler som accepterar användargenererade media som videor och bilder. Mängden innehåll kan skalas på grund av oväntade händelser. Det är svårt att genomföra effektiva manuell granskning av innehåll efter lämplighet i dessa scenarier. Kunderna kan lita på tjänsten moderering av innehåll för att fokusera på att innehåll som är lämpligt.
+* **Anropa Center**. Även med ankomsten av sociala medier underlättar kund samtals centret en stor del av kund service transaktionerna. Att koda i dessa ljud data är en stor mängd kund information som kan analyseras för att uppnå högre kund nöjdhet. Genom att använda Media Indexer kan organisationer Extrahera text och bygga Sök index och instrument paneler. De kan sedan extrahera information kring vanliga klagomål, klagomåls källor och andra relevanta data.
+* **Användardefinierad innehålls moderator**. Från nyhets mediets avsändningar till polis myndigheter har många organisationer offentligt riktade portaler som accepterar användar genererade medier, till exempel videor och bilder. Mängden innehåll kan vara en topp på grund av oväntade händelser. I dessa scenarier är det svårt att utföra effektiva manuella granskningar av innehåll för lämplighet. Kunder kan lita på att innehålls moderator tjänsten fokuserar på innehåll som är lämpligt.
 
-## <a name="media-analytics-media-processors"></a>Media Analytics-medieprocessorer
-Det här avsnittet visar en lista över Media Analytics-medieprocessorer och visar hur du använder .NET eller REST för att få ett mediaobjekt för processor (MP).
+## <a name="media-analytics-media-processors"></a>Medieanalys medie processorer
+I det här avsnittet visas Medieanalys medie processorer och hur du använder .NET eller REST för att hämta ett MP-objekt (Media processor).
 
 ### <a name="mp-names"></a>MP-namn
-* Förhandsversion av Azure Media Indexer 2
+* Azure Media Indexer 2 för hands version
 * Azure Media Indexer
 * Azure Media Face Detector
 * Azure Media Motion Detector
@@ -72,7 +73,7 @@ Det här avsnittet visar en lista över Media Analytics-medieprocessorer och vis
 * Azure Media Content Moderator
 
 ### <a name="net"></a>.NET
-Följande funktion tar ett av de angivna MP-namn och returnerar ett MP-objekt.
+Följande funktion använder ett av de angivna MP-namnen och returnerar ett MP-objekt.
 
     static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
     {
@@ -122,13 +123,13 @@ Svar:
     }
 
 ## <a name="demos"></a>Demonstrationer
-Se [Azure Media Analytics demonstrationer](https://azuremedialabs.azurewebsites.net/demos/Analytics.html).
+Se [Azure-medieanalys](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)-demonstrationer.
 
 ## <a name="provide-feedback"></a>Ge feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-articles"></a>Relaterade artiklar
-Se [Media Services Analytics meddelande](https://azure.microsoft.com/blog/introducing-azure-media-analytics/).
+Se [Media Services Analytics-meddelande](https://azure.microsoft.com/blog/introducing-azure-media-analytics/).
 
 <!-- Images -->
 

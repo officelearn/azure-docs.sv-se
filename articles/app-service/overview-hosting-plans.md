@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: fef509d705d0b904586a86b7dc58decc54e7023d
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 4ea983255463080592181cda321ef6b6d1ff147f
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68716645"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932347"
 ---
 # <a name="azure-app-service-plan-overview"></a>Översikt över Azure App Services plan
 
@@ -32,14 +32,13 @@ När du skapar en App Service plan i en viss region (till exempel Västeuropa) s
 - Region (västra USA, östra USA osv.)
 - Antal VM-instanser
 - Storlek på virtuella dator instanser (liten, medel, stor)
-- Pris nivå (kostnads fri, delad, Basic, standard, Premium, PremiumV2, isolerad, konsumtion)
+- Pris nivå (kostnads fri, delad, Basic, standard, Premium, PremiumV2, isolerad)
 
 _Pris nivån_ för en app service plan avgör vilka App Service funktioner du får och hur mycket du betalar för planen. Det finns några kategorier av pris nivåer:
 
 - **Delad beräkning**: De två bas nivåerna är **kostnads fria** och **delade**, och kör en app på samma virtuella Azure-dator som andra App Service appar, inklusive appar från andra kunder. Dessa nivåer allokerar processor kvoter till varje app som körs på delade resurser och resurserna kan inte skala ut.
 - **Dedikerad beräkning**: Nivåerna **Basic**, **standard**, **Premium**och **PremiumV2** kör appar på dedikerade virtuella Azure-datorer. Endast appar i samma App Service plan delar samma beräknings resurser. Ju högre nivå, desto fler VM-instanser kan du skala ut.
-- **Isolerade**: Den här nivån kör dedikerade virtuella Azure-datorer på dedikerade virtuella Azure-nätverk, vilket ger nätverks isolering ovanpå beräknings isolering i dina appar. Det ger de maximala skalbara funktionerna.
-- **Förbrukning**: Den här nivån är bara tillgänglig för [Function-appar](../azure-functions/functions-overview.md). Funktionerna skalas dynamiskt beroende på arbets belastningen. Mer information finns i [jämförelse av Azure Functions värd planer](../azure-functions/functions-scale.md).
+- **Isolerade**: Den här nivån kör dedikerade virtuella Azure-datorer på dedikerade virtuella Azure-nätverk. Den ger nätverks isolering ovanpå beräknings isoleringen för dina appar. Det ger de maximala skalbara funktionerna.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
@@ -80,8 +79,7 @@ Förutom för den **kostnads fria** nivån debiteras en app service plan per tim
 
 - På den **delade** nivån får varje app en kvot på CPU minuter, så _varje app_ debiteras per timme för processor kvoten.
 - I dedikerade beräknings nivåer (**Basic**, **standard**, **Premium**, **PremiumV2**) definierar App Service plan antalet virtuella dator instanser som APPARna skalas till, så _varje VM-instans_ i App Service plan har en timkostnad per timme. Dessa VM-instanser debiteras samma oavsett hur många appar körs på dem. Information om hur du undviker oväntade kostnader finns i [Rensa en app service plan](app-service-plan-manage.md#delete).
-- På den **isolerade** nivån definierar App Service-miljön antalet isolerade arbetare som kör dina appar, och _varje arbets tagare_ debiteras per timme. Det finns dessutom en grund avgift per timme för att köra själva App Service-miljön. 
-- (Endast Azure Functions) **Förbruknings** nivån allokerar dynamiskt virtuella dator instanser för att betjäna en funktions program arbets belastning och debiteras dynamiskt per sekund av Azure. Mer information finns i [priser för Azure Functions](https://azure.microsoft.com/pricing/details/functions/).
+- På den **isolerade** nivån definierar App Service-miljön antalet isolerade arbetare som kör dina appar, och _varje arbets tagare_ debiteras per timme. Det finns dessutom en grund avgift per timme för att köra själva App Service-miljön.
 
 Du debiteras inte för att använda de App Service funktioner som är tillgängliga för dig (Konfigurera anpassade domäner, SSL-certifikat, distributions platser, säkerhets kopior osv.). Undantagen är:
 

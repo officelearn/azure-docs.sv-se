@@ -1,31 +1,31 @@
 ---
-title: Utgående och slutpunkter i Azure Digital Twins | Microsoft Docs
-description: Riktlinjer för hur du skapar slutpunkter med Azure Digital Twins.
+title: Utgående och slut punkter i Azure Digitals flätar | Microsoft Docs
+description: Rikt linjer för hur du skapar slut punkter med Azure Digitals dubbla.
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 06/06/2019
+ms.date: 08/12/2019
 ms.author: alinast
-ms.openlocfilehash: 478fe1859dd9067e8097df0384657793602c1378
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3c33992ce3c130d6c06e0709a9c4ddcab4fff159
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071465"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69013945"
 ---
-# <a name="egress-and-endpoints"></a>Utgående och slutpunkter
+# <a name="egress-and-endpoints"></a>Utgående och slut punkter
 
-Azure Digital Twins *slutpunkter* representerar förhandlare meddelandet eller händelse inom en användares Azure-prenumeration. Händelser och meddelanden kan skickas till Azure Event Hubs, Azure Event Grid och Azure Service Bus-ämnen.
+Azure Digitals dubbla *slut punkter* representerar ett meddelande eller händelse koordinator i en användares Azure-prenumeration. Händelser och meddelanden kan skickas till Azure Event Hubs, Azure Event Grid och Azure Service Bus ämnen.
 
-Händelser dirigeras till slutpunkterna enligt fördefinierade inställningar för routning. Användare kan ange vilka *händelsetyper* får varje slutpunkt.
+Händelser dirigeras till slut punkter enligt fördefinierade inställningar för routning. Användare anger vilka *händelse typer* som varje slut punkt kan ta emot.
 
-Mer information om händelser, Routning och händelsetyper, referera till [routning händelser och meddelanden i Azure Digital Twins](./concepts-events-routing.md).
+Mer information om händelser, Routning och händelse typer finns [i routning av händelser och meddelanden i Azure Digitals](./concepts-events-routing.md).
 
-## <a name="events"></a>Händelser
+## <a name="events"></a>Events
 
-Händelser som skickas av IoT-objekt (till exempel enheter och sensorer) ska bearbetas av Azure meddelandet och händelsen asynkrona meddelandeköer. Händelser som definieras av följande [Schemareferens i Azure Event Grid event](../event-grid/event-schema.md).
+Händelser skickas av IoT-objekt (till exempel enheter och sensorer) för bearbetning av Azure-meddelanden och händelse hanterare. Händelser definieras av följande [Azure Event Grid händelse schema referens](../event-grid/event-schema.md).
 
 ```JSON
 {
@@ -47,25 +47,25 @@ Händelser som skickas av IoT-objekt (till exempel enheter och sensorer) ska bea
 }
 ```
 
-| Attribut | Typ | Beskrivning |
+| Attribut | type | Beskrivning |
 | --- | --- | --- |
-| id | string | Unik identifierare för händelsen. |
-| subject | string | Publisher-definierade sökvägen till ämne för händelsen. |
-| data | objekt | Händelsedata är specifika för resursprovidern. |
-| eventType | string | En av typerna som registrerade händelsen för den här händelsekällan. |
-| eventTime | string | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
-| dataVersion | string | Dataobjektets schemaversion. Utgivaren definierar schemaversion. |
-| metadataVersion | string | Schemaversion för händelsemetadata. Event Grid definierar schemat för de översta egenskaperna. Event Grid ger det här värdet. |
-| subject | string | Fullständig resurssökväg till händelsekällan. Det här fältet är inte skrivbar. Event Grid ger det här värdet. |
+| id | sträng | Unikt ID för händelsen. |
+| subject | sträng | Publisher-definierad sökväg till händelsens ämne. |
+| data | object | Händelse data som är speciella för resurs leverantören. |
+| eventType | sträng | En av de registrerade händelse typerna för den här händelse källan. |
+| eventTime | sträng | Tiden då händelsen genereras baserat på providerns UTC-tid. |
+| dataVersion | sträng | Dataobjektets schemaversion. Utgivaren definierar schema versionen. |
+| metadataVersion | sträng | Schemaversion för händelsemetadata. Event Grid definierar schemat för de högsta nivå egenskaperna. Event Grid ger det här värdet. |
+| subject | sträng | Fullständig resurs Sök väg till händelse källan. Det går inte att skriva till det här fältet. Event Grid ger det här värdet. |
 
-Mer information om Event Grid-Händelseschema:
+Mer information om händelse schema för Event Grid:
 
-- Granska den [Schemareferens i Azure Event Grid event](../event-grid/event-schema.md).
-- Läs den [referens för Azure EventGrid Node.js SDK EventGridEvent](https://docs.microsoft.com/javascript/api/azure-eventgrid/eventgridevent?view=azure-node-latest).
+- Granska [Azure Event Grid händelse schema referens](../event-grid/event-schema.md).
+- Läs [EventGridEvent-referens för Azure EventGrid Node. js SDK](https://docs.microsoft.com/javascript/api/azure-eventgrid/eventgridevent?view=azure-node-latest).
 
-## <a name="event-types"></a>Händelsetyper
+## <a name="event-types"></a>Händelse typer
 
-Händelsetyper klassificera natur händelsen och ställs i den **händelsetyp** fält. Tillgängliga händelsetyper anges av i följande lista:
+Händelse typer klassificerar händelsens karaktär och anges i fältet **eventType** . Tillgängliga händelse typer anges i följande lista:
 
 - TopologyOperation
 - UdfCustom
@@ -73,11 +73,11 @@ Händelsetyper klassificera natur händelsen och ställs i den **händelsetyp** 
 - SpaceChange
 - DeviceMessage
 
-I följande underavsnitt beskrivs ytterligare händelseformatet för varje händelsetyp av.
+Händelse formaten för varje händelse typ beskrivs närmare i följande underavsnitt.
 
 ### <a name="topologyoperation"></a>TopologyOperation
 
-**TopologyOperation** gäller för ändringar i metadatadiagram. Den **ämne** egenskap anger typ av objekt som påverkas. Följande typer av objekt kan utlösa den här händelsen:
+**TopologyOperation** gäller för Graph-ändringar. Egenskapen **subject** anger vilken typ av objekt som påverkas. Följande typer av objekt kan utlösa den här händelsen:
 
 - Enhet
 - DeviceBlobMetadata
@@ -86,11 +86,11 @@ I följande underavsnitt beskrivs ytterligare händelseformatet för varje händ
 - ExtendedType
 - KeyStore
 - Rapport
-- RoleDefinition
+- Roll definitions
 - Sensor
 - SensorBlobMetadata
 - SensorExtendedProperty
-- Rymd
+- Blanksteg
 - SpaceBlobMetadata
 - SpaceExtendedProperty
 - SpaceResource
@@ -122,7 +122,7 @@ I följande underavsnitt beskrivs ytterligare händelseformatet för varje händ
 }
 ```
 
-| Värde | Ersätt med |
+| Value | Ersätt med |
 | --- | --- |
 | YOUR_TOPIC_NAME | Namnet på ditt anpassade ämne |
 
@@ -131,7 +131,7 @@ I följande underavsnitt beskrivs ytterligare händelseformatet för varje händ
 **UdfCustom** är en händelse som skickas av en användardefinierad funktion (UDF).
   
 > [!IMPORTANT]  
-> Den här händelsen måste uttryckligen skickas från UDF själva.
+> Den här händelsen måste skickas explicit från själva UDF-filen.
 
 #### <a name="example"></a>Exempel
 
@@ -153,13 +153,13 @@ I följande underavsnitt beskrivs ytterligare händelseformatet för varje händ
 }
 ```
 
-| Värde | Ersätt med |
+| Value | Ersätt med |
 | --- | --- |
 | YOUR_TOPIC_NAME | Namnet på ditt anpassade ämne |
 
 ### <a name="sensorchange"></a>SensorChange
 
-**SensorChange** är en uppdatering av en sensor tillstånd baserat på ändringar av telemetri.
+**SensorChange** är en uppdatering av sensorns status baserat på telemetri-ändringar.
 
 #### <a name="example"></a>Exempel
 
@@ -188,13 +188,13 @@ I följande underavsnitt beskrivs ytterligare händelseformatet för varje händ
 }
 ```
 
-| Värde | Ersätt med |
+| Value | Ersätt med |
 | --- | --- |
 | YOUR_TOPIC_NAME | Namnet på ditt anpassade ämne |
 
 ### <a name="spacechange"></a>SpaceChange
 
-**SpaceChange** är en uppdatering av ett blanksteg tillstånd baserat på ändringar av telemetri.
+**SpaceChange** är en uppdatering av ett utrymmes tillstånd baserat på telemetri ändringar.
 
 #### <a name="example"></a>Exempel
 
@@ -223,36 +223,36 @@ I följande underavsnitt beskrivs ytterligare händelseformatet för varje händ
 }
 ```
 
-| Värde | Ersätt med |
+| Value | Ersätt med |
 | --- | --- |
 | YOUR_TOPIC_NAME | Namnet på ditt anpassade ämne |
 
 ### <a name="devicemessage"></a>DeviceMessage
 
-Med hjälp av **DeviceMessage**, kan du ange en **EventHub** anslutning som råtelemetridata händelser kan vidarebefordras samt från Azure Digital Twins.
+Genom att använda **DeviceMessage**kan du ange en **EventHub** -anslutning till vilken oberedda telemetri-händelser kan dirigeras från digitala Azure-nätverk.
 
 > [!NOTE]
-> - **DeviceMessage** är Kombinerbara endast med **EventHub**. Du kan inte kombinera **DeviceMessage** med andra typer av händelse.
-> - Du kan ange endast en slutpunkt av kombinationen av typ **EventHub** eller **DeviceMessage**.
+> - **DeviceMessage** är endast kombin med **EventHub**. Du kan inte kombinera **DeviceMessage** med någon av de andra händelse typerna.
+> - Du kan bara ange en slut punkt för kombinationen av typen **EventHub** eller **DeviceMessage**.
 
 ## <a name="configure-endpoints"></a>Konfigurera slutpunkter
 
-Hantering av slutpunkten utnyttjas via API-slutpunkter.
+Slut punkts hantering utnyttjas genom slut punkts-API: et.
 
 [!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
 
-Följande exempel visar hur du konfigurerar slutpunkter som stöds.
+Följande exempel visar hur du konfigurerar slut punkter som stöds.
 
 >[!IMPORTANT]
-> Betala titta noga på **eventTypes** attribut. Den definierar vilken händelse typer hanteras av slutpunkten och därmed avgöra dess routning.
+> Betala noga noga med **eventTypes** -attributet. Den definierar vilka händelse typer som hanteras av slut punkten och bestämmer därför dess routning.
 
-En autentiserad HTTP POST-begäran mot
+En autentiserad HTTP POST-begäran mot:
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/endpoints
 ```
 
-- Vägen till Service Bus händelsetyper **SensorChange**, **SpaceChange**, och **TopologyOperation**:
+- Dirigera till Service Bus händelse typer **SensorChange**, **SpaceChange**och **TopologyOperation**:
 
   ```JSON
   {
@@ -268,14 +268,14 @@ YOUR_MANAGEMENT_API_URL/endpoints
   }
   ```
 
-    | Värde | Ersätt med |
+    | Value | Ersätt med |
     | --- | --- |
-    | YOUR_NAMESPACE | Namnområdet för din slutpunkt |
-    | YOUR_PRIMARY_KEY | Primär anslutningssträng som används för att autentisera |
-    | YOUR_SECONDARY_KEY | Sekundär anslutningssträng som används för att autentisera |
+    | YOUR_NAMESPACE | Namn området för din slut punkt |
+    | YOUR_PRIMARY_KEY | Den primära anslutnings sträng som används för att autentisera |
+    | YOUR_SECONDARY_KEY | Sekundär anslutnings sträng som används för att autentisera |
     | YOUR_TOPIC_NAME | Namnet på ditt anpassade ämne |
 
-- Vägen till Event Grid händelsetyper **SensorChange**, **SpaceChange**, och **TopologyOperation**:
+- Dirigera till Event Grid händelse typer **SensorChange**, **SpaceChange**och **TopologyOperation**:
 
   ```JSON
   {
@@ -291,13 +291,13 @@ YOUR_MANAGEMENT_API_URL/endpoints
   }
   ```
 
-    | Värde | Ersätt med |
+    | Value | Ersätt med |
     | --- | --- |
-    | YOUR_PRIMARY_KEY | Primär anslutningssträng som används för att autentisera|
-    | YOUR_SECONDARY_KEY | Sekundär anslutningssträng som används för att autentisera |
+    | YOUR_PRIMARY_KEY | Den primära anslutnings sträng som används för att autentisera|
+    | YOUR_SECONDARY_KEY | Sekundär anslutnings sträng som används för att autentisera |
     | YOUR_TOPIC_NAME | Namnet på ditt anpassade ämne |
 
-- Vägen till Event Hubs händelsetyper **SensorChange**, **SpaceChange**, och **TopologyOperation**:
+- Dirigera till Event Hubs händelse typer **SensorChange**, **SpaceChange**och **TopologyOperation**:
 
   ```JSON
   {
@@ -313,14 +313,14 @@ YOUR_MANAGEMENT_API_URL/endpoints
   }
   ```
 
-    | Värde | Ersätt med |
+    | Value | Ersätt med |
     | --- | --- |
-    | YOUR_NAMESPACE | Namnområdet för din slutpunkt |
-    | YOUR_PRIMARY_KEY | Primär anslutningssträng som används för att autentisera |
-    | YOUR_SECONDARY_KEY | Sekundär anslutningssträng som används för att autentisera |
-    | YOUR_EVENT_HUB_NAME | Namnet på din event hub |
+    | YOUR_NAMESPACE | Namn området för din slut punkt |
+    | YOUR_PRIMARY_KEY | Den primära anslutnings sträng som används för att autentisera |
+    | YOUR_SECONDARY_KEY | Sekundär anslutnings sträng som används för att autentisera |
+    | YOUR_EVENT_HUB_NAME | Namnet på händelsehubben |
 
-- Vägen till Event Hubs händelsetyp **DeviceMessage**. Inkludering av `EntityPath` i den **connectionString** är obligatorisk:
+- Dirigera till Event Hubs händelse typ **DeviceMessage**. Inkludering av `EntityPath` i **ConnectionString** är obligatoriskt:
 
   ```JSON
   {
@@ -334,30 +334,30 @@ YOUR_MANAGEMENT_API_URL/endpoints
   }
   ```
 
-    | Värde | Ersätt med |
+    | Value | Ersätt med |
     | --- | --- |
-    | YOUR_NAMESPACE | Namnområdet för din slutpunkt |
-    | YOUR_PRIMARY_KEY | Primär anslutningssträng som används för att autentisera |
-    | YOUR_SECONDARY_KEY | Sekundär anslutningssträng som används för att autentisera |
-    | YOUR_EVENT_HUB_NAME | Namnet på din event hub |
+    | YOUR_NAMESPACE | Namn området för din slut punkt |
+    | YOUR_PRIMARY_KEY | Den primära anslutnings sträng som används för att autentisera |
+    | YOUR_SECONDARY_KEY | Sekundär anslutnings sträng som används för att autentisera |
+    | YOUR_EVENT_HUB_NAME | Namnet på händelsehubben |
 
 > [!NOTE]  
-> Det kan ta upp till 5 till 10 minuter för att börja ta emot händelser vid slutpunkten vid skapandet av en ny slutpunkt.
+> När en ny slut punkt skapas kan det ta upp till 5 till 10 minuter att börja ta emot händelser vid slut punkten.
 
-## <a name="primary-and-secondary-connection-keys"></a>Av primära och sekundära anslutningsnycklar
+## <a name="primary-and-secondary-connection-keys"></a>Primära och sekundära anslutnings nycklar
 
-När en primär anslutningsnyckel blir obehörig, försöker den sekundära anslutningsnyckeln automatiskt i systemet. Som ger en säkerhetskopia och tillåter möjlighet att autentisera ett smidigt sätt och uppdatera den primära nyckeln via API-slutpunkter.
+När en primär anslutnings nyckel blir obehörig, försöker systemet automatiskt att använda den sekundära anslutnings nyckeln. Det ger en säkerhets kopia och gör det möjligt att på ett smidigt sätt autentisera och uppdatera den primära nyckeln via slut punkts-API: et.
 
-Om både de primära och sekundära anslutningen nycklarna har inte behörighet, anges en exponentiell backoff väntetid på upp till 30 minuter. Händelser ignoreras på varje utlösta backoff väntetid.
+Om både den primära och sekundära anslutnings nyckeln är otillåten, anger systemet en exponentiell vänte tid på upp till 30 minuter. Händelser släpps på varje utlöst vänte tid.
 
-När systemet är i ett backoff vänta tillstånd, uppdatera anslutningar nycklar via API-slutpunkter kan ta upp till 30 minuter ska börja gälla.
+När systemet är i vänte läge på vänte läge kan det ta upp till 30 minuter att uppdatera anslutnings nycklar via slut punkts-API: et.
 
-## <a name="unreachable-endpoints"></a>Kan inte nås slutpunkter
+## <a name="unreachable-endpoints"></a>Otillgängliga slut punkter
 
-När en slutpunkt blir oåtkomlig, anges en exponentiell backoff väntetid på upp till 30 minuter. Händelser ignoreras på varje utlösta backoff väntetid.
+När en slut punkt blir otillgänglig kan systemet ange en exponentiell vänte tid på upp till 30 minuter. Händelser släpps på varje utlöst vänte tid.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig [hur du använder Azure Digital Twins Swagger](how-to-use-swagger.md).
+- Lär dig [hur du använder Azure Digitals dubbla Swagger](how-to-use-swagger.md).
 
-- Läs mer om [routning händelser och meddelanden](concepts-events-routing.md) i Azure Digital Twins.
+- Lär dig mer om att [routa händelser och meddelanden](concepts-events-routing.md) i Azure Digitals.

@@ -1,6 +1,6 @@
 ---
 title: Visa Sök resultat med Azure Maps | Microsoft Docs
-description: Så här utför du en sökbegäran med Azure Maps Visa sedan resultaten på en JavaScript-mappning
+description: Så här utför du en sökbegäran med Azure Maps visar sedan resultaten på Azure Maps Web SDK.
 author: jingjing-z
 ms.author: jinzh
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 22b677ef4b21d3869e39d600910c271c935934ca
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 7c4c78e1d21754d42391a3762e9f7ed199a7376b
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638651"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68975972"
 ---
 # <a name="show-search-results-on-the-map"></a>Visa Sök resultat på kartan
 

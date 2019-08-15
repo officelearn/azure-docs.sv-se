@@ -7,12 +7,12 @@ ms.date: 07/30/2019
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: e14fcbd81a562b8d6451bb89a479c6675569403a
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 0fe893ae95b31b1b676a982a60166041a0ad964d
+ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854539"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69015908"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Vanliga frågor och svar om Azure Files
 [Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade fil resurser i molnet som är tillgängliga via [SMB-protokollet (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)som är bransch standard. Du kan montera Azure-filresurser samtidigt i molnet eller lokala distributioner av Windows, Linux och macOS. Du kan också cachelagra Azure-filresurser på Windows Server-datorer med hjälp av Azure File Sync för snabb åtkomst nära var data används.
@@ -68,7 +68,7 @@ I den här artikeln besvaras vanliga frågor om Azure Files funktioner och funkt
 
 * <a id="redundancy-options"></a>
   **Vilka alternativ för lagring av redundans stöds av Azure Files?**  
-    För närvarande har Azure Files stöd för lokalt redundant lagring (LRS), zon redundant lagring (ZRS) och Geo-redundant lagring (GRS). Vi planerar att stödja lagring med Läs åtkomst till Geo-redundant (RA-GRS) i framtiden, men det finns inga tids linjer att dela just nu.
+    För närvarande har Azure Files stöd för lokalt redundant lagring (LRS), zon redundant lagring (ZRS), Geo-redundant lagring (GRS) och geo-Zone-redundant lagring (GZRS) (för hands version). Vi planerar att stödja lagring med Läs åtkomst till Geo-redundant (RA-GRS) i framtiden, men det finns inga tids linjer att dela just nu.
 
 * <a id="tier-options"></a>
   **Vilka lagrings nivåer stöds i Azure Files?**  

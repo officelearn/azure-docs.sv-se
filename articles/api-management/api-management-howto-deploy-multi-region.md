@@ -1,5 +1,5 @@
 ---
-title: Distribuera Azure API Management-tjänster till flera Azure-regioner | Microsoft Docs
+title: Distribuera Azure API Management Services till flera Azure-regioner | Microsoft Docs
 description: Lär dig hur du distribuerar en Azure API Management-tjänstinstans till flera Azure-regioner.
 services: api-management
 documentationcenter: ''
@@ -11,72 +11,72 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2019
+ms.date: 08/12/2019
 ms.author: apimpm
-ms.openlocfilehash: d22da92355616c208c7616b4b0e8c26b7f9e7006
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a37df18d91f77dbeb306fd8b028cb14eded812e7
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60658215"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68975761"
 ---
-# <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>Hur du distribuerar en Azure API Management-tjänstinstans till flera Azure-regioner
+# <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>Så här distribuerar du en Azure API Management-tjänstinstans till flera Azure-regioner
 
-Azure API Management har stöd för distribution i flera regioner, vilket gör det möjligt för API-utgivare att distribuera en enda Azure API management-tjänsten över valfritt antal önskade Azure-regioner. Detta bidrar till att minska begäran fördröjning uppfattas av geografiskt distribuerade API-kunderna och förbättrar även tillgänglighet om en region går offline.
+Azure API Management stöder distribution i flera regioner, vilket gör det möjligt för API-utgivare att distribuera en enda Azure API Management-tjänst i valfritt antal Azure-regioner som stöds. Funktionen flera regioner hjälper till att minska svars tiden för förfrågningar som uppfattas av geografiskt distribuerade API-konsumenter och förbättrar tjänstens tillgänglighet om en region kopplas från.
 
-En ny Azure API Management-tjänst från början bara innehåller en [enhet] [ unit] i en enda Azure-region, den primära regionen. Ytterligare regioner kan enkelt läggas till via Azure-portalen. En API Management gateway-servern har distribuerats till varje region och anrop trafik dirigeras till den närmaste gatewayen när det gäller svarstider. Om en region går offline dirigeras trafiken automatiskt till nästa närmaste gatewayen.
+En ny Azure API Management-tjänst som ursprungligen bara innehåller en [enhet][unit] i en enda Azure-region, den primära regionen. Ytterligare regioner kan läggas till i den primära eller sekundära regionen. En API Management Gateway-komponent distribueras till varje vald primär och sekundär region. Inkommande API-begäranden dirigeras automatiskt till den närmaste regionen. Om en region försätts i offlineläge dirigeras API-begäranden automatiskt runt den felande regionen till nästa närmaste Gateway.
 
 > [!NOTE]
-> Azure API Management replikerar endast API gateway-komponenten i olika regioner. Komponenten service management finns bara i den primära regionen. Vid ett strömavbrott i den primära regionen är tillämpa konfigurationsändringar på en Azure API Management-tjänstinstans inte möjligt - inklusive inställningar eller principer för uppdateringar.
+> Endast Gateway-komponenten i API Management distribueras till alla regioner. Service Management-komponenten och Developer-portalen finns endast i den primära regionen. Därför kommer åtkomst till Developer-portalen och möjligheten att ändra konfigurationen (t. ex. att lägga till API: er, tillämpa principer) att frigöras tills den primära regionen är online igen, om det uppstår avbrott i den primära regionen. Även om den primära regionen är offline kan de sekundära regionerna fortsätta att betjäna API-trafik med den senaste konfigurationen som är tillgänglig för dem.
 
 [!INCLUDE [premium.md](../../includes/api-management-availability-premium.md)]
 
-## <a name="add-region"> </a>Distribuera en API Management-tjänstinstans till en ny region
+## <a name="add-region"> </a>Distribuera en API Management tjänst instans till en ny region
 
 > [!NOTE]
-> Om du inte har skapat en API Management-tjänstinstans, se [skapa en API Management-tjänstinstans][Create an API Management service instance].
+> Om du ännu inte har skapat en API Management tjänst instans, se [skapa en API Management tjänst instans][create an api management service instance].
 
-I Azure-portalen går du till den **skalning och priser** sidan för din API Management-tjänstinstans. 
+I Azure Portal navigerar du till sidan för **skalning och prissättning** för din API Management-tjänstinstans.
 
-![Fliken Skala][api-management-scale-service]
+![Fliken skala][api-management-scale-service]
 
-Om du vill distribuera till en ny region, klickar du på **+ Lägg till region** från verktygsfältet.
+Om du vill distribuera till en ny region klickar du på **+ Lägg till region** i verktygsfältet.
 
 ![Lägg till region][api-management-add-region]
 
-Välja platsen i den nedrullningsbara listrutan och ange hur många enheter för med skjutreglaget.
+Välj plats i list rutan och ange antalet enheter för med skjutreglaget.
 
 ![Ange enheter][api-management-select-location-units]
 
-Klicka på **Lägg till** att placera ditt val i tabellen platser. 
+Klicka på **Lägg till** för att placera ditt val i tabellen platser.
 
-Upprepa processen tills du har alla platser som har konfigurerats och klicka på **spara** från verktygsfältet för att starta distributionsprocessen.
+Upprepa processen tills du har konfigurerat alla platser och klicka på **Spara** i verktygsfältet för att starta distributions processen.
 
-## <a name="remove-region"> </a>Ta bort en API Management-tjänstinstans från en plats
+## <a name="remove-region"> </a>Ta bort en API Management tjänst instans från en plats
 
-I Azure-portalen går du till den **skalning och priser** sidan för din API Management-tjänstinstans. 
+I Azure Portal navigerar du till sidan för **skalning och prissättning** för din API Management-tjänstinstans.
 
-![Fliken Skala][api-management-scale-service]
+![Fliken skala][api-management-scale-service]
 
-Öppna menyn kontext med för den plats som du vill ta bort den **...**  längst till höger i tabellen. Välj den **ta bort** alternativet.
+För den plats som du vill ta bort öppnar du snabb menyn med knappen **...** längst till höger i tabellen. Välj alternativet **ta bort** .
 
-Bekräfta borttagningen och klickar på **spara** att tillämpa ändringarna.
+Bekräfta borttagningen och klicka på **Spara** för att tillämpa ändringarna.
 
-## <a name="route-backend"> </a>Väg API-anrop till regionala backend-tjänster
+## <a name="route-backend"> </a>Dirigera API-anrop till regionala Server dels tjänster
 
-Azure API Management har endast en backend-tjänst-URL. Även om det finns Azure API Management-instanser i olika regioner, API-gatewayen kommer fortfarande vidarebefordra begäranden till samma backend-tjänsten som har distribuerats i endast en region. I det här fallet prestanda kommer endast från svar cachelagras i Azure API Management i en region som är specifika för begäran, men att kontakta serverdelen i hela världen kan fortfarande orsaka hög latens.
+Azure API Management innehåller bara en URL för Server del tjänsten. Även om det finns Azure API Management-instanser i olika regioner vidarebefordrar API-gatewayen förfrågningar till samma server dels tjänst, som distribueras i endast en region. I det här fallet kommer prestanda ökningen bara att komma från svar som cachelagrats i Azure API Management i en region som är speciell för begäran, men att kontakta Server delen över hela världen kan fortfarande orsaka hög latens.
 
-Om du vill utnyttjar fullt ut geografisk fördelning av systemet, bör du ha backend-tjänster som distribueras i samma regioner som Azure API Management-instanser. Sedan med hjälp av principer och `@(context.Deployment.Region)` egenskapen, du kan vidarebefordra trafiken till lokala instanser av din serverdel.
+För att helt kunna utnyttja den geografiska distributionen av systemet bör Server dels tjänster distribueras i samma regioner som Azure API Management-instanser. Sedan kan du med hjälp `@(context.Deployment.Region)` av principer och egenskaper dirigera trafiken till lokala instanser av Server delen.
 
-1. Gå till din Azure API Management-instans och klicka på **API: er** menyn till vänster.
-2. Välj din önskade API.
-3. Klicka på **Kodredigerare** i listrutan pilen i det **inkommande bearbetning**.
+1. Gå till Azure API Management-instansen och klicka på **API: er** på den vänstra menyn.
+2. Välj önskat API.
+3. Klicka på **kod redigeraren** i list rutan pil i den **inkommande bearbetningen**.
 
-    ![API-Kodredigerare](./media/api-management-howto-deploy-multi-region/api-management-api-code-editor.png)
+    ![API-kod redigerare](./media/api-management-howto-deploy-multi-region/api-management-api-code-editor.png)
 
-4. Använd den `set-backend` i kombination med villkorlig `choose` principer för att konstruera en korrekt routningsprincip i den `<inbound> </inbound>` i filen.
+4. Använd kombinerat med villkors `choose` principer för att skapa en `<inbound> </inbound>` korrekt routningsprincip i avsnittet i filen. `set-backend`
 
-    Till exempel den nedan XML-fil skulle fungera för västra USA och östra Asien:
+    Exempelvis skulle XML-filen nedan fungera för USA, västra och Asien, östra regioner:
 
     ```xml
     <policies>
@@ -107,31 +107,26 @@ Om du vill utnyttjar fullt ut geografisk fördelning av systemet, bör du ha bac
     ```
 
 > [!TIP]
-> Du kan också klientdelens backend-tjänster med [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/)direkta API-anrop till Traffic Manager och låta det lösa routning automatiskt.
+> Du kan också använda backend-tjänster med [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/), dirigera API-anrop till Traffic Manager och låta den matcha routningen automatiskt.
 
-## <a name="custom-routing"> </a>Använd anpassad routning till regionala API Management-gateways
+## <a name="custom-routing"> </a>Använda anpassad routning för att API Management regionala gateways
 
-API Management dirigerar begärandena till en regional *gateway* utifrån [kortast svarstid](../traffic-manager/traffic-manager-routing-methods.md#performance). Det inte går att åsidosätta den här inställningen i API Management, men du kan använda din egen Traffic Manager med anpassade regler för routning.
+API Management dirigerar begär anden till en regional _Gateway_ baserat på [den lägsta svars tiden](../traffic-manager/traffic-manager-routing-methods.md#performance). Även om det inte går att åsidosätta den här inställningen i API Management kan du använda dina egna Traffic Manager med anpassade regler för routning.
 
-1. Skapa en egen [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/).
-1. Om du använder en anpassad domän, [använder den med Traffic Manager](../traffic-manager/traffic-manager-point-internet-domain.md) i stället för API Management-tjänsten.
-1. [Konfigurera API Management regionala slutpunkter i Traffic Manager](../traffic-manager/traffic-manager-manage-endpoints.md). Regionala slutpunkterna följer mönstret för URL: en för `https://<service-name>-<region>-01.regional.azure-api.net`, till exempel `https://contoso-westus2-01.regional.azure-api.net`.
-1. [Konfigurera API Management regionala status slutpunkter i Traffic Manager](../traffic-manager/traffic-manager-monitoring.md). Regionala status slutpunkter följer mönstret för URL: en för `https://<service-name>-<region>-01.regional.azure-api.net/status-0123456789abcdef`, till exempel `https://contoso-westus2-01.regional.azure-api.net/status-0123456789abcdef`.
-1. Ange [routningmetod](../traffic-manager/traffic-manager-routing-methods.md) av Traffic Manager.
-
+1. Skapa din egen [Azure-Traffic Manager](https://azure.microsoft.com/services/traffic-manager/).
+1. Om du använder en anpassad domän använder du [den med Traffic Manager](../traffic-manager/traffic-manager-point-internet-domain.md) i stället för tjänsten API Management.
+1. [Konfigurera API Management regionala slut punkter i Traffic Manager](../traffic-manager/traffic-manager-manage-endpoints.md). De regionala slut punkterna följer URL-mönstret i `https://<service-name>-<region>-01.regional.azure-api.net`, till exempel `https://contoso-westus2-01.regional.azure-api.net`.
+1. [Konfigurera API Management regionala status slut punkter i Traffic Manager](../traffic-manager/traffic-manager-monitoring.md). Slut punkterna för regional status följer URL-mönstret i `https://<service-name>-<region>-01.regional.azure-api.net/status-0123456789abcdef`, till exempel `https://contoso-westus2-01.regional.azure-api.net/status-0123456789abcdef`.
+1. Ange [routningsmetod](../traffic-manager/traffic-manager-routing-methods.md) för Traffic Manager.
 
 [api-management-management-console]: ./media/api-management-howto-deploy-multi-region/api-management-management-console.png
-
 [api-management-scale-service]: ./media/api-management-howto-deploy-multi-region/api-management-scale-service.png
 [api-management-add-region]: ./media/api-management-howto-deploy-multi-region/api-management-add-region.png
 [api-management-select-location-units]: ./media/api-management-howto-deploy-multi-region/api-management-select-location-units.png
 [api-management-remove-region]: ./media/api-management-howto-deploy-multi-region/api-management-remove-region.png
-
-[Create an API Management service instance]: get-started-create-service-instance.md
-[Get started with Azure API Management]: get-started-create-service-instance.md
-
-[Deploy an API Management service instance to a new region]: #add-region
-[Delete an API Management service instance from a region]: #remove-region
-
+[create an api management service instance]: get-started-create-service-instance.md
+[get started with azure api management]: get-started-create-service-instance.md
+[deploy an api management service instance to a new region]: #add-region
+[delete an api management service instance from a region]: #remove-region
 [unit]: https://azure.microsoft.com/pricing/details/api-management/
-[Premium]: https://azure.microsoft.com/pricing/details/api-management/
+[premium]: https://azure.microsoft.com/pricing/details/api-management/

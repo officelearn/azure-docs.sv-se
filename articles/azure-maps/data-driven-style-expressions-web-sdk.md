@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen
-ms.openlocfilehash: 18d8f2a974fb192578163f71a57d00824ae6b0fa
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 507af54b8b4c2e7c67538a1a25a040c7ee5fdfd5
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839469"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976321"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Uttryck för data drivna format (webb-SDK)
 
@@ -65,7 +65,8 @@ I alla exempel i det här dokumentet används följande funktion för att demons
         "type": "Point",
         "coordinates": [-122.13284, 47.63699]
     },
-    "properties": {     
+    "properties": { 
+        "id": 123,
         "entityType": "restaurant",
         "revenue": 12345,
         "subTitle": "Building 40", 
@@ -310,6 +311,28 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
         //Specify a default value to return if no match is found.
         'black'
+    ]
+});
+```
+
+I följande exempel används ett matchnings uttryck för att utföra en "i matris" eller "matris innehåller" typ filter, i det här fallet filtrerar data som har ett ID-värde som finns i en lista över tillåtna ID: n. När du använder uttryck med filter måste resultatet vara ett booleskt värde.
+
+```javascript
+var layer = new atlas.layer.BubbleLayer(datasource, null, {
+    filter: [
+        'match',  
+
+        //Get the property to match.
+        ['get', 'id'],  
+
+         //List of values to match.
+        [24, 53, 98], 
+
+        //If there is a match, return true.
+        true,
+    
+        //Otherwise return false.
+        false
     ]
 });
 ```
@@ -634,7 +657,7 @@ var layer = new atlas.layer.LineLayer(datasource, null, {
 });
 ```
 
-[Se live-exempel](map-add-shape.md#line-stroke-gradient)
+[Se live-exempel](map-add-line-layer.md#line-stroke-gradient)
 
 ### <a name="text-field-format-expression"></a>Format uttryck för text fält
 
@@ -816,8 +839,11 @@ I följande artiklar finns fler kod exempel som implementerar uttryck:
 > [!div class="nextstepaction"] 
 > [Lägg till ett bubbel-lager](map-add-bubble-layer.md)
 
-> [!div class="nextstepaction"] 
-> [Lägg till former](map-add-shape.md)
+> [!div class="nextstepaction"]
+> [Lägg till ett linje lager](map-add-line-layer.md)
+
+> [!div class="nextstepaction"]
+> [Lägg till ett polygon-lager](map-add-shape.md)
 
 > [!div class="nextstepaction"] 
 > [Lägg till ett värme kart skikt](map-add-heat-map-layer.md)

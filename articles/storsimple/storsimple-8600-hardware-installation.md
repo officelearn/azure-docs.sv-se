@@ -1,6 +1,6 @@
 ---
 title: Installera Microsoft Azure StorSimple 8600-enhet | Microsoft Docs
-description: Beskriver hur du packa upp, rackmontera och kabelansluta en StorSimple 8600-enhet innan du distribuerar och konfigurerar programvaran.
+description: Beskriver hur du packar upp, rackerar montering och kabelansluter din StorSimple 8600-enhet innan du distribuerar och konfigurerar program varan.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,257 +14,260 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: be3f68a00647840801e7c205d7abb34b718bd61c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 571c8b729408d7b9e805b875baccfd9ac8d6b9be
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60630945"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68965268"
 ---
-# <a name="unpack-rack-mount-and-cable-your-storsimple-8600-device"></a>Packa upp, rackmontera, och kabelansluta en StorSimple 8600-enhet
+# <a name="unpack-rack-mount-and-cable-your-storsimple-8600-device"></a>Packa upp, rack montering och kabel din StorSimple 8600-enhet
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
+
 ## <a name="overview"></a>Översikt
-Din Microsoft Azure StorSimple 8600-enhet är en dubbel hölje enhet och består av en primär och en EBOD-kabinett. Den här självstudien beskrivs hur du packar upp, rackmontera och kabel StorSimple 8600-enhet maskinvara innan du konfigurerar programvaran från StorSimple.
+Din Microsoft Azure StorSimple 8600 är en dubbel enhets enhet och består av en primär och en EBOD-bilaga. I den här självstudien beskrivs hur du packar upp, rackerar montering och kabelansluter StorSimple 8600-enhetens maskin vara innan du konfigurerar StorSimple-programvaran.
 
 ## <a name="unpack-your-storsimple-8600-device"></a>Packa upp din StorSimple 8600-enhet
-Följande steg ger tydliga, detaljerade instruktioner om hur du packar upp lagringsenheten StorSimple 8600. Den här enheten levereras i två rutor, en för primära höljet och en annan för EBOD-höljet. Dessa två rutor placeras sedan i en enda ruta.
+Följande steg innehåller tydliga och detaljerade instruktioner om hur du packar upp StorSimple 8600-lagrings enheten. Den här enheten levereras i två rutor, en för den primära inne slutningen och en annan för EBOD-höljet. Dessa två rutor placeras sedan i en enda ruta.
 
-### <a name="prepare-to-unpack-your-device"></a>Förbereda för att packa upp din enhet
-Granska följande information innan du packar upp enheten.
+### <a name="prepare-to-unpack-your-device"></a>Förbered för att packa upp enheten
+Läs följande information innan du packar upp enheten.
 
-![Varningsikon](./media/storsimple-safety/IC740879.png)![kraftiga ikonen](./media/storsimple-8600-hardware-installation/HCS_HeavyWeight_Icon.png) **varning!**
+![Varnings](./media/storsimple-safety/IC740879.png)![ikon varning vid](./media/storsimple-8600-hardware-installation/HCS_HeavyWeight_Icon.png) hög vikts ikon **!**
 
-1. Se till att du har två personer som är tillgängliga för att hantera vikten för enheten om du hanterar det manuellt. Ett fullständigt konfigurerad hölje kan väga upp till 32 kg (70 lbs.).
+1. Se till att du har två personer som är tillgängliga för att hantera vikten av enheten om du hanterar den manuellt. En fullständigt konfigurerad hölje kan väga upp till 32 kg (70 kg).
 2. Placera lådan på en plan, jämn yta.
 
-Därefter gör du följande för att packa upp din enhet.
+Slutför sedan följande steg för att packa upp enheten.
 
-#### <a name="to-unpack-your-device"></a>Att packa upp din enhet
-1. Kontrollera lådan och förpackningsskummet för att se om det förekommer krosskador, skärningar, vattenskador eller andra uppenbara skador. Om lådan eller förpackningen är allvarligt skadad ska du inte öppna lådan. . [Kontakta Microsoft Support](storsimple-8000-contact-microsoft-support.md) att hjälpa dig att bedöma om enheten är i gott skick.
-2. Öppna rutan yttre och sedan ta ut två kryssrutor som motsvarar primär och EBOD bilagor. Du kan nu packar upp den primära servern och EBOD-höljen. Följande bild visar vyn uppackat för en av höljena.
+#### <a name="to-unpack-your-device"></a>Packa upp enheten
+1. Kontrollera lådan och förpackningsskummet för att se om det förekommer krosskador, skärningar, vattenskador eller andra uppenbara skador. Om lådan eller förpackningen är allvarligt skadad ska du inte öppna lådan. [Kontakta Microsoft Support](storsimple-8000-contact-microsoft-support.md) för att få hjälp att utvärdera om enheten är i fungerande skick.
+2. Öppna den yttre rutan och ta sedan bort de två rutorna som motsvarar primär-och EBOD-höljen. Du kan nu packa upp primär-och EBOD-höljen. Följande bild visar den uppackade vyn av en av-höljen.
    
-    ![Packa upp lagringsenheten](./media/storsimple-8600-hardware-installation/HCSUnpackyour4Udevice.png)
+    ![Packa upp lagrings enheten](./media/storsimple-8600-hardware-installation/HCSUnpackyour4Udevice.png)
    
-    **Packa upp vy över lagringsenheten**
+    **Uppackad vy av lagrings enheten**
    
-   | Label (Etikett) | Beskrivning |
+   | Etikett | Beskrivning |
    | --- | --- |
-   |   1 |Paketering av statistik box |
-   |   2 |SAS-kablar (i fack tillbehör och kablar) |
+   |   1 |Förpacknings Box |
+   |   2 |SAS-kablar (i tillbehör och kabel kassetter) |
    |   3 |Nedre skum |
    |   4 |Enhet |
-   |   5 |Främsta skum |
-   |   6 |Tillbehör box |
-3. Kontrollera att du har när två rutor:
+   |   5 |Övre skum |
+   |   6 |Tillbehörs ruta |
+3. När du har packat upp de två rutorna kontrollerar du att du har:
    
-   * 1 primär hölje (primär lagringsenhet och EBOD hölje finns i två separata rutor)
-   * 1 EBOD hölje
-   * 4 strömkablar, 2 i varje ruta
-   * 2 SAS-kablar (för att ansluta primära höljet till EBOD hölje)
-   * 1 övergång Ethernet-kabel
-   * 2 Seriell konsol-kablar
-   * 1 seriell USB-konverterare för seriell åtkomst
-   * 4 QSFP-till-SFP +-kort för användning med 10 GbE-nätverksgränssnitt
-   * 2 rack montera kits (4 sida rails med montera maskinvara, 2 för primär lagringsenhet och EBOD hölje), 1 i varje ruta
+   * 1 primär kabinett (den primära inne slutningen och EBOD-kammaren finns i två separata rutor)
+   * 1 EBOD-hölje
+   * 4 ström sladdar, 2 i varje ruta
+   * 2 SAS-kablar (för att ansluta den primära inne slutningen till EBOD-höljet)
+   * 1 korskopplad Ethernet-kabel
+   * 2 kablar för serie konsol
+   * 1 seriell USB-omvandlare för seriell åtkomst
+   * 4 QSFP-till-SFP +-kort som ska användas med 10 GbE-nätverks gränssnitt
+   * 2 rack monterings paket (4-Side-räler med monterings maskin vara, 2 var för den primära kammaren och EBOD-höljet), 1 i varje ruta
    * Komma igång-dokumentation
      
-     Om du inte tog emot något av objekten som visas ovan, [kontakta Microsoft Support](storsimple-8000-contact-microsoft-support.md).  
+     Om du inte har fått något av de objekt som anges ovan, [kontaktar du Microsoft Support](storsimple-8000-contact-microsoft-support.md).  
 
 Nästa steg är att rackmontera enheten.
 
-## <a name="rack-mount-your-storsimple-8600-device"></a>Rackmonterade StorSimple 8600-enhet
-Följ stegen nedan för att installera din StorSimple 8600-enhet för lagring i ett standard 19-tums rack med främre och bakre inlägg. Den här enheten levereras med två höljen: en primär lagringsenhet och ett EBOD-hölje. Båda dessa måste vara rackmonterade.
+## <a name="rack-mount-your-storsimple-8600-device"></a>Rack montering av din StorSimple 8600-enhet
+Följ nästa steg för att installera StorSimple 8600-lagrings enheten i ett standardiserat 19-tums rack med främre och bakre inlägg. Den här enheten levereras med två höljen: en primär inne slutning och en EBOD hölje. Båda dessa måste vara rack montering.
 
-Installationen består av flera steg, som beskrivs i följande procedurer.
+Installationen består av flera steg som beskrivs i följande procedurer.
 
 > [!IMPORTANT]
-> StorSimple-enheter måste vara rackmonterade för att fungera korrekt.
+> StorSimple-enheter måste vara rack montering för att fungera korrekt.
 > 
 > 
 
-### <a name="site-preparation"></a>Förberedelse
-Höljena måste installeras i en standard 19-tums rack som har både främre och bakre inlägg. Använd följande procedur för att förbereda för Rackinstallation av.
+### <a name="site-preparation"></a>Förberedelse av webbplats
+Höljen måste installeras i ett standardiserat 19-tums rack som har både fram-och bak poster. Använd följande procedur för att förbereda för rack installation.
 
-#### <a name="to-prepare-the-site-for-rack-installation"></a>Förbereda platsen för Rackinstallation
-1. Se till att den primära servern och EBOD-höljen är vilande på ett säkert sätt på en fast, stabila och nivån arbetsyta (eller liknande).
-2. Kontrollera att den plats där du vill konfigurera har standard nätström från en oberoende källa eller ett rack Power Distribution enhet (PDU) med en avbrottsfri elkälla (UPS).
-3. Kontrollera att platsen för en 4U (2 X 2U) är tillgängliga på rack där du vill montera höljena.
+#### <a name="to-prepare-the-site-for-rack-installation"></a>Förbereda platsen för rack installation
+1. Se till att de primära och EBOD höljen är på ett säkert sätt på en platt, stabil och nivå arbets yta (eller liknande).
+2. Kontrol lera att den plats där du planerar att konfigurera har standard ström från en oberoende källa eller en enhet för rack ström distribution (PDU) med en avbrotts fri ström källa (UPS).
+3. Se till att en 4U-kortplats (2 X 2U) är tillgänglig i racket där du tänker montera höljen.
 
-![Varningsikon](./media/storsimple-safety/IC740879.png)![kraftiga ikonen](./media/storsimple-8600-hardware-installation/HCS_HeavyWeight_Icon.png) **varning!**
+![Varnings](./media/storsimple-safety/IC740879.png)![ikon varning vid](./media/storsimple-8600-hardware-installation/HCS_HeavyWeight_Icon.png) hög vikts ikon **!**
 
- Se till att du har två personer som är tillgängliga för att hantera vikten om du hanterar installationen av enheten manuellt. Ett fullständigt konfigurerad hölje kan väga upp till 32 kg (70 lbs.).
+ Se till att du har två personer som är tillgängliga för att hantera vikten om du hanterar enhets installationen manuellt. En fullständigt konfigurerad hölje kan väga upp till 32 kg (70 kg).
 
-### <a name="rack-prerequisites"></a>Rack krav
-Höljena är utformade för installation i en standard 19-tums rack CAB med:
+### <a name="rack-prerequisites"></a>Krav för rack
+Höljen är utformade för installation i ett standardiserat standardiserat rack skåp med:
 
-* Minsta mängd 27.84 tum från rack efter att inlägget
-* Högsta vikt för 32 kg för enheten
-* Maximal tryck av 5 Pascal (0,5 mätare)
+* Minsta djup 27,84 cm från rack post till inlägg
+* Maximal vikt på 32 kg för enheten
+* Högsta mottryck på 5 Pascal (0,5 mm vatten mätare)
 
-### <a name="rack-mounting-rail-kit"></a>Rack montering rail kit
-En uppsättning montera rails ges för användning med 19-tums rack kabinettfilen. Rails har testats för att hantera maximala hölje vikt. Dessa rails kommer också att tillåta installation av flera höljen utan att förlora utrymme i racket. Installera EBOD-höljet först.
+### <a name="rack-mounting-rail-kit"></a>Rack montering av järnvägs paket
+En uppsättning monterings skenor kommer att tillhandahållas för användning med 19-tums rack skåp. Räler har testats för att hantera den maximala bilagans vikt. Dessa räler gör det också möjligt att installera flera höljen utan att utrymmet i racket går förlorade. Installera EBOD-kammaren först.
 
-#### <a name="to-install-the-ebod-enclosure-on-the-rails"></a>Installera EBOD-höljet på rails
-1. Utför det här steget endast om inre rails inte är installerade på din enhet. De inre rails installeras vanligtvis på fabriken. Om rails inte installeras, installerar du vänster-spår och höger rail presentationen till sidor av hölje chassi. De bifoga sex mått skruvar på varje sida. För att hjälpa till med orientering, rail presentationen markeras **LH – Front** och **RH – Front**, och i slutet som fästs bakåt från höljet har en avsmalnande slutet.
+#### <a name="to-install-the-ebod-enclosure-on-the-rails"></a>Så här installerar du EBOD-kammaren på räler
+1. Utför bara det här steget om inre räler inte är installerade på enheten. De inre räler installeras vanligt vis på fabriken. Om räler inte är installerade, installerar du vänster-och HÖGERPIL-bilderna på sidorna i höljets chassi. De ansluter med sex metriska skruvar på varje sida. För att hjälpa med orienteringen är räl-bilderna markerade som **LH – framtill** och **RH – framtill**, och slutet som fästs mot bak sidan av höljet har en avsmalnande slut.
    
-    ![Bifoga rail bilder till hölje chassi](./media/storsimple-8600-hardware-installation/HCSAttachingRailSlidestoEnclosureChassis.png)
+    ![Fästa järnvägs bilder i hölje chassi](./media/storsimple-8600-hardware-installation/HCSAttachingRailSlidestoEnclosureChassis.png)
    
-    **Bifoga rail bilder till sidor av höljet**
+    **Fästa järnvägs bilder på sidorna i inne slutningen**
    
-   | Label (Etikett) | Beskrivning |
+   | Etikett | Beskrivning |
    | --- | --- |
-   |  1 |M 3 x 4 knappen head skruvar |
-   |  2 |Chassi-bilder |
-2. Koppla den vänstra spår och höger sammansättningar till rack CAB lodrät medlemmar. Hakparenteserna markeras **LH**, **RH**, och **den här sidan uppåt** att guida dig genom rätt orientering.
-3. Leta upp spårstiften på framsidan och baksidan av spårenheten. Utöka spår för att passa mellan rack inlägg och infoga de PIN-koderna i främre och bakre rack efter vertikal medlem hål. Var noga med att rail-sammansättningen är nivå.
-4. Skydda rail sammansättningen till racket lodrät medlemmar med två av de mått skruvarna som tillhandahålls. Använd en skruv på klientwebbservern och en på Bakåt.
-5. Upprepa dessa steg för den andra rail-sammansättningen.
+   |  1 |M 3x4 knapp – huvud skruvar |
+   |  2 |Chassi bilder |
+2. Koppla de vänstra och högra järnvägs sammansättningarna till rack skåpets lodräta medlemmar. Hakparenteserna är märkta som **LH**, **RH**och **den här sidan upp** för att vägleda dig genom rätt orientering.
+3. Leta upp spårstiften på framsidan och baksidan av spårenheten. Utöka spåret så att det passar mellan rack inläggen och Lägg till stiften i främre och bakre racket posts vertikala medlems hål. Se till att järn vägs sammansättningen är nivå.
+4. Skydda järnvägs sammansättningen till rackets vertikala medlemmar genom att använda två av de mät skruvarna som tillhandahålls. Använd en skruv på bak sidan och en på bak sidan.
+5. Upprepa de här stegen för den andra järnvägs sammansättningen.
    
-     ![Bifoga rail bilder till rack CAB](./media/storsimple-8600-hardware-installation/HCSAttachingRailSlidestoRackCabinet.png)
+     ![Fäst järnvägs bilder i rack skåpet](./media/storsimple-8600-hardware-installation/HCSAttachingRailSlidestoRackCabinet.png)
    
-    **Koppla rail sammansättningar till racket**
+    **Fästa järnvägs sammansättningar i racket**
    
-   | Label (Etikett) | Beskrivning |
+   | Etikett | Beskrivning |
    | --- | --- |
    |   1 |Ihopfogning skruv |
-   |   2 |Kvadrat hål front rack efter skruv |
-   |   3 |Vänster främre rail plats PIN-koder |
+   |   2 |Rack-håls front Rack-skruv |
+   |   3 |PIN-platser till vänster spår |
    |   4 |Ihopfogning skruv |
-   |   5 |Vänstra bakre rail plats PIN-koder |
+   |   5 |PIN-märken till vänster bakre järnvägs plats |
 
-### <a name="mounting-the-ebod-enclosure-in-the-rack"></a>Montera EBOD-höljet i racket
-Med de rack rails som precis har installerats kan utföra följande steg om du vill montera EBOD-höljet i racket.
+### <a name="mounting-the-ebod-enclosure-in-the-rack"></a>Montera EBOD-kammaren i racket
+Använd de rackbaserade räler som precis har installerats och utför följande steg för att montera EBOD-kammaren i racket.
 
-#### <a name="to-mount-the-ebod-enclosure"></a>Montera EBOD-hölje
-1. Med en assistent lyfta höljet och justera den med rack rails.
-2. Infoga noggrant höljet i rails, och skicka sedan den helt i racket kabinettfil.
+#### <a name="to-mount-the-ebod-enclosure"></a>Montera EBOD-kabinettet
+1. Lyft inne slutning med en assistent och justera den med rack skenorna.
+2. Infoga försiktigt höljet i räler och skicka det sedan helt i rack skåpet.
    
-    ![Infoga enheten i racket](./media/storsimple-8600-hardware-installation/HCSInsertingDeviceintheRack.png)
+    ![Sätter in enheten i racket](./media/storsimple-8600-hardware-installation/HCSInsertingDeviceintheRack.png)
    
-    **Montera höljet i racket**
-3. Ta bort vänster och höger främre flänsad caps genom att hämta caps kostnadsfritt. Flänsad caps Fäst helt enkelt till flänsar.
-4. Skydda höljet i racket genom att installera en angiven Phillips head skruv via varje flänsad vänster och höger.
-5. Installera flänsad caps genom att trycka på dem på plats och fästa dem på plats.
+    **Montera inne slutningen i racket**
+3. Ta bort de vänstra och högra frontend-versalerna genom att dra in de kostnads fria. De flänsiga CAPS fästs bara på flänsarna.
+4. Skydda inne slutningen i racket genom att installera en angiven Phillips-skruv genom varje fläns, vänster och höger.
+5. Installera de flänsiga CAPS genom att trycka dem på plats och fäst dem på plats.
    
-     ![Installera flänsad caps](./media/storsimple-8600-hardware-installation/HCSInstallingFlangeCaps.png)
+     ![Installerar fläns Caps](./media/storsimple-8600-hardware-installation/HCSInstallingFlangeCaps.png)
    
-    **Installera flänsad caps**
+    **Installera de flänsiga Caps**
    
-   | Label (Etikett) | Beskrivning |
+   | Etikett | Beskrivning |
    | --- | --- |
-   |   1 |Hölje flygplanet skruv |
+   |   1 |Kabinett fäst skruv |
 
-### <a name="mounting-the-primary-enclosure-in-the-rack"></a>Montera primära höljet i racket
-När du är klar med att montera EBOD-höljet kommer du behöva montera primära höljet följa samma steg.
+### <a name="mounting-the-primary-enclosure-in-the-rack"></a>Montera den primära inne slutningen i racket
+När du har monterat EBOD-kabinettet måste du montera den primära inne slutningen enligt samma steg.
 
 > [!NOTE]
-> * Det är möjligt att ha några tomma platser i rack mellan primära höljet och EBOD-kabinett.
-> * Använda den angivna 2m SAS-kabeln för att ansluta primära höljet till EBOD-höljet.
-> * Det finns inga begränsningar i relativa placeringen av den head enheten till den EBOD-enheten. Därför primära höljet kan placeras i den översta platsen och EBOD höljet nedan – eller vice versa.
+> * Det är möjligt att ha några tomma fack i racket mellan den primära inne slutningen och EBOD-höljet.
+> * Använd den tillhandahållna SAS-kabeln 2 m för att ansluta den primära inne slutningen till EBOD-höljet.
+> * Det finns inga begränsningar i den relativa placeringen av Head-enheten i EBOD-enheten. Därför kan den primära inne slutningen placeras på den översta platsen och EBOD-kabinettet nedan – eller tvärtom.
 > 
 > 
 
-Nästa steg är att kabelanslut din enhet till ström, nätverk och serieåtkomst.
+Nästa steg är att ansluta enheten till strömförsörjning, nätverk och seriell åtkomst.
 
-## <a name="cable-your-storsimple-8600-device"></a>Kabelansluta en StorSimple 8600-enhet
-Följande procedurer beskriver hur du kabelansluta en StorSimple 8600-enhet till ström, nätverk och seriella anslutningar.
+## <a name="cable-your-storsimple-8600-device"></a>Kabelanslut din StorSimple 8600-enhet
+Följande procedurer beskriver hur du kan ansluta din StorSimple 8600-enhet för strömförsörjning, nätverk och seriella anslutningar.
 
-### <a name="prerequisites"></a>Nödvändiga komponenter
-Innan du börjar kabelanslut din enhet, behöver du:
+### <a name="prerequisites"></a>Förutsättningar
+Innan du börjar kabeln till enheten behöver du:
 
-* Din primära hölje och EBOD-kabinett helt Uppackad
-* 4 strömkablar (2 vardera för den primära servern och EBOD-höljet) som medföljde din enhet
-* 2 SAS-kablar som medföljer enheten att ansluta EBOD-höljet till det primära höljet
-* Åtkomst till 2 Kraftfördelningsenheter (PDU) (rekommenderas)
-* Nätverkskablar
-* Angivna seriella kablar
-* Seriell USB converter med lämplig drivrutin installeras på din dator (vid behov)
-* Tillhandahålls 4 QSFP-till-SFP +-kort för användning med 10 GbE-nätverksgränssnitt
-* [Maskinvara som stöds för 10 GbE-nätverksgränssnitt på StorSimple-enheten](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
+* Ditt primära hölje och EBOD-höljet, helt packas upp
+* 4 ström kablar (2 var för den primära och EBOD-höljet) som medföljde din enhet
+* 2 SAS-kablar som medföljer enheten för att ansluta EBOD-höljet till den primära inne slutningen
+* Åtkomst till 2-PDU (Power distribution units) (rekommenderas)
+* Nätverks kablar
+* Tillhandahållna serie kablar
+* Seriell USB-omvandlare med lämplig driv rutin installerad på din dator (om det behövs)
+* Tillhandahåll 4 QSFP-till-SFP +-kort som ska användas med 10 GbE-nätverks gränssnitt
+* [Maskin vara som stöds för 10 GbE Network-gränssnitt på din StorSimple-enhet](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
 
-### <a name="sas-and-power-cabling"></a>SAS och kablar
-Enheten har både ett hölje som primär och en EBOD-kabinett. Detta kräver att enheter för att vara kabelansluten tillsammans till seriellt ansluten SCSI (SAS)-anslutning och ström.
+### <a name="sas-and-power-cabling"></a>SAS-och ström kablar
+Enheten har både en primär inne slutning och en EBOD hölje. Detta kräver att enheterna är kabelanslutna för anslutningar med SAS (Serial Attached SCSI) och kraft.
 
-När du konfigurerar den här enheten för första gången utför steg för SAS-kablar först och följer sedan anvisningarna för kablar.
+När du konfigurerar den här enheten för första gången ska du först utföra stegen för SAS-kablage och sedan slutföra stegen för ström kablar.
 
 [!INCLUDE [storsimple-cable-8600-for-SAS](../../includes/storsimple-sas-cable-8600.md)]
 
 [!INCLUDE [storsimple-cable-8600-for-power](../../includes/storsimple-cable-8600-for-power.md)]
 
-### <a name="network-cabling"></a>Nätverkskablar
-Enheten är aktiv-standby-konfiguration: vid en given tidpunkt, en domänkontrollant-modul är aktiv och bearbetning av alla åtgärder på disk och nätverk när modulen andra domänkontrollanter är i vänteläge. Om en domänkontrollant-fel uppstår, aktiveras kontrollenheten i vänteläge omedelbart och fortsätter alla disk och nätverk åtgärder.
+### <a name="network-cabling"></a>Nätverks kablar
+Enheten är i en aktiv-standby-konfiguration: när som helst är en Controller-modul aktiv och bearbetar alla disk-och nätverks åtgärder medan den andra Controller-modulen är i vänte läge. Om ett kontroll enhets fel inträffar aktiverar vilo läges styrenheten omedelbart och fortsätter alla disk-och nätverks åtgärder.
 
-Du måste kabelanslut din enhet-nätverk som du ser i följande steg för att stödja den här redundant kontrollenhetsredundans.
+För att stödja redundans av redundanta styrenheter måste du kontakta enhetens nätverk som du ser i följande steg.
 
-#### <a name="to-cable-for-network-connection"></a>Att kabel för nätverksanslutning
-1. Enheten har sex nätverksgränssnitt på varje domänkontrollant: fyra 1 Gbit/s och två 10 Gbit/s Ethernet-portar. Se följande bild för att identifiera vilka dataportar på serverdelen för din enhet.
+#### <a name="to-cable-for-network-connection"></a>För kabel för nätverks anslutning
+1. Enheten har sex nätverks gränssnitt på varje kontrollant: fyra 1 Gbit/s Ethernet-portar på 2 10 Gbit/s. Se följande bild för att identifiera data portar på enhetens bakplan.
    
-     ![Serverdelen av 8600-enhet](./media/storsimple-8600-hardware-installation/HCSBackplaneof2UDevicewithPortsLabeled.jpg)
+     ![Bakplanering av 8600-enhet](./media/storsimple-8600-hardware-installation/HCSBackplaneof2UDevicewithPortsLabeled.jpg)
    
-    **Tillbaka på din enhet visar dataportar**
+    **Bak sidan av enheten som visar data portarna**
    
-   | Label (Etikett) | Beskrivning |
+   | Etikett | Beskrivning |
    | --- | --- |
-   |   0,1,4,5 |1 GbE-nätverksgränssnitt |
-   |   2,3 |10 GbE-nätverksgränssnitt |
-   |   6 |Seriella portar |
-2. Se i följande diagram nätverkskablar. (Lägsta nätverkskonfigurationen visas som heldragna blå linjer. För hög tillgänglighet och prestanda visas ytterligare konfiguration krävs av kantlinjerna.)
+   |   0,1,4,5 |1 GbE-nätverks gränssnitt |
+   |   2,3 |10 GbE-nätverks gränssnitt |
+   |   6 |Serie portar |
+2. Se följande diagram för nätverks kablar. (Den minsta nätverks konfigurationen visas med heldragna blå linjer. För hög tillgänglighet och prestanda visas ytterligare konfiguration som krävs med prickade linjer.)
 
-![Kabelansluta den 4U för nätverk](./media/storsimple-8600-hardware-installation/HCSCableYour4UDeviceforNetwork.png)
+![Kabelanslut din 4U-enhet för nätverk](./media/storsimple-8600-hardware-installation/HCSCableYour4UDeviceforNetwork.png)
 
-**Nätverket kablar för din enhet**
+**Nätverks kablar för din enhet**
 
-| Label (Etikett) | Beskrivning |
+| Etikett | Beskrivning |
 | --- | --- |
-| A |LAN med Internetåtkomst |
+| G |LAN med Internet åtkomst |
 | B |Kontrollant 0 |
 | C |PCM 0 |
 | D |Kontrollant 1 |
 | E |PCM 1 |
-| F |EBOD-kontrollanten 0 |
-| G |EBOD-kontrollanten 1 |
-| H,I |Värdar (till exempel filservrar) |
+| f |EBOD Controller 0 |
+| G |EBOD Controller 1 |
+| H,I |Värdar (till exempel fil servrar) |
 | 0-5 |Nätverksgränssnitt |
-| 6 |Primär hölje |
-| 7 |EBOD hölje |
+| 6 |Primärt kabinett |
+| 7 |EBOD-hölje |
 
-När kablar enheten kräver den lägsta konfigurationen:
+Vid en kabel av enheten kräver den minsta konfigurationen:
 
-* Minst två nätverksgränssnitt är anslutna på varje domänkontrollant för att komma åt cloud och en för iSCSI. DATA 0 port aktiveras och konfigureras via seriekonsolen för enheten automatiskt. Förutom DATA 0 måste en annan dataporten också konfigureras via den klassiska Azure-portalen. I det här fallet ansluta DATA 0 porten till den primära LAN (nätverk med åtkomst till Internet). Andra dataportar kan anslutas till SAN/iSCSI LAN (VLAN)-segmentet i nätverket, beroende på den avsedda rollen.
-* Samma gränssnitt på varje domänkontrollant är anslutna till samma nätverk för att säkerställa tillgänglighet om det uppstår redundans controller. Exempelvis om du vill ansluta DATA 0 och DATA 3 för en av kontrollenheterna måste du ansluta motsvarande DATA 0 och DATA 3 på den andra styrenheten.
+* Minst två nätverks gränssnitt som är anslutna på varje styrenhet med ett för moln åtkomst och ett för iSCSI. DATA 0-porten aktive ras automatiskt och konfigureras via enhetens serie konsol. Förutom DATA 0 måste även en annan data port konfigureras via den klassiska Azure-portalen. I det här fallet ansluter du DATA 0-port till det primära LAN (nätverk med Internet åtkomst). De andra data portarna kan anslutas till nätverks segmentet SAN/iSCSI LAN (VLAN), beroende på den avsedda rollen.
+* Identiska gränssnitt på varje styrenhet som är ansluten till samma nätverk för att säkerställa tillgängligheten om en styrenhets växling sker. Om du till exempel väljer att ansluta DATA 0 och DATA 3 för en av kontroll enheterna måste du ansluta motsvarande DATA 0 och DATA 3 på den andra styrenheten.
 
-Ha i åtanke för hög tillgänglighet och prestanda:
+Tänk på hög tillgänglighet och prestanda:
 
-* Konfigurera ett par med nätverksgränssnitt för molnåtkomst (1 GbE) och en annan par för iSCSI (10 GbE rekommenderas) på varje domänkontrollant när det är möjligt.
-* Om det är möjligt ska du ansluta nätverksgränssnitt från varje styrenhet till två olika växlar för att säkerställa tillgänglighet mot ett switch-fel. Bilden visar två 10 GbE nätverksgränssnitt, DATA 2 och DATA 3 från varje domänkontrollant som är ansluten till två olika växlar. Mer information finns i den **nätverksgränssnitt** under den [krav på hög tillgänglighet för StorSimple-enheten](storsimple-8000-system-requirements.md#high-availability-requirements-for-storsimple).
+* När det är möjligt konfigurerar du ett par nätverks gränssnitt för moln åtkomst (1 GbE) och ett annat par för iSCSI (10 GbE rekommenderas) på varje styrenhet.
+* När det är möjligt kan du ansluta nätverks gränssnitt från varje kontrollant till två olika växlar för att säkerställa tillgängligheten mot ett växel haveri. Bilden illustrerar 2 10 GbE-nätverks gränssnitt, DATA 2 och DATA 3, från varje styrenhet som är ansluten till två olika växlar. Mer information finns i **nätverks gränssnitten** under [krav för hög tillgänglighet för din StorSimple-enhet](storsimple-8000-system-requirements.md#high-availability-requirements-for-storsimple).
 
 > [!NOTE]
-> Om använder SFP + mottagarna med din 10 GbE-nätverksgränssnitt använder den angivna QSFP-SFP +-kort. Mer information går du till [maskinvara som stöds för 10 GbE-nätverksgränssnitt på StorSimple-enheten](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
+> Om du använder SFP +-Sänd tagare med dina 10 GbE-nätverks gränssnitt använder du de angivna QSFP-SFP +-korten. Mer information finns i [maskin vara som stöds för 10 GbE Network-gränssnitt på din StorSimple-enhet](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
 > 
 > 
 
-### <a name="serial-port-cabling"></a>Seriell port kablar
-Utför följande steg för att kabelanslut din seriell port.
+### <a name="serial-port-cabling"></a>Serie ports kablar
+Utför följande steg för att kabelansluta din serie port.
 
-#### <a name="to-cable-for-serial-connection"></a>Att kabel för seriell anslutning
-1. Enheten har en seriell port på varje domänkontrollant som identifieras med en skiftnyckelikonen. För att hitta de seriella portarna, referera till den bild som visar data portar på baksidan av din enhet.
-2. Identifiera den aktiva kontrollenheten på din enhet-bakplan. En blinkande blå LED indikerar att kontrollanten är aktiv.
-3. Använd den angivna seriella kabeln (vid behov, USB-seriell konverterare för din bärbara dator) och Anslut konsolen eller dator (med terminalemulering till enheten) till den seriella porten på den aktiva kontrollenheten.
-4. Installera seriell USB-drivrutiner (medföljer enheten) på datorn.
-5. Konfigurera seriell anslutning enligt följande:
+#### <a name="to-cable-for-serial-connection"></a>För kabel för seriell anslutning
+1. Enheten har en seriell port på varje kontrollant som identifieras av en Skift nyckel ikon. Du hittar serie portarna genom att se bilden som visar data portarna på bak sidan av enheten.
+2. Identifiera den aktiva styrenheten på enhetens bakplan. En blinkande blå indikator anger att styrenheten är aktiv.
+3. Använd den tillhandahållna serie kabeln (om det behövs, USB-seriella konverterare för din bärbara dator) och Anslut konsolen eller datorn (med terminalemulering till enheten) till den seriella porten för den aktiva styrenheten.
+4. Installera de seriella USB-drivrutinerna (som levererades med enheten) på datorn.
+5. Konfigurera den seriella anslutningen enligt följande:
    
-   * 115 200 bit/s
-   * 8 databitar
-   * 1 stop-bitars
+   * 115 200 baud
+   * 8 data bitar
+   * 1 stopp bitar
    * Ingen paritet
-   * Flödeskontroll inställd **None**
-6. Kontrollera att anslutningen fungerar genom att trycka på RETUR på konsolen. Menyn för seriekonsolen bör visas.
+   * Flödes kontroll har angetts till **ingen**
+6. Kontrol lera att anslutningen fungerar genom att trycka på RETUR i-konsolen. En serie konsol meny ska visas.
 
 > [!NOTE]
-> **Lights-Out-hantering:** När enheten installeras i ett fjärranslutet datacenter eller i ett rum med begränsad åtkomst som gäller datorn, måste du kontrollera att de seriella anslutningarna till båda styrenheterna alltid är anslutna till en seriell konsol växel eller liknande utrustning. Detta tillåter fjärrstyrning för out-of-band- och stöd för åtgärder vid avbrott i nätverket eller oväntade fel.
+> **Hantering av lampor:** När enheten är installerad i ett fjärranslutet Data Center eller i ett dator rum med begränsad åtkomst, se till att serie anslutningarna till båda styrenheterna alltid är anslutna till en serie konsol växel eller liknande utrustning. Detta tillåter funktioner för out-of-band-fjärrstyrning och-support om nätverks avbrott eller oväntade fel inträffar.
 > 
 > 
 
-Du har slutfört kablar enheten till ström, nätverksåtkomst och seriell anslutning. Nästa steg är att konfigurera programvaran på din enhet.
+Du har slutfört kablar av enheten för strömförsörjning, nätverks åtkomst och seriell anslutning. Nästa steg är att konfigurera program varan på enheten.
 
 ## <a name="next-steps"></a>Nästa steg
 Du är nu redo att [distribuera och konfigurera din lokala StorSimple-enhet](storsimple-8000-deployment-walkthrough-u2.md).

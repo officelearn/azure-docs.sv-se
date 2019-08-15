@@ -1,9 +1,9 @@
 ---
-title: 'Felsökning: Saknade data i nedladdade Azure Active Directory-aktivitetsloggarna | Microsoft Docs'
+title: Telefonbaserad Data saknas i de hämtade Azure Active Directory aktivitets loggarna | Microsoft Docs
 description: Ger en lösning till saknade data i nedladdade Azure Active Directory-aktivitetsloggar.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.assetid: ffce7eb1-99da-4ea7-9c4d-2322b755c8ce
@@ -14,27 +14,27 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2200a9c75b371ed72ffefe6900367e698101e0fe
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f120c1b86efe94f4ff6316e6116b9049582b07e9
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60437114"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68987988"
 ---
-# <a name="i-cant-find-all-the-data-in-the-azure-active-directory-activity-logs-i-downloaded"></a>Jag kan inte hitta alla data i Azure Active Directory-aktivitetsloggarna som jag har hämtat
+# <a name="i-cant-find-all-the-data-in-the-azure-active-directory-activity-logs-i-downloaded"></a>Jag kan inte hitta alla data i Azure Active Directory aktivitets loggar som jag har hämtat
 
 ## <a name="symptoms"></a>Symtom
 
-Jag har hämtat aktivitetsloggarna (granskning eller inloggningar) och kan inte se alla poster för den tid som jag har valt. Varför? 
+Jag har hämtat aktivitetsloggarna (granskning eller inloggningar) och kan inte se alla poster för den tid som jag har valt. Varför då? 
 
  ![Rapportering](./media/troubleshoot-missing-data-download/01.png)
  
 ## <a name="cause"></a>Orsak
 
-När du hämtar aktivitetsloggar i Azure portal begränsar vi omfattningen till 250 000 poster, sorterade efter senaste först. 
+När du hämtar aktivitets loggar i Azure Portal begränsar vi skalan till 250 000 poster, sorterade efter senaste första. 
 
 ## <a name="resolution"></a>Lösning
 
@@ -42,5 +42,5 @@ Du kan använda [rapporterings-API:er för Azure AD](concept-reporting-api.md) a
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Vanliga frågor och svar för Azure Active Directory-rapporter](reports-faq.md)
+* [Vanliga frågor och svar om Azure Active Directory-rapporter](reports-faq.md)
 

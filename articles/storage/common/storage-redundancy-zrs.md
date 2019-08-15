@@ -5,21 +5,23 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 06/28/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 5fefe469bfac4816a67c6ceb344f12c1e52de60c
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f4e36edf86823453e663ed875c7d5e4ffdc2e524
+ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68550455"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69016408"
 ---
-# <a name="zone-redundant-storage-zrs-highly-available-azure-storage-applications"></a>Zon-redundant lagring (ZRS): Azure Storage program med hög tillgänglighet
+# <a name="zone-redundant-storage-zrs-for-building-highly-available-azure-storage-applications"></a>Zone-redundant lagring (ZRS) för att skapa hög tillgängliga Azure Storage program
+
 [!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-zrs.md)]
 
 ## <a name="support-coverage-and-regional-availability"></a>Support täckning och regional tillgänglighet
+
 ZRS stöder för närvarande standard konto typer för allmän användning v2. Mer information om typer av lagringskonton finns i [Översikt över Azure Storage-konton](storage-account-overview.md).
 
 ZRS är tillgängligt för block-blobar, icke-diskens sid blobbar, filer, tabeller och köer.
@@ -45,6 +47,7 @@ Microsoft fortsätter att aktivera ZRS i ytterligare Azure-regioner. På sidan [
 - Hanterade diskar har inte stöd för ZRS. Du kan lagra ögonblicks bilder och avbildningar för Standard SSD Managed Disks på Standard HDD lagring och [välja mellan alternativen LRS och ZRS](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 ## <a name="what-happens-when-a-zone-becomes-unavailable"></a>Vad händer när en zon blir otillgänglig?
+
 Dina data är fortfarande tillgängliga för både Läs-och skriv åtgärder även om en zon blir otillgänglig. Microsoft rekommenderar att du fortsätter att följa praxis för hantering av tillfälliga fel. Dessa metoder omfattar implementering av principer för återförsök med exponentiell säkerhets kopiering.
 
 När en zon inte är tillgänglig gör Azure nätverks uppdateringar, t. ex. DNS-ompekare. De här uppdateringarna kan påverka ditt program om du har åtkomst till dina data innan uppdateringarna har slutförts.
@@ -52,6 +55,7 @@ När en zon inte är tillgänglig gör Azure nätverks uppdateringar, t. ex. DNS
 ZRS kanske inte skyddar dina data mot en regional katastrof där flera zoner påverkas permanent. ZRS erbjuder i stället återhämtnings kapacitet för dina data om det blir tillfälligt otillgängligt. För skydd mot regionala katastrofer rekommenderar Microsoft att använda Geo-redundant lagring (GRS). Mer information om GRS finns i [Geo-redundant lagring (GRS): Replikering mellan regioner för Azure Storage](storage-redundancy-grs.md).
 
 ## <a name="converting-to-zrs-replication"></a>Konverterar till ZRS-replikering
+
 Det är enkelt att migrera till eller från LRS, GRS och RA-GRS. Använd Azure Portal eller Provider-API: et för lagrings resurser för att ändra kontots redundans typ. Azure kommer sedan att replikera dina data i enlighet med detta. 
 
 Att migrera data till ZRS kräver en annan strategi. ZRS-migreringen innebär fysisk förflyttning av data från en enda lagrings stämpel till flera stämplar inom en region.
@@ -61,14 +65,14 @@ Det finns två primära alternativ för migrering till ZRS:
 - Kopiera eller flytta data manuellt till ett nytt ZRS-konto från ett befintligt konto.
 - Begär en direktmigrering.
 
-Microsoft rekommenderar starkt att du utför en manuell migrering. En manuell migrering ger större flexibilitet än en direktmigrering. Med en manuell migrering har du kontroll över tids inställningen.
+Om du vill att migreringen ska slutföras vid ett visst datum kan du utföra en manuell migrering. En manuell migrering ger större flexibilitet än en direktmigrering. Med en manuell migrering har du kontroll över tids inställningen.
 
 Om du vill utföra en manuell migrering har du följande alternativ:
 - Använd befintligt verktyg som AzCopy, en av Azure Storage klient bibliotek eller pålitliga verktyg från tredje part.
 - Om du är bekant med Hadoop eller HDInsight ansluter du både käll-och mål kontot (ZRS) till klustret. Parallellisera sedan data kopierings processen med ett verktyg som DistCp.
 - Bygg ditt eget verktyg med ett av de Azure Storage klient biblioteken.
 
-En manuell migrering kan resultera i avbrott i programmet. Om ditt program kräver hög tillgänglighet tillhandahåller Microsoft också ett alternativ för direktmigrering. En direktmigrering är en migrering på plats. 
+En manuell migrering kan resultera i avbrott i programmet. Om ditt program kräver hög tillgänglighet tillhandahåller Microsoft också ett alternativ för direktmigrering. En direktmigrering är en migrering på plats utan drift avbrott. 
 
 Under en direktmigrering kan du använda ditt lagrings konto medan dina data migreras mellan käll-och mål lagrings märken. Under migreringsprocessen har du samma nivå av SLA och tillgänglighets-SLA som vanligt.
 
@@ -137,9 +141,9 @@ ZRS Classic är endast tillgängligt för **block** -blobar i GPv1-lagrings kont
 
 Om du vill migrera ZRS-Datadata manuellt till eller från ett LRS-, ZRS-klassiskt-, GRS-eller RA-GRS-konto använder du något av följande verktyg: AzCopy, Azure Storage Explorer, Azure PowerShell eller Azure CLI. Du kan också bygga en egen lösning för migrering med ett av klient biblioteken för Azure Storage.
 
-Du kan också uppgradera dina ZRS klassiska konton till ZRS i portalen eller använda Azure PowerShell eller Azure CLI i regionerna där ZRS är tillgängligt.
+Du kan också uppgradera dina ZRS klassiska konton till ZRS i portalen eller använda Azure PowerShell eller Azure CLI i regionerna där ZRS är tillgängligt. Om du vill uppgradera till ZRS i Azure Portal går du till **konfigurations** avsnittet för kontot och väljer **uppgradering**:
 
-Om du vill uppgradera till ZRS i portalen går du till konfigurations avsnittet för kontot och väljer uppgradering:![Uppgradera ZRS Classic till ZRS i portalen](media/storage-redundancy-zrs/portal-zrs-classic-upgrade.jpg)
+![Uppgradera ZRS Classic till ZRS i portalen](media/storage-redundancy-zrs/portal-zrs-classic-upgrade.png)
 
 Om du vill uppgradera till ZRS med PowerShell anropar du följande kommando:
 ```powershell

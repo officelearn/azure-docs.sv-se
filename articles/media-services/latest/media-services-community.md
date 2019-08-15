@@ -1,6 +1,6 @@
 ---
-title: Azure Media Services-översikt för communityn | Microsoft Docs
-description: Den här sidan för Azure Media Services-community beskrivs olika sätt du kan ställa frågor, ge feedback och få uppdateringar om Media Services.
+title: Översikt över Azure Media Services community | Microsoft Docs
+description: På den här Azure Media Services community-sidan beskrivs olika sätt att ställa frågor, lämna feedback och få uppdateringar om Media Services.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -11,20 +11,20 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 04/19/2019
+ms.date: 08/08/2019
 ms.author: juliako
-ms.openlocfilehash: 6a3c02c1f14c37317a03cb6ebe63bcddc92f3253
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b8d3a26d015c129a04e54ba9633aa5d1ccfcacf8
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64710178"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "69016115"
 ---
 # <a name="azure-media-services-community"></a>Azure Media Services-community  
 
-Den här sidan för Azure Media Services-community beskrivs olika sätt du kan ställa frågor, ge feedback och få uppdateringar om Media Services.
+På den här Azure Media Services community-sidan beskrivs olika sätt att ställa frågor, lämna feedback och få uppdateringar om Media Services.
 
-## <a name="provide-feedback-and-make-suggestions"></a>Ge feedback och förslag
+## <a name="provide-feedback-and-make-suggestions"></a>Ge feedback och gör förslag
 
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
@@ -32,32 +32,23 @@ Den här sidan för Azure Media Services-community beskrivs olika sätt du kan s
 
 ### <a name="twitter"></a>Twitter
 
-Du kan använda den [ @MSFTAzureMedia ](https://twitter.com/MSFTAzureMedia) twitter-referens för att kontakta oss eller följ uppdateringar på Twitter. Använd den [ @AzureSupport ](https://twitter.com/azuresupport) twitter-referens för att begära support på Twitter.  
+Du kan använda [@MSFTAzureMedia](https://twitter.com/MSFTAzureMedia) Twitter-referensen för att kontakta oss eller följa uppdateringar på Twitter. [@AzureSupport](https://twitter.com/azuresupport) Använd Twitter-referensen för att begära support på Twitter.  
 
 ### <a name="online-forums"></a>Onlineforum
 
 Följande forum kan användas för att ställa frågor om aktuella produkter och funktioner.
 
-MSDN är för närvarande Media Services-teamet primära community-forum.
+MSDN är för närvarande Media Services Teams primära community-forum.
 
 [![MSDN](./media/media-services-community/msdn.png)](https://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices) 
 
-Teamet övervakar även frågor taggade på Stack Overflow med ”azure-media services”.
+Teamet övervakar också frågor som taggats på Stack Overflow med "Azure-Media-Services".
 
 [![StackOverflow](./media/media-services-community/stack-overflow.png)](https://stackoverflow.com/questions/tagged/azure-media-services) 
 
 ## <a name="contact-the-team"></a>Kontakta teamet
 
-Azure Media Services primära e-post är: **amshelp\@microsoft.com**.
-
-I följande tabell visas e-postadress till funktionen sub team:
-
-| Funktion | E-post |
-| --- | --- |
-| Azure Media Player |ampinfo@microsoft.com |
-| Azure Media Explorer |amse@microsoft.com |
-| Arbetsflödesdesigner |mepd@microsoft.com |
-| Live Streaming och paketering. |amslived@microsoft.com |
+Azure Media Services Primary support-e-post är: **amshelp\@Microsoft.com**.
 
 ## <a name="next-steps"></a>Nästa steg
 

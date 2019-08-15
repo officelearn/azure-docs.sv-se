@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 07/19/2019
+ms.date: 08/09/2019
 ms.author: victorh
-ms.openlocfilehash: 89b50cff2d46f8c92c09653aeaac49551c97e9c6
-ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
+ms.openlocfilehash: 9a3cdb846921c2d73dd2cca5d679663c1ba9e192
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68314472"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946887"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Översikt över Azure DNS Ali Aset-poster
 
@@ -20,16 +20,16 @@ Azure DNS Ali Aset-poster är kvalifikationer i en DNS-postuppsättning. De kan 
 
 En post uppsättning för Ali Aset stöds för följande post typer i en Azure DNS zon: 
 
-- A
+- G
 - AAAA
 - CNAME
 
 > [!NOTE]
 > Om du tänker använda en aliasresurspost för post typerna A eller AAAA för att peka på en [Azure Traffic Manager-profil](../traffic-manager/quickstart-create-traffic-manager-profile.md) måste du kontrol lera att Traffic Managers profilen bara har [externa slut punkter](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints). Du måste ange IPv4-eller IPv6-adressen för externa slut punkter i Traffic Manager. Du kan inte använda fullständigt kvalificerade domän namn (FQDN) i slut punkter. Vi rekommenderar att du använder statiska IP-adresser.
 
-## <a name="capabilities"></a>Funktioner
+## <a name="capabilities"></a>FUNKTIONER
 
-- **Peka på en offentlig IP-resurs från en DNS A/AAAA-postuppsättning.** Du kan skapa en A/AAAA-postuppsättning och göra den till en angiven aliasresurspost som pekar på en offentlig IP-resurs. DNS-postuppsättningen ändras automatiskt om den offentliga IP-adressen ändras eller tas bort. Dangling DNS-poster som pekar på felaktiga IP-adresser undviks.
+- **Peka på en offentlig IP-resurs från en DNS A/AAAA-postuppsättning.** Du kan skapa en A/AAAA-postuppsättning och göra den till en angiven aliasresurspost som pekar på en offentlig IP-resurs (standard eller Basic). DNS-postuppsättningen ändras automatiskt om den offentliga IP-adressen ändras eller tas bort. Dangling DNS-poster som pekar på felaktiga IP-adresser undviks.
 
    Det finns en aktuell gräns på 20 alias post uppsättningar per resurs.
 

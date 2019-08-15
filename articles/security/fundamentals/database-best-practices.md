@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: dd703420f6a02dba589d8e5ace20cbd1e384adfb
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 72b15d77baedae318d4503f2d481b08202730459
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727446"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68927988"
 ---
 # <a name="azure-database-security-best-practices"></a>Metodtips för databassäkerhet
 Den här artikeln beskriver metod tips för databas säkerhet.
@@ -28,7 +28,7 @@ Den här artikeln beskriver metod tips för databas säkerhet.
 Bästa praxis bygger på en uppfattning om yttrandet och de fungerar med aktuella funktioner i Azure-plattformen och-funktions uppsättningar. Åsikter och tekniker förändras med tiden och den här artikeln uppdateras regelbundet för att avspegla ändringarna.
 
 ## <a name="secure-databases"></a>Säkra databaser
-Säkerhet är viktigt för att hantera databaser och har alltid varit en prioritet för [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/). Dina databaser kan vara tätt skyddade för att tillgodose de flesta regler eller säkerhets krav, inklusive HIPAA, ISO 27001/27002 och PCI DSS nivå 1. En aktuell lista över certifieringar för säkerhetskompatibilitet finns på [webbplatsen för Microsoft säkerhets Center](https://azure.microsoft.com/support/trust-center/services/). Du kan också välja att placera dina databaser i särskilda Azure-datacenter baserat på myndighets krav.
+Säkerhet är viktigt för att hantera databaser och har alltid varit en prioritet för [Azure SQL Database](../../sql-database/index.yml). Dina databaser kan vara tätt skyddade för att tillgodose de flesta regler eller säkerhets krav, inklusive HIPAA, ISO 27001/27002 och PCI DSS nivå 1. En aktuell lista över certifieringar för säkerhetskompatibilitet finns på [webbplatsen för Microsoft säkerhets Center](https://azure.microsoft.com/support/trust-center/services/). Du kan också välja att placera dina databaser i särskilda Azure-datacenter baserat på myndighets krav.
 
 ## <a name="use-firewall-rules-to-restrict-database-access"></a>Använd brand Väggs regler för att begränsa databas åtkomst
 Microsoft Azure SQL Database tillhandahåller en Relations databas tjänst för Azure och andra Internetbaserade program. För att ge åtkomst säkerhet, SQL Database kontrol lera åtkomst med:

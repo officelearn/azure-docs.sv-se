@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2019
 ms.author: spelluru
-ms.openlocfilehash: 80610168e0d293b65626da71ee349f25e456576b
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 93b3c7671a5beb4b3a451fe0efd13b9f48e00436
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774571"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68941803"
 ---
 # <a name="configure-a-shared-image-gallery-in-azure-devtest-labs"></a>Konfigurera ett delat bildgalleri i Azure DevTest Labs
 DevTest Labs stöder nu funktionen för [delad bild galleri](../virtual-machines/windows/shared-image-galleries.md) . Det gör det möjligt för labbanvändare att få åtkomst till avbildningar från en delad plats när de skapar labbresurser. Funktionen hjälper dig även att skapa ordning och struktur för dina anpassade hanterade VM-avbildningar. Funktionen för delad bild galleri stöder:
@@ -36,7 +36,7 @@ Om du har ett stort antal hanterade avbildningar som du vill göra tillgängliga
 ## <a name="considerations"></a>Överväganden
 - Du kan bara koppla ett delat bild galleri till ett labb i taget. Om du vill koppla ett annat galleri måste du koppla från det befintliga ett och koppla ett annat. 
 - DevTest Labs har för närvarande inte stöd för att ladda upp bilder till galleriet via labbet. 
-- När du skapar en virtuell dator med hjälp av en delad avbildning av galleriet, använder DevTest Labs alltid den senaste publicerade versionen av den här avbildningen.
+- När du skapar en virtuell dator med hjälp av en delad avbildning av galleriet, använder DevTest Labs alltid den senaste publicerade versionen av den här avbildningen. Om en avbildning har flera versioner kan användaren dock välja att skapa en dator från en tidigare version genom att gå till fliken Avancerade inställningar när du skapar en virtuell dator.  
 - Även om DevTest Labs automatiskt gör ett bästa försök att se till att delade avbildnings Gallerien replikerar avbildningar till den region där laboratoriet finns, är det inte alltid möjligt. För att undvika att användare har problem med att skapa virtuella datorer från de här avbildningarna, se till att avbildningarna redan har repliker ATS till Labbets region. "
 
 ## <a name="use-azure-portal"></a>Använda Azure-portalen

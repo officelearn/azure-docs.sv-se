@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 315e225eafc4fededcaa998560f4cdf703123aca
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 6ef739b61c07dae1631a704a70a3a5543d9d8a3d
+ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68958675"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69015591"
 ---
 # <a name="tutorial-build-a-custom-image-and-run-in-app-service-from-a-private-registry"></a>Självstudier: Skapa en anpassad avbildning och köra i App Service från ett privat register
 
@@ -292,20 +292,20 @@ SSH möjliggör säker kommunikation mellan en container och en klient. Din anpa
 
 * Inmatnings [skriptet](https://github.com/Azure-Samples/docker-django-webapp-linux/blob/master/init.sh#L5) startar SSH-servern.
 
-      ```bash
-      #!/bin/bash
-      service ssh start
+    ```bash
+    #!/bin/bash
+    service ssh start
     ```
 
-### Open SSH connection to container
+### <a name="open-ssh-connection-to-container"></a>Öppna SSH-anslutning till container
 
-SSH connection is available only through the Kudu site, which is accessible at `https://<app-name>.scm.azurewebsites.net`.
+SSH-anslutningen är bara tillgänglig via kudu-webbplatsen, som är tillgänglig `https://<app-name>.scm.azurewebsites.net`på.
 
-To connect, browse to `https://<app-name>.scm.azurewebsites.net/webssh/host` and sign in with your Azure account.
+Anslut genom att gå till `https://<app-name>.scm.azurewebsites.net/webssh/host` och logga in med ditt Azure-konto.
 
-You are then redirected to a page displaying an interactive console.
+Du omdirigeras därefter till en sida som visar en interaktiv konsol.
 
-You may wish to verify that certain applications are running in the container. To inspect the container and verify running processes, issue the `top` command at the prompt.
+Du kanske vill verifiera att vissa program körs i containern. Om du vill inspektera containern och verifiera körningsprocesserna utfärdar du kommandot `top` i kommandotolken.
 
 ```bash
 top

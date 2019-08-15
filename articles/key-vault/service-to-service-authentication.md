@@ -9,12 +9,12 @@ ms.author: mbaldwin
 ms.date: 07/06/2019
 ms.topic: conceptual
 ms.service: key-vault
-ms.openlocfilehash: d34c94ccca47d29afc4f3d83bec58db737be270c
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: f6a95f56b7b617b42c1cec9f64aae73b88b813da
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840410"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934343"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Tjänst-till-tjänst-autentisering för Azure Key Vault med .NET
 
@@ -270,21 +270,21 @@ Använd Azure CLI och Ställ in standard prenumerationen på en som har det kont
 
 #### <a name="unauthorized-access-access-denied-forbidden-etc-error"></a>Obehörig åtkomst, åtkomst nekad, förbjuden, etc.-fel
  
-Huvud kontot som används har inte åtkomst till den resurs som det försöker komma åt. Bevilja antingen ditt användar konto eller App Services MSI "Contributor" åtkomst till önskad resurs, beroende på om du kör exemplet på din lokala utvecklings dator eller distribuerat i Azure till din App Service. Vissa resurser, som nyckel valv, har också sina egna [åtkomst principer](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-secure-your-key-vault#data-plane-and-access-policies) som du använder för att bevilja åtkomst till huvud konton (användare, appar, grupper osv.).
+Huvud kontot som används har inte åtkomst till den resurs som det försöker komma åt. Bevilja antingen ditt användar konto eller App Services MSI "Contributor" åtkomst till önskad resurs, beroende på om du kör exemplet på din lokala utvecklings dator eller distribuerat i Azure till din App Service. Vissa resurser, som nyckel valv, har också sina egna [åtkomst principer](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault#data-plane-and-access-policies) som du använder för att bevilja åtkomst till huvud konton (användare, appar, grupper osv.).
 
 ### <a name="common-issues-when-deployed-to-azure-app-service"></a>Vanliga problem vid distribution till Azure App Service
 
 #### <a name="managed-identity-is-not-setup-on-the-app-service"></a>Hanterad identitet konfigureras inte på App Service
  
-Kontrol lera miljövariablerna MSI_ENDPOINT och MSI_SECRET finns med hjälp av kudu-felsöknings [konsolen](https://azure.microsoft.com/en-us/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/). Om dessa miljövariabler inte finns är hanterad identitet inte aktive rad på App Service. 
+Kontrol lera miljövariablerna MSI_ENDPOINT och MSI_SECRET finns med hjälp av kudu-felsöknings [konsolen](https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/). Om dessa miljövariabler inte finns är hanterad identitet inte aktive rad på App Service. 
  
 ### <a name="common-issues-when-deployed-locally-with-iis"></a>Vanliga problem vid distribution lokalt med IIS
 
 #### <a name="cant-retrieve-tokens-when-debugging-app-in-iis"></a>Det går inte att hämta tokens vid fel sökning av appen i IIS
 
 Som standard körs AppAuth i en annan användar kontext i IIS och har därför inte åtkomst att använda din utvecklares identitet för att hämta åtkomsttoken. Du kan konfigurera IIS att köras med användar kontexten med följande två steg:
-- Konfigurera programpoolen för webbappen så att den körs som ditt aktuella användar konto. Mer information finns [här](https://docs.microsoft.com/en-us/iis/manage/configuring-security/application-pool-identities#configuring-iis-application-pool-identities)
-- Konfigurera "setProfileEnvironment" till "true". Mer information finns [här](https://docs.microsoft.com/en-us/iis/configuration/system.applicationhost/applicationpools/add/processmodel#configuration). 
+- Konfigurera programpoolen för webbappen så att den körs som ditt aktuella användar konto. Mer information finns [här](https://docs.microsoft.com/iis/manage/configuring-security/application-pool-identities#configuring-iis-application-pool-identities)
+- Konfigurera "setProfileEnvironment" till "true". Mer information finns [här](https://docs.microsoft.com/iis/configuration/system.applicationhost/applicationpools/add/processmodel#configuration). 
 
     - Gå till%windir%\System32\inetsrv\config\applicationHost.config
     - Sök efter "setProfileEnvironment". Om den är inställd på "falskt" ändrar du den till "true". Om den inte finns lägger du till den som ett attribut till processModel-elementet (/configuration/system.applicationHost/applicationPools/applicationPoolDefaults/processModel/@setProfileEnvironment) och anger det till "true".

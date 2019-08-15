@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 312e39ff1b699bb3c7f2baea3c66cbf8999ee44b
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: ba21ec6ba82ac4984d3c51fc46f88de2cd56b2b2
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68814515"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933695"
 ---
 # <a name="use-a-jupyter-notebook-and-kqlmagic-extension-to-analyze-data-in-azure-data-explorer"></a>Använd ett Jupyter Notebook-och Kqlmagic-tillägg för att analysera data i Azure Datautforskaren
 
@@ -39,7 +39,9 @@ Jupyter Notebook är ett webb program med öppen källkod som gör att du kan sk
     ```python
     %reload_ext Kqlmagic
     ```
-
+    > [!NOTE]
+    > Ändra kernel-versionen till python 3,6 genom att klicka på kernel > ändra kernel > python 3,6
+    
 ## <a name="connect-to-the-azure-data-explorer-help-cluster"></a>Anslut till Azure Datautforskaren hjälp kluster
 
 Använd följande kommando för att ansluta till *exempel* databasen som finns i *Hjälp* klustret. För AAD-användare som inte kommer från Microsoft ersätter du `Microsoft.com` klient namnet med din AAD-klient.

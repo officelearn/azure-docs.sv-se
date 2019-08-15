@@ -9,14 +9,14 @@ editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
-ms.date: 08/01/2019
+ms.date: 08/12/2019
 ms.author: apimpm
-ms.openlocfilehash: b3513ab2583939943ff188b582f57f49530e5ded
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 45e1ad6bd757ec5acaf784c94e4cfb5e487ce9ba
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736247"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68975738"
 ---
 # <a name="configure-a-custom-domain-name"></a>Konfigurera ett anpassat domännamn
 
@@ -34,7 +34,8 @@ För att utföra stegen som beskrivs i den här artikeln måste du ha:
     [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 -   En API Management-instans. Mer information finns i [skapa en Azure API Management-instans](get-started-create-service-instance.md).
--   Ett anpassat domän namn som ägs av dig. Det anpassade domän namn som du vill använda måste delas separat och finnas på en DNS-server. Det här avsnittet ger inte instruktioner om hur du kan vara värd för ett anpassat domän namn.
+-   Ett anpassat domän namn som ägs av dig eller din organisation. Det här avsnittet innehåller inga instruktioner för hur du kan köpa ett anpassat domän namn.
+-   En CNAME-post som finns på en DNS-server som mappar det anpassade domän namnet till standard domän namnet för din API Management-instans. Det här avsnittet innehåller inga instruktioner för hur du kan vara värd för en CNAME-post.
 -   Du måste ha ett giltigt certifikat med en offentlig och privat nyckel (. PFX). Alternativt namn för certifikat mottagare (SAN) måste matcha domän namnet (Detta aktiverar API Management instans för att på ett säkert sätt exponera URL: er över SSL).
 
 ## <a name="use-the-azure-portal-to-set-a-custom-domain-name"></a>Använd Azure Portal för att ange ett anpassat domän namn
@@ -52,13 +53,17 @@ För att utföra stegen som beskrivs i den här artikeln måste du ha:
     > [!NOTE]
     > Endast **Gateway** -slutpunkten i tillgänglig för konfiguration i förbruknings nivån.
     > Du kan uppdatera alla slut punkter eller några av dem. Kunder som uppdaterar **gatewayen** (denna URL används ofta för att anropa API: et som exponeras via API Management) och **portalen** (URL: en Developer Portal).
-    > **Hanterings** -och **SCM** -slutpunkter används internt av API Management instansens ägare och därför är de mindre ofta tilldelade till ett anpassat domän namn. **Premium** -nivån stöder inställning av flera värdnamn för **Gateway** -slutpunkten.
+    > **Hanterings** -och **SCM** -slutpunkter används internt av API Management instansens ägare och därför är de mindre ofta tilldelade till ett anpassat domän namn.
+    > **Premium** -nivån stöder inställning av flera värdnamn för **Gateway** -slutpunkten.
 
 1. Välj den slut punkt som du vill uppdatera.
 1. I fönstret till höger klickar du på **anpassad**.
 
-    - I det **anpassade domän namnet**anger du det namn som du vill använda. Till exempel `api.contoso.com`. Domän namn för jokertecken (till \*exempel. domain.com) stöds också.
+    - I det **anpassade domän namnet**anger du det namn som du vill använda. Till exempel `api.contoso.com`.
     - I **certifikatet**väljer du ett certifikat från Key Vault. Du kan också ladda upp en giltig. PFX-fil och ange **lösen ord**, om certifikatet är skyddat med ett lösen ord.
+
+    > [!NOTE]
+    > Domän namn för jokertecken, `*.contoso.com` t. ex. stöds i alla nivåer förutom förbruknings nivån.
 
     > [!TIP]
     > Vi rekommenderar att du använder Azure Key Vault för att hantera certifikat och ställa in dem för automatisk rotation.
@@ -71,7 +76,7 @@ För att utföra stegen som beskrivs i den här artikeln måste du ha:
 1. Klicka på Använd.
 
     > [!NOTE]
-    > Processen för att tilldela certifikatet kan ta 15 minuter eller mer beroende på storleken på distributionen. Developer SKU: n har avbrott, Basic och högre SKU: er har inte stillestånds tid.
+    > Processen för att tilldela certifikatet kan ta 15 minuter eller mer beroende på storleken på distributionen. Developer SKU: n har avbrott, Basic och högre SKU: er har inte någon nedtid.
 
 [!INCLUDE [api-management-custom-domain](../../includes/api-management-custom-domain.md)]
 
@@ -79,8 +84,8 @@ För att utföra stegen som beskrivs i den här artikeln måste du ha:
 
 När du konfigurerar DNS för det anpassade domän namnet har du två alternativ:
 
-- Konfigurera en CNAME-post som pekar på slut punkten för ditt konfigurerade anpassade domän namn.
-- Konfigurera en A-post som pekar på din API Management Gateway-IP-adress.
+-   Konfigurera en CNAME-post som pekar på slut punkten för ditt konfigurerade anpassade domän namn.
+-   Konfigurera en A-post som pekar på din API Management Gateway-IP-adress.
 
 > [!NOTE]
 > Även om IP-adressen för API-hanterings instansen är statisk, kan den ändras i några få scenarier. På grund av detta rekommenderar vi att du använder CNAME när du konfigurerar en anpassad domän. Ta hänsyn till när du väljer DNS-konfigurationsfil. Läs mer i [vanliga frågor och svar om API-Mananagement](https://docs.microsoft.com/azure/api-management/api-management-faq#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules).

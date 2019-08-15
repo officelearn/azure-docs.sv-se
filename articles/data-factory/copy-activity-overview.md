@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: ae8b2bb7cce545ab9c0aa0c9d4d682089cc482ab
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: a8265496c475566ec7a87a19eab6d975838e9da4
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827481"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966391"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Kopiera aktivitet i Azure Data Factory
 
@@ -33,7 +33,7 @@ Du kan använda Kopieringsaktivitet i Azure Data Factory för att kopiera data m
 
 Kopieringsaktivitet körs på en [Integreringskörningen](concepts-integration-runtime.md). För olika data kopierings scenarier kan olika varianter av Integration Runtime utnyttjas:
 
-* När kopiering av data mellan data lagrar att båda är offentligt tillgänglig, Kopieringsaktivitet kan få behörighet av **Azure Integration Runtime**, vilket är säker, tillförlitlig och skalbar och [globalt tillgänglig](concepts-integration-runtime.md#integration-runtime-location).
+* När du kopierar data mellan data lager som både är offentligt tillgängliga via Internet från alla IP-adresser, kan kopierings aktiviteter skyddas av **Azure integration runtime**, vilket är säkert, tillförlitligt, skalbart och [globalt tillgängligt](concepts-integration-runtime.md#integration-runtime-location).
 * När kopierar data från/till datalager som finns lokalt eller i ett nätverk med åtkomstkontroll (till exempel Azure Virtual Network) kan du behöva ställa in en **integrerad Runtime med egen värd** möjligheter för kopiering av data.
 
 Integreringskörningen måste vara kopplad till varje datalager för källa och mottagare. Mer information om hur Kopieringsaktivitet [avgör vilken IR som ska använda](concepts-integration-runtime.md#determining-which-ir-to-use).
@@ -193,7 +193,7 @@ Information om körningen av kopierings aktiviteten och prestanda egenskaperna r
 | usedDataIntegrationUnits | Integrering för effektiv dataenheter vid kopiering. | Ett Int32-värde |
 | usedParallelCopies | Den effektiva parallelCopies vid kopiering. | Ett Int32-värde |
 | redirectRowPath | Sökvägen till loggfilen för hoppades över inkompatibla rader i blob storage som du konfigurerar under ”redirectIncompatibleRowSettings”. Se exemplet nedan. | Text (sträng) |
-| executionDetails | Mer information om vilka steg som Kopieringsaktivitet genomgår och motsvarande steg, varaktighet, används konfigurationer, osv. Vi rekommenderar inte för att parsa det här avsnittet som den kan ändras.<br/><br/>ADF rapporterar även detaljerade varaktigheter (i sekunder) som ägnas åt respektive steg `detailedDurations`under:<br/>- **Köns varaktighet** (`queuingDuration`): Tiden tills kopierings aktiviteten faktiskt börjar på integration Runtime. Om du använder IR med egen värd och detta värde är stort, föreslår du att kontrol lera IR-kapaciteten och användningen och skala upp och ut enligt din arbets belastning. <br/>- **Varaktighet för att kopiera skript** (`preCopyScriptDuration`): Den tid som krävs för att köra skriptet före kopiering i data lagret för mottagare. Använd när du konfigurerar skriptet för att kopiera. <br/>- **Tid till första byte** (`timeToFirstByte`): Tiden som integration runtime tar emot den första byten från käll data lagret. Använd för icke-filbaserad källa. Om det här värdet är stort kan du föreslå att kontrol lera och optimera frågan eller servern.<br/>- **Överförings tid** (`transferDuration`): Tiden för integration runtime att överföra alla data från källan till Sink efter att de första byten har hämtats. | Array |
+| executionDetails | Mer information om vilka steg som Kopieringsaktivitet genomgår och motsvarande steg, varaktighet, används konfigurationer, osv. Vi rekommenderar inte för att parsa det här avsnittet som den kan ändras.<br/><br/>ADF rapporterar även detaljerade varaktigheter (i sekunder) som ägnas åt respektive steg `detailedDurations`under. Varaktigheten för de här stegen är exklusiva och bara de som gäller för den aktuella kopierings aktivitets körningen visas:<br/>- **Köns varaktighet** (`queuingDuration`): Den tid som förflutit tills kopierings aktiviteten faktiskt börjar på integration Runtime. Om du använder IR med egen värd och detta värde är stort, föreslår du att kontrol lera IR-kapaciteten och användningen och skala upp och ut enligt din arbets belastning. <br/>- **Varaktighet för att kopiera skript** (`preCopyScriptDuration`): Tiden mellan kopierings aktiviteten som startar på IR-och kopierings aktiviteten som kör skriptet för att kopiera i mottagar data lagret. Använd när du konfigurerar skriptet för att kopiera. <br/>- **Tid till första byte** (`timeToFirstByte`): Tiden som förflutit från slutet av föregående steg och den IR som tar emot den första byten från käll data lagret. Använd för icke-filbaserad källa. Om det här värdet är stort kan du föreslå att kontrol lera och optimera frågan eller servern.<br/>- **Överförings tid** (`transferDuration`): Tiden i slutet av föregående steg och IR-överföring av alla data från källan till Sink. | Array |
 | perfRecommendation | Kopiera optimerings tips för prestanda. Mer information finns i avsnittet om [prestanda och justeringar](#performance-and-tuning) . | Array |
 
 ```json

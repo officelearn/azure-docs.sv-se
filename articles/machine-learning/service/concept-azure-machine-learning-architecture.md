@@ -1,7 +1,7 @@
 ---
 title: Viktiga begrepp för arkitektur &
 titleSuffix: Azure Machine Learning service
-description: Lär dig mer om arkitekturen, termerna, begreppen och arbets flödet som utgör Azure Machine Learning-tjänsten.
+description: Lär dig mer om arkitekturen, termer, koncept och arbets flöden som utgör den Azure Machine Learning tjänsten.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 07/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: e6f6c41e5de4f4a053748dfb08dc57e8acac32e5
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: ea5e476680b07a6a7ba2b57e94f1f0b99cc10987
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68848225"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990085"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Så här fungerar Azure Machine Learning service: Arkitektur och koncept
 
@@ -49,12 +49,16 @@ Använd följande verktyg för Azure Machine Learning:
 + Skriva kod i Visual Studio Code med [Azure Machine Learning vs Code-tillägg](how-to-vscode-tools.md)
 + Använd [Visual Interface (för hands version) för att Azure Machine Learning tjänsten för](ui-concept-visual-interface.md) att utföra arbets flödes stegen utan att skriva kod.
 
-## <a name="glossary-of-concepts"></a>Ord lista med begrepp
+> [!NOTE]
+> Även om den här artikeln definierar termer och begrepp som används av Azure Machine Learning-tjänsten definierar den inte termer och begrepp för Azure-plattformen. Mer information om terminologi för Azure-plattformen finns i [ord listan Microsoft Azure](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology).
+
+## <a name="glossary"></a>Ordlista
 
 + <a href="#workspaces">Platsen</a>
 + <a href="#experiments">Experiment</a>
 + <a href="#models">Modellerna</a>
 + <a href="#run-configurations">Kör konfiguration</a>
++ [Kostnadsberäknare](#estimators)
 + <a href="#datasets-and-datastores">Data uppsättningar & data lager</a>
 + <a href="#compute-targets">Compute-mål</a>
 + <a href="#training-scripts">Tränings skript</a>
@@ -69,19 +73,9 @@ Använd följande verktyg för Azure Machine Learning:
 + <a href="#ml-pipelines">ML pipelines</a>
 + <a href="#logging">Loggning</a>
 
-> [!NOTE]
-> Även om den här artikeln definierar termer och begrepp som används av Azure Machine Learning-tjänsten definierar den inte termer och begrepp för Azure-plattformen. Mer information om terminologi för Azure-plattformen finns i [ord listan Microsoft Azure](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology).
-
-
 ### <a name="workspaces"></a>Arbetsytor
 
-[Arbets ytan](concept-workspace.md) är den översta resursen för Azure Machine Learning tjänst. Det ger en central plats för att arbeta med alla artefakter som du skapar när du använder Azure Machine Learning-tjänsten.
-
-En taxonomi i arbets ytan illustreras i följande diagram:
-
-[![Arbetsytan taxonomi](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
-
-Mer information om arbets ytor finns i [Vad är en Azure Machine Learning arbets yta?](concept-workspace.md).
+[Arbets ytan](concept-workspace.md) är den översta resursen för Azure Machine Learning tjänst. Det ger en central plats för att arbeta med alla artefakter som du skapar när du använder Azure Machine Learning-tjänsten. Du kan dela en arbets yta med andra. En detaljerad beskrivning av arbets ytor finns i [Vad är en Azure Machine Learning arbets yta?](concept-workspace.md).
 
 ### <a name="experiments"></a>Experiment
 
@@ -97,7 +91,7 @@ En modell produceras av en körning i Azure Machine Learning. Du kan också anv�
 
 Azure Machine Learnings tjänsten är Framework-oberoende. När du skapar en modell kan du använda alla populära ramverk för maskin inlärning, till exempel Scikit – lära, XGBoost, PyTorch, TensorFlow och kedjor.
 
-Ett exempel på hur du tränar en modell [finns i Självstudier: Träna en modell för bildklassificering med Azure Machine Learning-tjänsten](tutorial-train-models-with-aml.md).
+Ett exempel på hur du tränar en modell med Scikit – lära och en uppskattningar [finns i Självstudier: Träna en modell för bildklassificering med Azure Machine Learning-tjänsten](tutorial-train-models-with-aml.md).
 
 **Modell registret** håller reda på alla modeller i din Azure Machine Learning service-arbetsyta.
 
@@ -120,11 +114,24 @@ En körnings konfiguration kan sparas i en fil i den katalog som innehåller dit
 
 För att till exempel köra konfigurationer, se [Välj och Använd ett beräknings mål för att träna din modell](how-to-set-up-training-targets.md).
 
+### <a name="estimators"></a>Kostnadsberäknare
+
+För att under lätta modell träningen med populära ramverk, gör klassen uppskattning att du enkelt kan skapa körnings konfigurationer. Du kan skapa och använda en generisk [uppskattning](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) för att skicka utbildnings skript som använder valfritt ramverk för inlärning (till exempel scikit – lära).
+
+För PyTorch-, TensorFlow-och kedje uppgifter-aktiviteter tillhandahåller Azure Machine Learning även de olika uppskattningarna [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py)och [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) för att förenkla användningen av dessa ramverk.
+
+Mer information finns i följande artiklar:
+
+* [Träna ml-modeller med uppskattningar](how-to-train-ml-models.md).
+* [Utbilda Pytorch djup inlärnings modeller i stor skala med Azure Machine Learning](how-to-train-pytorch.md).
+* [Träna och registrera TensorFlow-modeller i stor skala med Azure Machine Learning-tjänsten](how-to-train-tensorflow.md).
+* [Träna och registrera kedje modeller i stor skala med Azure Machine Learning-tjänsten](how-to-train-chainer.md).
+
 ### <a name="datasets-and-datastores"></a>Data uppsättningar och data lager
 
 **Azure Machine Learning data uppsättningar** (för hands version) gör det enklare att komma åt och arbeta med dina data. Data uppsättningar hanterar data i olika scenarier, till exempel modell utbildning och skapande av pipelines. Med hjälp av Azure Machine Learning SDK kan du komma åt underliggande lagring, utforska och förbereda data, hantera livs cykeln för olika definitioner av data uppsättningar och jämföra mellan data uppsättningar som används i utbildning och i produktion.
 
-Data uppsättningar innehåller metoder för att arbeta med data i populära format, t. `from_delimited_files()` ex `to_pandas_dataframe()`. genom att använda eller.
+Data uppsättningar tillhandahåller metoder för att arbeta med data i populära format, t. `from_delimited_files()` ex `to_pandas_dataframe()`. genom att använda eller.
 
 Mer information finns i [skapa och registrera Azure Machine Learning data uppsättningar](how-to-create-register-datasets.md).  Fler exempel på hur du använder data uppsättningar finns i [exempel antecknings böckerna](https://github.com/Azure/MachineLearningNotebooks/tree/master/work-with-data/datasets).
 
@@ -152,7 +159,6 @@ En körning är en post som innehåller följande information:
 * En ögonblicksbild av den katalog som innehåller dina skript innan körningen
 
 Du skapar en körning när du skickar ett skript för att träna en modell. En körning kan ha noll eller flera underordnade körs. Körningen på den översta nivån kan till exempel ha två underordnade körningar, som var och en kan ha sin egen underordnade körning.
-
 
 ### <a name="github-tracking-and-integration"></a>GitHub spårning och integrering
 

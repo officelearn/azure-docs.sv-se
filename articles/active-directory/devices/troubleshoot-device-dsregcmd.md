@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 189e4f280e8aba28c4d1af449aa8a3428e303911
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 4aa8f9a7c6807a2f9505559ea13fb0b4f410346d
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68298417"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68987170"
 ---
 # <a name="troubleshooting-devices-using-the-dsregcmd-command"></a>Felsöka enheter med kommandot dsregcmd
 
@@ -29,7 +29,7 @@ I det här avsnittet visas status parametrar för enhets anslutning. I tabellen 
 | AzureAdJoined | EnterpriseJoined | DomainJoined | Enhets tillstånd |
 | ---   | ---   | ---   | ---   |
 | JA | NO | NO | Azure AD-ansluten |
-| NO | NO | JA | Domänanslutna |
+| NO | NO | JA | Domänansluten |
 | JA | NO | JA | Hybrid AD-ansluten |
 | NO | JA | JA | Lokala DRS-anslutna |
 
@@ -54,7 +54,7 @@ I det här avsnittet visas status parametrar för enhets anslutning. I tabellen 
 +----------------------------------------------------------------------+
 ```
 
-## <a name="device-details"></a>Enhets information
+## <a name="device-details"></a>Enhetsinformation
 
 Visas bara när enheten är Azure AD-ansluten eller en hybrid Azure AD-anslutning (inte Azure AD registrerad). I det här avsnittet visas enhets identifierings information som lagras i molnet.
 
@@ -295,6 +295,9 @@ I det här avsnittet visas utdata från Sanity-kontroller som utförs på en enh
 ## <a name="ngc-prerequisite-check"></a>Krav kontroll för NGC
 
 Det här avsnittet utför kraven-kontrollerna för etablering av en NGC-nyckel. 
+
+> [!NOTE]
+> Du kanske inte ser NGC pre-nödvändig kontroll information i dsregcmd/status om användaren redan har konfigurerat NGC-autentiseringsuppgifter.
 
 ### <a name="sample-ngc-prerequisite-check-output"></a>Exempel på utdata från krav kontroll för NGC
 

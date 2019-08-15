@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 08/02/2019
-ms.openlocfilehash: a5db2c1c40c9c6f5c05205b9b2c652d2e23cf229
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 2f6d45613120d02dd96a9fe0a14ce388d20cf0c6
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68848250"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990572"
 ---
 # <a name="create-explore-and-deploy-automated-machine-learning-experiments-in-the-azure-portal-preview"></a>Skapa, utforska och distribuera automatiserade maskin inlärnings experiment i Azure Portal (för hands version)
 
@@ -66,6 +66,10 @@ Välj **Skapa experiment** och fyll i formuläret **skapa ett nytt automatiserat
 1. Välj en lagrings behållare.
 
 1. Välj en datafil från lagrings behållaren eller ladda upp en fil från den lokala datorn till behållaren. Offentlig för hands version stöder endast lokala fil överföringar och Azure Blob Storage-konton.
+    >[!Important]
+    > Krav för tränings data:
+    >* Data måste vara i tabell form.
+    >* Värdet som du vill förutse (mål kolumnen) måste finnas i data.
 
     [![Välj datafil](media/tutorial-1st-experiment-automated-ml/select-data-file.png)](media/tutorial-1st-experiment-automated-ml/select-data-file-expanded.png#lightbox)
 
@@ -173,7 +177,7 @@ Med automatisk ML får du hjälp med att distribuera modellen utan att skriva ko
     + Alternativ 2: Om du vill distribuera en speciell modell iteration från det här experimentet kan du gå nedåt i modellen för att öppna sidan körnings information och välja distribuera modell.
 1. Fyll i fönstret **distribuera modell**
 
-    Fält| Värde
+    Fält| Value
     ----|----
     Distributionsnamn| Ange ett unikt namn för din distribution.
     Distributions Beskrivning| Ange en beskrivning för att bättre identifiera vad den här distributionen är för.

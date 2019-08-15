@@ -1,6 +1,6 @@
 ---
 title: Bästa praxis för att välja en Time-ID i förhandsversionen av Azure Time Series Insights | Microsoft Docs
-description: Förstå metodtips när du väljer en tid-ID i förhandsversionen av Azure Time Series Insights.
+description: Förstå metod tips när du väljer ett Time Series-ID i Azure Time Series Insights för hands versionen.
 author: ashannon7
 ms.author: dpalled
 ms.workload: big-data
@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 05/08/2019
+ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: af540267e4afc1b248b66b1c6f4989b832c38b58
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7057ce27cbbba8d70835493fc91a88ad823369bb
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66237585"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68947206"
 ---
 # <a name="best-practices-for-choosing-a-time-series-id"></a>Metodtips för att välja en Time-ID
 

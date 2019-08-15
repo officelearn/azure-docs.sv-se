@@ -12,16 +12,19 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: f7cd0125de886eed4b3e5c31503fdd4b7cbb76dd
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 7b14ed2c18c1106477e21062afaa4cc8f672c203
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847822"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946389"
 ---
-# <a name="log-metrics-during-training-runs-in-azure-machine-learning"></a>Logga mått under inlärnings körningar i Azure Machine Learning
+# <a name="log-metrics-during-training-runs"></a>Logga mått under utbildnings körningar
 
 Förbättra skapande processen för modeller genom att spåra dina experiment och övervaknings mått. I den här artikeln lär du dig hur du lägger till loggning i ditt utbildnings skript, skickar en experiment körning, övervakar körningen och visar resultatet av en körning i Azure Machine Learning-tjänsten.
+
+> [!NOTE]
+> Azure Machine Learning tjänsten kan också logga information från andra källor under utbildningen, till exempel AutoML eller Docker-behållaren som kör övnings jobbet. Dessa loggar är inte dokumenterade. Om du stöter på problem och kontaktar Microsoft-supporten kan det hända att de kan använda dessa loggar under fel sökning.
 
 ## <a name="list-of-training-metrics"></a>Lista över mått för utbildning 
 
@@ -221,7 +224,7 @@ Det här exemplet kan utökas med grundläggande sklearn upphöjning modellen ov
 
 ## <a name="manage-a-run"></a>Hantera en körning
 
-I avsnittet [starta, övervaka och avbryta utbildnings körningar](how-to-manage-runs.md) finns mer information om hur du hanterar dina experiment genom att markera Azure Machine Learning arbets flöden.
+[Övnings körningen starta, övervaka och Avbryt visar](how-to-manage-runs.md) mer information Azure Machine Learning arbets flöden för hur du hanterar experiment.
 
 ## <a name="view-run-details"></a>Visa körningsinformation
 

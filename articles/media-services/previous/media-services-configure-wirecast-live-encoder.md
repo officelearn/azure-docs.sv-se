@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
 ms.date: 03/14/2019
-ms.author: juliako;cenkdin;anilmur
-ms.openlocfilehash: d0da69601bfc6fd09c10b30d45195722781d87d6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: juliako
+ms.reviewer: cenkdin;anilmur
+ms.openlocfilehash: be3c75680599c07a3cebe3dcf0436884958e1706
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61232140"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "69016670"
 ---
 # <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>Använd Wirecast-kodare för att skicka en direktsänd dataström med enkel bithastighet 
 > [!div class="op_single_selector"]
@@ -69,22 +70,22 @@ Medan kanalen startar kan du [konfigurera kodaren](media-services-configure-wire
 >
 >
 
-## <a name="a-idconfigurewirecastrtmp-configure-the-telestream-wirecast-encoder"></a><a id="configure_wirecast_rtmp" />Konfigurera Telestream Wirecast-kodare
+## <a name="a-idconfigure_wirecast_rtmp-configure-the-telestream-wirecast-encoder"></a><a id="configure_wirecast_rtmp" />Konfigurera Telestream Wirecast-kodare
 I den här självstudien används följande utdatainställningar för. Resten av det här avsnittet beskriver konfigurationssteg i detalj.
 
 **Video**:
 
-* Codec: H.264
-* Profil: Hög (nivå 4.0)
-* Med flera bithastigheter: 5000 kbit/s
-* Bildrutan: 2 sekunder (60 sekunder)
-* Bildfrekvens: 30
+* ADPCM H. 264
+* Upphandlarprofil Hög (nivå 4,0)
+* Hastigheten 5000 kbps
+* Nyckel bild: 2 sekunder (60 sekunder)
+* Bild Rute frekvens: 30
 
 **Ljud**:
 
-* Codec: AAC (LC)
-* Med flera bithastigheter: 192 kbit/s
-* Samplingshastighet: 44.1 kHz
+* ADPCM AAC (LC)
+* Hastigheten 192 kbps
+* Samplings frekvens: 44,1 kHz
 
 ### <a name="configuration-steps"></a>Konfigurationssteg
 1. Öppna Telestream Wirecast-programmet på datorn som används och konfigureras för RTMP strömning.
@@ -103,16 +104,16 @@ I den här självstudien används följande utdatainställningar för. Resten av
 
     **Video**
 
-   * Kodaren: MainConcept H.264
-   * Bildrutor per sekund: 30
-   * Genomsnittlig bithastighet: 5000 kbits/sek (kan justeras utifrån nätverksbegränsningar)
-   * Profil: Main
-   * Viktiga ramens varje: 60 bildrutor
+   * Encoder MainConcept H. 264
+   * Bild rutor per sekund: 30
+   * Genomsnittlig bit hastighet: 5000 Kbits/SEK (kan justeras baserat på nätverks begränsningar)
+   * Upphandlarprofil Huvud
+   * Nyckel bild varje: 60 bild rutor
 
      **Ljud**
 
-   * Bithastighet för mål: 192 kbits/sek
-   * Samplingshastighet: 44.100 kHz
+   * Mål bit hastighet: 192 Kbits per sekund
+   * Samplings frekvens: 44,100 kHz
 
      ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast4.png)
 6. Tryck på **Spara**.

@@ -2,19 +2,18 @@
 title: Använd enheter offline – Azure IoT Edge | Microsoft Docs
 description: Förstå hur IoT Edge-enheter och moduler kan användas utan internet-anslutning för längre tid och hur IoT Edge kan aktivera vanliga IoT-enheter att fungera offline för.
 author: kgremban
-manager: philmea
 ms.author: kgremban
-ms.date: 06/04/2019
+ms.date: 08/04/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 4a46128d3b0e77ff7921e1f4875c318a95309769
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 6d82b353f8b485b4441853b7ff8e70e7d69f4d6a
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598605"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68986975"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices"></a>Förstå utökade offline-funktioner för IoT Edge enheter, moduler och underordnade enheter
 
@@ -137,43 +136,71 @@ Den här inställningen är en önskad egenskap för IoT Edge hubben, som lagras
 }
 ```
 
-### <a name="additional-offline-storage"></a>Ytterligare offlinelagringsplats
+### <a name="host-storage-for-system-modules"></a>Värd lagring för systemmoduler
 
-Meddelanden lagras som standard i IoT Edge hubbens behållar system. Om den mängden lagringsutrymme som inte är tillräckligt för behoven offline, kan du tilldela lokal lagring på IoT Edge-enhet. Skapa en miljö variabel för IoT Edge hubben som pekar på en lagringsmapp i behållaren. Använd sedan skapa-alternativen för att binda den storage-mappen till en mapp på värddatorn. 
+Information om meddelanden och modulens tillstånd lagras i IoT Edge hubbens lokala behållare som standard. För bättre tillförlitlighet, särskilt när du arbetar offline, kan du också dedikera lagring på värden IoT Edge enheten.
 
-Du kan konfigurera miljövariabler och skapa alternativ för modulen IoT Edge Hub i Azure Portal i avsnittet **Konfigurera avancerade gräns körnings inställningar** . Eller du kan konfigurera det direkt i manifestet distribution. 
+Om du vill konfigurera lagring på värd systemet skapar du miljövariabler för IoT Edge Hub och IoT Edge agent som pekar på en lagringsmapp i behållaren. Använd sedan skapa-alternativen för att binda den storage-mappen till en mapp på värddatorn. 
+
+Du kan konfigurera miljövariabler och skapa alternativ för modulen IoT Edge Hub i Azure Portal i avsnittet **Konfigurera avancerade gräns körnings inställningar** . 
+
+1. För både IoT Edge hubb och IoT Edge agent lägger du till en miljö variabel med namnet **storageFolder** som pekar på en katalog i modulen.
+1. För både IoT Edge hubb och IoT Edge agent lägger du till bindningar för att ansluta en lokal katalog på värddatorn till en katalog i modulen. Exempel: 
+
+   ![Lägg till skapande alternativ och miljövariabler för lokal lagring](./media/offline-capabilities/offline-storage.png)
+
+Eller så kan du konfigurera den lokala lagringen direkt i distributions manifestet. Exempel: 
 
 ```json
-"edgeHub": {
-    "type": "docker",
-    "settings": {
-        "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
-        "createOptions": {
-            "HostConfig": {
-                "Binds": ["<HostStoragePath>:<ModuleStoragePath>"],
-                "PortBindings": {
-                    "8883/tcp": [{"HostPort":"8883"}],
-                    "443/tcp": [{"HostPort":"443"}],
-                    "5671/tcp": [{"HostPort":"5671"}]
+"systemModules": {
+    "edgeAgent": {
+        "settings": {
+            "image": "mcr.microsoft.com/azureiotedge-agent:1.0",
+            "createOptions": {
+                "HostConfig": {
+                    "Binds":["<HostStoragePath>:<ModuleStoragePath>"]
                 }
+            }
+        },
+        "type": "docker",
+        "env": {
+            "storageFolder": {
+                "value": "<ModuleStoragePath>"
             }
         }
     },
-    "env": {
-        "storageFolder": {
-            "value": "<ModuleStoragePath>"
-        }
-    },
-    "status": "running",
-    "restartPolicy": "always"
+    "edgeHub": {
+        "settings": {
+            "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
+            "createOptions": {
+                "HostConfig": {
+                    "Binds":["<HostStoragePath>:<ModuleStoragePath"],
+                    "PortBindings":{"5671/tcp":[{"HostPort":"5671"}],"8883/tcp":[{"HostPort":"8883"}],"443/tcp":[{"HostPort":"443"}]}}}
+        },
+        "type": "docker",
+        "env": {
+            "storageFolder": {
+                "value": "<ModuleStoragePath>"
+            }
+        },
+        "status": "running",
+        "restartPolicy": "always"
+    }
 }
 ```
 
-Ersätt `<HostStoragePath>` och `<ModuleStoragePath>` med värden och modulen lagringen sökväg; både värden och modulen lagringssökväg måste vara en absolut sökväg. I skapa-alternativen binder du värd-och modulens lagrings Sök vägar tillsammans. Skapa sedan en miljö variabel som pekar på modulens lagrings Sök väg.  
+Ersätt `<HostStoragePath>` och`<ModuleStoragePath>` med din lagrings Sök väg för värd och modul; båda värdena måste vara en absolut sökväg. 
 
 `"Binds":["/etc/iotedge/storage/:/iotedge/storage/"]` Innebär till exempel att katalogen **/etc/iotedge/Storage** på värd systemet är mappad till katalogen **/iotedge/Storage/** på behållaren. Eller ett annat exempel för Windows- `"Binds":["C:\\temp:C:\\contemp"]` system, innebär att katalogen **c:\\Temp** på värd systemet är mappad till katalogen **c\\: Temp** på behållaren. 
 
-Du kan också hitta mer information om att skapa alternativ från Docker- [dokument](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate).
+På Linux-enheter ser du till att IoT Edge hubbens användar profil, UID 1000, har Läs-, skriv-och körnings behörighet till värd system katalogen. Dessa behörigheter är nödvändiga så att IoT Edge Hub kan lagra meddelanden i katalogen och hämta dem senare. (IoT Edge agenten fungerar som rot, så du behöver inte ytterligare behörigheter.) Det finns flera sätt att hantera katalog behörigheter på Linux-system, inklusive `chown` att använda för att ändra katalogens `chmod` ägare och sedan ändra behörigheterna. Exempel:
+
+```bash
+sudo chown 1000 <HostStoragePath>
+sudo chmod 700 <HostStoragePath>
+```
+
+Du hittar mer information om att skapa alternativ från [Docker-dokument](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,5 +1,5 @@
 ---
-title: Regression Förutsäga pris
+title: 'Exempel på visuella gränssnitt #1: regression till förutsägelse pris'
 titleSuffix: Azure Machine Learning service
 description: Lär dig hur du skapar en maskin inlärnings modell för att förutsäga ett bils pris utan att behöva skriva en enda rad kod.
 services: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: 95373bdd58332f49307004067cdd04b9c313b935
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 0c86955e0b10111bf9b6db0d884b73867a4467c5
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68845940"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990412"
 ---
 # <a name="sample-1---regression-predict-price"></a>Exempel 1 – regression: Förutsäga pris
 

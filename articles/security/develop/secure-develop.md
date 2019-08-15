@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 1b2e6e0aa74c06afea09a67dbdf65ca47727b72e
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: c1c7dd0bd017852144139a841ff609dabf0f1a27
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68780567"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68928058"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Utveckla säkra program på Azure
 I den här artikeln presenterar vi säkerhets aktiviteter och kontroller för att tänka på när du utvecklar program för molnet. Säkerhets frågor och koncept som du bör tänka på under implementerings-och verifierings faserna i Microsoft [Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) omfattas. Målet är att hjälpa dig att definiera aktiviteter och Azure-tjänster som du kan använda för att utveckla ett säkrare program.
@@ -89,7 +89,7 @@ Det innebär att färre personer har till gång till dina verkliga data, vilket 
 
 Du måste implementera en stark lösen ords princip för att säkerställa att användarna skapar ett komplext lösen ord (till exempel 12 tecken och som kräver alfanumeriska tecken och specialtecken) för att skydda dig mot brute-och ordbaserade gissning.
 
-Du kan använda ett identitets ramverk för att skapa och genomdriva lösen ords principer. Azure AD B2C hjälper dig med lösen ords hantering genom att tillhandahålla [inbyggda principer](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows#create-a-password-reset-user-flow), [återställning av lösen ord](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-sspr)med självbetjäning och mycket mer.
+Du kan använda ett identitets ramverk för att skapa och genomdriva lösen ords principer. Azure AD B2C hjälper dig med lösen ords hantering genom att tillhandahålla [inbyggda principer](../../active-directory-b2c/tutorial-create-user-flows.md#create-a-password-reset-user-flow), [återställning av lösen ord](../../active-directory-b2c/active-directory-b2c-reference-sspr.md)med självbetjäning och mycket mer.
 
 Kontrol lera att alla nycklar och lösen ord är utbytbara och att de genereras eller ersätts när du har installerat resurser för att skydda mot attacker på standard konton.
 
@@ -99,9 +99,9 @@ Om programmet måste generera lösen ord automatiskt måste du se till att de ge
 
 Om ditt program tillåter [fil överföringar](https://www.owasp.org/index.php/Unrestricted_File_Upload)bör du överväga de försiktighets åtgärder som du kan vidta för den här riskfyllda aktiviteten. Det första steget i många attacker är att hämta skadlig kod i ett system som är utsatt för angrepp. Genom att använda en fil uppladdning kan angriparen utföra detta. OWASP erbjuder lösningar för att verifiera en fil för att säkerställa att filen som du laddar upp är säker.
 
-Skydd mot skadlig kod hjälper till att identifiera och ta bort virus, spionprogram och annan skadlig program vara. Du kan installera [Microsoft Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware) eller en Microsoft-partners slut punkts skydds lösning ([Trend Micro](https://www.trendmicro.com/azure/), [Symantec](https://www.symantec.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10)och [System Center Endpoint Protection](https://docs.microsoft.com/sccm/protect/deploy-use/endpoint-protection)).
+Skydd mot skadlig kod hjälper till att identifiera och ta bort virus, spionprogram och annan skadlig program vara. Du kan installera [Microsoft Antimalware](../fundamentals/antimalware.md) eller en Microsoft-partners slut punkts skydds lösning ([Trend Micro](https://www.trendmicro.com/azure/), [Symantec](https://www.symantec.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10)och [System Center Endpoint Protection](https://docs.microsoft.com/sccm/protect/deploy-use/endpoint-protection)).
 
-[Microsoft Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware) innehåller funktioner som real tids skydd, schemalagd genomsökning, reparation av skadlig kod, signaturkrav, uppdatering av motor, exempel rapportering och insamling av undantags händelser. Du kan integrera Microsofts lösningar för program mot skadlig kod och partner med [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-partner-integration) för enkel distribution och inbyggd identifiering (aviseringar och incidenter).
+[Microsoft Antimalware](../fundamentals/antimalware.md) innehåller funktioner som real tids skydd, schemalagd genomsökning, reparation av skadlig kod, signaturkrav, uppdatering av motor, exempel rapportering och insamling av undantags händelser. Du kan integrera Microsofts lösningar för program mot skadlig kod och partner med [Azure Security Center](../../security-center/security-center-partner-integration.md) för enkel distribution och inbyggd identifiering (aviseringar och incidenter).
 
 ### <a name="dont-cache-sensitive-content"></a>Cachelagra inte känsligt innehåll
 
@@ -117,7 +117,7 @@ Du genomsöker ditt program och dess beroende bibliotek för att identifiera eve
 Sårbarhets genomsökning som drivs av [TINFOIL Security](https://www.tinfoilsecurity.com/) är tillgänglig för Azure App Service Web Apps. [TINFOIL säkerhets genomsökning via App Service](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) erbjuder utvecklare och administratörer ett snabbt, integrerat och ekonomiskt sätt att identifiera och åtgärda sårbarheter innan en skadlig aktör kan dra nytta av dem.
 
 > [!NOTE]
-> Du kan också [integrera TINFOIL-säkerhet med Azure AD](https://docs.microsoft.com/azure/active-directory/saas-apps/tinfoil-security-tutorial). Att integrera TINFOIL Security med Azure AD ger följande fördelar:
+> Du kan också [integrera TINFOIL-säkerhet med Azure AD](../../active-directory/saas-apps/tinfoil-security-tutorial.md). Att integrera TINFOIL Security med Azure AD ger följande fördelar:
 >  - I Azure AD kan du kontrol lera vem som har åtkomst till TINFOIL-säkerhet.
 >  - Användarna kan loggas in automatiskt på TINFOIL Security (enkel inloggning) med hjälp av deras Azure AD-konton.
 >  - Du kan hantera dina konton på en enda, central plats, Azure Portal.
@@ -128,7 +128,7 @@ Dynamic App Security Testing (DAST) är en process för att testa ett program i 
 
 DAST skiljer sig från SAST (static App Security testing). SAST-verktyg analyserar käll kod eller kompilerade versioner av kod när koden inte körs för att hitta säkerhets fel.
 
-Utför DAST, helst med hjälp av en säkerhets tekniker (en utträngande [testare](https://docs.microsoft.com/azure/security/fundamentals/pen-testing) eller sårbarhets bedömare). Om en säker person inte är tillgänglig kan du utföra DAST med en webbproxy-skanner och lite utbildning. Anslut en DAST-skanner tidigt för att se till att du inte introducerar tydliga säkerhets problem i din kod. Se [OWASP](https://www.owasp.org/index.php/Category:Vulnerability_Scanning_Tools) -webbplatsen för en lista över säkerhets skannrar för webb program.
+Utför DAST, helst med hjälp av en säkerhets tekniker (en utträngande [testare](../fundamentals/pen-testing.md) eller sårbarhets bedömare). Om en säker person inte är tillgänglig kan du utföra DAST med en webbproxy-skanner och lite utbildning. Anslut en DAST-skanner tidigt för att se till att du inte introducerar tydliga säkerhets problem i din kod. Se [OWASP](https://www.owasp.org/index.php/Category:Vulnerability_Scanning_Tools) -webbplatsen för en lista över säkerhets skannrar för webb program.
 
 ### <a name="perform-fuzz-testing"></a>Utför fuzz-testning
 
@@ -144,7 +144,7 @@ Du kan bygga en bild av attack ytan genom att genomsöka programmet. Microsoft e
 
 ### <a name="perform-security-penetration-testing"></a>Utför testning av säkerhets inträngning
 
-Att se till att ditt program är säkert är lika viktigt som att testa andra funktioner. Gör inträngande och [testa](https://docs.microsoft.com/azure/security/fundamentals/pen-testing) en standard del av bygg-och distributions processen. Schemalägga vanliga säkerhetstester och sårbarhets sökning på distribuerade program och övervaka för öppna portar, slut punkter och attacker.
+Att se till att ditt program är säkert är lika viktigt som att testa andra funktioner. Gör inträngande och [testa](../fundamentals/pen-testing.md) en standard del av bygg-och distributions processen. Schemalägga vanliga säkerhetstester och sårbarhets sökning på distribuerade program och övervaka för öppna portar, slut punkter och attacker.
 
 ### <a name="run-security-verification-tests"></a>Köra tester för säkerhets verifiering
 

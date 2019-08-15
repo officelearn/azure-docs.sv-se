@@ -103,7 +103,7 @@
     - name: Säkerhet
       items:
         - name: Översikt över Enterprise Security
-          displayName: authorization authentication encryption
+          displayName: authorization authentication encryption aad azure active directory
           href: concept-enterprise-security.md
         - name: Hantera användare och roller
           href: how-to-assign-roles.md
@@ -216,8 +216,10 @@
         - name: Bärbara virtuella datorer
           href: how-to-deploy-local-container-notebook-vm.md
         - name: Azure Container Instances
+          displayName: aci
           href: how-to-deploy-azure-container-instance.md
         - name: Azure Kubernetes Service
+          displayName: 'aks, aad, authentication, azure active directory'
           href: how-to-deploy-azure-kubernetes-service.md
         - name: GPU-inferens
           href: how-to-deploy-inferencing-gpus.md

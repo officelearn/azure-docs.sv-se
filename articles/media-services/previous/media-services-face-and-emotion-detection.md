@@ -1,6 +1,6 @@
 ---
-title: Identifiera Ansikts- och Känslo med Azure Media Analytics | Microsoft Docs
-description: Det här avsnittet visar hur du identifierar ansikten och känslor med Azure Media Analytics.
+title: Identifiera ansikts-och känslo med Azure-medieanalys | Microsoft Docs
+description: Det här avsnittet visar hur du identifierar ansikten och känslor med Azure-medieanalys.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -13,57 +13,58 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
-ms.author: milanga;juliako;
-ms.openlocfilehash: 46e60583da79006c133c8d9fac63e27f28bd699f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: juliako
+ms.reviewer: milanga
+ms.openlocfilehash: 3ae2e49b812e7a9515cef81b328ceb87e1a7f017
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61217258"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "69015466"
 ---
-# <a name="detect-face-and-emotion-with-azure-media-analytics"></a>Identifiera Ansikts- och Känslo med Azure Media Analytics
+# <a name="detect-face-and-emotion-with-azure-media-analytics"></a>Identifiera ansikts-och känslo med Azure-medieanalys
 ## <a name="overview"></a>Översikt
-Den **Ansiktsigenkänning i Azure Media** mediebearbetare (MP) kan du räkna, spåra förflyttningar och även för mätare målgrupp deltagande och reaktion via ansiktsuttryck. Den här tjänsten innehåller två funktioner: 
+Med MP ( **Azure Media Face Detector** Media processor) kan du räkna, spåra förflyttningar och till och med mäta åhörarnas medverkan och reaktion via ansikts uttryck. Den här tjänsten innehåller två funktioner: 
 
-* **Ansiktsigenkänning**
+* **Ansikts igenkänning**
   
-    Ansiktsigenkänning söker efter och spårar ansikten i en video. Flera ansikten kan identifieras och spåras senare när de flyttas runt, med tid och plats metadata som returneras i en JSON-fil. Under spårning försöker ge en konsekvent ID till samma sida när personen som flyttas på skärmen, även om de hindras eller kort lämna ramen.
+    Ansikts igenkänning hittar och spårar mänskliga ansikten i en video. Du kan identifiera flera ansikten och sedan spåras de när de flyttas runt, med tids-och platsens metadata som returneras i en JSON-fil. Under spårningen försöker den ge ett konsekvent ID till samma ansikte medan personen rör sig på skärmen, även om de är blockerade eller om de inte lämnar ramen.
   
   > [!NOTE]
-  > Ansiktsigenkänning utför inte i den här tjänsten. En person som lämnar ramen eller blir skymd för länge får ett nytt ID när de kommer tillbaka.
+  > Den här tjänsten utför inte ansikts igenkänning. En person som lämnar ramen eller som kan förhindras för länge får ett nytt ID när de returneras.
   > 
   > 
-* **Känsloigenkänning**
+* **Känslo-identifiering**
   
-    Känsloigenkänning är en valfri komponent i ansikte identifiering Mediebearbetare som returnerar analysis på flera känslomässig attribut från de ansikten har identifierats, inklusive lycka, sorg, rädsla, ilska, med mera. 
+    Känslo-identifiering är en valfri komponent i Ansiktsigenkänning medie processorn som returnerar analyser på flera känslomässig-attribut från de ansikten som identifierats, inklusive glädje, ledsenhet, frukt, ilska och mycket annat. 
 
-Den **Ansiktsigenkänning i Azure Media** MP förhandsvisas just nu.
+**Azure Media Face Detector** MP är för närvarande en för hands version.
 
-Den här artikeln innehåller information om **Ansiktsigenkänning i Azure Media** och visar hur du använder det med Media Services SDK för .NET.
+Den här artikeln innehåller information om **Azure Media Face Detector** och visar hur du använder det med Media Services SDK för .net.
 
-## <a name="face-detector-input-files"></a>Står inför detektor indatafiler
-Videofiler. För närvarande stöds följande format: MP4 MOV och WMV.
+## <a name="face-detector-input-files"></a>Indatafiler för ansikts detektor
+Videofiler. För närvarande stöds följande format: MP4, MOV och WMV.
 
-## <a name="face-detector-output-files"></a>Står inför detektor utdatafiler
-Ansikts-API för identifiering och spårning av ger hög identifiering och spårning av som kan identifiera upp till 64 mänskliga ansikten i en video. Främre ansikten ger det bästa resultatet, när sida ansikten och små ansikten (mindre än eller lika med 24 x 24 bildpunkter) kanske inte är så korrekt.
+## <a name="face-detector-output-files"></a>Utdatafiler för ansikts igenkänning
+API för ansikts identifiering och spårning tillhandahåller identifiering och spårning av topp precisions platser som kan identifiera upp till 64 mänskliga ansikten i en video. Front ansikten ger bäst resultat, medan sido ytor och små ytor (mindre än eller lika med 24x24 bild punkter) kanske inte är lika EXAKTA.
 
-Identifierade och spårade ansikten returneras med koordinaterna (vänster, top, bredd och höjd) som anger platsen för ansikten i bild i bildpunkter, samt ett face ID-nummer som indikerar spårningen av den individen. Face ID-nummer är lätt att återställa under omständigheter när främre ansiktet förloras eller överlappas i RAM, vilket resulterar i vissa personer komma tilldelats flera ID: N.
+Identifierade och spårade ansikten returneras med koordinater (vänster, topp, bredd och höjd) som anger platsen för ansikten i bild punkter, samt ett ansikts-ID-nummer som visar spårning av den enskilda. Ansikts-ID-nummer är känsliga att återställa under förhållanden när front ytan tappas bort eller överlappar varandra i ramen, vilket leder till att vissa personer får flera ID: n.
 
 ## <a id="output_elements"></a>Element i JSON-filen för utdata
 
 [!INCLUDE [media-services-analytics-output-json](../../../includes/media-services-analytics-output-json.md)]
 
-Ansiktsigenkänning använder tekniker för fragmentering (där metadata kan delas upp i tidsbaserade segment och du kan ladda ned det du behöver) och segmentering (där händelserna delas om de blir för stor). Några enkla beräkningar kan hjälpa dig att transformera data. Exempel: om en händelse startade 6300 (ticks), med en tid för 2997 (ticken per sekund) och bildhastighet 29,97 (bildrutor per sekund), sedan:
+Ansikts detektor använder metoder för fragmentering (där metadata kan delas upp i tidsbaserade segment och du kan bara hämta det du behöver) och segmentering (där händelserna är uppdelade om de blir för stora). Några enkla beräkningar kan hjälpa dig att transformera data. Till exempel, om en händelse som startades vid 6300 (Tick), med en tids skala på 2997 (Tick/s) och RAM hastighet på 29,97 (bild rutor/sekund), sedan:
 
 * Start/tidsskala = 2,1 sekunder
-* Sekunder x Framerate = 63 bildrutor
+* Sekunder x RAM hastighet = 63 bild rutor
 
-## <a name="face-detection-input-and-output-example"></a>Står inför identifiering av indata och utdata exempel
-### <a name="input-video"></a>Indatavideon
-[Indatavideon](https://ampdemo.azureedge.net/azuremediaplayer.html?url=httpss%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc8834d9f-0b49-4b38-bcaf-ece2746f1972%2FMicrosoft%20Convergence%202015%20%20Keynote%20Highlights.ism%2Fmanifest&amp;autoplay=false)
+## <a name="face-detection-input-and-output-example"></a>Exempel på indata och utdata för ansikts igenkänning
+### <a name="input-video"></a>Inmatad video
+[Inmatad video](https://ampdemo.azureedge.net/azuremediaplayer.html?url=httpss%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc8834d9f-0b49-4b38-bcaf-ece2746f1972%2FMicrosoft%20Convergence%202015%20%20Keynote%20Highlights.ism%2Fmanifest&amp;autoplay=false)
 
-### <a name="task-configuration-preset"></a>Uppgiftskonfiguration (förinställning)
-När du skapar en uppgift med **Ansiktsigenkänning i Azure Media**, måste du ange en förinställning för konfigurationen. Följande configuration förinställningen är bara för ansiktsigenkänning.
+### <a name="task-configuration-preset"></a>Uppgifts konfiguration (förval)
+När du skapar en aktivitet med **Azure Media Face Detector**måste du ange en konfigurations för inställning. Följande konfigurations förval är bara för ansikts igenkänning.
 
 ```json
     {
@@ -74,13 +75,13 @@ När du skapar en uppgift med **Ansiktsigenkänning i Azure Media**, måste du a
     }
 ```
 
-#### <a name="attribute-descriptions"></a>Attributbeskrivningar
+#### <a name="attribute-descriptions"></a>Beskrivningar av attribut
 | Attributnamn | Beskrivning |
 | --- | --- |
-| Läge |Fast - snabb bearbetning av hastighet, men mindre exakta (standard).|
+| Läge |Snabb och snabbare bearbetnings hastighet, men är mindre exakt (standard).|
 
 ### <a name="json-output"></a>JSON-utdata
-Följande exempel visar JSON-utdata har trunkerats.
+Följande exempel på JSON-utdata trunkerades.
 
 ```json
     {
@@ -130,12 +131,12 @@ Följande exempel visar JSON-utdata har trunkerats.
 ```
 
 
-## <a name="emotion-detection-input-and-output-example"></a>Känsloigenkänning indata och utdata exempel
-### <a name="input-video"></a>Indatavideon
-[Indatavideon](https://ampdemo.azureedge.net/azuremediaplayer.html?url=httpss%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc8834d9f-0b49-4b38-bcaf-ece2746f1972%2FMicrosoft%20Convergence%202015%20%20Keynote%20Highlights.ism%2Fmanifest&amp;autoplay=false)
+## <a name="emotion-detection-input-and-output-example"></a>Exempel på indata och utdata för känslo-identifiering
+### <a name="input-video"></a>Inmatad video
+[Inmatad video](https://ampdemo.azureedge.net/azuremediaplayer.html?url=httpss%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc8834d9f-0b49-4b38-bcaf-ece2746f1972%2FMicrosoft%20Convergence%202015%20%20Keynote%20Highlights.ism%2Fmanifest&amp;autoplay=false)
 
-### <a name="task-configuration-preset"></a>Uppgiftskonfiguration (förinställning)
-När du skapar en uppgift med **Ansiktsigenkänning i Azure Media**, måste du ange en förinställning för konfigurationen. Följande configuration förinställningen anger för att skapa JSON-baserade på känsloigenkänning.
+### <a name="task-configuration-preset"></a>Uppgifts konfiguration (förval)
+När du skapar en aktivitet med **Azure Media Face Detector**måste du ange en konfigurations för inställning. Följande konfigurations för inställning anger att JSON ska skapas baserat på känslo identifiering.
 
 ```json
     {
@@ -149,23 +150,23 @@ När du skapar en uppgift med **Ansiktsigenkänning i Azure Media**, måste du a
 ```
 
 
-#### <a name="attribute-descriptions"></a>Attributbeskrivningar
+#### <a name="attribute-descriptions"></a>Beskrivningar av attribut
 | Attributnamn | Beskrivning |
 | --- | --- |
-| Läge |Ansikten: Endast ansiktsspårning.<br/>PerFaceEmotion: Returnera känslor separat för varje ansiktsigenkänning.<br/>AggregateEmotion: Returnera känslo-genomsnittliga värden för alla ansikten i ram. |
-| AggregateEmotionWindowMs |Använd om AggregateEmotion läge har valt. Anger hur lång video som användes för att skapa varje aggregerade resultat, i millisekunder. |
-| AggregateEmotionIntervalMs |Använd om AggregateEmotion läge har valt. Anger hur ofta att skapa mängdresultat. |
+| Läge |Ytor Endast ansikts igenkänning.<br/>PerFaceEmotion: Returnera känslo oberoende för varje ansikts igenkänning.<br/>AggregateEmotion: Returnera genomsnittliga känslo-värden för alla ansikten i ramen. |
+| AggregateEmotionWindowMs |Använd IF AggregateEmotion mode (Välj). Anger längden på videon som används för att producera varje sammanlagt resultat, i millisekunder. |
+| AggregateEmotionIntervalMs |Använd IF AggregateEmotion mode (Välj). Anger i vilken frekvens som sammanställnings resultaten ska skapas. |
 
-#### <a name="aggregate-defaults"></a>Sammanställd standardvärden
-Nedan är rekommenderade värden för de sammanställda fönster och intervall. AggregateEmotionWindowMs bör vara längre än AggregateEmotionIntervalMs.
+#### <a name="aggregate-defaults"></a>Aggregera standardvärden
+Nedan visas rekommenderade värden för mängd fönster och intervall inställningar. AggregateEmotionWindowMs får inte vara längre än AggregateEmotionIntervalMs.
 
-|| Standardvärden (s) | Max(s) | Minuten(minuterna) |
+|| Standardvärden (s) | Max (s) | Min (s) |
 |--- | --- | --- | --- |
 | AggregateEmotionWindowMs |0,5 |2 |0.25|
 | AggregateEmotionIntervalMs |0,5 |1 |0.25|
 
 ### <a name="json-output"></a>JSON-utdata
-JSON-utdata för sammanställd känslor (trunkerad):
+JSON-utdata för sammanställd känslo (trunkerad):
 
 ```json
     {
@@ -321,24 +322,24 @@ JSON-utdata för sammanställd känslor (trunkerad):
 ```
 
 ## <a name="limitations"></a>Begränsningar
-* De video indataformat som stöds är MP4, MOV och WMV.
-* Ansikts-flashminnet storleksintervall är 24 x 24 till 2048 x 2048 bildpunkter. Kommer inte att identifiera ansikten utanför det här intervallet.
-* För varje video är det maximala antalet ansikten returnerade 64.
-* Vissa ansikten kanske inte identifieras på grund av tekniska utmaningar; till exempel mycket stora ansikte vinklar (head-attityd) och stora ocklusion. Främre och nästan direkt ansikten har bästa resultat.
+* De inspelnings video format som stöds är MP4, MOV och WMV.
+* Det identifierbara storleks intervallet för ansikts är 24x24 till 2048x2048 bild punkter. Ytorna utanför det här intervallet kommer inte att identifieras.
+* För varje video är det maximala antalet ansikten som returneras 64.
+* Vissa ansikten kanske inte kan identifieras på grund av tekniska utmaningar. till exempel mycket stora ansikts vinklar (Head-attityd) och stora ocklusion. Front-och närbelägna ansikten har bäst resultat.
 
-## <a name="net-sample-code"></a>.NET-exempelkod
+## <a name="net-sample-code"></a>.NET-exempel kod
 
 Följande program visar hur du:
 
-1. Skapa en tillgång och överför en mediefil till tillgången.
-2. Skapa ett jobb med en aktivitet för identifiering av ansikte baserat på en konfigurationsfil som innehåller följande json-förinställningen: 
+1. Skapa en till gång och överför en mediefil till till gången.
+2. Skapa ett jobb med en ansikts identifierings uppgift baserat på en konfigurations fil som innehåller följande JSON-förval: 
 
     ```json
             {
                 "version": "1.0"
             }
     ```
-3. Hämta JSON utdatafilerna. 
+3. Hämta JSON-filerna för utdata. 
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Skapa och konfigurera ett Visual Studio-projekt
 
@@ -520,7 +521,7 @@ namespace FaceDetection
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>Relaterade länkar
-[Azure Media Services Analytics Overview](media-services-analytics-overview.md)
+[Översikt över Azure Media Services Analytics](media-services-analytics-overview.md)
 
-[Azure Medieanalys-demonstrationer](https://amslabs.azurewebsites.net/demos/Analytics.html)
+[Azure-medieanalys demonstrationer](https://amslabs.azurewebsites.net/demos/Analytics.html)
 

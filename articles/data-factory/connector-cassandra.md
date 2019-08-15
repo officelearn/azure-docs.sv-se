@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: d0e8881607fe4dc84a7d533855dc2b9c48e5366d
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: b42313a83be413a9c34a45fca946ea165f8fc9a3
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726191"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967031"
 ---
 # <a name="copy-data-from-cassandra-using-azure-data-factory"></a>Kopiera data från Cassandra med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -40,7 +40,9 @@ Mer specifikt stöder denna Cassandra-anslutning:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill kopiera data från en Cassandra-databas som inte är offentligt tillgänglig, måste du konfigurera en egen värd Integration Runtime. Mer information finns i artikeln om [egen värd integration runtime](create-self-hosted-integration-runtime.md) . Integration Runtime innehåller en inbyggd Cassandra-drivrutin, och du behöver därför inte installera någon driv rutin manuellt när du kopierar data från/till Cassandra.
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
+
+Integration Runtime innehåller en inbyggd Cassandra-drivrutin, och du behöver därför inte installera någon driv rutin manuellt när du kopierar data från/till Cassandra.
 
 ## <a name="getting-started"></a>Komma igång
 
@@ -60,7 +62,7 @@ Följande egenskaper stöds för den länkade tjänsten Cassandra:
 | authenticationType | Typ av autentisering som används för att ansluta till Cassandra-databasen.<br/>Tillåtna värden är: **Basic**och **Anonymous**. |Ja |
 | username |Ange användar namn för användar kontot. |Ja, om authenticationType har angetts till Basic. |
 | password |Ange lösen ordet för användar kontot. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja, om authenticationType har angetts till Basic. |
-| connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda lokal Integration Runtime eller Azure Integration Runtime (om ditt datalager är offentligt tillgänglig). Om den inte anges används standard Azure Integration Runtime. |Nej |
+| connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Läs mer från avsnittet [krav](#prerequisites) . Om den inte anges används standard Azure Integration Runtime. |Nej |
 
 >[!NOTE]
 >Det finns inte stöd för anslutning till Cassandra med SSL.
@@ -128,7 +130,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 ### <a name="cassandra-as-source"></a>Cassandra som källa
 
-Om du vill kopiera data från Cassandra anger du käll typen i kopierings aktiviteten till **CassandraSource**. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnittet:
+Om du vill kopiera data från Cassandra anger du käll typen i kopierings aktiviteten till **CassandraSource**. Följande egenskaper stöds i kopieringsaktiviteten **source** avsnittet:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
@@ -220,7 +222,7 @@ Driv rutinen skulle generera flera virtuella tabeller som representerar den här
 
 Den första virtuella tabellen är bas tabellen med namnet "ExampleTable" som visas i följande tabell: 
 
-| pk_int | Värde |
+| pk_int | Value |
 | --- | --- |
 | 1 |"exempel värde 1" |
 | 3 |"exempel värde 3" |

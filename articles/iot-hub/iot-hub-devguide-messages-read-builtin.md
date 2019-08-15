@@ -1,87 +1,87 @@
 ---
-title: Förstå den inbyggda slutpunkten i Azure IoT Hub | Microsoft Docs
-description: Utvecklarguide – beskriver hur du använder den inbyggda, Event Hubs-kompatibla slutpunkten kan läsa meddelanden från enhet till molnet.
+title: Förstå den inbyggda slut punkten för Azure IoT Hub | Microsoft Docs
+description: Guide för utvecklare – beskriver hur du använder den inbyggda, Event Hub-kompatibla slut punkten för att läsa meddelanden från enheten till molnet.
 author: wesmc7777
 manager: philmea
 ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 02/26/2019
-ms.openlocfilehash: 827d7d9a3d584342703a84dd2a42e5cda9b3a656
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/08/2019
+ms.openlocfilehash: e7b8f8a33b741a8dcf2d1a68ae3cf86d6e3687eb
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61364070"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950416"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Läsa meddelanden från enhet till moln från den inbyggda slutpunkten
 
-Som standard dirigeras meddelanden till den inbyggda tjänst-riktade slutpunkten (**meddelanden/händelser**) som är kompatibel med [Händelsehubbar](https://azure.microsoft.com/documentation/services/event-hubs/). Den här slutpunkten är för närvarande endast synliga använder den [AMQP](https://www.amqp.org/) -protokollet på port 5671. En IoT hub exponerar följande egenskaper så att du kan styra den inbyggda meddelanden för Event Hub-kompatibla slutpunkten **meddelanden/händelser**.
+Som standard dirigeras meddelanden till den inbyggda slut punkten för servicen (**meddelanden/händelser**) som är kompatibel med [Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/). Den här slut punkten exponeras för närvarande endast med [AMQP](https://www.amqp.org/) -protokollet på port 5671. En IoT-hubb visar följande egenskaper så att du kan kontrol lera de inbyggda Event Hub- **meddelanden/händelser**som är kompatibla med meddelande slut punkter.
 
 | Egenskap            | Beskrivning |
 | ------------------- | ----------- |
-| **Antalet partitioner** | Ange den här egenskapen när du skapar för att definiera hur många [partitioner](../event-hubs/event-hubs-features.md#partitions) för enhet-till-moln händelsepåfyllning. |
-| **Kvarhållningstid**  | Den här egenskapen anger hur länge i dagar som meddelanden ska bevaras av IoT Hub. Standardvärdet är en dag, men det kan ökas till sju dagar. |
+| **Antal partitioner** | Ange den här egenskapen vid skapande för att definiera antalet [partitioner](../event-hubs/event-hubs-features.md#partitions) för inmatningen från enhet till moln. |
+| **Kvarhållningsperiod**  | Den här egenskapen anger hur lång tid i dagar som meddelanden ska behållas av IoT Hub. Standardvärdet är en dag, men det kan ökas till sju dagar. |
 
-IoT Hub kan kvarhållning av data i den inbyggda Händelsehubbar högst 7 dagar. Du kan ange kvarhållningstid under skapandet av din IoT-hubb. Tiden för datakvarhållning i IoT Hub beror på nivån för IoT hub och typ av enhet. När det gäller storlek, kan den inbyggda Event Hubs behåller meddelanden av den maximala meddelandestorleken upp till minst 24 timmars kvot. Till exempel för 1 S1-enhet som IoT Hub ger tillräckligt med lagringsutrymme för att behålla minst storlek 400K meddelanden med 4k var och en. Om dina enheter skickar mindre meddelanden, kan de bevaras under längre tid (upp till 7 dagar) beroende på hur mycket lagringsutrymme som förbrukas. Vi garanterar att bevara data under den angivna kvarhållningstiden minst.
+IoT Hub tillåter datakvarhållning i den inbyggda Event Hubs i högst 7 dagar. Du kan ange Retentions tiden när du skapar IoT Hub. Data lagrings tiden i IoT Hub beror på din IoT Hub-nivå och enhets typ. Med den inbyggda Event Hubs kan den inbyggda kvarhålla meddelanden med maximal meddelande storlek upp till minst 24 timmars kvot. Till exempel ger 1 S1-enhet IoT Hub tillräckligt med lagrings utrymme för att behålla minst 400K-meddelanden av 4K-storlek. Om enheterna skickar mindre meddelanden kan de bevaras under längre tid (upp till 7 dagar) beroende på hur mycket lagrings utrymme som används. Vi garanterar att du behåller data för den angivna Retentions tiden som minst.
 
-IoT Hub hjälper dig att hantera konsumentgrupper på det inbyggda enhet till molnet får slutpunkt.
+Med IoT Hub kan du också hantera konsument grupper på den inbyggda slut punkten för att få en enhet till molnet. Du kan ha upp till 20 konsument grupper för varje IoT Hub.
 
-Om du använder [meddelanderoutning](iot-hub-devguide-messages-d2c.md) och [återställningsplats väg](iot-hub-devguide-messages-d2c.md#fallback-route) är aktiverat kan alla meddelanden som inte matchar en fråga på någon väg går du till den inbyggda slutpunkten. Om du inaktiverar den här vägen som återställningsplats, hamnar meddelanden som inte matchar alla frågor.
+Om du använder [meddelanderoutning](iot-hub-devguide-messages-d2c.md) och återställnings [vägen](iot-hub-devguide-messages-d2c.md#fallback-route) är aktive rad, går alla meddelanden som inte matchar en fråga på någon väg till den inbyggda slut punkten. Om du inaktiverar den här återställnings vägen utelämnas meddelanden som inte matchar någon fråga.
 
-Du kan ändra kvarhållningstiden, antingen via programmering med hjälp av den [resursprovidern i IoT Hub REST API: er](/rest/api/iothub/iothubresource), eller med den [Azure-portalen](https://portal.azure.com).
+Du kan ändra Retentions tiden, antingen via programmering med hjälp av [IoT Hub Resource Provider REST-API: er](/rest/api/iothub/iothubresource)eller med [Azure Portal](https://portal.azure.com).
 
-IoT-hubb exponerar den **meddelanden/händelser** inbyggd slutpunkt för ditt backend-tjänster kan läsa enhet-till-moln-meddelanden som tas emot av hubben. Den här slutpunkten är Event Hubs-kompatibla, där du kan använda någon av mekanismerna Event Hubs-tjänsten har stöd för att läsa meddelanden.
+IoT Hub visar den inbyggda slut punkten **meddelanden/händelser** för dina backend-tjänster för att läsa meddelanden från enheten till molnet som tas emot av hubben. Den här slut punkten är kompatibel med Event Hub, vilket gör att du kan använda någon av de mekanismer som Event Hubs tjänsten har stöd för för att läsa meddelanden.
 
-## <a name="read-from-the-built-in-endpoint"></a>Läsa från den inbyggda slutpunkten
+## <a name="read-from-the-built-in-endpoint"></a>Läs från den inbyggda slut punkten
 
-Vissa produktintegreringar och SDK: er för Event Hubs är medvetna om IoT Hub och du kan använda anslutningssträngen för IoT hub-tjänsten för att ansluta till den inbyggda slutpunkten.
+Vissa produkt integrationer och Event Hubs SDK: er är medvetna om IoT Hub och låter dig använda anslutnings strängen för IoT Hub-tjänsten för att ansluta till den inbyggda slut punkten.
 
-När du använder SDK: er för Event Hubs eller produktintegreringar som inte känner till IoT Hub, behöver du en Event Hub-kompatibla slutpunkten och Händelsehubb-kompatibelt namn. Du kan hämta dessa värden från portalen enligt följande:
+När du använder Event Hubs SDK: er eller produkt integrationer som inte är IoT Hub behöver du ett Event Hub-kompatibelt slut punkts-och Event Hub-kompatibelt namn. Du kan hämta dessa värden från portalen på följande sätt:
 
 1. Logga in på den [Azure-portalen](https://portal.azure.com) och navigera till din IoT-hubb.
 
-2. Klicka på **inbyggda slutpunkter**.
+2. Klicka på **inbyggda slut punkter**.
 
-3. Den **händelser** avsnittet innehåller följande värden: **Partitioner**, **Event Hub-kompatibla namnet**, **Event Hub-kompatibla slutpunkten**, **kvarhållningstid**, och **konsumentgrupper**.
+3. Avsnittet **Events** innehåller följande värden: **Partitioner**, **Event Hub-kompatibelt namn**, **Event Hub-kompatibel slut punkt**, **kvarhållningsperiod**och **konsument grupper**.
 
-    ![Inställningar för enhet-till-moln](./media/iot-hub-devguide-messages-read-builtin/eventhubcompatible.png)
+    ![Inställningar för enhet till moln](./media/iot-hub-devguide-messages-read-builtin/eventhubcompatible.png)
 
-I portalen innehåller en fullständig Event Hubs-anslutningssträng som ser ut som i fältet Event Hub-kompatibla slutpunkten: **Endpoint=sb://abcd1234namespace.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=keykeykeykeykeykey=;EntityPath=iothub-ehub-abcd-1234-123456**. Om du använder SDK: N kräver andra värden, skulle och vara:
+I portalen innehåller fältet Event Hub-kompatibel slut punkt en fullständig Event Hubs anslutnings sträng som ser ut så här: **Endpoint=sb://abcd1234namespace.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=keykeykeykeykeykey=;EntityPath=iothub-ehub-abcd-1234-123456**. Om SDK: n som du använder kräver andra värden blir de:
 
-| Namn | Värde |
+| Namn | Value |
 | ---- | ----- |
 | Slutpunkt | sb://abcd1234namespace.servicebus.windows.net/ |
-| Värdnamn | abcd1234namespace.servicebus.windows.net |
+| Värddatornamn | abcd1234namespace.servicebus.windows.net |
 | Namnrymd | abcd1234namespace |
 
-Du kan sedan använda någon princip för delad åtkomst som har den **ServiceConnect** behörighet att ansluta till den angivna Event Hub.
+Du kan sedan använda en princip för delad åtkomst som har **ServiceConnect** behörighet att ansluta till den angivna händelsehubben.
 
-SDK: er som du kan använda för att ansluta till den inbyggda Event Hub-kompatibla slutpunkten som IoT-hubb exponerar är:
+SDK: er som du kan använda för att ansluta till den inbyggda Event Hub-kompatibla slut punkten som IoT Hub visar är:
 
 | Språk | SDK | Exempel | Anteckningar |
 | -------- | --- | ------ | ----- |
-| .NET | https://github.com/Azure/azure-event-hubs-dotnet | [Snabbstart](quickstart-send-telemetry-dotnet.md) | Använder Event Hubs-kompatibla information |
- Java | https://github.com/Azure/azure-event-hubs-java | [Snabbstart](quickstart-send-telemetry-java.md) | Använder Event Hubs-kompatibla information |
-| Node.js | https://github.com/Azure/azure-event-hubs-node | [Snabbstart](quickstart-send-telemetry-node.md) | Använder IoT Hub-anslutningssträng |
-| Python | https://github.com/Azure/azure-event-hubs-python | https://github.com/Azure/azure-event-hubs-python/blob/master/examples/iothub_recv.py | Använder IoT Hub-anslutningssträng |
+| .NET | https://github.com/Azure/azure-event-hubs-dotnet | [Snabbstart](quickstart-send-telemetry-dotnet.md) | Använder Event Hubs-kompatibel information |
+ Java | https://github.com/Azure/azure-event-hubs-java | [Snabbstart](quickstart-send-telemetry-java.md) | Använder Event Hubs-kompatibel information |
+| Node.js | https://github.com/Azure/azure-event-hubs-node | [Snabbstart](quickstart-send-telemetry-node.md) | Använder IoT Hub anslutnings sträng |
+| Python | https://github.com/Azure/azure-event-hubs-python | https://github.com/Azure/azure-event-hubs-python/blob/master/examples/iothub_recv.py | Använder IoT Hub anslutnings sträng |
 
-Produktintegreringar som du kan använda med den inbyggda Event Hub-kompatibla slutpunkten som IoT-hubb exponerar är:
+Produkt integreringarna som du kan använda med den inbyggda Event Hub-kompatibla slut punkten som IoT Hub visar är:
 
 * [Azure Functions](https://docs.microsoft.com/azure/azure-functions/). Se [bearbetning av data från IoT Hub med Azure Functions](https://azure.microsoft.com/resources/samples/functions-js-iot-hub-processing/).
-* [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/). Se [Stream data som indata till Stream Analytics](../stream-analytics/stream-analytics-define-inputs.md#stream-data-from-iot-hub).
-* [Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/). Se [lägga till en IoT hub-händelsekälla i miljön för Time Series Insights](../time-series-insights/time-series-insights-how-to-add-an-event-source-iothub.md).
-* [Apache Storm spout](../hdinsight/storm/apache-storm-develop-csharp-event-hub-topology.md). Du kan visa den [käll-kanalen](https://github.com/apache/storm/tree/master/external/storm-eventhubs) på GitHub.
-* [Integration av Apache Spark](../hdinsight/spark/apache-spark-eventhub-streaming.md).
+* [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/). Se [strömma data som indata i Stream Analytics](../stream-analytics/stream-analytics-define-inputs.md#stream-data-from-iot-hub).
+* [Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/). Se [lägga till en händelse källa för IoT Hub i din Time Series Insights-miljö](../time-series-insights/time-series-insights-how-to-add-an-event-source-iothub.md).
+* [Apache Storm kanalen](../hdinsight/storm/apache-storm-develop-csharp-event-hub-topology.md). Du kan visa [kanalen-källan](https://github.com/apache/storm/tree/master/external/storm-eventhubs) på GitHub.
+* [Apache Spark-integrering](../hdinsight/spark/apache-spark-eventhub-streaming.md).
 * [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs mer om IoT Hub-slutpunkter, [IoT Hub-slutpunkter](iot-hub-devguide-endpoints.md).
+* Mer information om IoT Hub slut punkter finns i [IoT Hub slut punkter](iot-hub-devguide-endpoints.md).
 
-* Den [Snabbstarter](quickstart-send-telemetry-node.md) visar hur du skickar meddelanden från enheten till molnet från simulerade enheter och läsa meddelanden från den inbyggda slutpunkten. 
+* [Snabb starterna](quickstart-send-telemetry-node.md) visar hur du skickar meddelanden från enheten till molnet från simulerade enheter och läser meddelandena från den inbyggda slut punkten. 
 
-Mer information finns i den [Process IoT Hub enhet-till-moln-meddelanden med vägar](tutorial-routing.md) självstudien.
+Mer information finns i självstudierna [Process IoT Hub enhet-till-moln-meddelanden med hjälp av rutter](tutorial-routing.md) .
 
-* Om du vill dirigera din enhet till moln-meddelanden till anpassade slutpunkter finns i [använder meddelandevägar och anpassade slutpunkter för meddelanden från enheten till molnet](iot-hub-devguide-messages-read-custom.md).
+* Om du vill skicka meddelanden från enheten till molnet till anpassade slut punkter, se [Använd meddelande vägar och anpassade slut punkter för meddelanden från enhet till moln](iot-hub-devguide-messages-read-custom.md).

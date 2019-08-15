@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/05/2019
 ms.author: barclayn
-ms.openlocfilehash: 5e449ae33b19b27c3ea50d982ed84f681a0beb8f
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: c04d5fc5b455c798ffc8cb4a88948deaea0cf348
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727276"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68927936"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Säkerhetsmetodtips för IaaS-arbetsbelastningar i Azure
 Den här artikeln beskriver rekommenderade säkerhets metoder för virtuella datorer och operativ system.
@@ -79,7 +79,7 @@ Du bör installera skydd mot skadlig kod för att hjälpa till att identifiera o
 
 Microsoft Antimalware innehåller funktioner som real tids skydd, schemalagd genomsökning, reparation av skadlig kod, signaturkrav, uppdatering av motor, exempel rapportering och insamling av undantags händelser. För miljöer som är separat från produktions miljön kan du använda ett tillägg för program mot skadlig kod för att skydda dina virtuella datorer och moln tjänster.
 
-Du kan integrera Microsofts lösningar för program mot skadlig kod och partner med [Azure Security Center](https://docs.microsoft.com/azure/security-center/) för enkel distribution och inbyggd identifiering (aviseringar och incidenter).
+Du kan integrera Microsofts lösningar för program mot skadlig kod och partner med [Azure Security Center](../../security-center/index.yml) för enkel distribution och inbyggd identifiering (aviseringar och incidenter).
 
 **Bästa praxis**: Installera en lösning för program mot skadlig kod för att skydda mot skadlig kod.   
 **Information**: [Installera en Microsoft partner-lösning eller Microsoft Antimalware](../../security-center/security-center-install-endpoint-protection.md)

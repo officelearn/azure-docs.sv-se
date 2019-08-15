@@ -1,56 +1,56 @@
 ---
-title: Så här skapar du användardefinierade funktioner i Azure Digital Twins | Microsoft Docs
-description: Så här att skapa användardefinierade funktioner, matchers och rolltilldelningar i Azure Digital Twins.
+title: Så här skapar du användardefinierade funktioner i Azure Digitals flätar | Microsoft Docs
+description: Så här skapar du användardefinierade funktioner,-matchningar och roll tilldelningar i digitala Azure-dubbla.
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 06/06/2019
+ms.date: 08/12/2019
 ms.author: alinast
 ms.custom: seodec18
-ms.openlocfilehash: b5e230f45fd5889e216f2993f58adf6940ef7679
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6853ebf16c1a9d6b0d363277b22c7dd2583d37e5
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072900"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69013979"
 ---
-# <a name="how-to-create-user-defined-functions-in-azure-digital-twins"></a>Så här skapar du användardefinierade funktioner i Azure Digital Twins
+# <a name="how-to-create-user-defined-functions-in-azure-digital-twins"></a>Så här skapar du användardefinierade funktioner i Azure Digitals dubbla
 
-[Användardefinierade funktioner](./concepts-user-defined-functions.md) användarna kan konfigurera anpassad logik som ska köras från inkommande telemetrimeddelanden och rumsliga graph metadata. Användare kan även skicka händelser till fördefinierade [slutpunkter](./how-to-egress-endpoints.md).
+[Användardefinierade funktioner](./concepts-user-defined-functions.md) gör det möjligt för användare att konfigurera anpassad logik att köras från inkommande telemetridata och metadata för spatialdata. Användare kan även skicka händelser till fördefinierade [slut punkter](./how-to-egress-endpoints.md).
 
-Den här guiden går igenom ett exempel som visar hur du identifierar och Avisera om alla läsning som överskrider en viss temperatur från mottagna temperatur händelser.
+Den här guiden går igenom ett exempel som demonstrerar hur man identifierar och varnar för all läsning som överskrider en viss temperatur från mottagna temperatur händelser.
 
 [!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
 
-## <a name="client-library-reference"></a>-Klientbiblioteksreferens
+## <a name="client-library-reference"></a>Klient biblioteks referens
 
-Funktioner som är tillgängliga som hjälpmetoder i användardefinierade funktioner runtime finns i den [-klientbiblioteksreferens](./reference-user-defined-functions-client-library.md) dokumentet.
+Funktioner som är tillgängliga som hjälp metoder i körningen av användardefinierade funktioner visas i referens dokumentet för [klient bibliotek](./reference-user-defined-functions-client-library.md) .
 
-## <a name="create-a-matcher"></a>Skapa en matcher
+## <a name="create-a-matcher"></a>Skapa en matchning
 
-Matchers är graph-objekt som avgör vad användardefinierade funktioner som ska köras för en viss telemetri-meddelande.
+Motsvarigheter är graf-objekt som avgör vilka användardefinierade funktioner som körs för ett specifikt telemetri-meddelande.
 
-- Giltigt matcher villkor jämförelser:
+- Giltiga villkors jämförelser för matchningar:
 
   - `Equals`
   - `NotEquals`
   - `Contains`
 
-- Giltigt matcher villkor mål:
+- Giltiga villkors mål för matchning:
 
   - `Sensor`
   - `SensorDevice`
   - `SensorSpace`
 
-Följande exempel matcher utvärderas till true på en sensor telemetri händelse med `"Temperature"` som sitt värde för typ av data. Du kan skapa flera matchers på en användardefinierad funktion genom att göra en autentiserad HTTP POST-begäran till:
+Följande exempel matchning utvärderar till true för eventuella sensorer för telemetri med `"Temperature"` som värde för data typen. Du kan skapa flera motsvarigheter i en användardefinierad funktion genom att göra en autentiserad HTTP POST-begäran till:
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/matchers
 ```
 
-Med JSON-texten:
+Med JSON-brödtext:
 
 ```JSON
 {
@@ -67,17 +67,17 @@ Med JSON-texten:
 }
 ```
 
-| Värde | Ersätt med |
+| Value | Ersätt med |
 | --- | --- |
 | YOUR_SPACE_IDENTIFIER | Den serverregion som instansen finns i |
 
 ## <a name="create-a-user-defined-function"></a>Skapa en användardefinierad funktion
 
-Skapa en användardefinierad funktion måste du göra en multipart HTTP-begäran till Azure Digital Twins Management API: erna.
+Att skapa en användardefinierad funktion innebär att göra en multipart HTTP-begäran till Azure Digitals hanterings-API: er.
 
 [!INCLUDE [Digital Twins multipart requests](../../includes/digital-twins-multipart.md)]
 
-Ladda upp i funktionen kodfragment med följande autentiserade multipart HTTP POST-begäran till när matchers har skapats:
+När matcharna har skapats överför du funktions kodfragmentet med följande autentiserade multipart HTTP POST-begäran till:
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/userdefinedfunctions
@@ -107,24 +107,24 @@ function process(telemetry, executionContext) {
 --USER_DEFINED_BOUNDARY--
 ```
 
-| Värde | Ersätt med |
+| Value | Ersätt med |
 | --- | --- |
-| USER_DEFINED_BOUNDARY | Ett namn i flera delar innehåll gräns |
-| YOUR_SPACE_IDENTIFIER | Identifieraren utrymme  |
-| YOUR_MATCHER_IDENTIFIER | ID för matcher som du vill använda |
+| USER_DEFINED_BOUNDARY | Namn på en flerdelade innehålls gränser |
+| YOUR_SPACE_IDENTIFIER | Utrymmes identifieraren  |
+| YOUR_MATCHER_IDENTIFIER | ID: t för den matchning som du vill använda |
 
-1. Kontrollera att rubrikerna som inkluderar: `Content-Type: multipart/form-data; boundary="USER_DEFINED_BOUNDARY"`.
-1. Kontrollera att brödtexten är flera delar:
+1. Kontrol lera att rubrikerna är `Content-Type: multipart/form-data; boundary="USER_DEFINED_BOUNDARY"`:.
+1. Kontrol lera att texten är multipart:
 
-   - Den första delen innehåller metadata som krävs användardefinierad funktion.
-   - Den andra delen innehåller logik för JavaScript-beräkning.
+   - Den första delen innehåller de användardefinierade metadata som krävs av användaren.
+   - Den andra delen innehåller beräknings logiken för Java Script.
 
-1. I den **USER_DEFINED_BOUNDARY** avsnittet, ersätter den **spaceId** (`YOUR_SPACE_IDENTIFIER`) och **matchers** (`YOUR_MATCHER_IDENTIFIER`) värden.
-1. Kontrollera att användardefinierade JavaScript-funktion har angetts som `Content-Type: text/javascript`.
+1. I avsnittet **USER_DEFINED_BOUNDARY** ersätter du värdena **spaceId** `YOUR_SPACE_IDENTIFIER`() och **matchers** (`YOUR_MATCHER_IDENTIFIER`).
+1. Kontrol lera att funktionen för användardefinierad JavaScript-funktion anges som `Content-Type: text/javascript`.
 
-### <a name="example-functions"></a>Exempel-funktioner
+### <a name="example-functions"></a>Exempel funktioner
 
-Ange sensor telemetri läser direkt för sensorn med datatypen **temperatur**, vilket är `sensor.DataType`:
+Ange sensor telemetri för att läsa direkt för sensorn med data typen **temperatur**, som är `sensor.DataType`:
 
 ```JavaScript
 function process(telemetry, executionContext) {
@@ -140,7 +140,7 @@ function process(telemetry, executionContext) {
 }
 ```
 
-Den **telemetri** parametern exponerar den **SensorId** och **meddelande** egenskaper som motsvarar ett meddelande som skickas av en sensor. Den **executionContext** parametern exponerar följande attribut:
+Parametern **telemetri** visar **SensorId** och attribut för **meddelanden** som motsvarar ett meddelande som skickas av en sensor. **ExecutionContext** -parametern visar följande attribut:
 
 ```csharp
 var executionContext = new UdfExecutionContext
@@ -152,7 +152,7 @@ var executionContext = new UdfExecutionContext
 };
 ```
 
-I nästa exempel logga vi ett meddelande om sensor telemetri läsning överskrider ett fördefinierat tröskelvärde. Om diagnostikinställningarna har aktiverats på den digitala Twins för Azure-instansen, vidarebefordras loggar från användardefinierade funktioner:
+I nästa exempel loggar vi ett meddelande om att läsningen av sensor telemetri överskrider ett fördefinierat tröskelvärde. Om dina diagnostikinställningar är aktiverade på Azure Digitals-instansen vidarebefordras även loggar från användardefinierade funktioner:
 
 ```JavaScript
 function process(telemetry, executionContext) {
@@ -167,7 +167,7 @@ function process(telemetry, executionContext) {
 }
 ```
 
-Följande kod utlöser en avisering om nivån temperaturen överstiger de fördefinierade Ständiga:
+Följande kod utlöser ett meddelande om temperatur nivån stiger över den fördefinierade konstanten:
 
 ```JavaScript
 function process(telemetry, executionContext) {
@@ -191,37 +191,37 @@ function process(telemetry, executionContext) {
 }
 ```
 
-Ett mer komplext kodexempel användardefinierad funktion finns i [användandet Snabbstart](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availability.js).
+Ett mer komplext användardefinierat funktions kod exempel finns i [snabb start](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availability.js)för användning.
 
-## <a name="create-a-role-assignment"></a>Skapa en rolltilldelning
+## <a name="create-a-role-assignment"></a>Skapa en roll tilldelning
 
-Skapa en rolltilldelning för den användardefinierade funktionen ska köras. Om det finns ingen rolltilldelning för användardefinierad funktion, inte den behörighet att interagera med API Management eller behörighet att utföra åtgärder på graph-objekt. Åtgärder som kan utföra en användardefinierad funktion anges och definieras via rollbaserad åtkomstkontroll i Azure Digital Twins Management API: erna. Till exempel kan användardefinierade funktioner vara begränsad räckvidd genom att ange vissa roller eller vissa sökvägar för kontroll av åtkomst. Mer information finns i den [rollbaserad åtkomstkontroll](./security-role-based-access-control.md) dokumentation.
+Skapa en roll tilldelning för den användardefinierade funktionen som ska köras under. Om det inte finns någon roll tilldelning för den användardefinierade funktionen har den inte tillräckliga behörigheter för att samverka med hanterings-API: et eller ha åtkomst för att utföra åtgärder på diagram objekt. Åtgärder som en användardefinierad funktion kan utföra anges och definieras via rollbaserad åtkomst kontroll i Azure Digitals hanterings-API: er. Användardefinierade funktioner kan till exempel begränsas i omfånget genom att ange vissa roller eller vissa Sök vägar för åtkomst kontroll. Mer information finns i dokumentationen för [rollbaserad åtkomst kontroll](./security-role-based-access-control.md) .
 
-1. [Fråga System-API: N](./security-create-manage-role-assignments.md#all) för alla roller att hämta roll-ID som du vill tilldela till din användardefinierad funktion. Gör du genom att göra en autentiserad HTTP GET-begäran till:
+1. [Fråga system-API: et](./security-create-manage-role-assignments.md#all) för alla roller för att hämta det roll-ID som du vill tilldela till din användardefinierade funktion. Gör detta genom att göra en autentiserad HTTP GET-begäran till:
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/system/roles
     ```
-   Behåll den önskade roll-ID. Det kommer att skickas som JSON brödtext attribut **roleId** (`YOUR_DESIRED_ROLE_IDENTIFIER`) nedan.
+   Behåll det önskade roll-ID: t. Den kommer att skickas som JSON Body-attributet **roleId** (`YOUR_DESIRED_ROLE_IDENTIFIER`) nedan.
 
-1. **objectId** (`YOUR_USER_DEFINED_FUNCTION_ID`) blir den användardefinierade funktionen-ID som du skapade tidigare.
-1. Hitta värdet för **sökväg** (`YOUR_ACCESS_CONTROL_PATH`) genom att fråga din blankstegen med `fullpath`.
-1. Kopiera den returnerade `spacePaths` värde. Du kommer att använda som nedan. Gör en autentiserad HTTP GET-begäran till:
+1. **ObjectID** (`YOUR_USER_DEFINED_FUNCTION_ID`) blir det användardefinierade funktions-ID som skapades tidigare.
+1. Hitta värdet för **sökväg** (`YOUR_ACCESS_CONTROL_PATH`) genom att fråga dina Spaces med `fullpath`.
+1. Kopiera det returnerade `spacePaths` värdet. Du kommer att använda det nedan. Gör en autentiserad HTTP GET-begäran till:
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/spaces?name=YOUR_SPACE_NAME&includes=fullpath
     ```
 
-    | Värde | Ersätt med |
+    | Value | Ersätt med |
     | --- | --- |
     | YOUR_SPACE_NAME | Namnet på det utrymme som du vill använda |
 
-1. Klistra in den returnerade `spacePaths` värde i **sökväg** att skapa en användardefinierad funktion rolltilldelning genom att göra en autentiserad HTTP POST-begäran till:
+1. Klistra in det `spacePaths` returnerade värdet i **sökvägen** för att skapa en användardefinierad funktions roll tilldelning genom att göra en autentiserad http post-begäran till:
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/roleassignments
     ```
-    Med JSON-texten:
+    Med JSON-brödtext:
 
     ```JSON
     {
@@ -232,28 +232,28 @@ Skapa en rolltilldelning för den användardefinierade funktionen ska köras. Om
     }
     ```
 
-    | Värde | Ersätt med |
+    | Value | Ersätt med |
     | --- | --- |
-    | YOUR_DESIRED_ROLE_IDENTIFIER | Identifierare för rollen |
-    | YOUR_USER_DEFINED_FUNCTION_ID | ID för den användardefinierade funktionen som du vill använda |
-    | YOUR_USER_DEFINED_FUNCTION_TYPE_ID | Det ID som anger vilken användardefinierad funktion |
-    | YOUR_ACCESS_CONTROL_PATH | Åtkomstväg för kontroll |
+    | YOUR_DESIRED_ROLE_IDENTIFIER | Identifieraren för den önskade rollen |
+    | YOUR_USER_DEFINED_FUNCTION_ID | ID för den användardefinierade funktion som du vill använda |
+    | YOUR_USER_DEFINED_FUNCTION_TYPE_ID | Det ID som anger den användardefinierade funktions typen |
+    | YOUR_ACCESS_CONTROL_PATH | Sökväg till åtkomst kontroll |
 
 >[!TIP]
-> Läs artikeln [skapa och hantera rolltilldelningar](./security-create-manage-role-assignments.md) för mer information om användardefinierade funktionen Management API-åtgärder och slutpunkter.
+> Läs artikeln [skapa och hantera roll tilldelningar](./security-create-manage-role-assignments.md) för mer information om användardefinierade funktions hanterings-API-åtgärder och slut punkter.
 
 ## <a name="send-telemetry-to-be-processed"></a>Skicka telemetri som ska bearbetas
 
-Sensorn som definierats i spatial intelligence diagrammet skickar telemetri. I sin tur utlöser telemetri som körningen av en användardefinierad funktion som har överförts. Registerförare hämtar telemetri. Sedan skapas en Körningsplan för anrop av den användardefinierade funktionen.
+Sensorn som definieras i spatial Intelligence-diagrammet skickar telemetri. I sin tur utlöser telemetri körningen av den användardefinierade funktion som överfördes. Data processorn hämtar Telemetrin. Sedan skapas en körnings plan för den användardefinierade funktionens anrop.
 
-1. Hämta matchers för sensorn medan läsningen har genererats från.
-1. Beroende på vilka matchers utvärderades korrekt, att hämta associerade användardefinierade funktioner.
+1. Hämta matchningarna för sensorn som läsningen genererades från.
+1. Hämta de associerade användardefinierade funktionerna beroende på vilka matchningar som har utvärderats.
 1. Kör varje användardefinierad funktion.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig hur du [skapa slutpunkter för Azure Digital Twins](./how-to-egress-endpoints.md) att skicka händelser till.
+- Lär dig hur du [skapar Azure Digitals](./how-to-egress-endpoints.md) -slutpunkter för att skicka händelser till.
 
-- Mer information om routning i Azure Digital Twins [routning händelser och meddelanden](./concepts-events-routing.md).
+- Om du vill ha mer information om routning i digitala Azure- [meddelanden läser du dirigera händelser och meddelanden](./concepts-events-routing.md).
 
-- Granska den [referensdokumentation för klienten biblioteket](./reference-user-defined-functions-client-library.md).
+- Läs [dokumentationen om klient biblioteks referens](./reference-user-defined-functions-client-library.md).

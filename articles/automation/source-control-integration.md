@@ -1,6 +1,6 @@
 ---
-title: Källkontrollsintegration i Azure Automation
-description: Den här artikeln beskriver källkontrollsintegrering med GitHub i Azure Automation.
+title: Käll kontrolls integrering i Azure Automation
+description: I den här artikeln beskrivs integrering av käll kontroll med GitHub i Azure Automation.
 services: automation
 ms.service: automation
 ms.subservice: process-automation
@@ -9,71 +9,71 @@ ms.author: robreed
 ms.date: 04/26/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1ae61af2ad857068950e2b2cdb6f058a33f57186
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 52fcd0d928ecbce5c617ff6a27175fccb8fd96f6
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477575"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990246"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Källkontrollintegrering i Azure Automation
 
-Källkontroll kan du hålla dina runbooks i ditt Automation-konto som är uppdaterade med skripten i centrallagret för källkontroll GitHub eller Azure-databaser. Källkontroll kan du enkelt kan samarbeta med ditt team, spåra ändringar och återställa tidigare versioner av dina runbooks. Till exempel kan källkontroll du synkronisera olika grenar i källkontrollen till ditt Automation-konton som utveckling, testning eller produktion. Detta gör det enkelt att flytta upp kod som har testats i din utvecklingsmiljö till din Automation-konto i produktionsmiljön. Källkontrollsintegrering med automation har stöd för en riktning som synkroniseras från centrallagret för källkontroll.
+Med käll kontroll kan du hålla dina Runbooks i ditt Automation-konto uppdaterat med dina skript i din GitHub-eller Azure databaser-käll kontroll lagrings plats. Med käll kontroll kan du enkelt samar beta med ditt team, spåra ändringar och återställa till tidigare versioner av dina runbooks. Med käll kontroll kan du till exempel synkronisera olika grenar i käll kontrollen med dina utvecklings-, test-eller produktions Automation-konton. Detta gör det enkelt att befordra kod som har testats i utvecklings miljön till ditt produktions Automation-konto. Käll kontroll integrering med Automation stöder synkronisering med en riktning från din lagrings plats för käll kontroll.
 
-Azure Automation stöder tre typer av källkontroll:
+Azure Automation stöder tre typer av käll kontroll:
 
 * GitHub
-* Azure-lagringsplatser (Git)
-* Azure-lagringsplatser (TFVC)
+* Azure-databaser (git)
+* Azure-databaser (TFVC)
 
 ## <a name="pre-requisites"></a>Förutsättningar
 
-* Ett källkontrollscentrallager (GitHub eller Azure-databaser)
-* En [kör som-konto](manage-runas-account.md)
-* Kontrollera att du har den [senaste Azure-modulerna](automation-update-azure-modules.md) i ditt Automation-konto
+* Ett lagrings lager för käll kontroll (GitHub eller Azure databaser)
+* Ett [Kör som-konto](manage-runas-account.md)
+* Se till att du har de [senaste Azure](automation-update-azure-modules.md) -modulerna i ditt Automation-konto
 
 > [!NOTE]
-> Synkronisering för källkontrolljobb körs under användare Automation-konto och debiteras enligt samma taxa som andra Automation-jobb.
+> Synkroniseringsjobb för käll kontroll körs under användarnas Automation-konto och debiteras enligt samma taxa som andra Automation-jobb.
 
-## <a name="configure-source-control---azure-portal"></a>Konfigurera källkontroll - Azure-portalen
+## <a name="configure-source-control---azure-portal"></a>Konfigurera käll kontroll – Azure Portal
 
-I ditt Automation-konto, Välj **källkontroll** och klicka på **+ Lägg till**
+I ditt Automation-konto väljer du **käll kontroll** och klickar på **+ Lägg till**
 
-![Välj källkontroll](./media/source-control-integration/select-source-control.png)
+![Välj käll kontroll](./media/source-control-integration/select-source-control.png)
 
-Välj **källkontroll typ**, klickar du på **autentisera**. Ett webbläsarfönster öppnas och du uppmanas att logga in, följ anvisningarna för att slutföra autentisering.
+Välj **typ av käll kontroll**, klicka på **autentisera**. Ett webbläsarfönster öppnas och du blir ombedd att logga in. Följ anvisningarna för att slutföra autentiseringen.
 
-På den **källa kontroll sammanfattning** sidan, Fyll i informationen och klickar på **spara**. I följande tabell visas en beskrivning av tillgängliga fält.
+Fyll i informationen på sidan **Översikt över käll kontroll** och klicka på **Spara**. I följande tabell visas en beskrivning av de tillgängliga fälten.
 
 |Egenskap  |Beskrivning  |
 |---------|---------|
-|Namn på datakälla kontroll     | Ett eget namn för källkontrollen. *Det här namnet måste innehålla endast bokstäver och siffror.*        |
-|Källkontrolltyp     | Typ av kontroll av källa. De tillgängliga alternativen är:</br> GitHub</br>Azure-lagringsplatser (Git)</br> Azure-lagringsplatser (TFVC)        |
-|Lagringsplats     | Namnet på databasen eller projekt. De första 200 lagringsplatserna returneras. För att söka efter en lagringsplats, skriver du namnet i fältet och klickar på **Sök på GitHub**.|
-|Branch     | Den gren som ska hämta källfiler från. Gren mål är inte tillgängligt för TFVC-källkontrollstypen.          |
-|Mappsökväg     | Den mapp som innehåller runbooks för att synkronisera. Exempel: /Runbooks </br>*Endast runbooks i mappen som specificerats synkroniseras. Rekursion stöds inte.*        |
-|Automatisk synkronisering<sup>1</sup>     | Aktiverar eller inaktivera automatisk synkronisering när ett genomförande görs i källkontroll         |
-|Publicera Runbook     | Om inställd **på**, när runbooks har synkroniserats från källkontroll som de kommer att publiceras automatiskt.         |
-|Beskrivning     | Ett textfält för att ge mer information        |
+|Namn på käll kontroll     | Ett eget namn för käll kontrollen. *Namnet får bara innehålla bokstäver och siffror.*        |
+|Typ av käll kontroll     | Käll kontroll källans typ. De tillgängliga alternativen är:</br> GitHub</br>Azure-databaser (git)</br> Azure-databaser (TFVC)        |
+|Lagringsplats     | Namnet på databasen eller projektet. De första 200-databaserna returneras. Om du vill söka efter en lagrings plats skriver du namnet i fältet och klickar på **Sök på GitHub**.|
+|Gren     | Grenen att hämta källfilerna från. Förgrenings inriktning är inte tillgängligt för käll kontroll typen TFVC.          |
+|Mappsökväg     | Den mapp som innehåller Runbooks som ska synkroniseras. Exempel:/Runbooks </br>*Endast Runbooks i den angivna mappen synkroniseras. Rekursion stöds inte.*        |
+|Automatisk synkronisering<sup>1</sup>     | Aktiverar eller inaktiverar automatisk synkronisering när ett genomförande görs i käll kontrollens lagrings plats         |
+|Publicera Runbook     | Om värdet är **på på**, efter att Runbooks har synkroniserats från käll kontroll, publiceras de automatiskt.         |
+|Beskrivning     | Ett textfält som innehåller ytterligare information        |
 
-<sup>1</sup> om du vill aktivera automatisk synkronisering när du konfigurerar integrering av källkontroll med Azure-lagringsplatser, måste du vara en projektadministratör.
+<sup>1</sup> om du vill aktivera automatisk synkronisering när du konfigurerar käll kontrolls integrering med Azure databaser måste du vara projekt administratör.
 
-![Sammanfattning för kontroll av källa](./media/source-control-integration/source-control-summary.png)
+![Översikt över käll kontroll](./media/source-control-integration/source-control-summary.png)
 
 > [!NOTE]
-> Din inloggning för centrallagret för källkontroll kan skilja sig från din inloggning för Azure-portalen. Kontrollera att du har loggat in med rätt konto för centrallagret för källkontroll när du konfigurerar källkontroll. Om det finns en osäkra, öppna en ny flik i webbläsaren och logga ut från visualstudio.com eller github.com och försök ansluta källkontroll igen.
+> Din inloggning för käll kontrollens lagrings plats kan skilja sig från din inloggning för Azure Portal. Se till att du är inloggad med rätt konto för käll kontrollens lagrings plats när du konfigurerar käll kontroll. Om det finns en tvivel öppnar du en ny flik i webbläsaren och loggar ut från visualstudio.com eller github.com och försöker ansluta käll kontrollen igen.
 
-## <a name="configure-source-control---powershell"></a>Konfigurera källkontroll – PowerShell
+## <a name="configure-source-control---powershell"></a>Konfigurera käll kontroll – PowerShell
 
-Du kan också använda PowerShell för att konfigurera källkontroll i Azure Automation. Om du vill konfigurera källkontroll med PowerShell-cmdletar, krävs en personlig åtkomsttoken (PAT). Du använder den [New AzureRmAutomationSourceControl](/powershell/module/AzureRM.Automation/New-AzureRmAutomationSourceControl) att skapa källkontrollanslutning. Cmdlet: en kräver en säker sträng för din personliga åtkomsttoken, att lära dig hur du skapar en säker sträng finns [ConvertTo SecureString](/powershell/module/microsoft.powershell.security/convertto-securestring?view=powershell-6).
+Du kan också använda PowerShell för att konfigurera käll kontroll i Azure Automation. Om du vill konfigurera käll kontroll med PowerShell-cmdletar behövs en personlig åtkomsttoken (PAT). Du använder [New-AzureRmAutomationSourceControl](/powershell/module/AzureRM.Automation/New-AzureRmAutomationSourceControl) för att skapa käll kontroll anslutningen. För att lära dig hur du skapar en säker sträng, se [ConvertTo-SecureString](/powershell/module/microsoft.powershell.security/convertto-securestring?view=powershell-6)krävs en säker sträng med en personlig åtkomsttoken.
 
-### <a name="azure-repos-git"></a>Azure-lagringsplatser (Git)
+### <a name="azure-repos-git"></a>Azure-databaser (git)
 
 ```powershell-interactive
 New-AzureRmAutomationSourceControl -Name SCReposGit -RepoUrl https://<accountname>.visualstudio.com/<projectname>/_git/<repositoryname> -SourceType VsoGit -AccessToken <secureStringofPAT> -Branch master -ResourceGroupName <ResourceGroupName> -AutomationAccountName <AutomationAccountName> -FolderPath "/Runbooks"
 ```
 
-### <a name="azure-repos-tfvc"></a>Azure-lagringsplatser (TFVC)
+### <a name="azure-repos-tfvc"></a>Azure-databaser (TFVC)
 
 ```powershell-interactive
 New-AzureRmAutomationSourceControl -Name SCReposTFVC -RepoUrl https://<accountname>.visualstudio.com/<projectname>/_versionControl -SourceType VsoTfvc -AccessToken <secureStringofPAT> -ResourceGroupName <ResourceGroupName> -AutomationAccountName <AutomationAccountName> -FolderPath "/Runbooks"
@@ -87,46 +87,46 @@ New-AzureRmAutomationSourceControl -Name SCGitHub -RepoUrl https://github.com/<a
 
 ### <a name="personal-access-token-permissions"></a>Behörigheter för personlig åtkomst-token
 
-Källkontroll kräver vissa minsta möjliga behörigheter för personliga åtkomsttoken. Följande tabeller innehåller de minsta behörigheter som krävs för GitHub och Azure-databaser.
+Käll kontrollen kräver vissa minimi behörigheter för personliga åtkomsttoken. Följande tabeller innehåller de lägsta behörigheter som krävs för GitHub och Azure databaser.
 
 #### <a name="github"></a>GitHub
 
-Mer information om hur du skapar en personlig åtkomsttoken i GitHub finns [skapar en personlig åtkomsttoken för kommandoraden](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/).
+Mer information om hur du skapar en personlig åtkomsttoken i GitHub finns i [skapa en personlig åtkomsttoken för kommando raden](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/).
 
-|Scope  |Beskrivning  |
+|Omfång  |Beskrivning  |
 |---------|---------|
 |**lagringsplats**     |         |
-|repo:status     | Åtkomststatus för genomförande         |
-|repo_deployment      | Distributionsstatus för åtkomst         |
-|public_repo     | Offentliga lagringsplatserna för åtkomst         |
+|lagrings platsen: status     | Status för åtkomst genomförande         |
+|repo_deployment      | Åtkomst distributions status         |
+|public_repo     | Åtkomst till offentliga databaser         |
 |**admin:repo_hook**     |         |
-|write:repo_hook     | Skriva lagringsplats hookar         |
-|read:repo_hook|Läs lagringsplats hookar|
+|Skriv: repo_hook     | Skriv databas-hookar         |
+|Läs: repo_hook|Läsa databas-hookar|
 
 #### <a name="azure-repos"></a>Azure-lagringsplatser
 
-Mer information om hur du skapar en personlig åtkomsttoken i Azure-lagringsplatser finns [autentisera åtkomsten med personliga åtkomsttoken](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate).
+Mer information om hur du skapar en personlig åtkomsttoken i Azure databaser finns i [autentisera åtkomst med personliga](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate)åtkomsttoken.
 
-|Scope  |
+|Omfång  |
 |---------|
 |Kod (läsa)     |
 |Projekt och team (läsa)|
 |Identitet (läsa)      |
-|Användarprofil (läsa)     |
-|Arbetsobjekt (läsa)    |
-|Tjänstanslutningar (läsa, fråga och hantera)<sup>1</sup>    |
+|Användar profil (läsa)     |
+|Arbets objekt (läsa)    |
+|Tjänst anslutningar (läsa, fråga och hantera)<sup>1</sup>    |
 
-<sup>1</sup> the Tjänstanslutningar behörigheten är endast krävs om du har aktiverat automatisk synkronisering.
+<sup>1</sup> behörigheten tjänst anslutningar krävs endast om du har aktiverat automatisk synkronisering.
 
-## <a name="syncing"></a>Synkronisera
+## <a name="syncing"></a>Synkroniserar
 
-Välj källa från tabellen på den **källkontroll** sidan. Klicka på **Starta synkronisering** att starta synkroniseringen.
+Välj källan från tabellen på **käll kontroll** sidan. Starta synkroniseringsprocessen genom att klicka på **Starta synkronisering** .
 
-Du kan visa statusen för den aktuella synkroniseringsjobb eller tidigare inställningarna genom att klicka på den **Synkronisera jobb** fliken. På den **källkontroll** listrutan, Välj en källkontroll.
+Du kan visa statusen för det aktuella synkroniseringsschemat eller föregående genom att klicka på fliken **synkroniseringsjobb** . I list rutan **käll kontroll** väljer du en käll kontroll.
 
 ![Synkroniseringsstatus](./media/source-control-integration/sync-status.png)
 
-När du klickar på ett jobb kan du visa jobbutdata. I följande exempel är utdata från ett Synkroniseringsjobb för kontroll av källa.
+Genom att klicka på ett jobb kan du Visa jobbets utdata. I följande exempel visas utdata från ett synkroniseringsjobb för käll kontroll.
 
 ```output
 ========================================================================================================
@@ -161,17 +161,24 @@ Source Control Sync Summary:
 ========================================================================================================
 ```
 
-Ytterligare loggning är tillgänglig genom att välja **alla loggar** på den **källa Control Sync jobbsammanfattning** sidan. Dessa ytterligare poster kan hjälpa dig att felsöka problem som kan uppstå när du använder källkontroll.
+Ytterligare loggning är tillgängligt genom att välja **alla loggar** på sidan **Översikt över synkronisering av käll kontroll** . Dessa ytterligare logg poster kan hjälpa dig att felsöka problem som kan uppstå när du använder käll kontroll.
 
-## <a name="disconnecting-source-control"></a>Kopplar från källkontrollen
+## <a name="disconnecting-source-control"></a>Kopplar från käll kontrollen
 
-Om du vill koppla från ett källkontrollscentrallager, öppna **källkontroll** under **kontoinställningar** i ditt Automation-konto.
+Om du vill koppla bort från en lagrings plats för käll kontroll, öppnar du **käll kontroll** under **konto inställningar** i ditt Automation-konto.
 
-Välj källkontroll som du vill ta bort. På den **källa kontroll sammanfattning** klickar du på **ta bort**.
+Välj den käll kontroll som du vill ta bort. Klicka på **ta bort**på sidan **Översikt över käll kontroll** .
 
 ## <a name="encoding"></a>Kodning
 
-Om flera personer redigerar runbooks i centrallagret för källkontroll med olika redigerare, finns en risk att köra i kodningsproblem. Den här situationen kan leda till felaktiga tecken i din runbook. Mer information om detta finns [vanliga orsaker till kodningsproblem](/powershell/scripting/components/vscode/understanding-file-encoding#common-causes-of-encoding-issues)
+Om flera personer redigerar Runbooks i lagrings platsen för käll kontroll med olika redigerare, finns det en chans att kunna köra kodnings problem. Den här situationen kan leda till felaktiga tecken i din Runbook. Mer information om detta finns i [vanliga orsaker till kodnings problem](/powershell/scripting/components/vscode/understanding-file-encoding#common-causes-of-encoding-issues)
+
+## <a name="updating-the-access-token"></a>Uppdaterar åtkomsttoken
+
+Det finns för närvarande inget sätt att uppdatera åtkomsttoken i käll kontrollen från portalen. När din personliga åtkomsttoken har upphört att gälla eller återkallats, kan du uppdatera käll kontrollen med en ny åtkomsttoken på följande sätt:
+
+* Via [REST-API: et](https://docs.microsoft.com/en-us/rest/api/automation/sourcecontrol/update).
+* Med hjälp av cmdleten [Update-AzAutomationSourceControl](/powershell/module/az.automation/update-azautomationsourcecontrol) .
 
 ## <a name="next-steps"></a>Nästa steg
 

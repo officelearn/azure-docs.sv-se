@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/12/2019
 ms.author: atsenthi
-ms.openlocfilehash: c20e782423c60985adb9e18e275fde59e57e00a2
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 08864d6a965921f7f6d284dc53bd2586d30fedd1
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599875"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69014428"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Anpassa Service Fabric kluster inställningar
 I den här artikeln beskrivs de olika infrastruktur inställningarna för ditt Service Fabric-kluster som du kan anpassa. För kluster som finns i Azure kan du anpassa inställningarna via [Azure Portal](https://portal.azure.com) eller genom att använda en Azure Resource Manager mall. Mer information finns i [Uppgradera konfigurationen av ett Azure-kluster](service-fabric-cluster-config-upgrade-azure.md). För fristående kluster anpassar du inställningarna genom att uppdatera filen *ClusterConfig. JSON* och utföra en konfigurations uppgradering i klustret. Mer information finns i [Uppgradera konfigurationen av ett fristående kluster](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -411,6 +411,11 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 |WriteBufferMemoryPoolMaximumInKB | Int, standardvärdet är 0 |Dynamisk|Antalet KB som den skrivbara lagringspoolen i cacheminnet ska växa till. Använd 0 om du vill indikera ingen gräns. |
 |WriteBufferMemoryPoolMinimumInKB |Int, standard är 8388608 |Dynamisk|Antalet KB som ursprungligen allokeras för lagringspoolen för skrivcache. Använd 0 om du vill indikera att ingen gräns standard ska vara konsekvent med SharedLogSizeInMB nedan. |
 
+## <a name="managedidentitytokenservice"></a>ManagedIdentityTokenService
+| **Parametern** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
+| --- | --- | --- | --- |
+|isEnabled|bool, standard är falskt|Statisk|Flagga som styr närvaro och status för den hanterade identitetsprovider i klustret. Detta är ett krav för att använda funktionen för hanterade identiteter i Service Fabric program.|
+
 ## <a name="management"></a>Hantering
 
 | **Parametern** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
@@ -610,7 +615,7 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 |RunAsAccountType|sträng, standard är "" |Dynamisk|Anger RunAs-kontots typ. Detta krävs för alla giltiga RunAs-avsnitt som giltiga värden är "DomainUser/NetworkService/ManagedServiceAccount/LocalSystem".|
 |RunAsPassword|sträng, standard är "" |Dynamisk|Anger RunAs-kontots lösen ord. Detta krävs endast för konto typen "DomainUser". |
 
-## <a name="runasdca"></a>RunAs_DCA
+## <a name="runas_dca"></a>RunAs_DCA
 
 | **Parametern** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
@@ -618,7 +623,7 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 |RunAsAccountType|sträng, standard är "" |Dynamisk|Anger RunAs-kontots typ. Detta krävs för alla giltiga RunAs-avsnitt som giltiga värden är "lokal användare/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem". |
 |RunAsPassword|sträng, standard är "" |Dynamisk|Anger RunAs-kontots lösen ord. Detta krävs endast för konto typen "DomainUser". |
 
-## <a name="runasfabric"></a>RunAs_Fabric
+## <a name="runas_fabric"></a>RunAs_Fabric
 
 | **Parametern** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
@@ -626,7 +631,7 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 |RunAsAccountType|sträng, standard är "" |Dynamisk|Anger RunAs-kontots typ. Detta krävs för alla giltiga RunAs-avsnitt som giltiga värden är "lokal användare/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem". |
 |RunAsPassword|sträng, standard är "" |Dynamisk|Anger RunAs-kontots lösen ord. Detta krävs endast för konto typen "DomainUser". |
 
-## <a name="runashttpgateway"></a>RunAs_HttpGateway
+## <a name="runas_httpgateway"></a>RunAs_HttpGateway
 
 | **Parametern** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |

@@ -1,5 +1,5 @@
 ---
-title: Klassning Förutsäga kreditrisk
+title: 'Exempel på visuella gränssnitt #3: Klassificering för att förutsäga kredit risk'
 titleSuffix: Azure Machine Learning service
 description: Lär dig hur du skapar en klassificeraren för maskin inlärning utan att skriva en enda rad kod med hjälp av det visuella gränssnittet.
 services: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: d1b3b8fa61492f3cf18e44e3e3046f32ea9c9b03
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 7565f94910d0e926682a72af42b02059fe7295ea
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855990"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990057"
 ---
 # <a name="sample-3---classification-predict-credit-risk"></a>Exempel 3 – klassificering: Förutsäga kreditrisk
 

@@ -1,5 +1,5 @@
 ---
-title: Klassning Förutsägelse kredit risk (kostnads känsligt)
+title: 'Exempel på visuella gränssnitt #4: Klassificering för att förutsäga kredit risk (kostnads känsligt)'
 titleSuffix: Azure Machine Learning service
 description: Den här artikeln visar hur du skapar ett komplext dator inlärnings experiment med hjälp av det visuella gränssnittet. Du lär dig hur du implementerar anpassade Python-skript och jämför flera modeller för att välja det bästa alternativet.
 services: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: 942d6fa6db7ee2fc07fd11d3448ac7ec96c3bd43
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: ee4b67c82ef2bf5a1ef9c060687cc1c937328e66
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68845973"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990419"
 ---
 # <a name="sample-4---classification-predict-credit-risk-cost-sensitive"></a>Exempel 4 – klassificering: Förutsägelse kredit risk (kostnads känsligt)
 

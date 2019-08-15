@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: db3f5aca0240c19f67d5d0775148d5eec76daa03
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 3c4bdb3d46e4630257c2567cf2003ebede00b71e
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726992"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934775"
 ---
 # <a name="azure-network-security"></a>Azure-nätverkssäkerhet
 
@@ -55,9 +55,9 @@ Microsoft Azure innehåller en robust nätverks infrastruktur som stöder dina a
 
 ![Stor bild av Azure-nätverk](./media/network-security/azure-network-security-fig-1.png)
 
-Med [Azures nätverks infrastruktur](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-networking-guidelines) kan du på ett säkert sätt ansluta Azure-resurser till varandra med virtuella nätverk (virtuella nätverk). Ett VNet är en representation av ditt eget nätverk i molnet. Ett VNet är en logisk isolering av Azure Cloud Network dedikerad till din prenumeration. Du kan ansluta virtuella nätverk till dina lokala nätverk.
+Med [Azures nätverks infrastruktur](../../virtual-machines/windows/infrastructure-example.md) kan du på ett säkert sätt ansluta Azure-resurser till varandra med virtuella nätverk (virtuella nätverk). Ett VNet är en representation av ditt eget nätverk i molnet. Ett VNet är en logisk isolering av Azure Cloud Network dedikerad till din prenumeration. Du kan ansluta virtuella nätverk till dina lokala nätverk.
 
-Azure har stöd för dedikerad WAN-anslutning till ditt lokala nätverk och en Azure-Virtual Network med [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction). Länken mellan Azure och platsen använder en dedikerad anslutning som inte går via det offentliga Internet. Om ditt Azure-program körs i flera data Center kan du använda [Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview) för att dirigera begär Anden från användare intelligent över instanser av programmet. Du kan också dirigera trafik till tjänster som inte körs i Azure om de är tillgängliga från Internet.
+Azure har stöd för dedikerad WAN-anslutning till ditt lokala nätverk och en Azure-Virtual Network med [ExpressRoute](../../expressroute/expressroute-introduction.md). Länken mellan Azure och platsen använder en dedikerad anslutning som inte går via det offentliga Internet. Om ditt Azure-program körs i flera data Center kan du använda [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md) för att dirigera begär Anden från användare intelligent över instanser av programmet. Du kan också dirigera trafik till tjänster som inte körs i Azure om de är tillgängliga från Internet.
 
 ## <a name="enterprise-view-of-azure-networking-components"></a>Enterprise-vy över Azure Networking-komponenter
 Azure har många nätverks komponenter som är relevanta för nätverks säkerhets diskussioner. Vi beskriver dessa nätverks komponenter och fokuserar på de säkerhets problem som är relaterade till dem.
@@ -77,11 +77,11 @@ I det här dokumentet kommer att avse följande företags funktioner i Azure:
 
 ### <a name="basic-network-connectivity"></a>Grundläggande nätverks anslutning
 
-Med [Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) -tjänsten kan du på ett säkert sätt ansluta Azure-resurser till varandra med virtuella nätverk (VNet). Ett VNet är en representation av ditt eget nätverk i molnet. Ett VNet är en logisk isolering av den Azure-nätverks infrastruktur som är dedikerad för din prenumeration. Du kan också ansluta virtuella nätverk till varandra och till dina lokala nätverk med plats-till-plats-VPN och dedikerade [WAN-länkar](https://docs.microsoft.com/azure/expressroute/expressroute-introduction).
+Med [Azure Virtual Network](../../virtual-network/virtual-networks-overview.md) -tjänsten kan du på ett säkert sätt ansluta Azure-resurser till varandra med virtuella nätverk (VNet). Ett VNet är en representation av ditt eget nätverk i molnet. Ett VNet är en logisk isolering av den Azure-nätverks infrastruktur som är dedikerad för din prenumeration. Du kan också ansluta virtuella nätverk till varandra och till dina lokala nätverk med plats-till-plats-VPN och dedikerade [WAN-länkar](../../expressroute/expressroute-introduction.md).
 
 ![Grundläggande nätverks anslutning](./media/network-security/azure-network-security-fig-2.png)
 
-I samband med att du använder virtuella datorer som värd för servrar i Azure, är frågan hur de virtuella datorerna ansluter till ett nätverk. Svaret är att virtuella datorer ansluter till ett [Azure-Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
+I samband med att du använder virtuella datorer som värd för servrar i Azure, är frågan hur de virtuella datorerna ansluter till ett nätverk. Svaret är att virtuella datorer ansluter till ett [Azure-Virtual Network](../../virtual-network/virtual-networks-overview.md).
 
 Virtuella Azure-nätverk är som de virtuella nätverk som du använder lokalt med dina egna virtualiseringslösningar, till exempel Microsoft Hyper-V eller VMware.
 
@@ -89,7 +89,7 @@ Virtuella Azure-nätverk är som de virtuella nätverk som du använder lokalt m
 
 Du kan ansluta virtuella nätverk till varandra, vilket gör att resurser som är anslutna till det virtuella nätverket kan kommunicera med varandra över virtuella nätverk. Du kan använda något av eller båda av följande alternativ för att ansluta virtuella nätverk till varandra:
 
-- **Peering** Aktiverar resurser som är anslutna till olika Azure-virtuella nätverk inom samma Azure-plats för att kommunicera med varandra. Bandbredden och fördröjningen i VNet är desamma som om resurserna var anslutna till samma VNet. Läs mer om peering i det [virtuella nätverkets peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
+- **Peering** Aktiverar resurser som är anslutna till olika Azure-virtuella nätverk inom samma Azure-plats för att kommunicera med varandra. Bandbredden och fördröjningen i VNet är desamma som om resurserna var anslutna till samma VNet. Läs mer om peering i det [virtuella nätverkets peering](../../virtual-network/virtual-network-peering-overview.md).
 
   ![Peering](./media/network-security/azure-network-security-fig-3.png)
 
@@ -120,7 +120,7 @@ Som du kan se tillhandahåller en Azure-Virtual Network virtuella datorer för a
 
 **Gruppera**
 
-Virtuella nätverk är [isolerade](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) från varandra. Du kan skapa separata virtuella nätverk för utveckling, testning och produktion som använder samma [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) -Adressblock. Omvänt kan du skapa flera virtuella nätverk som använder olika CIDR-adressblock och ansluter nätverk till varandra. Du kan segmentera ett VNet i flera undernät.
+Virtuella nätverk är [isolerade](../../virtual-network/virtual-networks-overview.md) från varandra. Du kan skapa separata virtuella nätverk för utveckling, testning och produktion som använder samma [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) -Adressblock. Omvänt kan du skapa flera virtuella nätverk som använder olika CIDR-adressblock och ansluter nätverk till varandra. Du kan segmentera ett VNet i flera undernät.
 
 Azure tillhandahåller intern namn matchning för virtuella datorer och [Cloud Services](https://azure.microsoft.com/services/cloud-services/) roll instanser som är anslutna till ett VNet. Du kan också konfigurera ett virtuellt nätverk för att använda dina egna DNS-servrar i stället för att använda intern namn matchning i Azure.
 
@@ -130,35 +130,35 @@ Du kan implementera flera virtuella nätverk i varje Azure- [prenumeration](http
 
 -   Segmentera VNet till ett eller flera undernät och allokera en del av VNet-adressutrymmet till varje undernät.
 
--   Använd Azure-tillhandahållen namn matchning eller ange en egen DNS-server som ska användas av resurser som är anslutna till ett virtuellt nätverk. Läs mer om namn matchning i virtuella nätverk i [namn matchning för virtuella datorer och Cloud Services](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances).
+-   Använd Azure-tillhandahållen namn matchning eller ange en egen DNS-server som ska användas av resurser som är anslutna till ett virtuellt nätverk. Läs mer om namn matchning i virtuella nätverk i [namn matchning för virtuella datorer och Cloud Services](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 **Internetanslutning**
 
-Alla [Azure Virtual Machines (VM)](https://docs.microsoft.com/azure/virtual-machines/windows/) och Cloud Services roll instanser som är anslutna till ett VNet har åtkomst till Internet som standard. Du kan också aktivera inkommande åtkomst till vissa resurser efter behov. (VM) och Cloud Services roll instanser som är anslutna till ett VNet har åtkomst till Internet som standard. Du kan också aktivera inkommande åtkomst till vissa resurser efter behov.
+Alla [Azure Virtual Machines (VM)](../../virtual-machines/windows/index.yml) och Cloud Services roll instanser som är anslutna till ett VNet har åtkomst till Internet som standard. Du kan också aktivera inkommande åtkomst till vissa resurser efter behov. (VM) och Cloud Services roll instanser som är anslutna till ett VNet har åtkomst till Internet som standard. Du kan också aktivera inkommande åtkomst till vissa resurser efter behov.
 
 Alla resurser som är anslutna till ett VNet har utgående anslutning till Internet som standard. Resursens privata IP-adress är käll nätverks adressen översatt (SNAT) till en offentlig IP-adress av Azure-infrastrukturen. Du kan ändra standard anslutningen genom att implementera anpassad Routning och trafik filtrering. Om du vill veta mer om utgående Internet anslutning läser du [förstå utgående anslutningar i Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-För att kunna kommunicera inkommande till Azure-resurser från Internet, eller för att kommunicera utgående till Internet utan SNAT, måste en resurs tilldelas en offentlig IP-adress. Läs mer om offentliga IP-adresser genom att läsa de [offentliga IP-adresserna](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address).
+För att kunna kommunicera inkommande till Azure-resurser från Internet, eller för att kommunicera utgående till Internet utan SNAT, måste en resurs tilldelas en offentlig IP-adress. Läs mer om offentliga IP-adresser genom att läsa de [offentliga IP-adresserna](../../virtual-network/virtual-network-public-ip-address.md).
 
 **Anslutning till Azure-resurs**
 
-[Azure-resurser](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) som Cloud Services och virtuella datorer kan anslutas till samma VNet. Resurserna kan ansluta till varandra med hjälp av privata IP-adresser, även om de finns i olika undernät. Azure tillhandahåller standardroutning mellan undernät, virtuella nätverk och lokala nätverk, så du behöver inte konfigurera och hantera vägar.
+[Azure-resurser](../../virtual-network/virtual-networks-overview.md) som Cloud Services och virtuella datorer kan anslutas till samma VNet. Resurserna kan ansluta till varandra med hjälp av privata IP-adresser, även om de finns i olika undernät. Azure tillhandahåller standardroutning mellan undernät, virtuella nätverk och lokala nätverk, så du behöver inte konfigurera och hantera vägar.
 
-Du kan ansluta flera Azure-resurser till ett VNet, till exempel Virtual Machines (VM), Cloud Services, App Service miljöer och Virtual Machine Scale Sets. Virtuella datorer ansluter till ett undernät i ett VNet via ett nätverks gränssnitt (NIC). Läs mer om nätverkskorten i [nätverks gränssnitten](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface).
+Du kan ansluta flera Azure-resurser till ett VNet, till exempel Virtual Machines (VM), Cloud Services, App Service miljöer och Virtual Machine Scale Sets. Virtuella datorer ansluter till ett undernät i ett VNet via ett nätverks gränssnitt (NIC). Läs mer om nätverkskorten i [nätverks gränssnitten](../../virtual-network/virtual-network-network-interface.md).
 
 **VNet-anslutning**
 
-[Virtuella nätverk](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) kan anslutas till varandra, vilket gör att resurser som är anslutna till ett VNet kan kommunicera med alla resurser i ett annat VNet.
+[Virtuella nätverk](../../virtual-network/virtual-networks-overview.md) kan anslutas till varandra, vilket gör att resurser som är anslutna till ett VNet kan kommunicera med alla resurser i ett annat VNet.
 
 Du kan ansluta virtuella nätverk till varandra, vilket gör att resurser som är anslutna till det virtuella nätverket kan kommunicera med varandra över virtuella nätverk. Du kan använda något av eller båda av följande alternativ för att ansluta virtuella nätverk till varandra:
 
-- **Peering** Aktiverar resurser som är anslutna till olika Azure-virtuella nätverk inom samma Azure-plats för att kommunicera med varandra. Bandbredden och fördröjningen i virtuella nätverk är samma som om resurserna var anslutna till samma VNet.To. Läs mer om peering i det [virtuella nätverkets peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
+- **Peering** Aktiverar resurser som är anslutna till olika Azure-virtuella nätverk inom samma Azure-plats för att kommunicera med varandra. Bandbredden och fördröjningen i virtuella nätverk är samma som om resurserna var anslutna till samma VNet.To. Läs mer om peering i det [virtuella nätverkets peering](../../virtual-network/virtual-network-peering-overview.md).
 
 - **VNet-till-VNet-anslutning:** Aktiverar resurser som är anslutna till olika Azure VNet på samma eller olika Azure-platser. Till skillnad från peering begränsas bandbredden mellan virtuella nätverk eftersom trafiken måste flöda genom en Azure-VPN Gateway. Lär dig mer om att ansluta virtuella nätverk med en VNet-till-VNet-anslutning. Läs mer i [Konfigurera en VNet-till-VNET-anslutning](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal?toc=%2fazure%2fvirtual-network%2ftoc.json) .
 
 **Lokala anslutningsmöjligheter**
 
-Virtuella nätverk kan anslutas till [lokala](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) nätverk via privata nätverks anslutningar mellan ditt nätverk och Azure, eller via en VPN-anslutning från plats till plats via Internet.
+Virtuella nätverk kan anslutas till [lokala](../../virtual-network/virtual-networks-overview.md) nätverk via privata nätverks anslutningar mellan ditt nätverk och Azure, eller via en VPN-anslutning från plats till plats via Internet.
 
 Du kan ansluta ditt lokala nätverk till ett VNet med valfri kombination av följande alternativ:
 
@@ -166,15 +166,15 @@ Du kan ansluta ditt lokala nätverk till ett VNet med valfri kombination av föl
 
 - **Plats-till-plats-VPN:** Upprättas mellan VPN-enheten och en Azure-VPN Gateway. Den här anslutnings typen aktiverar alla lokala resurser som du ger åtkomst till ett VNet. Anslutningen är en IPsec/IKE VPN-anslutning som ger krypterad kommunikation via Internet mellan den lokala enheten och Azure VPN-gatewayen. Svars tiden för en plats-till-plats-anslutning är oförutsägbara eftersom trafiken passerar Internet.
 
-- **Azure ExpressRoute:** Upprättas mellan ditt nätverk och Azure, via en ExpressRoute-partner. Den här anslutningen är privat. Trafiken går inte igenom Internet. Svars tiden för en ExpressRoute-anslutning är förutsägbar eftersom trafiken inte färdas över Internet. Om du vill veta mer om alla tidigare anslutnings alternativ kan du läsa [diagrammen för anslutnings miljön](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- **Azure ExpressRoute:** Upprättas mellan ditt nätverk och Azure, via en ExpressRoute-partner. Den här anslutningen är privat. Trafiken går inte igenom Internet. Svars tiden för en ExpressRoute-anslutning är förutsägbar eftersom trafiken inte färdas över Internet. Om du vill veta mer om alla tidigare anslutnings alternativ kan du läsa [diagrammen för anslutnings miljön](../../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 **Trafikfiltrering**
 
-VM-och Cloud Services roll instanser [nätverks trafiken](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) kan filtreras inkommande och utgående av Källans IP-adress och port, MÅLETs IP-adress och port och protokoll.
+VM-och Cloud Services roll instanser [nätverks trafiken](../../virtual-network/virtual-networks-overview.md) kan filtreras inkommande och utgående av Källans IP-adress och port, MÅLETs IP-adress och port och protokoll.
 
 Du kan filtrera nätverkstrafik mellan undernät med ett eller båda av följande alternativ:
 
-- **Nätverks säkerhets grupper (NSG):** Varje NSG kan innehålla flera inkommande och utgående säkerhets regler som gör att du kan filtrera trafik efter källa och mål-IP-adress, port och protokoll. Du kan använda en NSG för varje nätverkskort i en virtuell dator. Du kan också använda en NSG till under nätet som ett nätverkskort eller någon annan Azure-resurs, är ansluten till. Läs mer om NSG: er i [nätverks säkerhets grupper](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
+- **Nätverks säkerhets grupper (NSG):** Varje NSG kan innehålla flera inkommande och utgående säkerhets regler som gör att du kan filtrera trafik efter källa och mål-IP-adress, port och protokoll. Du kan använda en NSG för varje nätverkskort i en virtuell dator. Du kan också använda en NSG till under nätet som ett nätverkskort eller någon annan Azure-resurs, är ansluten till. Läs mer om NSG: er i [nätverks säkerhets grupper](../../virtual-network/virtual-network-vnet-plan-design-arm.md).
 
 - **Virtual Network-anordningar:** En virtuell nätverks installation är en virtuell dator som kör program vara som utför en nätverks funktion, till exempel en brand vägg. Visa en lista över tillgängliga NVA i Azure Marketplace. NVA är också tillgängliga som tillhandahåller WAN-optimering och andra funktioner i nätverks trafiken. NVA används vanligt vis med användardefinierade eller BGP-vägar. Du kan också använda en NVA för att filtrera trafik mellan virtuella nätverk.
 
@@ -184,7 +184,7 @@ Du kan välja att åsidosätta Azures standardroutning genom att konfigurera egn
 
 Azure skapar routningstabeller som gör det möjligt för resurser som är anslutna till ett undernät i ett VNet att kommunicera med varandra, som standard. Du kan implementera ett eller båda av följande alternativ för att åsidosätta de standardvägar som Azure skapar:
 
-- **Användardefinierade vägar:** Du kan skapa anpassade routningstabeller med vägar som styr vart trafik dirigeras för varje undernät. Mer information om användardefinierade vägar finns i [användardefinierade vägar](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview).
+- **Användardefinierade vägar:** Du kan skapa anpassade routningstabeller med vägar som styr vart trafik dirigeras för varje undernät. Mer information om användardefinierade vägar finns i [användardefinierade vägar](../../virtual-network/virtual-networks-udr-overview.md).
 
 - **BGP-vägar:** Om du ansluter ditt VNet till ditt lokala nätverk med hjälp av en Azure VPN Gateway-eller ExpressRoute-anslutning kan du sprida BGP-vägar till din virtuella nätverk.
 
@@ -201,12 +201,12 @@ Du kan ansluta ditt lokala nätverk till ett VNet med valfri kombination av föl
 
 #### <a name="internet-connectivity"></a>Internet anslutning
 
-Som namnet antyder gör Internet anslutningen att dina arbets belastningar kan nås från Internet, genom att du exponerar olika offentliga slut punkter för arbets belastningar som finns i det virtuella nätverket. Dessa arbets belastningar kan exponeras med hjälp av [Internet Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-internet-overview) eller genom att enkelt tilldela en offentlig IP-adress till den virtuella datorn. På så sätt blir det möjligt för allt på Internet att kunna komma åt den virtuella datorn, förutsatt att en värd brand vägg, [nätverks säkerhets grupper (NSG)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg)och [användardefinierade vägar](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) tillåter att det sker.
+Som namnet antyder gör Internet anslutningen att dina arbets belastningar kan nås från Internet, genom att du exponerar olika offentliga slut punkter för arbets belastningar som finns i det virtuella nätverket. Dessa arbets belastningar kan exponeras med hjälp av [Internet Load Balancer](../../load-balancer/load-balancer-overview.md#publicloadbalancer) eller genom att enkelt tilldela en offentlig IP-adress till den virtuella datorn. På så sätt blir det möjligt för allt på Internet att kunna komma åt den virtuella datorn, förutsatt att en värd brand vägg, [nätverks säkerhets grupper (NSG)](../../virtual-network/virtual-network-vnet-plan-design-arm.md)och [användardefinierade vägar](../../virtual-network/virtual-networks-udr-overview.md) tillåter att det sker.
 
 I det här scenariot kan du exponera ett program som måste vara offentligt för Internet och kunna ansluta till det var som helst eller från specifika platser beroende på konfigurationen av dina arbets belastningar.
 
 #### <a name="point-to-site-vpn-or-site-to-site-vpn"></a>Punkt-till-plats-VPN eller plats-till-plats-VPN
-Dessa två hamnar i samma kategori. De behöver ett virtuellt nätverk för att ha en VPN Gateway och du kan ansluta till den med hjälp av antingen en VPN-klient för din arbets station som en del av en plats [-till-plats-konfiguration](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal) eller så kan du konfigurera den lokala [VPN-enheten](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices) så att den kan avsluta en plats-till-plats Konfigurera. På så sätt kan lokala enheter ansluta till resurser i det virtuella nätverket.
+Dessa två hamnar i samma kategori. De behöver ett virtuellt nätverk för att ha en VPN Gateway och du kan ansluta till den med hjälp av antingen en VPN-klient för din arbets station som en del av en plats [-till-plats-konfiguration](../../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md) eller så kan du konfigurera den lokala [VPN-enheten](../../vpn-gateway/vpn-gateway-about-vpn-devices.md) så att den kan avsluta en plats-till-plats Konfigurera. På så sätt kan lokala enheter ansluta till resurser i det virtuella nätverket.
 
 Med en P2S-konfiguration (punkt-till-plats) kan du skapa en säker anslutning från en enskild klientdator till ett virtuellt nätverk. P2S är en VPN-anslutning över SSTP (Secure Socket Tunneling Protocol).
 
@@ -219,7 +219,7 @@ P2S-anslutningar kräver inte någon VPN-enhet eller en offentlig IP-adress. Du 
 ![Plats-till-plats-VPN](./media/network-security/azure-network-security-fig-6.png)
 
 > [!Note]
-> Mer information om punkt-till-plats-anslutningar finns i [punkt-till-plats FA v Q](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal).
+> Mer information om punkt-till-plats-anslutningar finns i [punkt-till-plats FA v Q](../../vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal.md).
 
 En VPN-gatewayanslutning från plats till plats används för att ansluta ditt lokala nätverk till ett virtuellt Azure-nätverk via en IPsec/IKE VPN-tunnel (IKEv1 eller IKEv2).
 
@@ -230,7 +230,7 @@ Den här typen av anslutning kräver en lokal VPN-enhet som tilldelats till en e
 Om du behöver en exceptionell säkerhets nivå eller prestanda för dina anslutningar mellan olika platser rekommenderar vi att du använder Azure-ExpressRoute för din anslutning mellan olika platser. ExpressRoute är en särskild WAN-länk mellan din lokala plats eller en Exchange-värd leverantör. Eftersom det här är en Telco-anslutning överförs inte dina data via Internet och kan därför inte exponeras för potentiella risker i Internet kommunikation.
 
 > [!Note]
-> Mer information om VPN-gatewayer finns i om [VPN gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+> Mer information om VPN-gatewayer finns i om [VPN gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
 #### <a name="dedicated-wan-link"></a>Dedikerad WAN-länk
 Med Microsoft Azure ExpressRoute kan du utöka dina lokala nätverk till Azure via en dedikerad privat anslutning som under lättas av en anslutnings leverantör.
@@ -240,9 +240,9 @@ ExpressRoute-anslutningar går inte via offentligt Internet. Det innebär att Ex
 ![ Dedikerad WAN-länk](./media/network-security/azure-network-security-fig-7.png)
 
 > [!Note]
-> Information om hur du ansluter nätverket till Microsoft med ExpressRoute finns i [ExpressRoute Connectivity Models](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) and [ExpressRoute Technical Overview](https://docs.microsoft.com/azure/expressroute/expressroute-introduction).
+> Information om hur du ansluter nätverket till Microsoft med ExpressRoute finns i [ExpressRoute Connectivity Models](../../vpn-gateway/vpn-gateway-about-vpngateways.md) and [ExpressRoute Technical Overview](../../expressroute/expressroute-introduction.md).
 
-Precis som med alternativen för plats-till-plats-VPN kan ExpressRoute också ansluta till resurser som inte nödvändigt vis finns i ett VNet. Beroende på SKU: n, kan du i själva verket ansluta till 10 virtuella nätverk. Om du har [Premium-tillägget](https://docs.microsoft.com/azure/expressroute/expressroute-faqs)är det möjligt att ansluta till upp till 100 virtuella nätverk, beroende på bandbredd. Om du vill veta mer om vilka typer av anslutningar som ser ut kan du läsa diagram för att läsa [anslutnings miljön](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Precis som med alternativen för plats-till-plats-VPN kan ExpressRoute också ansluta till resurser som inte nödvändigt vis finns i ett VNet. Beroende på SKU: n, kan du i själva verket ansluta till 10 virtuella nätverk. Om du har [Premium-tillägget](../../expressroute/expressroute-faqs.md)är det möjligt att ansluta till upp till 100 virtuella nätverk, beroende på bandbredd. Om du vill veta mer om vilka typer av anslutningar som ser ut kan du läsa diagram för att läsa [anslutnings miljön](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ### <a name="security-controls"></a>Säkerhets kontroller
 En Azure-Virtual Network tillhandahåller ett säkert, logiskt nätverk som är isolerat från andra virtuella nätverk och har stöd för många säkerhets kontroller som du använder i dina lokala nätverk. Kunderna skapar sin egen struktur genom att använda: undernät – de använder sina egna privata IP-adressintervall, konfigurerar routningstabeller, nätverks säkerhets grupper, åtkomst kontrol listor (ACL: er), gatewayer och virtuella enheter för att köra sina arbets belastningar i molnet.
@@ -309,11 +309,11 @@ Det här flödet av kommunikation är möjligt eftersom Azure använder en upps�
 
 -   Från ett VNet till ett annat VNet via en VPN-gateway.
 
--   Från ett VNet till ett annat VNet via VNet-peering ([tjänst länkning](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)).
+-   Från ett VNet till ett annat VNet via VNet-peering ([tjänst länkning](../../virtual-network/virtual-network-peering-overview.md)).
 
 -   Från ett VNet till ditt lokala nätverk via en VPN-gateway.
 
-Många företag har strikta krav på säkerhet och efterlevnad som kräver lokal inspektion av alla nätverks paket för att genomdriva särskilda principer. Azure tillhandahåller en mekanism som kallas [Tvingad tunnel](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-forced-tunneling) trafik som dirigerar trafik från de virtuella datorerna till lokala enheter genom att skapa en anpassad väg eller av en [Border Gateway Protocol (BGP)](https://docs.microsoft.com/windows-server/remote/remote-access/bgp/border-gateway-protocol-bgp) -annonser via ExpressRoute eller VPN.
+Många företag har strikta krav på säkerhet och efterlevnad som kräver lokal inspektion av alla nätverks paket för att genomdriva särskilda principer. Azure tillhandahåller en mekanism som kallas [Tvingad tunnel](../../vpn-gateway/vpn-gateway-about-forced-tunneling.md) trafik som dirigerar trafik från de virtuella datorerna till lokala enheter genom att skapa en anpassad väg eller av en [Border Gateway Protocol (BGP)](https://docs.microsoft.com/windows-server/remote/remote-access/bgp/border-gateway-protocol-bgp) -annonser via ExpressRoute eller VPN.
 
 Tvingad tunneltrafik i Azure konfigureras via virtuella nätverk användardefinierade vägar (UDR). Omdirigerar trafik till en lokal plats uttrycks som en standardväg till Azure VPN-gatewayen.
 
@@ -369,7 +369,7 @@ Azure Network Security-enheter förbättrar VNet-säkerhet och nätverks funktio
 
 #### <a name="application-gateway"></a>Programgateway
 
-[Microsoft Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) är en dedikerad virtuell installation som tillhandahåller en program leverans kontroll (ADC) som en tjänst.
+[Microsoft Azure Application Gateway](../../application-gateway/overview.md) är en dedikerad virtuell installation som tillhandahåller en program leverans kontroll (ADC) som en tjänst.
 
  ![Application Gateway](./media/network-security/azure-network-security-fig-11.png)
 
@@ -384,13 +384,13 @@ Med Application Gateway kan du optimera webb server gruppens prestanda och tillg
 -   Möjlighet att vara värd för flera webbplatser bakom en enda Application Gateway
 
 
-En [brand vägg för webbaserade program (WAF)](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview) ingår också som en del av programgatewayen. Detta ger skydd för webb program från vanliga webb sårbarheter och sårbarheter. Application Gateway kan konfigureras som en gateway på Internet, en intern gateway eller en kombination av båda.
+En [brand vägg för webbaserade program (WAF)](../../application-gateway/waf-overview.md) ingår också som en del av programgatewayen. Detta ger skydd för webb program från vanliga webb sårbarheter och sårbarheter. Application Gateway kan konfigureras som en gateway på Internet, en intern gateway eller en kombination av båda.
 
 Application Gateway WAF kan köras i identifierings-eller skydds läge. Ett vanligt användnings fall är att administratörer kan köras i identifierings läge för att observera trafik för skadliga mönster. När potentiella sårbarheter upptäcks, kan du aktivera skydds läget och förhindra misstänkt inkommande trafik.
 
  ![Application Gateway](./media/network-security/azure-network-security-fig-12.png)
 
-Dessutom hjälper Application Gateway WAF dig att övervaka webb program mot attacker med en WAF-logg i real tid som är integrerad med [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview) och [Azure Security Center](https://azure.microsoft.com/services/security-center/) för att spåra WAF aviseringar och enkelt övervaka trender.
+Dessutom hjälper Application Gateway WAF dig att övervaka webb program mot attacker med en WAF-logg i real tid som är integrerad med [Azure Monitor](../../azure-monitor/overview.md) och [Azure Security Center](https://azure.microsoft.com/services/security-center/) för att spåra WAF aviseringar och enkelt övervaka trender.
 
 Den JSON-formaterade loggen går direkt till kundens lagrings konto. Du har fullständig kontroll över dessa loggar och kan tillämpa dina egna bevarande principer.
 
@@ -402,7 +402,7 @@ Webb program är allt större av skadliga attacker som utnyttjar vanliga kända 
 
  ![Brand vägg för Azure-webbprogram (WAF)](./media/network-security/azure-network-security-fig-13.png)
 
-En centraliserad [brand vägg för webbaserade program (WAF)](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview) kan skydda mot webb attacker och förenkla säkerhets hanteringen utan att några program ändringar krävs.
+En centraliserad [brand vägg för webbaserade program (WAF)](../../application-gateway/waf-overview.md) kan skydda mot webb attacker och förenkla säkerhets hanteringen utan att några program ändringar krävs.
 
 En brandväggslösning för webbaserade program kan även reagera snabbare på ett säkerhetshot genom att åtgärda en känd svaghet på en central plats jämfört med om korrigeringar ska utföras i varje enskilt webbprogram. Befintliga programgatewayer kan enkelt konverteras till en Application Gateway med brandväggen för webbprogram.
 
@@ -427,9 +427,9 @@ Ger hög tillgänglighet och nätverks prestanda till dina program. Det är en b
 
 Azure Load Balancer kan konfigureras för att:
 
--   Belastningsutjämna inkommande Internet trafik till virtuella datorer. Den här konfigurationen kallas för [belastnings utjämning mot Internet](https://docs.microsoft.com/azure/load-balancer/load-balancer-internet-overview).
+-   Belastningsutjämna inkommande Internet trafik till virtuella datorer. Den här konfigurationen kallas för [belastnings utjämning mot Internet](../../load-balancer/load-balancer-overview.md#publicloadbalancer).
 
--   Belastnings Utjämnings trafik mellan virtuella datorer i ett virtuellt nätverk, mellan virtuella datorer i moln tjänster eller mellan lokala datorer och virtuella datorer i ett virtuellt nätverk mellan olika platser. Den här konfigurationen kallas [intern belastnings utjämning](https://docs.microsoft.com/azure/load-balancer/load-balancer-internal-overview).
+-   Belastnings Utjämnings trafik mellan virtuella datorer i ett virtuellt nätverk, mellan virtuella datorer i moln tjänster eller mellan lokala datorer och virtuella datorer i ett virtuellt nätverk mellan olika platser. Den här konfigurationen kallas [intern belastnings utjämning](../../load-balancer/load-balancer-overview.md#internalloadbalancer).
 
 -   Vidarebefordra extern trafik till en enskild virtuell dator.
 
@@ -443,15 +443,15 @@ Alla resurser i molnet måste ha en offentlig IP-adress för att kunna kommas å
 
 Microsoft Azure Traffic Manager gör att du kan styra distributionen av användar trafik för tjänst slut punkter i olika data Center. Tjänst slut punkter som stöds av Traffic Manager inkluderar virtuella Azure-datorer, Web Apps och moln tjänster. Du kan även använda Traffic Manager med externa slutpunkter som inte tillhör Azure.
 
-Traffic Manager använder Domain Name System (DNS) för att dirigera klient begär anden till den lämpligaste slut punkten baserat på en [Traffic-routningsmetod](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods) och tillståndet för slut punkterna. Traffic Manager tillhandahåller en mängd metoder för trafik cirkulation som passar olika program behov, [övervakning](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring)av slut punkts hälsa och automatisk redundans. Traffic Manager har bra återhämtningsförmåga i händelse av fel, inklusive fel som påverkar en hel Azure-region.
+Traffic Manager använder Domain Name System (DNS) för att dirigera klient begär anden till den lämpligaste slut punkten baserat på en [Traffic-routningsmetod](../../traffic-manager/traffic-manager-routing-methods.md) och tillståndet för slut punkterna. Traffic Manager tillhandahåller en mängd metoder för trafik cirkulation som passar olika program behov, [övervakning](../../traffic-manager/traffic-manager-monitoring.md)av slut punkts hälsa och automatisk redundans. Traffic Manager har bra återhämtningsförmåga i händelse av fel, inklusive fel som påverkar en hel Azure-region.
 
 Med Azure Traffic Manager kan du styra trafiken mellan dina program slut punkter. En slutpunkt är en Internetansluten tjänst i eller utanför Azure.
 
 Traffic Manager ger två viktiga fördelar:
 
--   Trafik spridning enligt en av flera metoder för [trafik cirkulation](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods).
+-   Trafik spridning enligt en av flera metoder för [trafik cirkulation](../../traffic-manager/traffic-manager-routing-methods.md).
 
--   [Kontinuerlig övervakning av slut punkts hälsa](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring) och automatisk redundans när slut punkter inte fungerar.
+-   [Kontinuerlig övervakning av slut punkts hälsa](../../traffic-manager/traffic-manager-monitoring.md) och automatisk redundans när slut punkter inte fungerar.
 
 När en klient försöker ansluta till en tjänst måste den först matcha DNS-namnet för tjänsten med en IP-adress. Klienten ansluter sedan till den IP-adressen för att få åtkomst till tjänsten. Traffic Manager använder DNS för att dirigera klienter till vissa tjänst slut punkter baserat på reglerna för metoden för trafik dirigering. Klienterna ansluter till den valda slut punkten direkt. Traffic Manager är inte en proxy eller gateway. Traffic Manager ser inte trafiken som passerar mellan klienten och tjänsten.
 
@@ -461,11 +461,11 @@ Azure nätverks verifiering är att säkerställa att Azure-nätverket fungerar 
 
 Azures drift säkerhet syftar på tjänster, kontroller och funktioner som är tillgängliga för användare för att skydda data, program och andra till gångar i Microsoft Azure. Azures drift säkerhet bygger på ett ramverk som införlivar den kunskap som du har fått via en mängd olika funktioner som är unika för Microsoft, inklusive Microsoft Security Development Lifecycle (SDL), Microsoft Security Response Centre-programmet och djupgående medvetenhet om cyberhot-säkerhetshotets landskap.
 
--   [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
+-   [Azure Security Center](../../security-center/security-center-intro.md)
 
--   [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview)
+-   [Azure Monitor](../../azure-monitor/overview.md)
 
--   [Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)
+-   [Azure Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md)
 
 -   [Azure Storage analys](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)
 
@@ -498,7 +498,7 @@ Resource Manager har flera fördelar:
 -   Du kan klargöra din organisations fakturering genom att Visa kostnader för en grupp med resurser som delnings tag gen.
 
 > [!Note]
-> Resource Manager erbjuder ett nytt sätt att distribuera och hantera lösningar. Om du använde den tidigare distributionsmodellen och vill veta mer om ändringarna läser du [Förstå Resource Manager-distribution och klassisk distribution](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model).
+> Resource Manager erbjuder ett nytt sätt att distribuera och hantera lösningar. Om du använde den tidigare distributionsmodellen och vill veta mer om ändringarna läser du [Förstå Resource Manager-distribution och klassisk distribution](../../azure-resource-manager/resource-manager-deployment-model.md).
 
 ## <a name="azure-network-logging-and-monitoring"></a>Azure-nätverks loggning och övervakning
 
@@ -512,7 +512,7 @@ Azure erbjuder många verktyg för att övervaka, förhindra, identifiera och re
 
 ### <a name="network-watcher"></a>Nätverksbevakare
 
-[Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) -scenario-baserad övervakning tillhandahålls med funktionerna i Network Watcher. Den här tjänsten omfattar paket insamling, nästa hopp, kontrol lera IP-flöde, vyn säkerhets grupp, NSG Flow-loggar. Övervakning av scenario nivå ger en heltäckande vy över nätverks resurser i motsats till övervakning av enskilda nätverks resurser.
+[Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md) -scenario-baserad övervakning tillhandahålls med funktionerna i Network Watcher. Den här tjänsten omfattar paket insamling, nästa hopp, kontrol lera IP-flöde, vyn säkerhets grupp, NSG Flow-loggar. Övervakning av scenario nivå ger en heltäckande vy över nätverks resurser i motsats till övervakning av enskilda nätverks resurser.
 
  ![Network Watcher](./media/network-security/azure-network-security-fig-15.png)
 
@@ -522,7 +522,7 @@ Network Watcher har för närvarande följande funktioner:
 
 #### <a name="topology"></a>Topologi
 
-[Topologi](https://docs.microsoft.com/azure/network-watcher/network-watcher-topology-overview) returnerar ett diagram över nätverks resurser i ett virtuellt nätverk. Diagrammet visar sammanlänkningen mellan resurserna som motsvarar slut punkt till slut punkt för nätverks anslutningen. I portalen returnerar topologi resurs objekt på samma sätt som per virtuellt nätverk. Relationerna illustreras med rader mellan resurserna utanför den Network Watcher regionen, även om de inte visas i resurs gruppen. Resurserna som returneras i vyn Portal är en del av de nätverks komponenter som visas i diagrammet. Om du vill se en fullständig lista över nätverks resurser kan du använda [PowerShell](https://docs.microsoft.com/azure/network-watcher/network-watcher-topology-powershell) eller [rest](https://docs.microsoft.com/azure/network-watcher/network-watcher-topology-rest).
+[Topologi](../../network-watcher/view-network-topology.md) returnerar ett diagram över nätverks resurser i ett virtuellt nätverk. Diagrammet visar sammanlänkningen mellan resurserna som motsvarar slut punkt till slut punkt för nätverks anslutningen. I portalen returnerar topologi resurs objekt på samma sätt som per virtuellt nätverk. Relationerna illustreras med rader mellan resurserna utanför den Network Watcher regionen, även om de inte visas i resurs gruppen. Resurserna som returneras i vyn Portal är en del av de nätverks komponenter som visas i diagrammet. Om du vill se en fullständig lista över nätverks resurser kan du använda [PowerShell](../../network-watcher/view-network-topology.md) eller [rest](../../network-watcher/view-network-topology.md).
 
 När resurserna returneras är anslutningen mellan de modelleras under två relationer.
 
@@ -532,49 +532,49 @@ När resurserna returneras är anslutningen mellan de modelleras under två rela
 
 #### <a name="variable-packet-capture"></a>Variabla infångade paket
 
-Med Network Watcher [variabel paket fångst](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview) kan du skapa sessioner för att skapa paket och spåra trafik till och från en virtuell dator. Med paket fångst kan du diagnostisera nätverks avvikelser både återaktivt och proaktivt. Andra användnings områden innefattar insamling av nätverks statistik, få information om nätverks intrång, för att felsöka klient-server-kommunikation och mycket mer.
+Med Network Watcher [variabel paket fångst](../../network-watcher/network-watcher-packet-capture-overview.md) kan du skapa sessioner för att skapa paket och spåra trafik till och från en virtuell dator. Med paket fångst kan du diagnostisera nätverks avvikelser både återaktivt och proaktivt. Andra användnings områden innefattar insamling av nätverks statistik, få information om nätverks intrång, för att felsöka klient-server-kommunikation och mycket mer.
 
 Paket fångst är ett tillägg för virtuell dator som har startats via en fjärr anslutning via Network Watcher. Den här funktionen fören klar belastningen på att köra en paket registrering manuellt på önskad virtuell dator, vilket sparar värdefull tid. Paket fångst kan utlösas via portalen, PowerShell, CLI eller REST API. Ett exempel på hur paket fångst kan utlösas är med aviseringar för virtuella datorer.
 
 #### <a name="ip-flow-verify"></a>Kontrollera IP-flöde
 
-[IP-flöden verifierar](https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview) kontroller om ett paket tillåts eller nekas till eller från en virtuell dator baserat på 5 tuple-information. Den här informationen består av riktning, protokoll, lokal IP-adress, fjärr-IP, lokal port och fjärran sluten port. Om paketet nekas av en säkerhets grupp returneras namnet på den regel som nekade paketet. När alla käll-eller mål-IP-adresser kan väljas hjälper den här funktionen administratörer att snabbt diagnostisera anslutnings problem från eller till Internet och från eller till den lokala miljön.
+[IP-flöden verifierar](../../network-watcher/network-watcher-ip-flow-verify-overview.md) kontroller om ett paket tillåts eller nekas till eller från en virtuell dator baserat på 5 tuple-information. Den här informationen består av riktning, protokoll, lokal IP-adress, fjärr-IP, lokal port och fjärran sluten port. Om paketet nekas av en säkerhets grupp returneras namnet på den regel som nekade paketet. När alla käll-eller mål-IP-adresser kan väljas hjälper den här funktionen administratörer att snabbt diagnostisera anslutnings problem från eller till Internet och från eller till den lokala miljön.
 
 IP-flöden verifierar mål ett nätverks gränssnitt för en virtuell dator. Trafikflödet verifieras sedan baserat på de konfigurerade inställningarna till eller från det nätverks gränssnittet. Den här funktionen är användbar vid bekräftelse av om en regel i en nätverks säkerhets grupp blockerar ingångs-eller utgående trafik till eller från en virtuell dator.
 
 #### <a name="next-hop"></a>Nästa hopp
 
-Anger [nästa hopp](https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview) för paket som dirigeras i Azures nätverks infrastruktur resurs, så att du kan diagnostisera eventuella felkonfigurerade användardefinierade vägar. Trafik från en virtuell dator skickas till ett mål baserat på de effektiva vägar som är kopplade till ett nätverkskort. Nästa hopp hämtar nästa hopp typ och IP-adress för ett paket från en speciell virtuell dator och NIC. Detta hjälper dig att avgöra om paketet dirigeras till målet eller om trafiken blir svart.
+Anger [nästa hopp](../../network-watcher/network-watcher-next-hop-overview.md) för paket som dirigeras i Azures nätverks infrastruktur resurs, så att du kan diagnostisera eventuella felkonfigurerade användardefinierade vägar. Trafik från en virtuell dator skickas till ett mål baserat på de effektiva vägar som är kopplade till ett nätverkskort. Nästa hopp hämtar nästa hopp typ och IP-adress för ett paket från en speciell virtuell dator och NIC. Detta hjälper dig att avgöra om paketet dirigeras till målet eller om trafiken blir svart.
 
 Nästa hopp returnerar också den routningstabell som är associerad med nästa hopp. När du frågar efter nästa hopp om vägen definieras som en användardefinierad väg returneras den vägen. Annars returnerar nästa hopp "system Route".
 
 #### <a name="security-group-view"></a>Säkerhetsgruppvy
 
-Hämtar de effektiva och tillämpade säkerhets reglerna som tillämpas på en virtuell dator. Nätverks säkerhets grupper är kopplade till en under näts nivå eller på en NÄTVERKSKORTs nivå. När den är kopplad till en under näts nivå tillämpas den på alla virtuella dator instanser i under nätet. [Vyn nätverks säkerhets grupp](https://docs.microsoft.com/azure/network-watcher/network-watcher-security-group-view-overview) returnerar alla konfigurerade NSG: er och regler som är kopplade till ett nätverkskort och en under näts nivå för en virtuell dator som ger inblick i konfigurationen. Dessutom returneras de effektiva säkerhets reglerna för varje nätverkskort i en virtuell dator. Med vyn nätverks säkerhets grupp kan du utvärdera en virtuell dator för nätverks sårbarheter, till exempel öppna portar. Du kan också kontrol lera om nätverks säkerhets gruppen fungerar som förväntat baserat på en [jämförelse mellan de konfigurerade och gällande säkerhets reglerna](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-auditing-powershell).
+Hämtar de effektiva och tillämpade säkerhets reglerna som tillämpas på en virtuell dator. Nätverks säkerhets grupper är kopplade till en under näts nivå eller på en NÄTVERKSKORTs nivå. När den är kopplad till en under näts nivå tillämpas den på alla virtuella dator instanser i under nätet. [Vyn nätverks säkerhets grupp](../../network-watcher/network-watcher-security-group-view-overview.md) returnerar alla konfigurerade NSG: er och regler som är kopplade till ett nätverkskort och en under näts nivå för en virtuell dator som ger inblick i konfigurationen. Dessutom returneras de effektiva säkerhets reglerna för varje nätverkskort i en virtuell dator. Med vyn nätverks säkerhets grupp kan du utvärdera en virtuell dator för nätverks sårbarheter, till exempel öppna portar. Du kan också kontrol lera om nätverks säkerhets gruppen fungerar som förväntat baserat på en [jämförelse mellan de konfigurerade och gällande säkerhets reglerna](../../network-watcher/network-watcher-nsg-auditing-powershell.md).
 
 #### <a name="nsg-flow-logging"></a>NSG flödes loggning
 
  Flödes loggar för nätverks säkerhets grupper gör att du kan avbilda loggar som är relaterade till trafik som tillåts eller nekas av säkerhets reglerna i gruppen. Flödet definieras av en 5-tupel-information – käll-IP, mål-IP, källport, mål Port och protokoll.
 
-[Flödes loggar för nätverks säkerhets grupper](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview) är en funktion i Network Watcher som gör att du kan visa information om inkommande och utgående IP-trafik via en nätverks säkerhets grupp.
+[Flödes loggar för nätverks säkerhets grupper](../../network-watcher/network-watcher-nsg-flow-logging-overview.md) är en funktion i Network Watcher som gör att du kan visa information om inkommande och utgående IP-trafik via en nätverks säkerhets grupp.
 
 #### <a name="virtual-network-gateway-and-connection-troubleshooting"></a>Virtuell nätverksgateway och anslutnings fel sökning
 
-Network Watcher innehåller många funktioner som är relaterade till förståelse av dina nätverks resurser i Azure. En av dessa funktioner är resurs fel sökning. [Resurs fel sökning](https://docs.microsoft.com/azure/network-watcher/network-watcher-troubleshoot-manage-rest) kan anropas av POWERSHELL, CLI eller REST API. När den anropas kontrollerar Network Watcher hälsan för en Virtual Network gateway eller en anslutning och returnerar resultatet.
+Network Watcher innehåller många funktioner som är relaterade till förståelse av dina nätverks resurser i Azure. En av dessa funktioner är resurs fel sökning. [Resurs fel sökning](../../network-watcher/network-watcher-troubleshoot-manage-rest.md) kan anropas av POWERSHELL, CLI eller REST API. När den anropas kontrollerar Network Watcher hälsan för en Virtual Network gateway eller en anslutning och returnerar resultatet.
 
 Det här avsnittet tar dig igenom de olika hanterings aktiviteter som för närvarande är tillgängliga för resurs fel sökning.
 
--   [Felsöka en Virtual Network Gateway](https://docs.microsoft.com/azure/network-watcher/network-watcher-troubleshoot-manage-rest)
+-   [Felsöka en Virtual Network Gateway](../../network-watcher/network-watcher-troubleshoot-manage-rest.md)
 
--   [Felsöka en anslutning](https://docs.microsoft.com/azure/network-watcher/network-watcher-troubleshoot-manage-rest)
+-   [Felsöka en anslutning](../../network-watcher/network-watcher-troubleshoot-manage-rest.md)
 
 #### <a name="network-subscription-limits"></a>Begränsningar för nätverks prenumeration
 
-[Begränsningar för nätverks prenumeration](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) ger dig information om användningen av varje nätverks resurs i en prenumeration i en region mot det maximala antalet resurser som är tillgängliga.
+[Begränsningar för nätverks prenumeration](../../network-watcher/network-watcher-monitoring-overview.md) ger dig information om användningen av varje nätverks resurs i en prenumeration i en region mot det maximala antalet resurser som är tillgängliga.
 
 #### <a name="configuring-diagnostics-log"></a>Konfigurera diagnostikloggar
 
-Network Watcher innehåller en vy för [diagnostiska loggar](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) . Den här vyn innehåller alla nätverks resurser som stöder diagnostisk loggning. I den här vyn kan du aktivera och inaktivera nätverks resurser enkelt och snabbt.
+Network Watcher innehåller en vy för [diagnostiska loggar](../../network-watcher/network-watcher-monitoring-overview.md) . Den här vyn innehåller alla nätverks resurser som stöder diagnostisk loggning. I den här vyn kan du aktivera och inaktivera nätverks resurser enkelt och snabbt.
 
 ### <a name="network-resource-level-monitoring"></a>Övervakning av nätverks resurs nivå
 
@@ -585,7 +585,7 @@ Följande funktioner är tillgängliga för övervakning på resurs nivå:
 Åtgärder som utförs som en del av konfigurationen av nätverk loggas. Dessa gransknings loggar är nödvändiga för att upprätta olika efterlevnadar. Dessa loggar kan visas i Azure Portal eller hämtas med hjälp av Microsoft-verktyg som Power BI eller verktyg från tredje part. Gransknings loggar är tillgängliga via portalen, PowerShell, CLI och REST API.
 
 > [!Note]
-> Mer information om gransknings loggar finns i [gransknings åtgärder med Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
+> Mer information om gransknings loggar finns i [gransknings åtgärder med Resource Manager](../../azure-resource-manager/resource-group-audit.md).
 Gransknings loggar är tillgängliga för åtgärder som utförs på alla nätverks resurser.
 
 
@@ -594,19 +594,19 @@ Gransknings loggar är tillgängliga för åtgärder som utförs på alla nätve
 Mått är prestanda mått och räknare som samlas in under en period. Mått är för närvarande tillgängliga för Application Gateway. Mått kan användas för att utlösa aviseringar baserat på tröskel. Azure Application Gateway övervakar som standard hälsan för alla resurser i sin backend-pool och tar automatiskt bort alla resurser som betraktas som felaktiga från poolen. Application Gateway fortsätter att övervaka skadade instanser och lägger tillbaka dem till den felfria backend-poolen när de blir tillgängliga och svarar på hälso avsökningar. Application Gateway skickar hälso avsökningar med samma port som definieras i Server delens HTTP-inställningar. Den här konfigurationen säkerställer att avsökningen testar samma port som kunderna skulle använda för att ansluta till Server delen.
 
 > [!Note]
-> Se [Application Gateway Diagnostics](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview) för att se hur mått kan användas för att skapa aviseringar.
+> Se [Application Gateway Diagnostics](../../application-gateway/application-gateway-probe-overview.md) för att se hur mått kan användas för att skapa aviseringar.
 
 #### <a name="diagnostic-logs"></a>Diagnostikloggar
 
-Periodiska och spontana händelser skapas av nätverks resurser och loggas i lagrings konton, som skickas till en Händelsehubben eller Azure Monitor loggar. Dessa loggar ger insikter om hälso tillståndet för en resurs. Dessa loggar kan visas i verktyg som Power BI och Azure Monitor loggar. Information om hur du visar diagnostikloggar finns [Azure Monitor loggar](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics).
+Periodiska och spontana händelser skapas av nätverks resurser och loggas i lagrings konton, som skickas till en Händelsehubben eller Azure Monitor loggar. Dessa loggar ger insikter om hälso tillståndet för en resurs. Dessa loggar kan visas i verktyg som Power BI och Azure Monitor loggar. Information om hur du visar diagnostikloggar finns [Azure Monitor loggar](../../azure-monitor/insights/azure-networking-analytics.md).
 
-Diagnostikloggar är tillgängliga för [Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-monitor-log), [nätverks säkerhets grupper](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log), vägar och [Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics).
+Diagnostikloggar är tillgängliga för [Load Balancer](../../load-balancer/load-balancer-monitor-log.md), [nätverks säkerhets grupper](../../virtual-network/virtual-network-nsg-manage-log.md), vägar och [Application Gateway](../../application-gateway/application-gateway-diagnostics.md).
 
 Network Watcher innehåller en vy för diagnostiska loggar. Den här vyn innehåller alla nätverks resurser som stöder diagnostisk loggning. I den här vyn kan du aktivera och inaktivera nätverks resurser enkelt och snabbt.
 
 ### <a name="azure-monitor-logs"></a>Azure Monitor-loggar
 
-[Azure Monitor loggar](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) är en tjänst i Azure som övervakar molnet och lokala miljöer för att bibehålla deras tillgänglighet och prestanda. Den samlar in data som genereras av resurser i dina miljöer i molnet och lokalt och från andra övervakningsverktyg för att tillhandahålla analyser över flera källor.
+[Azure Monitor loggar](../../log-analytics/log-analytics-queries.md) är en tjänst i Azure som övervakar molnet och lokala miljöer för att bibehålla deras tillgänglighet och prestanda. Den samlar in data som genereras av resurser i dina miljöer i molnet och lokalt och från andra övervakningsverktyg för att tillhandahålla analyser över flera källor.
 
 Azure Monitor loggar innehåller följande lösningar för att övervaka dina nätverk:
 
@@ -617,7 +617,7 @@ Azure Monitor loggar innehåller följande lösningar för att övervaka dina n�
 -   Analys av Azure nätverks säkerhets grupp
 
 #### <a name="network-performance-monitor-npm"></a>Övervakaren nätverks prestanda (NPM)
-Den [övervakare av nätverksprestanda](https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor) hanterings lösningen är en lösning för nätverks övervakning som övervakar hälso tillstånd, tillgänglighet och nåbarhet för nätverk.
+Den [övervakare av nätverksprestanda](../../azure-monitor/insights/network-performance-monitor.md) hanterings lösningen är en lösning för nätverks övervakning som övervakar hälso tillstånd, tillgänglighet och nåbarhet för nätverk.
 
 Den används för att övervaka anslutningen mellan:
 
@@ -644,7 +644,7 @@ Följande mått stöds för Application Gateway:
 
 #### <a name="azure-network-security-group-analytics-in-azure-monitor-logs"></a>Analys av Azure nätverks säkerhets grupper i Azure Monitor loggar
 
-Följande loggar stöds för [nätverks säkerhets grupper](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log):
+Följande loggar stöds för [nätverks säkerhets grupper](../../virtual-network/virtual-network-nsg-manage-log.md):
 
 - **NetworkSecurityGroupEvent:** Innehåller poster för vilka NSG-regler tillämpas på virtuella datorer och instans roller baserade på MAC-adress. Status för dessa regler samlas in var 60: e sekund.
 
@@ -653,7 +653,7 @@ Följande loggar stöds för [nätverks säkerhets grupper](https://docs.microso
 ## <a name="next-steps"></a>Nästa steg
 Lär dig mer om säkerhet genom att läsa några av våra djupgående säkerhets ämnen:
 
--   [Azure Monitor loggar för nätverks säkerhets grupper (NSG: er)](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)
+-   [Azure Monitor loggar för nätverks säkerhets grupper (NSG: er)](../../virtual-network/virtual-network-nsg-manage-log.md)
 
 -   [Nätverks innovationer som driver moln störningar](https://azure.microsoft.com/blog/networking-innovations-that-drive-the-cloud-disruption/)
 

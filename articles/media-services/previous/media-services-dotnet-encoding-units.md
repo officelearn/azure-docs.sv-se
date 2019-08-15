@@ -1,6 +1,6 @@
 ---
-title: Skala mediebearbetning genom att lägga till kodningsenheter – Azure |  Microsoft Docs
-description: Lär dig hur du hur du lägger till kodningsenheter med .NET
+title: Skala medie bearbetning genom att lägga till kodnings enheter – Azure |  Microsoft Docs
+description: Lär dig hur du lägger till kodnings enheter med .NET
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
-ms.author: juliako;milangada;
-ms.openlocfilehash: 65b647a375ecbe70f7f29af5b09827f1c34dcd6f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: juliako
+ms.reviewer: milangada
+ms.openlocfilehash: 9d393e07008d981834d9deb48ded73995366d7e4
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61217231"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "69016571"
 ---
 # <a name="how-to-scale-encoding-with-net-sdk"></a>Hur du skalar kodning med .NET SDK:n
 > [!div class="op_single_selector"]
@@ -33,11 +34,11 @@ ms.locfileid: "61217231"
 
 ## <a name="overview"></a>Översikt
 > [!IMPORTANT]
-> Se till att granska den [översikt](media-services-scale-media-processing-overview.md) vill ha mer information om att skala mediebearbetning.
+> Se översikten för att [](media-services-scale-media-processing-overview.md) få mer information om skalning av medie bearbetning.
 > 
 > 
 
-Om du vill ändra typ av reserverad enhet och antalet kodningsreserverade enheter med hjälp av .NET SDK måste du göra följande:
+Om du vill ändra typen av reserverad enhet och antalet reserverade enheter med .NET SDK gör du följande:
 
     IEncodingReservedUnit encodingS1ReservedUnit = _context.EncodingReservedUnits.FirstOrDefault();
     encodingS1ReservedUnit.ReservedUnitType = ReservedUnitType.Basic; // Corresponds to S1
@@ -49,9 +50,9 @@ Om du vill ändra typ av reserverad enhet och antalet kodningsreserverade enhete
 
     Console.WriteLine("Number of reserved units: {0}", encodingS1ReservedUnit.CurrentReservedUnits);
 
-## <a name="opening-a-support-ticket"></a>Öppna ett supportärende
+## <a name="opening-a-support-ticket"></a>Öppna ett support ärende
 
-Som standard kan alla Media Services-konton skala upp till 10 S2 eller S3 Mediereserverade enheter (MRUs) eller 25 S1 MRUs och 5 på begäran reserverade för strömning. Du kan begära en högre gräns genom att öppna ett supportärende.
+Som standard kan varje Media Services-konto skalas till upp till 10 S2 eller S3 Media reserverad Units (MRUs) eller 25 S1 MRUs, och 5-reserverade enheter för strömning på begäran. Du kan begära en högre gräns genom att öppna ett support ärende.
 
 ## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

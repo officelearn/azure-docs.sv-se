@@ -1,5 +1,5 @@
 ---
-title: Distribuera modeller med en anpassad Docker-avbildning
+title: Distribuera modeller med hjälp av en anpassad Docker-avbildning
 titleSuffix: Azure Machine Learning service
 description: Lär dig hur du använder en anpassad Docker-avbildning när du distribuerar Azure Machine Learning tjänst modeller. När du distribuerar en utbildad modell skapas en Docker-avbildning som värd för avbildningen, webb servern och andra komponenter som behövs för att köra tjänsten. Medan Azure Machine Learning tjänsten tillhandahåller en standard avbildning åt dig kan du också använda en egen avbildning.
 services: machine-learning
@@ -10,14 +10,14 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/11/2019
-ms.openlocfilehash: 0025f488f6a9b0af4e05a8bdf3ddf36c089d4d9f
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: f41ccef7803366e63247e6862c59ddb983527d26
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68856124"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990533"
 ---
-# <a name="deploy-a-model-using-a-custom-docker-image"></a>Distribuera en modell med hjälp av en anpassad Docker-avbildning
+# <a name="deploy-a-model-by-using-a-custom-docker-image"></a>Distribuera en modell med hjälp av en anpassad Docker-avbildning
 
 Lär dig hur du använder en anpassad Docker-avbildning när du distribuerar utbildade modeller med Azure Machine Learning-tjänsten.
 
@@ -98,6 +98,8 @@ Om du redan har tränat eller distribuerat modeller med hjälp av tjänsten Azur
     ```azurecli-interactive
     az ml workspace show -w <myworkspace> -g <resourcegroup> --query containerRegistry
     ```
+
+    [!INCLUDE [install extension](../../../includes/machine-learning-service-install-extension.md)]
 
     Den information som returneras liknar följande text:
 

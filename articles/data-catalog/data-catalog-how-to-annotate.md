@@ -6,15 +6,17 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 708c62971a20a7071accf7591a4e2914f7dbd9f3
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: c1e022591ce1aee073330055744fbd78d97c0b1d
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736359"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950261"
 ---
-# <a name="how-to-annotate-data-sources"></a>Så här kommenterar du datakällor
+# <a name="how-to-annotate-data-sources-in-azure-data-catalog"></a>Kommentera data källor i Azure Data Catalog
+
 ## <a name="introduction"></a>Introduktion
+
 **Microsoft Azure Data Catalog** är en fullständigt hanterad moln tjänst som fungerar som ett system för registrering och identifierings system för företags data källor. Med andra ord är Data Catalog att hjälpa människor att upptäcka, förstå och använda data källor och hjälpa organisationer att få mer värde än befintliga data. När en data källa registreras med Data Catalog kopieras och indexeras dess metadata av tjänsten, men artikeln slutar inte där. Data Catalog gör det möjligt för användarna att tillhandahålla egna beskrivande metadata – till exempel beskrivningar och taggar – för att komplettera de metadata som extraheras från data källan och för att göra data källan mer begriplig för fler personer.
 
 ## <a name="annotation-and-crowdsourcing"></a>Anteckningar och gemensamt skapade

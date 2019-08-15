@@ -1,6 +1,6 @@
 ---
-title: Redigera ansikten med Azure Media Analytics genomgången | Microsoft Docs
-description: Det här avsnittet innehåller stegvisa instruktioner om hur du kör en fullständig ansiktsredigering arbetsflöde med hjälp av Azure Media Services Explorer (AMSE) och Azure Media Redactor Visualizer (verktyg med öppen källkod).
+title: Bortredigering-ansikten med Azure-medieanalys genom gång | Microsoft Docs
+description: Det här avsnittet innehåller stegvisa instruktioner om hur du kör ett fullständigt bortredigering-arbetsflöde med Azure Media Services Explorer (AMSE) och Azure Media Redactor visualiserare (verktyget med öppen källkod).
 services: media-services
 documentationcenter: ''
 author: Lichard
@@ -13,112 +13,113 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/20/2019
-ms.author: rli; juliako;
-ms.openlocfilehash: 3e4844c3174e41ca7f6f5667a2777aba11f70f11
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: ril
+ms.reviewer: juliako
+ms.openlocfilehash: 3f40c69900b0d7f1c3bf446c1153e21dd7fd4d1b
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60875079"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "69014929"
 ---
-# <a name="redact-faces-with-azure-media-analytics-walkthrough"></a>Redigera ansikten med Azure Media Analytics genomgången
+# <a name="redact-faces-with-azure-media-analytics-walkthrough"></a>Bortredigering-ansikten med Azure-medieanalys genom gång
 
 ## <a name="overview"></a>Översikt
 
-**Azure Media Redactor** är en [Azure Media Analytics](media-services-analytics-overview.md) mediebearbetare (MP) som erbjuder skalbara ansiktsredigering i molnet. Ansiktsredigering kan du ändra din video för att kunna oskärpa ansikten för valda individer. Du kanske vill använda tjänsten ansiktsredigering i offentliga säkerhet samt nyhetsmediescenarier. Några minuter med material som innehåller flera ansikten kan ta timmar att redigera manuellt, men med den här tjänsten ansikte ansiktsredigering processen tar bara några få enkla steg. Mer information finns i [detta](https://azure.microsoft.com/blog/azure-media-redactor/) blogg.
+**Azure Media Redactor** är en [Azure-medieanalys](media-services-analytics-overview.md) medie processor (MP) som erbjuder skalbara ansikts bortredigering i molnet. Med ansikts bortredigering kan du ändra videon så att det blir oskarpa ytor på valda individer. Du kanske vill använda ansikts bortredigering i offentliga säkerhets-och nyhets medie scenarier. Några minuter av tagningar som innehåller flera ansikten kan ta timmar till bortredigering manuellt, men med den här tjänsten krävs bara några få enkla steg. Mer information finns i [den här](https://azure.microsoft.com/blog/azure-media-redactor/) bloggen.
 
-Mer information om **Azure Media Redactor**, finns i den [ansikte ansiktsredigering översikt](media-services-face-redaction.md) avsnittet.
+Mer information om **Azure Media Redactor**finns i avsnittet [Översikt över ansikts bortredigering](media-services-face-redaction.md) .
 
-Det här avsnittet innehåller stegvisa instruktioner om hur du kör en fullständig ansiktsredigering arbetsflöde med hjälp av Azure Media Services Explorer (AMSE) och Azure Media Redactor Visualizer (verktyg med öppen källkod).
+Det här avsnittet innehåller stegvisa instruktioner om hur du kör ett fullständigt bortredigering-arbetsflöde med Azure Media Services Explorer (AMSE) och Azure Media Redactor visualiserare (verktyget med öppen källkod).
 
-Mer information finns i [detta](https://azure.microsoft.com/blog/redaction-preview-available-globally) blogg.
+Mer information finns i [den här](https://azure.microsoft.com/blog/redaction-preview-available-globally) bloggen.
 
 ## <a name="azure-media-services-explorer-workflow"></a>Azure Media Services Explorer-arbetsflöde
 
-Det enklaste sättet att komma igång med Redactor är att använda verktyget AMSE för öppen källkod på GitHub. Du kan köra en förenklad arbetsflöde via **kombineras** läge om du inte behöver åtkomst till anteckning-json- eller jpg-bilder ansikte.
+Det enklaste sättet att komma igång med bortredigering är att använda AMSE-verktyget med öppen källkod på GitHub. Du kan köra ett förenklat arbets flöde via **kombinerat** läge om du inte behöver åtkomst till antecknings-JSON eller ansikts jpg-bilderna.
 
-### <a name="download-and-setup"></a>Hämtning och installation
+### <a name="download-and-setup"></a>Hämta och konfigurera
 
-1. Ladda ned verktyget AMSE från [här](https://github.com/Azure/Azure-Media-Services-Explorer).
-1. Logga in på ditt Media Services-konto med hjälp av din nyckel för tjänstens.
+1. Hämta AMSE-verktyget härifrån [](https://github.com/Azure/Azure-Media-Services-Explorer).
+1. Logga in på ditt Media Services-konto med hjälp av tjänst nyckeln.
 
-    Hämta kontonamn och viktig information genom att gå till [Azure Portal](https://portal.azure.com/) och välja AMS-kontot. Välj Inställningar > nycklar. I fönstret Hantera nycklar visas kontonamnet och de primära och sekundära nycklarna. Kopiera värdena för kontonamnet och den primära nyckeln.
+    Hämta kontonamn och viktig information genom att gå till [Azure Portal](https://portal.azure.com/) och välja AMS-kontot. Välj sedan Inställningar > nycklar. I fönstret Hantera nycklar visas kontonamnet och de primära och sekundära nycklarna. Kopiera värdena för kontonamnet och den primära nyckeln.
 
 ![Ansiktsredigering](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough001.png)
 
-### <a name="first-pass--analyze-mode"></a>Först skickar – analysera läge
+### <a name="first-pass--analyze-mode"></a>Första pass-analys läge
 
-1. Ladda upp din mediefil till tillgången –> överföra, eller via dra och släpp. 
-1. Högerklicka på och bearbeta dina media-fil med hjälp av Media Analytics –> Azure Media Redactor –> analysera läge. 
+1. Ladda upp medie filen via till gång – > Ladda upp eller dra och släpp. 
+1. Högerklicka på och bearbeta medie filen med Medieanalys – > Azure Media Redactor – > analys läge. 
 
 
 ![Ansiktsredigering](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough002.png)
 
 ![Ansiktsredigering](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough003.png)
 
-Utdata innehåller en json-fil för anteckningar med ansikts-platsdata, samt en jpg för varje identifierad ansikte. 
+Utdata kommer att innehålla en antecknings-JSON-fil med ansikts plats data, samt en jpg för varje identifierad ansikte. 
 
 ![Ansiktsredigering](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough004.png)
 
-### <a name="second-pass--redact-mode"></a>Skicka andra – redigera läge
+### <a name="second-pass--redact-mode"></a>Andra steget – bortredigering-läge
 
-1. Ladda upp din ursprungliga video tillgång till utdata från det första steget och ange som en primär plats. 
+1. Ladda upp din ursprungliga video till gång till utdata från det första steget och ange som en primär till gång. 
 
     ![Ansiktsredigering](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough005.png)
 
-2. (Valfritt) Överför en 'Dance_idlist.txt'-fil som innehåller en ny rad avgränsad lista med ID: N som du vill redigera. 
+2. Valfritt Ladda upp en Dance_idlist. txt-fil som innehåller en blankstegsavgränsad lista över de ID: n som du vill redigera. 
 
     ![Ansiktsredigering](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough006.png)
 
-3. (Valfritt) Se alla ändringar i filen annotations.json, till exempel öka de omgivande box-gränserna. 
-4. Högerklicka på utdatatillgången från det första steget, Välj Redactor och kör med den **Redact** läge. 
+3. Valfritt Gör eventuella redigeringar i filen annotations. JSON, till exempel att öka gränserna för avgränsnings rutan. 
+4. Högerklicka på utmatnings till gången från det första steget, Välj bortredigering och kör med **bortredigering** -läget. 
 
     ![Ansiktsredigering](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough007.png)
 
-5. Ladda ned eller dela den redigerade slutversionen tillgången. 
+5. Hämta eller dela den slutliga avvisade utmatnings till gången. 
 
     ![Ansiktsredigering](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough008.png)
 
-## <a name="azure-media-redactor-visualizer-open-source-tool"></a>Azure Media Redactor Visualizer verktyg med öppen källkod
+## <a name="azure-media-redactor-visualizer-open-source-tool"></a>Verktyget för öppen källkod för Azure Media Redactor-visualiserare
 
-En öppen källkod [visualizer verktyget](https://github.com/Microsoft/azure-media-redactor-visualizer) har utformats för att hjälpa utvecklare som precis har startat med formatet anteckningar med hjälp av utdata och parsning.
+Ett [verktyg](https://github.com/Microsoft/azure-media-redactor-visualizer) med öppen källkod är utformat för att hjälpa utvecklare som bara börjar med antecknings formatet med parsning och användning av utdata.
 
-När du klonar lagringsplatsen, för att kunna köra projektet du måste hämta FFMPEG från sina [officiella plats](https://ffmpeg.org/download.html).
+När du har klonat lagrings platsen måste du ladda ned FFMPEG från sin [officiella plats](https://ffmpeg.org/download.html)för att kunna köra projektet.
 
-Om du är utvecklare försök att parsa JSON-data som anteckningen kan du titta på Models.MetaData exempel kodexempel.
+Om du är utvecklare som försöker parsa JSON-antecknings data tittar du i modeller. MetaData för exempel kod exempel.
 
 ### <a name="set-up-the-tool"></a>Konfigurera verktyget
 
-1.  Hämta och skapa hela lösningen. 
+1.  Hämta och bygg hela lösningen. 
 
     ![Ansiktsredigering](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough009.png)
 
-2.  Hämta FFMPEG från [här](https://ffmpeg.org/download.html). Det här projektet ursprungligen utvecklades be1d324 versionen (2016-10-04) med statisk länkning. 
-3.  Kopiera ffmpeg.exe och ffprobe.exe till samma Utdatamappen som AzureMediaRedactor.exe. 
+2.  Hämta FFMPEG härifrån [](https://ffmpeg.org/download.html). Projektet utvecklades ursprungligen med version be1d324 (2016-10-04) med statisk länkning. 
+3.  Kopiera ffmpeg. exe och ffprobe. exe till samma målmapp som AzureMediaRedactor. exe. 
 
     ![Ansiktsredigering](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough010.png)
 
-4. Kör AzureMediaRedactor.exe. 
+4. Kör AzureMediaRedactor. exe. 
 
-### <a name="use-the-tool"></a>Använd verktyget
+### <a name="use-the-tool"></a>Använda verktyget
 
-1. Bearbeta din video i ditt Azure Media Services-konto med Redactor MP analysera läge. 
-2. Ladda ned både originalfilen video- och utdata från Ansiktsredigering – analysera jobbet. 
-3. Kör programmet visualizer och välja filerna som ovan. 
+1. Bearbeta videon i ditt Azure Media Services-konto med bortredigering MP i analys läge. 
+2. Ladda ned både den ursprungliga video filen och utdata från jobbet för att analysera bortredigering. 
+3. Kör visualisera program och välj filerna ovan. 
 
     ![Ansiktsredigering](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough011.png)
 
-4. Förhandsgranska din fil. Välj vilka ansikten som du skulle vilja oskärpa via sidopanelen till höger. 
+4. Förhandsgranska filen. Välj vilka ansikten du vill göra oskärpa via sid panelen till höger. 
     
     ![Ansiktsredigering](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough012.png)
 
-5.  Nedre textfältet uppdateras med ansikts-ID: N. Skapa en fil med namnet ”idlist.txt” med dessa ID: N som en ny rad avgränsade lista. 
+5.  Det nedre textfältet uppdateras med ansikts-ID: n. Skapa en fil med namnet "idlist. txt" med dessa ID: n som en avgränsad lista för rad matningar. 
 
     >[!NOTE]
-    > Idlist.txt ska sparas i ANSI. Du kan använda anteckningar för att spara i ANSI.
+    > Idlist. txt bör sparas i ANSI. Du kan använda anteckningar för att spara i ANSI.
     
-6.  Ladda upp den här filen för utdatatillgången från steg 1. Ladda upp den ursprungliga videon till den här tillgången samt och ange som primär plats. 
-7.  Kör jobb för redigering på den här tillgången med ”Redact” läge borttagen för att få sista video. 
+6.  Överför filen till den utgående till gången från steg 1. Ladda upp den ursprungliga videon till den här till gången och ange som primär till gång. 
+7.  Kör bortredigering-jobbet på den här till gången med läget "bortredigering" för att hämta den slutliga bortredigering-videon. 
 
 ## <a name="next-steps"></a>Nästa steg 
 
@@ -128,8 +129,8 @@ Om du är utvecklare försök att parsa JSON-data som anteckningen kan du titta 
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>Relaterade länkar
-[Azure Media Services Analytics Overview](media-services-analytics-overview.md)
+[Översikt över Azure Media Services Analytics](media-services-analytics-overview.md)
 
-[Azure Medieanalys-demonstrationer](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+[Azure-medieanalys demonstrationer](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-[Vi presenterar Ansiktsredigering för Azure Media Analytics](https://azure.microsoft.com/blog/azure-media-redactor/)
+[Vi presenterar ansikts bortredigering för Azure-medieanalys](https://azure.microsoft.com/blog/azure-media-redactor/)

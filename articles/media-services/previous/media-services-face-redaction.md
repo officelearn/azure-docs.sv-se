@@ -1,6 +1,6 @@
 ---
-title: Redigera ansikten med Azure Media Analytics | Microsoft Docs
-description: Det här avsnittet visar hur du redigera ansikten med Azure media analytics.
+title: Bortredigering-ansikten med Azure-medieanalys | Microsoft Docs
+description: Det här avsnittet visar hur du kan redigera med Azure Media Analytics.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -12,49 +12,49 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
-ms.author: juliako;
-ms.openlocfilehash: 1fe003ae13bc5f195932f4f140e17c4dc2791959
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: juliako
+ms.openlocfilehash: e350b6ed90324e7ed645d85c046fd74c0a089452
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61247398"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "69016020"
 ---
-# <a name="redact-faces-with-azure-media-analytics"></a>Redigera ansikten med Azure Media Analytics 
+# <a name="redact-faces-with-azure-media-analytics"></a>Bortredigering-ansikten med Azure-medieanalys 
 ## <a name="overview"></a>Översikt
-**Azure Media Redactor** är en [Azure Media Analytics](media-services-analytics-overview.md) mediebearbetare (MP) som erbjuder skalbara ansiktsredigering i molnet. Ansiktsredigering kan du ändra din video för att kunna oskärpa ansikten för valda individer. Du kanske vill använda tjänsten ansiktsredigering i offentliga säkerhet samt nyhetsmediescenarier. Några minuter med material som innehåller flera ansikten kan ta timmar att redigera manuellt, men med den här tjänsten ansikte ansiktsredigering processen tar bara några få enkla steg. Mer information finns i [detta](https://azure.microsoft.com/blog/azure-media-redactor/) blogg.
+**Azure Media Redactor** är en [Azure-medieanalys](media-services-analytics-overview.md) medie processor (MP) som erbjuder skalbara ansikts bortredigering i molnet. Med ansikts bortredigering kan du ändra videon så att det blir oskarpa ytor på valda individer. Du kanske vill använda ansikts bortredigering i offentliga säkerhets-och nyhets medie scenarier. Några minuter av tagningar som innehåller flera ansikten kan ta timmar till bortredigering manuellt, men med den här tjänsten krävs bara några få enkla steg. Mer information finns i [den här](https://azure.microsoft.com/blog/azure-media-redactor/) bloggen.
 
-Den här artikeln innehåller information om **Azure Media Redactor** och visar hur du använder det med Media Services SDK för .NET.
+Den här artikeln innehåller information om **Azure Media Redactor** och visar hur du använder det med Media Services SDK för .net.
 
-## <a name="face-redaction-modes"></a>Ansikte ansiktsredigering lägen
-Ansiktsigenkänning ansiktsredigering fungerar genom att identifiera ansikten i varje bildruta från video och spåra ansikte objektet båda framåt och bakåt i tiden, så att samma person kan oskarpa från andra vinklar samt. Processen för automatisk ansiktsredigering är komplex och har inte alltid skapa 100% av önskad utdata, därför Media Analytics ger dig med ett par olika sätt att ändra det slutgiltiga resultatet.
+## <a name="face-redaction-modes"></a>Lägen för ansikts bortredigering
+Ansikts bortredigering fungerar genom att identifiera ansikten i varje bild ruta i videon och spåra objektet ansikte både framåt och bakåt i tiden, så att samma person kan vara suddig från andra vinklar. Den automatiserade bortredigering-processen är komplicerad och producerar inte alltid 100% av önskade utdata, av den här anledningen Medieanalys ger dig ett par olika sätt att modifiera den slutliga utmatningen.
 
-Förutom ett helt automatisk läge finns det ett arbetsflöde för två gånger, vilket gör val/programvara-selection av hittades ansikten via en lista med ID: N. Även använder om du vill göra godtyckliga per justering av ramens MP du en metadatafil i JSON-format. Det här arbetsflödet är uppdelat i **analysera** och **Redact** lägen. Du kan kombinera de två lägena i ett enda steg som körs av aktiviteterna i ett jobb. Det här läget kallas **kombineras**.
+Förutom ett helt automatiskt läge, finns det ett två-pass-arbetsflöde, som gör att valet/de-valet av hittade ansikten via en lista med ID: n. Om du vill göra godtyckliga justeringar av varje ram-nivå används en metadatafil i JSON-format. Det här arbets flödet är uppdelat i **analys** -och **bortredigering** -läge. Du kan kombinera de två lägena i ett enda pass som kör båda uppgifterna i ett jobb. Det här läget kallas **kombinerat**.
 
-### <a name="combined-mode"></a>Kombinerade läge
-Detta ger en omarbetade mp4 automatiskt utan att alla manuella som indata.
+### <a name="combined-mode"></a>Kombinerat läge
+Detta skapar en förredigerad MP4 automatiskt utan manuella indatatyper.
 
 | Skede | Filnamn | Anteckningar |
 | --- | --- | --- |
-| Indatatillgången |foo.bar |Video i WMV, MOV eller MP4-format |
-| Ange config |Jobbkonfigurationen förinställning |{'version':'1.0 ', 'alternativ ”: {'mode': 'kombineras'}} |
-| Utdatatillgången |foo_redacted.mp4 |Video med suddiga tillämpas |
+| Inmatad till gång |foo. bar |Video i WMV-, MOV-eller MP4-format |
+| Konfiguration av indatamängd |Inställning av jobb konfiguration |{' version ': ' 1.0 ', ' alternativ ': {' läge ': ' kombinerat '}} |
+| Mata ut till gång |foo_redacted.mp4 |Video med suddigt använt |
 
-#### <a name="input-example"></a>Inkommande exempel:
-[se den här videon](https://ampdemo.azureedge.net/?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fed99001d-72ee-4f91-9fc0-cd530d0adbbc%2FDancing.mp4)
+#### <a name="input-example"></a>Inmatat exempel:
+[Visa den här videon](https://ampdemo.azureedge.net/?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fed99001d-72ee-4f91-9fc0-cd530d0adbbc%2FDancing.mp4)
 
 #### <a name="output-example"></a>Exempel på utdata:
-[se den här videon](https://ampdemo.azureedge.net/?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc6608001-e5da-429b-9ec8-d69d8f3bfc79%2Fdance_redacted.mp4)
+[Visa den här videon](https://ampdemo.azureedge.net/?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc6608001-e5da-429b-9ec8-d69d8f3bfc79%2Fdance_redacted.mp4)
 
 ### <a name="analyze-mode"></a>Analysera läge
-Den **analysera** pass två gånger arbetsflödets tar en video som indata och producerar en JSON-fil med ansikts-platser och jpg-bilder för var och en identifieras ansikte.
+Det **analyserande** passet i det två-pass-arbets flödet tar en video indata och skapar en JSON-fil med ansikts platser och jpg-bilder av varje identifierad yta.
 
 | Skede | Filnamn | Anteckningar |
 | --- | --- | --- |
-| Indatatillgången |foo.bar |Video i WMV, MPV eller MP4-format |
-| Ange config |Jobbkonfigurationen förinställning |{'version':'1.0', 'options': {'mode':'analyze'}} |
-| Utdatatillgången |foo_annotations.json |Anteckningens data av ansikte platser i JSON-format. Detta kan redigeras av användaren för att ändra suddar ut avgränsar rutorna. Se exemplet nedan. |
-| Utdatatillgången |foo_thumb%06d.jpg [foo_thumb000001.jpg, foo_thumb000002.jpg] |Beskurna jpg för var och en har identifierats ansikte, där siffran indikerar labelId av de står inför |
+| Inmatad till gång |foo. bar |Video i WMV-, MPV-eller MP4-format |
+| Konfiguration av indatamängd |Inställning av jobb konfiguration |{' version ': ' 1.0 ', ' alternativ ': {' läge ': ' analysera '}} |
+| Mata ut till gång |foo_annotations.json |Antecknings data för ansikts platser i JSON-format. Detta kan redige ras av användaren för att ändra de oskarpa avgränsnings rutorna. Se exemplet nedan. |
+| Mata ut till gång |foo_thumb% 0 6 d. jpg [foo_thumb000001. jpg, foo_thumb000002. jpg] |En beskurna jpg för varje identifierad ansikte, där talet anger labelId för ansikte |
 
 #### <a name="output-example"></a>Exempel på utdata:
 
@@ -107,39 +107,39 @@ Den **analysera** pass två gånger arbetsflödets tar en video som indata och p
     … truncated
 ```
 
-### <a name="redact-mode"></a>Redigera läge
-Andra beräkningen av arbetsflödet tar ett större antal indata som måste kombineras till ett enskilt objekt.
+### <a name="redact-mode"></a>Bortredigering-läge
+Det andra steget i arbets flödet tar ett större antal indata som måste kombineras till en enda till gång.
 
-Detta omfattar en lista med ID: N till oskärpa, den ursprungliga videon och anteckningar JSON. Det här läget används anteckningarna för att ge suddar ut på indatavideo.
+Detta inkluderar en lista med ID: n som är suddig, den ursprungliga videon och antecknings-JSON. I det här läget används anteckningarna för att använda oskärpa på ingångs videon.
 
-Utdata från analysera passet innehåller inte den ursprungliga videon. Videon måste laddas upp till indatatillgången för aktiviteten Redact läge och valt som den primära filen.
+Den ursprungliga videon ingår inte i resultatet från analys steget. Videon måste överföras till indata till gången för uppgiften bortredigering och väljs som primär fil.
 
 | Skede | Filnamn | Anteckningar |
 | --- | --- | --- |
-| Indatatillgången |foo.bar |Video i WMV, MPV eller MP4-format. Samma video som i steg 1. |
-| Indatatillgången |foo_annotations.json |anteckningar metadatafilen från den första fasen, med valfria ändringar. |
-| Indatatillgången |foo_IDList.txt (valfritt) |Valfritt radmatning avgränsade lista med face ID: N att redigera. Om inget anges används det alla gör ansikten suddiga. |
-| Ange config |Jobbkonfigurationen förinställning |{'version':'1.0 ', 'alternativ ”: {” läge ”:” redigera ”}} |
-| Utdatatillgången |foo_redacted.mp4 |Video med suddiga tillämpas baserat på kommentarer |
+| Inmatad till gång |foo. bar |Video i WMV-, MPV-eller MP4-format. Samma video som i steg 1. |
+| Inmatad till gång |foo_annotations.json |anteckningarnas metadatafil från fas ett, med valfria ändringar. |
+| Inmatad till gång |foo_IDList. txt (valfritt) |Valfri ny blankstegsavgränsad lista över ansikts-ID: n till bortredigering. Om detta lämnas tomt oskarps alla ansikten. |
+| Konfiguration av indatamängd |Inställning av jobb konfiguration |{' version ': ' 1.0 ', ' alternativ ': {' läge ': ' bortredigering '}} |
+| Mata ut till gång |foo_redacted.mp4 |Video med oskärpa som används baserat på anteckningar |
 
 #### <a name="example-output"></a>Exempel på utdata
-Det här är utdata från en IDList med ett ID som har valts.
+Detta är resultatet från en IDList med ett ID valt.
 
-[se den här videon](https://ampdemo.azureedge.net/?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fad6e24a2-4f9c-46ee-9fa7-bf05e20d19ac%2Fdance_redacted1.mp4)
+[Visa den här videon](https://ampdemo.azureedge.net/?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fad6e24a2-4f9c-46ee-9fa7-bf05e20d19ac%2Fdance_redacted1.mp4)
 
-Exempel foo_IDList.txt
+Exempel på foo_IDList. txt
  
      1
      2
      3
 
-## <a name="blur-types"></a>Oskärpa typer
+## <a name="blur-types"></a>Suddiga typer
 
-I den **kombineras** eller **Redact** läge, 5 olika oskärpa lägen som du kan välja bland via den inkommande JSON-konfigurationen: **Låg**, **Med**, **hög**, **Box**, och **svart**. Som standard **Med** används.
+I det **kombinerade** eller **bortredigering** -läget finns det fem olika suddiga lägen som du kan välja mellan via JSON-inkonfigurationen: **Låg**,med, **hög**, **Box**och **svart**. Som standard används med.
 
-Du hittar exempel på vilka oskärpa nedan.
+Du kan hitta exempel på suddiga typer nedan.
 
-### <a name="example-json"></a>Exempel på JSON:
+### <a name="example-json"></a>Exempel-JSON:
 
 ```json
     {'version':'1.0', 'options': {'Mode': 'Combined', 'BlurType': 'High'}}
@@ -149,9 +149,9 @@ Du hittar exempel på vilka oskärpa nedan.
 
 ![Låg](./media/media-services-face-redaction/blur1.png)
  
-#### <a name="med"></a>Med
+#### <a name="med"></a>Notifiera
 
-![Med](./media/media-services-face-redaction/blur2.png)
+![Notifiera](./media/media-services-face-redaction/blur2.png)
 
 #### <a name="high"></a>Hög
 
@@ -167,16 +167,16 @@ Du hittar exempel på vilka oskärpa nedan.
 
 ## <a name="elements-of-the-output-json-file"></a>Element i JSON-filen för utdata
 
-Ansiktsredigering MP ger hög identifiering och spårning som kan identifiera upp till 64 mänskliga ansikten i en video ram. Främre ansikten ger det bästa resultatet, samtidigt som sida ansikten och små ansikten (mindre än eller lika med 24 x 24 bildpunkter) är svårt.
+För borttagnings-MP: en finns hög precisions plats för identifiering och spårning som kan identifiera upp till 64 mänskliga ansikten i en video bild ruta. Front ansikten ger bäst resultat, medan sidan ansikten och små ytor (mindre än eller lika med 24x24 bild punkter) är utmanande.
 
 [!INCLUDE [media-services-analytics-output-json](../../../includes/media-services-analytics-output-json.md)]
 
-## <a name="net-sample-code"></a>.NET-exempelkod
+## <a name="net-sample-code"></a>.NET-exempel kod
 
 Följande program visar hur du:
 
-1. Skapa en tillgång och överför en mediefil till tillgången.
-2. Skapa ett jobb med en aktivitet för redigering av ansikte baserat på en konfigurationsfil som innehåller följande json-förinställningen: 
+1. Skapa en till gång och överför en mediefil till till gången.
+2. Skapa ett jobb med en ansikts bortredigering-uppgift baserad på en konfigurations fil som innehåller följande JSON-förval: 
 
     ```json
             {
@@ -187,7 +187,7 @@ Följande program visar hur du:
             }
     ```
 
-3. Hämta JSON utdatafilerna. 
+3. Hämta JSON-filerna för utdata. 
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Skapa och konfigurera ett Visual Studio-projekt
 
@@ -371,7 +371,7 @@ namespace FaceRedaction
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>Relaterade länkar
-[Azure Media Services Analytics Overview](media-services-analytics-overview.md)
+[Översikt över Azure Media Services Analytics](media-services-analytics-overview.md)
 
-[Azure Medieanalys-demonstrationer](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+[Azure-medieanalys demonstrationer](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 

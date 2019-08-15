@@ -2,18 +2,17 @@
 title: Förstå Azure IoT Hub kvoter och begränsning | Microsoft Docs
 description: Guide för utvecklare – Beskrivning av de kvoter som gäller för IoT Hub och det förväntade begränsnings beteendet.
 author: robinsh
-manager: philmea
 ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 07/17/2019
-ms.openlocfilehash: 1c19696b10584bc55989b9270978486d7f5aa157
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.date: 08/08/2019
+ms.openlocfilehash: 184cdaddc638461d50f322292d5cfaf28ab93093
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326732"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950528"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referens – IoT Hub kvoter och begränsning
 
@@ -40,7 +39,7 @@ I följande tabell visas de tvingade begränsningarna. Värden refererar till en
 | Sändningar enhet-till-moln | Högst 100 sändnings åtgärder/SEK eller 12 sändnings åtgärder/SEK/enhet <br/> Till exempel är två S1-enheter 2\*12 = 24/SEK, men du har minst 100 skicka-åtgärder per sekund för dina enheter. Med nio S1-enheter har du 108 skicka åtgärder/SEK (9\*12) över dina enheter. | 120 skicka åtgärder/SEK/enhet | 6 000 skicka åtgärder/SEK/enhet |
 | Skicka från moln till enhet<sup>1</sup> | 1,67 skicka åtgärder/SEK/enhet (100 meddelanden/min/enhet) | 1,67 skicka åtgärder/SEK/enhet (100 skicka åtgärder/min/enhet) | 83,33 skicka åtgärder/SEK/enhet (5 000 skicka åtgärder/min/enhet) |
 | Ta emot från moln till enhet<sup>1</sup> <br/> (endast när enheten använder HTTPS)| 16,67 Receive-åtgärder/SEK/enhet (1 000 Receive-åtgärder/min/enhet) | 16,67 Receive-åtgärder/SEK/enhet (1 000 Receive-åtgärder/min/enhet) | 833,33 Receive-åtgärder/SEK/enhet (50 000 Receive-åtgärder/min/enhet) |
-| Fil uppladdning | 1,67 fil överförings meddelanden/SEK/enhet (100 per minut/enhet) | 1,67 fil överförings meddelanden/SEK/enhet (100 per minut/enhet) | 83,33 fil överförings meddelanden/SEK/enhet (5000 per minut/enhet) |
+| Filuppladdning | 1,67 fil överförings meddelanden/SEK/enhet (100 per minut/enhet) | 1,67 fil överförings meddelanden/SEK/enhet (100 per minut/enhet) | 83,33 fil överförings meddelanden/SEK/enhet (5000 per minut/enhet) |
 | Direkta metoder<sup>1</sup> | 160KB per sekund/enhet<sup>2</sup> | 480KB per sekund/enhet<sup>2</sup> | 24MB per sekund/enhet<sup>2</sup> | 
 | Frågor | 20 per minut/enhet | 20 per minut/enhet | 1000 per minut/enhet |
 | Dubbla (enhet och modul) läser<sup>1</sup> | 100/SEK | Högre på 100/SEK eller 10/SEK/per enhet | 500 per sekund per enhet |
@@ -96,7 +95,8 @@ IoT Hub tillämpar andra drift gränser:
 | Filöverföringar | 10 samtidiga fil överföringar per enhet. |
 | Jobb<sup>1</sup> | Maximalt antal samtidiga jobb är 1 (kostnads fritt och S1), 5 (för S2) och 10 (för S3). Dock är det maximala antalet samtidiga [enhets import/export-jobb](iot-hub-bulk-identity-mgmt.md) 1 för alla nivåer. <br/>Jobb historiken behålls upp till 30 dagar. |
 | Ytterligare slut punkter | Betalda SKU-hubbar kan ha 10 ytterligare slut punkter. De kostnads fria SKU-hubbarna kan ha en ytterligare slut punkt. |
-| Regler för meddelanderoutning | Betalda SKU-hubbar kan ha 100-routningsregler. De kostnads fria SKU-hubbarna kan ha fem regler för routning. |
+| Frågor för meddelanderoutning | Betalda SKU-hubbar kan ha 100-routnings frågor. De kostnads fria SKU-hubbarna kan ha fem Dirigerings frågor. |
+| Meddelandeberikanden | Betalda SKU-hubbar kan ha upp till 10 meddelande berikare. De kostnads fria SKU-hubbarna kan ha upp till 2 meddelande berikare.|
 | Meddelanden från enhet till moln | Maximal meddelande storlek 256 KB |
 | Meddelanden från moln till enhet<sup>1</sup> | Maximal meddelande storlek 64 KB. Maximalt antal väntande meddelanden för leverans är 50 per enhet. |
 | Direct-metod<sup>1</sup> | Maximal nytto Last storlek för direkt metod är 128 KB. |

@@ -1,6 +1,6 @@
 ---
-title: TEMP-standardmappen är för liten för en roll | Microsoft Docs
-description: En molntjänstroll har en begränsad mängd utrymme för TEMP-mappen. Den här artikeln innehåller några förslag på hur du undviker slut på utrymme.
+title: Standard storleken för TEMP-mappar är för liten för en roll | Microsoft Docs
+description: En moln tjänst roll har en begränsad mängd utrymme för TEMP-mappen. Den här artikeln innehåller några förslag på hur du undviker att ta slut på utrymme.
 services: cloud-services
 documentationcenter: ''
 author: simonxjx
@@ -9,34 +9,33 @@ editor: ''
 tags: top-support-issue
 ms.assetid: 9f2af8dd-2012-4b36-9dd5-19bf6a67e47d
 ms.service: cloud-services
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: 7862e4d5c4dd603dacf5784df6c4194392ebc351
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9b731eba4e1cd79a07c20271f1bd33c8c2c35d92
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60652189"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945367"
 ---
-# <a name="default-temp-folder-size-is-too-small-on-a-cloud-service-webworker-role"></a>TEMP-standardmappen är för liten för en cloud service web/worker-roll
-Tillfällig standardkatalogen för en worker eller web molntjänstroll har en maximal storlek på 100 MB, som kan bli fullständig vid en viss tidpunkt. Den här artikeln beskriver hur du undviker slut på utrymme för den tillfälliga katalogen.
+# <a name="default-temp-folder-size-is-too-small-on-a-cloud-service-webworker-role"></a>Standard storleken för TEMP-mappar är för liten för en webb-eller arbets roll i moln tjänsten
+Den tillfälliga standard katalogen för en moln tjänst arbetare eller webb roll har en maximal storlek på 100 MB, vilket kan bli en fullständig tidpunkt. I den här artikeln beskrivs hur du undviker att använda utrymme för den tillfälliga katalogen.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="why-do-i-run-out-of-space"></a>Varför kör slut på utrymme?
-Standard Windows miljövariablerna TEMP och TMP är tillgängliga för kod som körs i ditt program. Både TEMP och TMP pekar på en enskild katalog som har en maximal storlek på 100 MB. Alla data som lagras i den här katalogen bevaras inte under hela livscykeln för Molntjänsten; Om rollinstanser i en molntjänst har återvunnits kan rensas katalogen.
+## <a name="why-do-i-run-out-of-space"></a>Varför får jag slut på utrymme?
+Standard Windows-miljövariablerna TEMP och TMP är tillgängliga för kod som körs i ditt program. Både TEMP-och TMP-platser till en enda katalog med en maximal storlek på 100 MB. Alla data som lagras i den här katalogen sparas inte i moln tjänstens livs cykel. om roll instanserna i en moln tjänst återvinns rensas katalogen.
 
-## <a name="suggestion-to-fix-the-problem"></a>Förslag på problemet
-Implementera en av följande alternativ:
+## <a name="suggestion-to-fix-the-problem"></a>Förslag för att åtgärda problemet
+Implementera något av följande alternativ:
 
-* Konfigurera en resurs för lokal lagring och åtkomst till den direkt istället för att använda TEMP och TMP. Du kommer åt en resurs för lokal lagring från kod som körs i ditt program genom att anropa den [RoleEnvironment.GetLocalResource](/previous-versions/azure/reference/ee772845(v=azure.100)) metod.
-* Konfigurera en resurs för lokal lagring och peka TEMP och TMP kataloger att den pekar på sökvägen till resursen för lokal lagring. Den här ändringen bör utföras inom den [RoleEntryPoint.OnStart](/previous-versions/azure/reference/ee772851(v=azure.100)) metod.
+* Konfigurera en lokal lagrings resurs och få åtkomst till den direkt i stället för att använda TEMP eller TMP. Om du vill komma åt en lokal lagrings resurs från kod som körs i ditt program anropar du metoden [RoleEnvironment. GetLocalResource](/previous-versions/azure/reference/ee772845(v=azure.100)) .
+* Konfigurera en lokal lagrings resurs och peka TEMP-och TMP-katalogerna för att peka på sökvägen till den lokala lagrings resursen. Den här ändringen ska utföras i metoden [RoleEntryPoint. OnStart](/previous-versions/azure/reference/ee772851(v=azure.100)) .
 
-I följande kodexempel visas hur du ändrar mål-kataloger för TEMP och TMP från inom OnStart-metoden:
+I följande kod exempel visas hur du ändrar mål katalogerna för TEMP och TMP inifrån metoden OnStart:
 
 ```csharp
 using System;
@@ -71,8 +70,8 @@ namespace WorkerRole1
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Läser en blogg som beskriver [så här ökar du storleken på Azure Web-roll ASP.NET tillfälliga mappen](https://blogs.msdn.com/b/kwill/archive/2011/07/18/how-to-increase-the-size-of-the-windows-azure-web-role-asp-net-temporary-folder.aspx).
+Läs en blogg som beskriver [hur du ökar storleken på den temporära mappen för Azure-Webbrollens ASP.net](https://blogs.msdn.com/b/kwill/archive/2011/07/18/how-to-increase-the-size-of-the-windows-azure-web-role-asp-net-temporary-folder.aspx).
 
-Visa mer [felsökningsartiklar](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/vs-azure-tools-debugging-cloud-services-overview.md) för molntjänster.
+Visa fler [fel söknings artiklar](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/vs-azure-tools-debugging-cloud-services-overview.md) för Cloud Services.
 
-Om du vill lära dig mer om felsökning av problem med cloud service rollen genom att använda diagnostikdata för Azure PaaS-datorn, visa [Kevin Williamson bloggserie](https://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
+Om du vill veta mer om hur du felsöker problem med Cloud Service-roller med hjälp av Azure PaaS Computer Diagnostics-data kan du Visa [Kevin Williamsons blogg serie](https://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx)

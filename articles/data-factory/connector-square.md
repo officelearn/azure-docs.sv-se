@@ -48,7 +48,7 @@ Följande egenskaper har stöd för kvadratisk länkade tjänsten:
 | host | URL till kvadratisk instansen. (d.v.s. mystore.mysquare.com)  | Ja |
 | clientId | Klient-ID som är associerade med ditt kvadratisk program.  | Ja |
 | clientSecret | Klienthemlighet som är kopplad till kvadratisk programmet. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
-| RedirectUri | Omdirigerings-URL som tilldelats i instrumentpanelen för kvadratisk program. (t. ex.\/http:/localhost: 2500)  | Ja |
+| redirectUri | Omdirigerings-URL som tilldelats i instrumentpanelen för kvadratisk program. (t. ex.\/http:/localhost: 2500)  | Ja |
 | useEncryptedEndpoints | Anger om käll-slutpunkter data krypteras med HTTPS. Standardvärdet är sant.  | Nej |
 | useHostVerification | Anger om värdnamnet i servercertifikatet så att de matchar värdnamnet för servern när du ansluter via SSL. Standardvärdet är sant.  | Nej |
 | usePeerVerification | Anger om du vill kontrollera identiteten på servern när du ansluter via SSL. Standardvärdet är sant.  | Nej |

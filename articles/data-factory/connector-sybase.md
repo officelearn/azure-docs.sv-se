@@ -57,7 +57,7 @@ Följande egenskaper har stöd för Sybase länkade tjänsten:
 | type | Type-egenskapen måste anges till: **Sybase** | Ja |
 | server | Namnet på Sybase-servern. |Ja |
 | database | Namnet på Sybase-databas. |Ja |
-| authenticationType | Typ av autentisering som används för att ansluta till Sybase-databasen.<br/>Tillåtna värden är: **Grundläggande**, och **Windows**. |Ja |
+| authenticationType | Typ av autentisering som används för att ansluta till Sybase-databasen.<br/>Tillåtna värden är: **Basic**, och **Windows**. |Ja |
 | username | Ange användarnamn för att ansluta till Sybase-databas. |Ja |
 | password | Ange lösenord för det användarkonto som du angav för användarnamnet. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
 | connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. En lokal Integration Runtime krävs enligt [krav](#prerequisites). |Ja |

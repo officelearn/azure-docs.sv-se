@@ -10,10 +10,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
 ms.openlocfilehash: cdc09973a192924c5b9a81cd4ed49b9f36fc0eb1
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "67612304"
 ---
 # <a name="monitor-and-manage-stream-analytics-jobs-with-azure-powershell-cmdlets"></a>Övervaka och hantera Stream Analytics-jobb med Azure PowerShell-cmdlets
@@ -52,13 +52,13 @@ New-AzResourceGroup -Name <YOUR RESOURCE GROUP NAME> -Location <LOCATION>
 
 
 > [!NOTE]
-> Stream Analytics-jobb som skapats via programmering behöver inte övervaka aktiverad som standard.  Du kan aktivera övervakning i Azure Portal genom att gå till övervakaren jobbsidan och klicka på Aktivera-knappen eller du kan göra detta via programmering genom att följa stegen i [Azure Stream Analytics - Övervakare för Stream Analytics-jobb Programmässigt](stream-analytics-monitor-jobs.md).
+> Stream Analytics-jobb som skapats via programmering behöver inte övervaka aktiverad som standard.  Du kan aktivera övervakning manuellt i Azure Portal genom att gå till jobbets övervaknings sida och klicka på knappen Aktivera, eller så kan du göra detta program mässigt genom att följa stegen i [Azure Stream Analytics-övervaka Stream Analytics jobb Program mässigt](stream-analytics-monitor-jobs.md).
 > 
 > 
 
 ## <a name="azure-powershell-cmdlets-for-stream-analytics"></a>Azure PowerShell-cmdlets för Stream Analytics
 Följande Azure PowerShell-cmdletar kan användas för att övervaka och hantera Azure Stream Analytics-jobb. Observera att Azure PowerShell har olika versioner. 
-**I exemplen som visas är det första kommandot för Azure PowerShell 0.9.8, det andra kommandot är för Azure PowerShell 1.0.** Azure PowerShell 1.0-kommandon har alltid ”Az” i kommandot.
+**I exemplen som visas är det första kommandot för Azure PowerShell 0.9.8, det andra kommandot är för Azure PowerShell 1.0.** Azure PowerShell 1,0-kommandon kommer alltid att ha "AZ" i kommandot.
 
 ### <a name="get-azurestreamanalyticsjob--get-azstreamanalyticsjob"></a>Get-AzureStreamAnalyticsJob | Get-AzStreamAnalyticsJob
 Visar en lista över alla Stream Analytics-jobb som definierats i Azure-prenumeration eller angivna resursgruppen eller hämtar jobbinformation om om ett specifikt jobb i en resursgrupp.
@@ -228,7 +228,7 @@ Om du anger indata som redan finns och att du inte anger parametern – Force, c
 
 Om du anger – tvinga parametern och ange en befintlig ange namn, kommer att ersättas indata utan bekräftelse.
 
-Detaljerad information på strukturen för JSON-fil och innehållet i den [skapa indata (Azure Stream Analytics)][msdn-rest-api-create-stream-analytics-input] section of the [Stream Analytics Management REST API Reference Library][stream.analytics.rest.api.reference].
+Detaljerad information om JSON-filens struktur och innehåll finns i avsnittet [skapa indata (Azure Stream Analytics)][msdn-rest-api-create-stream-analytics-input] i [referens biblioteket för Stream Analytics hanterings REST API][stream.analytics.rest.api.reference].
 
 **Exempel 1**
 
@@ -287,7 +287,7 @@ Om du anger ett Jobbnamn som redan finns och inte anger parametern – Force, cm
 
 Om du anger – framtvinga parametern och ange ett befintligt jobbnamn jobbdefinitionen ersätts utan bekräftelse.
 
-Detaljerad information på strukturen för JSON-fil och innehållet i den [skapa Stream Analytics-jobbet][msdn-rest-api-create-stream-analytics-job] section of the [Stream Analytics Management REST API Reference Library][stream.analytics.rest.api.reference].
+Detaljerad information om JSON-filens struktur och innehåll finns i avsnittet [skapa Stream Analytics jobb][msdn-rest-api-create-stream-analytics-job] i [referens biblioteket för Stream Analytics hanterings REST API][stream.analytics.rest.api.reference].
 
 **Exempel 1**
 
@@ -330,7 +330,7 @@ Om du anger utdata som redan finns och att du inte anger parametern – Force, c
 
 Om du anger – tvinga parametern och ange en befintlig utdata namn, utdata kommer att ersättas utan bekräftelse.
 
-Detaljerad information på strukturen för JSON-fil och innehållet i den [skapa utdata (Azure Stream Analytics)][msdn-rest-api-create-stream-analytics-output] section of the [Stream Analytics Management REST API Reference Library][stream.analytics.rest.api.reference].
+Detaljerad information om JSON-filens struktur och innehåll finns i avsnittet [skapa utdata (Azure Stream Analytics)][msdn-rest-api-create-stream-analytics-output] i [referens biblioteket för Stream Analytics hanterings REST API][stream.analytics.rest.api.reference].
 
 **Exempel 1**
 
@@ -373,7 +373,7 @@ Om du anger en transformation som redan finns och inte anger parametern – Forc
 
 Om du anger – framtvinga parametern och ange ett befintligt namn i omvandling transformeringen ersätts utan bekräftelse.
 
-Detaljerad information på strukturen för JSON-fil och innehållet i den [skapa transformering (Azure Stream Analytics)][msdn-rest-api-create-stream-analytics-transformation] section of the [Stream Analytics Management REST API Reference Library][stream.analytics.rest.api.reference].
+Detaljerad information om JSON-filens struktur och innehåll finns i avsnittet om att [skapa transformering (Azure Stream Analytics)][msdn-rest-api-create-stream-analytics-transformation] i [referens biblioteket för Stream Analytics hanterings REST API][stream.analytics.rest.api.reference].
 
 **Exempel 1**
 

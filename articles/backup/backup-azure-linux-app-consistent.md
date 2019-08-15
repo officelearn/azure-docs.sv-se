@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 1/12/2018
 ms.author: dacurwin
-ms.openlocfilehash: dae2268abc3771e43d717c65c19eed37b9f48e8e
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: bb764cfa14b4bc8e53f25629961a1baecd6a6c1f
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689259"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954696"
 ---
 # <a name="application-consistent-backup-of-azure-linux-vms"></a>Programkonsekvent säkerhets kopiering av virtuella Azure Linux-datorer
 
@@ -24,7 +24,7 @@ När du tar ögonblicks bilder av dina virtuella datorer innebär applikations k
 
 Ramverket innehåller ett alternativ för att köra anpassade för skript och efter skript när du tar ögonblicks bilder av virtuella datorer. För skript körs precis innan du tar ögonblicks bilden av den virtuella datorn och efter att du har skapat ögonblicks bilden av den virtuella datorn. För skript och post-skript ger flexibiliteten att styra ditt program och din miljö, medan du tar ögonblicks bilder av virtuella datorer.
 
-För skript anropar interna program-API: er, som ingick i IOs och tömde minnes innehåll till disken. De här åtgärderna säkerställer att ögonblicks bilden är programkonsekvent. Efter skript används inbyggda program-API: er för att tina upp IOs, vilket gör att programmet kan återuppta normala åtgärder efter ögonblicks bilden av den virtuella datorn.
+För skript anropar interna program-API: er, som ingick i IOs och tömde minnes innehåll till disken. De här åtgärderna säkerställer att ögonblicks bilden är programkonsekvent. Efter skript används inbyggda API: er för att tina upp IOs, vilket gör att programmet kan återuppta normala åtgärder efter ögonblicks bilden av den virtuella datorn.
 
 ## <a name="steps-to-configure-pre-script-and-post-script"></a>Steg för att konfigurera för skript och efter skript
 

@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 5dcbb2c25511277eaf46d6c9f4afc007a180f8a6
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: f5ddd9928194c477d8f8b6f4c9569a8fe58f39d3
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827870"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967386"
 ---
 # <a name="copy-data-to-and-from-sql-server-by-using-azure-data-factory"></a>Kopiera data till och från SQL Server med Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Azure Data Factory som du använder:"]
@@ -44,7 +44,7 @@ Mer specifikt stöder den här SQL Server-anslutningen:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill använda kopiera data från en SQL Server-databas som inte är offentligt tillgänglig, måste du konfigurera en integration runtime med egen värd. Mer information finns i [integration runtime med egen värd](create-self-hosted-integration-runtime.md). Integrerings körningen innehåller en inbyggd SQL Server databas driv rutin. Du behöver inte installera någon driv rutin manuellt när du kopierar data från eller till SQL Server databasen.
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
 ## <a name="get-started"></a>Kom igång
 
@@ -60,9 +60,9 @@ Följande egenskaper stöds för den länkade tjänsten SQL Server:
 |:--- |:--- |:--- |
 | type | Egenskapen Type måste anges till **SQLServer**. | Ja |
 | connectionString |Ange **ConnectionString** -information som behövs för att ansluta till SQL Server-databasen med hjälp av SQL-autentisering eller Windows-autentisering. Se följande exempel.<br/>Markera det här fältet som **SecureString** för att lagra det på ett säkert sätt i Azure Data Factory. Du kan också ange ett lösen ord i Azure Key Vault. Om det är SQL-autentisering, hämtar `password` du konfigurationen från anslutnings strängen. Mer information finns i JSON-exemplet som följer tabellen och [lagrar autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
-| userName |Ange ett användar namn om du använder Windows-autentisering. Ett exempel är **domainname\\username**. |Nej |
+| userName |Ange ett användar namn om du använder Windows-autentisering. Ett exempel är **domän\\namn användar namn**. |Nej |
 | password |Ange ett lösen ord för det användar konto som du har angett som användar namn. Markera det här fältet som **SecureString** för att lagra det på ett säkert sätt i Azure Data Factory. Eller så kan du [referera till en hemlighet som lagrats i Azure Key Vault](store-credentials-in-key-vault.md). |Nej |
-| connectVia | [Integrerings körningen](concepts-integration-runtime.md) används för att ansluta till data lagret. Du kan använda en egen värd för integration runtime eller Azure integration Runtime om ditt data lager är offentligt tillgängligt. Om inget värde anges används standard Azure integration Runtime. |Nej |
+| connectVia | [Integrerings körningen](concepts-integration-runtime.md) används för att ansluta till data lagret. Läs mer från avsnittet [krav](#prerequisites) . Om inget värde anges används standard Azure integration Runtime. |Nej |
 
 >[!TIP]
 >Om du träffar ett fel med felkoden "UserErrorFailedToConnectToSqlServer" och ett meddelande som "databasens sessionsgräns är XXX och har nåtts," Lägg `Pooling=false` till i anslutnings strängen och försök igen.

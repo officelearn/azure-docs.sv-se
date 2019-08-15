@@ -11,12 +11,12 @@ author: maxluk
 ms.reviewer: peterlu
 ms.date: 08/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: b4f2bf5c762b6f93c2d23714d860e8261f6756d1
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: e7646330d9d89d5257a991b5095b7b6814aa3ba9
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847692"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966819"
 ---
 # <a name="train-and-register-a-keras-classification-model-with-azure-machine-learning-service"></a>Träna och registrera en keras klassificerings modell med Azure Machine Learning tjänsten
 
@@ -207,3 +207,7 @@ I den här artikeln har du tränat och registrerat en keras-modell på Azure Mac
 
 > [!div class="nextstepaction"]
 > [Hur och var modeller ska distribueras](how-to-deploy-and-where.md)
+* [Spåra kör mått vid träning](how-to-track-experiments.md)
+* [Justering av hyperparametrar](how-to-tune-hyperparameters.md)
+* [Distribuera en tränad modell](how-to-deploy-and-where.md)
+* [Referens arkitektur för distribuerad djup inlärnings utbildning i Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)

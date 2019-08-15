@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: service-fabric
 hide_comments: true
 hideEdit: true
-ms.openlocfilehash: 829963cf13eb1dc1b1113b6a296fe77dadb63bc4
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 636518688aec1f514b551e34219acfc1c9e81aec
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68224938"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68965387"
 ---
 # <a name="service-fabric-releases"></a>Service Fabric versioner
 
@@ -45,7 +45,7 @@ Här är what's New i Service Fabric 6,5:
 
 - Har lagt till [replik livs cykel händelser](service-fabric-diagnostics-event-generation-operational.md#replica-events) för tillstånds känsliga tjänster.
 
-- [Bättre insyn i status för Dirigerings nod](service-fabric-understand-and-troubleshoot-with-system-health-reports.md#seed-node-status), inklusive varningar på kluster nivå om en Seed-nod är ohälsosam *(av*, *borttagen* eller *okänd*).
+- [Bättre insyn i status för Dirigerings nod](service-fabric-understand-and-troubleshoot-with-system-health-reports.md#seed-node-status), inklusive varningar på kluster nivå om en Seed-nod är ohälsosam(av , borttagen eller *okänd*).
 
 - Med [Service Fabric-verktyget för haveri beredskap för program](https://github.com/Microsoft/Service-Fabric-AppDRTool) kan Service Fabric tillstånds känsliga tjänster återställas snabbt när det primära klustret påträffar en katastrof. Data från det primära klustret synkroniseras kontinuerligt i det sekundära standby-programmet med hjälp av periodisk säkerhets kopiering och återställning.
 
@@ -63,6 +63,8 @@ Mer information finns i versions [anmärkningar för Service Fabric 6,5](https:/
 |---|---|---|
 | 11 juni 2019 | [Azure Service Fabric 6,5](https://blogs.msdn.microsoft.com/azureservicefabric/2019/06/11/azure-service-fabric-6-5-release/)  | [Viktig information](https://github.com/Azure/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_65.pdf)|
 | 2 juli 2019 | [Uppdaterings version för Azure Service Fabric 6,5](https://blogs.msdn.microsoft.com/azureservicefabric/2019/07/04/azure-service-fabric-6-5-refresh-release/)  | [Viktig information](https://github.com/Azure/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_65CU1.pdf)  |
+| 29 juli 2019 | [Uppdaterings version för Azure Service Fabric 6,5](https://techcommunity.microsoft.com/t5/Azure-Service-Fabric/Azure-Service-Fabric-6-5-Second-Refresh-Release/ba-p/800523)  | [Viktig information](https://github.com/Azure/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_65CU2.pdf)  |
+
 
 ## <a name="previous-versions"></a>Tidigare versioner
 
@@ -76,4 +78,4 @@ Mer information finns i versions [anmärkningar för Service Fabric 6,5](https:/
 | 4 mars 2019 | [Uppdaterings version för Azure Service Fabric 6,4](https://blogs.msdn.microsoft.com/azureservicefabric/2019/03/12/azure-service-fabric-6-4-refresh-release-2/) | [Viktig information](https://msdnshared.blob.core.windows.net/media/2019/03/Service-Fabric-6.4CU4-Release-Notes.pdf)
 | 8 april 2019 | [Uppdaterings version för Azure Service Fabric 6,4](https://blogs.msdn.microsoft.com/azureservicefabric/2019/04/08/azure-service-fabric-6-4-refresh-release-5/) | [Viktig information](https://msdnshared.blob.core.windows.net/media/2019/04/Service-Fabric-6.4CU5-ReleaseNotes3.pdf)
 | 2 maj 2019 | [Uppdaterings version för Azure Service Fabric 6,4](https://blogs.msdn.microsoft.com/azureservicefabric/2019/05/02/azure-service-fabric-6-4-refresh-release-3/) | [Viktig information](https://msdnshared.blob.core.windows.net/media/2019/05/Service-Fabric-64CU6-Release-Notes-V2.pdf)
-| 28 maj, 2019 | [Uppdaterings version för Azure Service Fabric 6,4](https://blogs.msdn.microsoft.com/azureservicefabric/2019/05/28/azure-service-fabric-6-4-refresh-release-4/) | [Viktig information](https://msdnshared.blob.core.windows.net/media/2019/05/Service_Fabric_64CU7_Release_Notes1.pdf)
+| 28 maj 2019 | [Uppdaterings version för Azure Service Fabric 6,4](https://blogs.msdn.microsoft.com/azureservicefabric/2019/05/28/azure-service-fabric-6-4-refresh-release-4/) | [Viktig information](https://msdnshared.blob.core.windows.net/media/2019/05/Service_Fabric_64CU7_Release_Notes1.pdf)

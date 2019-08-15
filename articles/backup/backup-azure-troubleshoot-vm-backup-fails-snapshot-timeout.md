@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.author: dacurwin
-ms.openlocfilehash: 7fc288ad9e33088b1b5248c1b61ed439ac95a9c4
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: f47afd450350226aa944287e756b73f61b15b32d
+ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688984"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68952045"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Felsöka Azure Backup fel: Problem med agenten eller tillägget
 
@@ -29,12 +29,10 @@ Den här artikeln innehåller fel söknings steg som kan hjälpa dig att lösa A
 **Felkod**: UserErrorGuestAgentStatusUnavailable <br>
 **Fel meddelande**: VM-agenten kan inte kommunicera med Azure Backup<br>
 
-När du har registrerat och schemalagt en virtuell dator för säkerhets kopierings tjänsten initierar backup jobbet genom att kommunicera med den virtuella dator agenten för att ta en ögonblicks bild av tidpunkten. Något av följande villkor kan förhindra att ögonblicks bilden utlöses. När en ögonblicks bild inte utlöses kan säkerhets kopieringen Miss kopie ras. Slutför följande fel söknings steg i ordningen i listan och försök sedan igen:<br>
-**Orsak 1: [Agenten installeras på den virtuella datorn, men den svarar inte (för virtuella Windows-datorer)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**     
-**Orsak 2: [Agenten som är installerad på den virtuella datorn är inaktuell (för virtuella Linux-datorer)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
-**Orsak 3: [Det går inte att hämta ögonblicks bild status, eller så kan en ögonblicks bild inte tas](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**     
-**Orsak 4: [Säkerhets kopierings tillägget kan inte uppdateras eller läsas in](#the-backup-extension-fails-to-update-or-load)**  
-**Orsak 5: [Den virtuella datorn har inte Internet åtkomst](#the-vm-has-no-internet-access)**
+Azure VM-agenten kan vara stoppad, inaktuell, i ett inkonsekvent tillstånd eller inte installerad och förhindra att Azure Backup-tjänsten utlöser ögonblicks bilder.  
+    
+- Om den virtuella dator agenten har stoppats eller är i ett inkonsekvent tillstånd **startar du om agenten** och försöker säkerhetskopiera igen (försök med en ad hoc-säkerhetskopiering). Steg för att starta om agenten finns i virtuella [Windows-datorer](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) eller [virtuella Linux-datorer](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent). 
+- Om VM-agenten inte är installerad eller är inaktuell, installerar/uppdaterar du VM-agenten och försöker säkerhetskopiera igen. Anvisningar för hur du installerar/uppdaterar agenten finns i virtuella [Windows-datorer](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) eller [virtuella Linux-datorer](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent).  
 
 ## <a name="guestagentsnapshottaskstatuserror---could-not-communicate-with-the-vm-agent-for-snapshot-status"></a>GuestAgentSnapshotTaskStatusError-det gick inte att kommunicera med VM-agenten för ögonblicks bild status
 
@@ -44,7 +42,8 @@ När du har registrerat och schemalagt en virtuell dator för säkerhets kopieri
 När du har registrerat och schemalagt en virtuell dator för Azure Backup tjänsten initierar säkerhets kopieringen jobbet genom att kommunicera med tillägget för säkerhets kopiering av virtuella datorer för att ta en ögonblicks bild av tidpunkten. Något av följande villkor kan förhindra att ögonblicks bilden utlöses. Om ögonblicks bilden inte utlöses kan ett säkerhets kopierings fel uppstå. Slutför följande fel söknings steg i ordningen i listan och försök sedan igen:  
 **Orsak 1: [Agenten installeras på den virtuella datorn, men den svarar inte (för virtuella Windows-datorer)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
 **Orsak 2: [Agenten som är installerad på den virtuella datorn är inaktuell (för virtuella Linux-datorer)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
-**Orsak 3: [Den virtuella datorn har inte Internet åtkomst](#the-vm-has-no-internet-access)**
+**Orsak 3: [Det går inte att hämta ögonblicks bild status, eller så kan en ögonblicks bild inte tas](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**     
+**Orsak 4: [Säkerhets kopierings tillägget kan inte uppdateras eller läsas in](#the-backup-extension-fails-to-update-or-load)** 
 
 ## <a name="usererrorrpcollectionlimitreached---the-restore-point-collection-max-limit-has-reached"></a>UserErrorRpCollectionLimitReached-Max gränsen för återställnings punkt samlingen har uppnåtts
 
@@ -107,7 +106,7 @@ När du har registrerat och schemalagt en virtuell dator för Azure Backup tjän
 **Felkod**: UserErrorUnsupportedDiskSize <br>
 **Fel meddelande**: För närvarande stöder Azure Backup inte disk storlekar som är större än 4 095 GB <br>
 
-Säkerhets kopieringen kunde inte utföras när den virtuella datorn skulle säkerhets kopie ras med en disk storlek som är större än 4 095 GB. Om du vill registrera dig för en privat för hands version av Azure Backup stöd för stora diskar för diskar som är större än 4 TB upp till AskAzureBackupTeam@microsoft.com30TB i storlek, skriver du tillbaka till oss.
+Säkerhets kopierings åtgärden kunde inte utföras vid säkerhets kopiering av en virtuell dator med en disk storlek som är större än 4 095 GB. Om du vill registrera dig för en begränsad, allmän för hands version av Azure Backup stöd för stora diskar för diskar som är större än 4 TB och upp till 30 TB i storlek, se [en översikt över Azure VM backup](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb).
 
 ## <a name="usererrorbackupoperationinprogress---unable-to-initiate-backup-as-another-backup-operation-is-currently-in-progress"></a>UserErrorBackupOperationInProgress – det går inte att initiera säkerhets kopieringen eftersom en annan säkerhets kopiering pågår just nu
 

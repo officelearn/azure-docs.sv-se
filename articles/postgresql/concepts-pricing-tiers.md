@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.openlocfilehash: 376620459a0ab2f0f170b0743c0ab51a51bca9c4
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 2f6be256801983924cc794d6c8b8fa31e39959e1
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698942"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967861"
 ---
 # <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>Pris nivåer i Azure Database for PostgreSQL-enskild server
 
@@ -107,6 +107,9 @@ Tjänsten tar automatiskt säkerhets kopior av servern. Den minsta kvarhållning
 ## <a name="scale-resources"></a>Skala resurser
 
 När du har skapat din server kan du oberoende ändra virtuella kärnor, maskin varu genereringen, pris nivån (förutom till och från Basic), mängden lagring och kvarhållningsperioden för säkerhets kopior. Du kan inte ändra lagrings typen för säkerhets kopia när en server har skapats. Antalet virtuella kärnor kan skalas upp eller ned. Kvarhållningsperioden för säkerhets kopior kan skalas upp eller ned från 7 till 35 dagar. Det går bara att öka lagrings storleken. Skalning av resurserna kan göras via portalen eller Azure CLI. Ett exempel på skalning med hjälp av Azure CLI finns i [övervaka och skala en Azure Database for postgresql server med hjälp av Azure CLI](scripts/sample-scale-server-up-or-down.md).
+
+> [!NOTE] 
+> Det går bara att öka lagrings storleken. Du kan inte gå tillbaka till en mindre lagrings storlek efter ökningen.
 
 När du ändrar antalet virtuella kärnor, maskin varu genereringen eller pris nivån skapas en kopia av den ursprungliga servern med den nya beräknings allokeringen. När den nya servern är igång växlar anslutningarna över till den nya servern. Under tiden då systemet växlar över till den nya servern kan inga nya anslutningar upprättas, och transaktioner som inte allokerats återställs. Hur lång tid detta tar varierar, men i de flesta fall tar det mindre än en minut.
 

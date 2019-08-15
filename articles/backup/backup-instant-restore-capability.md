@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: dacurwin
-ms.openlocfilehash: 0f31320a638dd4741d940d0b459575b66149b829
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: f2485786f323bc6d19d39f4da6ffa7cab14bbb4c
+ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698399"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68951843"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Få förbättrad säkerhets kopiering och återställning av prestanda med Azure Backup omedelbar återställnings funktion
 
@@ -24,7 +24,7 @@ Den nya modellen för omedelbar återställning ger följande funktions förbät
 
 * Möjlighet att använda ögonblicks bilder som tagits som en del av ett säkerhets kopierings jobb som är tillgängligt för återställning utan att vänta på att data överförs till valvet att slutföras. Det minskar vänte tiden för ögonblicks bilder som ska kopieras till valvet innan återställningen utlöses.
 * Minskar antalet säkerhets kopierings-och återställnings tider genom att behålla ögonblicks bilderna lokalt, under två dagar som standard. Standardvärdet för kvarhållning av ögonblicks bilder kan konfigureras till ett värde mellan 1 och 5 dagar.
-* Stöder disk storlekar upp till 4 TB. Att ändra storlek på disken rekommenderas inte av Azure Backup.
+* Stöder disk storlekar upp till 4 TB. Att ändra storlek på diskar rekommenderas inte av Azure Backup. Om du vill registrera dig för en begränsad, allmän för hands version av Azure Backup stöd för stora diskar för diskar som är större än 4 TB och upp till 30 TB i storlek, se [en översikt över Azure VM backup](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb).
 * Stöder Standard SSD diskar tillsammans med Standard HDD diskar och Premium SSD diskar.
 * Möjlighet att använda en ohanterad virtuell dators ursprungliga lagrings konton (per disk) när du återställer. Den här funktionen finns även när den virtuella datorn har diskar som är distribuerade över lagrings konton. Den påskyndar återställnings åtgärder för en mängd olika VM-konfigurationer.
 * För säkerhets kopiering av virtuella datorer som använder Premium Storage, med omedelbar återställning, rekommenderar vi att du allokerar *50%* ledigt utrymme för det totala allokerade lagrings utrymmet, vilket **endast** krävs för den första säkerhets kopieringen. Det lediga utrymmet på 50% är inte ett krav för säkerhets kopieringar när den första säkerhets kopieringen har slutförts.

@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 23c4d5ee5ac1de9522cbf89a6de39578cf65347e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2d6a24184cf02c88ede5a83ed47ae686ee670773
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67073563"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "69014945"
 ---
 # <a name="use-playready-andor-widevine-dynamic-common-encryption"></a>Använda PlayReady och/eller Widevine Dynamic Common Encryption
 
 > [!NOTE]
-> Du behöver ett Azure-konto för att slutföra den här självstudien. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/).   > Inga nya funktioner eller funktioner läggs till Media Services v2. <br/>Upptäck den senaste versionen, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [migreringsvägledningen från v2 till v3](../latest/migrate-from-v2-to-v3.md)
+> Du behöver ett Azure-konto för att slutföra den här självstudien. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/).   > Inga nya funktioner läggs till i Media Services v2. <br/>Upptäck den senaste versionen, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
 >   
 
 ## <a name="overview"></a>Översikt
@@ -143,7 +143,7 @@ string testToken = TokenRestrictionTemplateSerializer.GenerateTestToken(tokenTem
 Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
 ```
 
-Du kan använda [Azure Media Services Player](https://amsplayer.azurewebsites.net/azuremediaplayer.html) för att testa din dataström.
+Du kan använda [Azure Media Services Player](https://aka.ms/azuremediaplayer) för att testa din dataström.
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Skapa och konfigurera ett Visual Studio-projekt
 
@@ -616,6 +616,6 @@ namespace DynamicEncryptionWithDRM
 
 * [Använda CENC med multi-DRM och åtkomstkontroll](media-services-cenc-with-multidrm-access-control.md)
 * [Konfigurera Widevine-paketering med Media Services](https://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services)
-* [Kom igång med Java-klientens SDK för Azure Media Services](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use)
+* [Kom igång med Java client SDK för Azure Media Services](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use)
 * Om du vill hämta den senaste PHP SDK för Media Services, leta efter version 0.5.7 av Microsoft/WindowsAzure-paketet i [Packagist-databasen](https://packagist.org/packages/microsoft/windowsazure#v0.5.7). 
 

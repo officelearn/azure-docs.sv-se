@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: dacurwin
-ms.openlocfilehash: 9a6ea961f7433f511ef22a6ac9aaefa51b5df8aa
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: 1f8086580d60d13251052636d4d771855e9605a5
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663694"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954957"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Säkerhetskopiera virtuella Azure-datorer i ett Recovery Services valv
 
@@ -138,7 +138,7 @@ När du har aktiverat säkerhets kopiering:
 Om du har valt att skapa en ny säkerhets kopierings princip, fyller du i princip inställningarna.
 
 1. I **princip namn**anger du ett beskrivande namn.
-2. I **schema för säkerhets kopiering** anger du när säkerhets kopior ska vidtas. Du kan utföra dagliga eller veckovis säkerhets kopieringar för virtuella Azure-datorer.
+2. I **schema för säkerhets kopiering**anger du när säkerhets kopior ska vidtas. Du kan utföra dagliga eller veckovis säkerhets kopieringar för virtuella Azure-datorer.
 2. I **omedelbar återställning**anger du hur länge du vill behålla ögonblicks bilder lokalt för omedelbar återställning.
     - När du återställer kopieras de säkerhetskopierade virtuella dator diskarna från Storage, över nätverket till återställnings lagrings platsen. Med omedelbar återställning kan du utnyttja lokalt lagrade ögonblicks bilder som tas under ett säkerhets kopierings jobb utan att vänta på att säkerhets kopierings data överförs till valvet.
     - Du kan behålla ögonblicks bilder för omedelbar återställning mellan en och fem dagar. Standardvärdet är två dagar.
@@ -165,7 +165,7 @@ Den första säkerhets kopieringen kommer att köras enligt schemat, men du kan 
 ## <a name="verify-backup-job-status"></a>Verifiera status för säkerhets kopierings jobb
 
 Informationen om säkerhets kopierings jobbet för varje VM-säkerhetskopiering består av två faser, ögonblicks bilds fasen följt av **överförings data till valv** fasen.<br/>
-Ögonblicks bild fasen garanterar tillgängligheten för en återställnings punkt som lagras tillsammans med diskarna för **omedelbara** återställningar och är tillgängliga i högst 5 dagar beroende på den kvarhållna ögonblicks bilder som kon figurer ATS av användaren. Överföring av data till valv skapar en återställnings punkt i valvet för långsiktig kvarhållning. Överföring av data till valv startar bara när ögonblicks bild fasen har slutförts.
+Ögonblicks bild fasen garanterar tillgängligheten för en återställnings punkt som lagras tillsammans med diskarna för **omedelbara** återställningar och är tillgängliga i högst fem dagar beroende på den kvarhållna ögonblicks bilder som kon figurer ATS av användaren. Överföring av data till valvet skapar en återställnings punkt i valvet för långsiktig kvarhållning. Överföring av data till valv startar bara när ögonblicks bild fasen har slutförts.
 
   ![Status för säkerhets kopierings jobb](./media/backup-azure-arm-vms-prepare/backup-job-status.png)
 

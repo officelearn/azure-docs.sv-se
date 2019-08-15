@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/25/2019
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 079a0721e77174215c7256eecbe9bc522256f0b8
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 142c99b2471a9010a00bf9b5d50549c5e84548f1
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881484"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966452"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Kopiera data från och till Oracle med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -33,11 +33,13 @@ Du kan kopiera data från en Oracle-databas till alla mottagar data lager som st
 Mer specifikt stöder den här Oracle-anslutningen:
 
 - Följande versioner av en Oracle-databas:
-  - Oracle 12C R1 (12,1)
-  - Oracle 11g R1, R2 (11,1, 11,2)
-  - Oracle 10g R1, R2 (10,1, 10,2)
-  - Oracle 9i R1, R2 (9.0.1 9,2)
-  - Oracle 8i R3 (8.1.7)
+    - Oracle 18c R1 (18,1) och högre
+    - Oracle 12C R1 (12,1) och högre
+    - Oracle 11g R1 (11,1) och högre
+    - Oracle 10g R1 (10,1) och högre
+    - Oracle 9i R2 (9,2) och högre
+    - Oracle 8i R3 (8.1.7) och högre
+    - Oracle Database Cloud Exadata service
 - Kopiera data med Basic-eller OID-autentiseringar.
 - Parallell kopiering från en Oracle-källa. Mer information finns i avsnittet [parallell kopiering från Oracle](#parallel-copy-from-oracle) .
 
@@ -46,7 +48,9 @@ Mer specifikt stöder den här Oracle-anslutningen:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill kopiera data från och till en Oracle-databas som inte är offentligt tillgänglig, måste du konfigurera en [integration runtime med egen värd](create-self-hosted-integration-runtime.md). Integrerings körningen innehåller en inbyggd Oracle-drivrutin. Därför behöver du inte installera en driv rutin manuellt när du kopierar data från och till Oracle.
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)] 
+
+Integrerings körningen innehåller en inbyggd Oracle-drivrutin. Därför behöver du inte installera en driv rutin manuellt när du kopierar data från och till Oracle.
 
 ## <a name="get-started"></a>Kom igång
 
@@ -62,7 +66,7 @@ Den länkade Oracle-tjänsten stöder följande egenskaper:
 |:--- |:--- |:--- |
 | type | Egenskapen Type måste anges till **Oracle**. | Ja |
 | connectionString | Anger den information som krävs för att ansluta till Oracle Database-instansen. <br/>Markera det här fältet som `SecureString` en för att lagra det på ett säkert sätt i Data Factory. Du kan också ange ett lösen ord i Azure Key Vault och hämta `password` konfigurationen från anslutnings strängen. Läs följande exempel och [lagra autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) med mer information. <br><br>**Anslutnings typ som stöds**: Du kan använda **Oracle sid** eller **Oracle-tjänstens namn** för att identifiera databasen:<br>-Om du använder SID:`Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>– Om du använder tjänst namn:`Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;` | Ja |
-| connectVia | Den [integreringskörningen](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda integration runtime med egen värd eller Azure integration Runtime (om ditt data lager är offentligt tillgängligt). Om detta inte anges använder den här egenskapen standard Azure integration Runtime. |Nej |
+| connectVia | Den [integreringskörningen](concepts-integration-runtime.md) som används för att ansluta till datalagret. Läs mer från avsnittet [krav](#prerequisites) . Om den inte anges används standard Azure Integration Runtime. |Nej |
 
 >[!TIP]
 >Om du får ett fel meddelande "ORA-01025: UPI-parametern är utanför intervallet ", och din Oracle-version är 8i `WireProtocolMode=1` , Lägg till i anslutnings strängen. Försök sedan igen.
@@ -191,11 +195,10 @@ Om du vill kopiera data från och till Oracle anger du egenskapen type för data
 
 Det här avsnittet innehåller en lista över egenskaper som stöds av Oracle-källan och mottagare. En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter [](concepts-pipelines-activities.md)finns i pipelines. 
 
-### <a name="oracle-as-a-source-type"></a>Oracle som käll typ
+### <a name="oracle-as-source"></a>Oracle som källa
 
-> [!TIP]
->
-> Om du vill läsa in data från Oracle effektivt genom att använda data partitionering, se [parallell kopiering från Oracle](#parallel-copy-from-oracle).
+>[!TIP]
+>Om du vill läsa in data från Oracle effektivt genom att använda data partitionering, se [parallell kopiering från Oracle](#parallel-copy-from-oracle).
 
 Om du vill kopiera data från Oracle anger du käll typen i kopierings aktiviteten `OracleSource`till. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnittet.
 
@@ -242,7 +245,7 @@ Om du vill kopiera data från Oracle anger du käll typen i kopierings aktivitet
 ]
 ```
 
-### <a name="oracle-as-a-sink-type"></a>Oracle som mottagar typ
+### <a name="oracle-as-sink"></a>Oracle som mottagare
 
 Om du vill kopiera data till Oracle ställer du in mottagar typen i kopierings aktiviteten till `OracleSink`. Följande egenskaper stöds i avsnittet Kopiera aktivitets **mottagare** .
 
@@ -341,7 +344,7 @@ När du kopierar data från och till Oracle gäller följande mappningar. Inform
 | BFILE |Byte[] |
 | BLOB |Byte[]<br/>(stöds endast på Oracle 10g och högre) |
 | CHAR |Sträng |
-| CLOB |Sträng |
+| CLOB |String |
 | DATE |DateTime |
 | FLOAT |Decimal, String (om precision > 28) |
 | INTEGER |Decimal, String (om precision > 28) |

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 07c035f4823ea8c8eaa96ca9bda22450246811cd
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 1cb4d3e35ae743dbae4c049f515d61b3042e7efe
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779631"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68952805"
 ---
 # <a name="azure-ad-password-protection-troubleshooting"></a>Fel sökning av lösen ords skydd i Azure AD
 
@@ -41,6 +41,8 @@ Huvud symptomet för det här problemet är 30018 händelser i händelse loggen 
 1. Proxyservern blockerar åtkomst till RPC-slutpunkten (dynamisk eller statisk) som lyssnar på av proxyservern
 
    Installations programmet för Azure AD Password Protection skapar automatiskt en regel för inkommande Windows-brandvägg som ger åtkomst till alla inkommande portar som har avlyssnats av proxyn för Azure AD Password Protection. Om den här regeln senare tas bort eller inaktive ras kan inte DC-agenter kommunicera med proxyservern. Om den inbyggda Windows-brandväggen har inaktiverats i stället för en annan brand Väggs produkt måste du konfigurera brand väggen så att den tillåter åtkomst till alla inkommande portar som är lyssnade på Azure AD Password Protection proxy-tjänsten. Den här konfigurationen kan göras mer detaljerad om proxy-tjänsten har kon figurer ATS för att lyssna på en angiven statisk RPC-port `Set-AzureADPasswordProtectionProxyConfiguration` (med hjälp av cmdleten).
+
+1. Proxy-datorn är inte konfigurerad för att tillåta att domänkontrollanter loggar in på datorn. Detta beteende styrs via tilldelningen "åtkomst till den här datorn från nätverket". Alla domänkontrollanter i alla domäner i skogen måste tilldelas den här behörigheten. Den här inställningen är ofta begränsad som en del av belastningen på en större nätverks härdning.
 
 ## <a name="proxy-service-is-unable-to-communicate-with-azure"></a>Proxy-tjänsten kan inte kommunicera med Azure
 

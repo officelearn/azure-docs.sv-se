@@ -1,6 +1,6 @@
 ---
-title: StorSimple tekniska specifikationer | Microsoft Docs
-description: Beskriver de tekniska specifikationerna och regelverk kompatibilitetsinformation för maskinvarukomponenter för StorSimple.
+title: Tekniska specifikationer för StorSimple | Microsoft Docs
+description: Beskriver de tekniska specifikationerna och specifikationernas kompatibilitetsinformation för StorSimple-maskin varu komponenter.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,187 +14,189 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
-ms.openlocfilehash: 33becd46747f957cce67fb7b2ace170a9aa402ff
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 061194422a8c1bc449dbef0c4f04bb8e1db10dea
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65606937"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68965295"
 ---
-# <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>Tekniska specifikationer och efterlevnad för StorSimple-enhet
+# <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>Tekniska specifikationer och efterlevnad för StorSimple-enheten
 
 ## <a name="overview"></a>Översikt
 
-Maskinvarukomponenter för Microsoft Azure StorSimple-enheten följa de tekniska specifikationerna och regelverk som beskrivs i den här artikeln. De tekniska specifikationerna beskrivs Power och kylning moduler (PCMs), diskenheter, lagringskapacitet och bilagor. Kompatibilitetsinformationen innehåller sådant som internationell standard, säkerhet och utsläpp och kablar.
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
-## <a name="power-and-cooling-module-specifications"></a>Ström och kylning modulen specifikationer
+Maskin varu komponenterna i Microsoft Azure StorSimples enheten följer de tekniska specifikationer och regler som beskrivs i den här artikeln. De tekniska specifikationerna beskriver Power-och kylnings-modulerna (PCMs), disk enheter, lagrings kapacitet och höljen. Kompatibilitetsinformation täcker sådana saker som internationella standarder, säkerhet och utsläpp och kablar.
 
-StorSimple-enheten har två 100-240 V dubbla fläktar, flesta SBB-kompatibla Power kylning moduler (PCMs). Detta ger en redundant kraft-konfiguration. Om en PCM misslyckas, fortsätter enheten att fungera normalt på andra PCM förrän modulen misslyckade ersätts.
+## <a name="power-and-cooling-module-specifications"></a>Specifikationer för energi-och kylnings modul
 
-EBOD-höljet använder en 580 W PCM och primära hölje använder en 764 W PCM. I tabellerna nedan listas de tekniska specifikationerna som är associerade med PCMs.
+StorSimple-enheten har två 100-240 V-enheter med dubbel fläkt, MITTPLANSSAMMANKOPPLING-kompatibla Power kylning-moduler (PCMs). Detta ger en redundant energi konfiguration. Om en PCM Miss lyckas fortsätter enheten att fungera normalt på den andra PCM tills den felande modulen har ersatts.
 
-| Specifikationen | 580 W PCM (EBOD) | 764 W PCM (primär) |
+EBOD-kabinettet använder en 580 W PCM och primär inne slutning använder en 764 W PCM. I följande tabeller visas de tekniska specifikationer som är associerade med PCMs.
+
+| Transaktionsspecifikationen | 580 W PCM (EBOD) | 764 W PCM (primär) |
 | --- | --- | --- |
-| Högsta uteffekt |580 W |764 |
+| Maximal uteffekt |580 W |764 |
 | Frekvens |50/60 Hz |50/60 Hz |
-| Val av tidsintervall spänning |Automatisk sträcker sig: 90 – 264 V AC, 47/63 Hz |Automatisk sträcker sig: 90- 264 V AC, 47/63 Hz |
-| Maximal översvämning aktuella |20 A |20 A |
-| Power factor korrigering |> 95% nominell ingångsspänning |> 95% nominell ingångsspänning |
+| Val av spännings intervall |Automatiskt intervall: 90 – 264 V AC, 47/63 Hz |Automatiskt intervall: 90 – 264 V AC, 47/63 Hz |
+| Högsta inaktiva ström |20 A |20 A |
+| Energi faktor korrigering |> 95% nominell ingångs spänning |> 95% nominell ingångs spänning |
 | Övertoner |Uppfyller EN61000-3-2 |Uppfyller EN61000-3-2 |
-| Resultat |5v vänteläge spänning \@ 2.0 A |5v vänteläge spänning \@ 2.7 A |
-| +5V \@ 42 A |+5V \@ 40 A | |
+| Output |5V standby- \@ spänning 2,0 A |5V standby- \@ spänning 2,7 A |
+| \+ 5 \@ V 42 A |\+ 5 \@ V 40 A | |
 | +12V \@ 38 A |+12V \@ 38 A | |
-| Hot plug |Ja |Ja |
-| Växlar och led: ar |AC på/av växeln och fyra status övervakningsindikatorer |AC på/av växeln och sex status övervakningsindikatorer |
-| Hölje kylning |Axial kylfläktar med varierande hastighet fläktkontroll |Axial kylfläktar med varierande hastighet fläktkontroll |
+| Hot pluggable |Ja |Ja |
+| Växlar och lysdioder |Växel ström på/av-växel och fyra status indikator lampor |Växel ström på/av-växel och sex status indikator lampor |
+| Kabinett kylning |Koaxiala kyl fläktar med variabel fläkt hastighets kontroll |Koaxiala kyl fläktar med variabel fläkt hastighets kontroll |
 
-## <a name="power-consumption-statistics"></a>Power förbrukningsstatistik
+## <a name="power-consumption-statistics"></a>Statistik för energi förbrukning
 
-I följande tabell visas vanliga strömförbrukningsdata (faktiska värdena kan variera från den publicerade) för de olika modellerna för StorSimple-enhet.
+I följande tabell visas vanliga energi förbruknings data (de faktiska värdena kan variera beroende på publiceringen) för olika modeller av StorSimple-enheten.
 
 | Villkor | 240 V AC | 240 V AC | 240 V AC | 110 V AC | 110 V AC | 110 V AC |
 | --- | --- | --- | --- | --- | --- | --- |
-|  Fans långsam, enheter som är inaktiv |1,45 A |0.31 kW |1057.76 BTU/timme |3.19 A |0.34 kW |1160.13 BTU/timme |
-|  Fans långsammare enheter åtkomst till |1.54 A |0.33 kW |1126.01 BTU/timme |3.27 A |0.36 kW |1228.37 BTU/timme |
-|  Fans snabbt, enheter inaktiv, två PSUs drivs |PUNKT 2.14 A |0.49 kW |1671.95 BTU/timme |4.99 A |0.54 kW |1842.56 BTU/timme |
-|  Snabb, fans enheter inaktiv finns en PSU drivs en inaktiv |2.05 A |0.48 kW |1637.83 BTU/timme |4.58 A |0,50 kW |1706.07 BTU/timme |
-|  Fans snabbt, enheter åtkomst till två PSUs drivs |2,26 A |0.51 kW |1740.19 BTU/timme |4.95 A |0.54 kW |1842.56 BTU/timme |
-|  Snabb fläktar, enheter som har åtkomst till, en PSU drivs en inaktiv |PUNKT 2.14 A |0.49 kW |1671.95 BTU/timme |4.81 A |0.53 kW |1808.44 BTU/timme |
+|  Fläktar är långsamma, enheterna är inaktiva |1,45 A |0,31 kW |1057,76 BTU/timme |3,19 A |0,34 kW |1160,13 BTU/timme |
+|  Fläktar är långsamma, åtkomst till enheter |1,54 A |0,33 kW |1126,01 BTU/timme |3,27 A |0,36 kW |1228,37 BTU/timme |
+|  Fläktar snabbt, enheter inaktiva, två PSUs som drivs |2,14 A |0,49 kW |1671,95 BTU/timme |4,99 A |0,54 kW |1842,56 BTU/timme |
+|  Fläktar snabbt, enheter inaktiva, en PSU med ett inaktivt |2,05 A |0,48 kW |1637,83 BTU/timme |4,58 A |0,50 kW |1706,07 BTU/timme |
+|  Fläktar snabbt, enheters åtkomst, två PSUs som drivs |2,26 A |0,51 kW |1740,19 BTU/timme |4,95 A |0,54 kW |1842,56 BTU/timme |
+|  Snabba fläktar, enheter som har åtkomst till, en PSU med ett inaktivt |2,14 A |0,49 kW |1671,95 BTU/timme |4,81 A |0,53 kW |1808,44 BTU/timme |
 
-## <a name="disk-drive-specifications"></a>Diskenhet specifikationer
+## <a name="disk-drive-specifications"></a>Specifikationer för disk enhet
 
-Din StorSimple-enhet stöder upp till 12 3,5-tums formuläret faktor seriellt ansluten SCSI (SAS) diskenheter. De faktiska enheterna kan vara en blandning av SSD (solid-state drive) eller hårddiskar (HDD), beroende på hur produkten. 12 diskenheten platserna befinner sig i en konfiguration med 3 av 4 framför höljet. EBOD-höljet kan ytterligare lagringsutrymme för en annan 12 diskenheter. Det här är alltid hårddiskar.
+Din StorSimple-enhet har stöd för upp till 12 3,5-tums form faktor seriellt anslutna SCSI-diskenheter (SAS). De faktiska enheterna kan vara en blandning av solid-state-hårddiskar (SSD) eller hård diskar, beroende på produkt konfigurationen. De 12 disk enhets platserna finns i 3 av 4-konfigurationen framför höljet. EBOD-kabinettet ger ytterligare lagrings utrymme för ytterligare 12 disk enheter. De är alltid hård diskar.
 
 ## <a name="storage-specifications"></a>Storage-specifikationer
 
-StorSimple-enheter har en blandning av hårddiskar och SSD-enheter för både 8100 och 8600. Den totala kapaciteten som kan användas för 8100 och 8600 är ungefär 15 TB och 38 TB. I följande tabell beskrivs information om SSD och HDD-molnkapacitet i samband med kapacitet för StorSimple-lösning.
+StorSimple-enheter har en blandning av hård diskar och solid state-hårddiskar för både 8100 och 8600. Den totala användbara kapaciteten för 8100 och 8600 är ungefär 15 TB respektive 38 TB. I följande tabell dokumenteras information om SSD, hård disk och moln kapacitet i samband med StorSimple-lösningens kapacitet.
 
-| Enhetsmodell / kapacitet | 8100 | 8600 |
+| Enhets modell/kapacitet | 8100 | 8600 |
 | --- | --- | --- |
-| Antalet hårddiskar (HDD) |8 |19 |
-| Antalet solid-state-hårddiskar (SSD) |4 |5 |
-| Enkel hårddiskkapacitet |4 TB |4 TB |
-| Enkel SSD-kapacitet |400 GB |800 GB |
-| Ledig kapacitet |4 TB |4 TB |
-| Användbar HDD-kapacitet |14 TB |36 TB |
+| Antal hård diskar (HDD) |8 |19 |
+| Antal solid state-hårddiskar (SSD) |4 |5 |
+| Enskild hård disk kapacitet |4 TB |4 TB |
+| Kapacitet för enskild SSD |400 GB |800 GB |
+| Reserv kapacitet |4 TB |4 TB |
+| Användbar hård disk kapacitet |14 TB |36 TB |
 | Användbar SSD-kapacitet |800 GB |2 TB |
-| Totalt antal användbar kapacitet * |~ 15 TB |~ 38 TB |
-| Lösning för maximal kapacitet (inklusive molnet) |200 TB |500 TB |
+| Total användbar kapacitet * |~ 15 TB |~ 38 TB |
+| Maximal lösnings kapacitet (inklusive moln) |200 TB |500 TB |
 
-<sup>* </sup>- *Totalt antal användbar kapacitet innehåller den tillgängliga kapaciteten för data, metadata och buffertar. Du kan etablera lokalt fästa volymer upp till 8,5 TB på 8100-enheten eller upp till 22,5 TB på den större 8600-enheten. Mer information går du till [StorSimple lokalt fixerade volymer](storsimple-8000-local-volume-faq.md).*
+<sup>* </sup>- *Den totala användbara kapaciteten inkluderar tillgänglig kapacitet för data, metadata och buffertar. Du kan etablera lokalt fästa volymer upp till 8,5 TB på 8100-enheten eller upp till 22,5 TB på den större 8600-enheten. Mer information finns på [StorSimple lokalt fästa volymer](storsimple-8000-local-volume-faq.md).*
 
-## <a name="enclosure-dimensions-and-weight-specifications"></a>Hölje dimensioner och vikt specifikationer
+## <a name="enclosure-dimensions-and-weight-specifications"></a>Bilagans dimensioner och vikt specifikationer
 
-I tabellerna nedan listas de olika hölje specifikationerna för dimensioner och vikt.
+I följande tabeller visas de olika specifikationerna för inne slutning för dimensioner och vikt.
 
-### <a name="enclosure-dimensions"></a>Dimensioner för hölje
+### <a name="enclosure-dimensions"></a>Omslutnings dimensioner
 
-I följande tabell visas måtten på höljet i millimeter och tum.
+I följande tabell visas storleken på höljet i millimeter och tum.
 
-| Hölje | Millimeter | Tum |
+| Hölje | Millimeter | Mm |
 | --- | --- | --- |
 | Höjd |87.9 |3.46 |
-| Bredd för montering flänsad |483 |19.02 |
-| Bredd i brödtexten för hölje |443 |17.44 |
-| Djup från fronten till slutet av hölje brödtext |577 |22.72 |
-| Djup operations-panelen till sista delen av hölje |630.5 |24.82 |
-| Djup från montering flänsad till sista delen av hölje |603 |23.74 |
+| Bredd över monterings fläns |483 |19.02 |
+| Bredd på bröd texten i kammaren |443 |17.44 |
+| Djup från Front montering till ytterlighets utrymme för kabinett text |577 |22.72 |
+| Djup från Åtgärds panelen till den sista ytterlighets mängden för kabinett |630.5 |24.82 |
+| Djup från montering av fläns till den sista ytterligheten i kammaren |603 |23.74 |
 
-### <a name="enclosure-weight"></a>Vikt för hölje
+### <a name="enclosure-weight"></a>Kabinett vikt
 
-Beroende på konfigurationen, ett lästs in helt primära hölje kan väg från 21 med 33 kg och kräver två personer kan hantera den.
+Beroende på konfigurationen kan en fullständigt inläst primär enhet väga från 21 till 33 KGS och det krävs två personer för att hantera den.
 
 | Hölje | Vikt |
 | --- | --- |
-| Totalvikt (beroende på konfigurationen) |30 kg – 33 kg |
-| Tom (inga enheter monterade) |21 – 23 kg |
+| Maximal vikt (beror på konfigurationen) |30 kg – 33 kg |
+| Tom (inga enheter är monterade) |21 – 23 kg |
 
-## <a name="enclosure-environment-specifications"></a>Hölje miljö specifikationer
+## <a name="enclosure-environment-specifications"></a>Specifikationer för kabinett miljö
 
-Det här avsnittet listas de specifikationer som rör hölje-miljö. Temperatur, fuktighet, höjd, chocka, vibrationer, orientering, säkerhet och elektromagnetisk kompatibilitet (EMC) ingår i den här kategorin.
+I det här avsnittet visas de specifikationer som är relaterade till inne slutnings miljön. Temperatur, fuktighet, höjd, stöt, vibration, orientering, säkerhet och elektro magnetisk kompatibilitet (EMC) ingår i den här kategorin.
 
 ### <a name="temperature-and-humidity"></a>Temperatur och fuktighet
 
-| Hölje | Omgivande temperaturintervall | Omgivande relativ fuktighet | Maximal våt termometerkulans |
+| Hölje | Temperatur intervall för omgivning | Omgivande relativ fuktighet | Maximal våt lampa |
 | --- | --- | --- | --- |
-| Operativa |5°C - 35°C(41°F - 95°F) |20% till 80% icke-förenklas- |28°C (82°F) |
-| Kan inte användas |-40 OC - 70 OC 40° F - 158° F |icke förenklas 5% till 100% |29°C (84°F) |
+| I drift |5 ° C – 35 ° C (41 °F-95 °F) |20%-80% icke-kondenserande – |28 ° C (82 °F) |
+| Fungerar inte |-40 ° C – 70 ° C (40 °F-158 °F) |5%-100% icke-kondenserande |29 ° C (84 °F) |
 
-### <a name="airflow-altitude-shock-vibration-orientation-safety-and-emc"></a>Luftflödet, höjd, chocka, vibrationer, orientering, säkerhet och EMC
+### <a name="airflow-altitude-shock-vibration-orientation-safety-and-emc"></a>Luft flöde, höjd, stöt, vibration, orientering, säkerhet och EMC
 
 | Hölje | Operativa specifikationer |
 | --- | --- |
-| Luftflödet |System luftflödet är framifrån och bakåt. Systemet måste köras med en low-pressure, bakre avgaser installation. Tryck skapats av rack dörrar och hinder får inte överstiga 5 Pascal (0,5 mätare). |
-| Höjd operativa |-30 värden med 3045 (-100 fot till 10 000 fot) med högsta operativsystem temperatur, ta bort klassificerats av 5 oC ovan 7000 fot. |
-| Höjden som inte kan användas |-305 värden med 12 192 (– 1 000 fot till 40 000 fot) |
-| Chocka, operativa |5g 10 ms ½ sinus |
-| Chocka, inte kan användas |30g 10 ms ½ sinus |
-| Vibrationer, operativa |0.21g RMS 5 500 Hz slumpmässiga |
-| Vibrationer, inte kan användas |1.04g RMS 2 200 Hz slumpmässiga |
-| Vibrationer, dataflytt |3g 2 200 Hz sinus |
-| Orientering och montering |19-tums rackmontera (2 EIA enheter) |
-| Rack rails |För att passa minsta 700 mm (31.50 tum) djup rack följer IEC 297 |
-| Säkerhet och godkännanden |CE och UL SV 61000-3, IEC 61000-3, UL 61000-3 |
-| EMC |EN55022 (CISPR - A), FCC A |
+| Luft flöde |Systemets luft flöde är framifrån och bak. Systemet måste köras med en installation med låg belastning. Mottryck som skapats av rack dörrar och hinder får inte överstiga 5 Pascal (0,5 mm vatten mätare). |
+| Höjd, drift |– 30 meter till 3045 meter (-100 meter till 10 000 fot) med maximal drift temperatur som avklassificeras med 5 ° c över 7000 m. |
+| Höjd, ej fungerande |– 305 meter till 12 192 meter (-1 000 fot till 40 000 m) |
+| Stöt, drift |5G 10 MS 1/2-sinus |
+| Stöt, ej fungerande |30g 10 MS 1/2-sinus |
+| Vibrationer, drift |0.21 g RMS 5-500 Hz slumpmässig |
+| Vibrationer, ej drift |1.04 g RMS 2-200 Hz slumpmässig |
+| Vibration, flyttning |3G 2-200 Hz sinus |
+| Orientering och montering |19 "rack montering (2 EIA-enheter) |
+| Rack skenor |För att passa minsta 700 mm-djupet (31,50 tum) och är kompatibelt med IEC 297 |
+| Säkerhet och godkännanden |CE och UL EN 61000-3, IEC 61000-3, UL 61000-3 |
+| EMC |EN55022 (CISPR-A), FCC A |
 
-## <a name="international-standards-compliance"></a>Internationell standard efterlevnad
+## <a name="international-standards-compliance"></a>Efterlevnad av internationella standarder
 
-Microsoft Azure StorSimple-enheten uppfyller följande internationella standarder:  
+Din Microsoft Azure StorSimple-enhet uppfyller följande internationella standarder:  
 
-* CE - EN 60950 - 1
-* CB rapporten till IEC 60950-1
+* CE-EN 60950-1
+* CB-rapport till IEC 60950-1
 * UL och cUL till UL 60950-1
 
-## <a name="safety-compliance"></a>Säkerhet
+## <a name="safety-compliance"></a>Säkerhetskompatibilitet
 
-Microsoft Azure StorSimple-enheten uppfyller följande säkerhet klassificeringar:
+Din Microsoft Azure StorSimple enhet uppfyller följande säkerhets klassificeringar:
 
-* System produkten typgodkännande: UL, cUL, CE
-* Säkerhet efterlevnad: UL 60950, IEC 60950, EN 60950
+* System produkt typ godkännande: UL, cUL, CE
+* Säkerhetskompatibilitet: UL 60950, IEC 60950, EN 60950
 
-## <a name="emc-compliance"></a>EMC efterlevnad
+## <a name="emc-compliance"></a>EMC-kompatibilitet
 
-Microsoft Azure StorSimple-enheten uppfyller följande EMC-klassificeringar.
+Din Microsoft Azure StorSimple-enhet uppfyller följande EMC-klassificeringar.
 
-### <a name="emissions"></a>Utsläpp
+### <a name="emissions"></a>Avgas
 
-Enheten är EMC-kompatibel för ledda och UTSTRÅLAD utsläpp nivåer.
+Enheten är EMC-kompatibel för genomförda och utstrålade utsläpps nivåer.
 
-* Från utsläpp gränsen nivåer: CFR 47 del 15B klass A EN55022 klass A CISPR klass A
-* Radiated utsläpp gränsen nivåer: CFR 47 del 15B klass A EN55022 klass A CISPR klass A
+* Utsläpps gräns nivåer: CFR 47 del 15B klass A EN55022 klass a CISPR klass A
+* Gräns nivåer för avstrålade utsläpp: CFR 47 del 15B klass A EN55022 klass a CISPR klass A
 
 ### <a name="harmonics-and-flicker"></a>Övertoner och flimmer
 
-Enheten uppfyller EN61000-3-2/3.
+Enheten överensstämmer med EN61000-3-2/3.
 
-### <a name="immunity-limit-levels"></a>Gränsen för immunitetsnivåerna
+### <a name="immunity-limit-levels"></a>Gräns nivåer för immunitet
 
-Enheten uppfyller EN55024.
+Enheten överensstämmer med EN55024.
 
-## <a name="ac-power-cord-compliance"></a>AC power kabel efterlevnad
+## <a name="ac-power-cord-compliance"></a>Kompatibilitet för ström sladd
 
-Plugin och fullständig power kabel sammansättningen måste uppfylla standarder som är lämpliga för land/region där enheten som används och de måste ha säkerhet godkännanden som kan användas i den land/regionen. I tabellerna nedan listas standarder för USA och Europa.
+Plug and Play-sammansättningen måste uppfylla de standarder som är lämpliga för det land/den region där enheten används, och de måste ha säkerhets godkännanden som är acceptabla i landet/regionen. I följande tabeller listas standarder för USA och Europa.
 
-### <a name="ac-power-cords---usa-must-be-nrtl-listed"></a>Strömkablar AC - USA (måste vara NRTL visas)
+### <a name="ac-power-cords---usa-must-be-nrtl-listed"></a>AC-nätkablar – USA (måste vara NRTL listat)
 
-| Komponent | Specifikationen |
+| Komponent | Transaktionsspecifikationen |
 | --- | --- |
-| Typ av kabel |SA eller SVT 18 AWG minimum, 3 ledare 2.0 taxor maximal längd |
-| Plugin |NEMA 5 till 15P erfarenhet av att arbeta-type bilaga plugin görs 120 V, 10 a. eller IEC 320 C14 250 V, 10 A |
-| Socket |IEC 320 C-13, 250 V, 10 A |
+| Typ av sladd |SV eller SVT, 18 AWG minimum, 3 ledare, 2,0 meter maximal längd |
+| Tillägg |NEMA 5-15P-typ av bilaga som är tilldelad 120 V, 10 A; eller IEC 320 C14, 250 V, 10 A |
+| Socketanslutning |IEC 320 C-13, 250 V, 10 A |
 
-### <a name="ac-power-cords---europe"></a>Strömkablar AC - Europa
+### <a name="ac-power-cords---europe"></a>AC-nätsladd – Europa
 
-| Komponent | Specifikationen |
+| Komponent | Transaktionsspecifikationen |
 | --- | --- |
-| Typ av kabel |Harmoniserade H05-VVF-3G1.0 |
-| Socket |IEC 320 C-13, 250 V, 10 A |
+| Typ av sladd |Harmoniserad, H05-VVF – 3G 1.0 |
+| Socketanslutning |IEC 320 C-13, 250 V, 10 A |
 
-## <a name="supported-network-cables"></a>Stöds nätverkskablarna
+## <a name="supported-network-cables"></a>Nätverks kablar som stöds
 
-För de 10 GbE-nätverksgränssnitt DATA 2 och DATA 3 refererar till den [listan över stöds nätverkskablarna och moduler](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
+För 10 GbE-nätverks gränssnitt, DATA 2 och DATA 3, se [listan över nätverks kablar och moduler som stöds](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du är nu redo att distribuera en StorSimple-enhet i ditt datacenter. Mer information finns i [distribuera din lokala enhet](storsimple-8000-deployment-walkthrough-u2.md).
+Du är nu redo att distribuera en StorSimple-enhet i ditt data Center. Mer information finns i [distribuera din lokala enhet](storsimple-8000-deployment-walkthrough-u2.md).
 

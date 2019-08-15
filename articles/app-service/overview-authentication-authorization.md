@@ -4,7 +4,7 @@ description: Konceptuell referens och översikt över funktionen autentisering/a
 services: app-service
 documentationcenter: ''
 author: cephalin
-manager: erikre
+manager: gwallace
 editor: ''
 ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
 ms.service: app-service
@@ -12,16 +12,16 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 08/24/2018
+ms.date: 08/12/2019
 ms.author: cephalin
 ms.reviewer: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 53733774968f94ac95d9b3fea6d8fcb422b4e02c
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 12ad82b0dda628c3a8cef7712322500c7a33517c
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68515177"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68953806"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Autentisering och auktorisering i Azure App Service
 
@@ -119,29 +119,23 @@ För klient webbläsare kan App Service automatiskt dirigera alla oautentiserade
 
 ## <a name="authorization-behavior"></a>Beteende för auktorisering
 
-I [Azure Portal](https://portal.azure.com)kan du konfigurera App Service auktorisering med ett antal beteenden.
+I [Azure Portal](https://portal.azure.com)kan du konfigurera App Service auktorisering med ett antal beteenden när en inkommande begäran inte autentiseras.
 
 ![](media/app-service-authentication-overview/authorization-flow.png)
 
 Följande rubriker beskriver alternativen.
 
-### <a name="allow-all-requests-default"></a>Tillåt alla begär Anden (standard)
+### <a name="allow-anonymous-requests-no-action"></a>Tillåt anonyma förfrågningar (ingen åtgärd)
 
-Autentisering och auktorisering hanteras inte av App Service (inaktiverat). 
+Med det här alternativet överlåts auktoriseringen av oautentiserad trafik till program koden. För autentiserade begär Anden skickar App Service även information om autentiseringen i HTTP-huvudena. 
 
-Välj det här alternativet om du inte behöver autentisering och auktorisering, eller om du vill skriva din egen autentiserings-och auktoriseringskod.
+Det här alternativet ger större flexibilitet vid hantering av anonyma begär Anden. Du kan till exempel [presentera flera inloggnings leverantörer](app-service-authentication-how-to.md#use-multiple-sign-in-providers) för dina användare. Du måste dock skriva kod. 
 
 ### <a name="allow-only-authenticated-requests"></a>Tillåt endast autentiserade begär Anden
 
 Alternativet är att **Logga in med \<providern >** . App Service dirigerar om alla anonyma begär `/.auth/login/<provider>` anden till för den leverantör du väljer. Om den anonyma begäran kommer från en ursprunglig mobilapp är det returnerade svaret en `HTTP 401 Unauthorized`.
 
 Med det här alternativet behöver du inte skriva någon autentiseringsmetod i din app. Bättre auktorisering, till exempel rollbaserad auktorisering, kan hanteras genom att inspektera användarens anspråk (se [användar anspråk för åtkomst](app-service-authentication-how-to.md#access-user-claims)).
-
-### <a name="allow-all-requests-but-validate-authenticated-requests"></a>Tillåt alla begär Anden, men verifiera autentiserade begär Anden
-
-Alternativet är **att tillåta anonyma begär Anden**. Det här alternativet aktiverar autentisering och auktorisering i App Service, men överskjuter auktoriseringsbeslut till program koden. För autentiserade begär Anden skickar App Service även information om autentiseringen i HTTP-huvudena. 
-
-Det här alternativet ger större flexibilitet vid hantering av anonyma begär Anden. Du kan till exempel [presentera flera inloggnings leverantörer](app-service-authentication-how-to.md#use-multiple-sign-in-providers) för dina användare. Du måste dock skriva kod. 
 
 ## <a name="more-resources"></a>Flera resurser
 

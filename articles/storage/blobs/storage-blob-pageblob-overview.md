@@ -1,6 +1,6 @@
 ---
-title: Översikt över Azure-sidblobar | Microsoft Docs
-description: En översikt över Azure page blobs och deras fördelar, däribland användningsfall med exempel på skript.
+title: Översikt över Azure Page blobbar | Microsoft Docs
+description: En översikt över Azure Page blobbar och deras fördelar, inklusive användnings fall med exempel skript.
 services: storage
 author: tamram
 ms.service: storage
@@ -9,44 +9,44 @@ ms.date: 05/13/2019
 ms.author: tamram
 ms.reviewer: wielriac
 ms.subservice: blobs
-ms.openlocfilehash: 88bf81852a4501f4fc5807d865214d57dbc0aab3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 060e1d01e5f078bad9852ae35d0af9142192a7b6
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65794502"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68985622"
 ---
-# <a name="overview-of-azure-page-blobs"></a>Översikt över Azure-sidblobar
+# <a name="overview-of-azure-page-blobs"></a>Översikt över Azure Page blobbar
 
-Azure Storage erbjuder tre typer av blob-lagring: Blockblobbar, Tilläggsblobbar och sidblobbar. Blockblobar består av block och är perfekt för att lagra text eller binära filer och för att överföra stora filer effektivt. Lägg till BLOB-objekt är också består av block, men de är optimerade för tilläggsåtgärder, vilket gör dem perfekt för loggningsscenarier. Sidblobar är består av 512 byte-sidor på till 8 TB i total storlek och är utformad för frekventa slumpmässig läsning/skrivning åtgärder. Sidblobar är grunden i Azure IaaS-diskar. Den här artikeln handlar om förklarar funktioner och fördelar med sidblobar.
+Azure Storage erbjuder tre typer av blob-lagring: Blockera blobbar, bifoga blobbar och Page blobbar. Block-blobar består av block och är idealiska för att lagra text eller binära filer, och för att ladda upp stora filer effektivt. Tillägg av blobbar består också av block, men de är optimerade för att lägga till åtgärder, vilket gör dem perfekta för loggnings scenarier. Page blobbar består av 512 byte-sidor upp till 8 TB i Total storlek och är utformade för frekventa slumpmässiga Läs/skriv-åtgärder. Page blobbar är grunden för Azure IaaS-diskar. Den här artikeln fokuserar på att förklara funktionerna och fördelarna med Page blobbar.
 
-Sidblobar är en samling 512 byte-sidor, vilket ger möjlighet att läsa/skriva godtyckliga områden i byte. Därför är sidblobar utmärkt för att lagra index-baserade och utspridda datastrukturer som Operativsystemet och datadiskarna för virtuella datorer och databaser. Till exempel använder Azure SQL DB sidblobar som underliggande beständig lagring för dess databaser. Dessutom används sidblobar ofta för filer med Intervallbaserat uppdateringar.  
+Page blobbar är en samling med sidor på 512 byte, som ger möjlighet att läsa/skriva valfria intervall med byte. Därför är Page blobbar idealiska för lagring av indexbaserade och glesa data strukturer som operativ system och data diskar för Virtual Machines och databaser. Azure SQL DB använder till exempel sid-blobbar som underliggande beständig lagring för dess databaser. Dessutom används även sid-blobar ofta för filer med intervallbaserade uppdateringar.  
 
-Viktiga funktioner i Azure-sidblobar är dess REST-gränssnittet, tillförlitlighet gällande det underliggande lagringsutrymmet och funktioner för sömlös migrering till Azure. Dessa funktioner beskrivs närmare i nästa avsnitt. Dessutom stöds för närvarande Azure sidblobar på två typer av lagring: Premium-lagring och Standard-lagring. Premium Storage har utformats speciellt för arbetsbelastningar som kräver konsekvent hög prestanda och låg latens, vilket gör premium-sidblobar perfekt för högpresterande lagringsscenarier. Standard-konton är mer kostnadseffektivt sätt latens-okänslig arbetsbelastningar som körs.
+Viktiga funktioner i Azure Page blobbar är dess REST-gränssnitt, hållbarheten hos det underliggande lagrings utrymmet och de sömlösa funktionerna för migrering till Azure. Dessa funktioner beskrivs närmare i nästa avsnitt. Dessutom stöds Azure Page blobbar för närvarande på två typer av lagring: Premium Storage och standard lagring. Premium Storage är särskilt utformad för arbets belastningar som kräver konsekvent hög prestanda och låg latens för att göra Premium-sid-blobar perfekta för högpresterande lagrings scenarier. Standard lagrings konton är mer kostnads effektiva för att köra svars känsliga arbets belastningar.
 
-## <a name="sample-use-cases"></a>Exemplet användningsfall
+## <a name="sample-use-cases"></a>Exempel på användnings fall
 
-Vi ska diskutera några användningsområden för sidblobar som börjar med Azure IaaS-diskar. Azure-sidblobar är basen för den virtuella diskar plattformen för Azure IaaS. Både Azure OS och datadiskar implementeras som virtuella diskar där data sparas varaktigt i Azure Storage-plattformen och sedan levereras till de virtuella datorerna för maximal prestanda. Azure-diskar finns kvar i Hyper-V [VHD-format](https://technet.microsoft.com/library/dd979539.aspx) och lagras som en [sidblob](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs) i Azure Storage. Förutom att använda virtuella diskar för virtuella Azure IaaS-datorer, aktivera sidblobar också PaaS och DBaaS scenarier, till exempel Azure SQL DB-tjänsten, som för närvarande använder sidblobar för att lagra SQL-data vilket möjliggör snabb slumpmässig Läs-och skrivåtgärder för databasen. Ett annat exempel är om du har en PaaS-tjänst för delade media åtkomst för samarbetsfunktioner video redigeringsprogram sidblobar ge snabb åtkomst till sekventiella skrivåtgärder i mediet. Dessutom kan snabba och effektiva redigera och slå samman samma mediets av flera användare. 
+Låt oss diskutera några användnings fall för sid-blobar som börjar med Azure IaaS-diskar. Azure Page blobbar är stamnätet för Virtual disks-plattformen för Azure IaaS. Både Azure OS och data diskar implementeras som virtuella diskar där data varaktigt bevaras i Azure Storage-plattformen och sedan levereras till de virtuella datorerna för högsta prestanda. Azure-diskar sparas i [VHD-format](https://technet.microsoft.com/library/dd979539.aspx) för Hyper-V och lagras som en [sid-BLOB](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs) i Azure Storage. Förutom att använda virtuella diskar för virtuella Azure IaaS-datorer, aktiverar Page blobbar också PaaS-och DBaaS-scenarier som Azure SQL DB-tjänsten, som för närvarande använder Page blobbar för att lagra SQL-data, vilket möjliggör snabba, slumpmässiga Läs-och skriv åtgärder för-databasen. Ett annat exempel är om du har en PaaS-tjänst för delad medie åtkomst för samverkande video redigerings program, kan du använda Page blobbar för snabb åtkomst till slumpmässiga platser i mediet. Det ger också snabb och effektiv redigering och sammanfogning av samma media av flera användare. 
 
-Första parts Microsoft-tjänster som Azure Site Recovery, Azure Backup, samt många tredjepartsutvecklare har implementerat branschledande innovationer med hjälp av sidans blob REST-gränssnittet. Här följer några av de unika scenarier implementerat i Azure: 
+Första parts Microsoft-tjänster som Azure Site Recovery, Azure Backup, och många utvecklare av tredje part har implementerat branschledande innovationer med hjälp av Page blobs REST-gränssnitt. Här följer några av de unika scenarier som implementeras i Azure: 
 
-* Hantering av program-riktade inkrementell ögonblicksbild: Program kan använda sidan blob-ögonblicksbilder och REST API: er för att spara programmet kontrollpunkter utan att det medför kostsamma duplicering av data. Azure Storage stöder lokala ögonblicksbilder för sidblobbar, som inte kräver kopiera hela blobben. De här offentliga ögonblicksbild API: er också kan få åtkomst till och kopiera deltan mellan ögonblicksbilder.
-* Direktmigrering av program och data från lokalt till molnet: Kopiera data på plats och Använd REST API: er för att skriva direkt till en sida för Azure-blob när den lokala virtuella datorn fortsätter att köras. När målet har fått allt, men du kan snabbt växla över till virtuell Azure-dator med hjälp av dessa data. På så sätt kan du migrera dina virtuella datorer och virtuella diskar från lokalt till molnet med minimal avbrottstid eftersom migrering av data sker i bakgrunden medan du fortsätter att använda den virtuella datorn och den stilleståndstiden som behövs för redundans kommer att korta (i minuter).
-* [SAS-baserad](../common/storage-dotnet-shared-access-signature-part-1.md) delad åtkomst, vilket möjliggör scenarier som flera läsare och single-skrivare med stöd för samtidighetskontroll.
+* Program-dirigerad stegvis ögonblicks bild hantering: Program kan utnyttja sid-BLOB-ögonblicksbilder och REST-API: er för att spara program kontroll punkter utan att det skulle uppstå kostsam duplicering av data. Azure Storage stöder lokala ögonblicks bilder för sid-blobar som inte kräver att hela blobben kopieras. Dessa API: er för offentliga ögonblicks bilder ger också till gång till och kopiering av delta mellan ögonblicks bilder.
+* Direktmigrering av program och data från lokalt till molnet: Kopiera lokala data och Använd REST-API: er för att skriva direkt till en Azure Page-BLOB medan den lokala virtuella datorn fortsätter att köras. När målet har skapats kan du snabbt redundansväxla till virtuell Azure-dator med dessa data. På så sätt kan du migrera dina virtuella datorer och virtuella diskar från lokalt till molnet med minimal stillestånds tid eftersom datamigreringen sker i bakgrunden medan du fortsätter att använda den virtuella datorn och avbrotts tiden som krävs för redundans kommer att vara kort (i minuter).
+* [SAS-baserad](../common/storage-sas-overview.md) delad åtkomst, som möjliggör scenarier som flera läsare och en enskild skrivare med stöd för samtidiga kontroller.
 
 ## <a name="page-blob-features"></a>Funktioner för sidblob
 
 ### <a name="rest-api"></a>REST-API
 
-Se följande dokument från att komma igång med [utveckla med hjälp av sidblobar](storage-dotnet-how-to-use-blobs.md). Exempelvis titta på hur du kommer åt sidan blobar med Storage-klientbiblioteket för .NET. 
+Se följande dokument för att komma igång med att [utveckla med hjälp av Page blobbar](storage-dotnet-how-to-use-blobs.md). Du kan till exempel titta på hur du kommer åt sid-blobbar med lagrings klient bibliotek för .NET. 
 
-Följande diagram visar övergripande relationerna mellan konto, behållare och sidblobar.
+Följande diagram beskriver de övergripande relationerna mellan konto, behållare och sid-blobbar.
 
-![Skärmbild som visar relationer mellan konto, behållare och sidblobar](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure1.png)
+![Skärm bild som visar relationer mellan konton, behållare och sid-blobbar](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure1.png)
 
-#### <a name="creating-an-empty-page-blob-of-a-specified-size"></a>Skapa en tom sida-blob med en angiven storlek
+#### <a name="creating-an-empty-page-blob-of-a-specified-size"></a>Skapa en tom Page-BLOB med en angiven storlek
 
-Om du vill skapa en sidblobb vi först skapa en **CloudBlobClient** objekt med bas-URI för blob-lagring för ditt lagringskonto (*pbaccount* i bild 1) tillsammans med den  **StorageCredentialsAccountAndKey** objekt som visas i följande exempel. Exemplet visar sedan hur du skapar en referens till en **CloudBlobContainer** objekt och sedan skapa behållaren (*testvhds*) om den inte redan finns. Sedan använder den **CloudBlobContainer** objekt, skapar en referens till en **CloudPageBlob** objekt genom att ange sidans blob-namn (os4.vhd) åtkomst till. Om du vill skapa sidans blob anropa [CloudPageBlob.Create](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.create), och skickar den maximala storleken för blobben som ska skapas. Den *blobSize* måste vara en multipel av 512 byte.
+För att skapa en Page BLOB skapar vi först ett **CloudBlobClient** -objekt med bas-URI: n för att komma åt Blob Storage för ditt lagrings konto (*pbaccount* i bild 1) tillsammans med **StorageCredentialsAccountAndKey** -objektet, som du ser i följande exempel. Exemplet visar sedan hur du skapar en referens till ett **CloudBlobContainer** -objekt och sedan skapar behållaren (*testvhds*) om den inte redan finns. Sedan använder du **CloudBlobContainer** -objektet och skapar en referens till ett **CloudPageBlob** -objekt genom att ange det sid-BLOB-namn (OS4. VHD) som ska användas. Om du vill skapa en sid-BLOB anropar du [CloudPageBlob. Create](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.create), och skickar den maximala storleken för blobben att skapa. *BlobSize* måste vara en multipel av 512 byte.
 
 ```csharp
 using Microsoft.Azure;
@@ -71,45 +71,45 @@ CloudPageBlob pageBlob = container.GetPageBlobReference("os4.vhd");
 pageBlob.Create(16 * OneGigabyteAsBytes);
 ```
 
-#### <a name="resizing-a-page-blob"></a>Ändra storlek på en sidblobb
+#### <a name="resizing-a-page-blob"></a>Ändra storlek på en sid-BLOB
 
-Ändra storlek på en sidblobb när du har skapat genom att använda den [ändra storlek på](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.resize) metod. Den begärda storleken ska vara en multipel av 512 byte.
+Om du vill ändra storlek på en sid-BLOB när du har skapat den använder du metoden för att [ändra storlek](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.resize) . Den begärda storleken måste vara en multipel av 512 byte.
 
 ```csharp
 pageBlob.Resize(32 * OneGigabyteAsBytes);
 ```
 
-#### <a name="writing-pages-to-a-page-blob"></a>Skriva sidor till en sidblob
+#### <a name="writing-pages-to-a-page-blob"></a>Skriva sidor till en sid-BLOB
 
-Om du vill skriva sidor, använda den [CloudPageBlob.WritePages](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.beginwritepages) metod.  På så sätt kan du skriva en sekventiell uppsättning sidor upp till 4MBs. Förskjutningen skrivs till måste börja på en 512 byte-gräns (startingOffset % 512 == 0), och på en 512 gräns - 1.  I följande kodexempel visas hur du anropar **WritePages** för en blob:
+Använd metoden [CloudPageBlob. WritePages](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.beginwritepages) för att skriva sidor.  På så sätt kan du skriva en sekventiell uppsättning sidor upp till 4MBs. Den förskjutning som skrivs till måste starta på en 512 byte-gränser (startingOffset% 512 = = 0) och sluta på en 512-gränser-1.  Följande kod exempel visar hur du anropar **WritePages** för en BLOB:
 
 ```csharp
 pageBlob.WritePages(dataStream, startingOffset); 
 ```
 
-När en skrivbegäran för en sekventiell uppsättning sidor lyckas blob service och replikeras för hållbarhet och återhämtning, skrivningen har genomförts och lyckades returneras tillbaka till klienten.  
+Så snart en skrivbegäran för en sekventiell uppsättning sidor lyckas i Blob-tjänsten och replikeras för hållbarhet och återhämtning, så har skrivningen genomförts och slutförs tillbaka till klienten.  
 
-Den nedan visas diagram 2 separat skrivåtgärder:
+Diagrammet nedan visar 2 separata Skriv åtgärder:
 
 ![](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure2.png)
 
-1.  Skrivning med början vid förskjutningen 0 med längden 1 024 byte 
-2.  Skrivning med början vid förskjutningen 4096 med längden 1024 
+1.  En Skriv åtgärd som börjar vid förskjutningen 0 med längden 1024 byte 
+2.  En Skriv åtgärd som börjar vid förskjutningen 4096 med längden 1024 
 
-#### <a name="reading-pages-from-a-page-blob"></a>Läsa sidor från en sidblob
+#### <a name="reading-pages-from-a-page-blob"></a>Läser sidor från en sid-BLOB
 
-Om du vill läsa sidor, använda den [CloudPageBlob.DownloadRangeToByteArray](/dotnet/api/microsoft.azure.storage.blob.icloudblob.downloadrangetobytearray) metod för att läsa byte från sidans blob. På så sätt kan du hämta fullständig blob eller byte från valfri förskjutning i blob. När du läser, behöver inte förskjutningen starta på en multipel av 512. När du läser byte från en sida för NUL returnerar tjänsten noll byte.
+Om du vill läsa sidor använder du metoden [CloudPageBlob. DownloadRangeToByteArray](/dotnet/api/microsoft.azure.storage.blob.icloudblob.downloadrangetobytearray) för att läsa ett antal byte från Page blob. På så sätt kan du ladda ned hela blobben eller ett intervall med byte som börjar med en offset i blobben. Vid läsningen behöver inte förskjutningen starta på en multipel av 512. När du läser byte från en NUL-sida returnerar tjänsten noll byte.
 
 ```csharp
 byte[] buffer = new byte[rangeSize];
 pageBlob.DownloadRangeToByteArray(buffer, bufferOffset, pageBlobOffset, rangeSize); 
 ```
 
-Följande bild visar en Läs-åtgärd med en förskjutning av 256 och 4352 intervallet storleken. Data som returneras är markerat på orange. Nollor returneras för NUL sidor.
+Följande bild visar en Läs åtgärd med en förskjutning på 256 och en intervall storlek på 4352. Returnerade data är markerade i orange. Nollor returneras för NUL-sidor.
 
 ![](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure3.png)
 
-Om du har en sparsamt ifyllda blob kan du bara hämta giltig regioner kan undvika att betala för egressing noll byte och minska svarstider för hämtning.  Använd för att fastställa vilka sidor backas upp av data, [CloudPageBlob.GetPageRanges](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.getpageranges). Du kan sedan räkna upp de returnerade intervall och hämta data i varje intervall. 
+Om du har en sparse-ifylld BLOB kanske du bara vill hämta giltiga sid regioner för att undvika att betala för utgående av noll byte och för att minska hämtnings fördröjningen.  För att avgöra vilka sidor som backas upp av data, Använd [CloudPageBlob. GetPageRanges](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.getpageranges). Du kan sedan räkna upp de returnerade intervallen och hämta data i varje intervall. 
 
 ```csharp
 IEnumerable<PageRange> pageRanges = pageBlob.GetPageRanges();
@@ -129,26 +129,26 @@ foreach (PageRange range in pageRanges)
 }
 ```
 
-#### <a name="leasing-a-page-blob"></a>Leasing en sidblob
+#### <a name="leasing-a-page-blob"></a>Låna en sid-BLOB
 
-Åtgärden Lease Blob upprättar och hanterar ett lås för en blob för skrivning och ta bort. Den här åtgärden är användbar i scenarier där en sidblobb nås från flera klienter för att se till att endast en klient kan skriva till bloben i taget. Azure-diskar, till exempel använder det här leasing mekanism för att se till att disken är endast hanteras av en enskild virtuell dator. Varaktighet för lås kan vara 15 till 60 sekunder eller kan vara oändlig. Finns i dokumentationen [här](/rest/api/storageservices/lease-blob) för mer information.
+Leasing-BLOB-åtgärden upprättar och hanterar ett lås på en BLOB för Skriv-och borttagnings åtgärder. Den här åtgärden är användbar i scenarier där en sid-BLOB nås från flera klienter för att säkerställa att endast en klient kan skriva till blobben i taget. Azure-diskar utnyttjar exempelvis denna operationella mekanism för att säkerställa att disken endast hanteras av en enda virtuell dator. Längden på låset kan vara mellan 15 och 60 sekunder, eller så kan den vara oändlig. Mer information finns [](/rest/api/storageservices/lease-blob) i dokumentationen.
 
-Utöver omfattande REST API: er erbjuder även sidblobar delad åtkomst, tillförlitlighet och förbättrad säkerhet. Vi täcker dessa förmåner i detalj i nästa stycken. 
+Förutom rika REST API: er ger sid-blobar också delad åtkomst, hållbarhet och förbättrad säkerhet. Vi kommer att gå igenom dessa förmåner i mer detalj i nästa stycken. 
 
 ### <a name="concurrent-access"></a>Samtidig åtkomst
 
-Sidblobar REST API och dess leasingmekanism ger åtkomst till sidans blob från flera klienter. Anta exempelvis att du behöver för att skapa en distribuerad molntjänst som delar storage-objekt med flera användare. Det kan vara ett webbprogram som ett stort antal avbildningar till flera användare. Ett alternativ för att implementera detta är att använda en virtuell dator med anslutna diskar. Nackdelarna med för den här inkludera (i) den begränsning som en disk kan endast kopplas till en enda virtuell dator så att begränsa skalbarhet, flexibilitet och ökar riskerna. Om det finns ett problem med den virtuella datorn eller tjänsten som körs på den virtuella datorn, sedan blir på grund av lånet, avbildningen inte tillgänglig förrän lånet upphör att gälla eller är bruten; och (ii) ytterligare kostnaden för att ha en IaaS VM. 
+Med hjälp av Page blobbar REST API och dess leasing mekanism kan program få åtkomst till sidans BLOB från flera klienter. Anta till exempel att du behöver bygga en distribuerad moln tjänst som delar lagrings objekt med flera användare. Det kan vara ett webb program som hanterar en stor samling avbildningar till flera användare. Ett alternativ för att implementera detta är att använda en virtuell dator med anslutna diskar. Nack delen med detta inkluderar (i) villkoret att en disk bara kan kopplas till en enda virtuell dator, vilket begränsar skalbarheten, flexibiliteten och ökande risker. Om det finns ett problem med den virtuella datorn eller tjänsten som körs på den virtuella datorn, är avbildningen inte tillgänglig förrän lånet upphör att gälla eller är bruten. och (II) ytterligare kostnad för att ha en IaaS VM. 
 
-Ett alternativ är att använda sidblobar direkt via Azure Storage REST API: er. Det här alternativet eliminerar behovet av dyra virtuella IaaS-datorer, erbjuder fullständig flexibilitet för direkt åtkomst från flera klienter, förenklar den klassiska distributionsmodellen genom att eliminera behovet av att koppla/frånkoppla diskar och eliminerar risken för problem på den virtuella datorn. Och det ger samma nivå av prestanda för slumpmässig läsning/skrivning åtgärder som en disk
+Ett alternativt alternativ är att använda sid-blobar direkt via Azure Storage REST API: er. Det här alternativet eliminerar behovet av kostsamma IaaS-VM: ar ger fullständig flexibilitet för direkt åtkomst från flera klienter, vilket fören klar den klassiska distributions modellen genom att eliminera behovet av att ansluta/koppla från diskar och eliminera risken för problem på den virtuella datorn. Och ger samma prestanda nivå för slumpmässiga Läs-och skriv åtgärder som en disk
 
 ### <a name="durability-and-high-availability"></a>Hållbarhet och hög tillgänglighet
 
-Standard- och premium storage är beständig lagring där sidan blob-data replikeras alltid för att säkerställa hållbarhet och hög tillgänglighet. Mer information om Azure lagringsredundans finns i den här [dokumentation](../common/storage-redundancy.md). Azure har konsekvent levereras tillförlitlighet i företagsklass för IaaS-diskar och sidblobar, med branschledande noll procent [årlig Felfrekvens](https://en.wikipedia.org/wiki/Annualized_failure_rate).
+Både standard-och Premium lagring är varaktig lagring där sid-BLOB-data alltid replikeras för att säkerställa hållbarhet och hög tillgänglighet. Mer information om Azure Storage redundans finns i den här [dokumentationen](../common/storage-redundancy.md). Azure har ständigt levererat tålighet i företags klass för IaaS-diskar och Page blobbar, med en branschledande noll procents [frekvens](https://en.wikipedia.org/wiki/Annualized_failure_rate).
 
 ### <a name="seamless-migration-to-azure"></a>Sömlös migrering till Azure
 
-Azure erbjuder också inkrementella ögonblicksbilder som bara innehåller deltan för kunder och utvecklare som vill implementera sina egna anpassade lösning för säkerhetskopiering. Den här funktionen förhindrar kostnaden för den första fullständiga kopian, vilket avsevärt minskar kostnaden för säkerhetskopiering. Tillsammans med möjligheten att effektivt läsa och kopiera differentiell data kan är det här en annan kraftfull funktion som gör det möjligt för ännu mer innovationer från utvecklare som leder till en klassens bästa säkerhetskopiering och haveriberedskap (DR) återställningsfunktioner på Azure. Du kan ställa in egna säkerhetskopior eller DR-lösning för dina virtuella datorer på Azure med [Blobögonblicksbilden](/rest/api/storageservices/snapshot-blob) tillsammans med den [Get Page Ranges](/rest/api/storageservices/get-page-ranges) API och [inkrementell kopiering av Blob](/rest/api/storageservices/incremental-copy-blob) API, som du kan Använd för att enkelt kopiera inkrementella data för Haveriberedskap. 
+För kunder och utvecklare som är intresserade av att implementera sin egen anpassade säkerhets kopierings lösning erbjuder Azure också stegvisa ögonblicks bilder som bara innehåller delta. Den här funktionen eliminerar kostnaden för den första fullständiga kopian, vilket minskar säkerhets kopierings kostnaden avsevärt. Tillsammans med möjligheten att effektivt läsa och kopiera differentiella data, är det här en annan kraftfull funktion som gör det möjligt ännu fler innovationer från utvecklare, vilket leder till en förstklassig säkerhets kopiering och haveri beredskap (DR) i Azure. Du kan ställa in en egen säkerhets kopierings-eller DR-lösning för dina virtuella datorer på Azure med hjälp av [BLOB](/rest/api/storageservices/snapshot-blob) -ögonblicksbilder tillsammans med [Hämta sid intervall](/rest/api/storageservices/get-page-ranges) API och det [stegvisa Copy BLOB](/rest/api/storageservices/incremental-copy-blob) -API: et, som du kan använda för att enkelt kopiera de stegvisa data för Dr. 
 
-Många företag har dessutom kritiska arbetsbelastningar som körs i lokala datacenter. För att migrera arbetsbelastningen till molnet är en av de viktigaste aspekterna stilleståndstiden som behövs för att kopiera data och risken för oförutsedda problem efter övergången. I många fall vara avbrottstiden en SHOWENS stjärna för migrering till molnet. På sidan blobbar REST API, Azure åtgärdar problemet genom att aktivera migreringen till molnet med minimala störningar för kritiska arbetsbelastningar. 
+Dessutom har många företag kritiska arbets belastningar som redan körs i lokala data Center. För att migrera arbets belastningen till molnet skulle ett av de viktigaste problemen vara den mängd stillestånd som krävs för att kopiera data och risken för oförutsedda problem efter växlingen. I många fall kan stillestånds tiden vara en Showstopper för migrering till molnet. Med hjälp av Page blobbar REST API, löser Azure problemet genom att aktivera molnbaserad migrering med minimalt avbrott i kritiska arbets belastningar. 
 
-Exempel på hur du tar en ögonblicksbild och hur du återställer en sidblobb från en ögonblicksbild finns i den [installationsprocessen en säkerhetskopiering med inkrementella ögonblicksbilder](../../virtual-machines/windows/incremental-snapshots.md) artikeln.
+Exempel på hur du tar en ögonblicks bild och hur du återställer en sid-BLOB från en ögonblicks bild finns i artikeln om att [skapa en säkerhets kopierings process med stegvisa ögonblicks bilder](../../virtual-machines/windows/incremental-snapshots.md) .

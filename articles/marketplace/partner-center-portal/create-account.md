@@ -7,12 +7,12 @@ ms.author: parthp
 ms.service: marketplace
 ms.topic: guide
 ms.date: 07/05/2019
-ms.openlocfilehash: 16ed52aa2b56a97469ae8fc47299f09593b19c45
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: d6a0fec6e2efbd943a9b240df0db2c270a1b7e45
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668350"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68955578"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>Skapa ett kommersiellt marknads plats konto i Partner Center
 
@@ -71,7 +71,7 @@ Tack för att du skapar ett konto på Partner Center! Nu kommer du till sidan f�
 
 Om ditt konto har migrerats från [Cloud Partner Portal (cpp)](https://cloudpartner.azure.com)behöver du inte skapa ett nytt Partner Center-konto, men kommer att ha fått en anpassad länk till ditt nya partner Center-konto via e-post och i ett informations meddelande som visas efter Logga in på ditt befintliga CPP-konto.
 
-När du har aktiverat ditt nya partner Center-konto genom att gå till den här anpassade länken kan du gå tillbaka till ditt konto genom att gå till [instrument panelen för kommersiellt marknads platser](https://partner.microsoft.com/dashboard/commercial-marketplace/) i Partner Center.
+När du har aktiverat ditt nya partner Center-konto genom att gå till den här anpassade länken kan du gå tillbaka till ditt konto genom att gå till [instrument panelen för kommersiellt marknads platser](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) i Partner Center.
 
 Publicerings avtalet och företags profil informationen kommer att migreras till ditt nya partner Center-konto, tillsammans med tidigare konfigurerade profil information för konto utbetalning, användar konton och behörigheter samt aktiva erbjudanden som är associerade med ditt CPP-konto. 
 

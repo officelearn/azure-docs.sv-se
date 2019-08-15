@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/02/2019
 ms.author: dacurwin
-ms.openlocfilehash: 369be73e2884594171419a66b94db64184582e58
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 9b0cbe8126a01a64e35b2fcfeca400aed5aef0cc
+ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68813823"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68952035"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Support mat ris för säkerhets kopiering av virtuella Azure-datorer
 Du kan använda [tjänsten Azure Backup](backup-overview.md) för att säkerhetskopiera lokala datorer och arbets belastningar och virtuella datorer i Azure. Den här artikeln sammanfattar support inställningar och begränsningar när du säkerhetskopierar virtuella Azure-datorer med Azure Backup.
@@ -157,8 +157,8 @@ Säkerhetskopiera med [diagnostikinställningar](https://docs.microsoft.com/azur
 
 **Komponent** | **Support**
 --- | ---
-Datadiskar för virtuella Azure-datorer | Säkerhetskopiera en virtuell dator med 16 eller färre data diskar. <br/><br/> Stöder disk storlekar upp till 4 TB.
-Data disk storlek | Enskilda disk kan vara upp till 4 095 GB.<br/><br/>Om du vill registrera dig för en privat för hands version av Azure Backup stöd för stora diskar för diskar som är större än 4 TB upp till AskAzureBackupTeam@microsoft.com30TB i storlek, skriver du tillbaka till oss.  
+Datadiskar för virtuella Azure-datorer | Säkerhetskopiera en virtuell dator med 16 eller färre data diskar. <br/><br/> Stöder disk storlekar upp till 4 TB.<br/><br/>Om du vill registrera dig för en begränsad, allmän för hands version av Azure Backup stöd för stora diskar för diskar som är större än 4 TB och upp till 30 TB i storlek, se [en översikt över Azure VM backup](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb).
+Data disk storlek | Enskilda disk kan vara upp till 4 095 GB.<br/><br/>Om du vill registrera dig för en begränsad för hands version av Azure Backup stor disk support för diskar som är större än 4 TB upp till 30TB i storlek, se den här [artikeln](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb).
 Lagringstyp | Standard HDD Standard SSD Premium SSD.
 Hanterade diskar | Stöds.
 Krypterade diskar | Stöds.<br/><br/> Virtuella Azure-datorer med Azure Disk Encryption kan säkerhets kopie ras (med eller utan Azure AD-appen).<br/><br/> Det går inte att återställa krypterade virtuella datorer på nivån fil/mapp. Du måste återställa hela den virtuella datorn.<br/><br/> Du kan aktivera kryptering på virtuella datorer som redan skyddas av Azure Backup.

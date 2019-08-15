@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 8aaaa6465b501cee83f4c2d8cb60729282651967
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: e44acfc66a8faf76068af9c31233e89c45ee02f7
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68384849"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68953170"
 ---
 # <a name="understand-cost-management-data"></a>Förstå Cost Management-data
 
@@ -33,8 +33,8 @@ Följande information visar de [Microsoft Azure erbjudanden](https://azure.micro
 | **Azure Government** | Azure Government Enterprise                                                         | EnterpriseAgreement_2014-09-01 | MS-AZR-USGOV-0017P | Maj 2014<sup>1</sup> |
 | **Enterprise-avtal (EA)** | Enterprise Dev/Test                                                        | MSDNDevTest_2014-09-01 | MS-AZR-0148P | Maj 2014<sup>1</sup> |
 | **Enterprise-avtal (EA)** | [Microsoft Azure Enterprise](https://azure.microsoft.com/offers/enterprise-agreement-support-upgrade) | EnterpriseAgreement_2014-09-01 | MS-AZR-0017P | Maj 2014<sup>1</sup> |
-| **Microsofts kund avtal** | [Microsoft Azure plan](https://azure.microsoft.com/offers/ms-azr-0017g) | EnterpriseAgreement_2014-09-01 | Gäller inte | Mar 2019<sup>3</sup> |
-| **Microsofts kund avtal** | [Microsoft Azure plan för utveckling/testning](https://azure.microsoft.com/offers/ms-azr-0148g) | MSDNDevTest_2014-09-01 | Gäller inte | Mar 2019<sup>3</sup> |
+| **Microsofts kund avtal** | [Microsoft Azure plan](https://azure.microsoft.com/offers/ms-azr-0017g) | EnterpriseAgreement_2014-09-01 | Gäller inte | Mars 2019<sup>3</sup> |
+| **Microsofts kund avtal** | [Microsoft Azure plan för utveckling/testning](https://azure.microsoft.com/offers/ms-azr-0148g) | MSDNDevTest_2014-09-01 | Gäller inte | Mars 2019<sup>3</sup> |
 | **Microsoft Developer Network (MSDN)** | [MSDN-plattformar](https://azure.microsoft.com/offers/ms-azr-0062p) <sup>4</sup> | MSDN_2014-09-01 | MS-AZR-0062P | 2 oktober 2018<sup>2</sup> |
 | **Betala per användning** | [Betala per användning](https://azure.microsoft.com/offers/ms-azr-0003p)                  | PayAsYouGo_2014-09-01 | MS-AZR-0003P | 2 oktober 2018<sup>2</sup> |
 | **Betala per användning** | [Betala per användning – utveckling/testning](https://azure.microsoft.com/offers/ms-azr-0023p)         | MSDNDevTest_2014-09-01 | MS-AZR-0023P | 2 oktober 2018<sup>2</sup> |
@@ -53,7 +53,7 @@ _<sup>**1**</sup> för data före maj 2014 går du till [Azure Enterprise Portal
 
 _<sup>**2**</sup> för data före den 2 oktober 2018 går du till [Azure-kontocenter](https://account.azure.com/subscriptions)._
 
-_<sup>**3**</sup> kund avtal från Microsoft startades i Mar 2019 och har inga historiska data innan den här punkten._
+_<sup>**3**</sup> kund avtal från Microsoft startade i mars 2019 och har inga historiska data innan den här punkten._
 
 _<sup>**4**</sup> historiska data för kreditbaserade och betala i förväg-prenumerationer kanske inte matchar din faktura. Se [historiska data kanske inte överensstämmer med fakturan](#historical-data-might-not-match-invoice) nedan._
 

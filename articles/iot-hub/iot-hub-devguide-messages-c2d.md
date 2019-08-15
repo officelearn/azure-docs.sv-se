@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.openlocfilehash: 4b8df538110f6c0b17a1ed37a2a6063a5b89a6e4
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: d4a51a44b48e94669e92a9d525c1b0966df53c18
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68880983"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68964135"
 ---
 # <a name="send-cloud-to-device-messages-from-an-iot-hub"></a>Skicka meddelanden från moln till enhet från en IoT-hubb
 
@@ -82,10 +82,6 @@ När du skickar ett meddelande från molnet till enheten kan tjänsten begära l
 
 Om **ack** -värdet är *fullt*och du inte får något feedback-meddelande, innebär det att feedback-meddelandet har upphört att gälla. Tjänsten vet inte vad som hände med det ursprungliga meddelandet. I praktiken bör en tjänst se till att den kan bearbeta feedbacken innan den upphör att gälla. Den längsta förfallo tiden är två dagar, vilket lämnar tid för att få tjänsten att köras igen om ett fel uppstår.
 
-> [!NOTE]
-> När enheten tas bort raderas även eventuella väntande kommentarer.
->
-
 Som förklaras i [slut punkter](iot-hub-devguide-endpoints.md)ger IoT Hub feedback via en tjänsteriktad slut punkt, */Messages/servicebound/feedback*, som meddelanden. Semantiken för att ta emot feedback är samma som för meddelanden från moln till enhet. När så är möjligt, är meddelandets feedback batch i ett enda meddelande med följande format:
 
 | Egenskap     | Beskrivning |
@@ -125,6 +121,12 @@ Bröd texten i ett feedback-meddelande visas i följande kod:
   ...
 ]
 ```
+
+**Väntande feedback för borttagna enheter**
+
+När en enhet tas bort raderas även eventuella väntande kommentarer. Feedback från enheten skickas i batchar. Om en enhet tas bort i det smala fönstret (ofta mindre än en sekund) mellan när enheten bekräftar att meddelandet har mottagits och när nästa feedback-batch förbereds, sker inte återkopplingen.
+
+Du kan åtgärda det här beteendet genom att vänta en stund tills du får vänta på feedback innan du tar bort enheten. Relaterad feedback om meddelanden ska antas försvinna när en enhet tas bort.
 
 ## <a name="cloud-to-device-configuration-options"></a>Konfigurations alternativ för moln till enhet
 

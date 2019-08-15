@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: dacurwin
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: de13518173f21a0a802c37eb7be3cd6c4926d884
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: ffc245402965cdcd62bb210d79bd95db5444f964
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689194"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954627"
 ---
 # <a name="monitor-at-scale-by-using-azure-monitor"></a>Övervaka i skala med hjälp av Azure Monitor
 
@@ -212,7 +212,7 @@ Diagnostikdata från valvet pumpas till Log Analytics arbets ytan med en fördr�
 - I alla lösningar skickas ad hoc-jobb och återställnings jobb så snart de är *klara*.
 - För alla lösningar utom SQL-säkerhetskopiering skickas schemalagda säkerhets kopierings jobb så snart de är *klara*.
 - För SQL-säkerhetskopiering, eftersom logg säkerhets kopieringar kan ske var 15: e minut, är information för alla schemalagda säkerhets kopierings jobb, inklusive loggar, batch och push-överförd var 6: e timme.
-- För alla lösningar överförs annan information, till exempel säkerhets kopierings objekt, princip, återställnings punkter, lagring och så vidare, minst *en gång per dag.*
+- Alla lösningar, annan information som säkerhets kopierings objekt, princip, återställnings punkter, lagring och så vidare, överförs minst *en gång per dag.*
 - En ändring i konfigurationen för säkerhets kopiering (till exempel att ändra princip eller redigera princip) utlöser en push av all relaterad säkerhets kopierings information.
 
 ## <a name="using-the-recovery-services-vaults-activity-logs"></a>Använda aktivitets loggarna i Recovery Services Vault
@@ -238,7 +238,7 @@ Identifiera lämplig logg och skapa en avisering:
 
    ![Ny aviseringsregel](media/backup-azure-monitoring-laworkspace/new-alert-rule.png)
 
-Här är resursen själva Recovery Services själva valvet. Du måste upprepa samma steg för alla valv där du vill bli meddelad via aktivitets loggarna. Villkoret har ingen tröskel, period eller frekvens eftersom den här aviseringen baseras på händelser. Så snart den relevanta aktivitets loggen har genererats, utlöses aviseringen.
+Här är resursen själva Recovery Services själva valvet. Upprepa samma steg för alla valv där du vill bli meddelad via aktivitets loggarna. Villkoret har ingen tröskel, period eller frekvens eftersom den här aviseringen baseras på händelser. Så snart den relevanta aktivitets loggen har genererats, utlöses aviseringen.
 
 ## <a name="using-log-analytics-to-monitor-at-scale"></a>Använda Log Analytics för att övervaka i skala
 

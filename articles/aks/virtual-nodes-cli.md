@@ -1,6 +1,6 @@
 ---
-title: Skapa virtuella noder med hjälp av Azure CLI i Azure Kubernetes Services (AKS)
-description: Lär dig hur du använder Azure CLI för att skapa ett kluster i Azure Kubernetes Services (AKS) som använder virtuella noder för att köra poddar.
+title: Skapa virtuella noder med Azure CLI i Azure Kubernetes Services (AKS)
+description: Lär dig hur du använder Azure CLI för att skapa ett AKS-kluster (Azure Kubernetes Services) som använder virtuella noder för att köra poddar.
 services: container-service
 author: mlearned
 ms.topic: conceptual
@@ -8,29 +8,29 @@ ms.service: container-service
 ms.date: 05/06/2019
 ms.author: mlearned
 ms.openlocfilehash: a6acdd6255278123ff13a8597cadd2a386536bd4
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "67613787"
 ---
-# <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Skapa och konfigurera en Azure Kubernetes Services kluster (AKS) för att använda virtuella noder med Azure CLI
+# <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Skapa och konfigurera ett Azure Kubernetes Services-kluster (AKS) för att använda virtuella noder med Azure CLI
 
-Om du vill skala snabbt arbetsbelastningar för program i ett kluster i Azure Kubernetes Service (AKS), kan du använda virtuella noder. Med virtuella noder har snabb etablering av poddar och betala bara per sekund för sin Utförandetid. Du behöver inte vänta tills Kubernetes-kluster autoskalningen att distribuera VM-beräkningsnoder för att köra de nya poddarna. Virtuella noder stöds endast med Linux-poddar och noder.
+Om du snabbt vill skala program arbets belastningar i ett Azure Kubernetes service-kluster (AKS) kan du använda virtuella noder. Med virtuella noder har du snabb etablering av poddar och betalar bara per sekund för körnings tiden. Du behöver inte vänta på att Kubernetes-klustret ska distribuera virtuella dator beräknings noder för att köra ytterligare poddar. Virtuella noder stöds bara med Linux-poddar och noder.
 
-Den här artikeln visar hur du skapar och konfigurerar virtuella nätverksresurser och AKS-kluster och aktivera sedan virtuella noder.
+Den här artikeln visar hur du skapar och konfigurerar virtuella nätverks resurser och AKS-kluster och sedan aktiverar virtuella noder.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Virtuella noder aktivera nätverkskommunikationen mellan poddar som körs i ACI och AKS-klustret. För att ge den här kommunikationen, ett virtuellt nätverksundernät skapas och tilldelas delegerade behörigheter. Virtuella noder fungerar bara med AKS-kluster som skapas med hjälp av *avancerade* nätverk. Som standard AKS-kluster skapas med *grundläggande* nätverk. Den här artikeln visar hur du skapar ett virtuellt nätverk och undernät och sedan distribuera ett AKS-kluster som använder avancerade nätverk.
+Virtuella noder möjliggör nätverkskommunikation mellan poddar som körs i ACI och AKS-klustret. För att tillhandahålla den här kommunikationen skapas ett virtuellt nätverks under nät och delegerade behörigheter tilldelas. Virtuella noder fungerar bara med AKS-kluster som skapats med *avancerade* nätverksfunktioner. Som standard skapas AKS-kluster med *grundläggande* nätverk. Den här artikeln visar hur du skapar ett virtuellt nätverk och undernät och sedan distribuerar ett AKS-kluster som använder avancerade nätverk.
 
-Om du inte tidigare har använt ACI registrera tjänstleverantören med din prenumeration. Du kan kontrollera status för ACI providern registrering med den [az provider list][az-provider-list] kommandot, som visas i följande exempel:
+Om du inte tidigare har använt ACI registrerar du tjänst leverantören med din prenumeration. Du kan kontrol lera statusen för registreringen av ACI-providern med kommandot [AZ Provider List][az-provider-list] , som du ser i följande exempel:
 
 ```azurecli-interactive
 az provider list --query "[?contains(namespace,'Microsoft.ContainerInstance')]" -o table
 ```
 
-Den *Microsoft.ContainerInstance* provider ska rapporteras som *registrerad*, vilket visas i följande Exempelutdata:
+*Microsoft. ContainerInstance* -providern ska rapportera som *registrerad*, vilket visas i följande exempel på utdata:
 
 ```
 Namespace                    RegistrationState
@@ -38,7 +38,7 @@ Namespace                    RegistrationState
 Microsoft.ContainerInstance  Registered
 ```
 
-Om providern visas som *NotRegistered*, registrera providern med hjälp av den [az provider register][az-provider-register] som visas i följande exempel:
+Om providern visas som *NotRegistered*registrerar du providern med [AZ-providerns register][az-provider-register] som visas i följande exempel:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerInstance
@@ -46,38 +46,38 @@ az provider register --namespace Microsoft.ContainerInstance
 
 ## <a name="regional-availability"></a>Regional tillgänglighet
 
-Följande regioner har stöd för virtuell nod distributioner:
+Följande regioner stöds för distribution av virtuella noder:
 
-* Australien, östra (Australien)
-* Centrala USA (centralus)
-* Östra USA (eastus)
-* Östra USA 2 (usaöstra2)
-* Japan East (japaneast)
-* Nordeuropa (europanorra)
-* Sydostasien (southeastasia)
-* USA, västra centrala (västra)
+* Östra Australien (australiaeast)
+* Centrala USA (centrala)
+* USA, östra (östra)
+* USA, östra 2 (eastus2)
+* Japan, östra (japanöstra)
+* Nord Europa (europanorra)
+* Sydostasien (Sydostasien)
+* USA, västra centrala (westcentralus)
 * Västeuropa (westeurope)
-* Västra USA (westus)
-* Västra USA 2 (västra USA 2)
+* USA, västra (väst)
+* USA, västra 2 (westus2)
 
 ## <a name="known-limitations"></a>Kända begränsningar
-Funktionen för virtuella noder är kraftigt beroende på ACIS funktionsuppsättning. Följande scenarier stöds inte ännu med virtuella noder
+Funktioner för virtuella noder är kraftigt beroende av ACI funktions uppsättning. Följande scenarier stöds inte ännu med virtuella noder
 
-* Med hjälp av tjänstens huvudnamn till pull ACR-avbildningar. [Lösning](https://github.com/virtual-kubelet/virtual-kubelet/blob/master/providers/azure/README.md#Private-registry) är att använda [Kubernetes-hemligheter](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-secret-by-providing-credentials-on-the-command-line)
-* [Virtuella nätverksbegränsningar](../container-instances/container-instances-vnet.md) inklusive VNet-peering, Kubernetes-nätverksprinciper och utgående trafik till internet med nätverkssäkerhetsgrupper.
-* Init behållare
-* [Alias för värd](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/)
-* [Argument](../container-instances/container-instances-exec.md#restrictions) för exec i ACI
-* [Daemonsets](concepts-clusters-workloads.md#statefulsets-and-daemonsets) distribuerar inte poddar till virtuell nod
-* [Windows Server-noder (för närvarande i förhandsversion i AKS)](windows-container-cli.md) stöds inte och virtuella noder. Du kan använda virtuella noder för att schemalägga Windows Server-behållare utan behov av Windows Server-noder i ett AKS-kluster.
+* Använda tjänstens huvud namn för att hämta ACR-avbildningar. [Lösning](https://github.com/virtual-kubelet/virtual-kubelet/blob/master/providers/azure/README.md#Private-registry) är att använda [Kubernetes hemligheter](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-secret-by-providing-credentials-on-the-command-line)
+* [Virtual Network begränsningar](../container-instances/container-instances-vnet.md) , inklusive VNet-peering, Kubernetes nätverks principer och utgående trafik till Internet med nätverks säkerhets grupper.
+* Init-behållare
+* [Värd Ali Aset](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/)
+* [Argument](../container-instances/container-instances-exec.md#restrictions) för exec i Aci
+* [Daemonsets](concepts-clusters-workloads.md#statefulsets-and-daemonsets) kommer inte att distribuera poddar till den virtuella noden
+* [Windows Server-noder (för närvarande i för hands version i AKS)](windows-container-cli.md) stöds inte tillsammans med virtuella noder. Du kan använda virtuella noder för att schemalägga Windows Server-behållare utan att behöva använda Windows Server-noder i ett AKS-kluster.
 
 ## <a name="launch-azure-cloud-shell"></a>Starta Azure Cloud Shell
 
 Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto.
 
-Om du vill öppna Cloud Shell, Välj **prova** från det övre högra hörnet av ett kodblock. Du kan också starta Cloud Shell i en separat webbläsarflik genom att gå till [https://shell.azure.com/bash](https://shell.azure.com/bash). Kopiera kodblocket genom att välja **Kopiera**, klistra in det i Cloud Shell och kör det genom att trycka på RETUR.
+Om du vill öppna Cloud Shell väljer du **testa den** från det övre högra hörnet i ett kodblock. Du kan också starta Cloud Shell i en separat webbläsarflik genom att gå till [https://shell.azure.com/bash](https://shell.azure.com/bash). Kopiera kodblocket genom att välja **Kopiera**, klistra in det i Cloud Shell och kör det genom att trycka på RETUR.
 
-Om du vill installera och använda CLI lokalt kan du ha Azure CLI version 2.0.49 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
+Om du föredrar att installera och använda CLI lokalt kräver den här artikeln Azure CLI version 2.0.49 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
@@ -89,7 +89,7 @@ az group create --name myResourceGroup --location westus
 
 ## <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
 
-Skapa ett virtuellt nätverk med hjälp av den [az network vnet skapa][az-network-vnet-create] kommando. I följande exempel skapas ett virtuellt nätverksnamn *myVnet* med adressprefixet *10.0.0.0/8*, och ett undernät med namnet *myAKSSubnet*. Det här undernätet adressprefix som standard *10.240.0.0/16*:
+Skapa ett virtuellt nätverk med hjälp av kommandot [AZ Network VNet Create][az-network-vnet-create] . I följande exempel skapas ett virtuellt nätverks namn *myVnet* med adressprefixet *10.0.0.0/8*och ett undernät med namnet *myAKSSubnet*. Adressprefixet för det här under nätet är som standard *10.240.0.0/16*:
 
 ```azurecli-interactive
 az network vnet create \
@@ -100,7 +100,7 @@ az network vnet create \
     --subnet-prefix 10.240.0.0/16
 ```
 
-Nu skapar du en ytterligare undernät för virtuella noder med hjälp av den [az network vnet-undernät skapa][az-network-vnet-subnet-create] kommando. I följande exempel skapas ett undernät med namnet *myVirtualNodeSubnet* med adressprefix *10.241.0.0/16*.
+Skapa nu ytterligare ett undernät för virtuella noder med kommandot [AZ Network VNet Subnet Create][az-network-vnet-subnet-create] . I följande exempel skapas ett undernät med namnet *myVirtualNodeSubnet* med adressprefixet för *10.241.0.0/16*.
 
 ```azurecli-interactive
 az network vnet subnet create \
@@ -136,15 +136,15 @@ Anteckna värdena för *appId* och *password*. De här värdena används i senar
 
 ## <a name="assign-permissions-to-the-virtual-network"></a>Tilldela behörigheter till det virtuella nätverket
 
-Du måste ge behörighet att använda nätverksresurser AKS tjänstens huvudnamn för att tillåta att använda och hantera det virtuella nätverket.
+Om du vill tillåta att klustret använder och hanterar det virtuella nätverket måste du bevilja AKS-tjänstens huvud namn rätt behörighet för att använda nätverks resurserna.
 
-Hämta först det virtuella nätverket resource ID med [az network vnet show][az-network-vnet-show]:
+Börja med att hämta det virtuella nätverkets resurs-ID med [AZ Network VNet show][az-network-vnet-show]:
 
 ```azurecli-interactive
 az network vnet show --resource-group myResourceGroup --name myVnet --query id -o tsv
 ```
 
-Om du vill ge rätt åtkomsten för AKS-klustret ska använda det virtuella nätverket, skapa en roll tilldelning med den [az-rolltilldelning skapa][az-role-assignment-create] kommando. Byt ut `<appId`> och `<vnetId>` mot värdena du antecknade i föregående två steg.
+För att ge rätt åtkomst för AKS-klustret att använda det virtuella nätverket skapar du en roll tilldelning med kommandot [AZ roll tilldelning skapa][az-role-assignment-create] . Byt ut `<appId`> och `<vnetId>` mot värdena du antecknade i föregående två steg.
 
 ```azurecli-interactive
 az role assignment create --assignee <appId> --scope <vnetId> --role Contributor
@@ -152,13 +152,13 @@ az role assignment create --assignee <appId> --scope <vnetId> --role Contributor
 
 ## <a name="create-an-aks-cluster"></a>Skapa ett AKS-kluster
 
-Du distribuerar ett AKS-kluster i AKS-undernät som skapats i föregående steg. Hämta ID för det här undernätet med [az network vnet-undernät show][az-network-vnet-subnet-show]:
+Du distribuerar ett AKS-kluster till AKS-undernätet som skapades i ett föregående steg. Hämta ID för under nätet med [AZ Network VNet Subnet show][az-network-vnet-subnet-show]:
 
 ```azurecli-interactive
 az network vnet subnet show --resource-group myResourceGroup --vnet-name myVnet --name myAKSSubnet --query id -o tsv
 ```
 
-Använd den [az aks skapa][az-aks-create] kommando för att skapa ett AKS-kluster. I följande exempel skapas ett kluster med namnet *myAKSCluster* och en enda nod. Ersätt `<subnetId>` med ID: T som hämtades i föregående steg, och sedan `<appId>` och `<password>` med den 
+Använd kommandot [AZ AKS Create][az-aks-create] för att skapa ett AKS-kluster. I följande exempel skapas ett kluster med namnet *myAKSCluster* och en enda nod. Ersätt `<subnetId>` med det ID som hämtades i föregående steg och sedan `<appId>` och `<password>` med 
 
 ```azurecli-interactive
 az aks create \
@@ -178,7 +178,7 @@ Efter flera minuter slutförs kommandot och returnerar JSON-formaterad informati
 
 ## <a name="enable-virtual-nodes-addon"></a>Aktivera tillägg för virtuella noder
 
-Om du vill aktivera virtuella noder nu använda den [az aks enable-tillägg][az-aks-enable-addons] kommando. I följande exempel används undernätet med namnet *myVirtualNodeSubnet* skapade i föregående steg:
+Om du vill aktivera virtuella noder använder du nu kommandot [AZ AKS Enable-addons][az-aks-enable-addons] . I följande exempel används under nätet med namnet *myVirtualNodeSubnet* som skapades i ett föregående steg:
 
 ```azurecli-interactive
 az aks enable-addons \
@@ -202,7 +202,7 @@ Du kan kontrollera anslutningen till klustret genom att köra kommandot [kubectl
 kubectl get nodes
 ```
 
-Följande Exempelutdata visar den enskilda VM-noden som skapats och sedan noden virtuella för Linux, *virtuella-nod-aci-linux*:
+Följande exempel på utdata visar att den enskilda VM-noden har skapats och sedan den virtuella noden för Linux, *virtuell-Node-ACI-Linux*:
 
 ```
 $ kubectl get nodes
@@ -212,9 +212,9 @@ virtual-node-aci-linux        Ready     agent     28m       v1.11.2
 aks-agentpool-14693408-0      Ready     agent     32m       v1.11.2
 ```
 
-## <a name="deploy-a-sample-app"></a>Distribuera en exempelapp
+## <a name="deploy-a-sample-app"></a>Distribuera en exempel App
 
-Skapa en fil med namnet `virtual-node.yaml` och kopiera följande YAML. Så här schemalägger du behållaren på noden och en [nodeSelector][node-selector] and [toleration][toleration] har definierats.
+Skapa en fil med `virtual-node.yaml` namnet och kopiera i följande yaml. Om du vill schemalägga behållaren på noden definieras [][node-selector] en avsökning [][toleration] och tolererande.
 
 ```yaml
 apiVersion: apps/v1
@@ -247,13 +247,13 @@ spec:
         effect: NoSchedule
 ```
 
-Kör programmet med den [kubectl gäller][kubectl-apply] kommando.
+Kör programmet med kommandot [kubectl Apply][kubectl-apply] .
 
 ```console
 kubectl apply -f virtual-node.yaml
 ```
 
-Använd den [kubectl hämta poddar][kubectl-get] med den `-o wide` argumentet att mata ut en lista över poddar och noden schemalagda. Observera att den `aci-helloworld` pod har schemalagts på den `virtual-node-aci-linux` noden.
+Använd kommandot [kubectl get poddar][kubectl-get] med `-o wide` argumentet för att mata ut en lista över poddar och den schemalagda noden. Observera att `aci-helloworld` Pod har schemalagts `virtual-node-aci-linux` på noden.
 
 ```
 $ kubectl get pods -o wide
@@ -262,32 +262,32 @@ NAME                            READY     STATUS    RESTARTS   AGE       IP     
 aci-helloworld-9b55975f-bnmfl   1/1       Running   0          4m        10.241.0.4   virtual-node-aci-linux
 ```
 
-Poden tilldelas en intern IP-adress från Azure-nätverksundernät delegerad för användning med virtuella noder.
+Pod tilldelas en intern IP-adress från Azure Virtual Network-undernätet delegerad för användning med virtuella noder.
 
 > [!NOTE]
-> Om du använder avbildningar som lagras i Azure Container Registry, [konfigurerar och använder en Kubernetes-hemlighet][acr-aks-secrets]. En aktuell begränsning i virtuella noder är att du inte kan använda integrerade Azure AD-tjänstobjektautentisering. Om du inte använder en hemlighet poddar som schemalagts på virtuella noder gick inte att starta och rapportera felet `HTTP response status code 400 error code "InaccessibleImage"`.
+> Om du använder avbildningar som lagras i Azure Container Registry [konfigurerar och använder du en Kubernetes-hemlighet][acr-aks-secrets]. En aktuell begränsning av virtuella noder är att du inte kan använda integrerad autentisering för Azure AD-tjänstens huvud namn. Om du inte använder en hemlighet kan poddar schemalagda på virtuella noder inte starta och rapportera felet `HTTP response status code 400 error code "InaccessibleImage"`.
 
-## <a name="test-the-virtual-node-pod"></a>Testa virtuell nod pod
+## <a name="test-the-virtual-node-pod"></a>Testa den virtuella noden Pod
 
-Bläddra till demoprogram med en webbklient för att testa pod körs på virtuella noden. Eftersom en intern IP-adress tilldelas i en pod, kan du snabbt testa den här anslutningen från en annan pod på AKS-klustret. Skapa en test-pod och bifogas en terminalsession:
+Om du vill testa Pod som körs på den virtuella noden bläddrar du till demonstrations programmet med en webb klient. När Pod tilldelas en intern IP-adress kan du snabbt testa den här anslutningen från en annan Pod i AKS-klustret. Skapa en test-Pod och koppla en terminalsession till den:
 
 ```console
 kubectl run -it --rm virtual-node-test --image=debian
 ```
 
-Installera `curl` i en pod med hjälp av `apt-get`:
+Installera `curl` i pod med `apt-get`:
 
 ```console
 apt-get update && apt-get install -y curl
 ```
 
-Nu komma åt adressen för din pod med hjälp av `curl`, till exempel *http://10.241.0.4* . Ange din egen interna IP-adress som visas i föregående `kubectl get pods` kommando:
+Nu kan du få åtkomst till adressen till `curl`din POD med *http://10.241.0.4* , till exempel. Ange din egna interna IP-adress som visas i `kubectl get pods` föregående kommando:
 
 ```console
 curl -L http://10.241.0.4
 ```
 
-Demoprogrammet visas enligt följande komprimerade exempel på utdata:
+Demo programmet visas, som du ser i följande komprimerade exempel i utdata:
 
 ```
 $ curl -L 10.241.0.4
@@ -299,25 +299,25 @@ $ curl -L 10.241.0.4
 [...]
 ```
 
-Stäng terminalsession till din test pod med `exit`. När sessionen avslutas är poden den tagits bort.
+Stäng terminalfönstret för test Pod med `exit`. När sessionen är slut tas Pod bort.
 
 ## <a name="remove-virtual-nodes"></a>Ta bort virtuella noder
 
-Om du inte längre vill använda virtuella noder kan du inaktivera dem med hjälp av den [az aks disable-tillägg][az aks disable-addons] kommando. 
+Om du inte längre vill använda virtuella noder kan du inaktivera dem med kommandot [AZ AKS Disable-addons][az aks disable-addons] . 
 
-Först tar bort helloworld-pod körs på virtuella noden:
+Ta först bort de HelloWorld-Pod som körs på den virtuella noden:
 
 ```azurecli-interactive
 kubectl delete -f virtual-node.yaml
 ```
 
-Följande exempelkommando inaktiverar de virtuella Linux-noderna:
+Följande exempel kommando inaktiverar de virtuella Linux-noderna:
 
 ```azurecli-interactive
 az aks disable-addons --resource-group myResourceGroup --name myAKSCluster --addons virtual-node
 ```
 
-Nu ska du ta bort det virtuella nätverksresurser och resursgruppen:
+Ta nu bort de virtuella nätverks resurserna och resurs gruppen:
 
 ```azurecli-interactive
 # Change the name of your resource group, cluster and network resources as needed
@@ -347,14 +347,14 @@ az network vnet subnet update --resource-group $RES_GROUP --vnet-name $AKS_VNET 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln var en pod schemalagda på virtuell nod och tilldelats en privat, intern IP-adress. Du kan i stället skapa en tjänstdistribution och dirigera trafik till din pod via en belastningsutjämnare eller ingress-kontrollant. Mer information finns i [skapa en grundläggande ingress-kontrollant i AKS][aks-basic-ingress].
+I den här artikeln har en POD schemalagts på den virtuella noden och tilldelats en privat, intern IP-adress. Du kan i stället skapa en tjänst distribution och dirigera trafik till din POD via en belastningsutjämnare eller ingångs kontroll. Mer information finns i [skapa en grundläggande ingress-styrenhet i AKS][aks-basic-ingress].
 
-Virtuella noder är ofta en komponent i en skalning lösning i AKS. Mer information om skalning lösningar finns i följande artiklar:
+Virtuella noder är ofta en komponent i en skalnings lösning i AKS. Mer information om skalnings lösningar finns i följande artiklar:
 
-- [Använda Kubernetes vågrät pod autoskalningen][aks-hpa]
-- [Använda Kubernetes-kluster autoskalningen][aks-cluster-autoscaler]
-- [Kolla in automatisk skalning-exemplen för virtuella noder][virtual-node-autoscale]
-- [Läs mer om Virtual Kubelet-biblioteket för öppen källkod][virtual-kubelet-repo]
+- [Använd Kubernetes horisontell Pod autoskalning][aks-hpa]
+- [Använda Kubernetes-kluster autoskalning][aks-cluster-autoscaler]
+- [Kolla in autoskalning-exemplet för virtuella noder][virtual-node-autoscale]
+- [Läs mer om det virtuella Kubelet-biblioteket med öppen källkod][virtual-kubelet-repo]
 
 <!-- LINKS - external -->
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get

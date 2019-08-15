@@ -11,12 +11,12 @@ author: maxluk
 ms.reviewer: peterlu
 ms.date: 08/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2fe3e222da265614ff64e3d913f6514398abf32b
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: d7ac3675ec9d90fc51bc9e3c72b76d8fb80312a8
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847677"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966776"
 ---
 # <a name="train-pytorch-deep-learning-models-at-scale-with-azure-machine-learning"></a>Utbilda Pytorch djup inlärnings modeller i stor skala med Azure Machine Learning
 
@@ -229,3 +229,4 @@ I den här artikeln har du tränat och registrerat en djup inlärning, neurala N
 * [Spåra kör mått vid träning](how-to-track-experiments.md)
 * [Justering av hyperparametrar](how-to-tune-hyperparameters.md)
 * [Distribuera en tränad modell](how-to-deploy-and-where.md)
+* [Referens arkitektur för distribuerad djup inlärnings utbildning i Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)

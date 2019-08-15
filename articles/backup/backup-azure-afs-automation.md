@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: dacurwin
 ms.reviewer: pullabhk
-ms.openlocfilehash: 5f62bd0456bfbf5882d6d8c3ee822433fbb58302
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: f933b926aa0e277976416ae1b3b2eb684d9fcc85
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688784"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68955089"
 ---
 # <a name="back-up-and-restore-azure-files-with-powershell"></a>Säkerhetskopiera och återställa Azure Files med PowerShell
 
@@ -167,7 +167,7 @@ En säkerhets kopierings princip anger schemat för säkerhets kopior och hur l�
 - Visa standard schema för säkerhets kopiering med [Get-AzRecoveryServicesBackupSchedulePolicyObject](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupschedulepolicyobject?view=azps-1.4.0).
 -  Du använder cmdleten [New-AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupprotectionpolicy?view=azps-1.4.0) för att skapa en ny säkerhets kopierings princip. Du har angett schema-och bevarande princip objekt.
 
-I följande exempel lagras schema principen och bevarande principen i variabler. Den använder sedan variabeln som parametrar för en ny princip (**NewAFSPolicy**). **NewAFSPolicy** tar en daglig säkerhets kopiering och behåller den i 30 dagar.
+I följande exempel lagras schema principen och bevarande principen i variabler. Den använder sedan variablerna som parametrar för en ny princip (**NewAFSPolicy**). **NewAFSPolicy** tar en daglig säkerhets kopiering och behåller den i 30 dagar.
 
 ```powershell
 $schPol = Get-AzRecoveryServicesBackupSchedulePolicyObject -WorkloadType "AzureFiles"

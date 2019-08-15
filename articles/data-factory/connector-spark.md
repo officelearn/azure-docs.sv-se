@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 370da046e5a964d91b668ea80730b8d331065d29
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: 404b33b948fc2b39082f6cdac8699dfd78e5d143
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60322880"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966432"
 ---
 # <a name="copy-data-from-spark-using-azure-data-factory"></a>Kopiera data från Spark med Azure Data Factory 
 
@@ -28,6 +28,10 @@ Den här artikeln beskrivs hur du använder Kopieringsaktivitet i Azure Data Fac
 Du kan kopiera data från Spark till alla datalager för mottagare som stöds. En lista över datalager som stöds som källor/mottagare av Kopieringsaktivitet finns i den [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) tabell.
 
 Azure Data Factory tillhandahåller en inbyggd drivrutin för att aktivera anslutning, måste du därför inte att manuellt installera en drivrutin som använder den här anslutningen.
+
+## <a name="prerequisites"></a>Förutsättningar
+
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
 ## <a name="getting-started"></a>Komma igång
 
@@ -41,12 +45,12 @@ Följande egenskaper har stöd för länkad Spark-tjänst:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Type-egenskapen måste anges till: **Spark** | Ja |
+| type | Egenskapen Type måste anges till: **Spark** | Ja |
 | host | IP-adressen eller värdnamnet namnet på Spark-server  | Ja |
 | port | TCP-porten som Spark-servern använder för att lyssna efter klientanslutningar. Ange porten som 443 om du ansluter till Azure HDInsights. | Ja |
 | serverType | Typ av Spark-server. <br/>Tillåtna värden är: **SharkServer**, **SharkServer2**, **SparkThriftServer** | Nej |
 | thriftTransportProtocol | Transportprotokollet ska användas i Thrift-lagret. <br/>Tillåtna värden är: **Binary**, **SASL**, **HTTP** | Nej |
-| authenticationType | Den autentiseringsmetod som används för att få åtkomst till Spark-servern. <br/>Tillåtna värden är: **Anonym**, **användarnamn**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Ja |
+| authenticationType | Den autentiseringsmetod som används för att få åtkomst till Spark-servern. <br/>Tillåtna värden är: **Anonym**, **username**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Ja |
 | username | Användarnamnet som används för att få åtkomst till Spark-Server.  | Nej |
 | password | Lösenordet för användaren. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Nej |
 | httpPath | Partiell URL som motsvarar Spark-server.  | Nej |
@@ -55,7 +59,7 @@ Följande egenskaper har stöd för länkad Spark-tjänst:
 | useSystemTrustStore | Anger om du vill använda ett CA-certifikat från arkivet med betrodda system eller från en angiven PEM-fil. Standardvärdet är FALSKT.  | Nej |
 | allowHostNameCNMismatch | Anger om en CA-utfärdade SSL-certifikatnamnet att matcha värdnamnet för servern när du ansluter via SSL. Standardvärdet är FALSKT.  | Nej |
 | allowSelfSignedServerCert | Anger om du vill tillåta självsignerade certifikat från servern. Standardvärdet är FALSKT.  | Nej |
-| connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda lokal Integration Runtime eller Azure Integration Runtime (om ditt datalager är offentligt tillgänglig). Om den inte anges används standard Azure Integration Runtime. |Nej |
+| connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Läs mer från avsnittet [krav](#prerequisites) . Om den inte anges används standard Azure Integration Runtime. |Nej |
 
 **Exempel:**
 
@@ -86,8 +90,8 @@ Kopiera data från Spark genom att ange typegenskapen på datauppsättningen til
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Type-egenskapen för datauppsättningen måste anges till: **SparkObject** | Ja |
-| tableName | Namnet på tabellen. | Nej (om ”frågan” i aktivitetskälla har angetts) |
+| type | Data uppsättningens typ-egenskap måste anges till: **SparkObject** | Ja |
+| tableName | Namnet på tabellen. | Nej (om ”query” i aktivitetskälla har angetts) |
 
 **Exempel**
 
@@ -115,7 +119,7 @@ För att kopiera data från Spark, ange typ av datakälla i kopieringsaktivitete
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **SparkSource** | Ja |
+| type | Typ egenskapen för kopierings aktivitets källan måste anges till: **SparkSource** | Ja |
 | query | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
 
 **Exempel:**

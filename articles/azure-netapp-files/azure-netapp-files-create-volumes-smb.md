@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 7/9/2019
 ms.author: b-juche
-ms.openlocfilehash: 6e425eba3159f8840e1a7960f6a6c3171b1ba163
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 9409beea3f22fd7ff09fe49838a37d9ff0b485f6
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67850423"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68975921"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Skapa en SMB-volym för Azure NetApp Files
 
@@ -46,18 +46,18 @@ Ett undernät måste delegeras till Azure NetApp Files.
     |    DNS                |    53        |    TCP           |
     |    DNS                |    53        |    UDP           |
     |    ICMPv4             |    Gäller inte       |    Eko svar    |
-    |    Paket           |    464       |    TCP           |
-    |    Paket           |    464       |    UDP           |
-    |    Paket           |    88        |    TCP           |
-    |    Paket           |    88        |    UDP           |
+    |    Kerberos           |    464       |    TCP           |
+    |    Kerberos           |    464       |    UDP           |
+    |    Kerberos           |    88        |    TCP           |
+    |    Kerberos           |    88        |    UDP           |
     |    LDAP               |    389       |    TCP           |
     |    LDAP               |    389       |    UDP           |
     |    LDAP               |    3268      |    TCP           |
     |    NetBIOS-namn       |    138       |    UDP           |
     |    SAM/LSA            |    445       |    TCP           |
     |    SAM/LSA            |    445       |    UDP           |
-    |    säkert LDAP        |    636       |    TCP           |
-    |    säkert LDAP        |    3269      |    TCP           |
+    |    Säkert LDAP        |    636       |    TCP           |
+    |    Säkert LDAP        |    3269      |    TCP           |
     |    W32Time            |    123       |    UDP           |
 
 ## <a name="create-an-active-directory-connection"></a>Skapa en Active Directory anslutning
@@ -148,4 +148,6 @@ Ett undernät måste delegeras till Azure NetApp Files.
 
 * [Montera eller demontera en volym för virtuella Windows-eller Linux-datorer](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [Resursbegränsningar för Azure NetApp Files](azure-netapp-files-resource-limits.md)
+* [Vanliga frågor och svar om SMB](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-faqs#smb-faqs)
 * [Läs om integrering av virtuella nätverk för Azure-tjänster](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services)
+* [Installera en ny Active Directory skog med hjälp av Azure CLI](https://docs.microsoft.com/windows-server/identity/ad-ds/deploy/virtual-dc/adds-on-azure-vm)

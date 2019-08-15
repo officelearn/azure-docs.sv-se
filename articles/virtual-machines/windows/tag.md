@@ -1,6 +1,6 @@
 ---
-title: Tagga en Windows VM-resurs i Azure | Microsoft Docs
-description: Lär dig mer om att tagga en Windows-dator som skapats i Azure med hjälp av Resource Manager-distributionsmodellen
+title: Tagga en virtuell Windows-resurs i Azure | Microsoft Docs
+description: Lär dig mer om att tagga en virtuell Windows-dator som skapats i Azure med distributions modellen för Resource Manager
 services: virtual-machines-windows
 documentationcenter: ''
 author: mmccrory
@@ -16,27 +16,27 @@ ms.workload: infrastructure-services
 ms.date: 07/05/2016
 ms.author: memccror
 ms.openlocfilehash: 26ee777f7db05ca1850e2a01c1716810624906c0
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "67709845"
 ---
 # <a name="how-to-tag-a-windows-virtual-machine-in-azure"></a>Tagga en virtuell Windows-dator i Azure
-Den här artikeln beskrivs olika sätt att tagga en virtuell Windows-dator i Azure via Resource Manager-distributionsmodellen. Taggar är en användardefinierad nyckel/värde-par som kan placeras direkt på en resurs eller resursgrupp. Azure stöder för närvarande upp till 15 taggar per resurs och resursgruppen. Taggar kan placeras på en resurs när den skapas eller lagts till i en befintlig resurs. Observera att taggar stöds för resurser som har skapats via Resource Manager-distributionsmodellen endast. Om du vill tagga en virtuell Linux-dator, se [tagga en virtuell Linux-dator i Azure](../linux/tag.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+I den här artikeln beskrivs olika sätt att tagga en virtuell Windows-dator i Azure via distributions modellen för Resource Manager. Taggar är användardefinierade nyckel/värde-par som kan placeras direkt på en resurs eller en resurs grupp. Azure stöder för närvarande 15 Taggar per resurs och resurs grupp. Taggar kan placeras på en resurs vid tidpunkten för skapandet eller läggs till i en befintlig resurs. Observera att Taggar endast stöds för resurser som skapats via distributions modellen för Resource Manager. Om du vill tagga en virtuell Linux-dator läser du [så här taggar du en virtuell Linux-dator i Azure](../linux/tag.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 [!INCLUDE [virtual-machines-common-tag](../../../includes/virtual-machines-common-tag.md)]
 
 ## <a name="tagging-with-powershell"></a>Tagga med PowerShell
-För att skapa, lägga till och ta bort taggar via PowerShell kan du första behovet av att ställa in din [PowerShell-miljö med Azure Resource Manager][PowerShell environment with Azure Resource Manager]. När du har slutfört installationen, kan du placera taggar på beräkning, nätverk och lagring resurser vid skapandet eller när resursen har skapats via PowerShell. Den här artikeln kommer att inriktas på Visa/redigera taggar som placeras på virtuella datorer.
+Om du vill skapa, lägga till och ta bort taggar via PowerShell måste du först konfigurera din [PowerShell-miljö med Azure Resource Manager][PowerShell environment with Azure Resource Manager]. När du har slutfört installationen kan du Placera taggar på beräknings-, nätverks-och lagrings resurser vid skapandet eller när resursen har skapats via PowerShell. Den här artikeln fokuserar på att visa/redigera taggar som placerats på Virtual Machines.
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
-Navigera först till en virtuell dator via den `Get-AzVM` cmdlet.
+Börja med att navigera till en virtuell dator via `Get-AzVM` cmdleten.
 
         PS C:\> Get-AzVM -ResourceGroupName "MyResourceGroup" -Name "MyTestVM"
 
-Om den virtuella datorn innehåller redan taggar, därefter visas alla taggar på resursen:
+Om den virtuella datorn redan innehåller taggar visas alla Taggar på din resurs:
 
         Tags : {
                 "Application": "MyApp1",
@@ -45,13 +45,13 @@ Om den virtuella datorn innehåller redan taggar, därefter visas alla taggar p�
                 "Environment": "Production"
                }
 
-Om du vill lägga till taggar via PowerShell kan du använda den `Set-AzResource` kommando. Observera när du uppdaterar taggar via PowerShell, taggar uppdateras som helhet. Så om du lägger till en tagg till en resurs som redan har taggar måste att inkludera alla taggar som du vill ska kunna placeras på resursen. Nedan visas ett exempel på hur du lägger till ytterligare taggar till en resurs via PowerShell-Cmdlets.
+Om du vill lägga till taggar via PowerShell kan du använda `Set-AzResource` kommandot. Obs! när du uppdaterar Taggar via PowerShell uppdateras taggarna som helhet. Så om du lägger till en tagg till en resurs som redan har taggar, måste du ta med alla Taggar som du vill placera i resursen. Nedan visas ett exempel på hur du lägger till ytterligare taggar till en resurs via PowerShell-cmdletar.
 
-Den här första cmdlet: en anger alla taggar som placeras på *MyTestVM* till den *$tags* variabeln, med hjälp av den `Get-AzResource` och `Tags` egenskapen.
+Den första cmdleten anger alla Taggar som placerats på *MyTestVM* till variabeln *$Tags* , med `Get-AzResource` hjälp `Tags` av egenskapen och.
 
         PS C:\> $tags = (Get-AzResource -ResourceGroupName MyResourceGroup -Name MyTestVM).Tags
 
-Det andra kommandot visar taggar för den angivna variabeln.
+Det andra kommandot visar taggarna för den aktuella variabeln.
 
 ```
     PS C:\> $tags
@@ -64,15 +64,15 @@ Det andra kommandot visar taggar för den angivna variabeln.
     Environment   Production
 ```
 
-Tredje kommandot lägger till en ytterligare tagg till den *$tags* variabeln. Observera användningen av den **+=** att lägga till nytt nyckel/värde-par till den *$tags* lista.
+Det tredje kommandot lägger till en ytterligare tagg till variabeln *$Tags* . Observera användningen av **+=** för att lägga till det nya nyckel/värde-paret i *$Tags* listan.
 
         PS C:\> $tags += @{Location="MyLocation"}
 
-Det fjärde kommandot anger alla taggar som definierats i den *$tags* variabeln till den angivna resursen. I det här fallet är det MyTestVM.
+Det fjärde kommandot anger alla Taggar som definierats i *$Tags* -variabeln till den angivna resursen. I det här fallet är det MyTestVM.
 
         PS C:\> Set-AzResource -ResourceGroupName MyResourceGroup -Name MyTestVM -ResourceType "Microsoft.Compute/VirtualMachines" -Tag $tags
 
-Det femte kommandot visar alla taggar för resursen. Som du kan se *plats* nu har definierats som en tagg med *MyLocation* som värde.
+Det femte kommandot visar alla Taggar på resursen. Som du kan se definieras *platsen* nu som en tagg med min *plats* som värde.
 
 ```
     PS C:\> (Get-AzResource -ResourceGroupName MyResourceGroup -Name MyTestVM).Tags
@@ -86,13 +86,13 @@ Det femte kommandot visar alla taggar för resursen. Som du kan se *plats* nu ha
     Location      MyLocation
 ```
 
-Om du vill veta mer om taggning via PowerShell kan ta en titt på [Cmdlets för Azure Resource][Azure Resource Cmdlets].
+Om du vill lära dig mer om att tagga genom PowerShell kan du ta en titt på [Azures resurs][Azure Resource Cmdlets]-cmdletar.
 
 [!INCLUDE [virtual-machines-common-tag-usage](../../../includes/virtual-machines-common-tag-usage.md)]
 
 ## <a name="next-steps"></a>Nästa steg
-* Läs mer om tagga dina Azure-resurser i [översikt över Azure Resource Manager][Azure Resource Manager Overview] and [Using Tags to organize your Azure Resources][Using Tags to organize your Azure Resources].
-* Om du vill se hur taggar kan hjälpa dig att hantera din användning av Azure-resurser, se [förstå din Azure-faktura][Understanding your Azure Bill] and [Gain insights into your Microsoft Azure resource consumption][Gain insights into your Microsoft Azure resource consumption].
+* Läs mer om att tagga dina Azure-resurser i [Azure Resource Manager översikt][Azure Resource Manager Overview] och [använda taggar för att ordna dina Azure-resurser][Using Tags to organize your Azure Resources].
+* För att se hur taggar kan hjälpa dig att hantera din användning av Azure-resurser, se [förstå din Azure-faktura][Understanding your Azure Bill] och få insikter om [din Microsoft Azure resursförbrukning][Gain insights into your Microsoft Azure resource consumption].
 
 [PowerShell environment with Azure Resource Manager]: ../../azure-resource-manager/manage-resources-powershell.md
 [Azure Resource Cmdlets]: https://docs.microsoft.com/powershell/module/az.resources/

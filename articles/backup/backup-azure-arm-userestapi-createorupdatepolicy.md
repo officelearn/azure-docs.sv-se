@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: dacurwin
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
-ms.openlocfilehash: d81d8aa299333890de61cf0c8ee75be76ca31bf2
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 8b812ea053cb8e9da7cd3ef021ab6b74196d36ca
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688748"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954972"
 ---
 # <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>Skapa principer för Azure Recovery Services säkerhets kopiering med REST API
 
@@ -38,7 +38,7 @@ Stegen för att skapa en säkerhets kopierings princip för ett Azure Recovery S
 - Kvarhållning för "månads", "årliga" säkerhets kopierings punkter kallas "LongTermRetention".
 - När ett valv skapas, skapas även en princip för säkerhets kopiering av virtuella Azure-datorer med namnet "DefaultPolicy" och kan användas för att säkerhetskopiera virtuella Azure-datorer.
 
-Om du vill skapa eller uppdatera en Azure Backup-princip använder *du följande åtgärd*
+Om du vill skapa eller uppdatera en Azure Backup-princip använder du följande åtgärd
 
 ```http
 PUT https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupPolicies/{policyName}?api-version=2016-12-01
@@ -165,7 +165,7 @@ Den returnerar två svar: 202 (accepterad) när en annan åtgärd skapas och sed
 
 ### <a name="example-responses"></a>Exempel svar
 
-När du skickar in *begäran om* att skapa eller uppdatera en princip är det första svaret 202 (accepteras) med ett plats huvud eller Azure-async-header.
+När du skickar in begäran om att skapa eller uppdatera en princip är det första svaret 202 (accepteras) med ett plats huvud eller Azure-async-header.
 
 ```http
 HTTP/1.1 202 Accepted

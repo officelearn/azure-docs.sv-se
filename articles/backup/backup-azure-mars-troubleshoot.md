@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: dacurwin
-ms.openlocfilehash: 12cc584b27134c5c109f1a95eb4ccf8a7b2f0c64
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 2ff5d760579c31c4bd11252e09da1cbb94576229
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689224"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954664"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>Felsöka Microsoft Azure Recovery Services (MARS)-agenten
 
@@ -181,7 +181,7 @@ För att MARS agent-åtgärder ska lyckas måste cache-mappen uppfylla nedanstå
 - [Se till att det inte finns några andra processer (t. ex. antivirus program) begränsa åtkomsten till cache-mappen](#another-process-or-antivirus-software-blocking-access-to-cache-folder)
 
 ### <a name="increase-shadow-copy-storage"></a>Öka lagring av skugg kopior
-Säkerhets kopierings åtgärder kan inte utföras om det inte finns tillräckligt med lagrings utrymme för skugg kopior som krävs för att skydda data källan. Lös problemet genom att öka lagrings utrymmet för skugg kopior på den skyddade volymen med vssadmin enligt nedan:
+Säkerhets kopierings åtgärder kan inte utföras om det inte finns tillräckligt med lagrings utrymme för skugg kopior som krävs för att skydda data källan. Lös problemet genom att öka lagrings utrymmet för skugg kopian på den skyddade volymen med vssadmin enligt nedan:
 - Kontrol lera det aktuella skugg lagrings utrymmet från den upphöjda kommando tolken:<br/>
   `vssadmin List ShadowStorage /For=[Volume letter]:`
 - Öka skugg lagrings utrymmet med kommandot nedan:<br/>

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 53bc9f14b91bafd69d3c67745f6b981f4faea991
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: c8e3f16b939d05a4c055fba3a9f1ab5e47e54070
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881665"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976584"
 ---
 # <a name="add-a-shape-to-a-map-using-azure-maps-android-sdk"></a>Lägga till en form till en karta med Azure Maps Android SDK
 
@@ -355,7 +355,13 @@ Om du kör programmet nu bör du se en polygon på kartan som visas nedan:
 
 ## <a name="next-steps"></a>Nästa steg
 
-I följande artikel finns mer information om hur du anger kart format
+Lägga till mer data i kartan:
+
+> [!div class="nextstepaction"]
+> [Lägg till ett symbol lager](how-to-add-symbol-to-android-map.md)
 
 > [!div class="nextstepaction"]
 > [Lägg till ett panel lager](how-to-add-tile-layer-android-map.md)
+
+> [!div class="nextstepaction"]
+> [Visa funktions information](display-feature-information-android.md)

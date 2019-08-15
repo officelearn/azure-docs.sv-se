@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 411f5912a2fb83b97fa02ab9b91cee14c3f6cd1b
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 6cd88a58df4334180174fae9f0e651b5281e320e
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840302"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966538"
 ---
 # <a name="copy-data-to-or-from-a-file-system-by-using-azure-data-factory"></a>Kopiera data till eller från ett filsystem med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -42,7 +42,7 @@ Mer specifikt stöder den här filsystemets anslutningsapp:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Du måste konfigurera en lokal Integration Runtime för att kopiera data från/till ett filsystem som inte är allmänt tillgänglig. Se [lokal Integration Runtime](create-self-hosted-integration-runtime.md) nedan för information.
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
 ## <a name="getting-started"></a>Komma igång
 
@@ -60,7 +60,7 @@ Följande egenskaper har stöd för länkade filsystemtjänst:
 | host | Anger rotsökvägen i den mapp som du vill kopiera. Använd escape-tecknet ”\" för specialtecken i strängen. Se [exempel länkad tjänst-och datauppsättningen](#sample-linked-service-and-dataset-definitions) exempel. | Ja |
 | userid | Ange ID för den användare som har åtkomst till servern. | Ja |
 | password | Ange lösenordet för användaren (användar-ID). Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
-| connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda lokal Integration Runtime eller Azure Integration Runtime (om ditt datalager är offentligt tillgänglig). Om den inte anges används standard Azure Integration Runtime. |Nej |
+| connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Läs mer från avsnittet [krav](#prerequisites) . Om den inte anges används standard Azure Integration Runtime. |Nej |
 
 ### <a name="sample-linked-service-and-dataset-definitions"></a>Exempel på den länkade tjänsten och definitioner av datauppsättning
 

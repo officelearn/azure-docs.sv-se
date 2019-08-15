@@ -1,5 +1,5 @@
 ---
-title: Lägg till kart kontroller i Azure Maps | Microsoft Docs
+title: Lägga till kontroller i Azure Maps | Microsoft Docs
 description: Så här lägger du till zoomnings kontroll, vinkel kontroll, rotera kontroll och en stil väljare till en karta i Azure Maps.
 author: walsehgal
 ms.author: v-musehg
@@ -8,70 +8,109 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 7a504b8df199a3a461d5eb4e5b7238462b4c438f
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 7267f77ed3d296ac586dcfd0f525b94d5e6eb7a0
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638766"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976229"
 ---
-# <a name="add-map-controls-to-azure-maps"></a>Lägg till kart kontroller i Azure Maps
+# <a name="add-controls-to-a-map"></a>Lägga till kontroller till en karta
 
-Den här artikeln visar hur du lägger till kart kontroller till en karta. Du får också lära dig hur du skapar en karta med alla kontroller och en [format väljare](https://docs.microsoft.com/azure/azure-maps/choose-map-style).
+Den här artikeln visar hur du lägger till kontroller till en karta. Du får också lära dig hur du skapar en karta med alla kontroller och en [format väljare](https://docs.microsoft.com/azure/azure-maps/choose-map-style).
 
 ## <a name="add-zoom-control"></a>Lägg till zoomkontrollen
+
+En zoomnings kontroll lägger till knappar för att zooma in och ut kartan. Följande kod exempel skapar en instans av klassen [ZoomControl](/javascript/api/azure-maps-control/atlas.control.zoomcontrol) och lägger till det nedersta högra hörnet på kartan.
+
+```javascript
+//Construct a zoom control and add it to the map.
+map.controls.add(new atlas.control.ZoomControl(), {
+    position: 'bottom-right'
+});
+```
+
+Nedan visas det fullständiga kod exemplet för ovanstående funktioner.
+
+<br/>
 
 <iframe height='500' scrolling='no' title='Lägga till en zoomnings kontroll' src='//codepen.io/azuremaps/embed/WKOQyN/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan genom <a href='https://codepen.io/azuremaps/pen/WKOQyN/'>att lägga till en zoomnings kontroll</a> med Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-Det första kod blocket skapar ett kart objekt med hjälp av mekanismen för anonym autentisering. Se [skapa en karta](./map-create.md) för instruktioner om hur du skapar en karta.
-
-Med zoomnings kontrollen lägger du till möjligheten att zooma in och ut från kartan. Det andra kod blocket skapar ett zoomnings kontroll objekt med Atlas- [ZoomControl](/javascript/api/azure-maps-control/atlas.control.zoomcontrol) och lägger till det till kartan med hjälp av Map- [kontrollerna. Add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) -metoden. Zoomnings kontrollen finns i mappnings **händelsens lyssnare** för att säkerställa att den läses in när kartan har lästs in helt.
-
 ## <a name="add-pitch-control"></a>Lägg till vinkel kontroll
+
+En lutnings kontroll lägger till knappar för att luta bredden för att mappa i förhållande till horisonten. Följande kod exempel skapar en instans av klassen [PitchControl](/javascript/api/azure-maps-control/atlas.control.pitchcontrol) och lägger till det övre högra hörnet på kartan.
+
+```javascript
+//Construct a pitch control and add it to the map.
+map.controls.add(new atlas.control.PitchControl(), {
+    position: 'top-right'
+});
+```
+
+Nedan visas det fullständiga kod exemplet för ovanstående funktioner.
+
+<br/>
 
 <iframe height='500' scrolling='no' title='Lägga till en lutnings kontroll' src='//codepen.io/azuremaps/embed/xJrwaP/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan genom <a href='https://codepen.io/azuremaps/pen/xJrwaP/'>att lägga till en kanna</a> -kontroll<a href='https://codepen.io/azuremaps'>@azuremaps</a>med Azure Maps () på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-Det första kod blocket skapar ett kart objekt med hjälp av mekanismen för anonym autentisering. Se [skapa en karta](./map-create.md) för instruktioner om hur du skapar en karta.
-
-Med bredd kontrollen kan du ändra kartans lutning. Det andra blocket kod skapar ett objekt för att lägga till ett kontroll objekt med Atlas- [PitchControl](/javascript/api/azure-maps-control/atlas.control.pitchcontrol) och lägger till det till kartan med hjälp av Map- [kontrollerna. Add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) -metoden. Kontrollen för att kontrol lera om den är **i kartan för** att säkerställa att den läses in när kartan har lästs in helt.
-
 ## <a name="add-compass-control"></a>Lägg till kompass kontroll
+
+En kompass-kontroll lägger till en knapp för att rotera kartan. Följande kod exempel skapar en instans av kontroll klassen [kompass](/javascript/api/azure-maps-control/atlas.control.compasscontrol) och lägger till den i det nedre vänstra hörnet på kartan.
+
+```javascript
+//Construct a compass control and add it to the map.
+map.controls.add(new atlas.control.Compass(), {
+    position: 'bottom-left'
+});
+```
+
+Nedan visas det fullständiga kod exemplet för ovanstående funktioner.
+
+<br/>
 
 <iframe height='500' scrolling='no' title='Lägga till en rotations kontroll' src='//codepen.io/azuremaps/embed/GBEoRb/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan genom <a href='https://codepen.io/azuremaps/pen/GBEoRb/'>att lägga till en rotations kontroll</a> efter Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-Det första kod blocket skapar ett kart objekt med hjälp av mekanismen för anonym autentisering. Se [skapa en karta](./map-create.md) för instruktioner om hur du skapar en karta.
-
-Det andra blocket kod skapar ett kompass kontroll objekt med hjälp av [kontrollen Atlas kompass](/javascript/api/azure-maps-control/atlas.control.compasscontrol). Den lägger också till kompass kontrollen till kartan med kartans [kontroller. Lägg till](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) metod. Kompass kontrollen är i kartans **händelse lyssnare** för att säkerställa att den läses in när kartan har lästs in helt.
-
 ## <a name="a-map-with-all-controls"></a>En karta med alla kontroller
+
+Följande kod exempel lägger till stil väljarna, zoom, färgdjup och kompass-kontrollerna i det nedre högra hörnet på kartan. Lägg märke till hur de staplas automatiskt. Ordningen på kontroll objekt i skriptet avgör i vilken ordning de visas på kartan. Om du vill ändra ordningen på kontrollerna på kartan kan du ändra deras ordning i skriptet.
+
+<br/>
 
 <iframe height='500' scrolling='no' title='En karta med alla kontroller' src='//codepen.io/azuremaps/embed/qyjbOM/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan <a href='https://codepen.io/azuremaps/pen/qyjbOM/'>en karta med alla kontroller</a> efter Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-Det första kod blocket skapar ett kart objekt med hjälp av mekanismen för anonym autentisering. Se [skapa en karta](./map-create.md) för instruktioner om hur du skapar en karta.
+Format väljar kontrollen definieras av [StyleControl](/javascript/api/azure-maps-control/atlas.control.stylecontrol) -klassen. Mer information om hur du använder format väljar kontrollen finns i [Välj ett kart format](choose-map-style.md).
 
-Det andra kod blocket skapar ett kompass kontroll objekt som använder Atlas- [CompassControl](/javascript/api/azure-maps-control/atlas.control.compasscontrol) och lägger till det i kartan med hjälp av kartans [kontroller. Lägg till](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) metod.
+## <a name="customize-controls"></a>Anpassa kontroller
 
-Det tredje blocket kod skapar ett zoomnings kontroll objekt med Atlas- [ZoomControl](/javascript/api/azure-maps-control/atlas.control.zoomcontrol) och lägger till det till kartan med hjälp av Map- [kontrollerna. Add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) -metoden.
+Här är ett verktyg för att testa de olika alternativen för att anpassa kontrollerna.
 
-Det fjärde kod blocket skapar ett objekt för att lägga till ett kontroll objekt med Atlas- [PitchControl](/javascript/api/azure-maps-control/atlas.control.pitchcontrol) och lägger till det till kartan med kartans [kontroller. Lägg till](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) metod.
+<br/>
 
-Det sista blocket kod skapar ett format väljar objekt med hjälp av Atlas- [StyleControl](/javascript/api/azure-maps-control/atlas.control.stylecontrol) och lägger till det till kartan med kartans [kontroller. Lägg till](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) metod. Alla kontroll objekt läggs till i mappnings **händelse lyssnaren** för att säkerställa att de läses in när kartan har lästs in helt.
+<iframe height="700" style="width: 100%;" scrolling="no" title="Navigerings kontroll alternativ" src="//codepen.io/azuremaps/embed/LwBZMx/?height=700&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+Se alternativ för Penn <a href='https://codepen.io/azuremaps/pen/LwBZMx/'>navigerings kontroll</a> genom att Azure Maps<a href='https://codepen.io/azuremaps'>@azuremaps</a>() på <a href='https://codepen.io'>CodePen</a>.
+</iframe>
 
-Ordningen på kontroll objekt i skriptet avgör i vilken ordning de visas på kartan. Om du vill ändra ordningen på kontrollerna på kartan kan du ändra deras ordning i skriptet.
+Om du vill skapa anpassade navigerings kontroller skapar du en klass som sträcker sig från `atlas.Control` klassen eller skapar ett HTML-element och placerar det ovanför kart-div. Använd den här gränssnitts kontrollen anropa `setCamera` Maps-funktionen för att flytta kartan. 
 
 ## <a name="next-steps"></a>Nästa steg
 
 Läs mer om de klasser och metoder som används i den här artikeln:
 
 > [!div class="nextstepaction"]
-> [Mappa](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+> [Kompass kontroll](/javascript/api/azure-maps-control/atlas.control.compasscontrol)
 
 > [!div class="nextstepaction"]
-> [Tamazight](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas?view=azure-iot-typescript-latest)
+> [PitchControl](/javascript/api/azure-maps-control/atlas.control.pitchcontrol) 
+
+> [!div class="nextstepaction"]
+> [StyleControl](/javascript/api/azure-maps-control/atlas.control.stylecontrol) 
+
+> [!div class="nextstepaction"]
+> [ZoomControl](/javascript/api/azure-maps-control/atlas.control.zoomcontrol) 
 
 I följande artiklar finns fullständig kod:
 
@@ -80,3 +119,13 @@ I följande artiklar finns fullständig kod:
 
 > [!div class="nextstepaction"]
 > [Lägg till en popup](./map-add-popup.md)
+
+> [!div class="nextstepaction"]
+> [Lägg till ett linje lager](map-add-line-layer.md)
+
+> [!div class="nextstepaction"]
+> [Lägg till ett polygon-lager](map-add-shape.md)
+
+> [!div class="nextstepaction"]
+> [Lägg till ett bubbel-lager](map-add-bubble-layer.md)
+

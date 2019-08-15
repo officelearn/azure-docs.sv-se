@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/03/2019
 ms.author: dacurwin
-ms.openlocfilehash: 0512facbdf5f2222aee1e9bb5d2be64e22bf1a69
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 00e37030417da97d2c57b0fb5872422e7048a2bc
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774635"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954458"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Felsöka säkerhets kopiering av SAP HANA databaser på Azure
 
@@ -63,7 +63,7 @@ När en databas har valts för säkerhets kopiering konfigurerar Azure Backups t
 
 Ta hand om indata när du återställer en enda behållar databas (SDC) för HANA till en annan SDC-dator. Databas namnet måste anges med gemener och "SDC" har lagts till inom hakparenteser. HANA-instansen kommer att visas med versaler.
 
-Anta att en SDC HANA-instans "H21" säkerhets kopie ras. På sidan säkerhets kopierings objekt visas namnet **"H21 (SDC)"** för säkerhets kopierings objekt. Om du försöker återställa den här databasen till en annan mål SDC, säg H11, måste du ange följande indata.
+Anta att en SDC HANA-instans "H21" säkerhets kopie ras. På sidan säkerhets kopierings objekt visas namnet **"H21 (SDC)"** för säkerhets kopierings objekt. Om du försöker återställa databasen till en annan mål SDC, säg H11, måste du ange följande indata.
 
 ![SDC Återställ indata](media/backup-azure-sap-hana-database/hana-sdc-restore.png)
 
@@ -71,7 +71,7 @@ Observera följande
 - Som standard fylls det återställda DB-namnet på med namnet för säkerhets kopian, t. ex. H21 (SDC)
 - Om du väljer målet som H11 ändras inte det återställda databas namnet automatiskt. **Den bör redige ras till H11 (SDC)** . I händelse av SDC kommer det återställda DB-namnet att vara mål instans-ID: t med gemena bokstäver och "SDC" i hakparenteser.
 - Eftersom SDC bara kan ha en enda databas, måste du också klicka på kryss rutan för att tillåta åsidosättning av befintliga databas data med återställnings punkt data.
-- Linux är Skift läges känsligt och säkerställer därför att ärendet bevaras.
+- Linux är Skift läges känsligt och säkerställer därför att du bevarar ärendet.
 
 ### <a name="multiple-container-database-mdc-restore"></a>Återställning av MDC (Multiple container Database)
 

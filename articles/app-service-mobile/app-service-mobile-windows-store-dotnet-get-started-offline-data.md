@@ -1,6 +1,6 @@
 ---
-title: Aktivera offlinesynkronisering av appen Universal Windows Platform (UWP) med Mobile Apps | Microsoft Docs
-description: Lär dig hur du använder en Azure Mobile App till cache och synkronisering av offlinedata i din app för Universal Windows Platform (UWP).
+title: Aktivera offline-synkronisering för din Universell Windows-plattform-app (UWP) med Mobile Apps | Microsoft Docs
+description: Lär dig hur du använder en Azure-mobilapp för att cachelagra och Synkronisera offlinedata i din Universell Windows-plattform-app (UWP).
 documentationcenter: windows
 author: elamalani
 manager: crdun
@@ -15,86 +15,86 @@ ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
 ms.openlocfilehash: 4970a80b911a1efbc308d48ac4b8a50f774b4d04
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "67551936"
 ---
 # <a name="enable-offline-sync-for-your-windows-app"></a>Aktivera offlinesynkronisering av Windows-appen
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
 
 > [!NOTE]
-> Visual Studio App Center investerar i nya och integrerade tjänster som är centrala för utveckling av mobilappar. Utvecklare kan använda **skapa**, **Test** och **fördela** tjänster för att konfigurera pipeline för kontinuerlig integrering och leverans. När appen har distribuerats, utvecklare kan övervaka status och användningen av sin app med hjälp av den **Analytics** och **diagnostik** services och interagera med användare som använder den **Push** tjänsten. Utvecklare kan även utnyttja **Auth** att autentisera användarna och **Data** -tjänsten för att bevara och synkronisera AppData i molnet. Kolla in [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-windows-store-dotnet-get-started-offline-data) idag.
+> Visual Studio App Center investerar i nya och integrerade tjänster som är centrala för utveckling av mobilappar. Utvecklare kan använda **bygge**-, **test** -och **distributions** tjänster för att konfigurera kontinuerlig integrering och leverans pipeliner. När appen har distribuerats kan utvecklare övervaka status och användning av appen med hjälp av **analys** -och **diagnos** tjänster och engagera med användare med **push** -tjänsten. Utvecklare kan också utnyttja **auth** för att autentisera sina användare och **data** tjänster för att spara och synkronisera AppData i molnet. Kolla [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-windows-store-dotnet-get-started-offline-data) idag.
 >
 
 ## <a name="overview"></a>Översikt
-Den här självstudien visar hur du lägger till offlinestöd till en Universal Windows Platform (UWP) med hjälp av en mobilappsserverdel i Azure. Offlinesynkronisering kan slutanvändarna kan interagera med en mobil app – visa, lägga till eller ändra data, även om det inte finns någon nätverksanslutning. Ändringarna sparas i en lokal databas. När enheten är online igen kan har de här ändringarna synkroniserats med fjärr-serverdel.
+Den här självstudien visar hur du lägger till offline-stöd till en Universell Windows-plattform-app (UWP) med hjälp av en Azure-mobilapp. Offline-synkronisering ger slutanvändare möjlighet att interagera med en mobilapp – Visa, lägga till eller ändra data, även om det inte finns någon nätverks anslutning. Ändringarna lagras i en lokal databas. När enheten är online igen synkroniseras de här ändringarna med fjärrservern.
 
-I den här självstudien får du uppdatera UWP-appsprojektet från självstudierna [skapa en Windows-app] för Offlinefunktioner för Azure Mobile Apps. Om du inte använder serverprojekt hämtade Snabbstart, måste du lägga till data access-tillägg-paket i projektet. Läs mer om server-tilläggspaket [arbeta med SDK för .NET-serverdelen för Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
+I den här självstudien uppdaterar du UWP-Appaketet från självstudien [skapa en Windows-app] som stöder offline-funktionerna i Azure Mobile Apps. Om du inte använder det hämtade projektet för snabb starts Server måste du lägga till paket för data åtkomst tillägg i projektet. Mer information om Server tilläggs paket finns i [arbeta med .NET-Server del Server SDK för Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
-Mer information om funktionen offline-synkronisering, finns i avsnittet [Datasynkronisering offline i Azure Mobile Apps].
+Mer information om funktionen offline-synkronisering finns i avsnittet [Datasynkronisering offline i Azure Mobile Apps].
 
 ## <a name="requirements"></a>Krav  
-Den här självstudien kräver följande förutsättningar:
+I den här självstudien krävs följande för hands krav:
 
-* Visual Studio 2013 som körs på Windows 8.1 eller senare.
-* Slutförandet av [skapa en Windows-app][skapa en windows-app].
+* Visual Studio 2013 körs på Windows 8,1 eller senare.
+* Slut för ande av [skapa en Windows-app][skapa en Windows-app].
 * [Azure Mobile Services SQLite Store][sqlite store nuget]
-* [SQLite för Universal Windows Platform-utveckling](https://marketplace.visualstudio.com/items?itemName=SQLiteDevelopmentTeam.SQLiteforUniversalWindowsPlatform) 
+* [SQLite för Universell Windows-plattform utveckling](https://marketplace.visualstudio.com/items?itemName=SQLiteDevelopmentTeam.SQLiteforUniversalWindowsPlatform) 
 
-## <a name="update-the-client-app-to-support-offline-features"></a>Uppdatera klientappen för att stödja Offlinefunktioner
-Offlinefunktioner för Azure Mobile-appen kan du interagera med en lokal databas när du är i ett offline-scenario. Om du vill använda dessa funktioner i din app måste du initiera en [SyncContext][synccontext] to a local store. Then reference your table through the [IMobileServiceSyncTable][IMobileServiceSyncTable] gränssnitt. SQLite används som det lokala arkivet på enheten.
+## <a name="update-the-client-app-to-support-offline-features"></a>Uppdatera klient appen så att den stöder offline-funktioner
+Offline-funktioner i Azure Mobile Apps gör att du kan interagera med en lokal databas när du är i ett offline-scenario. Om du vill använda dessa funktioner i din app initierar du ett [SyncContext][synccontext] to a local store. Then reference your table through the [IMobileServiceSyncTable][IMobileServiceSyncTable] -gränssnitt. SQLite används som lokal lagring på enheten.
 
-1. Installera den [SQLite runtime för Universal Windows Platform](https://sqlite.org/2016/sqlite-uwp-3120200.vsix).
-2. I Visual Studio, öppnar du NuGet package manager för UWP-appsprojektet har slutförts i den [skapa en Windows-app] självstudien.
-    Sök efter och installera den **Microsoft.Azure.Mobile.Client.SQLiteStore** NuGet-paketet.
-3. I Solution Explorer högerklickar du på **referenser** > **Lägg till referens...** > **Universal Windows** > **tillägg**, aktivera båda **SQLite för Universal Windows Platform** och **Visual C++ 2015 Runtime för Universal Windows Plattformsappar**.
+1. Installera [sqlite-körningen för universell Windows-plattform](https://sqlite.org/2016/sqlite-uwp-3120200.vsix).
+2. I Visual Studio öppnar du NuGet Package Manager för det UWP app-projekt som du har slutfört i själv studie kursen [skapa en Windows-app] .
+    Sök efter och installera **Microsoft. Azure. Mobile. client. SQLiteStore** NuGet-paketet.
+3. Högerklicka på **referenser** > **Lägg till referens** i Solution Explorer... >**Universella Windows** Tillägg och sedan aktivera båda **sqlite för universell Windows-plattform** och **Visual C++ 2015-körning för universell Windows-plattform appar**. >
 
     ![Lägg till SQLite UWP-referens][1]
-4. Öppna filen MainPage.xaml.cs och ta bort kommentarerna i `#define OFFLINE_SYNC_ENABLED` definition.
-5. I Visual Studio trycker du på den **F5** att omkompilera och kör klientappen. Appen fungerar på samma sätt som innan du har aktiverat synkronisering offline. Den lokala databasen fylls men nu med data som kan användas i ett offline-scenario.
+4. Öppna mainpage.XAML.cs-filen och ta bort kommentaren från `#define OFFLINE_SYNC_ENABLED` definitionen.
+5. I Visual Studio trycker du på **F5** för att återskapa och köra klient programmet. Appen fungerar på samma sätt som innan du aktiverade offlinesynkronisering. Men den lokala databasen fylls nu med data som kan användas i ett offline-scenario.
 
-## <a name="update-sync"></a>Uppdatera appen att koppla från serverdelen
-I det här avsnittet ska bryta du anslutningen till din mobilappsserverdel att simulera en offline situation. När du lägger till dataobjekt anger din undantagshanterare att appen är i offline-läge. I det här tillståndet nya objekt har lagts till i det lokala arkivet och kommer att synkroniseras till serverdelen för mobilappen när push nästa körning i anslutet tillstånd.
+## <a name="update-sync"></a>Uppdatera appen för att koppla från Server delen
+I det här avsnittet bryter du anslutningen till Server delen för mobilappar för att simulera en offline-situation. När du lägger till data objekt visar undantags hanteraren att appen är i offline-läge. I det här läget kommer nya objekt som lagts till i det lokala arkivet att synkroniseras till Server delen för mobilappar när push körs nästa gång den körs i ett anslutet tillstånd.
 
-1. Redigera App.xaml.cs i delade projekt. Kommentera ut initieringen av den **MobileServiceClient** och Lägg till följande rad, som använder en ogiltig mobila app-URL:
+1. Redigera App.xaml.cs i det delade projektet. Kommentera ut initieringen av **MobileServiceClient** och Lägg till följande rad, som använder en ogiltig URL för mobilappen:
 
          public static MobileServiceClient MobileService = new MobileServiceClient("https://your-service.azurewebsites.fail");
 
-    Du kan också visa offline beteende genom att inaktivera Wi-Fi och mobila nätverk på enheten eller använda Flygplansläge.
-2. Tryck på **F5** att bygga och köra appen. Lägg märke till din synkroniseringen misslyckades vid uppdatering när appen startas.
-3. Ange nya objekt och Observera att push misslyckas med ett [CancelledByNetworkError] varje gång du klickar på **spara**. Men finns de nya objekt i det lokala arkivet tills de kan skickas till serverdelen för mobilappen.  I en produktionsapp är om du ignorera de här undantagen fungerar klientappen som om den fortfarande är ansluten till serverdelen för mobilappen.
-4. Stäng appen och starta om den för att kontrollera att de nya objekt som du har skapat sparas till det lokala arkivet.
-5. (Valfritt) Öppna i Visual Studio **Server Explorer**. Gå till din databas i **Azure**->**SQL-databaser**. Högerklicka på databasen och välj **öppna i SQL Server Object Explorer**. Nu kan du bläddra till din SQL-databastabell och dess innehåll. Kontrollera att data i databasen i serverdelen inte har ändrats.
-6. (Valfritt) Använda ett REST-verktyg som Fiddler eller Postman för att fråga din mobila serverdelstjänst, med hjälp av en GET-fråga i formuläret `https://<your-mobile-app-backend-name>.azurewebsites.net/tables/TodoItem`.
+    Du kan också visa offline-beteende genom att inaktivera trådlösa nätverk på enheten eller Använd flyg Plans läge.
+2. Tryck på **F5** för att skapa och köra appen. Observera att synkroniseringen misslyckades vid uppdatering när appen startades.
+3. Ange nya objekt och Lägg märke till att push-meddelandet Miss lyckas med [CancelledByNetworkError] status varje gången du klickar på **Spara**. De nya att göra-objekt finns dock i den lokala lagrings platsen tills de kan flyttas till Server delen för mobilappar.  Om du under en produktions-app utelämnar de här undantagen fungerar klient programmet som om det fortfarande är anslutet till den mobila appens Server del.
+4. Stäng appen och starta om den för att kontrol lera att de nya objekt som du har skapat är sparade i det lokala arkivet.
+5. Valfritt Öppna **Server Explorer**i Visual Studio. Navigera till din databas i **Azure**->**SQL-databaser**. Högerklicka på databasen och välj **Öppna i SQL Server Object Explorer**. Nu kan du bläddra till SQL Database-tabellen och dess innehåll. Kontrol lera att data i backend-databasen inte har ändrats.
+6. Valfritt Använd ett REST-verktyg som Fiddler eller Postman för att fråga din mobil Server del med en GET-fråga i `https://<your-mobile-app-backend-name>.azurewebsites.net/tables/TodoItem`formuläret.
 
-## <a name="update-online-app"></a>Uppdatera appen för att återansluta din mobilappsserverdel
-I det här avsnittet kan du återansluta app på serverdelen för mobilappen. De här ändringarna simulera en nätverk återanslutning på appen.
+## <a name="update-online-app"></a>Uppdatera appen för att återansluta till Server delen för mobilappen
+I det här avsnittet ansluter du appen till Server delen för mobilappar. Dessa ändringar simulerar en nätverks åter anslutning på appen.
 
-Första gången du kör programmet och den `OnNavigatedTo` händelse hanteraren anrop `InitLocalStoreAsync`. Den här metoden i sin tur anropar `SyncAsync` att synkronisera din lokala arkivet med backend-databas. Appen försöker synkronisera vid start.
+När du kör programmet `OnNavigatedTo` första gången anropar `InitLocalStoreAsync`händelse hanteraren. Den här metoden i tur `SyncAsync` anrop för att synkronisera ditt lokala lager med Server dels databasen. Appen försöker synkronisera vid start.
 
-1. Öppna App.xaml.cs i delat projekt och ta bort kommentarerna för ditt tidigare initieringen av `MobileServiceClient` du använder rätt Webbadress till mobilapp.
-2. Tryck på den **F5** att bygga och köra appen. Appen synkroniserar dina lokala ändringar med Azure Mobile App-serverdel push och pull-åtgärder när den `OnNavigatedTo` händelsehanterare körs.
-3. (Valfritt) Visa uppdaterade data med hjälp av SQL Server Object Explorer eller ett REST-verktyg som Fiddler. Observera att dessa data har synkroniserats mellan Azure-Mobilapp backend-databas och det lokala arkivet.
-4. I appen, klickar du på kryssrutan bredvid några objekt att slutföra dem i det lokala arkivet.
+1. Öppna app.XAML.cs i det delade projektet och ta bort kommentaren till din tidigare `MobileServiceClient` initiering av för att använda rätt URL för mobilapp.
+2. Tryck på **F5** för att återskapa och köra appen. Appen synkroniserar dina lokala ändringar med Server delen för Azure Mobile-appen med push-och pull- `OnNavigatedTo` åtgärder när händelse hanteraren körs.
+3. Valfritt Visa uppdaterade data med antingen SQL Server Object Explorer eller ett REST-verktyg som Fiddler. Observera att data har synkroniserats mellan server dels databasen för Azure Mobile app och det lokala arkivet.
+4. I appen klickar du på kryss rutan bredvid några objekt för att slutföra dem i det lokala arkivet.
 
-   `UpdateCheckedTodoItem` anrop `SyncAsync` att synkroniseringen varje har slutförts objekt med serverdelen för Mobilappen. `SyncAsync` anropar både sändning och mottagning. Dock **när du kör en hämtning mot en tabell som klienten har gjort ändringar i en push alltid körs automatiskt**. Det här beteendet garanteras att alla tabeller i det lokala arkivet tillsammans med relationer förblir konsekventa. Det här beteendet kan resultera i ett oväntat push.  Mer information om detta finns i [Datasynkronisering offline i Azure Mobile Apps].
+   `UpdateCheckedTodoItem`anropar `SyncAsync` för att synkronisera varje slutfört objekt med Server delen för mobilappar. `SyncAsync`anropar både push och pull. Men **när du kör en pull-överföring mot en tabell som klienten har gjort ändringar i, körs alltid en push-överföring automatiskt**. Det här beteendet säkerställer att alla tabeller i den lokala butiken tillsammans med relationer förblir konsekventa. Detta kan leda till att en oväntad push-överföring sker.  Mer information om det här problemet finns i [Datasynkronisering offline i Azure Mobile Apps].
 
-## <a name="api-summary"></a>API-sammanfattning
-För att stödja Offlinefunktioner i mobila tjänster, som vi använde den [IMobileServiceSyncTable] gränssnitt och initiera [MobileServiceClient.SyncContext][synccontext] med en lokal SQLite-databas. När du är offline, fungerar de normala CRUD-åtgärderna för Mobile Apps som om appen är fortfarande ansluten när åtgärderna som inträffar mot det lokala arkivet. Följande metoder används för att synkronisera det lokala arkivet med servern:
+## <a name="api-summary"></a>API-Sammanfattning
+För att stödja offline-funktionerna i mobila tjänster använde vi [IMobileServiceSyncTable] -gränssnittet och initierade [MobileServiceClient. SyncContext][synccontext] med en lokal SQLite-databas. När du är offline är de normala CRUD åtgärder för Mobile Apps fungera som om appen fortfarande är ansluten medan åtgärderna sker mot det lokala arkivet. Följande metoder används för att synkronisera det lokala arkivet med-servern:
 
-* **[PushAsync]**  eftersom den här metoden är medlem i [IMobileServicesSyncContext], ändringar över alla tabeller som skickas till serverdelen. Endast poster med lokala ändringar skickas till servern.
-* **[PullAsync]**  en hämtning har startats från en [IMobileServiceSyncTable]. När det finns spårade ändringar i tabellen, körs en implicit push för att se till att alla tabeller i det lokala arkivet tillsammans med relationer förblir konsekventa. Den *pushOtherTables* parameter styr huruvida andra tabeller i kontexten skickas i en implicit push. Den *fråga* parametern tar ett [IMobileServiceTableQuery\<T >][IMobileServiceTableQuery] eller OData-frågesträngen för att filtrera data som returneras. Den *queryId* används för att definiera inkrementell synkronisering. Mer information finns i [Offline datasynkronisering i Azure Mobile Apps](app-service-mobile-offline-data-sync.md#how-sync-works).
-* **[PurgeAsync]**  bör din app med jämna mellanrum att anropa den här metoden om du vill rensa inaktuella data från det lokala arkivet. Använd den *tvinga* parameter när du vill rensa alla ändringar som inte har synkroniserats.
+* **[PushAsync]** Eftersom den här metoden är medlem i [IMobileServicesSyncContext]flyttas ändringar i alla tabeller till Server delen. Endast poster med lokala ändringar skickas till servern.
+* **[PullAsync]** En pull startas från en [IMobileServiceSyncTable]. När det finns spårade ändringar i tabellen körs en implicit push för att se till att alla tabeller i den lokala butiken tillsammans med relationer förblir konsekventa. Parametern *pushOtherTables* styr huruvida andra tabeller i kontexten pushas i en implicit push. *Frågeparametern* tar en [\<IMobileServiceTableQuery T >][IMobileServiceTableQuery] -eller OData-frågesträng för att filtrera returnerade data. Parametern *fråge* används för att definiera stegvis synkronisering. Mer information finns i [data synkronisering offline i Azure Mobile Apps](app-service-mobile-offline-data-sync.md#how-sync-works).
+* **[PurgeAsync]** Din app bör regelbundet anropa den här metoden för att rensa inaktuella data från det lokala arkivet. Använd parametern *Force* när du behöver rensa eventuella ändringar som ännu inte har synkroniserats.
 
-Mer information om de här koncepten finns i [Offline datasynkronisering i Azure Mobile Apps](app-service-mobile-offline-data-sync.md#how-sync-works).
+Mer information om dessa begrepp finns i [data synkronisering offline i Azure Mobile Apps](app-service-mobile-offline-data-sync.md#how-sync-works).
 
 ## <a name="more-info"></a>Mer information
-Följande avsnitt finns mer bakgrundsinformation om funktionen offline-synkronisering i Mobile Apps:
+I följande avsnitt finns ytterligare bakgrunds information om funktionen offline-synkronisering i Mobile Apps:
 
 * [Datasynkronisering offline i Azure Mobile Apps]
-* [Azure Mobile Apps .NET SDK HOWTO][8]
+* [Azure Mobile Apps .NET SDK-HOWTO][8]
 
 <!-- Anchors. -->
 [Update the app to support offline features]: #enable-offline-app
@@ -110,7 +110,7 @@ Följande avsnitt finns mer bakgrundsinformation om funktionen offline-synkronis
 
 <!-- URLs. -->
 [Datasynkronisering offline i Azure Mobile Apps]: app-service-mobile-offline-data-sync.md
-[Skapa en windows-app]: app-service-mobile-windows-store-dotnet-get-started.md
+[skapa en Windows-app]: app-service-mobile-windows-store-dotnet-get-started.md
 [SQLite for Windows 8.1]: https://go.microsoft.com/fwlink/?LinkID=716919
 [SQLite for Windows Phone 8.1]: https://go.microsoft.com/fwlink/?LinkID=716920
 [SQLite for Windows 10]: https://go.microsoft.com/fwlink/?LinkID=716921

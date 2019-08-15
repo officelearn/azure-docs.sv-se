@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: raynew
-ms.openlocfilehash: 105cbf173a9abe1adf0999f63740d47b3da51a29
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 00f222472a9b41c7f95ae90bdca57f13175b2b5d
+ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68856288"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68952128"
 ---
 # <a name="support-matrix-for-hyper-v-assessment-and-migration"></a>Stödmatris för utvärdering och migrering av Hyper-V
 
@@ -61,8 +61,8 @@ Geografi | Du kan skapa Azure Migrate projekt i ett antal geografiska områden. 
 | **Support**                | **Detaljer**               
 | :-------------------       | :------------------- |
 | **Värd distribution**       | Hyper-V-värden kan vara fristående eller distribuerad i ett kluster. |
-| **Behörigheter**           | Du behöver administratörs behörighet på Hyper-V-värden. |
-| **Värd operativ system** | Windows Server 2016 eller Windows Server 2012 R2.<br/> Du kan inte utvärdera virtuella datorer som finns på Hyper-V-värdar som kör Windows Server 2019. |
+| **Behörigheter**           | Du behöver administratörs behörighet på Hyper-V-värden. <br/> Om du inte vill tilldela administratörs behörighet skapar du ett lokalt konto eller domän användar konto och lägger till användaren i dessa grupper – fjärrhanterings användare, Hyper-V-administratörer och användare av prestanda övervakning. |
+| **Värd operativ system** | Windows Server 2019, Windows Server 2016 eller Windows Server 2012 R2.<br/> Du kan inte utvärdera virtuella datorer som finns på Hyper-V-värdar som kör Windows Server 2012. |
 | **PowerShell-fjärrkommunikation**   | Måste vara aktiverat på varje värd. |
 | **Hyper-V-replikering**       | Om du använder Hyper-V-replikering (eller om du har flera virtuella datorer med samma VM-identifierare) och identifierar både de ursprungliga och replikerade virtuella datorerna med hjälp av Azure Migrate, är det inte säkert att utvärderingen som genereras av Azure Migrate är korrekt. |
 
@@ -72,13 +72,8 @@ Geografi | Du kan skapa Azure Migrate projekt i ett antal geografiska områden. 
 | **Support**                  | **Detaljer**               
 | :----------------------------- | :------------------- |
 | **Operativsystem** | Alla [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) -och [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) -operativsystem som stöds av Azure. |
-| **Behörigheter**           | Du behöver administratörs behörighet för varje virtuell Hyper-V-dator som du vill utvärdera. |
 | **Integrerings tjänster**       | [Integrerings tjänsterna för Hyper-V](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/integration-services) måste köras på de virtuella datorer som du bedömer, för att kunna avbilda information om operativ systemet. |
-| **UEFI-start**                  | Virtuella datorer med UEFI-start stöds inte för migrering. |
-| **Krypterade diskar/volymer**    | Virtuella datorer med krypterade diskar/volymer stöds inte för migrering. |
-| **RDM/passthrough-diskar**      | Om de virtuella datorerna har RDM-eller passthrough-diskar replikeras inte dessa diskar till Azure. |
-| **NFS**                        | NFS-volymer som monterats som volymer på de virtuella datorerna replikeras inte. |
-| **Mål disk**                | Azure Migrate bedömningar rekommenderar endast migrering till virtuella Azure-datorer med Managed disks. |
+
 
 
 ## <a name="assessment-appliance-requirements"></a>Bedömnings krav
@@ -103,8 +98,8 @@ För att utvärdera de virtuella datorerna behöver Azure Migrate-enheten Intern
 **URL** | **Detaljer**  
 --- | ---
 *.portal.azure.com | Navigering till Azure Portal
-*.windows.net | Logga in till din Azure-prenumeration
-*.microsoftonline.com | Att skapa Azure Active Directory program för att kunna underhålla kommunikationen.
+*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *. microsoft.com <br/> *. live.com  | Logga in till din Azure-prenumeration
+*.microsoftonline.com <br/> *.microsoftonline-p.com | Att skapa Azure Active Directory program för att kunna underhålla kommunikationen.
 management.azure.com | Att skapa Azure Active Directory program för att kunna underhålla kommunikationen.
 dc.services.visualstudio.com | Loggning och övervakning
 *.vault.azure.net | Hantera hemligheter i Azure Key Vault när du kommunicerar mellan installations programmet och tjänsten.
@@ -119,7 +114,7 @@ I följande tabell sammanfattas port kraven för utvärdering.
 
 **Anordningar** | **anslutning**
 --- | ---
-**Enhet** | Inkommande anslutningar på TCP-port 3389 för att tillåta fjärr skrivbords anslutningar till enheten.<br/> Inkommande anslutningar på port 44368 för fjärråtkomst till appen för program hantering med hjälp av URL: en:``` https://<appliance-ip-or-name>:44368 ```<br/> Utgående anslutningar på port 443 för att skicka metadata för identifiering och prestanda till Azure Migrate.
+**Enhet** | Inkommande anslutningar på TCP-port 3389 för att tillåta fjärr skrivbords anslutningar till enheten.<br/> Inkommande anslutningar på port 44368 för fjärråtkomst till appen för program hantering med hjälp av URL: en:``` https://<appliance-ip-or-name>:44368 ```<br/> Utgående anslutningar på portarna 443, 5671 och 5672 för att skicka identifierings-och prestanda-metadata till Azure Migrate.
 **Hyper-V-värd/-kluster** | Inkommande anslutningar på WinRM-portar 5985 (HTTP) och 5986 (HTTPS) för att hämta konfigurations-och prestanda-metadata för virtuella Hyper-V-datorer med en Common Information Model CIM-session.
 
 ## <a name="migration-hyper-v-host-requirements"></a>Migration-krav för Hyper-V-värd

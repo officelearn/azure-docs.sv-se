@@ -9,12 +9,12 @@ ms.date: 02/11/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 51e0379607c49019590a99c9fb7304f28be2afe5
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: d94f6297f27eb3ea130b443ccf94052d391eb46d
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68305738"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68985325"
 ---
 # <a name="initiate-a-storage-account-failover-preview"></a>Initiera en redundans för lagrings konto (för hands version)
 
@@ -68,12 +68,13 @@ Om du vill använda PowerShell för att initiera en redundansväxling av ett kon
 
     - Ta bort alla tidigare installationer av Azure PowerShell från Windows med hjälp av inställningen **appar & funktioner** under **Inställningar**.
     - Ta bort alla **Azure** - `%Program Files%\WindowsPowerShell\Modules`moduler från.
-    
+
 1. Kontrol lera att du har den senaste versionen av PowerShellGet installerad. Öppna ett Windows PowerShell-fönster och kör följande kommando för att installera den senaste versionen:
- 
+
     ```powershell
     Install-Module PowerShellGet –Repository PSGallery –Force
     ```
+
 1. Stäng PowerShell-fönstret och öppna det igen när du har installerat PowerShellGet. 
 
 1. Installera den senaste versionen av Azure PowerShell:
@@ -82,14 +83,14 @@ Om du vill använda PowerShell för att initiera en redundansväxling av ett kon
     Install-Module Az –Repository PSGallery –AllowClobber
     ```
 
-1. Installera en Azure Storage Preview-modul som stöder Azure AD:
-   
+1. Installera en Azure Storage Preview-modul som stöder redundans av konton:
+
     ```powershell
     Install-Module Az.Storage –Repository PSGallery -RequiredVersion 1.1.1-preview –AllowPrerelease –AllowClobber –Force 
     ```
+
 1. Stäng PowerShell-fönstret och öppna det igen.
  
-
 Kör följande kommando för att starta en redundansväxling av ett konto från PowerShell:
 
 ```powershell

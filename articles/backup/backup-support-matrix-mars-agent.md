@@ -7,12 +7,12 @@ ms.date: 02/17/2019
 ms.topic: conceptual
 ms.author: dacurwin
 manager: carmonm
-ms.openlocfilehash: 6d05b6ac49b372caff1bdc2f03358598fcc1afba
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 8c983772f58c1ea01db175b47225ccfafa515b96
+ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68737093"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68951986"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Support mat ris för säkerhets kopiering med Microsoft Azure Recovery Services MARS-agenten
 
@@ -72,8 +72,8 @@ Nätverks begränsning | Inte tillgängligt för säkerhetskopierade datorer som
 
 Du kan använda MARS-agenten för att säkerhetskopiera direkt till Azure på vissa operativ system som körs på lokala datorer och virtuella Azure-datorer. Operativ systemen måste vara 64-bitars och köra de senaste paketen och uppdateringarna. I följande tabell sammanfattas dessa operativ system:
 
-**Operativsystem** | **Filer/mappar** | **System tillstånd**
---- | --- | ---
+**Operativsystem** | **Filer/mappar** | **System tillstånd** 
+--- | --- | --- 
 Windows 10 (Enterprise, Pro, Home) | Ja | Nej
 Windows 8,1 (Enterprise, Pro)| Ja |Nej
 Windows 8 (Enterprise, Pro) | Ja | Nej

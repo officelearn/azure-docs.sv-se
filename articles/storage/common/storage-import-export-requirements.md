@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 04/15/2019
+ms.date: 08/12/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 4d002a82e3968e0462e5f6e775ec147669c01b0d
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: 448d416ce4915aeae048639f6021197ed8c1d334
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147954"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967878"
 ---
 # <a name="azure-importexport-system-requirements"></a>Azure Import/Export-systemkrav
 
@@ -41,9 +41,9 @@ Förbereda hårddiskar med verktyget WAImportExport följande **64-bitars operat
 
 Azure Import/Export-tjänsten stöder följande typer av lagringskonton:
 
-- Standard för generell användning v2 storage-konton (rekommenderas för de flesta fall)
+- Standard Generell användning v2-lagrings konton (rekommenderas för de flesta scenarier)
 - Blob Storage-konton
-- Allmänt syfte v1-lagringskonton (både klassiska eller Azure Resource Manager distributioner), 
+- Generell användning v1-lagrings konton (både klassiska eller Azure Resource Manager distributioner), 
 
 Mer information om lagringskonton finns i [Azure storage-konton översikt](storage-account-overview.md).
 
@@ -72,11 +72,15 @@ För tjänsten Azure Import/Export behöver du stöds diskar för att kopiera da
 Följande lista över diskar stöds för användning med Import/Export-tjänsten.
 
 
-|Disktyp  |Storlek  |Stöds |Stöds inte  |
-|---------|---------|---------|---------|
-|SSD    |   2,5-tums      |SATA III          |  USB       |
-|HDD     |  2,5-tums<br>3,5-tums       |SATA II, SATA III         |Externa hårddiskar med inbyggd USB-adapter <br> Disk på versaler och gemener i en extern Hårddisk         |
+|Disktyp  |Storlek  |Stöds |
+|---------|---------|---------|
+|SSD    |   2,5-tums      |SATA III          | 
+|HDD     |  2,5-tums<br>3,5-tums       |SATA II, SATA III         |
 
+Följande disk typer stöds inte:
+- USBs.
+- Extern hård disk med inbyggd USB-adapter.
+- Diskar som är i höljet för en extern hård disk.
 
 En enda import/export-jobbet kan ha:
 - Högst 10 HDD/SSD-enheter.

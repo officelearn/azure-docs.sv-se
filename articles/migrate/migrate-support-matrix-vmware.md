@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: raynew
-ms.openlocfilehash: ed7e53570127f12dbe41932481a3286a78865dde
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 70107311b189e1692b902812c4ccbbd91c3695a1
+ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828274"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68952118"
 ---
 # <a name="support-matrix-for-vmware-assessment-and-migration"></a>Stödmatris för utvärdering och migrering av VMware
 
@@ -90,8 +90,8 @@ Azure Migrate-utrustningen behöver anslutning till Internet.
 **URL** | **Detaljer**  
 --- | --- |
 *.portal.azure.com  | Navigera till Azure Migrate i Azure Portal.
-*.windows.net | Logga in till din Azure-prenumeration.
-*.microsoftonline.com | Skapa Active Directory appar för att kunna kommunicera med tjänsten Azure Migrate.
+*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *. microsoft.com <br/> *. live.com | Logga in till din Azure-prenumeration.
+*.microsoftonline.com <br/> *.microsoftonline-p.com | Skapa Active Directory appar för att kunna kommunicera med tjänsten Azure Migrate.
 management.azure.com | Skapa Active Directory appar för att kunna kommunicera med tjänsten Azure Migrate.
 dc.services.visualstudio.com | Ladda upp program loggar som används för intern övervakning.
 *.vault.azure.net | Hantera hemligheter i Azure Key Vault.
@@ -104,7 +104,7 @@ http://aka.ms/latestapplianceservices<br/><br/> https://download.microsoft.com/d
 
 **Anordningar** | **anslutning**
 --- | ---
-Installation | Inkommande anslutningar på TCP-port 3389 för att tillåta fjärr skrivbords anslutningar till enheten.<br/><br/> Inkommande anslutningar på port 44368 för fjärråtkomst till appen för program hantering med hjälp av URL: en:```https://<appliance-ip-or-name>:44368``` <br/><br/>Utgående anslutningar på port 443 för att skicka metadata för identifiering och prestanda till Azure Migrate.
+Installation | Inkommande anslutningar på TCP-port 3389 för att tillåta fjärr skrivbords anslutningar till enheten.<br/><br/> Inkommande anslutningar på port 44368 för fjärråtkomst till appen för program hantering med hjälp av URL: en:```https://<appliance-ip-or-name>:44368``` <br/><br/>Utgående anslutningar på port 443, 5671 och 5672 för att skicka identifierings-och prestanda-metadata till Azure Migrate.
 vCenter Server | Inkommande anslutningar på TCP-port 443 för att tillåta att installationen samlar in konfigurations-och prestanda-metadata för utvärderingar. <br/><br/> Enheten ansluter som standard till vCenter på port 443. Om vCenter-servern lyssnar på en annan port kan du ändra porten när du konfigurerar identifiering.
 
 
@@ -175,8 +175,8 @@ Azure Migrate-enheten behöver Internet anslutning till Internet.
 **URL** | **Detaljer**  
 --- | ---
 *.portal.azure.com | Navigera till Azure Migrate i Azure Portal.
-*.windows.net | Logga in till din Azure-prenumeration.
-*.microsoftonline.com | Skapa Active Directory appar för att kunna kommunicera med tjänsten Azure Migrate.
+*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *. microsoft.com <br/> *. live.com  | Logga in till din Azure-prenumeration.
+*.microsoftonline.com <br/> *.microsoftonline-p.com | Skapa Active Directory appar för att kunna kommunicera med tjänsten Azure Migrate.
 management.azure.com | Skapa Active Directory appar för att kunna kommunicera med tjänsten Azure Migrate.
 dc.services.visualstudio.com | Ladda upp program loggar som används för intern övervakning.
 *.vault.azure.net | Hantera hemligheter i Azure Key Vault.

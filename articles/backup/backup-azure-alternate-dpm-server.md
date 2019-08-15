@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/09/2019
 ms.author: dacurwin
-ms.openlocfilehash: e3d38e9b5e1b9b9f827476acf7e2e2ecab632424
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 0a6d1fd73d99cf15137e937dbfe2336d49a63d90
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688803"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68955051"
 ---
 # <a name="recover-data-from-azure-backup-server"></a>Återställa data från Azure Backup Server
 Du kan använda Azure Backup Server för att återställa de data som du har säkerhetskopierat till ett Recovery Services-valv. Processen för att göra detta integreras i Azure Backup Server hanterings konsolen och liknar återställnings arbets flödet för andra Azure Backup-komponenter.
@@ -45,7 +45,7 @@ Du kan använda Azure Backup Server för att återställa de data som du har sä
     En lista över filer och mappar visas i det nedre fönstret, som kan bläddras och återställas till valfri plats.
 
     ![Externa DPM-serverns återställnings punkter](./media/backup-azure-alternate-dpm-server/external-dpm-recoverypoint.png)
-5. Högerklicka på lämpligt objekt och klicka på **Återställ**.
+5. Högerklicka på det aktuella objektet och klicka på **Återställ**.
 
     ![Extern DPM-återställning](./media/backup-azure-alternate-dpm-server/recover.png)
 6. Granska valet för att **återställa**. Kontrol lera data och tid för säkerhets kopian som återställs, samt den källa från vilken säkerhets kopian skapades. Om valet är felaktigt klickar du på **Avbryt** för att gå tillbaka till fliken återställning och välja lämplig återställnings punkt. Om valet är korrekt klickar du på **Nästa**.
@@ -57,7 +57,7 @@ Du kan använda Azure Backup Server för att återställa de data som du har sä
 8. Välj alternativet för att **Skapa kopia**, **hoppa över**eller **Skriv över**.
 
    * **Skapa kopia** – skapar en kopia av filen om det finns en namn konflikt.
-   * **Hoppa över** -om det finns en namn kollision, återställer inte filen som lämnar original filen.
+   * **Hoppa över** – om det finns en namn kollision, återställs inte filen, vilket innebär att den ursprungliga filen är kvar.
    * Överskrivning – om det finns en namn kollision skrivs den befintliga kopian av filen över.
 
      Välj lämpligt alternativ för att **återställa säkerheten**. Du kan tillämpa säkerhets inställningarna på mål datorn där data återställs eller de säkerhets inställningar som gällde för produkten vid den tidpunkt då återställnings punkten skapades.

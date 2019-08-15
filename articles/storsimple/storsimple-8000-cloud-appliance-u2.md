@@ -14,14 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/08/2017
 ms.author: alkohli
-ms.openlocfilehash: df7866d4f87f55523e8139232e48d81cb17c80e4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 01ce952ea774ba852c83d0d6aa3fe38d5dfd677e
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62117341"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68965734"
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Distribuera och hantera en StorSimple Cloud Appliance-installation i Azure (Uppdatering 3 eller senare)
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
 ## <a name="overview"></a>Översikt
 
@@ -62,7 +64,7 @@ I följande tabell beskrivs några huvudsakliga skillnader mellan StorSimple-mol
 
 |  | Fysisk enhet | Molninstallation |
 | --- | --- | --- |
-| **Plats** |Finns i datacentret. |Körs i Azure. |
+| **Location** |Finns i datacentret. |Körs i Azure. |
 | **Nätverksgränssnitt** |Har sex nätverksgränssnitt: DATA 0 till och med DATA 5. |Har bara ett nätverksgränssnitt: DATA 0. |
 | **Registrering** |Registreras i det inledande konfigurationssteget. |Registreringen är en separat åtgärd. |
 | **Krypteringsnyckel för tjänstdata** |Återskapa på den fysiska enheten och uppdatera sedan molninstallationen med den nya nyckeln. |Det går inte att återskapa från molninstallationen. |

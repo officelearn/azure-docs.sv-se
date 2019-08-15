@@ -1,6 +1,6 @@
 ---
-title: Aktivera Transparent datakryptering för Stretch Database – Azure | Microsoft Docs
-description: Aktivera Transparent datakryptering (TDE) för SQL Server Stretch Database på Azure
+title: Aktivera transparent datakryptering för Stretch Database-Azure | Microsoft Docs
+description: Aktivera transparent datakryptering (TDE) för SQL Server Stretch Database på Azure
 services: sql-server-stretch-database
 documentationcenter: ''
 ms.assetid: a44ed8f5-b416-4c41-9b1e-b7271f10bdc3
@@ -14,39 +14,39 @@ ms.author: blazem
 ms.reviewer: jroth
 manager: jroth
 ms.openlocfilehash: 61f556476958484b78b9c3dff2583eb6db043637
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "66003045"
 ---
-# <a name="enable-transparent-data-encryption-tde-for-stretch-database-on-azure"></a>Aktivera Transparent datakryptering (TDE) för Stretch Database på Azure
+# <a name="enable-transparent-data-encryption-tde-for-stretch-database-on-azure"></a>Aktivera transparent datakryptering (TDE) för Stretch Database på Azure
 > [!div class="op_single_selector"]
 > * [Azure Portal](sql-server-stretch-database-encryption-tde.md)
 > * [TSQL](sql-server-stretch-database-tde-tsql.md)
 >
 >
 
-Transparent datakryptering (TDE) skyddar mot skadlig aktivitet genom att utföra i realtid kryptering och dekryptering av databasen, tillhörande säkerhetskopior och transaktionsloggfiler vilande utan ändringar i programmet.
+Transparent datakryptering (TDE) skyddar mot hot mot skadlig aktivitet genom att utföra kryptering och dekryptering i real tid av databasen, tillhör ande säkerhets kopior och transaktionsloggfiler i vila utan att det krävs några ändringar i programmet.
 
-TDE krypterar lagring av en hel databas med hjälp av en symmetrisk nyckel som heter databaskrypteringsnyckeln. Databaskrypteringsnyckeln skyddas av ett certifikat för inbyggda. Inbyggda servercertifikatet är unikt för varje Azure-server. Microsoft roterar dessa certifikat automatiskt minst var 90: e dag. En allmän beskrivning av TDE Se [Transparent datakryptering (TDE)].
+TDE krypterar lagringen av en hel databas med hjälp av en symmetrisk nyckel som kallas databas krypterings nyckel. Databas krypterings nyckeln skyddas av ett inbyggt Server certifikat. Det inbyggda Server certifikatet är unikt för varje Azure-Server. Microsoft roterar dessa certifikat automatiskt minst var 90: e dag. En allmän beskrivning av TDE finns [Transparent datakryptering (TDE)].
 
 ## <a name="enabling-encryption"></a>Aktivera kryptering
-Om du vill aktivera transparent Datakryptering för en Azure-databas som lagrar data som har migrerats från en Stretch-aktiverade SQL Server-databas, gör du följande:
+Gör så här om du vill aktivera TDE för en Azure-databas som lagrar data som migrerats från en utsträckt SQL Server databas:
 
-1. Öppna databasen i den [Azure-portalen](https://portal.azure.com)
-2. Databasbladet klickar du på den **inställningar** knappen
-3. Välj den **Transparent datakryptering** alternativet ![][1]
-4. Välj den **på** inställning och välj sedan **spara**
+1. Öppna databasen i [Azure Portal](https://portal.azure.com)
+2. Klicka på knappen **Inställningar** i bladet databas
+3. Välj alternativet **transparent data kryptering**![][1]
+4. Välj inställningen **på** och välj sedan **Spara**
    ![][2]
 
-## <a name="disabling-encryption"></a>Inaktivering av kryptering
-Om du vill inaktivera TDE för en Azure-databas som lagrar data som migrerats från en Stretch-aktiverade SQL Server-databas, gör du följande:
+## <a name="disabling-encryption"></a>Inaktiverar kryptering
+Om du vill inaktivera TDE för en Azure-databas som lagrar data som migrerats från en utsträckt SQL Server databas gör du följande:
 
-1. Öppna databasen i den [Azure-portalen](https://portal.azure.com)
-2. Databasbladet klickar du på den **inställningar** knappen
-3. Välj den **Transparent datakryptering** alternativet
-4. Välj den **av** inställning och välj sedan **spara**
+1. Öppna databasen i [Azure Portal](https://portal.azure.com)
+2. Klicka på knappen **Inställningar** i bladet databas
+3. Välj alternativet **transparent data kryptering**
+4. Välj **off** -inställningen och välj sedan **Spara**
 
 <!--Anchors-->
 [Transparent datakryptering (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx

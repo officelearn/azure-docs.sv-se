@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: dacurwin
-ms.openlocfilehash: c08acaf65cd42abd9db97fab1267ce5628595b78
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 0f9c2d1d2081ec22898ed3a4fbc73305ff0995e3
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689275"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954669"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Felsöka Azure Backup Server
 
@@ -25,7 +25,7 @@ Vi rekommenderar att du utför verifieringen nedan innan du börjar felsöka Mic
 
 - [Se till att Microsoft Azure Recovery Services (MARS) Agent är uppdaterad](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
 - [Kontrollera att det finns nätverksanslutning mellan MARS-agenten och Azure](https://aka.ms/AB-A4dp50)
-- Kontrollera att Microsoft Azure Recovery Services körs (i tjänstkonsolen). Om det behövs måste du starta om och försöka igen
+- Kontrollera att Microsoft Azure Recovery Services körs (i tjänstkonsolen). Om det behövs startar du om och försöker igen
 - [Kontrollera att det finns 5–10 % ledigt utrymme i den tillfälliga mappen](https://aka.ms/AB-AA4dwtt)
 - Om registreringen misslyckades, se till att den server som du försöker installera Azure Backup Server inte redan har registrerats med ett annat valv
 - Kontrollera om DPM-agenten redan finns om push-överföringen misslyckas. Om den gör det avinstallerar du agenten och provar att installera igen
@@ -61,7 +61,7 @@ Vi rekommenderar att du utför verifieringen nedan innan du börjar felsöka Mic
 
 | Åtgärd | Felinformation | Lösning: |
 | --- | --- | --- |
-| Säkerhetskopiera | Det gick inte att skapa jobb för onlineåterställningspunkt för VMware VM. DPM påträffade ett fel från VMware vid försök att hämta ChangeTracking-information. ErrorCode-FileFaultFault (ID 33621) |  <ol><li> Återställ CTK på VMware för de virtuella datorerna.</li> <li>Kontrol lera att den oberoende disken inte finns på plats i VMware.</li> <li>Stoppa skyddet för de virtuella datorerna och skydda dem igen med knappen **Uppdatera** . </li><li>Kör en kopia av de virtuella datorerna.</li></ol>|
+| Säkerhetskopiera | Det gick inte att skapa jobb för onlineåterställningspunkt för VMware VM. DPM påträffade ett fel från VMware vid försök att hämta ChangeTracking-information. ErrorCode-FileFaultFault (ID 33621) |  <ol><li> Återställ CTK på VMware för de virtuella datorerna.</li> <li>Kontrol lera att den oberoende disken inte finns på plats i VMware.</li> <li>Stoppa skyddet för de virtuella datorerna och återaktivera skyddet med knappen **Uppdatera** . </li><li>Kör en kopia av de virtuella datorerna.</li></ol>|
 
 
 ## <a name="the-agent-operation-failed-because-of-a-communication-error-with-the-dpm-agent-coordinator-service-on-the-server"></a>Agent åtgärden misslyckades på grund av ett kommunikations fel med tjänsten DPM agent Coordinator på servern
@@ -102,7 +102,7 @@ Vi rekommenderar att du utför verifieringen nedan innan du börjar felsöka Mic
 | Säkerhetskopiera | Ett oväntat fel inträffade medan jobbet kördes. Enheten är inte klar. | **Utför följande steg om den rekommenderade åtgärden som visas i produkten inte fungerar:** <br> <ul><li>Ange lagrings utrymmet för skugg kopian till obegränsade för objekten i skydds gruppen och kör sedan konsekvens kontrollen.<br></li> ELLER <li>Försök att ta bort den befintliga skydds gruppen och skapa flera nya grupper. Varje ny skydds grupp måste ha ett enskilt objekt.</li></ul> |
 | Säkerhetskopiera | Om du bara säkerhetskopierar system tillstånd kontrollerar du att det finns tillräckligt med ledigt utrymme på den skyddade datorn för att lagra säkerhets kopian av system tillstånd. | <ol><li>Kontrol lera att Windows Server Backup är installerat på den skyddade datorn.</li><li>Kontrol lera att det finns tillräckligt med utrymme på den skyddade datorn för system tillstånd. Det enklaste sättet att kontrol lera detta är att gå till den skyddade datorn, öppna Windows Server Backup, klicka igenom valen och sedan välja BMR. Användar gränssnittet visar sedan hur mycket utrymme som krävs. Öppna **WSB** > , > lokal > säkerhets kopieringschema > för säkerhets kopiering**Välj säkerhets kopierings konfiguration** **fullständig Server** (storleken visas). Använd den här storleken för verifiering.</li></ol>
 | Säkerhetskopiera | Säkerhets kopierings problem för BMR | Om storleken på BMR är stor flyttar du några programfiler till OS-enheten och försöker igen. |
-| Säkerhetskopiera | Alternativet att skydda en virtuell VMware-dator på en ny Microsoft Azure Backup Server visas inte som tillgänglig för att lägga till. | VMware-egenskaper pekas på en gammal, tillbakadragen instans av Microsoft Azure Backup Server. Gör så här för att lösa problemet:<br><ol><li>I VCenter (SC-VMM-motsvarighet) går du till fliken **Sammanfattning** och sedan till **anpassade attribut**.</li>  <li>Ta bort det gamla Microsoft Azure Backup Server namnet från **Dpmserver** -värdet.</li>  <li>Gå tillbaka till den nya Microsoft Azure Backup servern och ändra PG.  När du har valt knappen **Uppdatera** visas den virtuella datorn med en kryss ruta som tillgänglig för att lägga till i skyddet.</li></ol> |
+| Säkerhetskopiera | Alternativet för att skydda en virtuell VMware-dator på en ny Microsoft Azure Backup Server visas inte som tillgänglig för att lägga till. | VMware-egenskaper pekas på en gammal, tillbakadragen instans av Microsoft Azure Backup Server. Gör så här för att lösa problemet:<br><ol><li>I VCenter (SC-VMM-motsvarighet) går du till fliken **Sammanfattning** och sedan till **anpassade attribut**.</li>  <li>Ta bort det gamla Microsoft Azure Backup Server namnet från **Dpmserver** -värdet.</li>  <li>Gå tillbaka till den nya Microsoft Azure Backup servern och ändra PG.  När du har valt knappen **Uppdatera** visas den virtuella datorn med en kryss ruta som tillgänglig för att lägga till i skyddet.</li></ol> |
 | Säkerhetskopiera | Fel vid åtkomst till filer/delade mappar | Försök att ändra Antivirus inställningarna enligt rekommendationer i TechNet-artikeln [köra antivirus program på DPM-servern](https://technet.microsoft.com/library/hh757911.aspx).|
 
 

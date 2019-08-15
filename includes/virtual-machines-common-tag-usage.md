@@ -5,26 +5,26 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 17778b3edf1845d85302a0bcdf72a1ebc3919cea
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "67187281"
 ---
-## <a name="viewing-your-tags-in-the-usage-details"></a>Visa taggarna i användningsinformation
-Taggar som placeras på beräkning, nätverk och lagringsresurser i Resource Manager-distributionsmodellen fylls i användningsinformation i den [faktureringsportalen](https://account.windowsazure.com/).
+## <a name="viewing-your-tags-in-the-usage-details"></a>Visa dina taggar i användnings informationen
+Taggar som placeras på beräknings-, nätverks-och lagrings resurser i distributions modellen för Resource Manager fylls i användnings informationen i [fakturerings portalen](https://account.windowsazure.com/).
 
-Klicka på **ladda ned användningsinformation** att visa användningsinformation i din prenumeration.
+Klicka på **Hämta användnings information** om du vill visa användnings informationen i din prenumeration.
 
-![Användningsinformation i Azure-portalen](./media/virtual-machines-common-tag-usage/azure-portal-tags-usage-details.png)
+![Användnings information i Azure Portal](./media/virtual-machines-common-tag-usage/azure-portal-tags-usage-details.png)
 
-Välj ditt kontoutdrag och **Version 2** användningsinformation:
+Välj din fakturerings instruktion och användnings informationen för **version 2** :
 
-![Användningsinformation för version 2-förhandsversion i Azure-portalen](./media/virtual-machines-common-tag-usage/azure-portal-version2-usage-details.png)
+![Version 2 information om förhands gransknings användning i Azure Portal](./media/virtual-machines-common-tag-usage/azure-portal-version2-usage-details.png)
 
-Från användningsinformation, kan du se alla taggar i den **taggar** kolumn:
+I användnings informationen kan du se alla Taggar i kolumnen **taggar** :
 
-![Taggar kolumn i Azure-portalen](./media/virtual-machines-common-tag-usage/azure-portal-tags-column.png)
+![Kolumnen Taggar i Azure Portal](./media/virtual-machines-common-tag-usage/azure-portal-tags-column.png)
 
-Genom att analysera dessa taggar tillsammans med användning kan att organisationer kunna få nya insikter om sina förbrukningsdata.
+Genom att analysera dessa taggar tillsammans med användning kan organisationer få nya insikter om sina förbruknings data.
 

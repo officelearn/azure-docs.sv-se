@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 267872f2036a0e697f4b2da65064805a0cfbd2b7
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 72155e072acb8006b48f6951fc60081126c80691
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68358734"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990468"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>Konfigurera beräkningsmål för modellträning 
 
@@ -47,7 +47,7 @@ Azure Machine Learning tjänsten har varierande stöd för olika beräknings må
 
 När det gäller utbildning är det vanligt att starta på den lokala datorn och senare köra det utbildnings skriptet på ett annat Compute-mål. Med Azure Machine Learning tjänsten kan du köra skriptet på olika beräknings mål utan att behöva ändra ditt skript. 
 
-Allt du behöver göra är att definiera miljön för varje beräknings mål med en **körnings konfiguration**.  När du sedan vill köra ditt utbildnings experiment på ett annat beräknings mål anger du körnings konfigurationen för den beräkningen. 
+Allt du behöver göra är att definiera miljön för varje beräknings mål med en **körnings konfiguration**.  När du sedan vill köra ditt utbildnings experiment på ett annat beräknings mål anger du körnings konfigurationen för den beräkningen.
 
 Läs mer om hur du [skickar experiment](#submit) i slutet av den här artikeln.
 
@@ -74,7 +74,26 @@ För en användar hanterad miljö ansvarar du för att konfigurera din miljö oc
 Följande kod visar ett exempel på hur du konfigurerar inlärnings körningar för en användar hanterad miljö:
 
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/runconfig.py?name=run_user_managed)]
-  
+
+## <a name="whats-an-estimator"></a>Vad är en uppskattning?
+
+För att under lätta modell utbildningen med populära ramverk, tillhandahåller Azure Machine Learning python SDK en alternativ högre abstraktion, klassen uppskattning. Med den här klassen kan du enkelt konstruera kör konfigurationer. Du kan skapa och använda en generisk [uppskattning](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) för att skicka utbildnings skript som använder valfritt ramverk för inlärning (till exempel scikit – lära).
+
+För PyTorch-, TensorFlow-och kedje uppgifter-aktiviteter tillhandahåller Azure Machine Learning även de olika uppskattningarna [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py)och [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) för att förenkla användningen av dessa ramverk.
+
+Mer information finns i [träna ml-modeller med uppskattningar](how-to-train-ml-models.md).
+
+## <a name="whats-an-ml-pipeline"></a>Vad är en ML-pipeline?
+
+Med ML-pipelines kan du optimera arbets flödet med enkelhet, hastighet, portabilitet och åter användning. När du skapar pipeliner med Azure Machine Learning kan du fokusera på din expertis, maskin inlärning i stället för infrastruktur och automatisering.
+
+ML pipelines skapas från flera **steg**, som är distinkta beräknings enheter i pipelinen. Varje steg kan köras oberoende och använda isolerade beräknings resurser. Detta gör det möjligt för flera data forskare att arbeta med samma pipeline samtidigt utan beskattnings beräknings resurser och gör det också enkelt att använda olika beräknings typer/storlekar för varje steg.
+
+> [!TIP]
+> ML pipelines kan använda kör konfiguration eller uppskattningar när du tränar modeller.
+
+Även om ML pipelines kan träna modeller, kan de också förbereda data innan de tränas och distribuera modeller efter utbildning. En av de främsta användnings fallen för pipelines är batch-poäng. Mer information finns i [pipelines: Optimera Machine Learning-](concept-ml-pipelines.md)arbetsflöden.
+
 ## <a name="set-up-in-python"></a>Konfigurera i python
 
 Använd avsnitten nedan för att konfigurera dessa beräknings mål:

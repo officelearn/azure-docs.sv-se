@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/07/2019
 ms.author: dacurwin
-ms.openlocfilehash: c41381dd3e53c80e74da3dc0d0a08e1ac83daec6
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 415a25dbe63b8942509827cd8434cc0f50fde87a
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827628"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954816"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Vanliga frågor och svar om Azure Backup
 I den här artikeln besvaras vanliga frågor om tjänsten Azure Backup.
@@ -27,7 +27,7 @@ Du kan registrera upp till 1000 virtuella Azure-datorer per valv. Om du använde
 
 ### <a name="how-many-datasourcesitems-can-be-protected-in-a-vault"></a>Hur många data källor/objekt kan skyddas i ett valv? 
 Du kan skydda upp till 2000 data källor/objekt över alla arbets belastningar (IaaS VM, SQL, AFS osv.) i ett valv.<br>  
-Om du t. ex. redan har skyddat 500 VM och 400 Azure Files resurser i valvet kan du bara skydda upp till 1100 SQL-databaser. 
+Om du till exempel redan har skyddat 500 VM och 400 Azure Files resurser i valvet kan du bara skydda upp till 1100 SQL-databaser. 
 
 ### <a name="how-many-policies-can-i-create-per-vault"></a>Hur många principer kan jag skapa per valv? 
 Du kan bara ha upp till 200 principer per valv.
@@ -36,7 +36,7 @@ Du kan bara ha upp till 200 principer per valv.
 Server data som du vill återställa tillsammans bör använda samma lösen fras när du konfigurerar säkerhets kopiering. Om du vill isolera återställning till en bestämd Server eller servrar använder du bara en lösen fras för den servern eller servrarna. HR-servrarna kan till exempel använda en krypteringslösenfras, redovisningsservrarna en annan och lagringsservrar en tredje.
 
 ### <a name="can-i-move-my-vault-between-subscriptions"></a>Kan jag flytta mitt valv mellan prenumerationer?
-Ja. Om du vill flytta ett Recovery Services valv läser du den här [artikeln](backup-azure-move-recovery-services-vault.md)
+Ja. Information om hur du flyttar ett Recovery Services-valv finns i den här [artikeln](backup-azure-move-recovery-services-vault.md)
 
 ### <a name="can-i-move-backup-data-to-another-vault"></a>Kan jag flytta säkerhetskopierade data till ett annat valv?
 Nej. Säkerhets kopierings data som lagras i ett valv kan inte flyttas till ett annat valv.
@@ -54,7 +54,7 @@ Nej. Ett Recovery Services-valv kan bara ändra lagrings alternativen innan säk
 ### <a name="where-can-i-find-common-questions-about-the-azure-backup-agent-for-azure-vm-backup"></a>Var kan jag hitta vanliga frågor om Azure Backup Agent för säkerhets kopiering av virtuella Azure-datorer?
 
 - Läs följande [vanliga frågor och svar](backup-azure-vm-backup-faq.md)om agenten som körs på virtuella Azure-datorer.
-- Läs [vanliga frågor och svar](backup-azure-file-folder-backup-faq.md)för den agent som används för att säkerhetskopiera Azure File Folders.
+- Läs [vanliga frågor och svar](backup-azure-file-folder-backup-faq.md)om agenten som används för att säkerhetskopiera Azure-filmappar.
 
 
 ## <a name="general-backup"></a>Allmän säkerhets kopiering
@@ -125,7 +125,7 @@ Nej. Alla data som överfördes till valvet innan säkerhets Kopieringen avbröt
 
 - Azure Backup använder en kontrollpunktsmekanism för att då och då lägga till kontrollpunkter till säkerhetskopierade data under säkerhetskopieringen.
 - Eftersom det finns kontrollpunkter i säkerhetskopian kan nästa säkerhetskopiering validera filernas integritet.
-- Nästa säkerhetskopieringsjobb är en inkrementell säkerhetskopiering mot tidigare säkerhetskopierade data. Vid inkrementella säkerhetskopieringar överförs bara nya eller ändrade data, vilket innebär att bandbredden utnyttjas bättre.
+- Nästa säkerhetskopieringsjobb är en inkrementell säkerhetskopiering mot tidigare säkerhetskopierade data. Stegvisa säkerhets kopieringar överför bara nya eller ändrade data, vilket motsvarar bättre användning av bandbredd.
 
 Om du avbryter ett säkerhetskopieringsjobb för en virtuella Azure-dator ignoreras alla överförda data. Nästa säkerhetskopieringsjobb överför inkrementella data från det senaste lyckade säkerhetskopieringsjobbet.
 
@@ -138,7 +138,7 @@ Ja, de har båda dagliga, vecko Visa, månatliga och årliga bevarande principer
 Ja, du har anpassat principer. Du kan till exempel konfigurera vecko Visa och dagliga krav för kvarhållning, men inte varje månad och månad.
 
 ### <a name="can-i-use-different-times-for-backup-scheduling-and-retention-policies"></a>Kan jag använda olika tider för säkerhets kopierings-och bevarande principer?
-Nej. Bevarandeprinciper kan bara användas med säkerhetskopieringspunkter. De här avbildningarna visar till exempel en bevarande princip för säkerhets kopior som tas på 12am och. 18:00.
+Nej. Bevarandeprinciper kan bara användas med säkerhetskopieringspunkter. Den här bilden visar till exempel en bevarande princip för säkerhets kopior som tas på 12am och. 18:00.
 
 ![Schemalägga säkerhetskopiering och kvarhållning](./media/backup-azure-backup-faq/Schedule.png)
 

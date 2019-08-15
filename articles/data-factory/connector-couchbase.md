@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: c3cd734380e2a3e3fbf35439ff807738c549a086
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: a59b36fbbde2bf0941ee61f523555824d28a7a98
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726154"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967018"
 ---
 # <a name="copy-data-from-couchbase-using-azure-data-factory-preview"></a>Kopiera data från Couchbase med Azure Data Factory (förhandsversion)
 
@@ -31,6 +31,10 @@ Den här artikeln beskrivs hur du använder Kopieringsaktivitet i Azure Data Fac
 Du kan kopiera data från Couchbase till alla datalager för mottagare som stöds. En lista över datalager som stöds som källor/mottagare av Kopieringsaktivitet finns i den [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) tabell.
 
 Azure Data Factory tillhandahåller en inbyggd drivrutin för att aktivera anslutning, måste du därför inte att manuellt installera en drivrutin som använder den här anslutningen.
+
+## <a name="prerequisites"></a>Förutsättningar
+
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
 ## <a name="getting-started"></a>Komma igång
 
@@ -46,7 +50,7 @@ Följande egenskaper har stöd för Couchbase länkade tjänsten:
 |:--- |:--- |:--- |
 | type | Egenskapen Type måste anges till: **Couchbase** | Ja |
 | connectionString | En ODBC-anslutningssträng att ansluta till Couchbase. <br/>Markera det här fältet som en SecureString för att lagra det på ett säkert sätt i Data Factory. Du kan också ange Credential-sträng i Azure Key Vault och hämta `credString` konfigurationen från anslutnings strängen. Se följande exempel och [lagra autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) artikel med mer information. | Ja |
-| connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda lokal Integration Runtime eller Azure Integration Runtime (om ditt datalager är offentligt tillgänglig). Om den inte anges används standard Azure Integration Runtime. |Nej |
+| connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Läs mer från avsnittet [krav](#prerequisites) . Om den inte anges används standard Azure Integration Runtime. |Nej |
 
 **Exempel:**
 
@@ -107,7 +111,7 @@ Kopiera data från Couchbase genom att ange typegenskapen på datauppsättningen
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Data uppsättningens typ-egenskap måste anges till: **CouchbaseTable** | Ja |
-| tableName | Namnet på tabellen. | Nej (om ”frågan” i aktivitetskälla har angetts) |
+| tableName | Namnet på tabellen. | Nej (om ”query” i aktivitetskälla har angetts) |
 
 
 **Exempel**

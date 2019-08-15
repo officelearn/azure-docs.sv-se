@@ -9,13 +9,13 @@ ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: ''
-ms.date: 07/05/2019
-ms.openlocfilehash: 33c844374d6d2b8e64cde6c7c9633e54a292d95f
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 08/12/2019
+ms.openlocfilehash: 515e971214244cdd14955cc269a5f005cb93734f
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567278"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967927"
 ---
 # <a name="time-zones-in-azure-sql-database-managed-instance"></a>Tids zoner i Azure SQL Database Hanterad instans
 
@@ -83,10 +83,7 @@ Du kan återställa en säkerhets kopia eller importera data till en hanterad in
 
 ### <a name="point-in-time-restore"></a>Återställning från tidpunkt
 
-<del>När du utför en tidpunkts återställning, tolkas tiden för att återställa till UTC-tid. Den här inställningen undviker tvetydighet på grund av sommar tid och eventuella ändringar.<del>
-
- >[!WARNING]
-  > Det aktuella beteendet är inte i linje med instruktionen ovan och tiden att återställa till tolkas enligt tids zonen för den hanterade käll instans där automatiska databas säkerhets kopior tas från. Vi arbetar på att korrigera det här beteendet för att tolka den aktuella tidpunkten som UTC-tid. Se [kända problem](sql-database-managed-instance-timezone.md#known-issues) för mer information.
+När du utför en tidpunkts återställning, tolkas tiden för att återställa till UTC-tid. På så sätt kan eventuella tvetydigheter på grund av sommar tid och eventuella ändringar undvikas.
 
 ### <a name="auto-failover-groups"></a>Automatiska redundansgrupper
 

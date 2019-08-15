@@ -1,6 +1,6 @@
 ---
 title: Spåra ändringar med Azure Automation
-description: Lösningen ändringsspårning kan du identifiera programvara och Windows Service-ändringar som sker i din miljö.
+description: Ändringsspårning-lösningen hjälper dig att identifiera ändringar i program vara och Windows-tjänster som inträffar i din miljö.
 services: automation
 ms.service: automation
 ms.subservice: change-inventory-management
@@ -10,21 +10,21 @@ ms.date: 04/29/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 109c2817b95f535acfb3d6987a7dad57135ee7a0
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: a681daa60503ff08320b25155e201ca0e7a4a001
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478631"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68953002"
 ---
-# <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Spåra ändringar i miljön med lösningen ändringsspårning
+# <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Spåra ändringar i din miljö med Ändringsspårning-lösningen
 
-Den här artikeln hjälper dig att använda ändringsspårning-lösning lätt kan identifiera ändringar i miljön. Lösningen spårar ändringar i Windows och Linux, Windows och Linux-filer, registernycklar för Windows, Windows-tjänster och Linux-daemon. Identifiera konfigurationsändringar kan hjälpa dig att precisera Driftproblem.
+Den här artikeln hjälper dig att använda Ändringsspårning lösning för att enkelt identifiera ändringar i din miljö. Lösningen spårar ändringar i Windows-och Linux-programvara, Windows-och Linux-filer, Windows-registernycklar, Windows-tjänster och Linux-daemon. Att identifiera konfigurations ändringar kan hjälpa dig att hitta drifts problem.
 
-Ändringar av installerad programvara, tjänster för Windows, Windows-registret och filer och Linux-Daemon på de övervakade servrarna skickas till Azure Monitor-tjänsten i molnet för bearbetning. Logiken tillämpas på den mottagna data och Molntjänsten innehåller data. Du kan enkelt se ändringar som gjorts i din serverinfrastruktur med hjälp av informationen på instrumentpanelen för ändringsspårning.
+Ändringar av installerad program vara, Windows-tjänster, Windows-register och filer och Linux-daemon på de övervakade servrarna skickas till Azure Monitor tjänsten i molnet för bearbetning. Logiken tillämpas på den mottagna data och Molntjänsten innehåller data. Genom att använda informationen på Ändringsspårning instrument panelen kan du enkelt se de ändringar som har gjorts i Server infrastrukturen.
 
 > [!NOTE]
-> Azure Automation Change Tracking spårar ändringar i virtuella datorer. Om du vill spåra egenskapsändringar för Azure Resource Manager finns i Azure Resource Graph [ändringshistorik](../governance/resource-graph/how-to/get-resource-changes.md).
+> Azure Automation Ändringsspårning spårar ändringar i virtuella datorer. Information om hur du spårar Azure Resource Manager egenskaps ändringar finns i Azure Resource graphs [ändrings historik](../governance/resource-graph/how-to/get-resource-changes.md).
 
 ## <a name="supported-windows-operating-systems"></a>Windows-operativsystem som stöds
 
@@ -34,16 +34,16 @@ Följande versioner av Windows-operativsystemet stöds officiellt för Windows-a
 
 ## <a name="supported-linux-operating-systems"></a>Linux-operativsystem som stöds
 
-Följande Linux-distributioner stöds officiellt. Linux-agenten kan också köra på andra distributioner som inte visas. Om inget annat anges stöds alla mindre versioner för varje större version i listan.  
+Följande Linux-distributioner stöds officiellt. Men Linux-agenten kan också köras på andra distributioner som inte visas i listan. Om inget annat anges stöds alla mindre versioner för varje huvud version som anges.
 
 ### <a name="64-bit"></a>64-bitars
 
 * CentOS 6 och 7
-* Amazon Linux 2017.09
+* Amazon Linux 2017,09
 * Oracle Linux 6 och 7
 * Red Hat Enterprise Linux Server 6 och 7
 * Debian GNU/Linux 8 och 9
-* Ubuntu Linux 14.04 LTS, 16.04 LTS och 18.04 LTS
+* Ubuntu Linux 14,04 LTS, 16,04 LTS och 18,04 LTS
 * SUSE Linux Enterprise Server 12
 
 ### <a name="32-bit"></a>32-bitars
@@ -52,197 +52,215 @@ Följande Linux-distributioner stöds officiellt. Linux-agenten kan också köra
 * Oracle Linux 6
 * Red Hat Enterprise Linux Server 6
 * Debian GNU/Linux 8 och 9
-* Ubuntu Linux 14.04 LTS och 16.04 LTS
+* Ubuntu Linux 14,04 LTS och 16,04 LTS
 
-## <a name="onboard"></a>Aktivera ändringsspårning och inventering
+## <a name="onboard"></a>Aktivera Ändringsspårning och inventering
 
-Om du vill börja spåra ändringar, måste du aktivera lösningen ändringsspårning och inventering. Det finns många sätt att registrera datorer till ändringsspårning och inventering. Följande är den rekommenderade och stöd för hur du publicerar lösningen.
+Om du vill börja spåra ändringar måste du aktivera Ändringsspårning-och inventerings lösningen. Det finns många sätt att publicera datorer till Ändringsspårning och inventering. Följande är de rekommenderade och de sätt som stöds för att publicera lösningen.
 
 * [Från en virtuell dator](automation-onboard-solutions-from-vm.md)
-* [Från flera datorer-surfning](automation-onboard-solutions-from-browse.md)
+* [Från att bläddra flera datorer](automation-onboard-solutions-from-browse.md)
 * [Från ditt Automation-konto](automation-onboard-solutions-from-automation-account.md)
-* [Med en Azure Automation-runbook](automation-onboard-solutions.md)
+* [Med en Azure Automation Runbook](automation-onboard-solutions.md)
 
-## <a name="configuring-change-tracking-and-inventory"></a>Konfigurera ändringsspårning och inventering
+## <a name="configuring-change-tracking-and-inventory"></a>Konfigurera Ändringsspårning och inventering
 
-Läs hur att integrera datorer till lösningen finns: [Onboarding-automatiseringslösningar](automation-onboard-solutions-from-automation-account.md). När du har en dator onboarding med lösningen ändringsspårning och inventering kan konfigurera du de objekt som ska spåra. När du aktiverar en ny fil eller registernyckel att spåra kan aktiveras för ändringsspårning och inventering.
+Information om hur du kan publicera datorer till lösningen finns i: [Onboarding av Automation-lösningar](automation-onboard-solutions-from-automation-account.md). När du har en dator som du registrerar med Ändringsspårning-och inventerings lösningen kan du konfigurera de objekt som ska spåras. När du aktiverar en ny fil eller register nyckel som ska spåras, aktive ras den för både Ändringsspårning och inventering.
 
-MD5-hash-värden för filerna som används för att spåra ändringar i filer på både Windows och Linux. Dessa hashvärden används sedan för att identifiera om en ändring har gjorts sedan den senaste inventeringen.
+När du spårar ändringar i filer på både Windows och Linux används MD5-hashar av filerna. De här-hashar används sedan för att identifiera om en ändring har gjorts sedan den senaste inventeringen.
+
+### <a name="file-integrity-monitoring-in-azure-security-center"></a>Övervakning av fil integritet i Azure Security Center
+
+Azure Security Center har lagt till FIM (File Integrity Monitoring) som bygger på Azure Ändringsspårning. Även om FIM övervakar filer och register, innehåller den fullständiga Ändringsspårning lösningen även:
+
+- Program varu ändringar
+- Windows-tjänster
+- Linux-bakgrundsprogram
+
+Om du redan har aktiverat FIM och vill testa den fullständiga Ändringsspårning lösningen måste du utföra följande steg. Inställningarna tas inte bort av den här processen.
+
+> [!NOTE]
+> Att aktivera den fullständiga Ändringsspårning-lösningen kan orsaka ytterligare avgifter, mer information finns i avsnittet om [automatiserings priser](https://azure.microsoft.com/en-us/pricing/details/automation/).
+
+1. Ta bort övervaknings lösningen genom att gå till arbets ytan och hitta den i [listan över installerade övervaknings lösningar](../azure-monitor/insights/solutions.md#list-installed-monitoring-solutions).
+2. Klicka på namnet på lösningen för att öppna sammanfattnings sidan och klicka sedan på ta bort, enligt beskrivningen i [ta bort en övervaknings lösning](../azure-monitor/insights/solutions.md#remove-a-monitoring-solution).
+3. Återaktivera lösningen genom att gå till Automation-kontot och välja **ändringsspårning** på resurs-menyn under **konfigurations hantering**.
+4. Bekräfta inställningarna för arbets ytans inställning och klicka på **Aktivera**.
 
 ### <a name="configure-linux-files-to-track"></a>Konfigurera Linux-filer att spåra
 
-Använd följande steg för att konfigurera filspårning på Linux-datorer:
+Använd följande steg för att konfigurera fil spårning på Linux-datorer:
 
-1. I ditt Automation-konto väljer **ändringsspårning** under **KONFIGURATIONSHANTERING**. Klicka på **redigera inställningar för** (kugghjulet).
-2. På den **ändringsspårning** väljer **Linux-filer**, klicka sedan på **+ Lägg till** att lägga till en ny fil och spåra.
-3. På den **Lägg till Linux-fil för ändringsspårning**, anger du informationen för filen eller katalogen som ska spåras och klickar på **spara**.
+1. I ditt Automation-konto väljer du **ändrings spårning** under **konfigurations hantering**. Klicka på **Redigera inställningar** (kugg hjuls symbolen).
+2. På sidan **ändringsspårning** väljer du **Linux-filer**och klickar sedan på **+ Lägg** till för att lägga till en ny fil som ska spåras.
+3. I **Lägg till Linux-fil för ändringsspårning**anger du informationen för filen eller katalogen som ska spåras och klickar på **Spara**.
 
 |Egenskap  |Beskrivning  |
 |---------|---------|
-|Enabled     | Avgör om inställningen tillämpas.        |
+|Aktiverad     | Anger om inställningen tillämpas.        |
 |Objektnamn     | Eget namn på filen som ska spåras.        |
-|Grupp     | Ett gruppnamn för att gruppera filer logiskt.        |
-|Ange sökväg     | Sökvägen till att söka efter filen. Till exempel: ”/etc/*.conf”       |
-|Sökvägstyp     | Typ av objekt som ska spåras, möjliga värden är fil och katalog.        |
+|Grupp     | Ett grupp namn för logisk gruppering av filer.        |
+|Ange sökväg     | Sökvägen för att söka efter filen. Exempel: "/etc/*. conf"       |
+|Typ av sökväg     | Typ av objekt som ska spåras, möjliga värden är fil och katalog.        |
 |Rekursion     | Avgör om rekursion används när du letar efter objektet som ska spåras.        |
 |Använda Sudo     | Den här inställningen styr om sudo ska användas vid sökningen efter objektet.         |
-|Länkar     | Den här inställningen styr hur symboliska länkar ska hanteras när de passerar kataloger.<br> **Ignorera** – ignorerar symboliska länkar och inkluderar inte refererade filer/kataloger.<br>**Följ** – följer de symboliska länkarna under rekursion och dessutom ingår refererade filer/kataloger.<br>**Hantera** – följer de symboliska länkarna och tillåter ändring av returnerat innehåll.     |
+|Länkar     | Den här inställningen styr hur symboliska länkar ska hanteras när de passerar kataloger.<br> **Ignore** -ignorerar symboliska länkar och inkluderar inte de filer/kataloger som refereras.<br>**Följ** – följer de symboliska länkarna under rekursion och inkluderar även de filer/kataloger som refereras till.<br>**Hantera** – följer de symboliska länkarna och tillåter ändring av returnerat innehåll.     |
 |Ladda upp filinnehåll för alla inställningar| Aktiverar eller inaktiverar uppladdning av filinnehåll vid spårade ändringar. Tillgängliga alternativ: **Sant** eller **Falskt**.|
 
 > [!NOTE]
 > Länkalternativet ”Hantera” rekommenderas inte. Hämtning av filinnehåll stöds inte.
 
-### <a name="configure-windows-files-to-track"></a>Konfigurera Windows-filer för att spåra
+### <a name="configure-windows-files-to-track"></a>Konfigurera Windows-filer att spåra
 
-Använd följande steg för att konfigurera filer spårning på Windows-datorer:
+Använd följande steg för att konfigurera fil spårning på Windows-datorer:
 
-1. I ditt Automation-konto väljer **ändringsspårning** under **KONFIGURATIONSHANTERING**. Klicka på **redigera inställningar för** (kugghjulet).
-2. På den **ändringsspårning** väljer **Windows filer**, klicka sedan på **+ Lägg till** att lägga till en ny fil och spåra.
-3. På den **Lägg till Windows-fil för ändringsspårning**, anger du informationen för den fil som ska spåras och klickar på **spara**.
+1. I ditt Automation-konto väljer du **ändrings spårning** under **konfigurations hantering**. Klicka på **Redigera inställningar** (kugg hjuls symbolen).
+2. På sidan **ändringsspårning** väljer du **Windows-filer**och klickar sedan på **+ Lägg** till för att lägga till en ny fil som ska spåras.
+3. I **Lägg till Windows-fil för ändringsspårning**anger du informationen för filen som ska spåras och klickar på **Spara**.
 
 |Egenskap  |Beskrivning  |
 |---------|---------|
-|Enabled     | Avgör om inställningen tillämpas.        |
+|Aktiverad     | Anger om inställningen tillämpas.        |
 |Objektnamn     | Eget namn på filen som ska spåras.        |
-|Grupp     | Ett gruppnamn för att gruppera filer logiskt.        |
+|Grupp     | Ett grupp namn för logisk gruppering av filer.        |
 |Ange sökväg     | Sökvägen för att söka efter filen Till exempel: "c:\temp\\\*.txt"<br>Du kan också använda miljövariabler som "%winDir%\System32\\\*.*"       |
 |Rekursion     | Avgör om rekursion används när du letar efter objektet som ska spåras.        |
 |Ladda upp filinnehåll för alla inställningar| Aktiverar eller inaktiverar uppladdning av filinnehåll vid spårade ändringar. Tillgängliga alternativ: **Sant** eller **Falskt**.|
 
 ## <a name="wildcard-recursion-and-environment-settings"></a>Inställningar för jokertecken, rekursion och miljö
 
-Rekursion kan du ange jokertecken för att förenkla spårning i kataloger och miljövariabler att spåra filer i miljöer med flera eller dynamisk enhet namn. I följande lista visas vanliga information som du bör känna till när du konfigurerar rekursion:
+Med rekursion kan du ange jokertecken för att förenkla spårning över kataloger och miljövariabler så att du kan spåra filer i miljöer med flera eller dynamiska enhets namn. I följande lista visas allmän information som du bör känna till när du konfigurerar rekursion:
 
 * Jokertecken krävs för att spåra flera filer
-* Om du använder jokertecken, kan de bara användas i det sista segmentet i en sökväg. (till exempel `c:\folder\*file*` eller `/etc/*.conf`)
-* Om en miljövariabel har en ogiltig sökväg, verifiering lyckas, men den sökvägen misslyckas när maskinvaruinventering körs.
-* Undvika Allmänt sökvägar som `c:\*.*` när du ställer in sökvägen eftersom detta skulle resultera i för många mappar är slut.
+* Om jokertecken används kan de bara användas i det sista segmentet i en sökväg. (till exempel `c:\folder\*file*` eller `/etc/*.conf`)
+* Om en miljö variabel har en ogiltig sökväg kommer verifieringen att lyckas, men den sökvägen kommer att Miss lyckas När inventeringen körs.
+* Undvik allmänna sökvägar som `c:\*.*` när du anger sökvägen, eftersom detta skulle leda till att för många mappar passerade.
 
-## <a name="configure-file-content-tracking"></a>Konfigurera filinnehåll spårning
+## <a name="configure-file-content-tracking"></a>Konfigurera spårning av fil innehåll
 
-Du kan visa innehållet före och efter en ändring av en fil med filen innehåll ändringsspårning. Detta är tillgänglig för Windows och Linux-filer för varje ändring i filen, innehållet i filen lagras i ett lagringskonto och visar filen före och efter ändringen, infogade eller sida vid sida. Mer information finns i [visa innehållet i en spårade fil](change-tracking-file-contents.md).
+Du kan visa innehållet innan och efter en ändring av en fil med fil innehåll Ändringsspårning. Detta är tillgängligt för Windows-och Linux-filer, för varje ändring av filen, lagras filens innehåll i ett lagrings konto och filen visas före och efter en ändring, infogad eller sida vid sida. Mer information finns i [Visa innehållet i en spårad fil](change-tracking-file-contents.md).
 
 ![Visa ändringar i en fil](./media/change-tracking-file-contents/view-file-changes.png)
 
-### <a name="configure-windows-registry-keys-to-track"></a>Konfigurera Windows registernycklar för att spåra
+### <a name="configure-windows-registry-keys-to-track"></a>Konfigurera Windows-registernycklar att spåra
 
-Använd följande steg för att konfigurera viktiga registerspårning på Windows-datorer:
+Använd följande steg för att konfigurera register nyckel spårning på Windows-datorer:
 
-1. I ditt Automation-konto väljer **ändringsspårning** under **KONFIGURATIONSHANTERING**. Klicka på **redigera inställningar för** (kugghjulet).
-2. På den **ändringsspårning** väljer **Windows-registret**, klicka sedan på **+ Lägg till** att lägga till en ny registernyckel för att spåra.
-3. På den **lägga till Windows-registret för ändringsspårning**, anger du information för nyckeln som ska spåras och klickar på **spara**.
+1. I ditt Automation-konto väljer du **ändrings spårning** under **konfigurations hantering**. Klicka på **Redigera inställningar** (kugg hjuls symbolen).
+2. På sidan **ändringsspårning** väljer du **Windows-register**och klickar sedan på **+ Lägg** till för att lägga till en ny register nyckel som ska spåras.
+3. I **Lägg till Windows-registret för ändringsspårning**anger du informationen för nyckeln som ska spåras och klickar på **Spara**.
 
 |Egenskap  |Beskrivning  |
 |---------|---------|
-|Enabled     | Avgör om inställningen tillämpas.        |
-|Objektnamn     | Eget namn för registernyckeln som ska spåras.        |
-|Grupp     | Ett gruppnamn för att gruppera logiskt registernycklar.        |
-|Windows-registernyckel   | Sökvägen för att söka för registernyckel. Exempel: ”HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup”      |
+|Aktiverad     | Anger om inställningen tillämpas.        |
+|Objektnamn     | Eget namn på register nyckeln som ska spåras.        |
+|Grupp     | Ett grupp namn för register nycklar för logisk gruppering.        |
+|Windows-registernyckel   | Sökvägen för att kontrol lera register nyckeln. Exempel: ”HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup”      |
 
 ## <a name="limitations"></a>Begränsningar
 
-Lösningen ändringsspårning stöder inte för närvarande följande objekt:
+Ändringsspårning-lösningen stöder för närvarande inte följande objekt:
 
-* Rekursion för Windows-registret spårning
-* Network file system
+* Rekursion för spårning av Windows-register
+* Nätverks fil system
 
 Andra begränsningar:
 
-* Den **största filstorlek** kolumnen och värdena är oanvända i den aktuella implementeringen.
-* Om du samlar in mer än 2 500 filer i 30-minuters insamlingscykel kan lösningens prestanda försämras.
-* När nätverkstrafik är hög kan ändringsposter ta upp till sex timmar att visa.
-* Om du ändrar konfigurationen när en dator är avstängd, kanske datorn publicerar ändringar som tillhör den tidigare konfigurationen.
+* Kolumnen **maximal fil storlek** och värden används inte i den aktuella implementeringen.
+* Om du samlar in fler än 2500 filer i insamlings cykeln på 30 minuter kan lösningens prestanda försämras.
+* När nätverks trafiken är hög kan det ta upp till sex timmar att ändra poster.
+* Om du ändrar konfigurationen när en dator stängs av kan datorn Publicera ändringar som tillhörde den tidigare konfigurationen.
 
 ## <a name="known-issues"></a>Kända problem
 
-Lösningen ändringsspårning har för närvarande följande problem:
+Följande fel har uppstått i Ändringsspårning-lösningen:
 
-* Hotfix-uppdateringar har inte samlats in på Windows Server 2016 Core RS3 datorer.
-* Linux-Daemon kan indikera ett ändrade tillstånd även om det fanns ingen ändring. Detta beror på hur `SvcRunLevels` fältet avbildas.
+* Uppdateringar av snabb korrigeringar samlas inte in på Windows Server 2016 Core RS3-datorer.
+* Linux-Daemonar kan visa ett ändrat tillstånd även om det inte har ändrats. Detta beror på hur `SvcRunLevels` fältet fångas.
 
-## <a name="change-tracking-data-collection-details"></a>Ändra spårningsinformation data samling
+## <a name="change-tracking-data-collection-details"></a>Information om Ändringsspårning data insamling
 
-I följande tabell visas insamlingsfrekvens data för typerna av ändringar. För varje uppdateras ögonblicksbild av det aktuella tillståndet var 24 timmar:
+I följande tabell visas data insamlings frekvensen för olika typer av ändringar. För varje typ uppdateras även data ögonblicks bilden av det aktuella läget minst var 24: e timme:
 
 | **Ändra typ** | **Frekvens** |
 | --- | --- |
-| Windows-registret | 50 minuter |
-| Windows-fil | 30 minuter |
-| Linux-fil | 15 minuter |
-| Windows-tjänster | 10 sekunder till 30 minuter</br> standard: 30 minuter |
-| Linux-Daemon | 5 minuter |
-| Windows-programvara | 30 minuter |
-| Linux-programvara | 5 minuter |
+| Windows-register | 50 minuter |
+| Windows-fil | 30 minuter |
+| Linux-fil | 15 minuter |
+| Windows-tjänster | 10 sekunder till 30 minuter</br> Standard: 30 minuter |
+| Linux-daemon | 5 minuter |
+| Windows-programvara | 30 minuter |
+| Linux-programvara | 5 minuter |
 
-I följande tabell visar de spårade objekt gränserna per dator för ändringsspårning.
+I följande tabell visas gränserna för spårade objekt per dator för Ändringsspårning.
 
 | **Resurs** | **Gränsen**| **Anteckningar** |
 |---|---|---|
 |Fil|500||
-|Registret|250||
-|Windows-programvara|250|Omfattar inte programuppdateringar|
+|Register|250||
+|Windows-programvara|250|Innehåller inte program uppdateringar|
 |Linux-paket|1250||
 |Tjänster|250||
 |Daemon|250||
 
-Genomsnittlig användning av Log Analytics-data för en virtuell dator med ändringsspårning och inventering är cirka 40MB per månad. Det här värdet är bara en uppskattning och kan komma att ändras baserat på din miljö. Vi rekommenderar att du övervakar din miljö för att se exakt användningen som du har.
+Genomsnittlig Log Analytics data användning för en dator som använder Ändringsspårning och inventering är cirka 40MB per månad. Det här värdet är bara en uppskattning och kan komma att ändras baserat på din miljö. Vi rekommenderar att du övervakar din miljö för att se den exakta användningen som du har.
 
-### <a name="windows-service-tracking"></a>Windows service-spårning
+### <a name="windows-service-tracking"></a>Spårning av Windows-tjänst
 
-Insamlingsfrekvens standard för Windows-tjänster är 30 minuter. Om du vill ange hur ofta, gå till **ändringsspårning**. Under **redigera inställningar för** på den **Windows Services** fliken finns det ett skjutreglage som gör det möjligt att ändra insamlingsfrekvens för Windows-tjänster från så snabbt som 10 sekunder till upp till 30 minuter. Flytta skjutreglaget till hur ofta du vill och det sparas automatiskt.
+Standard frekvensen för insamling av Windows-tjänster är 30 minuter. Om du vill konfigurera frekvensen går du till **ändringsspårning**. Under **Redigera inställningar** på fliken **Windows-tjänster** finns det ett skjutreglage som gör att du kan ändra samlings frekvensen för Windows-tjänster från så snabbt som 10 sekunder till så länge som 30 minuter. Flytta skjutreglaget till den frekvens som du vill ha och spara den automatiskt.
 
-![Skjutreglaget för Windows-tjänster](./media/change-tracking/windowservices.png)
+![Skjutreglage för Windows Services](./media/change-tracking/windowservices.png)
 
-Agenten endast spårar ändringar, detta optimerar prestanda för agenten. Ange en hög tröskel kan missa ändringar om tjänsten har återställts till deras ursprungliga tillstånd. Ange frekvensen till ett mindre värde kan du fånga ändringar som annars kan missas.
+Agenten spårar bara ändringar, vilket optimerar agentens prestanda. Att ange ett högt tröskelvärde kan missa ändringar om tjänsten återställs till sitt ursprungliga tillstånd. Genom att ange frekvensen till ett mindre värde kan du fånga in ändringar som annars kan missas.
 
 > [!NOTE]
-> Agenten kan spåra ändringar till ett 10 andra intervall, data fortfarande tar några minuter som ska visas i portalen. Ändringar under den tid som ska visas i portalen är fortfarande spåras och loggas.
-  
-### <a name="registry-key-change-tracking"></a>Viktiga registerändringsspårning
+> Även om agenten kan spåra ändringar nedåt till ett 10 sekunders intervall, tar det fortfarande några minuter innan data visas i portalen. Ändringar under tiden som visas i portalen spåras och loggas fortfarande.
 
-Syftet med att övervaka ändringar i registernycklarna är att identifiera punkter där kod från tredje part och skadlig kod kan aktivera. I följande lista visas listan över förkonfigurerade registernycklar. De här nycklarna konfigureras, men inte aktiverad. Du måste aktivera var och en för att spåra dessa registernycklar.
+### <a name="registry-key-change-tracking"></a>Ändrings spårning av register nyckel
+
+Syftet med att övervaka ändringar i register nycklar är att hitta utöknings punkter där kod från tredje part och skadlig kod kan aktive ras. I följande lista visas en lista över förkonfigurerade register nycklar. Dessa nycklar har kon figurer ATS men inte Aktiver ATS. Om du vill spåra register nycklarna måste du aktivera var och en.
 
 > [!div class="mx-tdBreakAll"]
 > |  |
 > |---------|
-> |**HKEY\_LOCAL\_MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers**     |
-|&nbsp;&nbsp;&nbsp;&nbsp;Övervakare vanliga autostart transaktioner som anslutas direkt till Windows Explorer och vanligtvis kör i processen med Explorer.exe.    |
-> |**HKEY\_lokala\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Startup**     |
-|&nbsp;&nbsp;&nbsp;&nbsp;Övervakare-skript som körs vid start.     |
-> |**HKEY\_lokala\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Shutdown**    |
-|&nbsp;&nbsp;&nbsp;&nbsp;Övervakare-skript som körs vid avstängningen.     |
+> |**\_Lokala\_HKEY-MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers**     |
+|&nbsp;&nbsp;&nbsp;&nbsp;Övervakar vanliga Autostart-poster som kopplas direkt till Utforskaren i Windows och körs vanligt vis med Explorer. exe.    |
+> |**HKEY\_lokala\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Group-Policy\Scripts\Startup**     |
+|&nbsp;&nbsp;&nbsp;&nbsp;Övervakar skript som körs vid start.     |
+> |**HKEY\_lokala\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Group-Policy\Scripts\Shutdown**    |
+|&nbsp;&nbsp;&nbsp;&nbsp;Övervakar skript som körs vid avstängning.     |
 > |**HKEY\_LOCAL\_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run**     |
-|&nbsp;&nbsp;&nbsp;&nbsp;Övervakar nycklar som har lästs in innan användaren loggar in på sina Windows-konto. Nyckeln används för 32-bitars program som körs på 64-bitarsdatorer.    |
-> |**HKEY\_lokala\_MACHINE\SOFTWARE\Microsoft\Active Setup\Installed komponenter**     |
-|&nbsp;&nbsp;&nbsp;&nbsp;Övervakar ändringar på programinställningar.     |
-> |**HKEY\_LOCAL\_MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers**|
-|&nbsp;&nbsp;&nbsp;&nbsp;Övervakare vanliga autostart transaktioner som anslutas direkt till Windows Explorer och vanligtvis kör i processen med Explorer.exe.|
-> |**HKEY\_LOCAL\_MACHINE\Software\Classes\Directory\Shellex\CopyHookHandlers**|
-|&nbsp;&nbsp;&nbsp;&nbsp;Övervakare vanliga autostart transaktioner som anslutas direkt till Windows Explorer och vanligtvis kör i processen med Explorer.exe.|
-> |**HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers**|
-|&nbsp;&nbsp;&nbsp;&nbsp;Övervakare för ikonen täcker registrering.|
-|**HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers**|
-|&nbsp;&nbsp;&nbsp;&nbsp;Övervakare för ikonen täcker registrering för 32-bitars program som körs på 64-bitarsdatorer.|
+|&nbsp;&nbsp;&nbsp;&nbsp;Övervakar nycklar som läses in innan användaren loggar in på sitt Windows-konto. Nyckeln används för 32-bitars program som körs på 64-bitars datorer.    |
+> |**HKEY\_lokala\_MACHINE\SOFTWARE\Microsoft\Active Setup\Installed-komponenter**     |
+|&nbsp;&nbsp;&nbsp;&nbsp;Övervakar ändringar i program inställningarna.     |
+> |**\_Lokala\_HKEY-MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers**|
+|&nbsp;&nbsp;&nbsp;&nbsp;Övervakar vanliga Autostart-poster som kopplas direkt till Utforskaren i Windows och körs vanligt vis med Explorer. exe.|
+> |**\_Lokala\_HKEY-MACHINE\Software\Classes\Directory\Shellex\CopyHookHandlers**|
+|&nbsp;&nbsp;&nbsp;&nbsp;Övervakar vanliga Autostart-poster som kopplas direkt till Utforskaren i Windows och körs vanligt vis med Explorer. exe.|
+> |**\_Lokala\_HKEY-MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers**|
+|&nbsp;&nbsp;&nbsp;&nbsp;Övervakare för registrering av ikon överläggs hanterare.|
+|**\_Lokala\_HKEY-MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers**|
+|&nbsp;&nbsp;&nbsp;&nbsp;Övervakare för ikon överläggs hanterare registrering för 32-bitars program som körs på 64-bitars datorer.|
 > |**HKEY\_lokala\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper-objekt**|
-|&nbsp;&nbsp;&nbsp;&nbsp;Övervakare för nya webbläsare helper objektet plugin-program för Internet Explorer. För att få åtkomst till den modellen DOM (Document Object) för den aktuella sidan och styra navigering.|
+|&nbsp;&nbsp;&nbsp;&nbsp;Övervakar nya plugin-program för webb läsar tillägg för Internet Explorer. Används för att få åtkomst till Document Object Model (DOM) för den aktuella sidan och för att kontrol lera navigeringen.|
 > |**HKEY\_lokala\_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper-objekt**|
-|&nbsp;&nbsp;&nbsp;&nbsp;Övervakare för nya webbläsare helper objektet plugin-program för Internet Explorer. För att få åtkomst till den modellen DOM (Document Object) för den aktuella sidan och styra navigeringen för 32-bitars program som körs på 64-bitarsdatorer.|
-> |**HKEY\_lokala\_MACHINE\Software\Microsoft\Internet Explorer\Extensions**|
-|&nbsp;&nbsp;&nbsp;&nbsp;Övervakare för nya tillägg i Internet Explorer, till exempel anpassat verktyg menyer och egna verktygsfältsknappar.|
-> |**HKEY\_lokala\_MACHINE\Software\Wow6432Node\Microsoft\Internet Explorer\Extensions**|
-|&nbsp;&nbsp;&nbsp;&nbsp;Övervakare för nya tillägg i Internet Explorer, till exempel anpassat verktyg menyer och egna verktygsfältsknappar för 32-bitars program som körs på 64-bitarsdatorer.|
-> |**HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Drivers32**|
-|&nbsp;&nbsp;&nbsp;&nbsp;Övervakar de 32-bitars drivrutiner som är associerade med wavemapper, wave1 och wave2, msacm.imaadpcm, .msadpcm, .msgsm610 och vidc. Liknar [drivrutinsavsnittet] i systemet. INI-filen.|
-> |**HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32**|
-|&nbsp;&nbsp;&nbsp;&nbsp;Övervakare 32-bitars drivrutiner som är associerade med wavemapper, wave1 och wave2, msacm.imaadpcm, .msadpcm, .msgsm610 och vidc för 32-bitars program som körs på 64-bitarsdatorer. Liknar [drivrutinsavsnittet] i systemet. INI-filen.|
+|&nbsp;&nbsp;&nbsp;&nbsp;Övervakar nya plugin-program för webb läsar tillägg för Internet Explorer. Används för att få åtkomst till Document Object Model (DOM) för den aktuella sidan och för att kontrol lera navigering för 32-bitars program som körs på 64-bitars datorer.|
+> |**HKEY\_lokala\_MACHINE\Software\Microsoft\Internet-Explorer\Extensions**|
+|&nbsp;&nbsp;&nbsp;&nbsp;Övervakar nya Internet Explorer-tillägg, till exempel anpassade verktygs menyer och anpassade verktygsfälts knappar.|
+> |**HKEY\_lokala\_MACHINE\Software\Wow6432Node\Microsoft\Internet-Explorer\Extensions**|
+|&nbsp;&nbsp;&nbsp;&nbsp;Övervakar nya Internet Explorer-tillägg, till exempel anpassade verktygs menyer och anpassade verktygsfälts knappar för 32-bitars program som körs på 64-bitars datorer.|
+> |**HKEY\_lokala\_MACHINE\Software\Microsoft\Windows-NT\CurrentVersion\Drivers32**|
+|&nbsp;&nbsp;&nbsp;&nbsp;Övervakar de 32-bitars driv rutiner som är kopplade till wavemapper, wave1 och Wave2, MSACM. imaadpcm,. msadpcm,. msgsm610 och vidc. Liknar avsnittet [driv rutiner] i systemet. INI-fil.|
+> |**HKEY\_lokala\_MACHINE\Software\Wow6432Node\Microsoft\Windows-NT\CurrentVersion\Drivers32**|
+|&nbsp;&nbsp;&nbsp;&nbsp;Övervakar de 32-bitars driv rutiner som är associerade med wavemapper, wave1 och Wave2, MSACM. imaadpcm,. msadpcm,. msgsm610 och vidc för 32-bitars program som körs på 64-bitars datorer. Liknar avsnittet [driv rutiner] i systemet. INI-fil.|
 > |**HKEY\_LOCAL\_MACHINE\System\CurrentControlSet\Control\Session Manager\KnownDlls**|
-|&nbsp;&nbsp;&nbsp;&nbsp;Övervakar listan över kända eller vanliga system DLL: er; Det här systemet förhindrar att användare utnyttjar svaga directory programbehörigheter genom att släppa i trojansk häst versioner av system-DLL: er.|
-> |**HKEY\_LOCAL\_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify**|
-|&nbsp;&nbsp;&nbsp;&nbsp;Övervakar listan över paket som kan ta emot meddelanden om händelser från Winlogon supportmodell interaktiv inloggning för Windows-operativsystem.|
+|&nbsp;&nbsp;&nbsp;&nbsp;Övervakar listan över kända eller ofta använda system-DLL-filer. Det här systemet förhindrar att personer utnyttjar svaga program katalog behörigheter genom att släppa i trojanska hästar versioner av system-DLL: er.|
+> |**HKEY\_lokala\_MACHINE\SOFTWARE\Microsoft\Windows-NT\CurrentVersion\Winlogon\Notify**|
+|&nbsp;&nbsp;&nbsp;&nbsp;Övervakar listan över paket som kan ta emot händelse meddelanden från Winlogon, den interaktiva inloggnings support modellen för Windows-operativsystemet.|
 
 ## <a name="network-requirements"></a>Nätverkskrav
 
-Följande adresser krävs för ändringsspårning. Kommunikation till dessa adresser görs via port 443.
+Följande adresser krävs specifikt för Ändringsspårning. Kommunikationen med de här adresserna görs via port 443.
 
 |Azure Public  |Azure Government  |
 |---------|---------|
@@ -251,71 +269,71 @@ Följande adresser krävs för ändringsspårning. Kommunikation till dessa adre
 |*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
 |*.azure-automation.net|*.azure-automation.us|
 
-## <a name="use-change-tracking"></a>Använda ändringsspårning
+## <a name="use-change-tracking"></a>Använd Ändringsspårning
 
-När lösningen har aktiverats kan du visa en sammanfattning av ändringar för övervakade datorer genom att välja **ändringsspårning** under **KONFIGURATIONSHANTERING** i ditt Automation-konto.
+När lösningen har Aktiver ATS kan du visa sammanfattningen av ändringarna för dina övervakade datorer genom att välja **ändringsspårning** under **konfigurations hantering** i ditt Automation-konto.
 
-Du kan visa ändringar i dina datorer och sedan gå till information för varje händelse. Listrutor finns överst i diagrammet för att begränsa diagrammet och detaljerad information baserat på Ändra typ och tidsintervall. Du kan också klicka och dra i diagrammet och välj ett anpassat tidsintervall. **Ändra typen** ska vara något av följande värden **händelser**, **Daemons**, **filer**, **registret**,  **Programvara**, **Windows Services**. Kategori visar vilken typ av ändring och kan vara **tillagd**, **modifierats**, eller **har tagits bort**.
+Du kan visa ändringar på datorerna och sedan granska informationen för varje händelse. Nedrullningsbara List rutor är tillgängliga överst i diagrammet för att begränsa diagrammet och detaljerad information baserat på ändrings typ och tidsintervall. Du kan också klicka och dra i diagrammet för att välja ett anpassat tidsintervall. **Ändra typ** är ett av följande värden: **händelser**, **daemonar**, **filer**, **register**, **program vara**, **Windows-tjänster**. Kategori visar vilken typ av ändring och som kan **läggas till**, **ändras**eller **tas bort**.
 
-![Bild av instrumentpanelen för ändringsspårning](./media/change-tracking/change-tracking-dash01.png)
+![bild av Ändringsspårning instrument panel](./media/change-tracking/change-tracking-dash01.png)
 
-När du klickar på en ändring eller händelse öppnas den detaljerade informationen om den ändringen. Som du ser i exemplet har starttypen för tjänsten ändrats från manuell till automatisk.
+Om du klickar på en ändring eller händelse får du detaljerad information om ändringen. Som du kan se från exemplet ändrades start typen för tjänsten från manuell till automatisk.
 
-![Bild av information för att spåra ändringar](./media/change-tracking/change-tracking-details.png)
+![bild av information om ändrings spårning](./media/change-tracking/change-tracking-details.png)
 
 ## <a name="search-logs"></a>Sök i loggar
 
-Förutom den information som tillhandahålls i portalen, kan du göra sökningar mot loggarna. Med den **ändringsspårning** öppen, klickar du på **Log Analytics**, öppnas den **loggar** sidan.
+Förutom den information som finns i portalen kan du göra sökningar mot loggarna. När sidan **ändringsspårning** är öppen klickar du på **Log Analytics**. Då öppnas sidan **loggar** .
 
 ### <a name="sample-queries"></a>Exempelfrågor
 
-Följande tabell innehåller exempel på loggsökningar för ändra poster som samlas in av den här lösningen:
+Följande tabell innehåller exempel på loggs ökningar för ändrings poster som samlas in av den här lösningen:
 
 |Söka i data  |Beskrivning  |
 |---------|---------|
-|ConfigurationData<br>&#124;där ConfigDataType == ”WindowsServices” och SvcStartupType == ”automatisk”<br>&#124;där SvcState == ”stoppad”<br>&#124; summarize arg_max(TimeGenerated, *) by SoftwareName, Computer         | Visar senaste lagerposter för Windows-tjänster som har ställts in på automatisk men har rapporterats som stoppas<br>Frågeresultaten har begränsats till den senaste posten för den SoftwareName och Computer      |
-|ConfigurationChange<br>&#124;där ConfigChangeType == ”programvara” och ChangeCategory == ”borttagen”<br>&#124;order by-TimeGenerated fall|Visar ändringsposter för borttagna program|
+|ConfigurationData<br>&#124;där ConfigDataType = = "WindowsServices" och SvcStartupType = = "Auto"<br>&#124;där SvcState = = "stoppad"<br>&#124; summarize arg_max(TimeGenerated, *) by SoftwareName, Computer         | Visar de senaste inventerings posterna för Windows-tjänster som har ställts in på auto men som har rapporter ATS som stoppade<br>Resultaten är begränsade till den senaste posten för den SoftwareName och datorn      |
+|ConfigurationChange<br>&#124;där ConfigChangeType = = "Software" och ChangeCategory = = "borttaget"<br>&#124;Sortera efter TimeGenerated DESC|Visar ändrings poster för borttagen program vara|
 
-## <a name="alert-on-changes"></a>Avisera om ändringar
+## <a name="alert-on-changes"></a>Varning vid ändringar
 
-En viktig funktion för ändringsspårning och inventering är möjligheten att Avisera om konfigurationstillståndet och eventuella ändringar gällande konfigurationstillståndet för din hybridmiljön.  
+En viktig funktion i Ändringsspårning och inventering är möjligheten att meddela konfigurations tillstånd och eventuella ändringar i konfigurations läget för din hybrid miljö.
 
-I följande exempel skärmbilden visar att filen `C:\windows\system32\drivers\etc\hosts` har ändrats på en dator. Den här filen är viktigt eftersom Hosts-filen används av Windows för att matcha värdnamn till IP-adresser och har företräde framför även DNS, vilket kan leda till problem med nätverksanslutningen eller omdirigering av trafik till skadliga eller annars farliga webbplatser.
+I följande exempel visar skärm bilden att filen `C:\windows\system32\drivers\etc\hosts` har ändrats på en dator. Den här filen är viktig eftersom hosts-filen används av Windows för att matcha värdnamn till IP-adresser och har företräde framför DNS, vilket kan leda till anslutnings problem eller omdirigering av trafik till skadliga eller på annat sätt farliga webbplatser.
 
-![Ett diagram som visar värdarna filändring](./media/change-tracking/changes.png)
+![Ett diagram som visar fil ändringen för hosts](./media/change-tracking/changes.png)
 
-Om du vill analysera den här ändringen ytterligare, gå till loggsökning från att klicka på **Log Analytics**. En gång i loggsökning, Sök efter innehållet ändras Hosts-filen med frågan `ConfigurationChange | where FieldsChanged contains "FileContentChecksum" and FileSystemPath contains "hosts"`. Den här frågan söker efter ändringar som innehöll en ändring av filinnehåll för filer vars fullständigt kvalificerade sökvägen innehåller ordet ”värdar”. Du kan också fråga efter en viss fil genom att ändra sökvägsdelen till dess fullständigt kvalificerade (till exempel `FileSystemPath == "c:\windows\system32\drivers\etc\hosts"`).
+Om du vill analysera ändringen ytterligare går du till loggs ökningen genom att klicka på **Log Analytics**. När du har loggat in söker du efter innehålls ändringar till värd filen med frågan `ConfigurationChange | where FieldsChanged contains "FileContentChecksum" and FileSystemPath contains "hosts"`. Den här frågan söker efter ändringar som inkluderar en ändring av fil innehåll för filer vars fullständiga sökväg innehåller ordet "hosts". Du kan också fråga efter en viss fil genom att ändra Sök vägs delen till dess fullständigt kvalificerade form (till `FileSystemPath == "c:\windows\system32\drivers\etc\hosts"`exempel).
 
-När frågan returnerar det önskade resultatet, klickar du på den **ny aviseringsregel** knappen i loggen sökupplevelsen att öppna sidan skapande av varning. Du kan också navigera till den här upplevelsen via **Azure Monitor** i Azure-portalen. Kontrollera frågan igen och ändra avisering logiken i skapande av varning-upplevelse. I detta fall använder vill du att aviseringen ska utlösas om det finns även en ändring som har identifierats för alla datorer i miljön.
+När frågan returnerar önskade resultat klickar du på knappen **ny varnings regel** i loggs ökningen för att öppna sidan Skapa avisering. Du kan också navigera till den här upplevelsen genom **Azure Monitor** i Azure Portal. I upplevelsen för att skapa aviseringar, kontrollerar du frågan igen och ändrar aviserings logiken. I det här fallet vill du att aviseringen ska utlösas om det inte finns någon ändring som upptäcks på alla datorer i miljön.
 
-![En bild som visar ändra frågan för att spåra ändringar i värdfilen](./media/change-tracking/change-query.png)
+![En bild som visar ändrings frågan för spårning av ändringar i värd filen](./media/change-tracking/change-query.png)
 
-Tilldela åtgärdsgrupper för att utföra åtgärder som svar på aviseringen utlöses när du har angett villkorsstyrd logik. I det här fallet har jag ställa in e-postmeddelanden som ska skickas och ITSM-biljett som ska skapas.  Många andra användbara åtgärder kan också hämtas som att utlösa en Azure-funktion, Automation runbook, webhook eller Logikapp.
+När villkors logiken har angetts tilldelar du åtgärds grupper för att utföra åtgärder som svar på aviseringen utlöses. I det här fallet har jag konfigurerat e-postmeddelanden som ska skickas och en ITSM-biljett skapas.  Många andra användbara åtgärder kan också vidtas, till exempel för att utlösa en Azure Function-, Automation-Runbook, webhook eller Logic app.
 
-![En avbildning som konfigurerar en åtgärdsgrupp att aviseringen på ändringar](./media/change-tracking/action-groups.png)
+![En bild som konfigurerar en åtgärds grupp för varning vid ändringen](./media/change-tracking/action-groups.png)
 
-Efter alla parametrar och logik ställs in, kan vi använda aviseringen för miljön.
+När du har angett alla parametrar och logik kan vi tillämpa aviseringen på miljön.
 
-### <a name="alert-suggestions"></a>Aviseringen förslag
+### <a name="alert-suggestions"></a>Aviserings förslag
 
-Varna vid ändringar i värdfilen är en bra tillämpning av aviseringar för ändringsspårning och inventering data, finns men det många fler scenarier för avisering, inklusive fall som definierats tillsammans med deras exempelfrågor i avsnittet nedan.
+Aviseringar om ändringar i värd filen är en lämplig tillämpning av aviseringar för Ändringsspårning eller inventerings data, det finns många fler scenarier för aviseringar, inklusive de fall som definierats tillsammans med deras exempel frågor i avsnittet nedan.
 
 |Söka i data  |Beskrivning  |
 |---------|---------|
-|ConfigurationChange <br>&#124;där ConfigChangeType == ”filer” och FileSystemPath innehåller ”c:\\windows\\system32\\drivrutiner\\”|Användbart för att spåra ändringar av kritiska systemfiler|
-|ConfigurationChange <br>&#124;där FieldsChanged innehåller ”FileContentChecksum” och FileSystemPath == ”c:\\windows\\system32\\drivrutiner\\osv\\värdar”|Användbart för att spåra ändringar av viktiga konfigurationsfiler|
-|ConfigurationChange <br>&#124;där ConfigChangeType == ”WindowsServices” och SvcName innehåller ”w3svc” och SvcState == ”stoppad”|Användbart för att spåra ändringar av kritiska systemtjänster|
-|ConfigurationChange <br>&#124;där ConfigChangeType == ”Daemons” och SvcName innehåller ”ssh” och SvcState! = ”körs”|Användbart för att spåra ändringar av kritiska systemtjänster|
-|ConfigurationChange <br>&#124;där ConfigChangeType == ”programvara” och ChangeCategory == ”har lagts till”|Användbart för miljöer som behöver låsta konfigurationer|
-|ConfigurationData <br>&#124;där SoftwareName innehåller ”Monitoring Agent” och CurrentVersion! = ”8.0.11081.0”|Användbar för att se vilka datorer har en inaktuell eller icke-kompatibla program-version som är installerad. Rapporterar den senaste rapporterade Konfigurationsstatus, inte ändringar.|
-|ConfigurationChange <br>&#124; where RegistryKey == "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\QualityCompat"| Användbart för att spåra ändringar av avgörande antivirus-nycklar|
-|ConfigurationChange <br>&#124;där RegistryKey innehåller ”HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\SharedAccess\\parametrar\\FirewallPolicy”| Användbart för att spåra ändringar av brandväggsinställningar|
+|ConfigurationChange <br>&#124;där ConfigChangeType = = "Files" och FileSystemPath innehåller "c:\\Windows\\system32\\-\\drivrutiner"|Användbart för att spåra ändringar i system kritiska filer|
+|ConfigurationChange <br>&#124;där FieldsChanged innehåller "FileContentChecksum" och FileSystemPath = = "c:\\Windows\\system32\\-\\drivrutiner\\osv"|Användbart för att spåra ändringar i konfigurationsfiler för nycklar|
+|ConfigurationChange <br>&#124;där ConfigChangeType = = "WindowsServices" och SvcName innehåller "W3SVC" och SvcState = = "stoppad"|Användbart för att spåra ändringar i system kritiska tjänster|
+|ConfigurationChange <br>&#124;där ConfigChangeType = = "daemons" och SvcName innehåller "SSH" och SvcState! = "kör"|Användbart för att spåra ändringar i system kritiska tjänster|
+|ConfigurationChange <br>&#124;där ConfigChangeType = = "Software" och ChangeCategory = = "Added"|Användbart för miljöer som behöver låsta program varu konfigurationer|
+|ConfigurationData <br>&#124;där SoftwareName innehåller "övervaknings agent" och CurrentVersion! = "8.0.11081.0"|Användbart för att se vilka datorer som har en inaktuell eller icke-kompatibel program varu version installerad. Den rapporterar det senaste rapporterade konfigurations läget, inte ändringar.|
+|ConfigurationChange <br>&#124;där RegistryKey = = "HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\QualityCompat"| Användbart för att spåra ändringar i viktiga Antivirus nycklar|
+|ConfigurationChange <br>&#124;där RegistryKey innehåller "HKEY_LOCAL_MACHINE\\system\\CurrentControlSet\\Services\\SharedAccess\\Parameters\\FirewallPolicy"| Användbart för att spåra ändringar i brand Väggs inställningar|
 
 ## <a name="next-steps"></a>Nästa steg
 
-Gå kursen på ändringsspårning vill veta mer om hur du använder lösningen:
+Mer information om hur du använder lösningen finns i kursen om Ändringsspårning:
 
 > [!div class="nextstepaction"]
 > [Felsöka ändringar i din miljö](automation-tutorial-troubleshoot-changes.md)
 
-* Använd [Loggsökningar i Azure Monitor-loggar](../log-analytics/log-analytics-log-searches.md) att visa detaljerad spårning av data.
+* Använd [loggs ökningar i Azure Monitor loggar](../log-analytics/log-analytics-log-searches.md) om du vill visa detaljerade ändrings spårnings data.

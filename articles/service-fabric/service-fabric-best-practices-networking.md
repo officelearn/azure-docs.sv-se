@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric nätverk säkerhetsmetoder | Microsoft Docs
-description: Metodtips för att hantera Service Fabric-nätverk.
+title: Metod tips för Azure Service Fabric nätverk | Microsoft Docs
+description: Metod tips för hantering av Service Fabric nätverk.
 services: service-fabric
 documentationcenter: .net
 author: peterpogorski
@@ -15,20 +15,20 @@ ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
 ms.openlocfilehash: d221b828624e649a0d04a89c4394fe5a7fa857dd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "66237325"
 ---
 # <a name="networking"></a>Nätverk
 
-När du skapar och hanterar Azure Service Fabric-kluster tillhandahåller du nätverksanslutning för dina noder och program. Nätverksresurser omfattar IP-adressintervall, virtuella nätverk, belastningsutjämnare och nätverkssäkerhetsgrupper. I den här artikeln får du lära dig bästa praxis för dessa resurser.
+När du skapar och hanterar Azure Service Fabric-kluster ger du nätverks anslutning för dina noder och program. Nätverks resurserna omfattar IP-adressintervall, virtuella nätverk, belastnings utjämning och nätverks säkerhets grupper. I den här artikeln får du lära dig metod tips för dessa resurser.
 
-Granska Azure [Service Fabric nätverk mönster](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking) att lära dig hur du skapar kluster som använder följande funktioner: Befintligt virtuellt nätverk eller undernät, statiska offentliga IP-adressen, endast intern belastningsutjämnare eller intern och extern belastningsutjämnare.
+Granska Azure [Service Fabric nätverks mönster](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking) för att lära dig hur du skapar kluster som använder följande funktioner: Befintligt virtuellt nätverk eller undernät, statisk offentlig IP-adress, intern belastningsutjämnare eller intern och extern belastningsutjämnare.
 
-## <a name="infrastructure-networking"></a>Infrastruktur för nätverk
-Maximera prestandan för din virtuella dator med Accelererat nätverk, genom att deklarera enableAcceleratedNetworking-egenskapen i Resource Manager-mallen i följande kodfragment är av en virtuell dator skala ange NetworkInterfaceConfigurations som gör det möjligt att Accelererat nätverk:
+## <a name="infrastructure-networking"></a>Infrastruktur nätverk
+Maximera prestandan för den virtuella datorn med accelererat nätverk, genom att deklarera enableAcceleratedNetworking-egenskapen i din Resource Manager-mall, är följande fragment en skalnings uppsättning för virtuella datorer NetworkInterfaceConfigurations som aktiverar accelererat nätverk:
 
 ```json
 "networkInterfaceConfigurations": [
@@ -46,38 +46,38 @@ Maximera prestandan för din virtuella dator med Accelererat nätverk, genom att
   }
 ]
 ```
-Service Fabric-kluster kan etableras på [Linux med Accelererat nätverk](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli), och [Windows med Accelererat nätverk](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell).
+Service Fabric kluster kan tillhandahållas i [Linux med accelererat nätverk](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli)och [Windows med accelererat nätverk](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell).
 
-Accelererat nätverk stöds för SKU: er för Azure VM-serier: D/DSv2, D/DSv3, E/ESv3, F/FS, FSv2 och Ms-/ Mms. Accelererat nätverk har testats har Standard_DS8_v3 SKU: N 1/23/2019 för ett Service Fabric Windows-kluster, samt använder Standard_DS12_v2 2019/01/29 för ett Service Fabric Linux-kluster.
+Accelererat nätverk stöds för Azure Virtual Machine-serien SKU: er: D/DSv2, D/DSv3, E/ESv3, F/FS, FSv2 och MS/MMS. Accelererat nätverk har testats med Standard_DS8_v3 SKU på 1/23/2019 för ett Service Fabric Windows-kluster och med Standard_DS12_v2 på 01/29/2019 för ett Service Fabric Linux-kluster.
 
-Om du vill aktivera Accelererat nätverk i ett befintligt Service Fabric-kluster, måste du först [skala ut ett Service Fabric-kluster genom att lägga till en Virtual Machine Scale Sets](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out), för att utföra följande:
-1. Etablera en NodeType med Accelererat nätverk aktiverat
-2. Migrera dina tjänster och deras tillstånd till den etablerade NodeType med Accelererat nätverk aktiverat
+Om du vill aktivera accelererat nätverk på ett befintligt Service Fabric-kluster måste du först [skala ett Service Fabric kluster genom att lägga till en skalnings uppsättning för virtuella datorer](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out)för att utföra följande:
+1. Etablera en NodeType med accelererat nätverk aktiverat
+2. Migrera dina tjänster och deras tillstånd till den etablerade NodeType med accelererat nätverk aktiverat
 
-Skala ut infrastruktur krävs för att aktivera Accelererat nätverk i ett befintligt kluster eftersom aktivering av Accelererat nätverk på plats skulle orsaka driftstopp, eftersom den kräver att alla virtuella datorer i en tillgänglighetsuppsättning [stoppa och Frigör innan du aktiverar Accelererat nätverk på en befintlig NIC](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli#enable-accelerated-networking-on-existing-vms).
+Att skala ut infrastruktur krävs för att aktivera accelererat nätverk i ett befintligt kluster, eftersom aktivering av accelererade nätverk på plats skulle orsaka drift stopp, eftersom det krävs att alla virtuella datorer i en tillgänglighets uppsättning stoppas och frigörs [innan Aktivera accelererat nätverk på alla befintliga nätverkskort](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli#enable-accelerated-networking-on-existing-vms).
 
-## <a name="cluster-networking"></a>Klusternätverk
+## <a name="cluster-networking"></a>Kluster nätverk
 
-* Service Fabric-kluster kan distribueras till ett befintligt virtuellt nätverk genom att följa anvisningarna i [Service Fabric nätverk mönster](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking).
+* Service Fabric kluster kan distribueras till ett befintligt virtuellt nätverk genom att följa stegen som beskrivs i [Service Fabric nätverks mönster](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking).
 
-* Nätverkssäkerhetsgrupper (NSG) rekommenderas för nodtyper som begränsar inkommande och utgående trafik till deras kluster. Se till att alla nödvändiga portar är öppna i NSG: N. Exempel: ![Service Fabric NSG-regler][NSGSetup]
+* Nätverks säkerhets grupper (NSG: er) rekommenderas för nodtyper som begränsar inkommande och utgående trafik till deras kluster. Se till att de nödvändiga portarna är öppna i NSG. Exempel: ![Service Fabric NSG-regler][NSGSetup]
 
-* Den primära nodtypen som innehåller Service Fabric-systemtjänster behöver inte exponeras via den externa belastningsutjämnaren och kan visas genom en [intern belastningsutjämnare](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking#internal-only-load-balancer)
+* Den primära nodtypen som innehåller Service Fabric system tjänsterna behöver inte exponeras via den externa belastningsutjämnaren och kan exponeras av en [intern belastningsutjämnare](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking#internal-only-load-balancer)
 
 * Använd en [statisk offentlig IP-adress](https://docs.microsoft.com/azure/service-fabric/service-fabric-patterns-networking#static-public-ip-address-1) för klustret.
 
-## <a name="application-networking"></a>Application Networking
+## <a name="application-networking"></a>Program nätverk
 
-* Använd för att köra Windows-behållararbetsbelastningar [öppna nätverk läge](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode) att underlätta tjänst-till-tjänst-kommunikation.
+* Om du vill köra arbets belastningar i Windows-behållare använder du [Öppna Nätverks läge](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode) för att förenkla kommunikationen mellan tjänster och tjänster.
 
-* Använd en omvänd proxy som [Traefik](https://docs.traefik.io/configuration/backends/servicefabric/) eller [Service Fabric omvänd proxy](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy) att exponera programportar för vanliga, till exempel 80 eller 443.
+* Använd en omvänd proxy, till exempel [Traefik](https://docs.traefik.io/configuration/backends/servicefabric/) eller [Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy) den omvända proxyn för att visa vanliga program portar, till exempel 80 eller 443.
 
-* För Windows-behållare som finns på air gapped datorer som det går inte att hämta grundläggande lager från Azure-molnlagring, Åsidosätt främmande layer-beteende med hjälp av den [– Tillåt nondistributable-artefakter](https://docs.microsoft.com/virtualization/windowscontainers/about/faq#how-do-i-make-my-container-images-available-on-air-gapped-machines) flaggan i Docker-daemon.
+* För Windows-behållare som finns på gapped datorer som inte kan hämta bas lager från moln lagring i Azure kan du åsidosätta beteendet för det främmande lagret med hjälp av flaggan [--Allow-undistribuerbara-artefakter](https://docs.microsoft.com/virtualization/windowscontainers/about/faq#how-do-i-make-my-container-images-available-on-air-gapped-machines) i Docker daemon.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Skapa ett kluster på virtuella datorer eller datorer som kör Windows Server: [Skapa för Service Fabric-kluster för Windows Server](service-fabric-cluster-creation-for-windows-server.md)
-* Skapa ett kluster på virtuella datorer eller datorer som kör Linux: [Skapa en Linux-kluster](service-fabric-cluster-creation-via-portal.md)
+* Skapa ett kluster på virtuella datorer eller datorer som kör Windows Server: [Service Fabric skapa kluster för Windows Server](service-fabric-cluster-creation-for-windows-server.md)
+* Skapa ett kluster på virtuella datorer eller datorer som kör Linux: [Skapa ett Linux-kluster](service-fabric-cluster-creation-via-portal.md)
 * Lär dig mer om [Service Fabric-supportalternativen](service-fabric-support.md)
 
 [NSGSetup]: ./media/service-fabric-best-practices/service-fabric-nsg-rules.png

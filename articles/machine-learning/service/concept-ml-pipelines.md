@@ -1,5 +1,5 @@
 ---
-title: 'Pipelines: optimera Machine Learning-arbetsflöden'
+title: Vad är ML-pipelines
 titleSuffix: Azure Machine Learning service
 description: Läs mer om de machine learning pipelines som du kan skapa med Azure Machine Learning-SDK för Python och fördelarna med att använda pipelines i den här artikeln. Machine learning (ML) pipelines som används av datatekniker att bygga, optimera och hantera sina arbetsflöden för maskininlärning.
 services: machine-learning
@@ -11,18 +11,16 @@ ms.author: sanpil
 author: sanpil
 ms.date: 08/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: a9965dbbca939f566048312af921061a188ee50d
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 22d1da4c194b392993b37b16ab20673120c3362e
+ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68884249"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68951800"
 ---
-# <a name="build-reusable-ml-pipelines-in-azure-machine-learning-service"></a>Bygg återanvändbara ML-pipeliner i Azure Machine Learning-tjänsten
+# <a name="what-are-ml-pipelines-in-azure-machine-learning-service"></a>Vad är ML pipelines i Azure Machine Learning service?
 
-I den här artikeln lär du dig om de pipelines i Machine Learning som du kan bygga med Azure Machine Learning SDK för python och fördelarna med att använda pipeliner.
-
-## <a name="what-are-machine-learning-pipelines"></a>Vad är machine learning pipelines?
+Lär dig mer om de pipelines i Machine Learning som du kan bygga och hantera med Azure Machine Learning-tjänsten. 
 
 Med machine learning (ML) pipelines, dataexperter, datatekniker och IT-proffs kan samarbeta med stegen som ingår i:
 + Förberedelse av data, till exempel normalizations och omvandlingar
@@ -30,7 +28,7 @@ Med machine learning (ML) pipelines, dataexperter, datatekniker och IT-proffs ka
 + Modell-utvärdering
 + Distribution
 
-I följande diagram visas ett exempel på en pipeline-process:
+Lär dig hur du [skapa din första pipeline](how-to-create-your-first-pipeline.md).
 
 ![Maskin inlärnings pipeliner i Azure Machine Learning-tjänsten](./media/concept-ml-pipelines/pipeline-flow.png)
 
@@ -47,9 +45,7 @@ Azure-molnet tillhandahåller flera andra pipelines, var och en med olika ändam
 
 ## <a name="why-build-pipelines-with-azure-machine-learning"></a>Varför ska man skapa pipelines med Azure Machine Learning?
 
-Du kan använda [Azure Machine Learning SDK för python](#the-python-sdk-for-pipelines) för att skapa ml-pipelines, samt för att skicka och spåra enskilda pipeline-körningar.
-
-Du kan optimera ditt arbetsflöde med enkelhet, hastighet, portabilitet och återanvändning med pipelines. När du skapar pipeliner med Azure Machine Learning kan du fokusera på din expertis, maskin inlärning i stället för infrastruktur och automatisering.
+Maskin inlärnings pipeliner optimerar arbets flödet med hastighet, portabilitet och åter användning så att du kan fokusera på din expertis, maskin inlärning i stället för infrastruktur och automatisering.
 
 Pipelines skapas utifrån flera **steg**, som är distinkta beräknings enheter i pipelinen. Varje steg kan köras oberoende och använda isolerade beräknings resurser. Detta gör det möjligt för flera data forskare att arbeta med samma pipeline samtidigt utan beskattnings beräknings resurser och gör det också enkelt att använda olika beräknings typer/storlekar för varje steg.
 
@@ -73,20 +69,20 @@ De främsta fördelarna med att använda pipeliner för dina Machine Learning-ar
 
 ## <a name="the-python-sdk-for-pipelines"></a>Python SDK för pipelines
 
-Använda Python för att skapa ML-pipelines. SDK: N för Azure Machine Learning erbjuder tvingande konstruktioner för ordningsföljd och parallellisera stegen i dina pipelines när inget databeroende finns. Du kan interagera med den i Jupyter-anteckningsböcker eller i en annan önskad IDE.
+[Använd python SDK](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py) för att skapa dina ml-pipelines i dina önskade IDE-eller Jupyter-anteckningsböcker. SDK: N för Azure Machine Learning erbjuder tvingande konstruktioner för ordningsföljd och parallellisera stegen i dina pipelines när inget databeroende finns. 
 
-Du kan med hjälp av deklarativa databeroenden, för att optimera dina uppgifter. SDK innehåller ett ramverk av förbyggda moduler för vanliga uppgifter, till exempel data överföring och modell publicering. Du kan utöka ramverket till att modellera dina egna konventioner genom att implementera anpassade steg som kan återanvändas över pipeliner. Du kan också hantera beräknings mål och lagrings resurser direkt från SDK: n.
+Du kan med hjälp av deklarativa databeroenden, för att optimera dina uppgifter. SDK innehåller ett ramverk av förbyggda moduler för vanliga uppgifter, till exempel data överföring och modell publicering. Du kan utöka ramverket för att modellera dina egna konventioner genom att implementera anpassade steg återanvändbara över pipeliner. Du kan också hantera beräknings mål och lagrings resurser direkt från SDK: n.
 
-Du kan spara pipelines som mallar och distribuera dem till en REST-slutpunkt så att du kan schemalägga batch-poäng eller återträna jobb.
+Spara dina pipelines som mallar och distribuera dem till en REST-slutpunkt för batch-poäng eller återträna jobb.
 
-Information om hur du skapar egna finns i [referens dokument för python SDK för pipelines](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py) och antecknings boken i nästa avsnitt.
-
-## <a name="example-notebooks"></a>Exempel-anteckningsböcker
-
-Följande anteckningsböcker demonstrera pipelines med Azure Machine Learning: [how-to-use-azureml/machine-learning-pipelines](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines).
-
-[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
+Det finns två python-paket för pipelines med Azure Machine Learning: [azureml-pipeline-Core](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py) och [azureml-pipeline – steg](https://docs.microsoft.com/en-us/python/api/azureml-pipeline-steps/?view=azure-ml-py).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du [skapa din första pipeline](how-to-create-your-first-pipeline.md).
++ Lär dig hur du [skapa din första pipeline](how-to-create-your-first-pipeline.md).
+
++ Lär dig hur du [kör batch-förutsägelser på stora data](how-to-run-batch-predictions.md).
+
++ Läs [SDK-referens dokument för pipelines](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py)
+
++ Prova Jupyter Notebooks som demonstrerar [Azure Machine Learning pipelines](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines). Lär dig hur du [Kör antecknings böcker för att utforska den här tjänsten](samples-notebooks.md).

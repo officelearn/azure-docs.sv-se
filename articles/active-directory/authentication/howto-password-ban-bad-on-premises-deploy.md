@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a745648f1b7abac7267d51cac9e1fe642ae13d8
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: c0b15c9730f7e469fde8fabd1bc4cbcd28efa66c
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68853688"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68953016"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Distribuera Azure AD-lösenordsskydd
 
@@ -60,6 +60,7 @@ När funktionen har körts i gransknings läge under en rimlig period, kan du v�
     |`https://login.microsoftonline.com`|Autentiseringsbegäranden|
     |`https://enterpriseregistration.windows.net`|Funktioner för lösen ords skydd i Azure AD|
 
+* Alla datorer som är värdar för proxyservern för lösen ords skydd måste konfigureras för att ge domänkontrollanter möjlighet att logga in på proxy-tjänsten. Detta styrs via privilegie tilldelningen "åtkomst till den här datorn från nätverket".
 * Alla datorer som är värdar för proxy-tjänsten för lösen ords skydd måste konfigureras för att tillåta utgående TLS 1,2 HTTP-trafik.
 * Ett globalt administratörs konto för att registrera-proxyservern för lösen ords skydd och-skogar med Azure AD.
 * Ett konto som har Active Directory domän administratörs behörighet i skogs rots domänen för att registrera Windows Server Active Directory-skogen med Azure AD.

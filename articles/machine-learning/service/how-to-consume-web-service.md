@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: a007e3adb72148cfde1590e996f7df9082159445
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 873f45a6cce85669581037c4c398a52b1ebd6d68
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840509"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966843"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Använd en Azure Machine Learning-modell som distribueras som en webbtjänst
 
@@ -80,6 +80,7 @@ Azure Machine Learning ger dig möjlighet att styra åtkomsten till dina webb tj
 |---|---|---|
 |Nyckel|Inaktiverat som standard| Aktive rad som standard|
 |Token| Ej tillgänglig| Inaktiverat som standard |
+
 #### <a name="authentication-with-keys"></a>Autentisering med nycklar
 
 När du aktiverar autentisering för en distribution skapar du automatiskt nycklar för autentisering.
@@ -98,7 +99,6 @@ print(primary)
 
 > [!IMPORTANT]
 > Om du vill återskapa en nyckel kan du använda [ `service.regen_key` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py).
-
 
 #### <a name="authentication-with-tokens"></a>Autentisering med token
 
@@ -155,50 +155,17 @@ Till exempel modellen i den [träna i anteckningsboken](https://github.com/Azure
             ]
         ]
 }
-``` 
+```
 
 Webbtjänsten kan acceptera flera uppsättningar av data i en begäran. Den returnerar ett JSON-dokument som innehåller en matris av svar.
 
 ### <a name="binary-data"></a>Binära data
 
-Om din modell accepterar binära data, till exempel en avbildning måste du ändra den `score.py` filen användes för distributionen för att godkänna raw HTTP-förfrågningar. Här är ett exempel på en `score.py` som accepterar binära data:
+Information om hur du aktiverar stöd för binära data i tjänsten finns i [binära data](how-to-deploy-and-where.md#binary).
 
-```python
-from azureml.contrib.services.aml_request import AMLRequest, rawhttp
-from azureml.contrib.services.aml_response import AMLResponse
+### <a name="cross-origin-resource-sharing-cors"></a>Resurs delning mellan ursprung (CORS)
 
-
-def init():
-    print("This is init()")
-
-
-@rawhttp
-def run(request):
-    print("This is run()")
-    print("Request: [{0}]".format(request))
-    if request.method == 'GET':
-        # For this example, just return the URL for GETs
-        respBody = str.encode(request.full_path)
-        return AMLResponse(respBody, 200)
-    elif request.method == 'POST':
-        reqBody = request.get_data(False)
-        # For a real world solution, you would load the data from reqBody
-        # and send to the model. Then return the response.
-
-        # For demonstration purposes, this example just returns the posted data as the response.
-        return AMLResponse(reqBody, 200)
-    else:
-        return AMLResponse("bad request", 500)
-```
-
-> [!IMPORTANT]
-> `azureml.contrib` Namn området ändras ofta, eftersom vi arbetar för att förbättra tjänsten. Därför bör allt i det här namn området betraktas som en för hands version och stöds inte fullt ut av Microsoft.
->
-> Om du behöver testa detta i din lokala utvecklings miljö kan du installera komponenterna i `contrib` namn området med hjälp av följande kommando:
-> 
-> ```shell
-> pip install azureml-contrib-services
-> ```
+Information om hur du aktiverar CORS-stöd i tjänsten finns i [resurs delning mellan ursprung](how-to-deploy-and-where.md#cors).
 
 ## <a name="call-the-service-c"></a>Anropa tjänsten (C#)
 
@@ -528,3 +495,7 @@ Power BI stöder användning av Azure Machine Learning webb tjänster för att u
 Om du vill generera en webb tjänst som stöds för användning i Power BI måste schemat ha stöd för det format som krävs av Power BI. [Lär dig hur du skapar ett schema som stöds av Power BI](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where#example-script-with-dictionary-input-support-consumption-from-power-bi).
 
 När webb tjänsten har distribuerats kan den förbrukas från Power BI data flöden. [Lär dig hur du använder en Azure Machine Learning-webb tjänst från Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-integration).
+
+## <a name="next-steps"></a>Nästa steg
+
+Om du vill visa en referens arkitektur för real tids poängsättning av python-och djup inlärnings modeller går du till [Azure Architecture Center](/azure/architecture/reference-architectures/ai/realtime-scoring-python).

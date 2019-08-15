@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: dacurwin
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: 7a69fc7c9077fa10ddf808f1cd953f6739eabe20
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 701972c32f3e80682e2a20d04b02bcd555532e08
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688729"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954987"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Säkerhetskopiera en virtuell Azure-dator med hjälp av Azure Backup via REST API
 
-Den här artikeln beskriver hur du hanterar säkerhets kopior för en virtuell Azure-dator med hjälp av Azure Backup via REST API. Konfigurera skydd för första gången för en tidigare oskyddad virtuell Azure-dator, Utlös en säkerhets kopiering på begäran för en skyddad virtuell Azure-dator och ändra säkerhets kopierings egenskaperna för en säkerhets kopie rad virtuell dator via REST API som beskrivs här.
+Den här artikeln beskriver hur du hanterar säkerhets kopior för en virtuell Azure-dator med hjälp av Azure Backup via REST API. Konfigurera skydd för första gången för en tidigare oskyddad virtuell Azure-dator, Utlös en säkerhets kopiering på begäran för en skyddad virtuell Azure-dator och ändra säkerhets kopierings egenskaperna för en säkerhets kopie rad virtuell dator via REST API enligt beskrivningen här.
 
 Se [skapa valv](backup-azure-arm-userestapi-createorupdatevault.md) och [skapa principer](backup-azure-arm-userestapi-createorupdatepolicy.md) REST API själv studie kurser för att skapa nya valv och principer.
 
@@ -221,7 +221,7 @@ Den returnerar två svar: 202 (accepterad) när en annan åtgärd skapas och sed
 
 ##### <a name="example-responses"></a>Exempel svar
 
-När du skickar in *begäran om* att skapa eller uppdatera skyddade objekt är det första svaret 202 (accepteras) med ett plats huvud eller Azure-async-header.
+När du skickar in begäran om att skapa eller uppdatera skyddade objekt är det första svaret 202 (accepteras) med ett plats huvud eller Azure-async-header.
 
 ```http
 HTTP/1.1 202 Accepted
@@ -393,7 +393,7 @@ Eftersom säkerhets kopierings jobbet är en tids krävande åtgärd måste det 
 
 ### <a name="changing-the-policy-of-protection"></a>Ändra principen för skydd
 
-Om du vill ändra principen som den virtuella datorn är skyddad med kan du använda samma format som att [Aktivera skydd](#enabling-protection-for-the-azure-vm). Ange bara det nya princip-ID: t i [begär ande texten](#example-request-body) och skicka begäran. För t. ex.: Om du vill ändra principen för testVM från "DefaultPolicy" till "ProdPolicy" anger du ProdPolicy-ID: t i begär ande texten.
+Om du vill ändra principen som den virtuella datorn är skyddad med kan du använda samma format som att [Aktivera skydd](#enabling-protection-for-the-azure-vm). Ange bara det nya princip-ID: t i [begär ande texten](#example-request-body) och skicka begäran. Exempel: Om du vill ändra principen för testVM från "DefaultPolicy" till "ProdPolicy" anger du ProdPolicy-ID: t i begär ande texten.
 
 ```http
 {

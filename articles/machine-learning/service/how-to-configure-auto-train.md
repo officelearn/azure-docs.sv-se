@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: adca67152c33f4c6a3ec272b63c4c8157a777f36
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 6e29e0f89d9270a143d48cf6e85b479813e19d9d
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68856194"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69013648"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Konfigurera automatiserade ML-experiment i python
 
@@ -72,6 +72,11 @@ automl_config = AutoMLConfig(task="classification")
 Automatiserad maskininlärning har stöd för data som finns på din lokala dator eller i molnet, till exempel Azure Blob Storage. Data kan läsas in i scikit-Läs stöds dataformat. Du kan läsa data till:
 * Numpy matriser X (funktioner) och y (målvariabel eller så kallade etikett)
 * Pandas-dataframe
+
+>[!Important]
+> Krav för tränings data:
+>* Data måste vara i tabell form.
+>* Värdet som du vill förutse (mål kolumnen) måste finnas i data.
 
 Exempel:
 

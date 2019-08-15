@@ -1,137 +1,162 @@
 ---
-title: Läs repliker i Azure Database för MySQL.
-description: Den här artikeln beskrivs skrivskyddade repliker för Azure Database för MySQL.
+title: Läs repliker i Azure Database for MySQL.
+description: I den här artikeln beskrivs Läs repliker för Azure Database for MySQL.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 04/30/2019
-ms.openlocfilehash: 2d70e1b5434b2fb263d1f4587888d4758fac2828
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/12/2019
+ms.openlocfilehash: 00cace13a1d3db2bca45791960ca9bf2fb9260bd
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66225366"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976904"
 ---
-# <a name="read-replicas-in-azure-database-for-mysql"></a>Läs repliker i Azure Database for MySQL
+# <a name="read-replicas-in-azure-database-for-mysql"></a>Skrivskyddad replik i Azure Database for MySQL
 
-Läs replica-funktionen kan du replikera data från en Azure Database for MySQL-server till en skrivskyddad server. Du kan replikera från huvudservern till upp till fem repliker. Repliker uppdateras asynkront med MySQL-motorn interna binär logg (binlog) fil baserat på positionen replikeringsteknik. Mer information om binlog replikering finns i [översikt över replikering av MySQL binlog](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
+Med funktionen för skrivskyddade repliker kan du replikera data från en Azure Database for MySQL-server till en skrivskyddad server. Du kan replikera från huvudservern till upp till fem repliker. Replikerna uppdateras asynkront med MySQL-motorns interna replikeringsteknik som utgår från replikernas position i en binär loggfil (binlog). Mer information om BinLog-replikering finns i [Översikt över MySQL BinLog-replikering](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
 
 > [!IMPORTANT]
-> Du kan skapa en skrivskyddad replik i samma region som din huvudservern eller i alla andra Azure-regioner valfri. Replikering över flera regioner är för närvarande i offentlig förhandsversion.
+> Du kan skapa en Läs replik i samma region som din huvud server eller i valfri annan Azure-region som du väljer. Replikering mellan regioner är för närvarande en offentlig för hands version.
 
-Repliker är nya servrar som du hanterar liknar vanliga Azure Database for MySQL-servrar. Var finns replik du faktureras för den etablerade beräkningen i virtuella kärnor och lagring i GB / månad.
+Repliker är nya servrar som du hanterar precis som vanliga Azure Database for MySQL-servrar. För varje Läs replik debiteras du för den etablerade beräkningen i virtuella kärnor och lagring i GB/månad.
 
-Läs mer om funktioner för replikering av MySQL och problem i den [dokumentation för replikering av MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html).
+Mer information om funktioner och problem med MySQL-replikering finns i [MySQL-replikeringens dokumentation](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html).
 
-## <a name="when-to-use-a-read-replica"></a>När du ska använda en skrivskyddad replik
+## <a name="when-to-use-a-read-replica"></a>När du ska använda en Läs replik
 
-Läs replica-funktionen hjälper till att förbättra prestanda och skalning för läsintensiva arbetsbelastningar. Läs arbetsbelastningar kan isoleras repliker, medan skrivning arbetsbelastningar kan dirigeras till huvudservern.
+Funktionen Läs replik hjälper till att förbättra prestanda och skalning för Läs intensiva arbets belastningar. Läs arbets belastningar kan isoleras till replikerna, medan Skriv arbets belastningar kan dirigeras till huvud servern.
 
-Ett vanligt scenario är att ha BI och analytiska arbetsbelastningar använder den skrivskyddade repliken som datakälla för rapportering.
+Ett vanligt scenario är att låta BI och analytiska arbets belastningar använda Läs repliken som data källa för rapportering.
 
-Eftersom repliker är skrivskyddade, minska inte de direkt behovet av write-kapacitet på huvudmålservern. Den här funktionen är inte riktad mot write-intensiva arbetsbelastningar.
+Eftersom repliker är skrivskyddade kan de inte direkt minska Skriv kapacitets bördan på huvud servern. Den här funktionen är inte riktad mot Skriv intensiva arbets belastningar.
 
-Läs replica-funktionen använder asynkron replikering av MySQL. Funktionen är inte avsedd för synkron replikeringsscenarier. Det blir en mätbara fördröjning mellan huvudservern och repliken. Data på repliken blir så småningom konsekventa med data i bakgrunden. Använd denna funktion för arbetsbelastningar som kan hantera den här fördröjningen.
+Funktionen Läs replik använder MySQL-asynkron replikering. Funktionen är inte avsedd för synkrona scenarier för replikering. Det kommer att bli en mätbar fördröjning mellan huvud servern och repliken. Data på repliken kommer slutligen att bli konsekventa med data i huvud servern. Använd den här funktionen för arbets belastningar som kan hantera denna fördröjning.
 
-Läs repliker kan förbättra din haveriberedskapsplan. Om det finns ett regionalt haveri och din huvudservern är tillgänglig, kan du dirigera din arbetsbelastning till en replik i en annan region. Då kan du först repliken acceptera skrivningar med hjälp av funktionen Stoppa replikering. Du kan sedan omdirigera ditt program genom att uppdatera anslutningssträngen. Läs mer i den [replikeringsstopp](#stop-replication) avsnittet.
+## <a name="cross-region-replication"></a>Replikering mellan regioner
+Du kan skapa en Läs replik i en annan region än huvud servern. Replikering mellan regioner kan vara användbart för scenarier som haveri beredskap planering eller för att hämta data närmare dina användare.
+
+> [!IMPORTANT]
+> Replikering mellan regioner är för närvarande en offentlig för hands version.
+
+Du kan ha en huvud server i valfri [Azure Database for MySQL region](https://azure.microsoft.com/global-infrastructure/services/?products=mysql).  En huvud server kan ha en replik i dess kopplade region eller Universal Replica-regioner.
+
+### <a name="universal-replica-regions"></a>Universal Replica-regioner
+Du kan alltid skapa en Läs replik i någon av följande regioner, oavsett var huvud servern finns. Det här är Universal Replica-regionerna:
+
+Östra Australien, sydöstra Australien, centrala USA, Asien, östra, östra USA, östra USA 2, Japan, östra, västra Japan, centrala Korea, centrala, norra centrala USA, norra Europa, södra centrala USA, Sydostasien, Storbritannien, södra, Storbritannien, västra, Västeuropa, västra USA, västra USA 2.
+
+
+### <a name="paired-regions"></a>Länkade regioner
+Förutom Universal Replica-regioner kan du skapa en Läs replik i den Azure-kopplade regionen på huvud servern. Om du inte känner till din regions par kan du läsa mer i [artikeln Azure-kopplade regioner](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+
+Om du använder repliker över flera regioner för att planera haveri beredskap rekommenderar vi att du skapar repliken i den kopplade regionen i stället för någon av de andra regionerna. Kopplade regioner förhindrar samtidiga uppdateringar och prioriterar fysisk isolering och data placering.  
+
+Det finns dock begränsningar att tänka på: 
+
+* Regional tillgänglighet: Azure Database for MySQL är tillgängligt i USA, västra 2, Frankrike, centrala, Förenade Arabemiraten nord och Tyskland, centrala. De kopplade regionerna är dock inte tillgängliga.
+    
+* Enkelriktade par: Vissa Azure-regioner är bara kopplade i en riktning. I dessa regioner ingår västra Indien, södra Brasilien och US Gov, Virginia. 
+   Det innebär att en huvud server i västra Indien kan skapa en replik i södra Indien. En huvud server i södra Indien kan dock inte skapa en replik i västra Indien. Detta beror på att den sekundära regionen västra Indien är södra Indien, men den sekundära regionen i södra Indien är inte västra Indien.
+
 
 ## <a name="create-a-replica"></a>Skapa en replik
 
-Om en huvudserver har inga befintliga replikservern, startas först huvudservern för att förbereda själva för replikering.
+Om en huvud server inte har några befintliga replik servrar startar originalet om första gången för att förbereda sig för replikering.
 
-När du börjar skapa replica arbetsflöde, skapas en tom Azure Database for MySQL-server. Den nya servern är fylld med de data som fanns på huvudservern. Tiden för skapandet beror på mängden data på huvudservern och hur lång tid sedan den senaste veckovisa fullständiga säkerhetskopieringen. Tiden kan variera mellan några minuter till flera timmar.
+När du startar arbets flödet skapa replik skapas en tom Azure Database for MySQL-server. Den nya servern fylls med de data som fanns på huvud servern. Skapande tiden beror på mängden data i huvud servern och tiden sedan den senaste veckovis fullständiga säkerhets kopieringen. Tiden kan vara från några minuter till flera timmar.
 
-Varje replik är aktiverat för lagring [auto-väx](concepts-pricing-tiers.md#storage-auto-grow). Funktionen auto-grow kan repliken för att hålla jämna steg med data som replikeras till den och förhindra att ett avbrott i replikeringen på grund av av lagringsfel.
+Varje replik är aktive rad för att utöka lagringen [automatiskt](concepts-pricing-tiers.md#storage-auto-grow). Funktionen för automatisk storleks ökning gör det möjligt för repliken att hålla sig uppdaterad med de data som replikeras till den och förhindrar en paus i replikeringen som orsakas av fel i lagrings utrymmet.
 
-Lär dig hur du [skapar en skrivskyddad replik i Azure-portalen](howto-read-replicas-portal.md).
+Lär dig hur du [skapar en Läs replik i Azure Portal](howto-read-replicas-portal.md).
 
-## <a name="connect-to-a-replica"></a>Ansluta till en replik
+## <a name="connect-to-a-replica"></a>Anslut till en replik
 
-När du skapar en replik, ärver den inte brandväggsregler eller VNet-tjänstslutpunkt för domänens huvudserver. Dessa regler måste konfigureras separat för repliken.
+När du skapar en replik ärver den inte brand Väggs reglerna eller slut punkten för VNet-tjänsten på huvud servern. Dessa regler måste konfigureras separat för repliken.
 
-Repliken ärver administratörskontot som från huvudservern. Alla användarkonton på huvudservern replikeras till de skrivskyddade replikerna. Du kan bara ansluta till en skrivskyddad replik med hjälp av användarkonton som är tillgängliga på huvudservern.
+Repliken ärver administratörs kontot från huvud servern. Alla användar konton på huvud servern replikeras till läsa repliker. Du kan bara ansluta till en Läs replik med hjälp av de användar konton som är tillgängliga på huvud servern.
 
-Du kan ansluta till repliken med hjälp av dess värdnamn och ett giltigt användarkonto, precis som på en vanlig Azure-databas för MySQL-server. För en server med namnet **myreplica** med administratörsanvändarnamnet **myadmin**, du kan ansluta till repliken med hjälp av mysql CLI:
+Du kan ansluta till repliken med hjälp av dess värdnamn och ett giltigt användar konto, precis som på en vanlig Azure Database for MySQL server. För en server med namnet unreplica med administratörsanvändar namnet administratör kan du ansluta till repliken med hjälp av MySQL CLI:
 
 ```bash
 mysql -h myreplica.mysql.database.azure.com -u myadmin@myreplica -p
 ```
 
-Ange lösenordet för användarkontot i Kommandotolken.
+Ange lösen ordet för användar kontot vid prompten.
 
-## <a name="monitor-replication"></a>Övervakare för replikering
+## <a name="monitor-replication"></a>Övervaka replikering
 
-Azure Database for MySQL tillhandahåller de **replikeringsfördröjning i sekunder** mått i Azure Monitor. Det här måttet är tillgängligt för repliker endast.
+Azure Database for MySQL anger måttet för **replikeringsfördröjning i sekunder** i Azure Monitor. Måttet är endast tillgängligt för repliker.
 
-Det här måttet beräknas med hjälp av den `seconds_behind_master` mått som är tillgängliga i MySQL: s `SHOW SLAVE STATUS` kommando.
+Detta mått beräknas med hjälp av `seconds_behind_master` måttet som är tillgängligt `SHOW SLAVE STATUS` i MySQL-kommandot.
 
-Ställa in en avisering om när replikeringsfördröjning når ett värde som inte är acceptabel för din arbetsbelastning.
+Ange en avisering för att meddela dig när fördröjningen för replikering når ett värde som inte är acceptabelt för din arbets belastning.
 
 ## <a name="stop-replication"></a>Stoppa replikering
 
-Du kan stoppa replikering mellan en och en replik. När replikeringen har stoppats mellan en huvudserver och en skrivskyddad replik, blir repliken en fristående server. Data i den fristående servern är de data som fanns på repliken när kommandot Stoppa replikering har startats. Den fristående servern ifatt inte med huvudservern.
+Du kan stoppa replikering mellan en huvud server och en replik. När replikeringen har stoppats mellan en huvud server och en Läs replik blir repliken en fristående server. Data i den fristående servern är de data som var tillgängliga på repliken när kommandot stoppa replikering startades. Den fristående servern är inte uppfångad med huvud servern.
 
-När du väljer att stoppa replikering till en replik, förlorar alla länkar till dess tidigare huvud- och andra repliker. Det finns ingen automatisk växling mellan en huvudserver och dess replik.
+När du väljer att stoppa replikeringen till en replik förlorar den alla länkar till den tidigare repliken och andra repliker. Det finns ingen automatisk redundans mellan en huvud server och dess replik.
 
 > [!IMPORTANT]
-> Den fristående servern kan inte göras i en replik igen.
-> Kontrollera att repliken har alla data som du behöver innan du stoppa replikering på en skrivskyddad replik.
+> Den fristående servern kan inte göras till en replik igen.
+> Innan du stoppar replikeringen på en Läs replik måste du se till att repliken har alla data som du behöver.
 
-Lär dig hur du [Stoppa replikering till en replik](howto-read-replicas-portal.md).
+Lär dig hur du [stoppar replikering till en replik](howto-read-replicas-portal.md).
 
 ## <a name="considerations-and-limitations"></a>Överväganden och begränsningar
 
 ### <a name="pricing-tiers"></a>Prisnivåer
 
-Läs repliker är för närvarande endast tillgängliga i prisnivåer för generell användning och Minnesoptimerad.
+Läs repliker är för närvarande endast tillgängliga i Generell användning och minnesoptimerade pris nivåer.
 
-### <a name="master-server-restart"></a>Huvudservern omstart
+### <a name="master-server-restart"></a>Omstart av Master Server
 
-När du skapar en replik för en huvudserver som har inga befintliga replikeringar startas först huvudservern för att förbereda själva för replikering. Ha i åtanke och utföra dessa åtgärder under en period som med låg belastning.
+När du skapar en replik för en huvud server som inte har några befintliga repliker, startar originalet om först för att förbereda sig för replikering. Ta detta i beaktande och utför dessa åtgärder under en period med låg belastning.
 
 ### <a name="new-replicas"></a>Nya repliker
 
-En skrivskyddad replik skapas som en ny Azure Database for MySQL-server. En befintlig server kan inte göras i en replik. Du kan inte skapa en replik av en annan skrivskyddade replik.
+En Läs replik skapas som en ny Azure Database for MySQL server. Det går inte att göra en befintlig server till en replik. Du kan inte skapa en replik av en annan Läs replik.
 
-### <a name="replica-configuration"></a>Repliken konfiguration
+### <a name="replica-configuration"></a>Replik konfiguration
 
-En replik skapas med hjälp av samma serverkonfiguration som huvudserver. När en replik skapas flera inställningar kan ändras oberoende från huvudservern: compute-generering, vCores, lagring, kvarhållningsperiod för säkerhetskopiering och MySQL-databasmotorn version. Prisnivån kan också ändras oberoende av varandra, förutom till eller från Basic-nivån.
+En replik skapas med samma server konfiguration som huvud servern. När en replik har skapats kan flera inställningar ändras oberoende från huvud servern: beräknings generation, virtuella kärnor, lagring, kvarhållning av säkerhets kopior och MySQL-motor version. Pris nivån kan också ändras oberoende, förutom till eller från Basic-nivån.
 
 > [!IMPORTANT]
-> Innan en huvudserver-konfiguration har uppdaterats till nya värden, uppdatera konfigurationen för repliken till samma eller högre värden. Den här åtgärden säkerställer att replikeringen kan hålla jämna steg med ändringar som görs till huvudservern.
+> Innan en huvud Server konfiguration uppdateras till nya värden uppdaterar du replik konfigurationen till samma eller högre värden. Den här åtgärden säkerställer att repliken kan behålla alla ändringar som görs i huvud repliken.
 
-### <a name="stopped-replicas"></a>Stoppad repliker
+### <a name="stopped-replicas"></a>Stoppade repliker
 
-Om du stoppar replikering mellan en huvudserver och en skrivskyddad replik blir stoppad repliken en fristående server som accepterar både läsningar och skrivningar. Den fristående servern kan inte göras i en replik igen.
+Om du stoppar replikeringen mellan en huvud server och en Läs replik blir den stoppade repliken en fristående server som accepterar både läsning och skrivning. Den fristående servern kan inte göras till en replik igen.
 
-### <a name="deleted-master-and-standalone-servers"></a>Borttagna huvud- och fristående servrar
+### <a name="deleted-master-and-standalone-servers"></a>Borttagna huvud servrar och fristående servrar
 
-När en huvudserver tas bort så stoppas replikeringen till alla skrivskyddade repliker. De här replikeringarna blir fristående servrar. Huvudservern själva tas bort.
+När en huvud server tas bort, stoppas replikeringen till alla Läs repliker. Dessa repliker blir fristående servrar. Själva huvud servern tas bort.
 
 ### <a name="user-accounts"></a>Användarkonton
 
-Användare på huvudservern replikeras till de skrivskyddade replikerna. Du kan bara ansluta till en skrivskyddad replik med hjälp av användarkontona som är tillgängliga på huvudservern.
+Användare på huvud servern replikeras till läsa repliker. Du kan bara ansluta till en Läs replik med de användar konton som är tillgängliga på huvud servern.
 
 ### <a name="server-parameters"></a>Serverparametrar
 
-Att förhindra att data blir osynkroniserad och för att undvika potentiell dataförlust eller skadade data låses vissa serverparametrar uppdateras när med läser repliker.
+För att förhindra att data blir osynkroniserade och för att undvika potentiell data förlust eller skada, är vissa Server parametrar låsta från att uppdateras när du använder Läs repliker.
 
-Följande serverparametrar är låsta på både master och repliken:
+Följande Server parametrar är låsta på både huvud-och replik servern:
 - [`innodb_file_per_table`](https://dev.mysql.com/doc/refman/5.7/en/innodb-multiple-tablespaces.html) 
 - [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators)
 
-Den [ `event_scheduler` ](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_event_scheduler) parametern är låst på replikservrarna. 
+[`event_scheduler`](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_event_scheduler) Parametern är låst på replik servrarna. 
 
 ### <a name="other"></a>Annat
 
 - Globala transaktions-ID: n (GTID) stöds inte.
-- Det går inte att skapa en replik av en replik.
-- InMemory-tabeller kan medföra att replikerna blir osynkroniserad. Detta är en begränsning av MySQL-replikeringsteknik. Läs mer i den [MySQL referensdokumentation](https://dev.mysql.com/doc/refman/5.7/en/replication-features-memory.html) för mer information.
-- Se till att huvudservern tabellerna har primärnycklar. Brist på primärnycklar kan resultera i replikeringsfördröjning mellan huvud- och repliker.
-- Läs den fullständiga listan med begränsningar för replikering av MySQL i den [MySQL-dokumentation](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html)
+- Det finns inte stöd för att skapa en replik av en replik.
+- InMemory-tabeller kan orsaka att repliker blir osynkroniserade. Detta är en begränsning av MySQL-replikeringstrafiken. Mer information finns i [referens dokumentationen för MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features-memory.html) .
+- Se till att huvud server tabellerna har primära nycklar. Brist på primär nycklar kan leda till replikeringsfördröjning mellan huvud-och replikerna.
+- Granska den fullständiga listan över begränsningar för MySQL-replikering i [MySQL-dokumentationen](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig hur du [skapa och hantera skrivskyddade repliker med Azure portal](howto-read-replicas-portal.md)
-- Lär dig hur du [skapa och hantera skrivskyddade repliker med Azure CLI](howto-read-replicas-cli.md)
+- Lär dig hur du [skapar och hanterar Läs repliker med hjälp av Azure Portal](howto-read-replicas-portal.md)
+- Lär dig hur du [skapar och hanterar Läs repliker med Azure CLI](howto-read-replicas-cli.md)

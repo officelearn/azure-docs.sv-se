@@ -4,14 +4,14 @@ description: Lär dig hur du ställer in tillhandahållet data flöde för dina 
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 08/12/2019
 ms.author: rimman
-ms.openlocfilehash: 2bcd428e2de90251d4d64111b1c3e6b6f812ac4c
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 146cc9e89959035ca211a036be4730b59cae8c0b
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467613"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68987383"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>Etablera dataflöde på containrar och databaser
 
@@ -40,7 +40,7 @@ Följande bild visar hur en fysisk partition är värd för en eller flera logis
 
 ## <a name="set-throughput-on-a-database"></a>Ange data flöde för en databas
 
-När du etablerar data flöde i en Azure Cosmos-databas delas data flödet över alla behållare i databasen. Ett undantag är om du har angett ett tillhandahållet data flöde på specifika behållare i databasen. Att dela databas nivåns etablerade data flöde bland dess behållare är detsamma som att vara värd för en databas på ett kluster med datorer. Eftersom alla behållare i en databas delar resurserna som är tillgängliga på en dator, kan du naturligt inte få förutsägbara prestanda för en viss behållare. Information om hur du konfigurerar tillhandahållet data flöde på en databas finns i [Konfigurera etablerade data flöde i en Azure Cosmos-databas](how-to-provision-database-throughput.md).
+När du etablerar data flöde i en Azure Cosmos-databas delas data flödet över alla behållare (kallas delade databas behållare) i databasen. Ett undantag är om du har angett ett tillhandahållet data flöde på specifika behållare i databasen. Att dela databas nivåns etablerade data flöde bland dess behållare är detsamma som att vara värd för en databas på ett kluster med datorer. Eftersom alla behållare i en databas delar resurserna som är tillgängliga på en dator, kan du naturligt inte få förutsägbara prestanda för en viss behållare. Information om hur du konfigurerar tillhandahållet data flöde på en databas finns i [Konfigurera etablerade data flöde i en Azure Cosmos-databas](how-to-provision-database-throughput.md).
 
 Genom att ställa in data flöde på en Azure Cosmos-databas garanteras att du tar emot det etablerade data flödet för databasen hela tiden. Eftersom alla behållare i databasen delar det etablerade data flödet ger Azure Cosmos DB inga förutsägbara data flödes garantier för en viss behållare i databasen. Del av vilket dataflöde som kan ta emot en viss behållare är beroende av:
 
@@ -60,7 +60,9 @@ Alla behållare som skapats i en databas med ett allokerat data flöde måste sk
 
 Om arbets belastningen på en logisk partition förbrukar mer än det data flöde som har allokerats till en viss logisk partition, är dina åtgärder avgiftsbelagda. När Rate-Limiting sker kan du antingen öka data flödet för hela databasen eller försöka utföra åtgärderna igen. Mer information om partitionering finns i [logiska partitioner](partition-data.md).
 
-Flera logiska partitioner som tillhör olika behållare som delar data flödet som tillhandahålls till en databas kan finnas på en enda fysisk partition. Även om en enda logisk partition av en behållare alltid är begränsad till en fysisk partition, kan *"L"* logiska partitioner över *"C"* -behållare som delar det etablerade data flödet i en databas mappas och vara värd för *"R"* fysiska partitioner. 
+Det data flöde som har allokerats för en databas kan delas av behållarna i databasen. Högst 25 behållare kan dela det data flöde som har allokerats i databasen. Mer än 25 behållare, för varje ny behållare som skapas i den databasen, kan dela en del av databasens data flöde med andra samlingar som redan är tillgängliga i databasen. Mängden data flöde som kan delas beror på antalet behållare som har allokerats i databasen. 
+
+Om arbets belastningarna innebär att du tar bort och återskapar alla samlingar i en databas, rekommenderar vi att du släpper den tomma databasen och återskapar en ny databas innan du skapar samlingen.
 
 Följande bild visar hur en fysisk partition kan vara värd för en eller flera logiska partitioner som tillhör olika behållare i en databas:
 
@@ -77,6 +79,9 @@ Du kan kombinera de två modellerna. Etablering av data flöde på både databas
 
 * *"K"* ru: er-dataflödet delas mellan de fyra behållarna *A*, *C*, *D*, och *E*. Den exakta mängden data flöde som är tillgängliga för *A*, *C*, *D*eller *E* varierar. Det finns inga service avtal för varje enskild behållares data flöde.
 * Behållaren med namnet *B* garanterar att du kan hämta *"P"* ru: er-dataflöde hela tiden. Den backas upp av service avtal.
+
+> [!NOTE]
+> Det går inte att konvertera en behållare med ett allokerat data flöde till en delad databas behållare. Det går inte att konvertera en delad databas behållare till ett dedikerat data flöde.
 
 ## <a name="update-throughput-on-a-database-or-a-container"></a>Uppdatera data flödet för en databas eller en behållare
 

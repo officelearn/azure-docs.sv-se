@@ -1,6 +1,6 @@
 ---
-title: Arkitektur för hög tillgänglighet för Azure virtuella datorer och scenarier för SAP NetWeaver | Microsoft Docs
-description: Arkitektur för hög tillgänglighet och scenarier för SAP NetWeaver på Azure Virtual Machines
+title: Azure Virtual Machines arkitektur med hög tillgänglighet och scenarier för SAP-NetWeaver | Microsoft Docs
+description: Arkitektur och scenarier med hög tillgänglighet för SAP NetWeaver på Azure Virtual Machines
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
@@ -18,13 +18,13 @@ ms.date: 01/21/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: f6c329a2b50c946e873391db431c1cd5ff30ab4f
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "67709078"
 ---
-# <a name="high-availability-architecture-and-scenarios-for-sap-netweaver"></a>Arkitektur för hög tillgänglighet och scenarier för SAP NetWeaver
+# <a name="high-availability-architecture-and-scenarios-for-sap-netweaver"></a>Arkitektur och scenarier med hög tillgänglighet för SAP NetWeaver
 
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -148,7 +148,7 @@ ms.locfileid: "67709078"
 [sap-ha-guide-9.1]:#31c6bd4f-51df-4057-9fdf-3fcbc619c170
 [sap-ha-guide-9.1.1]:#a97ad604-9094-44fe-a364-f89cb39bf097
 
-[sap-ha-multi-sid-guide]:sap-high-availability-multi-sid.md (SAP – flera SÄKERHETSIDENTIFIERARE konfiguration med hög tillgänglighet)
+[sap-ha-multi-sid-guide]:sap-high-availability-multi-sid.md (SAP multi-SID-konfiguration med hög tillgänglighet)
 
 
 [sap-ha-guide-figure-1000]:./media/virtual-machines-shared-sap-high-availability-guide/1000-wsfc-for-sap-ascs-on-azure.png
@@ -230,201 +230,201 @@ ms.locfileid: "67709078"
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
 
-## <a name="terminology-definitions"></a>Termer som är
+## <a name="terminology-definitions"></a>Terminologi definitioner
 
-**Hög tillgänglighet**: Refererar till en uppsättning tekniker som minimerar avbrott IT genom att tillhandahålla affärskontinuitet för IT-tjänster via redundanta, feltolerant eller redundans-skyddade-komponenterna på den *samma* datacenter. I vårt fall finns datacentralen inom en Azure-region.
+**Hög tillgänglighet**: Syftar på en uppsättning tekniker som minimerar IT-avbrott genom att tillhandahålla affärs kontinuitet för IT-tjänster genom redundanta, feltoleranta eller redundanta komponenter som skyddas i *samma* Data Center. I vårt fall finns data centret i en Azure-region.
 
-**Haveriberedskap**: Avser även minimerar avbrott i IT-tjänster och deras recovery men över *olika* datacenter som kan vara hundratals mil bort från varandra. I vårt fall kan-Datacenter finnas i olika Azure-regioner inom samma geopolitiska region eller och så som anges av dig som kund.
+**Haveri beredskap**: Avser också att minimera IT-tjänstens avbrott och återställningen, men över *olika* Data Center som kan vara hundratals mil bort från varandra. I vårt fall kan data centren finnas i olika Azure-regioner inom samma nationella politisk region eller på platser som har skapats av dig som kund.
 
 
 ## <a name="overview-of-high-availability"></a>Översikt över hög tillgänglighet
-Hög tillgänglighet för SAP i Azure kan delas in i tre typer:
+SAP hög tillgänglighet i Azure kan delas upp i tre typer:
 
-* **Hög tillgänglighet för Azure-infrastrukturen**: 
+* **Hög tillgänglighet för Azure-infrastruktur**: 
 
-    Hög tillgänglighet kan exempelvis innehålla beräkning (VM), nätverk, eller lagring och dess fördelar för att öka tillgängligheten för SAP-program.
+    Till exempel kan hög tillgänglighet inkludera beräkning (VM), nätverk eller lagring och dess fördelar för att öka tillgängligheten för SAP-program.
 
-* **Med Azure-infrastrukturen virtuella datorn startas om för att uppnå *högre tillgänglighet* av SAP-program**: 
+* Använda en **omstart av Azure Infrastructure VM för att uppnå *högre tillgänglighet* för SAP-program**: 
 
-    Om du inte väljer att använda funktioner, till exempel Windows Server Failover Clustering (WSFC) eller Pacemaker på Linux används Azure VM-omstart. Det skyddar SAP-system mot planerade och oplanerade driftavbrott Azure fysisk infrastruktur och övergripande underliggande Azure-plattformen.
+    Om du väljer att inte använda funktioner som Windows Server Failover Clustering (WSFC) eller pacemaker på Linux används den virtuella Azure-datorn. Det skyddar SAP-system mot planerad och oplanerad stillestånds tid för Azures fysiska server infrastruktur och den övergripande, underliggande Azure-plattformen.
 
 * **Hög tillgänglighet för SAP-program**: 
 
-    För att uppnå full SAP system hög tillgänglighet, måste du skydda alla viktiga SAP-komponenter. Exempel:
+    För att uppnå fullständig SAP-system hög tillgänglighet måste du skydda alla viktiga SAP-systemkomponenter. Exempel:
     * Redundanta SAP-programservrar.
-    * Unika komponenter. Ett exempel kan vara en enda åtkomstpunkt för fel (SPOF)-komponenten, till exempel en SAP ASCS/SCS-instans eller en databashanteringssystem (DBMS).
+    * Unika komponenter. Ett exempel kan vara en enskild felpunkt (SPOF) komponent, till exempel en SAP ASCS/SCS-instans eller ett databas hanterings system (DBMS).
 
-Hög tillgänglighet för SAP i Azure skiljer sig från SAP hög tillgänglighet i en lokal fysisk eller virtuell miljö. Följande dokumentet [SAP NetWeaver hög tillgänglighet och affärskontinuitet i virtuella miljöer med VMware och Hyper-V på Microsoft Windows][sap-ha-bc-virtual-env-hyperv-vmware-white-paper] beskriver vanliga konfigurationer för SAP-hög tillgänglighet i virtualiserade miljöer i Windows.
+SAP hög tillgänglighet i Azure skiljer sig från SAP hög tillgänglighet i en lokal fysisk eller virtuell miljö. Följande papper [SAP NetWeaver hög tillgänglighet och affärs kontinuitet i virtuella miljöer med VMware och Hyper-V på Microsoft Windows][sap-ha-bc-virtual-env-hyperv-vmware-white-paper] beskriver standard-SAP-konfigurationer med hög tillgänglighet i virtualiserade miljöer i Windows.
 
-Det finns inga sapinst-integrerade SAP konfiguration med hög tillgänglighet för Linux eftersom det inte finns för Windows. Information om SAP hög tillgänglighet lokalt för Linux finns i [partnerinformationen för hög tillgänglighet][sap-ha-partner-information].
+Det finns ingen sapinst-integrerad SAP-konfiguration för hög tillgänglighet för Linux på samma sätt som för Windows. Information om SAP hög tillgänglighet lokalt för Linux finns i [partner information för hög tillgänglighet][sap-ha-partner-information].
 
-## <a name="azure-infrastructure-high-availability"></a>Hög tillgänglighet för Azure-infrastrukturen
+## <a name="azure-infrastructure-high-availability"></a>Hög tillgänglighet för Azure-infrastruktur
 
-### <a name="sla-for-single-instance-virtual-machines"></a>SERVICEAVTAL för enkelinstanser virtuella datorer
+### <a name="sla-for-single-instance-virtual-machines"></a>SLA för virtuella datorer med en instans
 
-Det finns för närvarande en enda VM-serviceavtal på 99,9% med premium storage. Om du vill få en uppfattning om vad tillgängligheten för en enskild virtuell dator kan du skapa produkten av de olika tillgängliga [Azure serviceavtal][azure-sla].
+Det finns för närvarande ett service avtal med en virtuell dator på 99,9% med Premium Storage. För att få en uppfattning om vad tillgängligheten för en enskild virtuell dator kan vara kan du bygga produkten av de olika tillgängliga [Azure Service nivå avtalen][azure-sla].
 
-Basen för beräkningen är 30 dagar per månad eller 43 200 minuter. Till exempel motsvarar ett 0,05% driftstopp 21,6 minuter. Tillgängligheten för de olika tjänsterna beräknas som vanligt, på följande sätt:
+Basen för beräkningen är 30 dagar per månad eller 43 200 minuter. En drift tid på 0,05% motsvarar till exempel 21,6 minuter. Som vanligt beräknas tillgängligheten för de olika tjänsterna på följande sätt:
 
-(Tillgänglighet Service #1/100) * (tillgänglighet Service #2/100) * (tillgänglighet Service #3/100) \*...
+(Tillgänglighets tjänst #1/100) * (tillgänglighets tjänst #2/100) * (tillgänglighets tjänst #3 \*/100)...
 
 Exempel:
 
-(99,95/100) * (99,9/100) * (99,9/100) = 0.9975 eller en övergripande tillgänglighet 99.75%.
+(99,95/100) * (99,9/100) * (99,9/100) = 0,9975 eller en övergripande tillgänglighet på 99,75%.
 
-### <a name="multiple-instances-of-virtual-machines-in-the-same-availability-set"></a>Flera instanser av virtuella datorer i samma tillgänglighetsuppsättning
-För alla virtuella datorer som har två eller fler distribuerade instanser i samma *tillgänglighetsuppsättning*, garanterar vi att du har VM-anslutning till minst en instans under minst 99,95% av tiden.
+### <a name="multiple-instances-of-virtual-machines-in-the-same-availability-set"></a>Flera instanser av virtuella datorer i samma tillgänglighets uppsättning
+För alla virtuella datorer som har två eller fler distribuerade instanser i samma *tillgänglighets uppsättning*garanterar vi att du kommer att ha virtuell dator anslutning till minst en instans minst 99,95% av tiden.
 
-När två eller flera virtuella datorer ingår i samma tillgänglighetsuppsättning, varje virtuell dator i tillgänglighetsuppsättningen tilldelas en *uppdateringsdomän* och en *feldomän* av underliggande Azure-plattformen.
+När två eller flera virtuella datorer ingår i samma tillgänglighets uppsättning tilldelas varje virtuell dator i tillgänglighets uppsättningen en uppdaterings *domän* och en *feldomän* av den underliggande Azure-plattformen.
 
-* **Uppdateringsdomäner** garanterar att flera virtuella datorer inte startas om samtidigt under planerat underhåll av en Azure-infrastruktur. Endast en virtuell dator startas om samtidigt.
+* **Uppdaterings domäner** garanterar att flera virtuella datorer inte startas om samtidigt under det planerade underhållet av en Azure-infrastruktur. Endast en virtuell dator startas om i taget.
 
-* **Feldomäner** garanterar att virtuella datorer distribuerade på de komponenter som inte delar samma strömkälla och nätverksswitch. Om servrar, en nätverksväxel eller en strömkälla genomgår en oplanerade driftstopp, påverkas endast en virtuell dator.
+* **Fel domäner** garanterar att virtuella datorer distribueras på maskin varu komponenter som inte delar en gemensam ström källa och nätverks växel. När servrar, en nätverks växel eller en ström källa genomgår en oplanerad stillestånds tid påverkas bara en virtuell dator.
 
-Mer information finns i [hantera tillgängligheten för Windows-datorer i Azure][azure-virtual-machines-manage-availability].
+Mer information finns i [Hantera tillgängligheten för virtuella Windows-datorer i Azure][azure-virtual-machines-manage-availability].
 
-En tillgänglighetsuppsättning används för att uppnå hög tillgänglighet för:
+En tillgänglighets uppsättning används för att uppnå hög tillgänglighet för:
 
 * Redundanta SAP-programservrar.  
-* Kluster med två eller flera noder (virtuella datorer, till exempel) som skyddar SPOFs, till exempel en SAP ASCS/SCS-instans eller en DBMS.
+* Kluster med två eller flera noder (t. ex. virtuella datorer) som skyddar SPOFs, till exempel en SAP-ASCS/SCS-instans eller ett DBMS.
 
 
 ### <a name="azure-availability-zones"></a>Tillgänglighetszoner i Azure
-Azure är på att lansera en begreppet [Azure Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview) i olika [Azure-regionerna](https://azure.microsoft.com/global-infrastructure/regions/). I Azure-regioner där Availability Zones erbjuds, har Azure-regioner flera datacenter som är oberoende i antal strömkälla, kylning och nätverk. För att erbjuda olika zoner i en enda Azure-region beror på att du ska distribuera program i två eller tre Tillgänglighetszoner som erbjuds. Om vi antar att problem i strömkällor och/eller påverkar bara en Tillgänglighetszon-infrastruktur, är programdistributionen inom en Azure-region fortfarande helt funktionella. Till slut med vissa minskad kapacitet eftersom vissa virtuella datorer i en zon kan gå förlorade. Men virtuella datorer i de andra två zonerna är fortfarande igång och körs. Azure-regioner som erbjuder zoner visas i [Azure Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview).
+Azure håller på att genomföra ett koncept i [Azure-tillgänglighetszoner](https://docs.microsoft.com/azure/availability-zones/az-overview) i olika Azure- [regioner](https://azure.microsoft.com/global-infrastructure/regions/). I Azure-regioner där Tillgänglighetszoner erbjuds, har Azure-regionerna flera data Center som är oberoende av utbudet av ström källor, kylning och nätverk. Orsak till att erbjuda olika zoner inom en enda Azure-region är att du ska kunna distribuera program över två eller tre Tillgänglighetszoner som erbjuds. Om du antar att problem i ström källor och/eller nätverk påverkar endast en infrastruktur för tillgänglighets zoner är program distributionen i en Azure-region fortfarande fullt fungerande. Till slut, med minskad kapacitet eftersom vissa virtuella datorer i en zon kan gå förlorade. Men virtuella datorer i de andra två zonerna är fortfarande igång. Azure-regionerna som erbjuder zoner visas i [Azure-tillgänglighetszoner](https://docs.microsoft.com/azure/availability-zones/az-overview).
 
-Med Availability Zones finns vissa saker att tänka på. Att tänka på listan som:
+Det finns några saker att tänka på när du använder Tillgänglighetszoner. Övervägande listan, t. ex.:
 
-- Du kan inte distribuera Azure-Tillgänglighetsuppsättningar i en Tillgänglighetszon. Du måste välja en Tillgänglighetszon eller en Tillgänglighetsuppsättning som distribution ramen för en virtuell dator.
-- Du kan inte använda den [Basic Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview#skus) att skapa redundans baserat på Windows Failover Cluster Services eller Linux Pacemaker-klusterlösningar. I stället måste du använda den [Azure Standard Load Balancer-SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones)
-- Azure Availability Zones ger inte inga garantier av vissa avståndet mellan olika zoner inom en region
-- Nätverksfördröjningen mellan olika Azure Availability Zones i olika Azure-regioner kan skilja sig från Azure-region till region. Det ska finnas fall där du som en kund kan rimligen köra SAP-programnivån som distribueras över olika zoner sedan svarstiden i nätverk från en zon för aktiva DBMS VM fortfarande är acceptabelt från en process inverkan på företaget. Det kommer att vara kundscenarier där fördröjning mellan den aktiva DBMS VM i en zon och en SAP-programinstans i en virtuell dator i en annan zon kan vara för påträngande och inte godkänd för SAP-affärsprocesser. Arkitekturer för distribution måste därför vara olika med en aktiv/aktiv-arkitektur för programmet eller aktiv/passiv arkitektur om svarstiden är för hög.
-- Med hjälp av [Azure hanterade diskar](https://azure.microsoft.com/services/managed-disks/) är obligatoriskt för att distribuera till Azure Availability Zones 
+- Du kan inte distribuera Azures tillgänglighets uppsättningar inom en tillgänglighets zon. Du måste välja antingen en tillgänglighets zon eller en tillgänglighets uppsättning som distributions ram för en virtuell dator.
+- Du kan inte använda [Basic-Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview#skus) för att skapa lösningar för redundanskluster baserat på Windows-kluster tjänster för växling vid fel eller Linux-pacemaker. I stället måste du använda [Azure standard Load Balancer SKU: n](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones)
+- Azure-tillgänglighetszoner inte ger garantier för vissa avstånd mellan olika zoner inom en region
+- Nätverks fördröjningen mellan olika Azure-tillgänglighetszoner i olika Azure-regioner kan skilja sig från Azure region till region. Det finns fall där du som kund kan köra SAP-program lagret distribuerat över olika zoner eftersom nätverks fördröjningen från en zon till den aktiva DBMS-datorn fortfarande är acceptabel från en affärs process. Det kommer att finnas kund scenarier där svars tiden mellan den aktiva DBMS-datorn i en zon och en SAP-programinstans i en virtuell dator i en annan zon kan vara för påträngande och inte accepteras för SAP-affärsprocesserna. Därför måste distributions arkitekturerna vara olika med en aktiv/aktiv-arkitektur för programmet eller aktiv/passiv arkitektur om svars tiden är för hög.
+- Att använda [Azure Managed disks](https://azure.microsoft.com/services/managed-disks/) är obligatoriskt för distribution till Azure-tillgänglighetszoner 
 
 
-### <a name="planned-and-unplanned-maintenance-of-virtual-machines"></a>Planerade och oplanerade underhåll av virtuella datorer
+### <a name="planned-and-unplanned-maintenance-of-virtual-machines"></a>Planerat och oplanerat underhåll av virtuella datorer
 
-Två typer av händelser i Azure-plattformen kan påverka tillgängligheten för dina virtuella datorer:
+Två typer av Azure Platform-händelser kan påverka tillgängligheten för dina virtuella datorer:
 
-* **Planerat underhåll** händelser är periodiska uppdateringar som Microsoft den underliggande Azure-plattformen. Uppdateringarna förbättra tillförlitligheten, prestanda och säkerhet för den plattformsinfrastruktur som dina virtuella datorer som körs på.
+* **Planerade underhålls** händelser är periodiska uppdateringar som görs av Microsoft till den underliggande Azure-plattformen. Uppdateringarna förbättrar den övergripande tillförlitligheten, prestandan och säkerheten för den plattforms infrastruktur som dina virtuella datorer körs på.
 
-* **Oplanerat Underhåll** händelser inträffar när maskinvaran eller fysiska infrastrukturen som den virtuella datorn misslyckades på något sätt. Den kan innehålla lokala nätverksfel, lokala diskfel eller andra fel på racknivå. När sådant fel upptäcks migrerar Azure-plattformen automatiskt den virtuella datorn från den felaktiga fysiska servern som är värd för den virtuella datorn till en felfri fysisk server. Sådana händelser är sällsynt, men de kan även orsaka den virtuella datorn ska startas om.
+* **Oplanerade underhålls** händelser inträffar när den maskin vara eller den fysiska infrastruktur som underliggande den virtuella datorn har misslyckats på något sätt. Det kan omfatta lokala nätverks haverier, lokala diskfel eller andra rack nivå problem. När ett sådant fel upptäcks, migrerar Azure-plattformen automatiskt den virtuella datorn från den felaktiga fysiska server som är värd för den virtuella datorn till en felfri fysisk server. Sådana händelser är ovanliga, men de kan också göra att den virtuella datorn startas om.
 
-Mer information finns i [hantera tillgängligheten för Windows-datorer i Azure][azure-virtual-machines-manage-availability].
+Mer information finns i [Hantera tillgängligheten för virtuella Windows-datorer i Azure][azure-virtual-machines-manage-availability].
 
-### <a name="azure-storage-redundancy"></a>Redundans i Azure Storage
-Data i ditt storage-konto replikeras alltid för att säkerställa hållbarhet och hög tillgänglighet, vilket uppfyller SLA för Azure Storage som även körs vid tillfälliga maskinvarufel.
+### <a name="azure-storage-redundancy"></a>Azure Storage redundans
+Data i ditt lagrings konto replikeras alltid för att säkerställa hållbarhet och hög tillgänglighet, vilket uppfyller Azure Storage Service nivå avtal även i de flesta tillfälliga maskin varu haverier.
 
-Eftersom Azure Storage behåller tre bilder av data som standard användning av RAID 5 eller RAID 1 över flera Azure-diskar är onödiga.
+Eftersom Azure Storage behåller tre avbildningar av data som standard är användningen av RAID 5 eller RAID 1 på flera Azure-diskar onödig.
 
-Mer information finns i [Azure Storage-replikering][azure-storage-redundancy].
+Mer information finns i [Azure Storage replikering][azure-storage-redundancy].
 
 ### <a name="azure-managed-disks"></a>Azure Managed Disks
-Managed Disks är en resurstyp i Azure Resource Manager som du bör användas i stället för virtuella hårddiskar (VHD) som lagras i Azure storage-konton. Hanterade diskar justeras automatiskt med en Azure-tillgänglighetsuppsättning för den virtuella datorn som de är kopplade till. De öka tillgängligheten för den virtuella datorn och de tjänster som körs på den.
+Managed Disks är en resurs typ i Azure Resource Manager som rekommenderas att användas i stället för virtuella hård diskar (VHD) som lagras i Azure Storage-konton. Hanterade diskar justeras automatiskt med en Azures tillgänglighets uppsättning för den virtuella dator som de är kopplade till. De ökar tillgängligheten för den virtuella datorn och de tjänster som körs på den.
 
-Mer information finns i [översikt över Azure Managed Disks][azure-storage-managed-disks-overview].
+Mer information finns i [Översikt över Azure Managed disks][azure-storage-managed-disks-overview].
 
-Vi rekommenderar att du använder hanterade diskar eftersom de förenkla distributionen och hanteringen av dina virtuella datorer.
+Vi rekommenderar att du använder Managed disks eftersom de fören klar distributionen och hanteringen av dina virtuella datorer.
 
 
 
-## <a name="utilizing-azure-infrastructure-high-availability-to-achieve-higher-availability-of-sap-applications"></a>Använda Azure-infrastrukturen hög tillgänglighet för att uppnå *högre tillgänglighet* av SAP-program
+## <a name="utilizing-azure-infrastructure-high-availability-to-achieve-higher-availability-of-sap-applications"></a>Använda Azure-infrastruktur med hög tillgänglighet för att uppnå *högre tillgänglighet* för SAP-program
 
-Om du inte väljer att använda funktioner, till exempel WSFC eller Pacemaker på Linux (för närvarande stöds endast för SUSE Linux Enterprise Server [SLES] 12 och senare), används omstart av Azure virtuella datorer. Det skyddar SAP-system mot planerade och oplanerade driftavbrott Azure fysisk infrastruktur och övergripande underliggande Azure-plattformen.
+Om du väljer att inte använda funktioner som WSFC eller pacemaker på Linux (stöds för närvarande endast för SUSE Linux Enterprise Server [SLES] 12 och senare), så används den virtuella Azure-datorn. Det skyddar SAP-system mot planerad och oplanerad stillestånds tid för Azures fysiska server infrastruktur och den övergripande, underliggande Azure-plattformen.
 
-Mer information om den här metoden finns i [utnyttja Azure-infrastrukturen virtuella datorn startas om för att uppnå högre tillgänglighet för SAP-system][sap-higher-availability].
+Mer information om den här metoden finns i [använda Azure Infrastructure VM restart för att uppnå högre tillgänglighet för SAP-systemet][sap-higher-availability].
 
-## <a name="baed0eb3-c662-4405-b114-24c10a62954e"></a> Hög tillgänglighet för SAP-program på Azure IaaS
+## <a name="baed0eb3-c662-4405-b114-24c10a62954e"></a>Hög tillgänglighet för SAP-program i Azure IaaS
 
-För att uppnå full SAP system hög tillgänglighet, måste du skydda alla viktiga SAP-komponenter. Exempel:
+För att uppnå fullständig SAP-system hög tillgänglighet måste du skydda alla viktiga SAP-systemkomponenter. Exempel:
   * Redundanta SAP-programservrar.
-  * Unika komponenter. Ett exempel kan vara en enda åtkomstpunkt för fel (SPOF)-komponenten, till exempel en SAP ASCS/SCS-instans eller en databashanteringssystem (DBMS).
+  * Unika komponenter. Ett exempel kan vara en enskild felpunkt (SPOF) komponent, till exempel en SAP ASCS/SCS-instans eller ett databas hanterings system (DBMS).
 
-I nästa avsnitt beskrivs hur du uppnår hög tillgänglighet för alla tre viktiga SAP systemkomponenter.
+I nästa avsnitt beskrivs hur du uppnår hög tillgänglighet för alla tre viktiga SAP-system komponenter.
 
-### <a name="high-availability-architecture-for-sap-application-servers"></a>Arkitektur för hög tillgänglighet för SAP-programservrar
+### <a name="high-availability-architecture-for-sap-application-servers"></a>Hög tillgänglighets arkitektur för SAP-program servrar
 
 > Det här avsnittet gäller för:
 >
 > ![Windows][Logo_Windows] Windows och ![Linux][Logo_Linux] Linux
 >
 
-Vanligtvis behöver du inte en specifik lösning för hög tillgänglighet för SAP-servern och dialogrutan programinstanserna. Du kan uppnå hög tillgänglighet genom redundans och du konfigurerar flera dialogrutan instanser i olika instanser av virtuella Azure-datorer. Du bör ha minst två instanser av SAP programmet installerat i två instanser av virtuella Azure-datorer.
+Du behöver vanligt vis ingen specifik lösning för hög tillgänglighet för SAP-programservern och dialog instanser. Du uppnår hög tillgänglighet genom redundans och du konfigurerar flera dialog instanser i olika instanser av virtuella Azure-datorer. Du bör ha minst två SAP-programinstanser installerade i två instanser av Azure Virtual Machines.
 
-![Bild 1: SAP-programservern för hög tillgänglighet][sap-ha-guide-figure-2000]
+![Bild 1: SAP-Programserver med hög tillgänglighet][sap-ha-guide-figure-2000]
 
-_**Bild 1:** SAP-programservern för hög tillgänglighet_
+_**Bild 1:** SAP-Programserver med hög tillgänglighet_
 
-Du måste placera alla virtuella datorer som värd SAP-programserverinstanser i samma Azure-tillgänglighetsuppsättning har angetts. En Azure-tillgänglighetsuppsättning säkerställer att:
+Du måste placera alla virtuella datorer som är värdar för SAP Application Server-instanser i samma Azure-tillgänglighets uppsättning. En Azure-tillgänglighets uppsättning garanterar att:
 
-* Alla virtuella datorer ingår i samma uppdateringsdomän.  
-    En uppdateringsdomän säkerställer att de virtuella datorerna inte är uppdaterade på samma gång under planerat underhåll avbrott.
+* Alla virtuella datorer ingår i samma uppdaterings domän.  
+    En uppdaterings domän säkerställer att de virtuella datorerna inte uppdateras samtidigt under drift stopp av planerade underhåll.
 
-    Grundläggande funktioner, som bygger på annan uppdatering och feldomäner i en Azure skalningsenhet introducerades redan i den [uppdateringsdomäner][planning-guide-3.2.2] avsnittet.
+    De grundläggande funktionerna, som bygger på olika uppdaterings-och fel domäner i en Azure-Scale-enhet, har redan introducerats i avsnittet [uppdaterings domäner][planning-guide-3.2.2] .
 
 * Alla virtuella datorer ingår i samma feldomän.  
-    En feldomän säkerställer att virtuella datorer distribueras så att ingen enskild felpunkt som påverkar tillgängligheten för alla virtuella datorer.
+    En feldomän säkerställer att virtuella datorer distribueras så att ingen enskild felpunkt påverkar tillgängligheten för alla virtuella datorer.
 
-Antalet uppdaterings- och feldomäner domäner som kan användas av en Azure tillgänglighetsuppsättning i en Azure skalningsenheten är begränsad. Om du lägga till fler virtuella datorer till en enskild tillgänglighetsuppsättning, kommer två eller flera virtuella datorer så småningom hamnar i samma domän för fel eller update.
+Antalet uppdaterings-och fel domäner som kan användas av en Azure-tillgänglighets uppsättning i en Azure-Scale-enhet är begränsad. Om du fortsätter att lägga till virtuella datorer i en enda tillgänglighets uppsättning, kommer två eller fler virtuella datorer att sluta i samma fel-eller uppdaterings domän.
 
-Om du distribuerar några SAP programserverinstanser i sina dedikerade virtuella datorer växer under förutsättning att vi har fem uppdateringsdomäner nedan. Det faktiska högsta antalet uppdaterings- och feldomäner domäner i en tillgänglighetsuppsättning kan ändras i framtiden:
+Om du distribuerar några SAP Application Server-instanser i sina dedikerade virtuella datorer, förutsatt att vi har fem uppdaterings domäner visas följande bild. Det faktiska maximala antalet uppdaterings-och fel domäner i en tillgänglighets uppsättning kan ändras i framtiden:
 
-![Bild 2: Hög tillgänglighet för SAP-programservrarna i en Azure-tillgänglighetsuppsättning][planning-guide-figure-3000]
- _**bild 2:** Ange hög tillgänglighet för SAP-programservrarna i en Azure-tillgänglighetsuppsättning_
+![Bild 2: Hög tillgänglighet för SAP-programservrar i en Azures][planning-guide-figure-3000]
+tillgänglighets uppsättning _**bild 2:** Hög tillgänglighet för SAP-programservrar i en Azures tillgänglighets uppsättning_
 
-Mer information finns i [hantera tillgängligheten för Windows-datorer i Azure][azure-virtual-machines-manage-availability].
+Mer information finns i [Hantera tillgängligheten för virtuella Windows-datorer i Azure][azure-virtual-machines-manage-availability].
 
-Mer information finns i den [Azures tillgänglighetsuppsättningar][planning-guide-3.2.3] delen av virtuella Azure-datorer planering och implementering av SAP NetWeaver-dokumentet.
+Mer information finns i avsnittet [tillgänglighets uppsättningar][planning-guide-3.2.3] för Azure i Azure Virtual Machines planering och implementering för SAP NetWeaver-dokument.
 
-**Ohanterade diskar:** Eftersom Azure storage-kontot är en potentiell felpunkt, är det viktigt att du har minst två Azure storage-konton, där minst två virtuella datorer distribueras. I en perfekt installationsprogrammet, skulle diskar på varje virtuell dator som kör en instans för SAP-dialogrutan distribueras i ett annat lagringskonto.
+**Endast ohanterade diskar:** Eftersom Azure Storage-kontot är en enskild felpunkt är det viktigt att ha minst två Azure Storage-konton, där minst två virtuella datorer distribueras. I en idealisk installation skulle diskarna för varje virtuell dator som kör en instans av en SAP-dialogruta distribueras i ett annat lagrings konto.
 
 > [!IMPORTANT]
-> Vi rekommenderar starkt att du använder Azure hanterade diskar för dina SAP-installationer med hög tillgänglighet. Eftersom hanterade diskar automatiskt justera med tillgänglighetsuppsättningen för den virtuella datorn som de är kopplade till öka de tillgängligheten för den virtuella datorn och de tjänster som körs på den.  
+> Vi rekommenderar starkt att du använder Azure Managed disks för dina SAP-installationer med hög tillgänglighet. Eftersom Managed disks automatiskt anpassas med tillgänglighets uppsättningen för den virtuella datorn som de är kopplade till, ökar tillgängligheten för den virtuella datorn och de tjänster som körs på den.  
 >
 
-### <a name="high-availability-architecture-for-an-sap-ascsscs-instance-on-windows"></a>Arkitektur för hög tillgänglighet för en SAP ASCS/SCS-instans på Windows
+### <a name="high-availability-architecture-for-an-sap-ascsscs-instance-on-windows"></a>Hög tillgänglighets arkitektur för en SAP ASCS/SCS-instans i Windows
 
 > ![Windows][Logo_Windows] Windows
 >
 
-Du kan använda en WSFC-lösning för att skydda SAP ASCS/SCS-instans. Lösningen har två varianter:
+Du kan använda en WSFC-lösning för att skydda SAP ASCS/SCS-instansen. Lösningen har två varianter:
 
-* **Klustra SAP ASCS/SCS-instans med hjälp av klustrade delade diskar**: Mer information om den här arkitekturen finns i [kluster ett SAP ASCS/SCS-instans på en Windows-redundanskluster med hjälp av en delad klusterdisk][sap-high-availability-guide-wsfc-shared-disk].   
+* **Klustra SAP ASCS/SCS-instansen med hjälp av klustrade delade diskar**: Mer information om den här arkitekturen finns i [kluster en SAP ASCS/SCS-instans på ett Windows-redundanskluster med hjälp av en klusterdelad disk][sap-high-availability-guide-wsfc-shared-disk].   
 
-* **Klustra SAP ASCS/SCS-instans med hjälp av filresursen**: Mer information om den här arkitekturen finns i [kluster ett SAP ASCS/SCS-instans på en Windows-redundanskluster med hjälp av filresursen][sap-high-availability-guide-wsfc-file-share].
+* **Klustra SAP ASCS/SCS-instansen med hjälp av fil resurs**: Mer information om den här arkitekturen finns i [kluster en SAP ASCS/SCS-instans på ett Windows-redundanskluster med hjälp av fil resurs][sap-high-availability-guide-wsfc-file-share].
 
-### <a name="high-availability-architecture-for-an-sap-ascsscs-instance-on-linux"></a>Arkitektur för hög tillgänglighet för en SAP ASCS/SCS-instans på Linux
+### <a name="high-availability-architecture-for-an-sap-ascsscs-instance-on-linux"></a>Hög tillgänglighets arkitektur för en SAP ASCS/SCS-instans på Linux
 
 > ![Linux][Logo_Linux] Linux
 > 
-> Läs mer om clustering SAP ASCS/SCS-instans med hjälp av SLES kluster framework [hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SUSE Linux Enterprise Server för SAP-program][sap-suse-ascs-ha]. For alternative HA architecture on SLES, which doesn't require highly available NFS see [High-availability guide for SAP NetWeaver on SUSE Linux Enterprise Server with Azure NetApp Files for SAP applications][sap-suse-ascs-ha-anf].
+> Mer information om hur du klustrar SAP ASCS/SCS-instansen med hjälp av SLES Cluster Framework finns i [hög tillgänglighet för SAP-NetWeaver på virtuella Azure-datorer på SUSE Linux Enterprise Server för SAP-program][sap-suse-ascs-ha]. För alternativ HA-arkitektur på SLES, som inte kräver hög tillgänglig NFS, se [hög tillgänglighets guide för SAP NetWeaver på SUSE Linux Enterprise Server med Azure NetApp Files för SAP-program][sap-suse-ascs-ha-anf].
 
-Läs mer om clustering SAP ASCS/SCS-instans med hjälp av Red Hat-kluster framework [Azure Virtual Machines hög tillgänglighet för SAP NetWeaver på Red Hat Enterprise Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel)
+Mer information om hur du klustrar SAP ASCS/SCS-instansen med hjälp av Red Hat Cluster Framework finns i [Azure Virtual Machines hög tillgänglighet för SAP NetWeaver på Red Hat Enterprise Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel)
 
 
-### <a name="sap-netweaver-multi-sid-configuration-for-a-clustered-sap-ascsscs-instance"></a>SAP NetWeaver multi-SID-konfigurationen för en klustrad SAP ASCS/SCS-instans
+### <a name="sap-netweaver-multi-sid-configuration-for-a-clustered-sap-ascsscs-instance"></a>SAP NetWeaver multi-SID-konfiguration för en klustrad SAP-ASCS/SCS-instans
 
 > ![Windows][Logo_Windows] Windows
 > 
-> Multi-SID är för närvarande endast med WSFC. Multi-SID stöds med hjälp av filresursen och delad disk.
+> För närvarande stöds inte Multi-SID med WSFC. Multi-SID stöds med fil resurs och delad disk.
 > 
-> Mer information om arkitektur för hög tillgänglighet för multi-SID finns:
+> Mer information om arkitektur med hög tillgänglighet för flera SID finns i:
 
-* [SAP ASCS/SCS-instans – flera SÄKERHETSIDENTIFIERARE hög tillgänglighet för Windows Server Failover Clustering och filresurs][sap-ascs-ha-multi-sid-wsfc-file-share]
+* [SAP ASCS/SCS-instans multi-SID hög tillgänglighet för kluster för växling vid fel i Windows Server och fil resurs][sap-ascs-ha-multi-sid-wsfc-file-share]
 
-* [SAP ASCS/SCS-instans – flera SÄKERHETSIDENTIFIERARE hög tillgänglighet för Windows Server Failover Clustering och delad disk][sap-ascs-ha-multi-sid-wsfc-shared-disk]
+* [SAP ASCS/SCS-instans multi-SID hög tillgänglighet för Windows Server-redundanskluster och delad disk][sap-ascs-ha-multi-sid-wsfc-shared-disk]
 
-### <a name="high-availability-dbms-instance"></a>Hög tillgänglighet DBMS-instans
+### <a name="high-availability-dbms-instance"></a>DBMS-instans med hög tillgänglighet
 
-DBMS är också en enda kontaktpunkt i ett SAP-system. Du måste skydda den med hjälp av en lösning för hög tillgänglighet. Följande bild visar en lösning för SQL Server AlwaysOn hög tillgänglighet i Azure, med Windows Server Failover Clustering och intern Azure belastningsutjämnare. SQL Server AlwaysOn replikerar DBMS data och loggfiler filer med hjälp av en egen DBMS-replikering. I det här fallet behöver du inte delad klusterdisk, vilket förenklar hela installationen.
+DBMS är också en enda kontakt punkt i ett SAP-system. Du måste skydda den med en lösning med hög tillgänglighet. Följande bild visar en SQL Server AlwaysOn-lösning med hög tillgänglighet i Azure med Windows Server-redundanskluster och den interna Azure-belastningsutjämnaren. SQL Server AlwaysOn replikerar DBMS-data och loggfiler med hjälp av sin egen DBMS-replikering. I det här fallet behöver du inte klusterdelad disk, vilket fören klar hela installationen.
 
-![Bild 3: Exempel på en hög tillgänglighet SAP DBMS, med SQL Server AlwaysOn][sap-ha-guide-figure-2003]
+![Bild 3: Exempel på en SAP-DBMS med hög tillgänglighet, med SQL Server AlwaysOn][sap-ha-guide-figure-2003]
 
-_**Bild 3:** Exempel på en hög tillgänglighet SAP DBMS, med SQL Server AlwaysOn_
+_**Bild 3:** Exempel på en SAP-DBMS med hög tillgänglighet, med SQL Server AlwaysOn_
 
-Mer information om kluster SQL Server för DBMS i Azure med hjälp av Azure Resource Manager-distributionsmodellen finns i följande artiklar:
+Mer information om klustring SQL Server DBMS i Azure med hjälp av Azure Resource Manager distributions modell finns i följande artiklar:
 
-* [Konfigurera en AlwaysOn-tillgänglighetsgrupp i Azure virtual machines manuellt med hjälp av Resource Manager][virtual-machines-windows-portal-sql-alwayson-availability-groups-manual]
+* [Konfigurera en AlwaysOn-tillgänglighetsgrupper på virtuella Azure-datorer manuellt med hjälp av Resource Manager][virtual-machines-windows-portal-sql-alwayson-availability-groups-manual]
 
-* [Konfigurera en Azure intern belastningsutjämnare för en AlwaysOn-tillgänglighetsgrupp i Azure][virtual-machines-windows-portal-sql-alwayson-int-listener]
+* [Konfigurera en intern Azure-belastningsutjämnare för en AlwaysOn-tillgänglighetsgruppen i Azure][virtual-machines-windows-portal-sql-alwayson-int-listener]
 
-Läs mer om clustering SAP HANA DBMS i Azure med Azure Resource Manager-distributionsmodellen [hög tillgänglighet för SAP HANA på Azure virtual machines (VM)][sap-hana-ha].
+Mer information om klustring SAP HANA DBMS i Azure med hjälp av Azure Resource Manager distributions modell finns i [hög tillgänglighet för SAP HANA på virtuella datorer i Azure][sap-hana-ha].

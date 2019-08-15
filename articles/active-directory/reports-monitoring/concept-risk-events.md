@@ -1,9 +1,9 @@
 ---
-title: Azure Active Directory-riskhändelser | Microsoft Docs
-description: Den här artice ger dig en detaljerad översikt över riskhändelser är.
+title: Azure Active Directory risk händelser | Microsoft Docs
+description: Den här Artice ger dig en detaljerad översikt över vilka risk händelser som är.
 services: active-directory
-keywords: identitetsskydd för Azure active directory, säkerhet, risk, risknivå, säkerhetsproblem, säkerhetsprincip
-author: MarkusVi
+keywords: Azure Active Directory Identity Protection, säkerhet, risk, risknivå, sårbarhet, säkerhets princip
+author: cawrites
 manager: daveba
 ms.assetid: fa2c8b51-d43d-4349-8308-97e87665400b
 ms.service: active-directory
@@ -13,167 +13,167 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e50cc4ca9c98cb6a8e0f19cfcf6c1f86f1949beb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5711d900653ae7786899ce1c53f22cf181f5b8bf
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67107686"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68988276"
 ---
-# <a name="azure-active-directory-risk-events"></a>Azure Active Directory-riskhändelser
+# <a name="azure-active-directory-risk-events"></a>Azure Active Directory risk händelser
 
-Merparten av säkerhetsbrott sker när angripare får tillgång till en miljö genom att stjäla en användares identitet. Identifiera komprometterade identiteter är ingen enkelt uppgift. Azure Active Directory använder anpassningsbara maskininlärningsalgoritmer och heuristik för att identifiera misstänkta åtgärder relaterade till dina användarkonton. Varje identifierad misstänkt åtgärd lagras i en post som kallas en **riskhändelsen**.
+De flesta säkerhets överträdelser sker när angripare får åtkomst till en miljö genom att stjäla en användares identitet. Det är ingen enkel uppgift att identifiera komprometterade identiteter. Azure Active Directory använder anpassningsbara algoritmer för maskin inlärning och heuristik för att identifiera misstänkta åtgärder som är relaterade till dina användar konton. Varje misstänkt misstänkt åtgärd lagras i en post som kallas **risk händelse**.
 
-Det finns två platser där du kan granska rapporterade riskhändelser:
+Det finns två platser där du kan granska rapporterade risk händelser:
 
- - **Azure AD-rapportering** -riskhändelser är en del av Azure AD-säkerhetsgrupper rapporter. Mer information finns i den [användare i farozonen](concept-user-at-risk.md) och [säkerhetsrapporten för riskfyllda inloggningar](concept-risky-sign-ins.md).
+ - **Azure AD-rapportering** – risk händelser är en del av Azure Ads säkerhets rapporter. Mer information finns i säkerhets rapporten [användare vid risk säkerhet](concept-user-at-risk.md) och [säkerhets rapporten](concept-risky-sign-ins.md)för riskfyllda inloggningar.
 
- - **Azure AD Identity Protection** -riskhändelser är också en del av rapporteringsfunktionerna i [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
+ - **Azure AD Identity Protection** risk händelser är också en del av rapporterings funktionerna i [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
 
-Du kan också använda den [Identity Protection riskhändelser API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent) för programmässig åtkomst till säkerhetsidentifieringar med hjälp av Microsoft Graph. Mer information finns i [Kom igång med Azure Active Directory Identity Protection och Microsoft Graph](../identity-protection/graph-get-started.md). 
+Dessutom kan du använda [API: et för identitets skydds risk händelser](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent) för att få program mässig åtkomst till säkerhets identifieringar med hjälp av Microsoft Graph. Mer information finns i [Kom igång med Azure Active Directory Identity Protection och Microsoft Graph](../identity-protection/graph-get-started.md). 
 
-För närvarande kan identifierar Azure Active Directory sex typer av riskhändelser:
+För närvarande identifierar Azure Active Directory sex typer av risk händelser:
 
 - [Användare med läckta autentiseringsuppgifter](#leaked-credentials) 
 - [Inloggningar från anonyma IP-adresser](#sign-ins-from-anonymous-ip-addresses) 
-- [Omöjlig resa till ovanliga platser](#impossible-travel-to-atypical-locations) 
+- [Omöjlig resa till ovanlig platser](#impossible-travel-to-atypical-locations) 
 - [Inloggningar från angripna enheter](#sign-ins-from-infected-devices) 
 - [Inloggningar från IP-adresser med misstänkt aktivitet](#sign-ins-from-ip-addresses-with-suspicious-activity) 
 - [Inloggningar från okända platser](#sign-in-from-unfamiliar-locations) 
 
-![Riskhändelsen](./media/concept-risk-events/91.png)
+![Riskhändelse](./media/concept-risk-events/91.png)
 
 > [!IMPORTANT]
-> Ibland, kan du hitta en riskhändelse utan en motsvarande inloggning transaktion i den [rapporten inloggningar](concept-sign-ins.md). Detta beror på att Identity Protection utvärderar risken för både **interaktiva** och **icke-interaktiv** inloggningar, medan den inloggningar rapporten visas endast de interaktiva inloggningarna.
+> Ibland kan du hitta en risk händelse utan motsvarande inloggnings post i [inloggnings rapporten](concept-sign-ins.md). Detta beror på att identitets skyddet utvärderar risker för både **interaktiva** och **icke-interaktiva** inloggningar, medan inloggnings rapporten endast visar interaktiva inloggningar.
 
 Den information som du får en identifierad riskhändelse är kopplad till din Azure AD-prenumeration. 
 
-* Med den **Azure AD Premium P2-versionen**, du får den mest detaljerade informationen om alla underliggande identifieringar. 
-* Med den **Azure AD Premium P1 edition**, avancerade identifieringar (till exempel känner inloggning egenskaper) omfattas inte av din licens och visas under namnet **inloggning med identifierad ytterligare risk** . Dessutom är risknivå och risk detaljfält dolda.
+* Med **Azure AD Premium P2-versionen**får du den mest detaljerade informationen om alla underliggande identifieringar. 
+* Med **Azure AD Premium P1-versionen**omfattas inte avancerade identifieringar (till exempel okända inloggnings egenskaper) av din licens och visas under namn **inloggningen med ytterligare risk upptäckt**. Dessutom är fälten risk nivå och risk detalj dolda.
 
-När identifieringen av riskhändelser redan representerar en viktig aspekt av att skydda dina identiteter, har också möjlighet att manuellt åtgärda dem eller implementera automatiska svar genom att konfigurera principer för villkorlig åtkomst. Mer information finns i [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
+Även om identifieringen av risk händelser redan representerar en viktig aspekt av att skydda dina identiteter, kan du också välja att antingen manuellt adressera dem eller implementera automatiska svar genom att konfigurera principer för villkorlig åtkomst. Mer information finns i [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
 
 ## <a name="risk-event-types"></a>Typer av riskhändelser
 
-Den **riskerar händelsetyp** egenskapen är en identifierare för den misstänkta åtgärden som en risk händelseposten har skapats för.
+Egenskapen **risk händelse typ** är en identifierare för den misstänkta åtgärd som en risk händelse post har skapats för.
 
-Microsofts kontinuerlig investeringar i identifieringsprocessen leda till:
+Microsofts kontinuerliga investeringar i identifierings processen leder till:
 
-- Förbättringar av identifieringen av riskhändelser 
-- Nya typer av riskhändelser som ska läggas till i framtiden
+- Förbättringar av identifierings precisionen för befintliga risk händelser 
+- Nya risk händelse typer som kommer att läggas till i framtiden
 
 ### <a name="leaked-credentials"></a>Läckta autentiseringsuppgifter
 
-När andra nätkriminella kompromettering giltig lösenorden för behöriga användare, dela de ofta dessa autentiseringsuppgifter. Detta görs normalt genom att publicera dem offentligt på mörk webb- eller klistra in platser eller av handel eller sälja autentiseringsuppgifter på svarta marknaden. Microsofts läcka ut autentiseringsuppgifter tjänsten hämtar användarnamn / lösenord kombinationer genom att övervaka offentliga och mörka webbplatser och genom att arbeta med:
+När cyberbrottslingar kompromettera giltiga lösen ord för legitima användare delar de ofta dessa autentiseringsuppgifter. Detta görs vanligt vis genom att publicera dem offentligt på de mörka webb-eller Inklistrings platserna eller genom handel eller sälja de autentiseringsuppgifter som finns på den svarta marknaden. Tjänsten Microsoft läcker autentiseringsuppgifter hämtar användar namn/lösen ord genom att övervaka offentliga och mörka webbplatser och genom att arbeta med:
 
 - Forskare
-- Brottsbekämpande myndigheter
-- Security Team på Microsoft
+- Juridisk tillämpning
+- Säkerhets team på Microsoft
 - Andra betrodda källor 
 
-När tjänsten hämtar användarnamn / lösenord-par som, de kontrolleras mot AAD användarnas aktuella giltiga autentiseringsuppgifter. När en matchning hittas, innebär det att en användares lösenord har komprometterats, och en **läcka ut autentiseringsuppgifter riskhändelse** har skapats.
+När tjänsten hämtar användar namn/lösen ord-par kontrol leras de mot AAD-användarens aktuella giltiga autentiseringsuppgifter. När en matchning hittas innebär det att en användares lösen ord har komprometterats och att en komprometterad **risk händelse för autentiseringsuppgifter** har skapats.
 
 ### <a name="sign-ins-from-anonymous-ip-addresses"></a>Inloggningar från anonyma IP-adresser
 
-Den här riskhändelsetyp identifierar användare som har loggat in från en IP-adress som har identifierats som en anonym proxy IP-adress. Dessa proxyservrar används av personer som vill dölja sina enheters IP-adress och kan användas i skadligt syfte.
+Den här risk händelse typen identifierar användare som har loggat in från en IP-adress som har identifierats som en anonym proxy-IP-adress. Dessa proxyservrar används av personer som vill dölja sina enheters IP-adress och kan användas i skadligt syfte.
 
-### <a name="impossible-travel-to-atypical-locations"></a>Omöjliga resor till ovanliga platser
+### <a name="impossible-travel-to-atypical-locations"></a>Omöjligt att resa till ovanliga platser
 
-Den här riskhändelsetyp identifierar två inloggningar från geografiskt avlägsna platser, där kanske minst en av platserna som också är ovanlig för användaren, får de senaste beteende. Bland flera andra faktorer tar den här maskininlärningsalgoritmen hänsyn till tiden mellan två inloggningar och hur lång tid det skulle ha tagit för användaren att färdas från den första platsen till den andra, som anger att en annan användare använder samma autentiseringsuppgifter.
+Den här typen av risk händelser identifierar två inloggningar som härstammar från geografiskt avlägsna platser, där minst en av platserna också kan vara ovanlig för användaren, med hänsyn till tidigare beteende. Bland flera andra faktorer tar den här Machine Learning-algoritmen hänsyn till tiden mellan de två inloggningarna och den tid det skulle ha tagit för användaren att resa från den första platsen till den andra, vilket indikerar att en annan användare använder samma klientautentiseringsuppgifter.
 
-Algoritmen ignorerar uppenbara ”FALSKT positiva resultat” bidrar till omöjlig resa villkor, till exempel virtuella privata nätverk och platser som ofta används av andra användare i organisationen. Systemet har en inledande inlärningsperiod på 14 dagar under vilken den lär sig en ny användare logga in beteende. 
+Algoritmen ignorerar uppenbara "falska positiva identifieringar" som bidrar till de omöjliga rese villkoren, till exempel VPN och platser som regelbundet används av andra användare i organisationen. Systemet har en inledande inlärnings period på 14 dagar under vilken den lär sig en ny användares inloggnings beteende. 
 
 ### <a name="sign-in-from-unfamiliar-locations"></a>Logga in från okända platser
 
-Den här riskhändelsetyp tar hänsyn till de senaste inloggning platser (IP, latitud / longitud och ASN) att fastställa nya / okända platser. Systemet lagrar information om tidigare platser som används av en användare och så att platserna ”välbekanta”. Riskhändelsen utlöses när inloggningen sker från en plats som inte redan finns i listan med välbekanta platser. Systemet har en inledande inlärningsperiod på 30 dagar, då det inte flaggar några nya platser som okända platser. Systemet ignorerar också inloggningar från välbekanta enheter och platser som ligger geografiskt nära en bekant plats. 
+Den här typen av risk händelser betraktar tidigare inloggnings platser (IP, latitud/longitud och ASN) för att fastställa nya/okända platser. Systemet lagrar information om tidigare platser som används av en användare och betraktar dessa "välkända" platser. Risk händelsen utlöses när inloggningen sker från en plats som inte redan finns i listan över välkända platser. Systemet har en inledande inlärnings period på 30 dagar, där den inte flaggar några nya platser som okända platser. Systemet ignorerar också inloggningar från välbekanta enheter och platser som är geografiskt nära en bekant plats. 
 
-Identity Protection identifierar inloggningar från okända platser också för grundläggande autentisering / äldre protokoll. Eftersom dessa protokoll inte har modern välkända funktioner, till exempel klient-id, finns det inte tillräckligt med telemetri för att minska falska positiva identifieringar. För att minska antalet identifierade riskhändelserna, bör du flytta till modern autentisering.   
+Identitets skyddet identifierar inloggningar från okända platser även för grundläggande autentisering/äldre protokoll. Eftersom dessa protokoll inte har moderna välbekanta funktioner, till exempel klient-ID, finns det inte tillräckligt med telemetri för att minska antalet falska positiva identifieringar. Om du vill minska antalet identifierade risk händelser bör du flytta till modern autentisering.   
 
 ### <a name="sign-ins-from-infected-devices"></a>Inloggningar från angripna enheter
 
-Den här riskhändelsetyp identifierar inloggningar från enheter som infekterats med skadlig kod, som är kända för att aktivt kommunicera med en bot-server. Detta fastställs genom att IP-adresserna för användarens enhet mot IP-adresser som varit i kontakt med en bot-server. 
+Den här typen av risk händelser identifierar inloggningar från enheter som har infekterats av skadlig kod, som är kända för att kommunicera med en bot-Server aktivt. Detta bestäms genom att korrelera IP-adresserna för användarens enhet mot IP-adresser som var i kontakt med en bot-Server. 
 
 ### <a name="sign-ins-from-ip-addresses-with-suspicious-activity"></a>Inloggningar från IP-adresser med misstänkt aktivitet
-Den här riskhändelsetyp identifierar IP-adresser som ett stort antal misslyckade inloggningsförsök visades, för flera användarkonton under en kort tidsperiod. Detta matchar trafikmönster för IP-adresser som används av angripare och är en stark indikator att konton är antingen redan eller håller på att äventyras. Det här är en machine learning-algoritm som ignorerar uppenbara falskpositiva resultat, till exempel IP-adresser som regelbundet som används av andra användare i organisationen.  Systemet har en inledande inlärningsperiod på 14 dagar där den lär sig beteendet inloggning för en ny användare och en ny klient.
+Den här typen av risk händelser identifierar IP-adresser från vilka ett stort antal misslyckade inloggnings försök setts, över flera användar konton under en kort tids period. Detta matchar trafik mönster i IP-adresser som används av angripare och är en stark indikator som konton antingen redan eller är på väg att komprometteras. Det här är en Machine Learning-algoritm som ignorerar uppenbara falskt-positiva, till exempel IP-adresser som används regelbundet av andra användare i organisationen.  Systemet har en inledande inlärnings period på 14 dagar där den lär sig inloggnings beteendet för en ny användare och ny klient.
 
 ## <a name="detection-type"></a>Identifieringstyp
 
-Typegenskapen identifiering är en indikator (**i realtid** eller **Offline**) för identifiering av tidsramen för en riskhändelse. För närvarande kan har de flesta riskhändelser identifierats offline i en efterbearbetning åtgärd när riskhändelsen har inträffat.
+Egenskapen identifierings typ är en indikator (i**real tid** eller **offline**) för detektions ramen för en risk händelse. För närvarande identifieras de flesta risk händelser offline i en efter bearbetnings åtgärd efter att risk händelsen har inträffat.
 
-I följande tabell visas hur lång tid det tar för en identifieringstyp visas i en relaterad rapport:
+I följande tabell visas hur lång tid det tar för en identifierings typ som visas i en relaterad rapport:
 
-| Identifieringstyp | Rapporteringstiden |
+| Identifierings typ | Rapport svars tid |
 | --- | --- |
-| I realtid | 5 – 10 minuter |
-| Offline | 2-4 timmar |
+| Realtid | 5 till 10 minuter |
+| Offline | 2 till 4 timmar |
 
 
-För de typer av riskhändelser Azure Active Directory identifierar, är identifieringstyper:
+För de risk händelse typer Azure Active Directory identifierar identifieras följande:
 
-| Typ av riskhändelse | Identifieringstyp |
+| Typ av risk händelse | Identifierings typ |
 | :-- | --- | 
 | [Användare med läckta autentiseringsuppgifter](#leaked-credentials) | Offline |
-| [Inloggningar från anonyma IP-adresser](#sign-ins-from-anonymous-ip-addresses) | I realtid |
-| [Omöjlig resa till ovanliga platser](#impossible-travel-to-atypical-locations) | Offline |
-| [Inloggningar från okända platser](#sign-in-from-unfamiliar-locations) | I realtid |
+| [Inloggningar från anonyma IP-adresser](#sign-ins-from-anonymous-ip-addresses) | Realtid |
+| [Omöjlig resa till ovanlig platser](#impossible-travel-to-atypical-locations) | Offline |
+| [Inloggningar från okända platser](#sign-in-from-unfamiliar-locations) | Realtid |
 | [Inloggningar från angripna enheter](#sign-ins-from-infected-devices) | Offline |
 | [Inloggningar från IP-adresser med misstänkt aktivitet](#sign-ins-from-ip-addresses-with-suspicious-activity) | Offline|
 
 
 ## <a name="risk-level"></a>Risknivå
 
-Egenskapen risk nivå för en riskhändelse är en indikator (**hög**, **medel**, eller **låg**) för allvarlighetsgrad och förtroendet hos en riskhändelse. Den här egenskapen hjälper dig att prioritera vilka åtgärder du måste utföra. 
+Egenskapen risk nivå för en risk händelse är en indikator (**hög**, **medel**eller **låg**) för allvarlighets grad och förtroende för en risk händelse. Med den här egenskapen kan du prioritera de åtgärder som du måste vidta. 
 
-Allvarlighetsgraden för riskhändelsen representerar styrkan hos signalen som en ge säkrare prognoser om identitet har komprometterats. Du kan lita på är en indikator för risken att falska positiva identifieringar. 
+Risk händelsens allvarlighets grad representerar styrkan hos signalen som en förväntare av identitets kompromisser. Förtroendet är en indikator för möjligheten att falska positiva identifieringar. 
 
 Exempel: 
 
-* **Hög**: Hög exakthet och hög allvarlighetsgrad riskhändelsen. Dessa händelser är starkt indikatorer som användarens identitet har komprometterats och alla användarkonton som påverkas bör åtgärdas omedelbart.
+* **Hög**: Hög säkerhet och risk händelse med hög allvarlighets grad. Dessa händelser är starka indikatorer på att användarens identitet har komprometterats och att alla användar konton som påverkas bör åtgärdas omedelbart.
 
-* **Medel**: Hög allvarlighetsgrad, men med lägre förtroende riskhändelse eller vice versa. Dessa händelser är potentiellt riskabla och alla användarkonton som påverkas bör åtgärdas.
+* **Medel**: Hög allvarlighets grad, men lägre risk händelse eller vice versa. Dessa händelser är potentiellt riskfyllda och eventuella användar konton som påverkas bör åtgärdas.
 
-* **Låg**: Låg säkert och låg allvarlighetsgrad riskhändelsen. Den här händelsen kan inte kräva en omedelbar åtgärd, men när de kombineras med andra riskhändelser som kan ge en stark indikation på att identiteten har komprometterats.
+* **Låg**: Risk händelse för låg exakthet och låg allvarlighets grad. Den här händelsen kräver ingen omedelbar åtgärd, men när den kombineras med andra risk händelser kan en stark indikation på att identiteten har komprometterats.
 
-![Risknivå](./media/concept-risk-events/01.png)
+![Risk nivå](./media/concept-risk-events/01.png)
 
 ### <a name="leaked-credentials"></a>Läckta autentiseringsuppgifter
 
-Läcka ut autentiseringsuppgifter riskhändelser klassificeras som en **hög**eftersom de innehåller en tydlig indikation på att användarnamn och lösenord är tillgängliga för en angripare.
+Läckta autentiseringsuppgifter risk händelser klassificeras som **höga**, eftersom de ger en tydlig indikation på att användar namnet och lösen ordet är tillgängliga för en angripare.
 
 ### <a name="sign-ins-from-anonymous-ip-addresses"></a>Inloggningar från anonyma IP-adresser
 
-Risknivå för denna typ av riskhändelse är **medel** eftersom en anonym IP-adress inte är en stark indikation på en konto-kompromiss. Vi rekommenderar att du omedelbart kontakta användaren och kontrollera om de använder anonyma IP-adresser.
+Risk nivån för denna risk händelse typ är **medels Tor** eftersom en anonym IP-adress inte är en stark indikation på en konto kompromiss. Vi rekommenderar att du omedelbart kontaktar användaren för att kontrol lera om de använde anonyma IP-adresser.
 
 
-### <a name="impossible-travel-to-atypical-locations"></a>Omöjliga resor till ovanliga platser
+### <a name="impossible-travel-to-atypical-locations"></a>Omöjligt att resa till ovanliga platser
 
-Omöjlig resa är vanligtvis en god indikator som en hackare kunde logga in. Falskpositiva resultat kan dock uppstå när en användare åker med hjälp av en ny enhet eller en VPN-anslutning som vanligtvis inte används av andra användare i organisationen. En annan källa till falskpositiva resultat är program som felaktigt skicka server IP-adresser som klienten IP-adresser, som kan ge utseende över inloggningar ägde rum från datacentret där programmet är backend-server är värd för (det är ofta Microsofts datacenter som kan ge utseende över inloggningar äger rum från Microsoft ägs IP-adresser). Till följd av de här falskpositiva resultat, för den här riskhändelsen är **medel**.
+Omöjlig resa är vanligt vis en korrekt indikator att en hackare kunde logga in. Falska positiva identifieringar kan dock inträffa när en användare reser med en ny enhet eller använder ett VPN som vanligt vis inte används av andra användare i organisationen. En annan källa med falskt-positiva objekt är program som felaktigt skickar Server-IP-adresser som klient-IP-adresser, vilket kan ge dig en del av inloggningar från data centret där programmets backend är värdbaserad (ofta är dessa Microsoft-datacenter, som kan ge utseendet på inloggningar som sker från Microsofts ägda IP-adresser). Som ett resultat av dessa falska positiva händelser är risk nivån **medium**.
 
 > [!TIP]
-> Du kan minska mängden rapporterade falskpositiva resultat för den här riskhändelsetyp genom att konfigurera [namngivna platser](../active-directory-named-locations.md). 
+> Du kan minska mängden rapporterade falska positiva identifieringar för den här risk händelse typen genom att konfigurera [namngivna platser](../active-directory-named-locations.md). 
 
 ### <a name="sign-in-from-unfamiliar-locations"></a>Logga in från okända platser
 
-Okända platser kan ge en stark indikation på att en angripare ska kunna använda en stulen identitet. Falskpositiva resultat kan uppstå när en användare åker, testa en ny enhet eller använder en ny VPN-anslutning. Till följd av dessa falska positiva identifieringar för den här händelsetypen är **medel**.
+Okända platser kan ge en stark indikation på att en angripare kan använda en stulen identitet. Falska positiva identifieringar kan uppstå när en användare reser, försöker med en ny enhet eller använder en ny VPN-anslutning. Som ett resultat av dessa falska positiva identifieringar är risk nivån för den här händelse typen **medel**.
 
 ### <a name="sign-ins-from-infected-devices"></a>Inloggningar från angripna enheter
 
-Den här riskhändelsen identifierar IP-adresser, inte användarenheter. Om flera enheter som är bakom en enda IP-adress och endast vissa är styrs av ett bot-nätverk, inloggningar från andra enheter min utlösare den här händelsen i onödan, vilket är anledningen till den här riskhändelsen har klassificerats som **låg**.  
+Den här risk händelsen identifierar IP-adresser, inte användar enheter. Om flera enheter finns bakom en enda IP-adress och endast vissa styrs av ett bot nätverk, utlöser inloggningen från andra enheter den här händelsen i onödan, vilket är orsaken till att den här risk händelsen klassificeras som **låg**.  
 
-Vi rekommenderar att du kontakta användaren och genomsöka alla användarens enheter. Det går också att en användares personliga enhet har infekterats eller någon annan har använt en infekterad enhet från samma IP-adress som användaren. Infekterade enheter är ofta smittade av skadlig kod som ännu inte identifierats av antivirusprogram och kan också vara eventuella felaktiga användaren vanor som kan ha orsakat enheten infekteras.
+Vi rekommenderar att du kontaktar användaren och genomsöker alla användarens enheter. Det är också möjligt att en användares personliga enhet är infekterad eller att någon annan använde en infekterad enhet från samma IP-adress som användaren. Infekterade enheter är ofta infekterade av skadlig kod som ännu inte har identifierats av antivirus program, och det kan också indikera eventuella dåliga användar vanor som kan ha orsakat att enheten skulle infekteras.
 
-Mer information om hur du adressen infekteras av skadlig kod finns i den [Malware Protection Center](https://www.microsoft.com/en-us/security/portal/definitions/adl.aspx/).
+Mer information om hur du tar itu med skadlig kod finns i [Malware Protection Center](https://www.microsoft.com/en-us/security/portal/definitions/adl.aspx/).
 
 ### <a name="sign-ins-from-ip-addresses-with-suspicious-activity"></a>Inloggningar från IP-adresser med misstänkt aktivitet
 
-Vi rekommenderar att du kontaktar användaren för att kontrollera om de faktiskt loggat in från en IP-adress som har markerats som misstänkt. För den här händelsetypen är ”**medel**” eftersom flera enheter kanske bakom samma IP-adress, medan endast vissa vara ansvariga för den misstänkta aktiviteten. 
+Vi rekommenderar att du kontaktar användaren för att kontrol lera om de faktiskt har loggat in från en IP-adress som marker ATS som misstänkt. Risk nivån för den här händelse typen är "**medel**" eftersom flera enheter kan finnas bakom samma IP-adress, medan bara vissa kan vara ansvariga för den misstänkta aktiviteten. 
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Användare i farozonen](concept-user-at-risk.md)
-* [Rapporten över riskfyllda inloggningar](concept-risky-sign-ins.md)
+* [Säkerhets rapport över användare i risk](concept-user-at-risk.md)
+* [Säkerhets rapport för riskfyllda inloggningar](concept-risky-sign-ins.md)
 * [Azure AD Identity Protection](../active-directory-identityprotection.md).

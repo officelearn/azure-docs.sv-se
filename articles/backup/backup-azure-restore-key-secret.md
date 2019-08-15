@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/28/2017
 ms.author: dacurwin
-ms.openlocfilehash: 379dd87edbbfa878a034cd61854ee15f215b0228
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: cca8cf3a222b71954e6727e184ff5d16839a6a68
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689119"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954566"
 ---
 # <a name="restore-key-vault-key-and-secret-for-encrypted-vms-using-azure-backup"></a>Återställa Key Vault nyckel och hemlighet för krypterade virtuella datorer med Azure Backup
 
@@ -23,7 +23,7 @@ Den här artikeln visar hur du använder Azure VM backup för att utföra åters
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* **Säkerhetskopiera krypterade virtuella datorer** – krypterade virtuella Azure-datorer har säkerhetskopierats med Azure Backup. Mer information om hur du säkerhetskopierar krypterade virtuella Azure-datorer finns i artikeln [hantera säkerhets kopiering och återställning av virtuella Azure-datorer med hjälp av PowerShell](backup-azure-vms-automation.md) .
+* **Säkerhetskopiera krypterade virtuella datorer** – krypterade virtuella Azure-datorer har säkerhetskopierats med Azure Backup. Se artikeln [hantera säkerhets kopiering och återställning av virtuella Azure-datorer med hjälp av PowerShell](backup-azure-vms-automation.md) för information om hur du säkerhetskopierar krypterade virtuella Azure-datorer.
 * **Konfigurera Azure Key Vault** – kontrol lera att nyckel valvet som nycklar och hemligheter måste återställas till redan finns. Läs artikeln [Kom igång med Azure Key Vault](../key-vault/key-vault-get-started.md) för information om hantering av nyckel valv.
 * **Återställ disk** – kontrol lera att du har utlöst återställnings jobb för att återställa diskar för krypterad virtuell dator med hjälp av [PowerShell-steg](backup-azure-vms-automation.md#restore-an-azure-vm). Detta beror på att det här jobbet genererar en JSON-fil i ditt lagrings konto som innehåller nycklar och hemligheter för att den krypterade virtuella datorn ska återställas.
 

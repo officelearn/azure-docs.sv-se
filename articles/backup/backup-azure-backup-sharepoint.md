@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/09/2019
 ms.author: dacurwin
-ms.openlocfilehash: 75916655f1b46cd1b84220cba9db441d54486927
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 875c2002d477a95b44ad1491cb716e2ef70697e7
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68735651"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954852"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-dpm"></a>Säkerhetskopiera en SharePoint-grupp till Azure med DPM
 Du säkerhetskopierar en SharePoint-grupp till Microsoft Azure med hjälp av System Center Data Protection Manager (DPM) på samma sätt som du säkerhetskopierar andra data källor. Azure Backup ger flexibilitet i schemat för säkerhets kopiering för att skapa dagliga, vecko Visa eller årliga säkerhets kopierings punkter och ger dig bevarande princip alternativ för olika säkerhets kopierings punkter. DPM ger möjlighet att lagra lokala disk kopior för snabba återställnings mål (RTO) och för att lagra kopior till Azure för ekonomisk, långsiktig kvarhållning.
@@ -43,7 +43,7 @@ DPM körs som ett LocalSystem-konto. Om du vill säkerhetskopiera SQL Server-dat
 Om SharePoint-servergruppen har SQL Server databaser som har kon figurer ATS med SQL Server-alias, installerar du SQL Server-klient komponenterna på den klient webb server som DPM ska skydda.
 
 ### <a name="sharepoint-server"></a>SharePoint Server
-Prestanda beror på många faktorer, till exempel storleken på SharePoint-servergruppen, som allmän vägledning en DPM-server kan skydda en 25 TB SharePoint-grupp.
+Även om prestanda beror på många faktorer, till exempel storleken på SharePoint-servergruppen, kan en DPM-server skydda en 25 TB SharePoint-grupp.
 
 ### <a name="dpm-update-rollup-5"></a>DPM-Samlad uppdatering 5
 Om du vill börja skydda en SharePoint-grupp till Azure måste du installera DPM-Samlad uppdatering 5 eller senare. Med Samlad uppdatering 5 kan du skydda en SharePoint-grupp i Azure om Server gruppen har kon figurer ATS med hjälp av SQL AlwaysOn.

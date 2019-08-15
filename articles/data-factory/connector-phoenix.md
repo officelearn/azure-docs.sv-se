@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 012057c7d01924ab1998a010b6ea0c7d83651a4d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 01f764d96eacdc94fd90b4f695c4b774a6ded5c5
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60405931"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967451"
 ---
 # <a name="copy-data-from-phoenix-using-azure-data-factory"></a>Kopiera data från Phoenix med Azure Data Factory 
 
@@ -28,6 +28,10 @@ Den här artikeln beskrivs hur du använder Kopieringsaktivitet i Azure Data Fac
 Du kan kopiera data från Phoenix till alla datalager för mottagare som stöds. En lista över datalager som stöds som källor/mottagare av Kopieringsaktivitet finns i den [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) tabell.
 
 Azure Data Factory tillhandahåller en inbyggd drivrutin för att aktivera anslutning, måste du därför inte att manuellt installera en drivrutin som använder den här anslutningen.
+
+## <a name="prerequisites"></a>Förutsättningar
+
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
 ## <a name="getting-started"></a>Komma igång
 
@@ -41,7 +45,7 @@ Följande egenskaper har stöd för Phoenix länkade tjänsten:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Type-egenskapen måste anges till: **Phoenix** | Ja |
+| type | Egenskapen Type måste anges till: **Phoenix** | Ja |
 | host | IP-adressen eller värdnamnet namnet på Phoenix-servern. (det vill säga 192.168.222.160)  | Ja |
 | port | TCP-porten som Phoenix-servern använder för att lyssna efter klientanslutningar. Standardvärdet är 8765. Ange porten som 443 om du ansluter till Azure HDInsights. | Nej |
 | httpPath | Partiell URL som motsvarar Phoenix-server. (det vill säga /gateway/sandbox/phoenix/version). Ange `/hbasephoenix0` om du använder HDInsights kluster.  | Nej |
@@ -53,7 +57,7 @@ Följande egenskaper har stöd för Phoenix länkade tjänsten:
 | useSystemTrustStore | Anger om du vill använda ett CA-certifikat från arkivet med betrodda system eller från en angiven PEM-fil. Standardvärdet är FALSKT.  | Nej |
 | allowHostNameCNMismatch | Anger om en CA-utfärdade SSL-certifikatnamnet att matcha värdnamnet för servern när du ansluter via SSL. Standardvärdet är FALSKT.  | Nej |
 | allowSelfSignedServerCert | Anger om du vill tillåta självsignerade certifikat från servern. Standardvärdet är FALSKT.  | Nej |
-| connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda lokal Integration Runtime eller Azure Integration Runtime (om ditt datalager är offentligt tillgänglig). Om den inte anges används standard Azure Integration Runtime. |Nej |
+| connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Läs mer från avsnittet [krav](#prerequisites) . Om den inte anges används standard Azure Integration Runtime. |Nej |
 
 >[!NOTE]
 >Om klustret inte stöder sticky session t.ex. HDInsight, uttryckligen lägga till noden index i slutet av inställningen för http-sökväg, t.ex. Ange `/hbasephoenix0` i stället för `/hbasephoenix`.
@@ -88,8 +92,8 @@ Om du vill kopiera data från Phoenix, ange typegenskapen på datauppsättningen
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Type-egenskapen för datauppsättningen måste anges till: **PhoenixObject** | Ja |
-| tableName | Namnet på tabellen. | Nej (om ”frågan” i aktivitetskälla har angetts) |
+| type | Data uppsättningens typ-egenskap måste anges till: **PhoenixObject** | Ja |
+| tableName | Namnet på tabellen. | Nej (om ”query” i aktivitetskälla har angetts) |
 
 **Exempel**
 
@@ -117,7 +121,7 @@ Om du vill kopiera data från Phoenix, ange typ av datakälla i kopieringsaktivi
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **PhoenixSource** | Ja |
+| type | Typ egenskapen för kopierings aktivitets källan måste anges till: **PhoenixSource** | Ja |
 | query | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
 
 **Exempel:**

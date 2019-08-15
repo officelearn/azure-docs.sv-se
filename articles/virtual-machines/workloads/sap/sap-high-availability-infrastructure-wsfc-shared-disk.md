@@ -1,6 +1,6 @@
 ---
-title: Förbereda Azure-infrastrukturen för SAP hög tillgänglighet med hjälp av en Windows-redundanskluster och delad disk för SAP ASCS/SCS | Microsoft Docs
-description: Lär dig hur du förbereder Azure-infrastrukturen för SAP hög tillgänglighet med hjälp av en Windows-redundanskluster och delad disk för en SAP ASCS/SCS-instans.
+title: Förbered Azure-infrastrukturen för SAP HA med ett Windows-redundanskluster och en delad disk för SAP ASCS/SCS | Microsoft Docs
+description: Lär dig hur du förbereder Azure-infrastrukturen för SAP HA med hjälp av ett Windows-redundanskluster och en delad disk för en SAP ASCS/SCS-instans.
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
@@ -18,13 +18,13 @@ ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: b4e107da9d8e5019ba51769d283f3faa34839380
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "67709245"
 ---
-# <a name="prepare-the-azure-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster-and-shared-disk-for-sap-ascsscs"></a>Förbereda Azure-infrastrukturen för SAP hög tillgänglighet med hjälp av en Windows-redundanskluster och delad disk för SAP ASCS/SCS
+# <a name="prepare-the-azure-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster-and-shared-disk-for-sap-ascsscs"></a>Förbered Azure-infrastrukturen för SAP-HA med hjälp av ett Windows-redundanskluster och en delad disk för SAP ASCS/SCS
 
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -75,7 +75,7 @@ ms.locfileid: "67709245"
 [sap-high-availability-infrastructure-wsfc-shared-disk-install-sios-both-nodes]:sap-high-availability-infrastructure-wsfc-shared-disk.md#dd41d5a2-8083-415b-9878-839652812102
 [sap-high-availability-infrastructure-wsfc-shared-disk-setup-sios]:sap-high-availability-infrastructure-wsfc-shared-disk.md#d9c1fc8e-8710-4dff-bec2-1f535db7b006
 
-[sap-ha-multi-sid-guide]:sap-high-availability-multi-sid.md (SAP – flera SÄKERHETSIDENTIFIERARE konfiguration med hög tillgänglighet)
+[sap-ha-multi-sid-guide]:sap-high-availability-multi-sid.md (SAP multi-SID-konfiguration med hög tillgänglighet)
 
 [Logo_Linux]:media/virtual-machines-shared-sap-shared/Linux.png
 [Logo_Windows]:media/virtual-machines-shared-sap-shared/Windows.png
@@ -163,101 +163,101 @@ ms.locfileid: "67709245"
 > ![Windows][Logo_Windows] Windows
 >
 
-Den här artikeln beskriver de steg du utför för att förbereda Azure-infrastrukturen för att installera och konfigurera en SAP-system med hög tillgänglighet i ett Windows-redundanskluster med hjälp av en *delad klusterdisk* som ett alternativ för kluster ett SAP ASCS-instans.
+Den här artikeln beskriver de steg som du vidtar för att förbereda Azure-infrastrukturen för att installera och konfigurera ett SAP-system med hög tillgänglighet på ett Windows-redundanskluster med hjälp av en *klusterdelad disk* som ett alternativ för att klustra en SAP ASCS-instans.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Läs den här artikeln innan du påbörjar installationen:
+Läs igenom den här artikeln innan du påbörjar installationen:
 
-* [Arkitektur-guide: Klustret ett SAP ASCS/SCS-instans på en Windows-redundanskluster med hjälp av en delad klusterdisk][sap-high-availability-guide-wsfc-shared-disk]
+* [Arkitektur guide: Klustra en SAP ASCS/SCS-instans i ett Windows-redundanskluster med hjälp av en klusterdelad disk][sap-high-availability-guide-wsfc-shared-disk]
 
-## <a name="prepare-the-infrastructure-for-architectural-template-1"></a>Förbered infrastrukturen för arkitektoniska mall 1
-Azure Resource Manager-mallar för SAP underlätta distributionen av resurser som krävs.
+## <a name="prepare-the-infrastructure-for-architectural-template-1"></a>Förbered infrastrukturen för arkitektur mal len 1
+Azure Resource Manager mallar för SAP bidrar till att förenkla distributionen av nödvändiga resurser.
 
-Trelagers-mallar i Azure Resource Manager har också stöd för scenarier med hög tillgänglighet. Arkitektoniska mall 1 har till exempel två kluster. Varje kluster är en SAP felpunkt för SAP ASCS/SCS och DBMS.
+Mallarna på tre nivåer i Azure Resource Manager också stöd för scenarier med hög tillgänglighet. Arkitektur mal len 1 har till exempel två kluster. Varje kluster är en enkel fel punkt i SAP för SAP ASCS/SCS och DBMS.
 
-Här är där du kan få Azure Resource Manager-mallar för exempelscenariot som beskrivs i den här artikeln:
+Här kan du få Azure Resource Manager mallar för exempel scenariot som vi beskriver i den här artikeln:
 
 * [Azure Marketplace-avbildning](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image)  
 * [Azure Marketplace-avbildning med hjälp av Azure Managed Disks](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-md)  
-* [Anpassad avbildning](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image)
-* [Anpassad avbildning genom att använda Managed Disks](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image-md)
+* [Anpassad bild](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image)
+* [Anpassad avbildning med hjälp av Managed Disks](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image-md)
 
-Så här förbereder du infrastrukturen för arkitektoniska mall 1:
+Förbereda infrastrukturen för arkitektur mal len 1:
 
-- I Azure-portalen i den **parametrar** fönstret i den **SYSTEMAVAILABILITY** väljer **HA**.
+- I Azure Portal i rutan **parametrar** i rutan **SYSTEMAVAILABILITY** väljer du **ha**.
 
-  ![Bild 1: Ställa in parametrar för SAP hög tillgänglighet Azure Resource Manager][sap-ha-guide-figure-3000]
+  ![Bild 1: Ange Azure Resource Manager parametrar för hög tillgänglighet för SAP][sap-ha-guide-figure-3000]
 
-_**Bild 1:** Ställa in parametrar för SAP hög tillgänglighet Azure Resource Manager_
+_**Bild 1:** Ange Azure Resource Manager parametrar för hög tillgänglighet för SAP_
 
 
-  Skapa mallar:
+  Mallarna skapa:
 
   * **Virtuella datorer**:
-    * SAP-programservern virtuella datorer: \<SAPSystemSID\>-di-\<Number\>
-    * ASCS/SCS klustrets virtuella datorer: \<SAPSystemSID\>- ascs-\<tal\>
-    * DBMS-kluster: \<SAPSystemSID\>-db-\<Number\>
+    * Virtuella SAP-program Server datorer: \<SAPSystemSID\>-di-\<Number\>
+    * Virtuella ASCS/SCS-kluster datorer: \<SAPSystemSID\>-ASCs-\<nummer\>
+    * DBMS-kluster: \<SAPSystemSID\>-DB-\<nummer\>
 
-  * **Nätverkskort för alla virtuella datorer med tillhörande IP-adresser**:
-    * \<SAPSystemSID\>-nic-di-\<Number\>
-    * \<SAPSystemSID\>-nic-ascs-\<Number\>
-    * \<SAPSystemSID\>-nic-db-\<Number\>
+  * **Nätverkskort för alla virtuella datorer, med tillhör ande IP-adresser**:
+    * \<SAPSystemSID\>-NIC-di-\<Number\>
+    * \<SAPSystemSID\>-NIC-ASCs-\<Number\>
+    * \<SAPSystemSID\>-NIC-DB-\<nummer\>
 
-  * **Azure storage-konton (endast ohanterade diskar)** :
+  * **Azure Storage-konton (endast ohanterade diskar)** :
 
-  * **Tillgänglighetsgrupper** för:
-    * SAP-programservern virtuella datorer: \<SAPSystemSID\>-avset-di
-    * SAP ASCS/SCS klustrets virtuella datorer: \<SAPSystemSID\>-avset-ascs
-    * DBMS klustrets virtuella datorer: \<SAPSystemSID\>-avset-db
+  * **Tillgänglighets grupper** för:
+    * Virtuella SAP-program Server datorer: \<SAPSystemSID\>-avset-di
+    * Virtuella SAP ASCS/SCS-kluster datorer: \<SAPSystemSID\>-avset-ascs
+    * Virtuella DBMS-kluster datorer: \<SAPSystemSID\>-avset-db
 
-  * **Intern Azure belastningsutjämnare**:
-    * Med alla portar för ASCS/SCS-instans och IP-adress \<SAPSystemSID\>- lb-ascs
-    * Med alla portar för SQL Server DBMS och IP-adress \<SAPSystemSID\>- lb-db
+  * **Intern Azure-belastningsutjämnare**:
+    * Med alla portar för ASCS/SCS-instansen och \<IP\>-SAPSystemSID – lb-ASCS
+    * Med alla portar för SQL Server-DBMS och IP \<-SAPSystemSID\>– lb-DB
 
-  * **Nätverkssäkerhetsgrupp**: \<SAPSystemSID\>-nsg-ascs-0  
-    * Med en öppen externa Remote Desktop Protocol (RDP)-port till den \<SAPSystemSID\>- ascs-0 virtuell dator
-
-> [!NOTE]
-> Alla IP-adresser för nätverkskort och Azure interna belastningsutjämnare är dynamiska som standard. Ändra dem till den statiska IP-adresser. Vi beskriver hur du gör detta senare i artikeln.
->
->
-
-## <a name="c87a8d3f-b1dc-4d2f-b23c-da4b72977489"></a> Distribuera virtuella datorer med anslutning till företagets nätverk (mellan lokala) ska användas i produktion
-För produktion SAP-system, distribuera Azure-datorer med [anslutning till företagets nätverk (mellan lokala)][planning-guide-2.2] med hjälp av Azure VPN Gateway eller Azure ExpressRoute.
+  * **Nätverks säkerhets grupp**: \<SAPSystemSID\>-nsg-ascs-0  
+    * Med en öppen extern Remote Desktop Protocol-port (RDP) till \<den\>virtuella datorn SAPSystemSID-ASCs-0
 
 > [!NOTE]
-> Du kan använda Azure Virtual Network-instans. Virtuellt nätverk och undernät har redan skapats och förberetts.
+> Alla IP-adresser för nätverkskorten och de interna Azure-belastningsutjämnaren är dynamiska som standard. Ändra dem till statiska IP-adresser. Vi beskriver hur du gör detta senare i artikeln.
 >
 >
 
-1. I Azure-portalen i den **parametrar** fönstret i den **NEWOREXISTINGSUBNET** väljer **befintliga**.
-2. I den **SUBNETID** lägger du till fullständig sträng med din förberedd Azure-nätverk undernät-ID som du planerar att distribuera virtuella datorer i Azure.
-3. Om du vill hämta en lista över alla Azure-nätverk undernät, kör du följande PowerShell-kommando:
+## <a name="c87a8d3f-b1dc-4d2f-b23c-da4b72977489"></a>Distribuera virtuella datorer med företags nätverks anslutning (mellan platser) som ska användas i produktion
+För produktion av SAP-system distribuerar du virtuella Azure-datorer med [företags nätverks anslutning (mellan platser)][planning-guide-2.2] med hjälp av Azure VPN gateway eller Azure ExpressRoute.
+
+> [!NOTE]
+> Du kan använda Azure Virtual Network-instansen. Det virtuella nätverket och under nätet har redan skapats och för beretts.
+>
+>
+
+1. I Azure Portal i rutan **parametrar** i rutan **NEWOREXISTINGSUBNET** väljer du **befintlig**.
+2. I rutan **SUBNETID** lägger du till den fullständiga strängen för ditt för beredda Azure Network Subnet-ID där du planerar att distribuera dina virtuella Azure-datorer.
+3. Om du vill hämta en lista över alla Azure Network-undernät, kör du följande PowerShell-kommando:
 
    ```powershell
    (Get-AzVirtualNetwork -Name <azureVnetName>  -ResourceGroupName <ResourceGroupOfVNET>).Subnets
    ```
 
-   Den **ID** fältet visar värdet för undernät-ID.
-4. Om du vill hämta en lista över alla undernät-ID-värden, kör du följande PowerShell-kommando:
+   I fältet **ID** visas värdet för under nätets ID.
+4. Om du vill hämta en lista över alla Undernäts-ID-värden kör du följande PowerShell-kommando:
 
    ```powershell
    (Get-AzVirtualNetwork -Name <azureVnetName>  -ResourceGroupName <ResourceGroupOfVNET>).Subnets.Id
    ```
 
-   Undernät-ID som ser ut så här:
+   Undernäts-ID: t ser ut så här:
 
    ```
    /subscriptions/<subscription ID>/resourceGroups/<VPN name>/providers/Microsoft.Network/virtualNetworks/azureVnet/subnets/<subnet name>
    ```
 
-## <a name="7fe9af0e-3cce-495b-a5ec-dcb4d8e0a310"></a> Distribuera molnbaserad SAP-instanser för testning och demonstration
-Du kan distribuera dina SAP-system för hög tillgänglighet i en endast molnbaserad distributionsmodell. Den här typen av distribution är främst användbart för Demonstrations- och användningsfall. Det är inte lämpligt för produktion.
+## <a name="7fe9af0e-3cce-495b-a5ec-dcb4d8e0a310"></a>Distribuera endast molnbaserade SAP-instanser för test och demo
+Du kan distribuera SAP-systemet med hög tillgänglighet i en distributions modell som endast är molnbaserad. Den här typen av distribution är främst användbar för demo-och test användnings fall. Det passar inte för produktions användnings fall.
 
-- I Azure-portalen i den **parametrar** fönstret i den **NEWOREXISTINGSUBNET** väljer **nya**. Lämna den **SUBNETID** fält tomma.
+- I Azure Portal i rutan **parametrar** i rutan **NEWOREXISTINGSUBNET** väljer du **ny**. Lämna fältet **SUBNETID** tomt.
 
-  SAP Azure Resource Manager-mallen skapar automatiskt Azure-nätverk och undernät.
+  SAP Azure Resource Manager-mallen skapar automatiskt det virtuella Azure-nätverket och under nätet.
 
 > [!NOTE]
 > Du måste också distribuera minst en dedikerad virtuell dator för Active Directory och DNS-tjänsten i samma Azure Virtual Network-instans. Mallen skapar inte dessa virtuella datorer.
@@ -265,630 +265,630 @@ Du kan distribuera dina SAP-system för hög tillgänglighet i en endast molnbas
 >
 
 
-## <a name="prepare-the-infrastructure-for-architectural-template-2"></a>Förbered infrastrukturen för arkitektoniska mall 2
+## <a name="prepare-the-infrastructure-for-architectural-template-2"></a>Förbered infrastrukturen för arkitektur mal len 2
 
-Du kan använda Azure Resource Manager-mallen för SAP för att underlätta distributionen av resurser i infrastrukturen för SAP arkitektoniska mall 2.
+Du kan använda den här Azure Resource Manager mallen för SAP för att förenkla distributionen av de nödvändiga infrastruktur resurserna för SAP-arkitektur mal len 2.
 
-Här är där du kan få Azure Resource Manager-mallar för det här distributionsscenariot:
+Här kan du hämta Azure Resource Manager mallar för det här distributions scenariot:
 
 * [Azure Marketplace-avbildning](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-converged)  
-* [Azure Marketplace-avbildning genom att använda Managed Disks](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-converged-md)  
-* [Anpassad avbildning](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image-converged)
-* [Anpassad avbildning genom att använda Managed Disks](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image-converged-md)
+* [Azure Marketplace-avbildning med hjälp av Managed Disks](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-converged-md)  
+* [Anpassad bild](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image-converged)
+* [Anpassad avbildning med hjälp av Managed Disks](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image-converged-md)
 
 
-## <a name="prepare-the-infrastructure-for-architectural-template-3"></a>Förbered infrastrukturen för arkitektoniska mall 3
+## <a name="prepare-the-infrastructure-for-architectural-template-3"></a>Förbered infrastrukturen för arkitektur mal len 3
 
-Du kan förbereda infrastrukturen och konfigurera SAP för multi-SID. Du kan till exempel lägga till en ytterligare SAP ASCS/SCS-instans i en *befintliga* klusterkonfigurationen. Mer information finns i [konfigurera en ytterligare SAP ASCS/SCS-instans för en befintliga klusterkonfigurationen och skapa en SAP – flera SÄKERHETSIDENTIFIERARE konfiguration i Azure Resource Manager][sap-ha-multi-sid-guide].
+Du kan förbereda infrastrukturen och konfigurera SAP för multi-SID. Du kan till exempel lägga till ytterligare en SAP ASCS/SCS-instans i en *befintlig* kluster konfiguration. Mer information finns i [Konfigurera ytterligare en SAP ASCS/SCS-instans för en befintlig kluster konfiguration för att skapa en SAP multi-sid-konfiguration i Azure Resource Manager][sap-ha-multi-sid-guide].
 
-Om du vill skapa ett nytt multi-SID-kluster kan du använda multi-SID [snabbstartsmallarna på GitHub](https://github.com/Azure/azure-quickstart-templates).
+Om du vill skapa ett nytt kluster med flera säkerhets-ID kan du använda [snabb starts mallar för](https://github.com/Azure/azure-quickstart-templates)flera-sid på GitHub.
 
-Om du vill skapa ett nytt multi-SID-kluster, måste du distribuera följande tre mallar:
+Om du vill skapa ett nytt kluster med flera säkerhets identifierare måste du distribuera följande tre mallar:
 
 * [ASCS/SCS-mall](#ASCS-SCS-template)
-* [Databasmall för](#database-template)
-* [Mall för program-servrar](#application-servers-template)
+* [Mall för databas](#database-template)
+* [Mall för program servrar](#application-servers-template)
 
-I följande avsnitt innehåller mer information om mallar och parametrar som du ska ange i mallarna.
+I följande avsnitt finns mer information om de mallar och parametrar som du måste ange i mallarna.
 
-### <a name="ASCS-SCS-template"></a> ASCS/SCS-mall
+### <a name="ASCS-SCS-template"></a>ASCS/SCS-mall
 
-ASCS/SCS-mallen distribuerar två virtuella datorer som du kan använda för att skapa ett redundanskluster i Windows Server som är värd för flera ASCS/SCS-instanser.
+ASCS/SCS-mallen distribuerar två virtuella datorer som du kan använda för att skapa ett Windows Server-redundanskluster som är värd för flera ASCS/SCS-instanser.
 
-Du ställer in mallen ASCS/SCS multi-SID i den [ASCS/SCS – flera SÄKERHETSIDENTIFIERARE mallen][sap-templates-3-tier-multisid-xscs-marketplace-image] or [ASCS/SCS multi-SID template by using Managed Disks][sap-templates-3-tier-multisid-xscs-marketplace-image-md], ange värden för följande parametrar:
+För att ställa in mallen ASCS/SCS multi-SID, i mallen [ASCS/SCS multi-sid][sap-templates-3-tier-multisid-xscs-marketplace-image] eller [ASCS/SCS multi-sid med Managed disks][sap-templates-3-tier-multisid-xscs-marketplace-image-md]anger du värden för följande parametrar:
 
-- **Resurs-Prefix**:  Ange resurs-prefixet som används som prefix i alla resurser som skapas under distributionen. Eftersom resurserna som inte tillhör bara en SAP-system, är prefixet för resursen inte SID för en SAP-system.  Prefixet måste vara mellan tre och sex tecken.
-- **Stack typ**: Välj stack-typ av SAP-system. Beroende på vilken stack har Azure Load Balancer en (ABAP eller endast Java) eller två (ABAP + Java) privata IP-adresser per SAP-system.
-- **OS-typ**: Välj operativsystem för de virtuella datorerna.
-- **Antal SAP**: Välj antal SAP-system som du vill installera i det här klustret.
-- **Systemets tillgänglighet**: Välj **HA**.
-- **Administratörens användarnamn och lösenord för serveradministratören**: Skapa en ny användare som kan användas för att logga in på datorn.
-- **Nytt eller befintligt undernät**: Ange om du vill skapa ett nytt virtuellt nätverk och undernät eller Använd ett befintligt undernät. Om du redan har ett virtuellt nätverk som är ansluten till ditt lokala nätverk, Välj **befintliga**.
-- **Undernät-Id**: Om du vill distribuera den virtuella datorn till ett befintligt virtuellt nätverk där du har en undernätet som definierades när den virtuella datorn ska tilldelas att namnge ID för det specifika undernätet. ID: T ser oftast ut så här:
+- **Resource prefix**:  Ange ett resurs prefix, som används för att ge prefix till alla resurser som skapas under distributionen. Eftersom resurserna inte tillhör bara ett SAP-system, är prefixet för resursen inte SID för ett SAP-system.  Prefixet måste vara mellan tre och sex tecken.
+- **Typ av stack**: Välj källtyp för SAP-systemet. Beroende på vilken typ av stack det handlar om Azure Load Balancer har en (endast ABAP eller Java) eller två privata IP-adresser (ABAP + Java) per SAP-system.
+- **OS-typ**: Välj operativ system för de virtuella datorerna.
+- **Antal SAP-system**: Välj det antal SAP-system som du vill installera i det här klustret.
+- **System tillgänglighet**: Välj **ha**.
+- **Administratörens användar namn och administratörs lösen ord**: Skapa en ny användare som kan användas för att logga in på datorn.
+- **Nytt eller befintligt undernät**: Ange om du vill skapa ett nytt virtuellt nätverk och undernät eller använda ett befintligt undernät. Om du redan har ett virtuellt nätverk som är anslutet till ditt lokala nätverk väljer du **befintligt**.
+- **Undernät-ID**: Om du vill distribuera den virtuella datorn till ett befintligt VNet där du har angett ett undernät som har definierats för den virtuella datorn ska du namnge ID: t för det aktuella under nätet. ID: t ser vanligt vis ut så här:
 
-  /subscriptions/\<prenumerations-id\>/resourceGroups/\<Resursgruppsnamn\>/providers/Microsoft.Network/virtualNetworks/\<virtuella nätverksnamnet\>/subnets/ \<undernätsnamn\>
+  /Subscriptions/\<prenumerations\>-\<ID/resourceGroups/resurs\>grupp\<namn/providers/Microsoft.Network/virtualNetworks/virtuellt\>nätverks namn/subnets/ \<under näts namn\>
 
-Mallen distribuerar en Azure Load Balancer-instans som har stöd för flera SAP-system:
+Mallen distribuerar en Azure Load Balancer instans, som har stöd för flera SAP-system:
 
-- ASCS-instanserna är konfigurerade för instansnummer 00, 10, 20...
-- SCS-instanserna är konfigurerade för instansnummer 01, 11, 21...
-- ASCS sätta replikering Server (ERS) (endast Linux)-instanserna är konfigurerade för instansnummer 02, 12, 22...
-- SCS ERS (endast Linux)-instanserna är konfigurerade för instansnummer 03, 13, 23...
+- ASCS-instanserna har kon figurer ATS för instans nummer 00, 10, 20...
+- SCS-instanserna har kon figurer ATS för instans nummer 01, 11, 21...
+- ASCS ERS (endast Linux)-instanser har kon figurer ATS för instans nummer 02, 12, 22...
+- SCS-instanserna för ERS (endast Linux) har kon figurer ATS för instans nummer 03, 13, 23...
 
-Belastningsutjämnaren innehåller 1 VIP(s) (2 för Linux), 1 x-VIP för ASCS/SCS och 1 x-VIP för ÄNDARE (endast Linux).
+Belastningsutjämnaren innehåller 1 VIP (2 för Linux), 1x VIP för ASCS/SCS och 1x VIP för ERS (endast Linux).
 
-#### <a name="0f3ee255-b31e-4b8a-a95a-d9ed6200468b"></a> SAP ASCS/SCS-portar
-Följande lista innehåller alla belastningsutjämningsregler (där x är numret på SAP-system, till exempel 1, 2, 3...).
-- Windows-specifika portar för varje SAP-system: 445, 5985
-- ASCS-portar (instansnummer x0): 32x0, 36x0, 39x0, 81x0, 5x013, 5x014, 5x016
-- SCS-portar (instansnummer x1): 32 x 1, 33 x 1, 39 x 1, 81 x 1, 5 x 113, 5 x 114, 5 x 116
-- ASCS ERS portar i Linux (instansnummer x2): 33 x 2, 5 x 213, 5 x 214, 5 x 216
-- SCS ERS portar i Linux (instansnummer x3): 33x3, 5x313, 5x314, 5x316
+#### <a name="0f3ee255-b31e-4b8a-a95a-d9ed6200468b"></a>SAP ASCS/SCS-portar
+Följande lista innehåller alla belastnings Utjämnings regler (där x är numret på SAP-systemet, till exempel 1, 2, 3...):
+- Windows-/regionsspecifika portar för varje SAP-system: 445, 5985
+- ASCS-portar (instans nummer x0): 32x0, 36x0, 39x0, 81x0, 5x013, 5x014, 5x016
+- SCS-portar (instans nummer x1): 32x1, 33x1, 39x1, 81x1, 5x113, 5x114, 5x116
+- ASCS ERS-portar på Linux (instans nummer x2): 33x2, 5x213, 5x214, 5x216
+- SCS ERS-portar på Linux (instans nummer x3): 33x3, 5x313, 5x314, 5x316
 
-Belastningsutjämnaren är konfigurerad för att använda följande portar för avsökning (där x är numret på SAP-system, till exempel 1, 2, 3...):
-- ASCS/SCS intern Azure load balancer avsökningsporten: 620x0
-- ÄNDARE interna läsa in belastningsutjämnare avsökningsporten (endast Linux): 621x2
+Belastningsutjämnaren är konfigurerad att använda följande avsöknings portar (där x är numret på SAP-systemet, till exempel 1, 2, 3...):
+- Avsöknings port för intern belastningsutjämnare för ASCS/SCS: 620x0
+- ERS intern belastnings Utjämnings port (endast Linux): 621x2
 
-### <a name="database-template"></a> Databasmall för
+### <a name="database-template"></a>Mall för databas
 
-Databas-mallen distribuerar en eller två virtuella datorer som du kan använda för att installera det relationella databashanteringssystemet (RDBMS) för en SAP-system. Om du distribuerar en ASCS/SCS-mall för fem SAP-system, måste du distribuera den här mallen fem gånger.
+Databas mal len distribuerar en eller två virtuella datorer som du kan använda för att installera RDBMS (Relations databas hanterings system) för ett SAP-system. Om du till exempel distribuerar en ASCS/SCS-mall för fem SAP-system måste du distribuera den här mallen fem gånger.
 
-Du ställer in databasen – flera SÄKERHETSIDENTIFIERARE mallen, i den [databasen – flera SÄKERHETSIDENTIFIERARE mallen][sap-templates-3-tier-multisid-db-marketplace-image] or [database multi-SID template by using Managed Disks][sap-templates-3-tier-multisid-db-marketplace-image-md], ange värden för följande parametrar:
+Om du vill ställa in databasens multi-SID-mall i mallen för [flera sid-][sap-templates-3-tier-multisid-db-marketplace-image] eller [databas-flera sid-mallar med hjälp av Managed disks][sap-templates-3-tier-multisid-db-marketplace-image-md]anger du värden för följande parametrar:
 
-- **SAP-System-Id**: Ange ID för SAP-system för SAP-system som du vill installera. ID: T används som ett prefix för de resurser som distribueras.
-- **OS-typ**: Välj operativsystem för de virtuella datorerna.
-- **DbType**: Välj vilken typ av databas som du vill installera på klustret. Välj **SQL** om du vill installera Microsoft SQL Server. Välj **HANA** om du planerar att installera SAP HANA på virtuella datorer. Kontrollera att du väljer rätt operativsystemtypen. Välj **Windows** för SQL och väljer en Linux-distribution för HANA. Azure belastningsutjämnare som är anslutet till de virtuella datorerna är konfigurerad för att stödja den valda databas-typ:
-  * **SQL**: Belastningsutjämna belastningsutjämnarporten 1433. Se till att använda den här porten för SQL Server AlwaysOn-installationen.
-  * **HANA**: Load balancer belastningsutjämna-portarna 35015 och 35017. Se till att installera SAP HANA med instansnummer **50**.
-  Belastningsutjämnaren använder avsökningsporten 62550.
-- **SAP-systemstorlek**: Ange antalet SAP som innehåller det nya systemet. Om du inte vet hur många SAP kräver att systemet, be din SAP-teknikpartner eller systemintegratör.
-- **Systemets tillgänglighet**: Välj **HA**.
-- **Administratörens användarnamn och lösenord för serveradministratören**: Skapa en ny användare som kan användas för att logga in på datorn.
-- **Undernät-Id**: Ange ID för det undernät som du använde under distributionen av ASCS/SCS-mall eller ID för det undernät som har skapats som en del av ASCS/SCS-mallsdistribution.
+- **SAP-system-ID**: Ange SAP-system-ID: t för det SAP-system som du vill installera. ID används som prefix för de resurser som distribueras.
+- **OS-typ**: Välj operativ system för de virtuella datorerna.
+- **DbType**: Välj den typ av databas som du vill installera i klustret. Välj **SQL** om du vill installera Microsoft SQL Server. Välj **Hana** om du planerar att installera SAP HANA på de virtuella datorerna. Kontrol lera att du väljer rätt typ av operativ system. Välj **Windows** för SQL och välj en Linux-distribution för Hana. Azure Load Balancer som är anslutna till de virtuella datorerna har kon figurer ATS för att stödja den valda databas typen:
+  * **SQL**: Belastnings Utjämnings port 1433. Se till att använda den här porten för din SQL Server AlwaysOn-installation.
+  * **HANA**: Belastnings Utjämnings portarna 35015 och 35017. Se till att installera SAP HANA med instans nummer **50**.
+  Belastningsutjämnaren använder avsöknings port 62550.
+- **SAP-system storlek**: Ange antalet SAPS som det nya systemet erbjuder. Om du inte är säker på hur många SAPS systemet kräver kan du fråga din SAP Technology-partner eller system integrerare.
+- **System tillgänglighet**: Välj **ha**.
+- **Administratörens användar namn och administratörs lösen ord**: Skapa en ny användare som kan användas för att logga in på datorn.
+- **Undernät-ID**: Ange ID: t för det undernät som du använde vid distributionen av ASCS/SCS-mallen eller ID: t för det undernät som skapades som en del av distributionen av ASCS/SCS-mallen.
 
-### <a name="application-servers-template"></a> Mall för program-servrar
+### <a name="application-servers-template"></a>Mall för program servrar
 
-Programmet servrar mallen distribuerar två eller flera virtuella datorer som kan användas som SAP-programservern instanser för en SAP-system. Om du distribuerar en ASCS/SCS-mall för fem SAP-system, måste du distribuera den här mallen fem gånger.
+Mallen program servrar distribuerar två eller flera virtuella datorer som kan användas som SAP Application Server-instanser för ett SAP-system. Om du till exempel distribuerar en ASCS/SCS-mall för fem SAP-system måste du distribuera den här mallen fem gånger.
 
-Konfigurera servrar – flera SÄKERHETSIDENTIFIERARE programmallen, i den [programmall servrar – flera SÄKERHETSIDENTIFIERARE][sap-templates-3-tier-multisid-apps-marketplace-image] or [application servers multi-SID template  by using Managed Disks][sap-templates-3-tier-multisid-apps-marketplace-image-md], ange värden för följande parametrar:
+Om du vill konfigurera en mall för program servrar med flera SID: t, i mallen för [program servrar med flera sid-][sap-templates-3-tier-multisid-apps-marketplace-image] eller [program servrar][sap-templates-3-tier-multisid-apps-marketplace-image-md], med hjälp av Managed disks, anger du värden för följande parametrar:
 
-  -  **SAP-System-Id**: Ange ID för SAP-system för SAP-system som du vill installera. ID: T används som ett prefix för de resurser som distribueras.
-  -  **OS-typ**: Välj operativsystem för de virtuella datorerna.
-  -  **SAP-systemstorlek**: Antal SAP som innehåller det nya systemet. Om du inte vet hur många SAP kräver att systemet, be din SAP-teknikpartner eller systemintegratör.
-  -  **Systemets tillgänglighet**: Välj **HA**.
-  -  **Administratörens användarnamn och lösenord för serveradministratören**: Skapa en ny användare som kan användas för att logga in på datorn.
-  -  **Undernät-Id**: Ange ID för det undernät som du använde under distributionen av ASCS/SCS-mall eller ID för det undernät som har skapats som en del av ASCS/SCS-mallsdistribution.
+  -  **SAP-system-ID**: Ange SAP-system-ID: t för det SAP-system som du vill installera. ID används som prefix för de resurser som distribueras.
+  -  **OS-typ**: Välj operativ system för de virtuella datorerna.
+  -  **SAP-system storlek**: Antalet SAPS som det nya systemet erbjuder. Om du inte är säker på hur många SAPS systemet kräver kan du fråga din SAP Technology-partner eller system integrerare.
+  -  **System tillgänglighet**: Välj **ha**.
+  -  **Administratörens användar namn och administratörs lösen ord**: Skapa en ny användare som kan användas för att logga in på datorn.
+  -  **Undernät-ID**: Ange ID: t för det undernät som du använde vid distributionen av ASCS/SCS-mallen eller ID: t för det undernät som skapades som en del av distributionen av ASCS/SCS-mallen.
 
 
-## <a name="47d5300a-a830-41d4-83dd-1a0d1ffdbe6a"></a> Azure-nätverk
-I vårt exempel är 10.0.0.0/16 i adressutrymmet för Azure Virtual Network-instans. Det finns ett undernät som kallas undernät, med adressintervallet 10.0.0.0/24. Alla virtuella datorer och interna belastningsutjämnare distribueras i det här virtuella nätverket.
+## <a name="47d5300a-a830-41d4-83dd-1a0d1ffdbe6a"></a>Azure-Virtual Network
+I vårt exempel är adress utrymmet för Azure Virtual Network-instansen 10.0.0.0/16. Det finns ett undernät som heter undernät, med adress intervallet 10.0.0.0/24. Alla virtuella datorer och interna belastningsutjämnare distribueras i det här virtuella nätverket.
 
 > [!IMPORTANT]
-> Gör inga ändringar till nätverksinställningar i gästoperativsystemet. Detta omfattar IP-adresser, DNS-servrar och undernät. Konfigurera nätverksinställningarna i Azure. DHCP Dynamic Host Configuration Protocol ()-tjänsten sprider dina inställningar.
+> Gör inga ändringar i nätverks inställningarna i gäst operativ systemet. Detta inkluderar IP-adresser, DNS-servrar och undernät. Konfigurera alla nätverks inställningar i Azure. Tjänsten Dynamic Host Configuration Protocol (DHCP) sprider dina inställningar.
 >
 >
 
-## <a name="b22d7b3b-4343-40ff-a319-097e13f62f9e"></a> DNS-IP-adresser
+## <a name="b22d7b3b-4343-40ff-a319-097e13f62f9e"></a>DNS IP-adresser
 
-Om du vill ange nödvändiga DNS-IP-adresser, gör du följande:
+Utför följande steg för att ange de DNS-IP-adresser som krävs:
 
-1. I Azure-portalen i den **DNS-servrar** fönstret, se till att det virtuella nätverket **DNS-servrar** alternativet är inställt på **anpassad DNS**.
-2. Välj dina inställningar beroende på vilken typ av nätverk som du har. Mer information finns i följande resurser:
-   * [Anslutning till företagets nätverk (mellan lokala)][planning-guide-2.2]: Lägg till IP-adresserna för DNS-servrar på plats.  
-   Du kan utöka den lokala DNS-servrar till de virtuella datorerna som körs i Azure. I det här scenariot kan du lägga till IP-adresserna för de Azure-datorerna där du kör DNS-tjänsten.
-   * För distribueringar av virtuella datorer som är isolerade i Azure: Distribuera en ytterligare virtuell dator i samma virtuella nätverk-instans som fungerar som en DNS-server. Lägg till IP-adresserna för de Azure-datorerna som du har ställt in upp till kör DNS-tjänsten.
+1. I rutan **DNS-servrar** i Azure Portal kontrollerar du att alternativet **DNS-servrar** för virtuella nätverk är inställt på **anpassad DNS**.
+2. Välj inställningar baserat på vilken typ av nätverk du har. Mer information finns i följande resurser:
+   * [Anslutning till företags nätverk (mellan platser)][planning-guide-2.2]: Lägg till IP-adresserna för lokala DNS-servrar.  
+   Du kan utöka lokala DNS-servrar till de virtuella datorer som körs i Azure. I det scenariot kan du lägga till IP-adresserna för de virtuella Azure-datorer som du kör DNS-tjänsten på.
+   * För VM-distributioner som är isolerade i Azure: Distribuera ytterligare en virtuell dator i samma Virtual Network-instans som fungerar som en DNS-server. Lägg till IP-adresserna för de virtuella Azure-datorer som du har konfigurerat för att köra DNS-tjänsten.
 
    ![Bild 2: Konfigurera DNS-servrar för Azure Virtual Network][sap-ha-guide-figure-3001]
 
    _**Bild 2:** Konfigurera DNS-servrar för Azure Virtual Network_
 
    > [!NOTE]
-   > Om du ändrar IP-adresserna för DNS-servrar kan behöva du starta om de Azure-datorerna för att tillämpa ändringen och sprida de nya DNS-servrarna.
+   > Om du ändrar IP-adresserna för DNS-servrarna måste du starta om de virtuella Azure-datorerna för att tillämpa ändringen och sprida nya DNS-servrar.
    >
    >
 
-I vårt exempel har DNS-tjänsten installerats och konfigurerats på dessa Windows-datorer:
+I vårt exempel installeras och konfigureras DNS-tjänsten på de virtuella Windows-datorerna:
 
-| Virtuell datorroll | Värdnamn för virtuell dator | Namn på nätverkskort | Statisk IP-adress |
+| Rollen virtuell dator | Värddator namn för virtuell dator | Nätverks korts namn | Statisk IP-adress |
 | --- | --- | --- | --- |
 | Första DNS-servern |domcontr-0 |pr1-nic-domcontr-0 |10.0.0.10 |
-| Andra DNS-server |domcontr-1 |pr1-nic-domcontr-1 |10.0.0.11 |
+| Andra DNS-Server |domcontr-1 |pr1-nic-domcontr-1 |10.0.0.11 |
 
-## <a name="9fbd43c0-5850-4965-9726-2a921d85d73f"></a> Värdnamn och statiska IP-adresser för de klustrade SAP ASCS/SCS-instans och DBMS klustrad instans
+## <a name="9fbd43c0-5850-4965-9726-2a921d85d73f"></a>Värdnamn och statiska IP-adresser för SAP ASCS/SCS-klustrad instans och DBMS-klustrad instans
 
-För lokal distribution behöver du de här reserverade värdnamn och IP-adresser:
+För lokal distribution behöver du dessa reserverade värdnamn och IP-adresser:
 
-| Rollen för virtuell värd-namn | Virtuellt värdnamn | Virtuell statisk IP-adress |
+| Roll för virtuellt värd namn | Namn på virtuell värd | Virtuell statisk IP-adress |
 | --- | --- | --- |
-| SAP ASCS/SCS första virtuell värd klusternamn (för klusterhantering) |pr1-ascs-vir |10.0.0.42 |
-| Virtuella värdnamn för SAP ASCS/SCS-instans |pr1-ascs-sap |10.0.0.43 |
-| SAP DBMS andra kluster virtuellt värdnamn (hantering) |pr1-dbms-vir |10.0.0.32 |
+| SAP ASCS/SCS första kluster namn för virtuell värd (för kluster hantering) |pr1-ascs-vir |10.0.0.42 |
+| Namn på virtuell SAP-ASCS/SCS-instans |pr1-ascs-sap |10.0.0.43 |
+| SAP DBMS andra kluster namn för virtuell värd (kluster hantering) |pr1-dbms-vir |10.0.0.32 |
 
-När du skapar klustret kan skapa den virtuella värden namn pr1-ascs-vir och pr1-dbms-vir och de associera IP-adresser som hanterar själva klustret. Information om hur du gör detta finns i [samla in klusternoder i en klusterkonfiguration][sap-high-availability-infrastructure-wsfc-shared-disk-collect-cluster-config].
+När du skapar klustret skapar du de virtuella värd namnen PR1-ASCs-Vir och PR1-DBMS-Vir och de associerade IP-adresserna som hanterar själva klustret. Information om hur du gör detta finns i [samla in klusternoder i en kluster konfiguration][sap-high-availability-infrastructure-wsfc-shared-disk-collect-cluster-config].
 
-Du kan manuellt skapa de andra två virtuella värdnamn, pr1-ascs-sap och pr1 dbms sap, och de associerade IP-adresserna, DNS-servern. Den klustrade SAP ASCS/SCS-instansen och den klustrade DBMS-instansen använder du dessa resurser. Information om hur du gör detta finns i [skapa ett virtuellt värdnamn för en klustrad SAP ASCS/SCS-instans][sap-ha-guide-9.1.1].
+Du kan skapa de andra två virtuella värd namnen manuellt, PR1-ASCs-SAP och PR1-DBMS-SAP och tillhör ande IP-adresser på DNS-servern. Den klustrade SAP-ASCS/SCS-instansen och den klustrade DBMS-instansen använder dessa resurser. Information om hur du gör detta finns i [skapa ett virtuellt värdnamn för en klustrad SAP ASCS/SCS-instans][sap-ha-guide-9.1.1].
 
-## <a name="84c019fe-8c58-4dac-9e54-173efd4b2c30"></a> Ange statiska IP-adresser för de virtuella datorerna för SAP
-När du distribuerar de virtuella datorerna ska användas i ditt kluster kan behöva du ange statiska IP-adresser för alla virtuella datorer. Gör detta i Azure Virtual Network-konfigurationen och inte i gästoperativsystemet.
+## <a name="84c019fe-8c58-4dac-9e54-173efd4b2c30"></a>Ange statiska IP-adresser för virtuella SAP-datorer
+När du har distribuerat de virtuella datorerna som ska användas i klustret måste du ange statiska IP-adresser för alla virtuella datorer. Gör detta i Azure Virtual Network-konfigurationen och inte i gäst operativ systemet.
 
-1. I Azure-portalen väljer du **resursgrupp** > **nätverkskort** > **inställningar** > **IP-adress**.
-2. I den **IP-adresser** fönstret under **tilldelning**väljer **statiska**. I den **IP-adress** anger du IP-adressen som du vill använda.
+1. I Azure Portal väljer du**IP-adress**för **resurs gruppens** > **nätverks kort** > **Inställningar** > .
+2. I rutan **IP-adresser** under **tilldelning**väljer du **statisk**. I rutan **IP-adress** anger du den IP-adress som du vill använda.
 
    > [!NOTE]
-   > Om du ändrar IP-adressen för nätverkskortet kan behöva du starta om de Azure-datorerna för att tillämpa ändringen.  
+   > Om du ändrar IP-adressen för nätverkskortet måste du starta om de virtuella Azure-datorerna för att tillämpa ändringen.  
    >
    >
 
-   ![Bild 3: Ange statiska IP-adresser för nätverkskort på varje virtuell dator][sap-ha-guide-figure-3002]
+   ![Bild 3: Ange statiska IP-adresser för nätverkskortet för varje virtuell dator][sap-ha-guide-figure-3002]
 
-   _**Bild 3:** Ange statiska IP-adresser för nätverkskort på varje virtuell dator_
+   _**Bild 3:** Ange statiska IP-adresser för nätverkskortet för varje virtuell dator_
 
-   Upprepa det här steget för alla nätverksgränssnitt som är, för alla virtuella datorer, inklusive virtuella datorer som du vill använda för din Active Directory- eller DNS-tjänst.
+   Upprepa det här steget för alla nätverks gränssnitt, det vill säga för alla virtuella datorer, inklusive virtuella datorer som du vill använda för Active Directory eller DNS-tjänsten.
 
 I vårt exempel har vi dessa virtuella datorer och statiska IP-adresser:
 
-| Virtuell datorroll | Värdnamn för virtuell dator | Namn på nätverkskort | Statisk IP-adress |
+| Rollen virtuell dator | Värddator namn för virtuell dator | Nätverks korts namn | Statisk IP-adress |
 | --- | --- | --- | --- |
-| Första serverinstansen för SAP-program |pr1-di-0 |pr1-nic-di-0 |10.0.0.50 |
-| Andra SAP Application Server-instans |pr1-di-1 |pr1-nic-di-1 |10.0.0.51 |
+| Första SAP Application Server-instansen |pr1-di-0 |pr1-nic-di-0 |10.0.0.50 |
+| Andra SAP Application Server-instans |pr1-di-1 |PR1-NIC-di-1 |10.0.0.51 |
 | ... |... |... |... |
-| Senaste serverinstansen för SAP-program |pr1-di-5 |pr1-nic-di-5 |10.0.0.55 |
-| Första klusternoden för ASCS/SCS-instans |pr1-ascs-0 |pr1-nic-ascs-0 |10.0.0.40 |
-| Andra noden i klustret för ASCS/SCS-instans |pr1-ascs-1 |pr1-nic-ascs-1 |10.0.0.41 |
+| Senaste SAP Application Server-instans |pr1-di-5 |pr1-nic-di-5 |10.0.0.55 |
+| Första klusternoden för ASCS/SCS-instans |PR1-ASCs-0 |pr1-nic-ascs-0 |10.0.0.40 |
+| Andra klusternoden för ASCS/SCS-instans |PR1-ASCs-1 |PR1-NIC-ASCs-1 |10.0.0.41 |
 | Första klusternoden för DBMS-instans |pr1-db-0 |pr1-nic-db-0 |10.0.0.30 |
-| Andra noden i klustret för DBMS-instans |pr1-db-1 |pr1-nic-db-1 |10.0.0.31 |
+| Andra klusternoden för DBMS-instans |pr1-db-1 |pr1-nic-db-1 |10.0.0.31 |
 
-## <a name="7a8f3e9b-0624-4051-9e41-b73fff816a9e"></a> Ange en statisk IP-adress för intern Azure belastningsutjämnare
+## <a name="7a8f3e9b-0624-4051-9e41-b73fff816a9e"></a>Ange en statisk IP-adress för den interna Azure-belastningsutjämnaren
 
-SAP Azure Resource Manager-mallen skapar en Azure intern belastningsutjämnare som används för kluster för SAP ASCS/SCS-instans och DBMS-klustret.
+SAP Azure Resource Manager-mallen skapar en intern Azure-belastningsutjämnare som används för instans klustret SAP ASCS/SCS och DBMS-klustret.
 
 > [!IMPORTANT]
-> IP-adressen för det virtuella värdnamnet för SAP ASCS/SCS är samma som IP-adressen för den interna belastningsutjämnaren för SAP ASCS/SCS: pr1-lb-ascs.
-> IP-adressen för det virtuella namnet på DBMS är samma som IP-adressen för den interna belastningsutjämnaren för DBMS: pr1-lb-dbms.
+> IP-adressen för det virtuella värd namnet för SAP ASCS/SCS är samma som IP-adressen för den interna belastningsutjämnaren för SAP ASCS/SCS: PR1-lb-ASCS.
+> IP-adressen för det virtuella namnet på DBMS är samma som IP-adressen för den interna DBMS-belastningsutjämnaren: PR1 – lb-DBMS.
 >
 >
 
-Ange en statisk IP-adress för intern Azure belastningsutjämnare:
+Ange en statisk IP-adress för den interna Azure-belastningsutjämnaren:
 
-1. Den första distributionen anger interna belastningsutjämnarens IP-adressen till **dynamisk**. I Azure-portalen på den **IP-adresser** fönstret under **tilldelning**väljer **statiska**.
-2. Ange IP-adressen för den interna belastningsutjämnaren **pr1-lb-ascs** till IP-adressen för det virtuella värdnamnet för SAP ASCS/SCS-instans.
-3. Ange IP-adressen för den interna belastningsutjämnaren **pr1-lb-dbms** till IP-adressen för det virtuella värdnamnet för DBMS-instans.
+1. Den inledande distributionen anger den interna IP-adressen för belastningsutjämnaren till **dynamisk**. I Azure Portal väljer du **statisk**i fönstret **IP-adresser** under **tilldelning**.
+2. Ange IP-adressen för den interna belastningsutjämnaren **PR1-lb-ASCs** till IP-adressen för det virtuella värd namnet för SAP ASCS/SCS-instansen.
+3. Ange IP-adressen för den interna belastningsutjämnaren **PR1 – lb-DBMS** till IP-adressen för den virtuella värd namnet för DBMS-instansen.
 
-   ![Bild 4: Ange statiska IP-adresser för den interna belastningsutjämnaren för SAP ASCS/SCS-instans][sap-ha-guide-figure-3003]
+   ![Bild 4: Ange statiska IP-adresser för den interna belastningsutjämnaren för SAP ASCS/SCS-instansen][sap-ha-guide-figure-3003]
 
-   _**Bild 4:** Ange statiska IP-adresser för den interna belastningsutjämnaren för SAP ASCS/SCS-instans_
+   _**Bild 4:** Ange statiska IP-adresser för den interna belastningsutjämnaren för SAP ASCS/SCS-instansen_
 
-I vårt exempel har vi två Azure interna belastningsutjämnare som har dessa statiska IP-adresser:
+I vårt exempel har vi två interna Azure-belastningsutjämnare som har följande statiska IP-adresser:
 
-| Azure interna belastningsutjämnarroll | Azure interna belastningsutjämnarens namn | Statisk IP-adress |
+| Rollen Azures interna belastnings utjämning | Namn på Azure-intern belastningsutjämnare | Statisk IP-adress |
 | --- | --- | --- |
-| Intern belastningsutjämnare för SAP ASCS/SCS-instans |pr1-lb-ascs |10.0.0.43 |
-| SAP DBMS intern belastningsutjämnare |pr1-lb-dbms |10.0.0.33 |
+| Intern belastningsutjämnare för SAP ASCS/SCS-instans |PR1 – lb-ASCs |10.0.0.43 |
+| Intern belastningsutjämnare för SAP-DBMS |pr1-lb-dbms |10.0.0.33 |
 
 
-## <a name="f19bd997-154d-4583-a46e-7f5a69d0153c"></a> Standard ASCS/SCS belastningsutjämningsregler för intern Azure belastningsutjämnare
+## <a name="f19bd997-154d-4583-a46e-7f5a69d0153c"></a>Standard ASCS/SCS-belastnings Utjämnings regler för den interna Azure-belastningsutjämnaren
 
 SAP Azure Resource Manager-mallen skapar de portar som du behöver:
-* En ABAP ASCS-instans med standard-instansnummer 00
-* En Java-SCS-instans med standard-instansnummer 01
+* En ABAP ASCS-instans med standard instans talet 00
+* En Java SCS-instans med standard instans numret 01
 
-När du installerar SAP ASCS/SCS-instans, måste du använda instansen Standardnumret 00 för din ASCS ABAP och instans Standardnumret 01 för din Java SCS-instans.
+När du installerar din SAP ASCS/SCS-instans måste du använda standard instansen 00 för din ABAP ASCS-instans och standard instans numret 01 för din Java SCS-instans.
 
-Skapa sedan de nödvändiga intern belastningsutjämning slutpunkter för SAP NetWeaver-portar.
+Skapa sedan de nödvändiga slut punkterna för intern belastnings utjämning för SAP NetWeaver-portarna.
 
-Om du vill skapa nödvändiga intern belastningsutjämning slutpunkter först skapa dessa slutpunkter för SAP NetWeaver ABAP ASCS-portar för belastningsutjämning:
+För att skapa nödvändiga interna belastnings Utjämnings slut punkter skapar du först dessa slut punkter för belastnings utjämning för SAP NetWeaver ABAP ASCS-portarna:
 
-| Tjänsten/läsa in belastningsutjämning Regelnamn | Standardportnumren. | Konkreta portar för (ASCS-instansen med instansnummer 00) (ERS med 10) |
+| Namn på tjänst/belastnings Utjämnings regel | Standard port nummer | Konkreta portar för (ASCS-instans med instans nummer 00) (ERS med 10) |
 | --- | --- | --- |
-| Placera server / *lbrule3200* |32\<InstanceNumber\> |3200 |
-| ABAP-meddelandeservern / *lbrule3600* |36\<InstanceNumber\> |3600 |
-| Internt ABAP meddelande / *lbrule3900* |39\<InstanceNumber\> |3900 |
-| Meddelande-serverns HTTP / *Lbrule8100* |81\<InstanceNumber\> |8100 |
-| SAP starta tjänsten ASCS HTTP / *Lbrule50013* |5\<InstanceNumber\>13 |50013 |
-| SAP starta tjänsten ASCS HTTPS / *Lbrule50014* |5\<InstanceNumber\>14 |50014 |
-| Placera replikering / *Lbrule50016* |5\<InstanceNumber\>16 |50016 |
-| SAP starta tjänsten ÄNDARE HTTP *Lbrule51013* |5\<InstanceNumber\>13 |51013 |
-| SAP starta tjänsten ÄNDARE HTTP *Lbrule51014* |5\<InstanceNumber\>14 |51014 |
-| Windows Remote Management (WinRM) *Lbrule5985* | |5985 |
-| Filresurs *Lbrule445* | |445 |
+| Köa Server/ *lbrule3200* |32\<InstanceNumber\> |3200 |
+| ABAP meddelande Server/ *lbrule3600* |36\<InstanceNumber\> |3600 |
+| Internt ABAP-meddelande/ *lbrule3900* |39\<InstanceNumber\> |3900 |
+| Meddelande Server HTTP/ *Lbrule8100* |81\<InstanceNumber\> |8100 |
+| SAP Start Service ASCS HTTP/ *Lbrule50013* |5\<InstanceNumber\>13 |50013 |
+| SAP Start Service ASCS HTTPS/ *Lbrule50014* |5\<InstanceNumber\>14 |50014 |
+| Köa replikering/ *Lbrule50016* |5\<InstanceNumber\>16 |50016 |
+| SAP Start Service ERS HTTP *Lbrule51013* |5\<InstanceNumber\>13 |51013 |
+| SAP Start Service ERS HTTP *Lbrule51014* |5\<InstanceNumber\>14 |51014 |
+| WinRM- *Lbrule5985* (Windows Remote Management) | |5985 |
+| *Lbrule445* för fil resurs | |445 |
 
-**Tabell 1:** Portnummer för SAP NetWeaver ABAP ASCS-instanser
+**Tabell 1:** Port nummer för SAP NetWeaver ABAP ASCS-instanser
 
-Skapa sedan dessa slutpunkter för SAP NetWeaver Java SCS-portar för belastningsutjämning:
+Skapa sedan de här slut punkterna för belastnings utjämning för SAP NetWeaver Java SCS-portarna:
 
-| Tjänsten/läsa in belastningsutjämning Regelnamn | Standardportnumren. | Konkreta portar för (SCS-instans med instansnummer 01) (ERS med 11) |
+| Namn på tjänst/belastnings Utjämnings regel | Standard port nummer | Konkreta portar för (SCS-instans med instans nummer 01) (ERS med 11) |
 | --- | --- | --- |
-| Placera server / *lbrule3201* |32\<InstanceNumber\> |3201 |
-| Gateway-server / *lbrule3301* |33\<InstanceNumber\> |3301 |
-| Java-meddelandeservern / *lbrule3900* |39\<InstanceNumber\> |3901 |
-| Meddelande-serverns HTTP / *Lbrule8101* |81\<InstanceNumber\> |8101 |
-| SAP starta tjänsten SCS HTTP / *Lbrule50113* |5\<InstanceNumber\>13 |50113 |
-| SAP starta tjänsten SCS HTTPS / *Lbrule50114* |5\<InstanceNumber\>14 |50114 |
-| Placera replikering / *Lbrule50116* |5\<InstanceNumber\>16 |50116 |
-| SAP starta tjänsten ÄNDARE HTTP *Lbrule51113* |5\<InstanceNumber\>13 |51113 |
-| SAP starta tjänsten ÄNDARE HTTP *Lbrule51114* |5\<InstanceNumber\>14 |51114 |
+| Köa Server/ *lbrule3201* |32\<InstanceNumber\> |3201 |
+| Gateway-server/ *lbrule3301* |33\<InstanceNumber\> |3301 |
+| Java-meddelande Server/ *lbrule3900* |39\<InstanceNumber\> |3901 |
+| Meddelande Server HTTP/ *Lbrule8101* |81\<InstanceNumber\> |8101 |
+| SAP Start Service SCS HTTP/ *Lbrule50113* |5\<InstanceNumber\>13 |50113 |
+| SAP Start Service SCS HTTPS/ *Lbrule50114* |5\<InstanceNumber\>14 |50114 |
+| Köa replikering/ *Lbrule50116* |5\<InstanceNumber\>16 |50116 |
+| SAP Start Service ERS HTTP *Lbrule51113* |5\<InstanceNumber\>13 |51113 |
+| SAP Start Service ERS HTTP *Lbrule51114* |5\<InstanceNumber\>14 |51114 |
 | WinRM *Lbrule5985* | |5985 |
-| Filresurs *Lbrule445* | |445 |
+| *Lbrule445* för fil resurs | |445 |
 
-**Tabell 2:** Portnummer för SAP NetWeaver Java SCS-instanser
+**Tabell 2:** Port nummer för SAP NetWeaver Java SCS-instanserna
 
-![Bild 5: Standard ASCS/SCS belastningsutjämningsregler för intern Azure belastningsutjämnare][sap-ha-guide-figure-3004]
+![Figur 5: Standard ASCS/SCS-belastnings Utjämnings regler för den interna Azure-belastningsutjämnaren][sap-ha-guide-figure-3004]
 
-_**Bild 5:** Standard ASCS/SCS belastningsutjämningsregler för intern Azure belastningsutjämnare_
+_**Figur 5:** Standard ASCS/SCS-belastnings Utjämnings regler för den interna Azure-belastningsutjämnaren_
 
-Ange IP-adressen för load balancer pr1-lb-dbms till IP-adressen för det virtuella värdnamnet för DBMS-instans.
+Ange IP-adressen för belastningsutjämnaren PR1 – lb-DBMS till IP-adressen för det virtuella värd namnet för DBMS-instansen.
 
-### <a name="fe0bd8b5-2b43-45e3-8295-80bee5415716"></a> Ändra ASCS/SCS standard reglerna för belastningsutjämning för intern Azure belastningsutjämnare
+### <a name="fe0bd8b5-2b43-45e3-8295-80bee5415716"></a>Ändra standard reglerna för belastnings utjämning för ASCS/SCS för den interna Azure-belastningsutjämnaren
 
-Om du vill använda olika antal för SAP ASCS eller SCS-instanser måste du ändra namn och värden för deras hamnar från standardvärdena.
+Om du vill använda olika nummer för SAP ASCS-eller SCS-instanserna måste du ändra namn och värden för deras portar från standardvärdena.
 
-1. I Azure-portalen väljer du  **\<SID\>-lb-ascs belastningsutjämnare** > **läsa in belastningsutjämningsregler**.
-2. Alla regler för belastningsutjämning som hör till SAP ASCS eller SCS-instans, ändra dessa värden:
+1. I Azure Portal väljer >   **\<du sid\>-lb-ASCs**belastnings**Utjämnings regler**.
+2. Ändra följande värden för alla belastnings Utjämnings regler som tillhör SAP ASCS-eller SCS-instansen:
 
    * Namn
    * Port
-   * Backend-port
+   * Server dels port
 
-   Om du vill ändra standardvärdet för ASCS-instans från 00 och 31, måste du göra ändringar för alla portar som anges i tabell 1.
+   Om du till exempel vill ändra standard instans numret för ASCS från 00 till 31 måste du göra ändringarna för alla portar som anges i tabell 1.
 
    Här är ett exempel på en uppdatering för port *lbrule3200*.
 
-   ![Bild 6: Ändra ASCS/SCS standard reglerna för belastningsutjämning för intern Azure belastningsutjämnare][sap-ha-guide-figure-3005]
+   ![Bild 6: Ändra standard reglerna för belastnings utjämning för ASCS/SCS för den interna Azure-belastningsutjämnaren][sap-ha-guide-figure-3005]
 
-   _**Bild 6:** Ändra ASCS/SCS standard reglerna för belastningsutjämning för intern Azure belastningsutjämnare_
+   _**Bild 6:** Ändra standard reglerna för belastnings utjämning för ASCS/SCS för den interna Azure-belastningsutjämnaren_
 
-## <a name="e69e9a34-4601-47a3-a41c-d2e11c626c0c"></a> Lägga till Windows-datorer i domänen
+## <a name="e69e9a34-4601-47a3-a41c-d2e11c626c0c"></a>Lägg till virtuella Windows-datorer i domänen
 
-När du tilldelar en statisk IP-adress till de virtuella datorerna kan du lägga till de virtuella datorerna till domänen.
+När du har tilldelat en statisk IP-adress till de virtuella datorerna lägger du till de virtuella datorerna i domänen.
 
-![Bild 7: Lägg till en virtuell dator till en domän][sap-ha-guide-figure-3006]
+![Figur 7: Lägga till en virtuell dator i en domän][sap-ha-guide-figure-3006]
 
-_**Bild 7:** Lägg till en virtuell dator till en domän_
+_**Figur 7:** Lägga till en virtuell dator i en domän_
 
-## <a name="661035b2-4d0f-4d31-86f8-dc0a50d78158"></a> Lägga till registervärden på båda klusternoderna för SAP ASCS/SCS-instans
+## <a name="661035b2-4d0f-4d31-86f8-dc0a50d78158"></a>Lägg till register poster på båda klusternoderna för SAP ASCS/SCS-instansen
 
-Azure Load Balancer har en intern belastningsutjämnare att stängs anslutningar när anslutningar som är inaktiva för en viss tid (en timeout för inaktivitet). SAP-arbetsprocesser i dialogrutan instanser öppna anslutningar till SAP-sätta bearbeta när de första sätta/ta bort från kön för begäran måste skickas. De här anslutningarna förblir oftast upprättad förrän arbetsprocessen eller sätta processen startar om. Om den varit inaktiv under en angiven tidsperiod, stängs intern Azure belastningsutjämnare anslutningarna. Detta är inte ett problem Eftersom arbetsprocessen SAP som återupprättar anslutningen till sätta processen om det inte längre finns. Dessa aktiviteter finns dokumenterade i developer-spårning för SAP-processer, men de kan skapa en stor mängd extra innehåll i de spårningarna. Det är en bra idé att ändra TCP/IP `KeepAliveTime` och `KeepAliveInterval` på båda klusternoderna. Kombinera dessa ändringar i TCP/IP-parametrarna med SAP-profil-parametrar som beskrivs senare i artikeln.
+Azure Load Balancer har en intern belastningsutjämnare som stänger anslutningar när anslutningarna är inaktiva under en angiven tids period (tids gräns för inaktivitet). SAP-arbetsprocesser i dialog instanser öppnar anslutningar till SAP-kön så snart den första kön/avqueue-begäran måste skickas. Dessa anslutningar förblir vanligt vis etablerade tills arbets processen eller omstarten av kön startas om. Om anslutningen däremot är inaktiv under en angiven tids period stängs anslutningarna av Azure Internal Load Balancer. Detta är inte ett problem eftersom SAP-arbetsprocessen återupprättar anslutningen till kön om den inte längre finns. Dessa aktiviteter dokumenteras i utvecklarnas spår för SAP-processer, men de skapar en stor mängd extra innehåll i dessa spår. Det är en bra idé att ändra TCP/IP `KeepAliveTime` och `KeepAliveInterval` båda klusternoderna. Kombinera dessa ändringar i TCP/IP-parametrarna med SAP Profile-parametrar, som beskrivs senare i artikeln.
 
-Om du vill lägga till registervärden på båda klusternoderna för SAP ASCS/SCS-instans, Lägg först till dessa registerposter i Windows på både Windows-klusternoder för SAP ASCS/SCS:
+Om du vill lägga till register poster på båda klusternoderna för SAP ASCS/SCS-instansen lägger du först till dessa Windows-registerposter på båda Windows-klusternoderna för SAP ASCS/SCS:
 
 | `Path` | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
 | --- | --- |
 | Variabelnamn |`KeepAliveTime` |
-| Variabeltyp |REG_DWORD (Decimal) |
+| Variabel typ |REG_DWORD (Decimal) |
 | Value |120000 |
-| Länkar till dokumentationen |[https://technet.microsoft.com/library/cc957549.aspx](https://technet.microsoft.com/library/cc957549.aspx) |
+| Länk till dokumentation |[https://technet.microsoft.com/library/cc957549.aspx](https://technet.microsoft.com/library/cc957549.aspx) |
 
-**Tabell 3:** Ändra den första parametern för TCP/IP
+**Tabell 3:** Ändra den första TCP/IP-parametern
 
-Lägg sedan till den här Windows-registerposten på både Windows-klusternoder för SAP ASCS/SCS:
+Lägg sedan till den här Windows-registerposten på båda Windows-klusternoderna för SAP ASCS/SCS:
 
 | `Path` | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
 | --- | --- |
 | Variabelnamn |`KeepAliveInterval` |
-| Variabeltyp |REG_DWORD (Decimal) |
-| Värde |120000 |
-| Länkar till dokumentationen |[https://technet.microsoft.com/library/cc957548.aspx](https://technet.microsoft.com/library/cc957548.aspx) |
+| Variabel typ |REG_DWORD (Decimal) |
+| Value |120000 |
+| Länk till dokumentation |[https://technet.microsoft.com/library/cc957548.aspx](https://technet.microsoft.com/library/cc957548.aspx) |
 
-**Tabell 4:** Ändra den andra parametern för TCP/IP
+**Tabell 4:** Ändra den andra TCP/IP-parametern
 
-Starta om båda klusternoderna för att tillämpa ändringarna.
+Om du vill tillämpa ändringarna startar du om båda klusternoderna.
 
-## <a name="0d67f090-7928-43e0-8772-5ccbf8f59aab"></a> Konfigurera ett redundanskluster för Windows Server för en SAP ASCS/SCS-instans
+## <a name="0d67f090-7928-43e0-8772-5ccbf8f59aab"></a>Konfigurera ett Windows Server-redundanskluster för en SAP ASCS/SCS-instans
 
-Hur du konfigurerar ett redundanskluster för Windows Server för en SAP ASCS/SCS-instans innebär att dessa uppgifter:
+Att konfigurera ett Windows Server-redundanskluster för en SAP ASCS/SCS-instans omfattar följande uppgifter:
 
-- Samla in klusternoder i en klusterkonfiguration.
-- Konfigurera ett filresursvittne för klustret.
+- Samla in klusternoderna i en kluster konfiguration.
+- Konfigurera ett kluster fil resurs vittne.
 
-### <a name="5eecb071-c703-4ccc-ba6d-fe9c6ded9d79"></a> Samla in klusternoder i en klusterkonfiguration
+### <a name="5eecb071-c703-4ccc-ba6d-fe9c6ded9d79"></a>Samla in klusternoderna i en kluster konfiguration
 
-1. Lägga till redundansklustring till båda klusternoderna i Lägg till roller och funktioner som guiden.
-2. Konfigurera redundansklustret med hjälp av hanteraren för redundanskluster. I hanteraren för redundanskluster, Välj **Skapa kluster**, och Lägg sedan till bara namnet på det första klustret (nod A). Lägg inte till den andra noden ännu; Du kan lägga till den andra noden i ett senare steg.
+1. I guiden Lägg till roller och funktioner lägger du till kluster för växling vid fel i båda klusternoderna.
+2. Konfigurera redundansklustret med hjälp av Klusterhanteraren för växling vid fel. I Klusterhanteraren för växling vid fel väljer du **skapa kluster**och lägger sedan till endast namnet på det första klustret (nod A). Lägg inte till den andra noden ännu; du lägger till den andra noden i ett senare steg.
 
-   ![Bild 8: Lägg till server eller virtuell dator namnet på den första noden i klustret][sap-ha-guide-figure-3007]
+   ![Figur 8: Lägg till servern eller namnet på den virtuella datorn för den första klusternoden][sap-ha-guide-figure-3007]
 
-   _**Bild 8:** Lägg till server eller virtuell dator namnet på den första noden i klustret_
+   _**Figur 8:** Lägg till servern eller namnet på den virtuella datorn för den första klusternoden_
 
-3. Ange nätverksnamn (virtuellt värdnamn) i klustret.
+3. Ange Nätverks namnet (det virtuella värd namnet) för klustret.
 
-   ![Bild 9: Ange klusternamnet][sap-ha-guide-figure-3008]
+   ![Bild 9: Ange kluster namnet][sap-ha-guide-figure-3008]
 
-   _**Bild 9:** Ange klusternamnet_
+   _**Bild 9:** Ange kluster namnet_
 
-4. När du har skapat klustret, kör du ett klustervalideringstest.
+4. När du har skapat klustret kör du ett kluster validerings test.
 
-   ![Bild 10: Kör valideringskontrollen kluster][sap-ha-guide-figure-3009]
+   ![Bild 10: Kör kluster verifierings kontrollen][sap-ha-guide-figure-3009]
 
-   _**Bild 10:** Kör valideringskontrollen kluster_
+   _**Bild 10:** Kör kluster verifierings kontrollen_
 
-   Du kan ignorera alla varningar om diskar i det här läget i processen. Lägger du till ett filresursvittne och SIOS delade diskar senare. I det här skedet behöver du inte bekymra dig om att du har ett kvorum.
+   Du kan ignorera eventuella varningar om diskarna i processen. Du kommer att lägga till ett fil resurs vittne och de SIOS delade diskarna senare. I det här skedet behöver du inte bekymra dig om att ha ett kvorum.
 
-   ![Bild 11: Inga kvorumdisken hittas][sap-ha-guide-figure-3010]
+   ![Bild 11: Ingen kvorumdisk hittades][sap-ha-guide-figure-3010]
 
-   _**Bild 11:** Inga kvorumdisken hittas_
+   _**Bild 11:** Ingen kvorumdisk hittades_
 
-   ![Bild 12: En core klusterresurs måste en ny IP-adress][sap-ha-guide-figure-3011]
+   ![Figur 12: En kärn kluster resurs behöver en ny IP-adress][sap-ha-guide-figure-3011]
 
-   _**Bild 12:** En core klusterresurs måste en ny IP-adress_
+   _**Figur 12:** En kärn kluster resurs behöver en ny IP-adress_
 
-5. Ändra IP-adressen för klustertjänsten core. Klustret kan inte starta tills du ändrar IP-adressen för klustertjänsten core eftersom IP-adressen för servern som pekar på en av noderna i virtuell dator. Gör detta på den **egenskaper** sidan i core-klustertjänsten IP-resurs.
+5. Ändra IP-adressen för kärn kluster tjänsten. Klustret kan inte starta förrän du ändrar IP-adressen för kärn kluster tjänsten, eftersom IP-adressen för-servern pekar på någon av noderna för virtuella datorer. Gör detta på **egenskaps** sidan för kärn kluster tjänstens IP-resurs.
 
-   Exempelvis kan måste vi du tilldela en IP-adress (i vårt exempel 10.0.0.42) för det kluster virtuell värd namnet pr1-ascs-vir.
+   Vi måste t. ex. tilldela en IP-adress (i vårt exempel 10.0.0.42) för det virtuella kluster värd namnet PR1-ASCs-vir.
 
-   ![Bild 13: I dialogrutan Egenskaper ändrar du IP-adress][sap-ha-guide-figure-3012]
+   ![Figur 13: Ändra IP-adressen i dialog rutan Egenskaper][sap-ha-guide-figure-3012]
 
-   _**Bild 13:** I den **egenskaper** dialogrutan ändrar du IP-adress_
+   _**Figur 13:** Ändra IP-adressen i dialog rutan **Egenskaper**_
 
-   ![Bild 14: Tilldela IP-adressen som är reserverat för klustret][sap-ha-guide-figure-3013]
+   ![Bild 14: Tilldela den IP-adress som är reserverad för klustret][sap-ha-guide-figure-3013]
 
-   _**Bild 14:** Tilldela IP-adressen som är reserverat för klustret_
+   _**Bild 14:** Tilldela den IP-adress som är reserverad för klustret_
 
-6. Hämta virtuell värd klusternamnet.
+6. Ta det virtuella kluster värd namnet online.
 
-   ![Bild 15: Core klustertjänsten är igång, med rätt IP-adress][sap-ha-guide-figure-3014]
+   ![Bild 15: Kluster kärn tjänsten är igång med rätt IP-adress][sap-ha-guide-figure-3014]
 
-   _**Bild 15:** Core klustertjänsten är igång, med rätt IP-adress_
+   _**Bild 15:** Kluster kärn tjänsten är igång med rätt IP-adress_
 
-7. Lägg till den andra noden i klustret.
+7. Lägg till den andra klusternoden.
 
-   Nu när klustertjänsten core är igång kan du lägga till den andra noden i klustret.
+   Nu när kärn kluster tjänsten är igång kan du lägga till den andra klusternoden.
 
-   ![Bild 16 Lägg till den andra noden i klustret][sap-ha-guide-figure-3015]
+   ![Figur 16 Lägg till den andra klusternoden][sap-ha-guide-figure-3015]
 
-   _**Bild 16:** Lägg till den andra noden i klustret_
+   _**Bild 16:** Lägg till den andra klusternoden_
 
-8. Ange ett namn för den andra nod klustervärden.
+8. Ange ett namn för den andra klusternodens värd.
 
-   ![Bild 17: Ange andra värden klusternodnamnet][sap-ha-guide-figure-3016]
+   ![Bild 17: Ange det andra värd namnet för klusternoden][sap-ha-guide-figure-3016]
 
-   _**Bild 17:** Ange andra värden klusternodnamnet_
+   _**Bild 17:** Ange det andra värd namnet för klusternoden_
 
    > [!IMPORTANT]
-   > Kontrollera att den **lägga till alla tillgängliga lagringsenheter i klustret** kryssrutan är *inte* valda.  
+   > Se till att kryss rutan **Lägg till alla tillgängliga lagrings enheter i klustret** *inte* är markerad.  
    >
    >
 
-   ![Bild 18: Markera inte kryssrutan][sap-ha-guide-figure-3017]
+   ![Bild 18: Markera inte kryss rutan][sap-ha-guide-figure-3017]
 
-   _**Bild 18:** Gör *inte* markerar du kryssrutan_
+   _**Bild 18:** Markera *inte* kryss rutan_
 
-   Du kan ignorera varningar om kvorum och diskar. Du måste ange kvorum och dela disken senare, enligt beskrivningen i [installera SIOS DataKeeper Cluster Edition för en resurs för SAP ASCS/SCS klusterdisken][sap-high-availability-infrastructure-wsfc-shared-disk-install-sios].
+   Du kan ignorera varningar om kvorum och diskar. Du ställer in kvorumet och delar disken senare, enligt beskrivningen i [Installera SIOS DataKeeper Cluster Edition för en SAP ASCS/SCS-kluster resurs disk][sap-high-availability-infrastructure-wsfc-shared-disk-install-sios].
 
-   ![Bild 19: Ignorera varningar om disken kvorum][sap-ha-guide-figure-3018]
+   ![Bild 19: Ignorera varningar om kvorumdisken][sap-ha-guide-figure-3018]
 
-   _**Bild 19:** Ignorera varningar om disken kvorum_
+   _**Bild 19:** Ignorera varningar om kvorumdisken_
 
 
-#### <a name="e49a4529-50c9-4dcf-bde7-15a0c21d21ca"></a> Konfigurera ett filresursvittne för kluster
+#### <a name="e49a4529-50c9-4dcf-bde7-15a0c21d21ca"></a>Konfigurera ett kluster fil resurs vittne
 
-När du konfigurerar ett filresursvittne i kluster inkluderar dessa uppgifter:
+Att konfigurera ett kluster fil resurs vittne omfattar följande uppgifter:
 
-- Skapa en filresurs.
-- Ange filen resurs vittne kvorum i hanteraren för redundanskluster.
+- Skapa en fil resurs.
+- Ange fil resurs vittnets kvorum i Klusterhanteraren för växling vid fel.
 
-#### <a name="06260b30-d697-4c4d-b1c9-d22c0bd64855"></a> Skapa en filresurs
+#### <a name="06260b30-d697-4c4d-b1c9-d22c0bd64855"></a>Skapa en fil resurs
 
-1. Välj ett filresursvittne i stället för en kvorumdisk. SIOS DataKeeper stöder det här alternativet.
+1. Välj ett fil resurs vittne i stället för en kvorumdisk. SIOS DataKeeper stöder det här alternativet.
 
-   I exemplen i den här artikeln är filresursvittnet på den Active Directory- eller DNS-server som körs i Azure. Filresursvittnet kallas domcontr-0. Eftersom du skulle har konfigurerat en VPN-anslutning till Azure (via VPN-Gateway eller Azure ExpressRoute), Active Directory eller DNS-tjänsten är på plats och är inte lämpliga att köra ett filresursvittne.
+   I exemplen i den här artikeln finns fil resurs vittnet på den Active Directory eller DNS-server som körs i Azure. Fil resurs vittnet kallas domcontr-0. Eftersom du skulle ha konfigurerat en VPN-anslutning till Azure (via VPN Gateway eller Azure ExpressRoute) är din Active Directory-eller DNS-tjänst lokalt och är inte lämplig för att köra ett fil resurs vittne.
 
    > [!NOTE]
-   > Om Active Directory eller DNS-tjänsten körs bara på plats, inte konfigurera din filresursvittne på Active Directory eller DNS-Windows operativsystemet som körs lokalt. Nätverksfördröjningen mellan noder som körs i Azure och Active Directory eller DNS på plats kan vara för stort och orsaka problem med nätverksanslutningen. Glöm inte att konfigurera filresursvittnet på en Azure-dator som körs nära noden i klustret.  
+   > Om Active Directory-eller DNS-tjänsten endast körs lokalt ska du inte konfigurera fil resurs vittnet på den Active Directory eller det DNS-Windows-operativsystem som körs lokalt. Nätverks fördröjningen mellan klusternoder som körs i Azure och Active Directory eller DNS lokalt kan vara för stor och orsaka anslutnings problem. Se till att konfigurera fil resurs vittnet på en virtuell Azure-dator som kör nära klusternoden.  
    >
    >
 
-   Kvorum-enhet behöver minst 1 024 MB ledigt utrymme. Vi rekommenderar 2 048 MB ledigt utrymme för enheten kvorum.
+   Kvorumdisken måste ha minst 1 024 MB ledigt utrymme. Vi rekommenderar 2 048 MB ledigt utrymme för kvorumdisken.
 
-2. Lägg till klusternamnobjekt.
+2. Lägg till objektet kluster namn.
 
-   ![Bild 20: Tilldela behörigheter för resursen för klusternamnobjekt][sap-ha-guide-figure-3019]
+   ![Bild 20: Tilldela behörighet till resursen för objektet kluster namn][sap-ha-guide-figure-3019]
 
-   _**Bild 20:** Tilldela behörigheter för resursen för klusternamnobjekt_
+   _**Bild 20:** Tilldela behörighet till resursen för objektet kluster namn_
 
-   Var noga med att behörigheterna som inkluderar behörighet att ändra data i resursen för klusternamnobjekt (i vårt exempel pr1-ascs-vir$).
+   Se till att behörigheterna omfattar behörigheten att ändra data i resursen för objektet kluster namn (i vårt exempel PR1-ASCs-vir $).
 
-3. Om du vill lägga till klusternamnobjekt i listan, Välj **Lägg till**. Ändra filtret för att söka efter datorobjekt, förutom de som visas i bild 22.
+3. Välj **Lägg**till om du vill lägga till kluster namns objekt i listan. Ändra filtret för att kontrol lera dator objekt, utöver de som visas i bild 22.
 
-   ![Bild 21: Ändra objekttyper som kan innehålla datorer][sap-ha-guide-figure-3020]
+   ![Bild 21: Ändra objekt typer för att inkludera datorer][sap-ha-guide-figure-3020]
 
-   _**Bild 21:** Ändra **objekttyper** att inkludera datorer_
+   _**Bild 21:** Ändra **objekt typer** för att inkludera datorer_
 
-   ![Bild 22: Markera kryssrutan datorer][sap-ha-guide-figure-3021]
+   ![Bild 22: Markera kryss rutan datorer][sap-ha-guide-figure-3021]
 
-   _**Bild 22:** Välj den **datorer** kryssrutan_
+   _**Bild 22:** Markera kryss rutan **datorer**_
 
-4. Ange klusternamnobjekt som visas i bild 21. Eftersom posten redan har skapats, kan du ändra behörigheterna som visas i bild 20.
+4. Ange kluster namns objekt så som visas i bild 21. Eftersom posten redan har skapats kan du ändra behörigheterna, som du ser i bild 20.
 
-5. Välj den **Security** fliken för filresursen och ange sedan mer detaljerade behörigheter för klusternamnobjekt.
+5. Välj fliken **säkerhet** i resursen och ange sedan mer detaljerade behörigheter för objektet kluster namn.
 
-   ![Bild 23: Ange security attribut för klusterobjektet namn på filen resurs kvorum][sap-ha-guide-figure-3022]
+   ![Figur 23: Ange Säkerhetsattributen för objektet kluster namn på fil resursens kvorum][sap-ha-guide-figure-3022]
 
-   _**Bild 23:** Ange security attribut för klusterobjektet namn på filen resurs kvorum_
+   _**Figur 23:** Ange Säkerhetsattributen för objektet kluster namn på fil resursens kvorum_
 
-#### <a name="4c08c387-78a0-46b1-9d27-b497b08cac3d"></a> Ange filen resurs vittne kvorum i hanteraren för redundanskluster
+#### <a name="4c08c387-78a0-46b1-9d27-b497b08cac3d"></a>Ange fil resurs vittnets kvorum i Klusterhanteraren för växling vid fel
 
-1. Öppna den kvorum inställningen guiden Konfigurera.
+1. Öppna guiden Konfigurera kvorumkonfigurationen.
 
-   ![Bild 24: Börja konfigurera inställningen guiden klusterkvorum][sap-ha-guide-figure-3023]
+   ![Bild 24: Starta guiden Konfigurera klusterkvorum][sap-ha-guide-figure-3023]
 
-   _**Bild 24:** Börja konfigurera inställningen guiden klusterkvorum_
+   _**Bild 24:** Starta guiden Konfigurera klusterkvorum_
 
-2. På den **Välj alternativ för kvorumkonfiguration** väljer **Välj kvorumvittnet**.
+2. På sidan **Välj konfigurations alternativ för kvorum** väljer **du Välj ett kvorum**.
 
-   ![Bild 25: Du kan välja bland kvorumkonfigurationer][sap-ha-guide-figure-3024]
+   ![Bild 25: Kvorumresurser du kan välja mellan][sap-ha-guide-figure-3024]
 
-   _**Bild 25:** Du kan välja bland kvorumkonfigurationer_
+   _**Bild 25:** Kvorumresurser du kan välja mellan_
 
-3. På den **Välj Kvorumvittne** väljer **konfigurera ett filresursvittne**.
+3. På sidan **Välj kvorumdisk** väljer du **Konfigurera ett fil resurs vittne**.
 
-   ![Bild 26: Välj filresursvittnet][sap-ha-guide-figure-3025]
+   ![Bild 26: Välj fil resurs vittnet][sap-ha-guide-figure-3025]
 
-   _**Bild 26:** Välj filresursvittnet_
+   _**Bild 26:** Välj fil resurs vittnet_
 
-4. Ange UNC-sökvägen till filresursen (i vårt exempel \\domcontr 0\FSW). Om du vill se en lista över ändringar som du kan göra **nästa**.
+4. Ange UNC-sökvägen till fil resursen (i vårt exempel \\domcontr-0\FSW). Om du vill se en lista över de ändringar som du kan göra väljer du **Nästa**.
 
-   ![Bild 27: Definiera filresursplats för resursen vittne][sap-ha-guide-figure-3026]
+   ![Bild 27: Definiera fil resurs platsen för vittnes resursen][sap-ha-guide-figure-3026]
 
-   _**Bild 27:** Definiera filresursplats för resursen vittne_
+   _**Bild 27:** Definiera fil resurs platsen för vittnes resursen_
 
-5. Välj önskade ändringar och välj sedan **nästa**. Du behöver konfigurera om klusterkonfigurationen har som visas i bild 28:  
+5. Välj de ändringar som du vill använda och välj sedan **Nästa**. Du måste konfigurera om kluster konfigurationen på det sätt som visas i bild 28:  
 
    ![Bild 28: Bekräfta att du har konfigurerat om klustret][sap-ha-guide-figure-3027]
 
    _**Bild 28:** Bekräfta att du har konfigurerat om klustret_
 
-När du har installerat Windows-redundanskluster som du behöver ändra vissa tröskelvärden så att de kan anpassa redundans identifiering till villkoren i Azure. Parametrar som ska ändras finns dokumenterade i [justering failover-kluster nätverk tröskelvärden][tuning-failover-cluster-network-thresholds]. Förutsatt att de två virtuella datorerna som tillsammans bildar Windows klusterkonfigurationen för ASCS/SCS finns i samma undernät, ändra följande parametrar till dessa värden:
+När du har installerat Windows-redundansklustret måste du ändra vissa tröskelvärden så att de anpassar identifieringen av redundans till villkor i Azure. De parametrar som ska ändras dokumenteras i [Justera tröskelvärden för redundanskluster i nätverket][tuning-failover-cluster-network-thresholds]. Om du antar att de två virtuella datorerna som utgör Windows-klustrets konfiguration för ASCS/SCS finns i samma undernät, ändrar du följande parametrar till följande värden:
 
 - SameSubNetDelay = 2000
 - SameSubNetThreshold = 15
 - RoutingHistoryLength = 30
 
-De här inställningarna har testats med kunder och erbjuder en bra kompromiss. De är tillräckligt flexibel, men du får även redundanskluster som är tillräckligt snabbt i verkliga felvillkor på ett SAP-program eller en nod eller en VM-fel.
+De här inställningarna har testats med kunder och ger en bättre kompromiss. De är tillräckligt flexibla, men de ger också redundans som är tillräckligt snabba i verkliga fel tillstånd på en SAP-programvara eller i en nod eller ett VM-fel.
 
-### <a name="5c8e5482-841e-45e1-a89d-a05c0907c868"></a> Installera SIOS DataKeeper Cluster Edition för SAP ASCS/SCS resurs klusterdisken
+### <a name="5c8e5482-841e-45e1-a89d-a05c0907c868"></a>Installera SIOS DataKeeper Cluster Edition för SAP ASCS/SCS Cluster Share disk
 
-Nu har du en fungerande klusterkonfiguration för Windows Server-redundans i Azure. Om du vill installera en SAP ASCS/SCS-instans, behöver du en delad disk-resurs. Du kan inte skapa de delade diskresurserna som du behöver i Azure. SIOS DataKeeper Cluster Edition är en tredjepartslösning som du kan använda för att skapa delade diskresurserna.
+Nu har du en fungerande konfiguration av redundanskluster för Windows Server i Azure. Om du vill installera en SAP ASCS/SCS-instans behöver du en delad disk resurs. Du kan inte skapa de delade disk resurser du behöver i Azure. SIOS DataKeeper Cluster Edition är en lösning från tredje part som du kan använda för att skapa delade disk resurser.
 
-Installera SIOS DataKeeper Cluster Edition för SAP ASCS/SCS resurs klusterdisken omfattar dessa uppgifter:
+Att installera SIOS DataKeeper Cluster Edition för SAP ASCS/SCS-klustrets resurs disk omfattar följande uppgifter:
 
-- Lägg till Microsoft .NET Framework 3.5.
+- Lägg till Microsoft .NET Framework 3,5.
 - Installera SIOS DataKeeper.
-- Ställ in SIOS DataKeeper.
+- Konfigurera SIOS-DataKeeper.
 
-### <a name="1c2788c3-3648-4e82-9e0d-e058e475e2a3"></a> Add .NET Framework 3.5
-.NET framework 3.5 är inte automatiskt aktiverats eller installerad på Windows Server 2012 R2. Eftersom SIOS DataKeeper kräver .NET på alla noder där du installerar DataKeeper, måste du installera .NET Framework 3.5 på gästoperativsystemet för alla virtuella datorer i klustret.
+### <a name="1c2788c3-3648-4e82-9e0d-e058e475e2a3"></a>Lägg till .NET Framework 3,5
+.NET Framework 3,5 aktive ras eller installeras inte automatiskt på Windows Server 2012 R2. Eftersom SIOS DataKeeper kräver att .NET finns på alla noder där du installerar DataKeeper måste du installera .NET Framework 3,5 på gäst operativ systemet för alla virtuella datorer i klustret.
 
-Det finns två sätt att lägga till .NET Framework 3.5:
+Det finns två sätt att lägga till .NET Framework 3,5:
 
-- Använd guiden Lägg till roller och funktioner i Windows, som visas i bild 29:
+- Använd guiden Lägg till roller och funktioner i Windows, som du ser i bild 29:
 
-  ![Bild 29: Installera .NET Framework 3.5 genom att använda Lägg till roller och funktioner som guiden][sap-ha-guide-figure-3028]
+  ![Bild 29: Installera .NET Framework 3,5 med hjälp av guiden Lägg till roller och funktioner][sap-ha-guide-figure-3028]
 
-  _**Bild 29:** Installera .NET Framework 3.5 genom att använda Lägg till roller och funktioner som guiden_
+  _**Bild 29:** Installera .NET Framework 3,5 med hjälp av guiden Lägg till roller och funktioner_
 
-  ![Bild 30: Installationen förloppsindikator när du installerar .NET Framework 3.5 genom att använda Lägg till roller och funktioner som guiden][sap-ha-guide-figure-3029]
+  ![Bild 30: Installations förlopps indikator när du installerar .NET Framework 3,5 med hjälp av guiden Lägg till roller och funktioner][sap-ha-guide-figure-3029]
 
-  _**Bild 30:** Installationen förloppsindikator när du installerar .NET Framework 3.5 genom att använda Lägg till roller och funktioner som guiden_
+  _**Bild 30:** Installations förlopps indikator när du installerar .NET Framework 3,5 med hjälp av guiden Lägg till roller och funktioner_
 
-- Använda kommandoradsverktyget dism.exe. Du behöver åtkomst till katalogen SxS på installationsmediet för Windows för den här typen av installation. Ange det här kommandot i en upphöjd kommandotolk:
+- Använd kommando rads verktyget DISM. exe. För den här typen av installation måste du ha åtkomst till katalogen SxS på installations mediet för Windows. Ange följande kommando i en upphöjd kommando tolk:
 
   ```
   Dism /online /enable-feature /featurename:NetFx3 /All /Source:installation_media_drive:\sources\sxs /LimitAccess
   ```
 
-### <a name="dd41d5a2-8083-415b-9878-839652812102"></a> Installera SIOS DataKeeper
+### <a name="dd41d5a2-8083-415b-9878-839652812102"></a>Installera SIOS DataKeeper
 
-Installera SIOS DataKeeper Cluster Edition på varje nod i klustret. Om du vill skapa virtuella delad lagring med SIOS DataKeeper, skapa en synkroniserad spegling och simulera klustrets delade lagring.
+Installera SIOS DataKeeper Cluster Edition på varje nod i klustret. Skapa en virtuell delad lagring med SIOS DataKeeper genom att skapa en synkroniserad spegling och sedan simulera klusterdelad lagring.
 
-Innan du installerar programvaran SIOS skapa DataKeeperSvc domänanvändare.
+Innan du installerar SIOS-programvaran skapar du DataKeeperSvc-domän användaren.
 
 > [!NOTE]
-> Lägga till DataKeeperSvc-domänanvändare i gruppen lokala administratörer på båda klusternoderna.
+> Lägg till domän användaren DataKeeperSvc i den lokala administratörs gruppen på båda klusternoderna.
 >
 >
 
-Så här installerar SIOS DataKeeper:
+Så här installerar du SIOS DataKeeper:
 
-1. Installera programvaran SIOS på båda klusternoderna.
+1. Installera SIOS-programvaran på båda klusternoderna.
 
-   ![SIOS installer][sap-ha-guide-figure-3030]
+   ![Installations program för SIOS][sap-ha-guide-figure-3030]
 
-   ![Bild 31: Första sidan i SIOS DataKeeper-installation][sap-ha-guide-figure-3031]
+   ![Bild 31: Första sidan i SIOS DataKeeper-installationen][sap-ha-guide-figure-3031]
 
-   _**Bild 31:** Första sidan i SIOS DataKeeper-installation_
+   _**Bild 31:** Första sidan i SIOS DataKeeper-installationen_
 
-2. I dialogrutan Välj **Ja**.
+2. Välj **Ja**i dialog rutan.
 
-   ![Bild 32: DataKeeper informerar dig om att en tjänst kommer att inaktiveras][sap-ha-guide-figure-3032]
+   ![Bild 32: DataKeeper informerar dig om att en tjänst kommer att inaktive ras][sap-ha-guide-figure-3032]
 
-   _**Bild 32:** DataKeeper informerar dig om att en tjänst kommer att inaktiveras_
+   _**Bild 32:** DataKeeper informerar dig om att en tjänst kommer att inaktive ras_
 
-3. I dialogrutan, rekommenderar vi att du väljer **domän eller Server**.
+3. I dialog rutan rekommenderar vi att du väljer domän- **eller Server konto**.
 
-   ![Bild 33: Användarens val för SIOS DataKeeper][sap-ha-guide-figure-3033]
+   ![Bild 33: Val av användare för SIOS-DataKeeper][sap-ha-guide-figure-3033]
 
-   _**Bild 33:** Användarens val för SIOS DataKeeper_
+   _**Bild 33:** Val av användare för SIOS-DataKeeper_
 
-4. Ange domänanvändarnamn och lösenord som du skapade för SIOS DataKeeper.
+4. Ange det användar namn och lösen ord för domän kontot som du skapade för SIOS-DataKeeper.
 
-   ![Bild 34: Ange domänanvändarnamn och lösenord för SIOS DataKeeper-installation][sap-ha-guide-figure-3034]
+   ![Bild 34: Ange domänens användar namn och lösen ord för SIOS DataKeeper-installationen][sap-ha-guide-figure-3034]
 
-   _**Bild 34:** Ange domänanvändarnamn och lösenord för SIOS DataKeeper-installation_
+   _**Bild 34:** Ange domänens användar namn och lösen ord för SIOS DataKeeper-installationen_
 
-5. Installera licensnyckel för din SIOS DataKeeper-instans såsom visas på bild 35.
+5. Installera licens nyckeln för SIOS DataKeeper-instansen enligt bilden 35.
 
-   ![Bild 35: Ange licensnyckeln SIOS DataKeeper][sap-ha-guide-figure-3035]
+   ![Bild 35: Ange licens nyckeln för SIOS DataKeeper][sap-ha-guide-figure-3035]
 
-   _**Bild 35:** Ange licensnyckeln SIOS DataKeeper_
+   _**Bild 35:** Ange licens nyckeln för SIOS DataKeeper_
 
-6. När du uppmanas starta om den virtuella datorn.
+6. Starta om den virtuella datorn när du uppmanas till det.
 
-### <a name="d9c1fc8e-8710-4dff-bec2-1f535db7b006"></a> Konfigurera SIOS DataKeeper
+### <a name="d9c1fc8e-8710-4dff-bec2-1f535db7b006"></a>Konfigurera SIOS DataKeeper
 
-Starta konfigurationen när du har installerat SIOS DataKeeper på båda noderna. Målet med konfigurationen är att ha synkron datareplikering mellan dessa ytterligare diskar som är kopplade till var och en av de virtuella datorerna.
+När du har installerat SIOS DataKeeper på båda noderna startar du konfigurationen. Målet med konfigurationen är att ha synkron datareplikering mellan de ytterligare diskar som är anslutna till var och en av de virtuella datorerna.
 
-1. Starta verktyget DataKeeper hanterings- och välj sedan **Anslut Server**.
+1. Starta hanterings-och konfigurations verktyget för DataKeeper och välj sedan **Anslut Server**.
 
-   ![Bild 36: SIOS DataKeeper hanterings- och verktyg][sap-ha-guide-figure-3036]
+   ![Bild 36: Hanterings-och konfigurations verktyg för SIOS-DataKeeper][sap-ha-guide-figure-3036]
 
-   _**Bild 36:** SIOS DataKeeper hanterings- och verktyg_
+   _**Bild 36:** Hanterings-och konfigurations verktyg för SIOS-DataKeeper_
 
-2. Ange namn eller TCP/IP-adressen för den första noden verktyget hantering och konfiguration ska ansluta till, och i andra steget, den andra noden.
+2. Ange namnet eller TCP/IP-adressen för den första noden som hanterings-och konfigurations verktyget ska ansluta till och, i ett andra steg, den andra noden.
 
-   ![Bild 37: Infoga namn eller TCP/IP-adressen för den första noden verktyget hantering och konfiguration ska ansluta till och en andra steget, den andra noden][sap-ha-guide-figure-3037]
+   ![Bild 37: Infoga namnet eller TCP/IP-adressen för den första noden som hanterings-och konfigurations verktyget ska ansluta till, och i ett andra steg, den andra noden][sap-ha-guide-figure-3037]
 
-   _**Bild 37:** Infoga namn eller TCP/IP-adressen för den första noden verktyget hantering och konfiguration ska ansluta till och en andra steget, den andra noden_
+   _**Bild 37:** Infoga namnet eller TCP/IP-adressen för den första noden som hanterings-och konfigurations verktyget ska ansluta till, och i ett andra steg, den andra noden_
 
-3. Skapa replikeringen mellan de två noderna.
+3. Skapa ett replikerings jobb mellan de två noderna.
 
-   ![Bild 38: Skapa ett replikeringsjobb][sap-ha-guide-figure-3038]
+   ![Bild 38: Skapa ett jobb för replikering][sap-ha-guide-figure-3038]
 
-   _**Bild 38:** Skapa ett replikeringsjobb_
+   _**Bild 38:** Skapa ett jobb för replikering_
 
-   En guide vägleder dig genom processen för att skapa ett replikeringsjobb.
+   En guide vägleder dig genom processen med att skapa ett migreringsjobb.
 
-4. Ange namnet på replikeringen.
+4. Definiera namnet på replikeringslänken.
 
-   ![Bild 39: Ange namnet på replikeringen][sap-ha-guide-figure-3039]
+   ![Bild 39: Definiera namnet på det replikerade jobbet][sap-ha-guide-figure-3039]
 
-   _**Bild 39:** Ange namnet på replikeringen_
+   _**Bild 39:** Definiera namnet på det replikerade jobbet_
 
-   ![Bild 40: Definiera grunddata för den nod som ska vara den aktuella noden för källa][sap-ha-guide-figure-3040]
+   ![Bild 40: Definiera grunddata för noden, som ska vara den aktuella Källnoden][sap-ha-guide-figure-3040]
 
-   _**Bild 40:** Definiera grunddata för den nod som ska vara den aktuella noden för källa_
+   _**Bild 40:** Definiera grunddata för noden, som ska vara den aktuella Källnoden_
 
-5. Definiera namn, TCP/IP-adress och diskvolymen för målnoden.
+5. Definiera namn, TCP/IP-adress och disk volym för målnoden.
 
-   ![Bild 41: Definiera namn, TCP/IP-adress och diskvolymen för den aktuella målnoden][sap-ha-guide-figure-3041]
+   ![Bild 41: Definiera namn, TCP/IP-adress och disk volym för den aktuella målnoden][sap-ha-guide-figure-3041]
 
-   _**Bild 41:** Definiera namn, TCP/IP-adress och diskvolymen för den aktuella målnoden_
+   _**Bild 41:** Definiera namn, TCP/IP-adress och disk volym för den aktuella målnoden_
 
-6. Definiera komprimeringsalgoritmer. I vårt exempel rekommenderar vi att du komprimera dataströmmen för replikering. Särskilt i omsynkroniseringen situationer minskar komprimering av replikering stream avsevärt du tiden för omsynkronisering. Komprimering använder processor och RAM-resurser för en virtuell dator. När hastigheten med komprimering ökar, ökar mängden processorresurser som används. Du kan justera den här inställningen senare.
+6. Definiera algoritmerna för komprimering. I vårt exempel rekommenderar vi att du komprimerar replik strömmen. I synnerhet i omsynkroniseringen minskar replikeringen av replikeringsuppsättningen dramatiskt omsynkroniseringen avsevärt. Komprimering använder processor-och RAM-resurser för en virtuell dator. I takt med att komprimerings hastigheten ökar, så är volymen av de processor resurser som används. Du kan ändra den här inställningen senare.
 
-7. En annan inställning måste du kontrollera är om replikeringen sker synkront eller asynkront. När du skyddar SAP ASCS/SCS-konfigurationer, måste du använda synkron replikering.  
+7. En annan inställning som du måste kontrol lera är om replikeringen sker asynkront eller synkront. När du skyddar SAP ASCS/SCS-konfigurationer måste du använda synkron replikering.  
 
-   ![Bild 42: Definiera replikeringsinformationen][sap-ha-guide-figure-3042]
+   ![Bild 42: Definiera replikeringsinformation][sap-ha-guide-figure-3042]
 
-   _**Bild 42:** Definiera replikeringsinformationen_
+   _**Bild 42:** Definiera replikeringsinformation_
 
-8. Definiera om den volym som replikeras av replikeringen ska representeras till Windows Server konfigurationen av ett redundanskluster som en delad disk. SAP ASCS/SCS-konfiguration, Välj **Ja** så att Windows-kluster ser replikerad volym som en delad disk som kan användas som en volym.
+8. Ange om den volym som replikeras av replikeringssystemet ska representeras för en Windows Server-redundanskluster som en delad disk. För SAP ASCS/SCS-konfigurationen väljer du **Ja** så att Windows-klustret ser den replikerade volymen som en delad disk som kan användas som en kluster volym.
 
-   ![Bild 43: Välj Ja om du vill ange replikerad volym som en volym][sap-ha-guide-figure-3043]
+   ![Bild 43: Välj Ja för att ställa in den replikerade volymen som en kluster volym][sap-ha-guide-figure-3043]
 
-   _**Bild 43:** Välj **Ja** att ställa in replikerad volym som en volym_
+   _**Bild 43:** Välj **Ja** för att ställa in den replikerade volymen som en kluster volym_
 
-   När volymen har skapats visas i DataKeeper hanterings- och verktyget att replikeringen är aktiv.
+   När volymen har skapats visar hanterings-och konfigurations verktyget för DataKeeper att replikeringsläget är aktivt.
 
-   ![Bild 44: DataKeeper synkroniserad spegling för SAP ASCS/SCS dela disken är aktiv][sap-ha-guide-figure-3044]
+   ![Bild 44: DataKeeper synkron spegling för resurs disken för SAP ASCS/SCS är aktiv][sap-ha-guide-figure-3044]
 
-   _**Bild 44:** DataKeeper synkroniserad spegling för SAP ASCS/SCS dela disken är aktiv_
+   _**Bild 44:** DataKeeper synkron spegling för resurs disken för SAP ASCS/SCS är aktiv_
 
-   Hanteraren för redundanskluster visar nu disken som en DataKeeper-disk som visas i bild 45:
+   Klusterhanteraren för växling vid fel visar nu disken som en DataKeeper disk, som du ser i bild 45:
 
-   ![Bild 45: Hanteraren för redundanskluster visar disken som DataKeeper replikerade][sap-ha-guide-figure-3045]
+   ![Bild 45: Klusterhanteraren för växling vid fel visar den disk som DataKeeper replikerade][sap-ha-guide-figure-3045]
 
-   _**Bild 45:** Hanteraren för redundanskluster visar disken som DataKeeper replikerade_
+   _**Bild 45:** Klusterhanteraren för växling vid fel visar den disk som DataKeeper replikerade_
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Installera SAP NetWeaver hög tillgänglighet med hjälp av en Windows-redundanskluster och delad disk för en SAP ASCS/SCS-instans][sap-high-availability-installation-wsfc-shared-disk]
+* [Installera SAP NetWeaver HA med hjälp av ett Windows-redundanskluster och en delad disk för en SAP-ASCS/SCS-instans][sap-high-availability-installation-wsfc-shared-disk]

@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 857cae886dec2872c083771e4b1fd57a27d2991b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3e956c3d54584adff88f475328678ba26e494a7e
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60935627"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967344"
 ---
 # <a name="copy-data-from-vertica-using-azure-data-factory"></a>Kopiera data från Vertica med Azure Data Factory 
 
@@ -28,6 +28,10 @@ Den här artikeln beskrivs hur du använder Kopieringsaktivitet i Azure Data Fac
 Du kan kopiera data från Vertica till alla datalager för mottagare som stöds. En lista över datalager som stöds som källor/mottagare av Kopieringsaktivitet finns i den [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) tabell.
 
 Azure Data Factory tillhandahåller en inbyggd drivrutin för att aktivera anslutning, måste du därför inte att manuellt installera en drivrutin som använder den här anslutningen.
+
+## <a name="prerequisites"></a>Förutsättningar
+
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
 ## <a name="getting-started"></a>Komma igång
 
@@ -41,9 +45,9 @@ Följande egenskaper har stöd för Vertica länkade tjänsten:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Type-egenskapen måste anges till: **Vertica** | Ja |
-| connectionString | En ODBC-anslutningssträng att ansluta till Vertica.<br/>Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory. Du kan också publicera lösenord i Azure Key Vault och använda pull i `pwd` konfiguration av anslutningssträngen. Följande exempel finns och [Store autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) artikel med mer information. | Ja |
-| connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda lokal Integration Runtime eller Azure Integration Runtime (om ditt datalager är offentligt tillgänglig). Om den inte anges används standard Azure Integration Runtime. |Nej |
+| type | Egenskapen Type måste anges till: **Vertica** | Ja |
+| connectionString | En ODBC-anslutningssträng att ansluta till Vertica.<br/>Markera det här fältet som en SecureString för att lagra det på ett säkert sätt i Data Factory. Du kan också ställa in lösen ord i Azure Key Vault och `pwd` Hämta konfigurationen från anslutnings strängen. Se följande exempel och [lagra autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) artikel med mer information. | Ja |
+| connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Läs mer från avsnittet [krav](#prerequisites) . Om den inte anges används standard Azure Integration Runtime. |Nej |
 
 **Exempel:**
 
@@ -66,7 +70,7 @@ Följande egenskaper har stöd för Vertica länkade tjänsten:
 }
 ```
 
-**Exempel: lagra lösenord i Azure Key Vault**
+**Exempel: lagra lösen ord i Azure Key Vault**
 
 ```json
 {
@@ -103,8 +107,8 @@ Kopiera data från Vertica genom att ange typegenskapen på datauppsättningen t
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Type-egenskapen för datauppsättningen måste anges till: **VerticaTable** | Ja |
-| tableName | Namnet på tabellen. | Nej (om ”frågan” i aktivitetskälla har angetts) |
+| type | Data uppsättningens typ-egenskap måste anges till: **VerticaTable** | Ja |
+| tableName | Namnet på tabellen. | Nej (om ”query” i aktivitetskälla har angetts) |
 
 **Exempel**
 
@@ -132,7 +136,7 @@ För att kopiera data från Vertica, ange typ av datakälla i kopieringsaktivite
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **VerticaSource** | Ja |
+| type | Typ egenskapen för kopierings aktivitets källan måste anges till: **VerticaSource** | Ja |
 | query | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
 
 **Exempel:**

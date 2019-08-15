@@ -1,6 +1,6 @@
 ---
 title: Lägg till ett termiskt kart skikt i Azure Maps | Microsoft Docs
-description: Så här lägger du till ett termiskt kart skikt i JavaScript-kartan
+description: Så här lägger du till ett termiskt kart skikt i Azure Maps Web SDK.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -9,20 +9,20 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 85f184603cdcadce6bf750db5765f32a0735453d
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: e83b3c5f7f7cb6fa729a628f01f4103d44c19df8
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639017"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976188"
 ---
 # <a name="add-a-heat-map-layer"></a>Lägga till ett heatmapskikt
 
 Värme kartor, även kallade punkt Täthets kartor, är en typ av data visualisering som används för att representera densiteten för data med hjälp av en uppsättning färger. De används ofta för att visa data "frekventa fläckar" på en karta och är ett bra sätt att återge data uppsättningar med stora punkter.  Exempel: åter givning av tusentals punkter i kart visningen som symboler omfattar de flesta kart områdena och resulterar i att många symboler överlappar varandra, vilket gör det svårt att få mycket inblick i data. Att visualisera samma data uppsättning som en värme karta gör det dock enkelt att se var punkt data är den mest täta och den relativa densiteten för andra områden. Det finns många scenarier där värme kartor används. Här är några exempel:
 
-* Temperatur data återges ofta som värme karta eftersom den tillhandahåller ungefärliger för den temperatur som är mellan två data punkter.
-* Rendering av data för brus sensorer som en värme karta visar inte bara intensiteten för bruset där sensorn är men kan också ge insikter om den här utmatningen över ett avstånd. Brus nivån på en plats kanske inte är hög, men om brus täcknings området från flera sensorer överlappar varandra, är det möjligt att det överlappande området kan uppleva högre buller nivåer och därmed visas i värme kartan.
-* Visualisering av en GPS-spårning som innehåller hastigheten som en viktad höjd och en karta där intensiteten för varje data punkt baseras på hastigheten är ett bra sätt att se var fordonet gick snabbare.
+- Temperatur data återges ofta som värme karta eftersom den tillhandahåller ungefärliger för den temperatur som är mellan två data punkter.
+- Rendering av data för brus sensorer som en värme karta visar inte bara intensiteten för bruset där sensorn är men kan också ge insikter om den här utmatningen över ett avstånd. Brus nivån på en plats kanske inte är hög, men om brus täcknings området från flera sensorer överlappar varandra, är det möjligt att det överlappande området kan uppleva högre buller nivåer och därmed visas i värme kartan.
+- Visualisering av en GPS-spårning som innehåller hastigheten som en viktad höjd och en karta där intensiteten för varje data punkt baseras på hastigheten är ett bra sätt att se var fordonet gick snabbare.
 
 > [!TIP]
 > Värme kart skikt som standard återger koordinaterna för alla Geometries i en data källa. Om du vill begränsa lagret så att det bara återger punkt geometri funktioner, anger `filter` du egenskapen för lagret till `['==', ['geometry-type'], 'Point']` eller `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` om du även vill inkludera Multipoint-funktioner.
@@ -31,12 +31,29 @@ Värme kartor, även kallade punkt Täthets kartor, är en typ av data visualise
 
 Om du vill rendera en data källa med punkter som en värme karta skickar du data källan till en instans `HeatMapLayer` av klassen och lägger till den i kartan som visas här.
 
+I följande kod har varje värme punkt en radie på 10 bild punkter på alla zoomnings nivåer. När du lägger till värme kart skiktet till kartan infogar det här exemplet det under etikett lagret för att skapa en bättre användar upplevelse eftersom etiketterna är tydligt synliga ovanför värme kartan. Data i det här exemplet hämtas från [USGS datauppsättningen jord bävning](https://earthquake.usgs.gov/) -farlighetsprogram och representerar betydande jord bävningar som har inträffat under de senaste 30 dagarna.
+
+```javascript
+//Create a data source and add it to the map.
+var datasource = new atlas.source.DataSource();
+map.sources.add(datasource);
+
+//Load a data set of points, in this case earthquake data from the USGS.
+datasource.importDataFromUrl('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson');
+
+//Create a heatmap and add it to the map.
+map.layers.add(new atlas.layer.HeatMapLayer(datasource, null, {
+  radius: 10,
+  opacity: 0.8
+}), 'labels');
+```
+
+Nedan visas det fullständiga kod exemplet för ovanstående funktioner.
+
 <br/>
 
 <iframe height='500' scrolling='no' title='Enkelt värme kart skikt' src='//codepen.io/azuremaps/embed/gQqdQB/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se det <a href='https://codepen.io/azuremaps/pen/gQqdQB/'>enkla värme kart skiktet</a> Ritstift genom att<a href='https://codepen.io/azuremaps'>@azuremaps</a>Azure Maps () på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
-
-I det här exemplet har varje värme punkt en radie på 10 bild punkter på alla zoomnings nivåer. När du lägger till värme kart skiktet till kartan infogar det här exemplet det under etikett lagret för att skapa en bättre användar upplevelse eftersom etiketterna är tydligt synliga ovanför värme kartan. Data i det här exemplet hämtas från [USGS datauppsättningen jord bävning](https://earthquake.usgs.gov/) -farlighetsprogram och representerar betydande jord bävningar som har inträffat under de senaste 30 dagarna.
 
 ## <a name="customizing-the-heat-map-layer"></a>Anpassa värme kart skiktet
 
@@ -49,10 +66,10 @@ I föregående exempel har du anpassat värme kartan genom att ange alternativ f
 |--------------------------------|--------------------------|
 | \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;interpolerat,<br/>&nbsp;&nbsp;&nbsp;&nbsp;\[' linjär '\],<br/>&nbsp;&nbsp;&nbsp;&nbsp;\["termisk karta-densitet"\],<br/>&nbsp;&nbsp;&nbsp;&nbsp;0, transparent,<br/>&nbsp;&nbsp;&nbsp;&nbsp;0,01, lila,<br/>&nbsp;&nbsp;&nbsp;&nbsp;0,5, #fb00fb,<br/>&nbsp;&nbsp;&nbsp;&nbsp;1, '#00c3ff'<br/>\] | \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;"steg",<br/>&nbsp;&nbsp;&nbsp;&nbsp;\["termisk karta-densitet"\],<br/>&nbsp;&nbsp;&nbsp;&nbsp;transparent,<br/>&nbsp;&nbsp;&nbsp;&nbsp;0,01, flottan,<br/>&nbsp;&nbsp;&nbsp;&nbsp;0,25, grönt,<br/>&nbsp;&nbsp;&nbsp;&nbsp;0,50, "gul",<br/>&nbsp;&nbsp;&nbsp;&nbsp;0,75, "röd"<br/>\] | 
 
-* `opacity`: Anger hur ogenomskinligt eller transparent det termiskt kart skiktet är.
-* `intensity`: Använder en multiplikator för varje data punkts vikt för att öka den övergripande intensiteten hos termisk karta och hjälper till att göra de små skillnaderna i vikten av data punkter lättare att visualisera.
-* `weight`: Som standard har alla data punkter en vikt på 1, vilket innebär att alla data punkter viktas jämnt. Vikt alternativet fungerar som en multiplikator och kan anges som ett tal eller ett uttryck. Om ett tal har angetts som vikt, säger du 2, är det detsamma som att placera varje data punkt på kartan två gånger, vilket dubblerar densiteten. Om du ställer in viktnings alternativet på ett tal återges den termiska kartan på samma sätt som med alternativet intensitet. Men om ett uttryck används kan vikten för varje data punkt baseras på egenskaperna för varje data punkt. Ta jord bävning data som ett exempel, representerar varje data punkt en jord bävning. Ett viktigt mått varje jord bävning data punkt har, är ett värde för storlek. Jord bävningar sker hela tiden, men de flesta har låg storlek och är inte ens filtiga. Genom att använda värdet i ett uttryck för att tilldela vikten till varje data punkt kan mer betydande jord bävningar bättre representeras i värme kartan.
-* Förutom bas lager alternativen, min/max-zoomning, Visible och filter finns det också ett `source` alternativ om du vill uppdatera data källan och `source-layer` alternativet om data källan är en vektor panels källa.
+- `opacity`: Anger hur ogenomskinligt eller transparent det termiskt kart skiktet är.
+- `intensity`: Använder en multiplikator för varje data punkts vikt för att öka den övergripande intensiteten hos termisk karta och hjälper till att göra de små skillnaderna i vikten av data punkter lättare att visualisera.
+- `weight`: Som standard har alla data punkter en vikt på 1, vilket innebär att alla data punkter viktas jämnt. Vikt alternativet fungerar som en multiplikator och kan anges som ett tal eller ett uttryck. Om ett tal har angetts som vikt, säger du 2, är det detsamma som att placera varje data punkt på kartan två gånger, vilket dubblerar densiteten. Om du ställer in viktnings alternativet på ett tal återges den termiska kartan på samma sätt som med alternativet intensitet. Men om ett uttryck används kan vikten för varje data punkt baseras på egenskaperna för varje data punkt. Ta jord bävning data som ett exempel, representerar varje data punkt en jord bävning. Ett viktigt mått varje jord bävning data punkt har, är ett värde för storlek. Jord bävningar sker hela tiden, men de flesta har låg storlek och är inte ens filtiga. Genom att använda värdet i ett uttryck för att tilldela vikten till varje data punkt kan mer betydande jord bävningar bättre representeras i värme kartan.
+- Förutom bas lager alternativen, min/max-zoomning, Visible och filter finns det också ett `source` alternativ om du vill uppdatera data källan och `source-layer` alternativet om data källan är en vektor panels källa.
 
 Här är ett verktyg för att testa olika alternativ för termisk kart skikt.
 
@@ -63,11 +80,11 @@ Här är ett verktyg för att testa olika alternativ för termisk kart skikt.
 
 ## <a name="consistent-zoomable-heat-map"></a>Konsekvent zoomnings bara termisk karta
 
-Som standard har radien för data punkter som återges i värme kart skiktet ett fast pixel-radie för alla zoomnings nivåer. När kartan zoomas samman samlas data samman och termisk kart skiktet ser annorlunda ut. Ett `zoom` uttryck kan användas för att skala radien för varje zoomnings nivå så att varje data punkt täcker samma fysiska område i kartan. Det gör att värme kart lagret ser mer statiskt och konsekvent. Varje zoomnivå på kartan har två gånger så många bild punkter lodrätt och vågrätt som föregående zoomnings nivå. Om du skalar radien så att den dubbleras med varje zoomnivå skapas en värme karta som ser konsekvent ut på alla zoomnings nivåer. Detta kan åstadkommas med hjälp `zoom` av med ett Base 2 `exponential interpolation` -uttryck som visas i exemplet nedan. Zooma kartan för att se hur värme kartan skalar med zoomnings nivån.
+Som standard har radien för data punkter som återges i värme kart skiktet ett fast pixel-radie för alla zoomnings nivåer. När kartan är insamlad är data aggarna tillsammans och värme kart lagret annorlunda. Ett `zoom` uttryck kan användas för att skala radien för varje zoomnings nivå så att varje data punkt täcker samma fysiska område i kartan. Det gör att värme kart lagret ser mer statiskt och konsekvent. Varje zoomnivå på kartan har två gånger så många bild punkter lodrätt och vågrätt som föregående zoomnings nivå. Om du skalar radien så att den dubbleras med varje zoomnivå skapas en värme karta som ser konsekvent ut på alla zoomnings nivåer. Detta kan åstadkommas med hjälp `zoom` av med ett Base 2 `exponential interpolation` -uttryck som visas i exemplet nedan. Zooma kartan för att se hur värme kartan skalar med zoomnings nivån.
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Konsekvent zoomnings bara termisk karta" src="//codepen.io/azuremaps/embed/OGyMZr/?height=500&theme-id=light&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Konsekvent zoomnings bara termisk karta" src="//codepen.io/azuremaps/embed/OGyMZr/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
 Se den inkonsekventa instabila <a href='https://codepen.io/azuremaps/pen/OGyMZr/'>värme kartan</a> genom<a href='https://codepen.io/azuremaps'>@azuremaps</a>Azure Maps () på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -93,7 +110,7 @@ Läs mer om de klasser och metoder som används i den här artikeln:
 Fler kod exempel som kan läggas till i dina kartor finns i följande artiklar:
 
 > [!div class="nextstepaction"]
-> [Lägg till ett symbol lager](./map-add-pin.md)
+> [Skapa en data Källa](create-data-source-web-sdk.md)
 
 > [!div class="nextstepaction"]
 > [Använd data drivna format uttryck](data-driven-style-expressions-web-sdk.md)

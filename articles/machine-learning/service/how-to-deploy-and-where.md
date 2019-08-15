@@ -11,21 +11,21 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 08/06/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 7e88b99cf0ecede64d75b36eafdcc88798e2e4a4
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: a92cb0f3da5058e7ffeee6f47e8cfa26ae291005
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840459"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990566"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Distribuera modeller med Azure Machine Learning-tjänsten
 
-Lär dig hur du distribuerar din Machine Learning-modell som en webb tjänst i Azure-molnet, eller för att IoT Edge enheter. 
+Lär dig hur du distribuerar din Machine Learning-modell som en webb tjänst i Azure-molnet, eller för att IoT Edge enheter.
 
 Arbets flödet liknar oavsett [var du distribuerar](#target) din modell:
 
 1. Registrera modellen.
-1. Förbered för distribution (ange till gångar, användning, beräknings mål)
+1. Förbered för distribution (ange till gångar, användning, Compute Target).
 1. Distribuera modellen till Compute-målet.
 1. Testa den distribuerade modellen, även kallad webb tjänst.
 
@@ -33,26 +33,57 @@ Mer information om de begrepp som ingår i distributions arbets flödet finns i 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
+- En arbetsyta för Azure Machine Learning-tjänsten. Mer information finns i [skapa en Azure Machine Learning service-arbetsyta](how-to-manage-workspace.md).
+
 - En modell. Om du inte har en tränad modell kan du använda modell & beroende filer som finns i [den här](https://aka.ms/azml-deploy-cloud)självstudien.
 
 - [Azure CLI-tillägget för Machine Learning-tjänst](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](https://aka.ms/aml-sdk)eller [Azure Machine Learning Visual Studio Code-tillägget](how-to-vscode-tools.md).
 
+## <a name="connect-to-your-workspace"></a>Anslut till din arbets yta
+
+Följande kod visar hur du ansluter till en Azure Machine Learning service-arbetsyta med hjälp av information som cachelagras i den lokala utvecklings miljön:
+
+**Använda SDK: n**
+
+```python
+from azureml.core import Workspace
+ws = Workspace.from_config(path=".file-path/ws_config.json")
+```
+
+Mer information om hur du använder SDK för att ansluta till en arbets yta finns i [Azure Machine Learning SDK för python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py#workspace).
+
+**Använda CLI**
+
+När du använder CLI använder du `-w` parametern eller `--workspace-name` för att ange arbets ytan för kommandot.
+
+**Använda VS Code**
+
+När du använder VS Code väljs arbets ytan med ett grafiskt gränssnitt. Mer information finns i [distribuera och hantera modeller](how-to-vscode-tools.md#deploy-and-manage-models) i vs Code Extension-dokumentationen.
+
 ## <a id="registermodel"></a>Registrera din modell
 
-En logisk behållare för en registrerad modell för en eller flera filer som utgör din modell. Om du till exempel har en modell som lagras i flera filer kan du registrera dem som en enskild modell i arbets ytan. Efter registreringen kan du ladda ned eller distribuera den registrerade modellen och ta emot alla filer som har registrerats.
+En registrerad modell är en logisk behållare för en eller flera filer som utgör din modell. Om du till exempel har en modell som lagras i flera filer kan du registrera dem som en enskild modell i arbets ytan. Efter registreringen kan du ladda ned eller distribuera den registrerade modellen och ta emot alla filer som har registrerats.
 
-Machine Learning-modeller registreras i din Azure Machine Learning-arbetsyta. Modellen kan komma från Azure Machine Learning eller kan komma från någon annan stans. Följande exempel visar hur du registrerar en modell från en fil:
+> [!TIP]
+> När du registrerar en modell, anger du antingen en sökväg till en moln plats (från en tränings körning) eller en lokal katalog. Den här sökvägen är bara till för att hitta filerna som ska laddas upp som en del av registrerings processen. den behöver inte matcha den sökväg som används i Entry-skriptet. Mer information finns i [Vad är get_model_path](#what-is-get_model_path).
+
+Machine Learning-modeller registreras i din Azure Machine Learning-arbetsyta. Modellen kan komma från Azure Machine Learning eller kan komma från någon annan stans. Följande exempel visar hur du registrerar en modell:
 
 ### <a name="register-a-model-from-an-experiment-run"></a>Registrera en modell från en experiment körning
 
-+ **Scikit – lär dig hur du använder SDK: n**
+Kodfragmenten i det här avsnittet visar hur man registrerar en modell från en utbildnings körning:
+
+> [!IMPORTANT]
+> De här kodfragmenten förutsätter att du tidigare har utfört en tränings körning och har åtkomst `run` till objektet (SDK-exempel) eller kör ID-värde (CLI-exempel). Mer information om tränings modeller finns i [skapa och använda beräknings mål för modell träning](how-to-set-up-training-targets.md).
+
++ **Använda SDK: n**
+
   ```python
   model = run.register_model(model_name='sklearn_mnist', model_path='outputs/sklearn_mnist_model.pkl')
   print(model.name, model.id, model.version, sep='\t')
   ```
 
-  > [!TIP]
-  > Om du vill inkludera flera filer i modell registreringen anger `model_path` du den katalog som innehåller filerna.
+  `model_path` Refererar till modellens moln plats. I det här exemplet används sökvägen till en enskild fil. Om du vill inkludera flera filer i modell registreringen anger `model_path` du den katalog som innehåller filerna.
 
 + **Använda CLI**
 
@@ -60,42 +91,47 @@ Machine Learning-modeller registreras i din Azure Machine Learning-arbetsyta. Mo
   az ml model register -n sklearn_mnist  --asset-path outputs/sklearn_mnist_model.pkl  --experiment-name myexperiment --run-id myrunid
   ```
 
-  > [!TIP]
-  > Om du vill inkludera flera filer i modell registreringen anger `--asset-path` du den katalog som innehåller filerna.
+  [!INCLUDE [install extension](../../../includes/machine-learning-service-install-extension.md)]
+
+  `--asset-path` Refererar till modellens moln plats. I det här exemplet används sökvägen till en enskild fil. Om du vill inkludera flera filer i modell registreringen anger `--asset-path` du den katalog som innehåller filerna.
 
 + **Använda VS Code**
 
   Registrera modeller med hjälp av modell filer eller mappar med [vs Code](how-to-vscode-tools.md#deploy-and-manage-models) -tillägget.
 
-### <a name="register-an-externally-created-model"></a>Registrera en externt skapad modell
+### <a name="register-a-model-from-a-local-file"></a>Registrera en modell från en lokal fil
+
+Du kan registrera en modell genom att ange en **lokal sökväg** till modellen. Du kan antingen ange en mapp eller en enskild fil. Du kan använda den här metoden för att registrera både modeller som har tränats med Azure Machine Learning tjänst och sedan laddats ned eller modeller som har tränats utanför Azure Machine Learning.
 
 [!INCLUDE [trusted models](../../../includes/machine-learning-service-trusted-model.md)]
 
-Du kan registrera en externt skapad modell genom att ange en **lokal sökväg** till modellen. Du kan antingen ange en mapp eller en enskild fil.
-
 + **ONNX-exempel med python SDK:**
-  ```python
-  onnx_model_url = "https://www.cntk.ai/OnnxModels/mnist/opset_7/mnist.tar.gz"
-  urllib.request.urlretrieve(onnx_model_url, filename="mnist.tar.gz")
-  !tar xvzf mnist.tar.gz
-  
-  model = Model.register(workspace = ws,
-                         model_path ="mnist/model.onnx",
-                         model_name = "onnx_mnist",
-                         tags = {"onnx": "demo"},
-                         description = "MNIST image classification CNN from ONNX Model Zoo",)
-  ```
 
-  > [!TIP]
-  > Om du vill inkludera flera filer i modell registreringen anger `model_path` du den katalog som innehåller filerna.
+    ```python
+    import os
+    import urllib.request
+    from azureml.core import Model
+    # Download model
+    onnx_model_url = "https://www.cntk.ai/OnnxModels/mnist/opset_7/mnist.tar.gz"
+    urllib.request.urlretrieve(onnx_model_url, filename="mnist.tar.gz")
+    os.system('tar xvzf mnist.tar.gz')
+    # Register model
+    model = Model.register(workspace = ws,
+                            model_path ="mnist/model.onnx",
+                            model_name = "onnx_mnist",
+                            tags = {"onnx": "demo"},
+                            description = "MNIST image classification CNN from ONNX Model Zoo",)
+    ```
+
+  Om du vill inkludera flera filer i modell registreringen anger `model_path` du den katalog som innehåller filerna.
 
 + **Använda CLI**
+
   ```azurecli-interactive
   az ml model register -n onnx_mnist -p mnist/model.onnx
   ```
 
-  > [!TIP]
-  > Om du vill inkludera flera filer i modell registreringen anger `-p` du den katalog som innehåller filerna.
+  Om du vill inkludera flera filer i modell registreringen anger `-p` du den katalog som innehåller filerna.
 
 **Tids uppskattning**: Cirka 10 sekunder.
 
@@ -157,7 +193,7 @@ Om du vill använda schema generering inkluderar `inference-schema` du paketet i
 
 ##### <a name="example-dependencies-file"></a>Exempel beroende fil
 
-Följande YAML är ett exempel på en fil för Conda-beroenden.
+Följande YAML är ett exempel på en fil för Conda-beroenden som kan vara en härledning:
 
 ```YAML
 name: project_environment
@@ -269,7 +305,97 @@ Fler exempel skript finns i följande exempel:
 * TensorFlow[https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow)
 * Keras[https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras)
 * ONNX[https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx/](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx/)
-* Poäng mot binära data: [Använda en webb tjänst](how-to-consume-web-service.md)
+
+<a id="binary"></a>
+
+#### <a name="binary-data"></a>Binära data
+
+Om din modell accepterar binära data, till exempel en avbildning måste du ändra den `score.py` filen användes för distributionen för att godkänna raw HTTP-förfrågningar. Om du vill acceptera rå data använder `AMLRequest` du klassen i ditt Entry-skript och `@rawhttp` lägger till decorator `run()` i funktionen.
+
+Här är ett exempel på en `score.py` som accepterar binära data:
+
+```python
+from azureml.contrib.services.aml_request import AMLRequest, rawhttp
+from azureml.contrib.services.aml_response import AMLResponse
+
+
+def init():
+    print("This is init()")
+
+
+@rawhttp
+def run(request):
+    print("This is run()")
+    print("Request: [{0}]".format(request))
+    if request.method == 'GET':
+        # For this example, just return the URL for GETs
+        respBody = str.encode(request.full_path)
+        return AMLResponse(respBody, 200)
+    elif request.method == 'POST':
+        reqBody = request.get_data(False)
+        # For a real world solution, you would load the data from reqBody
+        # and send to the model. Then return the response.
+
+        # For demonstration purposes, this example just returns the posted data as the response.
+        return AMLResponse(reqBody, 200)
+    else:
+        return AMLResponse("bad request", 500)
+```
+
+> [!IMPORTANT]
+> `AMLRequest` Klassen är`azureml.contrib` i namn området. Saker i denna namnrymd ändras ofta när vi arbetar för att förbättra tjänsten. Därför bör allt i det här namn området betraktas som en för hands version och stöds inte fullt ut av Microsoft.
+>
+> Om du behöver testa detta i din lokala utvecklings miljö kan du installera komponenterna med hjälp av följande kommando:
+>
+> ```shell
+> pip install azureml-contrib-services
+> ```
+
+<a id="cors"></a>
+
+#### <a name="cross-origin-resource-sharing-cors"></a>Resurs delning mellan ursprung (CORS)
+
+Resurs delning mellan ursprung är ett sätt att tillåta att resurser på en webb sida begärs från en annan domän. CORS fungerar baserat på HTTP-huvuden som skickats med klientbegäran och returnerades med tjänst svaret. Mer information om CORS och giltiga huvuden finns i [resurs delning mellan ursprung](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) på wikipedia.
+
+Om du vill konfigurera modell distributionen så att den stöder CORS `AMLResponse` använder du klassen i ditt Entry-skript. Med den här klassen kan du ange huvuden för objektet Response.
+
+I följande exempel anges `Access-Control-Allow-Origin` rubriken för svaret från Entry-skriptet:
+
+```python
+from azureml.contrib.services.aml_response import AMLResponse
+
+def init():
+    print("This is init()")
+
+def run(request):
+    print("This is run()")
+    print("Request: [{0}]".format(request))
+    if request.method == 'GET':
+        # For this example, just return the URL for GETs
+        respBody = str.encode(request.full_path)
+        return AMLResponse(respBody, 200)
+    elif request.method == 'POST':
+        reqBody = request.get_data(False)
+        # For a real world solution, you would load the data from reqBody
+        # and send to the model. Then return the response.
+
+        # For demonstration purposes, this example
+        # adds a header and returns the request body
+        resp = AMLResponse(reqBody, 200)
+        resp.headers['Access-Control-Allow-Origin'] = "http://www.example.com"
+        return resp
+    else:
+        return AMLResponse("bad request", 500)
+```
+
+> [!IMPORTANT]
+> `AMLResponse` Klassen är`azureml.contrib` i namn området. Saker i denna namnrymd ändras ofta när vi arbetar för att förbättra tjänsten. Därför bör allt i det här namn området betraktas som en för hands version och stöds inte fullt ut av Microsoft.
+>
+> Om du behöver testa detta i din lokala utvecklings miljö kan du installera komponenterna med hjälp av följande kommando:
+>
+> ```shell
+> pip install azureml-contrib-services
+> ```
 
 ### <a name="2-define-your-inferenceconfig"></a>2. Definiera din InferenceConfig
 
@@ -324,11 +450,11 @@ Följande tabell innehåller ett exempel på hur du skapar en distributions konf
 
 ## <a name="deploy-to-target"></a>Distribuera till mål
 
-Distributionen använder distributions konfigurationen för konfiguration av konfigurations konfiguration för att distribuera modell (er). Distributions processen är liknande oavsett beräknings målet. Distribution till AKS är något annorlunda, eftersom du måste ange en referens till AKS-klustret.
+Distributionen använder distributions konfigurationen för konfigurations konfiguration för att distribuera modellerna. Distributions processen är liknande oavsett beräknings målet. Distribution till AKS är något annorlunda, eftersom du måste ange en referens till AKS-klustret.
 
 ### <a id="local"></a>Lokal distribution
 
-Om du vill distribuera lokalt måste du ha **Docker installerat** på den lokala datorn.
+Om du vill distribuera lokalt måste du ha Docker installerat på den lokala datorn.
 
 #### <a name="using-the-sdk"></a>Med SDK
 
@@ -352,6 +478,10 @@ az ml model deploy -m mymodel:1 -ic inferenceconfig.json -dc deploymentconfig.js
 [!INCLUDE [aml-local-deploy-config](../../../includes/machine-learning-service-local-deploy-config.md)]
 
 Mer information finns i distributions referens för [AZ ml-modellen](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) .
+
+### <a id="notebookvm"></a>NotebookVM-webbtjänst (DEVTEST)
+
+Se [distribuera en modell till Notebook VM](how-to-deploy-local-container-notebook-vm.md): ar.
 
 ### <a id="aci"></a>Azure Container Instances (DEVTEST)
 
@@ -580,7 +710,10 @@ Du kan distribuera modeller kontinuerligt med Machine Learning-tillägget för [
 
     ![Aktivera-modell-utlösare](media/how-to-deploy-and-where/set-modeltrigger.png)
 
-För exempel projekt och exempel kan du ta [en titt på MLOps](https://github.com/Microsoft/MLOps) -lagringsplatsen
+Fler exempel projekt och exempel finns i följande exempel databaser:
+
+* [https://github.com/Microsoft/MLOps](https://github.com/Microsoft/MLOps)
+* [https://github.com/Microsoft/MLOpsPython](https://github.com/microsoft/MLOpsPython)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 Ta bort en distribuerad webbtjänst genom att använda `service.delete()`.

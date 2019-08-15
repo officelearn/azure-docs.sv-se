@@ -9,12 +9,12 @@ ms.date: 07/25/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 8219e795bb9ab4fc0d479b71e6a93fe6300037d0
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 2e29dfde651addb58b767d04bd34e8e5441d54c8
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514904"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68986747"
 ---
 # <a name="grant-access-to-azure-blob-and-queue-data-with-rbac-using-azure-cli"></a>Bevilja åtkomst till Azure blob-och Queue-data med RBAC med hjälp av Azure CLI
 
@@ -61,16 +61,16 @@ Om du vill tilldela en RBAC-roll till ett säkerhets objekt, använder du komman
 Om du vill tilldela en roll begränsad till en behållare anger du en sträng som innehåller omfånget för `--scope` parametern. Omfånget för en behållare är i formatet:
 
 ```
-/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/blobServices/default/containers/<container-name>
+/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/blobServices/default/containers/<container>
 ```
 
-I följande exempel tilldelas rollen **Storage BLOB data Contributor** till en användare som är begränsad till en behållare med namnet *Sample-container*. Se till att ersätta exempel värdena och plats hållarna inom hakparenteser med dina egna värden: 
+I följande exempel tilldelas rollen **Storage BLOB data Contributor** till en användare som är begränsad till behållarens nivå. Se till att ersätta exempel värdena och plats hållarna inom hakparenteser med dina egna värden:
 
 ```azurecli-interactive
 az role assignment create \
     --role "Storage Blob Data Contributor" \
     --assignee <email> \
-    --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/blobServices/default/containers/sample-container"
+    --scope "/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/blobServices/default/containers/<container>"
 ```
 
 ### <a name="queue-scope"></a>Köa omfång
@@ -78,16 +78,16 @@ az role assignment create \
 Om du vill tilldela en roll som är begränsad till en kö anger du en sträng som innehåller omfånget `--scope` för-parametern. Omfattningen för en kö är i formatet:
 
 ```
-/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/queueServices/default/queues/<queue-name>
+/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/queueServices/default/queues/<queue>
 ```
 
-I följande exempel tilldelas rollen **Storage Queue data Contributor** till en användare som är begränsad till en kö med namnet *exempel-Queue*. Se till att ersätta exempel värdena och plats hållarna inom hakparenteser med dina egna värden: 
+I följande exempel tilldelas rollen **Storage Queue data Contributor** till en användare som är begränsad till köns nivå. Se till att ersätta exempel värdena och plats hållarna inom hakparenteser med dina egna värden:
 
 ```azurecli-interactive
 az role assignment create \
     --role "Storage Queue Data Contributor" \
     --assignee <email> \
-    --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/queueServices/default/queues/sample-queue"
+    --scope "/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/queueServices/default/queues/<queue>"
 ```
 
 ### <a name="storage-account-scope"></a>Lagrings konto omfång
@@ -98,24 +98,24 @@ Om du vill tilldela en roll som är begränsad till lagrings kontot anger du omf
 /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>
 ```
 
-I följande exempel visas hur du tilldelar rollen **Storage BLOB data Reader** till en användare på lagrings kontots nivå. Se till att ersätta exempel värdena med dina egna värden: 
+I följande exempel visas hur du tilldelar rollen **Storage BLOB data Reader** till en användare på lagrings kontots nivå. Se till att ersätta exempel värdena med dina egna värden: \
 
 ```azurecli-interactive
 az role assignment create \
     --role "Storage Blob Data Reader" \
     --assignee <email> \
-    --scope "/subscriptions/<subscription-id>/resourceGroups/sample-resource-group/providers/Microsoft.Storage/storageAccounts/storagesamples"
+    --scope "/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>"
 ```
 
 ### <a name="resource-group-scope"></a>Definitions område för resurs grupp
 
-Om du vill tilldela en roll som är begränsad till resurs gruppen anger du resurs gruppens namn eller ID `--resource-group` för parametern. I följande exempel tilldelas rollen **data läsare för lagrings köer** till en användare på nivån i resurs gruppen. Ersätt värdena för exempel värden och plats hållare inom hak paren tes med dina egna värden: 
+Om du vill tilldela en roll som är begränsad till resurs gruppen anger du resurs gruppens namn eller ID `--resource-group` för parametern. I följande exempel tilldelas rollen **data läsare för lagrings köer** till en användare på nivån i resurs gruppen. Ersätt värdena för exempel värden och plats hållare inom hak paren tes med dina egna värden:
 
 ```azurecli-interactive
 az role assignment create \
     --role "Storage Queue Data Reader" \
     --assignee <email> \
-    --resource-group sample-resource-group
+    --resource-group <resource-group>
 ```
 
 ### <a name="subscription-scope"></a>Prenumerations omfång
@@ -132,7 +132,7 @@ I följande exempel visas hur du tilldelar rollen **Storage BLOB data Reader** t
 az role assignment create \
     --role "Storage Blob Data Reader" \
     --assignee <email> \
-    --scope "/subscriptions/<subscription-id>"
+    --scope "/subscriptions/<subscription>"
 ```
 
 ## <a name="next-steps"></a>Nästa steg

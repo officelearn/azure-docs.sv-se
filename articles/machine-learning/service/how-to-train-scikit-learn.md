@@ -10,12 +10,12 @@ ms.author: maxluk
 author: maxluk
 ms.date: 08/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: e76a747f7e1d7ca7056edf5b69df0677aeff96a1
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 5c44f4ed5cd6488520bf6dd99f502f33049b9b17
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855999"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68963004"
 ---
 # <a name="build-scikit-learn-models-at-scale-with-azure-machine-learning-service"></a>Bygg scikit – lär dig modeller i stor skala med Azure Machine Learning-tjänsten
 
@@ -192,12 +192,12 @@ model = run.register_model(model_name='sklearn-iris', model_path='model.joblib')
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du tränat och registrerat en maskin inlärning, klassificerings modell med scikit-information om Azure Machine Learning-tjänsten.
 
-* Om du vill lära dig hur du distribuerar en modell fortsätter du till vår [modell distributions](how-to-deploy-and-where.md) artikel.
+I den här artikeln har du tränat och registrerat en keras-modell på Azure Machine Learning-tjänsten. Om du vill lära dig hur du distribuerar en modell fortsätter du till vår modell distributions artikel.
 
-* [Justera disponeringsparametrarna](how-to-tune-hyperparameters.md).
-
-* [Spåra körnings mått under träning](how-to-track-experiments.md).
-
-* Lär dig mer om [djup inlärning vs Machine Learning](concept-deep-learning-vs-machine-learning.md).
+> [!div class="nextstepaction"]
+> [Hur och var modeller ska distribueras](how-to-deploy-and-where.md)
+* [Spåra kör mått vid träning](how-to-track-experiments.md)
+* [Justering av hyperparametrar](how-to-tune-hyperparameters.md)
+* [Distribuera en tränad modell](how-to-deploy-and-where.md)
+* [Referens arkitektur för distribuerad djup inlärnings utbildning i Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)

@@ -1,6 +1,6 @@
 ---
-title: Visa kubelet-loggar i Azure Kubernetes Service (AKS)
-description: Lär dig hur du visar information om felsökning i kubelet-loggar från Azure Kubernetes Service (AKS) noder
+title: Visa kubelet-loggar i Azure Kubernetes service (AKS)
+description: Lär dig att Visa felsöknings information i kubelet-loggarna från Azure Kubernetes service (AKS)-noder
 services: container-service
 author: mlearned
 ms.service: container-service
@@ -8,35 +8,35 @@ ms.topic: article
 ms.date: 03/05/2019
 ms.author: mlearned
 ms.openlocfilehash: 65b16b3ddc209ef5d2f6287a04cfe402c3b205c6
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "67615188"
 ---
-# <a name="get-kubelet-logs-from-azure-kubernetes-service-aks-cluster-nodes"></a>Hämta kubelet-loggar från noder i Azure Kubernetes Service (AKS)
+# <a name="get-kubelet-logs-from-azure-kubernetes-service-aks-cluster-nodes"></a>Hämta kubelet-loggar från AKS-klusternoder (Azure Kubernetes service)
 
-Som en del för att hantera ett AKS-kluster kan behöva du granska loggarna om du vill felsöka ett problem. Inbyggd i Azure-portalen är möjligheten att visa loggar för den [AKS master-komponenter][aks-master-logs] or [containers in an AKS cluster][azure-container-logs]. Ibland kan du behöva hämta *kubelet* loggar från ett AKS-noden i felsökningssyfte.
+Som en del av ett AKS-kluster kan du behöva granska loggar för att felsöka ett problem. Inbyggda i Azure Portal kan visa loggar för [AKS huvud komponenter][aks-master-logs] eller [behållare i ett AKS-kluster][azure-container-logs]. Ibland kan du behöva hämta *kubelet* -loggar från en AKS-nod i fel söknings syfte.
 
-Den här artikeln visar hur du kan använda `journalctl` att visa den *kubelet* loggar in på ett AKS-nod.
+Den här artikeln visar hur du kan använda `journalctl` för att visa *kubelet* -loggarna på en AKS-nod.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Den här artikeln förutsätter att du har ett befintligt AKS-kluster. Om du behöver ett AKS-kluster finns i snabbstarten om AKS [med Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
+Den här artikeln förutsätter att du har ett befintligt AKS-kluster. Om du behöver ett AKS-kluster kan du läsa snabb starten för AKS [med hjälp av Azure CLI][aks-quickstart-cli] eller [Azure Portal][aks-quickstart-portal].
 
 ## <a name="create-an-ssh-connection"></a>Skapa en SSH-anslutning
 
-Börja med att skapa en SSH-anslutning till den nod som du behöver visa *kubelet* loggar. Den här åtgärden beskrivs i den [SSH till noder i Azure Kubernetes Service (AKS)][aks-ssh] dokumentet.
+Skapa först en SSH-anslutning med den nod som du behöver för att visa *kubelet* -loggar. Den här åtgärden beskrivs i dokumentet [SSH to Azure Kubernetes service (AKS) Cluster Nodes][aks-ssh] .
 
 ## <a name="get-kubelet-logs"></a>Hämta kubelet-loggar
 
-När du har anslutit till noden, kör du följande kommando för att hämta den *kubelet* loggar:
+När du har anslutit till noden kör du följande kommando för att hämta *kubelet* -loggarna:
 
 ```console
 sudo journalctl -u kubelet -o cat
 ```
 
-I följande exempel utdata visar den *kubelet* logga data:
+Följande exempel på utdata visar *kubelet* -loggdata:
 
 ```
 I0508 12:26:17.905042    8672 kubelet_node_status.go:497] Using Node Hostname from cloudprovider: "aks-agentpool-11482510-0"
@@ -64,7 +64,7 @@ I0508 12:28:58.344656    8672 kubelet_node_status.go:497] Using Node Hostname fr
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du behöver ytterligare information från Kubernetes originalet kan se [visa Kubernetes-huvudnod loggar i AKS][aks-master-logs].
+Om du behöver ytterligare felsöknings information från Kubernetes-huvudservern, se [Visa Kubernetes Master Node-loggar i AKS][aks-master-logs].
 
 <!-- LINKS - internal -->
 [aks-ssh]: ssh.md

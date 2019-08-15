@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/05/2019
 ms.author: dacurwin
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: 5fde581f322504c7e329da7fa153671b8a91183d
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: bae05e890ef76ada9f775293c673cb8baa82c8bf
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688367"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954598"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Övervaka Azure Backup arbets belastningar
 
@@ -87,6 +87,9 @@ När en avisering har Aktiver ATS meddelas användarna. Azure Backup tillhandah�
 
 ![Inbyggt e-postmeddelande för RS Vault](media/backup-azure-monitoring-laworkspace/rs-vault-inbuiltnotification.png)
 
+> [!NOTE]
+> Aviseringarna för SQL-säkerhetskopieringar konsol IDE ras och e-postmeddelandet skickas bara för den första förekomsten. Men om aviseringen inaktive ras av användaren utlöses nästa förekomst av ett annat e-postmeddelande.
+
 När ett meddelande har kon figurer ATS kommer du att få ett välkomst eller inledande e-postmeddelande. Detta bekräftar att Azure Backup kan skicka e-post till dessa adresser när en avisering utlöses.<br>
 
 Om frekvensen har angetts till en Tim sammandrag och en avisering har genererats och lösts inom en timme, kommer den inte att ingå i den kommande Tim sammandrag.
@@ -95,6 +98,14 @@ Om frekvensen har angetts till en Tim sammandrag och en avisering har genererats
 >
 > * Om en destruktiv åtgärd, till exempel **stoppa skydd med ta bort data** , görs, aktive ras en avisering och ett e-postmeddelande skickas till prenumerations ägare, administratörer och medadministratörer även om aviseringar inte har kon figurer ATS för tjänsten för återställning av tjänst.
 > * Om du vill konfigurera meddelanden för lyckade jobb använder [Log Analytics](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-workspace).
+
+## <a name="inactivating-alerts"></a>Inaktivera aviseringar
+
+Om du vill inaktivera/lösa en aktiv avisering kan du klicka på listobjektet som motsvarar den avisering som du vill inaktivera. Då öppnas en skärm som visar detaljerad information om aviseringen, med knappen inaktive rad överst. Om du klickar på den här knappen ändras aviseringens status till inaktiv. Du kan också inaktivera en avisering genom att bara högerklicka på listobjektet som motsvarar aviseringen och välja "inaktive rad".
+
+![Inaktive ring av RS Vault-avisering](media/backup-azure-monitoring-laworkspace/vault-alert-inactivation.png)
+
+
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,6 +1,6 @@
 ---
 title: Kopiera data från PostgreSQL med Azure Data Factory | Microsoft Docs
-description: Lär dig hur du kopierar data från PostgreSQL till mottagarens datalager genom att använda en Kopieringsaktivitet i en Azure Data Factory-pipeline.
+description: Lär dig hur du kopierar data från PostgreSQL till mottagar data lager som stöds med hjälp av en kopierings aktivitet i en Azure Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -10,49 +10,49 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 0cad0895b63e8c201183284e9d754a482669c48d
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: 0efb884de9deaa2784e160785c26d78179da6567
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67312008"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966879"
 ---
 # <a name="copy-data-from-postgresql-by-using-azure-data-factory"></a>Kopiera data från PostgreSQL med hjälp av Azure Data Factory
-> [!div class="op_single_selector" title1="Välj versionen av Data Factory-tjänsten som du använder:"]
+> [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
 > * [Version 1](v1/data-factory-onprem-postgresql-connector.md)
 > * [Aktuell version](connector-postgresql.md)
 
-Den här artikeln beskrivs hur du använder Kopieringsaktivitet i Azure Data Factory för att kopiera data från en PostgreSQL-databas. Den bygger på den [översikt över Kopieringsaktivitet](copy-activity-overview.md) artikel som ger en allmän översikt över Kopieringsaktivitet.
+Den här artikeln beskriver hur du använder kopierings aktiviteten i Azure Data Factory för att kopiera data från en PostgreSQL-databas. Den bygger på den [översikt över Kopieringsaktivitet](copy-activity-overview.md) artikel som ger en allmän översikt över Kopieringsaktivitet.
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
-Du kan kopiera data från PostgreSQL-databas till alla datalager för mottagare som stöds. En lista över datalager som stöds som källor/mottagare av Kopieringsaktivitet finns i den [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) tabell.
+Du kan kopiera data från PostgreSQL-databasen till alla mottagar data lager som stöds. En lista över datalager som stöds som källor/mottagare av Kopieringsaktivitet finns i den [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) tabell.
 
-Mer specifikt stöder den här kopplingen PostgreSQL PostgreSQL **version 7.4 och senare**.
+Mer specifikt stöder denna PostgreSQL-anslutning PostgreSQL **version 7,4 och senare**.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-Om din PostgreSQL-databasen inte är offentligt tillgänglig, måste du ställer in en lokal Integration Runtime. Mer information om IR-körningar, se [lokal Integration Runtime](create-self-hosted-integration-runtime.md) artikeln. Integreringskörningen innehåller en inbyggd PostgreSQL-drivrutin från och med version 3.7, måste du därför inte att manuellt installera en drivrutin.
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
-För lokal IR-versionen är lägre än 3.7, måste du installera den [Ngpsql dataprovider för PostgreSQL](https://go.microsoft.com/fwlink/?linkid=282716) med version mellan 2.0.12 och 3.1.9 på Integration Runtime-datorn.
+För den lokala IR-versionen som är lägre än 3,7 måste du installera Ngpsql-dataprovidern [för postgresql](https://go.microsoft.com/fwlink/?linkid=282716) med version mellan 2.0.12 och 3.1.9 på den integration runtime datorn.
 
 ## <a name="getting-started"></a>Komma igång
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory-entiteter som är specifika för PostgreSQL-anslutningen.
+I följande avsnitt finns information om egenskaper som används för att definiera Data Factory entiteter som är speciella för PostgreSQL-anslutaren.
 
 ## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
 
-Följande egenskaper har stöd för PostgreSQL länkade tjänsten:
+Följande egenskaper stöds för den länkade tjänsten PostgreSQL:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Type-egenskapen måste anges till: **PostgreSql** | Ja |
-| connectionString | En ODBC-anslutningssträng att ansluta till Azure Database för PostgreSQL. <br/>Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory. Du kan också publicera lösenord i Azure Key Vault och använda pull i `password` konfiguration av anslutningssträngen. Följande exempel finns och [Store autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) artikel med mer information. | Ja |
-| connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda lokal Integration Runtime eller Azure Integration Runtime (om ditt datalager är offentligt tillgänglig). Om den inte anges används standard Azure Integration Runtime. |Nej |
+| type | Egenskapen Type måste anges till: **PostgreSql** | Ja |
+| connectionString | En ODBC-anslutningssträng att ansluta till Azure Database för PostgreSQL. <br/>Markera det här fältet som en SecureString för att lagra det på ett säkert sätt i Data Factory. Du kan också ställa in lösen ord i Azure Key Vault och `password` Hämta konfigurationen från anslutnings strängen. Se följande exempel och [lagra autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) artikel med mer information. | Ja |
+| connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Läs mer från avsnittet [krav](#prerequisites) . Om den inte anges används standard Azure Integration Runtime. |Nej |
 
 En typisk anslutningssträng är `Server=<server>;Database=<database>;Port=<port>;UID=<username>;Password=<Password>`. Fler egenskaper som du kan ställa in per ditt ärende:
 
@@ -82,7 +82,7 @@ En typisk anslutningssträng är `Server=<server>;Database=<database>;Port=<port
 }
 ```
 
-**Exempel: lagra lösenord i Azure Key Vault**
+**Exempel: lagra lösen ord i Azure Key Vault**
 
 ```json
 {
@@ -111,9 +111,9 @@ En typisk anslutningssträng är `Server=<server>;Database=<database>;Port=<port
 }
 ```
 
-Om du använde PostgreSQL länkade tjänsten med följande nyttolasten, stöds det fortfarande som – är att medan du rekommenderas för att använda den nya framöver.
+Om du använder PostgreSQL-länkad tjänst med följande nytto Last, stöds den fortfarande som den är, medan du föreslås att använda den nya som skickas.
 
-**Föregående nyttolast:**
+**Föregående nytto last:**
 
 ```json
 {
@@ -139,14 +139,14 @@ Om du använde PostgreSQL länkade tjänsten med följande nyttolasten, stöds d
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i artikeln datauppsättningar. Det här avsnittet innehåller en lista över egenskaper som stöds av PostgreSQL-datauppsättningen.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i artikeln datauppsättningar. Det här avsnittet innehåller en lista över egenskaper som stöds av PostgreSQL DataSet.
 
-Om du vill kopiera data från PostgreSQL, ange typegenskapen på datauppsättningen till **RelationalTable**. Följande egenskaper stöds:
+Om du vill kopiera data från PostgreSQL anger du egenskapen type för data uppsättningen till **RelationalTable**. Följande egenskaper stöds:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Type-egenskapen för datauppsättningen måste anges till: **RelationalTable** | Ja |
-| tableName | Namnet på tabellen i databasen för PostgreSQL. | Nej (om ”frågan” i aktivitetskälla har angetts) |
+| type | Data uppsättningens typ-egenskap måste anges till: **RelationalTable** | Ja |
+| tableName | Namnet på tabellen i PostgreSQL-databasen. | Nej (om ”query” i aktivitetskälla har angetts) |
 
 **Exempel**
 
@@ -167,19 +167,19 @@ Om du vill kopiera data från PostgreSQL, ange typegenskapen på datauppsättnin
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i den [Pipelines](concepts-pipelines-activities.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av PostgreSQL-källa.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i den [Pipelines](concepts-pipelines-activities.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av PostgreSQL-källan.
 
 ### <a name="postgresql-as-source"></a>PostgreSQL som källa
 
-Om du vill kopiera data från PostgreSQL, ange typ av datakälla i kopieringsaktiviteten till **RelationalSource**. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnittet:
+Om du vill kopiera data från PostgreSQL anger du käll typen i kopierings aktiviteten till **RelationalSource**. Följande egenskaper stöds i kopieringsaktiviteten **source** avsnittet:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **RelationalSource** | Ja |
+| type | Typ egenskapen för kopierings aktivitets källan måste anges till: **RelationalSource** | Ja |
 | query | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"query": "SELECT * FROM \"MySchema\".\"MyTable\""`. | Nej (om ”tableName” i datauppsättningen har angetts) |
 
 > [!NOTE]
-> Schema och tabellnamn är skiftlägeskänsliga. Sätter dem inom `""` (dubbla citattecken) i frågan.
+> Schema-och tabell namn är Skift läges känsliga. Omge dem med `""` (dubbla citat tecken) i frågan.
 
 **Exempel:**
 

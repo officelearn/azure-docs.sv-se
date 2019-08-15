@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/18/2019
-ms.author: juliako;anilmur
-ms.openlocfilehash: b2ff6caa4c1b3626e4be1684976441be6ecbfe30
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: anilmur
+ms.reviewer: juliako
+ms.openlocfilehash: 37969986b1d015ed08113da42a309eef42df569c
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61231476"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "69015512"
 ---
 # <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-net"></a>Så här utför du direktsänd strömning med Azure Media Services för att skapa dataströmmar i multibithastighet med .NET
 > [!div class="op_single_selector"]
@@ -41,7 +42,7 @@ Mer konceptinformation relaterad till kanaler som är aktiverade för Live Encod
 Följande steg beskriver uppgifter som ingår i att skapa vanliga program för direktsänd strömning.
 
 > [!NOTE]
-> Den rekommenderade maximala längden för en direktsänd händelse är för närvarande 8 timmar. Kontakta amslived@microsoft.com om du behöver köra en kanal under en längre tidsperiod.
+> Den rekommenderade maximala längden för en direktsänd händelse är för närvarande 8 timmar. Kontakta amshelp@microsoft.com om du behöver köra en kanal under en längre tidsperiod.
 
 1. Anslut en videokamera till en dator. Starta och konfigurera en lokal livekodare som kan mata ut en dataström med enkel bithastighet i något av följande protokoll: RTMP eller Smooth Streaming. Mer information finns i [Support och livekodare för Azure Media Services RTMP](https://go.microsoft.com/fwlink/?LinkId=532824).
 
@@ -86,7 +87,7 @@ Artikeln visar hur du gör följande:
 7. Visa eller dölj pekdatorer. Starta och stoppa annonser. Långvariga API:er används.
 8. Rensa din kanal och alla associerade resurser.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 Följande krävs för att kunna genomföra självstudien.
 
 * Ett Azure-konto. Om du inte har något konto kan skapa du ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F). Du får kredit som kan användas för att prova Azure-tjänster som normalt inte är kostnadsfria. Du kan behålla kontot även efter att krediten är slut och använda gratis Azure-tjänster och -funktioner som  Web Apps-funktionen i Azure App Service.
@@ -96,7 +97,7 @@ Följande krävs för att kunna genomföra självstudien.
 * En webbkamera och en kodare som kan skicka en direktsänd dataström i enkel bithastighet.
 
 ## <a name="considerations"></a>Överväganden
-* Den rekommenderade maximala längden för en direktsänd händelse är för närvarande 8 timmar. Kontakta amslived@Microsoft.com om du behöver köra en kanal under en längre tidsperiod.
+* Den rekommenderade maximala längden för en direktsänd händelse är för närvarande 8 timmar. Kontakta amshelp@microsoft.com om du behöver köra en kanal under en längre tidsperiod.
 * Det finns en gräns på 1 000 000 principer för olika AMS-principer (till exempel för positionerarprincipen eller ContentKeyAuthorizationPolicy). Du bör använda samma princip-ID om du alltid använder samma dagar/åtkomstbehörigheter, till exempel principer för positionerare som är avsedda att vara på plats under en längre tid (icke-överföringsprinciper). Mer information finns i [den här artikeln](media-services-dotnet-manage-entities.md#limit-access-policies).
 
 ## <a name="download-sample"></a>Ladda ned exempel

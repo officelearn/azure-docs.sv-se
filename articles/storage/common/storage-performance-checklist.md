@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/07/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ee216bd4d6994179e347465c30039f2f8e293c85
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 48a5484e2b2b663d0046fc628c02e656c5bd7a25
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68233000"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68985155"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Check lista för Microsoft Azure Storage prestanda och skalbarhet
 
@@ -30,7 +30,7 @@ Den här artikeln ordnar beprövade metoder i följande grupper. Beprövade meto
 * Tabeller
 * Köer  
 
-| Klart | Område | Category | Fråga |
+| Klar | Område | Category | Fråga |
 | --- | --- | --- | --- |
 | &nbsp; | Alla tjänster |Skalbarhets mål |[Är ditt program utformat för att undvika att nå skalbarhets målen?](#subheading1) |
 | &nbsp; | Alla tjänster |Skalbarhets mål |[Är namngivnings konventionen utformad för att möjliggöra bättre belastnings utjämning?](#subheading47) |
@@ -46,8 +46,8 @@ Den här artikeln ordnar beprövade metoder i följande grupper. Beprövade meto
 | &nbsp; | Alla tjänster |.NET-konfiguration |[Använder du .NET 4,5 eller senare, som har förbättrad skräp insamling?](#subheading11) |
 | &nbsp; | Alla tjänster |Parallellitet |[Har du säkerställt att parallellitet är lämpligt så att du inte överbelastar dina klient funktioner eller skalbarhets målen?](#subheading12) |
 | &nbsp; | Alla tjänster |Verktyg |[Använder du den senaste versionen av klient bibliotek och verktyg från Microsoft?](#subheading13) |
-| &nbsp; | Alla tjänster |Antal försök |[Använder du en princip för en exponentiell backoff-återförsök för begränsning av fel och tids gränser?](#subheading14) |
-| &nbsp; | Alla tjänster |Antal försök |[Kan programmet undvika nya försök för fel som inte kan återförsökas?](#subheading15) |
+| &nbsp; | Alla tjänster |Återförsök |[Använder du en princip för en exponentiell backoff-återförsök för begränsning av fel och tids gränser?](#subheading14) |
+| &nbsp; | Alla tjänster |Återförsök |[Kan programmet undvika nya försök för fel som inte kan återförsökas?](#subheading15) |
 | &nbsp; | Blobar |Skalbarhets mål |[Har du ett stort antal klienter som har åtkomst till ett enda objekt samtidigt?](#subheading46) |
 | &nbsp; | Blobar |Skalbarhets mål |[Ligger ditt program i bandbredds-eller drifts skalbarhets målet för en enskild BLOB?](#subheading16) |
 | &nbsp; | Blobar |Kopiera blobbar |[Kopierar du blobbar på ett effektivt sätt?](#subheading17) |
@@ -123,7 +123,7 @@ Följande länkar ger ytterligare information om skalbarhets mål:
 
 ### <a name="subheading47"></a>Namngivnings konvention för partitioner
 
-Azure Storage använder ett intervall baserat partitionerings schema för att skala och belastningsutjämna systemet. Partitionsnyckel (konto + container + BLOB) används för att partitionera data i intervall och dessa intervall är belastningsutjämnade i systemet. Detta innebär att namn konventioner som till exempel en lexikal ordning ** (till exempel dislöneering, *prestanda*, *anställda*osv.) eller användning av tidsstämplar (*log20160101*, *log20160102*, *log20160102*osv.) lånas ut till partitionerna som potentiellt samplacerade på samma partitions Server, tills en belastnings Utjämnings åtgärd delar upp dem i mindre intervall. Till exempel kan alla blobbar i en behållare hanteras av en enda server tills belastningen på dessa blobbar kräver ytterligare åter balansering av partitionens intervall. På samma sätt kan en grupp med lätt inlästa konton med namn ordnade i lexikal ordning hanteras av en enda server tills belastningen på ett eller alla dessa konton kräver att de delas upp på flera partitioner. Varje belastnings Utjämnings åtgärd kan påverka svars tiden för lagrings anrop under åtgärden. Systemets möjlighet att hantera en plötslig trafik av trafik till en partition begränsas av skalbarheten för en enda partitions Server tills belastnings Utjämnings åtgärden är igång och balanserar om partitionens nyckel intervall.
+Azure Storage använder ett intervall baserat partitionerings schema för att skala och belastningsutjämna systemet. Partitionsnyckel (konto + container + BLOB) används för att partitionera data i intervall och dessa intervall är belastningsutjämnade i systemet. Detta innebär att namn konventioner som till exempel en lexikal ordning(till exempel dislöneering, *prestanda*, *anställda*osv.) eller användning av tidsstämplar (*log20160101*, *log20160102*, *log20160102*osv.) lånas ut till partitionerna som potentiellt samplacerade på samma partitions Server, tills en belastnings Utjämnings åtgärd delar upp dem i mindre intervall. Till exempel kan alla blobbar i en behållare hanteras av en enda server tills belastningen på dessa blobbar kräver ytterligare åter balansering av partitionens intervall. På samma sätt kan en grupp med lätt inlästa konton med namn ordnade i lexikal ordning hanteras av en enda server tills belastningen på ett eller alla dessa konton kräver att de delas upp på flera partitioner. Varje belastnings Utjämnings åtgärd kan påverka svars tiden för lagrings anrop under åtgärden. Systemets möjlighet att hantera en plötslig trafik av trafik till en partition begränsas av skalbarheten för en enda partitions Server tills belastnings Utjämnings åtgärden är igång och balanserar om partitionens nyckel intervall.
 
 Du kan följa vissa metod tips för att minska frekvensen för sådana åtgärder.  
 
@@ -172,7 +172,7 @@ Båda dessa tekniker kan hjälpa dig att undvika onödig belastning (och Flask h
 
 #### <a name="useful-resources"></a>Användbara resurser
 
-Mer information om SAS finns i [signaturer för delad åtkomst, del 1: Förstå SAS-modellen](../storage-dotnet-shared-access-signature-part-1.md).  
+Mer information om SAS finns i [bevilja begränsad åtkomst till Azure Storage resurser med hjälp av signaturer för delad åtkomst (SAS)](storage-sas-overview.md).  
 
 Mer information om CORS finns i [stöd för resurs delning mellan ursprung (CORS) för Azure Storage-tjänsterna](https://msdn.microsoft.com/library/azure/dn535601.aspx).  
 
@@ -234,7 +234,7 @@ Parallellitet kan vara bra för prestanda, var försiktig med att använda obegr
 
 Använd alltid de senaste klient biblioteken och verktygen från Microsoft. Vid tidpunkten för skrivning finns det tillgängliga klient bibliotek för .NET, Windows Phone, Windows Runtime, Java och C++för hands versioner av andra språk. Dessutom har Microsoft publicerat PowerShell-cmdlets och Azure CLI-kommandon för att arbeta med Azure Storage. Microsoft utvecklar aktivt dessa verktyg med prestanda i åtanke, håller dem uppdaterade med de senaste service versionerna och ser till att de hanterar många av de beprövade prestanda metoderna internt.  
 
-### <a name="retries"></a>Antal försök
+### <a name="retries"></a>Återförsök
 
 #### <a name="subheading14"></a>Fel vid begränsning och Server upptagen
 

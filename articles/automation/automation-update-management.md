@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1bb437511ed89de626489516ce5b06664ace6fba
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: 51ef55247d3262d8707403ed09cc8643403dda23
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68741842"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68952970"
 ---
 # <a name="update-management-solution-in-azure"></a>Uppdateringshantering lösning i Azure
 
@@ -84,6 +84,7 @@ I följande tabell visas en lista över operativ system som stöds:
 
 > [!NOTE]
 > Skalnings uppsättningar för virtuella Azure-datorer kan hanteras med Uppdateringshantering. Uppdateringshantering fungerar på själva instanserna och inte på bas avbildningen. Du måste schemalägga uppdateringarna på ett stegvist sätt, eftersom du inte vill uppdatera alla VM-instanser samtidigt.
+> VMSS-noder kan läggas till genom att följa stegen under [onbaord en icke-Azure-dator](automation-tutorial-installed-software.md#onboard-a-non-azure-machine).
 
 ### <a name="unsupported-client-types"></a>Klientappar typer
 
@@ -93,6 +94,7 @@ I följande tabell visas operativsystem som inte stöds:
 |---------|---------|
 |Windows-klient     | Klientoperativsystem (till exempel Windows 7 och Windows 10) stöds inte.        |
 |Windows Server 2016 Nano Server     | Stöds ej.       |
+|Azure Kubernetes service-noder | Stöds ej. Använd korrigerings processen som beskrivs i [tillämpa säkerhets-och kernel-uppdateringar på Linux-noder i Azure Kubernetes service (AKS)](../aks/node-updates-kured.md)|
 
 ### <a name="client-requirements"></a>Klient krav
 
@@ -359,6 +361,10 @@ Följande adresser krävs specifikt för Uppdateringshantering. Kommunikationen 
 |*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
 |*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
 |*.azure-automation.net|*.azure-automation.us|
+
+För Windows-datorer måste du också tillåta trafik till alla slut punkter som krävs av Windows Update.  Du hittar en uppdaterad lista med nödvändiga endoints i [problem som rör http/proxy](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy). Om du har en lokal [Windows Update-Server](/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment)måste du också tillåta trafik till servern som anges i [WSUS-nyckeln](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry).
+
+För Red Hat Linux-datorer kan du se [IP-adresserna för RHUI Content Delivery servers](../virtual-machines/linux/update-infrastructure-redhat.md#the-ips-for-the-rhui-content-delivery-servers) för obligatoriska slut punkter. Andra Linux-distributioner finns i leverantörens dokumentation.
 
 Mer information om portar som Hybrid Runbook Worker kräver finns i [hybrid Worker roll portar](automation-hybrid-runbook-worker.md#hybrid-worker-role).
 

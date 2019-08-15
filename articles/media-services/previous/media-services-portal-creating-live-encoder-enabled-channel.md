@@ -1,5 +1,5 @@
 ---
-title: Utför du direktsänd strömning med Azure Media Services för att skapa dataströmmar med flera bithastigheter med Azure-portalen | Microsoft Docs
+title: Utför direkt uppspelning med Azure Media Services för att skapa strömmar med flera bit hastigheter med Azure Portal | Microsoft Docs
 description: De här självstudierna visar dig stegen för att skapa en kanal som tar emot en direktsänd dataström med enkel bithastighet och kodar den till en dataström med flera bithastigheter med hjälp av Azure-portalen.
 services: media-services
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: daab3c3b2a5b756686a4867350478faaa1142279
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3217a2d5ba3d45a069eacdb67a8d69e9abc674b8
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64726854"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "69015212"
 ---
-# <a name="perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-azure-portal"></a>Utför du direktsänd strömning med Media Services för att skapa dataströmmar med flera bithastigheter med Azure portal  
+# <a name="perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-azure-portal"></a>Utföra Direktsänd strömning med Media Services för att skapa strömmar med flera bit hastigheter med Azure Portal  
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 > * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
@@ -29,7 +29,7 @@ ms.locfileid: "64726854"
 > 
 
 > [!NOTE]
-> Inga nya funktioner läggs till i Media Services v2. <br/>Upptäck den senaste versionen, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [migreringsvägledningen från v2 till v3](../latest/migrate-from-v2-to-v3.md)
+> Inga nya funktioner läggs till i Media Services v2. <br/>Upptäck den senaste versionen, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
 
 Den här självstudien visar dig stegen för att skapa en **kanal** som tar emot en  direktsänd dataström med enkel bithastighet och kodar den till en dataström med multibithastighet.
 
@@ -39,12 +39,12 @@ Mer konceptinformation relaterad till kanaler som är aktiverade för Live Encod
 Följande steg är allmänna steg som ingår i att skapa vanliga program för direktsänd strömning.
 
 > [!NOTE]
-> Den rekommenderade maximala längden för en direktsänd händelse är för närvarande 8 timmar. Kontakta amslived@microsoft.com om du behöver köra en kanal under en längre tidsperiod.
+> Den rekommenderade maximala längden för en direktsänd händelse är för närvarande 8 timmar. Kontakta amshelp@microsoft.com om du behöver köra en kanal under en längre tidsperiod.
 
-1. Anslut en videokamera till en dator. <br/>Tips för installationen kan ta en titt [enkel och portabel video gear Händelseinställningar]( https://link.medium.com/KNTtiN6IeT).
+1. Anslut en videokamera till en dator. <br/>För installations tips kan du läsa mer i installations [programmet för enkel och bärbar händelse]( https://link.medium.com/KNTtiN6IeT).
 
-    Om du inte har åtkomst till en kamera verktyg som [Telestream Wirecast](https://www.telestream.net/wirecast/overview.htm) kan användas för Generera en direktsändningen från en videofil.
-1. Starta och konfigurera en lokal livekodare som kan mata ut en dataström med enkel bithastighet i något av följande protokoll: RTMP eller Smooth Streaming. Mer information finns i [Support och livekodare för Azure Media Services RTMP](https://go.microsoft.com/fwlink/?LinkId=532824). <br/>Kolla dessutom in den här bloggen: [Live direktuppspelning produktion med OBS](https://link.medium.com/ttuwHpaJeT).
+    Om du inte har åtkomst till en kamera kan du använda verktyg som t. ex. [Wirecast](https://www.telestream.net/wirecast/overview.htm) för multistream för att generera en live-feed från en videofil.
+1. Starta och konfigurera en lokal livekodare som kan mata ut en dataström med enkel bithastighet i något av följande protokoll: RTMP eller Smooth Streaming. Mer information finns i [Support och livekodare för Azure Media Services RTMP](https://go.microsoft.com/fwlink/?LinkId=532824). <br/>Ta också en titt på den här bloggen: [Produktion av Direktsänd strömning med onlinebanksystem](https://link.medium.com/ttuwHpaJeT).
 
     Det här steget kan också utföras när du har skapat din kanal.
 1. Skapa och starta en kanal. 
@@ -61,7 +61,7 @@ Följande steg är allmänna steg som ingår i att skapa vanliga program för di
 1. Stoppa händelsen när du vill stoppa strömningen och arkiveringen av händelsen.
 1. Ta bort händelsen (och ta eventuellt bort tillgången).   
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Följande krävs för att kunna genomföra självstudien.
 
@@ -114,7 +114,7 @@ Mer information finns i [Direktsänd strömning med Azure Media Services för at
 ## <a name="get-ingest-urls"></a>Hämta infognings-URL:er
 När kanalen har skapats kan du få infognings-URL:er som du tillhandahåller till livekodaren. Kodaren använder dessa URL:er för att mata in en direktsänd dataström.
 
-![mata in URL: er](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-ingest-urls.png)
+![URL för inmatning](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-ingest-urls.png)
 
 ## <a name="create-and-manage-events"></a>Skapa och hantera händelser
 
@@ -186,7 +186,7 @@ För att hantera dina tillgångar väljer du **Inställning** och klickar på **
 ![Tillgångar](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-assets.png)
 
 ## <a name="considerations"></a>Överväganden
-* Den rekommenderade maximala längden för en direktsänd händelse är för närvarande 8 timmar. Kontakta amslived@microsoft.com om du behöver köra en kanal under en längre tidsperiod.
+* Den rekommenderade maximala längden för en direktsänd händelse är för närvarande 8 timmar. Kontakta amshelp@microsoft.com om du behöver köra en kanal under en längre tidsperiod.
 * Kontrollera att slutpunkten för direktuppspelning som du vill spela upp innehåll från har tillståndet **Körs**.
 
 ## <a name="next-step"></a>Nästa steg

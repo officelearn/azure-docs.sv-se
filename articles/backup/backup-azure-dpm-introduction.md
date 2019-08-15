@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: dacurwin
-ms.openlocfilehash: 0c762054ed0df3a3781dda7057ff8793dbf82565
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 71070a778e54e51cdb528041f746489bb64e979c
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689305"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954715"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Förbereda säkerhets kopiering av arbets belastningar till Azure med System Center DPM
 
@@ -91,7 +91,7 @@ Du använder autentiseringsuppgifter för valvet när du registrerar DPM-servern
 
 ### <a name="best-practices-for-vault-credentials"></a>Metod tips för valv-autentiseringsuppgifter
 
-Du hämtar autentiseringsuppgifterna genom att hämta filen med autentiseringsuppgifter för valvet via en säker kanal från Azure Portal:
+Hämta autentiseringsuppgifterna genom att ladda ned valvets autentiseringsuppgift via en säker kanal från Azure Portal:
 
 - Autentiseringsuppgifterna för valvet används endast under registrerings arbets flödet.
 - Det är ditt ansvar att se till att valv filen för autentiseringsuppgifter är säker och inte komprometterad.

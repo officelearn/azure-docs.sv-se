@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 9fa0a1eb590d99b48e737794352625848f3d3dc8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a52d85e39da280b182eccb009d8df413f43f9c80
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60534000"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967513"
 ---
 # <a name="copy-data-from-drill-using-azure-data-factory-preview"></a>Kopiera data från ökad detaljnivå med Azure Data Factory (förhandsversion)
 
@@ -32,6 +32,10 @@ Du kan kopiera data från test till alla datalager för mottagare som stöds. En
 
 Azure Data Factory tillhandahåller en inbyggd drivrutin för att aktivera anslutning, måste du därför inte att manuellt installera en drivrutin som använder den här anslutningen.
 
+## <a name="prerequisites"></a>Förutsättningar
+
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
+
 ## <a name="getting-started"></a>Komma igång
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
@@ -44,9 +48,9 @@ Följande egenskaper har stöd för ökad detaljnivå länkade tjänsten:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Type-egenskapen måste anges till: **Drill** | Ja |
-| connectionString | En ODBC-anslutningssträng att ansluta till ökad detaljnivå. <br/>Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory. Du kan också publicera lösenord i Azure Key Vault och använda pull i `pwd` konfiguration av anslutningssträngen. Följande exempel finns och [Store autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) artikel med mer information. | Ja |
-| connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda lokal Integration Runtime eller Azure Integration Runtime (om ditt datalager är offentligt tillgänglig). Om den inte anges används standard Azure Integration Runtime. |Nej |
+| type | Egenskapen Type måste anges till: **Kar** | Ja |
+| connectionString | En ODBC-anslutningssträng att ansluta till ökad detaljnivå. <br/>Markera det här fältet som en SecureString för att lagra det på ett säkert sätt i Data Factory. Du kan också ställa in lösen ord i Azure Key Vault och `pwd` Hämta konfigurationen från anslutnings strängen. Se följande exempel och [lagra autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) artikel med mer information. | Ja |
+| connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Läs mer från avsnittet [krav](#prerequisites) . Om den inte anges används standard Azure Integration Runtime. |Nej |
 
 **Exempel:**
 
@@ -69,7 +73,7 @@ Följande egenskaper har stöd för ökad detaljnivå länkade tjänsten:
 }
 ```
 
-**Exempel: lagra lösenord i Azure Key Vault**
+**Exempel: lagra lösen ord i Azure Key Vault**
 
 ```json
 {
@@ -107,8 +111,8 @@ Kopiera data från test genom att ange typegenskapen på datauppsättningen till
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Type-egenskapen för datauppsättningen måste anges till: **DrillTable** | Ja |
-| tableName | Namnet på tabellen. | Nej (om ”frågan” i aktivitetskälla har angetts) |
+| type | Data uppsättningens typ-egenskap måste anges till: **DrillTable** | Ja |
+| tableName | Namnet på tabellen. | Nej (om ”query” i aktivitetskälla har angetts) |
 
 **Exempel**
 
@@ -136,7 +140,7 @@ För att kopiera data från ökad detaljnivå, ange typ av datakälla i kopierin
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| type | Type-egenskapen för aktiviteten kopieringskälla måste anges till: **DrillSource** | Ja |
+| type | Typ egenskapen för kopierings aktivitets källan måste anges till: **DrillSource** | Ja |
 | query | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"SELECT * FROM MyTable"`. | Nej (om ”tableName” i datauppsättningen har angetts) |
 
 **Exempel:**

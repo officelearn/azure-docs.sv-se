@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 8e2a98748f4fef69b4fd6e3b32d15560641a6336
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: a8545939fd027989519e0f7a161f750ec676749a
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68737046"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976804"
 ---
 # <a name="save-searches-and-pin-data-assets-in-azure-data-catalog"></a>Spara sökningar och fäst data till gångar i Azure Data Catalog
 ## <a name="introduction"></a>Introduktion
@@ -37,7 +37,7 @@ Gör så här om du vill skapa en sparad sökning:
 ### <a name="manage-saved-searches"></a>Hantera sparade sökningar
 När du har sparat en eller flera sökningar visas alternativet **sparade sökningar** under den **aktuella** sökrutan. När listan expanderas visas alla sparade sökningar.
 
- ![Lista över sparade sökningar](./media/data-catalog-how-to-save-pin/03-list.png)
+ ![Data Catalog lista över sparade sökningar](./media/data-catalog-how-to-save-pin/03-list.png)
 
 Gör något av följande:
 
@@ -56,18 +56,18 @@ Gör något av följande:
 ### <a name="organizational-saved-searches"></a>Sparade sökningar i organisationen
 Alla användare i din organisation kan spara sökningar efter eget bruk. Data Catalog-administratörer kan också spara sökningar för alla användare i organisationen. När administratörer sparar en sökning visas en **resurs i företags** alternativet. Om du väljer det här alternativet delas den sparade sökningen för alla användare i organisationen.
 
- ![Sparade sökningar i organisationen](./media/data-catalog-how-to-save-pin/08-organizational-saved-search.png)
+ ![Data Catalog-organisatoriska sparade sökningar](./media/data-catalog-how-to-save-pin/08-organizational-saved-search.png)
 
 ## <a name="pinned-data-assets"></a>Fästa data till gångar
 Med sparade sökningar kan du spara och återanvända Sök definitioner. Data till gångar som returneras av sökningarna kan ändras med tiden som innehållet i katalog ändringen. När du fäster data till gångar kan du uttryckligen identifiera enskilda data till gångar så att de blir enklare att komma åt utan att du behöver använda en sökning.
 
 Det är enkelt att fästa en data till gång. Om du vill lägga till data till gången i den fästa listan klickar du bara på ikonen **Fäst** . Ikonen visas i hörnet av till gångs panelen i vyn sida vid sida och i kolumnen längst till vänster i listvyn på Azure Data Catalogs portalen.
 
-![PIN-ikonen för data till gång](./media/data-catalog-how-to-save-pin/05-pinning.png)
+![Data Catalog – PIN-ikonen för data till gång](./media/data-catalog-how-to-save-pin/05-pinning.png)
 
 Det är lika enkelt att avfästa en data till gång. Klicka bara på ikonen för att **ta bort** för att växla inställningen för den valda till gången.
 
-![Ikonen för att ta bort data till gångar](./media/data-catalog-how-to-save-pin/06-unpinning.png)
+![Data Catalog-ikonen för att ta bort data till gångar](./media/data-catalog-how-to-save-pin/06-unpinning.png)
 
 ## <a name="the-my-assets-section"></a>Avsnittet Mina till gångar
 Start sidan för Data Catalog Portal innehåller avsnittet **Mina till gångar** som visar till gångar av intresse för den aktuella användaren. Det här avsnittet innehåller både fästa till gångar och sparade sökningar.

@@ -1,6 +1,6 @@
 ---
 title: Lägg till ett panel lager i Azure Maps | Microsoft Docs
-description: Så här lägger du till ett panel lager till JavaScript-kartan
+description: Så här lägger du till ett panel lager i Azure Maps Web SDK.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: d872cd78b3fd04512fcaee706e54bffa1cf9fcc1
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 3f047ec1aced55038384cbe29bd3a4b8a948dce9
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882086"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976456"
 ---
 # <a name="add-a-tile-layer-to-a-map"></a>Lägga till ett panel lager till en karta
 
@@ -40,16 +40,24 @@ Panel-URL: en som skickas till ett panel lager måste vara en HTTP/HTTPS-URL til
 
 ## <a name="add-a-tile-layer"></a>Lägga till ett panelskikt
 
- Det här exemplet visar hur du skapar ett panel lager som pekar på en uppsättning paneler som använder systemet x, y, zoom-inpassning. Källan till det här panel lagret är ett väderleks överlägg av [Iowa-miljön för Mesonet i Iowa State University](https://mesonet.agron.iastate.edu/ogc/). 
+ Det här exemplet visar hur du skapar ett panel lager som pekar på en uppsättning paneler som använder systemet x, y, zoom-inpassning. Källan till det här panel lagret är ett väderleks överlägg av [Iowa-miljön för Mesonet i Iowa State University](https://mesonet.agron.iastate.edu/ogc/). När du visar radar data kan användarna tydligt se etiketter för städer när de navigerar i kartan, vilket kan göras genom att infoga panel lagret under `labels` lagret.
+
+```javascript
+//Create a tile layer and add it to the map below the label layer.
+//Weather radar tiles from Iowa Environmental Mesonet of Iowa State University.
+map.layers.add(new atlas.layer.TileLayer({
+    tileUrl: 'https://mesonet.agron.iastate.edu/cache/tile.py/1.0.0/nexrad-n0q-900913/{z}/{x}/{y}.png',
+    opacity: 0.8,
+    tileSize: 256
+}), 'labels');
+```
+
+Nedan visas det fullständiga kod exemplet för ovanstående funktioner.
 
 <br/>
 
 <iframe height='500' scrolling='no' title='Panel lager med X, Y och Z' src='//codepen.io/azuremaps/embed/BGEQjG/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se Penn <a href='https://codepen.io/azuremaps/pen/BGEQjG/'>panels lagret med X, Y och Z</a> efter Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
-
-I koden ovan skapar det första blocket kod ett kart objekt. Du kan se [skapa en karta](./map-create.md) för instruktioner.
-
-I det andra kod blocket skapas en [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest) genom att en formaterad URL skickas till en panel tjänst, panel storleken och en opacitet för att göra den halv genomskinlig. När du lägger till ett panel lager till kartan läggs det dessutom till under `labels` lagret så att etiketterna fortfarande visas.
 
 ## <a name="customize-a-tile-layer"></a>Anpassa ett panel lager
 

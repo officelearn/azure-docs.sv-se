@@ -1,21 +1,21 @@
 ---
-title: Autentisera med Azure Active Directory för att få åtkomst till blob-och Queue-data från klient programmet
+title: Ge åtkomst till blobbar och köer med Azure Active Directory från ett klient program – Azure Storage
 description: Använd Azure Active Directory för att autentisera inifrån ett klient program, hämta en OAuth 2,0-token och auktorisera begär anden till Azure Blob Storage och Queue Storage.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 07/15/2019
+ms.date: 07/18/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ffae7467e9f94c68cf004b74c9791f2d9cda3171
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 5138fb6338f4ade322414619f8785d77550a91d1
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249996"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68986790"
 ---
-# <a name="authenticate-with-azure-active-directory-from-an-application-for-access-to-blobs-and-queues"></a>Autentisera med Azure Active Directory från ett program för åtkomst till blobbar och köer
+# <a name="authorize-access-to-blobs-and-queues-with-azure-active-directory-from-a-client-application"></a>Ge åtkomst till blobbar och köer med Azure Active Directory från ett klient program
 
 En viktig fördel med att använda Azure Active Directory (Azure AD) med Azure Blob Storage eller Queue Storage är att dina autentiseringsuppgifter inte längre behöver lagras i din kod. I stället kan du begära en OAuth 2,0-åtkomsttoken från Microsoft Identity Platform (tidigare Azure AD). Azure AD autentiserar säkerhets objekt (en användare, grupp eller tjänstens huvud namn) som kör programmet. Om autentiseringen lyckas returnerar Azure AD åtkomsttoken till programmet och programmet kan sedan använda åtkomsttoken för att auktorisera begär anden till Azure Blob Storage eller Queue Storage.
 
@@ -282,7 +282,7 @@ CloudBlockBlob blob = new CloudBlockBlob(
 Om du vill köra exemplet kan du behöva konfigurera det implicita tilldelnings flödet för din app-registrering. Följ de här stegen:
 
 1. Navigera till din app-registrering i Azure Portal.
-1. I avsnittet hantera väljer du autentiserings  inställningen.
+1. I avsnittet hantera väljer du autentiserings inställningen.
 1. Under **Avancerade inställningar**, i avsnittet **implicit beviljande** , markerar du kryss rutorna för att aktivera åtkomsttoken och ID-token, som du ser i följande bild:
 
     ![Skärm bild som visar hur du aktiverar inställningar för implicit beviljande av flöde](media/storage-auth-aad-app/enable-implicit-grant-flow.png)
@@ -292,7 +292,7 @@ Om du vill köra exemplet kan du behöva konfigurera det implicita tilldelnings 
 När du kör exemplet kanske du upptäcker att du behöver uppdatera omdirigerings-URI: n som anges i din app-registrering för att använda den *localhost* -port som tilldelats vid körning. Följ dessa steg om du vill uppdatera omdirigerings-URI: n för att använda den tilldelade porten:
 
 1. Navigera till din app-registrering i Azure Portal.
-1. I avsnittet hantera väljer du autentiserings  inställningen.
+1. I avsnittet hantera väljer du autentiserings inställningen.
 1. Under omdirigerings- **URI: er**redigerar du porten så att den matchar den som används av exempel programmet, som du ser i följande bild:
 
     ![Skärm bild som visar omdirigerings-URI för registrering av appar](media/storage-auth-aad-app/redirect-uri.png)

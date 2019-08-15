@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 4ebc48f8bd35487275f797ffc8e2b5b4d8101a71
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
-ms.translationtype: HT
+ms.openlocfilehash: 37bdcb48dcd37bf81aac8f5c2e1213d7f0deb327
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839780"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966436"
 ---
 # <a name="copy-data-from-sftp-server-using-azure-data-factory"></a>Kopiera data från SFTP-servern med Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -39,6 +39,10 @@ Den här SFTP-anslutaren stöder särskilt:
 - Kopiera filer med **Basic** -eller **SshPublicKey** -autentisering.
 - Kopiera filer som-är eller parsa filer med de [fil format och komprimerings](supported-file-formats-and-compression-codecs.md)-codecar som stöds.
 
+## <a name="prerequisites"></a>Förutsättningar
+
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
+
 ## <a name="get-started"></a>Kom igång
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
@@ -57,7 +61,7 @@ Följande egenskaper stöds för länkad SFTP-tjänst:
 | skipHostKeyValidation | Ange om du vill hoppa över validering av värd nycklar.<br/>Tillåtna värden är: **Sant**, **falskt** (standard).  | Nej |
 | hostKeyFingerprint | Ange finger utskriften för värd nyckeln. | Ja om "skipHostKeyValidation" är inställt på false.  |
 | authenticationType | Ange autentiseringstyp.<br/>Tillåtna värden är: **Basic**, **SshPublicKey**. Se [använda grundläggande autentisering](#using-basic-authentication) och [autentisering med offentliga SSH-nycklar](#using-ssh-public-key-authentication) på fler egenskaper respektive JSON-exempel. |Ja |
-| connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda Azure Integration Runtime eller lokal Integration Runtime (om ditt datalager finns i privat nätverk). Om den inte anges används standard Azure Integration Runtime. |Nej |
+| connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Läs mer från avsnittet [krav](#prerequisites) . Om den inte anges används standard Azure Integration Runtime. |Nej |
 
 ### <a name="using-basic-authentication"></a>Använda grundläggande autentisering
 

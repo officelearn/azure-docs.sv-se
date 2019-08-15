@@ -1,9 +1,9 @@
 ---
-title: Installera och använda log analytics-vyer för Azure Active Directory | Microsoft Docs
-description: Lär dig hur du installerar och använder log analytics-vyer för Azure Active Directory
+title: Så här installerar du och använder Log Analytics-vyer för Azure Active Directory | Microsoft Docs
+description: Lär dig hur du installerar och använder Log Analytics-vyer för Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 ms.assetid: 2290de3c-2858-4da0-b4ca-a00107702e26
@@ -14,64 +14,64 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 04/18/2019
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 92a5d9539d254eb7d52e3277691c9d8ff5a41821
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7cb1241387144b691b76ec330a5f90b762ebc11f
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60286757"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68989793"
 ---
-# <a name="install-and-use-the-log-analytics-views-for-azure-active-directory"></a>Installera och använda log analytics-vyer för Azure Active Directory
+# <a name="install-and-use-the-log-analytics-views-for-azure-active-directory"></a>Installera och Använd Log Analytics-vyerna för Azure Active Directory
 
-Azure Active Directory log analytics vyer kan du analysera och Sök efter Azure AD-aktivitetsloggar i Azure AD-klienten. Azure AD-aktivitetsloggar loggar innehåller:
+I vyerna Azure Active Directory Log Analytics kan du analysera och söka i Azure AD-aktivitets loggarna i Azure AD-klienten. I aktivitets loggarna för Azure AD ingår:
 
-* Granskningsloggar: Den [granskningsloggar](concept-audit-logs.md) ger dig tillgång till historiken för varje aktivitet som utförs i din klient.
-* Logga in loggar: Med den [inloggningsaktivitet rapporten](concept-sign-ins.md), du kan bestämma vem som utfört de uppgifter som rapporteras i granskningsloggarna.
+* Gransknings loggar: [Aktivitets rapporten gransknings loggar](concept-audit-logs.md) ger dig till gång till historiken för alla uppgifter som utförs i din klient organisation.
+* Inloggnings loggar: Med [rapporten inloggnings aktivitet](concept-sign-ins.md)kan du bestämma vem som utförde de uppgifter som rapporteras i gransknings loggarna.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill använda log analytics-vyer, behöver du:
+Om du vill använda Log Analytics-vyerna behöver du:
 
-* En Log Analytics-arbetsyta i Azure-prenumerationen. Lär dig hur du [skapa en Log Analytics-arbetsyta](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
-* Först måste slutföra stegen till [vägen med Azure AD-aktivitetsloggar till Log Analytics-arbetsytan](howto-integrate-activity-logs-with-log-analytics.md).
-* Ladda ned vyer från den [GitHub-lagringsplatsen](https://aka.ms/AADLogAnalyticsviews) till din lokala dator.
+* En Log Analytics arbets yta i din Azure-prenumeration. Lär dig hur du [skapar en arbets yta för Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
+* Slutför först stegen för att [dirigera Azure AD-aktivitets loggarna till din Log Analytics-arbetsyta](howto-integrate-activity-logs-with-log-analytics.md).
+* Ladda ned vyerna från [GitHub](https://aka.ms/AADLogAnalyticsviews) -lagringsplatsen till den lokala datorn.
 
-## <a name="install-the-log-analytics-views"></a>Installera log analytics-vyer
+## <a name="install-the-log-analytics-views"></a>Installera Log Analytics-vyer
 
-1. Gå till Log Analytics-arbetsytan. Om du vill göra detta måste först gå till den [Azure-portalen](https://portal.azure.com) och välj **alla tjänster**. Typ **Log Analytics** i textrutan och välj **Log Analytics-arbetsytor**. Välj den arbetsyta du dirigeras aktivitetsloggar till, som en del av förutsättningarna.
-2. Välj **Vydesigner**väljer **importera** och välj sedan **Välj fil** att importera vyerna från din lokala dator.
-3. Välj de vyer som du laddade ned från de krav och välj **spara** att spara importen. Gör detta för den **händelser för etablering av Azure AD-konto** vy och **inloggningar händelser** vy.
+1. Navigera till din Log Analytics-arbetsyta. För att göra det går du först till [Azure Portal](https://portal.azure.com) och väljer **alla tjänster**. Skriv **Log Analytics** i text rutan och välj **Log Analytics arbets ytor**. Välj den arbets yta som du dirigerade aktivitets loggarna till, som en del av förutsättningarna.
+2. Välj **Visa designer**, Välj **Importera** och välj sedan **Välj fil** för att importera vyerna från den lokala datorn.
+3. Välj de vyer som du laddade ned från kraven och välj **Spara** för att spara importen. Gör detta för vyn **Azure AD-konto etablerings händelser** och inloggnings **händelser** .
 
-## <a name="use-the-views"></a>Använda vyer
+## <a name="use-the-views"></a>Använda vyerna
 
-1. Gå till Log Analytics-arbetsytan. Om du vill göra detta måste först gå till den [Azure-portalen](https://portal.azure.com) och välj **alla tjänster**. Typ **Log Analytics** i textrutan och välj **Log Analytics-arbetsytor**. Välj den arbetsyta du dirigeras aktivitetsloggar till, som en del av förutsättningarna.
+1. Navigera till din Log Analytics-arbetsyta. För att göra det går du först till [Azure Portal](https://portal.azure.com) och väljer **alla tjänster**. Skriv **Log Analytics** i text rutan och välj **Log Analytics arbets ytor**. Välj den arbets yta som du dirigerade aktivitets loggarna till, som en del av förutsättningarna.
 
-2. När du arbetar i arbetsytan, väljer **arbetsytan Sammanfattning**. Du bör se följande tre vyer:
+2. När du är i arbets ytan väljer du **arbets ytans Sammanfattning**. Du bör se följande tre vyer:
 
-    * **Azure AD-konto etablering händelser**: Den här vyn visar rapporter som rör granskning etableringsaktivitet, till exempel hur många nya användare etableras och konfigurationsfel, antal användare uppdateras och uppdatera fel och antalet användare som avetableras och motsvarande fel.    
-    * **Inloggningar händelser**: Den här vyn visar de mest relevanta rapporter som rör övervakning inloggningsaktivitet, till exempel inloggningar efter program, användare, enhet, samt en sammanfattningsvy spåra antalet inloggningar över tid.
+    * **Azure AD-konto etablerings händelser**: I den här vyn visas rapporter relaterade till gransknings etablerings aktivitet, till exempel antalet nya användare som har upprättat och etablerings felen, antalet användare som har uppdaterats och uppdaterings felen och antalet användare som har upprättat och motsvarande problem.    
+    * **Inloggnings händelser**: I den här vyn visas de mest relevanta rapporterna om övervakning av inloggnings aktivitet, till exempel inloggningar av program, användare, enhet, samt en sammanfattningsvy som spårar antalet inloggningar över tid.
 
-3. Välj något av dessa vyer för att komma igång till enskilda rapporter. Du kan också ställa in aviseringar på någon av rapportparametrarna. Nu ska vi ange till exempel en avisering för varje gång det finns ett inloggningsfel. Om du vill göra detta måste först välja den **inloggningar händelser** väljer **inloggningsfel över tid** rapportera och välj sedan **Analytics** att öppna informationssidan om med den faktiska frågan bakom rapporten. 
+3. Välj någon av dessa vyer för att hoppa till de enskilda rapporterna. Du kan också ställa in aviseringar på någon av rapport parametrarna. Vi kan till exempel ställa in en avisering för varje gång ett inloggnings fel uppstår. Om du vill göra detta väljer du först vyn **inloggnings händelser** , väljer **Logga in fel över tid** och väljer sedan **analys** för att öppna sidan information med den faktiska frågan bakom rapporten. 
 
     ![Information](./media/howto-install-use-log-analytics-views/details.png)
 
 
-4. Välj **ange avisering**, och välj sedan **när the Custom log search är &lt;logic Odefinierad&gt;**  under den **Avisera kriterier** avsnittet. Eftersom vi vill meddela när det finns ett inloggningsfel, ange den **tröskelvärdet** av standard aviseringslogiken till **1** och välj sedan **klar**. 
+4. Välj **Ange avisering**och välj sedan **när den anpassade loggs ökningen &lt;är logiskt odefinierad&gt;**  under avsnittet **aviserings villkor** . Eftersom vi vill Avisera när det finns ett inloggnings fel anger du tröskelvärdet för standard varnings logiken till **1** och väljer sedan **klart**. 
 
     ![Konfigurera signallogiken](./media/howto-install-use-log-analytics-views/configure-signal-logic.png)
 
-5. Ange ett namn och en beskrivning av aviseringen och ange allvarlighetsgraden till **varning**.
+5. Ange ett namn och en beskrivning för aviseringen och ange allvarlighets grad till **Varning**.
 
     ![Skapa regel](./media/howto-install-use-log-analytics-views/create-rule.png)
 
-6. Välj åtgärdsgrupp för aviseringen. I allmänhet är det kan vara antingen ett team som du vill meddela via e-postmeddelande eller textmeddelande eller det kan vara att automatisera en åtgärd med webhooks, runbooks, functions, logic apps eller externa ITSM-lösningar. Lär dig hur du [skapa och hantera åtgärdsgrupper i Azure-portalen](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups).
+6. Välj den åtgärds grupp som ska aviseras. I allmänhet kan detta vara antingen ett team som du vill meddela via e-post eller SMS, eller så kan det vara en automatiserad aktivitet med Webhooks, Runbooks, functions, Logic Apps eller externa ITSM-lösningar. Lär dig hur du [skapar och hanterar åtgärds grupper i Azure Portal](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups).
 
-7. Välj **skapa varningsregel** att skapa aviseringen. Du kommer nu att varnas varje gång det finns ett inloggningsfel.
+7. Välj **skapa aviserings regel** för att skapa aviseringen. Nu får du en avisering varje gång ett inloggnings fel uppstår.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Hur du analyserar aktivitetsloggar med Azure Monitor-loggar](howto-analyze-activity-logs-log-analytics.md)
-* [Kom igång med Azure Monitor-loggar i Azure portal](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-analytics-portal)
+* [Så här analyserar du aktivitets loggar med Azure Monitor loggar](howto-analyze-activity-logs-log-analytics.md)
+* [Kom igång med Azure Monitor loggar i Azure Portal](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-analytics-portal)

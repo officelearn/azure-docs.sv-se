@@ -1,5 +1,5 @@
 ---
-title: Klassning Förutsäg omsättning + begär + upp-säljning
+title: 'Exempel på visuella gränssnitt #5: Klassificering för att förutsäga omsättning + begär och försäljning'
 titleSuffix: Azure Machine Learning service
 description: Det här visuella gränssnittet exempel experiment visar binär klassificerar förutsägelse för omsättning, en vanlig uppgift för kund Relations hantering (CRM).
 services: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: a0b3e3de604e7c59ea6a06bd59007964c98e0057
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: a2eabdd601fcf350d2076d33882e3d90255fee92
+ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68845980"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69016472"
 ---
 # <a name="sample-5---classification-predict-churn-appetency-and-up-selling"></a>Exempel 5 – klassificering: Förutsäga omsättning, begär och försäljning 
 

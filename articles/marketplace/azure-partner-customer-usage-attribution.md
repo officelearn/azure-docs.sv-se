@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: pabutler
-ms.openlocfilehash: fa0a88ce3f74c20ab36931a6a78f8265bdb9d8be
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 98d33dd1aad726d4da8499006166dfd2c043378f
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876240"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68977153"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Spårning av kundanvändning för Azure-partner
 
@@ -123,7 +123,7 @@ När du använder Azure CLI för att lägga till ditt GUID, ställer du in milj�
 ```
 export AZURE_HTTP_USER_AGENT='pid-eb7927c8-dd66-43e1-b0cf-c346a422063'
 ```
-Mer information finns i [Azure SDK för go](https://docs.microsoft.com/go/azure/).
+Mer information finns i [Azure SDK för go](https://docs.microsoft.com/azure/go/).
 
 ## <a name="use-terraform"></a>Använd terraform
 

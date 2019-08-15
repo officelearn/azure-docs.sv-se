@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 90c5a4e18f72d9a8b048ef0f40a5c0b405a584f2
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 0986da64fda659b949d5d1e6cfae03df2daded19
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67614151"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019161"
 ---
 # <a name="tutorial-upgrade-kubernetes-in-azure-kubernetes-service-aks"></a>Självstudier: Uppgradera Kubernetes i Azure Kubernetes Service (AKS)
 
@@ -28,7 +28,7 @@ I del sju av sju i den här självstudien uppgraderas ett Kubernetes-kluster. L�
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-I tidigare självstudier paketerades en app i en containeravbildning. Den här avbildningen laddades upp till Azure Container Registry, och du skapade ett AKS-kluster. Programmet distribuerades sedan till AKS-klustret. Om du inte har gjort det här och vill följa med, börjar du med [självstudie 1 – Skapa behållaravbildningar][aks-tutorial-prepare-app].
+I tidigare självstudier paketerades en app i en containeravbildning. Den här avbildningen laddades upp till Azure Container Registry, och du skapade ett AKS-kluster. Programmet distribuerades sedan till AKS-klustret. Om du inte har gjort dessa steg och vill följa med, börjar du med [självstudie 1 – Skapa][aks-tutorial-prepare-app]behållar avbildningar.
 
 I den här självstudien måste du köra Azure CLI version 2.0.53 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
 
@@ -40,12 +40,12 @@ Innan du uppgraderar ett kluster använder du kommandot [az aks get-upgrades][] 
 az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster --output table
 ```
 
-I det här exemplet är den aktuella versionen *1.9.11*, och de tillgängliga versionerna visas i kolumnen *Upgrades* (Uppgraderingar).
+I följande exempel är den aktuella versionen *1.13.9*och de tillgängliga versionerna visas under kolumnen *uppgraderingar* .
 
 ```
 Name     ResourceGroup    MasterVersion    NodePoolVersion    Upgrades
 -------  ---------------  ---------------  -----------------  --------------
-default  myResourceGroup  1.9.11           1.9.11             1.10.8, 1.10.9
+default  myResourceGroup  1.13.9           1.13.9             1.14.5
 ```
 
 ## <a name="upgrade-a-cluster"></a>Uppgradera ett kluster
@@ -58,16 +58,16 @@ I syfte att minimera störningar av program som körs avspärras och töms noder
 1. När den nya noden är redo och ansluten till klustret börjar Kubernetes-schemaläggaren att köra poddar på den.
 1. Den gamla noden tas bort och nästa nod i klustret börjar avspärrnings- och tömningsprocessen.
 
-Använd kommandot [az aks upgrade][] för att uppgradera AKS-klustret. I följande exempel uppgraderas klustret till Kubernetes version *1.10.9*.
+Använd kommandot [az aks upgrade][] för att uppgradera AKS-klustret. I följande exempel uppgraderas klustret till Kubernetes version *1.14.5*.
 
 > [!NOTE]
-> Du kan endast uppgradera en lägre version i taget. Exempel: Du kan uppgradera från *1.9.11* till *1.10.9*, men det går inte att uppgradera direkt från *1.9.6* till *1.11.x*. Om du vill uppgradera från *1.9.11* till *1.11.x* uppgraderar du först från *1.9.11* till *1.10.x* och utför sedan en till uppgradering från *1.10.x* till *1.11.x*.
+> Du kan endast uppgradera en lägre version i taget. Du kan till exempel uppgradera från *1.12. x* till *1.13. x*, men inte uppgradera från *1.12.8* till *1.14. x* direkt. Uppgradera från *1.12. x* till *1.14. x*genom att först uppgradera från *1.12.* x till *1.13. x*och sedan utföra en annan uppgradering från *1.13. x* till *1.14. x*.
 
 ```azurecli
-az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.10.9
+az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.14.5
 ```
 
-I följande komprimerade exempelutdata har *kubernetesVersion* nu värdet *1.10.9*:
+I följande komprimerade exempel utdata visas *kubernetesVersion* Now Reports *1.14.5*:
 
 ```json
 {
@@ -85,7 +85,7 @@ I följande komprimerade exempelutdata har *kubernetesVersion* nu värdet *1.10.
   "enableRbac": false,
   "fqdn": "myaksclust-myresourcegroup-19da35-bd54a4be.hcp.eastus.azmk8s.io",
   "id": "/subscriptions/<Subscription ID>/resourcegroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/myAKSCluster",
-  "kubernetesVersion": "1.10.9",
+  "kubernetesVersion": "1.14.5",
   "location": "eastus",
   "name": "myAKSCluster",
   "type": "Microsoft.ContainerService/ManagedClusters"
@@ -100,24 +100,24 @@ Bekräfta att uppgraderingen lyckades genom att köra kommandot [az aks show][] 
 az aks show --resource-group myResourceGroup --name myAKSCluster --output table
 ```
 
-Följande exempelutdata visar att AKS-klustret kör *KubernetesVersion 1.10.9*:
+Följande exempel på utdata visar AKS-klustret kör *KubernetesVersion 1.14.5*:
 
 ```
 Name          Location    ResourceGroup    KubernetesVersion    ProvisioningState    Fqdn
 ------------  ----------  ---------------  -------------------  -------------------  ----------------------------------------------------------------
-myAKSCluster  eastus      myResourceGroup  1.10.9               Succeeded            myaksclust-myresourcegroup-19da35-bd54a4be.hcp.eastus.azmk8s.io
+myAKSCluster  eastus      myResourceGroup  1.14.5               Succeeded            myaksclust-myresourcegroup-19da35-bd54a4be.hcp.eastus.azmk8s.io
 ```
 
 ## <a name="delete-the-cluster"></a>Ta bort klustret
 
-Eftersom den här självstudien är den sista delen i serien kan du ta bort AKS-klustret. Då Kubernetes-noderna körs på virtuella Azure-datorer fortsätter de att debiteras även om du inte använder klustret. Använd den [az group delete][az-group-delete] att ta bort resursgruppen, behållartjänsten och alla relaterade resurser.
+Eftersom den här självstudien är den sista delen i serien kan du ta bort AKS-klustret. Då Kubernetes-noderna körs på virtuella Azure-datorer fortsätter de att debiteras även om du inte använder klustret. Använd kommandot [AZ Group Delete][az-group-delete] för att ta bort resurs gruppen, behållar tjänsten och alla relaterade resurser.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait
 ```
 
 > [!NOTE]
-> När du tar bort klustret tas Azure Active Directory-tjänstens huvudnamn, som används av AKS-klustret, inte bort. Stegvisa instruktioner för hur du tar bort tjänstens huvudnamn finns [AKS-tjänsten huvudnamn överväganden och borttagning av][sp-delete].
+> När du tar bort klustret tas Azure Active Directory-tjänstens huvudnamn, som används av AKS-klustret, inte bort. Anvisningar om hur du tar bort tjänstens huvud namn finns i [AKS Service Principal överväganden och borttagning][sp-delete].
 
 ## <a name="next-steps"></a>Nästa steg
 

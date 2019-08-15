@@ -1,5 +1,5 @@
 ---
-title: Azure Security Center och Azure SQL Database-tjänsten | Microsoft Docs
+title: Azure Security Center-och Azure SQL Database-tjänsten | Microsoft Docs
 description: Den här artikeln visar hur Security Center kan hjälpa dig att skydda dina databaser i Azure SQL Database.
 services: sql-database
 documentationcenter: na
@@ -15,97 +15,97 @@ ms.workload: na
 ms.date: 02/02/2017
 ms.author: rkarlin
 ms.openlocfilehash: 0a889de79b6a5921007614dac8d610c1be0222d2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "60704619"
 ---
-# <a name="azure-security-center-and-azure-sql-database-service"></a>Azure Security Center och Azure SQL Database-tjänsten
+# <a name="azure-security-center-and-azure-sql-database-service"></a>Azure Security Center-och Azure SQL Database-tjänsten
 [Azure Security Center](https://azure.microsoft.com/documentation/services/security-center/) hjälper dig att förebygga, identifiera och reagera på hot. Härifrån kan du övervaka och hantera principer för alla Azure-prenumerationer på en gång och upptäcka hot som annars kanske skulle förbli oupptäckta. Azure Security Center fungerar tillsammans med ett vittomfattande ekosystem med säkerhetslösningar.
 
 Den här artikeln visar hur Security Center kan hjälpa dig att skydda dina databaser i Azure SQL Database.
 
 ## <a name="why-use-security-center"></a>Varför ska man använda Security Center?
-Security Center hjälper dig att skydda data i SQL-databas genom att tillhandahålla bättre inblick i säkerheten hos alla dina servrar och databaser. Med Security Center kan du:
+Security Center hjälper dig att skydda data i SQL Database genom att ge insyn i säkerheten för alla dina servrar och databaser. Med Security Center kan du:
 
-* Definiera principer för SQL Database-kryptering och granskning.
-* Övervaka säkerheten i SQL Database-resurser för alla dina prenumerationer.
-* Snabbt identifiera och åtgärda säkerhetsproblem.
-* Integrera varningar från [Azure SQL Database-hotidentifiering](../sql-database/sql-database-threat-detection.md).
+* Definiera principer för SQL Database kryptering och granskning.
+* Övervaka säkerheten för SQL Database resurser i alla dina prenumerationer.
+* Identifiera och åtgärda säkerhets problem snabbt.
+* Integrera aviseringar från [Azure SQL Database hot identifiering](../sql-database/sql-database-threat-detection.md).
 
-Utöver att skydda din SQL Database-resurser, tillhandahåller även Security Center säkerhetsövervakning och hantering för Azure-datorer, molntjänster, App Services, virtuella nätverk med mera. Läs mer om Security Center [här](security-center-intro.md).
+Förutom att hjälpa till att skydda dina SQL Database-resurser, kan Security Center också övervaka och hantera virtuella Azure-datorer, Cloud Services, App Services, virtuella nätverk och mycket annat. Läs mer om Security Center [här](security-center-intro.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
-Du måste ha en prenumeration på Microsoft Azure för att komma igång med Security Center. Den kostnadsfria nivån av Security Center aktiveras med din prenumeration. Läs mer på Security Centers kostnadsfria nivån och standardnivån, [Security Center-prissättning](https://azure.microsoft.com/pricing/details/security-center/).
+## <a name="prerequisites"></a>Förutsättningar
+Du måste ha en prenumeration på Microsoft Azure för att komma igång med Security Center. Den kostnads fria nivån av Security Center har Aktiver ATS med din prenumeration. Mer information om Security Center kostnads fria och standard nivåer finns i [Security Center prissättning](https://azure.microsoft.com/pricing/details/security-center/).
 
-Security Center stöder rollbaserad åtkomst. Mer information om rollbaserad åtkomstkontroll (RBAC) i Azure finns [Azure Active Directory rollbaserad åtkomstkontroll](../role-based-access-control/role-assignments-portal.md). Security Center vanliga frågor och svar innehåller information om [hur behörigheter ska hanteras i Security Center](security-center-faq.md#permissions).
+Security Center stöder rollbaserad åtkomst. Mer information om rollbaserad åtkomst kontroll (RBAC) i Azure finns [Azure Active Directory rollbaserad Access Control](../role-based-access-control/role-assignments-portal.md). Security Center vanliga frågor och svar innehåller information om [hur behörigheter hanteras i Security Center](security-center-faq.md#permissions).
 
 ## <a name="access-security-center"></a>Öppna Security Center
-Security Center öppnas från [Azure Portal](https://azure.microsoft.com/features/azure-portal/). [Logga in på portalen](https://portal.azure.com/) och välj den **Security Center alternativet**.
+Security Center öppnas från [Azure Portal](https://azure.microsoft.com/features/azure-portal/). [Logga in på portalen](https://portal.azure.com/) och välj **alternativet Security Center**.
 
-![Security Center-alternativet][1]
+![Security Center alternativ][1]
 
-Den **Security Center** blad öppnas.
-![Security Center-bladet][2]
+Bladet **Security Center** öppnas.
+![Security Center bladet][2]
 
 ## <a name="set-security-policy"></a>Ange säkerhetsprincip
-En säkerhetsprincip definierar ett antal kontrollfunktioner som rekommenderas för resurser inom en viss prenumeration eller resursgrupp. I Security Center ställer in du principer för dina prenumerationer och resursgrupper enligt ditt företags behov och typ av program eller efter Känslighetsnivån på datauppgifterna i respektive prenumeration.
+En säkerhets princip definierar en uppsättning kontroller som rekommenderas för resurser i den angivna prenumerationen eller resurs gruppen. I Security Center definierar du principer för dina prenumerationer eller resurs grupper enligt företagets säkerhets behov och typ av program eller känslighet för data i varje prenumeration.
 
-Du kan ange en princip för att visa rekommendationer för SQL-granskning och transparent datakryptering (TDE) för SQL.
+Du kan ange en princip för att Visa rekommendationer för SQL-granskning och SQL transparent data kryptering (TDE).
 
-* När du aktiverar **SQL-granskning och Hotidentifiering**, Security Center rekommenderar att granskning av åtkomst till Azure Database aktiveras för regelefterlevnad, avancerad identifiering och undersökning.
-* När du aktiverar **SQL transparent datakryptering**, rekommenderar att kryptering i vila i Security Center aktiveras för Azure SQL Database, tillhörande säkerhetskopior och transaktionsloggfiler.
+* När du aktiverar **SQL-granskning och hot identifiering**rekommenderar Security Center att granskning av åtkomst till Azure-databasen aktive ras för efterlevnad, Avancerad identifiering och undersöknings ändamål.
+* När du aktiverar **transparent data kryptering i SQL**rekommenderar Security Center att kryptering i vila ska aktive ras för Azure SQL Database, tillhör ande säkerhets kopior och transaktionsloggfiler.
 
-För att ställa in en säkerhetsprincip, Välj den **princip** panelen på bladet Security Center. På den **säkerhetsprincip** bladet väljer du den prenumeration som du vill aktivera en säkerhetsprincip. Välj **skyddsprincip** och aktivera **på** de säkerhetsrekommendationer du vill använda för den här prenumerationen.
+Om du vill ange en säkerhets princip väljer du panelen **princip** på bladet Security Center. På bladet **säkerhets princip** väljer du den prenumeration som du vill aktivera säkerhets principen för. Välj **skydds princip** och aktivera de säkerhets rekommendationer som du vill använda för den här prenumerationen.
 ![Säkerhetsprincip][3]
 
-Mer information finns i [ställa in säkerhetsprinciper](tutorial-security-policy.md).
+Läs mer i [Ange säkerhets principer](tutorial-security-policy.md).
 
-## <a name="manage-security-recommendation"></a>Hantera säkerhetsrekommendation
+## <a name="manage-security-recommendation"></a>Hantera säkerhets rekommendation
 Security Center analyserar regelbundet säkerhetstillståndet hos dina Azure-resurser. När Security Center identifierar potentiella säkerhetsproblem skapas rekommendationer. Via rekommendationerna får du hjälp att ställa in de kontrollfunktioner som behövs.
 
-När du har angett en säkerhetsprincip för analyserar Security Center säkerhetstillståndet för dina resurser för att upptäcka potentiella säkerhetsrisker. Rekommendationerna visas i tabellformat där varje rad motsvarar en viss rekommendation. Använd tabellen nedan som referens för att förstå de tillgängliga rekommendationerna för Azure SQL Database och vad varje rekommendation gör om du använder den. Att välja en rekommendation kommer du till en artikel som förklarar hur du implementerar rekommendationen i Security Center.
+När du har angett en säkerhets princip analyserar Security Center säkerhets status för dina resurser för att identifiera potentiella sårbarheter. Rekommendationerna visas i tabell format där varje rad representerar en viss rekommendation. Använd följande tabell som referens för att hjälpa dig att förstå de rekommendationer som är tillgängliga för Azure SQL Database och vilka rekommendationer som gäller om du använder den. Genom att välja en rekommendation går du till en artikel som förklarar hur du implementerar rekommendationen i Security Center.
 
 | Rekommendation | Beskrivning |
 | --- | --- |
-| [Aktivera granskning och Hotidentifiering på SQL-servrar](security-center-enable-auditing-on-sql-servers.md) |Rekommenderar att du aktiverar granskning och hotidentifiering för SQL Database-servrar. (Endast SQL Database-tjänsten. Omfattar inte Microsoft SQL Server som körs på dina virtuella datorer.) |
-| [Aktivera granskning och Hotidentifiering på SQL-databaser](security-center-enable-auditing-on-sql-databases.md) |Rekommenderar att du aktiverar granskning och hotidentifiering för SQL Database-databaser. (Endast SQL Database-tjänsten. Omfattar inte Microsoft SQL Server som körs på dina virtuella datorer.) |
-| [Aktivera transparent datakryptering](security-center-enable-transparent-data-encryption.md) |Rekommenderar att du aktiverar kryptering för SQL-databaser. (Endast SQL Database-tjänsten.) |
+| [Aktivera granskning och hot identifiering på SQL-servrar](security-center-enable-auditing-on-sql-servers.md) |Rekommenderar att du aktiverar granskning och hot identifiering för SQL Database-servrar. (Endast SQL Database-tjänsten. Inkluderar inte Microsoft SQL Server som körs på dina virtuella datorer.) |
+| [Aktivera granskning och hot identifiering på SQL-databaser](security-center-enable-auditing-on-sql-databases.md) |Rekommenderar att du aktiverar granskning och hot identifiering för SQL Database databaser. (Endast SQL Database-tjänsten. Inkluderar inte Microsoft SQL Server som körs på dina virtuella datorer.) |
+| [Aktivera transparent datakryptering](security-center-enable-transparent-data-encryption.md) |Rekommenderar att du aktiverar kryptering för SQL-databaser. (Endast SQL Database tjänst.) |
 
-Om du vill se rekommendationer för dina Azure-resurser, Välj den **rekommendationer** panelen på bladet Security Center. På den **rekommendationer** bladet och välja en rekommendation att se information. I det här exemplet väljer vi **aktivera granskning på SQL-servrar**.
+Om du vill se rekommendationer för dina Azure-resurser väljer du panelen **rekommendationer** på bladet Security Center. På bladet **rekommendationer** väljer du en rekommendation för att se information. I det här exemplet ska vi välja **aktivera granskning & hot identifiering på SQL-servrar**.
 
 ![Rekommendationer][4]
 
-Enligt nedan visar Security Center SQL-servrar där granskning och hotidentifiering inte har aktiverats. När du aktiverar granskning kan konfigurera du inställningarna för Hotidentifiering och e-postinställningar för att få säkerhetsaviseringar. Hotidentifiering varnar dig när den identifierar avvikande databasaktiviteter som indikerar potentiella säkerhetshot mot databasen. Aviseringarna visas i instrumentpanelen i Security Center.
+Som visas nedan visar Security Center SQL-servrarna där granskning och hot identifiering inte är aktiverat. När du har aktiverat granskning kan du konfigurera inställningar för hot identifiering och e-postinställningar för att få säkerhets aviseringar. Hot identifiering varnar dig när den identifierar avvikande databas aktiviteter som indikerar potentiella säkerhetshot mot databasen. Aviseringarna visas på instrument panelen för Security Center.
 ![Granskning och hotidentifiering][5]
 
-Följ stegen i [SQL Database-hotidentifiering i Azure-portalen](../sql-database/sql-database-threat-detection-portal.md) att aktivera och konfigurera identifiering av hot och för att konfigurera en lista över e-postmeddelanden som ska få säkerhetsaviseringar när avvikande aktiviteter.
+Följ stegen i [SQL Database hot identifiering i Azure Portal](../sql-database/sql-database-threat-detection-portal.md) för att aktivera och konfigurera hot identifiering och för att konfigurera listan över e-postmeddelanden som får säkerhets aviseringar vid identifiering av avvikande aktiviteter.
 
-Läs mer om rekommendationer i [hantera säkerhetsrekommendationer](security-center-recommendations.md).
+Mer information om rekommendationer finns i [hantera säkerhets rekommendationer](security-center-recommendations.md).
 
 ## <a name="monitor-security-health"></a>Övervaka säkerhetshälsa
-När du har aktiverat [säkerhetsprinciper](tutorial-security-policy.md) för resurser i en prenumeration analyseras resursernas säkerhet för upptäckt av eventuella säkerhetsrisker.  Du kan se säkerhetsstatus för dina resurser i den **resurssäkerhetshälsa** panelen. När du klickar på **Data** i den **resurssäkerhetshälsa** öppnas den **dataresurser** blad öppnas med SQL-rekommendationer för problem, till exempel för granskning och transparent kryptering inte är aktiverade. Här finns även rekommendationer gällande databasens allmänna hälsoläge.
-![Resurssäkerhetshälsa][6]
+När du har aktiverat [säkerhetsprinciper](tutorial-security-policy.md) för resurser i en prenumeration analyseras resursernas säkerhet för upptäckt av eventuella säkerhetsrisker.  Du kan visa säkerhets tillståndet för dina resurser i panelen **resurs säkerhets hälsa** . När du klickar på **data** i rutan **resurs säkerhets hälsa** öppnas bladet **data resurser** med SQL-rekommendationer för problem som granskning och transparent data kryptering inte aktive ras. Här finns även rekommendationer gällande databasens allmänna hälsoläge.
+![Resurs säkerhets hälsa][6]
 
-Mer information finns i [övervakning av säkerhetshälsa](security-center-monitoring.md).
+Mer information finns i [övervakning av säkerhets hälsa](security-center-monitoring.md).
 
-## <a name="manage-and-respond-to-security-alerts"></a>Hantera och åtgärda säkerhetsaviseringar
-Security Center automatiskt samlar in, analyserar och integrerar loggdata från [Azure SQL-Hotidentifiering](../sql-database/sql-database-threat-detection.md), samt andra Azure-resurser, att identifiera verkliga hot och minska falska positiva identifieringar. En lista över prioriterade säkerhetsvarningar visas i Security Center tillsammans med den information som du behöver för att snabbt undersöka problemet, samt rekommendationer för hur du åtgärdar ett angrepp.
+## <a name="manage-and-respond-to-security-alerts"></a>Hantera och besvara säkerhetsvarningar
+Security Center samlar automatiskt in, analyserar och integrerar loggdata från [Azure SQL hot identifiering](../sql-database/sql-database-threat-detection.md), samt andra Azure-resurser, för att identifiera verkliga hot och minska antalet falska positiva identifieringar. En lista över prioriterade säkerhetsvarningar visas i Security Center tillsammans med den information som du behöver för att snabbt undersöka problemet, samt rekommendationer för hur du åtgärdar ett angrepp.
 
-Om du vill se aviseringar, Välj den **säkerhetsaviseringar** panelen på bladet Security Center. På den **säkerhetsaviseringar** bladet, väljer du en avisering om du vill veta mer om de händelser som utlöste aviseringen och vad, om sådant finns, steg du måste avlägga åtgärdar ett angrepp. I det här exemplet väljer vi **potentiell SQL-inmatning**.
+Om du vill visa aviseringar väljer du panelen **säkerhets aviseringar** på bladet Security Center. På bladet **säkerhets aviseringar** väljer du en avisering för att lära dig mer om de händelser som utlöste aviseringen och vad, om det finns några, steg som du måste vidta för att åtgärda ett angrepp. I det här exemplet ska vi välja **potentiell SQL-inmatning**.
 ![Säkerhetsaviseringar][7]
 
-Enligt nedan Security Center tillhandahåller ytterligare information som ger inblick i vad som utlöste aviseringen, målresursen när så är tillämpligt källans IP-adress och rekommendationer om hur du åtgärdar.
+Som det visas nedan ger Security Center ytterligare information som ger insikt om vad som utlöste aviseringen, mål resursen, vid tillämplig Källans IP-adress och rekommendationer om hur du kan åtgärda det.
 ![Potentiell SQL-inmatning][8]
 
-Mer information finns i [hantera och åtgärda säkerhetsaviseringar](security-center-managing-and-responding-alerts.md).
+Mer information finns i [Hantera och svara på säkerhets aviseringar](security-center-managing-and-responding-alerts.md).
 
 ## <a name="next-steps"></a>Nästa steg
-* [Security Center vanliga frågor och svar](security-center-faq.md) – hittar du vanliga frågor och svar om tjänsten.
-* [Planerings- och bruksanvisning för Security Center](security-center-planning-and-operations-guide.md) – Följ en uppsättning steg och uppgifter för att optimera användningen av Security Center utifrån din organisations säkerhetskrav och molnhanteringsmodell.
-* [Datasäkerhet i Security Center](security-center-data-security.md) – Lär dig hur Security Center samlar in och bearbeta data om dina Azure-resurser, inklusive konfigurationsinformation, metadata, händelseloggar, kraschdumpfiler och mer.
-* [Hantering av säkerhetsincidenter](security-center-incident.md) – Lär dig hur du använder funktionen för säkerhetsavisering i Security Center som hjälper dig att hantera säkerhetsincidenter.
+* [Security Center vanliga frågor och svar](security-center-faq.md) – hitta vanliga frågor om att använda tjänsten.
+* [Security Center planering och drifts guide](security-center-planning-and-operations-guide.md) – Följ en uppsättning steg och aktiviteter för att optimera din användning av Security Center baserat på organisationens säkerhets krav och moln hanterings modell.
+* [Security Center data säkerhet](security-center-data-security.md) – lär dig hur Security Center samlar in och bearbetar data om dina Azure-resurser, inklusive konfigurations information, metadata, händelse loggar, krasch dum par filer med mera.
+* [Hantera säkerhets incidenter](security-center-incident.md) – lär dig hur du använder säkerhets aviserings funktionen i Security Center för att hjälpa dig att hantera säkerhets incidenter.
 
 <!--Image references-->
 [1]: ./media/security-center-sql-database/security-center.png

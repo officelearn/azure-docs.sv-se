@@ -1,5 +1,5 @@
 ---
-title: Kör batch förutsägelser på stora mängder data
+title: Köra batch-förutsägelser på stora data med pipelines
 titleSuffix: Azure Machine Learning service
 description: Lär dig mer om att göra förutsägelser för batch asynkront på stora mängder data med hjälp av Azure Machine Learning-tjänsten.
 services: machine-learning
@@ -10,16 +10,16 @@ ms.reviewer: jmartens, garye
 ms.author: jordane
 author: jpe316
 ms.date: 07/12/2019
-ms.openlocfilehash: 689ee003e0923a65d3ca3f2d13c1a2d05c299dbd
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 97b66bff0e6413b7774a054a01a0dc73649c9cce
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68358723"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68963007"
 ---
-# <a name="run-batch-predictions-on-large-data-sets-with-azure-machine-learning-service"></a>Kör batch förutsägelser på stora datauppsättningar med Azure Machine Learning-tjänsten
+# <a name="run-batch-predictions-on-large-data-sets-with-azure-machine-learning-pipelines"></a>Köra batch-förutsägelser på stora data mängder med Azure Machine Learning pipelines
 
-I den här artikeln får du lära dig hur du gör förutsägelser för stora mängder data asynkront med hjälp av tjänsten Azure Machine Learning.
+I den här artikeln får du lära dig hur du gör förutsägelser för stora mängder data asynkront med hjälp av ML-pipelines med Azure Machine Learning-tjänsten.
 
 Batch förutsägelse (eller batch-Poäng) tillhandahåller kostnads effektiv härledning, med oöverträffat data flöde för asynkrona program. Batch förutsägelse pipelines kan skala för att utföra inferens på terabyte av produktionsdata. Batch förutsägelse är optimerad för hög genom strömning, Fire-och-glömma förutsägelser för en stor data insamling.
 
@@ -358,7 +358,4 @@ RunDetails(published_pipeline_run).show()
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill se den här delen av slut punkt till slut punkt kan du testa den bärbara datorn för batch-Poäng i [GitHub](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines).
-
-[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
-
+Om du vill se den här arbets delen från slut punkt till slut punkt kan du testa den bärbara datorn för batch-Poäng i [GitHub](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines)eller gå till [Azure Architecture Center](/azure/architecture/reference-architectures/ai/batch-scoring-python) och se en exempel lösnings arkitektur.

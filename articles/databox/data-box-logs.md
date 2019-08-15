@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 08/07/2019
+ms.date: 08/08/2019
 ms.author: alkohli
-ms.openlocfilehash: 309dc8e1fd15ae4088ed6ee87bdbb8aa4d636951
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 8fecc00a970f0e706dc6240eaec593fd54968ff8
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68848577"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934197"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy"></a>Spårning och händelse loggning för din Azure Data Box och Azure Data Box Heavy
 
@@ -197,7 +197,7 @@ STRUKTUR-eller manifest filerna kopieras också till Azure Storage-kontot. Du ka
 
 Under data överföringen till Azure skapas en kopierings logg.
 
-### <a name="copylog"></a>Copylog
+### <a name="copy-log"></a>Kopiera logg
 
 För varje order som bearbetas skapar Data Box-enhet tjänsten kopierings loggen i det associerade lagrings kontot. Kopierings loggen innehåller det totala antalet filer som har överförts och antalet filer som fel uppstod under data kopieringen från Data Box-enhet till ditt Azure Storage-konto.
 
@@ -252,6 +252,8 @@ Här är ett exempel på en kopierings logg där uppladdningen slutfördes med f
 ### <a name="upload-completed-with-warnings"></a>Uppladdningen slutfördes med varningar
 
 Överföring till Azure slutförs med varningar om dina data hade behållare/BLOB/fil namn som inte stämmer överens med namngivnings konventionerna i Azure och namnen ändrades för att överföra data till Azure.
+
+![Sökväg till bladet för att kopiera loggen när den har slutförts med varningar](media/data-box-logs/copy-log-path-3.png)
 
 Här är ett exempel på en kopierings logg där behållarna som inte överensstämmer med namngivnings konventionerna för Azure bytte namn under data överföringen till Azure.
 

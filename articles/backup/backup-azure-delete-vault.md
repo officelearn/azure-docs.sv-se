@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: dacurwin
-ms.openlocfilehash: 34484c309cb186aabec519e54269fefae316165e
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 9c63170b60a871182042acab8a35e505c603f260
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639909"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69018874"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Ta bort ett Recovery Services-valv
 
@@ -47,15 +47,15 @@ Jag har inga skyddade objekt lokalt eller i molnet. men jag får fortfarande val
 
 ## <a name="delete-protected-items-in-cloud"></a>Ta bort skyddade objekt i molnet
 
-Innan du fortsätter att läsa **[det här](#before-you-start)** avsnittet för att förstå borttagnings processen för beroenden och valvet.
+Innan du fortsätter läsa **[det här](#before-you-start)** avsnittet för att förstå borttagnings processen för beroenden och valvet.
 
 Gör så här om du vill stoppa skyddet och ta bort säkerhetskopierade data:
 
-1. Från Portal > **Recovery Services Vault** > **säkerhets kopierings objekt** väljer du skyddade objekt i molnet (exempel AzureVirtual Machine, Azure Storage (Azure Files), SQL o Azure VM och så vidare).
+1. Från Portal > **Recovery Services valv** > **säkerhetskopiera objekt**, väljer du skyddade objekt i molnet (till exempel AzureVirtual Machine, Azure Storage (Azure Files), SQL på Azure VM och så vidare).
 
     ![Välj typ av säkerhets kopiering](./media/backup-azure-delete-vault/azure-storage-selected.png)
 
-2. Högerklicka på säkerhets kopierings objekt, beroende på om objektet är skyddat eller inte, så visas **Avbryt säkerhets kopiering** eller **ta bort säkerhetskopierade data**.
+2. Högerklicka på objektet säkerhets kopia. Beroende på om säkerhets kopie posten är skyddad eller inte, visar menyn **Avbryt säkerhets kopiering** eller **ta bort säkerhetskopierade data**.
 
     - För **Avbryt säkerhets kopiering**väljer du **ta bort säkerhets kopierings data** från List rutan. Ange **namnet** på säkerhets kopierings objekt (Skift läges känsligt), Välj en **orsak**, ange **kommentarer**och klicka på **stoppa säkerhets kopiering**.
 
@@ -126,12 +126,12 @@ Ta bort säkerhets kopierings objekt från MARS Management Console
 - Du uppmanas att ange en säkerhets kod. Gör så här för att skapa en PIN-kod:
   - Logga in på Azure Portal.
   - Bläddra till **Recovery Services** > **Egenskaper**för valv**Inställningar** > .
-  - Klicka på **generera**under **säkerhets-PIN**. Kopiera den här PIN-koden. (Den här PIN-koden är bara giltig i fem minuter)
+  - Klicka på **generera**under **säkerhets-PIN**. Kopiera den här PIN-koden. (Den här PIN-koden är bara giltig i fem minuter.)
 - I hanterings konsolen (klient app) klistrar du in PIN-koden och klickar på **OK**.
 
   ![Säkerhets kod](./media/backup-azure-delete-vault/security-pin.png)
 
-- I *guiden **ändra säkerhets kopierings förlopp** kommer borttagna säkerhets kopierings data att behållas i 14 dagar. Efter den tiden tas säkerhetskopierade data bort permanent.*  
+- I *guiden **ändra säkerhets kopierings förlopp** visas borttagna säkerhets kopierings data i 14 dagar. Efter den tiden tas säkerhetskopierade data bort permanent.*  
 
     ![Ta bort infrastruktur för säkerhets kopiering](./media/backup-azure-delete-vault/deleted-backup-data.png)
 
@@ -183,11 +183,11 @@ Det här alternativet för att ta bort Recovery Servicess valvet rekommenderas e
 
 - I fönstret **Essentials** i menyn valv kontrollerar du att det inte finns några **säkerhets kopierings objekt**, **säkerhets kopierings hanterings servrar**eller **replikerade objekt** i listan. Om det finns säkerhets kopierings objekt, se avsnittet [innan du börjar](#before-you-start) ..
 - Försök [att ta bort valvet från portalen](#delete-the-recovery-services-vault)igen.
-- Om alla beroenden tas bort och du fortfarande får borttagnings *felet* för valvet använder du ARMClient-verktyget för att utföra stegen som anges nedan.
+- Om alla beroenden tas bort och du fortfarande får borttagnings *felet*för valvet, använder du ARMClient-verktyget för att utföra stegen som anges nedan.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-1. Installera choklad [härifrån och installera](https://chocolatey.org/) ARMClient kör kommandot nedan:
+1. Installera choklad härifrån och [](https://chocolatey.org/) installera ARMClient kör kommandot nedan:
 
    `choco install armclient --source=https://chocolatey.org/api/v2/`
 2. Logga in på ditt Azure-konto och kör det här kommandot:
@@ -202,12 +202,12 @@ Mer information om kommandot ARMClient finns i det här [dokumentet](https://git
 
 1. Kör följande kommando med ditt prenumerations-ID, resurs gruppens namn och namnet på valvet. När du kör kommandot tas valvet bort om du inte har några beroenden.
 
-   ```
+   ```azurepowershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>?api-version=2015-03-15
    ```
 2. Om valvet inte är tomt visas ett fel meddelande om att det inte går att ta bort valvet eftersom det finns befintliga resurser i valvet. Om du vill ta bort ett skyddat objekt/en behållare i ett valv gör du följande:
 
-   ```
+   ```azurepowershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>/registeredIdentities/<container name>?api-version=2016-06-01
    ```
 

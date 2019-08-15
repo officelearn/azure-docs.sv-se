@@ -1,6 +1,6 @@
 ---
-title: Hybridanslutningar – Azure App Service | Microsoft Docs
-description: Hur du skapar och använda Hybridanslutningar för att komma åt resurser i olika nätverk
+title: Hybrid anslutningar – Azure App Service | Microsoft Docs
+description: Hur du skapar och använder Hybridanslutningar för att få åtkomst till resurser i olika nätverk
 services: app-service
 documentationcenter: ''
 author: ccompy
@@ -16,171 +16,171 @@ ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 4b125649dee51680625ac5a92b31bdc9f6830529
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "67069498"
 ---
-# <a name="azure-app-service-hybrid-connections"></a>Azure App Service-Hybridanslutningar #
+# <a name="azure-app-service-hybrid-connections"></a>Azure App Service Hybridanslutningar #
 
-Hybrid Connections är en tjänst i Azure såväl som en funktion i Azure App Service. Som en tjänst har användning och funktioner utöver de som används i App Service. Läs mer om Hybridanslutningar och deras användning utanför App Service i [Azure Relay-Hybridanslutningar][HCService].
+Hybridanslutningar är både en tjänst i Azure och en funktion i Azure App Service. Som tjänst har den användning och funktioner utöver de som används i App Service. Mer information om Hybridanslutningar och deras användning utanför App Service finns i [Azure Relay hybridanslutningar][HCService].
 
-I App Service kan Hybrid Connections användas för att få åtkomst till resurser i andra nätverk. Det ger åtkomst från din app till en programslutpunkt. En annan möjlighet att komma åt ditt program aktiveras inte. Som används i App Service, motsvarar varje Hybridanslutning en enskild kombination av TCP-värd och port. Det innebär att Hybrid Anslutningens slutpunkt kan vara på alla operativsystem och alla program som du ansluter till en TCP-lyssningsporten. Funktionen Hybridanslutningar vet inte eller hand programprotokoll är eller vilka du använder. Det är bara att tillhandahålla åtkomst till nätverket.  
+I App Service kan Hybridanslutningar användas för att få åtkomst till program resurser i andra nätverk. Den ger åtkomst från din app till en program slut punkt. Den aktiverar inte en alternativ funktion för att få åtkomst till ditt program. Som används i App Service motsvarar varje hybrid anslutning en enskild TCP-värd och port-kombination. Det innebär att hybrid anslutnings slut punkten kan finnas på alla operativ system och program, förutsatt att du har åtkomst till en TCP-lyssnings port. Hybridanslutningar funktionen känner inte igen eller bryr sig om vad applikations protokollet är, eller vad du får åtkomst till. Det ger bara nätverks åtkomst.  
 
 
 ## <a name="how-it-works"></a>Hur det fungerar ##
-Funktionen Hybridanslutningar består av två utgående samtal till Azure Service Bus Relay. Det finns en anslutning från ett bibliotek på värden där din app körs i App Service. Det finns också en anslutning från Hybrid Connection Manager (HCM) till Service Bus Relay. Den HCM-system är en relay-tjänsten som du distribuerar i nätverket som är värd för den resurs som du försöker komma åt. 
+Funktionen Hybridanslutningar består av två utgående anrop till Azure Service Bus relä. Det finns en anslutning från ett bibliotek på värden där appen körs i App Service. Det finns också en anslutning från Hybridanslutningshanteraren (HCM) till Service Bus Relay. HCM är en relä tjänst som du distribuerar i det nätverk som är värd för resursen som du försöker få åtkomst till. 
 
-Via två kopplade anslutningar har din app en TCP-tunnel till en fast värd: port-kombination på andra sidan av den HCM-system. Anslutningen använder TLS 1.2 för säkerhet och nycklar för delad åtkomst (signatur) för autentisering och auktorisering.    
+Via de två anslutna anslutningarna har din app en TCP-tunnel till en fast värd: port kombination på den andra sidan av HCM. Anslutningen använder TLS 1,2 för säkerhets-och SAS-nycklar (signatur för delad åtkomst) för autentisering och auktorisering.    
 
-![Diagram över Hybridanslutning övergripande flöde][1]
+![Diagram över hög nivå flöde för Hybrid anslutning][1]
 
-När din app skickar en DNS-begäran som matchar en konfigurerad Hybridanslutning slutpunkt, dirigeras utgående TCP-trafik via Hybridanslutningen.  
+När din app gör en DNS-begäran som matchar en konfigurerad hybrid anslutnings slut punkt omdirigeras utgående TCP-trafik via hybrid anslutningen.  
 
 > [!NOTE]
-> Det innebär att du ska försöker alltid använda ett DNS-namn för din Hybridanslutning. Vissa klientprogrammet gör inte en DNS-sökning om slutpunkten använder en IP-adress i stället.
+> Det innebär att du alltid bör försöka använda ett DNS-namn för din hybrid anslutning. Vissa klient program gör ingen DNS-sökning om slut punkten använder en IP-adress i stället.
 >
 
-### <a name="app-service-hybrid-connection-benefits"></a>App Service-Hybridanslutning fördelar ###
+### <a name="app-service-hybrid-connection-benefits"></a>App Service hybrid anslutnings förmåner ###
 
-Det finns ett antal fördelar med att funktionen för Hybridanslutningar, inklusive:
+Det finns ett antal fördelar med Hybridanslutningar-kapaciteten, inklusive:
 
 - Appar kan komma åt lokala system och tjänster på ett säkert sätt.
-- Funktionen kräver inte en internet-tillgänglig slutpunkt.
+- Funktionen kräver inte en tillgänglig slut punkt för Internet.
 - Det går snabbt och enkelt att konfigurera. 
-- Varje Hybridanslutning matchar till en enda värd: port-kombination, användbara för säkerhet.
-- Normalt kräver inte brandväggen hål. Anslutningarna är all utgående över standard webbportar.
-- Eftersom funktionen är nätverksnivån, är det oberoende av det språk som används av din app och den teknik som används av slutpunkten.
-- Det kan användas för att ge åtkomst i flera nätverk från en enda app. 
+- Varje hybrid anslutning matchar en enda värd: port kombination, vilket är användbart för säkerhet.
+- Det kräver normalt inte brand Väggs hål. Anslutningarna är alla utgående via standard webb portar.
+- Eftersom funktionen är nätverks nivå, är den oberoende till det språk som används av din app och den teknik som används av slut punkten.
+- Den kan användas för att ge åtkomst i flera nätverk från en enda app. 
 
-### <a name="things-you-cannot-do-with-hybrid-connections"></a>Saker du kan göra med Hybrid Connections ###
+### <a name="things-you-cannot-do-with-hybrid-connections"></a>Saker som du inte kan göra med Hybridanslutningar ###
 
-Saker du kan göra med Hybrid Connections är:
+Saker som du inte kan göra med Hybridanslutningar inkluderar:
 
 - Montera en enhet.
-- Använda UDP.
-- Åtkomst till TCP-baserade tjänster som använder dynamiska portar, till exempel inaktivt läge för FTP eller utökat inaktivt läge.
+- Använd UDP.
+- Få åtkomst till TCP-baserade tjänster som använder dynamiska portar, till exempel FTP passivt läge eller utökat passivt läge.
 - Stöd för LDAP, eftersom det kan kräva UDP.
-- Stöd för Active Directory, eftersom det går inte att ansluta en App Service-arbetare.
+- Stöd Active Directory, eftersom du inte kan ansluta till en App Service Worker.
 
-## <a name="add-and-create-hybrid-connections-in-your-app"></a>Lägg till och skapa Hybridanslutningar i din app ##
+## <a name="add-and-create-hybrid-connections-in-your-app"></a>Lägga till och skapa Hybridanslutningar i din app ##
 
-Om du vill skapa en Hybridanslutning går du till den [Azure-portalen] [ portal] och välj din app. Välj **nätverk** > **konfigurera slutpunkterna för din Hybridanslutning**. Här kan du se Hybridanslutningar som är konfigurerade för din app.  
+Om du vill skapa en hybrid anslutning går du till [Azure Portal][portal] och väljer din app. Välj **nätverk** > **Konfigurera hybrid anslutnings slut punkter**. Här kan du se de Hybridanslutningar som har kon figurer ATS för din app.  
 
-![Skärmbild av Hybridanslutningen lista][2]
+![Skärm bild av hybrid anslutnings lista][2]
 
-Om du vill lägga till en ny Hybridanslutning, Välj **[+] Lägg till hybridanslutning**.  En lista över Hybridanslutningar som du redan har skapat visas. Om du vill lägga till en eller flera av dem till din app, väljer du de som du vill och välj sedan **Lägg till markerade Hybridanslutning**.  
+Om du vill lägga till en ny hybrid anslutning väljer du **[+] Lägg till hybrid anslutning**.  Du ser en lista över de Hybridanslutningar som du redan har skapat. Om du vill lägga till en eller flera av dem i din app väljer du de som du vill använda och väljer sedan **Lägg till vald hybrid anslutning**.  
 
-![Skärmbild av Hybridanslutningen portal][3]
+![Skärm bild av hybrid anslutnings portalen][3]
 
-Om du vill skapa en ny Hybridanslutning väljer **Skapa ny hybridanslutning**. Ange den: 
+Om du vill skapa en ny hybrid anslutning väljer du **Skapa ny hybrid anslutning**. Ange: 
 
-- Namn på hybridanslutning.
-- Slutpunktens värdnamn.
-- Slutpunktsport.
-- Service Bus-namnområde som du vill använda.
+- Namn på Hybrid anslutning.
+- Slut punkts namn.
+- Slut punkts port.
+- Service Bus namn område som du vill använda.
 
-![Skärmbild av skapa nya hybrid dialogrutan anslutning][4]
+![Skärm bild av dialog rutan skapa ny hybrid anslutning][4]
 
-Varje Hybridanslutning är knuten till en Service Bus-namnrymd, och varje Service Bus-namnområdet är i en Azure-region. Det är viktigt att försöka använda en Service Bus-namnområde i samma region som din app för att undvika nätverksfördröjning initierats.
+Varje hybrid anslutning är kopplad till ett Service Bus-namnområde och varje Service Bus-namnrymd finns i en Azure-region. Det är viktigt att du försöker använda ett Service Bus-namnområde i samma region som din app, för att undvika en fördröjning i nätverket.
 
-Om du vill ta bort din Hybrid-anslutning från din app, högerklicka och välj **Disconnect**.  
+Om du vill ta bort din hybrid anslutning från appen högerklickar du på den och väljer **Koppla från**.  
 
-När en Hybridanslutning har lagts till din app kan se du information på den genom att välja den. 
+När du har lagt till en hybrid anslutning i din app kan du se information om den genom att välja den. 
 
-![Skärmbild av Hybrid anslutningar information][5]
+![Skärm bild av information om hybrid anslutningar][5]
 
-### <a name="create-a-hybrid-connection-in-the-azure-relay-portal"></a>Skapa en Hybridanslutning i Azure Relay-portalen ###
+### <a name="create-a-hybrid-connection-in-the-azure-relay-portal"></a>Skapa en hybrid anslutning i Azure Relay portalen ###
 
-Förutom en Portal från din app, kan du skapa Hybridanslutningar från i Azure Relay-portalen. För en Hybridanslutning som ska användas av App Service, måste den:
+Förutom Portal upplevelsen från din app, kan du skapa Hybridanslutningar inifrån Azure Relay portalen. För att en hybrid anslutning ska kunna användas av App Service måste den:
 
-* Kräv klientautentisering.
-* Ha ett metadata-objekt med namnet slutpunkt, som består av en värd: port-kombination som värde.
+* Kräv klient auktorisering.
+* Ha ett metadataobjekt med namnet Endpoint som innehåller en värd: port kombination som värde.
 
-## <a name="hybrid-connections-and-app-service-plans"></a>Hybridanslutningar och App Service-planer ##
+## <a name="hybrid-connections-and-app-service-plans"></a>Hybridanslutningar och App Services planer ##
 
-App Service-Hybridanslutningar är endast tillgängliga i Basic, Standard, Premium och isolerad prissättning SKU: er. Det finns begränsningar som är kopplad till prisplanen.  
+App Service Hybridanslutningar är bara tillgängliga i SKU: er för Basic, standard, Premium och isolerade priser. Det finns gränser som är knutna till pris planen.  
 
-| Prisavtal | Antalet Hybridanslutningar som kan användas i planen |
+| Pris plan | Antal Hybridanslutningar användbara i planen |
 |----|----|
 | Basic | 5 |
 | Standard | 25 |
 | Premium | 200 |
 | Isolerad | 200 |
 
-App Service-planen Användargränssnittet visar hur många Hybridanslutningar används och vilka appar.  
+App Service plan användar gränssnitt visar hur många Hybridanslutningar som används och av vilka appar.  
 
-![Skärmbild för App Service-plan egenskaper][6]
+![Skärm bild av App Service plan egenskaper][6]
 
-Välj Hybridanslutningen att se information. Du kan se all information som du såg i vyn app. Du kan också se hur många andra appar i samma plan som använder den Hybridanslutning.
+Välj hybrid anslutning för att se information. Du kan se all information som du såg i vyn app. Du kan också se hur många andra appar i samma plan som använder hybrid anslutningen.
 
-Det finns en gräns för antalet Hybridanslutning slutpunkter som kan användas i en App Service-plan. Varje Hybridanslutning används, men kan användas i alla appar i den här planen. Exempelvis kan räknas en enda Hybridanslutning som används i fem separata appar i en App Service-plan som en Hybridanslutning.
+Det finns en gräns för antalet hybrid anslutnings slut punkter som kan användas i en App Service plan. Varje hybrid anslutning som används kan dock användas över valfritt antal appar i planen. Till exempel räknas en enskild hybrid anslutning som används i fem separata appar i ett App Service plan som en hybrid anslutning.
 
 ### <a name="pricing"></a>Prissättning ###
 
-Förutom att det finns ett App Service-plan SKU-krav, finns det en ytterligare kostnad till med hjälp av Hybridanslutningar. Det finns en avgift för varje lyssnare som används av en Hybridanslutning. Lyssnaren är Hybridanslutningshanteraren. Om du har fem Hybridanslutningar som stöds av två Hybridanslutningshanterare, som är 10 lyssnare. Mer information finns i [priser för Service Bus][sbpricing].
+Förutom att det finns ett App Service plan SKU-krav finns det ytterligare kostnader att använda Hybridanslutningar. Det finns en avgift för varje lyssnare som används av en hybrid anslutning. Lyssnaren är Hybridanslutningshanteraren. Om du har fem Hybridanslutningar stöd för två hybrid anslutnings hanterare, är det 10 lyssnare. Mer information finns i [Service Bus prissättning][sbpricing].
 
-## <a name="hybrid-connection-manager"></a>Hybridanslutningshanterare ##
+## <a name="hybrid-connection-manager"></a>Hybridanslutningshanteraren ##
 
-Funktionen Hybridanslutningar kräver en relay agent i nätverket som är värd för din Hybridanslutning slutpunkt. Den reläagent kallas Hybrid Connection Manager (HCM). Ladda ned HCM-system, från din app i den [Azure-portalen][portal]väljer **nätverk** > **konfigurera dina slutpunkterförHybridanslutning**.  
+Den Hybridanslutningar funktionen kräver en Relay-Agent i nätverket som är värd för Hybrid anslutnings slut punkten. Den Relay-agenten kallas för Hybridanslutningshanteraren (HCM). Om du vill ladda ned HCM från din app i [Azure Portal][portal]väljer du **nätverk** > **Konfigurera hybrid anslutnings slut punkter**.  
 
-Det här verktyget körs på Windows Server 2012 och senare. HCM körs som en tjänst och ansluter utgående trafik till Azure Relay på port 443.  
+Verktyget körs på Windows Server 2012 och senare. HCM körs som en tjänst och ansluter utgående till Azure Relay på port 443.  
 
-Du kan köra HybridConnectionManagerUi.exe för att använda Användargränssnittet för verktyget när du har installerat HCM-system. Den här filen finns i installationskatalogen för Hybridanslutningshanteraren. I Windows 10, kan du också söka efter *Hybridanslutningshanteraren UI* i Sök-rutan.  
+När du har installerat HCM kan du köra HybridConnectionManagerUi. exe för att använda användar gränssnittet för verktyget. Den här filen finns i installations katalogen för Hybridanslutningshanteraren. I Windows 10 kan du också bara söka efter *Hybridanslutningshanteraren användar gränssnitt* i sökrutan.  
 
-![Skärmbild av Hybridanslutningshanteraren][7]
+![Skärm bild av Hybridanslutningshanteraren][7]
 
-När du startar HCM UI, är det första som du ser en tabell med alla Hybridanslutningar som är konfigurerade med den här instansen av den HCM-system. Om du vill göra några ändringar först autentisera med Azure. 
+När du startar HCM-ANVÄNDARGRÄNSSNITTET är det första du ser en tabell med en lista över alla Hybridanslutningar som har kon figurer ATS med den här instansen av HCM. Om du vill göra några ändringar måste du först autentisera med Azure. 
 
-Att lägga till en eller flera Hybridanslutningar i din HCM:
+Så här lägger du till en eller flera Hybridanslutningar till din HCM:
 
-1. Starta HCM-Användargränssnittet.
-2. Välj **konfigurera en annan Hybridanslutning**.
-![Skärmbild av konfigurera nya Hybridanslutningar][8]
+1. Starta HCM-ANVÄNDARGRÄNSSNITTET.
+2. Välj **Konfigurera en annan hybrid anslutning**.
+![Skärm bild av konfigurera nya Hybridanslutningar][8]
 
-1. Logga in med ditt Azure-konto för att hämta din Hybrid-anslutningar som är tillgängliga med dina prenumerationer. HCM fortsätter inte att använda dina Azure-konto utöver det. 
+1. Logga in med ditt Azure-konto för att få din Hybridanslutningar tillgänglig med dina prenumerationer. HCM fortsätter inte att använda ditt Azure-konto utöver det. 
 1. Välj en prenumeration.
-1. Välj Hybridanslutningar som du vill HCM vidarebefordra.
-![Skärmbild av Hybridanslutningar][9]
+1. Välj den Hybridanslutningar som du vill att HCM ska vidarebefordra.
+![Skärm bild av Hybridanslutningar][9]
 
 1. Välj **Spara**.
 
-Du kan nu se Hybridanslutningar som du har lagt till. Du kan också välja konfigurerade Hybridanslutningen att se information.
+Nu kan du se Hybridanslutningar du har lagt till. Du kan också välja den konfigurerade hybrid anslutningen för att se information.
 
-![Skärmbild av Hybridanslutningsinformationen][10]
+![Skärm bild av hybrid anslutnings information][10]
 
-För att stödja Hybridanslutningar som den är konfigurerad med kräver HCM-system:
+HCM kräver följande för att stödja den Hybridanslutningar den är konfigurerad med:
 
 - TCP-åtkomst till Azure via port 443.
-- TCP-åtkomst till Hybrid Anslutningens slutpunkt.
-- Möjlighet att göra DNS look-ups på slutpunktsvärd och Service Bus-namnområdet.
+- TCP-åtkomst till hybrid anslutnings slut punkten.
+- Möjligheten att göra DNS-sökning på slut punkts värden och Service Bus namnrymd.
 
 > [!NOTE]
-> Azure Relay förlitar sig på Web Sockets för anslutning. Den här funktionen är endast tillgänglig på Windows Server 2012 eller senare. På grund av att stöds HCM inte på något tidigare än Windows Server 2012.
+> Azure Relay är beroende av Web Sockets för anslutning. Den här funktionen är endast tillgänglig på Windows Server 2012 eller senare. Därför stöds inte HCM på något som är tidigare än Windows Server 2012.
 >
 
 ### <a name="redundancy"></a>Redundans ###
 
-Varje HCM-system har stöd för flera Hybridanslutningar. Alla angivna Hybridanslutning stöds också av flera HCMs. Standardinställningen är att dirigera trafik över de konfigurerade HCMs för alla angivna slutpunkten. Om du vill ha hög tillgänglighet på Hybrid Connections från ditt nätverk, kan du köra flera HCMs på separata datorer. Den distribution algoritmen används av den vidarebefordrande tjänsten för att distribuera trafik till HCMs är slumpmässig tilldelning. 
+Varje HCM kan stödja flera Hybridanslutningar. Dessutom kan en eventuell hybrid anslutning stödjas av flera HCMs. Standard beteendet är att dirigera trafik över de konfigurerade HCMs för alla angivna slut punkter. Om du vill ha hög tillgänglighet på din Hybridanslutningar från nätverket kan du köra flera HCMs på separata datorer. Algoritmen för belastnings fördelning som används av relä tjänsten för att distribuera trafik till HCMs är slumpmässig tilldelning. 
 
-### <a name="manually-add-a-hybrid-connection"></a>Lägg manuellt till en Hybridanslutning ###
+### <a name="manually-add-a-hybrid-connection"></a>Lägg till en hybrid anslutning manuellt ###
 
-Dela anslutningssträng för gateway för Hybridanslutning med dem om du vill aktivera någon utanför din prenumeration för att köra en HCM-instans för en viss Hybridanslutningen. Du kan se anslutningssträng för gateway i egenskaperna för Hybridanslutning i det [Azure-portalen][portal]. Om du vill använda strängen, Välj **ange manuellt** i HCM-system och klistra in anslutningssträngen för gatewayen.
+Om du vill att någon utanför din prenumeration ska vara värd för en HCM-instans för en specifik hybrid anslutning, delar du Gateway-anslutningssträngen för Hybrid anslutningen med dem. Du kan se Gateway-anslutningssträngen i egenskaperna för Hybrid anslutningen i [Azure Portal][portal]. Om du vill använda den strängen väljer du **ange manuellt** i HCM och klistrar in anslutnings strängen för gatewayen.
 
-![Lägg manuellt till en Hybridanslutning][11]
+![Lägg till en hybrid anslutning manuellt][11]
 
 ### <a name="upgrade"></a>Uppgradera ###
 
-Det är periodiska uppdateringar till Hybridanslutningshanteraren åtgärda problem eller tillhandahålla förbättringar. När uppgraderingar släpps, visas ett popup-fönster i HCM UI. Tillämpa uppgraderingen tillämpa ändringarna och starta om den HCM-system. 
+Det finns periodiska uppdateringar av Hybridanslutningshanteraren för att åtgärda problem eller tillhandahålla förbättringar. När uppgraderingar publiceras visas en popup-meny i HCM-ANVÄNDARGRÄNSSNITTET. Om du använder uppgraderingen tillämpas ändringarna och du kan starta om HCM. 
 
-## <a name="adding-a-hybrid-connection-to-your-app-programmatically"></a>Att lägga till en Hybridanslutning i din app via programmering ##
+## <a name="adding-a-hybrid-connection-to-your-app-programmatically"></a>Lägga till en hybrid anslutning till appen program mässigt ##
 
-API: er som anges nedan kan användas direkt för att hantera Hybridanslutningar som är ansluten till dina appar. 
+API: erna som anges nedan kan användas direkt för att hantera de Hybridanslutningar som är anslutna till dina appar. 
 
     /subscriptions/[subscription name]/resourceGroups/[resource group name]/providers/Microsoft.Web/sites/[app name]/hybridConnectionNamespaces/[relay namespace name]/relays/[hybrid connection name]?api-version=2016-08-01
 
-JSON-objekt som är associerade med en Hybridanslutning ser ut som:
+JSON-objektet som är associerat med en hybrid anslutning ser ut så här:
 
     {
       "name": "[hybrid connection name]",
@@ -197,7 +197,7 @@ JSON-objekt som är associerade med en Hybridanslutning ser ut som:
       }
     }
 
-Ett sätt att använda den här informationen är med armclient som du kan hämta från den [ARMClient] [ armclient] GitHub-projektet. Här är ett exempel på bifoga en befintlig Hybrid-anslutning till din app. Skapa en JSON-fil per ovan schemat som:
+Ett sätt att använda den här informationen är med armclient, som du kan hämta från [armclient][armclient] GitHub-projektet. Här är ett exempel på hur du kopplar en befintlig hybrid anslutning till din app. Skapa en JSON-fil enligt schemat ovan, t. ex.:
 
     {
       "name": "relay-demo-hc",
@@ -214,26 +214,26 @@ Ett sätt att använda den här informationen är med armclient som du kan hämt
       }
     }
 
-Om du vill använda detta API måste skicka nyckel och relay resurs-ID. Om du har sparat din information med filename hctest.json kör detta kommando för att koppla din Hybrid-anslutning till din app: 
+Om du vill använda det här API: et behöver du skicka nyckel och vidarebefordra resurs-ID. Om du har sparat informationen med fil namnet hctest. JSON skickar du det här kommandot för att ansluta din hybrid anslutning till din app: 
 
     armclient login
     armclient put /subscriptions/ebcidic-asci-anna-nath-rak1111111/resourceGroups/myapp-rg/providers/Microsoft.Web/sites/myhcdemoapp/hybridConnectionNamespaces/demo-relay/relays/relay-demo-hc?api-version=2016-08-01 @hctest.json
 
 ## <a name="troubleshooting"></a>Felsökning ##
 
-Status för ”ansluten” innebär att minst ett HCM-system har konfigurerats med den Hybridanslutning och kan nå Azure. Om statusen för din Hybridanslutning inte anger **ansluten**, din Hybridanslutning har inte konfigurerats på alla HCM-system som har åtkomst till Azure.
+Statusen "ansluten" innebär att minst en HCM har kon figurer ATS med hybrid anslutningen och att den kan komma åt Azure. Om statusen för din hybrid anslutning inte är **ansluten**konfigureras inte din hybrid anslutning på någon HCM som har åtkomst till Azure.
 
-Den främsta orsaken som klienter inte kan ansluta till sina slutpunkt beror på slutpunkten som angavs med en IP-adress i stället för ett DNS-namn. Om din app inte går att nå den önskade slutpunkten och du använde en IP-adress, växla till ett DNS-namn som är giltig på värden där HCM körs. Kontrollera också att DNS-namnet matchas korrekt på den värd där HCM körs. Bekräfta att det finns en anslutning från den värd där HCM körs till Hybrid Anslutningens slutpunkt.  
+Den primära orsaken till att klienterna inte kan ansluta till slut punkten beror på att slut punkten angavs med en IP-adress i stället för ett DNS-namn. Om din app inte kan komma åt den önskade slut punkten och du använde en IP-adress, byter du till att använda ett DNS-namn som är giltigt på den värd där HCM körs. Kontrol lera också att DNS-namnet matchas korrekt på den värd där HCM körs. Bekräfta att det finns en anslutning från värden där HCM körs till hybrid anslutningens slut punkt.  
 
-I App Service, den **tcpping** kommandoradsverktyg som kan anropas från konsolen avancerade verktyg (Kudu). Det här verktyget kan berätta om du har åtkomst till en TCP-slutpunkt, men den inte den information om du har åtkomst till en Hybridanslutning slutpunkt. När du använder verktyget i konsolen mot en Hybridanslutning slutpunkt, bekräftar du endast som används för en värd: port-kombination.  
+I App Service kan kommando rads verktyget **tcpping** anropas från kudu-konsolen (Advanced tools). Det här verktyget kan meddela dig om du har åtkomst till en TCP-slutpunkt, men om du har åtkomst till en hybrid anslutnings slut punkt. När du använder verktyget i-konsolen mot en hybrid anslutnings slut punkt bekräftar du bara att den använder en värd: port kombination.  
 
-Om du har en kommandorad-klient för din slutpunkt kan testa du anslutningen från app-konsolen. Exempelvis kan testa du åtkomst till web server-slutpunkter med hjälp av curl.
+Om du har en kommando rads klient för slut punkten kan du testa anslutningen från App-konsolen. Du kan till exempel testa åtkomst till webb server slut punkter med hjälp av sväng.
 
 ## <a name="biztalk-hybrid-connections"></a>BizTalks hybridanslutningar ##
 
-Tidig form av den här funktionen anropades BizTalk-Hybridanslutningar. Den här funktionen slutet av livslängd har gått den 31 maj 2018 och upphört med sin verksamhet. BizTalk-hybridanslutningar har tagits bort från alla appar och kan inte nås via portalen eller API: et. Om du fortfarande har dessa äldre anslutningar som konfigurerats i Hybridanslutningshanteraren kommer du se statusen utgått och visar en instruktion i slutet av liv längst ned på sidan.
+Det tidigaste formuläret för den här funktionen heter BizTalk Hybridanslutningar. Den här funktionen slutade liv den 31 maj 2018 och upphör att användas. BizTalk Hybrid Connections har tagits bort från alla appar och är inte tillgängliga via portalen eller API: et. Om du fortfarande har de här äldre anslutningarna konfigurerade i Hybridanslutningshanteraren, ser du statusen upphör att gälla och visar ett slut på Life-uttryck längst ned.
 
-![BizTalk-Hybridanslutningar i den HCM-system][12]
+![BizTalk-Hybridanslutningar i HCM][12]
 
 
 <!--Image references-->

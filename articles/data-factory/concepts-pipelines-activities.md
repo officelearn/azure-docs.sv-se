@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: shlo
-ms.openlocfilehash: 63a86fb9498c7c1b1cd527accca84c83a28e01c3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5e34dae5570c64ec2c9fdc478ba8ec1bf4bce9d2
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65788660"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976750"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipelines och aktiviteter i Azure Data Factory
-> [!div class="op_single_selector" title1="Välj versionen av Data Factory-tjänsten som du använder:"]
+> [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
 > * [Version 1](v1/data-factory-create-pipelines.md)
 > * [Aktuell version](concepts-pipelines-activities.md)
 
@@ -54,11 +54,13 @@ Datatransformeringsaktivitet | Compute-miljö
 [MapReduce](transform-data-using-hadoop-map-reduce.md) | HDInsight [Hadoop]
 [Hadoop Streaming](transform-data-using-hadoop-streaming.md) | HDInsight [Hadoop]
 [Spark](transform-data-using-spark.md) | HDInsight [Hadoop]
-[Machine Learning-aktiviteter: Batchkörning och resursuppdatering](transform-data-using-machine-learning.md) | Azure VM
+[Machine Learning aktiviteter: Batch-körning och uppdaterings resurs](transform-data-using-machine-learning.md) | Azure VM
 [Lagrad procedur](transform-data-using-stored-procedure.md) | Azure SQL, Azure SQL Data Warehouse eller SQL Server
 [U-SQL](transform-data-using-data-lake-analytics.md) | Azure Data Lake Analytics
 [Anpassad kod](transform-data-using-dotnet-custom-activity.md) | Azure Batch
 [Databricks-anteckningsbok](transform-data-databricks-notebook.md) | Azure Databricks
+[Databricks jar-aktivitet](transform-data-databricks-jar.md) | Azure Databricks
+[Databricks python-aktivitet](transform-data-databricks-python.md) | Azure Databricks
 
 Mer information finns i artikeln om [datatransformeringsaktiviteter](transform-data.md).
 
@@ -94,15 +96,15 @@ Så här definieras en pipeline i JSON-format:
 }
 ```
 
-Tagg | Beskrivning | Typ | Obligatoriskt
+Tagga | Beskrivning | type | Obligatorisk
 --- | ----------- | ---- | --------
-name | Namnet på pipeline. Ange ett namn som representerar åtgärden som pipeline utför. <br/><ul><li>Maximalt antal tecken: 140</li><li>Måste börja med en bokstav, siffra eller ett understreck (\_)</li><li>Följande tecken är inte tillåtna: ”.”, ”+”, ”?”, ”/”, ”<”,”>”,” * ”,”%”,”&”,”:”,”\”</li></ul> | String | Ja
-description | Ange texten som beskriver vad pipeline används till. | String | Nej
+name | Namnet på pipeline. Ange ett namn som representerar åtgärden som pipeline utför. <br/><ul><li>Maximalt antal tecken: 140</li><li>Måste börja med en bokstav, en siffra eller ett under streck (\_)</li><li>Följande tecken är inte tillåtna: ”.”, ”+”, ”?”, ”/”, ”<”,”>”,” * ”,”%”,”&”,”:”,”\”</li></ul> | Sträng | Ja
+description | Ange texten som beskriver vad pipeline används till. | Sträng | Nej
 activities | Avsnittet **activities** kan ha en eller flera definierade aktiviteter. I avsnittet [Aktivitets-JSON](#activity-json) finns information om aktivitets-JSON-elementet. | Array | Ja
 parameters | Avsnittet **parameters** kan ha en eller flera definierade parametrar i pipeline, vilket gör pipeline flexibel för återanvändning. | List | Nej
 
 ## <a name="activity-json"></a>Aktivitets-JSON
-Avsnittet **activities** kan ha en eller flera definierade aktiviteter. Det finns två typer av aktiviteter: Körning och Kontrollaktiviteter.
+Avsnittet **activities** kan ha en eller flera definierade aktiviteter. Det finns två huvud typer av aktiviteter: Aktiviteter för körning och kontroll.
 
 ### <a name="execution-activities"></a>Körningsaktiviteter
 I körningsaktiviteter ingår [dataförflyttning](#data-movement-activities) och [datatransformering](#data-transformation-activities). De har följande toppnivåstruktur:
@@ -127,9 +129,9 @@ I körningsaktiviteter ingår [dataförflyttning](#data-movement-activities) och
 
 I följande tabell beskrivs egenskaperna i definitionen för aktivitets-JSON:
 
-Tagga | Beskrivning | Krävs
+Tagga | Beskrivning | Obligatorisk
 --- | ----------- | ---------
-name | Namnet på aktiviteten. Ange ett namn som representerar åtgärden som aktiviteten utför. <br/><ul><li>Maximalt antal tecken: 55</li><li>Måste börja med en bokstav siffra eller ett understreck (\_)</li><li>Följande tecken är inte tillåtna: ”.”, ”+”, ”?”, ”/”, ”<”,”>”,” * ”,”%”,”&”,”:”,”\” | Ja</li></ul>
+name | Namnet på aktiviteten. Ange ett namn som representerar åtgärden som aktiviteten utför. <br/><ul><li>Maximalt antal tecken: 55</li><li>Måste börja med en bokstavs siffra eller ett under streck (\_)</li><li>Följande tecken är inte tillåtna: ”.”, ”+”, ”?”, ”/”, ”<”,”>”,” * ”,”%”,”&”,”:”,”\” | Ja</li></ul>
 description | Text som beskriver vad aktiviteten används till | Ja
 type | Typ av aktivitet. Information om olika typer av aktiviteter finns i avsnitten [Dataförflyttningsaktiviteter](#data-movement-activities), [Datatransformeringsaktiviteter](#data-transformation-activities) och [Kontrollaktiviteter](#control-activities). | Ja
 linkedServiceName | Namnet på den länkade tjänst som används av aktiviteten.<br/><br/>En aktivitet kan kräva att du anger den länkade tjänst som länkar till den nödvändiga beräkningsmiljön. | Ja för HDInsight-aktivitet, Azure Machine Learning-batchbedömningsaktivitet, lagrad proceduraktivitet. <br/><br/>Nej för alla andra
@@ -168,12 +170,12 @@ Principer påverkar körningsbeteendet hos en aktivitet och ger konfigurationsal
 }
 ```
 
-JSON-namn | Beskrivning | Tillåtna värden | Obligatoriskt
+JSON-namn | Beskrivning | Tillåtna värden | Obligatorisk
 --------- | ----------- | -------------- | --------
-timeout | Anger tidsgränsen för aktivitetens körning. | Tidsintervall | Nej. Standardtidsgränsen är 7 dagar.
+timeout | Anger tidsgränsen för aktivitetens körning. | Timespan | Nej. Standardtidsgränsen är 7 dagar.
 retry | Max. antal omförsök | Integer | Nej. Standardvärdet är 0
 retryIntervalInSeconds | Fördröjningen mellan omförsök i sekunder | Integer | Nej. Standardvärdet är 30 sekunder
-secureOutput | Utdata från aktiviteten betraktas som säkra och loggas inte för övervakning om värdet är inställt på sant. | Boolean | Nej. Standardvärdet är false.
+secureOutput | Utdata från aktiviteten betraktas som säkra och loggas inte för övervakning om värdet är inställt på sant. | Boolesk | Nej. Standardvärdet är false.
 
 ### <a name="control-activity"></a>Kontrollaktivitet
 Kontrollaktiviteter har följande toppnivåstruktur:
@@ -192,9 +194,9 @@ Kontrollaktiviteter har följande toppnivåstruktur:
 }
 ```
 
-Tagg | Beskrivning | Krävs
+Tagga | Beskrivning | Obligatorisk
 --- | ----------- | --------
-name | Namnet på aktiviteten. Ange ett namn som representerar åtgärden som aktiviteten utför.<br/><ul><li>Maximalt antal tecken: 55</li><li>Måste börja med en bokstav siffra eller ett understreck (\_)</li><li>Följande tecken är inte tillåtna: ”.”, ”+”, ”?”, ”/”, ”<”,”>”,” * ”,”%”,”&”,”:”,”\” | Ja</li><ul>
+name | Namnet på aktiviteten. Ange ett namn som representerar åtgärden som aktiviteten utför.<br/><ul><li>Maximalt antal tecken: 55</li><li>Måste börja med en bokstavs siffra eller ett under streck (\_)</li><li>Följande tecken är inte tillåtna: ”.”, ”+”, ”?”, ”/”, ”<”,”>”,” * ”,”%”,”&”,”:”,”\” | Ja</li><ul>
 description | Text som beskriver vad aktiviteten används till | Ja
 type | Typ av aktivitet. Information om olika typer av aktiviteter finns i avsnitten [Dataförflyttningsaktiviteter](#data-movement-activities), [Datatransformeringsaktiviteter](#data-transformation-activities) och [Kontrollaktiviteter](#control-activities). | Ja
 typeProperties | Egenskaperna i avsnittet typeProperties beror på varje typ av aktivitet. Om du vill visa typegenskaper för en aktivitet klickar du på länkarna till aktiviteten i föregående avsnitt. | Nej
@@ -203,16 +205,16 @@ dependsOn | Den här egenskapen används till att definiera aktivitetsberoende o
 ### <a name="activity-dependency"></a>Aktivitetsberoende
 Aktivitetsberoende definierar hur efterföljande aktiviteter beror på tidigare aktiviteter, vilket fastställer villkoret för om nästa uppgift ska köras. En aktivitet kan vara beroende av en eller flera tidigare aktiviteter med olika beroendevillkor.
 
-De olika beroendevillkoren är: Lyckades, misslyckades, hoppas över, har slutförts.
+De olika beroende villkoren är: Lyckades, misslyckades, hoppades över, slutfördes.
 
 Exempel: Om en pipeline har Aktivitet A -> Aktivitet B är de olika scenarier som kan ske följande:
 
-- Aktivitet B har beroendevillkor på aktivitet A med **lyckades**: Aktivitet B körs i bara lyckades om aktivitet A har den slutgiltiga statusen
-- Aktivitet B har beroendevillkor på aktivitet A med **misslyckades**: Aktivitet B körs i bara misslyckades om aktivitet A har den slutgiltiga statusen
-- Aktivitet B har beroendevillkor på aktivitet A med **slutförts**: Aktivitet B körs om aktivitet A har den slutgiltiga statusen lyckades eller misslyckades
-- Aktivitet B har beroendevillkor på aktivitet A med **hoppades över**: Aktivitet B körs om aktivitet A har den slutgiltiga statusen hoppas över. Skipped (Överhoppad) inträffar i scenariot Aktivitet X -> Aktivitet Y -> Aktivitet Z, där varje aktivitet bara körs om den tidigare aktiviteten lyckas. Om Aktivitet X misslyckas har Aktivitet Y statusen Skipped (Överhoppad) eftersom den aldrig körs. Och även Aktivitet Z har statusen Skipped (Överhoppad).
+- Aktivitet B har beroende villkor för aktivitet A med **lyckades**: Aktivitet B körs bara om aktivitet A har slut statusen slutförd
+- Aktivitet B har beroende villkor för aktivitet A med **misslyckades**: Aktivitet B körs bara om aktivitet A har slut statusen Misslyckad
+- Aktivitet B har ett beroende villkor för aktivitet A med **slutförd**: Aktivitet B körs om aktivitet A har slut statusen lyckades eller misslyckades
+- Aktivitet B har beroende villkor för aktivitet A med **hoppade över**: Aktivitet B körs om aktivitet A har slut status hoppas över. Skipped (Överhoppad) inträffar i scenariot Aktivitet X -> Aktivitet Y -> Aktivitet Z, där varje aktivitet bara körs om den tidigare aktiviteten lyckas. Om Aktivitet X misslyckas har Aktivitet Y statusen Skipped (Överhoppad) eftersom den aldrig körs. Och även Aktivitet Z har statusen Skipped (Överhoppad).
 
-#### <a name="example-activity-2-depends-on-the-activity-1-succeeding"></a>Exempel: Aktivitet 2 är beroende av aktivitet 1 lyckas
+#### <a name="example-activity-2-depends-on-the-activity-1-succeeding"></a>Exempel: Aktivitet 2 är beroende av att aktivitet 1 lyckas
 
 ```json
 {

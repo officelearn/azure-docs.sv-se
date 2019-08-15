@@ -6,15 +6,15 @@ keywords: Encoding; encoders; Media
 author: johndeu
 manager: johndeu
 ms.author: johndeu
-ms.date: 08/16/2019
+ms.date: 08/08/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 1f152f7f94c12beecf015d9389ed85cb310573bd
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 6b9cb325f2bb7419e32efd5bde4705786c5dbeb5
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68297729"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934935"
 ---
 # <a name="recommended-live-streaming-encoders"></a>Rekommenderade kodare för direkt uppspelning
 
@@ -86,13 +86,13 @@ Som en Azure Media Services lokal Encoder-partner Media Services befordrar din p
 ### <a name="pass-through-live-event-verification"></a>Direkt händelse verifiering
 
 1. Kontrol lera att **slut punkten för direkt uppspelning** körs i ditt Media Services konto. 
-2. Skapa och starta direkt **sändnings** evenemanget. <br/> Mer information finns i [livehändelsetillstånd och fakturering](live-event-states-billing.md).
+2. Skapa och starta direkt sändnings evenemanget. <br/> Mer information finns i [livehändelsetillstånd och fakturering](live-event-states-billing.md).
 3. Hämta URL: en för inmatning och konfigurera din lokala kodare för att använda URL: en för att skicka en Live-dataström med flera bit hastigheter till Media Services.
 4. Hämta för hands versionen av URL: en och Använd den för att kontrol lera att inmatarna faktiskt tas emot.
 5. Skapa ett nytt **till gångs** objekt.
 6. Skapa en **Live-utdata** och Använd namnet på den till gång som du skapade.
 7. Skapa en **strömmande lokaliserare** med de inbyggda typer av **strömmande principer** .
-8. Visa en lista över Sök  vägarna för den strömmande lokaliseraren för att få tillbaka de webb adresser som ska användas.
+8. Visa en lista över Sök vägarna för den strömmande lokaliseraren för att få tillbaka de webb adresser som ska användas.
 9. Hämta värd namnet för den **slut punkt för direkt uppspelning** som du vill strömma från.
 10. Kombinera URL: en från steg 8 med värd namnet i steg 9 för att få den fullständiga URL: en.
 11. Kör din Live-kodare i cirka 10 minuter.
@@ -111,7 +111,7 @@ Som en Azure Media Services lokal Encoder-partner Media Services befordrar din p
 5. Skapa ett nytt **till gångs** objekt.
 6. Skapa en **Live-utdata** och Använd namnet på den till gång som du skapade.
 7. Skapa en **strömmande lokaliserare** med de inbyggda typer av **strömmande principer** .
-8. Visa en lista över Sök  vägarna för den strömmande lokaliseraren för att få tillbaka de webb adresser som ska användas.
+8. Visa en lista över Sök vägarna för den strömmande lokaliseraren för att få tillbaka de webb adresser som ska användas.
 9. Hämta värd namnet för den **slut punkt för direkt uppspelning** som du vill strömma från.
 10. Kombinera URL: en från steg 8 med värd namnet i steg 9 för att få den fullständiga URL: en.
 11. Kör din Live-kodare i cirka 10 minuter.

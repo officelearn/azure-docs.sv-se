@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/08/2017
 ms.author: dacurwin
-ms.openlocfilehash: 2c1890089bcb713d8ef80bca25b123b425d96607
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 2cd298323d8f455010978361078d474415e77dfa
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688678"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954532"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Säkerhetsfunktioner som hjälper till att skydda hybrid säkerhets kopieringar som använder Azure Backup
 Problem med säkerhets problem, t. ex. skadlig kod, utpressnings program vara och intrång, ökar. De här säkerhets problemen kan vara dyra, i termer av både Money och data. För att skydda mot sådana angrepp tillhandahåller Azure Backup nu säkerhetsfunktioner som hjälper dig att skydda hybrid säkerhets kopieringar. Den här artikeln beskriver hur du aktiverar och använder dessa funktioner med hjälp av en Azure Recovery Services-agent och Azure Backup Server. Dessa funktioner omfattar:
@@ -98,7 +98,7 @@ Följande kontroller har lagts till för att säkerställa att det alltid finns 
 - För daglig kvarhållning bör minst **sju** dagars kvarhållning göras.
 - För veckovis kvarhållning bör minst **fyra** veckor för kvarhållning göras.
 - För månatlig kvarhållning bör minst **tre** månaders kvarhållning göras.
-- För årlig kvarhållning bör minst **ett års** kvarhållning göras.
+- För årlig kvarhållning bör minst ett års kvarhållning göras.
 
 ## <a name="notifications-for-critical-operations"></a>Meddelanden om kritiska åtgärder
 När en kritisk åtgärd utförs, skickas vanligt vis prenumerations administratören till ett e-postmeddelande med information om åtgärden. Du kan konfigurera ytterligare e-postmottagare för dessa aviseringar med hjälp av Azure Portal.
@@ -108,7 +108,7 @@ Säkerhetsfunktionerna som nämns i den här artikeln ger skydds metoder mot rik
 ## <a name="troubleshooting-errors"></a>Felsöka fel
 | Åtgärd | Felinformation | Lösning |
 | --- | --- | --- |
-| Princip ändring |Det gick inte att ändra säkerhets kopierings principen. Fel: Den aktuella åtgärden kunde inte utföras på grund av ett internt tjänst fel [0x29834]. Försök igen om en stund. Kontakta Microsoft-supporten om problemet kvarstår. |**Orsak**<br/>Det här felet uppstår när säkerhets inställningar är aktiverade, du försöker minska kvarhållningsintervallet under de lägsta värdena som anges ovan och du är på en version som inte stöds (versioner som stöds anges i den här artikeln). <br/>**Rekommenderad åtgärd:**<br/> I det här fallet bör du ställa in kvarhållningsperioden över den minsta kvarhållningsperioden som har angetts (sju dagar i varje dag, fyra veckor för varje vecka, tre veckor för varje månad eller ett år för varje år) för att fortsätta med princip relaterade uppdateringar. Du kan också välja önskad metod för att uppdatera säkerhets kopierings agenten, Azure Backup Server och/eller DPM-UR för att utnyttja alla säkerhets uppdateringar. |
+| Princip ändring |Det gick inte att ändra säkerhets kopierings principen. Fel: Den aktuella åtgärden kunde inte utföras på grund av ett internt tjänst fel [0x29834]. Försök igen om en stund. Kontakta Microsoft-supporten om problemet kvarstår. |**Orsak**<br/>Det här felet uppstår när säkerhets inställningar är aktiverade, du försöker minska kvarhållningsintervallet under de lägsta värdena som anges ovan och du är på en version som inte stöds (versioner som stöds anges i den här artikeln). <br/>**Rekommenderad åtgärd:**<br/> I det här fallet bör du ställa in kvarhållningsperioden över den minsta kvarhållningsperioden som har angetts (sju dagar i varje dag, fyra veckor för varje vecka, tre veckor för varje månad eller ett år för varje år) för att fortsätta med principbaserad uppdatering. Du kan också välja önskad metod för att uppdatera säkerhets kopierings agenten, Azure Backup Server och/eller DPM-UR för att utnyttja alla säkerhets uppdateringar. |
 | Ändra lösen fras |Den angivna säkerhets koden är felaktig. (ID: 100130) ange rätt säkerhets kod för att slutföra den här åtgärden. |**Orsak**<br/> Det här felet uppstår när du anger en ogiltig eller utgången säkerhets kod när du utför en kritisk åtgärd (t. ex. ändrings fras). <br/>**Rekommenderad åtgärd:**<br/> Du måste ange en giltig säkerhets kod för att slutföra åtgärden. För att få PIN-koden loggar du in på Azure Portal och navigerar till Recovery Services valv > Inställningar > Egenskaper > Skapa säkerhets kod. Använd den här PIN-koden för att ändra lösen fras. |
 | Ändra lösen fras |Åtgärden kunde inte utföras. ID: 120002 |**Orsak**<br/>Det här felet uppstår när säkerhets inställningar är aktiverade, du försöker ändra lösen fras och du är på en version som inte stöds (giltiga versioner som anges i den här artikeln).<br/>**Rekommenderad åtgärd:**<br/> Om du vill ändra lösen frasen måste du först uppdatera säkerhets kopierings agenten till lägsta möjliga version 2.0.9052, Azure Backup server till minst uppdatering 1 och/eller DPM för att minst DPM 2012 R2 UR12 eller DPM 2016 UR2 (hämta länkar nedan). Ange sedan en giltig PIN-kod för säkerhet. För att få PIN-koden loggar du in på Azure Portal och navigerar till Recovery Services valv > Inställningar > Egenskaper > Skapa säkerhets kod. Använd den här PIN-koden för att ändra lösen fras. |
 

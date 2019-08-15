@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: terrylan
-ms.openlocfilehash: 0683c065285a6ddf8d966bbd3d22e88c39b34d5c
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 640900458eccc36afe58cb148ffd7b94b43be879
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68728804"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934923"
 ---
 # <a name="develop-a-secure-web-app"></a>Utveckla en säker webbapp
 
@@ -52,16 +52,16 @@ Appen är ett typiskt n-Nivåprogram med tre nivåer. Klient delen, Server delen
 
 Arkitekturen består av följande komponenter:
 
-- [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/). Tillhandahåller gateway och brand vägg för vår program arkitektur.
-- [Azure Web Apps på Linux](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro). Tillhandahåller behållar körning för att köra python-appen i en Linux-miljö.
-- [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/). Lagrar och krypterar vår Apps hemligheter och hanterar skapandet av åtkomst principer runt dem.
+- [Azure Application Gateway](../../application-gateway/index.yml). Tillhandahåller gateway och brand vägg för vår program arkitektur.
+- [Azure Web Apps på Linux](../../app-service/containers/app-service-linux-intro.md). Tillhandahåller behållar körning för att köra python-appen i en Linux-miljö.
+- [Azure Key Vault](../../key-vault/index.yml). Lagrar och krypterar vår Apps hemligheter och hanterar skapandet av åtkomst principer runt dem.
 - [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql/). Lagra appens data på ett säkert sätt.
-- [Azure Security Center](https://docs.microsoft.com/azure/security-center/) och [Azure Application](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview)insikter. Tillhandahåller övervakning och aviseringar om hur appen fungerar.
+- [Azure Security Center](../../security-center/index.yml) och [Azure Application](../../azure-monitor/app/app-insights-overview.md)insikter. Tillhandahåller övervakning och aviseringar om hur appen fungerar.
 
 ## <a name="threat-model"></a>Hot modell
 Hot modellering är en process där du kan identifiera potentiella säkerhetshot för ditt företag och program och sedan se till att en lämplig minsknings plan är på plats.
 
-Det här exemplet använde [Microsoft Threat Modeling Tool](https://docs.microsoft.com/azure/security/azure-security-threat-modeling-tool) för att implementera hot modellering för appen säker exempel. Genom att skriva diagram över komponenterna och data flödena kan du identifiera problem och hot tidigt i utvecklings processen. Detta sparar tid och pengar senare.
+Det här exemplet använde [Microsoft Threat Modeling Tool](threat-modeling-tool.md) för att implementera hot modellering för appen säker exempel. Genom att skriva diagram över komponenterna och data flödena kan du identifiera problem och hot tidigt i utvecklings processen. Detta sparar tid och pengar senare.
 
 Det här är Hot modellen för exempel appen:
 
@@ -349,19 +349,19 @@ $$ LANGUAGE PLPGSQL;
 ```
 
 
-Mer information om hur du ställer in SSL och verifiering av certifikat utfärdare för PostgreSQL finns i [Konfigurera SSL-anslutning i Azure Database for PostgreSQL](https://docs.microsoft.com/en-us/azure/postgresql/concepts-ssl-connection-security).
+Mer information om hur du ställer in SSL och verifiering av certifikat utfärdare för PostgreSQL finns i [Konfigurera SSL-anslutning i Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/concepts-ssl-connection-security).
 
 Ett rot certifikat ingår i behållaren. Stegen som vidtas för att hämta certifikatet är:
 
 1. Ladda ned certifikat filen från [certifikat utfärdaren](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt).
-2. [Hämta och installera openssl på datorn](https://docs.microsoft.com/en-us/azure/postgresql/concepts-ssl-connection-security).
+2. [Hämta och installera openssl på datorn](https://docs.microsoft.com/azure/postgresql/concepts-ssl-connection-security).
 3. Avkoda certifikat filen:
 
    ```powershell
    openssl x509 -inform DER -in BaltimoreCyberTrustRoot.crt -text -out root.crt
    ```
 
-Läs mer om hur du konfigurerar SSL-säkerhet för PostgreSQL här [Konfigurera SSL-anslutningens säkerhet](https://docs.microsoft.com/en-gb/azure/postgresql/concepts-ssl-connection-security).
+Läs mer om hur du konfigurerar SSL-säkerhet för PostgreSQL här [Konfigurera SSL-anslutningens säkerhet](https://docs.microsoft.com/azure/postgresql/concepts-ssl-connection-security).
 
 #### <a name="deploy-azure-web-apps-on-linux"></a>Distribuera Azure Web Apps på Linux
 Du kan enkelt skapa Linux-tjänster ovanpå Azure App Service som Azure tillhandahåller en uppsättning fördefinierade behållare och avbildningar för vanliga språk som python, ruby, C#och Java. Azure stöder också anpassade behållare, vilket kan göra det möjligt för praktiskt taget alla programmeringsspråk att köras på Azure App Services plattform.

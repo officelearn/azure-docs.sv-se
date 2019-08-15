@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: c91c09da31e4ecf42257b8f9c86f25c6ec39b9df
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 1190a0f34206004b72730a6af85bbe5db7d9961a
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68734647"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976775"
 ---
 # <a name="how-to-connect-to-data-sources"></a>Så här ansluter du till datakällor
 ## <a name="introduction"></a>Introduktion
@@ -28,7 +28,7 @@ När du använder standard panelen visas den här menyn på varje bricka.
 
 När du använder listvyn är menyn tillgänglig i Sök fältet överst i fönstret Portal.
 
- ![Öppna en SQL Server Reporting Services-rapport i Rapporthanteraren från Sök fältet](./media/data-catalog-how-to-connect/data-catalog-how-to-connect2.png)
+ ![Öppna en SQL Server Reporting Services-rapport i Rapporthanteraren](./media/data-catalog-how-to-connect/data-catalog-how-to-connect2.png)
 
 ## <a name="supported-client-applications"></a>Klient program som stöds
 När du använder "öppna i..." meny för data källor i Azure Data Catalog-portalen måste rätt klient program vara installerat på klient datorn.

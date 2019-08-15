@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: d7fb9fadcfac0b57fb98dc54f40ff0d2f07c6827
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: eb4f0e26d1795abc3392e9736e71093fab79aae2
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68728395"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967932"
 ---
 # <a name="security-frame-authentication--mitigations"></a>Säkerhets ram: Autentisering | Åtgärder 
 
@@ -435,7 +435,7 @@ Observera att du kan testa effektiviteten för den här konfigurationen, logga i
 | **Tillämpliga tekniker** | Generisk |
 | **Dokumentattribut**              | Gäller inte  |
 | **Reference**              | [ADAL](https://azure.microsoft.com/documentation/articles/active-directory-authentication-libraries/) |
-| **Steg** | <p>Azure AD Authentication Library (ADAL) gör det möjligt för utvecklare av klient program att enkelt autentisera användare till molnet eller lokala Active Directory (AD) och sedan hämta åtkomsttoken för att skydda API-anrop.</p><p>ADAL har många funktioner som gör autentisering enklare för utvecklare, till exempel asynkron support, ett konfigurerbart token cache-minne som lagrar åtkomsttoken och uppdateringstoken, automatisk uppdatering av token när en åtkomsttoken upphör att gälla och en uppdateringstoken är tillgänglig och kraftfull.</p><p>Genom att hantera det mesta av komplexiteten kan ADAL hjälpa utvecklare att fokusera på affärs logik i sina program och enkelt skydda resurser utan att vara expert på säkerhet. Separata bibliotek är tillgängliga för .NET, Java Script (Client och Node. js), iOS, Android och Java.</p>|
+| **Steg** | <p>Azure AD Authentication Library (ADAL) gör det möjligt för utvecklare av klient program att enkelt autentisera användare till molnet eller lokala Active Directory (AD) och sedan hämta åtkomsttoken för att skydda API-anrop.</p><p>ADAL har många funktioner som gör autentisering enklare för utvecklare, till exempel asynkron support, ett konfigurerbart token cache-minne som lagrar åtkomsttoken och uppdateringstoken, automatisk uppdatering av token när en åtkomsttoken upphör att gälla och en uppdateringstoken är tillgänglig och kraftfull.</p><p>Genom att hantera det mesta av komplexiteten kan ADAL hjälpa utvecklare att fokusera på affärs logik i sina program och enkelt skydda resurser utan att vara expert på säkerhet. Separata bibliotek är tillgängliga för .NET, Java Script (Client och Node. js), python, iOS, Android och Java.</p>|
 
 ## <a id="authn-devices-field"></a>Autentisera enheter som ansluter till fält-gatewayen
 

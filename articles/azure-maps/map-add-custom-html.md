@@ -1,6 +1,6 @@
 ---
 title: Lägg till en HTML-markör i Azure Maps | Microsoft Docs
-description: Så här lägger du till en HTML-markör till JavaScript-kartan
+description: Så här lägger du till en HTML-markör i Azure Maps Web SDK.
 author: jingjing-z
 ms.author: jinzh
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: f8777a3d0eb9b97fff6f492f181a432d98d9341c
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: ff18b8646a3845d029e9826c0895b9d3eb16bdde
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68849297"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976203"
 ---
 # <a name="add-html-markers-to-the-map"></a>Lägg till HTML-markörer i kartan
 
@@ -28,16 +28,36 @@ Den här artikeln visar hur du lägger till en anpassad HTML-fil, till exempel e
 
 ## <a name="add-an-html-marker"></a>Lägg till en HTML-markör
 
-HtmlMarker-klassen har ett standardformat. Du kan anpassa markören genom att ange färg-och text alternativen för markören. Standard formatet för HtmlMarker-klassen är en SVG-mall som har en plats hållare för färg och text. Ange färg-och text egenskaperna i HtmlMarker alternativ för en snabb anpassning. 
+[HtmlMarker](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarker?view=azure-iot-typescript-latest) -klassen har ett standardformat. Du kan anpassa markören genom att ange färg-och text alternativen för markören. Standardformat för HTML-markören är en SVG-mall som har en `{color}` - `{text}` och-plats hållare. Ange färg och text egenskaper i alternativ för HTML-markören för en snabb anpassning. 
+
+Följande kod skapar en HTML-markör och anger egenskapen Color till "DodgerBlue" och egenskapen text till "10". En popup-meny är kopplad till markören `click` och händelsen används för att växla synligheten för popup-fönstret.
+
+```javascript
+//Create a HTML marker and add it to the map.
+var marker = new atlas.HtmlMarker({
+    color: 'DodgerBlue',
+    text: '10',
+    position: [0, 0],
+    popup: new atlas.Popup({
+        content: '<div style="padding:10px">Hello World</div>',
+        pixelOffset: [0, -30]
+    })
+});
+
+map.markers.add(marker);
+
+//Add a click event to toggle the popup.
+map.events.add('click',marker, () => {
+    marker.togglePopup();
+});
+```
+
+Nedan visas det fullständiga kod exemplet för ovanstående funktioner.
 
 <br/>
 
 <iframe height='500' scrolling='no' title='Lägg till en HTML-markör till en karta' src='//codepen.io/azuremaps/embed/MVoeVw/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan <a href='https://codepen.io/azuremaps/pen/MVoeVw/'>Lägg till en HTML-markör till en karta</a> genom Azure Maps<a href='https://codepen.io/azuremaps'>@azuremaps</a>() på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
-
-I koden ovan skapar det första blocket kod ett kart objekt. Du kan se [skapa en karta](./map-create.md) för instruktioner.
-
-Det andra blocket kod lägger till en [HtmlMarker](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarker?view=azure-iot-typescript-latest) till kartan med hjälp av egenskapen [markörer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#markers) i [kart](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) klassen. HtmlMarker läggs till i kartan i [Event Listener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) -funktionen för att säkerställa att den visas när kartan har lästs in helt.
 
 ## <a name="create-svg-templated-html-marker"></a>Skapa SVG-mall för HTML-markör
 
@@ -49,7 +69,7 @@ Standardvärdet `htmlContent` för en HTML-markör är en SVG-mall `{color}` med
 </iframe>
 
 > [!TIP]
-> Azure Maps Web SDK innehåller flera SVG-bildmallar som kan användas med HTML-markörer. Mer information finns i dokumentet om [att använda bilder för mallar](how-to-use-image-templates-web-sdk.md) .
+> Azure Maps Web SDK innehåller flera SVG-bildmallar som kan användas med HTML-markörer. Mer information finns i dokumentet om [att använda](how-to-use-image-templates-web-sdk.md) bildmallar.
 
 ## <a name="add-a-css-styled-html-marker"></a>Lägg till en CSS-formaterad HTML-markör
 
@@ -62,7 +82,7 @@ En av fördelarna med HTML-markeringar är att det finns många fantastiska anpa
 
 ## <a name="draggable-html-markers"></a>Drag bara HTML-markeringar
 
-Det här exemplet visar hur du gör en HTML-markör som kan dras. Stöd `drag` förHTML`dragend` -märken ochhändelser.`dragstart`
+Det här exemplet visar hur du gör en HTML-markör som kan dras. Stöd `drag`för HTML- `dragstart`märken, `dragend` och-händelser.
 
 <br/>
 

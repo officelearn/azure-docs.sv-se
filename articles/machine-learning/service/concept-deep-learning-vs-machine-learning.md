@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
 ms.date: 08/07/2019
-ms.openlocfilehash: 4b66d015e8a182e305a36dacaa2e082288a3e19e
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 186ba03142e01c4b9340fc5b492621cc17575104
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840535"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934280"
 ---
 # <a name="introduction-to-deep-learning-vs-machine-learning"></a>Introduktion till djup inlärning eller Machine Learning
 
@@ -78,7 +78,7 @@ En viktig uppgift som djup inlärning kan utföra är e-identifiering. Företag 
 
 ## <a name="what-are-artificial-neural-networks"></a>Vad är artificiell neurala-nätverk?
 
-Ett artificiellt neurala-nätverk är en djup inlärnings modell som inspireras av det sätt biologiska neurala-nätverken i den mänskliga hjärna-processens information. Det finns flera typer av artificiella neurala-nätverk som används för närvarande. De mest populära artificiella neurala-nätverks-typologina beskrivs nedan.
+Artificiell neurala-nätverk bildas av lager av anslutna noder. I djup inlärnings modeller används neurala nätverk med ett mycket stort antal lager. De mest populära artificiella neurala-nätverks-typologina beskrivs nedan.
 
 ### <a name="feedforward-neural-network"></a>Feedforward neurala-nätverk
 

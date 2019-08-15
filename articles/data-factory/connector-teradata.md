@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: ce326d7284e22a8734f6be671a277795ba659522
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 6cbddfc5e529bc48e08407796024e5232d1a22e8
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68720527"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966373"
 ---
 # <a name="copy-data-from-teradata-by-using-azure-data-factory"></a>Kopiera data från Teradata med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -43,7 +43,9 @@ Mer specifikt stöder den här Teradata-anslutaren:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Om din Teradata inte är offentligt tillgänglig måste du konfigurera en [integration runtime med egen värd](create-self-hosted-integration-runtime.md). Integrerings körningen innehåller en inbyggd Teradata-drivrutin från och med version 3,18. Du behöver inte installera någon driv rutin manuellt. Driv rutinen kräver " C++ Visual Redistributable 2012 uppdatering 4" på den lokala datorn för integration Runtime. Om du inte redan har installerat det kan du ladda ned det [här](https://www.microsoft.com/en-sg/download/details.aspx?id=30679).
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
+
+Integrerings körningen innehåller en inbyggd Teradata-drivrutin från och med version 3,18. Du behöver inte installera någon driv rutin manuellt. Driv rutinen kräver " C++ Visual Redistributable 2012 uppdatering 4" på den lokala datorn för integration Runtime. Om du inte redan har installerat det kan du ladda ned det [här](https://www.microsoft.com/en-sg/download/details.aspx?id=30679).
 
 För en lokal version av integration runtime som är äldre än 3,18 installerar du [.net-dataprovidern för Teradata](https://go.microsoft.com/fwlink/?LinkId=278886), version 14 eller senare på integration runtime-datorn. 
 
@@ -63,7 +65,7 @@ Den länkade tjänsten Teradata stöder följande egenskaper:
 | connectionString | Anger den information som krävs för att ansluta till Teradata-databasens instans. Se följande exempel.<br/>Du kan också ange ett lösen ord i Azure Key Vault och hämta `password` konfigurationen från anslutnings strängen. Mer information finns [i lagra autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) . | Ja |
 | username | Ange ett användar namn för att ansluta till Teradata-databasen. Gäller när du använder Windows-autentisering. | Nej |
 | password | Ange ett lösen ord för det användar konto som du har angett som användar namn. Du kan också välja att [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). <br>Gäller när du använder Windows-autentisering eller refererar till ett lösen ord i Key Vault för grundläggande autentisering. | Nej |
-| connectVia | Den [integreringskörningen](concepts-integration-runtime.md) som används för att ansluta till datalagret. En integration runtime med egen värd krävs, enligt vad som krävs [.](#prerequisites) |Ja |
+| connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Läs mer från avsnittet [krav](#prerequisites) . Om den inte anges används standard Azure Integration Runtime. |Ja |
 
 **Exempel med grundläggande autentisering**
 
@@ -140,8 +142,8 @@ Följande egenskaper stöds för att kopiera data från Teradata:
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Egenskapen Type för data mängden måste anges till `TeradataTable`. | Ja |
-| database | Namnet på Teradata-databasen. | Nej (om ”frågan” i aktivitetskälla har angetts) |
-| table | Namnet på tabellen i Teradata-databasen. | Nej (om ”frågan” i aktivitetskälla har angetts) |
+| database | Namnet på Teradata-databasen. | Nej (om ”query” i aktivitetskälla har angetts) |
+| table | Namnet på tabellen i Teradata-databasen. | Nej (om ”query” i aktivitetskälla har angetts) |
 
 **Exempel:**
 
@@ -184,11 +186,10 @@ Följande egenskaper stöds för att kopiera data från Teradata:
 
 Det här avsnittet innehåller en lista över egenskaper som stöds av Teradata-källan. En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter [](concepts-pipelines-activities.md)finns i pipelines. 
 
-### <a name="teradata-as-a-source-type"></a>Teradata som käll typ
+### <a name="teradata-as-source"></a>Teradata som källa
 
-> [!TIP]
->
-> Information om hur du kan läsa in data från Teradata effektivt genom att använda data partitionering finns i avsnittet [parallell kopia från Teradata](#parallel-copy-from-teradata) .
+>[!TIP]
+>Information om hur du kan läsa in data från Teradata effektivt genom att använda data partitionering finns i avsnittet [parallell kopia från Teradata](#parallel-copy-from-teradata) .
 
 Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** för att kopiera data från Teradata:
 
@@ -200,7 +201,7 @@ Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** för att k
 | partitionSettings | Ange gruppen med inställningar för data partitionering. <br>Använd när partition alternativet inte `None`är. | Nej |
 | partitionColumnName | Ange namnet på den käll kolumn **i Integer-typ** som ska användas av intervall partitionering för parallell kopiering. Om detta inte anges identifieras primär nyckeln för tabellen automatiskt och används som partition-kolumn. <br>Använd när alternativet partition är `Hash` eller. `DynamicRange` Om du använder en fråga för att hämta källdata, Hook `?AdfHashPartitionCondition` eller `?AdfRangePartitionColumnName` i WHERE-satsen. Se exempel i [Parallel Copy från Teradata](#parallel-copy-from-teradata) -avsnittet. | Nej |
 | partitionUpperBound | Det maximala värdet för partition-kolumnen för att kopiera data. <br>Använd när partition alternativet är `DynamicRange`. Om du använder Query för att hämta källdata, Hook `?AdfRangePartitionUpbound` i WHERE-satsen. Ett exempel finns i avsnittet [Parallel Copy från Teradata](#parallel-copy-from-teradata) . | Nej |
-| PartitionLowerBound | Det minimala värdet för kolumnen partition som ut data ska kopieras. <br>Använd när alternativet partition är `DynamicRange`. Om du använder en fråga för att hämta källdata, Hook `?AdfRangePartitionLowbound` i WHERE-satsen. Ett exempel finns i avsnittet [Parallel Copy från Teradata](#parallel-copy-from-teradata) . | Nej |
+| partitionLowerBound | Det minimala värdet för kolumnen partition som ut data ska kopieras. <br>Använd när alternativet partition är `DynamicRange`. Om du använder en fråga för att hämta källdata, Hook `?AdfRangePartitionLowbound` i WHERE-satsen. Ett exempel finns i avsnittet [Parallel Copy från Teradata](#parallel-copy-from-teradata) . | Nej |
 
 > [!NOTE]
 >

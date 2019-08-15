@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 05/02/2018
 ms.author: jomolesk
-ms.openlocfilehash: 61f0b42731f98dc772a588e5840af6e8535af118
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 7b07fee46bce4c7b80346eb0b4c0fccd5245d87f
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68781081"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946878"
 ---
 # <a name="azure-security-and-compliance-blueprint-analytics-for-fedramp"></a>Azure Security and Compliance Blueprint (Handlingsplan för säkerhet och efterlevnad i Azure): Analys för FedRAMP
 
@@ -44,7 +44,7 @@ Azure SQL Database hanteras ofta via SQL Server Management Studio (SSMS), som k�
 ![Analys för FedRAMP referens arkitektur diagram](images/fedramp-analytics-reference-architecture.png?raw=true "Analys för FedRAMP referens arkitektur diagram")
 
 ### <a name="roles"></a>Roller
-Analys skissen beskriver ett scenario med tre allmänna användar typer: drift användaren, SQL/data-administratören och system teknikern. Med Azure Role-baserade Access Control (RBAC) kan du implementera exakt åtkomst hantering via inbyggda anpassade roller. Resurser är tillgängliga för att konfigurera [rollbaserad Access Control](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) och för att disponera och implementera [fördefinierade roller](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles).
+Analys skissen beskriver ett scenario med tre allmänna användar typer: drift användaren, SQL/data-administratören och system teknikern. Med Azure Role-baserade Access Control (RBAC) kan du implementera exakt åtkomst hantering via inbyggda anpassade roller. Resurser är tillgängliga för att konfigurera [rollbaserad Access Control](../../role-based-access-control/role-assignments-portal.md) och för att disponera och implementera [fördefinierade roller](../../role-based-access-control/built-in-roles.md).
 
 #### <a name="systems-engineer"></a>System tekniker
 System teknikern äger kund prenumerationen för Azure och konfigurerar distributionen av lösningen via Azure Portal.
@@ -80,11 +80,11 @@ I följande avsnitt beskrivs utvecklings-och implementerings elementen.
 **Power BI**: [Power BI](https://docs.microsoft.com/power-bi/service-azure-and-power-bi) tillhandahåller analys-och rapporterings funktioner för kunder som försöker hämta bättre insikter från sina data bearbetnings ansträngningar.
 
 ### <a name="networking"></a>Nätverk
-**Nätverks säkerhets grupper**: [NSG: er](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) har kon figurer ATS för att hantera trafik riktade mot distribuerade resurser och tjänster. Nätverks säkerhets grupper ställs in på ett schema som nekas som standard och tillåter endast trafik som finns i den förkonfigurerade Access Control listan (ACL).
+**Nätverks säkerhets grupper**: [NSG: er](../../virtual-network/virtual-network-vnet-plan-design-arm.md) har kon figurer ATS för att hantera trafik riktade mot distribuerade resurser och tjänster. Nätverks säkerhets grupper ställs in på ett schema som nekas som standard och tillåter endast trafik som finns i den förkonfigurerade Access Control listan (ACL).
 
 Varje NSG: er har vissa portar och protokoll öppna så att lösningen kan fungera säkert och korrekt. Dessutom är följande konfigurationer aktiverade för varje NSG:
   - [Diagnostikloggar och händelser](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log) är aktiverade och lagras i ett lagrings konto
-  - [Azure Monitor loggar](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics) är anslutna till NSG: s diagnostikloggar.
+  - [Azure Monitor loggar](../../azure-monitor/insights/azure-networking-analytics.md) är anslutna till NSG: s diagnostikloggar.
 
 ### <a name="data-at-rest"></a>Vilande data
 Arkitekturen skyddar data i vila genom kryptering, databas granskning och andra åtgärder.
@@ -93,38 +93,38 @@ Arkitekturen skyddar data i vila genom kryptering, databas granskning och andra 
  - Standardinställningen för datareplikering är **Geo-redundant lagring (GRS)** , som asynkront lagrar kund information i ett separat Data Center utanför den primära regionen. Detta säkerställer återställning av data i en total förlust händelse för det primära data centret.
  - **Lokalt Redundant lagring (LRS)** kan alternativt konfigureras via Azure Storage-kontot. LRS replikerar data inom en lagrings skalnings enhet som finns i samma region som kunden skapar sitt konto i. Alla data replikeras samtidigt, vilket säkerställer att inga säkerhets kopierings data går förlorade i en primär enhets skalnings enhets enhets problem.
 
-**Azure Storage** För att möta krypterade data med rest-krav kan alla tjänster som distribueras i denna referens arkitektur använda [Azure Storage](https://azure.microsoft.com/services/storage/), vilket lagrar data med [kryptering för lagringstjänst](https://docs.microsoft.com/azure/storage/storage-service-encryption).
+**Azure Storage** För att möta krypterade data med rest-krav kan alla tjänster som distribueras i denna referens arkitektur använda [Azure Storage](https://azure.microsoft.com/services/storage/), vilket lagrar data med [kryptering för lagringstjänst](../../storage/common/storage-service-encryption.md).
 
 AzureDiskEncryption
-[Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) utnyttjar BitLocker-funktionen i Windows för att tillhandahålla volym kryptering för operativ system och data diskar. Lösningen integreras med Azure Key Vault för att hjälpa dig att styra och hantera disk krypterings nycklarna.
+[Azure Disk Encryption](../azure-security-disk-encryption-overview.md) utnyttjar BitLocker-funktionen i Windows för att tillhandahålla volym kryptering för operativ system och data diskar. Lösningen integreras med Azure Key Vault för att hjälpa dig att styra och hantera disk krypterings nycklarna.
 
 **Azure SQL Database** Azure SQL Database-instansen använder följande säkerhets åtgärder för databasen:
 -   [Autentisering och auktorisering i AD](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication) möjliggör identitets hantering av databas användare och andra Microsoft-tjänster på en central plats.
--   [SQL Database Auditing](https://docs.microsoft.com/azure/sql-database/sql-database-auditing-get-started) spårar databas händelser och skriver dem till en Gransknings logg i ett Azure Storage-konto.
+-   [SQL Database Auditing](../../sql-database/sql-database-auditing.md) spårar databas händelser och skriver dem till en Gransknings logg i ett Azure Storage-konto.
 -   SQL Database har kon figurer ATS för att använda [Transparent datakryptering (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql), som utför kryptering och dekryptering i real tid av data och loggfiler för att skydda information i vila. TDE garanterar att lagrade data inte har blivit föremål för obehörig åtkomst.
 -   [Brand Väggs regler](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) förhindrar all åtkomst till databas servrar förrän rätt behörigheter har beviljats. Brandväggen ger åtkomst till databaser baserat på vilken IP-adress som varje begäran kommer från.
--   Med [SQL hot identifiering](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-get-started) kan du identifiera och svara på potentiella hot när de inträffar genom att tillhandahålla säkerhets aviseringar för misstänkta databas aktiviteter, potentiella sårbarheter, SQL-injektering och avvikande databas åtkomst mönster.
+-   Med [SQL hot identifiering](../../sql-database/sql-database-threat-detection.md) kan du identifiera och svara på potentiella hot när de inträffar genom att tillhandahålla säkerhets aviseringar för misstänkta databas aktiviteter, potentiella sårbarheter, SQL-injektering och avvikande databas åtkomst mönster.
 -   [Always Encrypted kolumner](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault) ser till att känsliga data aldrig visas som klartext i databas systemet. När du har aktiverat data kryptering kan endast klient program eller App-servrar med åtkomst till nycklarna komma åt oformaterade data.
 -   [SQL Database dynamisk data maskning](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started) kan göras efter att referens arkitekturen har distribuerats. Kunderna måste justera inställningarna för dynamisk datamaskering för att följa deras databas schema.
 
 ### <a name="logging-and-audit"></a>Loggning och granskning
-[Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-get-started) genererar en all visning av övervaknings data, inklusive aktivitets loggar, Mät värden och diagnostikdata, vilket gör det möjligt för kunderna att skapa en fullständig bild av systemets hälsa.  
-[Azure Monitor loggar](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) innehåller omfattande loggning av system-och användar aktiviteter, samt system hälsan. Den samlar in och analyserar data som genererats av resurser i Azure och lokala miljöer.
-- **Aktivitets loggar**: [Aktivitets loggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) ger inblick i åtgärder som utförs på resurser i en prenumeration.
-- **Diagnostikloggar**: [Diagnostikloggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) innehåller alla loggar som har avsänts av varje resurs. Dessa loggar omfattar Windows händelse system loggar och Azure Blob Storage, tabeller och Queue-loggar.
+[Azure Monitor](../../azure-monitor/overview.md) genererar en all visning av övervaknings data, inklusive aktivitets loggar, Mät värden och diagnostikdata, vilket gör det möjligt för kunderna att skapa en fullständig bild av systemets hälsa.  
+[Azure Monitor loggar](../azure-security-disk-encryption-overview.md) innehåller omfattande loggning av system-och användar aktiviteter, samt system hälsan. Den samlar in och analyserar data som genererats av resurser i Azure och lokala miljöer.
+- **Aktivitets loggar**: [Aktivitets loggar](../../azure-monitor/platform/activity-logs-overview.md) ger inblick i åtgärder som utförs på resurser i en prenumeration.
+- **Diagnostikloggar**: [Diagnostikloggar](../../azure-monitor/platform/diagnostic-logs-overview.md) innehåller alla loggar som har avsänts av varje resurs. Dessa loggar omfattar Windows händelse system loggar och Azure Blob Storage, tabeller och Queue-loggar.
 - **Brand Väggs loggar**: Application Gateway innehåller fullständiga diagnostik-och åtkomst loggar. Brand Väggs loggar är tillgängliga för WAF-aktiverade Application Gateway-resurser.
 - **Logg arkivering**: Alla diagnostiska loggar skriver till ett centraliserat och krypterat Azure Storage-konto för arkivering med en definierad kvarhållningsperiod på 2 dagar. Dessa loggar ansluter till Azure Monitor loggar för bearbetning, lagring och instrument panels rapportering.
 
 Dessutom ingår följande övervaknings lösningar som en del av den här arkitekturen:
 -   [Azure Automation](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker): Azure Automation lösning lagrar, kör och hanterar Runbooks.
--   [Säkerhet och granskning](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started): Säkerhet och granskning-instrumentpanelen ger bättre inblick i säkerhets läget för resurser genom att tillhandahålla mått på säkerhets domäner, viktiga problem, identifieringar, Hot information och vanliga säkerhets frågor.
--   [SQL-utvärdering](https://docs.microsoft.com/azure/log-analytics/log-analytics-sql-assessment): I SQL Health Check-lösningen bedöms risken och hälsan i Server miljöer med jämna mellanrum och ger kunderna en prioriterad lista med rekommendationer som är relaterade till den distribuerade Server infrastrukturen.
--   [Azure-aktivitets loggar](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): Aktivitetslogganalys lösning hjälper till med analys av Azures aktivitets loggar i alla Azure-prenumerationer för en kund.
+-   [Säkerhet och granskning](../../security-center/security-center-intro.md): Säkerhet och granskning-instrumentpanelen ger bättre inblick i säkerhets läget för resurser genom att tillhandahålla mått på säkerhets domäner, viktiga problem, identifieringar, Hot information och vanliga säkerhets frågor.
+-   [SQL-utvärdering](../../azure-monitor/insights/sql-assessment.md): I SQL Health Check-lösningen bedöms risken och hälsan i Server miljöer med jämna mellanrum och ger kunderna en prioriterad lista med rekommendationer som är relaterade till den distribuerade Server infrastrukturen.
+-   [Azure-aktivitets loggar](../../azure-monitor/platform/collect-activity-logs.md): Aktivitetslogganalys lösning hjälper till med analys av Azures aktivitets loggar i alla Azure-prenumerationer för en kund.
 
 ### <a name="identity-management"></a>Identitetshantering
--   Autentisering till programmet utförs med hjälp av Azure AD. Mer information finns i [integrera program med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications). Dessutom använder databasens kolumn kryptering Azure AD för att autentisera programmet till Azure SQL Database. Mer information finns i så här [skyddar du känsliga data i SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault).
--   [Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) identifierar potentiella sårbarheter som påverkar en organisations identiteter, konfigurerar automatiserade svar på identifierade misstänkta åtgärder som rör en organisations identiteter och undersöker misstänkta incidenter för att vidta lämpliga åtgärder för att lösa dem.
--   Med [Azure Role-baserade Access Control (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) kan du prioriterad åtkomst hantering för Azure. Åtkomst till prenumerationen är begränsad till prenumerations administratören.
+-   Autentisering till programmet utförs med hjälp av Azure AD. Mer information finns i [integrera program med Azure Active Directory](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md). Dessutom använder databasens kolumn kryptering Azure AD för att autentisera programmet till Azure SQL Database. Mer information finns i så här [skyddar du känsliga data i SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault).
+-   [Azure Active Directory Identity Protection](../../active-directory/identity-protection/overview.md) identifierar potentiella sårbarheter som påverkar en organisations identiteter, konfigurerar automatiserade svar på identifierade misstänkta åtgärder som rör en organisations identiteter och undersöker misstänkta incidenter för att vidta lämpliga åtgärder för att lösa dem.
+-   Med [Azure Role-baserade Access Control (RBAC)](../../role-based-access-control/role-assignments-portal.md) kan du prioriterad åtkomst hantering för Azure. Åtkomst till prenumerationen är begränsad till prenumerations administratören.
 
 Mer information om hur du använder säkerhetsfunktionerna i Azure SQL Database finns i exempel på [demonstrations program för Contoso-lektioner](https://github.com/Microsoft/azure-sql-security-sample) .
 
@@ -137,7 +137,7 @@ Mer information om hur du använder säkerhetsfunktionerna i Azure SQL Database 
 [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) eller en säker VPN-tunnel måste konfigureras för att på ett säkert sätt upprätta en anslutning till resurserna som distribueras som en del av den här referens arkitekturen för data analys. Eftersom ExpressRoute-anslutningar inte går via Internet, ger dessa anslutningar mer tillförlitlighet, snabbare hastighet, lägre fördröjning och högre säkerhet än vanliga anslutningar via Internet. Genom att konfigurera ExpressRoute eller en VPN-anslutning kan kunder lägga till ett skydds lager för data under överföring.
 
 ### <a name="azure-active-directory-setup"></a>Azure Active Directory installation
-[Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) är viktigt för att hantera distributionen och tillhandahålla åtkomst till personal som interagerar med miljön. En befintlig Windows Server-Active Directory kan integreras med AAD i [fyra klick](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-get-started-express). Kunder kan också knyta samman den distribuerade Active Directory infrastrukturen (domänkontrollanter) till en befintlig AAD genom att göra den distribuerade Active Directory-infrastrukturen till en under domän till en AAD-skog.
+[Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) är viktigt för att hantera distributionen och tillhandahålla åtkomst till personal som interagerar med miljön. En befintlig Windows Server-Active Directory kan integreras med AAD i [fyra klick](../../active-directory/hybrid/how-to-connect-install-express.md). Kunder kan också knyta samman den distribuerade Active Directory infrastrukturen (domänkontrollanter) till en befintlig AAD genom att göra den distribuerade Active Directory-infrastrukturen till en under domän till en AAD-skog.
 
 ### <a name="additional-services"></a>Ytterligare tjänster
 #### <a name="iaas---vm-considerations"></a>IaaS – överväganden för virtuella datorer
@@ -149,11 +149,11 @@ Den här PaaS-lösningen inkluderar inte några virtuella Azure IaaS-datorer. En
 - **Recovery Services valv**: [Recovery Services Vault](https://docs.microsoft.com/azure/backup/backup-azure-recovery-services-vault-overview) skyddar säkerhets kopierings data och skyddar alla konfigurationer av Azure-Virtual Machines i den här arkitekturen. Med ett Recovery Services-valv kan kunderna återställa filer och mappar från en virtuell IaaS-dator utan att återställa hela den virtuella datorn, vilket möjliggör snabbare återställnings tider.
 
 ##### <a name="monitoring-solutions"></a>Övervakningslösningar
--   [AD-utvärdering](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): Den Active Directory hälso kontroll lösningen utvärderar risker och hälso tillstånd för Server miljöer med jämna mellanrum och ger en prioriterad lista med rekommendationer som är relaterade till den distribuerade Server infrastrukturen.
--   [Utvärdering av program mot skadlig kod](https://docs.microsoft.com/azure/log-analytics/log-analytics-malware): Lösningen mot skadlig kod rapporterar om skadlig kod, hot och skydds status.
--   [Uppdateringshantering](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-update-management): Med den Uppdateringshantering lösningen kan kund hantering av säkerhets uppdateringar för operativ systemet, inklusive status för tillgängliga uppdateringar och processen för att installera nödvändiga uppdateringar.
--   [Agenthälsa](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth): Agenthälsa lösning rapporterar hur många agenter som distribueras och deras geografiska distribution, samt hur många agenter som inte svarar och antalet agenter som skickar drift data.
--   [Ändringsspårning](https://docs.microsoft.com/azure/automation/automation-change-tracking): Med Ändringsspårning-lösningen kan kunder enkelt identifiera ändringar i miljön.
+-   [AD-utvärdering](../../azure-monitor/insights/ad-assessment.md): Den Active Directory hälso kontroll lösningen utvärderar risker och hälso tillstånd för Server miljöer med jämna mellanrum och ger en prioriterad lista med rekommendationer som är relaterade till den distribuerade Server infrastrukturen.
+-   [Utvärdering av program mot skadlig kod](../../security-center/security-center-install-endpoint-protection.md): Lösningen mot skadlig kod rapporterar om skadlig kod, hot och skydds status.
+-   [Uppdateringshantering](../../automation/automation-update-management.md): Med den Uppdateringshantering lösningen kan kund hantering av säkerhets uppdateringar för operativ systemet, inklusive status för tillgängliga uppdateringar och processen för att installera nödvändiga uppdateringar.
+-   [Agenthälsa](../../monitoring/monitoring-solution-agenthealth.md): Agenthälsa lösning rapporterar hur många agenter som distribueras och deras geografiska distribution, samt hur många agenter som inte svarar och antalet agenter som skickar drift data.
+-   [Ändringsspårning](../../automation/change-tracking.md): Med Ändringsspårning-lösningen kan kunder enkelt identifiera ändringar i miljön.
 
 ##### <a name="security"></a>Säkerhet
 - **Skydd mot skadlig kod**: [Microsoft Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware) för Virtual Machines ger real tids skydds funktioner som hjälper dig att identifiera och ta bort virus, spionprogram och annan skadlig program vara, med konfigurerbara aviseringar när kända skadlig eller oönskad program vara försöker installera eller kör på skyddade virtuella datorer.

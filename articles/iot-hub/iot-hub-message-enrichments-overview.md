@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: 8e24489ad2909879b035a08316e66788034e99bc
-ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
+ms.openlocfilehash: 5ef1749217dd8980892d7bf933cbe1412929fbbd
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68377208"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976986"
 ---
 # <a name="message-enrichments-for-device-to-cloud-iot-hub-messages-preview"></a>Meddelande anrikning för IoT Hub-meddelanden från enhet till moln (för hands version)
 
@@ -29,9 +29,9 @@ En meddelande anrikning har tre viktiga element:
 
 * En eller flera [slut punkter](iot-hub-devguide-endpoints.md) som berikning ska användas för.
 
-Nyckeln kan vara vilken sträng som helst.
+**Nyckeln** är en sträng. En nyckel får bara innehålla alfanumeriska tecken eller följande specialtecken: bindestreck (`-`), under streck (`_`) och punkt (`.`).
 
-Värdet kan vara något av följande exempel:
+**Värdet** kan vara något av följande exempel:
 
 * En statisk sträng. Dynamiska värden som villkor, logik, åtgärder och funktioner är inte tillåtna. Om du t. ex. utvecklar ett SaaS-program som används av flera kunder, kan du tilldela en identifierare till varje kund och göra den identifieraren tillgänglig i programmet. När programmet körs stämplar IoT Hub enheten telemetri-meddelanden med kundens identifierare, vilket gör det möjligt att bearbeta meddelandena på olika sätt för varje kund.
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: article
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 323470adfe56ee20fe0fb64aeba38b6af4330351
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: c456dfec72f98dc4ae06f1d7d5d9fb461182d579
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827596"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69018984"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Felsöka SQL Server säkerhets kopiering av databasen med Azure Backup
 
@@ -163,7 +163,7 @@ I föregående scenarier rekommenderar vi att du utlöser en ny registrering på
 
 Den totala sträng storleken för filer beror inte bara på antalet filer, utan även på deras namn och sökvägar. Hämta det logiska fil namnet och den fysiska sökvägen för varje databas fil. Du kan använda SQL-fr åga:
 
-```
+```sql
 SELECT mf.name AS LogicalName, Physical_Name AS Location FROM sys.master_files mf
                INNER JOIN sys.databases db ON db.database_id = mf.database_id
                WHERE db.name = N'<Database Name>'"
@@ -171,13 +171,13 @@ SELECT mf.name AS LogicalName, Physical_Name AS Location FROM sys.master_files m
 
 Ändra nu i följande format:
 
-```
+```json
 [{"path":"<Location>","logicalName":"<LogicalName>","isDir":false},{"path":"<Location>","logicalName":"<LogicalName>","isDir":false}]}
 ```
 
 Här är ett exempel:
 
-```
+```json
 [{"path":"F:\\Data\\TestDB12.mdf","logicalName":"TestDB12","isDir":false},{"path":"F:\\Log\\TestDB12_log.ldf","logicalName":"TestDB12_log","isDir":false}]}
 ```
 
@@ -188,7 +188,7 @@ Om innehålls sträng storleken överskrider 20 000 byte, lagras databasfilerna 
 Du kan åsidosätta sökvägen till mål återställnings filen under återställnings åtgärden genom att placera en JSON-fil som innehåller mappningen av databas filen till mål återställnings Sök vägen. Skapa en `database_name.json` fil och placera den på platsen *C:\Program Files\Azure arbets belastning Backup\bin\plugins\SQL*.
 
 Filens innehåll ska ha följande format:
-```
+```json
 [
   {
     "Path": "<Restore_Path>",
@@ -205,7 +205,7 @@ Filens innehåll ska ha följande format:
 
 Här är ett exempel:
 
-```
+```json
 [
   {
    "Path": "F:\\Data\\testdb2_1546408741449456.mdf",
@@ -222,7 +222,7 @@ Här är ett exempel:
 
 I föregående innehåll kan du hämta databas filens logiska namn genom att använda följande SQL-fr åga:
 
-```
+```sql
 SELECT mf.name AS LogicalName FROM sys.master_files mf
                 INNER JOIN sys.databases db ON db.database_id = mf.database_id
                 WHERE db.name = N'<Database Name>'"

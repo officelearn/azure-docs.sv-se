@@ -1,40 +1,40 @@
 ---
-title: Konfigurera ASP.NET Core - appar i Azure App Service | Microsoft Docs
-description: Lär dig hur du konfigurerar ASP.NET Core-appar att fungera i Azure App Service
+title: Konfigurera ASP.NET Core appar – Azure App Service | Microsoft Docs
+description: Lär dig hur du konfigurerar ASP.NET Core appar så att de fungerar i Azure App Service
 services: app-service
 documentationcenter: ''
 author: cephalin
-manager: jpconnock
+manager: gwallace
 editor: ''
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/28/2019
+ms.date: 08/13/2019
 ms.author: cephalin
-ms.openlocfilehash: f2781e3cc2433f73ba7ff33e5c452e29de746adf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b05120148d3b82829c465effbcdc948da950aaf0
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65956196"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990268"
 ---
 # <a name="configure-a-linux-aspnet-core-app-for-azure-app-service"></a>Konfigurera en Linux ASP.NET Core-app för Azure App Service
 
-ASP.NET Core-appar måste distribueras som kompilerade binärfiler. Visual Studio-Publiceringsverktyget bygger lösningen och distribuerar sedan kompilerade binärfilerna direkt, medan App Service-distributionsmotorn distribuerar kodlagringsplatsen först och sedan kompilerar binärfilerna.
+ASP.NET Core appar måste distribueras som kompilerade binärfiler. Verktyget Visual Studio Publishing skapar lösningen och distribuerar sedan de kompilerade binärfilerna direkt, medan App Service distributions motor distribuerar kod databasen först och kompilerar sedan binärfilerna.
 
-Den här guiden innehåller viktiga begrepp och instruktioner för ASP.NET Core utvecklare som använder en inbyggd Linux-behållare i App Service. Om du aldrig har använt Azure App Service, följer du de [ASP.NET Core-Snabbstart](quickstart-dotnetcore.md) och [ASP.NET Core med SQL Database-självstudier](tutorial-dotnetcore-sqldb-app.md) första.
+Den här guiden innehåller viktiga begrepp och instruktioner för ASP.NET Core utvecklare som använder en inbyggd Linux-behållare i App Service. Om du aldrig har använt Azure App Service, följer du anvisningarna [ASP.net Core snabb start](quickstart-dotnetcore.md) och [ASP.net Core med SQL Database själv studie kursen](tutorial-dotnetcore-sqldb-app.md) först.
 
 ## <a name="show-net-core-version"></a>Visa .NET Core-version
 
-För att visa den aktuella versionen av .NET Core, kör du följande kommando den [Cloud Shell](https://shell.azure.com):
+Om du vill visa den aktuella .NET Core-versionen kör du följande kommando i [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp config show --resource-group <resource-group-name> --name <app-name> --query linuxFxVersion
 ```
 
-För att visa alla .NET Core-versioner, kör du följande kommando den [Cloud Shell](https://shell.azure.com):
+Om du vill visa alla .NET Core-versioner som stöds kör du följande kommando i [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp list-runtimes --linux | grep DOTNETCORE
@@ -42,7 +42,7 @@ az webapp list-runtimes --linux | grep DOTNETCORE
 
 ## <a name="set-net-core-version"></a>Ange .NET Core-version
 
-Kör följande kommando den [Cloud Shell](https://shell.azure.com) att ange version .NET Core till 2.1:
+Kör följande kommando i [Cloud Shell](https://shell.azure.com) för att ange .net Core-versionen till 2,1:
 
 ```azurecli-interactive
 az webapp config set --name <app-name> --resource-group <resource-group-name> --linux-fx-version "DOTNETCORE|2.1"
@@ -50,21 +50,38 @@ az webapp config set --name <app-name> --resource-group <resource-group-name> --
 
 ## <a name="access-environment-variables"></a>Få åtkomst till miljövariabler
 
-I App Service kan du [konfigurera appinställningar](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) utanför din Appkod. Du kan använda dem med hjälp av Standardmönstret för ASP.NET:
+I App Service kan du [Ange inställningar för appar](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) utanför appens kod. Sedan kan du komma åt dem i valfri klass med hjälp av standard mönstret för ASP.NET Core beroende inmatning:
 
 ```csharp
 include Microsoft.Extensions.Configuration;
-// retrieve App Service app setting
-System.Configuration.ConfigurationManager.AppSettings["MySetting"]
-// retrieve App Service connection string
-Configuration.GetConnectionString("MyDbConnection")
+
+namespace SomeNamespace 
+{
+    public class SomeClass
+    {
+        private IConfiguration _configuration;
+    
+        public SomeClass(IConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
+    
+        public SomeMethod()
+        {
+            // retrieve App Service app setting
+            var myAppSetting = _configuration["MySetting"];
+            // retrieve App Service connection string
+            var myConnString = _configuration.GetConnectionString("MyDbConnection");
+        }
+    }
+}
 ```
 
-Om du konfigurerar en appinställning med samma namn i App Service och i *Web.config*, App Service-värdet har företräde framför Web.config-värdet. Web.config-värdet kan du felsöka appen lokalt men App Service-värdet kan din app i produkten med inställningar för produktion. Anslutningssträngar fungerar på samma sätt. På så sätt kan du hålla dina programhemligheter utanför din kodlagringsplats och få åtkomst till lämpliga värden utan att ändra koden.
+Om du konfigurerar en app-inställning med samma namn i App Service och i *appSettings. JSON*, har App Service-värdet företräde framför värdet *appSettings. JSON* . Med det lokala *appSettings. JSON* -värdet kan du felsöka appen lokalt, men App Service-värdet låter appen köras i produkt med produktions inställningar. Anslutnings strängar fungerar på samma sätt. På så sätt kan du behålla dina program hemligheter utanför din kod lagrings plats och få till gång till lämpliga värden utan att ändra koden.
 
-## <a name="get-detailed-exceptions-page"></a>Få detaljerad undantagssidan
+## <a name="get-detailed-exceptions-page"></a>Sidan Hämta detaljerade undantag
 
-När din ASP.NET-app genererar ett undantag i Visual Studio-felsökaren, visas en sida med detaljerade undantag, men i App Service sidan ersätts av en allmän **HTTP 500** fel eller **ett fel uppstod när din begäran behandlas.** meddelande. För att visa undantagssidan detaljerad i App Service, lägger du till den `ASPNETCORE_ENVIRONMENT` appinställningen till din app genom att köra följande kommando i den <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>.
+När ASP.NET-appen genererar ett undantag i Visual Studio-felsökaren visar webbläsaren en detaljerad undantags sida, men i App Service sidan ersätts av ett allmänt **HTTP 500-** fel eller så **uppstod ett fel när din begäran bearbetades.** meddelande. Om du vill visa sidan detaljerad undantag i app service lägger du `ASPNETCORE_ENVIRONMENT` till appens inställning i din app genom att köra följande kommando i <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings ASPNETCORE_ENVIRONMENT="Development"
@@ -72,13 +89,13 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 ## <a name="detect-https-session"></a>Identifiera HTTPS-sessionen
 
-I App Service sker [SSL-avslutning](https://wikipedia.org/wiki/TLS_termination_proxy) på lastbalanserare för nätverk, så alla HTTPS-begäranden når din app som okrypterade HTTP-begäranden. Om din applogik behöver veta om användaren begär är krypterade eller inte, konfigurera vidarebefordras rubriker mellanprogram i *Startup.cs*:
+I App Service sker [SSL-avslutning](https://wikipedia.org/wiki/TLS_termination_proxy) på lastbalanserare för nätverk, så alla HTTPS-begäranden når din app som okrypterade HTTP-begäranden. Om din app-logik behöver veta om användarnas begär Anden är krypterade eller inte, konfigurerar du de vidarebefordrade rubrikernas mellanprogram i *startup.cs*:
 
-- Konfigurera mellanprogram med [ForwardedHeadersOptions](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions) att vidarebefordra den `X-Forwarded-For` och `X-Forwarded-Proto` rubriker i `Startup.ConfigureServices`.
-- Lägga till privata IP-adressintervall till kända nätverk, så att mellanprogrammet kan lita på App Service-belastningsutjämnare.
-- Anropa den [UseForwardedHeaders](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions.useforwardedheaders) -metod i `Startup.Configure` innan du anropar andra middlewares.
+- Konfigurera mellanprogram med [ForwardedHeadersOptions](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions) för att vidarebefordra `X-Forwarded-For` -och `X-Forwarded-Proto` -rubrikerna i. `Startup.ConfigureServices`
+- Lägg till privata IP-adressintervall i de kända nätverken så att mellanprogram kan lita på App Service belastningsutjämnare.
+- Anropa metoden [UseForwardedHeaders](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions.useforwardedheaders) i `Startup.Configure` innan du anropar andra middlewares.
 
-Sammanfoga alla tre element koden ser ut som i följande exempel:
+Om du placerar alla tre element tillsammans ser koden ut som i följande exempel:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -105,17 +122,17 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 }
 ```
 
-Mer information finns i [Konfigurera ASP.NET Core för att arbeta med proxyservrar och belastningsutjämnare](https://docs.microsoft.com/aspnet/core/host-and-deploy/proxy-load-balancer).
+Mer information finns i [konfigurera ASP.net Core att arbeta med proxyservrar och belastningsutjämnare](https://docs.microsoft.com/aspnet/core/host-and-deploy/proxy-load-balancer).
 
-## <a name="deploy-multi-project-solutions"></a>Distribuera lösningar med flera projekt
+## <a name="deploy-multi-project-solutions"></a>Distribuera lösningar för flera projekt
 
-När du distribuerar en ASP.NET-lagringsplats till distributionsmotorn med en *.csproj* fil i rotkatalogen motorn distribuerar-projektet. När du distribuerar en ASP.NET-lagringsplats med en *.sln* fil i rotkatalogen motorn hämtar den första webbplatsen eller Webbprogramprojektet påträffas som App Service-appen. Det är möjligt för engine inte att välja projektet som du vill.
+När du distribuerar en ASP.NET-lagringsplats till distributions motorn med en *. CSPROJ* -fil i rot katalogen, distribuerar motorn projektet. När du distribuerar en ASP.NET-lagringsplats med en *. SLN* -fil i rot katalogen, väljer motorn den första webbplatsen eller det webb programs projekt som hittas som App Service-appen. Det är möjligt att motorn inte väljer det projekt som du vill använda.
 
-Om du vill distribuera en lösning för flera projekt kan du ange projektet som ska använda i App Service på två olika sätt:
+Om du vill distribuera en lösning med flera projekt kan du ange det projekt som ska användas i App Service på två olika sätt:
 
-### <a name="using-deployment-file"></a>Med hjälp av filen .deployment
+### <a name="using-deployment-file"></a>Använda. Deployment-fil
 
-Lägg till en *.deployment* till Lagringsplatsens rot och Lägg till följande kod:
+Lägg till en *. Deployment* -fil till lagrings platsens rot och Lägg till följande kod:
 
 ```
 [config]
@@ -124,7 +141,7 @@ project = <project-name>/<project-name>.csproj
 
 ### <a name="using-app-settings"></a>Använda appinställningar
 
-I den <a target="_blank" href="https://shell.azure.com">Azure Cloud Shell</a>, lägga till en appinställning i App Service-appen genom att köra följande CLI-kommando. Ersätt  *\<appens namn->* ,  *\<resource-group-name >* , och  *\<projekt-name >* med lämpliga värden .
+I <a target="_blank" href="https://shell.azure.com">Azure Cloud Shell</a>lägger du till en app-inställning i App Service-appen genom att köra följande CLI-kommando. *Ersätt\<App-Name >* ,  *\<resurs grupp-namn >* och  *\<projekt namn >* med lämpliga värden.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings PROJECT="<project-name>/<project-name>.csproj"
@@ -141,7 +158,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudie: ASP.NET Core-app med SQL Database](tutorial-dotnetcore-sqldb-app.md)
+> [Självstudier: ASP.NET Core app med SQL Database](tutorial-dotnetcore-sqldb-app.md)
 
 > [!div class="nextstepaction"]
-> [App Service Linux vanliga frågor och svar](app-service-linux-faq.md)
+> [Vanliga frågor och svar om App Service Linux](app-service-linux-faq.md)

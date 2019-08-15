@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: sukishen
-ms.openlocfilehash: 62f73f17d598cb2a22ef57d3ec0bcf91b8852298
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 77f04b9688be2a7b7343bac05b24a3fcd4e0fcde
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68728795"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019702"
 ---
 # <a name="about-azure-networking-msp-partners"></a>Om Azure Network MSP-partner
 
@@ -24,9 +24,11 @@ Azure Networking MSP är en specialiserad uppsättning leverantörer av hanterad
 
 Kunder kan köpa MSP-hanterade tjänster i Azure Marketplace eller direkt från MSP. MSP kan distribuera och hantera Azure nätverks resurser i kundernas prenumerationer och resurs grupper med hjälp av Azure Lighthouse.
 
-## <a name="msp"></a>MSP-partner
+## <a name="msp"></a>Azure Network MSP-partner
 
 Använd länkarna i det här avsnittet för mer information om hanterade moln nätverks tjänster som erbjuds av Azure Network MSP-partner. Om din moln nätverks tjänst partner inte visas i avsnittet nedan, ber du leverantören att kontakta oss. De kan kontakta oss genom att skicka ett e ManagedVirtualWAN@microsoft.com-postmeddelande till. 
+
+[ANS-grupp Storbritannien](https://www.ans.co.uk/)
 
 [Aryaka nätverk](https://www.aryaka.com/)
 
@@ -43,6 +45,8 @@ Använd länkarna i det här avsnittet för mer information om hanterade moln n�
 [ixreach](https://www.ixreach.com/)
 
 [Megaport](https://www.megaport.com/)
+
+[OnCore Cloud Services]( https://www.oncore.cloud/services/ue-for-expressroute/)
 
 [Tata-kommunikation](https://www.tatacommunications.com/)
 

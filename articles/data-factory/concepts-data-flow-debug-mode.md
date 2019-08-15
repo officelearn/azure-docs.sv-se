@@ -1,60 +1,84 @@
 ---
-title: Azure Data Factory mappning Data Flow felsökningsläge
-description: Starta en interaktiv debug session när du skapar data flödar
+title: Azure Data Factory mappning av data flödets fel söknings läge
+description: Starta en interaktiv felsökningssession när du skapar data flöden
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: d86725718217caf7fd1d9dd6d5d67362e5de7270
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: 945d123c0901722a527e7cc8181c91f09e4e95ec
+ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147362"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69014512"
 ---
-# <a name="mapping-data-flow-debug-mode"></a>Felsökningsläge för mappning av Data flöde
+# <a name="mapping-data-flow-debug-mode"></a>Mappa fel söknings läge för data flöde
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-Azure Data Factory mappning dataflöde felsökningsläge kan vara påslaget med knappen ”Data flöda felsöka” högst upp på designytan. När designa dataflöden, aktivera felsökningsläget gör att du kan se hur data interaktivt forma transformeringen när du skapar och felsöker dina dataflöden. Felsökningssessionen kan användas både i sessioner med arkitekturdesign för dataflöde samt vid felsökning av pipelinekörning av data.
-
-![Felsöka knappen](media/data-flow/debugbutton.png "Debug-knappen")
-
 ## <a name="overview"></a>Översikt
-När felsökningsläget är aktiverat, ska du interaktivt skapa ditt dataflöde med en aktiv Spark-kluster. Sessionen stängs inaktiveras felsökning i Azure Data Factory. Du bör känna till de debitering åsamkar Azure Databricks under den tid som du har aktiverat felsökningssessionen.
 
-I de flesta fall är det en bra idé att skapa din Data som flödar i felsökningsläge så att du kan verifiera din affärslogik och visa dina dataomvandlingar innan du publicerar ditt arbete i Azure Data Factory. Använd knappen ”felsökning” på panelen pipeline för att testa ditt dataflöde i en pipeline.
+Azure Data Factory mappa data flödets fel söknings läge kan växlas till med knappen "Data Flow debug" överst i design ytan. När du skapar data flöden kan du aktivera fel söknings läget och samtidigt titta på DataForm-transformeringen medan du skapar och felsöker dina data flöden. Felsökningssessionen kan användas både i data flödets design sessioner samt vid körning av pipeline-felsökning av data flöden.
+
+![Knappen Felsök](media/data-flow/debugbutton.png "Knappen Felsök")
+
+När fel söknings läget är aktiverat kan du interaktivt bygga ditt data flöde med ett aktivt Spark-kluster. Sessionen stängs när du har aktiverat fel sökning i Azure Data Factory. Du bör vara medveten om de timkostnad som Azure Databricks under tiden som du har aktiverat felsökningssessionen.
+
+I de flesta fall är det en bra idé att skapa dina data flöden i fel söknings läge så att du kan validera affärs logiken och Visa dina data transformationer innan du publicerar arbetet i Azure Data Factory. Använd knappen "Felsök" på pipeline-panelen för att testa ditt data flöde i en pipeline.
 
 > [!NOTE]
-> Debug läge ljus är grön i verktygsfältet Data Factory, debiteras du priset dataflöde felsökning av 8 kärnor/timme för allmän beräkning med en 60 minuters time to live 
-
-> [!NOTE]
->När du kör i felsökningsläge i dataflöde kan dina data skrivs inte till mottagaren omvandla. En felsökningssession är avsedd att fungera som en testmiljö för dina transformeringar. Mottagare krävs inte vid felsökning och ignoreras i ditt dataflöde. Om du vill testa Skrivningen av data i dina mottagare kör Data flöda från en Azure Data Factory-Pipeline och använder Debug-körning från en pipeline.
-
-## <a name="debug-settings"></a>Inställningar för felsökning
-Felsöka kan redigera inställningarna genom att klicka på ”felsöka inställningar” i verktygsfältet dataflöde arbetsytan. Du kan välja de begränsningar och/eller filkälla ska användas för var och en av dina käll-transformeringar här. Radbegränsningar i den här inställningen är endast för den aktuella felsökningssessionen. Du kan också välja den mellanlagringslänkade tjänsten som ska användas för en SQL DW-källa. 
-
-![Inställningar för felsökning](media/data-flow/debug-settings.png "inställningar för felsökning")
+> Medan fel söknings läget är grönt i Data Factory-verktygsfältet debiteras du vid fel söknings frekvensen för data flödet på 8 kärnor/timme för allmän beräkning med 60 minuters Time-to-Live 
 
 ## <a name="cluster-status"></a>Klusterstatus
-Det finns en kluster-statusindikator överst på designytan som blir grön när klustret är klart för felsökning. Om klustret redan varma visas grön indikator nästan omedelbart. Om klustret inte redan körs när du har angett felsökningsläge och har du vänta 5 – 7 minuter att skapa klustret. Indikatorn ska starta fram till dess redo.
 
-När du är klar med din felsökning, inaktivera växeln felsökning så att avsluta ditt Azure Databricks-kluster och du kommer inte längre att debiteras för debug-aktivitet.
+Kluster status indikatorn överst i design ytan blir grön när klustret är klart för fel sökning. Om klustret redan är varmt kommer den gröna indikatorn att visas nästan omedelbart. Om klustret inte redan kördes när du har angett fel söknings läge måste du vänta 5-7 minuter för att klustret ska kunna snurra. Indikatorn roteras tills den är klar.
 
-## <a name="data-preview"></a>Dataförhandsgranskning
-Felsökning på fliken förhandsgranskningen kommer ljus upp i den nedre rutan. Utan felsökningsläget vid visar dataflöde endast den aktuella metadata och från var och en av dina transformeringar på fliken Granska. Förhandsgranskning frågar endast antalet rader som du har angett som din gräns i inställningar för felsökning. Du kan behöva klicka på ”Hämta data” Uppdatera förhandsgranskning.
+När du är färdig med fel sökningen aktiverar du fel söknings knappen så att ditt Azure Databricks-kluster kan avslutas och du kommer inte längre att faktureras för fel söknings aktivitet.
 
-![Dataförhandsgranskning](media/data-flow/datapreview.png "förhandsgranskning")
+## <a name="debug-settings"></a>Fel söknings inställningar
 
-## <a name="data-profiles"></a>Data-profiler
-Att välja enskilda kolumner i din preview data-fliken visas ett diagram längst till höger din datarutnätet med detaljerad statistik om varje fält. Azure Data Factory blir en bestämning baserat på datasampling vilken typ av diagrammet ska visas. Hög kardinalitet fält som standard /inte NULL diagram medan kategoriska och numeriska data som har låg kardinalitet visar stapeldiagram som visar data värdet frekvens. Max/len lång strängfält, min/max-värden i numeriska fält, standard utveckling, percentiler, antal och genomsnittlig visas också. 
+Du kan redigera fel söknings inställningar genom att klicka på "Felsök inställningar" i verktygsfältet data flödes arbets yta. Du kan välja den rad gräns eller fil källa som ska användas för varje käll omvandling här. Rad begränsningarna i den här inställningen gäller bara för den aktuella felsökningssessionen. Du kan också välja den mellanlagrade länkade tjänsten som ska användas för en SQL DW-källa. 
 
-![Kolumnstatistik](media/data-flow/stats.png "kolumnstatistik")
+![Fel söknings inställningar](media/data-flow/debug-settings.png "Fel söknings inställningar")
+
+Om du har parametrar i ditt data flöde eller någon av dess refererade data uppsättningar, kan du ange vilka värden som ska användas vid fel sökning genom att välja fliken **parametrar** .
+
+![Parametrar för fel söknings inställningar](media/data-flow/debug-settings2.png "Parametrar för fel söknings inställningar")
+
+## <a name="data-preview"></a>Data för hands version
+
+Vid fel sökning på visas fliken Data förhands granskning på den nedre panelen. Utan fel söknings läge på visar data flödet bara aktuella metadata i och ut ur var och en av dina omvandlingar på fliken Granska. Data förhands granskningen kommer bara att fråga antalet rader som du har angett som gräns i fel söknings inställningarna. Klicka på **Uppdatera** för att hämta data förhands granskningen.
+
+![Data för hands version](media/data-flow/datapreview.png "Data för hands version")
+
+När du kör i fel söknings läge i data flöde kommer dina data inte att skrivas till omvandlingen av mottagare. En felsökningssession är avsedd att fungera som ett test-nät för dina transformeringar. Sinks krävs inte under fel sökning och ignoreras i ditt data flöde. Om du vill testa att skriva data i din mottagare kör du data flödet från en Azure Data Factory pipeline och använder fel söknings körningen från en pipeline.
+
+### <a name="quick-actions"></a>Snabbåtgärder
+
+När du ser data förhands granskningen kan du generera en snabb omvandling till typecast, ta bort eller göra en ändring i en kolumn. Klicka på kolumn rubriken och välj sedan ett av alternativen i verktygsfältet för förhands granskning.
+
+![Snabb åtgärder](media/data-flow/quick-actions1.png "Snabb åtgärder")
+
+När du har valt en ändring uppdateras data förhands granskningen omedelbart. Klicka på **Bekräfta** i det övre högra hörnet för att generera en ny omvandling.
+
+![Snabb åtgärder](media/data-flow/quick-actions2.png "Snabb åtgärder")
+
+**Typecast** och **ändra** genererar en härledd kolumn omvandling och **tar bort** genererar en SELECT-omvandling.
+
+![Snabb åtgärder](media/data-flow/quick-actions3.png "Snabb åtgärder")
+
+> [!NOTE]
+> Om du redigerar ditt data flöde måste du hämta data förhands granskningen igen innan du lägger till en snabb omvandling.
+
+### <a name="data-profiling"></a>Data profilering
+
+Genom att markera en kolumn på fliken Data förhands granskning och klicka på **statistik** i verktygsfältet för förhands granskning visas ett diagram längst till höger i data rutnätet med detaljerad statistik om varje fält. Azure Data Factory görs ett avgörande baserat på data samplingen för vilken typ av diagram som ska visas. Fält med hög kardinalitet kommer att standardvärdet är NULL/NOT NULL-diagram medan kategoriska och numeriska data som har låg kardinalitet visar stapeldiagram med data värdes frekvens. Du kan också se max längd längd på sträng fält, minsta/högsta värden i numeriska fält, standard utveckling, percentiler, antal och genomsnitt.
+
+![Kolumn statistik](media/data-flow/stats.png "Kolumn statistik")
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du är klar utvecklar och felsöker ditt dataflöde [köra den från en pipeline.](control-flow-execute-data-flow-activity.md)
-
-När du testar en pipeline med ett dataflöde kan du använda pipelinen [Debug kör körning alternativet.](iterative-development-debugging.md)
+* När du är klar med att skapa och felsöka ditt data flöde kan du [köra det från en pipeline.](control-flow-execute-data-flow-activity.md)
+* När du testar din pipeline med ett data flöde använder du [alternativet för körning](iterative-development-debugging.md) av pipeline-körnings körning.

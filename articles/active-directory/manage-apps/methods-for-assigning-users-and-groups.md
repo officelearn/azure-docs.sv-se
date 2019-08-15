@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8163b2261601b701913e07d703f5db0ac6fa7c0
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 13c9003baaca11dce5a2192a8183674faddfa6dc
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688078"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967286"
 ---
 # <a name="assign-users-and-groups-to-an-application-in-azure-active-directory"></a>Tilldela användare och grupper till ett program i Azure Active Directory
 Den här artikeln visar hur du tilldelar användare eller grupper till ett program i Azure Active Directory (AD Azure). Användare måste först tilldelas till ett program innan en administratör kan ge dem åtkomst för att göra följande:
@@ -82,7 +82,7 @@ Följ stegen nedan om du vill tilldela en eller flera användare till ett progra
 
 15. Klicka på den **tilldela** knappen för att tilldela programmet till de valda användarna.
 
-De användare som du har valt att kunna starta dessa program med hjälp av metoderna som beskrivs i avsnittet lösning beskrivning efter en kort tidsperiod.
+Efter en kort tids period kommer de användare du har valt att kunna starta programmen med de metoder som beskrivs i avsnittet lösnings beskrivning.
 
 ## <a name="assign-groups"></a>Tilldela grupper
 
@@ -120,7 +120,7 @@ Följ stegen nedan om du vill tilldela en eller flera grupper till ett program d
 
 15. Klicka på den **tilldela** knappen för att tilldela programmet till valda grupper.
 
-Användare i de grupper som du har valt att kunna starta dessa program med hjälp av metoderna som beskrivs i avsnittet lösning beskrivning efter en kort tidsperiod. Om dessa är dynamiska grupper kan finnas det vissa ytterligare bearbetning-fördröjning i dessa tilldelningar visas för användare inom dessa tilldelade grupper.
+Efter en kort tids period kommer användare i de grupper du har valt att kunna starta programmen med hjälp av de metoder som beskrivs i avsnittet lösnings beskrivning. Om dessa är dynamiska grupper kan finnas det vissa ytterligare bearbetning-fördröjning i dessa tilldelningar visas för användare inom dessa tilldelade grupper.
 
 ## <a name="enable-self-service-application-access"></a>Aktivera Självbetjäning för programåtkomst
 
@@ -165,7 +165,7 @@ Följ stegen nedan om du vill aktivera självbetjäningsprogram åtkomst till et
 
 När du har slutfört konfigurationen av programåtkomst via självbetjäning kan användare navigera till sina [Programåtkomstpanelen](https://myapps.microsoft.com/) och klicka på den **+ Lägg till** för att hitta de appar som du har aktiverat självbetjäning åtkomst. Företagsgodkännaren får även ett meddelande i sina [Programåtkomstpanelen](https://myapps.microsoft.com/). Du kan aktivera ett e-postmeddelande om när en användare har begärt åtkomst till ett program som kräver godkännande. 
 
-Dessa godkännanden stöder enkel godkännandearbetsflöden, vilket innebär att om du anger flera godkännare kan en enda godkännare kan godkännaren åtkomst till programmet.
+Dessa godkännanden stöder endast enskilda godkännande arbets flöden, vilket innebär att om du anger flera god kännare kan en enskild god kännare godkänna åtkomst till programmet.
 
 ## <a name="next-steps"></a>Nästa steg
 [Tillhandahålla enkel inloggning till dina appar med Application Proxy](application-proxy-configure-single-sign-on-with-kcd.md)

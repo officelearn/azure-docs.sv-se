@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: zarhoads
-ms.openlocfilehash: a9cf3db3a15fab5a2f067a146950e02923a20379
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 4e234d3849e09bd8c57a8c33bb378ab801ce0f6d
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "67476812"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019453"
 ---
 # <a name="preview---use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>För hands version – Använd en standard-SKU-belastningsutjämnare i Azure Kubernetes service (AKS)
 
@@ -92,6 +92,7 @@ Följande begränsningar gäller när du skapar och hanterar AKS-kluster som st�
 
 * När du använder *standard* -SKU: n för en belastningsutjämnare måste du tillåta offentliga adresser och undvika att skapa Azure policy som tillåter att IP skapas. AKS-klustret skapar automatiskt en offentlig *standard* -IP för SKU i samma resurs grupp som skapats för AKS-klustret, som vanligt vis heter med *MC_* i början. AKS tilldelar den offentliga IP-adressen till *standard* -SKU-belastningsutjämnaren. Den offentliga IP-adressen krävs för att tillåta utgående trafik från AKS-klustret. Den här offentliga IP-adressen krävs också för att upprätthålla anslutningen mellan kontroll planet och agent-noderna samt för att bibehålla kompatibilitet med tidigare versioner av AKS.
 * När du använder *standard* -SKU: n för en belastningsutjämnare måste du använda Kubernetes version 1.13.5 eller senare.
+* Om du använder [funktionen offentlig IP-adress](use-multiple-node-pools.md#assign-a-public-ip-per-node-in-a-node-pool) med standard belastnings utjämning kan du ange antingen en regel för utgående trafik eller en offentlig IP-adress för noden. Du måste välja en eller en annan eftersom en virtuell dator inte kan kopplas till både en SLB utgående regel och en offentlig IP-adress samtidigt.
 
 När den här funktionen är i för hands version gäller följande ytterligare begränsningar:
 
@@ -135,7 +136,6 @@ az aks create \
     --name myAKSCluster \
     --enable-vmss \
     --node-count 1 \
-    --kubernetes-version 1.14.0 \
     --load-balancer-sku standard \
     --generate-ssh-keys
 ```
@@ -166,7 +166,7 @@ Följande exempelutdata visar den enskilda nod som skapades i föregående steg.
 
 ```
 NAME                       STATUS   ROLES   AGE     VERSION
-aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.14.0
+aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.13.9
 ```
 
 ## <a name="verify-your-cluster-uses-the-standard-sku"></a>Verifiera att klustret använder *standard* -SKU: n

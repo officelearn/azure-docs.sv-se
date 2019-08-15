@@ -8,16 +8,16 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 06/27/2019
 ms.author: danlep
-ms.openlocfilehash: 680f0268e85d41f8061dc96db1779ab6c22b944a
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 6237b8056262abe1f8cea28bebd6b3bad97e0f7e
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68310551"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967589"
 ---
 # <a name="run-an-acr-task-on-a-defined-schedule"></a>Kör en ACR-uppgift enligt ett definierat schema
 
-Den här artikeln visar hur du kör en [ACR-aktivitet](container-registry-tasks-overview.md) enligt ett schema. Schemalägg en aktivitet genom att ställa in en eller flera *timer*-utlösare. 
+Den här artikeln visar hur du kör en [ACR-aktivitet](container-registry-tasks-overview.md) enligt ett schema. Schemalägg en aktivitet genom att ställa in en eller flera *timer*-utlösare.
 
 Att schemalägga en aktivitet är användbart för scenarier som följande:
 
@@ -29,18 +29,18 @@ Du kan använda Azure Cloud Shell eller en lokal installation av Azure CLI för 
 
 ## <a name="about-scheduling-a-task"></a>Om schemaläggning av en aktivitet
 
-* **Utlösare med cron-uttryck** – timer-utlösaren för en uppgift använder ett *cron-uttryck*. Uttrycket är en sträng med fem fält som anger minut, timme, dag, månad och veckodag för att utlösa uppgiften. Det finns stöd för frekvens upp till en gång per minut. 
+* **Utlösare med cron-uttryck** – timer-utlösaren för en uppgift använder ett *cron-uttryck*. Uttrycket är en sträng med fem fält som anger minut, timme, dag, månad och veckodag för att utlösa uppgiften. Det finns stöd för frekvens upp till en gång per minut.
 
   Uttrycket `"0 12 * * Mon-Fri"` utlöser till exempel en aktivitet kl. 12.00 UTC på varje veckodag. Se [informationen](#cron-expressions) längre fram i den här artikeln.
-* **Flera timer** -utlösare – det går att lägga till flera timers till en aktivitet, så länge scheman skiljer sig åt. 
+* **Flera timer** -utlösare – det går att lägga till flera timers till en aktivitet, så länge scheman skiljer sig åt.
     * Ange flera timer-utlösare när du skapar uppgiften eller Lägg till dem senare.
     * Du kan också namnge utlösare för enklare hantering, eller så kommer ACR-aktiviteter att tillhandahålla standard namn för utlösare.
-    * Om timer-scheman överlappar i taget, utlöser ACR-aktiviteter aktiviteten vid den schemalagda tiden för varje timer. 
+    * Om timer-scheman överlappar i taget, utlöser ACR-aktiviteter aktiviteten vid den schemalagda tiden för varje timer.
 * **Andra aktivitets** utlösare – i en timer-utlöst uppgift kan du också aktivera utlösare baserat på [käll kods bekräftelse](container-registry-tutorial-build-task.md) eller [bas avbildnings uppdateringar](container-registry-tutorial-base-image-update.md). Precis som andra ACR-uppgifter kan du även aktivera en schemalagd aktivitet [manuellt][az-acr-task-run] .
 
 ## <a name="create-a-task-with-a-timer-trigger"></a>Skapa en uppgift med en timer-utlösare
 
-När du skapar en uppgift med kommandot [AZ ACR Task Create][az-acr-task-create] kan du också lägga till en timer-utlösare. Lägg till `--schedule` parametern och skicka ett cron-uttryck för timern. 
+När du skapar en uppgift med kommandot [AZ ACR Task Create][az-acr-task-create] kan du också lägga till en timer-utlösare. Lägg till `--schedule` parametern och skicka ett cron-uttryck för timern.
 
 Som ett enkelt exempel utlöses följande kommando som kör `hello-world` avbildningen från Docker Hub varje dag kl. 21:00 UTC. Aktiviteten körs utan en käll kods kontext.
 
@@ -86,8 +86,8 @@ This message shows that your installation appears to be working correctly.
 Efter den schemalagda tiden kör du kommandot [AZ ACR Task List-runs (kör][az-acr-task-list-runs] kommando) för att kontrol lera att timern utlöste uppgiften som förväntat:
 
 ```azurecli
-az acr task list runs --name mytask --registry myregistry --output table
-``` 
+az acr task list-runs --name mytask --registry myregistry --output table
+```
 
 När timern lyckas ser utdata ut ungefär så här:
 
@@ -98,7 +98,7 @@ RUN ID    TASK     PLATFORM    STATUS     TRIGGER    STARTED               DURAT
 cf2b      mytask   linux       Succeeded  Timer      2019-06-28T21:00:23Z  00:00:06
 cf2a      mytask   linux       Succeeded  Manual     2019-06-28T20:53:23Z  00:00:06
 ```
-            
+
 ## <a name="manage-timer-triggers"></a>Hantera timer-utlösare
 
 Använd kommandona [AZ ACR Task timer][az-acr-task-timer] för att hantera timer-utlösare för en ACR-aktivitet.
@@ -150,7 +150,7 @@ Exempel på utdata:
 ]
 ```
 
-### <a name="remove-a-timer-trigger"></a>Ta bort en timer-utlösare 
+### <a name="remove-a-timer-trigger"></a>Ta bort en timer-utlösare
 
 Använd kommandot [AZ ACR Task timer Remove][az-acr-task-timer-remove] för att ta bort en timer-utlösare från en aktivitet. I följande exempel tar vi bort *timer2* -utlösaren från min *uppgift*:
 
@@ -178,7 +178,7 @@ Varje fält kan ha en av följande typer av värden:
 |---------|---------|---------|
 |Ett speciellt värde |<nobr>"5 * * * *"</nobr>|varje timme efter 5 minuter efter timmen|
 |Alla värden (`*`)|<nobr>"* 5 * * *"</nobr>|varje minut i timmen som börjar 5:00 UTC (60 gånger per dag)|
-|Ett intervall (`-` operator)|<nobr>"0 1-3 * * *"</nobr>|3 gånger per dag, med 1:00, 2:00 och 3:00 UTC|  
+|Ett intervall (`-` operator)|<nobr>"0 1-3 * * *"</nobr>|3 gånger per dag, med 1:00, 2:00 och 3:00 UTC|
 |En uppsättning värden (`,` operator)|<nobr>"20,30,40 * * * *"</nobr>|3 gånger per timme, vid 20 minuter, 30 minuter och 40 minuter efter timmen|
 |Ett intervall värde (`/` operator)|<nobr>"*/10 * * * *"</nobr>|6 gånger per timme, vid 10 minuter, 20 minuter och så vidare, efter timmen
 

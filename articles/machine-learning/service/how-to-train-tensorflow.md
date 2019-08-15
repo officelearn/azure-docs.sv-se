@@ -1,29 +1,29 @@
 ---
-title: Träna och registrera TensorFlow-modeller
+title: Utbilda ett djup inlärnings neurala nätverk med TensorFlow
 titleSuffix: Azure Machine Learning service
-description: Den här artikeln visar hur du tränar och registrerar en TensorFlow-modell med hjälp av Azure Machine Learning-tjänsten.
+description: Lär dig hur du kör TensorFlow-tränings skript i skala med hjälp av Azure Machine Learning-tjänsten.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: maxluk
 author: maxluk
-ms.date: 06/10/2019
+ms.date: 08/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: a5d281598bc905914b71f40d556cfa0b16a46485
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 41ebca7bd4ea299bda7e2d7a95edced583866527
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847660"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966796"
 ---
-# <a name="train-and-register-tensorflow-models-at-scale-with-azure-machine-learning-service"></a>Träna och registrera TensorFlow-modeller i stor skala med Azure Machine Learning-tjänsten
+# <a name="build-a-tensorflow-deep-learning-model-at-scale-with-azure-machine-learning"></a>Bygg en TensorFlow djup inlärnings modell i skala med Azure Machine Learning
 
-Den här artikeln visar hur du tränar och registrerar en TensorFlow-modell med hjälp av Azure Machine Learning-tjänsten. Den använder den populära [MNIST](http://yann.lecun.com/exdb/mnist/) -datauppsättningen för att klassificera handskrivna siffror med ett djup neurala nätverk som skapats med hjälp av [TensorFlow python-biblioteket](https://www.tensorflow.org/overview).
+Den här artikeln visar hur du kör dina [TensorFlow](https://www.tensorflow.org/overview) -utbildnings skript i stor skala med Azure Machine Learning [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) -uppskattnings klass. Detta exempel tågen och registrerar en TensorFlow modell för att klassificera handskrivna siffror med ett djup neurala-nätverk (DNN).
 
-TensorFlow är ett beräknings ramverk med öppen källkod som ofta används för att skapa djup neurala nätverk (DNN). Med Azure Machine Learning tjänsten kan du snabbt skala ut utbildnings jobb med öppen källkod med hjälp av elastiska moln beräknings resurser. Du kan också spåra dina utbildnings körningar, versions modeller, distribuera modeller och mycket mer.
+Oavsett om du utvecklar en TensorFlow-modell från grunden eller om du använder en [befintlig modell](how-to-deploy-existing-model.md) i molnet, kan du använda Azure Machine Learning för att skala ut utbildnings jobb med öppen källkod för att bygga, distribuera, skapa och övervaka modeller för produktions klass .
 
-Oavsett om du utvecklar en TensorFlow-modell från grunden eller om du använder en [befintlig modell](how-to-deploy-existing-model.md) i molnet kan Azure Machine Learning tjänsten hjälpa dig att skapa produktions klara modeller.
+Lär dig mer om [djup inlärning vs Machine Learning](concept-deep-learning-vs-machine-learning.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -32,7 +32,7 @@ Kör den här koden i någon av följande miljöer:
  - Azure Machine Learning Notebook VM – inga hämtningar eller installationer behövs
 
      - Slutför [Självstudie: Konfigurera miljö och arbets](tutorial-1st-experiment-sdk-setup.md) yta för att skapa en dedikerad Notebook-server som är förinstallerad med SDK och exempel lagrings plats.
-    - I mappen Samples på Notebook-servern letar du reda på en slutförd och utökad antecknings bok genom att gå till den här katalogen: **How-to-use-azureml > utbildning-with-djupgående-learning > träna-tensorflow parameter-Tune-Deploy-with-** Folder. 
+    - I mappen exempel djup inlärning på Notebook-servern hittar du en slutförd och utökad antecknings bok genom att gå till den här katalogen: **How-to-use-azureml > Training-with-djupgående-learning > Train-y-tensorflow** projektbevakningsmappen. 
  
  - Din egen Jupyter Notebook Server
 
@@ -73,7 +73,7 @@ Skapa ett objekt för arbets ytan `config.json` från filen som skapats i [avsni
 ws = Workspace.from_config()
 ```
 
-### <a name="create-an-experiment"></a>Skapa ett experiment
+### <a name="create-a-deep-learning-experiment"></a>Skapa ett djup inlärnings experiment
 
 Skapa ett experiment och en mapp för att lagra dina utbildnings skript. I det här exemplet skapar du ett experiment som kallas "TF-mnist".
 
@@ -292,5 +292,9 @@ cluster_spec = tf.train.ClusterSpec(cluster)
 
 I den här artikeln har du tränat och registrerat en TensorFlow-modell. Om du vill lära dig hur du distribuerar en modell till ett GPU-aktiverat kluster kan du fortsätta till vår distributions artikel för GPU-modellen.
 
-[Så här distribuerar du för inferencing med GPU: er](how-to-deploy-inferencing-gpus.md)
-[övervaka med Tensorboard](how-to-monitor-tensorboard.md)
+> [!div class="nextstepaction"]
+> [Hur och var modeller ska distribueras](how-to-deploy-and-where.md)
+* [Spåra kör mått vid träning](how-to-track-experiments.md)
+* [Justering av hyperparametrar](how-to-tune-hyperparameters.md)
+* [Distribuera en tränad modell](how-to-deploy-and-where.md)
+* [Referens arkitektur för distribuerad djup inlärnings utbildning i Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)

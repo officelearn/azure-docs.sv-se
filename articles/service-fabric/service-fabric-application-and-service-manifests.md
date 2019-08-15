@@ -1,6 +1,6 @@
 ---
-title: Som beskriver Azure Service Fabric-appar och tjänster | Microsoft Docs
-description: Beskriver hur du använder manifest för att beskriva Service Fabric-program och tjänster.
+title: Beskriva Azure Service Fabric-appar och-tjänster | Microsoft Docs
+description: Beskriver hur manifest används för att beskriva Service Fabric-program och-tjänster.
 services: service-fabric
 documentationcenter: .net
 author: athinanthny
@@ -12,23 +12,23 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/19/2018
+ms.date: 8/12/2019
 ms.author: atsenthi
-ms.openlocfilehash: e5fb28b176ce14a9b871b2a6a775e0017fcc993d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a5e452bf3dc9f35c345a5f27af829904b4839ece
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67052663"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68977116"
 ---
-# <a name="service-fabric-application-and-service-manifests"></a>Service Fabric-program och tjänstmanifest
-Den här artikeln beskriver hur Service Fabric-program och tjänster är definierad och version med hjälp av filen ApplicationManifest.xml och ServiceManifest.xml.  Mer detaljerade exempel finns i [och en tjänst manifest exempel](service-fabric-manifest-examples.md).  XML-schemat för dessa manifestfiler dokumenteras i [ServiceFabricServiceModel.xsd schemat dokumentation](service-fabric-service-model-schema.md).
+# <a name="service-fabric-application-and-service-manifests"></a>Service Fabric program-och tjänst manifest
+I den här artikeln beskrivs hur Service Fabric-program och-tjänster definieras och versions hantering med filerna ApplicationManifest. xml och ServiceManifest. xml.  Mer detaljerade exempel finns i [exempel på program-och tjänst manifest](service-fabric-manifest-examples.md).  XML-schemat för dessa MANIFEST-filer dokumenteras i [dokumentation om ServiceFabricServiceModel. xsd-schema](service-fabric-service-model-schema.md).
 
 > [!WARNING]
-> XML-manifest filschemat framtvingar rätt ordning av underordnade element.  Som en partiell lösning kan du öppna ”C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd” i Visual Studio när redigering eller ändra någon av Service Fabric-manifest. Detta gör att du kan kontrollera sorteringen i underordnade element och ger tillgång.
+> Manifest-XML-filschemat tillämpar korrekt ordning för underordnade element.  Som en del lösning öppnar du "C:\Program\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd" i Visual Studio när du redigerar eller ändrar något av de Service Fabric manifesten. På så sätt kan du kontrol lera ordningen för underordnade element och ger Intelli.
 
-## <a name="describe-a-service-in-servicemanifestxml"></a>Beskriv en tjänst i ServiceManifest.xml
-Tjänstmanifestet definierar deklarativt tjänsttyp och version. Den anger tjänstens metadata, till exempel typ av tjänst, health egenskaper, belastningsutjämning mått, binärfiler och konfigurationsfiler.  Placera ett annat sätt, beskriver de kod, konfiguration och data paket som utgör inget tjänstepaket för att stödja en eller flera typer av tjänster. Ett tjänstmanifest kan innehålla flera kod, konfiguration och data-paket, vilka kan versionshanteras oberoende av varandra. Här är ett tjänstmanifest för ASP.NET Core webbtjänsten för klientdelen av den [rösta exempelprogrammet](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart) (och här är några [mer detaljerade exempel](service-fabric-manifest-examples.md)):
+## <a name="describe-a-service-in-servicemanifestxml"></a>Beskriv en tjänst i ServiceManifest. XML
+Tjänst manifestet definierar tjänst typ och version. Den anger tjänstens metadata som tjänst typ, hälso egenskaper, belastnings Utjämnings mått, binärfiler för tjänster och konfigurationsfiler.  På ett annat sätt beskrivs kod, konfiguration och data paket som utgör ett tjänst paket som stöder en eller flera tjänst typer. Ett tjänst manifest kan innehålla flera kod-, konfigurations-och data paket, som kan vara versioner oberoende av varandra. Här är ett tjänst manifest för ASP.NET Core webb klient tjänst för [röstnings exempel programmet](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart) (och här följer några [mer detaljerade exempel](service-fabric-manifest-examples.md)):
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -68,24 +68,24 @@ Tjänstmanifestet definierar deklarativt tjänsttyp och version. Den anger tjän
 </ServiceManifest>
 ```
 
-**Version** attribut är Ostrukturerade strängar och inte parsa av systemet. Version attribut är används för varje komponent för uppgradering till version.
+**Versionens** attribut är ostrukturerade strängar och parsas inte av systemet. Versions-attribut används för att version av varje komponent för uppgraderingar.
 
-**ServiceTypes** deklarerar vilka typer av tjänster som stöds av **CodePackages** i manifestet. När en tjänst instantieras mot en av dessa typer av tjänster, aktiveras alla kodpaket som deklarerats i manifestet genom att köra sina startpunkter. De resulterande processerna förväntas registrera stöds tjänsttyper vid körning. Tjänsttyper deklareras i manifestet nivå och inte kodnivå för paketet. Så när det finns flera kodpaket, aktiveras de alla varje gång systemet söker efter någon av de deklarerade tjänsttyper.
+**ServiceTypes** deklarerar vilka tjänst typer som stöds av **CodePackages** i det här manifestet. När en tjänst instansieras mot någon av dessa tjänst typer aktive ras alla kod paket som deklarerats i det här manifestet genom att de startas. De resulterande processerna förväntas registrera de tjänst typer som stöds vid körning. Tjänst typer deklareras på manifest nivå och inte på kod paket nivå. Så när det finns flera kod paket aktive ras alla när systemet söker efter någon av de deklarerade tjänst typerna.
 
-Den körbara filen som anges av **EntryPoint** är vanligtvis tjänstevärden tidskrävande. **SetupEntryPoint** är en privilegierad startpunkt som körs med samma autentiseringsuppgifter som Service Fabric (vanligtvis den *LocalSystem* konto) innan andra startpunkt.  Förekomsten av en separat konfigurationsstartpunkten innebär att du slipper att köra tjänstevärden med höga privilegier för längre tid. Den körbara filen som anges av **EntryPoint** körs efter **SetupEntryPoint** avslutas har. Om processen skulle avslutas eller kraschar, resulterande processen övervakas och startas om (igen från och med **SetupEntryPoint**).  
+Den körbara filen som anges av **EntryPoint** är vanligt vis den tids krävande tjänst värden. **SetupEntryPoint** är en privilegie rad start punkt som körs med samma autentiseringsuppgifter som Service Fabric (vanligt vis *LocalSystem* -kontot) innan någon annan start punkt.  Om du har en separat installations start punkt kan du undvika att behöva köra tjänst värden med hög behörighet under längre tid. Den körbara filen som anges av **EntryPoint** körs när **SetupEntryPoint** har avslut ATS. Om processen någonsin avslutas eller kraschar övervakas och startas den resulterande processen om (börjar med **SetupEntryPoint**).  
 
-Vanliga scenarier där **SetupEntryPoint** är när du kör en körbar fil innan du startar tjänsten eller du utföra en åtgärd med förhöjd behörighet. Exempel:
+Vanliga scenarier för att använda **SetupEntryPoint** är när du kör en körbar fil innan tjänsten startar eller om du utför en åtgärd med utökade privilegier. Exempel:
 
-* Konfigurera och initiering av miljövariabler som behöver körbar fil. Detta är inte begränsad till endast körbara filer skrivs via programmeringsmodeller för Service Fabric. Till exempel måste npm.exe vissa miljövariabler som konfigurerats för att distribuera ett node.js-program.
-* Konfigurera åtkomstkontroll genom att installera säkerhetscertifikat.
+* Konfigurera och initiera miljövariabler som tjänstens körbara fil behöver. Detta är inte begränsat till enbart körbara filer som skrivits via Service Fabric programmerings modeller. NPM. exe behöver till exempel vissa miljövariabler som har kon figurer ATS för att distribuera ett Node. js-program.
+* Konfigurera åtkomst kontroll genom att installera säkerhets certifikat.
 
-Läs mer om hur du konfigurerar SetupEntryPoint [konfigurera principen för en tjänstens konfigurationsstartpunkt](service-fabric-application-runas-security.md)
+Mer information om hur du konfigurerar SetupEntryPoint finns i [Konfigurera principen för en start punkt för tjänst konfiguration](service-fabric-application-runas-security.md)
 
-**EnvironmentVariables** (inte anges i föregående exempel) innehåller en lista över miljövariabler som som har angetts för det här kodpaketet. Miljövariabler kan åsidosättas i den `ApplicationManifest.xml` kan ange olika värden för olika tjänstinstanser. 
+**EnvironmentVariables** (anges inte i föregående exempel) innehåller en lista över miljövariabler som har angetts för det här kod paketet. Miljövariabler kan åsidosättas i `ApplicationManifest.xml` för att ge olika värden för olika tjänst instanser. 
 
-**DataPackage** (inte anges i föregående exempel) deklarerar en mapp med namnet genom att den **namn** attributet som innehåller godtyckliga statiska data som ska konsumeras av process under körning.
+**DataPackage** (som inte anges i föregående exempel) deklarerar en mapp, som namnges av attributet **Name** , som innehåller godtyckligt statiska data som ska konsumeras av processen vid körnings tillfället.
 
-**ConfigPackage** deklarerar en mapp med namnet genom att den **namn** attributet som innehåller en *Settings.xml* fil. Filen innehåller avsnitt av inställningar för användardefinierade, nyckel / värde-par som processen läser tillbaka vid körning. Vid en uppgradering om bara den **ConfigPackage** **version** har ändrats, och sedan processen inte startas. I stället meddelar en motringning den process som konfigurationsinställningarna har ändrats så att de kan läsas dynamiskt. Här är ett exempel *Settings.xml* fil:
+**ConfigPackage** deklarerar en mapp som heter med namnattributet, som innehåller en *Settings. XML-* fil. Inställnings filen innehåller avsnitt av användardefinierad, nyckel värdes par inställningar som processen läser tillbaka vid körning. Om endast **ConfigPackage** - **versionen** har ändrats under en uppgradering startas inte processen som körs om. I stället meddelar ett återanrop processen att konfigurations inställningarna har ändrats så att de kan läsas in dynamiskt. Här är en exempel på *Inställningar. XML-* fil:
 
 ```xml
 <Settings xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
@@ -96,8 +96,12 @@ Läs mer om hur du konfigurerar SetupEntryPoint [konfigurera principen för en t
 </Settings>
 ```
 
-Ett Service Fabric-tjänst **Endpoint** är ett exempel på en Service Fabric-resurs. En Service Fabric-resurs kan vara deklarerats/ändras utan att ändra den kompilerade koden. Åtkomst till Service Fabric-resurser som anges i tjänstmanifestet kan styras via den **Tilldelningsmodulen** i manifestet. När en Slutpunktsresurs har definierats i tjänstmanifestet tilldelar Service Fabric portar från portintervallet för reserverade programmet när en port inte anges explicit. Läs mer om [att ange eller åsidosätter slutpunkten resurser](service-fabric-service-manifest-resources.md).
+En Service Fabric tjänst **slut punkt** är ett exempel på en Service Fabric resurs. En Service Fabric resurs kan deklareras/ändras utan att den kompilerade koden ändras. Åtkomst till de Service Fabric-resurser som anges i tjänst manifestet kan styras via **SecurityGroup** i applikations manifestet. När en slut punkts resurs definieras i tjänst manifestet tilldelar Service Fabric portar från det reserverade programmets port intervall när en port inte anges explicit. Läs mer om att [Ange eller åsidosätta slut punkts resurser](service-fabric-service-manifest-resources.md).
 
+ 
+> [!WARNING]
+> Genom att definiera statiska portar ska inte överlappa med det applikations port intervall som anges i ClusterManifest. Om du anger en statisk port tilldelar du den utanför program port intervallet, annars leder det till port konflikter. Med version 6.5 CU2 kommer vi att utfärda en **hälso varning** när vi identifierar en sådan konflikt men låter distributionen fortsätta att synkroniseras med den levererade 6,5 beteendet. Vi kan dock förhindra program distributionen från nästa större versioner.
+>
 
 <!--
 For more information about other features supported by service manifests, refer to the following articles:
@@ -108,10 +112,10 @@ For more information about other features supported by service manifests, refer 
 *TODO: Configuration overrides
 -->
 
-## <a name="describe-an-application-in-applicationmanifestxml"></a>Beskriv ett program i ApplicationManifest.xml
-Applikationsmanifestet beskriver deklarativt programtypen och versionen. Den anger service sammansättning metadata, till exempel stabila namn, partitionering schema, instans antal/replikeringsfaktor, säkerhetsisolering/princip, placeringsbegränsningar, konfiguration av åsidosättningar och konstituerande tjänsttyper. Belastningsutjämning domänerna som programmet ska placeras beskrivs också.
+## <a name="describe-an-application-in-applicationmanifestxml"></a>Beskriv ett program i ApplicationManifest. XML
+Program manifestet beskriver till exempel program typen och versionen. Den anger tjänstens sammansättnings-metadata, till exempel stabila namn, partitionerings schema, instans antal/replikeringsräknare, säkerhets-/isolerings princip, placerings begränsningar, konfigurations åsidosättningar och komponent tjänst typer. De belastnings Utjämnings domäner som programmet placeras i beskrivs också.
 
-Därför ett programmanifest beskriver elementen på programnivå och refererar till en eller flera tjänstmanifest om du ska skapa en typ av program. Här är manifestet för den [rösta exempelprogrammet](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart) (och här är några [mer detaljerade exempel](service-fabric-manifest-examples.md)):
+Därför beskriver ett program manifest element på program nivå och refererar till ett eller flera tjänst manifest för att skapa en program typ. Här är applikations manifestet för [röstnings exempel programmet](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart) (och här följer några [mer detaljerade exempel](service-fabric-manifest-examples.md)):
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -147,29 +151,32 @@ Därför ett programmanifest beskriver elementen på programnivå och refererar 
     <Service Name="VotingWeb" ServicePackageActivationMode="ExclusiveProcess">
       <StatelessService ServiceTypeName="VotingWebType" InstanceCount="[VotingWeb_InstanceCount]">
         <SingletonPartition />
+         <PlacementConstraints>(NodeType==NodeType0)</PlacementConstraints
       </StatelessService>
     </Service>
   </DefaultServices>
 </ApplicationManifest>
 ```
 
-Som tjänstmanifest, **Version** attribut är Ostrukturerade strängar och inte parsas av systemet. Version attribut är också används för varje komponent för uppgradering till version.
+Precis som tjänst manifest är **versions** -attribut ostrukturerade strängar och parsas inte av systemet. Versionens attribut används också för att konfigurera varje komponent för uppgraderingar.
 
-**Parametrar** definierar de parametrar som används i manifestet. Värdena för dessa parametrar kan anges när programmet instantieras och kan åsidosätta programmet eller tjänsten konfigurationsinställningar.  Om värdet inte ändras när programmet en används standardvärdet för parametern. Om du vill lära dig att upprätthålla olika program och tjänstparametrar för enskilda miljöer, se [hantera programparametrar för flera miljöer](service-fabric-manage-multiple-environment-app-configuration.md).
+**Parametrar** definierar de parametrar som används i applikations manifestet. Värdena för dessa parametrar kan anges när programmet instansieras och kan åsidosätta program-eller tjänst konfigurations inställningar.  Standardvärdet för parametern används om värdet inte ändras när programmet instansieras. Information om hur du hanterar olika program-och tjänst parametrar för enskilda miljöer finns i [hantera program parametrar för flera miljöer](service-fabric-manage-multiple-environment-app-configuration.md).
 
-**ServiceManifestImport** innehåller referenser till tjänstmanifest som utgör den här typen. Ett programmanifest kan innehålla flera service manifest import, var och en kan versionshanteras oberoende av varandra. Importerade tjänstmanifest avgöra vilka typer av tjänster som är giltiga i den här typen. Inom ServiceManifestImport, kan du åsidosätta konfigurationsvärden i Settings.xml och miljövariabler i ServiceManifest.xml-filer. **Principer** (ej angivet i föregående exempel) för slutpunkt-bindning, säkerhet och åtkomst och paketet delning kan ställas in på importerade tjänstmanifest.  Mer information finns i [ställer in säkerhetsprinciper för ditt program](service-fabric-application-runas-security.md).
+**Service manifest import** innehåller referenser till tjänst manifest som utgör den här program typen. Ett program manifest kan innehålla flera tjänst manifest importer, och var och en kan vara versions oberoende av varandra. Importerade tjänst manifest avgör vilka tjänst typer som är giltiga inom den här program typen. I service manifest import åsidosätter du konfigurations värden i Settings. xml-och miljövariabler i ServiceManifest. XML-filer. **Principer** (anges inte i föregående exempel) för slut punkts bindning, säkerhet och åtkomst och paket delning kan anges för importerade tjänst manifest.  Mer information finns i [Konfigurera säkerhets principer för ditt program](service-fabric-application-runas-security.md).
 
-**DefaultServices** deklarerar tjänstinstanser som skapas automatiskt när ett program instantieras mot den här typen. Standardtjänster är bara för att underlätta och fungerar som vanligt tjänster i varje avseende när de väl har skapats. De uppgraderas tillsammans med andra tjänster i programinstansen och kan tas bort även. Ett programmanifest kan innehålla flera standardtjänster.
+**DefaultServices** deklarerar tjänst instanser som skapas automatiskt när ett program instansieras mot den här program typen. Standard tjänster är bara en bekvämlighet och fungerar som vanliga tjänster i alla avseenden när de har skapats. De uppgraderas tillsammans med andra tjänster i program instansen och kan också tas bort. Ett program manifest kan innehålla flera standard tjänster.
 
-**Certifikat** (inte anges i föregående exempel) deklarerar de certifikat som används för att [konfigurera HTTPS-slutpunkter](service-fabric-service-manifest-resources.md#example-specifying-an-https-endpoint-for-your-service) eller [kryptera hemligheter i applikationsmanifestet](service-fabric-application-secret-management.md).
+**Certifikat** (anges inte i föregående exempel) deklarerar de certifikat som används för att [Konfigurera https](service-fabric-service-manifest-resources.md#example-specifying-an-https-endpoint-for-your-service) -slutpunkter eller [kryptera hemligheter i applikations manifestet](service-fabric-application-secret-management.md).
 
-**Principer** (inte anges i föregående exempel) beskriver Logginsamling, [standard kör som-](service-fabric-application-runas-security.md), [hälsotillstånd](service-fabric-health-introduction.md#health-policies), och [säkerhetsåtkomst](service-fabric-application-runas-security.md) principer för att ställa in på den applikationsnivå, bland annat om tjänster har åtkomst till Service Fabric-körningen.
+**Placerings begränsningar** är de instruktioner som definierar var tjänsterna ska köras. Dessa instruktioner är kopplade till enskilda tjänster som du väljer för en eller flera Node-egenskaper. Mer information finns i [placerings begränsningar och syntax för Node Property](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-cluster-description#placement-constraints-and-node-property-syntax)
+
+**Principer** (anges inte i föregående exempel) beskriver logg samlingen, [standard körnings-som-som-](service-fabric-application-runas-security.md), [hälso](service-fabric-health-introduction.md#health-policies)-och [säkerhets åtkomst](service-fabric-application-runas-security.md) principer som anges på program nivå, inklusive om tjänsten eller tjänsten har åtkomst till den Service Fabric körningen.
 
 > [!NOTE] 
-> Som standard om Service Fabric-program till Service Fabric-körningen i form av en slutpunkt som tar emot programspecifika begäranden och miljövariabler som som pekar på sökvägar på värden som innehåller Infrastrukturresurser och programspecifika filer . Överväg att inaktivera den här åtkomsten när programmet är värd för ej betrodda koden (d.v.s. vars sändande är okänd eller som programmets ägare vet ska inte säkert att köra). Mer information finns i [säkerhetsmetoder i Service Fabric](service-fabric-best-practices-security.md#platform-isolation). 
+> Som standard har Service Fabric-program åtkomst till Service Fabric runtime, i form av en slut punkt som accepterar programspecifika begär Anden och miljövariabler som pekar på fil Sök vägar på värden som innehåller infrastrukturer och programspecifika filer . Överväg att inaktivera den här åtkomsten när programmet är värd för ej betrodd kod (d.v.s. kod vars härkomst är okänd eller som program ägaren inte vet vara säker för körning). Mer information finns [i rekommenderade säkerhets metoder i Service Fabric](service-fabric-best-practices-security.md#platform-isolation). 
 >
 
-**Huvudnamn** (ej angivet i föregående exempel) beskriver de säkerhetsobjekt (användare eller grupper) som krävs för att [kör tjänster och säker tjänstresurser](service-fabric-application-runas-security.md).  Huvudnamn refereras till i den **principer** avsnitt.
+**Huvud konton** (anges inte i föregående exempel) beskriver de säkerhets objekt (användare eller grupper) som krävs för att [köra tjänster och säkra tjänst resurser](service-fabric-application-runas-security.md).  Säkerhets objekt refereras till i avsnittet **principer** .
 
 
 
@@ -185,12 +192,12 @@ For more information about other features supported by application manifests, re
 
 
 ## <a name="next-steps"></a>Nästa steg
-- [Paketera ett program](service-fabric-package-apps.md) och blir redo att distribuera.
+- [Paketera ett program](service-fabric-package-apps.md) och gör det redo att distribuera det.
 - [Distribuera och ta bort program](service-fabric-deploy-remove-applications.md).
-- [Konfigurera parametrar och miljövariabler för olika programinstanser](service-fabric-manage-multiple-environment-app-configuration.md).
-- [Ställer in säkerhetsprinciper för ditt program](service-fabric-application-runas-security.md).
-- [Konfigurera HTTPS-slutpunkter](service-fabric-service-manifest-resources.md#example-specifying-an-https-endpoint-for-your-service).
-- [Kryptera hemligheter i applikationsmanifestet](service-fabric-application-secret-management.md)
+- [Konfigurera parametrar och miljövariabler för olika program instanser](service-fabric-manage-multiple-environment-app-configuration.md).
+- [Konfigurera säkerhets principer för ditt program](service-fabric-application-runas-security.md).
+- [Konfigurera https](service-fabric-service-manifest-resources.md#example-specifying-an-https-endpoint-for-your-service)-slutpunkter.
+- [Kryptera hemligheter i applikations manifestet](service-fabric-application-secret-management.md)
 
 <!--Image references-->
 [appmodel-diagram]: ./media/service-fabric-application-model/application-model.png

@@ -11,14 +11,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: b819a990b9f607aaf70bf2e16a5857de3f7306cc
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 320e92e45f319e394b5a38b3f1e8ef3f314920b8
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827495"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966335"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Hämta metadata-aktivitet i Azure Data Factory
 
@@ -138,8 +138,8 @@ Egenskap | Beskrivning | Obligatorisk
 -------- | ----------- | --------
 Fält lista | Listar de typer av metadatainformation som krävs. Se information i avsnittet [metadata-alternativ](#metadata-options) om metadata som stöds. | Ja 
 data uppsättning | Referens data uppsättningen vars metadata-aktivitet ska hämtas av GetMetadata-aktiviteten. Mer information om vilka [funktioner](#supported-capabilities) som stöds finns i avsnittet om anslutningar som stöds och finns i avsnittet om information om data uppsättning. | Ja
-formatSettings | Använd när du använder format typs data uppsättning (Parquet, DelimitedText). | Nej
-storeSettings | Använd när du använder format typs data uppsättning (Parquet, DelimitedText). | Nej
+formatSettings | Använd när du använder data uppsättning för format typ. | Nej
+storeSettings | Använd när du använder data uppsättning för format typ. | Nej
 
 ## <a name="sample-output"></a>Exempel på utdata
 

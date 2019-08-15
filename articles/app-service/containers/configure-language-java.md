@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 06/26/2019
 ms.author: brendm
 ms.custom: seodec18
-ms.openlocfilehash: 1488dbdcc042b29880560e7255de96b8d0409779
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 825379c04c22b3f13e651455c490a58ad47169d8
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68498509"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967150"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Konfigurera en Linux Java-app för Azure App Service
 
@@ -243,9 +243,6 @@ Om du vill mata in dessa hemligheter i din fjäder-eller Tomcat-konfigurationsfi
 
 Det här avsnittet visar hur du ansluter Java-program som distribuerats på Azure App Service i Linux med NewRelic-och AppDynamics-plattformarna för program prestanda övervakning (APM).
 
-[Konfigurera nya Relic](#configure-new-relic)
-[Konfigurera AppDynamics](#configure-appdynamics)
-
 ### <a name="configure-new-relic"></a>Konfigurera nya Relic
 
 1. Skapa ett NewRelic-konto på [NewRelic.com](https://newrelic.com/signup)
@@ -257,8 +254,7 @@ Det här avsnittet visar hur du ansluter Java-program som distribuerats på Azur
 7. I Azure Portal bläddrar du till ditt program i App Service och skapar en ny program inställning.
     - Om din app använder **Java se**skapar du en miljö variabel med namnet `JAVA_OPTS` med värdet. `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar`
     - Om du använder **Tomcat**skapar du en miljö variabel med namnet `CATALINA_OPTS` med värdet `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar`.
-    - Om du använder **WildFly**kan du läsa mer i den nya Relic [-dokumentationen för](https://docs.newrelic.com/docs/agents/java-agent/additional-installation/wildfly-version-11-installation-java) att få vägledning om hur du installerar Java-agenten och JBoss-konfigurationen.
-    - Om du redan har en miljö variabel för `JAVA_OPTS` eller `CATALINA_OPTS`lägger `javaagent` du till alternativet i slutet av det aktuella värdet.
+    - Om du använder **WildFly**kan du läsa mer i den nya [](https://docs.newrelic.com/docs/agents/java-agent/additional-installation/wildfly-version-11-installation-java) Relic-dokumentationen för att få vägledning om hur du installerar Java-agenten och JBoss-konfigurationen.
 
 ### <a name="configure-appdynamics"></a>Konfigurera AppDynamics
 
@@ -269,7 +265,9 @@ Det här avsnittet visar hur du ansluter Java-program som distribuerats på Azur
 5. I Azure Portal bläddrar du till ditt program i App Service och skapar en ny program inställning.
     - Om du använder **Java se**skapar du en miljö variabel med namnet `JAVA_OPTS` med värdet `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` där `<app-name>` är ditt App Service namn.
     - Om du använder **Tomcat**skapar du en miljö variabel med namnet `CATALINA_OPTS` med värdet `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` där `<app-name>` är ditt App Service namn.
-    - Om du använder **WildFly**kan du läsa mer i AppDynamics [-dokumentationen om](https://docs.appdynamics.com/display/PRO45/JBoss+and+Wildfly+Startup+Settings) hur du installerar Java-agenten och JBoss-konfigurationen.
+    - Om du använder **WildFly**kan du läsa mer i AppDynamics [](https://docs.appdynamics.com/display/PRO45/JBoss+and+Wildfly+Startup+Settings) -dokumentationen om hur du installerar Java-agenten och JBoss-konfigurationen.
+
+>  Om du redan har en miljö variabel för `JAVA_OPTS` eller `CATALINA_OPTS`lägger `-javaagent:/...` du till alternativet i slutet av det aktuella värdet.
 
 ## <a name="configure-jar-applications"></a>Konfigurera JAR-program
 
@@ -484,7 +482,7 @@ När du har filer och innehåll för modulen följer du stegen nedan för att l�
 
 1. Använd FTP för att ladda upp filer till en plats i App Service-instansen under katalogen */Home* , till exempel */Home/site/Deployments/tools*. Mer information finns i [distribuera din app för att Azure App Service att använda FTP/S](../deploy-ftp.md).
 2. På sidan**allmänna inställningar** för **konfiguration** > i Azure Portal anger du fältet **Start skript** till platsen för start kommando skriptet, till exempel */Home/site/Deployments/tools/startup.sh*.
-3. Starta om App Service-instansen genom att trycka på  knappen **starta om** i översikts avsnittet i portalen eller använda Azure CLI.
+3. Starta om App Service-instansen genom att trycka på knappen **starta om** i översikts avsnittet i portalen eller använda Azure CLI.
 
 ### <a name="configure-data-sources"></a>Konfigurera data källor
 
@@ -636,7 +634,7 @@ Sedan måste du uppdatera WildFly-konfigurationen för appen och distribuera den
     mvn package -DskipTests azure-webapp:deploy
     ```
 
-3. Starta om App Service-instansen genom att trycka på  knappen **starta om** i översikts avsnittet i Azure Portal eller med hjälp av Azure CLI.
+3. Starta om App Service-instansen genom att trycka på knappen **starta om** i översikts avsnittet i Azure Portal eller med hjälp av Azure CLI.
 
 Din App Service-instans har nu kon figurer ATS för att få åtkomst till din databas.
 

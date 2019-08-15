@@ -7,12 +7,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: gwallace
-ms.openlocfilehash: 10d919b21e05195e8a7b6b351a742a4f9a57ee2b
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: ae9d124391a1b17187ca98964874f681352498da
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360701"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945340"
 ---
 # <a name="how-to-update-a-cloud-service"></a>Så här uppdaterar du en moln tjänst
 
@@ -21,7 +21,7 @@ Att uppdatera en moln tjänst, inklusive både dess roller och gäst operativ sy
 ## <a name="update-an-azure-service"></a>Uppdatera en Azure-tjänst
 Azure ordnar roll instanserna i logiska grupperingar som kallas uppgraderings domäner (UD). Uppgraderings domäner (UD) är logiska uppsättningar av roll instanser som uppdateras som en grupp.  Azure uppdaterar en moln tjänst en UD i taget, vilket gör att instanser i andra UDs kan fortsätta betjäna trafiken.
 
-Standard antalet uppgraderings domäner är 5. Du kan ange ett annat antal uppgraderings domäner genom att inkludera attributet upgradeDomainCount i tjänstens definitions fil (. csdef). Mer information om attributet upgradeDomainCount finns i webrole [schema](/previous-versions/azure/reference/gg557553(v=azure.100)) eller [WorkerRole schema](/previous-versions/azure/reference/gg557552(v=azure.100)).
+Standard antalet uppgraderings domäner är 5. Du kan ange ett annat antal uppgraderings domäner genom att inkludera attributet upgradeDomainCount i tjänstens definitions fil (. csdef). Mer information om attributet upgradeDomainCount finns i definitions [schema för Azure-Cloud Services (. csdef-fil)](https://docs.microsoft.com/azure/cloud-services/schema-csdef-file).
 
 När du utför en uppdatering på plats av en eller flera roller i tjänsten uppdaterar Azure uppsättningar roll instanser enligt den uppgraderings domän som de tillhör. Azure uppdaterar alla instanser i en specifik uppgraderings domän – stoppar dem, uppdaterar dem och aktiverar dem igen. sedan flyttas de vidare till nästa domän. Genom att bara stoppa instanserna som körs i den aktuella uppgraderings domänen, ser Azure till att en uppdatering sker med minsta möjliga påverkan på tjänsten som körs. Mer information finns i [hur uppdateringen fortsätter](#howanupgradeproceeds) senare i den här artikeln.
 
@@ -114,7 +114,7 @@ Om du vill minimera stillestånds tiden när du uppgraderar en instans av en ins
 <a name="RollbackofanUpdate"></a>
 
 ## <a name="rollback-of-an-update"></a>Återställa en uppdatering
-Azure ger flexibilitet vid hantering av tjänster under en uppdatering genom att låta dig initiera ytterligare åtgärder på en tjänst, efter att den inledande uppdateringsbegäran accepteras av Azure Fabric-kontrollanten. En återställning kan bara utföras när en uppdatering (konfigurations ändring) eller en uppgradering har  statusen pågår i distributionen. En uppdatering eller uppgradering anses vara pågående så länge det finns minst en instans av tjänsten som ännu inte har uppdaterats till den nya versionen. Om du vill testa om en återställning tillåts kontrollerar du värdet för flaggan RollbackAllowed, som returneras av [Hämta distribution](/previous-versions/azure/reference/ee460804(v=azure.100)) och [hämtar egenskaper för moln tjänst egenskaper](/previous-versions/azure/reference/ee460806(v=azure.100)) , har angetts till sant.
+Azure ger flexibilitet vid hantering av tjänster under en uppdatering genom att låta dig initiera ytterligare åtgärder på en tjänst, efter att den inledande uppdateringsbegäran accepteras av Azure Fabric-kontrollanten. En återställning kan bara utföras när en uppdatering (konfigurations ändring) eller en uppgradering har statusen pågår i distributionen. En uppdatering eller uppgradering anses vara pågående så länge det finns minst en instans av tjänsten som ännu inte har uppdaterats till den nya versionen. Om du vill testa om en återställning tillåts kontrollerar du värdet för flaggan RollbackAllowed, som returneras av [Hämta distribution](/previous-versions/azure/reference/ee460804(v=azure.100)) och [hämtar egenskaper för moln tjänst egenskaper](/previous-versions/azure/reference/ee460806(v=azure.100)) , har angetts till sant.
 
 > [!NOTE]
 > Det är bara klokt att anropa rollback vid en uppdatering eller uppgradering på plats, eftersom det innebär att virtuella växlings uppdateringar **i** VIP innebär att ersätta en hel aktiv instans av tjänsten med en annan.

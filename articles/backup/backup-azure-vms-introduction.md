@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: dacurwin
-ms.openlocfilehash: 07faf03ee9b12d1bf4a200de47d6df714c2248d9
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 72ab33cd280892ac6de827986e21e04672e58960
+ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68737154"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68951854"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>En översikt över säkerhets kopiering av virtuella Azure-datorer
 
@@ -138,6 +138,50 @@ Data disk 1 | 4 095 GB | 30 GB
 Data disk 2 | 4 095 GB | 0 GB
 
 Den faktiska storleken på den virtuella datorn i det här fallet är 17 GB + 30 GB + 0 GB = 47 GB. Den här skyddade instans storleken (47 GB) utgör grunden för månads fakturan. När mängden data i den virtuella datorn växer ökar den skyddade instans storleken som används för fakturerings ändringar som ska matchas.
+
+<a name="limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb"></a>
+## <a name="limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30-tb"></a>Begränsad offentlig för hands version: Säkerhets kopiering av virtuell dator med disk storlekar upp till 30 TB
+
+Azure Backup har nu stöd för en begränsad offentlig för hands version av större och mer kraftfulla [Azure-Managed disks](https://azure.microsoft.com/blog/larger-more-powerful-managed-disks-for-azure-virtual-machines/) på upp till 30 TB storlek. Den här för hands versionen innehåller stöd på produktions nivå för hanterade virtuella datorer.
+
+Du kan enkelt registrera i förhands granskningen utan att du behöver påverka dina säkerhets kopior. När prenumerationen har registrerats i förhands granskningen bör alla virtuella datorer med disk storlekar upp till 30 TB säkerhets kopie ras. För att registrera dig i för hands versionen:
+ 
+Kör följande cmdlets från en upphöjd PowerShell-Terminal:
+
+1. Logga in på ditt Azure-konto.
+
+    ```powershell
+    PS C:> Login-AzureRmAccount
+    ```
+
+2. Välj den prenumeration som du vill registrera för uppgraderingen:
+
+    ```powershell
+    PS C:>  Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
+    ```
+3. Registrera den här prenumerationen i förhands gransknings programmet: 
+
+    ```powershell
+    PS C:> Register-AzureRmProviderFeature -FeatureName "LargeDiskVMBackupPreview" –ProviderNamespace Microsoft.RecoveryServices
+    ```
+
+    Vänta i 30 minuter tills prenumerationen har registrerats i förhands granskningen. 
+
+ 4. Kontrol lera statusen genom att köra följande cmdlets:
+
+    ```powershell
+    PS C:> Get-AzureRmProviderFeature -FeatureName "LargeDiskVMBackupPreview" –ProviderNamespace Microsoft.RecoveryServices 
+    ```
+5. Kör följande kommando när prenumerationen visas som registrerad:
+    
+    ```powershell
+    PS C:> Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
+    ```
+
+> [!NOTE]
+> Krypterade virtuella datorer med diskar som är större än 4 TB stöds inte i den här för hands versionen.
+
+
 
 ## <a name="next-steps"></a>Nästa steg
 

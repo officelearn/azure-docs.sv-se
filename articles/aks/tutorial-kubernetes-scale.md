@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 5a942aa10f36df55ac232defa610102700e3995b
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 9bccd826a37b66f7f89e70c57260a0db08342421
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67614200"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019193"
 ---
 # <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>Självstudier: Skala program i Azure Kubernetes Service (AKS)
 
@@ -76,12 +76,13 @@ Kubernetes har stöd för [horisontell autoskalning av poddar][kubernetes-hpa] s
 az aks show --resource-group myResourceGroup --name myAKSCluster --query kubernetesVersion
 ```
 
-Om AKS-klustret är mindre än *1.10* installerar du Metrics Server, annars hoppar du över det här steget. Klona GitHub-lagringsplatsen för `metrics-server` och installera exempelresursdefinitionerna. Om du vill visa innehållet i dessa YAML-definitioner, se [Metrics Server för Kuberenetes 1.8 +][metrics-server-github].
-
-```console
-git clone https://github.com/kubernetes-incubator/metrics-server.git
-kubectl create -f metrics-server/deploy/1.8+/
-```
+> [!NOTE]
+> Om ditt AKS-kluster är mindre än *1,10*installeras inte mått servern automatiskt. Klona GitHub-lagringsplatsen för `metrics-server` och installera exempelresursdefinitionerna. Om du vill visa innehållet i dessa YAML-definitioner, se [Metrics Server för Kuberenetes 1.8 +][metrics-server-github].
+> 
+> ```console
+> git clone https://github.com/kubernetes-incubator/metrics-server.git
+> kubectl create -f metrics-server/deploy/1.8+/
+> ```
 
 Om du vill använda autoskalning måste alla behållare i din poddar och din poddar ha tilldelade CPU-förfrågningar och-gränser. I `azure-vote-front`-distributionen begär klientdelscontainern redan 0,25 CPU med maxgränsen 0,5 CPU. Dessa resursbegäranden och begränsningar definieras enligt följande exempelavsnitt:
 

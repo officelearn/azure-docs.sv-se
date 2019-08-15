@@ -11,12 +11,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 ms.date: 02/20/2019
-ms.openlocfilehash: eb49649e9c92416fc674c032b9dc6a613a34dd77
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: b99dbd403de0de948527fbe74b7e1205316822c0
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569664"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019682"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql"></a>Använd Azure Active Directory autentisering för autentisering med SQL
 
@@ -98,7 +98,7 @@ Om du vill skapa en innesluten databas användare i Azure SQL Database, hanterad
   - `SUSER_ID(<admin name>)`
   - `SUSER_SID(<admin name>)`
 
-### <a name="manage-instances"></a>Hantera instanser
+### <a name="managed-instances"></a>Hanterade instanser
 
 - Azure AD server-Huvudkonton (inloggningar) och användare stöds som en förhands gransknings funktion för [hanterade instanser](sql-database-managed-instance.md).
 - Att ställa in Azure AD server-Huvudkonton (inloggningar) som är mappade till en Azure AD-grupp som databas ägare stöds inte i [hanterade instanser](sql-database-managed-instance.md).

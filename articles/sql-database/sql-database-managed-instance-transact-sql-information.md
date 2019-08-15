@@ -9,14 +9,14 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
-ms.date: 07/07/2019
+ms.date: 08/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 822b8bd1d0f5be854b6d345d68fcdb680b2ef1c4
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 1581a62f0999cf502feaad31d2c884f4d171e770
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882568"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019663"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database hanterade instans T-SQL-skillnader från SQL Server
 
@@ -309,12 +309,12 @@ Information om SQL Server Agent finns i [SQL Server Agent](https://docs.microsof
 
 ### <a name="tables"></a>Tabeller
 
-Följande tabeller stöds inte:
+Följande tabell typer stöds inte:
 
-- `FILESTREAM`
-- `FILETABLE`
-- `EXTERNAL TABLE`
-- `MEMORY_OPTIMIZED` 
+- [-](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server)
+- [FILETABLE](https://docs.microsoft.com/sql/relational-databases/blob/filetables-sql-server)
+- [extern tabell](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql) PolyBase
+- [MEMORY_OPTIMIZED](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables) (stöds inte endast i Generell användning-nivån)
 
 Information om hur du skapar och ändrar tabeller finns i [CREATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql) och [ändra tabell](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql).
 
@@ -468,10 +468,13 @@ Följande databas alternativ anges eller åsidosätts och kan inte ändras senar
 
 Begränsningar: 
 
+- Säkerhets kopior av skadade databaser kan återställas beroende på typen av skada, men automatiska säkerhets kopieringar görs inte förrän skadan har åtgärd ATS. Kontrol lera att du kör `DBCC CHECKDB` på käll instansen och Använd `WITH CHECKSUM` säkerhets kopiering för att förhindra det här problemet.
+- Återställning av `.BAK` filen för en databas som innehåller en begränsning som beskrivs i det här dokumentet ( `FILESTREAM` till exempel `FILETABLE` eller objekt) kan inte återställas på den hanterade instansen.
 - `.BAK`Det går inte att återställa filer som innehåller flera säkerhets kopierings uppsättningar. 
 - `.BAK`filer som innehåller flera loggfiler kan inte återställas.
-- Återställningen Miss lyckas om `FILESTREAM` . bak innehåller data.
-- Säkerhets kopieringar som innehåller databaser som har aktiva minnes objekt kan inte återställas på en Generell användning-instans. Information om Restore-instruktioner [](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql)finns i Restore Statements.
+- Säkerhets kopior som innehåller databaser som är större än 8TB, aktiva InMemory OLTP-objekt eller mer än 280 filer kan inte återställas på en Generell användning instans. 
+- Säkerhets kopieringar som innehåller databaser som är större än 4 TB-eller in-memory OLTP-objekt med den totala storlek som är större än den storlek som beskrivs i [resurs gränser](sql-database-managed-instance-resource-limits.md) kan inte återställas på affärskritisk instans.
+Information om Restore-instruktioner [](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql)finns i Restore Statements.
 
 ### <a name="service-broker"></a>Service Broker
 
@@ -548,11 +551,6 @@ I det här exemplet fortsätter befintliga databaser att fungera och kan växa u
 
 Du kan [identifiera antalet återstående filer](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1) med hjälp av systemvyer. Om du når den här gränsen kan du försöka att [tömma och ta bort några av de mindre filerna med hjälp av DBCC SHRINKFILE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file) -instruktionen eller växla till [Affärskritisks nivån, som inte har den här gränsen](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
 
-### <a name="incorrect-configuration-of-the-sas-key-during-database-restore"></a>Felaktig konfiguration av SAS-nyckeln under databas återställning
-
-`RESTORE DATABASE`det läser. bak-filen kan ständigt försöka läsa filen. bak igen och returnera ett fel efter en lång tids period om signaturen för delad åtkomst i `CREDENTIAL` är felaktig. Kör Restore HEADERONLY innan du återställer en databas för att se till att SAS-nyckeln är korrekt.
-Se till att du tar bort rad `?` avståndet från den SAS-nyckel som genereras med hjälp av Azure Portal.
-
 ### <a name="tooling"></a>Verktyg
 
 SQL Server Management Studio och SQL Server Data Tools kan ha problem när de får åtkomst till en hanterad instans.
@@ -624,11 +622,6 @@ CLR-moduler placerade i en hanterad instans och länkade servrar eller distribue
 Det går inte `BACKUP DATABASE ... WITH COPY_ONLY` att köra på en databas som är krypterad med service-hanterad Transparent datakryptering (TDE). Service-Managed TDE tvingar säkerhets kopieringarna att krypteras med en intern TDE-nyckel. Det går inte att exportera nyckeln, så du kan inte återställa säkerhets kopian.
 
 **Korrigera** Använd automatisk säkerhets kopiering och återställning av tidpunkter, eller Använd kundhanterad [(BYOK) TDE](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql#customer-managed-transparent-data-encryption---bring-your-own-key) i stället. Du kan också inaktivera kryptering på databasen.
-
-### <a name="point-in-time-restore-follows-time-by-the-time-zone-set-on-the-source-instance"></a>Återställning av tidpunkt efter tidpunkt efter tids zonen som angetts för käll instansen
-
-Vid återställning efter en tidpunkt tolkas tid för att återställas till genom att följa tids zonen för käll instansen i stället för följande UTC.
-Kontrol lera de [kända problemen](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-timezone#known-issues) med den hanterade instansens tidszon för mer information.
 
 ## <a name="next-steps"></a>Nästa steg
 

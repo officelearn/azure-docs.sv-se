@@ -1,6 +1,6 @@
 ---
-title: Exempel - PCI-DSS v3.2.1 skissen - distributionsstegen
-description: Distribuera steg av Payment Card Industry Data Security Standard v3.2.1 skissen exemplet.
+title: Exempel-PCI-DSS v 3.2.1 skiss – distribuera steg
+description: Distribuera steg för betalnings kortet bransch Data Security Standard v 3.2.1 skiss exempel.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
@@ -8,16 +8,16 @@ ms.date: 06/24/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: b4e9435e5f569a076fc5beb6441b9da935b87f3a
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.openlocfilehash: 237444cde6e9ccd709f61d13669da03094e5be10
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67561371"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019429"
 ---
-# <a name="deploy-the-pci-dss-v321-blueprint-sample"></a>Distribuera exemplet PCI-DSS v3.2.1 skiss
+# <a name="deploy-the-pci-dss-v321-blueprint-sample"></a>Distribuera skiss exemplet PCI-DSS v 3.2.1
 
-Följande steg måste vidtas för att distribuera Azure skisser PCI-DSS v3.2.1 skissen exemplet:
+För att distribuera Azure-skisser PCI-DSS v 3.2.1-skiss exemplet måste följande steg vidtas:
 
 > [!div class="checklist"]
 > - Skapa en ny skiss från exemplet
@@ -28,89 +28,89 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="create-blueprint-from-sample"></a>Skapa skiss från exempel
 
-Först måste implementera skissen exemplet genom att skapa en ny skiss i din miljö med exemplet som en starter.
+Börja med att implementera skiss exemplet genom att skapa en ny skiss i din miljö med hjälp av exemplet som ett start verktyg.
 
-1. Välj **alla tjänster** och Sök efter och välj **princip** i den vänstra rutan. På den **princip** väljer **skisser**.
+1. Välj **alla tjänster** och Sök efter och välj **princip** i det vänstra fönstret. Välj **ritningar**på sidan **princip** .
 
-1. Från den **komma igång** sidan till vänster, Välj den **skapa** knappen _skapa en skiss_.
+1. Från sidan **komma igång** till vänster väljer du knappen **skapa** under _skapa en skiss_.
 
-1. Hitta den **PCI-DSS v3.2.1** skissen exemplet under _andra exempel_ och välj **använda det här exemplet**.
+1. Hitta skiss exemplet **PCI-DSS v 3.2.1** under _andra exempel_ och välj **Använd det här exemplet**.
 
-1. Ange den _grunderna_ av skiss exemplet:
+1. Ange _grunderna_ för skiss exemplet:
 
-   - **Namn på skiss**: Ange ett namn för din kopia av PCI-DSS v3.2.1 skissen exemplet.
-   - **Definitionens plats**: Använd de tre punkterna och välj hanteringsgruppen för att spara din kopia av exemplet för att.
+   - **Skiss namn**: Ange ett namn för din kopia av skiss exemplet för PCI-DSS v 3.2.1.
+   - **Definitions plats**: Använd ellipsen och välj den hanterings grupp där du vill spara din kopia av exemplet.
 
-1. Välj den _artefakter_ fliken högst upp på sidan eller **nästa: Artefakter** längst ned på sidan.
+1. Välj fliken _artefakter_ högst upp på sidan eller **nästa: Artefakter** längst ned på sidan.
 
-1. Granska listan över artefakter som utgör skissen exemplet. Många av artefakter har parametrar som ska vi definiera senare. Välj **spara utkast** när du har granskat skissen exemplet.
+1. Granska listan över artefakter som utgör skiss exemplet. Många av artefakterna har parametrar som vi definierar senare. Välj **Spara utkast** när du är klar med att granska skiss exemplet.
 
-## <a name="publish-the-sample-copy"></a>Publicera exempel-kopia
+## <a name="publish-the-sample-copy"></a>Publicera exempel kopian
 
-Din kopia av exemplet skissen har skapats i din miljö. Den skapas i **Draft** läge och måste vara **publicerad** innan den kan tilldelas och distribueras. Kopia av exemplet skissen kan anpassas till din miljö och behov, utan att ändringar kan flytta dem från den PCI-DSS v3.2.1 som är standard.
+Din kopia av skiss exemplet har nu skapats i din miljö. Den skapas i **utkast** läge och måste **publiceras** innan den kan tilldelas och distribueras. Kopian av skiss exemplet kan anpassas efter din miljö och behov, men ändringen kan flyttas bort från PCI-DSS v 3.2.1-standarden.
 
-1. Välj **alla tjänster** och Sök efter och välj **princip** i den vänstra rutan. På den **princip** väljer **skisser**.
+1. Välj **alla tjänster** och Sök efter och välj **princip** i det vänstra fönstret. Välj **ritningar**på sidan **princip** .
 
-1. Välj den **skiss definitioner** sidan till vänster. Använd filtren för att hitta din kopia av exemplet skissen och markera den.
+1. Välj sidan **skiss definitioner** till vänster. Använd filtren för att hitta din kopia av skiss exemplet och markera det.
 
-1. Välj **publicera skiss** överst på sidan. I den nya sidan till höger, tillhandahåller en **Version** för din kopia av exemplet skissen. Den här egenskapen är användbar för om du gör en ändring av senare. Ange **ändra anteckningar** som ”första versionen publicerade från PCI-DSS v3.2.1 skissen provet”. Välj sedan **publicera** längst ned på sidan.
+1. Välj **publicera skiss** överst på sidan. På den nya sidan till höger anger du en **version** för din kopia av skiss exemplet. Den här egenskapen är användbar för om du gör en ändring senare. Ange **ändrings anteckningar** som "första versionen som publicerats från PCI-DSS v 3.2.1-exemplet". Välj sedan **publicera** längst ned på sidan.
 
-## <a name="assign-the-sample-copy"></a>Tilldela exempel-kopia
+## <a name="assign-the-sample-copy"></a>Tilldela exempel kopian
 
-När kopian av exemplet skissen har installerats utan **publicerad**, så kan de tilldelas en prenumeration inom den sparades till hanteringsgruppen. Det här steget är där parametrar har angetts så att varje distribution av kopian av exemplet skissen unikt.
+När kopieringen av skiss exemplet har publicerats kanden tilldelas en prenumeration i hanterings gruppen som den sparades till. Det här steget är den plats där parametrar tillhandahålls för att göra varje distribution av kopian av skiss exemplet unik.
 
-1. Välj **alla tjänster** och Sök efter och välj **princip** i den vänstra rutan. På den **princip** väljer **skisser**.
+1. Välj **alla tjänster** och Sök efter och välj **princip** i det vänstra fönstret. Välj **ritningar**på sidan **princip** .
 
-1. Välj den **skiss definitioner** sidan till vänster. Använd filtren för att hitta din kopia av exemplet skissen och markera den.
+1. Välj sidan **skiss definitioner** till vänster. Använd filtren för att hitta din kopia av skiss exemplet och markera det.
 
-1. Välj **tilldela skissen** överst på sidan för skissen definition.
+1. Välj **tilldela skiss** överst på skiss definitions sidan.
 
-1. Ange parametervärden för skisstilldelningen:
+1. Ange parameter värden för skiss tilldelningen:
 
-   - Grundläggande inställningar
+   - Grundinställningar
 
-     - **Prenumerationer**: Välj en eller flera av de prenumerationer som är i hanteringsgruppen som du sparade din kopia av exemplet skissen till. Om du väljer mer än en prenumeration skapas en tilldelning för att använda de parametrar som anges.
-     - **Tilldelningsnamn**: Namnet är förifyllda baserat på namnet på skissen.
-       Ändra vid behov eller lämna skick.
-     - **Plats**: Välj en region för den hanterade identitet som ska skapas i. Azure Blueprint använder den här hanterade identiteten för att distribuera alla artefakter i den tilldelade skissen. Mer information finns i [Hanterade identiteter för Azure-resurser](../../../../active-directory/managed-identities-azure-resources/overview.md).
-     - **Definitionsversion för skissen**: Välj en **publicerad** version av din kopia av exemplet skissen.
+     - **Prenumerationer**: Välj en eller flera av de prenumerationer som finns i hanterings gruppen som du sparade din kopia av skiss exemplet till. Om du väljer fler än en prenumeration skapas en tilldelning för varje användning av de angivna parametrarna.
+     - **Tilldelnings namn**: Namnet är ifyllt för dig baserat på namnet på skissen.
+       Ändra vid behov eller lämna det som är.
+     - **Plats**: Välj en region som den hanterade identiteten ska skapas i. Azure Blueprint använder den här hanterade identiteten för att distribuera alla artefakter i den tilldelade skissen. Mer information finns i [Hanterade identiteter för Azure-resurser](../../../../active-directory/managed-identities-azure-resources/overview.md).
+     - **Ritnings definitions version**: Välj en **publicerad** version av din kopia av skiss exemplet.
 
-   - Tilldelning av Lås
+   - Lås tilldelning
 
-     Markera skiss Lås för din miljö. Mer information finns i [Låsa skissresurser](../../concepts/resource-locking.md).
+     Välj skiss lås inställningen för din miljö. Mer information finns i [Låsa skissresurser](../../concepts/resource-locking.md).
 
    - Hanterad identitet
 
-     Låt standardvärdet _systemtilldelad_ hanterad identitet alternativet.
+     Lämna alternativet standard _tilldelade_ hanterade identiteter.
 
-   - Artefakten parametrar
+   - Artefaktparametrar
 
-     De parametrar som definierats i det här avsnittet gäller för artefakten som den definieras. De här parametrarna kan [dynamiska parametrar](../../concepts/parameters.md#dynamic-parameters) eftersom de definierades vid tilldelning av skissen. En fullständig lista eller artefakt parametrar och deras beskrivningar finns i [artefakt parametrar tabell](#artifact-parameters-table).
+     De parametrar som definieras i det här avsnittet gäller för den artefakt som den definieras under. Dessa parametrar är [dynamiska parametrar](../../concepts/parameters.md#dynamic-parameters) eftersom de definieras när skissen tilldelas. En fullständig lista eller artefakt parametrar och deras beskrivningar finns i [tabellen artefakt parametrar](#artifact-parameters-table).
 
-1. När alla parametrar har angetts, väljer **tilldela** längst ned på sidan. Skisstilldelningen har skapats och distribution av artefakt påbörjas. Distributionen tar ungefär en timme. Öppna skisstilldelningen för att kontrollera statusen för distributionen.
+1. När alla parametrar har angetts väljer du **tilldela** längst ned på sidan. Skiss tilldelningen skapas och artefakt distributionen påbörjas. Distributionen tar ungefär en timme. Du kan kontrol lera statusen för distributionen genom att öppna skiss tilldelningen.
 
 > [!WARNING]
-> Tjänsten Azure skisser och inbyggda skissen exemplen är **kostar**. Azure-resurser är [prissätts per produkt](https://azure.microsoft.com/pricing/). Använd den [priskalkylator](https://azure.microsoft.com/pricing/calculator/) att uppskatta kostnaden för att köra resurser som har distribuerats av den här skissen-exemplet.
+> Tjänsten Azure-ritningar och de inbyggda skiss exemplen är **kostnads fria**. Azure-resurser [priss ätts per produkt](https://azure.microsoft.com/pricing/). Använd [pris kalkylatorn](https://azure.microsoft.com/pricing/calculator/) för att beräkna kostnaden för att köra resurser som distribuerats i skiss exemplet.
 
-## <a name="artifact-parameters-table"></a>Artefakten parametrar tabell
+## <a name="artifact-parameters-table"></a>Tabellen artefakt parametrar
 
-Följande tabell innehåller en lista över skissen artefakt parametrar:
+I följande tabell visas en lista över Skissernas artefakt parametrar:
 
-|Artefaktnamn|Typ av artefakt|Parameternamn|Beskrivning|
+|Namn på artefakt|Artefakttyp|Parameternamn|Beskrivning|
 |-|-|-|-|
-|[Förhandsversion]\: Granska PCI v3.2.1:2018 kontroller och distribuera specifika VM-tillägg för att stödja granskningskrav|Principtilldelning|Lista över resurstyper | Granska diagnostikinställning för valda resurstyper. Standardvärdet är alla resurser har valts| 
-|Tillåtna platser|Principtilldelning|Listan över tillåtna platser|Lista över data center platser som tillåts för en resurs som ska distribueras till. Den här listan kan anpassas till önskat Azure-platser globalt. Välj platser som du vill tillåta.| 
-|Tillåtna platser för resursgrupper|Principtilldelning |Tillåtna plats |Den här principen kan du begränsa de platser som organisationen kan skapa resursgrupper i. Den används för att genomdriva kraven på geo-efterlevnad.| 
-|Distribuera granskning på SQL-servrar|Principtilldelning|Kvarhållning i dagar|Data rentention i antal dagar. Standardvärdet är 180 men PCI kräver 365.| 
-|Distribuera granskning på SQL-servrar|Principtilldelning|Resursgruppnamn för lagringskonto|Granskning skrivningar databashändelser till en granskningslogg logga in i Azure Storage-kontot (ett lagringskonto skapas i varje region där en SQL-Server skapas som ska delas av alla servrar i den regionen).| 
+|\[För\] hands versions granskning PCI v 3.2.1:2018 kontrollerar och distribuerar särskilda VM-tillägg för att stödja gransknings krav|Principtilldelning|Lista över resurs typer | Granska diagnostikinställningar för valda resurs typer. Standardvärdet är alla resurser markerade| 
+|Tillåtna platser|Principtilldelning|Lista över tillåtna platser|Lista över data Center platser som tillåts för alla resurser som ska distribueras till. Den här listan kan anpassas till önskade Azure-platser globalt. Välj de platser som du vill tillåta.| 
+|Tillåtna platser för resurs grupper|Principtilldelning |Tillåten plats |Med den här principen kan du begränsa vilka platser som organisationen kan skapa resurs grupper i. Den används för att genomdriva kraven på geo-efterlevnad.| 
+|Distribuera Granskning på SQL-servrar|Principtilldelning|Kvarhållning dagar|Data bevarande i antal dagar. Standardvärdet är 180 men PCI kräver 365.| 
+|Distribuera Granskning på SQL-servrar|Principtilldelning|Resurs grupp namn för lagrings konto|Granskning skriver databas händelser till en Gransknings logg i ditt Azure Storage konto (ett lagrings konto skapas i varje region där ett SQL Server skapas som kommer att delas av alla servrar i den regionen).| 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har gått igenom stegen för att distribuera PCI-DSS v3.2.1 skissen exemplet finns i följande artiklar om du vill veta mer om översikt och kontroll mappning:
+Nu när du har granskat stegen för att distribuera PCI-DSS v 3.2.1-skissen kan du gå till följande artiklar om du vill veta mer om översikt och kontroll mappning:
 
 > [!div class="nextstepaction"]
-> [PCI-DSS v3.2.1 skissen - översikt](./index.md)
-> [PCI-DSS v3.2.1 skissen - kontroll mappning](./control-mapping.md)
+> [PCI-DSS v 3.2.1 skiss – översikt](./index.md)
+> [PCI-DSS v 3.2.1 skiss-kontroll mappning](./control-mapping.md)
 
 Ytterligare artiklar om skisser och hur de används:
 

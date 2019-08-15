@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: dacurwin
-ms.openlocfilehash: 1cbd0f649bd5e89c1ed424604697afa179964175
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 23492133035f27aa3e1217269022565e0ff217a9
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689008"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69018764"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Säkerhetskopiera och återställa virtuella Azure-datorer med PowerShell
 
@@ -340,7 +340,7 @@ V2VM              Backup              InProgress          4/23/2016             
 
 ### <a name="change-policy-for-backup-items"></a>Ändra princip för säkerhets kopierings objekt
 
-Användaren kan antingen ändra den befintliga principen eller ändra principen för det säkerhetskopierade objektet från Policy1 till Policy2. Om du vill växla principer för ett säkerhetskopierat objekt, behöver du bara hämta den relevanta principen och säkerhetskopiera objektet och använda kommandot [Enable-AzRecoveryServices](https://docs.microsoft.com/powershell/module/az.recoveryservices/Enable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) med säkerhets kopierings objekt som parameter.
+Användaren kan antingen ändra den befintliga principen eller ändra principen för det säkerhetskopierade objektet från Policy1 till Policy2. Om du vill växla principer för ett säkerhetskopierat objekt hämtar du den relevanta principen och säkerhetskopierar objektet och använder kommandot [Enable-AzRecoveryServices](https://docs.microsoft.com/powershell/module/az.recoveryservices/Enable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) med säkerhets kopierings objekt som parameter.
 
 ````powershell
 $TargetPol1 = Get-AzRecoveryServicesBackupProtectionPolicy -Name <PolicyName>
@@ -720,7 +720,7 @@ I följande avsnitt beskrivs de steg som krävs för att skapa en virtuell dator
 
    * **För virtuell dator utan Azure AD** – Använd följande kommando för att manuellt aktivera kryptering för data diskarna.
 
-     Om det uppstår ett problem under kommandot som körs efter fråga för AADClientID, måste du uppdatera Azure PowerShell.
+     Om du under kommando körningen frågar efter AADClientID måste du uppdatera Azure PowerShell.
 
      **Endast BEK**
 
@@ -806,7 +806,7 @@ OsType  Password        Filename
 Windows e3632984e51f496 V2VM_wus2_8287309959960546283_451516692429_cbd6061f7fc543c489f1974d33659fed07a6e0c2e08740.exe
 ```
 
-Kör skriptet på den dator där du vill återställa filerna. Om du vill köra skriptet måste du ange det angivna lösen ordet. När diskarna har anslutits använder du Utforskaren i Windows för att bläddra bland de nya volymerna och filerna. Mer information finns i säkerhets kopierings artikeln, [återställa filer från säkerhets kopiering av virtuella Azure-datorer](backup-azure-restore-files-from-vm.md).
+Kör skriptet på den dator där du vill återställa filerna. Om du vill köra skriptet måste du ange det angivna lösen ordet. När diskarna har anslutits använder du Utforskaren i Windows för att bläddra bland de nya volymerna och filerna. Mer information finns i säkerhets kopierings artikeln, [återställa filer från säkerhets kopian av virtuella Azure-datorer](backup-azure-restore-files-from-vm.md).
 
 ### <a name="unmount-the-disks"></a>Demontera diskarna
 

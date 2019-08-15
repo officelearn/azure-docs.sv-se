@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/09/2019
 ms.author: dacurwin
-ms.openlocfilehash: 169ce73ead52d6a275f13f084c681e14c89ab606
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 293af600f4bd58efe8383d019ca3d17f724f242c
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689361"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933338"
 ---
 # <a name="configure-azure-backup-reports"></a>Konfigurera Azure Backup-rapporter
 Den här artikeln visar hur du konfigurerar rapporter för Azure Backup med hjälp av ett Recovery Services-valv. Den visar också hur du får åtkomst till rapporter med hjälp av Power BI. När du har slutfört de här stegen kan du gå direkt till Power BI för att visa, anpassa och skapa rapporter.
@@ -37,7 +37,7 @@ Undvik det här problemet genom att ladda ned den senaste appen (version 1,8).
 - Registrera resurs leverantören **Microsoft. Insights**, om den inte redan har registrerats. Använd prenumerationerna för lagrings kontot och Recovery Services valvet så att rapporterings data kan flöda till lagrings kontot. För att göra det här steget går du till Azure Portal, > väljer prenumerations**resurs leverantörer**och söker efter den här providern för att registrera den.
 
 ## <a name="configure-storage-account-for-reports"></a>Konfigurera lagrings konto för rapporter
-Följ dessa steg om du vill konfigurera lagrings kontot för ett Recovery Services valv med hjälp av Azure Portal. Detta är en engångs konfiguration. När lagrings kontot har kon figurer ATS kan du gå direkt till Power BI för att Visa innehålls paketet och använda rapporter.
+Följ dessa steg om du vill konfigurera lagrings kontot för ett Recovery Services valv med hjälp av Azure Portal. Detta är en engångs konfiguration. När lagrings kontot har kon figurer ATS kan du gå direkt till Power BI för att Visa mall-appen och använda rapporter.
 
 1. Om du redan har ett Recovery Services-valv öppet går du till nästa steg. Om du inte har ett Recovery Services-valv öppet går du till Azure Portal och väljer **alla tjänster**.
 
@@ -80,11 +80,11 @@ När du har konfigurerat ett lagrings konto för rapporter med hjälp av ett Rec
 Om du vill anpassa och dela rapporten skapar du en arbets yta och utför följande steg
 
 1. [Logga in](https://powerbi.microsoft.com/landing/signin/) på Power BI.
-2. Välj **Hämta data**. På **fler sätt att skapa ditt eget innehåll**väljer du **tjänst innehålls paket**. Följ stegen i [Power BI-dokumentationen för att ansluta till en tjänst](https://powerbi.microsoft.com/documentation/powerbi-content-packs-services/).
+2. Navigera till **appar > hämta fler appar från Microsoft Appsource**. Följ stegen i [Power BI-dokumentationen för att ansluta till en tjänst](https://powerbi.microsoft.com/documentation/powerbi-content-packs-services/).
 
 3. I **Sök** fältet skriver du **Azure Backup** och väljer **Hämta nu**.
 
-      ![Hämta innehålls paket](./media/backup-azure-configure-reports/content-pack-get.png)
+      ![Hämta Template-appen](./media/backup-azure-configure-reports/template-app-get.png)
 4. Ange namnet på det lagrings konto som har kon figurer ATS i föregående steg 5 och välj **Nästa**.
 
     ![Ange ett lagringskontonamn](./media/backup-azure-configure-reports/content-pack-storage-account-name.png)    
@@ -96,11 +96,11 @@ Om du vill anpassa och dela rapporten skapar du en arbets yta och utför följan
 
     ![Innehålls paketet importeras](./media/backup-azure-configure-reports/content-pack-importing-data.png) <br/>
 
-    När importen är klar visas ett meddelande om att det är **klart** . Om mängden data i lagrings kontot är stor kan det ta lite längre tid att importera innehålls paketet.
+    När importen är klar visas ett meddelande om att det är **klart** . Om mängden data i lagrings kontot är stor kan det ta lite längre tid att importera Template-appen.
 
     ![Importera lyckade innehålls paket](./media/backup-azure-configure-reports/content-pack-import-success.png) <br/>
 
-7. När data har importer ATS visas **Azure Backup** innehålls paketet i **appar** i navigerings fönstret. Under **instrument paneler**, **rapporter**och **data uppsättningar**visar listan nu Azure Backup.
+7. När data importer ATS visas **Azure Backup** Template-appen i **appar** i navigerings fönstret. Under **instrument paneler**, **rapporter**och **data uppsättningar**visar listan nu Azure Backup.
 
 8. Under **instrument paneler**väljer du **Azure Backup**som visar en uppsättning med fästa nyckel rapporter.
 
@@ -117,10 +117,10 @@ Om du vill anpassa och dela rapporten skapar du en arbets yta och utför följan
 | Felinformation | Lösning |
 | --- | --- |
 | När du har konfigurerat lagrings kontot för säkerhets kopierings rapporter visas inte **lagrings kontot** som **har kon figurer ATS**. | Om du har konfigurerat ett lagrings konto flödar dina rapporterings data på trots det här problemet. Lös problemet genom att gå till Azure Portal och välja **alla tjänster** > **diagnostikinställningar inställningar** > **Recovery Services valv** > **Redigera inställning**. Ta bort den tidigare konfigurerade inställningen och skapa en ny inställning på samma blad. Den här gången väljer du **tjänst**i rutan **namn** . Nu visas det konfigurerade lagrings kontot. |
-|När du har importerat Azure Backup innehålls paketet i Power BI visas fel meddelandet "404-container hittas inte". | Som tidigare nämnts måste du vänta 24 timmar efter att du har konfigurerat rapporter i Recovery Services valvet för att se dem korrekt i Power BI. Om du försöker komma åt rapporterna före 24 timmar visas det här fel meddelandet eftersom fullständiga data ännu inte är tillgängliga för att visa giltiga rapporter. |
+|När du har importerat Azure Backup Template-appen i Power BI visas fel meddelandet "404-container hittas inte". | Som tidigare nämnts måste du vänta 24 timmar efter att du har konfigurerat rapporter i Recovery Services valvet för att se dem korrekt i Power BI. Om du försöker komma åt rapporterna före 24 timmar visas det här fel meddelandet eftersom fullständiga data ännu inte är tillgängliga för att visa giltiga rapporter. |
 
 ## <a name="next-steps"></a>Nästa steg
-När du har konfigurerat lagrings kontot och importerat Azure Backup innehålls paketet, är nästa steg att anpassa rapporter och använda en rapporterings data modell för att skapa rapporter. Mer information finns i följande artiklar.
+När du har konfigurerat lagrings kontot och importerat Azure Backup Template-appen, är nästa steg att anpassa rapporter och använda en rapporterings data modell för att skapa rapporter. Mer information finns i följande artiklar.
 
 * [Använda en Azure Backup rapporterings data modell](backup-azure-reports-data-model.md)
 * [Filtrera rapporter i Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-about-filters-and-highlighting-in-reports/)

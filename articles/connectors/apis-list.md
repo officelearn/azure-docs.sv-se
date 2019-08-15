@@ -10,10 +10,10 @@ ms.suite: integration
 ms.topic: article
 ms.date: 05/08/2019
 ms.openlocfilehash: 126c3fb348b1d53769a818ae4b21fcdbbef65615
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "68517244"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Anslutningar för Azure Logic Apps
@@ -77,7 +77,7 @@ Logic Apps innehåller inbyggda utlösare och åtgärder så att du kan skapa sc
 |   |   |   |   | 
 |---|---|---|---| 
 | [![**Schema** för][schedule-icon]<br/>API-ikon][recurrence-doc] | – Kör din Logic app enligt ett angivet schema, från grundläggande till komplex upprepning, med **upprepnings** utlösaren. <p>– Pausa din Logic app under en angiven varaktighet med **fördröjnings** åtgärden. <p>– Pausa din Logi Kap par fram till angivet datum och tid med **fördröjningen innan** åtgärden. | [![API-][http-icon]<br/>ikon**http**][http-doc] | Kommunicera med valfri slut punkt via HTTP med både utlösare och åtgärder för HTTP, HTTP + Swagger och HTTP + webhook. | 
-| [![API-][http-request-icon]<br/>**ikon**][http-request-doc] | – Gör ditt Logic app-anrop från andra appar eller tjänster, Utlös på Event Grid resurs händelser eller Utlös på svar till Azure Security Center aviseringar med utlösaren för **begäran** . <p>– Skicka svar till en app eller tjänst med **svars** åtgärden. | [![API-][batch-icon]<br/>ikon**batch**][batch-doc] | – Bearbeta meddelanden i batchar med utlösaren **batch-meddelanden** . <p>– Anropa Logi Kap par som har befintliga batch-utlösare med åtgärden **skicka meddelanden till batch** . | 
+| [![API-][http-request-icon]<br/>ikon][http-request-doc] | – Gör ditt Logic app-anrop från andra appar eller tjänster, Utlös på Event Grid resurs händelser eller Utlös på svar till Azure Security Center aviseringar med utlösaren för **begäran** . <p>– Skicka svar till en app eller tjänst med **svars** åtgärden. | [![API-][batch-icon]<br/>ikon**batch**][batch-doc] | – Bearbeta meddelanden i batchar med utlösaren **batch-meddelanden** . <p>– Anropa Logi Kap par som har befintliga batch-utlösare med åtgärden **skicka meddelanden till batch** . | 
 | [![API-][azure-functions-icon]<br/>ikon**Azure Functions**][azure-functions-doc] | Anropa Azure Functions som kör anpassade kod avsnitt (C# eller Node. js) från dina Logic Apps. | [![API-][azure-api-management-icon]</br>ikon**Azure-API Management**][azure-api-management-doc] | Anropa utlösare och åtgärder som definierats av dina egna API: er som du hanterar och publicerar med Azure API Management. | 
 | [![API-][azure-app-services-icon]<br/>ikon**Azure App tjänster**][azure-app-services-doc] | Anropa Azure API Apps eller Web Apps som finns på Azure App Service. Utlösare och åtgärder som definieras av dessa appar visas som alla andra utlösare och åtgärder för första klass när Swagger ingår. | [![API-][azure-logic-apps-icon]<br/>ikon**Azure<br/>-Logic Apps**][nested-logic-app-doc] | Anropa andra Logi Kap par som börjar med en begär ande utlösare. | 
 ||||| 

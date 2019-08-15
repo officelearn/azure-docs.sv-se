@@ -10,12 +10,12 @@ ms.author: maxluk
 author: maxluk
 ms.reviewer: sdgilley
 ms.date: 08/02/2019
-ms.openlocfilehash: 91ac8b596373963aeba00c1932dfde5d76f27bd0
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: bc14ba2bcaa80236717c062abd1dc8a63b58305c
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68856028"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68966833"
 ---
 # <a name="train-and-register-chainer-models-at-scale-with-azure-machine-learning-service"></a>Träna och registrera kedje modeller i stor skala med Azure Machine Learning-tjänsten
 
@@ -214,3 +214,5 @@ I den här artikeln har du tränat och registrerat en djup inlärning, neurala N
 * [Justering av hyperparametrar](how-to-tune-hyperparameters.md)
 
 * [Spåra kör mått vid träning](how-to-track-experiments.md)
+
+* [Visa vår referens arkitektur för distribuerad djup inlärnings utbildning i Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)

@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Elastic Database-jobb | Microsoft Docs
-description: Konfigurera Elastic Database jobb för att köra Transact-SQL-skript (T-SQL) i en uppsättning med en eller flera Azure SQL-databaser
+title: Azure SQL Elastic Database-jobb (förhands granskning) | Microsoft Docs
+description: Konfigurera Elastic Database jobb (för hands version) för att köra Transact-SQL-skript (T-SQL) i en uppsättning med en eller flera Azure SQL-databaser
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -11,12 +11,12 @@ author: srinia
 ms.author: srinia
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: 7c5905716c0aada4a5070b9968c330eafaffb741
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 3a0aa6e28ea4c40d5cad5ba99edec344c7979acf
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561336"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935084"
 ---
 # <a name="create-configure-and-manage-elastic-jobs"></a>Skapa, konfigurera och hantera elastiska jobb
 

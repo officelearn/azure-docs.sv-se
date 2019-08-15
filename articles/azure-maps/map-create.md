@@ -1,6 +1,6 @@
 ---
 title: Skapa en karta med Azure Maps | Microsoft Docs
-description: Så här skapar du en JavaScript-mappning
+description: Så här skapar du en karta med Azure Maps Web SDK.
 author: jingjing-z
 ms.author: jinzh
 ms.date: 07/26/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 9f1188fcf2aa24791ca5181f5c94a1b0f6b15dc1
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 932c244ff41e757413a05cde019ee7ee1a82232d
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882072"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976124"
 ---
 # <a name="create-a-map"></a>Skapa en karta
 
@@ -22,7 +22,7 @@ Den här artikeln visar hur du skapar en karta och animerar en karta.
 
 ## <a name="loading-a-map"></a>Läser in en karta
 
-Om du vill läsa in en karta skapar du en ny instans av [kart klassen](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest). När du initierar kartan med ett DIV-element-ID för att återge kartan och en uppsättning alternativ som ska användas när du läser in kartan skickas. Om standard information om autentisering inte anges i `atlas` namn området måste den här informationen anges i kart alternativen vid inläsning av kartan. Kartan läser in flera resurser asynkront för prestanda. Därför kan du när du har skapat kart instansen `ready` bifoga `load` en eller-händelse till kartan och sedan lägga till ytterligare kod som samverkar med kartan i den händelse hanteraren. `ready` Händelsen utlöses så snart kartan har tillräckligt med resurser för att kunna interagera med program mässigt. `load` Händelsen utlöses efter att den ursprungliga kart visningen har lästs in helt. 
+Om du vill läsa in en karta skapar du en ny instans av [kart klassen](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest). Vid initieringen av kartan skickas ett DIV-element-ID för att återge kartan och en uppsättning alternativ som ska användas vid inläsning av kartan. Om standard information om autentisering inte anges i `atlas` namn området måste den här informationen anges i kart alternativen vid inläsning av kartan. Kartan läser in flera resurser asynkront för prestanda. Därför kan du när du har skapat kart instansen `ready` bifoga `load` en eller-händelse till kartan och sedan lägga till ytterligare kod som samverkar med kartan i den händelse hanteraren. `ready` Händelsen utlöses så snart kartan har tillräckligt med resurser för att kunna interagera med program mässigt. `load` Händelsen utlöses efter att den ursprungliga kart visningen har lästs in helt. 
 
 <br/>
 
@@ -104,3 +104,6 @@ Se kod exempel för att lägga till funktioner i din app:
 
 > [!div class="nextstepaction"]
 > [Lägg till kontroller till kartan](map-add-controls.md)
+
+> [!div class="nextstepaction"]
+> [Kodexempel](https://docs.microsoft.com/samples/browse/?products=azure-maps)

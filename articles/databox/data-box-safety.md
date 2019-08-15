@@ -1,128 +1,128 @@
 ---
-title: Säkerhet för Azure Data Box | Microsoft Docs
-description: Beskriver hur du på ett säkert sätt installera och använda Azure Data Box beskrivs konventioner för säkerhet, riktlinjer och överväganden.
+title: Säkerhet för din Azure Data Box | Microsoft Docs
+description: Beskriver säkerhets konventioner, rikt linjer och överväganden och förklarar hur du kan installera och använda din Azure Data Box på ett säkert sätt.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 08/13/2019
 ms.author: alkohli
-ms.openlocfilehash: d1bad50f2d97434865bb02ad54b1643c54e01790
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: db6e2eadbf19d78a203a4d4ba6111ad88430b192
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65953024"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68985952"
 ---
-# <a name="safely-install-and-operate-your-azure-data-box"></a>Installera och använda Azure Data box-enhet på ett säkert sätt
-![Varningsikon](./media/data-box-safety/warning_icon.png)
-![läsa säkerhet Observera ikonen](./media/data-box-safety/read_safety_and_health_information_icon.png) **läsa INFORMATION om säkerhet och hälsa**
+# <a name="safely-install-and-operate-your-azure-data-box"></a>Installera och använda din Azure Data Box på ett säkert sätt
+![Varnings](./media/data-box-safety/warning_icon.png)
+![ikon läsa säkerhets meddelande](./media/data-box-safety/read_safety_and_health_information_icon.png) ikon **läsa säkerhet och hälso information**
 
-Läs alla säkerhetsinformation i den här artikeln innan du använder Azure Data Box. Det gick inte att följa anvisningarna kan leda fire, electric chocka eller andra skador eller skada till dina egenskaper.
+Läs all säkerhets information i den här artikeln innan du använder Azure Data Box. Om du inte följer anvisningarna kan det leda till brand, elektrisk stötande eller andra skador eller skada på egenskaperna.
 
-## <a name="safety-icon-conventions"></a>Ikonen konventioner för säkerhet
-Här följer ikonerna att du kan hitta när du granskar de säkerhetsåtgärder som observeras när du konfigurerar och kör din Data Box.
+## <a name="safety-icon-conventions"></a>Säkerhets ikon konventioner
+Här följer de ikoner som du hittar när du granskar de säkerhets åtgärder som ska observeras när du konfigurerar och kör din Data Box-enhet.
 
 | Ikon | Beskrivning |
 |:--- |:--- |
-| ![Ikon för risk](./media/data-box-safety/warning_icon.png) **FARA!** |Anger en farlig situation som, om inte undvikas leder död eller allvarlig skada. Den här signalen word är att begränsas i extrema fall. |
-| ![Varningsikon](./media/data-box-safety/warning_icon.png) **varning!** |Anger en farlig situation som, om inte undvikas kan resultera i död eller allvarlig skada. |
-| ![Varningsikon](./media/data-box-safety/warning_icon.png) **varning!** |Anger en farlig situation som, om inte undvikas kan resultera i att mindre eller måttlig skada. |
-| ![Observera ikonen](./media/data-box-safety/notice_icon.png) **meddelande:** |Anger information som anses viktiga, men inte risk-relaterade. |
-| ![Ikon för elektriska chocka](./media/data-box-safety/electrical_shock_hazard_icon.png) **elektriska chocka risk** |Högre spänningen. |
-| ![Kraftiga ikonen](./media/data-box-safety/heavy_weight_hazard_icon.png) **stor vikt** | |
-| ![Ingen användare som är användbara delar ikonen](./media/data-box-safety/no_user_serviceable_parts_icon.png) **inga användbara delar användare** |Inte kommer åt såvida inte korrekt utbildade. |
-| ![Läsa säkerhet Observera ikonen](./media/data-box-safety/read_safety_and_health_information_icon.png) **läsa alla instruktioner först** | |
-| ![Varningsikon tipsikon](./media/data-box-safety/tip_hazard_icon.png) **tips risk** | |
+| ![Varnings](./media/data-box-safety/warning_icon.png) ikon **!** |Indikerar en farlig situation som, om de inte undviks, leder till dödsfall eller allvarlig skada. Den här signalen är begränsad till de mest extrema situationerna. |
+| ![Varnings](./media/data-box-safety/warning_icon.png) ikon **Varning!** |Indikerar en farlig situation som, om de inte undviks, kan leda till dödsfall eller allvarlig skada. |
+| ![Varnings](./media/data-box-safety/warning_icon.png) ikon varning **!** |Indikerar en farlig situation som, om de inte undviks, kan leda till mindre eller måttlig skada. |
+| ![Meddelande Ikons](./media/data-box-safety/notice_icon.png) **meddelande:** |Anger information som anses viktig, men inte risk relaterad. |
+| ![Elektrisk stötande](./media/data-box-safety/electrical_shock_hazard_icon.png) stöt vid **fara** |Hög spänning. |
+| ![Extrafet vikt ikon](./media/data-box-safety/heavy_weight_hazard_icon.png) | |
+| ![Ingen User serviceable parts-](./media/data-box-safety/no_user_serviceable_parts_icon.png) ikon **saknar användar tjänst delar** |Få inte åtkomst om den inte är korrekt utbildad. |
+| ![Läs säkerhets meddelande ikonen](./media/data-box-safety/read_safety_and_health_information_icon.png) **Läs alla instruktioner först** | |
+| ![Tips risk ikon](./media/data-box-safety/tip_hazard_icon.png) **tips** | |
 
-## <a name="handling-precautions"></a>Hantering av vissa åtgärder
+## <a name="handling-precautions"></a>Hantering av försiktighets åtgärder
 
-![Varningsikon](./media/data-box-safety/warning_icon.png) ![elektriska chocka ikonen](./media/data-box-safety/electrical_shock_hazard_icon.png)![ingen funktionsduglig användare delar ikonen](./media/data-box-safety/no_user_serviceable_parts_icon.png) **varning** 
+![Varnings](./media/data-box-safety/warning_icon.png) ![ikon för elektriska](./media/data-box-safety/electrical_shock_hazard_icon.png)![stöter ikoner ingen användar tjänst](./media/data-box-safety/no_user_serviceable_parts_icon.png) dels ikon **Varning** 
 
-* Granska den *som fick* enhet för skador. Om enheten höljet har skadats, kontaktar du Microsoft Support om du vill få en ny. Försök inte att använda enheten. 
-* Enheten är utrustad med manipuleringssäker skruvar. Om du misstänker att enheten är fel, kontakta Microsoft Support om du vill få en ny. Försök inte att hantera enheten. 
-* Enheten innehåller inga användare funktionsduglig delar. Farlig spänning, aktuell och energi-nivåer finns i. Öppna inte. Gå tillbaka enheten till Microsoft för att underhålla.
+* Kontrol lera att enheten *tas emot* för skador. Om enhets kabinettet är skadat kan du [kontakta Microsoft Support](data-box-disk-contact-microsoft-support.md) för att få en ny ersättning. Försök inte att använda enheten. 
+* Enheten är utrustad med Manipulerings skruvar. Om du misstänker att enheten inte fungerar kan du [kontakta Microsoft Support](data-box-disk-contact-microsoft-support.md) för att få en ny ersättning. Försök inte att betjäna enheten. 
+* Enheten innehåller inga delar som är baserade på användar tjänster. Farliga spännings-, ström-och energi nivåer finns i. Öppna inte. Returnera enheten till Microsoft för underhåll.
 
-![Varningsikon](./media/data-box-safety/warning_icon.png) ![kraftiga ikonen](./media/data-box-safety/heavy_weight_hazard_icon.png) **varning!** 
+![Varnings](./media/data-box-safety/warning_icon.png) ![ikon varning vid](./media/data-box-safety/heavy_weight_hazard_icon.png) hög vikts ikon **!** 
 
-* Ett fullständigt konfigurerad hölje kan väga upp till 22.7 kg (50 lbs); Försök inte att flytta den själv.
-* Innan du flyttar höljet ska du alltid kontrollera att det finns två personer att hantera vikten. Tänk på att en person försöker flytta den här vikt kan klara skador.
-
-
-![Varningsikon](./media/data-box-safety/warning_icon.png) ![tipsikon risk](./media/data-box-safety/tip_hazard_icon.png) **varning!**
-* Placera enheten på en fast, hård och stabila yta att undvika en risk för tips.
-* Rackmonterad utrustning ska inte användas som hyllor eller utrymmet. Placera inte Data Box ovanpå rackmonterad utrustning. Att lägga till alla typer av belastningen till en utökad rackmonterade enhet kan du skapa en risk för tips som kan leda till skada, död eller produkten skadas.
-
-![Varningsikon](./media/data-box-safety/warning_icon.png) **varning!**
-
-* Ställa in enheten i en arbetsyta, vilket ger tillräcklig air omsättning runt enheten.
-* Installera enheten i en temperatur-kontrollerade inom området kostnadsfritt ledande främmande ämnen och tillåter tillräcklig air omsättning runt enheten.
-* Skydda från källor med en flytande och mycket hög-miljöer.
+* En fullständigt konfigurerad hölje kan väga upp till 22,7 kg (50 kg). Försök inte att lyfta upp den själv.
+* Innan du flyttar kammaren måste du alltid se till att två personer är tillgängliga för att hantera vikten. Tänk på att en person som försöker lyfta upp den här vikten kan upprätthålla skador.
 
 
-## <a name="electrical-precautions"></a>Elektriska försiktighetsåtgärder
+![Varnings](./media/data-box-safety/warning_icon.png) ![ikon tips](./media/data-box-safety/tip_hazard_icon.png) **Varning!**
+* Placera enheten på en platt, hård och stabil yta för att undvika risk för risk.
+* Rack monterings utrustning får inte användas som hyllor eller arbets utrymmen. Placera inte Data Box-enhet ovanpå utrustning som ställts i rack montering. Genom att lägga till alla typer av belastning till en utökad rackmonterad enhet kan du skapa potentiella Tip-risker som kan leda till skador, dödsfall eller produkt skador.
 
-![Varningsikon](./media/data-box-safety/warning_icon.png) ![elektriska chocka ikonen](./media/data-box-safety/electrical_shock_hazard_icon.png) **varning!**
+![Varnings](./media/data-box-safety/warning_icon.png) ikon **Varning!**
 
-* Tillhandahålla en säker elektriska earth anslutning till strömförsörjning kontakten. AC-kabel har tre ledare erfarenhet av att arbeta-plugin (en kontakt som har erfarenhet av att arbeta PIN-kod). Det här plugin passar bara ett förankrad AC uttag. Inte att motverka syftet med erfarenhet av att arbeta PIN-kod.
-* Tanke på att plugin på strömförsörjning strömsladd är huvudsakliga koppla från enheten, kontrollera att uttag finns nära enheten och är lättillgängliga.
-* Koppla från strömsladden (genom att hämta plugin, inte kabel) och koppla från alla kablar om någon av följande villkor föreligger:
+* Konfigurera enheten i en arbets plats så att den har tillräcklig luft cirkulation runt enheten.
+* Installera enheten i en temperatur-kontrollerad inomhus yta som är fri från mellanliggande föroreningar och möjliggör tillräcklig luft cirkulation runt enheten.
+* Håll enheten borta från källor till flytande och kraftigt fuktiga miljöer.
 
-    - Strömsladd eller plugin blir slitna annars skadad.
-    - Du spiller något till enheten gemener och versaler.
-    - Enheten visas regn eller överflödig vätska.
-    - Enheten har tagits bort och enheten gemener och versaler är skadad.
-    - Du misstänker att enheten behöver service eller reparation.
-* Koppla permanent från enheten innan du flyttar den eller om du tror att det är skadad på något sätt.
-* Ange en lämplig strömkälla elektriska överlagring skydd att uppfylla följande power specifikationer:
 
-    - Spänning: 100 V AC till 240 V AC
-    - Aktuellt: 6, maximalt
-    - Frekvens: 50 Hz till 60 Hz
+## <a name="electrical-precautions"></a>Elektriska försiktighets åtgärder
 
-![Varningsikon](./media/data-box-safety/warning_icon.png) **varning:**
+![Varnings](./media/data-box-safety/warning_icon.png) ![ikon varning om](./media/data-box-safety/electrical_shock_hazard_icon.png) elektrisk stötande ikon **!**
 
-* Den här enheten innehåller mynt cellsbatterier. Försök inte att hantera enheten. Batterier i den här enheten är inte funktionsduglig användare. 
-* **För tjänsten personal endast**: Risken för Explosion om batteri ersätts av en felaktig typ. Ta bort används batterier enligt anvisningarna.
+* Tillhandahålla en säker elektrisk jordnings anslutning till strömförsörjnings sladden. AC-kabeln har ett uttag för tre ledare (en plugg som har en PIN-kod för mark). Den här kontakten passar bara ett jordat växel uttag. Manipulation inte syftet med fäst punkten.
+* Med tanke på att kontakten på strömförsörjnings sladden är den primära från kopplings enheten, se till att socket-uttagen är placerade nära enheten och är lätt att komma åt.
+* Koppla från ström sladden (genom att dra kontakten, inte kabeln) och koppla från alla kablar om något av följande villkor föreligger:
 
-![Observera ikonen](./media/data-box-safety/notice_icon.png) **meddelande:**
+    - Ström sladden eller pluggen blir sliten eller skadas på annat sätt.
+    - Du spiller något i enhetens hölje.
+    - Enheten exponeras för regn eller överskotts fukt.
+    - Enheten släpptes och enhetens Skift läge är skadat.
+    - Du misstänker att enheten behöver tjänst eller reparation.
+* Koppla bort enheten permanent innan du flyttar den eller om du tror att den har skadats på något sätt.
+* Tillhandahålla en lämplig ström källa med skydd mot elektrisk överbelastning för att uppfylla följande energi krav:
 
-För att fungera korrekt för din enhet och för att förhindra produkten:
+    - Strömförsörjning 100 v AC till 240 V AC
+    - Tillfället 6 A, max
+    - Frekvens 50 Hz till 60 Hz
 
-* Kontrollera att klient- och bakdörrar är helt öppen medan enheten är igång.
+![Varnings](./media/data-box-safety/warning_icon.png) ikon varning **:**
 
-## <a name="regulatory-information"></a>Gällande föreskrifter
+* Den här enheten innehåller mynt batterier. Försök inte att betjäna enheten. Batterier i den här enheten är inte användar tjänst. 
+* **Endast för tjänste personal**: Explosions risk om batteriet ersätts av en felaktig typ. Ta bort de batterier som används enligt instruktionerna.
 
-Det här avsnittet innehåller regler för Azure Data Box, föreskrifter modellnummer DB010.
+![Meddelande Ikons](./media/data-box-safety/notice_icon.png) **meddelande:**
+
+För att enheten ska fungera korrekt och för att förhindra produkt skada:
+
+* Se till att front-och back dörrarna är helt öppna när enheten körs.
+
+## <a name="regulatory-information"></a>Reglerande information
+
+Det här avsnittet innehåller information om Azure Data Box, regel modell nummer DB010.
 
 Den här enheten är:
 
-- Utvärderas som Information Technology utrustning (OD), avsedda att fungera i en typisk rummet miljö. Om den här produkten för andra miljöer lämpliga kan kräva ytterligare utvärdering.
-- Avsedd för användning med NRTL visas (UL, CSA, ETL, etc.) och IEC/EN 60950-1 eller IEC/EN 62368-1-kompatibel (CE markerad) informationsteknik utrustning.
-- Utformad för att fungera i följande miljö. 
-    - Temperatur vid drift: 50° 95° f (10° till 35° C)
-    - Temperatur vid förvaring:-4 ° till 122 ° F (20 ° till 50 ° C)
-    - Relativ fuktighet: 15 till 85% (icke-kondenserande) 
-    - Höjd vid drift: Testats upp till 6500 meter 0 till 2 000 mätare
+- Utvärderas som information Technology Equipment (amn) och är utformad för att användas i en typisk data rums miljö. Den här produktens lämplighet för andra miljöer kan kräva ytterligare utvärdering.
+- Utformad för användning med NRTL listad (UL, CSA, ETL osv.) och IEC/EN 60950-1-eller IEC/EN 62368-1-kompatibel (CE-märkta) informations teknik utrustning.
+- Utformad för att användas i följande miljö. 
+    - Drift temperatur: 50 ° till 95 ° F (10 ° till 35 ° C)
+    - Lagrings temperatur:-4 ° till 122 ° F (-20 ° till 50 ° C)
+    - Relativ fuktighet: 15% till 85% (icke-kondensning) 
+    - Drift höjd: Testat upp till 6500 meter (0 meter till 2000 meter)
 
-Strömförsörjningen klassificeringar, finns enheten Klassificeringsetiketten medföljer enheten. 
+För klassificeringar för elektrisk försörjning, se enhets klassificerings etiketten som medföljer enheten. 
 
-![Observera ikonen](./media/data-box-safety/notice_icon.png) **meddelande:** 
+![Meddelande Ikons](./media/data-box-safety/notice_icon.png) **meddelande:** 
 
-Eller ändringar som gjorts till den enhet som inte uttryckligen har godkänts av Microsoft kan annullera användarens behörighet att använda enheten.
+Ändringar eller ändringar av enheten som inte uttryckligen godkänns av Microsoft kan säga till användarens behörighet att använda enheten.
 
 **Kanada och USA:**
 
-![Observera ikonen](./media/data-box-safety/notice_icon.png) **meddelande:** 
+![Meddelande Ikons](./media/data-box-safety/notice_icon.png) **meddelande:** 
 
-Den här utrustning har testats och efterlevnaden gränser för en klass A digital enhet, i enlighet med 15 tillhör FCC-regler. Dessa gränser är utformade för att ge rimliga skydd mot skadlig störning när utrustningen som körs i en kommersiell miljö. Den här utrustning genererar, använder, och kan bestråla alternativknapp frekvensen energi och, om inte installeras och användas i enlighet med bruksanvisningen, som kan orsaka skadlig störning radio kommunikation. Användning av den här utrustningen i en lokal område är kan orsaka skadlig störning i vilket fall användaren kommer att behöva korrigera störningar på egen bekostnad.
+Den här utrustningen har testats och visat sig uppfylla gränserna för en klass med en digital enhet, i enlighet med del 15 i FCC-reglerna. Dessa gränser är utformade för att ge ett rimligt skydd mot skadlig störning när utrustningen drivs i en kommersiell miljö. Den här utrustningen genererar, använder och kan stråla radio frekvens energi och, om de inte är installerade och används i enlighet med instruktions hand boken, kan orsaka skadlig störning av radio kommunikation. Driften av den här utrustningen i ett bostads område kan förmodligen orsaka skadlig störning, vilket innebär att användaren måste korrigera störningen vid egna utgifter.
 
-Den här enheten uppfyller del 15 av FCC regler och branschen Kanada licens undantagna RSS standarder. Åtgärden lyder under följande villkor: (1) den här enheten inte kan orsaka skadlig störning och (2) den här enheten måste godkänna alla störningar som tagits emot, inklusive störningar som kan orsaka oönskade driften av enheten.
+Den här enheten uppfyller kraven i del 15 i FCC-reglerna och bransch licens licenser – undantagna RSS-standarder (s). Åtgärden omfattas av följande två villkor: (1) den här enheten kan inte orsaka skadlig störning och (2) den här enheten måste acceptera eventuella störningar som tas emot, inklusive störningar som kan orsaka oönskad åtgärd på enheten.
 
 ![Kanada](./media/data-box-safety/canada.png)
 
-CAN ICES-3(A)/NMB-3(A)
+KAN ICES-3 (A)/NMB-3 (A)
 
 Microsoft Corporation, One Microsoft Way, Redmond, WA 98052, USA.
 
@@ -132,25 +132,25 @@ Kanada: (800) 933-4750
 
 **EUROPEISKA UNIONEN:**
 
-En kopia av EU: S deklaration om överensstämmelse finns här.
+[Begära en kopia av EU: s försäkran om överensstämmelse](mailto:CSI_Compliance@microsoft.com).
 
-![Varningsikon](./media/data-box-safety/warning_icon.png) **varning:** 
+![Varnings](./media/data-box-safety/warning_icon.png) Ikons **Varning:** 
 
-Det här är en klass A-produkt. Den här produkten kan orsaka radiostörningar som fallet användaren kanske måste vidta lämpliga åtgärder i en inrikes miljö.
+Detta är en produkt i en klass. I en inhemsk miljö kan den här produkten orsaka radio störningar, vilket innebär att användaren kan behöva vidta lämpliga åtgärder.
 
-**Borttagning av spill batterier och elektriska och elektroniska produkter:**
+**Omhändertagande av avfalls batterier och elektriska och elektroniska produkter:**
 
-![Ikon för borttagning av batteri](./media/data-box-safety/battery_disposal_icon.png)
+![Ikon för batteri kasse ring](./media/data-box-safety/battery_disposal_icon.png)
 
-Den här symbolen på produkten eller dess batterier eller dess förpackning innebär att den här produkten och eventuella batterier som den innehåller inte måste avyttras med din hushållens spill. I stället är det ditt ansvar att överlämna detta till en tillämplig samling återanvändning av batterier och elektriska och elektroniska produkter. Samlingen separat och återvinning kommer hjälpa till att spara naturresurser och förhindra eventuella negativa konsekvenser för människors hälsa och miljön på grund av möjlig förekomst av farliga ämnen i batterier och elektriska och elektroniska utrustning, som kan ha orsakats av olämpliga borttagning. Mer information om var du vill lämna in dina batterier och elektriska och elektroniska avfall Kontakta din lokala stad/kommuner office, hushållens avfallshantering tjänsten eller verkstaden där du har köpt den här produkten. Kontakta *erecycle\@microsoft.com* för mer information om WEEE.
+Den här symbolen på produkten eller dess batterier eller dess förpackning innebär att den här produkten och de batterier som den innehåller inte får tas bort med ditt hushålls avfall. I stället är det ditt ansvar att gå över till en tillämplig samlings plats för att återvinna batterier och elektrisk och elektronisk utrustning. Denna separata samling och återvinning bidrar till att spara naturresurser och förhindra negativa följder för människors hälsa och miljön på grund av möjlig förekomst av farliga ämnen i batterier och elektriska och elektroniska utrustning, som kan orsakas av olämpligt omhändertagande. Om du vill ha mer information om var du än använder batterier och elektriska och elektroniska avgaser kontaktar du din lokala stad/kommun kontor, din hushålls tjänst för avfalls hantering eller handla där du köpte produkten. Kontakta *erecycle\@Microsoft.com* om du vill ha mer information om WEEE.
 
-Den här produkten innehåller mynt cell battery(ies).
+Den här produkten innehåller mynt batteri (er).
 
-Microsoft Ireland Sandyford Ind Est Dublin D18 KX32 IRL
+Microsoft Ireland Sandyford IND Est Dublin D18 KX32 IRL
 
 Telefonnummer: + 353 1 295 3826
 
-Faxnummer: + 353 1 706 4110 
+Fax nummer: + 353 1 706 4110 
 
 **Japan**
 
@@ -168,10 +168,10 @@ Faxnummer: + 353 1 706 4110
 
 ![Taiwan](./media/data-box-safety/taiwan.png)-->
 
-När du har granskat dessa meddelanden om säkerhet, kan du konfigurera och kabelanslut din enhet.
+När du har granskat dessa säkerhets meddelanden kan du konfigurera och kabelansluta enheten.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Ansluta och ansluta din Data box-enhet](data-box-deploy-set-up.md)
+* [Kabel och Anslut din Data Box-enhet](data-box-deploy-set-up.md)
 
 

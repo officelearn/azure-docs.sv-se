@@ -5,21 +5,21 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 02/12/2019
+ms.date: 06/28/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 124f5c01b7718f729094de1c02391946ff50cef4
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: b4b050befe160d69fbc44b7f0a2ebbbbad3d705a
+ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187419"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69015922"
 ---
-Lokalt redundant lagring (LRS) innehåller minst 99,999999999% (11 nines) objektshållbarhet under ett givet år. LRS får det här objektet tillförlitlighet genom att replikera dina data till en lagringsskalningsenhet. Ett datacenter, i den region där du skapade ditt storage-konto är värd för lagringsskalningsenhet. En skrivbegäran till ett LRS-lagringskonto returnerar har bara när data skrivs till alla repliker. Varje replik finns i separata feldomäner och uppgraderingsdomäner i en lagringsskalningsenhet.
+Lokalt redundant lagring (LRS) ger minst 99,999999999% (11 nio) objekt hållbarhet under ett angivet år. LRS tillhandahåller detta objekts tålighet genom att replikera dina data till en lagrings skalnings enhet. Ett Data Center, som finns i den region där du skapade ditt lagrings konto, är värd för lagrings skalnings enheten. En skrivbegäran till ett LRS-lagrings konto returneras bara efter att data har skrivits till alla repliker. Varje replik finns i separata fel domäner och uppgraderings domäner inom en lagrings skalnings enhet.
 
-En lagringsskalningsenhet är en samling av rack lagringsnoder. En feldomän (FD) är en grupp av noder som representerar en fysisk enhet med fel. Tänk på en feldomän som noder som tillhör samma fysiska rack. En uppgraderingsdomän (UD) är en grupp av noder som uppgraderas tillsammans under en Serviceuppgradering av (distribution). Replikerna är fördelade mellan Uppdateringsdomäner och Feldomäner i en lagringsskalningsenhet. Den här arkitekturen säkerställer att dina data finns tillgänglig om ett maskinvarufel påverkar en enda rack eller när noderna uppgraderas vid en uppgradering av tjänsten.
+En lagrings skalnings enhet är en samling rack för lagringsnoder. En feldomän (FD) är en grupp noder som representerar en fysisk felenhet. Tänk på en fel domän som noder som tillhör samma fysiska rack. En uppgraderings domän (UD) är en grupp noder som uppgraderas tillsammans under uppgraderingen av en tjänst. Replikerna sprids över UDs-och fd inom en lagrings skalnings enhet. Den här arkitekturen garanterar att dina data är tillgängliga om ett maskin varu haveri påverkar ett enda rack eller när noder uppgraderas under en tjänst uppgradering.
 
-LRS är billigaste replikeringsalternativ och erbjuder de lägsta tillförlitlighet jämfört med andra alternativ. Om en datacenter-nivå (till exempel fire eller överbelasta) redundansplats, vara alla repliker förlorad eller oåterkalleligt. Microsoft rekommenderar för att minska denna risk med zonredundant lagring (ZRS) eller geo-redundant lagring (GRS).
+LRS är alternativet för replikering med lägst kostnad och ger den minsta hållbarhet jämfört med andra alternativ. Om en katastrof på data center nivå (till exempel Fire eller översvämning) inträffar kan alla repliker gå förlorade eller inte återställas. För att minska den här risken rekommenderar Microsoft att använda zon-redundant lagring (ZRS), Geo-redundant lagring (GRS) eller geo-Zone-redundant lagring (GZRS).
 
-* Om ditt program lagrar data som rekonstrueras enkelt om dataförluster uppstår, kan du välja LRS.
-* Vissa program är begränsade till att replikera data bara i ett land/region på grund av krav för styrning av data. I vissa fall kanske de länkade områdena för vilket data replikeras för GRS-konton i ett annat land/region. Mer information om länkade regioner finns i [Azure-regioner](https://azure.microsoft.com/regions/).
+* Om ditt program lagrar data som enkelt kan rekonstrueras om data går förlorade, kan du välja LRS.
+* Vissa program är begränsade till att replikera data endast inom ett land/en region på grund av data styrnings krav. I vissa fall kan de kopplade regionerna som data replikeras för GRS-konton finnas i ett annat land/en annan region. Mer information om kopplade regioner finns i Azure- [regioner](https://azure.microsoft.com/regions/).

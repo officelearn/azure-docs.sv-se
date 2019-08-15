@@ -1,6 +1,6 @@
 ---
-title: Uppdatera Media Services efter återställning av lagringsåtkomstnycklar | Microsoft Docs
-description: Den här artikeln ger vägledning om hur du uppdaterar Media Services efter återställning av lagringsåtkomstnycklar.
+title: Uppdatera Media Services efter åtkomst nycklar för rullande lagring | Microsoft Docs
+description: De här artiklarna ger vägledning om hur du uppdaterar Media Services efter de rullande lagrings åtkomst nycklarna.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,51 +13,52 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
-ms.author: milanga;cenkdin;juliako
-ms.openlocfilehash: c688169dc21304f234aead7196f377a3fa5fd633
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: juliako
+ms.reviewer: milanga;cenkdin
+ms.openlocfilehash: 1cebe0fda7da97933fc94082a62c671535fe689b
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60407322"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "69015808"
 ---
 # <a name="update-media-services-after-rolling-storage-access-keys"></a>Uppdatera Media Services efter återställning av lagringsåtkomstnycklar 
 
-När du skapar ett nytt konto i Azure Media Services (AMS) uppmanas du även välja ett Azure Storage-konto som används för att lagra ditt medieinnehåll. Du kan lägga till fler än ett storage-konto till ditt Media Services-konto. Den här artikeln visar hur du rotera lagringsnycklar. Den visar också hur du lägger till storage-konton till ett media-konto. 
+När du skapar ett nytt Azure Media Services-konto (AMS) uppmanas du också att välja ett Azure Storage konto som används för att lagra medie innehåll. Du kan lägga till fler än ett lagrings konto till ditt Media Services-konto. Den här artikeln visar hur du roterar lagrings nycklar. Den visar också hur du lägger till lagrings konton till ett medie konto. 
 
-Om du vill utföra de åtgärder som beskrivs i den här artikeln bör du använda [Azure Resource Manager API: er](/rest/api/media/operations/azure-media-services-rest-api-reference) och [Powershell](https://docs.microsoft.com/powershell/module/az.media).  Mer information finns i [så här hanterar du Azure-resurser med PowerShell och Resource Manager](../../azure-resource-manager/manage-resource-groups-powershell.md).
+Om du vill utföra de åtgärder som beskrivs i den här artikeln ska du använda [Azure Resource Manager API: er](/rest/api/media/operations/azure-media-services-rest-api-reference) och [PowerShell](https://docs.microsoft.com/powershell/module/az.media).  Mer information finns i [Hantera Azure-resurser med PowerShell och Resource Manager](../../azure-resource-manager/manage-resource-groups-powershell.md).
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="overview"></a>Översikt
 
-När ett nytt lagringskonto har skapats, genererar Azure två 512-bitars åtkomstnycklar för lagring, som används för att autentisera åtkomsten till ditt lagringskonto. För att skydda din lagringsanslutningar, rekommenderar vi att du återskapa och rotera din lagringsåtkomstnyckel med jämna mellanrum. Två åtkomstnycklar (primära och sekundära) tillhandahålls för att kunna gör att du kan upprätthålla anslutningar till det lagringskonto som den ena åtkomstnyckeln medan du återskapar den andra åtkomstnyckeln. Den här proceduren kallas även ”löpande åtkomstnycklar”.
+När ett nytt lagrings konto skapas genererar Azure 2 512-bitars lagrings åtkomst nycklar som används för att autentisera åtkomsten till ditt lagrings konto. För att hålla dina lagrings anslutningar säkrare, rekommenderar vi att du regelbundet återskapar och roterar lagrings åtkomst nyckeln. Två åtkomst nycklar (primära och sekundära) tillhandahålls för att du ska kunna upprätthålla anslutningar till lagrings kontot med en åtkomst nyckel när du återskapar den andra åtkomst nyckeln. Den här proceduren kallas även "regler för" rullande åtkomst ".
 
-Media Services är beroende av en lagringsnyckeln som angetts för den. Mer specifikt beror positionerare som används för att strömma eller hämta dina tillgångar på den angivna lagringsåtkomstnyckeln. När ett AMS-konto skapas, det tar ett beroende på åtkomstnyckeln för primär lagring som standard men du kan uppdatera lagringsnyckeln som AMS har som en användare. Du måste se till att låta medietjänster vet vilken nyckel som ska användas genom att följa stegen som beskrivs i den här artikeln.  
+Media Services är beroende av en lagrings nyckel som har angetts för den. Mer specifikt är de positionerare som används för att strömma eller hämta dina till gångar beroende av den angivna lagrings åtkomst nyckeln. När ett AMS-konto skapas, tar det ett beroende på den primära lagrings åtkomst nyckeln som standard, men som en användare kan du uppdatera lagrings nyckeln som AMS har. Du måste se till att Media Services vet vilken nyckel som ska användas genom att följa stegen som beskrivs i den här artikeln.  
 
 >[!NOTE]
-> Om du har flera lagringskonton, utför den här proceduren med varje lagringskonto: Den ordning i vilken du rotera lagringsnycklar löses inte. Du kan rotera den sekundära nyckeln först och sedan på den primära nyckeln eller tvärtom.
+> Om du har flera lagrings konton kan du utföra den här proceduren med varje lagrings konto. Den ordning som du roterar lagrings nycklarna i är inte fast. Du kan rotera den sekundära nyckeln först och sedan primär nyckeln eller vice versa.
 >
-> Se till att testa dem på ett konto i Förproduktion innan du kör stegen som beskrivs i den här artikeln på ett Produktionskonto.
+> Innan du kör steg som beskrivs i den här artikeln på ett produktions konto måste du testa dem på ett för produktions konto.
 >
 
-## <a name="steps-to-rotate-storage-keys"></a>Steg för att rotera lagringsnycklar 
+## <a name="steps-to-rotate-storage-keys"></a>Steg för att rotera lagrings nycklar 
  
- 1. Ändra lagringskontots primära åtkomstnyckel via powershell-cmdleten eller [Azure](https://portal.azure.com/) portal.
- 2. Anropa synkronisering AzMediaServiceStorageKeys cmdleten med lämpliga parametrar för att tvinga media-konto för att hämta lagringskontonycklar
+ 1. Ändra lagrings kontots primära nyckel via PowerShell-cmdleten eller [Azure](https://portal.azure.com/) Portal.
+ 2. Anropa Sync-AzMediaServiceStorageKeys-cmdlet med lämpliga parametrar för att tvinga medie kontot att hämta lagrings konto nycklar
  
-    I följande exempel visas hur du synkroniserar nycklar till lagringskonton.
+    I följande exempel visas hur du synkroniserar nycklar till lagrings konton.
   
          Sync-AzMediaServiceStorageKeys -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccountId $storageAccountId
   
- 3. Vänta ungefär en timme. Kontrollera de strömmande scenarierna fungerar.
- 4. Ändra lagringskontots sekundära åtkomstnyckel via powershell-cmdlet eller Azure-portalen.
- 5. Anropa Sync-AzMediaServiceStorageKeys powershell med lämpliga parametrar för att tvinga media-konto för att hämta nya storage-kontonycklar. 
- 6. Vänta ungefär en timme. Kontrollera de strömmande scenarierna fungerar.
+ 3. Vänta en timme eller så. Kontrol lera att de strömmande scenarierna fungerar.
+ 4. Ändra sekundär nyckel för lagrings konto via PowerShell-cmdleten eller Azure Portal.
+ 5. Anropa Sync-AzMediaServiceStorageKeys PowerShell med lämpliga parametrar för att tvinga medie kontot att hämta nya lagrings konto nycklar. 
+ 6. Vänta en timme eller så. Kontrol lera att de strömmande scenarierna fungerar.
  
-### <a name="a-powershell-cmdlet-example"></a>Ett powershell-cmdlet-exempel 
+### <a name="a-powershell-cmdlet-example"></a>Ett exempel på en PowerShell-cmdlet 
 
-I följande exempel visar hur du hämtar storage-konto och synkronisera den med AMS-konto.
+Följande exempel visar hur du hämtar lagrings kontot och synkroniserar det med AMS-kontot.
 
     $regionName = "West US"
     $resourceGroupName = "SkyMedia-USWest-App"
@@ -68,9 +69,9 @@ I följande exempel visar hur du hämtar storage-konto och synkronisera den med 
     Sync-AzMediaServiceStorageKeys -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccountId $storageAccountId
 
  
-## <a name="steps-to-add-storage-accounts-to-your-ams-account"></a>Steg för att lägga till lagringskonton på ditt AMS-konto
+## <a name="steps-to-add-storage-accounts-to-your-ams-account"></a>Steg för att lägga till lagrings konton till ditt AMS-konto
 
-I följande artikel visar hur du lägger till storage-konton till AMS-kontot: [Koppla flera lagringskonton till ett Media Services-konto](meda-services-managing-multiple-storage-accounts.md).
+Följande artikel visar hur du lägger till lagrings konton till ditt AMS-konto: [Bifoga flera lagrings konton till ett Media Services-konto](meda-services-managing-multiple-storage-accounts.md).
 
 ## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
@@ -79,4 +80,4 @@ I följande artikel visar hur du lägger till storage-konton till AMS-kontot: [K
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ### <a name="acknowledgments"></a>Bekräftelser
-Vi hoppas att du är medveten om följande personer som har bidragit till att skapa det här dokumentet: Cenk Dingiloglu, Milan Gada, Seva Titov.
+Vi vill bekräfta följande personer som bidragit till att skapa det här dokumentet: Cenk Dingiloglu, Milano Gada, Seva Titov.

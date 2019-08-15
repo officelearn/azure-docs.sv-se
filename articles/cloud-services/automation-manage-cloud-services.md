@@ -1,6 +1,6 @@
 ---
-title: Hantera Azure Cloud Services med Azure Automation | Microsoft Docs
-description: Läs mer om hur Azure Automation-tjänsten kan användas för att hantera Azure-molntjänster i stor skala.
+title: Hantera Azure-Cloud Services med Azure Automation | Microsoft Docs
+description: Lär dig mer om hur Azure Automation-tjänsten kan användas för att hantera Azure Cloud Services i stor skala.
 services: cloud-services, automation
 documentationcenter: ''
 author: jodoglevy
@@ -10,38 +10,37 @@ ms.assetid: 3789810a-2892-4eef-bf29-c781c1b5af48
 ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2016
 ms.author: timlt
-ms.openlocfilehash: b3660901c86dd644369e6d1913e825cbd5ea316b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1fc1ac9668454578ee137a2ddd1b85319fea0a28
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60623212"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945507"
 ---
-# <a name="managing-azure-cloud-services-using-azure-automation"></a>Hantera Azure Cloud Services med Azure Automation
-Den här guiden innehåller en introduktion till Azure Automation-tjänsten och hur den kan användas för att förenkla hanteringen av dina Azure-molntjänster.
+# <a name="managing-azure-cloud-services-using-azure-automation"></a>Hantera Azure-Cloud Services med Azure Automation
+I den här guiden får du lära dig Azure Automation tjänsten och hur den kan användas för att förenkla hanteringen av dina Azure Cloud Services.
 
 ## <a name="what-is-azure-automation"></a>Vad är Azure Automation?
-[Azure Automation](https://azure.microsoft.com/services/automation/) är en Azure-tjänst för att förenkla molnhantering med Processautomatisering. Med Azure Automation, kan tidskrävande, manuell, felbenägna och regelbundet återkommande uppgifter automatiseras för att öka tillförlitligheten, effektivitet och tid till värde för din organisation.
+[Azure Automation](https://azure.microsoft.com/services/automation/) är en Azure-tjänst för att förenkla moln hantering genom process automatisering. Att använda Azure Automation, långvariga, manuella, fel känsliga och ofta återkommande uppgifter kan automatiseras för att öka tillförlitligheten, effektiviteten och tiden för din organisation.
 
-Azure Automation tillhandahåller en mycket pålitlig och mycket tillgänglig motor för arbetsflödeskörning som kan skalas efter dina behov när organisationen växer. I Azure Automation, kan processer vara startats manuellt, med 3 part eller med schemalagda intervall så att uppgifter inträffa exakt när det behövs.
+Azure Automation ger en mycket tillförlitlig och hög tillgänglig arbets flödes körnings motor som kan skalas för att uppfylla dina behov när din organisation växer. I Azure Automation kan processer startas manuellt, av system från tredje part eller med schemalagda intervall så att aktiviteterna sker exakt vid behov.
 
-Minska driftsomkostnader och frigör IT / DevOps-personal att fokusera på arbete som lägger till företag värde genom att flytta din molnhanteringsuppgifter att köras automatiskt av Azure Automation.
+Sänk drifts kostnader och frigör IT/DevOps-personalen och fokusera på arbete som lägger till affärs värde genom att flytta dina moln hanterings uppgifter så att de körs automatiskt av Azure Automation.
 
-## <a name="how-can-azure-automation-help-manage-azure-cloud-services"></a>Hur kan Azure Automation till att hantera Azure-molntjänster?
-Azure-molntjänster kan hanteras i Azure Automation med hjälp av PowerShell-cmdlets som är tillgängliga i den [Azure PowerShell-verktyg](/powershell/). Azure Automation har dessa molnet PowerShell cmdlet: ar tillgängliga direkt, så att du kan utföra alla dina molntjänsthantering i tjänsten. Du kan också koppla dessa cmdletar i Azure Automation med cmdlets för andra Azure-tjänster, att automatisera avancerade uppgifter över Azure-tjänster och system med 3 part.
+## <a name="how-can-azure-automation-help-manage-azure-cloud-services"></a>Hur kan Azure Automation hjälpa till att hantera Azure Cloud Services?
+Azure Cloud Services kan hanteras i Azure Automation med hjälp av PowerShell-cmdletar som är tillgängliga i [Azure PowerShell-verktygen](/powershell/). Azure Automation har följande PowerShell-cmdlets för moln tjänster tillgängliga i rutan så att du kan utföra alla dina moln tjänst hanterings uppgifter i tjänsten. Du kan också para ihop dessa cmdlets i Azure Automation med cmdletar för andra Azure-tjänster, för att automatisera komplexa aktiviteter i Azure-tjänster och system från tredje part.
 
-Vissa exempel användningsområden för Azure Automation för att hantera Azure Cloud Services är:
+Några exempel på användning av Azure Automation för att hantera Azure Cloud Services är:
 
-* [Kontinuerlig distribution av en tjänst i molnet när cscfg eller cspkg uppdateras i Azure Blob storage](https://gallery.technet.microsoft.com/scriptcenter/Continuous-Deployment-of-A-eeebf3a6)
-* [Starta om Cloud Service-instanser samtidigt, en uppgraderingsdomän i taget](https://gallery.technet.microsoft.com/scriptcenter/Reboot-Cloud-Service-PaaS-b337a06d)
+* [Kontinuerlig distribution av en moln tjänst när cscfg eller cspkg uppdateras i Azure Blob Storage](https://gallery.technet.microsoft.com/scriptcenter/Continuous-Deployment-of-A-eeebf3a6)
+* [Starta om moln tjänst instanser parallellt, en uppgraderings domän i taget](https://gallery.technet.microsoft.com/scriptcenter/Reboot-Cloud-Service-PaaS-b337a06d)
 
 ## <a name="next-steps"></a>Nästa steg
-Nu när du har lärt dig grunderna i Azure Automation och hur den kan användas för att hantera Azure-molntjänster kan du följa dessa länkar om du vill veta mer om Azure Automation.
+Nu när du har lärt dig grunderna om Azure Automation och hur det kan användas för att hantera Azure Cloud Services, kan du följa dessa länkar om du vill veta mer om Azure Automation.
 
 * [Översikt över Azure Automation](../automation/automation-intro.md)
 * [Min första Runbook](../automation/automation-first-runbook-graphical.md)
-* [Inlärningskarta för Azure Automation](https://azure.microsoft.com/documentation/learning-paths/automation/)
+* [Azure Automation inlärnings karta](https://azure.microsoft.com/documentation/learning-paths/automation/)

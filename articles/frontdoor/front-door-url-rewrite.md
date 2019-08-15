@@ -1,6 +1,6 @@
 ---
-title: Azure Front luckan Service - URL-omskrivning | Microsoft Docs
-description: Den här artikeln hjälper dig att förstå hur Azure ytterdörren Service fungerar URL-Omskrivningsregler för din vägar, om konfigurerad.
+title: Azure frontend-tjänst-URL-omskrivning | Microsoft Docs
+description: Den här artikeln hjälper dig att förstå hur Azure-frontend-tjänsten skriver URL-skrivning för dina vägar, om den är konfigurerad.
 services: front-door
 documentationcenter: ''
 author: sharad4u
@@ -12,48 +12,48 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: dc2126276e3e8e0d35ce8ed1f835544386659eff
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "60736197"
 ---
-# <a name="url-rewrite-custom-forwarding-path"></a>URL-omskrivning (anpassade vidarebefordran sökväg)
-Azure ytterdörren Service stöder URL-omskrivning genom att låta dig konfigurera en valfri **anpassade vidarebefordran sökvägen** att använda när begäran vidarebefordra till serverdelen. Om ingen sökväg för vidarebefordran har angetts kopierar Front Door som standard den inkommande URL-sökvägen till den URL som används i den vidarebefordrade begäran. Värdhuvudet som används i den vidarebefordrade begäran ser ut så som det konfigurerats för den valda serverdelen. Läs [serverdel värdhuvud](front-door-backend-pool.md#hostheader) den gör och hur du kan konfigurera den.
+# <a name="url-rewrite-custom-forwarding-path"></a>URL-omskrivning (sökväg för anpassad vidarebefordran)
+Azure frontend-tjänsten stöder URL-omskrivning genom att göra det möjligt att konfigurera en valfri **anpassad vidarebefordrings Sök väg** som ska användas för att skapa begäran om att vidarebefordra den till Server delen. Om ingen sökväg för vidarebefordran har angetts kopierar Front Door som standard den inkommande URL-sökvägen till den URL som används i den vidarebefordrade begäran. Värdhuvudet som används i den vidarebefordrade begäran ser ut så som det konfigurerats för den valda serverdelen. Läs [värd rubriken för Server delen](front-door-backend-pool.md#hostheader) för att lära dig vad det gör och hur du kan konfigurera den.
 
-Den kraftfulla delen av URL-omskrivning med hjälp av anpassade vidarebefordran sökväg är att den kommer att kopiera någon del av den inkommande sökvägen som matchar till en jokersökväg i vidarebefordrade sökvägen (dessa segment för resurssökväg är den **grön** segment i exemplet nedan):
+Den kraftfulla delen av URL-omskrivning med anpassad vidarebefordrings Sök väg är att den kopierar någon del av den inkommande sökvägen som matchar en sökväg med jokertecken till den vidarebefordrade sökvägen (dessa Sök vägs segment är de **gröna** segmenten i exemplet nedan):
 </br>
-![Azure ytterdörren URL-omskrivning][1]
+![URL-omskrivning i Azures frontend-dörr][1]
 
-## <a name="url-rewrite-example"></a>Exempel för URL-omskrivning
-Överväg en routningsregel med följande frontend-värdar och sökvägar som är konfigurerad:
+## <a name="url-rewrite-example"></a>Exempel på URL-omskrivning
+Överväg en regel för routning med följande klient dels värdar och konfigurerade sökvägar:
 
 | Värdar      | Sökvägar       |
 |------------|-------------|
 | www\.contoso.com | /\*         |
 |            | /foo        |
-|            | /foo/\*     |
-|            | /foo/stapel /\* |
+|            | foo\*     |
+|            | /foo/bar/\* |
 
-Den första kolumnen i tabellen nedan visar exempel på inkommande begäranden och den andra kolumnen visar vad skulle vara ”de mest specifika” matchande väg ”sökväg”.  De tredje och efterföljande kolumnerna i den första raden i tabellen är exempel på konfigurerade **anpassad vidarebefordran sökvägar**, med resten av raderna i dessa kolumner visar exempel på vad den vidarebefordrade begäran sökvägen skulle vara om den matchade på begäran på den raden.
+Den första kolumnen i tabellen nedan visar exempel på inkommande begär Anden och den andra kolumnen visar vad som skulle vara den "mest aktuella" matchande väg Sök väg ".  De tredje och efterföljande kolumnerna i den första raden i tabellen är exempel på konfigurerade **anpassade vidarebefordrande sökvägar**, med resten av raderna i de kolumnerna som representerar exempel på vad den vidarebefordrade begär ande sökvägen skulle vara om den matchade med begäran i radhöjd.
 
-Till exempel om vi läser över den andra raden, det texten att för inkommande begäran `www.contoso.com/sub`, om sökvägen för anpassade vidarebefordran var `/`, och sedan vidarebefordrade sökvägen skulle bli `/sub`. Om sökvägen för anpassade vidarebefordran var `/fwd/`, och sedan vidarebefordrade sökvägen skulle bli `/fwd/sub`. Och så vidare, för övriga kolumner. Den **framhållit** delar av sökvägar nedan motsvarar de delar som ingår i matchningen med jokertecken.
+Om vi t. ex. läser på den andra raden, säger vi att för inkommande begäran `www.contoso.com/sub`, om den anpassade sökvägen för vidarebefordran var `/`, så skulle den vidarebefordrande `/sub`sökvägen vara. Om den anpassade vidarebefordrande sökvägen `/fwd/`var, är den vidarebefordrade sökvägen. `/fwd/sub` Och så vidare, för de återstående kolumnerna. De **betonade** delarna av Sök vägarna nedan representerar de delar som är en del av matchningen av jokertecken.
 
 
-| Inkommande begäran       | De mest specifika matchning sökväg | /          | /fwd/          | /foo/          | /foo/stapel /          |
+| Inkommande begäran       | Mest speciell matchnings Sök väg | /          | /fwd/          | foo          | /foo/bar/          |
 |------------------------|--------------------------|------------|----------------|----------------|--------------------|
-| www\.contoso.com/            | /\*                      | /          | /fwd/          | /foo/          | /foo/stapel /          |
-| www\.contoso.com/**sub**     | /\*                      | /**sub**   | /fwd/**sub**   | /foo/**sub**   | /foo/stapel/**sub**   |
-| www\.contoso.com/**a/b/c**   | /\*                      | /**a/b/c** | /fwd/**a/b/c** | /foo/**a, b och c** | /foo/stapel/**a, b och c** |
-| www\.contoso.com/foo         | /foo                     | /          | /fwd/          | /foo/          | /foo/stapel /          |
-| www\.contoso.com/foo/        | /foo/\*                  | /          | /fwd/          | /foo/          | /foo/stapel /          |
-| www\.contoso.com/foo/**stapel** | /foo/\*                  | /**bar**   | /fwd/**bar**   | /foo/**stapel**   | /foo/stapel/**stapel**   |
+| www\.contoso.com/            | /\*                      | /          | /fwd/          | foo          | /foo/bar/          |
+| www\.contoso.com/**sub**     | /\*                      | /**Build**   | /FWD/**Sub**   | /foo/**Sub**   | /foo/bar/**Sub**   |
+| www\.contoso.com/**a/b/c**   | /\*                      | /**a/b/c** | /FWD/**a/b/c** | /foo/**a/b/c** | /foo/bar/**a/b/c** |
+| www\.-contoso.com/foo         | /foo                     | /          | /fwd/          | foo          | /foo/bar/          |
+| www\.-contoso.com/foo/        | foo\*                  | /          | /fwd/          | foo          | /foo/bar/          |
+| www\.contoso.com/foo/-**stapel** | foo\*                  | /**bar**   | /FWD/-**fält**   | /foo/-**fält**   | /foo/bar/-**fält**   |
 
 
 ## <a name="optional-settings"></a>Valfria inställningar
-Det finns ytterligare valfria inställningar som du kan också ange för alla angivna regelinställningar för routning:
+Det finns ytterligare valfria inställningar som du kan ange för alla inställningar för routningsregler:
 
-* **Cachelagra Configuration** – om inaktiverat eller inget värde anges kommer begäranden som matchar regeln routning inte kommer att använda cachelagrat innehåll och hämtar i stället alltid från serverdelen. Läs mer om [cachelagring med ytterdörren](front-door-caching.md).
+* **Cache-konfiguration** – om det är inaktiverat eller ej angivet kommer begär Anden som matchar den här regeln inte att försöka använda cachelagrat innehåll. i stället hämtas de alltid från Server delen. Läs mer om [cachelagring med front dörren](front-door-caching.md).
 
 
 

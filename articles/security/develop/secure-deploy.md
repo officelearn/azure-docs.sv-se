@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: dd86e6bf571dd67da00aee63eadff031a1040ff7
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: dfe4f09d00a5629249a3041946190f56e83c3480
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68728743"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934875"
 ---
 # <a name="deploy-secure-applications-on-azure"></a>Distribuera säkra program på Azure
 I den här artikeln presenterar vi säkerhets aktiviteter och kontroller för att tänka på när du distribuerar program för molnet. Säkerhets frågor och koncept som du bör tänka på under lanserings-och svars faserna i Microsoft [Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) omfattas. Målet är att hjälpa dig att definiera aktiviteter och Azure-tjänster som du kan använda för att distribuera ett säkrare program.
@@ -40,7 +40,7 @@ Kontrol lera programmets prestanda innan du startar det eller distribuera uppdat
 
 Webbprogram blir i allt större utsträckning föremål för attacker där kända svagheter i programmen utnyttjas. Vanliga bland dessa sårbarheter är SQL-injektering-attacker och skript angrepp över flera webbplatser. Det kan vara svårt att förhindra dessa attacker i program koden. Det kan kräva rigoröst underhåll, uppdatering och övervakning på många skikt i programtopologin. En centraliserad WAF hjälper till att förenkla säkerhets hanteringen. En WAF-lösning kan också reagera på ett säkerhetshot genom att korrigera en känd sårbarhet på en central plats och skydda varje enskilt webb program.
 
-[Azure Application Gateway-WAF](https://docs.microsoft.com/azure/application-gateway/waf-overview) ger centraliserat skydd av dina webb program mot vanliga sårbarheter och sårbarheter. WAF baseras på regler från [OWASP Core-regeln uppsättningarna](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3,0 eller 2.2.9.
+[Azure Application Gateway-WAF](../../application-gateway/waf-overview.md) ger centraliserat skydd av dina webb program mot vanliga sårbarheter och sårbarheter. WAF baseras på regler från [OWASP Core-regeln uppsättningarna](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3,0 eller 2.2.9.
 
 ### <a name="create-an-incident-response-plan"></a>Skapa en incident svars plan
 
@@ -71,13 +71,13 @@ Azure-tjänster som hjälper dig med program övervakning är:
 
 #### <a name="application-insights"></a>Application Insights
 
-[Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) är en utöknings bar APM-tjänst (Application Performance Management) för webbutvecklare på flera plattformar. Du kan använda den för att övervaka ditt live-webbprogram. Application Insights identifierar automatiskt prestanda avvikelser. Den innehåller kraftfulla analys verktyg som hjälper dig att diagnostisera problem och förstå vad användarna faktiskt gör med din app. Den är avsedd för utvecklare och för att hjälpa dig att kontinuerligt förbättra prestanda och användbarhet.
+[Application Insights](../../azure-monitor/app/app-insights-overview.md) är en utöknings bar APM-tjänst (Application Performance Management) för webbutvecklare på flera plattformar. Du kan använda den för att övervaka ditt live-webbprogram. Application Insights identifierar automatiskt prestanda avvikelser. Den innehåller kraftfulla analys verktyg som hjälper dig att diagnostisera problem och förstå vad användarna faktiskt gör med din app. Den är avsedd för utvecklare och för att hjälpa dig att kontinuerligt förbättra prestanda och användbarhet.
 
 #### <a name="azure-security-center"></a>Azure Security Center
 
-[Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro) hjälper dig att förhindra, identifiera och svara på hot med ökad insyn i (och kontroll över) säkerheten för dina Azure-resurser, inklusive webb program. Azure Security Center hjälper till att identifiera hot som annars kan gå vidare till. Det fungerar med olika säkerhetslösningar.
+[Azure Security Center](../../security-center/security-center-intro.md) hjälper dig att förhindra, identifiera och svara på hot med ökad insyn i (och kontroll över) säkerheten för dina Azure-resurser, inklusive webb program. Azure Security Center hjälper till att identifiera hot som annars kan gå vidare till. Det fungerar med olika säkerhetslösningar.
 
-Security Centerens kostnads fria nivå erbjuder begränsad säkerhet enbart för dina Azure-resurser. [Security Center standard nivån](https://docs.microsoft.com/azure/security-center/security-center-onboarding) utökar dessa funktioner till lokala resurser och andra moln.
+Security Centerens kostnads fria nivå erbjuder begränsad säkerhet enbart för dina Azure-resurser. [Security Center standard nivån](../../security-center/security-center-onboarding.md) utökar dessa funktioner till lokala resurser och andra moln.
 Security Center standard hjälper dig att:
 
   - Hitta och åtgärda säkerhets problem.

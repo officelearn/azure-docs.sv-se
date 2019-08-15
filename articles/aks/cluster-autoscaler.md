@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/18/2019
 ms.author: mlearned
-ms.openlocfilehash: 09610782f211b4cfb80a1291b73ab543328376a3
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: ef3e9a9c68ca524b7f7f86c92130a10952a9f065
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68424191"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68949612"
 ---
 # <a name="preview---automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>För hands version – Skala automatiskt ett kluster så att det uppfyller program kraven på Azure Kubernetes service (AKS)
 
@@ -102,7 +102,7 @@ Om du behöver skapa ett AKS-kluster använder du kommandot [AZ AKS Create][az-a
 > [!IMPORTANT]
 > Klustrets autoskalning är en Kubernetes-komponent. Även om AKS-klustret använder en skalnings uppsättning för virtuella datorer för noderna, ska du inte manuellt aktivera eller redigera inställningarna för skalnings uppsättning autoskalning i Azure Portal eller med hjälp av Azure CLI. Låt Kubernetes-klustret hantera de nödvändiga skalnings inställningarna. Mer information finns i [kan jag ändra AKS-resurserna i noden resurs grupp?](faq.md#can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-node-resource-group)
 
-I följande exempel skapas ett AKS-kluster med skalnings uppsättningen för den virtuella datorn. Det aktiverar också klustrets autoskalning på nodens nod för klustret och anger minst *1* och högst *3* noder:
+I följande exempel skapas ett AKS-kluster med en pool med flera noder som backas upp av en skalnings uppsättning för virtuella datorer. Det aktiverar också klustrets autoskalning på nodens nod för klustret och anger minst *1* och högst *3* noder:
 
 ```azurecli-interactive
 # First create a resource group
@@ -124,9 +124,24 @@ az aks create \
 
 Det tar några minuter att skapa klustret och konfigurera inställningarna för den automatiska skalnings inställningen i klustret.
 
-### <a name="enable-the-cluster-autoscaler-on-an-existing-node-pool-in-an-aks-cluster"></a>Aktivera den automatiska skalnings funktionen för klustret i en befintlig Node-pool i ett AKS-kluster
+### <a name="update-the-cluster-autoscaler-on-an-existing-node-pool-in-a-cluster-with-a-single-node-pool"></a>Uppdatera den automatiska skalnings tjänsten för klustret på en befintlig nod i ett kluster med en enda Node-pool
 
-Du kan aktivera den automatiska skalnings processen för klustret i ett AKS-kluster som uppfyller kraven som beskrivs i föregående avsnitt [innan du börjar](#before-you-begin) . Använd kommandot [AZ AKS nodepool Update][az-aks-nodepool-update] för att aktivera den automatiska skalnings funktionen för klustret i Node-poolen.
+Du kan uppdatera de tidigare inställningarna för kluster autoskalning på ett kluster som uppfyller kraven som beskrivs i föregående avsnitt [innan du börjar](#before-you-begin) . Använd kommandot [AZ AKS Update][az-aks-update] för att aktivera klustrets autoskalning i klustret med en *enda* Node-pool.
+
+```azurecli-interactive
+az aks update \
+  --resource-group myResourceGroup \
+  --name myAKSCluster \
+  --update-cluster-autoscaler \
+  --min-count 1 \
+  --max-count 5
+```
+
+Sedan kan klustret autoskalning aktive ras eller inaktive `az aks update --disable-cluster-autoscaler` ras med `az aks update --enable-cluster-autoscaler` eller-kommandon.
+
+### <a name="enable-the-cluster-autoscaler-on-an-existing-node-pool-in-a-cluster-with-multiple-node-pools"></a>Aktivera den automatiska skalnings funktionen för klustret på en befintlig nod i ett kluster med flera noder i en pool
+
+Klustrets autoskalning kan också användas med funktionen för [hands versions funktionen för flera noder](use-multiple-node-pools.md) aktiverade. Du kan aktivera klustrets autoskalning på enskilda noder i ett AKS-kluster som innehåller flera noder och uppfyller kraven som beskrivs i föregående avsnitt [innan du börjar](#before-you-begin) . Använd kommandot [AZ AKS nodepool Update][az-aks-nodepool-update] för att aktivera funktionen för autoskalning av klustret i en enskild Node-pool.
 
 ```azurecli-interactive
 az aks nodepool update \
@@ -138,7 +153,7 @@ az aks nodepool update \
   --max-count 3
 ```
 
-Exemplet ovan aktiverar kluster autoskalning i *mynodepool* Node-adresspoolen i *myAKSCluster* och anger minst *1* och högst *3* noder. Om det lägsta antalet noder är större än det befintliga antalet noder i Node-poolen tar det några minuter att skapa ytterligare noder.
+Sedan kan klustret autoskalning aktive ras eller inaktive `az aks nodepool update --disable-cluster-autoscaler` ras med `az aks nodepool update --enable-cluster-autoscaler` eller-kommandon.
 
 ## <a name="change-the-cluster-autoscaler-settings"></a>Ändra inställningarna för kluster autoskalning
 

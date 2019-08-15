@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: mlearned
-ms.openlocfilehash: 2ed58846b9e7816092f0fc0787204921071d75e9
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 4cf959c5218160a8fe341e6ffdfdf459c1a19247
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68498562"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019176"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Uppgradera ett Azure Kubernetes service-kluster (AKS)
 
@@ -36,26 +36,26 @@ az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster --outpu
 ```
 
 > [!NOTE]
-> När du uppgraderar ett AKS-kluster kan Kubernetes minor-versioner inte hoppas över. Till exempel tillåts uppgraderingar mellan *1.11. x* -> *1.12. x* eller *1.12. x* -> *1.13. x* , men *1.11.*  -> x*1.13. x* är inte.
+> När du uppgraderar ett AKS-kluster kan Kubernetes minor-versioner inte hoppas över. Till exempel tillåts uppgraderingar mellan *1.12. x* -> *1.13. x* eller *1.13. x* -> *1.14. x* , men *1.12.*  -> x*1.14. x* är inte.
 >
-> Uppgradera från *1.11. x* -> *1.13. x*genom att -> först uppgradera från *1.11.* x*1.12. x*och sedan uppgradera från *1.12. x* -> *1.13. x*.
+> Uppgradera från *1.12. x* -> *1.14. x*genom att -> först uppgradera från *1.12.* x*1.13. x*och sedan uppgradera från *1.13. x* -> *1.14. x*.
 
-Följande exempel på utdata visar att klustret kan uppgraderas till version *1.12.7* eller *1.12.8*:
+Följande exempel på utdata visar att klustret kan uppgraderas till version *1.13.9*:
 
 ```console
-Name     ResourceGroup    MasterVersion  NodePoolVersion  Upgrades
--------  ---------------  -------------  ---------------  --------------
-default  myResourceGroup  1.11.9         1.11.9           1.12.7, 1.12.8
+Name     ResourceGroup    MasterVersion    NodePoolVersion    Upgrades
+-------  ---------------  ---------------  -----------------  --------------
+default  myResourceGroup  1.12.8           1.12.8             1.13.9
 ```
 
 ## <a name="upgrade-an-aks-cluster"></a>Uppgradera ett AKS-kluster
 
 Med en lista över tillgängliga versioner för ditt AKS-kluster använder du kommandot [AZ AKS Upgrade][az-aks-upgrade] för att uppgradera. Under uppgraderings processen lägger AKS till en ny nod i klustret som kör den angivna Kubernetes-versionen, därefter noga [Cordon och tömmer][kubernetes-drain] en av de gamla noderna för att minimera störningar i program som körs. När den nya noden bekräftas som att köra Application poddar tas den gamla noden bort. Den här processen upprepas tills alla noder i klustret har uppgraderats.
 
-I följande exempel uppgraderas ett kluster till version *1.12.8*:
+I följande exempel uppgraderas ett kluster till version *1.13.9*:
 
 ```azurecli-interactive
-az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.12.8
+az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.13.9
 ```
 
 Det tar några minuter att uppgradera klustret, beroende på hur många noder du har.
@@ -66,12 +66,12 @@ För att bekräfta att uppgraderingen har slutförts använder du kommandot [AZ 
 az aks show --resource-group myResourceGroup --name myAKSCluster --output table
 ```
 
-Följande exempel på utdata visar att klustret nu kör *1.12.8*:
+Följande exempel på utdata visar att klustret nu kör *1.13.9*:
 
 ```json
 Name          Location    ResourceGroup    KubernetesVersion    ProvisioningState    Fqdn
 ------------  ----------  ---------------  -------------------  -------------------  ---------------------------------------------------------------
-myAKSCluster  eastus      myResourceGroup  1.12.8               Succeeded            myaksclust-myresourcegroup-19da35-90efab95.hcp.eastus.azmk8s.io
+myAKSCluster  eastus      myResourceGroup  1.13.9               Succeeded            myaksclust-myresourcegroup-19da35-90efab95.hcp.eastus.azmk8s.io
 ```
 
 ## <a name="next-steps"></a>Nästa steg

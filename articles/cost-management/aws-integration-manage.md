@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: ormaoz
 ms.custom: ''
-ms.openlocfilehash: 05e2375998b3bce4320b2d66ab7fce44cd911dcc
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 6767644e037c6abb3e3044c8707e923a9137a01c
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479134"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019549"
 ---
 # <a name="manage-aws-costs-and-usage-in-azure"></a>Hantera AWS-kostnader och användning i Azure
 
@@ -138,7 +138,7 @@ Det finns två sätt att hämta behörigheter för åtkomst till AWS-länkade ko
 
 Som standard är AWS Connector-skaparen ägare av alla objekt som anslutningen har skapat. Inklusive det konsoliderade AWS-kontot och det länkade AWS-kontot.
 
-För att kunna verifiera anslutnings inställningarna behöver du minst en Contribute-roll, men läsaren kan inte verifiera anslutnings inställningar
+För att kunna verifiera anslutnings inställningarna behöver du minst en deltagar roll och läsaren kan inte verifiera anslutnings inställningar
 
 ### <a name="collection-failed-with-assumerole"></a>Samlingen misslyckades med AssumeRole
 

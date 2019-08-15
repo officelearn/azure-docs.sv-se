@@ -1,6 +1,6 @@
 ---
-title: Azure Time Series Insights Preview-data och fråga | Microsoft Docs
-description: Azure Time Series Insights Preview data frågor.
+title: Azure Time Series Insights förhandsgranska data frågor | Microsoft Docs
+description: Azure Time Series Insights förhandsgranska data frågor.
 author: ashannon7
 ms.author: dpalled
 ms.workload: big-data
@@ -8,75 +8,75 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 08/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: bbf682df2df7a8cdc9fedb36aa4244fc5c0e9488
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 29418345aaa8042e50b1297541cac3af0a3c1504
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66244006"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935197"
 ---
 # <a name="data-querying"></a>Fråga data
 
-Azure Time Series Insights Preview möjliggör data frågekörning på händelser och metadata som lagras i miljön via offentliga surface API: er. Dessa API: er används också i den [förhandsversionen av Time Series Insights explorer](./time-series-insights-update-explorer.md).
+Azure Time Series Insights för hands version aktiverar data frågor om händelser och metadata som lagras i miljön via API: er på offentlig yta. Dessa API: er används också i [Time Series Insights Preview Explorer](./time-series-insights-update-explorer.md).
 
 Tre primära API-kategorier är tillgängliga i Time Series Insights:
 
-* **Miljö-API: er**: Gör det möjligt för frågor över den Time Series Insights-miljön. Exempel på frågor är listan över miljöer som anroparen har åtkomst till och miljö metadata.
+* **Miljö-API: er**: Aktiverar frågor för själva Time Series Insightss miljön. Exempel på frågor är listan över miljöer som anroparen har åtkomst till och miljö-metadata.
 
-* **Time Series modell-fråga (TSM-Q) API: er**: Gör det möjligt för att skapa, läsa, uppdatera och ta bort åtgärder på metadata som lagras i den miljö som en del av time series-modell. Exempel är instanser, typer och hierarkier.
+* **Tids serie modell-fråga (TSM-Q) API: er**: Gör att du kan skapa, läsa, uppdatera och ta bort åtgärder på metadata som lagras i miljö delen av tids serie modellen. Exempel är instanser, typer och hierarkier.
 
-* **Fråga (TSQ) API: er för Time Series**: Aktiverar hämtning av data för tillståndsändringshändelser enligt från käll-providern. Dessa API: er kan utföra åtgärder för att omvandla, kombinera och utföra beräkningar på time series-data.
+* **API: er för Time Series-fråga (TSQ)** : Aktiverar hämtning av händelse data när de registreras från käll leverantören. Dessa API: er kan utföra åtgärder för att transformera, kombinera och utföra beräkningar av tids serie data.
 
-Den [Time Series uttryck (TSX) språk](https://docs.microsoft.com/rest/api/time-series-insights/preview-tsx) är en kraftfull fjärde kategori. Time Series modeller används för att aktivera sammansättning av avancerade beräkning.
+[Time Series Expression-språket (TSX)](https://docs.microsoft.com/rest/api/time-series-insights/preview-tsx) är en kraftfull fjärde kategori. Den använder Time Series-modeller för att möjliggöra sammansättning av avancerad beräkning.
 
-## <a name="azure-time-series-insights-preview-core-apis"></a>Azure Time Series Insights Preview core API: er
+## <a name="azure-time-series-insights-preview-core-apis"></a>Azure Time Series Insights för hands version av Core API: er
 
-Följande grundläggande API: er som stöds.
+Följande kärn-API: er stöds.
 
-[![Time Series-fråga: översikt](media/v2-update-tsq/tsq.png)](media/v2-update-tsq/tsq.png#lightbox)
+[![Översikt över Time Series-frågor](media/v2-update-tsq/tsq.png)](media/v2-update-tsq/tsq.png#lightbox)
 
 ## <a name="environment-apis"></a>Miljö-API: er
 
-Följande miljö API: er är tillgängliga:
+Följande miljö-API: er är tillgängliga:
 
-* [Hämta miljö API](https://docs.microsoft.com/rest/api/time-series-insights/preview-env#get-environments-api): Returnerar listan över miljöer att anroparen har behörighet att komma åt.
-* [Få miljö tillgänglighet API](https://docs.microsoft.com/rest/api/time-series-insights/preview-env#get-environment-availability-api): Returnerar fördelningen av händelseantal över tidsstämpel för händelsen `$ts`. Den här API: et avgöra om det finns några händelser i tidsstämpeln genom att returnera antalet händelser, om sådana finns.
-* [Hämta Händelseschema API](https://docs.microsoft.com/rest/api/time-series-insights/preview-env#get-event-schema-api): Returnerar händelsemetadata för schemat för en viss sökintervallet. Den här API: et hjälper till att hämta alla metadata och egenskaper som är tillgängliga i schemat för den angivna sökintervallet.
+* [Hämta miljö-API](https://docs.microsoft.com/rest/api/time-series-insights/preview-env#get-environments-api): Returnerar listan över miljöer som anroparen har behörighet att komma åt.
+* [Hämta miljö tillgänglighets-API](https://docs.microsoft.com/rest/api/time-series-insights/preview-env#get-environment-availability-api): Returnerar fördelningen av antal händelser över händelsens tidsstämpel `$ts`. Det här API: et hjälper till att avgöra om det finns några händelser i tidsstämpeln genom att returnera antalet händelser, om sådana finns.
+* [Hämta API för händelse schema](https://docs.microsoft.com/rest/api/time-series-insights/preview-env#get-event-schema-api): Returnerar metadata för händelse schema för ett angivet Sök omfång. Med detta API kan du hämta alla metadata och egenskaper som är tillgängliga i schemat för angivet Sök omfång.
 
-## <a name="time-series-model-query-tsm-q-apis"></a>Time Series modell-fråga (TSM-Q) API: er
+## <a name="time-series-model-query-tsm-q-apis"></a>Time Series-modell – fråga (TSM-Q) API: er
 
-Följande tid serien modell-Query API: er är tillgängliga:
+Följande tids serie modell – fråge-API: er är tillgängliga:
 
-* [Modellera inställningar API](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#model-settings-api): Kan hämta och korrigera på typ av och modellnamnet på miljön.
-* [Skriver API](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#types-api): Aktiverar CRUD på Time Series-typer och deras associerade variabler.
-* [Hierarkier API](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#hierarchies-api): Aktiverar CRUD på Time Series-hierarkier och deras associerade fältet sökvägar.
-* [API-instanser](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#instances-api): Aktiverar CRUD på Time Series-instanser och deras associerade instansfält.
+* [API för modell inställningar](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#model-settings-api): Aktiverar get och patch för standard typen och modell namnet för miljön.
+* [Typ-API](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#types-api): Aktiverar CRUD för tids serie typer och deras associerade variabler.
+* [API: er](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#hierarchies-api)för hierarkier: Aktiverar CRUD i Time Series-hierarkier och deras associerade fält Sök vägar.
+* [Instans-API](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#instances-api): Aktiverar CRUD på Time Series-instanser och deras associerade instans fält.
 
-## <a name="time-series-query-tsq-apis"></a>Time Series-fråga (TSQ) API: er
+## <a name="time-series-query-tsq-apis"></a>API: er för Time Series-frågor (TSQ)
 
-Följande Time Series fråga API: er är tillgängliga:
+Följande API: er för Time Series-frågor är tillgängliga:
 
-* [Hämta händelser API](https://docs.microsoft.com/rest/api/time-series-insights/preview-query#get-events-api): Kan fråga och hämtning av Time Series Insights-data från händelser som de är registrerade i Time Series Insights från käll-providern.
+* [Hämta händelse-API](https://docs.microsoft.com/rest/api/time-series-insights/preview-query#get-events-api): Aktiverar frågor och hämtning av Time Series Insights data från händelser när de registreras i Time Series Insights från käll leverantören.
 
-* [Hämta serien API](https://docs.microsoft.com/rest/api/time-series-insights/preview-query#get-series-api): Aktiverar fråga och hämtning av Time Series Insights-data från avbildade händelserna med hjälp av data som registrerats på kabeln. De värden som returneras är baserade på de variabler som har definierats i modellen eller tillhandahålls infogade.
+* [Hämta serie-API](https://docs.microsoft.com/rest/api/time-series-insights/preview-query#get-series-api): Aktiverar frågor och hämtning av Time Series Insights data från insamlade händelser med hjälp av data som spelas in i kabeln. De värden som returneras baseras på variablerna som har definierats i modellen eller angavs infogade.
 
     >[!NOTE]
-    > Instruktionen aggregering ignoreras även om den har angetts i en modell eller tillhandahålls infogade.
+    > Agg regerings satsen ignoreras även om den har angetts i en modell eller anges infogad.
 
-  API: et för få serien returnerar ett Time Series-värde för varje variabel för varje intervall. Serien är ett format som Time Series Insights använder för utdata JSON från en fråga. De värden som returneras är baserade på Time Series-ID och en uppsättning variabler som har angetts.
+  API för Get-serien returnerar ett tids serie värde för varje variabel för varje intervall. Ett Time Series-värde är ett format som Time Series Insights används för att mata ut JSON från en fråga. Värdena som returneras baseras på Time Series-ID: t och uppsättningen variabler som tillhandahölls.
 
-* [Aggregera serien API](https://docs.microsoft.com/rest/api/time-series-insights/preview-query#aggregate-series-api): Aktiverar fråga och hämtning av Time Series Insights-data från avbildade händelser efter provtagning och sammanställa registreras data.
+* [API](https://docs.microsoft.com/rest/api/time-series-insights/preview-query#aggregate-series-api)för sammanställd serie: Gör det möjligt att fråga och hämta Time Series Insights data från insamlade händelser genom att sampla och aggregera inspelade data.
 
-  Sammanställd serien API: et returnerar ett Time Series-värde för varje variabel för varje intervall. Värdena är baserade på Time Series-ID och en uppsättning variabler som har angetts. API: et för sammanställd serien uppnår minskning med hjälp av variabler lagras i Time Series-modell eller tillhandahålls infogade aggregate- eller exemplet data.
+  API: t för sammanställd serie returnerar ett tids serie värde för varje variabel för varje intervall. Värdena baseras på Time Series-ID: t och uppsättningen med variabler som tillhandahölls. API: t för sammanställd serie uppnår en minskning med hjälp av variabler som lagras i tids serie modellen eller som anges i mängd-eller exempel data.
 
-  Sammanställd typer som stöds: `Min`, `Max`, `Sum`, `Count`, `Average`
+  Mängd typer som stöds `Min`: `Max`, `Sum`, `Count`,,`Average`
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om [storage och ingående](./time-series-insights-update-storage-ingress.md) i förhandsversionen av Azure Time Series Insights.
+- Läs mer om [lagring och ingress](./time-series-insights-update-storage-ingress.md) i Azure Time Series Insights för hands versionen.
 
-- Läsa Time Series Insights Preview [datamodellering](./time-series-insights-update-tsm.md) artikeln.
+- Läs artikeln Time Series Insights för hands versions [data modellering](./time-series-insights-update-tsm.md) .
 
-- Identifiera [bästa praxis när du väljer en tid-ID](./time-series-insights-update-how-to-id.md).
+- Identifiera [bästa praxis när du väljer ett Time Series-ID](./time-series-insights-update-how-to-id.md).

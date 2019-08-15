@@ -1,6 +1,6 @@
 ---
-title: Aktivera VM-Agent i Azure Security Center | Microsoft Docs
-description: Det här dokumentet visar hur du implementerar Azure Security Center-rekommendationen **aktivera VM-agenten**.
+title: Aktivera VM-agenten i Azure Security Center | Microsoft Docs
+description: Det här dokumentet beskriver hur du implementerar Azure Security Center rekommendation **Aktivera VM**-agenten.
 services: security-center
 documentationcenter: na
 author: rkarlin
@@ -15,14 +15,14 @@ ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: 12934ad53050d16b89dd5b4175ca19a24d1ec4d9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "60916301"
 ---
-# <a name="enable-vm-agent-in-azure-security-center"></a>Aktivera VM-Agent i Azure Security Center
-VM-agenten måste installeras på virtuella datorer (VM) för att [Aktivera datainsamling](security-center-enable-data-collection.md).  Azure Security Center kan du se vilka virtuella datorer som kräver VM-agenten och rekommenderar att du aktiverar VM-agenten på de virtuella datorerna.
+# <a name="enable-vm-agent-in-azure-security-center"></a>Aktivera VM-agenten i Azure Security Center
+VM-agenten måste installeras på virtuella datorer (VM) för att kunna [Aktivera data insamling](security-center-enable-data-collection.md).  Azure Security Center ger dig möjlighet att se vilka virtuella datorer som kräver VM-agenten och rekommenderar att du aktiverar VM-agenten på de virtuella datorerna.
 
 VM-agenten installeras som standard för virtuella datorer som distribueras från Azure Marketplace. Artikeln [VM Agent and Extensions – Part 2](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/) (VM-agenter och tillägg – del 2) innehåller information om hur VM-agenten ska installeras.
 
@@ -32,9 +32,9 @@ VM-agenten installeras som standard för virtuella datorer som distribueras frå
 >
 
 ## <a name="implement-the-recommendation"></a>Implementera rekommendationen
-1. I den **rekommendationsbladet**väljer **aktivera VM-agenten**.
+1. På **bladet rekommendationer**väljer du **Aktivera VM-agent**.
    ![Aktivera VM-Agent][1]
-2. Då öppnas bladet **VM-agenten saknas eller svarar inte**. Det här bladet visar en lista över de virtuella datorer som kräver VM-agenten. Följ anvisningarna på bladet för att installera VM-agenten.
+2. Detta öppnar bladet med den **virtuella dator agenten saknas eller svarar inte**. Det här bladet visar en lista över de virtuella datorer som kräver VM-agenten. Följ anvisningarna på bladet för att installera VM-agenten.
    ![VM-agenten saknas][2]
 
 ## <a name="see-also"></a>Se också

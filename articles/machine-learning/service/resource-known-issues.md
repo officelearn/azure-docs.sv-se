@@ -9,14 +9,14 @@ ms.reviewer: mldocs
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 04/30/2019
+ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7d1bce7575272b7df185c4e261685d989f49436c
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 4e7b3905295e619c5a9500f80b5c43126b919e2f
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68716538"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68946462"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Kända problem och felsökning Azure Machine Learning-tjänsten
 
@@ -71,7 +71,7 @@ Den automatiska maskin inlärningen i styrkorts flöde stöder för närvarande 
 
 ### <a name="experiment-charts"></a>Experiment diagram
 
-Binära klassificerings diagram (precision-återkallande, ROC, kurva osv.) som visas i automatiserade ML experiment-iterationer återger inte corectly i användar gränssnittet sedan 4/12. Diagram observationer visar för närvarande inversa resultat, där modeller med bättre prestanda visas med lägre resultat. En lösning är under undersökning.
+Binära klassificerings diagram (precisions återkallning, ROC, kurva osv.) som visas i automatiserade ML experiment-iterationer återges inte korrekt i användar gränssnittet sedan 4/12. Diagram observationer visar för närvarande inversa resultat, där modeller med bättre prestanda visas med lägre resultat. En lösning är under undersökning.
 
 ## <a name="databricks"></a>Databricks
 
@@ -134,6 +134,15 @@ Om du går direkt för att visa din arbetsyta från en delningslänk från SDK: 
 
 Ibland kan det vara bra om du kan ange diagnostisk information när du frågar om du behöver hjälp. Om du vill se några loggar går du till [Azure Portal](https://portal.azure.com) och går till din arbets yta och väljer **arbets yta > Experiment > Kör > loggar**.
 
+> [!NOTE]
+> Azure Machine Learning tjänst loggar information från en rad olika källor under utbildningen, till exempel AutoML eller Docker-behållaren som kör övnings jobbet. Många av dessa loggar dokumenteras inte. Om du stöter på problem och kontaktar Microsoft-supporten kan det hända att de kan använda dessa loggar under fel sökning.
+
+## <a name="activity-logs"></a>Aktivitetsloggar
+
+Vissa åtgärder i Azure Machine Learning-arbetsytan loggar inte information i __aktivitets loggen__. Du kan till exempel starta en utbildning för att köra eller registrera en modell.
+
+Några av de här åtgärderna visas i området __aktiviteter__ i din arbets yta, men de visar inte vem som initierade aktiviteten.
+
 ## <a name="resource-quotas"></a>Resurskvoter
 
 Lär dig mer om den [resurskvoter](how-to-manage-quotas.md) som kan uppstå när du arbetar med Azure Machine Learning.
@@ -154,6 +163,6 @@ Till exempel visas ett fel meddelande om du försöker skapa eller ansluta ett b
 
 ## <a name="overloaded-azurefile-storage"></a>Överlagrad AzureFile-lagring
 
-Om du får ett fel meddelande om att det inte går att ladda upp projektfiler till arbets katalogen i AzureFile eftersom lagrings utrymmet är överbelastat använder du följande lösningar.
+Använd följande lösningar om du `Unable to upload project files to working directory in AzureFile because the storage is overloaded`får ett fel meddelande.
 
 Om du använder fil resurs för andra arbets belastningar, till exempel data överföring, är rekommendationen att använda blobbar så att fil resursen är kostnads fri att användas för att skicka körningar. Du kan också dela upp arbets belastningen mellan två olika arbets ytor.

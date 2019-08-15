@@ -1,6 +1,6 @@
 ---
-title: Skapa avancerade arbetsflöden för kodning med Workflow Designer | Microsoft Docs
-description: Läs mer om hur du skapar avancerade arbetsflöden för kodning med Workflow Designer.
+title: Skapa avancerade kodnings arbets flöden med arbetsflödesdesigner | Microsoft Docs
+description: Lär dig mer om hur du skapar avancerade kodnings arbets flöden med arbetsflödesdesigner.
 services: media-services
 documentationcenter: ''
 author: anilmur
@@ -13,66 +13,67 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
-ms.author: juliako;johndeu;anilmur
-ms.openlocfilehash: 0ade52d3ae9714f2b370308253e455bcde7ac7a5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: anilmur
+ms.reviewer: juliako;johndeu
+ms.openlocfilehash: 246a1461973dba129a5b1d12be8a09703eb99267
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60825140"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "69015980"
 ---
 # <a name="create-advanced-encoding-workflows-with-workflow-designer"></a>Skapa avancerade arbetsflöden för kodning med Workflow Designer  
 ## <a name="overview"></a>Översikt
-Den **Arbetsflödesdesigner** är ett stationära Windows-verktyg som används för att utforma och skapa anpassade arbetsflöden för kodning med **Media Encoder Premium Workflow**.
-Med kraften i verktyget workflow designer kan du utforma och skapa komplexa arbetsflöden som körs i **Media Encoder Premium**.  
+**Arbetsflödesdesigner** är ett Windows Desktop-verktyg som används för att utforma och skapa anpassade arbets flöden för kodning med **Media Encoder Premium Workflow**.
+Med hjälp av kraften i arbets flödes design verktyget kan du utforma och skapa komplexa arbets flöden som ska köras i **Media Encoder Premium**.  
 
-Arbetsflöden kan omfatta kunden beslut logik och branchning utifrån Indatakällan filens egenskaper. Du kan skapa arbetsflöden med åsidosättningsbar egenskaper och dynamiska värden så att även de mest komplexa kodningsuppgifter blir lättare att upprepa och anpassa i molnet.
+Arbets flöden kan innehålla kund besluts logik och branchning baserat på filens egenskaper för indatakälla. Du kan skapa arbets flöden med åsidosättningsbar-egenskaper och dynamiska värden för att göra även de mest komplexa kodnings aktiviteterna enkla att upprepa och anpassa i molnet.
 
-Exempel-arbetsflöden som du kan skapa omfattar:
+Exempel på arbets flöden som du kan skapa är:
 
-* Beslutet bygga arbetsflöden som granskar källinnehållet för matchning av och koda bara önskade utdata-spår.  Det här är användbart genom att ta bort onödigt spåren som genereras av upscaling källinnehållet oavsiktligt.
-* Flera indatafiler kan användas för att stödja bildtexter, överlägg och fästa tillsammans innehåll. 
+* Beslut baserade arbets flöden som inspekterar käll innehållet för lösning och kodar bara de önskade utdata-spåren.  Detta är användbart genom att eliminera de kasserade spåren som skulle genereras genom att minska käll innehållet oavsiktligt.
+* Du kan använda flera indatafiler för att stödja under texter, överlägg och häfta samman innehåll. 
 
-Det här verktyget kan också användas för att ändra någon av våra [publicerade arbetsflöden](media-services-workflow-designer.md#existing_workflows). 
+Det här verktyget kan också användas för att ändra alla [publicerade arbets flöden](media-services-workflow-designer.md#existing_workflows). 
 
 > [!NOTE]
-> För att få din kopia av verktyget Arbetsflödesdesigner kan du kontakta mepd@microsoft.com.
+> Kontakta mepd@microsoft.comom du vill hämta en kopia av arbetsflödesdesigner-verktyget.
 
-När en arbetsflödesfil har skapats kan laddas upp som en tillgång och sedan användas för kodning mediefiler. Information om att koda med **Media Encoder Premium Workflow** med **.NET**, se [avancerad kodning med Media Encoder Premium Workflow](media-services-encode-with-premium-workflow.md).
+När en arbets flödes fil har skapats kan den laddas upp som en till gång och sedan användas för kodning av mediefiler. Information om hur du kodar med **Media Encoder Premium Workflow** med hjälp av **.net**finns i [Avancerad kodning med Media Encoder Premium Workflow](media-services-encode-with-premium-workflow.md).
 
-## <a id="existing_workflows"></a>Ändra befintliga arbetsflöden
-Standard [publicerade arbetsflöden](media-services-workflow-designer.md#existing_workflows) kan ändras med hjälp av verktyget designer. Du kan hämta standard Arbetsflödesfiler [här](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows). Mappen innehåller också en beskrivning av dessa filer.
+## <a id="existing_workflows"></a>Ändra befintliga arbets flöden
+De [publicerade standard arbets flödena](media-services-workflow-designer.md#existing_workflows) kan ändras med hjälp av verktyget designer. Du kan hämta standard arbets flödes filerna [här](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows). Mappen innehåller också en beskrivning av de här filerna.
 
-I följande videoklipp visar hur du kan använda designern.
+Följande videor visar hur du använder designern.
 
-### <a name="day-1--getting-started"></a>Dag 1 – komma igång
-Dag 1 videon beskriver:
+### <a name="day-1--getting-started"></a>Dag 1 – Komma igång
+Dag 1 video omslag:
 
-* Designer översikt
-* Grundläggande arbetsflöden – ”Hello World”
-* Skapa flera utdata MP4-filer för användning med Azure Media Services-strömning
+* Översikt över designer
+* Basic-arbetsflöden – "Hello World"
+* Skapa flera MP4-filer för användning med Azure Media Services strömning
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Premium-Encoder-Workflow-Designer-Training-Videos-Day-1/player]
 > 
 > 
 
 ### <a name="day-2"></a>Dag 2
-Dag 2 videon beskriver:
+Dag 2 video försättsblad:
 
-* Olika scenarier för filhantering av källa – hantering av ljud
-* Arbetsflöden med avancerad logik
-* Graph-faser
+* Varierande käll fils scenarier – hantera ljud
+* Arbets flöden med avancerad logik
+* Diagram steg
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Premium-Encoder-Workflow-Designer-Training-Videos-Day-2/player]
 > 
 > 
 
 ### <a name="day-3"></a>Dag 3
-Dag 3 videon beskriver:
+Dag 3 video försättsblad:
 
-* Skript i arbetsflöden/skisser
-* Begränsningar i den aktuella kodaren
-* FRÅGOR OCH SVAR
+* Skript i arbets flöden/ritningar
+* Begränsningar med aktuell kodare
+* F & A
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Premium-Encoder-Workflow-Designer-Training-Videos-Day-3/player]
 > 
@@ -86,8 +87,8 @@ Granska sökvägarna för Media Services-utbildning.
 ## <a name="provide-feedback"></a>Ge feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-Om du behöver stöd för eller har frågor om hur du skapar anpassade arbetsflöden i Workflow designer-verktyget kan du skicka e-postmeddelande till mepd@microsoft.com.
+Skicka e-post till mepd@microsoft.comom du behöver support eller har frågor om att skapa anpassade arbets flöden i verktyget Workflow Designer.
 
 ## <a name="see-also"></a>Se även
-[Azure Premium-kodare Workflow Designer utbildningsvideor](http://johndeutscher.com/2015/07/06/azure-premium-encoder-workflow-designer-training-videos/)
+[Azure Premium-kodare arbetsflödesdesigner utbildnings videor](http://johndeutscher.com/2015/07/06/azure-premium-encoder-workflow-designer-training-videos/)
 

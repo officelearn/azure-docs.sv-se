@@ -1,6 +1,6 @@
 ---
-title: Så här utför du direktsänd strömning med lokala kodare med hjälp av .NET | Microsoft Docs
-description: Det här avsnittet visar hur du utför direktsänd kodning med lokala kodare med .NET.
+title: Så här utför du Direktsänd strömning med lokala kodare med hjälp av .NET | Microsoft Docs
+description: Det här avsnittet visar hur du använder .NET för att utföra direktsänd kodning med lokala kodare.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
-ms.author: cenkdin;juliako
-ms.openlocfilehash: 8baff356e1a4916bcc21b28f422a6e98342c0d34
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: juliako
+ms.openlocfilehash: bc7c8a059e1e17b7b280a7061206b10ed6c530aa
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64869457"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "69015845"
 ---
-# <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-net"></a>Så här utför du direktsänd strömning med lokala kodare med hjälp av .NET
+# <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-net"></a>Så här utför du Direktsänd strömning med lokala kodare med hjälp av .NET
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-live-passthrough-get-started.md)
 > * [NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
@@ -29,20 +29,20 @@ ms.locfileid: "64869457"
 > 
 
 > [!NOTE]
-> Inga nya funktioner läggs till i Media Services v2. <br/>Upptäck den senaste versionen, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [migreringsvägledningen från v2 till v3](../latest/migrate-from-v2-to-v3.md)
+> Inga nya funktioner läggs till i Media Services v2. <br/>Upptäck den senaste versionen, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
 
-Den här självstudien vägleder dig genom stegen för att använda Azure Media Services .NET SDK för att skapa en **kanal** som är konfigurerad för en genomströmningsleverans. 
+Den här självstudien vägleder dig genom stegen i att använda Azure Media Services .NET SDK för att skapa en **kanal** som är konfigurerad för en genom strömnings leverans. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 Följande krävs för att kunna genomföra vägledningen:
 
 * Ett Azure-konto.
 * Ett Media Services-konto. Information om hur du skapar ett Media Services-konto finns i [Så här skapar du ett Media Services-konto](media-services-portal-create-account.md).
 * Kontrollera att slutpunkten för direktuppspelning som du vill spela upp innehåll från har tillståndet **Körs**. 
-* Ställ in din utvecklingsmiljö. Mer information finns i [ställer in din miljö](media-services-set-up-computer.md).
+* Konfigurera din utvecklings miljö. Mer information finns i [Konfigurera din miljö](media-services-set-up-computer.md).
 * En webbkamera. Till exempel [Telestream Wirecast-kodaren](https://www.telestream.net/wirecast/overview.htm).
 
-Rekommenderar att du i följande artiklar:
+Vi rekommenderar att du läser följande artiklar:
 
 * [Azure Media Services RTMP-support och live-kodare](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/)
 * [Liveuppspelning med lokala kodare som skapar strömmar med flera bithastigheter](media-services-live-streaming-with-onprem-encoders.md)
@@ -53,23 +53,23 @@ Konfigurera utvecklingsmiljön och fyll i filen app.config med anslutningsinform
 
 ## <a name="example"></a>Exempel
 
-I följande kodexempel visar hur du utför följande uppgifter:
+Följande kod exempel visar hur du utför följande uppgifter:
 
 * Ansluta till Media Services
 * Skapa en kanal
 * Uppdatera kanalen
-* Hämta kanalens slutpunkt för indata. Slutpunkt för indata ska tillhandahållas till en lokal livekodare. Live-kodare konverterar signaler från kameran till dataströmmar som skickas till den kanal indata (mata in) slutpunkt.
-* Hämta kanalens förhandsgranskningsslutpunkten
+* Hämta kanalens ingångs slut punkt. Slut punkten för indata ska tillhandahållas den lokala Live-kodaren. Live-kodaren konverterar signaler från kameran till strömmar som skickas till kanalens inmatnings slut punkt (intag).
+* Hämta kanalens förhands gransknings slut punkt
 * Skapa och starta ett program
-* Skapa en positionerare som behövs för att komma åt programmet
+* Skapa en positionerare som krävs för att komma åt programmet
 * Skapa och starta en StreamingEndpoint
-* Uppdatera slutpunkten för direktuppspelning
-* Stäng av resurser
+* Uppdatera slut punkten för direkt uppspelning
+* Stänga av resurser
     
 >[!NOTE]
 >Det finns en gräns på 1 000 000 principer för olika AMS-principer (till exempel för positionerarprincipen eller ContentKeyAuthorizationPolicy). Du bör använda samma princip-ID om du alltid använder samma dagar/åtkomstbehörigheter, till exempel principer för positionerare som är avsedda att vara på plats under en längre tid (icke-överföringsprinciper). Mer information finns i [den här artikeln](media-services-dotnet-manage-entities.md#limit-access-policies).
 
-Information om hur du konfigurerar en live-kodare finns i [Azure Media Services RTMP-Support och Livekodare](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/).
+Information om hur du konfigurerar en Live-kodare finns i [Azure Media Services RTMP-support och Live Encoder](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/).
 
 ```csharp
 using System;
@@ -400,7 +400,7 @@ namespace AMSLiveTest
 ```
 
 ## <a name="next-step"></a>Nästa steg
-Granska utbildningsvägar för Media Services
+Granska Media Services inlärnings vägar
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 0c07cbd9fef865f3fc7b782210ef44094df9f629
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 9ab09c7215827369b3e1fc449af68be307881f51
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779836"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68928017"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolering i det offentliga Azure-molnet
 ##  <a name="introduction"></a>Introduktion
@@ -54,7 +54,7 @@ På en arbetsplats i molnet kan en klientorganisation definieras som en klient e
 Varje Azure AD-katalog är separat och åtskild från andra Azure AD-kataloger. Precis som ett företags kontorsbyggnad är en säker resurs som är specifik för din organisation har även Azure AD-katalogen utformats för att vara en säker tillgång för exklusiv användning av din organisation. Azure AD-arkitekturen håller isär kunddata och identitetsinformation. Det innebär att användare och administratörer av en Azure AD-katalog inte oavsiktligt eller illvilligt kan komma åt data i en annan katalog.
 
 ### <a name="azure-tenancy"></a>Azure-innehavare
-Azure-innehavaren (Azure-prenumeration) refererar till en kund/fakturerings relation och en unik [klient](https://docs.microsoft.com/azure/active-directory/develop/active-directory-howto-tenant) i [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis). Isolering av klient nivå i Microsoft Azure uppnås med Azure Active Directory-och [rollbaserade kontroller](https://docs.microsoft.com/azure/role-based-access-control/overview) som erbjuds av den. Varje Azure-prenumeration är associerad med en Azure Active Directory-katalog (AD).
+Azure-innehavaren (Azure-prenumeration) refererar till en kund/fakturerings relation och en unik [klient](../../active-directory/develop/quickstart-create-new-tenant.md) i [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md). Isolering av klient nivå i Microsoft Azure uppnås med Azure Active Directory-och [rollbaserade kontroller](../../role-based-access-control/overview.md) som erbjuds av den. Varje Azure-prenumeration är associerad med en Azure Active Directory-katalog (AD).
 
 Användare, grupper och program från den katalogen kan hantera resurser i Azure-prenumerationen. Du kan tilldela dessa behörigheter med hjälp av Azure Portal, Azures kommando rads verktyg och Azure Management-API: er. En Azure AD-klient isoleras logiskt med hjälp av säkerhets gränser så att ingen kund kan komma åt eller kompromettera samklienter, antingen på ett skadligt eller av misstag. Azure AD körs på "bare metal"-servrar som är isolerade i ett åtskiljt nätverks segment, där paket filtrering på värdnivå och Windows-brandväggen blockerar oönskade anslutningar och trafik.
 
@@ -71,7 +71,7 @@ Användare, grupper och program från den katalogen kan hantera resurser i Azure
 
 - Azure AD-användare har ingen åtkomst till fysiska till gångar eller platser, och därför är det inte möjligt för dem att kringgå de logiska RBAC-princip kontrollerna som anges nedan.
 
-För diagnostik-och underhålls behov krävs och används en drifts modell som använder sig av en just-in-Time-höjning. Azure AD Privileged Identity Management (PIM) introducerar konceptet för en berättigad administratör. [Berättigade administratörer](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) bör vara användare som behöver privilegie rad åtkomst nu och sedan, men inte varje dag. Rollen är inaktiv tills användaren behöver åtkomst. Därefter slutför användaren en aktiveringsprocess och blir aktiv administratör under en förinställd tidsperiod.
+För diagnostik-och underhålls behov krävs och används en drifts modell som använder sig av en just-in-Time-höjning. Azure AD Privileged Identity Management (PIM) introducerar konceptet för en berättigad administratör. [Berättigade administratörer](../../active-directory/privileged-identity-management/pim-configure.md) bör vara användare som behöver privilegie rad åtkomst nu och sedan, men inte varje dag. Rollen är inaktiv tills användaren behöver åtkomst. Därefter slutför användaren en aktiveringsprocess och blir aktiv administratör under en förinställd tidsperiod.
 
 ![Azure AD Privileged Identity Management](./media/isolation-choices/azure-isolation-fig2.png)
 
@@ -82,7 +82,7 @@ Begreppet klient behållare är djupt inkornigt i katalog tjänsten på alla lag
 Även om metadata från flera Azure Active Directory klienter lagras på samma fysiska disk, finns det ingen relation mellan andra behållare än vad som definieras av katalog tjänsten, vilket i sin tur styrs av klient organisations administratören.
 
 ### <a name="azure-role-based-access-control-rbac"></a>Rollbaserad Access Control i Azure (RBAC)
-Med [Azure Role-baserade Access Control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) kan du dela olika komponenter som är tillgängliga i en Azure-prenumeration genom att tillhandahålla detaljerad åtkomst hantering för Azure. Med Azure RBAC kan du åtskilja uppgifter i organisationen och bevilja åtkomst baserat på vad användarna behöver för att utföra sina jobb. I stället för att ge alla obegränsade behörigheter i Azure-prenumeration eller-resurser kan du bara tillåta vissa åtgärder.
+Med [Azure Role-baserade Access Control (RBAC)](../../role-based-access-control/overview.md) kan du dela olika komponenter som är tillgängliga i en Azure-prenumeration genom att tillhandahålla detaljerad åtkomst hantering för Azure. Med Azure RBAC kan du åtskilja uppgifter i organisationen och bevilja åtkomst baserat på vad användarna behöver för att utföra sina jobb. I stället för att ge alla obegränsade behörigheter i Azure-prenumeration eller-resurser kan du bara tillåta vissa åtgärder.
 
 Azure RBAC har tre grundläggande roller som gäller för alla resurs typer:
 
@@ -96,16 +96,16 @@ Azure RBAC har tre grundläggande roller som gäller för alla resurs typer:
 
 Resten av RBAC-rollerna i Azure möjliggör hantering av vissa Azure-resurser. Rollen virtuell dator deltagare ger till exempel användaren möjlighet att skapa och hantera virtuella datorer. Den ger dem inte åtkomst till Azure-Virtual Network eller det undernät som den virtuella datorn ansluter till.
 
-[Inbyggda RBAC-roller](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) visar de roller som är tillgängliga i Azure. Den anger de åtgärder och den omfattning som varje inbyggd roll ger användare. Om du vill definiera egna roller för ännu mer kontroll, se så här skapar du [anpassade roller i Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/custom-roles).
+[Inbyggda RBAC-roller](../../role-based-access-control/built-in-roles.md) visar de roller som är tillgängliga i Azure. Den anger de åtgärder och den omfattning som varje inbyggd roll ger användare. Om du vill definiera egna roller för ännu mer kontroll, se så här skapar du [anpassade roller i Azure RBAC](../../role-based-access-control/custom-roles.md).
 
 Några andra funktioner för Azure Active Directory inkluderar:
 - Azure AD möjliggör SSO till SaaS-program, oavsett var de finns. Vissa program federeras med Azure AD och andra använder enkel inloggning med lösenord. Federerade program kan också ha stöd för användar etablering och [lösen ords valv](https://www.techopedia.com/definition/31415/password-vault).
 
-- Åtkomst till data i [Azure Storage](https://azure.microsoft.com/services/storage/) styrs via autentisering. Varje lagrings konto har en primär nyckel ([lagrings konto nyckel](https://docs.microsoft.com/azure/storage/storage-create-storage-account)eller sak) och en sekundär hemlig nyckel (signatur för delad åtkomst eller SAS).
+- Åtkomst till data i [Azure Storage](https://azure.microsoft.com/services/storage/) styrs via autentisering. Varje lagrings konto har en primär nyckel ([lagrings konto nyckel](../../storage/common/storage-create-storage-account.md)eller sak) och en sekundär hemlig nyckel (signatur för delad åtkomst eller SAS).
 
-- Azure AD tillhandahåller identitet som en tjänst via Federation med hjälp av [Active Directory Federation Services (AD FS)](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-azure-adfs), synkronisering och replikering med lokala kataloger.
+- Azure AD tillhandahåller identitet som en tjänst via Federation med hjälp av [Active Directory Federation Services (AD FS)](../../active-directory/hybrid/how-to-connect-fed-azure-adfs.md), synkronisering och replikering med lokala kataloger.
 
-- [Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication) är den Multi-Factor Authentication-tjänst som kräver att användarna verifierar inloggningar med hjälp av en mobilapp, ett telefonsamtal eller ett textmeddelande. Den kan användas med Azure AD för att skydda lokala resurser med Azure Multi-Factor Authentication-servern och även med anpassade program och kataloger med hjälp av SDK.
+- [Azure Multi-Factor Authentication](../../active-directory/authentication/multi-factor-authentication.md) är den Multi-Factor Authentication-tjänst som kräver att användarna verifierar inloggningar med hjälp av en mobilapp, ett telefonsamtal eller ett textmeddelande. Den kan användas med Azure AD för att skydda lokala resurser med Azure Multi-Factor Authentication-servern och även med anpassade program och kataloger med hjälp av SDK.
 
 - Med [Azure AD Domain Services](https://azure.microsoft.com/services/active-directory-ds/) kan du ansluta virtuella Azure-datorer till en Active Directory domän utan att distribuera domänkontrollanter. Du kan logga in på dessa virtuella datorer med företagets Active Directory autentiseringsuppgifter och administrera domänanslutna virtuella datorer genom att använda grupprincip för att tvinga säkerhets bas linjer på alla virtuella Azure-datorer.
 
@@ -140,7 +140,7 @@ Användning av en isolerad storlek garanterar att den virtuella datorn är den e
 * Standard_D15_v2
 * Standard_F72s_v2
 
-Du kan lära dig mer om varje isolerad storlek som finns [här](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory).
+Du kan lära dig mer om varje isolerad storlek som finns [här](../../virtual-machines/windows/sizes-memory.md).
 
 ### <a name="hyper-v--root-os-isolation-between-root-vm--guest-vms"></a>Hyper-V & rot operativ system isolering mellan virtuella rot-VM & virtuella gäst datorer
 Azures beräknings plattform baseras på VM-virtualisering, vilket innebär att all kund kod körs i en virtuell Hyper-V-dator. På varje Azure-nod (eller nätverks slut punkt) finns en hypervisor som körs direkt över maskin varan och delar upp en nod i ett variabel antal gäst Virtual Machines (VM).
@@ -215,12 +215,12 @@ Därför körs Azure Storage på separat maskin vara utan nätverks anslutning t
 
 ![Isolering med åtkomst kontroll för lagring](./media/isolation-choices/azure-isolation-fig9.png)
 
-**Åtkomst till Azure Storage data (inklusive tabeller)** kan styras via en SAS-token [(signatur för delad åtkomst)](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1) som ger begränsad åtkomst. SAS skapas via en frågegrupp (URL) som är signerad med [sak (lagrings konto nyckel)](https://msdn.microsoft.com/library/azure/ee460785.aspx). Den [signerade URL:](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1) en kan ges till en annan process (det vill säga delegerat), som sedan kan fylla i information om frågan och göra en begäran om lagrings tjänsten. Med SAS kan du ge tidsbaserad åtkomst till klienter utan att avslöja lagrings kontots hemliga nyckel.
+**Åtkomst till Azure Storage data (inklusive tabeller)** kan styras via en SAS-token [(signatur för delad åtkomst)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md) som ger begränsad åtkomst. SAS skapas via en frågegrupp (URL) som är signerad med [sak (lagrings konto nyckel)](https://msdn.microsoft.com/library/azure/ee460785.aspx). Den [signerade URL:](../../storage/common/storage-dotnet-shared-access-signature-part-1.md) en kan ges till en annan process (det vill säga delegerat), som sedan kan fylla i information om frågan och göra en begäran om lagrings tjänsten. Med SAS kan du ge tidsbaserad åtkomst till klienter utan att avslöja lagrings kontots hemliga nyckel.
 
 SAS innebär att vi kan bevilja en klient begränsad behörighet, till objekt i vårt lagrings konto under en angiven tids period och med en angiven uppsättning behörigheter. Vi kan ge dessa begränsade behörigheter utan att behöva dela dina konto åtkomst nycklar.
 
 ### <a name="ip-level-storage-isolation"></a>Lagrings isolering på IP-nivå
-Du kan upprätta brand väggar och definiera ett IP-adressintervall för dina betrodda klienter. Med ett IP-adressintervall kan endast klienter som har en IP-adress inom det definierade intervallet ansluta till [Azure Storage](https://docs.microsoft.com/azure/storage/storage-security-guide).
+Du kan upprätta brand väggar och definiera ett IP-adressintervall för dina betrodda klienter. Med ett IP-adressintervall kan endast klienter som har en IP-adress inom det definierade intervallet ansluta till [Azure Storage](../../storage/common/storage-security-guide.md).
 
 IP Storage-data kan skyddas från obehöriga användare via en nätverks mekanism som används för att allokera en dedikerad eller dedikerad trafik trafik till IP-lagring.
 
@@ -233,23 +233,23 @@ Azure erbjuder följande typer av kryptering för att skydda data:
 #### <a name="encryption-in-transit"></a>Kryptering under överföring
 Kryptering under överföring är en mekanism för att skydda data när de överförs mellan nätverk. Med Azure Storage kan du skydda data med:
 
--   [Kryptering på transport nivå](https://docs.microsoft.com/azure/storage/storage-security-guide#encryption-in-transit), till exempel https när du överför data till eller från Azure Storage.
+-   [Kryptering på transport nivå](../../storage/common/storage-security-guide.md), till exempel https när du överför data till eller från Azure Storage.
 
 -   [Kabel kryptering](../../storage/common/storage-security-guide.md#using-encryption-during-transit-with-azure-file-shares), till exempel SMB 3,0-kryptering för Azure-filresurser.
 
--   [Kryptering på klient sidan](https://docs.microsoft.com/azure/storage/storage-security-guide#using-client-side-encryption-to-secure-data-that-you-send-to-storage), för att kryptera data innan de överförs till lagrings utrymmet och för att dekryptera data när de har överförts från lagrings utrymmet.
+-   [Kryptering på klient sidan](../../storage/common/storage-security-guide.md), för att kryptera data innan de överförs till lagrings utrymmet och för att dekryptera data när de har överförts från lagrings utrymmet.
 
 #### <a name="encryption-at-rest"></a>Kryptering i vila
-För många organisationer är [data kryptering i vila](https://docs.microsoft.com/azure/security/fundamentals/isolation-choices) ett obligatoriskt steg mot data sekretess, efterlevnad och data suveränitet. Det finns tre Azure-funktioner som ger kryptering av data som är "i vila":
+För många organisationer är [data kryptering i vila](isolation-choices.md) ett obligatoriskt steg mot data sekretess, efterlevnad och data suveränitet. Det finns tre Azure-funktioner som ger kryptering av data som är "i vila":
 
--   Med [kryptering för lagringstjänst](https://docs.microsoft.com/azure/storage/storage-security-guide#encryption-at-rest) kan du begära att lagrings tjänsten automatiskt krypterar data när de skrivs till Azure Storage.
+-   Med [kryptering för lagringstjänst](../../storage/common/storage-security-guide.md) kan du begära att lagrings tjänsten automatiskt krypterar data när de skrivs till Azure Storage.
 
--   [Kryptering på klient sidan](https://docs.microsoft.com/azure/storage/storage-security-guide#client-side-encryption) tillhandahåller även funktionen för kryptering i vila.
+-   [Kryptering på klient sidan](../../storage/common/storage-security-guide.md) tillhandahåller även funktionen för kryptering i vila.
 
--   Med [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) kan du kryptera de OS-diskar och data diskar som används av en virtuell IaaS-dator.
+-   Med [Azure Disk Encryption](../azure-security-disk-encryption-overview.md) kan du kryptera de OS-diskar och data diskar som används av en virtuell IaaS-dator.
 
 #### <a name="azure-disk-encryption"></a>Azure Disk Encryption
-[Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) för virtuella datorer (VM) hjälper dig att lösa organisationens krav på säkerhet och efterlevnad genom att kryptera dina virtuella dator diskar (inklusive start-och data diskar) med nycklar och principer som du styr i [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
+[Azure Disk Encryption](../azure-security-disk-encryption-overview.md) för virtuella datorer (VM) hjälper dig att lösa organisationens krav på säkerhet och efterlevnad genom att kryptera dina virtuella dator diskar (inklusive start-och data diskar) med nycklar och principer som du styr i [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
 
 Disk krypterings lösningen för Windows är baserad på [Microsoft BitLocker-diskkryptering](https://technet.microsoft.com/library/cc732774.aspx)och Linux-lösningen baseras på [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt).
 
@@ -293,7 +293,7 @@ SQL Database är en relationsdatabastjänst i Microsoft Cloud som är baserad p�
 
 ### <a name="sql-azure-application-model"></a>SQL Azure program modell
 
-[Microsoft SQL Azure](https://docs.microsoft.com/azure/sql-database/sql-database-get-started) Database är en molnbaserad Relations databas tjänst som bygger på SQL Server tekniker. Det ger en skalbar databas tjänst med hög tillgänglighet som Microsoft i molnet har hög tillgänglighet.
+[Microsoft SQL Azure](../../sql-database/sql-database-single-database-get-started.md) Database är en molnbaserad Relations databas tjänst som bygger på SQL Server tekniker. Det ger en skalbar databas tjänst med hög tillgänglighet som Microsoft i molnet har hög tillgänglighet.
 
 I ett program perspektiv SQL Azure tillhandahåller följande hierarki: Varje nivå har en-till-många-inne slutning av nivåer nedan.
 
@@ -344,9 +344,9 @@ Azure-distributionen har flera lager av nätverks isolering. Följande diagram v
 
 ![Nätverks isolering](./media/isolation-choices/azure-isolation-fig13.png)
 
-**Trafik isolering:** Ett [virtuellt nätverk](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) är den trafik isolerings gränser som finns på Azure-plattformen. Virtual Machines (VM) i ett virtuellt nätverk kan inte kommunicera direkt med virtuella datorer i ett annat virtuellt nätverk, även om båda virtuella nätverken har skapats av samma kund. Isolering är en kritisk egenskap som garanterar att kunders virtuella datorer och kommunikation förblir privata i ett virtuellt nätverk.
+**Trafik isolering:** Ett [virtuellt nätverk](../../virtual-network/virtual-networks-overview.md) är den trafik isolerings gränser som finns på Azure-plattformen. Virtual Machines (VM) i ett virtuellt nätverk kan inte kommunicera direkt med virtuella datorer i ett annat virtuellt nätverk, även om båda virtuella nätverken har skapats av samma kund. Isolering är en kritisk egenskap som garanterar att kunders virtuella datorer och kommunikation förblir privata i ett virtuellt nätverk.
 
-[Undernät](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) erbjuder ett extra isolerings lager med i virtuellt nätverk baserat på IP-intervall. IP-adresser i det virtuella nätverket kan du dela upp ett virtuellt nätverk i flera undernät för organisation och säkerhet. VM:ar och PaaS-rollinstanser som distribuerats till undernät (samma eller olika) inom ett VNet, kan kommunicera med varandra utan övrig konfiguration. Du kan också konfigurera [nätverks säkerhets gruppen (NSG: er)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) för att tillåta eller neka nätverks trafik till en virtuell dator instans baserat på regler som kon figurer ATS i åtkomst kontrol listan (ACL) för NSG. NSG:er kan antingen associeras med undernät eller individuella VM-instanser inom det undernätet. När en NSG är associerad med ett undernät, tillämpas ACL-reglerna på alla VM-instanser i det undernätet.
+[Undernät](../../virtual-network/virtual-networks-overview.md) erbjuder ett extra isolerings lager med i virtuellt nätverk baserat på IP-intervall. IP-adresser i det virtuella nätverket kan du dela upp ett virtuellt nätverk i flera undernät för organisation och säkerhet. VM:ar och PaaS-rollinstanser som distribuerats till undernät (samma eller olika) inom ett VNet, kan kommunicera med varandra utan övrig konfiguration. Du kan också konfigurera [nätverks säkerhets gruppen (NSG: er)](../../virtual-network/virtual-networks-overview.md) för att tillåta eller neka nätverks trafik till en virtuell dator instans baserat på regler som kon figurer ATS i åtkomst kontrol listan (ACL) för NSG. NSG:er kan antingen associeras med undernät eller individuella VM-instanser inom det undernätet. När en NSG är associerad med ett undernät, tillämpas ACL-reglerna på alla VM-instanser i det undernätet.
 
 ## <a name="next-steps"></a>Nästa steg
 

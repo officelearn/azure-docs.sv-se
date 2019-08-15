@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s '
-ms.openlocfilehash: 2434507ac89d631bb96ae9633403075801879a37
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 6ab2e0866c4e6c5cc8f89cb490504f6ca6a076fc
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277402"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019653"
 ---
 # <a name="troubleshooting-guide"></a>Felsökningsguide
 
@@ -250,7 +250,7 @@ Vad som behöver göras:
 Du kan se ett exempel på https://github.com/sgreenmsft/buildcontextsample
 
 ## <a name="microsoftdevspacesregisteraction-authorization-error"></a>'Microsoft.DevSpaces/register/action' auktoriseringsfel
-Du behöver *ägar* -  eller deltagar åtkomst i din Azure-prenumeration för att kunna hantera Azure dev Spaces. Du kan se det här felet om du försöker hantera dev Spaces och du inte har *ägare* eller *deltagar* åtkomst till den associerade Azure-prenumerationen.
+Du behöver *ägar* - eller deltagar åtkomst i din Azure-prenumeration för att kunna hantera Azure dev Spaces. Du kan se det här felet om du försöker hantera dev Spaces och du inte har *ägare* eller *deltagar* åtkomst till den associerade Azure-prenumerationen.
 `The client '<User email/Id>' with object id '<Guid>' does not have authorization to perform action 'Microsoft.DevSpaces/register/action' over scope '/subscriptions/<Subscription Id>'.`
 
 ### <a name="reason"></a>Reason
@@ -283,7 +283,7 @@ Container image build failed
 Kommandot ovan visar att tjänstens Pod har tilldelats till *virtuell-Node-ACI-Linux*, som är en virtuell nod.
 
 ### <a name="try"></a>Prova:
-Uppdatera Helm-diagrammet för tjänsten för att ta bort avsökeror *och/* eller *tolerera* värden som tillåter att tjänsten körs på en virtuell nod De här värdena definieras vanligt vis i diagrammets `values.yaml` fil.
+Uppdatera Helm-diagrammet för tjänsten för att ta bort avsökeror och/eller *tolerera* värden som tillåter att tjänsten körs på en virtuell nod De här värdena definieras vanligt vis i diagrammets `values.yaml` fil.
 
 Du kan fortfarande använda ett AKS-kluster som har funktionen virtuella noder aktiverade, om tjänsten som du vill bygga/felsöka via dev Spaces körs på en VM-nod. Detta är standard konfigurationen.
 
@@ -342,7 +342,7 @@ En tillfällig lösning på det här problemet är att öka värdet för *FS. in
 
 ### <a name="reason"></a>Reason
 
-Kubernetes-initieraren kan inte använda PodSpec för nya poddar på grund av RBAC-behörighet ändringar i rollen *kluster-admin* i klustret. Den nya Pod kan också ha en ogiltig PodSpec, till exempel det tjänst konto som är kopplat till Pod inte längre finns. Om du vill se poddar som är i  ett väntande tillstånd på grund av ett problem med initieraren använder du `kubectl get pods` kommandot:
+Kubernetes-initieraren kan inte använda PodSpec för nya poddar på grund av RBAC-behörighet ändringar i rollen *kluster-admin* i klustret. Den nya Pod kan också ha en ogiltig PodSpec, till exempel det tjänst konto som är kopplat till Pod inte längre finns. Om du vill se poddar som är i ett väntande tillstånd på grund av ett problem med initieraren använder du `kubectl get pods` kommandot:
 
 ```bash
 kubectl get pods --all-namespaces --include-uninitialized
@@ -445,7 +445,14 @@ Uppdatera installationen av [Azure CLI](/cli/azure/install-azure-cli?view=azure-
 
 ### <a name="reason"></a>Reason
 
-När du kör en tjänst i ett dev-utrymme injiceras tjänstens Pod [med ytterligare behållare för instrumentering](how-dev-spaces-works.md#prepare-your-aks-cluster). Dessa behållare har inte några resurs begär Anden eller gränser, vilket gör att den vågräta Pod-autoskalning är inaktive rad för pod.
+När du kör en tjänst i ett dev-utrymme injiceras tjänstens Pod [med ytterligare behållare för Instrumentation](how-dev-spaces-works.md#prepare-your-aks-cluster) och alla behållare i en POD måste ha resurs gränser och begär Anden som ställts in för horisontell Pod autoskalning. 
+
+
+Resurs begär Anden och gränser kan tillämpas för den inmatade behållaren (devspaces-proxy) genom att `azds.io/proxy-resources` lägga till anteckningen i din POD-spec. Värdet ska anges till ett JSON-objekt som representerar avsnittet resurser i behållar specifikationen för proxyservern.
 
 ### <a name="try"></a>Testa
-Kör autoskalning för horisontell Pod i ett namn område där inga dev-rymder har Aktiver ATS.
+
+Nedan visas ett exempel på en proxy-resurs anteckning som ska tillämpas på pod-specifikationen.
+```
+azds.io/proxy-resources: "{\"Limits\": {\"cpu\": \"300m\",\"memory\": \"400Mi\"},\"Requests\": {\"cpu\": \"150m\",\"memory\": \"200Mi\"}}"
+```

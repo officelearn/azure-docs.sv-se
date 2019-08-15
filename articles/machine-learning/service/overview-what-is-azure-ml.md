@@ -9,12 +9,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 08/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 80a04333260b7aa710c1598b64a414ce53a1037a
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 1dea5e174c66685f889595ab15b3edf57dd02493
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883318"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69018235"
 ---
 # <a name="what-is-azure-machine-learning-service"></a>Vad är tjänsten Azure Machine Learning?
 
@@ -49,15 +49,15 @@ Starta utbildningen på den lokala datorn med <a href="https://aka.ms/aml-sdk" t
 
 Du kan också [Automatisera modell träning och-justering](tutorial-auto-train-models.md) med hjälp av SDK.
 
-### <a name="code-free--low-code-experience"></a>Kod för kostnads fri/låg kod
+### <a name="ui-based-low-code-experience"></a>UI-baserad, låg kod upplevelse
 
 Prova följande för kod fri utbildning:
 
-+ Det visuella gränssnittet för experimentering och distribution med dra-n-drop
++ Skapa [automatiserade ml-experiment](tutorial-first-experiment-automated-ml.md) i det lättanvända gränssnittet.
++ [Testet-n-drop-experimentet i det visuella gränssnittet](ui-tutorial-automobile-price-train-score.md).
+  ![Visuellt gränssnitt för Azure Machine Learning tjänst](media/overview-what-is-azure-ml/visual-interface.png)
 
-    ![Visuellt gränssnitt för Azure Machine Learning tjänst](media/overview-what-is-azure-ml/visual-interface.png)
 
-+ Alternativet Azure Portal för automatiserade ML-experiment
 
 ### <a name="operationalization-mlops"></a>Driftsättning (MLOps)
 
@@ -70,9 +70,9 @@ Dessa modeller kan förbrukas och returnera förutsägelser i [real tid](how-to-
 Och med avancerade [maskin inlärnings pipeliner](concept-ml-pipelines.md)kan du samar beta med varje steg från förberedelse av data, modell utbildning och utvärdering, via distribution. Med pipelines kan du:
 
 * Automatisera dator inlärnings processen från slut punkt till slut punkt i molnet
-* Återanvänd komponenter och kör bara stegen igen när du behöver
+* Återanvänd komponenter och kör bara stegen igen när det behövs
 * Använd olika beräknings resurser i varje steg
-* köra batch-bedömnings uppgifter
+* Köra batch-bedömnings uppgifter
 
 Kom igång med tjänsten Azure Machine Learning genom att gå till [Nästa steg](#next-steps).
 

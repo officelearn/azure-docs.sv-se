@@ -1,6 +1,6 @@
 ---
-title: Kopiera aktivitet prestanda- och Justeringsguiden i Azure Data Factory | Microsoft Docs
-description: Läs mer om viktiga faktorer som påverkar prestandan för dataförflyttning i Azure Data Factory när du använder Kopieringsaktivitet.
+title: Prestanda-och justerings guiden för kopierings aktiviteter i Azure Data Factory | Microsoft Docs
+description: Lär dig mer om viktiga faktorer som påverkar prestanda för data förflyttning i Azure Data Factory när du använder kopierings aktiviteten.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -12,52 +12,52 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/02/2019
 ms.author: jingwang
-ms.openlocfilehash: face3719f32ccb44e7479150e94417496141f90b
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: d8ce0a4f6bacdd1c8c858d474e6f3957a23c6357
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509558"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967365"
 ---
-# <a name="copy-activity-performance-and-tuning-guide"></a>Kopiera aktivitet prestanda- och justeringsguide
-> [!div class="op_single_selector" title1="Välj versionen av Azure Data Factory som du använder:"]
+# <a name="copy-activity-performance-and-tuning-guide"></a>Prestanda-och justerings guide för kopierings aktivitet
+> [!div class="op_single_selector" title1="Välj den version av Azure Data Factory som du använder:"]
 > * [Version 1](v1/data-factory-copy-activity-performance.md)
 > * [Aktuell version](copy-activity-performance.md)
 
 
-Azure Data Factory kopieringsaktiviteten levererar en förstklassig säker, tillförlitlig och höga prestanda för inläsning av data lösning. Du kan använda den för att kopiera tiotals terabyte data varje dag på en rad i molnet och lokala datalager. Snabb datainläsning prestanda är nyckeln till att se till att du kan fokusera på problemet core stordata: bygga avancerade Analyslösningar och få djupa insikter från alla data.
+Kopierings aktiviteten Azure Data Factory ger en första klass säker, tillförlitlig och högpresterande data inläsnings lösning. Du kan använda den för att kopiera flera terabyte data varje dag i flera olika moln-och lokala data lager. Snabba data inläsnings prestanda är nyckeln för att säkerställa att du kan fokusera på viktiga problem med stor data: skapa avancerade analys lösningar och få djupgående insikter från alla dessa data.
 
-Azure tillhandahåller en uppsättning av företagsklass lösningar för lagring och informationslager. Kopieringsaktiviteten erbjuder en optimerad upplevelse som är lätt att göra inställningar för inläsning av data. Du kan använda en enda Kopieringsaktivitet för att läsa in data till:
+Azure tillhandahåller en uppsättning data lagrings-och informations lager lösningar i företags klass. Kopierings aktiviteten ger en mycket optimerad data inläsnings upplevelse som är enkel att konfigurera och konfigurera. Med en enda kopierings aktivitet kan du läsa in data i:
 
-* Azure SQL Data Warehouse vid 1,2 Gbit/s.
-* Azure Blob storage vid 1,0 GB/s.
-* Azure Data Lake Store med 1.0 Gbit/s.
+* Azure SQL Data Warehouse 1,2 Gbit/s.
+* Azure Blob Storage med 1,0 Gbit/s.
+* Azure Data Lake Store 1,0 Gbit/s.
 
 Den här artikeln beskrivs:
 
-* [Referensnummer för prestanda](#performance-reference) för källa och mottagare datalager när du planerar ditt projekt som stöds.
-* Funktioner som kan öka kopia genomflöde i olika scenarier, vilket innefattar [integrering enheter](#data-integration-units) (DIUs) [parallell kopia](#parallel-copy), och [mellanlagrad kopiering](#staged-copy).
-* [Prestandajusteringsvägledning](#performance-tuning-steps) på hur du ställer in prestanda- och de viktigaste faktorerna som kan påverka kopieringen bättre prestanda.
+* [Prestanda referens nummer](#performance-reference) för käll-och mottagar data lager som stöds och som hjälper dig att planera ditt projekt.
+* Funktioner som kan förbättra kopierings flödet i olika scenarier, bland annat [data integrerings enheter](#data-integration-units) (DIUs), [parallell kopiering](#parallel-copy)och [mellanlagrad kopiering](#staged-copy).
+* [Vägledning för prestanda justering](#performance-tuning-steps) om hur du finjusterar prestanda och viktiga faktorer som kan påverka kopierings prestanda.
 
 > [!NOTE]
-> Om du inte är bekant med Kopieringsaktivitet i allmänhet kan du läsa den [översikt över Kopieringsaktivitet](copy-activity-overview.md) innan du läser den här artikeln.
+> Om du inte är bekant med kopierings aktiviteten i allmänhet kan du läsa [översikten kopiera aktivitet](copy-activity-overview.md) innan du läser den här artikeln.
 >
 
 ## <a name="performance-reference"></a>Prestandareferens för
 
-Som en referens i följande tabell visas kopia dataflöde i Mbit/s för den angivna källan och mottagaren par i en enda kopieringsaktivitetskörning baserat på interna tester. Jämförelse, visas också hur olika inställningar för [integrering enheter](#data-integration-units) eller [skalbarhet för integration runtime med egen värd](concepts-integration-runtime.md#self-hosted-integration-runtime) (flera noder) kan hjälpa på kopieringen bättre prestanda.
+Som referens visar följande tabell det kopierade data flödes numret i Mbit/s för den aktuella käll-och mottagar paret i en enda kopierings aktivitet, baserat på intern testning. För jämförelse visar det också hur olika inställningar för [data integrerings enheter](#data-integration-units) eller [skalbarhet för egen värd för integration runtime](concepts-integration-runtime.md#self-hosted-integration-runtime) (flera noder) kan hjälpa till med kopierings prestanda.
 
 ![Matris för prestanda](./media/copy-activity-performance/CopyPerfRef.png)
 
 > [!IMPORTANT]
-> När kopieringen körs på en Azure integration runtime är är den minimala tillåtna Integration enheter (kallades tidigare enheter för Dataflytt) två. Om inte anges, se Data Integration standardenheter som används i [integrering enheter](#data-integration-units).
+> När kopierings aktiviteten körs på en Azure integration runtime är den minsta tillåtna data integrerings enheten (tidigare kallad data förflyttnings enhet) två. Om inget värde anges, se standard data integrerings enheterna som används i [data integrerings enheter](#data-integration-units).
 
-**Saker att Observera:**
+**Poäng till Anmärkning:**
 
-* Dataflödet beräknas med hjälp av följande formel: [storleken på data läses från källan] / [kopiera aktivitet körningens varaktighet].
-* Referensnummer för prestanda i tabellen har mäts med hjälp av en [TPC-H](http://www.tpc.org/tpch/) datauppsättning i en enda kopieringsaktivitetskörning. Testfiler för filbaserade butiker finns flera filer med 10 GB i storlek.
+* Data flödet beräknas med hjälp av följande formel: [storlek på data som läses från källa]/[varaktighet för kopierings aktivitets körning].
+* Prestanda referens numren i tabellen mättes med hjälp av en [TPC-H-](http://www.tpc.org/tpch/) datauppsättning i en enda kopierings aktivitets körning. Testfiler för filbaserade arkiv är flera filer med en storlek på 10 GB.
 * I Azure datalager finns källa och mottagare i samma Azure-region.
-* För hybridkopiering mellan lokala och molnbaserade datalager måste varje lokal integration runtime-noden körs på en dator som var avskild från datalagret med följande-specifikationen. När en enda aktivitet kördes förbrukas kopieringen endast en liten del av testdatorn CPU, minne eller bandbredd i nätverket.
+* För Hybrid kopiering mellan lokala och molnbaserade data lager kördes varje lokal integration runtime-nod på en dator som var skild från data lagringen med följande specifikation. När en enda aktivitet kördes förbrukas kopieringen endast en liten del av testdatorn CPU, minne eller bandbredd i nätverket.
     <table>
     <tr>
         <td>Processor</td>
@@ -69,32 +69,32 @@ Som en referens i följande tabell visas kopia dataflöde i Mbit/s för den angi
     </tr>
     <tr>
         <td>Nätverk</td>
-        <td>Internet-gränssnittet: 10 Gbit/s; intranät-gränssnitt: 40 Gbit/s</td>
+        <td>Internet gränssnitt: 10 Gbit/s; intranäts gränssnitt: 40 Gbit/s</td>
     </tr>
     </table>
 
 
 > [!TIP]
-> Du kan uppnå högre dataflöde med hjälp av flera DIUs. Till exempel med 100 DIUs kan du kopiera data från Azure Blob storage till Azure Data Lake Store med 1.0 Gbit/s. Mer information om den här funktionen och scenario som stöds finns i den [integrering enheter](#data-integration-units) avsnittet. 
+> Du kan få högre genomflöde genom att använda fler DIUs. Med 100 DIUs kan du till exempel kopiera data från Azure Blob Storage till Azure Data Lake Store 1,0 Gbit/s. Mer information om den här funktionen och det scenario som stöds finns i avsnittet [data integrerings enheter](#data-integration-units) . 
 
-## <a name="data-integration-units"></a>Integrering enheter
+## <a name="data-integration-units"></a>Data integrerings enheter
 
-En enhet för integrering av Data är ett mått som representerar (en kombination av processor, minne och nätverksresursallokering) en enhet i Azure Data Factory. Integrering av dataenheten gäller endast för [med Azure integration runtime](concepts-integration-runtime.md#azure-integration-runtime), men inte [integration runtime med egen värd](concepts-integration-runtime.md#self-hosted-integration-runtime).
+En data integrerings enhet är ett mått som representerar styrkan (en kombination av processor, minne och tilldelning av nätverks resurser) för en enskild enhet i Azure Data Factory. Data integrerings enheten gäller endast för [Azure integration runtime](concepts-integration-runtime.md#azure-integration-runtime), men inte för [integration runtime med egen värd](concepts-integration-runtime.md#self-hosted-integration-runtime).
 
-Minimal DIUs möjligheter för en kopieringsaktivitetskörning är två. Om inte anges visas i följande tabell de standard-DIUs som används i olika kopia scenarier:
+Den minsta DIUs som gör det möjligt att köra kopierings aktiviteten är två. Om inte anges visas i följande tabell de standard-DIUs som används i olika kopia scenarier:
 
 | Kopiera scenario | Standard DIUs bestäms av tjänsten |
 |:--- |:--- |
 | Kopiera data mellan filbaserade lager | Mellan 4 och 32 beroende på antalet och storleken på filerna |
-| Kopiera data till Azure SQL Database eller Azure Cosmos DB |Mellan 4 och 16 beroende på mottagare Azure SQL Database eller Cosmos DB-nivån (antalet dtu: er/ru: er) |
-| Alla andra kopia-scenarier | 4 |
+| Kopiera data till Azure SQL Database eller Azure Cosmos DB |Mellan 4 och 16 beroende på Azure SQL Database mottagarens eller Cosmos DBs nivå (antal DTU: er/ru: er) |
+| Alla andra kopierings scenarier | 4 |
 
-Om du vill åsidosätta denna standardinställning, ange ett värde för den **dataIntegrationUnits** egenskapen på följande sätt. Den *tillåtna värden* för den **dataIntegrationUnits** egenskapen är upp till 256. Den *faktiska antalet DIUs* att kopieringen använder vid körning är lika med eller mindre än det konfigurerade värdet, beroende på din datamönster. Information om nivå av prestanda som du kan få när du konfigurerar fler enheter för en specifik kopieringskälla och mottagare finns i den [Prestandareferens](#performance-reference).
+Om du vill åsidosätta denna standardinställning, ange ett värde för den **dataIntegrationUnits** egenskapen på följande sätt. De *tillåtna värdena* för egenskapen **dataIntegrationUnits** är upp till 256. Den *faktiska antalet DIUs* att kopieringen använder vid körning är lika med eller mindre än det konfigurerade värdet, beroende på din datamönster. Information om nivå av prestanda som du kan få när du konfigurerar fler enheter för en specifik kopieringskälla och mottagare finns i den [Prestandareferens](#performance-reference).
 
-Du kan se DIUs som används för varje kopia som kör i Kopiera aktivitetsutdata när du övervakar en aktivitet som körs. Mer information finns i [kopiera aktivitetsövervakning](copy-activity-overview.md#monitoring).
+Du kan se DIUs som används för varje kopierings körning i kopierings aktivitetens utdata när du övervakar en aktivitets körning. Mer information finns i avsnittet [Kopiera aktivitets övervakning](copy-activity-overview.md#monitoring).
 
 > [!NOTE]
-> Inställningen för den DIUs större än fyra gäller för närvarande endast när du kopierar flera filer från Azure Storage, Azure Data Lake Storage, Amazon S3, Google Cloud Storage cloud FTP eller SFTP i molnet till andra molndatalager.
+> Inställningen av DIUs som är större än fyra gäller för närvarande endast när du kopierar flera filer från Azure Storage, Azure Data Lake Storage, Amazon S3, Google Cloud Storage, Cloud FTP eller Cloud SFTP till andra moln data lager.
 >
 
 **Exempel**
@@ -121,24 +121,24 @@ Du kan se DIUs som används för varje kopia som kör i Kopiera aktivitetsutdata
 
 ### <a name="data-integration-units-billing-impact"></a>Data Integration enheter fakturering påverkan
 
-Kom ihåg att du kommer att debiteras baserat på den totala tiden för kopieringsåtgärden. Total varaktighet du faktureras för dataförflyttning är summan av varaktigheten för DIUs. Om ett kopieringsjobb brukade ta en timme med två molnenheter och så tar det nu 15 minuter med åtta molnenheter, förblir övergripande fakturan nästan samma.
+Kom ihåg att du debiteras utifrån den totala tiden för kopierings åtgärden. Den totala varaktigheten som du debiteras för data förflyttning är summan av varaktigheten för DIUs. Om ett kopieringsjobb brukade ta en timme med två molnenheter och så tar det nu 15 minuter med åtta molnenheter, förblir övergripande fakturan nästan samma.
 
 ## <a name="parallel-copy"></a>Parallell kopia
 
-Du kan använda den **parallelCopies** egenskap som anger parallellitet som du vill Kopieringsaktivitet att använda. Du kan tänka på den här egenskapen som det maximala antalet trådar i kopieringsaktiviteten som kan läsa från källan eller skriva till dina datalager för mottagare parallellt.
+Du kan använda egenskapen **parallelCopies** för att ange den parallellitet som du vill att kopierings aktiviteten ska använda. Du kan tänka på den här egenskapen som det maximala antalet trådar i kopierings aktiviteten som kan läsa från din källa eller skriva till dina mottagar data lager parallellt.
 
-För varje körningen av kopieringsaktiviteten, avgör hur många parallella kopior som ska använda för att kopiera data från källan datalagring och att sidan måldatalager lagra i Azure Data Factory. Standardvärdet för antal parallella kopior som används beror på vilken typ av källa och mottagare som du använder.
+För varje kopierings aktivitets körning fastställer Azure Data Factory antalet parallella kopior som ska användas för att kopiera data från käll data lagret och till mål data lagret. Standard antalet parallella kopior som används beror på vilken typ av källa och mottagare du använder.
 
 | Kopiera scenario | Parallell kopia Standardantal bestäms av tjänsten |
 | --- | --- |
-| Kopiera data mellan filbaserade lager |Beror på storleken på filerna och antalet DIUs som används för att kopiera data mellan två molndatalager eller den fysiska konfigurationen av den lokala installation av integration runtime-datorn. |
-| Kopiera data från valfri källa store till Azure Table storage |4 |
+| Kopiera data mellan filbaserade lager |Beror på storleken på filerna och antalet DIUs som används för att kopiera data mellan två moln data lager eller den fysiska konfigurationen för den lokala integration runtime-datorn. |
+| Kopiera data från alla käll arkiv till Azure Table Storage |4 |
 | Alla andra kopia-scenarier |1 |
 
 > [!TIP]
-> När du kopierar data mellan filbaserade ger standardbeteendet vanligtvis dig bästa dataflödet. Standardinställningen är auto bestäms baserat på din fil från en källa.
+> När du kopierar data mellan filbaserade butiker ger standard beteendet oftast det bästa data flödet. Standard beteendet bestäms automatiskt baserat på ditt käll fils mönster.
 
-Kontrollera belastningen på datorer som är värdar för dina data lagras eller för att justera kopieringen bättre prestanda, kan du åsidosätta standardvärdet och ange ett värde för den **parallelCopies** egenskapen. Värdet måste vara ett heltal större än eller lika med 1. Vid körning använder för bästa prestanda kopieringsaktiviteten ett värde som är mindre än eller lika med värdet som du anger.
+Om du vill styra belastningen på datorer som är värdar för dina data lager, eller om du vill justera kopierings prestanda, kan du åsidosätta standardvärdet och ange ett värde för egenskapen **parallelCopies** . Värdet måste vara ett heltal större än eller lika med 1. Vid körning, för bästa prestanda, använder kopierings aktiviteten ett värde som är mindre än eller lika med det värde som du anger.
 
 ```json
 "activities":[
@@ -160,46 +160,46 @@ Kontrollera belastningen på datorer som är värdar för dina data lagras eller
 ]
 ```
 
-**Saker att Observera:**
+**Poäng till Anmärkning:**
 
-* När du kopierar data mellan filbaserade **parallelCopies** avgör parallellitet på filnivå. Dela upp inom en enda fil sker under automatiskt och transparent. Den har utformats för att använda bäst lämpliga segment storlek för en viss källa store datatyp att läsa in data parallellt och rätvinkliga till **parallelCopies**. Det faktiska antalet parallella kopior av data movement service använder för att kopieringen under körning är inte fler än antalet filer som du har. Om kopieringsbeteendet är **mergeFile**, Kopieringsaktivitet inte kan utnyttja parallellitet på filnivå.
-* När du kopierar data från butiker som inte är filbaserade (med undantag för Oracle-databas som källa med Datapartitionering aktiverat) till, som är filbaserade, av data movement service ignorerar den **parallelCopies** egenskapen. Även om parallellitet anges, tillämpas den inte i det här fallet.
-* Den **parallelCopies** egenskapen är rätvinkliga till **dataIntegrationUnits**. Det tidigare räknas över alla enheter för Data-integrering.
-* När du anger ett värde för den **parallelCopies** egenskap, Överväg att belastningen ökar på källan och datalager för mottagare. Överväg också att belastningen ökar till den lokala integreringskörningen om möjligheter kopieringsaktiviteten, till exempel för hybridkopiering. Den här belastningen ökar sker särskilt när du har flera aktiviteter eller samtidiga körningar av samma aktiviteter som körs mot samma datalager. Om du märker att datalagret eller den lokala integreringskörningen blir överbelastad till följd med belastning kan minska den **parallelCopies** värde att avlasta belastningen.
+* När du kopierar data mellan filbaserade lager, bestämmer **parallelCopies** parallellt på filnivå. Delningen i en enskild fil sker under automatiskt och transparent. Den är utformad för att använda den bästa lämpliga segment storleken för en specifik käll data lager typ för att läsa in data parallellt och rätvinkligt till **parallelCopies**. Det faktiska antalet parallella kopior av data movement service använder för att kopieringen under körning är inte fler än antalet filer som du har. Om kopierings beteendet är **mergeFile**kan kopierings aktiviteten inte dra nytta av Parallel på filnivå.
+* När du kopierar data från butiker som inte är filbaserade (förutom [Oracle](connector-oracle.md#oracle-as-source), [Teradata](connector-teradata.md#teradata-as-source), [SAP Table](connector-sap-table.md#sap-table-as-source)och [SAP Open Hub](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source) Connector som källa med data partitionering aktiverat) till butiker som är filbaserade, tjänsten för data förflyttning ignorerar egenskapen **parallelCopies** . Även om parallellitet anges, tillämpas den inte i det här fallet.
+* Egenskapen **parallelCopies** är rätvinklig till **dataIntegrationUnits**. Det tidigare räknas över alla enheter för Data-integrering.
+* När du anger ett värde för egenskapen **parallelCopies** bör du ta hänsyn till belastnings ökningen på källan och mottagar data lager. Tänk också på belastnings ökningen till den egna värdbaserade integrerings körningen om kopierings aktiviteten har befogenheter av den, till exempel för Hybrid kopiering. Den här belastnings ökningen sker särskilt när du har flera aktiviteter eller samtidiga körningar av samma aktiviteter som körs mot samma data lager. Om du ser att antingen data lagret eller den egen värdbaserade integrerings körningen är överbelastad, minskar du **parallelCopies** -värdet för att avlasta belastningen.
 
 ## <a name="staged-copy"></a>Mellanlagrad kopiering
 
 När du kopierar data från källans datalager till mottagarens datalager kan du välja att använda Blob storage som en mellanliggande mellanlagringsarkivet. Mellanlagring är särskilt användbart i följande fall:
 
-- **Du kan mata in data från olika datalager i SQL Data Warehouse via PolyBase.** SQL Data Warehouse använder PolyBase som en mekanism för stora dataflöden för att läsa in en stor mängd data till SQL Data Warehouse. Källdata måste vara i Blob storage eller Azure Data Lake Store och den uppfylla ytterligare kriterier. När du läser in data från ett datalager än Blob storage eller Azure Data Lake Store kan du aktivera data kopiering via tillfälliga mellanlagringsplatsen Blob-lagring. Azure Data Factory utför i så fall vilka Datatransformationer som krävs för att säkerställa att den uppfyller kraven för PolyBase. Sedan används PolyBase för att läsa in data i SQL Data Warehouse effektivt. Mer information finns i [använda PolyBase för att läsa in data i Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse).
-- **Ibland kan det ta en stund att utföra en hybriddataförflyttning (det vill säga för att kopiera från ett lokalt datalager till ett datalager i molnet) över en långsam nätverksanslutning.** Du kan använda mellanlagrad kopiering för att komprimera data lagras lokalt så att det tar mindre tid att flytta data till det tillfälliga datalagret i molnet för att förbättra prestanda. Sedan kan du expandera data i mellanlagringsarkivet innan du läser in i måldatalagret.
-- **Du vill inte öppna andra portar än port 80 och port 443 i brandväggen på grund av företagets IT-principer.** När du kopierar data från ett lokalt datalager till en Azure SQL Database-mottagare eller en Azure SQL Data Warehouse sink måste aktivera utgående TCP-kommunikation på port 1433 för både Windows-brandväggen och företagets brandvägg. I det här scenariot kan mellanlagrad kopiering dra nytta av den lokala integreringskörningen först kopiera data till ett Blob storage för mellanlagring instans via HTTP eller HTTPS på port 443. Det kan sedan läsa in data i SQL Database eller SQL Data Warehouse från mellanlagring för Blob storage. I det här flödet behöver du inte aktivera port 1433.
+- **Du vill mata in data från olika data lager i SQL Data Warehouse via PolyBase.** SQL Data Warehouse använder PolyBase som en mekanism för stora dataflöden för att läsa in en stor mängd data till SQL Data Warehouse. Källdata måste finnas i Blob Storage eller Azure Data Lake Store, och det måste uppfylla ytterligare kriterier. När du läser in data från ett datalager än Blob storage eller Azure Data Lake Store kan du aktivera data kopiering via tillfälliga mellanlagringsplatsen Blob-lagring. I så fall utför Azure Data Factory nödvändiga data transformationer för att säkerställa att de uppfyller kraven för PolyBase. Sedan används PolyBase för att läsa in data i SQL Data Warehouse effektivt. Mer information finns i [använda PolyBase för att läsa in data i Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse).
+- **Ibland tar det en stund att utföra en hybrid data förflyttning (det vill säga kopiera från ett lokalt data lager till ett moln data lager) över en långsam nätverks anslutning.** Du kan förbättra prestanda genom att använda mellanlagrad kopia för att komprimera data lokalt så att det tar mindre tid att flytta data till lagrings data lagret i molnet. Sedan kan du expandera data i mellanlagrings platsen innan du läser in i mål data lagret.
+- **Du vill inte öppna andra portar än port 80 och port 443 i brand väggen på grund av företagets IT-principer.** När du kopierar data från ett lokalt datalager till en Azure SQL Database-mottagare eller en Azure SQL Data Warehouse sink måste aktivera utgående TCP-kommunikation på port 1433 för både Windows-brandväggen och företagets brandvägg. I det här scenariot kan mellanlagrad kopiering dra nytta av den lokala integrerings körningen för att först kopiera data till en mellanlagringsplats för Blob Storage via HTTP eller HTTPS på port 443. Sedan kan den läsa in data i SQL Database eller SQL Data Warehouse från mellanlagring av blob-lagring. I det här flödet behöver du inte aktivera port 1433.
 
 ### <a name="how-staged-copy-works"></a>Hur mellanlagrad kopiering fungerar
 
-När du aktiverar funktionen mellanlagring först data kopieras från källdatalagret till mellanlagring Blob-lagringen (ta med din egen). Därefter kopieras data från datalager för mellanlagring till datalager för mottagare. Azure Data Factory hanterar automatiskt två steg flödet för dig. Azure Data Factory rensar också tillfälliga data från den tillfälliga lagringen efter att dataöverföringen har slutförts.
+När du aktiverar funktionen mellanlagring först data kopieras från källdatalagret till mellanlagring Blob-lagringen (ta med din egen). Därefter kopieras data från datalager för mellanlagring till datalager för mottagare. Azure Data Factory hanterar automatiskt flödet i två steg åt dig. Azure Data Factory rensar också tillfälliga data från mellanlagringen när data förflyttningen är klar.
 
 ![Mellanlagrad kopiering](media/copy-activity-performance/staged-copy.png)
 
-När du aktiverar dataförflyttning med hjälp av en mellanlagringsarkivet kan ange du om du vill lagra data som ska komprimeras innan du flyttar data från datakällan pågår eller mellanlagring datalagring och expanderas innan du flyttar data från en mellanliggande eller mellanlagring dat en butik till de mottagande datalagren.
+När du aktiverar data förflyttning med hjälp av ett mellanlagrings lager, kan du ange om du vill att data ska komprimeras innan du flyttar data från käll data lagret till ett interimistiskt eller mellanlagrat data lager och sedan expanderar innan du flyttar data från ett interimistiskt eller mellanlagrat dat en butik till data lagret för mottagare.
 
-För närvarande kan kopiera du inte data mellan två datalager som är anslutna via olika lokal IRs, varken med eller utan mellanlagrad kopiering. Du kan konfigurera två uttryckligen länkade Kopieringsaktivitet som kopierar från källa till mellanlagring och sedan från mellanlagring för mottagare för sådana scenario.
+För närvarande kan du inte kopiera data mellan två data lager som är anslutna via en annan egen värd, varken med eller utan mellanlagrad kopia. I sådana fall kan du konfigurera två explicit länknings aktivitet som ska kopieras från källa till mellanlagring och sedan från mellanlagring till mottagare.
 
 ### <a name="configuration"></a>Konfiguration
 
-Konfigurera den **enableStaging** inställningen i kopieringsaktiviteten till att ange om du vill att data ska mellanlagras i Blob storage innan du läser in dem till ett måldatalager. När du ställer in **enableStaging** till `TRUE`, anger du ytterligare egenskaper som visas i följande tabell. Du måste också skapa en Azure-lagring eller lagring delade åtkomst signatur-länkad tjänst för att mellanlagra om du inte har något.
+Konfigurera inställningen **enableStaging** i kopierings aktiviteten och ange om du vill att data ska mellanlagras i Blob Storage innan du läser in dem i ett mål data lager. När du ställer in enableStaging `TRUE`på anger du ytterligare egenskaper som anges i följande tabell. Du måste också skapa en signatur för delad åtkomst för Azure Storage eller lagrings plats för delad åtkomst för mellanlagring om du inte har någon.
 
-| Egenskap | Beskrivning | Standardvärde | Obligatoriskt |
+| Egenskap | Beskrivning | Standardvärde | Obligatorisk |
 | --- | --- | --- | --- |
 | enableStaging |Ange om du vill kopiera data via en tiden mellanlagring store. |False |Nej |
-| linkedServiceName |Ange namnet på en [AzureStorage](connector-azure-blob-storage.md#linked-service-properties) länkad tjänst som refererar till instansen av lagring som du använder som ett tillfälligt mellanlagringsarkivet. <br/><br/> Du kan inte använda Storage med signatur för delad åtkomst för att läsa in data till SQL Data Warehouse via PolyBase. Du kan använda den i alla andra scenarier. |Gäller inte |Ja, när **enableStaging** har angetts till TRUE |
-| sökväg |Ange sökvägen för Blob-lagring som du vill ska innehålla den mellanlagrade data. Om du inte anger en sökväg, skapar en behållare för att lagra tillfälliga data i tjänsten. <br/><br/> Ange en sökväg endast om du använder lagring med signatur för delad åtkomst, eller du kräver tillfälliga data finnas i en viss plats. |Gäller inte |Nej |
-| enableCompression |Anger om data ska komprimeras innan den kopieras till målet. Den här inställningen minskar mängden data som överförs. |False |Nej |
+| linkedServiceName |Ange namnet på en [AzureStorage](connector-azure-blob-storage.md#linked-service-properties) länkad tjänst som refererar till instansen av lagring som du använder som ett tillfälligt mellanlagringsarkivet. <br/><br/> Du kan inte använda Storage med en signatur för delad åtkomst för att läsa in data i SQL Data Warehouse via PolyBase. Du kan använda den i alla andra scenarier. |Gäller inte |Ja, när **enableStaging** har angetts till TRUE |
+| path |Ange sökvägen för Blob-lagring som du vill ska innehålla den mellanlagrade data. Om du inte anger en sökväg skapar tjänsten en behållare för att lagra temporära data. <br/><br/> Ange en sökväg endast om du använder lagring med signatur för delad åtkomst, eller du kräver tillfälliga data finnas i en viss plats. |Gäller inte |Nej |
+| enableCompression |Anger om data ska komprimeras innan de kopieras till målet. Den här inställningen minskar mängden data som överförs. |False |Nej |
 
 >[!NOTE]
-> Om du använder mellanlagrad kopiering vid komprimering aktiverat tjänstens huvudnamn eller MSI-autentisering för att mellanlagra länkade blobtjänsten stöds inte.
+> Om du använder mellanlagrad kopiering med komprimering aktive rad stöds inte tjänstens huvud namn eller MSI-autentisering för den länkade Blob-tjänsten.
 
-Här är en exempeldefinition för en Kopieringsaktivitet med egenskaper som beskrivs i tabellen ovan:
+Här är en exempel definition av en kopierings aktivitet med de egenskaper som beskrivs i föregående tabell:
 
 ```json
 "activities":[
@@ -231,40 +231,40 @@ Här är en exempeldefinition för en Kopieringsaktivitet med egenskaper som bes
 
 ### <a name="staged-copy-billing-impact"></a>Mellanlagrad kopiering fakturering påverkan
 
-Du debiteras baserat på två steg: kopiera varaktighet och typen.
+Du debiteras baserat på två steg: kopiera varaktighet och kopierings typ.
 
-* När du använder mellanlagring under en molnkopieringen som kopierar data från ett molndatalager till ett annat moln, både faser möjligheter med Azure integration runtime, du debiteras [summan av Kopieringstid för steg 1 och 2] x [cloud kopia Enhetspris].
-* När du använder mellanlagring under en hybrid-kopia som kopierar data från ett lokalt datalager till ett datalager i molnet, ett steg möjligheter med en lokal integration runtime, du debiteras för [hybrid Kopieringstid] x [Enhetspris hybrid kopia] + [cloud Kopieringstid] x [cloud kopia Enhetspris].
+* När du använder mellanlagring under en moln kopia, som kopierar data från ett moln data lager till ett annat moln data lager, båda stegen som du har fått av Azure integration runtime debiteras du [summan av kopierings tiden för steg 1 och steg 2] x [Cloud Copy Unit Price].
+* När du använder mellanlagring under en hybrid kopiering, som kopierar data från ett lokalt data lager till ett moln data lager, en fas som har en egen värd för integration runtime debiteras du för [hybrid kopieringens varaktighet] x [hybrid kopiera enhets pris] + [moln kopieringens varaktighet] x [Cloud Copy Unit-pris].
 
 ## <a name="performance-tuning-steps"></a>Prestanda justering steg
 
-Gör följande för att finjustera prestanda för din Azure Data Factory-tjänsten med Kopieringsaktivitet.
+Följ dessa steg för att justera prestandan för din Azure Data Factory-tjänst med kopierings aktiviteten.
 
-1. **Upprätta en baslinje.** Testa din pipeline med hjälp av kopieringsaktiviteten mot ett representativt datasampel under utvecklingsfasen för. Samla in information om och prestandaegenskaper följa [kopiera aktivitetsövervakning](copy-activity-overview.md#monitoring).
+1. **Upprätta en bas linje.** Under utvecklings fasen testar du din pipeline med hjälp av kopierings aktiviteten mot ett representativt data exempel. Samla in körnings information och prestanda egenskaper efter [Kopiera aktivitets övervakning](copy-activity-overview.md#monitoring).
 
-2. **Diagnostisera och optimera prestanda.** Om du se prestanda inte uppfyller dina förväntningar kan identifiera flaskhalsar i prestanda. Sedan kan optimera prestanda för att ta bort eller minska effekten av flaskhalsar.
+2. **Diagnostisera och optimera prestanda.** Om den prestanda du anser inte uppfyller dina förväntningar kan du identifiera Flask halsar i prestanda. Sedan kan optimera prestanda för att ta bort eller minska effekten av flaskhalsar.
 
-    I vissa fall när du kör en Kopieringsaktivitet i Azure Data Factory, visas meddelandet ”prestandajustering tips” ovanpå den [kopiera aktivitetsövervakning sidan](copy-activity-overview.md#monitor-visually), enligt följande exempel. Meddelandet anger att flaskhalsen som identifierades för den angivna kopia-körningen. Du guidas även på vad du kan ändra till boost kopia dataflöde. Tips vid prestandajustering erbjuder för närvarande förslag som:
+    I vissa fall, när du kör en kopierings aktivitet i Azure Data Factory, visas ett meddelande om "prestanda justerings tips" ovanpå [sidan Kopiera aktivitets övervakning](copy-activity-overview.md#monitor-visually), som du ser i följande exempel. Meddelandet anger att du har identifierat Flask halsen som identifierades för den angivna kopierings körningen. Du får också information om vad du kan ändra för att förstärka kopieringen av kopierings data. Tips för prestanda justering ger för närvarande förslag som:
 
     - Använd PolyBase när du kopierar data till Azure SQL Data Warehouse.
-    - Öka programbegäran för Azure Cosmos DB eller Azure SQL Database dtu: er (Database Throughput Unit) när resursen på data store sida är flaskhalsen.
-    - Ta bort onödiga mellanlagrad kopiering.
+    - Öka Azure Cosmos DB enheter för programbegäran eller Azure SQL Database DTU: er (databas data flödes enheter) när resursen på data lagrings sidan är Flask halsen.
+    - Ta bort den onödiga mellanlagrade kopian.
 
-    Regler för prestandajustering kommer gradvis utökas även.
+    Reglerna för prestanda justering kommer även att berikas.
 
-    **Exempel: Kopiera till Azure SQL Database med tips vid prestandajustering**
+    **Exempel: Kopiera till Azure SQL Database med prestanda justerings tips**
 
-    I det här exemplet meddelanden under en kopia som kör, Azure Data Factory mottagare som Azure SQL-databasen uppnår hög DTU-användning, vilket saktar ned skrivåtgärder. Förslag är att öka Azure SQL Database-nivå med mer dtu: er. 
+    I det här exemplet under en kopierings körning Azure Data Factory meddelanden om att mottagaren Azure SQL Database når hög DTU-användning, vilket gör att Skriv åtgärderna blir långsammare. Förslaget är att öka Azure SQL Database nivån med fler DTU: er. 
 
-    ![Kopiera övervakning med tips för prestandajustering](./media/copy-activity-overview/copy-monitoring-with-performance-tuning-tips.png)
+    ![Kopiera övervakning med prestanda justerings tips](./media/copy-activity-overview/copy-monitoring-with-performance-tuning-tips.png)
 
-    Dessutom här följer några vanliga överväganden. En fullständig beskrivning av Prestandadiagnostik ligger utanför omfånget för den här artikeln.
+    Dessutom är följande några vanliga överväganden. En fullständig beskrivning av prestanda diagnosen ligger utanför omfånget för den här artikeln.
 
    * Prestandafunktioner:
      * [Parallell kopia](#parallel-copy)
      * [Dataintegrationsenheter](#data-integration-units)
      * [Mellanlagrad kopiering](#staged-copy)
-     * [Lokal integration runtime skalbarhet](concepts-integration-runtime.md#self-hosted-integration-runtime)
+     * [Skalbarhet för integration runtime med egen värd](concepts-integration-runtime.md#self-hosted-integration-runtime)
    * [Lokal Integration Runtime](#considerations-for-self-hosted-integration-runtime)
    * [Källa](#considerations-for-the-source)
    * [mottagare](#considerations-for-the-sink)
@@ -273,157 +273,157 @@ Gör följande för att finjustera prestanda för din Azure Data Factory-tjänst
    * [Kolumnmappningen](#considerations-for-column-mapping)
    * [Andra överväganden](#other-considerations)
 
-3. **Expandera konfigurationen till hela datauppsättningen.** När du är nöjd med resultat från instruktionskörningar och prestanda kan expandera du definitions- och pipeline för att täcka hela datauppsättningen.
+3. **Expandera konfigurationen till hela data uppsättningen.** När du är nöjd med körnings resultatet och prestandan kan du expandera definitionen och pipelinen för att hantera hela data uppsättningen.
 
-## <a name="considerations-for-self-hosted-integration-runtime"></a>Överväganden för lokal integration runtime
+## <a name="considerations-for-self-hosted-integration-runtime"></a>Överväganden för integration runtime med egen värd
 
-Tänk på följande om Kopieringsaktivitet körs på en lokal integration runtime kan:
+Tänk på följande om kopierings aktiviteten körs på en egen värd för integration Runtime:
 
-**Installationsprogrammet**: Vi rekommenderar att du använder en dedikerad dator till värden integration runtime. Se [att tänka på när integration runtime med egen värd](concepts-integration-runtime.md).
+**Installations program**: Vi rekommenderar att du använder en dedikerad dator som värd för integration Runtime. Se [överväganden vid användning av integration runtime med egen värd](concepts-integration-runtime.md).
 
-**Skala ut**: En enskild logisk lokal integration runtime med en eller flera noder kan fungera flera kopiera aktivitet körs på samma gång samtidigt. Om du har behov av tunga på hybriddataförflyttning med ett stort antal samtidiga kopia aktivitetskörningar eller med en stor mängd data som ska kopieras du [skala ut den lokala integreringskörningen](create-self-hosted-integration-runtime.md#high-availability-and-scalability) att etablera fler resurser till Stärk kopia.
+**Skala ut**: En enda logisk integrerings körning med egen värd med en eller flera noder kan betjäna flera kopierings aktiviteter samtidigt samtidigt. Om du har hög behov av hybrid data förflyttning antingen med ett stort antal samtidiga kopierings aktiviteter körs eller med en stor mängd data som ska kopieras bör du överväga att [skala ut den](create-self-hosted-integration-runtime.md#high-availability-and-scalability) lokala integrerings körningen för att etablera fler resurser för att kunna kopiera.
 
 ## <a name="considerations-for-the-source"></a>Överväganden för källan
 
 ### <a name="general"></a>Allmänt
 
-Var noga med att det underliggande datalagringen inte är överbelastad till följd av andra arbetsbelastningar som körs på eller mot den.
+Se till att det underliggande data lagret inte är överbelastat för andra arbets belastningar som körs på eller mot det.
 
-Microsoft-datalager, se [övervakning och justering ämnen](#performance-reference) som är specifika för datalager. Dessa avsnitt kan hjälpa dig att förstå data store prestandaegenskaper och hur du minimera svarstider och maximera genomströmningen.
+Information om Microsoft-datalager finns i avsnittet om [övervakning och justering](#performance-reference) som är specifika för data lager. Dessa avsnitt kan hjälpa dig att förstå data store prestandaegenskaper och hur du minimera svarstider och maximera genomströmningen.
 
-* Om du kopierar data från Blob storage till SQL Data Warehouse kan du överväga att använda PolyBase för att öka prestandan. Mer information finns i [använda PolyBase för att läsa in data i Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse).
-* Om du kopierar data från HDFS till Azure Blob storage eller Azure Data Lake Store kan du använda DistCp för att öka prestanda. Mer information finns i [Använd DistCp för att kopiera data från HDFS](connector-hdfs.md#use-distcp-to-copy-data-from-hdfs).
-* Om du kopierar data från Redshift till Azure SQL Data Warehouse, Azure BLob storage eller Azure Data Lake Store kan du använda bort från MINNET för att öka prestanda. Mer information finns i [Använd INAKTIVERAS för att kopiera data från Amazon Redshift](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift).
+* Om du kopierar data från Blob Storage till SQL Data Warehouse bör du överväga att använda PolyBase för att öka prestandan. Mer information finns i [använda PolyBase för att läsa in data i Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse).
+* Om du kopierar data från HDFS till Azure Blob Storage eller Azure Data Lake Store kan du använda DistCp för att öka prestandan. Mer information finns i [använda DistCp för att kopiera data från HDFS](connector-hdfs.md#use-distcp-to-copy-data-from-hdfs).
+* Om du kopierar data från RedShift till Azure SQL Data Warehouse, Azure BLob Storage eller Azure Data Lake Store kan du använda Unload för att öka prestandan. Mer information finns i [använda Unload för att kopiera data från Amazon RedShift](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift).
 
 ### <a name="file-based-data-stores"></a>Filbaserat datalager
 
-* **Genomsnittlig storlek och antalet filer**: Kopieringsaktiviteten överför en fil i taget. Med samma mängden data som ska flyttas, är det totala arbetsflödet lägre om data består av många små filer i stället för ett par stora filer på grund av fasen bootstrap för varje fil. Om det är möjligt, kombinera små filer i större filer för att få högre dataflöde.
-* **Format och komprimering**: Fler sätt att förbättra prestanda finns i den [överväganden för serialisering och deserialisering](#considerations-for-serialization-and-deserialization) och [överväganden för komprimering](#considerations-for-compression) avsnitt.
+* **Genomsnittlig fil storlek och antal filer**: Kopierings aktiviteten överför data en fil i taget. Med samma mängden data som ska flyttas, är det totala arbetsflödet lägre om data består av många små filer i stället för ett par stora filer på grund av fasen bootstrap för varje fil. Om möjligt kan du kombinera små filer till större filer för att få större data flöde.
+* **Fil format och komprimering**: Fler sätt att förbättra prestandan finns i [överväganden för serialisering och deserialisering](#considerations-for-serialization-and-deserialization) och överväganden [för komprimerings](#considerations-for-compression) avsnitt.
 
 ### <a name="relational-data-stores"></a>Relationsdata
 
-* **Datamönster**: Din tabellschemat påverkar kopia dataflöde. En stor Radstorleken ger bättre prestanda än en liten Radstorleken att kopiera samma mängd data. Anledningen är att databasen mer effektivt kan hämta färre batchar med data som innehåller färre rader.
-* **Fråga eller lagrad procedur**: Optimera logiken för frågan eller lagrad procedur som du anger i aktiviteten kopieringskälla för att hämta data mer effektivt.
+* **Data mönster**: Din tabellschemat påverkar kopia dataflöde. En stor rad storlek ger bättre prestanda än en liten rad storlek för att kopiera samma mängd data. Anledningen är att databasen mer effektivt kan hämta färre batchar med data som innehåller färre rader.
+* **Fråga eller lagrad procedur**: Optimera logiken för frågan eller den lagrade proceduren som du anger i kopierings aktivitets källan för att hämta data mer effektivt.
 
 ## <a name="considerations-for-the-sink"></a>Överväganden för mottagaren
 
 ### <a name="general"></a>Allmänt
 
-Var noga med att det underliggande datalagringen inte är överbelastad till följd av andra arbetsbelastningar som körs på eller mot den.
+Se till att det underliggande data lagret inte är överbelastat för andra arbets belastningar som körs på eller mot det.
 
-Microsoft-datalager, se [övervakning och justering ämnen](#performance-reference) som är specifika för datalager. Dessa avsnitt kan hjälpa dig att förstå data store prestandaegenskaper och hur du minimera svarstider och maximera genomströmningen.
+Information om Microsoft-datalager finns i avsnittet om [övervakning och justering](#performance-reference) som är specifika för data lager. Dessa avsnitt kan hjälpa dig att förstå data store prestandaegenskaper och hur du minimera svarstider och maximera genomströmningen.
 
-* Om du kopierar data från alla datalager till Azure SQL Data Warehouse kan du överväga att använda PolyBase för att öka prestandan. Mer information finns i [använda PolyBase för att läsa in data i Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse).
-* Om du kopierar data från HDFS till Azure Blob storage eller Azure Data Lake Store kan du använda DistCp för att öka prestanda. Mer information finns i [Använd DistCp för att kopiera data från HDFS](connector-hdfs.md#use-distcp-to-copy-data-from-hdfs).
-* Om du kopierar data från Redshift till Azure SQL Data Warehouse, Azure Blob storage eller Azure Data Lake Store kan du använda bort från MINNET för att öka prestanda. Mer information finns i [Använd INAKTIVERAS för att kopiera data från Amazon Redshift](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift).
+* Om du kopierar data från ett data lager till Azure SQL Data Warehouse bör du överväga att använda PolyBase för att öka prestandan. Mer information finns i [använda PolyBase för att läsa in data i Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse).
+* Om du kopierar data från HDFS till Azure Blob Storage eller Azure Data Lake Store kan du använda DistCp för att öka prestandan. Mer information finns i [använda DistCp för att kopiera data från HDFS](connector-hdfs.md#use-distcp-to-copy-data-from-hdfs).
+* Om du kopierar data från RedShift till Azure SQL Data Warehouse, Azure Blob Storage eller Azure Data Lake Store kan du använda Unload för att öka prestandan. Mer information finns i [använda Unload för att kopiera data från Amazon RedShift](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift).
 
 ### <a name="file-based-data-stores"></a>Filbaserat datalager
 
-* **Kopiera beteende**: Om du kopierar data från ett annat filbaserat datalager kopieringsaktiviteten det finns tre alternativ via den **copyBehavior** egenskapen. Den bevarar hierarki, plattar ut hierarki eller sammanfogar filer. Antingen behålla eller förenkla hierarkin har lite eller ingen prestanda försämras, men Sammanfoga filer gör att prestanda försämras att öka.
-* **Format och komprimering**: Fler sätt att förbättra prestanda finns i den [överväganden för serialisering och deserialisering](#considerations-for-serialization-and-deserialization) och [överväganden för komprimering](#considerations-for-compression) avsnitt.
+* **Kopiera beteende**: Om du kopierar data från ett annat filbaserat data lager, har kopierings aktiviteten tre alternativ via egenskapen **copyBehavior** . Den bevarar hierarki, plattar ut hierarki eller sammanfogar filer. Antingen behålla eller förenkla hierarkin har lite eller ingen prestanda försämras, men Sammanfoga filer gör att prestanda försämras att öka.
+* **Fil format och komprimering**: Fler sätt att förbättra prestandan finns i [överväganden för serialisering och deserialisering](#considerations-for-serialization-and-deserialization) och överväganden [för komprimerings](#considerations-for-compression) avsnitt.
 
 ### <a name="relational-data-stores"></a>Relationsdata
 
-* **Kopiera beteende och prestanda de**: Det finns olika sätt att skriva data till en SQL-mottagare. Läs mer i [bästa praxis för inläsning av data till Azure SQL Database](connector-azure-sql-database.md#best-practice-for-loading-data-into-azure-sql-database).
+* **Indirekt för kopierings beteende och prestanda**: Det finns olika sätt att skriva data till en SQL-mottagare. Lär dig mer från [bästa praxis för att läsa in data i Azure SQL Database](connector-azure-sql-database.md#best-practice-for-loading-data-into-azure-sql-database).
 
 * **Datastorlek för mönstret och batch**:
   * Din tabellschemat påverkar kopia dataflöde. Om du vill kopiera samma mängden data som får en stor Radstorleken du bättre prestanda än en liten Radstorleken eftersom databasen mer effektivt kan genomföra färre batchar av data.
-  * Kopieringsaktiviteten infogar data i en serie med batchar. Du kan ange antalet rader i en batch med hjälp av den **writeBatchSize** egenskapen. Om dina data har liten rader, kan du ange den **writeBatchSize** egenskap med ett högre värde kan dra nytta av lägre omkostnader för batch och högre dataflöde. Om Radstorleken på dina data är stor, var försiktig när du ökar **writeBatchSize**. Ett högt värde kan leda till en kopieringen misslyckades på grund av överbelastning i databasen.
+  * Kopierings aktiviteten infogar data i en serie batchar. Du kan ange antalet rader i en batch med hjälp av den **writeBatchSize** egenskapen. Om dina data har liten rader, kan du ange den **writeBatchSize** egenskap med ett högre värde kan dra nytta av lägre omkostnader för batch och högre dataflöde. Om Radstorleken på dina data är stor, var försiktig när du ökar **writeBatchSize**. Ett högt värde kan leda till en kopieringen misslyckades på grund av överbelastning i databasen.
 
 ### <a name="nosql-stores"></a>NoSQL-Arkiv
 
 * För **tabellagring**:
-  * **Partition**: Skriva data till överlagrad partitioner avsevärt försämrar prestanda. Sortera dina källdata efter partitionsnyckel så att data infogas effektivt i en partition efter en annan. Eller så kan du justera logik för att skriva data till en enda partition.
+  * **Partition**: Om du skriver data till överlagrade partitioner försämras prestanda avsevärt. Sortera dina källdata efter partitionsnyckel så att data infogas effektivt i en partition efter en annan. Du kan också justera logiken för att skriva data till en enda partition.
 
 ## <a name="considerations-for-serialization-and-deserialization"></a>Överväganden för serialisering och deserialisering
 
-Serialisering och deserialisering kan inträffa när ditt indatauppsättningen eller datauppsättningen för utdata är en fil. Mer information om filformat som stöds av Kopieringsaktivitet finns i [stöds format och komprimering](supported-file-formats-and-compression-codecs.md).
+Serialisering och deserialisering kan ske när data uppsättningen eller data uppsättningen för utdata är en fil. Mer information om fil format som stöds av kopierings aktivitet finns i [fil-och komprimerings format som stöds](supported-file-formats-and-compression-codecs.md).
 
 **Kopiera beteende**:
 
 * Kopiera filer mellan filbaserat datalager:
-  * När både in- och utdatauppsättningar har samma eller inga filformatinställningar, av data movement service körs en *binär kopia* utan serialisering eller avserialisering. Du kan se ett högre genomflöde jämfört med scenario, där filformatinställningar källa och mottagare skiljer sig från varandra.
-  * När indata och utdata datauppsättningar båda är i textformat och endast kodningen typen är olika, av data movement service kräver endast kodning konvertering. Gör den alla serialisering och deserialisering, vilket gör att prestanda försämras jämfört med en binär kopia.
-  * När både in- och utdatauppsättningar har olika filformat eller olika konfigurationer som avgränsare, av data movement service deserializes källdata för att strömma, transformera och serialisera det till utdataformat som du angett. Den här åtgärden resulterar i en mycket mer betydande overhead jämfört med andra scenarier.
-* När du kopierar filer till eller från ett datalager som inte är filbaserade, till exempel från en butik med filbaserad till en relationslagringsplats krävs serialisering eller avserialisering steg. Det här steget leder till betydande prestanda försämras.
+  * När både indata och utdata-datauppsättningar har samma eller inga fil format inställningar, körs en *binär kopia* utan någon serialisering eller deserialisering i tjänsten för data förflyttning. Du kan se ett högre genomflöde jämfört med scenario, där filformatinställningar källa och mottagare skiljer sig från varandra.
+  * När både indata och utdata är i text format och endast kodnings typen är annorlunda, stöder endast data flyttnings tjänsten konvertering. Gör den alla serialisering och deserialisering, vilket gör att prestanda försämras jämfört med en binär kopia.
+  * När både indata och utdata har olika fil format eller olika konfigurationer, t. ex. avgränsare, deserialiserar data flyttnings tjänsten källdata till Stream, transformerar och serialiserar sedan den till det utdataformat du angav. Den här åtgärden resulterar i en mycket mer betydande overhead jämfört med andra scenarier.
+* När du kopierar filer till eller från ett data lager som inte är fil baserat, till exempel från en filbaserad lagring till ett Relations lager, krävs steget serialisering eller avserialisering. Det här steget leder till betydande prestanda försämras.
 
-**Filformatet**: Filformat som du väljer kan påverka kopieringen bättre prestanda. Avro är till exempel ett kompakt binärformat som lagrar metadata med data. Det har ett brett stöd i Hadoop-ekosystemet för bearbetning och frågor. Avro är dyrare för serialisering och deserialisering, vilket resulterar i lägre kopia genomflöde jämfört med textformat. 
+**Fil format**: Det fil format som du väljer kan påverka kopierings prestandan. Avro är till exempel ett kompakt binärformat som lagrar metadata med data. Det har ett brett stöd i Hadoop-ekosystemet för bearbetning och frågor. Avro är dyrare för serialisering och deserialisering, vilket resulterar i lägre kopierings data flöde jämfört med text format. 
 
 Se ditt val av filformatet i hela flödet bearbetning holistiskt. Börja med:
 
-- Vad utgör data lagras i datalager som källa eller som ska extraheras från externa system.
-- Det bästa formatet för lagring, analytisk behandling och frågor.
-- I vilket format ska data exporteras till dataarkiv för verktyg för rapportering och visualisering.
+- Det formulär som data lagras i, käll data lagras eller extraheras från externa system.
+- Det bästa formatet för lagring, analys bearbetning och frågor.
+- I vilket format ska data exporteras till datamarts för rapporterings-och visualiserings verktyg.
 
 Ibland ett format som är optimal för Läs- och skrivprestanda kan vara ett bra val när du funderar på övergripande analysprocessen.
 
 ## <a name="considerations-for-compression"></a>Överväganden för komprimering
 
-När din inkommande eller utgående datauppsättning är en fil kan ange du kopieringsaktiviteten att utföra komprimering eller dekomprimering eftersom den skriver data till målet. När du väljer komprimering kan du göra en kompromiss mellan indata/utdata (I/O) och CPU. Komprimera data kostnaderna extra beräkningsresurser. Men i utbyte kan det minskar nätverkets i/o och lagring. Du kan se en högre övergripande kopia dataflöde beroende på dina data.
+När din indata-eller utdata-datauppsättning är en fil, kan du ställa in kopierings aktiviteten så att den utför komprimering eller expandering när data skrivs till målet. När du väljer komprimering kan du göra en kompromiss mellan indata/utdata (I/O) och CPU. Komprimera data kostnaderna extra beräkningsresurser. Men i utbyte kan det minskar nätverkets i/o och lagring. Beroende på dina data kan du se en ökning i det totala kopierings flödet.
 
-**Codec**: Varje komprimerings-codec har fördelar. Till exempel bzip2 har den lägsta kopia dataflöden, men du får bästa Hive frågeprestanda med bzip2 eftersom du kan dela upp den för bearbetning. Den används mest ofta gzip är det mest balanserade alternativet. Välj codec som bäst passar ditt scenario för slutpunkt till slutpunkt.
+**Codec**: Varje komprimerings-codec har fördelar. Till exempel bzip2 har den lägsta kopia dataflöden, men du får bästa Hive frågeprestanda med bzip2 eftersom du kan dela upp den för bearbetning. GZIP är det mest balanserade alternativet och används oftast. Välj codec som bäst passar ditt scenario för slutpunkt till slutpunkt.
 
-**Nivå**: Du kan välja mellan två alternativ för varje komprimerings-codec: snabbaste komprimerade och optimalt komprimerad. Det snabbaste komprimerade alternativet komprimerar data så snabbt som möjligt, även om den resulterande filen inte är optimalt komprimeras. Alternativet optimalt komprimerade tillbringar mer tid på komprimering och återger en minimal mängd data. Du kan testa båda alternativen för att se vilket ger bättre prestanda i ditt fall.
+**Nivå**: Du kan välja mellan två alternativ för varje komprimerings-Codec: snabbast komprimerad och optimalt komprimerad. Det snabbast komprimerade alternativet komprimerar data så snabbt som möjligt, även om den resulterande filen inte komprimeras optimalt. Alternativet optimalt komprimerade tillbringar mer tid på komprimering och återger en minimal mängd data. Du kan testa båda alternativen för att se vilket ger bättre prestanda i ditt fall.
 
-**Ersättning**: Överväg att använda för att kopiera en stor mängd data mellan en lokal databas och molnet [mellanlagrad kopiering](#staged-copy) med komprimering aktiverat. Det är praktiskt att använda mellanlagring när bandbredden för företagets nätverk och dina Azure-tjänster är den begränsande faktorn och du vill att datauppsättningen för indata och utdata datauppsättningen både i okomprimerad.
+**Ett övervägande**: Om du vill kopiera en stor mängd data mellan en lokal lagrings plats och molnet kan du överväga att använda mellanlagrad [kopia](#staged-copy) med komprimering aktiverat. Att använda mellanlagring är användbart när bandbredden i företagets nätverk och dina Azure-tjänster är den begränsande faktorn, och du vill att data uppsättningen och utdata-datauppsättningen ska båda vara i okomprimerat format.
 
 ## <a name="considerations-for-column-mapping"></a>Överväganden för kolumnmappningen
 
-Du kan ange den **columnMappings** -egenskapen i en Kopieringsaktivitet som kartan alla eller en delmängd av kolumnerna indata till utdatakolumner. När av data movement service läser data från källan, behöver så utföra kolumnmappning på data innan den skriver data till mottagaren. Den här extra bearbetningen minskar kopia dataflöde.
+Du kan ställa in egenskapen **columnMappings** i en kopierings aktivitet för att mappa alla eller en delmängd av inmatnings kolumnerna till utdatakolumner. När av data movement service läser data från källan, behöver så utföra kolumnmappning på data innan den skriver data till mottagaren. Den här extra bearbetningen minskar kopia dataflöde.
 
-Om ditt källdatalager är frågningsbar, till exempel om det är en relationslagringsplats som SQL Database eller SQL Server, eller om det är ett NoSQL-Arkiv som Table storage eller Azure Cosmos DB kan du push-överföra den kolumn som filtrering och sortering logik för att den **fråga** egenskapen istället för att använda kolumnmappning. På så sätt kan projektionen inträffar medan av data movement service läser data från källans datalager, där det är mycket mer effektivt.
+Om ditt källdatalager är frågningsbar, till exempel om det är en relationslagringsplats som SQL Database eller SQL Server, eller om det är ett NoSQL-Arkiv som Table storage eller Azure Cosmos DB kan du push-överföra den kolumn som filtrering och sortering logik för att den **fråga** egenskapen istället för att använda kolumnmappning. På så sätt inträffar projektionen medan data flyttnings tjänsten läser data från käll data lagret, där det är mycket mer effektivt.
 
-Läs mer i [kopiera aktivitet schemamappning](copy-activity-schema-and-type-mapping.md).
+Läs mer från [schema mappning för kopierings aktivitet](copy-activity-schema-and-type-mapping.md).
 
 ## <a name="other-considerations"></a>Annat att tänka på
 
-Om storleken på data som du vill kopiera är stor, kan du justera din affärslogik att partitionera data. Du kan schemalägga Kopieringsaktivitet körs oftare för att minska storleken på data för varje kopieringsaktiviteten som körs.
+Om storleken på de data som du vill kopiera är stor kan du justera affärs logiken för att ytterligare partitionera data. Du kan schemalägga kopierings aktiviteten så att den körs oftare för att minska data storleken för varje kopierings aktivitet som körs.
 
-Var försiktig om antalet datauppsättningar och kopiera aktiviteter som kräver Azure Data Factory för att ansluta till samma datalager samtidigt. Många samtidiga kopia jobb kan begränsa ett datalager och leda till försämrade prestanda, kopiera jobbet interna återförsök, och i vissa fall, fel vid körning.
+Var försiktig med antalet data uppsättningar och kopierings aktiviteter som kräver Azure Data Factory att ansluta till samma data lager samtidigt. Många samtidiga kopia jobb kan begränsa ett datalager och leda till försämrade prestanda, kopiera jobbet interna återförsök, och i vissa fall, fel vid körning.
 
-## <a name="sample-scenario-copy-from-an-on-premises-sql-server-to-blob-storage"></a>Exempelscenario: Kopiera från en lokal SQLServer till Blob storage
+## <a name="sample-scenario-copy-from-an-on-premises-sql-server-to-blob-storage"></a>Exempel scenario: Kopiera från en lokal SQL Server till Blob Storage
 
-**Scenario**: En pipeline är utformat för att kopiera data från en lokal SQLServer till Blob storage i CSV-format. Om du vill göra kopieringsjobbet snabbare ska CSV-filer komprimeras bzip2-format.
+**Scenario**: En pipeline är byggd för att kopiera data från en lokal SQL Server till Blob Storage i CSV-format. Om du vill göra kopieringsjobbet snabbare ska CSV-filer komprimeras bzip2-format.
 
-**Testning och analys**: Dataflödet för kopieringsaktiviteten är mindre än 2 Mbit/s, vilket är mycket långsammare än benchmark för prestanda.
+**Test och analys**: Data flödet för kopierings aktiviteten är mindre än 2 Mbit/s, vilket är mycket långsammare än prestanda måttet.
 
-**Prestandaanalys och justera**: Om du vill felsöka prestandaproblem, nu ska vi titta på hur data bearbetas och flyttas.
+**Prestanda analys och-justering**: För att felsöka prestanda problemet ska vi titta på hur data bearbetas och flyttas.
 
-- **Läsa data**: Integreringskörningen öppnar en anslutning till SQL Server och skickar frågan. SQL-servern svarar genom att skicka dataströmmen till integration runtime via intranätet.
-- **Serialisera och komprimera data**: Integration runtime Serialiserar dataströmmen till CSV-format och komprimerar data till en bzip2-dataström.
-- **Skriva data**: Integration runtime överför bzip2 dataströmmen till Blob storage via internet.
+- **Läs data**: Integrerings körningen öppnar en anslutning till SQL Server och skickar frågan. SQL Server svarar genom att skicka data strömmen till integration runtime via intranätet.
+- **Serialisera och komprimera data**: Integrerings körningen serialiserar data strömmen till CSV-format och komprimerar data till en bzip2-dataström.
+- **Skriv data**: Integrerings körningen överför bzip2-dataströmmen till Blob Storage via Internet.
 
-Som du ser data bearbetas och flyttas i strömmande ordning: SQL Server > LAN > Integration runtime > WAN > Blob-lagring. Den övergripande prestandan är begränsad av minsta dataflödet i pipelinen.
+Som du kan se bearbetas och flyttas data i ett sekventiellt strömmande sätt: SQL Server > LAN > integration runtime > WAN-> Blob Storage. Den övergripande prestandan är gated med minsta data flöde i pipelinen.
 
 ![Dataflöde](./media/copy-activity-performance/case-study-pic-1.png)
 
 En eller flera av följande faktorer kan orsaka flaskhals för prestanda:
 
-* **Källa**: SQL-servern har låg genomströmning på grund av tunga belastningar.
+* **Källa**: SQL Server har låg genom strömning på grund av tung belastning.
 * **Integration runtime med egen värd**:
-  * **LAN**: Integreringskörningen är placerad är långt från SQL Server-datorn och har en långsam anslutning.
-  * **Integreringskörningen**: Integreringskörningen har nått sin belastningen begränsningar om du vill utföra följande åtgärder:
-    * **Serialisering**: Serialisering av data i dataströmmen till CSV-format har långsam dataflöde.
-    * **Komprimering**: Du har valt en långsam komprimerings-codec, till exempel bzip2, vilket är 2,8 Mbit/s med Core i7.
-  * **WAN**: Bandbredden mellan företagsnätverket och dina Azure-tjänster är låg, exempelvis T1 = 1,544 kbit/s; T2 = 6,312 kbit/s.
-* **Mottagare**: BLOB-lagring har lågt dataflöde. Det här scenariot är inte troligt eftersom dess servicenivåavtal (SLA) garanterar minst 60 Mbit/s.
+  * **LAN**: Integration runtime finns långt från SQL Server datorn och har en anslutning med låg bandbredd.
+  * **Integration runtime**: Integrerings körningen har nått sina inläsnings begränsningar för att utföra följande åtgärder:
+    * **Serialisering**: Serialisering av data strömmen till CSV-format har långsam data flöde.
+    * **Komprimering**: Du har valt en låg komprimerings-codec, till exempel bzip2, som är 2,8 Mbit/s med Core i7.
+  * **WAN**: Bandbredden mellan företags nätverket och Azure-tjänsterna är låg, till exempel T1 = 1 544 kbps; T2 = 6 312 kbps.
+* **Mottagare**: Blob Storage har ett lågt data flöde. Det här scenariot är osannolikt eftersom dess service nivå avtal (SLA) garanterar minst 60 Mbit/s.
 
 I det här fallet kan bzip2 datakomprimering långsammare hela pipelinen. Växla till en gzip komprimerings-codec kan underlätta den här begränsningen.
 
 ## <a name="references"></a>Referenser
 
-Här följer prestandaövervakning och justering referenser för några av datalager som stöds:
+Här följer prestanda övervakning och justering av referenser för några av de data lager som stöds:
 
-* Azure Storage, vilket innefattar Blob storage och Table storage: [Azure Storage-skalbarhetsmål](../storage/common/storage-scalability-targets.md) och [checklista för prestanda och skalbarhet i Azure Storage](../storage/common/storage-performance-checklist.md).
-* Azure SQL Database: Du kan [övervaka prestanda](../sql-database/sql-database-single-database-monitor.md) och kontrollera procentandelen Database Transaction Unit (DTU).
-* Azure SQL Data Warehouse: Dess funktion mäts i Informationslagerenheter (dwu: er). Se [hantera beräkningskraft i Azure SQL Data Warehouse (översikt)](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
-* Azure Cosmos DB: [Prestandanivåer i Azure Cosmos DB](../cosmos-db/performance-levels.md).
-* En lokal SQLServer: [Övervaka och finjustera prestanda](https://msdn.microsoft.com/library/ms189081.aspx).
-* En lokal filserver: [Prestandajustering för filservrar](https://msdn.microsoft.com/library/dn567661.aspx).
+* Azure Storage, inklusive Blob Storage och table Storage: [Azure Storage skalbarhets mål](../storage/common/storage-scalability-targets.md) och [Azure Storage check lista för prestanda och skalbarhet](../storage/common/storage-performance-checklist.md).
+* Azure SQL Database: Du kan [övervaka prestanda](../sql-database/sql-database-single-database-monitor.md) och kontrol lera DTU-procenten (Database Transaction Unit).
+* Azure SQL Data Warehouse: Dess funktion mäts i informations lager enheter (DWU: er). Se [hantera beräknings kraft i Azure SQL Data Warehouse (översikt)](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
+* Azure Cosmos DB: [Prestanda nivåer i Azure Cosmos DB](../cosmos-db/performance-levels.md).
+* Lokala SQL Server: [Övervaka och justera för prestanda](https://msdn.microsoft.com/library/ms189081.aspx).
+* Lokal fil Server: [Prestanda justering för fil servrar](https://msdn.microsoft.com/library/dn567661.aspx).
 
 ## <a name="next-steps"></a>Nästa steg
-Se andra kopiera aktivitet artiklar:
+Se andra artiklar om kopierings aktiviteter:
 
 - [Översikt över Kopieringsaktivitet](copy-activity-overview.md)
-- [Kopiera aktivitet schemamappning](copy-activity-schema-and-type-mapping.md)
+- [Kopiera aktivitets schema mappning](copy-activity-schema-and-type-mapping.md)
 - [Kopiera aktivitet feltolerans](copy-activity-fault-tolerance.md)

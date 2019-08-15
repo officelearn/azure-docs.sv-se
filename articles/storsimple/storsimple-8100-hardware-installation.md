@@ -1,6 +1,6 @@
 ---
 title: Installera Microsoft Azure StorSimple 8100-enhet | Microsoft Docs
-description: Beskriver hur du packa upp, rackmontera och kabelansluta en StorSimple 8100-enhet innan du distribuerar och konfigurerar programvaran.
+description: Beskriver hur du packar upp, rackerar montering och kabelansluter din StorSimple 8100-enhet innan du distribuerar och konfigurerar program varan.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,194 +14,197 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: b367b6e7126a442dc68646ff52a29c955f50b798
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0b2301c1c9b846e2ea005f049c5aadb3d4634a81
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60631234"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68963588"
 ---
-# <a name="unpack-rack-mount-and-cable-your-storsimple-8100-device"></a>Packa upp, rackmontera, och kabelansluta en StorSimple 8100-enhet
+# <a name="unpack-rack-mount-and-cable-your-storsimple-8100-device"></a>Packa upp, rack montering och kabel din StorSimple 8100-enhet
+
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
+
 ## <a name="overview"></a>Översikt
-Din Microsoft Azure StorSimple 8100 är en enda hölje, rackmonterad enhet. Den här självstudien beskrivs hur du packar upp, rackmontera och kabel StorSimple 8100-enhet maskinvara innan du konfigurerar och distribuera StorSimple-enhet.
+Din Microsoft Azure StorSimple 8100 är en enda enhets-och rackmonterad enhet. I den här självstudien beskrivs hur du packar upp, rackerar montering och kabelansluter StorSimple 8100-enhetens maskin vara innan du konfigurerar och distribuerar StorSimple-enheten.
 
 ## <a name="unpack-your-storsimple-8100-device"></a>Packa upp din StorSimple 8100-enhet
-Följande steg ger tydliga, detaljerade instruktioner om hur du packar upp StorSimple 8100 lagringsenheten. Den här enheten levereras i en enda låda.
+Följande steg innehåller tydliga och detaljerade instruktioner om hur du packar upp StorSimple 8100-lagrings enheten. Den här enheten levereras i en enda låda.
 
-### <a name="prepare-to-unpack-your-device"></a>Förbereda för att packa upp din enhet
-Granska följande information innan du packar upp enheten.
+### <a name="prepare-to-unpack-your-device"></a>Förbered för att packa upp enheten
+Läs följande information innan du packar upp enheten.
 
-![Varningsikon](./media/storsimple-safety/IC740879.png)![kraftiga ikonen](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png) **varning!**
+![Varnings](./media/storsimple-safety/IC740879.png)![ikon varning vid](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png) hög vikts ikon **!**
 
-1. Se till att du har två personer som är tillgängliga för att hantera vikten för höljet om du hanterar det manuellt. Ett fullständigt konfigurerad hölje kan väga upp till 32 kg (70 lbs.).
+1. Se till att du har två personer som är tillgängliga för att hantera vikten av höljet om du hanterar den manuellt. En fullständigt konfigurerad hölje kan väga upp till 32 kg (70 kg).
 2. Placera lådan på en plan, jämn yta.
 
-Därefter gör du följande för att packa upp din enhet.
+Slutför sedan följande steg för att packa upp enheten.
 
-#### <a name="to-unpack-your-device"></a>Att packa upp din enhet
-1. Kontrollera lådan och förpackningsskummet för att se om det förekommer krosskador, skärningar, vattenskador eller andra uppenbara skador. Om lådan eller förpackningen är allvarligt skadad ska du inte öppna lådan. . [Kontakta Microsoft Support](storsimple-8000-contact-microsoft-support.md) att hjälpa dig att bedöma om enheten är i gott skick.
-2. Packa upp lådan. Följande bild visar den uppackade vy över din StorSimple-enhet.
+#### <a name="to-unpack-your-device"></a>Packa upp enheten
+1. Kontrollera lådan och förpackningsskummet för att se om det förekommer krosskador, skärningar, vattenskador eller andra uppenbara skador. Om lådan eller förpackningen är allvarligt skadad ska du inte öppna lådan. [Kontakta Microsoft Support](storsimple-8000-contact-microsoft-support.md) för att få hjälp att utvärdera om enheten är i fungerande skick.
+2. Packa upp lådan. Följande bild visar den uppackade vyn för din StorSimple-enhet.
    
-     ![Packa upp lagringsenheten](./media/storsimple-8100-hardware-installation/HCSUnpackyour2Udevice.png)
+     ![Packa upp lagrings enheten](./media/storsimple-8100-hardware-installation/HCSUnpackyour2Udevice.png)
    
-    **Packa upp vy över lagringsenheten**
+    **Uppackad vy av lagrings enheten**
    
-   | Label (Etikett) | Beskrivning |
+   | Etikett | Beskrivning |
    | --- | --- |
-   |   1 |Paketering av statistik box |
+   |   1 |Förpacknings Box |
    |   2 |Nedre skum |
    |   3 |Enhet |
-   |   4 |Främsta skum |
-   |   5 |Tillbehör box |
+   |   4 |Övre skum |
+   |   5 |Tillbehörs ruta |
 3. När du har packat upp lådan kontrollerar du att det finns:
    
-   * 1 enhet för enkel hölje
-   * 2 strömkablar
-   * 1 övergång Ethernet-kabel
-   * 2 Seriell konsol-kablar
-   * 1 seriell USB-konverterare för seriell åtkomst
-   * 1 manipuleringssäker T10 för
-   * 4 QSFP-till-SFP +-kort för användning med 10 GbE-nätverksgränssnitt
-   * 1-rackmonterade kit (2 sida rails med montera maskinvara)
-   * Komma igång-dokumentationen
+   * 1 Single Enclosure-enhet
+   * 2 ström sladdar
+   * 1 korskopplad Ethernet-kabel
+   * 2 kablar för serie konsol
+   * 1 seriell USB-omvandlare för seriell åtkomst
+   * 1 manipulering – T10 Screwdriver
+   * 4 QSFP-till-SFP +-kort som ska användas med 10 GbE-nätverks gränssnitt
+   * 1 rack monterings paket (2 Side-räler med monterings maskin vara)
+   * Komma igång dokumentation
      
-     Om du inte tog emot något av objekten som visas ovan, [kontakta Microsoft Support](storsimple-8000-contact-microsoft-support.md).
+     Om du inte har fått något av de objekt som anges ovan, [kontaktar du Microsoft Support](storsimple-8000-contact-microsoft-support.md).
 
 Nästa steg är att rackmontera enheten.
 
-## <a name="rack-mount-your-storsimple-8100-device"></a>Rackmonterade StorSimple 8100-enhet
-Följ stegen nedan för att installera StorSimple 8100 lagringsenheten i ett standard 19-tums rack med främre och bakre inlägg. StorSimple 8100-enhet har en enda primär enhet.
+## <a name="rack-mount-your-storsimple-8100-device"></a>Rack montering av din StorSimple 8100-enhet
+Följ nästa steg för att installera StorSimple 8100-lagrings enheten i ett standardiserat 19-tums rack med främre och bakre inlägg. StorSimple 8100-enheten har en enda primär kabinett enhet.
 
-Installationen består av flera steg, som beskrivs i följande procedurer.
+Installationen består av flera steg som beskrivs i följande procedurer.
 
 > [!IMPORTANT]
-> StorSimple-enheter måste vara rackmonterade för att fungera korrekt.
+> StorSimple-enheter måste vara rack montering för att fungera korrekt.
 > 
 > 
 
-### <a name="prepare-the-site"></a>Förbereda platsen
-Enheten måste installeras i en standard 19-tums rack som har både främre och bakre inlägg. Använd följande procedur för att förbereda för Rackinstallation av.
+### <a name="prepare-the-site"></a>Förbered platsen
+Enheten måste vara installerad i ett standardiserat 19-tums rack som har både främre och bakre inlägg. Använd följande procedur för att förbereda för rack installation.
 
-#### <a name="to-prepare-the-site-for-rack-installation"></a>Förbereda platsen för Rackinstallation
+#### <a name="to-prepare-the-site-for-rack-installation"></a>Förbereda platsen för rack installation
 1. Kontrollera att enheten på ett säkert sätt vilar på en plan, stabil och jämn arbetsyta (eller liknande).
-2. Kontrollera att den plats där du vill konfigurera har standard nätström från en oberoende källa eller en rack power distributionsenhet (PDU) med en avbrottsfri elkälla (UPS).
-3. Se till att en 2U-platsen är tillgänglig på rack där du vill montera enheten.
+2. Kontrol lera att den plats där du planerar att konfigurera har standard ström från en oberoende källa eller en enhet för rack ström distribution (PDU) med en avbrotts fri ström källa (UPS).
+3. Se till att det finns en 2U-kortplats i racket där du tänker montera enheten.
 
-![Varningsikon](./media/storsimple-safety/IC740879.png)![kraftiga ikonen](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png) **varning!**
+![Varnings](./media/storsimple-safety/IC740879.png)![ikon varning vid](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png) hög vikts ikon **!**
 
-Se till att du har två personer som är tillgängliga för att hantera vikten om du hanterar installationen av enheten manuellt. Ett fullständigt konfigurerad hölje kan väga upp till 32 kg (70 lbs.).
+Se till att du har två personer som är tillgängliga för att hantera vikten om du hanterar enhets installationen manuellt. En fullständigt konfigurerad hölje kan väga upp till 32 kg (70 kg).
 
-### <a name="rack-prerequisites"></a>Rack krav
-8100-hölje är utformat för installation i en standard 19-tums rack CAB med:
+### <a name="rack-prerequisites"></a>Krav för rack
+8100-kammaren är utformad för installation i ett standard-19-tums rack skåp med:
 
-* Minsta djup 27.84 tum från rack efter att inlägget.
-* Högsta vikt för 32 kg för enheten
-* Maximal tryck av 5 Pascal (0,5 mätare).
+* Minsta djup 27,84 cm från rack post till inlägg.
+* Maximal vikt på 32 kg för enheten
+* Högsta mottryck på 5 Pascal (0,5 mm vatten mätare).
 
-### <a name="rack-mounting-rail-kit"></a>Rack montering rail kit
-En uppsättning montera rails tillhandahålls för användning med 19-tums rack kabinettfilen. Rails har testats för att hantera maximala hölje vikt. Dessa rails kommer också att tillåta installation av flera höljen utan att förlora utrymme i racket.
+### <a name="rack-mounting-rail-kit"></a>Rack montering av järnvägs paket
+En uppsättning monterings skenor tillhandahålls för användning med 19-tums rack skåp. Räler har testats för att hantera den maximala bilagans vikt. Dessa räler gör det också möjligt att installera flera höljen utan att det går att förlora utrymme i racket.
 
-#### <a name="to-install-the-device-on-the-rails"></a>Installera enheten på rails
-1. Utför det här steget endast om inre rails inte är installerade på din enhet. De inre rails installeras vanligtvis på fabriken. Om rails inte installeras, installerar du vänster-spår och höger rail presentationen till sidor av hölje chassi. De bifoga sex mått skruvar på varje sida. För att hjälpa till med orientering, rail presentationen markeras **LH – Front** och **RH – Front**, och i slutet som fästs bakåt från höljet har en avsmalnande slutet.<br/>
+#### <a name="to-install-the-device-on-the-rails"></a>Så här installerar du enheten på räler
+1. Utför bara det här steget om inre räler inte är installerade på enheten. De inre räler installeras vanligt vis på fabriken. Om räler inte är installerade, installerar du vänster-och HÖGERPIL-bilderna på sidorna i höljets chassi. De ansluter med sex metriska skruvar på varje sida. För att hjälpa med orienteringen är räl-bilderna markerade som **LH – framtill** och **RH – framtill**, och slutet som fästs mot bak sidan av höljet har en avsmalnande slut.<br/>
    
-    ![Bifoga rail bilder till hölje chassi](./media/storsimple-8100-hardware-installation/HCSAttachingRailSlidestoEnclosureChassis.png)
+    ![Fästa järnvägs bilder i hölje chassi](./media/storsimple-8100-hardware-installation/HCSAttachingRailSlidestoEnclosureChassis.png)
 
-    **Bifoga inre rail bilder till sidor av höljet**
+    **Fästa inre räl i höljets sidor**
    
-    Label (Etikett) | Beskrivning
+    Etikett | Beskrivning
     ----- | -----------
-    1     | M 3 x 4 knappen head skruvar
-    2     | Chassi-bilder
+    1     | M 3x4 knapp – huvud skruvar
+    2     | Chassi bilder
 
-2. Koppla den yttre vänstra spår och yttre högra rail sammansättningar till rack CAB lodrät medlemmar. Hakparenteserna markeras **LH**, **RH**, och **den här sidan uppåt** att guida dig genom rätt orientering.
-3. Leta upp spårstiften på framsidan och baksidan av spårenheten. Utöka spår för att passa mellan rack inlägg och infoga de PIN-koderna i främre och bakre rack efter vertikal medlem hål. Var noga med att rail-sammansättningen är nivå.
-4. Använd två av de angivna mått skruvarna för att skydda rail sammansättningen till racket lodrät medlemmar. Använd en skruv på klientwebbservern och en på Bakåt.
-5. Upprepa dessa steg för den andra rail-sammansättningen.<br/>
+2. Koppla de yttre vänster järnvägarna och de yttre högra järnvägs sammansättningarna till rack skåpets lodräta medlemmar. Hakparenteserna är märkta som **LH**, **RH**och **den här sidan upp** för att vägleda dig genom rätt orientering.
+3. Leta upp spårstiften på framsidan och baksidan av spårenheten. Utöka spåret så att det passar mellan rack inläggen och Lägg till stiften i det främre och bakre racket posts vertikala medlems hål. Se till att järn vägs sammansättningen är nivå.
+4. Använd två av de tillhandahållna måtten skruvarna för att skydda järnvägs sammansättningen med rackets lodräta medlemmar. Använd en skruv på bak sidan och en på bak sidan.
+5. Upprepa de här stegen för den andra järnvägs sammansättningen.<br/>
    
-     ![Bifoga rail bilder till rack CAB](./media/storsimple-8100-hardware-installation/HCSAttachingRailSlidestoRackCabinet.png)
+     ![Fäst järnvägs bilder i rack skåpet](./media/storsimple-8100-hardware-installation/HCSAttachingRailSlidestoRackCabinet.png)
    
-    **Koppla yttre rail sammansättningar till racket**
+    **Koppla yttre järnvägs-sammansättningar till racket**
    
-   | Label (Etikett) | Beskrivning |
+   | Etikett | Beskrivning |
    | --- | --- |
    |   1 |Ihopfogning skruv |
-   |   2 |Kvadrat hål front rack efter skruv |
-   |   3 |Vänstra rail front plats PIN-koder |
+   |   2 |Rack-håls front Rack-skruv |
+   |   3 |PIN-platser för vänster järnväg |
    |   4 |Ihopfogning skruv |
-   |   5 |Vänstra rail bakre plats PIN-koder |
+   |   5 |Nålar vänster bak |
 
 ### <a name="mounting-the-device-in-the-rack"></a>Montera enheten i racket
-Med de rack rails som precis har installerats kan utföra följande steg om du vill montera enheten i racket.
+Använd de rackbaserade räler som precis har installerats och utför följande steg för att montera enheten i racket.
 
 #### <a name="to-mount-the-device"></a>Montera enheten
-1. Med en assistent lyfta höljet och justera den med rack rails.
-2. Infoga noggrant enheten i rails, och skickar sedan enheten helt i racket kabinettfil.<br/>
+1. Lyft inne slutning med en assistent och justera den med rack skenorna.
+2. Infoga noggrant enheten i räler och skicka sedan enheten helt till rack skåpet.<br/>
    
-    ![Infoga enheten i racket](./media/storsimple-8100-hardware-installation/HCSInsertingDeviceintheRack.png)
+    ![Sätter in enheten i racket](./media/storsimple-8100-hardware-installation/HCSInsertingDeviceintheRack.png)
    
     **Montera enheten i racket**
-3. Ta bort vänster och höger främre flänsad caps genom att hämta caps kostnadsfritt. Flänsad caps Fäst helt enkelt till flänsar.
-4. Skydda höljet racken genom att installera en angiven Phillips head skruv via varje flänsad vänster och höger.
-5. Installera flänsad caps genom att trycka på dem på plats och fästa dem på plats.<br/>
+3. Ta bort de vänstra och högra frontend-versalerna genom att dra in de kostnads fria. De flänsiga CAPS fästs bara på flänsarna.
+4. Skydda höljet i racket genom att installera en angiven Phillips-skruv genom varje fläns, vänster och höger.
+5. Installera de flänsiga CAPS genom att trycka dem i rätt läge och fästa dem på plats.<br/>
    
-     ![Installera flänsad caps](./media/storsimple-8100-hardware-installation/HCSInstallingFlangeCaps.png)
+     ![Installerar fläns Caps](./media/storsimple-8100-hardware-installation/HCSInstallingFlangeCaps.png)
    
-    **Installera flänsad caps**
+    **Installera de flänsiga Caps**
    
-   | Label (Etikett) | Beskrivning |
+   | Etikett | Beskrivning |
    | --- | --- |
-   |   1 |Hölje flygplanet skruv |
+   |   1 |Kabinett fäst skruv |
 
-Nästa steg är att kabelanslut din enhet till ström, nätverk och serieåtkomst.
+Nästa steg är att ansluta enheten till strömförsörjning, nätverk och seriell åtkomst.
 
-## <a name="cable-your-storsimple-8100-device"></a>Kabelansluta en StorSimple 8100-enhet
-Följande procedurer beskriver hur du kabelansluta en StorSimple 8100-enhet till ström, nätverk och seriella anslutningar.
+## <a name="cable-your-storsimple-8100-device"></a>Kabelanslut din StorSimple 8100-enhet
+Följande procedurer beskriver hur du kan ansluta din StorSimple 8100-enhet för strömförsörjning, nätverk och seriella anslutningar.
 
-### <a name="prerequisites"></a>Nödvändiga komponenter
+### <a name="prerequisites"></a>Förutsättningar
 Innan du börjar kabelansluta enheten behöver du:
 
-* Dina lagringsenhet, helt Uppackad och rack monterade.
-* 2 strömkablar som medföljde din enhet
-* Åtkomst till 2 Kraftfördelningsenheter (rekommenderas).
-* Nätverkskablar
-* Angivna seriella kablar
-* Seriell USB converter med lämplig drivrutin installeras på din dator (vid behov)
-* Tillhandahålls 4 QSFP-till-SFP +-kort för användning med 10 GbE-nätverksgränssnitt
-* [Maskinvara som stöds för 10 GbE-nätverksgränssnitt på StorSimple-enheten](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
+* Lagrings enheten, helt uppackat och rack montering.
+* 2 ström kablar som medföljde din enhet
+* Åtkomst till 2 Power distributions enheter (rekommenderas).
+* Nätverks kablar
+* Tillhandahållna serie kablar
+* Seriell USB-omvandlare med lämplig driv rutin installerad på din dator (om det behövs)
+* Tillhandahåll 4 QSFP-till-SFP +-kort som ska användas med 10 GbE-nätverks gränssnitt
+* [Maskin vara som stöds för 10 GbE Network-gränssnitt på din StorSimple-enhet](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
 
-### <a name="power-cabling"></a>Kablar
-Din enhet innehåller redundant ström och kylning moduler (PCMs). Både PCMs måste vara installerat och anslutet till olika strömkällor att säkerställa hög tillgänglighet.
+### <a name="power-cabling"></a>Ström kablar
+Enheten innehåller redundanta Power-och kylnings-moduler (PCMs). Både PCMs måste installeras och anslutas till olika ström källor för att säkerställa hög tillgänglighet.
 
-Utför följande steg för att kabelansluta den kraft.
+Utför följande steg för att kabelansluta enheten för strömförsörjning.
 
 [!INCLUDE [storsimple-cable-8100-for-power](../../includes/storsimple-cable-8100-for-power.md)]
 
-### <a name="network-cabling"></a>Nätverkskablar
-Enheten är en aktiv-standby-konfiguration: vid en given tidpunkt, en domänkontrollant-modul är aktiv och bearbetning av alla åtgärder på disk och nätverk när modulen andra domänkontrollanter är i vänteläge. Om en domänkontrollant misslyckas kontrollenheten i vänteläge aktiveras omedelbart och fortsätter disk- och nätverksfunktioner.
+### <a name="network-cabling"></a>Nätverks kablar
+Enheten är en aktiv standby-konfiguration: när som helst är en Controller-modul aktiv och bearbetar alla disk-och nätverks åtgärder medan den andra Controller-modulen är i vänte läge. Om en styrenhet kraschar aktive ras vilo läges styrenheten omedelbart och fortsätter alla disk-och nätverks åtgärder.
 
-Du måste kabelanslut enheten nätverket enligt beskrivningen i följande steg för att stödja den här redundant kontrollenhetsredundans.
+För att stödja redundans av redundanta styrenheter måste du kontakta enhetens nätverk enligt beskrivningen i följande steg.
 
-#### <a name="to-cable-for-network-connection"></a>Att kabel för nätverksanslutning
-1. Enheten har sex nätverksgränssnitt på varje domänkontrollant: fyra 1 Gbit/s och två 10 Gbit/s Ethernet-portar. Identifiera de olika portarna för data på serverdelen för din enhet.
+#### <a name="to-cable-for-network-connection"></a>För kabel för nätverks anslutning
+1. Enheten har sex nätverks gränssnitt på varje styrenhet: fyra 1 Gbit/s och 2 10 Gbit/s Ethernet-portar. Identifiera de olika data portarna på enhetens bakplan.
    
-    ![Serverdelen av 8100-enhet](./media/storsimple-8100-hardware-installation/HCSBackplaneof2UDevicewithPortsLabeled.jpg)
+    ![Bakplanering av 8100-enhet](./media/storsimple-8100-hardware-installation/HCSBackplaneof2UDevicewithPortsLabeled.jpg)
    
-    **Tillbaka på enheten som visar dataportar**
+    **Bak sidan av enheten som visar data portar**
    
-   | Label (Etikett) | Beskrivning |
+   | Etikett | Beskrivning |
    | --- | --- |
-   |   0,1,4,5 |1 GbE-nätverksgränssnitt |
-   |   2,3 |10 GbE-nätverksgränssnitt |
-   |   6 |Seriella portar |
-2. Se i följande diagram nätverkskablar. (Lägsta nätverkskonfigurationen visas som heldragna blå linjer. Ytterligare konfiguration krävs för hög tillgänglighet och prestanda visas som prickade linjer.)
+   |   0,1,4,5 |1 GbE-nätverks gränssnitt |
+   |   2,3 |10 GbE-nätverks gränssnitt |
+   |   6 |Serie portar |
+2. Se följande diagram för nätverks kablar. (Den minsta nätverks konfigurationen visas med heldragna blå linjer. Ytterligare konfiguration som krävs för hög tillgänglighet och prestanda visas med prickade linjer.)
 
-    ![Kabelansluta den 2U för nätverk](./media/storsimple-8100-hardware-installation/HCSCableYour2UDeviceforNetwork.png)
+    ![Kabelanslut din 2U-enhet för nätverk](./media/storsimple-8100-hardware-installation/HCSCableYour2UDeviceforNetwork.png)
 
-    **Nätverket kablar för din enhet**
+    **Nätverks kablar för din enhet**
 
-   |Label (Etikett) | Beskrivning |
+   |Etikett | Beskrivning |
    |----- | ----------- |
-   | A    | LAN med Internetåtkomst |
+   | G    | LAN med Internet åtkomst |
    | B    | Kontrollant 0 |
    | C    | PCM 0 |
    | D    | Kontrollant 1 |
@@ -211,41 +214,41 @@ Du måste kabelanslut enheten nätverket enligt beskrivningen i följande steg f
 
 
 
-När kablar enheten kräver den lägsta konfigurationen:
+Vid en kabel av enheten kräver den minsta konfigurationen:
 
-* Minst två nätverksgränssnitt är anslutna på varje domänkontrollant för att komma åt cloud och en för iSCSI. DATA 0 port aktiveras och konfigureras via seriekonsolen för enheten automatiskt. Förutom DATA 0 måste en annan dataporten också konfigureras via den klassiska Azure-portalen. I det här fallet ansluta DATA 0 porten till den primära LAN (nätverk med åtkomst till Internet). Andra dataportar kan anslutas till SAN/iSCSI LAN (VLAN)-segmentet i nätverket, beroende på den avsedda rollen.
-* Samma gränssnitt på varje domänkontrollant är anslutna till samma nätverk för att säkerställa tillgänglighet om det uppstår redundans controller. Exempelvis om du vill ansluta DATA 0 och DATA 3 för en av kontrollenheterna måste du ansluta motsvarande DATA 0 och DATA 3 på den andra styrenheten.
+* Minst två nätverks gränssnitt som är anslutna på varje styrenhet med ett för moln åtkomst och ett för iSCSI. DATA 0-porten aktive ras automatiskt och konfigureras via enhetens serie konsol. Förutom DATA 0 måste även en annan data port konfigureras via den klassiska Azure-portalen. I det här fallet ansluter du DATA 0-port till det primära LAN (nätverk med Internet åtkomst). De andra data portarna kan anslutas till nätverks segmentet SAN/iSCSI LAN (VLAN), beroende på den avsedda rollen.
+* Identiska gränssnitt på varje styrenhet som är ansluten till samma nätverk för att säkerställa tillgängligheten om en styrenhets växling sker. Om du till exempel väljer att ansluta DATA 0 och DATA 3 för en av kontroll enheterna måste du ansluta motsvarande DATA 0 och DATA 3 på den andra styrenheten.
 
-Ha i åtanke för hög tillgänglighet och prestanda:
+Tänk på hög tillgänglighet och prestanda:
 
-* Konfigurera ett par med nätverksgränssnitt för molnåtkomst (1 GbE) och en annan par för iSCSI (10 GbE rekommenderas) på varje domänkontrollant när det är möjligt.
-* Om det är möjligt ska du ansluta nätverksgränssnitt från varje styrenhet till två olika växlar för att säkerställa tillgänglighet mot ett switch-fel. Bilden visar två 10 GbE nätverksgränssnitt, DATA 2 och DATA 3 från varje domänkontrollant som är ansluten till två olika växlar.
+* När det är möjligt konfigurerar du ett par nätverks gränssnitt för moln åtkomst (1 GbE) och ett annat par för iSCSI (10 GbE rekommenderas) på varje styrenhet.
+* När det är möjligt kan du ansluta nätverks gränssnitt från varje kontrollant till två olika växlar för att säkerställa tillgängligheten mot ett växel haveri. Bilden illustrerar 2 10 GbE-nätverks gränssnitt, DATA 2 och DATA 3, från varje styrenhet som är ansluten till två olika växlar.
 
-Mer information finns i den **nätverksgränssnitt** under den [krav på hög tillgänglighet för StorSimple-enheten](storsimple-8000-system-requirements.md#high-availability-requirements-for-storsimple).
-
-> [!NOTE]
-> Om du använder SFP + mottagarna med din 10 GbE-nätverksgränssnitt kan använda den angivna QSFP-SFP +-kort. Mer information går du till [maskinvara som stöds för 10 GbE-nätverksgränssnitt på StorSimple-enheten](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
-> 
-> 
-
-### <a name="serial-port-cabling"></a>Seriell port kablar
-Utför följande steg för att kabelanslut din seriell port.
-
-#### <a name="to-cable-for-serial-connection"></a>Att kabel för seriell anslutning
-1. Enheten har en seriell port på varje domänkontrollant som identifieras med en skiftnyckelikonen. Se bilden i den [nätverkskablar](#network-cabling) avsnitt för att hitta de seriella portarna på serverdelen för din enhet.
-2. Identifiera den aktiva kontrollenheten på din enhet-bakplan. En blinkande blå LED indikerar att kontrollanten är aktiv.
-3. Använd de angivna seriella kablarna (vid behov, USB-seriell konverterare för din bärbara dator) och Anslut konsolen eller dator (med terminalemulering till enheten) till den seriella porten på den aktiva kontrollenheten.
-4. Installera seriell USB-drivrutiner (medföljer enheten) på datorn.
-5. Konfigurera seriell anslutning enligt följande: styra inställd på Ingen 115 200 bit/s, 8 databitar, 1 stop-bitars, ingen paritet och flow.
-6. Kontrollera att anslutningen fungerar genom att trycka på RETUR på konsolen. Menyn för seriekonsolen bör visas.
+Mer information finns i **nätverks gränssnitten** under [krav för hög tillgänglighet för din StorSimple-enhet](storsimple-8000-system-requirements.md#high-availability-requirements-for-storsimple).
 
 > [!NOTE]
-> **Lights-Out-hantering**: När enheten installeras i ett fjärranslutet datacenter eller i ett rum med begränsad åtkomst som gäller datorn, måste du kontrollera att de seriella anslutningarna till båda styrenheterna alltid är anslutna till en seriell konsol växel eller liknande utrustning. Detta gör out-of-band-fjärrstyrning och stöd för åtgärder om det finns nätverksstörningar eller oväntade fel.
+> Om du använder SFP +-Sänd tagare med dina 10 GbE-nätverkskort använder du de tillhandahållna QSFP-SFP +-korten. Mer information finns i [maskin vara som stöds för 10 GbE Network-gränssnitt på din StorSimple-enhet](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
 > 
 > 
 
-Enheten är nu kabelansluten till ström, nätverksåtkomst och seriell anslutning. Nästa steg är att konfigurera programvaran och distribuera din enhet.
+### <a name="serial-port-cabling"></a>Serie ports kablar
+Utför följande steg för att kabelansluta din serie port.
+
+#### <a name="to-cable-for-serial-connection"></a>För kabel för seriell anslutning
+1. Enheten har en seriell port på varje kontrollant som identifieras av en Skift nyckel ikon. Se bilden i avsnittet [nätverks kablar](#network-cabling) för att hitta de seriella portarna på enhetens bakplan.
+2. Identifiera den aktiva styrenheten på enhetens bakplan. En blinkande blå indikator anger att styrenheten är aktiv.
+3. Använd de angivna serie kablarna (vid behov USB-seriella konverterare för din bärbara dator) och Anslut konsolen eller datorn (med terminalemulering till enheten) till den seriella porten för den aktiva styrenheten.
+4. Installera de seriella USB-drivrutinerna (som levererades med enheten) på datorn.
+5. Konfigurera den seriella anslutningen enligt följande: 115 200 baud, 8 data bitar, 1 stoppbit, ingen paritet och flödes kontroll inställd på ingen.
+6. Kontrol lera att anslutningen fungerar genom att trycka på RETUR i-konsolen. En serie konsol meny ska visas.
+
+> [!NOTE]
+> **Hantering av lampor**: När enheten är installerad i ett fjärranslutet Data Center eller i ett dator rum med begränsad åtkomst, se till att serie anslutningarna till båda styrenheterna alltid är anslutna till en serie konsol växel eller liknande utrustning. Detta tillåter out-of-band-fjärrstyrning och support åtgärder om det uppstår nätverks avbrott eller oväntade fel.
+> 
+> 
+
+Enheten är nu kabelansluten för strömförsörjning, nätverks åtkomst och seriell anslutning. Nästa steg är att konfigurera program varan och distribuera enheten.
 
 ## <a name="next-steps"></a>Nästa steg
-Lär dig hur du [distribuera och konfigurera din lokala StorSimple-enhet](storsimple-8000-deployment-walkthrough-u2.md).
+Lär dig hur du [distribuerar och konfigurerar din lokala StorSimple-enhet](storsimple-8000-deployment-walkthrough-u2.md).
 

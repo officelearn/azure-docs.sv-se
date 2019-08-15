@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: lagayhar
-ms.openlocfilehash: d3edfa1ca63560f447d2c9ea3da3588e069b7af1
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 27610280bafa6d8e9e33f84af2d3e9f6c2c9ea5c
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68226826"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967823"
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Komma igång med Application Insights i ett Java-webbprojekt
 
@@ -91,7 +91,7 @@ Uppdatera sedan projektberoendena för att få binärfilerna.
 ```
 
 #### <a name="if-youre-using-eclipse-to-create-a-dynamic-web-project-"></a>Om du använder Eclipse för att skapa ett dynamiskt webbprojekt …
-Använd [plugin-programmet Application Insights SDK för Java][eclipse]. Obs: Även om du genom att använda det här plugin-programmet kommer igång med Application Insights snabbare (förutsatt att du inte använder Maven/Gradle), är det inte ett beroendehanteringssystem. Därför uppdaterar plugin-programmet inte Application Insights-biblioteken i projektet automatiskt.
+Använd plugin-programmet Application Insights SDK för Java. Obs: Även om du genom att använda det här plugin-programmet kommer igång med Application Insights snabbare (förutsatt att du inte använder Maven/Gradle), är det inte ett beroendehanteringssystem. Därför uppdaterar plugin-programmet inte Application Insights-biblioteken i projektet automatiskt.
 
 * *Stöter du på utvecklingsfel eller fel relaterade till verifieringen av kontrollsummor?* Prova att använda en specifik version, t.ex.: `version:'2.0.n'`. Den senaste versionen finns i [viktig information om SDK](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) eller i våra [Maven-artefakter](https://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
 * *Uppdatera till en ny SDK* Uppdatera projektets beroenden.
@@ -456,7 +456,7 @@ Application Insights kan testa din webbplats med jämna mellanrum för att kontr
 
 [Läs mer om hur du ställer in webbtester för tillgänglighet.][availability]
 
-## <a name="questions-problems"></a>Har du några frågor? Har du problem?
+## <a name="questions-problems"></a>Frågor? Har du problem?
 [Felsöka Java](java-troubleshoot.md)
 
 ## <a name="next-steps"></a>Nästa steg
@@ -473,7 +473,6 @@ Application Insights kan testa din webbplats med jämna mellanrum för att kontr
 [apiexceptions]: ../../azure-monitor/app/api-custom-events-metrics.md#trackexception
 [availability]: ../../azure-monitor/app/monitor-web-app-availability.md
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
-[eclipse]: ../../azure-monitor/learn/java-quick-start.md
 [javalogs]: java-trace-logs.md
 [metrics]: ../../azure-monitor/app/metrics-explorer.md
 [usage]: javascript.md

@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: dacurwin
-ms.openlocfilehash: c53e2c383739b717a5ce94c872b4616bbd1b3f26
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 9ae21e2bf71789d0b0dd19e3dd7a65ad10fae241
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639949"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69018975"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Säkerhetskopiera virtuella VMware-datorer med Azure Backup Server
 
@@ -102,10 +102,10 @@ Konfigurera en säker kanal enligt följande:
 
 ### <a name="disable-https-certificate-validation"></a>Inaktivera verifiering av HTTPS-certifikat
 
-Om du har säkra gränser i din organisation och inte vill använda HTTPS-protokollet mellan VMware-servrar och Azure Backup Server datorn inaktiverar du HTTPS på följande sätt: u
+Om du har säkra gränser i din organisation och inte vill använda HTTPS-protokollet mellan VMware-servrar och Azure Backup Server datorn inaktiverar du HTTPS på följande sätt: 
 1. Kopiera och klistra in följande text i en. txt-fil.
 
-      ```
+      ```text
       Windows Registry Editor Version 5.00
       [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager\VMWare]
       "IgnoreCertificateValidation"=dword:00000001
@@ -221,7 +221,7 @@ På fliken **Hantera** i panelen **globala behörigheter** visas det nya använd
 
     ![Dialog rutan Azure Backup Server Hantera autentiseringsuppgifter](./media/backup-azure-backup-server-vmware/mabs-manage-credentials-dialog.png)
 
-4. I **Lägg till autentiseringsuppgift** anger du ett namn och en beskrivning för den nya autentiseringsuppgiften och anger det användar namn och lösen ord som du definierade på VMware-servern. Namnet, *contoso vCenter-autentiseringsuppgiften* används för att identifiera autentiseringsuppgifterna i den här proceduren. Om VMware-servern och Azure Backup Server inte finns i samma domän anger du domänen i användar namnet.
+4. I **Lägg till autentiseringsuppgift**anger du ett namn och en beskrivning för den nya autentiseringsuppgiften och anger det användar namn och lösen ord som du definierade på VMware-servern. Namnet, *contoso vCenter-autentiseringsuppgiften* används för att identifiera autentiseringsuppgifterna i den här proceduren. Om VMware-servern och Azure Backup Server inte finns i samma domän anger du domänen i användar namnet.
 
     ![Dialog rutan Azure Backup Server Lägg till autentiseringsuppgift](./media/backup-azure-backup-server-vmware/mabs-add-credential-dialog2.png)
 
@@ -286,10 +286,10 @@ Lägg till virtuella VMware-datorer för säkerhets kopiering. Skydds grupper sa
 
 1. På sidan **Välj typ av skydds grupp** väljer du **servrar** och klickar sedan på **Nästa**. Sidan **Välj grupp medlemmar** visas.
 
-1. I **Välj grupp medlemmar** > väljer du de virtuella datorer (eller VM-mappar) som du vill säkerhetskopiera. Klicka sedan på **Nästa**.
+1. I **Välj grupp medlemmar**väljer du de virtuella datorer (eller VM-mappar) som du vill säkerhetskopiera. Klicka sedan på **Nästa**.
 
     - När du väljer en mapp, eller virtuella datorer eller mappar i mappen, väljs även för säkerhets kopiering. Du kan avmarkera mappar och virtuella datorer som du inte vill säkerhetskopiera.
-1. Om en virtuell dator eller mapp redan säkerhets kopie ras kan du inte välja den. Detta säkerställer att dubbla återställnings punkter inte skapas för en virtuell dator. .
+1. Om en virtuell dator eller mapp redan säkerhets kopie ras kan du inte välja den. Detta säkerställer att dubbla återställnings punkter inte skapas för en virtuell dator.
 
      ![Välj grupp medlemmar](./media/backup-azure-backup-server-vmware/server-add-selected-members.png)
 
@@ -354,7 +354,7 @@ Lägg till virtuella VMware-datorer för säkerhets kopiering. Skydds grupper sa
 
 ## <a name="vmware-vsphere-67"></a>VMWare vSphere 6,7
 
-Gör följande för att säkerhetskopiera vSphere 6,7:
+Om du vill säkerhetskopiera vSphere 6,7 gör du följande:
 
 - Aktivera TLS 1,2 på DPM-servern
   >[!Note]

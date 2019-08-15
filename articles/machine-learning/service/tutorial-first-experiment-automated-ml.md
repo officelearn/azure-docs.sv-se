@@ -10,12 +10,12 @@ ms.author: tzvikei
 author: tsikiksr
 ms.reviewer: nibaccam
 ms.date: 07/23/2019
-ms.openlocfilehash: 1d2a0c9e1531ace16335ea57acaccedfe2c1a3c8
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 7ef19db472b30d82f14a5dd650cb8f4cb1f3ed3a
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815890"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990082"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-train-and-deploy-your-first-classification-model-preview"></a>Självstudier: Använd automatisk maskin inlärning för att träna och distribuera din första klassificerings modell (för hands version)
 
@@ -86,7 +86,7 @@ I den här självstudien kommer du att lära dig följande:
 
 1. Expandera **Avancerade inställningar** och fyll i fälten enligt följande.
 
-    Avancerade inställningar|Värde
+    Avancerade inställningar|Value
     ------|------
     Primärt mått| AUC_weighted 
     Avslutnings villkor| När något av dessa villkor uppfylls avslutas utbildnings jobbet innan det slutförs fullständigt: <br> *Utbildnings jobb tid (minuter)* : 5  <br> *Max antal iterationer*: 10 
@@ -95,7 +95,7 @@ I den här självstudien kommer du att lära dig följande:
     Samtidighet| Välj **5** för maximalt antal samtidiga iterationer.
 
    >[!NOTE]
-   > För det här experimentet ställer vi inte in ett värde för mått eller Max upprepnings tröskel. Vi blockerar inte heller algoritmer från att testas.
+   > För det här experimentet ställer vi inte in mått eller Max kärnor per upprepnings tröskel. Vi blockerar inte heller algoritmer från att testas.
 
 1. Välj **Starta** för att köra experimentet.
 
@@ -122,7 +122,7 @@ I det här experimentet betraktas **VotingEnsemble** som den bästa modellen, ba
 
 1. Fyll i fönstret **distribuera bästa modell** enligt följande:
 
-    Fält| Värde
+    Fält| Value
     ----|----
     Distributionsnamn| My-automl – Deploy
     Distributions Beskrivning| Min första automatiserade test distribution av Machine Learning

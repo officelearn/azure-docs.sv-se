@@ -7,18 +7,19 @@ ms.date: 08/10/2018
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.openlocfilehash: 8737e3b2445f5b89c62cead5fae34b8ad076113a
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 9e0e024a5bd3c9cf16879bb9ea93727a338ddbf4
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68721731"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68986397"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Använd Azure Storage-emulatorn för utveckling och testning
 
 Microsoft Azure Storage-emulatorn tillhandahåller en lokal miljö som emulerar tjänsterna Azure Blob, Queue och table i utvecklings syfte. Med hjälp av Storage-emulatorn kan du testa ditt program mot lagrings tjänsterna lokalt, utan att skapa en Azure-prenumeration eller skapa några kostnader. När du är nöjd med hur ditt program fungerar i emulatorn kan du växla till att använda ett Azure Storage-konto i molnet.
 
 ## <a name="get-the-storage-emulator"></a>Hämta Storage-emulatorn
+
 Storage-emulatorn är tillgänglig som en del av [Microsoft Azure SDK](https://azure.microsoft.com/downloads/). Du kan också installera Storage-emulatorn med hjälp av det [fristående installations programmet](https://go.microsoft.com/fwlink/?linkid=717179&clcid=0x409) (direkt hämtning). Du måste ha administratörs behörighet på datorn för att kunna installera Storage-emulatorn.
 
 Storage-emulatorn körs för närvarande endast på Windows. För dem som överväger en Storage-emulator för Linux, är det ett alternativ som communityn har kvar, öppen source Storage-emulator [Azurite](https://github.com/azure/azurite).
@@ -29,6 +30,7 @@ Storage-emulatorn körs för närvarande endast på Windows. För dem som överv
 > Storage-emulatorn är beroende av vissa versioner av OData-biblioteken. Det finns inte stöd för att ersätta de OData-dll: er som används av Storage-emulatorn med andra versioner, och det kan leda till oväntat beteende. En version av OData som stöds av lagrings tjänsten kan dock användas för att skicka begär anden till emulatorn.
 
 ## <a name="how-the-storage-emulator-works"></a>Så här fungerar Storage-emulatorn
+
 Storage-emulatorn använder en lokal Microsoft SQL Server-instans och det lokala fil systemet för att emulera Azure Storage-tjänster. Som standard använder Storage-emulatorn en databas i Microsoft SQL Server 2012 Express-LocalDB. Du kan välja att konfigurera Storage-emulatorn för att få åtkomst till en lokal instans av SQL Server i stället för LocalDB-instansen. Mer information finns i avsnittet [starta och initiera Storage](#start-and-initialize-the-storage-emulator) -emulatorn längre fram i den här artikeln.
 
 Lagringsprovidern ansluter till SQL Server eller LocalDB med Windows-autentisering.
@@ -38,6 +40,7 @@ Det finns vissa skillnader i funktionalitet mellan Storage-emulatorn och Azure S
 ## <a name="start-and-initialize-the-storage-emulator"></a>Starta och initiera Storage-emulatorn
 
 Starta Azure Storage-emulatorn:
+
 1. Välj **Start** -knappen eller tryck på **Windows** -tangenten.
 2. Börja skriva `Azure Storage Emulator`.
 3. Välj emulatorn i listan med program som visas.
@@ -79,9 +82,11 @@ Mer information om dessa kommandon finns i [kommando rads verktyget Storage mula
 > Du kan använda [Microsoft SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) för att hantera dina SQL Server instanser, inklusive LocalDB-installationen. I dialog rutan Smss **Anslut till Server** anger `(localdb)\MSSQLLocalDb` du i fältet **Server Namn:** för att ansluta till LocalDB-instansen.
 
 ## <a name="authenticating-requests-against-the-storage-emulator"></a>Autentisera begär Anden mot Storage-emulatorn
+
 När du har installerat och startat Storage-emulatorn kan du testa koden mot den. Precis som med Azure Storage i molnet måste varje begäran du gör mot lagringsprovidern vara auktoriserad, såvida det inte är en anonym begäran. Du kan auktorisera begär Anden mot Storage-emulatorn med hjälp av autentisering med delad nyckel eller med en signatur för delad åtkomst (SAS).
 
 ### <a name="authorize-with-shared-key-credentials"></a>Auktorisera med autentiseringsuppgifter för delad nyckel
+
 [!INCLUDE [storage-emulator-connection-string-include](../../../includes/storage-emulator-connection-string-include.md)]
 
 Mer information om anslutnings strängar finns i [Konfigurera anslutnings strängar för Azure Storage](../storage-configure-connection-string.md).
@@ -115,9 +120,10 @@ http://127.0.0.1:10000/devstoreaccount1/sascontainer?sv=2012-02-12&se=2015-07-08
 
 Signaturen för delad åtkomst som skapas i det här exemplet är giltig i en dag. Signaturen ger fullständig åtkomst (läsa, skriva, ta bort, lista) till blobar i behållaren.
 
-Mer information om signaturer för delad åtkomst finns [i använda signaturer för delad åtkomst (SAS) i Azure Storage](../storage-dotnet-shared-access-signature-part-1.md).
+Mer information om signaturer för delad åtkomst finns i [bevilja begränsad åtkomst till Azure Storage-resurser med hjälp av signaturer för delad åtkomst (SAS)](storage-sas-overview.md).
 
 ## <a name="addressing-resources-in-the-storage-emulator"></a>Adressera resurser i Storage-emulatorn
+
 Tjänstens slut punkter för lagrings-emulatorn skiljer sig från de för ett Azure Storage-konto. Skillnaden är att den lokala datorn inte utför domän namns matchning, vilket kräver att Storage-emulatorns slut punkter är lokala adresser.
 
 När du adresserar en resurs i ett Azure Storage-konto använder du följande schema. Konto namnet är en del av URI-värdnamnet och resursen som ska adresseras är en del av URI-sökvägen:
@@ -143,6 +149,7 @@ Tjänstens slut punkter för Storage-emulatorn är:
 * Table service:`http://127.0.0.1:10002/<account-name>/<resource-path>`
 
 ### <a name="addressing-the-account-secondary-with-ra-grs"></a>Adressera det konto som är sekundärt med RA-GRS
+
 Från och med version 3,1 stöder Storage-emulatorn Geo-redundant replikering av Läs åtkomst (RA-GRS). För lagrings resurser både i molnet och i den lokala emulatorn kan du komma åt den sekundära platsen genom att lägga till-sekundär till konto namnet. Följande adress kan till exempel användas för att få åtkomst till en blob med hjälp av den skrivskyddade sekundären i Storage-emulatorn:
 
 `http://127.0.0.1:10000/myaccount-secondary/mycontainer/myblob.txt`
@@ -153,6 +160,7 @@ Från och med version 3,1 stöder Storage-emulatorn Geo-redundant replikering av
 >
 
 ## <a name="storage-emulator-command-line-tool-reference"></a>Kommando rads verktyg för Storage-emulator
+
 Från och med version 3,0 visas ett konsol fönster när du startar Storage-emulatorn. Använd kommando raden i konsol fönstret för att starta och stoppa emulatorn samt fråga efter status och utföra andra åtgärder.
 
 > [!NOTE]
@@ -161,9 +169,11 @@ Från och med version 3,0 visas ett konsol fönster när du startar Storage-emul
 >
 
 ### <a name="command-line-syntax"></a>Kommandoradssyntax
+
 `AzureStorageEmulator.exe [start] [stop] [status] [clear] [init] [help]`
 
 ### <a name="options"></a>Alternativ
+
 Om du vill visa en lista över alternativ skriver du `/help` i kommandotolken.
 
 | Alternativ | Beskrivning | Kommando | Argument |
@@ -175,6 +185,7 @@ Om du vill visa en lista över alternativ skriver du `/help` i kommandotolken.
 | **Initiering** |Utför en engångs initiering för att konfigurera emulatorn. |<code>AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate&#124;-skipcreate] [-reserveports&#124;-unreserveports] [-inprocess]</code> |*– Server serverName\instanceName*: Anger den server som är värd för SQL-instansen. <br/>*-Sqlinstance instanceName*: Anger namnet på den SQL-instans som ska användas i standard Server instansen. <br/>*-forcecreate*: Tvingar fram skapandet av SQL-databasen, även om den redan finns. <br/>*-skipcreate*: Hoppar över skapandet av SQL-databasen. Detta prioriteras över-forcecreate.<br/>*-reserveports*: Försöker reservera de HTTP-portar som är kopplade till tjänsterna.<br/>*-unreserveports*: Försöker ta bort reservationer för de HTTP-portar som är kopplade till tjänsterna. Detta prioriteras över-reserveports.<br/>*-InProcess*: Utför initiering i den aktuella processen i stället för att skapa en ny process. Den aktuella processen måste startas med utökade behörigheter om du ändrar port reservationer. |
 
 ## <a name="differences-between-the-storage-emulator-and-azure-storage"></a>Skillnader mellan Storage-emulatorn och Azure Storage
+
 Eftersom Storage-emulatorn är en emulerad miljö som körs i en lokal SQL-instans, finns det skillnader i funktionalitet mellan emulatorn och ett Azure Storage-konto i molnet:
 
 * Storage-emulatorn stöder endast ett fast konto och en välkänd autentiseringsnyckel.
@@ -185,6 +196,7 @@ Eftersom Storage-emulatorn är en emulerad miljö som körs i en lokal SQL-insta
 * Om du använder en version av lagrings tjänster som inte stöds av emulatorn returnerar Storage-emulatorn ett VersionNotSupportedByEmulator-fel (HTTP-status kod 400-Felaktig begäran).
 
 ### <a name="differences-for-blob-storage"></a>Skillnader för Blob Storage
+
 Följande skillnader gäller Blob Storage i emulatorn:
 
 * Storage-emulatorn stöder bara BLOB-storlekar upp till 2 GB.
@@ -195,6 +207,7 @@ Följande skillnader gäller Blob Storage i emulatorn:
 * Det går inte att lägga till BLOB-åtgärder av emulatorn. Försök att utföra en åtgärd på en append-BLOB returnerar ett FeatureNotSupportedByEmulator-fel (HTTP-status kod 400-Felaktig begäran).
 
 ### <a name="differences-for-table-storage"></a>Skillnader i tabell lagring
+
 Följande skillnader gäller för Table Storage i emulatorn:
 
 * Datum egenskaper i Table service i Storage-emulatorn stöder bara det intervall som stöds av SQL Server 2005 (de måste vara senare än 1 januari 1753). Alla datum före den 1 januari 1753 ändras till det här värdet. Precisionen för datum är begränsad till precisionen för SQL Server 2005, vilket innebär att datumen är exakta till 1/300th av en sekund.
@@ -203,34 +216,43 @@ Följande skillnader gäller för Table Storage i emulatorn:
 * I Storage-emulatorn, egenskaper för data `Edm.Guid` typ `Edm.Binary` eller endast `Equal (eq)` stöd operatorer och `NotEqual (ne)` jämförelse operatorer i filter strängar för frågor.
 
 ### <a name="differences-for-queue-storage"></a>Skillnader för Queue Storage
+
 Det finns inga skillnader vad gäller Queue Storage i emulatorn.
 
 ## <a name="storage-emulator-release-notes"></a>Viktig information om Storage mula torn
 
 ### <a name="version-57"></a>Version 5,7
+
 En bugg har åtgärd ATS som orsakar en krasch om loggning har Aktiver ATS.
 
 ### <a name="version-56"></a>Version 5,6
+
 * Storage-emulatorn stöder nu version 2018-03-28 av lagrings tjänsterna på BLOB-, Queue-och Table service-slutpunkter.
 
 ### <a name="version-55"></a>Version 5,5
+
 * Storage-emulatorn stöder nu version 2017-11-09 av lagrings tjänsterna på BLOB-, Queue-och Table service-slutpunkter.
 * Stöd har lagts till för den BLOB- **skapade** egenskapen som returnerar blobens skapande tid.
 
 ### <a name="version-54"></a>Version 5.4
+
 För att förbättra installations stabiliteten försöker emulatorn inte längre att reservera portar vid installations tiden. Om Port reservationer önskas, använder du alternativet *-reserveports* för kommandot **init** för att ange dem.
 
 ### <a name="version-53"></a>Version 5,3
+
 Storage-emulatorn stöder nu version 2017-07-29 av lagrings tjänsterna på BLOB-, Queue-och Table service-slutpunkter.
 
 ### <a name="version-52"></a>Version 5.2
+
 * Storage-emulatorn stöder nu version 2017-04-17 av lagrings tjänsterna på BLOB-, Queue-och Table service-slutpunkter.
 * Ett fel har åtgärd ATS där tabell egenskaps värden inte kodades korrekt.
 
 ### <a name="version-51"></a>Version 5.1
+
 Ett fel har åtgärd ATS där Storage-emulatorn `DataServiceVersion` returnerade rubriken i vissa svar där tjänsten inte var det.
 
 ### <a name="version-50"></a>Version 5.0
+
 * Installations programmet för Storage-emulatorn söker inte längre efter befintliga MSSQL-och .NET Framework-installationer.
 * Installations programmet för Storage-emulatorn skapar inte längre databasen som en del av installationen. Databasen kommer fortfarande att skapas om det behövs som en del av starten.
 * Databas skapandet kräver inte längre utökade privilegier.
@@ -240,38 +262,48 @@ Ett fel har åtgärd ATS där Storage-emulatorn `DataServiceVersion` returnerade
 * Vissa DLL-filer har tagits bort eller bytt namn.
 
 ### <a name="version-46"></a>Version 4.6
+
 * Storage-emulatorn stöder nu version 2016-05-31 av lagrings tjänsterna på BLOB-, Queue-och Table service-slutpunkter.
 
 ### <a name="version-45"></a>Version 4.5
+
 * En bugg har åtgärd ATS som gjorde att initieringen och installationen av lagringsprovidern misslyckades när den säkerhetskopierade databasen bytt namn.
 
 ### <a name="version-44"></a>Version 4.4
+
 * Storage-emulatorn stöder nu version 2015-12-11 av lagrings tjänsterna på BLOB-, Queue-och Table service-slutpunkter.
 * Lagrings emulatorns skräp insamling av BLOB-data är nu mer effektiv när du hanterar ett stort antal blobbar.
 * En bugg har åtgärd ATS som gjorde att XML för behållar-ACL verifierades något annorlunda än i lagrings tjänsten.
 * En bugg har åtgärd ATS som ibland orsakade att max-och minsta DateTime-värden rapporteras i fel tidszon.
 
 ### <a name="version-43"></a>Version 4,3
+
 * Storage-emulatorn stöder nu version 2015-07-08 av lagrings tjänsterna på BLOB-, Queue-och Table service-slutpunkter.
 
 ### <a name="version-42"></a>Version 4.2
+
 * Storage-emulatorn stöder nu version 2015-04-05 av lagrings tjänsterna på BLOB-, Queue-och Table service-slutpunkter.
 
 ### <a name="version-41"></a>Version 4.1
+
 * Storage-emulatorn stöder nu version 2015-02-21 av lagrings tjänsterna på BLOB-, Queue-och Table service-slutpunkter, förutom de nya tilläggs-BLOB-funktionerna.
 * Om du använder en version av lagrings tjänster som ännu inte stöds av emulatorn, returnerar emulatorn ett meningsfullt fel meddelande. Vi rekommenderar att du använder den senaste versionen av emulatorn. Om du stöter på ett VersionNotSupportedByEmulator-fel (HTTP-status kod 400-Felaktig begäran) kan du ladda ned den senaste versionen av Storage-emulatorn.
 * Ett fel har åtgärd ATS där ett tävlings villkor orsakade att tabell enhets data var felaktiga under samtidiga sammanslagnings åtgärder.
 
 ### <a name="version-40"></a>Version 4.0
+
 * Den körbara filen för lagrings emulatorn har bytt namn till *AzureStorageEmulator. exe*.
 
 ### <a name="version-32"></a>Version 3.2
+
 * Storage-emulatorn stöder nu version 2014-02-14 av lagrings tjänsterna på BLOB-, Queue-och Table service-slutpunkter. Fil tjänstens slut punkter stöds för närvarande inte i Storage-emulatorn. Mer information om version 2014-02-14 finns i [versions hantering för Azure Storage-tjänsterna](/rest/api/storageservices/Versioning-for-the-Azure-Storage-Services) .
 
 ### <a name="version-31"></a>Version 3.1
+
 * Read-Access Geo-redundant lagring (RA-GRS) stöds nu i Storage-emulatorn. Hämta BLOB service stats statistik, Hämta Queue Service-statistik och hämta Table service stats API: er stöds för det sekundära kontot och returnerar alltid värdet för LastSyncTime-svars elementet som den aktuella tiden enligt den underliggande SQL-databasen. Använd lagrings klient biblioteket för .NET version 3,2 eller senare för program mässig åtkomst till den sekundära med Storage-emulatorn. Mer information finns i Microsoft Azure Storage klient bibliotek för .NET-referens.
 
 ### <a name="version-30"></a>Version 3.0
+
 * Azure Storage-emulatorn levereras inte längre i samma paket som beräknings-emulatorn.
 * Grafiskt användar gränssnitt i Storage-emulatorn har ersatts av ett skript bara kommando rads gränssnitt. Mer information om kommando rads gränssnittet finns i kommando rads verktyget Storage mula reference. Det grafiska gränssnittet fortsätter att finnas i version 3,0, men det går bara att komma åt den när du har installerat beräknings-emulatorn genom att högerklicka på ikonen system fält och välja Visa användar gränssnitt för Storage-emulatorn.
 * Version 2013-08-15 av Azure Storage-tjänster stöds nu fullt ut. (Tidigare har den här versionen endast stöd för för hands versionen av Storage mula version 2.2.1.)

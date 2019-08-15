@@ -1,6 +1,6 @@
 ---
-title: Hur du skapar en app som kan logga in alla Azure AD-användare
-description: Visar hur du skapar ett program för flera innehavare som kan logga in en användare från en Azure Active Directory-klient.
+title: Så här skapar du en app som kan logga in på valfri Azure AD-användare
+description: Visar hur du skapar ett program med flera innehavare som kan logga in en användare från en Azure Active Directory klient.
 services: active-directory
 documentationcenter: ''
 author: rwike77
@@ -19,174 +19,174 @@ ms.reviewer: jmprieur, lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d53ed0c9a8ae63c2cb0ced635c6f0a8e8a3222fd
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "67482747"
 ---
-# <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Anvisningar: Logga in alla Azure Active Directory-användare med programmönstret för flera innehavare
+# <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Anvisningar: Logga in Azure Active Directory användare med program mönstret flera innehavare
 
-Om du erbjuder en programvara som en tjänst (SaaS) till många organisationer, kan du konfigurera ditt program att godkänna inloggningar från alla Azure Active Directory (Azure AD)-klient. Den här konfigurationen kallas *gör ditt program flera innehavare*. Användare i alla Azure AD-klient kommer att kunna logga in till programmet efter medgivandedialogen använda sitt konto med ditt program.
+Om du erbjuder ett SaaS-program (program vara som en tjänst) till många organisationer kan du konfigurera ditt program så att det accepterar inloggningar från valfri Azure Active Directory (Azure AD)-klient. Den här konfigurationen kallas *att göra programmet till flera klienter*. Användare i en Azure AD-klient kommer att kunna logga in till ditt program när de har samtyckt till att använda sitt konto med ditt program.
 
-Om du har ett befintligt program som har ett eget konto eller har stöd för andra typer av inloggningar från andra molnleverantörer, är att lägga till Azure AD-inloggningen från en klient enkelt. Registrera din app, Lägg till inloggning kod via OAuth2, OpenID Connect eller SAML och sätta bara en [knappen ”Logga in med Microsoft”][AAD-App-Branding] i ditt program.
-
-> [!NOTE]
-> Den här artikeln förutsätter att du redan är bekant med att skapa en enskild klient-program för Azure AD. Om du inte starta med någon av Snabbstart på den [developer guide startsidan][AAD-Dev-Guide].
-
-Det finns fyra enkla steg för att konvertera ditt program i en app för flera innehavare av Azure AD:
-
-1. [Uppdatera din programregistrering om du vill att flera innehavare](#update-registration-to-be-multi-tenant)
-2. [Uppdatera koden för att skicka begäranden till den/Common slutpunkt](#update-your-code-to-send-requests-to-common)
-3. [Uppdatera koden för att hantera flera utfärdarvärden](#update-your-code-to-handle-multiple-issuer-values)
-4. [Förstå användare och administratör medgivande och göra lämplig kodändringar](#understand-user-and-admin-consent)
-
-Låt oss titta på varje steg i detalj. Du kan även gå direkt till [den här listan med flera innehavare exempel][AAD-Samples-MT].
-
-## <a name="update-registration-to-be-multi-tenant"></a>Uppdatera registrering om du vill att flera innehavare
-
-Som standard är enskild klient i web app/API registreringar i Azure AD. Du kan göra din registrering för flera innehavare genom att söka efter den **stöds kontotyper** växla den **autentisering** rutan i din programregistrering i den [Azure-portalen][AZURE-portal] och ange värdet till **konton i alla organisationskatalog**.
-
-Innan ett program kan göras med flera innehavare, kräver Azure AD App-ID-URI för programmet som ska vara globalt unikt. App-ID-URI är en av de sätt som ett program identifieras i protokollmeddelanden. För ett program för en enskild klientorganisation räcker det att app-ID-URI är unikt i den klientorganisationen. För ett program för flera klientorganisationer måste den vara globalt unikt så att Azure AD kan hitta programmet bland alla klientorganisationer. Global unikhet framtvingas genom att det krävs att app-ID-URI har ett värdnamn som matchar en verifierad domän i Azure AD-klientorganisationen.
-
-Appar som har skapats via Azure-portalen har ett globalt unikt Appidentitets-URI på skapa appar som standard, men du kan ändra det här värdet. Till exempel om namnet på din klient har contoso.onmicrosoft.com och sedan en giltig URI för App-ID blir `https://contoso.onmicrosoft.com/myapp`. Om din klientorganisation har en verifierad domän för `contoso.com`, och sedan en giltig App-ID: T URI vore `https://contoso.com/myapp`. Om App-ID-URI inte följer detta mönster misslyckas konfigurationen av ett program som ett program för flera klientorganisationer.
+Om du har ett befintligt program som har ett eget konto system, eller stöder andra typer av inloggningar från andra moln leverantörer, är det enkelt att lägga till Azure AD-inloggning från en klient. Registrera bara din app, Lägg till inloggnings kod via OAuth2, OpenID Connect eller SAML och Lägg till [knappen "logga in med Microsoft"][AAD-App-Branding] i ditt program.
 
 > [!NOTE]
-> Inbyggd klientregistreringar samt [program för Microsoft identity-plattformen](./active-directory-appmodel-v2-overview.md) flera klientorganisationer som standard. Du behöver inte vidta några åtgärder för att göra dessa programregistreringar flera innehavare.
+> Den här artikeln förutsätter att du redan är bekant med att skapa ett enda klient program för Azure AD. Om du inte är det börjar du med en av snabb starterna på [Start sidan för Developer Guide][AAD-Dev-Guide].
 
-## <a name="update-your-code-to-send-requests-to-common"></a>Uppdatera koden för att skicka begäranden till/Common
+Det finns fyra enkla steg för att konvertera ditt program till en Azure AD-App för flera klienter:
 
-Logga in begäranden skickas till klientens inloggning slutpunkt i en enda klient-program. Till exempel för contoso.onmicrosoft.com slutpunkten skulle vara: `https://login.microsoftonline.com/contoso.onmicrosoft.com`. Begäranden som skickas till slutpunkten för en klient kan logga in användare (eller gäster) i den klienten till program i den klienten.
+1. [Uppdatera program registreringen så att den blir flera innehavare](#update-registration-to-be-multi-tenant)
+2. [Uppdatera din kod för att skicka begär anden till/vanliga-slutpunkten](#update-your-code-to-send-requests-to-common)
+3. [Uppdatera din kod för att hantera flera Issuer-värden](#update-your-code-to-handle-multiple-issuer-values)
+4. [Förstå användar-och administratörs medgivande och gör lämpliga kod ändringar](#understand-user-and-admin-consent)
 
-Med ett program för flera innehavare vet programmet inte direkt vad klient som användaren är från, så att du inte kan skicka begäranden till slutpunkten för en klient. Istället skickas begäranden till en slutpunkt som flerfaldigar över alla Azure AD-klienter: `https://login.microsoftonline.com/common`
+Nu ska vi titta närmare på varje steg. Du kan också gå direkt till [den här listan över exempel på flera klienter][AAD-Samples-MT].
 
-När Microsoft identity-plattformen tar emot en begäran på den/Common slutpunkten, det loggar du in och, följaktligen identifierar vilken klientorganisation som användaren är från. Den/vanliga slutpunkt som fungerar med alla protokoll för autentisering som stöds av Azure AD:  OpenID Connect, OAuth 2.0, SAML 2.0 och WS-Federation.
+## <a name="update-registration-to-be-multi-tenant"></a>Uppdatera registreringen till att vara flera innehavare
 
-Logga in-svaret till programmet sedan innehåller en token som representerar användaren. Utfärdarvärdet i token visar ett program vad användaren är från-klient. När ett svar returneras från den/Common slutpunkt, utfärdarvärdet i token motsvarar användarens klient.
+Som standard är Web App/API-registreringar i Azure AD en enda klient. Du kan registrera flera klient organisationer genom att söka efter de **konto typer som stöds** i fönstret **verifiering** i program registreringen i [Azure Portal][AZURE-portal] och ställa in den på **konton i valfri organisation katalogen**.
+
+Innan ett program kan göras till flera klienter kräver Azure AD att app-ID-URI: n för programmet är globalt unik. App-ID-URI är en av de sätt som ett program identifieras i protokollmeddelanden. För ett program för en enskild klientorganisation räcker det att app-ID-URI är unikt i den klientorganisationen. För ett program för flera klientorganisationer måste den vara globalt unikt så att Azure AD kan hitta programmet bland alla klientorganisationer. Global unikhet framtvingas genom att det krävs att app-ID-URI har ett värdnamn som matchar en verifierad domän i Azure AD-klientorganisationen.
+
+Som standard har appar som skapats via Azure Portal en globalt unik app-ID-URI inställd på att skapa appar, men du kan ändra det här värdet. Om namnet på din klient till exempel var contoso.onmicrosoft.com, skulle en giltig app-ID-URI vara `https://contoso.onmicrosoft.com/myapp`. Om klienten hade en verifierad domän för `contoso.com`, skulle en giltig app-ID-URI också `https://contoso.com/myapp`vara. Om App-ID-URI inte följer detta mönster misslyckas konfigurationen av ett program som ett program för flera klientorganisationer.
+
+> [!NOTE]
+> Interna klient registreringar samt [Microsoft Identity Platform-program](./active-directory-appmodel-v2-overview.md) är flera klienter som standard. Du behöver inte vidta några åtgärder för att göra dessa program registreringar flera klienter.
+
+## <a name="update-your-code-to-send-requests-to-common"></a>Uppdatera din kod för att skicka begär anden till/vanliga
+
+I ett enda klient program skickas inloggnings förfrågningar till klient organisationens inloggnings slut punkt. För contoso.onmicrosoft.com skulle till exempel slut punkten bli: `https://login.microsoftonline.com/contoso.onmicrosoft.com`. Begär Anden som skickas till en klients slut punkt kan logga in användare (eller gäster) i den klienten till program i den klient organisationen.
+
+Med ett program med flera klient organisationer vet inte programmet var den klient som användaren är från, så du kan inte skicka begär anden till en innehavares slut punkt. I stället skickas begär anden till en slut punkt som flera plexar över alla Azure AD-klienter:`https://login.microsoftonline.com/common`
+
+När Microsoft Identity Platform tar emot en begäran på/vanliga-slutpunkten loggar den in användaren och, som en följd, identifierar vilken klient som användaren är från. /Vanliga-slutpunkten fungerar med alla autentiseringsprotokoll som stöds av Azure AD:  OpenID Connect, OAuth 2,0, SAML 2,0 och WS-Federation.
+
+Inloggnings svaret till programmet innehåller sedan en token som representerar användaren. Utfärdarens värde i token anger ett program som klienten som användaren kommer från. När ett svar returneras från/vanliga-slutpunkten motsvarar utfärdarens värde i token användarens klient.
 
 > [!IMPORTANT]
-> Den/det är bara en multiplexor vanliga slutpunkt är inte en klient och är inte en utfärdare,. När du använder/Common måste logiken i din app för att validera token uppdateras för att ta hänsyn till.
+> /Vanliga-slutpunkten är inte en klient och är inte en utfärdare. det är bara en multiplexor. När du använder/vanliga måste logiken i programmet för att verifiera token uppdateras för att ta med detta i kontot.
 
-## <a name="update-your-code-to-handle-multiple-issuer-values"></a>Uppdatera koden för att hantera flera utfärdarvärden
+## <a name="update-your-code-to-handle-multiple-issuer-values"></a>Uppdatera din kod för att hantera flera Issuer-värden
 
-Webbprogram och webb-API: er får och validera token från Microsoft identity-plattformen.
+Webb program och webb-API: er får och validerar tokens från Microsoft Identity Platform.
 
 > [!NOTE]
-> Även om interna klientprogram begära och ta emot token från Microsoft identity-plattformen, gör de för att skicka dem till API: er, där de verifieras. Interna program validera inte token och hantera dem som täckande.
+> När interna klient program begär och tar emot token från Microsoft Identity Platform gör de det för att skicka dem till API: er, där de verifieras. Interna program validerar inte tokens och måste behandla dem som täckande.
 
-Nu ska vi titta på hur ett program verifierar token som tas emot från Microsoft identity-plattformen. En enda klient-programmet tar normalt en slutpunktsvärdet som:
+Nu ska vi titta på hur ett program validerar de tokens som tas emot från Microsoft Identity Platform. Ett enda klient program tar normalt ett slut punkts värde som:
 
     https://login.microsoftonline.com/contoso.onmicrosoft.com
 
-och används för att konstruera metadata-URL (i det här fallet OpenID Connect) som:
+och använder den för att skapa en URL för metadata (i det här fallet OpenID Connect) som:
 
     https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration
 
-ladda ned två viktiga uppgifter som används för att validera token: klienten signering nycklar och utfärdarvärdet. Varje Azure AD-klient har en unik utfärdarvärdet i formatet:
+Hämta två kritiska delar av information som används för att verifiera token: klientens signerings nycklar och Issuer-värde. Varje Azure AD-klient har ett unikt Issuer-värde i formuläret:
 
     https://sts.windows.net/31537af4-6d77-4bb9-a681-d2394888ea26/
 
-GUID-värdet är där rename-safe-versionen av klient-ID för klienten. Om du väljer länken ovan metadata för `contoso.onmicrosoft.com`, du kan se den här utfärdarvärdet i dokumentet.
+där GUID-värdet är den Rename-säkra versionen av klient organisations-ID: t för klient organisationen. Om du väljer föregående metadata-länk för `contoso.onmicrosoft.com`kan du se det här Issuer-värdet i dokumentet.
 
-När en enskild klient program validerar en token, kontrollerar signaturen för token mot signeringsnycklarna från metadatadokument. Det här testet kan det se till att utfärdarvärdet i token matchar det som hittades i Metadatadokumentet.
+När ett enda klient program validerar en token kontrollerar det signaturen för token mot signerings nycklarna från Metadatadokumentet. Det här testet gör det möjligt för IT att se till att utfärdarens värde i token matchar det som hittades i Metadatadokumentet.
 
-Eftersom den/vanliga slutpunkt motsvarar inte en klient och är inte en utfärdare när du undersöker utfärdarvärdet i metadata för/vanliga den har en mallbaserad URL i stället för ett faktiskt värde:
+Eftersom/vanliga-slutpunkten inte motsvarar en klient och inte är en utfärdare, och du undersöker utfärdarens värde i metadata för/vanliga har den en mall-URL i stället för ett faktiskt värde:
 
     https://sts.windows.net/{tenantid}/
 
-Därför kan ett program med flera innehavare kan inte verifiera token bara genom att matcha utfärdarvärdet i metadata med den `issuer` värdet i token. Ett program med flera innehavare måste logik för att avgöra vilka utfärdarvärden är giltiga och som inte är baserade på klient-ID delen av utfärdarvärdet. 
+Ett program med flera klienter kan därför inte validera tokens genom att matcha utfärdarens värde i metadata med `issuer` värdet i token. Ett program med flera innehavare kräver logik för att bestämma vilka Issuer-värden som är giltiga och som inte baseras på innehavarens ID-del av Issuer-värdet. 
 
-Till exempel om ett program med flera innehavare kan bara logga in från specifika klienter som har registrerat sig för service, den måste kontrollerar du antingen utfärdarvärdet eller `tid` anspråksvärde i token för att se till att klienten är i sin lista över prenumeranter. Om ett program med flera innehavare endast behandlar enskilda användare och gör inte några åtkomst beslut baserat på klienter, kan den Ignorera utfärdarvärdet helt och hållet.
+Om ett program för flera klienter till exempel bara tillåter inloggning från specifika klienter som har registrerat sig för tjänsten, måste det kontrol lera antingen utfärdarens värde eller `tid` anspråks värde i token för att säkerställa att klienten finns i listan över prenumeranter. Om ett program för flera klienter bara hanterar individer och inte fattar några åtkomst beslut baserat på klienter, kan det ignorera utfärdarens värde helt.
 
-I den [flera innehavare exempel][AAD-Samples-MT], utfärdare validering är inaktiverat för att aktivera alla Azure AD-klient att logga in.
+I exemplen för [flera klienter][AAD-Samples-MT]inaktive ras verifiering av utfärdare för att möjliggöra för Azure AD-klienten att logga in.
 
-## <a name="understand-user-and-admin-consent"></a>Förstå användare och administratör medgivande
+## <a name="understand-user-and-admin-consent"></a>Förstå användar-och administratörs medgivande
 
-För en användare att logga in på ett program i Azure AD, måste programmet vara representerad i användarens klientorganisation. På så sätt kan organisationen för att exempelvis tillämpa unika principer när användare från deras klient loggar in till programmet. Denna registrering är enkel; för en enskild klient-program Det är det som händer när du registrerar program i den [Azure-portalen][AZURE-portal].
+För att en användare ska kunna logga in i ett program i Azure AD måste programmet representeras i användarens klient organisation. Detta gör att organisationen kan göra saker som att tillämpa unika principer när användare från deras klient loggar in i programmet. För ett enda klient program är registreringen enkel. Det är det som händer när du registrerar programmet i [Azure Portal][AZURE-portal].
 
-För ett program med flera innehavare finns den första registreringen för programmet i Azure AD-klient som används av utvecklaren. När en användare från en annan klient loggar in till programmet för första gången ber dem att godkänna de behörigheter som programmet har begärt i Azure AD. Om de godkänner och sedan en representation av programmet kallas en *tjänstens huvudnamn* skapas i användarens klientorganisation och logga in kan fortsätta. En delegering skapas också i katalogen som innehåller användarens medgivande till programmet. Mer information om programmets program- och ServicePrincipal-objekt, och hur de relaterar till varandra finns [programobjekt och tjänstobjekt][AAD-App-SP-Objects].
+För ett program med flera innehavare används den första registreringen för programmet i Azure AD-klienten som används av utvecklaren. När en användare från en annan klient loggar in på programmet för första gången ber Azure AD sig att godkänna de behörigheter som begärs av programmet. Om de godkänner så skapas en åter givning av programmet som kallas för *tjänstens huvud namn* i användarens klient organisation och inloggningen kan fortsätta. En delegering skapas också i katalogen som registrerar användarens medgivande till programmet. Mer information om programmets program-och ServicePrincipal-objekt och hur de relaterar till varandra finns i [program objekt och tjänst huvud objekt][AAD-App-SP-Objects].
 
-![Visar medgivande till en nivå app][Consent-Single-Tier]
+![Illustrerar medgivande till en app med en nivå][Consent-Single-Tier]
 
-Den här samtycke upplevelsen påverkas av de behörigheter som begärdes av programmet. Microsoft identity-plattformen stöder två typer av appspecifika och delegerade behörigheter.
+Den här medgivande upplevelsen påverkas av de behörigheter som har begärts av programmet. Microsoft Identity Platform stöder två typer av behörigheter, endast app-och delegerade.
 
-* En delegerad behörighet ger ett program möjligheten att fungera som en inloggad användare för en delmängd av sakerna du kan göra. Du kan till exempel ge ett program delegerad behörighet att läsa den inloggade användaren kalender.
-* En appspecifik behörighet beviljas direkt till identiteten för programmet. Du kan till exempel ge ett program appspecifik behörighet att läsa en lista över användare i en klient, oavsett vem som är inloggad i programmet.
+* En delegerad behörighet beviljar ett program möjligheten att fungera som en inloggad användare för en delmängd av de saker som användaren kan göra. Du kan till exempel ge ett program behörigheten delegerad för att läsa den inloggade användarens kalender.
+* En app-only-behörighet beviljas direkt till appens identitet. Du kan till exempel ge ett program appens behörighet att läsa listan över användare i en klient organisation, oavsett vem som är inloggad i programmet.
 
-Vissa behörigheter kan vara godkänts av en vanlig användare, medan andra kräver en Innehavaradministratör medgivande. 
+Vissa behörigheter kan skickas till av en vanlig användare, medan andra kräver en klient administratörs medgivande. 
 
 ### <a name="admin-consent"></a>Administratörsmedgivande
 
-Appspecifika behörigheter kräver alltid medgivande av en klientadministratör. Om ditt program begär en appspecifik behörighet och en användare försöker logga in på programmet, visas ett felmeddelande visas om användaren inte kan godkänna.
+Appspecifika behörigheter kräver alltid medgivande av en klientadministratör. Om ditt program begär en app-only-behörighet och en användare försöker logga in i programmet visas ett fel meddelande om att användaren inte kan godkänna.
 
-Vissa delegerade behörigheter kräver också en Innehavaradministratör godkännande. Till exempel kräver möjligheten att skriva tillbaka till Azure AD som den inloggade användaren en Innehavaradministratör medgivande. Som appspecifika behörigheter får ditt program ett fel om en vanlig användare försöker logga in till ett program som begär en delegerad behörighet som kräver administratörens godkännande. Om en behörighet kräver administratörens godkännande bestäms av utvecklaren som publiceras till resursen och finns i dokumentationen för resursen. I dokumentationen för behörigheter för den [Azure AD Graph API][AAD-Graph-Perm-Scopes] and [Microsoft Graph API][MSFT-Graph-permission-scopes] anger vilka behörigheter kräver administratörens godkännande.
+Vissa delegerade behörigheter kräver också en klient administratörs medgivande. Möjligheten till exempel att skriva tillbaka till Azure AD eftersom den inloggade användaren kräver administratörs medgivande. Som endast app-only-behörigheter, om en vanlig användare försöker logga in till ett program som begär en delegerad behörighet som kräver administratörs medgivande, får programmet ett fel meddelande. Om en behörighet kräver administratörs medgivande bestäms av utvecklaren som publicerade resursen, och du hittar den i dokumentationen för resursen. I behörighets dokumentationen för [Azure AD Graph API][AAD-Graph-Perm-Scopes] och [Microsoft Graph API][MSFT-Graph-permission-scopes] anges vilka behörigheter som kräver administratörs medgivande.
 
-Om programmet använder behörigheter som kräver administratörens godkännande, måste du ha en gest, till exempel en knapp eller länk där administratören kan starta åtgärden. Den begäran som programmet skickar för den här åtgärden är vanligt OAuth2/OpenID Connect auktoriseringsbegäran som även innehåller den `prompt=admin_consent` frågesträngparametern. När administratören har godkänt och tjänstens huvudnamn har skapats i kundens klient, efterföljande inloggningsförfrågningar behöver inte den `prompt=admin_consent` parametern. Eftersom administratören har valt behörigheterna som krävs är godtagbara, tillfrågas inga andra användare i klienten om samtycke från den tidpunkten och framåt.
+Om programmet använder behörigheter som kräver administratörs medgivande måste du ha en gest som en knapp eller länk där administratören kan initiera åtgärden. Begäran som ditt program skickar för den här åtgärden är den vanliga OAuth2/OpenID Connect-auktoriseringsbegäran som också innehåller `prompt=admin_consent` frågesträngparametern. När administratören har samtyckt och tjänstens huvud namn har skapats i kundens klient behöver `prompt=admin_consent` efterföljande inloggnings begär Anden inte parametern. Eftersom administratören har beslutat att de begärda behörigheterna är acceptabla, uppmanas inga andra användare i klienten att tillfrågas om godkännande från den punkten.
 
-En klientadministratör kan inaktivera möjligheten för vanliga användare att samtycka till program. Om den här funktionen har inaktiverats krävs alltid administratörens godkännande för program som ska användas i klienten. Om du vill testa programmet med slutanvändarens medgivande inaktiverad, du kan hitta configuration-växeln i den [Azure-portalen][AZURE-portal] i den **[användarinställningar](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/)** avsnittet **Företagsprogram**.
+En klientadministratör kan inaktivera möjligheten för vanliga användare att samtycka till program. Om den här funktionen har inaktiverats krävs alltid administratörens godkännande för program som ska användas i klienten. Om du vill testa att ditt program har inaktiverats för slutanvändare kan du hitta konfigurations växeln i [Azure Portal][AZURE-portal] i avsnittet **[användar inställningar](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/)** under **företags program**.
 
-Den `prompt=admin_consent` parametern kan även användas av program som begär behörighet som inte kräver administratörens godkännande. Ett exempel på när det skulle användas är om programmet kräver en upplevelse där administratör ”registrerar sig” en tid och utan att andra användare tillfrågas om samtycke från den punkten på.
+`prompt=admin_consent` Parametern kan också användas av program som begär behörigheter som inte kräver administratörs medgivande. Ett exempel på när det används är om programmet kräver en upplevelse där klient administratören "registrerar sig" en gång, och inga andra användare tillfrågas om medgivande från den tidpunkten.
 
-Om ett program kräver administratörens godkännande och en administratör loggar in utan den `prompt=admin_consent` parameter som skickas när administratören godkänner har programmet gäller den **endast för sitt användarkonto**. Vanliga användare kommer fortfarande inte att kunna logga in eller godkänna programmet. Den här funktionen är användbart om du vill ge klientadministratören möjlighet att utforska ditt program innan andra användare åtkomst.
+Om ett program kräver administratörs medgivande och en administratör loggar in utan `prompt=admin_consent` att den parameter skickas, gäller när administratören har samtyckt till det program som den endast kommer att använda **för sitt användar konto**. Vanliga användare kommer fortfarande inte att kunna logga in eller godkänna programmet. Den här funktionen är användbar om du vill ge klient organisations administratören möjlighet att utforska ditt program innan andra användare får åtkomst.
 
 > [!NOTE]
-> Vissa program vill ha en upplevelse där vanliga användare kan godkänna först, och senare programmet kan omfatta de behörigheter som administratören och be som kräver administratörens godkännande. Det finns inget sätt att göra det med en v1.0 programregistrering i Azure AD i nuläget; med hjälp av Microsoft identity-plattformen (v2.0) slutpunkt kan dock program begär behörighet vid körning i stället för vid tidpunkten för registrering, vilket gör att det här scenariot. Mer information finns i [Microsoft identity-plattformen endpoint][AAD-V2-Dev-Guide].
+> Vissa program vill ha en upplevelse där vanliga användare kan godkännas från början, och senare kan programmet omfatta administratören och begära behörigheter som kräver administratörs medgivande. Det finns inget sätt att göra detta med en v 1.0-programregistrering i Azure AD idag. med hjälp av slut punkten för Microsoft Identity Platform (v 2.0) kan dock program begära behörigheter vid körning i stället för vid tidpunkten för registreringen, vilket möjliggör det här scenariot. Mer information finns i [slut punkten för Microsoft Identity Platform][AAD-V2-Dev-Guide].
 
-### <a name="consent-and-multi-tier-applications"></a>Medgivande och flera nivåer program
+### <a name="consent-and-multi-tier-applications"></a>Medgivande och program på flera nivåer
 
-Programmet kan ha flera nivåer, var och en representeras av en egen registrering i Azure AD. Till exempel ett internt program som anropar ett webb-API eller ett webbprogram som anropar ett webb-API. I båda dessa fall kan begär klienten (inbyggd app- eller webbapp) behörighet att anropa resource (webb-API). För att klienten ska vara har samtyckt till en kunds klient, måste alla resurser som det begär behörigheter redan finnas i kundens klient. Om det här villkoret inte uppfylls, returneras ett fel som att resursen måste läggas till först i Azure AD.
+Ditt program kan ha flera nivåer som representeras av sin egen registrering i Azure AD. Till exempel ett internt program som anropar ett webb-API eller ett webb program som anropar ett webb-API. I båda fallen begär klienten (den interna appen eller webb programmet) behörigheter att anropa resursen (webb-API). För att klienten ska kunna skickas till en kund klient måste alla resurser som den begär behörigheter redan finnas i kundens klient organisation. Om det här villkoret inte uppfylls returnerar Azure AD ett fel meddelande om att resursen måste läggas till först.
 
 #### <a name="multiple-tiers-in-a-single-tenant"></a>Flera nivåer i en enda klient
 
-Detta kan vara ett problem om logiska programmet består av två eller flera programregistreringar, till exempel en separat klient och resursen. Hur du får resursen till kundens klient första? Azure AD täcker det här fallet genom att aktivera klienten och resurs för att vara samtyckt i ett enda steg. Användaren ser totalt antalet de behörigheter som begärdes av både klient- och resursen på sidan medgivande. Om du vill aktivera det här beteendet resursens programregistrering måste innehålla klientapp-ID som en `knownClientApplications` i dess [programmanifestet][AAD-App-Manifest]. Exempel:
+Detta kan vara ett problem om ditt logiska program består av två eller flera program registreringar, till exempel en separat klient och resurs. Hur får du resursen i kund klienten först? Azure AD täcker det här fallet genom att aktivera att klienten och resursen samtycks i ett enda steg. Användaren ser summan av de behörigheter som begärs av både klienten och resursen på godkännande sidan. För att aktivera det här beteendet måste resursens program registrering innehålla klientens app-ID som `knownClientApplications` en i dess [applikations manifest][AAD-App-Manifest]. Exempel:
 
     knownClientApplications": ["94da0930-763f-45c7-8d26-04d5938baab2"]
 
-Detta visas i en intern klient på flera nivåer anropa webb-API-exemplet den [relaterat innehåll](#related-content) i slutet av den här artikeln. Följande diagram innehåller en översikt över tillstånd för ett flerskiktat program som har registrerats i en enda klient.
+Detta visas i en intern klient med flera nivåer som anropar webb-API-exemplet i avsnittet [relaterat innehåll](#related-content) i slutet av den här artikeln. Följande diagram ger en översikt över medgivande för en app med flera nivåer som är registrerad i en enda klient.
 
-![Visar medgivande kända klientappar med flera nivåer][Consent-Multi-Tier-Known-Client]
+![Illustrerar medgivande till en känd klient app med flera nivåer][Consent-Multi-Tier-Known-Client]
 
 #### <a name="multiple-tiers-in-multiple-tenants"></a>Flera nivåer i flera klienter
 
-Ett liknande fall sker om de olika nivåerna av ett program som har registrerats i olika klienter. Till exempel vara fallet för att skapa ett internt klientprogram som anropar ett Office 365 Exchange Online-API. Om du vill utveckla interna programmet och senare att köra i en kunds klient för internt program, måste Exchange Online tjänstens huvudnamn finnas. I det här fallet måste developer och kunden köpa Exchange Online för tjänstens huvudnamn ska kunna skapas i sina klienter.
+Ett liknande fall händer om de olika nivåerna av ett program registreras i olika klienter. Anta till exempel att du skapar ett internt klient program som anropar Office 365 Exchange Online API. För att utveckla det ursprungliga programmet och senare för det interna programmet att köras i en kunds klient måste Exchange Online-tjänstens huvud namn finnas. I det här fallet måste utvecklare och kunden köpa Exchange Online för att det ska gå att skapa tjänstens huvud namn i sina klienter.
 
-Om det är ett API som skapats av ett annat företag än Microsoft, måste utvecklaren av API: et gör det möjligt för kunderna att godkänna programmet till sina kunders klienter. Det är den rekommenderade designen för utvecklare att bygga API: et så att den kan också fungera som en webbklient för att implementera registreringen från tredje part. Gör så här:
+Om det är ett API som skapats av en annan organisation än Microsoft måste utvecklaren av API: et tillhandahålla ett sätt för kunderna att godkänna programmet till sina kunders klienter. Den rekommenderade designen är för utvecklare av tredje part som skapar API: t, så att den också kan fungera som en webb klient för att implementera registrering. Gör så här:
 
-1. Följ de tidigare avsnitt för att säkerställa att API: et implementerar program med flera innehavare/Registreringskod kraven.
-2. Förutom att exponera API: er scope/roller kan du kontrollera registreringen ingår i ”logga in och läsa användarprofil” behörighet (ingår som standard).
-3. Implementera en inloggning-i/registrering sida i webbklienten och följ de [administratörsmedgivande](#admin-consent) vägledning.
-4. När användaren godkänner till programmet, tjänstens huvudnamn och medgivande delegering kopplingarna i deras klienter och internt program kan hämta token för API: et.
+1. Följ de tidigare avsnitten för att säkerställa att API: t implementerar program registrerings-/kod kraven för flera innehavare.
+2. Förutom att exponera API: ernas omfattningar/roller kontrollerar du att registreringen innehåller behörigheten "logga in och Läs användar profil" (anges som standard).
+3. Implementera en inloggnings-/registrerings sida i webb klienten och följ vägledningen för [Administratörs medgivande](#admin-consent) .
+4. När användaren samtycker till programmet skapas länkar till tjänstens huvud namn och medgivande delegering i sin klient, och det interna programmet kan hämta token för API: et.
 
-Följande diagram innehåller en översikt över tillstånd för ett flerskiktat program som är registrerade i olika klienter.
+Följande diagram ger en översikt över medgivande för en app med flera nivåer som registrerats i olika klienter.
 
-![Visar medgivande till flerparti flernivåapp][Consent-Multi-Tier-Multi-Party]
+![Illustrerar medgivande till Multi-Tier-appen för flera leverantörer][Consent-Multi-Tier-Multi-Party]
 
-### <a name="revoking-consent"></a>Återkalla medgivande
+### <a name="revoking-consent"></a>Återkalla godkännande
 
-Användare och administratörer kan återkalla medgivande till att ditt program när som helst:
+Användare och administratörer kan när som helst återkalla sitt medgivande till ditt program:
 
-* Användare återkalla åtkomst till enskilda program genom att ta bort dem från sina [Åtkomstpanelsappar][AAD-Access-Panel] lista.
-* Administratörer återkalla åtkomst till program genom att ta bort dem med hjälp av den [företagsprogram](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps) delen av den [Azure-portalen][AZURE-portal].
+* Användare återkallar åtkomst till enskilda program genom att ta bort dem från listan över [program i åtkomst panelen][AAD-Access-Panel] .
+* Administratörer återkallar åtkomst till program genom att ta bort dem med hjälp av avsnittet [företags program](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps) i [Azure Portal][AZURE-portal].
 
-Om en administratör godkänner ett program för alla användare i en klient, kan användare kan inte återkalla åtkomsten individuellt. Endast administratören kan återkalla åtkomsten och endast för hela programmet.
+Om en administratör godkänner ett program för alla användare i en klient organisation, kan användarna inte återkalla åtkomst individuellt. Endast administratören kan återkalla åtkomsten och endast för hela programmet.
 
-## <a name="multi-tenant-applications-and-caching-access-tokens"></a>Program för flera innehavare och cachelagring av åtkomsttoken
+## <a name="multi-tenant-applications-and-caching-access-tokens"></a>Program för flera innehavare och cachelagring av åtkomst-token
 
-Program för flera innehavare kan också hämta åtkomsttoken för att anropa API: er som skyddas av Azure AD. Ett vanligt fel när du använder Active Directory Authentication Library (ADAL) med ett program med flera innehavare är att först begära en token för en användare som använder/Common, ta emot svaret och sedan begära en efterföljande token för den samma användare som också använder/Common. Eftersom svaret från Azure AD inte kommer från en klient/vanliga, ADAL cachelagrar token kommer från klienten. Efterföljande anrop till/Common att hämta en åtkomsttoken för användaren missar cache-post och användaren uppmanas att logga in igen. Kontrollera att efterföljande anrop för en redan inloggad användare görs till klientens slutpunkt för att undvika saknas i cachen.
+Program med flera klienter kan också få åtkomsttoken för att anropa API: er som skyddas av Azure AD. Ett vanligt fel när du använder Active Directory-autentiseringsbibliotek (ADAL) med ett program med flera innehavare är att först begära en token för en användare som använder/vanliga, få ett svar och sedan begära en efterföljande token för samma användare som också använder/common. Eftersom svaret från Azure AD kommer från en klient, inte/vanliga, cachelagrar ADAL token som från klienten. Det efterföljande anropet till/vanliga för att hämta en åtkomsttoken för användaren missar cacheposten och användaren uppmanas att logga in igen. För att undvika att cachen saknas, se till att efterföljande anrop för en redan inloggad användare görs till klientens slut punkt.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln beskrivs hur du skapar en App som kan logga in en användare från alla Azure AD-klient. Du kan också uppdatera ditt program för att få åtkomst till API: er som exponeras av Microsoft-resurser som Office 365 efter att aktivera enkel inloggning (SSO) mellan din app och Azure AD. På så sätt kan du erbjuda personligt anpassade upplevelser i dina program, till exempel som visar sammanhangsbaserad information till användare, t.ex. deras profilbild eller deras nästa avtalad tid i kalendern. Mer information om att göra API-anrop till Azure AD och Office 365-tjänster som Exchange, SharePoint, OneDrive, OneNote och mer, gå till [Microsoft Graph API][MSFT-Graph-overview].
+I den här artikeln har du lärt dig hur du skapar ett program som kan logga in en användare från valfri Azure AD-klient. När du har aktiverat enkel inloggning (SSO) mellan din app och Azure AD kan du också uppdatera ditt program för att få åtkomst till API: er som exponeras av Microsoft-resurser som Office 365. På så sätt kan du erbjuda en anpassad upplevelse i ditt program, till exempel Visa sammanhangsbaserad information till användarna, till exempel deras profil bild eller nästa kalender möte. Mer information om hur du gör API-anrop till Azure AD-och Office 365-tjänster som Exchange, SharePoint, OneDrive, OneNote och mer finns på [Microsoft Graph API][MSFT-Graph-overview].
 
 ## <a name="related-content"></a>Relaterat innehåll
 
-* [Exempel för program med flera innehavare][AAD-Samples-MT]
-* [Riktlinjer för varumärkesanpassning för program][AAD-App-Branding]
-* [Programobjekt och tjänstobjekt][AAD-App-SP-Objects]
+* [Program med flera klient organisationer][AAD-Samples-MT]
+* [Rikt linjer för anpassning av program][AAD-App-Branding]
+* [Program objekt och tjänst huvud objekt][AAD-App-SP-Objects]
 * [Integrera program med Azure Active Directory][AAD-Integrating-Apps]
-* [Översikt över ramverket för medgivande][AAD-Consent-Overview]
-* [Behörighetsomfattning för Microsoft Graph API][MSFT-Graph-permission-scopes]
-* [Behörighetsomfattning för Azure AD Graph API][AAD-Graph-Perm-Scopes]
+* [Översikt över medgivande ramverket][AAD-Consent-Overview]
+* [Microsoft Graph API-behörighet omfattningar][MSFT-Graph-permission-scopes]
+* [Behörighets omfattningar för Azure AD-Graph API][AAD-Graph-Perm-Scopes]
 
 <!--Reference style links IN USE -->
 [AAD-Access-Panel]:  https://myapps.microsoft.com

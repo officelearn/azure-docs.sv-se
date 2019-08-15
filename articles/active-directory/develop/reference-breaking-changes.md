@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 747b279b38ec3b73f19194825195f1b3450d4514
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 38383685f74020f5208d42df4428f896931fbe2a
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68834852"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68931792"
 ---
 # <a name="whats-new-for-authentication"></a>Vad är nytt för autentisering? 
 
@@ -49,7 +49,7 @@ Autentiserings systemet ändrar och lägger till funktioner kontinuerligt för a
 
 **Start datum**: 26 juli 2019
 
-**Påverkade slut punkter**: Både [v 1.0](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow) och [v 2.0](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow)
+**Påverkade slut punkter**: Både [v 1.0](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow) och [v 2.0](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow)
 
 **Protokoll som påverkas**: [Klientautentiseringsuppgifter (endast app-token)](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow)
 
@@ -69,7 +69,7 @@ Om contoso Gateway-appen var ett program för flera innehavare, skulle begäran 
 
 ### <a name="redirect-uris-can-now-contain-query-string-parameters"></a>Omdirigerings-URI: er kan nu innehålla parametrar för frågesträng
 
-**Start datum**: Den 22 juli 2019
+**Start datum**: 22 juli 2019
 
 **Påverkade slut punkter**: Både v 1.0 och v 2.0
 

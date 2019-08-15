@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 3/01/2019
 ms.author: dacurwin
-ms.openlocfilehash: 524d0854e8691428738cee321e394f572ea80112
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 67ba9ba9bc85213ec479a90d205ed9570c62bf8c
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689182"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954612"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Återställa filer från säkerhets kopiering av virtuella Azure-datorer
 
@@ -231,7 +231,7 @@ Om du har problem när du återställer filer från de virtuella datorerna kan d
 | På den dator där exe körs: De nya volymerna demonteras inte när du klickar på knappen demontera | ISCSI-initieraren på datorn svarar inte/uppdaterar sin anslutning till målet och upprätthåller cachen. |  När du har klickat på **demontera**väntar du några minuter. Om de nya volymerna inte demonteras kan du bläddra igenom alla volymer. Om du bläddrar bland alla volymer så tvingas initieraren att uppdatera anslutningen och volymen demonteras med ett fel meddelande om att disken inte är tillgänglig.|
 | Exe-utdata: Skriptet körs korrekt men "nya volymer anslutna" visas inte i utdata för skriptet |    Detta är ett tillfälligt fel    | Volymerna hade redan kopplats. Öppna Utforskaren för att bläddra. Om du använder samma dator för att köra skript varje gång, bör du överväga att starta om datorn och listan bör visas i efterföljande exe-körningar. |
 | Linux-information: Det går inte att Visa önskade volymer | Operativ systemet på datorn där skriptet körs kanske inte känner igen det underliggande fil systemet för den skyddade virtuella datorn | Kontrol lera om återställnings punkten är kompatibel med konsekvens eller fil konsekvent. Om filen är konsekvent kör du skriptet på en annan dator vars operativ system känner igen den skyddade virtuella datorns fil system |
-| Windows-information: Det går inte att Visa önskade volymer | Diskarna kan ha anslutits, men volymerna har inte kon figurer ATS | På skärmen disk hantering identifierar du ytterligare diskar som är relaterade till återställnings punkten. Om någon av dessa diskar är i offline-tillstånd kan du göra dem online genom att högerklicka på disken och klicka på "online"|
+| Windows-information: Det går inte att Visa önskade volymer | Diskarna kan ha anslutits, men volymerna har inte kon figurer ATS | På skärmen disk hantering identifierar du ytterligare diskar som är relaterade till återställnings punkten. Om någon av dessa diskar är i offline-läge kan du prova att göra dem online genom att högerklicka på disken och klicka på "online"|
 
 ## <a name="security"></a>Säkerhet
 
@@ -261,7 +261,7 @@ För att köra skriptet, kräver ett lösen ord som bara visas för den auktoris
 
 #### <a name="browse-files-and-folders"></a>Bläddra bland filer och mappar
 
-För att bläddra bland filer och mappar använder skriptet iSCSI-initieraren på datorn och ansluter till återställnings punkten som är konfigurerad som ett iSCSI-mål. Här kan du anta scenarier där en försöker imitera/manipulera antingen/alla komponenter.
+För att bläddra bland filer och mappar använder skriptet iSCSI-initieraren på datorn och ansluter till den återställnings punkt som är konfigurerad som ett iSCSI-mål. Här kan du anta scenarier där en försöker imitera/manipulera antingen/alla komponenter.
 
 Vi använder mekanismen för ömsesidig CHAP-autentisering så att varje komponent autentiserar den andra. Det innebär att det är mycket svårt för en falsk initierare att ansluta till iSCSI-målet och att ett beskrivande mål måste vara anslutet till den dator där skriptet körs.
 

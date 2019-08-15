@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: eece1520a4b7e3bf37e1d209c58b5019921fdb98
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 7591cefddd6e7217c885293a2f5c878d7a82e158
+ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68884383"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69015932"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planera för distribution av Azure Files
 
@@ -155,7 +155,7 @@ Nya fil resurser börjar med det fullständiga antalet krediter i sin burst-Buck
 
 ## <a name="file-share-redundancy"></a>Redundans för fil resurs
 
-Azure Files standard resurser stöder tre alternativ för dataredundans: lokalt redundant lagring (LRS), Zone-redundant lagring (ZRS) och Geo-redundant lagring (GRS).
+Azure Files standard resurser stöder tre alternativ för dataredundans: lokalt redundant lagring (LRS), Zone-redundant lagring (ZRS), Geo-redundant lagring (GRS) och geo-Zone-redundant lagring (GZRS) (för hands version).
 
 Azure Files Premium-resurser har endast stöd för lokalt redundant lagring (LRS).
 
@@ -186,6 +186,7 @@ Både den primära och sekundära regionen hanterar repliker mellan olika fel do
 
 Tänk på följande när du bestämmer vilket replikeringsalternativ som ska användas:
 
+* Geo-Zone-redundant lagring (GZRS) (för hands version) ger hög tillgänglighet tillsammans med maximal hållbarhet genom att replikera data synkront över tre tillgänglighets zoner i Azure och sedan replikera data asynkront till den sekundära regionen. Du kan också aktivera Läs behörighet till den sekundära regionen. GZRS har utformats för att ge minst 99.99999999999999% (16 9) objekts hållbarhet under ett angivet år. Mer information om GZRS finns i [geo-Zone-redundant lagring för hög tillgänglighet och maximal hållbarhet (för hands version)](../common/storage-redundancy-gzrs.md).
 * Zone-redundant lagring (ZRS) ger hög tillgänglighet med synkron replikering och kan vara ett bättre alternativ för vissa scenarier än GRS. Mer information om ZRS finns i [ZRS](../common/storage-redundancy-zrs.md).
 * Asynkron replikering innebär en fördröjning från den tid som data skrivs till den primära regionen till när den replikeras till den sekundära regionen. I händelse av en regional katastrof kan ändringar som ännu inte har repliker ATS till den sekundära regionen gå förlorade om data inte kan återställas från den primära regionen.
 * Med GRS är repliken inte tillgänglig för Läs-eller skriv åtkomst om inte Microsoft initierar en redundansväxling till den sekundära regionen. Om det är en redundansväxling har du Läs-och skriv åtkomst till dessa data när redundansväxlingen har slutförts. Mer information finns i [rikt linjerna för haveri beredskap](../common/storage-disaster-recovery-guidance.md).
@@ -198,7 +199,7 @@ Det här avsnittet gäller endast för standard fil resurser. Alla Premium-filre
 
 - [Villkoren](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) för för hands versionen av Azure gäller för stora fil resurser i för hands versionen, inklusive när de används med Azure File Sync-distributioner.
 - Kräver att du skapar ett nytt lagrings konto för generell användning (det går inte att utöka befintliga lagrings konton).
-- Det går inte att konvertera ett nytt lagrings konto som skapats efter att prenumerationen har godkänts för förhands granskningen av LRS/ZRS till GRS-kontot.
+- Det går inte att konvertera ett nytt lagrings konto som skapats efter att prenumerationen har godkänts för för hands versionen av större fil resurser i LRS/ZRS till GRS/GZRS.
 
 
 ### <a name="regional-availability"></a>Regional tillgänglighet
@@ -214,7 +215,7 @@ Standard fil resurser är tillgängliga i alla regioner upp till 5 TiB. I vissa 
 |Västra Europa     |LRS, ZRS|Nej    |Ja|
 |Västra USA 2       |LRS, ZRS|Nej    |Ja|
 
-\* För regioner utan Portal stöd kan du fortfarande använda PowerShell eller Azure Command Line Interface (CLI) för att skapa större än 5 TiB-resurser. Altenatively skapar du en ny resurs via portalen utan att ange kvot. Då skapas en resurs med standard storleken 100 TiB, som kan uppdateras senare via PowerShell eller Azure CLI.
+\* För regioner utan Portal stöd kan du fortfarande använda PowerShell eller Azure Command Line Interface (CLI) för att skapa större än 5 TiB-resurser. Du kan också skapa en ny resurs via portalen utan att ange kvot. Då skapas en resurs med standard storleken 100 TiB, som kan uppdateras senare via PowerShell eller Azure CLI.
 
 För att hjälpa oss att prioritera nya regioner och funktioner kan du fylla i den här [undersökningen](https://aka.ms/azurefilesatscalesurvey).
 

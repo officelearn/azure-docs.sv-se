@@ -16,10 +16,10 @@ ms.date: 05/22/2017
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a0a258630fcb3639f20de4c72591611b7af15b90
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "68322984"
 ---
 # <a name="create-task-dependencies-to-run-tasks-that-depend-on-other-tasks"></a>Skapa aktivitets beroenden för att köra uppgifter som är beroende av andra aktiviteter
@@ -166,7 +166,7 @@ Ange en beroende åtgärd i .NET genom att ange [ExitOptions][net_exitoptions]. 
 - Att ange egenskapen **DependencyAction** för att **tillfredsställa** anger att beroende aktiviteter är berättigade att köras om den överordnade aktiviteten avslutas med ett angivet fel.
 - Om du ställer in egenskapen **DependencyAction** på **block** anger det att beroende aktiviteter inte är berättigade att köras.
 
-Standardvärdet för egenskapen **DependencyAction** **är för** slutkod 0, och **blockera** för alla andra avslutnings villkor.
+Standardvärdet för egenskapen **DependencyAction** är för slutkod 0, och **blockera** för alla andra avslutnings villkor.
 
 I följande kodfragment anges egenskapen **DependencyAction** för en överordnad aktivitet. Om den överordnade aktiviteten avslutas med ett för bearbetnings fel, eller med de angivna fel koderna, blockeras den beroende uppgiften. Om den överordnade aktiviteten avslutas med andra fel än noll, är den beroende uppgiften giltig att köras.
 

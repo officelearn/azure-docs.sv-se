@@ -12,12 +12,12 @@ author: djpmsft
 ms.author: daperlov
 ms.reviewer: ''
 manager: craigg
-ms.openlocfilehash: 91c0ad260c16ac09fd764246d31f99d481f8f147
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: fd8168b5786f669de0c5c2109c9e02b43c62c582
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/09/2019
-ms.locfileid: "68886837"
+ms.locfileid: "68933657"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Käll kontroll i Azure Data Factory
 
@@ -68,7 +68,7 @@ Båda metoderna öppnar konfigurations fönstret för lagrings inställningar.
 
 I konfigurations fönstret visas följande inställningar för Azure databaser Code-lagringsplatsen:
 
-| Inställning | Beskrivning | Värde |
+| Inställning | Beskrivning | Value |
 |:--- |:--- |:--- |
 | **Typ av databas** | Typen av Azure databaser Code-lagringsplatsen.<br/> | Azure DevOps git eller GitHub |
 | **Azure Active Directory** | Ditt Azure AD-klient namn. | `<your tenant name>` |
@@ -243,7 +243,7 @@ Genom att använda Key Vault kan du göra kontinuerlig integrering och distribut
 
 Om publicerings grenen inte är synkroniserad med huvud grenen och innehåller inaktuella resurser trots en senaste publicering, prova följande steg:
 
-1. Ta bort din aktuella git-lagringsplats/
+1. Ta bort din aktuella git-lagringsplats
 1. Konfigurera om git med samma inställningar, men se till att **Importera befintliga data Factory resurser till databasen** är markerat och välj **ny gren**
 1. Ta bort alla resurser från samarbets grenen
 1. Skapa en pull-begäran för att slå samman ändringarna i samarbets grenen 

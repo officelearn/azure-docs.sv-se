@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 33704c3392726ccd12ca0fd74f26465a54697e11
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 178f81cf42e5c57be4a0b69ada6560d46951a3a3
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68722136"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68942849"
 ---
 # <a name="identity-data-storage-for-european-customers-in-azure-active-directory"></a>Identity-datalagring för Europeiska kunder i Azure Active Directory
 Identitets data lagras av Azure AD på en geografisk plats baserat på den adress som tillhandahålls av din organisation när du prenumererar på en Microsoft Online-tjänst, till exempel Office 365 och Azure. Information om var dina identitets data lagras, kan du använda avsnittet var finns [dina data?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) i Microsoft säkerhets Center.
@@ -43,6 +43,15 @@ Azure AD B2B lagrar inbjudningar med Lös in länk-och omdirigerings-URL-informa
 ## <a name="microsoft-azure-active-directory-domain-services-azure-ad-ds"></a>Microsoft Azure Active Directory Domain Services (Azure AD DS)
 
 Azure AD DS lagrar användardata på samma plats som kundens valda Azure Virtual Network. Om nätverket finns utanför Europa replikeras och lagras alltså dessa data utanför Europa.
+
+## <a name="federation-in-microsoft-exchange-server-2013"></a>Federation i Microsoft Exchange Server 2013
+    
+- Program identifierare (AppID) – ett unikt nummer som genereras av Azure Active Directory Authentication system för att identifiera Exchange-organisationer.
+- Lista över godkända federerade domäner för program
+- Offentlig nyckel för programmets Token-signering 
+
+Mer information om Federation i Microsoft Exchange Server finns [i federationen: Hjälp](https://docs.microsoft.com/exchange/federation-exchange-2013-help) artikel för Exchange 2013.
+
 
 ## <a name="other-considerations"></a>Annat att tänka på
 

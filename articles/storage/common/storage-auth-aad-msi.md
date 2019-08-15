@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 07/15/2019
+ms.date: 07/18/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 2d0697567bfd2fcf95a1fe6ebf246646af5650c3
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 0f1c66126a1aa9a6ebf6f78ac6fb1ba37ba41829
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564895"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68985415"
 ---
 # <a name="authorize-access-to-blobs-and-queues-with-azure-active-directory-and-managed-identities-for-azure-resources"></a>Ge åtkomst till blobbar och köer med Azure Active Directory och hanterade identiteter för Azure-resurser
 
@@ -50,17 +50,7 @@ Mer information om hur du tilldelar RBAC-roller finns i någon av följande arti
 
 I kod exemplet visas hur du hämtar en OAuth 2,0-token från Azure AD och använder den för att auktorisera en begäran om att skapa en Block-Blob. Om du vill komma igång med det här exemplet börjar du med att följa stegen som beskrivs i föregående avsnitt.
 
-Klient biblioteket för [Microsoft Azure App-autentisering](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) för .net (för hands version) fören klar processen att förvärva och förnya en token från din kod. Klient biblioteket för app-autentisering hanterar autentiseringen automatiskt. Biblioteket använder utvecklarens autentiseringsuppgifter för att autentisera under lokal utveckling. Att använda autentiseringsuppgifter för utvecklare under lokal utveckling är säkrare eftersom du inte behöver skapa autentiseringsuppgifter för Azure AD eller dela autentiseringsuppgifter mellan utvecklare. När lösningen senare distribueras till Azure växlar biblioteket automatiskt till att använda programautentiseringsuppgifter.
-
-### <a name="install-packages"></a>Installera paket
-
-Om du vill använda app Authentication-biblioteket i ett Azure Storage-program installerar du det senaste för hands versions paketet från [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication), samt den senaste versionen av [Azure Storage vanliga klient bibliotek för .net](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/) och [Azure Blob Storage klient biblioteket för .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/). Lägg till följande **using** -uttryck i koden:
-
-```csharp
-using Microsoft.Azure.Services.AppAuthentication;
-using Microsoft.Azure.Storage.Auth;
-using Microsoft.Azure.Storage.Blob;
-```
+[!INCLUDE [storage-app-auth-lib-include](../../../includes/storage-app-auth-lib-include.md)]
 
 ### <a name="add-the-callback-method"></a>Lägg till callback-metoden
 

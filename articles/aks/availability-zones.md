@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/24/2019
 ms.author: iainfou
-ms.openlocfilehash: 0f99386aa9eeb75a990507e383c32412fb39eceb
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 52df1438913983a80ece487b49d0d6bd7821b636
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67840685"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019441"
 ---
 # <a name="preview---create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>För hands version – skapa ett Azure Kubernetes service-kluster (AKS) som använder Tillgänglighetszoner
 
@@ -90,7 +90,7 @@ Följande begränsningar gäller när du skapar ett AKS-kluster med hjälp av ti
 * Kluster med aktiverade tillgänglighets zoner kräver användning av Azures standard belastnings utjämning för distribution mellan zoner.
 * Du måste använda Kubernetes-version 1.13.5 eller senare för att kunna distribuera standard belastnings utjämning.
 
-AKS-kluster som använder tillgänglighets zoner måste använda Azure Load Balancer *standard* SKU. Standard- *SKU:* n för Azure Load Balancer stöder inte distribution över tillgänglighets zoner. Mer information och begränsningarna för standard belastningsutjämnaren finns i för [hands versions begränsningar för Azure Load Balancer standard SKU][standard-lb-limitations].
+AKS-kluster som använder tillgänglighets zoner måste använda Azure Load Balancer *standard* SKU. Standard- SKU: n för Azure Load Balancer stöder inte distribution över tillgänglighets zoner. Mer information och begränsningarna för standard belastningsutjämnaren finns i för [hands versions begränsningar för Azure Load Balancer standard SKU][standard-lb-limitations].
 
 ### <a name="azure-disks-limitations"></a>Begränsningar för Azure disks
 
@@ -124,7 +124,6 @@ az group create --name myResourceGroup --location eastus2
 az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
-    --kubernetes-version 1.13.5 \
     --generate-ssh-keys \
     --enable-vmss \
     --load-balancer-sku standard \

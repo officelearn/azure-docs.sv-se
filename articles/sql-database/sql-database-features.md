@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, sstein
 ms.date: 05/10/2019
-ms.openlocfilehash: 3f991d90dfdd5d31d1a7cf7119356f40458e7614
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 7e5c33577a2d926266ae45057509b112dc27ce7b
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568232"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68985728"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Jämförelse av funktioner: Azure SQL Database jämfört med SQL Server
 
@@ -84,7 +84,7 @@ I följande tabell visas de viktigaste funktionerna i SQL Server och innehåller
 | [Full texts ökning (FT: er)](https://docs.microsoft.com/sql/relational-databases/search/full-text-search) |  Ja, men ord separatorer från tredje part stöds inte | Ja, men [ord separatorer från tredje part stöds inte](sql-database-managed-instance-transact-sql-information.md#full-text-semantic-search) |
 | [Funktioner](https://docs.microsoft.com/sql/t-sql/functions/functions) | De flesta – se enskilda funktioner | Ja – se [lagrade procedurer, funktioner, utlösa skillnader](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-and-triggers) |
 | [Diagram bearbetning](https://docs.microsoft.com/sql/relational-databases/graphs/sql-graph-overview) | Ja | Ja |
-| [Minnesintern optimering](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | Ja – [endast Premium-och affärskritisk nivåer](sql-database-in-memory.md) | Ja – [endast affärskritisk nivå](sql-database-managed-instance.md) |
+| [Minnesintern optimering](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | Ja – [Premium-och affärskritisk nivåer endast](sql-database-in-memory.md) begränsat stöd för icke-beständiga minnes objekt, till exempel tabell typer | Ja – [endast affärskritisk nivå](sql-database-managed-instance.md) |
 | [Stöd för JSON-data](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server) | [Ja](sql-database-json-features.md) | [Ja](sql-database-json-features.md) |
 | [Språk element](https://docs.microsoft.com/sql/t-sql/language-elements/language-elements-transact-sql) | De flesta – se enskilda element |  Ja – se [skillnader i T-SQL](sql-database-managed-instance-transact-sql-information.md) |
 | [Länkade servrar](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | Ingen-se [elastisk fråga](sql-database-elastic-query-horizontal-partitioning.md) | Ja. Endast till [SQL Server och SQL Database](sql-database-managed-instance-transact-sql-information.md#linked-servers) utan distribuerade transaktioner. |

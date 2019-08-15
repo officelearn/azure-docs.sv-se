@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 1fc5e83c2c46a7da2a4b56879a2d596405fd8bee
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 8038b7bd60ac771c798a1a8645022b0bf9e142a9
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68718319"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934852"
 ---
 # <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 Har du frågor? Mer information finns i vanliga frågor och svar nedan.
@@ -137,12 +137,12 @@ Giltiga undertrycks regler:
 
 #### <a name="what-are-recommended-secrets-management-guidelines"></a>Vad är rekommendationer för hemligheter för hemligheter? 
 Vid identifiering av hårdkodade hemligheter inom rimlig tid och för att minska riskerna är det till och med bättre om en kan hindra hemligheter från att bli incheckat helt och hållet. I detta hänseende har Microsoft släppt CredScan Code Analyzer som en del av [Microsoft DevLabs-tillägget](https://marketplace.visualstudio.com/items?itemName=VSIDEDevOpsMSFT.ContinuousDeliveryToolsforVisualStudio) för Visual Studio. I tidiga förhands granskning ger utvecklare en infogad upplevelse för att identifiera potentiella hemligheter i sin kod, vilket ger dem möjlighet att åtgärda problemen i real tid. Mer information finns i [den här](https://devblogs.microsoft.com/visualstudio/managing-secrets-securely-in-the-cloud/) bloggen om hur du hanterar hemligheter på ett säkert sätt i molnet. Nedan finns ytterligare resurser som hjälper dig att hantera hemligheter och komma åt känslig information i dina program på ett säkert sätt: 
- - [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/)
- - [Azure Active Directory](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication)
+ - [Azure Key Vault](../../key-vault/index.yml)
+ - [Azure Active Directory](../../sql-database/sql-database-aad-authentication.md)
  - [Azure AD-Hanterad tjänstidentitet](https://azure.microsoft.com/blog/keep-credentials-out-of-code-introducing-azure-ad-managed-service-identity/)
- - [Hanterad tjänstidentitet (MSI) för Azure-resurser](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
- - [Azure-Hanterad tjänstidentitet](https://docs.microsoft.com/azure/app-service/overview-managed-identity)
- - [AppAuthentication-bibliotek](https://docs.microsoft.com/azure/key-vault/service-to-service-authentication)
+ - [Hanterad tjänstidentitet (MSI) för Azure-resurser](../../active-directory/managed-identities-azure-resources/overview.md)
+ - [Azure-Hanterad tjänstidentitet](../../app-service/overview-managed-identity.md)
+ - [AppAuthentication-bibliotek](../../key-vault/service-to-service-authentication.md)
 
 #### <a name="can-i-write-my-own-custom-searchers"></a>Kan jag skriva egna anpassade sökre?
 

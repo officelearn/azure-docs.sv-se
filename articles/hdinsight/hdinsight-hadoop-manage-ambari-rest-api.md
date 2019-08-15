@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/07/2019
 ms.author: hrasheed
-ms.openlocfilehash: 301ad4f940e6bd4eedb3a4df64e4740d29effe03
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 5836dda186c7bd9baeafa193052b0b75d63e291b
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68406236"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019607"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-rest-api"></a>Hantera HDInsight-kluster med hjälp av Apache Ambari REST API
 
@@ -42,6 +42,8 @@ Lär dig hur du använder Apache Ambari-REST API för att hantera och övervaka 
 ## <a name="authentication"></a>Authentication
 
 För att ansluta till Ambari i HDInsight krävs HTTPS. Använd administratörs konto namnet (standard är **administratör**) och lösen ord som du angav när du skapade klustret.
+
+För Enterprise Security Package kluster, i stället för `admin`, använder du ett fullständigt kvalificerat `username@domain.onmicrosoft.com`användar namn som.
 
 ## <a name="examples"></a>Exempel
 
@@ -380,7 +382,7 @@ Det här exemplet returnerar ett JSON-dokument som innehåller den aktuella `liv
     $resp.Content
     ```  
 
-    De här kommandona skickar innehållet i filen **newconfig. JSON** till klustret som den nya önskade konfigurationen. Begäran returnerar ett JSON-dokument. **VersionTag** -elementet i det här dokumentet måste matcha den version du skickade, och  objektet configs innehåller de konfigurations ändringar som du har begärt.
+    De här kommandona skickar innehållet i filen **newconfig. JSON** till klustret som den nya önskade konfigurationen. Begäran returnerar ett JSON-dokument. **VersionTag** -elementet i det här dokumentet måste matcha den version du skickade, och objektet configs innehåller de konfigurations ändringar som du har begärt.
 
 ### <a name="restart-a-service-component"></a>Starta om en tjänst komponent
 

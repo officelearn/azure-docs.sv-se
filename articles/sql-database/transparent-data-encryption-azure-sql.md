@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
-ms.date: 04/19/2019
-ms.openlocfilehash: 1d5baf4b7f8a28638c5dbd50fb407035a5b9ea89
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 08/12/2019
+ms.openlocfilehash: 07fcd0f1ec33aa9a7520e35eb7e53a76295009ba
+ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566125"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68967903"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>Transparent data kryptering för SQL Database och informations lager
 
@@ -37,7 +37,7 @@ I Azure är standardinställningen för transparent data kryptering att databas 
 Microsoft flyttar också sömlöst och hanterar nycklarna efter behov för geo-replikering och återställning.
 
 > [!IMPORTANT]
-> Alla nyligen skapade SQL-databaser krypteras som standard med hjälp av tjänstehanterad transparent data kryptering. Azure SQL-hanterade instans databaser, befintliga SQL-databaser som skapats före maj 2017 och SQL-databaser som skapats via återställning, geo-replikering och databas kopiering krypteras inte som standard.
+> Alla nyligen skapade SQL-databaser och hanterade instans databaser krypteras som standard med hjälp av tjänstehanterad transparent data kryptering. Befintliga SQL-databaser som skapats före maj 2017 och SQL-databaser som skapats via återställning, geo-replikering och databas kopiering är inte krypterade som standard. Befintliga hanterade instans databaser som skapats före februari 2019 krypteras inte som standard. Hanterade instans databaser som skapats via återställning ärver krypterings status från källan.
 
 ## <a name="customer-managed-transparent-data-encryption---bring-your-own-key"></a>Kundhanterad transparent data kryptering – Bring Your Own Key
 

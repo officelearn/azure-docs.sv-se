@@ -11,10 +11,10 @@ ms.date: 03/22/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ms.openlocfilehash: cae2acf98f39030f4ff340d32f1911bb2b5763ae
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "65860830"
 ---
 # <a name="analyze-data-with-azure-machine-learning"></a>Analysera data med Azure Machine Learning
@@ -33,18 +33,18 @@ Denna självstudie använder Azure Machine Learning för att skapa en förutsäg
 > 
 > 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 För att gå igenom de här självstudierna, behöver du:
 
-* Ett SQL Data Warehouse förinstallerat med AdventureWorksDW som exempeldatabas. Om du vill distribuera detta läser du [Skapa ett SQL Data Warehouse][Create a SQL Data Warehouse] och väljer att läsa in exempeldata. Om du redan har ett Data Warehouse men inte har exempeldata kan du [läsa in exempeldata manuellt][load sample data manually].
+* Ett SQL Data Warehouse förinstallerat med AdventureWorksDW som exempeldatabas. Om du vill distribuera detta, se [Skapa ett SQL Data Warehouse][Create a SQL Data Warehouse] och välj att läsa in exempeldata. Om du redan har ett Data Warehouse men inte har exempeldata, kan du [läsa in exempeldata manuellt][load sample data manually].
 
 ## <a name="1-get-the-data"></a>1. Hämta data
 Aktuella data finns i dbo.vTargetMail-vyn i AdventureWorksDW-databasen. Så här läser du in dessa data:
 
-1. Logga in i [Azure Machine Learning Studio][Azure Machine Learning studio] och klicka på My experiments (Mina experiment).
-2. Klicka på **+ ny** längst ned till vänster på skärmen och välj **tomt Experiment**.
-3. Ange ett namn för experimentet: Riktad marknadsföring.
-4. Dra den **dataimport** modulen under **Data indata och utdata** från modulfönstret till arbetsytan.
+1. Logga in på [Azure Machine Learning-studio][Azure Machine Learning studio] och klicka på mina experiment.
+2. Klicka på **+ ny** längst ned till vänster på skärmen och välj **Tom experiment**.
+3. Ange ett namn på experimentet: Riktad marknadsföring.
+4. Dra modulen **Importera data** under **data inmatning och utdata** från fönstret moduler till arbets ytan.
 5. Ange information om din SQL Data Warehouse-databas i fönstret Egenskaper.
 6. Ange **fråga** för databasen för att läsa data av intresse.
 
@@ -77,20 +77,20 @@ När experimentet har körts, klicka på utdataporten längst ned i läsarmodule
 ## <a name="2-clean-the-data"></a>2. Rensa data
 För att rensa data kommer vi att släppa vissa kolumner som inte är relevanta för modellen. Gör så här:
 
-1. Dra den **Välj kolumner i datauppsättning** modulen under **Dataomvandling < manipulering av** till arbetsytan. Anslut den här modulen till den **importdata** modulen.
+1. Dra modulen **Välj kolumner i data uppsättning** under **dataomvandling < manipulering** till arbets ytan. Anslut den här modulen till modulen **Importera data** .
 2. Klicka på **Starta kolumnväljaren** i fönstret Egenskaper för att ange vilka kolumner du vill ta bort.
    ![Projektkolumner][4]
 3. Exkludera två kolumner: CustomerAlternateKey och GeographyKey.
    ![Ta bort onödiga kolumner][5]
 
 ## <a name="3-build-the-model"></a>3. Skapa modellen
-Vi delar data 80 – 20: 80% för att träna en maskininlärningsmodell och 20% för att testa modellen. Vi använder ”Tvåklassalgoritmer” för detta binära klassificeringsproblem.
+Vi kommer att dela data 80-20: 80% för att träna en Machine Learning-modell och 20% för att testa modellen. Vi använder ”Tvåklassalgoritmer” för detta binära klassificeringsproblem.
 
 1. Dra modulen **Dela** till arbetsytan.
-2. Ange 0,8 för andel av rader i den första utdatauppsättningen i egenskapsfönstret.
+2. I rutan egenskaper anger du 0,8 för bråk delar i den första utdata-datauppsättningen.
    ![Dela data till uppsättningar för träning och testning][6]
 3. Dra modulen **tvåklassförhöjt beslutsträd** till arbetsytan.
-4. Dra den **träna modell** modulen till arbetsytan och ange indata via en anslutning till den **Tvåklassförhöjt beslutsträd** (ML-algoritmen) och **dela** (data att träna den moduler för algoritmen på). 
+4. Dra modulen **träna modell** till arbets ytan och ange indata genom att ansluta den till **besluts trädet i två klass** (ml-algoritm) och **dela** (data för att träna algoritmen på) moduler. 
      ![Anslut träningsmodellmodulen][7]
 5. Klicka sedan på **Starta kolumnväljaren** i fönstret Egenskaper. Välj kolumnen **BikeBuyer** som kolumn att förutsäga.
    ![Välj kolumn att förutsäga][8]
@@ -98,8 +98,8 @@ Vi delar data 80 – 20: 80% för att träna en maskininlärningsmodell och 20% 
 ## <a name="4-score-the-model"></a>4. Poängsätt modellen
 Vi kommer nu att testa hur modellen presterar på testdata. Vi kommer att jämföra algoritmen vi valt med en annan algoritm för att se vilken som presterar bäst.
 
-1. Dra **Poängmodell** modulen till arbetsytan och anslut den till **Träningsmodell** och **dela Data** moduler.
-   ![Poängsätt modellen][9]
+1. Dra modulen **Poäng modell** till arbets ytan och Anslut den till **träna modell** -och **delade** Datamoduler.
+   ![Betygs ätt modellen][9]
 2. Dra **Tvåklass, Bayes Point-dator** till arbetsytan för experimentet. Vi kommer att jämföra hur den här algoritmen presterar i jämförelse med det tvåklassförhöjda beslutsträdet.
 3. Kopiera och klistra in modulerna Träningsmodell och Poängmodell i arbetsytan.
 4. Dra modulen **Utvärdera modell** till arbetsytan för att jämföra de två algoritmerna.
@@ -119,7 +119,7 @@ Du ser två kolumner som läggs till i testdata.
 Genom att jämföra kolumnen BikeBuyer (faktiska) med Poängsatta etiketter (förutsagda), kan du se hur väl modellen har utförts. Du kan använda den här modellen som nästa steg för att göra förutsägelser för nya kunder och publicera den här modellen som en webbtjänst eller skriva resultaten tillbaka till SQL Data Warehouse.
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om hur du skapar förutsägbara maskininlärningsmodeller finns i [Introduktion till Machine Learning i Azure][Introduction to Machine Learning on Azure].
+Mer information om hur du skapar förutsägbara maskininlärningsmodeller finns i [Introduktion till Machine Learning på Azure][Introduction to Machine Learning on Azure].
 
 <!--Image references-->
 [1]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img1-reader-new.png

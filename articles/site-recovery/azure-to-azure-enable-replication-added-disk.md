@@ -1,6 +1,6 @@
 ---
-title: Aktivera replikering för en disk som har lagts till i en Azure-dator som replikeras av Azure Site Recovery | Microsoft Docs
-description: Den här artikeln beskriver hur du aktiverar replikering för en disk som har lagts till i en Azure-dator som är aktiverad för haveriberedskap med Azure Site Recovery
+title: Aktivera replikering för en disk som lagts till i en virtuell Azure-dator som replikeras av Azure Site Recovery | Microsoft Docs
+description: I den här artikeln beskrivs hur du aktiverar replikering för en disk som har lagts till i en virtuell Azure-dator som är aktive rad för haveri beredskap med Azure Site Recovery
 services: site-recovery
 author: asgang
 manager: rochakm
@@ -8,48 +8,48 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: asgang
-ms.openlocfilehash: 4a262a3a0c32516988890a6afc6eef34d8655c89
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 068464b8a3919d833418c8f3916ccf5c54835c6f
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671877"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934545"
 ---
-# <a name="enable-replication-for-a-disk-added-to-an-azure-vm"></a>Aktivera replikering för en disk som har lagts till i en Azure-dator
+# <a name="enable-replication-for-a-disk-added-to-an-azure-vm"></a>Aktivera replikering för en disk som lagts till i en virtuell Azure-dator
 
 
-Den här artikeln beskriver hur du aktiverar replikering för datadiskar som läggs till en Azure-dator som redan är aktiverad för haveriberedskap till en annan Azure-region, med hjälp av [Azure Site Recovery](site-recovery-overview.md).
+Den här artikeln beskriver hur du aktiverar replikering för data diskar som läggs till i en virtuell Azure-dator som redan har Aktiver ATS för haveri beredskap till en annan Azure-region med hjälp av [Azure Site Recovery](site-recovery-overview.md).
 
-Aktiverar replikering för en disk som du lägger till i en virtuell dator har stöd för virtuella Azure-datorer med hanterade diskar.
+Att aktivera replikering för en disk som du lägger till i en virtuell dator stöds för virtuella Azure-datorer med hanterade diskar.
 
-När du lägger till en ny disk till en Azure virtuell dator som replikeras till en annan Azure-region, inträffar följande:
+När du lägger till en ny disk till en virtuell Azure-dator som replikeras till en annan Azure-region inträffar följande:
 
--   Tillståndet för replikeringen för den virtuella datorn visas en varning och en anteckning i portalen meddelar att en eller fler diskar är tillgängliga för skydd.
--   Om du aktiverar skydd för de tillagda diskarna försvinner varningen när den inledande replikeringen på disken.
--   Om du väljer att inte aktivera replikering av disken, kan du välja för att ignorera varningen.
+-   Hälso tillståndet för den virtuella datorn visar en varning och en anteckning i portalen informerar dig om att en eller flera diskar är tillgängliga för skydd.
+-   Om du aktiverar skydd för de tillagda diskarna försvinner varningen efter den inledande replikeringen av disken.
+-   Om du väljer att inte aktivera replikering för disken kan du välja att ignorera varningen.
 
-![Ny disk som har lagts till](./media/azure-to-azure-enable-replication-added-disk/newdisk.png)
+![Ny disk har lagts till](./media/azure-to-azure-enable-replication-added-disk/newdisk.png)
 
 
 
 ## <a name="before-you-start"></a>Innan du börjar
 
-Den här artikeln förutsätter att du har ställt in katastrofåterställning för den virtuella datorn som du vill lägga till disken. Om du inte gjort det, följer du de [Azure till Azure disaster recovery självstudien](azure-to-azure-tutorial-enable-replication.md). 
+Den här artikeln förutsätter att du redan har konfigurerat en katastrof återställning för den virtuella dator som du lägger till disken i. Om du inte har gjort det följer du [själv studie kursen om att återställa Azure till Azure](azure-to-azure-tutorial-enable-replication.md). 
 
 ## <a name="enable-replication-for-an-added-disk"></a>Aktivera replikering för en tillagd disk 
 
-Om du vill aktivera replikering för en disk som har lagts till, gör du följande:
+Gör så här om du vill aktivera replikering för en tillagd disk:
 
-1. I valvet > **replikerade objekt**, klickar du på den virtuella datorn som du har lagt till disken.
-2. Klicka på **diskar**, och välj sedan datadisken som du vill aktivera replikering (dessa diskar har en **oskyddade** status).
-3.  I **diskinformation**, klickar du på **Aktivera replikering**.
+1. I valvet > **replikerade objekt**klickar du på den virtuella dator som du har lagt till disken i.
+2. Klicka på **diskar**och välj sedan den datadisk som du vill aktivera replikering för (diskarna har statusen **inte skyddad** ).
+3.  I **disk information**klickar du på **Aktivera replikering**.
 
-    ![Aktivera replikering för tillagda disken](./media/azure-to-azure-enable-replication-added-disk/enabled-added.png)
+    ![Aktivera replikering för tillagd disk](./media/azure-to-azure-enable-replication-added-disk/enabled-added.png)
 
-Efter att aktivera replikering jobbet har körts och den inledande replikeringen är klar, tas health Replikeringsvarning för disk-problemet bort.
+När jobbet aktivera replikering har körts och den inledande replikeringen har slutförts, tas varningen för replikeringen bort från disk problemet.
 
 
 
-# <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Nästa steg
 
-[Läs mer](site-recovery-test-failover-to-azure.md) om hur du kör ett redundanstest.
+[Läs mer](site-recovery-test-failover-to-azure.md) om att köra ett redundanstest.

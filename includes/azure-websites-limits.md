@@ -2,49 +2,49 @@
 author: rothja
 ms.service: billing
 ms.topic: include
-ms.date: 11/09/2018
+ms.date: 08/09/2019
 ms.author: jroth
-ms.openlocfilehash: ce64047fd7490106790ea8bb1ad7963d82a87c24
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 203f0eda7e2e9d1545e7bf5cc2bb6eff9c2c3c55
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187720"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68936909"
 ---
 | Resource | Lediga | Delad | Basic | Standard | Premium (v2) | Isolerad </th> |
 | --- | --- | --- | --- | --- | --- | --- |
-| [Webb-, Mobil- eller API apps](https://azure.microsoft.com/services/app-service/) per [Azure App Service-plan](../articles/app-service/overview-hosting-plans.md)<sup>1</sup> |10 |100 |Obegränsade<sup>2</sup> |Obegränsade<sup>2</sup> |Obegränsade<sup>2</sup> |Obegränsade<sup>2</sup>|
-| [App Service-plan](../articles/app-service/overview-hosting-plans.md) |10 per region |10 per resursgrupp |100 per resursgrupp |100 per resursgrupp |100 per resursgrupp |100 per resursgrupp|
-| Beräkning instanstyp |Delad |Delad |Dedikerad<sup>3</sup> |Dedikerad<sup>3</sup> |Dedikerad<sup>3</sup></p> |Dedikerad<sup>3</sup>|
-| [Skala ut](../articles/app-service/web-sites-scale.md) (maximalt antal instanser) |1 delad |1 delad |3 dedikerade<sup>3</sup> |10 dedikerade<sup>3</sup> |20 dedikerade<sup>3</sup>|100 dedikerade<sup>4</sup>|
-| Storage<sup>5</sup> |1 GB<sup>5</sup> |1 GB<sup>5</sup> |10 GB<sup>5</sup> |50 GB<sup>5</sup> |250 GB<sup>5</sup></p> |1 TB<sup>5</sup>|
-| CPU-tid (5 minuter)<sup>6</sup> |3 minuter |3 minuter |Obegränsade, betala enligt standardpriserna [priser](https://azure.microsoft.com/pricing/details/app-service/)</a> |Obegränsade, betala enligt standardpriserna [priser](https://azure.microsoft.com/pricing/details/app-service/)</a> |Obegränsade, betala enligt standardpriserna [priser](https://azure.microsoft.com/pricing/details/app-service/)</a> |Obegränsade, betala enligt standardpriserna [priser](https://azure.microsoft.com/pricing/details/app-service/)</a>|
-| Processortid (dag)<sup>6</sup> |60 minuter |240 minuter |Obegränsade, betala enligt standardpriserna [priser](https://azure.microsoft.com/pricing/details/app-service/)</a> |Obegränsade, betala enligt standardpriserna [priser](https://azure.microsoft.com/pricing/details/app-service/)</a> |Obegränsade, betala enligt standardpriserna [priser](https://azure.microsoft.com/pricing/details/app-service/)</a> |Obegränsade, betala enligt standardpriserna [priser](https://azure.microsoft.com/pricing/details/app-service/)</a> |
-| Minne (1 timme) |1 024 MB per App Service-plan |1 024 MB per app |Gäller inte |Saknas |Saknas |Gäller inte |
-| Bandbredd |165 MB |Obegränsad och [dataöverföring](https://azure.microsoft.com/pricing/details/data-transfers/) gäller |Obegränsad och [dataöverföring](https://azure.microsoft.com/pricing/details/data-transfers/) gäller |Obegränsad och [dataöverföring](https://azure.microsoft.com/pricing/details/data-transfers/) gäller |Obegränsad och [dataöverföring](https://azure.microsoft.com/pricing/details/data-transfers/) gäller |Obegränsad och [dataöverföring](https://azure.microsoft.com/pricing/details/data-transfers/) gäller |
+| [Webb-, mobil-eller API-appar](https://azure.microsoft.com/services/app-service/) per [Azure App Service plan](../articles/app-service/overview-hosting-plans.md)<sup>1</sup> |10 |100 |Obegränsat<sup>2</sup> |Obegränsat<sup>2</sup> |Obegränsat<sup>2</sup> |Obegränsat<sup>2</sup>|
+| [App Service-plan](../articles/app-service/overview-hosting-plans.md) |10 per region |10 per resurs grupp |100 per resurs grupp |100 per resurs grupp |100 per resurs grupp |100 per resurs grupp|
+| Beräknings instans typ |Delad |Delad |Dedikerad<sup>3</sup> |Dedikerad<sup>3</sup> |Dedikerad<sup>3</sup></p> |Dedikerad<sup>3</sup>|
+| [Skala ut](../articles/app-service/web-sites-scale.md) (maximalt antal instanser) |1 delad |1 delad |3 dedikerad<sup>3</sup> |10 dedikerat<sup>3</sup> |20 dedikerad<sup>3</sup>|100 dedikerat<sup>4</sup>|
+| Lagring<sup>5</sup> |1 GB<sup>5</sup> |1 GB<sup>5</sup> |10 GB<sup>5</sup> |50 GB<sup>5</sup> |250 GB<sup>5</sup></p> |1 TB<sup>5</sup>|
+| PROCESSOR tid (5 minuter)<sup>6</sup> |3 minuter |3 minuter |Obegränsad, betala enligt standard [priser](https://azure.microsoft.com/pricing/details/app-service/)</a> |Obegränsad, betala enligt standard [priser](https://azure.microsoft.com/pricing/details/app-service/)</a> |Obegränsad, betala enligt standard [priser](https://azure.microsoft.com/pricing/details/app-service/)</a> |Obegränsad, betala enligt standard [priser](https://azure.microsoft.com/pricing/details/app-service/)</a>|
+| CPU-tid (dag)<sup>6</sup> |60 minuter |240 minuter |Obegränsad, betala enligt standard [priser](https://azure.microsoft.com/pricing/details/app-service/)</a> |Obegränsad, betala enligt standard [priser](https://azure.microsoft.com/pricing/details/app-service/)</a> |Obegränsad, betala enligt standard [priser](https://azure.microsoft.com/pricing/details/app-service/)</a> |Obegränsad, betala enligt standard [priser](https://azure.microsoft.com/pricing/details/app-service/)</a> |
+| Minne (1 timme) |1 024 MB per App Service plan |1 024 MB per app |Gäller inte |Saknas |Saknas |Gäller inte |
+| Bandbredd |165 MB |Obegränsad, [data överförings taxa](https://azure.microsoft.com/pricing/details/data-transfers/) gäller |Obegränsad, [data överförings taxa](https://azure.microsoft.com/pricing/details/data-transfers/) gäller |Obegränsad, [data överförings taxa](https://azure.microsoft.com/pricing/details/data-transfers/) gäller |Obegränsad, [data överförings taxa](https://azure.microsoft.com/pricing/details/data-transfers/) gäller |Obegränsad, [data överförings taxa](https://azure.microsoft.com/pricing/details/data-transfers/) gäller |
 | Programarkitektur |32-bitars |32-bitars |32-bitars/64-bitars |32-bitars/64-bitars |32-bitars/64-bitars |32-bitars/64-bitars |
-| Web sockets per instans<sup>7</sup> |5 |35 |350 |Obegränsat |Obegränsat |Obegränsat |
-| Samtidiga [felsökning av anslutningar](../articles/app-service/troubleshoot-dotnet-visual-studio.md) per program |1 |1 |1 |5 |5 |5 |
-| App Service Certificate per prenumeration<sup>10</sup>| Stöds inte | Stöds inte |10 |10 |10 |10 |
-| Anpassade domäner per app</a> |0 (endast azurewebsites.net underdomän)|500 |500 |500 |500 |500 |
-| Anpassad domän [SSL-stöd](../articles/app-service/app-service-web-tutorial-custom-ssl.md) |Stöds, inte jokerteckencertifikat för *. azurewebsites.net som är tillgängliga som standard|Stöds, inte jokerteckencertifikat för *. azurewebsites.net som är tillgängliga som standard|Obegränsade SNI SSL-anslutningar |Obegränsade SNI SSL och 1 IP SSL-anslutningar ingår |Obegränsade SNI SSL och 1 IP SSL-anslutningar ingår | Obegränsade SNI SSL och 1 IP SSL-anslutningar ingår|
+| Web Sockets per instans<sup>7</sup> |5 |35 |350 |Obegränsat |Obegränsat |Obegränsat |
+| Samtidiga [fel söknings anslutningar](../articles/app-service/troubleshoot-dotnet-visual-studio.md) per program |1 |1 |1 |5 |5 |5 |
+| App Service certifikat per prenumeration<sup>10</sup>| Stöds inte | Stöds inte |10 |10 |10 |10 |
+| Anpassade domäner per app</a> |0 (endast azurewebsites.net-underdomän)|500 |500 |500 |500 |500 |
+| Stöd för anpassad domän- [SSL](../articles/app-service/app-service-web-tutorial-custom-ssl.md) |Saknar stöd för det jokertecken för *. azurewebsites.net som är tillgängligt som standard|Saknar stöd för det jokertecken för *. azurewebsites.net som är tillgängligt som standard|Obegränsade SNI SSL anslutningar |Obegränsade SNI SSL och 1 IP SSL anslutningar ingår |Obegränsade SNI SSL och 1 IP SSL anslutningar ingår | Obegränsade SNI SSL och 1 IP SSL anslutningar ingår|
 | Integrerad belastningsutjämnare | |X |X |X |X |X<sup>9</sup> |
-| [Alltid på](../articles/app-service/configure-common.md) | | |X |X |X |X |
-| [Schemalagda säkerhetskopieringar](../articles/app-service/manage-backup.md) | | | | Schemalagda säkerhetskopieringar varannan timme, upp till 12 säkerhetskopieringar per dag (manuell + schemalagd) | Schemalagda säkerhetskopieringar varje timme, högst 50 säkerhetskopieringar per dag (manuell + schemalagd) | Schemalagda säkerhetskopieringar varje timme, högst 50 säkerhetskopieringar per dag (manuell + schemalagd) |
+| [Always on](../articles/app-service/configure-common.md) | | |X |X |X |X |
+| [Schemalagda säkerhets kopieringar](../articles/app-service/manage-backup.md) | | | | Schemalagda säkerhets kopieringar varje 2 timme, högst 12 säkerhets kopior per dag (manuellt + schemalagd) | Schemalagda säkerhets kopieringar varje timme, högst 50 säkerhets kopior per dag (manuellt + schemalagd) | Schemalagda säkerhets kopieringar varje timme, högst 50 säkerhets kopior per dag (manuellt + schemalagd) |
 | [Automatisk skalning](../articles/app-service/web-sites-scale.md) | | | |X |X |X |
-| [WebJobs](../articles/app-service/webjobs-create.md)<sup>8</sup> |X |X |X |X |X |X |
-| [Azure Scheduler](https://azure.microsoft.com/services/scheduler/) stöd | |X |X |X |X |X |
+| [WebJobs](../articles/app-service/webjobs-create.md) <sup>8</sup> |X |X |X |X |X |X |
+| Stöd för [Azure Scheduler](https://azure.microsoft.com/services/scheduler/) | |X |X |X |X |X |
 | [Slutpunktsövervakning](../articles/app-service/web-sites-monitor.md) | | |X |X |X |X |
-| [mellanlagringsplatser](../articles/app-service/deploy-staging-slots.md) | | | |5 |20 |20 |
-| SLA | |  |99,9 % |99,95 %|99,95 %|99,95 %|  
+| [Mellanlagrings platser](../articles/app-service/deploy-staging-slots.md) | | | |5 |20 |20 |
+| SLA | |  |99,95 %|99,95 %|99,95 %|99,95 %|  
 
-<sup>1</sup>appar och lagringskvoter är per App Service-plan om inget annat anges.  
-<sup>2</sup>det faktiska antalet appar som du kan ha på de här datorerna beror på aktiviteten för appar, storleken på instanserna av datorer och motsvarande resursutnyttjandet.  
-<sup>3</sup>dedikerade instanser kan vara av olika storlekar. Mer information finns i [prissättning för App Service](https://azure.microsoft.com/pricing/details/app-service/).  
-<sup>4</sup>mer tillåts på begäran.  
-<sup>5</sup>lagringsgränsen är den totala innehållsstorleken över alla appar i samma App Service-planen.  
-<sup>6</sup>dessa resurser är begränsade av fysiska resurser på de dedikerade instanserna (instansstorlek och antalet instanser).  
-<sup>7</sup>om du skalar en app i Basic-nivån till två instanser du har 350 samtidiga anslutningar för var och en av de två instanserna.  
-<sup>8</sup>kör anpassade körningsbara filer och/eller skript på begäran, enligt ett schema eller kontinuerligt som bakgrundsjobb i din App Service. ”Alltid på” krävs för kontinuerlig körning av WebJobs. Azure Scheduler Kostnadsfri eller Standard krävs för schemalagda WebJobs. Det finns ingen fördefinierade gräns för hur många av WebJobs som kan köras i en App Service-instans. Det finns praktisk gräns som beror på vad programkoden försöker utföra.  
-<sup>9</sup>app Service isolerade SKU: er har möjlighet att vara internt läsa in belastningsutjämnade (ILB) med Azure Load Balancer så att det finns inga offentliga anslutningsmöjligheter från internet. Därför måste vissa funktioner för en ILB-isolerad App Service användas från datorer som har direkt åtkomst till ILB-nätverksslutpunkten.  
-<sup>10</sup>kan du öka kvotgränsen för den App Service Certificate per prenumeration via en supportbegäran om att en maxgräns på 200.  
+<sup>1</sup> Appar och lagrings kvoter per App Service plan om inget annat anges.  
+<sup>2</sup> Det faktiska antalet appar som du kan vara värd för på de här datorerna beror på aktivitetens appar, storleken på dator instanserna och motsvarande resursutnyttjande.  
+<sup>3</sup> Dedikerade instanser kan ha olika storlekar. Mer information finns i [App Service prissättning](https://azure.microsoft.com/pricing/details/app-service/).  
+<sup>4</sup> Fler tillåts på begäran.  
+<sup>5</sup> Lagrings gränsen är den totala innehålls storleken för alla appar i samma App Service plan.  
+<sup>6</sup> Dessa resurser begränsas av fysiska resurser på dedikerade instanser (instans storlek och antal instanser).  
+<sup>7</sup> Om du skalar en app på Basic-nivån till två instanser har du 350 samtidiga anslutningar för var och en av de två instanserna. För standard-nivån och ovan finns det inga teoretiska gränser för Web Sockets, men andra faktorer kan begränsa antalet Web Sockets. Till exempel är maximalt antal samtidiga begär Anden `maxConcurrentRequestsPerCpu`tillåtna (definierade av): 7 500 per liten virtuell dator, 15 000 per medelhög virtuell dator (7 500 x 2 kärnor) och 75 000 per stor virtuell dator (18 750 x 4 kärnor).  
+<sup>8</sup> Kör anpassade körbara filer och/eller skript på begäran, enligt schema eller kontinuerligt som bakgrunds aktivitet i App Service-instansen. ”Alltid på” krävs för kontinuerlig körning av WebJobs. Azure Scheduler Kostnadsfri eller Standard krävs för schemalagda WebJobs. Det finns ingen fördefinierad gräns för antalet WebJobs som kan köras i en App Service instans. Det finns praktiska gränser som beror på vad program koden försöker göra.  
+<sup>9</sup> App Service Isolerad SKU: er kan vara internt belastningsutjämnade (ILB) med Azure Load Balancer, så det finns ingen offentlig anslutning från Internet. Därför måste vissa funktioner för en ILB-isolerad App Service användas från datorer som har direkt åtkomst till ILB-nätverksslutpunkten.  
+<sup>10</sup> Gränsen för App Service Certificate kvot per prenumeration kan ökas via en supportbegäran till en maximal gräns på 200.  

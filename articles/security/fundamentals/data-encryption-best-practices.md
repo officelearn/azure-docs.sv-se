@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 4df024f9ff37121df4d9be51ae1fa540028ddd3d
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 83b4f2fce3dbae2168627194a45e62a2d4479936
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727419"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934753"
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Metodtips för datasäkerhet och kryptering i Azure
 Den här artikeln beskriver metod tips för data säkerhet och kryptering.
@@ -97,7 +97,7 @@ Organisationer som inte tillämpar data kryptering är mer utsatta för problem 
 
 Att skydda data i överföring bör vara en viktig del av din strategi för data skydd. Eftersom data flyttas fram och tillbaka från många platser rekommenderar vi vanligt vis att du alltid använder SSL/TLS-protokoll för att utbyta data mellan olika platser. I vissa fall kanske du vill isolera hela kommunikations kanalen mellan dina lokala och molnbaserade infrastrukturer med hjälp av en VPN-anslutning.
 
-För data som flyttas mellan den lokala infrastrukturen och Azure bör du överväga lämpliga skydd som HTTPS eller VPN. Använd [Azure VPN gateway](https://docs.microsoft.com/azure/vpn-gateway/)när du skickar krypterad trafik mellan ett virtuellt Azure-nätverk och en lokal plats via det offentliga Internet.
+För data som flyttas mellan den lokala infrastrukturen och Azure bör du överväga lämpliga skydd som HTTPS eller VPN. Använd [Azure VPN gateway](../../vpn-gateway/index.yml)när du skickar krypterad trafik mellan ett virtuellt Azure-nätverk och en lokal plats via det offentliga Internet.
 
 Följande är metod tips som är speciella för att använda Azure VPN Gateway, SSL/TLS och HTTPS.
 

@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 21b7c4e17d976a0a4099a926823f51eab1dba98d
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 80adc98255cfc9145d583ac775bbc490d599234e
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879079"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976834"
 ---
 # <a name="azure-data-catalog-developer-concepts"></a>Azure Data Catalog utveckla koncept
 Microsoft **Azure Data Catalog** är en helt hanterad moln tjänst som tillhandahåller funktioner för identifiering av data källor och gemensamt skapade metadata för data källan. Utvecklare kan använda tjänsten via dess REST-API: er. Att förstå begreppen som implementeras i tjänsten är viktigt för att utvecklare ska kunna integrera med **Azure Data Catalog**.
@@ -19,7 +19,7 @@ Microsoft **Azure Data Catalog** är en helt hanterad moln tjänst som tillhanda
 ## <a name="key-concepts"></a>Viktiga begrepp
 Den **Azure Data Catalog** konceptuella modellen baseras på fyra viktiga begrepp: **Katalogen**, **användare**, **till gångar**och **anteckningar**.
 
-![Data Catalog begrepp](./media/data-catalog-developer-concepts/concept2.png)
+![Bild av Azure Data Catalog konceptuella modell](./media/data-catalog-developer-concepts/concept2.png)
 
 *Bild 1 – Azure Data Catalog förenklad konceptuell modell*
 

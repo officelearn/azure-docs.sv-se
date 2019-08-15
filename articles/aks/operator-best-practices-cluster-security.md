@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mlearned
-ms.openlocfilehash: d4a77fc1756b0fa9decb6d3a84760beb1e700863
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 46e44804ddbabd8bf5620ad9516f1ca2d5017bfa
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67614899"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019313"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>Metodtips för Klustersäkerhet och uppgraderingar i Azure Kubernetes Service (AKS)
 
@@ -26,7 +26,7 @@ Den här artikeln handlar om hur du skyddar ditt AKS-kluster. Lär dig att:
 > * Uppgradera ett AKS-kluster till den senaste versionen av Kubernetes
 > * Behåll noder update hittills och automatiskt tillämpa säkerhetsuppdateringar
 
-Du kan också läsa Metodtips för [bild behållarhantering][best-practices-container-image-management] and for [pod security][best-practices-pod-security].
+Du kan också läsa metod tips för [hantering][best-practices-container-image-management] av behållar avbildningar och [Pod säkerhet][best-practices-pod-security].
 
 ## <a name="secure-access-to-the-api-server-and-cluster-nodes"></a>Säker åtkomst till API-noder för server och kluster
 
@@ -42,26 +42,26 @@ Använda Kubernetes RBAC och Azure AD-integrering för att skydda API-servern oc
 
 Rekommenderad praxis är att använda grupper för att ge åtkomst till filer och mappar jämfört med individuella identiteter, använder du Azure AD *grupp* medlemskap att binda användare till RBAC-roller i stället för enskilda *användare*. Som en användares ändringar i gruppmedlemskap, skulle deras åtkomstbehörigheter på AKS-klustret ändras. Om du binder användaren direkt till en roll, ändra arbetsuppgifter. Azure AD-gruppmedlemskap uppdateras, men behörigheter på AKS-klustret skulle inte visa som. I det här scenariot identisk användaren beviljas fler behörigheter än vad en användare kräver.
 
-Läs mer om Azure AD-integrering och RBAC [bästa praxis för autentisering och auktorisering i AKS][aks-best-practices-identity].
+Mer information om Azure AD-integrering och RBAC finns i [metod tips för autentisering och auktorisering i AKS][aks-best-practices-identity].
 
 ## <a name="secure-container-access-to-resources"></a>Säkra behållare åtkomst till resurser
 
 **Bästa praxis riktlinjer** – begränsa åtkomsten till åtgärder som behållare kan utföra. Ange minst antal behörigheter, och Undvik att använda root / privilegierad eskalering.
 
-På samma sätt som du bör ge användare eller grupper minsta möjliga antal behörigheter som krävs, behållare bör också begränsas till endast de åtgärder och processer som de behöver. För att minimera risken för angrepp, inte konfigurera program och behållare som kräver eskalerade privilegier eller rot åtkomst. Till exempel `allowPrivilegeEscalation: false` i pod-manifestet. Dessa *pod security kontexter* är inbyggda i Kubernetes och kan du definiera ytterligare behörigheter som användaren eller gruppen som ska köras som, eller vilka Linux-funktioner för att exponera. Läs mer om bästa praxis, [pod säker åtkomst till resurser][pod-security-contexts].
+På samma sätt som du bör ge användare eller grupper minsta möjliga antal behörigheter som krävs, behållare bör också begränsas till endast de åtgärder och processer som de behöver. För att minimera risken för angrepp, inte konfigurera program och behållare som kräver eskalerade privilegier eller rot åtkomst. Till exempel `allowPrivilegeEscalation: false` i pod-manifestet. Dessa *pod security kontexter* är inbyggda i Kubernetes och kan du definiera ytterligare behörigheter som användaren eller gruppen som ska köras som, eller vilka Linux-funktioner för att exponera. Mer metod tips finns i [skydda Pod-åtkomst till resurser][pod-security-contexts].
 
-För mer detaljerad kontroll över behållaråtgärder du kan också använda inbyggda säkerhetsfunktioner för Linux som *AppArmor* och *seccomp*. De här funktionerna definieras nivån, och sedan implementerats via en pod-manifestet. Inbyggda säkerhetsfunktioner för Linux är bara tillgängliga på Linux-noder och poddar.
+För mer detaljerad kontroll över behållaråtgärder du kan också använda inbyggda säkerhetsfunktioner för Linux som *AppArmor* och *seccomp*. De här funktionerna definieras nivån, och sedan implementerats via en pod-manifestet. Inbyggda Linux-säkerhetsfunktioner är bara tillgängliga på Linux-noder och poddar.
 
 > [!NOTE]
-> Kubernetes-miljöer i AKS eller någon annanstans, är inte helt säker för fientlig användning med flera innehavare. Ytterligare säkerhetsfunktioner som *AppArmor*, *seccomp*, *Pod säkerhetsprinciper*, eller mer detaljerade rollbaserade åtkomstkontroller (RBAC) för noder göra kryphål svårare. Men är SANT säkerhet vid körning av fientlig arbetsbelastningar för flera innehavare, ett hypervisor-program endast säkerhetsnivå som du ska lita på. Säkerhetsdomän för Kubernetes blir hela klustret, inte en enskild nod. Du bör använda fysiskt isolerat kluster för dessa typer av fientlig arbetsbelastningar för flera innehavare.
+> Kubernetes-miljöer, i AKS eller någon annan stans, är inte helt säkra för att ta skydd på flera klienter. Ytterligare säkerhetsfunktioner som *apparmor*, *Seccomp*, *Pod Security Policies*eller mer detaljerade rollbaserade åtkomst kontroller (RBAC) för noder gör det svårare att utnyttja dem. Men för verklig säkerhet när du kör en skydds arbets belastning med flera innehavare, är en hypervisor den enda säkerhets nivå som du bör lita på. Säkerhets domänen för Kubernetes blir hela klustret, inte en enskild nod. För dessa typer av farliga arbets belastningar med flera klienter bör du använda fysiskt isolerade kluster.
 
 ### <a name="app-armor"></a>App Armor
 
-Du kan använda för att begränsa de åtgärder som behållare kan utföra, den [AppArmor][k8s-apparmor] säkerhetsmodul för Linux-kernel. AppArmor är tillgänglig som en del av den underliggande AKS-noden OS, och är aktiverad som standard. Du skapar AppArmor profiler som till exempel begränsar åtgärder, läsa, skriva eller köra eller systemfunktioner, till exempel montera filsystem. AppArmor standardprofiler begränsa åtkomsten till olika `/proc` och `/sys` platser, och tillhandahålla ett sätt att isolera logiskt behållare från den underliggande noden. AppArmor fungerar för alla program som körs på Linux, inte bara Kubernetes-poddar.
+Om du vill begränsa vilka åtgärder som behållare kan utföra kan du använda [apparmor][k8s-apparmor] Linux kernel-säkerhetsmodulen. AppArmor är tillgänglig som en del av den underliggande AKS-noden OS, och är aktiverad som standard. Du skapar AppArmor profiler som till exempel begränsar åtgärder, läsa, skriva eller köra eller systemfunktioner, till exempel montera filsystem. AppArmor standardprofiler begränsa åtkomsten till olika `/proc` och `/sys` platser, och tillhandahålla ett sätt att isolera logiskt behållare från den underliggande noden. AppArmor fungerar för alla program som körs på Linux, inte bara Kubernetes-poddar.
 
 ![AppArmor profiler som används i ett AKS-kluster för att begränsa behållaråtgärder](media/operator-best-practices-container-security/apparmor.png)
 
-Om du vill se hur AppArmor fungerar, skapas i följande exempel en profil som förhindrar att skriva till filer. [SSH][aks-ssh] ett AKS-nod, skapas en fil med namnet *neka write.profile* och klistra in följande innehåll:
+Om du vill se hur AppArmor fungerar, skapas i följande exempel en profil som förhindrar att skriva till filer. [SSH][aks-ssh] till en AKS-nod och skapa sedan en fil med namnet *Deny-Write. Profile* och klistra in följande innehåll:
 
 ```
 #include <tunables/global>
@@ -98,13 +98,13 @@ spec:
     command: [ "sh", "-c", "echo 'Hello AppArmor!' && sleep 1h" ]
 ```
 
-Distribuera exemplet pod med den [kubectl gäller][kubectl-apply] kommando:
+Distribuera exempel-Pod med kommandot [kubectl Apply][kubectl-apply] :
 
 ```console
 kubectl apply -f aks-apparmor.yaml
 ```
 
-Med poden distribueras, använda den [kubectl exec][kubectl-exec] kommando för att skriva till en fil. Att går inte köra kommandot som visas i följande Exempelutdata:
+När Pod har distribuerats använder du kommandot [kubectl exec][kubectl-exec] för att skriva till en fil. Att går inte köra kommandot som visas i följande Exempelutdata:
 
 ```
 $ kubectl exec hello-apparmor touch /tmp/test
@@ -113,13 +113,13 @@ touch: /tmp/test: Permission denied
 command terminated with exit code 1
 ```
 
-Läs mer om AppArmor [AppArmor profiler i Kubernetes][k8s-apparmor].
+Mer information om AppArmor finns [i AppArmor-profiler i Kubernetes][k8s-apparmor].
 
 ### <a name="secure-computing"></a>Säker databehandling
 
-Medan AppArmor fungerar för alla Linux-program, [seccomp (*sek*urera *comp*uting)][seccomp] fungerar på processnivå. Seccomp är också en Linux-kernel-modul för maskinvarusäkerhet och stöds internt av Docker-IR som används av AKS-noder. Med seccomp är process-anrop som behållare kan utföra begränsade. Du skapar filter som definierar vilka åtgärder som tillåter eller nekar och sedan använda anteckningar i en pod YAML-manifestet för att associera med filtret seccomp. Detta stämmer överens med bästa praxis och endast beviljar behållaren minimala behörigheter som behövs för att köra och inga fler.
+Medan AppArmor fungerar för alla Linux-program fungerar [seccomp (*SEK*urera *comp*uting)][seccomp] på process nivå. Seccomp är också en Linux-kernel-modul för maskinvarusäkerhet och stöds internt av Docker-IR som används av AKS-noder. Med seccomp är process-anrop som behållare kan utföra begränsade. Du skapar filter som definierar vilka åtgärder som tillåter eller nekar och sedan använda anteckningar i en pod YAML-manifestet för att associera med filtret seccomp. Detta stämmer överens med bästa praxis och endast beviljar behållaren minimala behörigheter som behövs för att köra och inga fler.
 
-Om du vill se seccomp i praktiken, skapa ett filter som förhindrar att ändra behörigheterna för en fil. [SSH][aks-ssh] ett AKS-nod, sedan skapa ett filter för seccomp som heter */var/lib/kubelet/seccomp/prevent-chmod* och klistra in följande innehåll:
+Om du vill se seccomp i praktiken, skapa ett filter som förhindrar att ändra behörigheterna för en fil. [SSH][aks-ssh] till en AKS-nod och skapa sedan ett seccomp-filter med namnet */var/lib/kubelet/seccomp/Prevent-chmod* och klistra in följande innehåll:
 
 ```
 {
@@ -154,13 +154,13 @@ spec:
   restartPolicy: Never
 ```
 
-Distribuera exemplet pod med den [kubectl gäller][kubectl-apply] kommando:
+Distribuera exempel-Pod med kommandot [kubectl Apply][kubectl-apply] :
 
 ```console
 kubectl apply -f ./aks-seccomp.yaml
 ```
 
-Visa status för poddarna med hjälp av den [kubectl hämta poddar][kubectl-get] kommando. Poden rapporterar ett fel. Den `chmod` kommandot förhindras från att köras som seccomp-filtret som visas i följande Exempelutdata:
+Visa status för poddar med kommandot [kubectl get poddar][kubectl-get] . Poden rapporterar ett fel. Den `chmod` kommandot förhindras från att köras som seccomp-filtret som visas i följande Exempelutdata:
 
 ```
 $ kubectl get pods
@@ -169,7 +169,7 @@ NAME                      READY     STATUS    RESTARTS   AGE
 chmod-prevented           0/1       Error     0          7s
 ```
 
-Mer information om tillgängliga filter finns i [Seccomp Säkerhetsprofiler för Docker][seccomp].
+Mer information om tillgängliga filter finns i [Seccomp Security profils for Docker][seccomp].
 
 ## <a name="regularly-update-to-the-latest-version-of-kubernetes"></a>Regelbundet uppdatera till den senaste versionen av Kubernetes
 
@@ -177,35 +177,35 @@ Mer information om tillgängliga filter finns i [Seccomp Säkerhetsprofiler för
 
 Kubernetes-versioner nya funktioner i en snabbare takt än mer traditionellt infrastrukturplattformar. Kubernetes-uppdateringar med nya funktioner och korrigeringar för bugg eller säkerhet. Nya funktioner går vanligtvis igenom en *alpha* och sedan *beta* status innan de blir *stabil* och är allmänt tillgängliga och rekommenderas för användning i produktion. Den här versionen cykeln värde kan du uppdatera Kubernetes utan regelbundet får större ändringar eller justera dina distributioner och mallar.
 
-AKS stöder fyra mindre versioner av Kubernetes. Det innebär att de äldsta mindre version och patch versioner som stöds är föråldrade när en ny Uppdateringsversion mindre införs. Mindre uppdateringar till Kubernetes inträffar på regelbunden basis. Se till att du har en styrning process för att kontrollera och uppgradera efter behov så att du inte följer support. Mer information finns i [stöds Kubernetes-versioner AKS][aks-supported-versions]
+AKS stöder fyra mindre versioner av Kubernetes. Det innebär att de äldsta mindre version och patch versioner som stöds är föråldrade när en ny Uppdateringsversion mindre införs. Mindre uppdateringar till Kubernetes inträffar på regelbunden basis. Se till att du har en styrning process för att kontrollera och uppgradera efter behov så att du inte följer support. Mer information finns i [Kubernetes-versioner som stöds AKS][aks-supported-versions]
 
-Om du vill kontrollera vilka versioner som är tillgängliga för ditt kluster, använda den [az aks get-uppgraderingar][az-aks-get-upgrades] kommandot som visas i följande exempel:
+Om du vill kontrol lera vilka versioner som är tillgängliga för klustret använder du kommandot [AZ AKS get-uppgraderingar][az-aks-get-upgrades] som visas i följande exempel:
 
 ```azurecli-interactive
 az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Du kan sedan uppgradera AKS-kluster med den [az aks uppgradera][az-aks-upgrade] kommando. Uppgraderingsprocessen på ett säkert sätt cordons tömmer en nod i taget, schemalägger poddar på övriga noder och distribuerar sedan en ny nod som kör de senaste versionerna av OS och Kubernetes.
+Sedan kan du uppgradera ditt AKS-kluster med hjälp av kommandot [AZ AKS Upgrade][az-aks-upgrade] . Uppgraderingsprocessen på ett säkert sätt cordons tömmer en nod i taget, schemalägger poddar på övriga noder och distribuerar sedan en ny nod som kör de senaste versionerna av OS och Kubernetes.
 
 ```azurecli-interactive
-az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.11.8
+az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version KUBERNETES_VERSION
 ```
 
-Läs mer om uppgraderingar i AKS [stöds Kubernetes-versioner i AKS][aks-supported-versions] and [Upgrade an AKS cluster][aks-upgrade].
+Mer information om uppgraderingar i AKS finns i [Kubernetes-versioner som stöds i AKS][aks-supported-versions] och [uppgradera ett AKS-kluster][aks-upgrade].
 
-## <a name="process-linux-node-updates-and-reboots-using-kured"></a>Processen Linux noden uppdateringar och startar om datorn med hjälp av kured
+## <a name="process-linux-node-updates-and-reboots-using-kured"></a>Bearbeta uppdateringar och omstarter av Linux-noder med kured
 
-**Bästa praxis riktlinjer** – AKS automatiskt hämtar och installerar security korrigeringar på varje Linux-noder, men startar inte automatiskt om vid behov. Använd `kured` för att söka efter väntande omstarter, och sedan på ett säkert sätt här och tömmer noden så att noden ska startas om, tillämpa uppdateringarna och vara precis lika säkert som möjligt med avseende på datorns operativsystem. För Windows Server-noder (för närvarande i förhandsversion i AKS), regelbundet utför du en AKS uppgraderingsåtgärd att på ett säkert sätt här och tömma poddar och distribuera uppdaterade noder.
+**Vägledning för bästa praxis** – AKS hämtar och installerar automatiskt säkerhets korrigeringar på varje Linux-noder, men startar inte om automatiskt om det behövs. Använd `kured` för att söka efter väntande omstarter, och sedan på ett säkert sätt här och tömmer noden så att noden ska startas om, tillämpa uppdateringarna och vara precis lika säkert som möjligt med avseende på datorns operativsystem. För Windows Server-noder (för närvarande i för hands version i AKS) utför du regelbundet en AKS uppgraderings åtgärd för att säkert Cordon och tömma poddar och distribuera uppdaterade noder.
 
-Varje kväll hämta Linux-noder i AKS säkerhetsuppdateringar som är tillgängliga via deras distribution Uppdatera kanal. Det här beteendet konfigureras automatiskt när noderna är distribuerade i ett AKS-kluster. För att minimera störningar och möjliga inverkan på arbetsbelastningar som körs, noder automatiskt startas om inte om en säkerhetskorrigering eller kernel-uppdateringen kräver den.
+Varje kväll får Linux-noder i AKS säkerhets korrigeringar som är tillgängliga via sin distribution Update-kanal. Det här beteendet konfigureras automatiskt när noderna är distribuerade i ett AKS-kluster. För att minimera störningar och möjliga inverkan på arbetsbelastningar som körs, noder automatiskt startas om inte om en säkerhetskorrigering eller kernel-uppdateringen kräver den.
 
-Öppen källkod [kured (KUbernetes starta om Daemon)][kured] projektet genom att Weaveworks söker efter väntande omstarter av noden. När en Linux-nod tillämpar uppdateringar som kräver en omstart, avspärrade och tömda för att flytta och schemalägga poddarna på andra noder i klustret noden på ett säkert sätt. När noden startas om, läggs den tillbaka till klustret och Kubernetes återupptar schemaläggning poddar på den. För att minimera störningar tillåts bara en nod i taget startas av `kured`.
+Kured-projektet med öppen källkod [(KUbernetes REboot)][kured] av Weaveworks söker efter väntande Node-omstarter. När en Linux-nod använder uppdateringar som kräver en omstart, är noden säkert avspärrade och töms för att flytta och schemalägga poddar på andra noder i klustret. När noden startas om, läggs den tillbaka till klustret och Kubernetes återupptar schemaläggning poddar på den. För att minimera störningar tillåts bara en nod i taget startas av `kured`.
 
 ![AKS noden omstart processen med kured](media/operator-best-practices-cluster-security/node-reboot-process.png)
 
 Om du vill ha mer detaljerad grain kontroll över omstarter uppstår när `kured` kan integreras med Prometheus att förhindra omstarter om det finns andra underhållshändelser eller kluster problem pågår. Den här integreringen minimerar ytterligare problem genom att starta om noderna medan du aktivt felsöker andra problem.
 
-Läs mer om hur du hanterar omstarter av noden, [tillämpa säkerhets- och kernel-uppdateringar på noderna i AKS][aks-kured].
+Mer information om hur du hanterar omstarter av noder finns i [tillämpa säkerhets-och kernel-uppdateringar på noder i AKS][aks-kured].
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -213,7 +213,7 @@ Den här artikeln fokuserar på hur du skyddar ditt AKS-kluster. Om du vill impl
 
 * [Integrera Azure Active Directory med AKS][aks-aad]
 * [Uppgradera ett AKS-kluster till den senaste versionen av Kubernetes][aks-upgrade]
-* [Processen säkerhetsuppdateringar och noden startar om med kured][aks-kured]
+* [Bearbeta säkerhets uppdateringar och omstarter av noder med kured][aks-kured]
 
 <!-- EXTERNAL LINKS -->
 [kured]: https://github.com/weaveworks/kured

@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2303d385d3d688050a8d82c07e78a68588f41e88
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 357e7975b1c4fe44d86b7e29e96a9abb6ab63c35
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66142609"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932256"
 ---
 # <a name="setup-diagnostic-logging"></a>Konfigurera Diagnostisk loggning
 
-En viktig del av alla Analysis Services-lösningar övervakar hur dina servrar utför. Med [diagnostikloggar för Azure-resurs](../azure-monitor/platform/diagnostic-logs-overview.md), du kan övervaka och skicka loggar till [Azure Storage](https://azure.microsoft.com/services/storage/), strömma dem till [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), och exportera dem till [Azure Övervaka loggar](../azure-monitor/azure-monitor-log-hub.md).
+En viktig del av alla Analysis Services-lösningar övervakar hur dina servrar utför. Med [Azure Resource Diagnostic-loggar](../azure-monitor/platform/diagnostic-logs-overview.md)kan du övervaka och skicka loggar till [Azure Storage](https://azure.microsoft.com/services/storage/), strömma dem till [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)och exportera dem till [Azure Monitor loggar](../azure-monitor/azure-monitor-log-hub.md).
 
-![Diagnostisk loggning till lagring, Event Hubs eller Azure Monitor-loggar](./media/analysis-services-logging/aas-logging-overview.png)
+![Diagnostisk loggning till lagring, Event Hubs eller Azure Monitor loggar](./media/analysis-services-logging/aas-logging-overview.png)
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -29,7 +29,7 @@ Du kan välja **motorn**, **Service**, och **mått** kategorier.
 
 ### <a name="engine"></a>Motorn
 
-Att välja **motorn** loggar alla [xEvents](https://docs.microsoft.com/sql/analysis-services/instances/monitor-analysis-services-with-sql-server-extended-events). Du kan inte välja enskilda händelser. 
+Att välja **motorn** loggar alla [xEvents](https://docs.microsoft.com/analysis-services/instances/monitor-analysis-services-with-sql-server-extended-events). Du kan inte välja enskilda händelser. 
 
 |XEvent-kategorier |Händelsenamn  |
 |---------|---------|
@@ -83,7 +83,7 @@ Mått-kategorin loggar samma [serverstatistik](analysis-services-monitor.md#serv
 
     * **Arkivera till ett lagringskonto**. Om du vill använda det här alternativet om behöver du ett befintligt lagringskonto för att ansluta till. Se [skapa ett lagringskonto](../storage/common/storage-create-storage-account.md). Följ anvisningarna för att skapa en Resource Manager Allmänt konto och välj sedan ditt lagringskonto genom att gå tillbaka till den här sidan i portalen. Det kan ta några minuter innan nyligen skapade lagringskonton ska visas i den nedrullningsbara menyn.
     * **Stream till en händelsehubb**. Om du vill använda det här alternativet behöver du en befintlig Event Hub-namnområde och event hub att ansluta till. Mer information finns i [skapa ett Event Hubs-namnområde och en event hub med Azure-portalen](../event-hubs/event-hubs-create.md). Gå sedan tillbaka till den här sidan i portalen för att välja Event Hub-namnområde och principen.
-    * **Skicka till Azure Monitor (Log Analytics-arbetsytan)** . Om du vill använda det här alternativet måste du använda en befintlig arbetsyta eller [skapa en ny arbetsyta](../azure-monitor/learn/quick-create-workspace.md) resurs i portalen. Mer information om hur du visar dina loggar finns i [visa loggar i Log Analytics-arbetsyta](#view-logs-in-log-analytics-workspace) i den här artikeln.
+    * **Skicka till Azure Monitor (Log Analytics arbets yta)** . Om du vill använda det här alternativet använder du antingen en befintlig arbets yta eller [skapar en ny arbets ytans](../azure-monitor/learn/quick-create-workspace.md) resurs i portalen. Mer information om hur du visar loggarna finns i [Visa loggar i Log Analytics arbets yta](#view-logs-in-log-analytics-workspace) i den här artikeln.
 
     * **Motorn**. Välj det här alternativet för att logga xEvents. Om du arkivering till ett lagringskonto, kan du välja kvarhållningsperioden för diagnostiska loggar. Loggarna är autodeleted när kvarhållningsperioden upphör att gälla.
     * **Tjänsten**. Välj det här alternativet att logga in på tjänsten-händelser. Om du arkiverar till ett lagringskonto kan du välja kvarhållningsperioden för diagnostiska loggar. Loggarna är autodeleted när kvarhållningsperioden upphör att gälla.
@@ -151,18 +151,18 @@ Loggarna är vanligtvis tillgängligt inom ett par timmar för att ställa in lo
 * Ta bort loggar som du inte vill behålla i ditt lagringskonto.
 * Glöm inte att ställa in en kvarhållningsperiod för så gamla loggarna tas bort från ditt lagringskonto.
 
-## <a name="view-logs-in-log-analytics-workspace"></a>Visa loggar i Log Analytics-arbetsyta
+## <a name="view-logs-in-log-analytics-workspace"></a>Visa loggar i Log Analytics arbets yta
 
-Mått- och serverhändelser är integrerade med xEvents i din Log Analytics-arbetsytan för sida-vid-sida-analys. Log Analytics-arbetsytan kan också konfigureras för att ta emot händelser från andra Azure-tjänster att tillhandahålla en praktisk vy över diagnostikdata till loggning i din arkitektur.
+Mått och Server händelser är integrerade med xEvents i din Log Analytics arbets ytans resurs för analys sida vid sida. Log Analytics arbets ytan kan också konfigureras för att ta emot händelser från andra Azure-tjänster som ger en heltäckande vy över diagnostisk loggnings data i din arkitektur.
 
-Om du vill visa dina diagnostiska data i Log Analytics-arbetsytan, öppna **loggar** menyn till vänster.
+Om du vill visa dina diagnostikdata går du till Log Analytics arbets yta och öppnar **loggar** på den vänstra menyn.
 
 ![Loggalternativ för sökning i Azure portal](./media/analysis-services-logging/aas-logging-open-log-search.png)
 
-Expandera i Frågeverktyget **LogManagement** > **AzureDiagnostics**. AzureDiagnostics innehåller motor och tjänsthändelser. Observera att en fråga har skapats på direkt. EventClass\_s fältet innehåller xEvent-namn, som kan se bekant ut om du har använt xEvents för lokal loggning. Klicka på **EventClass\_s** eller en av de händelsenamn och Log Analytics-arbetsytan fortsätter att konstruera en fråga. Glöm inte att spara dina frågor att återanvända senare.
+I Frågeverktyget expanderar du **LogManagement** > **AzureDiagnostics**. AzureDiagnostics innehåller motor och tjänsthändelser. Lägg märke till att en fråga skapas direkt. EventClass\_s fältet innehåller xEvent-namn, som kan se bekant ut om du har använt xEvents för lokal loggning. Klicka **på\_EventClass s** eller något av händelse namnen och Log Analytics arbets ytan fortsätter att konstruera en fråga. Glöm inte att spara dina frågor att återanvända senare.
 
-### <a name="example-query"></a>Exempelfråga
-Den här frågan beräknar och returnerar CPU för varje fråga slutet/uppdatera Sluthändelse för en modelldatabasen och server:
+### <a name="example-query"></a>Exempel fråga
+Den här frågan beräknar och returnerar CPU för varje fråga slut-/uppdaterings slut händelse för en modell databas och Server:
 
 ```Kusto
 let window =  AzureDiagnostics
@@ -183,14 +183,14 @@ window
 ```
 
 
-Det finns hundratals frågor som du kan använda. Mer information om frågor finns [Kom igång med Azure Monitor log-frågor](../azure-monitor/log-query/get-started-queries.md).
+Det finns hundratals frågor som du kan använda. Mer information om frågor finns i [Kom igång med Azure Monitor logg frågor](../azure-monitor/log-query/get-started-queries.md).
 
 
 ## <a name="turn-on-logging-by-using-powershell"></a>Aktivera loggning med hjälp av PowerShell
 
-I den här snabba självstudien skapar du ett lagringskonto i samma prenumeration och resursgrupp som Analysis Services-servern. Du kan sedan använda Set-AzDiagnosticSetting för att slå på diagnostik loggning, skicka utdata till det nya lagringskontot.
+I den här snabba självstudien skapar du ett lagringskonto i samma prenumeration och resursgrupp som Analysis Services-servern. Sedan använder du Set-AzDiagnosticSetting för att aktivera diagnostikloggning och skicka utdata till det nya lagrings kontot.
 
-### <a name="prerequisites"></a>Nödvändiga komponenter
+### <a name="prerequisites"></a>Förutsättningar
 Den här kursen måste du ha följande resurser:
 
 * En befintlig Azure Analysis Services-server. Anvisningar om hur du skapar en serverresurs finns i [skapar en server i Azure-portalen](analysis-services-create-server.md), eller [skapa en Azure Analysis Services-server med hjälp av PowerShell](analysis-services-create-powershell.md).
@@ -224,7 +224,7 @@ Set-AzContext -SubscriptionId <subscription ID>
 
 ### <a name="create-a-new-storage-account-for-your-logs"></a>Skapa ett nytt lagringskonto för dina loggar
 
-Du kan använda ett befintligt lagringskonto för dina loggar, förutsatt att det är i samma prenumeration som din server. För den här självstudien får skapa du ett nytt lagringskonto dedikerad till Analysis Services-loggar. Om du vill göra det enklare, du lagrar uppgifterna för lagringskontot i variabeln **sa**.
+Du kan använda ett befintligt lagringskonto för dina loggar, förutsatt att det är i samma prenumeration som din server. I den här självstudien skapar du ett nytt lagrings konto som är dedikerat för Analysis Services loggar. Om du vill göra det enklare, du lagrar uppgifterna för lagringskontot i variabeln **sa**.
 
 Du kan också använda samma resursgrupp som det som innehåller Analysis Services-servern. Ersätt värden för `awsales_resgroup`, `awsaleslogs`, och `West Central US` med dina egna värden:
 
@@ -244,7 +244,7 @@ $account = Get-AzResource -ResourceGroupName awsales_resgroup `
 
 ### <a name="enable-logging"></a>Aktivera loggning
 
-Använd cmdlet Set-AzDiagnosticSetting tillsammans med för att aktivera loggning för det nya lagringskontot, serverkonto och kategorin. Kör följande kommando och ange den **-aktiverad** flaggan till **$true**:
+Om du vill aktivera loggning använder du cmdleten Set-AzDiagnosticSetting tillsammans med variablerna för det nya lagrings kontot, Server kontot och kategorin. Kör följande kommando och ange den **-aktiverad** flaggan till **$true**:
 
 ```powershell
 Set-AzDiagnosticSetting  -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories Engine
@@ -289,7 +289,7 @@ Location                    :
 Tags                        :
 ```
 
-Det här resultatet bekräftar att loggning är aktiverat för servern, information sparas i lagringskontot.
+Det här resultatet bekräftar att loggning nu har Aktiver ATS för servern och sparar information till lagrings kontot.
 
 Du kan också ange bevarandeprincip för dina loggar så att äldre loggar tas bort automatiskt. Till exempel bevarandeprincip genom **- RetentionEnabled** flaggan till **$true**, och Ställ in **- RetentionInDays** parameter **90**. Loggar som är äldre än 90 dagar tas bort automatiskt.
 
@@ -303,4 +303,4 @@ Set-AzDiagnosticSetting -ResourceId $account.ResourceId`
 
 Läs mer om [Diagnostisk loggning för Azure-resurs](../azure-monitor/platform/diagnostic-logs-overview.md).
 
-Se [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) i PowerShell-hjälpen.
+Se [set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) i PowerShell-hjälpen.

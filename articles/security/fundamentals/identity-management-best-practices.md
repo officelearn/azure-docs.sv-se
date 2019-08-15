@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/03/2019
 ms.author: barclayn
-ms.openlocfilehash: 46850ad430aa5fb8ad25a71515bdd640855350c2
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 371c3b9fde17bba33fb6f2526be68fe89aec6b01
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727263"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934698"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Rekommenderade säkerhets metoder för Azure Identity Management och åtkomst kontroll
 I den här artikeln diskuterar vi en samling med metod tips för Azure Identity Management och åtkomst kontroll. De här bästa metoderna är härledda från vår erfarenhet av [Azure AD](../../active-directory/fundamentals/active-directory-whatis.md) och kundernas upplevelser som du själv.
@@ -84,8 +84,8 @@ Mer information finns i [implementera hash-synkronisering av lösen ord med Azur
 **Information**: Använd rätt funktioner för att stödja autentisering:
 
   - Azure AD för anställda
-  - [Azure AD B2B](https://docs.microsoft.com/azure/active-directory/b2b/) för gäst användare och externa partners
-  - [Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/) för att kontrol lera hur kunder registrerar sig, loggar in och hanterar sina profiler när de använder dina program
+  - [Azure AD B2B](../../active-directory/b2b/index.yml) för gäst användare och externa partners
+  - [Azure AD B2C](../../active-directory-b2c/index.yml) för att kontrol lera hur kunder registrerar sig, loggar in och hanterar sina profiler när de använder dina program
 
 Organisationer som inte integrerar sin lokala identitet med sin moln identitet kan ha mer resurser i hanteringen av konton. Den här kostnaden ökar risken för misstag och säkerhets överträdelser.
 

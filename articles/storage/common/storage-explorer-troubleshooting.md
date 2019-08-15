@@ -1,235 +1,235 @@
 ---
-title: Felsökningsguide för Azure Storage Explorer | Microsoft Docs
-description: Översikt över felsökning tekniker för Azure Storage Explorer
+title: Azure Storage Explorer fel söknings guide | Microsoft Docs
+description: Översikt över fel söknings tekniker för Azure Storage Explorer
 services: virtual-machines
 author: Deland-Han
 ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: fd34ab7cd899549962663e8cee8ee2121c39c49e
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 96a8eab57f1714eed4831bea01508e9140d1dfad
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67840386"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68934975"
 ---
-# <a name="azure-storage-explorer-troubleshooting-guide"></a>Felsökningsguide för Azure Storage Explorer
+# <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure Storage Explorer fel söknings guide
 
-Microsoft Azure Storage Explorer är en fristående app som gör det enkelt att arbeta med Azure Storage-data i Windows, macOS och Linux. Appen kan ansluta till lagringskonton i Azure, nationella moln och Azure Stack.
+Microsoft Azure Storage Explorer är en fristående app som gör det enkelt att arbeta med Azure Storage data på Windows, macOS och Linux. Appen kan ansluta till lagrings konton som finns i Azure, nationella moln och Azure Stack.
 
-Den här guiden beskriver lösningar på vanliga problem i Storage Explorer.
+Den här guiden sammanfattar lösningar för vanliga problem som visas i Storage Explorer.
 
-## <a name="role-based-access-control-permission-issues"></a>Role-based Access Control behörighetsproblem
+## <a name="role-based-access-control-permission-issues"></a>Rollbaserade Access Control behörighets problem
 
-[Rollbaserad åtkomstkontroll (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) ger detaljerad åtkomsthantering för Azure-resurser genom att kombinera uppsättningar av behörigheter till _roller_. Här följer några förslag som du kan följa för att få RBAC som arbetar i Storage Explorer.
+[Rollbaserad åtkomst kontroll (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) ger detaljerad åtkomst hantering av Azure-resurser genom att kombinera uppsättningar med behörigheter i _roller_. Här följer några förslag som du kan följa för att få RBAC-arbete i Storage Explorer.
 
-### <a name="what-do-i-need-to-see-my-resources-in-storage-explorer"></a>Vad behöver jag att se mina resurser i Storage Explorer?
+### <a name="what-do-i-need-to-see-my-resources-in-storage-explorer"></a>Vad behöver jag för att kunna se mina resurser i Storage Explorer?
 
-Om du har problem med åtkomst till lagringsresurser med RBAC kan vara det eftersom du inte har tilldelats lämpliga roller. I följande avsnitt beskrivs de behörigheter som Storage Explorer för närvarande kräver åtkomst till dina lagringsresurser.
+Om du har problem med att komma åt lagrings resurser med RBAC kan det bero på att du inte har tilldelats lämpliga roller. I följande avsnitt beskrivs de behörigheter som Storage Explorer för närvarande kräver åtkomst till dina lagrings resurser.
 
-Kontakta administratören för Azure-konto om du är osäker på om du har rätt roller eller behörigheter.
+Kontakta administratören för Azure-kontot om du är osäker på om du har lämpliga roller eller behörigheter.
 
-#### <a name="read-listget-storage-accounts"></a>Läs: Lista/hämta lagringskonton
+#### <a name="read-listget-storage-accounts"></a>Läs Lista/hämta lagringskonton
 
-Du måste ha behörighet att lista lagringskonton. Du kan hämta den här behörigheten genom att de tilldelas rollen ”läsare”.
+Du måste ha behörighet att lista lagrings konton. Du kan få den här behörigheten genom att tilldela rollen "läsare".
 
-#### <a name="list-storage-account-keys"></a>Lista nycklar för Lagringskonto
+#### <a name="list-storage-account-keys"></a>Lista nycklar för lagringskonto
 
-Lagringsutforskaren kan också använda nycklar för att autentisera begäranden. Du kan få åtkomst till nycklar med mer kraftfulla roller, till exempel rollen ”deltagare”.
+Storage Explorer kan också använda konto nycklar för att autentisera begär Anden. Du kan få åtkomst till nycklar med mer kraftfulla roller, t. ex. rollen deltagare.
 
 > [!NOTE]
-> Åtkomstnycklar ge obegränsad behörighet till någon som innehar dem. Därför vanligtvis rekommenderas inte de lämnas till användare av konton. Om du vill återkalla åtkomstnycklar kan du återskapa dem från den [Azure-portalen](https://portal.azure.com/).
+> Åtkomst nycklar beviljar obegränsade behörigheter till alla som innehar dem. Därför rekommenderar vi vanligt vis inte att de blir tillgängliga för användare. Om du behöver återkalla åtkomst nycklar kan du återskapa dem från [Azure Portal](https://portal.azure.com/).
 
-#### <a name="data-roles"></a>Data-roller
+#### <a name="data-roles"></a>Data roller
 
-Du måste tilldelas minst en roll som ger åtkomst läsa data från resurser. Till exempel om du vill visa eller ladda ned blobar behöver du minst rollen ”Storage Blob Data Reader”.
+Du måste tilldelas minst en roll som ger åtkomst till Läs data från resurser. Om du till exempel behöver lista eller hämta blobbar behöver du minst ha rollen "Storage BLOB data Reader".
 
-### <a name="why-do-i-need-a-management-layer-role-to-see-my-resources-in-storage-explorer"></a>Varför behöver jag en ledningsroll layer se mina resurser i Storage Explorer?
+### <a name="why-do-i-need-a-management-layer-role-to-see-my-resources-in-storage-explorer"></a>Varför behöver jag en hanterings skikt roll för att se mina resurser i Storage Explorer?
 
-Azure Storage har två nivåer av åtkomst: _management_ och _data_. Prenumerationer och lagringskonton nås via hanteringslagret. Behållare, blobar och andra dataresurser som kan nås via data-lagret. Till exempel om du vill hämta en lista över dina lagringskonton från Azure kan skicka du en begäran till hanteringsslutpunkten. Om du vill en lista över blob-behållare i ett konto som kan skicka en begäran till lämplig tjänsteslutpunkt.
+Azure Storage har två åtkomst nivåer: _hantering_ och _data_. Prenumerationer och lagrings konton nås via hanterings skiktet. Behållare, blobbar och andra data resurser nås via data lagret. Om du till exempel vill hämta en lista över dina lagrings konton från Azure skickar du en begäran till hanterings slut punkten. Om du vill ha en lista över BLOB-behållare i ett konto skickar du en begäran till lämplig tjänst slut punkt.
 
-RBAC-roller kan innehålla behörigheter för layer management eller data. Rollen ”läsare” ger till exempel skrivskyddad åtkomst management layer-resurser.
+RBAC-roller kan innehålla behörigheter för hantering eller åtkomst till data lager. Rollen "läsare" ger till exempel till gång till skrivskyddade åtkomst hanterings lager resurser.
 
-Strikt sett rollen ”läsare” innehåller inga data layer behörigheter och är inte nödvändiga för att komma åt data-lagret.
+Det är strikt att tala om att rollen "läsare" inte har några data lager behörigheter och inte behövs för åtkomst till data skiktet.
 
-Lagringsutforskaren gör det enkelt att komma åt dina resurser genom att samla in nödvändig information för att ansluta till dina Azure-resurser åt dig. Om du vill visa din blob-behållare, skickar Lagringsutforskaren exempelvis en begäran om hanteringspaketlista behållare till blob-tjänsteslutpunkt. För att få att slutpunkten kan Lagringsutforskaren söker i listan över prenumerationer och lagringskonton som du har åtkomst till. Men för att hitta dina prenumerationer och lagringskonton, Lagringsutforskaren också behöver åtkomst till hanteringslagret.
+Storage Explorer gör det enkelt att komma åt dina resurser genom att samla in nödvändig information för att ansluta till dina Azure-resurser åt dig. Om du till exempel vill visa dina BLOB-behållare, Storage Explorer skicka en lista med behållare till BLOB-tjänstens slut punkt. Storage Explorer söker i listan över prenumerationer och lagrings konton som du har åtkomst till för att hämta slut punkten. Men för att hitta dina prenumerationer och lagrings konton behöver Storage Explorer också åtkomst till hanterings lagret.
 
-Om du inte har en roll som tillståndsbeviljande ett lager, kan inte Storage Explorer hämta information som behövs för att ansluta till data-lagret.
+Om du inte har någon roll som beviljar behörigheter för hanterings lager kan Storage Explorer inte hämta den information som krävs för att ansluta till data lagret.
 
-### <a name="what-if-i-cant-get-the-management-layer-permissions-i-need-from-my-administrator"></a>Vad händer om jag kan inte hämta hanteringen layer behörigheter måste från min administratör?
+### <a name="what-if-i-cant-get-the-management-layer-permissions-i-need-from-my-administrator"></a>Vad händer om jag inte kan hämta de behörigheter för hanterings skikt jag behöver från min administratör?
 
-Vi har ännu inte en RBAC-relaterade lösning just nu. Som en lösning kan du begära en SAS-URI att [ansluta till din resurs](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-sas-uri).
+Vi har inte någon RBAC-relaterad lösning än för tillfället. Som en lösning kan du begära en SAS-URI för att [ansluta till din resurs](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-sas-uri).
 
-## <a name="error-self-signed-certificate-in-certificate-chain-and-similar-errors"></a>Fel: Självsignerat certifikat i certifikatkedjan (och liknande fel)
+## <a name="error-self-signed-certificate-in-certificate-chain-and-similar-errors"></a>Fel: Självsignerat certifikat i certifikat kedjan (och liknande fel)
 
-Certifikatfel orsakas av en av de två följande situationer:
+Certifikat fel orsakas av någon av följande två situationer:
 
-1. Appen är ansluten via en ”transparent proxy”, vilket innebär att en server (till exempel företagsservern) avlyssnar HTTPS-trafik, dekrypterar den och sedan krypterar den med hjälp av ett självsignerat certifikat.
-2. Du kör ett program som infogar ett självsignerat SSL-certifikat till HTTPS-meddelanden som visas. Exempel på program som att mata in certifikat innehåller programvara som antivirus och nätverket trafik-kontroll.
+1. Appen är ansluten via en "transparent proxy", vilket innebär att en server (till exempel din företags server) fångar upp HTTPS-trafik, dekrypterar den och sedan krypterar den med hjälp av ett självsignerat certifikat.
+2. Du kör ett program som matar in ett självsignerat SSL-certifikat i de HTTPS-meddelanden som du får. Exempel på program som använder sig av att injicera certifikat är program vara mot virus-och nätverks trafik kontroll.
 
-När Storage Explorer ser ett självsignerat eller ej betrodda certifikat, kan den inte längre veta om det mottagna meddelandet HTTPS har ändrats. Om du har en kopia av det självsignerade certifikatet kan du instruera Lagringsutforskaren förtroende genom att göra följande:
+När Storage Explorer ser ett självsignerat eller ej betrott certifikat, kan det inte längre veta om det mottagna HTTPS-meddelandet har ändrats. Om du har en kopia av det självsignerade certifikatet kan du instruera Storage Explorer att lita på det genom att utföra följande steg:
 
-1. Hämta en Base64-kodad X.509 (.cer) kopia av certifikatet
-2. Klicka på **redigera** > **SSL-certifikat** > **Importera certifikat**, och Använd filväljaren för att hitta, markera och öppna CER-filen
+1. Hämta en kopia av en bas-64-kodad X. 509 (. cer) av certifikatet
+2. Klicka på **Redigera** > **SSL-certifikat** > **Importera certifikat**och Använd sedan fil väljaren för att söka efter, välja och öppna. CER-filen
 
-Det här problemet kan också vara resultatet av flera certifikat (rot och mellanliggande). Båda certifikaten måste läggas till att lösa felet.
+Det här problemet kan också vara resultatet av flera certifikat (rot och mellanliggande). Båda certifikaten måste läggas till för att lösa problemet.
 
-Om du är osäker på var certifikaten som kommer från, kan du dessa steg för att hitta den:
+Om du är osäker på var certifikatet kommer från kan du prova de här stegen för att hitta det:
 
 1. Installera öppen SSL
-    * [Windows](https://slproweb.com/products/Win32OpenSSL.html) (någon av de enklare versionerna bör vara tillräckligt med)
-    * Mac och Linux: ska ingå i ditt operativsystem
+    * [Windows](https://slproweb.com/products/Win32OpenSSL.html) (vilken som helst av de ljusa versionerna bör vara tillräckliga)
+    * Mac och Linux: bör ingå i ditt operativ system
 2. Kör öppen SSL
-    * Windows: öppna installationskatalogen, klicka på **/bin/** , och dubbelklicka sedan på **openssl.exe**.
-    * Mac och Linux: kör **openssl** från en terminal.
+    * Windows: öppna installations katalogen, klicka på **/bin/** och dubbelklicka sedan på **openssl. exe**.
+    * Mac och Linux: kör **openssl** från en Terminal.
 3. Kör `s_client -showcerts -connect microsoft.com:443`
-4. Leta efter självsignerade certifikat. Om du är osäker på vilka certifikat som är självsignerade, leta efter var som helst ämnet `("s:")` och `("i:")` är desamma.
-5. När du har hittat självsignerade certifikat för vart och ett, kopiera och klistra in allt från och med **---BEGIN CERTIFICATE---** till **---END CERTIFICATE---** till en ny .cer-fil.
-6. Öppna Storage Explorer, klicka på **redigera** > **SSL-certifikat** > **Importera certifikat**, och Använd filväljaren för att hitta, select, och Öppna CER-filen som du skapade.
+4. Leta efter självsignerade certifikat. Om du är osäker på vilka certifikat som är självsignerade kan du söka efter var ämnet `("s:")` och `("i:")` utfärdaren är samma.
+5. När du har hittat självsignerade certifikat, för var och en, kopiera och klistra in allt från och inklusive **-----BEGIN certificate-----** för att **-----slut certifikat-----** till en ny. cer-fil.
+6. Öppna Storage Explorer, klicka på **Redigera** > **SSL-certifikat** > **Importera certifikat**och Använd sedan fil väljaren för att hitta, välja och öppna CER-filerna som du skapade.
 
-Om du inte hittar något självsignerat certifikat med föregående steg kan du kontakta oss med verktyget feedback för mer hjälp. Du kan också välja att starta Lagringsutforskaren från kommandoraden med den `--ignore-certificate-errors` flaggan. När startas med den här flaggan ignorerar Lagringsutforskaren certifikatfel.
+Om du inte hittar några självsignerade certifikat med hjälp av föregående steg, kontaktar du oss via feedback-verktyget för mer hjälp. Du kan också välja att starta Storage Explorer från kommando raden med `--ignore-certificate-errors` flaggan. När den startas med den här flaggan kommer Storage Explorer att ignorera certifikat fel.
 
 ## <a name="sign-in-issues"></a>Inloggningsproblem
 
-### <a name="blank-sign-in-dialog"></a>Tom inloggningsrutan
+### <a name="blank-sign-in-dialog"></a>Tom inloggnings dialog ruta
 
-Tom inloggning dialogrutor orsakas oftast av AD FS ber Storage Explorer att utföra en omdirigering, som inte stöds av Electron. Om du vill undvika det här problemet kan du försöker använda enheten kod Flow för att logga in. Utför följande steg för att göra det:
+Tomma inloggnings dialog rutor orsakas oftast av ADFS som efterfrågar Storage Explorer att utföra en omdirigering, vilket inte stöds av Electron. För att undvika det här problemet kan du försöka använda enhets kod flödet för inloggning. Det gör du genom att utföra följande steg:
 
-1. Menyn: Förhandsgranskning -> ”använda kod Enhetsinloggning”.
-2. Öppna dialogrutan Anslut (antingen via ikonen plugin på den vänstra vertikalstreck eller ”Lägg till konto” på panelen konto).
+1. Hoppmeny För hands version – > "Använd enhets kod inloggning".
+2. Öppna dialog rutan Anslut (antingen via plugin-ikonen i det vänstra lodräta fältet eller "Lägg till konto" i konto panelen).
 3. Välj vilken miljö som du vill logga in på.
-4. Klicka på knappen ”Logga In”.
+4. Klicka på knappen "logga in".
 5. Följ anvisningarna på nästa panel.
 
-Om du har problem med att logga in på kontot som du vill använda eftersom din standardwebbläsare redan är inloggad på ett annat konto, kan du antingen:
+Om du upptäcker att du har problem med att logga in på det konto som du vill använda, eftersom din standard webbläsare redan har loggat in på ett annat konto, kan du antingen:
 
-1. Manuellt kopiera länken och koden i en privat session i webbläsaren.
-2. Manuellt kopiera länken och koden i en annan webbläsare.
+1. Kopiera länken och koden manuellt till en privat session i webbläsaren.
+2. Kopiera länken och koden manuellt till en annan webbläsare.
 
-### <a name="reauthentication-loop-or-upn-change"></a>Återautentisering slinga eller UPN-ändring
+### <a name="reauthentication-loop-or-upn-change"></a>Reautentisering av loop eller UPN-ändring
 
-Om du befinner dig i en loop omautentisering eller har ändrats UPN-namnet för ett av dina konton, kan du prova följande steg:
+Om du befinner dig i en loop för autentisering eller har ändrat UPN för något av dina konton kan du prova följande steg:
 
-1. Ta bort alla konton och stäng sedan Storage Explorer
-2. Ta bort den. IdentityService mappen från din dator. På Windows, mappen finns i `C:\users\<username>\AppData\Local`. Du kan hitta mapp i användarkatalogen roten för Mac och Linux.
-3. Om du använder Mac- eller Linux, måste du också ta bort posten Microsoft.Developer.IdentityService från keystore för ditt operativsystem. På Mac är keystore ”gör väldigt lätt nyckelringar”-program. Programmet kallas vanligtvis ”nyckelringen” för Linux, men namnet kan vara olika beroende på din distribution.
+1. Ta bort alla konton och Stäng Storage Explorer
+2. Ta bort. IdentityService-mappen från din dator. I Windows finns mappen på `C:\users\<username>\AppData\Local`. För Mac och Linux kan du hitta mappen i roten i din användar katalog.
+3. Om du använder Mac eller Linux måste du också ta bort posten Microsoft. Developer. IdentityService från ditt OS-nyckel arkiv. I Mac är nyckel arkivet "gnome nyckel Ring". För Linux kallas programmet vanligt vis "nyckel Ring", men namnet kan vara olika beroende på din distribution.
 
-### <a name="conditional-access"></a>Villkorlig åtkomst
+### <a name="conditional-access"></a>Villkorad åtkomst
 
-Villkorlig åtkomst stöds inte när Lagringsutforskaren används på Windows 10, Linux eller macOS. Det här är på grund av en begränsning i AAD-biblioteket som används av Storage Explorer.
+Villkorlig åtkomst stöds inte när Storage Explorer används på Windows 10, Linux eller macOS. Detta beror på en begränsning i AAD-biblioteket som används av Storage Explorer.
 
-## <a name="mac-keychain-errors"></a>Mac-nyckelringen fel
+## <a name="mac-keychain-errors"></a>Fel i Mac-nyckelring
 
-MacOS nyckelring kan ibland hamna i ett tillstånd som orsakar problem med Storage Explorer-autentiseringsbiblioteket. För att få nyckelringen utanför det här tillståndet kan du prova följande steg:
+MacOS-nyckel ringen kan ibland komma in i ett tillstånd som orsakar problem med Storage Explorerens autentiseringspaket. Prova följande steg för att hämta nyckel ringen ur det här läget:
 
 1. Stäng Storage Explorer.
-2. Öppna nyckelring (**cmd + blanksteg**, skriver i nyckelringen, träffar ange).
-3. Välj ”login”-nyckelringen.
-4. Klicka på hänglåsikonen om du vill låsa nyckelringen (ett hänglås animera till en låst plats när du är klar, det kan ta några sekunder beroende på vilka appar du har öppna).
+2. Öppna nyckel ringen (**cmd + blank steg**, Skriv in nyckel ringen och tryck på RETUR).
+3. Välj nyckel ringen för inloggning.
+4. Klicka på hänglås ikonen för att låsa nyckel ringen (hänglåset animeras till en låst plats när det är klart, det kan ta några sekunder beroende på vilka appar som är öppna).
 
     ![image](./media/storage-explorer-troubleshooting/unlockingkeychain.png)
 
-5. Starta Lagringsutforskaren.
-6. Ett popup-fönster visas som säger något som ”Service hub vill komma åt nyckelringen”. När den, ange ditt Mac administratörslösenordet och klickar på **Tillåt alltid** (eller **Tillåt** om **Tillåt alltid** är inte tillgänglig).
+5. Starta Storage Explorer.
+6. Ett popup-fönster bör visas som säger att "service Hub vill komma åt nyckel ringen". När det gör det anger du lösen ordet för Mac-administratörskontot och klickar på **Tillåt alltid** (eller **Tillåt** om **Tillåt alltid** är inte tillgängligt).
 7. Försök att logga in.
 
-### <a name="general-sign-in-troubleshooting-steps"></a>Allmän inloggning felsökningssteg
+### <a name="general-sign-in-troubleshooting-steps"></a>Allmän inloggning fel söknings steg
 
-* Om du är på macOS och fönstret inloggning aldrig visas ovanför den ”väntar på verifiering...” dialogrutan försök [de här stegen](#mac-keychain-errors)
-* Starta om Lagringsutforskaren
-* Om fönstret autentisering är tom, vänta minst en minut innan du stänger dialogrutan för autentisering.
-* Se till att proxy- och certifikat som är rätt konfigurerade, inställningar för både din dator och Storage Explorer.
-* Om du använder Windows och har tillgång till Visual Studio-2019 på samma dator och logga in, försök att logga in till Visual Studio-2019. Efter en lyckad inloggning till Visual Studio-2019, kan du öppna Storage Explorer och ser ditt konto-panelen.
+* Om du använder macOS och inloggnings fönstret visas aldrig över "väntar på autentisering..." och prova sedan [de här stegen](#mac-keychain-errors)
+* Starta om Storage Explorer
+* Om Authentication-fönstret är tomt väntar du minst en minut innan du stänger dialog rutan autentisering.
+* Kontrol lera att inställningarna för proxy och certifikat är korrekt konfigurerade för både din dator och Storage Explorer.
+* Om du använder Windows och har åtkomst till Visual Studio 2019 på samma dator och loggar in, kan du försöka logga in på Visual Studio 2019. När du har loggat in på Visual Studio 2019 kan du öppna Storage Explorer och se ditt konto i konto panelen.
 
-Om ingen av dessa metoder fungerar [öppna ett ärende på GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
+Om ingen av dessa metoder fungerar [öppnar du ett problem på GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
-### <a name="missing-subscriptions-and-broken-tenants"></a>Prenumerationer som saknas och bruten klienter
+### <a name="missing-subscriptions-and-broken-tenants"></a>Saknade prenumerationer och brutna klienter
 
-Om det inte går att hämta dina prenumerationer när du har loggat in kan du prova följande metoder:
+Om du inte kan hämta dina prenumerationer när du har loggat in, kan du prova följande fel söknings metoder:
 
-* Kontrollera att ditt konto har åtkomst till de prenumerationer som du förväntar dig. Du kan verifiera din åtkomst genom att logga in portalen för Azure-miljön du försöker använda.
-* Se till att du har loggat in med rätt Azure miljö (Azure, Azure Kina 21Vianet, Azure Germany, Azure US Government eller anpassad miljö).
-* Om du är bakom en proxyserver, se till att du har konfigurerat Storage Explorer-proxyservern korrekt.
+* Kontrol lera att ditt konto har åtkomst till de prenumerationer som du förväntar dig. Du kan kontrol lera åtkomsten genom att logga in på portalen för den Azure-miljö som du försöker använda.
+* Kontrol lera att du har loggat in med rätt Azure-miljö (Azure, Azure Kina 21Vianet, Azure Germany, Azure amerikanska myndigheter eller anpassad miljö).
+* Om du är bakom en proxyserver ser du till att du har konfigurerat Storage Explorer proxyservern korrekt.
 * Försök att ta bort och lägga till kontot igen.
-* Om det finns en ”mer information”-länk, titta och se vilka felmeddelanden rapporteras för klienter som misslyckas. Om you'ren't kontrollera vad som ska göras med fel meddelanden du se och sedan gärna [öppna ett ärende på GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
+* Om länken "Mer information" visas kan du se vilka fel meddelanden som rapporteras för de klienter som inte fungerar. Om you'ren't vet vad som ska utföras med de fel meddelanden som visas, är det kostnads fritt att [öppna ett problem på GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
-## <a name="cant-remove-attached-account-or-storage-resource"></a>Det går inte att ta bort bifogade konto eller storage-resurs
+## <a name="cant-remove-attached-account-or-storage-resource"></a>Det går inte att ta bort det anslutna kontot eller lagrings resursen
 
-Om det inte går att ta bort ett anslutna konto eller en resurs för lagring via Användargränssnittet, kan du manuellt ta bort alla anslutna resurser genom att ta bort följande mappar:
+Om du inte kan ta bort ett kopplat konto eller en lagrings resurs via användar gränssnittet kan du manuellt ta bort alla anslutna resurser genom att ta bort följande mappar:
 
 * Windows: `%AppData%/StorageExplorer`
 * macOS: `/Users/<your_name>/Library/Application Support/StorageExplorer`
 * Linux: `~/.config/StorageExplorer`
 
 > [!NOTE]
-> Stäng Lagringsutforskaren innan du tar bort de ovanstående mapparna.
+> Stäng Storage Explorer innan du tar bort ovanstående mappar.
 
 > [!NOTE]
-> Om du någonsin har importerat eventuella SSL-certifikat och sedan säkerhetskopiera innehållet i den `certs` directory. Du kan senare använda säkerhetskopian för att importera SSL-certifikat.
+> Om du någonsin har importerat några SSL-certifikat ska du säkerhetskopiera innehållet `certs` i katalogen. Senare kan du använda säkerhets kopieringen för att importera SSL-certifikat igen.
 
-## <a name="proxy-issues"></a>Proxyproblem
+## <a name="proxy-issues"></a>Problem med proxy
 
-Kontrollera först att du har angett följande stämmer:
+Kontrol lera först att följande information som du har angett är korrekt:
 
-* Proxy-URL och portnummer
-* Användarnamn och lösenord om det behövs av proxyn
+* Proxy-URL och port nummer
+* Användar namn och lösen ord om proxyn kräver det
 
 > [!NOTE]
-> Lagringsutforskaren stöder inte filer för automatisk konfiguration av proxy för att konfigurera proxy-inställningar.
+> Storage Explorer stöder inte AutoConfig-installationsfiler för att konfigurera proxyinställningar.
 
 ### <a name="common-solutions"></a>Vanliga lösningar
 
-Om du fortfarande har problem, kan du prova följande metoder:
+Om du fortfarande har problem kan du prova följande fel söknings metoder:
 
-* Om du kan ansluta till Internet utan att använda proxyservern kan du kontrollera att Storage Explorer fungerar utan proxy-inställningar som är aktiverad. Om så är fallet kan det finnas ett problem med proxyinställningarna. Arbeta med din proxy-administratör att identifiera problem.
-* Kontrollera att andra program med proxyservern fungerar som förväntat.
-* Kontrollera att du kan ansluta till Azure-miljön du försöker använda portalen
-* Kontrollera att du kan ta emot svar från dina tjänstslutpunkter. Ange någon av slutpunkt-webbadresser i din webbläsare. Om du kan ansluta, får du en InvalidQueryParameterValue eller liknande XML-svaret.
-* Om någon annan också använder Storage Explorer med proxyservern, kontrollerar du att de kan ansluta. Om de kan ansluta kan du behöva kontakta serveradministratören proxy.
+* Om du kan ansluta till Internet utan att använda proxyservern kontrollerar du att Storage Explorer fungerar utan proxyinställningar aktiverade. I så fall kan det finnas ett problem med proxyinställningarna. Arbeta med proxy-administratören för att identifiera problemen.
+* Kontrol lera att andra program som använder proxyservern fungerar som förväntat.
+* Kontrol lera att du kan ansluta till portalen för den Azure-miljö som du försöker använda
+* Verifiera att du kan ta emot svar från dina tjänst slut punkter. Ange en av dina slut punkts-URL: er i webbläsaren. Om du kan ansluta bör du få ett InvalidQueryParameterValue eller liknande XML-svar.
+* Om någon annan också använder Storage Explorer med proxyservern, kontrollerar du att de kan ansluta. Om de kan ansluta kan du behöva kontakta proxyserverns administratör.
 
 ### <a name="tools-for-diagnosing-issues"></a>Verktyg för att diagnostisera problem
 
-Om du har verktyg för nätverk, till exempel Fiddler för Windows, kan du diagnostisera problem på följande sätt:
+Om du har nätverks verktyg, till exempel Fiddler för Windows, kan du diagnostisera problemen på följande sätt:
 
-* Om du behöver gå igenom din proxyserver kan du behöva konfigurera ditt nätverk verktyg för att ansluta via proxy.
-* Kontrollera det portnummer som används av ditt verktyg för nätverk.
-* Ange lokal värd-URL och portnummer för verktyget nätverk som proxyinställningar i Storage Explorer. När görs på rätt sätt startar ditt verktyg för nätverk loggning nätverksbegäranden gjorda av Storage Explorer till hanterings- och slutpunkter. Ange till exempel https://cawablobgrs.blob.core.windows.net/ för blob-slutpunkt i en webbläsare och du får ett svar liknar följande, vilket tyder på resursen finns, även om du inte kommer åt den.
+* Om du måste arbeta via proxyservern kan du behöva konfigurera nätverks verktyget för att ansluta via proxyservern.
+* Kontrol lera port numret som används av nätverks verktyget.
+* Ange den lokala värd-URL: en och nätverks verktygets port nummer som proxyinställningar i Storage Explorer. När du är färdig startar nätverks verktyget loggning av nätverks förfrågningar som görs av Storage Explorer till hanterings-och tjänst slut punkter. Ange https://cawablobgrs.blob.core.windows.net/ till exempel för din BLOB-slutpunkt i en webbläsare och du får ett svar som liknar följande, vilket innebär att resursen finns, även om du inte kan komma åt den.
 
-![Kodexempel](./media/storage-explorer-troubleshooting/4022502_en_2.png)
+![kod exempel](./media/storage-explorer-troubleshooting/4022502_en_2.png)
 
-### <a name="contact-proxy-server-admin"></a>Kontakta serveradministratören för proxy
+### <a name="contact-proxy-server-admin"></a>Kontakta proxyserverns administratör
 
-Om proxyinställningarna är korrekta, du kan behöva kontakta din serveradministratör för proxy och
+Om proxyinställningarna är korrekta kan du behöva kontakta proxyserverns administratör och
 
-* Se till att proxyservern inte blockerar trafik till Azure management eller resurs-slutpunkter.
-* Kontrollera autentiseringsprotokoll som används av proxyservern. NTLM-proxyservrar stöder inte för närvarande i Storage Explorer.
+* Kontrol lera att proxyn inte blockerar trafik till Azure-hantering eller resurs slut punkter.
+* Verifiera autentiseringsprotokollet som används av proxyservern. Storage Explorer stöder för närvarande inte NTLM-proxyservrar.
 
-## <a name="unable-to-retrieve-children-error-message"></a>”Det gick inte att hämta underordnade” felmeddelande
+## <a name="unable-to-retrieve-children-error-message"></a>Fel meddelandet "det går inte att hämta underordnade"
 
-Om du är ansluten till Azure via en proxyserver, kontrollerar du att proxyinställningarna är korrekta. Om du har beviljats åtkomst till en resurs från ägaren av prenumerationen eller konto, kontrollera att du har läst eller lista över behörigheter för den resursen.
+Om du är ansluten till Azure via en proxyserver kontrollerar du att proxyinställningarna är korrekta. Om du beviljas åtkomst till en resurs från ägaren av prenumerationen eller kontot kontrollerar du att du har Läs-eller List behörigheter för den resursen.
 
-## <a name="connection-string-doesnt-have-complete-configuration-settings"></a>Anslutningssträngen inte har slutförts konfigurationsinställningar
+## <a name="connection-string-doesnt-have-complete-configuration-settings"></a>Anslutnings strängen har inte fullständiga konfigurations inställningar
 
-Om du får detta felmeddelande är det möjligt att du inte har behörigheten som krävs för att få nycklarna för ditt lagringskonto. Gå till portalen för att bekräfta om så är fallet, och leta upp ditt Storage-konto. Du kan snabbt göra detta genom att högerklicka på noden för ditt lagringskonto och klicka på ”Öppna i portalen”. När du gör det, går du till bladet ”åtkomstnycklar”. Om du inte har behörighet att visa nycklar kan sedan visas en sida med meddelandet ”du inte har åtkomst”. Undvik problemet genom du antingen hämta kontonyckeln från någon annan och bifoga med namn och nyckel, eller du kan be någon för en SAS för lagringskontot och använda den för att ansluta till Storage-kontot.
+Om du får det här fel meddelandet är det möjligt att du inte har de behörigheter som krävs för att hämta nycklarna för ditt lagrings konto. Om du vill kontrol lera om så är fallet går du till portalen och letar upp ditt lagrings konto. Du kan snabbt göra detta genom att högerklicka på noden för ditt lagrings konto och klicka på "öppna i portalen". När du har gjort det går du till bladet "åtkomst nycklar". Om du inte har behörighet att Visa nycklar visas en sida med meddelandet "du har inte åtkomst". För att undvika det här problemet kan du antingen hämta konto nyckeln från någon annan och bifoga med namn och nyckel, eller så kan du be någon om en SAS till lagrings kontot och använda det för att ansluta lagrings kontot.
 
-Om du ser nycklar för kontot kan du rapportera problemet på GitHub så att vi kan hjälpa dig att lösa problemet.
+Om du ser konto nycklarna kan du ange ett problem på GitHub så att vi kan hjälpa dig att lösa problemet.
 
 ## <a name="issues-with-sas-url"></a>Problem med SAS-URL
 
-Om du vill ansluta till en tjänst med hjälp av en SAS-URL och upplever det här felet:
+Om du ansluter till en tjänst med en SAS-URL och det här felet uppstår:
 
-* Kontrollera att URL: en ger tillräcklig behörighet för att läsa eller lista resurser.
-* Kontrollera att URL: en inte har gått ut.
-* Om SAS-Webbadressen är baserad på en åtkomstprincip, kontrollerar du att åtkomstprincipen inte har återkallats.
+* Kontrol lera att URL: en ger de behörigheter som krävs för att läsa eller lista resurser.
+* Kontrol lera att URL: en inte har upphört att gälla.
+* Om SAS-URL: en baseras på en åtkomst princip kontrollerar du att åtkomst principen inte har återkallats.
 
-Följ dessa steg om du av misstag ansluten med hjälp av en ogiltig SAS-URL och kan inte koppla från:
+Om du av misstag har kopplat med en ogiltig SAS-URL och inte kan koppla från, följer du dessa steg:
 
-1. När du kör Lagringsutforskaren, trycker du på F12 för att öppna fönstret med utvecklingsverktyg.
-2. Klicka på fliken program och klicka sedan på lokal lagring > file:// i trädet till vänster.
-3. Hitta nyckeln som associeras med tjänsttypen problematiska SAS-URI. Till exempel om dåligt SAS-URI är för en blob-behållare, letar du efter nyckeln med namnet `StorageExplorer_AddStorageServiceSAS_v1_blob`.
-4. Värdet för nyckeln ska vara en JSON-matris. Hitta det objekt som är associerade med den felaktiga URI och ta bort den.
-5. Tryck på Ctrl + R för att läsa in Storage Explorer.
+1. När du kör Storage Explorer trycker du på F12 för att öppna fönstret utvecklarverktyg.
+2. Klicka på fliken program och sedan på lokal lagring > file://i trädet till vänster.
+3. Hitta nyckeln som är associerad med tjänst typen för den problematiska SAS-URI: n. Om t. ex. den felaktiga SAS-URI: n är för en BLOB-behållare, `StorageExplorer_AddStorageServiceSAS_v1_blob`letar du efter nyckeln med namnet.
+4. Värdet för nyckeln ska vara en JSON-matris. Hitta objektet som är associerat med den felaktiga URI: n och ta bort det.
+5. Tryck på CTRL + R för att läsa in Storage Explorer igen.
 
 ## <a name="linux-dependencies"></a>Linux-beroenden
 
@@ -244,69 +244,70 @@ snap connect storage-explorer:password-manager-service :password-manager-service
 You can also download the application .tar.gz file, but you'll have to install dependencies manually. -->
 
 > [!IMPORTANT]
-> Lagringsutforskaren som angavs i det. tar.gz download stöds endast för distributioner som Ubuntu. Andra distributioner inte har verifierats och kan kräva alternativ eller ytterligare paket.
+> Storage Explorer som anges i hämtningen. tar. gz stöds bara för Ubuntu-distributioner. Andra distributioner har inte verifierats och kan kräva alternativa eller ytterligare paket.
 
-Dessa paket är de vanligaste krav för Storage Explorer på Linux:
+Dessa paket är de vanligaste kraven för Storage Explorer i Linux:
 
-* [.NET Core 2.0 Runtime](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
+* [.NET Core 2,0-körning](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
 * `libgconf-2-4`
 * `libgnome-keyring0` eller `libgnome-keyring-dev`
 * `libgnome-keyring-common`
 
 > [!NOTE]
-> Lagringsutforskaren version 1.7.0 och tidigare kräver .NET Core 2.0. Om du har en nyare version av .NET Core installerad så behöver du [korrigera Lagringsutforskaren](#patching-storage-explorer-for-newer-versions-of-net-core). Om du kör Lagringsutforskaren 1.8.0 eller större sedan bör du kunna använda upp till 2.2 för .NET Core. Versioner bortom 2.2 har inte verifierats ska fungera just nu.
+> Storage Explorer version 1.7.0 och tidigare kräver .NET Core 2,0. Om du har en senare version av .NET Core installerad måste du [korrigera Storage Explorer](#patching-storage-explorer-for-newer-versions-of-net-core). Om du kör Storage Explorer 1.8.0 eller senare bör du kunna använda upp till .NET Core 2,2. Versioner utöver 2,2 har inte verifierats för att fungera för tillfället.
 
-# <a name="ubuntu-1904tab1904"></a>[Ubuntu 19.04](#tab/1904)
+# <a name="ubuntu-1904tab1904"></a>[Ubuntu 19,04](#tab/1904)
 
 1. Ladda ned Storage Explorer.
-2. Installera den [.NET Core Runtime](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu19-04/runtime-current).
+2. Installera [.net Core runtime](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu19-04/runtime-current).
 3. Kör följande kommando:
    ```bash
    sudo apt-get install libgconf-2-4 libgnome-keyring0
    ```
 
-# <a name="ubuntu-1804tab1804"></a>[Ubuntu 18.04](#tab/1804)
+# <a name="ubuntu-1804tab1804"></a>[Ubuntu 18,04](#tab/1804)
 
 1. Ladda ned Storage Explorer.
-2. Installera den [.NET Core Runtime](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu18-04/runtime-current).
+2. Installera [.net Core runtime](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu18-04/runtime-current).
 3. Kör följande kommando:
    ```bash
    sudo apt-get install libgconf-2-4 libgnome-keyring-common libgnome-keyring0
    ```
 
-# <a name="ubuntu-1604tab1604"></a>[Ubuntu 16.04](#tab/1604)
+# <a name="ubuntu-1604tab1604"></a>[Ubuntu 16,04](#tab/1604)
 
 1. Ladda ned Storage Explorer
-2. Installera den [.NET Core Runtime](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu16-04/runtime-current).
+2. Installera [.net Core runtime](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu16-04/runtime-current).
 3. Kör följande kommando:
    ```bash
    sudo apt install libgnome-keyring-dev
    ```
 
-# <a name="ubuntu-1404tab1404"></a>[Ubuntu 14.04](#tab/1404)
+# <a name="ubuntu-1404tab1404"></a>[Ubuntu 14,04](#tab/1404)
 
 1. Ladda ned Storage Explorer
-2. Installera den [.NET Core Runtime](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu14-04/runtime-current).
+2. Installera [.net Core runtime](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu14-04/runtime-current).
 3. Kör följande kommando:
    ```bash
    sudo apt install libgnome-keyring-dev
    ```
+---
 
-### <a name="patching-storage-explorer-for-newer-versions-of-net-core"></a>Korrigeringar Storage Explorer för nyare versioner av .NET Core
+### <a name="patching-storage-explorer-for-newer-versions-of-net-core"></a>Korrigera Storage Explorer för nyare versioner av .NET Core
 
-Så att Lagringsutforskaren 1.7.0 eller äldre, du kan behöva uppdatera versionen av .NET Core som används av Storage Explorer.
+För Storage Explorer 1.7.0 eller äldre kan du behöva korrigera den version av .NET Core som används av Storage Explorer.
 
-1. Hämta versionen 1.5.43 av StreamJsonRpc [från nuget](https://www.nuget.org/packages/StreamJsonRpc/1.5.43). Sök efter ”hämtningspaketet” länken till höger på sidan.
-2. När du laddar ned paketet, byter du dess filnamnstillägg från `.nupkg` till `.zip`.
+1. Hämta version 1.5.43 av StreamJsonRpc [från NuGet](https://www.nuget.org/packages/StreamJsonRpc/1.5.43). Leta upp länken "Ladda ned paket" på höger sida av sidan.
+2. När du har laddat ned paketet ändrar du dess `.nupkg` fil `.zip`namns tillägg från till.
 3. Packa upp paketet.
 4. Öppna mappen `streamjsonrpc.1.5.43/lib/netstandard1.1/`.
-5. Kopiera `StreamJsonRpc.dll` på följande platser i mappen Storage Explorer:
+5. Kopiera `StreamJsonRpc.dll` till följande platser i Storage Explorer-mappen:
    * `StorageExplorer/resources/app/ServiceHub/Services/Microsoft.Developer.IdentityService/`
    * `StorageExplorer/resources/app/ServiceHub/Hosts/ServiceHub.Host.Core.CLR.x64/`
 
-## <a name="open-in-explorer-from-azure-portal-doesnt-work"></a>Öppna i Explorer från Azure portal fungerar inte
+## <a name="open-in-explorer-from-azure-portal-doesnt-work"></a>Öppna i Explorer från Azure Portal fungerar inte
 
-Om knappen ”Öppna i Explorer” i Azure-portalen inte fungerar för dig kan du kontrollera att du använder en kompatibel webbläsare. Följande webbläsare har testats för kompatibilitet.
+Om knappen "öppna i Utforskaren" på Azure Portal inte fungerar för dig kontrollerar du att du använder en kompatibel webbläsare. Följande webbläsare har testats för kompatibilitet.
 * Microsoft Edge
 * Mozilla Firefox
 * Google Chrome
@@ -314,6 +315,6 @@ Om knappen ”Öppna i Explorer” i Azure-portalen inte fungerar för dig kan d
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om ingen av lösningarna fungerar för dig, sedan [öppna ett ärende på GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues). Du kan också snabbt få till GitHub med hjälp av knappen ”rapportera fel till GitHub” i det nedre vänstra hörnet.
+Om ingen av lösningarna fungerar för dig kan du [öppna ett ärende på GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues). Du kan också snabbt komma åt GitHub genom att använda knappen rapportera problem med GitHub i det nedre vänstra hörnet.
 
 ![Feedback](./media/storage-explorer-troubleshooting/feedback-button.PNG)

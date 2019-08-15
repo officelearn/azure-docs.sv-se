@@ -1,6 +1,6 @@
 ---
-title: Konfigurera kvarhållning i Azure Time Series Insights-miljön | Microsoft Docs
-description: Den här artikeln beskriver hur du konfigurerar kvarhållning i din Azure Time Series Insights-miljö.
+title: Så här konfigurerar du kvarhållning i Azure Time Series Insightss miljön | Microsoft Docs
+description: Den här artikeln beskriver hur du konfigurerar kvarhållning i Azure Time Series Insightss miljön.
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
@@ -9,46 +9,46 @@ manager: cshankar
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 04/30/2019
+ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3235844c8750003d08e996f5065fcef256c2d244
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: e5cc1489af1dce3a9a57b96a3240c63e0395c33a
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67165667"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68947234"
 ---
 # <a name="configuring-retention-in-time-series-insights"></a>Konfigurera kvarhållning i Time Series Insights
 
-Den här artikeln beskriver hur du konfigurerar **datalagringstid** och **lagringsgräns överskred beteende** i Azure Time Series Insights.
+Den här artikeln beskriver hur du konfigurerar **tiden** för datakvarhållning och **lagrings gränsen överskreds** i Azure Time Series Insights.
 
 ## <a name="summary"></a>Sammanfattning
 
-Alla miljöer för Time Series Insights (TSI) har en inställning för att konfigurera **datalagringstid**. Värdet sträcker sig från 1 till 400 dagar. Data tas bort baserat på miljön storage kvarhållning eller kapacitet (1 400), beroende på vilket som inträffar först.
+Varje Time Series Insights (TSD) har en inställning för att konfigurera **data lagrings tid**. Värdet sträcker sig från 1 till 400 dagar. Data tas bort baserat på miljöns lagrings kapacitet eller varaktigheten för kvarhållning (1-400), beroende på vilket som kommer först.
 
-Alla TSI-miljöer har en ytterligare inställning **lagringsgräns överskred beteende**. Den här inställningen styr beteendet för ingående och rensa när maxkapacitet för en miljö har uppnåtts. Det finns två beteenden att välja mellan:
+Varje TSD-miljö har ytterligare ett **gräns**värde för lagrings utrymme som har överskridits. Den här inställningen styr ingångs-och rensnings beteende när den maximala kapaciteten för en miljö nås. Du kan välja mellan två beteenden:
 
-- **Radera gamla data** (standard)
+- **Rensa gamla data** objekt
 - **Pausa ingress**
 
-Detaljerad information att bättre förstå de här inställningarna finns [Understanding kvarhållning i Time Series Insights](time-series-insights-concepts-retention.md).  
+Detaljerad information för att bättre förstå de här inställningarna finns [i förstå kvarhållning i Time Series Insights](time-series-insights-concepts-retention.md).  
 
 ## <a name="configure-data-retention"></a>Konfigurera datakvarhållning
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 
-1. Leta upp din befintliga Time Series Insights-miljö. Välj **alla resurser** på menyn på vänster sida av Azure-portalen. Välj Time Series Insights-miljö.
+1. Leta upp din befintliga Time Series Insights-miljö. Välj **alla resurser** på menyn på vänster sida av Azure Portal. Välj Time Series Insights-miljö.
 
-1. Under den **inställningar** väljer **konfigurera**.
+1. Under rubriken **Inställningar** väljer du **Konfigurera**.
 
-1. Välj den **datalagringstid** att konfigurera den kvarhållning av säkerhetskopior med hjälp av skjutreglaget eller ange ett tal i textrutan.
+1. Välj **data lagrings tid** för att konfigurera kvarhållning med skjutreglaget eller Skriv ett tal i text rutan.
 
-1. Obs den **kapacitet** anger, eftersom denna konfiguration påverkar den maximala mängden Datahändelser och total lagringskapacitet för att lagra data.
+1. Observera **kapacitets** inställningen, eftersom den här konfigurationen påverkar den maximala mängden data händelser och den totala lagrings kapaciteten för att lagra data.
 
-1. Visa/Dölj de **lagringsgräns överskred beteende** inställningen. Välj **Radera gamla data** eller **pausa ingående** beteende.
+1. Växla inställningen för **lagrings gränsen överskreds** . Välj **Rensa gamla data** eller **pausa** inträngande beteende.
 
-1. Välj **spara** konfigurera ändringarna.
+1. Konfigurera ändringarna genom att välja **Spara** .
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information finns [Understanding kvarhållning i Time Series Insights](time-series-insights-concepts-retention.md).
+- Mer information finns [i förstå kvarhållning i Time Series Insights](time-series-insights-concepts-retention.md).

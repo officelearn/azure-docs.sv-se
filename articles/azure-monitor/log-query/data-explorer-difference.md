@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor log-fråga språkskillnader | Microsoft Docs
-description: Referensinformation för Kusto-frågespråk som används av Azure Monitor. Innehåller ytterligare element som är specifika för Azure Monitor och element som inte stöds i Azure Monitor log-frågor.
+title: Azure Monitor skillnader i frågespråk för loggen | Microsoft Docs
+description: Referensinformation för Kusto-frågespråket som används av Azure Monitor. Innehåller ytterligare element som är speciella för Azure Monitor och element som inte stöds i Azure Monitor logg frågor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -11,27 +11,27 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 10/31/2018
+ms.date: 08/13/2019
 ms.author: bwren
-ms.openlocfilehash: 1185f3f96fd39f168d138d7dbf66e7780884b1fa
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9892b8884d901033a80fae4168f25da97edb5a68
+ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60589263"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68990170"
 ---
-# <a name="azure-monitor-log-query-language-differences"></a>Azure Monitor log-fråga språkskillnader
+# <a name="azure-monitor-log-query-language-differences"></a>Skillnader i språk i Azure Monitor logg frågor
 
-Medan [loggar i Azure Monitor](log-query-overview.md) bygger på [Azure Data Explorer](/azure/data-explorer) och använder samma [Kusto-frågespråket](/azure/kusto/query), versionen av språket har några skillnader. Den här artikeln identifierar element som skiljer sig mellan versionen av det språk som används för Datautforskaren och den version som används för Azure Monitor log-frågor.
+Även om [loggar i Azure Monitor](log-query-overview.md) bygger på [Azure datautforskaren](/azure/data-explorer) och använder samma [Kusto-frågespråk](/azure/kusto/query), har versionen av språket vissa skillnader. Den här artikeln identifierar element som skiljer sig från den version av språket som används för Datautforskaren och den version som används för Azure Monitor logg frågor.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="kql-elements-not-supported-in-azure-monitor"></a>KQL element som inte stöds i Azure Monitor
-I följande avsnitt beskrivs element i Kusto-frågespråk som inte stöds av Azure Monitor.
+## <a name="kql-elements-not-supported-in-azure-monitor"></a>KQL-element stöds inte i Azure Monitor
+I följande avsnitt beskrivs elementen i Kusto-frågespråket som inte stöds av Azure Monitor.
 
-### <a name="statements-not-supported-in-azure-monitor"></a>Uttryck som inte stöds i Azure Monitor
+### <a name="statements-not-supported-in-azure-monitor"></a>Instruktioner stöds inte i Azure Monitor
 
-* [Alias](/azure/kusto/query/aliasstatement)
+* [Aliasuppsättning](/azure/kusto/query/aliasstatement)
 * [Frågeparametrar](/azure/kusto/query/queryparametersstatement)
 
 ### <a name="functions-not-supported-in-azure-monitor"></a>Funktioner som inte stöds i Azure Monitor
@@ -40,28 +40,29 @@ I följande avsnitt beskrivs element i Kusto-frågespråk som inte stöds av Azu
 * [cursor_after()](/azure/kusto/query/cursorafterfunction)
 * [cursor_before_or_at()](/azure/kusto/query/cursorbeforeoratfunction)
 * [cursor_current(), current_cursor()](/azure/kusto/query/cursorcurrent)
-* [database()](/azure/kusto/query/databasefunction)
+* [databas ()](/azure/kusto/query/databasefunction)
 * [current_principal()](/azure/kusto/query/current-principalfunction)
 * [extent_id()](/azure/kusto/query/extentidfunction)
 * [extent_tags()](/azure/kusto/query/extenttagsfunction)
 
-### <a name="operators-not-supported-in-azure-monitor"></a>Operatörer som inte stöds i Azure Monitor
+### <a name="operators-not-supported-in-azure-monitor"></a>Operatorer stöds inte i Azure Monitor
 
-* [Anslutning till flera kluster](/azure/kusto/query/joincrosscluster)
-* [externaldata operator](/azure/kusto/query/externaldata-operator)
+* [Anslutning mellan kluster](/azure/kusto/query/joincrosscluster)
+* [extern Aldata-operatör](/azure/kusto/query/externaldata-operator)
 
-### <a name="plugins-not-supported-in-azure-monitor"></a>Plugin-program som inte stöds i Azure Monitor
+### <a name="plugins-not-supported-in-azure-monitor"></a>Plugin-program stöds inte i Azure Monitor
 
-* [sql_request plugin-programmet](/azure/kusto/query/sqlrequestplugin)
+* [Python-plugin](/azure/kusto/query/pythonplugin)
+* [sql_request-plugin](/azure/kusto/query/sqlrequestplugin)
 
 
-## <a name="additional-operators-in-azure-monitor"></a>Ytterligare operatorer i Azure Monitor
-Följande operatorer stöd för specifika funktioner i Azure Monitor och är inte tillgängliga utanför Azure Monitor.
+## <a name="additional-operators-in-azure-monitor"></a>Ytterligare operatörer i Azure Monitor
+Följande operatörer stöder vissa Azure Monitor funktioner och är inte tillgängliga utanför Azure Monitor.
 
 * [app()](app-expression.md)
 * [workspace()](workspace-expression.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Hämta referenser till olika [resurser för att skriva Azure Monitor logga frågor](query-language.md).
-- Få åtkomst till den fullständiga [referensdokumentation för Kusto-frågespråket](/azure/kusto/query/).
+- Hämta referenser till olika [resurser för att skriva Azure Monitor logg frågor](query-language.md).
+- Få till gång till fullständig [referens dokumentation för Kusto-frågespråk](/azure/kusto/query/).

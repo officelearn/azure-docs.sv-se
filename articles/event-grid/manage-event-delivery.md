@@ -1,31 +1,33 @@
 ---
-title: Obeställbara meddelanden och principer för återförsök för Azure Event Grid-prenumerationer
-description: Beskriver hur du anpassar händelse Leveransalternativ för Event Grid. Ange ett mål för förlorade och ange hur lång tid att försöka igen leverans.
+title: Principer för obeställbara meddelanden och återförsök för Azure Event Grid prenumerationer
+description: Beskriver hur du anpassar alternativ för händelse leverans för Event Grid. Ange ett mål för obeställbara meddelanden och ange hur lång tid överföringen ska göras.
 services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/06/2019
 ms.author: spelluru
-ms.openlocfilehash: a1b49fd3a2a85377a56c92aefd1b0056f91895b1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 63bae62ed89bd0bbc167a88274002d1fa1e9b86d
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66119568"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68933363"
 ---
-# <a name="dead-letter-and-retry-policies"></a>Obeställbara meddelanden och principer för återförsök
+# <a name="dead-letter-and-retry-policies"></a>Principer för obeställbara meddelanden och återförsök
 
-När du skapar en händelseprenumeration kan anpassa du inställningarna för händelseleverans. Den här artikeln visar hur du konfigurerar en plats för obeställbara meddelanden och anpassa återförsöksinställningar för. Information om dessa funktioner finns i [Event Grid meddelandeleverans och försök igen](delivery-and-retry.md).
+När du skapar en händelse prenumeration kan du anpassa inställningarna för händelse leverans. Den här artikeln visar hur du konfigurerar en plats för obeställbara meddelanden och hur du anpassar inställningarna för återförsök. Information om dessa funktioner finns i [Event Grid meddelande leverans och försök igen](delivery-and-retry.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="set-dead-letter-location"></a>Ange platsen för obeställbara meddelanden
+## <a name="set-dead-letter-location"></a>Ange plats för obeställbara meddelanden
 
-Om du vill ange en plats för obeställbara meddelanden, behöver du ett storage-konto för att lagra händelser som inte kan levereras till en slutpunkt. Exemplen hämta resurs-ID för ett befintligt lagringskonto. De skapa en händelseprenumeration som använder en behållare i det lagringskontot för förlorade-slutpunkten.
+Om du vill ange en plats för död brev behöver du ett lagrings konto för att lagra händelser som inte kan levereras till en slut punkt. Exemplen hämtar resurs-ID för ett befintligt lagrings konto. De skapar en händelse prenumeration som använder en behållare i lagrings kontot för slut punkten för obeställbara meddelanden.
 
 > [!NOTE]
-> Skapa ett lagringskonto och en blob-behållare i storage innan du kör kommandona i den här artikeln.
+> - Skapa ett lagrings konto och en BLOB-behållare i lagrings platsen innan du kör kommandona i den här artikeln.
+> - Event Grids tjänsten skapar blobbar i den här behållaren. Namnen på blobbar kommer att ha namnet på Event Grid prenumerationen med alla bokstäver i versaler. Om namnet på prenumerationen t. ex. är min-BLOB-prenumeration, kommer namn på blobarna för obeställbara meddelanden att ha MY-BLOB-SUBSCRIPTION (myblobcontainer/MY-BLOB-SUBSCRIPTION/2019/8/8/5/111111111-1111-1111-1111 -111111111111. JSON). Det här beteendet är att skydda mot skillnader i fall hantering mellan Azure-tjänster.
+
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -42,7 +44,7 @@ az eventgrid event-subscription create \
   --deadletter-endpoint $storageid/blobServices/default/containers/$containername
 ```
 
-Om du vill inaktivera dead-lettering, kör kommandot för att skapa händelseprenumerationen men inte anger ett värde för `deadletter-endpoint`. Du behöver inte ta bort händelseprenumerationen.
+Om du vill inaktivera obeställbara meddelanden kör du kommandot igen för att skapa händelse prenumerationen men Ange inget värde för `deadletter-endpoint`. Du behöver inte ta bort händelse prenumerationen.
 
 > [!NOTE]
 > Om du använder Azure CLI på din lokala dator ska du använda Azure CLI version 2.0.56 eller större. Anvisningar om hur du installerar den senaste versionen av Azure CLI finns i [Installera Azure CLI](/cli/azure/install-azure-cli).
@@ -62,20 +64,20 @@ New-AzEventGridSubscription `
   -DeadLetterEndpoint "$storageid/blobServices/default/containers/$containername"
 ```
 
-Om du vill inaktivera dead-lettering, kör kommandot för att skapa händelseprenumerationen men inte anger ett värde för `DeadLetterEndpoint`. Du behöver inte ta bort händelseprenumerationen.
+Om du vill inaktivera obeställbara meddelanden kör du kommandot igen för att skapa händelse prenumerationen men Ange inget värde för `DeadLetterEndpoint`. Du behöver inte ta bort händelse prenumerationen.
 
 > [!NOTE]
-> Om du använder Azure PowerShell på den lokala datorn kan använda Azure PowerShell-version 1.1.0 eller större. Ladda ned och installera den senaste Azure PowerShell från [Azure hämtar](https://azure.microsoft.com/downloads/).
+> Om du använder Azure-PowerShell på din lokala dator använder du Azure PowerShell version 1.1.0 eller senare. Hämta och installera den senaste Azure PowerShell från [Azure-nedladdningar](https://azure.microsoft.com/downloads/).
 
-## <a name="set-retry-policy"></a>Ange återförsöksprincipen
+## <a name="set-retry-policy"></a>Ange princip för återförsök
 
-När du skapar en Event Grid-prenumeration kan ange du värden för hur länge Event Grid bör försöka leverera händelsen. Som standard försöker Event Grid i 24 timmar (1 440 minuter) eller 30 gånger. Du kan ange något av dessa värden för event grid-prenumeration. Värdet för time to live-händelse måste vara ett heltal mellan 1 och 1440. Värdet för max återförsök måste vara ett heltal mellan 1 och 30.
+När du skapar en Event Grid-prenumeration kan du ange värden för hur lång tid Event Grid ska försöka leverera händelsen. Som standard försöker Event Grid i 24 timmar (1440 minuter) eller 30 gånger. Du kan ange något av dessa värden för Event Grid-prenumerationen. Värdet för Event Time-to-Live måste vara ett heltal mellan 1 och 1440. Värdet för högsta antal återförsök måste vara ett heltal mellan 1 och 30.
 
-Du kan inte konfigurera den [försök schema](delivery-and-retry.md#retry-schedule-and-duration).
+Du kan inte konfigurera [schemat för förnyad försök](delivery-and-retry.md#retry-schedule-and-duration).
 
 ### <a name="azure-cli"></a>Azure CLI
 
-För att ange händelsen time-to-live för ett annat värde än 1 440 minuter, använder du:
+Använd följande om du vill ange ett annat värde än 1440 minuter för Event Time-to-Live:
 
 ```azurecli-interactive
 az eventgrid event-subscription create \
@@ -86,7 +88,7 @@ az eventgrid event-subscription create \
   --event-ttl 720
 ```
 
-För att ange de maximala återförsök för ett annat värde än 30, använder du:
+Om du vill ange högsta antal försök till ett annat värde än 30 använder du:
 
 ```azurecli-interactive
 az eventgrid event-subscription create \
@@ -97,11 +99,11 @@ az eventgrid event-subscription create \
   --max-delivery-attempts 18
 ```
 
-Om du anger både `event-ttl` och `max-deliver-attempts`, Event Grid använder först att upphöra för att gälla för att avgöra när du ska stoppa händelseleverans.
+Om du anger både `event-ttl` och `max-deliver-attempts`, använder Event Grid första för att gå ut för att avgöra när händelse leveransen ska stoppas.
 
 ### <a name="powershell"></a>PowerShell
 
-För att ange händelsen time-to-live för ett annat värde än 1 440 minuter, använder du:
+Använd följande om du vill ange ett annat värde än 1440 minuter för Event Time-to-Live:
 
 ```azurepowershell-interactive
 $topicid = (Get-AzEventGridTopic -ResourceGroupName gridResourceGroup -Name demoTopic).Id
@@ -113,7 +115,7 @@ New-AzEventGridSubscription `
   -EventTtl 720
 ```
 
-För att ange de maximala återförsök för ett annat värde än 30, använder du:
+Om du vill ange högsta antal försök till ett annat värde än 30 använder du:
 
 ```azurepowershell-interactive
 $topicid = (Get-AzEventGridTopic -ResourceGroupName gridResourceGroup -Name demoTopic).Id
@@ -125,11 +127,11 @@ New-AzEventGridSubscription `
   -MaxDeliveryAttempt 18
 ```
 
-Om du anger både `EventTtl` och `MaxDeliveryAttempt`, Event Grid använder först att upphöra för att gälla för att avgöra när du ska stoppa händelseleverans.
+Om du anger både `EventTtl` och `MaxDeliveryAttempt`, använder Event Grid första för att gå ut för att avgöra när händelse leveransen ska stoppas.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Ett exempelprogram som använder en Azure Function-app för att bearbeta händelser som obeställbara meddelanden, se [Azure Event Grid obeställbara-exempel för .NET](https://azure.microsoft.com/resources/samples/event-grid-dotnet-handle-deadlettered-events/).
+* Ett exempel program som använder en Azure Function-app för att bearbeta händelser för obeställbara meddelanden finns i [Azure Event Grid döda brev exempel för .net](https://azure.microsoft.com/resources/samples/event-grid-dotnet-handle-deadlettered-events/).
 * Information om händelseleverans och återförsök, [Event Grid meddelandeleverans och försök igen](delivery-and-retry.md).
 * En introduktion till Event Grid finns i [Om Event Grid](overview.md).
 * Kom igång snabbt med Event Grid, se [skapa och dirigera anpassade händelser med Azure Event Grid](custom-event-quickstart.md).

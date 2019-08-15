@@ -11,12 +11,12 @@ ms.date: 04/16/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 6b5157a71ce15d4dfd199b6826be22235e61df97
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 0e60bedcf1324b443d9b9cd34e8dc695fdb0b372
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68848530"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68931756"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>Webb inloggning med OpenID Connect i Azure Active Directory B2C
 
@@ -76,14 +76,14 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | Parameter | Obligatorisk | Beskrivning |
 | --------- | -------- | ----------- |
 | client_id | Ja | Det program-ID som [Azure Portal](https://portal.azure.com/) tilldelats till ditt program. |
-| response_type | Ja | Måste innehålla en ID-token för OpenID Connect. Om ditt webb program också behöver tokens för att anropa ett webb-API kan du använda `code+id_token`. |
-| redirect_uri | Nej | `redirect_uri` Parametern för ditt program, där autentiserings svar kan skickas och tas emot av ditt program. Den måste exakt matcha en av `redirect_uri` parametrarna som du registrerade i Azure Portal, förutom att den måste vara URL-kodad. |
-| scope | Ja | En blankstegsavgränsad lista över omfång. `openid` Omfånget anger en behörighet för att logga in användaren och hämta data om användaren i form av ID-token. `offline_access` Omfånget är valfritt för webb program. Det anger att programmet behöver en *uppdateringstoken* för utökad åtkomst till resurser. |
-| response_mode | Nej | Den metod som används för att skicka den resulterande auktoriseringskod tillbaka till ditt program. Det kan vara antingen `query`, `form_post`eller `fragment`.  `form_post` Svars läget rekommenderas för bästa säkerhet. |
-| state | Nej | Ett värde som ingår i begäran som också returneras i svaret från token. Det kan vara en sträng med valfritt innehåll som du vill ha. Ett slumpmässigt genererat unikt värde används vanligt vis för att förhindra förfalsknings attacker på begäran från en annan plats. Statusen används också för att koda information om användarens tillstånd i programmet innan autentiseringsbegäran inträffade, t. ex. sidan de var på. |
 | Nnär | Ja | Ett värde som ingår i begäran (genereras av programmet) som ingår i det resulterande ID-token som ett anspråk. Programmet kan sedan kontrol lera det här värdet för att minimera omuppspelning av token. Värdet är vanligt vis en slumpmässig, unik sträng som kan användas för att identifiera ursprunget för begäran. |
 | p | Ja | Det användar flöde som körs. Det är namnet på ett användar flöde som skapas i Azure AD B2C klient organisationen. Namnet på användar flödet ska börja med `b2c\_1\_`. |
+| response_type | Ja | Måste innehålla en ID-token för OpenID Connect. Om ditt webb program också behöver tokens för att anropa ett webb-API kan du använda `code+id_token`. |
+| scope | Ja | En blankstegsavgränsad lista över omfång. `openid` Omfånget anger en behörighet för att logga in användaren och hämta data om användaren i form av ID-token. `offline_access` Omfånget är valfritt för webb program. Det anger att programmet behöver en *uppdateringstoken* för utökad åtkomst till resurser. |
 | visas | Nej | Typ av användar interaktion som krävs. Det enda giltiga värdet för tillfället är `login`, vilket tvingar användaren att ange sina autentiseringsuppgifter för begäran. |
+| redirect_uri | Nej | `redirect_uri` Parametern för ditt program, där autentiserings svar kan skickas och tas emot av ditt program. Den måste exakt matcha en av `redirect_uri` parametrarna som du registrerade i Azure Portal, förutom att den måste vara URL-kodad. |
+| response_mode | Nej | Den metod som används för att skicka den resulterande auktoriseringskod tillbaka till ditt program. Det kan vara antingen `query`, `form_post`eller `fragment`.  `form_post` Svars läget rekommenderas för bästa säkerhet. |
+| state | Nej | Ett värde som ingår i begäran som också returneras i svaret från token. Det kan vara en sträng med valfritt innehåll som du vill ha. Ett slumpmässigt genererat unikt värde används vanligt vis för att förhindra förfalsknings attacker på begäran från en annan plats. Statusen används också för att koda information om användarens tillstånd i programmet innan autentiseringsbegäran inträffade, t. ex. sidan de var på. |
 
 Nu uppmanas användaren att slutföra arbets flödet. Användaren kan behöva ange sitt användar namn och lösen ord, logga in med en social identitet eller registrera dig för katalogen. Det kan finnas andra antal steg beroende på hur användar flödet har definierats.
 
@@ -169,13 +169,13 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 
 | Parameter | Obligatorisk | Beskrivning |
 | --------- | -------- | ----------- |
-| p | Ja | Det användar flöde som användes för att hämta auktoriseringskod. Du kan inte använda ett annat användar flöde i denna begäran. Lägg till den här parametern i frågesträngen, inte POST texten. |
 | client_id | Ja | Det program-ID som [Azure Portal](https://portal.azure.com/) tilldelats till ditt program. |
-| grant_type | Ja | Typ av beviljande, som måste vara `authorization_code` för flödet för auktoriseringskod. |
-| scope | Nej | En blankstegsavgränsad lista över omfång. `openid` Omfånget anger en behörighet för att logga in användaren och hämta data om användaren i form av id_token-parametrar. Den kan användas för att hämta tokens till programmets egna Server dels webb-API, som representeras av samma program-ID som klienten. `offline_access` Omfånget anger att programmet behöver en uppdateringstoken för utökad åtkomst till resurser. |
-| code | Ja | Den auktoriseringskod som du hämtade i början av användar flödet. |
-| redirect_uri | Ja | `redirect_uri` Parametern för det program där du fick auktoriseringskod. |
 | client_secret | Ja | Den program hemlighet som genererades i [Azure Portal](https://portal.azure.com/). Den här program hemligheten är en viktig säkerhets artefakt. Du bör lagra den på ett säkert sätt på servern. Ändra den här klient hemligheten regelbundet. |
+| code | Ja | Den auktoriseringskod som du hämtade i början av användar flödet. |
+| grant_type | Ja | Typ av beviljande, som måste vara `authorization_code` för flödet för auktoriseringskod. |
+| p | Ja | Det användar flöde som användes för att hämta auktoriseringskod. Du kan inte använda ett annat användar flöde i denna begäran. Lägg till den här parametern i frågesträngen, inte POST texten. |
+| redirect_uri | Ja | `redirect_uri` Parametern för det program där du fick auktoriseringskod. |
+| scope | Nej | En blankstegsavgränsad lista över omfång. `openid` Omfånget anger en behörighet för att logga in användaren och hämta data om användaren i form av id_token-parametrar. Den kan användas för att hämta tokens till programmets egna Server dels webb-API, som representeras av samma program-ID som klienten. `offline_access` Omfånget anger att programmet behöver en uppdateringstoken för utökad åtkomst till resurser. |
 
 Ett lyckat token-svar ser ut så här:
 
@@ -236,13 +236,13 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=op
 
 | Parameter | Obligatorisk | Beskrivning |
 | --------- | -------- | ----------- |
-| p | Ja | Det användar flöde som användes för att hämta den ursprungliga uppdateringstoken. Du kan inte använda ett annat användar flöde i denna begäran. Lägg till den här parametern i frågesträngen, inte POST texten. |
 | client_id | Ja | Det program-ID som [Azure Portal](https://portal.azure.com/) tilldelats till ditt program. |
-| grant_type | Ja | Typ av beviljande, som måste vara en uppdateringstoken för den här delen av Authorization Code Flow. |
-| scope | Nej | En blankstegsavgränsad lista över omfång. `openid` Omfånget anger en behörighet för att logga in användaren och hämta data om användaren i form av ID-token. Den kan användas för att skicka tokens till programmets egna Server dels webb-API, som representeras av samma program-ID som klienten. `offline_access` Omfånget anger att programmet behöver en uppdateringstoken för utökad åtkomst till resurser. |
-| redirect_uri | Nej | `redirect_uri` Parametern för det program där du fick auktoriseringskod. |
-| refresh_token | Ja | Den ursprungliga uppdateringstoken som hämtades i den andra delen av flödet. `offline_access` Omfånget måste användas både för auktoriserings-och Tokenbegäran för att kunna ta emot en uppdateringstoken. |
 | client_secret | Ja | Den program hemlighet som genererades i [Azure Portal](https://portal.azure.com/). Den här program hemligheten är en viktig säkerhets artefakt. Du bör lagra den på ett säkert sätt på servern. Ändra den här klient hemligheten regelbundet. |
+| grant_type | Ja | Typ av beviljande, som måste vara en uppdateringstoken för den här delen av Authorization Code Flow. |
+| refresh_token | Ja | Den ursprungliga uppdateringstoken som hämtades i den andra delen av flödet. `offline_access` Omfånget måste användas både för auktoriserings-och Tokenbegäran för att kunna ta emot en uppdateringstoken. |
+| p | Ja | Det användar flöde som användes för att hämta den ursprungliga uppdateringstoken. Du kan inte använda ett annat användar flöde i denna begäran. Lägg till den här parametern i frågesträngen, inte POST texten. |
+| redirect_uri | Nej | `redirect_uri` Parametern för det program där du fick auktoriseringskod. |
+| scope | Nej | En blankstegsavgränsad lista över omfång. `openid` Omfånget anger en behörighet för att logga in användaren och hämta data om användaren i form av ID-token. Den kan användas för att skicka tokens till programmets egna Server dels webb-API, som representeras av samma program-ID som klienten. `offline_access` Omfånget anger att programmet behöver en uppdateringstoken för utökad åtkomst till resurser. |
 
 Ett lyckat token-svar ser ut så här:
 

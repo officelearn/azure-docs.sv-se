@@ -1,167 +1,169 @@
 ---
 title: Skriv om HTTP-huvuden med Azure Application Gateway | Microsoft Docs
-description: Den här artikeln innehåller en översikt över skriva om HTTP-huvuden i Azure Application Gateway
+description: Den här artikeln innehåller en översikt över hur du skriver om HTTP-rubriker i Azure Application Gateway
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 04/29/2019
+ms.date: 08/08/2019
 ms.author: absha
-ms.openlocfilehash: 9160d300270bf1ab5043bee632d27bcc4b7bf332
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b6f26eca0592017306eaefd3f5fecb544dc6fb36
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66476031"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932198"
 ---
 # <a name="rewrite-http-headers-with-application-gateway"></a>Skriv om HTTP-huvuden med Application Gateway
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-HTTP-huvuden kan en klient och server att skicka ytterligare information med en begäran eller ett svar. Du kan utföra viktiga uppgifter, till exempel att lägga till säkerhetsrelaterat namn på huvudfält som HSTS / X-XSS-skydd, ta bort svar huvudfält som kan röja känslig information och ta bort portinformationen från genom att skriva om dessa huvuden X-vidarebefordrade-för-huvuden.
+HTTP-huvuden låter en klient och Server skicka ytterligare information med en begäran eller ett svar. Genom att skriva om dessa rubriker kan du utföra viktiga uppgifter, till exempel lägga till säkerhetsrelaterade huvud fält som HSTS/X-XSS-Protection, ta bort svars huvud fält som kan avslöja känslig information och ta bort portinformation från X-vidarebefordrad – för sidhuvud.
 
 Med Application Gateway kan du lägga till, ta bort eller uppdatera HTTP-huvuden för begäran och svar när begäran- och svarspaketen flyttas mellan klientens och serverdelens pooler. Du kan också lägga till villkor så att de angivna rubrikerna bara skrivs om när vissa villkor uppfylls.
 
-Application Gateway stöder också flera [servervariabler](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers#server-variables) som hjälper dig att du lagrar ytterligare information om begäranden och svar. Detta gör det enklare för dig att skapa kraftfulla omskrivningsregler.
+Application Gateway stöder också flera [servervariabler](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers#server-variables) som hjälper dig att lagra ytterligare information om begär Anden och svar. Detta gör det enklare för dig att skapa kraftfulla omskrivnings regler.
 
 > [!NOTE]
 >
-> HTTP-huvud omskrivning-stöd är endast tillgänglig för den [WAF_v2 SKU: er och Standard_V2](application-gateway-autoscaling-zone-redundant.md).
+> Stödet för omskrivning av HTTP-huvud är bara tillgängligt för [SKU: n för Standard_V2 och WAF_v2](application-gateway-autoscaling-zone-redundant.md).
 
-![Skriva om rubriker](media/rewrite-http-headers/rewrite-headers.png)
+![Rubriker skrivs om](media/rewrite-http-headers/rewrite-headers.png)
 
-## <a name="supported-headers"></a>Stöds rubriker
+## <a name="supported-headers"></a>Rubriker som stöds
 
-Du kan skriva om alla huvuden i begäranden och svar, förutom rubrikerna som värd, anslutning och uppgradering. Du kan också använda application gateway för att skapa anpassade sidhuvuden och lägga till dem i begäranden och svar som dirigeras genom den.
+Du kan skriva om alla huvuden i begär Anden och svar, förutom värd-, anslutnings-och uppgraderings rubrikerna. Du kan också använda Application Gateway för att skapa anpassade huvuden och lägga till dem i de begär Anden och svar som dirigeras genom den.
 
 ## <a name="rewrite-conditions"></a>Skriv om villkor
 
-Du kan använda omskrivning villkor att utvärdera innehållet i HTTP (S)-begäranden och svar och utföra en rubrik-omskrivning endast när en eller flera villkor är uppfyllda. Application gateway använder dessa typer av variabler för att utvärdera innehållet i HTTP (S)-begäranden och svar:
+Du kan använda omskrivnings villkor för att utvärdera innehållet i HTTP (S)-begär Anden och svar och utföra en omskrivning av sidhuvudet endast om ett eller flera villkor är uppfyllda. Programgatewayen använder dessa typer av variabler för att utvärdera innehållet i HTTP (S)-begär Anden och svar:
 
 - HTTP-huvuden i begäran.
 - HTTP-huvuden i svaret.
-- Application Gateway-servervariabler.
+- Application Gateway servervariabler.
 
-Du kan använda ett villkor för att utvärdera om en specifik variabel finns, om en specifik variabel matchar ett specifikt värde eller om en specifik variabel matchar ett specifikt mönster. Du använder den [Perl kompatibla reguljära uttryck (PCRE)-biblioteket](https://www.pcre.org/) att ställa in mönster för reguljärt uttryck som matchar under förhållanden. Mer information om syntax för reguljära uttryck, finns det [Perl reguljära uttryck huvudsidan](https://perldoc.perl.org/perlre.html).
+Du kan använda ett villkor för att utvärdera om en angiven variabel finns, om en angiven variabel matchar ett specifikt värde, eller om en angiven variabel matchar ett specifikt mönster. Du använder [biblioteket med perl-kompatibla reguljära uttryck (pcre)](https://www.pcre.org/) för att konfigurera mönster matchning för reguljära uttryck i villkoren. Mer information om syntax för reguljära uttryck finns i [huvud sidan för vanliga](https://perldoc.perl.org/perlre.html)uttryck i perl.
 
 ## <a name="rewrite-actions"></a>Skriv om åtgärder
 
-Du kan använda Skriv om åtgärder för att ange sidhuvuden för begäran och svar som du vill skriva om och det nya värdet för sidhuvudena. Du kan antingen skapa ett nytt huvud, ändrar du värdet för en befintlig rubrik eller ta bort en befintlig rubrik. Värdet för ett nytt huvud eller en befintlig rubrik kan anges till dessa typer av värden:
+Du använder återskrivnings åtgärder för att ange de begärandehuvuden för begäran och svar som du vill skriva om och det nya värdet för rubrikerna. Du kan antingen skapa ett nytt sidhuvud, ändra värdet för en befintlig rubrik eller ta bort ett befintligt sidhuvud. Värdet för ett nytt sidhuvud eller en befintlig rubrik kan anges till följande typer av värden:
 
-- Text.
-- Huvudet i begäran. Om du vill ange en rubrik för begäran, måste du använda syntaxen {http_req_*headerName*}.
-- Svarshuvud. Om du vill ange ett svarshuvud, måste du använda syntaxen {http_resp_*headerName*}.
-- Servervariabel. Om du vill ange en servervariabel, måste du använda syntaxen {var_*serverVariable*}.
-- En kombination av text, en rubrik för begäran, ett svarshuvud och en servervariabel.
+- Information.
+- Begär ande huvud. Om du vill ange ett rubrik för begäran måste du använda syntaxen {http_req_*huvud*}.
+- Svarshuvud. Om du vill ange ett svars huvud måste du använda syntaxen {http_resp_*huvud*}.
+- Server variabel. Om du vill ange en server variabel måste du använda syntaxen {var_*serverVariable*}.
+- En kombination av text, ett begär ande huvud, ett svars huvud och en server variabel.
 
 ## <a name="server-variables"></a>Servervariabler
 
-Application Gateway använder servervariabler för att lagra användbar information om servern, anslutningen med klienten och den aktuella begäran på anslutningen. Exempel på information som lagras är klientens IP-adress och typ av web-webbläsare. Servervariabler ändras dynamiskt, till exempel när en ny sida läses in eller när ett formulär publiceras. Du kan använda dessa variabler för att utvärdera omskrivning villkor och skriv om rubriker.
+Application Gateway använder servervariabler för att lagra användbar information om servern, anslutningen till klienten och den aktuella begäran på anslutningen. Exempel på information som lagras är klientens IP-adress och webbläsarens typ. Servervariabler ändras dynamiskt, till exempel när en ny sida läses in eller när ett formulär publiceras. Du kan använda dessa variabler för att utvärdera Skriv villkor och skriva om rubriker.
 
-Application gateway stöder dessa servervariabler:
+Application Gateway stöder följande servervariabler:
 
 | Variabelnamn | Beskrivning                                                  |
 | -------------------------- | :----------------------------------------------------------- |
-| add_x_forwarded_for_proxy  | X-vidarebefordrade-för klientens begäran header-fält med den `client_ip` variabeln (se förklaring senare i den här tabellen) läggs till det i formatet IP1, IP2, IP3 och så vidare. Om X-vidarebefordrade-för-fält som inte finns i klienten rubriken, den `add_x_forwarded_for_proxy` variabeln är lika med den `$client_ip` variabeln. Den här variabeln är särskilt användbart när du vill skriva om rubriken X-vidarebefordrade-för ställa in av Application Gateway så att huvudet innehåller IP-adress utan portinformation. |
+| add_x_forwarded_for_proxy  | Det X-vidarebefordrade – för fältet för klient begär ande huvud `client_ip` med variabeln (se förklaringen senare i den här tabellen) som läggs till i formatet IP1, IP2, IP3 och så vidare. Om fältet X-forwarded inte finns i klient begär ande huvudet `add_x_forwarded_for_proxy` är variabeln lika med `$client_ip` variabeln. Den här variabeln är särskilt användbar när du vill skriva om den X-vidarebefordrade-för-rubrik som angetts av Application Gateway så att sidhuvudet endast innehåller IP-adressen utan portinformation. |
 | ciphers_supported          | En lista över de chiffer som stöds av klienten.          |
-| ciphers_used               | Sträng med chiffer som används för en etablerad SSL-anslutning. |
-| client_ip                  | IP-adressen för klienten som application gateway som tog emot begäran. Om det finns en omvänd proxy innan application gateway och den ursprungliga klienten *client_ip* returnerar IP-adressen för den omvända proxyn. |
-| client_port                | Porten som klienten.                                                  |
-| client_tcp_rtt             | Information om klienten TCP-anslutning. Tillgängligt på system som har stöd för alternativet TCP_INFO socket. |
-| client_user                | När HTTP-autentisering används användarnamnet som angetts för autentisering. |
-| host                       | I den här rangordning: värdnamnet från raden för kravet, värdnamnet från fältet värd begäran rubrik eller ett servernamn som matchar en begäran. |
-| cookie_*name*              | Den *namn* cookie.                                            |
-| http_method                | den metod som används för att utföra URL-begäran. Till exempel hämta eller skicka. |
-| http_status                | Sessionsstatus. Till exempel 200, 400 eller 403.                       |
-| http_version               | Begäran-protokoll. Vanligtvis HTTP/1.0, HTTP/1.1 eller HTTP/2.0. |
-| query_string               | I listan över variabeln/värde-par som följer den ””? i den begärda URL: en. |
-| received_bytes             | Längden på begäran (inklusive den raden för kravet, rubrik och begärandetexten). |
-| request_query              | Argumenten i raden för kravet.                                |
-| request_scheme             | Schemat för begäran: http eller https.                            |
-| request_uri                | Fullständiga ursprungliga begärande-URI (med argument).                   |
-| sent_bytes                 | Antal byte som skickats till en klient.                             |
-| server_port                | Porten för den server som godkänt en begäran.                 |
+| ciphers_used               | Den sträng med chiffer som används för en etablerad SSL-anslutning. |
+| client_ip                  | IP-adressen för den klient som Application Gateway tog emot begäran från. Om det finns en omvänd proxy före programgatewayen och den ursprungliga klienten kommer *client_ip* att returnera IP-adressen för den omvända proxyn. |
+| client_port                | Klient porten.                                                  |
+| client_tcp_rtt             | Information om klientens TCP-anslutning. Tillgängligt på system som har stöd för alternativet TCP_INFO socket. |
+| client_user                | När HTTP-autentisering används anges användar namnet för autentisering. |
+| host                       | I den här prioritetsordningen: värd namnet från begär ande raden, värd namnet från fältet värd begär ande huvud eller Server namnet som matchar en begäran. |
+| cookie_*namn*              | Cookie- *namn* .                                            |
+| http_method                | Den metod som används för att göra URL-begäran. Till exempel GET eller POST. |
+| http_status                | Sessionens status. Till exempel 200, 400 eller 403.                       |
+| http_version               | Protokollet för begäran. Vanligt vis HTTP/1.0, HTTP/1.1 eller HTTP/2.0. |
+| query_string               | Listan över variabel/värde-par som följer "?" i den begärda URL: en. |
+| received_bytes             | Längden på begäran (inklusive raden för begäran, sidhuvud och brödtext). |
+| request_query              | Argumenten på raden för begäran.                                |
+| request_scheme             | Begär ande schema: http eller https.                            |
+| request_uri                | Fullständig URI för ursprunglig begäran (med argument).                   |
+| sent_bytes                 | Antalet byte som har skickats till en klient.                             |
+| server_port                | Porten för den server som godkände en begäran.                 |
 | ssl_connection_protocol    | Protokollet för en etablerad SSL-anslutning.        |
-| ssl_enabled                | ”På” om anslutningen fungerar i SSL-läge. I annat fall en tom sträng. |
+| ssl_enabled                | "On" om anslutningen fungerar i SSL-läge. Annars är en tom sträng. |
 
-## <a name="rewrite-configuration"></a>Skriv om konfiguration
+## <a name="rewrite-configuration"></a>Skriv om konfigurationen
 
-För att konfigurera HTTP-huvud omskrivning, måste du slutföra de här stegen.
+Om du vill konfigurera omskrivning av HTTP-huvud måste du slutföra de här stegen.
 
-1. Skapa de objekt som krävs för Skriv om HTTP-huvud:
+1. Skapa de objekt som krävs för omskrivning av HTTP-huvud:
 
-   - **Skriv om åtgärden**: Används för att ange begäran och begäran huvudfält som du vill skriva om och det nya värdet för sidhuvudena. Du kan koppla ett eller flera omarbetning villkor med en omarbetning åtgärd.
+   - **Skriv om åtgärd**: Används för att ange begär ande huvud fält som du vill skriva om och det nya värdet för rubrikerna. Du kan associera ett eller flera omskrivnings villkor med en Skriv åtgärd.
 
-   - **Skriv om villkoret**: En valfri konfiguration. Skriv om villkor utvärdera innehållet i HTTP (S)-begäranden och svar. Skriv om-åtgärd som ska utföras om den HTTP (S)-begäran eller ett svar matchar villkoret omarbetning.
+   - **Skriv villkor**: En valfri konfiguration. Omskrivnings villkor utvärderar innehållet i HTTP (S)-begär Anden och svar. Återskrivning görs om HTTP (S)-begäran eller-svaret matchar omskrivnings villkoret.
 
-     Om du associerar mer än ett villkor med åtgärden utförs åtgärden endast när alla villkor är uppfyllda. Åtgärden är med andra ord en logiskt AND-åtgärd.
+     Om du associerar fler än ett villkor med en åtgärd sker åtgärden endast när alla villkor är uppfyllda. Med andra ord är åtgärden ett logiskt och en åtgärd.
 
-   - **Skriva om regeln**: Innehåller flera omskrivning åtgärd / omarbetning kombinationer av villkor.
+   - **Skriv över regel**: Innehåller kombinationer av flera omskrivna åtgärder/omskrivna villkor.
 
-   - **Regeln sekvens**: Hjälper dig att fastställa i vilken ordning som omskrivningsregler köra. Den här konfigurationen är användbar när du har flera omskrivningsregler i en omarbetning. En omskrivningsregel som har ett lägre värde för regeln sekvens körs första. Om du tilldelar två omskrivningsregler samma regelsekvens är ordningen för körningen icke-deterministisk.
+   - **Regel ordning**: Hjälper till att fastställa i vilken ordning reglerna för att skriva om ska köras. Den här konfigurationen är användbar när du har flera omskrivnings regler i en omskrivnings uppsättning. En omskrivnings regel som har ett lägre regel ordnings värde körs först. Om du tilldelar samma regel ordning till två omskrivnings regler är körnings ordningen icke-deterministisk.
 
-   - **Skriv om set**: Innehåller flera omskrivningsregler som ska associeras med en regel för vidarebefordran av begäran.
+   - **Skriv över uppsättning**: Innehåller flera omskrivnings regler som ska associeras med en regel för anslutningsbegäran.
 
-2. Bifoga omskrivning uppsättningen (*rewriteRuleSet*) till en regel för vidarebefordran. Skriv om konfigurationen är kopplat till käll-lyssnaren via en routningsregel för. När du använder en grundläggande routningsregel rubrik Skriv om konfigurationen är associerad med en käll-lyssnare och är en global huvud-omskrivning. När du använder en sökvägsbaserad regel har rubrik Skriv om konfigurationen definierats för Webbadress för sökvägskarta. I så fall gäller endast för området angiven sökväg för en plats.
+2. Koppla*rewriteRuleSet*(Rewrite set) till en regel för routning. Den omskrivna konfigurationen är kopplad till käll lyssnaren via regeln för routning. När du använder en regel för grundläggande routning associeras konfigurationen för omskrivning av huvuden med en käll lyssnare och är en omskrivning av globala huvuden. När du använder en regel för Sök vägs-baserad routning definieras konfigurationen för att skriva över rubriker i sökvägen till URL-sökvägen. I så fall gäller det bara för det angivna Sök vägs området på en plats.
+   > [!NOTE]
+   > URL-omskrivning ändra rubrikerna. URL: en för sökvägen ändras inte.
 
-Du kan skapa flera HTTP-huvud omskrivning uppsättningar och tillämpa varje omarbetning som angetts till flera lyssnare. Men du kan använda endast en omarbetning inställd på en viss lyssnare.
+Du kan skapa flera Skriv-och skriv åtgärder för HTTP-huvudet och tillämpa varje skrivnings uppsättning på flera lyssnare. Men du kan endast använda en omskrivnings uppsättning för en speciell lyssnare.
 
 ## <a name="common-scenarios"></a>Vanliga scenarier
 
-Här följer några vanliga scenarier för att använda rubrik omarbetning.
+Här följer några vanliga scenarier för att använda omarbetning av huvuden.
 
-### <a name="remove-port-information-from-the-x-forwarded-for-header"></a>Ta bort portinformationen från X-vidarebefordrade-för-huvud
+### <a name="remove-port-information-from-the-x-forwarded-for-header"></a>Ta bort portinformation från det X-vidarebefordrade – för sidhuvudet
 
-Application Gateway infogar ett X-vidarebefordrade-för-huvud i alla begäranden innan den vidarebefordrar begäranden till serverdelen. Den här rubriken är en kommaavgränsad lista över IP-portar. Det kan finnas scenarier där backend servrarna bara behöver rubrikerna som innehåller IP-adresser. Du kan använda huvud-omskrivning för att ta bort portinformationen från X-vidarebefordrade-för-huvud. Ett sätt att göra detta är att ange rubriken till servervariabeln add_x_forwarded_for_proxy:
+Application Gateway infogar en X-vidarebefordrad-för-rubrik i alla begär Anden innan den vidarebefordrar begär anden till Server delen. Den här rubriken är en kommaavgränsad lista med IP-portar. Det kan finnas scenarier där backend-servrarna bara behöver rubrikerna för att innehålla IP-adresser. Du kan använda omskrivning av huvuden för att ta bort portinformation från den X-vidarebefordrade-for-rubriken. Ett sätt att göra detta är att ange rubriken till add_x_forwarded_for_proxy-Server variabeln:
 
 ![Ta bort port](media/rewrite-http-headers/remove-port.png)
 
-### <a name="modify-a-redirection-url"></a>Ändra en omdirigerings-URL
+### <a name="modify-a-redirection-url"></a>Ändra en URL för omdirigering
 
-När en server-program skickar ett omdirigering av svar, kanske du vill dirigera om klienten till en annan URL än den som angetts av backend-programmet. Du kanske vill göra det när en app service finns bakom en Programgateway och kräver att klienten att göra en omdirigering till dess relativ sökväg. (Till exempel vara en omdirigering från contoso.azurewebsites.net/path1 till contoso.azurewebsites.net/path2.)
+När ett backend-program skickar ett svar på omdirigering kanske du vill omdirigera klienten till en annan URL än den som anges av Server dels programmet. Du kanske till exempel vill göra detta när en app service finns bakom en Programgateway och kräver att klienten utför en omdirigering till dess relativa sökväg. (Till exempel en omdirigering från contoso.azurewebsites.net/path1 till contoso.azurewebsites.net/path2.)
 
-Eftersom App Service är en multitenant-tjänst, använder du värdhuvudet i begäran för att dirigera begäran mot rätt slutpunkt. App services har en standarddomännamnet för *. azurewebsites.net (exempelvis contoso.azurewebsites.net) som skiljer sig från application gateway-domännamn (till exempel contoso.com). Eftersom den ursprungliga begäran från klienten har application-gateway domännamnet (contoso.com) som värdnamnet kan ändras värdnamnet till contoso.azurewebsites.net i application gateway. Det gör den här ändringen så att app service kan vidarebefordra begäran till rätt slutpunkt.
+Eftersom App Service är en tjänst för flera innehavare använder den värd rubriken i begäran för att dirigera begäran till rätt slut punkt. App Services har ett standard domän namn på *. azurewebsites.net (säg contoso.azurewebsites.net) som skiljer sig från programgatewayens domän namn (t. ex. contoso.com). Eftersom den ursprungliga begäran från klienten har Application gateways domän namn (contoso.com) som värdnamn, ändrar programgatewayen värd namnet till contoso.azurewebsites.net. Den här ändringen görs så att App Service kan dirigera begäran till rätt slut punkt.
 
-När app service skickar svaret omdirigering, används samma värdnamn i location-huvudet i sitt svar som den i begäran tas emot från programgatewayen. Så kommer klienten se begäran direkt till contoso.azurewebsites.net/path2 i stället för att gå igenom application-gateway (contoso.com/path2). Kringgå application gateway är inte önskvärt.
+När App Service skickar ett svar för omdirigering använder den samma värdnamn i plats huvudet för sitt svar som det i den begäran som den tar emot från programgatewayen. Klienten kommer därför att göra begäran direkt till contoso.azurewebsites.net/path2 i stället för att gå igenom Application Gateway (contoso.com/path2). Att kringgå Application Gateway är inte önskvärt.
 
-Du kan lösa det här problemet genom att ange värdnamnet i location-huvudet till application gateway-domännamn.
+Du kan lösa det här problemet genom att ange värd namnet i plats rubriken till Application gatewayens domän namn.
 
-Här följer stegen för att ersätta värdnamnet:
+Här följer stegen för att ersätta värd namnet:
 
-1. Skapa en omskrivningsregel med ett villkor som utvärderas om location-huvudet i svaret innehåller azurewebsites.net. Ange mönstret `(https?):\/\/.*azurewebsites\.net(.*)$`.
-1. Utföra en åtgärd för att skriva om location-huvudet så att den har värdnamnet för application gateway. Gör detta genom att ange `{http_resp_Location_1}://contoso.com{http_resp_Location_2}` som huvudets värde.
+1. Skapa en Rewrite-regel med ett villkor som utvärderar om plats rubriken i svaret innehåller azurewebsites.net. Ange mönstret `(https?):\/\/.*azurewebsites\.net(.*)$`.
+1. Utför en åtgärd för att skriva om plats rubriken så att den har Application Gateway-värdnamnet. Gör detta genom att `{http_resp_Location_1}://contoso.com{http_resp_Location_2}` ange som rubrik värde.
 
-![Ändra location-huvudet](media/rewrite-http-headers/app-service-redirection.png)
+![Ändra plats rubrik](media/rewrite-http-headers/app-service-redirection.png)
 
-### <a name="implement-security-http-headers-to-prevent-vulnerabilities"></a>Implementera HTTP-säkerhetshuvuden för att förhindra sårbarheter
+### <a name="implement-security-http-headers-to-prevent-vulnerabilities"></a>Implementera säkerhets-HTTP-huvuden för att förhindra sårbarheter
 
-Du kan åtgärda säkerhetsproblem i flera genom att implementera nödvändiga rubriker i program-svaret. Dessa säkerhetshuvuden omfattar X XSS skydd och Strict transportsäkerhet innehåll säkerhetsprincip. Du kan använda Application Gateway för att ange dessa huvuden för alla svar.
+Du kan åtgärda flera säkerhets problem genom att implementera nödvändiga huvuden i program svaret. Dessa säkerhets rubriker inkluderar X-XSS-skydd, strikt-Transport-Security och Content-Security-Policy. Du kan använda Application Gateway för att ange de här rubrikerna för alla svar.
 
-![Säkerhetshuvudet](media/rewrite-http-headers/security-header.png)
+![Säkerhets huvud](media/rewrite-http-headers/security-header.png)
 
 ### <a name="delete-unwanted-headers"></a>Ta bort oönskade rubriker
 
-Du kanske vill ta bort rubriker som avslöjar känslig information från ett HTTP-svar. Du kanske exempelvis vill ta bort information som backend-servernamnet, operativsystem eller information för bibliotek. Du kan använda application gateway för att ta bort dessa huvuden:
+Du kanske vill ta bort huvuden som avslöjar känslig information från ett HTTP-svar. Till exempel kanske du vill ta bort information som server namn, operativ system eller biblioteks information för Server delen. Du kan använda Application Gateway för att ta bort dessa huvuden:
 
-![Ta bort sidhuvud](media/rewrite-http-headers/remove-headers.png)
+![Tar bort rubrik](media/rewrite-http-headers/remove-headers.png)
 
-### <a name="check-for-the-presence-of-a-header"></a>Kontrollera om finns en rubrik
+### <a name="check-for-the-presence-of-a-header"></a>Sök efter en rubriks förekomst
 
-Du kan utvärdera en HTTP-begäran eller ett svar huvud för förekomsten av en rubrik eller server variabel. Den här utvärderingsversionen är användbart när du vill utföra en rubrik-omskrivning endast när en viss rubrik finns.
+Du kan utvärdera en HTTP-begäran eller ett svars huvud för förekomst av en huvud-eller Server variabel. Den här utvärderingen är användbar när du vill utföra en skrivskyddad rubrik endast när det finns en viss rubrik.
 
-![Kontrollerar förekomsten av en rubrik](media/rewrite-http-headers/check-presence.png)
+![Kontrollerar närvaron av ett sidhuvud](media/rewrite-http-headers/check-presence.png)
 
 ## <a name="limitations"></a>Begränsningar
 
-- Om ett svar har mer än en rubriker med samma namn, leder sedan skriva om värdet för en av dessa huvuden släppa de andra rubrikerna i svaret. Detta kan vanligtvis inträffa med Set-Cookie-huvud eftersom du kan ha fler än en Set-Cookie-huvud i svaret. Ett sådant scenario är när du använder en app service med application gateway och har konfigurerat cookie-baserad sessionstillhörighet på application gateway. I det här fallet svaret innehåller 2 Set-Cookie-huvuden: en används av apptjänsten, t.ex, `Set-Cookie: ARRAffinity=ba127f1caf6ac822b2347cc18bba0364d699ca1ad44d20e0ec01ea80cda2a735;Path=/;HttpOnly;Domain=sitename.azurewebsites.net` och en annan för application gateway-tillhörighet, d.v.s. `Set-Cookie: ApplicationGatewayAffinity=c1a2bd51lfd396387f96bl9cc3d2c516; Path=/`. Skriva om någon av de Set-Cookie-rubrikerna i det här scenariot kan resultera i att ta bort andra Set-Cookie-rubriken från svaret.
+- Om ett svar har fler än en rubrik med samma namn, kommer de andra rubrikerna att tas bort om du skriver om värdet för en av dessa huvuden. Detta kan vanligt vis inträffa med set-cookie-sidhuvudet eftersom du kan ha fler än en uppsättning-cookie-huvud i ett svar. Ett sådant scenario är när du använder en app service med en Application Gateway och har konfigurerat cookie-baserad mappning mellan sessioner på Application Gateway. I det här fallet kommer svaret att innehålla två uppsättningar-cookie-huvuden: en som används av App Service, till `Set-Cookie: ARRAffinity=ba127f1caf6ac822b2347cc18bba0364d699ca1ad44d20e0ec01ea80cda2a735;Path=/;HttpOnly;Domain=sitename.azurewebsites.net` exempel: och en annan för Application Gateway-tillhörighet, `Set-Cookie: ApplicationGatewayAffinity=c1a2bd51lfd396387f96bl9cc3d2c516; Path=/`till exempel. Om du skriver om en av Set-cookie-huvudena i det här scenariot kan det leda till att du tar bort den andra uppsättningen av cookie-huvud från svaret.
 
-- Skriva om anslutning, uppgradering och värd-rubriker stöds inte för närvarande.
+- Det finns för närvarande inte stöd för att skriva om anslutningen, uppgradera och värdhuvuden.
 
-- Rubriknamn får kan innehålla alla alfanumeriska tecken och specifika symboler som definierats i [RFC 7230](https://tools.ietf.org/html/rfc7230#page-27). Vi stöder för närvarande inte understreck (\_) specialtecken i rubriknamn.
+- Rubrik namn får innehålla alfanumeriska tecken och vissa symboler som definieras i [RFC 7230](https://tools.ietf.org/html/rfc7230#page-27). Vi stöder för närvarande inte under streck (\_) med specialtecken i rubrik namn.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill lära dig mer om att skriva om HTTP-huvuden, se:
+Information om hur du skriver om HTTP-huvuden finns i:
 
-- [Skriv om HTTP-huvuden med hjälp av Azure portal](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-portal)
+- [Skriv om HTTP-huvuden med Azure Portal](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-portal)
 - [Skriv om HTTP-huvuden med Azure PowerShell](add-http-header-rewrite-rule-powershell.md)

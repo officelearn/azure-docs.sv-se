@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 15d2d0a043271da18d7884b684ffe8cf5c1f4dc8
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 2e751d45e4b76852426d454f8d29196c01396504
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619207"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932460"
 ---
 # <a name="backup-and-restore"></a>Säkerhetskopiering och återställning
 
@@ -72,7 +72,7 @@ Innan du säkerhetskopierar måste du konfigurera lagrings inställningarna för
 
 
 ### <a name="powershell"></a>PowerShell
-Använd [backup-databas-](https://docs.microsoft.com/sql/analysis-services/powershell/backup-asdatabase-cmdlet) cmdlet.
+Använd [backup-databas-](https://docs.microsoft.com/powershell/module/sqlserver/backup-asdatabase) cmdlet.
 
 ## <a name="restore"></a>Återställ
 När du återställer måste säkerhets kopian finnas i det lagrings konto som du har konfigurerat för servern. Om du behöver flytta en säkerhets kopia från en lokal plats till ditt lagrings konto använder du [Microsoft Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer) eller kommando rads verktyget [AzCopy](../storage/common/storage-use-azcopy.md) . 
@@ -99,7 +99,7 @@ När du återställer måste säkerhets kopian finnas i det lagrings konto som d
 
 ### <a name="powershell"></a>PowerShell
 
-Använd [restore-Database-](https://docs.microsoft.com/sql/analysis-services/powershell/restore-asdatabase-cmdlet) cmdlet.
+Använd [restore-Database-](https://docs.microsoft.com/powershell/module/sqlserver/restore-asdatabase) cmdlet.
 
 
 ## <a name="related-information"></a>Relaterad information

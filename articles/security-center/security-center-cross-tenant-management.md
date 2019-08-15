@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/04/2019
+ms.date: 08/11/2019
 ms.author: v-mohabe
-ms.openlocfilehash: b8d27178a75cb39c7d7769f2db6a193292a3f9f1
-ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
+ms.openlocfilehash: d6b5b528c3021bfb62bc30ad5910524db36e7e95
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68782553"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950551"
 ---
 # <a name="cross-tenant-management-in-security-center"></a>Hantering av flera innehavare i Security Center
 
@@ -27,9 +27,7 @@ Med hantering av flera innehavare kan du Visa och hantera säkerhets position f�
 
 - Tjänste leverantörer kan hantera position av resurser, för flera kunder, inifrån sin egen klient organisation.
 
-- Säkerhets team för organisationer med flera klienter kan visa och hantera sina säkerhets position från en enda plats
-
-  ![Hantering av flera innehavare](./media/security-center-cross-tenant-management/cross-tenant-security-center.png)
+- Säkerhets team för organisationer med flera klienter kan visa och hantera sina säkerhets position från en enda plats.
 
 ## <a name="set-up-cross-tenant-management"></a>Konfigurera hantering av flera innehavare
 
@@ -48,22 +46,13 @@ Klicka på filter ikonen i det övre meny fältet och välj prenumerationer frå
 
 Vyer och åtgärder är i princip samma. Här följer några exempel:
 
-- **Hantera säkerhets principer**: Från en vy hanterar du säkerhets position för många resurser med [principer](tutorial-security-policy.md), vidtar åtgärder med säkerhets rekommendationer och samlar in och hanterar säkerhetsrelaterade data. I följande bild finns det till exempel fyra olika klient kataloger (Doug. Lora, Microsoft, SSO, Wilde Company) och varje klient har prenumerationer. De valda prenumerationerna från de olika klient organisationerna visas i den här listan över princip hantering.
-
-     ![Hantering av principer för flera innehavare](./media/security-center-cross-tenant-management/cross-tenant-policy.png)
-
-- **Förbättra position för säker Poäng och efterlevnad**: Med synlighet mellan flera klienter kan du Visa den övergripande säkerhets position för alla dina klienter och var och hur du bäst förbättrar den [säkra poängen](security-center-secure-score.md) och [kompabiliteten position](security-center-compliance-dashboard.md) för var och en av dem, som visas i följande bild.
-
-     ![Säkerhetspoäng](./media/security-center-cross-tenant-management/cross-tenant-secure-score.png)
-
-- **Åtgärda rekommendationer**: Övervaka och reparera en [rekommendation](security-center-recommendations.md) för många resurser från olika klienter på en gång (se bilden nedan). Du kan sedan omedelbart ta itu över de säkerhets risker som visar den högsta risken för alla klienter.
-
-  ![Hantering av flera innehavare av rekommendationer](./media/security-center-cross-tenant-management/cross-tenant-recommendation.png)
-
+- **Hantera säkerhets principer**: Från en vy hanterar du säkerhets position för många resurser med [principer](tutorial-security-policy.md), vidtar åtgärder med säkerhets rekommendationer och samlar in och hanterar säkerhetsrelaterade data.
+- **Förbättra position för säker Poäng och efterlevnad**: Med synlighet mellan flera klienter kan du Visa den övergripande säkerhets position för alla dina klienter och var och hur du bäst kan förbättra position för [säker Poäng](security-center-secure-score.md) och [efterlevnad](security-center-compliance-dashboard.md) för var och en av dem.
+- **Åtgärda rekommendationer**: Övervaka och reparera en [rekommendation](security-center-recommendations.md) för många resurser från olika klienter på en gång. Du kan sedan omedelbart ta itu över de säkerhets risker som visar den högsta risken för alla klienter.
 - **Hantera aviseringar**: Identifiera [aviseringar](security-center-alerts-overview.md) i de olika klient organisationerna. Vidta åtgärder för resurser som inte är kompatibla med åtgärds bara [steg](security-center-managing-and-responding-alerts.md).
 
 - **Hantera avancerade funktioner för moln försvar och mer**: Hantera de olika hot identifierings-och skydds tjänsterna, till exempel [just-in-Time (JIT) VM-åtkomst](security-center-just-in-time.md), [anpassningsbar nätverks härdning](security-center-adaptive-network-hardening.md), [anpassningsbara program kontroller](security-center-adaptive-application.md)och mycket annat.
-
+ 
 ## <a name="next-steps"></a>Nästa steg
 Den här artikeln förklarar hur hantering av flera innehavare fungerar i Security Center. I följande avsnitt kan du lära dig mer om Security Center:
 

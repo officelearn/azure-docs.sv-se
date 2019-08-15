@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 4e33b22c5bc931685f5848db55fc4b9b8fc6eafe
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: c7a31337888dcdc2a8f8b95c5203cc659882b038
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68780611"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68927871"
 ---
 # <a name="azure-advanced-threat-detection"></a>Avancerad hot identifiering i Azure
 
@@ -30,7 +30,7 @@ Azure erbjuder ett brett utbud av alternativ för att konfigurera och anpassa s�
 
 ## <a name="azure-active-directory-identity-protection"></a>Identitetsskydd för Azure Active Directory
 
-[Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) är en [Azure Active Directory Premium P2](https://docs.microsoft.com/azure/active-directory/active-directory-editions) Edition-funktion som ger en översikt över risk händelser och potentiella sårbarheter som kan påverka organisationens identiteter. Identitets skydd använder befintliga funktioner för identifiering av Azure AD-avvikelse som är tillgängliga via [rapporter i Azure AD-avvikande aktivitet](https://docs.microsoft.com/azure/active-directory/active-directory-view-access-usage-reports)och introducerar nya risk händelse typer som kan identifiera real tids avvikelser.
+[Azure AD Identity Protection](../../active-directory/identity-protection/overview.md) är en [Azure Active Directory Premium P2](../../active-directory/active-directory-whatis.md) Edition-funktion som ger en översikt över risk händelser och potentiella sårbarheter som kan påverka organisationens identiteter. Identitets skydd använder befintliga funktioner för identifiering av Azure AD-avvikelse som är tillgängliga via [rapporter i Azure AD-avvikande aktivitet](../../active-directory/active-directory-reporting-azure-portal.md)och introducerar nya risk händelse typer som kan identifiera real tids avvikelser.
 
 ![Azure AD Identity Protection diagram](./media/threat-detection/azure-threat-detection-fig1.png)
 
@@ -38,7 +38,7 @@ Identity Protection använder anpassningsbara algoritmer för maskin inlärning 
 
 Azure Active Directory Identity Protection är mer än ett övervaknings-och rapporterings verktyg. Med hjälp av risk händelser beräknar identitets skyddet en användar risk nivå för varje användare, så att du kan konfigurera riskfyllda principer för att automatiskt skydda organisationens identiteter.
 
-Dessa riskbaserade principer, förutom andra [villkorliga åtkomst kontroller](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access) som tillhandahålls av Azure Active Directory och [EMS](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access), kan automatiskt blockera eller erbjuda anpassningsbara åtgärds åtgärder som inkluderar återställning av lösen ord och Multi-Factor Tvingad autentisering.
+Dessa riskbaserade principer, förutom andra [villkorliga åtkomst kontroller](../../active-directory/active-directory-conditional-access-azure-portal.md) som tillhandahålls av Azure Active Directory och [EMS](../../active-directory/active-directory-conditional-access-azure-portal.md), kan automatiskt blockera eller erbjuda anpassningsbara åtgärds åtgärder som inkluderar återställning av lösen ord och Multi-Factor Tvingad autentisering.
 
 ### <a name="identity-protection-capabilities"></a>Funktioner för identitets skydd
 
@@ -46,25 +46,25 @@ Azure Active Directory Identity Protection är mer än ett övervaknings-och rap
 
 Exempel på några av de sätt som Azure Identity Protection kan hjälpa till att skydda dina konton och identiteter är:
 
-[Identifiera risk händelser och riskfyllda konton](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection#detection)
+[Identifiera risk händelser och riskfyllda konton](../../active-directory/identity-protection/overview.md)
 -   Identifiera sex risk händelse typer med hjälp av maskin inlärnings-och heuristiska regler.
 -   Beräkna risk nivåer för användare.
 -   Ange anpassade rekommendationer för att förbättra den övergripande säkerhets position genom att markera sårbarheter.
 
-[Undersöka risk händelser](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection#investigation)
+[Undersöka risk händelser](../../active-directory/identity-protection/overview.md)
 -   Skicka meddelanden om risk händelser.
 -   Undersök risk händelser med hjälp av relevant och sammanhangsbaserad information.
 -   Ange grundläggande arbets flöden för att spåra utredningar.
 -   Ger enkel åtkomst till reparations åtgärder som återställning av lösen ord.
 
-[Riskfyllda principer för villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)
+[Riskfyllda principer för villkorlig åtkomst](../../active-directory/identity-protection/overview.md)
 -   Minimera riskfyllda inloggningar genom att blockera inloggningar eller kräva Multi-Factor Authentication-utmaningar.
 -   Blockera eller skydda riskfyllda användar konton.
 -   Kräv att användare registrerar sig för Multi-Factor Authentication.
 
 ### <a name="azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management
 
-Med [Azure Active Directory Privileged Identity Management (PIM)](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure)kan du hantera, kontrol lera och övervaka åtkomst i din organisation. Den här funktionen inkluderar åtkomst till resurser i Azure AD och andra Microsoft-onlinetjänster, till exempel Office 365 eller Microsoft Intune.
+Med [Azure Active Directory Privileged Identity Management (PIM)](../../active-directory/privileged-identity-management/pim-configure.md)kan du hantera, kontrol lera och övervaka åtkomst i din organisation. Den här funktionen inkluderar åtkomst till resurser i Azure AD och andra Microsoft-onlinetjänster, till exempel Office 365 eller Microsoft Intune.
 
 ![Azure AD Privileged Identity Management diagram](./media/threat-detection/azure-threat-detection-fig2.png)
 
@@ -78,13 +78,13 @@ PIM hjälper dig att:
 
 ## <a name="azure-monitor-logs"></a>Azure Monitor-loggar
 
-[Azure Monitor loggar](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) är en molnbaserad lösning för IT-hantering i Microsoft som hjälper dig att hantera och skydda din lokala infrastruktur och moln infrastruktur. Eftersom Azure Monitor-loggar implementeras som en molnbaserad tjänst, kan du snabbt få igång med minimal investering i infrastruktur tjänster. Nya säkerhetsfunktioner levereras automatiskt och sparar löpande underhålls-och uppgraderings kostnader.
+[Azure Monitor loggar](../../azure-monitor/index.yml) är en molnbaserad lösning för IT-hantering i Microsoft som hjälper dig att hantera och skydda din lokala infrastruktur och moln infrastruktur. Eftersom Azure Monitor-loggar implementeras som en molnbaserad tjänst, kan du snabbt få igång med minimal investering i infrastruktur tjänster. Nya säkerhetsfunktioner levereras automatiskt och sparar löpande underhålls-och uppgraderings kostnader.
 
 Förutom att tillhandahålla värdefulla tjänster på egen hand kan Azure Monitor loggar integreras med System Center-komponenter, till exempel [System Center Operations Manager](https://blogs.technet.microsoft.com/cbernier/2013/10/23/monitoring-windows-azure-with-system-center-operations-manager-2012-get-me-started/), för att utöka dina befintliga investeringar i hantering av säkerhet till molnet. System Center och Azure Monitor loggar kan samar beta för att ge en fullständig hybrid hanterings upplevelse.
 
 ### <a name="holistic-security-and-compliance-posture"></a>Holistisk position för säkerhet och efterlevnad
 
-[Instrument panelen för Log Analytics säkerhet och granskning](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) ger en omfattande översikt över din organisations IT-position, med inbyggda Sök frågor för viktiga problem som kräver din uppmärksamhet. Säkerhet och granskning-instrumentpanelen är Start skärmen för allt som är relaterat till säkerhet i Azure Monitor loggar. Den innehåller en översikt över säkerhetsstatusen för dina datorer. Du kan också Visa alla händelser från de senaste 24 timmarna, 7 dagar eller någon annan anpassad tidsram.
+[Instrument panelen för Log Analytics säkerhet och granskning](../../security-center/security-center-intro.md) ger en omfattande översikt över din organisations IT-position, med inbyggda Sök frågor för viktiga problem som kräver din uppmärksamhet. Säkerhet och granskning-instrumentpanelen är Start skärmen för allt som är relaterat till säkerhet i Azure Monitor loggar. Den innehåller en översikt över säkerhetsstatusen för dina datorer. Du kan också Visa alla händelser från de senaste 24 timmarna, 7 dagar eller någon annan anpassad tidsram.
 
 Azure Monitor loggar hjälper dig att snabbt och enkelt förstå den övergripande säkerhets position i alla miljöer, allt inom ramen för IT-åtgärder, inklusive utvärdering av program uppdateringar, utvärdering av program mot skadlig kod och konfigurations bas linjer. Säkerhets logg data är lätt att komma åt för att effektivisera gransknings processerna för säkerhet och efterlevnad.
 
@@ -103,7 +103,7 @@ Instrument panelen för Log Analytics Säkerhet och granskning är indelad i fyr
 -   **Vanliga säkerhets frågor**: Visar en lista över de vanligaste säkerhets frågorna som du kan använda för att övervaka din miljö. När du väljer en fråga öppnas Sök-fönstret och visar resultatet för frågan.
 
 ### <a name="insight-and-analytics"></a>Insight and Analytics
-I mitten av [Azure Monitor loggar](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) är lagrings platsen som finns i Azure.
+I mitten av [Azure Monitor loggar](../../log-analytics/log-analytics-queries.md) är lagrings platsen som finns i Azure.
 
 ![Diagram över insikter och analys](./media/threat-detection/azure-threat-detection-fig4.png)
 
@@ -115,9 +115,9 @@ Data källor och lösningar varje skapa separata post typer med en egen uppsätt
 
 
 De flesta av dina interaktioner med Azure Monitor loggar sker via Azure Portal, som körs i alla webbläsare och ger åtkomst till konfigurations inställningar och flera verktyg för att analysera och agera på insamlade data. Från portalen kan du använda:
-* [Loggs ökningar](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-searches) där du skapar frågor för att analysera insamlade data.
-* [Instrument paneler](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-logs-dashboards), som du kan anpassa med grafiska vyer över dina mest värdefulla sökningar.
-* [Lösningar](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions)som ger ytterligare funktioner och analys verktyg.
+* [Loggs ökningar](../../log-analytics/log-analytics-queries.md) där du skapar frågor för att analysera insamlade data.
+* [Instrument paneler](../../azure-monitor/learn/tutorial-logs-dashboards.md), som du kan anpassa med grafiska vyer över dina mest värdefulla sökningar.
+* [Lösningar](../../monitoring/monitoring-solutions.md)som ger ytterligare funktioner och analys verktyg.
 
 ![Analys verktyg](./media/threat-detection/azure-threat-detection-fig6.png)
 
@@ -135,7 +135,7 @@ Du kan skapa och hantera DSC-resurser som finns i Azure och tillämpa dem på mo
 
 ## <a name="azure-security-center"></a>Azure Security Center
 
-Azure Security Center hjälper till att skydda dina Azure-resurser. Den ger integrerad säkerhetsövervakning och princip hantering i dina Azure-prenumerationer. I tjänsten kan du definiera principer för både dina Azure-prenumerationer och [resurs grupper](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal) så att de blir mer detaljerade.
+Azure Security Center hjälper till att skydda dina Azure-resurser. Den ger integrerad säkerhetsövervakning och princip hantering i dina Azure-prenumerationer. I tjänsten kan du definiera principer för både dina Azure-prenumerationer och [resurs grupper](../../azure-resource-manager/manage-resources-portal.md) så att de blir mer detaljerade.
 
 ![Azure Security Center diagram](./media/threat-detection/azure-threat-detection-fig8.png)
 
@@ -216,7 +216,7 @@ Dessa kombinerade ansträngningar resulterar i nya och förbättrade identifieri
 
 ### <a name="virtual-machines-microsoft-antimalware"></a>Virtuella datorer: Microsoft Antimalware
 
-[Microsoft Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware) för Azure är en lösning för en lösning för program-och klient miljöer som är utformad för att köras i bakgrunden utan mänsklig inblandning. Du kan distribuera skydd baserat på dina arbets belastningar för dina program, med antingen grundläggande säkerhet eller avancerad anpassad konfiguration, inklusive övervakning av program mot skadlig kod. Azure antimalware är ett säkerhets alternativ för virtuella Azure-datorer som installeras automatiskt på alla virtuella Azure PaaS-datorer.
+[Microsoft Antimalware](antimalware.md) för Azure är en lösning för en lösning för program-och klient miljöer som är utformad för att köras i bakgrunden utan mänsklig inblandning. Du kan distribuera skydd baserat på dina arbets belastningar för dina program, med antingen grundläggande säkerhet eller avancerad anpassad konfiguration, inklusive övervakning av program mot skadlig kod. Azure antimalware är ett säkerhets alternativ för virtuella Azure-datorer som installeras automatiskt på alla virtuella Azure PaaS-datorer.
 
 #### <a name="microsoft-antimalware-core-features"></a>Kärn funktioner i Microsoft Antimalware
 
@@ -268,7 +268,7 @@ SQL Database hot detektorer använder någon av följande identifierings metoder
 
 ### <a name="application-gateway-web-application-firewall"></a>Application Gateway brand vägg för webbaserade program
 
-[Brand vägg för webbaserade program (WAF)](../../app-service/environment/app-service-app-service-environment-web-application-firewall.md) är en funktion i [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-webapplicationfirewall-overview) som skyddar webb program som använder en Programgateway för standard funktioner för [program leverans](https://kemptechnologies.com/in/application-delivery-controllers) . Brand väggen för webbaserade program gör detta genom att skydda dem mot de flesta [Öppna webb program säkerhets projekt (OWASP) med de 10 vanligaste webb sårbarheterna](https://www.owasp.org/index.php/Top_10_2010-Main).
+[Brand vägg för webbaserade program (WAF)](../../app-service/environment/app-service-app-service-environment-web-application-firewall.md) är en funktion i [Azure Application Gateway](../../application-gateway/application-gateway-web-application-firewall-overview.md) som skyddar webb program som använder en Programgateway för standard funktioner för [program leverans](https://kemptechnologies.com/in/application-delivery-controllers) . Brand väggen för webbaserade program gör detta genom att skydda dem mot de flesta [Öppna webb program säkerhets projekt (OWASP) med de 10 vanligaste webb sårbarheterna](https://www.owasp.org/index.php/Top_10_2010-Main).
 
 ![Application Gateway brand Väggs diagram för webb program](./media/threat-detection/azure-threat-detection-fig13.png)
 
@@ -302,7 +302,7 @@ Att konfigurera WAF på din Application Gateway ger följande fördelar:
 
 API: t för avvikelse identifiering är ett API som är användbart för att identifiera olika avvikande mönster i dina tids serie data. API: et tilldelar ett avvikande poäng till varje data punkt i tids serien, som kan användas för att generera aviseringar, övervaka via instrument paneler eller ansluta till dina biljett system.
 
-[API: t för avvikelse identifiering](https://docs.microsoft.com/azure/machine-learning/machine-learning-apps-anomaly-detection-api) kan identifiera följande typer av avvikelser i tids serie data:
+[API: t för avvikelse identifiering](../../machine-learning/team-data-science-process/apps-anomaly-detection-api.md) kan identifiera följande typer av avvikelser i tids serie data:
 
 -   **Toppar och DIP**: När du övervakar antalet inloggnings försök till en tjänst eller antalet utcheckningar på en e-handelsplats, kan ovanliga toppar eller dip tyda på säkerhets attacker eller tjänst avbrott.
 
@@ -384,6 +384,6 @@ Exempel på brand väggar för webb program som är tillgängliga på Azure Mark
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Azure Security Center identifierings funktioner](https://docs.microsoft.com/azure/security-center/security-center-detection-capabilities): Hjälper till att identifiera aktiva hot som riktar sig mot dina Azure-resurser och ger de insikter du behöver för att svara snabbt.
+- [Azure Security Center identifierings funktioner](../../security-center/security-center-detection-capabilities.md): Hjälper till att identifiera aktiva hot som riktar sig mot dina Azure-resurser och ger de insikter du behöver för att svara snabbt.
 
 - [Azure SQL Database hot identifiering](https://azure.microsoft.com/blog/azure-sql-database-threat-detection-your-built-in-security-expert/): Hjälper dig att lösa dina problem om potentiella hot mot dina databaser.

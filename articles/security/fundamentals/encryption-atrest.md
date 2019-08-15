@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/02/2019
 ms.author: barclayn
-ms.openlocfilehash: bc305938801a4edcf32e36ce57f76079f33c5bf8
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: c91c8de35dcf3f1bc8fd5f41bd2356336c3fe450
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727385"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68927955"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Azure Data Encryption – i vila
 
@@ -161,7 +161,7 @@ För åtgärder som använder krypterings nycklar kan en tjänst identitet bevil
 För att få en nyckel som används vid kryptering eller dekryptering av data i vila den tjänst identitet som Resource Manager-tjänstinstans ska köra som måste ha UnwrapKey (för att hämta nyckeln för dekryptering) och WrapKey (för att kunna infoga en nyckel i Key Vault när du skapar en ny nyckel).
 
 >[!NOTE]
->Mer information om Key Vault auktorisering finns på sidan skydda ditt nyckel valv i Azure Key Vault- [dokumentationen](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault).
+>Mer information om Key Vault auktorisering finns på sidan skydda ditt nyckel valv i Azure Key Vault- [dokumentationen](../../key-vault/key-vault-secure-your-key-vault.md).
 
 **Fördelar**
 
@@ -237,14 +237,14 @@ Microsoft Azure Services har stöd för en eller flera av krypteringen i rest-mo
 
 ### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 
-Alla kunder som använder Azure Infrastructure as a Service (IaaS)-funktioner kan uppnå kryptering i vila för sina IaaS-VM: ar och diskar via Azure Disk Encryption. Mer information om Azure Disk Encryption finns i [Azure Disk Encryption-dokumentationen](https://docs.microsoft.com/azure/security/azure-security-disk-encryption).
+Alla kunder som använder Azure Infrastructure as a Service (IaaS)-funktioner kan uppnå kryptering i vila för sina IaaS-VM: ar och diskar via Azure Disk Encryption. Mer information om Azure Disk Encryption finns i [Azure Disk Encryption-dokumentationen](../azure-security-disk-encryption-overview.md).
 
 #### <a name="azure-storage"></a>Azure-lagring
 
 Alla Azure Storage tjänster (Blob Storage, Queue Storage, Table Storage och Azure Files) stöder kryptering på Server sidan i vila. vissa tjänster stöder även Kundhanterade nycklar och kryptering på klient sidan. 
 
-- På Server sidan: Alla Azure Storage tjänster möjliggör kryptering på Server sidan som standard med hjälp av tjänstens hanterade nycklar, som är transparent för programmet. Mer information finns i [Azure Storage tjänst kryptering för vilande data](https://docs.microsoft.com/azure/storage/storage-service-encryption). Azure Blob Storage och Azure Files stöder även RSA 2048-bitars Kundhanterade nycklar i Azure Key Vault. Mer information finns i [kryptering för lagringstjänst att använda Kundhanterade nycklar i Azure Key Vault](https://docs.microsoft.com/azure/storage/common/storage-service-encryption-customer-managed-keys).
-- På klient sidan: Azure Blobs, tabeller och köer stöder kryptering på klient sidan. När du använder kryptering på klient sidan, krypterar kunder data och laddar upp data som en krypterad blob. Nyckel hanteringen görs av kunden. Mer information finns i [kryptering på klient sidan och Azure Key Vault för Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/storage-client-side-encryption).
+- På Server sidan: Alla Azure Storage tjänster möjliggör kryptering på Server sidan som standard med hjälp av tjänstens hanterade nycklar, som är transparent för programmet. Mer information finns i [Azure Storage tjänst kryptering för vilande data](../../storage/common/storage-service-encryption.md). Azure Blob Storage och Azure Files stöder även RSA 2048-bitars Kundhanterade nycklar i Azure Key Vault. Mer information finns i [kryptering för lagringstjänst att använda Kundhanterade nycklar i Azure Key Vault](../../storage/common/storage-encryption-keys-portal.md).
+- På klient sidan: Azure Blobs, tabeller och köer stöder kryptering på klient sidan. När du använder kryptering på klient sidan, krypterar kunder data och laddar upp data som en krypterad blob. Nyckel hanteringen görs av kunden. Mer information finns i [kryptering på klient sidan och Azure Key Vault för Microsoft Azure Storage](../../storage/common/storage-client-side-encryption.md).
 
 #### <a name="azure-sql-database"></a>Azure SQL Database
 

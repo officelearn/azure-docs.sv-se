@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: e31db74807b850b3d8cb8fc057e94e98db18fca2
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 87acc6e8c561349b734bd9cd98300b65e730abe7
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68780632"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68928074"
 ---
 # <a name="design-secure-applications-on-azure"></a>Utforma säkra program på Azure
 I den här artikeln presenterar vi säkerhets aktiviteter och kontroller som du bör tänka på när du utformar program för molnet. Utbildnings resurser tillsammans med säkerhets frågor och koncept som du bör tänka på under krav och design faser i Microsoft [Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) omfattas. Målet är att hjälpa dig att definiera aktiviteter och Azure-tjänster som du kan använda för att utforma ett säkrare program.
@@ -36,7 +36,7 @@ Använd följande resurser under inlärnings fasen för att bekanta dig med de A
 
   - [Developer ' s Guide to Azure](https://azure.microsoft.com/campaigns/developer-guide/) visar hur du kommer igång med Azure. Guiden visar vilka tjänster du kan använda för att köra dina program, lagra dina data, införliva intelligens, bygga IoT-appar och distribuera dina lösningar på ett mer effektivt och säkert sätt.
 
-  - [Kom igång-guide för Azure-utvecklare](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide) ger nödvändig information för utvecklare som vill komma igång med Azure-plattformen för deras utvecklings behov.
+  - [Kom igång-guide för Azure-utvecklare](../../guides/developer/azure-developer-guide.md) ger nödvändig information för utvecklare som vill komma igång med Azure-plattformen för deras utvecklings behov.
 
   - [SDK: er och verktyg](https://docs.microsoft.com/azure/index#pivot=sdkstools) beskriver de verktyg som är tillgängliga i Azure.
 
@@ -66,7 +66,7 @@ Ställ säkerhets frågor som:
 
   - Innehåller mitt program känsliga data?
 
-  - Samlar mitt program in eller lagrar data som kräver att jag följer bransch standarder och compliance-program som [Federal Financial institution REFFIECe-rådet](https://docs.microsoft.com/azure/security/blueprints/ffiec-analytics-overview) eller [betalnings kortet bransch data säkerhets standarder (PCI DSS) ](https://docs.microsoft.com/azure/security/blueprints/pcidss-analytics-overview)?
+  - Samlar mitt program in eller lagrar data som kräver att jag följer bransch standarder och compliance-program som [Federal Financial institution REFFIECe-rådet](../blueprints/ffiec-analytics-overview.md) eller [betalnings kortet bransch data säkerhets standarder (PCI DSS) ](../blueprints/pcidss-analytics-overview.md)?
 
   - Samlar mitt program in eller innehåller känslig personlig information eller kund information som kan användas, antingen på egen hand eller med annan information, för att identifiera, kontakta eller hitta en enskild person?
 
@@ -129,13 +129,13 @@ Du kan dra nytta av kompletta, integrerade utvecklings miljöer (IDE: er) och re
 Microsoft erbjuder en mängd olika [språk, ramverk och verktyg](https://docs.microsoft.com/azure/index#pivot=sdkstools&panel=sdkstools-all) som du kan använda för att utveckla program i Azure. Ett exempel är [Azure för .net och .net Core-utvecklare](https://docs.microsoft.com/dotnet/azure/). För varje språk och ramverk som vi erbjuder hittar du snabb starter, självstudier och API-referenser som hjälper dig att komma igång snabbt.
 
 Azure erbjuder en mängd olika tjänster som du kan använda för att vara värd för webbplatser och webb program. Med dessa tjänster kan du utveckla på ditt favorit språk, oavsett om det är .NET, .NET Core, Java, ruby, Node. js, PHP eller python.
-[Azure App Service Web Apps](https://docs.microsoft.com/azure/app-service/app-service-web-overview) (Web Apps) är en av dessa tjänster.
+[Azure App Service Web Apps](../../app-service/overview.md) (Web Apps) är en av dessa tjänster.
 
 Web Apps lägger till kraften i Microsoft Azure till ditt program. Det omfattar säkerhet, belastnings utjämning, automatisk skalning och automatisk hantering. Du kan också dra nytta av DevOps-funktioner i Web Apps, t. ex. paket hantering, mellanlagrings miljöer, anpassade domäner, SSL/TLS-certifikat och kontinuerlig distribution från Azure DevOps, GitHub, Docker Hub och andra källor.
 
 Azure erbjuder andra tjänster som du kan använda som värd för webbplatser och webb program. I de flesta fall är Web Apps det bästa alternativet. För en mikrotjänst arkitektur bör du överväga [Azure Service Fabric](https://azure.microsoft.com/documentation/services/service-fabric).
 Om du behöver större kontroll över de virtuella datorer koden körs på kan du använda [Azure Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/).
-Mer information om hur du väljer mellan dessa Azure-tjänster finns i [jämförelse av Azure App Service, Virtual Machines, Service Fabric och Cloud Services](https://docs.microsoft.com/azure/app-service/choose-web-site-cloud-service-vm).
+Mer information om hur du väljer mellan dessa Azure-tjänster finns i [jämförelse av Azure App Service, Virtual Machines, Service Fabric och Cloud Services](/azure/architecture/guide/technology-choices/compute-decision-tree).
 
 ### <a name="apply-updates-to-components"></a>Tillämpa uppdateringar på komponenter
 
@@ -147,18 +147,18 @@ Se sidan [Öppna webb program säkerhets projekt (OWASP)](https://www.owasp.org/
 
 Hot modellering är en process för att identifiera potentiella säkerhetshot för din verksamhet och ditt program och sedan se till att lämpliga åtgärder är på plats. SDL anger att team bör delta i Threat Modeling under Design fasen när det är relativt enkelt och kostnads effektivt att lösa potentiella problem. Genom att använda Threat Modeling i Design fasen kan du avsevärt minska den totala utvecklingen av kostnaderna.
 
-För att hjälpa till att under lätta processen för hot modellering utformade vi [SDL Threat Modeling Tool](https://docs.microsoft.com/azure/security/azure-security-threat-modeling-tool) med icke-säkerhetsexperter i åtanke. Det här verktyget gör det lättare att utforma hot för alla utvecklare genom att tillhandahålla tydlig vägledning om hur du skapar och analyserar hot modeller.
+För att hjälpa till att under lätta processen för hot modellering utformade vi [SDL Threat Modeling Tool](threat-modeling-tool.md) med icke-säkerhetsexperter i åtanke. Det här verktyget gör det lättare att utforma hot för alla utvecklare genom att tillhandahålla tydlig vägledning om hur du skapar och analyserar hot modeller.
 
 Att utforma program designen och räkna upp [kliv](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxzZWN1cmVwcm9ncmFtbWluZ3xneDo0MTY1MmM0ZDI0ZjQ4ZDMy) -hot – förfalskning, manipulering, oavvislig het, information om avslag, Denial of service och rättighets ökning – över alla förtroende gränser har visat ett effektivt sätt att fånga design fel tidigt på. I följande tabell visas en lista över kliv-hoten och ger några exempel på lösningar som använder funktioner som tillhandahålls av Azure. Dessa åtgärder fungerar inte i varje situation.
 
 | Säkerhetshot | Säkerhets egenskap | Potentiell Azure-plattforms minskning |
 | ---------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Förfalskning               | Authentication        | [KRÄV HTTPS-anslutningar](https://docs.microsoft.com/aspnet/core/security/enforcing-ssl?view=aspnetcore-2.1&tabs=visual-studio). |
-| Manipulation              | Integritet             | Verifiera SSL/TLS-certifikat. Program som använder SSL/TLS måste fullständigt verifiera X. 509-certifikaten för de entiteter som de ansluter till. Använd Azure Key Vault certifikat för att [Hantera dina x509-certifikat](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates). |
+| Manipulation              | Integritet             | Verifiera SSL/TLS-certifikat. Program som använder SSL/TLS måste fullständigt verifiera X. 509-certifikaten för de entiteter som de ansluter till. Använd Azure Key Vault certifikat för att [Hantera dina x509-certifikat](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-certificates). |
 | Avvislighet            | Oavvislighet       | Aktivera [övervakning och diagnostik](https://docs.microsoft.com/azure/architecture/best-practices/monitoring)i Azure.|
-| Avslöjande av information | Sekretess       | Kryptera känsliga data i [vila](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest) och [under överföring](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices#protect-data-in-transit). |
-| Denial of Service-attack      | Tillgänglighet          | Övervaka prestanda mått för potentiella denial of service-villkor. Implementera anslutnings filter. [Azure DDoS Protection](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview#next-steps), kombinerat med bästa praxis för program design, ger skydd mot DDoS-attacker.|
-| Upphöjning av rättigheter | Authorization         | Använd Azure Active Directory <span class="underline"></span> [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure).|
+| Avslöjande av information | Sekretess       | Kryptera känsliga data i [vila](../fundamentals/encryption-atrest.md) och [under överföring](../fundamentals/data-encryption-best-practices.md#protect-data-in-transit). |
+| Denial of Service-attack      | Tillgänglighet          | Övervaka prestanda mått för potentiella denial of service-villkor. Implementera anslutnings filter. [Azure DDoS Protection](../../virtual-network/ddos-protection-overview.md#next-steps), kombinerat med bästa praxis för program design, ger skydd mot DDoS-attacker.|
+| Upphöjning av rättigheter | Authorization         | Använd Azure Active Directory <span class="underline"></span> [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md).|
 
 ### <a name="reduce-your-attack-surface"></a>Minska din attackyta
 
@@ -203,21 +203,21 @@ Saker du kan göra för att utveckla en identitets inriktad metod för att utvec
 
 #### <a name="enforce-multi-factor-authentication-for-users"></a>Tvinga Multi-Factor Authentication för användare
 
-Använd tvåfaktorautentisering. Tvåfaktorautentisering är den aktuella standarden för autentisering och auktorisering eftersom den undviker de säkerhets svagheter som finns i användar namn och lösen ords typer för autentisering. Åtkomst till Azures hanterings gränssnitt (Azure Portal/fjärr-PowerShell) och till kund tjänster bör utformas och konfigureras för användning av [Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/active-directory/authentication/multi-factor-authentication).
+Använd tvåfaktorautentisering. Tvåfaktorautentisering är den aktuella standarden för autentisering och auktorisering eftersom den undviker de säkerhets svagheter som finns i användar namn och lösen ords typer för autentisering. Åtkomst till Azures hanterings gränssnitt (Azure Portal/fjärr-PowerShell) och till kund tjänster bör utformas och konfigureras för användning av [Azure Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md).
 
 #### <a name="use-strong-authentication-and-authorization-platforms"></a>Använd kraftfulla plattformar för autentisering och auktorisering
 
-Använd de mekanismer för autentisering och auktorisering som tillhandahålls av plattformen i stället för anpassad kod. Detta beror på att det kan vara lätt att utveckla anpassad autentiseringsnyckel. Kommersiell kod (till exempel från Microsoft) är ofta en omfattande granskning av säkerhet. [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) är Azure-lösningen för identitets-och åtkomst hantering. Dessa Azure AD-verktyg och-tjänster hjälper till med säker utveckling:
+Använd de mekanismer för autentisering och auktorisering som tillhandahålls av plattformen i stället för anpassad kod. Detta beror på att det kan vara lätt att utveckla anpassad autentiseringsnyckel. Kommersiell kod (till exempel från Microsoft) är ofta en omfattande granskning av säkerhet. [Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md) är Azure-lösningen för identitets-och åtkomst hantering. Dessa Azure AD-verktyg och-tjänster hjälper till med säker utveckling:
 
-- [Azure AD Identity Platform (Azure AD för utvecklare)](https://docs.microsoft.com/azure/active-directory/develop/about-microsoft-identity-platform) är en moln identitets tjänst som utvecklare använder för att bygga appar som kan logga in användare på ett säkert sätt. Azure AD hjälper utvecklare som utvecklar appar för en enda klient, verksamhetsspecifika appar och utvecklare som vill utveckla appar för flera klient organisationer. Förutom grundläggande inloggning kan appar som har skapats med hjälp av Azure AD anropa Microsoft API: er och anpassade API: er som bygger på Azure AD-plattformen. Azure AD Identity Platform stöder bransch standard protokoll som OAuth 2,0 och OpenID Connect.
+- [Azure AD Identity Platform (Azure AD för utvecklare)](../../active-directory/develop/about-microsoft-identity-platform.md) är en moln identitets tjänst som utvecklare använder för att bygga appar som kan logga in användare på ett säkert sätt. Azure AD hjälper utvecklare som utvecklar appar för en enda klient, verksamhetsspecifika appar och utvecklare som vill utveckla appar för flera klient organisationer. Förutom grundläggande inloggning kan appar som har skapats med hjälp av Azure AD anropa Microsoft API: er och anpassade API: er som bygger på Azure AD-plattformen. Azure AD Identity Platform stöder bransch standard protokoll som OAuth 2,0 och OpenID Connect.
 
-- [Azure Active Directory B2C (Azure AD B2C)](https://docs.microsoft.com/azure/active-directory-b2c/) är en tjänst för identitets hantering som du kan använda för att anpassa och styra hur kunder registrerar sig, loggar in och hanterar sina profiler när de använder dina program. Detta omfattar program som har utvecklats för iOS, Android och .NET, bland annat. Azure AD B2C aktiverar de här åtgärderna samtidigt som kundernas identiteter skyddas.
+- [Azure Active Directory B2C (Azure AD B2C)](../../active-directory-b2c/index.yml) är en tjänst för identitets hantering som du kan använda för att anpassa och styra hur kunder registrerar sig, loggar in och hanterar sina profiler när de använder dina program. Detta omfattar program som har utvecklats för iOS, Android och .NET, bland annat. Azure AD B2C aktiverar de här åtgärderna samtidigt som kundernas identiteter skyddas.
 
 #### <a name="apply-the-principle-of-least-privilege"></a>Tillämpa principen för minsta behörighet
 
 Begreppet [minsta behörighet](https://en.wikipedia.org/wiki/Principle_of_least_privilege) innebär att ge användarna den exakta nivån av åtkomst och kontroll de behöver för att utföra sina jobb och inget mer.
 
-Skulle en program varu utvecklare behöva domän administratörs rättigheter? Skulle en administrativ assistent ha åtkomst till administrativa kontroller på sin personliga dator? Att utvärdera åtkomsten till program varan är ingen annan. Om du använder [rollbaserad åtkomst kontroll (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) för att ge användarna olika förmågor och behörigheter i ditt program ger du inte alla åtkomst till allt. Genom att begränsa åtkomsten till vad som krävs för varje roll begränsar du risken för ett säkerhets problem som uppstår.
+Skulle en program varu utvecklare behöva domän administratörs rättigheter? Skulle en administrativ assistent ha åtkomst till administrativa kontroller på sin personliga dator? Att utvärdera åtkomsten till program varan är ingen annan. Om du använder [rollbaserad åtkomst kontroll (RBAC)](../../role-based-access-control/overview.md) för att ge användarna olika förmågor och behörigheter i ditt program ger du inte alla åtkomst till allt. Genom att begränsa åtkomsten till vad som krävs för varje roll begränsar du risken för ett säkerhets problem som uppstår.
 
 Se till att ditt program har [minst behörighet](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models#in-applications) över sina åtkomst mönster.
 
@@ -226,7 +226,7 @@ Se till att ditt program har [minst behörighet](https://docs.microsoft.com/wind
 
 #### <a name="implement-just-in-time-access"></a>Implementera just-in-Time-åtkomst
 
-Implementera JIT-åtkomst ( *just-in-Time* ) för att ytterligare minska exponerings tiden för privilegier. Använd [Azure AD Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-admin-roles-secure#stage-3-build-visibility-and-take-full-control-of-admin-activity) för att:
+Implementera JIT-åtkomst ( *just-in-Time* ) för att ytterligare minska exponerings tiden för privilegier. Använd [Azure AD Privileged Identity Management](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#stage-3-build-visibility-and-take-full-control-of-admin-activity) för att:
 
 - Ge användarna de behörigheter de behöver endast för JIT.
 - Tilldela roller för kortare varaktighet med förtroende för att privilegierna återkallas automatiskt.
@@ -242,7 +242,7 @@ Det bästa sättet att skydda mot den här typen av angrepp är att fråga anvä
 
 Att förlora nycklar och autentiseringsuppgifter är ett vanligt problem. Det enda som är sämre än att förlora nycklar och autentiseringsuppgifter är att en obehörig part får till gång till dem. Angripare kan dra nytta av automatiserade och manuella tekniker för att hitta nycklar och hemligheter som lagras i kod databaser som GitHub. Lägg inte till nycklar och hemligheter i dessa offentliga kod databaser eller på någon annan server.
 
-Lägg alltid till nycklar, certifikat, hemligheter och anslutnings strängar i en nyckel hanterings lösning. Du kan använda en centraliserad lösning där nycklar och hemligheter lagras i HSM: er (Hardware Security modules). Azure ger dig en HSM i molnet med [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis).
+Lägg alltid till nycklar, certifikat, hemligheter och anslutnings strängar i en nyckel hanterings lösning. Du kan använda en centraliserad lösning där nycklar och hemligheter lagras i HSM: er (Hardware Security modules). Azure ger dig en HSM i molnet med [Azure Key Vault](../../key-vault/key-vault-whatis.md).
 
 Key Vault är ett *hemligt Arkiv*: det är en centraliserad moln tjänst för att lagra program hemligheter. Key Vault skyddar dina konfidentiella data genom att spara program hemligheter på en enda, central plats och tillhandahålla säker åtkomst, behörighets kontroll och åtkomst loggning.
 
@@ -267,7 +267,7 @@ Märk alla aktuella data som känsliga när du utformar dina data format. Se til
 #### <a name="use-encryption"></a>Använd kryptering
 
 Att skydda data bör vara en viktig del av din säkerhets strategi.
-Om dina data lagras i en databas eller om de flyttas fram och tillbaka mellan platser, använder du kryptering av [data i vila](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest) (i databasen) och kryptering av [data under överföring](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices#protect-data-in-transit) (på väg till och från användaren, databasen, ett API eller en tjänst slut punkt). Vi rekommenderar att du alltid använder SSL/TLS-protokoll för att utbyta data. Se till att du använder den senaste versionen av TLS för kryptering (för närvarande är version 1,2).
+Om dina data lagras i en databas eller om de flyttas fram och tillbaka mellan platser, använder du kryptering av [data i vila](../fundamentals/encryption-atrest.md) (i databasen) och kryptering av [data under överföring](../fundamentals/data-encryption-best-practices.md#protect-data-in-transit) (på väg till och från användaren, databasen, ett API eller en tjänst slut punkt). Vi rekommenderar att du alltid använder SSL/TLS-protokoll för att utbyta data. Se till att du använder den senaste versionen av TLS för kryptering (för närvarande är version 1,2).
 
 #### <a name="avoid-hard-coding"></a>Undvik fast kodning
 
@@ -277,7 +277,7 @@ När du infogar kommentarer i din kod, se till att du inte sparar känslig infor
 
 I princip förutsätter vi att allt innehåll i ditt utvecklings projekt är offentlig information när det distribueras. Undvik att inkludera känsliga data av någon typ i projektet.
 
-Tidigare diskuterade vi [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis). Du kan använda Key Vault för att lagra hemligheter som nycklar och lösen ord i stället för att hårdkoda dem. När du använder Key Vault i kombination med hanterade identiteter för Azure-resurser, kan Azure-webbappen komma åt hemliga konfigurations värden enkelt och säkert utan att lagra några hemligheter i din käll kontroll eller konfiguration. Mer information finns i [Hantera hemligheter i dina Server appar med Azure Key Vault](https://docs.microsoft.com/learn/modules/manage-secrets-with-azure-key-vault/).
+Tidigare diskuterade vi [Azure Key Vault](../../key-vault/key-vault-whatis.md). Du kan använda Key Vault för att lagra hemligheter som nycklar och lösen ord i stället för att hårdkoda dem. När du använder Key Vault i kombination med hanterade identiteter för Azure-resurser, kan Azure-webbappen komma åt hemliga konfigurations värden enkelt och säkert utan att lagra några hemligheter i din käll kontroll eller konfiguration. Mer information finns i [Hantera hemligheter i dina Server appar med Azure Key Vault](https://docs.microsoft.com/learn/modules/manage-secrets-with-azure-key-vault/).
 
 ### <a name="implement-fail-safe-measures"></a>Implementera fel säkert mått
 
@@ -299,7 +299,7 @@ Se till att:
 
 - Undantag loggas och att de ger tillräckligt med information för att data utredning eller incident hanterings team ska kunna undersöka.
 
-[Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview) ger en förstklassig upplevelse för att [hantera fel och undantag](https://docs.microsoft.com/azure/logic-apps/logic-apps-exception-handling) som orsakas av beroende system. Du kan använda Logic Apps för att skapa arbets flöden för att automatisera uppgifter och processer som integrerar appar, data, system och tjänster i företag och organisationer.
+[Azure Logic Apps](../../logic-apps/logic-apps-overview.md) ger en förstklassig upplevelse för att [hantera fel och undantag](../../logic-apps/logic-apps-exception-handling.md) som orsakas av beroende system. Du kan använda Logic Apps för att skapa arbets flöden för att automatisera uppgifter och processer som integrerar appar, data, system och tjänster i företag och organisationer.
 
 ### <a name="use-logging-and-alerting"></a>Använd loggning och aviseringar
 

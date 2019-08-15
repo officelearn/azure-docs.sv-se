@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2019
 ms.author: apimpm
-ms.openlocfilehash: 619a4de993f052f143e4117f0100ed1e0aa77b03
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: bde4572ec72286be7d845f4e83bf9c0fe3bff6f1
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68498595"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932402"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Implementera haveri beredskap med hjälp av säkerhets kopiering och återställning av tjänsten i Azure API Management
 
@@ -176,6 +176,7 @@ Observera följande begränsningar när du gör en säkerhets kopierings förfr�
 -   När säkerhets kopiering pågår, **Undvik ändringar i tjänst hanteringen** , till exempel SKU-uppgradering eller nedgradering, ändring i domän namn och mycket annat.
 -   Återställning av en **säkerhets kopia garanteras endast i 30 dagar** sedan den skapades.
 -   **Användnings data** som används för att skapa analys rapporter **ingår inte** i säkerhets kopian. Använd [Azure API Management REST API][azure api management rest api] för att regelbundet hämta analys rapporter för förvaring.
+-   Dessutom är följande objekt inte en del av säkerhets kopierings data: anpassade domän-SSL-certifikat och mellanliggande eller rot certifikat som laddats upp av kunden, utvecklarens Portal innehåll och inställningar för virtuella nätverks integrering.
 -   Den frekvens med vilken du utför säkerhets kopiering av tjänster påverkar återställnings punkt målet. För att minimera det rekommenderar vi att du implementerar regelbundna säkerhets kopieringar och utför säkerhets kopieringar på begäran när du har gjort ändringar i API Managements tjänsten.
 -   **Ändringar** som görs i tjänst konfigurationen (till exempel API: er, principer och utvecklarens Portal utseende) medan säkerhets kopieringen pågår **kan uteslutas från säkerhets kopian och kommer att gå förlorade**.
 -   **Tillåt** åtkomst från kontroll planet till Azure Storage konto. Kunden ska öppna följande uppsättning inkommande IP-adresser för lagrings kontot för säkerhets kopiering. 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/10/2019
 ms.author: juergent
-ms.openlocfilehash: 754eb063f82344e72bece8fb0ac5708dbc8ab791
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 0da426a9302ce72b5359df15d3f8e244fc1766a0
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249138"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68935363"
 ---
 [1928533]: https://launchpad.support.sap.com/#/notes/1928533
 [2015553]: https://launchpad.support.sap.com/#/notes/2015553
@@ -133,7 +133,7 @@ Slutför planerings processen innan du kör distributionen. Planering skapar gru
 | Definition av virtuellt nätverk/undernät | Där virtuella datorer för IBM DB2 och Azure Load Balancer distribueras. Kan vara befintlig eller nyligen skapad. |
 | Virtuella datorer som är värdar för IBM DB2 LUW | VM-storlek, lagring, nätverk, IP-adress. |
 | Virtuellt värdnamn och virtuell IP för IBM DB2-databas| Den virtuella IP-adressen eller värd namnet som används för anslutning av SAP-program servrar. **db-virt-hostname**, **db-virt-IP**. |
-| Azure-staket | Azure-staket eller SBD staket (rekommenderas). Metoden för att undvika delade hjärna-situationer förhindras. |
+| Azure-staket | Azure-staket eller SBD staket (rekommenderas). Metod för att undvika delade hjärna-situationer. |
 | SBD VM | SBD virtuell dator storlek, lagring, nätverk. |
 | Azure Load Balancer | Användning av Basic eller standard (rekommenderas), avsöknings port för DB2 Database (vår rekommendation 62500) avsöknings **port**. |
 | Namnmatchning| Hur namn matchning fungerar i miljön. DNS-tjänsten rekommenderas starkt. Den lokala värd filen kan användas. |
@@ -172,7 +172,7 @@ Information om hur du skapar ett grundläggande pacemaker-kluster för den här 
 
 Innan du påbörjar installationen av en SAP-miljö baserat på IBM DB2-LUW bör du läsa följande dokumentation:
 
-+ Dokumentation om Azure
++ Azure-dokumentation
 + SAP-dokumentation
 + IBM-dokumentation
 
@@ -404,10 +404,10 @@ sudo crm configure property maintenance-mode=false</pre></code>
 # <a name="full-list-of-resources"></a>Fullständig lista över resurser:
 
 #  <a name="stonith-sbd----stonithexternalsbd-started-azibmdb02"></a>stonith-SBD (stonith: external/SBD): Startade azibmdb02
-#  <a name="resource-group-gipdb2ptrptr"></a>Resurs grupp: g_ip_db2ptr_PTR
-#      <a name="rscipdb2ptrptr--ocfheartbeatipaddr2-------started-azibmdb02"></a>rsc_ip_db2ptr_PTR (OCF:: pulsslag: IPaddr2):       Startade azibmdb02
-#      <a name="rscncdb2ptrptr--ocfheartbeatanything------started-azibmdb02"></a>rsc_nc_db2ptr_PTR (OCF:: pulsslag: vad):      Startade azibmdb02
-#  <a name="masterslave-set-msldb2db2ptrptr-rscdb2db2ptrptr"></a>Huvud-/slav uppsättning: msl_Db2_db2ptr_PTR [rsc_Db2_db2ptr_PTR]
+#  <a name="resource-group-g_ip_db2ptr_ptr"></a>Resurs grupp: g_ip_db2ptr_PTR
+#      <a name="rsc_ip_db2ptr_ptr--ocfheartbeatipaddr2-------started-azibmdb02"></a>rsc_ip_db2ptr_PTR (OCF:: pulsslag: IPaddr2):       Startade azibmdb02
+#      <a name="rsc_nc_db2ptr_ptr--ocfheartbeatanything------started-azibmdb02"></a>rsc_nc_db2ptr_PTR (OCF:: pulsslag: vad):      Startade azibmdb02
+#  <a name="masterslave-set-msl_db2_db2ptr_ptr-rsc_db2_db2ptr_ptr"></a>Huvud-/slav uppsättning: msl_Db2_db2ptr_PTR [rsc_Db2_db2ptr_PTR]
 #      <a name="masters--azibmdb02-"></a>Mallsidor: [azibmdb02]
 #      <a name="slaves--azibmdb01-"></a>Slavar: [azibmdb01]
 </pre>
@@ -451,7 +451,7 @@ Om du vill konfigurera Azure Load Balancer rekommenderar vi att du använder [Az
 
    b. Ange namnet på den nya hälso avsökningen (till exempel **DB2-HP**).
 
-   c. Välj **TCP** som protokoll och port **62500**. Behåll **intervallvärdet** inställt på **5**och behåll tröskelvärdet  för tröskelvärdet som är satt till **2**.
+   c. Välj **TCP** som protokoll och port **62500**. Behåll **intervallvärdet** inställt på **5**och behåll tröskelvärdet för tröskelvärdet som är satt till **2**.
 
    d. Välj **OK**.
 

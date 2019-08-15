@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/18/2019
-ms.openlocfilehash: b3ebd8b6f65ec86d338932579f5d4ccec6a90be3
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: e92c2e58122556f90b25f070fff9e6e6616b0257
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68704739"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976853"
 ---
 # <a name="azure-cosmos-db-table-net-standard-api-download-and-release-notes"></a>Azure Cosmos DB tabell .NET standard-API: Information om hämtning och version
 > [!div class="op_single_selector"]
@@ -31,8 +31,13 @@ ms.locfileid: "68704739"
 |**Snabbstart**|[Snabbstart](create-table-dotnet.md)|
 |**Självstudie**|[Självstudie](tutorial-develop-table-dotnet.md)|
 |**Aktuella framework som stöds**|[Microsoft .NET standard 2,0](https://www.nuget.org/packages/NETStandard.Library)|
+|**Rapportera problem**|[Rapportera problem](https://github.com/Azure/azure-cosmos-table-dotnet/issues)|
 
 ## <a name="release-notes"></a>Viktig information
+
+### <a name="a-name104104"></a><a name="1.0.4"/>1.0.4
+* Felkorrigeringar
+* Ange alternativet HttpClientTimeout för RestExecutorConfiguration.
 
 ### <a name="a-name104-preview104-preview"></a><a name="1.0.4-preview"/>1.0.4 – för hands version
 * Felkorrigeringar
@@ -71,6 +76,7 @@ Detta plattforms oberoende .NET standard-bibliotek [Microsoft. Azure. Cosmos. ta
 
 | Version | Utgivningsdatum | Slutdatum |
 | --- | --- | --- |
+| [1.0.4](#1.0.4) |Auguest 12, 2019 |--- |
 | [1.0.4 – för hands version](#1.0.4-preview) |26 juli 2019 |--- |
 | 1.0.2-preview |2 maj 2019 |--- |
 | [1.0.1](#1.0.1) |19 april 2019 |--- |
@@ -86,4 +92,4 @@ Detta plattforms oberoende .NET standard-bibliotek [Microsoft. Azure. Cosmos. ta
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>Se också
-Mer information om Azure Cosmos DB Tabell-API finns i [Introduktion till Azure Cosmos DB tabell-API](table-introduction.md). 
+Mer information om Azure Cosmos DB Tabell-API finns i [Introduktion till Azure Cosmos DB tabell-API](table-introduction.md).

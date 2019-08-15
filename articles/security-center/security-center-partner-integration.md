@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: 14bf7dc62bb97cb14232660db6d0649e3d77d4fa
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: 2c43a3c046243c4802fb433f3b755cee158002b6
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68662944"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950567"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integrera säkerhetslösningar i Azure Security Center
 Det här dokumentet hjälper dig att hantera säkerhetslösningar som redan är anslutna till Azure Security Center och lägga till nya.
@@ -56,7 +56,7 @@ Azure-säkerhetslösningar som distribueras från Security Center ansluts automa
 
    ![Security Center – Översikt](./media/security-center-partner-integration/overview.png)
 
-Under **Säkerhetslösningar** kan du se information om hälsostatus för integrerade Azure-säkerhetslösningar och utföra grundläggande hanteringsåtgärder. Du kan även ansluta andra typer av datakällor för säkerhet, t.ex. Azure Active Directory Identity Protection-aviseringar och brandväggsloggar i Common Event Format (CEF).
+Under **Säkerhetslösningar** kan du se information om hälsostatus för integrerade Azure-säkerhetslösningar och utföra grundläggande hanteringsåtgärder.
 
 ### <a name="connected-solutions"></a>Anslutna lösningar
 
@@ -97,8 +97,6 @@ Security Center identifierar automatiskt säkerhetslösningar som körs i Azure 
 Välj **ANSLUT** under en lösning om du vill integrera den med Security Center och få säkerhetsaviseringar.
 
 ![Upptäckta lösningar](./media/security-center-partner-integration/security-center-partner-integration-fig5.png)
-
-Security Center identifierar också lösningar som distribueras i prenumerationen och som kan vidarebefordra CEF-loggar (Common Event Format). Läs om hur du [ansluter en säkerhetslösning](quick-security-solutions.md) som använder CEF-loggar till Security Center.
 
 ### <a name="add-data-sources"></a>Lägg till datakällor
 

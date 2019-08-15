@@ -1,75 +1,75 @@
 ---
-title: Aktivera program för flera innehavare med Azure Digital Twins | Microsoft Docs
-description: Hur du konfigurerar flera innehavare Azure Active Directory-program för Azure Digital Twins.
+title: Aktivera program med flera innehavare med Azure Digitals-dubbla | Microsoft Docs
+description: Så här konfigurerar du Azure Active Directory program för flera innehavare för Azures digitala dubbla.
 author: mavoge
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 06/04/2019
+ms.date: 08/12/2019
 ms.author: mavoge
-ms.openlocfilehash: 03b5693fe016cfb11d6f685f9088fe6e94f03b90
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2ee3681640f68839c32e2963b34d5547abb6943b
+ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66688594"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68976884"
 ---
-# <a name="enable-multitenant-applications-with-azure-digital-twins"></a>Aktivera program för flera innehavare med Azure Digital Twins
+# <a name="enable-multitenant-applications-with-azure-digital-twins"></a>Aktivera program med flera klient organisationer med digitala Azure-dubbla
 
-Lösningar för utvecklare som bygger på Azure Digital Twins kanske upptäcker att de vill stöder flera kunder med en enskild tjänst eller lösning. I själva verket *multitenant* program är bland de vanligaste Azure Digital Twins konfigurationerna.
+Lösningar utvecklare som bygger på digitala Azure-multiplar kan upptäcka att de vill stödja flera kunder med en enda tjänst eller lösning. Program med flera *klienter* är i själva verket bland de vanligaste konfigurationerna för Azure Digitals dubbla.
 
-Det här dokumentet beskriver hur du konfigurerar en Digital Twins för Azure-app för att stödja flera Azure Active Directory-klienter och kunder.
+I det här dokumentet beskrivs hur du konfigurerar en Azure Digitals-app med stöd för flera Azure Active Directory klienter och kunder.
 
-## <a name="multitenancy"></a>Flera innehavare
+## <a name="multitenancy"></a>Multitenancy
 
-En *multitenant* resursen är en etablerad instans som har stöd för flera kunder. Varje kund har sin egen oberoende data och behörigheter. Varje kundupplevelsen är isolerade från varandra så att deras ”visa” för programmet är distinkt.
+En resurs för flera *innehavare* är en enda etablerad instans som stöder flera kunder. Varje kund har sina egna oberoende data och behörigheter. Varje kunds upplevelse är isolerad från varandra så att deras "vy" av programmet är distinkt.
 
-Mer information om multitenancy [Multitenant-program i Azure](https://docs.microsoft.com/azure/dotnet-develop-multitenant-applications).
+Om du vill veta mer om flera organisationer kan du läsa [program med flera klienter i Azure](https://docs.microsoft.com/azure/dotnet-develop-multitenant-applications).
 
-## <a name="problem-scenario"></a>Problem med scenario
+## <a name="problem-scenario"></a>Problem scenario
 
-I det här scenariot du överväga att utvecklare att skapa en Digital Twins för Azure-lösning (**DEVELOPER**) och en kund som använder lösningen (**kunden**):
+I det här scenariot bör du överväga en utvecklare som skapar en Azure digital-lösning (**utvecklare**) och en kund som använder lösningen (**kund**):
 
-- **DEVELOPER** har en Azure-prenumeration med en Azure Active Directory-klient.
-- **DEVELOPER** distribuerar en Azure Digital Twins-instans till deras Azure-prenumeration. Azure Active Directory skapas automatiskt ett tjänstens huvudnamn i **DEVELOPER**'s Azure Active Directory-klient.
-- Användare inom **DEVELOPER**användarens Azure Active Directory-klient kan sedan [hämta OAuth 2.0-token](./security-authenticating-apis.md) från tjänsten Azure Digital Twins.
-- **DEVELOPER** skapar nu en mobilapp som är direkt integrerad med Azure Digital Twins Management API: erna.
-- **DEVELOPER** tillåter **kunden** användningen av mobila program.
-- **KUNDEN** måste ha behörighet att använda Azure Digital Twins Management API i **DEVELOPER**'s program.
+- **Utvecklaren** har en Azure-prenumeration med en Azure Active Directory klient.
+- **Utvecklare** distribuerar en digital Azure-instans i Azure-prenumerationen. Azure Active Directory automatiskt skapat ett huvud namn förtjänsten i utvecklarens Azure Active Directory-klient.
+- Användare i **utvecklarens**Azure Active Directory-klient kan sedan [Hämta OAuth 2,0](./security-authenticating-apis.md) -token från Azures digitala dubbla-tjänster.
+- **Utvecklare** skapar nu en mobilapp som direkt kan integreras med API: er för Azure Digitals sammanflätade hantering.
+- **Utvecklare** gör det möjligt för **kunden** att använda det mobila programmet.
+- **Kunden** måste ha behörighet att använda Azure Digitals hanterings-API i **utvecklarens**program.
 
-Problem:
+Problemet:
 
-- När **kunden** loggar in på **DEVELOPER**'s program, appen inte går att hämta token för **kunden**'s användare att autentisera med Azure Digital Twins Management API: erna.
-- Ett undantag är utfärdat i Azure Active Directory som anger att Azure Digital Twins inte känns igen inom **kunden**'s directory.
+- När **kunden** loggar ini utvecklarens program kan appen inte hämta tokens för **kundens**användare att autentisera med API: er för Azure Digitals sammanflätade hantering.
+- Ett undantag utfärdas i Azure Active Directory som anger att Azure Digital-dubbla är okända i **kundens**katalog.
 
-## <a name="problem-solution"></a>Problem-lösning
+## <a name="problem-solution"></a>Problem lösning
 
-För att lösa problemet scenariot ovan följande åtgärder behövs för att skapa en Digital Twins Azure tjänstens huvudnamn i den **kunden**'s Azure Active Directory-klient:
+För att lösa det tidigare problem scenariot krävs följande åtgärder för att skapa ett Azure digital-tjänst huvud huvud i **kundens**Azure Active Directory klient organisation:
 
-- Om **kunden** inte redan har en Azure-prenumeration med en Azure Active Directory-klient:
+- Om **kunden** inte redan har en Azure-prenumeration med en Azure Active Directory klient:
 
-  - **KUNDEN**'s Azure Active Directory-klientadministratör måste skaffa en [användningsbaserad Azure-prenumeration](https://azure.microsoft.com/offers/ms-azr-0003p/).
-  - **KUNDEN**användarens Azure Active Directory-klientadministratör och sedan måste [länka klientorganisationen med den nya prenumerationen](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-hybrid-identity).
+  - **Kundens**Azure Active Directory klient organisations administratör måste skaffa en [Azure-prenumeration enligt principen betala per](https://azure.microsoft.com/offers/ms-azr-0003p/)användning.
+  - **Kundens**Azure Active Directory klient organisations administratör måste sedan [Länka sin klient med den nya prenumerationen](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-hybrid-identity).
 
-- På den [Azure-portalen](https://portal.azure.com), **kunden**'s Azure Active Directory-klientadministratör tar följande steg:
+- På den [Azure Portal](https://portal.azure.com)vidtar **kund**Azure Active Directory klient administratören följande steg:
 
   1. Öppna **prenumerationer**.
-  1. Välj den prenumeration som har Azure Active Directory-klient som ska användas i **DEVELOPER**'s program.
+  1. Välj den prenumeration som har den Azure Active Directory klienten som ska användas i **utvecklarens**program.
 
-     ![Azure Active Directory-prenumerationer][1]
+     ![Azure Active Directory prenumerationer][1]
 
-  1. Välj **Resursprovidrar**.
-  1. Sök efter **Microsoft.IoTSpaces**.
+  1. Välj **resurs leverantörer**.
+  1. Sök efter **Microsoft. IoTSpaces**.
   1. Välj **Registrera**.
 
-     ![Azure Active Directory-resursprovidrar][2]
+     ![Azure Active Directory resurs leverantörer][2]
   
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information om hur du använder användardefinierade funktioner med Azure Digital Twins [så här skapar du användardefinierade funktioner i Azure Digital Twins](./how-to-user-defined-functions.md).
+- Om du vill lära dig mer om hur du använder användardefinierade funktioner med Azure Digitals finns mer information [i så här skapar du Azure Digitals inbyggda funktioner](./how-to-user-defined-functions.md).
 
-- Läs hur du använder rollbaserad åtkomstkontroll för att ytterligare skydda program med rolltilldelningar [hur du skapar och hanterar Azure Digital Twins rollbaserad åtkomstkontroll](./security-create-manage-role-assignments.md).
+- Om du vill lära dig hur du använder rollbaserad åtkomst kontroll för att ytterligare skydda programmet med roll tilldelningar läser [du skapa och hantera Azure Digitals, rollbaserad åtkomst kontroll](./security-create-manage-role-assignments.md).
 
 <!-- Images -->
 [1]: media/multitenant/ad-subscriptions.png

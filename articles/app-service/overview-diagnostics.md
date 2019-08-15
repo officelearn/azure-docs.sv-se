@@ -1,7 +1,7 @@
 ---
-title: Översikt av Azure App Service-diagnostik | Microsoft Docs
-description: Lär dig hur du kan felsöka problem med din app med App Service-diagnostik.
-keywords: app service, azure app service, diagnostics, support, web app, troubleshooting, self-help
+title: Översikt över Azure App Service diagnostik | Microsoft Docs
+description: Lär dig hur du kan felsöka problem med din app med App Service Diagnostics.
+keywords: App Service, Azure App Service, diagnostik, support, webbapp, fel sökning, självhjälp
 services: app-service
 documentationcenter: ''
 author: jen7714
@@ -15,100 +15,104 @@ ms.topic: article
 ms.date: 11/10/2017
 ms.author: jennile
 ms.custom: seodec18
-ms.openlocfilehash: f2f798be85e9c3aeb8d4b54cba89d8be059427e0
-ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.openlocfilehash: 50caa666245b0401c2c584f0a357ca6bfa53230c
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67147346"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945661"
 ---
-# <a name="azure-app-service-diagnostics-overview"></a>Översikt av Azure App Service-diagnostik
+# <a name="azure-app-service-diagnostics-overview"></a>Översikt över Azure App Service diagnostik
 
-När du kör ett webbprogram, som du vill att förbereda för eventuella problem som kan uppstå i 500-fel till användarna om att webbplatsen inte fungerar. App Service-diagnostik är en intelligent och interaktiv upplevelse för att felsöka din app med krävs ingen konfiguration. När du stöter på problem med din app, pekar App Service-diagnostik ut fel att guida dig till rätt information för att enkelt och snabbt felsöka och lösa problemet.
+När du kör ett webb program måste du vara för beredd för eventuella problem som kan uppstå, från 500 fel till dina användare, vilket visar att platsen är avstängd. App Service Diagnostics är en intelligent och interaktiv upplevelse som hjälper dig att felsöka din app utan att det krävs någon konfiguration. När du stöter på problem med din app, kan App Service diagnostik ta reda på vad som är fel för att hjälpa dig med rätt information för att enklare och snabbare felsöka och lösa problemet.
 
-Även om detta är användbart när du har problem med din app under de senaste 24 timmarna, är alla diagnostiska diagram alltid tillgängliga för dig att analysera.
+Även om den här upplevelsen är mest användbar när du har problem med din app under de senaste 24 timmarna, är alla diagnostiska grafer alltid tillgängliga så att du kan analysera dem.
 
-App Service-diagnostik passar inte bara din app på Windows, utan också appar på [Linux/behållare](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro), [App Service Environment](https://docs.microsoft.com/azure/app-service/environment/intro), och [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview).
+App Service diagnostik fungerar bara för din app i Windows, utan även appar på [Linux/behållare](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro), [App Service-miljön](https://docs.microsoft.com/azure/app-service/environment/intro)och [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview).
 
-## <a name="open-app-service-diagnostics"></a>Öppna App Service-diagnostik
+## <a name="open-app-service-diagnostics"></a>Öppna App Service diagnostik
 
-Om du vill få åtkomst till App Service-diagnostik, navigera till din App Service-webbapp eller en App Service Environment i den [Azure-portalen](https://portal.azure.com). I det vänstra navigeringsfönstret klickar du på **diagnostisera och lösa problem**.
+Om du vill komma åt App Service diagnostik navigerar du till din App Service webbapp eller App Service-miljön i [Azure Portal](https://portal.azure.com). Klicka på **diagnostisera och lös problem**i det vänstra navigerings fältet.
 
-Azure Functions går du till din funktionsapp och i det övre navigeringsfältet, klickar du på **plattformsfunktioner**, och välj **diagnostisera och lösa problem** från den **resurshantering** avsnittet.
+För Azure Functions navigerar du till din Function-app. i det övre navigerings fönstret klickar du på **plattforms funktioner**och väljer **diagnostisera och löser problem** i avsnittet **resurs hantering** .
 
-Du kan välja den kategori som bäst beskriver problemet med din app med hjälp av nyckelord i varje panel för startsidan i App Service-diagnostik startsidan. Den här sidan är också där du hittar **diagnostikverktyg** för Windows-appar. Se [diagnostiska verktyg (endast för Windows-app)](#diagnostic-tools-only-for-windows-app).
+På Start sidan för App Service diagnostik kan du välja den kategori som bäst beskriver problemet med din app med hjälp av nyckelorden på varje start sida. Den här sidan är också där du kan hitta **diagnostikverktyg** för Windows-appar. Se [diagnostikverktyg (endast för Windows-app)](#diagnostic-tools-only-for-windows-app).
 
 ![Startsida](./media/app-service-diagnostics/app-service-diagnostics-homepage-1.png)
 
 ## <a name="interactive-interface"></a>Interaktivt gränssnitt
 
-När du har valt en webbsida kategori som bäst överensstämmer med din app problemet hjälper App Service diagnostics interaktivt gränssnitt, Genie dig att diagnostisera och lösa problem med din app. Du kan använda panelen genvägarna tillhandahålls av Genie för att visa den fullständiga diagnostikrapport av problem-kategori som du är intresserad av. Panelen genvägar ger dig ett enkelt sätt för att komma åt din diagnostikmått.
+När du har valt en kategori för start sidan som bäst överensstämmer med appens problem, kan App Service diagnosticss interaktiva gränssnitt, Genie, hjälpa dig att diagnostisera och lösa problem med din app. Du kan använda de kortkommandon som tillhandahålls av Genie för att visa en fullständig diagnostisk rapport för den problem kategori som du är intresse rad av. Panel gen vägarna ger dig ett direkt sätt att komma åt dina diagnostiska mått.
 
-![Panelen genvägar](./media/app-service-diagnostics/tile-shortcuts-2.png)
+![Panel gen vägar](./media/app-service-diagnostics/tile-shortcuts-2.png)
 
-När du klickar på dessa paneler, kan du se en lista över ämnen som rör problemet som beskrivs i panelen. Dessa avsnitt innehåller viktig information från den fullständiga rapporten kodfragment. Du kan klicka på någon av följande avsnitt för att undersöka problemet ytterligare. Dessutom kan du klicka på **Visa fullständig rapport** att utforska alla avsnitt på en enda sida.
+När du har klickat på dessa paneler kan du se en lista över de avsnitt som handlar om problemet som beskrivs i panelen. De här avsnitten innehåller kodfragment av viktig information från den fullständiga rapporten. Du kan klicka på något av dessa avsnitt om du vill undersöka problemen ytterligare. Du kan också klicka på **Visa fullständig rapport** om du vill utforska alla ämnen på en enda sida.
 
 ![Ämnen](./media/app-service-diagnostics/application-logs-insights-3.png)
 
 ![Visa fullständig rapport](./media/app-service-diagnostics/view-full-report-4.png)
 
-## <a name="diagnostic-report"></a>Diagnostikrapport
+## <a name="diagnostic-report"></a>Diagnostisk rapport
 
-När du har valt att undersöka problemet ytterligare genom att klicka på ett ämne kan du visa mer information om ämnet ofta kompletteras med grafik och markdowns. Diagnostisk rapport kan vara ett kraftfullt verktyg för att hitta problem med din app.
+När du har valt att undersöka problemet ytterligare genom att klicka på ett ämne kan du Visa mer information om avsnittet som ofta kompletteras med grafer och markdowns. Diagnostiska rapporter kan vara ett kraftfullt verktyg för att hitta problemet med din app.
 
-![Diagnostikrapport](./media/app-service-diagnostics/full-diagnostic-report-5.png)
+![Diagnostisk rapport](./media/app-service-diagnostics/full-diagnostic-report-5.png)
 
-## <a name="health-checkup"></a>Hälsokontroll
+## <a name="health-checkup"></a>Health Checkup
 
-Om du inte vet vad är fel med din app eller vet inte var du ska börja felsöka ditt problem med är hälsokontroll ett bra ställe att börja. Hälsokontroll analyserar dina program att ge dig en snabba, interaktiva översikten som pekar på vad som är felfri och fel, om var du vill undersöka problemet. Dess intelligenta och interaktiva gränssnittet får du vägledning genom felsökningen. Hälsokontroll är integrerad med Genie upplevelse för Windows-appar och webbapp ned diagnostisk rapport för Linux-appar.
+Om du inte vet vad som är fel med din app eller inte vet var du ska börja felsöka dina problem, är Health Checkup en bra plats för att starta. Health Checkup analyserar dina program så att du får en snabb, interaktiv översikt över vad som är felfritt och vad som är fel, vilket ger dig information om var du ska undersöka problemet. Det intelligenta och interaktiva gränssnittet ger vägledning genom fel söknings processen. Health Checkup är integrerat med Genie-upplevelsen för Windows-appar och en diagnostisk rapport för webbapp för Linux-appar.
 
-### <a name="health-checkup-graphs"></a>Hälsotillstånd checkup diagram
+### <a name="health-checkup-graphs"></a>Health Checkup-diagram
 
-Det finns fyra olika diagram i hälsokontroll.
+Det finns fyra olika grafer i Health Checkup.
 
-- **förfrågningar och fel:** Ett diagram som visar antalet begäranden som görs under de senaste 24 timmarna tillsammans med HTTP-serverfel.
-- **prestanda:** Ett diagram som visar svarstid under de senaste 24 timmarna för olika: e percentilen grupper.
-- **CPU-användning:** Ett diagram som visar den totala procent CPU-användningen per instans under de senaste 24 timmarna.  
-- **minnesanvändning:** Ett diagram som visar den övergripande procent fysisk minnesanvändningen per instans under de senaste 24 timmarna.
+- **begär Anden och fel:** En graf som visar antalet begär Anden som gjorts under de senaste 24 timmarna tillsammans med HTTP server-fel.
+- **app-prestanda:** En graf som visar svars tiden under de senaste 24 timmarna för olika percentils grupper.
+- **CPU-användning:** En graf som visar den totala processor användningen i procent per instans under de senaste 24 timmarna.  
+- **minnes användning:** En graf som visar den totala mängden fysiskt minnes användning per instans under de senaste 24 timmarna.
 
-![Hälsokontroll](./media/app-service-diagnostics/health-checkup-6.png)
+![Health Checkup](./media/app-service-diagnostics/health-checkup-6.png)
 
-### <a name="investigate-application-code-issues-only-for-windows-app"></a>Undersöka koden programproblem (endast för Windows-app)
+### <a name="investigate-application-code-issues-only-for-windows-app"></a>Undersök problem med program kod (endast för Windows-appar)
 
-Eftersom många app-problemen är relaterade till problem i programkoden, App Service-diagnostik kan integreras med [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) att markera undantag och beroendeproblem att korrelera med den valda stilleståndstiden. Application Insights har aktiveras separat.
+Eftersom många app-problem är relaterade till problem i din program kod, integreras App Service Diagnostics med [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) för att markera undantag och beroende problem för att korrelera med den valda stillestånds tiden. Application Insights måste aktive ras separat.
 
 ![Application Insights](./media/app-service-diagnostics/application-insights-7.png)
 
-Om du vill visa Application Insights-undantag och beroenden, Välj den **webbapp ned** eller **webbappen är långsam** panelen genvägar.
+Om du vill visa Application Insights undantag och beroenden väljer du genvägar till webbappens **ned-** eller webbappens **långsamma** panel.
 
-### <a name="troubleshooting-steps-only-for-windows-app"></a>Felsökningssteg (endast för Windows-app)
+### <a name="troubleshooting-steps-only-for-windows-app"></a>Fel söknings steg (endast för Windows-app)
 
-Om ett problem har identifierats med ett specifikt problem-kategori under de senaste 24 timmarna, du kan visa den fullständiga Diagnostikrapporten och App Service-diagnostik kan bli ombedd att visa mer felsökningstips och nästa steg för en mer interaktiv upplevelse.
+Om ett problem upptäcks med en viss problem kategori inom de senaste 24 timmarna, kan du Visa hela Diagnostikrapporten och App Service diagnostik kan du uppmanas att visa mer fel söknings råd och nästa steg för att få en mer guidad upplevelse.
 
-![Application Insights och felsökning och nästa steg](./media/app-service-diagnostics/troubleshooting-and-next-steps-8.png)
+![Application Insights och fel sökning och nästa steg](./media/app-service-diagnostics/troubleshooting-and-next-steps-8.png)
 
-## <a name="diagnostic-tools-only-for-windows-app"></a>Diagnostiska verktyg (endast för Windows-app)
+## <a name="diagnostic-tools-only-for-windows-app"></a>Diagnostikverktyg (endast för Windows-app)
 
-Diagnostik-verktyg har mer avancerade diagnostiska verktyg för att hjälp du undersökningsapplikationen code problem, långsamhet, anslutningssträngar med mera. och proaktiv verktyg som hjälper dig att identifiera problem med CPU-användning, begäranden och minne.
+Diagnostikverktygen innehåller mer avancerade diagnostikverktyg som hjälper dig att undersöka problem med program kod, långsam, anslutnings strängar med mera. och proaktiva verktyg som hjälper dig att undvika problem med CPU-användning, begär Anden och minne.
 
-### <a name="proactive-cpu-monitoring"></a>Proaktiv övervakning av CPU
+### <a name="proactive-cpu-monitoring"></a>Proaktiv CPU-övervakning
 
-Proaktiv CPU-övervakning ger dig ett enkelt, proaktiv sätt att vidta åtgärder när din app eller underordnad process för din app slukar stora processorresurser. Du kan ange dina egna CPU tröskelvärdet regler för att minska en hög CPU-problemet tillfälligt tills den verkliga orsaken för oväntade problem hittas.
+Proaktiv CPU-övervakning ger dig ett enkelt, proaktivt sätt att vidta en åtgärd när din app eller underordnade process för din app förbrukar höga processor resurser. Du kan ställa in egna CPU-regler för att tillfälligt minimera ett högt CPU-problem tills den faktiska orsaken till det oväntade problemet har påträffats.
 
-![Proaktiv övervakning av CPU](./media/app-service-diagnostics/proactive-cpu-monitoring-9.png)
+![Proaktiv CPU-övervakning](./media/app-service-diagnostics/proactive-cpu-monitoring-9.png)
 
-### <a name="proactive-auto-healing"></a>Proaktiv autoreparation
+### <a name="auto-healing-and-proactive-auto-healing"></a>Automatisk återställning och proaktiv automatisk återställning
 
-Proaktiv CPU-övervakning, erbjuder proaktiv autoreparation ett enkelt, proaktiv metod för att förhindra oväntade resultat av din app. Du kan ange dina egna regler baserat på antalet förfrågningar, bristfälliga, minnesgräns och HTTP-statuskod för att utlösa minskning åtgärder. Det här verktyget kan användas för att minska en oväntat beteende tillfälligt tills den verkliga orsaken till problemet finns. Mer information om proaktiv autoreparation finns [presenterar nya automatisk återställning upplevelse i app service-diagnostik](https://azure.github.io/AppService/2018/09/10/Announcing-the-New-Auto-Healing-Experience-in-App-Service-Diagnostics.html).
+Automatisk återställning är en åtgärd som du kan vidta när din app har oväntat beteende. Du kan ställa in egna regler baserat på antalet begär Anden, långsam begäran, minnes gräns och HTTP-statuskod för att utlösa åtgärder. Använd verktyget för att tillfälligt minimera ett oväntat beteende tills du hittar rotor saken.
 
-![Proaktiv autoreparation](./media/app-service-diagnostics/proactive-auto-healing-10.png)
+![Auto-healing](./media/app-service-diagnostics/auto-healing-10.png)
 
-## <a name="change-analysis-only-for-windows-app"></a>Ändra analysis (endast för Windows-app)
+Precis som proaktiv CPU-övervakning är proaktiv automatisk återställning en lösning för att åtgärda oväntade beteenden i din app. Proaktiv automatisk återställning startar om appen när App Service bestämmer att appen är i ett oåterkalleligt tillstånd. Mer information finns i avsnittet [om att presentera den nya automatiska lagnings upplevelsen i App Service Diagnostics](https://azure.github.io/AppService/2018/09/10/Announcing-the-New-Auto-Healing-Experience-in-App-Service-Diagnostics.html).
 
-I en molntjänsternas utvecklingsmiljö vara det ibland svårt att hålla reda på alla ändringar som gjorts till din app och låta enbart pinpoint på en ändring som orsakas av defekta beteende. Ändra analys kan du begränsa på ändringar som görs i din app för att underlätta felsökning upplevelse. Ändra analys finns i **programändringar** och också inbäddad i en diagnostisk rapport som **programmet kraschar** så att du kan använda den samtidigt med andra mått.
+## <a name="navigator-and-change-analysis-only-for-windows-app"></a>Navigering och ändrings analys (endast för Windows-app)
 
-Ändra analysis måste vara aktiverat innan du använder funktionen. Mer information om ändringen analys finns [Vi presenterar den nya ändring analysis-upplevelsen i App Service-diagnostik](https://azure.github.io/AppService/2019/05/07/Announcing-the-new-change-analysis-experience-in-App-Service-Diagnostics-Analysis.html).
+I ett stort team med kontinuerlig integrering och där din app har många beroenden kan det vara svårt att hitta den speciella ändring som orsakar ett problem med skadan. Navigator hjälper dig att få insyn i appens topologi genom att automatiskt återge en beroende karta för appen och alla resurser i samma prenumeration. Med navigatören kan du Visa en lista över ändringar som har gjorts av din app och dess beroenden och begränsa en ändring som orsakar ett skadat beteende. Det går att komma åt den via panelens **navigerings** panel och måste aktive ras innan du använder den första gången. Mer information finns i [få insyn i appens beroenden med Navigator](https://azure.github.io/AppService/2019/08/06/Bring-visibility-to-your-app-and-its-dependencies-with-Navigator.html).
 
-![Ändra analysis-standardsida](./media/app-service-diagnostics/change-analysis-default-page-11.png)
+![Standard sida för Navigator](./media/app-service-diagnostics/navigator-default-page-11.png)
 
-![Visa diff](./media/app-service-diagnostics/diff-view-12.png)
+![Diff-vy](./media/app-service-diagnostics/diff-view-12.png)
+
+Ändrings analyser för app-ändringar kan nås via panel gen vägar, **program ändringar** och **program krascher** i **tillgänglighet och prestanda** så att du kan använda dem samtidigt med andra mått. Innan du använder funktionen måste du först aktivera den. Mer information finns i avsnittet [om den nya ändrings analys upplevelsen i App Service Diagnostics](https://azure.github.io/AppService/2019/05/07/Announcing-the-new-change-analysis-experience-in-App-Service-Diagnostics-Analysis.html).
+
+Publicera dina frågor eller feedback på [UserVoice](https://feedback.azure.com/forums/169385-web-apps) genom att lägga till [diag] i rubriken.

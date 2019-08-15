@@ -9,12 +9,12 @@ ms.date: 06/01/2019
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: c0b4a83b2c950683926be7fb3be3b0cbe977fef8
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 06e1d881a14367c579bd58ffae04dc0970eb041a
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68618409"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68941939"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage"></a>Lagra affärs kritiska data i Azure Blob Storage
 
@@ -80,8 +80,8 @@ I följande tabell visas de typer av BLOB-åtgärder som är inaktiverade för o
 |---------|---------|---------|
 |Effektivt kvarhållningsintervall för blobben har ännu inte gått ut och/eller bevarande av juridiska skäl har angetts     |Oåterkallelig: både ta bort- och skrivskyddad         | Lägg till BLOB<sup>1</sup>, sätt block<sup>1</sup>, list block lista<sup>1</sup>, ta bort behållare, ta bort BLOB, ange BLOB-metadata, sätt sida, ange BLOB-egenskaper, ögonblicks bilds-BLOB, stegvis kopia av BLOB, tilläggs block         |
 |Effektivt kvarhållningsintervall på blobben har upphört att gälla     |Skrivskyddad endast (ta bort tillåts)         |Lägg till BLOB<sup>1</sup>, sätt block<sup>1</sup>, list block lista<sup>1</sup>, ange BLOB-metadata, placerings sida, ange BLOB-egenskaper, ögonblicks bilds-BLOB, stegvis kopia-BLOB, tilläggs block         |
-|Alla juridiska undantag rensas och ingen tidsbaserad bevarande princip har angetts på behållaren     |Föränderlig         |Ingen         |
-|Ingen mask policy skapas (tidsbaserad kvarhållning eller juridiskt undantag)     |Föränderlig         |Ingen         |
+|Alla juridiska undantag rensas och ingen tidsbaserad bevarande princip har angetts på behållaren     |Föränderlig         |Inga         |
+|Ingen mask policy skapas (tidsbaserad kvarhållning eller juridiskt undantag)     |Föränderlig         |Inga         |
 
 <sup>1</sup> programmet tillåter dessa åtgärder att skapa en ny BLOB en gång. Alla efterföljande överskrivnings åtgärder på en befintlig BLOB-sökväg i en oföränderlig container är inte tillåtna.
 
@@ -175,7 +175,7 @@ Ja. För att dokumentera efterlevnaden har Microsoft bevarat en ledande oberoend
 
 **Gäller funktionen bara block-blobbar, eller till sid-och bifogade blobbar.**
 
-Oåterkalleligt lagrings utrymme kan användas med valfri Blob-typ, men vi rekommenderar att du använder det främst för block-blobar. Till skillnad från block-blobbar måste Page blobbar och bifogade blobbar skapas utanför en WORM-behållare och sedan kopieras i. När du har kopierat dessa blobbar till en WORM-behållare tillåts inga ytterligare *tillägg* till en tilläggs-BLOB eller ändringar av en sid-blob.
+Oåterkalleligt lagrings utrymme kan användas med valfri Blob-typ som anges på behållar nivån, men vi rekommenderar att du använder mask för behållare som huvudsakligen lagrar block-blobbar. Till skillnad från block-blobbar måste eventuella nya sid-blobar och bifogade blobbar skapas utanför en WORM-behållare och sedan kopieras i. När du har kopierat dessa blobbar till en WORM-behållare tillåts inga ytterligare *tillägg* till en tilläggs-BLOB eller ändringar av en sid-blob. Därför rekommenderar vi att du ställer in en mask-princip på en behållare som lagrar virtuella hård diskar (sid-blobar) för alla aktiva Virtual Machines rekommenderas inte eftersom den kommer att låsa den virtuella dator disken.
 
 **Måste jag skapa ett nytt lagrings konto för att använda den här funktionen?**
 

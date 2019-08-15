@@ -1,181 +1,181 @@
 ---
-title: Query Store i Azure Database för MySQL
-description: Den här artikeln beskriver funktionen Query Store i Azure Database for MySQL
+title: Query Store i Azure Database for MySQL
+description: I den här artikeln beskrivs funktionen Query Store i Azure Database for MySQL
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: a24bba0786201f4ea1d1be431107f7bfe26a2a8f
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 884824b6f6fd8bf5b4c7730813c4363fae018375
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67461728"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950584"
 ---
-# <a name="monitor-azure-database-for-mysql-performance-with-query-store"></a>Övervaka Azure Database för MySQL-prestandan med Query Store
+# <a name="monitor-azure-database-for-mysql-performance-with-query-store"></a>Övervaka Azure Database for MySQL prestanda med Query Store
 
-**Gäller för:**  Azure Database för MySQL 5.7
+**Gäller för:**  Azure Database for MySQL 5,7
 
-> [!NOTE]
-> Query Store är i förhandsversion.
+> [!IMPORTANT]
+> Query Store är i för hands version.
 
-Query Store-funktionen i Azure Database for MySQL ger ett sätt att spåra prestanda för frågor över tid. Query Store förenklar prestandafelsökning genom att hjälpa dig snabbt hitta körs längst och mest resurskrävande frågor. Query Store avbildas automatiskt en historik över frågor och körningsstatistik och den lagrar dem för granskning. När du delar den upp data efter tidsfönster så att du kan se databasanvändningsmönster. Data för alla användare, databaser och frågor lagras i den **mysql** schemadatabas i Azure Database for MySQL-instans.
+Funktionen Query Store i Azure Database for MySQL ger dig ett sätt att spåra frågeresultaten över tid. Query Store fören klar prestanda fel sökningen genom att hjälpa dig att snabbt hitta de allra som körs och de flesta resurs intensiva frågor. Query Store samlar automatiskt in en historik över frågor och körnings statistik och behåller dem för din granskning. Den separerar data efter tids period, så att du kan se databas användnings mönster. Data för alla användare, databaser och frågor lagras i databasen **MySQL** schema i Azure Database for MySQL-instansen.
 
 ## <a name="common-scenarios-for-using-query-store"></a>Vanliga scenarier för att använda Query Store
 
-Frågearkivet kan användas på flera olika scenarier, inklusive följande:
+Query Store kan användas i ett antal scenarier, inklusive följande:
 
-- Identifiera försämrad frågor
-- Avgör hur många gånger har en fråga utförts under en viss tidsperiod
-- Jämföra Genomsnittlig körningstid för en fråga över tidsfönster att visa stora deltan
+- Identifiera försämrat-frågor
+- Bestämma hur många gånger en fråga kördes under ett angivet tidsintervall
+- Jämför genomsnittlig körnings tid för en fråga över tid i Windows för att se stora delta
 
 ## <a name="enabling-query-store"></a>Aktivera Query Store
 
-Query Store är en valbar funktion så att den inte är aktiv som standard på en server. Query store är aktiverat eller inaktiverat globalt för alla databaser på en viss server och kan inte stängas eller inaktivera per databas.
+Frågearkivet är en valbar funktion, så den är inte aktiv som standard på en server. Frågearkivet är aktiverat eller inaktiverat globalt för alla databaser på en viss server och kan inte aktive ras eller inaktive ras per databas.
 
-### <a name="enable-query-store-using-the-azure-portal"></a>Aktivera Query Store med Azure portal
+### <a name="enable-query-store-using-the-azure-portal"></a>Aktivera Query Store med hjälp av Azure Portal
 
-1. Logga in på Azure Portal och välj din Azure Database for MySQL-server.
-1. Välj **serverparametrar** i den **inställningar** på menyn.
-1. Sök efter query_store_capture_mode-parametern.
-1. Ange värdet för alla och **spara**.
+1. Logga in på Azure Portal och välj Azure Database for MySQL-servern.
+1. Välj **Server parametrar** i avsnittet **Inställningar** på menyn.
+1. Sök efter parametern query_store_capture_mode.
+1. Ange värdet till alla och **Spara**.
 
-Så här aktiverar du vänta statistik i din fråga Store:
+Så här aktiverar du väntande statistik i Frågearkivet:
 
-1. Sök efter query_store_wait_sampling_capture_mode-parametern.
-1. Ange värdet för alla och **spara**.
+1. Sök efter parametern query_store_wait_sampling_capture_mode.
+1. Ange värdet till alla och **Spara**.
 
-Det kan ta upp till 20 minuter för den första batchen för att bevara i mysql-databas.
+Låt upp till 20 minuter innan den första data mängden sparas i MySQL-databasen.
 
-## <a name="information-in-query-store"></a>Informationen i Query Store
+## <a name="information-in-query-store"></a>Information i Frågearkivet
 
-Query Store har två lager:
+Frågearkivet har två butiker:
 
-- En körningsstatistik lagra för att spara frågan körning statistik information för.
-- En vänta statistik butik för att spara för vänta statistikinformation.
+- Ett körnings statistik Arkiv för att spara information om statistik för körning av frågor.
+- En väntande statistik lagring för information om beständig information om väntande statistik.
 
-För att minimera användning av diskutrymme, sammanställs körningsstatistik för körning i arkivet runtime statistik över ett fast, konfigurerbara tidsfönster. Informationen i dessa lager är synligt genom att fråga store frågevyer.
+För att minimera utrymmes användningen sammanställs körnings statistik för körning i körnings statistik arkivet över ett fast, konfigurerbart tids fönster. Informationen i dessa butiker är synlig genom att fråga vyn över frågearkivet.
 
-Följande fråga returnerar information om frågor i Query Store:
+Följande fråga returnerar information om frågor i Frågearkivet:
 
 ```sql
 SELECT * FROM mysql.query_store;
 ```
 
-Eller den här frågan för wait-statistik:
+Eller den här frågan för väntande statistik:
 
 ```sql
 SELECT * FROM mysql.query_store_wait_stats;
 ```
 
-## <a name="finding-wait-queries"></a>Frågor för att hitta vänta
+## <a name="finding-wait-queries"></a>Hitta väntande frågor
 
-Vänta händelsetyper kombinera olika vänta händelser i buckets efter likhet. Query Store ger händelsetyp vänta och specifika vänta händelsenamn frågan i fråga. Att kunna korrelera informationen vänta med frågan runtime statistik innebär att du kan få en djupare förståelse för vad bidrar till fråga prestandaegenskaper.
+Väntande händelse typer kombinerar olika vänte händelser till buckets efter likhet. Frågearkivet innehåller vänte händelse typ, ett särskilt namn på wait-händelsen och frågan i fråga. Om du vill korrelera denna wait-information med frågans körnings statistik innebär det att du får en djupare förståelse för vad som bidrar till att fråga prestanda egenskaperna.
 
-Här följer några exempel på hur du kan få fler insikter om din arbetsbelastning med vänta statistik i Query Store:
+Här följer några exempel på hur du kan få mer insikter om din arbets belastning med väntande statistik i Frågearkivet:
 
-| **Fjärrvisning** | **Åtgärd** |
+| **Permanenta** | **Åtgärd** |
 |---|---|
-|Hög Lås väntar | Kontrollera fråga texter för frågor som påverkas och identifiera mål-entiteter. Kontrollera Query Store för andra frågor som ändrar samma entitet, som ofta körs och/eller har hög varaktighet. Du bör ändra programlogiken för att förbättra samtidighet när du har identifierat de här frågorna, eller använda en mindre begränsande isoleringsnivå. |
-|Hög buffert-i/o-väntar | Hitta frågor med ett stort antal fysiska läsningar i Query Store. Överväg att introduktion till ett index i den underliggande entiteten, göra strävar efter i stället för genomsökningar om de matchar frågor med hög i/o-väntar. Detta skulle minimera i/o-overhead från frågorna. Kontrollera den **Prestandarekommendationer** för servern i portalen för att se om det finns indexrekommendationer för den här servern som skulle optimera frågorna. |
-|Extra minne väntar | Hitta det översta minnet som förbrukar frågorna i Query Store. De här frågorna förmodligen mer fördröja förloppet för frågor som påverkas. Kontrollera den **Prestandarekommendationer** för servern i portalen för att se om det finns indexrekommendationer som skulle optimera förfrågningarna.|
+|Hög lås väntar | Kontrol lera fråge texterna för de berörda frågorna och identifiera målentiteten. Leta i Frågearkivet efter andra frågor som ändrar samma entitet, som körs ofta och/eller har hög varaktighet. När du har identifierat dessa frågor bör du överväga att ändra program logiken till att förbättra samtidigheten eller använda en mindre begränsande isolerings nivå. |
+|Hög buffert i/o väntar | Hitta frågorna med ett stort antal fysiska läsningar i Frågearkivet. Om de matchar frågorna med höga i/o-vänte tid, bör du överväga att introducera ett index på den underliggande entiteten för att göra sökningar i stället för genomsökningar. Detta skulle minimera IO-omkostnaderna för frågorna. Kontrol lera **prestanda rekommendationerna** för servern i portalen för att se om det finns några index rekommendationer för den här servern som skulle optimera frågorna. |
+|Hög minnes väntan | Hitta de mest krävande minnes frågorna i Frågearkivet. Dessa frågor fördröjer förmodligen ytterligare förloppet för de frågor som påverkas. Kontrol lera **prestanda rekommendationerna** för servern i portalen för att se om det finns några index rekommendationer som skulle optimera dessa frågor.|
 
 ## <a name="configuration-options"></a>Konfigurationsalternativ
 
-När Query Store är aktiverat sparas data i windows för 15 minuters aggregering, upp till 500 olika frågor per fönster.
+När Query Store har Aktiver ATS sparas data i 15-minuters agg regerings fönster, upp till 500 distinkta frågor per fönster.
 
-Följande alternativ är tillgängliga för att konfigurera Query Store-parametrar.
+Följande alternativ är tillgängliga för att konfigurera parametrar för Frågearkivet.
 
-| **Parametern** | **Beskrivning** | **Standard** | **Adressintervall** |
+| **Parametern** | **Beskrivning** | **Standard** | **Intervall** |
 |---|---|---|---|
-| query_store_capture_mode | Aktivera query store-funktionen på/av baserat på värdet. Obs! Om performance_schema är av, kommer aktivera query_store_capture_mode aktivera performance_schema och en delmängd av prestanda schemat instrument som krävs för den här funktionen. | ALLA | INGEN, ALLA |
-| query_store_capture_interval | Query store avbilda intervallet i minuter. Kan du ange intervallet som frågan-måtten sammanställs | 15 | 5 - 60 |
-| query_store_capture_utility_queries | Att stänga av eller på att samla in alla verktyg-frågor som körs i systemet. | NO | JA, NEJ |
-| query_store_retention_period_in_days | Tidsfönster i dagar att kvarhålla data i query store. | 7 | 1 - 30 |
+| query_store_capture_mode | Aktivera/inaktivera funktionen för Query Store baserat på värdet. Anteckning: Om performance_schema är inaktiverat, aktiverar query_store_capture_mode performance_schema och en delmängd av de prestanda schema instrument som krävs för den här funktionen. | Alla | INGEN, ALLA |
+| query_store_capture_interval | Hämtnings intervallet för frågearkivet i minuter. Tillåter att du anger det intervall som används för att aggregera frågeresultaten | 15 | 5 - 60 |
+| query_store_capture_utility_queries | Aktivera eller inaktivera för att avbilda alla verktygs frågor som körs i systemet. | NO | JA, NEJ |
+| query_store_retention_period_in_days | Tids period i dagar för att behålla data i frågearkivet. | 7 | 1 - 30 |
 
-Följande alternativ gäller specifikt för att vänta statistik.
+Följande alternativ gäller specifikt för väntande statistik.
 
-| **Parametern** | **Beskrivning** | **Standard** | **Adressintervall** |
+| **Parametern** | **Beskrivning** | **Standard** | **Intervall** |
 |---|---|---|---|
-| query_store_wait_sampling_capture_mode | Tillåter att aktivera på / av wait-statistik. | INGEN | INGEN, ALLA |
-| query_store_wait_sampling_frequency | Alters frekvensen för wait-exemplet på några sekunder. 5 och 300 sekunder. | 30 | 5-300 |
+| query_store_wait_sampling_capture_mode | Gör det möjligt att aktivera/inaktivera väntande statistik. | INGEN | INGEN, ALLA |
+| query_store_wait_sampling_frequency | Ändrar frekvensen för vänta-sampling i sekunder. 5 till 300 sekunder. | 30 | 5-300 |
 
 > [!NOTE]
-> För närvarande **query_store_capture_mode** ersätter den här konfigurationen, vilket innebär att båda **query_store_capture_mode** och **query_store_wait_sampling_capture_mode** måste aktiveras för alla för vänta statistics ska fungera. Om **query_store_capture_mode** är avstängd, och sedan vänta statistik är avstängd samt eftersom vänta statistik använder performance_schema aktiverat och den fråga som avbildas av frågearkivet.
+> För närvarande ersätter den här konfigurationen **query_store_capture_mode** , vilket innebär att både **query_store_capture_mode** och **query_store_wait_sampling_capture_mode** måste vara aktiverade för att väntande statistik ska fungera. Om **query_store_capture_mode** är inaktive rad inaktive ras väntande statistik, eftersom väntande statistik använder performance_schema aktive rad och query_text som fångats av frågearkivet.
 
-Använd den [Azure-portalen](howto-server-parameters.md) eller [Azure CLI](howto-configure-server-parameters-using-cli.md) att hämta eller ange ett annat värde för en parameter.
+Använd [Azure Portal](howto-server-parameters.md) eller [Azure CLI](howto-configure-server-parameters-using-cli.md) för att hämta eller ange ett annat värde för en parameter.
 
 ## <a name="views-and-functions"></a>Vyer och funktioner
 
-Visa och hantera Query Store med hjälp av följande vyer och funktioner. Alla i den [väljer behörighet allmänna rollen](howto-create-users.md#how-to-create-additional-admin-users-in-azure-database-for-mysql) kan använda dessa vyer för att se data i Query Store. Dessa vyer är bara tillgängliga i den **mysql** databas.
+Visa och hantera Frågearkivet med följande vyer och funktioner. Alla i [rollen Välj offentlig behörighet](howto-create-users.md#how-to-create-additional-admin-users-in-azure-database-for-mysql) kan använda dessa vyer för att se data i frågearkivet. Dessa vyer är bara tillgängliga i **MySQL** -databasen.
 
-Frågor normaliserade genom att titta på deras struktur när du tar bort tidslitteraler och konstanter. Om två frågor är identiska förutom literalvärden, har de samma hash.
+Frågorna normaliseras genom att titta på deras struktur efter att du tagit bort litteraler och konstanter. Om två frågor är identiska förutom literala värden, har de samma hash.
 
-### <a name="mysqlquerystore"></a>mysql.query_store
+### <a name="mysqlquery_store"></a>mysql.query_store
 
-Den här vyn returnerar alla data i Query Store. Det finns en rad för varje distinkt databas-ID, användar-ID och fråga-ID.
+Den här vyn returnerar alla data i Frågearkivet. Det finns en rad för varje distinkt databas-ID, användar-ID och fråge-ID.
 
-| **Name** | **Datatyp** | **IS_NULLABLE** | **Beskrivning** |
+| **Namn** | **Datatyp** | **IS_NULLABLE** | **Beskrivning** |
 |---|---|---|---|
-| `schema_name`| varchar(64) | NO | Namnet på schemat |
-| `query_id`| bigint(20) | NO| Unikt ID som genereras för frågan, om samma fråga som körs i olika schema, ett nytt ID genereras |
-| `timestamp_id` | timestamp| NO| Tidsstämpel som frågan körs. Detta baseras på konfigurationen av query_store_interval|
-| `query_digest_text`| longtext| NO| När du tar bort alla litteraler normaliserade frågetexten|
-| `query_sample_text` | longtext| NO| Första utseendet på den faktiska frågan med litteraler|
-| `query_digest_truncated` | bit| JA| Om frågetexten har trunkerats. Värdet kommer att vara Ja om frågan är längre än 1 KB|
-| `execution_count` | bigint(20)| NO| Antal gånger frågan har utförts för den här tidsstämpel-ID / under det konfigurerade intervallet|
-| `warning_count` | bigint(20)| NO| Antal varningar som den här frågan som genererats under den interna|
-| `error_count` | bigint(20)| NO| Antal fel som den här frågan som genererats under period|
-| `sum_timer_wait` | double| JA| Total körningstid för den här frågan under intervallet|
-| `avg_timer_wait` | double| JA| Genomsnittlig körningstid för den här frågan under intervallet|
-| `min_timer_wait` | double| JA| Minsta körningstid för den här frågan|
-| `max_timer_wait` | double| JA| Maximal körningstid|
-| `sum_lock_time` | bigint(20)| NO| Sammanlagd tid som har använt för alla Lås för den här frågekörning under den här tidsperioden|
-| `sum_rows_affected` | bigint(20)| NO| Antalet berörda rader|
-| `sum_rows_sent` | bigint(20)| NO| Antalet rader som skickas till klienten|
-| `sum_rows_examined` | bigint(20)| NO| Antalet rader som undersöks|
-| `sum_select_full_join` | bigint(20)| NO| Antalet full JOIN|
-| `sum_select_scan` | bigint(20)| NO| Antal väljer genomsökningar |
-| `sum_sort_rows` | bigint(20)| NO| Antalet rader sorterade|
-| `sum_no_index_used` | bigint(20)| NO| Antal gånger när frågan inte använde index|
-| `sum_no_good_index_used` | bigint(20)| NO| Antal gånger när motorn för körning av frågan inte använde bra index|
-| `sum_created_tmp_tables` | bigint(20)| NO| Totalt antal temporära tabeller som har skapats|
-| `sum_created_tmp_disk_tables` | bigint(20)| NO| Totalt antal temporära tabeller som skapats på disken (genererar i/o)|
-| `first_seen` | timestamp| NO| Den första förekomsten (UTC) av frågan under fönstret aggregering|
-| `last_seen` | timestamp| NO| Den sista förekomsten (UTC) av frågan under den här aggregeringen perioden|
+| `schema_name`| varchar (64) | NO | Schemats namn |
+| `query_id`| bigint (20) | NO| Unikt ID som skapats för den specifika frågan, om samma fråga körs i ett annat schema, genereras ett nytt ID |
+| `timestamp_id` | timestamp| NO| Tidsstämpeln som frågan körs i. Detta baseras på query_store_interval-konfigurationen|
+| `query_digest_text`| longtext| NO| Den normaliserade frågetexten efter borttagning av alla litteraler|
+| `query_sample_text` | longtext| NO| Det första utseendet på den faktiska frågan med litteraler|
+| `query_digest_truncated` | bit| JA| Anger om frågetexten har trunkerats. Värdet blir Ja om frågan är längre än 1 KB|
+| `execution_count` | bigint (20)| NO| Antalet gånger som frågan kördes för det här tidsstämpel-ID: t/under den konfigurerade intervall perioden|
+| `warning_count` | bigint (20)| NO| Antal varningar som frågan genererade under den interna|
+| `error_count` | bigint (20)| NO| Antal fel som den här frågan genererade under intervallet|
+| `sum_timer_wait` | double| JA| Den totala körnings tiden för den här frågan under intervallet|
+| `avg_timer_wait` | double| JA| Genomsnittlig körnings tid för den här frågan under intervallet|
+| `min_timer_wait` | double| JA| Minsta körnings tid för den här frågan|
+| `max_timer_wait` | double| JA| Maximal körnings tid|
+| `sum_lock_time` | bigint (20)| NO| Den totala tids åtgången för alla Lås för den här körningen av frågan under den här tids perioden|
+| `sum_rows_affected` | bigint (20)| NO| Antal påverkade rader|
+| `sum_rows_sent` | bigint (20)| NO| Antal rader som skickats till klienten|
+| `sum_rows_examined` | bigint (20)| NO| Antal rader som granskas|
+| `sum_select_full_join` | bigint (20)| NO| Antal fullständiga kopplingar|
+| `sum_select_scan` | bigint (20)| NO| Antal urvals sökningar |
+| `sum_sort_rows` | bigint (20)| NO| Antal sorterade rader|
+| `sum_no_index_used` | bigint (20)| NO| Antal gånger som frågan inte använde några index|
+| `sum_no_good_index_used` | bigint (20)| NO| Antal gånger som det inte gick att använda några användbara index i motorn för körning av fråga|
+| `sum_created_tmp_tables` | bigint (20)| NO| Totalt antal skapade tabell temporära tabeller|
+| `sum_created_tmp_disk_tables` | bigint (20)| NO| Totalt antal temporära tabeller som skapats i disk (genererar I/O)|
+| `first_seen` | timestamp| NO| Frågans första förekomst (UTC) under agg regerings perioden|
+| `last_seen` | timestamp| NO| Den sista förekomsten (UTC) av frågan under detta agg regerings fönster|
 
-### <a name="mysqlquerystorewaitstats"></a>mysql.query_store_wait_stats
+### <a name="mysqlquery_store_wait_stats"></a>mysql.query_store_wait_stats
 
-Den här vyn returnerar vänta händelsedata i Query Store. Det finns en rad för varje distinkt databas-ID, användar-ID, fråge-ID och händelse.
+Den här vyn returnerar information om väntande händelser i Frågearkivet. Det finns en rad för varje distinkt databas-ID, användar-ID, fråge-ID och händelse.
 
-| **Name**| **Datatyp** | **IS_NULLABLE** | **Beskrivning** |
+| **Namn**| **Datatyp** | **IS_NULLABLE** | **Beskrivning** |
 |---|---|---|---|
-| `interval_start` | timestamp | NO| Början av intervallet (15 minuters räkna upp)|
-| `interval_end` | timestamp | NO| Slutet av intervallet (15 minuters räkna upp)|
-| `query_id` | bigint(20) | NO| Genererade unika ID: T för den normaliserade frågan (från frågearkivet)|
-| `query_digest_id` | varchar(32) | NO| Normaliserade frågetexten när du tar bort alla litteraler (från frågearkivet) |
-| `query_digest_text` | longtext | NO| Första utseendet på den faktiska frågan med litteraler (från frågearkivet) |
-| `event_type` | varchar(32) | NO| Vänta händelsekategori |
-| `event_name` | varchar(128) | NO| Vänta händelsens namn |
-| `count_star` | bigint(20) | NO| Flera väntetiden händelser samplas under intervallet för frågan |
-| `sum_timer_wait_ms` | double | NO| Total väntetid (i millisekunder) för den här frågan under intervallet |
+| `interval_start` | timestamp | NO| Början av intervallet (15 minuters ökning)|
+| `interval_end` | timestamp | NO| Slutet av intervallet (15 minuters ökning)|
+| `query_id` | bigint (20) | NO| Genererat unikt ID för den normaliserade frågan (från frågearkivet)|
+| `query_digest_id` | varchar (32) | NO| Den normaliserade frågetexten efter borttagning av alla litteraler (från Query Store) |
+| `query_digest_text` | longtext | NO| Det första utseendet på den faktiska frågan med litteraler (från Query Store) |
+| `event_type` | varchar (32) | NO| Vänte händelsens kategori |
+| `event_name` | varchar (128) | NO| Namn på wait-händelsen |
+| `count_star` | bigint (20) | NO| Antal väntande händelser som samplats under intervallet för frågan |
+| `sum_timer_wait_ms` | double | NO| Total vänte tid (i millisekunder) för den här frågan under intervallet |
 
-### <a name="functions"></a>Functions
+### <a name="functions"></a>Funktioner
 
-| **Name**| **Beskrivning** |
+| **Namn**| **Beskrivning** |
 |---|---|
-| `mysql.az_purge_querystore_data(TIMESTAMP)` | Tar bort alla query store-data innan den givna tidsstämpeln |
-| `mysql.az_procedure_purge_querystore_event(TIMESTAMP)` | Alla återställningspunkter vänta händelsedata innan den givna tidsstämpeln |
-| `mysql.az_procedure_purge_recommendation(TIMESTAMP)` | Tar bort rekommendationer vars förfallotid är innan den givna tidsstämpeln |
+| `mysql.az_purge_querystore_data(TIMESTAMP)` | Rensar alla frågedata före den aktuella tidsstämpeln |
+| `mysql.az_procedure_purge_querystore_event(TIMESTAMP)` | Rensar alla väntande händelse data före den aktuella tidsstämpeln |
+| `mysql.az_procedure_purge_recommendation(TIMESTAMP)` | Rensar rekommendationer vars förfallo datum är före den aktuella tidsstämpeln |
 
 ## <a name="limitations-and-known-issues"></a>Begränsningar och kända problem
 
-- Om en MySQL-server har parametern `default_transaction_read_only` , Query Store kan inte samla in data.
-- Funktionen för Query Store kan avbrytas om det uppstår långa Unicode-frågor (\>= 6000 byte).
-- Kvarhållningsperioden för vänta statistik är 24 timmar.
-- Vänta statistik använder exemplet ti avbildning som en del av händelserna. Hur ofta kan ändras med hjälp av parametern `query_store_wait_sampling_frequency`.
+- Om en MySQL-server har parametern `default_transaction_read_only` på kan Query Store inte samla in data.
+- Query Store-funktionen kan avbrytas om den påträffar långa Unicode-frågor\>(= 6000 byte).
+- Kvarhållningsperioden för väntande statistik är 24 timmar.
+- Väntande statistik använder exempel på Värdejämföring för att avbilda en bråkdel av händelser. Frekvensen kan ändras med hjälp av parametern `query_store_wait_sampling_frequency`.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om [Prestandainsikter för fråga](concepts-query-performance-insight.md)
+- Läs mer om [frågor om prestanda](concepts-query-performance-insight.md) insikter

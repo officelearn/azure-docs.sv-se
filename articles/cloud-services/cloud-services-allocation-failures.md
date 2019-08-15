@@ -1,5 +1,5 @@
 ---
-title: Felsök Allokeringsfel för Cloud Service | Microsoft Docs
+title: Felsöka minnesallokeringsfel i Cloud service | Microsoft Docs
 description: Felsök allokeringsfel när du distribuerar Cloud Services i Azure
 services: azure-service-management, cloud-services
 documentationcenter: ''
@@ -11,64 +11,63 @@ ms.assetid: 529157eb-e4a1-4388-aa2b-09e8b923af74
 ms.service: cloud-services
 ms.workload: na
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: d1f24c3661a23496d1873f12ce46083bf5258269
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7830b2a5d065f54029839d250e35f3e1b3da2200
+ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61435516"
+ms.lasthandoff: 08/10/2019
+ms.locfileid: "68945477"
 ---
 # <a name="troubleshooting-allocation-failure-when-you-deploy-cloud-services-in-azure"></a>Felsök allokeringsfel när du distribuerar Cloud Services i Azure
 ## <a name="summary"></a>Sammanfattning
-När du distribuerar instanser i en molnbaserad tjänst eller lägga till nya webb- eller worker-rollinstanser, allokerar Microsoft Azure beräkningsresurser. Ibland kan du få felmeddelanden när du utför dessa åtgärder innan du når databasens begränsningar för Azure-prenumeration. Den här artikeln förklarar orsakerna till några av de vanliga Allokeringsfel och föreslår möjliga åtgärder. Informationen kan också vara användbart när du planerar distributionen av dina tjänster.
+När du distribuerar instanser till en moln tjänst eller lägger till nya webb-eller arbets Rolls instanser, allokerar Microsoft Azure beräknings resurser. Ibland kan fel uppstå när du utför dessa åtgärder även innan du når gränserna för Azure-prenumerationen. I den här artikeln beskrivs orsakerna till några vanliga allokeringsfel och förslag på möjliga åtgärder. Informationen kan också vara användbar när du planerar distributionen av dina tjänster.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-### <a name="background--how-allocation-works"></a>Bakgrund – hur allokering fungerar
-Servrarna i Azure-datacenter partitioneras i kluster. En ny cloud service allokeringsbegäran görs i flera kluster. När den första instansen har distribuerats till en molntjänst (i antingen mellanlagring eller produktion), som molntjänst hämtar fästs till ett kluster. Eventuella ytterligare distributioner för Molntjänsten sker i samma kluster. I den här artikeln ska vi refererar till detta som ”Fäst till ett kluster”. Diagram 1 nedan illustrerar i fallet med en normal allokering som görs i flera kluster; Diagram 2 visas i fallet med en allokering som har fästs till klustret 2 eftersom det är där de befintliga Cloud Service CS_1 finns.
+### <a name="background--how-allocation-works"></a>Bakgrund – hur allokeringen fungerar
+Servrarna i Azure-datacenter partitioneras i kluster. En ny begäran om allokering av moln tjänster görs i flera kluster. När den första instansen distribueras till en moln tjänst (antingen i mellanlagring eller produktion) fästs moln tjänsten i ett kluster. Eventuella ytterligare distributioner för moln tjänsten sker i samma kluster. I den här artikeln kommer vi att se detta som "fäst i ett kluster". Diagram 1 nedan illustrerar fallet med en normal allokering som görs i flera kluster. Diagram 2 visar fallet för en allokering som är fäst på kluster 2, eftersom det är där den befintliga CS_1 för moln tjänsten finns.
 
-![Allokering Diagram](./media/cloud-services-allocation-failure/Allocation1.png)
+![Tilldelnings diagram](./media/cloud-services-allocation-failure/Allocation1.png)
 
-### <a name="why-allocation-failure-happens"></a>Varför Tilldelningsfel händer
-När en begäran om minnesallokering är fäst till ett kluster, finns en högre risk för att hitta kostnadsfria resurser eftersom tillgängliga resurspoolen är begränsad till ett kluster inte. Dessutom, om din begäran om minnesallokering fästs till ett kluster, men typ av resurs som du har begärt stöds inte av klustret, din begäran misslyckas även om klustret har kostnadsfri resurs. Bild 3 nedan visar fall där en fäst allokering misslyckas eftersom endast kandidat klustret inte har kostnadsfria resurser. Bild 4 visar fall där en fäst allokering misslyckas eftersom endast kandidat klustret inte stöder den begärda storleken trots att klustret har kostnadsfria resurser.
+### <a name="why-allocation-failure-happens"></a>Varför allokeringsfel uppstår
+När en tilldelnings förfrågan fästs i ett kluster, finns det en högre chans att det inte går att hitta kostnads fria resurser eftersom den tillgängliga resurspoolen är begränsad till ett kluster. Om din tilldelnings förfrågan fästs i ett kluster, men den typ av resurs som du har begärt inte stöds av det klustret, kommer begäran att Miss Miss förväntas även om klustret har en kostnads fri resurs. Diagram 3 nedan visar det fall där en fäst allokering Miss lyckas eftersom det enda kandidat klustret inte har några lediga resurser. Diagram 4 visar det fall där en fäst allokering Miss lyckas eftersom det enda kandidat klustret inte stöder den begärda virtuella dator storleken, även om klustret har kostnads fria resurser.
 
-![Fästa Allokeringsfel](./media/cloud-services-allocation-failure/Allocation2.png)
+![Det har fästs ett allokeringsfel](./media/cloud-services-allocation-failure/Allocation2.png)
 
-## <a name="troubleshooting-allocation-failure-for-cloud-services"></a>Felsök Allokeringsfel för cloud services
+## <a name="troubleshooting-allocation-failure-for-cloud-services"></a>Felsöka allokeringsfel för moln tjänster
 ### <a name="error-message"></a>Felmeddelande
-Du kan se följande felmeddelande visas:
+Du kan se följande fel meddelande:
 
     "Azure operation '{operation id}' failed with code Compute.ConstrainedAllocationFailed. Details: Allocation failed; unable to satisfy constraints in request. The requested new service deployment is bound to an Affinity Group, or it targets a Virtual Network, or there is an existing deployment under this hosted service. Any of these conditions constrains the new deployment to specific Azure resources. Please retry later or try reducing the VM size or number of role instances. Alternatively, if possible, remove the aforementioned constraints or try deploying to a different region."
 
 ### <a name="common-issues"></a>Vanliga problem
-Här följer vanliga scenarier för allokering som orsakar en begäran om minnesallokering till fästas på ett enda kluster.
+Här är vanliga distributions scenarier som gör att en allokering av begäran fästs i ett enda kluster.
 
-* Distribuera till mellanlagringsplats – om en tjänst i molnet har en distribution i antingen fack, sedan fästs hela Molntjänsten till ett specifikt kluster.  Det innebär att om en distribution redan finns på produktionsplatsen kan en ny mellanlagringsdistribution endast allokeras i samma kluster som produktionsplatsen. Om klustret närmar sig kapacitetsgränsen, misslyckas begäran.
-* Skalning – att lägga till nya instanser i en befintlig molntjänst måste du allokera i samma kluster.  Små skalningsbegäranden går vanligtvis att allokera, men inte alltid. Om klustret närmar sig kapacitetsgränsen, misslyckas begäran.
-* Tillhörighetsgruppen – en ny distribution till en tom molntjänst kan allokeras av infrastrukturresurser i alla kluster i den regionen, såvida inte Molntjänsten som är fäst på en tillhörighetsgrupp. Distributioner till samma tillhörighetsgrupp görs i samma kluster. Om klustret närmar sig kapacitetsgränsen, misslyckas begäran.
-* Tillhörighetsgruppen virtuellt nätverk – äldre virtuella nätverk har knutna till tillhörighetsgrupper i stället för regioner och molntjänster i dessa virtuella nätverk kan fästas på tillhörighetsgrupp-klustret. Distributioner till den här typen av virtuellt nätverk kommer att försökas på fästa klustret. Om klustret närmar sig kapacitetsgränsen, misslyckas begäran.
+* Distribuera till mellanlagringsplats – om en moln tjänst har en distribution i någon av platserna fästs hela moln tjänsten i ett särskilt kluster.  Det innebär att om en distribution redan finns på produktionsplatsen kan en ny mellanlagringsdistribution endast allokeras i samma kluster som produktionsplatsen. Om klustret närmar sig kapaciteten kan begäran Miss lyckas.
+* Skalning – att lägga till nya instanser i en befintlig moln tjänst måste allokeras i samma kluster.  Små skalningsbegäranden går vanligtvis att allokera, men inte alltid. Om klustret närmar sig kapaciteten kan begäran Miss lyckas.
+* Tillhörighets grupp – en ny distribution till en tom moln tjänst kan allokeras av infrastruktur resursen i alla kluster i den regionen, om inte moln tjänsten fästs på en tillhörighets grupp. Distributioner till samma tillhörighets grupp görs i samma kluster. Om klustret närmar sig kapaciteten kan begäran Miss lyckas.
+* Tillhörighets grupp vNet-äldre virtuella nätverk var knutna till tillhörighets grupper i stället för regioner och moln tjänster i dessa virtuella nätverk fästs i tillhörighets grupps klustret. Distributioner till den här typen av virtuellt nätverk görs i det lokala klustret. Om klustret närmar sig kapaciteten kan begäran Miss lyckas.
 
 ## <a name="solutions"></a>Lösningar
-1. Distribuera om till en ny molntjänst – den här lösningen troligen är mest framgångsrika eftersom den låter plattformen att välja mellan alla kluster i den regionen.
+1. Distribuera om till en ny moln tjänst – den här lösningen är förmodligen mest lyckad eftersom den tillåter plattformen att välja från alla kluster i den regionen.
 
-   * Distribuera arbetsbelastningen till en ny molntjänst  
-   * Uppdatera CNAME eller en post för att rikta trafik till den nya Molntjänsten
-   * När noll trafik ska den gamla platsen, kan du ta bort gamla Molntjänsten. Den här lösningen bör någon avbrottstid.
-2. Ta bort både produktions- och mellanlagringsplatser – den här lösningen kommer att behålla din befintliga DNS-namn, men leder till avbrott för dina program.
+   * Distribuera arbets belastningen till en ny moln tjänst  
+   * Uppdatera CNAME-eller A-posten för att peka trafik till den nya moln tjänsten
+   * När noll-trafik skickas till den gamla platsen kan du ta bort den gamla moln tjänsten. Den här lösningen bör ådra sig noll stillestånds tid.
+2. Ta bort både produktions-och mellanlagringsplatser – den här lösningen bevarar ditt befintliga DNS-namn, men kommer att orsaka drift stopp för ditt program.
 
-   * Ta bort produktions- och mellanlagringsplatser för en befintlig molntjänst så att Molntjänsten är tomt, och sedan
-   * Skapa en ny distribution i den befintliga Molntjänsten. Det här försöker igen-allokeringen på alla kluster i regionen. Kontrollera att Molntjänsten inte är kopplat till en tillhörighetsgrupp.
-3. Reserverade IP - den här lösningen kommer att behålla din befintliga IP-adress, men leder till avbrott för dina program.  
+   * Ta bort produktions-och mellanlagrings platser för en befintlig moln tjänst så att moln tjänsten är tom och
+   * Skapa en ny distribution i den befintliga moln tjänsten. Detta görs ett nytt försök att allokera på alla kluster i regionen. Se till att moln tjänsten inte är kopplad till en tillhörighets grupp.
+3. Reserverad IP – den här lösningen kommer att bevara din befintliga IP-adress, men kommer att orsaka drift stopp för ditt program.  
 
-   * Skapa en ReservedIP för den befintliga distributionen med hjälp av Powershell
+   * Skapa en ReservedIP för din befintliga distribution med hjälp av PowerShell
 
      ```
      New-AzureReservedIP -ReservedIPName {new reserved IP name} -Location {location} -ServiceName {existing service name}
      ```
-   * Följ #2 ovanför, se till att ange den nya ReservedIP i tjänstens CSCFG.
-4. Ta bort tillhörighetsgruppen för nya distributioner - Tillhörighetsgrupper inte längre rekommenderas. Följ stegen för #1 ovan för att distribuera en ny molntjänst. Kontrollera att Molntjänsten inte har en tillhörighetsgrupp.
-5. Konvertera till ett regionalt virtuellt nätverk – Se [hur du migrerar från Tillhörighetsgrupper till ett regionalt virtuellt nätverk (VNet)](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
+   * Följ #2 från ovan och se till att ange den nya ReservedIP i tjänstens CSCFG.
+4. Ta bort tillhörighets grupp för nya distributioner – tillhörighets grupper rekommenderas inte längre. Följ stegen för #1 ovan för att distribuera en ny moln tjänst. Se till att moln tjänsten inte finns i en tillhörighets grupp.
+5. Konvertera till en regional Virtual Network – se [hur du migrerar från tillhörighets grupper till en regional Virtual Network (VNet)](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).

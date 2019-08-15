@@ -7,12 +7,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/17/2019
-ms.openlocfilehash: cd53e1386d9d6f2a38beb1661554c8cc9116169d
-ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
+ms.openlocfilehash: ef4dfc4370c71eac1978a6f3535b571a5e6009b5
+ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68494870"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68950144"
 ---
 # <a name="query-data-in-azure-data-lake-using-azure-data-explorer-preview"></a>Fråga efter data i Azure Data Lake med Azure Datautforskaren (förhands granskning)
 
@@ -45,8 +45,11 @@ Azure Datautforskaren integreras med Azure Blob Storage och Azure Data Lake Stor
     dataformat=csv (h@'http://storageaccount.blob.core.windows.net/container1;secretKey') 
     with (compressed = true)  
     ```
-
-    Den här frågan skapar dagliga partitioner *container1/åååå/mm/dd/all_exported_blobs. csv*. Ökad prestanda förväntas med mer detaljerad partitionering. Till exempel har frågor över externa tabeller med dagliga partitioner, till exempel den ovan, bättre prestanda än de frågor som har en månads partitionerade tabeller.
+    
+    > [!NOTE]
+    > * Ökad prestanda förväntas med mer detaljerad partitionering. Till exempel kommer frågor över externa tabeller med dagliga partitioner att ha bättre prestanda än de frågor som har månatliga partitionerade tabeller.
+    > * När du definierar en extern tabell med partitioner förväntas lagrings strukturen vara identisk.
+Om tabellen till exempel är definierad med en DateTime-partition i formatet ÅÅÅÅ/MM/DD (standard), ska sökvägen till URI- *container1 vara/åååå/mm/dd/all_exported_blobs*. 
 
 1. Den externa tabellen visas i den vänstra rutan i webb gränssnittet
 

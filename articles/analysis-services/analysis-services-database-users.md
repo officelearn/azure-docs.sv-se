@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: c38b11ceda010c122e17a7fad3df1684e0a1cf42
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 2a6c63c4ae58079c79a9d344f1e2550e4768088f
+ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68696278"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68932247"
 ---
 # <a name="manage-database-roles-and-users"></a>Hantera databas roller och användare
 
@@ -26,7 +26,7 @@ Roll behörigheter är:
 *  **Process** -användare kan ansluta till och utföra process åtgärder på databasen och analysera modell databas data.
 *  **Read** -Users kan använda ett klient program för att ansluta till och analysera modell databas data.
 
-När du skapar ett tabell modell projekt skapar du roller och lägger till användare eller grupper i rollerna med hjälp av roll hanteraren i SQL Server Data Tools (SSDT). När du har distribuerat till en server använder du SQL Server Management Studio (SSMS), [Analysis Services PowerShell](/sql/analysis-services/powershell/analysis-services-powershell-reference)-cmdletar eller TMSL ( [tabell modell skript språk](https://msdn.microsoft.com/library/mt614797.aspx) ) för att lägga till eller ta bort roller och användar medlemmar.
+När du skapar ett tabell modell projekt skapar du roller och lägger till användare eller grupper i rollerna med hjälp av roll hanteraren i SQL Server Data Tools (SSDT). När du har distribuerat till en server använder du SQL Server Management Studio (SSMS), [Analysis Services PowerShell](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference)-cmdletar eller TMSL ( [tabell modell skript språk](https://docs.microsoft.com/bi-reference/tmsl/tabular-model-scripting-language-tmsl-reference) ) för att lägga till eller ta bort roller och användar medlemmar.
 
 **Säkerhets grupper** måste vara [e](https://docs.microsoft.com/exchange/recipients-in-exchange-online/manage-mail-enabled-security-groups) -postaktiverade `MailEnabled` med egenskapen inställd `True`på. När du anger en grupp per e- `obj:groupid@tenantid`postadress använder du.
 
@@ -86,7 +86,7 @@ Om du vill lägga till roller och användare i en distribuerad modell databas m�
 
 ## <a name="to-add-roles-and-users-by-using-a-tmsl-script"></a>Lägga till roller och användare med hjälp av ett TMSL-skript
 
-Du kan köra ett TMSL-skript i XMLA-fönstret i SSMS eller med hjälp av PowerShell. Använd kommandot [CreateOrReplace](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/createorreplace-command-tmsl) och objektet [roller](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-objects/roles-object-tmsl) .
+Du kan köra ett TMSL-skript i XMLA-fönstret i SSMS eller med hjälp av PowerShell. Använd kommandot [CreateOrReplace](https://docs.microsoft.com/bi-reference/tmsl/createorreplace-command-tmsl) och objektet [roller](https://docs.microsoft.com/bi-reference/tmsl/roles-object-tmsl) .
 
 **Exempel på TMSL-skript**
 
@@ -120,13 +120,13 @@ I det här exemplet läggs en extern B2B-användare och en grupp till i analytik
 
 ## <a name="to-add-roles-and-users-by-using-powershell"></a>Lägga till roller och användare med hjälp av PowerShell
 
-[SQLServer](/sql/analysis-services/powershell/analysis-services-powershell-reference) -modulen innehåller verksamhetsspecifika databas hanterings-cmdletar och den allmänna cmdleten Invoke-ASCmd som accepterar en fråga eller ett skript för tabell modell skript språk (TMSL). Följande cmdletar används för att hantera databas roller och användare.
+[SQLServer](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference) -modulen innehåller verksamhetsspecifika databas hanterings-cmdletar och den allmänna cmdleten Invoke-ASCmd som accepterar en fråga eller ett skript för tabell modell skript språk (TMSL). Följande cmdletar används för att hantera databas roller och användare.
   
 |Cmdlet:|Beskrivning|
 |------------|-----------------| 
-|[Add-RoleMember](/sql/analysis-services/powershell/analysis-services-powershell-reference)|Lägg till en medlem i en databas roll.| 
-|[Remove-RoleMember](/sql/analysis-services/powershell/analysis-services-powershell-reference)|Ta bort en medlem från en databas roll.|   
-|[Invoke-ASCmd](/sql/analysis-services/powershell/analysis-services-powershell-reference)|Kör ett TMSL-skript.|
+|[Add-RoleMember](https://docs.microsoft.com/powershell/module/sqlserver/Add-RoleMember)|Lägg till en medlem i en databas roll.| 
+|[Remove-RoleMember](https://docs.microsoft.com/powershell/module/sqlserver/remove-rolemember)|Ta bort en medlem från en databas roll.|   
+|[Invoke-ASCmd](https://docs.microsoft.com/powershell/module/sqlserver/invoke-ascmd)|Kör ett TMSL-skript.|
 
 ## <a name="row-filters"></a>Rad filter  
 
@@ -152,5 +152,5 @@ Rad filter gäller för de angivna raderna och relaterade rader. När en tabell 
 
   [Hantera Server administratörer](analysis-services-server-admins.md)   
   [Hantera Azure Analysis Services med PowerShell](analysis-services-powershell.md)  
-  [TMSL-referens (tabell modell skript språk)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)
+  [TMSL-referens (tabell modell skript språk)](https://docs.microsoft.com/bi-reference/tmsl/tabular-model-scripting-language-tmsl-reference)
 

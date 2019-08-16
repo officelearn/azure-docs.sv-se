@@ -388,7 +388,7 @@
           items:
             - name: Aktivera Write Accelerator
               href: how-to-enable-write-accelerator.md
-            - name: 'Aktivera Ultra SSD:er'
+            - name: Använda ultradiskar
               href: disks-enable-ultra-ssd.md
             - name: Beräkna benchmark för en disk
               href: disks-benchmarks.md

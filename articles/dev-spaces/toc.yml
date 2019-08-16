@@ -85,5 +85,7 @@
           href: how-to/dev-spaces-business-continuity.md
         - name: Interagera med Windows-containrar
           href: how-to/run-dev-spaces-windows-containers.md
+        - name: Använda traefik för anpassade inkommande data och HTTPS
+          href: how-to/ingress-https-traefik.md
     - name: Felsökning
       href: troubleshooting.md

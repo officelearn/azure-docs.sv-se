@@ -66,7 +66,11 @@
         - name: Låsa containeravbildningar
           href: container-registry-image-lock.md
         - name: Ta bort containeravbildningar
-          href: container-registry-delete.md
+          items:
+            - name: Ta bort avbildningsdata – CLI
+              href: container-registry-delete.md
+            - name: Rensa automatiskt taggar och manifest (förhandsversion)
+              href: container-registry-auto-purge.md
         - name: Uppgradera ett klassiskt register
           href: container-registry-upgrade.md
         - name: Använda ACR-webhooks

@@ -267,14 +267,14 @@
           href: sql-data-warehouse-connect-overview.md
         - name: Anslutningssträngar
           href: sql-data-warehouse-connection-strings.md
-        - name: sqlcmd
-          href: sql-data-warehouse-get-started-connect-sqlcmd.md
+        - name: Installera Visual Studio SSDT
+          href: sql-data-warehouse-install-visual-studio.md
+        - name: Fråga med Visual Studio SSDT
+          href: sql-data-warehouse-query-visual-studio.md
         - name: Fråga med SSMS
           href: sql-data-warehouse-query-ssms.md
-        - name: Fråga med Visual Studio
-          href: sql-data-warehouse-query-visual-studio.md
-        - name: Installera Visual Studio
-          href: sql-data-warehouse-install-visual-studio.md
+        - name: Anslut och fråga med sqlcmd
+          href: sql-data-warehouse-get-started-connect-sqlcmd.md
     - name: Arbetsbelastningshantering
       items:
         - name: Analysera din arbetsbelastning

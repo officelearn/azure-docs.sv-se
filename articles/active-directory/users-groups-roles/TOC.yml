@@ -10,7 +10,7 @@
       href: /azure/active-directory/fundamentals/add-users-azure-active-directory?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: Tilldela licenser till användare
       href: /azure/active-directory/fundamentals/license-users-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: Tilldela en roll med ett resursomfång
+    - name: Bevilja behörighet för obegränsade appregistreringar
       href: roles-quickstart-app-registration-limits.md
     - name: Ange utgångsdatum för grupper
       href: groups-quickstart-expiration.md

@@ -120,12 +120,8 @@
         - name: Distribuera – REST API
           displayName: 'deployment,rollback on error,redeploy'
           href: resource-group-template-deploy-rest.md
-        - name: Säkra mallar med SAS-token
-          items:
-            - name: Använda Azure CLI
-              href: resource-manager-cli-sas-token.md
-            - name: Använda Azure PowerShell
-              href: resource-manager-powershell-sas-token.md
+        - name: Säker mall med SAS-token
+          href: secure-template-with-sas-token.md
         - name: Distribuera till flera resursgrupper eller prenumerationer
           href: resource-manager-cross-resource-group-deployment.md
     - name: CI/CD

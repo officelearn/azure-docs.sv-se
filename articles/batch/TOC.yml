@@ -79,10 +79,12 @@
           href: batch-pool-vm-sizes.md
         - name: Konfigurera åtkomst till beräkningsnoder
           href: pool-endpoint-configuration.md
-        - name: Skapa en pool med en anpassad bild
+        - name: Skapa en pool med Shared Image Gallery
           href: batch-custom-images.md
         - name: Skapa en pool i ett virtuellt nätverk
           href: batch-virtual-network.md
+        - name: Montera ett virtuellt filsystem
+          href: virtual-file-mount.md
         - name: Montera en Azure-filresurs
           href: pool-file-shares.md
         - name: Använda RDMA- eller GPU-instanser

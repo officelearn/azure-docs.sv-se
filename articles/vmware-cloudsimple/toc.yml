@@ -83,7 +83,7 @@
             - name: Ta bort ett privat moln
               href: delete-private-cloud.md
         - name: Övervaka CloudSimple-aktivitet
-          href: 'https://docs.azure.cloudsimple.com/activity/'
+          href: monitor-activity.md
         - name: Konfigurera nätverk för privata moln
           items:
             - name: Skapa och hantera virtuella lokala nätverk och undernät

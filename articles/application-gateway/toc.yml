@@ -35,6 +35,8 @@
       href: powershell-samples.md
     - name: Azure CLI
       href: cli-samples.md
+    - name: Mallar för Resurshanteraren
+      href: resource-manager-template-samples.md
 - name: Begrepp
   items:
     - name: Grundläggande inställningar
@@ -95,9 +97,6 @@
           href: tutorial-manage-web-traffic-powershell.md
         - name: Azure CLI
           href: tutorial-manage-web-traffic-cli.md
-        - name: Mall
-          displayName: 'ARM, Resource Manager, template'
-          href: create-vmss-template.md
     - name: Konfigurera intern lastbalanserare
       items:
         - name: Azure Portal

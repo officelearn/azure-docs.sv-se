@@ -3,7 +3,7 @@ documentType: LandingData
 title: Dokumentation om Virtual Machines
 metadata:
   document_id: na
-  title: 'Dokumentation om virtuella Linux-datorer i Azure – Självstudier, API-referens | Microsoft Docs'
+  title: 'Dokumentation om virtuella datorer i Azure – Självstudier, API-referens | Microsoft Docs'
   meta.description: 'Learn how to create, deploy, and manage Windows or Linux virtual machines. Tutorials, API references, and other documentation.'
   services: virtual-machines
   author: georgewallace

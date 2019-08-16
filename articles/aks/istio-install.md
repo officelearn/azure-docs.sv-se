@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: pabouwer
-ms.openlocfilehash: 9d973cb2ac210e912d93941a2f81889557379f43
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 032a907e45e007cb51357300e4bbf3c7afb40dde
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67625983"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69542877"
 ---
 # <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>Installera och använda Istio i Azure Kubernetes service (AKS)
 
@@ -41,6 +41,8 @@ I den här artikeln kan du se hur du:
 De steg som beskrivs i den här artikeln förutsätter att du har skapat ett AKS `1.11` -kluster (Kubernetes och senare, med RBAC aktiverat) `kubectl` och har upprättat en anslutning till klustret. Om du behöver hjälp med något av dessa objekt kan du se snabb starten för [AKS][aks-quickstart].
 
 Du behöver [Helm][helm] för att följa dessa instruktioner och installera Istio. Vi rekommenderar att du har version `2.12.2` eller senare installerat och konfigurerat i klustret på rätt sätt. Om du behöver hjälp med att installera Helm kan du läsa mer i [installations vägledningen för AKS Helm][helm-install]. Alla Istio-poddar måste också vara schemalagda att köras på Linux-noder.
+
+Se till att du har läst [Istio-prestanda och skalbarhets](https://istio.io/docs/concepts/performance-and-scalability/) dokumentation för att förstå de ytterligare resurs kraven för att köra Istio i ditt AKS-kluster. Kärn-och minnes kraven varierar beroende på din särskilda arbets belastning. Välj ett lämpligt antal noder och storlek för virtuella datorer för din installation.
 
 Den här artikeln separerar installations vägledningen för Istio till flera diskreta steg. Slut resultatet är detsamma i strukturen som den officiella Istio installations vägledningen [][istio-install-helm].
 

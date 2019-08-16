@@ -3,17 +3,17 @@ title: Azure VMware-lösning av CloudSimple-privata moln VMware-komponenter
 description: Beskriver hur VMware-komponenter installeras i ett privat moln
 author: sharaths-cs
 ms.author: dikamath
-ms.date: 04/30/2019
+ms.date: 08/15/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 89bc9c07ae74da1a4269a505627a7626e478ef99
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 26f58a38ac3abe9c6e2a3c6254190dffc4a51eb9
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68812194"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543721"
 ---
 # <a name="private-cloud-vmware-components"></a>VMware-komponenter för privata moln
 
@@ -47,11 +47,11 @@ vCenter Server-installation (VCSA) tillhandahåller autentiserings-, hanterings-
 
 ### <a name="vcenter-single-sign-on"></a>enkel inloggning för vCenter
 
-Embedded Platform service Controller på VCSA är associerad med en **vCenter-domän för enkel inloggning**.  Domän namnet är **cloudsimple. local**.  En standard användare **CloudOwner@cloudsimple.com** skapas för åtkomst till vCenter.  Du kan lägga till dina lokala/Azure Active Directory [Identity sources för vCenter](https://docs.azure.cloudsimple.com/set-vcenter-identity/).
+Embedded Platform service Controller på VCSA är associerad med en **vCenter-domän för enkel inloggning**.  Domän namnet är **cloudsimple. local**.  En standard användare **CloudOwner@cloudsimple.com** skapas för åtkomst till vCenter.  Du kan lägga till dina lokala/Azure Active Directory [Identity sources för vCenter](set-vcenter-identity.md).
 
 ## <a name="vsan-storage"></a>Virtuellt SAN-lagring
 
-Privata moln skapas med fullständigt konfigurerade virtuellt SAN-lagring för hela Flash, lokalt till klustret.  Minst tre noder av samma SKU krävs för att skapa ett vSphere-kluster med virtuellt San data lager.  Deduplicering och komprimering aktive ras som standard i virtuellt San-datalagret.  Två disk grupper skapas på varje nod i vSphere-klustret. Varje disk grupp innehåller en cache-disk och tre kapacitets diskar.
+Privata moln skapas med fullständigt konfigurerade virtuellt SAN-lagring för hela Flash, lokalt till klustret.  Minst tre noder av samma SKU krävs för att skapa ett vSphere-kluster med virtuellt San data lager.  Avduplicering och komprimering är aktiverat i virtuellt San-datalagret som standard.  Två disk grupper skapas på varje nod i vSphere-klustret. Varje disk grupp innehåller en cache-disk och tre kapacitets diskar.
 
 En standard lagrings princip för virtuellt San skapas i vSphere-klustret och tillämpas på virtuellt San-datalagret.  Den här principen avgör hur VM-lagrings objekt ska tillhandahållas och allokeras i data lagret för att garantera den tjänst nivå som krävs.  Lagrings principen definierar de **problem som ska tolereras (FTT)** och **metoden**för feltolerans.  Du kan skapa nya lagrings principer och tillämpa dem på de virtuella datorerna. För att upprätthålla SLA måste den 25% lediga kapaciteten vara kvar på virtuellt San-datalagret.  
 

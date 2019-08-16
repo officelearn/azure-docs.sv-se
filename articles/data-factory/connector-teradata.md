@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 6cbddfc5e529bc48e08407796024e5232d1a22e8
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 134302bffdadc27cf202a43e7dc4cc94704bb5b3
+ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966373"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69557865"
 ---
 # <a name="copy-data-from-teradata-by-using-azure-data-factory"></a>Kopiera data från Teradata med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -143,7 +143,7 @@ Följande egenskaper stöds för att kopiera data från Teradata:
 |:--- |:--- |:--- |
 | type | Egenskapen Type för data mängden måste anges till `TeradataTable`. | Ja |
 | database | Namnet på Teradata-databasen. | Nej (om ”query” i aktivitetskälla har angetts) |
-| table | Namnet på table i Teradata-databasen. | Nej (om ”query” i aktivitetskälla har angetts) |
+| table | Namnet på tabellen i Teradata-databasen. | Nej (om ”query” i aktivitetskälla har angetts) |
 
 **Exempel:**
 

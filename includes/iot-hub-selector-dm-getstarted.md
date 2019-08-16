@@ -4,12 +4,12 @@ ms.author: wesmc
 ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
-ms.openlocfilehash: 60c0c700dde5afda2ca93a92b334cbc4f0134043
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 239ea2eb4d5bc8d326d5ca503a18b149252dc1be
+ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68667965"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69558734"
 ---
 > [!div class="op_single_selector"]
 > * [Node.js](../articles/iot-hub/iot-hub-node-node-device-management-get-started.md)
@@ -24,7 +24,9 @@ Backend-appar kan använda Azure IoT Hub primitiver, till exempel [enhets dubbla
 Använd en direkt metod för att initiera enhets hanterings åtgärder (t. ex. omstart, fabriks återställning och uppdatering av inbyggd program vara) från en backend-app i molnet. Enheten ansvarar för:
 
 * Hantering av metoden Request som skickas från IoT Hub.
+
 * Initierar motsvarande enhetsspecifika åtgärd på enheten.
+
 * Tillhandahålla status uppdateringar via *rapporterade egenskaper* till IoT Hub.
 
 Du kan använda en backend-app i molnet för att köra enhets dubbla frågor för att rapportera om förloppet för enhets hanterings åtgärderna.

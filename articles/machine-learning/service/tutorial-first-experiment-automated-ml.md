@@ -5,23 +5,23 @@ description: Lär dig hur du tränar och distribuerar en klassificerings modell 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: tutorial
 ms.author: tzvikei
 author: tsikiksr
 ms.reviewer: nibaccam
-ms.date: 07/23/2019
-ms.openlocfilehash: 7ef19db472b30d82f14a5dd650cb8f4cb1f3ed3a
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.date: 08/14/2019
+ms.openlocfilehash: e53cd92a9dfd8f823918fb38e14c2b73c2ce071f
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990082"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534431"
 ---
-# <a name="tutorial-use-automated-machine-learning-to-train-and-deploy-your-first-classification-model-preview"></a>Självstudier: Använd automatisk maskin inlärning för att träna och distribuera din första klassificerings modell (för hands version)
+# <a name="tutorial-create-your-first-classification-model-with-automated-machine-learning"></a>Självstudier: Skapa din första klassificerings modell med automatisk maskin inlärning
 
-I den här självstudien får du lära dig hur du skapar ditt första automatiserade maskin inlärnings experiment i Azure Portal. I det här exemplet skapas en klassificerings modell för att förutsäga om en klient kommer att prenumerera på en term insättning med banken.
+I den här självstudien får du lära dig att skapa ditt första automatiserade maskin inlärnings experiment i Azure Portal (för hands version) utan att skriva en enda rad kod. I det här exemplet skapas en klassificerings modell för att förutsäga om en klient kommer att prenumerera på en fast term insättning med ett finansiellt institut.
 
-Genom att använda de automatiserade maskin inlärnings funktionerna i tjänsten och Azure Portal startar du den automatiserade Machine Learning-processen. Valet av val och inställning för min parameter görs åt dig. Den automatiserade Machine Learning-tekniken upprepas för många kombinationer av algoritmer och disponeringsparametrarna tills den hittar den bästa modellen baserat på ditt kriterium, allt utan att du behöver skriva en enda rad kod.
+Genom att använda de automatiserade maskin inlärnings funktionerna i Azure Machine Learnings tjänsten och Azure Portal startar du den automatiserade maskin inlärnings processen. Valet av val och inställning för min parameter görs åt dig. Den automatiserade maskininlärningsmetoden itererar i många kombinationer av algoritmer och hyperparametrar tills den hittar den bästa modellen utifrån dina kriterier.
 
 I den här självstudien kommer du att lära dig följande:
 
@@ -36,7 +36,7 @@ I den här självstudien kommer du att lära dig följande:
 
 * En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://aka.ms/AMLFree).
 
-* Data filen **bankmarketing_train. csv** . [Hämta den](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv).
+* Hämta data filen [ **bankmarketing_train. csv** ](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv) . **Y** -kolumnen visar om en kund prenumererar på en fast term insättning, som senare identifieras som mål kolumn för förutsägelser i den här självstudien. 
 
 ## <a name="create-a-workspace"></a>Skapa en arbetsyta
 
@@ -44,11 +44,14 @@ I den här självstudien kommer du att lära dig följande:
 
 ## <a name="create-an-experiment"></a>Skapa ett experiment
 
+De här stegen vägleder dig genom experimentering från data urvalet för att välja primärt mått och modell typ. 
+
 1. Gå till den vänstra rutan i din arbets yta. Välj **Automatisk maskin inlärning** under avsnittet **redigering (för hands version)** .
+Skärmen **Välkommen till automatiserat Machine Learning** visas, eftersom det första experimentet med automatiserade Machine Learning.
 
     ![Azure Portal navigerings fönster](media/tutorial-1st-experiment-automated-ml/nav-pane.png)
 
-    Eftersom det här är ditt första experiment med automatiserade Machine Learning visas skärmen **Välkommen till automatiserat Machine Learning** . 
+
 
 1. Välj **Skapa experiment**. Ange sedan **mitt-1st-automl-experiment** som namn på experimentet.
 
@@ -64,7 +67,8 @@ I den här självstudien kommer du att lära dig följande:
 
     När du har skapat det väljer du den nya beräkningen i list rutan och väljer sedan **Nästa**.
 
-1. I den här självstudien använder vi standard lagrings kontot och den behållare som skapats med din nya beräkning. De fylls i automatiskt i formuläret.
+    >[!NOTE]
+    >I den här självstudien använder vi standard lagrings kontot och den behållare som skapats med din nya beräkning. De fylls i automatiskt i formuläret.
 
 1. Välj **överför** och välj filen **bankmarketing_train. csv** från den lokala datorn för att överföra den till standard behållaren. Den offentliga för hands versionen stöder endast lokala fil överföringar och Azure Blob Storage-konton. När uppladdningen är klar väljer du filen i listan. 
 
@@ -116,7 +120,9 @@ När experimentet fortsätter uppdateras upprepnings diagrammet och listan med d
 
 ## <a name="deploy-the-model"></a>Distribuera modellen
 
-I det här experimentet betraktas **VotingEnsemble** som den bästa modellen, baserat på **AUC_weighted** mått. Genom att använda Automatisk maskin inlärning i Azure Portal kan vi distribuera den här modellen som en webb tjänst för att förutse nya data. 
+Genom att använda Automatisk maskin inlärning i Azure Portal kan vi distribuera den bästa modellen som en webb tjänst för att förutse nya data och identifiera potentiella områden i affärs möjligheten. För det här experimentet innebär distributionen att det finansiella institutet nu har en iterativ och skalbar lösning för att identifiera potentiella fasta, långsiktiga kunder.
+
+I den här experiment kontexten betraktas **VotingEnsemble** som den bästa modellen, baserat på **AUC_weighted** mått.  Vi distribuerar den här modellen, men vi rekommenderar att distributionen tar ungefär 20 minuter att slutföra.
 
 1. På sidan **körnings information** väljer du knappen **distribuera bästa modell** .
 
@@ -129,13 +135,13 @@ I det här experimentet betraktas **VotingEnsemble** som den bästa modellen, ba
     Bedömnings skript| Skapa
     Miljö skript| Skapa
     
-1. Välj **Distribuera**. Distributionen tar ungefär 20 minuter att slutföra.
+1. Välj **Distribuera**.
 
     Följande meddelande visas när distributionen har slutförts:
 
     ![Distributionen är klar](media/tutorial-1st-experiment-automated-ml/deploy-complete-status.png)
     
-    Klart! Du har en fungerande webb tjänst för att generera förutsägelser.
+    Nu har du en fungerande webb tjänst för att generera förutsägelser.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -159,7 +165,10 @@ Ta bara bort distributions instansen från Azure Portal, om du vill behålla res
 
 I den här automatiska självstudien om Machine Learning använde du Azure Portal för att skapa och distribuera en klassificerings modell. Se de här artiklarna för mer information och nästa steg:
 
-+ Lär dig hur du [använder en webb tjänst](how-to-consume-web-service.md).
+> [!div class="nextstepaction"]
+> [Använda en webb tjänst](how-to-consume-web-service.md)
+
+
 + Läs mer om för [bearbetning](how-to-create-portal-experiments.md#preprocess).
 + Läs mer om [data profilering](how-to-create-portal-experiments.md#profile).
 + Lär dig mer om [Automatisk maskin inlärning](concept-automated-ml.md).

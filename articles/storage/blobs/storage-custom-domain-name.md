@@ -8,12 +8,12 @@ ms.date: 06/26/2018
 ms.author: normesta
 ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: ae809dd4841d6df8caabebfaded263b52f386834
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 2359befc05bff867a8f8b17943ed67d906ff4971
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68845042"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534342"
 ---
 # <a name="configure-a-custom-domain-name-for-your-azure-storage-account"></a>Konfigurera ett anpassat domän namn för ditt Azure Storage-konto
 
@@ -27,7 +27,7 @@ Du kan konfigurera en anpassad domän för åtkomst till BLOB-data på ditt Azur
 > Lagrings konton har för närvarande endast stöd för ett anpassat domän namn per konto. Du kan inte mappa ett anpassat domän namn till både webb-och blob-tjänstens slut punkter.
 > 
 > [!NOTE]
-> Mappningen fungerar bara för under domäner (t. ex. www\.-contoso.com). Om du vill att din webb slut punkt ska vara tillgänglig på rot domänen (t. ex. contoso.com) måste du [använda Azure CDN med anpassade domäner](storage-https-custom-domain-cdn.md)
+> Mappningen fungerar bara för under domäner (t. ex. www\.-contoso.com). Om du vill att din webb slut punkt ska vara tillgänglig på rot domänen (t. ex. contoso.com), måste du [lägga till en anpassad domän i Azure CDN slut punkten](https://docs.microsoft.com/azure/cdn/cdn-map-content-to-custom-domain).
 
 I följande tabell visas några exempel-URL: er för BLOB-data som finns i ett lagrings konto med namnet *mystorageaccount*. Den anpassade under domänen som är registrerad för lagrings kontot är *www\.-contoso.com*:
 

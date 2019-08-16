@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 08/08/2019
 ms.author: alkohli
-ms.openlocfilehash: 8fecc00a970f0e706dc6240eaec593fd54968ff8
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 72e1d3b0ad72b1e68b88eb0550cbe839ade9d929
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934197"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69535169"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy"></a>Spårning och händelse loggning för din Azure Data Box och Azure Data Box Heavy
 
@@ -64,7 +64,7 @@ Du kan spåra din beställning genom Azure Portal och via frakt bär Vågs webbp
 
 - Dina Data Box-enhet kommer in i låst tillstånd. Du kan använda autentiseringsuppgifter för enheten som är tillgängliga i Azure Portal för din beställning.  
 
-    När en Data Box-enhet har kon figurer ATS kan du behöva veta vem som har åtkomst till enhetens autentiseringsuppgifter. Om du vill ta reda på vem som har åtkomst till bladet **autentiseringsuppgifter för enhet** kan du fråga aktivitets loggarna.  Alla åtgärder som inbegriper åtkomst till **enhets information > inloggnings** bladet loggas i aktivitets `ListCredentials` loggarna som åtgärd.
+    När en Data Box-enhet har kon figurer ATS kan du behöva veta vem som har åtkomst till enhetens autentiseringsuppgifter. Om du vill ta reda på vem som har åtkomst till bladet **autentiseringsuppgifter för enhet** kan du fråga aktivitets loggarna.  Alla åtgärder som inbegriper åtkomst till **enhets information > inloggnings** bladet loggas i aktivitets `ListCredentials` loggarna som åtgärd.
 
     ![Frågeaktivitetsloggar](media/data-box-logs/query-activity-log-1.png)
 
@@ -76,7 +76,7 @@ Under data kopieringen till Data Box-enhet eller Data Box Heavy genereras en fel
 
 ### <a name="errorxml-file"></a>Error. XML-fil
 
-Kontrol lera att kopierings jobben har avslut ATS utan fel. Om det uppstår fel under kopierings processen kan du hämta loggarna från sidan **Anslut och kopiera** .
+Kontrol lera att kopierings jobben har avslut ATS utan fel. Om det uppstår fel under kopierings processen kan du hämta loggarna från sidan **Anslut och kopiera** .
 
 - Om du kopierade en fil som inte är 512 byte-justerad till en mapp för hanterad disk på din Data Box-enhet laddas inte filen upp som en sid-blob till ditt lagrings konto för lagring. Du kommer att se ett fel i loggarna. Ta bort filen och kopiera en fil som är 512 byte-justerad.
 - Om du har kopierat en VHDX, eller en dynamisk virtuell hård disk eller en differentierande virtuell hård disk (dessa filer stöds inte), visas ett fel i loggarna.
@@ -203,7 +203,7 @@ För varje order som bearbetas skapar Data Box-enhet tjänsten kopierings loggen
 
 En CRC-beräkning (cyklisk redundans) görs under uppladdningen till Azure. CRCs från data kopian och efter data överföringen jämförs. Ett CRC-fel indikerar att motsvarande filer inte kunde laddas upp.
 
-Som standard skrivs loggar till en behållare med namnet `copylog`. Loggarna lagras med följande namngivnings konvention:
+Som standard skrivs loggar till en behållare med namnet `copylog`. Loggarna lagras med följande namngivnings konvention:
 
 `storage-account-name/databoxcopylog/ordername_device-serial-number_CopyLog_guid.xml`.
 
@@ -354,7 +354,7 @@ The authentication information fields provide detailed information about this sp
 
 ## <a name="download-order-history"></a>Ladda ned beställningshistorik
 
-Order historik är tillgänglig i Azure Portal. Om ordern är klar och enhets rensningen (data radering från diskarna) är klar går du till din enhets ordning och navigerar till **order information**.  **Hämta beställnings historik**  alternativet är tillgängligt. Mer information finns i [Hämta order historik](data-box-portal-admin.md#download-order-history).
+Order historik är tillgänglig i Azure Portal. Om ordern är klar och enhets rensningen (data radering från diskarna) är klar går du till din enhets ordning och navigerar till **order information**. Alternativet **Ladda ned beställningshistorik** är tillgängligt. Mer information finns i [Hämta order historik](data-box-portal-admin.md#download-order-history).
 
 Om du bläddrar igenom order historiken visas:
 

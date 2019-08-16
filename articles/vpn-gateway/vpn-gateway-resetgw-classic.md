@@ -1,18 +1,18 @@
 ---
-title: Återställa Azure VPN gateway för att återupprätta IPsec-tunnlar | Microsoft Docs
-description: Den här artikeln visar hur du återställer din Azure VPN Gateway för att återupprätta IPsec-tunnlar. Artikeln gäller VPN-gatewayer i både klassiska och Resource Manager-distributionsmodeller.
+title: Återställa en Azure VPN-gateway för att återupprätta IPsec-tunnlar | Microsoft Docs
+description: Den här artikeln vägleder dig genom att återställa Azure-VPN Gateway för att återupprätta IPsec-tunnlar. Artikeln gäller VPN-gatewayer både i den klassiska och i Resource Manager-distributions modellerna.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
 ms.date: 07/05/2019
 ms.author: cherylmc
-ms.openlocfilehash: 9744a4b7bc5d2e9ce22bfa14ea33a2b11dacda85
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 359773dad53f333b2f052dd5b5481645c72746da
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67612455"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69533929"
 ---
 # <a name="reset-a-vpn-gateway"></a>Återställ VPN Gateway
 
@@ -20,19 +20,19 @@ Du kan behöva återställa en Azure VPN-gateway om VPN-anslutningen mellan fler
 
 ### <a name="what-happens-during-a-reset"></a>Vad händer under en återställning?
 
-En VPN-gateway består av två VM-instanser som körs i en aktiv-standby-konfiguration. När du återställer gatewayen startar den om gatewayen och sedan återställer konfigurationerna för flera platser för. Gatewayen behåller den offentliga IP-adress den redan har. Det innebär att du inte behöver uppdatera VPN-routerkonfigurationen med en ny offentlig IP-adress för Azure VPN-gatewayen.
+En VPN-gateway består av två VM-instanser som körs i en aktiv standby-konfiguration. När du återställer gatewayen startar den om gatewayen och tillämpar sedan de lokala konfigurationerna på den igen. Gatewayen behåller den offentliga IP-adress den redan har. Det innebär att du inte behöver uppdatera VPN-routerkonfigurationen med en ny offentlig IP-adress för Azure VPN-gatewayen.
 
-När du utfärda kommandot för att återställa gatewayen, startas den aktuella aktiva instansen av Azure VPN-gateway om omedelbart. Det blir en kort paus under redundansen från den aktiva instansen (som startas om), till vänteläges-instansen. Pausen bör vara kortare än en minut.
+När du utfärdar kommandot för att återställa gatewayen, startas den aktuella aktiva instansen av Azure VPN-gatewayen om omedelbart. Det kommer att finnas en kort lucka under redundansväxlingen från den aktiva instansen (startas om) till instansen för vänte läge. Pausen bör vara kortare än en minut.
 
-Om anslutningen inte har återställts efter den första omstarten, utfärdar du samma kommando igen för att starta om den andra VM-instansen (den nya aktiva gatewayen). Om de två omstarterna görs direkt efter varandra, uppstår en något längre paus där båda VM-instanserna (aktiv och vänteläge) startas om. Detta kommer att medföra ett längre uppehåll i VPN-anslutningen, cirka 30 – 45 minuter, för virtuella datorer ska slutföra omstarterna.
+Om anslutningen inte har återställts efter den första omstarten, utfärdar du samma kommando igen för att starta om den andra VM-instansen (den nya aktiva gatewayen). Om de två omstarterna görs direkt efter varandra, uppstår en något längre paus där båda VM-instanserna (aktiv och vänteläge) startas om. Detta leder till en längre lucka i VPN-anslutningen, upp till 45 minuter för virtuella datorer för att slutföra omstarterna.
 
-Efter två omstarter, om du fortfarande har problem med nätverksanslutningen mellan olika platser, öppna en supportbegäran från Azure-portalen.
+Efter två omstarter, om du fortfarande har problem med anslutning till olika platser, måste du öppna en supportbegäran från Azure Portal.
 
 ## <a name="before"></a>Innan du börjar
 
-Verifiera nyckelobjekten nedan innan du återställer din gateway för varje IPSec VPN-tunnel (S2S) från plats till plats. Eventuella matchningsfel i objekten resulterar i att S2S VPN-tunnlarna kopplas från. Att kontrollera och korrigera konfigurationerna för dina lokala och Azure VPN-gatewayer du behöver du inte onödiga omstarter och avbrott i andra fungerande anslutningar på gatewayerna.
+Verifiera nyckelobjekten nedan innan du återställer din gateway för varje IPSec VPN-tunnel (S2S) från plats till plats. Eventuella matchningsfel i objekten resulterar i att S2S VPN-tunnlarna kopplas från. Genom att verifiera och korrigera konfigurationerna för dina lokala och Azure VPN-gatewayer slipper du onödiga omstarter och avbrott för de andra fungerande anslutningarna på gatewayerna.
 
-Kontrollera följande innan du återställer din gateway:
+Verifiera följande objekt innan du återställer din Gateway:
 
 * Internets IP-adresser (VIP) för både Azures VPN-gateway och den lokala VPN-gatewayen har konfigurerats korrekt i både Azures och lokala VPN-principer.
 * Den i förväg delade nyckeln måste vara samma på både Azures och de lokala VPN-gatewayerna.
@@ -40,15 +40,15 @@ Kontrollera följande innan du återställer din gateway:
 
 ## <a name="portal"></a>Azure-portalen
 
-Du kan återställa en Resource Manager VPN-gateway med Azure portal. Om du vill återställa en klassiska gateway finns i den [PowerShell](#resetclassic) steg.
+Du kan återställa en VPN-gateway för Resource Manager med hjälp av Azure Portal. Om du vill återställa en klassisk Gateway, se [PowerShell](#resetclassic) -stegen.
 
 ### <a name="resource-manager-deployment-model"></a>Distributionsmodell med Resource Manager
 
-1. Öppna den [Azure-portalen](https://portal.azure.com) och navigera till den virtuella nätverksgatewayen för Resource Manager som du vill återställa.
-2. Klicka på ”Återställ” på bladet för den virtuella nätverksgatewayen.
+1. Öppna den [Azure Portal](https://portal.azure.com) och navigera till den virtuella Nätverksgatewayen i Resource Manager som du vill återställa.
+2. På bladet för den virtuella Nätverksgatewayen klickar du på Återställ.
 
-   ![Vill du återställa bladet för VPN-Gateway](./media/vpn-gateway-howto-reset-gateway/reset-vpn-gateway-portal.png)
-3. Återställ bladet och klicka på den **återställa** knappen.
+   ![Återställ VPN Gateway bladet](./media/vpn-gateway-howto-reset-gateway/reset-vpn-gateway-portal.png)
+3. Klicka på knappen **Återställ** på Återställ-bladet.
 
 ## <a name="ps"></a>PowerShell
 
@@ -56,26 +56,26 @@ Du kan återställa en Resource Manager VPN-gateway med Azure portal. Om du vill
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Cmdlet: en om du vill återställa en gateway är **återställning AzVirtualNetworkGateway**. Innan du utför en återställning måste du kontrollera att du har den senaste versionen av den [Az PowerShell-cmdlet: ar](https://docs.microsoft.com/powershell/module/az.network). I följande exempel återställs en virtuell nätverksgateway med namnet VNet1GW i resursgruppen TestRG1:
+Cmdleten för att återställa en gateway **återställs-AzVirtualNetworkGateway**. Kontrol lera att du har den senaste versionen av [PowerShell AZ-cmdlet: ar](https://docs.microsoft.com/powershell/module/az.network)innan du utför en återställning. I följande exempel återställs en virtuell nätverksgateway som heter VNet1GW i resurs gruppen TestRG1:
 
 ```powershell
 $gw = Get-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1
 Reset-AzVirtualNetworkGateway -VirtualNetworkGateway $gw
 ```
 
-Resultat:
+Medför
 
-När du får ett returnerade resultat kan du anta att gateway-återställningen lyckades. Men finns det inget i det returnera resultat som explicit anger att återställningen lyckades. Om du vill titta på historiken för att se exakt när gateway-återställning uppstod, du kan visa den informationen i den [Azure-portalen](https://portal.azure.com). I portalen navigerar du till **{GatewayName} -> Resource Health**.
+När du får ett retur resultat kan du anta att Gateway-återställningen lyckades. Det finns dock inget i det returnerade resultatet som indikerar att återställningen lyckades. Om du vill titta närmare på historiken för att se exakt när gatewayen har återställts kan du Visa informationen i [Azure Portal](https://portal.azure.com). I portalen navigerar du till **' GatewayName ' – > Resource Health**.
 
-### <a name="resetclassic"></a>Klassisk distributionsmodell
+### <a name="resetclassic"></a>Klassisk distributions modell
 
-Cmdlet: en om du vill återställa en gateway är **Reset-AzureVNetGateway**. Innan du utför en återställning måste du kontrollera att du har den senaste versionen av den [Service Management (SM) PowerShell-cmdletar](https://docs.microsoft.com/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0#azure-service-management-cmdlets). I följande exempel återställs gatewayen för ett virtuellt nätverk med namnet ”ContosoVNet”:
+Cmdleten för att återställa en gateway **återställs-AzureVNetGateway**. Azure PowerShell-cmdletar för Service Management måste installeras lokalt på Skriv bordet. Du kan inte använda Azure Cloud Shell. Innan du utför en återställning kontrollerar du att du har den senaste versionen av [PowerShell-cmdletarna för Service Management (SM)](https://docs.microsoft.com/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0#azure-service-management-cmdlets). I följande exempel återställs gatewayen för ett virtuellt nätverk med namnet "ContosoVNet":
 
 ```powershell
 Reset-AzureVNetGateway –VnetName “ContosoVNet”
 ```
 
-Resultat:
+Medför
 
 ```powershell
 Error          :
@@ -88,12 +88,12 @@ StatusCode     : OK
 
 ## <a name="cli"></a>Azure CLI
 
-Om du vill återställa gatewayen, Använd den [az network vnet-gateway återställa](https://docs.microsoft.com/cli/azure/network/vnet-gateway) kommando. I följande exempel återställs en virtuell nätverksgateway med namnet VNet5GW i resursgruppen TestRG5:
+För att återställa gatewayen använder du kommandot [AZ Network VNet-Gateway reset](https://docs.microsoft.com/cli/azure/network/vnet-gateway) . I följande exempel återställs en virtuell nätverksgateway som heter VNet5GW i resurs gruppen TestRG5:
 
 ```azurecli
 az network vnet-gateway reset -n VNet5GW -g TestRG5
 ```
 
-Resultat:
+Medför
 
-När du får ett returnerade resultat kan du anta att gateway-återställningen lyckades. Men finns det inget i det returnera resultat som explicit anger att återställningen lyckades. Om du vill titta på historiken för att se exakt när gateway-återställning uppstod, du kan visa den informationen i den [Azure-portalen](https://portal.azure.com). I portalen navigerar du till **{GatewayName} -> Resource Health**.
+När du får ett retur resultat kan du anta att Gateway-återställningen lyckades. Det finns dock inget i det returnerade resultatet som indikerar att återställningen lyckades. Om du vill titta närmare på historiken för att se exakt när gatewayen har återställts kan du Visa informationen i [Azure Portal](https://portal.azure.com). I portalen navigerar du till **' GatewayName ' – > Resource Health**.

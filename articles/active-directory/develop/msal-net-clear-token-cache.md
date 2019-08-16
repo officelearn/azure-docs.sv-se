@@ -1,9 +1,9 @@
 ---
-title: Rensa token-cache med hjälp av Microsoft Authentication Library för .NET – Azure
-description: Lär dig mer om att rensa token cacheminnet med hjälp av Microsoft Authentication Library för .NET (MSAL.NET).
+title: Rensa token-cachen med Microsoft Authentication Library för .NET – Azure
+description: Lär dig hur du rensar token-cachen med Microsoft Authentication Library för .NET (MSAL.NET).
 services: active-directory
 documentationcenter: dev-center-name
-author: rwike77
+author: TylerMSFT
 manager: CelesteDG
 editor: ''
 ms.service: active-directory
@@ -13,22 +13,22 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
-ms.author: ryanwi
+ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6763c6b2b1f9b4de7d8669a50a4979a7aac00c7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1cee6443db0b019f79a80cf5b7c0e2a7a50240f2
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65544124"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69532656"
 ---
-# <a name="clear-the-token-cache-using-msalnet"></a>Rensa token cacheminnet med hjälp av MSAL.NET
+# <a name="clear-the-token-cache-using-msalnet"></a>Rensa token-cachen med MSAL.NET
 
-När du [hämta en åtkomsttoken](msal-acquire-cache-tokens.md) med hjälp av Microsoft Authentication Library för .NET (MSAL.NET), token cachelagras. När programmet behöver en token, bör det först anropa den `AcquireTokenSilent` metod för att verifiera om det är en godtagbar token i cacheminnet. 
+När du [hämtar en](msal-acquire-cache-tokens.md) åtkomsttoken med Microsoft Authentication Library för .net (MSAL.net) cachelagras token. När programmet behöver en token ska det först anropa `AcquireTokenSilent` metoden för att kontrol lera om en acceptabel token finns i cacheminnet. 
 
-Rensa cacheminnet uppnås genom att ta bort konton från cachen. Sessions-cookie som är i webbläsaren, men tas inte bort.  I följande exempel skapar en instans av en offentlig klientprogram, hämtar kontona för programmet och tar bort konton.
+Att rensa cacheminnet uppnås genom att ta bort kontona från cachen. Detta tar inte bort sessions-cookien som finns i webbläsaren, men.  I följande exempel instansieras ett offentligt klient program, hämtar konton för programmet och tar bort kontona.
 
 ```csharp
 private readonly IPublicClientApplication _app;
@@ -50,4 +50,4 @@ while (accounts.Any())
 
 ```
 
-Läs mer om hämtar och cachelagring token [hämta en åtkomsttoken](msal-acquire-cache-tokens.md).
+Läs mer om att förvärva och cachelagra token genom att läsa [Hämta en](msal-acquire-cache-tokens.md)åtkomsttoken.

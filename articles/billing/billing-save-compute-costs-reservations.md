@@ -7,16 +7,16 @@ ms.service: billing
 ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: banders
-ms.openlocfilehash: 2e595fbee90b710ec6b8090a770d93e688a04818
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 2122b6bd5fbd6b15bd5a2e411898d957708bf4c9
+ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839989"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69558865"
 ---
 # <a name="what-are-azure-reservations"></a>Vad är Azure Reservations?
 
-Azure Reservations hjälpa dig att spara pengar genom förskotts betalning för ett år eller tre års virtuella datorer, SQL Database beräknings kapacitet, Azure Cosmos DB data flöde eller andra Azure-resurser. Med förbetald betalning får du rabatt på de resurser du använder. Reservationer kan avsevärt minska din virtuella dator, SQL Database Compute, Azure Cosmos DB eller andra resurs kostnader upp till 72% på priserna för betala per användning. Reservationer ger en fakturerings rabatt och påverkar inte körnings statusen för dina resurser.
+Azure Reservations hjälpa dig att spara pengar genom förskotts betalning för ett år eller tre års virtuella datorer, SQL Database beräknings kapacitet, Azure Cosmos DB data flöde eller andra Azure-resurser. Förskottsbetalning gör att du kan få rabatt på de resurser du använder. Reservationer kan avsevärt minska din virtuella dator, SQL Database Compute, Azure Cosmos DB eller andra resurs kostnader upp till 72% på priserna för betala per användning. Reservationer ger en fakturerings rabatt och påverkar inte körnings statusen för dina resurser.
 
 Du kan köpa en reservation i [Azure Portal](https://ms.portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
 
@@ -36,7 +36,7 @@ För virtuella Windows-datorer och SQL Database kan du försäkra licens kostnad
 
 ## <a name="whos-eligible-to-purchase-a-reservation"></a>Vem är berättigad att köpa en reservation?
 
-Om du vill köpa en plan måste du ha en prenumerations ägar roll i ett företag (MS-AZR-0017P eller MS-AZR-0148P) eller prenumerationen betala per användning (MS-AZR-003P eller MS-AZR-0023P). Moln lösnings leverantörer kan använda Azure Portal eller [partner Center](/partner-center/azure-reservations) för att köpa Azure reservations.
+Om du vill köpa en plan måste du ha en prenumerations ägar roll i ett företag (MS-AZR-0017P eller MS-AZR-0148P) eller prenumerationen betala per användning (MS-AZR-0003P eller MS-AZR-0023P). Moln lösnings leverantörer kan använda Azure Portal eller [partner Center](/partner-center/azure-reservations) för att köpa Azure reservations.
 
 Enterprise-avtal-kunder (EA) kan begränsa köp till EA-administratörer genom att inaktivera alternativet **Lägg till reserverade instanser** i EA-portalen. EA-administratörer måste vara en prenumerations ägare för minst en EA-prenumeration för att köpa en reservation. Alternativet är användbart för företag som vill att ett centraliserat team ska köpa reservationer för olika kostnads ställen. Efter köpet kan centraliserade team lägga till kostnads ställe ägare till reservationerna. Ägare kan sedan begränsa reservationen till sina prenumerationer. Det centrala teamet behöver inte ha prenumerations ägar åtkomst där reservationen köps.
 

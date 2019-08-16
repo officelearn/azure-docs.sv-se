@@ -5,13 +5,13 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
-ms.date: 08/06/2019
-ms.openlocfilehash: 8368ebfca4cdd72c5c455a04e29b6c0cb44938ea
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.date: 08/14/2019
+ms.openlocfilehash: 6d729d9303326dd43f3bc5ae943d6ab788c818f3
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68935411"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534437"
 ---
 # <a name="apache-hbase-master-hmaster-fails-to-start-in-azure-hdinsight"></a>Apache HBase Master (HMaster) kan inte startas i Azure HDInsight
 
@@ -25,13 +25,17 @@ Oväntade filer har identifierats under start processen.
 
 ### <a name="cause"></a>Orsak
 
-Under start processen utför HMaster många initierings steg, inklusive att flytta data från scratch-mappen (. tmp) till data-mappen. HMaster tittar också på WALs-mappen (Skriv loggar i förväg) för att se om det finns några servrar för död region. Under alla dessa situationer görs ett grundläggande `list` kommando i dessa mappar. Om det när som helst ser en oväntad fil i någon av dessa mappar, kommer den att utlösa ett undantag och därför inte starta.
+Under start processen utför HMaster många initierings steg, inklusive att flytta data från scratch-mappen (. tmp) till data-mappen. HMaster tittar också på mappen Write-Ahead-loggar (WAL) för att se om det finns några icke-tillgängliga region servrar.
+
+HMaster har ett grundläggande List kommando i WAL-mapparna. När som helst ser HMaster en oväntad fil i någon av dessa mappar, utlöses ett undantag och startar inte.
 
 ### <a name="resolution"></a>Lösning
 
-I så fall kan du kontrol lera i anrops stacken om du vill se vilken mapp som kan orsaka problem (t. ex. mappen WALs mapp eller TMP). Leta sedan upp problem filen via Cloud Explorer eller HDFS-kommandon. Problem filen är vanligt vis en `*-renamePending.json` fil (en journal fil som används för att implementera Atom namnbyte i WASB-drivrutinen). På grund av buggar i den här implementeringen kan sådana filer lämnas över i händelse av process krasch. Framtvinga borttagning av den här filen via Cloud Explorer. Dessutom kan det finnas en temporär fil av typen $ på den här platsen. Filen kan inte visas via Cloud Explorer och endast via HDFS `ls` -kommandot. Du kan ta bort den `hdfs dfs -rm //\$\$\$.\$\$\$` här filen genom att använda HDFS-kommandot.
+Kontrol lera anrops stacken och försök att avgöra vilken mapp som kan orsaka problemet (till exempel kan det vara mappen WAL eller mappen. tmp). Försök sedan att hitta problem filen i Cloud Explorer eller med HDFS-kommandon. Detta är vanligt vis en `*-renamePending.json` fil. `*-renamePending.json` (Filen är en journal fil som används för att implementera Atomic Rename-åtgärden i WASB-drivrutinen. På grund av buggar i den här implementeringen kan de här filerna lämnas över efter att process kraschar och så vidare.) Framtvinga-ta bort den här filen antingen i Cloud Explorer eller med HDFS-kommandon.
 
-När problem filen har tagits bort ska HMaster starta omedelbart.
+Ibland kan det också finnas en temporär fil som heter något som `$$$.$$$` finns på den här platsen. Du måste använda HDFS `ls` -kommandot för att se den här filen. du kan inte se filen i Cloud Explorer. Om du vill ta bort den här filen använder `hdfs dfs -rm /\<path>\/\$\$\$.\$\$\$`du kommandot HDFS.
+
+När du har kört dessa kommandon ska HMaster starta omedelbart.
 
 ---
 
@@ -39,7 +43,7 @@ När problem filen har tagits bort ska HMaster starta omedelbart.
 
 ### <a name="issue"></a>Problem
 
-HMaster log visar ett fel meddelande som liknar "ingen server adress visas i HBase: meta för region xxx."
+Du kan se ett meddelande som anger att `hbase: meta` tabellen inte är online. Om `hbck` du kör `hbase: meta table replicaId 0 is not found on any region.` rapporter kan du se meddelandet i HMaster-loggarna: `No server address listed in hbase: meta for region hbase: backup <region name>`.  
 
 ### <a name="cause"></a>Orsak
 
@@ -47,20 +51,20 @@ HMaster kunde inte initieras efter omstart av HBase.
 
 ### <a name="resolution"></a>Lösning
 
-1. Kör följande kommandon i HBase-gränssnittet (ändra de faktiska värdena efter vad som är tillämpligt):
+1. I HBase-gränssnittet anger du följande kommandon (ändra de faktiska värdena efter vad som är tillämpligt):
 
-    ```
+    ```hbase
     scan 'hbase:meta'
-    delete 'hbase:meta','hbase:backup <region name>','<column name>' 
+    delete 'hbase:meta','hbase:backup <region name>','<column name>'
     ```
 
-1. Ta bort posten för HBase: Namespace som samma fel kan rapporteras vid skanning av HBase: namespace-tabellen.
+1. Ta bort `hbase: namespace` posten. Posten kan vara samma fel som rapporteras när `hbase: namespace` tabellen genomsöks.
 
 1. Starta om Active HMaster från Ambari-ANVÄNDARGRÄNSSNITTET för att hämta HBase i körnings tillstånd.
 
-1. Kör följande kommando på HBase-gränssnittet för att hämta alla offline-tabeller:
+1. Kör följande kommando i HBase-gränssnittet för att öppna alla offline-tabeller:
 
-    ```
+    ```hbase
     hbase hbck -ignorePreCheckPermission -fixAssignments
     ```
 
@@ -70,29 +74,29 @@ HMaster kunde inte initieras efter omstart av HBase.
 
 ### <a name="issue"></a>Problem
 
-HMaster tids gräns med allvarligt undantag som `java.io.IOException: Timedout 300000ms waiting for namespace table to be assigned`.
+HMaster tids gräns med allvarligt undantag liknar: `java.io.IOException: Timedout 300000ms waiting for namespace table to be assigned`.
 
 ### <a name="cause"></a>Orsak
 
-Timeout är ett känt fel med HMaster. Allmänna start åtgärder för klustret kan ta lång tid. HMaster stängs av om inte namn områdes tabellen har tilldelats än. Långa start aktiviteter inträffar när det finns stora mängder data som inte har rensats och tids gränsen på fem minuter inte räcker.
+Det här problemet kan uppstå om du har många tabeller och regioner som inte har tömts när du startar om dina HMaster-tjänster. Timeout är ett känt fel med HMaster. Allmänna start åtgärder för klustret kan ta lång tid. HMaster stängs av om inte namn områdes tabellen har tilldelats än. Långa start aktiviteter inträffar när det finns stora mängder data som inte har rensats och tids gränsen på fem minuter inte räcker.
 
 ### <a name="resolution"></a>Lösning
 
-1. Kom åt Ambari-användargränssnittet, gå till HBase-> configs, `hbase-site.xml` i anpassad Lägg till följande inställning:
+1. Gå till **HBase** > -**konfigurationer**från Apache Ambari UI. I den anpassade `hbase-site.xml` filen lägger du till följande inställning:
 
     ```
     Key: hbase.master.namespace.init.timeout Value: 2400000  
     ```
 
-1. Starta om nödvändiga tjänster (huvudsakligen HMaster och eventuellt andra HBase-tjänster).
+1. Starta om de tjänster som krävs (HMaster och eventuellt andra HBase-tjänster).
 
 ---
 
-## <a name="scenario-frequent-regionserver-restarts"></a>Scenario: Frekventa regionserver-omstarter
+## <a name="scenario-frequent-region-server-restarts"></a>Scenario: Frekventa omstarter av region Server
 
 ### <a name="issue"></a>Problem
 
-Noder startar om regelbundet. Från regionserver-loggarna kan du se poster som liknar:
+Noder startar om regelbundet. Från region Server loggarna kan du se poster som liknar:
 
 ```
 2017-05-09 17:45:07,683 WARN  [JvmPauseMonitor] util.JvmPauseMonitor: Detected pause in JVM or host machine (eg GC): pause of approximately 31000ms
@@ -102,15 +106,15 @@ Noder startar om regelbundet. Från regionserver-loggarna kan du se poster som l
 
 ### <a name="cause"></a>Orsak
 
-Lång regionserver JVM GC Pause. Pausen gör att regionserver inte svarar och att det inte går att skicka hjärter till HMaster inom ZK sessions-timeout 40s. HMaster tror att regionserver är död och kommer att avbryta regionserver och starta om.
+Lång `regionserver` JVM GC paus. Pausen kommer att `regionserver` leda till att den inte svarar och kan inte skicka hjärter till HMaster inom ZK-sessionens tids gräns 40s. HMaster kommer att `regionserver` tro att det `regionserver` är dött och kommer att avbryta och starta om.
 
 ### <a name="resolution"></a>Lösning
 
-Ändra tids gränsen för Zookeeper-sessionen, inte bara HBase, `zookeeper.session.timeout` men även Zookeeper Zoo. cfg- `maxSessionTimeout` inställningen måste ändras.
+Ändra tids gränsen för Zookeeper-sessionen, `hbase-site` inte `zookeeper.session.timeout` bara ange, `zoo.cfg` men `maxSessionTimeout` Zookeeper-inställningen måste ändras.
 
 1. Åtkomst till Ambari-gränssnittet, gå till **HBase-> configs – > inställningar**i avsnittet timeouter, ändra värdet för Zookeeper session timeout.
 
-1. Komma åt Ambari-gränssnittet, gå till **Zookeeper-> configs-> anpassad** Zoo. cfg, Lägg till/ändra följande inställning. Kontrol lera att värdet är detsamma som HBase `zookeeper.session.timeout`.
+1. Komma åt Ambari-användargränssnittet, gå till **Zookeeper-> configs – > anpassad** `zoo.cfg`, Lägg till/ändra följande inställning. Kontrol lera att värdet är detsamma som HBase `zookeeper.session.timeout`.
 
     ```
     Key: maxSessionTimeout Value: 120000  

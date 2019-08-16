@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: mbullwin
-ms.openlocfilehash: c2f115564c81f38dd437f1d3ff1e33d7d162a42f
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 858508e949f8a880498e1a3d983dc76224010c31
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326451"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534613"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Beroende spårning i Azure Application insikter 
 
@@ -90,7 +90,7 @@ Om du vill inaktivera standard modulen för beroende spårning tar du bort refer
 
 ## <a name="tracking-ajax-calls-from-web-pages"></a>Spåra AJAX-anrop från webb sidor
 
-För webb sidor samlar Application Insights JavaScript SDK automatiskt in AJAX-anrop som beroenden enligt beskrivningen [här](javascript.md#ajax-performance). Det här dokumentet fokuserar på beroenden från Server komponenter.
+För webb sidor samlar Application Insights JavaScript SDK automatiskt in AJAX-anrop som beroenden.
 
 ## <a name="advanced-sql-tracking-to-get-full-sql-query"></a>Avancerad SQL-spårning för att få en fullständig SQL-fråga
 
@@ -113,7 +113,7 @@ I ovanstående fall är det korrekta sättet att verifiera instrument motorn kor
 
 * [Programavbildning](app-map.md) hjälper dig att visualisera beroenden mellan din app och Närliggande komponenter.
 * [Transaktions-diagnostik](transaction-diagnostics.md) visar enhetliga, korrelerade Server data.
-* [Fliken webbläsare](javascript.md#ajax-performance) visar AJAX-anrop från användarnas webbläsare.
+* [Fliken webbläsare](javascript.md) visar AJAX-anrop från användarnas webbläsare.
 * Klicka dig igenom från långsamma eller misslyckade förfrågningar för att kontrol lera deras beroende anrop.
 * [Analytics](#logs-analytics) kan användas för att köra frågor mot beroendedata.
 
@@ -141,7 +141,7 @@ Ingen aning där tiden går? [Application Insights profiler](../../azure-monitor
 
 Misslyckade förfrågningar kan också vara kopplad till misslyckade anrop till beroenden.
 
-Vi kan gå till fliken **problem** till vänster och sedan klicka på fliken beroenden överst  .
+Vi kan gå till fliken **problem** till vänster och sedan klicka på fliken beroenden överst .
 
 ![Klicka på diagram över misslyckade begäranden](./media/asp-net-dependencies/4-fail.png)
 

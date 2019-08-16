@@ -1,6 +1,6 @@
 ---
-title: Stöd för flera token utfärdare i ett OWIN-baserat webb program – Azure Active Directory B2C
-description: Lär dig hur du aktiverar ett .NET-webb program för att stödja token som utfärdats av flera domäner.
+title: 'Migrera OWIN-baserade webb-API: er till b2clogin.com-Azure Active Directory B2C'
+description: Lär dig hur du aktiverar ett .NET-webb-API för att stödja tokens som utfärdats av flera token utfärdare när du migrerar dina program till b2clogin.com.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,21 +10,23 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 31ab19b8b3adbef1f0ea573af13b98750d278db8
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: a8a6b4f90fe3f1e60341cc59e7d81870c82e843b
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68716727"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69533759"
 ---
-# <a name="support-multiple-token-issuers-in-an-owin-based-web-application"></a>Stöd för flera token utfärdare i ett OWIN-baserat webb program
+# <a name="migrate-an-owin-based-web-api-to-b2clogincom"></a>Migrera ett OWIN webb-API till b2clogin.com
 
-Den här artikeln beskriver en teknik för att aktivera stöd för flera token-utfärdare i webbappar och API: er som implementerar [Open Web Interface för .net (OWIN)](http://owin.org/). Stöd för flera token-slutpunkter är användbart när du migrerar Azure Active Directory (Azure AD) B2C-program från *login.microsoftonline.com* till *b2clogin.com*.
+Den här artikeln beskriver en teknik för att aktivera stöd för flera token utfärdare i webb-API: er som implementerar [Open Web Interface för .net (OWIN)](http://owin.org/). Stöd för flera token-slutpunkter är användbart när du migrerar Azure Active Directory B2C (Azure AD B2C) API: er och deras program från *login.microsoftonline.com* till *b2clogin.com*.
 
-I följande avsnitt finns ett exempel på hur du aktiverar flera utfärdare i ett webb program och motsvarande webb-API som använder [Microsoft OWIN][katana] -komponenter för mellanprogram (Katana). Även om kod exemplen är speciella för Microsoft OWIN mellanprogram, bör den allmänna tekniken vara tillämplig på andra OWIN-bibliotek.
+Genom att lägga till stöd i ditt API för att acceptera token som utfärdats av både b2clogin.com och login.microsoftonline.com, kan du migrera dina webb program på ett stegvist sätt innan du tar bort stöd för login.microsoftonline.com utfärdade token från API: et.
+
+I följande avsnitt finns ett exempel på hur du aktiverar flera utfärdare i ett webb-API som använder [Microsoft OWIN][katana] -komponenter för mellanprogram (Katana). Även om kod exemplen är speciella för Microsoft OWIN mellanprogram, bör den allmänna tekniken vara tillämplig på andra OWIN-bibliotek.
 
 > [!NOTE]
-> Den här artikeln är avsedd för Azure AD B2C kunder med för närvarande distribuerade program `login.microsoftonline.com` som refererar till och som vill migrera till `b2clogin.com` den rekommenderade slut punkten. Om du konfigurerar ett nytt program ska du använda [b2clogin.com](b2clogin.md) som dirigerad.
+> Den här artikeln är avsedd för Azure AD B2C kunder med för närvarande distribuerade API: er `login.microsoftonline.com` och program som refererar till och som vill `b2clogin.com` migrera till den rekommenderade slut punkten. Om du konfigurerar ett nytt program ska du använda [b2clogin.com](b2clogin.md) som dirigerad.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -34,7 +36,7 @@ Du behöver följande Azure AD B2C resurser på plats innan du fortsätter med s
 
 ## <a name="get-token-issuer-endpoints"></a>Hämta token för utfärdarens slut punkter
 
-Du måste först hämta slut punkts-URI: er för token för varje utfärdare som du vill stödja i ditt program. Använd följande procedur i Azure Portal för att hämta de *b2clogin.com* -och *login.microsoftonline.com* -slutpunkter som stöds av din Azure AD B2C klient.
+Du måste först hämta slut punkts-URI: er för token för varje utfärdare som du vill stödja i ditt API. Använd följande procedur i Azure Portal för att hämta de *b2clogin.com* -och *login.microsoftonline.com* -slutpunkter som stöds av din Azure AD B2C klient.
 
 Börja med att välja ett befintligt användar flöde:
 

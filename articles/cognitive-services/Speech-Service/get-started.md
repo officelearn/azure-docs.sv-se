@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: a8797afdfacfcfc75445c7f35083aeb9bb847ac1
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 41d12013ec7eaa4e2aae59e1b366cc511a41f749
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562934"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69535106"
 ---
 # <a name="try-speech-services-for-free"></a>Testa Speech Services kostnadsfritt
 
@@ -38,7 +38,7 @@ Att registrera dig för en 30-dagars kostnadsfri utvärderingsversion:
 
    ![Fliken för tal-tjänster](media/index/try-speech-api-free-trial1.png)
 
-1. Under **tal tjänster**väljer du knappen **Hämta API-nyckel** .
+1. Under **tal tjänster**väljer du **Hämta API-nyckel**.
 
    ![API-nyckel](media/index/try-speech-api-free-trial2.png)
 
@@ -48,7 +48,7 @@ Att registrera dig för en 30-dagars kostnadsfri utvärderingsversion:
 
 1. Logga in med ditt Microsoft, Facebook, LinkedIn och GitHub-konto.
 
-    Du kan registrera dig för ett kostnadsfritt microsoftkonto på den [Microsoft kontoportalen](https://account.microsoft.com/account). Kom igång genom att klicka på **logga in med Microsoft** och klicka sedan, när du ombeds logga in på **skapa ett.** Följ stegen för att skapa och verifiera ditt nya Microsoft-konto.
+    Du kan registrera dig för ett kostnadsfritt microsoftkonto på den [Microsoft kontoportalen](https://account.microsoft.com/account). Kom igång genom att välja **Logga in med Microsoft** och sedan när du uppmanas att logga in, väljer du **skapa ett.** Följ stegen för att skapa och verifiera ditt nya Microsoft-konto.
 
 När du loggar in på prova Cognitive Services, börjar din kostnadsfria utvärderingsversion. Visade webbsidan visar alla Azure Cognitive Services-tjänster som du för närvarande har utvärderingsprenumerationer. Två prenumerations nycklar visas bredvid **tal tjänster**. Du kan använda någon av nycklarna i dina program.
 
@@ -59,9 +59,9 @@ När du loggar in på prova Cognitive Services, börjar din kostnadsfria utvärd
 
 Nya Azure-konton får en kredit på 200 servicekrediter som är tillgänglig i upp till 30 dagar. Du kan använda den här krediten för att ytterligare utforska tal tjänsterna eller börja utveckla program.
 
-Om du vill registrera dig för en ny Azure-konto går du till den [Azure registreringssidan](https://azure.microsoft.com/free/ai/), klickar du på **starta kostnadsfri** och skapa en ny Azure-konto med ditt Microsoft-konto.
+Registrera dig för ett nytt Azure-konto genom att gå till [sidan för Azure-registrering](https://azure.microsoft.com/free/ai/), välja **Starta kostnads fritt** och skapa ett nytt Azure-konto med hjälp av din Microsoft-konto.
 
-Du kan registrera dig för ett kostnadsfritt microsoftkonto på den [Microsoft kontoportalen](https://account.microsoft.com/account). Kom igång genom att klicka på **logga in med Microsoft** och klicka sedan, när du ombeds logga in på **skapa ett.** Följ stegen för att skapa och verifiera ditt nya Microsoft-konto.
+Du kan registrera dig för ett kostnadsfritt microsoftkonto på den [Microsoft kontoportalen](https://account.microsoft.com/account). Kom igång genom att välja **Logga in med Microsoft** och sedan när du uppmanas att logga in, väljer du **skapa ett.** Följ stegen för att skapa och verifiera ditt nya Microsoft-konto.
 
 När du har skapat ditt Azure-konto följer du stegen i nästa avsnitt för att starta en prenumeration på tal tjänsterna.
 
@@ -90,7 +90,7 @@ Så här lägger du till en resurs för tal tjänster (kostnads fri eller betald
    * Ett namn för den nya resursen. Namnet hjälper dig att skilja mellan flera prenumerationer för samma tjänst.
    * Välj den prenumeration som den nya resursen är associerad med för att fastställa hur avgiften faktureras.
    * Välj den [region](regions.md) där resursen ska användas.
-   * Välj antingen en kostnadsfri eller betald prisnivå. Klicka på **Visa fullständiga prisuppgifter** fullständig information om priser och användning kvoter för varje nivå.
+   * Välj antingen en kostnadsfri eller betald prisnivå. Välj **Visa fullständiga pris uppgifter** för fullständig information om priser och användnings kvoter för varje nivå.
    * Skapa en ny resursgrupp för den här prenumerationen med tal eller tilldela prenumerationen till en befintlig resursgrupp. Kan du spara dina olika Azure-prenumerationer som ordnas resursgrupperna.
    * För åtkomst till prenumerationen i framtiden, väljer du den **fäst på instrumentpanelen** markerar du kryssrutan.
    * Välj **skapa.**
@@ -101,7 +101,7 @@ Så här lägger du till en resurs för tal tjänster (kostnads fri eller betald
 
      ![Snabbstart för panelen](media/index/try-speech-api-create-speech5.png)
 
-1. Under **snabbstarten**, klickar du på den **nycklar** länken under steg 1 för att visa dina prenumerationsnycklar. Varje prenumeration har två nycklar; Du kan använda någon av nycklarna i ditt program. Välj knappen bredvid varje nyckel för att kopiera den till Urklipp för att klistra in i din kod.
+1. Under **snabb start**väljer du länken **nycklar** under steg 1 för att visa dina prenumerations nycklar. Varje prenumeration har två nycklar; Du kan använda någon av nycklarna i ditt program. Välj knappen bredvid varje nyckel för att kopiera den till Urklipp för att klistra in i din kod.
 
 > [!NOTE]
 > Du kan skapa ett obegränsat antal prenumerationer för standard-nivån i en eller flera regioner. Du kan dock skapa endast en kostnadsfri nivå-prenumeration. Modelldistributioner på den kostnadsfria nivån som är oanvända för 7 dagar kommer automatiskt att avetablerats.

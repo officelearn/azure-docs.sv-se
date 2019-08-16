@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 08/13/2019
 ms.author: cherylmc
-ms.openlocfilehash: 624c1648bc709e1ca6ee9c4120350a606df67df5
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 79e7027d308d389aa672d164de91df61b1142e32
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035759"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534166"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Skapa och installera konfigurationsfiler för VPN-klienten för interna P2S-konfigurationer för Azure-certifikatautentisering
 
@@ -126,12 +126,12 @@ Om du inte redan har skapat certifikat kan du använda följande steg:
 
 ### <a name="install"></a>Installera och konfigurera
 
-Följande instruktioner har skapats via strongSwan 5.5.1 på Ubuntu 17.0.4. Ubuntu-16.0.10 stöder inte strongSwan-ANVÄNDARGRÄNSSNITTET. Om du vill använda Ubuntu 16.0.10 måste du använda [kommando raden](#linuxinstallcli). Exemplen nedan kan inte matcha skärmar som visas, beroende på din version av Linux och strongSwan.
+Följande instruktioner skapades på Ubuntu 18.0.4. Ubuntu-16.0.10 stöder inte strongSwan-ANVÄNDARGRÄNSSNITTET. Om du vill använda Ubuntu 16.0.10 måste du använda [kommando raden](#linuxinstallcli). Exemplen nedan kan inte matcha skärmar som visas, beroende på din version av Linux och strongSwan.
 
-1. Öppna **terminalen** för att installera **StrongSwan** och dess nätverks hanterare genom att köra kommandot i exemplet. Om du får ett fel som är relaterat till *libcharon-extra-plugin*-program ersätter du det med "strongswan-plugin-EAP-MSCHAPv2".
+1. Öppna **terminalen** för att installera **StrongSwan** och dess nätverks hanterare genom att köra kommandot i exemplet.
 
    ```
-   sudo apt-get install strongswan libcharon-extra-plugins moreutils iptables-persistent network-manager-strongswan
+   sudo apt install network-manager-strongswan
    ```
 2. Välj ikonen **Network Manager** (UPPIL/NEDPIL) och välj sedan **Redigera anslutningar**.
 

@@ -471,14 +471,6 @@
                   href: ./partner-center-portal/pc-saas-fulfillment-api-v1.md
                 - name: 'API:er för uppfyllnad av SaaS – vanliga frågor och svar'
                   href: ./partner-center-portal/saas-fulfillment-apis-faq.md
-            - name: Registrera ett SaaS-program
-              href: ./partner-center-portal/pc-saas-registration.md
-            - name: 'API:er för uppfyllnad av SaaS, v2'
-              href: ./partner-center-portal/pc-saas-fulfillment-api-v2.md
-            - name: 'API:er för uppfyllnad av SaaS, v1 (inaktuell)'
-              href: ./partner-center-portal/pc-saas-fulfillment-api-v1.md
-            - name: 'API:er för uppfyllnad av SaaS – vanliga frågor och svar'
-              href: ./partner-center-portal/saas-fulfillment-apis-faq.md
         - name: Provkör erbjudandet
           href: ./partner-center-portal/test-drive.md
     - name: Publiceringsstatus

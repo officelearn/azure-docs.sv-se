@@ -1,5 +1,5 @@
 ---
-title: Konfigurera meddelanderoutning för Azure IoT Hub med Azure CLI | Microsoft Docs
+title: Konfigurera meddelanderoutning för Azure IoT Hub med hjälp av Azure CLI | Microsoft Docs
 description: Konfigurera meddelanderoutning för Azure IoT Hub med Azure CLI
 author: robinsh
 manager: philmea
@@ -9,42 +9,42 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 6faa585f1ad38eb981e0bbffffef603c4aab0bc8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: defb47f49549bf8ca308aec9862c1bcc08f1ff4e
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66163408"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69535017"
 ---
-# <a name="tutorial-use-the-azure-cli-to-configure-iot-hub-message-routing"></a>Självstudier: Använda Azure CLI för att konfigurera IoT Hub meddelanderoutning
+# <a name="tutorial-use-the-azure-cli-to-configure-iot-hub-message-routing"></a>Självstudier: Använd Azure CLI för att konfigurera IoT Hub meddelanderoutning
 
 [!INCLUDE [iot-hub-include-routing-intro](../../includes/iot-hub-include-routing-intro.md)]
 
 [!INCLUDE [iot-hub-include-routing-create-resources](../../includes/iot-hub-include-routing-create-resources.md)]
 
-## <a name="download-the-script-optional"></a>Ladda ned skriptet (valfritt)
+## <a name="download-the-script-optional"></a>Hämta skriptet (valfritt)
 
-För den andra delen av den här självstudiekursen ska du hämta och kör ett Visual Studio-program för att skicka meddelanden till IoT Hub. Det finns en mapp i download som innehåller Azure Resource Manager-mallen och parameterfilen, samt Azure CLI och PowerShell-skript.
+För den andra delen av den här självstudien kan du hämta och köra ett Visual Studio-program för att skicka meddelanden till IoT Hub. Det finns en mapp i nedladdningen som innehåller Azure Resource Manager mall och parameter filen, samt Azure CLI-och PowerShell-skript.
 
-Om du vill visa det färdiga skriptet kan hämta den [Azure IoT C# exempel](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Packa upp filen master.zip. Azure CLI-skript är i /iot-hub/Tutorials/Routing/SimulatedDevice/resources/som **iothub_routing_cli.azcli**.
+Om du vill visa det färdiga skriptet laddar du ned [Azure IoT C# ](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip)-exemplen. Zippa upp Master. zip-filen. Azure CLI-skriptet är i/iot-hub/Tutorials/Routing/SimulatedDevice/resources/som **iothub_routing_cli. azcli**.
 
-## <a name="use-the-azure-cli-to-create-your-resources"></a>Använda Azure CLI för att skapa dina resurser
+## <a name="use-the-azure-cli-to-create-your-resources"></a>Använd Azure CLI för att skapa resurser
 
-Det finns flera resursnamn som måste vara globalt unikt, till exempel IoT Hub-namn och namnet på lagringskontot. Om du vill göra det enklare, läggs de resursnamn med slumpmässiga alfanumeriska värdet kallas *randomValue*. RandomValue skapas en gång överst i skriptet och läggas till för resursnamnen efter behov i skriptet. Om du inte vill att det ska vara slumpmässiga kan konfigurera du den till en tom sträng eller till ett specifikt värde. 
+Det finns flera resurs namn som måste vara globalt unika, till exempel IoT Hub namn och lagrings konto namn. För att göra det enklare läggs dessa resurs namn till med ett slumpmässigt alfanumeriskt värde som kallas *randomValue*. RandomValue skapas en gång överst i skriptet och läggs till i resurs namnen vid behov i hela skriptet. Om du inte vill att den ska vara slumpmässig, kan du ange den som en tom sträng eller ett angivet värde. 
 
 > [!IMPORTANT]
-> Variabler i skriptet inledande används också av Routning skriptet, så körs alla skriptet i samma Cloud Shell-sessionen. Om du öppnar en ny session för att köra skript för att konfigurera routning saknar flera av variablerna värden.
+> Variablerna som anges i det inledande skriptet används också av skriptet för routning, så kör hela skriptet i samma Cloud Shell-session. Om du öppnar en ny session för att köra skriptet för att konfigurera routningen kommer flera av variablerna att sakna värden.
 >
 
-Kopiera och klistra in skriptet nedan i Cloud Shell och tryck på RETUR. Den körs skriptet en rad i taget. Det första avsnittet av skriptet skapar de grundläggande resurserna för den här självstudiekursen, inklusive storage-konto, IoT Hub, Service Bus Namespace och Service Bus-kö. När du går igenom resten av kursen kopierar varje block på skript och klistra in den i Cloud Shell för att köra den.
+Kopiera och klistra in skriptet nedan i Cloud Shell och tryck på RETUR. Den kör skriptet en rad i taget. I det första avsnittet av skriptet skapas bas resurserna för den här självstudien, inklusive lagrings kontot, IoT Hub, Service Bus namn området och Service Bus kön. När du går igenom resten av självstudien kopierar du varje skript block och klistrar in det i Cloud Shell för att köra det.
 
 > [!TIP]
-> Ett tips om hur du felsöker: det här skriptet använder symbolen fortsättning (ett omvänt snedstreck `\`) att göra det lättare att läsa skriptet. Om du har problem med att köra skriptet kan du kontrollera att det finns inga blanksteg efter någon av de omvända snedstreck.
+> Ett tips om fel sökning: det här skriptet använder fortsättnings symbolen (det omvända snedstrecket `\`) för att göra skriptet mer läsbart. Om du har problem med att köra skriptet ser du till att det inte finns några blank steg efter något av omvänt snedstreck.
 > 
 
 ```azurecli-interactive
 # This command retrieves the subscription id of the current Azure account. 
-# This field is used when setting up the routing rules.
+# This field is used when setting up the routing queries.
 subscriptionID=$(az account show --query id)
 
 # Concatenate this number onto the resources that have to be globally unique.
@@ -141,45 +141,45 @@ az iot hub device-identity show --device-id $iotDeviceName \
     --hub-name $iotHubName
 ```
 
-Nu när de grundläggande resurserna har konfigurerats kan konfigurera du den meddelanderoutning.
+Nu när bas resurserna har kon figurer ATS kan du konfigurera meddelanderoutning.
 
 ## <a name="set-up-message-routing"></a>Konfigurera meddelanderedigering
 
 [!INCLUDE [iot-hub-include-create-routing-description](../../includes/iot-hub-include-create-routing-description.md)]
 
-Du kan skapa en slutpunkt för routning med [az iot hub routning – slutpunkt skapa](/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest#az-iot-hub-routing-endpoint-create). Du kan skapa meddelandeväg för slutpunkten med [az iot hub vägen skapa](/cli/azure/iot/hub/route?view=azure-cli-latest#az-iot-hub-route-create).
+Om du vill skapa en Dirigerings slut punkt använder du [AZ IoT Hub routing-Endpoint Create](/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest#az-iot-hub-routing-endpoint-create). Om du vill skapa meddelande vägen för slut punkten använder du [AZ IoT Hub Route Create](/cli/azure/iot/hub/route?view=azure-cli-latest#az-iot-hub-route-create).
 
-### <a name="route-to-a-storage-account"></a>Dirigera till ett lagringskonto
+### <a name="route-to-a-storage-account"></a>Dirigera till ett lagrings konto
 
 [!INCLUDE [iot-hub-include-blob-storage-format](../../includes/iot-hub-include-blob-storage-format.md)]
 
-Först, konfigurera slutpunkten för storage-konto och sedan konfigurera vägen. 
+Börja med att konfigurera slut punkten för lagrings kontot och ställ sedan in vägen. 
 
-De här variablerna anges:
+Dessa variabler har angetts:
 
-**storageConnectionString**: Det här värdet hämtas från storage-kontot som angetts i föregående skript. Den används av meddelandet routning för att komma åt lagringskontot.
+**storageConnectionString**: Det här värdet hämtas från det lagrings konto som har kon figurer ATS i föregående skript. Den används av meddelanderoutning för att komma åt lagrings kontot.
 
-  **resourceGroup**: Det finns två förekomster av resursgrupp – sätter dem på din resursgrupp.
+  **resourceGroup**: Det finns två förekomster av resurs gruppen – ange dem till din resurs grupp.
 
-**slutpunkten subscriptionID**: Det här fältet är inställd på Azure prenumerations-ID för slutpunkten. 
+**slut punkts subscriptionID**: Det här fältet är inställt på Azure subscriptionID för slut punkten. 
 
-**endpointType**: Det här fältet är typen av slutpunkt. Det här värdet måste anges till `azurestoragecontainer`, `eventhub`, `servicebusqueue`, eller `servicebustopic`. För de här, ange den till `azurestoragecontainer`.
+**endpointType**: Det här fältet är typen av slut punkt. `azurestoragecontainer`Värdet måste anges till `eventhub` `servicebusqueue`,, eller. `servicebustopic` För dina behov här ställer du in den `azurestoragecontainer`på.
 
-**iotHubName**: Det här fältet är namnet på hubben som kommer att göra routning.
+**iotHubName**: Det här fältet är namnet på den hubb som ska utföra dirigeringen.
 
-**containerName**: Det här fältet är namnet på behållaren i lagringskontot som data ska skrivas.
+**containerName**: Det här fältet är namnet på behållaren i det lagrings konto som data ska skrivas till.
 
-**Kodning**: Det här fältet ska vara antingen `avro` eller `json`. Detta anger formatet för lagrade data.
+**kodning**: Det här fältet är antingen `avro` eller `json`. Detta anger formatet för lagrade data.
 
-**routeName**: Det här fältet är namnet på flödet som du ställer in. 
+**routeName**: Det här fältet är namnet på den väg som du ställer in. 
 
-**endpointName**: Det här fältet är namnet som identifierar slutpunkten. 
+**endpointName**: Det här fältet är namnet som identifierar slut punkten. 
 
-**Aktiverad**: Standardvärdet för `true`, som anger att meddelandevägen ska aktiveras när du skapat.
+**aktive rad**: Det här fältet `true`är standardvärdet och anger att meddelande flödet ska aktive ras efter att det har skapats.
 
-**Villkoret**: Det här fältet är frågan som används för att filtrera för meddelanden som skickats till den här slutpunkten. Frågevillkoret för meddelanden som vidarebefordras till lagring är `level="storage"`.
+**villkor**: Det här fältet är den fråga som används för att filtrera meddelanden som skickas till den här slut punkten. Frågevillkor för meddelanden som dirigeras till lagring är `level="storage"`.
 
-Kopiera det här skriptet och klistra in den i Cloud Shell-fönstret och kör den.
+Kopiera skriptet och klistra in det i Cloud Shell-fönstret och kör det.
 
 ```azurecli
 ##### ROUTING FOR STORAGE ##### 
@@ -195,7 +195,7 @@ storageConnectionString=$(az storage account show-connection-string \
   --name $storageAccountName --query connectionString -o tsv)
 ```
 
-Nästa steg är att skapa routning slutpunkten för storage-kontot. Du kan även ange behållaren där resultaten ska sparas. Behållaren har skapats tidigare när lagringskontot skapades.
+Nästa steg är att skapa Dirigerings slut punkten för lagrings kontot. Du kan också ange den behållare där resultaten ska lagras. Behållaren skapades tidigare när lagrings kontot skapades.
 
 ```azurecli
 # Create the routing endpoint for storage.
@@ -211,7 +211,7 @@ az iot hub routing-endpoint create \
   --encoding avro
 ```
 
-Därefter skapa rutten för slutpunkt för lagring. Meddelandevägen betyder att skicka meddelanden som uppfyller frågespecifikationen. 
+Skapa sedan vägen för lagrings slut punkten. Meddelande vägen anger vart meddelanden som uppfyller frågans specifikation ska skickas. 
 
 ```azurecli
 # Create the route for the storage endpoint.
@@ -225,9 +225,9 @@ az iot hub route create \
   --condition $condition
 ```
 
-### <a name="route-to-a-service-bus-queue"></a>Dirigera till en Service Bus-kö
+### <a name="route-to-a-service-bus-queue"></a>Dirigera till en Service Bus kö
 
-Konfigurera nu routning för Service Bus-kön. Du måste skapa en auktoriseringsregel som har definierats korrekt behörighet för att hämta anslutningssträngen för Service Bus-kö. Följande skript skapar en auktoriseringsregel för Service Bus-kö som kallas `sbauthrule`, och anger rättigheterna till `Listen Manage Send`. När den här auktoriseringsregeln har definierats kan använda du den för att hämta anslutningssträngen för kön.
+Konfigurera nu routning för Service Bus-kön. Om du vill hämta anslutnings strängen för Service Bus kön måste du skapa en auktoriseringsregel som har rätt rättigheter definierade. Följande skript skapar en auktoriseringsregel för Service Bus kön som kallas `sbauthrule`, och anger rättigheterna till. `Listen Manage Send` När den här auktoriseringsregeln har definierats kan du använda den för att hämta anslutnings strängen för kön.
 
 ```azurecli
 # Create the authorization rule for the Service Bus queue.
@@ -240,7 +240,7 @@ az servicebus queue authorization-rule create \
   --subscription $subscriptionID
 ```
 
-Nu använda auktoriseringsregeln för att hämta anslutningssträngen till Service Bus-kö.
+Använd nu auktoriseringsregeln för att hämta anslutnings strängen till Service Bus kön.
 
 ```azurecli
 # Get the Service Bus queue connection string.
@@ -257,17 +257,17 @@ sbqConnectionString=$(az servicebus queue authorization-rule keys list \
 echo "service bus queue connection string = " $sbqConnectionString
 ```
 
-Nu ställa in Routning slutpunkten och meddelandeväg för Service Bus-kö. De här variablerna anges:
+Nu konfigurerar du Dirigerings slut punkten och meddelande vägen för Service Bus kön. Dessa variabler har angetts:
 
-**endpointName**: Det här fältet är namnet som identifierar slutpunkten. 
+**endpointName**: Det här fältet är namnet som identifierar slut punkten. 
 
-**endpointType**: Det här fältet är typen av slutpunkt. Det här värdet måste anges till `azurestoragecontainer`, `eventhub`, `servicebusqueue`, eller `servicebustopic`. För de här, ange den till `servicebusqueue`.
+**endpointType**: Det här fältet är typen av slut punkt. `azurestoragecontainer`Värdet måste anges till `eventhub` `servicebusqueue`,, eller. `servicebustopic` För dina behov här ställer du in den `servicebusqueue`på.
 
-**routeName**: Det här fältet är namnet på flödet som du ställer in. 
+**routeName**: Det här fältet är namnet på den väg som du ställer in. 
 
-**Villkoret**: Det här fältet är frågan som används för att filtrera för meddelanden som skickats till den här slutpunkten. Frågevillkoret för meddelanden som dirigeras till Service Bus-kön är `level="critical"`.
+**villkor**: Det här fältet är den fråga som används för att filtrera meddelanden som skickas till den här slut punkten. Frågevillkor för de meddelanden som dirigeras till Service Bus kön är `level="critical"`.
 
-Här är Azure CLI för routning slutpunkten och meddelandeväg för Service Bus-kö.
+Här är Azure CLI för cirkulations slut punkten och meddelande vägen för Service Bus kön.
 
 ```azurecli
 endpointName="ContosoSBQueueEndpoint"
@@ -302,7 +302,7 @@ az iot hub route create --name $routeName \
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har de resurser som ställer in och meddelandevägar konfigurerats kan du gå vidare till nästa självstudie och lär dig hur du skickar meddelanden till IoT hub och se att de dirigeras till olika mål. 
+Nu när du har konfigurerat resurserna och meddelande vägarna har kon figurer ATS kan du gå vidare till nästa självstudie för att lära dig hur du skickar meddelanden till IoT-hubben och ser att de dirigeras till olika destinationer. 
 
 > [!div class="nextstepaction"]
-> [Del 2 – visa meddelandet routningsresultat](tutorial-routing-view-message-routing-results.md)
+> [Del 2 – Visa resultatet av meddelanderoutning](tutorial-routing-view-message-routing-results.md)

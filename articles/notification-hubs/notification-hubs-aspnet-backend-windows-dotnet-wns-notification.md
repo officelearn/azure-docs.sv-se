@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/22/2019
 ms.author: jowargo
-ms.openlocfilehash: 32714b3e5a5ed859716faef2ca660f8b2c90b089
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a4949b12076ea7cdbbf882d199279410da95e005
+ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60874295"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69558660"
 ---
 # <a name="tutorial-send-notifications-to-specific-users-by-using-azure-notification-hubs"></a>Självstudier: Skicka push-meddelanden till specifika användare med hjälp av Azure Notification Hubs
 
@@ -31,7 +31,7 @@ ms.locfileid: "60874295"
 Denna självstudie visar hur du använder Azure Notification Hubs till att skicka push-meddelanden till en specifik appanvändare på en specifik enhet. En ASP.NET-WebAPI-serverdel används för att autentisera klienter. När serverdelen autentiserar en klientprogramsanvändare lägger den automatiskt till en tagg till meddelanderegistreringen. Serverdelen använder den här taggen för att skicka meddelanden till specifika användare.
 
 > [!NOTE]
-> Den slutförda koden för den här självstudiekursen hittar du [på GitHub](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/NotifyUsers).
+> Den slutförda koden för den här självstudiekursen hittar du [på GitHub](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/NotifyUsers).
 
 I den här självstudien gör du följande:
 
@@ -44,7 +44,7 @@ I den här självstudien gör du följande:
 > * Uppdatera klientprojektets kod
 > * Testa programmet
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här självstudien bygger på den meddelandehubb och det Visual Studio-projekt som du skapade i [Självstudie: Skicka push-meddelanden till Universal Windows Platform-appar med hjälp av självstudien Azure Notification Hubs](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md). Slutför den därför innan du påbörjar den här kursen.
 
@@ -58,8 +58,8 @@ Den här självstudien bygger på den meddelandehubb och det Visual Studio-proje
 I det här avsnittet uppdaterar du koden i det projekt som du slutförde för [Självstudie: Skicka push-meddelanden till Universal Windows Platform-appar med hjälp av självstudien Azure Notification Hubs](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md). Projektet bör redan ha associerats till Windows Store. Det bör också ha konfigurerats för meddelandehubben. I det här avsnittet kommer du att lägga till kod för att anropa den nya WebAPI-serverdelen och använda den för att registrera och skicka meddelanden.
 
 1. I Visual Studio öppnar du den lösning som du skapade för [Självstudie: Skicka push-meddelanden till Universal Windows Platform-appar med hjälp av Azure Notification Hubs](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).
-2. Högerklicka på Universal Windows Platform (UWP)-projektet i Solution Explorer och klicka sedan på **hantera NuGet-paket**.
-3. Till vänster, Välj **Bläddra**.
+2. I Solution Explorer högerklickar du på projektet Universell Windows-plattform (UWP) och klickar sedan på **Hantera NuGet-paket**.
+3. Välj **Bläddra**till vänster på sidan.
 4. Skriv **Http-klient** i rutan **Sök**.
 5. Klicka på **System.Net.Http** i resultatlistan och klicka på **Installera**. Slutför installationen.
 6. Gå tillbaka till rutan **Sök** i NuGet och skriv **Json.net**. Installera **Newtonsoft.json**-paketet och stäng sedan NuGet Package Manager-fönstret.
@@ -116,7 +116,7 @@ I det här avsnittet uppdaterar du koden i det projekt som du slutförde för [S
         </StackPanel>
     </Grid>
     ```
-9. I Solution Explorer öppnar du `MainPage.xaml.cs`-filen för **(Windows 8.1)**- och **(Windows Phone 8.1)**-projekten. Lägg till följande `using`-uttryck högst upp i respektive fil:
+9. I Solution Explorer öppnar du `MainPage.xaml.cs`-filen för **(Windows 8.1)** - och **(Windows Phone 8.1)** -projekten. Lägg till följande `using`-uttryck högst upp i respektive fil:
 
     ```csharp
     using System.Net.Http;
@@ -131,7 +131,7 @@ I det här avsnittet uppdaterar du koden i det projekt som du slutförde för [S
     ```csharp
     private static string BACKEND_ENDPOINT = "<Enter Your Backend Endpoint>";
     ```
-11. Lägg till koden nedan i klassen MainPage i `MainPage.xaml.cs` för **(Windows 8.1)**- och **(Windows Phone 8.1)**-projekten.
+11. Lägg till koden nedan i klassen MainPage i `MainPage.xaml.cs` för **(Windows 8.1)** - och **(Windows Phone 8.1)** -projekten.
 
     Metoden `PushClick` är klickhanterare för knappen **Skicka Push**. Anropar serverdelen för att utlösa en avisering till alla enheter med en användarnamnstagg som matchar `to_tag`-parametern. Meddelandet skickas som JSON-innehåll i begärandetexten.
 

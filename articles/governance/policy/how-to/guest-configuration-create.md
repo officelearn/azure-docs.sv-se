@@ -7,16 +7,18 @@ ms.date: 07/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 7dd053e3a9824ac0817db528b8b053666e1ded04
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 131d6865c47a32bbefbfbd397a5f0f88dedc9c35
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881823"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543509"
 ---
 # <a name="how-to-create-guest-configuration-policies"></a>Så här skapar du principer för gäst konfiguration
 
 I gäst konfigurationen används en resurs modell för [önskad tillstånds konfiguration](/powershell/dsc) (DSC) för att skapa konfigurationen för granskning av virtuella Azure-datorer. DSC-konfigurationen definierar det villkor som den virtuella datorn ska ha. Om utvärderingen av konfigurationen Miss lyckas utlöses granskningen av princip effekterna och den virtuella datorn betraktas som **icke-kompatibel**.
+
+[Azure policy gäst konfiguration](/azure/governance/policy/concepts/guest-configuration) kan bara användas för att granska inställningar i virtuella datorer. Reparation av inställningar i virtuella datorer är inte tillgänglig ännu.
 
 Använd följande åtgärder för att skapa en egen konfiguration för att verifiera statusen för en virtuell Azure-dator.
 

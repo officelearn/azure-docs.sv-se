@@ -1,6 +1,6 @@
 ---
 title: Använd SSH-nycklar med Windows för virtuella Linux-datorer | Microsoft Docs
-description: Lär dig hur du skapar och använder SSH-nycklar på en Windows-dator för att ansluta till en Linux-dator på Azure.
+description: Lär dig hur du skapar och använder SSH-nycklar på en Windows-dator för att ansluta till en virtuell Linux-dator på Azure.
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -15,119 +15,119 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: cynthn
-ms.openlocfilehash: bd5eeb3bc3864dc0203c558228dce2f54dbaa79d
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 157cc706da34281ec7bb36a9b9e16a4192b3bd96
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67708807"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543873"
 ---
-# <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Hur du använder SSH-nycklar med Windows på Azure
+# <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Använda SSH-nycklar med Windows på Azure
 
-Den här artikeln beskrivs olika sätt att skapa och använda *secure shell* nycklar (SSH) på en Windows-dator för att skapa och ansluta till en Linux-dator (VM) i Azure. Om du vill använda SSH-nycklar från en klient för Linux eller macOS, se den [snabb](mac-create-ssh-keys.md) eller [detaljerad](create-ssh-keys-detailed.md) vägledning.
+Den här artikeln beskriver hur du skapar och använder SSH-nycklar ( *Secure Shell* ) på en Windows-dator för att skapa och ansluta till en virtuell Linux-dator (VM) i Azure. Information om hur du använder SSH-nycklar från en Linux-eller macOS-klient finns i [snabb](mac-create-ssh-keys.md) eller [detaljerad](create-ssh-keys-detailed.md) vägledning.
 
 [!INCLUDE [virtual-machines-common-ssh-overview](../../../includes/virtual-machines-common-ssh-overview.md)]
 
 [!INCLUDE [virtual-machines-common-ssh-support](../../../includes/virtual-machines-common-ssh-support.md)]
 
 ## <a name="windows-packages-and-ssh-clients"></a>Windows-paket och SSH-klienter
-Du ansluter till och hantera virtuella Linux-datorer i Azure med hjälp av en *SSH-klient*. Datorer som kör Linux eller macOS vanligtvis har en uppsättning SSH kommandon för att skapa och hantera en SSH-nycklar och att skapa SSH-anslutningar. 
+Du ansluter till och hanterar virtuella Linux-datorer i Azure med hjälp av en *SSH-klient*. Datorer som kör Linux eller macOS har vanligt vis en uppsättning SSH-kommandon för att skapa och hantera SSH-nycklar och för att göra SSH-anslutningar. 
 
-Windows-datorer har inte alltid likvärdig SSH-kommandon som är installerad. De senaste versionerna av Windows 10 ger [OpenSSH-klientkommandon](https://blogs.msdn.microsoft.com/commandline/2018/03/07/windows10v1803/) att skapa och hantera SSH-nycklar och skapa SSH-anslutningar från en kommandotolk. De senaste Windows 10-versioner kan även innehålla den [Windows-undersystem for Linux](https://docs.microsoft.com/windows/wsl/about) att köra och få åtkomst till verktyg, till exempel en SSH-klient internt i ett Bash-gränssnitt. 
+Windows-datorer har inte alltid jämförbara SSH-kommandon installerade. De senaste versionerna av Windows 10 tillhandahåller [openssh-klient kommandon](https://blogs.msdn.microsoft.com/commandline/2018/03/07/windows10v1803/) för att skapa och hantera SSH-nycklar och göra SSH-anslutningar från en kommando tolk. De senaste versionerna av Windows 10 innehåller även [Windows-undersystemet för Linux](https://docs.microsoft.com/windows/wsl/about) för att köra och få till gång till verktyg som en SSH-klient internt i ett bash-gränssnitt. 
 
-Andra vanliga Windows SSH klienter du kan installera lokalt ingår i följande paket:
+Andra vanliga Windows SSH-klienter som du kan installera lokalt ingår i följande paket:
 
 * [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/)
 * [Git för Windows](https://git-for-windows.github.io/)
 * [MobaXterm](https://mobaxterm.mobatek.net/)
 * [Cygwin](https://cygwin.com/)
 
-Du kan också använda de SSH-verktyg som är tillgängligt i Bash i den [Azure Cloud Shell](../../cloud-shell/overview.md). 
+Du kan också använda SSH-verktygen som är tillgängliga i bash i [Azure Cloud Shell](../../cloud-shell/overview.md). 
 
-* Komma åt Cloud Shell i webbläsaren på [ https://shell.azure.com ](https://shell.azure.com) eller i den [Azure-portalen](https://portal.azure.com). 
-* Åtkomst till Cloud Shell som en terminal inifrån Visual Studio Code genom att installera den [tillägget Azure Account](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account).
+* Åtkomst Cloud Shell i webbläsaren på [https://shell.azure.com](https://shell.azure.com) eller i [Azure Portal](https://portal.azure.com). 
+* Kom åt Cloud Shell som en Terminal i Visual Studio Code genom att installera [tillägget för Azure-kontot](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account).
 
 ## <a name="create-an-ssh-key-pair"></a>Skapa ett SSH-nyckelpar
-I följande avsnitt beskrivs två alternativ för att skapa en SSH-nyckelpar i Windows. Du kan använda shell-kommandon (`ssh-keygen`) eller en GUI-verktyget (PuTTYgen).
+I följande avsnitt beskrivs två alternativ för att skapa ett SSH-nyckelpar i Windows. Du kan använda ett Shell-kommando`ssh-keygen`() eller ett gui-verktyg (PuTTYgen). Observera också när du använder PowerShell för att skapa en nyckel, överför den offentliga nyckeln som SSH. com (SECSH)-format. När du använder CLI konverterar du nyckeln till OpenSSH-format innan du överför. 
 
 ### <a name="create-ssh-keys-with-ssh-keygen"></a>Skapa SSH-nycklar med ssh-keygen
 
-Om du kör en kommandotolk i Windows som har stöd för SSH-klientverktyg (eller du använder Azure Cloud Shell), skapa en SSH-nyckelpar med hjälp av den `ssh-keygen` kommando. Skriv följande kommando och svara på frågorna. Om en SSH-nyckelpar finns på de valda skrivs filerna över. 
+Om du kör ett kommando gränssnitt i Windows som stöder SSH-klientinställningar (eller använder Azure Cloud Shell) skapar du ett SSH-nyckelpar med `ssh-keygen` kommandot. Skriv följande kommando och svara på frågorna. Om det finns ett SSH-nyckelpar på den valda platsen, skrivs filerna över. 
 
 ```bash
 ssh-keygen -t rsa -b 2048
 ```
 
-Mer bakgrundsinformation och information finns i den [snabb](mac-create-ssh-keys.md) eller [detaljerad](create-ssh-keys-detailed.md) steg för att skapa SSH-nycklar med `ssh-keygen`.
+Mer bakgrund och information finns i [snabb](mac-create-ssh-keys.md) eller [detaljerade](create-ssh-keys-detailed.md) steg för att skapa SSH-nycklar med `ssh-keygen`.
 
 ### <a name="create-ssh-keys-with-puttygen"></a>Skapa SSH-nycklar med PuTTYgen
 
-Om du föredrar att använda ett GUI-baserade verktyg för att skapa SSH-nycklar kan du använda PuTTYgen nyckelgenerator, ingår i den [PuTTY hämtningspaketet](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html). 
+Om du föredrar att använda ett GUI-baserat verktyg för att skapa SSH-nycklar, kan du använda PuTTYgen-nyckel generatorn som ingår i [paket hämtnings paketet SparaTillFil](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html). 
 
-Skapa ett SSH-RSA-nyckelpar med PuTTYgen:
+Så här skapar du ett SSH RSA-nyckelpar med PuTTYgen:
 
 1. Starta PuTTYgen.
 
-2. Klicka på **generera**. Som standard genererar ett 2048-bitars SSH-2 RSA-nyckel i PuTTYgen.
+2. Klicka på **generera**. Som standard genererar PuTTYgen en 2048-bitars SSH-2 RSA-nyckel.
 
-4. Flytta runt musen i det tomma utrymmet för att tillhandahålla slumpmässighet för nyckeln.
+4. Flytta musen runt i det tomma utrymmet för att ge dig slumpmässighet för nyckeln.
 
-5. När den offentliga nyckeln genereras, du kan också ange och bekräfta en lösenfras. Du uppmanas att lösenfrasen när du autentiserar till den virtuella datorn med den privata SSH-nyckeln. Utan en lösenfras om någon får tag på din privata nyckel, kan de logga in på alla virtuella datorer och tjänster som använder nyckeln. Vi rekommenderar att du skapar en lösenfras. Men om du glömmer bort lösenfrasen finns inget sätt att återställa den.
+5. När den offentliga nyckeln har genererats kan du välja att ange och bekräfta en lösen fras. Du kommer att uppmanas att ange lösen frasen när du autentiserar till den virtuella datorn med din privata SSH-nyckel. Om någon hämtar din privata nyckel utan lösen fras kan de logga in på en virtuell dator eller tjänst som använder den nyckeln. Vi rekommenderar att du skapar en lösen fras. Men om du glömmer bort lösenfrasen finns inget sätt att återställa den.
 
-6. Den offentliga nyckeln visas överst i fönstret. Du kan kopiera den här hela offentlig nyckel och klistra sedan in den i Azure portal eller en Azure Resource Manager-mall när du skapar en Linux-VM. Du kan också välja **spara offentlig nyckel** att spara en kopia på datorn:
+6. Den offentliga nyckeln visas överst i fönstret. Du kan kopiera hela den offentliga nyckeln och klistra in den i Azure Portal eller en Azure Resource Manager mall när du skapar en virtuell Linux-dator. Du kan också välja **Spara offentlig nyckel** för att spara en kopia på datorn:
 
-    ![Spara PuTTY offentlig nyckelfil](./media/ssh-from-windows/save-public-key.png)
+    ![Spara filen med fil för fil-offentlig nyckel](./media/ssh-from-windows/save-public-key.png)
 
-7. Du kan också för att spara den privata nyckeln i PuTTy format på privat nyckel (.ppk-fil), Välj **Spara privat nyckel**. Du behöver den .ppk-fil för senare för att använda PuTTY för att göra en SSH-anslutning till den virtuella datorn.
+7. Om du vill spara den privata nyckeln i filen med formatet för en fil med formatet SparaTillFil (. PPK) väljer du **Spara privat nyckel**. Du kommer att behöva. PPK-filen senare för att kunna använda SparaTillFil för att skapa en SSH-anslutning till den virtuella datorn.
 
-    ![Spara filen med PuTTY privata nyckel](./media/ssh-from-windows/save-ppk-file.png)
+    ![Spara filen med den privata nyckeln för filen](./media/ssh-from-windows/save-ppk-file.png)
 
-    Om du vill spara den privata nyckeln i OpenSSH-format i format på privat nyckel används av många SSH-klienter, Välj **konverteringar** > **exportera OpenSSH-nyckel**.
+    Om du vill spara den privata nyckeln i openssh-formatet, det privata nyckel formatet som används av många SSH-klienter, > väljer du konverteringar**Exportera openssh nyckel**.
 
 ## <a name="provide-an-ssh-public-key-when-deploying-a-vm"></a>Ange en offentlig SSH-nyckel när du distribuerar en virtuell dator
 
-Ange din offentliga SSH-nyckel när du skapar den virtuella datorn med hjälp av Azure-portalen eller andra metoder för att skapa en Linux VM som använder SSH-nycklar för autentisering.
+Om du vill skapa en virtuell Linux-dator som använder SSH-nycklar för autentisering, anger du din offentliga SSH-nyckel när du skapar den virtuella datorn med hjälp av Azure Portal eller andra metoder.
 
-I följande exempel visas hur du kan kopiera och klistra in den offentliga nyckeln i Azure-portalen när du skapar en Linux-VM. Den offentliga nyckeln lagras vanligtvis sedan i katalogen ~/.ssh/authorized_key på den nya virtuella datorn.
+I följande exempel visas hur du kopierar och klistrar in den offentliga nyckeln i Azure Portal när du skapar en virtuell Linux-dator. Den offentliga nyckeln lagras vanligt vis i katalogen ~/.ssh/authorized_key på den nya virtuella datorn.
 
-   ![Använda offentlig nyckel när du skapar en virtuell dator i Azure portal](./media/ssh-from-windows/use-public-key-azure-portal.png)
+   ![Använd offentlig nyckel när du skapar en virtuell dator i Azure Portal](./media/ssh-from-windows/use-public-key-azure-portal.png)
 
 
 ## <a name="connect-to-your-vm"></a>Ansluta till din virtuella dator
 
-Ett sätt att göra en SSH-anslutning till Linux VM från Windows är att använda en SSH-klient. Detta är den bästa metoden om du har en SSH-klient installerad på din Windows-system eller om du använder SSH-verktyg i Bash i Azure Cloud Shell. Om du föredrar ett GUI-baserade verktyg kan du ansluta med PuTTY.  
+Ett sätt att göra en SSH-anslutning till din virtuella Linux-dator från Windows är att använda en SSH-klient. Detta är den bästa metoden om du har en SSH-klient installerad i Windows-systemet eller om du använder SSH-verktygen i bash i Azure Cloud Shell. Om du föredrar ett GUI-baserat verktyg kan du ansluta till SparaTillFil.  
 
 ### <a name="use-an-ssh-client"></a>Använda en SSH-klient
-Med den offentliga nyckeln som distribuerats på den virtuella Azure-datorn och den privata nyckeln på din lokala dator, SSH till den virtuella datorn med IP-adressen eller DNS-namnet på den virtuella datorn. Ersätt *azureuser* och *myvm.westus.cloudapp.azure.com* i följande kommando med administratörens användarnamn och fullständigt kvalificerade domännamnet (eller IP-adress):
+Med den offentliga nyckeln distribuerad på din virtuella Azure-dator och den privata nyckeln i det lokala systemet, med hjälp av den virtuella datorns IP-adress eller DNS-namn. Ersätt *azureuser* och *myvm.westus.cloudapp.Azure.com* i följande kommando med administratörs användar namnet och det fullständigt kvalificerade domän namnet (eller IP-adressen):
 
 ```bash
 ssh azureuser@myvm.westus.cloudapp.azure.com
 ```
 
-Om du har konfigurerat en lösenfras när du skapade ditt nyckelpar ska du ange lösenfrasen när frågan kommer under inloggningen.
+Om du har konfigurerat en lösen fras när du skapade nyckel paret anger du lösen frasen när du uppmanas att göra det under inloggnings processen.
 
-Om den virtuella datorn använder just-in-time-åtkomstprincip, måste du begära åtkomst innan du kan ansluta till den virtuella datorn. Mer information om just-in-time-principen finns i [hantera VM-åtkomst med hjälp av just i time-princip](../../security-center/security-center-just-in-time.md).
+Om den virtuella datorn använder just-in-Time-åtkomst-principen måste du begära åtkomst innan du kan ansluta till den virtuella datorn. Mer information om just-in-time-principen finns i [Hantera åtkomst till virtuella datorer med just-in-time-principen](../../security-center/security-center-just-in-time.md).
 
-### <a name="connect-with-putty"></a>Ansluta med PuTTY
+### <a name="connect-with-putty"></a>Anslut med SparaTillFil
 
-Om du har installerat den [PuTTY hämtningspaketet](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) och tidigare genererade en PuTTY privata nyckeln (.ppk)-fil, kan du ansluta till en Linux VM med PuTTY.
+Om du har installerat det [hämtade hämtnings paketet](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) och tidigare genererade en fil med fil (. PPK) med fil (.) kan du ansluta till en virtuell Linux-dator med SparaTillFil.
 
-1. Starta PuTTy.
+1. Starta SparaTillFil.
 
-2. Fyll i värdnamnet eller IP-adressen för den virtuella datorn från Azure portal:
+2. Fyll i värd namnet eller IP-adressen för den virtuella datorn från Azure Portal:
 
-    ![Öppna ny PuTTY anslutning](./media/ssh-from-windows/putty-new-connection.png)
+    ![Öppna ny SparaTillFil-anslutning](./media/ssh-from-windows/putty-new-connection.png)
 
-3. Välj den **anslutning** > **SSH** > **Auth** kategori. Bläddra till och välj din PuTTY privata nyckel (.ppk-fil):
+3. Välj kategorin för att **ansluta** > **SSH** > -**autentisering** . Bläddra till och välj din PPK-privata nyckel (.-fil):
 
-    ![Välj din PuTTY privata nyckel för autentisering](./media/ssh-from-windows/putty-auth-dialog.png)
+    ![Välj din aktuella SparaTillFil-privata nyckel för autentisering](./media/ssh-from-windows/putty-auth-dialog.png)
 
-4. Klicka på **öppna** att ansluta till den virtuella datorn.
+4. Klicka på **Öppna** för att ansluta till din virtuella dator.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Detaljerade anvisningar, alternativ och avancerade exempel på hur du arbetar med SSH-nycklar finns i [detaljerade steg för att skapa SSH-nyckelpar](create-ssh-keys-detailed.md).
+* Detaljerade steg, alternativ och avancerade exempel på hur du arbetar med SSH-nycklar finns i [detaljerade steg för att skapa SSH-nyckelpar](create-ssh-keys-detailed.md).
 
-* Du kan också använda PowerShell för att generera SSH-nycklar och gör SSH-anslutningar för virtuella Linux-datorer i Azure Cloud Shell. Se den [PowerShell Snabbstart](../../cloud-shell/quickstart-powershell.md#ssh).
+* Du kan också använda PowerShell i Azure Cloud Shell för att generera SSH-nycklar och göra SSH-anslutningar till virtuella Linux-datorer. Se [snabb start för PowerShell](../../cloud-shell/quickstart-powershell.md#ssh).
 
-* Om du har svårt att använda SSH för att ansluta till din virtuella Linux-datorer, se [Felsök SSH-anslutningar till en virtuell Linux-dator](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* Om du har problem med att använda SSH för att ansluta till dina virtuella Linux-datorer kan du läsa [FELSÖK SSH-anslutningar till en virtuell Azure Linux-dator](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

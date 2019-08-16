@@ -1,5 +1,5 @@
 ---
-title: Webb inloggning med OpenID Connect-Azure Active Directory B2C | Microsoft Docs
+title: Webb inloggning med OpenID Connect-Azure Active Directory B2C
 description: Bygg webb program med OpenID Connect-autentiseringsprotokollet i Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 08/16/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 0e60bedcf1324b443d9b9cd34e8dc695fdb0b372
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: f6188f5c5bdd256ee84c5e7dc8632e5c067ceca5
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68931756"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69541718"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>Webb inloggning med OpenID Connect i Azure Active Directory B2C
 
@@ -32,7 +32,7 @@ Azure AD B2C utökar standard OpenID Connect-protokollet för att göra mer än 
 
 När ditt webb program behöver autentisera användaren och köra ett användar flöde, kan användaren dirigera användaren till `/authorize` slut punkten. Användaren vidtar åtgärder beroende på användar flödet.
 
-I den här förfrågan anger klienten de behörigheter som krävs för att hämta från användaren i `scope` parametern och användar flödet som ska köras `p` i parametern. Tre exempel finns i följande avsnitt (med rad brytningar för läsbarhet). var och en använder ett annat användar flöde. För att få en känsla för hur varje begäran fungerar kan du försöka att klistra in begäran i en webbläsare och köra den. Du kan ersätta `fabrikamb2c` med namnet på din klient om du har ett och har skapat ett användar flöde. Du måste också ersätta `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6`. Ersätt detta klient-ID med app-ID: t för den program registrering som du har skapat. Ändra också princip namnet `b2c_1_sign_in` till det princip namn som du har i din klient organisation. 
+I den här förfrågan anger klienten de behörigheter som krävs för att hämta från användaren i `scope` parametern och användar flödet som ska köras `p` i parametern. Tre exempel finns i följande avsnitt (med rad brytningar för läsbarhet). var och en använder ett annat användar flöde. För att få en känsla för hur varje begäran fungerar kan du försöka att klistra in begäran i en webbläsare och köra den. Du kan ersätta `fabrikamb2c` med namnet på din klient om du har ett och har skapat ett användar flöde. Du måste också ersätta `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6`. Ersätt detta klient-ID med app-ID: t för den program registrering som du har skapat. Ändra också princip namnet `b2c_1_sign_in` till det princip namn som du har i din klient organisation.
 
 #### <a name="use-a-sign-in-user-flow"></a>Använd ett användar flöde för inloggning
 ```
@@ -121,7 +121,7 @@ error=access_denied
 
 ## <a name="validate-the-id-token"></a>Validera ID-token
 
-Det räcker bara att ta emot ID-token för att autentisera användaren. Verifiera signaturen för ID-token och verifiera anspråk i token enligt programmets krav. Azure AD B2C använder [JSON-Webbtoken (JWTs)](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) och kryptering med offentliga nycklar för att signera tokens och kontrol lera att de är giltiga. Det finns många bibliotek med öppen källkod som är tillgängliga för validering av JWTs, beroende på vilket språk du föredrar. Vi rekommenderar att du utforskar dessa alternativ i stället för att implementera din egen verifierings logik. 
+Det räcker bara att ta emot ID-token för att autentisera användaren. Verifiera signaturen för ID-token och verifiera anspråk i token enligt programmets krav. Azure AD B2C använder [JSON-Webbtoken (JWTs)](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) och kryptering med offentliga nycklar för att signera tokens och kontrol lera att de är giltiga. Det finns många bibliotek med öppen källkod som är tillgängliga för validering av JWTs, beroende på vilket språk du föredrar. Vi rekommenderar att du utforskar dessa alternativ i stället för att implementera din egen verifierings logik.
 
 Azure AD B2C har en slut punkt för OpenID Connect-metadata som gör det möjligt för ett program att hämta information om Azure AD B2C vid körning. Den här informationen omfattar slut punkter, token innehåll och signerings nycklar för token. Det finns ett JSON-Metadatadokumentet för varje användar flöde i B2C-klienten. Till exempel finns metadata-dokumentet för `b2c_1_sign_in` användar flödet i: `fabrikamb2c.onmicrosoft.com`
 
@@ -155,7 +155,7 @@ När du har validerat ID-token kan du starta en session med användaren. Du kan 
 
 Om du behöver ditt webb program för att bara köra användar flöden kan du hoppa över efterföljande avsnitt. Dessa avsnitt gäller endast för webb program som behöver göra autentiserade anrop till ett webb-API och som också skyddas av Azure AD B2C.
 
-Du kan lösa in den auktoriseringskod som du har köpt (med `response_type=code+id_token`hjälp av) för en token till önskad resurs genom `POST` att skicka en `/token` begäran till slut punkten. I Azure AD B2C kan du [begära åtkomsttoken för andra API:](active-directory-b2c-access-tokens.md#request-a-token) er som vanligt genom att ange deras omfång i begäran.
+Du kan lösa in den auktoriseringskod som du har köpt (med `response_type=code+id_token`hjälp av) för en token till önskad resurs genom `POST` att skicka en `/token` begäran till slut punkten. I Azure AD B2C kan du [begära åtkomsttoken för andra API: er](active-directory-b2c-access-tokens.md#request-a-token) som vanligt genom att ange deras omfång i begäran.
 
 Du kan också begära en åtkomsttoken för appens egna Server dels webb-API genom att använda appens klient-ID som begärda omfång (vilket leder till en åtkomsttoken med klient-ID: t som mål grupp):
 
@@ -283,18 +283,24 @@ Fel svar ser ut så här:
 
 När du vill signera användaren från programmet räcker det inte att ta bort programmets cookies eller på annat sätt avsluta sessionen med användaren. Omdirigera användaren till Azure AD B2C för att logga ut. Om du inte gör det kan det hända att användaren kan autentisera till programmet igen utan att ange sina autentiseringsuppgifter igen.
 
-Du kan helt enkelt omdirigera användaren till `end_session` slut punkten som anges i OpenID Connect-Metadatadokumentet som beskrivs ovan:
+Om du vill logga ut användaren omdirigerar du användaren till `end_session` den slut punkt som anges i dokumentet OpenID Connect-metadata som beskrivs ovan:
 
 ```
-GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/logout?
-p=b2c_1_sign_in
-&post_logout_redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
+GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/logout?post_logout_redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
 ```
 
 | Parameter | Obligatorisk | Beskrivning |
 | --------- | -------- | ----------- |
-| p | Ja | Det användar flöde som du vill använda för att signera användaren från ditt program. |
+| innehav | Ja | Namnet på din Azure AD B2C-klient |
+| politik | Ja | Det användar flöde som du vill använda för att signera användaren från ditt program. |
+| id_token_hint| Nej | En tidigare utfärdad ID-token för att skicka till utloggnings slut punkten som ett tips om slutanvändarens aktuella autentiserade session med klienten. |
 | post_logout_redirect_uri | Nej | URL: en som användaren ska omdirigeras till efter en lyckad utloggning. Om den inte är inkluderad visar Azure AD B2C användaren ett allmänt meddelande. |
+| state | Nej | Om en `state` parameter ingår i begäran ska samma värde visas i svaret. Programmet bör kontrol lera att `state` värdena i begäran och svaret är identiska. |
 
-Om användaren dirigeras till `end_session` slut punkten raderas en del av användarens läge för enkel inloggning med Azure AD B2C, men användaren signerar inte användaren från sin IDP-session (social Identity Provider). Om användaren väljer samma IDP under en efterföljande inloggning, autentiseras de igen, utan att ange sina autentiseringsuppgifter. Om en användare vill logga ut från programmet betyder det inte nödvändigt vis att de vill logga ut från sitt Facebook-konto. Men om lokala konton används avslutas användarens session korrekt.
+### <a name="require-id-token-hint-in-logout-request"></a>Kräv ID-token-tips i en utloggnings förfrågan
 
+Efter utloggning omdirigeras användaren till den URI som anges i `post_logout_redirect_uri` parametern, oavsett vilka svars-URL: er som har angetts för programmet. Om ett giltigt `id_token_hint` värde skickas, verifierar Azure AD B2C dock att värdet för `post_logout_redirect_uri` matchar ett av programmets konfigurerade omdirigerings-URI: er innan omdirigeringen utförs. Om ingen matchande svars-URL har kon figurer ATS för programmet visas ett fel meddelande och användaren omdirigeras inte.
+
+### <a name="external-identity-provider-session"></a>Provider för extern identitetsprovider
+
+Om användaren dirigeras till `end_session` slut punkten raderas en del av användarens läge för enkel inloggning med Azure AD B2C, men användaren signerar inte användaren från sin IDP-session (social Identity Provider). Om användaren väljer samma IDP under en efterföljande inloggning, autentiseras de om utan att de anger sina autentiseringsuppgifter. Om en användare vill logga ut från programmet betyder det inte nödvändigt vis att de vill logga ut från sitt Facebook-konto. Men om lokala konton används avslutas användarens session korrekt.

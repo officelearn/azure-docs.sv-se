@@ -3,7 +3,7 @@ title: Xamarin iOS-överväganden (Microsoft Authentication Library för .NET) |
 description: Lär dig mer om att tänka på när du använder Xamarin iOS med Microsoft Authentication Library för .NET (MSAL.NET).
 services: active-directory
 documentationcenter: dev-center-name
-author: rwike77
+author: TylerMSFT
 manager: CelesteDG
 editor: ''
 ms.service: active-directory
@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/16/2019
-ms.author: ryanwi
+ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7bb4aab4c217e20245a1f6ee9b2910a4558acad
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 906f2fc8cdac31922e6e93526f65577fe76c4b9c
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68278219"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69532358"
 ---
 # <a name="xamarin-ios-specific-considerations-with-msalnet"></a>Xamarin iOS-/regionsspecifika överväganden med MSAL.NET
 På Xamarin iOS finns det flera saker som du måste tänka på när du använder MSAL.NET
@@ -104,7 +104,7 @@ Om du vill aktivera denna cache-delning måste du ange Använd metoden ' WithIos
 
 Tidigare nämnde vi att MSAL lade till $ (AppIdentifierPrefix) när du använder `WithIosKeychainSecurityGroup()` API: et. Detta beror på att AppIdentifierPrefix eller "Team-ID" används för att säkerställa att endast program som görs av samma utgivare kan dela nyckel rings åtkomst.
 
-#### <a name="note-keychainsecuritygroup-property-deprecated"></a>Obs! Egenskapen KeychainSecurityGroup är föråldrad
+#### <a name="note-keychainsecuritygroup-property-deprecated"></a>Anteckning: Egenskapen KeychainSecurityGroup är föråldrad
 
 Tidigare var utvecklare tvungen att ta med TeamId-prefixet när `KeychainSecurityGroup` egenskapen användes från MSAL 2. x
 

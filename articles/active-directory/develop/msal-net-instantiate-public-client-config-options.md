@@ -1,9 +1,9 @@
 ---
-title: Skapa en instans av en offentlig klient-app med alternativ (Microsoft Authentication Library för .NET) | Azure
-description: Lär dig mer om att skapa en instans av en offentlig klientprogram konfigurationsalternativ med hjälp av Microsoft Authentication Library för .NET (MSAL.NET).
+title: Instansiera en offentlig klient app med alternativ (Microsoft Authentication Library för .NET) | Azure
+description: Lär dig hur du instansierar ett offentligt klient program med konfigurations alternativ med hjälp av Microsoft Authentication Library för .NET (MSAL.NET).
 services: active-directory
 documentationcenter: dev-center-name
-author: rwike77
+author: TylerMSFT
 manager: CelesteDG
 editor: ''
 ms.service: active-directory
@@ -13,30 +13,30 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/30/2019
-ms.author: ryanwi
+ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 125bbf9aed54fb00f039aeffddd5cc1aad3360a6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1311e047b63cc9b5cccc785fbcd118db29f7c4bd
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65544405"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69532612"
 ---
-# <a name="instantiate-a-public-client-application-with-configuration-options-using-msalnet"></a>Skapa en instans av en offentlig klientprogram konfigurationsalternativ med hjälp av MSAL.NET
+# <a name="instantiate-a-public-client-application-with-configuration-options-using-msalnet"></a>Instansiera ett offentligt klient program med konfigurations alternativ med MSAL.NET
 
-Den här artikeln beskriver hur du skapa en instans av en [offentliga klientprogram](msal-client-applications.md) med hjälp av Microsoft Authentication Library för .NET (MSAL.NET).  Programmet instantieras konfigurationsalternativ som definierats i en fil med inställningar.
+Den här artikeln beskriver hur du instansierar ett [offentligt klient program](msal-client-applications.md) med hjälp av Microsoft Authentication Library för .net (MSAL.net).  Programmet instansieras med konfigurations alternativ som definierats i en inställnings fil.
 
-Innan du initierar ett program, måste du först [registrera](quickstart-register-app.md) den så att din app kan integreras med Microsoft identity-plattformen. Efter registreringen behöver du följande information (som finns i Azure portal):
+Innan du initierar ett program måste du först [Registrera](quickstart-register-app.md) det så att din app kan integreras med Microsoft Identity Platform. Efter registreringen kan du behöva följande information (som du hittar i Azure Portal):
 
 - Klient-ID (en sträng som representerar ett GUID)
-- Den URL för identitetsprovider (med namnet instansen) och logga in-målgruppen för ditt program. Dessa två parametrar kallas sammantaget behörighet.
-- Klient-ID om du skriver ett verksamhetsspecifikt program endast för din organisation (som också namngivna enda klient program).
-- För web apps, och ibland för offentlig klient apps (i synnerhet när din app behöver använda en asynkron meddelandekö), måste du också ställa redirectUri där identitetsprovidern kommer att kontakta tillbaka ditt program med säkerhetstoken.
+- Identitets leverantörens URL (kallas instansen) och inloggnings gruppen för ditt program. Dessa två parametrar kallas gemensamt för utfärdaren.
+- Klient-ID: t om du skriver ett affärs program enbart för din organisation (även kallat program med en enda klient).
+- För webbappar, och ibland för offentliga klient program (särskilt när appen behöver använda en Service Broker), har du också angett redirectUri där identitets leverantören ska kontakta ditt program igen med säkerhetstoken.
 
 
-Ett .NET Core-konsolprogram kan ha följande *appsettings.json* konfigurationsfil:
+Ett .NET Core-konsolprogram kan ha följande *appSettings. JSON* -konfigurations fil:
 
 ```json
 {
@@ -52,7 +52,7 @@ Ett .NET Core-konsolprogram kan ha följande *appsettings.json* konfigurationsfi
 }
 ```
 
-Följande kod läser den här filen med hjälp av .NET framework för konfiguration:
+Följande kod läser filen med .NET Configuration Framework:
 
 ```csharp
 public class SampleConfiguration
@@ -94,7 +94,7 @@ public class SampleConfiguration
 }
 ```
 
-Följande kod skapar ditt program, med konfigurationen från filen:
+Följande kod skapar ditt program med hjälp av konfigurationen från inställnings filen:
 
 ```csharp
 SampleConfiguration config = SampleConfiguration.ReadFromJsonFile("appsettings.json");

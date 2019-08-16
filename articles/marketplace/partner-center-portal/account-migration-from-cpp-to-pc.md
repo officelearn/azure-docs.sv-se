@@ -1,51 +1,68 @@
 ---
-title: Migrera från Cloud Partner Portal till Partner Center - kommersiella Marketplace för Azure
-description: Så här migrerar du ditt konto från CPP till Partner Center. -Kommersiella Marketplace för Azure
+title: Konto migrering från Cloud Partner Portal till Partner Center – kommersiell marknads plats för Azure
+description: Så här migrerar du ditt konto från CPP till Partner Center. – Kommersiell marknads plats för Azure
 author: qianw211
 manager: evansma
 ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 05/30/2019
-ms.openlocfilehash: dc3a393d3cc3bea9412dfbc33ed21630de352e13
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.date: 08/15/2019
+ms.openlocfilehash: 9ab9a57641e6b34942ae6d4293311714177aa012
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67619584"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69533183"
 ---
-# <a name="account-migration-from-cloud-partner-portal-to-partner-center"></a>Migrera från Cloud Partner Portal till Partnercenter
+# <a name="account-migration-from-cloud-partner-portal-to-partner-center"></a>Konto migrering från Cloud Partner Portal till Partner Center
 
-Om dina erbjudanden är över från Cloud Partner Portal (CPP) migreras till Partner Center (dator), kan de hämta låsta för redigering i CPP. Nu måste inställningarna för ditt konto migreras till Partner Center.  Både dina kontoinställningar, samt dina erbjudanden kan hanteras på Partner Center.
+När dina erbjudanden migreras från Cloud Partner Portal (CPP) till Partner Center (PC) blir de låsta för redigering i CPP. I det här läget måste dina konto inställningar migreras till Partner Center.  Både dina konto inställningar, och dina erbjudanden, kan hanteras i Partner Center.
 
-## <a name="account-migration-process"></a>Process för kontomigrering
+## <a name="account-migration-process"></a>Process för konto migrering
 
-När erbjudanden migreras över från CPP, har ditt konto konfigurerats för migrering. 
+När erbjudanden migreras över från CPP är ditt konto konfigurerat för migrering. 
  
-Om du är en användare med rollen ägare i CPP för en viss konto visas en gul banderoll på din profilsida för utgivare.  Du uppmanas att flytta dina kontoinställningar till Partner Center. 
+Om du är en användare med ägar rollen i CPP för ett specifikt konto visas en gul banderoll på utgivarens profil sida.  Du uppmanas att flytta dina konto inställningar till partner centret. 
 
-Klicka på banderollen för att initiera din Migreringsprocess. Du förväntas anger du följande objekt:
+Klicka på banderollen för att initiera processen för migrering av konto. Du förväntas ange följande objekt:
 
-### <a name="work-e-mail-address"></a>**Arbets-e-postadress**
+### <a name="work-e-mail-address"></a>**E-postadress till arbetet**
 
-I de flesta fall, logga in med e-postadressen som du använder för att logga in på CPP. I vissa fall måste du använda en annan e-postadress:
+I de flesta fall loggar du in med den e-postadress som du använder för att logga in på CPP. I vissa fall måste en annan e-postadress användas:
 
-* Microsoft-konto: Om CPP kontot är ett Account, måste du ange en giltig work e-postadress som associeras med innehavaren, som MPN-ID är registrerad. 
+* Microsoft-konto: Om kontot CPP är ett Microsoft-konto måste du ange en giltig arbets-e-postadress som är kopplad till klienten, för vilken MPN-ID: t är registrerat. 
 
-* Matchningsfel för klient: Om din e-postadress till arbetet inte tillhör den klient som är associerad med Microsoft Partner Network-ID finns på ditt konto CPP, ser du ett fel. Ange e-postadress som är associerad med klienten för att flytta förbi felet. Namnet på klienten får du ett felmeddelande. 
+* Klient matchnings fel: Om din e-postadress för arbetet inte tillhör den klient som är associerad med det Microsoft Partner Network-ID som finns på ditt CPP-konto visas ett fel meddelande. Om du vill flytta förbi det här felet anger du en e-postadress som är kopplad till klienten. Ett fel meddelande anger namnet på klienten. 
 
-### <a name="sign-up-for-microsoft-partner-network-program"></a>Registrera dig för Microsoft Partner Network-programmet
+### <a name="sign-up-for-microsoft-partner-network-program"></a>Registrera dig för Microsoft Partner Network program
 
-I händelse av att ditt CPP konto inte har en Microsoft Partner Network-ID, eller har ett som är ogiltig, kommer du behöva registrera dig för Microsoft Partner Network-programmet som en del av aktiveringen.
+Om ditt CPP-konto inte har något Microsoft Partner Network-ID eller har ett ogiltigt, måste du registrera dig för det Microsoft Partner Network programmet som en del av aktiverings processen.
 
-## <a name="account-activation-is-complete"></a>Konto-aktiveringen är klar
+## <a name="account-activation-is-complete"></a>Konto aktiveringen har slutförts
 
-Kontomigreringen måste ske bara en gång för en viss konto. När en viss partner har slutfört migreringen för kontot, visas alla ägare problemet på sina Publisher profilsida:
+Konto migreringen måste bara ske en gång för ett specifikt konto. När en specifik partner har slutfört migreringen av kontot kommer alla ägare att se detta beteende på utgivar profil sidan:
 
-1. Du kommer att se sidan Partner inställningar i Microsoft Partner Network, där du kan hantera inställningar för Microsoft-Partner. 
-1. När kontomigreringen är klar, visas en gul banderoll på din profilsida för utgivaren, för att användare som tillhör rollen ägare i CPP för en viss konto ber dem att hantera sina kontoinställningar Partner Center. 
-1. Kontoinställningssidan i CPP konverteras sedan till skrivskyddat läge. 
+1. Du kommer att se sidan partner inställningar i Microsoft Partner Network, där du kan hantera konto inställningarna för Microsoft-partner. 
+2. När konto migreringen är klar öppnas en gul banderoll på utgivarens profil sida upp till användare som tillhör ägar rollen i CPP för ett specifikt konto och ber dem att hantera sina konto inställningar i Partner Center. 
+3. Sidan konto inställningar i CPP konverteras sedan till skrivskyddat läge. 
+
+## <a name="move-dynamics-365-based-solutions-to-partner-center"></a>Flytta Dynamics 365-baserade lösningar till Partner Center
+
+Om du har Dynamics 365 för kund engagemang eller Dynamics 365 för finans-och drift lösningar på en kommersiell partner GTM-Portal, **följer du dessa anvisningar senast den 31 augusti 2019** för att flytta lösningarna till Partner Center.
+
+> [!NOTE]
+> Om ditt konto ursprungligen skapades i partner Membership Center (PMC) loggar du in på [partner Center](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) för att bekräfta att ditt konto har migrerats innan du slutför stegen nedan. Om du ser en profil skärm med ditt MPN-ID är du redo att fortsätta. Om inte, måste du starta migreringen av kontot genom att följa instruktionerna i [partner medlemskaps centret](https://partners.microsoft.com/partnerprogram/Welcome.aspx). Om du behöver hjälp med det här kan [](https://partner.microsoft.com/support?issueid=100-0077)du besöka supporten.
+
+1. Gå till [sidan för extern Marketplace-översikt i Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview). Om du ser "kommersiell marknads plats" i det vänstra navigerings fönstret är du registrerad och bör fortsätta till nästa steg. Om inte, [Registrera dig på den kommersiella marknads platsen](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) nu.
+2. Bekräfta att dina erbjudanden är i AppSource genom att [söka efter dina erbjudanden](https://appsource.microsoft.com/). Om dina erbjudanden redan finns i AppSource går du vidare till nästa steg. För ett erbjudande som inte finns i AppSource skapar du en [ny dynamics 365 för kund engagemang](create-new-customer-engagement-offer.md) eller en [ny Dynamics 365 för drift erbjudande](create-new-operations-offer.md).
+3. Verifiera registreringen i Business Applications ISV Connect-program:
+  
+   * På sidan [avtal](https://partner.microsoft.com/dashboard/account/agreements) i Partner Center ser du till att du har accepterat **Business Applications ISV-tillägget** för att registrera dig i programmet.
+   * På sidan [konto inställningar](https://partner.microsoft.com/dashboard/account/v3/accountsettings/billingprofile) anger du din fakturerings information.
+
+4. Skicka in varje nytt och befintligt erbjudande för certifiering, även om dina erbjudanden tidigare har certifierats. **Vi rekommenderar att du skickar så snart som möjligt för att få tillräckligt med tid för godkännande före den 31 augusti 2019.**
+5. Gå till [en kommersiell partner GTM-Portal](https://msgtm.azurewebsites.net/en-US/Profile/SignIn) och Lägg till din AppSource List-URL i Marketplace Länkar-avsnittet. Om du behöver hjälp med det här steget kan du skicka cosell@microsoft.come-post till oss på.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Hantera ditt kommersiella Marketplace-konto i Partnercenter](./manage-account.md) 
+- [Hantera ditt kommersiella Marketplace-konto i Partner Center](./manage-account.md) 

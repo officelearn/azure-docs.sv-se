@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: f0ccf0e480fa57e0ffdfc94ca35cfaceded37a0b
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: cd67f435ff390267e01acd99594b9063db4c4ee1
+ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663900"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69559087"
 ---
 # <a name="personalizer-settings"></a>Inställningar för personanpassa
 
@@ -53,7 +53,7 @@ När du har ändrat de här inställningarna ska du se till att välja **Spara**
 
 ### <a name="exploration-setting"></a>Utforsknings inställning 
 
-Anpassningar kan identifiera nya mönster och anpassa sig till användar beteende förändringar över tid genom att utforska alternativ. Inställningen **för att avgöra** hur stor procent andel rang samtal besvaras med utforskning. 
+Anpassningar kan identifiera nya mönster och anpassa sig till användar beteende förändringar över tid genom att utforska alternativ. Inställningen för att avgöra hur stor procent andel rang samtal besvaras med utforskning. 
 
 Ändringar av den här inställningen återställer den aktuella personanpassa modellen och tränar den med de senaste två dagarnas data.
 
@@ -86,6 +86,7 @@ I resurs hanteringens avsnitt för **modell och princip**, granska modell skapan
 ## <a name="import-and-export-learning-policy"></a>Importera och exportera utbildnings princip
 
 Från resurs hanteringens avsnitt för **modell och princip**importerar du en ny utbildnings princip eller exporterar den aktuella inlärnings principen.
+Du kan hämta learning policy-filer från tidigare exporter eller ladda ned de optimerade principerna som upptäcks under en offline-utvärdering. Om du gör manuella ändringar av de här filerna påverkas maskin inlärnings prestanda och precisionen för offline-utvärderingar, och Microsoft kan inte skriva ut för att ge maskin inlärning och utvärderingar, eller tjänst undantag som orsakas av manuellt redigerade principer.
 
 ## <a name="next-steps"></a>Nästa steg
 

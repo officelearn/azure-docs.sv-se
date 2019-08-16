@@ -8,12 +8,12 @@ ms.date: 05/31/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 884ded67c25aca78225baef2d7e4c5de1cc94fd0
-ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
+ms.openlocfilehash: c6a76f4188ecbf6ca778fdbcd23ac9fed2f60dde
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68782290"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534658"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Fel sökning av problem med Uppdateringshantering
 
@@ -22,6 +22,42 @@ I den här artikeln beskrivs lösningar för att lösa problem som kan köras i 
 Det finns en agent fel sökare för Hybrid Worker agent för att fastställa det underliggande problemet. Mer information om fel sökaren finns i [Felsöka problem](update-agent-issues.md)med uppdaterings agenten. För alla andra problem, se detaljerad information nedan om möjliga problem.
 
 ## <a name="general"></a>Allmänt
+
+### <a name="rp-register"></a>Situationen Det gick inte att registrera Automation Resource Provider för prenumerationer
+
+#### <a name="issue"></a>Problem
+
+Du kan få följande fel meddelande när du arbetar med lösningar i ditt Automation-konto.
+
+```error
+Error details: Unable to register Automation Resource Provider for subscriptions:
+```
+
+#### <a name="cause"></a>Orsak
+
+Automatiserings resurs leverantören är inte registrerad i prenumerationen.
+
+#### <a name="resolution"></a>Lösning
+
+Du kan registrera automatiserings resurs leverantörer genom att utföra följande steg i Azure Portal:
+
+1. Klicka på **alla tjänster** längst ned i listan över Azure-tjänster och välj sedan **prenumerationer** i gruppen _allmän_ tjänst.
+2. Välj din prenumeration.
+3. Klicka på **resurs leverantörer** under _Inställningar_.
+4. Kontrol lera att **Microsoft. Automation** Resource Provider är registrerad i listan över resurs leverantörer.
+5. Om providern inte finns med i listan registrerar du **Microsoft. Automation** -providern med stegen [ ](/azure/azure-resource-manager/resource-manager-register-provider-errors)som anges under.
+
+### <a name="mw-exceeded"></a>Situationen Uppdaterings hanteringen misslyckades med felet MaintenanceWindowExceeded
+
+#### <a name="issue"></a>Problem
+
+Standard underhålls perioden för uppdateringar är 120 minuter. Du kan öka underhålls perioden till högst sex timmar (6) timmar eller 360 minuter.
+
+#### <a name="resolution"></a>Lösning
+
+Redigera eventuella misslyckade schemalagda uppdaterings distributioner och öka underhålls perioden.
+
+Mer information om underhålls perioder finns i [Installera uppdateringar](../automation-update-management.md#install-updates).
 
 ### <a name="components-enabled-not-working"></a>Situationen Komponenterna för lösningen Uppdateringshantering har Aktiver ATS och nu konfigureras den här virtuella datorn
 
@@ -298,7 +334,31 @@ Om du inte kan lösa ett uppdaterings problem gör du en kopia av följande logg
 /var/opt/microsoft/omsagent/run/automationworker/omsupdatemgmt.log
 ```
 
-### <a name="other"></a>Situationen Mitt problem visas inte ovan
+## <a name="patches-are-not-installed"></a>Korrigeringarna har inte installerats
+
+### <a name="machines-do-not-install-updates"></a>Datorer installerar inte uppdateringar
+
+* Försök att köra uppdateringar direkt på datorn. Om datorn inte kan uppdatera läser du [listan över potentiella fel i felsökningsguiden](https://docs.microsoft.com/azure/automation/troubleshoot/update-management#hresult).
+* Om uppdateringar körs lokalt försöker du att ta bort och installera om agenten på datorn genom att följa anvisningarna i [”Ta bort en virtuell dator från Uppdateringshantering”](https://docs.microsoft.com/azure/automation/automation-update-management#remove-a-vm-for-update-management).
+
+### <a name="i-know-updates-are-available-but-they-dont-show-as-needed-on-my-machines"></a>Jag vet att uppdateringar är tillgängliga, men de visas inte vid behov på mina datorer
+
+* Detta händer ofta om datorer är konfigurerade att hämta uppdateringar från WSUS/SCCM, men WSUS/SCCM inte har godkänt uppdateringarna.
+* Du kan kontrollera om datorer är konfigurerade för WSUS/SCCM genom att [korsreferera ”UseWUServer”-registernyckeln till registernycklarna i avsnittet ”Konfigurera automatiska uppdateringar genom att redigera registret” i det här dokumentet](https://support.microsoft.com/help/328010/how-to-configure-automatic-updates-by-using-group-policy-or-registry-s)
+
+### <a name="updates-show-as-installed-but-i-cant-find-them-on-my-machine"></a>**Uppdateringar visas som installerade, men jag hittar dem inte på datorn**
+
+* Uppdateringar ersätts ofta av andra uppdateringar. Mer information finns i [avsnittet ”Uppdateringen har ersatts” i felsökningsguiden för Windows Update](https://docs.microsoft.com/windows/deployment/update/windows-update-troubleshooting#the-update-is-not-applicable-to-your-computer)
+
+### <a name="installing-updates-by-classification-on-linux"></a>**Installera uppdateringar efter klassificering i Linux**
+
+* Distributionen av uppdateringar till Linux efter klassificering (”kritiska uppdateringar och säkerhetsuppdateringar”) har viktiga förbehåll, särskilt för CentOS. Dessa [begränsningar finns dokumenterade på översiktssidan för Uppdateringshantering](https://docs.microsoft.com/azure/automation/automation-update-management#linux-2)
+
+### <a name="kb2267602-is-consistently--missing"></a>**KB2267602 saknas konsekvent**
+
+* KB2267602 är [Windows Defender-definitionsuppdateringen](https://www.microsoft.com/wdsi/definitions). Uppdateras dagligen.
+
+## <a name="other"></a>Situationen Mitt problem visas inte ovan
 
 ### <a name="issue"></a>Problem
 

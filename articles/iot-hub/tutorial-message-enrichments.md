@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: 2c115bf0ad21e905e998692fbbc175f5aa52b86d
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 77d900844705bb86ce4bcfeda31d6ee765cb8d45
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69014251"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69535003"
 ---
 # <a name="tutorial-using-azure-iot-hub-message-enrichments-preview"></a>Självstudier: Använda Azure IoT Hub Message-anrikninger (för hands version)
 
@@ -69,7 +69,7 @@ Om du inte redan har gjort det öppnar du ett [Cloud Shells fönster för bash.]
 
 Här följer resurserna som skapats av skriptet. En **omfattande** metod är att resursen är för meddelanden med anrikninger. **Original** innebär att resursen är för meddelanden som inte är omfattande.
 
-| Namn | Value |
+| Name | Value |
 |-----|-----|
 | resourceGroup | ContosoResourcesMsgEn |
 | container namn | originalspråket  |
@@ -84,7 +84,7 @@ Här följer resurserna som skapats av skriptet. En **omfattande** metod är att
 
 ```azurecli-interactive
 # This command retrieves the subscription id of the current Azure account.
-# This field is used when setting up the routing rules.
+# This field is used when setting up the routing queries.
 subscriptionID=$(az account show --query id -o tsv)
 
 # Concatenate this number onto the resources that have to be globally unique.
@@ -250,7 +250,7 @@ I det här läget är resurserna alla konfigurerade och routningen har kon figur
 
 2. Lägg till de här värdena i listan för ContosoStorageEndpointEnriched-slutpunkten.
 
-   | Namn | Value | Slut punkt (nedrullningsbar lista) |
+   | Name | Value | Slut punkt (nedrullningsbar lista) |
    | ---- | ----- | -------------------------|
    | myIotHub | $iothubname | AzureStorageContainers > ContosoStorageEndpointEnriched |
    | DeviceLocation | $twin.tags.location | AzureStorageContainers > ContosoStorageEndpointEnriched |
@@ -269,7 +269,7 @@ I det här läget är resurserna alla konfigurerade och routningen har kon figur
 
 ## <a name="send-messages-to-the-iot-hub"></a>Skicka meddelanden till IoT Hub
 
-Nu när meddelande berikarna har kon figurer ATS för slut punkten kan du köra det simulerade enhets programmet för att skicka meddelanden till IoT Hub. Hubben har kon figurer ATS med regler som utför följande:
+Nu när meddelande berikarna har kon figurer ATS för slut punkten kan du köra det simulerade enhets programmet för att skicka meddelanden till IoT Hub. Hubben har kon figurer ATS med inställningar som utför följande:
 
 * Meddelanden som dirigeras till ContosoStorageEndpointOriginal för lagrings slut punkter kommer inte att vara omfattande och lagras i lagrings behållaren `original`.
 

@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/12/2019
+ms.date: 08/16/2019
 ms.author: tomfitz
-ms.openlocfilehash: cdec216187050a449f23f72474e0265acce14c5f
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: cf6a5b07dd72c4e2364281b755e77e642f8fe167
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67867395"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69542984"
 ---
 # <a name="azure-resource-manager-template-best-practices"></a>Metod tips för Azure Resource Manager mall
 
@@ -150,6 +150,8 @@ Informationen i det här avsnittet kan vara till hjälp när du arbetar med [par
 ## <a name="variables"></a>Variabler
 
 Följande information kan vara till hjälp när du arbetar med [variabler](resource-group-authoring-templates.md#variables):
+
+* Använd kamel notation-fall för variabel namn.
 
 * Använd variabler för värden som du behöver använda mer än en gång i en mall. Om ett värde bara används en gång, gör det ett hårdkodat värde att göra mallen lättare att läsa.
 

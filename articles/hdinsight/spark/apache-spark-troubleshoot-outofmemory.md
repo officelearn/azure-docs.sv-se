@@ -5,13 +5,13 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
-ms.date: 08/02/2019
-ms.openlocfilehash: a8351f13f015ca53e72bbff41152e46690fdc7bc
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.date: 08/15/2019
+ms.openlocfilehash: f6ff654b8e51dfaf2697df69c7f220d41346c2bc
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855737"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543477"
 ---
 # <a name="outofmemoryerror-exceptions-for-apache-spark-in-azure-hdinsight"></a>OutOfMemoryError-undantag för Apache Spark i Azure HDInsight
 
@@ -53,13 +53,13 @@ java.lang.OutOfMemoryError
 
 ### <a name="cause"></a>Orsak
 
-Den mest sannolika orsaken till det här undantaget är inte tillräckligt med heap-minne. Ditt Spark-program kräver tillräckligt med Java Virtual Machines (JVM) heap-minne när det körs som körnings program eller driv rutiner.
+Den mest troliga orsaken till det här undantaget är att det finns inte tillräckligt med heap-minne har allokerats till Java-datorer (JVMs). Dessa JVMs startas som körnings program eller driv rutiner som en del av Apache Spark-programmet.
 
 ### <a name="resolution"></a>Lösning
 
 1. Avgör maximal storlek för de data som Spark-programmet ska hantera. Gör en uppskattning av storleken baserat på den maximala storleken på indata, och de mellanliggande data som skapas genom att transformera indata och utdata som genererats ytterligare, omvandlas till mellanliggande data. Om den inledande uppskattningen inte räcker kan du öka storleken något och iterera fram till under sidan minnes fel.
 
-1. Se till att HDInsight-klustret som ska användas har tillräckligt med resurser när det gäller minne och tillräckligt med kärnor för Spark-programmet. Du kan kontrollera detta i avsnittet Cluster Metrics (Klustermått) i användargränssnittet för YARN och se om värdena för minne som används jämfört med det totala minnet och virtuella kärnor som används jämfört med det totala antalet virtuella kärnor.
+1. Se till att HDInsight-klustret som ska användas har tillräckligt med resurser när det gäller minne och tillräckligt med kärnor för Spark-programmet. Detta kan bestämmas genom att visa avsnittet kluster mått i garn gränssnittet för klustret för värden för **använt minne** jämfört med. **Minnes total** och **virtuella kärnor som används** jämfört med **Totala antalet virtuella kärnor**.
 
     ![kärn minnes visning för garn](./media/apache-spark-ts-outofmemory/yarn-core-memory-view.png)
 

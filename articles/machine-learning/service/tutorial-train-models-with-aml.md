@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 05/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6725bbc1978109d2b690a98e2cf98cc8c8c25141
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: df5085011fd2771f094131244c1f466cebcbc89a
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69033002"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534797"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn-using-azure-machine-learning"></a>Självstudier: Träna bild klassificerings modeller med MNIST data och scikit – lär dig använda Azure Machine Learning
 
@@ -40,33 +40,15 @@ Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Gå vidare till [Ställ in din utvecklingsmiljö](#start) och läs igenom stegen för notebook eller följ instruktionerna nedan för att hämta din notebook och kör den på Azure Notebooks eller din egen Notebook-server.  För att köra anteckningsboken behöver du:
+* Slutför [Självstudie: Kom igång med att skapa ditt första](tutorial-1st-experiment-sdk-setup.md) ml-experiment för att:
+    * Skapa en arbetsyta
+    * Skapa en molnbaserad Notebook-Server
+    * Starta Jupyter Notebook-instrumentpanelen
 
-* En notebook-server för Python 3.6 med följande installerat:
-    * Azure Machine Learning-SDK för Python
-    * `matplotlib` och `scikit-learn`
-* Själv studie antecknings boken och filen **utils.py**
-* En Machine Learning-arbetsyta
-* Konfigurationsfilen för arbetsytan i samma katalog som anteckningsboken
+* När du har öppnat instrument panelen för Jupyter-anteckningsbok öppnar du antecknings boken för **självstudier/img-Classification-part1-Training. ipynb** .
 
-Hämta alla dessa förutsättningar från något av avsnitten nedan.
+Självstudien och den medföljande **utils.py** -filen finns också på [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) om du vill använda den i din egen [lokala miljö](how-to-configure-environment.md#local).  Kontrol lera att du har `matplotlib` installerat `scikit-learn` och i din miljö.
 
-* Använd en [molnbaserad Notebook-server i din arbets yta](#azure)
-* Använd [din egen Notebook-server](#server)
-
-### <a name="azure"></a>Använd en molnbaserad Notebook-server i din arbets yta
-
-Det är enkelt att komma igång med din egen molnbaserade Notebook-Server. [Azure Machine Learning SDK för python](https://aka.ms/aml-sdk) har redan installerats och kon figurer ATS åt dig när du har skapat den här moln resursen.
-
-[!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
-
-* När du har startat antecknings boken öppnar du självstudierna **och img-Classification-part1-Training. ipynb** Notebook.
-
-### <a name="server"></a>Använda en egen Jupyter Notebook-server
-
-[!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
-
- När du har slutfört stegen kör du **självstudierna/img-Classification-part1-Training. ipynb-** anteckningsboken från den klonade katalogen.
 
 ## <a name="start"></a>Konfigurera din utvecklingsmiljö
 

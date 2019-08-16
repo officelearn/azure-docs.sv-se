@@ -9,12 +9,12 @@ ms.date: 04/11/2019
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: cf063311e5559ddf5706df397ce744a726610000
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 5be247e8bb999ee5306d10e67c46c7273953dc71
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68667334"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534697"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Aktivera Uppdateringshantering-, Ändringsspårning-och inventerings lösningar på flera virtuella datorer
 
@@ -45,7 +45,7 @@ Listan över virtuella datorer är filtrerad för att endast visa de virtuella d
 
 ### <a name="resource-group-limit"></a>Onboarding-begränsningar
 
-Antalet resurs grupper som du kan använda för onboarding begränsas av distributions [gränserna för Resource Manager](../azure-resource-manager/resource-manager-cross-resource-group-deployment.md). Resource Manager-distributioner, ska inte förväxlas med uppdaterings distributioner, är begränsade till 5 resurs grupper per distribution. För att säkerställa integriteten för onboarding är 2 av dessa resurs grupper reserverade för att konfigurera Log Analytics arbets yta, Automation-konto och relaterade resurser. Detta gör att du har 3 resurs grupper att välja för distribution.
+Antalet resurs grupper som du kan använda för onboarding begränsas av distributions [gränserna för Resource Manager](../azure-resource-manager/resource-manager-cross-resource-group-deployment.md). Resource Manager-distributioner, ska inte förväxlas med uppdaterings distributioner, är begränsade till 5 resurs grupper per distribution. För att säkerställa integriteten för onboarding är 2 av dessa resurs grupper reserverade för att konfigurera Log Analytics arbets yta, Automation-konto och relaterade resurser. Detta gör att du har 3 resurs grupper att välja för distribution. Den här gränsen gäller bara för samtidiga onboarding, inte antalet resurs grupper som kan hanteras av en Automation-lösning.
 
 Du kan också använda en Runbook för onboarding. mer information finns i [Uppdatera och ändra spårnings lösningar till Azure Automation](automation-onboard-solutions.md).
 

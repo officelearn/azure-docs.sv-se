@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: afcd9c9d3191caeabe182f499b5fd80cd8e1d8dd
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 131d38f6154e7a6e2f3175838b084e47e17ec582
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68608151"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69532938"
 ---
 # <a name="baseline-policy-end-user-protection-preview"></a>Bas linje princip: Slut användar skydd (för hands version)
 
@@ -49,7 +49,7 @@ Användaren kan nu logga in, återställa sitt lösen ord och få åtkomst till 
 
 ## <a name="deployment-considerations"></a>Distributionsöverväganden
 
-Eftersom principen **för** slutanvändare gäller för alla användare i din katalog måste flera saker göras för att säkerställa en smidig distribution. Dessa överväganden omfattar att identifiera användare och tjänst principer i Azure AD som inte kan eller inte bör utföra MFA, samt program och klienter som används av din organisation som inte stöder modern autentisering.
+Eftersom principen för slutanvändare gäller för alla användare i din katalog måste flera saker göras för att säkerställa en smidig distribution. Dessa överväganden omfattar att identifiera användare och tjänst principer i Azure AD som inte kan eller inte bör utföra MFA, samt program och klienter som används av din organisation som inte stöder modern autentisering.
 
 ### <a name="legacy-protocols"></a>Äldre protokoll
 
@@ -64,11 +64,11 @@ Princip **bas linje princip: End User Protection (för hands** version) är för
 
 Så här aktiverar du den här principen och skyddar dina användare:
 
-1. Logga in på **Azure Portal** som global administratör, säkerhets administratör eller administratör för villkorlig åtkomst.
+1. Logga in på **Azure Portal** som global administratör, säkerhets administratör eller administratör för villkorlig åtkomst.
 1. Bläddra till **Azure Active Directory** > **villkorlig åtkomst**.
 1. I listan med principer väljer **du bas linje princip: Slut användar skydd (för hands**version).
 1. Ange principen för att **aktivera principen** **direkt**.
-1. Klicka på **Spara**.
+1. Klicka på **Spara**.
 
 ## <a name="next-steps"></a>Nästa steg
 

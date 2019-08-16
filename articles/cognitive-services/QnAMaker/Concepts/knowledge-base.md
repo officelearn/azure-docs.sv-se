@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 06/25/2019
+ms.date: 08/15/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 022b16669791b9b9cce066b3dd17c70b33569cc0
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 8cd63913c0e96d496aa617369601c1dd121b4b46
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68955240"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69542840"
 ---
 # <a name="what-is-a-qna-maker-knowledge-base"></a>Vad är en Maker kunskapsbaser?
 
@@ -59,6 +59,70 @@ Processen beskrivs i följande tabell:
 
 Funktioner som används inkluderar, men är inte begränsade till semantik på Word-nivå, prioritet på term nivå i en sökkorpus och djup lärt semantiska modeller för att fastställa likhet och relevans mellan två text strängar.
 
+## <a name="http-request-and-response-with-endpoint"></a>HTTP-begäran och-svar med slut punkten
+När du publicerar din kunskaps bas skapar tjänsten en REST-baserad HTTP- **slutpunkt** som kan integreras i ditt program, ofta en chatt-robot. 
+
+### <a name="the-user-query-request-to-generate-an-answer"></a>Förfrågan om användar frågan för att generera ett svar
+
+En **användar fråga** är den fråga som slutanvändaren ber om kunskaps basen, till exempel, `How do I add a collaborator to my app?`. Frågan är ofta i ett naturligt språk format eller ett fåtal nyckelord som representerar frågan, till exempel, `help with collaborators`. Frågan skickas till din kunskap från en HTTP- **begäran** i klient programmet.
+
+```json
+{
+    "question": "qna maker and luis",
+    "top": 6,
+    "isTest": true,
+    "scoreThreshold": 20,
+    "strictFilters": [
+    {
+        "name": "category",
+        "value": "api"
+    }],
+    "userId": "sd53lsY="
+}
+```
+
+Du styr svaret genom att ställa in egenskaper som [scoreThreshold](./confidence-score.md#choose-a-score-threshold), [Top](../how-to/improve-knowledge-base.md#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers)och [stringFilters](../how-to/metadata-generateanswer-usage.md#filter-results-with-strictfilters-for-metadata-tags).
+
+Använd [konversations innehåll](../how-to/metadata-generateanswer-usage.md#use-question-and-answer-results-to-keep-conversation-context) med [funktioner med flera funktioner](../how-to/multiturn-conversation.md) för att hålla konversationen att förfina frågorna och Svaren för att hitta rätt och slutgiltigt svar.
+
+### <a name="the-response-from-a-call-to-generate-answer"></a>Svaret från ett anrop till att generera svar
+
+HTTP- **svaret** är det svar som hämtats från kunskaps basen, baserat på den bästa matchningen för en specifik användar fråga. Svaret innehåller svaret och förutsägelse poängen. Om du har begärt fler än ett Top svar, med `top` egenskapen, får du fler än ett Top svar, var och en med poäng. 
+
+```json
+{
+    "answers": [
+        {
+            "questions": [
+                "What is the closing time?"
+            ],
+            "answer": "10.30 PM",
+            "score": 100,
+            "id": 1,
+            "source": "Editorial",
+            "metadata": [
+                {
+                    "name": "restaurant",
+                    "value": "paradise"
+                },
+                {
+                    "name": "location",
+                    "value": "secunderabad"
+                }
+            ]
+        }
+    ]
+}
+```
+
+### <a name="test-and-production-knowledge-base"></a>Test-och produktions kunskaps bas
+En kunskapsbas är lagringsplatsen för frågor och svar skapas, underhålls och användas via QnA Maker. Varje QnA Maker-nivå kan användas för flera kunskapsbaser.
+
+En kunskapsbas har två tillstånd - Test och publicerats. 
+
+**Test kunskaps basen** är den version som redige ras, sparas och testas för precision och fullständig svars information. Ändringar som gjorts i kunskapsbasen test påverkar inte slutanvändaren av ditt program/chattrobot. Test kunskaps basen kallas `test` i http-begäran. 
+
+Den **publicerade kunskaps basen** är den version som används i chatten/programmet. Åtgärd för att publicera en kunskapsbas placerar innehållet i kunskapsbasen Test i den publicerade versionen av kunskapsbasen. Eftersom publicerade kunskapsbasen är den version som används i programmet via slutpunkten kan man att säkerställa att innehållet är korrekt och väl testade. Den publicerade kunskaps basen kallas `prod` i http-begäran. 
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -68,3 +132,11 @@ Funktioner som används inkluderar, men är inte begränsade till semantik på W
 ## <a name="see-also"></a>Se också
 
 [Översikt över QnA Maker](../Overview/overview.md)
+
+Skapa och redigera kunskaps bas med: 
+* [REST-API](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/qnamaker/knowledgebase)
+* [.NET SDK](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.knowledgebase?view=azure-dotnet)
+
+Generera svar med: 
+* [REST-API](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer)
+* [.NET SDK](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.runtime?view=azure-dotnet)

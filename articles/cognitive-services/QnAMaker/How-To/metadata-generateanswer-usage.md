@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: diberry
-ms.openlocfilehash: dbfa7aaccd513ffcf8ba3907911d8c49275b2ea6
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 18b901b429ee675726ef0e36535f1f97f4cdd076
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967644"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69542991"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>Få ett svar med GenerateAnswer-API och metadata
 
@@ -228,6 +228,18 @@ Du kan söka igenom den publicerade KB, använda `isTest=false`eller i test-KB m
   "RankerType":"QuestionOnly"
 }
 ```
+
+## <a name="common-http-errors"></a>Vanliga HTTP-fel
+
+|Kod|Förklaring|
+|:--|--|
+|2xx|Lyckades|
+|400|begärans-parametrarna är felaktiga vilket innebär att de obligatoriska parametrarna är saknas, är för stor eller har en felaktig|
+|400|brödtexten för begäran är felaktig JSON finns saknas, är för stor eller har en felaktig|
+|401|Ogiltig nyckel|
+|403|Tillåts inte - har du inte rätt behörighet|
+|404|KB finns inte|
+|410|Detta API är föråldrat och är inte längre tillgängligt|
 
 ## <a name="next-steps"></a>Nästa steg
 

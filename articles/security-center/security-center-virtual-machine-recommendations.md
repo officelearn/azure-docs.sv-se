@@ -1,6 +1,6 @@
 ---
 title: Rekommendationer för virtuella datorer i Azure Security Center | Microsoft Docs
-description: Det här dokumentet beskriver Azure Security Center-rekommendationer för hur du kan skydda dina virtuella datorer och datorer och web apps och App Service-miljöer.
+description: Det här dokumentet beskriver Azure Security Center rekommendationer för hur du kan skydda dina virtuella datorer och datorer och dina webbappar och App Service miljöer.
 services: security-center
 documentationcenter: na
 author: rkarlin
@@ -14,56 +14,56 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/12/2018
 ms.author: rkarlin
-ms.openlocfilehash: a4aaf440856746895a31914aeee2bddec2ce23f6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 798e027ca611905766b1fb8bcdb89cba4aeaf9b2
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60545007"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69531333"
 ---
-# <a name="understand-azure-security-center-resource-recommendations"></a>Förstå rekommendationer för Azure Security Center-resurs
+# <a name="understand-azure-security-center-resource-recommendations"></a>Förstå Azure Security Center resurs rekommendationer
 
 
 ## <a name="recommendations"></a>Rekommendationer
-Använd tabellen nedan som referens för att förstå beräkningarna som är tillgängliga och rekommendationer och vad var och en gör om du använder den för App services.
+Använd tabellerna nedan som en referens för att hjälpa dig att förstå de tillgängliga rekommendationerna för beräknings-och app service och vad var och en gör om du använder den.
 
 ### <a name="computers"></a>Datorer
 | Rekommendation | Beskrivning |
 | --- | --- |
-| [Aktivera insamling av data för prenumerationer](security-center-enable-data-collection.md) |Rekommenderar att du aktiverar datainsamling i säkerhetsprincipen för var och en av dina prenumerationer och alla virtuella datorer (VM) i dina prenumerationer. |
-| [Aktivera kryptering för Azure Storage-konto](security-center-enable-encryption-for-storage-account.md) | Rekommenderar att du aktiverar Azure Storage Service Encryption för vilande data. Storage Service Encryption (SSE) fungerar genom att kryptera data när den skrivs till Azure-lagring och dekrypterar före hämtning. SSE är för närvarande endast tillgänglig för Azure Blob service och kan användas för blockblobbar, sidblobbar och tilläggsblobbar. Mer information finns i [Storage Service Encryption för vilande data](../storage/common/storage-service-encryption.md).</br>SSE stöds bara på Resource Manager-lagringskonton. Klassiska lagringskonton stöds inte för närvarande. Information om klassiska och Resource Manager distributionsmodellerna finns i [Azures distributionsmodeller](../azure-classic-rm.md). |
-| [Åtgärda säkerhetskonfigurationer](security-center-remediate-os-vulnerabilities.md) |Rekommenderar att du konfigurerar operativsystem enligt rekommenderade security konfigurationsregler, t.ex. tillåter inte att spara lösenord. |
-| [Tillämpa systemuppdateringar](security-center-apply-system-updates.md) |Rekommenderar att du distribuerar systemsäkerhet och viktiga uppdateringar för virtuella datorer som saknas. |
-| [Tillämpa en Just-In-Time nätverksåtkomstkontroll](security-center-just-in-time.md) | Rekommenderar att du tillämpar just-in-time-åtkomst till virtuell dator. Den bara i tid funktionen är en förhandsversion och är tillgängliga på standardnivån i Security Center. Mer information om prisalternativen för Security Center finns i [Priser](security-center-pricing.md). |
-| [Starta om datorn efter uppdateringarna](security-center-apply-system-updates.md#reboot-after-system-updates) |Rekommenderar att du startar om en virtuell dator för att slutföra processen med att tillämpa uppdateringar. |
-| [Installera slutpunktsskydd](security-center-install-endpoint-protection.md) |Rekommenderar att du etablerar program mot skadlig kod för virtuella datorer (endast virtuella Windows-datorer). |
-| [Aktivera VM-Agent](security-center-enable-vm-agent.md) |Du kan se vilka virtuella datorer som kräver VM-agenten. VM-agenten måste installeras på virtuella datorer för att etablera korrigeringsgenomsökning, baslinjegenomsökning och program mot skadlig kod. VM-agenten installeras som standard för virtuella datorer som distribueras från Azure Marketplace. Artikeln [VM Agent and Extensions – Part 2](https://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) (VM-agenter och tillägg – del 2) innehåller information om hur VM-agenten ska installeras. |
-| [Tillämpa diskkryptering](security-center-apply-disk-encryption.md) |Rekommenderar att krypterar dina VM-diskar med Azure Disk Encryption (virtuella Windows- och Linux-datorer). Kryptering rekommenderas både för OS- och datavolymer på den virtuella datorn. |
-| [Uppdatera OS-versionen](security-center-update-os-version.md) |Rekommenderar att du uppdaterar versionen av operativsystemet (OS) för din molntjänst till den senaste versionen som är tillgängliga för din OS-familj.  Mer information om molntjänster finns det [översikt över Cloud Services](../cloud-services/cloud-services-choose-me.md). |
-| [Sårbarhetsbedömning inte installerad](security-center-vulnerability-assessment-recommendations.md) |Rekommenderar att du installerar en lösning för sårbarhetsbedömning på den virtuella datorn. |
-| [Åtgärda sårbarheter](security-center-vulnerability-assessment-recommendations.md#review-the-recommendation) |Gör att du kan visa system- och säkerhetssårbarheter som identifieras av sårbarhetsbedömningen som är installerad på den virtuella datorn. |
+| Aktivera insamling av data för prenumerationer|Rekommenderar att du aktiverar datainsamling i säkerhetsprincipen för var och en av dina prenumerationer och alla virtuella datorer (VM) i dina prenumerationer. |
+| Aktivera kryptering för Azure Storage-kontot| Rekommenderar att du aktiverar Azure Storage tjänst kryptering för vilande data. Kryptering för lagringstjänst (SSE) används för att kryptera data när de skrivs till Azure Storage och dekrypteras innan de kan hämtas. SSE är för närvarande endast tillgängligt för Azure-Blob Service och kan användas för block-blobar, Page blobbar och bifogade blobbar. Mer information finns i [kryptering för lagringstjänst för data i vila](../storage/common/storage-service-encryption.md).</br>SSE stöds endast på Resource Manager-lagringsenheter. Klassiska lagrings konton stöds för närvarande inte. Information om de klassiska distributions modellerna för och Resource Manager finns i distributions modeller för Azure. |
+| Åtgärda säkerhetskonfigurationerna|Rekommenderar att du justerar dina OS-konfigurationer med rekommenderade säkerhets konfigurations regler, t. ex. Tillåt inte att lösen ord sparas. |
+| Tillämpa systemuppdateringar |Rekommenderar att du distribuerar systemsäkerhet och viktiga uppdateringar för virtuella datorer som saknas. |
+| Tillämpa en just-in-time-nätverksåtkomstkontroll| Rekommenderar att du använder just-in-Time-åtkomst för virtuella datorer. Funktionen just-in-Time är i för hands version och är tillgänglig på standard Security Centers nivån. Mer information om prisalternativen för Security Center finns i [Priser](security-center-pricing.md). |
+| Starta om efter systemuppdateringar|Rekommenderar att du startar om en virtuell dator för att slutföra processen med att tillämpa uppdateringar. |
+| Installera Endpoint Protection|Rekommenderar att du etablerar program mot skadlig kod för virtuella datorer (endast virtuella Windows-datorer). |
+| Aktivera virtuell datoragent |Du kan se vilka virtuella datorer som kräver VM-agenten. VM-agenten måste installeras på virtuella datorer för att etablera korrigeringsgenomsökning, baslinjegenomsökning och program mot skadlig kod. VM-agenten installeras som standard för virtuella datorer som distribueras från Azure Marketplace. Artikeln [VM Agent and Extensions – Part 2](https://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/) (VM-agenter och tillägg – del 2) innehåller information om hur VM-agenten ska installeras. |
+| Tillämpa diskkryptering|Rekommenderar att krypterar dina VM-diskar med Azure Disk Encryption (virtuella Windows- och Linux-datorer). Kryptering rekommenderas både för OS- och datavolymer på den virtuella datorn. |
+| Uppdatera OS-versionen|Rekommenderar att du uppdaterar operativ system versionen (OS) för din moln tjänst till den senaste versionen som är tillgänglig för din OS-familj.  Mer information om Cloud Services finns i Översikt över Cloud Services. |
+| Sårbarhetsbedömning inte installerad|Rekommenderar att du installerar en lösning för sårbarhetsbedömning på den virtuella datorn. |
+| Åtgärda sårbarheter) |Gör att du kan visa system- och säkerhetssårbarheter som identifieras av sårbarhetsbedömningen som är installerad på den virtuella datorn. |
 
-### Apptjänster <a name="app-services"></a>
+### App Services<a name="app-services"></a>
 | Rekommendation | Beskrivning |
 | --- | --- |
-| App Service bör endast vara tillgängligt via HTTPS | Rekommenderar att du begränsar åtkomst till App Service via HTTPS endast. |
-| Webbsockets bör inaktiveras för webbprogram| Rekommenderar att du noggrant läser användningen av Web Sockets i webbappar.  Web Sockets-protokollet är utsatt för olika typer av säkerhetshot. |
-| Använd anpassade domäner för ditt webbprogram | Rekommenderar att du använder anpassade domäner för att skydda ett webbprogram mot vanliga attacker som nätfiske och andra DNS-relaterade attacker. |
-| Konfigurera IP-begränsningar för webbprogram | Du bör definiera en lista över IP-adresser som ska kunna komma åt ditt program.  Användning av IP-restriktioner skyddar du webbappar mot vanliga attacker. |
-| Tillåt inte alla ('* ') resurser för att komma åt ditt program | Rekommenderar att du inte anger parametern website_load_certificates. den ” *”. Ställa in parametern '* ”innebär att alla certifikat läses till din web program personliga certifikatarkiv.  Detta kan leda till missbruk av principen om lägsta behörighet eftersom det är osannolikt att webbplatsen behöver åtkomst till alla certifikat vid körning. |
-| CORS bör inte bevilja alla resurser åtkomst till ditt program | Rekommenderar att du tillåter endast nödvändiga domäner att interagera med ditt webbprogram. Mellan ursprung ska sharing (CORS) inte tillåta alla domäner får åtkomst till ditt webbprogram. |
-| Använd senast stöds .NET Framework för webbprogram | Rekommenderar att du använder den senaste versionen av .NET Framework för de senaste säkerhetsklasserna. Använder äldre klasser och typer kan du göra ditt program sårbart. |
-| Använd den senaste Java versionen för webbprogram | Rekommenderar att du använder den senaste Java-versionen för de senaste säkerhetsklasserna. Använder äldre klasser och typer kan du göra ditt program sårbart. |
-| Använd den senaste PHP versionen för webbprogram | Rekommenderar att du använder den senaste PHP-versionen för de senaste säkerhetsklasserna. Använder äldre klasser och typer kan du göra ditt program sårbart. |
-| [Lägga till en brandvägg för webbappar](security-center-add-web-application-firewall.md) |Rekommenderar att du distribuerar en brandvägg för webbaserade program (WAF) för webb-slutpunkter. En WAF-rekommendation visas för valfri offentlig IP-adress (instans nivå IP eller belastningsutjämnade IP-Load) som har en nätverkssäkerhetsgrupp med öppna inkommande webbportar (80,443).</br></br>Security Center rekommenderar att du etablerar en WAF för att skydda mot hot mot dina webbprogram på virtuella datorer och på App Service Environment. App Service Environment (ASE) är en [Premium](https://azure.microsoft.com/pricing/details/app-service/) tjänsten Prenumerationsalternativ i Azure App Service som innehåller en helt isolerad och dedikerad miljö för säker körning av Azure App Service-appar. Mer information om ASE finns i [dokumentation för App Service Environment](../app-service/environment/intro.md).</br></br>Du kan skydda flera webbprogram i Security Center genom att lägga till dessa program till din befintliga WAF-distributioner. |
-| [Slutför programskydd](security-center-add-web-application-firewall.md#finalize-application-protection) |Om du vill slutföra konfigurationen av en WAF måste trafik dirigeras om till den WAF-installationen. Efter den här rekommendationen Slutför de nödvändiga ändringarna. |
-| Använd den senaste Node.js versionen för webbprogram | Rekommenderar att du använder den senaste versionen av Node.js för de senaste säkerhetsklasserna. Använder äldre klasser och typer kan du göra ditt program sårbart. |
-| CORS bör inte bevilja alla resurser att få åtkomst till din Funktionsapp | Rekommenderar att du tillåter endast nödvändiga domäner att interagera med ditt webbprogram. Mellan ursprung ska sharing (CORS) inte tillåta alla domäner åtkomst till ditt funktionsprogram. |
-| Använd anpassade domäner för Funktionsappen | Rekommenderar att du använder anpassade domäner för att skydda en funktionsapp från vanliga attacker som nätfiske och andra DNS-relaterade attacker. |
-| Konfigurera IP-begränsningar för Funktionsappen | Du bör definiera en lista över IP-adresser som ska kunna komma åt ditt program. Användning av IP-restriktioner skyddar en funktionsapp från vanliga attacker. |
-| Funktionen App bör enbart vara åtkomliga via HTTPS | Rekommenderar att du begränsar åtkomst till funktionsappar via HTTPS endast. |
-| Fjärrfelsökning bör stängas av för Funktionsappen | Rekommenderar att du stänger av felsökning för Funktionsappen om du inte längre behöver använda den. Fjärrfelsökning kräver att inkommande portar öppnas på en Funktionsapp. |
-| Webbsockets bör inaktiveras för Funktionsappen | Rekommenderar att du noggrant läser användningen av Web Sockets i Funktionsappar. Web Sockets-protokollet är utsatt för olika typer av säkerhetshot. |
+| App Service bör endast vara tillgängligt via HTTPS | Rekommenderar att du begränsar åtkomsten till App Service över HTTPS. |
+| Webbsockets bör inaktiveras för webbprogram| Rekommenderar att du noga läser igenom användningen av Web Sockets i webb program.  Web Sockets-protokollet är utsatt för olika typer av säkerhetshot. |
+| Använd anpassade domäner för ditt webbprogram | Rekommenderar att du använder anpassade domäner för att skydda ett webb program från vanliga attacker som nätfiske och andra DNS-relaterade attacker. |
+| Konfigurera IP-begränsningar för webbprogram | Rekommenderar att du definierar en lista med IP-adresser som får åtkomst till ditt program.  Användning av IP-restriktioner skyddar du webbappar mot vanliga attacker. |
+| Tillåt inte alla ('* ') resurser för att komma åt ditt program | Rekommenderar att du inte anger WEBSITE_LOAD_CERTIFICATES-parametern till *. Om du anger parametern till*, innebär det att alla certifikat kommer att läsas in i dina webbappars personliga certifikat arkiv.  Detta kan leda till missbruk av principen om lägsta behörighet eftersom det är osannolikt att webbplatsen behöver åtkomst till alla certifikat vid körning. |
+| CORS bör inte tillåta alla resurser åtkomst till ditt program | Rekommenderar att du endast tillåter att nödvändiga domäner interagerar med ditt webb program. Mellan ursprung ska sharing (CORS) inte tillåta alla domäner får åtkomst till ditt webbprogram. |
+| Använd senast stöds .NET Framework för webbprogram | Rekommenderar att du använder den senaste .NET Framework versionen för de senaste säkerhets klasserna. Använder äldre klasser och typer kan du göra ditt program sårbart. |
+| Använd den senaste Java versionen för webbprogram | Rekommenderar att du använder den senaste Java-versionen för de senaste säkerhets klasserna. Använder äldre klasser och typer kan du göra ditt program sårbart. |
+| Använd den senaste PHP versionen för webbprogram | Rekommenderar att du använder den senaste PHP-versionen för de senaste säkerhets klasserna. Använder äldre klasser och typer kan du göra ditt program sårbart. |
+| [Lägga till en brandvägg för webbappar](security-center-add-web-application-firewall.md) |Rekommenderar att du distribuerar en brand vägg för webbaserade program (WAF) för webb slut punkter. En WAF-rekommendation visas för alla offentliga IP-adresser (antingen IP-adresser på instans nivå eller belastningsutjämnade IP) som har en associerad nätverks säkerhets grupp med öppna inkommande webb portar (80 443).</br></br>Security Center rekommenderar att du etablerar ett WAF för att skydda mot attacker som riktar sig mot dina webb program på virtuella datorer och på App Service-miljön. En App Service-miljön (ASE) är ett [Premium](https://azure.microsoft.com/pricing/details/app-service/) service-alternativ för Azure App Service som ger en helt isolerad och dedikerad miljö för säker körning av Azure App Service appar. Mer information om ASE finns i App Service-miljön- [dokumentationen](../app-service/environment/intro.md).</br></br>Du kan skydda flera webb program i Security Center genom att lägga till dessa program i dina befintliga WAF-distributioner. |
+| [Slutför programskydd](security-center-add-web-application-firewall.md#finalize-application-protection) |För att slutföra konfigurationen av en WAF, måste trafiken dirigeras om till WAF-enheten. Efter den här rekommendationen slutförs de nödvändiga konfigurations ändringarna. |
+| Använd den senaste Node.js versionen för webbprogram | Rekommenderar att du använder den senaste versionen av Node. js för de senaste säkerhets klasserna. Använder äldre klasser och typer kan du göra ditt program sårbart. |
+| CORS bör inte bevilja alla resurser att få åtkomst till din Funktionsapp | Rekommenderar att du endast tillåter att nödvändiga domäner interagerar med ditt webb program. Mellan ursprung ska sharing (CORS) inte tillåta alla domäner åtkomst till ditt funktionsprogram. |
+| Använd anpassade domäner för Funktionsappen | Rekommenderar att du använder anpassade domäner för att skydda en Function-app från vanliga attacker som nätfiske och andra DNS-relaterade attacker. |
+| Konfigurera IP-begränsningar för Funktionsappen | Rekommenderar att du definierar en lista med IP-adresser som får åtkomst till ditt program. Användning av IP-restriktioner skyddar en funktionsapp från vanliga attacker. |
+| Funktionen App bör enbart vara åtkomliga via HTTPS | Rekommenderar att du begränsar åtkomsten till funktions appar över HTTPS. |
+| Du bör stänga av fjärrfelsökning för funktionsappen | Rekommenderar att du inaktiverar fel sökning för Funktionsapp om du inte längre behöver använda den. Fjärrfelsökning kräver att inkommande portar öppnas på en Funktionsapp. |
+| Webbsockets bör inaktiveras för Funktionsappen | Rekommenderar att du noga läser igenom användningen av Web Sockets i Function Apps. Web Sockets-protokollet är utsatt för olika typer av säkerhetshot. |
 
 
 ## <a name="next-steps"></a>Nästa steg

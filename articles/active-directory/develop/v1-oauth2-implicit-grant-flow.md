@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 08/15/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e30bd940d3312a16f2dd30b175deb6622cb8c01
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: eb751d4cad036135865af9f97e159da104749388
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68834739"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69532404"
 ---
 # <a name="understanding-the-oauth2-implicit-grant-flow-in-azure-active-directory-ad"></a>Förstå OAuth2-flödet för implicit bidrag i Azure Active Directory (AD)
 
@@ -35,7 +35,7 @@ OAuth2 implicita bidrag är Notorious för tilldelning med den längsta listan m
 
 Quintessential [OAuth2 Authorization Code Granting](https://tools.ietf.org/html/rfc6749#section-1.3.1) är den auktorisering som använder två separata slut punkter. Slut punkten för auktorisering används för användar interaktions fasen, som resulterar i en auktoriseringskod. Token-slutpunkten används sedan av klienten för att utväxla koden för en åtkomsttoken, och ofta även en uppdateringstoken. Webb program krävs för att presentera sina egna programautentiseringsuppgifter för token-slutpunkten, så att auktoriseringsservern kan autentisera klienten.
 
-[OAuth2 implicita bidrag](https://tools.ietf.org/html/rfc6749#section-1.3.2) är en variant av andra auktoriserings bidrag. Det gör det möjligt för en klient att hämta en åtkomsttoken (och id_token, när du använder [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html)) direkt från slut punkten för auktorisering, utan att kontakta token-slutpunkten eller autentisera klienten. Den här varianten har utformats för JavaScript-baserade program som körs i en webbläsare: i den ursprungliga OAuth2-specifikationen returneras tokens i ett URI-fragment. Det gör token-bitarna tillgängliga för JavaScript-koden i klienten, men den garanterar att de inte tas med i omdirigeringar mot servern. Returnerade token via webbläsare omdirigeras direkt från slut punkten för auktorisering. Det har också fördelen att ta bort eventuella krav för cross origin-anrop, vilket är nödvändigt om JavaScript-programmet krävs för att kontakta token-slutpunkten.
+[OAuth2 implicita bidrag](https://tools.ietf.org/html/rfc6749#section-1.3.2) är en variant av andra auktoriserings bidrag. Det gör det möjligt för en klient att hämta en åtkomsttoken (och id_token, när du använder [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html)) direkt från slut punkten för auktorisering, utan att kontakta token-slutpunkten eller autentisera klienten. Den här varianten har utformats för JavaScript-baserade program som körs i en webbläsare: i den ursprungliga OAuth2-specifikationen returneras tokens i ett URI-fragment. Det gör token-bitarna tillgängliga för JavaScript-koden i klienten, men den garanterar att de inte tas med i omdirigeringar mot servern. I OAuth2 implicit beviljande, utfärdar behörighets slut punkten direkt till klienten med hjälp av en omdirigerings-URI som tidigare har angetts. Det har också fördelen att ta bort eventuella krav för cross origin-anrop, vilket är nödvändigt om JavaScript-programmet krävs för att kontakta token-slutpunkten.
 
 En viktig egenskap för den implicita tilldelningen av OAuth2 är faktum att sådana flöden aldrig returnerar uppdateringstoken till klienten. I nästa avsnitt visas hur detta inte är nödvändigt och skulle faktiskt vara ett säkerhets problem.
 

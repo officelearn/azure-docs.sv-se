@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 77bf284734428e9257b46d85296796e4051ace26
-ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
+ms.openlocfilehash: 44bf3171f9da73dac17b29e86c80fc8f0d011498
+ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68494827"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69557928"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy-definitionsstruktur
 
@@ -72,7 +72,7 @@ Alla Azure Policys exempel finns på [Azure policy exempel](../samples/index.md)
 
 ## <a name="mode"></a>Läge
 
-**Läge** konfigureras beroende på om principen är mål för en Azure Resource Manager egenskap eller en resurs leverantörs egenskap.
+**Läge** konfigureras beroende på om principen är riktad mot en Azure Resource Manager-egenskap eller en resurs leverantörs egenskap.
 
 ### <a name="resource-manager-modes"></a>Lägen i Resource Manager
 
@@ -105,7 +105,7 @@ Parametrar fungerar på samma sätt som när du skapar principer. Du kan återan
 En parameter har följande egenskaper som används i princip definitionen:
 
 - **name**: Parameterns namn. Används av `parameters` distributions funktionen i princip regeln. Mer information finns i [använda ett parameter värde](#using-a-parameter-value).
-- `type`: Anger om parametern är en **sträng**, en **matris**, ett **objekt**, ett  **booleskt värde**, ett **flyttal**eller en **datetime**.
+- `type`: Anger om parametern är en **sträng**, en **matris**, ett **objekt**, ett **booleskt värde**, ett **flyttal**eller en **datetime**.
 - `metadata`: Definierar under egenskaper som främst används av Azure Portal för att Visa användarvänlig information:
   - `description`: En förklaring av vad parametern används för. Kan användas för att ge exempel på acceptabla värden.
   - `displayName`: Det egna namnet som visas i portalen för-parametern.
@@ -151,7 +151,7 @@ Det här exemplet refererar till den **allowedLocations** -parameter som visades
 
 ### <a name="strongtype"></a>strongType
 
-I egenskapen kan du använda strongType för att ange en lista med alternativ för flera val i Azure Portal.  `metadata` Tillåtna värden för **strongType** nu:
+I egenskapen kan du använda strongType för att ange en lista med alternativ för flera val i Azure Portal. `metadata` Tillåtna värden för **strongType** nu:
 
 - `location`
 - `resourceTypes`
@@ -286,7 +286,7 @@ Följande fält stöds:
 
 Ett parameter värde kan skickas till ett tagg-fält. Att skicka en parameter till ett taggnamn ökar flexibiliteten i princip definitionen under princip tilldelning.
 
-I följande exempel `concat` används för att skapa ett fält uppslag för taggen som heter värdet för **TagName** -parametern. Om taggen inte finns används Lägg till **-resultatet för** att lägga till taggen med värdet för samma namngivna tagg uppsättning på den överordnade resurs gruppen granskade resurser med hjälp `resourcegroup()` av funktionen lookup.
+I följande exempel `concat` används för att skapa ett fält uppslag för taggen som heter värdet för **TagName** -parametern. Om taggen inte finns används Lägg till -resultatet för att lägga till taggen med värdet för samma namngivna tagg uppsättning på den överordnade resurs gruppen granskade resurser med hjälp `resourcegroup()` av funktionen lookup.
 
 ```json
 {
@@ -310,7 +310,7 @@ Villkor kan även skapas med hjälp av **värde**. **värde** kontrollerar villk
 **värdet** kombineras med alla [villkor](#conditions)som stöds.
 
 > [!WARNING]
-> Om resultatet av en _mall_ är ett fel, Miss lyckas princip utvärderingen. En misslyckad utvärdering är en implicit nekande. Mer information finns i [undvika mall](#avoiding-template-failures)-haverier.
+> Om resultatet av en _mall_ är ett fel, Miss lyckas princip utvärderingen. En misslyckad utvärdering är enimplicit nekande. Mer information finns i [undvika mall](#avoiding-template-failures)-haverier.
 
 #### <a name="value-examples"></a>Värde exempel
 
@@ -354,7 +354,7 @@ Den här princip regel exemplet använder **värdet** för att kontrol lera om r
 
 #### <a name="avoiding-template-failures"></a>Undvika synkroniseringsfel
 
-Användningen av _Template Functions_ i **Value** tillåter många komplexa kapslade funktioner. Om resultatet av en _mall_ är ett fel, Miss lyckas princip utvärderingen. En misslyckad utvärdering är en implicit nekande. Ett exempel på ett **värde** som inte fungerar i vissa scenarier:
+Användningen av _Template Functions_ i **Value** tillåter många komplexa kapslade funktioner. Om resultatet av en _mall_ är ett fel, Miss lyckas princip utvärderingen. En misslyckad utvärdering är enimplicit nekande. Ett exempel på ett **värde** som inte fungerar i vissa scenarier:
 
 ```json
 {

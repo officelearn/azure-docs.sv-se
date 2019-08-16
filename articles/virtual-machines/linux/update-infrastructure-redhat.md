@@ -3,8 +3,8 @@ title: Uppdateringsinfrastruktur för Red Hat | Microsoft Docs
 description: Läs mer om Red Hat-Uppdateringsinfrastruktur för Red Hat Enterprise Linux på begäran-instanser i Microsoft Azure
 services: virtual-machines-linux
 documentationcenter: ''
-author: BorisB2015
-manager: gwallace
+author: asinn826
+manager: BorisB2015
 editor: ''
 ms.assetid: f495f1b4-ae24-46b9-8d26-c617ce3daf3a
 ms.service: virtual-machines-linux
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 6/6/2019
 ms.author: borisb
-ms.openlocfilehash: efc76616151776bc2f766f92ff9503413c6037d0
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: ac3b29e3cd6cbaf0a8a34f442c55b386f150e018
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774276"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543778"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Uppdateringsinfrastruktur för Red Hat för på begäran Red Hat Enterprise Linux-datorer i Azure
  [Uppdateringsinfrastruktur för Red Hat](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) gör att cloud-leverantörer, till exempel Azure för spegling av Red Hat-värdbaserade databasinnehåll, skapa anpassade databaser med Azure-specifika innehåll och gör den tillgänglig för slutanvändaren virtuella datorer.
@@ -31,22 +31,52 @@ Mer information om RHEL-avbildningar i Azure, inklusive publicerings-och bevaran
 Information om Red Hat support-principer för alla versioner av RHEL finns på sidan [Red Hat Enterprise Linux livs cykel](https://access.redhat.com/support/policy/updates/errata) .
 
 ## <a name="important-information-about-azure-rhui"></a>Viktig information om Azure RHUI
+
 * Azure RHUI är en uppdaterings infrastruktur som stöder alla RHEL PAYG-VM: ar som skapats i Azure. Detta hindrar dig inte från att registrera dina virtuella PAYG RHEL-datorer med prenumerations hanteraren eller satellit eller någon annan källa med uppdateringar, men om du gör det med en PAYG VM kommer den att leda till indirekt dubbel fakturering. Se följande punkt för mer information.
 * Åtkomst till Azure som värd-RHUI ingår i priset för RHEL PAYG-avbildningen. Om du avregistrerar en PAYG RHEL virtuell dator från Azure som värd-RHUI konverterar som den virtuella datorn inte till en bring-your-own-license (BYOL) typ av virtuell dator. Om du har registrerat samma virtuella dator med en annan källa för uppdateringar kan roamingavgifter _indirekt_ dubbelklicka avgifter. Du debiteras för första gången för avgiften för Azure RHEL-programvara. Du debiteras den andra gången för Red Hat-prenumerationer som köpts tidigare. Om du ständigt behöver använda en annan uppdaterings infrastruktur än Azure-värdbaserade RHUI bör du överväga att registrera dig för att använda [RHEL BYOS](https://aka.ms/rhel-byos)-avbildningarna.
-* Standard beteendet för RHUI är att uppgradera den virtuella RHEL-datorn till den senaste lägre versionen när `sudo yum update`du kör.
-
-    Exempel: Om du vill etablera en virtuell dator från en RHEL 7.4 PAYG-avbildning och kör `sudo yum update`, att avslutas med en RHEL 7.6 virtuell dator (de senaste mindre versionen i RHEL7-serien).
-
-    Du kan undvika det här problemet genom att växla till [utökade uppdateringar Support kanaler](#rhel-eus-and-version-locking-rhel-vms) eller skapa en egen avbildning enligt beskrivningen i artikeln [skapa och ladda upp en Red Hat-baserad virtuell dator för Azure](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) . Om du skapar en egen avbildning måste du ansluta den till en annan uppdaterings infrastruktur ([direkt till Red Hat-innehålls leverans servrar](https://access.redhat.com/solutions/253273) eller en [Red Hat satellit-Server](https://access.redhat.com/products/red-hat-satellite)).
-
-
 
 * RHEL SAP PAYG-avbildningar i Azure (RHEL för SAP, RHEL for SAP HANA och RHEL for SAP Business Applications) är anslutna till dedikerade RHUI-kanaler som finns kvar på den särskilda RHEL-lägre versionen som krävs för SAP-certifiering.
 
-* Åtkomst till Azure-värdbaserade RHUI är begränsad till de virtuella datorerna inom de [Azure datacenter IP-adressintervall](https://www.microsoft.com/download/details.aspx?id=41653). Om du är proxy är alla VM-trafik via en lokal nätverksinfrastruktur, du kan behöva konfigurera användardefinierade vägar för RHEL PAYG virtuella datorer till Azure-RHUI.
+* Åtkomst till Azure-värdbaserade RHUI är begränsad till de virtuella datorerna inom de [Azure datacenter IP-adressintervall](https://www.microsoft.com/download/details.aspx?id=41653). Om du är proxy är alla VM-trafik via en lokal nätverksinfrastruktur, du kan behöva konfigurera användardefinierade vägar för RHEL PAYG virtuella datorer till Azure-RHUI. I så fall måste användardefinierade vägar läggas till för _alla_ RHUI-IP-adresser.
+
+## <a name="image-update-behavior"></a>Beteende för avbildnings uppdatering
+
+Från och med april 2019 erbjuder Azure RHEL-avbildningar som är anslutna till EUS-databaser (Extended Update Support) som standard och RHEL avbildningar som är anslutna till vanliga (icke-EUS) databaser som standard. Mer information om RHEL-EUS finns i dokumentation om och [EUs](https://access.redhat.com/articles/rhel-eus)i Red Hats [versions livs cykel](https://access.redhat.com/support/policy/updates/errata) . Standard beteendet för `sudo yum update` kan variera beroende på vilken RHEL-avbildning som du har tilldelat från, eftersom olika avbildningar är anslutna till olika lagrings platser.
+
+För en fullständig avbildnings lista kan `az vm image list --publisher redhat --all` du köra med hjälp av Azure CLI.
+
+### <a name="images-connected-to-non-eus-repositories"></a>Avbildningar som är anslutna till icke-EUS-databaser
+
+Om du etablerar en virtuell dator från en RHEL-avbildning som är ansluten till icke-EUS-lagringsplatser, kommer du att uppgraderas till den senaste `sudo yum update`RHEL-versionen när du kör. Om du till exempel etablerar en virtuell dator från en RHEL 7,4 PAYG-avbildning `sudo yum update`och kör, slutar du med en RHEL 7,7-dator (den senaste lägre versionen i RHEL7-serien).
+
+Avbildningar som är anslutna till icke-EUS-lagringsplatser kommer inte att innehålla ett lägre versions nummer i SKU: n. SKU: n är det tredje elementet i URN (fullständigt namn på avbildningen). Till exempel är alla följande avbildningar kopplade till icke-EUS-databaser:
+
+```text
+RedHat:RHEL:7-LVM:7.4.2018010506
+RedHat:RHEL:7-LVM:7.5.2018081518
+RedHat:RHEL:7-LVM:7.6.2019062414
+RedHat:RHEL:7-RAW:7.4.2018010506
+RedHat:RHEL:7-RAW:7.5.2018081518
+RedHat:RHEL:7-RAW:7.6.2019062120
+```
+
+Observera att SKU: erna antingen är 7-LVM eller 7-RAW. Den lägre versionen anges i versionen (fjärde elementet i URN) för de här avbildningarna.
+
+### <a name="images-connected-to-eus-repositories"></a>Bilder som är anslutna till EUS-databaser
+
+Om du etablerar en virtuell dator från en RHEL-avbildning som är ansluten till EUS-lagringsplatserna uppgraderas du inte till den senaste RHEL-versionen `sudo yum update`när du kör. Detta beror på att avbildningarna som är anslutna till EUS-lagringsplatser också är versions låsta till sin speciella lägre version.
+
+Bilder som är anslutna till EUS-lagringsplatser kommer att innehålla ett lägre versions nummer i SKU: n. Till exempel är alla följande avbildningar kopplade till EUS-databaser:
+
+```text
+RedHat:RHEL:7.4:7.4.2019062107
+RedHat:RHEL:7.5:7.5.2019062018
+RedHat:RHEL:7.6:7.6.2019062116
+```
 
 ## <a name="rhel-eus-and-version-locking-rhel-vms"></a>RHEL EUS och version – lås RHEL virtuella datorer
-Vissa kunder kan vilja låsa sina virtuella RHEL-datorer till en viss RHEL-mindre version. Du kan konfigurera den virtuella RHEL-datorn till en viss del version genom att uppdatera databaserna så att de pekar på de utökade support databaserna för uppdatering. Du kan också återställa EUS-versions låsnings åtgärden.
+
+Vissa kunder kan vilja låsa sina virtuella RHEL-datorer till en viss RHEL-mindre version efter att ha slutfört etableringen av den virtuella datorn. Du kan konfigurera den virtuella RHEL-datorn till en viss del version genom att uppdatera databaserna så att de pekar på de utökade support databaserna för uppdatering. Du kan också återställa EUS-versions låsnings åtgärden.
 
 >[!NOTE]
 > EUS stöds inte för RHEL-tillägg. Det innebär att om du installerar ett paket som vanligt vis är tillgängligt från RHEL extra-kanalen, kan du inte göra det på EUS. Den Red Hat extra produkt livs cykeln beskrivs [här](https://access.redhat.com/support/policy/updates/extras/).
@@ -55,12 +85,13 @@ När detta skrivs är EUS-supporten avslutad för RHEL < = 7,3. Se avsnittet "Re
 * RHEL 7,4 EUS-support upphör 31 augusti 2019
 * RHEL 7,5 EUS-support upphör 30 april 2020
 * RHEL 7,6 EUS-support upphör den 31 oktober 2020
+* RHEL 7,7 EUS-support upphör 30 augusti 2021
 
 ### <a name="switch-a-rhel-vm-to-eus-version-lock-to-a-specific-minor-version"></a>Växla en virtuell RHEL-dator till EUS (versions låsning till en speciell del version)
 Använd följande instruktioner för att låsa en RHEL VM till en viss del version (kör som rot):
 
 >[!NOTE]
-> Detta gäller endast för RHEL-versioner som EUS är tillgängligt för. När detta skrivs, omfattar detta RHEL 7,2-7.6. Mer information finns på sidan [Red Hat Enterprise Linux livs cykel](https://access.redhat.com/support/policy/updates/errata) .
+> Detta gäller endast för RHEL-versioner som EUS är tillgängligt för. När detta skrivs, omfattar detta RHEL 7,2-7.7. Mer information finns på sidan [Red Hat Enterprise Linux livs cykel](https://access.redhat.com/support/policy/updates/errata) .
 
 1. Inaktivera icke-EUS databaser:
     ```bash

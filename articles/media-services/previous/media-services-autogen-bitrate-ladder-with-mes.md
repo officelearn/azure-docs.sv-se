@@ -1,6 +1,6 @@
 ---
-title: Använd Azure Media Encoder Standard för att Autogenerera en bithastighetsstege | Microsoft Docs
-description: Det här avsnittet visar hur du använder Media Encoder Standard (MES) för att Autogenerera en bithastighetsstege baserat på inkommande upplösning och bithastighet. Inkommande upplösning och bithastighet kommer aldrig att överskridas. Till exempel om indata är 720p på 3 Mbit/s, utdata kommer förblir 720p i bästa och börjar avgifterna lägre än 3 Mbit/s.
+title: Använd Media Encoder Standard för att automatiskt skapa en bit hastighets steg-Azure | Microsoft Docs
+description: I det här avsnittet visas hur du använder Media Encoder Standard (en gång) för att automatiskt generera en bit hastighets steg baserat på inlösningen och bit hastigheten. Den angivna upplösningen och bit hastigheten överskrids aldrig. Om t. ex. indata är 720p på 3Mbps, kommer utdata att bli 720p på bästa och kommer att börja med lägre taxa än 3Mbps.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -13,36 +13,36 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: bbaf4d490fcebb4cd741a9b83ffc5d7e85699755
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 14575e0c95acf1345fc3358b323083d86d8eedee
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61224352"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543548"
 ---
-#  <a name="use-azure-media-encoder-standard-to-auto-generate-a-bitrate-ladder"></a>Använd Azure Media Encoder Standard för att generera en bithastighetsstege automatiskt  
+#  <a name="use-media-encoder-standard-to-auto-generate-a-bitrate-ladder"></a>Använd Media Encoder Standard för att automatiskt generera en bit hastighets steg  
 
 ## <a name="overview"></a>Översikt
 
-Den här artikeln visar hur du använder Media Encoder Standard (MES) för att Autogenerera en bithastighetsstege (bithastighet upplösning par) baserat på inkommande upplösning och bithastighet. Automatiskt genererade förinställningen kan inte överstiga inkommande upplösning och bithastighet. Till exempel om indata är 720p med 3 Mbit/s, utdata förblir 720p i bästa och börjar avgifterna lägre än 3 Mbit/s.
+Den här artikeln visar hur du använder Media Encoder Standard (en gång) för att automatiskt generera en bit hastighets steg (bit upplösnings par) baserat på inlösningen och bit hastigheten. Den automatiskt genererade inställningen kommer aldrig att överskrida den angivna upplösningen och bit hastigheten. Till exempel om indata är 720p med 3 Mbit/s, utdata förblir 720p i bästa och börjar avgifterna lägre än 3 Mbit/s.
 
-### <a name="encoding-for-streaming-only"></a>Kodning för direktuppspelning endast
+### <a name="encoding-for-streaming-only"></a>Kodning för endast strömning
 
-Om din avsikt är att koda källvideon endast för direktuppspelning, bör du använda den ”Adaptiv direktuppspelning” förinställda när du skapar ett kodningsjobb. När du använder den **Adaptiv direktuppspelning** bitrate MES-kodare kommer Intelligent gräns om en bithastighetsstege. Men kommer du inte att styra kodningen kostnader, eftersom tjänsten avgör hur många lager för att använda och med vilken upplösning. Du kan se exempel på utdata lager som produceras av MES till följd av kodning med den **Adaptiv direktuppspelning** förinställda i slutet av den här artikeln. Utdata tillgång innehåller MP4-filer där ljud och video är inte överlagrad.
+Om avsikten är att koda din käll video endast för strömning, bör du använda för inställningen "anpassningsbar strömning" när du skapar en kodnings aktivitet. När du använder den **anpassningsbara direkt uppspelnings** för hands inställningen kommer en stege-kodare att använda en bit hastighets steg. Du kommer dock inte att kunna kontrol lera kodnings kostnaderna eftersom tjänsten fastställer hur många skikt som ska användas och i vilken upplösning. Du kan se exempel på utmatnings lager som har producerats av ingångs punkt som ett resultat av kodning med den **anpassningsbara streaming** -förinställningen i slutet av artikeln. Utmatnings till gången innehåller MP4-filer där ljud och video inte är överlagrade.
 
 ### <a name="encoding-for-streaming-and-progressive-download"></a>Kodning för strömning och progressiv nedladdning
 
-Om din avsikt är att koda källvideon för direktuppspelning samt att producera MP4-filer för progressiv nedladdning, bör du använda den ”Content anpassningsbar flera bithastigheter MP4” förinställda när du skapar ett kodningsjobb. När du använder den **innehåll anpassningsbar flera bithastigheter MP4** bitrate MES-kodaren gäller samma kodning logik som ovan, men nu utdatatillgången innehåller MP4-filer där det är ljud och video överlagrad. Du kan använda någon av dessa MP4-filer (till exempel högsta bithastighet version) som en fil för progressiv nedladdning.
+Om avsikten är att koda din käll video för strömning och skapa MP4-filer för progressiv nedladdning bör du använda för inställningen "anpassa flera bit hastigheter för att skapa en kodning" när du skapar en kodnings aktivitet. När du använder den anpassade MP4-förvalet med **flera bit** hastigheter, använder en underordnad-kodare samma kodnings logik som ovan, men nu kommer den resulterande till gången att innehålla MP4-filer där ljud och video är överlagrade. Du kan använda någon av de här MP4-filerna (till exempel den högsta bit versionen) som en progressiv nedladdnings fil.
 
-## <a id="encoding_with_dotnet"></a>Encoding med Media Services .NET SDK
+## <a id="encoding_with_dotnet"></a>Koda med Media Services .NET SDK
 
-I följande kodexempel använder Media Services .NET SDK för att utföra följande uppgifter:
+I följande kod exempel används Media Services .NET SDK för att utföra följande uppgifter:
 
-- Skapa ett kodningsjobb.
-- Hämta en referens till Media Encoder Standard-kodaren.
-- Lägg till ett kodningsjobb i jobbet och ange om du vill använda den **Adaptiv direktuppspelning** förinställda. 
-- Skapa en utdata-tillgång som innehåller den kodade tillgången.
-- Lägg till en händelsehanterare för att kontrollera jobbförloppet för.
+- Skapa ett kodnings jobb.
+- Hämta en referens till Media Encoder Standard Encoder.
+- Lägg till en kodnings uppgift i jobbet och ange att du vill använda den **anpassade** för hands inställningen. 
+- Skapa en utgående till gång som innehåller den kodade till gången.
+- Lägg till en händelse hanterare för att kontrol lera jobb förloppet.
 - Skicka in jobbet.
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Skapa och konfigurera ett Visual Studio-projekt
@@ -167,14 +167,14 @@ namespace AdaptiveStreamingMESPresest
 }
 ```
 
-## <a id="output"></a>Utdata
+## <a id="output"></a>Utdataparametrar
 
-Det här avsnittet visar tre exempel på utdata lager som produceras av MES till följd av kodning med den **Adaptiv direktuppspelning** förinställda. 
+I det här avsnittet visas tre exempel på utmatnings lager som har skapats av ingångs punkt som ett resultat av kodning med den **anpassade** för hands inställningen 
 
 ### <a name="example-1"></a>Exempel 1
 Källan med höjd ”1080” och ramhastighet ”29.970” ger 6 video lager:
 
-|Lager|Höjd|Bredd|Bitrate(kbps)|
+|Lager|Höjd|Bredd|Bit hastighet (kbit/s)|
 |---|---|---|---|
 |1|1080|1920|6780|
 |2|720|1280|3520|
@@ -186,7 +186,7 @@ Källan med höjd ”1080” och ramhastighet ”29.970” ger 6 video lager:
 ### <a name="example-2"></a>Exempel 2
 Källan med höjd ”720” och ramhastighet ”23.970” producerar 5 video lager:
 
-|Lager|Höjd|Bredd|Bitrate(kbps)|
+|Lager|Höjd|Bredd|Bit hastighet (kbit/s)|
 |---|---|---|---|
 |1|720|1280|2940|
 |2|540|960|1850|
@@ -197,7 +197,7 @@ Källan med höjd ”720” och ramhastighet ”23.970” producerar 5 video lag
 ### <a name="example-3"></a>Exempel 3
 Källan med höjd ”360” och ramhastighet ”29.970” ger 3 video lager:
 
-|Lager|Höjd|Bredd|Bitrate(kbps)|
+|Lager|Höjd|Bredd|Bit hastighet (kbit/s)|
 |---|---|---|---|
 |1|360|640|700|
 |2|270|480|440|
@@ -209,5 +209,5 @@ Källan med höjd ”360” och ramhastighet ”29.970” ger 3 video lager:
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Se även
-[Media Services-kodning – översikt](media-services-encode-asset.md)
+[Översikt över Media Services kodning](media-services-encode-asset.md)
 

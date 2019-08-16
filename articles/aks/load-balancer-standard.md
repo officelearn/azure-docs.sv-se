@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: zarhoads
-ms.openlocfilehash: 1dcf08f4fefb53ed46038c82e0ce8f9d3dd94de2
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 68968c1f846a1052600a8ed108f4d40fd9d8f2cb
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69032235"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534722"
 ---
 # <a name="preview---use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>För hands version – Använd en standard-SKU-belastningsutjämnare i Azure Kubernetes service (AKS)
 
@@ -92,11 +92,11 @@ Följande begränsningar gäller när du skapar och hanterar AKS-kluster som st�
 
 * När du använder *standard* -SKU: n för en belastningsutjämnare måste du tillåta offentliga adresser och undvika att skapa Azure policy som tillåter att IP skapas. AKS-klustret skapar automatiskt en offentlig *standard* -IP för SKU i samma resurs grupp som skapats för AKS-klustret, som vanligt vis heter med *MC_* i början. AKS tilldelar den offentliga IP-adressen till *standard* -SKU-belastningsutjämnaren. Den offentliga IP-adressen krävs för att tillåta utgående trafik från AKS-klustret. Den här offentliga IP-adressen krävs också för att upprätthålla anslutningen mellan kontroll planet och agent-noderna samt för att bibehålla kompatibilitet med tidigare versioner av AKS.
 * När du använder *standard* -SKU: n för en belastningsutjämnare måste du använda Kubernetes version 1.13.5 eller senare.
-* Om du använder [funktionen offentlig IP-adress](use-multiple-node-pools.md#assign-a-public-ip-per-node-in-a-node-pool) med standard belastnings utjämning kan du ange antingen en regel för utgående trafik eller en offentlig IP-adress för noden. Du måste välja en eller en annan eftersom en virtuell dator inte kan kopplas till både en SLB utgående regel och en offentlig IP-adress samtidigt.
 
 När den här funktionen är i för hands version gäller följande ytterligare begränsningar:
 
 * När du använder *standard* -SKU: n för en BELASTNINGSUTJÄMNARE i AKS kan du inte ange en egen offentlig IP-adress för belastnings utjämningen. Du måste använda IP-AKS tilldelas till belastningsutjämnaren.
+* Detta kan inte användas med [funktionen offentlig IP-adress för noden](use-multiple-node-pools.md#assign-a-public-ip-per-node-in-a-node-pool).
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 

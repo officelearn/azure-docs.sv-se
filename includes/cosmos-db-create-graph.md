@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 04/13/2018
 ms.author: sngun
 ms.custom: include file
-ms.openlocfilehash: a24159a482c55496bb1e6031be951196258a6796
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 837231ca07abcfdbd6ce932bb24bd890d91506a8
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565458"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69541553"
 ---
 Nu kan du använda datautforskarverktyget i Azure Portal för att skapa en grafdatabas. 
 
-1. Klicka på **Datautforskaren** > **Nytt diagram**.
+1. Välj **datautforskaren** > **nytt diagram**.
 
     Området **Lägg till diagram** visas längst till höger, du kan behöva bläddra åt höger för att se det.
 
@@ -32,4 +32,4 @@ Nu kan du använda datautforskarverktyget i Azure Portal för att skapa en grafd
     Graf-id|sample-graph|Ange *sample-graph* som namnet på den nya samlingen. Samma teckenkrav gäller för grafnamn som databas-id.
     Partitionsnyckel| /pk |Alla Cosmos DB-konton behöver en partitionsnyckel för att skalas vågrätt. Lär dig hur du väljer en lämplig partitionsnyckel i [artikeln diagram data partitionering](https://docs.microsoft.com/azure/cosmos-db/graph-partitioning).
 
-3. När formuläret är ifyllt klickar du på **OK**.
+3. När formuläret har fyllts i väljer du **OK**.

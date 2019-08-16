@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: a334b19fe4dd819a6e4c391e49d934bf5955a567
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: c3201ec64ee7a3471b7d93b83664c62c2e7e0435
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69516052"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69541547"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Vanliga frågor och svar om Azure IaaS VM-diskar och hanterade och ohanterade Premium-diskar
 
@@ -172,7 +172,7 @@ Din virtuella dator måste kanske finnas i en region och ett tillgänglighets zo
 Nej, Ultra disks stöds bara som data diskar och stöds endast som 4K-inhemska diskar.
 
 **Kan jag konvertera en befintlig disk till en Ultra disk?**
-Nej, men du kan migrera datumet från en befintlig disk till en Ultra disk. Om du vill migrera en befintlig disk till en Ultra disk ansluter du båda diskarna till samma virtuella dator och kopierar diskens data från en disk till en annan eller använder en lösning från tredje part för datamigrering.
+Nej, men du kan migrera data från en befintlig disk till en Ultra disk. Om du vill migrera en befintlig disk till en Ultra disk ansluter du båda diskarna till samma virtuella dator och kopierar diskens data från en disk till en annan eller använder en lösning från tredje part för datamigrering.
 
 **Kan jag skapa ögonblicks bilder för Ultra disks?**
 Nej, ögonblicks bilder är inte tillgängliga än.

@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 08/06/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: a92cb0f3da5058e7ffeee6f47e8cfa26ae291005
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 5c0c3ade3fd089a4819b8836b07e249fc32c06e0
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990566"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543606"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Distribuera modeller med Azure Machine Learning-tjänsten
 
@@ -149,12 +149,25 @@ Följande beräknings mål, eller beräknings resurser, kan användas som värd 
 
 ## <a name="prepare-to-deploy"></a>Förbered distributionen
 
-Om du vill distribuera som en webb tjänst måste du skapa en konfiguration för`InferenceConfig`konfigurations härledning () och distribution. Härlednings-eller modell poängsättning är den fas där den distribuerade modellen används för förutsägelse, oftast på produktions data. I konfigurations filen för konfigurations filen anger du de skript och beroenden som behövs för att hantera din modell. I distributions konfigurationen anger du information om hur du hanterar modellen på beräknings målet.
+Distribution av modellen kräver flera saker:
 
-> [!IMPORTANT]
-> Azure Machine Learning SDK tillhandahåller inte ett sätt för webb tjänst-eller IoT Edge distributioner för åtkomst till dina data lager eller data uppsättningar. Om du behöver distribuerad modell för att komma åt data som lagras utanför distributionen, t. ex. i ett Azure Storage konto, måste du utveckla en anpassad kod med hjälp av relevant SDK. Till exempel [Azure Storage SDK för python](https://github.com/Azure/azure-storage-python).
->
-> Ett annat alternativ som kan fungera för ditt scenario är [batch](how-to-run-batch-predictions.md)-förutsägelser, vilket ger åtkomst till data lager när poäng.
+* Ett __Entry-skript__. Det här skriptet accepterar begär Anden, visar begäran med hjälp av modellen och returnerar resultatet.
+
+    > [!IMPORTANT]
+    > Start skriptet är bara för din modell. den måste förstå formatet på inkommande begär ande data, formatet på de data som förväntas av din modell och formatet på de data som returneras till klienter.
+    >
+    > Om begär ande data har ett format som inte kan användas av din modell kan skriptet omvandla det till ett acceptabelt format. Det kan också omvandla svaret innan det returneras till klienten.
+
+    > [!IMPORTANT]
+    > Azure Machine Learning SDK tillhandahåller inte ett sätt för webb tjänst-eller IoT Edge distributioner för åtkomst till dina data lager eller data uppsättningar. Om du behöver distribuerad modell för att komma åt data som lagras utanför distributionen, t. ex. i ett Azure Storage konto, måste du utveckla en anpassad kod med hjälp av relevant SDK. Till exempel [Azure Storage SDK för python](https://github.com/Azure/azure-storage-python).
+    >
+    > Ett annat alternativ som kan fungera för ditt scenario är [batch](how-to-run-batch-predictions.md)-förutsägelser, vilket ger åtkomst till data lager när poäng.
+
+* **Beroenden**, till exempel hjälp skript eller python/Conda-paket som krävs för att köra registrerings skriptet eller modellen
+
+* __Distributions konfigurationen__ för det beräknings mål som är värd för den distribuerade modellen. Den här konfigurationen beskriver saker som minnes-och processor krav som krävs för att köra modellen.
+
+Dessa entiteter kapslas in i en konfiguration för en __konfiguration__och en __distributions konfiguration__. Konfigurations konfigurationen refererar till Start skriptet och andra beroenden. Dessa konfigurationer definieras program mässigt när du använder SDK och som JSON-filer när du använder CLI för att utföra distributionen.
 
 ### <a id="script"></a> 1. Definiera ditt Entry-skript & beroenden
 
@@ -399,9 +412,13 @@ def run(request):
 
 ### <a name="2-define-your-inferenceconfig"></a>2. Definiera din InferenceConfig
 
-Konfigurations konfigurationen beskriver hur du konfigurerar modellen för att göra förutsägelser. Följande exempel visar hur du skapar en konfigurations konfiguration. Den här konfigurationen anger körnings miljön, start skriptet och (valfritt) Conda-miljöfilen:
+Konfigurations konfigurationen beskriver hur du konfigurerar modellen för att göra förutsägelser. Den här konfigurationen ingår inte i ditt Entry-skript. den refererar till ditt Entry-skript och används för att hitta alla resurser som krävs för distributionen. Den används senare när modellen distribueras.
+
+Följande exempel visar hur du skapar en konfigurations konfiguration. Den här konfigurationen anger körnings miljön, start skriptet och (valfritt) Conda-miljöfilen:
 
 ```python
+from azureml.core.model import InferenceConfig
+
 inference_config = InferenceConfig(runtime="python",
                                    entry_script="x/y/score.py",
                                    conda_file="env/myenv.yml")
@@ -431,7 +448,7 @@ Information om hur du använder en anpassad Docker-avbildning med konfigurations
 
 ### <a name="3-define-your-deployment-configuration"></a>3. Definiera distributions konfigurationen
 
-Innan du distribuerar måste du definiera distributions konfigurationen. __Distributions konfigurationen är specifika för det beräknings mål som ska vara värd för webb tjänsten__. När du distribuerar lokalt måste du till exempel ange den port där tjänsten accepterar begär Anden.
+Innan du distribuerar måste du definiera distributions konfigurationen. __Distributions konfigurationen är specifika för det beräknings mål som ska vara värd för webb tjänsten__. När du distribuerar lokalt måste du till exempel ange den port där tjänsten accepterar begär Anden. Distributions konfigurationen ingår inte i ditt Entry-skript. Den används för att definiera egenskaperna för det beräknings mål som ska vara värd för modell-och registrerings skriptet.
 
 Du kan också behöva skapa beräknings resursen. Till exempel, om du inte redan har en Azure Kubernetes-tjänst som är kopplad till din arbets yta.
 
@@ -442,6 +459,12 @@ Följande tabell innehåller ett exempel på hur du skapar en distributions konf
 | Lokala | `deployment_config = LocalWebservice.deploy_configuration(port=8890)` |
 | Azure Container-instans | `deployment_config = AciWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 | Azure Kubernetes Service | `deployment_config = AksWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
+
+Var och en av dessa klasser för lokala, ACI och AKS webb tjänster kan importeras från `azureml.core.webservice`:
+
+```python
+from azureml.core.webservice import AciWebservice, AksWebservice, LocalWebservice
+```
 
 > [!TIP]
 > Innan du distribuerar din modell som en tjänst kanske du vill profilera den för att fastställa optimala processor-och minnes krav. Du kan profilera din modell med antingen SDK eller CLI. Mer information finns i [profilen profil ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-) och [AZ ml modell profil](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-profile) .
@@ -459,6 +482,8 @@ Om du vill distribuera lokalt måste du ha Docker installerat på den lokala dat
 #### <a name="using-the-sdk"></a>Med SDK
 
 ```python
+from azureml.core.webservice import LocalWebservice, Webservice
+
 deployment_config = LocalWebservice.deploy_configuration(port=8890)
 service = Model.deploy(ws, "myservice", [model], inference_config, deployment_config)
 service.wait_for_deployment(show_output = True)

@@ -10,12 +10,12 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c192a994ac5398d41e28a35267b922ba98b721cc
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: dd898397b4aaec2e62558d12a3547f7b61d6d3fd
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69513614"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69533464"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Översikt över Azure Automation tillstånds konfiguration
 
@@ -126,15 +126,6 @@ Om du vill ha en lista över regions-IP-adresser i stället för region namn lad
 >En uppdaterad fil publiceras varje vecka. Filen visar de för tillfället distribuerade intervallen och eventuella kommande ändringar i IP-intervallen. Nya intervall som visas i filen används inte i Data Center i minst en vecka.
 >
 > Det är en bra idé att ladda ned den nya XML-filen varje vecka. Uppdatera sedan webbplatsen för att identifiera tjänster som körs i Azure på rätt sätt. Azure ExpressRoute-användare bör Observera att den här filen används för att uppdatera Border Gateway Protocol-annonsering (BGP) för Azure-utrymmet under den första veckan i varje månad.
-
-## <a name="introduction-video"></a>Introduktionsfilm
-
-Föredrar du att titta eller läsa? Ta en titt på följande video från maj 2015 när Azure Automation State-konfigurationen först lanserades.
-
-> [!NOTE]
-> Medan begreppen och livs cykeln som diskuteras i den här videon är korrekta, har Azure Automation tillstånds konfigurationen förfallit ett parti sedan den här videon registrerades. Den är nu allmänt tillgänglig, har ett mycket mer omfattande gränssnitt i Azure Portal och har stöd för många ytterligare funktioner.
-
-> [!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3467/player]
 
 ## <a name="next-steps"></a>Nästa steg
 

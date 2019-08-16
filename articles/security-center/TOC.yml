@@ -6,8 +6,6 @@
       href: security-center-intro.md
     - name: Plattformar och funktioner som stöds av Security Center
       href: security-center-os-coverage.md
-    - name: Utvärdering av slutpunktsskydd och rekommendationer
-      href: security-center-endpoint-protection.md
 - name: Snabbstarter
   expanded: true
   items:
@@ -45,6 +43,24 @@
       href: security-center-incident-response.md
     - name: Hantering av flera klienter
       href: security-center-cross-tenant-management.md
+    - name: Hotidentifieringsaviseringar
+      items:
+        - name: Översikt över säkerhetsaviseringar
+          href: security-center-alerts-overview.md
+        - name: Hotidentifiering för virtuella datorer och servrar
+          href: security-center-alerts-iaas.md
+        - name: Hotidentifiering för intern molnberäkning
+          href: security-center-alerts-compute.md
+        - name: Hotidentifiering för datatjänster
+          href: security-center-alerts-data-services.md
+        - name: Hotidentifiering för Azure-tjänstlager
+          href: security-center-alerts-service-layer.md
+        - name: Integrering med Azure-säkerhetsprodukter
+          href: security-center-alerts-integration.md
+        - name: Intelligent aviseringskorrelation i molnet (incidenter)
+          href: security-center-alerts-cloud-smart.md
+        - name: Aviseringsverifiering (EICAR-testfil)
+          href: security-center-alert-validation.md
 - name: Instruktionsguider
   items:
     - name: Förbättra dina säkerhetspoäng
@@ -105,42 +121,16 @@
           href: security-center-file-integrity-monitoring.md
         - name: Anpassningsbar nätverkshärdning
           href: security-center-adaptive-network-hardening.md
-    - name: Hotidentifieringsaviseringar
-      items:
-        - name: Översikt över säkerhetsaviseringar
-          href: security-center-alerts-overview.md
-        - name: Hotidentifiering för virtuella datorer och servrar
-          href: security-center-alerts-iaas.md
-        - name: Hotidentifiering för intern molnberäkning
-          href: security-center-alerts-compute.md
-        - name: Hotidentifiering för datatjänster
-          href: security-center-alerts-data-services.md
-        - name: Hotidentifiering för Azure-tjänstlager
-          href: security-center-alerts-service-layer.md
-        - name: Integrering med Azure-säkerhetsprodukter
-          href: security-center-alerts-integration.md
-        - name: Intelligent aviseringskorrelation i molnet (incidenter)
-          href: security-center-alerts-cloud-smart.md
-        - name: Aviseringsverifiering (EICAR-testfil)
-          href: security-center-alert-validation.md
     - name: Arkiv
       items:
         - name: Tillämpa diskkryptering
           href: security-center-apply-disk-encryption.md
         - name: Tillämpa systemuppdateringar
           href: security-center-apply-system-updates.md
-        - name: Aktivera kryptering för lagringskonto
-          href: security-center-enable-encryption-for-storage-account.md
-        - name: Aktivera VM-Agent
-          href: security-center-enable-vm-agent.md
         - name: Installera slutpunktsskydd
           href: security-center-install-endpoint-protection.md
         - name: Starta om datorn efter uppdateringarna
           href: 'security-center-apply-system-updates.md#reboot-after-system-updates'
-        - name: Åtgärda säkerhetskonfigurationer
-          href: security-center-remediate-os-vulnerabilities.md
-        - name: Uppdatera OS-versionen
-          href: security-center-update-os-version.md
         - name: Sårbarhetsbedömning inte installerad
           href: security-center-vulnerability-assessment-recommendations.md
         - name: Lägg till en brandvägg för webbappar
@@ -191,6 +181,8 @@
       href: 'https://azure.microsoft.com/updates/?product=security-center'
     - name: Tillbakadragande av funktioner och API (juli 2019)
       href: security-center-features-retirement-july2019.md
+    - name: Utvärdering av slutpunktsskydd och rekommendationer
+      href: security-center-endpoint-protection.md
 - name: Resurser
   items:
     - name: Utveckla dina färdigheter med Microsoft Learn

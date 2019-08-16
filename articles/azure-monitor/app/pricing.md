@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/13/2019
 ms.author: dalek
-ms.openlocfilehash: abf23eda2474ecbcfcaf0dadb26327225213a9a6
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 4029a9e46b9c9bb7cbd677deff4a172d8fc982f8
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989218"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534586"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Hantera användning och kostnader för Application Insights
 
@@ -41,7 +41,7 @@ Prissättningen för [Azure Application][start] insikter baseras på data volyme
 > [!NOTE]
 > Alla priser som visas i skärm bilder i den här artikeln är till exempel endast avsedda. För aktuella priser i din valuta och region, se [Application Insights priser][pricing].
 
-### <a name="multi-step-web-tests"></a>Flerstegstest för webbplatser
+### <a name="multi-step-web-tests"></a>Webbtester med flera steg
 
 [Webbtester med flera steg](../../azure-monitor/app/availability-multistep.md) debiteras ytterligare en kostnad. Webbtester med flera steg är webbtester som utför en sekvens med åtgärder.
 
@@ -92,7 +92,7 @@ Du kan använda något av följande alternativ för att se hur mycket data appen
 Här följer några saker som du kan göra för att minska din data volym:
 
 * Använd [sampling](../../azure-monitor/app/sampling.md). Den här tekniken minskar data hastigheten utan att skeva måtten. Du förlorar inte möjligheten att navigera mellan relaterade objekt i sökningen. I Server appar fungerar samplingen automatiskt.
-* [Begränsa antalet AJAX-anrop som kan rapporteras](../../azure-monitor/app/javascript.md#detailed-configuration) i varje sid visning eller inaktivera Ajax-rapportering.
+* [Begränsa antalet AJAX-anrop som kan rapporteras](../../azure-monitor/app/javascript.md#configuration) i varje sid visning eller inaktivera Ajax-rapportering.
 * [Redigera ApplicationInsights. config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) för att inaktivera de insamlings moduler som du inte behöver. Du kan till exempel bestämma att prestanda räknare eller beroende data inte är nödvändiga.
 * Dela din telemetri mellan separata instrument nycklar. 
 * Föraggregerade mått. Om du skickar anrop till TrackMetric i din app kan du minska trafiken genom att använda överlagringen som godkänner beräkningen av medelvärdet och standard avvikelsen för en batch med mått. Eller så kan du använda ett [paket för](https://www.myget.org/gallery/applicationinsights-sdk-labs)församlings sammansättning.

@@ -19,9 +19,7 @@
       href: dsvm-ubuntu-intro.md
     - name: Skapa en CentOS-DSVM
       href: linux-dsvm-intro.md
-    - name: Skapa en virtuell dator för djupinlärning
-      href: provision-deep-learning-dsvm.md
-    - name: Skapa en Geo AI-DSVM
+    - name: Skapa en virtuell Geo-AI-dator för datavetenskap
       href: provision-geo-ai-dsvm.md
 - name: Begrepp
   items:

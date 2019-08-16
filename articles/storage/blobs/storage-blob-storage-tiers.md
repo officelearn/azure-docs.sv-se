@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: 8f180308133ffba12cc3bffb19130aa7a129da9f
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 48c6d6ed60045d906fcb711bd07ab492b6bbf488
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68952908"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543680"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Azure Blob Storage: frekvent åtkomst, låg frekvent åtkomst och Arkiv lag rings nivåer
 
@@ -80,6 +80,7 @@ Exempel på användnings scenarier för Arkiv åtkomst nivån är:
 ### <a name="blob-rehydration"></a>Återuppväckning av blob
 
 [!INCLUDE [storage-blob-rehydrate-include](../../../includes/storage-blob-rehydrate-include.md)]
+Mer information finns i avsnittet om [dehydratisera BLOB-data från Arkiv](storage-blob-rehydration.md) lag rings nivån.  
 
 ## <a name="account-level-tiering"></a>Skiktning på konto nivå
 
@@ -164,11 +165,13 @@ I det här avsnittet visas följande scenarier på Azure Portal:
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 
-1. Om du vill navigera till din BLOB i ditt lagrings konto väljer du **alla resurser**, väljer ditt lagrings konto, väljer din behållare och väljer sedan din BLOB.
+1. Gå till din blob i lagringskontot genom att välja Alla resurser, ditt lagringskonto, din container och sedan välja din blob.
 
-1. På bladet **BLOB-egenskaper** väljer du List menyn **åtkomst nivå** för att väljaåtkomst nivånfrekvent, låg frekvent eller **Arkiv** .
+1. På bladet **BLOB-egenskaper** väljer du knappen **ändra nivå** för att öppna bladet nivå.
 
-1. Klicka på **Spara** överst på bladet.
+1. Välj åtkomstnivån frekvent, låg frekvent eller **Arkiv** . Om din BLOB för närvarande finns i arkivet och du vill rehydratisera till en onlinenivå, kan du också välja en rehydratiserad prioritet för **standard** eller **hög**.
+
+1. Klicka på **OK** längst ned på bladet.
 
 ## <a name="pricing-and-billing"></a>Priser och fakturering
 
@@ -245,6 +248,8 @@ Data lagring tillsammans med andra gränser anges på konto nivå och inte per �
 [Kontrollera tillgängligheten för frekvent/lågfrekvent lagring och arkivlagring efter region](https://azure.microsoft.com/regions/#services)
 
 [Hantera Azure Blob Storage-livscykeln](storage-lifecycle-management-concepts.md)
+
+[Lär dig mer om återuppväcks BLOB-data från Arkiv lag rings nivån](storage-blob-rehydration.md)
 
 [Utvärdera användningen av dina aktuella lagringskonton genom att aktivera mätvärden i Azure Storage.](../common/storage-enable-and-view-metrics.md)
 

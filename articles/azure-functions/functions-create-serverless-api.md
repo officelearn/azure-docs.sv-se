@@ -1,31 +1,30 @@
 ---
-title: Skapa ett API utan server med Azure Functions | Microsoft Docs
-description: Skapa ett API utan server med Azure Functions
-services: functions
+title: Anpassa en HTTP-slutpunkt i Azure Functions
+description: Lär dig hur du anpassar en HTTP trigger-slutpunkt i Azure Functions
 author: mattchenderson
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 05/04/2017
 ms.author: mahender
 ms.custom: mvc
-ms.openlocfilehash: f6a678e03818f1e1f2182b3b0dfab221d415dc72
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 00aa55fe9f92358fd3a0e6f3065e5e2e69e405e1
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62107287"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534625"
 ---
-# <a name="create-a-serverless-api-using-azure-functions"></a>Skapa ett API utan server med Azure Functions
+# <a name="customize-an-http-endpoint-in-azure-functions"></a>Anpassa en HTTP-slutpunkt i Azure Functions
 
-I den här självstudien lär du dig att skapa skalbara API:er med Azure Functions. Azure Functions levereras med en uppsättning inbyggda HTTP-utlösare och -bindningar vilket gör det enkelt att skapa en slutpunkt på en mängd olika språk, bland andra Node.JS och C#. I den här självstudien anpassar du en HTTP-utlösare för att hantera specifika åtgärder i din API-design. Du förbereder även för att utöka ditt API genom att integrera det i Azure Functions Proxies och konfigurera fingerade API:er. Detta görs i Functions serverlösa beräkningsmiljö, så att du inte behöver bekymra dig om resursskalning – du kan fokusera på din API-logik.
+I den här artikeln får du lära dig hur Azure Functions gör att du kan bygga mycket skalbara API: er. Azure Functions levereras med en uppsättning inbyggda HTTP-utlösare och -bindningar vilket gör det enkelt att skapa en slutpunkt på en mängd olika språk, bland andra Node.JS och C#. I den här artikeln ska du anpassa en HTTP-utlösare för att hantera vissa åtgärder i din API-design. Du förbereder även för att utöka ditt API genom att integrera det i Azure Functions Proxies och konfigurera fingerade API:er. Detta görs i Functions serverlösa beräkningsmiljö, så att du inte behöver bekymra dig om resursskalning – du kan fokusera på din API-logik.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter 
+## <a name="prerequisites"></a>Förutsättningar 
 
 [!INCLUDE [Previous quickstart note](../../includes/functions-quickstart-previous-topics.md)]
 
-Funktionen används i resten av den här självstudien.
+Den resulterande funktionen kommer att användas för resten av den här artikeln.
 
 ### <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -44,9 +43,9 @@ Som standard konfigureras din HTTP-utlösta funktion för att godkänna alla HTT
     | Fält | Exempelvärde | Beskrivning |
     |---|---|---|
     | Tillåtna HTTP-metoder | Valda metoder | Avgör vilka HTTP-metoder som kan användas för att anropa den här funktionen |
-    | Valda HTTP-metoder | HÄMTA | Tillåter endast de valda HTTP-metoderna att användas för att anropa den här funktionen |
+    | Utvalda HTTP-metoder | HÄMTA | Tillåter endast de valda HTTP-metoderna att användas för att anropa den här funktionen |
     | Flödesmall | /hello | Avgör vilket flöde som används för att anropa den här funktionen |
-    | Auktorisationsnivå | Anonym | Valfritt: Gör din funktion tillgänglig utan en API-nyckel |
+    | Auktorisationsnivå | Anonymt | Valfritt: Gör din funktion tillgänglig utan en API-nyckel |
 
     > [!NOTE] 
     > Observera att du har inte tog med bassökvägsprefixet `/api` i flödesmallen, eftersom det styrs av en global inställning.
@@ -103,7 +102,7 @@ Upprepa stegen för att [Skapa en funktionsapp](https://docs.microsoft.com/azure
 
     | Fält | Exempelvärde | Beskrivning |
     |---|---|---|
-    | Namn | HelloProxy | Ett eget namn som endast används för hantering |
+    | Name | HelloProxy | Ett eget namn som endast används för hantering |
     | Flödesmall | /api/remotehello | Avgör vilket flöde som används för att anropa den här proxyn |
     | Webbadress för serverdel | https://%HELLO_HOST%/api/hello | Anger den slutpunkt som begäran ska nå via proxy |
     
@@ -182,7 +181,7 @@ Testa ditt fingerade API genom att anropa slutpunkten `<YourProxyApp>.azurewebsi
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien lärde du dig att skapa och anpassa ett API på Azure Functions. Du lärde dig också att hantera flera API:er, även fingerade, tillsammans som en enhetlig API-yta. Du kan använda de här metoderna för att bygga ut API:er i olika komplexitetsgrader medan de körs på den serverlösa beräkningsmodell som Azure Functions ger.
+I den här artikeln har du lärt dig hur du skapar och anpassar ett API på Azure Functions. Du lärde dig också att hantera flera API:er, även fingerade, tillsammans som en enhetlig API-yta. Du kan använda de här metoderna för att bygga ut API:er i olika komplexitetsgrader medan de körs på den serverlösa beräkningsmodell som Azure Functions ger.
 
 Följande referenser kan vara till hjälp när du utvecklar ditt API vidare:
 

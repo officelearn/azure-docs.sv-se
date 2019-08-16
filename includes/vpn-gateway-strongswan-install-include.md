@@ -8,31 +8,39 @@ ms.topic: include
 ms.date: 08/14/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: ade787370278de147e446ebb12f0f06637fd8125
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
-ms.translationtype: HT
+ms.openlocfilehash: ddab6927044ce638e50ff3ad79aa3c35d046c820
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035740"
+ms.locfileid: "69520886"
 ---
 Följande konfiguration användes för stegen nedan:
 
   | | |
   |---|---|
-  |Computer| Ubuntu Server 16.04<br>ID_LIKE = Debian<br>PRETTY_NAME="Ubuntu 16.04.4 LTS"<br>VERSION_ID="16.04" |
+  |Computer| Ubuntu Server 18.04|
   |Beroenden| strongSwan |
 
 
 Använd följande kommandon för att installera den nödvändiga strongSwan-konfigurationen:
 
 ```
-apt-get install strongswan-ikev2 strongswan-plugin-eap-tls
+sudo apt install strongswan
 ```
 
 ```
-apt-get install libstrongswan-standard-plugins
+sudo apt install strongswan-pki
 ```
 
 ```
-apt-get install strongswan-pki
+sudo apt install libstrongswan-extra-plugins
 ```
+
+Använd följande kommando för att installera Azures kommando rads gränssnitt:
+
+```
+curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+```
+
+[Ytterligare anvisningar om hur du installerar Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-apt?view=azure-cli-latest)

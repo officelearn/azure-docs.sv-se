@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: f14403422e2c783d75634bb929d8c2130bd505b6
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: a8a75601daf36ca21ea56a5930219d7d467f0c85
+ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663883"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69557814"
 ---
 # <a name="how-to-analyze-your-learning-loop-with-an-offline-evaluation"></a>Analysera din inlärnings slinga med en offline-utvärdering
 
@@ -30,7 +30,7 @@ Läs om [offline](concepts-offline-evaluation.md) -utvärderingar för mer infor
 ## <a name="prerequisites"></a>Förutsättningar
 
 1. Du måste ha en egen-loop konfigurerad
-1. Den personliga slingan måste ha minst 50 000 händelser i sina loggar för att få meningsfulla utvärderings resultat.
+1. Den personliga slingan måste ha en representativ mängd data – som en ungefärligt vi recommmend minst 50 000 händelser i sina loggar för meningsfulla utvärderings resultat.
 
 Om du vill kan du också ha tidigare exporterade _Learning-principfiler_ som du kan jämföra och testa i samma utvärdering.
 

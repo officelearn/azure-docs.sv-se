@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 05/31/2019
 ms.author: kumud
 ms.reviewer: tyao
-ms.openlocfilehash: 025e45b86fa3a6020652ae9756ceace5b51daa55
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: d2d52d2faf9122b7dc87f71ac7b1be53eaa99878
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69516198"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534980"
 ---
 # <a name="configure-an-ip-restriction-rule-with-a-web-application-firewall-for-azure-front-door-service"></a>Konfigurera en regel för IP-begränsning med en brand vägg för webbaserade program för Azure-tjänsten för front dörr
 I den här artikeln beskrivs hur du konfigurerar regler för IP-begränsning i en brand vägg för webbaserade program (WAF) för Azure-tjänsten för frontend-tjänsten med hjälp av Azure CLI, Azure PowerShell eller en Azure Resource Manager mall.
@@ -56,7 +56,7 @@ I följande exempel:
 -  Ersätt *IPAllowPolicyExampleCLI* med din unika princip som skapats tidigare.
 -  Ersätt *IP-Address-Range-1*, *IP-Address-Range-2* med ditt eget intervall.
 
-Börja med att skapa en regel för IP-Tillåt för principen som skapats från föregående steg. Obs !-uppskjutning krävs eftersom en regel måste ha ett matchnings villkor som ska läggas till i nästa steg.
+Börja med att skapa en regel för IP-Tillåt för principen som skapats från föregående steg. Obs !-uppskjutning krävs eftersom en regel måste innehålla minst ett matchnings villkor. 
 
 ```azurecli
 az network front-door waf-policy rule create \

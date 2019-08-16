@@ -1,19 +1,19 @@
 ---
-title: VLAN och undernät i VMware-lösningen av CloudSimple – Azure
-description: Läs om VLAN och undernät i ett privat CloudSimple-moln
+title: VLAN och undernät i Azure VMware-lösning av CloudSimple
+description: Läs om VLAN och undernät i CloudSimple privata moln
 author: sharaths-cs
 ms.author: dikamath
-ms.date: 04/10/2019
+ms.date: 08/15/2019
 ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: d6659c50b79237907cf596d65e0ba9fb72113246
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 7af191893d6b3cf1c38e5ff44a7a8a04509347a8
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68812472"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543799"
 ---
 # <a name="vlans-and-subnets-overview"></a>Översikt över VLAN och undernät
 
@@ -23,7 +23,7 @@ CloudSimple tillhandahåller ett nätverk per region där din CloudSimple-tjäns
 
 ## <a name="vlans"></a>VLAN
 
-VLAN (Layer 2-nätverk) skapas per privat moln.  Layer 2-trafiken ligger kvar inom gränserna för ett privat moln, så att du kan isolera den lokala trafiken i det privata molnet.  Ett VLAN som skapats i det privata molnet kan bara användas för att skapa distribuerade Port grupper i det privata molnet.  Ett VLAN som skapats i ett privat moln konfigureras automatiskt på alla växlar som är anslutna till värdarna i ett privat moln.
+Ett VLAN (Layer 2-nätverk) skapas för varje privat moln.  Layer 2-trafiken ligger kvar inom gränserna för ett privat moln, så att du kan isolera den lokala trafiken i det privata molnet.  Ett VLAN som skapats i det privata molnet kan bara användas för att skapa distribuerade Port grupper i det privata molnet.  Ett VLAN som skapats i ett privat moln konfigureras automatiskt på alla växlar som är anslutna till värdarna i ett privat moln.
 
 ## <a name="subnets"></a>Undernät
 
@@ -33,17 +33,17 @@ Alla undernät kan kommunicera med varandra som standard, vilket minskar konfigu
 
 ## <a name="vspherevsan-subnets-cidr-range"></a>CIDR-intervall för vSphere/virtuellt San-undernät
 
-Ett privat moln skapas som en isolerad VMware-stack (ESXi-värdar, vCenter-, virtuellt San-och NSX)-miljö som hanteras av en vCenter-Server.  Hanterings komponenter distribueras i det nätverk som valts för **vSphere/virtuellt San-UNDERNÄT CIDR**.  Nätverks-CIDR-intervallet är indelat i olika undernät under distributionen.
+Ett privat moln skapas som en isolerad VMware-stack (ESXi-värdar, vCenter-, virtuellt San-och NSX)-miljö som hanteras av en vCenter-Server.  Hanterings komponenter distribueras i det nätverk som valts för vSphere/virtuellt San-undernät CIDR.  Nätverks-CIDR-intervallet är indelat i olika undernät under distributionen.
 
-Lägsta vSphere/virtuellt San-undernät CIDR-intervall prefix: **/24** högsta vSphere/virtuellt San-undernät CIDR-intervall prefix: **/21**
+* Minsta vSphere/virtuellt San-undernät CIDR-intervall prefix: **/24**
+* Maximalt vSphere/virtuellt San-undernät CIDR-intervall prefix: **/21**
 
-> [!CAUTION]
-> IP-adresser i CIDR-intervallet vSphere/virtuellt San är reserverade för användning av privata moln infrastrukturer. Använd inte en IP-adress i det här intervallet på någon virtuell dator.
-
+> [!IMPORTANT]
+> IP-adresser i CIDR-intervallet vSphere/virtuellt San är reserverade för användning av den privata moln infrastrukturen.  Använd inte IP-adressen i det här intervallet på någon virtuell dator.
 
 ### <a name="vspherevsan-subnets-cidr-range-limits"></a>vSphere/virtuellt San-undernät CIDR-intervall gränser
 
-Om du väljer vSphere/virtuellt San-undernät kan storleken på det privata molnet påverka storleken på det privata molnet.  Tabellen nedan visar det maximala antalet noder som du kan ha baserat på storleken på vSphere/virtuellt San-undernät CIDR.
+Valet av vSphere/virtuellt San-undernät CIDR-intervall storleken påverkar storleken på ditt privata moln.  Följande tabell visar det maximala antalet noder som du kan ha baserat på storleken på vSphere/virtuellt San-undernät CIDR.
 
 | Angivna vSphere/virtuellt San-undernät CIDR-prefix längd | Maximalt antal noder |
 |---------------------------------------------------|-------------------------|
@@ -54,19 +54,19 @@ Om du väljer vSphere/virtuellt San-undernät kan storleken på det privata moln
 
 ### <a name="management-subnets-created-on-a-private-cloud"></a>Hanterings under nät som skapats i ett privat moln
 
-Följande hanterings under nät skapas när du skapar ett privat moln. 
+Följande hanterings under nät skapas när du skapar ett privat moln.
 
-* **System Management** – VLAN och undernät för ESXi-värdars hanterings nätverk, DNS-server, vCenter-Server.
-* **VMotion** -VLAN och undernät för ESXi-värdar ' vMotion Network.
-* **Virtuellt San** -VLAN och undernät för ESXi-värdar ' virtuellt San Network.
-* **NsxtEdgeUplink1** -VLAN och UNDERNÄT för VLAN länkar till ett externt nätverk.
-* **NsxtEdgeUplink2** -VLAN och UNDERNÄT för VLAN länkar till ett externt nätverk.
-* **NsxtEdgeTransport** -VLAN och undernät för transport zoner styr räckvidden för Layer 2-nätverk i NSX-T.
-* **NsxtHostTransport** -VLAN och undernät för värd transport zon.
+* **System hantering**. VLAN och undernät för ESXi värd hanterings nätverk, DNS-server, vCenter-Server.
+* **VMotion**. VLAN och undernät för ESXi-värdar vMotion-nätverk.
+* **VIRTUELLT SAN**. VLAN och undernät för ESXi-värdar virtuellt SAN-nätverk.
+* **NsxtEdgeUplink1**. VLAN och undernät för VLAN länkar till ett externt nätverk.
+* **NsxtEdgeUplink2**. VLAN och undernät för VLAN länkar till ett externt nätverk.
+* **NsxtEdgeTransport**. VLAN och undernät för transport zoner styr räckvidden för Layer 2-nätverk i NSX-T.
+* **NsxtHostTransport**. VLAN och undernät för värd transport zon.
 
 ### <a name="management-network-cidr-range-breakdown"></a>Hantering av CIDR-intervall i hanterings nätverk
 
-det angivna CIDR-intervallet för vSphere/virtuellt San-undernät delas upp i flera undernät.  I tabellen nedan visas ett exempel på en analys av tillåtna prefix.  Exemplet använder **192.168.0.0** som CIDR-intervall.
+det angivna CIDR-intervallet för vSphere/virtuellt San-undernät delas upp i flera undernät.  I följande tabell visas ett exempel på en analys av tillåtna prefix.  Exemplet använder 192.168.0.0 som CIDR-intervall.
 
 Exempel:
 
@@ -82,4 +82,4 @@ Exempel:
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Skapa och hantera VLAN och undernät](https://docs.azure.cloudsimple.com/create-vlan-subnet/)
+* [Skapa och hantera VLAN och undernät](create-vlan-subnet.md)

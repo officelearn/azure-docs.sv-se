@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 819b2f3c54d97639eceae9aed60fdd5da2e7b3ef
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 572371f4abec413be5a2320c7d69d8126f26924f
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68608181"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69533066"
 ---
 # <a name="what-are-baseline-policies"></a>Vad är bas linje principer?
 
@@ -41,7 +41,7 @@ Alla fyra av dessa principer påverkar äldre autentiserings flöden som POP, IM
 
 På grund av den kraft och åtkomst som administratörs kontot har måste du behandla dem med särskild omsorg. En gemensam metod för att förbättra skyddet av privilegierade konton är att kräva en starkare form av konto verifiering när de används för att logga in. I Azure Active Directory kan du få en bättre konto verifiering genom att kräva att administratörer registrerar sig för och använder Azure Multi-Factor Authentication.
 
-[Kräv MFA för administratörer (för hands version)](howto-baseline-protect-administrators.md) är en bas linje princip som kräver Multi-Factor Authentication (MFA) för följande katalog roller, som anses vara de mest privilegierade Azure AD-rollerna:
+[KRÄV MFA för administratörer (för hands version)](howto-baseline-protect-administrators.md) är en bas linje princip som kräver Multi-Factor Authentication (MFA) för följande katalog roller, som anses vara de mest privilegierade Azure AD-rollerna:
 
 * Global administratör
 * SharePoint-administratör
@@ -52,7 +52,7 @@ På grund av den kraft och åtkomst som administratörs kontot har måste du beh
 * Faktureringsadministratör
 * Användaradministratör
 
-Om din organisation har dessa konton som används i skript eller kod kan du ersätta dem med [hanterade identiteter](../managed-identities-azure-resources/overview.md).
+Om din organisation har dessa konton som används i skript eller kod kan du ersätta dem med [hanterade identiteter](../managed-identities-azure-resources/overview.md).
 
 ### <a name="end-user-protection-preview"></a>Slut användar skydd (för hands version)
 
@@ -87,7 +87,7 @@ För att skydda privilegierade åtgärder kräver detta att multifaktorautentise
 
 Så här aktiverar du en bas linje princip:
 
-1. Logga in på **Azure Portal** som global administratör, säkerhets administratör eller administratör för villkorlig åtkomst.
+1. Logga in på **Azure Portal** som global administratör, säkerhets administratör eller administratör för villkorlig åtkomst.
 1. Bläddra till **Azure Active Directory** > **villkorlig åtkomst**.
 1. I listan med principer väljer du en bas linje princip som du vill aktivera.
 1. Ange **Aktivera princip** till **på**.

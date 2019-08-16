@@ -8,15 +8,15 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 8c17bd203b7843de64734a74e7e41a22e42e3501
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: ddb3741c987e839fafb8bc222231547988d72f01
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68991006"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543749"
 ---
 # <a name="monitor-vmware-solution-by-cloudsimple-activity"></a>Övervaka VMware-lösning per CloudSimple-aktivitet
- 
+
 CloudSimple aktivitets loggar ger en inblick i åtgärder som utförs på CloudSimple-portalen.  Listan innehåller aviseringar, händelser, uppgifter och granskning.  Använd aktivitets loggarna för att avgöra vem, när och vilka åtgärder som utfördes.  Aktivitets loggar innehåller inte några Läs åtgärder som utförs av en användare.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
@@ -38,19 +38,19 @@ Om du vill visa information om någon av aktiviteterna på sidan aktivitet välj
 Klicka på en kolumn rubrik för att sortera visningen.  Du kan filtrera kolumner för att visa vissa värden.  Hämta aktivitets rapporten genom att klicka på **Hämta som CSV** -ikon.
 
 ## <a name="alerts"></a>Aviseringar
- 
+
 Aviseringar är aviseringar om viktiga aktiviteter i din CloudSimple-miljö.  Aviseringar innehåller händelser som påverkar fakturerings-eller användar åtkomst.
 
-Om du vill bekräfta aviseringar och ta bort dem från listan väljer du en eller flera i listan och klickar på **Bekräfta**. 
+Om du vill bekräfta aviseringar och ta bort dem från listan väljer du en eller flera i listan och klickar på **Bekräfta**.
 
 Följande kolumner med information är tillgängliga för aviseringar. Klicka på **Redigera kolumner** och Välj kolumner som du vill visa.
 
-| Kolumn | Beskrivning | 
------------- | ------------- | 
+| Kolumn | Beskrivning |
+------------ | ------------- |
 | Aviserings typ | Aviserings kategori.|
 | Time | Tiden då aviseringen inträffade. |
 | severity | Betydelsen av aviseringen.|
-| Resursnamn | Namnet som tilldelats resursen, till exempel namnet på det privata molnet. | 
+| Resursnamn | Namnet som tilldelats resursen, till exempel namnet på det privata molnet. |
 | Resurstyp | Resurs kategori: Privat moln, moln rack. |
 | Resurs-ID | Identifierare för resursen. |
 | Beskrivning | Beskrivning av vad som utlöste aviseringen. |
@@ -58,27 +58,27 @@ Följande kolumner med information är tillgängliga för aviseringar. Klicka p�
 
 ## <a name="events"></a>Events
 
-Händelser visar användar-och system aktivitet på CloudSimple-portalen. På sidan händelser visas den aktivitet som är associerad med en speciell resurs och påverkannas allvarlighets grad. 
+Händelser visar användar-och system aktivitet på CloudSimple-portalen. På sidan händelser visas den aktivitet som är associerad med en speciell resurs och påverkannas allvarlighets grad.
 
 Följande kolumner med information är tillgängliga för aviseringar. Klicka på **Redigera kolumner** och Välj kolumner som du vill visa.
 
-| Kolumn | Beskrivning | 
------------- | ------------- | 
+| Kolumn | Beskrivning |
+------------ | ------------- |
 | Time | Datum och tid då händelsen inträffade. |
 | Händelsetyp | Numerisk kod som identifierar händelsen. |
 | severity | Allvarlighets grad för händelse.|
-| Resursnamn | Namnet som tilldelats resursen, till exempel namnet på det privata molnet. | 
+| Resursnamn | Namnet som tilldelats resursen, till exempel namnet på det privata molnet. |
 | Resurstyp | Resurs kategori: Privat moln, moln rack. |
 | Beskrivning | Beskrivning av vad som utlöste aviseringen. |
 
 ## <a name="tasks"></a>Aktiviteter
 
-Aktiviteter är privata moln aktiviteter som förväntas ta 30 sekunder eller mer att slutföra. (Aktiviteter som förväntas ta mindre än 30 sekunder rapporteras endast som händelser.) Öppna sidan aktiviteter för att spåra förloppet för aktiviteterna i ditt privata moln. 
+Aktiviteter är privata moln aktiviteter som förväntas ta 30 sekunder eller mer att slutföra. (Aktiviteter som förväntas ta mindre än 30 sekunder rapporteras endast som händelser.) Öppna sidan aktiviteter för att spåra förloppet för aktiviteterna i ditt privata moln.
 
 Följande kolumner med information är tillgängliga för aviseringar. Klicka på **Redigera kolumner** och Välj kolumner som du vill visa.
 
-| Kolumn | Beskrivning | 
------------- | ------------- | 
+| Kolumn | Beskrivning |
+------------ | ------------- |
 | Uppgifts-ID | Unikt ID för uppgiften. |
 | Åtgärd | Åtgärd som ska utföras av uppgiften. |
 | Användare | Användaren har tilldelats för att slutföra uppgiften. |
@@ -93,12 +93,12 @@ Följande kolumner med information är tillgängliga för aviseringar. Klicka p�
 
 ## <a name="audit"></a>Granska
 
-Gransknings loggar håller reda på användar aktivitet. Du kan använda gransknings loggar för att övervaka användar aktivitet för alla användare. 
+Gransknings loggar håller reda på användar aktivitet. Du kan använda gransknings loggar för att övervaka användar aktivitet för alla användare.
 
 Följande kolumner med information är tillgängliga för aviseringar. Klicka på **Redigera kolumner** och Välj kolumner som du vill visa.
 
-| Kolumn | Beskrivning | 
------------- | ------------- | 
+| Kolumn | Beskrivning |
+------------ | ------------- |
 | Time | Tid för gransknings posten. |
 | Åtgärd | Åtgärd som ska utföras av uppgiften. |
 | Användare | Användaren har tilldelats uppgiften. |

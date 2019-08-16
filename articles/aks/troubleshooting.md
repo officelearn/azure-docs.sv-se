@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 1668e0b3b155804496b190f2ba66d220ba0dd219
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 00fadd8a98ec4f58783ed8b407e2621a7c107149
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68381959"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69533532"
 ---
 # <a name="aks-troubleshooting"></a>AKS-felsökning
 
@@ -86,10 +86,12 @@ Felet uppstår när kluster anger ett felaktigt tillstånd av flera orsaker. Fö
 
 *Den här fel söknings hjälpen riktas mot https://aka.ms/aks-pending-upgrade*
 
-Kluster åtgärder är begränsade när aktiva uppgraderings åtgärder inträffar eller om en uppgradering görs, men senare misslyckades. För att diagnostisera problemet, kör `az aks show -g myResourceGroup -n myAKSCluster -o table` för att hämta detaljerad status för klustret. Baserat på resultatet:
+Att uppgradera och skala åtgärder på ett kluster med en enda Node-pool eller ett kluster med [flera noder](use-multiple-node-pools.md) , är ömsesidigt uteslutande. Det går inte att ha ett kluster eller en Node-pool samtidigt för uppgradering och skalning. I stället måste varje åtgärds typ slutföras på mål resursen innan nästa begäran om samma resurs. Det innebär att åtgärder begränsas när aktiva uppgraderingar eller skalnings åtgärder inträffar eller görs och senare Miss lyckas. 
 
-* Om klustret aktivt uppgraderas väntar du tills åtgärden avslutas. Om den är klar kan du försöka med den tidigare misslyckade åtgärden igen.
-* Om uppgraderingen av klustret Miss lyckas följer du stegen som beskrivs ovan
+För att diagnostisera problemet `az aks show -g myResourceGroup -n myAKSCluster -o table` kan du Hämta detaljerad status för klustret. Baserat på resultatet:
+
+* Om klustret aktivt uppgraderas väntar du tills åtgärden avslutas. Om det lyckades, gör om den tidigare misslyckade åtgärden igen.
+* Om det inte går att uppgradera klustret följer du stegen som beskrivs i föregående avsnitt.
 
 ## <a name="can-i-move-my-cluster-to-a-different-subscription-or-my-subscription-with-my-cluster-to-a-new-tenant"></a>Kan jag flytta mitt kluster till en annan prenumeration eller min prenumeration med mitt kluster till en ny klient?
 
@@ -127,6 +129,6 @@ Kluster åtgärder är begränsade när en tidigare åtgärd fortfarande pågår
 
 Baserat på utdata från klustrets status:
 
-* Om klustret är i ett annat etablerings tillstånd än lyckat  eller *misslyckat*väntar du tills åtgärden (*Uppgradera/uppdatera/skapa/skala/ta bort/migrera*) avslutas. Försök att utföra den senaste kluster åtgärden igen när den tidigare åtgärden har slutförts.
+* Om klustret är i ett annat etablerings tillstånd än lyckat eller *misslyckat*väntar du tills åtgärden (*Uppgradera/uppdatera/skapa/skala/ta bort/migrera*) avslutas. Försök att utföra den senaste kluster åtgärden igen när den tidigare åtgärden har slutförts.
 
 * Om det finns en misslyckad uppgradering av klustret följer du stegen som beskrivs [i avsnittet Jag får fel meddelanden om att mitt kluster är i ett felaktigt tillstånd och uppgradering eller skalning fungerar inte förrän det har åtgärd ATS](#im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed).

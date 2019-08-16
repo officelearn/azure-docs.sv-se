@@ -1,0 +1,59 @@
+---
+title: Skapa VLAN/undernät
+description: Azure VMware-lösning av CloudSimple – beskriver hur du skapar och hanterar VLAN/undernät för dina privata moln och sedan använder brand Väggs regler.
+author: sharaths-cs
+ms.author: b-shsury
+ms.date: 08/15/2019
+ms.topic: article
+ms.service: azure-vmware-cloudsimple
+ms.reviewer: cynthn
+manager: dikamath
+ms.openlocfilehash: 0be98a66e8f614ae0cc605f5a30a480752f46ab2
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544713"
+---
+# <a name="create-and-manage-vlanssubnets-for-your-private-clouds"></a>Skapa och hantera VLAN/undernät för privata moln
+
+Öppna fliken VLAN/undernät på sidan nätverk för att skapa och hantera VLAN/undernät för privata moln. När du har skapat ett VLAN/undernät kan du använda brand Väggs regler.
+
+## <a name="create-a-vlansubnet"></a>Skapa ett VLAN/undernät
+
+1. [Öppna CloudSimple-portalen](monitor-activity.md) och välj **nätverk** på sido menyn.
+2. Välj **VLAN/undernät**.
+3. Klicka på **skapa VLAN/undernät**.
+
+    ![Sidan VLAN/undernät](media/vlan-subnet-page.png)
+
+4. Välj det privata molnet för det nya VLAN/undernät.
+5. Ange ett VLAN-ID.
+6. Ange under nätets namn.
+7. Om du vill aktivera routning på VLAN (undernät) anger du CIDR-intervallet för under nätet. Se till att CIDR-intervallet inte överlappar något av dina lokala undernät, Azure-undernät eller gateway-undernät.
+8. Klicka på **Skicka**.
+
+    ![Skapa VLAN/undernät](media/create-new-vlan-subnet-details.png)
+
+## <a name="use-vlan-information-to-set-up-a-distributed-port-group-in-vsphere"></a>Använd VLAN-information för att konfigurera en distribuerad port grupp i vSphere
+
+Om du vill skapa en distribuerad port grupp i vSphere följer du anvisningarna i avsnittet VMware Lägg till en distribuerad port grupp i <a href="https://docs.vmware.com/en/VMware-vSphere/6.5/vsphere-esxi-vcenter-server-65-networking-guide.pdf" target="_blank">nätverks guiden för vSphere</a>. När du konfigurerar den distribuerade port gruppen anger du VLAN-informationen från CloudSimple-konfigurationen.
+
+![Distribuerad port grupp](media/distributed-port-group.png)
+
+## <a name="select-a-firewall-table"></a>Välj en brand Väggs tabell
+
+Brand Väggs tabeller och associerade regler definieras på sidan **nätverks > brand Väggs tabeller** . Välj den brand Väggs tabell som ska användas för VLAN/undernät för ett privat moln genom att välja VLAN/undernät Klicka på **brand Väggs tabell bilaga** på sidan **VLAN/undernät** . Se [brand Väggs tabeller](firewall.md) för instruktioner om hur du konfigurerar brand Väggs tabeller och definierar regler.
+
+![Länk till brand Väggs tabell](media/vlan-subnet-firewall-link.png)
+
+> [!NOTE]
+> Ett undernät kan associeras med en brand Väggs tabell. En brand Väggs tabell kan associeras med flera undernät.
+
+## <a name="edit-a-vlansubnet"></a>Redigera ett VLAN/undernät
+
+Om du vill redigera inställningarna för ett VLAN/undernät väljer du det på sidan **VLAN/undernät** och klickar på ikonen **Redigera** . Gör ändringar och klicka på **submet**.
+
+## <a name="delete-a-vlansubnet"></a>Ta bort ett VLAN/undernät
+
+Om du vill ta bort ett VLAN/undernät markerar du det på sidan **VLAN/undernät** och klickar på ikonen **ta bort** . Bekräfta genom att klicka på **ta bort** .

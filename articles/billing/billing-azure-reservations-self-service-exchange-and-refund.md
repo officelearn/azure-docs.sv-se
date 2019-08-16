@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/05/2019
 ms.author: banders
-ms.openlocfilehash: 5e38684500520d4565835456b94200aea399c938
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 828bc3784a118a81adc4391b1bf222c00ee2025a
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68814115"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543016"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Självbetjänings utbyten och åter betalningar för Azure Reservations
 
@@ -60,11 +60,6 @@ Den ursprungliga fakturan annulleras och en ny faktura skapas. Pengarna återbet
 
 Azure har följande principer för annulleringar, utbyten och åter betalningar.
 
-**Principer för uppsägning**
-
-- Om du avbryter en reservation kan det finnas 12% tidig uppsägnings avgift.
-- Den åter betalning du får för en annullering är det återstående proportionella saldot minus 12% tidigt uppsägnings avgifter. Om du vill avbryta går du till reservationen i Azure Portal och väljer **åter betalning**.
-
 **Exchange-principer**
 
 - Du kan returnera flera befintliga reservationer för att köpa en ny reservation av samma typ. Du kan inte utbyta reservationer av en typ för en annan. Du kan till exempel inte returnera en VM-reservation för att köpa en SQL-reservation.
@@ -77,10 +72,12 @@ Azure har följande principer för annulleringar, utbyten och åter betalningar.
 - Det finns ingen påföljd eller de årliga gränserna för utbyten.
 
 **Åter betalnings principer**
+- Om du avbryter en reservation kan det finnas 12% tidig uppsägnings avgift.
+- Den åter betalning du får för en annullering är det återstående proportionella saldot minus 12% tidigt uppsägnings avgifter. Om du vill avbryta går du till reservationen i Azure Portal och väljer **åter betalning**.
 - Det totala bidrags beloppet får inte överstiga $50 000 USD i en rullande period på 12 månader.
 - Åter betalningar beräknas utifrån det lägsta priset för antingen ditt inköps pris eller det aktuella priset för reservationen.
 - Endast reservations ägare kan bearbeta en åter betalning. [Lär dig hur du lägger till eller ändrar användare som kan hantera en reservation](billing-manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
-- Microsoft förbehåller sig rätten att debitera 12% straff för returer, även om avgiften inte för närvarande debiteras.
+- Microsoft förbehåller sig rätten att debitera 12% straff för returer. Sanktionen debiteras inte för närvarande, men kommer att debiteras i framtiden.
 
 ## <a name="exchange-non-premium-storage-for-premium-storage"></a>Exchange non-Premium-lagring för Premium Storage
 

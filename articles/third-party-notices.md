@@ -1,25 +1,28 @@
 ---
+title: Juridiska meddelanden
+author: SyntaxC4
+ms.author: cfowler
 ms.service: azure
 ms.topic: conceptual
 ms.date: 03/08/2019
-ms.openlocfilehash: 2b1fc99fe179187c6431d9a999628db76885e553
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 14f78c9c7e5f43fb28557933b9a89cfb5c2cb5db
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60884282"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543877"
 ---
-# <a name="legal-notices"></a>Juridisk information
+# <a name="legal-notices"></a>Juridiska meddelanden
 
-Microsoft och eventuella bidragsgivares ge dig en licens för Microsoft-dokumentationen och övrigt innehåll i den här databasen enligt den [Creative Commons Attribution 4.0 International Public License](https://creativecommons.org/licenses/by/4.0/legalcode), och ge dig en licens till all kod i databasen under den [MIT-licensen](https://opensource.org/licenses/MIT).
+Microsoft och alla bidrags givare ger dig en licens till Microsoft-dokumentationen och annat innehåll i den här lagrings platsen under [Creative Commons-behörighet 4,0 International offentlig licens](https://creativecommons.org/licenses/by/4.0/legalcode), och ger dig en licens till valfri kod i lagrings platsen under [MIT-licens](https://opensource.org/licenses/MIT).
 
-Microsoft, Windows, Microsoft Azure och/eller andra Microsoft-produkter och tjänster som nämns i dokumentationen kan vara varumärken eller registrerade varumärken som tillhör Microsoft i USA och i andra länder.
-Licenserna för det här projektet ger dig inte behörighet att använda alla Microsoft-namn, logotyper eller varumärken.
-Microsofts allmänna riktlinjer för varumärken finns på [ https://go.microsoft.com/fwlink/?LinkID=254653 ](https://go.microsoft.com/fwlink/?LinkID=254653).
+Microsoft, Windows, Microsoft Azure och/eller andra Microsoft-produkter och-tjänster som refereras till i dokumentationen kan vara varumärken eller registrerade varumärken som tillhör Microsoft i USA och/eller i andra länder.
+Licenserna för det här projektet ger dig inte behörighet att använda några Microsoft-namn, logo typer eller varumärken.
+Microsofts rikt linjer för allmänt varumärke finns på [https://go.microsoft.com/fwlink/?LinkID=254653](https://go.microsoft.com/fwlink/?LinkID=254653).
 
-Sekretessinformation finns på [https://privacy.microsoft.com/en-us/](https://privacy.microsoft.com/en-us/)
+Sekretess information finns på[https://privacy.microsoft.com/en-us/](https://privacy.microsoft.com/en-us/)
 
-Microsoft och eventuella bidragsgivare rättigheter, enligt deras respektive upphovsrätt, patent eller varumärken, vare sig indirekt, via estoppel eller på annat sätt.
+Microsoft och alla bidrags givare förbehåller sig alla andra rättigheter, oavsett om de beär sina respektive upphovs rätter, patent eller varumärken, oavsett om de är indirekt, via estoppel eller på annat sätt.
 
-Go-gopher har konfigurerats av [Renee French](https://reneefrench.blogspot.com/).
-Designen är licensierad under den [Creative Commons 3.0 upphovsrätter licens](https://creativecommons.org/licenses/by/3.0/us/).
+Go gopher utformades av [Renee franska](https://reneefrench.blogspot.com/).
+Designen licensieras enligt den [Creative Commons 3,0-behörighets licensen](https://creativecommons.org/licenses/by/3.0/us/).

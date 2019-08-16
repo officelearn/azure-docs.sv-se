@@ -13,12 +13,12 @@ ms.date: 08/10/2018
 ms.author: routlaw
 ms.reviewer: glenga
 ms.custom: mvc, devcenter, seo-java-july2019
-ms.openlocfilehash: 1bb370009ce76b1962204907689d85b4f89c26c2
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 116d211e366e17ba667baf1e1deae719b56dc3ee
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932163"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69542742"
 ---
 # <a name="create-your-first-function-with-java-and-maven"></a>Skapa din första funktion med Java och Maven
 
@@ -67,7 +67,7 @@ mvn archetype:generate ^
     "-DarchetypeArtifactId=azure-functions-archetype"
 ```
 
-Maven uppmanar dig att ange de värden som behövs för att projektet ska genereras. Mer information om värdena _groupId_ , _artifactId_ och _version_ finns i referensmaterialet om [namngivningskonventioner i Maven](https://maven.apache.org/guides/mini/guide-naming-conventions.html). Värdet _appName_ måste vara unikt i Azure, så Maven genererar som standard ett appnamn baserat på ett tidigare angivet _artifactId_ . Värdet _packageName_ anger vilket Java-paket som ska användas till den genererade funktionskoden.
+Maven uppmanar dig att ange de värden som behövs för att projektet ska genereras. Mer information om värdena _groupId_, _artifactId_ och _version_ finns i referensmaterialet om [namngivningskonventioner i Maven](https://maven.apache.org/guides/mini/guide-naming-conventions.html). Värdet _appName_ måste vara unikt i Azure, så Maven genererar som standard ett appnamn baserat på ett tidigare angivet _artifactId_. Värdet _packageName_ anger vilket Java-paket som ska användas till den genererade funktionskoden.
 
 Identifierarna `com.fabrikam.functions` och `fabrikam-functions` nedan används som exempel och för att göra senare steg i den här snabbstarten lättare att läsa. Du bör ange dina egna värden för Maven i det här steget.
 
@@ -82,7 +82,7 @@ Define value for property 'resourceGroup' java-functions-group: :
 Confirm properties configuration: Y
 ```
 
-Maven skapar projektfilerna i en ny mapp med namnet _artifactId_ , `fabrikam-functions` i det här exemplet. Den färdiga koden för att köra genererad kod i projektet är en [http-utlöst](/azure/azure-functions/functions-bindings-http-webhook) funktion som skickar ut bröd texten i begäran. Ersätt *src/main/Java/com/Fabrikam/functions. java* med följande kod: 
+Maven skapar projektfilerna i en ny mapp med namnet _artifactId_, `fabrikam-functions` i det här exemplet. Den färdiga koden för att köra genererad kod i projektet är en [http-utlöst](/azure/azure-functions/functions-bindings-http-webhook) funktion som skickar ut bröd texten i begäran. Ersätt *src/main/Java/com/Fabrikam/functions. java* med följande kod: 
 
 ```java
 package com.fabrikam.functions;
@@ -202,13 +202,13 @@ Hello AzureFunctions!
 Redigera källfilen `src/main.../Function.java` i det genererade projektet för att ändra texten som returneras av funktionsappen. Ändra den här raden:
 
 ```java
-return request.createResponse(200, "Hello, " + name);
+return request.createResponseBuilder(HttpStatus.OK).body("Hello, " + name).build();
 ```
 
 Till följande:
 
 ```java
-return request.createResponse(200, "Hi, " + name);
+return request.createResponseBuilder(HttpStatus.OK).body("Hi, " + name).build();
 ```
 
 Spara ändringarna. Kör mvn Clean Package och distribuera om genom att `azure-functions:deploy` köra från terminalen som tidigare. Funktionsappen uppdateras och den här begäran:

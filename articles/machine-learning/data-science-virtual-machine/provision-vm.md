@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 02/22/2019
 ms.author: vijetaj
-ms.openlocfilehash: dfb3e9f6390d4c80b8f3c37b87f2659c671fa823
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 488dc7db01bd865268e143b68cdaccd989010912
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68591815"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534932"
 ---
 # <a name="provision-a-windows-data-science-virtual-machine-on-azure"></a>Etablera en Windows Data Science Virtual Machine på Azure
 
@@ -48,6 +48,7 @@ Följande verktyg ingår i en DSVM:
   * [Apache-granskning](https://drill.apache.org/) – en schema fri SQL-frågemotor för Apache Hadoop, NoSQL och moln lagring. Det har stöd för ODBC- och JDBC-gränssnitt för frågor till NoSQL och filer från standard BI-verktyg som Power BI, Microsoft Excel och Tableau.
 * Bibliotek i R och Python för använder i Azure Machine Learning och andra Azure-tjänster
 * Git, inklusive Git Bash, att arbeta med lagringsutrymmen för källkod som omfattar GitHub och Azure DevOps. Git innehåller flera populära Linux-kommandoradsverktyg som är tillgängliga både på Git Bash och en kommandotolk. Exempel är awk, sed, perl, grep, Sök, wget eller curl.
+* Utvecklingsverktyg och redigerare (RStudio, pycharm med)
 
 ### <a name="about-data-science"></a>Om data vetenskap
 

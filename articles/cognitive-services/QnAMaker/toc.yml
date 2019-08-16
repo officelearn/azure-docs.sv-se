@@ -108,7 +108,7 @@
           displayName: 'create bot, bot, publish to bot, test, edit'
         - name: Få svar med hjälp av metadata
           href: How-To/metadata-generateanswer-usage.md
-          displayName: 'isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters, GenerateAnswer, API, answer, RankerType, id, text, question, context'
+          displayName: 'isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters, GenerateAnswer, API, answer, RankerType, id, text, question, context, 200, 2xx, 400, 401, 403, 404'
         - name: Skapa en robot med en kunskapsbas
           href: Tutorials/integrate-qnamaker-luis.md
         - name: Skapa en kunskapsbas på ett annat språk
@@ -166,11 +166,6 @@
       href: troubleshooting.md
     - name: Begränsningar
       href: limits.md
-    - name: Ordlista
-      href: glossary.md
-    - name: HTTP-svarskoder
-      displayName: '200, 2xx, 400, 401, 403, 404'
-      href: http-response-codes.md
     - name: Exempel
       items:
         - name: Hjälprobot för QnA Maker

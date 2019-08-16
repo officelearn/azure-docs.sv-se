@@ -11,12 +11,12 @@ ms.author: nilesha
 ms.reviewer: trbye
 ms.date: 08/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 060257ef144309e37208db80c7731ed96b995b2c
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 49f46c09cfcfef2ab1e74ae7c08d9a54289293ac
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990484"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534839"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Självstudier: Använda automatiserad maskininlärning för att skapa en regressionsmodell
 
@@ -42,36 +42,11 @@ Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Gå vidare till [Ställ in din utvecklingsmiljö](#start) och läs igenom stegen för notebook eller följ instruktionerna nedan för att hämta din notebook och kör den på Azure Notebooks eller din egen Notebook-server. För att köra anteckningsboken behöver du:
+* Slutför del ett, [själv studie kurs om förberedelse av data](tutorial-data-prep.md).
 
-* [Kör självstudien för dataförberedelse](tutorial-data-prep.md).
-* En notebook-server för Python 3.6 med följande installerat:
-    * Azure Machine Learning SDK för Python med extrafunktionerna `automl` och `notebooks`
-    * `matplotlib`
-* Anteckningsboken för självstudie
-* En Machine Learning-arbetsyta
-* Konfigurationsfilen för arbetsytan i samma katalog som anteckningsboken
+* När du har slutfört del ett öppnar du självstudierna **/regression-part2-Automated-ml. ipynb** Notebook med samma Notebook-Server.
 
-Hämta alla dessa förutsättningar från något av avsnitten nedan.
-
-* Använd en [molnbaserad Notebook-server i din arbets yta](#azure)
-* Använd [din egen Notebook-server](#server)
-
-### <a name="azure"></a>Använd en molnbaserad Notebook-server i din arbets yta
-
-Det är enkelt att komma igång med din egen molnbaserade Notebook-Server. [Azure Machine Learning SDK för python](https://aka.ms/aml-sdk) har redan installerats och kon figurer ATS åt dig när du har skapat den här moln resursen.
-
-[!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
-
-* När du har startat Notebook-webbsidan kör du självstudierna **/regression-part2-Automated-ml. ipynb** Notebook.
-
-### <a name="server"></a>Använda en egen Jupyter Notebook-server
-
-Skapa en lokal Jupyter Notebook-server på datorn enligt nedan.  Se till att installera `matplotlib` `automl` och `notebooks` tillägg i din miljö.
-
-[!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
-
-När du har slutfört stegen kör du anteckningsboken **tutorials/regression-part2-automated-ml.ipynb**.
+Den här själv studie kursen finns också på [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) om du vill använda den i din egen [lokala miljö](how-to-configure-environment.md#local).  Kontrol lera att du har `matplotlib` installerat `automl` och `notebooks` tillägg från Azure Machine Learning SDK.
 
 ## <a name="start"></a>Konfigurera din utvecklingsmiljö
 

@@ -3,7 +3,7 @@ title: Universell Windows-plattform överväganden (Microsoft Authentication Lib
 description: Lär dig mer om att tänka på när du använder Universell Windows-plattform med Microsoft Authentication Library för .NET (MSAL.NET).
 services: active-directory
 documentationcenter: dev-center-name
-author: rwike77
+author: TylerMSFT
 manager: CelesteDG
 editor: ''
 ms.service: active-directory
@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/16/2019
-ms.author: ryanwi
+ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d78a64ee41e37fe53eba20eab6753c0b6eb8389
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 263264742088a0012ea844946e13cffbab634b29
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277907"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69532489"
 ---
 # <a name="universal-windows-platform-specific-considerations-with-msalnet"></a>Universell Windows-plattform-/regionsspecifika överväganden med MSAL.NET
 På UWP finns det flera saker som du måste tänka på när du använder MSAL.NET.
@@ -32,7 +32,7 @@ I WinRT- `PublicClientApplication` plattformen har följande booleska egenskap `
 
 > [!IMPORTANT]
 > Om den här egenskapen ställs in på Sant antas att programutvecklaren har aktiverat integrerad Windows-autentisering (IWA) i programmet. För detta:
-> - I UWP för ditt program, på fliken funktioner, aktiverar du följande funktioner:  ``Package.appxmanifest``
+> - I UWP för ditt program, på fliken funktioner, aktiverar du följande funktioner: ``Package.appxmanifest``
 >   - Enterprise-autentisering
 >   - Privata nätverk (klient & Server)
 >   - Delat användar certifikat

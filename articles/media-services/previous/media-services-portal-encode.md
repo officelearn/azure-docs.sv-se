@@ -1,6 +1,6 @@
 ---
-title: Koda en tillgång med Media Encoder Standard i Azure portal | Microsoft Docs
-description: Den här självstudien vägleder dig genom stegen för att koda en tillgång med Media Encoder Standard i Azure-portalen.
+title: Koda en till gång genom att använda Media Encoder Standard i Azure Portal | Microsoft Docs
+description: Den här självstudien vägleder dig genom stegen för att koda en till gång genom att använda Media Encoder Standard i Azure Portal.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,31 +14,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 90190f426419e65bd580b9004ae76a2c6b0c12e2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7c147d99eaabee70316521d1f2bdc41933162ab1
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61463161"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69542608"
 ---
-# <a name="encode-an-asset-by-using-media-encoder-standard-in-the-azure-portal"></a>Koda en tillgång med Media Encoder Standard i Azure portal
+# <a name="encode-an-asset-by-using-media-encoder-standard-in-the-azure-portal"></a>Koda en till gång genom att använda Media Encoder Standard i Azure Portal
 
 > [!NOTE]
 > Du behöver ett Azure-konto för att slutföra den här självstudien. Mer information finns i avsnittet om [den kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/). 
 > 
 > 
 
-Ett av de vanligaste scenarierna i att arbeta med Azure Media Services leverera strömning med anpassad bithastighet till dina klienter. Media Services stöder de följande strömningstekniker med anpassningsbar bithastighet: Apple HTTP Live Streaming (HLS), Microsoft Smooth Streaming och Dynamic Adaptive Streaming över HTTP (DASH, även kallad MPEG-DASH). För att förbereda dina videor för strömning med anpassad bithastighet, koda källvideon som filer med flera bithastigheter. Du kan använda Azure Media Encoder Standard för att koda dina videor.  
+Ett av de vanligaste scenarierna när du arbetar med Azure Media Services levererar direkt uppspelning med anpassningsbar bit hastighet till dina klienter. Media Services stöder följande strömmande tekniker med anpassningsbar bit hastighet: Apple HTTP Live Streaming (HLS), Microsoft Smooth Streaming och dynamisk adaptiv strömning via HTTP (bindestreck, kallas även MPEG-streck). För att förbereda dina videor för strömning med anpassningsbar bit hastighet måste du först koda din käll video som filer med flera bit hastigheter. Du kan använda Media Encoder Standard för att koda dina videor.  
 
-Media Services ger dig dynamisk paketering. Med dynamisk paketering kan du leverera dina MP4 i multibithastighet MP4s i HLS, Smooth Streaming och MPEG-DASH, utan ompaketering i dessa strömningsformat. När du använder dynamisk paketering, kan du lagra och betala för filerna i ett enda lagringsformat. Media Services skapar och ger lämplig respons baserat på en klientbegäran.
+Media Services ger dig dynamisk paketering. Med dynamisk paketering kan du leverera Multibits-hastigheter i HLS, Smooth Streaming och MPEG-streck, utan att packa om dessa strömmande format. När du använder dynamisk paketering kan du lagra och betala för filerna i ett enda lagrings format. Media Services skapar och hanterar lämpligt svar baserat på en klients begäran.
 
-Om du vill använda dynamisk paketering måste du koda källfilen i en uppsättning MP4-filer med flera bithastigheter. De kodningsstegen senare i den här artikeln.
+Om du vill använda dynamisk paketering måste du koda källfilen i en uppsättning MP4-filer med flera bithastigheter. Kodnings stegen visas längre fram i den här artikeln.
 
-Om du vill lära dig mer om att skala mediebearbetning, se [skala mediebearbetning med hjälp av Azure portal](media-services-portal-scale-media-processing.md).
+Information om hur du skalar medie bearbetning finns i [skala medie bearbetning med hjälp av Azure Portal](media-services-portal-scale-media-processing.md).
 
-## <a name="encode-in-the-azure-portal"></a>Koda i Azure portal
+## <a name="encode-in-the-azure-portal"></a>Koda i Azure Portal
 
-Att koda ditt innehåll med hjälp av Media Encoder Standard:
+För att koda ditt innehåll med hjälp av Media Encoder Standard:
 
 1. Välj ditt Azure Media Services-konto i [Azure-portalen](https://portal.azure.com/).
 2. Välj **Inställningar** > **Tillgångar**. Välj den tillgång som du vill koda.
@@ -57,5 +57,5 @@ Att koda ditt innehåll med hjälp av Media Encoder Standard:
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-steps"></a>Nästa steg
-* [Övervaka förloppet för ditt kodningsjobb](media-services-portal-check-job-progress.md) i Azure-portalen.  
+* [Övervaka förloppet för kodnings jobbet](media-services-portal-check-job-progress.md) i Azure Portal.  
 

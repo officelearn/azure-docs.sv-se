@@ -4,18 +4,19 @@ description: Den här snabb starten innehåller ett Java-kod exempel som du kan 
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.custom: mvc, devcenter, seo-java-july2019
+ms.custom: mvc, devcenter, seo-java-july2019, seo-java-august2019
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 08/08/2019
-ms.openlocfilehash: 5dbac4cee4df43dfc2f0ebf9fdb5e2e7b7d3192c
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: b24efe52d0ab24659c4278c6be59c4262023b26f
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68931600"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69541833"
 ---
-# <a name="azure-database-for-mysql-use-java-to-connect-and-query-data"></a>Azure Database for MySQL: Använda Java för att ansluta och skicka frågor till data
+# <a name="quickstart-use-java-to-connect-to-and-query-data-in-azure-database-for-mysql"></a>Snabbstart: Använd Java för att ansluta till och fråga efter data i Azure Database for MySQL
+
 Den här snabb starten visar hur du ansluter till en Azure Database for MySQL med hjälp av ett Java-program och JDBC [-drivrutinen MariaDB Connector/J](https://mariadb.com/kb/en/library/mariadb-connector-j/). Den visar hur du använder SQL-instruktioner för att fråga, infoga, uppdatera och ta bort data i databasen. Den här artikeln förutsätter att du är van att utveckla i Java och att du saknar erfarenhet av Azure Database for MySQL.
 
 ## <a name="prerequisites"></a>Förutsättningar

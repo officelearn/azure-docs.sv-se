@@ -1,0 +1,37 @@
+---
+title: Azure VMware-lösning av CloudSimple-allokerade offentliga IP-adresser
+description: Beskriver hur du allokerar offentliga IP-adresser för virtuella datorer i den privata moln miljön
+author: sharaths-cs
+ms.author: b-shsury
+ms.date: 08/15/2019
+ms.topic: article
+ms.service: azure-vmware-cloudsimple
+ms.reviewer: cynthn
+manager: dikamath
+ms.openlocfilehash: 12a6af73dc0abc9598184f6c83e9d7652973a99e
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544453"
+---
+# <a name="allocate-public-ip-addresses-for-private-cloud-environment"></a>Allokera offentliga IP-adresser för privat moln miljö
+
+Öppna fliken offentliga IP-adresser på sidan nätverk för att allokera offentliga IP-adresser för virtuella datorer i din privata moln miljö.
+
+1. [Öppna CloudSimple-portalen](monitor-activity.md) och välj **nätverk** på sido menyn.
+2. Välj **offentliga IP-adresser**.
+3. Klicka på **ny offentlig IP-adress**.
+
+    ![Sidan offentliga IP-adresser](media/public-ips-page.png)
+
+4. Ange ett namn för att identifiera IP-adress posten.
+5. Behåll standard platsen.
+6. Använd skjutreglaget för att ändra tids gränsen för inaktivitet, om det behövs.
+7. Ange den lokala IP-adress som du vill tilldela en offentlig IP-adress för.
+8. Ange ett associerat DNS-namn.
+9. Klicka på **Skicka**.
+
+![Allokera offentliga IP-adresser](media/network-public-ip-allocate.png)
+
+Uppgiften att allokera den offentliga IP-adressen börjar. Du kan kontrol lera status för aktiviteten på sidan **aktiviteter > uppgifter** . När allokeringen är klar visas den nya posten på sidan offentliga IP-adresser.

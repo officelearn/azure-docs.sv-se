@@ -1,5 +1,5 @@
 ---
-title: 'Ange omdirigerings-URL: er till b2clogin.com-Azure Active Directory B2C | Microsoft Docs'
+title: 'Ange omdirigerings-URL: er till b2clogin.com-Azure Active Directory B2C'
 description: 'Läs om hur du använder b2clogin.com i dina omdirigerings-URL: er för Azure Active Directory B2C.'
 services: active-directory-b2c
 author: mmacy
@@ -7,83 +7,85 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/28/2019
+ms.date: 08/17/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 080c1933f88d9e824969a42212de2eacd0f62e14
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: dbc366daac89f44d4b084081590124f81ff9cc9c
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68927288"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69533742"
 ---
 # <a name="set-redirect-urls-to-b2clogincom-for-azure-active-directory-b2c"></a>Ange omdirigerings-URL: er till b2clogin.com för Azure Active Directory B2C
 
-När du konfigurerar en identitets leverantör för registrering och inloggning i ditt Azure Active Directory (Azure AD) B2C-program måste du ange en omdirigerings-URL. Tidigare användes login.microsoftonline.com. nu ska du använda b2clogin.com.
+När du konfigurerar en identitets leverantör för registrering och inloggning i ditt Azure Active Directory B2C (Azure AD B2C) måste du ange en omdirigerings-URL. Du bör inte längre referera till *login.microsoftonline.com* i dina program och API: er. Använd i stället *b2clogin.com* för alla nya program och migrera befintliga program från *login.microsoftonline.com* till *b2clogin.com*.
 
-> [!NOTE]
-> Du kan använda JavaScript-kod på klient sidan (för närvarande i för hands version) i b2clogin.com. JavaScript-koden tas bort från den anpassade sidan om du använder login.microsoftonline.com. Ytterligare säkerhets begränsningar tillämpas också på login.microsoftonline.com, till exempel att ta bort HTML-formulär element från din anpassade sida. 
+## <a name="benefits-of-b2clogincom"></a>Fördelar med b2clogin.com
 
-Med b2clogin.com får du ytterligare fördelar, till exempel:
+När du använder *b2clogin.com* som omdirigerings-URL:
 
-- Förbrukat utrymme i cookie-huvudet av Microsoft-tjänster minskas.
-- URL: erna innehåller inte längre en referens till Microsoft. Till exempel `https://your-tenant-name.b2clogin.com/tenant-id/oauth2/authresp`.
+* Förbrukat utrymme i cookie-huvudet av Microsoft-tjänster minskas.
+* Dina omdirigerings-URL: er behöver inte längre innehålla en referens till Microsoft.
+* Java Script-kod på klient sidan stöds (för närvarande i för [hands version](user-flow-javascript-overview.md)) på anpassade sidor. På grund av säkerhets begränsningar tas JavaScript-kod och HTML-formulär element bort från anpassade sidor om du använder *login.microsoftonline.com*.
 
-> [!NOTE]
-> Du kan använda både klient namnet och klient-GUID enligt följande:
-> * `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`(som fortfarande refererar till `onmicrosoft.com`)
-> * `https://your-tenant-name.b2clogin.com/your-tenant-guid`(i så fall finns det ingen referens till Microsoft alls)
->
-> Du kan dock inte använda en _anpassad domän_ för din Azure Active Directory B2C-klient, t `https://your-tenant-name.b2clogin.com/your-custom-domain-name` . ex. _inte_ fungerar.
+## <a name="overview-of-required-changes"></a>Översikt över nödvändiga ändringar
 
-Överväg de här inställningarna som kan behöva ändras när du använder b2clogin.com:
+Det finns flera ändringar som du kan behöva göra för att migrera dina program till *b2clogin.com*:
 
-- Ange omdirigerings-URL: er i dina identitetsprovider program för att använda b2clogin.com. 
-- Ange att Azure AD B2C programmet ska använda b2clogin.com för användar flödes referenser och token-slutpunkter. 
-- Om du använder MSAL måste du ange egenskapen **ValidateAuthority** till `false`.
-- Se till att du ändrar alla **tillåtna ursprung** som du har DEFINIERAT i CORS-inställningarna för [användar gränssnitts anpassning](active-directory-b2c-ui-customization-custom-dynamic.md).  
+* Ändra omdirigerings-URL: en i din Identitetsproviders program till Reference *b2clogin.com*.
+* Uppdatera dina Azure AD B2C program så att de använder *b2clogin.com* i sina användar flöden och token slut punkts referenser.
+* Uppdatera eventuella **tillåtna ursprung** som du har DEFINIERAT i CORS-inställningarna för [anpassning av användar gränssnitt](active-directory-b2c-ui-customization-custom-dynamic.md).
 
-## <a name="change-redirect-urls"></a>Ändra omdirigerings-URL: er
+## <a name="change-identity-provider-redirect-urls"></a>Ändra omdirigerings-URL: er för identitetsprovider
 
-Om du vill använda b2clogin.com går du till inställningarna för ditt ID-leverantörs program och letar efter och ändrar listan över betrodda URL: er för att dirigera tillbaka till Azure AD B2C.  För närvarande har du förmodligen konfigurerat för att omdirigera tillbaka till en viss login.microsoftonline.com-webbplats. 
+På varje identitets leverantörs webbplats där du har skapat ett program, ändra alla betrodda URL: er som ska `your-tenant-name.b2clogin.com` omdirigeras till i stället för *login.microsoftonline.com*.
 
-Du måste ändra omdirigerings-URL: en `your-tenant-name.b2clogin.com` så att den är auktoriserad. Ersätt `your-tenant-name` med namnet på din Azure AD B2C klient och ta bort `/te` om det finns i URL: en. Det finns små variationer i denna URL för varje identitets leverantör så kontrol lera motsvarande sida för att få en exakt URL.
+Det finns två format som du kan använda för dina b2clogin.com-omdirigerings-URL: er. Det första ger fördelen att du inte har "Microsoft" visas var som helst i URL: en genom att använda klient-ID: t (en GUID) i stället för domän namnet för din klient organisation:
 
-Du hittar konfigurations information för identitets leverantörer i följande artiklar:
-
-- [Microsoft-konto](active-directory-b2c-setup-msa-app.md)
-- [Facebook](active-directory-b2c-setup-fb-app.md)
-- [Google](active-directory-b2c-setup-goog-app.md)
-- [Amazon](active-directory-b2c-setup-amzn-app.md)
-- [LinkedIn](active-directory-b2c-setup-li-app.md)
-- [Twitter](active-directory-b2c-setup-twitter-app.md)
-- [GitHub](active-directory-b2c-setup-github-app.md)
-- [Weibo](active-directory-b2c-setup-weibo-app.md)
-- [QQ](active-directory-b2c-setup-qq-app.md)
-- [WeChat](active-directory-b2c-setup-wechat-app.md)
-- [Azure AD](active-directory-b2c-setup-oidc-azure-active-directory.md)
-- [Anpassad OIDC](active-directory-b2c-setup-oidc-idp.md)
-
-## <a name="update-your-application"></a>Uppdatera programmet
-
-Ditt Azure AD B2C program refererar förmodligen till `login.microsoftonline.com` på flera platser, till exempel användar flödes referenser och token-slutpunkter.  Se till att behörighets slut punkten, token Endpoint och utfärdaren har uppdaterats för `your-tenant-name.b2clogin.com`användning.  
-
-## <a name="set-the-validateauthority-property"></a>Ange egenskapen ValidateAuthority
-
-Om du använder MSAL anger du egenskapen **ValidateAuthority** till `false`. När **ValidateAuthority** är inställt på `false`, tillåts omdirigeringar till b2clogin.com. 
-
-I följande exempel visas hur du kan ställa in egenskapen:
-
-I [MSAL för .net](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet):
-
-```CSharp
- ConfidentialClientApplication client = new ConfidentialClientApplication(...); // can also be PublicClientApplication
- client.ValidateAuthority = false;
+```
+https://{your-tenant-name}.b2clogin.com/{your-tenant-id}/oauth2/authresp
 ```
 
-Och i [MSAL för Java Script](https://github.com/AzureAD/microsoft-authentication-library-for-js):
+Det andra alternativet använder klient domän namnet i form av `your-tenant-name.onmicrosoft.com`. Exempel:
 
-```Javascript
+```
+https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/oauth2/authresp
+```
+
+För båda formaten:
+
+* Ersätt `{your-tenant-name}` med namnet på din Azure AD B2C-klient.
+* Ta `/te` bort om den finns i URL: en.
+
+## <a name="update-your-applications-and-apis"></a>Uppdatera dina program och API: er
+
+Koden i dina Azure AD B2C-aktiverade program och API: er kan referera `login.microsoftonline.com` till på flera platser. Din kod kan till exempel innehålla referenser till användar flöden och token-slutpunkter. Uppdatera följande referens `your-tenant-name.b2clogin.com`till i stället:
+
+* Auktoriseringsslutpunkt
+* Tokenslutpunkt
+* Tokenutfärdare
+
+Till exempel skulle auktoritets slut punkten för Contosos registrerings-/inloggnings princip bli:
+
+```
+https://contosob2c.b2clogin.com/00000000-0000-0000-0000-000000000000/B2C_1_signupsignin1
+```
+
+## <a name="microsoft-authentication-library-msal"></a>Microsoft Authentication Library (MSAL)
+
+### <a name="validateauthority-property"></a>ValidateAuthority-egenskap
+
+Om du använder [MSAL.net][msal-dotnet] v2 eller tidigare anger du egenskapen **ValidateAuthority** till `false` på klientens instansiering för att tillåta omdirigering till *b2clogin.com*. Den här inställningen krävs inte för MSAL.NET v3 eller senare.
+
+```CSharp
+ConfidentialClientApplication client = new ConfidentialClientApplication(...); // Can also be PublicClientApplication
+client.ValidateAuthority = false; // MSAL.NET v2 and earlier **ONLY**
+```
+
+Om du använder [MSAL för Java Script][msal-js]:
+
+```JavaScript
 this.clientApplication = new UserAgentApplication(
   env.auth.clientId,
   env.auth.loginAuthority,
@@ -93,3 +95,9 @@ this.clientApplication = new UserAgentApplication(
   }
 );
 ```
+
+<!-- LINKS - External -->
+[msal-dotnet]: https://github.com/AzureAD/microsoft-authentication-library-for-dotnet
+[msal-dotnet-b2c]: https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/AAD-B2C-specifics
+[msal-js]: https://github.com/AzureAD/microsoft-authentication-library-for-js
+[msal-js-b2c]: ../active-directory/develop/msal-b2c-overview.md

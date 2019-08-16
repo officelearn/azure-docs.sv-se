@@ -3,7 +3,7 @@ title: Konfiguration av klient program (Microsoft Authentication Library) | Azur
 description: Läs om konfigurations alternativen för offentliga klient program och konfidentiella klient program i Microsoft Authentication Library (MSAL).
 services: active-directory
 documentationcenter: dev-center-name
-author: rwike77
+author: TylerMSFT
 manager: CelesteDG
 editor: ''
 ms.service: active-directory
@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/16/2019
-ms.author: ryanwi
+ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 767f7362a6c46d864ba17f23f6506bf6cdb71414
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: 6fedca8dfb60d976723508bb89cab7d5b6dda1b9
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68304736"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69532910"
 ---
 # <a name="application-configuration-options"></a>Program konfigurations alternativ
 
@@ -53,7 +53,7 @@ Auktoriteten kan vara:
 - En Active Directory Federation Services (AD FS)-utfärdare (AD FS). Se [AD FS support](https://aka.ms/msal-net-adfs-support).
 
 Azure AD Cloud-utfärdare har två delar:
-- Identity Provider- ** instansen
+- Identity Provider- instansen
 - Inloggnings *mål grupp* för appen
 
 Instansen och mål gruppen kan sammanfogas och anges som auktoritets-URL. I tidigare versioner av MSAL.NET än MSAL 3. *x*, var du tvungen att skapa myndigheten själv, baserat på det moln som du ville rikta in dig på och inloggnings mål gruppen.  Det här diagrammet visar hur auktoritets-URL: en består:
@@ -61,7 +61,7 @@ Instansen och mål gruppen kan sammanfogas och anges som auktoritets-URL. I tidi
 ![Så här är auktoritets webb adressen sammansatt](media/msal-client-application-configuration/authority.png)
 
 ## <a name="cloud-instance"></a>Moln instans
-Instansen används för att ange om din app signerar användare från det offentliga Azure-molnet eller från nationella moln. ** Med MSAL i din kod kan du ställa in Azure-molnet genom att använda en uppräkning eller genom att skicka URL: en till den [nationella moln](authentication-national-cloud.md#azure-ad-authentication-endpoints) instansen som `Instance` medlem (om du känner till den).
+Instansen används för att ange om din app signerar användare från det offentliga Azure-molnet eller från nationella moln. Med MSAL i din kod kan du ställa in Azure-molnet genom att använda en uppräkning eller genom att skicka URL: en till den [nationella moln](authentication-national-cloud.md#azure-ad-authentication-endpoints) instansen som `Instance` medlem (om du känner till den).
 
 MSAL.net kommer att utlösa ett explicit undantag om `Instance` både `AzureCloudInstance` och anges.
 

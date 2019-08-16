@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: kgremban
-ms.openlocfilehash: a357e403aba64a5d05e359bf1186b01f73146758
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 0f8942d92958ee8add9645239cc5664a4a96bb33
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934105"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69533366"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>Reagera på IoT Hub händelser genom att använda Event Grid för att utlösa åtgärder
 
@@ -203,3 +203,5 @@ Program som hanterar IoT Hub händelser bör följa de här rekommendationerna:
 * [Läs mer om Event Grid](../event-grid/overview.md)
 
 * [Jämför skillnaderna mellan routning IoT Hub händelser och meddelanden](iot-hub-event-grid-routing-comparison.md)
+
+* [Lär dig hur du använder IoT-telemetri för att implementera IoT spatial Analytics med hjälp av Azure Maps (och IoT Hub meddelanderoutning)](../azure-maps/tutorial-iot-hub-maps.md#filter-events-using-iot-hub-message-routing)

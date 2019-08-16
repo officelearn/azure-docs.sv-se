@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/30/2019
+ms.date: 08/13/2019
 ms.author: magoedte
-ms.openlocfilehash: 2ea17a4363218351eb6e5ba0678435f3707e4ab9
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: a559fe86850ee9c1378876bc5ed8f2d0ddfb2d99
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663723"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543043"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Anslut Operations Manager till Azure Monitor
 
@@ -65,12 +65,12 @@ Läs igenom följande krav innan du börjar.
 >[!NOTE]
 >De senaste ändringarna i Azure API: er hindrar kunder från att kunna konfigurera integration mellan hanterings gruppen och Azure Monitor för första gången. För kunder som redan har integrerat sin hanterings grupp med tjänsten påverkas du inte om du inte behöver konfigurera om den befintliga anslutningen.  
 >Ett nytt hanterings paket har släppts för följande versioner av Operations Manager:
->  
->* För System Center Operations Manager 1801 hämtar du hanterings [paketet härifrån](https://www.microsoft.com/download/details.aspx?id=57173)  
->* För System Center 2016 – Operations Manager laddar du ned hanterings paketet [](https://www.microsoft.com/download/details.aspx?id=57172) härifrån  
->* Hämta hanterings [paketet härifrån för](https://www.microsoft.com/download/details.aspx?id=57171) System Center Operations Manager 2012 R2  
->
->Den här uppdateringen av hanterings paketet gäller inte System Center Operations Manager 1807, som är en uppdaterings version från version 1801 och inte en fullständig version av produkten.   
+> - För System Center Operations Manager 2019 tillhandahålls hanterings paketet med Operations Manager-versionen.
+>- Operations Manager 1801-hanterings paketet gäller också för Operations Manager 1807.
+>- För System Center Operations Manager 1801 hämtar du hanterings paketet härifrån [](https://www.microsoft.com/download/details.aspx?id=57173).
+>- För System Center 2016 – Operations Manager laddar du ned hanterings paketet [](https://www.microsoft.com/download/details.aspx?id=57172)härifrån.  
+>- Hämta hanterings paketet härifrån för System Center Operations Manager 2012 R2. [](https://www.microsoft.com/download/details.aspx?id=57171)  
+
 
 ### <a name="network"></a>Nätverk
 

@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: apimpm
-ms.openlocfilehash: d643f242182959f98fa9476f4a701b82cf1c2800
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 338ceef8ce94e97f7569f85b0079f75aed033612
+ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69509643"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69558637"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Använda Azure API Management med virtuella nätverk
-Med Azure Virtual Networks (virtuella nätverk) kan du placera någon av dina Azure-resurser i ett icke-Internet-dirigerat nätverk som du styr åtkomsten till. Dessa nätverk kan sedan anslutas till dina lokala nätverk med hjälp av olika VPN-tekniker. Om du vill veta mer om virtuella Azure-nätverk börjar du med informationen här: [Översikt över Azure-Virtual Network](../virtual-network/virtual-networks-overview.md).
+Med Azure Virtual Networks (virtuella nätverk) kan du placera någon av dina Azure-resurser i ett icke-Internet-dirigerbart nätverk som du styr åtkomsten till. Dessa nätverk kan sedan anslutas till dina lokala nätverk med hjälp av olika VPN-tekniker. Om du vill veta mer om virtuella Azure-nätverk börjar du med informationen här: [Översikt över Azure-Virtual Network](../virtual-network/virtual-networks-overview.md).
 
 Azure API Management kan distribueras inuti det virtuella nätverket (VNET), så att det kan komma åt Server dels tjänster i nätverket. Developer-portalen och API-gatewayen kan konfigureras att vara tillgängliga antingen från Internet eller endast inom det virtuella nätverket.
 

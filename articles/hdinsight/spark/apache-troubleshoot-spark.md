@@ -4,15 +4,15 @@ description: Få svar på vanliga frågor om hur du arbetar med Apache Spark och
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
-ms.topic: conceptual
-ms.date: 12/06/2018
+ms.topic: troubleshooting
+ms.date: 08/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: a4dc7293c00097c7a5752e29bf7c9a203cbb31a5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c88136fee7a75b8f3b8e504b1ff1e6673a31bcf7
+ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64721147"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543170"
 ---
 # <a name="troubleshoot-apache-spark-by-using-azure-hdinsight"></a>Felsöka Apache Spark med Azure HDInsight
 
@@ -22,7 +22,7 @@ Lär dig mer om de viktigaste problemen och sina lösningar när du arbetar med 
 
 ### <a name="resolution-steps"></a>Lösningsanvisningar
 
-Spark-konfigurationsvärden kan ställa in att undvika att ett Apache Spark-program OutofMemoryError undantag. Följande steg visar standard konfigurationsvärden för Spark i Azure HDInsight: 
+Konfigurations värden för Spark kan justeras för att undvika ett Apache Spark program OutofMemoryError-undantag. Följande steg visar standard konfigurations värden för Spark i Azure HDInsight: 
 
 1. Välj i listan över kluster, **Spark2**.
 
@@ -90,7 +90,7 @@ Dessa ändringar är hela klustret, men kan åsidosättas när du skickar in Spa
 
 ### <a name="resolution-steps"></a>Lösningsanvisningar
 
-1. För att avgöra vilka Spark måste anges och se vad som orsakar ett Apache Spark-program OutofMemoryError undantag till vilka värden.
+1. För att avgöra vilka Spark-konfigurationer som måste anges och vilka värden, se vad som orsakar ett Apache Spark program OutofMemoryError undantag.
 
 2. I den första cellen i Jupyter-anteckningsbok när den **%% konfigurera** direktiv, ange Spark-konfigurationer i ett giltigt JSON-format. Ändra de faktiska värdena efter behov:
 
@@ -105,7 +105,7 @@ Dessa ändringar är hela klustret, men kan åsidosättas när du skickar in Spa
 
 ### <a name="resolution-steps"></a>Lösningsanvisningar
 
-1. För att avgöra vilka Spark måste anges och se vad som orsakar ett Apache Spark-program OutofMemoryError undantag till vilka värden. 
+1. För att avgöra vilka Spark-konfigurationer som måste anges och vilka värden, se vad som orsakar ett Apache Spark program OutofMemoryError undantag. 
 
 2. Skicka Spark-programmet till Livy med hjälp av en REST-klient som cURL. Använda ett kommando som liknar följande. Ändra de faktiska värdena efter behov:
 
@@ -121,7 +121,7 @@ Dessa ändringar är hela klustret, men kan åsidosättas när du skickar in Spa
 
 ### <a name="resolution-steps"></a>Lösningsanvisningar
 
-1. För att avgöra vilka Spark måste anges och se vad som orsakar ett Apache Spark-program OutofMemoryError undantag till vilka värden.
+1. För att avgöra vilka Spark-konfigurationer som måste anges och vilka värden, se vad som orsakar ett Apache Spark program OutofMemoryError undantag.
 
 2. Starta spark-shell med hjälp av ett kommando som liknar följande. Ändra det faktiska värdet av konfigurationer efter behov: 
 
@@ -133,91 +133,16 @@ Dessa ändringar är hela klustret, men kan åsidosättas när du skickar in Spa
 
 [Jobböverföring för Apache Spark i HDInsight-kluster](https://web.archive.org/web/20190112152841/https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
+## <a name="next-steps"></a>Nästa steg
 
-## <a name="what-causes-an-apache-spark-application-outofmemoryerror-exception"></a>Vad som orsakar en OutofMemoryError programundantag Apache Spark?
+Om du inte ser problemet eller inte kan lösa problemet kan du gå till någon av följande kanaler för mer support:
 
-### <a name="detailed-description"></a>Detaljerad beskrivning
+* [Översikt över Spark-minnes hantering](https://spark.apache.org/docs/latest/tuning.html#memory-management-overview).
 
-Spark-programmet misslyckas med följande typer av undantag utan felhantering:
+* [Felsöka Spark-program i HDInsight-kluster](https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/).
 
-```apache
-ERROR Executor: Exception in task 7.0 in stage 6.0 (TID 439) 
+* Få svar från Azure-experter via [Azure community support](https://azure.microsoft.com/support/community/).
 
-java.lang.OutOfMemoryError 
-    at java.io.ByteArrayOutputStream.hugeCapacity(Unknown Source) 
-    at java.io.ByteArrayOutputStream.grow(Unknown Source) 
-    at java.io.ByteArrayOutputStream.ensureCapacity(Unknown Source) 
-    at java.io.ByteArrayOutputStream.write(Unknown Source) 
-    at java.io.ObjectOutputStream$BlockDataOutputStream.drain(Unknown Source) 
-    at java.io.ObjectOutputStream$BlockDataOutputStream.setBlockDataMode(Unknown Source) 
-    at java.io.ObjectOutputStream.writeObject0(Unknown Source) 
-    at java.io.ObjectOutputStream.writeObject(Unknown Source) 
-    at org.apache.spark.serializer.JavaSerializationStream.writeObject(JavaSerializer.scala:44) 
-    at org.apache.spark.serializer.JavaSerializerInstance.serialize(JavaSerializer.scala:101) 
-    at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:239) 
-    at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) 
-    at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) 
-    at java.lang.Thread.run(Unknown Source) 
-```
+* Anslut till [@AzureSupport](https://twitter.com/azuresupport) – det officiella Microsoft Azure kontot för att förbättra kund upplevelsen. Att ansluta Azure-communityn till rätt resurser: svar, support och experter.
 
-```apache
-ERROR SparkUncaughtExceptionHandler: Uncaught exception in thread Thread[Executor task launch worker-0,5,main] 
-
-java.lang.OutOfMemoryError 
-    at java.io.ByteArrayOutputStream.hugeCapacity(Unknown Source) 
-    at java.io.ByteArrayOutputStream.grow(Unknown Source) 
-    at java.io.ByteArrayOutputStream.ensureCapacity(Unknown Source) 
-    at java.io.ByteArrayOutputStream.write(Unknown Source) 
-    at java.io.ObjectOutputStream$BlockDataOutputStream.drain(Unknown Source) 
-    at java.io.ObjectOutputStream$BlockDataOutputStream.setBlockDataMode(Unknown Source) 
-    at java.io.ObjectOutputStream.writeObject0(Unknown Source) 
-    at java.io.ObjectOutputStream.writeObject(Unknown Source) 
-    at org.apache.spark.serializer.JavaSerializationStream.writeObject(JavaSerializer.scala:44) 
-    at org.apache.spark.serializer.JavaSerializerInstance.serialize(JavaSerializer.scala:101) 
-    at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:239) 
-    at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) 
-    at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) 
-    at java.lang.Thread.run(Unknown Source) 
-```
-
-### <a name="probable-cause"></a>Möjlig orsak
-
-Den mest troliga orsaken till det här undantaget är att det finns inte tillräckligt med heap-minne har allokerats till Java-datorer (JVMs). Dessa JVMs startas som utförare eller drivrutiner som en del av Spark-programmet. 
-
-### <a name="resolution-steps"></a>Lösningsanvisningar
-
-1. Avgöra den maximala storleken för data Spark program hanterar. Du kan göra en gissning baserat på den maximala storleken för indata, mellanliggande data som produceras av omvandlar indata och utdata som skapas när programmet är ytterligare transformering av mellanliggande data. Den här processen kan vara en iterativ om du inte göra en formell uppskattning inledningsvis. 
-
-2. Se till att HDInsight-kluster som du ska använda har tillräckligt med resurser när det gäller minne och kärnor för Spark-programmet. Du kan fastställa det här genom att visa avsnittet cluster metrics i YARN-Användargränssnittet för värdena för **använt minne** vs. **Det totala minnet**, och **virtuella kärnor som används** vs. **Totala antalet virtuella kärnor**.
-
-3. Ange följande Spark-konfigurationer till lämpliga värden som får innehålla högst 90% av det tillgängliga minnet och kärnor. Värdena bör vara väl inom minneskraven för Spark-program: 
-
-    ```apache
-    spark.executor.instances (Example: 8 for 8 executor count) 
-    spark.executor.memory (Example: 4g for 4 GB) 
-    spark.yarn.executor.memoryOverhead (Example: 384m for 384 MB) 
-    spark.executor.cores (Example: 2 for 2 cores per executor) 
-    spark.driver.memory (Example: 8g for 8GB) 
-    spark.driver.cores (Example: 4 for 4 cores)   
-    spark.yarn.driver.memoryOverhead (Example: 384m for 384MB) 
-    ```
-
-    Så här beräknar den totala mängden minne som används av alla executors: 
-    
-    ```apache
-    spark.executor.instances * (spark.executor.memory + spark.yarn.executor.memoryOverhead) 
-    ```
-   Så här beräknar den totala mängden minne som används av drivrutinen:
-    
-    ```apache
-    spark.driver.memory + spark.yarn.driver.memoryOverhead
-    ```
-
-### <a name="additional-reading"></a>Ytterligare resurser
-
-- [Översikt över Apache Spark minne](https://spark.apache.org/docs/latest/tuning.html#memory-management-overview)
-- [Felsöka ett Apache Spark-program på ett HDInsight-kluster](https://web.archive.org/web/20190112152909/https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/)
-
-
-### <a name="see-also"></a>Se även
-[Felsöka med Azure HDInsight](../../hdinsight/hdinsight-troubleshoot-guide.md)
+* Om du behöver mer hjälp kan du skicka en support förfrågan från [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Välj **stöd** på Meny raden eller öppna **Hjälp + Support** Hub. Mer detaljerad information finns [i så här skapar du en support förfrågan för Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Åtkomst till prenumerations hantering och fakturerings support ingår i din Microsoft Azure prenumeration och teknisk support tillhandahålls via ett av support avtalen för [Azure](https://azure.microsoft.com/support/plans/).

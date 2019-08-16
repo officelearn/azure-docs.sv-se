@@ -1,6 +1,6 @@
 ---
 title: Konfigurera meddelanderoutning för Azure IoT Hub med Azure PowerShell | Microsoft Docs
-description: Konfigurera meddelanderoutning för Azure IoT Hub med Azure PowerShell
+description: Konfigurera meddelanderoutning för Azure IoT Hub att använda Azure PowerShell
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -9,42 +9,42 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 51e9bc85c2ee843aa096674a25a1f634bd08b838
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2c0e66bfe5ec332d25b93305cb2ac8d172ca130d
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66162695"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69535143"
 ---
-# <a name="tutorial-use-azure-powershell-to-configure-iot-hub-message-routing"></a>Självstudier: Använda Azure PowerShell för att konfigurera IoT Hub meddelanderoutning
+# <a name="tutorial-use-azure-powershell-to-configure-iot-hub-message-routing"></a>Självstudier: Använd Azure PowerShell för att konfigurera IoT Hub meddelanderoutning
 
 [!INCLUDE [iot-hub-include-routing-intro](../../includes/iot-hub-include-routing-intro.md)]
 
 [!INCLUDE [iot-hub-include-routing-create-resources](../../includes/iot-hub-include-routing-create-resources.md)]
 
-## <a name="download-the-script-optional"></a>Ladda ned skriptet (valfritt)
+## <a name="download-the-script-optional"></a>Hämta skriptet (valfritt)
 
-För den andra delen av den här självstudiekursen ska du hämta och kör ett Visual Studio-program för att skicka meddelanden till IoT Hub. Det finns en mapp i download som innehåller Azure Resource Manager-mallen och parameterfilen, samt Azure CLI och PowerShell-skript. 
+För den andra delen av den här självstudien kan du hämta och köra ett Visual Studio-program för att skicka meddelanden till IoT Hub. Det finns en mapp i nedladdningen som innehåller Azure Resource Manager mall och parameter filen, samt Azure CLI-och PowerShell-skript. 
 
-Om du vill visa det färdiga skriptet kan hämta den [Azure IoT C# exempel](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Packa upp filen master.zip. Azure CLI-skript är i /iot-hub/Tutorials/Routing/SimulatedDevice/resources/som **iothub_routing_psh.ps1**.
+Om du vill visa det färdiga skriptet laddar du ned [Azure IoT C# ](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip)-exemplen. Zippa upp Master. zip-filen. Azure CLI-skriptet är i/iot-hub/Tutorials/Routing/SimulatedDevice/resources/som **iothub_routing_psh. ps1**.
 
 ## <a name="create-your-resources"></a>Skapa dina resurser
 
 Börja med att skapa resurser med PowerShell.
 
-### <a name="use-powershell-to-create-your-base-resources"></a>Använd PowerShell för att skapa din grundläggande resurser
+### <a name="use-powershell-to-create-your-base-resources"></a>Använd PowerShell för att skapa bas resurser
 
-Det finns flera resursnamn som måste vara globalt unikt, till exempel IoT Hub-namn och namnet på lagringskontot. Om du vill göra det enklare, läggs de resursnamn med slumpmässiga alfanumeriska värdet kallas *randomValue*. RandomValue skapas en gång överst i skriptet och läggas till för resursnamnen efter behov i skriptet. Om du inte vill att det ska vara slumpmässiga kan konfigurera du den till en tom sträng eller till ett specifikt värde. 
+Det finns flera resurs namn som måste vara globalt unika, till exempel IoT Hub namn och lagrings konto namn. För att göra det enklare läggs dessa resurs namn till med ett slumpmässigt alfanumeriskt värde som kallas *randomValue*. RandomValue skapas en gång överst i skriptet och läggs till i resurs namnen vid behov i hela skriptet. Om du inte vill att den ska vara slumpmässig, kan du ange den som en tom sträng eller ett angivet värde. 
 
 > [!IMPORTANT]
-> Variabler i skriptet inledande används också av Routning skriptet, så körs alla skriptet i samma Cloud Shell-sessionen. Om du öppnar en ny session för att köra skript för att konfigurera routning saknar flera av variablerna värden. 
+> Variablerna som anges i det inledande skriptet används också av skriptet för routning, så kör hela skriptet i samma Cloud Shell-session. Om du öppnar en ny session för att köra skriptet för att konfigurera routningen kommer flera av variablerna att sakna värden. 
 >
 
-Kopiera och klistra in skriptet nedan i Cloud Shell och tryck på RETUR. Den körs skriptet en rad i taget. Det första avsnittet av skriptet skapar de grundläggande resurserna för den här självstudiekursen, inklusive storage-konto, IoT Hub, Service Bus Namespace och Service Bus-kö. När du går igenom kursen kopiera varje block på skript och klistra in den i Cloud Shell för att köra den.
+Kopiera och klistra in skriptet nedan i Cloud Shell och tryck på RETUR. Den kör skriptet en rad i taget. I det första avsnittet av skriptet skapas bas resurserna för den här självstudien, inklusive lagrings kontot, IoT Hub, Service Bus namn området och Service Bus kön. När du går igenom självstudien kopierar du varje skript block och klistrar in det i Cloud Shell för att köra det.
 
 ```azurepowershell-interactive
 # This command retrieves the subscription id of the current Azure account.
-# This field is used when setting up the routing rules.
+# This field is used when setting up the routing queries.
 $subscriptionID = (Get-AzContext).Subscription.Id
 
 # Concatenate this number onto the resources that have to be globally unique.
@@ -126,45 +126,45 @@ New-AzServiceBusQueue -ResourceGroupName $resourceGroup `
 
 [!INCLUDE [iot-hub-include-create-simulated-device-portal](../../includes/iot-hub-include-create-simulated-device-portal.md)]
 
-Nu när de grundläggande resurserna har konfigurerats kan konfigurera du den meddelanderoutning.
+Nu när bas resurserna har kon figurer ATS kan du konfigurera meddelanderoutning.
 
 ## <a name="set-up-message-routing"></a>Konfigurera meddelanderedigering
 
 [!INCLUDE [iot-hub-include-create-routing-description](../../includes/iot-hub-include-create-routing-description.md)]
 
-Du kan skapa en slutpunkt för routning med [Lägg till AzIotHubRoutingEndpoint](/powershell/module/az.iothub/Add-AzIotHubRoutingEndpoint). Använd för att skapa meddelanden vägen för slutpunkten [Lägg till AzIotHubRoute](/powershell/module/az.iothub/Add-AzIoTHubRoute).
+Använd [Add-AzIotHubRoutingEndpoint](/powershell/module/az.iothub/Add-AzIotHubRoutingEndpoint)för att skapa en cirkulations slut punkt. Använd [Add-AzIotHubRoute](/powershell/module/az.iothub/Add-AzIoTHubRoute)för att skapa meddelande flödet för slut punkten.
 
-### <a name="route-to-a-storage-account"></a>Dirigera till ett lagringskonto 
+### <a name="route-to-a-storage-account"></a>Dirigera till ett lagrings konto 
 
-Först konfigurera slutpunkten för storage-konto och sedan skapa meddelandevägen.
+Börja med att konfigurera slut punkten för lagrings kontot och skapa sedan meddelande vägen.
 
 [!INCLUDE [iot-hub-include-blob-storage-format](../../includes/iot-hub-include-blob-storage-format.md)]
 
-De här variablerna anges:
+Dessa variabler har angetts:
 
-**resourceGroup**: Det finns två förekomster av det här fältet – Ange båda i resursgruppen.
+**resourceGroup**: Det finns två förekomster av detta fält – ange båda för resurs gruppen.
 
-**name**: Det här fältet är namnet på IoT-hubben som routning ska gälla.
+**name**: Det här fältet är namnet på IoT Hub som operationsföljden ska gälla för.
 
-**endpointName**: Det här fältet är namnet som identifierar slutpunkten. 
+**endpointName**: Det här fältet är namnet som identifierar slut punkten. 
 
-**endpointType**: Det här fältet är typen av slutpunkt. Det här värdet måste anges till `azurestoragecontainer`, `eventhub`, `servicebusqueue`, eller `servicebustopic`. För de här, ange den till `azurestoragecontainer`.
+**endpointType**: Det här fältet är typen av slut punkt. `azurestoragecontainer`Värdet måste anges till `eventhub` `servicebusqueue`,, eller. `servicebustopic` För dina behov här ställer du in den `azurestoragecontainer`på.
 
-**subscriptionID**: Det här fältet är inställt på prenumerations-ID för ditt Azure-konto.
+**subscriptionID**: Det här fältet har angetts till subscriptionID för ditt Azure-konto.
 
-**storageConnectionString**: Det här värdet hämtas från storage-kontot som angetts i föregående skript. Den används av routning för att få åtkomst till lagringskontot.
+**storageConnectionString**: Det här värdet hämtas från det lagrings konto som har kon figurer ATS i föregående skript. Den används av routningen för att komma åt lagrings kontot.
 
-**containerName**: Det här fältet är namnet på behållaren i lagringskontot som data ska skrivas.
+**containerName**: Det här fältet är namnet på behållaren i det lagrings konto som data ska skrivas till.
 
-**Encoding**: Ange fältet till antingen `AVRO` eller `JSON`. Detta anger formatet för lagrade data. Standardvärdet är AVRO.
+**Kodning**: Ange det här fältet som `AVRO` antingen `JSON`eller. Detta anger formatet för lagrade data. Standardvärdet är AVRO.
 
-**routeName**: Det här fältet är namnet på flödet som du ställer in. 
+**routeName**: Det här fältet är namnet på den väg som du ställer in. 
 
-**Villkoret**: Det här fältet är frågan som används för att filtrera för meddelanden som skickats till den här slutpunkten. Frågevillkoret för meddelanden som vidarebefordras till lagring är `level="storage"`.
+**villkor**: Det här fältet är den fråga som används för att filtrera meddelanden som skickas till den här slut punkten. Frågevillkor för meddelanden som dirigeras till lagring är `level="storage"`.
 
-**Aktiverad**: Standardvärdet för `true`, som anger att meddelandevägen ska aktiveras när du skapat.
+**aktive rad**: Det här fältet `true`är standardvärdet och anger att meddelande flödet ska aktive ras efter att det har skapats.
 
-Kopiera det här skriptet och klistra in den i Cloud Shell-fönstret.
+Kopiera det här skriptet och klistra in det i Cloud Shell-fönstret.
 
 ```powershell
 ##### ROUTING FOR STORAGE #####
@@ -175,7 +175,7 @@ $routeName = "ContosoStorageRoute"
 $condition = 'level="storage"'
 ```
 
-Nästa steg är att skapa routning slutpunkten för storage-kontot. Du kan även ange behållaren där resultaten ska sparas. Behållaren har skapats när lagringskontot skapades.
+Nästa steg är att skapa Dirigerings slut punkten för lagrings kontot. Du kan också ange den behållare där resultaten ska lagras. Behållaren skapades när lagrings kontot skapades.
 
 ```powershell
 # Create the routing endpoint for storage.
@@ -192,7 +192,7 @@ Add-AzIotHubRoutingEndpoint `
   -Encoding AVRO
 ```
 
-Därefter skapa meddelandeväg för slutpunkt för lagring. Meddelandevägen betyder att skicka meddelanden som uppfyller frågespecifikationen.
+Skapa sedan meddelande vägen för lagrings slut punkten. Meddelande vägen anger vart meddelanden som uppfyller frågans specifikation ska skickas.
 
 ```powershell
 # Create the route for the storage endpoint.
@@ -206,9 +206,9 @@ Add-AzIotHubRoute `
    -Enabled 
 ```
 
-### <a name="route-to-a-service-bus-queue"></a>Dirigera till en Service Bus-kö
+### <a name="route-to-a-service-bus-queue"></a>Dirigera till en Service Bus kö
 
-Konfigurera nu routning för Service Bus-kön. Du måste skapa en auktoriseringsregel som har definierats korrekt behörighet för att hämta anslutningssträngen för Service Bus-kö. Följande skript skapar en auktoriseringsregel för Service Bus-kö som kallas `sbauthrule`, och anger rättigheterna till `Listen Manage Send`. När den här auktoriseringsregeln har ställts in, kan du använda den för att hämta anslutningssträngen för kön.
+Konfigurera nu routning för Service Bus-kön. Om du vill hämta anslutnings strängen för Service Bus kön måste du skapa en auktoriseringsregel som har rätt rättigheter definierade. Följande skript skapar en auktoriseringsregel för Service Bus kön som kallas `sbauthrule`, och anger rättigheterna till. `Listen Manage Send` När den här auktoriseringsregeln har kon figurer ATS kan du använda den för att hämta anslutnings strängen för kön.
 
 ```powershell
 ##### ROUTING FOR SERVICE BUS QUEUE #####
@@ -222,7 +222,7 @@ New-AzServiceBusAuthorizationRule `
   -Rights @("Manage","Listen","Send")
 ```
 
-Nu använda auktoriseringsregeln kan hämta nyckel för Service Bus-kö. Den här auktoriseringsregeln används för att hämta anslutningssträngen senare i skriptet.
+Använd nu auktoriseringsregeln för att hämta Service Bus Queue-nyckeln. Den här auktoriseringsregeln kommer att användas för att hämta anslutnings strängen senare i skriptet.
 
 ```powershell
 $sbqkey = Get-AzServiceBusKey `
@@ -232,17 +232,17 @@ $sbqkey = Get-AzServiceBusKey `
     -Name "sbauthrule"
 ```
 
-Nu ställa in Routning slutpunkten och meddelandeväg för Service Bus-kö. De här variablerna anges:
+Nu konfigurerar du Dirigerings slut punkten och meddelande vägen för Service Bus kön. Dessa variabler har angetts:
 
-**endpointName**: Det här fältet är namnet som identifierar slutpunkten. 
+**endpointName**: Det här fältet är namnet som identifierar slut punkten. 
 
-**endpointType**: Det här fältet är typen av slutpunkt. Det här värdet måste anges till `azurestoragecontainer`, `eventhub`, `servicebusqueue`, eller `servicebustopic`. För de här, ange den till `servicebusqueue`.
+**endpointType**: Det här fältet är typen av slut punkt. `azurestoragecontainer`Värdet måste anges till `eventhub` `servicebusqueue`,, eller. `servicebustopic` För dina behov här ställer du in den `servicebusqueue`på.
 
-**routeName**: Det här fältet är namnet på flödet som du ställer in. 
+**routeName**: Det här fältet är namnet på den väg som du ställer in. 
 
-**Villkoret**: Det här fältet är frågan som används för att filtrera för meddelanden som skickats till den här slutpunkten. Frågevillkoret för meddelanden som dirigeras till Service Bus-kön är `level="critical"`.
+**villkor**: Det här fältet är den fråga som används för att filtrera meddelanden som skickas till den här slut punkten. Frågevillkor för de meddelanden som dirigeras till Service Bus kön är `level="critical"`.
 
-Här är Azure PowerShell för meddelanderoutning för Service Bus-kö.
+Här är Azure PowerShell för meddelanderoutning för kön Service Bus.
 
 ```powershell
 $endpointName = "ContosoSBQueueEndpoint"
@@ -277,7 +277,7 @@ Add-AzIotHubRoute `
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har de resurser som ställer in och meddelandevägar konfigurerats kan du gå vidare till nästa självstudie och lär dig hur du skickar meddelanden till IoT hub och se att de dirigeras till olika mål. 
+Nu när du har konfigurerat resurserna och meddelande vägarna har kon figurer ATS kan du gå vidare till nästa självstudie för att lära dig hur du skickar meddelanden till IoT-hubben och ser att de dirigeras till olika destinationer. 
 
 > [!div class="nextstepaction"]
-> [Del 2 – visa meddelandet routningsresultat](tutorial-routing-view-message-routing-results.md)
+> [Del 2 – Visa resultatet av meddelanderoutning](tutorial-routing-view-message-routing-results.md)

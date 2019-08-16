@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/26/2018
 ms.author: jjed
 ms.custom: seodec2018, seo-java-july2019
-ms.openlocfilehash: 7172cd01ca881ec3027854444107b0744b65feb3
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: 7deb9d2cf16aa82de7ce4ea163652c2936819063
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489795"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69533232"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-java"></a>Snabbstart: Skapa ett Azure Search-index i Java
 > [!div class="op_single_selector"]
@@ -60,7 +60,7 @@ Följande lista beskriver de filer som är relevanta för det här exemplet.
 Alla REST API anrop till Azure Search kräver att du anger tjänstens URL och en `api-key`. 
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-2. I snabbåtkomstfältet klickar du på **Söktjänst** för att visa en lista över Azure Search-tjänsterna som har etablerats för din prenumeration.
+2. I hopp fältet väljer du **Sök tjänst** för att visa alla Azure Search tjänster som har skapats för din prenumeration.
 3. Markera den tjänst som du vill använda.
 4. På instrumentpanelen för tjänsten ser du paneler för viktig information samt nyckelikonen för att komma åt administatörsnycklarna.
    
@@ -69,20 +69,20 @@ Alla REST API anrop till Azure Search kräver att du anger tjänstens URL och en
 
 ## <a name="download-the-sample-files"></a>Ladda ned exempelfilerna
 1. Gå till [search-java-indexer-demo](https://github.com/Azure-Samples/search-java-indexer-demo) på GitHub.
-2. Klicka på **Ladda ned ZIP**, spara ZIP-filen på disk och extrahera sedan alla filer som den innehåller. Om du vill kan du extrahera filerna till Java-arbetsytan så att det blir lättare att hitta projektet senare.
+2. Välj **Hämta zip**, spara zip-filen på disk och extrahera sedan alla filer som den innehåller. Om du vill kan du extrahera filerna till Java-arbetsytan så att det blir lättare att hitta projektet senare.
 3. Exempelfilerna är skrivskyddade. Högerklicka på Mappegenskaper och ta bort skrivskyddet.
 
 Alla efterföljande filändringar och körningsinstruktioner görs mot filer i den här mappen.  
 
 ## <a name="import-project"></a>Importera projekt
-1. I Eclipse väljer du **File** > **Import** > **General** > **Existing Projects into Workspace**.
+1. I Sol förmörkelse väljer du **fil** > **Importera** > **allmänna** > **befintliga projekt till arbets ytan**.
    
     ![Skärm bild som visar hur du importerar ett befintligt projekt][4]
 2. I **Select root directory** bläddrar du till mappen som innehåller exempelfilerna. Välj mappen som innehåller mappen .project. Projektet bör visas i listan **Projects** som ett markerat objekt.
    
     ![Skärm bild som visar listan projekt i fönstret Importera projekt][12]
-3. Klicka på **Slutför**.
-4. Använd **Project Explorer** för att visa och redigera filerna. Om den inte redan är öppen klickar du på **Window** > **Show view** > **Project Explorer** eller använder genvägen för att öppna den.
+3. Välj **Slutför**.
+4. Använd **Project Explorer** för att visa och redigera filerna. Om den inte redan är öppen väljer du **fönster** > **Visa** > **projekt Utforskaren** eller använder genvägen för att öppna den.
 
 ## <a name="configure-the-service-url-and-api-key"></a>Konfigurera tjänstens URL och`api-key`
 1. I **Project Explorer**dubbelklickar du på **config. Properties** för att redigera de konfigurations inställningar som innehåller Server `api-key`namnet och.
@@ -96,19 +96,19 @@ Alla efterföljande filändringar och körningsinstruktioner görs mot filer i d
 2. Välj **Dynamic Web Module**, **Java** och **JavaScript**.
    
     ![Skärm bild som visar hur du väljer projektets ansikte för ditt projekt][6]
-3. Klicka på **Verkställ**.
+3. Välj **Använd**.
 4. Välj **Window** > **Preferences** > **Server** > **Runtime Environments** > **Add**.
 5. Expandera Apache och välj den version av Apache Tomcat-servern som du installerade tidigare. I vårt system installerade vi version 8.
    
     ![Skärm bild som visar var i fönstret Runtime Environment du kan välja din version av Apache Tomcat][7]
 6. Ange installationskatalogen för Tomcat på nästa sida. På en Windows-dator är detta antagligen C:\Program\Apache Software Foundation\Tomcat *version*.
-7. Klicka på **Finish**.
+7. Välj **Slutför**.
 8. Välj **Window** > **Preferences** > **Java** > **Installed JREs** > **Add**.
 9. Välj **Standard VM**i **Add JRE**.
-10. Klicka på **Nästa**.
-11. Klicka på **Directory** i JRE Definition på JRE-startsidan.
+10. Välj **Nästa**.
+11. I JRE-definitionen, i JRE Home, väljer du **katalog**.
 12. Gå till **Program Files** > **Java** och välj den JDK som du installerade tidigare. Det är viktigt att du väljer JDK som JRE.
-13. Välj **JDK** i Installed JREs. Inställningarna bör se ut som i följande skärmbild.
+13. I installerade JREs väljer du **JDK**. Inställningarna bör se ut som i följande skärmbild.
     
     ![Skärm bild som visar hur du väljer JDK som den installerade JRE][9]
 14. Du kan också välja **Window** > **Web Browser** > **Internet Explorer** om du vill öppna programmet i ett externt webbläsarfönster. En extern webbläsare ger dig en bättre webbupplevelse.
@@ -118,10 +118,10 @@ Alla efterföljande filändringar och körningsinstruktioner görs mot filer i d
 Nu har du slutfört konfigurationsåtgärderna. Nu är det dags att bygga och köra projektet.
 
 ## <a name="build-the-project"></a>Bygga projektet
-1. Högerklicka på projektets namn i Project Explorer och välj **Run as** > **Maven build** för att konfigurera projektet.
+1. I Project Explorer högerklickar du på projekt namnet och väljer **Kör som** > **maven build** för att konfigurera projektet.
    
     ![Skärm bild som visar hur du väljer maven-version i fönstret projekt Utforskaren][10]
-2. I Goals i Edit Configuration skriver du ”clean install” och klickar på **Run**.
+2. I redigera konfiguration, i mål, anger du "ren installation" och väljer sedan **Kör**.
 
 Statusmeddelanden visas i konsolfönstret. Meddelandet BUILD SUCCESS bör visas som anger att projektet har skapats utan fel.
 
@@ -131,19 +131,19 @@ I det sista steget ska du köra programmet i körningsmiljön för en lokal serv
 Om du inte har angett serverkörningsmiljön i Eclipse än så måste du göra det först.
 
 1. Expandera **WebContent** i Project Explorer.
-2. Högerklicka på **Search.jsp** > **Run As** > **Run on Server**. Välj Apache Tomcat-servern och klicka på **Run**.
+2. Högerklicka på **Search.jsp** > **Run As** > **Run on Server**. Välj Apache Tomcat-servern och välj sedan **Kör**.
 
 > [!TIP]
-> Om du använder en annan arbetsyta än en standardarbetsyta för att lagra projektet måste du ändra **Run Configuration** så att det pekar på projektets plats för att undvika fel när servern startar. I Project Explorer högerklickar du på **Search.jsp** > **Run As** > **Run Configurations**. Välj Apache Tomcat-servern. Klicka på **Arguments**. Klicka på **Workspace** eller **File System** för att ange mappen som innehåller projektet.
+> Om du använder en annan arbetsyta än en standardarbetsyta för att lagra projektet måste du ändra **Run Configuration** så att det pekar på projektets plats för att undvika fel när servern startar. I Project Explorer högerklickar du på **Search.jsp** > **Run As** > **Run Configurations**. Välj Apache Tomcat-servern. Välj **argument**. Välj **arbets yta** eller **fil system** för att ange mappen som innehåller projektet.
 > 
 > 
 
 När du kör programmet bör du se ett webbläsarfönster med en sökruta där du kan ange söktermer.
 
-Vänta ungefär en minut innan du klickar på **Search** så att tjänsten får tid på sig att skapa och läsa in indexet. Om ett HTTP 404-fel returneras väntar du bara lite längre innan du försöker igen.
+Vänta en stund innan du väljer **Sök** för att ge tjänst tiden att skapa och läsa in indexet. Om ett HTTP 404-fel returneras väntar du bara lite längre innan du försöker igen.
 
 ## <a name="search-on-usgs-data"></a>Söka i USGS-data
-USGS-datauppsättningen innehåller poster som är relevanta för delstaten Rhode Island. Om du klickar på **Search** i en tom sökrutan returneras 50 poster, vilket är standard.
+USGS-datauppsättningen innehåller poster som är relevanta för delstaten Rhode Island. Om du väljer **Sök** i en tom sökruta visas de översta 50 posterna, som är standard.
 
 Om du skriver en sökterm ger du sökmotorn något att gå på. Prova att skriva namnet på någon från regionen. ”Roger Williams” var Rhode Islands första guvernör. Många parker, byggnader och skolor bär hans namn.
 

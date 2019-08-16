@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/16/2019
 ms.author: cynthn;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: cfffc29a467a89416964564b9c55a73cbf77377d
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 8d90d71b8d29d26f09ef617ddd56ce91eb4e5e2e
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68601385"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69541549"
 ---
 Det här avsnittet innehåller information om tidigare generationer av virtuella dator storlekar. De här storlekarna kan fortfarande användas, men det finns nya generationer som är tillgängliga. 
 
@@ -59,32 +59,9 @@ Mbit/s = 10^6 byte per sekund och GiB = 1 024^3 byte.
 
 <sup>1</sup> det högsta antalet disk data flöde (IOPS eller Mbit/s) som är möjligt med en virtuell FS-serienhet kan begränsas av antal, storlek och striping av de anslutna diskarna.  Mer information finns i [utforma för hög prestanda](../articles/virtual-machines/windows/premium-storage-performance.md).  
 
-## <a name="ls-series"></a>Ls-serien
+## <a name="nvv2-series"></a>NVv2-serien
 
-Ls-serien stöder upp till 32 virtuella processorer i [E5 v3-familjen med Intel® Xeon®-processorn](https://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html). Ls-serien uppnår samma processorprestanda som G/GS-serien och levereras med 8 GiB minne per virtuell processor.
-
-LS-serien stöder inte att en lokal cache skapas för att öka IOPS som kan nås av varaktiga data diskar. Med det höga genom strömningen och IOPS av den lokala disken kan virtuella datorer i LS-serien vara idealiska för NoSQL-butiker som Apache Cassandra och MongoDB som replikerar data över flera virtuella datorer för att få beständighet i händelse av att en enskild virtuell dator Miss lyckas.
-
-ACU 180-240
-
-Premium-lagring:  Stöds
-
-Premium Storage cachelagring:  Stöds inte
- 
-| Size          | Virtuell processor | Minne (GiB) | Temp-lagring (GiB) | Maximalt antal datadiskar | Maximalt data flöde för temporärt lagrings utrymme (IOPS/Mbit/s) | Maximalt antal cachelagrade diskar (IOPS/Mbit/s) | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) | 
-|----------------|-----------|-------------|--------------------------|----------------|-------------------------------------------------------------|-------------------------------------------|------------------------------| 
-| Standard_L4s   | 4  | 32  | 678   | 16 | 20000/200 | 5000 / 125  | 2/4 000  | 
-| Standard_L8s   | 8  | 64  | 1388 | 32 | 40000/400 | 10000/250 | 4/8 000  | 
-| Standard_L16s  | 16 | 128 | 2807 | 64 | 80000/800 | 20000/500 | 8/16 000 | 
-| Standard_L32s&nbsp;<sup>1</sup> | 32   | 256  | 5630 | 64   | 160000/1600   | 40000/1000     | 8/20 000 | 
-
-Det maximala disk data flödet som är möjligt med virtuella datorer i LS-serien kan begränsas av antal, storlek och striping för anslutna diskar. Mer information finns i [utforma för hög prestanda](../articles/virtual-machines/windows/premium-storage-performance.md).
-
-<sup>1</sup> instans är isolerad till maskin vara som är dedikerad till en enda kund.
-
-## <a name="nvv2-series-preview"></a>NVv2-serien (för hands version)
-
-**Nyare storleks rekommendation**: [NVv3-serien (för hands version)](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#nvv3-series--1)
+**Nyare storleks rekommendation**: [NVv3-serien](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#nvv3-series-preview-1)
 
 De virtuella datorerna i NVv2-serien drivs av [NVIDIA Tesla M60](https://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPU-och NVIDIA grid-teknik med Intel Broadwell-processorer. Dessa virtuella datorer är avsedda för GPU-accelererade grafik program och virtuella skriv bord där kunder vill visualisera sina data, simulera resultat för att visa, arbeta med CAD eller återge och strömma innehåll. Dessutom kan dessa virtuella datorer köra arbetsbelastningar med enkel precision som kodning och rendering. NVv2 Virtual Machines stöder Premium Storage och levereras med två gånger system minnet (RAM) jämfört med dess föregående NV-serie.  
 
@@ -95,13 +72,3 @@ Varje GPU i NVv2-instanser levereras med en GRID-licens. Den här licensen ger d
 | Standard_NV6s_v2 |6 |112 |320 | 1 | 8 | 12 | 4 | 1 | 25 |
 | Standard_NV12s_v2 |12 |224 |640 | 2 | 16 | 24 | 8 | 2 | 50 |
 | Standard_NV24s_v2 |24 |448 |1280 | 4 | 32 | 32 | 8 | 4 | 100 |
-
-### <a name="standard-a0---a4-using-cli-and-powershell"></a>Standard A0–A4 med CLI och PowerShell
-
-I den klassiska distributionsmodellen skiljer sig vissa namn på VM-storlekarna i CLI och PowerShell:
-
-* Standard_A0 är ExtraSmall
-* Standard_A1 är Small
-* Standard_A2 är Medium
-* Standard_A3 är Large
-* Standard_A4 är ExtraLarge

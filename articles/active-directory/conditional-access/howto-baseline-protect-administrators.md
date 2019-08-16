@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 213540a5b6c77146155365133f2cca08eea25351
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: b00b061b1763d4b4e7236d8dc9ac1eedf7f923bc
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68608153"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69533012"
 ---
 # <a name="baseline-policy-require-mfa-for-admins-preview"></a>Bas linje princip: Kräv MFA för administratörer (för hands version)
 
 Användare med åtkomst till privilegierade konton har obegränsad åtkomst till din miljö. På grund av den kraft de här kontona har måste du behandla dem med särskild omsorg. En gemensam metod för att förbättra skyddet av privilegierade konton är att kräva en starkare form av konto verifiering när de används för inloggning. I Azure Active Directory kan du få en bättre konto verifiering genom att kräva Multi-Factor Authentication (MFA).
 
-**Kräv MFA för administratörer (för hands version)**  är en [bas linje princip](concept-baseline-protection.md) som kräver MFA varje gång en av följande privilegierade administratörs roller loggar in:
+**KRÄV MFA för administratörer (för hands version)** är en [bas linje princip](concept-baseline-protection.md) som kräver MFA varje gång en av följande privilegierade administratörs roller loggar in:
 
 * Global administratör
 * SharePoint-administratör
@@ -52,11 +52,11 @@ Princip **bas linje princip: Kräv MFA för administratörer (för hands** versi
 
 Så här aktiverar du den här principen och skyddar dina administratörer:
 
-1. Logga in på **Azure Portal** som global administratör, säkerhets administratör eller administratör för villkorlig åtkomst.
+1. Logga in på **Azure Portal** som global administratör, säkerhets administratör eller administratör för villkorlig åtkomst.
 1. Bläddra till **Azure Active Directory** > **villkorlig åtkomst**.
 1. I listan med principer väljer **du bas linje princip: Kräv MFA för administratörer (för hands**version).
 1. Ange principen för att **aktivera principen** **direkt**.
-1. Klicka på **Spara**.
+1. Klicka på **Spara**.
 
 > [!WARNING]
 > Det uppstod ett alternativ **för att automatiskt aktivera principen i framtiden** när den här principen var i för hands version. Vi har tagit bort det här alternativet för att minimera plötslig användar påverkan. Om du har valt det här alternativet när det var tillgängligt ska **du inte använda principen** automatiskt nu. Om de vill använda den här bas linje principen, se stegen ovan för att aktivera den.

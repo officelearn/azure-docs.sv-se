@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 1a616bce8c161825853b1966769d9505595d95de
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 1d9fc20055fe3adb571b5a77330cc6537998cb5f
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688316"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69534480"
 ---
 # <a name="immersive-reader-sdk-reference"></a>Avancerad läsare SDK-referens
 
@@ -35,12 +35,12 @@ launchAsync(token: string, subdomain: string, content: Content, options?: Option
 
 #### <a name="parameters"></a>Parametrar
 
-| Namn | Typ | Beskrivning |
+| Name | Typ | Beskrivning |
 | ---- | ---- |------------ |
 | `token` | sträng | Azure AD-autentiseringstoken. Se [Azure AD-autentiseringen How-to](./azure-active-directory-authentication.md). |
 | `subdomain` | sträng | Den anpassade under domänen för den fördjupade läsar resursen i Azure. Se [Azure AD-autentiseringen How-to](./azure-active-directory-authentication.md). |
 | `content` | [Innehåll](#content) | Ett objekt som innehåller det innehåll som ska visas i den fördjupade läsaren. |
-| `options` | [Alternativ](#options) | Alternativ för att konfigurera vissa beteenden för den fördjupade läsaren. Valfri. |
+| `options` | [Alternativ](#options) | Alternativ för att konfigurera vissa beteenden för den fördjupade läsaren. Valfritt. |
 
 #### <a name="returns"></a>Returnerar
 
@@ -73,6 +73,7 @@ Innehåller det innehåll som ska visas i den fördjupade läsaren.
 | --------- | ----------- |
 | text/ren | Oformaterad text. |
 | program/mathml + XML | MathML (matematiskt Markup Language). [Läs mer](https://developer.mozilla.org/en-US/docs/Web/MathML).
+| Application/VND. openxmlformats-officedocument. WordprocessingML. Document | Dokument för Microsoft Word. docx-format.
 
 ### <a name="options"></a>Alternativ
 
@@ -104,7 +105,8 @@ Innehåller information om felet.
 | ---- | ----------- |
 | BadArgument | Det angivna argumentet är ogiltigt. `message` mer information finns i. |
 | Timeout | Det gick inte att läsa in den fördjupade läsaren inom den angivna tids gränsen. |
-| TokenExpired| Angiven token har upphört att gälla. |
+| TokenExpired | Angiven token har upphört att gälla. |
+| Begränsas | Anrops frekvens gränsen har överskridits. |
 
 ## <a name="launching-the-immersive-reader"></a>Starta den fördjupade läsaren
 

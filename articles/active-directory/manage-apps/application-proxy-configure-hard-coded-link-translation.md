@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/04/2018
+ms.date: 08/15/2019
 ms.author: mimart
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6d85fc7ed16f397cb91232e9648df4e8741b37a
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: aa0dc2081aff5a24fb830b756131cccd5c6ce810
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68705788"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69533695"
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Omdirigera hårdkodad-Länkar för appar som publicerats med Azure AD-programproxy
 
@@ -30,13 +30,16 @@ Azure AD-programproxy gör dina lokala appar tillgängliga för användare som �
 Det bästa sättet att se till att länkarna fungerar likadant i och utanför företagets nätverk är att konfigurera de externa URL: erna för dina appar att vara samma som deras interna URL: er. Använd [anpassade domäner](application-proxy-configure-custom-domain.md) för att konfigurera dina externa webb adresser så att de har företagets domän namn i stället för standard domänen för programproxyn.
 
 
-Om du inte kan använda anpassade domäner i din klient organisation finns det flera andra alternativ för att tillhandahålla den här funktionen. Alla dessa är också kompatibla med anpassade domäner och varandra, så att du kan konfigurera anpassade domäner och andra lösningar om det behövs. 
+Om du inte kan använda anpassade domäner i din klient organisation finns det flera andra alternativ för att tillhandahålla den här funktionen. Alla dessa är också kompatibla med anpassade domäner och varandra, så att du kan konfigurera anpassade domäner och andra lösningar om det behövs.
+
+> [!NOTE]
+> Länk översättning stöds inte för hårdkodade interna URL: er som genereras via Java Script.
 
 **Alternativ 1: Använd Managed Browser eller Microsoft Edge** – den här lösningen är bara tillgänglig om du planerar att rekommendera eller kräva att användarna får åtkomst till programmet via Intune Managed Browser eller Microsoft Edge-webbläsaren. Den hanterar alla publicerade URL: er. 
 
 **Alternativ 2: Använd tillägget** för Mina appar – den här lösningen kräver att användare installerar ett webb läsar tillägg på klient sidan, men hanterar alla publicerade URL: er och fungerar med de flesta populära webbläsare. 
 
-**Alternativ 3: Använd inställningen** länk översättning – det här är en inställning för administratörs sidan som är dold för användare. Det kommer dock bara att hantera URL: er i HTML och CSS. Hårdkodade interna URL: er som genereras via Java Script (till exempel) fungerar inte.  
+**Alternativ 3: Använd inställningen** länk översättning – det här är en inställning för administratörs sidan som är dold för användare. Det kommer dock bara att hantera URL: er i HTML och CSS.   
 
 De här tre funktionerna gör att dina länkar fungerar oavsett var dina användare finns. När du har appar som pekar direkt till interna slut punkter eller portar kan du mappa dessa interna URL: er till URL: erna för publicerade externa programproxy. 
 

@@ -5,25 +5,25 @@ services: virtual-machines-windows, virtual-machines-linux
 author: laurenhughes
 ms.service: multiple
 ms.topic: include
-ms.date: 04/11/2019
+ms.date: 08/15/2019
 ms.author: lahugh
 ms.custom: include file
-ms.openlocfilehash: 5c35cbfbd2e9d0a1655d05c1116d293fb78c9eb7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a4746a945f1a89c34308a3bd968f6341e0e25ac5
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67133402"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69541548"
 ---
-Det här avsnittet innehåller information om äldre generationer storlekar på virtuella datorer. Dessa storlekar stöds fortfarande, men får inte ytterligare kapacitet. Det finns nyare eller alternativa storlekar som är allmänt tillgängliga. Se [storlekar för Windows-datorer i Azure](../articles/virtual-machines/windows/sizes.md) eller [storlekar för Linux-datorer i Azure](../articles/virtual-machines/linux/sizes.md) för att välja den virtuella datorn de storlekar som kommer bäst passar dina behov.  
+Det här avsnittet innehåller information om äldre generationer av virtuella dator storlekar. Dessa storlekar stöds fortfarande men får ingen ytterligare kapacitet. Det finns nyare eller alternativa storlekar som är allmänt tillgängliga. Se [storlekar för virtuella Windows-datorer i Azure](../articles/virtual-machines/windows/sizes.md) eller [storlekar för virtuella Linux-datorer i Azure](../articles/virtual-machines/linux/sizes.md) för att välja de VM-storlekar som passar bäst för dina behov.  
 
-Mer information om att ändra storlek på en Linux-VM finns i [ändra storlek på en Linux-dator med Azure CLI](../articles/virtual-machines/linux/change-vm-size.md). Om du använder Windows virtuella datorer och föredrar att använda PowerShell, se [ändra storlek på en virtuell Windows-dator](../articles/virtual-machines/windows/resize-vm.md).  
+Mer information om hur du ändrar storlek på en virtuell Linux-dator finns i [ändra storlek på en virtuell Linux-dator med Azure CLI](../articles/virtual-machines/linux/change-vm-size.md). Om du använder virtuella Windows-datorer och vill använda PowerShell, se [ändra storlek på en virtuell Windows-dator](../articles/virtual-machines/windows/resize-vm.md).  
 
 <br>
 
 ### <a name="basic-a"></a>Basic A  
 
-**Nyare storlek rekommendation**: [Av2-serien](../articles/virtual-machines/windows/sizes-general.md#av2-series)
+**Nyare storleks rekommendation**: [AV2-serien](../articles/virtual-machines/windows/sizes-general.md#av2-series)
 
 Premium-lagring:  Stöds inte
 
@@ -31,7 +31,7 @@ Premium Storage cachelagring:  Stöds inte
 
 Storlekarna på den grundläggande nivån är främst avsedda för utvecklingsarbetsbelastningar och andra program som inte kräver belastningsutjämning, automatisk skalning eller minnesintensiva virtuella datorer.
 
-|Storlek – Storlek\namn | Virtuell processor |Minne|Nätverkskort (max.)|Högsta temporär diskstorlek |Max. datadiskar (1 023 GB som är var)|Max. IOPS (300 per disk)|
+|Storlek – Storlek\namn | Virtuell processor |Minne|Nätverkskort (max.)|Högsta temporär diskstorlek |Max. data diskar (1023 GB vardera)|Max. IOPS (300 per disk)|
 |---|---|---|---|---|---|---|
 |A0\Basic_A0|1|768 MB|2| 20 GB|1|1 × 300|
 |A1\Basic_A1|1|1,75 GB|2| 40 GB |2|2 × 300|
@@ -41,17 +41,27 @@ Storlekarna på den grundläggande nivån är främst avsedda för utvecklingsar
 
 <br>
 
+### <a name="standard-a0---a4-using-cli-and-powershell"></a>Standard A0–A4 med CLI och PowerShell
+
+I den klassiska distributionsmodellen skiljer sig vissa namn på VM-storlekarna i CLI och PowerShell:
+
+* Standard_A0 är ExtraSmall
+* Standard_A1 är Small
+* Standard_A2 är Medium
+* Standard_A3 är Large
+* Standard_A4 är ExtraLarge
+
 ### <a name="a-series"></a>A-serien  
 
-**Nyare storlek rekommendation**: [Av2-serien](../articles/virtual-machines/windows/sizes-general.md#av2-series)
+**Nyare storleks rekommendation**: [AV2-serien](../articles/virtual-machines/windows/sizes-general.md#av2-series)
 
-ACU: 50-100
+ACU 50-100
 
 Premium-lagring:  Stöds inte
 
 Premium Storage cachelagring:  Stöds inte
 
-| Storlek | Virtuell processor | Minne: GiB | Temporär lagring (HDD): GiB | Maximalt antal datadiskar | Maximalt diskgenomflöde: IOPS | Maximalt antal nätverkskort / förväntade nätverksbandbredd (Mbit/s)  |
+| Size | Virtuell processor | Minne: GiB | Temp-lagring (HDD): GiB | Maximalt antal datadiskar | Högsta data disk data flöde: IOPS | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s)  |
 | --- | --- | --- | --- | --- | --- | --- |
 | Standard_A0&nbsp;<sup>1</sup> |1 |0.768 |20 |1 |1 × 500 |2/100 |
 | Standard_A1 |1 |1.75 |70 |2 |2 × 500 |2/500  |
@@ -62,15 +72,15 @@ Premium Storage cachelagring:  Stöds inte
 | Standard_A6 |4 |28 |285 |8 |8 × 500 |2/1 000 |
 | Standard_A7 |8 |56 |605 |16 |16 × 500 |4/2 000 |
 
-<sup>1</sup> the A0-storleken har andel prenumerationer på den fysiska maskinvaran. För just den här storleken kan andra kunddistributioner påverka prestanda för arbetsbelastningen som körs. Nedan beskrivs relativa prestanda som den förväntade baslinjen, som har en ungefärlig variation på 15 procent.
+<sup>1</sup> a0-storleken är överdrived för den fysiska maskin varan. För just den här storleken kan andra kunddistributioner påverka prestanda för arbetsbelastningen som körs. Nedan beskrivs relativa prestanda som den förväntade baslinjen, som har en ungefärlig variation på 15 procent.
 
 <br>
 
 ### <a name="a-series---compute-intensive-instances"></a>A-serien – beräkningsintensiva instanser  
 
-**Nyare storlek rekommendation**: [Av2-serien](../articles/virtual-machines/windows/sizes-general.md#av2-series)
+**Nyare storleks rekommendation**: [AV2-serien](../articles/virtual-machines/windows/sizes-general.md#av2-series)
 
-ACU: 225
+ACU 225
 
 Premium-lagring:  Stöds inte
 
@@ -78,111 +88,134 @@ Premium Storage cachelagring:  Stöds inte
 
 Storlekarna i A8–A11- och H-serien kallas även för *beräkningsintensiva instanser*. Maskinvaran som kör dessa storlekar är utformad och optimerad för beräkningsintensiva och nätverksintensiva program, inklusive HPC-klustertillämpningar (databehandling med höga prestanda), modellering och simuleringar. A8–A11-serien använder Intel Xeon E5-2670 @ 2,6 GHZ och H-serien använder Intel Xeon E5-2667 v3 @ 3,2 GHz.  
 
-| Storlek | Virtuell processor | Minne: GiB | Temporär lagring (HDD): GiB | Maximalt antal datadiskar | Maximalt diskgenomflöde: IOPS | Maximalt antal nätverkskort|
+| Size | Virtuell processor | Minne: GiB | Temp-lagring (HDD): GiB | Maximalt antal datadiskar | Högsta data disk data flöde: IOPS | Maximalt antal nätverkskort|
 | --- | --- | --- | --- | --- | --- | --- |
 | Standard_A8&nbsp;<sup>1</sup> |8 |56 |382 |32 |32 × 500 |2 |
-| Standard_A9&nbsp;<sup>1</sup> |16 |112 |382 |64 |64 x 500 |4 |
+| Standard_A9&nbsp;<sup>1</sup> |16 |112 |382 |64 |64x500 |4 |
 | Standard_A10 |8 |56 |382 |32 |32 × 500 |2  |
-| Standard_A11 |16 |112 |382 |64 |64 x 500 |4 |
+| Standard_A11 |16 |112 |382 |64 |64x500 |4 |
 
-<sup>1</sup>för MPI-program, dedikerade RDMA backend-nätverket är aktiverat som FDR InfiniBand-nätverk, som har extremt korta svarstider och hög bandbredd.  
+<sup>1</sup> För MPI-program aktive ras det dedikerade RDMA-backend-nätverket av FDR InfiniBand-nätverket, vilket ger mycket låg latens och hög bandbredd.  
 
 <br>
 
 ### <a name="d-series"></a>D-serien  
 
-**Nyare storlek rekommendation**: [Dv3-serien](../articles/virtual-machines/windows/sizes-general.md#dv3-series-1)
+**Nyare storleks rekommendation**: [Dv3-serien](../articles/virtual-machines/windows/sizes-general.md#dv3-series-1)
 
-ACU: 160-250 <sup>1</sup>
+ACU 160-250 <sup>1</sup>
 
 Premium-lagring:  Stöds inte
 
 Premium Storage cachelagring:  Stöds inte
 
-| Storlek         | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt genomflöde för temporär lagring: IOPS / läsning / Skriv Mbit/s | Maximalt antal datadiskar / dataflöde: IOPS | Maximalt antal nätverkskort / förväntade nätverksbandbredd (Mbit/s) |
+| Size         | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt data flöde för temporärt lagring: IOPS/läsa Mbit/s/Write Mbit/s | Maximalt antal data diskar/data flöde: IOPS | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
 | Standard_D1  | 1         | 3.5         | 50             | 3 000 / 46 / 23                                           | 4 / 4 x 500                         | 2/500                 |
 | Standard_D2  | 2         | 7           | 100            | 6 000 / 93 / 46                                           | 8 / 8 x 500                         | 2/1 000                     |
 | Standard_D3  | 4         | 14          | 200            | 12 000 / 187 / 93                                         | 16 / 16 x 500                         | 4/2 000                     |
 | Standard_D4  | 8         | 28          | 400            | 24 000 / 375 / 187                                        | 32 / 32 x 500                       | 8/4 000                     |
 
-<sup>1</sup> VM-serie kan köras på en av följande CPU: 2.2 GHz Intel Xeon® E5 2660 v2, 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell) 2,3 GHz Intel XEON® eller E5-2673 v4 (Broadwell)  
+<sup>1</sup> VM-serien kan köras på någon av följande CPU: n: 2,2 GHz Intel Xeon® E5-2660 v2, 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell) eller 2,3 GHz Intel XEON® E5-2673 v4 (Broadwell)  
 
 <br>
 
-### <a name="d-series---memory-optimized"></a>D-serien – minnesoptimerade  
+### <a name="d-series---memory-optimized"></a>D-serien-minnesoptimerade  
 
-**Nyare storlek rekommendation**: [Dv3-serien](../articles/virtual-machines/windows/sizes-general.md#dv3-series-1)
+**Nyare storleks rekommendation**: [Dv3-serien](../articles/virtual-machines/windows/sizes-general.md#dv3-series-1)
 
-ACU: 160-250 <sup>1</sup>
+ACU 160-250 <sup>1</sup>
 
 Premium-lagring:  Stöds inte
 
 Premium Storage cachelagring:  Stöds inte
 
-| Storlek         | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt genomflöde för temporär lagring: IOPS / läsning / Skriv Mbit/s | Maximalt antal datadiskar / dataflöde: IOPS | Maximalt antal nätverkskort / förväntade nätverksbandbredd (Mbit/s) |
+| Size         | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt data flöde för temporärt lagring: IOPS/läsa Mbit/s/Write Mbit/s | Maximalt antal data diskar/data flöde: IOPS | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
 | Standard_D11 | 2         | 14          | 100            | 6 000 / 93 / 46                                           | 8 / 8 x 500                         | 2/1 000                     |
 | Standard_D12 | 4         | 28          | 200            | 12 000 / 187 / 93                                         | 16 / 16 x 500                         | 4/2 000                     |
 | Standard_D13 | 8         | 56          | 400            | 24 000 / 375 / 187                                        | 32 / 32 x 500                       | 8/4 000                     |
-| Standard_D14 | 16        | 112         | 800            | 48 000 / 750 / 375                                        | 64 / 64 x 500                       | 8 / 8000                |
+| Standard_D14 | 16        | 112         | 800            | 48 000 / 750 / 375                                        | 64/64x500                       | 8 / 8000                |
 
-<sup>1</sup> VM-serie kan köras på en av följande CPU: 2.2 GHz Intel Xeon® E5 2660 v2, 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell) 2,3 GHz Intel XEON® eller E5-2673 v4 (Broadwell)  
+<sup>1</sup> VM-serien kan köras på någon av följande CPU: n: 2,2 GHz Intel Xeon® E5-2660 v2, 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell) eller 2,3 GHz Intel XEON® E5-2673 v4 (Broadwell)  
 
 <br>
 
 ### <a name="ds-series"></a>DS-serien  
 
-**Nyare storlek rekommendation**: [DSv3-serien](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general#dsv3-series-1)
+**Nyare storleks rekommendation**: [DSv3-serien](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general#dsv3-series-1)
 
-ACU: 160-250 <sup>1</sup>
+ACU 160-250 <sup>1</sup>
 
 Premium-lagring:  Stöds
 
 Premium Storage cachelagring:  Stöds
 
-| Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Max cachelagrat och temporärt lagrat dataflödet: IOPS / Mbit/s (cachestorlek i GiB) | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Maximalt antal nätverkskort / förväntade nätverksbandbredd (Mbit/s) |
+| Size | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Max cachelagrat och temporärt lagrat dataflödet: IOPS/Mbit/s (cachestorlek i GiB) | Maximalt icke cachelagrat diskgenomflöde: IOPS/Mbit/s | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS1 |1 |3.5 |7 |4 |4,000 / 32 (43) |3,200 / 32 |2/500 |
 | Standard_DS2 |2 |7 |14 |8 |8,000 / 64 (86) |6,400 / 64 |2/1 000 |
 | Standard_DS3 |4 |14 |28 |16 |16,000 / 128 (172) |12,800 / 128 |4/2 000 |
 | Standard_DS4 |8 |28 |56 |32 |32,000 / 256 (344) |25,600 / 256 |8/4 000 |
 
-<sup>1</sup> VM-serie kan köras på en av följande CPU: 2.2 GHz Intel Xeon® E5 2660 v2, 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell) 2,3 GHz Intel XEON® eller E5-2673 v4 (Broadwell)  
+<sup>1</sup> VM-serien kan köras på någon av följande CPU: n: 2,2 GHz Intel Xeon® E5-2660 v2, 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell) eller 2,3 GHz Intel XEON® E5-2673 v4 (Broadwell)  
 
 <br>
 
-### <a name="ds-series---memory-optimized"></a>DS-serien – minnesoptimerade  
+### <a name="ds-series---memory-optimized"></a>DS-seriens minnesoptimerade  
 
-**Nyare storlek rekommendation**: [DSv3-serien](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general#dsv3-series-1)
+**Nyare storleks rekommendation**: [DSv3-serien](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general#dsv3-series-1)
 
-ACU: 160-250 <sup>1,2</sup>
+ACU 160-250 <sup>1, 2</sup>
 
 Premium-lagring:  Stöds
 
 Premium Storage cachelagring:  Stöds
 
-| Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Max cachelagrat och temporärt lagrat dataflödet: IOPS / Mbit/s (cachestorlek i GiB) | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Maximalt antal nätverkskort / förväntade nätverksbandbredd (Mbit/s) |
+| Size | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Max cachelagrat och temporärt lagrat dataflödet: IOPS/Mbit/s (cachestorlek i GiB) | Maximalt icke cachelagrat diskgenomflöde: IOPS/Mbit/s | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS11 |2 |14 |28 |8 |8,000 / 64 (72) |6,400 / 64 |2/1 000 |
 | Standard_DS12 |4 |28 |56 |16 |16,000 / 128 (144) |12,800 / 128 |4/2 000 |
 | Standard_DS13 |8 |56 |112 |32 |32,000 / 256 (288) |25,600 / 256 |8/4 000 |
 | Standard_DS14 |16 |112 |224 |64 |64,000 / 512 (576) |51,200 / 512 |8 / 8000 |
 
-<sup>1</sup> det maximala diskgenomflödet (IOPS eller Mbit/s) som är möjligt med virtuella datorer i DS-serien kan begränsas antal, storlek och striping av de anslutna diskarna.  Mer information finns i [designa för höga prestanda](../articles/virtual-machines/windows/premium-storage-performance.md).   
-<sup>2</sup> VM-serie kan köras på en av följande CPU: 2.2 GHz Intel Xeon® E5 2660 v2, 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell) 2,3 GHz Intel XEON® eller E5-2673 v4 (Broadwell)  
+<sup>1</sup> det högsta antalet disk data flöde (IOPS eller Mbit/s) som möjligt med en virtuell dator i DS-serien kan begränsas av antalet, storlek och striping av de anslutna diskarna.  Mer information finns i [utforma för hög prestanda](../articles/virtual-machines/windows/premium-storage-performance.md).   
+<sup>2</sup> VM-serien kan köras på någon av följande CPU: n: 2,2 GHz Intel Xeon® E5-2660 v2, 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell) eller 2,3 GHz Intel XEON® E5-2673 v4 (Broadwell)  
 
 <br>
 
+### <a name="ls-series"></a>Ls-serien
+
+Ls-serien stöder upp till 32 virtuella processorer i [E5 v3-familjen med Intel® Xeon®-processorn](https://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html). Ls-serien uppnår samma processorprestanda som G/GS-serien och levereras med 8 GiB minne per virtuell processor.
+
+LS-serien stöder inte att en lokal cache skapas för att öka IOPS som kan nås av varaktiga data diskar. Med det höga genom strömningen och IOPS av den lokala disken kan virtuella datorer i LS-serien vara idealiska för NoSQL-butiker som Apache Cassandra och MongoDB som replikerar data över flera virtuella datorer för att få beständighet i händelse av att en enskild virtuell dator Miss lyckas.
+
+ACU 180-240
+
+Premium-lagring:  Stöds
+
+Premium Storage cachelagring:  Stöds inte
+ 
+| Size          | Virtuell processor | Minne (GiB) | Temp-lagring (GiB) | Maximalt antal datadiskar | Maximalt data flöde för temporärt lagrings utrymme (IOPS/Mbit/s) | Maximalt antal cachelagrade diskar (IOPS/Mbit/s) | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) | 
+|----------------|-----------|-------------|--------------------------|----------------|-------------------------------------------------------------|-------------------------------------------|------------------------------| 
+| Standard_L4s   | 4  | 32  | 678   | 16 | 20000/200 | 5000 / 125  | 2/4 000  | 
+| Standard_L8s   | 8  | 64  | 1388 | 32 | 40000/400 | 10000/250 | 4/8 000  | 
+| Standard_L16s  | 16 | 128 | 2807 | 64 | 80000/800 | 20000/500 | 8/16 000 | 
+| Standard_L32s&nbsp;<sup>1</sup> | 32   | 256  | 5630 | 64   | 160000/1600   | 40000/1000     | 8/20 000 | 
+
+Det maximala disk data flödet som är möjligt med virtuella datorer i LS-serien kan begränsas av antal, storlek och striping för anslutna diskar. Mer information finns i [utforma för hög prestanda](../articles/virtual-machines/windows/premium-storage-performance.md).
+
+<sup>1</sup> instans är isolerad till maskin vara som är dedikerad till en enda kund.
+
 ### <a name="gs-series"></a>GS-serien 
 
-ACU: 180 - 240 <sup>1</sup>
+ACU 180 – 240 <sup>1</sup>
 
 Premium-lagring:  Stöds
 
 Premium Storage cachelagring:  Stöds
 
-| Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Max cachelagrat och temporärt lagrat dataflödet: IOPS / Mbit/s (cachestorlek i GiB) | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Maximalt antal nätverkskort / förväntade nätverksbandbredd (Mbit/s) |
+| Size | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Max cachelagrat och temporärt lagrat dataflödet: IOPS/Mbit/s (cachestorlek i GiB) | Maximalt icke cachelagrat diskgenomflöde: IOPS/Mbit/s | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) |
 |---|---|---|---|---|---|---|---|
 | Standard_GS1 |2 |28 |56 |8 |10,000 / 100 (264) |5,000 / 125 |2/2 000 |
 | Standard_GS2 |4 |56 |112 |16 |20,000 / 200 (528) |10,000 / 250 |2/4 000 |
@@ -190,23 +223,23 @@ Premium Storage cachelagring:  Stöds
 | Standard_GS4&nbsp;<sup>3</sup> |16 |224 |448 |64 |80,000 / 800 (2,112) |40,000 / 1,000 |8/16 000 |
 | Standard_GS5&nbsp;<sup>2,&nbsp;3</sup> |32 |448 |896 |64 |160,000 / 1,600 (4,224) |80,000 / 2,000 |8/20 000 |
 
-<sup>1</sup> det maximala diskgenomflödet (IOPS eller Mbit/s) som är möjligt med virtuella datorer i GS-serien kan begränsas antal, storlek och striping av de anslutna diskarna. Mer information finns i [designa för höga prestanda](../articles/virtual-machines/windows/premium-storage-performance.md).
+<sup>1</sup> det högsta antalet disk data flöde (IOPS eller Mbit/s) som är möjligt med en GS-seriens virtuella dator kan begränsas av antalet, storlek och striping av de anslutna diskarna. Mer information finns i [utforma för hög prestanda](../articles/virtual-machines/windows/premium-storage-performance.md).
 
-<sup>2</sup> instansen är isolerad till maskinvara som är dedikerad till en enda kund.
+<sup>2</sup> -instansen är isolerad till maskin vara som är dedikerad till en enda kund.
 
-<sup>3</sup> begränsad core-storlekar som är tillgängliga.
+<sup>3</sup> begränsade kärn storlekar är tillgängliga.
 
 <br>
 
 ### <a name="g-series"></a>G-serien
 
-ACU: 180 - 240
+ACU 180 – 240
 
 Premium-lagring:  Stöds inte
 
 Premium Storage cachelagring:  Stöds inte
 
-| Storlek         | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt genomflöde för temporär lagring: IOPS / läsning / Skriv Mbit/s | Maximalt antal datadiskar / dataflöde: IOPS | Maximalt antal nätverkskort / förväntade nätverksbandbredd (Mbit/s) |
+| Size         | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt data flöde för temporärt lagring: IOPS/läsa Mbit/s/Write Mbit/s | Maximalt antal data diskar/data flöde: IOPS | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
 | Standard_G1  | 2         | 28          | 384            | 6 000 / 93 / 46                                           | 8 / 8 x 500                       | 2/2 000                     |
 | Standard_G2  | 4         | 56          | 768            | 12 000 / 187 / 93                                         | 16 / 16 x 500                       | 2/4 000                     |
@@ -214,5 +247,5 @@ Premium Storage cachelagring:  Stöds inte
 | Standard_G4  | 16        | 224         | 3,072          | 48 000 / 750 / 375                                        | 64 / 64 x 500                     | 8/16 000          |
 | Standard_G5&nbsp;<sup>1</sup> | 32        | 448         | 6,144          | 96 000 / 1500 / 750                                       | 64 / 64 x 500                     | 8/20 000           |
 
-<sup>1</sup> instansen är isolerad till maskinvara som är dedikerad till en enda kund.
+<sup>1</sup> instans är isolerad till maskin vara som är dedikerad till en enda kund.
 <br>

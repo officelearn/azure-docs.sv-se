@@ -1,6 +1,6 @@
 ---
-title: Konfigurera meddelanderoutning för Azure IoT Hub med Azure CLI och Azure portal | Microsoft Docs
-description: Konfigurera meddelanderoutning för Azure IoT Hub med Azure CLI och Azure portal
+title: Konfigurera meddelanderoutning för Azure IoT Hub med hjälp av Azure CLI och Azure Portal | Microsoft Docs
+description: Konfigurera meddelanderoutning för Azure IoT Hub med hjälp av Azure CLI och Azure Portal
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -9,33 +9,33 @@ ms.topic: tutorial
 ms.date: 03/12/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: d81b01992bd3bdd49a48a873281d1be1e795497a
-ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
+ms.openlocfilehash: 5019951ca9628bc3beb849bdb2b148b575bc8618
+ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65556020"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69535119"
 ---
-# <a name="tutorial-use-the-azure-cli-and-azure-portal-to-configure-iot-hub-message-routing"></a>Självstudier: Använd Azure CLI och Azure-portalen för att konfigurera IoT Hub meddelanderoutning
+# <a name="tutorial-use-the-azure-cli-and-azure-portal-to-configure-iot-hub-message-routing"></a>Självstudier: Använd Azure CLI och Azure Portal för att konfigurera IoT Hub meddelanderoutning
 
 [!INCLUDE [iot-hub-include-routing-intro](../../includes/iot-hub-include-routing-intro.md)]
 
 [!INCLUDE [iot-hub-include-routing-create-resources](../../includes/iot-hub-include-routing-create-resources.md)]
 
-## <a name="use-the-azure-cli-to-create-the-base-resources"></a>Använda Azure CLI för att skapa de grundläggande resurserna
+## <a name="use-the-azure-cli-to-create-the-base-resources"></a>Använd Azure CLI för att skapa bas resurserna
 
-Den här självstudien används Azure CLI för att skapa de grundläggande resurserna och använder sedan den [Azure-portalen](https://portal.azure.com) att visa hur du konfigurerar meddelanderoutning och konfigurera den virtuella enheten för att testa.
+I den här självstudien används Azure CLI för att skapa bas resurser och sedan används [Azure Portal](https://portal.azure.com) för att visa hur du konfigurerar meddelanderoutning och konfigurerar den virtuella enheten för testning.
 
-Det finns flera resursnamn som måste vara globalt unikt, till exempel IoT Hub-namn och namnet på lagringskontot. Om du vill göra det enklare, läggs de resursnamn med slumpmässiga alfanumeriska värdet kallas *randomValue*. RandomValue skapas en gång överst i skriptet och läggas till för resursnamnen efter behov i skriptet. Om du inte vill att det ska vara slumpmässiga kan konfigurera du den till en tom sträng eller till ett specifikt värde.
+Det finns flera resurs namn som måste vara globalt unika, till exempel IoT Hub namn och lagrings konto namn. För att göra det enklare läggs dessa resurs namn till med ett slumpmässigt alfanumeriskt värde som kallas *randomValue*. RandomValue skapas en gång överst i skriptet och läggs till i resurs namnen vid behov i hela skriptet. Om du inte vill att den ska vara slumpmässig, kan du ange den som en tom sträng eller ett angivet värde.
 
-Kopiera och klistra in skriptet nedan i Cloud Shell och tryck på RETUR. Den körs skriptet en rad i taget. Detta skapar de grundläggande resurserna för den här självstudiekursen, inklusive storage-konto, IoT Hub, Service Bus Namespace och Service Bus-kö.
+Kopiera och klistra in skriptet nedan i Cloud Shell och tryck på RETUR. Den kör skriptet en rad i taget. Detta skapar bas resurserna för den här självstudien, inklusive lagrings kontot, IoT Hub, Service Bus namnrymd och Service Bus kö.
 
-En notering om felsökning: det här skriptet använder symbolen fortsättning (ett omvänt snedstreck `\`) att göra det lättare att läsa skriptet. Om du har problem med att köra skriptet kan du kontrollera att det finns inga blanksteg efter någon av de omvända snedstreck.
+En kommentar om fel sökning: det här skriptet använder fortsättnings symbolen (det omvända snedstrecket `\`) för att göra skriptet mer läsbart. Om du har problem med att köra skriptet ser du till att det inte finns några blank steg efter något av omvänt snedstreck.
 
 ```azurecli-interactive
 # This retrieves the subscription id of the account 
 #   in which you're logged in.
-# This field is used to set up the routing rules.
+# This field is used to set up the routing queries.
 subscriptionID=$(az account show --query id)
 
 # Concatenate this number onto the resources that have to be globally unique.
@@ -118,35 +118,35 @@ az servicebus queue create --name $sbQueueName \
 
 ```
 
-Nu när de grundläggande resurserna har konfigurerats kan du konfigurera meddelanderoutning i den [Azure-portalen](https://portal.azure.com).
+Nu när bas resurserna har kon figurer ATS kan du konfigurera meddelanderoutning i [Azure Portal](https://portal.azure.com).
 
 ## <a name="set-up-message-routing"></a>Konfigurera meddelanderedigering
 
 [!INCLUDE [iot-hub-include-create-routing-description](../../includes/iot-hub-include-create-routing-description.md)]
 
-### <a name="route-to-a-storage-account"></a>Dirigera till ett lagringskonto
+### <a name="route-to-a-storage-account"></a>Dirigera till ett lagrings konto
 
-Konfigurera nu routning för lagringskontot. Du gå till fönstret meddelanderoutning och lägger till en väg. När du lägger till vägen, definierar du en ny slutpunkt för den. När den här routning är konfigurerat meddelanden var den **nivå** är inställd på **storage** skrivs till ett lagringskonto automatiskt. 
+Konfigurera nu routning för lagringskontot. Du gå till fönstret meddelanderoutning och lägger till en väg. När du lägger till vägen, definierar du en ny slutpunkt för den. När den här routningen har kon figurer ATS skrivs meddelanden där **nivå** egenskapen är inställd på **Storage** till ett lagrings konto automatiskt. 
 
 [!INCLUDE [iot-hub-include-blob-storage-format](../../includes/iot-hub-include-blob-storage-format.md)]
 
-1. I den [Azure-portalen](https://portal.azure.com)väljer **resursgrupper**, välj sedan din resursgrupp. I den här självstudien används **ContosoResources**.
+1. I [Azure Portal](https://portal.azure.com)väljer du **resurs grupper**och väljer sedan din resurs grupp. I den här självstudien används **ContosoResources**.
 
-2. Välj IoT-hubben under listan över resurser. I självstudien används **ContosoTestHub**.
+2. Välj IoT-hubben under resurs listan. I självstudien används **ContosoTestHub**.
 
-3. Välj **meddelanderoutning**. I den **meddelanderoutning** väljer +**Lägg till**. På den **lägga till en väg** väljer +**Lägg till** bredvid fältet slutpunkt för att visa slutpunkter som stöds som det visas i följande bild:
+3. Väljmeddelanderoutning. I fönstret meddelanderoutning väljer du +**Lägg till**. I fönstret **Lägg till en väg** väljer du +**Lägg till** bredvid fältet slut punkt för att visa de slut punkter som stöds, som visas på följande bild:
 
-   ![Börja lägga till en slutpunkt för en väg](./media/tutorial-routing/message-routing-add-a-route-w-storage-ep.png)
+   ![Börja lägga till en slut punkt för en väg](./media/tutorial-routing/message-routing-add-a-route-w-storage-ep.png)
 
-4. Välj **Blob-lagring**. Du ser den **lägga till en slutpunkt för lagring** fönstret.
+4. Välj **Blob-lagring**. Du ser rutan **Lägg till en lagrings slut punkt** .
 
-   ![Att lägga till en slutpunkt](./media/tutorial-routing/message-routing-add-storage-ep.png)
+   ![Lägga till en slut punkt](./media/tutorial-routing/message-routing-add-storage-ep.png)
 
-5. Ange ett namn på slutpunkten. Den här självstudien används **ContosoStorageEndpoint**.
+5. Ange ett namn på slutpunkten. I den här självstudien används **ContosoStorageEndpoint**.
 
-6. Välj **Välj en behållare**. Det tar dig till en lista över dina lagringskonton. Välj det som du skapade i förberedelsesteget. I den här självstudiekursen används **contosostorage**. Den visar en lista över containrar i det lagringskontot. **Välj** behållaren du skapade i steg för förberedelse. I självstudien används **contosoresults**. Du kommer tillbaka till den **lägga till en slutpunkt för lagring** fönstret och se de val du gjort.
+6. Välj **Välj en behållare**. Det tar dig till en lista över dina lagringskonton. Välj det som du skapade i förberedelsesteget. I den här självstudiekursen används **contosostorage**. Den visar en lista över containrar i det lagringskontot. **Välj** den behållare som du konfigurerade i förberedelse stegen. I självstudien används **contosoresults**. Du kommer tillbaka till fönstret **Lägg till en lagrings slut punkt** och ser de val du gjort.
 
-7. Ange kodning till AVRO eller JSON. I den här självstudiekursen används standardinställningar för resten av fälten. Det här fältet nedtonade om den valda regioner inte har stöd för JSON-kodning.,
+7. Ange kodningen till AVRO eller JSON. I den här självstudiekursen används standardinställningar för resten av fälten. Det här fältet blir grå om den valda regionen inte stöder JSON-kodning.
 
    > [!NOTE]
    > Du kan ange formatet för blobnamnet med hjälp av **Format på blobfilens namn**. Standardvärdet är `{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}`. Formatet måste innehålla {iothub}, {partition}, {YYYY}, {MM}, {DD}, {HH} och {mm} i valfri ordning.
@@ -156,49 +156,49 @@ Konfigurera nu routning för lagringskontot. Du gå till fönstret meddelanderou
    > Blobarna är skrivna i Avro-format.
    >
 
-8. Välj **skapa** skapa slutpunkt för lagring och lägga till den vägen. Du kommer tillbaka till fönstret **Lägg till en väg**.
+8. Välj **skapa** för att skapa lagrings slut punkten och Lägg till den i vägen. Du kommer tillbaka till fönstret **Lägg till en väg**.
 
 9. Nu slutför du resten av informationen för routningsfrågan. Den här frågan anger kriterier för att skicka meddelanden till den lagringscontainer du just lade till som en slutpunkt. Fyll i fälten på skärmen.
 
-   **Namn**: Ange ett namn för din routningsfråga. Den här självstudien används **ContosoStorageRoute**.
+   **Namn**: Ange ett namn för din routningsfråga. I den här självstudien används **ContosoStorageRoute**.
 
    **Slutpunkt**: Visar den slutpunkt som du nyss skapade.
 
    **Datakälla**: Välj **Enhetstelemetrimeddelanden** från listrutan.
 
-   **Aktivera rutt**: Tänk på det här fältet är inställt på `enabled`.
+   **Aktivera rutt**: Se till att det här fältet är `enabled`inställt på.
    
    **Dirigeringsfråga**: Ange `level="storage"` som frågesträng.
 
-   ![Skapar en fråga för routning för storage-konto](./media/tutorial-routing/message-routing-finish-route-storage-ep.png)  
+   ![Skapa en cirkulations fråga för lagrings kontot](./media/tutorial-routing/message-routing-finish-route-storage-ep.png)  
 
    Välj **Spara**. När den är klar returneras den till fönstret meddelanderoutning där du kan se din nya routningsfråga för lagring. Stäng rutan Vägar så att du kommer tillbaka till sidan Resursgrupp.
 
-### <a name="route-to-a-service-bus-queue"></a>Dirigera till en Service Bus-kö
+### <a name="route-to-a-service-bus-queue"></a>Dirigera till en Service Bus kö
 
-Konfigurera nu routning för Service Bus-kön. Du gå till fönstret meddelanderoutning och lägger till en väg. När du lägger till vägen, definierar du en ny slutpunkt för den. När den här vägen har konfigurerats meddelanden var den **nivå** är inställd på **kritiska** skrivs till Service Bus-kö som utlöser en Logikapp som skickar ett e-postmeddelande med information.
+Konfigurera nu routning för Service Bus-kön. Du gå till fönstret meddelanderoutning och lägger till en väg. När du lägger till vägen, definierar du en ny slutpunkt för den. När den här vägen har kon figurer ATS skrivs meddelanden där **nivå** egenskapen är **kritisk** till den Service Bus kön, som utlöser en Logic app, som sedan skickar ett e-postmeddelande med informationen.
 
-1. Välj din IoT-hubb på resursgruppsidan, och sedan **meddelanderoutning**.
+1. På sidan resurs grupp väljer du din IoT Hub och väljer sedan **meddelanderoutning**.
 
-2. I den **meddelanderoutning** väljer +**Lägg till**.
+2. I fönstret meddelanderoutning väljer du +**Lägg till**.
 
-3. På den **lägga till en väg** fönstret Välj +**Lägg till** bredvid fältet slutpunkt. Välj **Service Bus-kö**. Du får fram fönstret **Lägg till Service Bus-slutpunkt**.
+3. I fönstret **Lägg till en väg** väljer du +**Lägg till** bredvid fältet slut punkt. Välj **Service Bus-kö**. Du får fram fönstret **Lägg till Service Bus-slutpunkt**.
 
-   ![Att lägga till en service bus-slutpunkt](./media/tutorial-routing/message-routing-add-sbqueue-ep.png)
+   ![Lägga till en Service Bus-slutpunkt](./media/tutorial-routing/message-routing-add-sbqueue-ep.png)
 
 4. Fyll i fälten:
 
-   **Slutpunktsnamn**: Ange ett namn på slutpunkten. Den här självstudien används **ContosoSBQueueEndpoint**.
+   **Slutpunktsnamn**: Ange ett namn på slutpunkten. I den här självstudien används **ContosoSBQueueEndpoint**.
    
-   **Service Bus-namnområde**: Använd listrutan för att välja service bus-namnområde som du skapade i steg för förberedelse. I den här självstudien används **ContosoSBNamespace**.
+   **Service Bus-namnområde**: Använd List rutan för att välja det Service Bus-namnområde som du har angett i förberedelse stegen. I den här självstudien används **ContosoSBNamespace**.
 
-   **Service Bus-kö**: Använd listrutan för att välja Service Bus-kö. I den här självstudien används **contososbqueue**.
+   **Service Bus-kö**: Använd List rutan för att välja Service Bus kön. I den här självstudien används **contososbqueue**.
 
-5. Välj **skapa** att lägga till slutpunkten för Service Bus-kö. Du kommer tillbaka till fönstret **Lägg till en väg**.
+5. Välj **skapa** för att lägga till Service Bus Queue-slutpunkten. Du kommer tillbaka till fönstret **Lägg till en väg**.
 
 6. Nu slutför du resten av routningsfrågeinformationen. Den här frågan anger kriterierna för att skicka meddelanden till den Service Bus-kö du just lade till som en slutpunkt. Fyll i fälten på skärmen. 
 
-   **Namn**: Ange ett namn för din routningsfråga. Den här självstudien används **ContosoSBQueueRoute**. 
+   **Namn**: Ange ett namn för din routningsfråga. I den här självstudien används **ContosoSBQueueRoute**. 
 
    **Slutpunkt**: Visar den slutpunkt som du nyss skapade.
 
@@ -206,15 +206,15 @@ Konfigurera nu routning för Service Bus-kön. Du gå till fönstret meddelander
 
    **Dirigeringsfråga**: Ange `level="critical"` som frågesträng. 
 
-   ![Skapa en fråga som routning för Service Bus-kö](./media/tutorial-routing/message-routing-finish-route-sbq-ep.png)
+   ![Skapa en cirkulations fråga för Service Bus kön](./media/tutorial-routing/message-routing-finish-route-sbq-ep.png)
 
 7. Välj **Spara**. När den återgår till Vägar-fönstret så ser du båda dina nya vägar som de visas här.
 
-   ![De vägar som du precis har konfigurerat](./media/tutorial-routing/message-routing-show-both-routes.png)
+   ![Vägarna som du nyss konfigurerat](./media/tutorial-routing/message-routing-show-both-routes.png)
 
-8. Du kan se de anpassade slutpunkter som du ställer in genom att välja den **anpassade slutpunkter** fliken.
+8. Du kan se de anpassade slut punkter som du ställer in genom att välja fliken **anpassade slut punkter** .
 
-   ![Anpassad slutpunkt som du precis har konfigurerat](./media/tutorial-routing/message-routing-show-custom-endpoints.png)
+   ![Den anpassade slut punkten som du nyss konfigurerade](./media/tutorial-routing/message-routing-show-custom-endpoints.png)
 
 9. Stäng fönstret Meddelanderoutning så att du kommer tillbaka till Resursgruppfönstret.
 
@@ -224,7 +224,7 @@ Konfigurera nu routning för Service Bus-kön. Du gå till fönstret meddelander
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har de resurser som ställer in och meddelandevägar konfigurerats kan du gå vidare till nästa självstudie och lär dig hur du skickar meddelanden till IoT hub och se att de dirigeras till olika mål. 
+Nu när du har konfigurerat resurserna och meddelande vägarna har kon figurer ATS kan du gå vidare till nästa självstudie för att lära dig hur du skickar meddelanden till IoT-hubben och ser att de dirigeras till olika destinationer. 
 
 > [!div class="nextstepaction"]
-> [Del 2 – visa meddelandet routningsresultat](tutorial-routing-view-message-routing-results.md)
+> [Del 2 – Visa resultatet av meddelanderoutning](tutorial-routing-view-message-routing-results.md)

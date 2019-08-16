@@ -79,7 +79,7 @@ Om du vill tillåta att Load Balancer övervakar appens status använder du en h
     | Protocol | Välj **http**. |
     | Port | Ange *80*.|
     | Interval | Ange *15* som **intervall** i sekunder mellan avsöknings försök. |
-    | Tröskelvärde för ej felfri | Välj **2** för antalet fel **** i tröskeln eller på varandra följande avsöknings fel som måste inträffa innan en virtuell dator betraktas som ohälsosam.|
+    | Tröskelvärde för ej felfri | Välj **2** för antalet fel i tröskeln eller på varandra följande avsöknings fel som måste inträffa innan en virtuell dator betraktas som ohälsosam.|
     | | |
 4. Välj **OK**.
 
@@ -144,10 +144,10 @@ Standard Load Balancer stöder bara virtuella datorer med standard-IP-adresser i
        1. Skriv *myNetworkSecurityGroup*och välj **OK**.
    - Utför följande steg för att göra den virtuella datorn till en del av Load Balancers backend-pool:
         - I **belastnings utjämning**väljer du **Ja**för att **Placera den virtuella datorn bakom en befintlig belastnings Utjämnings lösning?** .
-        - I **Inställningar**för belastnings utjämning **** i belastnings utjämning väljer du **Azure Load Balancer**.
+        - I **Inställningar**för belastnings utjämningi belastnings utjämning väljer du **Azure Load Balancer**.
         - För **Välj en belastningsutjämnare**, *myLoadBalancer*.
         - Välj fliken **Hantering** eller **Nästa** > **Hantering**.
-2. På fliken **hantering** , under **övervakning**, ställer du **** in startdiagnostik på **av**. 
+2. På fliken **hantering** , under **övervakning**, ställer du in startdiagnostik på **av**. 
 1. Välj **Granska + skapa**.   
 1. Granska inställningarna och välj sedan **Skapa**.
 1. Följ steg 2 till 6 för att skapa två ytterligare virtuella datorer med följande värden och alla andra inställningar på samma sätt som *myVM1*:

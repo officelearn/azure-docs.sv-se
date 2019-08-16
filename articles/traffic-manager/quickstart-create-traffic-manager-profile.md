@@ -40,9 +40,9 @@ För den här snabbstarten behöver du två instanser av en webbapp som distribu
 1. I **skapa en webbapp**skriver eller väljer du följande värden på fliken **grundläggande** :
 
    - **Prenumeration** > **Resursgrupp**: Välj **Skapa ny** och skriv sedan **myResourceGroupTM1**.
-   - ****  > **Namn på**instans information: Skriv *myWebAppEastUS*.
+   -  > **Namn på**instans information: Skriv *myWebAppEastUS*.
    - **Instans information** > **publicera**: Välj **kod**.
-   - ****  > **Körnings stack**för instans information: Välj **ASP.net v 4.7**
+   -  > **Körnings stack**för instans information: Välj **ASP.net v 4.7**
    - **Instans information** > **operativ system**: Välj **Windows**.
    - **Instans informations** > **region**:  Välj **USA, östra**.
    - **App Service planera** > **Windows-plan (USA, östra)** : Välj **Skapa ny** och skriv sedan **myAppServicePlanEastUS**

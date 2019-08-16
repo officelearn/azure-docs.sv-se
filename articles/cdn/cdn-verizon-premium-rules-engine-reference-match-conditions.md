@@ -583,7 +583,7 @@ Viktig information:
 
   Till exempel: https:\//&lt;Endpoint&gt; **. azureedge.net//index.htm** 
 
-  URL: en pekar på följande Verizon CDN-värdnamn: http\/:&lt; /WPC.0001. /index.htm&gt;för **** domän/800001/myorigin/
+  URL: en pekar på följande Verizon CDN-värdnamn: http\/:&lt; /WPC.0001. /index.htm&gt;fördomän/800001/myorigin/
 
 - En kant-CNAME-URL skrivs om till en CDN-URL före URL-jämförelsen.
 
@@ -709,13 +709,13 @@ Viktig information:
     Följande värden är tillgängliga för alternativet **relativt till** :
   - **Rot**: Anger att URL-jämförelsen börjar direkt efter CDN-värdnamnet.
 
-    Till exempel: http:\//WPC.0001.&lt; domän&gt; **** 800001/myorigin/MyFolder/index.htm/
+    Till exempel: http:\//WPC.0001.&lt; domän&gt; 800001/myorigin/MyFolder/index.htm/
 
   - **Ursprung**: Anger att URL-jämförelsen börjar efter innehålls åtkomst punkten (till exempel/000001 eller/800001/myorigin). Eftersom. azureedge.net CNAME skapas i förhållande till ursprungs katalogen på Verizon CDN-värdnamnet som standard, ska Azure CDN användare använda ursprung svärdet. \* 
 
     Till exempel: https:\//&lt;Endpoint&gt;. azureedge.net/**MyFolder/index.htm**
 
-  URL: en pekar på följande Verizon CDN-värdnamn: http\/:&lt; /WPC.0001. MyFolder/index.htm&gt;för **** domän/800001/myorigin/
+  URL: en pekar på följande Verizon CDN-värdnamn: http\/:&lt; /WPC.0001. MyFolder/index.htm&gt;för domän/800001/myorigin/
 
 - En kant-CNAME-URL skrivs om till en CDN-URL före en URL-jämförelse.
 
@@ -793,13 +793,13 @@ Viktig information:
    Det här alternativet kan ha följande värden:
      - **Rot**: Anger att URL-jämförelsen börjar direkt efter CDN-värdnamnet.
 
-       Till exempel: http:\//WPC.0001.&lt; domän&gt; **** 800001/myorigin/MyFolder/index.htm/
+       Till exempel: http:\//WPC.0001.&lt; domän&gt; 800001/myorigin/MyFolder/index.htm/
 
      - **Ursprung**: Anger att URL-jämförelsen börjar efter innehålls åtkomst punkten (till exempel/000001 eller/800001/myorigin). Eftersom. azureedge.net CNAME skapas i förhållande till ursprungs katalogen på Verizon CDN-värdnamnet som standard, ska Azure CDN användare använda ursprung svärdet. \* 
 
        Till exempel: https:\//&lt;Endpoint&gt;. azureedge.net/**MyFolder/index.htm**
 
-     URL: en pekar på följande Verizon CDN-värdnamn: http\/:&lt; /WPC.0001. MyFolder/index.htm&gt;för **** domän/800001/myorigin/
+     URL: en pekar på följande Verizon CDN-värdnamn: http\/:&lt; /WPC.0001. MyFolder/index.htm&gt;för domän/800001/myorigin/
 
 - En kant-CNAME-URL skrivs om till en CDN-URL före jämförelse med URL.
 

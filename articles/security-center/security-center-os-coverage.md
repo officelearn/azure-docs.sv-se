@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 6/03/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 7cd1d451b49faf2f8e3ad38f4ff780256ef2dc5d
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 9a11af7e2875c9af5cf4b08d459bc67b55dbdcf3
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883606"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515546"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Plattformar och funktioner som stöds av Azure Security Center
 
@@ -165,6 +165,6 @@ Information om när rekommendationer genereras för vart och ett av dessa skydd 
 ## <a name="next-steps"></a>Nästa steg
 
 - Lär dig att [planera och förstå design överväganden för att anta Azure Security Center](security-center-planning-and-operations-guide.md).
-- Lär dig mer om [beteende analys av virtuella datorer och krasch dumpning av minnes analyser i Security Center](security-center-alerts-type.md#virtual-machine-behavioral-analysis).
+- Lär dig mer om [hot identifiering för virtuella datorer & servrar i Azure Security Center](security-center-alerts-iaas.md).
 - Hitta [vanliga frågor om hur du använder Azure Security Center](security-center-faq.md).
 - Hitta [blogg inlägg om säkerhet och efterlevnad i Azure](https://blogs.msdn.com/b/azuresecurity/).

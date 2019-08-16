@@ -1,9 +1,9 @@
 ---
-title: Vad hände med mitt ASP.NET 5-projekt (Visual Studio connected services) | Microsoft Docs
-description: Beskriver vad som händer när du ansluter till ett Azure storage-konto i en ASP.NET 5 för Visual Studio-projektet med Visual Studio-anslutna tjänster
+title: Vad hände med mitt ASP.NET 5-projekt (Visual Studio Connected Services) | Microsoft Docs
+description: Beskriver vad som händer när du har anslutit till ett Azure Storage-konto i ett Visual Studio ASP.NET 5-projekt med Visual Studio Connected Services
 services: storage
 author: ghogen
-manager: douge
+manager: jillfra
 ms.assetid: e7caa9fa-c780-45eb-a546-299fc1c68455
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
@@ -12,17 +12,17 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: 71a95e1974cbcec9afcc3337eb37275532e1b527
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e29c0302ecd703cb02199df95892e24917baf8e8
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60505396"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69510771"
 ---
-# <a name="what-happened-to-my-aspnet-5-project-visual-studio-azure-storage-connected-services"></a>Vad hände med mitt ASP.NET 5-projekt (Visual Studio Azure Storage-anslutna tjänster)?
-## <a name="references-added"></a>Referenser som har lagts till
-Azure Storage NuGet-paket har lagts till Visual Studio-projektet.  
-Det här paketet lägger du till följande .NET-referenser:
+# <a name="what-happened-to-my-aspnet-5-project-visual-studio-azure-storage-connected-services"></a>Vad hände med mitt ASP.NET 5-projekt (Visual Studio Azure Storage anslutna tjänster)?
+## <a name="references-added"></a>Tillagda referenser
+Azure Storage NuGet-paketet har lagts till i Visual Studio-projektet.  
+Det här paketet lägger till följande .NET-referenser:
 
 * **Microsoft.Data.Edm**
 * **Microsoft.Data.OData**
@@ -33,10 +33,10 @@ Det här paketet lägger du till följande .NET-referenser:
 * **System.Data**
 * **System.Spatial**
 
-Dessutom NuGet-paketet **Microsoft.Framework.Configuration.Json** har lagts till.
+Dessutom lades NuGet-paketet **Microsoft. Framework. Configuration. JSON** till.
 
-## <a name="connection-string-for-azure-storage-added"></a>Anslutningssträng för Azure Storage har lagts till
-I config.json-fil av projektet skapades ett element med anslutningssträngen och nyckeln för det valda lagringskontot.
+## <a name="connection-string-for-azure-storage-added"></a>Anslutnings sträng för Azure Storage tillagd
+I filen config. json i projektet skapades ett element med det valda lagrings kontots anslutnings sträng och nyckel.
 
-Mer information finns i [ASP.NET 5](https://www.asp.net/vnext).
+Mer information finns i [ASP.net 5](https://www.asp.net/vnext).
 

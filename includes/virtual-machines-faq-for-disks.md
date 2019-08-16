@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 21fe92bf4a33dc44545f1bd54c718db6c0a38532
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: a334b19fe4dd819a6e4c391e49d934bf5955a567
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68843339"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69516052"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Vanliga frågor och svar om Azure IaaS VM-diskar och hanterade och ohanterade Premium-diskar
 
@@ -143,7 +143,48 @@ GPT-partitionering kan bara användas på data diskar, inte på OS-diskar. OS-di
 
 **Vilka disk typer stöder ögonblicks bilder?**
 
-Ögonblicks bilder av Premium SSD, standard SSD och standard-HDD stöder. För dessa tre disk typer stöds ögonblicks bilder för alla disk storlekar (inklusive diskar upp till 32 TiB i storlek). Ultra SSD stöder inte ögonblicks bilder.
+Ögonblicks bilder av Premium SSD, standard SSD och standard-HDD stöder. För dessa tre disk typer stöds ögonblicks bilder för alla disk storlekar (inklusive diskar upp till 32 TiB i storlek). Ultra disks stöder inte ögonblicks bilder.
+
+## <a name="ultra-disks"></a>Ultra disks
+
+**Vilka regioner stöder för närvarande Ultra disks?**
+- USA, östra 2
+- Asien, Sydostasien
+- Norra Europa
+
+**Vilken VM Series stöder för närvarande Ultra disks?**
+- ESv3
+- DSv3
+
+**Vad ska jag ställa in mitt hård disk data flöde på?**
+Om du är osäker på vad du ska ställa in disk data flödet på rekommenderar vi att du börjar med att anta en i/o-storlek på 16 KiB och justerar prestandan därifrån när du övervakar ditt program. Formeln är: Data flöde i Mbit/s = # av IOPS * 16/1000.
+
+**Jag har konfigurerat min disk till 40000 IOPS men jag ser bara 12800 IOPS, varför ser jag inte diskens prestanda?**
+Förutom disk begränsningen finns det en IO-begränsning som läggs på VM-nivån. Kontrol lera att den virtuella dator storleken som du använder stöder de nivåer som har kon figurer ATS på diskarna. Information om de IO-gränser som den virtuella datorn har infört finns i [storlekar för virtuella Windows-datorer i Azure](../articles/virtual-machines/windows/sizes.md).
+
+**Kan jag använda lagrings nivåer med en Ultra disk?**
+Nej, Ultra disks stöder inte de olika metoderna för cachelagring som stöds på andra disk typer. Ställ in diskcachelagring på ingen.
+
+**Kan jag ansluta en Ultra disk till min befintliga virtuella dator?**
+Din virtuella dator måste kanske finnas i en region och ett tillgänglighets zon par som stöder Ultra disks. Mer information finns i [komma igång med Ultra disks](../articles/virtual-machines/windows/disks-enable-ultra-ssd.md) .
+
+**Kan jag använda en Ultra disk som OS-disk för den virtuella datorn?**
+Nej, Ultra disks stöds bara som data diskar och stöds endast som 4K-inhemska diskar.
+
+**Kan jag konvertera en befintlig disk till en Ultra disk?**
+Nej, men du kan migrera datumet från en befintlig disk till en Ultra disk. Om du vill migrera en befintlig disk till en Ultra disk ansluter du båda diskarna till samma virtuella dator och kopierar diskens data från en disk till en annan eller använder en lösning från tredje part för datamigrering.
+
+**Kan jag skapa ögonblicks bilder för Ultra disks?**
+Nej, ögonblicks bilder är inte tillgängliga än.
+
+**Är Azure Backup tillgängligt för Ultra disks?**
+Nej, Azure Backup support är inte tillgängligt ännu.
+
+**Kan jag ansluta en Ultra disk till en virtuell dator som körs i en tillgänglighets uppsättning?**
+Nej, detta stöds inte ännu.
+
+**Kan jag aktivera Azure Site Recovery (ASR) för virtuella datorer med hjälp av Ultra disks?**
+Nej, ASR stöds inte ännu för Ultra disks.
 
 ## <a name="standard-ssd-disks"></a>Standard SSD diskar
 

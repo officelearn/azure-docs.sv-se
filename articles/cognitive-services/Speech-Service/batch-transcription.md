@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: panosper
-ms.openlocfilehash: e98ac335f475e4a6db6b17d5954512f5749e6aec
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 101cfacf071292d00556656b0df9c6bf9c15f414
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881156"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515882"
 ---
 # <a name="why-use-batch-transcription"></a>Varför använda Batch avskrift?
 
@@ -90,7 +90,7 @@ Använd dessa valfria egenskaper för att konfigurera avskrifter:
 | `PunctuationMode` | Anger hur du hanterar skiljetecken i igenkänningsresultat. Godkända värden är `None` som inaktiverar skiljetecken, `dictated` vilket medför att explicit skiljetecken `automatic` som gör att avkodaren handlar om skiljetecken, eller `dictatedandautomatic` vilket medför processens skiljetecken eller automatiskt. |
  | `AddWordLevelTimestamps` | Anger om Word-nivåns tidsstämplar ska läggas till i utdata. Godkända värden är `true` som aktiverar Word-nivåns tidsstämplar `false` och (standardvärdet) för att inaktivera det. |
  | `AddSentiment` | Anger att sentiment ska läggas till i uttryck. Godkända värden är `true` som aktiverar sentiment per uttryck och `false` (standardvärdet) för att inaktivera det. |
- | `AddDiarization` | Anger att diarization alalysis ska utföras på inaktuella indatatyper, vilket förväntas vara en svartvit kanal som innehåller två röster. Godkända värden är `true` som aktiverar diarization och `false` (standardvärdet) för att inaktivera det. Det måste `AddWordLevelTimestamps` också anges till sant.|
+ | `AddDiarization` | Anger att diarization-analys ska utföras på indatamängden som förväntas vara en mono kanal som innehåller två röster. Godkända värden är `true` som aktiverar diarization och `false` (standardvärdet) för att inaktivera det. Det måste `AddWordLevelTimestamps` också anges till sant.|
 
 ### <a name="storage"></a>Storage
 

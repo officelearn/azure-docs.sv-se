@@ -9,10 +9,10 @@ ms.date: 11/19/2018
 ms.author: dech
 ms.custom: include file
 ms.openlocfilehash: 331886f01345aba576cd8f96f95077f9bbdae704
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
+ms.lasthandoff: 08/15/2019
 ms.locfileid: "68002679"
 ---
 Du kan nu använda Datautforskaren-verktyget i Azure Portal för att skapa en databas och behållare. 
@@ -27,7 +27,7 @@ Du kan nu använda Datautforskaren-verktyget i Azure Portal för att skapa en da
 
     |Inställning|Föreslaget värde|Beskrivning
     |---|---|---|
-    |**Databas-ID**|Uppgifter|Ange *Uppgifter* som namn på den nya databasen. Databasnamn måste innehålla mellan 1 och 255 tecken och får inte innehålla /, \\, #, ? eller avslutande blanksteg. Kontrol lera **data flödes alternativet etablera databas** så att du kan dela det data flöde som har etablerats till databasen över alla behållare i databasen. Det här alternativet hjälper också till med kostnads besparingar. |
+    |**Databas-ID**|Aktiviteter|Ange *Uppgifter* som namn på den nya databasen. Databasnamn måste innehålla mellan 1 och 255 tecken och får inte innehålla /, \\, #, ? eller avslutande blanksteg. Kontrol lera **data flödes alternativet etablera databas** så att du kan dela det data flöde som har etablerats till databasen över alla behållare i databasen. Det här alternativet hjälper också till med kostnads besparingar. |
     |**Dataflöde**|400|Lämna data flödet på 400 enheter för programbegäran per sekund (RU/s). Du kan skala upp dataflödet senare om du vill minska svarstiden.| 
     |**Container-ID**|Objekt|Ange *objekt* som namn på den nya behållaren. Container-ID: n har samma teckenuppsättnings krav som databas namn.|
     |**Partitionsnyckel**| /category| Exemplet som beskrivs i den här artikeln använder */Category* som partitionsnyckel. Om du anger en partitionsnyckel kan Azure Cosmos DB skala samlingen så att den uppfyller programmets lagrings- och dataflödesbehov. I allmänhet är ett bra val av partitionsnyckel en som har en mängd olika distinkta värden, och ger en jämn fördelning av lagrings- och begärandevolym över arbetsbelastningen. [Läs mer om partitionering.](../articles/cosmos-db/partitioning-overview.md)|

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 12/26/2018
 ms.author: rimman
 ms.custom: seo-java-august2019
-ms.openlocfilehash: 701e6f0e93fe853a3703f9923af4dffd16090c80
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
-ms.translationtype: HT
+ms.openlocfilehash: 693e58cf578b5b2374a1d8fc63da8bb1a77faf1b
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036790"
+ms.locfileid: "69515826"
 ---
 # <a name="quickstart-build-a-web-app-using-azure-cosmos-dbs-api-for-mongodb-and-java-sdk"></a>Snabbstart: Skapa en webbapp med Azure Cosmos DB:s API för MongoDB och Java SDK
 
@@ -114,7 +114,7 @@ Följande kodfragment är alla hämtade från filen Program.java.
 
 Gå nu tillbaka till Azure-portalen för att hämta information om din anslutningssträng och kopiera den till appen.
 
-1. Från Konto väljer du **Snabbstart**, Java och kopierar sedan anslutningssträngen till Urklipp
+1. Från kontot väljer du **Snabbstart**, väljer **Java**och kopierar sedan anslutnings strängen till Urklipp.
 
 2. Öppna filen `Program.java` och ersätt argumentet för konstruktorn MongoClientURI med anslutningssträngen. Du har nu uppdaterat din app med all information den behöver för att kommunicera med Azure Cosmos DB. 
     

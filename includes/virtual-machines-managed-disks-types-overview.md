@@ -5,76 +5,69 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 01/22/2019
+ms.date: 08/15/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 4abf50e11070f2060309ae9b9cd045c874a2c52e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7385888c54d46e706621f781a64d12d3ae7aa5fb
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67133304"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69512679"
 ---
-# <a name="what-disk-types-are-available-in-azure"></a>Vilka disktyper är tillgängliga i Azure?
+# <a name="what-disk-types-are-available-in-azure"></a>Vilka disk typer är tillgängliga i Azure?
 
-Azure-hanterade diskar erbjuder för närvarande fyra disktyper, tre som är allmänt tillgänglig (GA) och ett som är för närvarande i förhandsversion. Dessa fyra disktyper varje har sina egna lämpliga målscenarier för kunden.
+Azure Managed disks erbjuder för närvarande fyra disk typer, och varje typ är riktad mot specifika kund scenarier.
 
 ## <a name="disk-comparison"></a>Diskjämförelse
 
-Följande tabell innehåller en jämförelse av ultra solid-state-enheter (SSD) (förhandsversion), premium SSD, standard SSD och standard-hårddiskar (HDD) för hanterade diskar för att avgöra vad du ska använda.
+Följande tabell innehåller en jämförelse av Ultra disks, Premium Solid-State-Drives (SSD), standard SSD och standard hård diskar (HDD) för hanterade diskar för att hjälpa dig att bestämma vad som ska användas.
 
-|   | Ultra SSD (förhandsversion)   | Premium SSD   | Standard SSD   | Standard HDD   |
+|   | Ultra disk   | Premium SSD   | Standard SSD   | Standard HDD   |
 |---------|---------|---------|---------|---------|
 |Disktyp   |SSD   |SSD   |SSD   |HDD   |
-|Scenario   |I/o-intensiva arbetsbelastningar som SAP HANA, databaser för övre nivå (till exempel SQL, Oracle) och andra transaktion tunga arbetsbelastningar.   |Produktion och prestandakänsliga arbetsbelastningar   |Webbservrar, används företagsprogram och utveckling/testning   |Säkerhetskopiering, icke-kritiska, lågfrekvent åtkomst   |
-|Diskstorlek   |65 536 gibibyte (GiB) (förhandsversion)   |32 767 giB    |32 767 giB   |32 767 giB   |
-|Högsta dataflöde   |2 000 MiB/s (förhandsversion)   |900 MiB/s   |750 MiB/s   |500 MiB/s   |
-|Maximalt antal IOPS   |160,000 (förhandsversion)   |20,000   |6,000   |2,000   |
+|Scenario   |I/o-intensiva arbets belastningar, till exempel SAP HANA, toppnivå databaser (till exempel SQL, Oracle) och andra transaktions krävande arbets belastningar.   |Produktion och prestandakänsliga arbetsbelastningar   |Webb servrar, lätt använda företags program och utveckling/testning   |Säkerhets kopiering, icke-kritisk, ovanligt åtkomst   |
+|Diskstorlek   |65 536 gibibyte (GiB)    |32 767 GiB    |32 767 GiB   |32 767 GiB   |
+|Maximalt data flöde   |2 000 MiB/s    |900 MiB/s   |750 MiB/s   |500 MiB/s   |
+|Max IOPS   |160 000    |20,000   |6,000   |2,000   |
 
-## <a name="ultra-ssd-preview"></a>Ultra SSD (förhandsversion)
+## <a name="ultra-disk"></a>Ultra disk
 
-Azure ultra SSD (förhandsversion) ger hög genomströmning, hög IOPS och konsekvent låg latens disklagring för virtuella Azure IaaS-datorer. Vissa ytterligare fördelar med ultra SSD omfattar möjligheten att ändra dynamiskt prestanda för disken, tillsammans med dina arbetsbelastningar, utan att behöva starta om dina virtuella datorer. Ultra SSD lämpar sig för dataintensiva arbetsbelastningar som SAP HANA, översta databaser och transaktionen tunga arbetsbelastningar. Ultra SSD kan bara användas som datadiskar. Vi rekommenderar att du använder premium SSD som OS-diskar.
+Azure Ultra disks levererar högt data flöde, hög IOPS och konsekvent låg latens disk lagring för virtuella Azure IaaS-datorer. Vissa ytterligare fördelar med Ultra disks är möjligheten att dynamiskt ändra diskens prestanda, tillsammans med dina arbets belastningar, utan att behöva starta om de virtuella datorerna. Ultra disks lämpar sig för data intensiva arbets belastningar som SAP HANA, toppnivå databaser och transaktions krävande arbets belastningar. Ultra disks kan endast användas som data diskar. Vi rekommenderar att du använder Premium-SSD som OS-diskar.
 
 ### <a name="performance"></a>Prestanda
 
-När du etablerar ett ultra disk kan konfigureras oberoende kapacitet och prestanda för disken. Ultra SSD komma in flera fasta storlekar, från 4 GiB upp till 64 TiB och använder en modell för flexibla prestanda konfiguration där du kan konfigurera oberoende IOPS och dataflöden.
+När du etablerar en Ultra disk kan du oberoende konfigurera kapaciteten och diskens prestanda. Ultra disks har flera fasta storlekar, från 4 GiB upp till 64 TiB och en flexibel prestanda konfigurations modell som gör att du kan konfigurera IOPS och data flöde oberoende av varandra.
 
-Några nyckelfunktioner i Ultra SSD är:
+Några viktiga funktioner i Ultra disks:
 
-- Kapacitet för disk: Ultra SSD-kapacitet intervall från 4 GiB upp till 64 TiB.
-- IOPs per disk: Ultra SSD stöder IOPS-gränserna för 300 IOPS/GiB, upp till högst 160 kB IOPS per disk. Kontrollera att den valda Disk-IOPS är mindre än VM IOPS för att uppnå IOPS som du etablerade. Minsta IOPS-disken är 100 IOPS.
-- Diskdataflöde: Med ultra SSD dataflödesgräns av en enskild disk är 256 KiB/s för var och en etablerad IOPS, upp till högst 2000 Mbit/s per disk (där Mbit/s = 10 ^ 6 byte per sekund). Det minsta diskgenomflödet är 1 MiB.
-- Ultra SSD stödja justera disk Prestandaattribut (IOPS och dataflöde) vid körning utan kopplar bort disken från den virtuella datorn. När storleksändringen en disk prestanda har utfärdats på en disk, kan det ta upp till en timme för att ändringen ska börja gälla faktiskt.
+- Disk kapacitet: Kapacitets intervall för Ultra disks från 4 GiB upp till 64 TiB.
+- Disk-IOPS: Ultra disks stöder IOPS-gränser på 300 IOPS/GiB, upp till högst 160 K IOPS per disk. Säkerställ att den valda disk-IOPS är mindre än den virtuella datorns IOPS-gräns för att uppnå den IOPS som du har allokerat. Lägsta IOPS per disk är 2 IOPS/GiB, med en total bas linje som är minst 100 IOPS. Om du till exempel har en 4 GiB Ultra-disk får du minst 100 IOPS i stället för 8 IOPS.
+- Disk data flöde: Med Ultra disks är data flödes gränsen på en enskild disk 256 KiB/s för varje etablerad IOPS, upp till högst 2000 Mbit/s per disk (där Mbit/s = 10 ^ 6 byte per sekund). Lägsta data flöde per disk är 4KiB/s för varje etablerad IOPS, med en total bas linje som är minst 1 Mbit/s.
+- Ultra disks stöder justering av attribut för disk prestanda (IOPS och data flöde) vid körning utan att disken kopplas bort från den virtuella datorn. När en disk prestanda har ändrats på en disk kan det ta upp till en timme innan ändringen träder i kraft.
 
 ### <a name="disk-size"></a>Diskstorlek
 
-|Diskstorlek (GiB)  |IOPS Caps  |Taket för dataflöde (Mbit/s)  |
+|Diskstorlek (GiB)  |IOPS-hölje  |Data flödes gräns (Mbit/s)  |
 |---------|---------|---------|
 |4     |1,200         |300         |
 |8     |2,400         |600         |
 |16     |4,800         |1,200         |
-|32     |9,600         |2,000         |
-|64     |19,200         |2,000         |
-|128     |38,400         |2,000         |
-|256     |76,800         |2,000         |
+|32     |9 600         |2,000         |
+|64     |19 200         |2,000         |
+|128     |38 400         |2,000         |
+|256     |76 800         |2,000         |
 |512     |80,000         |2,000         |
-|1 024 – 65 536 (storlekar i det här intervallet som ökar i steg om 1 TiB)     |160,000         |2,000         |
+|1 024-65536 (storlekar i det här intervallet ökar i steg om 1 TiB)     |160 000         |2,000         |
 
-### <a name="transactions"></a>Transaktioner
+### <a name="ga-scope-and-limitations"></a>Allmän omfattning och begränsningar
 
-För ultra SSD: er varje i/o-åtgärden har mindre än eller lika med 256 KiB dataflödets betraktas som en enda i/o-åtgärd. I/o-åtgärder större än 256 KiB dataflödets anses flera I/o med storleken 256 KiB.
+För närvarande har Ultra disks ytterligare begränsningar, de är följande:
 
-### <a name="preview-scope-and-limitations"></a>Förhandsversion av omfång och begränsningar
-
-I förhandsversionen ultra SSD:
-
-- Stöds i östra USA 2 i en enda tillgänglighetszon  
-- Kan bara användas med tillgänglighetszoner (tillgänglighetsuppsättningar och enkel VM-distributioner utanför zoner kommer inte har möjlighet att koppla ett ultra disk)
-- Stöds endast på ES/DS v3 virtuella datorer
-- Finns bara tillgängliga i datadiskar och endast stöd för 4k som fysisk sektorstorlek  
+- Stöds i USA, östra 2, Sydostasien och norra Europa, i två tillgänglighets zoner per region  
+- Kan endast användas med tillgänglighets zoner (tillgänglighets uppsättningar och enskilda VM-distributioner utanför zoner kan inte ansluta en Ultra disk)
+- Stöds endast för ES/DS v3-virtuella datorer
+- Är bara tillgängliga som data diskar och stöder endast fysisk sektor storlek för 4K  
 - Kan bara skapas som tomma diskar  
-- För närvarande kan endast distribueras med hjälp av Azure Resource Manager-mallar, CLI, PowerShell och Python SDK.
-- Kan inte distribueras med Azure portal (ännu).
-- Stöder ännu inte diskbilder, VM-avbildningar, tillgänglighetsuppsättningar, VM-skalningsuppsättningar och Azure-diskkryptering.
-- Stöder ännu inte integrering med Azure Backup eller Azure Site Recovery.
-- Precis som med [de flesta förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/), den här funktionen ska inte användas för produktionsarbetsbelastningar fram till allmän tillgänglighet (GA).
+- Har ännu inte stöd för ögonblicks bilder av diskar, VM-avbildningar, tillgänglighets uppsättningar, skalnings uppsättningar för virtuella datorer och Azure Disk Encryption
+- Har ännu inte stöd för integrering med Azure Backup eller Azure Site Recovery

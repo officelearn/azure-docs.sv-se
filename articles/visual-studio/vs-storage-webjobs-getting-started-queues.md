@@ -3,7 +3,7 @@ title: Komma igång med Queue Storage och Visual Studio Connected Services (webb
 description: Hur du kommer igång med Azure Queue Storage i ett webbjobb-projekt efter att ha anslutit till ett lagrings konto med hjälp av Visual Studio Connected Services.
 services: storage
 author: ghogen
-manager: douge
+manager: jillfra
 ms.assetid: 5c3ef267-2a67-44e9-ab4a-1edd7015034f
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: article
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: 44206f1826fc25407d9dec3f832b70881091e187
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 0afed158f5a19f3d82a3953f828f2b5566a6d5ff
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68248963"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69510801"
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-webjob-projects"></a>Komma igång med Azure Queue Storage och Visual Studio Connected Services (webb jobb projekt)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
@@ -44,7 +44,7 @@ public static void ProcessQueueMessage([QueueTrigger("logqueue")] string logMess
 
 Förutom **sträng**kan parametern vara en byte-matris, ett **CloudQueueMessage** -objekt eller en Poco som du definierar.
 
-### <a name="poco-plain-old-clr-objecthttpsenwikipediaorgwikiplainoldclrobject-queue-messages"></a>POCO [(vanligt gammalt CLR-objekt](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) köa meddelanden
+### <a name="poco-plain-old-clr-objecthttpsenwikipediaorgwikiplain_old_clr_object-queue-messages"></a>POCO [(vanligt gammalt CLR-objekt](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) köa meddelanden
 I följande exempel innehåller Queue-meddelandet JSON för ett **BlobInformation** -objekt som innehåller en **BlobName** -egenskap. SDK deserialiserar automatiskt objektet.
 
 ```csharp
@@ -88,7 +88,7 @@ public async static Task ProcessQueueMessageAsyncCancellationToken(
 ## <a name="types-the-queuetrigger-attribute-works-with"></a>Skriver QueueTrigger-attributet fungerar med
 Du kan använda **QueueTrigger** med följande typer:
 
-* **sträng**
+* **string**
 * En POCO-typ serialiserad som JSON
 * **byte[]**
 * **CloudQueueMessage**
@@ -201,7 +201,7 @@ public static void CreateQueueMessage(
 }
 ```
 
-### <a name="poco-plain-old-clr-objecthttpsenwikipediaorgwikiplainoldclrobject-queue-messages"></a>POCO [(vanligt gammalt CLR-objekt](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) köa meddelanden
+### <a name="poco-plain-old-clr-objecthttpsenwikipediaorgwikiplain_old_clr_object-queue-messages"></a>POCO [(vanligt gammalt CLR-objekt](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) köa meddelanden
 Om du vill skapa ett Queue-meddelande som innehåller en POCO i stället för en sträng, skickar du POCO-typen som en utdataparameter till konstruktorn för attributet **Queue** .
 
 ```csharp
@@ -296,7 +296,7 @@ public static void DeleteBlob(
 }
 ```
 
-### <a name="poco-plain-old-clr-objecthttpsenwikipediaorgwikiplainoldclrobject-queue-messages"></a>POCO [(vanligt gammalt CLR-objekt](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) köa meddelanden
+### <a name="poco-plain-old-clr-objecthttpsenwikipediaorgwikiplain_old_clr_object-queue-messages"></a>POCO [(vanligt gammalt CLR-objekt](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) köa meddelanden
 För en POCO som är lagrad som JSON i Queue-meddelandet kan du använda plats hållare som namn egenskaper för objektet i attributet **blobPath** för **kön** . Du kan också använda egenskaps namn för kö-metadata som plats hållare. Se [Hämta metadata för kö-eller Queue meddelande](#get-queue-or-queue-message-metadata).
 
 I följande exempel kopieras en blob till en ny BLOB med ett annat fil namns tillägg. Queue-meddelandet är ett **BlobInformation** -objekt som innehåller egenskaperna **BlobName** och **BlobNameWithoutExtension** . Egenskaps namnen används som plats hållare i BLOB-sökvägen för **BLOB** -attributen.
@@ -480,7 +480,7 @@ static void Main(string[] args)
 **Obs:** Kö-, tabell-och blob-namn löses varje gång en funktion anropas, men BLOB container-namn matchas endast när programmet startas. Du kan inte ändra namnet på en BLOB-behållare medan jobbet körs.
 
 ## <a name="how-to-trigger-a-function-manually"></a>Så här utlöser du en funktion manuellt
-Om du vill utlösa en funktion manuellt använder **** du anrops-eller **CallAsync** -metoden i **JobHost** -objektet och attributet **NoAutomaticTrigger** i funktionen, som du ser i följande exempel.
+Om du vill utlösa en funktion manuellt använder du anrops-eller **CallAsync** -metoden i **JobHost** -objektet och attributet **NoAutomaticTrigger** i funktionen, som du ser i följande exempel.
 
 ```csharp
 public class Program
@@ -534,7 +534,7 @@ public static void WriteLog(
 }
 ```
 
-I instrument panelen för WebJobs-SDK visas utdata från **** objektet TextWriter när du går till sidan för ett visst funktions anrop och väljer **Växla utdata**:
+I instrument panelen för WebJobs-SDK visas utdata från objektet TextWriter när du går till sidan för ett visst funktions anrop och väljer **Växla utdata**:
 
 ![Anrops länk](./media/vs-storage-webjobs-getting-started-queues/dashboardinvocations.png)
 

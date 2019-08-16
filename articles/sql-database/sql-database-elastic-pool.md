@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, carlrab
-ms.date: 02/28/2019
-ms.openlocfilehash: 31fb6eaefe557c1f135b4558b873454d4a3a01d8
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 08/06/2019
+ms.openlocfilehash: 305a35d1d40d94d1ce8e463b4af51eb84278bc3f
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568632"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69510255"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Elastiska pooler hjälper dig att hantera och skala flera Azure SQL-databaser
 
@@ -180,9 +180,9 @@ Följande bild visar ett exempel på en elastisk pool:
 
 ![Vy för pool](./media/sql-database-elastic-pool-manage-portal/basic.png)
 
-Om du vill ha mer information om poolen kan du klicka på någon av de tillgängliga uppgifterna i den här översikten. Om du klickar **på diagrammet resursutnyttjande** går du till vyn Azure-övervakning där du kan anpassa fönstret mått och tid som visas i diagrammet. Om du klickar på alla tillgängliga meddelanden går du till ett blad som visar den fullständiga informationen om aviseringen eller rekommendationen.
+Om du vill ha mer information om poolen kan du klicka på någon av de tillgängliga uppgifterna i den här översikten. Om du klickar på diagrammet resursutnyttjande går du till vyn Azure-övervakning där du kan anpassa fönstret mått och tid som visas i diagrammet. Om du klickar på alla tillgängliga meddelanden går du till ett blad som visar den fullständiga informationen om aviseringen eller rekommendationen.
 
-Om du vill övervaka databaserna inuti poolen kan du klicka på **resursutnyttjande i avsnittet** **övervakning** på resurs-menyn till vänster.
+Om du vill övervaka databaserna inuti poolen kan du klicka på resursutnyttjande i avsnittet **övervakning** på resurs-menyn till vänster.
 
 ![Sidan resursanvändning för databas](./media/sql-database-elastic-pool-manage-portal/db-utilization.png)
 
@@ -210,9 +210,9 @@ Mer information finns i [skapa SQL Database aviseringar i Azure Portal](sql-data
 
   Umbraco använder elastiska pooler med Azure SQL Database för att snabbt etablera och skala tjänster för tusentals klienter i molnet.
 
-- [Daxko/CSI](https://customers.microsoft.com/story/csi-used-azure-to-accelerate-its-development-cycle-and-to-enhance-its-customer-services)
+- [Daxko/CSI](https://customers.microsoft.com/story/726277-csi-daxko-partner-professional-service-azure)    
 
-  Daxko/CSI använder elastiska pooler med Azure SQL Database för att påskynda dess utvecklings cykel och förbättra sina kund tjänster och prestanda.
+   Daxko/CSI använder elastiska pooler med Azure SQL Database för att påskynda dess utvecklings cykel och förbättra sina kund tjänster och prestanda.   
 
 ## <a name="next-steps"></a>Nästa steg
 

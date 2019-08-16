@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 07/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 993b0249bdcc8e0e54dbe0c222aa2335c3bf8d4a
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 16c0354466d5c2a1207873a1e83e209da9339705
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68679148"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69509993"
 ---
 # <a name="prepare-vmware-vms-for-assessment-and-migration-to-azure"></a>Förbered virtuella VMware-datorer för utvärdering och migrering till Azure
 
@@ -123,7 +123,7 @@ Kontrol lera att proxyn matchar alla CNAME-poster som tagits emot när URL: erna
 
 Innan du konfigurerar Azure Migrate-installationen och påbörjar utvärderingen i nästa självstudie förbereder du installationen av enheten.
 
-1. Kontrol lera [att](migrate-support-matrix-vmware.md#assessment-appliance-requirements) du har konfigurerat Azure Migrate-installationen i VMware genom att kontrol lera kraven.
+1. [Kontrol lera](migrate-support-matrix-vmware.md#assessment-appliance-requirements) kraven för att konfigurera Azure Migrate-installationen i VMware.
 2. [Granska](migrate-support-matrix-vmware.md#assessment-url-access-requirements) de Azure-URL: er som krävs för att komma åt installations programmet.
 3. Granska de data som installeras av enheten under identifiering och utvärdering.
 4. [](migrate-support-matrix-vmware.md#assessment-port-requirements) Antecknings portens åtkomst krav för produkten.
@@ -137,7 +137,7 @@ Granska kraven för migrering utan agent för virtuella VMware-datorer.
 1. [Granska](migrate-support-matrix-vmware.md#agentless-migration-vmware-server-requirements) VMware Server-krav för migrering utan agent.
 2. Konfigurera ett konto för att få åtkomst till vCenter Server med de [behörigheter som krävs](migrate-support-matrix-vmware.md#agentless-migration-vcenter-server-permissions) för migrering utan agent.
 3. [Observera](migrate-support-matrix-vmware.md#agentless-migration-vmware-vm-requirements) kraven för virtuella VMware-datorer som du vill migrera till Azure med hjälp av en agent lös migrering.
-4. [Granska](migrate-support-matrix-vmware.md#agentless-migration-appliance-requirements) installations kraven för migrering utan agent.]
+4. [Granska](migrate-support-matrix-vmware.md#agentless-migration-appliance-requirements) installations kraven för migrering utan agent.
 5. Antecknings utrustning [URL åtkomst](migrate-support-matrix-vmware.md#agentless-migration-url-access-requirements) och [port åtkomst](migrate-support-matrix-vmware.md#agentless-migration-port-requirements) krav för migrering utan agent.
 
 

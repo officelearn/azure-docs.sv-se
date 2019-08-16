@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/06/2019
-ms.openlocfilehash: 94894126be98f0d3d4d404d97d0a4a39fff2e665
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 951d5bb10fbeeac090a1edb510b7214855477eac
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847400"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515350"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Vanliga frågor och svar om Azure SQL-storskaliga databaser
 
@@ -131,7 +131,7 @@ Inte just nu, men du kan skala din beräkning och antalet repliker nedåt för a
 
 ### <a name="can-i-provision-a-compute-with-extra-ram-for-my-memory-intensive-workload"></a>Kan jag etablera en beräkning med extra RAM-minne för min minnes intensiv arbets belastning
 
-Nej. Om du vill ha mer RAM-minne måste du uppgradera till en högre beräknings storlek. Mer information finns i [storskalig lagring och beräknings storlekar](sql-database-vcore-resource-limits-single-databases.md#hyperscale-service-tier).
+Nej. Om du vill ha mer RAM-minne måste du uppgradera till en högre beräknings storlek. Mer information finns i [storskalig lagring och beräknings storlekar](sql-database-vcore-resource-limits-single-databases.md#hyperscale-service-tier-for-provisioned-compute).
 
 ### <a name="can-i-provision-multiple-compute-nodes-of-different-sizes"></a>Kan jag etablera flera datornoder av olika storlekar
 

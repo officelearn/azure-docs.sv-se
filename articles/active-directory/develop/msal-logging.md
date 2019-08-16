@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09590fbd340ac3945f05346f99254ec0b76dcd76
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 475b692a29edf5cdd05552e7b5c3dc5fde210275
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68834996"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69512523"
 ---
 # <a name="logging"></a>Loggning
 MSAL-appar (Microsoft Authentication Library) för att generera logg meddelanden som kan hjälpa till att diagnostisera problem och ange information. En app kan konfigurera loggning med några rader kod och har anpassad kontroll över detalj nivån och huruvida personliga och organisatoriska data loggas. Vi rekommenderar att du ställer in ett återanrop för MSAL-loggning och ger användarna möjlighet att skicka loggar när de har problem med autentiseringen.
@@ -40,6 +40,10 @@ MSAL: s loggar gör det möjligt att samla flera detalj nivåer:
 Som standard fångar MSAL-loggaren inte in mycket känsliga personliga eller organisatoriska data. Biblioteket ger dig möjlighet att aktivera loggning av personliga och organisatoriska data om du väljer att göra det.
 
 ## <a name="logging-in-msalnet"></a>Logga in MSAL.NET
+
+ > [!NOTE]
+ > Mer information om MSAL.NET finns i [MSAL.net](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki)-wikin. Hämta exempel på MSAL.NET-loggning och mer. 
+ 
 I MSAL 3. x anges loggning per program när appen skapas med hjälp av `.WithLogging` Builder-modifieraren. Den här metoden kräver valfria parametrar:
 
 - \- *Nivå* kan du bestämma vilken loggnings nivå du vill ha. Om du ställer in det på fel får du bara fel meddelanden

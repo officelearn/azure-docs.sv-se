@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 07/25/2019
+ms.date: 08/15/2019
 ms.author: diberry
-ms.openlocfilehash: 78c75e69be5521660937e34da0d7261dba1de385
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: a3e1853e587f2f1632641cbb896eba59f8dc9455
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68955400"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515767"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Datakällor för QnA Maker-innehåll
 
@@ -133,9 +133,21 @@ Kunskapsbaser i form av strukturerade *.txt*, *.tsv* eller *.xls* filer kan ocks
 
 Alla övriga kolumner i källfilen ignoreras.
 
+### <a name="example-of-structured-excel-file"></a>Exempel på strukturerad Excel-fil
+
 Nedan visas ett exempel på en strukturerade QnA *.xls* filen med HTML-innehåll:
 
  ![Strukturerade frågor och svar om excel-exempel för en kunskapsbas](../media/qnamaker-concepts-datasources/structured-qna-xls.png)
+
+### <a name="example-of-alternate-questions-for-single-answer-in-excel-file"></a>Exempel på alternativa frågor för ett enskilt svar i Excel-fil
+
+Nedan visas ett exempel på en strukturerad QnA *. xls* -fil med flera alternativa frågor för ett enda svar:
+
+ ![Exempel på alternativa frågor för ett enskilt svar i Excel-fil](../media/qnamaker-concepts-datasources/xls-alternate-question-example.png)
+
+När filen har importer ATS visas fråga-och-svar-paret i kunskaps basen enligt nedan:
+
+ ![Skärm bild av alternativa frågor för enskilda svar som importeras till kunskaps basen](../media/qnamaker-concepts-datasources/xls-alternate-question-example-after-import.png)
 
 ## <a name="structured-data-format-through-import"></a>Format för strukturerade data via import
 

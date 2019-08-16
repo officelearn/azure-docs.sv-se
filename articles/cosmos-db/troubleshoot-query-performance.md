@@ -8,12 +8,12 @@ ms.date: 07/10/2019
 ms.author: girobins
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: a713ed69dc9c35e16b1cc5d9ad9819d53e2e1efe
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: d0dd9a371c4912cae0e74b214c673c629fc1ff55
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68986158"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515811"
 ---
 # <a name="troubleshoot-query-performance-for-azure-cosmos-db"></a>Felsöka prestanda för frågor för Azure Cosmos DB
 Den här artikeln beskriver hur du identifierar, diagnostiserar och felsöker Azure Cosmos DB problem med SQL-frågor. Följ fel söknings stegen nedan för att uppnå optimala prestanda för Azure Cosmos DB frågor. 
@@ -24,11 +24,12 @@ Den lägsta möjliga fördröjningen uppnås genom att se till att det anropande
 ## <a name="check-consistency-level"></a>Kontrol lera konsekvens nivå
 [Konsekvens nivån](consistency-levels.md) kan påverka prestanda och kostnader. Kontrol lera att konsekvens nivån är lämplig för det aktuella scenariot. Mer information finns i [välja konsekvens nivå](consistency-levels-choosing.md).
 
-## <a name="log-sql-query-in-storage-account"></a>Logga SQL-fråga i lagrings konto
-[SQL API Query-loggar via diagnostikloggar](logging.md#turn-on-logging-in-the-azure-portal) gör att du kan logga fördunklade-frågan i valfritt lagrings konto. Detta gör att du kan titta på diagnostikloggar och söka efter fråga med fler ru: er och använda aktivitets-ID: t för att matcha i QueryRuntimeStatistics. 
+## <a name="log-the-executed-sql-query"></a>Logga den exekverade SQL-frågan 
 
+Du kan logga den exekverade SQL-frågan i ett lagrings konto eller tabellen Diagnostic Log. [SQL Query-loggar via diagnostikloggar](logging.md#turn-on-logging-in-the-azure-portal) gör att du kan logga fördunklade-frågan i valfritt lagrings konto. På så sätt kan du titta på loggarna och Sök frågan som använder högre ru: er. Du kan senare använda aktivitets-ID: t för att matcha den faktiska frågan i QueryRuntimeStatistics. Frågan är fördunklade för säkerhets syfte och parametrarna för Frågeparametern, och deras värden i WHERE-satser skiljer sig från faktiska namn och värden. Du kan använda loggning till lagrings kontot för att behålla den långsiktiga lagringen av de frågor som körs.  
 
 ## <a name="log-query-metrics"></a>Logga frågornas mått
+
 Använd `QueryMetrics` för att felsöka långsamma eller dyra frågor. 
 
   * `FeedOptions.PopulateQueryMetrics = true` Anges`QueryMetrics` som svar.

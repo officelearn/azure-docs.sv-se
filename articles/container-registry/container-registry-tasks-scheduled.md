@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 06/27/2019
 ms.author: danlep
-ms.openlocfilehash: 6237b8056262abe1f8cea28bebd6b3bad97e0f7e
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: a4a1099d90b619be383d440067a692c51a2430ac
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967589"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69509074"
 ---
 # <a name="run-an-acr-task-on-a-defined-schedule"></a>Kör en ACR-uppgift enligt ett definierat schema
 
@@ -48,9 +48,9 @@ Som ett enkelt exempel utlöses följande kommando som kör `hello-world` avbild
 az acr task create \
   --name mytask \
   --registry myregistry \
-  --context /dev/null \
   --cmd hello-world \
-  --schedule "0 21 * * *"
+  --schedule "0 21 * * *" \
+  --context /dev/null
 ```
 
 Kör kommandot [AZ ACR Task show][az-acr-task-show] för att se att timer-utlösaren har kon figurer ATS. Som standard aktive ras även uppdaterings utlösaren för bas avbildning.
@@ -176,11 +176,11 @@ Varje fält kan ha en av följande typer av värden:
 
 |type  |Exempel  |Utlöses av  |
 |---------|---------|---------|
-|Ett speciellt värde |<nobr>"5 * * * *"</nobr>|varje timme efter 5 minuter efter timmen|
-|Alla värden (`*`)|<nobr>"* 5 * * *"</nobr>|varje minut i timmen som börjar 5:00 UTC (60 gånger per dag)|
-|Ett intervall (`-` operator)|<nobr>"0 1-3 * * *"</nobr>|3 gånger per dag, med 1:00, 2:00 och 3:00 UTC|
-|En uppsättning värden (`,` operator)|<nobr>"20,30,40 * * * *"</nobr>|3 gånger per timme, vid 20 minuter, 30 minuter och 40 minuter efter timmen|
-|Ett intervall värde (`/` operator)|<nobr>"*/10 * * * *"</nobr>|6 gånger per timme, vid 10 minuter, 20 minuter och så vidare, efter timmen
+|Ett speciellt värde |<nobr>`"5 * * * *"`</nobr>|varje timme efter 5 minuter efter timmen|
+|Alla värden (`*`)|<nobr>`"* 5 * * *"`</nobr>|varje minut i timmen som börjar 5:00 UTC (60 gånger per dag)|
+|Ett intervall (`-` operator)|<nobr>`"0 1-3 * * *"`</nobr>|3 gånger per dag, med 1:00, 2:00 och 3:00 UTC|
+|En uppsättning värden (`,` operator)|<nobr>`"20,30,40 * * * *"`</nobr>|3 gånger per timme, vid 20 minuter, 30 minuter och 40 minuter efter timmen|
+|Ett intervall värde (`/` operator)|<nobr>`"*/10 * * * *"`</nobr>|6 gånger per timme, vid 10 minuter, 20 minuter och så vidare, efter timmen
 
 [!INCLUDE [functions-cron-expressions-months-days](../../includes/functions-cron-expressions-months-days.md)]
 
@@ -198,6 +198,8 @@ Varje fält kan ha en av följande typer av värden:
 
 
 ## <a name="next-steps"></a>Nästa steg
+
+Ett exempel på hur du använder en schemalagd aktivitet för att rensa databaser i ett register finns i [Rensa avbildningar automatiskt från ett Azure Container Registry](container-registry-auto-purge.md).
 
 Exempel på uppgifter som utlöses av käll kods skrivningar eller bas avbildnings uppdateringar finns i [själv studie serien med ACR tasks](container-registry-tutorial-quick-task.md).
 

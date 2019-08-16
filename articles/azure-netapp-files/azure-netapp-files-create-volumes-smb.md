@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 7/9/2019
 ms.author: b-juche
-ms.openlocfilehash: 9409beea3f22fd7ff09fe49838a37d9ff0b485f6
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 3cd60f390f0233e2923660fc39675b5a307d8d8f
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68975921"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515428"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Skapa en SMB-volym för Azure NetApp Files
 
@@ -59,6 +59,18 @@ Ett undernät måste delegeras till Azure NetApp Files.
     |    Säkert LDAP        |    636       |    TCP           |
     |    Säkert LDAP        |    3269      |    TCP           |
     |    W32Time            |    123       |    UDP           |
+
+* Platstopologi för mål Active Directory Domain Services måste följa bästa praxis, särskilt det virtuella Azure-VNet där Azure NetApp Files distribueras.  
+
+    Adress utrymmet för det virtuella nätverk där Azure NetApp Files distribueras måste läggas till på en ny eller befintlig Active Directory plats (där en domänkontrollant kan kontaktas av Azure NetApp Files finns). 
+
+* De angivna DNS-servrarna måste gå att komma åt från det [delegerade under nätet](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-delegate-subnet) för Azure NetApp Files.  
+
+    Se [rikt linjer för Azure NetApp Files nätverks planering](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-network-topologies) för nätverkstopologier som stöds.
+
+    Nätverks säkerhets grupper (NSG: er) och brand väggar måste ha rätt konfigurerade regler för att tillåta Active Directory-och DNS-trafik begär Anden.
+
+    Se [utforma platstopologi](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology) om AD-platser och-tjänster. 
 
 ## <a name="create-an-active-directory-connection"></a>Skapa en Active Directory anslutning
 
@@ -117,9 +129,9 @@ Ett undernät måste delegeras till Azure NetApp Files.
         Fältet **Tillgänglig kvot** visar mängden outnyttjat utrymme i kapacitetspoolen, som du kan använda för att skapa en ny volym. Storleken på den nya volymen får inte överskrida den tillgängliga kvoten.  
 
     * **Virtuellt nätverk**  
-        Ange från vilket virtuellt Azure-nätverk du vill komma åt volymen.  
+        Ange det virtuella Azure-nätverk (VNet) som du vill ha åtkomst till volymen från.  
 
-        Det virtuella nätverk som du anger måste ha ett undernät delegerat till Azure NetApp Files. Azure NetApp Files-tjänsten kan endast nås från samma virtuella nätverk eller från ett virtuellt nätverk som finns i samma region som volymen via VNet-peering. Du kan också komma åt volymen från det lokala nätverket via Express Route.   
+        Det virtuella nätverk du anger måste ha ett undernät delegerat till Azure NetApp Files. Azure NetApp Filess tjänsten kan endast nås från samma VNet eller från ett VNet som finns i samma region som volymen via VNet-peering. Du kan också komma åt volymen från det lokala nätverket via Express Route.   
 
     * **Undernät**  
         Ange det undernät som du vill använda för volymen.  

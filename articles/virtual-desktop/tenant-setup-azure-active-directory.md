@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 062b815315d7bcdd5d55a86c2447a0b21295e8b6
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: cd80ed3c3db2453a333c87ed706dd358ba248b47
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69014092"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69516194"
 ---
 # <a name="tutorial-create-a-tenant-in-windows-virtual-desktop-preview"></a>Självstudier: Skapa en klient i för hands versionen av Windows Virtual Desktop
 
@@ -34,7 +34,7 @@ Det här behöver du för att konfigurera din Windows-klient för virtuella skri
    * Administratörs kontot måste vara ett arbets-eller skol konto.
 * En Azure-prenumeration.
 
-## <a name="grant-azure-active-directory-permissions-to-the-windows-virtual-desktop-preview-service"></a>Bevilja Azure Active Directory behörigheter till Windows Virtual Desktop Preview-tjänsten
+## <a name="grant-permissions-to-windows-virtual-desktop"></a>Bevilja behörigheter till Windows Virtual Desktop
 
 Hoppa över det här avsnittet om du redan har beviljat behörigheter till Windows Virtual Desktop för den här Azure Active Directory-instansen.
 
@@ -62,7 +62,7 @@ Så här beviljar du tjänst behörigheter:
 6. Logga in på sidan Windows-godkännande för virtuella skriv bord som global administratör, precis som du gjorde i steg 2.
 7. Välj **Acceptera**.
 
-## <a name="assign-the-tenantcreator-application-role-to-a-user-in-your-azure-active-directory-tenant"></a>Tilldela program rollen TenantCreator till en användare i din Azure Active Directory-klient
+## <a name="assign-the-tenantcreator-application-role"></a>Tilldela program rollen TenantCreator
 
 Genom att tilldela en Azure Active Directory användare rollen TenantCreator program kan användaren skapa en Windows-klient för virtuella skriv bord som är associerad med Azure Active Directory instansen. Du måste använda ditt globala administratörs konto för att tilldela TenantCreator-rollen.
 

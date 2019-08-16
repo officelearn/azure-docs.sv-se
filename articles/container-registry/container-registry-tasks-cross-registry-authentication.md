@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 07/12/2019
 ms.author: danlep
-ms.openlocfilehash: 8fac70e7e5125ae86b2b5ce13041bbf1fd067bbe
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 07fa7f3df5274ae88c93deac75093ead3f32f036
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68642077"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69509098"
 ---
 # <a name="cross-registry-authentication-in-an-acr-task-using-an-azure-managed-identity"></a>Autentisering mellan register i en ACR-aktivitet med hjälp av en Azure-hanterad identitet 
 
@@ -34,7 +34,7 @@ I ett verkligt scenario kan en organisation underhålla en uppsättning grundlä
 
 I den här artikeln behöver du två Azure Container-register:
 
-* Du använder det första registret för att skapa och köra ACR-uppgifter. I den här artikeln kallas registret för registret *.* 
+* Du använder det första registret för att skapa och köra ACR-uppgifter. I den här artikeln kallas registret för registret. 
 * Det andra registret är värd för en bas avbildning som används för aktiviteten för att bygga en avbildning. I den här artikeln heter det andra registret *mybaseregistry*. 
 
 Ersätt med dina egna register namn i senare steg.
@@ -76,7 +76,7 @@ Stegen i det här avsnittet skapar en uppgift och aktiverar en användardefinier
 
 ### <a name="create-task"></a>Skapa uppgift
 
-Skapa uppgiften *helloworldtask* genom att köra följande kommando för [AZ ACR Task Create][az-acr-task-create] . Aktivitets kontexten är det lokala systemet och kommandot refererar till filen `helloworldtask.yaml` i arbets katalogen. `--assign-identity` Parametern skickar resurs-ID: t för den tilldelade identiteten. 
+Skapa uppgiften *helloworldtask* genom att köra följande kommando för [AZ ACR Task Create][az-acr-task-create] . Aktiviteten körs utan en käll kods kontext och kommandot refererar till filen `helloworldtask.yaml` i arbets katalogen. `--assign-identity` Parametern skickar resurs-ID: t för den tilldelade identiteten. 
 
 ```azurecli
 az acr task create \
@@ -95,7 +95,7 @@ Stegen i det här avsnittet skapar en uppgift och aktiverar en tilldelad identit
 
 ### <a name="create-task"></a>Skapa uppgift
 
-Skapa uppgiften *helloworldtask* genom att köra följande kommando för [AZ ACR Task Create][az-acr-task-create] . Aktivitets kontexten är det lokala systemet och kommandot refererar till filen `helloworldtask.yaml` i arbets katalogen. `--assign-identity` Parametern utan värde aktiverar den systemtilldelade identiteten för uppgiften. 
+Skapa uppgiften *helloworldtask* genom att köra följande kommando för [AZ ACR Task Create][az-acr-task-create] . Aktiviteten körs utan en käll kods kontext och kommandot refererar till filen `helloworldtask.yaml` i arbets katalogen. `--assign-identity` Parametern utan värde aktiverar den systemtilldelade identiteten för uppgiften. 
 
 ```azurecli
 az acr task create \

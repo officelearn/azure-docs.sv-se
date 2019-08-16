@@ -1,6 +1,6 @@
 ---
-title: Kom igång med autentisering för Mobile Apps i Xamarin Forms-app | Microsoft Docs
-description: Lär dig hur du använder Mobile Apps du autentiserar användare i din Xamarin Forms-app genom olika identitetsleverantörer, inklusive AAD, Google, Facebook, Twitter och Microsoft.
+title: Kom igång med autentisering för Mobile Apps i Xamarin Forms-appen | Microsoft Docs
+description: Lär dig hur du använder Mobile Apps för att autentisera användare av din Xamarin Forms-app via olika identitets leverantörer, till exempel AAD, Google, Facebook, Twitter och Microsoft.
 services: app-service\mobile
 documentationcenter: xamarin
 author: elamalani
@@ -15,65 +15,64 @@ ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
 ms.openlocfilehash: f1777fcb5a4e7899da982bd9d1d35905cb408ad2
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
+ms.lasthandoff: 08/15/2019
 ms.locfileid: "67446309"
 ---
 # <a name="add-authentication-to-your-xamarin-forms-app"></a>Lägg till autentisering i din Xamarin Forms-app
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
 > [!NOTE]
-> Visual Studio App Center investerar i nya och integrerade tjänster som är centrala för utveckling av mobilappar. Utvecklare kan använda **skapa**, **Test** och **fördela** tjänster för att konfigurera pipeline för kontinuerlig integrering och leverans. När appen har distribuerats, utvecklare kan övervaka status och användningen av sin app med hjälp av den **Analytics** och **diagnostik** services och interagera med användare som använder den **Push** tjänsten. Utvecklare kan även utnyttja **Auth** att autentisera användarna och **Data** -tjänsten för att bevara och synkronisera AppData i molnet. Kolla in [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-xamarin-forms-get-started-users) idag.
+> Visual Studio App Center investerar i nya och integrerade tjänster som är centrala för utveckling av mobilappar. Utvecklare kan använda **bygge**-, **test** -och **distributions** tjänster för att konfigurera kontinuerlig integrering och leverans pipeliner. När appen har distribuerats kan utvecklare övervaka status och användning av appen med hjälp av **analys** -och **diagnos** tjänster och engagera med användare med **push** -tjänsten. Utvecklare kan också utnyttja **auth** för att autentisera sina användare och **data** tjänster för att spara och synkronisera AppData i molnet. Kolla [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-xamarin-forms-get-started-users) idag.
 >
 
 ## <a name="overview"></a>Översikt
-Det här avsnittet visar hur du autentiserar användare i en App Service Mobile App från ditt klientprogram. I den här självstudien lägger du till autentisering till snabbstartsprojektet Xamarin Forms med hjälp av en identitetsprovider som stöds av App Service. Efter att har autentiseras och auktoriseras av din Mobilapp, användar-ID-värdet visas och du kommer att kunna få åtkomst till begränsade tabelldata.
+Det här avsnittet visar hur du autentiserar användare av en App Service mobilapp från klient programmet. I den här självstudien lägger du till autentisering i snabb starts projektet för Xamarin-formulär med en identitetsprovider som stöds av App Service. När din mobilapp har autentiserats och godkänts av din mobilapp visas värdet användar-ID och du kommer att kunna komma åt data i begränsad tabell.
 
 ## <a name="prerequisites"></a>Förutsättningar
-För bästa resultat med den här självstudien rekommenderar vi att du först slutföra den [skapa en Xamarin Forms-app][1] självstudien. När du har slutfört den här självstudien har du ett Xamarin Forms-projekt som är en app för flera plattformar TodoList.
+För bästa resultat i den här självstudien rekommenderar vi att du först Slutför själv studie kursen [skapa en Xamarin Forms-app][1] . När du har slutfört den här självstudien har du ett Xamarin-formulär projekt som är en TodoList-app med flera plattformar.
 
-Om du inte använder serverprojekt hämtade Snabbstart, måste du lägga till tillägget autentiseringspaket ditt projekt. Läs mer om server-tilläggspaket [arbeta med SDK för .NET-serverdelen för Azure Mobile Apps][2].
+Om du inte använder det nedladdade projektet för snabb starts Server måste du lägga till paketet med autentiserings tillägg i projektet. Mer information om Server tilläggs paket finns i [arbeta med .NET-Server del Server SDK för Azure Mobile Apps][2].
 
 ## <a name="register-your-app-for-authentication-and-configure-app-services"></a>Registrera din app för autentisering och konfigurera App Services
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
-## <a name="redirecturl"></a>Lägg till din app i de tillåtna externa Omdirigeringswebbadresser
+## <a name="redirecturl"></a>Lägg till din app i de tillåtna externa omdirigerings-URL: erna
 
-Säker autentisering måste du definiera en ny URL-schema för din app. På så sätt kan autentiseringssystem att omdirigera tillbaka till din app när autentiseringen är klar. I den här självstudien använder vi URL-schema _appname_ i hela. Du kan dock använda alla URL-schema som du väljer. Det bör vara unikt för det mobila programmet. Aktivera omdirigering på serversidan:
+Säker autentisering kräver att du definierar ett nytt URL-schema för din app. Detta gör att Authentication-systemet kan omdirigera tillbaka till din app när autentiseringen är klar. I den här självstudien använder vi program varan för URL-program i alla. Du kan dock använda alla URL-scheman du väljer. Det bör vara unikt för det mobila programmet. Aktivera omdirigering på Server sidan:
 
-1. I den [Azure-portalen][8], Välj din App Service.
+1. I [Azure Portal][8]väljer du App Service.
 
-2. Klicka på den **autentisering / auktorisering** menyalternativ.
+2. Klicka på meny alternativet **autentisering/auktorisering** .
 
-3. I den **tillåtna externa omdirigerings-URL: er**, ange `url_scheme_of_your_app://easyauth.callback`.  Den **url_scheme_of_your_app** i den här strängen är URL-schemat för din mobilapp.  Den bör följa den normala URL specifikationen för ett protokoll (Använd bokstäver och siffror och börja med en bokstav).  Du bör anteckna den sträng som du väljer eftersom du behöver ändra programkoden mobila med URL-schema på flera platser.
+3. I de **tillåtna externa**omdirigerings- `url_scheme_of_your_app://easyauth.callback`URL: erna anger du.  **Url_scheme_of_your_app** i den här STRÄNGEN är URL-schemat för det mobila programmet.  Den bör följa normal URL-specifikation för ett protokoll (Använd bara bokstäver och siffror och börja med en bokstav).  Du bör anteckna den sträng som du väljer när du behöver justera koden för mobil program med URL-schemat på flera platser.
 
 4. Klicka på **OK**.
 
 5. Klicka på **Spara**.
 
-## <a name="restrict-permissions-to-authenticated-users"></a>Begränsa behörighet för autentiserade användare
+## <a name="restrict-permissions-to-authenticated-users"></a>Begränsa behörigheter till autentiserade användare
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-## <a name="add-authentication-to-the-portable-class-library"></a>Lägg till autentisering i portabelt klassbibliotek
-Mobile Apps använder den [LoginAsync][3] extension method on the [MobileServiceClient][4] to sign in a user with App Service authentication. This sample
-uses a server-managed authentication flow that displays the provider's sign-in interface in the app. For more information, see [Server-managed authentication][5]. För att ge en bättre användarupplevelse i din produktionsapp, bör du överväga att använda [hanteras med klientprogram autentisering][6].
+## <a name="add-authentication-to-the-portable-class-library"></a>Lägg till autentisering i det portabla klass biblioteket
+Mobile Apps använder tilläggs metoden [LoginAsync][3] på [MobileServiceClient][4] för att logga in en användare med App Service autentisering. I det här exemplet används ett Server hanterat autentiseringsschema som visar providerns inloggnings gränssnitt i appen. Mer information finns i [Server-hanterad autentisering][5]. För att ge en bättre användar upplevelse i din webbapp bör du i stället använda [klient-hanterad autentisering][6].
 
-För att autentisera med ett projekt i Xamarin Forms, definiera en **IAuthenticate** gränssnittet i klassbiblioteket i bärbar för appen. Lägg sedan till en **inloggning** knappen för att användargränssnittet som definierats i bärbar klassbiblioteket, som du klickar på Starta autentisering. Data har lästs in från serverdelen för mobilappen efter en lyckad autentisering.
+För att autentisera med ett Xamarin Forms-projekt definierar du ett **iauthenticate** -gränssnitt i appens Portabela klass bibliotek. Lägg sedan till en inloggnings knapp i användar gränssnittet som definierats i biblioteket för portabela klasser, som du klickar på för att starta autentiseringen. Data läses in från Server delen för mobilappar efter en lyckad autentisering.
 
-Implementera de **IAuthenticate** gränssnitt för varje plattform som stöds av din app.
+Implementera **iauthenticate** -gränssnittet för varje plattform som stöds av din app.
 
-1. I Visual Studio eller Xamarin Studio, öppna App.cs från projektet med **bärbar** i namnet, som är portabelt klassbibliotek projekt, och Lägg sedan till följande `using` instruktionen:
+1. I Visual Studio eller Xamarin Studio öppnar du app.CS från projektet med **portabel** i namnet, som är ett biblioteks projekt för portabel klass och lägger sedan till `using` följande instruktion:
 
         using System.Threading.Tasks;
-2. Lägg till följande i App.cs, `IAuthenticate` gränssnittsdefinitionen omedelbart före den `App` klassdefinitionen.
+2. I app.cs lägger du till följande `IAuthenticate` gränssnitts definition omedelbart `App` före klass definitionen.
 
         public interface IAuthenticate
         {
             Task<bool> Authenticate();
         }
-3. För att initiera gränssnittet med implementering av plattformsspecifika, lägger du till följande statiska medlemmar till den **App** klass.
+3. Om du vill initiera gränssnittet med en plattformsspecifik implementering lägger du till följande statiska medlemmar i klassen **app** .
 
         public static IAuthenticate Authenticator { get; private set; }
 
@@ -81,17 +80,17 @@ Implementera de **IAuthenticate** gränssnitt för varje plattform som stöds av
         {
             Authenticator = authenticator;
         }
-4. Öppna TodoList.xaml från portabelt klassbibliotek-projektet, Lägg till följande **knappen** elementet i den *buttonsPanel* layoutelement efter knappen befintlig:
+4. Öppna TodoList. XAML från biblioteks projekt för portabel klass, Lägg till följande **knapp** element i *buttonsPanel* -Layout-elementet efter den befintliga knappen:
 
           <Button x:Name="loginButton" Text="Sign-in" MinimumHeightRequest="30"
             Clicked="loginButton_Clicked"/>
 
-    Den här knappen utlöser server-hanterad autentisering med din mobilappsserverdel.
-5. Öppna TodoList.xaml.cs från portabelt klassbibliotek-projektet och sedan lägga till följande fält till den `TodoList` klass:
+    Den här knappen utlöser Server hanterad autentisering med din server del för mobilappar.
+5. Öppna TodoList.XAML.CS från biblioteks projekt för portabel klass och Lägg sedan till följande fält i `TodoList` klassen:
 
         // Track whether the user has authenticated.
         bool authenticated = false;
-6. Ersätt den **OnAppearing** metoden med följande kod:
+6. Ersätt **OnAppearing** -metoden med följande kod:
 
         protected override async void OnAppearing()
         {
@@ -109,8 +108,8 @@ Implementera de **IAuthenticate** gränssnitt för varje plattform som stöds av
             }
         }
 
-    Den här koden ser till att data uppdateras bara från tjänsten när du har autentiserats.
-7. Lägg till följande hanterare för den **Clicked** händelse ska den **TodoList** klass:
+    Den här koden kontrollerar att data bara uppdateras från tjänsten när du har autentiserats.
+7. Lägg till följande hanterare för händelsen **klickning** i **TodoList** -klassen:
 
         async void loginButton_Clicked(object sender, EventArgs e)
         {
@@ -121,21 +120,21 @@ Implementera de **IAuthenticate** gränssnitt för varje plattform som stöds av
             if (authenticated == true)
                 await RefreshItems(true, syncItems: false);
         }
-8. Spara dina ändringar och återskapa projektet portabelt klassbibliotek verifiera några fel.
+8. Spara ändringarna och bygg om det portabla klass biblioteks projektet verifiera inga fel.
 
 ## <a name="add-authentication-to-the-android-app"></a>Lägg till autentisering i Android-appen
-Det här avsnittet visas hur du implementerar den **IAuthenticate** gränssnittet i Android-app-projekt. Hoppa över det här avsnittet om du inte stöder Android-enheter.
+I det här avsnittet visas hur du implementerar **iauthenticate** -gränssnittet i Android-Appaketet. Hoppa över det här avsnittet om du inte stöder Android-enheter.
 
-1. I Visual Studio eller Xamarin Studio högerklickar du på den **droid** projektet sedan **Set as StartUp Project**.
-2. Tryck på F5 för att starta projektet i felsökning, och sedan kontrollera att ett ohanterat undantag med en statuskod 401 (obehörig) aktiveras när appen startar. 401 koden produceras eftersom åtkomst på serverdelen begränsas till behöriga användare.
-3. Öppna MainActivity.cs i Android-projektet och Lägg till följande `using` instruktioner:
+1. I Visual Studio eller Xamarin Studio högerklickar du på projektet **Droid** och **anger som start projekt**.
+2. Tryck på F5 för att starta projektet i fel sökaren och kontrol lera sedan att ett ohanterat undantag med status kod 401 (obehörig) utlöses när appen startar. 401-koden skapas eftersom åtkomst på Server delen är begränsad till endast auktoriserade användare.
+3. Öppna MainActivity.cs i Android-projektet och Lägg till följande `using` -satser:
 
         using Microsoft.WindowsAzure.MobileServices;
         using System.Threading.Tasks;
-4. Uppdatera den **MainActivity** klassen för att implementera den **IAuthenticate** gränssnitt på följande sätt:
+4. Uppdatera **MainActivity** -klassen för att implementera **iauthenticate** -gränssnittet enligt följande:
 
         public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsApplicationActivity, IAuthenticate
-5. Uppdatera den **MainActivity** klassen genom att lägga till en **MobileServiceUser** fält och en **autentisera** metoden, vilket krävs av den **IAuthenticate** gränssnitt på följande sätt:
+5. Uppdatera **MainActivity** -klassen genom att lägga till ett **MobileServiceUser** -fält och en metod för **autentisering** , vilket krävs av **iauthenticate** -gränssnittet, enligt följande:
 
         // Define an authenticated user.
         private MobileServiceUser user;
@@ -170,9 +169,9 @@ Det här avsnittet visas hur du implementerar den **IAuthenticate** gränssnitte
             return success;
         }
 
-    Om du använder en identitetsprovider än Facebook, välja ett annat värde för [MobileServiceAuthenticationProvider][7].
+    Om du använder en annan identitets leverantör än Facebook väljer du ett annat värde för [MobileServiceAuthenticationProvider][7].
 
-6. Uppdatera den **AndroidManifest.xml** filen genom att lägga till följande XML-filen i den `<application>` element:
+6. Uppdatera filen **AndroidManifest. XML** genom att lägga till följande XML i `<application>` elementet:
 
     ```xml
     <activity android:name="com.microsoft.windowsazure.mobileservices.authentication.RedirectUrlActivity" android:launchMode="singleTop" android:noHistory="true">
@@ -184,34 +183,34 @@ Det här avsnittet visas hur du implementerar den **IAuthenticate** gränssnitte
       </intent-filter>
     </activity>
     ```
-    Ersätt `{url_scheme_of_your_app}` med URL-schema.
-7. Lägg till följande kod till den **OnCreate** -metoden för den **MainActivity** innan anropet till `LoadApplication()`:
+    Ersätt `{url_scheme_of_your_app}` med ditt URL-schema.
+7. Lägg till följande kod i **OnCreate** -metoden för **MainActivity** -klassen innan anropet till `LoadApplication()`:
 
         // Initialize the authenticator before loading the app.
         App.Init((IAuthenticate)this);
 
-    Den här koden säkerställer autentiseraren initieras innan appen belastning.
-8. Återskapa appen, köra den och sedan logga in med den authentication-provider du har valt och kontrollera att du kan komma åt data som en autentiserad användare.
+    Den här koden säkerställer att autentiseraren initieras innan appen läses in.
+8. Återskapa appen, kör den och logga sedan in med den autentiseringsprovider du valde och kontrol lera att du har åtkomst till data som en autentiserad användare.
 
 ### <a name="troubleshooting"></a>Felsökning
 
-**Programmet kraschade med `Java.Lang.NoSuchMethodError: No static method startActivity`**
+**Programmet kraschade med`Java.Lang.NoSuchMethodError: No static method startActivity`**
 
-I vissa fall är i konflikt i supportpaket visas som bara en varning i Visual studio, men programkrascher med det här undantaget vid körning. I det här fallet måste du se till att alla supportpaket som refereras till i ditt projekt har samma version. [Azure Mobile Apps NuGet-paketet](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/) har ett `Xamarin.Android.Support.CustomTabs`-beroende för Android-plattformen, så om ditt projekt använder nyare supportpaket behöver du installera det här paketet i erfordrad version direkt för att undvika konflikter.
+I vissa fall visas konflikter i support paketen som en varning i Visual Studio, men programmet kraschar med detta undantag vid körning. I så fall måste du se till att alla de support paket som refereras till i ditt projekt har samma version. [Azure Mobile Apps NuGet-paketet](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/) har ett `Xamarin.Android.Support.CustomTabs`-beroende för Android-plattformen, så om ditt projekt använder nyare supportpaket behöver du installera det här paketet i erfordrad version direkt för att undvika konflikter.
 
-## <a name="add-authentication-to-the-ios-app"></a>Lägg till autentisering i appen för iOS
-Det här avsnittet visas hur du implementerar den **IAuthenticate** gränssnittet i iOS-app-projekt. Hoppa över det här avsnittet om du inte stöder iOS-enheter.
+## <a name="add-authentication-to-the-ios-app"></a>Lägg till autentisering i iOS-appen
+I det här avsnittet visas hur du implementerar **iauthenticate** -gränssnittet i iOS-exempelprojektet. Hoppa över det här avsnittet om du inte stöder iOS-enheter.
 
-1. I Visual Studio eller Xamarin Studio högerklickar du på den **iOS** projektet sedan **Set as StartUp Project**.
-2. Tryck på F5 för att starta projektet i felsökning, och sedan kontrollera att ett ohanterat undantag med en statuskod 401 (obehörig) aktiveras när appen startar. 401-svar skapas eftersom åtkomst på serverdelen begränsas till behöriga användare.
-3. Öppna AppDelegate.cs i iOS-projektet och Lägg till följande `using` instruktioner:
+1. Högerklicka på **iOS** -projektet i Visual Studio eller Xamarin Studio och **Ställ in som start projekt**.
+2. Tryck på F5 för att starta projektet i fel sökaren och kontrol lera sedan att ett ohanterat undantag med status kod 401 (obehörig) utlöses när appen startar. 401-svaret skapas eftersom åtkomst på Server delen är begränsad till endast auktoriserade användare.
+3. Öppna AppDelegate.cs i iOS-projektet och Lägg till följande `using` -satser:
 
         using Microsoft.WindowsAzure.MobileServices;
         using System.Threading.Tasks;
-4. Uppdatera den **AppDelegate** klassen för att implementera den **IAuthenticate** gränssnitt på följande sätt:
+4. Uppdatera **AppDelegate** -klassen för att implementera **iauthenticate** -gränssnittet enligt följande:
 
         public partial class AppDelegate : global::Xamarin.Forms.Platform.iOS.FormsApplicationDelegate, IAuthenticate
-5. Uppdatera den **AppDelegate** klassen genom att lägga till en **MobileServiceUser** fält och en **autentisera** metoden, vilket krävs av den **IAuthenticate** gränssnitt på följande sätt:
+5. Uppdatera **AppDelegate** -klassen genom att lägga till ett **MobileServiceUser** -fält och en metod för **autentisering** , vilket krävs av **iauthenticate** -gränssnittet, enligt följande:
 
         // Define an authenticated user.
         private MobileServiceUser user;
@@ -248,42 +247,42 @@ Det här avsnittet visas hur du implementerar den **IAuthenticate** gränssnitte
             return success;
         }
 
-    Om du använder en identitetsprovider än Facebook, väljer du ett annat värde för [MobileServiceAuthenticationProvider].
+    Om du använder en annan identitets leverantör än Facebook väljer du ett annat värde för [MobileServiceAuthenticationProvider].
     
-6. Uppdatera den **AppDelegate** klassen genom att lägga till den **OpenUrl** metoden överbelasta på följande sätt:
+6. Uppdatera **AppDelegate** -klassen genom att lägga till **OpenURL** -metoden överlagring på följande sätt:
 
         public override bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
         {
             return TodoItemManager.DefaultManager.CurrentClient.ResumeWithURL(url);
         }
    
-7. Lägg till följande rad med kod till den **FinishedLaunching** sättet innan anropet till `LoadApplication()`:
+7. Lägg till följande kodrad i **FinishedLaunching** -metoden innan anropet till `LoadApplication()`:
 
         App.Init(this);
 
-    Den här koden säkerställer autentiseraren initieras innan appen läses in.
+    Den här koden säkerställer att autentiseraren initieras innan appen läses in.
 
-8. Öppna Info.plist och Lägg till en **URL-typen**. Ange den **identifierare** till ett namn du väljer den **URL-scheman** till URL-schema för din app och **rollen** till ingen.
+8. Öppna info. plist och Lägg till en **URL-typ**. Ange identifieraren till ett namn som du väljer, **URL-scheman** till URL-schemat för din app och **rollen** till ingen.
 
-9. Återskapa appen, köra den och sedan logga in med den authentication-provider du har valt och kontrollera att du kan komma åt data som en autentiserad användare.
+9. Återskapa appen, kör den och logga sedan in med den autentiseringsprovider du valde och kontrol lera att du har åtkomst till data som en autentiserad användare.
 
-## <a name="add-authentication-to-windows-10-including-phone-app-projects"></a>Lägg till autentisering i Windows 10 (inklusive telefon) app-projekt
-Det här avsnittet visas hur du implementerar den **IAuthenticate** gränssnittet i Windows 10-app-projekt. Samma steg som gäller för Universal Windows Platform (UWP)-projekt, men med hjälp av den **UWP** projekt (med antecknat ändringar). Hoppa över det här avsnittet om du inte stöder Windows-enheter.
+## <a name="add-authentication-to-windows-10-including-phone-app-projects"></a>Lägg till autentisering i appar för Windows 10 (inklusive Phone)
+I det här avsnittet visas hur du implementerar **iauthenticate** -gränssnittet i app-projekt i Windows 10. Samma steg gäller för Universell Windows-plattform (UWP)-projekt, men med hjälp av **UWP** -projektet (med observerade ändringar). Hoppa över det här avsnittet om du inte stöder Windows-enheter.
 
-1. I Visual Studio högerklickar du på den **UWP** projektet sedan **Set as StartUp Project**.
-2. Tryck på F5 för att starta projektet i felsökning, och sedan kontrollera att ett ohanterat undantag med en statuskod 401 (obehörig) aktiveras när appen startar. 401-svar inträffar eftersom åtkomst på serverdelen begränsas till behöriga användare.
-3. Öppna MainPage.xaml.cs för Windows-app-projekt och Lägg till följande `using` instruktioner:
+1. I Visual Studio högerklickar du på projektet **UWP** och **anger som start projekt**.
+2. Tryck på F5 för att starta projektet i fel sökaren och kontrol lera sedan att ett ohanterat undantag med status kod 401 (obehörig) utlöses när appen startar. 401-svaret inträffar eftersom åtkomst på Server delen är begränsad till endast auktoriserade användare.
+3. Öppna mainpage.XAML.cs för Windows-Appaketet och Lägg till följande `using` -uttryck:
 
         using Microsoft.WindowsAzure.MobileServices;
         using System.Threading.Tasks;
         using Windows.UI.Popups;
         using <your_Portable_Class_Library_namespace>;
 
-    Ersätt `<your_Portable_Class_Library_namespace>` med namnområdet för ditt portabelt klassbibliotek.
-4. Uppdatera den **MainPage** klassen för att implementera den **IAuthenticate** gränssnitt på följande sätt:
+    Ersätt `<your_Portable_Class_Library_namespace>` med namn området för ditt portabla klass bibliotek.
+4. Uppdatera **mainpage** -klassen för att implementera **iauthenticate** -gränssnittet enligt följande:
 
         public sealed partial class MainPage : IAuthenticate
-5. Uppdatera den **MainPage** klassen genom att lägga till en **MobileServiceUser** fält och en **autentisera** metoden, vilket krävs av den **IAuthenticate**gränssnitt på följande sätt:
+5. Uppdatera **mainpage** -klassen genom att lägga till ett **MobileServiceUser** -fält och en metod för **autentisering** , vilket krävs av **iauthenticate** -gränssnittet, enligt följande:
 
         // Define an authenticated user.
         private MobileServiceUser user;
@@ -319,16 +318,16 @@ Det här avsnittet visas hur du implementerar den **IAuthenticate** gränssnitte
             return success;
         }
 
-    Om du använder en identitetsprovider än Facebook, välja ett annat värde för [MobileServiceAuthenticationProvider][7].
+    Om du använder en annan identitets leverantör än Facebook väljer du ett annat värde för [MobileServiceAuthenticationProvider][7].
 
-1. Lägg till följande kodrad i konstruktorn för den **MainPage** innan anropet till `LoadApplication()`:
+1. Lägg till följande kodrad i konstruktorn för klassen **mainpage** innan anropet till `LoadApplication()`:
 
         // Initialize the authenticator before loading the app.
         <your_Portable_Class_Library_namespace>.App.Init(this);
 
-    Ersätt `<your_Portable_Class_Library_namespace>` med namnområdet för ditt portabelt klassbibliotek.
+    Ersätt `<your_Portable_Class_Library_namespace>` med namn området för ditt portabla klass bibliotek.
 
-3. Om du använder **UWP**, Lägg till följande **OnActivated** metoden åsidosätta till den **App** klass:
+3. Om du använder **UWP**lägger du till följande **OnActivated** -metod för att åsidosätta klassen **app** :
 
        protected override void OnActivated(IActivatedEventArgs args)
        {
@@ -341,19 +340,19 @@ Det här avsnittet visas hur du implementerar den **IAuthenticate** gränssnitte
             }
        }
 
-3. Öppna Package.appxmanifest och Lägg till en **protokollet** deklaration. Ange den **visningsnamn** till ett namn du väljer och **namn** till URL-schema för appen.
+3. Öppna Package. appxmanifest och Lägg till en **protokoll** deklaration. Ange **visnings namnet** till ett namn som du väljer och **namnet** på appens URL-schema.
 
-4. Återskapa appen, köra den och sedan logga in med den authentication-provider du har valt och kontrollera att du kan komma åt data som en autentiserad användare.
+4. Återskapa appen, kör den och logga sedan in med den autentiseringsprovider du valde och kontrol lera att du har åtkomst till data som en autentiserad användare.
 
 ## <a name="next-steps"></a>Nästa steg
-Nu när du har slutfört den här självstudien för grundläggande autentisering, Överväg fortsätter in på någon av följande självstudiekurser:
+Nu när du har slutfört den här grundläggande autentiseringen kan du fortsätta med någon av följande själv studie kurser:
 
 * [Lägg till push-meddelanden i appen](app-service-mobile-xamarin-forms-get-started-push.md)
 
   Läs om hur du lägger till stöd för push-meddelanden i appen och konfigurerar serverdelen för mobilappen så att Azure Notification Hubs används för att skicka push-meddelanden.
 * [Aktivera offlinesynkronisering av appen](app-service-mobile-xamarin-forms-get-started-offline-data.md)
 
-  Läs om hur du lägger till offlinestöd i appen genom en mobilappsserverdel. Offlinesynkronisering kan slutanvändarna kan interagera med en mobil app - visa, lägga till eller ändra data, även om det inte finns någon nätverksanslutning.
+  Läs om hur du lägger till offlinestöd i appen genom en mobilappsserverdel. Offline-synkronisering ger slutanvändare möjlighet att interagera med en mobilapp – Visa, lägga till eller ändra data – även om det inte finns någon nätverks anslutning.
 
 <!-- Images. -->
 

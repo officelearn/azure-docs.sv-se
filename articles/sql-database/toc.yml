@@ -107,6 +107,8 @@
       items:
         - name: Migrera online med DMS
           href: ../dms/tutorial-sql-server-to-managed-instance.md?toc=/azure/sql-database/toc.json
+        - name: Lägga till en redundansgrupp
+          href: sql-database-managed-instance-failover-group-tutorial.md
         - name: Konfigurera transaktionsreplikering
           href: replication-with-sql-database-managed-instance.md
     - name: Säkerhet i SQL Database

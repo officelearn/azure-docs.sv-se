@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 07/15/2019
+ms.date: 08/14/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2968ae229c52cdd2b36111710f0aa6c0dc4fce4c
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 2c9afa63a26b7ac990867517f44825054b4c5436
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68852417"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69512406"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-ios-app"></a>Logga in användare och anropa Microsoft Graph från en iOS-app
 
@@ -94,6 +94,12 @@ Om du använder [Carthage](https://github.com/Carthage/Carthage)installerar `MSA
 
 ```
 github "AzureAD/microsoft-authentication-library-for-objc" "master"
+```
+
+Från ett terminalfönster, i samma katalog som det uppdaterade `Cartfile`, kör du följande kommando för att låta Carthage uppdatera beroendena i projektet:
+
+```bash
+carthage update --platform iOS
 ```
 
 ### <a name="manually"></a>Manuellt

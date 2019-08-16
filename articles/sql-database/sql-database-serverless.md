@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 07/05/2019
-ms.openlocfilehash: 3b9a9f4ac1cf0722ab7d3838f0b0c4c12b47dc74
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 67e877609eec98e7100b34ab477dbab7c5577772
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566798"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515279"
 ---
 # <a name="azure-sql-database-serverless-preview"></a>Azure SQL Database utan server (för hands version)
 
@@ -281,7 +281,7 @@ Get-AzSqlDatabase `
 
 ## <a name="resource-limits"></a>Resursbegränsningar
 
-För resurs gränser, se [Server lös beräknings nivå](sql-database-vCore-resource-limits-single-databases.md#serverless-compute-tier)
+För resurs gränser, se [Server lös beräknings nivå](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute).
 
 ## <a name="billing"></a>Fakturering
 
@@ -324,4 +324,4 @@ Server lös beräknings nivån är tillgänglig i hela världen utom följande r
 ## <a name="next-steps"></a>Nästa steg
 
 - Information om hur du kommer [igång finns i snabb start: Skapa en enskild databas i Azure SQL Database med hjälp av](sql-database-single-database-get-started.md)Azure Portal.
-- För resurs gränser, se [resurs gränser för Server lös beräknings nivå](sql-database-vCore-resource-limits-single-databases.md#serverless-compute-tier).
+- För resurs gränser, se [resurs gränser för Server lös beräknings nivå](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute).

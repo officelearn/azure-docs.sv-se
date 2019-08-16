@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: allensu
-ms.openlocfilehash: 37f1a0d9c70afc0a3a86ac76b682ee7b2adb253d
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 86376983f98abd241783f456cb9b41ab5d93ae51
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335806"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69511013"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Vanliga frågor och svar om Traffic Manager
 
@@ -322,9 +322,9 @@ Traffic Manager svarar med slut punktens DNS-namn eller IP-adress. Det finns tv�
 
 Normalt används Traffic Manager för att dirigera trafik till program som distribuerats i olika regioner. Det kan dock också användas där ett program har fler än en distribution i samma region. Traffic Manager Azure-slutpunkter tillåter inte att fler än en webbappens slut punkt från samma Azure-region läggs till i samma Traffic Manager-profil.
 
-### <a name="how-do-i-move-my-traffic-manager-profiles-azure-endpoints-to-a-different-resource-group"></a>Hur gör jag för att flytta min Traffic Managers profils Azure-slutpunkter till en annan resurs grupp?
+### <a name="how-do-i-move-my-traffic-manager-profiles-azure-endpoints-to-a-different-resource-group-or-subscription"></a>Hur gör jag för att flytta min Traffic Managers profils Azure-slutpunkter till en annan resurs grupp eller prenumeration?
 
-Azure-slutpunkter som är associerade med en Traffic Manager-profil spåras med hjälp av deras resurs-ID. När en Azure-resurs som används som en slut punkt (t. ex. offentlig IP, klassisk moln tjänst, WebApp eller en annan Traffic Manager profil som används på ett kapslat sätt) flyttas till en annan resurs grupp, ändras resurs-ID: t. I det här scenariot måste du för närvarande uppdatera Traffic Manager profilen genom att först ta bort och sedan lägga till tillbaka slut punkterna till profilen.
+Azure-slutpunkter som är associerade med en Traffic Manager-profil spåras med hjälp av deras resurs-ID. När en Azure-resurs som används som en slut punkt (t. ex. offentlig IP, klassisk moln tjänst, WebApp eller en annan Traffic Manager profil som används på ett kapslat sätt) flyttas till en annan resurs grupp eller prenumeration ändras resurs-ID: t. I det här scenariot måste du för närvarande uppdatera Traffic Manager profilen genom att först ta bort och sedan lägga till tillbaka slut punkterna till profilen.
 
 ## <a name="traffic-manager-endpoint-monitoring"></a>Traffic Manager slut punkts övervakning
 

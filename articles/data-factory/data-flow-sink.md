@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: b228dfd92fe389d196a65f7152ef22751842f4bb
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 24ad0f2e917420c327577851cabc9e5bdbad2825
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640281"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515664"
 ---
 # <a name="sink-transformation-for-a-data-flow"></a>Sink-transformering för ett data flöde
 
@@ -79,13 +79,16 @@ Konfigurera fil namn:
 
 Välj databas inställningar:
 
+![Fliken Inställningar, som visar alternativ för SQL-mottagare](media/data-flow/alter-row2.png "SQL-alternativ")
+
 * **Uppdaterings metod**: Standardvärdet är att tillåta infogningar. Rensa **Tillåt infogning** om du vill sluta infoga nya rader från källan. Om du vill uppdatera, upsert eller ta bort rader måste du först lägga till en Alter-Row-omvandling för att tagga rader för dessa åtgärder. 
 * **Återskapa tabell**: Släpp eller skapa mål tabellen innan data flödet har slutförts.
 * **Trunkera tabell**: Ta bort alla rader från mål tabellen innan data flödet har slutförts.
 * **Batchstorlek**: Ange ett tal för Bucket skrivningar i segment. Använd det här alternativet för stora data inläsningar. 
 * **Aktivera mellanlagring**: Använd PolyBase när du läser in Azure Data Warehouse som din Sink-datauppsättning.
+* **För-och-post-SQL-skript**: Ange SQL-skript med flera rader som ska köras före (för bearbetning) och efter (efter bearbetning)-data skrivs till din Sink-databas
 
-![Fliken Inställningar, som visar alternativ för SQL-mottagare](media/data-flow/alter-row2.png "SQL-alternativ")
+![skript för SQL-bearbetning före och efter bearbetning](media/data-flow/prepost1.png "Skript för SQL-bearbetning")
 
 > [!NOTE]
 > I data flöde kan du direkt Data Factory skapa en ny tabell definition i mål databasen. Skapa tabell definitionen genom att ange en data uppsättning i Sink-omvandlingen som har ett nytt tabell namn. I SQL-datauppsättningen, under tabell namnet, väljer du **Redigera** och anger ett nytt tabell namn. I omvandlingen för mottagare aktiverar du sedan **Tillåt schema avvikelse**. Ange **import schema** till **ingen**.

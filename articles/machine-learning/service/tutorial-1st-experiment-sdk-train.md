@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Träna din första modell.'
+title: 'Självstudier: Träna din första ML-modell'
 titleSuffix: Azure Machine Learning service
 description: I den här självstudien får du lära dig grundläggande design mönster i Azure Machine Learning-tjänsten och träna en enkel scikit-modell som baseras på diabetes data uppsättning.
 services: machine-learning
@@ -10,14 +10,14 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 07/20/2019
-ms.openlocfilehash: a3db70925d59f9d0e2793b04824b2e8606719dd4
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 17fee1f01bf883aa2a9845fe4f2817fb806056dd
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934239"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69516236"
 ---
-# <a name="tutorial-train-your-first-model"></a>Självstudier: Träna din första modell
+# <a name="tutorial-train-your-first-ml-model"></a>Självstudier: Träna din första ML-modell
 
 Självstudien är **del två i en självstudieserie i två delar**. I föregående självstudie [skapade du en arbets yta och valde en utvecklings miljö](tutorial-1st-experiment-sdk-setup.md). I den här självstudien får du lära dig grundläggande design mönster i Azure Machine Learning-tjänsten och träna en enkel scikit-modell som baseras på diabetes data uppsättning. När du har slutfört den här självstudien får du praktisk kunskap om SDK: n för att skala upp för att utveckla mer komplexa experiment och arbets flöden.
 
@@ -112,7 +112,7 @@ När utbildningen har slutförts anropar `experiment` du variabeln för att häm
 experiment
 ```
 
-<table style="width:100%"><tr><th>Namn</th><th>Arbetsyta</th><th>Rapport sida</th><th>Sidan dokument</th></tr><tr><td>diabetes – experiment</td><td>ditt-arbetsyte namn</td><td>Länka till Azure Portal</td><td>Länk till dokumentation</td></tr></table>
+<table style="width:100%"><tr><th>Name</th><th>Arbetsyta</th><th>Rapport sida</th><th>Sidan dokument</th></tr><tr><td>diabetes – experiment</td><td>ditt-arbetsyte namn</td><td>Länka till Azure Portal</td><td>Länk till dokumentation</td></tr></table>
 
 ## <a name="view-training-results-in-portal"></a>Visa utbildnings resultat i portalen
 

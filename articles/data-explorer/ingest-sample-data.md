@@ -1,27 +1,27 @@
 ---
-title: Mata in exempeldata i Azure Data Explorer
-description: Läs mer om hur du mata in (load) väderrelaterade exempeldata i Azure Data Explorer.
+title: Mata in exempel data i Azure Datautforskaren
+description: Läs om hur du matar in (läser in) väder relaterade exempel data till Azure Datautforskaren.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: e80322cda671e2145cf3e65aa1457f1fa1827737
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.topic: quickstart
+ms.date: 08/12/2019
+ms.openlocfilehash: c803de599f6be98512b15e927c6d15f1c7d95ff1
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60759285"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515751"
 ---
-# <a name="ingest-sample-data-into-azure-data-explorer"></a>Mata in exempeldata i Azure Data Explorer
+# <a name="quickstart-ingest-sample-data-into-azure-data-explorer"></a>Snabbstart: Mata in exempel data i Azure Datautforskaren
 
-Den här artikeln visar hur du mata in (load) exempeldata i en Azure Data Explorer-databas. Det finns [flera olika sätt att mata in data](ingest-data-overview.md); den här artikeln fokuserar på en grundläggande metod som passar för testning.
+Den här artikeln visar hur du matar in exempel data i en Azure Datautforskaren Database. Det finns [flera sätt att mata in data på](ingest-data-overview.md). den här artikeln fokuserar på en grundläggande metod som är lämplig för test ändamål.
 
 > [!NOTE]
-> Du redan har dessa data om du har slutfört [Snabbstart: Mata in data med hjälp av Azure Data Explorer Python-klientbiblioteket](python-ingest-data.md).
+> Du har redan dessa data om du har slutfört inmatnings [data med Azure datautforskaren python-biblioteket](python-ingest-data.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 [Ett testkluster och en databas](create-cluster-database-portal.md)
 
@@ -33,9 +33,9 @@ I exempeldatauppsättningen **StormEvents** finns väderrelaterade data från [N
 
 1. Överst till vänster i programmet väljer du **Lägg till kluster**.
 
-1. I den **Lägg till klustret** dialogrutan, ange din kluster-URL i formatet `https://<ClusterName>.<Region>.kusto.windows.net/`och välj sedan **Lägg till**.
+1. I dialog rutan **Lägg till kluster** anger du din kluster-URL i formuläret `https://<ClusterName>.<Region>.kusto.windows.net/`och väljer sedan **Lägg till**.
 
-1. Klistra in följande kommando och välj **kör**.
+1. Klistra in följande kommando och välj **Kör**.
 
     ```Kusto
     .create table StormEvents (StartTime: datetime, EndTime: datetime, EpisodeId: int, EventId: int, State: string, EventType: string, InjuriesDirect: int, InjuriesIndirect: int, DeathsDirect: int, DeathsIndirect: int, DamageProperty: int, DamageCrops: int, Source: string, BeginLocation: string, EndLocation: string, BeginLat: real, BeginLon: real, EndLat: real, EndLon: real, EpisodeNarrative: string, EventNarrative: string, StormSummary: dynamic)
@@ -43,24 +43,19 @@ I exempeldatauppsättningen **StormEvents** finns väderrelaterade data från [N
     .ingest into table StormEvents h'https://kustosamplefiles.blob.core.windows.net/samplefiles/StormEvents.csv?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D' with (ignoreFirstRecord=true)
     ```
 
-1. När inmatning är klar, klistra in följande fråga, väljer du frågan i fönstret och välj **kör**.
+1. När inmatningen är klar klistrar du in i följande fråga, väljer frågan i fönstret och väljer **Kör**.
 
     ```Kusto
     StormEvents
     | sort by StartTime desc
     | take 10
     ```
-    Frågan returnerar följande resultat från insamlade exempeldata.
+    Frågan returnerar följande resultat från de inmatade exempel data.
 
     ![Frågeresultat](media/ingest-sample-data/query-results.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-> [!div class="nextstepaction"]
-> [Snabbstart: Fråga efter data i Azure Data Explorer](web-query-data.md)
-
-> [!div class="nextstepaction"]
-> [Skriv frågor](write-queries.md)
-
-> [!div class="nextstepaction"]
-> [Azure Data Explorer-datainmatning](ingest-data-overview.md)
+* [Azure datautforskaren data inmatning](ingest-data-overview.md) för att lära dig mer om inmatnings metoder.
+* [Snabbstart: Fråga efter data i Azure](web-query-data.md) datautforskaren Web UI.
+* [Skriv frågor](write-queries.md) med Kusto-frågespråk.

@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 02/07/2019
-ms.openlocfilehash: 711552501825e5d34d3547ede8dc998065083c96
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 2573adcb199ab32467493729842b6c47e3add64b
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566732"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515308"
 ---
 # <a name="general-purpose-service-tier---azure-sql-database"></a>Tjänst nivå för generell användning – Azure SQL Database
 
@@ -48,7 +48,7 @@ Generell användning Service Tier är en standard tjänst nivå i Azure SQL Data
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Hitta resurs egenskaper (antal kärnor, IO, minne) för Generell användning/standard-nivån i [hanterad instans](sql-database-managed-instance-resource-limits.md#service-tier-characteristics), enkel databas i [vCore-modellen](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-storage-sizes-and-compute-sizes) eller [DTU-modellen](sql-database-dtu-resource-limits-single-databases.md#single-database-storage-sizes-and-compute-sizes)eller elastisk pool i vCore- [modellen](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes) och [DTU-modellen](sql-database-dtu-resource-limits-elastic-pools.md#standard-elastic-pool-limits).
+- Hitta resurs egenskaper (antal kärnor, IO, minne) för Generell användning/standard-nivån i [hanterad instans](sql-database-managed-instance-resource-limits.md#service-tier-characteristics), enkel databas i [vCore-modellen](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-for-provisioned-compute) eller [DTU-modellen](sql-database-dtu-resource-limits-single-databases.md#single-database-storage-sizes-and-compute-sizes)eller elastisk pool i vCore- [modellen](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes) och [DTU-modellen](sql-database-dtu-resource-limits-elastic-pools.md#standard-elastic-pool-limits).
 - Lär dig mer om [affärskritisk](sql-database-service-tier-business-critical.md) -och [skalnings](sql-database-service-tier-hyperscale.md) nivåer.
 - Läs mer om [Service Fabric](../service-fabric/service-fabric-overview.md).
 - Fler alternativ för hög tillgänglighet och haveri beredskap finns i [affärs kontinuitet](sql-database-business-continuity.md).

@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 07/12/2019
 ms.author: danlep
-ms.openlocfilehash: 6aa729e4f32769ec50632bea582c8b69c7c0ce91
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: bcaf2918c92ec7b8223d394290a1d7c624fc451c
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68642142"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69509242"
 ---
 # <a name="external-authentication-in-an-acr-task-using-an-azure-managed-identity"></a>Extern autentisering i en ACR-aktivitet med hjälp av en Azure-hanterad identitet 
 
@@ -32,7 +32,7 @@ I ett verkligt scenario kan ett företag publicera avbildningar till en privat l
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Du behöver ett Azure Container Registry som du kör aktiviteten i. I den här artikeln kallas registret för registret *.* Ersätt med ditt eget register namn i senare steg.
+Du behöver ett Azure Container Registry som du kör aktiviteten i. I den här artikeln kallas registret för registret. Ersätt med ditt eget register namn i senare steg.
 
 Om du inte redan har ett Azure Container Registry, se [snabb start: Skapa ett privat behållar register med hjälp](container-registry-get-started-azure-cli.md)av Azure CLI. Du behöver inte skicka avbildningar till registret ännu.
 
@@ -107,7 +107,7 @@ Stegen i det här avsnittet skapar en uppgift och aktiverar en användardefinier
 
 ### <a name="create-task"></a>Skapa uppgift
 
-Skapa uppgiften *dockerhubtask* genom att köra följande kommando för [AZ ACR Task Create][az-acr-task-create] . Aktivitets kontexten är det lokala systemet och kommandot refererar till filen `dockerhubtask.yaml` i arbets katalogen. `--assign-identity` Parametern skickar resurs-ID: t för den tilldelade identiteten. 
+Skapa uppgiften *dockerhubtask* genom att köra följande kommando för [AZ ACR Task Create][az-acr-task-create] . Aktiviteten körs utan en käll kods kontext och kommandot refererar till filen `dockerhubtask.yaml` i arbets katalogen. `--assign-identity` Parametern skickar resurs-ID: t för den tilldelade identiteten. 
 
 ```azurecli
 az acr task create \
@@ -126,7 +126,7 @@ Stegen i det här avsnittet skapar en uppgift och aktiverar en tilldelad identit
 
 ### <a name="create-task"></a>Skapa uppgift
 
-Skapa uppgiften *dockerhubtask* genom att köra följande kommando för [AZ ACR Task Create][az-acr-task-create] . Aktivitets kontexten är det lokala systemet och kommandot refererar till filen `dockerhubtask.yaml` i arbets katalogen.  `--assign-identity` Parametern utan värde aktiverar den systemtilldelade identiteten för uppgiften.  
+Skapa uppgiften *dockerhubtask* genom att köra följande kommando för [AZ ACR Task Create][az-acr-task-create] . Aktiviteten körs utan en käll kods kontext och kommandot refererar till filen `dockerhubtask.yaml` i arbets katalogen. `--assign-identity` Parametern utan värde aktiverar den systemtilldelade identiteten för uppgiften.  
 
 ```azurecli
 az acr task create \

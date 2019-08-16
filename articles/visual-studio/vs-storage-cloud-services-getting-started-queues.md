@@ -1,9 +1,9 @@
 ---
-title: Kom igång med queue storage och Visual Studio-anslutna tjänster (molntjänster) | Microsoft Docs
-description: Hur du kommer igång med Azure Queue storage i ett molntjänstprojekt i Visual Studio när du har anslutit till ett lagringskonto med hjälp av Visual Studio-anslutna tjänster
+title: Kom igång med Queue Storage och Visual Studio Connected Services (Cloud Services) | Microsoft Docs
+description: Komma igång med Azure Queue Storage i ett moln tjänst projekt i Visual Studio efter anslutning till ett lagrings konto med hjälp av Visual Studio Connected Services
 services: storage
 author: ghogen
-manager: douge
+manager: jillfra
 ms.assetid: da587aac-5e64-4e9a-8405-44cc1924881d
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
@@ -12,71 +12,71 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: 28a7de1b43d793641237197aea841022996b07e3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5ea0af23ef8cf41b20de033d38e4d8652f9f8310
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60505640"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69510687"
 ---
-# <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Komma igång med Azure Queue storage och Visual Studio-anslutna tjänster (cloud services-projekt)
+# <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Komma igång med Azure Queue Storage och Visual Studio Connected Services (Cloud Services-projekt)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
 ## <a name="overview"></a>Översikt
-Den här artikeln beskriver hur du kommer igång med Azure Queue storage i Visual Studio när du har skapat eller refererar till ett Azure storage-konto i ett cloud services-projekt med hjälp av Visual Studio **Lägg till Connected Services** dialogrutan.
+Den här artikeln beskriver hur du kommer igång med Azure Queue Storage i Visual Studio när du har skapat eller refererat till ett Azure Storage-konto i ett Cloud Services-projekt med hjälp av dialog rutan **Lägg till anslutna tjänster** i Visual Studio.
 
-Vi visar dig hur du skapar en kö i kod. Vi kommer också visar hur du utför grundläggande kö åtgärder, till exempel att lägga till, ändra, läsa och ta bort Kömeddelanden. Exemplen är skrivna i C#-kod och använda den [Microsoft Azure Storage-klientbiblioteket för .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
+Vi visar dig hur du skapar en kö i kod. Vi visar också hur du utför grundläggande åtgärder för köer, till exempel att lägga till, ändra, läsa och ta bort Kömeddelanden. Exemplen skrivs i C# kod och använder [Microsoft Azure Storage klient bibliotek för .net](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
-Den **Lägg till Connected Services** åtgärden installerar lämpligt NuGet-paket för att komma åt Azure storage i ditt projekt och lägger till anslutningssträngen för lagringskontot i konfigurationsfilerna projekt.
+Åtgärden **Lägg till anslutna tjänster** installerar rätt NuGet-paket för att komma åt Azure Storage i projektet och lägger till anslutnings strängen för lagrings kontot i dina projekt konfigurationsfiler.
 
-* Se [Kom igång med Azure Queue storage med hjälp av .NET](../storage/queues/storage-dotnet-how-to-use-queues.md) mer information om manipulera köer i kod.
-* Se [dokumentation om Storage](https://azure.microsoft.com/documentation/services/storage/) allmän information om Azure Storage.
-* Se [dokumentation om Cloud Services](https://azure.microsoft.com/documentation/services/cloud-services/) allmän information om Azure-molntjänster.
-* Se [ASP.NET](https://www.asp.net) för mer information om programmering i ASP.NET-program.
+* Se [Kom igång med Azure Queue Storage med hjälp av .net](../storage/queues/storage-dotnet-how-to-use-queues.md) för mer information om hur du hanterar köer i kod.
+* Se [lagrings dokumentation](https://azure.microsoft.com/documentation/services/storage/) för allmän information om Azure Storage.
+* Se [Cloud Services dokumentation](https://azure.microsoft.com/documentation/services/cloud-services/) för allmän information om Azure Cloud Services.
+* Mer information om programmering av ASP.NET-program finns i [ASP.net](https://www.asp.net) .
 
 Azure Queue Storage är en tjänst för att lagra stora mängder meddelanden som kan nås från var som helst i världen via autentiserade anrop med HTTP eller HTTPS. Ett enda kömeddelande kan vara upp till 64 KB stort och en kö kan innehålla miljontals meddelanden, upp till den totala kapacitetsgränsen för ett lagringskonto.
 
 ## <a name="access-queues-in-code"></a>Åtkomst till köer i kod
-För att komma åt köer i Visual Studio Cloud Services-projekt, måste du inkludera följande alla C#-källfilens som har åtkomst till Azure Queue storage.
+Om du vill komma åt köer i Visual Studio-Cloud Services-projekt måste du inkludera följande objekt C# i alla käll filer som har åtkomst till Azure Queue Storage.
 
-1. Kontrollera att namnrymdsdeklarationer överst i C#-filen med dessa **med** instruktioner.
+1. Se till att namn områdes deklarationerna överst i C# filen inkluderar dessa **using** -instruktioner.
    
         using Microsoft.Framework.Configuration;
         using Microsoft.WindowsAzure.Storage;
         using Microsoft.WindowsAzure.Storage.Queue;
-2. Hämta en **CloudStorageAccount** objekt som representerar information på lagringskontot. Använd följande kod för att hämta den din anslutningssträng för lagring och lagringskontoinformation från konfigurationen av Azure.
+2. Hämta ett **CloudStorageAccount** -objekt som representerar lagrings konto informationen. Använd följande kod för att hämta lagrings anslutnings strängen och lagrings konto informationen från Azure-tjänstekonfigurationen.
    
          CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
            CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
-3. Hämta en **CloudQueueClient** objekt för att referera till kö-objekt i ditt storage-konto.  
+3. Hämta ett **CloudQueueClient** -objekt för att referera till köobjektet i ditt lagrings konto.  
    
         // Create the queue client.
         CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
-4. Hämta en **CloudQueue** objektet att referera till en särskild kö.
+4. Hämta ett **CloudQueue** -objekt för att referera till en speciell kö.
    
         // Get a reference to a queue named "messageQueue"
         CloudQueue messageQueue = queueClient.GetQueueReference("messageQueue");
 
-**Obs!** Använd all ovanstående kod framför kod som i följande exempel.
+**Obs!** Använd all ovanstående kod framför koden i följande exempel.
 
 ## <a name="create-a-queue-in-code"></a>Skapa en kö i kod
-Om du vill skapa kön i kod, ska du lägga till ett anrop till **CreateIfNotExists**.
+Om du vill skapa kön i kod lägger du bara till ett anrop till **CreateIfNotExists**.
 
     // Create the CloudQueue if it does not exist
     messageQueue.CreateIfNotExists();
 
-## <a name="add-a-message-to-a-queue"></a>Lägg till ett meddelande till en kö
-Om du vill infoga ett meddelande i en befintlig kö, skapa en ny **CloudQueueMessage** objekt och sedan anropa den **AddMessage** metod.
+## <a name="add-a-message-to-a-queue"></a>Lägga till ett meddelande i en kö
+Om du vill infoga ett meddelande i en befintlig kö, skapar du ett nytt **CloudQueueMessage** -objekt och anropar sedan **AddMessage** -metoden.
 
-En **CloudQueueMessage** objekt kan skapas från en sträng (i UTF-8-format) eller en bytematris.
+Ett **CloudQueueMessage** -objekt kan skapas antingen från en sträng (i UTF-8-format) eller en byte mat ris.
 
-Här är ett exempel som infogar meddelandet ”Hello World”.
+Här är ett exempel som infogar meddelandet "Hello, World".
 
     // Create a message and add it to the queue.
     CloudQueueMessage message = new CloudQueueMessage("Hello, World");
     messageQueue.AddMessage(message);
 
-## <a name="read-a-message-in-a-queue"></a>Läs ett meddelande i en kö
+## <a name="read-a-message-in-a-queue"></a>Läsa ett meddelande i en kö
 Du kan kika på meddelandet först i en kö utan att ta bort det från kön genom att anropa metoden **PeekMessage**.
 
     // Peek at the next message
@@ -85,10 +85,10 @@ Du kan kika på meddelandet först i en kö utan att ta bort det från kön geno
 ## <a name="read-and-remove-a-message-in-a-queue"></a>Läsa och ta bort ett meddelande i en kö
 Din kod kan ta bort (ta bort kön) ett meddelande från en kö i två steg.
 
-1. Anropa **GetMessage** att hämta nästa meddelande i en kö. Ett meddelande som returneras från **GetMessage** blir osynligt för andra meddelanden som läser kod i den här kön. Som standard är det här meddelandet osynligt i 30 sekunder.
-2. Slutför borttagningen av meddelandet från kön genom att anropa **DeleteMessage**.
+1. Anropa **GetMessage** för att hämta nästa meddelande i en kö. Ett meddelande som returneras från **GetMessage** blir osynligt för andra meddelanden som läser kod i den här kön. Som standard är det här meddelandet osynligt i 30 sekunder.
+2. Om du vill slutföra borttagningen av meddelandet från kön anropar du **DeleteMessage**.
 
-Den här tvåstegsprocessen för att ta bort ett meddelande säkerställer att om din kod inte kan bearbeta ett meddelande på grund av ett maskin- eller programvarufel så kan en annan instans av koden hämta samma meddelande och försöka igen. I följande kod anropar **DeleteMessage** direkt efter att meddelandet har bearbetats.
+Den här tvåstegsprocessen för att ta bort ett meddelande säkerställer att om din kod inte kan bearbeta ett meddelande på grund av ett maskin- eller programvarufel så kan en annan instans av koden hämta samma meddelande och försöka igen. Följande kod anropar **DeleteMessage** direkt efter att meddelandet har bearbetats.
 
     // Get the next message in the queue.
     CloudQueueMessage retrievedMessage = messageQueue.GetMessage();
@@ -99,11 +99,11 @@ Den här tvåstegsprocessen för att ta bort ett meddelande säkerställer att o
     await messageQueue.DeleteMessage(retrievedMessage);
 
 
-## <a name="use-additional-options-to-process-and-remove-queue-messages"></a>Använd ytterligare alternativ för att bearbeta och tar bort Kömeddelanden
+## <a name="use-additional-options-to-process-and-remove-queue-messages"></a>Använd fler alternativ för att bearbeta och ta bort Kömeddelanden
 Det finns två metoder som du kan använda för att anpassa meddelandehämtningen från en kö.
 
-* Du kan hämta en grupp med meddelanden (upp till 32).
-* Du kan ange en tidsgräns för osynlighet längre eller kortare att ge koden mer eller mindre tid att bearbeta varje meddelande. I följande kodexempel används metoden **GetMessage** för att hämta 20 meddelanden i ett anrop. Sedan bearbetas varje meddelande med hjälp av en **foreach**-loop. Koden ställer också in tidsgränsen för osynlighet till fem minuter för varje meddelande. Observera att de fem minuterna startar för alla meddelanden samtidigt, vilket betyder att när det här har gått fem minuter sedan anropet till **GetMessage** så blir alla meddelanden som inte har tagits bort synliga igen.
+* Du kan hämta en batch med meddelanden (upp till 32).
+* Du kan ange en längre eller kortare tids gräns för insikter, vilket gör att koden får mer eller mindre tid att bearbeta varje meddelande fullständigt. I följande kodexempel används metoden **GetMessage** för att hämta 20 meddelanden i ett anrop. Sedan bearbetas varje meddelande med hjälp av en **foreach**-loop. Koden ställer också in tidsgränsen för osynlighet till fem minuter för varje meddelande. Observera att de fem minuterna startar för alla meddelanden samtidigt, vilket betyder att när det här har gått fem minuter sedan anropet till **GetMessage** så blir alla meddelanden som inte har tagits bort synliga igen.
 
 Här är ett exempel:
 
@@ -117,7 +117,7 @@ Här är ett exempel:
     }
 
 ## <a name="get-the-queue-length"></a>Hämta kölängden
-Du kan hämta en uppskattning av antalet meddelanden i en kö. **FetchAttributes**-metoden ber kötjänsten att hämta köattributen, inklusive antalet meddelanden. Den **ApproximateMethodCount** egenskapen returnerar det sista värdet som hämtas av den **FetchAttributes** metoden, utan att kötjänsten.
+Du kan hämta en uppskattning av antalet meddelanden i en kö. **FetchAttributes**-metoden ber kötjänsten att hämta köattributen, inklusive antalet meddelanden. Egenskapen **ApproximateMethodCount** returnerar det sista värdet som hämtades av **FetchAttributes** -metoden, utan att kötjänst anropas.
 
     // Fetch the queue attributes.
     messageQueue.FetchAttributes();
@@ -128,8 +128,8 @@ Du kan hämta en uppskattning av antalet meddelanden i en kö. **FetchAttributes
     // Display number of messages.
     Console.WriteLine("Number of messages in queue: " + cachedMessageCount);
 
-## <a name="use-the-async-await-pattern-with-common-azure-queue-apis"></a>Använda Async-Await-mönstret med vanliga Azure-kö API: er
-Det här exemplet visar hur du använder Async-Await-mönstret med vanliga Azure-kö API: er. Exemplet anropar den asynkron versionen av var och en av de angivna metoderna, detta kan ses av den **Async** efter korrigering för varje metod. När en async-metod används async-await mönstret pausar lokala körningen tills anropet har slutförts. Det här innebär att den aktuella tråden att utföra annat arbete som hjälper till att undvika flaskhalsar i prestanda och förbättrar den övergripande svarstiden hos ditt program. Mer information om hur du använder Async-Await-mönstret i .NET finns i [Async och Await (C# och Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx)
+## <a name="use-the-async-await-pattern-with-common-azure-queue-apis"></a>Använd det asynkrona await-mönstret med vanliga Azure Queue-API: er
+Det här exemplet visar hur du använder det asynkrona await-mönstret med vanliga Azure Queue-API: er. Exemplet anropar den asynkrona versionen av var och en av de metoder som anges. Detta kan ses av den asynkrona efter korrigeringen av varje metod. När en async-metod används pausar async-await-mönstret den lokala körningen tills anropet har slutförts. Med det här beteendet kan den aktuella tråden utföra annat arbete som hjälper till att undvika prestanda Flask halsar och förbättra programmets övergripande svars tid. Mer information om hur du använder Async-Await-mönstret i .NET finns i [Async och Await (C# och Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx)
 
     // Create a message to put in the queue
     CloudQueueMessage cloudQueueMessage = new CloudQueueMessage("My message");

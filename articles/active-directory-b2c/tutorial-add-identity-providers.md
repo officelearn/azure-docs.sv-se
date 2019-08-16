@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 07/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5710ccfe5d6450714e029827a795b484b1bcd2b4
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: eee881e6d4e446e07867261545a90dfacaa93712
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68716650"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69512206"
 ---
 # <a name="tutorial-add-identity-providers-to-your-applications-in-azure-active-directory-b2c"></a>Självstudier: Lägg till identitets leverantörer till dina program i Azure Active Directory B2C
 
@@ -86,7 +86,7 @@ Om du vill använda ett Facebook-konto som identitets leverantör i Azure AD B2C
 1. Välj plus tecknet bredvid **produkter**och välj sedan **Konfigurera**på **Facebook-inloggning**.
 1. Under **Facebook-inloggning** i den vänstra menyn väljer du **Inställningar**.
 1. I **giltiga OAuth**-omdirigerings `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`-URI: er anger du. Ersätt `your-tenant-name` med namnet på din klient. Välj **Spara ändringar** längst ned på sidan.
-1. Om du vill göra ditt Facebook-program tillgängligt för Azure AD B2C klickar du på **status** väljaren längst upp till höger på sidan och **aktiverar det för** att göra programmet offentligt, och klickar sedan på **Bekräfta**. I det här läget bör statusen ändras från **utveckling** till **Live**.
+1. Om du vill göra ditt Facebook-program tillgängligt för Azure AD B2C klickar du på **status** väljaren längst upp till höger på sidan och aktiverar det för att göra programmet offentligt, och klickar sedan på **Bekräfta**. I det här läget bör statusen ändras från **utveckling** till **Live**.
 
 ## <a name="add-the-identity-providers"></a>Lägg till identitets leverantörer
 
@@ -98,7 +98,7 @@ När du har skapat programmet för den identitetsprovider som du vill lägga til
 1. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
 1. Välj **identitetsprovidrar**, och välj sedan **Lägg till**.
 1. Ange ett **namn**. Ange till exempel *contoso Azure AD*.
-1. Välj **typ av identitetsprovider**, Välj **OpenID Anslut (förhands granskning)** och klicka sedan på **OK**.
+1. Välj **typ av identitets leverantör**, Välj **OpenID Anslut**och klicka sedan på **OK**.
 1. Klicka på **Konfigurera den här identitets leverantören**
 1. För **metadata-URL**anger du följande URL och ersätter `your-AD-tenant-domain` med domän namnet för din Azure AD-klient.
 

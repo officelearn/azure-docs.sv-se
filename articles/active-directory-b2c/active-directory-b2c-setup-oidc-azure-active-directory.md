@@ -7,20 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/08/2019
+ms.date: 08/06/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 58c6d1b032f5b492c5641ff51da80426124069b1
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 46755cb8d0383d166b10d50854eb476b676a6ee4
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68716768"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69509745"
 ---
 # <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>Konfigurera inloggning för en speciell Azure Active Directory organisation i Azure Active Directory B2C
-
->[!NOTE]
-> Den här funktionen är en allmänt tillgänglig förhandsversion. Använd inte funktionen i produktions miljöer.
 
 Om du vill använda en Azure Active Directory (Azure AD) som [identitets leverantör](active-directory-b2c-reference-oauth-code.md) i Azure AD B2C måste du skapa ett program som representerar det. Den här artikeln visar hur du aktiverar inloggning för användare från en särskild Azure AD-organisation med hjälp av ett användar flöde i Azure AD B2C.
 
@@ -54,7 +51,7 @@ Om du vill aktivera inloggning för användare från en specifik Azure AD-organi
 2. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
 3. Välj **identitetsprovidrar**, och välj sedan **Lägg till**.
 4. Ange ett **namn**. Ange till exempel `Contoso Azure AD`.
-5. Välj **typ av identitetsprovider**, Välj **OpenID Anslut (förhands granskning)** och klicka sedan på **OK**.
+5. Välj **typ av identitets leverantör**, Välj **OpenID Anslut**och klicka sedan på **OK**.
 6. Välj **Konfigurera den här identitets leverantören**
 7. För **metadata-URL**anger du följande URL som `your-AD-tenant-domain` ersätter med domän namnet för din Azure AD-klient. Exempel `https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration`:
 

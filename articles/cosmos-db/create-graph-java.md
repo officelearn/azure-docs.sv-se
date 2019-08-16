@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 03/26/2019
 ms.author: lbosq
 ms.custom: seo-java-july2019
-ms.openlocfilehash: 58356db2fbdf53bbd16e6fd20de54e022afb38b3
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: cea53aefae2e559b7874b1235e4f952fe46ea642
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736665"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69509613"
 ---
 # <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-the-java-sdk"></a>Snabbstart: Skapa en grafdatabas i Azure Cosmos DB med hjälp av Java SDK 
 
@@ -106,7 +106,7 @@ Följande kodfragment har hämtats från filen C:\git-samples\azure-cosmos-db-gr
 
 Gå nu tillbaka till Azure Portal för att hämta anslutningsinformation och kopiera den till appen. De här inställningarna gör det möjligt för appen att kommunicera med den värdbaserade databasen.
 
-1. I [Azure Portal](https://portal.azure.com/) klickar du på **Nycklar**. 
+1. I [Azure Portal](https://portal.azure.com/)väljer du **nycklar**. 
 
     Kopiera den första delen av URI-värdet.
 
@@ -165,14 +165,14 @@ Gå nu tillbaka till Azure Portal för att hämta anslutningsinformation och kop
     
     Om du får timeout-fel kontrollerar du att du har uppdaterat anslutningsinformationen på rätt sätt i [Uppdatera din anslutningsinformation](#update-your-connection-information). Prova även att köra det senaste kommandot igen. 
     
-    När programmet har slutat arbeta trycker du på Retur och växlar sedan tillbaka till Azure Portal i webbläsaren. 
+    När programmet har stoppats väljer du retur och växlar sedan tillbaka till Azure Portal i webbläsaren. 
 
 <a id="add-sample-data"></a>
 ## <a name="review-and-add-sample-data"></a>Granska och lägg till exempeldata
 
 Nu kan du gå tillbaka till datautforskaren och se de hörn som lagts till i grafen, och lägga till ytterligare datapunkter.
 
-1. Klicka på **Datautforskaren**, expandera **sample-graph**, klicka på **Diagram** och klicka sedan på **Tillämpa filter**. 
+1. Välj **datautforskaren**, expandera **exempel diagram**, Välj **diagram**och välj sedan **Använd filter**. 
 
    ![Skapa nya dokument i datautforskaren i Azure Portal](./media/create-graph-java/azure-cosmosdb-data-explorer-expanded.png)
 
@@ -180,13 +180,13 @@ Nu kan du gå tillbaka till datautforskaren och se de hörn som lagts till i gra
 
    ![Nya hörn i grafen i datautforskaren på Azure Portal](./media/create-graph-java/azure-cosmosdb-graph-explorer-new.png)
 
-3. Vi ska nu lägga till några nya användare. Klicka på **Nytt hörn** om du vill lägga till data i grafen.
+3. Vi ska nu lägga till några nya användare. Välj **ny nod** för att lägga till data i diagrammet.
 
    ![Skapa nya dokument i datautforskaren i Azure Portal](./media/create-graph-java/azure-cosmosdb-data-explorer-new-vertex.png)
 
 4. Ange *person* i etikettrutan.
 
-5. Klicka på **Lägg till egenskap** för att lägga till var och en av följande egenskaper. Tänk på att du kan skapa unika egenskaper för varje person i grafen. Endast id-nyckeln krävs.
+5. Välj **Lägg till egenskap** för att lägga till var och en av följande egenskaper. Tänk på att du kan skapa unika egenskaper för varje person i grafen. Endast id-nyckeln krävs.
 
     key|värde|Anteckningar
     ----|----|----
@@ -197,13 +197,13 @@ Nu kan du gå tillbaka till datautforskaren och se de hörn som lagts till i gra
     > [!NOTE]
     > I den här snabbstartsguiden skapar du en icke-partitionerad samling. Men om du skapar en partitionerad samling genom att ange en partitionsnyckel när samlingen skapas, måste du lägga till partitionsnyckeln som nyckel i varje nytt hörn. 
 
-6. Klicka på **OK**. Du kan behöva expandera skärmen för att se **OK** längst ned på skärmen.
+6. Välj **OK**. Du kan behöva expandera skärmen för att se **OK** längst ned på skärmen.
 
-7. Klicka på **Nytt hörn** igen och lägg till ytterligare en ny användare. 
+7. Välj **nytt hörn** igen och Lägg till ytterligare en ny användare. 
 
 8. Ange en etikett för *person*.
 
-9. Klicka på **Lägg till egenskap** för att lägga till var och en av följande egenskaper:
+9. Välj **Lägg till egenskap** för att lägga till var och en av följande egenskaper:
 
     key|värde|Anteckningar
     ----|----|----
@@ -211,17 +211,17 @@ Nu kan du gå tillbaka till datautforskaren och se de hörn som lagts till i gra
     kön|man| 
     skola|MIT| 
 
-10. Klicka på **OK**. 
+10. Välj **OK**. 
 
-11. Klicka på knappen **Tillämpa filter** med standardfiltret `g.V()` för att visa alla värden i diagrammet. Nu visas alla användare i listan **Resultat**. 
+11. ClSelectck knappen **Använd filter** med standard `g.V()` filtret för att visa alla värden i diagrammet. Nu visas alla användare i listan **Resultat**. 
 
-    Allteftersom du lägger till data kan du använda filter för att begränsa resultaten. Som standard använder Datautforskaren `g.V()` för att hämta alla hörnen i ett diagram. Du kan ändra till en annan [diagramfråga](tutorial-query-graph.md), t.ex. `g.V().count()`, för att returnera en uppräkning av alla hörn i diagrammet i JSON-format. Om du har ändrat filtret ändrar du tillbaka det till `g.V()` och klickar på **Tillämpa filter** om du vill visa alla resultaten igen.
+    Allteftersom du lägger till data kan du använda filter för att begränsa resultaten. Som standard använder Datautforskaren `g.V()` för att hämta alla hörnen i ett diagram. Du kan ändra till en annan [diagramfråga](tutorial-query-graph.md), t.ex. `g.V().count()`, för att returnera en uppräkning av alla hörn i diagrammet i JSON-format. Om du har ändrat filtret ändrar du tillbaka filtret till `g.V()` och väljer **Använd filter** för att visa alla resultat igen.
 
-12. Nu kan du koppla ihop rakesh och ashley. Se till att **ashley** markeras i listan **Resultat** och klicka sedan på ![Ändra målet för en brytpunkt i ett diagram](./media/create-graph-java/edit-pencil-button.png) bredvid **Mål** nere till höger. Du kan behöva bredda fönstret för att se knappen.
+12. Nu kan du koppla ihop rakesh och ashley. Se till att **Ashley** är markerat i **resultat** listan och välj ![sedan ändra målet för ett formhörn i ett diagram](./media/create-graph-java/edit-pencil-button.png) bredvid **mål** på nedre högra sidan. Du kan behöva bredda fönstret för att se knappen.
 
     ![Ändra mål för ett hörn i en graf](./media/create-graph-java/azure-cosmosdb-data-explorer-edit-target.png)
 
-13. I rutan **Mål** skriver du in *rakesh* och i rutan **Kantetikett** skriver du *känner* och klickar sedan på kryssrutan.
+13. I rutan **mål** anger du *Rakesh*och i rutan **kant etikett** anger du *känner*till och markerar sedan kryss rutan.
 
     ![Lägg till en anslutning mellan Ashley och Rakesh i datautforskaren](./media/create-graph-java/azure-cosmosdb-data-explorer-set-target.png)
 

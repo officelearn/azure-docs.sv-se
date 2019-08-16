@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/2/2018
 ms.author: rkarlin
-ms.openlocfilehash: ac3d1a55a707349873132befb25a38358b563138
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: bb54221dedc3bfd5ddc84098d5309d26abcfa305
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875566"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515573"
 ---
 # <a name="azure-security-center-detection-capabilities"></a>Identifieringsfunktioner i Azure Security Center
 Det här dokumentet beskriver Azure Security Center avancerade identifierings funktioner som hjälper dig att identifiera aktiva hot som riktar sig mot dina Microsoft Azure-resurser – både Windows och Linux – och ger dig de insikter som krävs för att svara snabbt.
@@ -83,7 +83,7 @@ I det här dokumentet har vi tittat på identifieringsfunktionerna i Azure Secur
 
 * [Planerings- och bruksanvisning för Azure Security Center](security-center-planning-and-operations-guide.md)
 * [Hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md)
-* [Säkerhetsaviseringar per typ i Azure Security Center](security-center-alerts-type.md)
+* [Säkerhets aviseringar i Azure Security Center](security-center-alerts-overview.md)
 * [Övervakning av säkerhetshälsa i Azure Security Center](security-center-monitoring.md) – Lär dig hur du övervakar Azure-resursernas hälsa.
 * [Övervaka partnerlösningar med Azure Security Center](security-center-partner-solutions.md) – Lär dig hur du övervakar dina partnerlösningars hälsostatus.
 * [Vanliga frågor och svar om Azure Security Center](security-center-faq.md) – Här hittar du vanliga frågor och svar om tjänsten.

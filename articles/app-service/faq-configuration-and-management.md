@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 6f86a8465bcbd3d88ffb7909cac53c3fd38c3af6
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: f7fbfbe5ae5d2ba4148d94768a1109f566151170
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489437"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69513789"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Vanliga frågor och svar om konfiguration och hantering för Web Apps i Azure
 
@@ -167,7 +167,7 @@ Om du använder App Service-miljön kan du använda [Barracuda-brandväggen](htt
 
 ## <a name="how-do-i-block-ports-in-an-app-service-web-app"></a>Hur gör jag för att blockera portar i en App Service webbapp?
 
-I den App Service delade klient miljön går det inte att blockera specifika portar på grund av infrastrukturens typ. TCP-portarna 4016, 4018 och 4020 kan också vara öppna för fel sökning i Visual Studio.
+I den App Service delade klient miljön går det inte att blockera specifika portar på grund av infrastrukturens typ. TCP-portarna 4020, 4022 och 4024 kan också vara öppna för fel sökning i Visual Studio.
 
 I App Service-miljön har du fullständig kontroll över inkommande och utgående trafik. Du kan använda nätverks säkerhets grupper för att begränsa eller blockera vissa portar. Mer information om App Service-miljön finns i [Introduktion av App Service-miljön](https://azure.microsoft.com/blog/introducing-app-service-environment/).
 
@@ -251,7 +251,7 @@ Mer information om schemalagda webbjobb finns i [skapa ett schemalagt webb jobb 
 
 ## <a name="how-do-i-perform-penetration-testing-for-my-app-service-app"></a>Hur gör jag för att utföra inträngande test för min App Service-app?
 
-[Skicka en begäran](https://portal.msrc.microsoft.com/en-us/engage/pentest)för att utföra inträngande tester.
+[Skicka en begäran](https://portal.msrc.microsoft.com/engage/pentest)för att utföra inträngande tester.
 
 ## <a name="how-do-i-configure-a-custom-domain-name-for-an-app-service-web-app-that-uses-traffic-manager"></a>Hur gör jag för att konfigurera ett anpassat domän namn för en App Service webbapp som använder Traffic Manager?
 
@@ -289,7 +289,7 @@ Detaljerad dokumentation för autentisering och auktorisering i App Service finn
 
 ## <a name="how-do-i-redirect-the-default-azurewebsitesnet-domain-to-my-azure-web-apps-custom-domain"></a>Hur gör jag för att omdirigera standard domänen *. azurewebsites.net till min Azure Web Apps anpassade domän?
 
-När du skapar en ny webbplats genom att använda Web Apps i Azure, tilldelas *en standard plats*. azurewebsites.net-domän till din webbplats. Om du lägger till ett anpassat värdnamn på din webbplats och inte vill att användarna ska kunna komma åt din standard-azurewebsites.net-domän, kan du omdirigera standard-URL: en. Information om hur du omdirigerar all trafik från din webbplats standard domän till din anpassade domän finns i [dirigera om standard domänen till din anpassade domän i Azure Web Apps](https://zainrizvi.io/blog/block-default-azure-websites-domain/).
+När du skapar en ny webbplats genom att använda Web Apps i Azure, tilldelasen standard plats. azurewebsites.net-domän till din webbplats. Om du lägger till ett anpassat värdnamn på din webbplats och inte vill att användarna ska kunna komma åt din standard-azurewebsites.net-domän, kan du omdirigera standard-URL: en. Information om hur du omdirigerar all trafik från din webbplats standard domän till din anpassade domän finns i [dirigera om standard domänen till din anpassade domän i Azure Web Apps](https://zainrizvi.io/blog/block-default-azure-websites-domain/).
 
 ## <a name="how-do-i-determine-which-version-of-net-version-is-installed-in-app-service"></a>Hur gör jag för att ta reda på vilken version av .NET-versionen som är installerad i App Service?
 

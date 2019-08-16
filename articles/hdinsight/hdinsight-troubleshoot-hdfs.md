@@ -1,18 +1,18 @@
 ---
-title: Felsöka HDFS i Azure HDinsight
+title: Felsöka HDFS i Azure HDInsight
 description: Få svar på vanliga frågor om att arbeta med HDFS och Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.service: hdinsight
-ms.topic: conceptual
-ms.date: 12/06/2018
+ms.topic: troubleshooting
+ms.date: 08/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: f9b9e691c0c9f26ff765ca849777c278bc3ae03b
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 1b244b3d402d7896ade2fa2e84881a0079ef6bba
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779550"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515636"
 ---
 # <a name="troubleshoot-apache-hadoop-hdfs-by-using-azure-hdinsight"></a>Felsöka Apache Hadoop HDFS med hjälp av Azure HDInsight
 
@@ -71,160 +71,12 @@ Få åtkomst till den lokala HDFS från kommando raden och program koden i stäl
     hdfs://mycluster/tmp/hive/hive/a0be04ea-ae01-4cc4-b56d-f263baf2e314/inuse.lck
     ```
 
+## <a name="next-steps"></a>Nästa steg
 
-## <a name="how-do-i-force-disable-hdfs-safe-mode-in-a-cluster"></a>Hur gör jag för att tvinga-inaktivera HDFS fel säkert läge i ett kluster?
+Om du inte ser problemet eller inte kan lösa problemet kan du gå till någon av följande kanaler för mer support:
 
-### <a name="issue"></a>Problem
+* Få svar från Azure-experter via [Azure community support](https://azure.microsoft.com/support/community/).
 
-Den lokala HDFS fastnar i fel säkert läge i HDInsight-klustret.   
+* Anslut till [@AzureSupport](https://twitter.com/azuresupport) – det officiella Microsoft Azure kontot för att förbättra kund upplevelsen. Att ansluta Azure-communityn till rätt resurser: svar, support och experter.
 
-### <a name="detailed-description"></a>Detaljerad beskrivning
-
-Fel inträffar när du kör följande HDFS-kommando:
-
-```apache
-hdfs dfs -D "fs.default.name=hdfs://mycluster/" -mkdir /temp
-```
-
-Följande fel visas när du kör kommandot:
-
-```output
-hdfs dfs -D "fs.default.name=hdfs://mycluster/" -mkdir /temp
-17/04/05 16:20:52 WARN retry.RetryInvocationHandler: Exception while invoking ClientNamenodeProtocolTranslatorPB.mkdirs over hn0-spark2.2oyzcdm4sfjuzjmj5dnmvscjpg.dx.internal.cloudapp.net/10.0.0.22:8020. Not retrying because try once and fail.
-org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.hdfs.server.namenode.SafeModeException): Cannot create directory /temp. Name node is in safe mode.
-It was turned on manually. Use "hdfs dfsadmin -safemode leave" to turn safe mode off.
-        at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.checkNameNodeSafeMode(FSNamesystem.java:1359)
-        at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.mkdirs(FSNamesystem.java:4010)
-        at org.apache.hadoop.hdfs.server.namenode.NameNodeRpcServer.mkdirs(NameNodeRpcServer.java:1102)
-        at org.apache.hadoop.hdfs.protocolPB.ClientNamenodeProtocolServerSideTranslatorPB.mkdirs(ClientNamenodeProtocolServerSideTranslatorPB.java:630)
-        at org.apache.hadoop.hdfs.protocol.proto.ClientNamenodeProtocolProtos$ClientNamenodeProtocol$2.callBlockingMethod(ClientNamenodeProtocolProtos.java)
-        at org.apache.hadoop.ipc.ProtobufRpcEngine$Server$ProtoBufRpcInvoker.call(ProtobufRpcEngine.java:640)
-        at org.apache.hadoop.ipc.RPC$Server.call(RPC.java:982)
-        at org.apache.hadoop.ipc.Server$Handler$1.run(Server.java:2313)
-        at org.apache.hadoop.ipc.Server$Handler$1.run(Server.java:2309)
-        at java.security.AccessController.doPrivileged(Native Method)
-        at javax.security.auth.Subject.doAs(Subject.java:422)
-        at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1724)
-        at org.apache.hadoop.ipc.Server$Handler.run(Server.java:2307)
-        at org.apache.hadoop.ipc.Client.getRpcResponse(Client.java:1552)
-        at org.apache.hadoop.ipc.Client.call(Client.java:1496)
-        at org.apache.hadoop.ipc.Client.call(Client.java:1396)
-        at org.apache.hadoop.ipc.ProtobufRpcEngine$Invoker.invoke(ProtobufRpcEngine.java:233)
-        at com.sun.proxy.$Proxy10.mkdirs(Unknown Source)
-        at org.apache.hadoop.hdfs.protocolPB.ClientNamenodeProtocolTranslatorPB.mkdirs(ClientNamenodeProtocolTranslatorPB.java:603)
-        at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-        at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-        at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-        at java.lang.reflect.Method.invoke(Method.java:498)
-        at org.apache.hadoop.io.retry.RetryInvocationHandler.invokeMethod(RetryInvocationHandler.java:278)
-        at org.apache.hadoop.io.retry.RetryInvocationHandler.invoke(RetryInvocationHandler.java:194)
-        at org.apache.hadoop.io.retry.RetryInvocationHandler.invoke(RetryInvocationHandler.java:176)
-        at com.sun.proxy.$Proxy11.mkdirs(Unknown Source)
-        at org.apache.hadoop.hdfs.DFSClient.primitiveMkdir(DFSClient.java:3061)
-        at org.apache.hadoop.hdfs.DFSClient.mkdirs(DFSClient.java:3031)
-        at org.apache.hadoop.hdfs.DistributedFileSystem$24.doCall(DistributedFileSystem.java:1162)
-        at org.apache.hadoop.hdfs.DistributedFileSystem$24.doCall(DistributedFileSystem.java:1158)
-        at org.apache.hadoop.fs.FileSystemLinkResolver.resolve(FileSystemLinkResolver.java:81)
-        at org.apache.hadoop.hdfs.DistributedFileSystem.mkdirsInternal(DistributedFileSystem.java:1158)
-        at org.apache.hadoop.hdfs.DistributedFileSystem.mkdirs(DistributedFileSystem.java:1150)
-        at org.apache.hadoop.fs.FileSystem.mkdirs(FileSystem.java:1898)
-        at org.apache.hadoop.fs.shell.Mkdir.processNonexistentPath(Mkdir.java:76)
-        at org.apache.hadoop.fs.shell.Command.processArgument(Command.java:273)
-        at org.apache.hadoop.fs.shell.Command.processArguments(Command.java:255)
-        at org.apache.hadoop.fs.shell.FsCommand.processRawArguments(FsCommand.java:119)
-        at org.apache.hadoop.fs.shell.Command.run(Command.java:165)
-        at org.apache.hadoop.fs.FsShell.run(FsShell.java:297)
-        at org.apache.hadoop.util.ToolRunner.run(ToolRunner.java:76)
-        at org.apache.hadoop.util.ToolRunner.run(ToolRunner.java:90)
-        at org.apache.hadoop.fs.FsShell.main(FsShell.java:350)
-mkdir: Cannot create directory /temp. Name node is in safe mode.
-```
-
-### <a name="probable-cause"></a>Möjlig orsak
-
-HDInsight-klustret har skalats ned till ett par noder. Antalet noder är under eller nära den HDFS-replikeringslänken.
-
-### <a name="resolution-steps"></a>Lösningsanvisningar 
-
-1. Hämta status för HDFS i HDInsight-klustret med hjälp av följande kommandon:
-
-    ```bash
-    hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -report
-    ```
-
-    ```output
-    hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -report
-    Safe mode is ON
-    Configured Capacity: 3372381241344 (3.07 TB)
-    Present Capacity: 3138625077248 (2.85 TB)
-    DFS Remaining: 3102710317056 (2.82 TB)
-    DFS Used: 35914760192 (33.45 GB)
-    DFS Used%: 1.14%
-    Under replicated blocks: 0
-    Blocks with corrupt replicas: 0
-    Missing blocks: 0
-    Missing blocks (with replication factor 1): 0
-
-    -------------------------------------------------
-    Live datanodes (8):
-
-    Name: 10.0.0.17:30010 (10.0.0.17)
-    Hostname: 10.0.0.17
-    Decommission Status : Normal
-    Configured Capacity: 421547655168 (392.60 GB)
-    DFS Used: 5288128512 (4.92 GB)
-    Non DFS Used: 29087272960 (27.09 GB)
-    DFS Remaining: 387172253696 (360.58 GB)
-    DFS Used%: 1.25%
-    DFS Remaining%: 91.85%
-    Configured Cache Capacity: 0 (0 B)
-    Cache Used: 0 (0 B)
-    Cache Remaining: 0 (0 B)
-    Cache Used%: 100.00%
-    Cache Remaining%: 0.00%
-    Xceivers: 2
-    Last contact: Wed Apr 05 16:22:00 UTC 2017
-    ...
-    ```
-
-2. Kontrol lera integriteten hos HDFS i HDInsight-klustret med hjälp av följande kommandon:
-
-    ```bash
-    hdfs fsck -D "fs.default.name=hdfs://mycluster/" /
-    ```
-
-    ```output
-    Connecting to namenode via http://hn0-spark2.2oyzcdm4sfjuzjmj5dnmvscjpg.dx.internal.cloudapp.net:30070/fsck?ugi=hdiuser&path=%2F
-    FSCK started by hdiuser (auth:SIMPLE) from /10.0.0.22 for path / at Wed Apr 05 16:40:28 UTC 2017
-    ....................................................................................................
-
-    ....................................................................................................
-    ..................Status: HEALTHY
-    Total size:    9330539472 B
-    Total dirs:    37
-    Total files:   2618
-    Total symlinks:                0 (Files currently being written: 2)
-    Total blocks (validated):      2535 (avg. block size 3680686 B)
-    Minimally replicated blocks:   2535 (100.0 %)
-    Over-replicated blocks:        0 (0.0 %)
-    Under-replicated blocks:       0 (0.0 %)
-    Mis-replicated blocks:         0 (0.0 %)
-    Default replication factor:    3
-    Average block replication:     3.0
-    Corrupt blocks:                0
-    Missing replicas:              0 (0.0 %)
-    Number of data-nodes:          8
-    Number of racks:               1
-    FSCK ended at Wed Apr 05 16:40:28 UTC 2017 in 187 milliseconds
-
-    The filesystem under path '/' is HEALTHY
-    ```
-
-3. Om du anser att det inte finns några saknade, skadade eller replikerade block, eller om dessa block kan ignoreras, kör du följande kommando för att ta bort namn-noden från fel säkert läge:
-
-    ```apache
-    hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -safemode leave
-    ```
-
-### <a name="see-also"></a>Se även
-[Felsöka med Azure HDInsight](hdinsight-troubleshoot-guide.md)
+* Om du behöver mer hjälp kan du skicka en support förfrågan från [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Välj **stöd** på Meny raden eller öppna **Hjälp + Support** Hub. Mer detaljerad information finns [i så här skapar du en support förfrågan för Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Åtkomst till prenumerations hantering och fakturerings support ingår i din Microsoft Azure prenumeration och teknisk support tillhandahålls via ett av support avtalen för [Azure](https://azure.microsoft.com/support/plans/).

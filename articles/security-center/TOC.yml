@@ -181,10 +181,6 @@
           href: security-center-search.md
         - name: Planering och drift
           href: security-center-planning-and-operations-guide.md
-        - name: Förstå säkerhetsaviseringar
-          href: security-center-alerts-type.md
-        - name: UEBA för Azure-resurser och användare
-          href: security-center-ueba-mcas.md
         - name: Åtgärda säkerhetskonfigurationer
           href: security-center-customize-os-security-config.md
 - name: Referens

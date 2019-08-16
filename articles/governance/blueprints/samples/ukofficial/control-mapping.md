@@ -8,12 +8,12 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 945898105aab7261ee494a86aeff10337599feb3
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 7da31e09157b8877db4d36d0f061f29433d02d11
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68226011"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515624"
 ---
 # <a name="control-mapping-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>Kontroll mappning av NHS i Storbritannien och Storbritannien i Storbritannien
 
@@ -33,13 +33,13 @@ Skissen hjälper dig att se till att informations överföring med Azure-tjänst
 Den här skissen hjälper dig att genomdriva principen om användningen av kryptografiska kontroller genom att tilldela [Azure policy](../../../policy/overview.md) definitioner som upprätthåller vissa kryptografiska kontroller och granska användningen av svaga kryptografiska inställningar.
 Att förstå var dina Azure-resurser kan ha icke-optimala kryptografiska konfigurationer kan hjälpa dig att vidta korrigerande åtgärder för att säkerställa att resurserna konfigureras i enlighet med din informations säkerhets princip. Mer specifikt kräver principerna som tilldelats av den här skissen kryptering för data Lake Storage-konton. Kräv transparent data kryptering på SQL-databaser; granska saknad kryptering på lagrings konton, SQL-databaser, virtuella dator diskar och variabler för Automation-konton. granska oskyddade anslutningar till lagrings konton och Redis Cache. granska svag kryptering av lösen ord för virtuella datorer; och granska okrypterad Service Fabric kommunikation.
 
-- Övervaka okrypterade SQL-databaser i Azure Security Center
+- transparent datakryptering på SQL-databaser ska aktive ras
 - Disk kryptering bör tillämpas på virtuella datorer
-- Variabler för Automation-konton ska vara krypterade
+- Automationskontovariabler ska krypteras
 - Säker överföring till lagrings konton ska vara aktiverat
 - Service Fabric-kluster ska ha egenskapen ClusterProtectionLevel inställd på EncryptAndSign
 - transparent datakryptering på SQL-databaser ska aktive ras
-- Distribuera transparent data kryptering för SQL DB
+- Distribuera transparent datakryptering för SQL DB
 - Kräv kryptering för Data Lake Store-konton
 - Tillåtna platser (har hårdkodats till "Storbritannien, södra" och "Storbritannien väst")
 - Tillåtna platser för resurs grupper (har hårdkodats till "Storbritannien, södra" och "Storbritannien väst")
@@ -48,7 +48,7 @@ Att förstå var dina Azure-resurser kan ha icke-optimala kryptografiska konfigu
 
 Den här skissen hjälper dig att hantera sårbarheter i informations systemet genom att tilldela [Azure policy](../../../policy/overview.md) definitioner som övervakar saknade slut punkts skydd, system uppdateringar som saknas, sårbarheter för operativ system, SQL-sårbarheter och virtuella dator sårbarheter. Dessa insikter ger real tids information om säkerhets statusen för dina distribuerade resurser och kan hjälpa dig att prioritera åtgärds åtgärder.
 
-- Övervaka saknade Endpoint Protection i Azure Security Center
+- Övervaka avsaknad av slutpunktsskydd i Azure Security Center
 - System uppdateringar bör installeras på dina datorer
 - Säkerhets problem i säkerhets konfiguration på dina datorer bör åtgärdas
 - Säkerhets risker i SQL-databaser bör åtgärdas
@@ -58,9 +58,9 @@ Den här skissen hjälper dig att hantera sårbarheter i informations systemet g
 
 Den här skissen hjälper dig att skydda informations systemets till gångar genom att tilldela [Azure policy](../../../policy/overview.md) definitioner som ger skydds övervakning av obegränsad åtkomst, vitlista-aktivitet och hot.
 
-- Granska obegränsad nätverks åtkomst till lagrings konton
+- Granska obegränsad nätverksåtkomst till lagringskonton
 - Anpassningsbara program kontroller ska vara aktiverade på virtuella datorer
-- Distribuera hot identifiering på SQL-servrar
+- Distribuera hotidentifiering på SQL-servrar
 - Distribuera standard tillägget Microsoft IaaS-program mot skadlig kod för Windows Server
 
 ## <a name="9-secure-user-management--10-identity-and-authentication"></a>9 säker användar hantering/10 identitet och autentisering
@@ -117,7 +117,7 @@ Den här skissen hjälper dig också att styra åtkomsten till Azure-resurser ge
 
 Förutom att använda fler än 25 principer för lämplig säker användar hantering hjälper den här skissen dig att skydda tjänst gränssnitt från obehörig åtkomst genom att tilldela en [Azure policy](../../../policy/overview.md) -definition som övervakar obegränsade lagrings konton. Lagrings konton med obegränsad åtkomst kan ge oavsiktlig åtkomst till information som finns i informations systemet. Den här skissen tilldelar också en princip som aktiverar anpassningsbara program kontroller på virtuella datorer.
 
-- Granska obegränsad nätverks åtkomst till lagrings konton
+- Granska obegränsad nätverksåtkomst till lagringskonton
 - Anpassningsbara program kontroller ska vara aktiverade på virtuella datorer
 
 ## <a name="12-secure-service-administration"></a>12 säker tjänst administration
@@ -151,12 +151,12 @@ Den här skissen tilldelar också en Azure Policy-definition som granskar Linux 
 
 Den här skissen hjälper dig att se till att system händelser loggas genom att tilldela [Azure policy](../../../policy/overview.md) definitioner som granskar logg inställningar på Azure-resurser. En tilldelad princip granskar också om virtuella datorer inte skickar loggar till en angiven Log Analytics-arbetsyta.
 
-- Övervaka SQL-servrar som inte har granskats i Azure Security Center
+- Granskning ska aktive ras för avancerade data säkerhets inställningar på SQL Server
 - Granska diagnostikinställning
-- Granska gransknings inställningar för SQL Server-nivå
+- Granska granskningsinställningar på SQL-servernivå
 - \[För\]hands version: Distribuera Log Analytics agent för virtuella Linux-datorer
 - \[För\]hands version: Distribuera Log Analytics agent för virtuella Windows-datorer
-- Distribuera nätverks övervakare när virtuella nätverk skapas
+- Distribuera Network Watcher när virtuella nätverk skapas
 
 ## <a name="next-steps"></a>Nästa steg
 

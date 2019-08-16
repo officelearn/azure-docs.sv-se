@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 06/14/2019
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 4484269194aa3d637101a6a0b83eacb268d4c16e
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 535b96a2bb86f1996e6ff0aba19339b55a18ee50
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67147288"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515865"
 ---
 # <a name="configure-log-analytics-agent-for-linux-computers-in-a-hybrid-environment"></a>Konfigurera Log Analytics-agenten för Linux-datorer i en hybridmiljö
 [Azure Log Analytics](../platform/agent-windows.md) kan samla in data direkt från fysiska eller virtuella Linux-datorer i ditt datacenter eller en annan molnmiljö till en enda lagringsplats för detaljerad analys och korrelation. Den här snabbstarten visar hur du konfigurerar och samlar in data från Linux-datorer med några enkla steg.  För virtuella Linux-datorer, se avsnittet [Samla in data om virtuella datorer i Azure](quick-collect-azurevm.md).  
@@ -32,11 +32,11 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com). 
 
 ## <a name="create-a-workspace"></a>Skapa en arbetsyta
-1. Klicka på **Alla tjänster** på Azure Portal. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.
+1. Välj **Alla tjänster** i Azure-portalen. Ange **Log Analytics**i listan över resurser. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.
 
     ![Azure Portal](media/quick-collect-linux-computer/azure-portal-01.png) 
 
-2. Klicka på **Skapa** och välj sedan alternativ för följande objekt:
+2. Välj **skapa**och välj sedan alternativ för följande objekt:
 
    * Ange ett namn för den nya **Log Analytics-arbetsytan**, som *DefaultLAWorkspace*. OMS-arbetsytor kallas nu för Log Analytics-arbetsytor.   
    * Välj en **prenumeration** att länka till genom att välja från den listrutan om standardvalet inte är lämpligt.
@@ -46,7 +46,7 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 
         ![Skapa Log Analytics resurs bladet](media/quick-collect-linux-computer/create-loganalytics-workspace-02.png)<br>  
 
-3. När du har angett den nödvändiga informationen i fönsterrutan **Log Analytics-arbetsyta** klickar du på **OK**.  
+3. När du har angett nödvändig information i fönstret **Log Analytics arbets yta** väljer du **OK**.  
 
 När informationen har verifierats och arbetsytan skapas, kan du spåra förloppet under **Meddelanden** på menyn. 
 
@@ -55,7 +55,7 @@ Innan du installerar Log Analytics-agenten för Linux behöver du arbetsytans id
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]  
 
-1. I Azure Portal klickar du på **Alla tjänster** längst upp till vänster. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.
+1. I Azure Portal väljer du **alla tjänster** som finns i det övre vänstra hörnet. Ange **Log Analytics**i listan över resurser. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics**.
 2. Välj *DefaultLAWorkspace* som du skapade tidigare i listan med Log Analytics-arbetsytor.
 3. Välj **Avancerade inställningar**.
 
@@ -107,23 +107,23 @@ Exempel: `https://user01:password@proxy01.contoso.com:30443`
 Log Analytics kan samla in händelser från Linux Syslog och prestandaräknare som du anger för analys och rapportering på längre sikt samt vidta åtgärder när ett visst villkor har identifierats.  Följ dessa steg om du vill konfigurera insamling av händelser från Linux Syslog och flera vanliga prestandaräknare till att börja med.  
 
 1. Välj **Syslog**.  
-2. Du kan lägga till en händelselogg genom att skriva namnet på loggen. Skriv **Syslog** och klicka sedan på plustecknet **+** .  
+2. Du kan lägga till en händelselogg genom att skriva namnet på loggen. Ange **syslog** och välj sedan plus tecknet **+** .  
 3. Avmarkera allvarlighetsgraderna **Info**, **Meddelande** och **Felsök** i tabellen. 
-4. Klicka på **Spara** överst på sidan för att spara konfigurationen.
+4. Spara konfigurationen genom att välja **Spara** längst upp på sidan.
 5. Välj **Linux-prestandadata** för att aktivera insamling av prestandaräknare på en Linux-dator. 
-6. När du först konfigurerar Linux-prestandaräknare för en ny Log Analytics-arbetsyta har du möjlighet att snabbt skapa flera vanliga räknare. De listas med en kryssruta bredvid varje. 
+6. När du först konfigurerar Linux-prestandaräknare för en ny Log Analytics-arbetsyta har du möjlighet att snabbt skapa flera vanliga räknare. De visas med en kryss ruta bredvid var och en. 
 
     ![Standardalternativen för Windows-prestandaräknare markerade](media/quick-collect-linux-computer/linux-perfcounters-default.png)
     
-    Klicka på **Lägg till valda prestandaräknare**. De läggs till med en förinställning av provintervall på tio sekunder.
+    Välj **Lägg till de valda prestanda räknarna**. De läggs till med en förinställning av provintervall på tio sekunder.
 
-7. Klicka på **Spara** överst på sidan för att spara konfigurationen.
+7. Spara konfigurationen genom att välja **Spara** längst upp på sidan.
 
 ## <a name="view-data-collected"></a>Visa data som samlas in
 Nu när du har aktiverat insamling av data kan du köra en enkel loggsökning för att se vissa data från måldatorn.  
 
-1. Gå till Azure Portal, navigera till Log Analytics och välj den arbetsyta du skapade tidigare.
-2. Klicka på panelen **Loggsökning** och i fönsterrutan Loggsökning skriver du sedan `Perf` i frågefältet och trycker på retur eller klickar på sökknappen till höger om fältet.
+1. I Azure Portal går du till Log Analytics och väljer den arbets yta som skapades tidigare.
+2. Välj panelen **loggs ökning** och i fönstret loggs ökning anger `Perf` du och trycker sedan på RETUR eller väljer Sök knappen till höger om fältet fråga.
 
     ![Exempel på loggsökningsfråga i Log Analytics](media/quick-collect-linux-computer/log-analytics-portal-queryexample.png)
 
@@ -138,7 +138,7 @@ Kör följande kommando för att ta bort agenten på Linux-datorn. Argumentet *-
 
    `wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh --purge`
 
-Om du vill ta bort arbetsytan väljer du den Log Analytics-arbetsyta som du skapade tidigare och klickar på **Ta bort** på resurssidan.
+Om du vill ta bort arbets ytan väljer du arbets ytan Log Analytics som du skapade tidigare och på resurs sidan väljer du **ta bort**.
 
 ![Ta bort Log Analytics-resurs](media/quick-collect-linux-computer/log-analytics-portal-delete-resource.png)
 

@@ -7,12 +7,12 @@ ms.date: 07/22/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: d49ef19d763ea3ae643a9c7bbbbb620ae414c664
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 7be9a208f82dd9a487c1794a7996f9bb11bb09d8
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816820"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515436"
 ---
 # <a name="control-mapping-of-the-iso-27001-blueprint-sample"></a>Kontroll mappning av ISO 27001-skiss exemplet
 
@@ -118,13 +118,13 @@ Att förstå var dina Azure-resurser kan ha icke-optimala kryptografiska konfigu
 - \[För\]hands version: Granska avsaknad av blobkryptering för lagringskonton
 - \[För\]hands version: Distribuera VM-tillägg för granskning av Windows VM ska inte lagra lösen ord med omvänd kryptering
 - \[För\]hands version: Granska virtuell Windows-dator ska inte lagra lösen ord med omvänd kryptering
-- \[För\]hands version: Övervaka okrypterad SQL Database i Azure Security Center
 - \[För\]hands version: Övervaka okrypterade virtuella datordiskar i Azure Security Center
 - Granska aktivering av kryptering av Automation-kontovariabler
 - Granska aktivering av enbart säkra anslutningar till Redis Cache
 - Granska säker överföring till lagringskonton
 - Granska att inställningen för egenskapen ClusterProtectionLevel är inställd på EncryptAndSign i Service Fabric
 - Granska status för transparent datakryptering
+- transparent datakryptering på SQL-databaser ska aktive ras
 
 ## <a name="a1241-event-logging"></a>Händelse loggning för 12.4.1
 
@@ -135,9 +135,9 @@ Diagnostikloggar ger inblick i åtgärder som utfördes i Azure-resurser.
 - \[För\]hands version: Granska Dependency Agent distribution i VMSS – VM-avbildningen (OS) har inte listats
 - \[För\]hands version: Granska Log Analytics agent distribution – VM-avbildning (OS) har inte listats
 - \[För\]hands version: Granska Log Analytics agent distribution i VMSS – VM-avbildningen (OS) har inte listats
-- \[För\]hands version: Övervaka en SQL-databas som inte har granskats i Azure Security Center
 - Granska diagnostikinställning
 - Granska granskningsinställningar på SQL-servernivå
+- Granskning ska aktive ras för avancerade data säkerhets inställningar på SQL Server
 
 ## <a name="a1243-administrator-and-operator-logs"></a>En. 12.4.3-administratör och operatörs loggar
 
@@ -147,9 +147,9 @@ Den här skissen hjälper dig att se till att system händelser loggas genom att
 - \[För\]hands version: Granska Dependency Agent distribution i VMSS – VM-avbildningen (OS) har inte listats
 - \[För\]hands version: Granska Log Analytics agent distribution – VM-avbildning (OS) har inte listats
 - \[För\]hands version: Granska Log Analytics agent distribution i VMSS – VM-avbildningen (OS) har inte listats
-- \[För\]hands version: Övervaka en SQL-databas som inte har granskats i Azure Security Center
 - Granska diagnostikinställning
 - Granska granskningsinställningar på SQL-servernivå
+- Granskning ska aktive ras för avancerade data säkerhets inställningar på SQL Server
 
 ## <a name="a1244-clock-synchronization"></a>Synkronisering av 12.4.4-klockor
 
@@ -159,9 +159,9 @@ Den här skissen hjälper dig att se till att system händelser loggas genom att
 - \[För\]hands version: Granska Dependency Agent distribution i VMSS – VM-avbildningen (OS) har inte listats
 - \[För\]hands version: Granska Log Analytics agent distribution – VM-avbildning (OS) har inte listats
 - \[För\]hands version: Granska Log Analytics agent distribution i VMSS – VM-avbildningen (OS) har inte listats
-- \[För\]hands version: Övervaka en SQL-databas som inte har granskats i Azure Security Center
 - Granska diagnostikinställning
 - Granska granskningsinställningar på SQL-servernivå
+- Granskning ska aktive ras för avancerade data säkerhets inställningar på SQL Server
 
 ## <a name="a1251-installation-of-software-on-operational-systems"></a>En. 12.5.1-installation av program vara på operativa system
 

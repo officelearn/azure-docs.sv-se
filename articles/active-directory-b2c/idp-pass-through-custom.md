@@ -1,5 +1,5 @@
 ---
-title: Skicka en åtkomsttoken via en anpassad princip till ditt program i Azure Active Directory B2C | Microsoft Docs
+title: Skicka en åtkomsttoken via en anpassad princip till ditt program i Azure Active Directory B2C
 description: Lär dig hur du kan skicka en åtkomsttoken för OAuth 2.0-identitets leverantörer som ett anspråk via en anpassad princip till ditt program i Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -7,27 +7,25 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 08/17/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 2253e9f6331662f0ead0251f9affd7996e02aa31
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: b6795af0829a288c36cad5b848fed50a99dc1bfc
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67846882"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69510123"
 ---
 # <a name="pass-an-access-token-through-a-custom-policy-to-your-application-in-azure-active-directory-b2c"></a>Skicka en åtkomsttoken via en anpassad princip till ditt program i Azure Active Directory B2C
 
-[!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
-
-En [anpassad princip](active-directory-b2c-get-started-custom.md) i Azure Active Directory (Azure AD) B2C ger användare av programmet en möjlighet att registrera sig eller logga in med en identitets leverantör. När detta inträffar tar Azure AD B2C [emot en åtkomsttoken](active-directory-b2c-reference-tokens.md) från identitets leverantören. Azure AD B2C använder denna token för att hämta information om användaren. Du lägger till en anspråks typ och ett utgående anspråk till din anpassade princip för att skicka token till de program som du registrerar i Azure AD B2C.
+En [anpassad princip](active-directory-b2c-get-started-custom.md) i Azure Active Directory B2C (Azure AD B2C) ger användare av programmet en möjlighet att registrera sig eller logga in med en identitets leverantör. När detta inträffar tar Azure AD B2C emot en [](active-directory-b2c-reference-tokens.md) åtkomsttoken från identitets leverantören. Azure AD B2C använder denna token för att hämta information om användaren. Du lägger till en anspråks typ och ett utgående anspråk till din anpassade princip för att skicka token till de program som du registrerar i Azure AD B2C.
 
 Azure AD B2C stöder överföring av åtkomsttoken för [OAuth 2,0](active-directory-b2c-reference-oauth-code.md) och [OpenID Connect](active-directory-b2c-reference-oidc.md) Identity providers. För alla andra identitets leverantörer returneras anspråket tomt.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- Din anpassade princip konfigureras med en OAuth 2,0-eller OpenID Connect-identitetsprovider.
+* Din anpassade princip konfigureras med en OAuth 2,0-eller OpenID Connect-identitetsprovider.
 
 ## <a name="add-the-claim-elements"></a>Lägg till anspråks elementen
 
@@ -86,19 +84,19 @@ När du testar dina program i Azure AD B2C kan det vara praktiskt att ha Azure A
 ### <a name="upload-the-files"></a>Ladda upp filerna
 
 1. Logga in på [Azure Portal](https://portal.azure.com/).
-2. Se till att du använder den katalog som innehåller din Azure AD B2C-klientorganisation genom att klicka på **katalog- och prenumerationsfiltret** på den översta menyn och välja katalogen som innehåller din klientorganisation.
+2. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C klient genom att klicka på filtret **katalog + prenumeration** på den översta menyn och välja den katalog som innehåller din klient.
 3. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
 4. Välj **ramverk för identitets upplevelse**.
 5. På sidan anpassade principer klickar du på **Ladda upp princip**.
 6. Välj **Skriv över principen om den finns**och Sök sedan efter och välj *TrustframeworkExtensions. XML-* filen.
-7. Klicka på **Överför**.
+7. Välj **Överför**.
 8. Upprepa steg 5 till 7 för den förlitande part filen, till exempel *SignUpOrSignIn. XML*.
 
 ### <a name="run-the-policy"></a>Kör principen
 
 1. Öppna den princip som du har ändrat. Till exempel *B2C_1A_signup_signin*.
 2. För **program**väljer du ditt program som du har registrerat tidigare. Om du vill se token i exemplet nedan ska **svars-URL:** en visas `https://jwt.ms`.
-3. Klicka på **Kör nu**.
+3. Välj **Kör nu**.
 
     Du bör se något som liknar följande exempel:
 
@@ -106,4 +104,4 @@ När du testar dina program i Azure AD B2C kan det vara praktiskt att ha Azure A
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om tokens i [Azure Active Directory token-referens](active-directory-b2c-reference-tokens.md).
+Läs mer om tokens i [Azure Active Directory B2C token-referens](active-directory-b2c-reference-tokens.md).

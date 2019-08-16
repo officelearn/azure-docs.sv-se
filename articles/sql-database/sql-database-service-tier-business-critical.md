@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 12/04/2018
-ms.openlocfilehash: 208224e10c3acfb17bc5fd89d2d66152943811dc
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 48cde2f96083779bdeb13ba5f39b68c18b395045
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566747"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69515375"
 ---
 # <a name="business-critical-tier---azure-sql-database"></a>Affärskritisk nivå – Azure SQL Database
 
@@ -48,7 +48,7 @@ Affärskritisk tjänst nivå är utformad för program som kräver svar med låg
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Hitta resurs egenskaper (antal kärnor, IO, minne) för Affärskritisk nivå i hanterad [instans](sql-database-managed-instance-resource-limits.md#service-tier-characteristics), enkel databas i [vCore-modell](sql-database-vcore-resource-limits-single-databases.md#business-critical-service-tier-for-provisioned-compute-tier) eller [DTU-modell](sql-database-dtu-resource-limits-single-databases.md#premium-service-tier)eller elastisk pool i [vCore-modellen](sql-database-vcore-resource-limits-elastic-pools.md#business-critical-service-tier-storage-sizes-and-compute-sizes) och DTU- [modellen](sql-database-dtu-resource-limits-elastic-pools.md#premium-elastic-pool-limits).
+- Hitta resurs egenskaper (antal kärnor, IO, minne) för Affärskritisk nivå i hanterad [instans](sql-database-managed-instance-resource-limits.md#service-tier-characteristics), enkel databas i [vCore-modell](sql-database-vcore-resource-limits-single-databases.md#business-critical-service-tier-for-provisioned-compute) eller [DTU-modell](sql-database-dtu-resource-limits-single-databases.md#premium-service-tier)eller elastisk pool i [vCore-modellen](sql-database-vcore-resource-limits-elastic-pools.md#business-critical-service-tier-storage-sizes-and-compute-sizes) och DTU- [modellen](sql-database-dtu-resource-limits-elastic-pools.md#premium-elastic-pool-limits).
 - Lär dig mer om [generell användning](sql-database-service-tier-general-purpose.md) -och [skalnings](sql-database-service-tier-hyperscale.md) nivåer.
 - Läs mer om [Service Fabric](../service-fabric/service-fabric-overview.md).
 - Fler alternativ för hög tillgänglighet och haveri beredskap finns i [affärs kontinuitet](sql-database-business-continuity.md).

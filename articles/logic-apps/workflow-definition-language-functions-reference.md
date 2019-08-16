@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: reference
 ms.date: 07/27/2019
-ms.openlocfilehash: 30123e03a686eed8df0595c8562f2f9d9351bbde
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: c6fd20a2e1766a8bc9abfc92c6fc11d10dbe1bf2
+ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68706457"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69516084"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps-and-microsoft-flow"></a>Functions-referens för språk för arbets flödes definition i Azure Logic Apps och Microsoft Flow
 
@@ -322,7 +322,7 @@ action().outputs.body.<property>
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*immaterialrätt*> | Nej | Sträng | Namnet på åtgärds objektets egenskap vars värde du vill använda: **namn**,StartTime **, slut**tid, indata, **utdata**, **status**, **kod**, **trackingId**och **clientTrackingId**. I Azure Portal kan du hitta dessa egenskaper genom att granska information om en speciell körnings historik. Mer information finns i [REST API-arbets flödes körnings åtgärder](https://docs.microsoft.com/rest/api/logic/workflowrunactions/get). |
+| <*immaterialrätt*> | Nej | Sträng | Namnet på åtgärds objektets egenskap vars värde du vill använda: **namn**,StartTime, slut tid, indata, **utdata**, **status**, **kod**, **trackingId**och **clientTrackingId**. I Azure Portal kan du hitta dessa egenskaper genom att granska information om en speciell körnings historik. Mer information finns i [REST API-arbets flödes körnings åtgärder](https://docs.microsoft.com/rest/api/logic/workflowrunactions/get). |
 |||||
 
 | Returvärde | type | Beskrivning |
@@ -460,7 +460,7 @@ actions('<actionName>').outputs.body.<property>
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
 | <*actionName*> | Ja | Sträng | Namnet på det åtgärds objekt vars utdata du vill ha  |
-| <*immaterialrätt*> | Nej | Sträng | Namnet på åtgärds objektets egenskap vars värde du vill använda: **namn**,StartTime **, slut**tid, indata, **utdata**, **status**, **kod**, **trackingId**och **clientTrackingId**. I Azure Portal kan du hitta dessa egenskaper genom att granska information om en speciell körnings historik. Mer information finns i [REST API-arbets flödes körnings åtgärder](https://docs.microsoft.com/rest/api/logic/workflowrunactions/get). |
+| <*immaterialrätt*> | Nej | Sträng | Namnet på åtgärds objektets egenskap vars värde du vill använda: **namn**,StartTime, slut tid, indata, **utdata**, **status**, **kod**, **trackingId**och **clientTrackingId**. I Azure Portal kan du hitta dessa egenskaper genom att granska information om en speciell körnings historik. Mer information finns i [REST API-arbets flödes körnings åtgärder](https://docs.microsoft.com/rest/api/logic/workflowrunactions/get). |
 |||||
 
 | Returvärde | type | Beskrivning |
@@ -769,7 +769,7 @@ and(<expression1>, <expression2>, ...)
 
 | Returvärde | type | Beskrivning |
 | ------------ | -----| ----------- |
-| Sant eller falskt | Boolesk | Returnera true när alla uttryck är sanna. Returnera falskt om minst ett uttryck är falskt. |
+| Sant eller falskt | Boolean | Returnera true när alla uttryck är sanna. Returnera falskt om minst ett uttryck är falskt. |
 ||||
 
 *Exempel 1*
@@ -1025,7 +1025,7 @@ bool(<value>)
 
 | Returvärde | type | Beskrivning |
 | ------------ | ---- | ----------- |
-| Sant eller falskt | Boolesk | Den booleska versionen för det angivna värdet |
+| Sant eller falskt | Boolean | Den booleska versionen för det angivna värdet |
 ||||
 
 *Exempel*
@@ -1136,7 +1136,7 @@ Mer specifikt fungerar den här funktionen på dessa samlings typer:
 
 | Returvärde | type | Beskrivning |
 | ------------ | ---- | ----------- |
-| Sant eller falskt | Boolesk | Returnera true när objektet hittas. Returnera falskt när det inte går att hitta. |
+| Sant eller falskt | Boolean | Returnera true när objektet hittas. Returnera falskt när det inte går att hitta. |
 ||||
 
 *Exempel 1*
@@ -1168,7 +1168,7 @@ convertFromUtc('<timestamp>', '<destinationTimeZone>', '<format>'?)
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Ja | Sträng | Den sträng som innehåller tidsstämpeln |
-| <*destinationTimeZone*> | Ja | Sträng | Namnet på mål tids zonen. Mer information finns i tidszons- [ID: n](https://docs.microsoft.com/previous-versions/windows/embedded/gg154758(v=winembedded.80)). |
+| <*destinationTimeZone*> | Ja | Sträng | Namnet på mål tids zonen. Mer information om tids zons namn finns i [Microsoft Time Zone index Values](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values). |
 | <*formatering*> | Nej | Sträng | Antingen en [enskild format identifierare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat format mönster](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformat för tidsstämpeln är ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (ÅÅÅÅ-MM-ddTHH: mm: SS: fffffffK), som följer [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tids zons information. |
 |||||
 
@@ -1210,8 +1210,8 @@ convertTimeZone('<timestamp>', '<sourceTimeZone>', '<destinationTimeZone>', '<fo
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Ja | Sträng | Den sträng som innehåller tidsstämpeln |
-| <*sourceTimeZone*> | Ja | Sträng | Namnet på käll tids zonen. Mer information finns i tidszons- [ID: n](https://docs.microsoft.com/previous-versions/windows/embedded/gg154758(v=winembedded.80)). |
-| <*destinationTimeZone*> | Ja | Sträng | Namnet på mål tids zonen. Mer information finns i tidszons- [ID: n](https://docs.microsoft.com/previous-versions/windows/embedded/gg154758(v=winembedded.80)). |
+| <*sourceTimeZone*> | Ja | Sträng | Namnet på käll tids zonen. Mer information om tids zons namn finns i [Microsoft Time Zone index Values](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values). |
+| <*destinationTimeZone*> | Ja | Sträng | Namnet på mål tids zonen. Mer information om tids zons namn finns i [Microsoft Time Zone index Values](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values). |
 | <*formatering*> | Nej | Sträng | Antingen en [enskild format identifierare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat format mönster](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformat för tidsstämpeln är ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (ÅÅÅÅ-MM-ddTHH: mm: SS: fffffffK), som följer [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tids zons information. |
 |||||
 
@@ -1253,7 +1253,7 @@ convertToUtc('<timestamp>', '<sourceTimeZone>', '<format>'?)
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | Ja | Sträng | Den sträng som innehåller tidsstämpeln |
-| <*sourceTimeZone*> | Ja | Sträng | Namnet på käll tids zonen. Mer information finns i tidszons- [ID: n](https://docs.microsoft.com/previous-versions/windows/embedded/gg154758(v=winembedded.80)). |
+| <*sourceTimeZone*> | Ja | Sträng | Namnet på käll tids zonen. Mer information om tids zons namn finns i [Microsoft Time Zone index Values](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values). |
 | <*formatering*> | Nej | Sträng | Antingen en [enskild format identifierare](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller ett [anpassat format mönster](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Standardformat för tidsstämpeln är ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (ÅÅÅÅ-MM-ddTHH: mm: SS: fffffffK), som följer [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) och bevarar tids zons information. |
 |||||
 
@@ -1683,7 +1683,7 @@ empty([<collection>])
 
 | Returvärde | type | Beskrivning |
 | ------------ | ---- | ----------- |
-| Sant eller falskt | Boolesk | Returnera true när samlingen är tom. Returnera falskt om det inte är tomt. |
+| Sant eller falskt | Boolean | Returnera true när samlingen är tom. Returnera falskt om det inte är tomt. |
 ||||
 
 *Exempel*
@@ -1720,7 +1720,7 @@ endsWith('<text>', '<searchText>')
 
 | Returvärde | type | Beskrivning |
 | ------------ | ---- | ----------- |
-| Sant eller falskt  | Boolesk | Returnera true när slut under strängen hittas. Returnera falskt när det inte går att hitta. |
+| Sant eller falskt  | Boolean | Returnera true när slut under strängen hittas. Returnera falskt när det inte går att hitta. |
 ||||
 
 *Exempel 1*
@@ -1761,7 +1761,7 @@ equals('<object1>', '<object2>')
 
 | Returvärde | type | Beskrivning |
 | ------------ | ---- | ----------- |
-| Sant eller falskt | Boolesk | Returnera true när båda är likvärdiga. Returnera falskt om det inte är motsvarande. |
+| Sant eller falskt | Boolean | Returnera true när båda är likvärdiga. Returnera falskt om det inte är motsvarande. |
 ||||
 
 *Exempel*
@@ -2083,7 +2083,7 @@ greaterOrEquals('<value>', '<compareTo>')
 
 | Returvärde | type | Beskrivning |
 | ------------ | ---- | ----------- |
-| Sant eller falskt | Boolesk | Returnerar sant när det första värdet är större än eller lika med det andra värdet. Returnera falskt om det första värdet är mindre än det andra värdet. |
+| Sant eller falskt | Boolean | Returnerar sant när det första värdet är större än eller lika med det andra värdet. Returnera falskt om det första värdet är mindre än det andra värdet. |
 ||||
 
 *Exempel*
@@ -2625,7 +2625,7 @@ less('<value>', '<compareTo>')
 
 | Returvärde | type | Beskrivning |
 | ------------ | ---- | ----------- |
-| Sant eller falskt | Boolesk | Returnerar sant när det första värdet är mindre än det andra värdet. Returnera falskt om det första värdet är lika med eller större än det andra värdet. |
+| Sant eller falskt | Boolean | Returnerar sant när det första värdet är mindre än det andra värdet. Returnera falskt om det första värdet är lika med eller större än det andra värdet. |
 ||||
 
 *Exempel*
@@ -2873,7 +2873,7 @@ not(<expression>)
 
 | Returvärde | type | Beskrivning |
 | ------------ | ---- | ----------- |
-| Sant eller falskt | Boolesk | Returnerar sant när uttrycket är falskt. Returnera falskt när uttrycket är sant. |
+| Sant eller falskt | Boolean | Returnerar sant när uttrycket är falskt. Returnera falskt när uttrycket är sant. |
 ||||
 
 *Exempel 1*
@@ -2917,12 +2917,12 @@ or(<expression1>, <expression2>, ...)
 
 | Parameter | Krävs | Typ | Beskrivning |
 | --------- | -------- | ---- | ----------- |
-| <*uttryck1*>, <*Uttryck2*>,... | Ja | Boolesk | De uttryck som ska kontrol leras |
+| <*uttryck1*>, <*Uttryck2*>,... | Ja | Boolean | De uttryck som ska kontrol leras |
 |||||
 
 | Returvärde | type | Beskrivning |
 | ------------ | ---- | ----------- |
-| Sant eller falskt | Boolesk | Returnera true när minst ett uttryck är sant. Returnera falskt när alla uttryck är falskt. |
+| Sant eller falskt | Boolean | Returnera true när minst ett uttryck är sant. Returnera falskt när alla uttryck är falskt. |
 ||||
 
 *Exempel 1*
@@ -3384,7 +3384,7 @@ startsWith('<text>', '<searchText>')
 
 | Returvärde | type | Beskrivning |
 | ------------ | ---- | ----------- |
-| Sant eller falskt  | Boolesk | Returnera true när start under strängen hittas. Returnera falskt när det inte går att hitta. |
+| Sant eller falskt  | Boolean | Returnera true när start under strängen hittas. Returnera falskt när det inte går att hitta. |
 ||||
 
 *Exempel 1*

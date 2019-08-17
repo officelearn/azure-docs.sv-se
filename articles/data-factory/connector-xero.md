@@ -96,7 +96,7 @@ Kopiera data från Xero genom att ange typegenskapen på datauppsättningen till
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | type | Type-egenskapen för datauppsättningen måste anges till: **XeroObject** | Ja |
-| tableName | Namnet på tabellen. | Nej (om ”frågan” i aktivitetskälla har angetts) |
+| tableName | Namnet på tabellen. | Nej (om ”query” i aktivitetskälla har angetts) |
 
 **Exempel**
 

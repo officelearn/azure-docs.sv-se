@@ -11,18 +11,18 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: 66effb095edf7927a38fca53b2ff317e9bad468e
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 525cb444ad7b1b78de867f83539ac338ddd144e9
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619607"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69562928"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image"></a>Skapa en funktion i Linux med en anpassad avbildning
 
 Med Azure Functions kan Linux användas som värd för funktionerna i en anpassad container. Du kan också använda [en standardcontainer i Azure App Service som värd](functions-create-first-azure-function-azure-cli-linux.md). Den här funktionen kräver [funktionerna 2. x runtime](functions-versions.md).
 
-I den här självstudiekursen lär du dig hur du distribuerar funktioner i Azure som en anpassad Docker-avbildning. Det här mönstret är användbart när du behöver anpassa den inbyggda behållar avbildningen. Du kanske vill använda en anpassad avbildning när dina funktioner kräver en viss språkversion eller särskilda beroenden eller konfigurationer som inte är tillgängliga inom den inbyggda avbildningen. Bas avbildningar som stöds för Azure Functions finns i [Azure Functions Base images-lagrings platsen](https://hub.docker.com/_/microsoft-azure-functions-base). [Python](functions-reference-python.md) -supporten är i för hands version för tillfället.
+I den här självstudiekursen lär du dig hur du distribuerar funktioner i Azure som en anpassad Docker-avbildning. Det här mönstret är användbart när du behöver anpassa den inbyggda behållar avbildningen. Du kanske vill använda en anpassad avbildning när dina funktioner kräver en viss språkversion eller särskilda beroenden eller konfigurationer som inte är tillgängliga inom den inbyggda avbildningen. Bas avbildningar som stöds för Azure Functions finns i [Azure Functions Base images-lagrings platsen](https://hub.docker.com/_/microsoft-azure-functions-base). 
 
 Den här kursen går igen hur du använder Azure Functions Core Tools för att skapa en funktion i en anpassad Linux-avbildning. Du publicerar den här avbildningen i en funktionsapp i Azure, som har skapats med hjälp av Azure CLI. Senare kan du uppdatera din funktion för att ansluta till Azure Queue Storage. Du kan också aktivera.  
 
@@ -69,8 +69,6 @@ Vid uppmaning väljer du en arbetskörning från följande språk:
 * `dotnet`: skapar ett biblioteks projekt för .NET Core-klass (. CSPROJ).
 * `node`: skapar ett JavaScript-projekt.
 * `python`: skapar ett Python-projekt.
-
-[!INCLUDE [functions-python-preview-note](../../includes/functions-python-preview-note.md)]
 
 När kommandot körs visas något i stil med följande utdata:
 
@@ -252,7 +250,7 @@ az functionapp deployment container config --enable-cd \
 
 Det här kommandot returnerar distributions-webhook-URL: en när kontinuerlig distribution har Aktiver ATS. Du kan också använda kommandot [AZ functionapp Deployment container show-CD-URL](/cli/azure/functionapp/deployment/container#az-functionapp-deployment-container-show-cd-url) för att returnera denna URL. 
 
-Kopiera distributions-URL: en och bläddra till din DockerHub-  lagrings platsen, Välj fliken Webhooks, ange ett webhook- **namn** för webhooken, klistra in URL: en i webhook- **URL**och **+** Välj plus tecknet ().
+Kopiera distributions-URL: en och bläddra till din DockerHub- lagrings platsen, Välj fliken Webhooks, ange ett webhook- **namn** för webhooken, klistra in URL: en i webhook- **URL**och **+** Välj plus tecknet ().
 
 ![Lägg till webhooken i din DockerHub-lagrings platsen](media/functions-create-function-linux-custom-image/dockerhub-set-continuous-webhook.png)  
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 8ba2d2fd9c943fe55e82956d022f6ba9840a550f
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 00d49d763dedc5d86557dadd10f5d727e7893dbe
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/16/2019
-ms.locfileid: "69536604"
+ms.locfileid: "69563056"
 ---
 # <a name="connect-azure-virtual-network-to-cloudsimple-using-expressroute"></a>Anslut Azure Virtual Network till CloudSimple med ExpressRoute
 
@@ -24,7 +24,7 @@ Du kan utöka ditt privata moln nätverk till ditt virtuella Azure-nätverk och 
 Det krävs en auktoriseringspost för ExpressRoute-anslutningen mellan ditt privata moln och det virtuella Azure-nätverket. För att hämta en nyckel, File a Ticket with <a href="https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest" target="_blank">support</a>.  Använd följande information i begäran:
 
 * Typ av problem: **Produkt**
-* Prenumeration: Välj den prenumeration där CloudSimple-tjänsten har distribuerats * *
+* Prenumeration: **Välj den prenumeration där CloudSimple-tjänsten har distribuerats**
 * Tjänst: **VMware-lösning av CloudSimple**
 * Problem typ: **Tjänstbegäran**
 * Problem under typ: **Auktoriseringsregel för Azure VNET-anslutning**

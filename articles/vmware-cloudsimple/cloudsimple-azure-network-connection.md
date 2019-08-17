@@ -8,27 +8,22 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: a8e99da05f71cb01744111b41c301b11a0969057
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: eca3e316d866814f6727dd8ef2c3fa490a551383
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68812708"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69563161"
 ---
 # <a name="azure-network-connections-overview"></a>Översikt över Azure nätverks anslutningar
 
 När du skapar en CloudSimple-tjänst i en region:
 
-* Skapar en Azure ExpressRoute-krets och kopplar den till tjänsten i regionen
-* Tillåter anslutning från ditt CloudSimple region nätverk till ditt virtuella Azure-nätverk eller ditt lokala nätverk med Azure ExpressRoute
-* Tillhandahåller åtkomst tjänster som körs i din Azure-prenumeration, eller ditt lokala nätverk, från din privata moln miljö
+* Skapar en Azure ExpressRoute-krets och kopplar den till tjänsten i den regionen.
+* Ansluter ditt CloudSimple regions nätverk till ditt virtuella Azure-nätverk eller ditt lokala nätverk med Azure ExpressRoute.
+* Ger åtkomst till tjänster som körs i din Azure-prenumeration eller ditt lokala nätverk från din privata moln miljö.
 
-Anslutningen är:
-
-* Skydda
-* Privat
-* Hög bandbredd
-* Låg latens
+ExpressRoute-anslutningen har hög bandbredd med låg latens.
 
 ## <a name="benefits"></a>Fördelar
 
@@ -40,9 +35,9 @@ Med Azure nätverks anslutning kan du:
 
 ## <a name="azure-virtual-network-connection"></a>Azure Virtual Network-anslutning
 
-Privata moln kan anslutas till dina Azure-resurser med hjälp av ExpressRoute.  Du kan använda den här anslutningen för att få åtkomst till olika resurser som körs i din Azure-prenumeration från ditt privata moln.  Med den här anslutningen kan du utöka ditt privata moln nätverk till ditt virtuella Azure-nätverk.
+Privata moln kan anslutas till dina Azure-resurser med hjälp av ExpressRoute.  Med ExpressRoute-anslutningen kan du komma åt resurser som körs i din Azure-prenumeration från ditt privata moln.  Med den här anslutningen kan du utöka ditt privata moln nätverk till ditt virtuella Azure-nätverk.
 
-![Azure ExpressRoute-anslutning till virtuellt nätverk](media/cloudsimple-azure-network-connection.png)
+[![Azure ExpressRoute-anslutning till virtuellt nätverk](media/cloudsimple-azure-network-connection.png)
 
 ## <a name="expressroute-connection-to-on-premises-network"></a>ExpressRoute anslutning till lokalt nätverk
 
@@ -52,5 +47,5 @@ Du kan ansluta din befintliga Azure ExpressRoute-krets till din CloudSimple-regi
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Hämta peering-information för Azure Virtual Network till CloudSimple-anslutning](https://docs.azure.cloudsimple.com/virtual-network-connection)
-* [Ansluta från den lokala platsen till CloudSimple med ExpressRoute](https://docs.azure.cloudsimple.com/on-premises-connection)
+* [Anslut Azure Virtual Network till CloudSimple med ExpressRoute](virtual-network-connection.md)
+* [Ansluta från den lokala platsen till CloudSimple med ExpressRoute](on-premises-connection.md)

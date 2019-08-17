@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/17/2019
+ms.date: 08/16/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 22c25c0a2b2f48baa3b57a8ad39ed4514c884826
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: d18c74e908f6d5c4c3d2eefb0518add380fa1324
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/16/2019
-ms.locfileid: "69533133"
+ms.locfileid: "69561319"
 ---
 # <a name="what-are-authentication-methods"></a>Vad är autentiseringsmetoder?
 
@@ -31,7 +31,7 @@ Microsoft rekommenderar starkt att administratörer låter användare välja fle
 | lösenordsinställning | MFA och SSPR |
 | Säkerhetsfrågor | Endast SSPR |
 | E-postadress | Endast SSPR |
-| Microsoft Authenticator-app | MFA och offentlig för hands version för SSPR |
+| Microsoft Authenticator-app | MFA och SSPR |
 | OATH-token för maskin vara | Offentlig för hands version för MFA och SSPR |
 | SMS | MFA och SSPR |
 | Röstsamtal | MFA och SSPR |
@@ -41,7 +41,7 @@ Microsoft rekommenderar starkt att administratörer låter användare välja fle
 
 |     |
 | --- |
-| OATH-token för MFA-och SSPR-och mobilappar eller mobilapp som metoder för Azure AD självbetjäning för återställning av lösen ord är offentliga för hands versions funktioner i Azure Active Directory. Mer information om för hands versionerna finns i kompletterande användnings [villkor för Microsoft Azure för hands](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) versionerna|
+| OATH-maskinvaru-token för MFA och SSPR är offentliga för hands versions funktioner i Azure Active Directory. Mer information om för hands versionerna finns i kompletterande användnings [villkor för Microsoft Azure för hands](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) versionerna|
 |     |
 
 ## <a name="password"></a>lösenordsinställning

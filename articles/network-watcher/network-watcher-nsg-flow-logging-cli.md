@@ -1,6 +1,6 @@
 ---
-title: Hantera Network Security Group Flow loggar med Azure Network Watcher – Azure CLI | Microsoft Docs
-description: Den här sidan förklarar hur du hanterar Network Security Group Flow loggar i Azure Network Watcher med Azure CLI
+title: Hantera flödes loggar för nätverks säkerhets grupper med Azure Network Watcher – Azure CLI | Microsoft Docs
+description: På den här sidan förklaras hur du hanterar flödes loggar för nätverks säkerhets grupper i Azure Network Watcher med Azure CLI
 services: network-watcher
 documentationcenter: na
 author: KumudD
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 7f964fd78845e663c1ebcde7e79bfb7295c72f31
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5e7c09c1a06a94a2ed64f3624ee38dc42606d7bc
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64730566"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69563487"
 ---
-# <a name="configuring-network-security-group-flow-logs-with-azure-cli"></a>Konfigurera Network Security Group Flow loggar med Azure CLI
+# <a name="configuring-network-security-group-flow-logs-with-azure-cli"></a>Konfigurera flödes loggar för nätverks säkerhets grupper med Azure CLI
 
 > [!div class="op_single_selector"]
 > - [Azure Portal](network-watcher-nsg-flow-logging-portal.md)
@@ -29,21 +29,21 @@ ms.locfileid: "64730566"
 > - [Azure CLI](network-watcher-nsg-flow-logging-cli.md)
 > - [REST-API](network-watcher-nsg-flow-logging-rest.md)
 
-Flödesloggar för Nätverkssäkerhetsgruppen är en funktion i Network Watcher där du kan visa information om ingående och utgående IP-trafik via en Nätverkssäkerhetsgrupp. Dessa flödesloggar skrivs i json-format och visa utgående och inkommande flöden på basis av per regel, nätverkskortet flödet gäller för 5-tuppel information om flödet (källa/mål-IP, källa/mål-Port, Protocol), och om trafik tillåts eller nekas.
+Flödes loggar för nätverks säkerhets grupper är en funktion i Network Watcher som gör att du kan visa information om inkommande och utgående IP-trafik via en nätverks säkerhets grupp. Dessa flödes loggar skrivs i JSON-format och visar utgående och inkommande flöden per regel, vilket nätverkskort flödet gäller för, 5-tuple-information om flödet (käll-/mål-IP, käll-och mål Port, protokoll) och om trafiken tillåts eller nekas.
 
-Om du vill utföra stegen i den här artikeln, måste du [installera Azures kommandoradsgränssnitt för Mac, Linux och Windows (CLI)](/cli/azure/install-azure-cli).
+För att utföra stegen i den här artikeln måste du [Installera Azures kommando rads gränssnitt för Mac, Linux och Windows (CLI)](/cli/azure/install-azure-cli).
 
 ## <a name="register-insights-provider"></a>Registrera Insights-providern
 
-För flow loggning för att fungera korrekt, den **Microsoft.Insights** providern måste vara registrerad. Om du inte är säker på att om den **Microsoft.Insights** providern är registrerad, kör följande skript.
+För att flödes loggningen ska fungera korrekt måste **Microsoft. Insights** -providern vara registrerad. Om du inte är säker på om **Microsoft. Insights** -providern är registrerad kör du följande skript.
 
 ```azurecli
 az provider register --namespace Microsoft.Insights
 ```
 
-## <a name="enable-network-security-group-flow-logs"></a>Aktivera Nätverkssäkerhetsgrupp flödesloggar
+## <a name="enable-network-security-group-flow-logs"></a>Aktivera flödes loggar för nätverks säkerhets grupper
 
-Kommando för att aktivera flödesloggar visas i följande exempel:
+Kommandot för att aktivera flödes loggar visas i följande exempel:
 
 ```azurecli
 az network watcher flow-log configure --resource-group resourceGroupName --enabled true --nsg nsgName --storage-account storageAccountName
@@ -51,32 +51,33 @@ az network watcher flow-log configure --resource-group resourceGroupName --enabl
 az network watcher flow-log configure --resource-group resourceGroupName --enabled true --nsg nsgName --storage-account storageAccountName  --format JSON --log-version 2
 ```
 
-Det lagringskonto som du anger inte får ha konfigurerat för den Nätverksregler som begränsar nätverksåtkomst till endast Microsoft-tjänster eller specifika virtuella nätverk. Lagringskontot kan vara i samma eller en annan Azure-prenumeration, än NSG: N som du aktiverar det flöde du vill ha. Om du använder olika prenumerationer kan vara de båda kopplade till samma Azure Active Directory-klient. Det konto som används för varje prenumeration måste ha den [behörighet](required-rbac-permissions.md). 
+Det lagrings konto som du anger kan inte ha nätverks regler som har kon figurer ATS för att begränsa nätverks åtkomsten till enbart Microsoft-tjänster eller vissa virtuella nätverk. Lagrings kontot kan vara i samma eller en annan Azure-prenumeration än NSG som du aktiverar flödes loggen för. Om du använder olika prenumerationer måste båda vara kopplade till samma Azure Active Directory-klient. Det konto som du använder för varje prenumeration måste ha de [behörigheter som krävs](required-rbac-permissions.md). 
 
-Om lagringskontot tillhör en annan resursgrupp eller prenumeration, än nätverkssäkerhetsgruppen, ange fullständig ID för storage-konto i stället för dess namn. Exempel: om lagringskontot är i en resursgrupp med namnet *RG-Storage*, i stället för att ange *storageAccountName* i föregående kommando, anger du   */subscriptions / { SubscriptionID}/resourceGroups/RG-Storage/providers/Microsoft.Storage/storageAccounts/storageAccountName*.
+Om lagrings kontot finns i en annan resurs grupp eller prenumeration än nätverks säkerhets gruppen anger du det fullständiga ID: t för lagrings kontot i stället för namnet. Om lagrings kontot till exempel finns i en resurs grupp med namnet *RG-Storage*, i stället för att ange *storageAccountName* i föregående kommando, anger du */Subscriptions/{SubscriptionID}/resourceGroups/RG-Storage/providers/ Microsoft. Storage/storageAccounts/storageAccountName*.
 
-## <a name="disable-network-security-group-flow-logs"></a>Inaktivera Nätverkssäkerhetsgrupp flödesloggar
+## <a name="disable-network-security-group-flow-logs"></a>Inaktivera flödes loggar för nätverks säkerhets grupper
 
-Använd följande exempel för att inaktivera flödesloggar:
+Använd följande exempel för att inaktivera flödes loggar:
 
 ```azurecli
 az network watcher flow-log configure --resource-group resourceGroupName --enabled false --nsg nsgName
 ```
 
-## <a name="download-a-flow-log"></a>Ladda ned en Flow-log
+## <a name="download-a-flow-log"></a>Hämta en flödes logg
 
-Lagringsplatsen för en flow-log definieras när du skapar. Ett praktiskt verktyg för att komma åt dessa flödesloggar som sparats i ett lagringskonto är Microsoft Azure Storage Explorer, som kan hämtas här:  https://storageexplorer.com/
+Lagrings platsen för en flödes logg definieras när den skapas. Ett användbart verktyg för att komma åt dessa flödes loggar som sparas till ett lagrings konto är Microsoft Azure Storage Explorer, som kan hämtas här: https://storageexplorer.com/
 
-Om ett lagringskonto anges sparas flow loggfiler till ett lagringskonto på följande plats:
+Om ett lagrings konto har angetts sparas flödes logg filen på ett lagrings konto på följande plats:
 
 ```
 https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 ```
 
-Information om strukturen i loggen på [Network Security Group Flow log översikt](network-watcher-nsg-flow-logging-overview.md)
+> [!IMPORTANT]
+> För närvarande finns det ett problem där [nätverks säkerhets grupps flödes loggar (NSG)](network-watcher-nsg-flow-logging-overview.md) för Network Watcher inte automatiskt tas bort från Blob Storage utifrån inställningar för bevarande principer. Om du har en befintlig bevarande princip som inte är noll rekommenderar vi att du regelbundet tar bort de lagrings blobbar som håller på att kvarhållas för att undvika kostnader. Mer information om hur du tar bort NSG Flow logg Storage-bloggen finns i [ta bort NSG Flow logg Storage blobs](network-watcher-delete-nsg-flow-log-blobs.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du [visualisera din NSG-flödesloggar med Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
+Lär dig hur du [visualiserar dina NSG Flow-loggar med PowerBI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 
-Lär dig hur du [visualisera din NSG-flödesloggar med verktyg för öppen källkod](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
+Lär dig hur du [visualiserar dina NSG Flow-loggar med verktyg med öppen källkod](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)

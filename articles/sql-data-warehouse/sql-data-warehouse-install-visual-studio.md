@@ -12,12 +12,12 @@ ms.subservice: development
 ms.date: 08/15/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 65cbd6679c85e82eaa5fd28bb91d54b443cc891e
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 02caa7154ef9cb8419b533f0cb2d0fd57e86bf9f
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515476"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69563329"
 ---
 # <a name="getting-started-with-visual-studio-2019-for-sql-data-warehouse"></a>Komma igång med Visual Studio 2019 för SQL Data Warehouse
 Visual Studio **2019** SQL Server Data Tools (SSDT) är ett enda verktyg som gör att du kan göra följande:
@@ -33,7 +33,7 @@ Visual Studio **2019** SQL Server Data Tools (SSDT) är ett enda verktyg som gö
 > För närvarande är Visual Studio SSDT databas projekt i för hands version. Om du vill ta emot regelbundna uppdateringar av den här funktionen kan du rösta på [UserVoice].
 
 ## <a name="install-visual-studio-2019"></a>Installera Visual Studio 2019
-Använd följande länk för att ladda ned och installera Visual Studio: [Hämta Visual Studio 2019][]. Du måste välja data lagrings-och bearbetnings arbets belastning under installationen. Det krävs ingen mer fristående SSDT-installation i Visual Studio 2019.
+Se [Hämta Visual Studio 2019][] för att ladda ned och installera Visual Studio. Under installationen väljer du arbets belastningen lagring och bearbetning av data. Installation av fristående SSDT krävs inte längre i Visual Studio 2019.
 
 ## <a name="reporting-issues-with-ssdt-visual-studio-2019-preview"></a>Rapportera problem med SSDT Visual Studio 2019 (för hands version)
 
@@ -51,7 +51,7 @@ Nu när du har den senaste versionen av SSDT är du redo att [ansluta][connect] 
 [connect]: ./sql-data-warehouse-query-visual-studio.md
 
 <!--Other-->
-[Hämta Visual Studio 2019]: https://www.visualstudio.com/downloads/
+[Hämta Visual Studio 2019]: https://visualstudio.microsoft.com/vs/preview/
 [Installing Visual Studio]: https://msdn.microsoft.com/library/e2h7fzkw.aspx
 [SSDT Download]: https://msdn.microsoft.com/library/mt204009.aspx
 [UserVoice]: https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/13313247-database-project-from-visual-studio-to-support-azu

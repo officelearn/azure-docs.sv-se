@@ -8,16 +8,16 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: d9fc39edfad18c756c2816f9eb0b3774d8bf882c
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: a180e2ba6c1a610116271d5a9b6e3fdf562cecdf
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68812677"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69563192"
 ---
 # <a name="account-management-overview"></a>Översikt över konto hantering
 
-När du skapar din CloudSimple-tjänst skapas ett konto på CloudSimple.  Kontot är associerat med din Azure-prenumeration där tjänsten finns.  Alla användare med rollen **ägare** och **deltagare** i prenumerationen har åtkomst till CloudSimple-portalen.  Det ID för Azure-prenumeration och klient-ID som är associerat med CloudSimple-tjänsten finns på [konto sidan](https://docs.azure.cloudsimple.com/account/).
+När du skapar din CloudSimple-tjänst skapas ett konto på CloudSimple.  Kontot är associerat med din Azure-prenumeration där tjänsten finns.  Alla användare med rollen **ägare** och **deltagare** i prenumerationen har åtkomst till CloudSimple-portalen.  Det ID för Azure-prenumeration och klient-ID som är associerat med CloudSimple-tjänsten finns på [konto sidan](account.md).
 
 ## <a name="additional-alert-emails"></a>Ytterligare e-postaviseringar
 
@@ -36,5 +36,5 @@ Alla användare som har rollen **ägare** och **deltagare** i prenumerationen ha
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Visa konto Sammanfattning](https://docs.azure.cloudsimple.com/account/)
-* [Visa användar lista](https://docs.azure.cloudsimple.com/users/)
+* [Visa konto Sammanfattning](account.md)
+* [Visa användar lista](users.md)

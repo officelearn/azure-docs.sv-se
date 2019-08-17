@@ -14,12 +14,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 460ea15b0827ea307d64d1bd92d9bd14d5919d73
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 8dca94f0200f6bd41dfdc199b41bf69981a960da
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68704383"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69562709"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Event Hubs - geohaveriberedskap 
 
@@ -37,7 +37,7 @@ Funktionen Geo-disaster recovery i Azure Event Hubs är en lösning för haverib
 
 ## <a name="basic-concepts-and-terms"></a>Grundläggande begrepp och termer
 
-Funktionen disaster recovery implementerar metadata katastrofåterställning och förlitar sig på primära och sekundära disaster recovery-namnområden. Observera att Geo-disaster recovery-funktionen är tillgänglig för den [Standard-SKU](https://azure.microsoft.com/pricing/details/event-hubs/) endast. Du behöver inte göra några ändringar av anslutningen sträng, eftersom anslutningen görs via ett alias.
+Funktionen disaster recovery implementerar metadata katastrofåterställning och förlitar sig på primära och sekundära disaster recovery-namnområden. Observera att funktionen för geo-katastrof återställning endast är tillgänglig för [standard-och dedikerade SKU: er](https://azure.microsoft.com/pricing/details/event-hubs/) . Du behöver inte göra några ändringar av anslutningen sträng, eftersom anslutningen görs via ett alias.
 
 I den här artikeln används följande termer:
 

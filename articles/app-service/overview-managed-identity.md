@@ -9,20 +9,17 @@ ms.service: app-service
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 11/20/2018
+ms.date: 08/15/2019
 ms.author: mahender
 ms.reviewer: yevbronsh
-ms.openlocfilehash: 8bc30d50772dffddca32d9f6e22c3d7cec566c70
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: a2b8a4e496094c6275710328e70a09376ce0e5fc
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68297159"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69563022"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Använda hanterade identiteter för App Service och Azure Functions
-
-> [!NOTE] 
-> Stöd för hanterade identiteter för App Service på Linux och Web App for Containers är för närvarande en för hands version.
 
 > [!Important] 
 > Hanterade identiteter för App Service och Azure Functions fungerar inte som förväntat om din app migreras mellan prenumerationer/klienter. Appen måste skaffa en ny identitet, som du kan göra genom att inaktivera och aktivera funktionen på nytt. Se [ta bort en identitet](#remove) nedan. Underordnade resurser måste också ha åtkomst principer uppdaterade för att använda den nya identiteten.
@@ -30,8 +27,8 @@ ms.locfileid: "68297159"
 Det här avsnittet visar hur du skapar en hanterad identitet för App Service och Azure Functions program och hur du använder den för att få åtkomst till andra resurser. En hanterad identitet från Azure Active Directory gör att din app enkelt kan komma åt andra AAD-skyddade resurser som Azure Key Vault. Identiteten hanteras av Azure-plattformen och kräver inte att du etablerar eller roterar några hemligheter. Mer information om hanterade identiteter i AAD finns i [hanterade identiteter för Azure-resurser](../active-directory/managed-identities-azure-resources/overview.md).
 
 Ditt program kan beviljas två typer av identiteter: 
-- En **systemtilldelad identitet** är kopplad till ditt program och tas bort om din app tas bort. En app kan bara ha en tilldelad identitet. Systemtilldelad identitets support är allmänt tillgänglig för Windows-appar. 
-- En **användardefinierad identitet** är en fristående Azure-resurs som kan tilldelas till din app. En app kan ha flera användare tilldelade identiteter. User-Assigned Identity support är i för hands version för alla typer av appar.
+- En **systemtilldelad identitet** är kopplad till ditt program och tas bort om din app tas bort. En app kan bara ha en tilldelad identitet.
+- En **användardefinierad identitet** är en fristående Azure-resurs som kan tilldelas till din app. En app kan ha flera användare tilldelade identiteter.
 
 ## <a name="adding-a-system-assigned-identity"></a>Lägga till en tilldelad identitet
 
@@ -158,17 +155,11 @@ När platsen har skapats har den följande ytterligare egenskaper:
 Där `<TENANTID>` och`<PRINCIPALID>` ersätts med GUID. Egenskapen tenantId identifierar vilken AAD-klient identiteten tillhör. PrincipalId är en unik identifierare för programmets nya identitet. I AAD har tjänstens huvud namn samma namn som du gav App Service-eller Azure Functions-instansen.
 
 
-## <a name="adding-a-user-assigned-identity-preview"></a>Lägga till en användardefinierad identitet (förhands granskning)
-
-> [!NOTE] 
-> Användarspecifika identiteter är för närvarande en för hands version. Suveräna moln stöds inte ännu.
+## <a name="adding-a-user-assigned-identity"></a>Lägga till en användardefinierad identitet
 
 Om du skapar en app med en användardefinierad identitet måste du skapa identiteten och sedan lägga till dess resurs-ID i appens konfiguration.
 
 ### <a name="using-the-azure-portal"></a>Använda Azure Portal
-
-> [!NOTE] 
-> Den här Portal upplevelsen distribueras och är kanske ännu inte tillgänglig i alla regioner.
 
 Först måste du skapa en användardefinierad identitets resurs.
 
@@ -180,7 +171,7 @@ Först måste du skapa en användardefinierad identitets resurs.
 
 4. Välj **hanterad identitet**.
 
-5. Klicka på **Lägg till**i fliken **användare tilldelad (för hands version)** .
+5. Klicka på **Lägg till**i fliken **tilldelade användare** .
 
 6. Sök efter den identitet som du skapade tidigare och markera den. Klicka på **Lägg till**.
 
@@ -388,6 +379,25 @@ const getToken = function(resource, apiver, cb) {
     rp(options)
         .then(cb);
 }
+```
+
+<a name="token-python"></a>I python:
+
+```python
+import os
+import requests
+
+msi_endpoint = os.environ["MSI_ENDPOINT"]
+msi_secret = os.environ["MSI_SECRET"]
+
+def get_bearer_token(resource_uri, token_api_version):
+    token_auth_uri = f"{msi_endpoint}?resource={resource_uri}&api-version={token_api_version}"
+    head_msi = {'Secret':msi_secret}
+
+    resp = requests.get(token_auth_uri, headers=head_msi)
+    access_token = resp.json()['access_token']
+
+    return access_token
 ```
 
 <a name="token-powershell"></a>I PowerShell:

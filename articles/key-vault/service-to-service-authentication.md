@@ -9,12 +9,12 @@ ms.author: mbaldwin
 ms.date: 07/06/2019
 ms.topic: conceptual
 ms.service: key-vault
-ms.openlocfilehash: f6a95f56b7b617b42c1cec9f64aae73b88b813da
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 30c99ae4150e0bd4645488b5bf75b8bbac0ee66f
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934343"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69562456"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Tjänst-till-tjänst-autentisering för Azure Key Vault med .NET
 
@@ -132,7 +132,7 @@ Detta gäller endast för lokal utveckling. När din lösning distribueras till 
 
 ## <a name="running-the-application-using-managed-identity-or-user-assigned-identity"></a>Köra programmet med hanterad identitet eller användare tilldelad identitet 
 
-När du kör din kod på en Azure App Service eller en virtuell Azure-dator med en hanterad identitet aktive rad använder biblioteket automatiskt den hanterade identiteten. 
+När du kör din kod på en Azure App Service eller en virtuell Azure-dator med en hanterad identitet aktive rad använder biblioteket automatiskt den hanterade identiteten. Inga kod ändringar krävs, men den hanterade identiteten måste ha *Get* -behörighet för nyckel valvet. Du kan ge den hanterade identiteten behörigheten *Hämta* via nyckel valvets *åtkomst principer*.
 
 Alternativt kan du autentisera med en användardefinierad identitet. Mer information om användarspecifika identiteter finns i [om hanterade identiteter för Azure-resurser](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work). Om du vill autentisera med en tilldelad identitet måste du ange klient-ID: t för den användare som tilldelats identiteten i anslutnings strängen. Anslutnings strängen anges i avsnittet stöd för [anslutnings strängen](#connection-string-support) nedan.
 

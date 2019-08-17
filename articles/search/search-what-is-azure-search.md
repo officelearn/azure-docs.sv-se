@@ -8,16 +8,16 @@ ms.service: search
 ms.topic: overview
 ms.date: 08/13/2019
 ms.author: heidist
-ms.openlocfilehash: 0a254716acbcd51263680d421045788e8365ae8b
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
-ms.translationtype: HT
+ms.openlocfilehash: 1f3e4d69d3fdba8eba2e7d3cadc3c29703bffcaf
+ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/16/2019
-ms.locfileid: "69533167"
+ms.locfileid: "69558606"
 ---
 # <a name="what-is-azure-search"></a>Vad är Azure Search?
 
-Azure Search är en molnlösning för sökning som en tjänst 0som ger utvecklare API:er och verktyg för att lägga till omfattande sökfunktioner för privat heterogent innehåll i webb-, mobil- och företagsprogram. Din anpassade kod anropar data inmatningen (indexering), utfärdar fråge förfrågningar och hanterar svar. Sök funktionen definieras i klient koden med hjälp av funktionen från Azure Search, med frågekörningen över ett beständigt index som du skapar, äger och lagrar på Azure Search.
+Azure Search är en moln lösning för sökning som en tjänst som tillhandahåller utvecklares API: er och verktyg för att lägga till en omfattande Sök upplevelse över privat, heterogent innehåll i webb-, mobil-och företags program. Din anpassade kod anropar data inmatningen (indexering), utfärdar fråge förfrågningar och hanterar svar. Sök funktionen definieras i klient koden med hjälp av funktionen från Azure Search, med frågekörningen över ett beständigt index som du skapar, äger och lagrar på Azure Search.
 
 ![Azure Search arkitektur](media/search-what-is-azure-search/azure-search-diagram.svg "Azure Search arkitektur")
 

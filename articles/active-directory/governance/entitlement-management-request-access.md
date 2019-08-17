@@ -16,12 +16,12 @@ ms.date: 04/19/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64a81a871d811c68f5e92822ca88446966be4d5c
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 7b5be74b0734a27b02030e2c6995b43ef0c02162
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68678118"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69562171"
 ---
 # <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management-preview"></a>Begär åtkomst till ett Access-paket i Azure AD-hantering av rättigheter (för hands version)
 
@@ -29,6 +29,10 @@ ms.locfileid: "68678118"
 > Azure Active Directory (Azure AD) rättighets hantering är för närvarande en offentlig för hands version.
 > Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade.
 > Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Med hantering av Azure AD-behörighet kan du använda åtkomst paket för att konfigurera resurser och principer som automatiskt administrerar åtkomst för åtkomst paketets livs längd. 
+
+En Access Package Manager kan konfigurera principer för att kräva att användare får åtkomst till paket. En användare som behöver åtkomst till ett Access-paket kan skicka en begäran om att få åtkomst. Den här artikeln beskriver hur du skickar en åtkomstbegäran.
 
 ## <a name="sign-in-to-the-my-access-portal"></a>Logga in på portalen för åtkomst
 

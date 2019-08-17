@@ -10,12 +10,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: cotresne
-ms.openlocfilehash: 7f931a72eab534bc2856e9e545b684d2b8ae7a60
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 88b6fbbd68f1f98e50ec0f04336a022dc1580a73
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68444030"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69562917"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Distributions tekniker i Azure Functions
 
@@ -31,13 +31,13 @@ Azure Functions stöder lokal utveckling på över plattformar och är värd fö
 
 Varje plan har olika beteenden. Alla distributions tekniker är inte tillgängliga för varje smak av Azure Functions. Följande diagram visar vilka distributions tekniker som stöds för varje kombination av operativ system och värd plan:
 
-| Distributions teknik | Windows-förbrukning | Windows Premium (för hands version) | Windows-dedikerad  | Linux-förbrukning (för hands version) | Linux-dedikerad |
+| Distributions teknik | Windows-förbrukning | Windows Premium (för hands version) | Windows-dedikerad  | Linux-förbrukning | Linux-dedikerad |
 |-----------------------|:-------------------:|:-------------------------:|:-----------------:|:---------------------------:|:---------------:|
 | URL för externt paket<sup>1</sup> |✔|✔|✔|✔|✔|
 | Zip-distribution |✔|✔|✔| |✔|
 | Dockercontainer | | | | |✔|
 | Webb distribution |✔|✔|✔| | |
-| Käll kontroll |✔|✔|✔| |✔|
+| Källkontroll |✔|✔|✔| |✔|
 | Lokal git<sup>1</sup> |✔|✔|✔| |✔|
 | Molnbaserad synkronisering<sup>1</sup> |✔|✔|✔| |✔|
 | FTP<sup>1</sup> |✔|✔|✔| |✔|
@@ -70,7 +70,7 @@ Du kan använda en extern paket-URL för att referera till en fjärrfil-fil (zip
 >
 >Om du använder Azure Blob Storage använder du en privat behållare med en [signatur för delad åtkomst (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) för att ge funktioner åtkomst till paketet. När programmet startas om, hämtas en kopia av innehållet. Din referens måste vara giltig för programmets livs längd.
 
->__När du ska använda den:__ URL för externt paket är den enda distributions metod som stöds för Azure Functions som körs på Linux i förbruknings planen (för hands version). När du uppdaterar paket filen som en Function-app refererar till måste du [manuellt synkronisera](#trigger-syncing) utlösare för att meddela Azure att ditt program har ändrats.
+>__När du ska använda den:__ URL för externt paket är den enda distributions metod som stöds för Azure Functions som körs på Linux i förbruknings planen. När du uppdaterar paket filen som en Function-app refererar till måste du [manuellt synkronisera](#trigger-syncing) utlösare för att meddela Azure att ditt program har ändrats.
 
 ### <a name="zip-deploy"></a>Zip-distribution
 
@@ -105,7 +105,7 @@ Webb distributions paket och distribuerar dina Windows-program till alla IIS-ser
 
 >__När du ska använda den:__ Webb distribution stöds och har inga problem, men den rekommenderade mekanismen är [zip-distribution med kör från-paketet aktiverat](#zip-deploy). Mer information finns i [utvecklings guiden för Visual Studio](functions-develop-vs.md#publish-to-azure).
 
-### <a name="source-control"></a>Käll kontroll
+### <a name="source-control"></a>Källkontroll
 
 Använd käll kontroll för att ansluta din Function-app till en git-lagringsplats. En uppdatering av kod i den här databasen utlöser distributionen. Mer information finns i wiki- [kudu](https://github.com/projectkudu/kudu/wiki/VSTS-vs-Kudu-deployments).
 
@@ -151,7 +151,7 @@ I det portalbaserade redigerings programmet kan du redigera filerna som finns i 
 
 I följande tabell visas de operativ system och språk som stöder Portal redigering:
 
-| | Windows-förbrukning | Windows Premium (för hands version) | Windows-dedikerad | Linux-förbrukning (för hands version) | Linux Premium (för hands version)| Linux-dedikerad |
+| | Windows-förbrukning | Windows Premium (för hands version) | Windows-dedikerad | Linux-förbrukning | Linux Premium (för hands version)| Linux-dedikerad |
 |-|:-----------------: |:-------------------------:|:-----------------:|:---------------------------:|:---------------:|:---------------:|
 | C# | | | | | |
 | C#Över |✔|✔|✔| |✔<sup>\*</sup> |✔<sup>\*</sup>|

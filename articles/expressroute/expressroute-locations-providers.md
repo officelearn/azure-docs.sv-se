@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2019
 ms.author: cherylmc
-ms.openlocfilehash: ae397c077ac87618b646883f9125c9da2df81bfd
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: cce14a2f6e7f8aeca6c7f716d66520cef9484dde
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036576"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69562632"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute-partners och peeringplatser
 
@@ -188,7 +188,7 @@ Om inte din anslutningsleverantör finns med i föregående avsnitt, kan du fort
 ## <a name="c1partners"></a>Anslutning via ytterligare leverantörer
 | **Location** | **Exchange** | **Anslutningsproviders** |
 | --- | --- | --- |
-| **Amsterdam** | Equinix, Interxion, nivå 3-kommunikation, stad | BICS, CloudXpress, euro fiber, Fastweb S. p. A, Mellanöstern, Kalaam Telecom Bahrain B. S. C, MainOne, Nianet, post, Proximus, TDC Erhverv, Telecom Italia gnistrande, telekom Deutschland GmbH, Telia |
+| **Amsterdam** | Equinix, Interxion, nivå 3-kommunikation, stad | BICS, CloudXpress, euro fiber, Fastweb S. p. A, Mellanöstern Bridge International, Kalaam Telecom Bahrain B. S. C, MainOne, Nianet, POST telekom Luxembourg, Proximus, TDC Erhverv, telekom Italia gnistrande, telekom Deutschland GmbH, Telia |
 | **Atlanta** | Equinix| Kron Castle
 | **Kapstaden** | Teraco | MTN |
 | **Chicago** | Equinix| Kron Castle, spektrum Enterprise, windstream |

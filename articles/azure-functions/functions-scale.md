@@ -13,12 +13,12 @@ ms.topic: reference
 ms.date: 03/27/2019
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 94ef85836ef524b34cd1c51e4eda83695bc70507
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 348cd0eccc66adb29a7564bbbeca99fffec28957
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68443939"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69562861"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions skala och vara värd
 
@@ -51,7 +51,7 @@ Följande tabell visar den aktuella support nivån för de tre värd planerna, n
 | | Förbrukningsplan | Premiumplan | Dedikerad plan |
 |-|:----------------:|:------------:|:----------------:|
 | Windows | Allmän tillgänglighet (GA) | förhandsversion | Allmän tillgänglighet (GA) |
-| Linux | förhandsversion | förhandsversion | Allmän tillgänglighet (GA) |
+| Linux | Allmän tillgänglighet (GA) | förhandsversion | Allmän tillgänglighet (GA) |
 
 ## <a name="consumption-plan"></a>Förbrukningsplan
 
@@ -149,7 +149,7 @@ Funktions kod filen lagras på Azure Files resurser på funktionens huvud lagrin
 
 ### <a name="runtime-scaling"></a>Körnings skalning
 
-Azure Functions använder en komponent som kallas  för skalnings styrenheten för att övervaka händelse frekvensen och bestämma om du vill skala ut eller skala in. Skalnings styrenheten använder heuristik för varje utlösnings typ. Om du till exempel använder en Azure Queue Storage-utlösare, skalas den baserat på köns längd och ålder för det äldsta Queue meddelandet.
+Azure Functions använder en komponent som kallas för skalnings styrenheten för att övervaka händelse frekvensen och bestämma om du vill skala ut eller skala in. Skalnings styrenheten använder heuristik för varje utlösnings typ. Om du till exempel använder en Azure Queue Storage-utlösare, skalas den baserat på köns längd och ålder för det äldsta Queue meddelandet.
 
 Skalnings enheten för Azure Functions är Function-appen. När funktions programmet skalas ut allokeras ytterligare resurser för att köra flera instanser av den Azure Functions värden. I takt med att Compute demand minskas, tar skalnings kontrollen bort funktions värd instanser. Antalet instanser skalas slutligen ned till noll när inga funktioner körs i en Function-app.
 

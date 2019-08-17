@@ -1,11 +1,11 @@
 ---
-title: Automatisera resursdistribution för en funktionsapp i Azure Functions | Microsoft Docs
-description: Lär dig hur du skapar en Azure Resource Manager-mall som distribuerar din funktionsapp.
+title: Automatisera resurs distributionen för en Function-app i Azure Functions | Microsoft Docs
+description: Lär dig hur du skapar en Azure Resource Manager mall som distribuerar din Function-app.
 services: Functions
 documtationcenter: na
 author: ggailey777
 manager: jeconnoc
-keywords: Azure functions, funktioner, serverlös arkitektur, infrastruktur som kod, azure resource manager
+keywords: Azure Functions, functions, arkitektur utan server, infrastruktur som kod, Azure Resource Manager
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.service: azure-functions
 ms.server: functions
@@ -13,46 +13,46 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: glenga
-ms.openlocfilehash: 283487eeb0f1f85940da4db8c932602e1b45efd3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f84bc92f51f8d6d7700cb15accb4b1282c97a37b
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64695809"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69562898"
 ---
-# <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatisera resursdistribution för din funktionsapp i Azure Functions
+# <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatisera resurs distributionen för din Function-app i Azure Functions
 
-Du kan använda en Azure Resource Manager-mall för att distribuera en funktionsapp. Den här artikeln beskriver de resurser som krävs och parametrar för att göra det. Du kan behöva distribuera ytterligare resurser, beroende på den [utlösare och bindningar](functions-triggers-bindings.md) i din funktionsapp.
+Du kan använda en Azure Resource Manager-mall för att distribuera en Function-app. Den här artikeln beskriver de resurser och parametrar som krävs för att göra detta. Du kan behöva distribuera ytterligare resurser, beroende på utlösare [och bindningar](functions-triggers-bindings.md) i din Function-app.
 
-Mer information om hur du skapar mallar finns i [redigera Azure Resource Manager-mallar](../azure-resource-manager/resource-group-authoring-templates.md).
+Mer information om hur du skapar mallar finns i [redigera Azure Resource Manager mallar](../azure-resource-manager/resource-group-authoring-templates.md).
 
-Exempelmallar finns här:
-- [Funktionsappen i förbrukningsplan]
-- [Funktionsappen i Azure App Service-plan]
+Exempel på mallar finns i:
+- [Function app i förbruknings plan]
+- [Function-app på Azure App Service plan]
 
 > [!NOTE]
-> Premium-plan för som är värd för Azure Functions är för närvarande i förhandsversion. Mer information finns i [premiumplan för Azure Functions](functions-premium-plan.md).
+> Premium-planen för Azure Functions värd är för närvarande en för hands version. Mer information finns i [Azure Functions Premium-plan](functions-premium-plan.md).
 
-## <a name="required-resources"></a>Resurser som krävs
+## <a name="required-resources"></a>Nödvändiga resurser
 
-En Azure Functions-distribution består vanligtvis av dessa resurser:
+En Azure Functions distribution består vanligt vis av följande resurser:
 
-| Resource                                                                           | Krav | Referens för syntax och egenskaper                                                         |   |
+| Resource                                                                           | Krav | Syntax och egenskaper-referens                                                         |   |
 |------------------------------------------------------------------------------------|-------------|-----------------------------------------------------------------------------------------|---|
-| En funktionsapp                                                                     | Obligatoriskt    | [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)                             |   |
-| En [Azure Storage](../storage/index.yml) konto                                   | Obligatoriskt    | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |   |
-| En [Application Insights](../azure-monitor/app/app-insights-overview.md) komponent | Valfri    | [Microsoft.Insights/components](/azure/templates/microsoft.insights/components)         |   |
-| En [värdplan](./functions-scale.md)                                             | Valfritt<sup>1</sup>    | [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms)                 |   |
+| En Function-app                                                                     | Obligatorisk    | [Microsoft. Web/Sites](/azure/templates/microsoft.web/sites)                             |   |
+| Ett [Azure Storage](../storage/index.yml) konto                                   | Obligatorisk    | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |   |
+| En [Application Insights](../azure-monitor/app/app-insights-overview.md) -komponent | Valfritt    | [Microsoft. Insights/komponenter](/azure/templates/microsoft.insights/components)         |   |
+| En [värd plan](./functions-scale.md)                                             | Valfria<sup>1</sup>    | [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms)                 |   |
 
-<sup>1</sup>en värdplan är endast krävs när du väljer att köra funktionsappen en [premiumprenumerationen](./functions-premium-plan.md) (i förhandsversion) eller på en [App Service-plan](../app-service/overview-hosting-plans.md).
+<sup>1</sup> En värd plan krävs bara när du väljer att köra din Function-app på en [Premium-plan](./functions-premium-plan.md) (i för hands version) eller på en [App Service plan](../app-service/overview-hosting-plans.md).
 
 > [!TIP]
-> Du måste inte, rekommenderar vi starkt att du konfigurerar Application Insights för din app.
+> Även om det inte krävs rekommenderar vi att du konfigurerar Application Insights för din app.
 
 <a name="storage"></a>
 ### <a name="storage-account"></a>Lagringskonto
 
-Ett Azure storage-konto krävs för en funktionsapp. Du behöver ett konto för generell användning som har stöd för blobbar, tabeller, köer och filer. Mer information finns i [krav för Azure Functions lagringskonto](functions-create-function-app-portal.md#storage-account-requirements).
+Ett Azure Storage-konto krävs för en Function-app. Du behöver ett allmänt syftes konto som stöder blobbar, tabeller, köer och filer. Mer information finns i [Azure Functions lagrings konto krav](functions-create-function-app-portal.md#storage-account-requirements).
 
 ```json
 {
@@ -67,11 +67,11 @@ Ett Azure storage-konto krävs för en funktionsapp. Du behöver ett konto för 
 }
 ```
 
-Dessutom egenskapen `AzureWebJobsStorage` måste anges som en appinställning i konfigurationen. Om funktionsappen inte använder Application Insights för övervakning, det bör också ange `AzureWebJobsDashboard` som en appinställning.
+Dessutom måste egenskapen `AzureWebJobsStorage` anges som en app-inställning i plats konfigurationen. Om Function-appen inte använder Application Insights för övervakning bör den också anges `AzureWebJobsDashboard` som en app-inställning.
 
-Azure Functions-runtime använder den `AzureWebJobsStorage` anslutningssträngen för att skapa interna köer.  När Application Insights inte är aktiverad, körningen använder den `AzureWebJobsDashboard` anslutningssträngen för att logga i Azure Table storage och power den **övervakaren** i portalen.
+Azure Functions runtime använder `AzureWebJobsStorage` anslutnings strängen för att skapa interna köer.  När Application Insights inte är aktive rad använder `AzureWebJobsDashboard` körningen anslutnings strängen för att logga in på Azure Table Storage och Power The **Monitor** -fliken i portalen.
 
-Dessa egenskaper anges i den `appSettings` samling i den `siteConfig` objekt:
+Dessa egenskaper anges i `appSettings` samlingen `siteConfig` i objektet:
 
 ```json
 "appSettings": [
@@ -88,7 +88,7 @@ Dessa egenskaper anges i den `appSettings` samling i den `siteConfig` objekt:
 
 ### <a name="application-insights"></a>Application Insights
 
-Application Insights rekommenderas för att övervaka dina funktionsappar. Application Insights-resursen har definierats med typen **Microsoft.Insights/components** och vilken typ **web**:
+Application Insights rekommenderas för övervakning av dina funktions appar. Application Insights resursen definieras med typen **Microsoft. Insights/komponenter** och typen **webb**:
 
 ```json
         {
@@ -107,7 +107,7 @@ Application Insights rekommenderas för att övervaka dina funktionsappar. Appli
         },
 ```
 
-Dessutom instrumenteringsnyckeln måste anges i funktionen app med hjälp av den `APPINSIGHTS_INSTRUMENTATIONKEY` programinställningen. Den här egenskapen har angetts i den `appSettings` samling i den `siteConfig` objekt:
+Dessutom måste instrument ställnings nyckeln tillhandahållas till Function-appen med hjälp av `APPINSIGHTS_INSTRUMENTATIONKEY` program inställningen. Den här egenskapen anges i `appSettings` samlingen `siteConfig` i objektet:
 
 ```json
 "appSettings": [
@@ -118,16 +118,16 @@ Dessutom instrumenteringsnyckeln måste anges i funktionen app med hjälp av den
 ]
 ```
 
-### <a name="hosting-plan"></a>Värdplan
+### <a name="hosting-plan"></a>Värd plan
 
-Definitionen av värdplanen varierar och kan vara något av följande:
-* [Förbrukningsplan](#consumption) (standard)
-* [Premiumprenumerationen](#premium) (i förhandsversion)
+Definitionen av värd planen varierar och kan vara något av följande:
+* [Förbruknings plan](#consumption) objekt
+* [Premium-plan](#premium) (för hands version)
 * [App Service-plan](#app-service-plan)
 
 ### <a name="function-app"></a>Funktionsapp
 
-Funktionen app-resursen definieras med hjälp av en resurs av typen **Microsoft.Web/sites** och typ **functionapp**:
+Function app-resursen definieras genom att använda en resurs av typen **Microsoft. Web/Sites** och Natura **functionapp**:
 
 ```json
 {
@@ -143,18 +143,18 @@ Funktionen app-resursen definieras med hjälp av en resurs av typen **Microsoft.
 ```
 
 > [!IMPORTANT]
-> Om du explicit definierar en värdplan, behövs ytterligare ett objekt i matrisen dependsOn: `"[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]"`
+> Om du uttryckligen definierar en värd plan behövs ytterligare ett objekt i dependsOn-matrisen:`"[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]"`
 
-En funktionsapp måste innehålla dessa programinställningar:
+En Function-app måste innehålla följande program inställningar:
 
 | Inställningsnamn                 | Beskrivning                                                                               | Exempelvärden                        |
 |------------------------------|-------------------------------------------------------------------------------------------|---------------------------------------|
-| AzureWebJobsStorage          | En anslutningssträng för ett storage-konto som Functions-körningstiden för interna jobbköer | Se [Storage-konto](#storage)       |
-| FUNCTIONS_EXTENSION_VERSION  | Versionen av Azure Functions-körningen                                                | `~2`                                  |
-| FUNCTIONS_WORKER_RUNTIME     | Språk-stack som ska användas för funktioner i den här appen                                   | `dotnet`, `node`, `java`, eller `python` |
-| WEBSITE_NODE_DEFAULT_VERSION | Behövs bara om du använder den `node` språk stack, anger versionen som ska användas              | `10.14.1`                             |
+| AzureWebJobsStorage          | En anslutnings sträng till ett lagrings konto som Functions runtime för intern kö | Se [lagrings konto](#storage)       |
+| FUNCTIONS_EXTENSION_VERSION  | Versionen av Azure Functions runtime                                                | `~2`                                  |
+| FUNCTIONS_WORKER_RUNTIME     | Språk stacken som ska användas för funktioner i den här appen                                   | `dotnet`, `node`, `java`eller`python` |
+| WEBSITE_NODE_DEFAULT_VERSION | Krävs endast om du använder `node` språk stacken, anger vilken version som ska användas              | `10.14.1`                             |
 
-Dessa egenskaper anges i den `appSettings` samling i den `siteConfig` egenskapen:
+Dessa egenskaper anges i `appSettings` samlingen `siteConfig` i egenskapen:
 
 ```json
 "properties": {
@@ -183,17 +183,17 @@ Dessa egenskaper anges i den `appSettings` samling i den `siteConfig` egenskapen
 
 <a name="consumption"></a>
 
-## <a name="deploy-on-consumption-plan"></a>Distribuera i förbrukningsplan
+## <a name="deploy-on-consumption-plan"></a>Distribuera förbruknings plan
 
-Med förbrukningsplanen beräkningskraften automatiskt när koden körs, skalas ut efter behov för att hantera belastningen och sedan skalas när koden inte körs. Du behöver betala för virtuella datorer och du behöver inte reserverad kapacitet i förväg. Mer information finns i [Azure Functions skalning och värdtjänster](functions-scale.md#consumption-plan).
+Förbruknings planen allokerar automatiskt beräknings kraft när koden körs, skalar vid behov för att hantera belastningen och skalar sedan ned när koden inte körs. Du behöver inte betala för inaktiva virtuella datorer och du behöver inte reservera kapacitet i förväg. Läs mer i [Azure Functions skala och vara värd](functions-scale.md#consumption-plan).
 
-En exempelmall av Azure Resource Manager finns i [funktionsappen i förbrukningsplan].
+Ett exempel på en Azure Resource Manager mall finns i [Function app i förbruknings plan].
 
-### <a name="create-a-consumption-plan"></a>Skapa en förbrukningsplan
+### <a name="create-a-consumption-plan"></a>Skapa en förbruknings plan
 
-En förbrukningsplan behöver inte definieras. En kommer automatiskt skapade eller markerat på basis av per region när du skapar själva resursen för app funktion.
+En förbruknings plan behöver inte definieras. Den ena skapas eller väljs automatiskt baserat på varje region när du skapar själva Function-appens resurs.
 
-Med förbrukningsplanen är en särskild typ av resurs ”serverklustret”. För Windows, kan du ange det med hjälp av den `Dynamic` värde för den `computeMode` och `sku` egenskaper:
+Förbruknings planen är en särskild typ av "Server klustret"-resurs. För Windows kan du ange det med hjälp `Dynamic` av värdet `computeMode` för egenskaperna och `sku` :
 
 ```json
 {
@@ -210,15 +210,15 @@ Med förbrukningsplanen är en särskild typ av resurs ”serverklustret”. Fö
 ```
 
 > [!NOTE]
-> Med förbrukningsplanen kan inte definieras uttryckligen för Linux. Det kommer att skapas automatiskt.
+> Förbruknings planen kan inte uttryckligen definieras för Linux. Den kommer att skapas automatiskt.
 
-Om du explicit definierar din förbrukningsplan, behöver du ange den `serverFarmId` egenskapen på appen så att den pekar på resurs-ID för planen. Du bör kontrollera att funktionsappen har en `dependsOn` för planen samt.
+Om du uttryckligen definierar förbruknings planen måste du ange `serverFarmId` egenskapen för appen så att den pekar på planens resurs-ID. Du bör se till att Function-appen också `dependsOn` har en inställning för planen.
 
 ### <a name="create-a-function-app"></a>Skapa en funktionsapp
 
 #### <a name="windows"></a>Windows
 
-På Windows, en förbrukningsplan kräver två ytterligare inställningar i plats-konfiguration: `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` och `WEBSITE_CONTENTSHARE`. De här egenskaperna konfigurera storage-konto och sökvägen där funktionskod och konfiguration lagras.
+I Windows kräver en förbruknings plan två ytterligare inställningar i plats konfigurationen: `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` och. `WEBSITE_CONTENTSHARE` Dessa egenskaper konfigurerar lagrings kontot och fil Sök vägen där funktionens kod och konfiguration lagras.
 
 ```json
 {
@@ -265,7 +265,7 @@ På Windows, en förbrukningsplan kräver två ytterligare inställningar i plat
 
 #### <a name="linux"></a>Linux
 
-På Linux, funktionsappen måste ha sin `kind` inställd `functionapp,linux`, och måste ha den `reserved` egenskapen `true`:
+I Linux måste `kind` Function-appen ha inställningen inställd på `functionapp,linux`, `reserved` och den måste ha egenskapen inställd på `true`:
 
 ```json
 {
@@ -307,13 +307,13 @@ På Linux, funktionsappen måste ha sin `kind` inställd `functionapp,linux`, oc
 
 <a name="premium"></a>
 
-## <a name="deploy-on-premium-plan"></a>Distribuera på Premium-abonnemang
+## <a name="deploy-on-premium-plan"></a>Distribuera i Premium-plan
 
-Premiumprenumerationen erbjuder samma skalning som förbrukningsplanen men innehåller dedikerade resurser och fler funktioner. Mer information finns i [Azure Functions Premium Plan (förhandsversion)](./functions-premium-plan.md).
+Premium-planen ger samma skalning som förbruknings planen men innehåller dedikerade resurser och ytterligare funktioner. Läs mer i [Azure Functions Premium plan (för hands version)](./functions-premium-plan.md).
 
-### <a name="create-a-premium-plan"></a>Skapa en premiumplan
+### <a name="create-a-premium-plan"></a>Skapa en Premium-plan
 
-En premiumplan är en särskild typ av resurs ”serverklustret”. Du kan ange det genom att använda antingen `EP1`, `EP2`, eller `EP3` för den `sku` egenskapsvärdet.
+En Premium-plan är en särskild typ av "Server klustret"-resurs. Du kan ange det genom att antingen `EP1`använda `EP2`, eller `EP3` för `sku` egenskap svärdet.
 
 ```json
 {
@@ -330,7 +330,7 @@ En premiumplan är en särskild typ av resurs ”serverklustret”. Du kan ange 
 
 ### <a name="create-a-function-app"></a>Skapa en funktionsapp
 
-En funktionsapp på en premiumplan måste ha den `serverFarmId` -egenskapen angetts till resurs-ID för den plan som skapades tidigare. Dessutom kan en premiumplan kräver två ytterligare inställningar i plats-konfiguration: `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` och `WEBSITE_CONTENTSHARE`. De här egenskaperna konfigurera storage-konto och sökvägen där funktionskod och konfiguration lagras.
+En Function-app i en Premium-plan måste `serverFarmId` ha egenskapen inställd på resurs-ID för den plan som skapades tidigare. Dessutom kräver en Premium-prenumeration två ytterligare inställningar i plats konfigurationen: `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` och. `WEBSITE_CONTENTSHARE` Dessa egenskaper konfigurerar lagrings kontot och fil Sök vägen där funktionens kod och konfiguration lagras.
 
 ```json
 {
@@ -380,15 +380,15 @@ En funktionsapp på en premiumplan måste ha den `serverFarmId` -egenskapen ange
 
 <a name="app-service-plan"></a> 
 
-## <a name="deploy-on-app-service-plan"></a>Distribuera på App Service-plan
+## <a name="deploy-on-app-service-plan"></a>Distribuera på App Service plan
 
-Din funktionsapp körs på dedikerade virtuella datorer på Basic, Standard och Premium-SKU: er, liknande till web apps i App Service-plan. Mer information om hur App Service-planen fungerar finns i den [Azure App Service-planer djupgående översikt över](../app-service/overview-hosting-plans.md).
+I App Service plan körs Function-appen på dedikerade virtuella datorer på SKU: er för Basic, standard och Premium, som liknar webbappar. Mer information om hur App Service plan fungerar finns [i Översikt över Azure App Service planer](../app-service/overview-hosting-plans.md).
 
-En exempelmall av Azure Resource Manager finns i [funktionsappen i Azure App Service-plan].
+Ett exempel på en Azure Resource Manager mall finns i [Function-app på Azure App Service plan].
 
 ### <a name="create-an-app-service-plan"></a>Skapa en App Service-plan
 
-En App Service plan definieras av en ”serverklustret”-resurs.
+En App Service plan definieras av en "Server klustret"-resurs.
 
 ```json
 {
@@ -406,7 +406,7 @@ En App Service plan definieras av en ”serverklustret”-resurs.
 }
 ```
 
-Om du vill köra din app på Linux, måste du också ange den `kind` till `Linux`:
+Om du vill köra din app på Linux måste du också ställa `kind` in `Linux`på:
 
 ```json
 {
@@ -427,7 +427,7 @@ Om du vill köra din app på Linux, måste du också ange den `kind` till `Linux
 
 ### <a name="create-a-function-app"></a>Skapa en funktionsapp 
 
-En funktionsapp i en App Service-plan måste ha den `serverFarmId` -egenskapen angetts till resurs-ID för den plan som skapades tidigare.
+En Function-app på en app service plan måste ha `serverFarmId` egenskapen inställd på resurs-ID för den plan som skapades tidigare.
 
 ```json
 {
@@ -466,11 +466,11 @@ En funktionsapp i en App Service-plan måste ha den `serverFarmId` -egenskapen a
 }
 ```
 
-Linux-appar bör också innehålla en `linuxFxVersion` egenskapen under `siteConfig`. Om du bara distribuerar kod, avgörs värde för den här av din önskade körningsstack:
+Linux-appar bör också innehålla `linuxFxVersion` en egenskap `siteConfig`under. Om du bara distribuerar kod bestäms värdet för detta av den önskade körnings stacken:
 
 | Stack            | Exempelvärde                                         |
 |------------------|-------------------------------------------------------|
-| Python (förhandsversion) | `DOCKER|microsoft/azure-functions-python3.6:2.0`      |
+| Python           | `DOCKER|microsoft/azure-functions-python3.6:2.0`      |
 | JavaScript       | `DOCKER|microsoft/azure-functions-node8:2.0`          |
 | .NET             | `DOCKER|microsoft/azure-functions-dotnet-core2.0:2.0` |
 
@@ -512,7 +512,7 @@ Linux-appar bör också innehålla en `linuxFxVersion` egenskapen under `siteCon
 }
 ```
 
-Om du är [distribuera en anpassad behållaravbildning](./functions-create-function-linux-custom-image.md), måste du ange den med `linuxFxVersion` och inkluderar konfiguration som gör att din avbildning som ska hämtas i [Web App for Containers](/azure/app-service/containers). Ange dessutom `WEBSITES_ENABLE_APP_SERVICE_STORAGE` till `false`, eftersom ditt appinnehåll tillhandahålls i själva behållaren:
+Om du [distribuerar en anpassad behållar avbildning](./functions-create-function-linux-custom-image.md)måste du ange den med `linuxFxVersion` och inkludera konfiguration som gör att avbildningen kan hämtas, som i [Web App for containers](/azure/app-service/containers). Ställ även in `WEBSITES_ENABLE_APP_SERVICE_STORAGE` på `false`, eftersom ditt appdata finns i själva behållaren:
 
 ```json
 {
@@ -570,10 +570,10 @@ Om du är [distribuera en anpassad behållaravbildning](./functions-create-funct
 
 ## <a name="customizing-a-deployment"></a>Anpassa en distribution
 
-En funktionsapp har många underordnade resurser som du kan använda i din distribution, inklusive inställningar och alternativ. Kanske du vill ta bort den **sourcecontrols** underordnade resursen och använda en annan [distributionsalternativet](functions-continuous-deployment.md) i stället.
+En Function-app har många underordnade resurser som du kan använda i distributionen, inklusive inställningar för appar och käll kontroll. Du kan också välja att ta bort den underordnade resursen **sourcecontrols** och använda ett annat [distributions alternativ](functions-continuous-deployment.md) i stället.
 
 > [!IMPORTANT]
-> För att distribuera ditt program med hjälp av Azure Resource Manager, är det viktigt att förstå hur resurser som distribueras i Azure. I följande exempel översta konfigurationer tillämpas med hjälp av **siteConfig**. Det är viktigt att ställa in de här konfigurationerna på översta nivån, eftersom de förmedlar information till Functions-motorn för körning och distribution. Översta information krävs innan underordnat **sourcecontrols/web** resurs används. Även om det är möjligt att konfigurera inställningarna i den underordnade nivån **config/appSettings** resurs i vissa fall måste du distribuera funktionsappen *innan* **config/appSettings**  tillämpas. Till exempel när du använder functions med [Logikappar](../logic-apps/index.yml), dina funktioner är beroende av en annan resurs.
+> För att kunna distribuera programmet med hjälp av Azure Resource Manager är det viktigt att förstå hur resurser distribueras i Azure. I följande exempel tillämpas konfigurationer på den översta nivån med hjälp av **siteConfig**. Det är viktigt att ställa in dessa konfigurationer på högsta nivån, eftersom de förmedlar information till Functions-körningen och distributions motorn. Information på den översta nivån krävs innan den underordnade **sourcecontrols/webb-** resursen tillämpas. Även om det är möjligt att konfigurera de här inställningarna i en **konfiguration/appSettings** -resurs på den underordnade nivån, i vissa fall måste din funktions app distribueras *innan* **config/appSettings** används. Om du till exempel använder funktioner med [Logic Apps](../logic-apps/index.yml), är funktionerna ett beroende av en annan resurs.
 
 ```json
 {
@@ -637,22 +637,22 @@ En funktionsapp har många underordnade resurser som du kan använda i din distr
 }
 ```
 > [!TIP]
-> Den här mallen använder den [projekt](https://github.com/projectkudu/kudu/wiki/Customizing-deployments#using-app-settings-instead-of-a-deployment-file) appen inställningar värde, som anger baskatalogen som distributionsmotorn funktioner (Kudu) söker efter distribuerbar kod. I vår lagringsplats är våra funktioner i en undermapp i den **src** mapp. Därför i föregående exempel vi anger värdet för app-inställningar till `src`. Om dina funktioner finns i roten av din lagringsplats, eller om du inte distribuerar från källkontroll, kan du ta bort det här värdet för app-inställningar.
+> Den här mallen använder värdet [Project](https://github.com/projectkudu/kudu/wiki/Customizing-deployments#using-app-settings-instead-of-a-deployment-file) App Settings, som anger bas katalogen där Function Deployment Engine (kudu) söker efter distributions bara kod. I vårt lager finns våra funktioner i en undermapp till **src** -mappen. I föregående exempel ställer vi in värdet för App Settings på `src`. Om dina funktioner finns i roten för din lagrings plats, eller om du inte distribuerar från käll kontroll, kan du ta bort värdet för appens inställningar.
 
 ## <a name="deploy-your-template"></a>Distribuera mallen
 
-Du kan använda någon av följande sätt att distribuera din mall:
+Du kan använda något av följande sätt för att distribuera mallen:
 
 * [PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
 * [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md)
 * [Azure Portal](../azure-resource-manager/resource-group-template-deploy-portal.md)
 * [REST-API](../azure-resource-manager/resource-group-template-deploy-rest.md)
 
-### <a name="deploy-to-azure-button"></a>Distribuera till Azure-knappen
+### <a name="deploy-to-azure-button"></a>Knappen distribuera till Azure
 
-Ersätt ```<url-encoded-path-to-azuredeploy-json>``` med en [URL-kodade](https://www.bing.com/search?q=url+encode) version av rådata sökvägen till din `azuredeploy.json` -filen i GitHub.
+Ersätt ```<url-encoded-path-to-azuredeploy-json>``` med en [URL-kodad](https://www.bing.com/search?q=url+encode) version av `azuredeploy.json` filens RAW-sökväg i GitHub.
 
-Här är ett exempel som använder markdown:
+Här är ett exempel som använder MARKDOWN:
 
 ```markdown
 [![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/<url-encoded-path-to-azuredeploy-json>)
@@ -664,9 +664,9 @@ Här är ett exempel som använder HTML:
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/<url-encoded-path-to-azuredeploy-json>" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"></a>
 ```
 
-### <a name="deploy-using-powershell"></a>Distribuera med hjälp av PowerShell
+### <a name="deploy-using-powershell"></a>Distribuera med PowerShell
 
-Följande PowerShell-kommandon skapar en resursgrupp och distribuera en mall som skapar en funktionsapp med dess nödvändiga resurser. Om du vill köra lokalt, måste du ha [Azure PowerShell](/powershell/azure/install-az-ps) installerad. Kör [ `Connect-AzAccount` ](/powershell/module/az.accounts/connect-azaccount) att logga in.
+Följande PowerShell-kommandon skapar en resurs grupp och distribuerar en mall som skapar en Function-app med nödvändiga resurser. Om du vill köra lokalt måste du ha [Azure PowerShell](/powershell/azure/install-az-ps) installerat. Kör [`Connect-AzAccount`](/powershell/module/az.accounts/connect-azaccount) för att logga in.
 
 ```powershell
 # Register Resource Providers if they're not already registered
@@ -683,17 +683,17 @@ $TemplateParams = @{"appName" = "<function-app-name>"}
 New-AzResourceGroupDeployment -ResourceGroupName "MyResourceGroup" -TemplateFile template.json -TemplateParameterObject $TemplateParams -Verbose
 ```
 
-Om du vill testa den här distributionen kan du använda en [mall som den här](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-function-app-create-dynamic/azuredeploy.json) som skapar en funktionsapp på Windows i en användningsplan. Ersätt `<function-app-name>` med ett unikt namn för din funktionsapp.
+Om du vill testa den här distributionen kan du använda en [mall](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-function-app-create-dynamic/azuredeploy.json) som en sådan som skapar en Function-app i Windows i en förbruknings plan. Ersätt `<function-app-name>` med ett unikt namn för din Function-app.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om hur du utvecklar och konfigurera Azure Functions.
+Lär dig mer om hur du utvecklar och konfigurerar Azure Functions.
 
 * [Azure Functions, info för utvecklare](functions-reference.md)
-* [Så här konfigurerar du inställningar för Azure-funktion](functions-how-to-use-azure-function-app-settings.md)
+* [Så här konfigurerar du inställningar för Azure Function-appar](functions-how-to-use-azure-function-app-settings.md)
 * [Skapa din första Azure-funktion](functions-create-first-azure-function.md)
 
 <!-- LINKS -->
 
-[Funktionsappen i förbrukningsplan]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dynamic/azuredeploy.json
-[Funktionsappen i Azure App Service-plan]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dedicated/azuredeploy.json
+[Function app i förbruknings plan]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dynamic/azuredeploy.json
+[Function-app på Azure App Service plan]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dedicated/azuredeploy.json

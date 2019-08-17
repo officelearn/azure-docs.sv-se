@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 07/05/2019
 ms.author: cherylmc
-ms.openlocfilehash: 359773dad53f333b2f052dd5b5481645c72746da
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 92978815af22e3ce1a549b9ca3e335befca8c918
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 08/16/2019
-ms.locfileid: "69533929"
+ms.locfileid: "69563042"
 ---
 # <a name="reset-a-vpn-gateway"></a>Återställ VPN Gateway
 
@@ -69,10 +69,12 @@ När du får ett retur resultat kan du anta att Gateway-återställningen lyckad
 
 ### <a name="resetclassic"></a>Klassisk distributions modell
 
-Cmdleten för att återställa en gateway **återställs-AzureVNetGateway**. Azure PowerShell-cmdletar för Service Management måste installeras lokalt på Skriv bordet. Du kan inte använda Azure Cloud Shell. Innan du utför en återställning kontrollerar du att du har den senaste versionen av [PowerShell-cmdletarna för Service Management (SM)](https://docs.microsoft.com/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0#azure-service-management-cmdlets). I följande exempel återställs gatewayen för ett virtuellt nätverk med namnet "ContosoVNet":
+Cmdleten för att återställa en gateway **återställs-AzureVNetGateway**. Azure PowerShell-cmdletar för Service Management måste installeras lokalt på Skriv bordet. Du kan inte använda Azure Cloud Shell. Innan du utför en återställning kontrollerar du att du har den senaste versionen av [PowerShell-cmdletarna för Service Management (SM)](https://docs.microsoft.com/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0#azure-service-management-cmdlets). När du använder det här kommandot kontrollerar du att du använder det fullständiga namnet på det virtuella nätverket. En klassisk virtuella nätverk som skapats med portalen har ett långt namn som krävs för PowerShell. Du kan visa det långa namnet med hjälp av "Get-AzureVNetConfig-ExportToFile C:\Myfoldername\NetworkConfig.xml".
+
+I följande exempel återställs gatewayen för ett virtuellt nätverk med namnet "Group TestRG1 TestVNet1" (som visar som bara "TestVNet1" i portalen):
 
 ```powershell
-Reset-AzureVNetGateway –VnetName “ContosoVNet”
+Reset-AzureVNetGateway –VnetName 'Group TestRG1 TestVNet1'
 ```
 
 Medför

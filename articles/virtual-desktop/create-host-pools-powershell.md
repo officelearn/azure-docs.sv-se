@@ -1,109 +1,111 @@
 ---
-title: Skapa en förhandsversion för virtuella skrivbord i Windows-värd-pool med PowerShell – Azure
-description: Så här skapar du en värd-pool i förhandsversion för virtuella skrivbord i Windows med PowerShell-cmdletar.
+title: Skapa en Windows Virtual Desktop Preview-adresspool med PowerShell – Azure
+description: Så här skapar du en adresspool i för hands versionen av Windows Virtual Desktop med PowerShell-cmdletar.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: helohr
-ms.openlocfilehash: 374d5a8f51e28b8a10595842cfc301db503b6bed
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 1c365790e1633a74be9f5baf41098e7511f99a7d
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67613332"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69563282"
 ---
 # <a name="create-a-host-pool-with-powershell"></a>Skapa en värdpool med PowerShell
 
-Värd-pooler är en samling av en eller flera identiska virtuella datorer i förhandsversion för virtuella skrivbord i Windows klient-miljöer. Varje värd-pool kan innehålla en appgrupp som användare kan interagera med precis som på en fysisk dator.
+Lagringspooler är en samling av en eller flera identiska virtuella datorer i Windows Virtual Desktop Preview-klient miljöer. Varje adresspool kan innehålla en app-grupp som användare kan interagera med på samma sätt som på ett fysiskt skriv bord.
 
-## <a name="use-your-powershell-client-to-create-a-host-pool"></a>Använd PowerShell-klienten för att skapa en värd-pool
+## <a name="use-your-powershell-client-to-create-a-host-pool"></a>Använda PowerShell-klienten för att skapa en adresspool
 
-Först [hämta och importera modulen Windows PowerShell för virtuella skrivbord](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) ska användas i PowerShell-sessionen om du inte redan har gjort.
+Börja med att [Hämta och importera Windows Virtual Desktop PowerShell-modulen](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) som ska användas i PowerShell-sessionen om du inte redan gjort det.
 
-Kör följande cmdlet för att logga in på den virtuella skrivbordet i Windows-miljön
+Kör följande cmdlet för att logga in på Windows-miljön för virtuella skriv bord
 
 ```powershell
 Add-RdsAccount -DeploymentUrl https://rdbroker.wvd.microsoft.com
 ```
 
-Kör denna cmdlet för att skapa en ny pool för värden i din virtuella skrivbordet i Windows-klient:
+Kör sedan denna cmdlet för att skapa en ny adresspool i din Windows-klient för virtuella skriv bord:
 
 ```powershell
 New-RdsHostPool -TenantName <tenantname> -Name <hostpoolname>
 ```
 
-Kör cmdleten nästa för att skapa en registreringstoken för att auktorisera en värd för fjärrskrivbordssession ska ansluta till värd-poolen och spara den till en ny fil på din lokala dator. Du kan ange hur länge fcm ska vara giltig med hjälp av parametern - ExpirationHours.
+Kör nästa cmdlet för att skapa en registrerings-token för att auktorisera en sessions värd att ansluta till värddatorn och spara den till en ny fil på din lokala dator. Du kan ange hur länge registrerings-token är giltig med hjälp av parametern-ExpirationHours.
 
 ```powershell
 New-RdsRegistrationInfo -TenantName <tenantname> -HostPoolName <hostpoolname> -ExpirationHours <number of hours> | Select-Object -ExpandProperty Token > <PathToRegFile>
 ```
 
-Efter det att köra denna cmdlet om du vill lägga till Azure Active Directory-användare i gruppen standard skrivbordsapp för värd-poolen.
+Därefter kör du denna cmdlet för att lägga till Azure Active Directory användare till standard gruppen för Skriv bords appar för poolen.
 
 ```powershell
 Add-RdsAppGroupUser -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName "Desktop Application Group" -UserPrincipalName <userupn>
 ```
 
-Den **Lägg till RdsAppGroupUser** cmdlet inte stöd för att lägga till säkerhetsgrupper och endast lägger till en användare i taget till app-gruppen. Om du vill lägga till flera användare i gruppen app kan du köra cmdleten med lämpliga huvudnamn.
+Cmdleten **Add-RdsAppGroupUser** har inte stöd för att lägga till säkerhets grupper och lägger bara till en användare i taget i gruppen app. Om du vill lägga till flera användare i app-gruppen kör du cmdleten igen med rätt huvud namn för användare.
 
-Kör följande cmdlet för att exportera fcm till en variabel som du ska använda senare i [registrera virtuella datorer till virtuella Windows-skrivbordet värd poolen](#register-the-virtual-machines-to-the-windows-virtual-desktop-preview-host-pool).
+Kör följande cmdlet för att exportera registrerings-token till en variabel, som du kommer att använda senare i [registrera de virtuella datorerna i Windows-poolen för virtuella skriv bord](#register-the-virtual-machines-to-the-windows-virtual-desktop-preview-host-pool).
 
 ```powershell
 $token = (Export-RdsRegistrationInfo -TenantName <tenantname> -HostPoolName <hostpoolname>).Token
 ```
 
-## <a name="create-virtual-machines-for-the-host-pool"></a>Skapa virtuella datorer för värd-pool
+## <a name="create-virtual-machines-for-the-host-pool"></a>Skapa virtuella datorer för den värdbaserade poolen
 
-Nu kan du skapa en Azure-dator som kan kopplas till din virtuella Windows-skrivbordet värd-pool.
+Nu kan du skapa en virtuell Azure-dator som kan anslutas till din Windows-pool för virtuella skriv bord.
 
-Du kan skapa en virtuell dator på flera olika sätt:
+Du kan skapa en virtuell dator på flera sätt:
 
-- [Skapa en virtuell dator från en avbildning i Azure-galleriet](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#create-virtual-machine)
+- [Skapa en virtuell dator från en Azure Gallery-avbildning](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#create-virtual-machine)
 - [Skapa en virtuell dator från en hanterad avbildning](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-generalized-managed)
 - [Skapa en virtuell dator från en ohanterad avbildning](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image)
 
-## <a name="prepare-the-virtual-machines-for-windows-virtual-desktop-preview-agent-installations"></a>Förbereda virtuella datorer för Windows Virtual Desktop förhandsversion agentinstallationer
+När du har skapat en sessions värd för virtuella datorer ska du [tillämpa en Windows-licens på en virtuell dator för en fjärrskrivbordssession](./apply-windows-license.md#apply-a-windows-license-to-a-session-host-vm) för att köra Windows-eller Windows Server-datorer utan att betala någon annan licens. 
 
-Måste du göra följande för att förbereda dina virtuella datorer innan du kan installera agenter för virtuella Windows-skrivbordet och registrera virtuella datorer till din virtuella Windows-skrivbordet värd pool:
+## <a name="prepare-the-virtual-machines-for-windows-virtual-desktop-preview-agent-installations"></a>Förbereda de virtuella datorerna för Windows Virtual Desktop Preview agent-installationer
 
-- Du måste domänanslutning datorn. På så sätt kan inkommande virtuella Windows-skrivbordet användare mappas från deras Azure Active Directory-konto till deras Active Directory-konto och att få har tillgång till den virtuella datorn.
-- Om den virtuella datorn kör ett Windows Server-Operativsystemet måste du installera rollen fjärråtkomst värd för fjärrskrivbordssession (RDSH). RDSH-rollen kan virtuella Windows-skrivbordet agenterna ska installeras.
+Du måste göra följande för att förbereda dina virtuella datorer innan du kan installera de virtuella Windows-datorerna och registrera de virtuella datorerna i Windows-poolen för virtuella Skriv bords värdar:
 
-Du har domänanslutning, gör du följande på varje virtuell dator:
+- Du måste ha domän anslutning till datorn. Detta gör att inkommande virtuella Windows-skrivbord kan mappas från sina Azure Active Directory-konton till deras Active Directory konto och beviljas åtkomst till den virtuella datorn.
+- Du måste installera RDSH-rollen (Remote Desktop Session Host) om den virtuella datorn kör ett Windows Server-operativsystem. RDSH-rollen tillåter att de virtuella Windows-datorerna installeras på rätt sätt.
 
-1. [Ansluta till den virtuella datorn](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) med de autentiseringsuppgifter som du angav när du skapar den virtuella datorn.
-2. På den virtuella datorn, startar **Kontrollpanelen** och välj **System**.
-3. Välj **datornamn**väljer **ändra inställningarna för**, och välj sedan **ändringen...**
-4. Välj **domän** och ange sedan Active Directory-domänen i det virtuella nätverket.
-5. Autentisera med ett domänkonto som har behörighet att domänanslutning datorer.
+För att lyckas med domän koppling gör du följande på varje virtuell dator:
+
+1. [Anslut till den virtuella datorn](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) med de autentiseringsuppgifter du angav när du skapade den virtuella datorn.
+2. Starta **kontroll panelen** på den virtuella datorn och välj **system**.
+3. Välj **dator namn**, Välj **ändra inställningar**och välj sedan **ändra...**
+4. Välj **domän** och ange sedan Active Directory domän i det virtuella nätverket.
+5. Autentisera med ett domän konto som har behörighet att ansluta till datorer med domän anslutning.
 
     >[!NOTE]
-    > Om du ska ansluta dina virtuella datorer till en Azure AD DS-miljö, kontrollera att din anslutning till domänanvändare även är medlem i den [AAD DC-administratörsgruppen](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-admingroup#task-3-configure-administrative-group).
+    > Om du ansluter dina virtuella datorer till en Azure AD Domain Services-miljö måste du se till att din domän anslutning också är medlem i [Administratörs gruppen för AAD](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-admingroup#task-3-configure-administrative-group)-domänkontrollanten.
 
-## <a name="register-the-virtual-machines-to-the-windows-virtual-desktop-preview-host-pool"></a>Registrera virtuella datorer till poolen förhandsversion för virtuella skrivbord i Windows-värd
+## <a name="register-the-virtual-machines-to-the-windows-virtual-desktop-preview-host-pool"></a>Registrera de virtuella datorerna på Windows-poolen för för hands version av virtuella skriv bord
 
-Registrerar de virtuella datorerna till en pool med virtuella Windows-skrivbordet värden är lika enkelt som att installera agenter för virtuella Windows-skrivbordet.
+Att registrera de virtuella datorerna på en Windows-pool för virtuella skriv bord är lika enkelt som att installera de virtuella Windows-datorerna.
 
-Gör följande på varje virtuell dator för att registrera virtuellt skrivbord i Windows-agenter:
+Registrera Windows-agenter för virtuella skriv bord genom att göra följande på varje virtuell dator:
 
-1. [Ansluta till den virtuella datorn](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) med de autentiseringsuppgifter som du angav när du skapar den virtuella datorn.
-2. Ladda ned och installera Windows-agenten för virtuella skrivbord.
-   - Ladda ned den [Windows-agenten för virtuella skrivbord](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrmXv).
-   - Högerklicka på det nedladdade installationsprogrammet, Välj **egenskaper**väljer **avblockera**och välj sedan **OK**. Detta gör att systemet ska lita på installationsprogrammet.
-   - Kör installationsprogrammet. När installationsprogrammet frågar du efter registreringstoken, ange det värde som du fick från den **Export RdsRegistrationInfo** cmdlet.
-3. Hämta och installera Windows-startprogrammet för agenten av virtuella skrivbord.
-   - Ladda ned den [Windows virtuella skrivbord agenten startprogrammet](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrxrH).
-   - Högerklicka på det nedladdade installationsprogrammet, Välj **egenskaper**väljer **avblockera**och välj sedan **OK**. Detta gör att systemet ska lita på installationsprogrammet.
-   - Kör installationsprogrammet.
+1. [Anslut till den virtuella datorn](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) med de autentiseringsuppgifter du angav när du skapade den virtuella datorn.
+2. Ladda ned och installera Windows-agenten för virtuella skriv bord.
+   - Hämta Windows-agenten för [virtuella skriv bord](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrmXv).
+   - Högerklicka på det nedladdade installations programmet, Välj **Egenskaper**, Välj avblockera och välj sedan **OK**. Detta gör att systemet kan lita på installations programmet.
+   - Kör installations programmet. När du uppmanas att ange registrerings-token anger du det värde som du fick från cmdleten **export-RdsRegistrationInfo** .
+3. Ladda ned och installera Windows Virtual Desktop agent start program.
+   - Hämta [Start programmet för Windows Virtual Desktop agent](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrxrH).
+   - Högerklicka på det nedladdade installations programmet, Välj **Egenskaper**, Välj avblockera och välj sedan **OK**. Detta gör att systemet kan lita på installations programmet.
+   - Kör installations programmet.
 
 >[!IMPORTANT]
->Om du vill att skydda din miljö för virtuella Windows-skrivbordet i Azure, rekommenderar vi du inte öppna inkommande port 3389 på dina virtuella datorer. Virtuella Windows-skrivbordet kräver inte en öppen inkommande port 3389 för användare att komma åt värden poolens virtuella datorer. Om du måste öppna port 3389 för felsökningsändamål kan vi rekommenderar att du använder [åtkomst till Virtuella just-in-time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time).
+>Vi rekommenderar att du inte öppnar den inkommande port 3389 på dina virtuella datorer för att skydda din Windows-miljö för virtuella skriv bord i Azure. Virtuella Windows-datorer kräver inte en öppen inkommande port 3389 för att användare ska kunna komma åt värddatorns virtuella datorer. Om du måste öppna port 3389 för fel söknings syfte rekommenderar vi att du använder [just-in-Time VM-åtkomst](https://docs.microsoft.com/azure/security-center/security-center-just-in-time).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har gjort poolen värden, kan du fylla i den med RemoteApps. Mer information om hur du hanterar appar i virtuella Windows-skrivbordet finns i Hantera app grupper självstudien.
+Nu när du har skapat en modempool kan du fylla den med RemoteApp-programmet. Mer information om hur du hanterar appar i Windows Virtual Desktop finns i själv studie kursen Hantera app-grupper.
 
 > [!div class="nextstepaction"]
-> [Hantera grupper självstudier](./manage-app-groups.md)
+> [Själv studie kurs för hantering av app-grupper](./manage-app-groups.md)

@@ -143,7 +143,7 @@ Följande egenskaper stöds för att kopiera data från Teradata:
 |:--- |:--- |:--- |
 | type | Egenskapen Type för data mängden måste anges till `TeradataTable`. | Ja |
 | database | Namnet på Teradata-databasen. | Nej (om ”query” i aktivitetskälla har angetts) |
-| table | Namnet på tabellen i Teradata-databasen. | Nej (om ”query” i aktivitetskälla har angetts) |
+| table | Namnet på table i Teradata-databasen. | Nej (om ”query” i aktivitetskälla har angetts) |
 
 **Exempel:**
 

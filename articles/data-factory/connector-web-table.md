@@ -56,7 +56,7 @@ Följande egenskaper stöds för länkad webb tabell tjänst:
 |:--- |:--- |:--- |
 | type | Egenskapen Type måste anges till: **Webb** |Ja |
 | url | URL till webb adressen |Ja |
-| authenticationType | Tillåtet värde är: **Anonym**. |Ja |
+| authenticationType | Tillåtet värde är: **Anonymous**. |Ja |
 | connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Det krävs en egen värd Integration Runtime som anges i [krav](#prerequisites). |Ja |
 
 **Exempel:**

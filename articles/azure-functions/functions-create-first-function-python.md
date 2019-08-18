@@ -11,16 +11,14 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
 manager: jeconnoc
-ms.openlocfilehash: 58f5cfd3718720cafc922bbd7b974a353e0d9d02
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 47de61db96b0f8f9b338f135d4f32eecc4a64efe
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68722786"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69562953"
 ---
 # <a name="create-an-http-triggered-function-in-azure"></a>Skapa en HTTP-utlöst funktion i Azure
-
-[!INCLUDE [functions-python-preview-note](../../includes/functions-python-preview-note.md)]
 
 Den här artikeln visar hur du använder kommando rads verktyg för att skapa ett python-projekt som körs i Azure Functions. Funktionen som du skapar utlöses av HTTP-begäranden. Slutligen publicerar du ditt projekt så att det körs som en [Server lös funktion](functions-scale.md#consumption-plan) i Azure.
 
@@ -40,9 +38,9 @@ Innan du börjar måste du ha följande:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-and-activate-a-virtual-environment"></a>Skapa och aktivera en virtuell miljö
+## <a name="create-and-activate-a-virtual-environment-optional"></a>Skapa och aktivera en virtuell miljö (valfritt)
 
-För att lokalt utveckla och testa python-funktioner måste du arbeta i en python 3,6-miljö. Kör följande kommandon för att skapa och aktivera en virtuell miljö med namnet `.venv`.
+För att lokalt utveckla och testa python-funktioner rekommenderar vi att du använder en python 3,6-miljö. Kör följande kommandon för att skapa och aktivera en virtuell miljö med namnet `.venv`.
 
 ### <a name="bash"></a>Bash
 
@@ -165,15 +163,19 @@ az functionapp create --resource-group myResourceGroup --os-type Linux \
 --consumption-plan-location westeurope  --runtime python \
 --name <APP_NAME> --storage-account  <STORAGE_NAME>
 ```
-
 > [!NOTE]
-> Azure Functions, förbruknings plan för Linux är för närvarande en för hands version och endast tillgängligt i följande regioner: Västra USA, östra USA, västra Europa, Asien, östra. Linux-och Windows-appar kan inte heller finnas i samma resurs grupp. Om du har en befintlig resurs grupp med `myResourceGroup` namnet med en Windows Function-app eller webbapp måste du använda en annan resurs grupp.
+> Linux-och Windows-appar kan inte finnas i samma resurs grupp. Om du har en befintlig resurs grupp med `myResourceGroup` namnet med en Windows Function-app eller webbapp måste du använda en annan resurs grupp.
+
+Det här kommandot etablerar även en associerad Azure Application insikts-instans i samma resurs grupp som kan användas för att övervaka och Visa loggar.
 
 Nu är du redo att publicera ditt lokala Functions-projekt till Function-appen i Azure.
 
 [!INCLUDE [functions-publish-project](../../includes/functions-publish-project.md)]
 
 [!INCLUDE [functions-test-function-code](../../includes/functions-test-function-code.md)]
+
+> [!NOTE]
+> Om du vill visa nära real tids loggar för en publicerad python-app rekommenderar vi att du använder [Application Insights Live Metrics Stream](functions-monitoring.md#streaming-logs)
 
 ## <a name="next-steps"></a>Nästa steg
 

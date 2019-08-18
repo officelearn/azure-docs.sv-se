@@ -101,11 +101,9 @@
         - name: Hantera konton för CloudSimple-portalen
           items:
             - name: Visa sammanfattning av kontot
-              href: 'https://docs.azure.cloudsimple.com/account/'
+              href: account.md
             - name: Visa listan över användare
-              href: 'https://docs.azure.cloudsimple.com/users/'
-            - name: Visa loggen för användning
-              href: 'https://docs.azure.cloudsimple.com/usage/'
+              href: users.md
             - name: Konfigurera en virtuell nätverksanslutning till det privata molnet
               href: 'https://docs.azure.cloudsimple.com/virtual-network-connection/'
             - name: Redigera din användarprofil
@@ -129,7 +127,7 @@
             - name: VPN-anslutning mellan lokala och privata moln
               href: set-up-vpn.md
             - name: Lokal nätverksanslutning med ExpressRoute
-              href: 'https://docs.azure.cloudsimple.com/on-premises-connection/'
+              href: on-premises-connection.md
             - name: Virtuell nätverksanslutning i Azure med ExpressRoute
               href: azure-expressroute-connection.md
         - name: VMware-plattform

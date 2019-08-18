@@ -17,12 +17,12 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ed57f581db593a288e62d25a2f0b8ee42c28114
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: b6685783d7ade59796af8fbf466124353a897cb9
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68852959"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69562085"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Snabbstart: Lägga till inloggning med Microsoft till en ASP.NET-webbapp
 
@@ -55,8 +55,10 @@ I den här snabbstarten lär du dig hur en ASP.NET-webbapp kan logga in personli
 > 1. Välj **ny registrering**.
 > 1. När sidan **Registrera ett program** visas anger du programmets registreringsinformation:
 >      - I avsnittet **Namn** anger du ett beskrivande programnamn som ska visas för appens användare, till exempel `ASPNET-Quickstart`.
->      - Lägg `https://localhost:44368/` till i omdirigerings- **URI**och klicka på **Registrera**.
-Välj **autentiseringsmenyn** och ange **ID-token** under **Implicit beviljande** och välj sedan **Spara**.
+>      - Lägg `http://localhost:44368/` till i omdirigerings- **URI**och klicka på **Registrera**.
+>      - I det vänstra navigerings fönstret under avsnittet hantera väljer du **autentisering**
+>          - Under avsnittet **implicit beviljande** underavsnitt väljer du **ID-token**.
+>          - Och välj sedan **Spara**.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>Steg 1: Konfigurera din app på Azure Portal
@@ -96,7 +98,8 @@ Välj **autentiseringsmenyn** och ange **ID-token** under **Implicit beviljande*
 >   - Om ditt program stöder **Alla Microsoft-kontoanvändare** ersätter du värdet med `common`
 >
 > > [!TIP]
-> > För att hitta värdena för *program-ID*, *katalog-ID (klient)* och *Kontotyper som stöds* går du till **översiktssidan**
+> > - För att hitta värdena för *program-ID*, *katalog-ID (klient)* och *Kontotyper som stöds* går du till **översiktssidan**
+> > - Se till att värdet `redirectUri` för i **Web. config** motsvarar den omdirigerings- **URI** som definierats för appens registrering i Azure AD (om inte, navigera till menyn **autentisering** för appens registrering och uppdatera omdirigerings- **URI: n** att matcha)
 
 ## <a name="more-information"></a>Mer information
 

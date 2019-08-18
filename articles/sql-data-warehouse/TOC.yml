@@ -22,20 +22,6 @@
       href: release-notes-10-0-10106-0.md
     - name: Uppgraderingsschema för Gen2-regionen
       href: gen2-migration-schedule.md
-    - name: Arkiverad viktig information
-      items:
-        - name: September 2018
-          href: release-notes-september-2018.md
-        - name: Augusti 2018
-          href: release-notes-august-2018.md
-        - name: Juli 2018
-          href: release-notes-july-2018.md
-        - name: Juni 2018
-          href: release-notes-june-2018.md
-        - name: Maj 2018
-          href: release-notes-may-2018.md
-        - name: April 2018
-          href: release-notes-april-2018.md
 - name: Snabbstarter
   expanded: true
   items:

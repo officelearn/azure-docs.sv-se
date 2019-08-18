@@ -11,22 +11,22 @@ ms.service: azure-functions
 ms.custom: mvc, fasttrack-edit
 ms.devlang: javascript
 manager: jeconnoc
-ms.openlocfilehash: 84e05b7afa2746587f2ea5008d493730ccbfad7e
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: 40a2d3ab4ec358b5b2d0105703cdc25cdb777c29
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950043"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69562981"
 ---
-# <a name="create-your-first-function-hosted-on-linux-using-core-tools-and-the-azure-cli-preview"></a>Skapa din första Linux-funktion med hjälp av Core Tools och Azure CLI (förhandsversion)
+# <a name="create-your-first-function-hosted-on-linux-using-core-tools-and-the-azure-cli"></a>Skapa din första funktion på Linux med hjälp av kärn verktyg och Azure CLI
 
-Med Azure Functions kan du köra kod i en [serverfri](https://azure.com/serverless) Linux-miljö utan att först behöva skapa en virtuell dator eller publicera en webbapp. Linux-Hosting kräver [funktionerna 2,0 Runtime](functions-versions.md). Stöd för att köra en Function-app i Linux i den serverbaserade [förbruknings planen](functions-scale.md#consumption-plan) är för närvarande en för hands version. Mer information finns i [den här artikeln](https://aka.ms/funclinux)om för hands versions överväganden.
+Med Azure Functions kan du köra kod i en [serverfri](https://azure.com/serverless) Linux-miljö utan att först behöva skapa en virtuell dator eller publicera en webbapp. Linux-värd kräver [funktioner 2. x-körning](functions-versions.md). Funktioner utan Server körs i [förbruknings planen](functions-scale.md#consumption-plan).
 
 Den här snabbstartsartikeln går igenom hur du använder Azure CLI till att skapa din första funktionsapp som körs på Linux. Funktionskoden skapas lokalt och distribueras sedan till Azure med hjälp av [Azure Functions Core Tools](functions-run-local.md).
 
-Följande steg kan användas på en Mac-, Windows- eller Linux-dator. Den här artikeln visar hur du skapar funktioner i JavaScript eller C#. Information om hur du lär dig att skapa Python-funktioner finns i [Skapa din första Python-funktion med hjälp av Core Tools och Azure CLI (förhandsversion)](functions-create-first-function-python.md).
+Följande steg kan användas på en Mac-, Windows- eller Linux-dator. Den här artikeln visar hur du skapar funktioner i JavaScript eller C#. Information om hur du skapar python-funktioner finns i [skapa din första python-funktion med hjälp av kärn verktyg och Azure CLI](functions-create-first-function-python.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du kör exemplet måste du ha följande:
 

@@ -193,6 +193,8 @@
       items:
         - name: Apache Tez-program låser sig
           href: ./interactive-query-troubleshoot-tez-hangs.md
+        - name: Apache Ambari Tez-vyn läses in långsamt
+          href: ./interactive-query-troubleshoot-tez-view-slow.md
         - name: Apache Hive LLAP-frågeprestanda
           href: ./interactive-query-troubleshoot-query-performance.md
         - name: Långsam reducerare
@@ -203,24 +205,14 @@
           href: ./interactive-query-troubleshoot-permission-error-create-table.md
         - name: GC-utgiftsgränsen har överskridits
           href: ./interactive-query-troubleshoot-outofmemory-overhead-exceeded.md
-        - name: Apache Ambari Tez-vyn läses in långsamt
-          href: ./interactive-query-troubleshoot-tez-view-slow.md
         - name: Felmeddelande visas inte i Apache Hive-vyn
           href: ./interactive-query-troubleshoot-error-message-hive-view.md
         - name: Otillgänglig Apache Hive-vy
           href: ./interactive-query-troubleshoot-inaccessible-hive-view.md
         - name: ZooKeeperHiveClientException – HiveServer2-konfigurationer
           href: ./interactive-query-troubleshoot-zookeeperhiveclientexception-hiveserver-configs.md
-        - name: Apache Hive LLAP-frågeprestanda
-          href: ./interactive-query-troubleshoot-query-performance.md
         - name: Felsöka ett långsamt eller felaktigt HDInsight-kluster
           href: ../hdinsight-troubleshoot-failed-cluster.md
-        - name: Felsökning för Hadoop Distributed File System i Apache Hadoop
-          href: ../hdinsight-troubleshoot-hdfs.md
-        - name: Felsökning för Apache HIVE
-          href: ../hdinsight-troubleshoot-hive.md
-        - name: Felsökning för Apache Hadoop YARN
-          href: ../hdinsight-troubleshoot-yarn.md
         - name: Felsökning för Hadoop Distributed File System i Apache Hadoop
           href: ../hdinsight-troubleshoot-hdfs.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
         - name: Felsökning för Apache HIVE

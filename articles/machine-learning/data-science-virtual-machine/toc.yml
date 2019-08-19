@@ -6,8 +6,6 @@
   items:
     - name: Vad är en virtuell dator för datavetenskap?
       href: overview.md
-    - name: Vad är en virtuell dator för djupinlärning?
-      href: deep-learning-dsvm-overview.md
     - name: Vad är en virtuell Geo-AI-dator för datavetenskap?
       href: geo-ai-dsvm-overview.md
 - name: Snabbstarter
@@ -23,8 +21,6 @@
       href: provision-geo-ai-dsvm.md
 - name: Begrepp
   items:
-    - name: Upptäck DSVM
-      href: dsvm-tools-overview.md
     - name: Ramverk för djupinlärning och AI
       href: dsvm-deep-learning-ai-frameworks.md
     - name: Programmeringsspråk
@@ -49,8 +45,6 @@
       href: vm-do-ten-things.md
     - name: Använda en Linux-DSVM
       href: linux-dsvm-walkthrough.md
-    - name: Använd en virtuell dator för djupinlärning
-      href: use-deep-learning-dsvm.md
     - name: Använda en Geo AI-DSVM
       href: use-geo-ai-dsvm.md
     - name: Skapa en DSVM-pool med autoskalning

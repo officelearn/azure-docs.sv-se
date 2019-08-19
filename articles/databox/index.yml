@@ -1,46 +1,127 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Azure Data Box-dokumentation – överföring offline
+summary: Använd Azure Data Box-enheter för överföring av data offline när du har begränsad tid, nätverksresurser eller budget. Beroende på datastorleken kan du välja mellan Data Box Disk, Data Box eller Data Box Heavy.
 metadata:
   title: Azure Data Box-dokumentation – överföring offline
-  description: 'Använd Data Box-enheter för överföring av data offline till Azure när du har begränsad tid eller budget, eller begränsade nätverksresurser.'
+  description: Använd Data Box-enheter för överföring av data offline till Azure när du har begränsad tid eller budget, eller begränsade nätverksresurser.
   services: databox
-  author: alkohli
-  manager: twooley
   ms.service: databox
   ms.subservice: pod
   ms.topic: landing-page
-  ms.date: 07/03/2019
+  ms.collection: collection
+  author: alkohli
   ms.author: alkohli
-abstract:
-  description: 'Med Azure Data Box kan du överföra hundratals terabyte data till Azure på ett snabbt, prisvärt och tillförlitligt sätt. Använd Data Box-enheter för överföring av data offline när du har begränsad tid, nätverksresurser eller budget.<p>Beroende på datastorleken kan du välja mellan Data Box Disk, Data Box eller Data Box Heavy. För varje enhet sker överföringen till Azure i 4 enkla steg – beställa, ta emot, kopiera data till enhet och returnera enheten till Azure. I Azure-datacentret överförs och raderas data.</p><p>Lär dig hur du kan använda Data Box för att överföra dina offlinedata med våra snabbstarter och självstudier.</p>'
-sections:
-  - title: Snabbstart
-    items:
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_quick-start.svg'
-            text: Konfigurera Data Box i Azure-portalen
-            href: /azure/databox/data-box-quickstart-portal
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_quick-start.svg'
-            text: Konfigurera Data Box Disk i Azure-portalen
-            href: /azure/databox/data-box-disk-quickstart-portal
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_quick-start.svg'
-            text: Konfigurera Data Box Heavy i Azure-portalen
-            href: /azure/databox/data-box-heavy-quickstart-portal
-  - title: Självstudier
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: För Data Box
-            html: <p><a href="/azure/databox/data-box-deploy-ordered">Beställ Azure Data Box</a></p><p><a href="/azure/databox/data-box-deploy-set-up">Kabelanslut och anslut Azure Data Box</a></p><p><a href="/azure/databox/data-box-deploy-copy-data">Kopiera data till Azure Data Box</a></p><p><a href="/azure/databox/data-box-deploy-picked-up">Returnera Azure Data Box och verifiera uppladdning</a></p>
-          - title: För Data Box Disk
-            html: '<p><a href="/azure/databox/data-box-disk-deploy-ordered">Beställ Azure Data Box Disk</a></p><p><a href="/azure/databox/data-box-disk-deploy-set-up">Packa upp, ansluta och låsa upp en Azure Data Box-disk</a></p><p><a href="/azure/databox/data-box-disk-deploy-copy-data">Kopiera data till Azure Data Box Disk</a></p><p><a href="/azure/databox/data-box-disk-deploy-picked-up">Returnera Azure Data Box Disk och verifiera uppladdning</a></p>'
-          - title: För Data Box Heavy
-            html: <p><a href="/azure/databox/data-box-heavy-deploy-ordered">Beställa Azure Data Box Heavy</a></p><p><a href="/azure/databox/data-box-heavy-deploy-set-up">Kabelansluta och ansluta till Azure Data Box Heavy</a></p><p><a href="/azure/databox/data-box-heavy-deploy-copy-data">Kopiera data till Azure Data Box Heavy</a></p><p><a href="/azure/databox/data-box-heavy-deploy-picked-up">Returnera Azure Data Box Heavy och verifiera uppladdningen</a></p>
+  ms.date: 08/14/2019
+  ms.openlocfilehash: 03de9ceffe4495b1c3a39dad6617cc72d022fbbd
+  ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 08/16/2019
+  ms.locfileid: "69557828"
+landingContent:
+- title: Om Data Box-serien
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är Data Box?
+      url: data-box-overview.md
+    - text: Vad är Data Box Disk?
+      url: data-box-disk-overview.md
+    - text: Vad är Data Box – tung?
+      url: data-box-heavy-overview.md
+  - linkListType: architecture
+    links:
+    - text: Välj alternativ för dataöverföring i Azure
+      url: /azure/storage/common/storage-choose-data-transfer-solution
+- title: Komma igång
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Konfigurera Data Box
+      url: data-box-quickstart-portal.md
+    - text: Konfigurera Data Box Disk
+      url: data-box-disk-quickstart-portal.md
+    - text: Konfigurera Data Box Heavy
+      url: data-box-heavy-quickstart-portal.md
+  - linkListType: learn
+    links:
+    - text: Importera data offline med Data Box
+      url: https://docs.microsoft.com/learn/modules/move-data-with-azure-data-box/
+- title: Visa krav
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: För Data Box
+      url: data-box-system-requirements.md
+    - text: För Data Box Blob Storage
+      url: data-box-system-requirements-rest.md
+    - text: För Data Box Disk
+      url: data-box-disk-system-requirements.md
+    - text: För Data Box Heavy
+      url: data-box-heavy-system-requirements.md
+- title: Distribuera Data Box
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Beställa
+      url: data-box-deploy-ordered.md
+    - text: Kabel
+      url: data-box-deploy-set-up.md
+    - text: Ansluta och kopiera data via SMB
+      url: data-box-deploy-copy-data.md
+    - text: Returnera, ladda upp och verifiera Azure-data
+      url: data-box-deploy-picked-up.md
+- title: Distribuera Data Box Disk
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Beställa
+      url: data-box-disk-deploy-ordered.md
+    - text: Låsa upp och ansluta
+      url: data-box-disk-deploy-set-up.md
+    - text: Kopiera och verifiera data
+      url: data-box-disk-deploy-copy-data.md
+    - text: Returnera, ladda upp och verifiera Azure-data
+      url: data-box-disk-deploy-picked-up.md
+- title: Distribuera Data Box Heavy
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Beställa
+      url: data-box-heavy-deploy-ordered.md
+    - text: Kabel
+      url: data-box-heavy-deploy-set-up.md
+    - text: Ansluta och kopiera data via SMB
+      url: data-box-heavy-deploy-copy-data.md
+    - text: Returnera, ladda upp och verifiera Azure-data
+      url: data-box-heavy-deploy-picked-up.md
+- title: Hantera enhet
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Data Box och Data Box Heavy i Azure
+      url: data-box-portal-admin.md
+    - text: Data Box och Data Box Heavy via lokalt användargränssnitt
+      url: data-box-local-web-ui-admin.md
+    - text: Data Box Disk i Azure
+      url: data-box-portal-ui-admin.md
+- title: Vanliga frågor och svar
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Vanliga frågor och svar – Data Box
+      url: data-box-faq.md
+    - text: Vanliga frågor och svar – Data Box Disk
+      url: data-box-disk-faq.md
+- title: Felsöka
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Data Box och Data Box Heavy
+      url: data-box-troubleshoot.md
+    - text: Data Box Blob Storage
+      url: data-box-troubleshoot-rest.md
+    - text: Data Box Disk
+      url: data-box-disk-troubleshoot.md
+    - text: Öppna supportbegäran
+      url: data-box-disk-contact-microsoft-support.md

@@ -67,6 +67,8 @@
       href: overview-hosting-plans.md
     - name: OS-funktioner
       href: operating-system-functionality.md
+    - name: Bästa metoder för distribution
+      href: deploy-best-practices.md
     - name: Säkerhet
       items:
         - name: Rekommendationer
@@ -217,6 +219,8 @@
       href: /azure/templates/microsoft.web/allversions
 - name: Resurser
   items:
+    - name: App Service-blogg
+      href: 'https://aka.ms/appserviceblog'
     - name: Utveckla dina färdigheter med Microsoft Learn
       href: /learn/browse/
     - name: Azure-översikt

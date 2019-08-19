@@ -53,11 +53,9 @@
   items:
     - name: Funktioner med Logic Apps
       href: functions-twitter-email.md
-    - name: Skapa ett serverlöst API
-      href: functions-create-serverless-api.md
     - name: Utveckla Python-funktioner med VS Code
       href: tutorial-vs-code-serverless-python.md
-    - name: Skapa en OpenAPI-definition
+    - name: 'OpenAPI-definition för serverlösa API:er'
       href: functions-openapi-definition.md
     - name: Ansluta till ett virtuellt nätverk
       href: functions-create-vnet.md
@@ -236,12 +234,10 @@
           href: functions-api-definition-getting-started.md
         - name: Exportera till PowerApps och Microsoft Flow
           href: app-service-export-api-to-powerapps-and-flow.md
-        - name: Anropa en funktion från PowerApps
-          href: functions-powerapps-scenario.md
-        - name: Anropa en funktion från Microsoft Flow
-          href: functions-flow-scenario.md
         - name: Använda en hanterad identitet
           href: ../app-service/overview-managed-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json
+        - name: Anpassa HTTP-funktionens slutpunkt
+          href: functions-create-serverless-api.md
     - name: Felsöka
       items:
         - name: Felsöka Storage

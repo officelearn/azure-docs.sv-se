@@ -276,6 +276,22 @@
         - name: Felsöka State Configuration (DSC)
           href: troubleshoot/desired-state-configuration.md
           displayName: 'Desired State Configuration, troubleshoot'
+    - name: Referens
+      items:
+        - name: Community-lösningar
+          items:
+            - name: Konfigurationsdata i stor skala
+              href: automation-dsc-config-data-at-scale.md
+              displayName: 'DSC, Configuration Data, ConfigData'
+            - name: Skapa konfigurationer från servrar
+              href: automation-dsc-config-from-server.md
+              displayName: 'DSC, ReverseDSC'
+            - name: Konfiguration baserad på STIG
+              href: automation-dsc-configuration-based-on-stig.md
+              displayName: 'DSC, Configuration'
+            - name: Konvertera konfigurationer till sammansatta resurser
+              href: automation-dsc-create-composite.md
+              displayName: 'DSC, composite'
 - name: Hantera delade resurser
   items:
     - name: Certifikat

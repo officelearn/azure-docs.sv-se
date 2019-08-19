@@ -213,29 +213,29 @@
         - name: Var och hur du distribuerar
           displayName: 'publish, web, service, operationalize, aks, kubernetes, aci, container, cli, consume, docker'
           href: how-to-deploy-and-where.md
-        - name: Bärbara virtuella datorer
-          href: how-to-deploy-local-container-notebook-vm.md
-        - name: Azure Container Instances
-          displayName: aci
-          href: how-to-deploy-azure-container-instance.md
-        - name: Azure Kubernetes Service
+        - name: Distribuera till Azure Kubernetes Service
           displayName: 'aks, aad, authentication, azure active directory'
           href: how-to-deploy-azure-kubernetes-service.md
-        - name: GPU-inferens
+        - name: Distribuera för GPU-inferens
           href: how-to-deploy-inferencing-gpus.md
-        - name: FPGA-inferens
-          href: how-to-deploy-fpga-web-service.md
-        - name: IoT Edge
-          href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/service/context/ml-context
-        - name: Azure App Service
+        - name: Distribuera till Azure App Service
           displayName: web app
           href: how-to-deploy-app-service.md
-        - name: Anpassad Docker-avbildning
+        - name: Distribuera till Azure Container Instances
+          displayName: aci
+          href: how-to-deploy-azure-container-instance.md
+        - name: Distribuera till bärbara VM-datorer
+          href: how-to-deploy-local-container-notebook-vm.md
+        - name: Använda anpassad Docker-avbildning
           href: how-to-deploy-custom-docker-image.md
         - name: Distribuera befintliga modeller
           displayName: publish existing model
           href: how-to-deploy-existing-model.md
-        - name: Felsöka
+        - name: Distribuera till IoT Edge
+          href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/service/context/ml-context
+        - name: Distribuera för FPGAs-inferens
+          href: how-to-deploy-fpga-web-service.md
+        - name: Felsöka distributioner
           href: how-to-troubleshoot-deployment.md
     - name: Konsumera webbtjänster
       items:

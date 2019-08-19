@@ -101,6 +101,8 @@
               href: network-watcher-nsg-flow-logging-cli.md
             - name: REST
               href: network-watcher-nsg-flow-logging-rest.md
+        - name: Ta bort lagringsblobar för NSG-flödesloggar
+          href: network-watcher-delete-nsg-flow-log-blobs.md
         - name: Analysera NSG-flödesloggar
           items:
             - name: Läs NSG-flödesloggar

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/18/2017
 ms.author: dacurwin
-ms.openlocfilehash: 6dc478f569b94450921e56c05b148bae357fef8e
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 83c4d8a90bf9ae348026c14beaec4975636b29b5
+ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68689135"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69018790"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Återställa system tillstånd till Windows Server
 
@@ -124,9 +124,9 @@ När du har återställt system tillstånd som filer med Azure Recovery Services
 
 1. Använd följande kommandon för att starta om servern i *reparations läge för katalog tjänster*. I en upphöjd kommando tolk:
 
-    ```
-    PS C:\> Bcdedit /set safeboot dsrepair
-    PS C:\> Shutdown /r /t 0
+    ```cmd
+    Bcdedit /set safeboot dsrepair
+    Shutdown /r /t 0
     ```
 
 2. Starta snapin-modulen Windows Server Backup efter omstart. Om du inte vet var snapin-modulen har installerats söker du efter **Windows Server Backup**i datorn eller servern.
@@ -189,14 +189,14 @@ Om den tidigare processen att tillämpa system tillstånd inte slutförs korrekt
 
 5. När du öppnar kommando tolken i administratörs läge kör du följande kommando för att hämta system tillståndets säkerhets kopierings versioner.
 
-    ```
+    ```cmd
     Wbadmin get versions -backuptarget:<Volume where WindowsImageBackup folder is copied>:
     ```
     ![Hämta säkerhets kopie versioner för system tillstånd](./media/backup-azure-restore-system-state/winre-4.png)
 
 6. Kör följande kommando för att hämta alla volymer som är tillgängliga i säkerhets kopian.
 
-    ```
+    ```cmd
     Wbadmin get items -version:<copy version from above step> -backuptarget:<Backup volume>
     ```
 
@@ -204,7 +204,7 @@ Om den tidigare processen att tillämpa system tillstånd inte slutförs korrekt
 
 7. Följande kommando återställer alla volymer som ingår i säkerhets kopieringen av system tillstånd. Observera att det här steget bara återställer de kritiska volymer som ingår i systemets tillstånd. Alla data som inte är system raderas.
 
-    ```
+    ```cmd
     Wbadmin start recovery -items:C: -itemtype:Volume -version:<Backupversion> -backuptarget:<backup target volume>
     ```
      ![Hämta säkerhets kopie versioner för system tillstånd](./media/backup-azure-restore-system-state/winre-6.png)

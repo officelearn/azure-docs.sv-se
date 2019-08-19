@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.author: dacurwin
-ms.openlocfilehash: a59cff3b2edc4d5b94cc0a44472665c95652f868
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 1d3dc50d141a4e1d2864a56aff5c3adb3d2ca0b1
+ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736679"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68954862"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Arbetsflöde för säkerhetskopiering offline i Azure Backup
 Azure Backup har flera inbyggda effektivitets vinster som sparar kostnader för nätverk och lagring under de första fullständiga säkerhets kopieringarna av data till Azure. De första fullständiga säkerhets kopieringarna överför ofta stora mängder data och kräver mer nätverks bandbredd jämfört med efterföljande säkerhets kopieringar som bara överför delta/steg. Genom processen för dirigering av dirigering kan Azure Backup använda diskar för att ladda upp offline-säkerhetskopierade data till Azure.

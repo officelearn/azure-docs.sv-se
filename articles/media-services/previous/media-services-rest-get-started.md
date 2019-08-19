@@ -1,6 +1,6 @@
 ---
 title: Kom igång med att leverera innehåll på begäran med hjälp av REST | Microsoft Docs
-description: Den här självstudien vägleder dig genom stegen för att implementera ett program för leverans av på begäran med Azure Media Services med hjälp av REST API.
+description: Den här självstudien vägleder dig genom stegen för att implementera ett leverans program på begäran med Azure Media Services med hjälp av REST API.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 76eae5fa049ed1fbf7195277613867aca63c1082
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f0f9b2c974c0a095719973b1c6173d682718dbbf
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64867623"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "69014861"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>Kom igång med att leverera innehåll på begäran med hjälp av REST  
 
 > [!NOTE]
-> Inga nya funktioner läggs till i Media Services v2. <br/>Upptäck den senaste versionen, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [migreringsvägledningen från v2 till v3](../latest/migrate-from-v2-to-v3.md)
+> Inga nya funktioner läggs till i Media Services v2. <br/>Upptäck den senaste versionen, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
 
-Denna Snabbstart vägleder dig genom stegen för att implementera ett program för leverans av video på begäran (VoD) med hjälp av Azure Media Services (AMS) REST API: er.
+I den här snabb starten får du stegvisa anvisningar för hur du implementerar ett leverans program för video på begäran (VoD) med hjälp av Azure Media Services (AMS) REST-API: er.
 
-Självstudierna innehåller det grundläggande Media Services-arbetsflödet och de vanligaste programmeringsobjekt och -uppgifter som krävs för utveckling av Media Services. I slutet av självstudien kan du strömma eller progressivt hämta en exempelmediefil som du överfört, kodat och ned.
+Självstudierna innehåller det grundläggande Media Services-arbetsflödet och de vanligaste programmeringsobjekt och -uppgifter som krävs för utveckling av Media Services. När du har slutfört självstudien kan du strömma eller progressivt hämta en exempel medie fil som du har laddat upp, kodat och laddat ned.
 
 Följande bild visar några av de vanligast använda objekten när du utvecklar VoD-program mot Media Services OData-modellen.
 
@@ -36,34 +36,34 @@ Klicka på bilden för att visa den i full storlek.
 
 <a href="./media/media-services-rest-get-started/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-rest-get-started/media-services-overview-object-model-small.png"></a> 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
-Följande krävs för att börja utveckla med Media Services med REST API: er.
+## <a name="prerequisites"></a>Förutsättningar
+Följande förutsättningar måste vara uppfyllda för att börja utveckla med Media Services med REST-API: er.
 
 * Ett Azure-konto. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/).
 * Ett Media Services-konto. Information om hur du skapar ett Media Services-konto finns i [Så här skapar du ett Media Services-konto](media-services-portal-create-account.md).
-* Förståelse för hur du utvecklar med Media Services REST API. Mer information finns i [Media Services REST API-översikt](media-services-rest-how-to-use.md).
-* Ett program som kan skicka HTTP-begäranden och svar. Den här självstudien används [Fiddler](https://www.telerik.com/download/fiddler).
+* Förståelse för hur du utvecklar med Media Services REST API. Mer information finns i [Översikt över Media Services REST API](media-services-rest-how-to-use.md).
+* Ett program som du väljer som kan skicka HTTP-begäranden och-svar. I den här självstudien används [Fiddler](https://www.telerik.com/download/fiddler).
 
-Följande aktiviteter visas i den här snabbstarten.
+Följande aktiviteter visas i den här snabb starten.
 
 1. Starta slutpunkt för direktuppspelning (med hjälp av Azure Portal).
-2. Anslut till Media Services-konto med REST API.
-3. Skapa en ny tillgång och överföra en videofil med REST API.
-4. Koda källfilen till en uppsättning MP4-filer med REST API.
-5. Publicera tillgången och hämta strömning och progressiv nedladdning URL: er med REST API.
+2. Anslut till Media Services kontot med REST API.
+3. Skapa en ny till gång och överför en videofil med REST API.
+4. Koda käll filen till en uppsättning MP4-filer med anpassningsbar bit hastighet med REST API.
+5. Publicera till gången och få URL: er för strömning och progressiv nedladdning med REST API.
 6. Spela upp ditt innehåll.
 
 >[!NOTE]
->Det finns en gräns på 1 000 000 principer för olika AMS-principer (till exempel för positionerarprincipen eller ContentKeyAuthorizationPolicy). Använd samma princip-ID om du alltid använder samma dagar / åtkomstbehörigheter, till exempel principer för positionerare som är avsedda att vara på plats under en längre tid (icke-överföringsprinciper). Mer information finns i [den här artikeln](media-services-dotnet-manage-entities.md#limit-access-policies).
+>Det finns en gräns på 1 000 000 principer för olika AMS-principer (till exempel för positionerarprincipen eller ContentKeyAuthorizationPolicy). Använd samma princip-ID om du alltid använder samma dagar/åtkomst behörigheter, till exempel principer för positionerare som är avsedda att vara på plats under en längre tid (principer som inte uppladdas). Mer information finns i [den här artikeln](media-services-dotnet-manage-entities.md#limit-access-policies).
 
-Mer information om AMS REST-entiteter som används i den här artikeln finns [Azure Media Services REST API-referens](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference). Se även [Azure Media Services-koncepten](media-services-concepts.md).
+Mer information om AMS REST-enheter som används i den här artikeln finns [Azure Media Services REST API referens](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference). Se även [Azure Media Services begrepp](media-services-concepts.md).
 
 >[!NOTE]
->Vid åtkomst till entiteter i Media Services, måste du ange specifika namn på huvudfält och värden i HTTP-förfrågningar. Mer information finns i [installationsprogrammet för Media Services REST API-utveckling](media-services-rest-how-to-use.md).
+>När du använder entiteter i Media Services måste du ange vissa huvud fält och värden i dina HTTP-begäranden. Mer information finns i [installations programmet för Media Services REST API-utveckling](media-services-rest-how-to-use.md).
 
 ## <a name="start-streaming-endpoints-using-the-azure-portal"></a>Starta slutpunkter för direktuppspelning med Azure Portal
 
-När du arbetar med Azure Media Services, en av de vanligaste scenarierna att leverera video via direktuppspelning med anpassningsbar bithastighet. Media Services tillhandahåller en dynamisk paketering som gör att du kan leverera ditt MP4-kodade innehåll med anpassningsbar bithastighet i direktuppspelningsformat som stöds av Media Services (MPEG DASH, HLS, Smooth Streaming) direkt när du så önskar, utan att du behöver lagra på förhand paketerade versioner av vart och ett av dessa direktuppspelningsformat.
+När du arbetar med Azure Media Services, är ett av de vanligaste scenarierna att leverera video via strömning med anpassningsbar bit hastighet. Media Services tillhandahåller en dynamisk paketering som gör att du kan leverera ditt MP4-kodade innehåll med anpassningsbar bithastighet i direktuppspelningsformat som stöds av Media Services (MPEG DASH, HLS, Smooth Streaming) direkt när du så önskar, utan att du behöver lagra på förhand paketerade versioner av vart och ett av dessa direktuppspelningsformat.
 
 >[!NOTE]
 >När ditt AMS-konto skapas läggs en **standard**-slutpunkt för direktuppspelning till på ditt konto med tillståndet **Stoppad**. Om du vill starta direktuppspelning av innehåll och dra nytta av dynamisk paketering och dynamisk kryptering måste slutpunkten för direktuppspelning som du vill spela upp innehåll från ha tillståndet **Körs**.
@@ -79,26 +79,26 @@ Starta slutpunkten för direktuppspelning genom att göra följande:
 4. Klicka på ikonen Start.
 5. Klicka på knappen Spara för att spara ändringarna.
 
-## <a id="connect"></a>Ansluta till Media Services-konto med REST API
+## <a id="connect"></a>Anslut till Media Services kontot med REST API
 
-Information om hur du ansluter till AMS API finns i [åtkomst till Azure Media Services-API med Azure AD-autentisering](media-services-use-aad-auth-to-access-ams-api.md). 
+Information om hur du ansluter till AMS-API: et finns i [komma åt Azure Media Services-API med Azure AD-autentisering](media-services-use-aad-auth-to-access-ams-api.md). 
 
-## <a id="upload"></a>Skapa en ny tillgång och överföra en videofil med REST API
+## <a id="upload"></a>Skapa en ny till gång och ladda upp en videofil med REST API
 
-I Media Services överför du dina digitala filer till en tillgång. Den **tillgången** entiteten kan innehålla video, ljud, bilder, miniatyrsamlingar, textspår och dold textning filer (och metadata om dessa filer.)  När filerna har överförts till tillgången, lagras innehållet på ett säkert sätt i molnet för ytterligare bearbetning och strömning.
+I Media Services överför du dina digitala filer till en tillgång. **Till gångs** enheten kan innehålla video, ljud, bilder, miniatyr samlingar, text spår och filer med dold textning (samt metadata om dessa filer.)  När filerna har laddats upp till till gången lagras innehållet på ett säkert sätt i molnet för vidare bearbetning och strömning.
 
-En av de värden som du måste ange när du skapar en tillgång är alternativ för skapande av tillgång. Den **alternativ** egenskapen är ett uppräkningsvärde som beskriver alternativ för kryptering som du kan skapa en tillgång med. Ett giltigt värde är ett av värdena i listan nedan, inte en kombination av värden från den här listan:
+Ett av de värden som du måste ange när du skapar en till gång är till gångs skapande alternativ. Egenskapen **Options** är ett uppräknings värde som beskriver de krypterings alternativ som en till gång kan skapas med. Ett giltigt värde är ett av värdena i listan nedan, inte en kombination av värden från den här listan:
 
-* **Ingen** = **0** – Ingen kryptering används. När du använder det här alternativet skyddas inte innehållet under överföring eller i vila i lagring.
+* Ingen = **0** -ingen kryptering används. När du använder det här alternativet skyddas inte innehållet i överföring eller i vila i lagring.
     Om du planerar att leverera en MP4 med progressivt nedladdning ska du använda det här alternativet.
-* **StorageEncrypted** = **1** – krypterar innehållet lokalt med hjälp av AES-256-bitarskryptering och överför dem till Azure Storage var den lagras krypterat i vila. Tillgångar som skyddas med Lagringskryptering avkrypteras automatiskt och placeras i ett krypterat filsystem före kodning och kan krypteras igen innan de överförs tillbaka som en ny utdatatillgång. Lagringskryptering används i första hand när du vill skydda indatamediefiler av hög kvalitet med stark kryptering i vila på disk.
-* **CommonEncryptionProtected** = **2** – Använd det här alternativet om du överför innehåll som redan har krypterats och skyddats med vanlig kryptering eller PlayReady DRM (till exempel Smooth Streaming skyddas med PlayReady DRM).
-* **EnvelopeEncryptionProtected** = **4** – Använd det här alternativet om du överför HLS som krypterats med AES. Filerna måste ha kodats och krypterats av Transform Manager.
+* StorageEncrypted = **1** – krypterar ditt tydliga innehåll lokalt med AES-256-bitars kryptering och laddar sedan upp det till Azure Storage där det lagras krypterade i vila. Tillgångar som skyddas med Lagringskryptering avkrypteras automatiskt och placeras i ett krypterat filsystem före kodning och kan krypteras igen innan de överförs tillbaka som en ny utdatatillgång. Lagringskryptering används i första hand när du vill skydda indatamediefiler av hög kvalitet med stark kryptering i vila på disk.
+* CommonEncryptionProtected = **2** – Använd det här alternativet om du överför innehåll som redan har krypterats och skyddas med common Encryption eller PlayReady DRM (till exempel Smooth Streaming som skyddas med PlayReady DRM).
+* EnvelopeEncryptionProtected = **4** – Använd det här alternativet om du överför HLS som krypteras med AES. Filerna måste ha kodats och krypterats av Transform Manager.
 
-### <a name="create-an-asset"></a>Skapa en tillgång
-En tillgång är en behållare för flera typer eller uppsättningar med objekt i Media Services, inklusive video, ljud, bilder, miniatyrsamlingar, textspår och filer med dold textning. I REST-API kräver skapa en tillgång skicka POST-begäran till Media Services och placera all egenskapsinformation om din tillgång i begärandetexten.
+### <a name="create-an-asset"></a>Skapa en till gång
+En till gång är en behållare för flera typer eller uppsättningar med objekt i Media Services, inklusive video, ljud, bilder, miniatyr samlingar, text spår och filer med dold textning. När du skapar en till gång i REST API måste du skicka POST-begäran till Media Services och placera all egenskaps information om din till gång i begär ande texten.
 
-I följande exempel visas hur du skapar en tillgång.
+I följande exempel visas hur du skapar en till gång.
 
 **HTTP-begäran**
 
@@ -119,7 +119,7 @@ I följande exempel visas hur du skapar en tillgång.
 
 **HTTP-svar**
 
-Om detta lyckas, returneras följande:
+Om det lyckas returneras följande:
 
     HTTP/1.1 201 Created
     Cache-Control: no-cache
@@ -150,9 +150,9 @@ Om detta lyckas, returneras följande:
     }
 
 ### <a name="create-an-assetfile"></a>Skapa en AssetFile
-Den [AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) entitet representerar en video- eller ljudinnehåll fil som lagras i en blob-behållare. En resursfil är alltid kopplad till en tillgång och en tillgång kan innehålla en eller flera AssetFiles. Media Services Encoder aktiviteten misslyckas om ett objekt för tillgången-filen inte är associerad med en digital fil i en blobbehållare.
+Entiteten [AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) representerar en video-eller ljudfil som lagras i en BLOB-behållare. En till gångs fil är alltid kopplad till en till gång och en till gång kan innehålla en eller flera AssetFiles. Media Services Encoder-aktiviteten Miss lyckas om ett till gångs fil objekt inte är associerat med en digital fil i en BLOB-behållare.
 
-När du har överfört din digitala media-fil till en blobbehållare kan du använda den **sammanfoga** HTTP-förfrågan att uppdatera AssetFile med information om din mediefil (som visas längre fram i avsnittet).
+När du har överfört din digitala mediefil till en BLOB-behållare använder du kommandot **slå samman** http för att uppdatera AssetFile med information om medie filen (som visas senare i avsnittet).
 
 **HTTP-begäran**
 
@@ -211,10 +211,10 @@ När du har överfört din digitala media-fil till en blobbehållare kan du anv�
     }
 
 
-### <a name="creating-the-accesspolicy-with-write-permission"></a>Skapa AccessPolicy med behörighet att skriva
-Innan du laddar upp filer till blob-lagring, ange principen rättigheter för att skriva till en tillgång. Gör detta genom att publicera en HTTP-begäran till entitetsuppsättning AccessPolicies. Definiera ett DurationInMinutes värde när de skapas eller meddelandet 500 Internt fel i svaret. Läs mer på AccessPolicies [AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy).
+### <a name="creating-the-accesspolicy-with-write-permission"></a>Skapa Access policy med Skriv behörighet
+Innan du överför filer till Blob Storage anger du åtkomst princip rättigheter för skrivning till en till gång. Det gör du genom att skicka en HTTP-begäran till enhets uppsättningen AccessPolicies. Definiera ett DurationInMinutes-värde när du skapar eller så får du ett internt 500-server fel meddelande i svaret. Mer information om AccessPolicies finns i [Access policy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy).
 
-I följande exempel visas hur du skapar en AccessPolicy:
+I följande exempel visas hur du skapar en Access policy:
 
 **HTTP-begäran**
 
@@ -233,7 +233,7 @@ I följande exempel visas hur du skapar en AccessPolicy:
 
 **HTTP-svar**
 
-Om detta lyckas, returneras följande svar:
+Om det lyckas returneras följande svar:
 
     HTTP/1.1 201 Created
     Cache-Control: no-cache
@@ -259,9 +259,9 @@ Om detta lyckas, returneras följande svar:
        "Permissions":2
     }
 
-### <a name="get-the-upload-url"></a>Hämta URL
+### <a name="get-the-upload-url"></a>Hämta överförings-URL: en
 
-Skapa en SAS-lokaliserare för att ta emot den faktiska URL. Lokaliserare definiera start- och typ av anslutningens slutpunkt för klienter som vill komma åt filer i en tillgång. Du kan skapa flera positionerare entiteter för en viss AccessPolicy och tillgången par att hantera olika klientbegäranden och behov. Var och en av dessa positionerare använder StartTime-värdet plus DurationInMinutes värdet för AccessPolicy för att avgöra hur lång tid som en URL som kan användas. Mer information finns i [positionerare](https://docs.microsoft.com/rest/api/media/operations/locator).
+Skapa en SAS-lokaliserare för att få den faktiska uppladdnings-URL: en. Lokaliserare definierar start tiden och typen av anslutnings slut punkt för klienter som vill komma åt filer i en till gång. Du kan skapa flera lokaliserade entiteter för en specifik Access policy och till gångs par för att hantera olika klient begär Anden och behov. Var och en av dessa positionerare använder StartTime-värdet plus DurationInMinutes-värdet för Access policy för att bestämma hur lång tid en URL kan användas. Mer information finns i [Locator](https://docs.microsoft.com/rest/api/media/operations/locator).
 
 En SAS-URL har följande format:
 
@@ -269,11 +269,11 @@ En SAS-URL har följande format:
 
 Vissa förutsättningar gäller:
 
-* Du kan inte ha fler än fem unik positionerare som är associerade med en given tillgång i taget. 
-* Om du vill ladda upp dina filer omedelbart ska du ange StartTime-värdet till fem minuter före aktuell tid. Det beror på att det kan finnas klockan skeva mellan klientdatorn och Media Services. Dessutom måste StartTime-värdet vara i formatet DateTime: ÅÅÅÅ-MM-: ssZ (till exempel ”2014-05-23T17:53:50Z”).    
-* Det kan finnas en 30 – 40 andra fördröjning när en positionerare skapas när den är tillgänglig för användning. Det här problemet gäller både [SAS-Webbadressen](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) och ursprung lokaliserare.
+* Du kan inte ha fler än fem unika positionerare kopplade till en specifik till gång på samma gång. 
+* Om du behöver ladda upp dina filer direkt ska du ställa in StartTime-värdet på fem minuter före den aktuella tiden. Detta beror på att det kan finnas en klock skevning mellan klient datorn och Media Services. StartTime-värdet måste också vara i följande DateTime-format: ÅÅÅÅ-MM-DDTHH: mm: ssZ (till exempel "2014-05-23T17:53:50Z").    
+* Det kan finnas en fördröjning på 30-40 sekunder efter att en positionerare har skapats till när den är tillgänglig för användning. Det här problemet gäller både [SAS-URL](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) och ursprungs positionerare.
 
-I följande exempel visar hur du skapar en SAS-URL: en lokaliserare som definieras av Type-egenskapen i begärandetexten (”1” för en SAS-lokaliserare) och ”2” för en lokaliserare för ursprung på begäran. Den **sökväg** -egenskapen som returneras innehåller den URL som du måste använda för att överföra din fil.
+I följande exempel visas hur du skapar en SAS-URL Locator, som definieras av type-egenskapen i begär ande texten ("1" för en SAS-lokaliserare och "2" för en käll plats på begäran). **Sök vägs** egenskapen som returnerade innehåller den URL som du måste använda för att ladda upp filen.
 
 **HTTP-begäran**
 
@@ -298,7 +298,7 @@ I följande exempel visar hur du skapar en SAS-URL: en lokaliserare som definier
 
 **HTTP-svar**
 
-Om detta lyckas, returneras följande svar:
+Om det lyckas returneras följande svar:
 
     HTTP/1.1 201 Created
     Cache-Control: no-cache
@@ -328,18 +328,18 @@ Om detta lyckas, returneras följande svar:
        "Name":null
     }
 
-### <a name="upload-a-file-into-a-blob-storage-container"></a>Överföra en fil till ett blob storage-behållare
-När du har AccessPolicy och positionerare som anger laddas den faktiska filen upp till en Azure blob storage-behållare med hjälp av Azure Storage REST-API: er. Du måste överföra filerna som blockblobar. Sidblobar stöds inte av Azure Media Services.  
+### <a name="upload-a-file-into-a-blob-storage-container"></a>Ladda upp en fil till en Blob Storage-behållare
+När du har angett Access policy och lokaliseraren laddas den faktiska filen upp till en Azure Blob Storage-behållare med hjälp av Azure Storage REST-API: er. Du måste överföra filerna som block-blobbar. Page blobbar stöds inte av Azure Media Services.  
 
 > [!NOTE]
-> Du måste lägga till filnamnet för den fil du vill ladda upp till lokaliseraren **sökväg** värdet som tas emot i föregående avsnitt. Till exempel `https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4?`.
+> Du måste lägga till fil namnet för den fil som du vill överföra till värdet för sökvägen till lokaliserings **Sök vägen** som togs emot i föregående avsnitt. Till exempel `https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4?`.
 >
 >
 
-Mer information om hur du arbetar med Azure storage-blobbar finns i [REST-API för Blob Service](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API).
+Mer information om hur du arbetar med Azure Storage-blobar finns i [BLOB Service REST API](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API).
 
 ### <a name="update-the-assetfile"></a>Uppdatera AssetFile
-Nu när du har överfört filen kan du uppdatera informationen om FileAsset storlek (och andra). Exempel:
+Nu när du har laddat upp filen uppdaterar du FileAsset storlek (och annan). Exempel:
 
     MERGE https://wamsbayclus001rest-hs.cloudapp.net/api/Files('nb%3Acid%3AUUID%3Af13a0137-0a62-9d4c-b3b9-ca944b5142c5') HTTP/1.1
     Content-Type: application/json
@@ -362,12 +362,12 @@ Nu när du har överfört filen kan du uppdatera informationen om FileAsset stor
 
 **HTTP-svar**
 
-Om detta lyckas, returneras följande:
+Om det lyckas returneras följande:
 
     HTTP/1.1 204 No Content
     ...
 
-## <a name="delete-the-locator-and-accesspolicy"></a>Ta bort positionerare och AccessPolicy
+## <a name="delete-the-locator-and-accesspolicy"></a>Ta bort lokaliseraren och Access policy
 **HTTP-begäran**
 
     DELETE https://wamsbayclus001rest-hs.cloudapp.net/api/Locators('nb%3Alid%3AUUID%3Aaf57bdd8-6751-4e84-b403-f3c140444b54') HTTP/1.1
@@ -382,7 +382,7 @@ Om detta lyckas, returneras följande:
 
 **HTTP-svar**
 
-Om detta lyckas, returneras följande:
+Om det lyckas returneras följande:
 
     HTTP/1.1 204 No Content
     ...
@@ -400,23 +400,23 @@ Om detta lyckas, returneras följande:
 
 **HTTP-svar**
 
-Om detta lyckas, returneras följande:
+Om det lyckas returneras följande:
 
     HTTP/1.1 204 No Content
     ...
 
-## <a id="encode"></a>Koda källfilen till en uppsättning MP4-filer
+## <a id="encode"></a>Koda käll filen till en uppsättning MP4-filer med anpassningsbar bit hastighet
 
-När du matar in tillgångar i Media Services, media kan kodas, användas med transmux, förses med vattenstämpel och så vidare innan de skickas till klienter. Dessa aktiviteter schemaläggs och körs mot flera bakgrundsrollinstanser för höga prestanda och tillgänglighet. De här aktiviteterna kallas jobb och varje jobb består av atomiska uppgifter som gör det faktiska arbetet i tillgångsfilen (Mer information finns i [jobbet](https://docs.microsoft.com/rest/api/media/operations/job), [uppgift](https://docs.microsoft.com/rest/api/media/operations/task) beskrivningar).
+När du har matat in till gångar i Media Services kan Media kodas, transmux, vattenstämplas och så vidare innan de levereras till klienter. Dessa aktiviteter schemaläggs och körs mot flera bakgrundsrollinstanser för höga prestanda och tillgänglighet. Dessa aktiviteter kallas jobb och varje jobb består av atomiska uppgifter som gör det faktiska arbetet i till gångs filen (mer information finns i [jobb](https://docs.microsoft.com/rest/api/media/operations/job), [aktivitets](https://docs.microsoft.com/rest/api/media/operations/task) beskrivningar).
 
-Som tidigare nämnts, när du arbetar med Azure Media Services som ett av de vanligaste scenarierna att leverera strömning med anpassad bithastighet till dina klienter. Media Services kan dynamiskt paketera en uppsättning MP4-filer med anpassningsbar bithastighet till något av följande format: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH.
+Som tidigare nämnts kan du när du arbetar med Azure Media Services ett av de vanligaste scenarierna leverera strömning med anpassad bit hastighet till dina klienter. Media Services kan dynamiskt paketera en uppsättning MP4-filer med anpassningsbar bithastighet till något av följande format: HTTP Live Streaming (HLS), Smooth Streaming, MPEG-streck.
 
-Följande avsnitt visar hur du skapar ett jobb som innehåller ett kodningsjobb. Uppgiften anger att omkodning av mezzaninfilen till en uppsättning med anpassningsbar bithastighet MP4s med **Media Encoder Standard**. Avsnittet visar också hur du övervakar jobbet bearbetningsförlopp. När jobbet har slutförts, skulle du kunna skapa lokaliserare som behövs för att få åtkomst till dina tillgångar.
+I följande avsnitt visas hur du skapar ett jobb som innehåller en kodnings uppgift. Uppgiften anger att Omkoda mezzaninfil-filen till en uppsättning hastigheter med anpassningsbar bit hastighet med **Media Encoder Standard**. Avsnittet visar också hur du övervakar jobb bearbetnings förloppet. När jobbet har slutförts kan du skapa positionerare som behövs för att få åtkomst till dina till gångar.
 
-### <a name="get-a-media-processor"></a>Hämta en medieprocessor
-I Media Services är en komponent som hanterar en specifik bearbetning aktivitet, till exempel kodning, Formatkonvertering, kryptering eller dekryptering medieinnehåll i en medieprocessor. För kodningsjobbet som visas i den här självstudien, vi använder Media Encoder Standard.
+### <a name="get-a-media-processor"></a>Hämta en medie processor
+I Media Services är en medie processor en komponent som hanterar en speciell bearbetnings aktivitet, till exempel kodning, format konvertering, kryptering eller dekryptering av medie innehåll. För den kodnings uppgift som visas i den här självstudien ska vi använda Media Encoder Standard.
 
-Följande kod begär den kodaren id.
+Följande kod begär kodarens ID.
 
 **HTTP-begäran**
 
@@ -460,9 +460,9 @@ Följande kod begär den kodaren id.
     }
 
 ### <a name="create-a-job"></a>Skapa ett jobb
-Varje jobb kan ha en eller flera aktiviteter beroende på vilken typ av bearbetning som du vill utföra. Via REST-API kan du skapa jobb och deras relaterade uppgifter i ett av två sätt: Aktiviteter kan vara definierats internt via navigeringsegenskapen uppgifter på jobbet entiteter eller OData-batch-bearbetning. Media Services SDK använder batch-bearbetning. För läsbarhet av kodexemplen i den här artikeln är dock uppgifter definierats internt. Information om batchbearbetning finns [Open Data Protocol (OData) gruppbearbetning](https://www.odata.org/documentation/odata-version-3-0/batch-processing/).
+Varje jobb kan ha en eller flera aktiviteter beroende på vilken typ av bearbetning du vill utföra. Du kan skapa jobb och deras relaterade uppgifter på ett av två sätt med hjälp av REST API: Aktiviteter kan definieras infogade via aktiviteternas navigerings egenskap på jobb enheter eller genom OData batch-bearbetning. Media Services SDK använder batchbearbetning. För läsning av kod exemplen i den här artikeln definieras dock uppgifter som infogas. Information om batchbearbetning finns i batch- [bearbetning för Open data Protocol (OData)](https://www.odata.org/documentation/odata-version-3-0/batch-processing/).
 
-I följande exempel visas hur du skapar och publicerar ett jobb med en åtgärd ange för att koda en video med en viss upplösning och kvalitet. Avsnittet följande dokumentation innehåller listan över alla de [uppgift förinställningar](https://msdn.microsoft.com/library/mt269960) stöds av Media Encoder Standard processorn.  
+I följande exempel visas hur du skapar och publicerar ett jobb med en aktivitets uppsättning för att koda en video med en angiven upplösning och kvalitet. Följande dokumentations avsnitt innehåller en lista över alla [aktivitets för inställningar](https://msdn.microsoft.com/library/mt269960) som stöds av Media Encoder Standard-processorn.  
 
 **HTTP-begäran**
 
@@ -498,7 +498,7 @@ I följande exempel visas hur du skapar och publicerar ett jobb med en åtgärd 
 
 **HTTP-svar**
 
-Om detta lyckas, returneras följande svar:
+Om det lyckas returneras följande svar:
 
     HTTP/1.1 201 Created
     Cache-Control: no-cache
@@ -558,35 +558,35 @@ Om detta lyckas, returneras följande svar:
     }
 
 
-Det finns några viktiga saker att tänka på varje jobb begäran:
+Det finns några viktiga saker att notera i en jobb förfrågan:
 
-* TaskBody egenskaper måste använda literal XML för att ange hur många indata eller utdata tillgångar som används av aktiviteten. Uppgiften artikeln innehåller XML-schemadefinitionen för XML-filen.
-* I definitionen av TaskBody varje inre värde för `<inputAsset>` och `<outputAsset>` måste anges som JobInputAsset(value) eller JobOutputAsset(value).
-* En aktivitet kan ha flera utdataresultat. En JobOutputAsset(x) kan bara användas en gång som utdata för en aktivitet i ett jobb.
-* Du kan ange JobInputAsset eller JobOutputAsset som en indatatillgången för en aktivitet.
-* Uppgifter måste inte utgör en cykel.
-* Värdeparametern som du skickar till JobInputAsset eller JobOutputAsset representerar indexvärdet för en tillgång. De faktiska resurser har definierats i navigeringsegenskaper InputMediaAssets och OutputMediaAssets på entiteten jobbdefinitionen.
+* TaskBody-egenskaper måste använda literal XML för att definiera antalet indata eller utgående till gångar som används av aktiviteten. Uppgifts artikeln innehåller XML-schema definitionen för XML-koden.
+* I TaskBody-definitionen måste varje inre värde för `<inputAsset>` och `<outputAsset>` anges som JobInputAsset (värde) eller JobOutputAsset (värde).
+* En aktivitet kan ha flera utmatnings till gångar. En JobOutputAsset (x) kan bara användas en gång som utdata för en aktivitet i ett jobb.
+* Du kan ange JobInputAsset eller JobOutputAsset som en inmatad till gång för en aktivitet.
+* Aktiviteter får inte utgöra en cykel.
+* Värde parametern som du skickar till JobInputAsset eller JobOutputAsset representerar index värdet för en till gång. De faktiska till gångarna definieras i InputMediaAssets-och OutputMediaAssets-navigerings egenskaperna på jobb enhets definitionen.
 
 > [!NOTE]
-> Eftersom Media Services bygger på OData v3, enskilda tillgångar i InputMediaAssets och OutputMediaAssets navigering egenskapssamlingar refereras via en ”__metadata: uri” namn / värde-par.
+> Eftersom Media Services bygger på OData v3 refereras de enskilda till gångarna i InputMediaAssets-och OutputMediaAssets-navigerings egenskaps samlingarna via ett namn-värdepar för "__metadata: URI".
 >
 >
 
-* InputMediaAssets mappas till en eller flera resurser som du har skapat i Media Services. OutputMediaAssets skapas av systemet. De hänvisar inte till en befintlig tillgång.
-* OutputMediaAssets kan namnges med attributet assetName. Om det här attributet finns inte, så är namnet på OutputMediaAsset är det inre textvärdet för den `<outputAsset>` elementet är med ett suffix för jobbets namn-värde eller jobb-Id-värdet (i de fall där egenskapen Name inte är definierat). Till exempel om du anger ett värde för assetName till ”exempel” kan skulle sedan OutputMediaAsset namnegenskapen anges till ”exempel”. Men om du inte har angett ett värde för assetName, men angetts Jobbnamnet för att ”NewJob”, OutputMediaAsset namnet skulle vara ”JobOutputAsset (värde) _NewJob”.
+* InputMediaAssets mappar till en eller flera till gångar som du har skapat i Media Services. OutputMediaAssets skapas av systemet. De refererar inte till en befintlig till gång.
+* OutputMediaAssets kan namnges med attributet assetName. Om det här attributet inte finns är namnet på OutputMediaAsset det som är det inre text värdet för `<outputAsset>` elementet med ett suffix för antingen jobbnamn eller jobb-ID-värdet (i de fall där namn egenskapen inte har definierats). Om du till exempel anger ett värde för assetName till "Sample", skulle egenskapen OutputMediaAsset name anges till "Sample". Men om du inte har angett ett värde för assetName, men ställt in jobb namnet på "NewJob", blir OutputMediaAsset-namnet "JobOutputAsset (värde) _NewJob".
 
     I följande exempel visas hur du ställer in attributet assetName:
 
         "<?xml version=\"1.0\" encoding=\"utf-8\"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset assetName=\"CustomOutputAssetName\">JobOutputAsset(0)</outputAsset></taskBody>"
-* Aktivera aktiviteten länkning:
+* Så här aktiverar du aktivitets länkning:
 
-  * Ett jobb måste ha minst två aktiviteter
+  * Ett jobb måste innehålla minst två aktiviteter
   * Det måste finnas minst en aktivitet vars indata är utdata från en annan aktivitet i jobbet.
 
-Mer information finns i [skapar ett jobb för Encoding med Media Services REST API](media-services-rest-encode-asset.md).
+Mer information finns i [skapa ett kodnings jobb med Media Services REST API](media-services-rest-encode-asset.md).
 
-### <a name="monitor-processing-progress"></a>Övervaka Bearbetningsförlopp
-Du kan hämta jobbets status med hjälp av egenskapen State som visas i följande exempel:
+### <a name="monitor-processing-progress"></a>Övervaka bearbetnings förlopp
+Du kan hämta jobb statusen genom att använda egenskapen state, som du ser i följande exempel:
 
 **HTTP-begäran**
 
@@ -603,7 +603,7 @@ Du kan hämta jobbets status med hjälp av egenskapen State som visas i följand
 
 **HTTP-svar**
 
-Om detta lyckas, returneras följande svar:
+Om det lyckas returneras följande svar:
 
     HTTP/1.1 200 OK
     Cache-Control: no-cache
@@ -621,7 +621,7 @@ Om detta lyckas, returneras följande svar:
 
 
 ### <a name="cancel-a-job"></a>Avbryta ett jobb
-Media Services kan du avbryta jobb som körs via CancelJob-funktion. Det här anropet returnerar en 400 felkoden om du försöker avbryta ett jobb när dess tillstånd har avbrutits, avbryta, fel eller är klar.
+Med Media Services kan du avbryta jobb som körs via funktionen CancelJob. Anropet returnerar en 400-felkod om du försöker avbryta ett jobb när dess tillstånd har avbrutits, Avbryt, fel eller slutfört.
 
 I följande exempel visas hur du anropar CancelJob.
 
@@ -637,15 +637,15 @@ I följande exempel visas hur du anropar CancelJob.
     Host: wamsbayclus001rest-hs.net
 
 
-Om detta lyckas, returneras en 204-svarskod med Ingen meddelandetext.
+Om det lyckas returneras en 204-svars kod utan meddelande text.
 
 > [!NOTE]
-> Du måste URL-koda jobb-id (normalt nb:jid:UUID: somevalue) vid sändning av den i som en parameter till CancelJob.
+> Du måste URL-koda jobb-ID: t (normalt Obs: jid: UUID: someValue) när det skickas i som en parameter till CancelJob.
 >
 >
 
-### <a name="get-the-output-asset"></a>Hämta utdatatillgången
-Följande kod visar hur du begär utdatatillgången Id.
+### <a name="get-the-output-asset"></a>Hämta utdata till gång
+Följande kod visar hur du begär ID för utdata till gång.
 
 **HTTP-begäran**
 
@@ -692,11 +692,11 @@ Följande kod visar hur du begär utdatatillgången Id.
        ]
     }
 
-## <a id="publish_get_urls"></a>Publicera tillgången och hämta strömning och progressiv nedladdning URL: er med REST API
+## <a id="publish_get_urls"></a>Publicera till gången och få URL: er för strömning och progressiv nedladdning med REST API
 
 Om du vill strömma eller hämta en tillgång behöver du först ”publicera” den genom att skapa en positionerare. Lokaliserare ger åtkomst till filer som finns i tillgången. Media Services stöder två typer av lokaliserare: OnDemandOrigin-positionerare som används för att strömma media (till exempel MPEG DASH, HLS eller Smooth Streaming) och Access Signature (SAS)-positionerare som används för att hämta mediefiler. 
 
-När du har skapat positionerna kan du skapa de webbadresser som används för att strömma eller hämta dina filer.
+När du har skapat lokaliserarna kan du skapa de URL: er som används för att strömma eller hämta dina filer.
 
 >[!NOTE]
 >När ditt AMS-konto skapas läggs en **standard**-slutpunkt för direktuppspelning till på ditt konto med tillståndet **Stoppad**. Om du vill starta direktuppspelning av innehåll och dra nytta av dynamisk paketering och dynamisk kryptering måste slutpunkten för direktuppspelning som du vill spela upp innehåll från ha tillståndet **Körs**.
@@ -717,16 +717,16 @@ En SAS-URL som används för att hämta filer har följande format:
 
     {blob container name}/{asset name}/{file name}/{SAS signature}
 
-Det här avsnittet visar hur du utför följande uppgifter krävs för att ”publicera” din tillgångar.  
+Det här avsnittet visar hur du utför följande uppgifter som krävs för att publicera till gångar.  
 
-* Skapa AccessPolicy med läsbehörighet
-* Skapa en SAS-Webbadress för nedladdning av innehåll
-* Skapa en ursprung-URL för strömning av innehåll
+* Skapa Access policy med Läs behörighet
+* Skapa en SAS-URL för nedladdning av innehåll
+* Skapa en ursprunglig URL för strömmande innehåll
 
-### <a name="creating-the-accesspolicy-with-read-permission"></a>Skapa AccessPolicy med läsbehörighet
-Innan du ladda ned eller strömmande mediainnehåll, definiera en AccessPolicy med läsbehörighet och skapa lämpliga positionerare entiteten som anger vilken typ av leveransmekanismen som du vill aktivera för dina klienter. Mer information om egenskaper som är tillgängliga finns i [AccessPolicy Entitetsegenskaper](https://docs.microsoft.com/rest/api/media/operations/accesspolicy#accesspolicy_properties).
+### <a name="creating-the-accesspolicy-with-read-permission"></a>Skapa Access policy med Läs behörighet
+Innan du hämtar eller strömma media innehåll måste du först definiera en Access policy med Läs behörighet och skapa lämplig enhet för lokaliserare som anger vilken typ av leverans mekanism du vill aktivera för dina klienter. Mer information om tillgängliga egenskaper finns i egenskaper för [Access policy-entitet](https://docs.microsoft.com/rest/api/media/operations/accesspolicy#accesspolicy_properties).
 
-I följande exempel visas hur du anger AccessPolicy för Läs-och skrivrättigheter för en given tillgång.
+I följande exempel visas hur du anger Access policy för Läs behörighet för en specifik till gång.
 
     POST https://wamsbayclus001rest-hs.net/API/AccessPolicies HTTP/1.1
     Content-Type: application/json
@@ -741,15 +741,15 @@ I följande exempel visas hur du anger AccessPolicy för Läs-och skrivrättighe
 
     {"Name": "DownloadPolicy", "DurationInMinutes" : "300", "Permissions" : 1}
 
-Om detta lyckas, returneras 201 koden som beskriver entiteten AccessPolicy som du skapade. Du kan sedan använda AccessPolicy Id tillsammans med tillgångs-Id för den tillgång som innehåller filen som du vill leverera (till exempel en utdatatillgången) för att skapa lokaliserare entiteten.
+Om det lyckas returneras en 201-lyckad kod som beskriver den Access Policy-enhet som du skapade. Sedan använder du Access Policy-ID tillsammans med till gångs-ID: t för den till gång som innehåller den fil som du vill leverera (till exempel en utgående till gång) för att skapa en Locator-enhet.
 
 > [!NOTE]
-> Detta grundläggande arbetsflöde är detsamma som att ladda upp en fil när mata in en tillgång (som beskrevs tidigare i det här avsnittet). T.ex. ladda upp filer, om du (eller klienter) måste du komma åt dina filer omedelbart, ange dessutom StartTime-värdet till fem minuter före aktuell tid. Den här åtgärden är nödvändigt eftersom det kan finnas klockan skeva mellan klienten och Media Services. StartTime-värdet måste vara i formatet DateTime: ÅÅÅÅ-MM-: ssZ (till exempel ”2014-05-23T17:53:50Z”).
+> Det här grundläggande arbets flödet är detsamma som att överföra en fil när du matar in en till gång (som tidigare beskrevs i det här avsnittet). I likhet med att överföra filer, om du (eller dina klienter) behöver få åtkomst till dina filer direkt, ställer du in StartTime-värdet på fem minuter före den aktuella tiden. Den här åtgärden är nödvändig eftersom det kan finnas en klock förvrängning mellan klienten och Media Services. StartTime-värdet måste vara i följande DateTime-format: ÅÅÅÅ-MM-DDTHH: mm: ssZ (till exempel "2014-05-23T17:53:50Z").
 >
 >
 
-### <a name="creating-a-sas-url-for-downloading-content"></a>Skapa en SAS-Webbadress för nedladdning av innehåll
-Följande kod visar hur du får en URL som kan användas för att ladda ned en mediefil har skapat och överfört tidigare. AccessPolicy har läs behörigheter och positionerare sökvägen refererar till en SAS nedladdnings-URL.
+### <a name="creating-a-sas-url-for-downloading-content"></a>Skapa en SAS-URL för nedladdning av innehåll
+Följande kod visar hur du hämtar en URL som kan användas för att hämta en mediefil som skapats och laddats upp tidigare. Access policy har Läs behörighet och sökvägen refererar till en URL för SAS-nedladdning.
 
     POST https://wamsbayclus001rest-hs.net/API/Locators HTTP/1.1
     Content-Type: application/json
@@ -764,7 +764,7 @@ Följande kod visar hur du får en URL som kan användas för att ladda ned en m
 
     {"AccessPolicyId": "nb:pid:UUID:38c71dd0-44c5-4c5f-8418-08bb6fbf7bf8", "AssetId" : "nb:cid:UUID:71d2dd33-efdf-ec43-8ea1-136a110bd42c", "StartTime" : "2014-05-17T16:45:53", "Type":1}
 
-Om detta lyckas, returneras följande svar:
+Om det lyckas returneras följande svar:
 
     HTTP/1.1 201 Created
     Cache-Control: no-cache
@@ -806,22 +806,22 @@ Om detta lyckas, returneras följande svar:
        }
     }
 
-Den returnerade **sökväg** egenskapen innehåller SAS-Webbadressen.
+Den returnerade **Sök vägs** egenskapen innehåller SAS-URL: en.
 
 > [!NOTE]
-> Om du hämtar storage krypterat innehåll måste du manuellt dekryptera den innan du gör den eller använda Storage dekryptering MediaProcessor i en aktivitet för bearbetning av bearbetade utdatafiler i klartext till en OutputAsset och sedan ladda ned från tillgången. Mer information om bearbetningen finns i Skapa ett jobb för kodning med Media Services REST-API. SAS URL: en lokaliserare kan inte uppdateras när de väl har skapats. Du kan exempelvis återanvända samma lokaliserare med ett uppdaterat StartTime-värde. Detta beror på det sättet SAS URL: er skapas. Om du vill komma åt en tillgång för att ladda ned när en positionerare har upphört att gälla, måste du skapa en ny med en ny StartTime.
+> Om du hämtar krypterat lagrings innehåll måste du manuellt dekryptera det innan du återger det, eller använda MediaProcessor för dekryptering i en bearbetnings uppgift för att bearbeta bearbetade filer i klartext i en OutputAsset och sedan ladda ned från den till gången. Mer information om bearbetning finns i skapa ett kodnings jobb med Media Services REST API. Dessutom går det inte att uppdatera SAS URL-positionerare när de har skapats. Du kan till exempel inte återanvända samma positionerare med ett uppdaterat StartTime-värde. Detta beror på hur SAS-webbadresser skapas. Om du vill få åtkomst till en till gång för hämtning när en lokaliserare har upphört att gälla, måste du skapa en ny med en ny StartTime.
 >
 >
 
 ### <a name="download-files"></a>Hämta filer
-När du har AccessPolicy och positionerare som angetts kan du ladda ned filer med hjälp av Azure Storage REST-API: er.  
+När du har angett Access policy och lokaliseraren kan du hämta filer med hjälp av Azure Storage REST-API: er.  
 
 > [!NOTE]
-> Du måste lägga till filnamnet för den fil som du vill ladda ned till lokaliseraren **sökväg** värdet som tas emot i föregående avsnitt. Till exempel, https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . .
+> Du måste lägga till fil namnet för den fil som du vill ladda ned till värdet för sökvägen till lokaliserings **Sök vägen** som togs emot i föregående avsnitt. Till exempel, https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . .
 
-Mer information om hur du arbetar med Azure storage-blobbar finns i [REST-API för Blob Service](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API).
+Mer information om hur du arbetar med Azure Storage-blobar finns i [BLOB Service REST API](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API).
 
-Till följd av kodningsjobbet som du utförde tidigare (kodning till anpassningsbar MP4-uppsättningar), har du flera MP4-filer som du kan hämta progressivt. Exempel:    
+Som ett resultat av det kodnings jobb som du utförde tidigare (kodning i adaptiv MP4-uppsättning) har du flera MP4-filer som du kan ladda ned progressivt. Exempel:    
 
     https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
 
@@ -839,8 +839,8 @@ Till följd av kodningsjobbet som du utförde tidigare (kodning till anpassnings
 
     https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_AAC_und_ch2_56kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
 
-### <a name="creating-a-streaming-url-for-streaming-content"></a>Skapa en strömnings-URL för strömning av innehåll
-Följande kod visar hur du skapar en positionerare för direktuppspelning URL:
+### <a name="creating-a-streaming-url-for-streaming-content"></a>Skapa en strömmande URL för strömmande innehåll
+Följande kod visar hur du skapar en URL-adress för strömning:
 
     POST https://wamsbayclus001rest-hs/API/Locators HTTP/1.1
     Content-Type: application/json
@@ -855,7 +855,7 @@ Följande kod visar hur du skapar en positionerare för direktuppspelning URL:
 
     {"AccessPolicyId": "nb:pid:UUID:38c71dd0-44c5-4c5f-8418-08bb6fbf7bf8", "AssetId" : "nb:cid:UUID:eb5540a2-116e-4d36-b084-7e9958f7f3c3", "StartTime" : "2014-05-17T16:45:53",, "Type":2}
 
-Om detta lyckas, returneras följande svar:
+Om det lyckas returneras följande svar:
 
     HTTP/1.1 201 Created
     Cache-Control: no-cache
@@ -897,23 +897,23 @@ Om detta lyckas, returneras följande svar:
        }
     }
 
-För att strömma en Smooth Streaming ursprung URL i en strömmande media player, måste du lägga till sökvägen egenskap med namnet på Smooth Streaming-manifestfilen, följt av ”/ manifest”.
+Om du vill strömma en Smooth Streaming ursprungs-URL i en strömmande medie spelare måste du lägga till egenskapen sökväg med namnet på manifest filen för Smooth Streaming följt av "/manifest".
 
     http://amstestaccount001.streaming.mediaservices.windows.net/ebf733c4-3e2e-4a68-b67b-cc5159d1d7f2/BigBuckBunny.ism/manifest
 
-För att strömma HLS, lägger du till (format = m3u8-aapl) när den ”/ manifest”.
+Om du vill strömma HLS lägger du till (format = M3U8-AAPL) efter "/manifest".
 
     http://amstestaccount001.streaming.mediaservices.windows.net/ebf733c4-3e2e-4a68-b67b-cc5159d1d7f2/BigBuckBunny.ism/manifest(format=m3u8-aapl)
 
-För att strömma MPEG DASH, lägger du till (format = mpd-time-csf) när den ”/ manifest”.
+Om du vill strömma MPEG-streck lägger du till (format = mpd-Time-CSF) efter "/manifest".
 
     http://amstestaccount001.streaming.mediaservices.windows.net/ebf733c4-3e2e-4a68-b67b-cc5159d1d7f2/BigBuckBunny.ism/manifest(format=mpd-time-csf)
 
 
 ## <a id="play"></a>Spela upp ditt innehåll
-Strömma videon med hjälp av [Azure Media Services Player](https://amsplayer.azurewebsites.net/azuremediaplayer.html).
+Strömma videon med hjälp av [Azure Media Services Player](https://aka.ms/azuremediaplayer).
 
-Om du vill testa den progressiva nedladdningen, klistra du in en URL i en webbläsare (till exempel Internet Explorer, Chrome, Safari).
+Om du vill testa progressiv nedladdning klistrar du in en URL i en webbläsare (till exempel IE, Chrome, Safari).
 
 ## <a name="next-steps-media-services-learning-paths"></a>Nästa steg: Sökvägar för Media Services-utbildning
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

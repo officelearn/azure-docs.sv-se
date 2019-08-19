@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 07/18/2019
-ms.openlocfilehash: 5d79edc4db07a2c5916725efc312d9f94fe985dc
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
-ms.translationtype: MT
+ms.openlocfilehash: 05e16a67e6b01ce3bd1f03f0649baa1358414ea7
+ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640101"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69035068"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Använd grupper för automatisk redundans för att aktivera transparent och samordnad redundansväxling av flera databaser
 
@@ -133,9 +133,13 @@ Om du vill redundansväxla en failover-grupp behöver du RBAC-skriv åtkomst til
 
 ## <a name="best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools"></a>Bästa metoder för att använda failover-grupper med enkla databaser och elastiska pooler
 
-Gruppen för automatisk redundans måste konfigureras på den primära SQL Database-servern och ansluta den till den sekundära SQL Database servern i en annan Azure-region.  Grupperna kan innehålla alla eller vissa databaser på dessa servrar. Följande diagram illustrerar en typisk konfiguration av ett Geo-redundant moln program med hjälp av flera databaser och gruppen för automatisk redundans.
+Gruppen för automatisk redundans måste konfigureras på den primära SQL Database-servern och ansluta den till den sekundära SQL Database servern i en annan Azure-region. Grupperna kan innehålla alla eller vissa databaser på dessa servrar. Följande diagram illustrerar en typisk konfiguration av ett Geo-redundant moln program med hjälp av flera databaser och gruppen för automatisk redundans.
 
 ![automatisk redundans](./media/sql-database-auto-failover-group/auto-failover-group.png)
+
+> [!NOTE]
+> Se [lägga till en enkel databas i en failover-grupp](sql-database-single-database-failover-group-tutorial.md) för en detaljerad steg-för-steg-guide som lägger till en enskild databas i en failover-grupp. 
+
 
 När du utformar en tjänst med affärs kontinuitet i åtanke följer du dessa allmänna rikt linjer:
 
@@ -167,12 +171,17 @@ När du utformar en tjänst med affärs kontinuitet i åtanke följer du dessa a
 
 ## <a name="best-practices-of-using-failover-groups-with-managed-instances"></a>Metod tips för att använda failover-grupper med hanterade instanser
 
-Gruppen för automatisk redundans måste konfigureras på den primära instansen och ansluter den till den sekundära instansen i en annan Azure-region.  Alla databaser i instansen kommer att replikeras till den sekundära instansen. Följande diagram illustrerar en typisk konfiguration av ett Geo-redundant moln program med hjälp av en hanterad instans och en grupp för automatisk redundans.
+> [!IMPORTANT]
+> Grupper för automatisk redundans för hanterade instanser är i offentlig för hands version.
+
+Gruppen för automatisk redundans måste konfigureras på den primära instansen och ansluter den till den sekundära instansen i en annan Azure-region.  Alla databaser i instansen kommer att replikeras till den sekundära instansen. 
+
+Följande diagram illustrerar en typisk konfiguration av ett Geo-redundant moln program med hjälp av en hanterad instans och en grupp för automatisk redundans.
 
 ![automatisk redundans](./media/sql-database-auto-failover-group/auto-failover-group-mi.png)
 
-> [!IMPORTANT]
-> Grupper för automatisk redundans för hanterade instanser är i offentlig för hands version.
+> [!NOTE]
+> Se [Lägg till hanterad instans till en failover-grupp](sql-database-managed-instance-failover-group-tutorial.md) för en detaljerad steg-för-steg-guide som lägger till en hanterad instans för att använda redundans-gruppen. 
 
 Om programmet använder hanterad instans som datanivå, följer du dessa allmänna rikt linjer när du utformar för affärs kontinuitet:
 
@@ -367,6 +376,10 @@ Som tidigare nämnts kan grupper för automatisk redundans och aktiv geo-replike
 
 ## <a name="next-steps"></a>Nästa steg
 
+- Detaljerade självstudier finns i
+    - [Lägga till en enkel databas i en failover-grupp](sql-database-single-database-failover-group-tutorial.md)
+    - [Lägga till elastisk pool i en redundans grupp](sql-database-elastic-pool-failover-group-tutorial.md)
+    - [Lägga till en hanterad instans i en grupp för redundans](sql-database-managed-instance-failover-group-tutorial.md)
 - Exempel skript finns i:
   - [Använd PowerShell för att konfigurera aktiv geo-replikering för en enskild databas i Azure SQL Database](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
   - [Använd PowerShell för att konfigurera aktiv geo-replikering för en poolad databas i Azure SQL Database](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)

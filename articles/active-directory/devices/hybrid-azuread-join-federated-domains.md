@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de9b50267e0b5c453a8f2a3df607ad7730acd277
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 4335b8251e31f151e3d965481bead01303ab7420
+ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879440"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69562255"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Självstudier: Konfigurera Azure Active Directory-hybridanslutningar för federerade domäner
 
@@ -40,7 +40,7 @@ En federerad miljö bör ha en identitetsprovider som uppfyller följande krav. 
    `/adfs/services/trust/13/certificatemixed` 
 
 > [!WARNING] 
-> Både **ADFS/tjänster/Trust/2005/windowstransport** eller **adfs/services/trust/13/windowstransport** ska aktive ras som enbart intranät riktade slut punkter och får inte visas som extra näts slut punkter via webbprogramproxy. Läs mer om hur du inaktiverar WIndows-slutpunkter för WS-Trust i [inaktivera WS-Trust Windows-slutpunkter på proxyn](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). Du kan se vilka slutpunkter som är aktiverade via AD FS-hanteringskonsolen under **Tjänst** > **Slutpunkter**.
+> Både **ADFS/tjänster/Trust/2005/windowstransport** eller **adfs/services/trust/13/windowstransport** ska aktive ras som enbart intranät riktade slut punkter och får inte visas som extra näts slut punkter via webbprogramproxy. Läs mer om hur du inaktiverar Windows-slutpunkter för WS-Trust i [inaktivera WS-Trust Windows-slutpunkter på proxyn](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). Du kan se vilka slutpunkter som är aktiverade via AD FS-hanteringskonsolen under **Tjänst** > **Slutpunkter**.
 
 I den här självstudien får du lära dig hur du konfigurerar hybrid Azure AD-anslutning för Active Directory domänanslutna datorer enheter i en federerad miljö med hjälp av AD FS.
 

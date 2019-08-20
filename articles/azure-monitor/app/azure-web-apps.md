@@ -100,7 +100,7 @@ Att rikta in sig på hela ramverket från .NET Core, fristående distribution oc
 
 Övervakning på klient sidan är valbar för ASP.NET. Aktivera övervakning på klient sidan:
 
-* Välj **inställningar** > ** **program inställningar****
+* Välj **inställningar**>** **program inställningar** **
    * Under program inställningar lägger du till ett nytt namn och **värde**för **appens inställning** :
 
      Namn:`APPINSIGHTS_JAVASCRIPT_ENABLED`
@@ -356,7 +356,7 @@ Tabellen nedan innehåller en mer detaljerad förklaring av vad dessa värden in
 |`AppContainsDiagnosticSourceAssembly**:true`|Det här värdet anger att tillägget har identifierat referenser till `System.Diagnostics.DiagnosticSource` i programmet och kommer att återställas.| Ta bort referensen.
 |`IKeyExists:false`|Det här värdet anger att Instrumentation- `APPINSIGHTS_INSTRUMENTATIONKEY`nyckeln inte finns i AppSetting. Möjliga orsaker: Värdena kan ha tagits bort av misstag, glömde att ange värden i Automation-skriptet osv. | Kontrol lera att inställningen finns i App Service programmets inställningar.
 
-### <a name="appinsightsjavascriptenabled-and-urlcompression-is-not-supported"></a>APPINSIGHTS_JAVASCRIPT_ENABLED och urlCompression stöds inte
+### <a name="appinsights_javascript_enabled-and-urlcompression-is-not-supported"></a>APPINSIGHTS_JAVASCRIPT_ENABLED och urlCompression stöds inte
 
 Om du använder APPINSIGHTS_JAVASCRIPT_ENABLED = true i fall där innehåll är kodat kan du få fel som: 
 

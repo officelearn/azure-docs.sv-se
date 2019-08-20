@@ -10,12 +10,12 @@ ms.subservice: load-data
 ms.date: 07/17/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 30b4009b2f52f4949a380f0fc51b02f94c98d966
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: f81a19631b29954f9bd3da55a4b332e37746152e
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68304281"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69574929"
 ---
 # <a name="tutorial-load-data-to-azure-sql-data-warehouse"></a>Självstudier: Läs in data till Azure SQL Data Warehouse
 
@@ -42,11 +42,11 @@ Innan du börjar med de här självstudierna ska du ladda ned och installera den
 
 Logga in på [Azure Portal](https://portal.azure.com/).
 
-## <a name="create-a-blank-sql-data-warehouse"></a>Skapa ett tomt SQL-informationslager
+## <a name="create-a-blank-sql-data-warehouse"></a>Skapa en tom SQL Data Warehouse
 
-Ett Azure SQL Data Warehouse skapas med en definierad uppsättning [beräkningsresurser](memory-and-concurrency-limits.md). Databasen skapas inom en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) och i en [logisk Azure SQL-server](../sql-database/sql-database-features.md). 
+En Azure SQL Data Warehouse skapas med en definierad uppsättning beräknings [resurser](memory-and-concurrency-limits.md). Databasen skapas inom en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) och i en [logisk Azure SQL-server](../sql-database/sql-database-features.md). 
 
-Följ de här stegen om du vill skapa ett tomt SQL-informationslager. 
+Följ de här stegen för att skapa en tom SQL Data Warehouse. 
 
 1. Klicka på **Skapa en resurs** längst upp till vänster i Azure Portal.
 
@@ -151,7 +151,7 @@ I det här avsnittet används [SQL Server Management Studio](/sql/ssms/download-
     | Servertyp | Databasmotor | Det här värdet är obligatoriskt |
     | servernamn | Fullständigt kvalificerat servernamn | Ett exempel på ett fullständigt servernamn är **sample-svr.database.windows.net**. |
     | Authentication | SQL Server-autentisering | SQL-autentisering är den enda autentiseringstypen som vi konfigurerar i den här självstudiekursen. |
-    | Inloggning | Serveradministratörskontot | Detta är det konto som du angav när du skapade servern. |
+    | Logga in | Serveradministratörskontot | Detta är det konto som du angav när du skapade servern. |
     | lösenordsinställning | Lösenordet för serveradministratörskontot | Detta är det lösenord som du angav när du skapade servern. |
 
     ![Anslut till server](media/load-data-wideworldimportersdw/connect-to-server.png)

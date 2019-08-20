@@ -1,6 +1,7 @@
 ---
-title: Ramverk för Djupinlärning och AI - Azure | Microsoft Docs
-description: Läs mer om djupinlärning ramverk och verktyg som stöds på den virtuella datorn för datavetenskap.
+title: Djup inlärning & AI-ramverk
+titleSuffix: Azure Data Science Virtual Machines
+description: Ramverk för djup inlärning och verktyg på Azure Data Science Virtual Machine, inklusive TensorFlow, PyTorch, keras, caffe, MXNet, Horovod,, kedjer med mera.
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
 documentationcenter: ''
@@ -16,250 +17,53 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/11/2019
 ms.author: vijetaj
-ms.openlocfilehash: e2bcda25ed6897f8955d7e74981bc4f04a145c99
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: de407f4b4de58abebf87b82ff6f76342a0e9f7e0
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69534922"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575043"
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>Ramverk för djupinlärning och AI
 [Data science Virtual Machine](https://aka.ms/dsvm) (DSVM) stöder ett antal djup inlärnings ramverk som hjälper dig att bygga AI-program (artificiell intelligens) med förutsägelse analyser och kognitiva funktioner som bild-och språk förståelse.
 
-Här följer information på alla deep learning-ramverk som är tillgängliga på DSVM.
-
-
-## <a name="tensorflow"></a>TensorFlow
-
-|    |           |
-| ------------- | ------------- |
-| Vad är det?   | Ramverk för djupinlärning      |
-| Stöds DSVM-versioner      | Windows, Linux     |
-| Hur är det konfigurerade / installerad på DSVM?  | TensorFlow installeras i Python 3.5 på [Linux och Windows 2012](dsvm-languages.md#python-linux-and-windows-server-2012-edition) och Python 3.6 på [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition).  |
-| Innehåller länkar till exempel      | Exempel Jupyter-anteckningsböcker ingår.     |
-| Relaterade verktyg på DSVM      | Keras      |
-| Hur du använder / köra den?    | * I en terminal: aktivera rätt miljö och sedan köra Python. <br/> * I Jupyter: Anslut till [Jupyter](provision-vm.md#tools-installed-on-the-microsoft-data-science-virtual-machine) eller [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux)och öppna TensorFlow-katalogen för exempel.  |
-
-## <a name="pytorch"></a>PyTorch
-
-|    |           |
-| ------------- | ------------- |
-| Vad är det?   | Ramverk för djupinlärning      |
-| Stöds DSVM-versioner      | Linux     |
-| Hur är det konfigurerade / installerad på DSVM?  | PyTorch är installerat i [Python 3.5](dsvm-languages.md#python-linux-and-windows-server-2012-edition).  |
-| Innehåller länkar till exempel      | Exempel Jupyter-anteckningsböcker ingår och exempel finns också i /dsvm/samples/pytorch.      |
-| Relaterade verktyg på DSVM      | Torch      |
-| Hur du använder / det. |* I en terminal: aktivera rätt miljö och sedan köra Python. <br/> * I Jupyter: Anslut till [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux)och öppna PyTorch-katalogen för exempel.  |
-
-## <a name="keras"></a>Keras
-
-|    |           |
-| ------------- | ------------- |
-| Vad är det?   | Övergripande djupinlärning API      |
-| Stöds DSVM-versioner      | Windows, Linux     |
-| Hur är det konfigurerade / installerad på DSVM?  | TensorFlow installeras i Python 3.5 på [Linux och Windows 2012](dsvm-languages.md#python-linux-and-windows-server-2012-edition) och Python 3.6 på [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition). |
-| Innehåller länkar till exempel      | https://github.com/fchollet/keras/tree/master/examples      |
-| Relaterade verktyg på DSVM      | Microsoft Cognitive Toolkit, TensorFlow, Theano      |
-| Hur du använder / köra den?    | * I en terminal: aktivera rätt miljö och sedan köra Python. <br/> * I Jupyter: Hämta exemplen från GitHub-platsen, Anslut till [Jupyter](provision-vm.md#tools-installed-on-the-microsoft-data-science-virtual-machine) eller [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux)och öppna exempel katalogen. |
-
-## <a name="caffe"></a>Caffe
-
-|    |           |
-| ------------- | ------------- |
-| Vad är det?   | Ramverk för djupinlärning      |
-| Stöds DSVM-versioner      | Ubuntu     |
-| Hur är det konfigurerade / installerad på DSVM?  | Caffe är installerat i `/opt/caffe`.    |
-| Växla till Python 2.7 | Kör `source activate root` |
-| Innehåller länkar till exempel      | Exempel som ingår i `/opt/caffe/examples`.      |
-| Relaterade verktyg på DSVM      | Caffe2      |
-
-### <a name="how-to-use--run-it"></a>Hur du använder / köra den?
-
-Använd X2Go för att logga in till den virtuella datorn och sedan starta en ny terminal och ange
-
-```
-cd /opt/caffe/examples
-source activate root
-jupyter notebook
-```
-
-Ett nytt webbläsarfönster öppnas med exempelanteckningsböcker.
-
-Binärfiler installeras i /opt/caffe/build/install/bin.
-
-Installerade versionen av Caffe kräver Python 2.7 och fungerar inte med Python 3.5 aktiverat som standard. Kör `source activate root` växla Anaconda miljö.
-
-## <a name="caffe2"></a>Caffe2
-
-|    |           |
-| ------------- | ------------- |
-| Vad är det?   | Ramverk för djupinlärning      |
-| Stöds DSVM-versioner      | Ubuntu     |
-| Hur är det konfigurerade / installerad på DSVM?  | Caffe2 installeras i den [conda-miljö för Python 2.7 (rot)](dsvm-languages.md#python-linux-and-windows-server-2012-edition). Källan är i `/opt/caffe2`. |
-| Innehåller länkar till exempel      | Exempelanteckningsböcker som ingår i JupyterHub. |
-| Relaterade verktyg på DSVM      | Caffe      |
-| Hur du använder / köra den?    | * I terminalen: aktivera den [rot Python-miljön](dsvm-languages.md#python-linux-and-windows-server-2012-edition), starta Python och importera caffe2. <br/> * I JupyterHub: [ansluta till JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux), gå sedan till katalogen Caffe2 att hitta exempelanteckningsböcker. Vissa anteckningsböcker kräver Caffe2 roten anges i Python-kod. Ange /opt/caffe2. |
-| Skapa anteckningar | Caffe2 bygger på Linux från källan och innehåller CUDA-, cuDNN- och Intel MKL. Den aktuella allokering är 0d9c0d48c6f20143d6404b99cc568efd29d5a4be som har valts för stabilitet på alla GPU: er och prover. |
-
-## <a name="torch"></a>Torch
-
-|    |           |
-| ------------- | ------------- |
-| Vad är det?   | Ramverk för djupinlärning      |
-| Stöds DSVM-versioner      | Ubuntu     |
-| Hur är det konfigurerade / installerad på DSVM?  | Torch är installerat i `/dsvm/tools/torch`. PyTorch är installerat i Python 2.7 (_rot_), samt Python 3.5 (_py35_) miljö.   |
-| Innehåller länkar till exempel      | Torch exemplen finns på `/dsvm/samples/torch`. PyTorch-exempel finns på `/dsvm/samples/pytorch`.      |
-
-
-
-
-## <a name="mxnet-model-server"></a>MXNet Model-Server
-
-|    |           |
-| ------------- | ------------- |
-| Vad är det?   | En server för att skapa HTTP-slutpunkter för MXNet och ONNX-modeller      |
-| Stöds DSVM-versioner      | Linux     |
-| Hur är det konfigurerade / installerad på DSVM?  | _mxnet-modell-server_ är tillgängliga på terminalen.   |
-| Innehåller länkar till exempel      | Leta efter uppdaterade exempel på den [MXNet modellen serversidan](https://github.com/awslabs/mxnet-model-server).    |
-| Relaterade verktyg på DSVM      | MXNet      |
-
-
-## <a name="mxnet"></a>MXNet
-
-|    |           |
-| ------------- | ------------- |
-| Vad är det?   | Ramverk för djupinlärning      |
-| Stöds DSVM-versioner      | Windows, Linux     |
-| Hur är det konfigurerade / installerad på DSVM?  | MXNet är installerat i `C:\dsvm\tools\mxnet` på Windows och `/dsvm/tools/mxnet` i Linux. Python-bindningar som är installerade i Python 3.5 på [Linux och Windows 2012](dsvm-languages.md#python-linux-and-windows-server-2012-edition) och Python 3.6 på [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition). R-bindningar också har installerats på Ubuntu.   |
-| Innehåller länkar till exempel      | Exempel Jupyter-anteckningsböcker ingår.    |
-| Relaterade verktyg på DSVM      | Keras      |
-| Hur du använder / köra den?    | * I en terminal: aktivera rätt miljö och sedan köra Python. <br/> * I Jupyter: Anslut till [Jupyter](provision-vm.md#tools-installed-on-the-microsoft-data-science-virtual-machine) eller [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux)och öppna mxnet-katalogen för exempel.  |
- | Skapa anteckningar | MXNet bygger på Linux från källan. Den här versionen innehåller CUDA, cuDNN-, NCCL och MKL. |
-
-
-
-
-
-
-## <a name="horovod"></a>Horovod
-
-|    |           |
-| ------------- | ------------- |
-| Vad är det?   | Ramverk för distribuerad djup inlärning för TensorFlow      |
-| Stöds DSVM-versioner      | Ubuntu     |
-| Hur är det konfigurerade / installerad på DSVM?  | Horovod installeras i Python 3.5 på [Ubuntu](dsvm-languages.md#python-linux-and-windows-server-2012-edition).  |
-| Innehåller länkar till exempel      | [https://github.com/uber/horovod/tree/master/examples](https://github.com/uber/horovod/tree/master/examples)     |
-| Relaterade verktyg på DSVM      | TensorFlow      |
-| Hur du använder / köra den?    | I en terminal: aktivera rätt miljö och sedan köra Python. |
-
-
-
-## <a name="theano"></a>Theano
-
-|    |           |
-| ------------- | ------------- |
-| Vad är det?   | Ramverk för djupinlärning      |
-| Stöds DSVM-versioner      | Ubuntu     |
-| Hur är det konfigurerade / installerad på DSVM?  | Theano är installerat i Python 2.7 (_rot_), samt Python 3.5 (_py35_) miljö.   |
-| Relaterade verktyg på DSVM      | Keras      |
-| Hur du använder / köra den?    | * Aktivera Python-version du vill (rot- eller py35), köra python och sedan importera theano i en terminal. <br/> * I Jupyter väljer du den python 2,7-eller 3,5-kerneln och sedan importera Theano.  <br/>Undvik en senaste MKL bugg, måste du först ställa in MKL threading lager:<br/><br/>_export MKL_THREADING_LAYER=GNU_|
-
-
-## <a name="chainer"></a>Chainer
-
-|    |           |
-| ------------- | ------------- |
-| Vad är det?   | Ramverk för djupinlärning      |
-| Stöds DSVM-versioner      | Windows, Linux     |
-| Hur är det konfigurerade / installerad på DSVM?  | Chainer är installerat i [Python 3.5](dsvm-languages.md#python-linux-and-windows-server-2012-edition). ChainerRL och ChainerCV är installerade.   |
-| Innehåller länkar till exempel      | Exempelanteckningsböcker som ingår i JupyterHub. |
-| Relaterade verktyg på DSVM      | Caffe      |
-| Hur du använder / köra den?  | * I terminalen: aktivera den [Python 3.5](dsvm-languages.md#python-linux-and-windows-server-2012-edition) miljö, kör _python_, importera chainer. <br/> * I JupyterHub: [Anslut till JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux)och navigera sedan till katalogen kedjar för att hitta exempel antecknings böcker.
-
-
-## <a name="deep-water"></a>Djupgående Water
-
-|    |           |
-| ------------- | ------------- |
-| Vad är det?   | Ramverk för djupinlärning för H2O      |
-| Stöds DSVM-versioner      | Ubuntu     |
-| Hur är det konfigurerade / installerad på DSVM?  | Djupgående Water är installerat i [Python 3.5](dsvm-languages.md#python-linux-and-windows-server-2012-edition) och är också tillgängligt i `/dsvm/tools/deep_water`.   |
-| Innehåller länkar till exempel      | Exempelanteckningsböcker som ingår i JupyterHub.      |
-| Relaterade verktyg på DSVM      | H2O Sparkling Water      |
-
-### <a name="how-to-use--run-it"></a>Hur du använder / köra den?
-
-Djupgående Water kräver CUDA 8 med cuDNN 5.1. Detta är inte på en bibliotekssökväg som standard eftersom andra ramverk för djupinlärning använder CUDA-9 och cuDNN 7. Använda CUDA 8 + cuDNN 5.1 för djupgående Water:
-
-```
-export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64:${LD_LIBRARY_PATH}
-export CUDA_ROOT=/usr/local/cuda-8.0
-```
-
-Använda djup Water:
-* I terminalen: aktivera den [Python 3.5](dsvm-languages.md#python-linux-and-windows-server-2012-edition) miljö, kör sedan _python_. <br/>
-* I JupyterHub: [ansluta till JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux), gå sedan till katalogen deep_water att hitta exempelanteckningsböcker.
-
-
-## <a name="nvidia-digits"></a>NVIDIA SIFFROR
-
-|    |           |
-| ------------- | ------------- |
-| Vad är det?   | Djupinlärning system från NVIDIA för att snabbt träna modeller för djup maskininlärning      |
-| Stöds DSVM-versioner      | Ubuntu     |
-| Hur är det konfigurerade / installerad på DSVM?  | SIFFROR är installerat i `/dsvm/tools/DIGITS` och finns tillgänglig kallas för en tjänst _siffror_.   |
-
-### <a name="how-to-use--run-it"></a>Hur du använder / köra den?
-
-Logga in på den virtuella datorn med X2Go. Starta tjänsten på en terminal:
-
-    sudo systemctl start digits
-
-Tjänsten tar ungefär en minut för att starta. Starta en webbläsare och navigera till `http://localhost:5000`. Observera att SIFFROR ger inte en säker inloggning och bör inte exponeras utanför den virtuella datorn.
-
-
-
-## <a name="nvidia-smi"></a>NVIDIA smi
-
-|    |           |
-| ------------- | ------------- |
-| Vad är det?   | NVIDIA-verktyget för att fråga GPU-aktivitet      |
-| Stöds DSVM-versioner      | Windows, Linux     |
-| Hur är det konfigurerade / installerad på DSVM?  | _NVIDIA smi_ finns på systemsökvägen.   |
-| Hur du använder / köra den? | Starta en kommandotolk (på Windows) eller en terminal (på Linux) och kör sedan _nvidia smi_.
-
-
-
-
-## <a name="tensorflow-serving"></a>TensorFlow betjänar
-
-|    |           |
-| ------------- | ------------- |
-| Vad är det?   | En server för att köra inferensjobb på en TensorFlow-modell      |
-| Stöds DSVM-versioner      | Linux     |
-| Hur är det konfigurerade / installerad på DSVM?  | _tensorflow_model_server_ finns på terminalen.   |
-| Innehåller länkar till exempel      | Exempel finns [online](https://www.tensorflow.org/serving/).      |
-| Relaterade verktyg på DSVM      | TensorFlow      |
-
-## <a name="tensorrt"></a>TensorRT
-
-|    |           |
-| ------------- | ------------- |
-| Vad är det?   | En djupinlärning inferens servern från NVIDIA. |
-| Stöds DSVM-versioner      | Ubuntu     |
-| Hur är det konfigurerade / installerad på DSVM?  | TensorRT installeras som en _apt_ paketet.   |
-| Innehåller länkar till exempel      | Exempel finns [online](https://docs.nvidia.com/deeplearning/sdk/tensorrt-developer-guide/index.html#samples).      |
-| Relaterade verktyg på DSVM      | TensorFlow som betjänar MXNet Model-Server  |
-
-
-## <a name="microsoft-cognitive-toolkit"></a>Microsoft Cognitive Toolkit
-
-|    |           |
-| ------------- | ------------- |
-| Vad är det?   | Ramverk för djupinlärning      |
-| Stöds DSVM-versioner      | Windows, Linux     |
-| Hur är det konfigurerade / installerad på DSVM?  | Microsoft Cognitive Toolkit (CNTK) är installerad i Python 3.5 på [Linux och Windows 2012](dsvm-languages.md#python-linux-and-windows-server-2012-edition) och Python 3.6 på [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition).   |
-| Innehåller länkar till exempel      | Exempel Jupyter-anteckningsböcker ingår.     |
-| Relaterade verktyg på DSVM      | Keras      |
-| Hur du använder / köra den?    | * I en terminal: aktivera rätt miljö och sedan köra Python. <br/> * I Jupyter: Anslut till [Jupyter](provision-vm.md#tools-installed-on-the-microsoft-data-science-virtual-machine) eller [JUPYTERHUB](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux)och öppna CNTK-katalogen för exempel. |
-
+Ramverk för djup inlärning som är tillgängliga i DSVM är:
+
++ TensorFlow
++ PyTorch
++ Keras
++ Caffe
++ Caffe2
++ Torch
++ MXNet Model-Server
++ MXNet
++ Horovod
++ Theano
++ Chainer
++ Djupgående Water
++ NVIDIA SIFFROR
++ NVIDIA smi
++ TensorFlow betjänar
++ TensorRT
++ Microsoft Cognitive Toolkit
+
+|DL&nbsp;-&nbsp;verktygpå&nbsp;DSVM|Windows|Linux|Användnings&nbsp;anmärkningar|
+|---------|:-------------------:|:------------------:|-----|
+|[TensorFlow](https://www.tensorflow.org/) | Ja (Windows 2016) | Ja |Installeras i python 3,5 på [Linux och Windows 2012](dsvm-languages.md#python-linux-and-windows-server-2012-edition) och python 3,6 på [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition). Exempel på Jupyter-anteckningsböcker ingår på DSVM.<br/><br/>**Så här kör du det**:<br/>* Terminal: aktivera rätt miljö och kör sedan python. <br/> Jupyter Anslut till [Jupyter](provision-vm.md#tools-installed-on-the-microsoft-data-science-virtual-machine) eller [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux)och öppna TensorFlow-katalogen för exempel.  |
+|[PyTorch](https://pytorch.org/)| Nej | Ja |Installerat i [Python 3,5](dsvm-languages.md#python-linux-and-windows-server-2012-edition). Exempel på Jupyter-anteckningsböcker ingår och exempel finns i/dsvm/samples/pytorch.    <br/><br/>**Så här kör du det**<br/>* Terminal: aktivera rätt miljö och kör sedan python.<br/>* [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux): Anslut och öppna PyTorch-katalogen för exempel.  |
+|[Keras](https://keras.io/)| Ja | Ja |API installeras i python 3,5 på [Linux och Windows 2012](dsvm-languages.md#python-linux-and-windows-server-2012-edition) och python 3,6 på [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition). [Exempel](https://github.com/fchollet/keras/tree/master/examples)<br/><br/>**Så här kör du det**:<br/>* Terminal: aktivera rätt miljö och kör sedan python. <br/> Jupyter Hämta exemplen från GitHub-platsen, Anslut till [Jupyter](provision-vm.md#tools-installed-on-the-microsoft-data-science-virtual-machine) eller [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux)och öppna exempel katalogen. |
+|[Caffe](https://github.com/caffe2/caffe2) | Nej |Ja (Ubuntu)|Caffe är installerat i `/opt/caffe`.   Exempel finns i `/opt/caffe/examples`. <br/><br/>**Kör det**genom att använda X2Go för att logga in på den virtuella datorn och sedan starta en ny terminal och ange:<br/>`cd /opt/caffe/examples`<br/>`source activate root`<br/>`jupyter notebook`<br/><br/>Ett nytt webbläsarfönster öppnas med exempelanteckningsböcker. Binärfiler installeras i /opt/caffe/build/install/bin.<br/><br/>Installerade versionen av Caffe kräver Python 2.7 och fungerar inte med Python 3.5 aktiverat som standard. Om du vill växla till python 2,7 `source activate root` kör du för att växla Anaconda-miljö.|
+|[Caffe2](https://github.com/caffe2/caffe2) | Nej |Ja (Ubuntu)|Caffe2 installeras i den [conda-miljö för Python 2.7 (rot)](dsvm-languages.md#python-linux-and-windows-server-2012-edition). Källan är i `/opt/caffe2`.<br/>Exempelanteckningsböcker som ingår i JupyterHub.<br/><br/>**Så här kör du det**:<br/>* I terminalen: aktivera den [rot Python-miljön](dsvm-languages.md#python-linux-and-windows-server-2012-edition), starta Python och importera caffe2. <br/> * I JupyterHub: [ansluta till JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux), gå sedan till katalogen Caffe2 att hitta exempelanteckningsböcker. Vissa anteckningsböcker kräver Caffe2 roten anges i Python-kod. Ange /opt/caffe2. |
+|[Torch](http://torch.ch/) | Nej |Ja (Ubuntu)|Torch är installerat i `/dsvm/tools/torch`. PyTorch är installerat i Python 2.7 (_rot_), samt Python 3.5 (_py35_) miljö. Torch-exempel är `/dsvm/samples/torch` i och PyTorch-exempel `/dsvm/samples/pytorch`finns i. |
+|[MXNet](https://mxnet.io/) | Ja (Windows 2016) | Ja|MXNet är installerat i `C:\dsvm\tools\mxnet` på Windows och `/dsvm/tools/mxnet` i Linux. Python-bindningar som är installerade i Python 3.5 på [Linux och Windows 2012](dsvm-languages.md#python-linux-and-windows-server-2012-edition) och Python 3.6 på [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition). R-bindningar också har installerats på Ubuntu.<br/><br/>Exempel Jupyter-anteckningsböcker ingår. <br/><br/>**Så här kör du det**:<br/>Slutliga Aktivera rätt miljö och kör sedan python. <br/> Jupyter Anslut till [Jupyter](provision-vm.md#tools-installed-on-the-microsoft-data-science-virtual-machine) eller [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux)och öppna mxnet-katalogen för exempel.|
+|[MXNet-modell Server](https://github.com/awslabs/mxnet-model-server) | Nej | Ja |En server för att skapa HTTP-slutpunkter för MXNet-och ONNX-modeller. _mxnet-modell-server_ är tillgängliga på terminalen. Exempel på [sidan för MXNet-modell servern](https://github.com/awslabs/mxnet-model-server).|
+|[Horovod](https://github.com/uber/horovod) | Nej | Ja (Ubuntu) |Ramverk för distribuerad djup inlärning för TensorFlow. Horovod installeras i Python 3.5 på [Ubuntu](dsvm-languages.md#python-linux-and-windows-server-2012-edition).  [Se exempel](https://github.com/uber/horovod/tree/master/examples)<br/><br/>**Om du vill köra den**aktiverar du rätt miljö vid terminalen och kör sedan python. |
+|[Theano](https://github.com/Theano/Theano) | Nej | Ja (Ubuntu) |Theano är installerat i Python 2.7 (_rot_), samt Python 3.5 (_py35_) miljö.<br/><br/>**Så här kör du det**: <br/>Slutliga Aktivera den python-version du vill använda (rot-eller py35), kör python och importera Theano.<br/>Jupyter Välj python 2,7-eller 3,5-kärnan och importera sedan Theano.  <br/>Undvik en senaste MKL bugg, måste du först ställa in MKL threading lager:<br/><br/>_export MKL_THREADING_LAYER=GNU_|
+|[Chainer](https://chainer.org/) |Nej | Ja |Chainer är installerat i [Python 3.5](dsvm-languages.md#python-linux-and-windows-server-2012-edition). ChainerRL och ChainerCV är installerade. <br/><br/>Exempelanteckningsböcker som ingår i JupyterHub.<br/><br/>**Så här kör du det**: <br/>Slutliga Aktivera [python 3,5](dsvm-languages.md#python-linux-and-windows-server-2012-edition) -miljön, kör _python_och importera sedan en kedja. <br/> * JupyterHub: [Anslut till JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux)och gå sedan till katalogen kedjar för att hitta exempel antecknings böcker.|
+|[NVidia-siffror](https://github.com/NVIDIA/DIGITS) | Nej | Ja (Ubuntu) |Djup inlärnings system från NVIDIA för att snabbt träna djupgående inlärnings modeller. SIFFROR är installerat i `/dsvm/tools/DIGITS` och finns tillgänglig kallas för en tjänst _siffror_.  <br/><br/>**Så här kör du det**: <br/>Logga in på den virtuella datorn med X2Go. Starta tjänsten ```sudo systemctl start digits```vid en Terminal. <br/><br/>Tjänsten tar ungefär en minut för att starta. Starta en webbläsare och navigera till `http://localhost:5000`. Observera att SIFFROR ger inte en säker inloggning och bör inte exponeras utanför den virtuella datorn.|
+|[CUDA, cuDNN, NVIDIA-drivrutin](https://developer.nvidia.com/cuda-toolkit) |Ja | Ja | |
+|NVIDIA smi|Ja | Ja |NVIDIA-verktyg för att fråga GPU-aktivitet. _NVIDIA smi_ finns på systemsökvägen. <br/><br/>Starta en kommandotolk (på Windows) eller en terminal (på Linux) och kör sedan _nvidia smi_.|
+|[TensorFlow-servar](https://www.tensorflow.org/serving/) | Nej | Ja |En server som ska utformas för en TensorFlow modell. _tensorflow_model_server_ finns på terminalen. Exempel finns [online](https://www.tensorflow.org/serving/).|
+|[TensorRT](https://developer.nvidia.com/tensorrt) |  Nej | Ja (Ubuntu) |En djupinlärning inferens servern från NVIDIA. TensorRT installeras som en _apt_ paketet. Exempel finns [online](https://docs.nvidia.com/deeplearning/sdk/tensorrt-developer-guide/index.html#samples).|
+|[Microsoft Cognitive Toolkit (CNTK)](https://docs.microsoft.com/cognitive-toolkit/)|Ja | Ja | Installeras i python 3,5 på [Linux och Windows 2012](dsvm-languages.md#python-linux-and-windows-server-2012-edition) och python 3,6 på [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition). Exempel på Jupyter-anteckningsböcker ingår på DSVM. <br/><br/>**Så här kör du det**: <br/>Slutliga Aktivera rätt miljö och kör python. <br/>Jupyter Anslut till [Jupyter](provision-vm.md#tools-installed-on-the-microsoft-data-science-virtual-machine) eller [JUPYTERHUB](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux)och öppna CNTK-katalogen för exempel. |
+|Djupgående Water|Nej | Ja (Ubuntu) |Ramverk för djup inlärning för H2O, djup vattnet installeras i [Python 3,5](dsvm-languages.md#python-linux-and-windows-server-2012-edition) och är också tillgängligt i `/dsvm/tools/deep_water`. Exempelanteckningsböcker som ingår i JupyterHub. Djupgående Water kräver CUDA 8 med cuDNN 5.1. Detta är inte på en bibliotekssökväg som standard eftersom andra ramverk för djupinlärning använder CUDA-9 och cuDNN 7. Använda CUDA 8 + cuDNN 5.1 för djupgående Water:<br/><br/>```export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64:${LD_LIBRARY_PATH}```<br/>```export CUDA_ROOT=/usr/local/cuda-8.0```<br/><br/>Använda djup Water:<br/>* Terminal: aktivera [python 3,5](dsvm-languages.md#python-linux-and-windows-server-2012-edition) -miljön och kör sedan _python_. <br/>* JupyterHub: [Anslut till JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux)och navigera sedan till deep_water-katalogen för att hitta exempel antecknings böcker.|

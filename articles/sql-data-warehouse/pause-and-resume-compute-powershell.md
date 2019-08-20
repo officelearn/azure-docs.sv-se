@@ -1,6 +1,6 @@
 ---
 title: 'Snabbstart: Pausa och återuppta beräkning i Azure SQL Data Warehouse – PowerShell | Microsoft Docs'
-description: Använd PowerShell för att pausa beräkning i Azure SQL Data Warehouse för att sänka kostnaderna. Återuppta beräkningarna när du är redo att använda datalagret.
+description: Använd PowerShell för att pausa beräkning i Azure SQL Data Warehouse för att spara kostnader. Återuppta beräkning när du är redo att använda data lagret.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -10,16 +10,16 @@ ms.subservice: manage
 ms.date: 03/20/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: fe9cd6c951f9eba73cee1bea66df88f3143859b9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 220d2aefd714cd3546fa4d5c2ac8852d2786b8ac
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66156272"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575417"
 ---
 # <a name="quickstart-pause-and-resume-compute-in-azure-sql-data-warehouse-with-powershell"></a>Snabbstart: Pausa och återuppta beräkning i Azure SQL Data Warehouse med PowerShell
 
-Använd PowerShell för att pausa beräkning i Azure SQL Data Warehouse för att sänka kostnaderna. [Återuppta beräkningarna](sql-data-warehouse-manage-compute-overview.md) när du är redo att använda datalagret.
+Använd PowerShell för att pausa beräkning i Azure SQL Data Warehouse för att spara kostnader. [Återuppta beräkning](sql-data-warehouse-manage-compute-overview.md) när du är redo att använda data lagret.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
@@ -27,23 +27,23 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Den här snabbstarten förutsätter att du redan har ett SQL data warehouse som du kan pausa och återuppta. Om du vill skapa ett kan du använda [skapa och ansluta – portal](create-data-warehouse-portal.md) att skapa ett informationslager med namnet **mySampleDataWarehouse**.
+Den här snabb starten förutsätter att du redan har ett SQL Data Warehouse som du kan pausa och återuppta. Om du behöver skapa ett informations lager med namnet **mySampleDataWarehouse**kan du använda [skapa och ansluta-portalen](create-data-warehouse-portal.md) .
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
 
-Logga in på Azure-prenumerationen med den [Connect AzAccount](/powershell/module/az.accounts/connect-azaccount) och följer den på skärmen riktningar.
+Logga in på Azure-prenumerationen med kommandot [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) och följ anvisningarna på skärmen.
 
 ```powershell
 Connect-AzAccount
 ```
 
-Om du vill se vilken prenumeration som du använder kör [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription).
+Om du vill se vilken prenumeration du använder kör du [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription).
 
 ```powershell
 Get-AzSubscription
 ```
 
-Om du vill använda en annan prenumeration än standard, kör [Set-AzContext](/powershell/module/az.accounts/set-azcontext).
+Om du behöver använda en annan prenumeration än standardinställningen kör du [set-AzContext](/powershell/module/az.accounts/set-azcontext).
 
 ```powershell
 Set-AzContext -SubscriptionName "MySubscription"
@@ -61,14 +61,14 @@ Följ de här anvisningarna för att hitta platsen för ditt informationslager.
 
     ![Servernamn och resursgrupp](media/pause-and-resume-compute-powershell/locate-data-warehouse-information.png)
 
-4. Skriv ned namnet på informationslagret, vilket är namnet på databasen. Anteckna även servernamnet och resursgruppen.
-6. Om din server är foo.database.windows.net använder du bara den första delen som servernamn i dina PowerShell-cmdlets. I den föregående bilden är det fullständiga servernamnet newserver-20171113.database.windows.net. Ta bort suffixet och använda **newserver-20171113** som servernamn i PowerShell-cmdleten.
+4. Skriv ner data lager namnet, som är databas namnet. Anteckna även servernamnet och resursgruppen.
+6. Om din server är foo.database.windows.net använder du bara den första delen som servernamn i dina PowerShell-cmdlets. I den föregående bilden är det fullständiga servernamnet newserver-20171113.database.windows.net. Ta bort suffixet och Använd **NewServer-20171113** som server namn i PowerShell-cmdleten.
 
-## <a name="pause-compute"></a>Pausa databearbetning
+## <a name="pause-compute"></a>Pausa beräkning
 
-Du kan pausa och återuppta beräkning resurser på begäran för att spara kostnader. Till exempel om du inte använder databasen under natten och helger, kan du pausa under dessa tider och återuppta den under dagen. Det finns ingen kostnad för beräkningsresurser när databasen har pausats. Dock fortsätta att betala för lagring.
+För att spara kostnader kan du pausa och återuppta beräknings resurser på begäran. Om du till exempel inte använder databasen under natten och på helger, kan du pausa den under dessa tider och återuppta den under dagen. Det kostar inget att beräkna resurser när databasen har pausats. Men du kan fortsätta att debiteras för lagring.
 
-För att pausa en databas, använda den [Suspend-AzSqlDatabase](/powershell/module/az.sql/suspend-azsqldatabase) cmdlet. Följande exempel pausar ett informationslager med namnet **mySampleDataWarehouse** finns på en server med namnet **newserver-20171113**. Servern är i ett Azure-resursgrupp med namnet **myResourceGroup**.
+Använd cmdleten [suspend-AzSqlDatabase](/powershell/module/az.sql/suspend-azsqldatabase) om du vill pausa en databas. I följande exempel pausas ett informations lager med namnet **mySampleDataWarehouse** som finns på en server med namnet **NewServer-20171113**. Servern finns i en Azure-resurs grupp med namnet **myResourceGroup**.
 
 
 ```Powershell
@@ -76,7 +76,7 @@ Suspend-AzSqlDatabase –ResourceGroupName "myResourceGroup" `
 –ServerName "newserver-20171113" –DatabaseName "mySampleDataWarehouse"
 ```
 
-En variant den här nästa exempel hämtar databasen i $database-objekt. Det kommer sedan objektet till [Suspend-AzSqlDatabase](/powershell/module/az.sql/suspend-azsqldatabase). Resultaten lagras i objektet resultDatabase. Det slutliga kommandot visas resultatet.
+En variation, det här nästa exempel hämtar databasen till $database-objektet. Sedan rör det objektet för att [pausa-AzSqlDatabase](/powershell/module/az.sql/suspend-azsqldatabase). Resultaten lagras i objektet resultDatabase. Det slutliga kommandot visar resultatet.
 
 ```Powershell
 $database = Get-AzSqlDatabase –ResourceGroupName "myResourceGroup" `
@@ -88,14 +88,14 @@ $resultDatabase
 
 ## <a name="resume-compute"></a>Återuppta beräkning
 
-Starta en databas med den [återuppta AzSqlDatabase](/powershell/module/az.sql/resume-azsqldatabase) cmdlet. I följande exempel startar en databas med namnet mySampleDataWarehouse som finns på en server med namnet newserver-20171113. Servern är i ett Azure-resursgrupp som heter myResourceGroup.
+Använd cmdleten [Resume-AzSqlDatabase](/powershell/module/az.sql/resume-azsqldatabase) för att starta en databas. I följande exempel startas en databas med namnet mySampleDataWarehouse som finns på en server med namnet NewServer-20171113. Servern finns i en Azure-resurs grupp med namnet myResourceGroup.
 
 ```Powershell
 Resume-AzSqlDatabase –ResourceGroupName "myResourceGroup" `
 –ServerName "newserver-20171113" -DatabaseName "mySampleDataWarehouse"
 ```
 
-En variant den här nästa exempel hämtar databasen i $database-objekt. Det kommer sedan objektet till [återuppta AzSqlDatabase](/powershell/module/az.sql/resume-azsqldatabase) och lagrar resultatet i $resultDatabase. Det slutliga kommandot visas resultatet.
+En variation, det här nästa exempel hämtar databasen till $database-objektet. Sedan rör det objektet för att [återuppta-AzSqlDatabase](/powershell/module/az.sql/resume-azsqldatabase) och lagrar resultaten i $resultDatabase. Det slutliga kommandot visar resultatet.
 
 ```Powershell
 $database = Get-AzSqlDatabase –ResourceGroupName "ResourceGroup1" `
@@ -104,9 +104,9 @@ $resultDatabase = $database | Resume-AzSqlDatabase
 $resultDatabase
 ```
 
-## <a name="check-status-of-your-data-warehouse-operation"></a>Kontrollera status för dina data warehouse-åtgärd
+## <a name="check-status-of-your-data-warehouse-operation"></a>Kontrol lera statusen för data lager åtgärden
 
-Om du vill kontrollera status för ditt data warehouse använder den [Get-AzSqlDatabaseActivity](https://docs.microsoft.com/powershell/module/az.sql/Get-AzSqlDatabaseActivity#description) cmdlet.
+Använd cmdleten [Get-AzSqlDatabaseActivity](https://docs.microsoft.com/powershell/module/az.sql/Get-AzSqlDatabaseActivity#description) för att kontrol lera statusen för ditt informations lager.
 
 ```
 Get-AzSqlDatabaseActivity -ResourceGroupName "ResourceGroup01" -ServerName "Server01" -DatabaseName "Database02"
@@ -116,12 +116,12 @@ Get-AzSqlDatabaseActivity -ResourceGroupName "ResourceGroup01" -ServerName "Serv
 
 Du debiteras för informationslagerenheter och data som lagras i informationslagret. Dessa beräknings- och lagringsresurser debiteras separat.
 
-- Om du vill behålla data i lagring, pausa beräkningen.
+- Om du vill behålla data i lagringen ska du pausa beräkningen.
 - Om du vill undvika framtida avgifter kan du ta bort informationslagret.
 
 Följ dessa steg för att rensa resurser enligt dina önskemål.
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com), och klicka på ditt informationslager.
+1. Logga in på [Azure Portal](https://portal.azure.com)och klicka på ditt informations lager.
 
     ![Rensa resurser](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
@@ -129,14 +129,14 @@ Följ dessa steg för att rensa resurser enligt dina önskemål.
 
 3. Om du vill ta bort informationslagret så att du varken debiteras för beräkning eller lagring klickar du på **Ta bort**.
 
-4. Ta bort den SQLServer som du skapade genom att klicka på **mynewserver 20171113.database.windows.net**, och klicka sedan på **ta bort**.  Var försiktig med den här borttagningen eftersom du även tar bort alla databaser som har tilldelats servern.
+4. Om du vill ta bort den SQL-Server som du har skapat klickar du på **mynewserver-20171113.Database.Windows.net**och sedan på **ta bort**.  Var försiktig med den här borttagningen eftersom du även tar bort alla databaser som har tilldelats servern.
 
 5. Om du vill ta bort resursgruppen klickar du på **myResourceGroup** och sedan på **Ta bort resursgrupp**.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du har nu pausas och återupptas beräkning för informationslagret. Om du vill veta mer om Azure SQL Data Warehouse kan fortsätta med självstudiekursen om att läsa in data.
+Du har nu pausat och återupptagit beräkningen för ditt informations lager. Om du vill veta mer om Azure SQL Data Warehouse kan fortsätta med självstudiekursen om att läsa in data.
 
 > [!div class="nextstepaction"]
-> [Läsa in data i ett SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md)
+> [Läs in data i en SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md)

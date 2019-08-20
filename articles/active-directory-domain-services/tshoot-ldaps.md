@@ -1,6 +1,6 @@
 ---
-title: Felsöka säker LDAP (LDAPS) i Azure AD Domain Services | Microsoft Docs
-description: Felsöka säkert LDAP (LDAPS) för en Azure AD Domain Services-hanterad domän
+title: Felsöka säkert LDAP (LDAPs) i Azure AD Domain Services | Microsoft Docs
+description: Felsöka säkert LDAP (LDAPs) för en Azure AD Domain Services hanterad domän
 services: active-directory-ds
 documentationcenter: ''
 author: iainfoulds
@@ -15,36 +15,36 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: iainfou
-ms.openlocfilehash: a194919a488f6cb59c76315c9d8a3db1e9c1feb1
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 285af0e5e5d5ab03027fc29064a5f3623ed10e2f
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67472208"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617049"
 ---
-# <a name="troubleshoot-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Felsöka säkert LDAP (LDAPS) för en Azure AD Domain Services-hanterad domän
+# <a name="troubleshoot-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Felsöka säkert LDAP (LDAPs) för en Azure AD Domain Services hanterad domän
 
 ## <a name="connection-issues"></a>Anslutningsproblem
-Om du har problem med att ansluta till den hanterade domänen med säkert LDAP:
+Om du har problem med att ansluta till den hanterade domänen med säker LDAP:
 
-* Utfärdaren kedja av certifikatet för säkert LDAP måste vara betrott på klienten. Du kan välja att lägga till rotcertifikatutfärdaren i arkivet Betrodda rotcertifikat på klienten att upprätta förtroendet.
-* Kontrollera att LDAP-klient (till exempel ldp.exe) ansluter till säker LDAP-slutpunkten med hjälp av ett DNS-namn, inte IP-adress.
-* Kontrollera DNS-namnet LDAP-klienten ansluter till. Det måste matcha den offentliga IP-adressen för säkert LDAP på den hanterade domänen.
-* Kontrollera att certifikatet för säkert LDAP för din hanterade domän har DNS-namnet i ett ämne eller Alternativt ämnesnamn-attributet.
-* NSG-inställningarna för det virtuella nätverket måste tillåta trafik till port 636 från internet. Det här steget gäller endast om du har aktiverat åtkomst med säkert LDAP via internet.
+* Utfärdarens kedja av det säkra LDAP-certifikatet måste vara betrodd på klienten. Du kan välja att lägga till rot certifikat utfärdaren i arkivet för betrodda rot certifikat på klienten för att upprätta förtroendet.
+* Kontrol lera att LDAP-klienten (till exempel Ldp. exe) ansluter till en säker LDAP-slutpunkt med ett DNS-namn, inte IP-adressen.
+* Kontrol lera DNS-namnet som LDAP-klienten ansluter till. Den måste matcha den offentliga IP-adressen för säker LDAP på den hanterade domänen.
+* Kontrol lera att det säkra LDAP-certifikatet för din hanterade domän har DNS-namnet i attributen subject eller alternativt namn på certifikat mottagare.
+* NSG-inställningarna för det virtuella nätverket måste tillåta trafik till port 636 från Internet. Det här steget gäller endast om du har aktiverat säker LDAP-åtkomst via Internet.
 
 
 ## <a name="need-help"></a>Behöver du hjälp?
-Om du fortfarande har problem med att ansluta till den hanterade domänen med säkert LDAP [kontakta produktteamet](contact-us.md) om du behöver hjälp. Inkludera följande information för att diagnosticera problemet bättre:
-* En skärmbild av ldp.exe anslutningen och misslyckas.
-* En Azure AD-klient-ID och DNS-domännamnet för den hanterade domänen.
-* Exakta användarnamnet som du försöker binda som.
+Om du fortfarande har problem med att ansluta till den hanterade domänen med säker LDAP kan du [Kontakta produkt teamet](contact-us.md) för att få hjälp. Ta med följande information för att diagnostisera problemet bättre:
+* En skärm bild av Ldp. exe som gör anslutningen och fungerar inte.
+* Ditt Azure AD-klient-ID och DNS-domännamnet för din hanterade domän.
+* Exakt användar namn som du försöker binda som.
 
 
 ## <a name="related-content"></a>Relaterat innehåll
-* [Azure AD Domain Services – komma igång-guiden](create-instance.md)
-* [Hantera en Azure AD Domain Services-domän](manage-domain.md)
-* [Grunderna i LDAP-fråga](https://technet.microsoft.com/library/aa996205.aspx)
-* [Hantera en grupprincip för Azure AD Domain Services](manage-group-policy.md)
+* [Azure AD Domain Services-Komma igång guide](tutorial-create-instance.md)
+* [Hantera en Azure AD Domain Services domän](tutorial-create-management-vm.md)
+* [Grundläggande om LDAP-frågor](https://technet.microsoft.com/library/aa996205.aspx)
+* [Hantera grupprincip för Azure AD Domain Services](manage-group-policy.md)
 * [Nätverkssäkerhetsgrupper](../virtual-network/security-overview.md)
-* [Skapa en Nätverkssäkerhetsgrupp](../virtual-network/tutorial-filter-network-traffic.md)
+* [Skapa en nätverks säkerhets grupp](../virtual-network/tutorial-filter-network-traffic.md)

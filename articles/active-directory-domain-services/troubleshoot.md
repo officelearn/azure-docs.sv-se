@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: iainfou
-ms.openlocfilehash: acb001417b85b8ff45b2617e148e8b1961f3cbfa
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: c5ec80e81381423bdfdee07b1c020343d14ed559
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68772979"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617074"
 ---
 # <a name="azure-ad-domain-services---troubleshooting-guide"></a>Azure AD Domain Services – fel söknings guide
 Den här artikeln innehåller fel söknings tips för problem som kan uppstå när du konfigurerar eller administrerar Azure Active Directory (AD) Domain Services.
@@ -32,7 +32,7 @@ Välj de fel söknings steg som motsvarar det fel meddelande som du stöter på.
 
 | **Fel meddelande** | **Lösning** |
 | --- |:--- |
-| *Namnet contoso100.com används redan i nätverket. Ange ett namn som inte används.* |[Domän namns konflikt i det virtuella nätverket](troubleshoot.md#domain-name-conflict) |
+| *Namnet contoso.com används redan i det här nätverket. Ange ett namn som inte används.* |[Domän namns konflikt i det virtuella nätverket](troubleshoot.md#domain-name-conflict) |
 | *Det gick inte att aktivera Domain Services i den här Azure AD-klienten. Tjänsten har inte tillräcklig behörighet för programmet ”Azure AD Domain Services Sync”. Ta bort programmet ”Azure AD Domain Services Sync” och försök sedan aktivera Domain Services för din Azure AD-klient.* |[Domän tjänster har inte tillräcklig behörighet för Azure AD Domain Services Sync-programmet](troubleshoot.md#inadequate-permissions) |
 | *Det gick inte att aktivera Domain Services i den här Azure AD-klienten. Programmet Domain Services i din Azure AD-klient har inte tillräcklig behörighet för att aktivera Domain Services. Ta bort programmet med programidentifieraren d87dcbc6-a371-462e-88e3-28ad15ec4e64 och försök sedan aktivera Domain Services för din Azure AD-klient.* |[Domän tjänst programmet har inte kon figurer ATS korrekt i din klient organisation](troubleshoot.md#invalid-configuration) |
 | *Det gick inte att aktivera Domain Services i den här Azure AD-klienten. Programmet Microsoft Azure AD är inaktiverat i din Azure AD-klient. Aktivera programmet med programidentifieraren 00000002-0000-0000-c000-000000000000 och försök aktivera Domain Services för din Azure AD-klient.* |[Microsoft Graph programmet är inaktiverat i din Azure AD-klient](troubleshoot.md#microsoft-graph-disabled) |
@@ -40,7 +40,7 @@ Välj de fel söknings steg som motsvarar det fel meddelande som du stöter på.
 ### <a name="domain-name-conflict"></a>Domän namns konflikt
 **Fel meddelande:**
 
-*Namnet contoso100.com används redan i nätverket. Ange ett namn som inte används.*
+*Namnet contoso.com används redan i det här nätverket. Ange ett namn som inte används.*
 
 **Reparation**
 
@@ -135,12 +135,12 @@ Om en eller flera användare i din Azure AD-klient inte kan logga in på den nyl
 >
 >
 
-* Kontrollera att du har [aktiverat lösenordssynkronisering](active-directory-ds-getting-started-password-sync.md) i enlighet med anvisningarna i guiden Komma igång.
+* Kontrollera att du har [aktiverat lösenordssynkronisering](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) i enlighet med anvisningarna i guiden Komma igång.
 * **Externa konton:** Kontrollera att det användarkonto som påverkas inte är ett externt konto i Azure AD-klienten. Exempel på externa konton är Microsoft-konton (till exempel 'joe@live.com') eller användar konton från en extern Azure AD-katalog. Eftersom Azure AD Domain Services saknar autentiseringsuppgifter för sådana användar konton kan de här användarna inte logga in på den hanterade domänen.
 * **Synkroniserade konton:** Om de berörda användar kontona synkroniseras från en lokal katalog kontrollerar du att:
 
   * Du har distribuerat eller uppdaterat till den [senaste rekommenderade versionen av Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594).
-  * Du har konfigurerat Azure AD Connect att [utföra en fullständig synkronisering](active-directory-ds-getting-started-password-sync.md).
+  * Du har konfigurerat Azure AD Connect att [utföra en fullständig synkronisering](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds).
   * Beroende på katalogens storlek kan det ta en stund innan användar konton och inloggnings-hashar är tillgängliga i Azure AD Domain Services. Se till att du väntar tillräckligt länge innan du försöker autentisera igen.
   * Om problemet kvarstår när du har verifierat föregående steg kan du försöka starta om tjänsten Microsoft Azure AD Sync. Starta en kommando tolk från den synkroniserade datorn och kör följande kommandon:
 

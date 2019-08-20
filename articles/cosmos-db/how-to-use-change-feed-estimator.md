@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 08/15/2019
 ms.author: maquaran
-ms.openlocfilehash: 582b0a586f830659bbea4dd665be938d2895de47
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: f72a3bfcfd6b4f480977510963f49f73a7207e1f
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544833"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615285"
 ---
 # <a name="use-the-change-feed-estimator"></a>Använd uppskattningen ändra feed
 
@@ -23,7 +23,7 @@ Processorn för ändrings flöden fungerar som en pekare som rör sig framåt i 
 
 Din distribution av Change feed processor kan bearbeta ändringar i en viss takt baserat på de resurser som är tillgängliga, t. ex. CPU, minne, nätverk och så vidare.
 
-Om den här hastigheten är långsammare än den hastighet med vilken ändringarna sker i Azure Cosmos DB containern börjar processorn att vänta.
+Om den här hastigheten är långsammare än den hastighet med vilken dina ändringar sker i din Azure Cosmos-behållare börjar processorn att vänta.
 
 Att identifiera det här scenariot hjälper dig att förstå om vi behöver skala vår distribution av Change feed processor.
 
@@ -60,8 +60,7 @@ Du kan skicka denna uppskattning till din övervaknings lösning och använda de
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du kan nu fortsätta att lära dig mer om ändringsfeed i följande artiklar:
+Nu kan du fortsätta med att lära dig mer om att ändra flödes processor i följande artiklar:
 
-* [Översikt över ändra feed](change-feed.md)
-* [Sätt att läsa ändrings flöde](read-change-feed.md)
-* [Använd processorn för att ändra feed](change-feed-processor.md)
+* [Översikt över ändring av flödes processor](change-feed-processor.md)
+* [Ändra start tid för matnings processor](how-to-configure-change-feed-start-time.md)

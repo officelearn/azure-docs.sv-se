@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 05/23/2019
 ms.author: mjbrown
-ms.openlocfilehash: f465ac91936b766d2c19ea8efd67b3acc8df6d75
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 20a9ca8e28961a6dc49947a22f745424961b4a3f
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66243933"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615262"
 ---
 # <a name="how-to-write-stored-procedures-and-triggers-in-azure-cosmos-db-by-using-the-javascript-query-api"></a>Skriva lagrade procedurer och utlösare med hjälp fråge-API:et för Javascript i Azure Cosmos DB
 
@@ -19,7 +19,7 @@ Med Azure Cosmos DB kan du utföra optimerade frågor med hjälp av ett flytande
 
 ## <a id="stored-procedures"></a>Lagrad procedur med JavaScript fråge-API
 
-Följande kodexempel är ett exempel på hur JavaScript-fråge-API används i kontexten för en lagrad procedur. Den lagrade proceduren infogar ett Azure Cosmos DB-objekt som har angetts som indataparameter och uppdaterar ett metadatadokument med hjälp av `__.filter()` metoden med minSize, maxSize och totalSize, baserat på det inkommande objektets storleksegenskap.
+Följande kodexempel är ett exempel på hur JavaScript-fråge-API används i kontexten för en lagrad procedur. Den lagrade proceduren infogar ett Azure Cosmos-objekt som anges av en indataparameter och uppdaterar ett Metadatadokumentet med hjälp `__.filter()` av metoden, med minSize, MaxSize och totalSize baserat på indatatypens egenskap storlek.
 
 > [!NOTE]
 > `__` (dubbelunderstreck) är ett alias till `getContext().getCollection()` när du använder frågan JavaScript API.

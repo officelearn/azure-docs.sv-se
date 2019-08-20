@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: iainfou
-ms.openlocfilehash: d0acbd02103ebd8dd3819579c85b4ddac22dba78
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 0e3803edd47c3589652b3fedecd12125e3ff40b7
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68773102"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69612794"
 ---
 # <a name="join-a-red-hat-enterprise-linux-7-virtual-machine-to-a-managed-domain"></a>Ansluta en Red Hat Enterprise Linux 7-virtuell dator till en hanterad domän
 Den här artikeln visar hur du ansluter en virtuell Red Hat Enterprise Linux (RHEL) 7-dator till en Azure AD Domain Services hanterad domän.
@@ -31,9 +31,9 @@ Den här artikeln visar hur du ansluter en virtuell Red Hat Enterprise Linux (RH
 För att utföra de uppgifter som anges i den här artikeln behöver du:  
 1. En giltig **Azure-prenumeration**.
 2. En **Azure AD-katalog** – antingen synkroniserad med en lokal katalog eller en katalog som endast är molnad.
-3. **Azure AD Domain Services** måste vara aktiverat för Azure AD-katalogen. Om du inte har gjort det följer du alla uppgifter som beskrivs i Komma igångs [guiden](create-instance.md).
-4. Se till att du har konfigurerat IP-adresserna för den hanterade domänen som DNS-servrar för det virtuella nätverket. Mer information finns i [så här uppdaterar du DNS-inställningar för Azure Virtual Network](active-directory-ds-getting-started-dns.md)
-5. Slutför de steg som krävs för att [Synkronisera lösen ord till din Azure AD Domain Services hanterade domänen](active-directory-ds-getting-started-password-sync.md).
+3. **Azure AD Domain Services** måste vara aktiverat för Azure AD-katalogen. Om du inte har gjort det följer du alla uppgifter som beskrivs i Komma igångs [guiden](tutorial-create-instance.md).
+4. Se till att du har konfigurerat IP-adresserna för den hanterade domänen som DNS-servrar för det virtuella nätverket. Mer information finns i [så här uppdaterar du DNS-inställningar för Azure Virtual Network](tutorial-create-instance.md#update-dns-settings-for-the-azure-virtual-network)
+5. Slutför de steg som krävs för att [Synkronisera lösen ord till din Azure AD Domain Services hanterade domänen](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds).
 
 
 ## <a name="provision-a-red-hat-enterprise-linux-virtual-machine"></a>Etablera en Red Hat Enterprise Linux virtuell dator
@@ -51,7 +51,7 @@ Etablera en virtuell dator med RHEL 7 i Azure med någon av följande metoder:
 ## <a name="connect-remotely-to-the-newly-provisioned-linux-virtual-machine"></a>Fjärrans luta till den nyligen etablerade virtuella Linux-datorn
 Den virtuella RHEL 7,2-datorn har etablerats i Azure. Nästa uppgift är att fjärrans luta till den virtuella datorn med det lokala administratörs kontot som skapades när den virtuella datorn etablerades.
 
-Följ anvisningarna i artikeln [så här loggar du in på en virtuell dator som kör Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Följ instruktionerna i artikeln [så här loggar du in på en virtuell dator som kör Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 
 ## <a name="configure-the-hosts-file-on-the-linux-virtual-machine"></a>Konfigurera värd filen på den virtuella Linux-datorn
@@ -64,10 +64,10 @@ sudo vi /etc/hosts
 I hosts-filen anger du följande värde:
 
 ```console
-127.0.0.1 contoso-rhel.contoso100.com contoso-rhel
+127.0.0.1 contoso-rhel.contoso.com contoso-rhel
 ```
 
-Här är "contoso100.com" DNS-domännamnet för din hanterade domän. "contoso-RHEL" är värd namnet för den virtuella RHEL-dator som du ansluter till den hanterade domänen.
+Här är "contoso.com" DNS-domännamnet för din hanterade domän. "contoso-RHEL" är värd namnet för den virtuella RHEL-dator som du ansluter till den hanterade domänen.
 
 
 ## <a name="install-required-packages-on-the-linux-virtual-machine"></a>Installera nödvändiga paket på den virtuella Linux-datorn
@@ -84,7 +84,7 @@ Nu när de nödvändiga paketen har installerats på den virtuella Linux-datorn 
 1. Identifiera den hanterade domänen för AAD Domain Services. Skriv följande kommando i SSH-terminalen:
 
     ```console
-    sudo realm discover CONTOSO100.COM
+    sudo realm discover contoso.COM
     ```
 
    > [!NOTE]
@@ -100,7 +100,7 @@ Nu när de nödvändiga paketen har installerats på den virtuella Linux-datorn 
     > * Ange domän namnet med versala bokstäver, annars Miss lyckas kinit.
 
     ```console
-    kinit bob@CONTOSO100.COM
+    kinit bob@contoso.COM
     ```
 
 3. Anslut datorn till domänen. Skriv följande kommando i SSH-terminalen:
@@ -111,7 +111,7 @@ Nu när de nödvändiga paketen har installerats på den virtuella Linux-datorn 
     > Om den virtuella datorn inte kan ansluta till domänen ser du till att den virtuella datorns nätverks säkerhets grupp tillåter utgående Kerberos-trafik på TCP + UDP-port 464 till det virtuella nätverkets undernät för din Azure AD DS-hanterade domän.
 
     ```console
-    sudo realm join --verbose CONTOSO100.COM -U 'bob@CONTOSO100.COM'
+    sudo realm join --verbose contoso.COM -U 'bob@contoso.COM'
     ```
 
 Du bör få ett meddelande ("den registrerade datorn i sfären") när datorn har anslutits till den hanterade domänen.
@@ -120,10 +120,10 @@ Du bör få ett meddelande ("den registrerade datorn i sfären") när datorn har
 ## <a name="verify-domain-join"></a>Verifiera domän anslutning
 Kontrol lera om datorn har anslutits till den hanterade domänen. Anslut till den domänanslutna RHEL-datorn med en annan SSH-anslutning. Använd ett domän användar konto och kontrol lera sedan för att se om användar kontot har lösts korrekt.
 
-1. I SSH-terminalen skriver du följande kommando för att ansluta till den domänanslutna virtuella RHEL-datorn med SSH. Använd ett domän konto som tillhör den hanterade domänen (till exempel "bob@CONTOSO100.COM" i det här fallet.)
+1. I SSH-terminalen skriver du följande kommando för att ansluta till den domänanslutna virtuella RHEL-datorn med SSH. Använd ett domän konto som tillhör den hanterade domänen (till exempel "bob@contoso.COM" i det här fallet.)
     
     ```console
-    ssh -l bob@CONTOSO100.COM contoso-rhel.contoso100.com
+    ssh -l bob@contoso.COM contoso-rhel.contoso.com
     ```
 
 2. I SSH-terminalen skriver du följande kommando för att se om arbets katalogen har initierats korrekt.
@@ -140,11 +140,11 @@ Kontrol lera om datorn har anslutits till den hanterade domänen. Anslut till de
 
 
 ## <a name="troubleshooting-domain-join"></a>Felsöka domän anslutning
-Se artikeln [fel söknings domän anslutning](join-windows-vm.md#troubleshoot-joining-a-domain) .
+Se artikeln [fel söknings domän anslutning](join-windows-vm.md#troubleshoot-domain-join-issues) .
 
 ## <a name="related-content"></a>Relaterat innehåll
-* [Azure AD Domain Services-Komma igång guide](create-instance.md)
+* [Azure AD Domain Services-Komma igång guide](tutorial-create-instance.md)
 * [Ansluta en virtuell Windows Server-dator till en Azure AD Domain Services hanterad domän](active-directory-ds-admin-guide-join-windows-vm.md)
-* [Så här loggar du in på en virtuell dator som kör Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* [Logga in på en virtuell dator som kör Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * [Installera Kerberos](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Managing_Smart_Cards/installing-kerberos.html)
 * [Red Hat Enterprise Linux 7 – guide för Windows-integrering](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Windows_Integration_Guide/index.html)

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 05/21/2019
 ms.author: mjbrown
-ms.openlocfilehash: 66e0a7e13df9eddcd722492c9c894721517af5f9
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: cf73b6e0477e46f0a2eac43d7fa6bccc6845db92
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65968929"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615254"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Skriva lagrade procedurer, utlösare och användardefinierade funktioner i Azure Cosmos DB
 
@@ -48,11 +48,11 @@ När den har skrivits måste den lagrade proceduren registreras med en samling. 
 
 ### <a id="create-an-item"></a>Skapa ett objekt med hjälp av en lagrad procedur
 
-När du skapar ett objekt med hjälp av den lagrade proceduren objektet infogas i Azure Cosmos DB-behållare och ett id för den nyligen skapade objekten returneras. Genereringen av ett objekt är en asynkron åtgärd och är beroende av JavaScript-motringningsfunktionerna. Motringningsfunktionerna har två parametrar – en för felobjektet om åtgärden misslyckas och en annan för ett returvärde; i detta fall objektet som skapats. I motringningen kan du antingen hantera undantaget eller utlösa ett fel. Om ingen motringning har definierats och det uppstår ett fel, genererar Azure Cosmos DB-körningen ett fel. 
+När du skapar ett objekt med hjälp av den lagrade proceduren, infogas objektet i Azure Cosmos-behållaren och ett ID för det nyligen skapade objektet returneras. Genereringen av ett objekt är en asynkron åtgärd och är beroende av JavaScript-motringningsfunktionerna. Motringningsfunktionerna har två parametrar – en för felobjektet om åtgärden misslyckas och en annan för ett returvärde; i detta fall objektet som skapats. I motringningen kan du antingen hantera undantaget eller utlösa ett fel. Om ingen motringning har definierats och det uppstår ett fel, genererar Azure Cosmos DB-körningen ett fel. 
 
 Den lagrade proceduren innehåller också en parameter som ställer in beskrivningen. Det är ett booleskt värde. Om parametern har värdet true och beskrivningen saknas, genererar den lagrade proceduren ett undantag. I annat fall fortsätter resten av den lagrade proceduren att köras.
 
-Följande exempel på en lagrad procedur använder ett nytt Azure Cosmos DB-objekt som indata, infogar det i Azure Cosmos DB-containern och returnerar ID:t för det nya objektet. I det här exemplet använder vi ToDoList-exemplet från [snabbstarten om .NET och SQL-API:et](create-sql-api-dotnet.md)
+I följande exempel lagrad procedur används ett nytt Azure Cosmos-objekt som ininformation, infogar det i Azure Cosmos-behållaren och returnerar ID: t för det nya objektet. I det här exemplet använder vi ToDoList-exemplet från [snabbstarten om .NET och SQL-API:et](create-sql-api-dotnet.md)
 
 ```javascript
 function createToDoItem(itemToCreate) {
@@ -87,7 +87,7 @@ function sample(arr) {
 
 ### <a id="transactions"></a>Transaktioner i lagrade procedurer
 
-Du kan implementera transaktioner för objekt i en container med hjälp av en lagrad procedur. I följande exempel används transaktioner i en fotbollsapp för att byta spelare mellan två lag i en enda åtgärd. Den lagrade proceduren försöker läsa de två Azure Cosmos DB-objekten som motsvarar de spelar-ID:n som skickas som ett argument. Om båda spelarna hittas uppdaterar den lagrade proceduren objekten genom att byta deras lag. Om det uppstår ett fel utlöser den lagrade proceduren ett JavaScript-undantag som implicit avbryter transaktionen.
+Du kan implementera transaktioner för objekt i en container med hjälp av en lagrad procedur. I följande exempel används transaktioner i en fotbollsapp för att byta spelare mellan två lag i en enda åtgärd. Den lagrade proceduren försöker läsa de två Azure Cosmos-objekten som var och en motsvarar de spelare-ID: n som angavs som argument. Om båda spelarna hittas uppdaterar den lagrade proceduren objekten genom att byta deras lag. Om det uppstår ett fel utlöser den lagrade proceduren ett JavaScript-undantag som implicit avbryter transaktionen.
 
 ```javascript
 // JavaScript source code
@@ -214,7 +214,7 @@ Azure Cosmos DB stöder för- och efterutlösare. Förutlösare körs innan ett 
 
 ### <a id="pre-triggers"></a>Förutlösare
 
-Följande exempel visar hur en förutlösare används för att verifiera egenskaperna för ett Azure Cosmos DB-objekt som håller på att skapas. I det här exemplet använder vi ToDoList-exemplet från [snabbstarten om .NET och SQL-API:et](create-sql-api-dotnet.md) för att lägga till en tidsstämpelegenskap till ett nyligen tillagt objekt om det inte redan innehåller en.
+I följande exempel visas hur en för utlösare används för att validera egenskaperna för ett Azure Cosmos-objekt som skapas. I det här exemplet använder vi ToDoList-exemplet från [snabbstarten om .NET och SQL-API:et](create-sql-api-dotnet.md) för att lägga till en tidsstämpelegenskap till ett nyligen tillagt objekt om det inte redan innehåller en.
 
 ```javascript
 function validateToDoItemTimestamp() {
@@ -235,7 +235,7 @@ function validateToDoItemTimestamp() {
 }
 ```
 
-Förutlösare kan inte ha några indataparametrar. Begärandeobjektet i utlösaren används för att manipulera begärandemeddelandet som är associerat med åtgärden. I exemplet ovan körs förutlösaren när ett Azure Cosmos DB-objekt skapas, och själva begärandemeddelandet innehåller objektet som ska skapas i JSON-format.
+Förutlösare kan inte ha några indataparametrar. Begärandeobjektet i utlösaren används för att manipulera begärandemeddelandet som är associerat med åtgärden. I det föregående exemplet körs för hands utlösaren när du skapar ett Azure Cosmos-objekt och meddelande texten innehåller det objekt som ska skapas i JSON-format.
 
 När utlösare har registrerats kan du ange vilka åtgärder som de kan köras med. Den här utlösaren bör skapas med `TriggerOperation`-värdet `TriggerOperation.Create`, vilket innebär att det inte går att använda utlösaren i en ersättningsåtgärd som du ser i följande kod.
 
@@ -279,7 +279,7 @@ function updateMetadataCallback(err, items, responseOptions) {
 }
 ```
 
-En viktig sak att notera är den transaktionella körningen av utlösare i Azure Cosmos DB. Efter utlösaren körs som en del av samma transaktion för det underliggande objektet själva. Ett undantag under körningen efter utlösaren misslyckas hela transaktionen. Något allokerat kommer att återställas och ett undantag returneras.
+En viktig sak att notera är den transaktionella körningen av utlösare i Azure Cosmos DB. Efter utlösaren körs som en del av samma transaktion för själva underliggande objektet. Ett undantag under körningen efter utlösaren kommer inte att kunna utföra hela transaktionen. Allt som allokeras återställs och ett undantag returneras.
 
 Exempel på hur du registrerar och anropar en förutlösare finns i artiklarna om [förutlösare](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers) och [efterutlösare](how-to-use-stored-procedures-triggers-udfs.md#post-triggers). 
 

@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
-ms.openlocfilehash: d61d3d00de5b46f7dad44625509eabe6836ca7cf
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: ae1773ec1d470b9cff2efb00c200427b7b4c2fb4
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447262"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69614817"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Justera prestanda för frågor med Azure Cosmos DB
 
@@ -44,7 +44,7 @@ SDK: erna tillhandahåller olika alternativ för frågekörning. Till exempel i 
 | `EnableScanInQuery` | Måste anges till true om du har valt att inte indexera, men vill ändå köra frågan via en genomsökning. Endast har gäller om indexering för den begärda filter-sökvägen inaktiverats. | 
 | `MaxItemCount` | Det maximala antalet objekt som ska returneras per serveranrop till servern. Genom att ange-1, kan du låta servern hantera antal objekt. Eller så kan du sänka det här värdet att hämta endast ett litet antal objekt per serveranrop. 
 | `MaxBufferedItemCount` | Detta är ett alternativ för klientsidan och används för att begränsa minnesförbrukningen så att när du utför flera partitioner ORDER BY. Ett högre värde bidrar till att minska svarstiden för sortering av flera olika partitioner. |
-| `MaxDegreeOfParallelism` | Hämtar eller anger antalet samtidiga åtgärder som körs på klientsidan under parallell frågekörning i tjänsten Azure Cosmos DB-databas. Ett positivt egenskapsvärde begränsar antalet samtidiga åtgärder till set-värde. Om det är inställt på mindre än 0, avgör systemet automatiskt antalet samtidiga åtgärder som ska köras. |
+| `MaxDegreeOfParallelism` | Hämtar eller anger antalet samtidiga åtgärder som kör klient sidan under parallell frågekörningen i Azure Cosmos Database-tjänsten. Ett positivt egenskapsvärde begränsar antalet samtidiga åtgärder till set-värde. Om det är inställt på mindre än 0, avgör systemet automatiskt antalet samtidiga åtgärder som ska köras. |
 | `PopulateQueryMetrics` | Möjliggör detaljerad loggning av statistik tid har använt i olika faser i körningen av frågan som kompileringstid, loop-tiden för index och dokument läsa in tid. Du kan dela utdata från frågestatistik med Azures Support för att diagnostisera prestandaproblem för frågan. |
 | `RequestContinuation` | Du kan återuppta Frågekörningen genom att skicka in täckande fortsättningstoken som returneras av en fråga. Fortsättningstoken kapslar in alla tillstånd som krävs för frågekörning. |
 | `ResponseContinuationTokenLimitInKb` | Du kan begränsa den maximala storleken för fortsättningstoken som returnerades av servern. Du kan behöva ange detta om programmet värden har en gräns på rubriken svarsstorlek. Ställa in det här kan öka övergripande varaktighet och antalet förbrukade ru för frågan.  |
@@ -216,7 +216,7 @@ I avsnittet om frågan körningsstatistik förklarar hur du hämtar servertid f�
 ### <a name="indexing-policy"></a>Indexeringspolicy
 Se [konfigurera indexeringsprincip](index-policy.md) för indexering sökvägar, typer, och lägen och hur de påverkar Frågekörningen. Som standard indexprincip använder hash-indexering för strängar, vilket är effektiva för likhetsfrågor, men inte för intervallet frågor/order by-frågor. Om du behöver omfångsfrågor för strängar, rekommenderar vi att ange intervallet Indextypen för alla strängar. 
 
-Som standard tillämpar Azure Cosmos DB automatisk indexering för alla data. Infoga scenarier för hög prestanda, Överväg att exkludera sökvägar som detta minskar RU kostnaden för varje insert-åtgärd. 
+Som standard kommer Azure Cosmos DB att använda automatisk indexering för alla data. För scenarier med hög prestanda måste du överväga att utesluta sökvägar eftersom detta minskar RU-kostnaden för varje infognings åtgärd. 
 
 ## <a name="query-execution-metrics"></a>Fråga körningsstatistik
 Du kan få detaljerad statistik om frågekörning genom att skicka in den valfria `x-ms-documentdb-populatequerymetrics` rubrik (`FeedOptions.PopulateQueryMetrics` i .NET SDK). Det värde som returneras i `x-ms-documentdb-query-metrics` har följande nyckel / värde-par som avsett för avancerad felsökning av Frågekörningen. 

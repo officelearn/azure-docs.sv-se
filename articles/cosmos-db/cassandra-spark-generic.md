@@ -1,6 +1,6 @@
 ---
-title: Arbeta med Azure Cosmos DB Cassandra-API från Spark
-description: Den här artikeln är huvudsidan för Cosmos DB Cassandra API-integration från Spark.
+title: Arbeta med Azure Cosmos DB API för Cassandra från Spark
+description: Den här artikeln är huvud sidan för Cosmos DB API för Cassandra integrering från Spark.
 author: kanshiG
 ms.author: govindk
 ms.reviewer: sngun
@@ -8,56 +8,56 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 75d2930363b6ad1aeace22d7529df04f31deefe5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cc28cf590a1fd2c3fdfe8651f136526188801c04
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60893651"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615632"
 ---
-# <a name="connect-to-azure-cosmos-db-cassandra-api-from-spark"></a>Ansluta till Azure Cosmos DB Cassandra-API från Spark
+# <a name="connect-to-azure-cosmos-db-cassandra-api-from-spark"></a>Ansluta till Azure Cosmos DB API för Cassandra från Spark
 
-Den här artikeln är en mellan en serie artiklar om Azure Cosmos DB Cassandra API-integrering från Spark. Artiklarna beskriver anslutningen, Data Definition Language(DDL) åtgärder, grundläggande Data Manipulation Language(DML) åtgärder och avancerade Azure Cosmos DB Cassandra API-integration från Spark. 
+Den här artikeln är en serie artiklar om Azure Cosmos DB API för Cassandra-integrering från Spark. Artiklarna behandlar anslutning, DDL-åtgärder (Data Definition Language), DML-åtgärder (Basic data Manipulation Language) och avancerad Azure Cosmos DB API för Cassandra-integrering från Spark. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
-* [Etablera ett Cassandra-API för Azure Cosmos DB-konto.](create-cassandra-dotnet.md#create-a-database-account)
+## <a name="prerequisites"></a>Förutsättningar
+* [Etablera ett Azure Cosmos DB API för Cassandra konto.](create-cassandra-dotnet.md#create-a-database-account)
 
-* Etablera ditt val av Spark-miljö [[Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) | [Azure HDInsight-Spark](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-jupyter-spark-sql) | Övriga].
+* Tillhandahåll ditt val av Spark-miljö [[Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) | [Azure HDInsight-Spark](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-jupyter-spark-sql) | Andra].
 
 ## <a name="dependencies-for-connectivity"></a>Beroenden för anslutning
-* **Spark-anslutningsappen för Cassandra:** Spark-anslutningsappen används för att ansluta till Azure Cosmos DB Cassandra-API.  Identifiera och använda versionen av anslutningsappen finns i [Maven central]( https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector) som är kompatibel med Spark och Scala-versioner av Spark-miljö.
+* **Spark-anslutning för Cassandra:** Spark-anslutningen används för att ansluta till Azure Cosmos DB API för Cassandra.  Identifiera och Använd den version av anslutningen som finns i [maven Central]( https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector) som är kompatibel med Spark-och Scala-versionerna av Spark-miljön.
 
-* **Azure Cosmos DB-hjälpbibliotek för Cassandra-API:** Förutom Spark-anslutningsappen måste en annan library, även kallat [azure-cosmos-cassandra-spark-helper]( https://search.maven.org/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper/1.0.0/jar) från Azure Cosmos DB. Det här biblioteket innehåller klasser för anpassad anslutning factory och försök igen principen.
+* **Azure Cosmos DB hjälp bibliotek för API för Cassandra:** Förutom Spark-anslutningsprogrammet behöver du ett annat bibliotek som kallas [Azure-Cosmos-Cassandra-Spark-Helper]( https://search.maven.org/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper/1.0.0/jar) från Azure Cosmos dB. Det här biblioteket innehåller en anpassad anslutnings fabrik och återförsöks princip klasser.
 
-  Återförsöksprincip i Azure Cosmos DB har konfigurerats för att hantera HTTP-status kod 429 (”begär Rate stor”) undantag. Azure Cosmos DB Cassandra API översätter sådana undantag till överbelastade fel på protokollet i Cassandra och du kan göra med tillbaka på de. Eftersom Azure Cosmos DB använder etablerat dataflöde modellen kan inträffa begäran rate begränsande undantag när ingång/utgång bedömer ökning. Återförsöksprincipen som skyddar ditt spark-jobb mot data toppar som tillfälligt överskrider det dataflöde som allokerats för din samling.
+  Principen för återförsök i Azure Cosmos DB har kon figurer ATS för att hantera HTTP-statuskoden 429-undantag ("begär ande frekvens Large"). Azure Cosmos DB API för Cassandra översätter dessa undantag till överlagrade fel på det inbyggda Cassandra-protokollet och du kan försöka igen med backend. Eftersom Azure Cosmos DB använder etablerade data flödes modeller, uppstår begränsning av begär ande undantag när ingångs-/utgångs frekvensen ökar. Principen för återförsök skyddar dina Spark-jobb mot data toppar som tillfälligt överskrider det data flöde som allokerats för din samling.
 
   > [!NOTE] 
-  > Återförsöksprincipen kan skydda ditt spark-jobb mot tillfälliga toppar. Om du inte har konfigurerat tillräckligt med ru: er som krävs för att köra arbetsbelastningen återförsöksprincipen gäller inte och försök principklass skickas tillbaka undantaget.
+  > Principen för återförsök kan skydda dina Spark-jobb mot tillfälliga toppar. Om du inte har konfigurerat tillräckligt många ru: er som krävs för att köra arbets belastningen, är inte återförsöks principen tillämpbar och princip klassen för återförsök återutlöser undantaget.
 
-* **Azure Cosmos DB-konto-anslutningsinformation:** Din Azure Cassandra API kontonamn, slutpunkten-konto och nyckel.
+* **Information om Azure Cosmos DB konto anslutning:** Ditt Azure API för Cassandra konto namn, konto slut punkt och nyckel.
     
-## <a name="spark-connector-throughput-configuration-parameters"></a>Konfigurationsparametrar för Spark connector dataflöde
+## <a name="spark-connector-throughput-configuration-parameters"></a>Konfigurations parametrar för Spark-anslutningsprogrammet
 
-I följande tabell visas Azure Cosmos DB Cassandra API-specifika dataflöde konfigurationsparametrar som tillhandahålls av anslutningen. En detaljerad lista över alla konfigurationsparametrar Se [adresskonfigurationen som refereras till](https://github.com/datastax/spark-cassandra-connector/blob/master/doc/reference.md) för Spark Cassandra Connector GitHub-lagringsplatsen.
+I följande tabell visas Azure Cosmos DB API för Cassandra-specificerade data flödes konfigurations parametrar som tillhandahålls av anslutningen. En detaljerad lista över alla konfigurations parametrar finns i sidan [konfigurations referens](https://github.com/datastax/spark-cassandra-connector/blob/master/doc/reference.md) för Spark Cassandra Connector GitHub-lagringsplatsen.
 
-| **Egenskapsnamn** | **Standardvärde** | **Beskrivning** |
+| **Egenskaps namn** | **Standardvärde** | **Beskrivning** |
 |---------|---------|---------|
-| spark.cassandra.output.batch.size.rows |  1 |Antal rader per enskild batch. Ange den här parametern till 1. Den här parametern används för att uppnå högre genomströmning för tunga arbetsbelastning. |
-| spark.cassandra.connection.connections_per_executor_max  | Ingen | Maximalt antal anslutningar per nod och executor. 10 * n motsvarar 10 anslutningar per nod i ett n-nod Cassandra-kluster. Så om du behöver 5 anslutningar per nod och executor för en 5 nod Cassandra-kluster, bör du ange den här konfigurationen till 25. Ändra det här värdet baserat på graden av parallellitet eller antalet körare som spark-jobb har konfigurerats för.   |
-| spark.cassandra.output.concurrent.writes  |  100 | Anger hur många parallella skrivningar som kan uppstå per executor. Eftersom du har angett ”batch.size.rows” till 1 kan du se till att skala upp det här värdet i enlighet med detta. Ändra det här värdet baserat på graden av parallellitet eller det dataflöde som du vill uppnå för din arbetsbelastning. |
-| spark.cassandra.concurrent.reads |  512 | Anger hur många parallella läsningar som kan uppstå per executor. Ändra värdet baserat på graden av parallellitet eller det dataflöde som du vill uppnå för din arbetsbelastning  |
-| spark.cassandra.output.throughput_mb_per_sec  | Ingen | Anger totalt antal skrivåtgärder dataflöde per executor. Den här parametern kan användas som ett övre begränsa för ditt spark-jobb dataflöde och baseras på det etablerade dataflödet på din Cosmos DB-samling.   |
-| spark.cassandra.input.reads_per_sec| Ingen   | Definierar totala läsgenomströmning per executor. Den här parametern kan användas som ett övre begränsa för ditt spark-jobb dataflöde och baseras på det etablerade dataflödet på din Cosmos DB-samling.  |
-| spark.cassandra.output.batch.grouping.buffer.size |  1000  | Anger antalet batchar per enskild spark-aktivitet som kan lagras i minnet innan du skickar till Cassandra-API |
-| spark.cassandra.connection.keep_alive_ms | 60000 | Definierar tidsperioden då oanvända anslutningar som är tillgängliga. | 
+| spark.cassandra.output.batch.size.rows |  1 |Antal rader per enskild batch. Ange den här parametern till 1. Den här parametern används för att uppnå högre data flöde för stora arbets belastningar. |
+| spark.cassandra.connection.connections_per_executor_max  | Inga | Maximalt antal anslutningar per nod per utförar. 10 * n motsvarar 10 anslutningar per nod i ett Cassandra-kluster med n-nod. Så om du kräver 5 anslutningar per nod per utförar för ett Cassandra-kluster med fem noder, bör du ange den här konfigurationen till 25. Ändra det här värdet baserat på graden av parallellitet eller antalet körningar som dina Spark-jobb har kon figurer ATS för.   |
+| spark.cassandra.output.concurrent.writes  |  100 | Definierar antalet parallella skrivningar som kan ske per utförar. Eftersom du ställer in "batch. size. Rows" på 1, måste du skala upp det här värdet efter detta. Ändra det här värdet baserat på graden av parallellitet eller det data flöde som du vill uppnå för din arbets belastning. |
+| spark.cassandra.concurrent.reads |  512 | Definierar antalet parallella läsningar som kan ske per utförar. Ändra det här värdet baserat på graden av parallellitet eller det data flöde som du vill uppnå för din arbets belastning  |
+| spark.cassandra.output.throughput_mb_per_sec  | Inga | Definierar det totala Skriv data flödet per utförar. Den här parametern kan användas som en övre gräns för ditt data flöde för Spark-jobbet och basera det på det etablerade data flödet för din Cosmos-behållare.   |
+| spark.cassandra.input.reads_per_sec| Inga   | Definierar det totala Läs data flödet per utförar. Den här parametern kan användas som en övre gräns för ditt data flöde för Spark-jobbet och basera det på det etablerade data flödet för din Cosmos-behållare.  |
+| spark.cassandra.output.batch.grouping.buffer.size |  1000  | Definierar antalet batchar per enskild Spark-aktivitet som kan lagras i minnet innan de skickas till API för Cassandra |
+| spark.cassandra.connection.keep_alive_ms | 60000 | Definierar efter hur lång tid som oanvända anslutningar är tillgängliga. | 
 
-Justera dataflödet och graden av parallellitet av parametrarna baserat på arbetsbelastningen som du förväntar dig för ditt spark-jobb och dataflöde som du har etablerat för Cosmos DB-kontot.
+Justera data flödet och graden av parallellitet för dessa parametrar baserat på den arbets belastning du förväntar dig för dina Spark-jobb och det data flöde som du har allokerat för ditt Cosmos DB-konto.
 
-## <a name="connecting-to-azure-cosmos-db-cassandra-api-from-spark"></a>Ansluter till Azure Cosmos DB Cassandra-API från Spark
+## <a name="connecting-to-azure-cosmos-db-cassandra-api-from-spark"></a>Ansluta till Azure Cosmos DB API för Cassandra från Spark
 
 ### <a name="cqlsh"></a>cqlsh
-Följande kommandon redogör för hur du ansluter till Azure cosmos DB Cassandra-API från cqlsh.  Detta är användbart för verifiering som du kör till exempel i Spark.<br>
-**Från Mac/Linux/Unix:**
+Följande kommandon beskriver hur du ansluter till Azure CosmosDB API för Cassandra från cqlsh.  Detta är användbart för verifiering när du kör genom exemplen i Spark.<br>
+**Från Linux/UNIX/Mac:**
 
 ```bash
 export SSL_VERSION=TLSv1_2
@@ -66,22 +66,22 @@ cqlsh.py YOUR-COSMOSDB-ACCOUNT-NAME.cassandra.cosmosdb.azure.com 10350 -u YOUR-C
 ```
 
 ### <a name="1--azure-databricks"></a>1.  Azure Databricks
-Artikeln nedan beskriver Azure Databricks-kluster etablering, klusterkonfiguration för att ansluta till Azure Cosmos DB Cassandra API och flera exempelanteckningsböcker som täcker DDL-åtgärder, DML-operationer och mycket mer.<BR>
-[Arbeta med Azure Cosmos DB Cassandra-API från Azure databricks](cassandra-spark-databricks.md)<BR>
+Artikeln nedan beskriver Azure Databricks kluster etablering, kluster konfiguration för att ansluta till Azure Cosmos DB API för Cassandra och flera exempel antecknings böcker som täcker DDL-åtgärder, DML-åtgärder med mera.<BR>
+[Arbeta med Azure Cosmos DB API för Cassandra från Azure databricks](cassandra-spark-databricks.md)<BR>
   
 ### <a name="2--azure-hdinsight-spark"></a>2.  Azure HDInsight-Spark
-Artikeln nedan beskriver HDinsight Spark-tjänst, etablering, klusterkonfiguration för att ansluta till Azure Cosmos DB Cassandra API och flera exempelanteckningsböcker som täcker DDL-åtgärder, DML-operationer och mycket mer.<BR>
-[Arbeta med Azure Cosmos DB Cassandra-API från Azure HDInsight Spark](cassandra-spark-hdinsight.md)
+Artikeln nedan beskriver HDinsight-Spark-tjänsten, etablering, kluster konfiguration för anslutning till Azure Cosmos DB API för Cassandra och flera exempel antecknings böcker som täcker DDL-åtgärder, DML-åtgärder med mera.<BR>
+[Arbeta med Azure Cosmos DB API för Cassandra från Azure HDInsight – Spark](cassandra-spark-hdinsight.md)
  
 ### <a name="3--spark-environment-in-general"></a>3.  Spark-miljö i allmänhet
-När ovan hade specifika för Azure Spark-baserad PaaS-tjänster, beskriver det här avsnittet några allmänna Spark-miljö.  Connector beroenden, importerar och Spark-sessionskonfiguration beskrivs nedan. ”Nästa steg”-avsnittet beskriver kodexempel för DDL-åtgärder, DML-operationer och mycket mer.  
+Även om avsnitten ovan var speciella för Azure Spark-baserade PaaS-tjänster täcker det här avsnittet alla allmänna Spark-miljöer.  Anslutnings beroenden, import och Spark-sessionsinformation beskrivs nedan. Avsnittet "nästa steg" behandlar kod exempel för DDL-åtgärder, DML-åtgärder med mera.  
 
-#### <a name="connector-dependencies"></a>Beroenden för anslutningen:
+#### <a name="connector-dependencies"></a>Kopplings beroenden:
 
-1. Lägg till maven-koordinater för att hämta den [Cassandra connector för Spark](cassandra-spark-generic.md#dependencies-for-connectivity)
-2. Lägg till maven-koordinaterna för det [Azure Cosmos DB hjälpbibliotek](cassandra-spark-generic.md#dependencies-for-connectivity) för Cassandra-API
+1. Lägg till maven-koordinaterna för att hämta [Cassandra-anslutaren för Spark](cassandra-spark-generic.md#dependencies-for-connectivity)
+2. Lägg till maven-koordinaterna för [Azure Cosmos DB Helper-biblioteket](cassandra-spark-generic.md#dependencies-for-connectivity) för API för Cassandra
 
-#### <a name="imports"></a>Import:
+#### <a name="imports"></a>Kina
 
 ```scala
 import org.apache.spark.sql.cassandra._
@@ -115,11 +115,11 @@ spark.conf.set("spark.cassandra.connection.keep_alive_ms", "600000000")
 
 ## <a name="next-steps"></a>Nästa steg
 
-I följande artiklar visar Spark-integrering med Azure Cosmos DB Cassandra-API. 
+Följande artiklar visar Spark-integrering med Azure Cosmos DB API för Cassandra. 
  
 * [DDL-åtgärder](cassandra-spark-ddl-ops.md)
-* [Skapa/Infoga-åtgärder](cassandra-spark-create-ops.md)
-* [läsåtgärder](cassandra-spark-read-ops.md)
+* [Skapa/infoga åtgärder](cassandra-spark-create-ops.md)
+* [Läs åtgärder](cassandra-spark-read-ops.md)
 * [Upsert åtgärder](cassandra-spark-upsert-ops.md)
 * [Borttagningsåtgärder](cassandra-spark-delete-ops.md)
 * [Aggregeringsåtgärder](cassandra-spark-aggregation-ops.md)

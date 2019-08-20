@@ -13,12 +13,12 @@ ms.date: 08/07/2019
 ms.author: lizross
 ms.reviewer: kexia
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df32ec9c2d181072bb67a8ca0f2cb04560287286
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: 178ce07db24976d7df590d353603da67b68122e8
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68949770"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616107"
 ---
 # <a name="troubleshoot-common-two-factor-verification-problems"></a>Felsök vanliga problem med tvåstegsverifiering
 
@@ -29,7 +29,7 @@ Det finns några vanliga vanliga verifierings problem på två faktorer som verk
 >[!Important]
 >Innehållet är avsett för användare. Om du är administratör hittar du mer information om hur du konfigurerar och hanterar en Azure Active Directory (Azure AD)-miljö i [dokumentationen om Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
 >
->Det här innehållet är även avsett för användning med ditt arbets-eller skol konto, kontot som du fått av din organisation (till exempel alain@contoso.com). Om du har problem med tvåstegsverifiering och din personliga Microsoft-konto, kan du danielle@outlook.comse hur du [aktiverar och inaktiverar tvåstegsverifiering på eller av för din Microsoft-konto genom att aktivera eller inaktivera tvåstegsverifiering](https://support.microsoft.com/en-us/help/4028586/microsoft-account-turning-two-step-verification-on-or-off).
+>Det här innehållet är även avsett för användning med ditt arbets-eller skol konto, kontot som du fått av din organisation (till exempel alain@contoso.com). Om du har problem med tvåstegsverifiering och din personliga Microsoft-konto, kan du danielle@outlook.comse hur du [aktiverar och inaktiverar tvåstegsverifiering på eller av för din Microsoft-konto genom att aktivera eller inaktivera tvåstegsverifiering](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off).
 
 ## <a name="i-forgot-my-mobile-device-at-home"></a>Jag har glömt min mobila enhet hemma
 
@@ -82,9 +82,9 @@ Om du har en ny mobil enhet måste du konfigurera den så att den fungerar med t
 
 2. Uppdatera ditt konto och din enhets information på sidan **ytterligare säkerhets verifiering** och ta bort den gamla enheten och Lägg till din nya. Mer information finns i artikeln [Hantera inställnings metoden för tvåfaktorautentisering](multi-factor-authentication-end-user-manage-settings.md) .
 
-3. Valfri. Hämta, installera och konfigurera Microsoft Authenticator-appen på din mobila enhet genom att följa stegen i [Hämta och installera Microsoft Authenticator app](user-help-auth-app-download-install.md) -artikeln.
+3. Valfritt. Hämta, installera och konfigurera Microsoft Authenticator-appen på din mobila enhet genom att följa stegen i [Hämta och installera Microsoft Authenticator app](user-help-auth-app-download-install.md) -artikeln.
 
-4. Valfri. Aktivera tvåstegsverifiering för dina betrodda enheter genom att följa stegen i artikeln **Aktivera två faktorers verifiering på en betrodd enhet** i avsnittet [Hantera inställningar för metod](multi-factor-authentication-end-user-manage-settings.md#turn-on-two-factor-verification-prompts-on-a-trusted-device) med tvåstegsverifiering.
+4. Valfritt. Aktivera tvåstegsverifiering för dina betrodda enheter genom att följa stegen i artikeln **Aktivera två faktorers verifiering på en betrodd enhet** i avsnittet [Hantera inställningar för metod](multi-factor-authentication-end-user-manage-settings.md#turn-on-two-factor-verification-prompts-on-a-trusted-device) med tvåstegsverifiering.
 
 ## <a name="im-having-problems-signing-in-on-my-mobile-device-while-traveling"></a>Jag har problem med att logga in på min mobila enhet under resa
 
@@ -92,7 +92,11 @@ Det kan vara svårare att använda en metod som är relaterad till mobil enhet, 
 
 ## <a name="i-cant-get-my-app-passwords-to-work"></a>Jag kan inte få mina applösenord att fungera
 
-Applösenord ersätter ditt normala lösen ord för äldre Skriv bords program som inte stöder tvåstegsverifiering. Kontrol lera först att du har angett lösen ordet korrekt. Om det inte löser problemet kan du försöka med att skapa ett nytt applösenord för appen genom att följa stegen i artikeln **skapa och ta bort applösenord med hjälp av avsnittet Mina appar-portalen** i artikeln [Hantera applösenord för två steg](multi-factor-authentication-end-user-app-passwords.md#create-and-delete-app-passwords-using-the-myapps-portal) .
+Applösenord ersätter ditt normala lösen ord för äldre Skriv bords program som inte stöder tvåstegsverifiering. Kontrol lera först att du har angett lösen ordet korrekt. Om det inte löser problemet kan du försöka med att skapa ett nytt applösenord för appen genom att följa stegen i artikeln **skapa och ta bort applösenord med hjälp av avsnittet Mina appar-portalen** i artikeln [Hantera applösenord för två steg](multi-factor-authentication-end-user-app-passwords.md#create-and-delete-app-passwords-from-the-additional-security-verification-page) .
+
+## <a name="why-cant-i-turn-two-factor-verification-off"></a>Varför kan jag inte göra en tvåfaktorautentisering-verifiering?
+
+Om du använder tvåstegsverifiering med ditt arbets-eller skol konto (till exempel alain@contoso.com) innebär det förmodligen att organisationen har beslutat att du måste använda den här extra säkerhetsfunktionen. Eftersom din organisation har valt att du måste använda den här funktionen kan du inaktivera den på ett och samma sätt. Om du däremot använder tvåstegsverifiering med ett personligt konto, kan du till exempel alain@outlook.comaktivera och inaktivera funktionen. Instruktioner för hur du styr tvåstegsverifiering för dina personliga Microsoft-konton finns i [Aktivera eller inaktivera tvåstegsverifiering på din Microsoft-konto](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off).
 
 ## <a name="i-didnt-find-an-answer-to-my-problem"></a>Jag hittade inget svar på mitt problem
 

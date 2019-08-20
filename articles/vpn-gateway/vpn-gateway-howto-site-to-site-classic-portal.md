@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 08/15/2019
 ms.author: cherylmc
-ms.openlocfilehash: 77cfde8cc9c6556b907f1185f451c70c8c8e888d
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 2e6036c5f29614f2e91278b693c07dc3dc8595f2
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69534000"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575479"
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Skapa en plats-till-plats-anslutning med hjälp av Azure-portalen (klassisk)
 
@@ -39,7 +39,7 @@ Kontrollera att du har uppfyllt följande villkor innan du påbörjar konfigurat
 * Kontrollera att du har en kompatibel VPN-enhet och någon som kan konfigurera den. Se [Om VPN-enheter](vpn-gateway-about-vpn-devices.md) för mer information om kompatibla VPN-enheter och enhetskonfiguration.
 * Kontrollera att du har en extern offentlig IPv4-adress för VPN-enheten.
 * Om du inte vet vilka IP-adressintervaller som används i din lokala nätverkskonfiguration kontaktar du relevant person som kan ge dig den här informationen. När du skapar den här konfigurationen måste du ange prefix för IP-adressintervall som Azure dirigerar till den lokala platsen. Inget av undernäten i ditt lokala nätverk kan överlappa de virtuella nätverksundernät du vill ansluta till.
-* För närvarande krävs PowerShell för att ange den delade nyckeln och skapa VPN-gatewayanslutningen. Installera den senaste versionen av Azure Service Management (SM) PowerShell-cmdletar. Mer information finns i [Installera och konfigurera Azure PowerShell](/powershell/azure/overview). När du arbetar med PowerShell i den här konfigurationen ska du kontrollera att du kör som administratör.
+* För närvarande krävs PowerShell för att ange den delade nyckeln och skapa VPN-gatewayanslutningen. Installera den senaste versionen av Azure Service Management (SM) PowerShell-cmdletar. Information om hur du installerar cmdletarna finns i [tjänst hantering](/powershell/azure/servicemanagement/install-azure-ps). Mer information om PowerShell-installationer i allmänhet finns i [så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview). När du arbetar med PowerShell i den här konfigurationen ska du kontrollera att du kör som administratör.
 
 ### <a name="values"></a>Exempel på konfigurationsvärden för övningen
 
@@ -159,6 +159,12 @@ I det här steget anger du den delade nyckeln och skapar anslutningen. Nyckeln s
 
 ### <a name="step-1-connect-to-your-azure-account"></a>Steg 1. Anslut till ditt Azure-konto
 
+Du måste köra dessa kommandon lokalt med PowerShell Service Management-modulen. Använd följande kommando för att växla till Service Management:
+
+```powershell
+azure config mode asm
+```
+
 1. Öppna PowerShell-konsolen med utökade rättigheter och anslut till ditt konto. Använd följande exempel för att ansluta:
 
    ```powershell
@@ -177,18 +183,14 @@ I det här steget anger du den delade nyckeln och skapar anslutningen. Nyckeln s
 
 ### <a name="step-2-set-the-shared-key-and-create-the-connection"></a>Steg 2. Ange den delade nyckeln och skapa anslutningen
 
-När du arbetar med PowerShell och den klassiska distributionsmodellen kan resurserna i portalen ibland ha oväntade namn för Azure vid användning av PowerShell. Med följande anvisningar kan du exportera nätverkskonfigurationsfilen så att du får exakta värden för namnen. Du måste köra dessa kommandon lokalt med PowerShell Service Management-modulen. Använd följande kommando för att växla till Service Management:
-
-```powershell
-azure config mode asm
-```
+När du skapar ett klassiskt VNet i portalen (inte använder PowerShell) lägger Azure till namnet på resurs gruppen till det korta namnet. Till exempel, enligt Azure, är namnet på det VNet som du skapade för den här övningen "Group TestRG1 TestVNet1", inte "TestVNet1". PowerShell kräver det fullständiga namnet på det virtuella nätverket, inte det korta namnet som visas i portalen. Det långa namnet är inte synligt i portalen. Med följande steg kan du exportera nätverks konfigurations filen för att hämta de exakta värdena för det virtuella nätverks namnet. 
 
 1. Skapa en katalog på datorn och exportera sedan nätverkskonfigurationsfilen till katalogen. I det här exemplet exporteras nätverkskonfigurationsfilen till C:\AzureNet.
 
    ```powershell
    Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
    ```
-2. Öppna nätverkskonfigurationsfilen med en XML-redigerare och kontrollera värdena för 'LocalNetworkSite name' och 'VirtualNetworkSite name'. Ändra exemplet med de värden du behöver. När du anger ett namn som innehåller blanksteg ska du ange värdet inom enkla citattecken.
+2. Öppna nätverkskonfigurationsfilen med en XML-redigerare och kontrollera värdena för 'LocalNetworkSite name' och 'VirtualNetworkSite name'. Ändra exemplet för den här övningen så att det återspeglar värdena i XML-filen. När du anger ett namn som innehåller blanksteg ska du ange värdet inom enkla citattecken.
 
 3. Ange den delade nyckeln och skapa anslutningen. '-SharedKey' är ett värde som du vill genererar och anger. I det här exemplet använder vi 'abc123', men du bör generera något mer komplext. Det är viktigt att värdet du anger här är samma värde som du angav när du konfigurerade VPN-enheten.
 

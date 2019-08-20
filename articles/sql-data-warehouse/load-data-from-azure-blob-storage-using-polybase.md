@@ -1,6 +1,6 @@
 ---
-title: 'Självstudier: Läsa in New York-taxidata till Azure SQL Data Warehouse | Microsoft Docs'
-description: Självstudien används Azure portal och SQL Server Management Studio för att läsa in New York-taxidata från en offentlig Azure-blob till Azure SQL Data Warehouse.
+title: 'Självstudier: Läs in New York Taxidata-data till Azure SQL Data Warehouse | Microsoft Docs'
+description: Självstudier använder Azure Portal och SQL Server Management Studio för att läsa in New York Taxidata-data från en offentlig Azure-blob till Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -10,16 +10,16 @@ ms.subservice: load-data
 ms.date: 04/26/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 5f2830b524c554a6988bfc873cd0f6c54e5c56a4
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: e3bef20a92322b07219e42c4f7fe8443917eae32
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839684"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575213"
 ---
-# <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>Självstudier: Läsa in New York-taxidata till Azure SQL Data Warehouse
+# <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>Självstudier: Läs in New York Taxidata-data till Azure SQL Data Warehouse
 
-Den här självstudien används PolyBase för att läsa in New York-taxidata från en offentlig Azure-blob till Azure SQL Data Warehouse. I självstudierna används [Azure-portalen](https://portal.azure.com) och [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) för att: 
+I den här självstudien används PolyBase för att läsa in New York Taxidata-data från en offentlig Azure-blob till Azure SQL Data Warehouse. I självstudierna används [Azure-portalen](https://portal.azure.com) och [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) för att: 
 
 > [!div class="checklist"]
 > * Skapa ett informationslager på Azure-portalen
@@ -42,11 +42,11 @@ Innan du börjar med de här självstudierna ska du ladda ned och installera den
 
 Logga in på [Azure-portalen](https://portal.azure.com/).
 
-## <a name="create-a-blank-sql-data-warehouse"></a>Skapa ett tomt SQL-informationslager
+## <a name="create-a-blank-sql-data-warehouse"></a>Skapa en tom SQL Data Warehouse
 
-Ett Azure SQL Data Warehouse skapas med en definierad uppsättning [beräkningsresurser](memory-and-concurrency-limits.md). Databasen skapas inom en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) och i en [logisk Azure SQL-server](../sql-database/sql-database-features.md). 
+En Azure SQL Data Warehouse skapas med en definierad uppsättning beräknings [resurser](memory-and-concurrency-limits.md). Databasen skapas inom en [Azure-resursgrupp](../azure-resource-manager/resource-group-overview.md) och i en [logisk Azure SQL-server](../sql-database/sql-database-features.md). 
 
-Följ de här stegen om du vill skapa ett tomt SQL-informationslager. 
+Följ de här stegen för att skapa en tom SQL Data Warehouse. 
 
 1. Klicka på **Skapa en resurs** längst upp till vänster i Azure Portal.
 
@@ -78,9 +78,9 @@ Följ de här stegen om du vill skapa ett tomt SQL-informationslager.
 
 5. Klicka på **Välj**.
 
-6. Klicka på **prestandanivå** att ange om informationslagret är Gen1 och Gen2 och antalet informationslagerenheter. 
+6. Klicka på **prestanda nivå** för att ange om data lagret är gen1 eller Gen2 och antalet informations lager enheter. 
 
-7. Den här självstudien väljer **Gen2** i SQL Data Warehouse. Skjutreglaget är inställt på **DW1000c** som standard.  Prova att flytta det uppåt och nedåt för att se hur det fungerar. 
+7. I den här självstudien väljer du **Gen2** SQL Data Warehouse. Skjutreglaget är inställt på **DW1000c** som standard.  Prova att flytta det uppåt och nedåt för att se hur det fungerar. 
 
     ![konfigurera prestanda](media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
 
@@ -103,7 +103,7 @@ Tjänsten SQL Database Warehouse skapar en brandvägg på servernivå som hindra
 > SQL Database Warehouse kommunicerar via port 1433. Om du försöker ansluta inifrån ett företagsnätverk kanske utgående trafik via port 1433 inte tillåts av nätverkets brandvägg. I så fall kommer du inte att kunna ansluta till din Azure SQL Database-server om inte din IT-avdelning öppnar port 1433.
 >
 
-1. När distributionen är klar klickar du på **SQL-databaser** på menyn till vänster och klickar sedan på **mySampleDatabase** på sidan **SQL-databaser**. Översiktssidan för databasen öppnas, där du kan se det fullständigt kvalificerade servernamnet (till exempel **mynewserver-20180430.database.windows.net**) och alternativ för ytterligare konfiguration. 
+1. När distributionen är klar klickar du på **SQL-databaser** på menyn till vänster och klickar sedan på **mySampleDatabase** på sidan **SQL-databaser**. Översikts sidan för databasen öppnas och visar det fullständigt kvalificerade Server namnet (till exempel **mynewserver-20180430.Database.Windows.net**) och alternativ för ytterligare konfiguration. 
 
 2. Kopiera det här fullständiga servernamnet för anslutning till servern och databaserna i efterföljande snabbstarter. Klicka sedan på servernamnet för att öppna serverinställningarna.
 
@@ -133,7 +133,7 @@ Nu kan du ansluta till SQL-servern och dess informationslager med den här IP-ad
 Hämta det fullständigt kvalificerade servernamnet för SQL-servern i Azure Portal. Du kommer att använda det fullständigt kvalificerade namnet senare när du ska ansluta till servern.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
-2. Välj **SQL-informationslager** på den vänstra menyn och klicka på databasen på den **SQL-informationslager** sidan. 
+2. Välj **SQL Data Warehouses** på menyn till vänster och klicka på databasen på sidan **SQL Data Warehouse** . 
 3. I rutan **Essentials** på sidan för Azure Portal för databasen letar du reda på och kopierar **servernamnet**. I det här exemplet är det fullständigt kvalificerade namnet mynewserver-20180430.database.windows.net. 
 
     ![anslutningsinformation](media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png)  
@@ -149,9 +149,9 @@ I det här avsnittet används [SQL Server Management Studio](/sql/ssms/download-
     | Inställning      | Föreslaget värde | Beskrivning | 
     | ------------ | --------------- | ----------- | 
     | Servertyp | Databasmotor | Det här värdet är obligatoriskt |
-    | servernamn | Fullständigt kvalificerat servernamn | Namnet bör vara ungefär så här: **mynewserver-20180430.database.windows.net**. |
+    | servernamn | Fullständigt kvalificerat servernamn | Namnet ska vara något som liknar detta: **mynewserver-20180430.Database.Windows.net**. |
     | Authentication | SQL Server-autentisering | SQL-autentisering är den enda autentiseringstypen som vi har konfigurerat i den här kursen. |
-    | Inloggning | Serveradministratörskontot | Detta är det konto som du angav när du skapade servern. |
+    | Logga in | Serveradministratörskontot | Detta är det konto som du angav när du skapade servern. |
     | lösenordsinställning | Lösenordet för serveradministratörskontot | Detta är det lösenord som du angav när du skapade servern. |
 
     ![Anslut till server](media/load-data-from-azure-blob-storage-using-polybase/connect-to-server.png)
@@ -164,7 +164,7 @@ I det här avsnittet används [SQL Server Management Studio](/sql/ssms/download-
 
 ## <a name="create-a-user-for-loading-data"></a>Skapa en användare för att läsa in data
 
-Serveradministratörskontot är avsett för att utföra hanteringsåtgärder och är inte lämpligt för att köra frågor på användardata. Datainläsning är en minneskrävande åtgärd. Minnesmaxkapacitet definieras enligt vilken Generation av SQL Data Warehouse du har etablerat [data informationslagerenheter](what-is-a-data-warehouse-unit-dwu-cdwu.md), och [resursklass](resource-classes-for-workload-management.md). 
+Serveradministratörskontot är avsett för att utföra hanteringsåtgärder och är inte lämpligt för att köra frågor på användardata. Datainläsning är en minneskrävande åtgärd. Högsta minnes storlek definieras enligt vilken generation av SQL Data Warehouse du har etablerad, [informations lager enheter](what-is-a-data-warehouse-unit-dwu-cdwu.md)och [resurs klass](resource-classes-for-workload-management.md). 
 
 Det är bäst att skapa en särskild inloggning och en särskild användare för inläsning av data. Lägg sedan till inläsningsanvändaren i en [resursklass](resource-classes-for-workload-management.md) som möjliggör en lämplig maximal minnesallokering.
 
@@ -215,7 +215,7 @@ Första steget mot att läsa in data är att logga in som LoaderRC20.
 
 ## <a name="create-external-tables-for-the-sample-data"></a>Skapa externa tabeller för exempeldata
 
-Du är redo att börja läsa in data till ditt nya informationslager. Den här självstudien visar hur du använder externa tabeller för att läsa in New York City-taxidata från en Azure storage blob. Om du vill lära dig hur du får dina data till Azure Blob Storage eller hur du läser in dem direkt från källan till SQL Data Warehouse för framtida bruk går du till [översikten över inläsning](sql-data-warehouse-overview-load.md).
+Du är redo att börja läsa in data till ditt nya informationslager. Den här självstudien visar hur du använder externa tabeller för att läsa in New York-CAB-data från en Azure Storage-blob. Om du vill lära dig hur du får dina data till Azure Blob Storage eller hur du läser in dem direkt från källan till SQL Data Warehouse för framtida bruk går du till [översikten över inläsning](sql-data-warehouse-overview-load.md).
 
 Kör följande SQL-skript och ange information om de data du vill läsa in. Informationen omfattar var informationen finns, formatet för innehållet i aktuella data och tabelldefinitionen för dessa data. 
 
@@ -561,16 +561,16 @@ Skriptet använder T-SQL-instruktionen [CREATE TABLE AS SELECT (CTAS)](/sql/t-sq
 
     ![Visa inlästa tabeller](media/load-data-from-azure-blob-storage-using-polybase/view-loaded-tables.png)
 
-## <a name="authenticate-using-managed-identities-to-load-optional"></a>Autentisera med hanterade identiteter för att läsa in (valfritt)
-Läser in med PolyBase och autentiserar med hjälp av hanterade identiteter är den säkraste metoden och gör att du kan använda VNet-tjänstslutpunkter med Azure storage. 
+## <a name="authenticate-using-managed-identities-to-load-optional"></a>Autentisera med hanterade identiteter att läsa in (valfritt)
+Att läsa in med PolyBase och autentisering via hanterade identiteter är den säkraste mekanismen och gör att du kan utnyttja slut punkter för VNet-tjänster med Azure Storage. 
 
 ### <a name="prerequisites"></a>Förutsättningar
-1.  Installera Azure PowerShell använder det här [guide](https://docs.microsoft.com/powershell/azure/install-az-ps).
-2.  Om du har ett allmänt v1- eller blob storage-konto, måste du först uppgradera till gpv2 med det här [guide](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
-3.  Du måste ha **Tillåt att betrodda Microsoft-tjänster för att komma åt det här lagringskontot** markerade under Azure Storage-konto **brandväggar och virtuella nätverk** inställningsmenyn. Referera till denna [guide](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) för mer information.
+1.  Installera Azure PowerShell med hjälp av den här [guiden](https://docs.microsoft.com/powershell/azure/install-az-ps).
+2.  Om du har ett allmänt v1-eller Blob Storage-konto måste du först uppgradera till General-Purpose v2 med hjälp av den här [guiden](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
+3.  Du måste ha **Tillåt att betrodda Microsoft-tjänster har åtkomst till det här lagrings kontot** under Azure Storage konto **brand väggar och inställningar för virtuella nätverk** . Mer information hittar du i den här [hand boken](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) .
 
 #### <a name="steps"></a>Steg
-1. I PowerShell **registrera din SQL Database-server** med Azure Active Directory (AAD):
+1. **Registrera din SQL Database-Server** med Azure Active Directory (AAD) i PowerShell:
 
    ```powershell
    Connect-AzAccount
@@ -578,32 +578,32 @@ Läser in med PolyBase och autentiserar med hjälp av hanterade identiteter är 
    Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-database-servername -AssignIdentity
    ```
     
-   1. Skapa en **Allmänt gpv2-Lagringskonto** använder det här [guide](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
+   1. Skapa ett **Allmänt-syfte v2-lagrings konto** med hjälp av den här [guiden](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
 
    > [!NOTE]
-   > - Om du har ett allmänt v1- eller blob storage-konto, måste du **först uppgradera till v2** använder det här [guide](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
+   > - Om du har ett allmänt v1-eller Blob Storage-konto måste du **först uppgradera till v2** med hjälp av den här [guiden](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
     
-1. Under ditt storage-konto går du till **åtkomstkontroll (IAM)** , och klicka på **Lägg till rolltilldelning**. Tilldela **Storage Blob Data-deltagare** RBAC-roll till SQL Database-servern.
+1. Under ditt lagrings konto navigerar du till **Access Control (IAM)** och klickar på **Lägg till roll tilldelning**. Tilldela RBAC-rollen **Storage BLOB data Contributor** till din SQL Database-Server.
 
    > [!NOTE] 
-   > Endast medlemmar med ägare behörighet kan utföra det här steget. För olika inbyggda roller för Azure-resurser, referera till denna [guide](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+   > Endast medlemmar med ägar behörighet kan utföra det här steget. De olika inbyggda rollerna för Azure-resurser finns i den här [guiden](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
   
-1. **Polybase-anslutningen till Azure Storage-kontot:**
+1. **PolyBase-anslutning till Azure Storage kontot:**
     
-   1. Skapa din databasbegränsade autentiseringsuppgifter med **IDENTITY = ”hanterad tjänstidentitet'** :
+   1. Skapa din databas begränsade autentiseringsuppgifter med **Identity = hanterad tjänstidentitet**:
 
        ```SQL
        CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Service Identity';
        ```
        > [!NOTE] 
-       > - Behöver inte ange HEMLIGHETEN med Azure Storage-åtkomstnyckel eftersom den här mekanismen använder [hanterade identiteter](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) under försättsbladen.
-       > - Identitetsnamnet bör vara **”hanterad tjänstidentitet'** för PolyBase-anslutning att arbeta med Azure Storage-konto.
+       > - Du behöver inte ange hemlighet med Azure Storage åtkomst nyckel eftersom den här mekanismen använder [hanterad identitet](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) under försättsblad.
+       > - IDENTITETS namnet måste vara **hanterad tjänstidentitet** för PolyBase-anslutningen för att fungera med Azure Storage konto.
     
-   1. Skapa extern datakälla att ange Database Scoped Credential med den hanterade tjänstidentiteten.
+   1. Skapa den externa data källan som anger databasens begränsade autentiseringsuppgifter med Hanterad tjänstidentitet.
         
-   1. Frågan som vanligt med [externa tabeller](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql).
+   1. Fråga som normal med hjälp av [externa tabeller](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql).
 
-Referera till följande [dokumentation](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview) om du vill konfigurera tjänstslutpunkter i virtuella nätverk för SQL Data Warehouse. 
+Se följande [dokumentation](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview) om du vill konfigurera tjänst slut punkter för virtuella nätverk för SQL Data Warehouse. 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -622,7 +622,7 @@ Följ dessa steg för att rensa resurser enligt dina önskemål.
 
 3. Om du vill ta bort informationslagret så att du varken debiteras för beräkning eller lagring klickar du på **Ta bort**.
 
-4. Ta bort den SQLServer som du skapade genom att klicka på **mynewserver-20180430.database.windows.net** i föregående bild och klicka sedan på **ta bort**.  Var försiktig: om du tar bort servern tas nämligen alla databaser som servern har tilldelats bort.
+4. Om du vill ta bort den SQL-Server som du har skapat klickar du på **mynewserver-20180430.Database.Windows.net** i föregående bild och sedan på **ta bort**.  Var försiktig: om du tar bort servern tas nämligen alla databaser som servern har tilldelats bort.
 
 5. Om du vill ta bort resursgruppen klickar du på **myResourceGroup** och sedan på **Ta bort resursgrupp**.
 
@@ -640,7 +640,7 @@ Du gjorde detta:
 > * Visade förloppet för data under inläsning
 > * Skapade statistik på nyligen inlästa data
 
-Gå vidare till utvecklingsöversikt att lära dig hur du migrerar en befintlig databas till SQL Data Warehouse.
+Gå vidare till utvecklings översikten och lär dig hur du migrerar en befintlig databas till SQL Data Warehouse.
 
 > [!div class="nextstepaction"]
->[Information om designbeslut för att migrera en befintlig databas till SQL Data Warehouse](sql-data-warehouse-overview-migrate.md)
+>[Utforma beslut för att migrera en befintlig databas till SQL Data Warehouse](sql-data-warehouse-overview-migrate.md)

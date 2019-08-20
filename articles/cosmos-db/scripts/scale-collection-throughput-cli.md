@@ -1,6 +1,6 @@
 ---
-title: Azure CLI-skript – Skala dataflöde för Azure Cosmos DB-containrar | Microsoft Docs
-description: Exempel på Azure CLI-skript – Skala dataflöde för Azure Cosmos DB-container
+title: Azure CLI-skript – skala data flöde för Azure Cosmos-behållare | Microsoft Docs
+description: Skript exempel för Azure CLI – skala data flöde för Azure Cosmos-behållare
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -8,16 +8,16 @@ ms.topic: sample
 ms.date: 10/26/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 593fade731fac86e7fcda69bfe223716127de9e1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a7ae4b015ba476ca1ffdb4b4510334490a6f6fee
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60446660"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616685"
 ---
-# <a name="scale-azure-cosmos-db-container-throughput-using-the-azure-cli"></a>Skala dataflöde för Azure Cosmos DB-containrar med Azure CLI
+# <a name="scale-azure-cosmos-container-throughput-using-the-azure-cli"></a>Skala data flöde för Azure Cosmos-behållare med Azure CLI
 
-Det här exemplet skalar dataflödet för alla typer av Azure Cosmos DB-containrar.  
+I det här exemplet skalas data flödet för alla typer av Azure Cosmos-behållare.  
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -43,9 +43,9 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Skapar en resursgrupp där alla resurser lagras. |
 | [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) | Skapar ett Azure Cosmos DB-konto. |
-| [az cosmosdb database create](/cli/azure/cosmosdb/database#az-cosmosdb-database-create) | Skapar en Azure Cosmos DB-databas. |
-| [az cosmosdb collection create](/cli/azure/cosmosdb/collection#az-cosmosdb-collection-create) | Skapar en Azure Cosmos DB-container. |
-| [az cosmosdb collection update](/cli/azure/cosmosdb/collection#az-cosmosdb-collection-update) | Uppdaterar en Azure Cosmos DB-container. |
+| [az cosmosdb database create](/cli/azure/cosmosdb/database#az-cosmosdb-database-create) | Skapar en Azure Cosmos-databas. |
+| [az cosmosdb collection create](/cli/azure/cosmosdb/collection#az-cosmosdb-collection-create) | Skapar en Azure Cosmos-behållare. |
+| [az cosmosdb collection update](/cli/azure/cosmosdb/collection#az-cosmosdb-collection-update) | Uppdaterar en Azure Cosmos-behållare. |
 | [az group delete](/cli/azure/group#az-group-delete) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 
 ## <a name="next-steps"></a>Nästa steg

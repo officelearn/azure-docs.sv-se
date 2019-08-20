@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: iainfou
-ms.openlocfilehash: 676efa155c85ab371ec41c49ad0c15eb2bd5a24a
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 4978f7b782271daff996807172a24103bd8d9860
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68233996"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617281"
 ---
 # <a name="resolve-mismatched-directory-errors-for-existing-azure-ad-domain-services-managed-domains"></a>Lös felmatchade katalog fel för befintliga Azure AD Domain Services hanterade domäner
 Du har en befintlig Azure AD Domain Services hanterad domän. När du navigerar till Azure Portal och visar den hanterade domänen visas följande fel meddelande:
@@ -63,5 +63,5 @@ Det finns två alternativ för att lösa det felmatchade katalog felet. Du kan:
 
 
 ## <a name="related-content"></a>Relaterat innehåll
-* [Azure AD Domain Services-Komma igång guide](create-instance.md)
+* [Azure AD Domain Services-Komma igång guide](tutorial-create-instance.md)
 * [Fel söknings guide – Azure AD Domain Services](troubleshoot.md)

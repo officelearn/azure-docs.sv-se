@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: raynew
-ms.openlocfilehash: 65c330a9b2dcc97160280daede926573fdef4c00
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: fd24d0d9f05855cf22da547f95b16da0a8d2c788
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68679368"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69617653"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Stöd mat ris för haveri beredskap för virtuella VMware-datorer och fysiska servrar till Azure
 
@@ -30,7 +30,7 @@ Haveri beredskap för fysiska servrar | Replikering av lokala Windows/Linux fysi
 
 ## <a name="on-premises-virtualization-servers"></a>Lokala virtualiseringslösningar
 
-**Server** | **Signaturkrav** | **Detaljer**
+**Server** | **Krav** | **Detaljer**
 --- | --- | ---
 vCenter Server | Version 6,7, 6,5, 6,0 eller 5,5 | Vi rekommenderar att du använder en vCenter-Server i återställnings distributionen för haveri beredskap.
 vSphere-värdar | Version 6,7, 6,5, 6,0 eller 5,5 | Vi rekommenderar att vSphere-värdar och vCenter-servrar finns i samma nätverk som processervern. Som standard körs processervern på konfigurations servern. [Läs mer](vmware-physical-azure-config-process-server-overview.md).
@@ -43,7 +43,7 @@ Konfigurations servern är en lokal dator som kör Site Recovery-komponenter, in
 - För virtuella VMware-datorer ställer du in konfigurations servern genom att hämta en OVF-mall för att skapa en virtuell VMware-dator.
 - För fysiska servrar konfigurerar du Configuration Server-datorn manuellt.
 
-**Komponent** | **Signaturkrav**
+**Komponent** | **Krav**
 --- |---
 Processorkärnor | 8
 RAM | 16 GB
@@ -181,7 +181,7 @@ Gäst/Server VMDK | Ja
 Gäst-/Server delad kluster disk | Nej
 Gäst/Server-krypterad disk | Nej
 Gäst-/Server-NFS | Nej
-Gäst-/Server-iSCSI | Nej
+Gäst-/Server-iSCSI | För migrering – Ja<br/>Vid haveri beredskap – nej kommer iSCSI att återställas efter fel som en ansluten disk till den virtuella datorn
 Gäst/Server SMB 3,0 | Nej
 Gäst/Server-RDM | Ja<br/><br/> Ej tillämpligt för fysiska servrar
 Gäst-/Server disk > 1 TB | Ja, disken måste vara större än 1024 MB<br/><br/>Upp till 8 192 GB vid replikering till hanterade diskar (9,26-version och senare)<br></br> Upp till 4 095 GB vid replikering till lagrings konton
@@ -232,7 +232,7 @@ Hanterade diskar | Ja
 
 Lokala virtuella datorer som replikeras till Azure måste uppfylla de krav på virtuella Azure-datorer som sammanfattas i den här tabellen. När Site Recovery kör en krav kontroll för replikering kommer kontrollen att Miss klar om några av kraven inte uppfylls.
 
-**Komponent** | **Signaturkrav** | **Detaljer**
+**Komponent** | **Krav** | **Detaljer**
 --- | --- | ---
 Gäst operativ system | Kontrol lera att [operativ system som stöds](#replicated-machines) för replikerade datorer. | Kontrollen Miss lyckas om den inte stöds.
 Gäst operativ systemets arkitektur | 64-bitars. | Kontrollen Miss lyckas om den inte stöds.

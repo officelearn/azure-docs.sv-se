@@ -3,24 +3,22 @@ title: Felsöka Hive med Azure HDInsight
 description: Få svar på vanliga frågor om att arbeta med Apache Hive och Azure HDInsight.
 keywords: Azure HDInsight, Hive, vanliga frågor, fel söknings guide, vanliga frågor
 ms.service: hdinsight
-author: dharmeshkakadia
-ms.author: dkakadia
-ms.topic: conceptual
-ms.date: 11/2/2017
-ms.openlocfilehash: 91e6803e0a1302a33a3bf176ad84d0b0e0c8c5b6
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+author: hrasheed-msft
+ms.author: hrasheed
+ms.topic: troubleshooting
+ms.date: 08/15/2019
+ms.openlocfilehash: ca1e3e11ad5458e8e7f7072b7d3dd561853029fe
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875929"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575706"
 ---
 # <a name="troubleshoot-apache-hive-by-using-azure-hdinsight"></a>Felsöka Apache Hive med Azure HDInsight
 
 Lär dig mer om de viktigaste frågorna och deras lösningar när du arbetar med Apache Hive nytto laster i Apache Ambari.
 
-
 ## <a name="how-do-i-export-a-hive-metastore-and-import-it-on-another-cluster"></a>Hur gör jag för att exportera ett Hive-metaarkiv och importera det till ett annat kluster?
-
 
 ### <a name="resolution-steps"></a>Lösningsanvisningar
 
@@ -36,16 +34,15 @@ Lär dig mer om de viktigaste frågorna och deras lösningar när du arbetar med
 
 3. Kopiera filen alltables. SQL till det nya HDInsight-klustret och kör sedan följande kommando:
 
-   ```apache
-   hive -f alltables.sql
-   ```
+    ```apache
+    hive -f alltables.sql
+    ```
 
-Koden i lösnings stegen förutsätter att data Sök vägar på det nya klustret är desamma som data Sök vägarna i det gamla klustret. Om data Sök vägarna skiljer sig åt kan du redigera den genererade alltables. SQL-filen manuellt för att avspegla eventuella ändringar.
+Koden i lösnings stegen förutsätter att data Sök vägar på det nya klustret är desamma som data Sök vägarna i det gamla klustret. Om data Sök vägarna skiljer sig åt kan du redigera den genererade `alltables.sql` filen manuellt för att avspegla eventuella ändringar.
 
 ### <a name="additional-reading"></a>Ytterligare resurser
 
 - [Ansluta till ett HDInsight-kluster med hjälp av SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
-
 
 ## <a name="how-do-i-locate-hive-logs-on-a-cluster"></a>Hur gör jag för att hitta Hive-loggar i ett kluster?
 
@@ -56,25 +53,24 @@ Koden i lösnings stegen förutsätter att data Sök vägar på det nya klustret
 2. Om du vill visa Hive-klient loggar använder du följande kommando:
 
    ```apache
-   /tmp/<username>/hive.log 
+   /tmp/<username>/hive.log
    ```
 
 3. Använd följande kommando för att Visa Hive-metaarkiv loggar:
 
    ```apache
-   /var/log/hive/hivemetastore.log 
+   /var/log/hive/hivemetastore.log
    ```
 
-4. Använd följande kommando för att Visa Hiveserver-loggar:
+4. Om du vill visa Hive-Server loggar använder du följande kommando:
 
    ```apache
-   /var/log/hive/hiveserver2.log 
+   /var/log/hive/hiveserver2.log
    ```
 
 ### <a name="additional-reading"></a>Ytterligare resurser
 
 - [Ansluta till ett HDInsight-kluster med hjälp av SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
-
 
 ## <a name="how-do-i-launch-the-hive-shell-with-specific-configurations-on-a-cluster"></a>Hur gör jag för att starta Hive-gränssnittet med vissa konfigurationer i ett kluster?
 
@@ -83,7 +79,7 @@ Koden i lösnings stegen förutsätter att data Sök vägar på det nya klustret
 1. Ange ett konfigurations nyckel par när du startar Hive-gränssnittet. Mer information finns i [mer att läsa](#additional-reading-end).
 
    ```apache
-   hive -hiveconf a=b 
+   hive -hiveconf a=b
    ```
 
 2. Om du vill visa en lista över alla effektiva konfigurationer i Hive-gränssnittet använder du följande kommando:
@@ -95,23 +91,21 @@ Koden i lösnings stegen förutsätter att data Sök vägar på det nya klustret
    Använd till exempel följande kommando för att starta Hive-gränssnittet med fel söknings loggning aktive rad i-konsolen:
 
    ```apache
-   hive -hiveconf hive.root.logger=ALL,console 
+   hive -hiveconf hive.root.logger=ALL,console
    ```
 
 ### <a name="additional-reading"></a>Ytterligare resurser
 
 - [Konfigurations egenskaper för Hive](https://cwiki.apache.org/confluence/display/Hive/Configuration+Properties)
 
-
 ## <a name="how-do-i-analyze-tez-dag-data-on-a-cluster-critical-path"></a>Hur gör jag för att analysera Apache Tez DAG-data på en kluster kritisk väg?
 
-
 ### <a name="resolution-steps"></a>Lösningsanvisningar
- 
+
 1. Om du vill analysera en Apache-Tez riktad acykliska graf (DAG) i ett kluster kritiskt diagram ansluter du till HDInsight-klustret med hjälp av SSH. Mer information finns i [mer att läsa](#additional-reading-end).
 
 2. Kör följande kommando i en kommandotolk:
-   
+
    ```apache
    hadoop jar /usr/hdp/current/tez-client/tez-job-analyzer-*.jar CriticalPath --saveResults --dagId <DagId> --eventFileName <DagData.zip> 
    ```
@@ -137,31 +131,28 @@ Koden i lösnings stegen förutsätter att data Sök vägar på det nya klustret
     - **TaskConcurrencyAnalyzer**: Skriv ut aktivitets samtidiga informationen på en DAG
     - **VertexLevelCriticalPathAnalyzer**: Hitta den kritiska sökvägen på hörn nivån på en DAG
 
-
 ### <a name="additional-reading"></a>Ytterligare resurser
 
 - [Ansluta till ett HDInsight-kluster med hjälp av SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-
 ## <a name="how-do-i-download-tez-dag-data-from-a-cluster"></a>Hur gör jag för att hämta Tez DAG-data från ett kluster?
-
 
 #### <a name="resolution-steps"></a>Lösningsanvisningar
 
 Det finns två sätt att samla in Tez DAG-data:
 
 - Från kommandoraden:
- 
+
     Anslut till HDInsight-klustret med hjälp av SSH. Kör följande kommando i kommando tolken:
 
   ```apache
-  hadoop jar /usr/hdp/current/tez-client/tez-history-parser-*.jar org.apache.tez.history.ATSImportTool -downloadDir . -dagId <DagId> 
+  hadoop jar /usr/hdp/current/tez-client/tez-history-parser-*.jar org.apache.tez.history.ATSImportTool -downloadDir . -dagId <DagId>
   ```
 
 - Använd Ambari Tez-vyn:
-   
-  1. Gå till Ambari. 
-  2. Gå till Tez-vyn (under Panel ikonen i det övre högra hörnet). 
+
+  1. Gå till Ambari.
+  2. Gå till Tez-vyn (under Panel ikonen i det övre högra hörnet).
   3. Välj den DAG som du vill visa.
   4. Välj **Hämta data**.
 
@@ -169,10 +160,12 @@ Det finns två sätt att samla in Tez DAG-data:
 
 [Ansluta till ett HDInsight-kluster med hjälp av SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 
+## <a name="next-steps"></a>Nästa steg
 
-### <a name="see-also"></a>Se även
-[Felsöka med Azure HDInsight](hdinsight-troubleshoot-guide.md)
+Om du inte ser problemet eller inte kan lösa problemet kan du gå till någon av följande kanaler för mer support:
 
+- Få svar från Azure-experter via [Azure community support](https://azure.microsoft.com/support/community/).
 
+- Anslut till [@AzureSupport](https://twitter.com/azuresupport) – det officiella Microsoft Azure kontot för att förbättra kund upplevelsen. Att ansluta Azure-communityn till rätt resurser: svar, support och experter.
 
-
+- Om du behöver mer hjälp kan du skicka en support förfrågan från [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Välj **stöd** på Meny raden eller öppna **Hjälp + Support** Hub. Mer detaljerad information finns [i så här skapar du en support förfrågan för Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Åtkomst till prenumerations hantering och fakturerings support ingår i din Microsoft Azure prenumeration och teknisk support tillhandahålls via ett av support avtalen för [Azure](https://azure.microsoft.com/support/plans/).

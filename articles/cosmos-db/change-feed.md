@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 40caea40637c57aedb6315ff6fc032898ff07af7
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 20ca823f60ced4260c2e61ca15ae04e158b7d952
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467934"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69615673"
 ---
 # <a name="change-feed-in-azure-cosmos-db---overview"></a>Ändra feed i Azure Cosmos DB – översikt
 
-Stöd för ändringsfeed i Azure Cosmos DB fungerar genom att lyssna på en Azure Cosmos DB-behållare efter ändringar. Sedan returnerar den sorterade listan över dokument som har ändrats i den ordning som de har ändrats. Ändringarna är beständiga, kan bearbetas asynkront och inkrementellt, och utdata kan distribueras bland en eller flera konsumenter för parallell bearbetning. 
+Ändra stöd för feed i Azure Cosmos DB fungerar genom att lyssna på en Azure Cosmos-behållare för eventuella ändringar. Sedan returnerar den sorterade listan över dokument som har ändrats i den ordning som de har ändrats. Ändringarna är beständiga, kan bearbetas asynkront och inkrementellt, och utdata kan distribueras bland en eller flera konsumenter för parallell bearbetning. 
 
 Azure Cosmos DB är passar bra för IoT, spel, återförsäljnings, och operativa loggningsprogram. Ett vanliga designmönster i dessa program är att använda ändringar av data för att utlösa ytterligare åtgärder. Exempel på ytterligare åtgärder:
 
@@ -56,7 +56,7 @@ I ett Azure Cosmos-konto för flera regioner, om en skrivregion redundansväxlar
 
 Om en egenskap för TTL (Time to Live) har angetts för ett objekt till-1, behålls ändringsfeed alltid. Om data inte tas bort, förblir den i den ändringsflödet.  
 
-### <a name="change-feed-and-etag-lsn-or-ts"></a>Ändringsfeed och _etag, _lsn eller _ts
+### <a name="change-feed-and-_etag-_lsn-or-_ts"></a>Ändringsfeed och _etag, _lsn eller _ts
 
 Formatet _etag är intern och du bör inte koppla beroende på det, eftersom den kan ändras när som helst. _ts är en ändring av eller en tidsstämpel vid skapande. Du kan använda _ts kronologisk jämförelse. _lsn är ett batch-ID som endast läggs till för ändrings flöde. den representerar transaktions-ID: t. Många objekt som kan ha samma _lsn. ETag på FeedResponse skiljer sig från _etag som du ser på objektet. _etag är en intern identifierare och används för samtidighet kontroll meddelar om versionen av objektet medan ETag används för ordningsföljd feeden.
 

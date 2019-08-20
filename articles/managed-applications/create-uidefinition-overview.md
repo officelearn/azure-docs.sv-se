@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2019
 ms.author: tomfitz
-ms.openlocfilehash: 1ee6d9332a2be5ccb22b7571b348e2e0aae78fb2
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 783c4f5b1f5a7f2be748bc7173da2d068e1425f4
+ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69563555"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69575646"
 ---
 # <a name="createuidefinitionjson-for-azure-managed-applications-create-experience"></a>CreateUiDefinition. JSON för Azure Managed Applications Create Experience
 
@@ -52,13 +52,11 @@ Schemat för Parameters-egenskapen är beroende av kombinationen av den angivna 
 
 Inklusive `$schema` rekommenderas, men valfritt. Om det anges måste värdet för `version` matcha versionen `$schema` i URI: n.
 
-Du kan använda en JSON-redigerare för att skapa användar gränssnitts definitionen och sedan testa den i [sand boxen för gränssnitts definition](https://portal.azure.com/?feature.customPortal=false&#blade/Microsoft_Azure_CreateUIDef/SandboxBlade) för att förhandsgranska den. Mer information om sandbox finns i [Testa ditt Portal gränssnitt för Azure Managed Applications](test-createuidefinition.md).
+Du kan använda en JSON-redigerare för att skapa din createUiDefinition och sedan testa den i [sand boxen createUiDefinition](https://portal.azure.com/?feature.customPortal=false&#blade/Microsoft_Azure_CreateUIDef/SandboxBlade) för att förhandsgranska den. Mer information om sandbox finns i [Testa ditt Portal gränssnitt för Azure Managed Applications](test-createuidefinition.md).
 
 ## <a name="basics"></a>Grundinställningar
 
 Grunderna är det första steget som skapas när Azure Portal tolkar filen. Förutom att visa de element som anges i `basics`, infogar portalen element för användare för att välja prenumeration, resurs grupp och plats för distributionen. När det är möjligt bör element som frågar om distributionens globala parametrar, t. ex. namnet på ett kluster eller administratörs behörighet, fortsätta i det här steget.
-
-Om ett Elements beteende beror på användarens prenumeration, resurs grupp eller plats, kan det elementet inte användas i grunderna. Till exempel är **Microsoft. Compute. SizeSelector** beroende av användarens prenumeration och plats för att fastställa listan över tillgängliga storlekar. Därför kan **Microsoft. Compute. SizeSelector** endast användas i steg. I allmänhet kan endast element i namn området **Microsoft. common** användas i grunderna. Även om vissa element i andra namn rymder (t **. ex. Microsoft. Compute. credentials**) som inte är beroende av användarens kontext fortfarande är tillåtna.
 
 ## <a name="steps"></a>Steg
 

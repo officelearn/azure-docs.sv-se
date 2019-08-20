@@ -1,93 +1,80 @@
 - name: Dokumentation om Azure AD Domain Services
   href: index.yml
 - name: Översikt
-  expanded: true
   items:
     - name: Vad är Azure AD Domain Services?
       href: overview.md
-    - name: Jämför med Windows Server AD
-      href: comparison.md
-    - name: Jämför med Azure AD-anslutning
-      href: active-directory-ds-compare-with-azure-ad-join.md
-    - name: Funktioner
-      href: active-directory-ds-features.md
+    - name: Jämföra identitetstjänster
+      href: compare-identity-solutions.md
+- name: Självstudier
+  expanded: true
+  items:
+    - name: Skapa en hanterad domän
+      href: tutorial-create-instance.md
+    - name: Domänansluta en virtuell Windows Server-dator
+      href: join-windows-vm.md
+    - name: Installera hanteringsverktyg
+      href: tutorial-create-management-vm.md
+    - name: Konfigurera säkert LDAP
+      href: tutorial-configure-ldaps.md
 - name: Exempel
   items:
     - name: Skapa en Azure AD DS-instans med hjälp av Azure PowerShell
       href: powershell-create-instance.md
 - name: Begrepp
   items:
-    - name: Så här fungerar synkronisering
+    - name: Så här fungerar Azure AD DS-synkronisering
       href: synchronization.md
+    - name: Så här fungerar hash-synkronisering
+      href: ../active-directory/hybrid/how-to-connect-password-hash-synchronization.md?context=/azure/active-directory-domain-services/context/azure-ad-ds-context
+    - name: Vad är Azure Active Directory?
+      href: ../active-directory/fundamentals/active-directory-whatis.md?context=/azure/active-directory-domain-services/context/azure-ad-ds-context
+    - name: Azure Active Directory-arkitekturen
+      href: ../active-directory/fundamentals/active-directory-architecture.md?context=/azure/active-directory-domain-services/context/azure-ad-ds-context
+    - name: Implementera administrativa modeller med lägsta behörighet
+      href: /windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models?context=/azure/active-directory-domain-services/context/azure-ad-ds-context
 - name: Gör så här för att
   items:
-    - name: Skapa en Azure AD DS-instans
+    - name: Konfigurera vanliga inställningar
       items:
-        - name: 'Uppgift 1: Konfigurera grundläggande inställningar'
-          href: create-instance.md
-        - name: 'Uppgift 2: Konfigurera nätverksinställningar'
-          href: active-directory-ds-getting-started-network.md
-        - name: 'Uppgift 3: Konfigurera administratörsgrupp och aktivera Azure AD Domain Services'
-          href: active-directory-ds-getting-started-admingroup.md
-        - name: 'Uppgift 4: Uppdatera DNS-inställningar för virtuellt nätverk'
-          href: active-directory-ds-getting-started-dns.md
-        - name: 'Uppgift 5: Aktivera hashsynkronisering för lösenord'
-          href: active-directory-ds-getting-started-password-sync.md
+        - name: Aktivera hashsynkronisering för lösenord
+          href: active-directory-ds-getting-started-password-sync-synced-tenant.md
+        - name: Konfigurera omfångsbegränsad synkronisering från Azure AD
+          href: scoped-synchronization.md
+        - name: Skapa en organisationsenhet (OU)
+          href: create-ou.md
+        - name: Skapa ett grupphanterat tjänstkonto (gMSA)
+          href: create-gmsa.md
     - name: Planera för Azure AD DS
       items:
-        - name: Scenarier
+        - name: Vanliga scenarier
           href: scenarios.md
-        - name: Planera ett virtuellt nätverk
+        - name: Överväganden för virtuella nätverk
           href: network-considerations.md
     - name: Hantera Azure AD DS
       items:
-        - name: Aktivera säkerhetsgranskningshändelser (förhandsversion)
-          href: security-audit-events.md
-        - name: Kontrollera en hanterad domäns hälsostatus
-          href: check-health.md
-        - name: Konfigurera begränsad synkronisering från Azure AD till en hanterad domän
-          href: scoped-synchronization.md
-        - name: Skydda din hanterade domän
-          href: secure-your-domain.md
-        - name: Skapa en OU på en hanterad domän
-          href: create-ou.md
-        - name: Skapa ett grupphanterat tjänstkonto på en hanterad domän
-          href: create-gmsa.md
-        - name: Hantera en grupprincip för Azure AD Domain Services
+        - name: Administrera en grupprincip
           href: manage-group-policy.md
-        - name: Konfigurera lösenordsprinciper på en hanterad domän
-          href: password-policy.md
+        - name: Hantera DNS
+          href: manage-dns.md
+        - name: Kontrollera hälsostatus
+          href: check-health.md
+        - name: Konfigurera e-postaviseringar
+          href: notifications.md
         - name: Ta bort en hanterad domän
           href: delete-aadds.md
-        - name: Skapa en administrativ virtuell dator i Azure AD DS
-          href: manage-domain.md
-        - name: Hantera DNS för Azure AD Domain Services
-          href: manage-dns.md
-        - name: Uppdatera e-postaviseringar
-          href: notifications.md
-        - name: Konfigurera säkert LDAP (LDAPS) i en Azure AD Domain Services-domän
-          href: configure-ldaps.md
-          items:
-            - name: 'Uppgift 2: Exportera certifikatet för säkert LDAP'
-              href: active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md
-            - name: 'Uppgift 3: Aktivera säkert LDAP för den hanterade domänen med Azure-portalen'
-              href: active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md
-            - name: 'Uppgift 4: Konfigurera DNS att komma åt den hanterade domänen från Internet'
-              href: active-directory-ds-ldaps-configure-dns.md
-            - name: 'Uppgift 5: Bind till den hanterade domänen och lås åtkomst med säkert LDAP'
-              href: active-directory-ds-ldaps-bind-lockdown.md
-    - name: Distribuera program till Azure AD DS
+    - name: Säker Azure AD DS
       items:
-        - name: Konfigurera support för profilsynkronisering för SharePoint Server
-          href: deploy-sp-profile-sync.md
+        - name: Skydda din hanterade domän
+          href: secure-your-domain.md
         - name: Konfigurera begränsad Kerberos-delegering
           href: deploy-kcd.md
-        - name: Distribuera Azure AD-programproxy
-          href: deploy-azure-app-proxy.md
-    - name: Koppla virtuella datorer till Azure AD DS
+        - name: Konfigurera utelåsningsprinciper för lösenord och konton
+          href: password-policy.md
+        - name: Aktivera säkerhetsgranskningshändelser (förhandsversion)
+          href: security-audit-events.md
+    - name: Domänansluta virtuella datorer
       items:
-        - name: Virtuell Windows Server-dator
-          href: join-windows-vm.md
         - name: Virtuell Windows Server-dator från mall
           href: join-windows-vm-template.md
         - name: CentOS
@@ -98,24 +85,31 @@
           href: join-rhel-linux-vm.md
         - name: Ubuntu Server
           href: join-ubuntu-linux-vm.md
-    - name: Felsöka Azure AD DS
+    - name: Distribuera program till Azure AD DS
       items:
-        - name: Felsökningsguide
+        - name: Distribuera Azure AD-programproxy
+          href: deploy-azure-app-proxy.md
+        - name: Konfigurera support för profilsynkronisering för SharePoint Server
+          href: deploy-sp-profile-sync.md
+    - name: Felsöka
+      items:
+        - name: Vanliga fel
           href: troubleshoot.md
-        - name: Felsöka aviseringar
-          href: troubleshoot-alerts.md
+        - name: Vanliga aviseringar
           items:
-            - name: Åtgärda en bruten NSG-konfiguration
+            - name: Vanliga aviseringar
+              href: troubleshoot-alerts.md
+            - name: Åtgärda en bruten nätverkskonfiguration
               href: alert-nsg.md
             - name: Återställa tjänstens huvudnamn som saknas
               href: alert-service-principal.md
-            - name: Säkert LDAP – fel
+            - name: Aviseringar om säkert LDAP
               href: alert-ldaps.md
-        - name: Lös felmatchade klientfel
+        - name: Matchningsfel för klient
           href: mismatched-tenant-error.md
         - name: Inaktiverade domäner
           href: suspension.md
-        - name: Felsöka säkert LDAP
+        - name: Säkert LDAP
           href: tshoot-ldaps.md
 - name: Resurser
   items:

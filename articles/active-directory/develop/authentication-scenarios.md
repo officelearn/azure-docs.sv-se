@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cedfead26bd2a82792729853a2b8d038278b75f6
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 79f462b8903033784f186032c715cc966dfae7b4
+ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68853304"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69622709"
 ---
 # <a name="what-is-authentication"></a>Vad är autentisering?
 
@@ -53,7 +53,7 @@ Det här behöver du känna till om olika komponenter som visas i diagrammet:
   * Om du snabbt vill bygga en app och lägga till funktioner som att hämta tokens, uppdatera tokens, logga in en användare, visa användarinformation med mera läser du avsnittet **Snabbstarter** i dokumentationen.
   * Om du vill ha djupgående, scenariobaserade procedurer för vanliga uppgifter för auktoriseringsutveckling som att hämta åtkomsttoken och använda dem i anrop till Microsoft Graph API och andra API:er, implementera inloggning med Microsoft med en traditionell webbläsarbaserad app som använder OpenID Connect, med mera, läser du avsnittet **Självstudier** i dokumentationen.
   * Du kan ladda ned kodexempel på [GitHub](https://github.com/Azure-Samples?q=active-directory).
-* Flödet för begäranden och svar för autentiseringsprocessen bestäms av autentiseringsprotokollet som du har använt, till exempel OAuth 2.0, OpenID Connect, WS-Federation eller SAML 2.0. Mer information om protokoll finns i avsnittet **Begrepp > Protokoll** i dokumentationen.
+* Flödet för begäranden och svar för autentiseringsprocessen bestäms av autentiseringsprotokollet som du har använt, till exempel OAuth 2.0, OpenID Connect, WS-Federation eller SAML 2.0. Mer information om protokoll finns i avsnittet **begrepp > Authentication Protocol** i dokumentationen.
 
 I exempelscenariot ovan kan du klassificera apparna enligt dessa två roller:
 
@@ -119,7 +119,7 @@ En kort beskrivning av varje typ av anspråk som skickats av Microsoft Identity 
 | Utfärdad | Registrerar tiden då token utfärdats, används ofta för tokens uppdateringsbarhet. |
 | Utfärdare | Identifierar STS som genererat token samt Azure AD-klientorganisationen. |
 | Efternamn | Innehåller efternamnet på användaren som det anges i Azure AD. |
-| Namn | Innehåller ett läsbart värde som identifierar subjektet för token. |
+| Name | Innehåller ett läsbart värde som identifierar subjektet för token. |
 | Objekt-ID | Innehåller en oföränderlig, unik identifierare för subjektet i Azure AD. |
 | Roller | Innehåller egna namn på Azure AD-programroller som användaren har beviljats. |
 | Omfång | Anger de behörigheter som beviljats för klientprogrammet. |

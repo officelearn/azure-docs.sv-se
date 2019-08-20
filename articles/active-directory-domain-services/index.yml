@@ -1,96 +1,100 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Dokumentation om Azure AD Domain Services
+summary: Lär dig hur du använder Azure Active Directory Domain Services för att tillhandahålla Kerberos- eller NTLM-autentisering till program eller ansluta virtuella Azure-datorer till en hanterad domän.
 metadata:
   title: Dokumentation om Azure AD Domain Services
-  description: Lär dig hur du använder Active Directory Domain Services för att ansluta virtuella Azure-datorer till en domän utan att använda domänkontrollanter. Självstudier och annan dokumentation visar hur du hanterar virtuella datorer med hjälp av grupprinciper.
-  keywords: 'Azure AD, Azure, domain join, group policy, LDAP, Kerberos, domain controller, DC, lift and shift'
+  description: Lär dig hur du använder Azure Active Directory Domain Services för att tillhandahålla Kerberos- eller NTLM-autentisering till program eller ansluta virtuella Azure-datorer till en hanterad domän.
+  services: service
+  ms.service: active-directory
+  ms.subservice: domain-services
+  ms.topic: landing-page
+  ms.collection: collection
   author: iainfoulds
   ms.author: iainfou
   manager: daveba
-  ms.date: 05/22/2019
-  ms.topic: landing-page
-  ms.devlang: na
-  ms.service: active-directory
-  ms.subservice: domain-services
-sections:
-  - items:
-      - type: markdown
-        text: Lär dig hur du använder Active Directory Domain Services för att ansluta virtuella Azure-datorer till en domän utan att använda domänkontrollanter. Självstudier och annan dokumentation visar hur du hanterar virtuella datorer med hjälp av grupprinciper.
-  - items:
-      - type: list
-        style: cards
-        className: cardsM
-        columns: 2
-        items:
-          - href: overview.md
-            html: <p>Läs om vad Azure AD Domain Services kan göra för dig.</p>
-            image:
-              src: 'https://docs.microsoft.com/media/common/i_investigate.svg'
-            title: Vad är Azure AD Domain Services?
-          - href: create-instance.md
-            html: <p>Skapa en egen hanterad domän med hjälp av den här enkla genomgången.</p>
-            image:
-              src: 'https://docs.microsoft.com/media/common/i_deploy.svg'
-            title: Komma igång
-          - href: contact-us.md
-            html: <p>Få hjälp när du behöver.</p>
-            image:
-              src: 'https://docs.microsoft.com/media/common/i_support.svg'
-            title: Få support
-          - href: 'https://azure.microsoft.com/updates/?product=active-directory-ds'
-            html: <p>Se nya funktioner i Azure AD Domain Services.</p>
-            image:
-              src: 'https://docs.microsoft.com/media/common/i_whats-new.svg'
-            title: Nyheter
-  - title: Videoklipp
-    items:
-      - type: markdown
-        text: '>[!VIDEO https://www.youtube.com/embed/T1Nd9APNceQ]'
-  - title: Planera artiklar
-    items:
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="comparison.md">Ska du besluta om tjänsten passar dig?</a>
-          - html: <a href="active-directory-ds-features.md">Funktioner i Azure AD Domain Services</a>
-          - html: <a href="scenarios.md">Hur kan du använda tjänsten?</a>
-          - html: <a href="synchronization.md">Förstå hur synkroniseringen fungerar i Azure AD Domain Services</a>
-          - html: '<a href="https://azure.microsoft.com/pricing/details/active-directory-ds/">Prissättning i Azure AD Domain Services</a>'
-  - title: Program och Azure AD Domain Services
-    items:
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="deploy-azure-app-proxy.md">Distribuera Azure AD App Proxy</a>
-          - html: <a href="deploy-sp-profile-sync.md">Profilsynkronisering för SharePoint Server</a>
-          - html: <a href="deploy-kcd.md">Konfigurera begränsad Kerberos-delegering</a>
-  - title: Instruktionsartiklar
-    items:
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="check-health.md">Kontrollera en hanterad domäns hälsostatus</a>
-          - html: <a href="csp.md">Azure CSP-prenumerationer och Azure AD Domain Services</a>
-          - html: <a href="manage-dns.md">Hantera DNS</a>
-          - html: <a href="network-considerations.md">Välja ett virtuellt nätverk</a>
-          - html: <a href="configure-ldaps.md">Konfigurera säkert LDAP</a>
-          - html: <a href="create-ou.md">Skapa en organisationsenhet</a>
-          - html: <a href="manage-group-policy.md">Hantera grupprincip</a>
-  - title: Felsökningsartiklar
-    items:
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="troubleshoot.md">Felsökningsguide</a>
-          - html: <a href="troubleshoot-alerts.md">Felsöka aviseringar på en hanterad domän</a>
-          - html: <a href="faqs.md">Vanliga frågor och svar</a>
-          - html: '<a href="https://azure.microsoft.com/support/options/">Få support</a>'
-  - title: Andra resurser
-    items:
-      - type: list
-        style: unordered
-        items:
-          - html: '<a href="https://feedback.azure.com/forums/169401-azure-active-directory/">Ge feedback om Azure AD Domain Services på UserVoice</a>'
-          - html: '<a href="https://azure.microsoft.com/roadmap/?category=security-identity">Azure-översikt</a>'
-          - html: '<a href="https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-contact-us">Kontakta oss</a>'
+  ms.date: 08/01/2019
+  ms.openlocfilehash: 3c97b7bbb652fd26e5c8fdb6d20576a3c9e70421
+  ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 08/19/2019
+  ms.locfileid: "69612864"
+landingContent:
+- title: Läs mer om Azure AD Domain Services
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är Azure AD Domain Services?
+      url: overview.md
+    - text: Jämför identitetslösningar
+      url: compare-identity-solutions.md
+    - text: Hur fungerar synkronisering?
+      url: synchronization.md
+    - text: Vanliga frågor och svar
+      url: faqs.md
+- title: Komma igång
+  linkLists:
+  - linkListType: deploy
+    links:
+    - text: Skapa en hanterad domän
+      url: tutorial-create-instance.md
+  - linkListType: tutorial
+    links:
+    - text: Domänansluta en virtuell Windows Server-dator
+      url: join-windows-vm.md
+    - text: Installera hanteringsverktyg
+      url: tutorial-create-management-vm.md
+- title: Konfigurera
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Konfigurera säkert LDAP
+      url: tutorial-configure-ldaps.md
+  - linkListType: how-to-guide
+    links:
+    - text: Aktivera hashsynkronisering för lösenord
+      url: active-directory-ds-getting-started-password-sync-synced-tenant.md
+    - text: Skapa en organisationsenhet (OU)
+      url: create-ou.md
+    - text: Konfigurera begränsad Kerberos-delegering
+      url: deploy-kcd.md
+    - text: Säker hanterad domän
+      url: secure-your-domain.md
+- title: Hantera
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Administrera en grupprincip
+      url: manage-group-policy.md
+    - text: Hantera DNS
+      url: manage-dns.md
+    - text: Kontrollera hälsostatus
+      url: check-health.md
+    - text: Konfigurera e-postaviseringar
+      url: notifications.md
+    - text: Aktivera säkerhetsgranskningar (förhandsversion)
+      url: security-audit-events.md
+- title: Domänansluta virtuella datorer
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Windows Server
+      url: join-windows-vm.md
+  - linkListType: how-to-guide
+    links:
+    - text: Ubuntu Server
+      url: join-ubuntu-linux-vm.md
+    - text: Red Hat Enterprise Linux
+      url: join-rhel-linux-vm.md
+- title: Felsöka
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Vanliga problem
+      url: troubleshoot.md
+    - text: Vanliga aviseringsmeddelanden
+      url: troubleshoot-alerts.md
+    - text: Problem med nätverkssäkerhetsgrupp
+      url: alert-nsg.md
+    - text: Problem med säkert LDAP
+      url: alert-ldaps.md

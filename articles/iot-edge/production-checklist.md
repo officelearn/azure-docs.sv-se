@@ -127,7 +127,7 @@ Standardvärdet för parametern timeToLiveSecs är 7200 sekunder, vilket är tv�
 
 När du flyttar från testscenarier till produktionsscenarier, Kom ihåg att ta bort debug konfigurationer från distribution manifest. Kontrollera att ingen av modulen bilder i manifesten distribution har den  **\.felsöka** suffix. Om du har lagt till skapa alternativ för att exponera portar i moduler för felsökning, ta bort de skapa samt alternativ. 
 
-## <a name="container-management"></a>Behållarhantering
+## <a name="container-management"></a>Containerhantering
 
 * **Viktigt**
     * Hantera åtkomst till ditt behållarregister

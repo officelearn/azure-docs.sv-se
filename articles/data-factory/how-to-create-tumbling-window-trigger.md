@@ -92,9 +92,9 @@ Följande tabell innehåller en översikt över de viktigaste JSON-elementen som
 
 | JSON-element | Beskrivning | type | Tillåtna värden | Obligatorisk |
 |:--- |:--- |:--- |:--- |:--- |
-| **type** | Typ av utlösare. Typen är det fasta värdet "TumblingWindowTrigger". | Sträng | "TumblingWindowTrigger" | Ja |
-| **runtimeState** | Det aktuella läget för utlösarens körnings tid.<br/>**Obs!** Det här elementet \<är skrivskyddat >. | Sträng | "Startat", "stoppad", "inaktive rad" | Ja |
-| **frequency** | En sträng som representerar frekvens enheten (minuter eller timmar) då utlösaren upprepas. Om värdena för StartTime-datum är mer detaljerade än **frekvens** svärdet beaktas **StartTime** -datum när fönster gränserna beräknas. Om värdet för **frekvens** till exempel är per timme och StartTime -värdet är 2017-09-01T10:10:10Z, är det första fönstret (2017-09-01T10:10:10Z, 2017-09-01T11:10:10Z). | Sträng | "minut", "timme"  | Ja |
+| **type** | Typ av utlösare. Typen är det fasta värdet "TumblingWindowTrigger". | String | "TumblingWindowTrigger" | Ja |
+| **runtimeState** | Det aktuella läget för utlösarens körnings tid.<br/>**Obs!** Det här elementet \<är skrivskyddat >. | String | "Startat", "stoppad", "inaktive rad" | Ja |
+| **frequency** | En sträng som representerar frekvens enheten (minuter eller timmar) då utlösaren upprepas. Om värdena för StartTime-datum är mer detaljerade än **frekvens** svärdet beaktas **StartTime** -datum när fönster gränserna beräknas. Om värdet för **frekvens** till exempel är per timme och StartTime -värdet är 2017-09-01T10:10:10Z, är det första fönstret (2017-09-01T10:10:10Z, 2017-09-01T11:10:10Z). | String | "minut", "timme"  | Ja |
 | **interval** | Ett positivt heltal som anger intervallet för värdet för **frequency** och som avgör hur ofta utlösaren körs. Om **intervallet** till exempel är 3 och frekvensen är "timme" upprepas utlösaren var 3: e timme. | Integer | Ett positivt heltal. | Ja |
 | **startTime**| Den första förekomsten, som kan vara i det förflutna. Det första Utlösar intervallet är (StartTime **,**  + **Interval**). | DateTime | Ett DateTime-värde. | Ja |
 | **endTime**| Den sista förekomsten, som kan vara i det förflutna. | DateTime | Ett DateTime-värde. | Ja |
@@ -102,7 +102,7 @@ Följande tabell innehåller en översikt över de viktigaste JSON-elementen som
 | **maxConcurrency** | Antal körningar av samtidiga utlösare som utlöses för Windows som är klara. Om du till exempel vill köra en hel timmes körning i igår resulterar det i 24 fönster. Om **maxConcurrency** = 10, utlöses Utlös ande händelser endast för de första 10 windows (00:00-01:00-09:00-10:00). När de första 10 utlösta pipeline-körningarna har slutförts utlöses utlösare för nästa 10 Windows (10:00-11:00-19:00-20:00). Om du fortsätter med det här exemplet på **maxConcurrency** = 10, om det finns 10 Windows Ready, så finns det 10 totala pipelinen körs. Om det bara är ett fönster som är klart finns det bara en pipeline-körning. | Integer | Ett heltal mellan 1 och 50. | Ja |
 | **retryPolicy: Count** | Antalet återförsök innan pipeline-körningen har marker ATS som "misslyckades".  | Integer | Ett heltal där standardvärdet är 0 (inga återförsök). | Nej |
 | **retryPolicy: intervalInSeconds** | Fördröjningen mellan återförsök som anges i sekunder. | Integer | Antalet sekunder, där standardvärdet är 30. | Nej |
-| **dependsOn: typ** | Typ av TumblingWindowTriggerReference. Krävs om ett beroende har angetts. | Sträng |  "TumblingWindowTriggerDependencyReference", "SelfDependencyTumblingWindowTriggerReference" | Nej |
+| **dependsOn: typ** | Typ av TumblingWindowTriggerReference. Krävs om ett beroende har angetts. | String |  "TumblingWindowTriggerDependencyReference", "SelfDependencyTumblingWindowTriggerReference" | Nej |
 | **dependsOn: storlek** | Storleken på fönstret beroende rullande. | Timespan<br/>(hh: mm: SS)  | Ett positivt TimeSpan-värde där standardvärdet är fönster storleken för den underordnade utlösaren  | Nej |
 | **dependsOn: förskjutning** | Offset för beroende utlösare. | Timespan<br/>(hh: mm: SS) |  Ett TimeSpan-värde som måste vara negativt i ett själv-beroende. Om inget värde anges är fönstret detsamma som själva utlösaren. | Själv-beroende: Ja<br/>Annat: Nej  |
 

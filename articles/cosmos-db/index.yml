@@ -64,7 +64,7 @@ sections:
               src: media/index/spark-logo.png
             title: Inbyggd analys med Apache Spark
           - href: /azure/cosmos-db/change-feed/
-            html: <p>Kör analys i realtid med en ändringsfeed genom att läsa den sorterade listan över dokument i en Azure Cosmos DB-container i den ordning som de ändrades. </p>
+            html: <p>Kör analys i realtid med ändringsflöde genom att läsa den sorterade listan över dokument i en Azure Cosmos-container i den ordning som de ändrades. </p>
             image:
               src: media/index/change-feed-logo.png
             title: Ändringsfeed

@@ -11,12 +11,12 @@ ms.topic: landing-page
 ms.date: 07/30/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a6908a26e1d513261094be28620c3c9a2d86b48
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: a065f275321d16b9eaf82a02cb7da45c15aa82cc
+ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68383104"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69616318"
 ---
 # <a name="user-help-for-authentication-apps-and-device-management"></a>Användarhjälp för autentisering, appar och enhetshantering
 
@@ -92,8 +92,11 @@ Vi har skapat det här innehållet för att hjälpa dig att konfigurera och anv�
                     <div class="cardText">
                         <h3>Hjälp om tvåstegsverifiering</h3>
                         <p>
-                        <a href="/azure/active-directory/user-help/multi-factor-authentication-end-user-first-time">Konfigurera tvåstegsverifiering</a><br/>
+                        <a href="/azure/active-directory/user-help/multi-factor-authentication-setup-auth-app">Konfigurera en autentiseringsapp</a><br/>
+                        <a href="/azure/active-directory/user-help/multi-factor-authentication-setup-phone-number">Konfigurera en mobil enhet</a><br/>
+                        <a href="/azure/active-directory/user-help/multi-factor-authentication-setup-office-phone">Konfigurera en arbetstelefon</a><br/>
                         <a href="/azure/active-directory/user-help/multi-factor-authentication-end-user-manage-settings">Hantera dina inställningar</a><br/>
+                        <a href="/azure/active-directory/user-help/multi-factor-authentication-end-user-troubleshoot">Få hjälp med vanliga problem</a><br/>
                         <a href="/azure/active-directory/user-help/user-help-sign-in">Logga in</a>
                         </p>
                     </div>
